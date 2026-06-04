@@ -4,97 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335E7CD6E6D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED71CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzy4dDaqdwgJy1YaxSLyN1whQK6qSsoGcP13HMyFB64=; b=rUpkcPJAiGWDS3jH+oS/yIjXr8
-	4yw5VtA9cYCBEgTDmWgqfxlwd4f8e0V/6ZyjK7ZtPuIZI+guISKMcKa4G31WCABc3n8W/zSdV9dGc
-	bqEL0LY/MRKnnN6uUyf10TWZlg8srpsHJaxVeCNucCPDhZ6H3xk6SSv33n6JdCYaztCxe6GUSt8LP
-	/HLkEEJ1xUHdyY69kYPD7heyTqggDso/9p54T2VWMj44psfmNWMrZ7AA24VMFpHWdSZ+ByYLEYdRy
-	YZCToD52D6JihIM/CiSpncsITwxo1INxm98kxhXsniGw2km2EiDhwymNhOLFVisrvBwMQQJcLnpEC
-	uE3jieqg==;
+	bh=RbcLbAFN8HwhN5sC7vX9Y3YgYrgHuGPi6izauGKqrps=; b=JYf3JsvwHpNYmbl/uTJGM2BBNu
+	o/iuf6yuNPVcX5TwBXyKdPLR9ylAO3qqsfaVqfiB4+V6/RW+0rZEINHRQl3c+g1HGUYBR5Nl0WjVY
+	xwRr8i6OTo6OmoBGmqAoDW5+tov8L87tjgVlzdHGivXm71dog3ljuBob+jOHAML8SDiLr4EK6DPAt
+	+zwj3IfO6JdSLzKakTvt4gD6COXH/FYApj/jk/yobKfj2aTJQ1CDLrMt147XKHjCYe4cleiDmf0ke
+	0meMSbeRvt3uLIpuvxb48+I6dgxoAx1E8tXXCJOInyvX7yDr0JnMSMtjalPKZa75c4gTZjYiM3tcd
+	QMBsKUzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9HK-0000000GvbS-2j6F;
-	Thu, 04 Jun 2026 14:42:38 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1wV9Ig-0000000GviM-3SSd;
+	Thu, 04 Jun 2026 14:44:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9HI-0000000Gvax-1oC8
+	id 1wV9Ie-0000000GviC-3AAR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 04 Jun 2026 14:44:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RbcLbAFN8HwhN5sC7vX9Y3YgYrgHuGPi6izauGKqrps=; b=MVMqppLIdUmd/H5l5Ktr+WGroN
+	w3Zg+fIKLE8pEoQXh0urTdY08ffihMDmtSXn4mwFp/SLirOyKOCG0aJcik0iETTw3BVIWXdBeDZjL
+	+ZxvVoRkMFXSalMu8yuFd9TZbxFbyC7Yr3mC7YabYU9IuxqVzwD1ZccVr50p13paLQHf378tuTWX3
+	uuhsg6FCaVoaBfg5/O/JrqFNG+vLbdqZXonjsZFHRdgR0zec1SUvjOmpW3yVeXJJ5JA5oKGoT7cSo
+	x7MuKWFE6c5d/OUtPsM9GZroRfvGP3NRHDnGT2p4BJtCQAb9K8B7rssFJI42cKbkWLKaudu0oNGx8
+	XjaC2rpQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wV9Ib-0000000ESM7-1YWd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 14:42:37 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-bed19623d6eso98557266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 07:42:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780584154; x=1781188954; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wzy4dDaqdwgJy1YaxSLyN1whQK6qSsoGcP13HMyFB64=;
-        b=AwDY+ziRBXQ09oGf5O8AnsD6/AbMmI4FlfwK7YnaVXtuIf+jPYFl4nlje03Ie3RcmT
-         Nr3cKimloldRE01unTE4GZVYwl41nToVg9ZA5JVzP6qV2spU6AXJmmNJe2bM0G4hk/+q
-         vIPRnvMzPvj9NM7HjBD+avzcGBcK0A1JDXcAC04ghBoqSMDClt5b1L8RejMiV8171hTm
-         0YgM+vhUPm1foKocN/fAJKsD48xhSlSEcr5MHcFDnGIL459Z4JS/HtbJOg/yQ8ChrAdb
-         3xNpP6cNVe1nzxIfb+UAmDgsvYPKNbCn4Gxvzq4doSr9xABkcn2FS1eVNr8vSfe55Zmb
-         pJww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780584154; x=1781188954;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wzy4dDaqdwgJy1YaxSLyN1whQK6qSsoGcP13HMyFB64=;
-        b=lCJsYBVOa4Cl15uqiILzqzl7MtBKqWJufvF2m+v/WMewlhsRobNELpWz0BsDvsNBuZ
-         OAHp6tAbR2ZSgdzwSMNYdOZCuDXPwKflajrfGkr7FEeSlS148oZibByghzpnz6n36Dtq
-         ahFmLMXSuiFTVbhtlr0t2AET3mMCYFUFm5Vnt52ivxaXIfre3LwJfpOxxH7L9sJdSztT
-         R9oaap7ooNGsXdR3IatTCZpZob3uGPWCFjJ724IQO0TgVwvD/DxNQQlbHPwcoG3va9dM
-         Mta+x+qEDGH67p+mRLYNwJSFLbkrOAEa7jFfAGNDnW4dzkqaBdYxKppRYB5vx1TOlenS
-         sdTQ==
-X-Gm-Message-State: AOJu0YwOFi6Em/NuE0qjUj19nbX5xzOkMddSXHG6LKHiDTf5HxZ1RgNs
-	H9nuwZHmJcF7ZIicVb6mONhM7dGWiQEauJZsMhhknQzAOaIc2cnqzeP8sMs5X9Yhdj4=
-X-Gm-Gg: Acq92OHBygNONlK/4oTMFCFM3SmYLZmm6wQW27G7nOdTzL1YXi1MavVLM0TRICkFAYJ
-	zuOlc6h/+xoS2xN4Hh9lhBr14W7fRo6B+abP0WLTJxyy87sSYny4i1rB+DTuPp6Y9595yxdOktf
-	hgiCHag93z8U67ccE6N5OkBFg0485I47glz84PKrpJ9kHkmfJxpr8glCT52+RJSLKSMQnf0vdfJ
-	KJZtLfauLkgWY3dkLwJJep0pqHJmZGTchpc8r0BtmFuFIiVAVX9XoHzXTDKfXUg6bzrdJ67cd8d
-	XFpBu4y/szEyBzFPDwmVj6I0ztJgXiG5PQQEW203h0riBa0OMZyZe3sEn7Q9WuZyXvsnWY505jD
-	3BjPi1wi+cslQmS5R375vxjFvHGIZeYp03TXfQM5ZMoF8h+P7zGXwgOjnIpqQK3ShDBcgrTgxNY
-	gseBGhx9QRyq/XthXg1R00cHmfFtl+Uo5GGZqrIBc=
-X-Received: by 2002:a17:906:7950:b0:bee:c371:4f43 with SMTP id a640c23a62f3a-bf0aab1b743mr505787266b.26.1780584154501;
-        Thu, 04 Jun 2026 07:42:34 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bf0517721c2sm306900366b.3.2026.06.04.07.42.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jun 2026 07:42:34 -0700 (PDT)
-Message-ID: <fbe0a097-ced7-44c6-ada1-01c3e9c1d7e7@linaro.org>
-Date: Thu, 4 Jun 2026 15:42:32 +0100
+	Thu, 04 Jun 2026 14:43:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1F783D4D;
+	Thu,  4 Jun 2026 07:43:49 -0700 (PDT)
+Received: from [10.1.34.54] (e122027.cambridge.arm.com [10.1.34.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE2373F7D8;
+	Thu,  4 Jun 2026 07:43:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780584234; bh=b/UDPb8ZwzcbmTijGa9ghHw1SVkFtR2lx41scNsuBjo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Gn6z/d22MGsutY4vrKsRLbGb1JtpNa5H68u4zp2JsNXjaVzof1wCdH042dXjksL32
+	 3bQQkNGnNvI/E3bx/qFU+wirdXrg2s3UT8bnf/anDlnzOBsOrKTbQ0RD5hblrWE1yd
+	 Xm4/PDVe6lFcK9jaluBGd8A0FpR/YMBGavFmftuY=
+Message-ID: <fad5dc03-f7ce-4b15-bb73-e2dbd43810a6@arm.com>
+Date: Thu, 4 Jun 2026 15:43:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/8] perf cs-etm: Filter synthesized branch samples
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@linux.dev>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>,
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
- <20260526-b4-arm_cs_callchain_support_v1-v6-6-f9f49f53c9dd@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260526-b4-arm_cs_callchain_support_v1-v6-6-f9f49f53c9dd@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v14 09/44] arm64: RMI: Provide functions to
+ delegate/undelegate ranges of memory
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-10-steven.price@arm.com>
+ <867bowx3qx.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <867bowx3qx.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_074236_526416_0E2799F1 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260604_154357_938601_A698BF07 
+X-CRM114-Status: GOOD (  23.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,112 +101,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/05/2026 14:59, Marc Zyngier wrote:
+> On Wed, 13 May 2026 14:17:17 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> The RMM requires memory is 'delegated' to it so that it can be used
+>> either for a realm guest or for various tracking purposes within the RMM
+>> (e.g. for metadata or page tables). Memory that has been delegated
+>> cannot be accessed by the host (it will result in a Granule Protection
+>> Fault).
+>>
+>> Undelegation may fail if the memory is still in use by the RMM. This
+>> shouldn't happen (Linux should ensure it has destroyed the RMM objects
+>> before attempting to undelegate). In the event that it does happen this
+>> points to a programming bug and the only reasonable approach is for the
+>> physical pages to be leaked - it is up to the caller of
+>> rmi_undelegate_range() to handle this.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> v14:
+>>  * Split into separate patch and moved out of KVM
+>> ---
+>>  arch/arm64/include/asm/rmi_cmds.h | 13 +++++++++++
+>>  arch/arm64/kernel/rmi.c           | 36 +++++++++++++++++++++++++++++++
+>>  2 files changed, 49 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+>> index 9078a2920a7c..eb213c8e6f26 100644
+>> --- a/arch/arm64/include/asm/rmi_cmds.h
+>> +++ b/arch/arm64/include/asm/rmi_cmds.h
+>> @@ -33,6 +33,19 @@ struct rmi_sro_state {
+>>  } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
+>>  	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
+>>  
+>> +int rmi_delegate_range(phys_addr_t phys, unsigned long size);
+>> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
+>> +
+>> +static inline int rmi_delegate_page(phys_addr_t phys)
+>> +{
+>> +	return rmi_delegate_range(phys, PAGE_SIZE);
+>> +}
+>> +
+>> +static inline int rmi_undelegate_page(phys_addr_t phys)
+>> +{
+>> +	return rmi_undelegate_range(phys, PAGE_SIZE);
+>> +}
+>> +
+>>  bool rmi_is_available(void);
+>>  
+>>  unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
+>> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+>> index 52a415e99500..08cef54acadb 100644
+>> --- a/arch/arm64/kernel/rmi.c
+>> +++ b/arch/arm64/kernel/rmi.c
+>> @@ -12,6 +12,42 @@ static bool arm64_rmi_is_available;
+>>  unsigned long rmm_feat_reg0;
+>>  unsigned long rmm_feat_reg1;
+>>  
+>> +int rmi_delegate_range(phys_addr_t phys, unsigned long size)
+>> +{
+>> +	unsigned long ret = 0;
+>> +	unsigned long top = phys + size;
+>> +	unsigned long out_top;
+>> +
+>> +	while (phys < top) {
+>> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
+>> +		if (ret == RMI_SUCCESS)
+>> +			phys = out_top;
+>> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
+>> +			return ret;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
+>> +{
+>> +	unsigned long ret = 0;
+>> +	unsigned long top = phys + size;
+>> +	unsigned long out_top;
+>> +
+>> +	WARN_ON(size == 0);
+> 
+> I find it odd to warn on size = 0. After all, free(NULL) is not an
+> error. But even then, you continue feeding this to the RMM.
 
+Ok, I'll admit that this is left over debugging - although this is a
+condition that shouldn't happen.
 
-On 26/05/2026 5:59 pm, Leo Yan wrote:
-> From: Leo Yan <leo.yan@linaro.org>
-> 
-> CS ETM currently emits branch samples for every decoded branch when
-> branch synthesis is enabled. This delivers redundant info when users
-> request only call or return branches.
-> 
-> Add a branch filter derived from the itrace "calls" and "returns" options.
-> When no filter is set, keep the existing behavior and emit all branch
-> samples. When call or return filtering is requested, only synthesize branch
-> samples whose flags match the selected branch types, including trace
-> begin and end markers.
-> 
-> Before:
-> 
->    perf script -F +callindent
-> 
->    callchain_test    9187 [002] 599611.826599:          1 branches:             main                                                     ffff83312258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                 foo                                                  aaaae3ed07c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                     print                                            aaaae3ed07ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                         do_svc                                       aaaae3ed0794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                                                                      aaaae3ed077c do_svc+0x14 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                             vectors                                  aaaae3ed0780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                                                                  ffff800080010c00 vectors+0x400 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826600:          1 branches:                                                                  ffff800080010c24 vectors+0x424 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826600:          1 branches:                                                                  ffff8000800114dc el0t_64_sync+0xd4 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826600:          1 branches:                                                                  ffff8000800114f8 el0t_64_sync+0xf0 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826600:          1 branches:                                                                  ffff800080011528 el0t_64_sync+0x120 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826600:          1 branches:                                                                  ffff800080011538 el0t_64_sync+0x130 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826601:          1 branches:                                                                  ffff800080011568 el0t_64_sync+0x160 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826601:          1 branches:                                 el0t_64_sync_handler             ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826601:          1 branches:                                                                  ffff800081829110 el0t_64_sync_handler+0x18 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826601:          1 branches:                                     el0t_64_sync_handler         ffff800081829140 el0t_64_sync_handler+0x48 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826601:          1 branches:                                     el0_svc                      ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
-> 
-> After:
-> 
->    callchain_test    9187 [002] 599611.826599:          1 branches:             main                                                     ffff83312258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                 foo                                                  aaaae3ed07c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                     print                                            aaaae3ed07ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                         do_svc                                       aaaae3ed0794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826599:          1 branches:                             vectors                                  aaaae3ed0780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
->    callchain_test    9187 [002] 599611.826601:          1 branches:                                 el0t_64_sync_handler             ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
->    callchain_test    9187 [002] 599611.826601:          1 branches:                                     el0_svc                      ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
-> 
-> Signed-off-by: Leo Yan <leo.yan@linaro.org>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   tools/perf/util/cs-etm.c | 15 +++++++++++++++
->   1 file changed, 15 insertions(+)
-> 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index b31d0dd46a45dc365edd7c2f9e9b2eb077ca23db..8d98e772ecb307381b5ed1b4bbc4056e8779b261 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -71,6 +71,7 @@ struct cs_etm_auxtrace {
->   	int num_cpu;
->   	u64 latest_kernel_timestamp;
->   	u32 auxtrace_type;
-> +	u32 branches_filter;
->   	u64 branches_sample_type;
->   	u64 branches_id;
->   	u64 instructions_sample_type;
-> @@ -1596,6 +1597,10 @@ static int cs_etm__synth_branch_sample(struct cs_etm_queue *etmq,
->   	} dummy_bs;
->   	u64 ip;
->   
-> +	if (etm->branches_filter &&
-> +		!(etm->branches_filter & tidq->prev_packet->flags))
-> +		return 0;
-> +
->   	ip = cs_etm__last_executed_instr(tidq->prev_packet);
->   
->   	event->sample.header.type = PERF_RECORD_SAMPLE;
-> @@ -3442,6 +3447,16 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
->   		etm->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
->   	}
->   
-> +	if (etm->synth_opts.calls)
-> +		etm->branches_filter |= PERF_IP_FLAG_CALL |
-> +					PERF_IP_FLAG_TRACE_BEGIN |
-> +					PERF_IP_FLAG_TRACE_END;
-> +
-> +	if (etm->synth_opts.returns)
-> +		etm->branches_filter |= PERF_IP_FLAG_RETURN |
-> +					PERF_IP_FLAG_TRACE_BEGIN |
-> +					PERF_IP_FLAG_TRACE_END;
-> +
+Note that the while() condition prevents this from actually getting to
+the RMM.
 
-This changes the default "perf script" output quite significantly and 
-will possibly break people's workflows. synth_opts.calls is true by 
-default but synth_opts.returns is false so we lose all the returns that 
-we used to have. Not sure if the new behavior is more consistent with 
-other tools so we can justify changing it? Personally I think including 
-returns by default made more sense, and it's a more literal 
-representation of the flow.
+I'll drop the WARN_ON() since it's confusing.
 
-itrace.txt says the default is "all events i.e. the same as 
---itrace=iybxwpe", but I thought the default was branches? At least for 
-Coresight it is, so I'm a bit confused.
+Thanks,
+Steve
 
->   	etm->session = session;
->   
->   	etm->num_cpu = num_cpu;
+> You also don't seem to be bothered with that on the delegation side...
+> 
+>> +
+>> +	while (phys < top) {
+>> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
+>> +		if (ret == RMI_SUCCESS)
+>> +			phys = out_top;
+> 
+> and size==0 doesn't violate any of the failure conditions listed in
+> B4.5.18.2 (beta2). Will you end-up looping around forever?
+> 
+> Same questions for the delegation, obviously.
+> 
+> 	M.
 > 
 
 
