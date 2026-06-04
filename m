@@ -4,124 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0322ACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE817CD6E6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=leYnnf5Pg/xQRLvt6GMDQfv6g59yyMdkhV1lUPQrWAM=; b=0Cs39Di5XmqrqFP1E4yQT4ygsi
-	miITiQGqMl+8txMVh3miDQnFdxsyP6ayDTQ9WwTHfpbKAgmDJp3a/Mb0rNvgYHR4TZfosg1w9zNFB
-	yHZfiKWa+8yu97et71aSxbl2CAqZaMv1aDjonQ3SazHDIw+yfBOQapNlJ2AdKqqZZ09hTdijTL847
-	Xcz5aBi4WILLPMkRdzm+u/QOJmbmhIHjlxv4pKTuu/ovxveD5dANHj+7hYBax01kz9Mubk+ssVS/+
-	3ggHkCjnwslR8vLx5b4OPDC8XBaeKjXzYR0kIARd+L0OQx4G6PWbeiXh8Jc3VcvARngDzoKrRFqw8
-	uum8w+Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DOMV3x2yG7P0NW9CHIRVjoVTM78K6MUr+RoZlGHPHew=; b=kNYiJqPNctfQcNH9ZlOoGJnv3H
+	3KU79F9Gxj/PRczs5eJEaITzRr0u1gyTfGN75jgWYABr0638B/vU+rP7RGZjRMEEgfXrDygKQBkjf
+	YMBxPQzqLadUbe+E5iFATxc/igP6IOpBbITmDWsLKyhmwp0rxDl311bk4Y3M5YqGydHpbfYfajTYf
+	gPRvYyKnXzrvqTsDGDmFPcIhOCwMp0wJjcnE+yzLRZgAtU15Z2vba9byezUEDoKxYtiu0Ms0QITHA
+	4RtcxN5yO6sa52UUAtZmovVAzwR/Xhyzj+ZVCN+r2iDJKEDp8jr2xrm1Iogi5W4x4SJxSMxhoa2S6
+	AWdOKmYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV95D-0000000GtxA-1R6r;
-	Thu, 04 Jun 2026 14:30:07 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1wV9E5-0000000Gue6-0aVU;
+	Thu, 04 Jun 2026 14:39:17 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV95A-0000000Gtwi-2UZi
+	id 1wV9E2-0000000GudE-2bdC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 14:30:05 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-91550c6ea8eso123657985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 07:30:04 -0700 (PDT)
+	Thu, 04 Jun 2026 14:39:15 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-36dd65b95f2so546308a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 07:39:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1780583403; x=1781188203; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=leYnnf5Pg/xQRLvt6GMDQfv6g59yyMdkhV1lUPQrWAM=;
-        b=a68xyUvbjGqnYfPzD/sESE6gfzoLSGKHE+p+JwP546AHjXevrssr8uniOAIyzKzMpx
-         AKyAM5A+D0juiHeWPYO9Jt9CGv/IVyQuKBGtTf6TYzST1OCwBqgPwjrDGXHJo01tFutv
-         FEtxpN/jmfHRrfOvQwIIPbFTMBgGZKRqjRO0PW+r8CarUlrnsScJBy04oazwG+2qDMj9
-         MFOS4jotSUjN36Qc/0tHKRuX+9Tadq708FbSjg379KS+T46AnOMux+vBUVDRlT4IfhvM
-         ll6Hw1yitzTPg6h4+kcMrw6regrJqMzQvnN2BWN2grmC9vtB4qwnG7NwA4UwDJlrpTYL
-         I/JA==
+        d=gmail.com; s=20251104; t=1780583953; x=1781188753; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DOMV3x2yG7P0NW9CHIRVjoVTM78K6MUr+RoZlGHPHew=;
+        b=UzwT9riIeM56+6Vb25vz/60o3Vrg7wiJzxHQkQbUHDpZixiDlE0wtUId3MibjKL7Sb
+         25fQByEJAXBEqsXmIqD9pL1XODXfaOr6z1+mvF8swYDSV75RAdXSD5XokdNQ8tBSI05v
+         5yLgkTupNohlDdM2RnTk1Hh8nO8my5W13Zp6BCapehALeIBA4vUK5i/xTyelE9aFWJ6c
+         AS93dhWsSsUeDGgP2qUYKIoRMkSTDcldS3T5lM2j0DYMJFMRXezn3BkRdHmTCP3GfY+9
+         jUSkByEPOi1tBGAwLqLq27g57WVP+kkFLyq17E1v+s9k2Sy+mdjbbybdFwWILNF8otwo
+         W3Ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780583403; x=1781188203;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=leYnnf5Pg/xQRLvt6GMDQfv6g59yyMdkhV1lUPQrWAM=;
-        b=tUFfXof8ZRR4FvOlxzouoIDKxKtAyiDfjoHYofr+GHQg2WFACezcKd/xVfuLXZYGyR
-         KVFJok3OhNTbbMlXso86odPbOYKRWdhAGkbAbjH9kpcftLeQ8iM/kAocC1T+fXLllUvw
-         U7RM9dYXz+eCTSnBmEqcOC85IQCmCvwuOxcsMlCdu78uyjCDUJRIhCvY6T26iY2LHJOY
-         LKie8qX4FHZJarAei6VY6dYdAemMuqCFa3qoLmJuY8Z1ghJyh8S14ADbx8TFnKfkU7oR
-         y/y+R2qmBChkHjJLLSHz7G3Z5BEgxUFkR4t7aSNzNZX343PQ3d3zTFRmmc1AUPLRn0TF
-         +nOg==
-X-Forwarded-Encrypted: i=1; AFNElJ+jU922b6tXjbrz9kKClMKW1jM5qf02WJlVyj1n8wwMf3BnBL1o69AVkv3b+21x4/O6xb0/AjCYba7LWpBwEY3q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2zQYbIO19UGXEQHbfBlL5uJ5iEo3RV8Dyx8F8hWZipflD3ydk
-	8VU72vGdhzuzD/I3+vwdO1VP9kHPB7/MQZ6qzR/i0jotKdrWaEaZ5i4kLtk1AebpzTY=
-X-Gm-Gg: Acq92OEEIB2PGONpL99cFuulU86b3sxU5aeMHFvxbgqYrkYnwkyPwOob8FVP0VUNKX1
-	z1yFeBEO0zouNrA0vh15c45RGG3rQS12Ro3nMY4OzYQr4da55XxbAdgwambOqt/N+Ja980Hq/kk
-	cI1Xeg5MyRM0dcvTagmLSzx3RjQPrjqdD9nIQFvGeTBeqBL/fYMQHnJcA+1eBKbH2y9aQIZ1TJ+
-	bjjwmzSumb8e+cVAP/HYADcyQSVj6tPbWi6hFMe1QCKEDwunuHHkwGQlQXayMsclKZtFYoV6+Em
-	MypON4G4X3r+NYInORFaThZ0+J7beUVQXlDC3ybk31CVR8CmBXydEkyCWUUcUNH8yr1sQvM/Fnv
-	/P2oJYkNavwCXTeB/9pVrp/LK+KymwdGHREgRjgAuWegluxeXWgaagVPI/LuMSuuHgb6/JcPx9v
-	ZQNr9kAFPMyRsOnPFbArEDEWYaP1PImXJyvm7YwFquG+7Mv5014tkk86nnpeAGUNXeN+cv2rpiW
-	IdWNaUWPTtA+z+c
-X-Received: by 2002:a05:620a:2544:b0:915:3e46:c44a with SMTP id af79cd13be357-9158a80c3f3mr1387419585a.46.1780583403463;
-        Thu, 04 Jun 2026 07:30:03 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a21d2c1sm657350885a.11.2026.06.04.07.30.02
+        d=1e100.net; s=20251104; t=1780583953; x=1781188753;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DOMV3x2yG7P0NW9CHIRVjoVTM78K6MUr+RoZlGHPHew=;
+        b=RyWa7eFdrXW6NDosY1lD2sVQ0A58Ac8Thf+nKnORK8EMKJxzlJ20VCGoxKaReRYmLK
+         +JK9epqsqnvRVpIxL1xvH2CLB756Td8/ZaUcHV3sVOU+2ViH2Bgj617sjRuShDbLSxGe
+         tBKKfaw951v74pDeUwCAlkQkqbGliuHkduWI4F/KRKE+3Okew04heSObozH+nRuBoEw2
+         FLZ6fjxce3vNlFsXKfAMjMetu3G3zsx5quMwHsP8LIV+YoHTVeJiHtYEcKzVhnays91c
+         KCdhrPatGXG09msyLASK+kaKvScyHYrUNNYs2XtuCubI2xygeKBXpsJwbgIlC0Zo3hT3
+         0iuA==
+X-Forwarded-Encrypted: i=1; AFNElJ+O92fz5nOeyLRG3eEjP/0R785RxC2LUneDvtQKXWBT6KpH7Yyv1aw2+nBiRpzlehMLuFwAupeJGGSCIrGBqvDx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHZihPQudLsSBF1wmTrH+X8f8HGeHF6587egZIgkkpgERkHjSF
+	goodAiNRWBmtO6HqDFnu3I3TRVd3wISY4wqg5ko61FKiNcHROksBTFxw
+X-Gm-Gg: Acq92OEGx9HDrauQcfe+WEYw3XDyNReZ1kVS5ceVDcWQMkfQtYjGcMriIuO2vlTCRwv
+	X7d9emTPN7bnwTen0/LhLDJbjse2xkoFJDj2caR+oXgEOFb6wZYcmwTY6/BGMVyT31Fh/lBkUpb
+	2ysOuRwMuIXUybMYxIIH1iwH5uscA4wOxFxio+JQQol1a1srv8VErsg2xFdpxd+x8a8eiCcbTYd
+	rAJ+Syu8cZpnvuOICnErVzMycocbZxatBDrY+fYL/Quz2832uNxVU8jExRf525bRTMOydqYeT+Y
+	OooesP/2a6Xqv3lEl5DGMhi6UQbLXjjTJzFCk7gY5G2nPmlrYqT8XmRfEbpPxeO3zbcYl3wTCRU
+	U4W5AnKeATsAplbk2hBkZPiU7CKvxd3ndzsvUO71s8mUhlqkZNBsMDC419wgYmMe1+qsCsp7AD2
+	DrpHR5F5u0zECy5DfYbZQ64HtloQc3jiO9dELYYisaaofi9JPblmkEn6t61wB7MhBFfycycKR+A
+	kuxBgc4hd/XlOetjx9fgMnUb6upc+p3j/4Ga4s=
+X-Received: by 2002:a17:90b:58d0:b0:36b:769c:c037 with SMTP id 98e67ed59e1d1-36f76d559d7mr2969085a91.5.1780583953117;
+        Thu, 04 Jun 2026 07:39:13 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.166.246.30])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf830b2sm3118696a91.4.2026.06.04.07.39.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 07:30:02 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wV958-00000008IZw-1Hzl;
-	Thu, 04 Jun 2026 11:30:02 -0300
-Date: Thu, 4 Jun 2026 11:30:02 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"x86@kernel.org" <x86@kernel.org>, Jiri Pirko <jiri@nvidia.com>
-Subject: Re: [PATCH v5 05/20] dma-pool: track decrypted atomic pools and
- select them via attrs
-Message-ID: <20260604143002.GA2487554@ziepe.ca>
-References: <20260522042815.370873-1-aneesh.kumar@kernel.org>
- <20260522042815.370873-6-aneesh.kumar@kernel.org>
- <SN6PR02MB415754E94A9505C2B9739E4DD4092@SN6PR02MB4157.namprd02.prod.outlook.com>
- <yq5afr35sciu.fsf@kernel.org>
- <SN6PR02MB4157D9955A93244014AB7978D4122@SN6PR02MB4157.namprd02.prod.outlook.com>
- <20260603005454.GM2487554@ziepe.ca>
- <SN6PR02MB4157F94C902B78E55E99372DD4102@SN6PR02MB4157.namprd02.prod.outlook.com>
+        Thu, 04 Jun 2026 07:39:12 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Thu, 04 Jun 2026 22:39:07 +0800
+Subject: [PATCH] phy: freescale: imx8qm-lvds-phy: Fix missing
+ pm_runtime_disable() on probe error path
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SN6PR02MB4157F94C902B78E55E99372DD4102@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260604-lvds-v1-1-b8e1ff1bdee7@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAqOIWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMwMT3ZyylGLdFDPz5CQzQ8uUNENzJaDSgqLUtMwKsDHRsRB+cWlSVmp
+ yCUivUm0tALOMGkpoAAAA
+X-Change-ID: 20260604-lvds-d67cb619df17
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Liu Ying <victor.liu@nxp.com>
+Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780583949; l=2666;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=k21HcNtRfGOfdGEdLFtlrPAUJg8uMPRTOaO8fu5/tX0=;
+ b=jhHig4d+JEEW8lyIX24qIbqNx+rDwN/vC6NWkW86ZaeYwEzeYggjta+nO9Lfo878+ax0rH+ol
+ 7jOKNHUbE0iDMCul78SSZxFsmrifomdo6iadGIx5pvJmozsEMf3g6HN
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_073004_642832_2E54673D 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20260604_073914_671388_EA54B423 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,40 +114,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 02:05:35PM +0000, Michael Kelley wrote:
-> From: Jason Gunthorpe <jgg@ziepe.ca> Sent: Tuesday, June 2, 2026 5:55 PM
-> > 
-> > On Tue, Jun 02, 2026 at 02:24:40PM +0000, Michael Kelley wrote:
-> > 
-> > > Except that in a normal VM, the "unencrypted" pool attribute does *not*
-> > > describe the state of the memory itself.  In a normal VM, the memory is
-> > > unencrypted, but the "unencrypted" pool attribute is false. That
-> > > contradiction is the essence of my concern.
-> > 
-> > I would argue no..
-> > 
-> > When CC is enabled the default state of memory in a Linux environment
-> > is "encrypted". You have to take a special action to "decrypt" it.
-> > 
-> > Thus the default state of memory in a non-CC environment is also
-> > paradoxically "encrypted" too. 
-> 
-> The need to have such an unnatural premise is usually an indication
-> of a conceptual problem with the overall model, or perhaps just a
-> terminology problem. 
+If mixel_lvds_phy_reset() fails in probe after pm_runtime_enable(),
+the function returns directly without calling pm_runtime_disable(),
+leaving runtime PM permanently enabled for the device.
 
-Oh yes I do think the AMD derived terminogy is aweful :(
+Fix this by using devm_pm_runtime_enable() so that cleanup is
+automatic on any probe failure or driver unbind. This also allows
+removing the manual err label and the .remove callback.
 
-> Here's a proposal. The new DMA attribute is DMA_ATTR_CC_SHARED.
-> Name the pool attribute "cc_shared" instead of "unencrypted". 
+Fixes: 06ff622d61d2 ("phy: freescale: Add i.MX8qm Mixel LVDS PHY support")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c | 24 +++++++-----------------
+ 1 file changed, 7 insertions(+), 17 deletions(-)
 
-Yeah maybe. I sometimes imagine replacing the encrypted/decrypted
-names with cc_shared too just to make it sane.
+diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c b/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c
+index ece357443521..c662f91e598c 100644
+--- a/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c
++++ b/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c
+@@ -345,7 +345,9 @@ static int mixel_lvds_phy_probe(struct platform_device *pdev)
+ 
+ 	dev_set_drvdata(dev, priv);
+ 
+-	pm_runtime_enable(dev);
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
+ 
+ 	ret = mixel_lvds_phy_reset(dev);
+ 	if (ret) {
+@@ -355,17 +357,15 @@ static int mixel_lvds_phy_probe(struct platform_device *pdev)
+ 
+ 	for (i = 0; i < PHY_NUM; i++) {
+ 		lvds_phy = devm_kzalloc(dev, sizeof(*lvds_phy), GFP_KERNEL);
+-		if (!lvds_phy) {
+-			ret = -ENOMEM;
+-			goto err;
+-		}
++		if (!lvds_phy)
++			return -ENOMEM;
+ 
+ 		phy = devm_phy_create(dev, NULL, &mixel_lvds_phy_ops);
+ 		if (IS_ERR(phy)) {
+ 			ret = PTR_ERR(phy);
+ 			dev_err(dev, "failed to create PHY for channel%d: %d\n",
+ 				i, ret);
+-			goto err;
++			return ret;
+ 		}
+ 
+ 		lvds_phy->phy = phy;
+@@ -379,19 +379,10 @@ static int mixel_lvds_phy_probe(struct platform_device *pdev)
+ 	if (IS_ERR(phy_provider)) {
+ 		ret = PTR_ERR(phy_provider);
+ 		dev_err(dev, "failed to register PHY provider: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	return 0;
+-err:
+-	pm_runtime_disable(dev);
+-
+-	return ret;
+-}
+-
+-static void mixel_lvds_phy_remove(struct platform_device *pdev)
+-{
+-	pm_runtime_disable(&pdev->dev);
+ }
+ 
+ static int __maybe_unused mixel_lvds_phy_runtime_suspend(struct device *dev)
+@@ -432,7 +423,6 @@ MODULE_DEVICE_TABLE(of, mixel_lvds_phy_of_match);
+ 
+ static struct platform_driver mixel_lvds_phy_driver = {
+ 	.probe = mixel_lvds_phy_probe,
+-	.remove = mixel_lvds_phy_remove,
+ 	.driver = {
+ 		.pm = &mixel_lvds_phy_pm_ops,
+ 		.name = "mixel-lvds-phy",
 
-> "cc_shared" set to false in a normal VM doesn't lead to the non-sensical
-> situation of claiming that a normal VM is encrypted.
+---
+base-commit: a225caacc36546a09586e3ece36c0313146e7da9
+change-id: 20260604-lvds-d67cb619df17
 
-It seems like a good idea to me
+Best regards,
+--  
+Felix Gu <ustc.gu@gmail.com>
 
-Jason
 
