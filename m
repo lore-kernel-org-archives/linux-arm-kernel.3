@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19D0CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F74CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=; b=md7alLDQS81AA0ox9EPJoTFlo4
-	ngYjolB3P+MgzTNE6c9Knwv/hXc+qUepvDKukWB4uU91HS6XYzYxRB7WR5YV4x1I310Ksay21mnbo
-	WeZx3pAbueJVzwoq7Gw99TOy9nCsf7CED89eyI/5aTZw+SlCDBj7gRyKueL8DtDmKUc31aAhB7Vk6
-	14GQ0qDvAWRWYgbWy0WHxg8tPdBYLEi5nVfR2lqOA3JiOmsv7S8T2VOZ/yBuNwUqgmVAobSaP91Rm
-	uW4qfWOabJif2FSa699Yd2xycRfaxV07JRMl7H98gdxq6QjDsF29+AHJDx8izMBjoPj54VKuY7Wpe
-	Pjp+XJ+Q==;
+	bh=Y6UZz8IjVdVITbvOPHhdrUuJW0/kbNYyuOsWRAfVo8o=; b=bTUsL8MWW3yxKYcre4uVhP9yc6
+	Q0NCJVDnzHAeL+0VZX13K2M9vDzHubanc0kNcPSoSo2JHydnm2SksrDZMK9O+3mHZxj86wZKRZxcJ
+	ShQv3iORkxJm3WuQ8F43WD8XlHlhyZG8t1iTZVcyHh4Rz2WS7bIFjhFiZD/Rrqd7vtK3s+UJ7bT3A
+	WiFeTFsdzQhdhjM8sCYh/8e7rExCJgmbs8fyrttbFM9s2tSqxLj68HFtYlwfH3E9v/vGnFTzjfUHT
+	EkS7nTyRIrWeU0ACs9DQa7doZn+a+Ls31vmLh1SmuKVU2sTD+mAQHcrRm9HoxEPrNgsJJbzczE/Ji
+	laEMW0YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7EL-0000000Gicq-2KO0;
-	Thu, 04 Jun 2026 12:31:25 +0000
+	id 1wV7ET-0000000GifZ-2pLn;
+	Thu, 04 Jun 2026 12:31:33 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7EI-0000000Gibz-3fBo
+	id 1wV7ER-0000000GieA-0193
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 12:31:24 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6548UXS71132195
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Jun 2026 12:31:22 GMT
+	Thu, 04 Jun 2026 12:31:32 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6548CPfO140659
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Jun 2026 12:31:29 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=; b=YihOSW7t5IckLsz6
-	zvkpUu3rt5sYbJ+OAx08vyi29N4mOGsSsCaUC0oIAWOJ0E7Amiwn3MgInauKAkfV
-	aGgwCTcmYg1FtV0KASu3vAkq4U6tjg1P+Hpoc3E4maSnqEi1uq0QXTTdvQK0TidU
-	IllBHxoGjYOVzVaFObSY2hyiBVCa/uG7nj5fbw3dVkSFq3lr2H9wvRnoIS3yN/6u
-	k4ni+Dn85uMDjrFS7F6hl4R6jhQPJ41ax6g4+ZbHfZLyDTFq011Fr0K3JJ/x77SL
-	LvU1jW55gygrd2QSZwXipPYKOYqgP/skwrWZa8uYlBrA4x73iP/dxudnyJXdLQq/
-	m0vd5g==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ek5wsgw5s-1
+	Y6UZz8IjVdVITbvOPHhdrUuJW0/kbNYyuOsWRAfVo8o=; b=MfoqlJm33MHz1RXo
+	VaPPkj7+9L6dYSMphzMDlXqrUxYF/tjEoIaBQsTAwlti6OLji+gN+nAsJGO/pgOr
+	e4NpL7icnywOddrjOc7u8ASzihLlaBh2FYSz0ImFmOBxThr2oVP4m4sD5PfCv02i
+	FaX5dBYRefGXGmnzO0Tnz02AdXhHQlZl/Kk/9Iki20jVBtV4drzu5xcwRx8/YbVo
+	edZGNzE9MGTpwvdaI3whUS+bByWFPVr6stI3/QNNzPNBbn/tFvxrkF+186FmDCGO
+	fzIVCAyvweoGEd7bJ1AyvG8AINWJrj9Vyb1oMQtgIs+3kYleQcfTYXtadv24EWTa
+	YiUnww==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ejyenaaad-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 12:31:21 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8422875c676so547105b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 05:31:21 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 12:31:29 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c850ff84ddfso880321a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 05:31:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780576281; x=1781181081; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1780576289; x=1781181089; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=;
-        b=cwoP+QOpQm2FUeIRyxWKKz2+Sp4q0rb1q0n/p6su3NWpOFStqMnr0Jqqb5F1o8UdMa
-         qsJ3DxCGpHmVWFaC5CppExPJ9AHc3WeoezeDy3lrtvPulC2No99PzqcLjVO103LgsZAm
-         XKRPi3Uigo7m5qDYYtgBrghTF7TA0L7gseSg93REdHF1WMRH72cVxCrJxBKAd6eNzOVy
-         4ycoXV2ME9lwtPVwGXoEoB+DQ6beoy+X33jJeswCOA+mnCulRZkpaaBFkwiA68l+mOit
-         kn9/KSVG1OVc6Wnj9x82un1jpnt+qICcqpi4F1VbhT5so/2hDuwJib/xH/cHadhcW82H
-         0I6A==
+        bh=Y6UZz8IjVdVITbvOPHhdrUuJW0/kbNYyuOsWRAfVo8o=;
+        b=IuSRSam7LyMlii+oi9UfM+hDTUIuKX9adoZp+XBBYPka7R+yFh4bdrgTqptK3cXeeg
+         GjGPZBe+5O7kcz16kziIOzqiqopRKJNQnGTUHvQ91SpQ0AGxtR28Z+k5hFKyPIe/u/AE
+         UZtp9B9QA4n7xmsFIN81l9nkaJQSOhmY/utK0mkk0SYNIeNlOWkNUq64THboE8b+vu/K
+         fR2HR5pZ8gI04gd9jUyq1ppcA1Nwipr7WL4Ea6sme7ChOcwOZIiHldsx5FJFYlvxht2O
+         cQi8sdTYsUz7P2l0tsXSGREEz9Cfmf7Ju6rfV/al2xNiA0nD4uSlXEL1kgE+88wTDfRQ
+         U4AA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780576281; x=1781181081;
+        d=1e100.net; s=20251104; t=1780576289; x=1781181089;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=;
-        b=B7D6y/6MTe1e9BHLiBsVZdKVtEGePPbzCMMkC9yRhmI7HBi1fuqMyLjsocVGJAUs0A
-         mzGI2FaJbLwR1M7OJLhP0dDNzS+OXW7pFEVg/uD8KXwu7AdzULept1dr7b2lfCA4DhzA
-         3Px+u0zboSbAVGXjpuQsmQvbbXbqYbSiSKw0MTNKCTk62UU/UfuE0zuOSr2lCKKZxwgX
-         n/3moN8dAaIn3bgnYsipTJP4YuJ6x22clDdGFKrftFqCZ4gxdZS6ebH7hiBwYmRmhacV
-         DS6LNNRBxByYoa0gA8Z3BP2dFxDO6BcSGR5pplzKs9EhPkwwt0TI+WfJSdxSBsbZi0M4
-         wSpQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+3rFRMLT0EFah3ESFtUOCmxAmwpB02oeJNPRKqW9d03NyW9GwV2Ab+sVO4j+wjzxDiEpLQuz0AlxVEv2WLhrQY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxiWo3RyIa3NSdVl0+W1XPj3R1drjlzudNSHAzvR/jroyNnHNM
-	WdWMaceNxBYTuvJCSj9w++8HOHMPvPz6GXwovTFOdVPF05+UmioqsObTbhptpZFj43/1x7O6uKm
-	BxHydukbPl9ldJIwiSrVgsQwxOJR5ZFkSjyel4WqJ+dA0eZ7zt4ZENvwdzQ/C3UTz+n35PX4IfV
-	eE2A==
-X-Gm-Gg: Acq92OEfOC02xUjIDb7CPgEw+K3EpeV6fuF5l9OzpJg2/pFEXzEo0nAWh1aVWbrbBMm
-	GO29UIC5sbWwc0aeL2BeGk21qgm1myfqN0SMu+UTyW2gQ7nB5xlE7NCjlpSUIBE6118HHbffgjO
-	tpvlE7p+wTCb1imWNVIfOIqyIFNy8pTgZSGTqGEsyp1hdEx7QWR1uuTKkSp4desk0YidZHl5biS
-	HhH5rTv88fTWovcHraf5HojnTEflDqP3Br3haWD+5OfQQoa3a49HkpJ6zUZuxgfBkg6ARL47LYu
-	YWtG+TndFE5kt5B3yrjOvROZ7pxpL47xm7v12dwnHHr5Lfxu9gAhKN+iFXmv5teTbqwVTeQWYbK
-	hjkPpp48reWo7VnWyWpgw9iZys3BvZssIiDYRLVeWu3vIjoznAK5CPLJF7gU=
-X-Received: by 2002:a05:6a00:1905:b0:837:f111:b70 with SMTP id d2e1a72fcca58-8429b57a3b6mr2822608b3a.4.1780576280744;
-        Thu, 04 Jun 2026 05:31:20 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1905:b0:837:f111:b70 with SMTP id d2e1a72fcca58-8429b57a3b6mr2822556b3a.4.1780576280004;
-        Thu, 04 Jun 2026 05:31:20 -0700 (PDT)
+        bh=Y6UZz8IjVdVITbvOPHhdrUuJW0/kbNYyuOsWRAfVo8o=;
+        b=sBdLXPEAoZfAXaovMcRKSd77w/WEA8r8gClz3UNVgwzyi3A6kNIflX9v9S9ZKeAxbP
+         cGkraoP84mwCRJl/7cW8PcbSV0l0fhbTTImvBr/TZhosaXxP2B0Nx0V5s0a6kAyAEI4R
+         3Js152eo5IZBfgq5Wa1KzHhhpkq/D41F5Y+sHc7f29DorxHNXUE69AKznzkmCJaH6w9T
+         Wqx67BnwhKAIfmrxUN7v2xhHfWGH+D8Z7SA9k2l06iU+FdQvuAJg1J+zKMzZv7Ab5bUR
+         +5uZyrYSmniIefiabbCXTQTSAyIFP8uJRMIQICFjdAvj+KumRPsiBSev1qxSItTqtokB
+         4WTQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8aJ/xmRBR0Uvv0p1FsrxJrrOyh4K/58PQakLqcVZStgUi79li1GUgjkQA6B1Ej+64Egw0uJrmdzhH8pk8JdJWr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaOQ/5EmQTOytQ4SWjG3jorhW1NzBRzzRcszEeUxY6YtefLjRG
+	Rn5LhGXoPOWJ7h3ySxVab8nTGLmye4OyBGg17VR+J3Xkc8GI51TneGzlk6vuVqLsq372LIi/Rhj
+	EiX0gF9GP8Y0cvf7IAmvmaDXh+21wJvMBLeQ5UDncpuWh6zYPmX2eNcGP/X/tmukho2VyDZ17OQ
+	fNzA==
+X-Gm-Gg: Acq92OH/GgDKgSNDvzUDLmpdcEizu5C+MSOCCbge+vxeOSdpkzQ2sMC1cbQUlRUF65f
+	F2sLvHfxBGYppVlZvYY0yKO5ENWqaVLd5OIH7/wwkHTS5KjzpDrq2vtsrVgAJUFBZpBU/oNP0L9
+	/RhotuVh6hdnIHJtegS8VUSANX4CQV3ffbV558kM7ZpWO+37Lztni3/u4c/pkEJuev7Sw35UdzN
+	EWOe74MKgl+GXzJETUamyGNy/I/wG/jOo1NYsefNOs/IrtUjjCGE0fGUfNPqn8cEHHKDKtxx1Bt
+	u+hk1oOrmV0Q8hr75++SXA9GprvIxwh/qbtn2BiiIQinndkvbcH0NxlKgkynbgD2pB3DbUP5EQN
+	7/I+KYBBwfUMTGEQ6ncck+JATm85bfjKB6ul1v2u3FHIQWKaavIpdlvVW+Qw=
+X-Received: by 2002:a05:6a00:6c87:b0:82c:d7c9:5479 with SMTP id d2e1a72fcca58-84284e8e557mr7258380b3a.32.1780576288664;
+        Thu, 04 Jun 2026 05:31:28 -0700 (PDT)
+X-Received: by 2002:a05:6a00:6c87:b0:82c:d7c9:5479 with SMTP id d2e1a72fcca58-84284e8e557mr7258325b3a.32.1780576288185;
+        Thu, 04 Jun 2026 05:31:28 -0700 (PDT)
 Received: from hu-naala-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8428325d9a3sm6015917b3a.34.2026.06.04.05.31.12
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8428325d9a3sm6015917b3a.34.2026.06.04.05.31.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 05:31:19 -0700 (PDT)
+        Thu, 04 Jun 2026 05:31:27 -0700 (PDT)
 From: Nabige Aala <nabige.aala@oss.qualcomm.com>
-Date: Thu, 04 Jun 2026 18:00:47 +0530
-Subject: [PATCH v2 1/3] dt-bindings: display: msm: qcm2290: Add Shikra MDSS
+Date: Thu, 04 Jun 2026 18:00:48 +0530
+Subject: [PATCH v2 2/3] arm64: defconfig: Enable ILI7807S DSI panel driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260604-shikra-display-v2-1-b3c1b2b67edc@oss.qualcomm.com>
+Message-Id: <20260604-shikra-display-v2-2-b3c1b2b67edc@oss.qualcomm.com>
 References: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
 In-Reply-To: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
@@ -121,41 +121,41 @@ Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
         linux-arm-kernel@lists.infradead.org,
         Nabige Aala <nabige.aala@oss.qualcomm.com>
 X-Mailer: b4 0.16-dev-d5d98
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780576263; l=4493;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780576263; l=708;
  i=nabige.aala@oss.qualcomm.com; s=20260520; h=from:subject:message-id;
- bh=WfANBIIgBzTwwuDDl6Kdw8lUaZONgWxsNNvWrRs4B1s=;
- b=MtMgBdqvWqWsrLdHxWNc0SaL5+U3fBPtkq6vzeFtJypgM4h4oQWOWMW8CatTFoOwuUB00ACxI
- /jqGFI74wkKASThmqiqyz0GObhh0XKnl0wAX2LWewF69aq3oi58Z7bG
+ bh=SCs9KQKBtzRapnZIGqIOvP+xU2+TnEvlesLmeM6sxt0=;
+ b=m9yIbYKaT8kCKl/fs9wocRmDzoj1uNJswWvdoxbvdIWYfP842Sv1SMBB1G9LaTbU0FTO9Vdyl
+ QvUjcv/T4EUC2yeF7PvcAc73PU1HzUvdE6d8SwFee05DqQT2ZjtUuHp
 X-Developer-Key: i=nabige.aala@oss.qualcomm.com; a=ed25519;
  pk=PYHJom8sPos1IGkrbCCsWiE7XTBQrQZd9jzAo051tgw=
-X-Proofpoint-GUID: azGsawjHznj5XPg7yQTh9JNoJhHRbpKY
-X-Proofpoint-ORIG-GUID: azGsawjHznj5XPg7yQTh9JNoJhHRbpKY
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA0MDEyMSBTYWx0ZWRfXwmj9pMQSMY1f
- oT3mzMIxSQzAeQkvzeJzKDSZ7z9OxbnYGUZ8DeN3sHiynvZekB2FcovHGHaW+B8OgLXneaA6lKQ
- 1dctCCCeVQ/lRVtfZAuoQcaqpVkv2E12XSKWGSL2Bm/pA241jMTDJSaS5twW6jFihKPllLUtYio
- 4U2IaWkq9T2Gj6UzTUIQU9B1J0zjqG+mOKCCNEAOBGKKKIaGtEO5GclAP87lZd67L2FbreNVyD4
- TMXNf0W/AXZJWGEBvf2nmCDJs3lf7UeQ5SIqwGcQiPVSaR/tAPM9OeZIRPcdbtIkWydrpKnNMks
- iiF9sR4lyJylg8awLVaeOJUEtOzQh6N6widwaYGQDaVb9xeiUDq7nKcEY0C/IYJ/VQ3Ax3rcpEy
- iyOzHRobrqYufb15hpLbmZcybx3DzomIOi9oeJh3Kjj1v66s/mQJAHFQf5b8RqZDrw433K/JGu4
- n7nk4o9ckHpOKgQ6g8A==
-X-Authority-Analysis: v=2.4 cv=POc/P/qC c=1 sm=1 tr=0 ts=6a217019 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Authority-Analysis: v=2.4 cv=JaSMa0KV c=1 sm=1 tr=0 ts=6a217021 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=_tpsKkHDXNPZovU35XoA:9
- a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=sptkURWiP4Gy88Gu7hUp:22
- a=cvBusfyB2V15izCimMoJ:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=aMhaXRkMA95IrCOZcTgA:9 a=QEXdDO2ut3YA:10
+ a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-ORIG-GUID: cUC-iTiYf2o7FwNBnjUsSus71C4B1omA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA0MDEyMiBTYWx0ZWRfX5uUUyM87Ug8R
+ GkQPC80D5xG/qmS/lONDoVU+BNPnCZIixot0s9JN/IVGoDe6GsCargKn3A0DHwbx2PgAV4PA/Nh
+ SuiJOsyYRdW1XcO9w4cnLNM51vkJT+oR47VhBTtKBifRbvtb7qs4dA+RjEMCYMEraLRYvo1IgXQ
+ gCoXFRghpRIm6zyRQFmMijMcr70EtERWUnCo0693dbzXn9o9FaCj1zjeATo3RDfHtZ5PKHnfx0K
+ aMbU7DlJiV1m8bxYaIYpBpoeHZoEIZhKFPkGyPvxOiSo7fqTkVMSNI37HkfcFPROwrp+vMUzMhr
+ e/0ZG53PlPHUFaInZAmEq3KC0Xrb0yRWnFgdmZC7cpTHD4EMF60p+Jjsojj6lhLUZM+MfagfGwq
+ 57/MLnJQZp2wfrhO1CDVvuC1d4m2CuZsFPhBN9+wMBobwX24HR0TLGqDHP9/MVOoDX6BHOitDUp
+ x+7t33Q0b+yIwBrHEbw==
+X-Proofpoint-GUID: cUC-iTiYf2o7FwNBnjUsSus71C4B1omA
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-04_03,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 malwarescore=0 clxscore=1015 bulkscore=0
- impostorscore=0 priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606040121
+ spamscore=0 phishscore=0 bulkscore=0 adultscore=0 lowpriorityscore=0
+ suspectscore=0 clxscore=1015 malwarescore=0 priorityscore=1501
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
+ definitions=main-2606040122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_053123_039796_2B7190A9 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260604_053131_154493_91B83060 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,127 +170,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Shikra SoC uses the same MDSS/DPU/DSI hardware as QCM2290 (DPU 6.5),
-sharing the same register layout, DSI controller and 14nm DSI PHY.
-Add qcom,shikra-mdss to the qcm2290-mdss binding compatible enum
-rather than introducing a separate binding file.
-
-Register qcom,shikra-dsi-ctrl in dsi-controller-main.yaml alongside
-qcom,qcm2290-dsi-ctrl, and update the qcm2290-mdss patternProperties
-to accept both SoC-specific DPU and DSI controller compatibles.
+Enable the ILI7807S 1080x1920 video-mode DSI panel driver as a module,
+used on the Shikra CQM EVK board.
 
 Signed-off-by: Nabige Aala <nabige.aala@oss.qualcomm.com>
 ---
- .../bindings/display/msm/dsi-controller-main.yaml  |  1 +
- .../bindings/display/msm/qcom,qcm2290-dpu.yaml     |  7 ++--
- .../bindings/display/msm/qcom,qcm2290-mdss.yaml    | 38 ++++++++++++++++++----
- 3 files changed, 37 insertions(+), 9 deletions(-)
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
-index dbc0613e427e..a2f3e91104af 100644
---- a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
-+++ b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
-@@ -33,6 +33,7 @@ properties:
-               - qcom,sdm660-dsi-ctrl
-               - qcom,sdm670-dsi-ctrl
-               - qcom,sdm845-dsi-ctrl
-+              - qcom,shikra-dsi-ctrl
-               - qcom,sm6115-dsi-ctrl
-               - qcom,sm6125-dsi-ctrl
-               - qcom,sm6150-dsi-ctrl
-diff --git a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
-index be6cd8adb3b6..e166a73651df 100644
---- a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
-+++ b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
-@@ -13,8 +13,11 @@ $ref: /schemas/display/msm/dpu-common.yaml#
- 
- properties:
-   compatible:
--    const: qcom,qcm2290-dpu
--
-+    oneOf:
-+      - const: qcom,qcm2290-dpu
-+      - items:
-+          - const: qcom,shikra-dpu
-+          - const: qcom,qcm2290-dpu
-   reg:
-     items:
-       - description: Address offset and size for mdp register set
-diff --git a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml
-index bb09ecd1a5b4..7184b09a8774 100644
---- a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml
-+++ b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml
-@@ -4,21 +4,36 @@
- $id: http://devicetree.org/schemas/display/msm/qcom,qcm2290-mdss.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Qualcomm QCM220 Display MDSS
-+title: Qualcomm QCM2290 and Shikra Display MDSS
- 
- maintainers:
-   - Loic Poulain <loic.poulain@linaro.org>
-+  - Nabige Aala <nabige.aala@oss.qualcomm.com>
- 
- description:
-   Device tree bindings for MSM Mobile Display Subsystem(MDSS) that encapsulates
-   sub-blocks like DPU display controller and DSI. Device tree bindings of MDSS
--  are mentioned for QCM2290 target.
-+  are mentioned for QCM2290 and Shikra targets. Shikra uses the same MDSS/DPU/DSI
-+  hardware as QCM2290 (DPU 6.5) and shares the same register layout.
- 
- $ref: /schemas/display/msm/mdss-common.yaml#
- 
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - qcom,qcm2290-mdss
-+  required:
-+    - compatible
-+
- properties:
-   compatible:
--    const: qcom,qcm2290-mdss
-+    oneOf:
-+      - const: qcom,qcm2290-mdss
-+      - items:
-+          - const: qcom,shikra-mdss
-+          - const: qcom,qcm2290-mdss
- 
-   clocks:
-     items:
-@@ -52,7 +67,11 @@ patternProperties:
- 
-     properties:
-       compatible:
--        const: qcom,qcm2290-dpu
-+        oneOf:
-+          - const: qcom,qcm2290-dpu
-+          - items:
-+              - const: qcom,shikra-dpu
-+              - const: qcom,qcm2290-dpu
- 
-   "^dsi@[0-9a-f]+$":
-     type: object
-@@ -60,9 +79,14 @@ patternProperties:
- 
-     properties:
-       compatible:
--        items:
--          - const: qcom,qcm2290-dsi-ctrl
--          - const: qcom,mdss-dsi-ctrl
-+        oneOf:
-+          - items:
-+              - const: qcom,qcm2290-dsi-ctrl
-+              - const: qcom,mdss-dsi-ctrl
-+          - items:
-+              - const: qcom,shikra-dsi-ctrl
-+              - const: qcom,qcm2290-dsi-ctrl
-+              - const: qcom,mdss-dsi-ctrl
- 
-   "^phy@[0-9a-f]+$":
-     type: object
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 909f3c188e75..a6d72ff63e57 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1005,6 +1005,7 @@ CONFIG_DRM_MXSFB=m
+ CONFIG_DRM_IMX_LCDIF=m
+ CONFIG_DRM_NOUVEAU=m
+ CONFIG_DRM_PANEL_BOE_TV101WUM_NL6=m
++CONFIG_DRM_PANEL_ILITEK_ILI7807S=m
+ CONFIG_DRM_PANEL_LVDS=m
+ CONFIG_DRM_PANEL_HIMAX_HX8279=m
+ CONFIG_DRM_PANEL_HIMAX_HX83112A=m
 
 -- 
 2.34.1
