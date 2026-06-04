@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED71CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA27CD6E6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RbcLbAFN8HwhN5sC7vX9Y3YgYrgHuGPi6izauGKqrps=; b=JYf3JsvwHpNYmbl/uTJGM2BBNu
-	o/iuf6yuNPVcX5TwBXyKdPLR9ylAO3qqsfaVqfiB4+V6/RW+0rZEINHRQl3c+g1HGUYBR5Nl0WjVY
-	xwRr8i6OTo6OmoBGmqAoDW5+tov8L87tjgVlzdHGivXm71dog3ljuBob+jOHAML8SDiLr4EK6DPAt
-	+zwj3IfO6JdSLzKakTvt4gD6COXH/FYApj/jk/yobKfj2aTJQ1CDLrMt147XKHjCYe4cleiDmf0ke
-	0meMSbeRvt3uLIpuvxb48+I6dgxoAx1E8tXXCJOInyvX7yDr0JnMSMtjalPKZa75c4gTZjYiM3tcd
-	QMBsKUzQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DDwGW2pys0vPhR9XnnFtzJeEbqlKqeAZPfHzYinW+fQ=; b=e4m3VTET94B57UcbIB0LAyZdOA
+	HCeUvoTVcGrMCH3DkHsdePLLthor0J9hqFpn3n4yqAyiEJNuxfkQgLbiKJpD8fsFc5t1xHt21TWpj
+	RtMgc7UR9bXsZerRZuAKuF+Gr71P5t+P3rnk6F+FI/5zzvhITmJZ984yqs54lVntXmrvuTgMpow7E
+	1rOS+dqlTbgPiYX26saftil/InGfSFMq/N0idjiKQxsxRK9QqX4HKGhaJS2bhTArKoZ/968okNi1O
+	Ws/H6nTL+XxP1qbzfbpvULF1iimhqIKqL5Zao7EFD2dr+FX5Hc/B1gkzkl4Kcu20IlS0XUi2bhKua
+	VPaLDAFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9Ig-0000000GviM-3SSd;
-	Thu, 04 Jun 2026 14:44:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wV9M4-0000000Gw4V-0vg9;
+	Thu, 04 Jun 2026 14:47:32 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9Ie-0000000GviC-3AAR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 04 Jun 2026 14:44:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RbcLbAFN8HwhN5sC7vX9Y3YgYrgHuGPi6izauGKqrps=; b=MVMqppLIdUmd/H5l5Ktr+WGroN
-	w3Zg+fIKLE8pEoQXh0urTdY08ffihMDmtSXn4mwFp/SLirOyKOCG0aJcik0iETTw3BVIWXdBeDZjL
-	+ZxvVoRkMFXSalMu8yuFd9TZbxFbyC7Yr3mC7YabYU9IuxqVzwD1ZccVr50p13paLQHf378tuTWX3
-	uuhsg6FCaVoaBfg5/O/JrqFNG+vLbdqZXonjsZFHRdgR0zec1SUvjOmpW3yVeXJJ5JA5oKGoT7cSo
-	x7MuKWFE6c5d/OUtPsM9GZroRfvGP3NRHDnGT2p4BJtCQAb9K8B7rssFJI42cKbkWLKaudu0oNGx8
-	XjaC2rpQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wV9Ib-0000000ESM7-1YWd
+	id 1wV9M0-0000000Gw3G-1Mzr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 14:43:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1F783D4D;
-	Thu,  4 Jun 2026 07:43:49 -0700 (PDT)
-Received: from [10.1.34.54] (e122027.cambridge.arm.com [10.1.34.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE2373F7D8;
-	Thu,  4 Jun 2026 07:43:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780584234; bh=b/UDPb8ZwzcbmTijGa9ghHw1SVkFtR2lx41scNsuBjo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gn6z/d22MGsutY4vrKsRLbGb1JtpNa5H68u4zp2JsNXjaVzof1wCdH042dXjksL32
-	 3bQQkNGnNvI/E3bx/qFU+wirdXrg2s3UT8bnf/anDlnzOBsOrKTbQ0RD5hblrWE1yd
-	 Xm4/PDVe6lFcK9jaluBGd8A0FpR/YMBGavFmftuY=
-Message-ID: <fad5dc03-f7ce-4b15-bb73-e2dbd43810a6@arm.com>
-Date: Thu, 4 Jun 2026 15:43:47 +0100
+	Thu, 04 Jun 2026 14:47:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=DD
+	wGW2pys0vPhR9XnnFtzJeEbqlKqeAZPfHzYinW+fQ=; b=dmnRZO+fCPvHXalWlC
+	1syI0ZT+NZPjaRMf263QPbmJLNYpJqx5vLIWj4hOnfu4WZDXjIzSbBY0WpwvsAXO
+	QipVBmFtLDDXBGX6DpMif1rvBIbrsY8RtdF/y+K/xmnKEN7C07XFpStNNOpdMwIW
+	aI2w0tsOw/aLEpY9uTKQMcnn0=
+Received: from PC-YLX4CAEK.company.local (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnv_a_jyFqQRuWBQ--.57918S2;
+	Thu, 04 Jun 2026 22:46:24 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ding Hui <dinghui@lixiang.com>,
+	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: j.raczynski@samsung.com,
+	xiasanbo@lixiang.com,
+	yangchen11@lixiang.com,
+	liuxuanjun@lixiang.com
+Subject: [PATCH v3] net: stmmac: fix fatal bus error on resume by reinitializing RX buffers
+Date: Thu,  4 Jun 2026 22:45:54 +0800
+Message-Id: <20260604144557.3175399-1-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 09/44] arm64: RMI: Provide functions to
- delegate/undelegate ranges of memory
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-10-steven.price@arm.com>
- <867bowx3qx.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <867bowx3qx.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnv_a_jyFqQRuWBQ--.57918S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWfJw4DKrWxKr4UJr18ur1fCrg_yoWkGw1kpF
+	Wayw4qkryDJrsxGw48Jw48uFyYyay5AFW3Ww4fXwsI9w43KrnavF1SyFWYvas7CFW0vw4k
+	tF4DCa9rCF1UZrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07bnzuAUUUUU=
+X-Originating-IP: [220.248.55.69]
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC9AH2I2ohj8FAxAAA3h
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_154357_938601_A698BF07 
-X-CRM114-Status: GOOD (  23.63  )
+X-CRM114-CacheID: sfid-20260604_074728_769894_C13C57FD 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,117 +85,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 14:59, Marc Zyngier wrote:
-> On Wed, 13 May 2026 14:17:17 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> The RMM requires memory is 'delegated' to it so that it can be used
->> either for a realm guest or for various tracking purposes within the RMM
->> (e.g. for metadata or page tables). Memory that has been delegated
->> cannot be accessed by the host (it will result in a Granule Protection
->> Fault).
->>
->> Undelegation may fail if the memory is still in use by the RMM. This
->> shouldn't happen (Linux should ensure it has destroyed the RMM objects
->> before attempting to undelegate). In the event that it does happen this
->> points to a programming bug and the only reasonable approach is for the
->> physical pages to be leaked - it is up to the caller of
->> rmi_undelegate_range() to handle this.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> v14:
->>  * Split into separate patch and moved out of KVM
->> ---
->>  arch/arm64/include/asm/rmi_cmds.h | 13 +++++++++++
->>  arch/arm64/kernel/rmi.c           | 36 +++++++++++++++++++++++++++++++
->>  2 files changed, 49 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
->> index 9078a2920a7c..eb213c8e6f26 100644
->> --- a/arch/arm64/include/asm/rmi_cmds.h
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -33,6 +33,19 @@ struct rmi_sro_state {
->>  } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
->>  	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
->>  
->> +int rmi_delegate_range(phys_addr_t phys, unsigned long size);
->> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
->> +
->> +static inline int rmi_delegate_page(phys_addr_t phys)
->> +{
->> +	return rmi_delegate_range(phys, PAGE_SIZE);
->> +}
->> +
->> +static inline int rmi_undelegate_page(phys_addr_t phys)
->> +{
->> +	return rmi_undelegate_range(phys, PAGE_SIZE);
->> +}
->> +
->>  bool rmi_is_available(void);
->>  
->>  unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
->> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
->> index 52a415e99500..08cef54acadb 100644
->> --- a/arch/arm64/kernel/rmi.c
->> +++ b/arch/arm64/kernel/rmi.c
->> @@ -12,6 +12,42 @@ static bool arm64_rmi_is_available;
->>  unsigned long rmm_feat_reg0;
->>  unsigned long rmm_feat_reg1;
->>  
->> +int rmi_delegate_range(phys_addr_t phys, unsigned long size)
->> +{
->> +	unsigned long ret = 0;
->> +	unsigned long top = phys + size;
->> +	unsigned long out_top;
->> +
->> +	while (phys < top) {
->> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
->> +		if (ret == RMI_SUCCESS)
->> +			phys = out_top;
->> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
->> +			return ret;
->> +	}
->> +
->> +	return ret;
->> +}
->> +
->> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
->> +{
->> +	unsigned long ret = 0;
->> +	unsigned long top = phys + size;
->> +	unsigned long out_top;
->> +
->> +	WARN_ON(size == 0);
-> 
-> I find it odd to warn on size = 0. After all, free(NULL) is not an
-> error. But even then, you continue feeding this to the RMM.
+From: Ding Hui <dinghui@lixiang.com>
 
-Ok, I'll admit that this is left over debugging - although this is a
-condition that shouldn't happen.
+On suspend, stmmac_suspend() calls stmmac_disable_all_queues() which
+stops the RX NAPI, but the RX DMA engine may still be running for a
+short window before stmmac_stop_all_dma() takes effect. During that
+window the hardware can write incoming frames into the buffers pointed
+to by the RX descriptors and write back the descriptors (clearing the
+OWN bit and overwriting RDES0/1/2 with status/timestamp data). Because
+NAPI is already disabled, the driver never refills these descriptors,
+so the RX ring is left in a "consumed but not refilled" state with
+stale content in the descriptor buffer-address fields.
 
-Note that the while() condition prevents this from actually getting to
-the RMM.
+On resume, stmmac_clear_descriptors() only re-arms the OWN bit and
+does not repopulate the RX buffer address fields. When the DMA is
+restarted it dereferences these stale addresses and triggers a fatal
+bus error (not kernel panic, just a Fatal Bus Error interrupt and
+RX DMA engine halts).
 
-I'll drop the WARN_ON() since it's confusing.
+Fix this by introducing stmmac_reinit_rx_descriptors(), called from
+stmmac_resume() immediately after stmmac_clear_descriptors(). The
+helper iterates every RX descriptor slot and re-programs its buffer
+address fields:
 
-Thanks,
-Steve
+ - For normal (page_pool) queues: restore RDES0/1 from buf->addr and
+   RDES2 from buf->sec_addr. The DMA mapping has remained valid across
+   suspend/resume because no pages were freed. Slots left NULL by a
+   prior GFP_ATOMIC failure in stmmac_rx_refill() before suspend
+   are re-allocated here with GFP_KERNEL;
+   -ENOMEM is returned and resume is aborted if allocation fails.
+   The slots with null buffer are unacceptable, because they will
+   cause a DMA suspend dead lock problem by the condition of
+   Current Descriptor Pointer == Descriptor Tail Pointer.
 
-> You also don't seem to be bothered with that on the delegation side...
-> 
->> +
->> +	while (phys < top) {
->> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
->> +		if (ret == RMI_SUCCESS)
->> +			phys = out_top;
-> 
-> and size==0 doesn't violate any of the failure conditions listed in
-> B4.5.18.2 (beta2). Will you end-up looping around forever?
-> 
-> Same questions for the delegation, obviously.
-> 
-> 	M.
-> 
+ - For AF_XDP zero-copy queues: restore the DMA address from
+   xsk_buff_xdp_get_dma(buf->xdp). Slots with no xdp buffer
+   (e.g. TX-only socket, empty fill ring) attempt xsk_buff_alloc()
+   first; on failure the descriptor is zeroed so the DMA engine skips
+   the slot safely via an RBU event.
+
+ - For chain mode: call stmmac_mode_init() to rebuild the des3 next-
+   descriptor pointer chain, which hardware may have overwritten with
+   a PTP timestamp value (as noted in chain_mode.c:refill_desc3()).
+
+After reprogramming all address fields, a final pass restores OWN=1
+on every valid slot. This is necessary because set_sec_addr and
+chain-mode init unconditionally overwrite des3 (clearing the OWN bit
+set by stmmac_clear_descriptors()), and must run after all address
+writes are complete.
+
+Also fix stmmac_init_rx_buffers() to actually use its gfp_t flags
+parameter instead of the hardcoded GFP_ATOMIC | __GFP_NOWARN.
+
+Signed-off-by: Ding Hui <dinghui@lixiang.com>
+
+---
+Changes in v3:
+- Re-allocate page_pool NULL slots (from prior GFP_ATOMIC failures)
+  with GFP_KERNEL in stmmac_reinit_rx_descriptors(); return -ENOMEM and
+  abort resume.
+- For XSK NULL slots, attempt xsk_buff_alloc() first; fall back to
+  stmmac_clear_desc() only when allocation fails.
+- Add a re-arm loop at the end of stmmac_reinit_rx_descriptors() to
+  restore OWN=1 on all valid slots, since set_sec_addr and
+  chain-mode init both write des3 unconditionally.
+- stmmac_reinit_rx_descriptors() now returns int; stmmac_resume()
+  checks the return value and propagates -ENOMEM with mutex/rtnl cleanup.
+- Fix stmmac_init_rx_buffers() to use its flags parameter instead of
+  hardcoded GFP_ATOMIC | __GFP_NOWARN.
+  (884d2b845477 ("net: stmmac: Add GFP_DMA32 for rx buffers if no 64
+  capability"))
+- Run stmmac_reinit_rx_descriptors() after stmmac_clear_descriptors()
+  so that stmmac_clear_desc() on XSK NULL slots overrides the OWN
+  bit set by stmmac_clear_descriptors().
+- Update commit message.
+- Link to v2:
+  https://lore.kernel.org/netdev/20260526022620.501229-1-dinghui1111@163.com/
+
+Changes in v2:
+- Introducing stmmac_reinit_rx_descriptors() to reinitializing rx
+  buffers without any allocation.
+- Modify commit log.
+- Link to v1:
+  https://lore.kernel.org/netdev/20260515053856.2310369-1-dinghui1111@163.com/
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 161 +++++++++++++++++-
+ 1 file changed, 160 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3591755ea30b..36428e4ba8fd 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1660,7 +1660,7 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
+ {
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
+-	gfp_t gfp = (GFP_ATOMIC | __GFP_NOWARN);
++	gfp_t gfp = flags;
+ 
+ 	if (priv->dma_cap.host_dma_width <= 32)
+ 		gfp |= GFP_DMA32;
+@@ -1693,6 +1693,145 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
+ 	return 0;
+ }
+ 
++/**
++ * stmmac_reinit_rx_descriptors - re-program RX descriptor buffer addresses
++ *				   after stmmac_clear_descriptors()
++ * @priv: driver private structure
++ * @dma_conf: structure holding the dma data
++ * @queue: RX queue index
++ *
++ * Description: Called in the resume path after stmmac_clear_descriptors()
++ * has re-armed the OWN bit on every descriptor.  Walk buf_pool[] and
++ * re-program the buffer-address fields of every RX descriptor from the
++ * buffers that are already attached to the queue.  Slots whose page was
++ * never allocated (GFP_ATOMIC failure before suspend) are re-allocated
++ * here with GFP_KERNEL; the resume path is in process context.
++ *
++ * Between suspend and resume the hardware may have written back status/
++ * length information into the descriptor address fields (RDESx are reused
++ * for status on completion for GMAC4/XGMAC), so the address fields must be
++ * repopulated before the DMA is restarted.
++ *
++ * For XSK slots that have no xdp buffer at suspend time (TX-only socket,
++ * empty fill ring for Rx), xsk_buff_alloc() is attempted but does not
++ * return an error on failure because we can't identify a real TX-only
++ * socket from an alloc error (same as stmmac_alloc_rx_buffers_zc() in
++ * __init_dma_rx_desc_rings); on failure the descriptor is zeroed so the DMA
++ * engine skips the slot safely.
++ *
++ * To avoid the DMA stall after resume in non-XSK mode, this function
++ * re-allocates pages for NULL slots using GFP_KERNEL (the resume path runs
++ * in process context). If allocation fails, -%ENOMEM is returned immediately
++ * and the resume is aborted; the caller should report the error.
++ *
++ * This helper must be called after stmmac_clear_descriptors() and before
++ * stmmac_hw_setup() in stmmac_resume() because we need to wipe the OWN bit
++ * set in stmmac_clear_descriptors() for NULL slots in XSK mode.
++ */
++static int stmmac_reinit_rx_descriptors(struct stmmac_priv *priv,
++					struct stmmac_dma_conf *dma_conf,
++					u32 queue)
++{
++	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
++	struct stmmac_rx_buffer *buf;
++	struct dma_desc *p;
++	int i;
++
++	if (rx_q->xsk_pool) {
++		for (i = 0; i < dma_conf->dma_rx_size; i++) {
++			buf = &rx_q->buf_pool[i];
++			p = stmmac_get_rx_desc(priv, rx_q, i);
++
++			/* The XSK pool may not be fully populated (e.g.
++			 * xdpsock TX-only, empty fill ring).  Try to refill
++			 * from the pool; on failure zero the descriptor so the
++			 * DMA engine skips this slot safely.
++			 */
++			if (!buf->xdp) {
++				buf->xdp = xsk_buff_alloc(rx_q->xsk_pool);
++				if (!buf->xdp) {
++					stmmac_clear_desc(priv, p);
++					continue;
++				}
++			}
++
++			stmmac_set_desc_addr(priv, p,
++					     xsk_buff_xdp_get_dma(buf->xdp));
++			stmmac_set_desc_sec_addr(priv, p, 0, false);
++		}
++	} else {
++		for (i = 0; i < dma_conf->dma_rx_size; i++) {
++			buf = &rx_q->buf_pool[i];
++			p = stmmac_get_rx_desc(priv, rx_q, i);
++
++			/* buf->page can be NULL when stmmac_rx_refill() hit a
++			 * GFP_ATOMIC failure before suspend and left the slot
++			 * without a buffer. The resume path runs in process
++			 * context, so re-allocate with GFP_KERNEL. Allocation
++			 * failure aborts the resume.
++			 */
++			if (!buf->page) {
++				int err;
++
++				err = stmmac_init_rx_buffers(priv, dma_conf, p,
++							     i, GFP_KERNEL,
++							     queue);
++				if (err)
++					return err;
++				/* stmmac_init_rx_buffers() already programmed
++				 * the descriptor; skip the reprogramming below.
++				 */
++				continue;
++			}
++
++			stmmac_set_desc_addr(priv, p, buf->addr);
++			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
++						 priv->sph_active &&
++						 buf->sec_page);
++
++			if (dma_conf->dma_buf_sz == BUF_SIZE_16KiB)
++				stmmac_init_desc3(priv, p);
++		}
++	}
++
++	/* Chain mode: re-link descriptor 'next' pointers. This is
++	 * allocation-free; it just rewrites the per-descriptor next
++	 * field which may have been clobbered by HW writeback.
++	 */
++	if (priv->descriptor_mode == STMMAC_CHAIN_MODE) {
++		void *des = priv->extend_desc ? (void *)rx_q->dma_erx
++					      : (void *)rx_q->dma_rx;
++
++		stmmac_mode_init(priv, des, rx_q->dma_rx_phy,
++				 dma_conf->dma_rx_size, priv->extend_desc);
++	}
++
++	/* Re-arm OWN=1 on every valid slot.
++	 *
++	 * Two address-programming helpers write des3 unconditionally and
++	 * therefore clear the OWN bit that stmmac_clear_descriptors() set:
++	 *
++	 *  - stmmac_desc_ops.set_sec_addr (called by stmmac_set_desc_sec_addr()):
++	 *    writes des3 with upper_32_bits(addr).
++	 *
++	 *  - stmmac_mode_ops.init() (called by stmmac_mode_init() above): writes
++	 *    des3 with the next-descriptor physical address.
++	 *
++	 * A single pass over valid slots restores OWN=1 after all descriptor
++	 * fields have been written.  NULL slots are left with OWN=0 for XSK mode
++	 * so the Rx DMA engine stalls safely.
++	 */
++	for (i = 0; i < dma_conf->dma_rx_size; i++) {
++		buf = &rx_q->buf_pool[i];
++		p = stmmac_get_rx_desc(priv, rx_q, i);
++
++		if (rx_q->xsk_pool ? !!buf->xdp : !!buf->page)
++			stmmac_set_rx_owner(priv, p, false);
++	}
++
++	return 0;
++}
++
+ /**
+  * stmmac_free_rx_buffer - free RX dma buffers
+  * @priv: private structure
+@@ -8272,6 +8411,7 @@ int stmmac_resume(struct device *dev)
+ {
+ 	struct net_device *ndev = dev_get_drvdata(dev);
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
++	u32 queue;
+ 	int ret;
+ 
+ 	if (priv->plat->resume) {
+@@ -8321,6 +8461,25 @@ int stmmac_resume(struct device *dev)
+ 	stmmac_free_tx_skbufs(priv);
+ 	stmmac_clear_descriptors(priv, &priv->dma_conf);
+ 
++	/* Re-program the RX descriptor buffer-address fields.  Slots that
++	 * had no page at suspend time (GFP_ATOMIC failure) are re-allocated
++	 * here with GFP_KERNEL; XSK slots without an xdp buffer are refilled
++	 * from the pool if possible.  Any unrecoverable allocation failure
++	 * is reported so the resume can be aborted cleanly.
++	 */
++	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++) {
++		ret = stmmac_reinit_rx_descriptors(priv, &priv->dma_conf,
++						   queue);
++		if (ret) {
++			netdev_err(priv->dev,
++				   "%s: rx desc reinit failed on queue %u\n",
++				   __func__, queue);
++			mutex_unlock(&priv->lock);
++			rtnl_unlock();
++			return ret;
++		}
++	}
++
+ 	ret = stmmac_hw_setup(ndev);
+ 	if (ret < 0) {
+ 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+-- 
+2.34.1
 
 
