@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A185FCD6E6D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 15:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD0B9CD6E6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 15:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3jWw5pV06fORQkI1JG/WCbbJGTQXajDPljg/emvCKA8=; b=okKUO8V55cJ67Fwp+5cTIXUjpM
-	vVX8G5/j/Sna4UvfSGBbtlMecSQXK2JKbEWNlQHTlzms26srITQRaIqxifzFceRdaJDe0M8Ah6Cjs
-	9NCnrCcZdyv6xnFeL2cPuoFsTCMoXHf8rsvzjcSrthKjxPqSogrEzh2ky0kItZw7QFJN4VVasxbgG
-	GuXvqaYBVv55dm+1WTzR4ahuUb6A64CeQGtCMv+QJsXYv+dWSQZTCenhYiRIUi644Bq7Rjp3BRX8N
-	JtbZ8aUxjaata+6iAJ+NDCDwj3Rujg8mi0ZlU8BaU2Jch0bl2iPfrZPXqgLCh6CL5jxiT1X34GILx
-	HM29WQSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pVuZuEBIULjzQABGGJSQfIDgV0lIC+f74CyYOz83UH0=; b=cwOVAPafLy2TB9EMqxf47oRYMT
+	DVGZNSH6aHKpLDiehcc3V4m0UUgIpscoMNSREAOn27X7OKKOkFKSdpzgZCqJwzRNwlucJYDoOv5t7
+	m298zqCjfekRh4/GqZaO570GUfJwrnBlKPdvaN+AUWI5gUvWfjUklDZJiV9+XQc9ViW1UdHiw6sLr
+	8ApmQtcl2A9W+/V670JDxmDtpuYPKgrXtmidGPYyd2i8UGV7jlOfcMWxuwrZEBassKjhPh/xWCotN
+	/q5ccdq1I0UMcFWAZuXvKpFidOjRd9tbS6eDJprCvvgddos3x2ouFI1fldVGnP9p0aR4wTg8Fd9dC
+	RjynMhhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9rV-0000000Gz1K-0v8s;
-	Thu, 04 Jun 2026 15:20:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9rR-0000000GyzT-1SZw
+	id 1wV9ui-0000000GzNG-2npN;
+	Thu, 04 Jun 2026 15:23:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wV9uh-0000000GzMs-2jFF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 04 Jun 2026 15:23:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pVuZuEBIULjzQABGGJSQfIDgV0lIC+f74CyYOz83UH0=; b=owntsuAXb9GUQz/kCVnq93ffSk
+	kgsOSqB+ofq6nsUx4piE0FyaiyEHX1+S5INZw3vCwm/FgMgTkxXFSMBQyeJ0jdzfBPPqgev9RoR/k
+	xvF06tRkplVtDCsVe7yCbm0NShxaF1C9y8CI5NWu2XxzdIBUZ5jJy59l7MtPQAdMs/njoc/hMI3gF
+	dzwoSHXWgMbg2kQ4bdGbYpmCQ0OzNDsDR9I0vsSgAJEGC9ufyN9zyyAv9JSYfsc9QQBREnqEaIT2+
+	X951uVZwNJac02WZKb/sIo3VDYPikS/4iUaYllQAxm6WGIi10BnvePMur1pAeEaTrh70J+IJFCy5i
+	eAebvC1Q==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wV9ue-0000000EVV6-3Wnf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 15:19:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65B324987;
-	Thu,  4 Jun 2026 08:19:51 -0700 (PDT)
-Received: from [10.1.34.54] (e122027.cambridge.arm.com [10.1.34.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 262C53F86F;
-	Thu,  4 Jun 2026 08:19:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780586396; bh=HvfO44xa1d6767yyBKRdYlUuD34NvkSU9Blr1WwhJRo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aq8DG7eZuBudnqx+yEfAWcSb0lQvnEawVskg+UC25RcwvqWzfy4fpu7IoEXbs2ZGp
-	 ZWPigStcIwbpmSTPhjHjvAqdnZYq4FqYs+s8HlAz1ZXcqmO1f6n8ErjRzdeimDM/N/
-	 sQmGNiGTBIM32ffyTGnTOyGuHyW1uGRSu57E+6mw=
-Message-ID: <51e97f29-6b3d-4924-a970-88dca360c58f@arm.com>
-Date: Thu, 4 Jun 2026 16:19:40 +0100
+	Thu, 04 Jun 2026 15:23:18 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wV9uP-0008Cm-TC; Thu, 04 Jun 2026 17:23:01 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wV9uP-0016D7-1k;
+	Thu, 04 Jun 2026 17:23:01 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wV9uP-00000000CcW-1o5o;
+	Thu, 04 Jun 2026 17:23:01 +0200
+Message-ID: <f92114a3658185b57bffe546c0f4079a9d39afce.camel@pengutronix.de>
+Subject: Re: [PATCH RFC v3 0/5] ZTE zx297520v3 clock bindings and driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Stefan =?ISO-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>,  Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
+ Herring <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Brian Masney	 <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Thu, 04 Jun 2026 17:23:01 +0200
+In-Reply-To: <2062167.PYKUYFuaPT@strix>
+References: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
+	 <5620a8969da87612a2d89578be656b5d00662635.camel@pengutronix.de>
+	 <2062167.PYKUYFuaPT@strix>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 10/44] arm64: RMI: Add support for SRO
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-11-steven.price@arm.com>
- <864ik0x22q.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <864ik0x22q.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_081957_477578_43D934B9 
-X-CRM114-Status: GOOD (  37.98  )
+X-CRM114-CacheID: sfid-20260604_162316_993151_A004CA74 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,458 +95,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 15:35, Marc Zyngier wrote:
-> On Wed, 13 May 2026 14:17:18 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO). This
->> means that an SMC can return with an operation still in progress. The
->> host is excepted to continue the operation until is reaches a conclusion
->> (either success or failure). During this process the RMM can request
->> additional memory ('donate') or hand memory back to the host
->> ('reclaim'). The host can request an in progress operation is cancelled,
->> but still continue the operation until it has completed (otherwise the
->> incomplete operation may cause future RMM operations to fail).
->>
->> The SRO is tracked using a struct rmi_sro_state object which keeps track
->> of any memory which has been allocated but not yet consumed by the RMM
->> or reclaimed from the RMM. This allows the memory to be reused in a
->> future request within the same operation. It will also permit an
->> operation to be done in a context where memory allocation may be
->> difficult (e.g. atomic context) with the option to abort the operation
->> and retry the memory allocation outside of the atomic context. The
->> memory stored in the struct rmi_sro_state object can then be reused on
->> the subsequent attempt.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> v14:
->>  * SRO support has improved although is still not fully complete. The
->>    infrastructure has been moved out of KVM.
->> ---
->>  arch/arm64/include/asm/rmi_cmds.h |   1 +
->>  arch/arm64/kernel/rmi.c           | 359 ++++++++++++++++++++++++++++++
->>  2 files changed, 360 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
->> index eb213c8e6f26..1a7b0c8f1e38 100644
->> --- a/arch/arm64/include/asm/rmi_cmds.h
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -35,6 +35,7 @@ struct rmi_sro_state {
->>  
->>  int rmi_delegate_range(phys_addr_t phys, unsigned long size);
->>  int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
->> +int free_delegated_page(phys_addr_t phys);
->>  
->>  static inline int rmi_delegate_page(phys_addr_t phys)
->>  {
->> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
->> index 08cef54acadb..a8107ca9bb6d 100644
->> --- a/arch/arm64/kernel/rmi.c
->> +++ b/arch/arm64/kernel/rmi.c
->> @@ -48,6 +48,365 @@ int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
->>  	return ret;
->>  }
->>  
->> +static unsigned long donate_req_to_size(unsigned long donatereq)
->> +{
->> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
->> +
->> +	switch (unit_size) {
->> +	case 0:
->> +		return PAGE_SIZE;
->> +	case 1:
->> +		return PMD_SIZE;
->> +	case 2:
->> +		return PUD_SIZE;
->> +	case 3:
->> +		return P4D_SIZE;
-> 
-> How does this work when we have folded levels? If this is supposed to
-> be the architected size, then it should actively express that:
-> 
-> 	return BIT(unit_size * (PAGE_SHIFT - 3) + PAGE_SHIFT);
+Hi Stefan,
 
-It doesn't work (as Gavin also pointed out). There's an existing macro
-to make this even cleaner:
+On Mi, 2026-06-03 at 23:49 +0300, Stefan D=C3=B6singer wrote:
+> Hi Philipp,
+>=20
+> Am Mittwoch, 3. Juni 2026, 11:50:14 Ostafrikanische Zeit schrieben Sie:
+> > When there is no interaction required when operating the clk/reset
+> > bits, I prefer the reset driver sitting in drivers/reset as an aux
+> > device, especially when register access can be abstracted via a shared
+> > regmap. Some of the reset drivers under drivers/clk just predate the
+> > aux bus.
+>=20
+> There are two interactions:
+>=20
+> The register lock because all LSP and at least one TOP register contains =
+both=20
+> clocks and resets.
 
-return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(3 - unit_size));
+That could be solved with regmap.
 
->> +	}
->> +	unreachable();
->> +}
->> +
->> +static void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs_in,
->> +			     struct arm_smccc_1_2_regs *regs_out)
->> +{
->> +	struct arm_smccc_1_2_regs regs = *regs_in;
->> +	unsigned long status;
->> +
->> +	do {
->> +		arm_smccc_1_2_invoke(&regs, regs_out);
->> +		status = RMI_RETURN_STATUS(regs_out->a0);
->> +	} while (status == RMI_BUSY || status == RMI_BLOCKED);
->> +}
->> +
->> +int free_delegated_page(phys_addr_t phys)
->> +{
->> +	if (WARN_ON(rmi_undelegate_page(phys))) {
-> 
-> Please drop this WARN_ON(). Or at least make it ONCE. Everywhere.
+> Shared register definition: in the case of the LSP clocks breaking up the=
+=20
+> composite definition would sacrifice readability.
 
-Happy to change to WARN_ON_ONCE(). I think we should keep a WARN of some
-sort as this is causing Linux to leak pages - it's definitely something
-the sysadmin would want to know about.
+That is a matter of perspective.
 
->> +		/* Undelegate failed: leak the page */
->> +		return -EBUSY;
->> +	}
->> +
->> +	free_page((unsigned long)phys_to_virt(phys));
->> +
->> +	return 0;
->> +}
->> +
->> +static int rmi_sro_ensure_capacity(struct rmi_sro_state *sro,
->> +				   unsigned long count)
->> +{
->> +	if (WARN_ON_ONCE(sro->addr_count > RMI_MAX_ADDR_LIST))
->> +		return -EOVERFLOW;
->> +
->> +	if (count > RMI_MAX_ADDR_LIST - sro->addr_count)
->> +		return -ENOSPC;
->> +
->> +	return 0;
->> +}
->> +
->> +static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
->> +				 unsigned long sro_handle,
->> +				 unsigned long donatereq,
->> +				 struct arm_smccc_1_2_regs *out_regs,
->> +				 gfp_t gfp)
->> +{
->> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
->> +	unsigned long unit_size_bytes = donate_req_to_size(donatereq);
->> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
->> +	unsigned long state = RMI_DONATE_STATE(donatereq);
->> +	unsigned long size = unit_size_bytes * count;
->> +	unsigned long addr_range;
->> +	int ret;
->> +	void *virt;
->> +	phys_addr_t phys;
->> +	struct arm_smccc_1_2_regs regs = {
->> +		SMC_RMI_OP_MEM_DONATE,
->> +		sro_handle
->> +	};
->> +
->> +	for (int i = 0; i < sro->addr_count; i++) {
->> +		unsigned long entry = sro->addr_list[i];
->> +
->> +		if (RMI_ADDR_RANGE_SIZE(entry) == unit_size &&
->> +		    RMI_ADDR_RANGE_COUNT(entry) == count &&
->> +		    RMI_ADDR_RANGE_STATE(entry) == state) {
->> +			sro->addr_count--;
->> +			swap(sro->addr_list[sro->addr_count],
->> +			     sro->addr_list[i]);
->> +
->> +			goto out;
->> +		}
->> +	}
->> +
->> +	ret = rmi_sro_ensure_capacity(sro, 1);
->> +	if (ret)
->> +		return ret;
->> +
->> +	virt = alloc_pages_exact(size, gfp);
->> +	if (!virt)
->> +		return -ENOMEM;
->> +	phys = virt_to_phys(virt);
->> +
->> +	if (state == RMI_OP_MEM_DELEGATED) {
->> +		if (rmi_delegate_range(phys, size)) {
->> +			free_pages_exact(virt, size);
->> +			return -ENXIO;
->> +		}
->> +	}
->> +
->> +	addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
->> +	FIELD_MODIFY(RMI_ADDR_RANGE_SIZE_MASK, &addr_range, unit_size);
->> +	FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, count);
->> +	FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
->> +
->> +	sro->addr_list[sro->addr_count] = addr_range;
->> +
-> 
-> Shouldn't this be moved to a helper that ensures capacity, and returns
-> an error otherwise?
+I had a harder time validating that the resets[] array is properly
+initialized from the two different composite arrays because of the
+unordered reset_ids, and some remaining resets[] being filled via code.
 
-I'm not sure quite what you are suggesting. I already have a
-rmi_sro_ensure_capacity() helper. By this point we know there's space.
+It would be much simpler if you split the reset definitions out into a
+single, separate, const array, indexed by reset id. In fact,
+I would suggest this even if you don't intend to move the reset code.
 
->> +out:
->> +	regs.a2 = virt_to_phys(&sro->addr_list[sro->addr_count]);
->> +	regs.a3 = 1;
-> 
-> This could really do with context specific helpers that populate regs
-> based on a set of parameters. I have no idea what this 1 here is, and
-> the init is spread over too much code. Think of the children!
-> 
-> That's valid for the whole patch.
+> Neither of them are insurmountable and I can certainly arrange a separati=
+on if=20
+> asked to - but my preference is to keep them together.
 
-That's a good point. SRO is a bit tricky because I wanted the actual SMC
-call to be done in one place so we can handle all the RMI_INCOMPLETE
-cases together. But I could certainly add some helpers to setup the
-registers rather than assigning directly to regs.a<n>.
+I'll leave this up to the clock maintainers.
 
-Thanks,
-Steve
-
-> 	M.
->> +	rmi_smccc_invoke(&regs, out_regs);
->> +
->> +	unsigned long donated_granules = out_regs->a1;
->> +	unsigned long donated_size = donated_granules << PAGE_SHIFT;
->> +
->> +	if (donated_granules == 0) {
->> +		/* No pages used by the RMM */
->> +		sro->addr_count++;
->> +	} else if (donated_size < size) {
->> +		phys = sro->addr_list[sro->addr_count] & RMI_ADDR_RANGE_ADDR_MASK;
->> +
->> +		/* Not all granules used by the RMM, free the remaining pages */
->> +		for (long i = donated_size; i < size; i += PAGE_SIZE) {
->> +			if (state == RMI_OP_MEM_DELEGATED)
->> +				free_delegated_page(phys + i);
->> +			else
->> +				__free_page(phys_to_page(phys + i));
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
->> +				    unsigned long sro_handle,
->> +				    unsigned long donatereq,
->> +				    struct arm_smccc_1_2_regs *out_regs,
->> +				    gfp_t gfp)
->> +{
->> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
->> +	unsigned long unit_size_bytes = donate_req_to_size(donatereq);
->> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
->> +	unsigned long state = RMI_DONATE_STATE(donatereq);
->> +	unsigned long found = 0;
->> +	unsigned long addr_list_start = sro->addr_count;
->> +	int ret;
->> +	struct arm_smccc_1_2_regs regs = {
->> +		SMC_RMI_OP_MEM_DONATE,
->> +		sro_handle
->> +	};
->> +
->> +	for (int i = 0; i < addr_list_start && found < count; i++) {
->> +		unsigned long entry = sro->addr_list[i];
->> +
->> +		if (RMI_ADDR_RANGE_SIZE(entry) == unit_size &&
->> +		    RMI_ADDR_RANGE_COUNT(entry) == 1 &&
->> +		    RMI_ADDR_RANGE_STATE(entry) == state) {
->> +			addr_list_start--;
->> +			swap(sro->addr_list[addr_list_start],
->> +			     sro->addr_list[i]);
->> +			found++;
->> +			i--;
->> +		}
->> +	}
->> +
->> +	ret = rmi_sro_ensure_capacity(sro, count - found);
->> +	if (ret)
->> +		return ret;
->> +
->> +	while (found < count) {
->> +		unsigned long addr_range;
->> +		void *virt = alloc_pages_exact(unit_size_bytes, gfp);
->> +		phys_addr_t phys;
->> +
->> +		if (!virt)
->> +			return -ENOMEM;
->> +
->> +		phys = virt_to_phys(virt);
->> +
->> +		if (state == RMI_OP_MEM_DELEGATED) {
->> +			if (rmi_delegate_range(phys, unit_size_bytes)) {
->> +				free_pages_exact(virt, unit_size_bytes);
->> +				return -ENXIO;
->> +			}
->> +		}
->> +
->> +		addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
->> +		FIELD_MODIFY(RMI_ADDR_RANGE_SIZE_MASK, &addr_range, unit_size);
->> +		FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, 1);
->> +		FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
->> +
->> +		sro->addr_list[sro->addr_count++] = addr_range;
->> +		found++;
->> +	}
->> +
->> +	regs.a2 = virt_to_phys(&sro->addr_list[addr_list_start]);
->> +	regs.a3 = found;
->> +	rmi_smccc_invoke(&regs, out_regs);
->> +
->> +	unsigned long donated_granules = out_regs->a1;
->> +
->> +	if (WARN_ON(donated_granules & ((unit_size_bytes >> PAGE_SHIFT) - 1))) {
->> +		/*
->> +		 * FIXME: RMM has only consumed part of a huge page, this leaks
->> +		 * the rest of the huge page
->> +		 */
->> +		donated_granules = ALIGN(donated_granules,
->> +					 (unit_size_bytes >> PAGE_SHIFT));
->> +	}
->> +	unsigned long donated_blocks = donated_granules / (unit_size_bytes >> PAGE_SHIFT);
->> +
->> +	if (WARN_ON(donated_blocks > found))
->> +		donated_blocks = found;
->> +
->> +	unsigned long undonated_blocks = found - donated_blocks;
->> +
->> +	while (donated_blocks && undonated_blocks) {
->> +		sro->addr_count--;
->> +		swap(sro->addr_list[addr_list_start],
->> +		     sro->addr_list[sro->addr_count]);
->> +		addr_list_start++;
->> +
->> +		donated_blocks--;
->> +		undonated_blocks--;
->> +	}
->> +	sro->addr_count -= donated_blocks;
->> +
->> +	return 0;
->> +}
->> +
->> +static int rmi_sro_donate(struct rmi_sro_state *sro,
->> +			  unsigned long sro_handle,
->> +			  unsigned long donatereq,
->> +			  struct arm_smccc_1_2_regs *regs,
->> +			  gfp_t gfp)
->> +{
->> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
->> +
->> +	if (WARN_ON(!count))
->> +		return 0;
->> +
->> +	if (RMI_DONATE_CONTIG(donatereq)) {
->> +		return rmi_sro_donate_contig(sro, sro_handle, donatereq,
->> +					     regs, gfp);
->> +	} else {
->> +		return rmi_sro_donate_noncontig(sro, sro_handle, donatereq,
->> +						regs, gfp);
->> +	}
->> +}
->> +
->> +static int rmi_sro_reclaim(struct rmi_sro_state *sro,
->> +			   unsigned long sro_handle,
->> +			   struct arm_smccc_1_2_regs *out_regs)
->> +{
->> +	unsigned long capacity;
->> +	struct arm_smccc_1_2_regs regs;
->> +	int ret;
->> +
->> +	ret = rmi_sro_ensure_capacity(sro, 1);
->> +	if (ret)
->> +		rmi_sro_free(sro);
->> +
->> +	capacity = RMI_MAX_ADDR_LIST - sro->addr_count;
->> +
->> +	regs = (struct arm_smccc_1_2_regs){
->> +		SMC_RMI_OP_MEM_RECLAIM,
->> +		sro_handle,
->> +		virt_to_phys(&sro->addr_list[sro->addr_count]),
->> +		capacity
->> +	};
->> +	rmi_smccc_invoke(&regs, out_regs);
->> +
->> +	if (WARN_ON_ONCE(out_regs->a1 > capacity))
->> +		out_regs->a1 = capacity;
->> +
->> +	sro->addr_count += out_regs->a1;
->> +
->> +	return 0;
->> +}
->> +
->> +void rmi_sro_free(struct rmi_sro_state *sro)
->> +{
->> +	for (int i = 0; i < sro->addr_count; i++) {
->> +		unsigned long entry = sro->addr_list[i];
->> +		unsigned long addr = RMI_ADDR_RANGE_ADDR(entry);
->> +		unsigned long unit_size = RMI_ADDR_RANGE_SIZE(entry);
->> +		unsigned long count = RMI_ADDR_RANGE_COUNT(entry);
->> +		unsigned long state = RMI_ADDR_RANGE_STATE(entry);
->> +		unsigned long size = donate_req_to_size(unit_size) * count;
->> +
->> +		if (state == RMI_OP_MEM_DELEGATED) {
->> +			if (WARN_ON(rmi_undelegate_range(addr, size))) {
->> +				/* Leak the pages */
->> +				continue;
->> +			}
->> +		}
->> +		free_pages_exact(phys_to_virt(addr), size);
->> +	}
->> +
->> +	sro->addr_count = 0;
->> +}
->> +
->> +unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
->> +{
->> +	unsigned long sro_handle;
->> +	struct arm_smccc_1_2_regs regs;
->> +	struct arm_smccc_1_2_regs *regs_in = &sro->regs;
->> +
->> +	rmi_smccc_invoke(regs_in, &regs);
->> +
->> +	sro_handle = regs.a1;
->> +
->> +	while (RMI_RETURN_STATUS(regs.a0) == RMI_INCOMPLETE) {
->> +		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs.a0);
->> +		int ret;
->> +
->> +		switch (RMI_RETURN_MEMREQ(regs.a0)) {
->> +		case RMI_OP_MEM_REQ_NONE:
->> +			regs = (struct arm_smccc_1_2_regs){
->> +				SMC_RMI_OP_CONTINUE, sro_handle, 0
->> +			};
->> +			rmi_smccc_invoke(&regs, &regs);
->> +			break;
->> +		case RMI_OP_MEM_REQ_DONATE:
->> +			ret = rmi_sro_donate(sro, sro_handle, regs.a2, &regs,
->> +					     gfp);
->> +			break;
->> +		case RMI_OP_MEM_REQ_RECLAIM:
->> +			ret = rmi_sro_reclaim(sro, sro_handle, &regs);
->> +			break;
->> +		default:
->> +			ret = WARN_ON(1);
->> +			break;
->> +		}
->> +
->> +		if (ret) {
->> +			if (can_cancel) {
->> +				/*
->> +				 * FIXME: Handle cancelling properly!
->> +				 *
->> +				 * If the operation has failed due to memory
->> +				 * allocation failure then the information on
->> +				 * the memory allocation should be saved, so
->> +				 * that the allocation can be repeated outside
->> +				 * of any context which prevented the
->> +				 * allocation.
-> 
-> Honestly, this is the sort of stuff that I'd expect to be solved
-> *before* posting this code. Since this is so central to the whole
-> memory management, it needs to be correct from day-1.
-> 
-> If you can't make it work in time, then tone the supported features
-> down. But FIXMEs and WARN_ONs are not the way to go.
-> 
-> 	M.
-> 
-
+regards
+Philipp
 
