@@ -4,84 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7056CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7224CD6E68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1/rC1fo+bW1nAFIVdIH1ju8UCCu+wCVbA2zMBO1aJME=; b=cCE/L7ayVW5hk6/A/X/myvqjPu
-	0WY28TuYIc6PImyYgRIOM2tKdbJ45mGtAZj5FTtPZLB2xG27/AnlsENVPVvj4V3e6fHqdq3386WhI
-	gjxKwtXtVA/BcbK0mzQWsWDkYLdkVYcMof4dmwSaPV7ryPjXvNZzXxBbOlhJftKz75iSsJMYYHHEF
-	F2ac/N90VMpP1GjUht73FlZVya7psDjawV1lsbYyaAeziC49sZsYXwu1vAQp1YTt4UEO1qqPe6thf
-	jnL/0e4SKB83F7t9PdMbkpBoR2/pIjXFwiHZRLofm86ogvTLx41RgpBAE+KH9Huw33nqClTS0YwJk
-	8uX1KFrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=; b=yVaIQyy//3QrDDpprOuINbitbE
+	+zOCiojEZXG6zgmkAWQHkciLnTLwjjTyUuoYalK6Ww7OaccWL/+0y3amSj3Mg1wMiwVPDmuR6y1iZ
+	/r5hRRoZN0z2b2UZTQtesgPtb+a6Ybln8SqTER5qnQPL8B/ASEi9u0ERGSLeZ/jfXvk/R/yCo8N2T
+	5ccsbWUAJPoEn7EkOWnC0XI6Z60FWHx9j15QizHJSWdh7GMVRjA3x7wKGc81vyuDvyKICrjXhqOsK
+	xWsWvpuNXDLx6fKLIOw/CBkDa3JnAbq3/9JazXqRZhobioUnQRRwH1aYqHECYTDNDxgLrsnHv3JDG
+	cFNwB49w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2wB-0000000GLQA-1lwM;
-	Thu, 04 Jun 2026 07:56:23 +0000
-Received: from mail-ed1-f47.google.com ([209.85.208.47])
+	id 1wV2wV-0000000GLUy-2Too;
+	Thu, 04 Jun 2026 07:56:43 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2w9-0000000GLPV-21Pf
+	id 1wV2wT-0000000GLTu-02Gd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 07:56:23 +0000
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-68bd9fce347so645293a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:56:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780559779; x=1781164579;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Thu, 04 Jun 2026 07:56:42 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-66050f7af22so67950d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:56:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780559800; cv=none;
+        d=google.com; s=arc-20240605;
+        b=G3+kziUIE0SfZzVw08EhJHscGujv6Xfz18APaAzmLjVOYHmTLQIv3tv7WSKdfce4jn
+         BJheof9U14u6EIxUEmlPr/G+aLhNxmO1kO/nsqiQ0pKhfeOM2q+f3lms6xuIe6d3jqfg
+         JC54/eVY2DmDf/FR0siomwbBHA3oBrIcYFxXnpcLD++JD1VQDWEFujxWt7Qws1AUTnsU
+         UI6NPZ34B+I4gOYdhBkpMwsHu2Dpr89NvS6AKC4phVPyw/X5yYokotG8+JR2lRNGajd0
+         oz8NRhq+AqmE/5cHI8JNuNq+jw5OA3DgL62m08Wg5VY2HIfaJUtbtnDOYaZQ8s2vLi71
+         hE7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=;
+        fh=molLIdaeTDVS6V56TF5SOmlKJcysgGaFl1S64cxEeFY=;
+        b=SCXTzqCWZqlo8gW+v6OezPnut8Fa0utApdFPQPZLwJmTvD11gfvkRv4ymziBWJYW/G
+         B0hpq/70sqVhTN1O7n7wQGH5/wg/qUA815T2vQmhvCFzTHYxxQUrbGRFDKLlS9pkcXGo
+         GOoSOUDzZmSRibM3Pdo4bYHuhgVuaT8lm7KbY9uoQ9qbfmEOg6HcyJXHbUilsep4tzp1
+         G6TFZJMNeQs3QsEx8/t4AVZ8o7Fh5hIg0j66M4JkGgpRaqLgeXzFxPhvTV6PWg3Pvy/B
+         /R0sXsAYXvS3nunujIKXQQ0q/AclPJqrDtPjazG+O3jAgSTq235qca+qWJAfTyRbN99h
+         5aaQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780559800; x=1781164600; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1/rC1fo+bW1nAFIVdIH1ju8UCCu+wCVbA2zMBO1aJME=;
-        b=ZgEAAUXpKLEzL9gzcxp+7TJsIaSj1LN4VUvPhnSWFutFV34lMxJVQQKhwpkDSW9bNc
-         mRl2JCF3JrzTjtIzqKscNauOyeOIA4CIqF7GvVFnS+SXCkP8hDNCQgq4Z5NJtcBHt8Yc
-         tP1gLtx7RXrck8lv5Hy3cdXlaRWTVLUkH4d7tEfCvROsGi07sZjtL0M8x36KKSPzzvHG
-         RvwuD62gIoULqAuHFLWPDDoY6VGpeoR/8N7/lq9cBtEZkTAja/W9/0JrIlWQHJyAkhWE
-         BSp16SKczdMS+pBGl3QqxOlNRaOgrPRsJXJ2cES/N9FMfXIuy2ecuFCzgalGCU8gbLkP
-         fpfQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+6XvT4QJ0erOe/SiLl3RhDh4KPQilnYzi41NzFlWuIt28RYEDYt80adAkOdwxsz03IqNjT7l6OGnB5y9t97av/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzNZjGh1HU/KoCbbKrNk+n1a7y6FNXwN79nKTvGMu1Z9tbRZlH
-	VpuOBGxbYshS3Yi8cheBtdaNvH+hxppwZVj5/rpFR3G3pdIJYcustxVdqKfWOinFoB4=
-X-Gm-Gg: Acq92OG0c2PguWmbJCQGa7i6C71+tphr9mv0E4OYkdSrTtMZrrQ7c8ePXrg/8PMHtg3
-	v/KRQFrmczLKb3zWgnW1+0XlSdhyGo50yV04PUhenw094CgBKCdGZQ+1UcSDau+USINnawAOewm
-	itxUtDujS2FwVyFNGxIRYTOf2hvYcGN4/JQ8chhOc2NemQRFTRa0i9BlZnHMKbWEpxndk0GgTjx
-	g4mQztdPGzD0YBAD+5W7q5PGjRl0wqoQ3NGlZjp3r/y9532xroS1NuLkUovofDpSeoqbcc0hyct
-	MqcXidXdHuLQ5UZtAL/OcRwWS+zA5/pS7tjZAuLyaSUoGaK9CcUy/DseJOFWkgYCwrxeGpQpnFq
-	JG1F92i6lyPtGuG9ctkRSsvY2kBEVLh9TE0u9uO5Rb1YncPjSEM+obUMAUHUw9idYrYlAyYllnN
-	82Ccj/ppnw39Q+RkqsSgY++LHOJHA59zhid3h0ubK9IuUnuWrB+ZR/K/tbL0zWLOU5896tpmf0i
-	+6+adzGZw==
-X-Received: by 2002:a05:6402:3492:b0:684:17b5:da63 with SMTP id 4fb4d7f45d1cf-68e7070f16amr3323476a12.9.1780559779325;
-        Thu, 04 Jun 2026 00:56:19 -0700 (PDT)
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com. [209.85.208.51])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-68e64c2f358sm2150939a12.6.2026.06.04.00.56.17
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jun 2026 00:56:18 -0700 (PDT)
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-68f1e28f258so674614a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:56:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+aE25/QT+Il1YzLUk2llFQ5P0gSSbW43qEhZovSrwyEOqUZ87hRzgq3Ns34wtUbJYWbonARFdbnpc7SKpOgYvJ@lists.infradead.org
-X-Received: by 2002:a17:907:7748:b0:bf1:8faf:d94e with SMTP id
- a640c23a62f3a-bf18fb047c0mr166351166b.40.1780559777705; Thu, 04 Jun 2026
- 00:56:17 -0700 (PDT)
+        bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=;
+        b=IaVHsx5iaC5sWiQpVIeXPt0WhwP/ErjtJAMIQWY6wAk4YJHLc2Ma37pgJTZEsN0yYf
+         /7qiAG/DPySQni60UnnhP9LtTopKLP1NB8+5WSnYLWeMo3tKivPHJ24wZVdgTW+ogQA0
+         ETldJBw+XBjcrL/4RVItaIo3mISDpdBBdc2ec81fFODNLkWvkuQeroNoP5gDxOG9Ez+3
+         Pp0RkZoF64hD7jaUjVHAFFzF2Qk7YkfUoiIWVhzURKCeMZYBup2b6P1ICPE0jw6KHlAy
+         FjgP4sYiRMh+n6g3WxLncsNhWV/kmB6Cr5fn+cX2awsa175oHZzWR2wA5sNJ9/fkgX1d
+         g6Mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780559800; x=1781164600;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=;
+        b=Yttbrp9e1kqCI1buQ77dTBm94ctQC4xlMgmhoWXUoMNqArIorNUC/tPWNiVmD8fdnF
+         cxJqXYheLc8MZBMRIYFdOAcF3edMK5c4ZviCQtO8IfGwKLGBRGhucephEVrRpDPLCmtU
+         CV5DmyH/vIhZdrQUqR9eYNOVJwbRgfz72pJMwyX/kzxZk4s5vKD8lBuuNVUvBnio6NRt
+         RqPq+0Hblk0gbf4oSj33DEb3iBUa1xPMzJpjvKM2cm6dBvS7D0GqhpFKa6Lkq9BnWyub
+         7p8JlcS0RW1XxB6kgVBr5pBgwtY8pPwE5wcIFDocfY77N2uZvZ/TWvBTP2nZhL0OmLw6
+         sjJA==
+X-Forwarded-Encrypted: i=1; AFNElJ8oOH64hSGt5+ZHtKOouZglAOKSy3Lx5vYvffW9arULkNZGnlwoRU1hotW+1lSoZ6N5POnIWu+v4xzY9Zfung08@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8PcjAKka7ODNbtQbkANAPFUfhj8gfHxehiT+S4vvGMVTnS8L0
+	i/3UVVL7QyHsK86mOooTW0YhcSOsx5bDiMNr6e3ih7CKKMstWRyY2+IcDxhGob77AzRqRZ7P6zr
+	fzjuWd1rqbtqg/TnL8ouD/iNbftxcCN0=
+X-Gm-Gg: Acq92OFg0y+nJua0gXURw1jmM2bQ/xTZEOFqnD8rTzHLldqLPc4itvWYT2MU2Lx13Fg
+	zfFxZC7cn3FRfZfCOIXyW71x7XcCGTU2Kc7eMEbOsPtlWGnePV3NHbvEh4TvScdye+wkkmA8jMx
+	LP1eOQHhwHQ3Q7rEUGeXjMkWBV9yyh3T0dm7xd6ofV+cqV97siqvsxBWTEYSfc5zQKpaHYqnspp
+	e7OetGsI+f+CZyUl+M/rHuUZ4pVff7dhc5rO/Pu0t3BfMYXsT53EaICoPW0S/P9PVG960I6bh5g
+	MFVe+NIdHCUQqJk=
+X-Received: by 2002:a53:ac81:0:b0:65e:3bde:1c8d with SMTP id
+ 956f58d0204a3-660f3e4dc46mr957229d50.2.1780559799732; Thu, 04 Jun 2026
+ 00:56:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260603213726.1025094-1-heiko@sntech.de>
-In-Reply-To: <20260603213726.1025094-1-heiko@sntech.de>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 4 Jun 2026 09:56:04 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUAoUmCNMBVRGgZzSt9SbZqV6SVW2brkvsBKuHrfWHKvw@mail.gmail.com>
-X-Gm-Features: AVHnY4IvkoGavCb3kflRroLCR9W-9Zf0z8gdDvwCFWuBrY3WYcj_OOUKtkUAgL4
-Message-ID: <CAMuHMdUAoUmCNMBVRGgZzSt9SbZqV6SVW2brkvsBKuHrfWHKvw@mail.gmail.com>
-Subject: Re: [PATCH] clk: rockchip: don't COMPILE_TEST builds on M68K
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: rosenp@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-clk@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>
+References: <20260529092703.33086-1-l.rubusch@gmail.com> <ah381bcuVfN8PQr0@linux.dev>
+In-Reply-To: <ah381bcuVfN8PQr0@linux.dev>
+From: Lothar Rubusch <l.rubusch@gmail.com>
+Date: Thu, 4 Jun 2026 09:56:03 +0200
+X-Gm-Features: AVHnY4J2DHztDoFLLVQlenrixqwpyOZeMKkQ7C8oahq4-g3DlS-OWLO5LNf1rU4
+Message-ID: <CAFXKEHamUnW9S2nvDD+iHdZB8+66s2SYVEq7KYvUbs32S4behw@mail.gmail.com>
+Subject: Re: [PATCH 1/1] crypto: atmel-ecc - fix use after free situation
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net, 
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+	claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org, krzk+dt@kernel.org, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_005621_529634_73C50726 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20260604_005641_065855_01DE9E19 
+X-CRM114-Status: GOOD (  37.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +119,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hi Thorsten, thanks for the feedback. Pls, find my comment down below.
 
-On Wed, 3 Jun 2026 at 23:37, Heiko Stuebner <heiko@sntech.de> wrote:
-> Rockchip clock drivers use hash-tables with enums as inputs.
+On Mon, Jun 1, 2026 at 11:42=E2=80=AFPM Thorsten Blum <thorsten.blum@linux.=
+dev> wrote:
 >
-> M68K does interesting things in its __hash_32() implementation, casting
-> that u32 input to an u16 and therefore triggering warnings like:
+> On Fri, May 29, 2026 at 09:27:03AM +0000, Lothar Rubusch wrote:
+> > Fixes a possible race condition, when having multiple of such devices
+> > attached (identified by sashiko feedback).
+> >
+> > The Scenario:
+> >     Thread A (Device 1 Probe): Successfully adds i2c_priv to the global
+> >              list (Line 324). The lock is released.
+> >     Thread B (An active crypto request): Concurrently calls
+> >               atmel_ecc_i2c_client_alloc(). It scans the global list, s=
+ees
+> >               Device 1, and assigns a crypto job to it.
+> >     Thread A: Moves to line 332. crypto_register_kpp() fails (e.g., out=
+ of
+> >               memory or name clash).
+> >     Thread A: Enters the error path. It removes Device 1 from the list =
+and
+> >               frees the i2c_priv memory.
+> >     Thread B: Is still actively trying to talk to the I2C hardware usin=
+g
+> >               the i2c_priv pointer it grabbed in Step 2. The memory is =
+now
+> >               gone. Result: Kernel crash (Use-After-Free).
+> >
+> > Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel E=
+CC driver")
+> > Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+> > ---
+> >  drivers/crypto/atmel-ecc.c | 10 ++++++++++
+> >  drivers/crypto/atmel-i2c.h |  2 ++
+> >  2 files changed, 12 insertions(+)
+> >
+> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+> > index 0ca02995a1de..d391fe1462f6 100644
+> > --- a/drivers/crypto/atmel-ecc.c
+> > +++ b/drivers/crypto/atmel-ecc.c
+> > @@ -218,6 +218,8 @@ static struct i2c_client *atmel_ecc_i2c_client_allo=
+c(void)
+> >
+> >       list_for_each_entry(i2c_priv, &driver_data.i2c_client_list,
+> >                           i2c_client_list_node) {
+> > +             if (!i2c_priv->ready)
+> > +                     continue;
+> >               tfm_cnt =3D atomic_read(&i2c_priv->tfm_count);
+> >               if (tfm_cnt < min_tfm_cnt) {
+> >                       min_tfm_cnt =3D tfm_cnt;
+> > @@ -322,20 +324,24 @@ static int atmel_ecc_probe(struct i2c_client *cli=
+ent)
+> >               return ret;
+> >
+> >       i2c_priv =3D i2c_get_clientdata(client);
+> > +     i2c_priv->ready =3D false;
+> >
+> >       spin_lock(&driver_data.i2c_list_lock);
+> >       list_add_tail(&i2c_priv->i2c_client_list_node,
+> >                     &driver_data.i2c_client_list);
+> > +     i2c_priv->ready =3D true;
+> >       spin_unlock(&driver_data.i2c_list_lock);
+> >
+> >       ret =3D crypto_register_kpp(&atmel_ecdh_nist_p256);
+> >       if (ret) {
+> >               spin_lock(&driver_data.i2c_list_lock);
+> > +             i2c_priv->ready =3D false;
+> >               list_del(&i2c_priv->i2c_client_list_node);
+> >               spin_unlock(&driver_data.i2c_list_lock);
+> >
+> >               dev_err(&client->dev, "%s alg registration failed\n",
+> >                       atmel_ecdh_nist_p256.base.cra_driver_name);
+> > +             return ret;
+> >       } else {
+> >               dev_info(&client->dev, "atmel ecc algorithms registered i=
+n /proc/crypto\n");
+> >       }
+> > @@ -347,6 +353,10 @@ static void atmel_ecc_remove(struct i2c_client *cl=
+ient)
+> >  {
+> >       struct atmel_i2c_client_priv *i2c_priv =3D i2c_get_clientdata(cli=
+ent);
+> >
+> > +     spin_lock(&driver_data.i2c_list_lock);
+> > +     i2c_priv->ready =3D false;
+> > +     spin_unlock(&driver_data.i2c_list_lock);
+> > +
+> >       /* Return EBUSY if i2c client already allocated. */
+> >       if (atomic_read(&i2c_priv->tfm_count)) {
+> >               /*
+> > diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
+> > index 72f04c15682f..e3b12030f9c4 100644
+> > --- a/drivers/crypto/atmel-i2c.h
+> > +++ b/drivers/crypto/atmel-i2c.h
+> > @@ -129,6 +129,7 @@ struct atmel_ecc_driver_data {
+> >   * @wake_token_sz       : size in bytes of the wake_token
+> >   * @tfm_count           : number of active crypto transformations on i=
+2c client
+> >   * @hwrng               : hold the hardware generated rng
+> > + * @ready               : hw client is ready to use
+> >   *
+> >   * Reads and writes from/to the i2c client are sequential. The first b=
+yte
+> >   * transmitted to the device is treated as the byte size. Any attempt =
+to send
+> > @@ -145,6 +146,7 @@ struct atmel_i2c_client_priv {
+> >       size_t wake_token_sz;
+> >       atomic_t tfm_count ____cacheline_aligned;
+> >       struct hwrng hwrng;
+> > +     bool ready;
+> >  };
 >
->    drivers/clk/rockchip/clk-rk3528.c: note: in included file (through include/linux/hash.h, include/linux/slab.h):
->      arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates bits from constant value (18720 becomes 8720)
->      arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates bits from constant value (1e8e8 becomes e8e8)
+> I don't think the ready flag fixes the race. A concurrent tfm can still
+> bind to the shared I2C client after atmel_ecc_probe() adds it to the
+> global list and marks it as ready, but before crypto_register_kpp()
+> fails.
+
+Argh... I see your point. The "ready" now is transparent to the
+i2c_client_list usage and serves for nothing, that's nonsense. Going
+some overengineering-steps back, my original idea (to satisfy a
+sashiko complaint), in my own words:
+
+Thread A:
+1. probe()
+  V
+2. probe(): add i2c_priv to i2c_client_list <-------------- Thread B reques=
+ts
+  V
+3. probe(): registers kpp
+  V
+4. probe(): say, register kpp fails
+  V
+5. probe(): remove i2c_priv from i2c_client_list <-----
+
+Thread B:
+Now if a crypto request/TFM comes in (thread B) and requests a client
+from the i2c_client_list.
+(Note, this is a case where the device must be, say, the second such
+device so that kpp is already registered for any atmel driver).
+
+If this happens before step 2 or after step 5, it's fine. This
+instance is still not on the list. If it happens at step 2 through
+step 4 this is problematic. A i2c_priv could be returned which is
+actually (still) not ready. In the meanwhile i2c_priv will be removed,
+but the TFM continues refering to this instance.
+
+Question:
+- Do you see the issue here, too? Or, is my understanding wrong? Can
+this be problematic / lead to UAF?
+
+- If true, my first idea was to set a "ready" state initially to
+false, after kpp registered successfully, set it to true. The flag is
+checked then, as in this patch. Then I probably messed it up. So,
+could this approach solve the situation?
+
+If you not answer I'll present this in the next days.
+
+Best,
+L
+
 >
-> As M68K should never ever need Rockchip clock drivers, simply disable
-> compile-tests for M68K.
->
-> Fixes: 7edfb7fb58ee ("clk: rockchip: allow COMPILE_TEST builds")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202605191434.PQkj2Rki-lkp@intel.com/
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-
-Thanks for your patch!
-
-> --- a/drivers/clk/rockchip/Kconfig
-> +++ b/drivers/clk/rockchip/Kconfig
-> @@ -4,6 +4,7 @@
->  config COMMON_CLK_ROCKCHIP
->         bool "Rockchip clock controller common support"
->         depends on ARCH_ROCKCHIP || COMPILE_TEST
-> +       depends on !M68K
->         default ARCH_ROCKCHIP
->         help
->           Say y here to enable common clock controller for Rockchip platforms.
-
-Obviously this is the wrong fix ;-)
-
-I have sent a better one, fixing the issue for every user:
-"[PATCH] m68k: hash: Use lower_16_bits() helper"
-https://lore.kernel.org/b55e9bd0532c0cad519809c86e0a8400060d75a1.1780559561.git.geert@linux-m68k.org
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> Thanks,
+> Thorsten
 
