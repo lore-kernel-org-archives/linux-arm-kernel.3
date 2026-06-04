@@ -4,100 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531E3CD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA35CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uIKj96R+mEy42VSULqrrxSvXG3JwcLwhhMAkRL+6Hlg=; b=aO1XnmBblAo/0XcJI58xt/2IyL
-	D2pa30rCnKlnDclg1YRk6J5F/FCZAzMsCN50jbt25OC4DWpqWzZmyNW+HLvcm38rVB/cV8w/CUiLi
-	FxTmdsg9lCfUawKOdoZnecAyVGfZpIaa6ZDDvlDMDRFHqSLprJDMcOFN6souaRJQrrRP2a1+Y6Npv
-	jZzB9/CKiaHbLgrGrULnceJ33Fs9VT9I41Km5928nVtLKbvLjJiibMTGrn2ubvEiy+5qnsCrCJSl1
-	v3V5CuyF0AA8F9L4kU0264pRosGwPkdoyttSr27I7l6y6vCKvMD3eGYoKqdxt9sI8nqKUoNBJc8so
-	fD25UUdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xWeXD5b3Mu0UToFxdMygz4f9aecflESnL2RYK3Wz5FE=; b=nV9V8m4ZAGOmswla7RXFaWo127
+	LSch0O2if34SEtpMolUlGVq+x/MkKa258JGnzbVwLZGoTopbYoAHwSoNvh7173mPSJdmsOwC2+PLu
+	6Oj4FA9u4hOFHbjV9Swwer5MXhy7Vrp0Oj2IYgB3t3YebvttwfsuhxL/gH7ILECz1lmV+3wn186aK
+	Su0f9Sxx2m49sT9JP1TLsONhP04C8seBSWi2Sz3s4nbm3F3hHy2k47LGuU8ks1McaXwabWjVajHMt
+	5eFdAPWxHGLdLUdd/VJN1HdJzKbFVS//qd8gt+APNIGbamxxyuniFz9n9uFRbIf1e9YP3dIE/LN8q
+	1zEPQHvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3SP-0000000GNQA-3s6u;
-	Thu, 04 Jun 2026 08:29:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wV3TT-0000000GNXW-0KDF;
+	Thu, 04 Jun 2026 08:30:47 +0000
+Received: from mail-centralusazon11011017.outbound.protection.outlook.com ([52.101.62.17] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3SM-0000000GNPe-3eNy
+	id 1wV3TQ-0000000GNXB-2nm0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 08:29:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1780561776;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uIKj96R+mEy42VSULqrrxSvXG3JwcLwhhMAkRL+6Hlg=;
-	b=X9L+bNbEVZ2HE5DSmXdUeMDEKMqRdY+EBl+NNYarszeepWhR1rO3gE1wLt6psGrbnLycR2
-	pZG4GcAxINgMzf7/pYqxSXJI5BOnDY2k+50Qfkr1g/WvpqnGHPhzfkpdTUtAu8jjSRD3c2
-	jzun+c0ctk/sLmSq0TMZanV45GSzccg=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-255-VlBwSP9HNAWd_JF5um5dLQ-1; Thu, 04 Jun 2026 04:28:02 -0400
-X-MC-Unique: VlBwSP9HNAWd_JF5um5dLQ-1
-X-Mimecast-MFC-AGG-ID: VlBwSP9HNAWd_JF5um5dLQ_1780561681
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-46011aa5000so182453f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 01:28:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780561681; x=1781166481;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uIKj96R+mEy42VSULqrrxSvXG3JwcLwhhMAkRL+6Hlg=;
-        b=iAEOEYiaFnriDkBBcJ89N3Q3yiBqrcewZdzDQf9w+2PizFNVvJIv/t7hjSVmvwsfcz
-         od7+4bnQCZtPcmd95W1XOwK/yGdMnuFw0qsczYZmxF124lfUeAHLNLCx7nThrR9Ehhiu
-         OL8GuwEgVBbVuwpuYpOwQ5yJB9gQyklLT5LB+iydrDvymqrpzR7hkzfAyUHV8cH0/9S9
-         WTgN1MSoDtyRnf6ldUfOkLdgeeRVKyqRJqAowXAHoqenqjSBvtlrnQW/9eObzCvMEYrP
-         KQanYQ34LWOqcWEvRZ/ZBw+vfJNv3iMzyf6n0ViyEJj0TB7BBAiheqmYFn9K0FmQsMHE
-         tFkA==
-X-Forwarded-Encrypted: i=1; AFNElJ83CcAlc7ROjovXLI+i0i6chPPAmaDhvw5lB8zNrCJUpgTbABnc9tI1723x6TZkFvbFLjHTah3pvbRStCqJEIIr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdOLC6vXFcMRW9HnVBnRVGGvwcRWcP8ffEN5NK7jSUKD05NSAL
-	JyF9Oo9hfF5EmV5jFHFmbp8VoC6cwQC7sz6aBW5quONx7VwSYU+IySzxcVFN/KcjtRgSFVV1q4b
-	rML4QetmAw0AHdnbIlajJMYe/GSoFkX7orRkxv+QoCs4BknmIz/W67VVqi4FLG8NPrwtRPRnhET
-	VQ4QMZrMz1
-X-Gm-Gg: Acq92OFjLTPfQSm9YBGQNlPRDi6qfpDzpnGuz+n12yu04u31Krqb1GAChTOyUcAvD+f
-	pABC2FuTqSK2u5j11suG04gkPX3hSmt98YIA1KSEb5tYlfkox1r/ay0czgSLYOsl4uHTMG8YQYJ
-	+f25nvIlOgnOmDp3ww+fvzT5RLWtlYydj7UvQ0CQ9oNw7ASJvMQsF8PucfIOP/S9A6T8sFnbpy2
-	CI0tDEtgwz97OvAkgL5iUSBeGvXgMmdQAunO6VnR2L4XRMJTnKKmJ4dmm5n1zN1Y2inSYSVBhaR
-	sNrlS7wm47KGh28082kQiJUmPqnMHb/LfaaKm8LxdSI45EUSY2NpYD+JfCJg3iE1n81PPg6RvEg
-	9exWjAEy8YOKJkcDMbALPExcGT+m2GOESiUp82zAdJVSFaSkfu1ul8mEtZGVk9APS7C+QouDvXJ
-	A=
-X-Received: by 2002:a05:600c:c10e:b0:490:51e2:bc86 with SMTP id 5b1f17b1804b1-490b5fe81a2mr85465535e9.23.1780561680657;
-        Thu, 04 Jun 2026 01:28:00 -0700 (PDT)
-X-Received: by 2002:a05:600c:c10e:b0:490:51e2:bc86 with SMTP id 5b1f17b1804b1-490b5fe81a2mr85465165e9.23.1780561680306;
-        Thu, 04 Jun 2026 01:28:00 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3b59f0sm61873985e9.2.2026.06.04.01.27.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jun 2026 01:27:59 -0700 (PDT)
-Message-ID: <76355fdf-4658-4e3c-8dc5-d3aae8399dd8@redhat.com>
-Date: Thu, 4 Jun 2026 10:27:58 +0200
+	Thu, 04 Jun 2026 08:30:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MGKR7G0FFqsMFR2N8jXH34sK9JFQj7CbfsJ6KtVczcOS3ivDsL9C3cPnrn6MEKqliZ27KqY9Hzsny7L4THtve7pg3xccBPDCSxSnGuVQMZXtqu6XCyeXuC7kxl7k2LilwFskwcgGAUrpcWudjrQaLPLTKN1LpYPGPGr0FAfX13ZNuMOwuzRKMc76XZbKYlJx2cryL5hM67cQsDjTU5VmSb/x4AhyvhYYy4KnJUm1IVUMbJ6zE/UmHY2oShP9zFlL3xX1s+lwNS7Vs3cWU/VmHVM5f7plPMNHDBOwjoYltfVb9poqEwxj27rBAY7coz2jOlWRt6eFRo0oPzKC8m03EA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xWeXD5b3Mu0UToFxdMygz4f9aecflESnL2RYK3Wz5FE=;
+ b=ldUUPRUFHnJ+/KsrboovXcn42AFeHsV1KjgqLTvNXwOq2eeJXDRTA0GHeueJaUrEi1VBYdjBO4LZzin7c02NX/FJ1br1VohCwUdq+Brlxsfs5nGHihxmgAmTINUTTUSRp9PHUbCQulxJ8H5fqvoYXZ7DJrcnJXPqtfT/W0SOMbdiHDMW1hJjF7hFBIpVCObvRitVNtsDYwRgBXQXiskcnfZbscIiNmv5+FAr+jsmYRE+6xFl72j3K7W6gCh/KYVkHUTHJW9vAbi40bhvP0U+B6aMT3S+/0rD0bAbQYKq9urPtXoWSerJbvD2R4exl16AobFFkZkDT8X8eSlBE4XlIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xWeXD5b3Mu0UToFxdMygz4f9aecflESnL2RYK3Wz5FE=;
+ b=J6i5bsIAf5+Kwc9TWQNBxc1gPso3FtH27OTH8fAH5yLTjgQvvvFY6WPCTnE1kjva8AThFS/glKrrhRSAeidufDgBDUZua6aggbrG+ia7zjdx2kOhzY2z0PJS/42a4oeo4PO8VYJP3OVQBbXlnmpYb9jd/e2T8PEfYMsMcvxoQ1Q4NcACPvbsKGvVq2M/p9xHNEz1jjvjZ92s4CmbBu3vQX+fsZeXcLQ4MnO6YumcN8LLT8dwnJ5s3Pv+KAwgL0mEX05zn4+ojK/tqzW6+y7Se3RqK0ivdx4/g4BljYuDs0iz45mlpJm3tcX/lPrm4STo8xbljZiN+Pcs7LmRDqoXNg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by PH0PR03MB5941.namprd03.prod.outlook.com (2603:10b6:510:34::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
+ 08:30:39 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%6]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
+ 08:30:39 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] net: stmmac: xgmac: report L3/L4 filter match count in ethtool stats
+Date: Thu,  4 Jun 2026 01:30:37 -0700
+Message-ID: <20260604083037.24407-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR03CA0368.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a1::13) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Eric Auger <eauger@redhat.com>
-Subject: Re: [PATCH v2] KVM/arm64: vgic-its: Make ABI commit helpers return
- void
-To: Jackie Liu <liu.yun@linux.dev>, maz@kernel.org, oupton@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: yuzenghui@huawei.com, will@kernel.org, kvmarm@lists.linux.dev
-References: <20260604075147.53299-1-liu.yun@linux.dev>
-In-Reply-To: <20260604075147.53299-1-liu.yun@linux.dev>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jOV6bzLDnNWPaee9NJUdgMdjyZtkGSbIY0hVu7iqWCk_1780561681
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|PH0PR03MB5941:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1514ebb8-162c-4163-20b1-08dec2138efa
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|11063799006|56012099006|55112099003;
+X-Microsoft-Antispam-Message-Info: GxObSr+v9xf23qOZWRRJ9yYcpjHgF0oB+VTSFpPV8thIkLHX8ZlOzZPw25kBqMEd75MTSzTZw5AxU7+wpCBxtBX0UlSVTwR/S57rL5X5qZlt1I6p6TwrVLBCWiDUNpy7JoXQaAdX5+RC6M1t1CUpkdGOddoLe+WpNsgVPw7p/b1kH92yynhvGdRvQUR32ehSJAS7V6WX8xRUy430obdB4AflAFhFKeXCVuwWuygkERpKY3aDgDu2XmiCCXEenPEKTdLwasGkzUSA4gVHWS5shvEA8vS50Q05YrVIltwF7h+hGhwK/8Lzhb4z8svtkKoffJsIaO/bg01h7iMVQfV6mVE2zQELw6tYDrTFt7WzQlaCcndqPIiHzL7bcV4JnKJZe8Fd3is0bcF2f3MqeiDdm/xp2V70S+kPFBX8ZSwvyBlQI6OMJyWuGtBYeCdrWJ7VLeV6nos2/HXnVbE2satwldBnrsnvdrUyT0L1ayLkRB4i8qIV8aX5ETks+pJWRUPDQGS/ohyX/WFw3YcGVmc0txK+DNuvHG7sLwEgtEApLfe5iKhMuNqiMTjYVMYr9yhTEkoEO5JR34FoRajfULBDQmrYSs1dFtPGyozX+LHG4BQLM9bF1/IBzUmuPd7sjoY4ih7p/UZKriZrz+hoZOHSYXdNYI9NoXm2W8bklGt/087b/a3YSV3Lv1SEsHlgeJ90
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(11063799006)(56012099006)(55112099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uhrCcq2ZVsvLqyTJr4poH/8tl57SIlz7Boy3pz4uN1CPtd+fXf1ZpQhhzS/x?=
+ =?us-ascii?Q?g6fSMzk/HMwk9d9x679nhHAOW0wVyhVS+chcRU7nK6TyysBgpcG2bEUjMBiC?=
+ =?us-ascii?Q?yLQbWgMjT/jQi65z3XoDuTaFFJTWggRCOTxoXgd4hbqnGUZatIwGPazypkOj?=
+ =?us-ascii?Q?1U5yGV/GVm/nj7UW7MVtvDp6oKEQduuUTnID8t2D1cEeuv2S/MAJ8liGfDrr?=
+ =?us-ascii?Q?itOupZtVUuivqIwnqeoEbXHNfvgztSX97K11EJ3OcvONrEistZ0AFjiS1Xfl?=
+ =?us-ascii?Q?WX23Y5sZ75HclJBJ3hLF0pF2jcRiIM4cW24HNEurmMujUD0GtnqC8KzJFVXy?=
+ =?us-ascii?Q?oRHdBaoqeU4heYUN9zKMzy1qoLGlA7BSNG5iHrGS3kKlQ914y6TEwObbhGFc?=
+ =?us-ascii?Q?1VhCsOuOyKf7ls2z12x9/ib7VGMz3FsiBdawISJmv+PpEaaxjDhJRI4qkqg5?=
+ =?us-ascii?Q?RQzuBqbuuHBhx+YdjToAK/XHKdzaTjoS6cc01te9aSTAcD5/keT4+J+r6tyY?=
+ =?us-ascii?Q?mkvQIMiSu8sGhhQ6FY++SqyyLHWgJsJHJURDJHK+A1ehPS3Idwm+aVyJrIC2?=
+ =?us-ascii?Q?9bPITWe2/OQa1W7d3UEaW3DL2HNVnUPXWxsUekDbYB4YirUme/m1dMJgZSU+?=
+ =?us-ascii?Q?J31oJ6HYUxgdz/zzzcmFr+5xXzht+A4NEPZD+ZGQJUx79A5KmT3SmLcO/RvT?=
+ =?us-ascii?Q?UR+lEac3lD/rit7RFpM1ixNroU8X0MeXYsCR4irCXPAp0dQXeZ+liJno/feJ?=
+ =?us-ascii?Q?5xjq82DPKIa/qIhHvySw/vrZ2mUgaSv29r9WfL9dExaoUeS84r2VQSTGHkSy?=
+ =?us-ascii?Q?8zbtgnkDYcuRaRmNVuza9zRn0tTJ+ykAPC2t+7kS+U0AmwK6/RErIceAsrEX?=
+ =?us-ascii?Q?qW1zkjkHBti4W0sJdMGjCoLc37zTnoW3885VynmXtqUCUrYkdPqtEzI8170g?=
+ =?us-ascii?Q?0YaC+kECYuqHFpucfasqhUXJJFE0frXeKwC4bT9Ab7ZnEbPOfrFo4x5u85f9?=
+ =?us-ascii?Q?5+EZIg6Y3WPKVhX3clQVFOFiMfzxYtJ2LtNjxQcmMeVij5fNrb3sAN6IlOaZ?=
+ =?us-ascii?Q?1TDfI6sUDSzNXsJVkXtY2pUTVuwAgZC8hBKAkaru4uRew7vIUIZpqyLZ5M2M?=
+ =?us-ascii?Q?sp573eOT+z/TwXoBc4MtsdHT5g8ATMmdgqJqZbmvy7quKd2+WnvGFpjDQH4o?=
+ =?us-ascii?Q?Rbo1eD/CIqHacJreNVMk8WXDiEd2KH0BKzXHUxukAVi6pP2rbnSDxrnMxJxi?=
+ =?us-ascii?Q?sy0csUIl26zN/1+z4DMTPXD/2F64DfpyN/UNJrnSsbuuHvU0NGchr0TtjLxp?=
+ =?us-ascii?Q?/YaTGb5kL95hRJnFcApiHzmiqF/CHXRVEraSPaZjHHt8yq3hkSff0BIIpqci?=
+ =?us-ascii?Q?ULJ9F/mf3xMdaXaXv4fNT0/z9KIb8ZVbWGqZ1m1mtPnvWVFd0WMK1ashyIS0?=
+ =?us-ascii?Q?o3CQSll6l0sW93ZzdgSdQMVpg3ZGw7PNX8COD4SBCPUnWGU2Go84CnklgI/A?=
+ =?us-ascii?Q?Pcs59fbVbx319LreqSRkpGvpc8ReIanyuF025saVYonMCI5+eJoGEKBzFHuN?=
+ =?us-ascii?Q?P68qL2vPVua4j+2QTg0/wAJ81K8e4aQA6n4guoNytNQ5Po0o32TDo8P55SHb?=
+ =?us-ascii?Q?GK6O/jjMiViXw79kTEPvEET5HWs/VLOOxqnOrk/K+Ppa8POtU4/RGLsGcP+X?=
+ =?us-ascii?Q?rvTxX2rEwB7w7FWoHmQ8OeIyGCUAqtTZyYXlwKVaC0oshC5635s3pohISAhz?=
+ =?us-ascii?Q?Jj9XQYcJxm7xiVLpeMyiHHy3fhOdnBxgmLaHHVrYDbtWHx7UaYeKTX3ti+Sz?=
+X-MS-Exchange-AntiSpam-MessageData-1: 7zBphShBrn4F6Q==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1514ebb8-162c-4163-20b1-08dec2138efa
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 08:30:39.4030
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6dcP/MYEnK2H22Cr1JfQLHRPbX4zn66/0TX1BXxADJ6wuVrIY0+0GSEIZckKm4KknoFs6fJ3YvQPTHOxfcTqx6RkZevKBA/2xeU26I4BsfYwbidKZ+n4rqUOJ2mO5y/dLlnQPDm8jILwngvFKqM1vw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR03MB5941
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_012938_987943_F8B14F76 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20260604_013044_738209_5082702D 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,107 +147,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jackie,
+From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-On 6/4/26 9:51 AM, Jackie Liu wrote:
-> From: Jackie Liu <liuyun01@kylinos.cn>
-> 
-> The return values of vgic_its_set_abi() and vgic_its_commit_v0() are always
-> 0 and do not carry useful error information. Simplify by changing them to
-> void.
-> 
-> Suggested-by: Oliver Upton <oupton@kernel.org>
-> Signed-off-by: Jackie Liu <liuyun01@kylinos.cn>
-Reviewed-by: Eric Auger <eric.auger@redhat.com>
+Read the L3FM and L4FM bits from the RX descriptor status word (RDES2)
+and increment the corresponding ethtool statistics counters. This allows
+users to observe L3/L4 filter hit rates via ethtool -S.
 
-Thanks
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       | 2 ++
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 6 ++++++
+ 2 files changed, 8 insertions(+)
 
-Eric
-> ---
->  arch/arm64/kvm/vgic/vgic-its.c | 21 +++++++++------------
->  1 file changed, 9 insertions(+), 12 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> index 1d7e5d560af4..ca48b34dec20 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -27,7 +27,7 @@ static struct kvm_device_ops kvm_arm_vgic_its_ops;
->  
->  static int vgic_its_save_tables_v0(struct vgic_its *its);
->  static int vgic_its_restore_tables_v0(struct vgic_its *its);
-> -static int vgic_its_commit_v0(struct vgic_its *its);
-> +static void vgic_its_commit_v0(struct vgic_its *its);
->  static int update_lpi_config(struct kvm *kvm, struct vgic_irq *irq,
->  			     struct kvm_vcpu *filter_vcpu, bool needs_inv);
->  
-> @@ -168,7 +168,7 @@ struct vgic_its_abi {
->  	int ite_esz;
->  	int (*save_tables)(struct vgic_its *its);
->  	int (*restore_tables)(struct vgic_its *its);
-> -	int (*commit)(struct vgic_its *its);
-> +	void (*commit)(struct vgic_its *its);
->  };
->  
->  #define ABI_0_ESZ	8
-> @@ -192,13 +192,13 @@ inline const struct vgic_its_abi *vgic_its_get_abi(struct vgic_its *its)
->  	return &its_table_abi_versions[its->abi_rev];
->  }
->  
-> -static int vgic_its_set_abi(struct vgic_its *its, u32 rev)
-> +static void vgic_its_set_abi(struct vgic_its *its, u32 rev)
->  {
->  	const struct vgic_its_abi *abi;
->  
->  	its->abi_rev = rev;
->  	abi = vgic_its_get_abi(its);
-> -	return abi->commit(its);
-> +	abi->commit(its);
->  }
->  
->  /*
-> @@ -472,7 +472,8 @@ static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm,
->  
->  	if (rev >= NR_ITS_ABIS)
->  		return -EINVAL;
-> -	return vgic_its_set_abi(its, rev);
-> +	vgic_its_set_abi(its, rev);
-> +	return 0;
->  }
->  
->  static unsigned long vgic_mmio_read_its_idregs(struct kvm *kvm,
-> @@ -1888,14 +1889,11 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
->  	its->baser_coll_table = INITIAL_BASER_VALUE |
->  		((u64)GITS_BASER_TYPE_COLLECTION << GITS_BASER_TYPE_SHIFT);
->  	dev->kvm->arch.vgic.propbaser = INITIAL_PROPBASER_VALUE;
-> -
->  	dev->private = its;
->  
-> -	ret = vgic_its_set_abi(its, NR_ITS_ABIS - 1);
-> -
-> +	vgic_its_set_abi(its, NR_ITS_ABIS - 1);
->  	mutex_unlock(&dev->kvm->arch.config_lock);
-> -
-> -	return ret;
-> +	return 0;
->  }
->  
->  static void vgic_its_destroy(struct kvm_device *kvm_dev)
-> @@ -2610,7 +2608,7 @@ static int vgic_its_restore_tables_v0(struct vgic_its *its)
->  	return ret;
->  }
->  
-> -static int vgic_its_commit_v0(struct vgic_its *its)
-> +static void vgic_its_commit_v0(struct vgic_its *its)
->  {
->  	const struct vgic_its_abi *abi;
->  
-> @@ -2623,7 +2621,6 @@ static int vgic_its_commit_v0(struct vgic_its *its)
->  
->  	its->baser_device_table |= (GIC_ENCODE_SZ(abi->dte_esz, 5)
->  					<< GITS_BASER_ENTRY_SIZE_SHIFT);
-> -	return 0;
->  }
->  
->  static void vgic_its_reset(struct kvm *kvm, struct vgic_its *its)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index 51943705a2b0..95fdf3133208 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -429,6 +429,8 @@
+ #define XGMAC_TDES3_VLTV		BIT(16)
+ #define XGMAC_TDES3_VT			GENMASK(15, 0)
+ #define XGMAC_TDES3_FL			GENMASK(14, 0)
++#define XGMAC_RDES2_L4FM		BIT(28)
++#define XGMAC_RDES2_L3FM		BIT(27)
+ #define XGMAC_RDES2_HL			GENMASK(9, 0)
+ #define XGMAC_RDES3_OWN			BIT(31)
+ #define XGMAC_RDES3_CTXT		BIT(30)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index b5f200a87484..6719ac6e395b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -27,6 +27,7 @@ static int dwxgmac2_get_rx_status(struct stmmac_extra_stats *x,
+ 				  struct dma_desc *p)
+ {
+ 	u32 rdes3 = le32_to_cpu(p->des3);
++	u32 rdes2 = le32_to_cpu(p->des2);
+ 
+ 	if (unlikely(rdes3 & XGMAC_RDES3_OWN))
+ 		return dma_own;
+@@ -37,6 +38,11 @@ static int dwxgmac2_get_rx_status(struct stmmac_extra_stats *x,
+ 	if (unlikely((rdes3 & XGMAC_RDES3_ES) && (rdes3 & XGMAC_RDES3_LD)))
+ 		return discard_frame;
+ 
++	if (rdes2 & XGMAC_RDES2_L3FM)
++		x->l3_filter_match++;
++	if (rdes2 & XGMAC_RDES2_L4FM)
++		x->l4_filter_match++;
++
+ 	return good_frame;
+ }
+ 
+-- 
+2.43.7
 
 
