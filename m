@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E09CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4214FCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0OSD/VKi/puZajyl57HBfU17CQYq2Ug+p7OAnLKX/+0=; b=4hKCVN1dOqsB/j8tdDL0RS/KFP
-	f9/aCpNwvQTtUtRPt3SDh0/vIpMBrffvo3WHa5PIp8G18EH9a1QD4PDSF6n+ho12wNOggViPC+yZw
-	3Drjf0uDgyKsaj7MuSytl7BXCKMqcxgXWmYc+XcyD6FyptSwkMdLGLxlW8sDGX6jFXdGA95UuB4eu
-	qWvZprVfRUSxq952l5T0osj8OMtQWlbob3tLYVpxml2YMDJ8iD1uQsJNPBviU2+PzK2qDUTIzxTPo
-	s33llSkYgmXJojlcBkw5g5aG9OAuImkMv60hJpcvkfaS3qBjQKaawW1RZKQJrxdWsMyqo7RflLD92
-	M4MQdhcg==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X1HiQn7Sj8ACG6yAdiTjOB9XT8tmQZ7bjDWPDZ23wt0=; b=LlOnceuV+1ZsXiTECVqkNYgtxC
+	wnKXM2xbse3aiRZYsg0WQVsiN3RC0hdfctQTDQ6MU5JGdRC4CbHJVn/gEpj/Qkc1FAzVXFxx/t9QH
+	Qm7tf6KVk7HbjQMREjy9qW2NCIt34dQuP14OtyMr8lqS1vhf4ddQ9J0QYRl3o8PYcwNebTO+5PGwd
+	q4Wb8645aRZw3uEJcqxeGP7DA55qndSbZrOH4j4vka3Y/cLqvJFXbqthZvjSei84hZ1OLPza28F47
+	MvkIW9M6zVA4ogRXyw9JcIZdKVC51AYF/GOj4AozAuRy61QEELQH4trR3ED7cPPVhoL69GPlybfTz
+	bZZ6Mk7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7yx-0000000Glfa-2gH6;
-	Thu, 04 Jun 2026 13:19:35 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1wV85l-0000000GnFt-1P9T;
+	Thu, 04 Jun 2026 13:26:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7yu-0000000Glf1-1Dms
+	id 1wV85k-0000000GnFn-3lts
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 13:19:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1780579162; x=1781183962; i=markus.elfring@web.de;
-	bh=0OSD/VKi/puZajyl57HBfU17CQYq2Ug+p7OAnLKX/+0=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Zr3QA0o5eZxZBwhfb3NHaztu21LIuwI1LTA5IMuDYmMVoN/TDLAT1XiPy9HgsySC
-	 hMKZ9dfWHMbwjhZO6VVw6ZxKHVO/lOtF+jLKGY1qGAlPI3tr3HyhEV9eyq1KDvrf5
-	 QdYAq9bwJipKBeSCFhFuF/fNo6F2TuWdPOc9jeCh6j7un18Qi5RI9WxbpWsin9Zuz
-	 35KXw+dRitnsPRlrZWYetAgxg3Ir85GJ6CNI7SbYERSa690yNP3W3yunVdRH33MiP
-	 AbEWzpl6lsLqMijM1waYS4vzDr0fJjVyqO0GTII0iXWmIOGP/xKBoKeiluua06BmA
-	 U0S2k7Ovhrev6q5j3Q==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mvsq5-1xNMxZ0tC3-010yTj; Thu, 04
- Jun 2026 15:19:22 +0200
-Message-ID: <7b929238-1c8c-470b-a6ad-c929090f4c82@web.de>
-Date: Thu, 4 Jun 2026 15:19:15 +0200
+	Thu, 04 Jun 2026 13:26:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 90A2140338;
+	Thu,  4 Jun 2026 13:26:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E5461F00893;
+	Thu,  4 Jun 2026 13:26:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780579596;
+	bh=X1HiQn7Sj8ACG6yAdiTjOB9XT8tmQZ7bjDWPDZ23wt0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=bbdbeaSHdffGKrFkjEGKKLzhXkGm8ZRRyvvk2T38YWtxavtizF10huPufi3qBVIXc
+	 D/lrOcC6l4hAYS+dzW0pvH2k2SR8hkhpgMueiMPgMFQAokTjua6hv25qB5IeRq2JvA
+	 AJKheqD9FJGfs3gfN4V/5T8SVCIH1doGkFdILE4ZpJ2sfX4hjyN2PJO82AbYgB12Am
+	 J73q0GNh+IL7WbrJr4alMW2oZY/cPU3+bmr8yxgySP9/sTYsTIi0FxD8bZwqyYcqek
+	 ylMnfjPr5LVber9b3ojKwALS+3BaHJZGYtu2CR/Mt3j4NKScfSzgTKl2ImiQEDoO+U
+	 +YIsckLx1kFpA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+In-Reply-To: <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
+ <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+Date: Thu, 04 Jun 2026 18:56:28 +0530
+Message-ID: <yq5ase72qvwb.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Yicong Yang <yangyicong@hisilicon.com>
-Content-Language: en-GB, de-DE
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] arm64/cpufeature: Simplify data output in c_show()
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:iAmZO3jXuqxLYt1Az3G1ukyTQnWxJ/DwiVQfBQTdycFxopHZt7L
- P70Jzk27tFgM4eL/7Z+0xXtmyID1pyorRbnnufUx8x3RBjFbq3WtsQACFfD1sDaFURJFUqw
- qqCCYPYJf9umF9vck8rrX2xNHAlEAwPKDAJ8Y0WjTVasP8MrejkmlRC/p6lnpeVLMEAjhdi
- CER/J84zqwraGxNPpm0Kw==
-UI-OutboundReport: notjunk:1;M01:P0:txmsfiONF4E=;1fMPG/OhzXVl2lTWfinlftPZABl mEnMquwLTDkFDcV6vyElyN6kwhchz6UhDVOM/KWLYsWZYGBqAD8hehlal57fZ3fbvZtqh0I1A cuoDD8I6d1sdpNSM2cZHI/8EPFAtaUeAeaEe/qC7IQRNb2z1L426QjAjnsc9+ukVe/NtcoVoU CEyX0tRrhqUWk5Ab2ajW3Nzl8r1bNoPsgPHvlrv1PK4XGxxzfQg77T96pVbU1TFWfNfSHEqwD x9NNsB3yi33A2d+Xq5mW54ERh9eSbfam7TfC0LK4SLScVWNBv79Htihy9dFwZ0A/AmBqaq7Ha o1wMdG+fPrELiK089OuQuSR/dWMBXW5bJwNjj+Q2EqAmyVsQSYV9UyCqJKOrMFB3ieLwPozYm nAgftYF8BQzKDkPWRuG+gl91pUrpKkCwMd1kZrOKYjxkU832w3vb38Tes4/G8ZDxDRfNzPdKk KE6KWD6kz8z//zr+o+SxMdNGEhjOTLJq61A2r/nQo+llhfsqX3dGZewvHt9XQLVlodTPx6M3j ns39BCCgFT+lpPuy0/Q0HVi+yJaM0hgEK3csmbPr+6Z7HkLGqNKY4mSDruWptkcNmUx1QCi5C nktayuJt6G/s27boZl1r1s2hWbJG339JN2n5CXZ7vPZN66BGP5iWHJ4bnM0nLHHkJ3iQkrGg8 dRfQjs9/UP1Bj9x4s6xlqKlkX8OLK3NDlrmtqSuMxGSvSbh7o23Lp56HlCUhxKV3DPOHyHkgu GW+oIzj0YMe+MZhfPbfq1iHOZcEZibmp3oUOARbSfyyBdAqHvtUeLY+rRWVpPhT3nILCRXjeI N5qi0UibdYntJLvioVn+WX8DCSQwf0mJDRsEVQOuIhsiAKaP0AW1by8MFdL0Mv3NxDbfN0EtY Oy8G0S8IEK26QNKsRyWpcILt2mSedFW6XEn8m3DkUneFvw4LAo1Sx4XITnRXs1XRi32BgtY4f pufzTy8wqMGGpIbjc2RacyTBr2bOl5AIJ86O7I4eSq85NeOa6vi/G02SNeRT1vmSLxM/VQShu J0XDQ1rYNUoFDw6hWb7kn23r1dGpnfcmYT0JgxpmhDA9NXhyf5Inu7oLTdQGx2tIx5YSy2qAE LGDv5L8q4HzIh4kUqYpEOT+Ul+AoU1FcgVLD9LaEbNoHegQmwQoZqbk8uNwyJlHfgas2P41dt c2PbvgLc32HQKNITyHBO5qoZ/X6JW04H2nnq0cdBtQGCt3ghCDwJEu80I9/BIb9A6v99BQqmM IR0eFicKRfdeZqRVTrmDs2HOPkR8bv+qgaDCt7WLcbb1NgC7ind2xnik1t7+sPv7ckP9dDtOv DMwURcDOZQuTsbRz2Ve8jCLNKgwRtuNCwHdfzjEkF5bXdqQwdpKcihSrL8vqIGNKAJgU0aPop zNFqG9mTuRvm2fvNoocmLeaycqKj8UVgZttj1Usi0C8kuapVy03MflwLiOh7CXeoSxU3ycRZr JnQaMFaQ3LEflT8anGHgRVBy5b8m8yDjlnWbSaCq7u7d+pWx4Za2kYtxRlsjPhRMZvoJrlYmC 7PpeDnNoPmly8nWvFzUWzMqao4TdHLqoYWP9pX09a+Xa0oYyjncxbNihqiWOW3i19Q7RVkVUw P+2V/998aDvFIJ+aIo2MjrUBpcBumFhDCC0/u0TUx6a8jd5D6K2I2MGqKWk38rtD5TozU45tA xxbeFrObouE6dR7a5YTaFINaLyrs62viH1BsSvgKAqbeRdQWnkDUT2eKJvwnLy+Q9Zn8mdBas YleaGPiiHalV/bhijD/kqhz7tjbISZBHScZuki3eSlW38sQnbNzhVAe297LhgFKaFtsqpT/57 g9baA5m57xNbO4SupQUrg8UZqRDAW+/VbTI06cka3sUUcuosey8rfYSDcazVXJE0ZD4Y7iQfc Ew/y8xCHl9MpCPxZOg0h4WuRxbhaFC6SWy9Q7ZJN2wg0Fj8e7uuU05owibHfwJm+rxIIFeFf9 KWCGcP3K3cmwCoVZVahE+mRJBEuMOOQn+ywj6Z1MZQP0IQLda++6sXkRwzQosfYi30R2B2VMQ bpIFqib1VzFcmHaDyMxB0OPGA/np2tv8aL+OvSoB/nWZN7c0rFDGubYwfKYjORhVHpFJRodtS WnkhE9ezXhUdUhqR2h6RWM8QBhWBi+e5vANK+fPs6jvZA6X0W3iEmEURSRaklZ8h4eli7FJhV AAnYq6jv868nG6LaUAaldVNycwdYLdcDpeE8Dpt3I/kazuomT8CxWj3G3BG7/pTMzOk110oL3 PeOysLjLRrOKM7+gguqFJnqMwB21nfqmQ0ch2ZT5OVWS04ZXPXOxn3/bkhVwAShDnYi/b0Ywl zLTx0iKij/IAghHB94S+AfR19aI7RUYQY2L1xVZcb7YlI2iw7FA+k9Y9C68BLpOTjybTZ6vDs lBx4ufLrL/2p/DNCvaDUla7hlpgUcWA1sQCU8g0b+FpfxI83tsKwXUe10TdiHPDnwcctH4eu5 jjCKKtG0EHL4veovNp4fTMcz66FO4mAAFGEtCH5fuDVO+YlN5CSfmpUlWxvX5kRz3f6vob8l7 UnP2gqU7at7yHtChX0WkQ8oq1zCbswEXj2bJEeTqIjJJMPIRq/Z8vRGSvHBpQ1yOgU6kQHez/ MAjE9nn1aw/OPcSMw4s4WtEFQCGnMxATiw56opVt/fmRXD7oen4hO9v4LhGV/ouzqfjiiexEu 59+Q0yeIkpVObGDv6BJX/63zXxa7UYygCnZ1B/w1CjvQVdBSuMaZ0bvBGB8kc0f/skbS7GFUy Gi2WLU6Fc9prIvKeyA++2g6tDN2+3dRqrHOSIomVSdVUaa13jGNjxMn3+sw4eAbqThIQ5pJ+7 P5H7O3bMM/XA69Uy1PCFS4IpEFOb6RS4VvsKkUNqdZLuiiw2pgQahI2Ncbg2TjRDgJLUZBIp5 tTytBK2fjHeUlVgtkno2az3YWz1Bt27E/IuNfCWZbdVn9FMQOkq+DYF0ehCSGR4QcG6ZegFup s/+trkeOVCnU4NmFsEgT2mjTrq5/2R5JVgxYX0r/EwMfL7jM16aKyPv0wjgmmdHiENK+K1/53 BMMPMrCHT0n4H9EbqzJcaOtCrFLD1DAtZG7d/dwahHWw/s8rzHr+VUy7GmV6U38tzaVJy4YNJ ycr5uplQNcZ9V7VLfUuMfwpryKRjO+pz9G/lWyMVvfawTcJdYFzrrAqwX6SFHDsf7BZ9Ui7Vo NPqHbC/FXePvOVuyKXi1H+8GXKx49l6HPDCjrbrzW/BT8nhuwP7AIWkQ+3hxkVBq0rQUT2p9c EQKNKXDL1/WShy2mej3e325JLmZ9WY3pUvKjuC6kUjGWgIWoZ0etWYtUrtXlsznuJjZJXPjqV lGKAiRECQCUf+4LWFFy/4AMjcPsl0XH4kv+/z7UeoGEZyvz6p2mvtR5vfMgQP4wuk5Pfow2zZ jpvfm43RjtH6KsgREh3y1CLR55gch63iYDO47F8LE/A37MEwcf1csgjSGuCXw5VlVJDWHm1mi wHQ5hTSBo0aBrUa8SGRp/YBUiqoC+mARsSdGXppCcYSHC2VHSqjOmBacUikPqzESqZJxOEVqU LgEG7GZeqsfmiH1wz+WnrTYbq8bcuCc+KgYZRxVKReZJinPU5rsLEBQn2J4dr/3rAQjuSRhQL sEg5k19bh7Ty4aw/J1o2bdovmb17ZRbZ9vICWteU6TW+q36gRrpmZ/KlQyAh95c522IRpoyTf u69/eKnot3oZy9xW2HBhd/DextVRC8lbNthtAwGNT2YwE6KndoV4BgdO1TGwMZZ3HlnyTD9RH aAp+cvBkwGJXzeMMFWMLvVYE+nkJqzZWQ/VYaexdM/aVHACrnjPqdQvSJQ7sVgXeEEpbgmpFK NeTATKZUWnoTziAN7BF6uAL7WrI1MH3XFt4snc8zdOvlSrD4DFz+u2jEdxHckpUYxw1wOR1rd
- tiKCWNCH/zlKdiqFgdA3gWuulClLLvlCi6duMeFJ6G/TKs8ksjkITwNv2bpJuKAhpj+gwkg6c nDo2Foiy9z5gPBOMoDePmhBi5piFTgETttvcxBNfzEDzeUggCB1XGTqxkKa6u/Mbkkhbn3Bp5 kvE87g7CFuInHx9+edQyxgqZ+ZtUu+ix9S/X5C2L39di4Wp9yl2+ip33NvAdsXcrMBjdcjrgv Q2k2qqMTkcpJLD2eyqdJMcbasMRrtUdZwfg0txIz/prjR/x9YtgrbaZ/x76jUovkoQKdhtAys agCdqDjBDiFglJ5D/tlotZZCefW+wjhaSmK1SsVPPhfihDaBhyidbj1GoyAaX39jdecJfUoV1 jik0FJ2EHWj7CYoJekU97hMplJW6jrwfst6W/94XG9EzYI/tgdQ5zFhUOIboeXPpdyxE5cT5j i9xIElDw2YnJlQuqxf2wqPQb+nSifOCoQxBj70e5Xt7trzCz/PK/tYRnn9NIXJYUP/4l9SIE2 bxojTRlA/8+gX4m4Ix3zAtQa8csLMUs5HPK4vhyetARfM9AfEGtWRwpVMeYsI32qDhH3Xr5Yt pYWamVq0Eh/vuDklwUddW5aMpH71dY7M8KeXZlFybH2BOiUg00q2dqgxyYyfO1nyO4ACpTdBW q9+XZ3HAhoMrjRUu6963Hl9NplaFJ7rw57cTwldj18wIrlEu32CfP3/VlCtU/ggMJ/dz7QTS5 36FIVeTtPUBTmE5N7pi9djeWYaWNrGkI8KJmSWCiAevtY9Q9UCsrVnD9/9ZSOsst1dSRUwZ1H VCik3XfBpzD/RP90rCJmNYdm6+KMbINbbEC1VDXWAJ9IjKoztHHNFqdKowO0sVqIIGb3IU8Ll 9YdLIC1bwmJDpLHE1fOOmEU8nlGLN+w6n8YCPV4RHtb/H46jOJrKQHbmFk+3ITSs2kW3Smoqz Jf4y92xCEtRWoYsCkF0IYiTsNWPPbF5bKNwXTLng1sqyf+Wgtra9CSEm1tvSzzCX3sXiATjyK W8bD2a1BNrRsSizLgJtf986HvIZUXvtKmm1q468FdR6gzOFGZqQL9wD8oVXNITorsyAkexVTC M0dRZuzWlLvjLm86Y5UyWol2Tu80Op13RKdi0teU04glrqRhCpZ5/sgI8yLd6f0b+1F4o3abP mr/A1TS3Q/OM86T1zi3ClQB/oXDgTwYa20kG7jpLwi5JQMf98P9rNh/SwFv7uU0tNBsvv6bWd ZJHRRkqHK4TatMUg8hHDks6CkXr6A/6u92m3SNYrFpIh/s3xYJfTGYWNUtGTiUGSbowdT5D5s CRZd1NZav379Xbzt9tf/Tvzm54DAwVgfkZlqkvK6IMgdbl01Fi+Yp2v8uQYSY0V7ovxs/YGDp KHaRZ0Xkf3K62TGW8Fy22SqO/ze/P0fZ5XEUkoqsAE8nZWjiYwqKzxDUZSvrmTqhPExXKsPNu akZ0ybko3QW95sA/Ug2Hmt9O1BvzbQhkOku3A/cP7pi3yV7lN8YF0Zfm3wM7H0RA1j86mu/Js giKh9Vvq3O1zTjXI1ZVfLazt3UHDWku1k/yQmywbw+vDlKeC/Mah4u9h9PRYnQ2doHnFL6QC/ hUpsL8i2nh1gHKHlbY7nqvx9MUh1zlb/yH4oOo4So0nW1KY6pJEh3ynRtq6NTvyOfz2MIybn0 WwgVbXBodwHGwb8CKJA2gk6qBrQ=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_061932_712344_7331B14B 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +82,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Thu, 4 Jun 2026 15:13:00 +0200
+Sudeep Holla <sudeep.holla@kernel.org> writes:
 
-Move the specification for a line break from a seq_puts() call
-to a seq_printf() call.
+...
 
-The source code was transformed by using the Coccinelle software.
+> +static const struct smccc_device_info smccc_devices[] __initconst =3D {
+> +       {
+> +               .func_id        =3D ARM_SMCCC_TRNG_VERSION,
+> +               .requires_smc   =3D false,
+> +               .min_return     =3D ARM_SMCCC_TRNG_MIN_VERSION,
+> +               .device_name    =3D "arm-smccc-trng",
+> +       },
+> +};
+> +
+> +static bool __init
+> +smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+> +{
+> +       struct arm_smccc_res res;
+> +       unsigned long ret;
+> +
+> +       if (!IS_ENABLED(CONFIG_ARM64))
+> +               return false;
+> +
+> +       if (smccc_conduit =3D=3D SMCCC_CONDUIT_NONE)
+> +               return false;
+> +
+> +       if (smccc_dev->requires_smc && smccc_conduit !=3D SMCCC_CONDUIT_S=
+MC)
+> +               return false;
+> +
+> +       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+> +       ret =3D res.a0;
+> +
+> +       if ((s32)ret < 0)
+> +               return false;
+> +
+> +       return ret >=3D smccc_dev->min_return;
+> +}
+> +
+>
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
- arch/arm64/kernel/cpuinfo.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+I am not sure we want the check to be as simple as ret < 0. Some
+function IDs may return input errors based on the supplied arguments
+(for example, RMI_ERROR_INPUT). In those cases, we would likely want
+this to be handled via a callback.
 
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index d50e2a9b066b..a9704a11de57 100644
-=2D-- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -272,10 +272,8 @@ static int c_show(struct seq_file *m, void *v)
- 			if (cpu_have_feature(j))
- 				seq_printf(m, " %s", hwcap_str[j]);
- 	}
--	seq_puts(m, "\n");
-=20
--	seq_printf(m, "CPU implementer\t: 0x%02x\n",
--		   MIDR_IMPLEMENTOR(midr));
-+	seq_printf(m, "\nCPU implementer\t: 0x%02x\n", MIDR_IMPLEMENTOR(midr));
- 	seq_puts(m, "CPU architecture: 8\n");
- 	seq_printf(m, "CPU variant\t: 0x%x\n", MIDR_VARIANT(midr));
- 	seq_printf(m, "CPU part\t: 0x%03x\n", MIDR_PARTNUM(midr));
-=2D-=20
-2.54.0
+We also want to use conditional compilation for some function IDs.
+Given the callback approach and the #ifdefs, I wonder whether what we
+currently have is actually simpler and more flexible.=E2=80=9D
 
+>  void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit c=
+onduit)
+>  {
+>         struct arm_smccc_res res;
+> @@ -31,7 +68,7 @@ void __init arm_smccc_version_init(u32 version, enum ar=
+m_smccc_conduit conduit)
+>         smccc_version =3D version;
+>         smccc_conduit =3D conduit;
+>
+> -       smccc_trng_available =3D smccc_probe_trng();
+> +       smccc_trng_available =3D smccc_probe_smccc_device(&smccc_devices[=
+0]);
+>
+>         if ((smccc_version >=3D ARM_SMCCC_VERSION_1_2) &&
+>             (smccc_conduit !=3D SMCCC_CONDUIT_NONE)) {
+> @@ -241,14 +278,20 @@ subsys_initcall(arm_smccc_bus_init);
+>
+>  static int __init smccc_devices_init(void)
+>  {
+> -       struct platform_device *pdev;
+> -
+> -       if (smccc_trng_available) {
+> -               pdev =3D platform_device_register_simple("smccc_trng", -1,
+> -                                                      NULL, 0);
+> -               if (IS_ERR(pdev))
+> -                       pr_err("smccc_trng: could not register device: %l=
+d\n",
+> -                              PTR_ERR(pdev));
+> +       const struct smccc_device_info *smccc_dev;
+> +       struct arm_smccc_device *sdev;
+> +       int i;
+> +
+> +       for (i =3D 0; i < ARRAY_SIZE(smccc_devices); i++) {
+> +               smccc_dev =3D &smccc_devices[i];
+> +
+> +               if (!smccc_probe_smccc_device(smccc_dev))
+> +                       continue;
+> +
+> +               sdev =3D arm_smccc_device_register(smccc_dev->device_name=
+);
+> +               if (IS_ERR(sdev))
+> +                       pr_err("%s: could not register device: %ld\n",
+> +                              smccc_dev->device_name, PTR_ERR(sdev));
+>         }
+>
+>         return 0;
+>
+
+-aneesh
 
