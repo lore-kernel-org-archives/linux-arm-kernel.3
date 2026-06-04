@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65233CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 15:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545E8CD6E6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 15:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HILwUaJZg8rlDuhDvgpPr3lxwU8aF3skhizGmb68snY=; b=2VjZSxhoBpChmwiMnMYe6SiR/H
-	6vUpLRfq7Y0j85pYEefDtQu0l1SQTnrxNHwBGoXsUsVHS5uHlFkOFfmSl5dbxj3vPOuu2wANN2JgG
-	OOFljbvVqXVbb+rWuKN4W5rwmHSY4cxvzR9tqcWI8cj2YCyQU7MiQHiF3B+unomxyfw0ai39f9WqM
-	D5O8YipP0vAsQqJuPQURjoQtvy+cFWQn0J8/7oRPd2go6nZ8gjWj35gqXJSbrX5aXotIelmhOAwij
-	iVjyX+BRzl1EZl2wETnjL7tLAxygXRLAMcMSMlPgTnv2JJIrt2eN45HAqcRXWAVhvdqXE16qMhQKn
-	b69/e73g==;
+	bh=i0WBf71zjEX8eBaHBEzlWmRX5ZlYdaCQ6oTXWZzB8Wo=; b=fMl7ii6QAgSUQHSdsotIwe4edL
+	wI6luLdYvf3wXFJvmaqvTW5MR3tX9to93VrnXEkjspt2l1EOnv1et1izHhX+0k7STCJ8nYbFY38tY
+	XpuRK1dvPGyQyQn2qIkhDJOUZ8BJIOaDgyfVR6NcFWdOXxYUaSNRRJwg7hBvJ8u8QHhnQ2u+KIyaT
+	PQlBhB2d0TgV3i+I9uUVugVpwt3rVwQAVx3EmQJOKDYQFhwpqOieTedeQtr5xfTU0WibJvrVuffKz
+	KCe7EacS3mQMzoTJAYbbSuI2hA6otWXU/Y6rTNXV4veZQMcYeXYchkHCMIswSGSri7l1c6YkwQgo3
+	Iuwy+g9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9zN-0000000Gzm4-3uwk;
-	Thu, 04 Jun 2026 15:28:09 +0000
+	id 1wV9zV-0000000GznY-04lZ;
+	Thu, 04 Jun 2026 15:28:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9zL-0000000GzlV-094g
+	id 1wV9zS-0000000Gzmy-1NJu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 15:28:08 +0000
+	Thu, 04 Jun 2026 15:28:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D87E21516;
-	Thu,  4 Jun 2026 08:28:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B775E1516;
+	Thu,  4 Jun 2026 08:28:07 -0700 (PDT)
 Received: from [10.1.34.54] (e122027.cambridge.arm.com [10.1.34.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 911F13F86F;
-	Thu,  4 Jun 2026 08:28:00 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 285EE3F86F;
+	Thu,  4 Jun 2026 08:28:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780586885; bh=YtOWVl5eZxf9L/IZyd+Bnj2EBe0YqnfeeGynsWBEQwU=;
+	t=1780586892; bh=U+vxUTdHbW20siTX3dFVZo9Bt+XzRLjvG5MjTOCV9RQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PvUdJ+L8EOCycYtjS/iYCTUrdqQzDKtRaPg5V+u08Q6l+KjZtgLeU/SzxEj+tKvEf
-	 tWjuM3eClZ5UZE5+WeJrBDZfgsgbuAD1A3FaxmK3PeM9p8i2TWL16zOGy5Lp86qsgl
-	 v4fHcEpSPP0jam2x+R+38YVPf1FbB4Jc+eExQnoI=
-Message-ID: <32d691c2-edfd-408c-bb49-7eba623bec11@arm.com>
-Date: Thu, 4 Jun 2026 16:27:57 +0100
+	b=K0kmt3C/w1k1/6n0F9rLjabKEulh884qSAOTEDtUvrfqwXhIPmD/u/+TDcan9mRlh
+	 Uz3PZDEhQmZP92vxbgVpLeStWi1s2nc35dzj+xBj6xzqW76+pEzcRfzfh9rdvb6zTJ
+	 hqvaO1R6yqUEw1gmGZCfBmf15tWhoWXn85jOGi5k=
+Message-ID: <16e9386c-7180-439d-8174-2be824abbd1e@arm.com>
+Date: Thu, 4 Jun 2026 16:27:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v14 13/44] arm64: RMI: Define the user ABI
-To: Wei-Lin Chang <weilin.chang@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
  Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
  <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
@@ -59,18 +58,19 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
  Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
  <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, Lorenzo.Pieralisi2@arm.com
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo.Pieralisi2@arm.com
 References: <20260513131757.116630-1-steven.price@arm.com>
  <20260513131757.116630-14-steven.price@arm.com>
- <vixej2afqamvr7eaksoepr3wmpwzp73rtgrageeyuawa6azotw@payxzyhymwbt>
+ <86jysovpxf.wl-maz@kernel.org>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <vixej2afqamvr7eaksoepr3wmpwzp73rtgrageeyuawa6azotw@payxzyhymwbt>
+In-Reply-To: <86jysovpxf.wl-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_082807_173402_38F83FB1 
-X-CRM114-Status: GOOD (  27.28  )
+X-CRM114-CacheID: sfid-20260604_082814_454897_51493EA7 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,31 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/05/2026 23:17, Wei-Lin Chang wrote:
-> On Wed, May 13, 2026 at 02:17:21PM +0100, Steven Price wrote:
+On 27/05/2026 16:21, Marc Zyngier wrote:
+> On Wed, 13 May 2026 14:17:21 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
 >> There is one CAP which identified the presence of CCA, and one ioctl.
 >> The ioctl is used to populate memory during creation of the realm as
 >> this requires the RMM to copy data from an unprotected address to the
 >> protected memory - CCA does not support memory conversion where the
 >> memory contents is preserved as this is incompatible with memory
 >> encryption.
-> 
-> Nit:
-> I believe spelling out the CAP and ioctl names can improve the commit
-> message. Also "memory conversion" is a little vague, maybe
-> 
-> ... CCA does not support shared <-> private memory conversion where ...
-> 
-> would make this clearer?
-
-Thanks for the suggestions - yes I agree that would make it clearer.
-
-Thanks,
-Steve
-
-> Thanks,
-> Wei-Lin Chang
-> 
 >>
 >> Signed-off-by: Steven Price <steven.price@arm.com>
 >> ---
@@ -151,6 +136,11 @@ Steve
 >>  Documentation/virt/kvm/api.rst | 40 ++++++++++++++++++++++++++++++++++
 >>  include/uapi/linux/kvm.h       | 13 +++++++++++
 >>  2 files changed, 53 insertions(+)
+> 
+> $SUBJECT looks wrong. This is a KVM change, not an RMI change.
+
+Ah, true I guess "KVM: arm64: Define the user ABI for CCA" is more accurate.
+
 >>
 >> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
 >> index 52bbbb553ce1..ca68aae7faa2 100644
@@ -190,6 +180,22 @@ Steve
 >> +`flags` can be set to `KVM_ARM_RMI_POPULATE_FLAGS_MEASURE` to request that the
 >> +populated data is hashed and added to the guest's Realm Initial Measurement
 >> +(RIM).
+> 
+> Where is that measurement stored? And retrieved? At least a pointer to
+> that would help.
+
+It's stored within the RMM and retrieved by the guest (using the RSI
+interface). I'll update to:
+
+`flags` can be set to `KVM_ARM_RMI_POPULATE_FLAGS_MEASURE` to request
+that the populated data is hashed and added to the guest's Realm Initial
+Measurement (RIM) stored by the RMM. This can then be retrieved by the
+guest (using the RSI interface) to present to an attestation server.
+
+Thanks,
+
+Steve
+
 >> +
 >>  .. _kvm_run:
 >>  
@@ -239,8 +245,10 @@ Steve
 >> +};
 >> +
 >>  #endif /* __LINUX_KVM_H */
->> -- 
->> 2.43.0
->>
+> 
+> Thanks,
+> 
+> 	M.
+> 
 
 
