@@ -4,101 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D035CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 01:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EAACD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 02:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9vTs/JHnHpc6BmzGsq91wlnVhg5cqc1lx/XeBVEZpQ=; b=FYNqGJHLH6Ce31XCc5ApLwjGkH
-	AwL2tGCjiI3cft+VdjM3BFVuO1PJvps3q8EL7oVVpCZiTWNDcVmNzzGkhTyDkt2ASad1jbp9r2dFm
-	r3GmGEct2d2M7eSBZxRhKEJHKjd46J4fe9dGxaBHL8dq4fc+ny2qhth5lmKvyL2ZvtALr3VJq7gcf
-	TBpy0N0MvH18Di2RErR/oIrgnZpGshi8ifHHEdr41wvbCdQ4oswQfazqXwLXBXF+aVwmgjNXVQVhQ
-	xZ46eJzNudOJxIBRLsKNiiiJcM44ISvbxaLuA93cNDPaJeaab+9lILnGJxDPJYRIVwUYpFt2N3cml
-	WCGNmVlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nxC9BP8N/AZEZlUW04dB553torofxtHAOcB6RV6LRI4=; b=HZZIjFy08It5//ZqTlRnO9jtng
+	raTE871OQbn7D13ykuz+32j4ornC3DHozUH6RcJfVF3J1CfjX0iSb0TOed1S274RhPU3CojUMiiw1
+	jkwk8IrSohwZoZjKR7othVXw26gjP1RdXNFFoEsPBJM9bQ98uP2Tq9dWXd0xdbu+9AtbYTCaAT3dl
+	fjq4L68wHog/p7LUMry2Cv3lEd9Nn7SudspBiEHaTriOLFrLPQfg3eg188NZQLd5x7ebOR+bFgd+j
+	bfZprKZO8Y94SPzPAW4fc2s+4joud6X3es56D2CxAF+FMAaB5wrqskeJNRb4LmlRDMDrgJ+wOC6+d
+	FX3d02cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUxCj-0000000G0wn-1EpA;
-	Thu, 04 Jun 2026 01:49:05 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1wUxi6-0000000G27T-4AXf;
+	Thu, 04 Jun 2026 02:21:31 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUxCg-0000000G0vW-27IV
+	id 1wUxi3-0000000G277-2lTe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 01:49:03 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-84226d0f1d2so114635b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 18:49:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780537741; x=1781142541; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=R9vTs/JHnHpc6BmzGsq91wlnVhg5cqc1lx/XeBVEZpQ=;
-        b=L4XKFYKONzxQnpbJmaajbcoZwf2Mb1ccFOtp52+V8Ox4dNkaqq+iZOgJnRViqZn82F
-         d7h2bvhnSeMQqeQSFRprqdf4VfAF2+gRj4UdVOMaVTR+pqc8Du4gGuA68ty634It7mu7
-         Oi1vjIjvEceEnxmEqEmE34BPY6sOpRoV1CkYvgBzEUFsH0yXGQ3wL653VQaOoksfQ0C/
-         jOWTA1gImpf9aRTI86kS4HGC2RXBAUIbV3MHsPR/7DwfhHdS8duI/wc/NRol5zcRUvIa
-         j/TrOdlXC+Eu7Y2yYsx32BgGfmxtlk5VOo/T0iTW5Fia6SLD7oOt8DKWQPq+pN8M/UEE
-         EJTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780537741; x=1781142541;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=R9vTs/JHnHpc6BmzGsq91wlnVhg5cqc1lx/XeBVEZpQ=;
-        b=lObTlN2zIO4Ua1Ro52WRNKvlywBexJBr+46bMlLRpYuK9HOE00q5NrS858qQt1UB0K
-         sYsTmOTshtLzhi2Zkc5dtITZi3MiAHlfsN4dTRha/GU8Cv+w0jHFTjxDrZd+05gYhk+z
-         a/+4LZBogYtwGnfTu7AHS6a4mqThsvwNl6Fhxbg4qERvXUWXZoroZVRnSbOCXe9RFi/O
-         pg+eYg4eBrGa2CJ1iPdl9+kgSaySjFbR2lVpBod8faP5Tj8fKHI7397VrFoxhjDsJ/MC
-         o9ENfSdrYcQMFZJXztb7NEiYGFJukz4a+VGYNM0I6LdoIPO0YW866qzpW1YwBILPANM4
-         yVjQ==
-X-Gm-Message-State: AOJu0Yy1B2PL/TGegZAKulZjm/j6UJE9kaHGkWSrKtrpIOLTpk8gcruG
-	7f3lyU0tp0Kw1XeLKD8EMNjZFda9lPSYJ8bAZ5BgV5p9CvF7F6Em3D3y
-X-Gm-Gg: Acq92OGhHqB919O2DfAavdMY9LaNQoXny1dnQt6/5ubWc58Hj65TnA38hyF90rgiBh9
-	sRhtRQdyn3VLDRFz/DAVkad6ykjKxiq2wQBdVEbbgYca1nuSgJLr8rMqpK0KSCl6ESMeOlI2UiK
-	3P2X0wLoZbK9xfWEPkLNsKFaZA2Niva8tC98iByH6LYNgEQzUPBiR/BbwsdKwFfHYVoukrHkFuE
-	zKRrqgLlR6YijtwQ8kgUGiXhsJ+OWVDLZ8gPskcSVUtii1p3ukxI8Ajb5S/pF9+KrrirtytkwUW
-	4XWWIeeS6WbPfsE3nyTWCuciXv4qEcsOKcFzX/fKOgNumv/yegeabOs04rjGbFN4Ag2/48Gmsiw
-	dFgDOoeIrzt+njjbMHD+9ykeAcAHkxhvGTQGkZX/B6f6dETGsAsYL3vsDQ3Mg5Im/7OY912rE+7
-	7TCwR73nBHWxTLjOcv/rZIwcdt2F+1kj0EuzL8xlYoxg==
-X-Received: by 2002:aa7:8882:0:b0:842:38d2:a35f with SMTP id d2e1a72fcca58-84284e8dc75mr6032800b3a.31.1780537741272;
-        Wed, 03 Jun 2026 18:49:01 -0700 (PDT)
-Received: from [10.125.112.20] ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84282350f8csm4439444b3a.14.2026.06.03.18.48.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jun 2026 18:49:00 -0700 (PDT)
-Message-ID: <8e088395-c22d-4bc8-9e58-84235af1e56b@gmail.com>
-Date: Thu, 4 Jun 2026 09:48:44 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/11] of: reserved_mem: avoid post-init UAF when
- alloc_reserved_mem_array() fails
-To: Rob Herring <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org,
- iommu@lists.linux.dev, zhaomeijing@lixiang.com, catalin.marinas@arm.com,
- will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- saravanak@kernel.org, akpm@linux-foundation.org, bhe@redhat.com,
- rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- ruirui.yang@linux.dev, m.szyprowski@samsung.com, robin.murphy@arm.com,
- quic_obabatun@quicinc.com
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <20260527032917.3385849-4-chenwandun1@gmail.com>
- <20260602162450.GA442759-robh@kernel.org>
- <79932afc-2e91-4a54-aff9-f550be784c36@gmail.com>
- <CAL_JsqJOC1ko1Len3Dyc5SNKrHmhQn9uiDAkFfVbYa2wAfFUTg@mail.gmail.com>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <CAL_JsqJOC1ko1Len3Dyc5SNKrHmhQn9uiDAkFfVbYa2wAfFUTg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Thu, 04 Jun 2026 02:21:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v2qF6geRm1ouCaI+uwa+/yt5PnYQ3dZ0fShhfIkEZm/ANBGzzQFTYZHbydHumTz73KXOFZXS6Nmqbq2P3jPszcf6slmLDgxadNDtRHKBQx0kmNent7ODG/3aAI7IM5q7ITnn5O/kJNKO2RcfJMpNbaP36gXvOMwElSkgXyH2traZZsh109su9MuJwh/mnwS2oLzySkWybv1H25bH8B1tX+qJBjUntuLev+2yhjJShG7noYWgKWeNzH6yfd8MefuHfyWVHzBVMT6gvjGb39U9QywqlE3tvrP/cIXeEo5VElpmTdblss8y/WpdM01rhwB0aa9BsIYxq7KHa8bgKrcxcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nxC9BP8N/AZEZlUW04dB553torofxtHAOcB6RV6LRI4=;
+ b=LtXrDN9qEjkX4vYHxx7v/OG8/vWYn/IjlwSVQhA79kE7h9Pqw0SyznyhbTPN4dNFmQ5dsPvx+VzUKR6VqC6QwO6XF87eEJzmsgv+NFBZ+KopT9BQ/nwYXXzeu03NUyPvVo3k1vhDCoj9Hkb/FH+t5A6/pjqGl8nPrY94LfxXtcrkO1dffGDP3BD1nNFj9BivIsEIXZjllN0Ru46oMIRVy6y0VAxcNKh7y2a8zzQNh8bGyXzypoM8D3KGeIHaYHoEda2ZZ2Ru8P7o7M7fmRi0x6qoO70SYwxqzOqWMZ+la8B307mKVJr7VvXPQ0lokbAO7MpDbqZOBNNkdcnDoRjUEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nxC9BP8N/AZEZlUW04dB553torofxtHAOcB6RV6LRI4=;
+ b=gvxbt7BU/Y0WwLw75Iv7klJyZmmm5RmDK27Rfd0d+MY1lH6oLlOU/jJAd1q0q1a2uj9zA1DyNwLofSKF2733T/1v5zka3Wf+sSpIgyNBZxXyMonOneZEVBl7zfVACM+zeyud+OhVMafvkwhh59x4NYeb16CePj1TUoG13cRvfUNMz4RG8UUtLAzjIy7KCeRRIvsDnb3uUGDJySqQ872t6eGptQwyt89/i4HoDxcE4FyI0KqCo/avWXaB2pPBCDNBB4XxgBDJ1Oj6Cr/U0w6H0IVyHWb1Sap2kcL2Zyw6J9w9IMKxFyPZWczVz/Xu2NwdrLFU+Vzl1detzp84xAnKQw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by PA1PR04MB10119.eurprd04.prod.outlook.com (2603:10a6:102:45d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
+ 02:21:22 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%6]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
+ 02:21:21 +0000
+From: hongxing.zhu@oss.nxp.com
+To: sherry.sun@nxp.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@oss.nxp.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] arm64: dts: imx94: Add Root Port node and PERST property
+Date: Thu,  4 Jun 2026 10:24:20 +0800
+Message-Id: <20260604022420.120294-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0036.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::22) To PAXPR04MB8096.eurprd04.prod.outlook.com
+ (2603:10a6:102:1c7::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|PA1PR04MB10119:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e12092f-f36f-4e20-d858-08dec1dff80f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|56012099006|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: fYqme2Eqg6gMXoweDwFjK6BlfqbpJtd8n0RykKhoGUs/Ak4+Re3PzVVcrQI6ZjeRq25oLtU2SGM87g6VdvP7OcUlEEJcMmkKqGkxsAL30LpKOWXbWHO6IxsJJxlP6pSYNEyMMHozvrHxG6x6ru2iq/xT4VskW8jIE3BfuAmXAXnOE0cJiEQnaf+qrO8YbyFoahECjjrIP3vBoCfNThnInJunizejsAxO57AFAefkUMhU2peO8vq3JEGQzij8+kcS/0zoW+m9c9GANm+HhK5tJxgwFHRV/nbr7iBBQuf67vOl1lccI5kL5f1vJx4BWg+oYxsvcjLAkBh5iTLT8jIv5LtH7MiWUBf036oVa7gziKcS1XLp0UY0DownmOoABGeuDGkIbT3uWZROOkIVdi4/MBEATd9jWuMXkgBltIgnAauU03FYpoBl0JMaU7TxrWHw3VjT5/aGh8lTKKwMqy4Sup5iRq0Xq04O7fQxJNf2Q0GmMCtjBHTwTAI+Cs2AUJ9lnvvv7M/uZHP0Z0DjF5A1tOBWXH/bImXeMZwk3xFerLWBgb3Pj1sDpYgeHwZJ279L/SbmdgOsd1aLcaIGieN+s7X9OhRmZtpktQxb9AD38hMvMNQaTWqQEKPVn1G/rYnbyFarY0LyWmafjlnMABU32nbQiC1b988ZqLbPfoAT1mVOHxwc0WOf/qajYAIOEHKG
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?goEEt0ovHDY/EtGUTwNZ/6wo8xsCnTlv8aadVZ1WGLDB02jyu2i1EDFcLC/Z?=
+ =?us-ascii?Q?pMR0o6UiHdUCtTnDsNNNpxGFu2FKdCu6TIIZOzXj3Ee0BWqrCENxhV6TNTOf?=
+ =?us-ascii?Q?cAsdQByiiQ1hC39Aba7jkP5khw41wF70IJM7r34F6oGUJtwZWD9wrrNhqDUv?=
+ =?us-ascii?Q?p/IJPpuVflluEcdgs918DZMVQluXgzqTixkpoos85mR5zKDtn1ccOE+0yff7?=
+ =?us-ascii?Q?QyDCyZxLdbsN5dJZbP5Wef+ygq4e3KfodsHi0wso1Gx9HL8nOd2XWmPzlOYr?=
+ =?us-ascii?Q?DXN/rXn/aYGb8BtTih6QCeTmu1zmhXp7lKpOftbp4w8JBuoivb3cqh+kQkqg?=
+ =?us-ascii?Q?eJOQcyrzOzHDKK4uRoQ4ymNPNXxdvxRAOvp9uBNV3kiZIMDbJSlg67CoPODK?=
+ =?us-ascii?Q?yjzif3GAnVM+PqokMWlDA4dVbpKuVvGqRatEsW0THdguRF36uhvSRMDzAfDc?=
+ =?us-ascii?Q?hK+vio1ixymTMZSWdf0nqrloDzWaEsncxdw0XRIKlc6NpmTjSm8TPF3S9IrF?=
+ =?us-ascii?Q?H43sJEquxC0qbsHq2WZQG42qsjdIRVj92a6GxRpOoYYnbdoUiWr4rcyMKszm?=
+ =?us-ascii?Q?3wt6fi/Ey/AHEYXes69iCMmd79j5I2FiM4SXwz30zQteQhZUXUajPUN9/o3X?=
+ =?us-ascii?Q?uc3vQsnPr0dRrXqA5FeaQn2L9ZTDR3kVnpLrcKo6rvgHsM4uvDYOlptYNsUu?=
+ =?us-ascii?Q?IX+//hI4bUOIz/bvVptvkWbJK9cAgjXeqsGjJDs9I42M4zYEGzIAlWUxJQeC?=
+ =?us-ascii?Q?uKDz+jX9DEqAYO/ZLyyBbI9g2Nt+mu1mp98FkwvlAMnbbnmTX96d2kzbL3Ii?=
+ =?us-ascii?Q?7P6jvqpH4i9IdHoxWQV+szblczXkGYj6O8tHP3JbL6fxiBAEW+C7xAnO4cV2?=
+ =?us-ascii?Q?PunupwDKjJTLw7vGVF32Ufpqs9s8tji/piVLdDvDpMDpkxtAFkub05NTd4n5?=
+ =?us-ascii?Q?oQDjecpEVGmR6VtHskU+urTUsk/2lqdMqU/Hw1EvM4J7MKeSUjR1hzErNRFd?=
+ =?us-ascii?Q?K3CHOGonewTk6FPKYPO/2y5EVDWf1xhg7gmL+ms4FuwJFuKdzhC/9FBYe74U?=
+ =?us-ascii?Q?VsqWQ9sJPxwfEfUD71uUj3XcbmJAKkJcL6nwpDtZk8qHHn8+wOxKwnMOMKei?=
+ =?us-ascii?Q?0cIEpFAmeAMlyMGucObgywKWr2oBPSm6e/gIYaNmix93nmSfxnWImhYGn6Ye?=
+ =?us-ascii?Q?lZiYh3t6SwlXHzltkrzAB6AvXHHqR7AFQowVifaK9E0Dbvq1lUEKCmb5prZL?=
+ =?us-ascii?Q?rtFJ4KiIFBdsdIrS1vJTD6wPigpFiQy5TJrzxdnFXPA5gCVPItBEl9/HpeEg?=
+ =?us-ascii?Q?A+2N04Pb+6QueyWfdSnkTrmaWh2TcuGf/I4X736e16E3TY284YsBkFIUgS9w?=
+ =?us-ascii?Q?m0nGzt/MmKlxpl7utBJN4sgiJRC8rqyV36UzXRnULsczqRWBpxW0hefv2CLH?=
+ =?us-ascii?Q?FgKack9kAWwZRzK1Zy3n78Ay7EjJXkh7S4hcR+cppro6r3lu61tBt7Ebf16k?=
+ =?us-ascii?Q?DK11q+FRNMU9j8qcEBdCRaknoKRl/aSSrmuhAyi0x1jmGVInwWY88cTBEIYb?=
+ =?us-ascii?Q?XAlaf0cZwUjhDEWMaYb3KlU+fNZfGe1wK73TVQFxa/SdJ7YkIw1Iyvpka8aU?=
+ =?us-ascii?Q?cjo6xFfV029MDIXGDDSIeKZ62W4i7e1e/+gsgDkECpIW/WfyCoWRqh75R9AS?=
+ =?us-ascii?Q?tkM/gOCxju/0+shlTsNsMNLWZqKVV0PQ2YVpNwcXv9WKqt4rb2iQb55Ko2m+?=
+ =?us-ascii?Q?D051XoKJB2xz2ls2RWU3KF5K7JDMf2HJcxUoaQU9We+NtkOkuJqq?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e12092f-f36f-4e20-d858-08dec1dff80f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 02:21:21.9111
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AZuXmggQds1Jg9jO2Brx5ZI4U0DOp444OC4Che/xW09fgq3EZZ+J6dEKT8zV6142YqXSQVVkY/3enHyiEFJwpSgDNIyI/6ilIvJ5qEe+4BaVwAMhD8l+hDjILTWYigYG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_184902_550130_8FAA4AA3 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260603_192127_731614_D5264404 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,92 +145,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Richard Zhu <hongxing.zhu@oss.nxp.com>
 
+Since describing the PCIe PERST# property under Host Bridge node is now
+deprecated, it is recommended to add it to the Root Port node, so
+creating the Root Port node and add the reset-gpios property in Root
+Port.
 
-On 6/4/26 01:44, Rob Herring wrote:
-> On Wed, Jun 3, 2026 at 1:44 AM Wandun <chenwandun1@gmail.com> wrote:
->>
->>
->> On 6/3/26 00:24, Rob Herring wrote:
->>> On Wed, May 27, 2026 at 11:29:09AM +0800, Wandun Chen wrote:
->>>> From: Wandun Chen <chenwandun@lixiang.com>
->>>>
->>>> The global pointer 'reserved_mem' continues to reference the
->>>> reserved_mem_array which lives in __initdata if
->>>> alloc_reserved_mem_array() fails. of_reserved_mem_lookup() is
->>>> exported for post-init use, that would dereference freed memory
->>>> and trigger a use-after-free.
->>>>
->>>> So reset reserved_mem_count to 0 when alloc_reserved_mem_array()
->>>> fails.
->>>>
->>>> Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically allocate reserved_mem array")
->>> Fixes should come first in a series.
->> Understood, will do in future submissions.
->>>> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
->>>> ---
->>>>    drivers/of/of_reserved_mem.c | 20 ++++++++++++++------
->>>>    1 file changed, 14 insertions(+), 6 deletions(-)
->>>>
->>>> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
->>>> index 313cbc57aa45..6d479381ff1f 100644
->>>> --- a/drivers/of/of_reserved_mem.c
->>>> +++ b/drivers/of/of_reserved_mem.c
->>>> @@ -69,29 +69,31 @@ static int __init early_init_dt_alloc_reserved_memory_arch(phys_addr_t size,
->>>>     * the initial static array is copied over to this new array and
->>>>     * the new array is used from this point on.
->>>>     */
->>>> -static void __init alloc_reserved_mem_array(void)
->>>> +static bool __init alloc_reserved_mem_array(void)
->>>>    {
->>>>       struct reserved_mem *new_array;
->>>>       size_t alloc_size, copy_size, memset_size;
->>>>
->>>> +    if (!total_reserved_mem_cnt)
->>>> +            return true;
->>>> +
->>>>       alloc_size = array_size(total_reserved_mem_cnt, sizeof(*new_array));
->>>>       if (alloc_size == SIZE_MAX) {
->>>>               pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
->>>> -            return;
->>>> +            goto fail;
->>>>       }
->>>>
->>>>       new_array = memblock_alloc(alloc_size, SMP_CACHE_BYTES);
->>>>       if (!new_array) {
->>>>               pr_err("Failed to allocate memory for reserved_mem array with err: %d", -ENOMEM);
->>>> -            return;
->>>> +            goto fail;
->>>>       }
->>>>
->>>>       copy_size = array_size(reserved_mem_count, sizeof(*new_array));
->>>>       if (copy_size == SIZE_MAX) {
->>>>               memblock_free(new_array, alloc_size);
->>>> -            total_reserved_mem_cnt = MAX_RESERVED_REGIONS;
->>>>               pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
->>> These prints could be moved to 'fail'. Perhaps instead of just printing
->>> an error value, you can return the error value instead of boolean.
->> Will do, consolidating pr_err() under 'fail' and changing the return type
->> to int.
->>> If you respin just this patch, I can pick it up for 7.2.
->> Before I respin, I'd like to flag a dependency:
->> patch 05/07 in this series build on the signature change introduced by this
->> patch ("the void -> bool return type change of alloc_reserved_mem_array()")
->>
->> Could you let me know which of the following you'd prefer:
->> a) Take patch 03 alone via your tree as you suggested, after it lands, I'll
->>      respin the remaining patches of this series.
-> I would go with this option. AIUI, this series isn't going to land in
-> 7.2, so ultimately you will rebase on v7.2-rc1 which will have the
-> fix.
-OK, will send v4.
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx94.dtsi     | 11 +++++++++++
+ arch/arm64/boot/dts/freescale/imx943-evk.dts | 10 ++++++++++
+ arch/arm64/boot/dts/freescale/imx943.dtsi    | 11 +++++++++++
+ 3 files changed, 32 insertions(+)
+---
+Since the patch-set [1] issued by Sherry had been landed. Add according
+changes on i.MX943 board too.
+[1] https://lkml.org/lkml/2026/6/1/1461
 
-Best regards,
-Wandun
->
->> b) Keep patch 03 in the v4 respin of the full series, reordered to the front
->>      per your earlier comment.
->
-> Rob
+diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+index 1f9035e6cf159..dfbb73603cb24 100644
+--- a/arch/arm64/boot/dts/freescale/imx94.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+@@ -1411,6 +1411,17 @@ pcie0: pcie@4c300000 {
+ 			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
+ 			fsl,max-link-speed = <3>;
+ 			status = "disabled";
++
++			pcie0_port0: pcie@0 {
++				compatible = "pciclass,0604";
++				device_type = "pci";
++				reg = <0x0 0x0 0x0 0x0 0x0>;
++				bus-range = <0x01 0xff>;
++
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges;
++			};
+ 		};
+ 
+ 		pcie0_ep: pcie-ep@4c300000 {
+diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+index 7cfd424689507..ed3abd3e76e56 100644
+--- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+@@ -1034,12 +1034,17 @@ &pcie0 {
+ 		 <&pcie_ref_clk>;
+ 	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
+ 		      "ref", "extref";
++	/* This property is deprecated, use reset-gpios from the Root Port node. */
+ 	reset-gpio = <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
+ 	vpcie3v3aux-supply = <&reg_m2_wlan>;
+ 	supports-clkreq;
+ 	status = "okay";
+ };
+ 
++&pcie0_port0 {
++	reset-gpio = <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
++};
++
+ &pcie0_ep {
+ 	pinctrl-0 = <&pinctrl_pcie0>;
+ 	pinctrl-names = "default";
+@@ -1058,12 +1063,17 @@ &pcie1 {
+ 		 <&pcie_ref_clk>;
+ 	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
+ 		      "ref", "extref";
++	/* This property is deprecated, use reset-gpios from the Root Port node. */
+ 	reset-gpio = <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
+ 	vpcie3v3aux-supply = <&reg_slot_pwr>;
+ 	supports-clkreq;
+ 	status = "okay";
+ };
+ 
++&pcie1_port0 {
++	reset-gpio = <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
++};
++
+ &pcie1_ep {
+ 	pinctrl-0 = <&pinctrl_pcie1>;
+ 	pinctrl-names = "default";
+diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi b/arch/arm64/boot/dts/freescale/imx943.dtsi
+index cf5b3dbb47ff7..01152fd0efa5e 100644
+--- a/arch/arm64/boot/dts/freescale/imx943.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
+@@ -255,6 +255,17 @@ pcie1: pcie@4c380000 {
+ 			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
+ 			fsl,max-link-speed = <3>;
+ 			status = "disabled";
++
++			pcie1_port0: pcie@0 {
++				compatible = "pciclass,0604";
++				device_type = "pci";
++				reg = <0x0 0x0 0x0 0x0 0x0>;
++				bus-range = <0x01 0xff>;
++
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges;
++			};
+ 		};
+ 
+ 		pcie1_ep: pcie-ep@4c380000 {
+-- 
+2.34.1
 
 
