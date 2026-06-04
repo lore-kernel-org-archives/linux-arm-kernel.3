@@ -4,134 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BDACD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 06:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734DDCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DJ6SryaLEZrQ9nkLnRUo9u9eEcejp5mmpfAJQ2I4uuw=; b=HXBPwSQy1JkZfaaUyiTs1iwphO
-	ZStg4ZnUR+9I95zuJiRVfARQDBUrHBDnYzieUentUvbUUg0s3va92+98/OKEnDfQIciMlGLMLPqZ5
-	zBDHVWjIyu7G0/CvXx9FoSoSMREa77qzdNyBfbamNzDBwz27HODNMZOaegNcaGdjQIndOC8VVADfq
-	sbRxV/atrJ4JoDlJMIvXwR7x1JQNDAAs6RtWIAanud5qx8sHOo3/En2cvEowm7P/RXPtuNQCPNeoe
-	3Ekfo05e+LPp6rsr3nQttO/8soFlIYlOr0lvhiFmH32a9Aae+5iIrL+ONoYPlrcCtBq36hBpde0zL
-	vuwukMCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
+	:Subject:Message-ID:From:Content-Transfer-Encoding:Content-Type:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=89fgQI2MyG5GwpzH4bnJ+61l5og0hczL62ghWcdv4i8=; b=P5S2DNCr2ks+e+L7qTxt7Nuv6G
+	G/B/6AF61qYJaleOH4/DOcYYlt/qrjoGUmEgR5+NkimRyC2Fn7SGjJFdJdnX3Pv/53C5SjGcmclyK
+	w8G93FEWH53kTgg1/hqmJrgucxipezd1MQvMtUOxSAo29Xo9A9L1P6Mee8ycLFjawyXAAUSIazxwA
+	IlhOxWC37tyNNc8KekqOrBpRGEGroHLqp30ctMfNOxNbbti302EETpdH0YvCXAG9Z3jLKxupo7PhK
+	J3YAlisxAgmiaWjTQOhnUZZstW/P0L2BEofXcdZGPYH1RTkD4GVphz+jfxWcqjqwUDRJ0nzZ8hMSJ
+	Mp0CcXyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1tN-0000000GEzD-2sN7;
-	Thu, 04 Jun 2026 06:49:25 +0000
-Received: from mail-northeuropeazon11012017.outbound.protection.outlook.com ([52.101.66.17] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wV23j-0000000GGC0-1Rhe;
+	Thu, 04 Jun 2026 07:00:07 +0000
+Received: from out-180.mta0.migadu.com ([91.218.175.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1tK-0000000GEyq-3gKN
+	id 1wV23h-0000000GGBM-090k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 06:49:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CF7DBEhlPx0jcHFrJetGZviWB66cXEqmoWXHRAnXbwKBFRwzSGzFNXcwvjApMUlwTk1cg1dXJgsyh1hN4vtFKsyNweTead4qGBia4gs8D+6QTtQRirLG1oPs8qpv7YnVHEQOEPP8TSXXiyI6GGRKNyJgg8gwrD9h/yEcHD+eKG4D1FSkDvlNpPeTfNBbLacVWeJ8orLr2OCHB4nvFPctuxLj7fSJgWeRA7qXv9sInnZyl3eA3soCshI+zhPeAgQEOJjXVDZYivjXSmFS4M2471VKk4gPVyKZJjUAOoyKYpWBCX6Z1d7VpCUPAcGWU2hO28Q/GsN1ybGmolJGOhpc8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DJ6SryaLEZrQ9nkLnRUo9u9eEcejp5mmpfAJQ2I4uuw=;
- b=bhdzYmzhMVCn3Obr7sx8gb+0a4ut0/fidZyb3wIWHiNqnhV20UmHL6FpiQHgAIeMTyqtJM62CIIM/Kg2yCcRV/imi8+WeDBtz+oamRyCN/shYitVO6Nb4D8DhW9kgRfDgGuuL6DHVJ6e7HZE5dd1+xlZvghRm/deEUNR6Z0zrWR3sGVDt9uo58eaoq0NGAz7YdqePEpdxRMOn+K0AVikZNkYKoQVoo7w4cL1d0K5WHXyOAtrto1HGC1wypKJWhJ8HBP9aA2qwgVHyXKevDwIchqdmaHdVTNfiUdteRSep1+k5R3rzJsxhPJ0mphoQkDupKilRKWiFXkUXSv/DV6vlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DJ6SryaLEZrQ9nkLnRUo9u9eEcejp5mmpfAJQ2I4uuw=;
- b=AUiBPbswHVsFOYY0c83DIXAXRLZlC9+rLv9gdpoy7kEONqrN6IO3sG3rgLEuCp21NYzZoE8RTlQMVRdf+wfGynFPrEKREbytV2oF6dR038UBbo7ZMevkhvLKL8ME/EARhFwnahBwoQf+0I3+QgjkJotE5cw5OAClTtBW7/vYcDON/lcYaafGuGuNEujS/Yhps97/s7oqcS2Yxgl2O9vV/cESLcvNqjFSsIK6JCKkLXHOy7CHgk8qfkO/WJLwMysi/d78rSwIjlRZgojlmFeFcXVOvAq9GOfupvc3oWA0N+pKWol0NlFAM4zfrCJuVLEEXHxnrPxTP7Yqdqi5JTC7Wg==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by PR3PR04MB7482.eurprd04.prod.outlook.com
- (2603:10a6:102:8f::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
- 06:49:18 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
- 06:49:18 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>
-CC: "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Hongxing Zhu <hongxing.zhu@nxp.com>
-Subject: RE: [PATCH v2] arm64: dts: imx94: Add Root Port node and PERST
- property
-Thread-Topic: [PATCH v2] arm64: dts: imx94: Add Root Port node and PERST
- property
-Thread-Index: AQHc8+sH0ZDCmxCVi0CXELE6fHO8RLYt9HVg
-Date: Thu, 4 Jun 2026 06:49:18 +0000
-Message-ID: <VI0PR04MB12114C03C7D3EE162B99AFD6C92102@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260604062846.310810-1-hongxing.zhu@oss.nxp.com>
-In-Reply-To: <20260604062846.310810-1-hongxing.zhu@oss.nxp.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|PR3PR04MB7482:EE_
-x-ms-office365-filtering-correlation-id: febfe190-ff0b-4a5b-abe8-08dec2056698
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|19092799006|366016|376014|38070700021|11063799006|56012099006|18002099003|22082099003;
-x-microsoft-antispam-message-info: QZlnD+S45KQsdsa2Q35GTizvdoE9PK+56XjdTLq2A2hlA6WiqJ8Iay9GiTsQYPLbwhiJTzjDRVxZHQKzsoA94BF1ClkX9Q+rb600la/jvhL3au7BB8bIdtZpFhfOCeiUNpxiMHk2lKC1uiu+CVUN0jtZksgM5enUv9dNfMpAbXDGIkfB3CvUqyQCyIAdxKICxIwAl0e3izV7ZDYeqb6KlSN6bxJYUE+HYeF90SurxsEI1hn222H8jojRf9NaQZYZzGEMpcvGdYWK8YoZyT5ZFm+aUPQMzLlpcfaWlMpfPSIoEenzODlZnM0/ic3D0VaWYQb0OGmPRq92+LxsfGtoQhQAIDbxPgOwt4mEvKcl20N+yQEd/k3EVFjfIpS2rgphTl4lROveeR0LjQZK7wwstFtqTsK1/WKPbub+niJC3bCjetpm/q3PgroU+CQP68CuQIzH5LusBXutS1D5pCj6JVpJCPvEA9VDZm0p3oLYLtujgeF/uPeVaShEHHJg8TlZfWzzdbLZ2mQroFUl8n+oF+dbE8Uq3Xcex5s7eClvR6ltzl4CdhoYYCRfQPY7gNJL3B8CV6RmrOD+pOOABjC2qXwbU1N1mSs5DTzIvp/1b4y9vfqLay+ltseufXzxybe7KW6TuZwul7KcQE3rJYhJNSE12Uwf/ljCHC5fikK8qo0cMUdAdfg2+3utIqizvsTtm+EkmbFpTrSF+fl03W87TPw/21vU36vJyP1v9hfnWxKEK3pFzbGCY1GCqwmzflx3
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(19092799006)(366016)(376014)(38070700021)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?e2b5bWvMsLgs6jt0ejCppSzKpT/HzA+tKSR8QsFpbUWDAYviDTumMyqiVJpr?=
- =?us-ascii?Q?tfaIoA/+2zrGuDvJbEQdp6gcJ05pAe9JKq8z1eCUEZc8C07rYdxk0/vDSsEV?=
- =?us-ascii?Q?5e0UZrluL1mkpLvNdoBZu/LLJrNwhlGaZk2FFKDSeUB79/UaFo0Db1KdFWRz?=
- =?us-ascii?Q?pKHsXuEJuoqm9D+q0DntQOS/j+iLIS3g/xWewvjyJHn7Ozz6kZyEDMSY+UrA?=
- =?us-ascii?Q?nf468y+Fx4Eiq4Knauxo156dQ3Tov8XMCd7/4JqpCTokuvtdKqLCj+vTRlo3?=
- =?us-ascii?Q?o+dhabZoSlO5h159jTyB18Tl0GieqFyN1SPFaRBFamtk1wZmuSuptG//A5Dq?=
- =?us-ascii?Q?a3jpzV5WJPT4MIkPLdaAm4YEGxLUMRVNTD3ySB+wzRwFTdgAcQxBtK4brn7D?=
- =?us-ascii?Q?+zYLc3V2GdGjVAItZMyFeRbpp5QiuKgtf3imxh9D6QbN+URTmhx56amdd/0b?=
- =?us-ascii?Q?94nTATuj/3muDEr5EuLOQpuPK7Yrt1Tj5X0VbUgrTFazVEEd7RIHtSMFH9os?=
- =?us-ascii?Q?FSNgu50y6AGw0YTh5jv+mzQb7OKAUWzl4zMWBGdMOEYKj47vCGo5ClKsC/nF?=
- =?us-ascii?Q?mYYdWLPVQ+fpqLINmmgPa2aQawZ/EPcUij4Iht9YVe0J0bpY3r7NDqRucd8e?=
- =?us-ascii?Q?nN4IwLScbEn6htXtc02CbAKga5TtSZ1dBce3IjVDwEMhjGh+mUaTCOcR9Gci?=
- =?us-ascii?Q?iiTbS934QJzZnL9ufO6V8rUe7G9N27Fmp0qHcWXqjn410iU8pfWMbESGbWfJ?=
- =?us-ascii?Q?YoUUp9o8zU8k8Yd5/FrCMLPXAF3T6ayOk7TcyZmLiZ4acfP54RmVCejZ40vc?=
- =?us-ascii?Q?EAaWe3UQ6JO5uXbyvEmYOhlHz3m88H+T1GKD24WtHZTftlXFgybgm4vdkknY?=
- =?us-ascii?Q?DP8iBsiWRa2EaBAMNx8LgInikkFPUOA22go4UqH1ZPVvWLumQZ/3NGtTgxVK?=
- =?us-ascii?Q?C+UB6rclEM8l1Ns3rLbf7MhQAq5Sp5jkfqLrQTK1jcnoUvQbX3+xcBeeNjUT?=
- =?us-ascii?Q?mQKfCmreTi104oJ+4jEEGnKuN3cwxyJY1TN0PavR1EzWCZKaQE0myC4ZGxaQ?=
- =?us-ascii?Q?kKxALJpy5C6BDItkiEg0Hv6VYtQJUiDz5PAbtPEo6GUl+1iE47wPf+Bn+04S?=
- =?us-ascii?Q?Xc9SEKdYrCBTbXL+nt26Acxrt0DYdh4I/+4xPZXbp0sp3O2b+X6Wuaj5hlcg?=
- =?us-ascii?Q?wEJvwBK1nrTzglPcRGhJtMHY0BUk7MXcOy4Uei+1z34W4eQop1issA9l1cpz?=
- =?us-ascii?Q?S5wcc3gteciWTWIC8gKNvON0UmHycIdLpJcR6GS5lG0q7GLQFGasOBoEi9Jm?=
- =?us-ascii?Q?pJBz0a569ATusyELX5Z8uWTd0zA0KbGLE9nq4T8za4ZJMqtZJpeB2hUNk5PI?=
- =?us-ascii?Q?38P8Jdpc9djySFlO/HSdKxs6FzLN2iEGL0x+jOZjnkKiRD2iXYd2z4UmtJO6?=
- =?us-ascii?Q?kOtZN5MqTrxS8quYVmcTu0hSwKpztsU9PA1VpJax9pH3ls/iaM9Q2KiKglbd?=
- =?us-ascii?Q?xJAE1aqRsk0Syj+qR+yWZ6fuwIHW9ZcgvgfgwnjhycSAYnwQDx0N16XjVswn?=
- =?us-ascii?Q?WyiWQ09ISn78OX6I2Nkt+fUmMVtkPVd4oUtskqhwRS9jLjhge42ETGcU824B?=
- =?us-ascii?Q?sG1CstUiMF3iY1XztgkzSA+B6FL1epMpCxPJzJqQ8a52zRVF1r3EyEBgRAjp?=
- =?us-ascii?Q?RGH8V76vNFjfVB7lDdyhhUqrBrUMtfauB5yaLEeJmPmO5rDO?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 04 Jun 2026 07:00:06 +0000
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: febfe190-ff0b-4a5b-abe8-08dec2056698
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2026 06:49:18.4663
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GaI25YZOcrQnR71En8ImhdMhuWddL7OKUgYT3l63O5UpAYRiW3bLppN+vuzu+bWGi2jCDRlXjET5ZImVO8hYGA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7482
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780556391;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=89fgQI2MyG5GwpzH4bnJ+61l5og0hczL62ghWcdv4i8=;
+	b=Q1SjqbTAiGs06RwvRDUK/EqJrxv6iRhxFv3Vuje1OIEYQTdbbxCZtsxTEhirAP7gUbY42E
+	ihDvn+H9+1v9SgLCNIciuaF2xArOsxSnQ3ikuBZrTx2XPwUT3ILJw0m1F9O5k6A+xx3cau
+	LuB/Z3sx+4Y3g2NwvULBvCKRm2EkFZA=
+Date: Thu, 04 Jun 2026 06:59:49 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Jackie Liu" <liu.yun@linux.dev>
+Message-ID: <0bc286797b469d93631cb3ad2c99e135f49d5200@linux.dev>
+TLS-Required: No
+Subject: Re: [PATCH] KVM/arm64: vgic-its: Fix memory leak when
+ vgic_its_set_abi() fails
+To: "Oliver Upton" <oupton@kernel.org>
+Cc: maz@kernel.org, linux-arm-kernel@lists.infradead.org,
+ yuzenghui@huawei.com, will@kernel.org, kvmarm@lists.linux.dev
+In-Reply-To: <aiEeKGsLg9098OUt@kernel.org>
+References: <20260604031426.16109-1-liu.yun@linux.dev>
+ <aiEeKGsLg9098OUt@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_234922_954155_5521EEC7 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20260604_000005_229303_8D559F46 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,119 +72,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Richard Zhu <hongxing.zhu@nxp.com>
->=20
-> Since describing the PCIe PERST# property under Host Bridge node is now
-> deprecated, it is recommended to add it to the Root Port node, so creatin=
-g the
-> Root Port node and add the reset-gpios property in Root Port.
->=20
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+2026=E5=B9=B46=E6=9C=884=E6=97=A5 14:41, "Oliver Upton" <oupton@kernel.or=
+g mailto:oupton@kernel.org?to=3D%22Oliver%20Upton%22%20%3Coupton%40kernel=
+.org%3E > =E5=86=99=E5=88=B0:
 
-Reviewed-by: Sherry Sun <sherry.sun@nxp.com>
 
-Best Regards
-Sherry
-> ---
->  arch/arm64/boot/dts/freescale/imx94.dtsi     | 11 +++++++++++
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 10 ++++++++--
->  arch/arm64/boot/dts/freescale/imx943.dtsi    | 11 +++++++++++
->  3 files changed, 30 insertions(+), 2 deletions(-)
-> ---
-> Changes in v2:
-> - Delete reset-gpio properties in PCIe bridge node.
-> - Correct the "reset-gpio" property to "reset-gpios".
 >=20
-> Since the patch-set [1] issued by Sherry had been landed. Add according
-> changes on i.MX943 board too.
-> [1] https://lkml.org/lkml/2026/6/1/1461
+>=20On Thu, Jun 04, 2026 at 11:14:26AM +0800, Jackie Liu wrote:
 >=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi
-> b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> index 1f9035e6cf159..dfbb73603cb24 100644
-> --- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> @@ -1411,6 +1411,17 @@ pcie0: pcie@4c300000 {
->  			power-domains =3D <&scmi_devpd
-> IMX94_PD_HSIO_TOP>;
->  			fsl,max-link-speed =3D <3>;
->  			status =3D "disabled";
-> +
-> +			pcie0_port0: pcie@0 {
-> +				compatible =3D "pciclass,0604";
-> +				device_type =3D "pci";
-> +				reg =3D <0x0 0x0 0x0 0x0 0x0>;
-> +				bus-range =3D <0x01 0xff>;
-> +
-> +				#address-cells =3D <3>;
-> +				#size-cells =3D <2>;
-> +				ranges;
-> +			};
->  		};
->=20
->  		pcie0_ep: pcie-ep@4c300000 {
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index 7cfd424689507..99d66484ded04 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -1034,12 +1034,15 @@ &pcie0 {
->  		 <&pcie_ref_clk>;
->  	clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
->  		      "ref", "extref";
-> -	reset-gpio =3D <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
->  	vpcie3v3aux-supply =3D <&reg_m2_wlan>;
->  	supports-clkreq;
->  	status =3D "okay";
->  };
->=20
-> +&pcie0_port0 {
-> +	reset-gpios =3D <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>; };
-> +
->  &pcie0_ep {
->  	pinctrl-0 =3D <&pinctrl_pcie0>;
->  	pinctrl-names =3D "default";
-> @@ -1058,12 +1061,15 @@ &pcie1 {
->  		 <&pcie_ref_clk>;
->  	clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
->  		      "ref", "extref";
-> -	reset-gpio =3D <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
->  	vpcie3v3aux-supply =3D <&reg_slot_pwr>;
->  	supports-clkreq;
->  	status =3D "okay";
->  };
->=20
-> +&pcie1_port0 {
-> +	reset-gpios =3D <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>; };
-> +
->  &pcie1_ep {
->  	pinctrl-0 =3D <&pinctrl_pcie1>;
->  	pinctrl-names =3D "default";
-> diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi
-> b/arch/arm64/boot/dts/freescale/imx943.dtsi
-> index cf5b3dbb47ff7..01152fd0efa5e 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
-> @@ -255,6 +255,17 @@ pcie1: pcie@4c380000 {
->  			power-domains =3D <&scmi_devpd
-> IMX94_PD_HSIO_TOP>;
->  			fsl,max-link-speed =3D <3>;
->  			status =3D "disabled";
-> +
-> +			pcie1_port0: pcie@0 {
-> +				compatible =3D "pciclass,0604";
-> +				device_type =3D "pci";
-> +				reg =3D <0x0 0x0 0x0 0x0 0x0>;
-> +				bus-range =3D <0x01 0xff>;
-> +
-> +				#address-cells =3D <3>;
-> +				#size-cells =3D <2>;
-> +				ranges;
-> +			};
->  		};
->=20
->  		pcie1_ep: pcie-ep@4c380000 {
-> --
-> 2.34.1
+>=20>=20
+>=20> From: Jackie Liu <liuyun01@kylinos.cn>
+> >=20=20
+>=20>  In vgic_its_create(), if vgic_its_set_abi() fails after allocating=
+ the
+> >  its structure and setting kvm state, the allocated 'its' is leaked
+> >  because the function returns without freeing it.
+> >=20=20
+>=20>  Fix by rolling back the kvm state flags and freeing the its struct=
+ure
+> >  when vgic_its_set_abi() returns an error.
+> >=20=20
+>=20>  Fixes: 71afe470e20d ("KVM: arm64: vgic-its: Introduce migration AB=
+I infrastructure")
+> >  Signed-off-by: Jackie Liu <liuyun01@kylinos.cn>
+> >=20
+>=20vgic_its_set_abi() always succeeds so there's no actual memory leak
+> here. I'd prefer getting rid of the return value instead.
 
+That was my original thought as well. However, I kept the defensive clean=
+up logic in place
+to make future extensions easier. This way, if additional resource alloca=
+tion paths are=20
+introduced=20later, we're less likely to miss the corresponding cleanup.
+
+That said, looking at the current code, the return value no longer serves=
+ any real=20
+purpose,=20so removing it would also be a reasonable and cleaner approach=
+.
+
+I'll send a V2 with this change.
+
+Thanks.
+Jackie
+
+
+>=20
+>=20Thanks,
+> Oliver
+>
 
