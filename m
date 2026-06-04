@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5CACD6E6D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71660CD6E77
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 15:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jx8Q3lCGNmWi6X5YDYYuwkPijRSSNnRUooDmPqenZLY=; b=q4hRHDsSWZ5nBNI222dAAvPvQb
-	SXfCh3jhL0EZT+2yu/CkgOgcH5+2X2N3daNAViU+QEu/6S57rfqCGQi8NKGqhK2xBIrZM6aCPtPk/
-	c+aJyvmXeuE7iL3ni5fYbZSI2kBFLH1iFkBMd/sRH9kR/OnHuFE+hvbdp3fzsKI8HVcNYE6MS1Rqd
-	jJVhXn7JU3KlhW7nYAfjCnMf1ZmUUTs1hwtclnbe1f+oDeiONv51HTM4wqZLS0kXfqnKZqxM1MzAu
-	kBlTyYce/Tcj7tO/hPVxMyDOuIXFyG10zlqIurdVHvka/tHLShgHw2pkNSLNvKlNIVxSLvHpC8q0d
-	UDlDUs9A==;
+	bh=P3K/SsiNlFZbdlNJvq9UTu1Y1PGOQfd1S84EHwWLfQU=; b=LaxQwD67zA8iK6dhkAd3xYxHkr
+	HA+nW94l4bpyV/CLb1piaktRdskAj0aOmnMUR94ept+yEJIwpHuzZ06+WQD7SwUxiJAL+5/cHRtlF
+	bh5e3ybwO1Hs3xKsutS6eXD/DLapdY9foer2LINwsfuIhY/eS4ZChckQhqJID/ezZCbrjWJL++xyv
+	Moq/e3rJyWT1gMYYoFRznjuDjKaXPcsRVbribyIhelZqGjCuoEhiPKViqTfIKa0I/h5V3+qnjyl2R
+	pyl9Lu2I9hk2b105rI8TlB4CvSnPGwdPykEeCZ1W6Vy3AVIK/+67c0r5yX6ldPFBph7LqzD+rcIDt
+	XgQCe+Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9kj-0000000GyHb-0gjR;
+	id 1wV9kj-0000000GyHf-0zQv;
 	Thu, 04 Jun 2026 15:13:01 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9kg-0000000GyGG-2Yl2
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wV9kh-0000000GyGs-44VQ
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 04 Jun 2026 15:12:59 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c0c32f6ce1so5941425ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 08:12:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=P3K/SsiNlFZbdlNJvq9UTu1Y1PGOQfd1S84EHwWLfQU=; b=Z6blMnz8wrgJ66U/rhEg5EQK6r
+	EoASogepsVbU4ioDG+05qLr6hAvSYKsk62jv7s4/YiZ8iURJIy8Yow5x6VrjmKint1kGE6zjBZc9q
+	NOX1jc336MTEQsjkB2Vqew57LremhXSV1TBAybye1q1WJ3+DokSLNy7y5HaXqjpd4676zDe4b7Nlf
+	Y7fJ+93EhDKCBPkNZxEPggpuQ5MJYroSLbzWjRZmX3i/Ly5qVIlEmRrS+4u/fpbqBTfOSKXZMM9w0
+	6k+QwK4ya81siYpgzrmRyWddxT/Y4ztcyDjKyp/P0LoKR04l51AlzasciCN1Lxf+EL8SNSCsZH7A9
+	WJFhdAaw==;
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wV9kf-0000000EUhL-1UAh
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 15:12:58 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2c0c2c7d45eso7980455ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 08:12:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780585978; x=1781190778; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780585975; x=1781190775; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jx8Q3lCGNmWi6X5YDYYuwkPijRSSNnRUooDmPqenZLY=;
-        b=M9XH3YQEBxvgUVsCpNqh+lJHn3suLTEt2N3dXqF9rLUkCzIGpcwRR4dlz48wVIoXfT
-         Pqvs+pOkxziQVE1e1PkvXnvtm9w9ffRUMVrbD/UEWbe13J2nIW/2WkGs5LReKeL15RhJ
-         u/Jh+5bJ3Q5ExkprRzzMOmarC+WmOfTksyX8FLIMK6v9tWTxPDJva8YtnfY9BjdCQbW3
-         Hp3hfeF3saWwaFfcYPcuF6P8wtLNnyQX7Ni6NgJQjC+E7Aw7IpTezP9SG0abYlL5zScC
-         9a9+No87fOEP5lEITujhogXWT2/Ct60VHIqOSGxnbqG/S2Jc7X9EN9H+vZHMWJ/yG6uA
-         tTTA==
+        bh=P3K/SsiNlFZbdlNJvq9UTu1Y1PGOQfd1S84EHwWLfQU=;
+        b=k/V0kljIfCwr5T0v1NEAMd8ZvVp5f2NH71vYWhk4RQFfbrM0cIRhMoZ079FqdcGPWP
+         XceztRBDoG93a4fTon3Rg873xxGeRl+P+AVKDX1CtyhMcSOGL4kn4hEwjF6e7gPYvD4b
+         URGYXciPVWqQKajvfWQ5UfYKbh7wh40rGKFNNCxp7MklkObljDn1nQsmPvvHhxbdqOdj
+         AGw6YDzltwmAIFHAa3qsGurwkYqndOR1zIAFgsiU8ujiUBKkSZ5YNPvOoPj75BN9SSLL
+         StxA2C6UyRzKtOrYb2jVB6/kwKIo8Wc0fUtCTSMnBgER4YVyLLl1+gMrNszbL6eigxyv
+         6dHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780585978; x=1781190778;
+        d=1e100.net; s=20251104; t=1780585975; x=1781190775;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=jx8Q3lCGNmWi6X5YDYYuwkPijRSSNnRUooDmPqenZLY=;
-        b=GS3maOTRIbf9PZ98vH8byNOEc7sZgn0VOMetk/RaV5iY28SFSY6aOC4Fk79vW9rNyA
-         ltj49Gmhw61n/0NawPwrKF5BJbcxQAQtPmEFui1Onvxp1Jib1EUv6Ty+ayl9gVsD7bKU
-         SI4MXfJhkrAw4Bvihq/8zcE3GU5HTb/0R96r98vsQ1kgumvzmQEs1ZOtvkSCubDoQGRn
-         yJQWiStZW1QgL0/liEtweJrHDhUSaOMgs7hjuLUSNEoaWzIcTIjMngSMA14iJAz6oKB/
-         ZH+3UO0vFh/m9bYCIq36DGdoctlDUO8aEOAvov39hy0kzJ2Graxw/RHbxXcLkAmGnw8k
-         LY8A==
-X-Gm-Message-State: AOJu0YxvORYLojDcvpv/6hC7JElUd4FM00uCeqXbEfDELqJYhr6C3CvF
-	vsKB0EtI2vtJPO4KIYNXzUl7KF3F0sALpW7BZtudPJ/2G78iI+SInuCd
-X-Gm-Gg: Acq92OGpdSbLv6ZpsbyUxLf7I1uir6L+qfXUX9XM8oDTKwQLbSxGfEDvHW9b48ZOLwJ
-	XvuBRUcaX+3aWlYAYeGEdFiTrWY/rEmVbZ7OfbVw23Okm1/P+PBNa7Uala6nITmzwFFcMuFiBSc
-	L0zPQexSG8y8KH4+srY3iV+/uz4yQa7MTbVv7hhkiUwUTb5yD/52xSuhwTR4MN0wwifIRUfMjcj
-	aUvgmcTsj7g61z/gko0dEyzK5noqFXHy/lEEl73sKGweOtC+n7OZzn3C+VPNT79vo4jq8LgO2tX
-	Aojyc00xwz2go3+uJkqk2nk7vL8yiPHQI53/H/DHciH3ZA2iJPK3zlCHNW9bohYjBviwNLOPYEz
-	eK3h6jKO5CH5EWqH/Xrzq1osSearRWTGSbyN5WPOs9AVim+UMWeAgz3sWEOEmP/vzFVtiOE+rRy
-	krWXaolQnSf7euvfDtg22wb0oEKMAvmKhzhIcyCkt1leH69qdGbeXgw25y
-X-Received: by 2002:a17:903:2a8b:b0:2c1:1685:b8f with SMTP id d9443c01a7336-2c163a10116mr112073815ad.9.1780585977829;
-        Thu, 04 Jun 2026 08:12:57 -0700 (PDT)
+        bh=P3K/SsiNlFZbdlNJvq9UTu1Y1PGOQfd1S84EHwWLfQU=;
+        b=JItOtFpg8RQdtoah12bHpWESHwi2Kk0mx/os4s47ceH0Pmleprf4Fhj6iplGjw3ImG
+         EKNyOHTGP/Ffml/D0aIsj8IWe0UXpGSZTeuWXLUr3mY9wzZ1soB2/GBTUvtrLeAIcjsz
+         wCbmc4fBSmCrRdSS2HUsncZYbssnEs1qhIIKbgLAE3OSOuuRZ57RSNUV4Uc1sN5YvOuC
+         r7PkOTlMdphi9RT0sQ5JohhqX4ol6m5IdTPF94AHbYSEbLnpQTVur8XDnLNhRLAtEh2Q
+         9Ws4AYPukpaGUx+mULeXEvSpGIuPB4L+NvIc7mZH1Z6yZRQmHyz5xXBIBxbQTc53UoGP
+         BfhA==
+X-Gm-Message-State: AOJu0Yz+Ko0N7WJmgV1TKOdICAkrre+dm+FZIjqblG6oLRqJLKyuRM4O
+	CUhWFQfIrKIQpiViHdcQQe6Br5DE9zS4KaiiK4RNU0ZtSy+JUzeGUeD6
+X-Gm-Gg: Acq92OHATAIpglg8pmClKhGUUXxRAUjoGI7iN7eT5ZKseN5wTilr+2GUSc7KxjDKfHq
+	0WzVsNO8gcnEKBJLZA0xYtE+uVotsD21L5mD367ZZAkOPuWZrhO5L2o1a9NJC11KWzssvQZaQu1
+	Exwmn50fY6ClyuAnxU2lU8anwh3Lxzn062u60BWETisPczNMWHZurrhzZs8S30FfVO1DGYoRU20
+	9xqquJAjbd6Z9R6NV8FP/DZ2Ruge+87Etp84bTy31SKe/xtH1a3UBGRCXIFDReWLdUS0h9EV09y
+	LnJeTeZeDYpTEWAFgwttqmKN0ZkaEN8hwtSiNHNgB+ApGdbMhN3fV8sa/5nSZVad5cS9nHACZ58
+	0nbNmRc7ghpr+KleHdUeFST61nSm9/C2Bpock5ay42V6POxghj7cEiKX16MHMDW7V7nCmLLrZsF
+	stl0aJUAZZE3A6SfdVDp1qzSDVe1DzirKMKJJKamra61rhYMkb8wf2Ik4U
+X-Received: by 2002:a17:902:f60d:b0:2c0:c3c2:c710 with SMTP id d9443c01a7336-2c163a5744emr90941045ad.17.1780585974815;
+        Thu, 04 Jun 2026 08:12:54 -0700 (PDT)
 Received: from v4bel.. ([58.123.110.97])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c1664a67b0sm62705105ad.80.2026.06.04.08.12.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c1664a67b0sm62705105ad.80.2026.06.04.08.12.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 08:12:57 -0700 (PDT)
+        Thu, 04 Jun 2026 08:12:54 -0700 (PDT)
 From: Hyunwoo Kim <imv4bel@gmail.com>
 To: tabba@google.com,
 	maz@kernel.org,
@@ -81,17 +96,17 @@ To: tabba@google.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	imv4bel@gmail.com
-Subject: [PATCH v2 2/2] KVM: arm64: Bound used_lrs when flushing the pKVM hyp vCPU
-Date: Fri,  5 Jun 2026 00:12:03 +0900
-Message-ID: <20260604151210.1304051-3-imv4bel@gmail.com>
+Subject: [PATCH v2 1/2] KVM: arm64: Clear __hyp_running_vcpu when flushing the pKVM hyp vCPU
+Date: Fri,  5 Jun 2026 00:12:02 +0900
+Message-ID: <20260604151210.1304051-2-imv4bel@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260604151210.1304051-1-imv4bel@gmail.com>
 References: <20260604151210.1304051-1-imv4bel@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_081258_653303_4056533A 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260604_161257_466151_F91C54D4 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-flush_hyp_vcpu() copies the host vGIC state into the hyp's private vCPU
-on every run. The vGIC list register save and restore use used_lrs as
-their loop bound and expect it to stay within the number of implemented
-list registers. While this is generally the case, flush_hyp_vcpu()
-copies vgic_v3 verbatim and does not enforce this, so a value provided
-by the host is used at EL2 to index vgic_lr[] and access ICH_LR<n>_EL2
+flush_hyp_vcpu() copies the host vCPU context into the hyp's private
+vCPU on every run. ctxt_to_vcpu() expects a guest context to have a
+NULL __hyp_running_vcpu, which is only ever set on the host context, so
+that it resolves the vCPU via container_of(). While this is generally
+the case, flush_hyp_vcpu() copies the context verbatim and does not
+enforce this, so a value provided by the host is dereferenced at EL2
 (host -> EL2).
 
-Fix by clamping used_lrs to the number of implemented list registers
-after the copy, as the trusted path already does in
-vgic_flush_lr_state().
+Fix by clearing __hyp_running_vcpu after the copy.
 
 Fixes: be66e67f1750 ("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()")
 Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 02c5d6e5abcbf..cd807fdb11ba8 100644
+index 06db299c37a89..02c5d6e5abcbf 100644
 --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
 +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -7,6 +7,7 @@
- #include <hyp/adjust_pc.h>
- #include <hyp/switch.h>
+@@ -128,6 +128,9 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
  
-+#include <asm/arch_gicv3.h>
- #include <asm/pgtable-types.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
-@@ -142,6 +143,13 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
  
- 	hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3 = host_vcpu->arch.vgic_cpu.vgic_v3;
- 
-+	/* Bound used_lrs by the number of implemented list registers. */
-+	if (static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
-+		hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs =
-+			min_t(unsigned int,
-+			      hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs,
-+			      (read_gicreg(ICH_VTR_EL2) & 0xf) + 1);
++	/* __hyp_running_vcpu must be NULL in a guest context. */
++	hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
 +
- 	hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
- }
- 
+ 	hyp_vcpu->vcpu.arch.mdcr_el2	= host_vcpu->arch.mdcr_el2;
+ 	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
+ 	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
 -- 
 2.43.0
 
