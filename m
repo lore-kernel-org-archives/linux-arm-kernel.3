@@ -4,93 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D262CCD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C38CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rRDPEW9sbPRXAPtuKH5War+e9LS+bqZ/3dB+HlmzKJU=; b=aQBYyJUzGTAhKE488d+Ekp80mB
-	5guyQOpmxqB9Ix4yTZvHQGZPjmr6ln8g+NzPh19pwkwgPSONR1ztjJiw4MZ+548LxfLovfd6fllaA
-	sT35c16tH6G1HB4GURX4Wg0NfNHM5xqC9huLqV7NBW07Ywg9xxqp6s6gzhLIHcV2DDSuFWaBT+RQ1
-	0FHlXwVP3xaTNVCOQMmlCCnyKDpcfKfzQJv7p3wl4pVsE4vRyoGR9o5nGtBQP7krjv/B+SkvxbPiK
-	Ti9DMYL1+2UTt2S50OMW/ex8tgTcton76oFISg4ethKyF4rirEn6oRI+hyyVtuxu/Qo2XAhRuJW2q
-	rp8RfMQg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q4M6IHPPqvn7BslwxjdmNphfnRaoMyhtXgwnSO3ihJY=; b=xEgrKvdW/OqMbNE3qwGjFjbPnV
+	T+TKtQkYv/BGZfZmFSiiCTuBwBf1iNPC22acPoAlFmuarQca4pKCfW0L2K5PbbP9C9ztgodFoIjUl
+	wsZzhRhihWlDup2Ixzp/Ht5PRhYmLtXHEs0jVqBMa4Cyob9m1IMUEt90yfDAsDK1xudS8eAV4x3Nf
+	n5q05Vo8vHlUw8+SlObjxQAxR8YFfC01Wbc+DeLazJXc77eGCO/6qb3/nvHm+WmO2Vxq4VaFPsoz3
+	lUnFpZsi2s9DZWwO3REEBHsz5w/EabocdEqUpZBe3GGM15Rw94w9GGPVieoagxdhKYgkOZ1wJU2N1
+	OOSZuWag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7Ha-0000000Gj5a-2OR5;
-	Thu, 04 Jun 2026 12:34:46 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wV7TL-0000000Gjjh-2CWl;
+	Thu, 04 Jun 2026 12:46:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7HX-0000000Gj4d-0Qvk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 12:34:44 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490b7866869so8145275e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 05:34:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780576481; x=1781181281; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rRDPEW9sbPRXAPtuKH5War+e9LS+bqZ/3dB+HlmzKJU=;
-        b=GlpiNOfySueuVZckozEURsRql6p+R3YL7YpMjgfw2L9Upa2aCiWxRyQprf8y0hj9VE
-         8gEvKBRjLJtnYUoBlfYP8P8a0yscMoXWZl90II2YGDu5IpV+aRF8Qx9PUhFGOnyy4Lml
-         XQF38Ai5fq0LhP09Cccu6Qn7Ldr+3M+LcX5uKlW3GhulVstKqtucha7uBz8ANHoXsi9m
-         ClTPsltCO6drTKEH6KNM5DXS/iPjpd8lUq6ACHLTLa5HpqHcnF3NTPDUEQDO/Z6zXrsZ
-         NwT8Ez2zV9jvjb0PcEOO51o3KafOzSElCTPeLznugWZ5wdAlD+ZHwoniqeLj9wQHMe//
-         dpLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780576481; x=1781181281;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rRDPEW9sbPRXAPtuKH5War+e9LS+bqZ/3dB+HlmzKJU=;
-        b=OhcmMEWW5qdq50B/e74eNWoxiA8aXTlQYAhdebi5t21J+C5UHoNcLDBdYzfOdFwPtP
-         oJXnX6lTiIwGPM0BS9RQhfwTf+/zgPGIBWYhH1GED0BRPwLhKc90KPpKrPhPgLqhauGt
-         cQoxi76L5XD8YgsmyBDpvsp1QKe5Xpc1mCCnBuRZXHGepPLAkMDy49Km/wHwjNAt0MXC
-         ksQJQnq+X33M6FRTH9jmSMfDZubMIxAqPe9sL1wCRkZ9ypfbgnOLOcNsMDJgVIrVFAzP
-         HVwmB07XL8ytEEpeuRfMQORPWfe0vjBkB/68FDDJ7CqlcMASoG/YPNhX01xFPXC0aOst
-         yq6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+moVgk7BPMhn/n6R34GS2LtKIUNXdEtLC0hZzlgf4DJ1w7dvmAtjXki2EQ0PkQQv7p9aR2elZ9CBJTcixueYmA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfCoIP1CjFihlKHbL2Kx94C7shVrkGQjY43hvpBzMM3t7rDsmh
-	To9VRcNNC9IsDcphHmaw+bzLERmnubFEnJtsaYIQFh0EHBX5L/CXQxFa31qdS+qS
-X-Gm-Gg: Acq92OFfuGzTV7L1tZNjJutT9V+RhlXVeNHv6sz9ljzRItBPSgbRAShuHbyEGzV67gX
-	5lGs2Fl5V+0FyMBXb3QWYs2/ZrY0vWVGJgodQfI/0CqFL2uFUCSHuSwEML6KINWMg6X9N5tmFqf
-	4uU1JzLJSwMsgHwSTKtx6ThZpsnBfcrz70FX+JlSr5PCnFgSDBw/ZFUBO+O1yaPxco2TSq62c1N
-	64UnL55Hz5Qutw9+vxTB6FaB52cVcgYNruTURhlCHutSDm/L+TcahaVVPI8037ju8F2tEoXv7ga
-	JgbEOpC9RowFojeS1hl/91HSHF4s2X2PXOOwA5YKux8zz8+jGswsdQ84s12mzW2P1tvfGDtn1E/
-	lHvhHoRkQBp1IpTzygBCiRZNIJdeaVsYD8IK7FsOD4hn98v4FCoedN//jV8uDACe9srnkIOQIme
-	mk8IFrxANTiggrVA/fr/EdcY/UsgDQCaJzYaieK9GBtd60e4rgz+gnCffGfGs8zKc=
-X-Received: by 2002:a05:600c:8519:b0:490:bccf:2bd6 with SMTP id 5b1f17b1804b1-490bda66048mr47084715e9.15.1780576480229;
-        Thu, 04 Jun 2026 05:34:40 -0700 (PDT)
-Received: from tiolaptop.tail72d7bd.ts.net ([194.35.121.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc413adbsm70036085e9.15.2026.06.04.05.34.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 05:34:39 -0700 (PDT)
-From: Diogo Silva <diogompaissilva@gmail.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Diogo Silva <diogompaissilva@gmail.com>
-Subject: [PATCH] drm/rockchip: dsi: Open-code drm_simple_encoder_init()
-Date: Thu,  4 Jun 2026 14:32:25 +0200
-Message-ID: <20260604123224.192543-2-diogompaissilva@gmail.com>
-X-Mailer: git-send-email 2.51.2
+	id 1wV7TK-0000000GjjW-11kw;
+	Thu, 04 Jun 2026 12:46:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF6EE43E4C;
+	Thu,  4 Jun 2026 12:46:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6EAF1F00898;
+	Thu,  4 Jun 2026 12:46:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780577213;
+	bh=q4M6IHPPqvn7BslwxjdmNphfnRaoMyhtXgwnSO3ihJY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GBPnN6huj8Pg8QQ1QcaBjZgwaTZMFYJPpV8UYlabfPVA99kgrOMAEL3Xp8KdwFnkL
+	 LAhnscfkUYlw4nnHy/Z/YLrBTlIlbRawH1npeTgbs51eMWbkaCxvegrsBfn8HWSkn+
+	 gJFPc36hO8JD6EFrU8AmkUktSIukhR9Li541P+y96jN44lFnedybpFVFIbcWazKyOs
+	 S5VMiQ1ggxIqOaGyAIat5KUztuBgBfZne3KCTKtFHPzkQztiW9mXQEXzefFHmbIIyd
+	 vfKWE6rtQpB1wlDxF2A+nhuH0PoyvWTAtP9AWzxLd9JF0vjw1xwyM2uMqaBPfmtSAb
+	 nTPTMpaUSrZ3g==
+Message-ID: <0967fc45-20cf-4181-a607-2474099c5291@kernel.org>
+Date: Thu, 4 Jun 2026 14:46:44 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_053443_165535_CCE2E208 
-X-CRM114-Status: GOOD (  11.63  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] dt-bindings: arm: sunxi: Add NetCube Systems
+ OpenNMC (dobermann)
+To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20260604115241.1358528-1-lukas.schmid@netcube.li>
+ <20260604115241.1358528-2-lukas.schmid@netcube.li>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260604115241.1358528-2-lukas.schmid@netcube.li>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,49 +121,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the dependency on drm_simple_kms_helper by open-coding the
-drm_simple_encoder_init call.
+On 04/06/2026 13:52, Lukas Schmid wrote:
+> The OpenNMC is an open replacement for APC SmartSlot management cards
+> based on the Nagami System-on-Module.
+> 
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+> ---
+>  Documentation/devicetree/bindings/arm/sunxi.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+> index e6443c266fa1..8e2c9b8fe121 100644
+> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
+> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+> @@ -600,6 +600,7 @@ properties:
+>            - enum:
+>                - netcube,nagami-basic-carrier
+>                - netcube,nagami-keypad-carrier
+> +              - netcube,dobermann
 
-Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
----
- drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Don't break alphabetical order.
 
-diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 3547d91b25d3..a09b382d208e 100644
---- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-@@ -25,7 +25,6 @@
- #include <drm/drm_mipi_dsi.h>
- #include <drm/drm_of.h>
- #include <drm/drm_print.h>
--#include <drm/drm_simple_kms_helper.h>
- 
- #include "rockchip_drm_drv.h"
- 
-@@ -825,6 +824,10 @@ static void dw_mipi_dsi_encoder_enable(struct drm_encoder *encoder)
- 	clk_disable_unprepare(dsi->grf_clk);
- }
- 
-+static const struct drm_encoder_funcs dw_mipi_dsi_encoder_funcs = {
-+	.destroy = drm_encoder_cleanup,
-+};
-+
- static const struct drm_encoder_helper_funcs
- dw_mipi_dsi_encoder_helper_funcs = {
- 	.atomic_check = dw_mipi_dsi_encoder_atomic_check,
-@@ -840,7 +843,9 @@ static int rockchip_dsi_drm_create_encoder(struct dw_mipi_dsi_rockchip *dsi,
- 	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm_dev,
- 							     dsi->dev->of_node);
- 
--	ret = drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODER_DSI);
-+	ret = drm_encoder_init(drm_dev, encoder,
-+				&dw_mipi_dsi_encoder_funcs,
-+				DRM_MODE_ENCODER_DSI, NULL);
- 	if (ret) {
- 		DRM_ERROR("Failed to initialize encoder with drm\n");
- 		return ret;
--- 
-2.51.2
 
+Best regards,
+Krzysztof
 
