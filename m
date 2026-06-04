@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7279ECD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9ABCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmMSb/sy1rEjM9SAjzcclksqW5ZMYzL/SObxAZ/44zQ=; b=OzOFtdMlN6dnThMVV9dSWf9ZDZ
-	2XXatu+YggFWBG1YooK8uhmWdDrF/eRtghHSTtGsHUEBPUcJqBncXGfAOaBJZXbJdXSs3LX16rcUD
-	pKY2gHKVbh/O7FJnHMNknVRbIGrsxr1Q1ZovnfS+7V+olc6xAZB2EnZWjZENCkTQSO328u19DFzK6
-	Mlt+ZLz9kdaHUpMhSjbknubKn0O+CEZ8134w8vZzKfz0DxE6hP5Wug3gtk6H7R1odOOyE5zZ1XUO8
-	gxQbJZbTPJ1HF57AvB39W6b0V9bq4Jc0YA/5bu5/SVfrqOp6VIKjks/3LPinhkWbaUlxVwmWVHoAg
-	Dp9Hmv7w==;
+	bh=zZ74WE3NPJcGhukL6BHrevm7m6Mzo9c9NrhYN47Aay0=; b=zpugj8gv+WDlx8zyZi6/Aipnyw
+	yhRtrrCHB+qfGurQoTrD7BvA2YoY5GUbB01PUexy1NNdCfxZHHQDotKd/01CbQnd2v551+aakhnKN
+	lZC47jenabh7/J/hjYJUltOIcLTcL7DIwT1UxCWNO1EwL6P9sNIc/Or4DuhhFaKVliqa0jMh0NzEa
+	NOOG8SzopKsgFgn8T4wGgZbb6S5yN3LXytzpyDhhvIm6khTeGUN1r3AgyGkmZ/jYNUbmZE1k6OEHR
+	yrSi8mLQxmiblPNQ5IOvOBARaUjU5/+GUuxd7UQqLaT9CLNdoCQo+JMXggDb1tw3KhiWFhS7F7QiW
+	/uV2jI4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3eQ-0000000GOwN-2INF;
-	Thu, 04 Jun 2026 08:42:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wV3eZ-0000000GP2Z-2mpA;
+	Thu, 04 Jun 2026 08:42:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3eP-0000000GOvI-0jLo
+	id 1wV3eY-0000000GP1v-18Fc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 08:42:05 +0000
+	Thu, 04 Jun 2026 08:42:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C41A6014B;
+	by tor.source.kernel.org (Postfix) with ESMTP id A0F606014B;
+	Thu,  4 Jun 2026 08:42:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E50521F00898;
 	Thu,  4 Jun 2026 08:42:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF9321F00893;
-	Thu,  4 Jun 2026 08:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780562524;
-	bh=OmMSb/sy1rEjM9SAjzcclksqW5ZMYzL/SObxAZ/44zQ=;
+	s=k20260515; t=1780562533;
+	bh=zZ74WE3NPJcGhukL6BHrevm7m6Mzo9c9NrhYN47Aay0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PR2wINvcuAOCRRLqDiFxasw3MjrjE8q1zZJKgb6GlACxxyI7AggfIZ1AUHukout58
-	 WFjBXmrh6RwbkLBn6pSMkJEaQopuR45jlhfYS3oahFNCnzXAqapiJ393CO2ZDBFk4E
-	 VYBiXWP1I0u8vF03YGx5un0/AFc9L1A14lgEAy0GOt2Fd29lB7wucGQQU8IUjtRlm5
-	 wFcSHwaELzMOYASOyvnArsQplSlvlQjzzbjusg4Ltyj1pPMnwYWaQ6yqYbTDLXPI0w
-	 k0OfdwRk+Aqa3jCdEnMpKEHGvUB6CZX/l7uFNqMZxzFd477Q8eWUY7nQQFufeSVeL1
-	 WX93aDw8L+vRQ==
+	b=JMg19boI0cLz/7ejQT9QzBE9Im2xv53R2G16c5U/p5BuEcJSqYgf0U1zEliZFa6+C
+	 eNRR0hp91nfODNozHPMR4LbGZeSLnEpft46UimZUCkmRL8+9aD/b9Rp86uXEYDzPyD
+	 re+5opN/jBK5GhvJF4YckHXOJaU6pof4ksDfUDeLQTpyPbWxgnqEpYAI/aJiiEbFCI
+	 p+KC+RS+ukCf2WuHbJ5mw/tI0sFilqtSgqP9f2GMe80M2kjNQ7uYXY+ko8szGo/nJB
+	 PZThVarr8r6zhCgVXB0ZRCgiJyR0HJquVz/o66+yDuenfY9z7ekPE1wHRZ5TesHSwm
+	 NVWsugctx9cfA==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -76,9 +76,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Sven Schnelle <svens@linux.ibm.com>,
 	x86@kernel.org,
 	Michael Kelley <mhklinux@outlook.com>
-Subject: [PATCH v6 12/20] dma-pool: fix page leak in atomic_pool_expand() cleanup
-Date: Thu,  4 Jun 2026 14:09:51 +0530
-Message-ID: <20260604083959.1265923-13-aneesh.kumar@kernel.org>
+Subject: [PATCH v6 13/20] dma-direct: rename ret to cpu_addr in alloc helpers
+Date: Thu,  4 Jun 2026 14:09:52 +0530
+Message-ID: <20260604083959.1265923-14-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
 References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
@@ -98,38 +98,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-atomic_pool_expand() frees the allocated pages from the remove_mapping
-error path only when CONFIG_DMA_DIRECT_REMAP is enabled.
+ret in dma_direct_alloc() and dma_direct_alloc_pages() holds the returned
+CPU mapping, not a generic return value. Rename it to cpu_addr and update
+the remaining uses to match.
 
-When CONFIG_DMA_DIRECT_REMAP is disabled, failures after page allocation,
-such as gen_pool_add_virt(), jump to remove_mapping and return without
-freeing the pages.
-
-Move __free_pages(page, order) out of the CONFIG_DMA_DIRECT_REMAP block so
-that cleanup paths always release the allocation.
+This makes the allocation paths easier to follow and keeps the local naming
+consistent with what the variable actually represents.
 
 Tested-by: Michael Kelley <mhklinux@outlook.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- kernel/dma/pool.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ kernel/dma/direct.c | 31 +++++++++++++++----------------
+ 1 file changed, 15 insertions(+), 16 deletions(-)
 
-diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
-index be78474a6c49..e7df8d279e75 100644
---- a/kernel/dma/pool.c
-+++ b/kernel/dma/pool.c
-@@ -146,9 +146,9 @@ static int atomic_pool_expand(struct dma_gen_pool *dma_pool, size_t pool_size,
- #ifdef CONFIG_DMA_DIRECT_REMAP
- 	dma_common_free_remap(addr, pool_size);
- free_page:
-+#endif
- 	if (!leak_pages)
- 		__free_pages(page, order);
--#endif
- out:
- 	return ret;
- }
+diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+index aa3489aa10a0..4e446aa4130e 100644
+--- a/kernel/dma/direct.c
++++ b/kernel/dma/direct.c
+@@ -204,7 +204,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 	bool mark_mem_decrypt = false;
+ 	bool allow_highmem = true;
+ 	struct page *page;
+-	void *ret;
++	void *cpu_addr;
+ 
+ 	/*
+ 	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
+@@ -318,34 +318,33 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 		arch_dma_prep_coherent(page, size);
+ 
+ 		/* create a coherent mapping */
+-		ret = dma_common_contiguous_remap(page, size, prot,
+-				__builtin_return_address(0));
+-		if (!ret)
++		cpu_addr = dma_common_contiguous_remap(page, size, prot,
++					__builtin_return_address(0));
++		if (!cpu_addr)
+ 			goto out_encrypt_pages;
+ 	} else {
+-		ret = page_address(page);
++		cpu_addr = page_address(page);
+ 	}
+ 
+-	memset(ret, 0, size);
++	memset(cpu_addr, 0, size);
+ 
+ 	if (set_uncached) {
+ 		void *uncached_cpu_addr;
+ 
+ 		arch_dma_prep_coherent(page, size);
+-		uncached_cpu_addr = arch_dma_set_uncached(ret, size);
++		uncached_cpu_addr = arch_dma_set_uncached(cpu_addr, size);
+ 		if (IS_ERR(uncached_cpu_addr))
+ 			goto out_free_remap_pages;
+-		ret = uncached_cpu_addr;
++		cpu_addr = uncached_cpu_addr;
+ 	}
+ 
+ 	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page),
+ 					 !!(attrs & DMA_ATTR_CC_SHARED));
+-	return ret;
+-
++	return cpu_addr;
+ 
+ out_free_remap_pages:
+ 	if (remap)
+-		dma_common_free_remap(ret, size);
++		dma_common_free_remap(cpu_addr, size);
+ 
+ out_encrypt_pages:
+ 	if (mark_mem_decrypt &&
+@@ -439,7 +438,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+ {
+ 	unsigned long attrs = 0;
+ 	struct page *page;
+-	void *ret;
++	void *cpu_addr;
+ 
+ 	if (force_dma_unencrypted(dev))
+ 		attrs |= DMA_ATTR_CC_SHARED;
+@@ -453,7 +452,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+ 		if (!page)
+ 			return NULL;
+ 
+-		ret = page_address(page);
++		cpu_addr = page_address(page);
+ 		goto setup_page;
+ 	}
+ 
+@@ -461,11 +460,11 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+ 	if (!page)
+ 		return NULL;
+ 
+-	ret = page_address(page);
+-	if ((attrs & DMA_ATTR_CC_SHARED) && dma_set_decrypted(dev, ret, size))
++	cpu_addr = page_address(page);
++	if ((attrs & DMA_ATTR_CC_SHARED) && dma_set_decrypted(dev, cpu_addr, size))
+ 		goto out_leak_pages;
+ setup_page:
+-	memset(ret, 0, size);
++	memset(cpu_addr, 0, size);
+ 	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page),
+ 					 !!(attrs & DMA_ATTR_CC_SHARED));
+ 	return page;
 -- 
 2.43.0
 
