@@ -4,93 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03588CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 10:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E56CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 10:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o8iQzsybxThr4vBjL6O/h0dJfugpHWY8oKYxnchHSCA=; b=xwU/2v/M1EJ/duWSzTlK7kK2GX
-	QqprIQ10iARqKwGhmtcZ+mc/IysQEHIbj9bN4tHcNjWaKqMnXg/0Npeeaen0iN5eXxjkulveT+6Z4
-	TfZXhqt8ojWm1feecfLrQPT7CmzZypiWkPFXlHRwW3Wb5tgfUSPWqBRVyieSbRJL6A3SrFPahgx2O
-	NqsTnhLL3zIjA3nkSq8gq9PuPf3BSJ/Dge6bzaOij/GqI8Pfm0Iwrn9+b3aWCcmMZ9ptu8HMq53Da
-	9Zce0jxfdOWztW1Vl4h2JiD1RBW6q21rWxDgMYCefbDv5xytm+Mh7vFLpvYRPlJMQhX/6XEMrNk/4
-	TdpwG9Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pUj7m2CDaW3G/ucn/7/SD3wFXRKZCFFvrBjYxGmN+is=; b=jsVSG62M0pJ6fHVr2113jRE+Hj
+	lHIbEQNasXV4gohndwFUZtpmMe/CMnSKj5U6RZ5Rb9iw3eoFfeucoInr3KCI5oGujVs4j2g1eyQzr
+	g/fyyCortd6v/IZ5dzPeOmYmEpbnFbs6ByUfYopfpzDWPueG9t8mNS1Cmn+CJOg6369sd5owGucwm
+	Vsoh73393vNjUF/qT1XR2+EqsXfLQKLtvF/sdh+iKXulldRH7l8Whh/YkLDjYLS59Sr1WrZ4C/6gi
+	vCV3MPxE7FyAQO9zZE0bgaO8sNQ4rZ4Ra98QXaH7kAsUMfpMrIAZb3uHNVh3ecHAiFWhJUiFItyLg
+	L6f41FDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV53w-0000000GYAQ-1v2z;
-	Thu, 04 Jun 2026 10:12:32 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wV59K-0000000GYpn-2w0n;
+	Thu, 04 Jun 2026 10:18:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV53t-0000000GY9B-3Km8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 10:12:30 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-36ba285e98bso507610a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 03:12:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780567948; x=1781172748; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=o8iQzsybxThr4vBjL6O/h0dJfugpHWY8oKYxnchHSCA=;
-        b=c+OoHPpKczVY1AGpbE8fiZZVYBCwYSxk7G7yeC+xnsXb+94+cd0tBVASsx87B1lpHt
-         2NCsf/uZBKlH5S8Jeqkr9vsKxn/zTBkGcgEZmd/5AhBYIOmInCXeLqvMBnfo0omorSFq
-         rC0q/rShiI49Ec3LO9ibMkJ65EbMcqI6WPuptGIbirhgOKAs4HVOcA2NJ4pQirbB8u0X
-         q0BBGa/zfv1NOwhADP2EV6uLl8Cf/rszCqRTteV4wnVDK0u4Dp3pHO+vGJNlBhNdNBTK
-         wSZAdcf5cEJTTft+v1Epyptc9f014vX0cswPZI+UQFYIiz4pYDSJdFCeYCKPfj3Ycxbb
-         DYzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780567948; x=1781172748;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o8iQzsybxThr4vBjL6O/h0dJfugpHWY8oKYxnchHSCA=;
-        b=nu3pg5jxm7W4VQ37FlLZgB3w8aGYMFJj4pa6l2nsHe6DH606cibugd3c6SNuhnzueX
-         73Ke2lybQ3OAOK0wtns6C2+/ewU4HOjI1IUIsISwKDhd6MpnhJoVQ567OOIM+wbqZMbQ
-         TnSe7Fs+0LIRA3Ff4Hks2kA8bpB2jj1exq/poeOCz3J1r/RLAUTHVCjSmJOsKXmbUeHR
-         QffZvbAiv51cs0Q6wgMybq66lmvogMx3H+rGKurCCBixKk6bBSuu0agnMI/JEyOVpaXP
-         RX0laRPOupP3lwZ2Tz3Msc+wgtKN0eB5Am56UXYmKoS7ZF437Fl4Tp6N1/oiFezoMBD2
-         8mfw==
-X-Forwarded-Encrypted: i=1; AFNElJ9QLJU9MbdeLrdhULwtyGaMgij/R1EY0hFlusUZh32fIpu3/7isyW86RRnPiqnmzWfE4+99jTxEb60KNPm7HPJG@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywa9m4Z7d/0sUZ/rte2KE3eqLIUUXc0ssWxG0UMtiHUj1V94If5
-	14ssk5sFwNx8LBBDlrA86zfHU9mHWCNw5ae1IbNs8wh8jobxrT/ElY9yyEEFlA==
-X-Gm-Gg: Acq92OHp4H0km9iAu9iUAKPSPtN0fXnjgFXagUvGG7DOMdvWF4bQu8RKBiCHHlSqL37
-	rtu73dbfeEXb/4Of+ZVQ3MuBoU6jnWExcQIT21n77kPl+ScaqXtesQwzZWrGIxl3tqzrahhYpq5
-	VdN2dgA6y8U2Ej+Wbx7UkGv1tdv81oVv4cNQAQru3on+oDPaRV7/KjS5gshxlzhUTZQ+q6hVWei
-	ROl5RqxNZ8eG6FnDwUgHFxdPAYU8wyH7E7Xies/AyIWw9h/+1DDGnngwb3OfUAkU+pnxvLQHH1s
-	Lev4tACkjfC82zb08a0JtFRh93vQWJ+7GRSWGZOsj0naqPsjox7N3kJmT1tBsdA/pvETR89lbyZ
-	f/7Uhkf17v9wmwCog74i621OjjsjpEntECuuo041VmUyDmzFRVXTsIR6O8GLuQtwoWIgz0FCnXL
-	ARwp60j58bDmkqN0vSrPfnIgeDeSapsPPQ9UNJpKYT91Xp8Zfoicq7VMfA56Q49TdxB+JtTZiTC
-	TpGV3fPchNIArd5y8+PBB0=
-X-Received: by 2002:a17:90b:3f90:b0:36b:71e6:3de8 with SMTP id 98e67ed59e1d1-36e34770907mr7588205a91.24.1780567948238;
-        Thu, 04 Jun 2026 03:12:28 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f70a29cd6sm2483385a91.11.2026.06.04.03.12.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 03:12:27 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	id 1wV59J-0000000GYpY-0Gwt;
+	Thu, 04 Jun 2026 10:18:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C82E360219;
+	Thu,  4 Jun 2026 10:18:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03F121F00893;
+	Thu,  4 Jun 2026 10:18:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780568283;
+	bh=pUj7m2CDaW3G/ucn/7/SD3wFXRKZCFFvrBjYxGmN+is=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nzq2rcP1fx+yyhPnOyn2Rq5EpciyRCD4vPctNirtOQoDW5WlfuokxEuH+hpss8sJ8
+	 XuqVFpGttKjbEU/tiRl8K/dZMpaX6+5eqh0RHpkkP0+6OweCCTW8vJI5hcXoeSNaSS
+	 5I9q8T17WkGk5zvMZAOhag9Rwd/GiNIWsuOrSO6LSAT8emfcZOug74ZHaNaJ8TLgly
+	 N3IaWugx+FmOnkk2lBV6OQ0A5qrjkWqoT59ET04IjDxUrL0Oy+fbTieF1K+U3SL+Zy
+	 lnUK0I31pZgbfGpDGDQhfDvnYIUeEbJ68F5XgYweaZAUT8TBY31Tz2H7LedkRIo0Dd
+	 wR3AvuQ9yVpMg==
+Date: Thu, 4 Jun 2026 12:18:01 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: ZhaoJinming <zhaojinming@uniontech.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH 0/2] phy: nuvoton: Add MA35D1 USB2 OTG PHY driver
-Date: Thu,  4 Jun 2026 18:12:18 +0800
-Message-ID: <20260604101220.1092822-1-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Add NULL check for
+ of_reserved_mem_lookup() in airoha_qdma_init_hfwd_queues()
+Message-ID: <aiFQ2cQIHGXiRdBx@lore-desk>
+References: <20260604070352.2603077-1-zhaojinming@uniontech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_031229_828515_916071ED 
-X-CRM114-Status: GOOD (  11.09  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MHS1sKb/1YHuFP2O"
+Content-Disposition: inline
+In-Reply-To: <20260604070352.2603077-1-zhaojinming@uniontech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,40 +72,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Nuvoton MA35D1 SoC has two USB 2.0 ports:
 
-  USB0 is an OTG-capable port.  Its physical signals are routed by a
-  hardware mux to either a DWC2 gadget controller or the EHCI0/OHCI0
-  host controllers, depending on the USB ID pin state.  The DWC2 IP is
-  device-only in hardware, so all host-mode operation on USB0 is
-  handled by EHCI0/OHCI0.
+--MHS1sKb/1YHuFP2O
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-  USB1 is a dedicated host-only port served by EHCI1/OHCI1.
+> of_reserved_mem_lookup() may return NULL if the reserved memory region
+> referenced by the "memory-region" phandle is not found in the reserved
+> memory table (e.g. due to a misconfigured DTS or a removed
+> memory-region node).  The current code dereferences the returned
+> pointer without checking for NULL, leading to a kernel NULL pointer
+> dereference at the following lines:
+>=20
+>     dma_addr =3D rmem->base;                          // line 1156
+>     num_desc =3D div_u64(rmem->size, buf_size);       // line 1160
+>=20
+> Add a NULL check after of_reserved_mem_lookup() and return -ENODEV if
+> the lookup fails, which is consistent with the existing error handling
+> for of_parse_phandle() failure in the same code block.
+>=20
+> Fixes: 3a1ce9e3d01b ("net: airoha: Add the capability to allocate hwfd bu=
+ffers via reserved-memory")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: ZhaoJinming<zhaojinming@uniontech.com>
 
-About this driver:
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-  - Runs the PHY Power-On Reset sequence, with a guard that skips
-    re-initialization if the PHY is already operational.
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index cecd66251dba..2444d3275a81 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1153,6 +1153,9 @@ static int airoha_qdma_init_hfwd_queues(struct airo=
+ha_qdma *qdma)
+> =20
+>  		rmem =3D of_reserved_mem_lookup(np);
+>  		of_node_put(np);
+> +		if (!rmem)
+> +			return -ENODEV;
+> +
+>  		dma_addr =3D rmem->base;
+>  		/* Compute the number of hw descriptors according to the
+>  		 * reserved memory size and the payload buffer size
+> --=20
+> 2.25.1
 
-  - Supports optional resistor calibration trim (nuvoton,rcalcode) and
-    over-current detect polarity configuration (nuvoton,oc-active-high).
+--MHS1sKb/1YHuFP2O
+Content-Type: application/pgp-signature; name=signature.asc
 
-  - For PHY0 (USB0) only: registers a USB role switch that reads the
-    hardware ID pin state from PWRONOTP[16] on every query.
+-----BEGIN PGP SIGNATURE-----
 
-Joey Lu (2):
-  dt-bindings: phy: nuvoton: Add MA35D1 USB2 OTG PHY  binding
-  phy: nuvoton: Add MA35D1 USB2 OTG PHY driver
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiFQ2QAKCRA6cBh0uS2t
+rGQoAP0Y+U3xaU4dH4A4qEA5eXkvOPfKybpxGlsEg1dZFVcKfgD/fEwzNgGlnKUX
+1JLWfHZ0UTnNgp7WgqnMb40Sm39fpgM=
+=v7Zm
+-----END PGP SIGNATURE-----
 
- .../phy/nuvoton,ma35d1-usb2-phy-otg.yaml      |  79 ++++++
- drivers/phy/nuvoton/Kconfig                   |  15 +
- drivers/phy/nuvoton/Makefile                  |   1 +
- drivers/phy/nuvoton/phy-ma35d1-otg.c          | 264 ++++++++++++++++++
- 4 files changed, 359 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/nuvoton,ma35d1-usb2-phy-otg.yaml
- create mode 100644 drivers/phy/nuvoton/phy-ma35d1-otg.c
-
--- 
-2.43.0
-
+--MHS1sKb/1YHuFP2O--
 
