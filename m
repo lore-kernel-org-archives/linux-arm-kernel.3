@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B4FCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 03:21:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B6BCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 03:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNCNr5x3EzSqqtU6NP0iKEehA9J/yexioticfuX5tdw=; b=1IazoejNE0XnyVwzqeaOLkadQM
-	8Q/zMQdeWTgYqhOKCQyfWN+j4OXcKLJwDKbsxo3otK04az5xe04L1T0mg1PsguqPn4iJe0A6nFvxU
-	lkhOEzT256pEL5fBAXj5yjugKERwBI708ASV1kLX4LLhPhUE6OUxzLHI4Vdg9n/SR+HqgmpiDarMy
-	/iJnyD7wMn2AzHfGH7oyikBWhnUUGB5xpWimSvoHn0NTIdXnRl9WrGbhRbJ3kgzzpaWThVaF0NpQ+
-	PUKTjGdDcpV8KzEvC670nWQEuSfSO2YPK11LrhDd40LXiC54LY/py9+lsiRimrBbUfF7H0RRAOUZp
-	SNNqEBJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S5wUL8TnAvSWRfSGrRkLV/O+I/wamMk9YaRJHAgLGtA=; b=wKRYXO+Ze/XkS1j8UTnUBQNCbS
+	0FfmoZJ4idiqSF24pXQ3uvv61wLay+KFMfmOY+NKzw6YEhM208DsKyDZz7vUQgE0yPVRGhdFRfOIQ
+	CzTMZLajMiGhartbtZGwKJcwjnd+F6QNNGiSH+gm18vbuoffu+e3U+8D9WSAyP8dPzfpbCHbxFfqV
+	dUreoBVV2S+RkE49yiDiLCvkW3c97fylHOd45uyvJTkLuGS+77l818w8rgXN/II6/9gbNqfhEWr+i
+	+kuUqgmnpZd8DXcLGKxQLD3joeFHc9+gZ4pOJ2KjkvYkMh5BmNvGBjCjlbrOmLRqYBHCN7dM5IwcW
+	2p1tq+2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUydv-0000000G5tg-0PSG;
-	Thu, 04 Jun 2026 03:21:15 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wUyo3-0000000G6Nv-1rvf;
+	Thu, 04 Jun 2026 03:31:43 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUyds-0000000G5t8-2ikG
+	id 1wUyo1-0000000G6Na-05NM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 03:21:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=LNCNr5x3EzSqqtU6NP0iKEehA9J/yexioticfuX5tdw=; b=iUie9TD0Jl3ttEMwfdLPxUO9u7
-	sOK5KuJgqH1RKQk2sTTh0jjP1ieh4To/8a8zEIyXKp9xniy0r/X+xLtO2iPGCyHDAgxwH8drNmlrE
-	4NeFsnM/SLXlq6hn11bYiXSeGBcZQ13LKs+wEzht6SM8Y0kbgVm4uF2i8mcxyEFIrDxI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wUydh-005yof-UA; Thu, 04 Jun 2026 05:21:01 +0200
-Date: Thu, 4 Jun 2026 05:21:01 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com,
-	mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] clk: mvebu: ap-cpu: fix missing clk_put() in
- ap_cpu_clock_probe()
-Message-ID: <bdaf822d-a084-42ea-8fa0-01d9d9ea3385@lunn.ch>
-References: <20260604025115.3763823-1-vulab@iscas.ac.cn>
+	Thu, 04 Jun 2026 03:31:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780543901; x=1812079901;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=m9sAhUXyy3CacNduEVQURk/rlD5yMXkjDXgtTZSqvi0=;
+  b=iibQhty2uWH75afsxBwLiYD1ubsqY3XGWfialJGTWRBvZy+0QOJJ9Iq/
+   wFTo+QCn45GOq99RwBRVTCaRFvwvJWtamrQS2Xh5NosMrgdSIdrWqMncN
+   bLzy1r82KcxZST+ASpIvo4CIKaNboNWGrGQDznNc6ivHR1XBTjbyMCvrZ
+   hspuwUvjMIIUHtUu2Ndpy9JzzgxC47GvHBQBG0iXDYaI+TQN+u9phHt5h
+   WCOhzumnux3UMA/32C7PW+Im2ki/NA+eyphaWZE67aq1FBxCzcx+fXAI2
+   6m2cK/rodjyG5vjsDJVrnPj1QoYE22pBqg1twBT5juOmqrYWVrRVK7dMA
+   Q==;
+X-CSE-ConnectionGUID: jneg9GacQhWjSWFTxVeoOg==
+X-CSE-MsgGUID: RJGay5cVTnOUZi+mySCj0A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11806"; a="84988563"
+X-IronPort-AV: E=Sophos;i="6.24,186,1774335600"; 
+   d="scan'208";a="84988563"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2026 20:31:39 -0700
+X-CSE-ConnectionGUID: tDtIkBjHQp+ahDL4TIlYWw==
+X-CSE-MsgGUID: RrMw6T74SU6zOV024GZFrg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,186,1774335600"; 
+   d="scan'208";a="243589464"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2026 20:31:34 -0700
+Message-ID: <c179b999-8c7f-4338-8aad-b61fd09f1329@linux.intel.com>
+Date: Thu, 4 Jun 2026 11:30:37 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260604025115.3763823-1-vulab@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/32] iommu/generic_pt: implement iova_to_phys_length
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>, jgg@ziepe.ca
+Cc: adrian.larumbe@collabora.com, airlied@gmail.com, alex@shazbot.org,
+ alikernel-developer@linux.alibaba.com, boris.brezillon@collabora.com,
+ dri-devel@lists.freedesktop.org, dwmw2@infradead.org, iommu@lists.linux.dev,
+ joro@8bytes.org, kevin.tian@intel.com, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ oliver.yang@linux.alibaba.com, robh@kernel.org, robin.murphy@arm.com,
+ shiyu.zsq@linux.alibaba.com, steven.price@arm.com,
+ suravee.suthikulpanit@amd.com, tzimmermann@suse.de,
+ wei.guo.simon@linux.alibaba.com, will@kernel.org, xlpang@linux.alibaba.com
+References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
+ <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
+ <20260603151804.1963871-6-guanghuifeng@linux.alibaba.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <20260603151804.1963871-6-guanghuifeng@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_202112_711617_6BCEE7B5 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260603_203141_150456_F1D8018B 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,34 +95,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 02:51:15AM +0000, Wentao Liang wrote:
-> The function ap_cpu_clock_probe() calls of_clk_get() to obtain a
-> reference to the parent clock for each CPU cluster, but it never
-> releases it with clk_put().  The returned clk is used only to read
-> the parent's name via __clk_get_name(), and the reference is leaked
-> on every successful cluster initialization as well as on the error
-> path when devm_clk_hw_register() fails.
-
-Is there potentially a different interpretation?
-
-If the parent clock was to disappear, the clocks to the CPU would
-disappear, resulting in a dead system. By keeping a reference on the
-parent, it cannot disappear?
-
-Also, do we care that much about the error case? If we fail to setup
-the CPU clock, how much longer is the CPU going to run before it dies
-a horrible death?
-
-> Add the missing clk_put() after the name has been extracted and
-> before returning on error to fix the leak.
+On 6/3/26 23:17, Guanghui Feng wrote:
+> Extend the Generic Page Table framework to implement iova_to_phys_length.
+> Use pt_entry_oa_lg2sz() to determine PTE block size. Update
+> IOMMU_PT_DOMAIN_OPS macro to set .iova_to_phys_length.
 > 
-> Fixes: af9617b419f7 ("clk: mvebu: ap-cpu-clk: Fix a memory leak in error handling paths")
-> Cc: stable@vger.kernel.org
+> Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+> Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
+> Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
+> ---
+>   drivers/iommu/generic_pt/iommu_pt.h | 84 +++++++++++++++++++++--------
+>   include/linux/generic_pt/iommu.h    | 13 ++---
+>   2 files changed, 69 insertions(+), 28 deletions(-)
+> 
+> diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
+> index dc91fb4e2f61..e362e819ef9c 100644
+> --- a/drivers/iommu/generic_pt/iommu_pt.h
+> +++ b/drivers/iommu/generic_pt/iommu_pt.h
+> @@ -145,13 +145,21 @@ static inline unsigned int compute_best_pgsize(struct pt_state *pts,
+>   				      pts->range->va, pts->range->last_va, oa);
+>   }
+>   
+> -static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
+> -					     unsigned int level,
+> -					     struct pt_table_p *table,
+> -					     pt_level_fn_t descend_fn)
+> +struct iova_to_phys_length_data {
+> +	pt_oaddr_t phys;
+> +	size_t length;
+> +};
+> +
+> +static __always_inline int __do_iova_to_phys_length(struct pt_range *range,
+> +					       void *arg, unsigned int level,
+> +					       struct pt_table_p *table,
+> +					       pt_level_fn_t descend_fn)
+>   {
+>   	struct pt_state pts = pt_init(range, level, table);
+> -	pt_oaddr_t *res = arg;
+> +	struct iova_to_phys_length_data *data = arg;
+> +	unsigned int entry_lg2sz;
+> +	size_t entry_sz;
+> +	pt_oaddr_t expected_oa;
+>   
+>   	switch (pt_load_single_entry(&pts)) {
+>   	case PT_ENTRY_EMPTY:
+> @@ -159,45 +167,77 @@ static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
+>   	case PT_ENTRY_TABLE:
+>   		return pt_descend(&pts, arg, descend_fn);
+>   	case PT_ENTRY_OA:
+> -		*res = pt_entry_oa_exact(&pts);
+> -		return 0;
+> +		break;
+>   	}
+> -	return -ENOENT;
+> +
+> +	data->phys = pt_entry_oa_exact(&pts);
+> +	entry_lg2sz = pt_entry_oa_lg2sz(&pts);
+> +	entry_sz = log2_to_int(entry_lg2sz);
+> +
+> +	/* Start with the full mapping size of the first entry */
+> +	data->length = entry_sz;
 
-Does this actually bother people? It needs to in order to be sent to
-stable:
+data->length doesn't account for iova offset. Is this by design? We
+should document this clearly somewhere.
 
-https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+Sashiko reported the same issue too.
 
-     Andrew
+[Severity: High]
+Does this calculation overstate the mapped length for unaligned IOVAs?
+If the IOVA is not aligned to the PTE block size, pt_entry_oa_exact()
+includes the intra-page offset in data->phys. However, data->length
+is unconditionally initialized to the full entry_sz rather than
+entry_sz - offset. Callers relying on mapped_length might operate
+on out-of-bounds memory because data->phys + data->length extends
+beyond the valid mapped physical memory by the unaligned offset amount.
+
+> +
+> +	/* Accumulate subsequent physically contiguous entries */
+> +	expected_oa = pt_entry_oa(&pts) + entry_sz;
+> +	pts.end_index = log2_to_int(pt_num_items_lg2(&pts));
+> +	pt_next_entry(&pts);
+> +
+> +	while (pts.index < pts.end_index) {
+> +		pt_load_entry(&pts);
+> +		if (pts.type != PT_ENTRY_OA)
+> +			break;
+> +		if (pt_entry_oa_lg2sz(&pts) != entry_lg2sz)
+> +			break;
+> +		if (pt_entry_oa(&pts) != expected_oa)
+> +			break;
+> +		data->length += entry_sz;
+> +		expected_oa += entry_sz;
+> +		pt_next_entry(&pts);
+> +	}
+> +
+> +	return 0;
+>   }
+> -PT_MAKE_LEVELS(__iova_to_phys, __do_iova_to_phys);
+> +PT_MAKE_LEVELS(__iova_to_phys_length, __do_iova_to_phys_length);
+>   
+>   /**
+> - * iova_to_phys() - Return the output address for the given IOVA
+> + * iova_to_phys_length() - Translate IOVA returning phys and contiguous length
+>    * @domain: Table to query
+>    * @iova: IO virtual address to query
+> + * @mapped_length: Output for the total contiguous mapped length in bytes
+>    *
+> - * Determine the output address from the given IOVA. @iova may have any
+> - * alignment, the returned physical will be adjusted with any sub page offset.
+> + * Walk the IOMMU page table to translate @iova to a physical address while
+> + * also returning the total contiguous physically mapped length through
+> + * @mapped_length. The function accumulates consecutive page table entries that
+> + * are physically contiguous, so callers can determine the full contiguous
+> + * mapping extent with a single call.
+>    *
+>    * Context: The caller must hold a read range lock that includes @iova.
+>    *
+> - * Return: 0 if there is no translation for the given iova.
+> + * Return: The physical address, or PHYS_ADDR_MAX if there is no translation.
+>    */
+> -phys_addr_t DOMAIN_NS(iova_to_phys)(struct iommu_domain *domain,
+> -				    dma_addr_t iova)
+> +phys_addr_t DOMAIN_NS(iova_to_phys_length)(struct iommu_domain *domain,
+> +					    dma_addr_t iova,
+> +					    size_t *mapped_length)
+>   {
+>   	struct pt_iommu *iommu_table =
+>   		container_of(domain, struct pt_iommu, domain);
+>   	struct pt_range range;
+> -	pt_oaddr_t res;
+> +	struct iova_to_phys_length_data data;
+>   	int ret;
+>   
+>   	ret = make_range(common_from_iommu(iommu_table), &range, iova, 1);
+>   	if (ret)
+> -		return ret;
+> +		return PHYS_ADDR_MAX;
+>   
+> -	ret = pt_walk_range(&range, __iova_to_phys, &res);
+> -	/* PHYS_ADDR_MAX would be a better error code */
+> +	ret = pt_walk_range(&range, __iova_to_phys_length, &data);
+>   	if (ret)
+> -		return 0;
+> -	return res;
+> +		return PHYS_ADDR_MAX;
+> +
+> +	if (mapped_length)
+> +		*mapped_length = data.length;
+> +	return data.phys;
+>   }
+> -EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys), "GENERIC_PT_IOMMU");
+> +EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys_length), "GENERIC_PT_IOMMU");
+>   
+>   struct pt_iommu_dirty_args {
+>   	struct iommu_dirty_bitmap *dirty;
+> diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
+> index dd0edd02a48a..859b853e9dc7 100644
+> --- a/include/linux/generic_pt/iommu.h
+> +++ b/include/linux/generic_pt/iommu.h
+> @@ -249,8 +249,9 @@ struct pt_iommu_cfg {
+>   
+>   /* Generate the exported function signatures from iommu_pt.h */
+>   #define IOMMU_PROTOTYPES(fmt)                                                  \
+> -	phys_addr_t pt_iommu_##fmt##_iova_to_phys(struct iommu_domain *domain, \
+> -						  dma_addr_t iova);            \
+> +	phys_addr_t pt_iommu_##fmt##_iova_to_phys_length(			\
+> +		struct iommu_domain *domain, dma_addr_t iova,			\
+> +		size_t *mapped_length);						\
+>   	int pt_iommu_##fmt##_read_and_clear_dirty(                             \
+>   		struct iommu_domain *domain, unsigned long iova, size_t size,  \
+>   		unsigned long flags, struct iommu_dirty_bitmap *dirty);        \
+> @@ -267,11 +268,11 @@ struct pt_iommu_cfg {
+>   	IOMMU_PROTOTYPES(fmt)
+>   
+>   /*
+> - * A driver uses IOMMU_PT_DOMAIN_OPS to populate the iommu_domain_ops for the
+> - * iommu_pt
+> + * A driver uses IOMMU_PT_DOMAIN_OPS to populate the iommu_domain_ops for
+> + * the iommu_pt
+>    */
+> -#define IOMMU_PT_DOMAIN_OPS(fmt)                        \
+> -	.iova_to_phys = &pt_iommu_##fmt##_iova_to_phys
+> +#define IOMMU_PT_DOMAIN_OPS(fmt)					\
+> +	.iova_to_phys_length = &pt_iommu_##fmt##_iova_to_phys_length
+>   #define IOMMU_PT_DIRTY_OPS(fmt) \
+>   	.read_and_clear_dirty = &pt_iommu_##fmt##_read_and_clear_dirty
+>   
+
+Thanks,
+baolu
 
