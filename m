@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7224CD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7068CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=; b=yVaIQyy//3QrDDpprOuINbitbE
-	+zOCiojEZXG6zgmkAWQHkciLnTLwjjTyUuoYalK6Ww7OaccWL/+0y3amSj3Mg1wMiwVPDmuR6y1iZ
-	/r5hRRoZN0z2b2UZTQtesgPtb+a6Ybln8SqTER5qnQPL8B/ASEi9u0ERGSLeZ/jfXvk/R/yCo8N2T
-	5ccsbWUAJPoEn7EkOWnC0XI6Z60FWHx9j15QizHJSWdh7GMVRjA3x7wKGc81vyuDvyKICrjXhqOsK
-	xWsWvpuNXDLx6fKLIOw/CBkDa3JnAbq3/9JazXqRZhobioUnQRRwH1aYqHECYTDNDxgLrsnHv3JDG
-	cFNwB49w==;
+	bh=P85ckZTk9u8LnBjRMxQ2RWcMT/9mNbK4Xr+1MlYh7A8=; b=OpDPDIIN0Jbi+niKE9S5uyjTEf
+	Y7ihXzsaZcss7tCfUEl4Fz8JtRQbUJcY/7VPoRZbmPKvD2MfK1d6Hgs0qPMo1NwMG352QZ7KUYiI4
+	SmaVeRgKek2QNHHXfrYOp78KSn9XSzE54Qfvzs4N6GvGBN8HKHolHPlpf71BBlwcHi2CfDe0Xc5Vi
+	xViNxGCAjH/hZONOHCtg6tZQi2qXh1M5VcUjBho3xJoJi0sn7s6zzrzTpOmj8SX7RwKTs2NWzxYAn
+	ozioTT4bafb15BIyL2Pt7iiMkWvhm7+ckkWhHc8e31x4zU8GI27WjBwCoyGH+FqKjPaM1UrJ64E9D
+	7FDRY6vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2wV-0000000GLUy-2Too;
-	Thu, 04 Jun 2026 07:56:43 +0000
-Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
+	id 1wV3A2-0000000GMME-3SO0;
+	Thu, 04 Jun 2026 08:10:42 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2wT-0000000GLTu-02Gd
+	id 1wV39z-0000000GMLb-0eNh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 07:56:42 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-66050f7af22so67950d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:56:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780559800; cv=none;
-        d=google.com; s=arc-20240605;
-        b=G3+kziUIE0SfZzVw08EhJHscGujv6Xfz18APaAzmLjVOYHmTLQIv3tv7WSKdfce4jn
-         BJheof9U14u6EIxUEmlPr/G+aLhNxmO1kO/nsqiQ0pKhfeOM2q+f3lms6xuIe6d3jqfg
-         JC54/eVY2DmDf/FR0siomwbBHA3oBrIcYFxXnpcLD++JD1VQDWEFujxWt7Qws1AUTnsU
-         UI6NPZ34B+I4gOYdhBkpMwsHu2Dpr89NvS6AKC4phVPyw/X5yYokotG8+JR2lRNGajd0
-         oz8NRhq+AqmE/5cHI8JNuNq+jw5OA3DgL62m08Wg5VY2HIfaJUtbtnDOYaZQ8s2vLi71
-         hE7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=;
-        fh=molLIdaeTDVS6V56TF5SOmlKJcysgGaFl1S64cxEeFY=;
-        b=SCXTzqCWZqlo8gW+v6OezPnut8Fa0utApdFPQPZLwJmTvD11gfvkRv4ymziBWJYW/G
-         B0hpq/70sqVhTN1O7n7wQGH5/wg/qUA815T2vQmhvCFzTHYxxQUrbGRFDKLlS9pkcXGo
-         GOoSOUDzZmSRibM3Pdo4bYHuhgVuaT8lm7KbY9uoQ9qbfmEOg6HcyJXHbUilsep4tzp1
-         G6TFZJMNeQs3QsEx8/t4AVZ8o7Fh5hIg0j66M4JkGgpRaqLgeXzFxPhvTV6PWg3Pvy/B
-         /R0sXsAYXvS3nunujIKXQQ0q/AclPJqrDtPjazG+O3jAgSTq235qca+qWJAfTyRbN99h
-         5aaQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 04 Jun 2026 08:10:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780559800; x=1781164600; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=;
-        b=IaVHsx5iaC5sWiQpVIeXPt0WhwP/ErjtJAMIQWY6wAk4YJHLc2Ma37pgJTZEsN0yYf
-         /7qiAG/DPySQni60UnnhP9LtTopKLP1NB8+5WSnYLWeMo3tKivPHJ24wZVdgTW+ogQA0
-         ETldJBw+XBjcrL/4RVItaIo3mISDpdBBdc2ec81fFODNLkWvkuQeroNoP5gDxOG9Ez+3
-         Pp0RkZoF64hD7jaUjVHAFFzF2Qk7YkfUoiIWVhzURKCeMZYBup2b6P1ICPE0jw6KHlAy
-         FjgP4sYiRMh+n6g3WxLncsNhWV/kmB6Cr5fn+cX2awsa175oHZzWR2wA5sNJ9/fkgX1d
-         g6Mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780559800; x=1781164600;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=eGgotgVvr2112uvvc1DyL29QVRiLiPk2tEKJibU9Fy8=;
-        b=Yttbrp9e1kqCI1buQ77dTBm94ctQC4xlMgmhoWXUoMNqArIorNUC/tPWNiVmD8fdnF
-         cxJqXYheLc8MZBMRIYFdOAcF3edMK5c4ZviCQtO8IfGwKLGBRGhucephEVrRpDPLCmtU
-         CV5DmyH/vIhZdrQUqR9eYNOVJwbRgfz72pJMwyX/kzxZk4s5vKD8lBuuNVUvBnio6NRt
-         RqPq+0Hblk0gbf4oSj33DEb3iBUa1xPMzJpjvKM2cm6dBvS7D0GqhpFKa6Lkq9BnWyub
-         7p8JlcS0RW1XxB6kgVBr5pBgwtY8pPwE5wcIFDocfY77N2uZvZ/TWvBTP2nZhL0OmLw6
-         sjJA==
-X-Forwarded-Encrypted: i=1; AFNElJ8oOH64hSGt5+ZHtKOouZglAOKSy3Lx5vYvffW9arULkNZGnlwoRU1hotW+1lSoZ6N5POnIWu+v4xzY9Zfung08@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8PcjAKka7ODNbtQbkANAPFUfhj8gfHxehiT+S4vvGMVTnS8L0
-	i/3UVVL7QyHsK86mOooTW0YhcSOsx5bDiMNr6e3ih7CKKMstWRyY2+IcDxhGob77AzRqRZ7P6zr
-	fzjuWd1rqbtqg/TnL8ouD/iNbftxcCN0=
-X-Gm-Gg: Acq92OFg0y+nJua0gXURw1jmM2bQ/xTZEOFqnD8rTzHLldqLPc4itvWYT2MU2Lx13Fg
-	zfFxZC7cn3FRfZfCOIXyW71x7XcCGTU2Kc7eMEbOsPtlWGnePV3NHbvEh4TvScdye+wkkmA8jMx
-	LP1eOQHhwHQ3Q7rEUGeXjMkWBV9yyh3T0dm7xd6ofV+cqV97siqvsxBWTEYSfc5zQKpaHYqnspp
-	e7OetGsI+f+CZyUl+M/rHuUZ4pVff7dhc5rO/Pu0t3BfMYXsT53EaICoPW0S/P9PVG960I6bh5g
-	MFVe+NIdHCUQqJk=
-X-Received: by 2002:a53:ac81:0:b0:65e:3bde:1c8d with SMTP id
- 956f58d0204a3-660f3e4dc46mr957229d50.2.1780559799732; Thu, 04 Jun 2026
- 00:56:39 -0700 (PDT)
+	d=linux.alibaba.com; s=default;
+	t=1780560629; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=P85ckZTk9u8LnBjRMxQ2RWcMT/9mNbK4Xr+1MlYh7A8=;
+	b=uZ7Nw1GOHo7rjGj7mFXXGhuwyikz2RgOPwxCyC1gVGMW3z7QzhXt1qKZcPEfQ/dnny2N6l8eOPug1h4K8zdGo3AmIPWHIon8+UY6RXYXiMvk9eIgJg5K2nqS37zpBehDzuT3Sc3DjQ46oq5zi8A3igZLwH1jLgsU7l0/3NEa018=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X49dg.w_1780560626;
+Received: from 30.74.145.98(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X49dg.w_1780560626 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 04 Jun 2026 16:10:27 +0800
+Message-ID: <3e6c2559-cc95-4545-83ee-807bbfc1b3e9@linux.alibaba.com>
+Date: Thu, 4 Jun 2026 16:10:26 +0800
 MIME-Version: 1.0
-References: <20260529092703.33086-1-l.rubusch@gmail.com> <ah381bcuVfN8PQr0@linux.dev>
-In-Reply-To: <ah381bcuVfN8PQr0@linux.dev>
-From: Lothar Rubusch <l.rubusch@gmail.com>
-Date: Thu, 4 Jun 2026 09:56:03 +0200
-X-Gm-Features: AVHnY4J2DHztDoFLLVQlenrixqwpyOZeMKkQ7C8oahq4-g3DlS-OWLO5LNf1rU4
-Message-ID: <CAFXKEHamUnW9S2nvDD+iHdZB8+66s2SYVEq7KYvUbs32S4behw@mail.gmail.com>
-Subject: Re: [PATCH 1/1] crypto: atmel-ecc - fix use after free situation
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org, krzk+dt@kernel.org, 
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 3/8] arm64: add support for ARCH_HAS_COPY_MC
+To: Shuai Xue <xueshuai@linux.alibaba.com>, catalin.marinas@arm.com,
+ will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
+ guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
+ james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
+ dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
+ christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
+ naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
+ <20260518084956.2538442-4-tianruidong@linux.alibaba.com>
+ <056610fa-0dcc-46e9-a0b4-7c72067437ae@linux.alibaba.com>
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+In-Reply-To: <056610fa-0dcc-46e9-a0b4-7c72067437ae@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_005641_065855_01DE9E19 
-X-CRM114-Status: GOOD (  37.55  )
+X-CRM114-CacheID: sfid-20260604_011040_052626_0540A023 
+X-CRM114-Status: GOOD (  32.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,167 +76,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thorsten, thanks for the feedback. Pls, find my comment down below.
 
-On Mon, Jun 1, 2026 at 11:42=E2=80=AFPM Thorsten Blum <thorsten.blum@linux.=
-dev> wrote:
->
-> On Fri, May 29, 2026 at 09:27:03AM +0000, Lothar Rubusch wrote:
-> > Fixes a possible race condition, when having multiple of such devices
-> > attached (identified by sashiko feedback).
-> >
-> > The Scenario:
-> >     Thread A (Device 1 Probe): Successfully adds i2c_priv to the global
-> >              list (Line 324). The lock is released.
-> >     Thread B (An active crypto request): Concurrently calls
-> >               atmel_ecc_i2c_client_alloc(). It scans the global list, s=
-ees
-> >               Device 1, and assigns a crypto job to it.
-> >     Thread A: Moves to line 332. crypto_register_kpp() fails (e.g., out=
- of
-> >               memory or name clash).
-> >     Thread A: Enters the error path. It removes Device 1 from the list =
-and
-> >               frees the i2c_priv memory.
-> >     Thread B: Is still actively trying to talk to the I2C hardware usin=
-g
-> >               the i2c_priv pointer it grabbed in Step 2. The memory is =
-now
-> >               gone. Result: Kernel crash (Use-After-Free).
-> >
-> > Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel E=
-CC driver")
-> > Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-> > ---
-> >  drivers/crypto/atmel-ecc.c | 10 ++++++++++
-> >  drivers/crypto/atmel-i2c.h |  2 ++
-> >  2 files changed, 12 insertions(+)
-> >
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > index 0ca02995a1de..d391fe1462f6 100644
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> > @@ -218,6 +218,8 @@ static struct i2c_client *atmel_ecc_i2c_client_allo=
-c(void)
-> >
-> >       list_for_each_entry(i2c_priv, &driver_data.i2c_client_list,
-> >                           i2c_client_list_node) {
-> > +             if (!i2c_priv->ready)
-> > +                     continue;
-> >               tfm_cnt =3D atomic_read(&i2c_priv->tfm_count);
-> >               if (tfm_cnt < min_tfm_cnt) {
-> >                       min_tfm_cnt =3D tfm_cnt;
-> > @@ -322,20 +324,24 @@ static int atmel_ecc_probe(struct i2c_client *cli=
-ent)
-> >               return ret;
-> >
-> >       i2c_priv =3D i2c_get_clientdata(client);
-> > +     i2c_priv->ready =3D false;
-> >
-> >       spin_lock(&driver_data.i2c_list_lock);
-> >       list_add_tail(&i2c_priv->i2c_client_list_node,
-> >                     &driver_data.i2c_client_list);
-> > +     i2c_priv->ready =3D true;
-> >       spin_unlock(&driver_data.i2c_list_lock);
-> >
-> >       ret =3D crypto_register_kpp(&atmel_ecdh_nist_p256);
-> >       if (ret) {
-> >               spin_lock(&driver_data.i2c_list_lock);
-> > +             i2c_priv->ready =3D false;
-> >               list_del(&i2c_priv->i2c_client_list_node);
-> >               spin_unlock(&driver_data.i2c_list_lock);
-> >
-> >               dev_err(&client->dev, "%s alg registration failed\n",
-> >                       atmel_ecdh_nist_p256.base.cra_driver_name);
-> > +             return ret;
-> >       } else {
-> >               dev_info(&client->dev, "atmel ecc algorithms registered i=
-n /proc/crypto\n");
-> >       }
-> > @@ -347,6 +353,10 @@ static void atmel_ecc_remove(struct i2c_client *cl=
-ient)
-> >  {
-> >       struct atmel_i2c_client_priv *i2c_priv =3D i2c_get_clientdata(cli=
-ent);
-> >
-> > +     spin_lock(&driver_data.i2c_list_lock);
-> > +     i2c_priv->ready =3D false;
-> > +     spin_unlock(&driver_data.i2c_list_lock);
-> > +
-> >       /* Return EBUSY if i2c client already allocated. */
-> >       if (atomic_read(&i2c_priv->tfm_count)) {
-> >               /*
-> > diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
-> > index 72f04c15682f..e3b12030f9c4 100644
-> > --- a/drivers/crypto/atmel-i2c.h
-> > +++ b/drivers/crypto/atmel-i2c.h
-> > @@ -129,6 +129,7 @@ struct atmel_ecc_driver_data {
-> >   * @wake_token_sz       : size in bytes of the wake_token
-> >   * @tfm_count           : number of active crypto transformations on i=
-2c client
-> >   * @hwrng               : hold the hardware generated rng
-> > + * @ready               : hw client is ready to use
-> >   *
-> >   * Reads and writes from/to the i2c client are sequential. The first b=
-yte
-> >   * transmitted to the device is treated as the byte size. Any attempt =
-to send
-> > @@ -145,6 +146,7 @@ struct atmel_i2c_client_priv {
-> >       size_t wake_token_sz;
-> >       atomic_t tfm_count ____cacheline_aligned;
-> >       struct hwrng hwrng;
-> > +     bool ready;
-> >  };
->
-> I don't think the ready flag fixes the race. A concurrent tfm can still
-> bind to the shared I2C client after atmel_ecc_probe() adds it to the
-> global list and marks it as ready, but before crypto_register_kpp()
-> fails.
 
-Argh... I see your point. The "ready" now is transparent to the
-i2c_client_list usage and serves for nothing, that's nonsense. Going
-some overengineering-steps back, my original idea (to satisfy a
-sashiko complaint), in my own words:
+在 2026/5/27 19:35, Shuai Xue 写道:
+> 
+> 
+> On 5/18/26 4:49 PM, Ruidong Tian wrote:
+>> From: Tong Tiangen <tongtiangen@huawei.com>
+>>
+>> For the arm64 kernel, when it processes hardware memory errors for
+>> synchronize notifications(do_sea()), if the errors is consumed within the
+>> kernel, the current processing is panic. However, it is not optimal.
+>>
+>> Take copy_from/to_user for example, If ld* triggers a memory error, 
+>> even in
+>> kernel mode, only the associated process is affected. Killing the user
+>> process and isolating the corrupt page is a better choice.
+>>
+>> Add new fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR to identify insn
+>> that can recover from memory errors triggered by access to kernel memory,
+>> and this fixup type is used in __arch_copy_to_user(), This make the 
+>> regular
+>> copy_to_user() will handle kernel memory errors.
+>>
+>> [Ruidong: handle EX_TYPE_UACCESS_CPY in fixup_exception_me()]
+>>
+>> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+>> Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
+>> ---
+>>   arch/arm64/Kconfig                   |  1 +
+>>   arch/arm64/include/asm/asm-extable.h | 22 +++++++++++++++++++-
+>>   arch/arm64/include/asm/asm-uaccess.h |  4 ++++
+>>   arch/arm64/include/asm/extable.h     |  1 +
+>>   arch/arm64/lib/copy_to_user.S        | 10 +++++-----
+>>   arch/arm64/mm/extable.c              | 21 +++++++++++++++++++
+>>   arch/arm64/mm/fault.c                | 30 ++++++++++++++++++++--------
+>>   7 files changed, 75 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index fe60738e5943..831b20d45893 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -21,6 +21,7 @@ config ARM64
+>>       select ARCH_HAS_CACHE_LINE_SIZE
+>>       select ARCH_HAS_CC_PLATFORM
+>>       select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+>> +    select ARCH_HAS_COPY_MC if ACPI_APEI_GHES
+> 
+> 
+> At this commit:
+> 
+>    - arch/arm64/lib/memcpy_mc.S does not exist (patch 7)
+>    - arch/arm64/lib/copy_mc_page.S does not exist (patch 5)
+>    - arm64 has no copy_mc_to_kernel() override
+>    - __HAVE_ARCH_COPY_MC_USER_HIGHPAGE is not defined
+> 
+> Build does not break because the generic fallback in
+> include/linux/uaccess.h and include/linux/highmem.h covers it, but
+> ARCH_HAS_COPY_MC=y silently means "plain memcpy() with no MC
+> handling at all" between this commit and patch 7. Anyone bisecting
+> an MC regression in this window will be very confused.
+> 
+> Please move this select to the last arm64 implementation patch in
+> the series.
+> 
+> 
+>>       select ARCH_HAS_CURRENT_STACK_POINTER
+>>       select ARCH_HAS_DEBUG_VIRTUAL
+>>       select ARCH_HAS_DEBUG_VM_PGTABLE
+>> diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/ 
+>> include/asm/asm-extable.h
+>> index d67e2fdd1aee..4980023f2fbd 100644
+>> --- a/arch/arm64/include/asm/asm-extable.h
+>> +++ b/arch/arm64/include/asm/asm-extable.h
+>> @@ -11,6 +11,8 @@
+>>   #define EX_TYPE_KACCESS_ERR_ZERO    3
+>>   #define EX_TYPE_UACCESS_CPY        4
+>>   #define EX_TYPE_LOAD_UNALIGNED_ZEROPAD    5
+>> +/* kernel access memory error safe */
+>> +#define EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR    6
+> 
+> KACCESS_ERR_ZERO is already "encode err reg + zero reg". Tacking
+> _MEM_ERR on the end reads like "+ another mem-err reg". Please
+> rename to e.g. EX_TYPE_KACCESS_ERR_ZERO_MC, which directly tells
+> the reader "MC-safe variant of KACCESS_ERR_ZERO".
 
-Thread A:
-1. probe()
-  V
-2. probe(): add i2c_priv to i2c_client_list <-------------- Thread B reques=
-ts
-  V
-3. probe(): registers kpp
-  V
-4. probe(): say, register kpp fails
-  V
-5. probe(): remove i2c_priv from i2c_client_list <-----
+MC is an x86-specific term and may not be appropriate here. I plan to 
+rename this to EX_TYPE_KACCESS_SEA (and drop ERR_ZERO, since this case 
+does not need it) so it is clear that the current fixup is caused by SEA 
+rather than a translation fault.
 
-Thread B:
-Now if a crypto request/TFM comes in (thread B) and requests a client
-from the i2c_client_list.
-(Note, this is a case where the device must be, say, the second such
-device so that kpp is already registered for any atmel driver).
+> 
+>>   /* Data fields for EX_TYPE_UACCESS_ERR_ZERO */
+>>   #define EX_DATA_REG_ERR_SHIFT    0
+>> @@ -42,7 +44,7 @@
+>>       (.L__gpr_num_##gpr << EX_DATA_REG_##reg##_SHIFT)
+>>   #define _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)        \
+>> -    __ASM_EXTABLE_RAW(insn, fixup,                     \
+>> +    __ASM_EXTABLE_RAW(insn, fixup,                    \
+>>                 EX_TYPE_UACCESS_ERR_ZERO,            \
+>>                 (                        \
+>>                   EX_DATA_REG(ERR, err) |            \
+>> @@ -55,6 +57,17 @@
+>>   #define _ASM_EXTABLE_UACCESS(insn, fixup)                \
+>>       _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, wzr, wzr)
+>> +#define _ASM_EXTABLE_KACCESS_ERR_ZERO_MEM_ERR(insn, fixup, err, 
+>> zero)    \
+>> +    __ASM_EXTABLE_RAW(insn, fixup,                    \
+>> +              EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR,        \
+>> +              (                        \
+>> +                EX_DATA_REG(ERR, err) |            \
+>> +                EX_DATA_REG(ZERO, zero)            \
+>> +              ))
+>> +
+>> +#define _ASM_EXTABLE_KACCESS_MEM_ERR(insn, fixup)            \
+>> +    _ASM_EXTABLE_KACCESS_ERR_ZERO_MEM_ERR(insn, fixup, wzr, wzr)
+>> +
+>>   /*
+>>    * Create an exception table entry for uaccess `insn`, which will 
+>> branch to `fixup`
+>>    * when an unhandled fault is taken.
+>> @@ -76,6 +89,13 @@
+>>       .macro        _asm_extable_uaccess_cpy, insn, fixup, 
+>> uaccess_is_write
+>>       __ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_UACCESS_CPY, 
+>> \uaccess_is_write)
+>>       .endm
+>> +/*
+>> + * Create an exception table entry for kaccess `insn`, which will 
+>> branch to
+>> + * `fixup` when an unhandled fault is taken.
+>> + */
+>> +    .macro          _asm_extable_kaccess_mem_err, insn, fixup
+>> +    _ASM_EXTABLE_KACCESS_MEM_ERR(\insn, \fixup)
+>> +    .endm
+>>   #else /* __ASSEMBLER__ */
+>> diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/ 
+>> include/asm/asm-uaccess.h
+>> index 12aa6a283249..c8f0af5fde63 100644
+>> --- a/arch/arm64/include/asm/asm-uaccess.h
+>> +++ b/arch/arm64/include/asm/asm-uaccess.h
+>> @@ -57,6 +57,10 @@ alternative_else_nop_endif
+>>       .endm
+>>   #endif
+>> +#define KERNEL_MEM_ERR(l, x...)            \
+>> +9999:    x;                    \
+>> +    _asm_extable_kaccess_mem_err    9999b, l
+>> +
+>>   #define USER(l, x...)                \
+>>   9999:    x;                    \
+>>       _asm_extable_uaccess    9999b, l
+>> diff --git a/arch/arm64/include/asm/extable.h b/arch/arm64/include/ 
+>> asm/extable.h
+>> index 9dc39612bdf5..47c851d7df4f 100644
+>> --- a/arch/arm64/include/asm/extable.h
+>> +++ b/arch/arm64/include/asm/extable.h
+>> @@ -48,4 +48,5 @@ bool ex_handler_bpf(const struct 
+>> exception_table_entry *ex,
+>>   #endif /* !CONFIG_BPF_JIT */
+>>   bool fixup_exception(struct pt_regs *regs, unsigned long esr);
+>> +bool fixup_exception_me(struct pt_regs *regs);
+>>   #endif
+>> diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/ 
+>> copy_to_user.S
+>> index 819f2e3fc7a9..991d94ecc1a8 100644
+>> --- a/arch/arm64/lib/copy_to_user.S
+>> +++ b/arch/arm64/lib/copy_to_user.S
+>> @@ -20,7 +20,7 @@
+>>    *    x0 - bytes not copied
+>>    */
+>>       .macro ldrb1 reg, ptr, val
+>> -    ldrb  \reg, [\ptr], \val
+>> +    KERNEL_MEM_ERR(9998f, ldrb  \reg, [\ptr], \val)
+>>       .endm
+>>       .macro strb1 reg, ptr, val
+>> @@ -28,7 +28,7 @@
+>>       .endm
+>>       .macro ldrh1 reg, ptr, val
+>> -    ldrh  \reg, [\ptr], \val
+>> +    KERNEL_MEM_ERR(9998f, ldrh  \reg, [\ptr], \val)
+>>       .endm
+>>       .macro strh1 reg, ptr, val
+>> @@ -36,7 +36,7 @@
+>>       .endm
+>>       .macro ldr1 reg, ptr, val
+>> -    ldr \reg, [\ptr], \val
+>> +    KERNEL_MEM_ERR(9998f, ldr \reg, [\ptr], \val)
+>>       .endm
+>>       .macro str1 reg, ptr, val
+>> @@ -44,7 +44,7 @@
+>>       .endm
+>>       .macro ldp1 reg1, reg2, ptr, val
+>> -    ldp \reg1, \reg2, [\ptr], \val
+>> +    KERNEL_MEM_ERR(9998f, ldp \reg1, \reg2, [\ptr], \val)
+>>       .endm
+>>       .macro stp1 reg1, reg2, ptr, val
+>> @@ -74,7 +74,7 @@ SYM_FUNC_START(__arch_copy_to_user)
+>>   9997:    cmp    dst, dstin
+>>       b.ne    9998f
+>>       // Before being absolutely sure we couldn't copy anything, try 
+>> harder
+>> -    ldrb    tmp1w, [srcin]
+>> +KERNEL_MEM_ERR(9998f, ldrb    tmp1w, [srcin])
+>>   USER(9998f, sttrb tmp1w, [dst])
+>>       add    dst, dst, #1
+>>   9998:    sub    x0, end, dst            // bytes not copied
+>> diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
+>> index 6e0528831cd3..f78ac7e92845 100644
+>> --- a/arch/arm64/mm/extable.c
+>> +++ b/arch/arm64/mm/extable.c
+>> @@ -110,7 +110,28 @@ bool fixup_exception(struct pt_regs *regs, 
+>> unsigned long esr)
+>>           return ex_handler_uaccess_cpy(ex, regs, esr);
+>>       case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
+>>           return ex_handler_load_unaligned_zeropad(ex, regs);
+>> +    case EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR:
+>> +        return false;
+>>       }
+>>       BUG();
+>>   }
+>> +
+>> +bool fixup_exception_me(struct pt_regs *regs)
+>> +{
+>> +    const struct exception_table_entry *ex;
+>> +
+>> +    ex = search_exception_tables(instruction_pointer(regs));
+>> +    if (!ex)
+>> +        return false;
+>> +
+>> +    switch (ex->type) {
+>> +    case EX_TYPE_UACCESS_CPY:
+>> +        return ex_handler_uaccess_cpy(ex, regs, 0);
+> 
+> Pointed by sashiko:
+> 
+>     copy_to_user.S annotates its MOPS prologue/main/epilogue with
+>     USER_CPY(..., 1, cpyf{p,m,e}wt ...), so uaccess_is_write=1 for the
+>     whole MOPS sequence. With esr=0 hard-coded here:
+> 
+>         cpy_faulted_on_uaccess(): uaccess_is_write=1, fault_on_write=0
+>                                   -> returns false
+>         ex_handler_uaccess_cpy()                       -> returns false
+>         fixup_exception_me()                           -> returns false
+>         do_apei_claim_sea()                            -> returns -ENOENT
+>         do_sea()                                       -> panic
+> 
+>     So any MC SEA taken inside a MOPS copy_to_user() panics the kernel,
+>     exactly defeating the recovery this patch claims to provide.
+> 
+> 
+>> +    case EX_TYPE_UACCESS_ERR_ZERO:
+>> +    case EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR:
+>> +        return ex_handler_uaccess_err_zero(ex, regs);
+>> +    }
+>> +
+>> +    return false;
+>> +}
+>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+>> index 0f3c5c7ca054..efbda54770be 100644
+>> --- a/arch/arm64/mm/fault.c
+>> +++ b/arch/arm64/mm/fault.c
+>> @@ -858,21 +858,35 @@ static int do_bad(unsigned long far, unsigned 
+>> long esr, struct pt_regs *regs)
+>>       return 1; /* "fault" */
+>>   }
+>> +/*
+>> + * APEI claimed this as a firmware-first notification.
+>> + * Some processing deferred to task_work before ret_to_user().
+>> + */
+>> +static int do_apei_claim_sea(struct pt_regs *regs)
+>> +{
+>> +    int ret;
+>> +
+>> +    ret = apei_claim_sea(regs);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    if (!user_mode(regs) && IS_ENABLED(CONFIG_ARCH_HAS_COPY_MC)) {
+> 
+> The IS_ENABLED(CONFIG_ARCH_HAS_COPY_MC) test is also dead on arm64:
+> ARCH_HAS_COPY_MC is selected iff ACPI_APEI_GHES, and without
+> ACPI_APEI_GHES apei_claim_sea() returns -ENOENT and we never reach
+> this branch. Please drop it.
+> 
+> 
+> Thanks.
+> Shuai
 
-If this happens before step 2 or after step 5, it's fine. This
-instance is still not on the list. If it happens at step 2 through
-step 4 this is problematic. A i2c_priv could be returned which is
-actually (still) not ready. In the meanwhile i2c_priv will be removed,
-but the TFM continues refering to this instance.
-
-Question:
-- Do you see the issue here, too? Or, is my understanding wrong? Can
-this be problematic / lead to UAF?
-
-- If true, my first idea was to set a "ready" state initially to
-false, after kpp registered successfully, set it to true. The flag is
-checked then, as in this patch. Then I probably messed it up. So,
-could this approach solve the situation?
-
-If you not answer I'll present this in the next days.
-
-Best,
-L
-
->
-> Thanks,
-> Thorsten
 
