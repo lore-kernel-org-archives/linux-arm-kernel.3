@@ -4,125 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D01CD6E75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 17:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62312CD6E75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 17:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=83kNtpQCvgEEFU5CEHcKi9fKtzhKxwTAuCFD3ytEj6Y=; b=d6hJz9acmEs6ooLcC+O4ZIAMJU
-	jH6xtra9PwfI3tZOVLmmZfYBBn2VGlGFDq4JiW51TBN/MbGBnpkzX06SLbwjQ2oQDy0NZQU9s073S
-	tuvJ0Xu5HdFymD5DGlLOf2U1NZCcePu5i1421sxwoL8sx45KT7JPfcLMjYw7dOkX+2FGK5I0NYzX7
-	Ofhn2Kh9A4ohMGLdcuMoQ1/FP0dyCE5xeRsk0GAntfKwE/RumEJld5uRtMlKfHpNklJQHlnB05g1o
-	vvAhYJlh+WWFIoO/dyy0ArGgALQ/HI/PVADI9x68GOsDRBqFOzAhk2ZvmM1KN8fKbO82LK72sxPse
-	8+VoVZmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hv2y6zM3XEt92EoJZfiI2PBskhLmbb3yQxDrFnw92Hc=; b=UR/jysc2L4TFiC83dYj8/SDfK4
+	uN/NSQDUZdbY0wu1kx6YhEgNCp+i9P3h+tq19k6vws+p5SlnATb8N9/NIn75pqnAmG/T11iyyqKwn
+	RmYhGQOoB2F68IxU9Wu0u4nTwUlAIIF2Nj9hqVAlFZoRc+T30Jmh9GpUm4naTDJCgWLcLfoAlNrVi
+	QEbdjLx6p20PqsZZdm5LwvEjKADQoQQqEp7LmaEjxEolxDIg6jdYGGe4pl3kLeYtTvU4U7iO/VCAt
+	COktHZcjEh1rV+JbW4NwroHAsPNo+1nft378mEfw5EVHzFrryYVvyrkWteE9xFOh9j2j2LgtmDaun
+	K6F/O85w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBSw-0000000H7Qm-4C6Q;
-	Thu, 04 Jun 2026 17:02:47 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wVC1p-0000000H8uF-3y2U;
+	Thu, 04 Jun 2026 17:38:49 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBSv-0000000H7QO-0su2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 17:02:46 +0000
+	id 1wVC1n-0000000H8tj-0Hc4;
+	Thu, 04 Jun 2026 17:38:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780594727; x=1812130727;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=10kqgNwJP1Viy6M515oW44vnTYc14tf/WxWhMuWphRs=;
+  b=UeFc4hEfqJiTp70xnUUuvvxZC8ptdt+zJjhZUoCzyC7f9JiufM706dU/
+   UsJX3ts90A6dKrNgfL1WyTR1UmvZgePly460dNJhwWA06kNoiQ8F59iEd
+   izUAgq4QQcTOEAZn3w8h4uY2djuc635WWExnoXfkXYniS6wh3I0PMlCOw
+   +jt5mHhU7VgPnBAhB2rfOoahI4rINoNrwWD8xH4akm2PJQVfLzyVmq+wV
+   inNK2QhfgQ6ajRFBXfCOYfaDlih0fNhXZUQhBeDiYmGwfrDnERnWppTFP
+   9waro6EuBKeoffNk7ZWhqIJj1tFERLxlMtwa6LfXaX9sjXUZr/XzarGRw
+   g==;
+X-CSE-ConnectionGUID: 5tRGO7qnTsyJLHPyVxHrAA==
+X-CSE-MsgGUID: StjpAy6xTiO8K/rD5QUrlQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11807"; a="68964486"
+X-IronPort-AV: E=Sophos;i="6.24,187,1774335600"; 
+   d="scan'208";a="68964486"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2026 10:38:45 -0700
+X-CSE-ConnectionGUID: 4OIMuSD4TCScx1zSQaShVQ==
+X-CSE-MsgGUID: dkewWaIKSCaqwVHrapfbvg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,187,1774335600"; 
+   d="scan'208";a="282703291"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2026 10:38:45 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 4 Jun 2026 10:38:44 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Thu, 4 Jun 2026 10:38:44 -0700
+Received: from PH7PR06CU001.outbound.protection.outlook.com (52.101.201.36) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 4 Jun 2026 10:38:44 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vDscSreIhdxRu8B6t5VlOqj+D6qZCSg2845MWyiPYUo2VIScCqjor+otgYMT4zwe6d7muDk4TMV3NcX5Ro6SsEdZEa1p5ihe8N1qfxmLwEhuVE0ToMPbwpQPu4b9xCgxoerwb7oJy5fDFL9gnnVTYixzSCnucvdKnp3SRVgW+kS2gTRP48aXX623oZiz4K347ecoKPEpqASbLargmn9vIDedM+qpRH2DQg5mTuf7uob9BHA7jD31IKzw5QG+CAxYZXHiTsnluCig6DsMRjJDAokQdV9E52aKwkuJpBhwbIglioE1XsJzHBa5sW0JaN78n8hn1+X3G5BN1Cko23j2NA==
+ b=ReVKXF5B7k0mJ9vk/79IRLpV/QScivsR2978fORt7XUisVL7tLgQwHWbKubUXl4A5/5RSD886HBBPH5NgeVS+f8Qjk3FjxWgP+PXydzKcSk3+1gcNsT6Qkh3E3gxNH+r2xBpIbbjkR08KF+rkL0b1PuFLqaHxotw5G63TvH8BmOxm4b6V/vEEsuH54ZBQe8FmIdWXIRzuZ0+xj3IDzHYKH+5QniS03nkV0p8De8phH5K5MeXts6bi5SMjYLF9hx2dqCXCbbEyxyVV3wQpY1Kp+ChW8i+ZGTcnTRmQlqajaa0t4y+Xa8uJtoOZM4naFGM1oIYc6lDrWVCBrad0+fnDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=83kNtpQCvgEEFU5CEHcKi9fKtzhKxwTAuCFD3ytEj6Y=;
- b=WFR8azg9gh4OcwOt6mit/P+vVaQUbzBxuRvbTLoQuQhDy9MK7f9bEQcPcjacMiQdnhLq95tEimA/OsWVgxA8E9PRwpwaYSoxPa1/Q0dTYEepUqItVPQptHkNLPS4B+q5i5lZRHa1KW54HB7lPTe0sgVEBOi7ckxlYAToOsn+dPjUEkkgeUuiuc04016mTmML5GofMP+RGR1z4ntjAMm3dbmbV5lqyvJ+LSGVLXn4RCEB9xsCkJ9eNXdE2BlWWugxNwuXUFClOghcaicO4NQiy4RUFYL77jZoIo6BROv8HzMMjKLAogg6hJtMw6SuCfQuEVMrGH/oTvO6qM4NzOjk/g==
+ bh=Hv2y6zM3XEt92EoJZfiI2PBskhLmbb3yQxDrFnw92Hc=;
+ b=S2k/p1Xs/KMbaTaBhfVop0B7bs7ghs+Hk1sY8rRG5muH4xz/DrncaM/r5RkO3Bkved9mS0f6aql0qVvhRyXpHDDHRVgfCILTd6JOmQOMa/3m2nPogHTWMPMuUNJyKqlvCcz/dx4VDz1QN4+Hx05kLjeK/NB41ICTfVuRGZfLR3TqmneDvG7G4xzDG2KOa5LJp7+spkJvsi0j74QxEO1B+05XTF+vdC343h6i4DWznhsaldC+Z8qJRQ0tkdYCD5Y1AMZx9DnSHHOSQGqAxBhjF+KTyW9Wx3X/oRnpcBOSM+cxM1VRn9hKnBQOV7//xDwMIzl0WBz44PEOl2IRqbRZkA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=83kNtpQCvgEEFU5CEHcKi9fKtzhKxwTAuCFD3ytEj6Y=;
- b=SmCPiGSefR2LXjEzxNha3J9/X86VFXxkJcVDEYdK3A0hZKAJVmhWctWPdxCOGq6LegEigqm5RSiM0xjhvD85jo6livaAYdIRalIYnznoxhMGD5daCSKEWq8/QsSlkjK3V3kEBgkeWV/3QGsL7nBQsyj1RoEXu3M0xGBgRn/NOTE+J9BNnVZyeQSaYUmM+c4QUxNAqmsIDdeVGr9VLkW4qFbx67K9D649CS6XKPj0iP97O1beTk1S32tpElwygAEMWg9aFyYZLY3sVLoS4KRjPV4gTDkL5Mfjl/yikwS4o603YYXmbcrZjMvANmzK2pGRUE+fg14EMYPRVyXHgpRpUQ==
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB8088.eurprd04.prod.outlook.com (2603:10a6:20b:3f7::24) with
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB7381.namprd11.prod.outlook.com (2603:10b6:8:134::14)
+ by CH3PR11MB7937.namprd11.prod.outlook.com (2603:10b6:610:12c::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
- 17:02:41 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
- 17:02:40 +0000
-From: Frank.Li@oss.nxp.com
-To: soc@kernel.org,
-	arm@kernel.org
-Cc: Frank.Li@nxp.com,
-	kernel@pengutronix.de,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] i.MX ARM device tree changes for v7.2
-Date: Thu,  4 Jun 2026 13:02:32 -0400
-Message-ID: <20260604170234.1660270-1-Frank.Li@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH8PR07CA0026.namprd07.prod.outlook.com
- (2603:10b6:510:2cf::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Thu, 4 Jun 2026
+ 17:38:37 +0000
+Received: from DS0PR11MB7381.namprd11.prod.outlook.com
+ ([fe80::4c39:dfe6:d6dc:6f58]) by DS0PR11MB7381.namprd11.prod.outlook.com
+ ([fe80::4c39:dfe6:d6dc:6f58%5]) with mapi id 15.21.0092.007; Thu, 4 Jun 2026
+ 17:38:37 +0000
+Message-ID: <21810a20-abe6-4490-969c-cfd62c4c082a@intel.com>
+Date: Thu, 4 Jun 2026 10:38:33 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/2] net: airoha: Fix use-after-free in metadata dst
+ teardown
+To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: Florian Westphal <fw@strlen.de>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <netdev@vger.kernel.org>
+References: <20260602-airoha-mtk-metadata-uaf-fix-v1-0-3aaa99d83351@kernel.org>
+ <20260602-airoha-mtk-metadata-uaf-fix-v1-1-3aaa99d83351@kernel.org>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+In-Reply-To: <20260602-airoha-mtk-metadata-uaf-fix-v1-1-3aaa99d83351@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0291.namprd03.prod.outlook.com
+ (2603:10b6:303:b5::26) To DS0PR11MB7381.namprd11.prod.outlook.com
+ (2603:10b6:8:134::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8088:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4c261976-89f4-400e-43f3-08dec25b1661
+X-MS-TrafficTypeDiagnostic: DS0PR11MB7381:EE_|CH3PR11MB7937:EE_
+X-MS-Office365-Filtering-Correlation-Id: 10157a8e-1f94-4806-74bb-08dec2601b8f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|19092799006|6133799003|3023799007|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: 3Jf3gUI7ipxHUwAiAGATL6yIgkH4zizgbcQ8oYerLdwai3Cz/A0pNCLE6eEPgUrSAt8SamYzWXOnW6VObVytWx8m02HdXSpmpt7+MzdR6DepwdrPMVbjqoh+aAmy5j/VVceFkFXyRiGRDPMg3XZLJ2Q+1S2vCnujhXlrJWF/oVn8YnErrFYGouCEvmqhD/ovjgzK5FanBNc/4NZcukCOc1HqGQbFAci1vthSDlQBcBxIlL4Kz1EZKSIyxQlHRqgW38MZ2qM7gqIYWp5B/xVvSv2Sv+Zwnz1tchMjEtPdBE3G1CV9FQl2554UWFz0pNbQVH+T6a1JT1+Jc3K9RInECwEAzrXNudo3XstwuAdnY36iHwX0+KsAZJ5zP+s8yaJ3z7nduG4b6+eHwemTJfzqnekmjlO66sb/oqrPy8MH45lx8pU8vLEJfMcf0H2nJc1iZcs+CVwZkvN0yF4Tf26z/i0BSPcCRePjohpi+EQowlq6hYsKAKxSnpuk9fD3lwek22GdVa8+e8rMg3Hw7Lo0KL5JeMtdC2LuHInq4lKfl0w6F72G5Z8berhI4UAfnvhT3hnU7o7O4UDd//3sgDXobzz4/HOlPzU6DVdfsw5qmwc/Jthbj5FMRFOzBBWjQVII4efQOI3AUM7KTqQ0uzlP4moMKMxpR01sBaJr6o3w36GGR2s861bXtFwu+VNjAO7l
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(19092799006)(6133799003)(3023799007)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|22082099003|18002099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: ID5ETZEIeDXSb3VJyBY4tzF8woF3jfGp3ggRG/5VMdeut+EDkYfYjqfbPQWFIETMJYkKEO1tBLrt4payHax+64dAfKlkP+tBFFIDbNxxpRYwu6S0E+cE7od9CMaHFgmtuC9SQIUZKbw84UYzW0H1gmFJyN17Zj1hohGwbmulITPOBzWjWDvg4nWksSCZmM5EcxNV0zI1I8kQd4T4fyl4gCSJ9fhPhuWzrEB8MjwklxuiZmTfQOOgR7G0RzxkoPEhYpdHD3gzhrgh6q9eLUkK4GS5smZk5JGJG/UyoUdNp/5qcs0JgU9H0krOWrvTTnzB9znfR5bL+xHfqHfKcL6uUjtgnft+S8ouJoRAMyzKVOxHD6BhJtyxEYEXf2f3agFRxga2UaTztHdkeDv+AeQutqR+ZW462r/wOvqix21rfwRKa79NGPPPJrlO2SvsNrNQ9koXsUeE4zAYwD9y6qXIwpfleMVjMI3AbLuP7xO4hQWdv2gInE9TexaDlL9vi/e2gyiogQrxuS+6IHP9Hc9j1c7G7iittil5jLB77gYiz5QIH4ZUoQUR4G7202FotUbGHzVFOglOmgZOV9ARMQdWOEbA+qGsiPF2v50VBC0PM6MPv/eQyhmpnblCHYXwDtFb+SDK0eSOCPVmZMafrr535y5lDrU3sOhd3oSTJC4KzSW+uog/RWDmOyQbg2f1pKxd
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7381.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3KC3F2Ig7TyJwmySUSLU34GD6fPUYWLuOBz5DazUjy+YnwtuManDHiavuWwL?=
- =?us-ascii?Q?AYNCacv+Fgc0jSgGbMVKENtD833l8lL78SJYG5OLcXhpmBFbv0L96LuowWYH?=
- =?us-ascii?Q?S8f40v9eTVP03mrakbMwhc7g7n0VYc7fQLG/HIbI595sSCmyzphosz89fjtK?=
- =?us-ascii?Q?yuUEqJZh46FUTQaf7oWu/pWqO8dlrSDubHPUOBkRRpLzmjCLzzKZ0bdEYNhW?=
- =?us-ascii?Q?Z4uTBS8ncFLQeWPD8k5MRbmH3hrPIFZ7CE+CSPufUnbTYseAim9609+QOb5u?=
- =?us-ascii?Q?VhOJfcAQgETOTlzkhpzyKRjcOD0zY5nz4T24BbMqh52HZSxywP7dR8AIbNZI?=
- =?us-ascii?Q?vzT+4kinZk1Y/s2Bp3Amn6jsIvxtzn4bqbJMU1RDyPxl1c3ZLhelBY0c2bfg?=
- =?us-ascii?Q?1Ry/VUy25NELlkUlIBEW977bUBCUXkV97FePf29xm3zXtsrjIV0gdX5TMtkI?=
- =?us-ascii?Q?N2/11SF384OrlpuXeYh9JCej1LRUgW1JmfgeMGl19wGlkbwt2+JXGJp5Ian+?=
- =?us-ascii?Q?JjlshkRX383BOFHZ8teWHWY5Owgag0zhJ83KAUdL3mbBy0Vhw1MiXoSQvQCU?=
- =?us-ascii?Q?e+zHG5t4FAz9MGrUyQu43AaukHvrq9O2mj5asCoTbcRI19P5D2e/ivOhC9b7?=
- =?us-ascii?Q?1XNFS88szk8giU2ksuEMj7mFoH7rT3Hue86A8StQN7A3/oX5fMvQNoUnl2Qx?=
- =?us-ascii?Q?CoOlJO8TW2dh116NjvjdUjyWiyuyo5xUSS+K4lvAFOlKold9sDo5ZnipvrhC?=
- =?us-ascii?Q?RW0K6gNG/pqh99b33RIRd3QLZq+n3jxdoyu08+5ffoGjxtQ36TLfy7jeO3Hw?=
- =?us-ascii?Q?rOY+1tvNDCp1wlmdnGcHInuWc2dDp52ADIq3iIx6Nc/m0sR/YNdxs87iIaM4?=
- =?us-ascii?Q?bnLUw+3g5WiX/t9B9l2nCbKMA67fAkKvyj6jdb5qXXwoEGqP/t7HkdlQsvzH?=
- =?us-ascii?Q?3qUmowyM8fy0XL0bLsV0LouiTsIqXwduOoVb7az4UHnekEXqoIt4bpWWqxJN?=
- =?us-ascii?Q?qSYTVgA6lRqFKH2AZk9y23bh/MkjEZTENlIMc73O3uKKJfmasDkLn7lgGIy4?=
- =?us-ascii?Q?x8zt/FHQGh9h1/ZN78zBy6FOdbIQVqbGdcM+ZNjhq/FXoq/rnrAZRMWV1AMc?=
- =?us-ascii?Q?hHOa5a5pBLU9PXBxAFCqobvIV/y2sJU4FK5kmyAodK6PmlHecntC99CZJ5Do?=
- =?us-ascii?Q?VeFNrORS5gPIjOM41Xfm04goJtgx5+bTr6HoruIskAjvGlv2TZbViP/AaOTa?=
- =?us-ascii?Q?7M2EmEcSPDCogGZvmI9IdBLlfJoJ/cyfZOMkMW+7BgdGbLScF4SbEZ5UlOtM?=
- =?us-ascii?Q?n2iIgS1aHRm7Z66U+8h14EaEqPA3fZBpk6vsW8Ktu10M6wKOK1Z+k9xdAVm2?=
- =?us-ascii?Q?rkUFJIJORCkw1QGkTpAFiydztxPviu+wvZ4FQxcXCKFt60AqUikawDkC/aKb?=
- =?us-ascii?Q?pA1CWyENit69NlzJnOQAGYXLOaOiaFKudD7JK+sTrLoK4bH45abEpa+ACXsJ?=
- =?us-ascii?Q?RXaDi6u35VykorKzdVGr6QoQIQe6LgkDaEw/jgxSHWSSdHVR0qTN5AFGVpRg?=
- =?us-ascii?Q?C+1s7oUR/DWFB4LpfuHWiNoTcIdrdW6Y2VaoVV7ZIh3bopnZaHZdxR9GCDjf?=
- =?us-ascii?Q?9KoyaKJaszNfPoto9NX3CmNaeQbX9tvGj75MCwnBB0n2Lla1Dtew2EeJ+oyz?=
- =?us-ascii?Q?W+Vkmh16S9f2QixehqnuTvDkLwt/XJa13MaMfpOhILaRvveI6E3KxfCdHpIB?=
- =?us-ascii?Q?CTyYbNNP0tgzlACHrYrVNPZe6pjM+Gs=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4c261976-89f4-400e-43f3-08dec25b1661
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2JtMkFVYjFzQzB5MXd1SGhjRXdubUJOcEg2Q0lFQlh2T3JiekcxcVdiQTNN?=
+ =?utf-8?B?T1NjZXhYeDBOU2Npc0NMK1QvSmZGRGQ0QS9yOXEvOEswTFZGQVpiTVQ2L0pV?=
+ =?utf-8?B?WEZHc3I4LzU2TlVFZmpWR2tiNysvbm9UUFRzcWhVaXV3aDZaYTNRa2orT3gz?=
+ =?utf-8?B?WHNNSnptU25hYkZsRFREeVlKQlBRNUl6dlhaN3o5eTErMXBhTkszNEJpeXRX?=
+ =?utf-8?B?STlqNUdoeXlUUmlVQkljak5BZ1V6U3FwaGJ1MnZQQk5QeXFtN01xbFhybkMy?=
+ =?utf-8?B?Z1ptNS8vRHo4NUhLbEJ3UFVsallvUFM2bm5mWWw0M0pNb3lrMnV3K1pTNzBL?=
+ =?utf-8?B?d2RCN1pjRUFVOEhMY1hjbVpZTjJzRFhUOTVDYVphVUtGTmpsM21BUWk2c0tM?=
+ =?utf-8?B?MzNZY1N6R3paRHJzdnhHMDhhV0YzMGxCMVVjaWZ2UHIxSTJoRmJoRmlXUENK?=
+ =?utf-8?B?Y1gyZ1JXczR6NEZhU05IY1ZzQXNQQmpWVE1nMkdFZWdmSmt0b0dOOHRFdWwx?=
+ =?utf-8?B?bFZCdEl6dGEya0p4MHB5ejlaVnBVN3pMRjFkTCtoNXBWSHNWTWorc3NIWk1m?=
+ =?utf-8?B?SnNmamZiZSs1SHhnSnROVWdBTmVzNXd2SmtHZTRtbndpK2hUN0pNNHlQMWh4?=
+ =?utf-8?B?d09JMEhLajFnU0I0OGNid0t5KzN3dEQ5OHB1eWcwWU9HSUFFemJIc0ZYYjZF?=
+ =?utf-8?B?M3pJV1VVNm1kTkI5ZTVUWGszWUxHTjR4ZUYrNXNCYUdGZUNuRWtRVjJXVjRL?=
+ =?utf-8?B?SEpsTHpPU20xc01LZnphL2JpZUs4OXUyZ09NVEg4dUR0QlE1WGRVNlg4dVYw?=
+ =?utf-8?B?OWZCWWtadDcxUUNnL3NYUlo2b25MNnI4RjgzQnBsdmVTbHcvMG1oRlNTRnZT?=
+ =?utf-8?B?R3dVeEhsNTRXbmJQYzZLbjhIY0JMTmQ4TW0zbjl1QS90OFZXdnF6WFBHREdW?=
+ =?utf-8?B?VUVHVVdyeHNuNjl6SklyeDVkdmVtVFBVS3ZkejhveGo5ZDZ5dEo3NGpFdWhL?=
+ =?utf-8?B?TGszRGpZbkUwdmhSeTZ3aE9FSGRhb2svaFlEK0trdC92UjJ2VllTZGNkZjJM?=
+ =?utf-8?B?TW4raGRBNHZNdjZObVVpdG4zRmFEWm42bU5qUlVkOEtRYmRsck5MY0dSNHF0?=
+ =?utf-8?B?MVlIa3BrZ1ljK2NzeXYvWkdyRGorckFMWlcxT1ZnVEd1UlM1MnBqb0pmZjVr?=
+ =?utf-8?B?OW9Fb2tQSzlheEM2OGZ0WGNNcG8vSlppZDBNZWZkem0rcjFFN1J4Vk5uZUVn?=
+ =?utf-8?B?L1phY2w5S2s1c1pHZkx0SnVkSzA2TlNHUEpHVENjbHlZMjJXaDZNaTR3K21a?=
+ =?utf-8?B?dzc2QnpLNFdINkEwSWZpN0c1NUx3N2I5OUJwSDJXcjk1czNJTmNyRTlNUUxM?=
+ =?utf-8?B?c3lHVlorUEkxWHdZTVdsNFMzNTR5NlkzTmZ2MGh4Z2hZOGllNTBXRlRXNHR2?=
+ =?utf-8?B?UitMUmdUWkhNMjltZis1M2RsMHVIZVZ1TXB4cWhIcEdhbTc3N1d2NG5wN2VW?=
+ =?utf-8?B?NGtiODNpdWpWNjd5MTFyc2hWOGV5cy9zM1d1UjB6Qmptd2ZuN0l1RThxeGI0?=
+ =?utf-8?B?YVFjMk16QlFaME9EWXpSM2N2bDZLNVVqenNZZEZ2RGNUZkV2eWR6SGNtU1RN?=
+ =?utf-8?B?bFJ6bU5QcitSRmU2UlR0dlFOUnVIR2o2NVViRVNnMThYOXRhTWo5UGVJckhZ?=
+ =?utf-8?B?QjcyS0tFeUpsSDhlNk9PMTNGU0xSS2dVdjhJNkRxYXdxSHN1ZU45ZkEzZERt?=
+ =?utf-8?B?clY5L0hEL0dPWEEwTWQvcE42UXE5ejR3SVpRRVpSd2JBUW5qTXdvZjNubmtN?=
+ =?utf-8?B?L2p2QnVRYjZqL0JOYVZSb0Z5Sk5Jc0FwMVFGRlhyaU1UM0kxaStQK0U1VWE1?=
+ =?utf-8?B?ZW5JM1lPYmlqUmc1K2tNUTQ1VW55QllURzA4ZXJIR1VIaEpzcnEwQU90TEJz?=
+ =?utf-8?B?dHFIWHRQR1lzS24yQitlcU5XZUJRbVRSUGlpbUVScWVhanlZVDA4NmFIRXB0?=
+ =?utf-8?B?TE5TTnpFK0RsdVgydkdCTXBEY2V2T3orZDdLekxwbWlpc2dUbjVXY2U2ajdZ?=
+ =?utf-8?B?bDVMRFZLS01nOC9TU1pXUWhvcDY4MXdhQmRUOVpEaEcrVCtpd3hpVDNsOS9J?=
+ =?utf-8?B?MHNVZHR0d0dSVTlydStQVmFRWmFDNlRYR2R3SkxRbGFhRUdtcm9ldW1qaUM3?=
+ =?utf-8?B?TzBLekk1OUJBMkMwYmFNRTV2WHpqTzEvcGNnelMyNVJLQ0ZjRlJuZFpDdjdn?=
+ =?utf-8?B?SUk4bmNRWVdZbkV5eHgwTGxLRlhHaTladG1YUmpKV1k3K3F0YkhzdzV6RlRT?=
+ =?utf-8?B?L2VVdVRvb01oSFBGTmIrRXlJd1hFM3dPNzJPTzhxZzBiNTZnQkNyTU15N20r?=
+ =?utf-8?Q?HKtBPmcA0Lvoj+Pw=3D?=
+X-Exchange-RoutingPolicyChecked: CY+PCxMWMGTbXaus/HB2noN1bQsGp8QzTSCQd99p73ESnG1bDtwE6ZfS+u2uosXzUgHksnQj/Qd8SRO4rO+gpoXZOOOxgL9twQRpS3GqIfbj3Drbimy/h2vc/8CcEZFogCwDlniTU9lMbbkEr3iSKsqeeSlz6ZPUWXE1cE6x3z0OjKOD9vKfEVAtblho4uHo43ISvWWNqIBPUsvNQkpaKBanMyzZ9KkK/SDGOXxLiOviWUtjnPyM6ZZm8g+xXTPpoCLOxuq2L8WulErVHxiF1EjfgK+DfP9DVqlAK3Vvom5nFEGyh800Rb5Hz6mzi3TBzv6c4IvlaOuUOBnrTMnG9Q==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 10157a8e-1f94-4806-74bb-08dec2601b8f
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7381.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 17:02:40.8848
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 17:38:36.9623
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LzMCKC7Ql0CR/27qvlKX7+cqMdoATuAP8oL6jqEdWvROSYDOvJlpj5IIGuE3nHzh3Xsqu85h38rVl0jQyRuEPHS9UYmCdugm9aAUIYv+zCbMTSTT1u6Shc8Ho9qYR2kV
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8088
+X-MS-Exchange-CrossTenant-UserPrincipalName: e9mlcfJVxkDyZ3OwbWlfu8bvbcGw/1UtPLvS8g1S9IL/in+4Qp1Vsvkxt2pW9bDu5achyBmokKgt7RA3gfttegN5gGqnnW7k3w9UEF8U/tM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB7937
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_100245_446324_B17AAA7C 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260604_103847_152931_5E97DDD3 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,185 +188,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank.Li@nxp.com
+On 6/2/2026 2:21 AM, Lorenzo Bianconi wrote:
+> airoha_metadata_dst_free() runs metadata_dst_free() which frees the
+> metadata_dst with kfree() immediately, bypassing the RCU grace period.
+> In the RX path, skb_dst_set_noref() sets a non-refcounted pointer from
+> the skb to the metadata_dst. This function requires RCU read-side
+> protection and the dst must remain valid until all RCU readers complete.
+> Since metadata_dst_free() calls kfree() directly, an use-after-free can
+> occur if any skb still holds a noref pointer to the dst when the driver
+> tears it down.
+> Replace metadata_dst_free() with dst_release() which properly goes
+> through the refcount path: when the refcount drops to zero, it schedules
+> the actual free via call_rcu_hurry(), ensuring all RCU readers have
+> completed before the memory is freed.
+> 
+> Fixes: af3cf757d5c9 ("net: airoha: Move DSA tag in DMA descriptor")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index cecd66251dba..eab6a98d62b9 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2936,7 +2936,7 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
+>  		if (!port->dsa_meta[i])
+>  			continue;
+>  
+> -		metadata_dst_free(port->dsa_meta[i]);
+> +		dst_release(&port->dsa_meta[i]->dst);
+>  	}
+>  }
+>  
+> 
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+the port->dsa_meta is allocated using metadata_dst_alloc().. how is it
+safe to use dst_release here? Seems like we should be calling dst_alloc
+instead of metadata_dst_alloc in order to use dst_release??
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+metadata_dst_alloc does call __metadata_dst_init which calls dst_init..
 
-are available in the Git repository at:
+I guess the start of the metadata_dst structure is also the same address
+as the internal dst_entry struct...
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-dt-7.2
+But dst_destroy does a whole lot more than metadata_dst_release so I
+don't feel confident in this actually being a drop-in replacement... It
+calls netdev_put, it calls the dst->ops->destroy, it releases child
+refs.. Or for metadata dst entries is that all basically a no-op??
 
-for you to fetch changes up to 8772e1f64c7d69986821d71d8e58fd10594c9aa1:
+I feel like I'm missing something here.. The driver also calls
+metadata_dst_free in the remove path and that wasn't changed by this
+patch either.
 
-  dt-bindings: soc: imx: Add fsl,aipi-bus and fsl,emi-bus (2026-06-04 12:47:24 -0400)
-
-----------------------------------------------------------------
-i.MX ARM device tree changes for 7.2:
-
-DT Binding Cleanup:
-- Replaced undocumented compatible strings with proper ones:
-  * edt,edt-ft5x06 -> edt,edt-ft5206
-  * marvell,88E1510 -> ethernet-phy-ieee802.3-c22
-  * karo,imx6qdl-tx6-sgtl5000 -> simple-audio-card
-- Fixed incorrect VAR-SOM-MX6UL references (corrected to VAR-SOM-MX6)
-- Added missing required properties:
-  * #phy-cells for usb-nop-xceiv
-  * #io-channel-cells to ADC nodes
-  * bus-type for ov5642/ov5640 cameras
-  * ti,deskew = <0> for ti,tfp410
-- Added missing supply properties (power-supply, vdd-supply, dvdd-supply, avdd-supply)
-- Removed redundant/empty properties (bus-width for video-mux, empty clock-names)
-- Fixed boolean property warnings and non-existent property references
-- Converted TS-4800 watchdog to DT schema
-- Renamed wdt nodes to watchdog for consistency
-
-New Features Added:
-- PCIe Root Port nodes and PERST property for imx6qdl, imx6sx, and imx7d
-- OV5645 camera support for imx7d-pico-pi
-- LVDS display panel support for imx6ul-var-som
-- WiFi and Bluetooth support for VAR-SOM boards
-- nvmem-layout support for imx7
-- New bus bindings: fsl,aipi-bus and fsl,emi-bus
-- New board binding: variscite,var-som-imx6ull
-
-Code Refactoring:
-- VAR-SOM-MX6UL/ULL: factored out common parts for CPU variants
-- Separated audio, ethernet (ENET1/ENET2), and SD card support into reusable components
-
-----------------------------------------------------------------
-Alexander Feilke (1):
-      ARM: dts: imx7: add nvmem-layout
-
-Alice Guo (1):
-      ARM: dts: freescale: add bootph-all to i.MX7ULP watchdog nodes
-
-Eduard Bostina (2):
-      dt-bindings: watchdog: Convert TS-4800 to DT schema
-      ARM: dts: nxp: imx51-ts4800: Rename wdt node to watchdog
-
-Frank Li (12):
-      ARM: dts: imx35: remove empty clock-names for nand-controller@bb000000
-      ARM: dts: imx25: remove empty clock-names for nand-controller@bb000000
-      ARM: dts: imx: add ti,deskew = <0> for ti,tfp410
-      ARM: dts: imx53-qsb: add dvdd and avdd supply for panel sii,43wvf1g
-      ARM: dts: imx53-ppd: add '#phy-cells' for usb-nop-xceiv
-      ARM: dts: imx: add (power|vdd)-supply for related node
-      ARM: dts: imx: remove redundant bus-width for video-mux
-      ARM: dts: imx: Add bus-type for ov5642/ov5640
-      ARM: dts: imx6qdl-tx6: remove undocumented karo,imx6qdl-tx6-sgtl5000 and keep only simple-audio-card
-      ARM: dts: imx: replace undocumented compatible string edt,edt-ft5x06 with edt,edt-ft5206
-      ARM: dts: imx6-display5: replace marvell,88E1510 with ethernet-phy-ieee802.3-c22
-      dt-bindings: soc: imx: Add fsl,aipi-bus and fsl,emi-bus
-
-Hugo Villeneuve (14):
-      ARM: dts: imx6ul-var-som: fix warning for non-existent dc-supply property
-      ARM: dts: imx6ul-var-som: fix warning for boolean property with a value
-      ARM: dts: imx6ul-var-som: change incorrect VAR-SOM-MX6UL references
-      dt-bindings: arm: fsl: change incorrect VAR-SOM-MX6UL references
-      dt-bindings: arm: fsl: add variscite,var-som-imx6ull
-      ARM: dts: imx6ul-var-som: Factor out common parts for all CPU variants
-      ARM: dts: imx6ul-var-som-concerto: Factor out common parts for all CPU variants
-      ARM: dts: imx6ul-var-som-concerto: order DT properties
-      ARM: dts: imx6ul-var-som: factor out SD card support
-      ARM: dts: imx6ul-var-som: add proper Wifi and Bluetooth support
-      ARM: dts: imx6ul-var-som: factor out ENET2 ethernet support
-      ARM: dts: imx6ul-var-som: add support for EC configuration option (ENET1)
-      ARM: dts: imx6ul-var-som: factor out audio support
-      ARM: dts: imx6ul-var-som: add support for LVDS display panel
-
-Lech Perczak (1):
-      ARM: dts: imx7d-pico-pi: add OV5645 camera support
-
-Markus Niebel (1):
-      ARM: dts: imx6ul: add #io-channel-cells to ADC
-
-Sherry Sun (3):
-      ARM: dts: imx6qdl: Add Root Port node and PERST property
-      ARM: dts: imx6sx: Add Root Port node and PERST property
-      ARM: dts: imx7d: Add Root Port node and PERST property
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |   8 +-
- .../devicetree/bindings/bus/fsl,spba-bus.yaml      |   4 +
- .../bindings/watchdog/technologic,ts4800-wdt.yaml  |  40 +++
- .../devicetree/bindings/watchdog/ts4800-wdt.txt    |  25 --
- arch/arm/boot/dts/nxp/imx/Makefile                 |   3 +
- arch/arm/boot/dts/nxp/imx/imx25.dtsi               |   1 -
- arch/arm/boot/dts/nxp/imx/imx35.dtsi               |   1 -
- arch/arm/boot/dts/nxp/imx/imx51-babbage.dts        |   1 +
- arch/arm/boot/dts/nxp/imx/imx51-ts4800.dts         |   2 +-
- arch/arm/boot/dts/nxp/imx/imx53-cx9020.dts         |   1 +
- arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts       |  11 +-
- arch/arm/boot/dts/nxp/imx/imx53-ppd.dts            |   2 +
- arch/arm/boot/dts/nxp/imx/imx53-qsb-common.dtsi    |  10 +
- .../boot/dts/nxp/imx/imx53-sk-imx53-atm0700d4.dtsi |   1 +
- arch/arm/boot/dts/nxp/imx/imx53-sk-imx53.dts       |   7 +
- arch/arm/boot/dts/nxp/imx/imx53-smd.dts            |   2 +
- arch/arm/boot/dts/nxp/imx/imx53-tx53-x03x.dts      |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6dl-gw52xx.dts        |   2 -
- arch/arm/boot/dts/nxp/imx/imx6dl-gw53xx.dts        |   2 -
- arch/arm/boot/dts/nxp/imx/imx6dl-gw54xx.dts        |   2 -
- arch/arm/boot/dts/nxp/imx/imx6q-display5.dtsi      |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6q-gw52xx.dts         |   2 -
- arch/arm/boot/dts/nxp/imx/imx6q-gw53xx.dts         |   2 -
- arch/arm/boot/dts/nxp/imx/imx6q-gw54xx.dts         |   4 -
- arch/arm/boot/dts/nxp/imx/imx6q-novena.dts         |   1 +
- arch/arm/boot/dts/nxp/imx/imx6q-utilite-pro.dts    |  18 +-
- .../boot/dts/nxp/imx/imx6q-var-dt6customboard.dts  |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi      |   2 -
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi      |   2 -
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi      |   2 -
- arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi   |   2 +-
- .../boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi    |   2 +-
- .../boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi   |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi  |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi        |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi   |   2 -
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi     |   5 +
- arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi         |   5 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi             |  11 +
- arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts     |   5 +
- arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi          |   5 +
- arch/arm/boot/dts/nxp/imx/imx6sx.dtsi              |  11 +
- arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi    |   1 +
- arch/arm/boot/dts/nxp/imx/imx6ul-pico-hobbit.dts   |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6ul-pico-pi.dts       |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi        |   2 +-
- .../arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi |  30 ++
- .../boot/dts/nxp/imx/imx6ul-var-som-common.dtsi    | 187 ++++++++++++
- .../nxp/imx/imx6ul-var-som-concerto-common.dtsi    | 215 ++++++++++++++
- .../dts/nxp/imx/imx6ul-var-som-concerto-full.dts   |  22 ++
- .../boot/dts/nxp/imx/imx6ul-var-som-concerto.dts   | 318 +--------------------
- .../arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi |  44 +++
- .../arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi |  79 +++++
- .../dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi     | 112 ++++++++
- arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi   |  27 ++
- arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi |  75 +++++
- arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi      | 215 +-------------
- arch/arm/boot/dts/nxp/imx/imx6ul.dtsi              |   1 +
- .../dts/nxp/imx/imx6ull-var-som-concerto-full.dts  |  22 ++
- .../boot/dts/nxp/imx/imx6ull-var-som-concerto.dts  |  21 ++
- arch/arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi     |  36 +++
- arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi          |  10 +
- arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dts     |   2 +-
- arch/arm/boot/dts/nxp/imx/imx7d-pico-pi.dts        |  68 ++++-
- arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts            |   5 +
- arch/arm/boot/dts/nxp/imx/imx7d.dtsi               |  11 +
- arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi             |  12 +
- 67 files changed, 1143 insertions(+), 594 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
- delete mode 100644 Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi
+Generally it seems like we should be using the same API to allocate as
+to release the object... This is confusing. What am I missing?
 
