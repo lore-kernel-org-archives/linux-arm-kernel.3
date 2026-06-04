@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39345CD6E75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 20:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F180CCD6E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 20:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTr9hq1BbZUfbwxQS4V0l0z3LqJ94HV11h9J+XL5gnk=; b=cs31yMHJEZm3Z/uatw4i7mymdH
-	s8VF6VDfLiLbfsEAFoaL1woQ/8NmHCsFyvHSOGfWdN75VZfO5wczPlUHCcJtRoKqbrU21VnEsIPzS
-	zdzFeKdxUhM+oUs97ax36MYG65f4jhiPsRN9+VNEo9IA85J6QOPITmhnA9KUMyFK4wGzC4YWn6UU5
-	U0UnvbLSJPX8v2qHcmixHdkVFGnShebJdTQdotszSlVQ2RhXG9X92P6j7RuuoZumqwnD0qWEcvL0D
-	/KH37fZjzavOKkQKY7fdFUYGAEvUrggIzoSHhMt+pzL9H3jGn4DlSyyjBkKhbNagcWKQITPGlv/8h
-	gU8brwGQ==;
+	bh=wdlnHacym1R+fO8OXKjuu51Mo8jbgvgR2Hwxia5FoqM=; b=2E5h8ur45aXWCjZ8LxVCnBgBNF
+	jT1P7C5EZv2T2RMds/r+4kZUu5++lJMReEXlJ1EzTcePYBWEauilqFAOOS/XSuDvBWnXGkkAs+Kvk
+	Z1dw/h2pqAPFOq7ixFujR+g0pAOhvaN5lVCDzteSDg2HMu4YfDUwYrusDgYO0bF8v+341fx5RlVM4
+	QkqZUjBaVPQWdvER0j34P0CYQWiusAvuTnibsPGs9+6gYN4eo36qD/U4/CrouBZkAwYpPLfnmxIZE
+	ZZ7LBhj47DrA/95oKtbMcwEd75qFUTJhUhIK4uU/s0F2cjoPYOZAJ33BF+psgjHGpyqFsxESleZy4
+	JSUMeaAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVEad-0000000HGRX-3JrB;
-	Thu, 04 Jun 2026 20:22:55 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wVEaf-0000000HGTi-40uT;
+	Thu, 04 Jun 2026 20:22:57 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVEaW-0000000HGKV-1fBf
+	id 1wVEaa-0000000HGNd-0Ey7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 20:22:54 +0000
+	Thu, 04 Jun 2026 20:22:55 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id E7DD01A080B;
-	Thu,  4 Jun 2026 20:22:46 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id C0FBFC63454;
+	Thu,  4 Jun 2026 20:22:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B4A095FED1;
-	Thu,  4 Jun 2026 20:22:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 32563106A1D38;
-	Thu,  4 Jun 2026 22:22:42 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6404E5FED1;
+	Thu,  4 Jun 2026 20:22:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AC515106A1D46;
+	Thu,  4 Jun 2026 22:22:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780604565; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1780604568; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=DTr9hq1BbZUfbwxQS4V0l0z3LqJ94HV11h9J+XL5gnk=;
-	b=lmS+wAdJ/wDhwTxbEY48mzvs+wfgGH2aqa3uTHEsoYk4+egErzEzcHPpjH1AVPDeMz4PEz
-	Db/xZC5zJYGBVAV0aWWRrcOLTCtc/aEVY57usTmqwcILSZ/aqEU53ASKhDyym4CIWnp3fq
-	1jyG9sD8p66txJBpYiTxH8hQrKMerm3GDYqyhSjDEAgPA2E7zbfS1fc4KAzkgSltxokMg/
-	sRJ4+DvgRTdpPca7SQHE4Y6Fdq1wp9YxrWJqzwNCEQx7fG5SJBeTfKl+1wpdQX+pHYuTSS
-	W2LQNIWE80zVDuTAjqn1ibyFMKtbXwmxrxnFwSBpDBIalksKWwHjoLv/cJ3L0A==
+	bh=wdlnHacym1R+fO8OXKjuu51Mo8jbgvgR2Hwxia5FoqM=;
+	b=KTpHMHUmYVt111uGM7eQqwYj9AulLvr+vlSfy6ula6hCrNgH25/QWQyT21VsOXOllIQdS2
+	SGroiXJx4rPG6CiYkX0WaeOwB39DOR+gvnCS741uKM2g9loglRN0WX8YM+2QaahVHuejho
+	M7LLi65ONCib5M026f6KM8wOe9EefpfZiChi3gNrGnYwmGRmcpNVqKEywt4EJ60gx/VLEc
+	1xF+hsIoIOz7m7NPlV4DGxfdGgaNg4rOlVnn8ayjQKJut3wuCa+ipTm3zNH4UYEAZx+hNO
+	e9kAh9D1LSVtRkG1ysOV5BFni4K27yHcrfnKVj517lJPXhDIAXDKIctWVjA02A==
 From: =?utf-8?q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
-Date: Thu, 04 Jun 2026 22:22:04 +0200
-Subject: [PATCH bpf-next v2 6/8] bpf, x86: enable KASAN for JITed programs
- on x86
+Date: Thu, 04 Jun 2026 22:22:05 +0200
+Subject: [PATCH bpf-next v2 7/8] selftests/bpf: add helper to check whether
+ eBPF KASAN is active
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260604-kasan-v2-6-c066e627fda8@bootlin.com>
+Message-Id: <20260604-kasan-v2-7-c066e627fda8@bootlin.com>
 References: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
 In-Reply-To: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
 To: Alexei Starovoitov <ast@kernel.org>, 
@@ -77,8 +77,8 @@ Cc: ebpf@linuxfoundation.org,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_132248_572699_C620FD67 
-X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-CacheID: sfid-20260604_132252_256061_7A7325D3 
+X-CRM114-Status: UNSURE (   8.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,27 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark x86 as supporting KASAN checks in JITed programs so that the
-corresponding JIT compiler inserts checks on the translated
-instructions.
+Add a simple helper checking whether JIT compiler is able to insert
+KASAN checks in programs. This will allow to conditionally run
+selftests for KASAN checks in JITed programs.
 
 Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
 ---
- arch/x86/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- fix condition
+---
+ tools/testing/selftests/bpf/unpriv_helpers.c | 5 +++++
+ tools/testing/selftests/bpf/unpriv_helpers.h | 1 +
+ 2 files changed, 6 insertions(+)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index f3f7cb01d69d..cc140108b74c 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -235,6 +235,7 @@ config X86
- 	select HAVE_SAMPLE_FTRACE_DIRECT	if X86_64
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI	if X86_64
- 	select HAVE_EBPF_JIT
-+	select HAVE_EBPF_JIT_KASAN		if X86_64
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
- 	select HAVE_EISA			if X86_32
- 	select HAVE_EXIT_THREAD
+diff --git a/tools/testing/selftests/bpf/unpriv_helpers.c b/tools/testing/selftests/bpf/unpriv_helpers.c
+index f997d7ec8fd0..11201b65a3d4 100644
+--- a/tools/testing/selftests/bpf/unpriv_helpers.c
++++ b/tools/testing/selftests/bpf/unpriv_helpers.c
+@@ -142,3 +142,8 @@ bool get_unpriv_disabled(void)
+ 	}
+ 	return mitigations_off;
+ }
++
++bool get_kasan_jit_enabled(void)
++{
++	return config_contains("CONFIG_BPF_JIT_KASAN=y") == 1;
++}
+diff --git a/tools/testing/selftests/bpf/unpriv_helpers.h b/tools/testing/selftests/bpf/unpriv_helpers.h
+index 151f67329665..bc5f4c953c9d 100644
+--- a/tools/testing/selftests/bpf/unpriv_helpers.h
++++ b/tools/testing/selftests/bpf/unpriv_helpers.h
+@@ -5,3 +5,4 @@
+ #define UNPRIV_SYSCTL "kernel/unprivileged_bpf_disabled"
+ 
+ bool get_unpriv_disabled(void);
++bool get_kasan_jit_enabled(void);
 
 -- 
 2.54.0
