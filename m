@@ -4,85 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096F6CD6E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 18:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B058CD6E75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 18:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7T8kJ0gjf2hk3Cxd2ChpK32DU2yBtKAlDAVK83XkRZA=; b=Gecvwjp/4NHhnbX0Z25mfLzxSG
-	309wgCR+LgyzNjJcMEVJpblWk6R6Ujx6AiRKj4X6+VUhaUZd9lOyAhA4LinbD6eKJ7+RPO2FWSduT
-	TABmwD+hSj2QFE+WpONPIc2UAsSDsaY9udDZasVQJtQ08vYLTfkqu2U5nuOP8AiOqP5FgcixrFKLV
-	8N8OKPw4eGK4JSX7uZW84F0bQn2b/T+DblUGjj6/sJLUCAxmCGLQF2YFSaUS2UDvqditA/UMNHNEt
-	I2QHw6Gu8G0nUtVKcDt09ojj2aV8aMj1t9RBEEz7+xwvJMnE/EYyU6fRYQTPYSL2lAl25fbCivVLS
-	8/YQtLCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dDCWmDXGDjgZwSm73HjxwRS2SAfJPjaDV5Ojg7IhTfY=; b=BWA4PLMqiJvqqZ6+VQgTo+2aaB
+	RiQk4ljflBLDqilZjhbiEQ2eClLCqqpq+NCA9dCtKxmFzbm/p8WHtk2pCnp9YIYfdEByxf98wj8fH
+	1TklPeaEDsswNJ5X8roOM0tk7jf/GlRwoh6NU8h28QmgE9TNlGyiiDQWpYt+DCDmwBJM4A/U1cXGe
+	bfD0zg+Mn9WgiHD/eYv7XAsWkO8+r4E4pb6iEGTyweLPv+0ptzikX3PHgqwPW9llA7mPlYkam+2Sh
+	9ZONu8SEX/na5IomAQIyCz2qJvcoqtISFaiTNr4d8e1XqUQlsWblVy4SL243MKtObbQfIvCV9fG76
+	usbeUnLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVCpU-0000000HAsQ-2bAs;
-	Thu, 04 Jun 2026 18:30:08 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wVDDJ-0000000HBes-2Wzw;
+	Thu, 04 Jun 2026 18:54:45 +0000
+Received: from mail-francecentralazon11013065.outbound.protection.outlook.com ([40.107.162.65] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVCpS-0000000HArY-0YVW
+	id 1wVDDH-0000000HBeV-13c7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 18:30:07 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36ad15213fbso821107a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 11:30:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780597805; x=1781202605; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7T8kJ0gjf2hk3Cxd2ChpK32DU2yBtKAlDAVK83XkRZA=;
-        b=YCUxmBNo6wF6Nv5AuVObbRwQWxRPgFcUg7RfJRBlOnDwXf1EDYT+zoCpC4GSUUqu0U
-         ep0Rq+2QreH8WGUjVdTUYJRJth60B6yRvCvpCFwiIjQb4vCNJ/ug8ukhtMzHgb5rCrMn
-         ZPW6RmM6178v4EvnEo2WMdm/k9LFZe5dH4MizL39CR6Ux+pVf9lpeSe/IRh+g1N/4ujA
-         2JtlizRAqxUfGxjPS5HbBmzm3oS3SYKa3aKN3b62GNb4u9778UWByUSS/qnARAOJjiQw
-         buGYr9cu9fgJGbP8sSD5FEQybzL9tUKSDKeSex+yGdD/dKf6OaQCzDyaUxKMAQT4LTkm
-         6jLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780597805; x=1781202605;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7T8kJ0gjf2hk3Cxd2ChpK32DU2yBtKAlDAVK83XkRZA=;
-        b=aK/K5qZlvQmkyoRU49OE3396lD94n4Iy4B+ptEheRkXpGfUzKSnTivLTNBZza6m4Kb
-         8tbjzyeHfYao1SI+FjEWI+xoOeFt01sL6AuvNNeowx8TTSa5CmBZXPqayNnTUxlKzRfX
-         yEMX/WOJssgOnPvejRyGbxiWRYKNbr+4lpK+BntsCmBKZUivFOWdzIQUcuvl5X+rzviP
-         SqTeVrQFNphC7qwfd2oDPh1cwY/SCQojGXTWtq/HtoPxhCL6DRf5jKfdeKtiIhPIbp35
-         ykMspX9RS6uy/XiEuXjETGyvd9R7heUq0z88TXLV/iZLjF2JkK0gbROY3/8XiF3eCn83
-         XRkQ==
-X-Gm-Message-State: AOJu0Yz8LonHIMeSi7KXRwCWsWDxrDdNprdw1arAJq7tI02TZb3BQQCJ
-	NnHAOqQ+cDDU6E3V5U7+DgK+VRCNykHXvcCzI0XdcJm6fsvgXQW3KhOV
-X-Gm-Gg: Acq92OHwBFi2J9T8G/twASfWHkpakJoT4bXxNRd9sAeGuyou4Si7p9pnTy4tu5xzcH5
-	55hc3wtXpKwBGkVyGAJGzn0rmu+YGzH3FZYXh8SSBlLgvEgxNcgE+H2SSCaYiGThEOEBkYiJuyy
-	5b6MVcv16Cp8BdVQ/HMF5KpQqzofIYFA0z2OvTCRi+9d/0O1Gik/52W6fhpPwbeFIj7BFCc7UN0
-	V3VImJxv6d8TKsiySuU45PNB4+zgp3nsuCpf9eYFTlJa/Ta5sjfyIBOsCroHJXBDfIO8I8YzRPa
-	cAUS3XdXDRz/UodMmVVhnBxmVFlQr+01j9KrI9WgyE4baw3Tfzfz33FExXySMeZ13eC+5poOFtF
-	2PGyrEGUqdSBYhjAZ/mArXQj9LIKuSP/tiqIsuROdA8Jxb3NzVck+Rmb31POK7F3GzAnvVm8Vin
-	NSF2Kae8lgc7G1RSELVIl1QM2wX12Wo3XkFSEzTKzpd+ONW6GrrsudQg==
-X-Received: by 2002:a17:90b:5210:b0:36a:8240:2477 with SMTP id 98e67ed59e1d1-370f0967012mr114863a91.19.1780597804928;
-        Thu, 04 Jun 2026 11:30:04 -0700 (PDT)
-Received: from v4bel ([58.123.110.97])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf827e6sm5494310a91.1.2026.06.04.11.30.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 11:30:04 -0700 (PDT)
-Date: Fri, 5 Jun 2026 03:30:00 +0900
-From: Hyunwoo Kim <imv4bel@gmail.com>
-To: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, christoffer.dall@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	imv4bel@gmail.com
-Subject: [PATCH] KVM: arm64: Reallocate the nested_mmus array under the
- mmu_lock
-Message-ID: <aiHEKOeZMVwsRlvP@v4bel>
-MIME-Version: 1.0
+	Thu, 04 Jun 2026 18:54:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qk3azYnBDK6DpYJJKyOrp2TmlDpVysOw1vxX9/4zChFbVoQYZ0W2lEVUhDGPE6l0rhHV2w33v+TM3FJzJou1QafIF7d4Lyzn/nEPMedjKQxlv/k/wHTkLWsCdqRGpIZCzGKajANO8PgnXHnMF4lWSMqHC426QuBxcZ78ExiHtxpVZpVMuYBArFhF7X4v2k52WqltXW7lVPtCKZPewcg8i6EG3weLRy4j2PXXWujKrD+otxAokZzJcVvP9fbZKxjiBU5Xo6/HSlpe29GRgafYXXEWfQO9nnSuRgR5skOws04YRzWMvIYAfdolt8rHkmynOED4c+Am0J72mrjt6zWHtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dDCWmDXGDjgZwSm73HjxwRS2SAfJPjaDV5Ojg7IhTfY=;
+ b=sILWuUMc1+GH79IOlSuPH24N3L9tRHeR7TyRh/hW9m2NSKFAIJCCmmIevqkS/gJX3Uy80VGjEHw4J/qg3xLkf1dbgt45B1mlDQoKKFWtgaOUm37eTdoVb56ruTivA/qfHo6n2U1/V+wAcDeqZpilzO4zoup4CVxhZScdLA8jssLeyUB/RUPxHFfpiTe1x+PpHtsungDt6ccTu3Blo+I7seav/68+0ZzfDV+6ynvX/13nQ3vCqIHnpaLC3FqPLUVMOPQKLVkH7pmJNGnaZdUwbf8V0CN56KewlnnUh1mpzRlqfFazzUxJUaSGZ5yE+ymnvNlYQU7Y07soSX+w5fr5ZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dDCWmDXGDjgZwSm73HjxwRS2SAfJPjaDV5Ojg7IhTfY=;
+ b=dI26LU1fqQBoXpotwuJQ6tFoNMElJ0s+4iNKScehNY1FavTSWSZKAs9YN6anOxVzVIMWI3oADyGS0t6E94r4fdnJiO2q93QvPGZ6cz42jQQLwyhGllDxfdMgUWgZT+zj9lQwva0wSBMY/8IANjHc2ktdfyck5kAatcdfty6MR06k3LteE08DIu4GUtjB30CaIeooQNHiB8r7kdR8sW8pzsX4RlF5o/IrFdHOqwRK+SkztP6gQV9U9MiXkd3hIDzIp3afusJIRBdPHvDwLrEaegPKPtU/RSsEC6E7AvqyghmQFCdtsBVGy9SyDLTnb8n9pO2JtIKiLAXqezpQrYFkZw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI0PR04MB12055.eurprd04.prod.outlook.com (2603:10a6:800:325::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
+ 18:54:39 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
+ 18:54:38 +0000
+Date: Thu, 4 Jun 2026 14:54:32 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: aisheng.dong@nxp.com, andi.shyti@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PACTH v2] i2c: imx-lpi2c: mark I2C adapter when hardware is
+ powered down
+Message-ID: <aiHJ6EWeXYqGEXE1@lizhi-Precision-Tower-5810>
+References: <20260520090910.2879570-1-carlos.song@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20260520090910.2879570-1-carlos.song@oss.nxp.com>
+X-ClientProxiedBy: SN7PR04CA0044.namprd04.prod.outlook.com
+ (2603:10b6:806:120::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB12055:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19d6a6c9-2fe4-47c5-fdbf-08dec26aba98
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|19092799006|366016|38350700014|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: vk0hGNFtoLrUY4z0AbzRxoFRsiXefwjKDbZ71shaxBEVgeRaqWE7ju9d05MeR62E4i6pidNWemCVu+6b4zENyUA/CH6TLExGNTeD3bNDY2802GTcersO7vyz8tCydjlSdcub/8XlZKIB6047X+x6KG7kx4G036WOMyTG3fJ43ph/MLPR7HQ/9fokLeoWG39geYA0USaDboBoSiT0WbexGYjE3KfJYPSYBSQamMDdUzZgV00+Md94tqbM/Zi4T5brv9HrVOyZTSs1VGT0aAwoICy0a/Gil+eJ4OH0H0ke4tJxRZ2LC3X8GgsMbkJOhVO7BLWkAh4TEinf/ENtOswWw/vIwRjglF5EpUdF6mYiYatORr4P3rQxdH7urq2Mioc1oLUkO4yPBR+9NqGA/zh2h8i65c/+fQTFJPqbHqfN0vncnYAmhDkOt5cpl/qaOuTUT3zHKTNm5WIO82yp+ENFfXGUZL9T12zu0lN53Het2k5yxsy6raq2ChooKekv7McA1pStah7eMQ8er9lLkdSrIAq15kh+IM/alzQzOv8WCHmE1WGEw9hgEpuYnzipMekXgU4mS32i4+uZ6pslu3JEYG/WXzQZrYJyQkDW0rbtgZE8WrSjTfT5BjSplyUlYh+Fd2uep5KKhcHdT6+ZoiDpA/4lPJa0uRlG1zIOooXJzLDHrsH/ACsBrgOlzrPxgG8AAcktpR6JgAyXHinAwZBT4ZtbMDGyHI85WqQka7KnpySTl8hwin6W6XhGiMeaNGCe
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(19092799006)(366016)(38350700014)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UDXy7fWgqeOG1QNt8J5FkIOdnOn0kRXLB85S/QU18ZLAgvQTgKhexntReehT?=
+ =?us-ascii?Q?HkdFs+SmyMDpHq0lcZ5jqtvNSd+lBEHYjWY3zLjud1ii0kBXnSo5O8vnAn1F?=
+ =?us-ascii?Q?2h81v/rH25Y4ljrsJSKhpdzPll8+7D9w0igiJkcUvdWKGhaLmZ3WplFLpCkC?=
+ =?us-ascii?Q?5MdXYUHRg0dA5dTOtKxH6+X03k/L+8SaTHETV3fCRs8ARwPiJcxQQYronw68?=
+ =?us-ascii?Q?hbORPwog1DQC6CYhVNZj4Yt7SoQIINoUqHlWDrqXgLH89I1/8orxXKdK/f36?=
+ =?us-ascii?Q?XtqpJu0NjMRAwKuOQaNIwmT3UEPnbRNhy4PV61Z3Tq21e78J43iICd6dPcsU?=
+ =?us-ascii?Q?5TzgcWo4tU9/EHliY4I5a57o+6dMFHIiemr0f4E7eNxWc0I1aNggyrc74yLe?=
+ =?us-ascii?Q?/QfIHP3um2akGUOdnLgCk2W0oq49pGyi7C9JjL6LSQjYwrI+AyffgfMwCvLd?=
+ =?us-ascii?Q?PGG2reB0nCOAE9lgOtbNS4f5fHxQLyxh7tEOz3wotYrX2ItH0fTkix6K2BZ/?=
+ =?us-ascii?Q?kboqUztRRcH7T9O+YH8AqCcEjngzKHLyHxu3/Fwv4/JnptPDLihhl9DiICTA?=
+ =?us-ascii?Q?QrpjJ02gjYzYzsxLkc2Up2D+jCdyzFlBiW6aKY6Hx0W0T+Bg7qAqihpiC8Ez?=
+ =?us-ascii?Q?5xErm0gGNb2xADd5JgFFwaa1zalOs24bGaJcJhvDwmSqTVJ1OQLJkuIF46m7?=
+ =?us-ascii?Q?QTk667Q5X1ZfUtWgxJVylWg6NbU+9MjkBKffiA3jJS7r0Cl5GHvf+b/tUgA0?=
+ =?us-ascii?Q?iS2YUd6tFtRy7GYC7K5Vq2hvb/C/rtjpij/maWEI3M01CpuOlx5bDRtbWox4?=
+ =?us-ascii?Q?mv4NldtNo0r5oXY8Gdzq50PItafQjWI60Sqoc3QOYiPkPCF0rD0/Q8WUk2ZC?=
+ =?us-ascii?Q?iyfn8xCGfIOI0tvI1+Ig9W69n8zdDMPdffe7ZlyADY1/cYrMcN1oRz+qwPHJ?=
+ =?us-ascii?Q?xPARwnkvOnpShLndJ0zwCqn2QdjvNnk8TzhyYcQjrZmNBRgNQkDSEU5rVwwT?=
+ =?us-ascii?Q?T9gESe9H8GKOpntt+g1FcINTCRlF++BBiQw00IFMKaQsAnP5+bCjC59AbwEq?=
+ =?us-ascii?Q?v6XDsbkq2h5FIhpz96Z00hBx1B5ph1SIa1DRNHhkVI3KQfLFIHt2rtpOuhxj?=
+ =?us-ascii?Q?3U1NOaNWXdChGYHVhqagwlbhjXwV+ZatSkzSCr/qIZJMtH0eGJxnBo1vAJ4y?=
+ =?us-ascii?Q?9esaJc6ERzMjpVcA8LCnu5b5XpCflp+m9cisTC5Jl/RK0Yw9D9CgesTAb4fP?=
+ =?us-ascii?Q?xVO17kkNXP8CaAfAsOQgsw+skM6+YXOn+VEcXmYA4VHSyzr1D32vvgYr/1M9?=
+ =?us-ascii?Q?5v8dNdC77ATbnTn49GEk/riLz2LMHki67q8vu5Y+56Jx8LI8kP3mA10OfVe3?=
+ =?us-ascii?Q?MsajKUM34N4Zv4hwxYVp1BBk5cIkKSyT2f9JWbqHGA7bqMrEq/CPqAyHOcgr?=
+ =?us-ascii?Q?wMK8DU8RexifSSBUWhM0wBmvJZi0Z35jK3HARiZKafsk6Ap01fS3d8tB/s2E?=
+ =?us-ascii?Q?SW9xopn4enqdi8VHOOrLuvHzzaHw6iW0AZ85DTP9uLMrPsX6dzXSRydvS2uv?=
+ =?us-ascii?Q?4UCrNnDRbIXmv+m/w5eqrpYvyzxprufjmvPnh6dWcqFGy9vBy3HpzIPn7qxg?=
+ =?us-ascii?Q?Ci3Ah6ajQX6A3tU8FuR3Mpvyhu5ptU0+arIxJ0QpxpTbvP7ZYDtYeXrI+d5S?=
+ =?us-ascii?Q?zKzqb9v5IEcielHNhJI+O/3LsZXUFd4nZed1RM92XbL7trd/?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19d6a6c9-2fe4-47c5-fdbf-08dec26aba98
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 18:54:38.8233
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8OOl1F30J+CeeADabTYAO8Kd/CZLWqWPvAj8Hvg8gVajev7iO3uTutQxlBMpQSspcROZZgdbrfMDuPt9Szvyag==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_113006_185306_CBE4AA8C 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20260604_115443_320087_89185CE3 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,69 +137,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Code that walks kvm->arch.nested_mmus[] holds kvm->mmu_lock. By contrast,
-kvm_vcpu_init_nested() reallocates the array and frees the old buffer while
-holding only kvm->arch.config_lock, so a walker can reference the freed
-array.
+On Wed, May 20, 2026 at 05:09:10PM +0800, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+>
+> Mark the I2C adapter as suspended during system suspend to block further
+> transfers, and resume it on system resume. This prevents potential hangs
+> when the hardware is powered down but clients still attempt I2C transfers.
+>
+> Fixes: 1ee867e465c1 ("i2c: imx-lpi2c: add target mode support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
 
-Allocate the new array outside the lock, as the allocation can sleep, and
-do only the copy and the pointer swap under the mmu_lock. After the swap no
-walker can reach the old buffer, so free it once the lock has been
-released.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
----
- arch/arm64/kvm/nested.c | 33 ++++++++++++++++++++-------------
- 1 file changed, 20 insertions(+), 13 deletions(-)
-
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 38f672e940878..6f7bc9a9992e0 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -89,21 +89,28 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	 * again, and there is no reason to affect the whole VM for this.
- 	 */
- 	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
--	tmp = kvrealloc(kvm->arch.nested_mmus,
--			size_mul(sizeof(*kvm->arch.nested_mmus), num_mmus),
--			GFP_KERNEL_ACCOUNT | __GFP_ZERO);
--	if (!tmp)
--		return -ENOMEM;
- 
--	swap(kvm->arch.nested_mmus, tmp);
-+	if (num_mmus > kvm->arch.nested_mmus_size) {
-+		tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
-+		if (!tmp)
-+			return -ENOMEM;
- 
--	/*
--	 * If we went through a realocation, adjust the MMU back-pointers in
--	 * the previously initialised kvm_pgtable structures.
--	 */
--	if (kvm->arch.nested_mmus != tmp)
--		for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
--			kvm->arch.nested_mmus[i].pgt->mmu = &kvm->arch.nested_mmus[i];
-+		write_lock(&kvm->mmu_lock);
-+
-+		if (kvm->arch.nested_mmus_size) {
-+			memcpy(tmp, kvm->arch.nested_mmus,
-+			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
-+
-+			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
-+				tmp[i].pgt->mmu = &tmp[i];
-+		}
-+
-+		swap(kvm->arch.nested_mmus, tmp);
-+
-+		write_unlock(&kvm->mmu_lock);
-+
-+		kvfree(tmp);
-+	}
- 
- 	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
- 		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
--- 
-2.43.0
-
+> Change for v2:
+>   - Call i2c_mark_adapter_suspended() before pm_runtime_force_suspend()
+>     to prevent potential deadlock if a transfer is active during suspend.
+>   - Roll back with i2c_mark_adapter_resumed() if pm_runtime_force_suspend()
+>     fails.
+> ---
+>  drivers/i2c/busses/i2c-imx-lpi2c.c | 15 ++++++++++++++-
+>  1 file changed, 14 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> index a01c23696481..01ee38131ef2 100644
+> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
+> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> @@ -1635,7 +1635,18 @@ static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
+>
+>  static int __maybe_unused lpi2c_suspend_noirq(struct device *dev)
+>  {
+> -	return pm_runtime_force_suspend(dev);
+> +	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	i2c_mark_adapter_suspended(&lpi2c_imx->adapter);
+> +
+> +	ret = pm_runtime_force_suspend(dev);
+> +	if (ret) {
+> +		i2c_mark_adapter_resumed(&lpi2c_imx->adapter);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+>  }
+>
+>  static int __maybe_unused lpi2c_resume_noirq(struct device *dev)
+> @@ -1655,6 +1666,8 @@ static int __maybe_unused lpi2c_resume_noirq(struct device *dev)
+>  	if (lpi2c_imx->target)
+>  		lpi2c_imx_target_init(lpi2c_imx);
+>
+> +	i2c_mark_adapter_resumed(&lpi2c_imx->adapter);
+> +
+>  	return 0;
+>  }
+>
+> --
+> 2.43.0
+>
 
