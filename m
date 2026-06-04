@@ -4,98 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5695CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33802CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnIodUEuNnOHA2tst2ZqiQsOh5UQYABgRLPNUrbWXpI=; b=qKnS5xAW99JZyN3oFjVZC0TQ+a
-	LWJLe/lMA/yqb5CPsfVHD/c12g2YF7VyVh3ffIXY0NLrMEX8S21UlgNM1whKCsRP43cv+AipIZK4H
-	73IEKIB1XGxxZlYiw2QuGWVUO/ULAUvoPPDq7mEzJXaK6vFjj2tklo+WJ56OxU3FKnNNz9S16fI9m
-	Dg4yirpPQhBwBU7f8o6+90SRiDnpZ+c2brzEXZp5xIHKFeRilIgM/Mukt7Zhy9YpA9VP5s4Pbm3K4
-	85lxkbpE6tb1g8n1ePoW7bX89RzsdNdPGpUI/W/uBamf4lAT0ssK/09d5yyjI/mK5av0yqn5iGoLd
-	ZYXmDDyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6SN06MWYgnamNhN1ZWgRIcR80dI4EtU2wUgYpm//Klo=; b=mD1WQWqa0yY0AW7LbVMjg6jTaf
+	2g/ZCibcOUMv37wlozMvsHGz7xX9M+G1/JoL+1D2wV6rC7/EVrma3yq6atXBTyBaepCva8CYYlBkX
+	OK6aP5rNuwegvLb/H6WuXVuF+9zLUMlts0XQDY7ynzPc/+T5niEojgYg5StuDZ1+sNYuFw9GDT8Wc
+	SmVWmEFlGQkV9kvEbcPXTKOq9HzCEbjB/tvY6W/XsxiSgZM29gm/nkre0QSXNnQqquUgK3hMvp/d5
+	iMYjsXhm7NMM2fSVifMdCW8oP5t49Jm59s3UOCfc9jxtJWm39AZCcxAaI7LB3Te1uIa/sxJk7489j
+	rrGA2NRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8nw-0000000GsFI-3jCN;
-	Thu, 04 Jun 2026 14:12:16 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1wV8oj-0000000GsLx-0Bn5;
+	Thu, 04 Jun 2026 14:13:05 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8nt-0000000GsEX-3ydN
+	id 1wV8og-0000000GsLM-3hD1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 14:12:15 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-68c1630159bso875558a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 07:12:13 -0700 (PDT)
+	Thu, 04 Jun 2026 14:13:04 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-5176096116fso7899661cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 07:13:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780582332; x=1781187132; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WnIodUEuNnOHA2tst2ZqiQsOh5UQYABgRLPNUrbWXpI=;
-        b=IqaNEbn940vNNq/vq7s4taS+Mgld5vdBadpkr45Hh2eAgcQXp/eubk6DO7a9e28Kvj
-         FQrmTygUda3VA999zNrgU50AzS6aT7bwmyZtQtccWp7LVG00GxF5lQBq0WC98M61W8wk
-         Iv4oBv66/HSrS1++v8CAo2870CfSS02wjmPFDH7FmYffMfrYj6rzBYtyM0XID+BrVFei
-         eiFV/Oep7G9oW9F0xva5/v91s8SV/yqi58rnGm8WHF9zimAbl2PoDgm5uXtkZyeEFAUN
-         yIJ/zKjH7tLihNQLkBI/6BWGiMs7dlKf/d7pMXu47SA+kcIJoijSuo2Gb9vQxhnq3Kw4
-         TSCA==
+        d=ziepe.ca; s=google; t=1780582381; x=1781187181; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6SN06MWYgnamNhN1ZWgRIcR80dI4EtU2wUgYpm//Klo=;
+        b=OQFXXUFLVNS3wrPNRSselYwfXfOMDsAVkN5epFUAZaRzuG0hDZWjGq9gCCUPc8YaFy
+         YLBi/ks0fkgJ6Z7KgDIH1x7OQby9ShF7FboKm2huKC0ppcbB65sBfVcuSdsFjNUthj6X
+         gA3x4O2OK5+3sDTNe1Z9SFiT344rWToOElWLY2+Pc9nEgZXWw7lMWKph5R+JRxqoexWU
+         LKyESCPgddbxgtEUEY1f8aIau7VixwEWy/WvZHT9SBI6f2SQO8ViV5O5ejiwCE6w+bkr
+         5FhGfIjt/2BglqCnsWKr9Vhq6ARB8B7KMpC3CSnm6OfxsPpS95WLFdZN2YFyldO5suX/
+         43qQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780582332; x=1781187132;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WnIodUEuNnOHA2tst2ZqiQsOh5UQYABgRLPNUrbWXpI=;
-        b=F8HW7eOMqY9H/b/ubtFoGm9gPa6aWfjT0+90WVCxgT3O2of6K5x6cTiuSMHTe/lLaW
-         AKCjMbfcOeK/nSocUVNKE8S3yuKm6T+UDpZc4ZdaUSZ4BgMvwYZN6FQHZA1Q5UPmWRaj
-         ebYKQfCUJKan+I0vVjw9Q2SiPl+TTGM6nj5SpCBXTvk3U94aNB88LCNVJNmxQ8/oBUBG
-         qZAfNllKsS/uzcknxnIMCG/VL3ppS1qcW5U0tGfR0J1IAahYtX/fvcGBYONXuov/SPVT
-         yhxwXPsUDQV87JX4kpGPezI5fDBD+5jqSKEAjlFCBogrQx7mtM5KhR4Yt/oQwRQ7V0cX
-         Gj0A==
-X-Gm-Message-State: AOJu0Yy6tC0k/+QZfkymjcnivBXDPLa95TdZJ8XSgnzAkj3GK6mZ0T6X
-	/QQ7QjIa8qpl2eKUqHquR6I5hGcykZ0b7OTUVgdXK9cxMercqrN0htcz6WkT5idHc0s=
-X-Gm-Gg: Acq92OG9khmCIrobNEiwNd4MMHLNe7gF9v5bOhPoQ//OSikZ8q906+XV2z4FGmeDFtk
-	t/NFEabaUTy6IgIGzr9ReE1MPwUR9kENs1qN7xLSFvbNWe1mkj3U8gnfTy76zBefOMg5gqmi7+J
-	hV135t2x+5fqOL3KXfFr72NSJkikoWPCb7RTo9u1ms6MGrx9738dNkNL+m3cOWosAYnACR7WuLA
-	UWFymz7mXtO9qKdLM5psBp53cffVXcJDsoP2zfwZmIJbal3YnkPW67xHx4HnNEta3+sDPCss5hh
-	STQUS19kQaAng38ZLhmEO6LcwpS6lfsYnftEoK6alLWSH9CTCsi1y7/qebDqEWotygeHkKLWXvs
-	VtmhIIBqp8HNxKqhR9pa7SEfpAjm4d5dXZDij7AIovFpF2yCxhEnzq4dnjjoTBkOQ0JBD3mko/f
-	hSGHAJLjrHIAvGZ6U0ruOrw0RJUKFEesjmF6VQDHk=
-X-Received: by 2002:a17:907:d8b:b0:bf0:550:d9f with SMTP id a640c23a62f3a-bf0ae9f9d78mr401378666b.31.1780582332084;
-        Thu, 04 Jun 2026 07:12:12 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bf0559f1aaasm309629366b.59.2026.06.04.07.12.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jun 2026 07:12:11 -0700 (PDT)
-Message-ID: <8bcb7a89-96db-4898-9d91-62360606602f@linaro.org>
-Date: Thu, 4 Jun 2026 15:12:10 +0100
+        d=1e100.net; s=20251104; t=1780582381; x=1781187181;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6SN06MWYgnamNhN1ZWgRIcR80dI4EtU2wUgYpm//Klo=;
+        b=S52MPi1K5d/yj4yBW/xuMnewJ8dzTH1YfL5p7Vrm0MMVsePR3BPzCojK88VUKv1PGW
+         0XEtdwJGqYkZlarQEoeBKMThu2Z39cCmbwKzY1okJdPCHP+B9nuZ+Xuu5sEBAV4iNI0P
+         o6QWb4zFPf07/mvFn3GSdSTuQcUo+Pne0/x1tL1rvyyb9kyJGW2xgNyam597ssioNdAE
+         97edEsj3MdLtbAmP3Q9ep6yF1kn+CND3KRIm0iWaIohG4eJBZq+H+hIcKw1eO59NWaZW
+         1nBxMGmUFtGFly7l4SRkXoBb8ZiGs2v3pYBBinx8noZGqhMNKyJQ7AdzLUyxx83Pv/L/
+         Nj5A==
+X-Forwarded-Encrypted: i=1; AFNElJ94Zh3nk5eD9q8frpzWHiq186qpisZiMJMWf2Cli429Fi+QPjhIe3jPfh4EXwom5+IOZ1W8D/WKTtjjX7Q5dC3x@lists.infradead.org
+X-Gm-Message-State: AOJu0YznoTVn/CspCk1mvVAwgoi8WklIZt0FWOBgILIwZn6g/csIoYnz
+	x6qoHDe84uTU+GLdGAmzva0afde6gPKnREE5Ej10hBZ4Omilig+OkmMIQrhi6PGZn9M=
+X-Gm-Gg: Acq92OF2mCXfW/MpDi+o1fb6yq4PVmkcW/IU7XONY1Du1r2teRK166BNsVPGdT/JOc9
+	5wHJwTHJcBLDwNNEdAMLujPRTOzvbqAnJS8Tn5Wq8sm6GWjVBXSVRdaD3U1xcbJaKijTtyTXirV
+	LtpNyk2IQrqokuIAJjIgx/K6Pk7F80K67BMhEHp8LPwBMV4i7goHElCT1yGy/ol63JoX8E5ptqk
+	Ccl4h4KweM8YojGZqoBGb5bB446Yi0Utcar4RykPaNZqv6hcD0UhaEhvzks9VOV7F8p1M/XYk+b
+	JLD1JEFJQPWAY+IXBufoli0l4TNu+cwTpPylP2ILXZGIuYnpsQByNTm7IRQzGGk8e2HP33ARdog
+	YvaWpoSlTJw9ZQoJwZvvuTJKN+IuqiBKDzJH/G30SN29ZEvj/rusvv6KpU3j7BnimVajyjmx5AM
+	B4tfSqWxQBaM+z/GlUcZgUtIDrM/+UyIUwOYD+sBdz04OMaDTZQAoh4gb7zYpxiNhjnDYmGQQmn
+	RpKc2qg2lEn4ieWELRi0La9n74=
+X-Received: by 2002:a05:622a:598c:b0:517:1465:9167 with SMTP id d75a77b69052e-51778696c8emr120221011cf.28.1780582380950;
+        Thu, 04 Jun 2026 07:13:00 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51775df4dd6sm52447511cf.27.2026.06.04.07.13.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jun 2026 07:13:00 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wV8od-00000008HC1-3PHn;
+	Thu, 04 Jun 2026 11:12:59 -0300
+Date: Thu, 4 Jun 2026 11:12:59 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: Guanghui Feng <guanghuifeng@linux.alibaba.com>,
+	adrian.larumbe@collabora.com, airlied@gmail.com, alex@shazbot.org,
+	alikernel-developer@linux.alibaba.com,
+	boris.brezillon@collabora.com, dri-devel@lists.freedesktop.org,
+	dwmw2@infradead.org, iommu@lists.linux.dev, joro@8bytes.org,
+	kevin.tian@intel.com, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, oliver.yang@linux.alibaba.com, robh@kernel.org,
+	robin.murphy@arm.com, shiyu.zsq@linux.alibaba.com,
+	steven.price@arm.com, suravee.suthikulpanit@amd.com,
+	tzimmermann@suse.de, wei.guo.simon@linux.alibaba.com,
+	will@kernel.org, xlpang@linux.alibaba.com
+Subject: Re: [PATCH v3 05/32] iommu/generic_pt: implement iova_to_phys_length
+Message-ID: <20260604141259.GW2487554@ziepe.ca>
+References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
+ <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
+ <20260603151804.1963871-6-guanghuifeng@linux.alibaba.com>
+ <c179b999-8c7f-4338-8aad-b61fd09f1329@linux.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/8] perf cs-etm: Flush thread stacks after decoder
- reset
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, Arnaldo Carvalho de Melo
- <acme@kernel.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Namhyung Kim
- <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>,
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
- <20260526-b4-arm_cs_callchain_support_v1-v6-4-f9f49f53c9dd@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260526-b4-arm_cs_callchain_support_v1-v6-4-f9f49f53c9dd@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c179b999-8c7f-4338-8aad-b61fd09f1329@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_071214_009568_707BF663 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20260604_071302_931419_64ACF7DE 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,82 +116,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 26/05/2026 5:59 pm, Leo Yan wrote:
-> Perf resets the CoreSight decoder when moving to a new AUX trace buffer,
-> this causes trace discontinunity globally.
+On Thu, Jun 04, 2026 at 11:30:37AM +0800, Baolu Lu wrote:
+> > -static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
+> > -					     unsigned int level,
+> > -					     struct pt_table_p *table,
+> > -					     pt_level_fn_t descend_fn)
+> > +struct iova_to_phys_length_data {
+> > +	pt_oaddr_t phys;
+> > +	size_t length;
+> > +};
+> > +
+> > +static __always_inline int __do_iova_to_phys_length(struct pt_range *range,
+> > +					       void *arg, unsigned int level,
+> > +					       struct pt_table_p *table,
+> > +					       pt_level_fn_t descend_fn)
+> >   {
+> >   	struct pt_state pts = pt_init(range, level, table);
+> > -	pt_oaddr_t *res = arg;
+> > +	struct iova_to_phys_length_data *data = arg;
+> > +	unsigned int entry_lg2sz;
+> > +	size_t entry_sz;
+> > +	pt_oaddr_t expected_oa;
+> >   	switch (pt_load_single_entry(&pts)) {
+> >   	case PT_ENTRY_EMPTY:
+> > @@ -159,45 +167,77 @@ static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
+> >   	case PT_ENTRY_TABLE:
+> >   		return pt_descend(&pts, arg, descend_fn);
+> >   	case PT_ENTRY_OA:
+> > -		*res = pt_entry_oa_exact(&pts);
+> > -		return 0;
+> > +		break;
+> >   	}
+> > -	return -ENOENT;
+> > +
+> > +	data->phys = pt_entry_oa_exact(&pts);
+> > +	entry_lg2sz = pt_entry_oa_lg2sz(&pts);
+> > +	entry_sz = log2_to_int(entry_lg2sz);
+> > +
+> > +	/* Start with the full mapping size of the first entry */
+> > +	data->length = entry_sz;
 > 
-> For callchain synthesis, keeping thread-stack state after decoder reset
-> can leave stale call/return history attached to threads that are decoded
-> later, producing incorrect synthesized callchains.
-> 
-> Flush all host thread stacks after a decoder reset. When virtualization
-> is present, flush the guest thread stacks as well.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   tools/perf/util/cs-etm.c | 37 +++++++++++++++++++++++++++++++++++++
->   1 file changed, 37 insertions(+)
-> 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index 398ab3b7a429d402cc8e5f6cccb35c0b7c253732..ea2424175558ddc0a6f20a9de6c30f377facdc52 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -1956,6 +1956,37 @@ static int cs_etm__end_block(struct cs_etm_queue *etmq,
->   
->   	return 0;
->   }
-> +
-> +static int cs_etm__flush_stack_cb(struct thread *thread,
-> +				  void *data __maybe_unused)
-> +{
-> +	thread_stack__flush(thread);
-> +	return 0;
-> +}
-> +
-> +static void cs_etm__flush_machine_stack(struct cs_etm_queue *etmq, pid_t pid)
-> +{
-> +	struct machine *machine;
-> +
-> +	machine = machines__find(&etmq->etm->session->machines, pid);
-> +	if (machine)
-> +		machine__for_each_thread(machine, cs_etm__flush_stack_cb, NULL);
-> +}
-> +
-> +static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
-> +{
-> +	enum cs_etm_pid_fmt pid_fmt = cs_etm__get_pid_fmt(etmq);
-> +
-> +	if (!etmq->etm->synth_opts.last_branch)
-> +		return;
-> +
-> +	cs_etm__flush_machine_stack(etmq, HOST_KERNEL_ID);
-> +
-> +	/* Clear the guest stack if virtualization is supported */
-> +	if (pid_fmt == CS_ETM_PIDFMT_CTXTID2)
-> +		cs_etm__flush_machine_stack(etmq, DEFAULT_GUEST_KERNEL_ID);
-> +}
-> +
->   /*
->    * cs_etm__get_data_block: Fetch a block from the auxtrace_buffer queue
->    *			   if need be.
-> @@ -1978,6 +2009,12 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
->   		ret = cs_etm_decoder__reset(etmq->decoder);
->   		if (ret)
->   			return ret;
-> +
-> +		/*
-> +		 * Since the decoder is reset, this causes a global trace
-> +		 * discontinuity. Flush all thread stacks.
-> +		 */
-> +		cs_etm__flush_all_stack(etmq);
->   	}
->   
->   	return etmq->buf_len;
-> 
+> data->length doesn't account for iova offset. Is this by design? We
+> should document this clearly somewhere.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+That's defintaely a mistake, the phys has to be offset by the iova in all cases,
+it is part of the API.
 
+Also add kunits tests to the iommupt selftest to cover various
+scenarios please.
 
+Also this doesn't look quite right, the walk should look more like
+unmap where we just walk and stop walking when we hit a physical
+address discontiguity. The stop point defines the result length.
+
+Jason
 
