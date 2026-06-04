@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E4ACD6E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 20:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE2ECD6E75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 20:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wOljlMat6RAb/iGwhJiSN0/00+BKRzGXIX9CN4zoVrw=; b=JP3/qJ3vhghLyP
-	r55D4gxr2Sdp7h1P+e5Iv3Mi73kHPkIsKTeZvXFyQdMYX08F54GGx3+bj1CRxI2Hxf/Bt5u9b8ZLE
-	Mx7XOAoJqahBeez/DidcHK3fDOxDmIVxWYsxZfR6Lj0mwGhNO9Pyk6ZRYnqWeF0X3dyhGTgJpmUgA
-	oMHCVn7WUEULfMZ4Rvfeip3BLhztZxoWytUuDqO7I1g5GceJqX/SbXx4+OASHGtddeaXq4xlx5wB+
-	ZX1mYiGip+oAbe0O5NkXFgElaXyazFhgX0bAYSLTutDeqN2+zgHxe0hMJU3EUdISapJwwHcwkGrmu
-	DTbUjaVGV2XlHiW5jOkw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=onobyqUpNxQD6/u3MqsXH18ymnmpWqQmDfG8EEUxqLc=; b=3KpRWE1RS/dntup5604hEluRNT
+	QWPeBlkmCaQOXZT/caPnEQrEwBcZZ4pe4UjQSu6GDQI6zOPuVcHe5x/k7LgoAiyaDwiJkvp/dVjxG
+	NqC7LpVvanVslK1iJkyvs4RtaOFLm100NU9Py0cD1ld/ck3ip4TndI8BZgzkr51xI/yvER+08cRnk
+	G0r9iCHj26+PVjpvEK+xmVjVlNCVqLL9ZlBxd8gOvPWEf0hcDoVfyqvLmwLxoTEDMSizbpEvEEiG/
+	lDASuq4qKJsbmRKMRRu5foIGR7pKL7d88iAdkJi25aGMHNRz75ty2fSfe5Il7q8OXoJAjjQsmBJ5e
+	ikMgBZoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVEaJ-0000000HGBj-0HeZ;
-	Thu, 04 Jun 2026 20:22:35 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wVEaQ-0000000HGGh-0Yvh;
+	Thu, 04 Jun 2026 20:22:42 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVEaF-0000000HGAF-29t9
+	id 1wVEaM-0000000HGDC-2uEh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 20:22:34 +0000
+	Thu, 04 Jun 2026 20:22:41 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id EC96A4E406AC;
-	Thu,  4 Jun 2026 20:22:26 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 63750C6344F;
+	Thu,  4 Jun 2026 20:22:36 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A651F5FED1;
-	Thu,  4 Jun 2026 20:22:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D8E11106A19CA;
-	Thu,  4 Jun 2026 22:22:15 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0635A5FED1;
+	Thu,  4 Jun 2026 20:22:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3108D106A1D3D;
+	Thu,  4 Jun 2026 22:22:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780604544; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=wOljlMat6RAb/iGwhJiSN0/00+BKRzGXIX9CN4zoVrw=;
-	b=GvDDw8u35k8xGEs3fqF3paacKHdP03w3PMEwyMaIVfGX75EedJ8YWBTHTKad7ujmELnH2j
-	80H7knPMdmUaEK11JcRfoeBv+W1qgm2Wkgf8OkrEhwdUAq7AkM0q9GT/mDJXaL5v73eBd6
-	JzxtWYB0/xdr5UA47rO6IbWcGp1smjMqQO47xFGChHMsy8VmHx0h43u0PiA0r0eJiW4bBl
-	y/iGHkmjGLzOYIdeepjsDwpX3OcGVAhZWB4BcoOhm+B8Oyb/sQZXZHRdUhY98YlpalQKT5
-	aWLmUYma0sCV9myA3ZuGLD7c6mo8UOijyvfT75GeEdsJBnTYDRrpeEjQGO4u4g==
+	t=1780604555; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=onobyqUpNxQD6/u3MqsXH18ymnmpWqQmDfG8EEUxqLc=;
+	b=ew6G7KqhTvHYNtp8yVygJarlPlaU1vsp2QeUIk98VAjxLseyvgvyOuz6Wgj8h4OlRaPjbn
+	VdBpElk0eUFDLzcuyO9b43etwltKoEEUjekbphiNWscK4R4l+fzLAtKNIKKz31MZbo7J7K
+	2WdJ2ofGmoW00YAtGX/LA5n30J+9TpURm+MAhmrg7s61IoO/mvbb7PDWE2d7gZACq+89bq
+	espnfaox5Tr1a/WaS82xLgMM+uuQYRqjePSrWpYC+EgOcNrm7mWbpRtSGEtjHbuBUcuuFZ
+	j8yj9B9xjuMFKvWgaFcAH/iRmGe7GHaF7dUbOicoppl6+IXaYaZvG+l5NruraQ==
 From: =?utf-8?q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
-Subject: [PATCH bpf-next v2 0/8] bpf: add support for KASAN checks in JITed
- programs
-Date: Thu, 04 Jun 2026 22:21:58 +0200
-Message-Id: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
+Date: Thu, 04 Jun 2026 22:22:01 +0200
+Subject: [PATCH bpf-next v2 3/8] bpf, x86: add helper to emit kasan checks
+ in x86 JITed programs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NwQ7CIBAFf6XZsxiWVmw8+R+mB6BgNyo0QJqah
- n+XEI+TeZl3QLKRbIJbd0C0GyUKvoI4dWAW5Z+W0VwZBBeSo5DspZLyzJlZjk4OZr5qqNs1Wkd
- 76zxAr455u2eYqlko5RC/7WDD5ltrwP7f2pBxhuoy9ih6Pgq86xDym/zZhA9MpZQf6CODbqYAA
- AA=
-X-Change-ID: 20260126-kasan-fcd68f64cd7b
+Message-Id: <20260604-kasan-v2-3-c066e627fda8@bootlin.com>
+References: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
+In-Reply-To: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
 To: Alexei Starovoitov <ast@kernel.org>, 
  Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
  Martin KaFai Lau <martin.lau@linux.dev>, 
@@ -79,8 +77,8 @@ Cc: ebpf@linuxfoundation.org,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_132231_829380_2ED977FC 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20260604_132238_913132_22A781B5 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +93,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-this series aims to bring basic support for KASAN checks to BPF JITed
-programs. This v2 drops the RFC prefix and brings many updates regarding
-the topics and issues mentioned on the RFC or at LSFMMBPF. Thanks to
-Ihor's update on CI, the instrumentation can now trigger properly in CI
-as well.
+Add the emit_kasan_check() function that emits KASAN shadow memory
+checks before memory accesses in JIT-compiled BPF programs. The
+implementation relies on the existing __asan_{load,store}X functions
+from KASAN subsystem. The helper:
+- ensures that the kasan instrumention is actually needed: if the
+  instruction being processed accesses the program stack, we skip the
+  instrumentation, as those accesses are already protected with page
+  guards
+- saves registers. This includes caller-saved registers, but also
+  temporary registers, as those were possibly used by the
+  affected program
+- computes the accessed address and stores it in %rdi
+- calls the relevant function, depending on the instruction being a load
+  or a store, and the size of the access.
+- restores registers
 
-"Traditional" KASAN allows to spot memory management mistakes by
-reserving a fraction of memory as "shadow memory" that will map to the
-rest of the memory and allow its monitoring. Each memory-accessing
-instruction is then instrumented at build time to call some ASAN check
-function, that will analyze the corresponding bits in shadow memory, and
-if it detects the access as invalid, trigger a detailed report. The goal
-of this series is to replicate this mechanism for BPF programs when they
-are being JITed into native instructions: that's then the JIT compiler
-that is in charge of inserting calls to the corresponding kasan checks,
-when a program is being loaded into the kernel. This task involves:
-- identifying at program load time the instructions performing memory
-  accesses
-- identifying those accesses properties (size ? read or write ?) to
-  define the relevant kasan check function to call
-- just before the identified instructions:
-  - perform the basic context saving (ie: saving registers)
-  - inserting a call to the relevant kasan check function
-  - restore context
-- whenever the instrumented program executes, if it performs an invalid
-  access, it triggers a kasan report identical to those instrumented on
-  kernel side at build time.
+The special care needed when inserting this instrumentation comes at the
+cost of a non negligeable increase in JITed code size. For example, a
+bare
 
-As discussed in [1], this series is based on some choices and
-assumptions:
-- it focuses on x86_64 for now, and so only on KASAN_GENERIC
-- not all memory accessing BPF instructions are being instrumented:
-  - it discards instructions accessing BPF program stack (already
-    monitored by page guards)
-  - it discards possibly faulting instructions, like BPF_PROBE_MEM or
-    BPF_PROBE_ATOMIC insns
+  mov 	0x0(%si),rbx # Load in rbx content at address stored in rsi
 
+becomes
+
+  push    %rax
+  push    %rcx
+  push    %rdx
+  push    %rsi
+  push    %rdi
+  push    %r8
+  push    %r9
+  mov     %rsi,%rdi
+  call    0xffffffff81da0a60 <__asan_load8>
+  pop     %r9
+  pop     %r8
+  pop     %rdi
+  pop     %rsi
+  pop     %rdx
+  pop     %rcx
+  pop     %rax
+  mov     0x0(%rsi),rbx
+
+Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
 ---
 Changes in v2:
-- declare asan functions as extern in JIT compiler rather than exposing
-  them in kasan header
-- invert stack-accessing instructions marking to make sure not to skip
-  instructions that could end up accessing to-be-checked memory
-- fix stack accesses marking when verifier patches instructions
-- add best effort marking for cBPF
-- add missing call depth accounting in jited instrumentation
-- skip unused registers in kasan instrumentation save/restore
-- remove faulty stack align in kasan instrumentation
-- drop commit skipping some jit-related tests
-- cover missing instructions: BPF_ST and atomics
-- completely rework tests: directly tune shadow memory, increase
-  coverage, do not consume kernel logs
-- Link to v1: https://patch.msgid.link/20260413-kasan-v1-0-1a5831230821@bootlin.com
+- move asan functions declaration directly into jit compiler, and guard
+  them with IS_ENABLED
+- remove faulty stack alignment, no arg is passed to kasan funcs on the
+  stack anyway
+- make sure to emit call depth accounting code
+- do not save unneeded registers
+- update helper signature to let caller configure some values (eg:
+  is_write)
 
-To: Alexei Starovoitov <ast@kernel.org>
-To: Daniel Borkmann <daniel@iogearbox.net>
-To: Andrii Nakryiko <andrii@kernel.org>
-To: Martin KaFai Lau <martin.lau@linux.dev>
-To: Eduard Zingerman <eddyz87@gmail.com>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-To: Song Liu <song@kernel.org>
-To: Yonghong Song <yonghong.song@linux.dev>
-To: Jiri Olsa <jolsa@kernel.org>
-To: John Fastabend <john.fastabend@gmail.com>
-To: Thomas Gleixner <tglx@kernel.org>
-To: Ingo Molnar <mingo@redhat.com>
-To: Borislav Petkov <bp@alien8.de>
-To: Dave Hansen <dave.hansen@linux.intel.com>
-To: x86@kernel.org
-To: "H. Peter Anvin" <hpa@zytor.com>
-To: Shuah Khan <shuah@kernel.org>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-To: Ihor Solodrai <ihor.solodrai@linux.dev>
-Cc: ebpf@linuxfoundation.org
-Cc: Bastien Curutchet <bastien.curutchet@bootlin.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Cc: bpf@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-kselftest@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-arm-kernel@lists.infradead.org
-
+Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
 ---
-Alexis Lothoré (eBPF Foundation) (8):
-      bpf: mark instructions accessing program stack
-      bpf: add BPF_JIT_KASAN for KASAN instrumentation of JITed programs
-      bpf, x86: add helper to emit kasan checks in x86 JITed programs
-      bpf, x86: refactor BPF_ST management in do_jit
-      bpf, x86: emit KASAN checks into x86 JITed programs
-      bpf, x86: enable KASAN for JITed programs on x86
-      selftests/bpf: add helper to check whether eBPF KASAN is active
-      selftests/bpf: add tests to validate KASAN on JIT programs
+ arch/x86/net/bpf_jit_comp.c | 93 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 93 insertions(+)
 
- arch/x86/Kconfig                                   |   1 +
- arch/x86/net/bpf_jit_comp.c                        | 209 +++++++++--
- include/linux/bpf.h                                |   2 +
- include/linux/bpf_verifier.h                       |   2 +
- kernel/bpf/Kconfig                                 |   9 +
- kernel/bpf/core.c                                  |  17 +
- kernel/bpf/fixups.c                                |  16 +-
- kernel/bpf/verifier.c                              |   9 +
- tools/testing/selftests/bpf/prog_tests/kasan.c     | 356 +++++++++++++++++++
- tools/testing/selftests/bpf/progs/kasan.c          | 382 +++++++++++++++++++++
- .../testing/selftests/bpf/test_kmods/bpf_testmod.c |  22 ++
- tools/testing/selftests/bpf/unpriv_helpers.c       |   5 +
- tools/testing/selftests/bpf/unpriv_helpers.h       |   1 +
- 13 files changed, 994 insertions(+), 37 deletions(-)
----
-base-commit: b1c85ee71e2ab9ed7a12d7f3ee38988509baa368
-change-id: 20260126-kasan-fcd68f64cd7b
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index a0c541a441cf..0981791014eb 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -21,6 +21,19 @@
+ #include <asm/unwind.h>
+ #include <asm/cfi.h>
+ 
++#if IS_ENABLED(CONFIG_BPF_JIT_KASAN)
++void __asan_load1(void *p);
++void __asan_store1(void *p);
++void __asan_load2(void *p);
++void __asan_store2(void *p);
++void __asan_load4(void *p);
++void __asan_store4(void *p);
++void __asan_load8(void *p);
++void __asan_store8(void *p);
++void __asan_load16(void *p);
++void __asan_store16(void *p);
++#endif
++
+ static bool all_callee_regs_used[4] = {true, true, true, true};
+ 
+ static u8 *emit_code(u8 *ptr, u32 bytes, unsigned int len)
+@@ -1330,6 +1343,86 @@ static void emit_store_stack_imm64(u8 **pprog, int reg, int stack_off, u64 imm64
+ 	emit_stx(pprog, BPF_DW, BPF_REG_FP, reg, stack_off);
+ }
+ 
++static int emit_kasan_check(u8 **pprog, u32 addr_reg, struct bpf_insn *insn,
++			    u8 *ip, bool is_write, bool accesses_stack_only)
++{
++#ifdef CONFIG_BPF_JIT_KASAN
++	u32 bpf_size = BPF_SIZE(insn->code);
++	s32 off = insn->off;
++	u8 *prog = *pprog;
++	void *kasan_func;
++
++	if (accesses_stack_only)
++		return 0;
++
++	/* Derive KASAN check function from access type and size */
++	switch (bpf_size) {
++	case BPF_B:
++		kasan_func = is_write ? __asan_store1 : __asan_load1;
++		break;
++	case BPF_H:
++		kasan_func = is_write ? __asan_store2 : __asan_load2;
++		break;
++	case BPF_W:
++		kasan_func = is_write ? __asan_store4 : __asan_load4;
++		break;
++	case BPF_DW:
++		kasan_func = is_write ? __asan_store8 : __asan_load8;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	/* Save rax */
++	EMIT1(0x50);
++	/* Save rcx */
++	EMIT1(0x51);
++	/* Save rdx */
++	EMIT1(0x52);
++	/* Save rsi */
++	EMIT1(0x56);
++	/* Save rdi */
++	EMIT1(0x57);
++	/* Save r8 */
++	EMIT2(0x41, 0x50);
++	/* Save r9 */
++	EMIT2(0x41, 0x51);
++
++	/* mov rdi, addr_reg */
++	EMIT_mov(BPF_REG_1, addr_reg);
++
++	/* add rdi, off (if offset is non-zero) */
++	if (off) {
++		if (is_imm8(off)) {
++			/* add rdi, imm8 */
++			EMIT4(0x48, 0x83, 0xC7, (u8)off);
++		} else {
++			/* add rdi, imm32 */
++			EMIT3_off32(0x48, 0x81, 0xC7, off);
++		}
++	}
++
++	/* Adjust ip to account for the instrumentation generated so far */
++	ip += (prog - *pprog);
++	/* We emit a call, so update call depth counting */
++	ip += x86_call_depth_emit_accounting(&prog, kasan_func, ip);
++	/* call kasan_func */
++	if (emit_call(&prog, kasan_func, ip))
++		return -ERANGE;
++
++	EMIT2(0x41, 0x59);
++	EMIT2(0x41, 0x58);
++	EMIT1(0x5F);
++	EMIT1(0x5E);
++	EMIT1(0x5A);
++	EMIT1(0x59);
++	EMIT1(0x58);
++
++	*pprog = prog;
++#endif /* CONFIG_BPF_JIT_KASAN */
++	return 0;
++}
++
+ static int emit_atomic_rmw(u8 **pprog, u32 atomic_op,
+ 			   u32 dst_reg, u32 src_reg, s16 off, u8 bpf_size)
+ {
 
-Best regards,
---  
-Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
+-- 
+2.54.0
 
 
