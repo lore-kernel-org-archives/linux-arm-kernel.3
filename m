@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8F5CD6E68
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7258CD6E4A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KCmlyUAoK/yHveusUi6OJxnEgjrVkZLbwQEppi6gKxM=; b=ulXae0iLRdZ54l92plqM8k1wos
-	hl/dWsS1yC1fyvK+OJItIwCdEMcLvj5/2V95GcxKKodM7mS4I3kiX1z0KFKKjOc4D8K3phUiHH+e6
-	cMqU7yr6MpXh+KAXcIpw+IJoFDeUzt95UID7tumySvSNGTSJ8uRoM5R9j77ozmGtfA5kWoJJln+qs
-	Dg6ZbRAvJ3gR7X3Xy5Wm6tpSt7gLMMb3Zhijp3c4YUMGNvABGdfQE5nVUeVxDigHKdQXpShTPKufL
-	yyhggvfHUL6UlJ+gZw4LXkd26AY+i4waKpF970QbczOIevIIkMw9AxO7tuuN598w+pvdWfbUxttUn
-	ylikt9Ow==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iKhnmKKSbhjeNdqT2fB30yYTWXHZcg0QMpTiu5anmd0=; b=Td2lkcmn1ZKYIxYe8khvjKJGw0
+	9SYakhgpW4EkegjfgHJDk0/xsFbwkaiOKlB1UM1j4yHF4cLR5kVMtam85i35nb8PZyh1O8phYam/8
+	eRkFg+Hzxd1XLkw/HSzylaeTIWgjDEF5VkpoZh8HKtfVUET8j6TyeVp9KCpR9h0pWuiaL0usnCe13
+	HD/9wb/KFzjGgVoHbfrlORr+zRB2Tlpgbg7DZcviDZGwREOQ1V/YwDZpKxBbjccyuZqJeabt+/elI
+	UbWJIVdNT0i9dN8t3CqzuXiHcEKVMBwR7hoY/Oycc+kOn0eezvjPpJAP2lSt82Gmsu9UtA1cyl77V
+	fE3hyb8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2qU-0000000GKKE-45a2;
-	Thu, 04 Jun 2026 07:50:30 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wV2qV-0000000GKKe-0PeY;
+	Thu, 04 Jun 2026 07:50:31 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2qN-0000000GKBA-2kcs
+	id 1wV2qP-0000000GKB7-3Qwq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 07:50:25 +0000
+	Thu, 04 Jun 2026 07:50:27 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=KCmlyUAoK/yHveusUi6OJxnEgjrVkZLbwQEppi6gKxM=;
-	b=fBAgDHApSydyIm9IrNbVHVRassbBcy5cDEsGBBor5twX6mUu2BgcUTbf+dAisAqBMatksZCj6
-	T5Q8LaP+ikQqELdVxa5dD3javmt8Ua9x06oCTU5IpnmL/MJApzaVAvdVIgu8VbXxRT7x4KNMdGs
-	utWEFfXKdP4WPVlJzhkVXW4=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gWGk416xVzKmTk;
-	Thu,  4 Jun 2026 15:42:20 +0800 (CST)
+	bh=iKhnmKKSbhjeNdqT2fB30yYTWXHZcg0QMpTiu5anmd0=;
+	b=ioFbu4NVRgf3LNPhc//0xFgLW/sRh9rqxYVVddoZbjMClBRr/6NDkF7bkGHmFpANOSXBcY9Vk
+	ZaPiu9leZp97LBHEsrw8FVfsuFTOdQdikbm19YHu3yVHJFDpEQkrPpfGeLZvcP9svaIPVA/Q3Cl
+	w1tvAPATCnOb+95EV2ScSfM=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gWGjy27Cpz1prPH;
+	Thu,  4 Jun 2026 15:42:14 +0800 (CST)
 Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 26D1940565;
-	Thu,  4 Jun 2026 15:50:13 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 54E3D40561;
+	Thu,  4 Jun 2026 15:50:07 +0800 (CST)
 Received: from kwepemn200012.china.huawei.com (7.202.194.135) by
  dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 4 Jun 2026 15:50:12 +0800
+ 15.2.1544.11; Thu, 4 Jun 2026 15:50:07 +0800
 Received: from huawei.com (10.50.163.32) by kwepemn200012.china.huawei.com
  (7.202.194.135) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 4 Jun
- 2026 15:50:11 +0800
+ 2026 15:50:05 +0800
 From: Sizhe Liu <liusizhe5@huawei.com>
 To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
 	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
@@ -65,12 +65,10 @@ CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
 	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <wuyifan50@huawei.com>,
 	<liusizhe5@huawei.com>
-Subject: [PATCH 06/10] perf hisi-ptt: Extract the raw data printing part
-Date: Thu, 4 Jun 2026 15:50:01 +0800
-Message-ID: <20260604075005.2219785-7-liusizhe5@huawei.com>
+Subject: [PATCH 00/10] perf hisi-ptt: Enhance TLP packet decoder with field-level parsing and versioning
+Date: Thu, 4 Jun 2026 15:49:55 +0800
+Message-ID: <20260604075005.2219785-1-liusizhe5@huawei.com>
 X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260604075005.2219785-1-liusizhe5@huawei.com>
-References: <20260604075005.2219785-1-liusizhe5@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -78,8 +76,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  kwepemn200012.china.huawei.com (7.202.194.135)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_005024_013191_FD0A8B5C 
-X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-CacheID: sfid-20260604_005026_181742_3A889E82 
+X-CRM114-Status: UNSURE (   7.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,76 +93,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract the raw data printing part of the TLP header into
-hisi_ptt_print_raw_record() for reuse by subsequent patches that
-add field-level parsing of individual DW headers.
+This series enhances the HiSilicon PTT (PCIe Trace and Tuning) packet
+decoder in perf to provide detailed field-level parsing of TLP headers
+based on message type, and adds a versioning mechanism for backward
+compatibility.
+The original decoder only prints raw hex values with generic field
+names for each DW, without classifying TLP types or decoding
+DW2/DW3 fields according to the hardware-defined packet format.
+Patch overview:
+  Patches 1-2: Bug fixes
+    - Fix spelling/abbreviation errors (FIELD_LENTH, kpt_desc)
+    - Fix DW0 bit field ordering and DW hex value printing
+  Patches 3-7: Refactoring for field-level parsing
+    - Rename union and add named struct member for multi-DW reuse
+    - Abstract trace buffer/offset into struct hisi_ptt_pkt_buf
+    - Complete missing field name entries in 4DW/8DW tables
+    - Extract raw data printing into function
+    - Unify 4DW/8DW HEAD0 printing into hisi_ptt_print_head0()
+  Patch 8: TLP message type classification
+    - Parse Format/Type from DW0 to classify packets as
+      MWr/Msg/Atomic/IO/Cfg/Cpl
+  Patch 9: Field-level DW2/DW3 parsing
+    - Decode DW2 fields for MWr/Msg/Atomic/IO TLPs
+    - Decode DW3 fields for Completion and Configuration TLPs
+  Patch 10: Version compatibility
+    - Add V1/V2 version in auxtrace info to distinguish old
+      (generic field names) from new (detailed field parsing)
+      trace data, with backward compatibility for V1 files
 
-Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
----
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 29 +++++++++----------
- 1 file changed, 14 insertions(+), 15 deletions(-)
+Sizhe Liu (10):
+  perf hisi-ptt: Fix spelling and abbreviation errors
+  perf hisi-ptt: Fix PTT trace TLP Header parsing
+  perf hisi-ptt: Rename hisi_ptt_4dw union for reuse
+  perf hisi-ptt: Abstract trace data buf and offset
+  perf hisi-ptt: Complete the field names for 4DW and 8DW packets
+  perf hisi-ptt: Extract the raw data printing part
+  perf hisi-ptt: Merge 4DW and 8DW HEAD0 printing
+  perf hisi-ptt: Add parsing of supported message types
+  perf hisi-ptt: Add field-level parsing for header DW2/DW3
+  perf hisi-ptt: Add decoder version compatibility
 
-diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-index 33804bcd0642..a5b66e0f7827 100644
---- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-+++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-@@ -93,23 +93,31 @@ union hisi_ptt_field_data {
- 	uint32_t value;
- };
- 
--static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
--			       const char *desc)
-+static void hisi_ptt_print_raw_record(size_t offset, uint32_t value)
- {
- 	const char *color = PERF_COLOR_BLUE;
--	uint32_t value;
- 	uint8_t byte;
- 	int i;
- 
--	value = le32_to_cpu(*(__le32 *)(pkt_buf->buf + pkt_buf->pos));
- 	printf(".");
--	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
-+	color_fprintf(stdout, color, "  %08zx: ", offset);
- 	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
- 		byte = (value >> (24 - i * 8)) & 0xFF;
- 		color_fprintf(stdout, color, "%02x ", byte);
- 	}
- 	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
- 		color_fprintf(stdout, color, "   ");
-+}
-+
-+static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
-+			       const char *desc)
-+{
-+	const char *color = PERF_COLOR_BLUE;
-+	uint32_t value;
-+
-+	value = le32_to_cpu(*(__le32 *)(pkt_buf->buf + pkt_buf->pos));
-+	hisi_ptt_print_raw_record(pkt_buf->pos, value);
-+
- 	color_fprintf(stdout, color, "  %s\n", desc);
- 	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
- }
-@@ -135,18 +143,9 @@ static void hisi_ptt_4dw_print_dw0(struct hisi_ptt_pkt_buf *pkt_buf)
- {
- 	const char *color = PERF_COLOR_BLUE;
- 	union hisi_ptt_field_data dw;
--	uint8_t byte;
--	int i;
- 
- 	dw.value = le32_to_cpu(*(__le32 *)(pkt_buf->buf + pkt_buf->pos));
--	printf(".");
--	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
--	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
--		byte = (dw.value >> (24 - i * 8)) & 0xFF;
--		color_fprintf(stdout, color, "%02x ", byte);
--	}
--	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
--		color_fprintf(stdout, color, "   ");
-+	hisi_ptt_print_raw_record(pkt_buf->pos, dw.value);
- 
- 	color_fprintf(stdout, color,
- 		      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
+ Documentation/trace/hisi-ptt.rst              |  28 +-
+ tools/perf/arch/arm64/util/hisi-ptt.c         |   2 +
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 352 +++++++++++++++---
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   |  27 +-
+ tools/perf/util/hisi-ptt.c                    |  46 ++-
+ tools/perf/util/hisi-ptt.h                    |   4 +-
+ 6 files changed, 365 insertions(+), 94 deletions(-)
+
 -- 
 2.33.0
 
