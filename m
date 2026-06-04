@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B411CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 00:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFE9CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 01:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2eXLg7+UTj+6M1socVzRC9ljt9/JbCjjIXt/BSPxboo=; b=vRbZy7C7saCvN/Y2Q//UgWD6xE
-	clUR4PE67ifUnFEadtLORdrJwVdcQhiV7wNumguHGxbbtEEgOSQfpLBNEBQoCgak6Z4Mst/SMqHco
-	BbRV/0/uFGPywJnChR9vK4EDu+heYESRMneO2mQ+8K4IDMPNw3X3umXCVjeefWDeI4lCV0+jPz7D6
-	UJzPE73J3uJ5LZ9vYPyKpSkNxcTz88pP6GxjyTQtd1zrUac8kl8zDRemeiHpdAYllW6RC1RfrHa7L
-	V8i/KH3vKENGrEcr1L0mrRZ0Gz7y0RDUxOo1QfLzqspxImfmwBSA56VAdcaFPLdTtbgB5PTZA+Qpk
-	kIQG3mcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AyvbjefoxWefiry2TdXlq5HSZ0FcJuLz0Lra0pLvUAU=; b=IBCUoOCgeLdrdOpkjAfEMsUzMC
+	wSLESWHoOem610gUaLB+8OzfXnnm1Y8BTY/RI0fYktPBRSx/nZNxnAZ7twcVB1waujWhOb5lB4XgE
+	rbmzy/Kyf6t66WdpNskexjXjrAkVnbw+hcxgmfwBn5cTT6mPks++Dzw+Cer1BoiSZzG8yVcph/y4n
+	eupipDk2/jbqVCY+dfzt00srBABNfXN/SoB7b8sfOr/pqKAF7kCTFXs0CBEOkpQrWc/Uu9p+zCpex
+	uUtWyQq94oEunyXvMDAVVtPnB6XLsnjvWCe9f1NFhDBY9VbmUwkIb6uAsRRlJQ/Qo5EIDrDO77z2a
+	28rtaxIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUwE8-0000000FySY-1tEQ;
-	Thu, 04 Jun 2026 00:46:28 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wUwX6-0000000Fz1X-0o8W;
+	Thu, 04 Jun 2026 01:06:04 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUwE6-0000000FySC-0TZH
+	id 1wUwX4-0000000Fz0w-0DmG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 00:46:27 +0000
+	Thu, 04 Jun 2026 01:06:03 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-36bd175fdbaso69308a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 18:06:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1780533984;
-	bh=2eXLg7+UTj+6M1socVzRC9ljt9/JbCjjIXt/BSPxboo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CVv5ds54j2tEMkFa79CFllq32/Z8FIgSA/RsoPnNTkAtg8wb+SE4WQjpXhqatfnsD
-	 K+d0MF5P96nBL4zxDgyvBPcpV395qpnRustt1HWYRUi8yy2XyeYPZh8AvhfmqV9jV5
-	 SMCNOlWH1czQADzOIhgn6SWURqgHjoNkvd4Oo3etTPPn1bX7ylIN/Uvin56yWPN3R5
-	 fdBKGur4lRUfUXdk99+h2GdZ10ogAAwWyOSppCgVEe17s2kYmGRbHPE8AjOYXBaAiO
-	 /aU8AZ0tVpdHzQ0js0iwf0JdM3W+hb+GBAMzbixN+YCU6i3LA+6ihBoTgkEPh2kw30
-	 dictAnWtyQq8w==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id B9D7860087;
-	Thu,  4 Jun 2026 08:46:23 +0800 (AWST)
-Message-ID: <3b4fec04093d4f890a67df8b3d2e255b220d776f.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v1 2/2] soc: aspeed: add host-side PCIe BMC device driver
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: =?ISO-8859-1?Q?Gr=E9goire?= Layet <gregoire.layet@9elements.com>, 
- Andrew Lunn <andrew@lunn.ch>
-Cc: joel@jms.id.au, jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, 
-	ninad@linux.ibm.com, linux-aspeed@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 04 Jun 2026 10:16:23 +0930
-In-Reply-To: <CAFi2wKY7ECbxSbtsO1W9KEKFET67yKg+C64jtQHFY05DRzhfKg@mail.gmail.com>
-References: <cover.1780409151.git.gregoire.layet@9elements.com>
-	 <a8e1396af1b6db38bab13383c6ba303e8427aefc.1780409151.git.gregoire.layet@9elements.com>
-	 <ecc3bd49-829f-49b8-b3b1-4f16363ea5b9@lunn.ch>
-	 <CAFi2wKY7ECbxSbtsO1W9KEKFET67yKg+C64jtQHFY05DRzhfKg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=gmail.com; s=20251104; t=1780535161; x=1781139961; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AyvbjefoxWefiry2TdXlq5HSZ0FcJuLz0Lra0pLvUAU=;
+        b=JYbRCQJfzjaE0/dC1zYqNnT7OSUP0fwoskRf6Elq6a2D/PVavwC1RheRGWJZhB6GNP
+         bDBe7WnuZ6doCJAMm7HKibVNMx6tmpDZ3RROu2STnTWe0+d4UbvPdbEm7EUbJP/WJmEZ
+         KX0MWh/lfkMGpTVfqOnlZ6THfnxqMOxQhMjdwBJxjjToRKZczyYPSMM5SKeiA8TwRjPT
+         TFdZacNhPGjYzaldGdS0iH4rwgIRKzdtXbvSXmagdMWhOcCdEyn8hijn5ROaf3LqAqG7
+         bPGvvFd0w6ZwRZd5uAFDnNTRR5jmMs8TkZ+TwmtkhLmMiTxGnxyBJ2QiNRTuq6dw8TT7
+         NiAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780535161; x=1781139961;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AyvbjefoxWefiry2TdXlq5HSZ0FcJuLz0Lra0pLvUAU=;
+        b=DZnmVnZfl6jGxEJfLPxOJYmdPkvdS1EOjKmd7ef+DoQ91A1xDLgUIPqrZ0CDmIIyiM
+         tS6Kb8mmPTngUOXijwgIgivJClByx40eZQskNWyxrOk3ocRaYaGAF21J2DNtHPf2rwVU
+         62KoWq8vdeJLkIHIxc/9HiE4YiI6mUIp36qDtG9QAJQNlJ0FGz3sdfWytxoyYfcqCNKw
+         ASAMb8mJ1mlMM5gONPOKGZKXxiQlWoMxGPyayCHd8tTPyN9UNxR1Ng5hr+mP5ftPmWVT
+         /Gljjat+BXz8ePWxiAq/QcCc378qpgH3avclJicinaXjuXJsTinPypPxXZEE3v+5ChEO
+         tt2Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8ffl+g2FF23ZRxUPRkdDC4hZFsi5tn1A91gu6RAv9UIIGqfYqmFIJM2/UOZcOrhEwedzDdq8igjTh4Lb38XDcI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYnMlYaQRetLxIdS8eNOYS/jvhs2Dp+JWswAmul5UKcNia+Lc8
+	wey3jkYsnv0Q9798qKMBz6lC/Pr9yoRG7mgUBowEZ2GYc2B2haNqCrrq
+X-Gm-Gg: Acq92OFNNHfTXXOH5GyPK+7LEdhHXKU8dNwqP+rnucbfvYfvcHSjd45ky2YDbcWwqu4
+	3cykDYiWMFkn39dJjHZemfD3LnkP9da3f9PcKRb2RNFaDb0g9i2yAXMmcZEVnK6PIFMEebd4TFG
+	9sPMJv0tP4xfIaX1SPdusoPzdBg9vC3j+ZcSCkduYZlcWfNX3djZDV0daZmv5pjJ4rC12qgWHGE
+	GtdeNnrtSmokk5btafmd5Xn8igLyTG14nxuZu3nX9NOciwa0Dr7EOllyF0oFvVrsXAE8YX55wKq
+	f95og55c77iyMPk2dv0xeSzzeXfk4CMEpuu0l2sB/AWoqT2N8i5llGV/8LmycTtxJT1dMaqRl6w
+	o776feQUJbYc06yFUmU8j5pIhQDNiPjkXlTtmrTfvnSHrSqGJJMSsnkkadExN9Hmr9UJ5bZxOOy
+	CI8jeYLu7JL1nKhz1DX5CIqbdjK23VAc/P77FGoU1TCyfjDmfzlj/J/Lgot45gMoezlx3doe4YW
+	LfzZGH8yVcuovN9Z9g66OAm2xADENyjpLZBte0LzPriNyhf5lCuwdLD
+X-Received: by 2002:a17:90b:540c:b0:36d:ee3b:fcae with SMTP id 98e67ed59e1d1-36e3083798fmr5960595a91.6.1780535161109;
+        Wed, 03 Jun 2026 18:06:01 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36e6d169abdsm2366747a91.0.2026.06.03.18.05.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2026 18:06:00 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-watchdog@vger.kernel.org
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH 0/2] watchdog: sama5d4: fix IRQ and timeout bugs, use platform_get_irq_optional
+Date: Wed,  3 Jun 2026 18:05:40 -0700
+Message-ID: <20260604010542.23177-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_174626_352865_46EC1FBE 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20260603_180602_120534_55AADEB1 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +102,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-06-03 at 15:43 +0200, Gr=C3=A9goire Layet wrote:
->=20
-> For the rest of the driver (shared memory, doorbell and mailbox), you are=
- right,
-> it makes more sense to implement rpmsg or virtio than just raw shared
-> memory binding.
-> These are software-defined communication channels and not hardware-emulat=
-ed,
-> so they would fit better as rpmsg or virtio drivers.
-> I took the SDK driver as a starting point without questioning its structu=
-re.
-> I have verified the VUART was working correctly with the shared
-> memory, doorbell and mailbox setup removed.
-> I can split this into VUART only and defer the rest for a separate
-> rpmsg/virtio work.
->=20
-> So I propose for v2:
-> - Remove the shared memory device, the sysfs doorbell and the mailbox
-> from this series.
-> - Retain only the required configuration and initialisation on the BMC
-> side driver.
-> =C2=A0 This should mainly be SCU and PCIe device configuration but other
-> initialisation will be reviewed to determine what is required.
-> - The shared memory, doorbell and mailbox features could then be
-> addressed in a separate future series, likely as virtio based driver.
->=20
-> Would that be acceptable?
+This series fixes three pre-existing issues in the sama5d4 watchdog
+driver (unsafe IRQF_SHARED, incorrect IRQ_HANDLED return, ignored
+device-tree timeout), then simplifies interrupt acquisition by
+switching from irq_of_parse_and_map() to platform_get_irq_optional().
 
-That sounds good to me.
+Rosen Penev (2):
+  watchdog: sama5d4: fix shared IRQ and hardcoded timeout issues
+  watchdog: sama5d4: use platform_get_irq_optional()
 
-From a brief inspection the driver also had support for both the 2600
-and 2700. Something to consider is just supporting one of those for
-now, and adding support for the other in later patches.
+ drivers/watchdog/sama5d4_wdt.c | 33 ++++++++++++++++++---------------
+ 1 file changed, 18 insertions(+), 15 deletions(-)
 
-Andrew
+-- 
+2.54.0
+
 
