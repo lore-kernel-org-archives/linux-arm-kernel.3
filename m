@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95AF0CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DBEECD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zTkYHigKQy3WkeWXyJsWd48o8A6LM0P0gm1ZhPIld0=; b=qMBfxYod/2ZpujJVM6ATln9Gp9
-	z1KiLTQdzB2YKOYsCujBxwqDmRYm/HA3HMGF3GVwQ76fBNEGxvXkIKi0C6QsfCPX3NYhCgEajEb/N
-	XxZ1DuKXdYAtrZmAsIweIcwxXGRJRpHaub/44An8bW+SP/sH1ZXlae7oEomU7CtsYKj5uQiSIR2PM
-	e1wWYsSluFMysM/SstNQi7vMvpaGN0EcgN/nVIWp6TuWZ+48qWRZiHxq7UWVfbN7chunkGeH4FuMp
-	MD8N0Rq7RyMZ5A5rbmpxS6Jw3HFHELQ/Ub46VkE0Y6M7HLs6J+LryJ1e9LXLNyKaDEK+dS/zdSjQj
-	0ORarBqw==;
+	bh=6AgZYnyS4i6ey0fjJps0/Fygo8+mCWzQwi4kSxOwSD0=; b=d9jVpdgIBan4sq4rfaX3jdOhdf
+	/hbeamCtm+ykCQRTQdKca3fp7uJ2XCT5Iek41s9wfir9bLIJc9EUOff+U7cWRGfGT3bxR+yl/wX/I
+	v7v4MvEbXRvzTyLTfX3Joe6oyLHcT5gPu1viZe2pAKueqOppVkFKcqNsuNqZ6IjHxN9q7HLb7z9lx
+	iCqNWKkeJQlSq44U47D8sI1nVwWPHWNubdg5wp996qTMzOnTf7H7Dvq4ceYk1dHg2I6c4U30lgiv0
+	8+DEus+J1YuFBVsmyYcj+bSk4YLpg4kmY6HkwH/cPBIypc7Glqzg4/GOfrkTATA5s3aTJZg6a9cqS
+	Z8HLvujA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8VS-0000000GpuC-0wic;
-	Thu, 04 Jun 2026 13:53:10 +0000
+	id 1wV8VX-0000000Gq4O-0bHE;
+	Thu, 04 Jun 2026 13:53:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8VP-0000000Gpmx-1K0s
+	id 1wV8VR-0000000GprD-2c0t
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 04 Jun 2026 13:53:07 +0000
+	Thu, 04 Jun 2026 13:53:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=7zTkYHigKQy3WkeWXyJsWd48o8A6LM0P0gm1ZhPIld0=; b=g4jznLxKBErpok38F7qmztdi40
-	dWJVjafh6M1eo1jfUQKidp6V7f+NxvkWF7Fq9wmWwmfMxAR8dtSlWULtu+KP8ViORbEoqU0Gokiax
-	1ohWEoce6gnf6Mw6TPHx/YlRpKG0dZkSBPufwW6SAqOIfHDoLHo+chldpqRtf+dHcvmsVzZp6b+kL
-	v+FG2y92JSRsshIBs6h+zWAoTScGCV+BZZNqVeqnE4pEwHwecRRMO+1zICXtKPnmM0RyQVPnwBY1R
-	KJSpNErc/1NB9kJ2NBgOWLlYU+mvtcVYowCdrlgptzRIjlEhmCS2PnxJ7RsAQStiODp0+A/rU1XjH
-	j4Ad/bbg==;
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	bh=6AgZYnyS4i6ey0fjJps0/Fygo8+mCWzQwi4kSxOwSD0=; b=iWUiBKHmMrqTMUPZoq78P5fDCK
+	tyFnZfw5ykprSesoZxL1/dKqhfA8iu3g+91+owukIfeHSq2I6pTcogw1VsW7/HsGIbespbMHi9jsf
+	iaGnQNQ7QPQ0ZZsasTCkp/yWPW/Odk4/sYFgaLQksIcY/KgsWCLSC/gOUvaSZCKvTNtyPQl2Ic9Yj
+	uDLWaStweYvX8wq7OMXIFCu8Ha0oOgabeqwuGaqThyMNCUxWmLBA+126p7d2YIfvNbHn22aD7Z36h
+	qWSPVOud1s5i2Ei9Fg9/WbLk69++edH8TdlzcEL00niVNJuszmaetRf/PhbkV1IU0uYKRTmaHzXs6
+	ZfDcAk8w==;
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wV8VL-0000000EOse-3lId
+	id 1wV8VN-0000000EOuO-3Syg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 13:53:05 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-45eec22fab7so412913f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 06:53:03 -0700 (PDT)
+	Thu, 04 Jun 2026 13:53:07 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490ace40f4bso9105625e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 06:53:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780581182; x=1781185982; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780581184; x=1781185984; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7zTkYHigKQy3WkeWXyJsWd48o8A6LM0P0gm1ZhPIld0=;
-        b=f+y2PzK+8FJpj1XF7R/WEwD8UJ0ARuCSe47N3XI9R0DOViLEGAHFlygb/BrgLKMXEt
-         L9JrEK8U0ChlCVmqUmwealnC5Qm09sAW8IzZZ14kxuZTx5hgWGw43eA/fm15oxZjvgCO
-         eCW6SPaymXRyhH7fZn3jZRMxmspyXxbh+44JmFoUmLLwJEkrfdPjcJ65kDJ8lAgbPP91
-         gvay79QCUIpwTXPvNgOxp1gO9uaqwJCgGjZSyw6jmvBY3zCuG1CI/iWQa708RNjwywYb
-         GBi9j5ETyhzD/BX5v7lYNMLSNaD2Cw8JJeuqWm9ho23jHSGtx7aX4jeBgoowErx1pnUM
-         hKfw==
+        bh=6AgZYnyS4i6ey0fjJps0/Fygo8+mCWzQwi4kSxOwSD0=;
+        b=bxV3Zt9m8vrWfTooheU+Ub1nswmPBhveHYjmmtnOKydU1jw2tCbCWzsV6VteADYc4s
+         dXtx5Wx8spHiSqZ4CT4Iz7o8vFy5JPJkml2Z9fi1liCs5/0fFkqscS3kgivsvu3e2JWT
+         tm9YSbSuAxBy11/7oc/VLjA3jCYqZnu97a0cPsrrdVcBVBga12QrQoaKXgXx7DizSWy4
+         rv9EKyGooec72Suf97yk6xCPHNIkVISONH72PGZkXK13Vn05BhDt/Rp+/wN3tc9Ym0E1
+         lCKE2c3LNd0DqfSslJ2eMCYQ714q146ZL0D6NsPnsK5nIx04aGSMCuZDcRCtba811CVQ
+         MN3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780581182; x=1781185982;
+        d=1e100.net; s=20251104; t=1780581184; x=1781185984;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=7zTkYHigKQy3WkeWXyJsWd48o8A6LM0P0gm1ZhPIld0=;
-        b=MY5mqnqCiuafEYbgAQxAZ491br9cbvs7YMI944g+eMOJzSvvXgKoOStGaQgJp0ah5U
-         GDeRLfWvVluaVQE5mzb+RJUpgryCwhHOqY7j/mvs3QRvFXcXeKWEBncXTlg+47+NGtkX
-         s9/x/sIpeaVQzRmuJtEse1RsKAwC1cOvYXteBykYr3euylYwc7d+xC58I9yABf4RD2GA
-         i5pYG13oDIs9m656qEzGX9IuVT9wx3hYuY/UGAqmJeYn391gEY+tiES4OnPLGPgs5KgN
-         S4Q0YVygMR0fNWtpDkrqOyrptyie5cESntNLfDyS6rzbeLp8/JTNwLUa2YS5ZsbVYeso
-         cLTw==
-X-Forwarded-Encrypted: i=1; AFNElJ+g3UlFZmA7+/sLeXa1fjC0SWiFlwgScZAOqJLZNTSDCCHpDtbd2cVgWvOJswpIau7lvlCPDzoKcTkzeZaM5ADC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzk0WvbcKtSFAVrTX4ta48TiYpsNUk7abdJIwuNAHqwxqZ4nUxX
-	YM33b8Ws3MjQMpgLQuLIUdloXQmc3DkNptl/BMTcqwD8MtBCPf8T9tkKH9E11GNt7gKCBA==
-X-Gm-Gg: Acq92OFz1KDdDvek0/fSsNbEjpo2YQTUX1iXfswqaviEBKLebdT/1uXfcVC3MIXgrbl
-	5AK0uG/hNC5jLyWMAfqvbPAwh6KqWqd99IZ6WsZi6/ZSKBReSpYsacbwabqBfgI8PYCwKV3czsI
-	CEc7o2nPobiimcs73Gr3SL+FJmHmNEz1h8afD1eXFw9tyglossqOgyUjnBBxT5sxpGdp0tv+Aeb
-	uDfiGzSDlI8T/8fNl8JwygXNkb6sjjths+AzZnGF8xUbqgvb84ImGLaZEjDM4kltdGXeLJxvcpx
-	MTqBj6CDhXw/0eezLdM7JD7/ZnPQCisqfBMJNkUcpqzC6YRQG5X7QPJuiHcV+YQwrMNroNZ83Br
-	2/W/YrWca80Tm2iknktSI4Q5Zv/v5aVdRXX3pp1EPgTBcOMe1fRBMlzDEuDLXoD5qUL4xnu6lp5
-	I1ORaiV1XkeyjlUt2aBIGXZigvpo6JsEXQ1b3If+Ki9yHE63BIvBPd+Gz3JpAJyuc=
-X-Received: by 2002:adf:e00c:0:10b0:45e:f381:cd7f with SMTP id ffacd0b85a97d-460217831bamr9227520f8f.5.1780581182173;
-        Thu, 04 Jun 2026 06:53:02 -0700 (PDT)
+        bh=6AgZYnyS4i6ey0fjJps0/Fygo8+mCWzQwi4kSxOwSD0=;
+        b=MkK1dcQeK5u5Yhl30E9aWHLKE0z6bolX++Nz4V/k0dVkVbHzeKv2Uu6A1SdLI6OD/M
+         P+ZsFTMf0zZiemhLH7hLwXkI0GjvngLA68C7yQIaBHFnkvWcNhEKwqX8TWChD+lDJf6r
+         w7lyTiYF3TgIbCgupGmO96+4ceYAdTiCTAYC0uE3e0TEkxz9Ngp98H8WkANciX8CK0c0
+         f0es0tIe+XJzZV/Do3+5sfxaHLFDG9iqVOz/zBCmuT/O+GFnPWRdFrIR06tHaYI0jG80
+         iVFJlOy0UxwEEUcpN3AMuPe77rjV4foQFkaIrUogl1R5PJx93KDYD1UxHySXH64gJDNE
+         3ePg==
+X-Forwarded-Encrypted: i=1; AFNElJ+gwe0uDbiE8A39iUcEcaXJJkgbTJWG96xm2/faV0HKgROQv46M7lUcAKpSaSeyMD+huTRZnO5b73hsbF0/WasY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZvCaOGhotO56GfNUh2EhEBZmtOJM11LxqIGD7LvYdRG9hxtcu
+	YQ1aXRFNsvFDhviQ+dBRCdmJ/Ffyi7Lp+dbqmlsPFFAepVhmflPWj1Zf
+X-Gm-Gg: Acq92OHrLubu09InBvRvg48NLMoIow1hEFw3ro2UWEPqf2VTNB1JgIAm91S0Y5mf8R3
+	HFVnmJaf2vaW9VaGYenh1zEqPDNUD1kwfV9ccLbJFzO12ct0xJmjscamLQloQqOedwUa/xNCdKi
+	VIjHRceiZKuCvRP6v0CTdK7reZheZRDAo0hTZAEItyqgM8gW13GVLB6RZGjivNP7w2eRG/prmC0
+	rzR0NJTXMk46oIJnridplwU+XKJjdEzgESFb6gCWcl0NXU4FjT5Ge/GpDBVLiExJ+HM2zQbRc9w
+	kEDVmGjxX5jMX/Y9ha+2ihwo33Gyr9ecy/HEkoOTvCAYL4fGGexXiMVu++3Z9cdFDXqT4JX+l1x
+	4fHeWQoYSLO1hYIFSjPeVeUYmRfV7SLHPxYIzk+7Zj4EhA6nEf63tdG7Ndrdvbl3UoA7/y1jthw
+	yGralJgyaaPkUDcaKVu/1Zz0/xfiaPZA2QlAFkasEsD6G8W4pajVXdLPOIitoTdXg=
+X-Received: by 2002:a05:600c:5288:b0:490:b473:8f78 with SMTP id 5b1f17b1804b1-490b5ec3ae6mr133508845e9.17.1780581184471;
+        Thu, 04 Jun 2026 06:53:04 -0700 (PDT)
 Received: from compiler-rock3b.tailb81abf.ts.net ([2a01:e0a:104a:4d80:be24:11ff:fe12:2776])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f0a43e9sm16661068f8f.0.2026.06.04.06.53.01
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f0a43e9sm16661068f8f.0.2026.06.04.06.53.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 06:53:01 -0700 (PDT)
+        Thu, 04 Jun 2026 06:53:04 -0700 (PDT)
 From: Midgy BALON <midgy971@gmail.com>
 To: tomeu@tomeuvizoso.net,
 	ogabbay@kernel.org,
@@ -100,17 +100,17 @@ Cc: robin.murphy@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v3 6/9] iommu/rockchip: Clear AUTO_GATING bit 1 on the RK356x v1 IOMMU
-Date: Thu,  4 Jun 2026 13:52:52 +0000
-Message-Id: <20260604135255.62682-7-midgy971@gmail.com>
+Subject: [RFC PATCH v3 9/9] arm64: dts: rockchip: rk3568-rock-3b: Enable the NPU
+Date: Thu,  4 Jun 2026 13:52:55 +0000
+Message-Id: <20260604135255.62682-10-midgy971@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260604135255.62682-1-midgy971@gmail.com>
 References: <20260604135255.62682-1-midgy971@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_145304_031672_862B3550 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260604_145306_111573_530D2E28 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,42 +125,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the RK356x v1 IOMMU, RK_MMU_AUTO_GATING resets to 0x3. Bit 1 enables
-auto clock-gating of the page-table walker, so the walker's AXI master
-loses its clock between transactions; a TLB-miss page walk then never
-completes and the IOMMU is left stuck (PAGING_ENABLED, never IDLE).
+Enable the NPU and its IOMMU on ROCK 3B.
 
-Clear bit 1 (keeping bit 0, the slave-port gate) once paging is enabled
-so the walker keeps its clock. This is required for the RK3568 NPU MMU.
+vdd_npu is marked always-on so the rail is up before genpd de-idles the
+NPU NoC at power-on: the PMU de-idle handshake needs the rail powered.
+The PVTPLL compute clock is brought up later by the driver.
 
 Signed-off-by: Midgy BALON <midgy971@gmail.com>
 ---
- drivers/iommu/rockchip-iommu.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 4da80136933c4..e3d8b6e9ca12b 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -953,6 +953,18 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+index 69001e453732e..7ac780ed313d5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+@@ -330,8 +330,10 @@ regulator-state-mem {
  
- 	ret = rk_iommu_enable_paging(iommu);
+ 			vdd_npu: DCDC_REG4 {
+ 				regulator-name = "vdd_npu";
++				regulator-always-on;
++				regulator-boot-on;
+ 				regulator-initial-mode = <0x2>;
+-				regulator-min-microvolt = <500000>;
++				regulator-min-microvolt = <825000>;
+ 				regulator-max-microvolt = <1350000>;
+ 				regulator-ramp-delay = <6001>;
  
-+	if (!ret) {
-+		/*
-+		 * RK356x v1 IOMMU: RK_MMU_AUTO_GATING bit 1 enables page-walker
-+		 * auto clock-gating; the walker's AXI master then loses its clock
-+		 * between transactions and a TLB-miss page walk never completes,
-+		 * leaving the IOMMU stuck (PAGING_ENABLED, never IDLE).  Clear
-+		 * bit 1 (keep bit 0, the slave-port gate) once paging is enabled.
-+		 */
-+		for (i = 0; i < iommu->num_mmu; i++)
-+			rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, 0x2);
-+	}
+@@ -787,3 +789,13 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi_in_vp0>;
+ 	};
+ };
 +
- out_disable_stall:
- 	rk_iommu_disable_stall(iommu);
- out_disable_clocks:
++&rknn_core_0 {
++	npu-supply = <&vdd_npu>;
++	status = "okay";
++};
++
++&rknn_mmu_0 {
++	status = "okay";
++};
++
 -- 
 2.39.5
 
