@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38DE4CD6E7B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F51CD6E6B
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,78 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=peByEg9qkw/NuaYmCEAUEFnpiWasS3prWUS+hf7e7ys=; b=UuAdFHkGdbBMHR6sl2oOMngEVt
-	rgR/KQpnKoGsvV0od8qAxzRQk9JqpUHV1Wtj+4+qu4YGto1556sHBlLGTFWSW32Em5u8L4kGbSiaK
-	diAbo9igZVT1PHeQd76h5zEq0zzB6j0zcepDWmW3B5gUKeF4TLyF6OIgUseZd1ZRDYcWjDycVOEQN
-	wu+z7yaGMkMgJGcJbJ3LoU+uW431Auca6KAxQ+uAf4Tq4v3CEEDsxQnLrcaz6UVp27XYa8Iar0akh
-	zBNutyBdopUBYRVFXabulMAtVYnMSLltkdY4kAkMvGrQLuEaHuc4KLuQQ0hKI9EftWBlvMXbp0kJ2
-	aH3w+vaA==;
+	bh=OH9hQQFNIkDpasnao4boz8/RAiMZ7MOKPgy4BqZR+6c=; b=g9r9uVf2w6xYsVSB2NOpb5wsM/
+	uS+tVi84s0YEvqQJ5z27IkMBf8x5BGnBQFDcRs8eK1jP7ovqEHslgFq+S3a2WeiTsTQ683pQmlFsG
+	oaF3vnB3M0FC6Grei4ylRRQNrF+v2AePHuSbFeIE7LwPRVWzmcGYdrmLwpko8N945AnMKF+tW7sAy
+	THPJVarGi1P2Ao1Nt1bz6CB3DyN+zxVbWDs+wBLCyo7fcFOGEaVwmncFrf37aWg5E8FtPZ2zURnap
+	Q1ahjvOsdcK+qvwNHhNX+ltgKMsrcI8nEIVuhR2ReM3NM1FxkyrtmiRDFPwrFlD2WTWWRT8fUhWd5
+	Yft1VCig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8VP-0000000GpoQ-3fQu;
-	Thu, 04 Jun 2026 13:53:07 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1wV8VQ-0000000GpqD-2VZh;
+	Thu, 04 Jun 2026 13:53:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8VL-0000000Gpia-1ZWq
+	id 1wV8VN-0000000Gpkn-3Obe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 04 Jun 2026 13:53:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=OH9hQQFNIkDpasnao4boz8/RAiMZ7MOKPgy4BqZR+6c=; b=ghbKDpPrDnAXb1aBdg29NSTBKg
+	cMpanQilNYyYgyib8s9zSn4PTSY+CO7/tTtLDalfCR/qDhXxiWV5cMnKtHmmhUIx/7rpOXYcZN9rd
+	8aNvB01xfO06LjPv7o6ZjVeT6PfvsaRmA12jkbxAnlTpWZ74JmsMEHn4HERnPPSq43XPfyvKTzRUU
+	SH8OlRRFCzsmq/KM2Q2pJxV6ReHC0FeTlfWrU10uj/WELSUqDj/MGJ7pG4LwEykDPjs/xrS2zTL2+
+	gD+wGX0wvzXGH8FXrdVn40APII9xvX+zKNpdNEVPlAJWzufp+oEz4CuA6OrkXeoyiRGGo8fIkBZWH
+	QGIZjd+A==;
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wV8VK-0000000EOrq-2jKe
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 04 Jun 2026 13:53:04 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-45ef372c58aso457949f8f.0
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-45eedcdaeaaso514609f8f.3
         for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 06:53:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20251104; t=1780581181; x=1781185981; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=peByEg9qkw/NuaYmCEAUEFnpiWasS3prWUS+hf7e7ys=;
-        b=RYrr0ULX1/Nh8lBb1DyM0bNfsYr6ovXBpJb5QmJf+QQoHRwY3mSJDJCPl7OHUvidNO
-         YrJZltwtgLrf6CgvcQyplfYj77ZQqvAC+nXoOSahSYkX7Ug2oXGmb3U7/7Wa809wx4Y5
-         kEYRzbZr2gSI4OWYg/WxmFIaW8NbKnt2doILeULhVu9bSR4ZYe4QSptnXJrV1dET9wOF
-         G0nNf9LV4Nmi2MHj61PDolssK/1whoBnizI45Oy3y+ZKQ6gKXGDbEunTU8SSObO/vMmw
-         rtwpH1JFADBN3Ba6fOdMaBdi3uLG9UT0ZkdVbrNkLmqM/8+08C4SIvwzyE4UvIHtTYib
-         u1CQ==
+        bh=OH9hQQFNIkDpasnao4boz8/RAiMZ7MOKPgy4BqZR+6c=;
+        b=IFGfzLvCtHRXi0PxHye0PVEGL5yu1bwwh+/zJQq7g1W+9dPWKxSIHFN/os2e0eBa8y
+         RiBD5WtbEEntQcyOLPA6txzX5vwlp9pfIG7zHsjRXsQk0eksxr6tGznhNTHGogXtOdv8
+         mDJIJzUcG/wnjSuN5pccaNT6svvD4ljHyFV7QRtAX0BVbUS/9grkUSR0g3JY45gjt9lC
+         kiUqsu7nSiXsgS2UFwK5Y/UTEFdCtyu6+hd4VpAswmuiMTnubAVjH355dZHw79qV8lKm
+         YhOD4FeohdLKDGNSLwbtm3Db/gJ7eDnBv6ORolWyfVUFz43HDqYprFZTQJN46Apv+EOi
+         owuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20251104; t=1780581181; x=1781185981;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=peByEg9qkw/NuaYmCEAUEFnpiWasS3prWUS+hf7e7ys=;
-        b=LiQr/8ThL4DUFiLlgzqQUP52/wJP1ud/CyvACWKv4KT2Ycp/Y837msdTQ71RvlAhKL
-         P0wHIV/ldrBjXAGd6cBvz6ZqmsDrXkXDEVHHcv2nOkfUCDsTWVfePYU94QYIudggaHv2
-         n3Nxe42OlZeed/aJ7+fX3YH2r5yu+UYHxCRo3TLEjt4is11MoPA7TfK9XAB0+ZNO8cEJ
-         aB6IXs5XoFXieM0+nczhF82Iu6A6zZgFdhUOcmA8KhVWe2C7VKc0UXSBpo+vFxaqYsVI
-         hnSWyrxuAO/RpxRivFYRhPjwnvnWxT9IiK88lx+Y8nTlwPXMCaLQ1L7zEmzyN3NkZra3
-         336g==
-X-Forwarded-Encrypted: i=1; AFNElJ+4m4ikPNF3MKBVTYbFPo3aSsca9/Fxsn1gKsaOHbstXjkz9ThW+98Vbx8r9trBwA1nuckNqkspgZfAEeQEdJD6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyfF9NbTvAYz1hgo7kEESj92YdFLg4JcTp2paRkA6oVmYF2Lik
-	68P9N4z/ZXPqmDBgAgfM4gmuX7tJrskmM4b8vTOs6GclCVVdLEp5vgq/
-X-Gm-Gg: Acq92OGndlh1YZywYlgBj/UYGonyRHbp4yI2ZPZA+MKN8jSQC/A+d8W+No+JWwrUJDp
-	RIDDDitQfEQxoCq3Tg4m8ii2H/zjQbrDgv6Ety3ozNyZQVPtDsXlwStR4zFzu2yKOXPc4dscJ/a
-	tHZ8mkEscQ1hiLt8umrBit2x3CIvtIcChxNUnNbGtG4ZbvRUhZKGMhk+84gPmMEpqAtxuuiGK37
-	l5e/SBQxa9wifFKPCMz+AWBARaZ+ys7G2QPt05zvibFXaLXSl2IRHNEMgx6//V3cBRHPzm+m1Ns
-	qTGkfrgFTBaM4uP1++aY3EceynxIgD4TMOWsdNkyFhwLzfoweqnM99yYkDsaipatN0Z6+u8cT0M
-	VIV7Y5ogbC2oBLM6NRF653KFR+oOfm+Ys5nXrFzi0j7+OzLaYoZtB83hQRTnZjjt4SQC6jh1yOo
-	GPzYDPf3PdI6uR4PB4DoDTx1/IFsbKIq23KjKd1e2y8KCDewh6xjZjfLnu8d1bpGA=
-X-Received: by 2002:a5d:44d2:0:b0:45e:9431:ee3c with SMTP id ffacd0b85a97d-46021792538mr9334388f8f.10.1780581181471;
-        Thu, 04 Jun 2026 06:53:01 -0700 (PDT)
+        bh=OH9hQQFNIkDpasnao4boz8/RAiMZ7MOKPgy4BqZR+6c=;
+        b=CGYjJ21qSOhsjNZX/VqdR/Tgj7lmDle2idtpYi4nQ8fdtrDFVMjxi5RFG2bnbhCB03
+         Jtmva2zWse2EnN5i0ZHLrNwipd/ig+ZxB/anlV+fr+aSoaVgaYeBRbJvoTGEOriVpycM
+         1d8eQU1UGwgns4SJpHgZcZrTYQ3tvn6hHuJ2Cyrs7QAiMsH+7E9geC7nh5jWUMHtCnLG
+         822rasxifN82cjRMsnz6WvL4+iJiAVxtleby9puBzTJU/DD8IKAP94nt31xYDcgCAcIs
+         k1GTBZA1EwBtotugo2cBaoxQV7tolk0n9O507bhijW8EKKltuDRmEE02lkyGpq+/W7QJ
+         KRoA==
+X-Forwarded-Encrypted: i=1; AFNElJ+xSEjyjTQS5mcZuU+ulrsgY9XkIpSIuPrWwVfuXB7eZPBEnyX5NxpxM3Pvz4FzIwMnyyzvsAO/CBu6yBXFQ3zZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8eTbv0k8m937LpuqL+WJyIZpq4PpAxAPu4hFWWE5eaRfzG45S
+	/MVdUVhnBce1VMGgih512BFTL+Pw4eThu/yx5zWRbLkq0CmKMQMxq/n6
+X-Gm-Gg: Acq92OFlxinQ909JIYr4q/EV0AFvrhqCPOt63DXfoJXAeLCck2AZ8ZC/EZV+vMIak1x
+	RMle55fq4Ep/PdSDGf8lQm6ZkIAJCMJG5a/MurKji1yapXEs2C/rwkn3zF8WBwz1aAxcWFZi/wb
+	6dm7AjHIcYIoWz+8fjPHrjfQys12G7+2uuJvvztkSQsFrWBgFyN0kmdeP/mLY66WRop7P42WJBE
+	oMLkA+eBeMpbNy6ACPNu6l3T+IHfTJ7pwT9ofHkUzQlEsrJ1JCTJAwAjVG0VrUMvkydnpO5+Suu
+	fcMRY0eHlp6nD4XxhWYbHSaFahNIyJNDY4eEDye6JlkfwF5bId5i9GG2Mjs9jmtIRZLYJJxsb1u
+	F2WfdwveWbHgsOp1/jk/iVRBl7lsCCFgdD281u9+6org7CvwXsnBE7hJMqGbGEE1UTXw+mYToJm
+	vwvrPonCc1zt4BLFrsqV+fp6+BDQwJjgFYY2ftoIhBXv1Z4aiRXZ8Ln+4EI9Jn8I8=
+X-Received: by 2002:adf:eed2:0:b0:452:6aaf:76cb with SMTP id ffacd0b85a97d-4602178b717mr9418813f8f.1.1780581180807;
+        Thu, 04 Jun 2026 06:53:00 -0700 (PDT)
 Received: from compiler-rock3b.tailb81abf.ts.net ([2a01:e0a:104a:4d80:be24:11ff:fe12:2776])
         by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f0a43e9sm16661068f8f.0.2026.06.04.06.53.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 06:53:01 -0700 (PDT)
+        Thu, 04 Jun 2026 06:53:00 -0700 (PDT)
 From: Midgy BALON <midgy971@gmail.com>
 To: tomeu@tomeuvizoso.net,
 	ogabbay@kernel.org,
@@ -85,17 +100,17 @@ Cc: robin.murphy@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v3 5/9] accel: rocket: Keep the IOMMU domain attached across jobs
-Date: Thu,  4 Jun 2026 13:52:51 +0000
-Message-Id: <20260604135255.62682-6-midgy971@gmail.com>
+Subject: [RFC PATCH v3 4/9] accel: rocket: Reset the NPU before detaching the IOMMU on timeout
+Date: Thu,  4 Jun 2026 13:52:50 +0000
+Message-Id: <20260604135255.62682-5-midgy971@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260604135255.62682-1-midgy971@gmail.com>
 References: <20260604135255.62682-1-midgy971@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_065303_439657_5EE1361C 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260604_145302_826152_4022F856 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,127 +125,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rocket attached the job's IOMMU domain in rocket_job_run() and
-detached it again on every completion and reset. Each attach/detach
-toggles the rk_iommu stall/force-reset/paging handshake, and on
-RK3568 the NPU MMU is idle between jobs, so that handshake times out
-and logs a burst of "stall/paging request timed out" errors for
-every job.
+On a job timeout the NPU AXI master can be left wedged with
+outstanding transactions. rocket_reset() detached the IOMMU group
+before resetting the hardware, so iommu_detach_group() ->
+__iommu_group_set_core_domain() asked the rk_iommu to stall and wait
+for the in-flight transactions to drain. They never did, the stall
+request timed out (-ETIMEDOUT) and the IOMMU core WARNed:
 
-Attach the per-context domain once and keep it: track the attached
-domain in the core, swap it only when a job from a different context
-runs, and detach it at core teardown. A reference on the attached
-domain is held so it outlives the job that first attached it and is
-released on swap/teardown.
+  WARNING: drivers/iommu/iommu.c:157 __iommu_group_set_core_domain
+    iommu_detach_group
+    rocket_reset
+    rocket_job_timedout
+
+Assert the core reset first: it quiesces the AXI master so the
+following IOMMU detach completes cleanly. Move the detach after
+rocket_core_reset() and out of the job_lock (it does not touch
+in_flight_job).
 
 Signed-off-by: Midgy BALON <midgy971@gmail.com>
 ---
- drivers/accel/rocket/rocket_core.c |  6 ++++++
- drivers/accel/rocket/rocket_core.h |  3 +++
- drivers/accel/rocket/rocket_job.c  | 27 +++++++++++++++++++++------
- 3 files changed, 30 insertions(+), 6 deletions(-)
+ drivers/accel/rocket/rocket_job.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
-index a8de876365873..634f78dfe2887 100644
---- a/drivers/accel/rocket/rocket_core.c
-+++ b/drivers/accel/rocket/rocket_core.c
-@@ -13,6 +13,7 @@
- #include <linux/reset.h>
- 
- #include "rocket_core.h"
-+#include "rocket_drv.h"
- #include "rocket_job.h"
- 
- int rocket_core_init(struct rocket_core *core)
-@@ -112,6 +113,11 @@ void rocket_core_fini(struct rocket_core *core)
- {
- 	pm_runtime_dont_use_autosuspend(core->dev);
- 	pm_runtime_disable(core->dev);
-+	if (core->attached_domain) {
-+		iommu_detach_group(NULL, core->iommu_group);
-+		rocket_iommu_domain_put(core->attached_domain);
-+		core->attached_domain = NULL;
-+	}
- 	iommu_group_put(core->iommu_group);
- 	core->iommu_group = NULL;
- 	rocket_job_fini(core);
-diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
-index 66d138a8ed773..05a197a9c0113 100644
---- a/drivers/accel/rocket/rocket_core.h
-+++ b/drivers/accel/rocket/rocket_core.h
-@@ -42,6 +42,8 @@ struct rocket_soc_data {
- #define rocket_core_writel(core, reg, value) \
- 	writel(value, (core)->core_iomem + (REG_CORE_##reg) - REG_CORE_S_STATUS)
- 
-+struct rocket_iommu_domain;
-+
- struct rocket_core {
- 	struct device *dev;
- 	struct rocket_device *rdev;
-@@ -56,6 +58,7 @@ struct rocket_core {
- 	struct reset_control_bulk_data resets[2];
- 
- 	struct iommu_group *iommu_group;
-+	struct rocket_iommu_domain *attached_domain;
- 
- 	struct mutex job_lock;
- 	struct rocket_job *in_flight_job;
 diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
-index e25234261536b..b248371be8a1e 100644
+index ac51bff39833f..e25234261536b 100644
 --- a/drivers/accel/rocket/rocket_job.c
 +++ b/drivers/accel/rocket/rocket_job.c
-@@ -9,6 +9,7 @@
- #include <drm/rocket_accel.h>
- #include <linux/interrupt.h>
- #include <linux/iommu.h>
-+#include <linux/kref.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
+@@ -364,14 +364,20 @@ rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
+ 		if (core->in_flight_job)
+ 			pm_runtime_put_noidle(core->dev);
  
-@@ -314,9 +315,26 @@ static struct dma_fence *rocket_job_run(struct drm_sched_job *sched_job)
- 	if (ret < 0)
- 		return fence;
+-		iommu_detach_group(NULL, core->iommu_group);
+-
+ 		core->in_flight_job = NULL;
+ 	}
  
--	ret = iommu_attach_group(job->domain->domain, core->iommu_group);
--	if (ret < 0)
--		return fence;
+-	/* Proceed with reset now. */
 +	/*
-+	 * Attach the job's IOMMU domain only when it differs from the one
-+	 * already attached. Re-attaching per job toggles the rk_iommu
-+	 * stall/reset handshake on an idle NPU MMU, which is slow and
-+	 * noisy; keep the domain attached across jobs instead.
++	 * Reset the NPU hardware before detaching the IOMMU. A timed-out job
++	 * leaves the NPU AXI master wedged; detaching the IOMMU then issues a
++	 * stall request that never drains and times out (warning in the IOMMU
++	 * core). Asserting the core reset first quiesces the master so the
++	 * detach completes cleanly.
 +	 */
-+	if (core->attached_domain != job->domain) {
-+		if (core->attached_domain) {
-+			iommu_detach_group(NULL, core->iommu_group);
-+			rocket_iommu_domain_put(core->attached_domain);
-+			core->attached_domain = NULL;
-+		}
-+
-+		ret = iommu_attach_group(job->domain->domain, core->iommu_group);
-+		if (ret < 0)
-+			return fence;
-+
-+		kref_get(&job->domain->kref);
-+		core->attached_domain = job->domain;
-+	}
- 
- 	scoped_guard(mutex, &core->job_lock) {
- 		core->in_flight_job = job;
-@@ -340,7 +358,6 @@ static void rocket_job_handle_irq(struct rocket_core *core)
- 				return;
- 			}
- 
--			iommu_detach_group(NULL, iommu_group_get(core->dev));
- 			dma_fence_signal(core->in_flight_job->done_fence);
- 			pm_runtime_put_autosuspend(core->dev);
- 			core->in_flight_job = NULL;
-@@ -376,8 +393,6 @@ rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
- 	 */
  	rocket_core_reset(core);
  
--	iommu_detach_group(NULL, core->iommu_group);
--
++	iommu_detach_group(NULL, core->iommu_group);
++
  	/* NPU has been reset, we can clear the reset pending bit. */
  	atomic_set(&core->reset.pending, 0);
  
