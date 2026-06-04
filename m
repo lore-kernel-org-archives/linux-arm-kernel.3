@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA9ACD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9838CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yg44805tHXrZI2MFXh1k7JymAUPm/8cNpCDnOcYJ4LA=; b=G0kyZRcMLYcG4hAGBsIGkg+USp
-	EEvyCf+DEN/GHLvgHxI5dTYWiOE1d61d7sVf7IC7YLDC/XOFgqWySC+573vicabyrPX969ngmfNOJ
-	sZFoyClsky2fhMQvSwXjpC3kkVDCI2pA/JVsL9W0OItONnqvy+vfHn8hnEK5iKqM3yAcPTqAvMmpa
-	SU8I41i7FRV76YNhqWPBCbHZx7KKWjPrdRzB8bd25SZ+FPfwZoUd+MnWwcN/TK1btDQpyaVaa52UL
-	VY36n6Tgl9k751I37rnVFsTVdpuicBLS1bKyZWNrOxn8Dy9McjK1jafEUpkvlNxIYh1se/ROAlwAX
-	AN68Dh2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6tcDaEhePlIudWCcnW0SAhasLmYK5dwxdEw+RSf4P8c=; b=YU3ixejtCEkBrvyMMhbTzIe+m4
+	B0YymeZLG0ZC85Ae4miT1j5G0WlhA8J7Giwn7JXFlqXlY81vQ1ns7bgLhBAtTxex0C0Efc8zTIw4i
+	57Xs/bNGRd1v3ATBspRMmJ65ljuSHUhSW6aiSaNbJ1tz/2RN74HJWPjDMZtxc3vaGxjnM+CcpR2sk
+	WyY88+XmCdBN/v5WqFALynNnY3jk+/6btW47rP5Hq9HQJlDxB8AXBv+lFXdsUdSyM3cuMvUPu9Gng
+	7qeXfKnG9SdNgyw8nbAq4FTkEOfhWwT1pWKTPMZwLtDkh/iIl7rXJxYmrOBdiu4eOVOGDL2bh9ie1
+	YoF3i7qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV6n4-0000000Ggwz-3cXm;
-	Thu, 04 Jun 2026 12:03:14 +0000
-Received: from mxd-3-706.seznam.cz ([2a02:598:96:8a00::1200:706])
+	id 1wV70z-0000000GhsU-2hHX;
+	Thu, 04 Jun 2026 12:17:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV6n2-0000000Ggvr-06Ta
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 12:03:13 +0000
-Received: from email.seznam.cz
-	by smtpc-mxd-85fb448c55-l247v
-	(smtpc-mxd-85fb448c55-l247v [2a02:598:96:8a00::1200:706])
-	id 451ebd62fd7190ed47e027fe;
-	Thu, 04 Jun 2026 14:02:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=seznam.cz; s=szn1;
-	t=1780574575; bh=yg44805tHXrZI2MFXh1k7JymAUPm/8cNpCDnOcYJ4LA=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	b=lIJ33aU4RSOjH7pERYIWfnMajC6hGTYYVbtw9DXDvoibOvd72ilxSJFKi3GAr1OH/
-	 1iYloXtr5Bks67Wuq+auD63ep3apxdaOGN1tlQWl7iS/QoNz2K4ktdqt2vLWAbZjFk
-	 7bHoZtGla0z8rHZOIjGOjglkBkppT0yz1GoLubd0PKqw7kuMdUVESMkDu5hEaEnUHM
-	 Rkbwms5Mpn9+EZ5PBimuntCTvygE52AnVi72YyZ38+SQqM5VSZ8HSFzJeWXeWTuTcf
-	 R8IgBanROqPZB9hpP15ZDEKuw/u0BVfkQSIcbLP74gvk6T2Cg4opJlVmL/QqohkJMx
-	 fMLJPkfBijNGQ==
-Received: from archlinux (ezechiel.sdb.cz [185.100.196.77])
-	by smtpd-relay-b58bfc659-k9lmt (szn-email-smtpd/2.0.73) with ESMTPA
-	id a1f98a3b-d877-4d67-a75d-db9b2bd38245;
-	Thu, 04 Jun 2026 14:02:52 +0200
-From: =?UTF-8?q?Vojt=C4=9Bch=20Kr=C3=A1tk=C3=BD?= <vo.kratky@seznam.cz>
-To: linux-iio@vger.kernel.org
-Cc: =?UTF-8?q?Vojt=C4=9Bch=20Kr=C3=A1tk=C3=BD?= <vo.kratky@seznam.cz>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 02/11] iio: adc: change from %ld to %pe for PTR_ERR() printing
-Date: Thu,  4 Jun 2026 13:59:22 +0200
-Message-ID: <20260604120201.116925-3-vo.kratky@seznam.cz>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260604120201.116925-1-vo.kratky@seznam.cz>
-References: <20260604120201.116925-1-vo.kratky@seznam.cz>
+	id 1wV70y-0000000Ghs3-0GcR;
+	Thu, 04 Jun 2026 12:17:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 68D8E43FA4;
+	Thu,  4 Jun 2026 12:17:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F7A51F00893;
+	Thu,  4 Jun 2026 12:17:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780575455;
+	bh=6tcDaEhePlIudWCcnW0SAhasLmYK5dwxdEw+RSf4P8c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eJT1W+a7yBFj5f0F08Rf3p+a5QNdyb2ZOlFDLriNmO2DidwrP1SwEKpexjiYGbXtI
+	 mrg493otE2WPbKmxOLVcQEDVxAX81TPqkPR+YF4hP2pW2devqPit639cMGJgjtMQU2
+	 AG5qUsLs7SRJ21lXhntgVzwUiRdBV+CiXRLXYlK6qyIFJt6HP6BjhjpLKcTCpN1C2j
+	 MdccibZC2LGohJqgT2WVSxIER2+5wQcA79GHLyl16IhYbrBbCKfylMKEou3aoGT+1W
+	 lAJpv/fbjL+hlGx0tzVtdTaV/qtZTay37HLuxRbIdBk7BuKOR6T5UqLLfSh4toAoP4
+	 y4lbtqS/nGtOA==
+Date: Thu, 4 Jun 2026 15:17:20 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Jork Loeser <jloeser@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-mm@kvack.org,
+	kexec@lists.infradead.org, "K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Alexander Graf <graf@amazon.com>, Jason Miu <jasonmiu@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>, Baoquan He <bhe@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>,
+	Ran Xiaokai <ran.xiaokai@zte.com.cn>,
+	Justinien Bouron <jbouron@amazon.com>,
+	Sourabh Jain <sourabhjain@linux.ibm.com>,
+	Pingfan Liu <piliu@redhat.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Mario Limonciello <mario.limonciello@amd.com>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	linux-kernel@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [RFC PATCH 00/20] mshv: enable kexec with Hyper-V donated pages
+ and partitions
+Message-ID: <aiFs0OLJQWtIbJEF@kernel.org>
+References: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
+ <ahxrc4pTvVU20RTX@kernel.org>
+ <f9d95fb1-ef3-d4a-19e4-afe7cdde5d1f@linux.microsoft.com>
+ <ah_z3GV55RY3ZnT-@kernel.org>
+ <3197c9c9-9e4f-c592-bb7-ac422f89115@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_050312_211672_D10810D1 
-X-CRM114-Status: GOOD (  10.22  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3197c9c9-9e4f-c592-bb7-ac422f89115@linux.microsoft.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +95,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace numeric PTR_ERR() logging with the %pe format specifier
-so that error values are printed in a more readable form.
+On Wed, Jun 03, 2026 at 10:25:58AM -0700, Jork Loeser wrote:
+> 
+> 
+> On Wed, 3 Jun 2026, Mike Rapoport wrote:
+> 
+> > On Mon, Jun 01, 2026 at 01:09:41PM -0700, Jork Loeser wrote:
+> > > On Sun, 31 May 2026, Mike Rapoport wrote:
+> > > 
+> > > > > Patch 19:      Export kexec_in_progress for modules
+> > > > 
+> > > > Isn't there another way to differentiate kexec reboot?
+> > 
+> > There's that "kexec reboot" string passed as the cmd to the reboot
+> > notifier.
+> > Maybe we can make it somehow more well defined API and use it?
+> 
+> A string? Dear my - the compiler won't flag it on an API change then, not
+> ideal clearly. What's wrong with exporting kexec_in_progress()?
 
-This change was identified using a Coccinelle semantic patch.
+The policy in general is avoid exports unless strictly necessary.
+A string can be declared as const char *KEXEC_REBOOT = "kexec reboot" and
+used in both kexec and mshv. Not ideal, but still better.
 
-No functional change intended.
-
-Signed-off-by: Vojtěch Krátký <vo.kratky@seznam.cz>
----
- drivers/iio/adc/sun4i-gpadc-iio.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/iio/adc/sun4i-gpadc-iio.c b/drivers/iio/adc/sun4i-gpadc-iio.c
-index 479115ea50bf..5d7a61abcaea 100644
---- a/drivers/iio/adc/sun4i-gpadc-iio.c
-+++ b/drivers/iio/adc/sun4i-gpadc-iio.c
-@@ -508,7 +508,7 @@ static int sun4i_gpadc_probe_dt(struct platform_device *pdev,
- 					     &sun4i_gpadc_regmap_config);
- 	if (IS_ERR(info->regmap)) {
- 		ret = PTR_ERR(info->regmap);
--		dev_err(&pdev->dev, "failed to init regmap: %d\n", ret);
-+		dev_err(&pdev->dev, "failed to init regmap: %pe\n", info->regmap);
- 		return ret;
- 	}
+No strong feelings from my side, just EXPORT_SYMBOL there felt a bit off.
  
-@@ -639,8 +639,8 @@ static int sun4i_gpadc_probe(struct platform_device *pdev)
- 		 */
- 		if (IS_ERR(info->tzd) && PTR_ERR(info->tzd) != -ENODEV) {
- 			dev_err(&pdev->dev,
--				"could not register thermal sensor: %ld\n",
--				PTR_ERR(info->tzd));
-+				"could not register thermal sensor: %pe\n",
-+				info->tzd);
- 			return PTR_ERR(info->tzd);
- 		}
- 	}
--- 
-2.54.0
+> Best,
+> Jork
 
+-- 
+Sincerely yours,
+Mike.
 
