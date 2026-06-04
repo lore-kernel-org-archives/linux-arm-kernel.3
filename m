@@ -4,125 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DE2CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A38CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2QZdPuiF3s/K/hP6adyb62JYNxigoWxMG1szuuNaHkc=; b=Q9pCuXhWXdwQq4rSqSGgsX1qkv
-	JinTZ1Ost1i62xubzey/KKRkp38BJpkdVjwbazWJ4jeAylgsd1JXIbNdy096nZqPe1/6rjxPtxZVy
-	Gtsbu1kI1dgTPIrS7rq66eVhVeMevU89uNmLIcg1qAC9zfMd/bunXH9kI1rb5t4SesJeL34nWN7oS
-	hx/v7AkY20cdesyu3z3qah3YDWUfrhHkTdWgs7hsDda1068U6HOh3qVggCMN+oqmoAjh8c00je+ta
-	Kl28zaRcSrnBT4vQE4OoqIqQZMj/pJlanQId5IBZL0TAlu6yjw9Jgb7XhcaHw3q2IVmw5nNGP9yBN
-	ZsFaaBcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nbk67PysBg7DJJKGW/wCdu53ipJpqlNAOSXxv9Li8rs=; b=K6XmwU0BgslgLItx5lDsoTPG0B
+	8TyJ9hsDJGzZO+Frfa9eDx8UCNaS5h/12mkygN/7uTRiPD4mhBpGEDImmL8PpbNg2xAGxNvC7Ht8h
+	2Gzf79+S6aog6km2VbDkEsOo2K02LWRs/gfLQwLfzaG9IUyP8JNHvMICXRxMDM3VlgEjgs36jXeQd
+	bPLF+n9hmUueljo2vQ3GK6ip1NWNeQP+QKjFNRczXigOi/SGkKDtC1kuvRyXW+vimTCir+Sg2qQCC
+	F4uy/8fm5baper3vLp+vDZUjFcOL4BoSRkF3RI+IgI/UvrrPc0CKnYx7aCqWWYf9NQ3yw8vEgZHoe
+	mVKl9OJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV88v-0000000GnPY-39DL;
-	Thu, 04 Jun 2026 13:29:53 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wV8EK-0000000GnvF-1eks;
+	Thu, 04 Jun 2026 13:35:28 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV88s-0000000GnPC-4BTL
+	id 1wV8EI-0000000Gnuq-0jD4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 13:29:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m0N80djnCG8EMxaFkYJ67CYfDorYxAO4/IfdLWjbOdsdl2MufBrG0U9iWkDD3NyYLzxWlC1g4gydabeGlzciDyzhVKKaqajTuN1XjaRvvhw5P5Xbkju8UqnqS6UFQ8GLcp8Ouy/r3nbuQxoVYutcnhrOGCLbCVDi8iNSk/DTr3K6CrWYa7mlUdeRrB8zx0CnG490oHz3Y/p+PieIUylJMH+UQGcFeid0lGpAs+7oDV+paudW8yIQ0JRwg25IW8jaYhzyhnASyH6AkZYjocziBgQtFZSrjxe5QN4hKucrcscXjujuTzsjj06APqZrdkJfkFysy0TynYhFUSNp7Y0lKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2QZdPuiF3s/K/hP6adyb62JYNxigoWxMG1szuuNaHkc=;
- b=UnxkCHnF6l6P7eYW0iALO4EWGAI0v98Y5XmEOAXTWBn+6DjRFurKYT0aLvS3hNgbryiAxi48Ww306176Xr6h9DwpJKuSzXiC1S7/cqnxW15S2thHeHX5fvE13LmNmbXWhitdhD5FVT4shXRu8CwHnDhoI0vogLmj6/YxCRo6pHyRMXxyodDMtDhJVmyfpZYqNpAwld2b5PkEk9J35lg26ves2mVYxyrlT1XsfchaFkR7C5j+/iwtiK3vod+H/k385NlCE6fiXL5pgZ0UAEU0E3dntSBX1FJNbKBeToc/ND1IZlHjDLoY8y+QTiX9oEq42c6IlfKBcGREqvOrGGJYbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2QZdPuiF3s/K/hP6adyb62JYNxigoWxMG1szuuNaHkc=;
- b=vYiNs4Tt9ia2xNkGDO1uJNlMtnceurxK3UXd1MZLeASODsUzPB7J7EvmwKtNJJrnfyI87bW+dpqX7+G4ADXxmhGJPY/KtRksDhW3aRBXwNBb0XwZ4JTJJjYuaESvRsBTSt8rS/nIcyio3uQOkuknnmoOsuygjABRTJAPeIUXMJ8=
-Received: from MN2PR05CA0057.namprd05.prod.outlook.com (2603:10b6:208:236::26)
- by SA2PR10MB4747.namprd10.prod.outlook.com (2603:10b6:806:110::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Thu, 4 Jun 2026
- 13:29:45 +0000
-Received: from BL6PEPF0001AB58.namprd02.prod.outlook.com
- (2603:10b6:208:236:cafe::66) by MN2PR05CA0057.outlook.office365.com
- (2603:10b6:208:236::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.8 via Frontend Transport; Thu, 4
- Jun 2026 13:29:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BL6PEPF0001AB58.mail.protection.outlook.com (10.167.241.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Thu, 4 Jun 2026 13:29:43 +0000
-Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 4 Jun
- 2026 08:29:42 -0500
-Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 4 Jun
- 2026 08:29:42 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 4 Jun 2026 08:29:42 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 654DTf8t3453466;
-	Thu, 4 Jun 2026 08:29:41 -0500
-Message-ID: <203d82b2-216e-4f5d-aa3d-f653228d397a@ti.com>
-Date: Thu, 4 Jun 2026 08:29:41 -0500
+	Thu, 04 Jun 2026 13:35:27 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-36d8b644473so661489a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 06:35:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780580125; x=1781184925; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Nbk67PysBg7DJJKGW/wCdu53ipJpqlNAOSXxv9Li8rs=;
+        b=ot8Jh8qQVpBwj6Fzx3BctsNeNZC92FMwkZQsDWH4MK5FodvW9WLXrdukqdCm7C82ve
+         9PjqQL/+DlVf1TxkdAwDyKkHSB1Kyeeic8lVL7Hf086PZf8n+sfJZhM15ntAfmSW5K5A
+         SMoje5r+79BcCKgZGsXXusE9r4vVfBouUWdALGSTopILlmGjPJhcpFJg83ftnMOTU/kj
+         n1AFCdwsMGcjhDarxS44bHL5zuhu98zO5ezxHp5PQB/OHNl3sBmW1XP1pM636SHQB1qb
+         7XFmVG+GMWRi3X9m1BwMf7sj7LpKFXF0kssSUD2lPs6d7hzbpYi0OBGqsNUsNx1zDjd/
+         ElfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780580125; x=1781184925;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Nbk67PysBg7DJJKGW/wCdu53ipJpqlNAOSXxv9Li8rs=;
+        b=Gl9FtViDNh1Mk6uG4o72C0oIZoQIdvRaAmbjDtcco+tmTYzLY6bhlftipEQmFpukX1
+         pLYwi6/MVtPqYlyLz5pp52sEoYjjsREWvi26oHaU+z1ApF8M4OQ3v/JWzPZZ0Oi3HJS6
+         hOcsCvFVcwyWWiCxbgNlLXXMCGPAGNTJkFZMcBBJTf2dfNckjNxzi33tp7ixni0FTg0Q
+         jiNglTivp94CFnSFdqlMYLiIE2++VBBRQar0pGLVoBSYjJBRIuQsOa39IKGVcgQ7Pv99
+         JyWUrLfvv97aM25CrvclMHklcODY4kIa7hffIyDBUPFTWp4+Ol2abAAZ2abmG0o0QyzL
+         mvUA==
+X-Forwarded-Encrypted: i=1; AFNElJ+/uCWZ9CtOx6dkVplPY4kRCmpE6kEXGXSwt403ePnFEhSYfR+4gfSLcOfTXD5G3mQfqCJ45t9TK1nELlfrSHRV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5fpB7r9o5IiDsKSo/m/cb4qpBHicy4SmPhlN8jG5gF0QGjLjC
+	7RwObDOxlpEXQVWwIK1cpOEnxcemwHkRSFztbLAZIQPnP9/4dIRS0A7g
+X-Gm-Gg: Acq92OE5fvKRGItDTa4nA7qbeX9vmFeNflBkM+EaZ6TU2f4o1Cnh8dFBzMVVWdch2Ao
+	LkD26AuFZbDkL4bTZnLKwC5RW2whquALWfulI+ZSQw2rx6uGUqgHxFKeeh0wTuA+GyxqB2FSk60
+	il1kITpq1A7WK2do6pRiq5wZN0bvFYgR9fii3ycWNg5GK6mnWYJGuBiqBISDgdC28Mt7e4g8+1g
+	QR1YrFLYNA/ihCwWMbSYzz3swo0sneF4DzEm0hn6IcnR2qSXrmVqEmxfkz+bZLwFpHMYHvY/rnK
+	Up2wsGHfDaD4PMZfGjHghDeS8we1TUXaVzOLhq8RjYqYe2uihz1V96LRwtnUzDxK9DSnM71/NH9
+	dZDMRYsJhqlBMTd9VFQ71zgdbD0ARWdaIWRNbW2KHYQ4EwvLIddpUtRa0UouKPEjOrubrStH0aB
+	CfV5RWt1ivjWb+ceBHx9cFzu38AakLDoGzUgIJzN67P6xjSXN51rqLqQ==
+X-Received: by 2002:a17:90a:f94e:b0:36a:ee1:fc24 with SMTP id 98e67ed59e1d1-36e2f3c3635mr8502314a91.8.1780580125219;
+        Thu, 04 Jun 2026 06:35:25 -0700 (PDT)
+Received: from v4bel ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f70a29cd6sm3133442a91.11.2026.06.04.06.35.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jun 2026 06:35:24 -0700 (PDT)
+Date: Thu, 4 Jun 2026 22:35:20 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	imv4bel@gmail.com
+Subject: Re: [PATCH] KVM: arm64: Sanitise host vCPU fields in flush_hyp_vcpu()
+Message-ID: <aiF_GLmaDdD5i1Cp@v4bel>
+References: <aiFe-CXo-XVTFz1g@v4bel>
+ <CA+EHjTwgPFbbp7khcy+DZ9HZWCX-OWPfO78Gj_eQuCoj+SA90g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] arm64: dts: ti: k3-am67a-beagley-ai: Add overlay
- for IMX219 on CSI0
-To: Nishanth Menon <nm@ti.com>, Jai Luthra <jai.luthra@ideasonboard.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Robert Nelson <robertcnelson@gmail.com>,
-	Devarsh Thakkar <devarsht@ti.com>, Tomi Valkeinen
-	<tomi.valkeinen@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20260515-beagley-cameras-v2-0-f6acb66c9995@ideasonboard.com>
- <20260515-beagley-cameras-v2-3-f6acb66c9995@ideasonboard.com>
- <20260529150119.dqzzruc7xqliftwp@bullhorn>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20260529150119.dqzzruc7xqliftwp@bullhorn>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB58:EE_|SA2PR10MB4747:EE_
-X-MS-Office365-Filtering-Correlation-Id: 316b6f94-fa86-458f-8492-08dec23d56f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700016|13003099007|22082099003|18002099003|5023799004|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: gq2d/GemulBTXe3/pXa0FVUE/YsKZjJcTzDAJAM9mjrurG+HYDY2jUBJbJSCuvSJqgWbbbmI/c2TCagQT8Q50ibLrxmLP2VH7npkxvYUfhUl7jA5J255pF8LcpPXdsb8eiQHPgiV7HgPBuzy9OkB/eY2kAZ+8UTuFR+Zw7orcb0UbA/NX3Jmvc8a17V2JiMB3Ecx+hGvfWsM2TQAJcjT45EkrqgFHwqw2nfWXZPrm7+LHVHRR/gX+ejpu2baN46Hsdb3QxyjE0aAkbnSKwcYWoq5C3LP6ZzhWF3iaVLl0XIZQyuiWu+tV9NLH2tcEfm1ccslCR1bY5mflwhM3wyQV4UjiNK0TcWfhllqHP7PCkDDs3XqaL92ouahW40dIm5FCOJYtIfvMbju+ArowckvnECCtf1ZvFBkzncrx260qtgb2UDtoZ0PG2U68bbKLhURI7U305PaCOltBlbPXFa4TJaFxwl02H6ItmkyZSfbNsXgPqSL/ENj37RDYBtKBng3YV6NwRrGX0T2q4a1RozipEiDB4QmNpGhvkGUSqdwBerY30u6sKZCc6y05AOWOfDazajbXezDmP3iVvGm/QFq0J5ppP7gR2tfkwDX2M8Ao6M8B9IAJlP8HD/UZoxoMQoycC0u1tyLTOxtjCT+xhzA+y9VgNLlO8q8gAv/rb50zWeuY6CKsGDC+hFDNaImxmZZ
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700016)(13003099007)(22082099003)(18002099003)(5023799004)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8ATxqa74a+ctuapL15k+LHEYobWomREs2gnn/bzCQ4pZhcSsNgB0kZjJVP1ljvbIm1Oo6qtsb0ajdULymit68EEcCKAciIqouiicSkkDxnhJan/fcmoM5E8RRN2m4ocbaGeVnQIZHOe1NYS0mRt+uaaPsjTo9Y4dpXNdjKSVUwfrK8q6vV8b9nDMH0iIaO9pruqY5XCI5dcMAeFXl2yX8/f66VTM0ESeaWdmoCppBNsNzZGL6B6lmuPz7FtGQdEKt6WYclvy+2s4nyjRBYFBM8R4n7xlnWkWtopobNLA6qYsFSB1yMo8kl/cDlVCYn0hpW1wTLgOIpNbewFgcGRNTUiWQA6BfBFfHs0vObkaNZnTMNztPOiGEsVH+4VdMJs+XipVg4bNW4ApDtAVfbwxl/CekXag7y0hNV4iLCdLMQAVt4u069ukby1kt9IPgOnn
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 13:29:43.9799
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 316b6f94-fa86-458f-8492-08dec23d56f5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB58.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4747
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTwgPFbbp7khcy+DZ9HZWCX-OWPfO78Gj_eQuCoj+SA90g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_062951_144811_48F57C2D 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20260604_063526_219497_92F9CE59 
+X-CRM114-Status: GOOD (  29.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,63 +101,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/26 10:01 AM, Nishanth Menon wrote:
-> On 06:46-20260515, Jai Luthra wrote:
->> RPi v2 Camera (IMX219) is an 8MP camera that can be used with BeagleY AI
->> through the 22-pin CSI-RX connectors. Add a DT overlay to enable use of
->> this camera sensor through the CSI0 connector.
->>
->> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
->> ---
->>   arch/arm64/boot/dts/ti/Makefile                    |   4 +
->>   .../dts/ti/k3-am67a-beagley-ai-csi0-imx219.dtso    | 121 +++++++++++++++++++++
+On Thu, Jun 04, 2026 at 02:01:17PM +0100, Fuad Tabba wrote:
+> Hi Hyunwoo,
 > 
-> Oh man..
-> https://lore.kernel.org/linux-arm-kernel/20240702164403.29067-1-afd@ti.com/
-> comes to memory.. Afd - what ever happened to that?
+> On Thu, 4 Jun 2026 at 12:18, Hyunwoo Kim <imv4bel@gmail.com> wrote:
+> >
+> > flush_hyp_vcpu() copies the host vCPU context and vGIC state into the
+> > hyp's private vCPU on every run. ctxt_to_vcpu() expects a guest context
+> > to have a NULL __hyp_running_vcpu, which is only ever set on the host
+> > context, so that it resolves the vCPU via container_of(). The vGIC list
+> > register save and restore expect used_lrs to stay within the number of
+> > implemented list registers. While this is generally the case,
+> > flush_hyp_vcpu() copies both fields verbatim from the host vCPU and
+> > enforces neither expectation.
+> >
+> > Fix by clearing __hyp_running_vcpu and clamping used_lrs after the copy.
 > 
+> Nice catch, both fixes are correct.
 
-Good question, others have taken over the torch for the most part. Nice
-little talk[0] I found on some current status updates for the topic.
+Thanks for the review.
 
-They even mention my little proof of concept around the 19min mark :D but
-kinda just dismiss it as it doesn't support hotplug, which is a requirement
-for their usecase. But my solution doesn't support hotplug because DT
-doesn't support hotplug. And to add that kind of support to DT they are
-pushing to change the DTC[1], the FDT format[2] (which hasn't changed in 19
-years and is the basis for claiming DT is a firmware/"ABI"), and make an
-alternative to DT overlays called "addon DTs"..
-
-What I proposed was something that can work today without any changes
-to existing DT infra. My only goal being to prevent needless duplication
-in overlays like we see here where you have a new overlay for each
-connector the device could be connected to. Just look at our evil vendor
-tree to see what this problem can look like, go here[3] and search "fpdlink".
-We have 14(!) overlays for just one camera sensor (IMX390) with the only
-difference between each being a single line to select the FPD-Link port
-where the sensor is connected.
-
-Jai, I see you have already posted v3 of this series, but could you take
-a look at what I've proposed here[4] and see if this could be used to make
-a single IMX219 overlay that would work for both CSI ports? If you can
-pull that off then we avoid the combinatorial explosion of an overlay
-for each port on each board for each camera sensor.
-
-Andrew
-
-[0] https://www.youtube.com/watch?v=C8dEQ4OzMnc
-[1] https://lore.kernel.org/devicetree-compiler/20260112142009.1006236-1-herve.codina@bootlin.com/
-[2] https://lore.kernel.org/devicetree-compiler/20260409115426.352214-1-herve.codina@bootlin.com/
-[3] https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti?h=ti-linux-6.18.y
-[4] https://lore.kernel.org/linux-arm-kernel/20240702164403.29067-1-afd@ti.com/
-
-> other than the dsi mux, painful to see so much duplication..
 > 
-> Other than that, there is the previous comment (ordering etc, repeated
-> here). I also suggest people put the url of the board/part that the
-> overlay is supposed to refer to when creating overlays.. at least, some
-> sort of canonical link so folks are'nt confused in a future date.
+> Please split this into two patches, one per field. They are independent
+> bugs that just happen to share a Fixes: tag and the function. Both are
+> host -> EL2, so worth stating that in the commit messages.
+
+I'll split this into two patches and resend it as a series.
+
+> 
+> Otherwise this looks right to me.
+> 
+> Cheers,
+> /fuad
 > 
 > 
+> >
+> > Fixes: be66e67f1750 ("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()")
+> > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 +++++++++++
+> >  1 file changed, 11 insertions(+)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index 06db299c37a89..ef9318ff0c25e 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -7,6 +7,7 @@
+> >  #include <hyp/adjust_pc.h>
+> >  #include <hyp/switch.h>
+> >
+> > +#include <asm/arch_gicv3.h>
+> >  #include <asm/pgtable-types.h>
+> >  #include <asm/kvm_asm.h>
+> >  #include <asm/kvm_emulate.h>
+> > @@ -128,6 +129,9 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> >
+> >         hyp_vcpu->vcpu.arch.ctxt        = host_vcpu->arch.ctxt;
+> >
+> > +       /* A guest context must keep a NULL __hyp_running_vcpu. */
+> > +       hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
+> > +
+> >         hyp_vcpu->vcpu.arch.mdcr_el2    = host_vcpu->arch.mdcr_el2;
+> >         hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
+> >         hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
+> > @@ -139,6 +143,13 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> >
+> >         hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3 = host_vcpu->arch.vgic_cpu.vgic_v3;
+> >
+> > +       /* Bound the host-provided used_lrs by the implemented list registers. */
+> > +       if (static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
+> > +               hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs =
+> > +                       min_t(unsigned int,
+> > +                             hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs,
+> > +                             (read_gicreg(ICH_VTR_EL2) & 0xf) + 1);
+> > +
+> >         hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
+> >  }
+> >
+> > --
+> > 2.43.0
+> >
+> >
 
+
+Best regards,
+Hyunwoo Kim
 
