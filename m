@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE68CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A5FCD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vxPA9SqaHtcFSqcBbRNXxNBkzhPWrG1gxF1dvHfcmk=; b=jWwA+S6pLJIjCS3Jsd3peOUy6R
-	odlEYznA5z+fGW4RdXEOC+XnhwQsWddELxk0QbjaXkTcS5DF7JjvqEqsR5UEBC4ehE1gE2QCoYgnr
-	ISD9nNXIonPgCEGt05+vBJxTiOtcRgwRNx2JuA5W8XnXWbNljQyxd91yhxkVpQpmIwww4O4JYinuw
-	zKXCI5BabB3CfSMolNl5l2iajHi6yhUNkS6Wv+FnqCvR+MpOEWVQeTXgDdQ13A9fg3yFeV96I85FV
-	EshgkpkhEAxQKB7kqSg+NDyTEH2HhE//9Yggt9o0KquqXOrsb0Fe2u2FmByolFYkj52I/H0OVDtJ/
-	YNOLnmig==;
+	bh=tFCE+hiVPRf1CNvw+DFLcAvTuFhxrcpdI+X6Jq+ZZp4=; b=X/lR+x4K/LWzIUDA1oyByUOmcY
+	Q/BvPFJ8h2p9ze5RvypFq/f4XhOomkh6DWTXL93iY1o29H3PalGiM1bnsxmyxb2W+EnGkcK2Y5RzL
+	aYOQziPfm3+UMr2p5Fu/XbC91u+zswfst7/TEu+9F0QGCsELpWnCEOHuoU71muQrP7yo195Q1Y55O
+	cmvWcOqzjwT0iLy/H0QHLJO7N45NRjr0gmp1OvzD6hKP4/7HHiFjmKL5cdF8h2I45ehvrkx82JBIR
+	RJU1vPzCP/3d2k4DJmWMVILdTHPyXygPRmt1FyJPJx+6GCkJNzD51iC7w8/NdCdbxOTvV4sP9Fvdf
+	zWVj2tAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7Vn-0000000Gjz0-3eXm;
-	Thu, 04 Jun 2026 12:49:27 +0000
+	id 1wV7YC-0000000Gk9E-11Hr;
+	Thu, 04 Jun 2026 12:51:56 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7Vn-0000000Gjyo-0z24;
-	Thu, 04 Jun 2026 12:49:27 +0000
+	id 1wV7YA-0000000Gk95-2fyg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 12:51:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEC8B44425;
-	Thu,  4 Jun 2026 12:49:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B060A1F00893;
-	Thu,  4 Jun 2026 12:49:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28DCF438E6;
+	Thu,  4 Jun 2026 12:51:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 045CC1F00893;
+	Thu,  4 Jun 2026 12:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780577366;
-	bh=2vxPA9SqaHtcFSqcBbRNXxNBkzhPWrG1gxF1dvHfcmk=;
+	s=k20260515; t=1780577514;
+	bh=tFCE+hiVPRf1CNvw+DFLcAvTuFhxrcpdI+X6Jq+ZZp4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=j/lTYKRwHS25jSfSuY7xbDcaizsINxuqRxJgk7br4Gm1wb5zUxJbpQmLDRrg7nj26
-	 1sk1uXxnZsHdB1E603/XDJD8TYtzkDW7L4m5S9mwu6cw1iWzanoD2SdCpa6FQtqxcr
-	 SnpfJJTrEnJatsX8/a7UQo1kjCWRxwG3q2KHZQHw3KsRzYjW+1Ps9BPPOOIEr+Iq+7
-	 vLIEMJIuBbe3YQYZmKKlD5pkNnX42M4riCXSXILidnHzVhs4C0AMNczS1eVWzhYHkA
-	 iSiZDzwXRiNPzXY8OqOQCv6wDLAdMND95Tqnn/X0lrQ5LpnTGMUjdAq8Bp4WOXsSlJ
-	 TTATKP1kwYTxA==
-Message-ID: <4d96835a-a273-4c46-85a2-03c059934650@kernel.org>
-Date: Thu, 4 Jun 2026 14:49:19 +0200
+	b=liJsNpvF5KlEB6OiRn9Zs5nnd7TR8VYwAB7ajnO2XTE+ytl2EDoII3XdlI2Tf6JcP
+	 xgNlcihMNeQHHPZh/aUJKVSLdn0nIO/SGLm/GRJ7Eh3ugDI/o+ID0/hv78+cMaDKHy
+	 +5obBVlwpnrPM8lJiiB25+mJZUavRNiPtlpV5ZHj910H9CB6cHP+hO+U+xCkYB0+IS
+	 OI2IbH5Ayrgzj+3tsmUBMc9Yb/BpOb+JxT9ykKYaOj4cqQazjAHv/4pU4662jMAzP4
+	 akZwNJ2u4QhsJBiLvuWvd/BoIl9HyWDbTezviZHUedLuwVyjf9Fn2Db9lrbnyVjFQs
+	 tXO64gDdu9Y8Q==
+Message-ID: <bdd7a9ba-18c0-4625-be98-cfb065f872bd@kernel.org>
+Date: Thu, 4 Jun 2026 14:51:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: soc: realtek: Add Realtek DHC I/O level
- detector
-To: Yu-Chun Lin <eleanor.lin@realtek.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, tychang@realtek.com
-Cc: cy.huang@realtek.com, stanley_chang@realtek.com, james.tai@realtek.com,
- afaerber@suse.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org
-References: <20260604111821.975624-1-eleanor.lin@realtek.com>
- <20260604111821.975624-2-eleanor.lin@realtek.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: display: msm: qcm2290: Add Shikra
+ MDSS
+To: Nabige Aala <nabige.aala@oss.qualcomm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Krishna Manikandan <quic_mkrishn@quicinc.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
+ <20260604-shikra-display-v2-1-b3c1b2b67edc@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +114,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260604111821.975624-2-eleanor.lin@realtek.com>
+In-Reply-To: <20260604-shikra-display-v2-1-b3c1b2b67edc@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,89 +131,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/06/2026 13:18, Yu-Chun Lin wrote:
-> From: Tzuyi Chang <tychang@realtek.com>
-> 
-> Add device tree binding documentation for the Realtek DHC I/O level
-> detector.
-> 
-> This hardware block is responsible for detecting the I/O signaling
-> levels (e.g., 1.8V or 3.3V) of various interfaces (RGMII, SDIO, eMMC,
-> etc.) and applying the corresponding pad configurations via pinctrl
-> states.
-> 
-> Signed-off-by: Tzuyi Chang <tychang@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
->  .../realtek/realtek,rtd1625-io-detect.yaml    | 77 +++++++++++++++++++
->  1 file changed, 77 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/realtek/realtek,rtd1625-io-detect.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/realtek/realtek,rtd1625-io-detect.yaml b/Documentation/devicetree/bindings/soc/realtek/realtek,rtd1625-io-detect.yaml
-> new file mode 100644
-> index 000000000000..badf27212dfd
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/realtek/realtek,rtd1625-io-detect.yaml
-> @@ -0,0 +1,77 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright 2026 Realtek Semiconductor Corporation
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/realtek/realtek,rtd1625-io-detect.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Realtek DHC I/O Level Detector
-> +
-> +maintainers:
-> +  - Tzuyi Chang <tychang@realtek.com>
-> +
-> +description: |
+On 04/06/2026 14:30, Nabige Aala wrote:
+>  
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - qcom,qcm2290-mdss
+> +  required:
+> +    - compatible
 
-Drop |
-
-> +  The Realtek DHC I/O Level Detector is a hardware block that detects I/O
-> +  signaling levels (such as 1.8V or 3.3V) to determine the correct pad
-> +  configurations for specific IP blocks.
-> +
-> +properties:
-> +  compatible:
-> +    const: realtek,rtd1625-io-detect
-> +
-
-No resources here, so does not look like a real device, but driver
-instantiation.
-
-
-> +  pinctrl-names:
-> +    items:
-> +      - const: rgmii_1v8
-> +      - const: rgmii_3v3
-> +      - const: sdio_1v8
-> +      - const: sdio_3v3
-> +      - const: csi_1v8
-> +      - const: csi_3v3
-> +      - const: sd_1v8
-> +      - const: sd_3v3
-> +      - const: uart1_1v8
-> +      - const: uart1_3v3
-> +      - const: aio_1v8
-> +      - const: aio_3v3
-> +      - const: emmc_1v8
-> +      - const: emmc_3v3
-> +
-> +  realtek,iso-pinctrl:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Pinctrl phandle containing I/O detection registers.
-
-MMIO registers are in 'reg' property.
-
+Why do you need this select? None of the bindings have it, I think.
 
 > +
-> +required:
-> +  - compatible
-> +  - pinctrl-names
-> +  - realtek,iso-pinctrl
+>  properties:
+>    compatible:
+> -    const: qcom,qcm2290-mdss
+> +    oneOf:
+> +      - const: qcom,qcm2290-mdss
+
+
 Best regards,
 Krzysztof
 
