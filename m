@@ -4,102 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD14CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19D0CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 12:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oVCtfvOAMMbqkNqCa+q9Cb6hDsShNb4EGCU/ePnP6H0=; b=3JxmbNTD1cWHyc
-	EqbZ20Kofh5M+Z6TvICDSYiZNFUjDSaEDfGF2XaLHWiaCjj0Yg7oLa5S8dSy/MuEgry+CpJFstDwN
-	c0/LXwAm10xiJfIU9jfAeRMwbl6rT2pI/vv2S5WjF37bPO5mMFxgjA7saZ6Mb4dc2vWnyyLPNHTBC
-	A08KFXAOEeaH55dnA05Cz17c63eEiLuI44jrCvc6eaxqLY9McXGo/ZZGSjbcruy07BMPJyhKeupUO
-	rjg1vnNoYgFBQ9R6N10xZgLxO72lHAoA1XBJJSVUSHM/uAUP8dslQn/DaGZEmAlSNQaNDApDED1y7
-	4137oHXv0qfaTNJahh3A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=; b=md7alLDQS81AA0ox9EPJoTFlo4
+	ngYjolB3P+MgzTNE6c9Knwv/hXc+qUepvDKukWB4uU91HS6XYzYxRB7WR5YV4x1I310Ksay21mnbo
+	WeZx3pAbueJVzwoq7Gw99TOy9nCsf7CED89eyI/5aTZw+SlCDBj7gRyKueL8DtDmKUc31aAhB7Vk6
+	14GQ0qDvAWRWYgbWy0WHxg8tPdBYLEi5nVfR2lqOA3JiOmsv7S8T2VOZ/yBuNwUqgmVAobSaP91Rm
+	uW4qfWOabJif2FSa699Yd2xycRfaxV07JRMl7H98gdxq6QjDsF29+AHJDx8izMBjoPj54VKuY7Wpe
+	Pjp+XJ+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7ED-0000000Giaq-11kt;
-	Thu, 04 Jun 2026 12:31:17 +0000
+	id 1wV7EL-0000000Gicq-2KO0;
+	Thu, 04 Jun 2026 12:31:25 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7EA-0000000GiaU-3bSg
+	id 1wV7EI-0000000Gibz-3fBo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 12:31:16 +0000
+	Thu, 04 Jun 2026 12:31:24 +0000
 Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6548UX951132208
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Jun 2026 12:31:13 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6548UXS71132195
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Jun 2026 12:31:22 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=oVCtfvOAMMbqkNqCa+q9Cb
-	6hDsShNb4EGCU/ePnP6H0=; b=H3NI3kj4ZuurxfJZVm++bRwxL3cJBUp3YZlXUY
-	MwZqAuxKRSoKNb7pTolPXWLrEWW/mewM5klj2kkr0E4YieQ7DnsM15srCgkkAVHl
-	T/6sm/yKEJZmxZ9QfqkB+Fs1zLKE8yVOYPR+Hs9pvkW4D6xJ2kp0qHU0eSP5P2tQ
-	T/WBDbfO71UaczluEjEdzQC30KtAKRwwrLv5FvS2XakzUKvTtB4uRzgX1SpjESqS
-	mHXEmjxcXdZBkAPtMO3XKa/yHOT2xyE9L/2rP9HUdBT0/6jV5x0ztjhY16t1GkWs
-	4peHABjNr9tIVkG9kF32L/BNUOk8/yqOkNIScjj0ZhqJMQrg==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=; b=YihOSW7t5IckLsz6
+	zvkpUu3rt5sYbJ+OAx08vyi29N4mOGsSsCaUC0oIAWOJ0E7Amiwn3MgInauKAkfV
+	aGgwCTcmYg1FtV0KASu3vAkq4U6tjg1P+Hpoc3E4maSnqEi1uq0QXTTdvQK0TidU
+	IllBHxoGjYOVzVaFObSY2hyiBVCa/uG7nj5fbw3dVkSFq3lr2H9wvRnoIS3yN/6u
+	k4ni+Dn85uMDjrFS7F6hl4R6jhQPJ41ax6g4+ZbHfZLyDTFq011Fr0K3JJ/x77SL
+	LvU1jW55gygrd2QSZwXipPYKOYqgP/skwrWZa8uYlBrA4x73iP/dxudnyJXdLQq/
+	m0vd5g==
 Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ek5wsgw4q-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ek5wsgw5s-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 12:31:13 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8422ca754d8so515616b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 05:31:13 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 12:31:21 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8422875c676so547105b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 05:31:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780576273; x=1781181073; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oVCtfvOAMMbqkNqCa+q9Cb6hDsShNb4EGCU/ePnP6H0=;
-        b=CPKPHYkG/eNkGx6mgjt1sNr6pVt55jGWNb8zmqye+gYzoB0imqVzT7hv1IAZ+W6mHC
-         D8ubsrLcLU6PKGMyiZlsuHM7BHmen+GUQOrt6rLXD6JnZ8+Xe5u92DGsK5yZ8UhhBcg3
-         dHD0ebkN7l8OxN61KuF/25ZKUdoK6MruewMaohGbhelw1FM8ES8Lb8HryoQfTTsEd79v
-         MXF96TcU6tFB19swZR+WTDKMFsTpAnGDar2bhGu8MFaBJBOtv6EgIZ/KmEGZ4WAr0eu3
-         LeF68ODdcuu2E0pwIqbu7oNmUVQsRFZ2qP+hIG02Sw9M+F6dUjLzEDgSF0Y2X6o/etvP
-         OZYg==
+        d=oss.qualcomm.com; s=google; t=1780576281; x=1781181081; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=;
+        b=cwoP+QOpQm2FUeIRyxWKKz2+Sp4q0rb1q0n/p6su3NWpOFStqMnr0Jqqb5F1o8UdMa
+         qsJ3DxCGpHmVWFaC5CppExPJ9AHc3WeoezeDy3lrtvPulC2No99PzqcLjVO103LgsZAm
+         XKRPi3Uigo7m5qDYYtgBrghTF7TA0L7gseSg93REdHF1WMRH72cVxCrJxBKAd6eNzOVy
+         4ycoXV2ME9lwtPVwGXoEoB+DQ6beoy+X33jJeswCOA+mnCulRZkpaaBFkwiA68l+mOit
+         kn9/KSVG1OVc6Wnj9x82un1jpnt+qICcqpi4F1VbhT5so/2hDuwJib/xH/cHadhcW82H
+         0I6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780576273; x=1781181073;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oVCtfvOAMMbqkNqCa+q9Cb6hDsShNb4EGCU/ePnP6H0=;
-        b=hX6bGMPVQe/j0VKG51C0lziNmMNu61+SaRobM+G73wU6LJCA07SEgsKM4XljXKI1Tx
-         tX1Dks5NQt/Mi2pg1NXYf1fTMqla93ZWdr+/obFX7Y5s/P/B8RLetMCq85ObfqSZW1db
-         38fDOeh0SSkL6//T1hQOsJtiRUbH8p0Rpy0Zb1ZP+bj7a7CBUrXZbruL2cPQT6ON2Dfw
-         KbtWH1L8OPDOmDToIO0tL5aqxyVSl2DdR1SJ/y4BC7o0gbAdJyT6RF7R1XOn/HOeETGv
-         UGaqdVKn7HbjpgdCOHCxTDOUFnQjk54CYUhwUxXoqTGBeLjTvWGH1ZbIj3YlJ722yxqk
-         YERQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/5h6Ry4raxgeyGKi1WKj7Hlo9IOXKvGid/a4GxBptP7mIJdpYKR85Qg304BS4p+1AiC44o+DruBXb79ZCgvbJA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWiwJ44RpTnNCHDFx+VYcXRg6u+BQVuDqDNjXVDGB9RlRWV5vA
-	WRd1KEpXmmU0Ib0fE0KA07WkASt35EJodFBszXFYCEBEHs7o8/Lx21ZbotAMWFjl0MNur8BELiW
-	TKtsPl5nwLub47Bpmq00hmvqv7C3YEupoOZSJPJDomULgWowRkdOMtIQfm5+OQbbbpadpDo6Ofm
-	zAYw==
-X-Gm-Gg: Acq92OHq6UbcVwhBQvEbZbZG4ZQs3kEoN4xaQy+ZU8fPU80GunnQ+FCregO2MkoRXAf
-	Vr3XeuC8WqaB6HbU2m9XfgE/WcR5PIifc6G1SK0jzB2zLQVlAK02VyPMnZE4NEQYQ4HrNjvqwTV
-	wvJ1glpeitPvwF4R1nDcwUJQ+sjgDxmlzNr4AXqAbIdNnB/AgFvw52fe/7JWm1gMz6HRGBGx5Sm
-	s9VPVwtB7MDvaUrQH+Cnblm5ABfoLpFbNv0RMbMx2aThzOMV7YY1UfrvuI25wSft+ctE5I4janW
-	/hzeH7aXigEvLbpENIa//z/CCvxBP7cHygyTsxAZIvRZ19EB01LcXjvsQYwm30++n8XmSf+hnOP
-	bb6/66P5Didyi5DiqxDIomWCCfD+MEsRrs7Z44ialBjT8mAwiXLymVFEcl88=
-X-Received: by 2002:a05:6a00:368e:b0:841:dc85:1638 with SMTP id d2e1a72fcca58-84284f53d31mr7173814b3a.42.1780576272429;
-        Thu, 04 Jun 2026 05:31:12 -0700 (PDT)
-X-Received: by 2002:a05:6a00:368e:b0:841:dc85:1638 with SMTP id d2e1a72fcca58-84284f53d31mr7173753b3a.42.1780576271868;
-        Thu, 04 Jun 2026 05:31:11 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780576281; x=1781181081;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/L5+wnjbDEv3102VhOKhi89mJmJQbEkYJLYSrku4XFo=;
+        b=B7D6y/6MTe1e9BHLiBsVZdKVtEGePPbzCMMkC9yRhmI7HBi1fuqMyLjsocVGJAUs0A
+         mzGI2FaJbLwR1M7OJLhP0dDNzS+OXW7pFEVg/uD8KXwu7AdzULept1dr7b2lfCA4DhzA
+         3Px+u0zboSbAVGXjpuQsmQvbbXbqYbSiSKw0MTNKCTk62UU/UfuE0zuOSr2lCKKZxwgX
+         n/3moN8dAaIn3bgnYsipTJP4YuJ6x22clDdGFKrftFqCZ4gxdZS6ebH7hiBwYmRmhacV
+         DS6LNNRBxByYoa0gA8Z3BP2dFxDO6BcSGR5pplzKs9EhPkwwt0TI+WfJSdxSBsbZi0M4
+         wSpQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+3rFRMLT0EFah3ESFtUOCmxAmwpB02oeJNPRKqW9d03NyW9GwV2Ab+sVO4j+wjzxDiEpLQuz0AlxVEv2WLhrQY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxiWo3RyIa3NSdVl0+W1XPj3R1drjlzudNSHAzvR/jroyNnHNM
+	WdWMaceNxBYTuvJCSj9w++8HOHMPvPz6GXwovTFOdVPF05+UmioqsObTbhptpZFj43/1x7O6uKm
+	BxHydukbPl9ldJIwiSrVgsQwxOJR5ZFkSjyel4WqJ+dA0eZ7zt4ZENvwdzQ/C3UTz+n35PX4IfV
+	eE2A==
+X-Gm-Gg: Acq92OEfOC02xUjIDb7CPgEw+K3EpeV6fuF5l9OzpJg2/pFEXzEo0nAWh1aVWbrbBMm
+	GO29UIC5sbWwc0aeL2BeGk21qgm1myfqN0SMu+UTyW2gQ7nB5xlE7NCjlpSUIBE6118HHbffgjO
+	tpvlE7p+wTCb1imWNVIfOIqyIFNy8pTgZSGTqGEsyp1hdEx7QWR1uuTKkSp4desk0YidZHl5biS
+	HhH5rTv88fTWovcHraf5HojnTEflDqP3Br3haWD+5OfQQoa3a49HkpJ6zUZuxgfBkg6ARL47LYu
+	YWtG+TndFE5kt5B3yrjOvROZ7pxpL47xm7v12dwnHHr5Lfxu9gAhKN+iFXmv5teTbqwVTeQWYbK
+	hjkPpp48reWo7VnWyWpgw9iZys3BvZssIiDYRLVeWu3vIjoznAK5CPLJF7gU=
+X-Received: by 2002:a05:6a00:1905:b0:837:f111:b70 with SMTP id d2e1a72fcca58-8429b57a3b6mr2822608b3a.4.1780576280744;
+        Thu, 04 Jun 2026 05:31:20 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1905:b0:837:f111:b70 with SMTP id d2e1a72fcca58-8429b57a3b6mr2822556b3a.4.1780576280004;
+        Thu, 04 Jun 2026 05:31:20 -0700 (PDT)
 Received: from hu-naala-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8428325d9a3sm6015917b3a.34.2026.06.04.05.31.04
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8428325d9a3sm6015917b3a.34.2026.06.04.05.31.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 05:31:11 -0700 (PDT)
+        Thu, 04 Jun 2026 05:31:19 -0700 (PDT)
 From: Nabige Aala <nabige.aala@oss.qualcomm.com>
-Subject: [PATCH v2 0/3] Subject: [PATCH 0/3] Add Shikra (QCM2390) display
- support
-Date: Thu, 04 Jun 2026 18:00:46 +0530
-Message-Id: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
+Date: Thu, 04 Jun 2026 18:00:47 +0530
+Subject: [PATCH v2 1/3] dt-bindings: display: msm: qcm2290: Add Shikra MDSS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAPZvIWoC/3WNwQ6CMBBEf4X0bMlSDRVP/IfhsJQiq0CxC0RC+
- HcLnr1M8pKZN6tg68myuEWr8HYmJtcHUKdImAb7h5VUBRYKVAopnCU39PIoK+KhxUWC1qlWcK0
- xAxFGg7c1fQ7hvfgxT+XTmnG37I2GeHR+OR7nZO/9lc+JBIkWTVJmlxpR5445fk/YGtd1cQhRb
- Nv2BfxvrkzFAAAA
-X-Change-ID: 20260603-shikra-display-07767208fa90
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260604-shikra-display-v2-1-b3c1b2b67edc@oss.qualcomm.com>
+References: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
+In-Reply-To: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
         Dmitry Baryshkov <lumag@kernel.org>,
         Abhinav Kumar <abhinav.kumar@linux.dev>,
@@ -123,29 +121,30 @@ Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
         linux-arm-kernel@lists.infradead.org,
         Nabige Aala <nabige.aala@oss.qualcomm.com>
 X-Mailer: b4 0.16-dev-d5d98
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780576263; l=2713;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780576263; l=4493;
  i=nabige.aala@oss.qualcomm.com; s=20260520; h=from:subject:message-id;
- bh=BzGjWMm7NOWQTFGGfvZVv4acRcjMzGDbIyUMsF+f/Sc=;
- b=DMPp/3/P7p0mXsQD7I5mVa3XnUwoOu1FC9g/lOw0Oil7tXRLfw36d3FtC9Vm0lebimbzZc3mx
- 2nZUxp3Ljv9ArLU9lP93ovjQqDjl059xpYQ4hTofSNFsZeINsNo4k+V
+ bh=WfANBIIgBzTwwuDDl6Kdw8lUaZONgWxsNNvWrRs4B1s=;
+ b=MtMgBdqvWqWsrLdHxWNc0SaL5+U3fBPtkq6vzeFtJypgM4h4oQWOWMW8CatTFoOwuUB00ACxI
+ /jqGFI74wkKASThmqiqyz0GObhh0XKnl0wAX2LWewF69aq3oi58Z7bG
 X-Developer-Key: i=nabige.aala@oss.qualcomm.com; a=ed25519;
  pk=PYHJom8sPos1IGkrbCCsWiE7XTBQrQZd9jzAo051tgw=
-X-Proofpoint-GUID: QG5HQ3J818tgjuE_ULcdWFFfJKy9P1Zo
-X-Proofpoint-ORIG-GUID: QG5HQ3J818tgjuE_ULcdWFFfJKy9P1Zo
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA0MDEyMSBTYWx0ZWRfXwTPqoNDwQZiV
- jcDoARqHi6db5hc7spCfM5Klw27KEOJb8X0Qds8v+AHF7WDFvMliB54T46cXADYDH91r9MdkOQE
- NzAsiPrco1VTBWfjZPLutArTVu8MhJbQk+75dboMfD8fbI/8Nkb1i+TesJiLUOiECO+81vhXPbi
- ZZ9lf9PeIp5P+p3c22ntlY6zfWufXNlI+nN4zFahTGs/xzGSTIf4D42bQxpaEsxacl5DKzO5VOd
- 9Dw4CCA9USktHaQ7PoUylQQq7JeSHIpI5U1BtAFyZRT9zmEeAbCixzCKV1qWQb0GHxa+BxIubDI
- SQU6KsNLo+5AL1qOPKVNAvmViRHRe+LQXDsw6rR2coMPyS5OEzl8nZ94eQ1o2TpW0u4uAbw05fQ
- FflNq0VuylK1ZtDUX4W4Vg4yCdFYC+ZzzWyw80fHBQchgejLPkvXbvKudj42W6BtmAlhBdrJ7St
- e3oin5HRycwHADfE6HA==
-X-Authority-Analysis: v=2.4 cv=POc/P/qC c=1 sm=1 tr=0 ts=6a217011 cx=c_pps
+X-Proofpoint-GUID: azGsawjHznj5XPg7yQTh9JNoJhHRbpKY
+X-Proofpoint-ORIG-GUID: azGsawjHznj5XPg7yQTh9JNoJhHRbpKY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA0MDEyMSBTYWx0ZWRfXwmj9pMQSMY1f
+ oT3mzMIxSQzAeQkvzeJzKDSZ7z9OxbnYGUZ8DeN3sHiynvZekB2FcovHGHaW+B8OgLXneaA6lKQ
+ 1dctCCCeVQ/lRVtfZAuoQcaqpVkv2E12XSKWGSL2Bm/pA241jMTDJSaS5twW6jFihKPllLUtYio
+ 4U2IaWkq9T2Gj6UzTUIQU9B1J0zjqG+mOKCCNEAOBGKKKIaGtEO5GclAP87lZd67L2FbreNVyD4
+ TMXNf0W/AXZJWGEBvf2nmCDJs3lf7UeQ5SIqwGcQiPVSaR/tAPM9OeZIRPcdbtIkWydrpKnNMks
+ iiF9sR4lyJylg8awLVaeOJUEtOzQh6N6widwaYGQDaVb9xeiUDq7nKcEY0C/IYJ/VQ3Ax3rcpEy
+ iyOzHRobrqYufb15hpLbmZcybx3DzomIOi9oeJh3Kjj1v66s/mQJAHFQf5b8RqZDrw433K/JGu4
+ n7nk4o9ckHpOKgQ6g8A==
+X-Authority-Analysis: v=2.4 cv=POc/P/qC c=1 sm=1 tr=0 ts=6a217019 cx=c_pps
  a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=3zM2i4eYArf5VB82j9MA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=FO4_E8m0qiDe52t0p3_H:22
+ a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=_tpsKkHDXNPZovU35XoA:9
+ a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=sptkURWiP4Gy88Gu7hUp:22
+ a=cvBusfyB2V15izCimMoJ:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-04_03,2026-05-28_03,2025-10-01_01
@@ -155,8 +154,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606040121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_053115_034629_0F49B8DF 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260604_053123_039796_2B7190A9 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,65 +170,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Shikra (QCM2390) is a Qualcomm SoC based on the QCM2290 family that
-reuses the same MDSS/DPU 6.5 hardware as QCM2290. This series enables
-the display subsystem for Shikra by adding DT binding updates for MDSS,
-DSI controller and DPU, arm64 defconfig enablement for the ILI7807S DSI
-panel, and UBWC configuration mapping Shikra to qcm2290_data.
+Shikra SoC uses the same MDSS/DPU/DSI hardware as QCM2290 (DPU 6.5),
+sharing the same register layout, DSI controller and 14nm DSI PHY.
+Add qcom,shikra-mdss to the qcm2290-mdss binding compatible enum
+rather than introducing a separate binding file.
 
-Driver and SMMU support are covered by the existing qcom,qcm2290-mdss
-fallback compatible string — no separate drm/msm or IOMMU patches are
-required.
-
-Tested on Shikra CQM EVK board with ILI7807S DSI panel. Display
-pipeline probes cleanly and panel renders correctly.
+Register qcom,shikra-dsi-ctrl in dsi-controller-main.yaml alongside
+qcom,qcm2290-dsi-ctrl, and update the qcm2290-mdss patternProperties
+to accept both SoC-specific DPU and DSI controller compatibles.
 
 Signed-off-by: Nabige Aala <nabige.aala@oss.qualcomm.com>
 ---
-Nabige Aala (3):
-  dt-bindings: display: msm: qcm2290: Add Shikra MDSS
-  arm64: defconfig: Enable ILI7807S DSI panel driver
-  soc: qcom: ubwc: Add Shikra UBWC config 
-
- Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml		|  1 +
- Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml		|  4 +++-
- Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml		| 34 +++++++++++++++++++++++++++-------
- arch/arm64/configs/defconfig							|  1 +
- drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c					|  1 +
- drivers/soc/qcom/ubwc_config.c							|  1 +
- 5 files changed, 33 insertions(+), 8 deletions(-)
----
-Prerequisite-Message-Id: <20260518-ili7807s-panel-v1-0-d7b048163b1c@oss.qualcomm.com>
-
----
-Changes in v2:
-- Drop drm/msm/mdss: Shikra support patch; driver reuse is handled via
-  the qcom,qcm2290-mdss fallback compatible string (per Dmitry's review)
-- Drop iommu/arm-smmu: Shikra SMMU client table patch; not required with
-  fallback compatible approach
-- Fix UBWC config to map qcom,shikra to qcm2290_data instead of
-  no_ubwc_data; Shikra shares UBWC support with QCM2290
-- Refactor series from 5 patches to 3 patches
-- Link to v1: https://patch.msgid.link/20260603-shikra-display-v1-0-aeac1b94faa7@oss.qualcomm.com
-
----
-Nabige Aala (3):
-      dt-bindings: display: msm: qcm2290: Add Shikra MDSS
-      arm64: defconfig: Enable ILI7807S DSI panel driver
-      soc: qcom: ubwc: Add Shikra UBWC config
-
  .../bindings/display/msm/dsi-controller-main.yaml  |  1 +
  .../bindings/display/msm/qcom,qcm2290-dpu.yaml     |  7 ++--
  .../bindings/display/msm/qcom,qcm2290-mdss.yaml    | 38 ++++++++++++++++++----
- arch/arm64/configs/defconfig                       |  1 +
- drivers/soc/qcom/ubwc_config.c                     |  1 +
- 5 files changed, 39 insertions(+), 9 deletions(-)
----
-base-commit: 3a34f9c13cc0688f8db2a0db8506bf8c0d90737d
-change-id: 20260603-shikra-display-07767208fa90
+ 3 files changed, 37 insertions(+), 9 deletions(-)
 
-Best regards,
---  
-Nabige Aala <nabige.aala@oss.qualcomm.com>
+diff --git a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
+index dbc0613e427e..a2f3e91104af 100644
+--- a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
++++ b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
+@@ -33,6 +33,7 @@ properties:
+               - qcom,sdm660-dsi-ctrl
+               - qcom,sdm670-dsi-ctrl
+               - qcom,sdm845-dsi-ctrl
++              - qcom,shikra-dsi-ctrl
+               - qcom,sm6115-dsi-ctrl
+               - qcom,sm6125-dsi-ctrl
+               - qcom,sm6150-dsi-ctrl
+diff --git a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
+index be6cd8adb3b6..e166a73651df 100644
+--- a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
++++ b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
+@@ -13,8 +13,11 @@ $ref: /schemas/display/msm/dpu-common.yaml#
+ 
+ properties:
+   compatible:
+-    const: qcom,qcm2290-dpu
+-
++    oneOf:
++      - const: qcom,qcm2290-dpu
++      - items:
++          - const: qcom,shikra-dpu
++          - const: qcom,qcm2290-dpu
+   reg:
+     items:
+       - description: Address offset and size for mdp register set
+diff --git a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml
+index bb09ecd1a5b4..7184b09a8774 100644
+--- a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml
++++ b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-mdss.yaml
+@@ -4,21 +4,36 @@
+ $id: http://devicetree.org/schemas/display/msm/qcom,qcm2290-mdss.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Qualcomm QCM220 Display MDSS
++title: Qualcomm QCM2290 and Shikra Display MDSS
+ 
+ maintainers:
+   - Loic Poulain <loic.poulain@linaro.org>
++  - Nabige Aala <nabige.aala@oss.qualcomm.com>
+ 
+ description:
+   Device tree bindings for MSM Mobile Display Subsystem(MDSS) that encapsulates
+   sub-blocks like DPU display controller and DSI. Device tree bindings of MDSS
+-  are mentioned for QCM2290 target.
++  are mentioned for QCM2290 and Shikra targets. Shikra uses the same MDSS/DPU/DSI
++  hardware as QCM2290 (DPU 6.5) and shares the same register layout.
+ 
+ $ref: /schemas/display/msm/mdss-common.yaml#
+ 
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - qcom,qcm2290-mdss
++  required:
++    - compatible
++
+ properties:
+   compatible:
+-    const: qcom,qcm2290-mdss
++    oneOf:
++      - const: qcom,qcm2290-mdss
++      - items:
++          - const: qcom,shikra-mdss
++          - const: qcom,qcm2290-mdss
+ 
+   clocks:
+     items:
+@@ -52,7 +67,11 @@ patternProperties:
+ 
+     properties:
+       compatible:
+-        const: qcom,qcm2290-dpu
++        oneOf:
++          - const: qcom,qcm2290-dpu
++          - items:
++              - const: qcom,shikra-dpu
++              - const: qcom,qcm2290-dpu
+ 
+   "^dsi@[0-9a-f]+$":
+     type: object
+@@ -60,9 +79,14 @@ patternProperties:
+ 
+     properties:
+       compatible:
+-        items:
+-          - const: qcom,qcm2290-dsi-ctrl
+-          - const: qcom,mdss-dsi-ctrl
++        oneOf:
++          - items:
++              - const: qcom,qcm2290-dsi-ctrl
++              - const: qcom,mdss-dsi-ctrl
++          - items:
++              - const: qcom,shikra-dsi-ctrl
++              - const: qcom,qcm2290-dsi-ctrl
++              - const: qcom,mdss-dsi-ctrl
+ 
+   "^phy@[0-9a-f]+$":
+     type: object
+
+-- 
+2.34.1
 
 
