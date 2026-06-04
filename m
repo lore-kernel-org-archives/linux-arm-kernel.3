@@ -4,136 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302AFCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 06:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BDACD6E68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 06:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mI9g6gD5BRy3kD3PF5NSErrg5217vlzsf1ZgKqQ13AA=; b=K8v1H3UDPrna3XopsmAUEYcZ8y
-	11IfwItmz5uc8PZJRXab8p814t7aErY6r01sKH2ca4hp8UcKtsL+IvY5ZOZ+WhdVFX8Fi4N0rcZYN
-	TYOdqg/DQr6eGKt5cgJJDaL/PVsTS5NwWdRBBfglJR2N2Sop6sT6QJWs0fQfu1cyeEz2n7gZvklio
-	8TfR7w3oTJIS5d+m3mmkCZ9Xq239xmEt/NHbYm5d/Enbn/IozucPWgI05nJEaPf6HxZM/mPCaJURx
-	kfaeSA/LPJKL43rYtKS6taooazAdfv8yEvjk/TZdkGrB2ZRqI2TElEE4vskxi3KOIuS6fLJ9dTglk
-	ndpkgoJA==;
+	bh=DJ6SryaLEZrQ9nkLnRUo9u9eEcejp5mmpfAJQ2I4uuw=; b=HXBPwSQy1JkZfaaUyiTs1iwphO
+	ZStg4ZnUR+9I95zuJiRVfARQDBUrHBDnYzieUentUvbUUg0s3va92+98/OKEnDfQIciMlGLMLPqZ5
+	zBDHVWjIyu7G0/CvXx9FoSoSMREa77qzdNyBfbamNzDBwz27HODNMZOaegNcaGdjQIndOC8VVADfq
+	sbRxV/atrJ4JoDlJMIvXwR7x1JQNDAAs6RtWIAanud5qx8sHOo3/En2cvEowm7P/RXPtuNQCPNeoe
+	3Ekfo05e+LPp6rsr3nQttO/8soFlIYlOr0lvhiFmH32a9Aae+5iIrL+ONoYPlrcCtBq36hBpde0zL
+	vuwukMCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1nP-0000000GEgO-46E4;
-	Thu, 04 Jun 2026 06:43:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wV1tN-0000000GEzD-2sN7;
+	Thu, 04 Jun 2026 06:49:25 +0000
+Received: from mail-northeuropeazon11012017.outbound.protection.outlook.com ([52.101.66.17] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1nO-0000000GEgA-1MlB;
-	Thu, 04 Jun 2026 06:43:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=mI9g6gD5BRy3kD3PF5NSErrg5217vlzsf1ZgKqQ13AA=; b=jbYYTF2V1Q9jwkgoszYw+2P8FQ
-	r4rAl/qGGt5+0hy0R3QAbOFKDhof8EGFTzAh6eFRcgnjsQakia2kKOVYkWiUbQ2ZS3C9bTCstvVeh
-	zjZ7kIgdgYjlz0gkwULoJm2hTJVOrByDyinRljVRnSY6l/NmNwxDm2MVqzQ0tFuQWiq5bWDjty32P
-	sblSJHeTFVzcZFsJLfd8BRuYwdtWI+5ZZ+Ks9kocgWjd3ql7Zm50KBa6lLx2TQnXLuDS3TStnX85+
-	b/vbsc2Ckz7wd67LEJ2HU6bQMPk4Xzmr4VPYuLOswqhaCx52BkJDR4DvfChMF8J6DyTdZ2YsHMqFl
-	3xMrVjeA==;
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wV1nH-0000000DupI-1tJN;
-	Thu, 04 Jun 2026 06:43:11 +0000
-X-UUID: 968b9e8e5fe011f1b2470fb4f881575f-20260604
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:a75fff77-d19e-4694-9d0c-2136a68adc54,IP:0,U
-	RL:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:25
-X-CID-META: VersionHash:e276073,CLOUDID:a995f2c8-bf0b-48fd-a537-c174b04741d7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|817|836|865|
-	888|898,TC:-5,Content:-10|-8|-5|15|50,EDM:-3,IP:nil,URL:11|94|82|106|1,Fil
-	e:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR
-	:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 968b9e8e5fe011f1b2470fb4f881575f-20260604
-Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef21.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1778118517; Thu, 04 Jun 2026 14:42:42 +0800
-X-UUID: 938fe0325fe011f1a42089d3d1632821-20260604
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:f1996c64-118c-4810-bc2f-8dcf2a3762f9,IP:0,U
-	RL:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:25
-X-CID-META: VersionHash:e276073,CLOUDID:0fc30542-f53d-456b-bcbe-afd9e5a5b333,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|817|836|865|
-	888|898,TC:-5,Content:-10|-8|-5|15|50,EDM:-3,IP:nil,URL:11|94|82|106|1,Fil
-	e:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR
-	:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 938fe0325fe011f1a42089d3d1632821-20260604
-Received: from sdbmbx13.tpe.compalcomm.com [(10.113.2.137)] by sdmg12.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 1827825207; Thu, 04 Jun 2026 14:42:37 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX13.tpe.compalcomm.com (10.113.2.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Thu, 4 Jun 2026 14:42:33 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69%11]) with mapi id
- 15.02.2562.029; Thu, 4 Jun 2026 14:42:33 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: "Jagielski, Jedrzej" <jedrzej.jagielski@intel.com>, Loic Poulain
-	<loic.poulain@oss.qualcomm.com>, Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
-	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	id 1wV1tK-0000000GEyq-3gKN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 06:49:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CF7DBEhlPx0jcHFrJetGZviWB66cXEqmoWXHRAnXbwKBFRwzSGzFNXcwvjApMUlwTk1cg1dXJgsyh1hN4vtFKsyNweTead4qGBia4gs8D+6QTtQRirLG1oPs8qpv7YnVHEQOEPP8TSXXiyI6GGRKNyJgg8gwrD9h/yEcHD+eKG4D1FSkDvlNpPeTfNBbLacVWeJ8orLr2OCHB4nvFPctuxLj7fSJgWeRA7qXv9sInnZyl3eA3soCshI+zhPeAgQEOJjXVDZYivjXSmFS4M2471VKk4gPVyKZJjUAOoyKYpWBCX6Z1d7VpCUPAcGWU2hO28Q/GsN1ybGmolJGOhpc8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DJ6SryaLEZrQ9nkLnRUo9u9eEcejp5mmpfAJQ2I4uuw=;
+ b=bhdzYmzhMVCn3Obr7sx8gb+0a4ut0/fidZyb3wIWHiNqnhV20UmHL6FpiQHgAIeMTyqtJM62CIIM/Kg2yCcRV/imi8+WeDBtz+oamRyCN/shYitVO6Nb4D8DhW9kgRfDgGuuL6DHVJ6e7HZE5dd1+xlZvghRm/deEUNR6Z0zrWR3sGVDt9uo58eaoq0NGAz7YdqePEpdxRMOn+K0AVikZNkYKoQVoo7w4cL1d0K5WHXyOAtrto1HGC1wypKJWhJ8HBP9aA2qwgVHyXKevDwIchqdmaHdVTNfiUdteRSep1+k5R3rzJsxhPJ0mphoQkDupKilRKWiFXkUXSv/DV6vlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DJ6SryaLEZrQ9nkLnRUo9u9eEcejp5mmpfAJQ2I4uuw=;
+ b=AUiBPbswHVsFOYY0c83DIXAXRLZlC9+rLv9gdpoy7kEONqrN6IO3sG3rgLEuCp21NYzZoE8RTlQMVRdf+wfGynFPrEKREbytV2oF6dR038UBbo7ZMevkhvLKL8ME/EARhFwnahBwoQf+0I3+QgjkJotE5cw5OAClTtBW7/vYcDON/lcYaafGuGuNEujS/Yhps97/s7oqcS2Yxgl2O9vV/cESLcvNqjFSsIK6JCKkLXHOy7CHgk8qfkO/WJLwMysi/d78rSwIjlRZgojlmFeFcXVOvAq9GOfupvc3oWA0N+pKWol0NlFAM4zfrCJuVLEEXHxnrPxTP7Yqdqi5JTC7Wg==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by PR3PR04MB7482.eurprd04.prod.outlook.com
+ (2603:10a6:102:8f::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
+ 06:49:18 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
+ 06:49:18 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>
+CC: "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
 	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [PATCH 01/11] net: wwan: t9xx: Add PCIe core
-Thread-Topic: [PATCH 01/11] net: wwan: t9xx: Add PCIe core
-Thread-Index: AQHc8bhcdmgibeQV+0mP7OG8OB0FzrYt9Hq3
-Date: Thu, 4 Jun 2026 06:42:33 +0000
-Message-ID: <c9e80369a7ec449a814cd85269f1135e@compal.com>
-References: <20260529-t9xx_driver_v1-v1-0-bdbfe2c01e57@compal.com>
- <20260529-t9xx_driver_v1-v1-1-bdbfe2c01e57@compal.com>,<PH0PR11MB5902127C590230B9FE50F78AF0152@PH0PR11MB5902.namprd11.prod.outlook.com>
-In-Reply-To: <PH0PR11MB5902127C590230B9FE50F78AF0152@PH0PR11MB5902.namprd11.prod.outlook.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Hongxing Zhu <hongxing.zhu@nxp.com>
+Subject: RE: [PATCH v2] arm64: dts: imx94: Add Root Port node and PERST
+ property
+Thread-Topic: [PATCH v2] arm64: dts: imx94: Add Root Port node and PERST
+ property
+Thread-Index: AQHc8+sH0ZDCmxCVi0CXELE6fHO8RLYt9HVg
+Date: Thu, 4 Jun 2026 06:49:18 +0000
+Message-ID: <VI0PR04MB12114C03C7D3EE162B99AFD6C92102@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260604062846.310810-1-hongxing.zhu@oss.nxp.com>
+In-Reply-To: <20260604062846.310810-1-hongxing.zhu@oss.nxp.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-29986.005
-x-tm-as-result: No-10--7.938100-8.000000
-x-tmase-matchedrid: EefIVvJ/ke0uv++HU7VXryRFbfQbCufdN0X64jGy2dbVc/AFNTvLSw2J
-	SRqdWmN4dOiVKzG2jpTSPUHhcw+FHAE8OiDrjBOCUirF7gO7fvl0pPFWgq1KNgSjtG4gy/zQk3M
-	PpgxG+BYZ+O+6wWe+rfJ3yfksIbvtUohvb26/VwDIUNmTDb0ad1XyfUSvLyzCwuyxgbj8l3/4mW
-	TdKLNVsJtnQM1dYEpEhP3qugnKLontZDpZlNWg4O3qPLdU3cUZ8kOnQJj3cxKt4Zcwyi58uXaRl
-	uqYn9rmrWwln+vsup2vvs41AhDx9CRoQhMu0UDBJPlTeUnhPwrNWLms91YSA1o7GmCOJYd1O50T
-	9A74HCu2FEUBwKd8ytET2zOm+uW5sIEAo6wFidwno0Idd9TzoxCUQCtauB3Whv30+gdEALI=
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--7.938100-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-29986.005
-x-tm-snts-smtp: EA7519F9C438C9B8BD9413C927FD465DE89BEFAF1CB7E18423535D7878401CC42000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|PR3PR04MB7482:EE_
+x-ms-office365-filtering-correlation-id: febfe190-ff0b-4a5b-abe8-08dec2056698
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|19092799006|366016|376014|38070700021|11063799006|56012099006|18002099003|22082099003;
+x-microsoft-antispam-message-info: QZlnD+S45KQsdsa2Q35GTizvdoE9PK+56XjdTLq2A2hlA6WiqJ8Iay9GiTsQYPLbwhiJTzjDRVxZHQKzsoA94BF1ClkX9Q+rb600la/jvhL3au7BB8bIdtZpFhfOCeiUNpxiMHk2lKC1uiu+CVUN0jtZksgM5enUv9dNfMpAbXDGIkfB3CvUqyQCyIAdxKICxIwAl0e3izV7ZDYeqb6KlSN6bxJYUE+HYeF90SurxsEI1hn222H8jojRf9NaQZYZzGEMpcvGdYWK8YoZyT5ZFm+aUPQMzLlpcfaWlMpfPSIoEenzODlZnM0/ic3D0VaWYQb0OGmPRq92+LxsfGtoQhQAIDbxPgOwt4mEvKcl20N+yQEd/k3EVFjfIpS2rgphTl4lROveeR0LjQZK7wwstFtqTsK1/WKPbub+niJC3bCjetpm/q3PgroU+CQP68CuQIzH5LusBXutS1D5pCj6JVpJCPvEA9VDZm0p3oLYLtujgeF/uPeVaShEHHJg8TlZfWzzdbLZ2mQroFUl8n+oF+dbE8Uq3Xcex5s7eClvR6ltzl4CdhoYYCRfQPY7gNJL3B8CV6RmrOD+pOOABjC2qXwbU1N1mSs5DTzIvp/1b4y9vfqLay+ltseufXzxybe7KW6TuZwul7KcQE3rJYhJNSE12Uwf/ljCHC5fikK8qo0cMUdAdfg2+3utIqizvsTtm+EkmbFpTrSF+fl03W87TPw/21vU36vJyP1v9hfnWxKEK3pFzbGCY1GCqwmzflx3
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(19092799006)(366016)(376014)(38070700021)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?e2b5bWvMsLgs6jt0ejCppSzKpT/HzA+tKSR8QsFpbUWDAYviDTumMyqiVJpr?=
+ =?us-ascii?Q?tfaIoA/+2zrGuDvJbEQdp6gcJ05pAe9JKq8z1eCUEZc8C07rYdxk0/vDSsEV?=
+ =?us-ascii?Q?5e0UZrluL1mkpLvNdoBZu/LLJrNwhlGaZk2FFKDSeUB79/UaFo0Db1KdFWRz?=
+ =?us-ascii?Q?pKHsXuEJuoqm9D+q0DntQOS/j+iLIS3g/xWewvjyJHn7Ozz6kZyEDMSY+UrA?=
+ =?us-ascii?Q?nf468y+Fx4Eiq4Knauxo156dQ3Tov8XMCd7/4JqpCTokuvtdKqLCj+vTRlo3?=
+ =?us-ascii?Q?o+dhabZoSlO5h159jTyB18Tl0GieqFyN1SPFaRBFamtk1wZmuSuptG//A5Dq?=
+ =?us-ascii?Q?a3jpzV5WJPT4MIkPLdaAm4YEGxLUMRVNTD3ySB+wzRwFTdgAcQxBtK4brn7D?=
+ =?us-ascii?Q?+zYLc3V2GdGjVAItZMyFeRbpp5QiuKgtf3imxh9D6QbN+URTmhx56amdd/0b?=
+ =?us-ascii?Q?94nTATuj/3muDEr5EuLOQpuPK7Yrt1Tj5X0VbUgrTFazVEEd7RIHtSMFH9os?=
+ =?us-ascii?Q?FSNgu50y6AGw0YTh5jv+mzQb7OKAUWzl4zMWBGdMOEYKj47vCGo5ClKsC/nF?=
+ =?us-ascii?Q?mYYdWLPVQ+fpqLINmmgPa2aQawZ/EPcUij4Iht9YVe0J0bpY3r7NDqRucd8e?=
+ =?us-ascii?Q?nN4IwLScbEn6htXtc02CbAKga5TtSZ1dBce3IjVDwEMhjGh+mUaTCOcR9Gci?=
+ =?us-ascii?Q?iiTbS934QJzZnL9ufO6V8rUe7G9N27Fmp0qHcWXqjn410iU8pfWMbESGbWfJ?=
+ =?us-ascii?Q?YoUUp9o8zU8k8Yd5/FrCMLPXAF3T6ayOk7TcyZmLiZ4acfP54RmVCejZ40vc?=
+ =?us-ascii?Q?EAaWe3UQ6JO5uXbyvEmYOhlHz3m88H+T1GKD24WtHZTftlXFgybgm4vdkknY?=
+ =?us-ascii?Q?DP8iBsiWRa2EaBAMNx8LgInikkFPUOA22go4UqH1ZPVvWLumQZ/3NGtTgxVK?=
+ =?us-ascii?Q?C+UB6rclEM8l1Ns3rLbf7MhQAq5Sp5jkfqLrQTK1jcnoUvQbX3+xcBeeNjUT?=
+ =?us-ascii?Q?mQKfCmreTi104oJ+4jEEGnKuN3cwxyJY1TN0PavR1EzWCZKaQE0myC4ZGxaQ?=
+ =?us-ascii?Q?kKxALJpy5C6BDItkiEg0Hv6VYtQJUiDz5PAbtPEo6GUl+1iE47wPf+Bn+04S?=
+ =?us-ascii?Q?Xc9SEKdYrCBTbXL+nt26Acxrt0DYdh4I/+4xPZXbp0sp3O2b+X6Wuaj5hlcg?=
+ =?us-ascii?Q?wEJvwBK1nrTzglPcRGhJtMHY0BUk7MXcOy4Uei+1z34W4eQop1issA9l1cpz?=
+ =?us-ascii?Q?S5wcc3gteciWTWIC8gKNvON0UmHycIdLpJcR6GS5lG0q7GLQFGasOBoEi9Jm?=
+ =?us-ascii?Q?pJBz0a569ATusyELX5Z8uWTd0zA0KbGLE9nq4T8za4ZJMqtZJpeB2hUNk5PI?=
+ =?us-ascii?Q?38P8Jdpc9djySFlO/HSdKxs6FzLN2iEGL0x+jOZjnkKiRD2iXYd2z4UmtJO6?=
+ =?us-ascii?Q?kOtZN5MqTrxS8quYVmcTu0hSwKpztsU9PA1VpJax9pH3ls/iaM9Q2KiKglbd?=
+ =?us-ascii?Q?xJAE1aqRsk0Syj+qR+yWZ6fuwIHW9ZcgvgfgwnjhycSAYnwQDx0N16XjVswn?=
+ =?us-ascii?Q?WyiWQ09ISn78OX6I2Nkt+fUmMVtkPVd4oUtskqhwRS9jLjhge42ETGcU824B?=
+ =?us-ascii?Q?sG1CstUiMF3iY1XztgkzSA+B6FL1epMpCxPJzJqQ8a52zRVF1r3EyEBgRAjp?=
+ =?us-ascii?Q?RGH8V76vNFjfVB7lDdyhhUqrBrUMtfauB5yaLEeJmPmO5rDO?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: febfe190-ff0b-4a5b-abe8-08dec2056698
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2026 06:49:18.4663
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GaI25YZOcrQnR71En8ImhdMhuWddL7OKUgYT3l63O5UpAYRiW3bLppN+vuzu+bWGi2jCDRlXjET5ZImVO8hYGA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7482
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_074309_044507_B18970AD 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20260603_234922_954155_5521EEC7 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,38 +146,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gU2VudDogRnJpZGF5LCBNYXkgMjksIDIwMjYgMTI6MzIgUE0NCj4NCj4gPiArDQo+DQo+
-IHBsZWFzZSBhbHNvIHRha2UgYSBsb29rIG9uIHNhc2hpa28gbm90ZXMsIHRoZXJlIGlzIHNvbWUg
-bnVtYmVyIG9mIHRoZW0NCg0KSGkgSmFnaWVsc2tpLA0KDQogIFRoYW5rIHlvdSBmb3IgeW91ciBy
-ZXZpZXcuIFdlIGhhdmUgZml4ZWQgc29tZSBpc3N1ZXMgYW5kIGFyZSBzdGlsbCBkaXNjdXNzaW5n
-IG90aGVycyB3aXRoIE1lZGlhVGVrLiBBbGwgb2YgdGhlbSB3aWxsIGJlIGFkZHJlc3NlZCBpbiBW
-Mi4NCg0KICBSZWdhcmRpbmcgc2FzaGlrbyBub3RlcywgaG93IHNob3VsZCBJIGhhbmRsZSB0aGVt
-IGlmIGRpc2N1c3Npb24gaXMgbmVlZGVkPyBJIGNhbm5vdCBmaW5kIHNhc2hpa28ncyBlbWFpbCBh
-ZGRyZXNzLCBhbmQgaXRzIHdlYnNpdGUgZG9lcyBub3QgaGF2ZSBhIHJlcGx5IG9wdGlvbi4NCg0K
-Rm9yIGV4YW1wbGU6DQogIGh0dHBzOi8vc2FzaGlrby5kZXYvIy9wYXRjaHNldC8yMDI2MDUyOS10
-OXh4X2RyaXZlcl92MS12MS0wLWJkYmZlMmMwMWU1NyU0MGNvbXBhbC5jb20/cGFydD0yDQoNCiAg
-UTE6DQogIFRoZSBjb21taXQgbWVzc2FnZSBtZW50aW9ucyBpbXBsZW1lbnRpbmcgVFggYW5kIFJY
-IHNlcnZpY2VzLCBidXQgdGhlIHBhdGNoIHByaW1hcmlseSBhZGRzIGVtcHR5IHN0cnVjdHVyZXMg
-YW5kIGJvaWxlcnBsYXRlIGNvZGUuIElzIHRoZSBwYXRjaCBtaXNzaW5nIHRoZSBhY3R1YWwgVFgv
-UlggaW1wbGVtZW50YXRpb24gZGVzY3JpYmVkIGhlcmU/DQoNCiAgUmVwbHk6DQogIFdlIHBsYW4g
-dG8gdXBkYXRlIHRoZSBjb21taXQgbWVzc2FnZS4gV291bGQgdGhlIGZvbGxvd2luZyBiZSBhY2Nl
-cHRhYmxlPw0KDQogICAgQWRkIHRoZSBjb250cm9sIHBsYW5lIHRyYW5zYWN0aW9uIGxheWVyIGZy
-YW1ld29yayBmb3IgdGhlIHQ5eHgNCiAgICBXV0FOIGRyaXZlciwgaW5jbHVkaW5nIGNvbmZpZ3Vy
-YXRpb24gb3B0aW9ucywgZGV2aWNlIHN0cnVjdHVyZQ0KICAgIGRlZmluaXRpb25zLCBhbmQgaW5p
-dGlhbGl6YXRpb24vY2xlYW51cCBmdW5jdGlvbnMuDQoNCiAgICBUaGUgYWN0dWFsIFRYL1JYIHNl
-cnZpY2UgaW1wbGVtZW50YXRpb25zIHRoYXQgdXNlIHRoaXMgZnJhbWV3b3JrDQogICAgYXJlIGlu
-dHJvZHVjZWQgaW4gc3Vic2VxdWVudCBwYXRjaGVzLg0KDQoNClRoYW5rcy4NCg0KDQoNCg0KDQo9
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09DQpUaGlzIG1lc3Nh
-Z2UgbWF5IGNvbnRhaW4gaW5mb3JtYXRpb24gd2hpY2ggaXMgcHJpdmF0ZSwgcHJpdmlsZWdlZCBv
-ciBjb25maWRlbnRpYWwgb2YgQ29tcGFsIEVsZWN0cm9uaWNzLCBJbmMuIElmIHlvdSBhcmUgbm90
-IHRoZSBpbnRlbmRlZCByZWNpcGllbnQgb2YgdGhpcyBtZXNzYWdlLCBwbGVhc2Ugbm90aWZ5IHRo
-ZSBzZW5kZXIgYW5kIGRlc3Ryb3kvZGVsZXRlIHRoZSBtZXNzYWdlLiBBbnkgcmV2aWV3LCByZXRy
-YW5zbWlzc2lvbiwgZGlzc2VtaW5hdGlvbiBvciBvdGhlciB1c2Ugb2YsIG9yIHRha2luZyBvZiBh
-bnkgYWN0aW9uIGluIHJlbGlhbmNlIHVwb24gdGhpcyBpbmZvcm1hdGlvbiwgYnkgcGVyc29ucyBv
-ciBlbnRpdGllcyBvdGhlciB0aGFuIHRoZSBpbnRlbmRlZCByZWNpcGllbnQgaXMgcHJvaGliaXRl
-ZC4NCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCg==
+> From: Richard Zhu <hongxing.zhu@nxp.com>
+>=20
+> Since describing the PCIe PERST# property under Host Bridge node is now
+> deprecated, it is recommended to add it to the Root Port node, so creatin=
+g the
+> Root Port node and add the reset-gpios property in Root Port.
+>=20
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+
+Reviewed-by: Sherry Sun <sherry.sun@nxp.com>
+
+Best Regards
+Sherry
+> ---
+>  arch/arm64/boot/dts/freescale/imx94.dtsi     | 11 +++++++++++
+>  arch/arm64/boot/dts/freescale/imx943-evk.dts | 10 ++++++++--
+>  arch/arm64/boot/dts/freescale/imx943.dtsi    | 11 +++++++++++
+>  3 files changed, 30 insertions(+), 2 deletions(-)
+> ---
+> Changes in v2:
+> - Delete reset-gpio properties in PCIe bridge node.
+> - Correct the "reset-gpio" property to "reset-gpios".
+>=20
+> Since the patch-set [1] issued by Sherry had been landed. Add according
+> changes on i.MX943 board too.
+> [1] https://lkml.org/lkml/2026/6/1/1461
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi
+> b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> index 1f9035e6cf159..dfbb73603cb24 100644
+> --- a/arch/arm64/boot/dts/freescale/imx94.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> @@ -1411,6 +1411,17 @@ pcie0: pcie@4c300000 {
+>  			power-domains =3D <&scmi_devpd
+> IMX94_PD_HSIO_TOP>;
+>  			fsl,max-link-speed =3D <3>;
+>  			status =3D "disabled";
+> +
+> +			pcie0_port0: pcie@0 {
+> +				compatible =3D "pciclass,0604";
+> +				device_type =3D "pci";
+> +				reg =3D <0x0 0x0 0x0 0x0 0x0>;
+> +				bus-range =3D <0x01 0xff>;
+> +
+> +				#address-cells =3D <3>;
+> +				#size-cells =3D <2>;
+> +				ranges;
+> +			};
+>  		};
+>=20
+>  		pcie0_ep: pcie-ep@4c300000 {
+> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> index 7cfd424689507..99d66484ded04 100644
+> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> @@ -1034,12 +1034,15 @@ &pcie0 {
+>  		 <&pcie_ref_clk>;
+>  	clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
+>  		      "ref", "extref";
+> -	reset-gpio =3D <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
+>  	vpcie3v3aux-supply =3D <&reg_m2_wlan>;
+>  	supports-clkreq;
+>  	status =3D "okay";
+>  };
+>=20
+> +&pcie0_port0 {
+> +	reset-gpios =3D <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>; };
+> +
+>  &pcie0_ep {
+>  	pinctrl-0 =3D <&pinctrl_pcie0>;
+>  	pinctrl-names =3D "default";
+> @@ -1058,12 +1061,15 @@ &pcie1 {
+>  		 <&pcie_ref_clk>;
+>  	clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
+>  		      "ref", "extref";
+> -	reset-gpio =3D <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
+>  	vpcie3v3aux-supply =3D <&reg_slot_pwr>;
+>  	supports-clkreq;
+>  	status =3D "okay";
+>  };
+>=20
+> +&pcie1_port0 {
+> +	reset-gpios =3D <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>; };
+> +
+>  &pcie1_ep {
+>  	pinctrl-0 =3D <&pinctrl_pcie1>;
+>  	pinctrl-names =3D "default";
+> diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi
+> b/arch/arm64/boot/dts/freescale/imx943.dtsi
+> index cf5b3dbb47ff7..01152fd0efa5e 100644
+> --- a/arch/arm64/boot/dts/freescale/imx943.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
+> @@ -255,6 +255,17 @@ pcie1: pcie@4c380000 {
+>  			power-domains =3D <&scmi_devpd
+> IMX94_PD_HSIO_TOP>;
+>  			fsl,max-link-speed =3D <3>;
+>  			status =3D "disabled";
+> +
+> +			pcie1_port0: pcie@0 {
+> +				compatible =3D "pciclass,0604";
+> +				device_type =3D "pci";
+> +				reg =3D <0x0 0x0 0x0 0x0 0x0>;
+> +				bus-range =3D <0x01 0xff>;
+> +
+> +				#address-cells =3D <3>;
+> +				#size-cells =3D <2>;
+> +				ranges;
+> +			};
+>  		};
+>=20
+>  		pcie1_ep: pcie-ep@4c380000 {
+> --
+> 2.34.1
+
 
