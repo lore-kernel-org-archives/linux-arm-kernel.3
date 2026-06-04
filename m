@@ -4,109 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6387BCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 02:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3439CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 02:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+w5xOH62tQlcUvjfnW2Mk7J5EBv1R2A9HmsoMIK4klM=; b=zit5eRDEPwTENYIxTMlKjXrAps
-	1dCpVTxs0phUisALH6QGYe1RGFFE6bcmQckqK1KYHzVSopQFV04mDRrg1FeGNSrv/Vbkle2nzauOF
-	q+NC/HJrEKH5sGMAzlhARiCvtlYk30hkNyEPuTC9vRyM8EfnShmxA7U1RfTvVl+w8/NDOhdIDmrIV
-	KNKjNxUHK7Iw1tw5IxtbMVL9a+dfTc8utzzOMQ55Ks8QZnQQqKH4msawqxH41e4l+fM3Es9ToGm6f
-	ne7JexvdZnn73cALt8CBc+742uDuikpEEDGldK54nyRbuWqJ6SzFrBYV4nfY0GX4syQSm86EJKn9F
-	Hs8PbNhg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4ZG6h4uzW09lYQY3KtHrY96snIV1JD3jucaQeYkVHm0=; b=sZpywEPKcH3Bt3dMAngzph74B0
+	UCVmv4lfUX/TZpPOZ50C9Q0zTDzcm63qMG1N+NMhl3DZMH+sxeVMvPzJHBarHhhOCCAnKfhoOLuML
+	4RjagcQ1ecnmDEUkS8fLbb58JA27+O6eBK6YcaiNrC+K9JcpJiIQrZZVR27cnmdJVrw8HhKjeH451
+	SbIGEopr7DSD18PWIjJx/vMKioRVb62u1eymeIdUjoJDP/PZRBjfcdkxK1U95o+UR/LtDf7oyyntN
+	usyYIA6S0/ThSs29dopaDMPDh648fpbuGGgjikaN65Ny+A1C1ymiHpb7GfRSoOx0lRZOT379JKohR
+	QAPLAGFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUy9e-0000000G473-0ZeF;
-	Thu, 04 Jun 2026 02:49:58 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wUyBH-0000000G4HT-2Rhe;
+	Thu, 04 Jun 2026 02:51:39 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUy9b-0000000G46K-39Lh
+	id 1wUyBE-0000000G4Gj-0ua5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 02:49:57 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-5176b9c476aso2109741cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 19:49:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780541394; cv=none;
-        d=google.com; s=arc-20240605;
-        b=L5fZvkuoxRI1dXewU+N/bjmJtV4SrzlzU4jmxfgQC0tnsINWp2RWY6f6+Wcq6ap3qm
-         dQFZ91aNOpylaQRXRCX9qn6aU6j1JpAoSZZUkI+s+wQvYdk6IgOG4+CJoS6rTJ6Sx9Pp
-         P0Dh9HsTOnRc8IGDiBxjKVPFy274G9KpkivaT1cUNY2WfFwo88AW16TpBiERqQCnYvqS
-         eN8/BQBfvUiXpstyqZHqMtK2gNFWvKzG43eOSukzR2FaMvxK4SWyNuu1ZK3kwhhFuX4x
-         look/BCdaVuHS20LD4wMYRhrdbKujry6BlH9OGwcuI+qWJNVPdlXJQPoE3L9Y/z2/HG7
-         z3AQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+w5xOH62tQlcUvjfnW2Mk7J5EBv1R2A9HmsoMIK4klM=;
-        fh=wIZXvBy4C4r1J76iDGdQBX9XDaz3HbyBmEX1MzjWN4c=;
-        b=XK3cyg7rg0ItmEuax/crY3/X8JAMA2/unn19H1jwR/dZYpK029iAK199JW4tmKetyB
-         ikjpN1mHcYGCVqp8LKaMt/Mi5MLH2gOR8JmSx1ecAg5m71Keu6XhM/asXq/SUS+5/MA1
-         xZNdE1T7c0sN+ok9fpPzEi/7UUdCabpeAutq+VZKb+HpJxYl5Zfo7xagf/+as+0JE5+W
-         8jyO/r1kHbkj7H5QaehI/czY8xCCzREXDxs/WiieK8Qv+p9gF9U0D+f74aPFp5K8C48j
-         assAMsSNoFRgHQDGaYHEirB1OSaeaIytx894CqInGCEf8m89oPQYP8EJJFDaONA6T+MW
-         R+sQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1780541394; x=1781146194; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+w5xOH62tQlcUvjfnW2Mk7J5EBv1R2A9HmsoMIK4klM=;
-        b=EBTe6hua8uyQ4EFHLgSn6Vz47iVqe8T5lwMzxzwU9n7I6KdWG7xdeTAb64ZSjT+0Rq
-         U06n2v4X/gTXYZYfd7tyOWFmK0RcGyJHPf917q3zr4F9cINTYKWjFMesqUl2PIAagmVm
-         VAc7aoxak5dlz1OeuJTvDVPTWbbI1KgWd7sAXf+IpPv3WZy/75xsTWJtgEKcq5UuoJ1o
-         fhLCaST/cnYbNsuVnVx/YpvljXT8bVZMIWK9O2rT7whC5Jt5eIgj4BElPlJq7zojODyC
-         fWoPPRkWy7iec3RLTjMeVB2JIQIrz0o1tzGrOHmoUJCD/pgYQvgRDiK1n4eiPZX8SzMu
-         WOwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780541394; x=1781146194;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+w5xOH62tQlcUvjfnW2Mk7J5EBv1R2A9HmsoMIK4klM=;
-        b=sdaLdAGyau0oL7kiMa1CKdfDdQIGjtDVADSYOK4YHEGdJ1pMVcb16szmyly5gC4NTk
-         7+yHQwoKKaLcjJ+I3HRT4l9WtQpsrdLE3t5jCK4eXFNQ38dli1Ujhzklo34wGxW17Hh2
-         ZG/Pre2bad9DgLpPdMb6PwmSLKjP1J5jQRJMGmYwwIqQNBxmaX+jMwoUFkPpfEVWUlBW
-         WKFEZL8X4JT68h0Zq747wuXBmdHU1UAFvICNsKkbZZbIlqfN5apXvi6hosu9SCltkodf
-         NpWOmt2n1gBxHmeH5zpQkhLxllZeTkTno5N+MR9cZuxTxx4FehTZiIRfif59GR8J8PYW
-         iKQQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/kKWOhVqr9ZAk0k0C5Ns9OW6WP/4zozfYU2RCh9CcJKi07wRZoprhOt+xBjgD0Psw9VUpm0z+Gb6kgQ0+Gb2tH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJ1cram3CW7LYDOWG2VjJYg31gCwEprJD0oG5WYG/juSSRBWxW
-	b4K16mZl1uyLHBp6qKmvqbQ8/cvdhLsBoPG4cbaGQlq2FZKFEAJC2tnGujs7M7pKUhieg+2jCFz
-	eAahT4cJqbJYe6rfpeQA8Eq/QsbzQ+vrQM4encEXKAQ==
-X-Gm-Gg: Acq92OHxZWDfFOC+monCaN8k1XHrGyDm2/rrluBmqXeYah0UQ3hiYxjA75k31e/wUYI
-	WZdyfKl9aHkev3gS+FXh3eY2dY08qfU4fXYKqYYbn5sBW8ZiGQ7haLbFUysP8VRqbo89oKVRfjO
-	HOZsM1vX6bTlLwSDCz5FK/2ekEZA9A0bFr2sXtNVz2zDdSOGwZ3O9JOzKQ4uP2jGRy9y2AMMvGX
-	ZrWUs2+ciPDyla3L7EzfdHjx2R+VppCqi2GUvQPFxErWkjR34OcYIiVeIDPSh1zq/IPpxXfKEkC
-	gOOmIYNB7o9E1t36SjLzWERZRhFfkYzwySkG+YgbjAwZk2MAumPgqMGm1ROVrJVCOnG2SpsVG/S
-	CqqRcwQ==
-X-Received: by 2002:a05:622a:610c:b0:516:f4f7:3315 with SMTP id
- d75a77b69052e-517787a81c3mr90745271cf.57.1780541393683; Wed, 03 Jun 2026
- 19:49:53 -0700 (PDT)
+	Thu, 04 Jun 2026 02:51:38 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowACHKtMv6CBq7TqRAA--.9439S2;
+	Thu, 04 Jun 2026 10:51:27 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org
+Cc: bmasney@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] clk: mvebu: ap-cpu: fix missing clk_put() in ap_cpu_clock_probe()
+Date: Thu,  4 Jun 2026 02:51:15 +0000
+Message-Id: <20260604025115.3763823-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260511025352.106126-1-dennis@ausil.us>
-In-Reply-To: <20260511025352.106126-1-dennis@ausil.us>
-From: Dennis Gilmore <dennis@ausil.us>
-Date: Wed, 3 Jun 2026 21:49:41 -0500
-X-Gm-Features: AVHnY4LhLvbE85WDi5tseUk06DljGzo4-m7hp6BtGBWQK2Ylp4pYx5qPjbkk-Fo
-Message-ID: <CAABkxwvWNvZbGNRYGQVnrORr0ycXFY=SdUTD9Oe9tkPcdPSUEA@mail.gmail.com>
-Subject: Re: [PATCH v10 0/4] Add support for Orange Pi 5 Pro
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
-	Alexey Charkov <alchark@gmail.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
-	FUKAUMI Naoki <naoki@radxa.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowACHKtMv6CBq7TqRAA--.9439S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Cw1rGw1DXry7XFWUAr1fZwb_yoW8Jw4fpr
+	1UGFZYkr4UXr4UJay7Gan7Wa4rua1kXFW5Ca1vya4v93Z3JFy5Gr18A3yvqF18urW8W3y5
+	tF4UJan8uF1DuFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7xkEbV
+	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
+	xVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjfUrrWFUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBg0IA2ogubGxKQAAsa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_194955_830868_C9A40E6A 
-X-CRM114-Status: GOOD (  32.73  )
+X-CRM114-CacheID: sfid-20260603_195136_654836_BF561020 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,178 +84,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The function ap_cpu_clock_probe() calls of_clk_get() to obtain a
+reference to the parent clock for each CPU cluster, but it never
+releases it with clk_put().  The returned clk is used only to read
+the parent's name via __clk_get_name(), and the reference is leaked
+on every successful cluster initialization as well as on the error
+path when devm_clk_hw_register() fails.
 
-Just checking if anything else is needed.
+Add the missing clk_put() after the name has been extracted and
+before returning on error to fix the leak.
 
-Dennis
+Fixes: af9617b419f7 ("clk: mvebu: ap-cpu-clk: Fix a memory leak in error handling paths")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/clk/mvebu/ap-cpu-clk.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-On Sun, May 10, 2026 at 9:53=E2=80=AFPM Dennis Gilmore <dennis@ausil.us> wr=
-ote:
->
-> This series adds initial support for the Xunlong Orange Pi 5 Pro, based o=
-n
-> the Rockchip RK3588S SoC. The board features eMMC, SD card, NVMe (PCIe),
-> a Motorcomm YT6801 NIC (PCIe), WiFi/BT (BCM43456), HDMI connected to SoC
-> (Second port is disabled in this patch), and a 40-pin expansion header.
->
-> The series was tested against Linux 7.0
->
-> Please take a look.
->
-> Thank you,
->
-> Dennis Gilmore
->
-> Changes in v10:
-> - rename rk806_single to rk806
-> - link to v9: https://lore.kernel.org/linux-devicetree/20260429024737.544=
-813-5-dennis@ausil.us/
->
-> Changes in v9:
-> - removed support for the dp-to-HDMI bridge, will send in a second patch
->   set to enable discusion to finish on how to handle its two operating
->   modes
-> - link to v8: https://lore.kernel.org/linux-devicetree/20260425031011.252=
-9364-1-dennis@ausil.us/
->
-> Changes in v8:
-> - Bridge node: renamed label from lt8711uxd to hdmi-bridge
-> - Bridge node: added vdd-supply =3D <&vcc3v3_dp>. The vcc3v3_dp regulator
->   gates power to the LT8711UXD. regulator-always-on is kept because
->   drm_simple_bridge only enables vdd-supply with HPD which does not
->   happen without power on
-> - GPIO output pinctrl groups (bt_wake_gpio, dp_bridge_en, ethernet_en,
->   vcc5v0_otg_en, wifi_enable_h) changed from pcfg_pull_none to
->   pcfg_pull_down to match the RK3588S power-on-reset default state
-> - pcie2x1l1 (NVMe): switched from GPIO-mode reset to hardware sideband pi=
-ns
->   using pinctrl-0 =3D <&pcie30x1m1_1_perstn>, <&pcie30x1m1_1_clkreqn>,
->   <&pcie30x1m1_1_waken>. Note: despite the "pcie30" prefix in the DTSI
->   group names, the SoC pin-mux table confirms these alt-function 4 pads
->   physically route to pcie2x1l1's native PERST#/CLKREQ#/WAKE# inputs.
->   reset-gpios is retained alongside the pinctrl entry for U-Boot
->   compatibility (pcie_dw_rockchip in U-Boot requires reset-gpios).
-> - pcie2x1l2 (NIC): added &pcie20x1m0_clkreqn and &pcie20x1m0_waken to
->   pinctrl-0
-> - Renamed pinctrl group vcc3v3_phy1_en to ethernet_en to match the
->   schematic signal name (Ethernet_EN)
-> - link to v7: https://lore.kernel.org/linux-devicetree/20260414214104.136=
-3987-1-dennis@ausil.us/
->
-> Changes in v7:
-> - Fix up whitespace issues identified by checkpatch.pl --strict in
->   rk3588s-orangepi-5-5b.dtsi
-> - checkpatch gave a warning for WARNING: phy-mode "rgmii-rxid" without
->   comment, as this was moved over I left it untouched
-> - Added lontium,lt8711uxd to the compatible enum in the simple-bridge
->   binding
-> - Added lontium,lt8711uxd match entry with DRM_MODE_CONNECTOR_HDMIA to
->   the simple-bridge driver
-> - New patch to rename the regulator labels for the es8388 supplies to
->   match the schematics and they all use vcca_*
-> - Fixed ES8388 PVDD-supply =E2=80=94 vcca_3v3_s0 =E2=86=92 vcca_1v8_s0, 5=
- Pro is
->   different to 5 and 5b.
-> - analog-sound: use CPU-as-clock-master on the Pro. The ES8388 is wired t=
-o
->   i2s2_2ch (the only I2S block physically routed to the codec pins on thi=
-s
->   board), which uses the legacy rockchip_i2s driver. That driver's
->   slave-mode trigger path hangs for 200 =C2=B5s polling I2S_CLR and bails=
- with
->   -ETIMEDOUT ("lrclk update failed"). The TDM-capable i2s0/i2s1/i2s5
->   blocks served by rockchip_i2s_tdm don't have this issue, which is why
->   other mainline ES8388 boards get away with bitclock-master =3D masterda=
-i.
->   Drop bitclock-master/frame-master and the masterdai label to let the I2=
-S
->   block generate BCLK/LRCK itself
-> - Removed regulator-always-on/regulator-boot-on from vcc3v3_dp
-> - Added pinctrl entries for all GPIO pins (dp_bridge_en, vcc3v3_phy1_en,
->   wifi_enable_h, pcie2x1l1_rst, pcie2x1l2_rst)
-> - DP bridge rework =E2=80=94 replaced dp-connector node with proper chain=
-:
->     - lt8711uxd bridge node (compatible lontium,lt8711uxd, with port@0/po=
-rt@1
->       endpoints). Bridge power is gated by the vcc3v3_dp regulator, whose
->       enable GPIO (GPIO3_PC2) is driven via the dp_bridge_en pinctrl grou=
-p;
->       no enable-gpios/vdd-supply on the bridge node itself.
->     - hdmi1-con connector node (compatible hdmi-connector, type a)
->     - dp0_out endpoint now points to bridge input instead of old connecto=
-r
-> - remove accidentally included unnecessary changes
-> - link to v6: https://lore.kernel.org/linux-devicetree/20260411024743.195=
-385-1-dennis@ausil.us/
->
-> Changes in v6:
-> - Move the shared configs for the Orange Pi 5 and Orange Pi 5b from each
->   devices dts to a shared rk3588s-orangepi-5-5b.dtsi to avoid duplication
-> - Remove empty ports subnodeis from typea_con
-> - Move i2s2m1_mclk pinctrl from &i2s2 to the es8388 codec node
-> - Add dp-con, dp0_out, dp0_in, and vp1 nodes, plus the vcc3v3_dp regulato=
-r
->   in order to get the second HDMI port working via its transparent
->   LT8711UXD DP to HDMI bridge
-> - link to v5: https://lore.kernel.org/linux-devicetree/20260401010707.258=
-4962-1-dennis@ausil.us/
->
-> Changes in v5:
-> - define a connector node for Type-A port, and list the regulator as its =
-VBUS supply explicitly.
-> - Requires https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e55a=
-4c2@flipper.net/
-> - link to v4: https://lore.kernel.org/linux-devicetree/20260310031002.392=
-1234-1-dennis@ausil.us/
->
-> Changes in v4:
-> - rename vcc3v3_pcie20 copied from rk3588s-orangepi-5.dts to vcc3v3_phy1 =
-to match the schematic
-> - use vcc_3v3_s3 as the supply not vcc5v0_sys for PCIe
-> - remove the definition for vcc3v3_pcie_m2 as it does not really exist
->   as a regulator
-> - link to v3: https://lore.kernel.org/linux-devicetree/20260306024634.239=
-614-1-dennis@ausil.us/
->
-> Changes in v3:
-> - moved leds from gpio-leds to pwm-leds
-> - remove disable-wp from sdio
-> - rename vcc3v3_pcie_eth regulator to vcc3v3_pcie_m2 to reflect the
->   purpose
-> - actually clean up the delete lines and comments missed in v2
-> - link to v2: https://lore.kernel.org/linux-devicetree/20260304025521.210=
-377-1-dennis@ausil.us/
->
-> Changes in v2:
-> - moved items not shared by orangepi 5/5b/5 Pro from dtsi to 5 and 5b
->   dts files
-> - removed all the comments and deleted properties from 5 Pro dts
-> - link to v1: https://lore.kernel.org/linux-devicetree/20260228205418.294=
-4620-1-dennis@ausil.us/
->
-> Dennis Gilmore (4):
->   dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
->   arm64: dts: rockchip: rk3588s-orangepi-5: rename PLDO regulator labels
->     to match schematic
->   arm64: dts: rockchip: refactor items from Orange Pi 5/b to prep for
->     Pro
->   arm64: dts: rockchip: Add Orange Pi 5 Pro board support
->
->  .../devicetree/bindings/arm/rockchip.yaml     |   1 +
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../dts/rockchip/rk3588s-orangepi-5-5b.dtsi   | 256 +++++++++++++
->  .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 358 ++++++++++++++++++
->  .../boot/dts/rockchip/rk3588s-orangepi-5.dts  |   6 +-
->  .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 263 +------------
->  .../boot/dts/rockchip/rk3588s-orangepi-5b.dts |   2 +-
->  7 files changed, 637 insertions(+), 250 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dt=
-si
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.d=
-ts
->
-> --
-> 2.54.0
->
+diff --git a/drivers/clk/mvebu/ap-cpu-clk.c b/drivers/clk/mvebu/ap-cpu-clk.c
+index 1e44ace7d951..a8175908e353 100644
+--- a/drivers/clk/mvebu/ap-cpu-clk.c
++++ b/drivers/clk/mvebu/ap-cpu-clk.c
+@@ -328,9 +328,11 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
+ 		ret = devm_clk_hw_register(dev, &ap_cpu_clk[cluster_index].hw);
+ 		if (ret) {
+ 			of_node_put(dn);
++			clk_put(parent);
+ 			return ret;
+ 		}
+ 		ap_cpu_data->hws[cluster_index] = &ap_cpu_clk[cluster_index].hw;
++		clk_put(parent);
+ 	}
+ 
+ 	ap_cpu_data->num = cluster_index + 1;
+-- 
+2.34.1
+
 
