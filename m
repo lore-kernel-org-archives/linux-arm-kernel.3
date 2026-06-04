@@ -4,129 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7226CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9CCCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oA6BkINH/v+UA1P/W1NI/E1R55AagfN9RlLyHR1X7RU=; b=fXkhhSjXpQ806o8Q1BQ8ZPJSD+
-	RWXkFuF744NetBPDuw0qU68jcS/ZvrjNdTCf9QgbniVKOVoVvdqn29SgW4vVmtmjtty1woVWgOm4e
-	3rpWBExxOsy/yoZnAe0n1T51Sgo7KLRUnYh8U0znClcPya+wX7sw1Skdvkx0P21DMjMNezK7IznzL
-	/GJXRtMpCe0RYJP+dsHSxcQ9a7opsWaEkFxSXZDzamTcNxriWjeyQPpDhNklN1bdBJMLpDo49ck8X
-	QialhtHnaei1DhBBkXmLk3FeYBAS/3mnokS5EhEzVLgXwwf2Dn5OTwEC8RWzG90tRyTe4krjEFFDe
-	umLh//mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bG6yD1DR2hEpGh8JtLgi0HKdEg4kb4ZJsmcgeqPHJnw=; b=NE8geUuObWXms/zvCpkp6R8CMk
+	hzQiD7hGfZVN5DPUG3mi3Etu2IS9P6lHSJgYaP5rkPUuS2uT/M3blq4snnzLaBPl/gnuyhZAJD/B5
+	ZwTQFxM7n+t24fWsjDfwMI8TWIKCXVdta7aB+hwqRvxr6wjjDRV8C9QMmOk7/PwuDfU9gT7oOIlvU
+	3SltuIIKCtJ2C29RhfYR11hLvLI9pbefnqCl9lMxbGqRUEcfqQLQPaPirtxl5iQn86RgJt3s+RXce
+	5yZpi8Z+38jh/jq3XbnQDiaBrahkVmObBRMFBEVoBJz6e2TXx5xjwGqgMCaZQyZR2yi7h7CNHvefW
+	1fCJdVWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8ON-0000000Gp6y-1rgU;
-	Thu, 04 Jun 2026 13:45:51 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wV8OS-0000000Gp8e-2fte;
+	Thu, 04 Jun 2026 13:45:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV8OK-0000000Gp66-3qWO
+	id 1wV8OR-0000000Gp8G-17xD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 13:45:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P1peX5cYyJ5QoirYXx2AIkC9je5iNfYEx4PETRpMGhh1tVPOJpA6i2rdtFpcv4kbsshBTHHQBPkILoAgqMjuNiQ5n9r1J7owWMdITz69r4VcX8CE9vGD31v7XBUlx8UbGDtrZITZXTgwdjB5/t34WEc0FZeVD3sRkYCZj1VzKj8R7NSVzN5xJyZHymVExQJtRXoiht61Hf2zjr1N8q+0iLaAPsmlnr/fKWWdTY7PvBnbl2fqWymEp0b4uk8pCD3HyIVaoVZ6XNBBR+SHna2oIYSGAY/fnVF/yi8KyQlDi8kQFUyjwg60FKd2qKIHPJy17+1V4etCgtMzeEkZdgc6Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oA6BkINH/v+UA1P/W1NI/E1R55AagfN9RlLyHR1X7RU=;
- b=X7Gu3tdBFCeO5W5isynMbLD2wIr+dO+3Al5HQkZcWOSVZO+biwg95sC0SKuwK6ootDgXc1evckQw5mcDtieG4U/+fjeXuu+ksvuQ3T9/X9+4AnAVPw6Uw39wTu+jeqlrRpm4B4luEVMMOopa0Q/VJXKV5xcRi25vCULaX73rm8UrHDuOfnPxJdsKILFg8XEYpQdvRWFMqo3HbORPIMA72V2gRKwew9B6oa8GvM+HaqEuNCtPNgzzGhu7zY+82bCqZLKgoZy+RvghXU4f7Hz3r/yjrV+keTeUf6zD0uHWCIz9bWxSAtyvmVaDi1ADPbq8Nm7nkWS4Lhf3pyVywtVUXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oA6BkINH/v+UA1P/W1NI/E1R55AagfN9RlLyHR1X7RU=;
- b=nmOsn7BKpgzG29ZDM+o6955zyfUkqcKu+hAOOk8bpuBa3Eq+0YiF0UqrSLRbzfzm0Ua6Er0DIODRAXaTjf2hgqTsHXXAW49W7yRbAVOA0xstV9xscUA+oTAVNe3/fGYnkdyqImOP0AgKxAZOhsDVK3Y7RoOpbZLhmDtn4k7QYag=
-Received: from BYAPR21CA0021.namprd21.prod.outlook.com (2603:10b6:a03:114::31)
- by DM3PR10MB7926.namprd10.prod.outlook.com (2603:10b6:0:3d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Thu, 4 Jun 2026
- 13:45:44 +0000
-Received: from SJ5PEPF00000206.namprd05.prod.outlook.com
- (2603:10b6:a03:114:cafe::6f) by BYAPR21CA0021.outlook.office365.com
- (2603:10b6:a03:114::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Thu, 4
- Jun 2026 13:45:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ5PEPF00000206.mail.protection.outlook.com (10.167.244.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Thu, 4 Jun 2026 13:45:42 +0000
-Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 4 Jun
- 2026 08:45:18 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 4 Jun
- 2026 08:45:16 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 4 Jun 2026 08:45:16 -0500
-Received: from [172.24.231.93] (ti.dhcp.ti.com [172.24.231.93])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 654Dj91C3476705;
-	Thu, 4 Jun 2026 08:45:09 -0500
-Message-ID: <7c4a4ff9-91b8-46a8-8b97-a0b682418a1f@ti.com>
-Date: Thu, 4 Jun 2026 19:15:08 +0530
+	Thu, 04 Jun 2026 13:45:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB8EF40626;
+	Thu,  4 Jun 2026 13:45:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20B481F00899;
+	Thu,  4 Jun 2026 13:45:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780580754;
+	bh=bG6yD1DR2hEpGh8JtLgi0HKdEg4kb4ZJsmcgeqPHJnw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CS8HmWdr26RcdgrU/GyogvKbgS1oRujsoniyoTH9ATztks9rThxc+Qr4MLP139deS
+	 xLxA+SNlv9l/h7DXJkcdMK+T9dovMpswgDvygmLKgFlRJjy51tW8sIKFqVJaNE6g4w
+	 ySvi9ANEFpSS/YYmii9DfSr7kxblrs2uezW+maHKsZgRzw2weBk9NCEQ0qInyGI3to
+	 QsnyZnSDRqNEtJmnE4tTnpGcziD2JwCAdeDMv3NNXbiGJpJWETYaGJ+EUmX0SasmGU
+	 4JSh/sfl7JQpKlCkV9xb/GDeL3/B6R3NREuNEDzDiKCAcmy0yEHrTGEXtVA8uM1fip
+	 NRVw9oMkFE0dw==
+Date: Thu, 4 Jun 2026 14:45:49 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+Message-ID: <20260604-juicy-daft-starling-3eec1f@sudeepholla>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
+ <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+ <yq5ase72qvwb.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 2/2] net: ti: icssg-prueth: Add ethtool ops
- for Frame Preemption MAC Merge
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, <liuhangbin@gmail.com>,
-	<h-mittal1@ti.com>, <haokexin@gmail.com>, <vadim.fedorenko@linux.dev>,
-	<devnexen@gmail.com>, <horms@kernel.org>, <jacob.e.keller@intel.com>,
-	<arnd@arndb.de>, <afd@ti.com>, <basharath@couthit.com>,
-	<parvathi@couthit.com>, <vladimir.oltean@nxp.com>, <rogerq@kernel.org>,
-	<danishanwar@ti.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
-	<edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-References: <20260525182700.3135858-1-m-malladi@ti.com>
- <20260525182700.3135858-3-m-malladi@ti.com>
- <7f194a90-8bf6-4217-b5fa-c003b3dc85b3@bootlin.com>
-Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <7f194a90-8bf6-4217-b5fa-c003b3dc85b3@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000206:EE_|DM3PR10MB7926:EE_
-X-MS-Office365-Filtering-Correlation-Id: fe39a92e-0559-4f53-5a06-08dec23f926b
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700016|1800799024|921020|6133799003|22082099003|18002099003|56012099006|4143699003|3023799007;
-X-Microsoft-Antispam-Message-Info: 17AMEBqLP9lpeN7eHaJaMr/zu6qtUGnaRbs5q13FmGuTWIABg9gsSivPjus8mvjr8drtZIWOLS6bU0DBWdicnfzBqdWJAS3SpOhjrnlGXfUkYVRffZB3+1XJoZphRdx2S16w4In/b3lPjGUUp+onBYVwl1+a04yrHEmmExye1atElQ2RfBFZ1ZNAeRR2dIOZvhK0H4EgU8Ip8V1BHNvrmINMiM5Yed4PU/0MEdDE4E2Tb2JZBpofNyCLReaeXcbj9hQFl1v4dMR/7W7v2g7HpKoVuFr7M/O5iyoLU7Hylky8pBDQpavYQOU62G3hU4omAyZaTvRJGEPYJsd4V0rGetep9bSaTbAp4XTn4cwwzimsw1DtaRSDkMr5kjSiFwfIK1p0an/4bkvwNO3buMeKJOcImZBwoN+l1edARdh5Ce7PXt/o90h3bQujB8HH96MWOPX+j+DFUgA3BuejzTzzs7w/vJd5PVd0WX/eUeS9JTXN13z5m/vb9+8DKcPuaKieGT45ITJBU6b0XKgNfQqY6BklKCeyeI9a5AU6dLo9XzgYZDNQQKv/RnzdyWLRKM8MwIY7iFbsaelp/vxsu8+bkL/JBXLsIh6CYMJA4KKJbp8CzdAC9kqGWSmmM2fylVgSvArtOW4t563ulhb4NZeuSHozzjC0epsy7aiPkGhX/HwIqUDuLtenDFm83prZUQAcxvrHkowkPu+2TIWb4hbg9rJb74LFDTca/NYKycugnJU=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700016)(1800799024)(921020)(6133799003)(22082099003)(18002099003)(56012099006)(4143699003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 70pb64vDeQ7QPC0wDx51qkQMwv+HocpwnaPDE7wRnGuxX+k3D2kb2C3z/AxYchSxSEpqZPBYqGnR0v3mUYBpgDaJ1E6ZsJF22OtygQDjHqxb0OAWoXm9KSQJVL+zyqEn72FCbV/H+Rz864pIC2iKFCZp1TbvkdVh/9gBmVngDK+UTdm1xEZfqWK0+aWZYtIPo31zLC8J7hqmQZyPpqQXb6OQ8+jfDU1soOqGcpWZUTvF8uHwGoGnwUMtLAIFiNzfNYsNTH5u+3XR2HJDIc2mqy7PkzsB0xuu7ic7KzUZkq+wMmvsZC3nB/6rtVqUtJtKIg7tXHf7PCm9pEcizDSFrKbabpwzHw65f8dDkAI2scUW3W7UGAZrzrZDCqm9HVQXtyL0CAvREhAh4TRubWRt8S0OK0aasxADO9Dq79mx36zMBuZigty0BQqWmMLml1AV
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 13:45:42.7185
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe39a92e-0559-4f53-5a06-08dec23f926b
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000206.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR10MB7926
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_064549_060821_88F8527A 
-X-CRM114-Status: GOOD (  22.32  )
+In-Reply-To: <yq5ase72qvwb.fsf@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,370 +82,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/26/26 01:05, Maxime Chevallier wrote:
-> Hi,
+On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
+> Sudeep Holla <sudeep.holla@kernel.org> writes:
 > 
-> On 5/25/26 20:27, Meghana Malladi wrote:
->> From: MD Danish Anwar <danishanwar@ti.com>
->>
->> Add driver support for viewing and changing the MAC Merge sublayer
->> parameters via ethtool ops: .set_mm(), .get_mm() and .get_mm_stats().
->>
->> The minimum size of non-final mPacket fragments supported by the firmware
->> without leading errors is 64 Bytes (including FCS). Verify time 
->> bounded to
->> 1-128 ms per 802.3-2018 clause 30.14.1.6. Add a check to ensure
->> user passed tx_min_frag_size argument via ethtool, honors this.
->> Add pa stats registers to check statistics for preemption, which can be
->> dumped using ethtool ops.
->>
->> Fix emac_get_stat_by_name() to return u64 instead of int and return 0 on
->> error instead of -EINVAL. This prevents invalid stat lookups from 
->> corrupting
->> output stats with signed error codes cast to u64. Error conditions are 
->> still
->> logged via netdev_err().
->>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->> ---
->>
->> v6-v5:
->> - Initialize tx_min_frag_size and verify_time with valid values
->>    to avoid returning corrupted values during get_mm()
->> - Fix rx_min_frag_size to ETH_ZLEN excluding ETH_FCS_LEN
->> - Fix return codes for emac_set_mm()
->> All the above changes address the comments raised by sashiko
->>
->>   drivers/net/ethernet/ti/icssg/icssg_ethtool.c | 106 ++++++++++++++++++
->>   drivers/net/ethernet/ti/icssg/icssg_prueth.h  |   7 +-
->>   drivers/net/ethernet/ti/icssg/icssg_qos.h     |  46 ++++++++
->>   drivers/net/ethernet/ti/icssg/icssg_stats.c   |   4 +-
->>   drivers/net/ethernet/ti/icssg/icssg_stats.h   |   7 +-
->>   .../net/ethernet/ti/icssg/icssg_switch_map.h  |   5 +
->>   6 files changed, 168 insertions(+), 7 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/ 
->> net/ethernet/ti/icssg/icssg_ethtool.c
->> index b715af21d23ac..ee940051644d6 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
->> @@ -294,6 +294,109 @@ static int emac_set_per_queue_coalesce(struct 
->> net_device *ndev, u32 queue,
->>       return 0;
->>   }
->> +static int emac_get_mm(struct net_device *ndev, struct 
->> ethtool_mm_state *state)
->> +{
->> +    struct prueth_emac *emac = netdev_priv(ndev);
->> +    struct prueth_qos_iet *iet = &emac->qos.iet;
->> +    enum icssg_ietfpe_verify_states verify_status;
->> +
->> +    if (emac->is_sr1)
->> +        return -EOPNOTSUPP;
->> +
->> +    mutex_lock(&iet->fpe_lock);
->> +    state->tx_enabled = iet->fpe_enabled;
->> +    state->tx_min_frag_size = iet->tx_min_frag_size;
->> +    state->tx_active = iet->fpe_active;
->> +    state->verify_enabled = iet->mac_verify_configure;
->> +    state->verify_time = iet->verify_time_ms;
->> +    verify_status = iet->verify_status;
->> +    mutex_unlock(&iet->fpe_lock);
->> +
->> +    state->rx_min_frag_size = ETH_ZLEN;
->> +    state->pmac_enabled = true;
->> +
->> +    switch (verify_status) {
->> +    case ICSSG_IETFPE_STATE_DISABLED:
->> +        state->verify_status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
->> +        break;
->> +    case ICSSG_IETFPE_STATE_INITIAL:
->> +        state->verify_status = ETHTOOL_MM_VERIFY_STATUS_INITIAL;
->> +        break;
->> +    case ICSSG_IETFPE_STATE_VERIFYING:
->> +        state->verify_status = ETHTOOL_MM_VERIFY_STATUS_VERIFYING;
->> +        break;
->> +    case ICSSG_IETFPE_STATE_SUCCEEDED:
->> +        state->verify_status = ETHTOOL_MM_VERIFY_STATUS_SUCCEEDED;
->> +        break;
->> +    case ICSSG_IETFPE_STATE_FAILED:
->> +        state->verify_status = ETHTOOL_MM_VERIFY_STATUS_FAILED;
->> +        break;
->> +    default:
->> +        state->verify_status = ETHTOOL_MM_VERIFY_STATUS_UNKNOWN;
->> +        break;
->> +    }
->> +
->> +    /* 802.3-2018 clause 30.14.1.6, says that the aMACMergeVerifyTime
->> +     * variable has a range between 1 and 128 ms inclusive. Limit to 
->> that.
->> +     */
->> +    state->max_verify_time = ETHTOOL_MM_MAX_VERIFY_TIME_MS;
->> +
->> +    return 0;
->> +}
->> +
->> +static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg 
->> *cfg,
->> +               struct netlink_ext_ack *extack)
->> +{
->> +    struct prueth_emac *emac = netdev_priv(ndev);
->> +    struct prueth_qos_iet *iet = &emac->qos.iet;
->> +    int err;
->> +
->> +    if (emac->is_sr1)
->> +        return -EOPNOTSUPP;
->> +
->> +    if (!cfg->pmac_enabled) {
->> +        NL_SET_ERR_MSG_MOD(extack, "preemptible MAC is always enabled");
->> +        return -EOPNOTSUPP;
->> +    }
->> +
->> +    err = icssg_qos_validate_tx_min_frag_size(cfg->tx_min_frag_size, 
->> extack);
->> +    if (err)
->> +        return err;
->> +
->> +    err = icssg_qos_validate_verify_time(cfg->verify_time, extack);
->> +    if (err)
->> +        return err;
+> ...
 > 
-> The ethnl code already validates the verify_time :
+> > +static const struct smccc_device_info smccc_devices[] __initconst = {
+> > +       {
+> > +               .func_id        = ARM_SMCCC_TRNG_VERSION,
+> > +               .requires_smc   = false,
+> > +               .min_return     = ARM_SMCCC_TRNG_MIN_VERSION,
+> > +               .device_name    = "arm-smccc-trng",
+> > +       },
+> > +};
+> > +
+> > +static bool __init
+> > +smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+> > +{
+> > +       struct arm_smccc_res res;
+> > +       unsigned long ret;
+> > +
+> > +       if (!IS_ENABLED(CONFIG_ARM64))
+> > +               return false;
+> > +
+> > +       if (smccc_conduit == SMCCC_CONDUIT_NONE)
+> > +               return false;
+> > +
+> > +       if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
+> > +               return false;
+> > +
+> > +       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+> > +       ret = res.a0;
+> > +
+> > +       if ((s32)ret < 0)
+> > +               return false;
+> > +
+> > +       return ret >= smccc_dev->min_return;
+> > +}
+> > +
+> >
 > 
-> https://elixir.bootlin.com/linux/v7.0.9/source/net/ethtool/mm.c#L153
+> I am not sure we want the check to be as simple as ret < 0. Some
+> function IDs may return input errors based on the supplied arguments
+> (for example, RMI_ERROR_INPUT). In those cases, we would likely want
+> this to be handled via a callback.
 > 
 
-I remember getting a comment asking me to add a comment or check to 
-validate tx_min_frag_size, I don't remember at this point why I added 
-for verify_time as well, lost track in the comments lot. I will remove 
-it. Just to confirm, do I need icssg_qos_validate_tx_min_frag_size() or 
-can I remove it as well ?
+As I mentioned in response to Suzuki, we can defer that to probe of
+that device. If *_VERSION, succeeds SMCCC core can add that device and
+leave the rest to the core keeping the core and bus layer simple IMO.
 
->> +
->> +    mutex_lock(&iet->fpe_lock);
->> +    iet->verify_time_ms = cfg->verify_time;
->> +    iet->tx_min_frag_size = cfg->tx_min_frag_size;
->> +    iet->fpe_enabled = cfg->tx_enabled;
->> +    iet->mac_verify_configure = cfg->verify_enabled;
->> +    err = icssg_config_ietfpe(ndev, cfg->tx_enabled);
->> +    mutex_unlock(&iet->fpe_lock);
->> +
->> +    return err;
->> +}
->> +
->> +static void emac_get_mm_stats(struct net_device *ndev,
->> +                  struct ethtool_mm_stats *s)
->> +{
->> +    struct prueth_emac *emac = netdev_priv(ndev);
->> +
->> +    if (emac->is_sr1)
->> +        return;
->> +
->> +    if (!emac->prueth->pa_stats)
->> +        return;
->> +
->> +    /* MACMergeHoldCount stats is not tracked by the firmware */
->> +    s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, 
->> "FW_PREEMPT_ASSEMBLY_OK");
->> +    s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, 
->> "FW_PREEMPT_ASSEMBLY_ERR");
->> +    s->MACMergeFragCountRx = emac_get_stat_by_name(emac, 
->> "FW_PREEMPT_FRAG_CNT_RX");
->> +    s->MACMergeFragCountTx = emac_get_stat_by_name(emac, 
->> "FW_PREEMPT_FRAG_CNT_TX");
->> +    s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, 
->> "FW_PREEMPT_BAD_FRAG");
->> +}
->> +
->>   const struct ethtool_ops icssg_ethtool_ops = {
->>       .get_drvinfo = emac_get_drvinfo,
->>       .get_msglevel = emac_get_msglevel,
->> @@ -317,5 +420,8 @@ const struct ethtool_ops icssg_ethtool_ops = {
->>       .set_eee = emac_set_eee,
->>       .nway_reset = emac_nway_reset,
->>       .get_rmon_stats = emac_get_rmon_stats,
->> +    .get_mm = emac_get_mm,
->> +    .set_mm = emac_set_mm,
->> +    .get_mm_stats = emac_get_mm_stats,
->>   };
->>   EXPORT_SYMBOL_GPL(icssg_ethtool_ops);
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/ 
->> net/ethernet/ti/icssg/icssg_prueth.h
->> index 85f7017d2c8e7..61320c252bec2 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> @@ -45,6 +45,7 @@
->>   #include "icss_iep.h"
->>   #include "icssg_switch_map.h"
->>   #include "icssg_qos.h"
->> +#include "icssg_stats.h"
->>   #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
->>   #define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
->> @@ -58,8 +59,8 @@
->>   #define ICSSG_MAX_RFLOWS    8    /* per slice */
->> -#define ICSSG_NUM_PA_STATS    32
->> -#define ICSSG_NUM_MIIG_STATS    60
->> +#define ICSSG_NUM_PA_STATS    ARRAY_SIZE(icssg_all_pa_stats)
->> +#define ICSSG_NUM_MIIG_STATS    ARRAY_SIZE(icssg_all_miig_stats)
->>   /* Number of ICSSG related stats */
->>   #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
->>   #define ICSSG_NUM_STANDARD_STATS 31
->> @@ -460,7 +461,7 @@ int emac_fdb_flow_id_updated(struct prueth_emac 
->> *emac);
->>   void icssg_stats_work_handler(struct work_struct *work);
->>   void emac_update_hardware_stats(struct prueth_emac *emac);
->> -int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name);
->> +u64 emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name);
->>   /* Common functions */
->>   void prueth_cleanup_rx_chns(struct prueth_emac *emac,
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ 
->> ethernet/ti/icssg/icssg_qos.h
->> index 9355e96bbcda8..87ca031afcaa4 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_qos.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
->> @@ -13,6 +13,7 @@
->>   #define ICSSG_EXPRESS_Q_MASK_ALL        0xFF
->>   #define ICSSG_IET_MAX_VERIFY_TIME        128
->>   #define ICSSG_IET_MIN_VERIFY_TIME        1
->> +#define ICSSG_IET_MAX_TX_MIN_FRAG_SIZE        252
->>   /**
->>    * enum icssg_ietfpe_verify_states - status of MAC Merge Verify 
->> returned by firmware
->> @@ -63,4 +64,49 @@ void icssg_qos_link_state_update(struct net_device 
->> *ndev);
->>   int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum 
->> tc_setup_type type,
->>                  void *type_data);
->>   int icssg_config_ietfpe(struct net_device *ndev, bool enable);
->> +static inline int icssg_qos_validate_tx_min_frag_size(u32 min_frag_size,
->> +                              struct netlink_ext_ack *extack)
->> +{
->> +    /* Firmware takes min_frag_size including FCS length.
->> +     * The firmware requires the fragment size (including FCS) to be
->> +     * a multiple of 64 bytes. Since 64 bytes = ETH_ZLEN + ETH_FCS_LEN,
->> +     * valid user-facing values are: 60, 124, 188, 252.
->> +     */
->> +
->> +    if (min_frag_size < ETH_ZLEN) {
->> +        NL_SET_ERR_MSG_MOD(extack,
->> +                   "tx_min_frag_size must be at least 60 bytes");
->> +        return -EINVAL;
->> +    }
->> +
->> +    if (min_frag_size > ICSSG_IET_MAX_TX_MIN_FRAG_SIZE) {
->> +        NL_SET_ERR_MSG_MOD(extack,
->> +                   "tx_min_frag_size must not exceed 252 bytes");
->> +        return -EINVAL;
->> +    }
->> +
->> +    if ((min_frag_size + ETH_FCS_LEN) % (ETH_ZLEN + ETH_FCS_LEN)) {
->> +        NL_SET_ERR_MSG_MOD(extack,
->> +                   "tx_min_frag_size must be a multiple of 64 bytes 
->> minus 4");
->> +        return -EINVAL;
->> +    }
->> +
->> +    return 0;
->> +}
-> 
-> Is there any reason this helper is in a header file instead
-> of being directly in icssg_ethtool.c ?
+> We also want to use conditional compilation for some function IDs.
+> Given the callback approach and the #ifdefs, I wonder whether what we
+> currently have is actually simpler and more flexible.”
 > 
 
-I don't have any strong reason as such, I didn't want to put any helper 
-functions in icssg_ethtool.c.
+I was trying to avoid conditional compilation altogether and hence the
+reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
+in above snippet must come as some condition to this generic probe.
 
->> +
->> +static inline int icssg_qos_validate_verify_time(u32 verify_time_ms,
->> +                         struct netlink_ext_ack *extack)
->> +{
->> +    /* 802.3-2018 clause 30.14.1.6: aMACMergeVerifyTime must be
->> +     * between 1 and 128 ms inclusive
->> +     */
->> +    if (verify_time_ms < ICSSG_IET_MIN_VERIFY_TIME ||
->> +        verify_time_ms > ICSSG_IET_MAX_VERIFY_TIME) {
->> +        NL_SET_ERR_MSG_MOD(extack,
->> +                   "verify_time must be between 1 and 128 ms");
->> +        return -EINVAL;
->> +    }
->> +
->> +    return 0;
->> +}
-> 
-> And this shouldn't be needed as the ethnl mm code already validates
-> these boundaries, as they are straight from the standard.
-> 
+Adding any more logic or callback defeats the bus idea here if we need
+to rely/depend on multiple conditional compilation or callbacks IMO.
 
-Will remove this is my next version.
+Let's find see if it can work with what we are adding now and may add in
+near future and then decide.
 
->>   #endif /* __NET_TI_ICSSG_QOS_H */
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/ 
->> net/ethernet/ti/icssg/icssg_stats.c
->> index 7159baa0155cf..cfdb6f5dc5da1 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
->> @@ -74,7 +74,7 @@ void icssg_stats_work_handler(struct work_struct *work)
->>   }
->>   EXPORT_SYMBOL_GPL(icssg_stats_work_handler);
->> -int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
->> +u64 emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
->>   {
->>       int i;
->> @@ -91,5 +91,5 @@ int emac_get_stat_by_name(struct prueth_emac *emac, 
->> char *stat_name)
->>       }
->>       netdev_err(emac->ndev, "Invalid stats %s\n", stat_name);
->> -    return -EINVAL;
->> +    return 0;
->>   }
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/ 
->> net/ethernet/ti/icssg/icssg_stats.h
->> index 5ec0b38e0c67d..8073deac35c3e 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
->> @@ -8,8 +8,6 @@
->>   #ifndef __NET_TI_ICSSG_STATS_H
->>   #define __NET_TI_ICSSG_STATS_H
->> -#include "icssg_prueth.h"
->> -
->>   #define STATS_TIME_LIMIT_1G_MS    25000    /* 25 seconds @ 1G */
->>   struct miig_stats_regs {
->> @@ -189,6 +187,11 @@ static const struct icssg_pa_stats 
->> icssg_all_pa_stats[] = {
->>       ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
->>       ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
->>       ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
->> +    ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
->> +    ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
->> +    ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
->> +    ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
->> +    ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
->>       ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
->>       ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
->>       ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/ 
->> drivers/net/ethernet/ti/icssg/icssg_switch_map.h
->> index 7e053b8af3ece..855fd4ed0b3f6 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
->> @@ -256,6 +256,11 @@
->>   #define FW_INF_DROP_PRIOTAGGED        0x0148
->>   #define FW_INF_DROP_NOTAG        0x0150
->>   #define FW_INF_DROP_NOTMEMBER        0x0158
->> +#define FW_PREEMPT_BAD_FRAG        0x0160
->> +#define FW_PREEMPT_ASSEMBLY_ERR        0x0168
->> +#define FW_PREEMPT_FRAG_CNT_TX        0x0170
->> +#define FW_PREEMPT_ASSEMBLY_OK        0x0178
->> +#define FW_PREEMPT_FRAG_CNT_RX        0x0180
->>   #define FW_RX_EOF_SHORT_FRMERR        0x0188
->>   #define FW_RX_B0_DROP_EARLY_EOF        0x0190
->>   #define FW_TX_JUMBO_FRM_CUTOFF        0x0198
-> 
-> Maxime
-
-Thanks,
-Meghana
+-- 
+Regards,
+Sudeep
 
