@@ -4,148 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8436FCD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E09CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kygRY4F7eJ1NPjqjo+XnXvVIc/zT6FpT96y6RC3eCRo=; b=iNI3Ct0sqFcsQqCk20FWBihqmz
-	3Y/ilecMvazDzoDp7O9qte+HFVkPRh3F4XaA2CIH1nwCBIinU/DHVtFZoMqrFBjHz+rCn7FHwpyXk
-	AwtDVoufoYWH3Q75tMRgBz6FMArkhGzu2so8mrzll5EDweJR9e2QBaj099EKmCevRNT6+i0IEKVdr
-	Unca0WjOh+EPzUoIw3RLdUIAUDY9wL8my0HYzsulkD1JcUAOnQivm726CApTJZhWZMZCwgHbZrSH5
-	JcD6mMRZ6Xj5/JD6Cgn6o+qTDhuxwTdmxFH9/UZpiPZyKDiKX1pIcgwEKRPESj0GQOeFPVkd4V+oR
-	jrRoMnAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0OSD/VKi/puZajyl57HBfU17CQYq2Ug+p7OAnLKX/+0=; b=4hKCVN1dOqsB/j8tdDL0RS/KFP
+	f9/aCpNwvQTtUtRPt3SDh0/vIpMBrffvo3WHa5PIp8G18EH9a1QD4PDSF6n+ho12wNOggViPC+yZw
+	3Drjf0uDgyKsaj7MuSytl7BXCKMqcxgXWmYc+XcyD6FyptSwkMdLGLxlW8sDGX6jFXdGA95UuB4eu
+	qWvZprVfRUSxq952l5T0osj8OMtQWlbob3tLYVpxml2YMDJ8iD1uQsJNPBviU2+PzK2qDUTIzxTPo
+	s33llSkYgmXJojlcBkw5g5aG9OAuImkMv60hJpcvkfaS3qBjQKaawW1RZKQJrxdWsMyqo7RflLD92
+	M4MQdhcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7kE-0000000Gl54-137V;
-	Thu, 04 Jun 2026 13:04:22 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wV7yx-0000000Glfa-2gH6;
+	Thu, 04 Jun 2026 13:19:35 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV7kB-0000000Gl4Z-1xqX
+	id 1wV7yu-0000000Glf1-1Dms
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 13:04:20 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6548G9AB141860
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Jun 2026 13:04:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=kygRY4F7eJ1NPjqjo+XnXvVI
-	c/zT6FpT96y6RC3eCRo=; b=LYGFz4HC6QJIf95dQ+rkttk6BETSr1NO4PX6j884
-	i1GC+e+8AwfzwdeAFnf2A09YFRF5Bgzbwsf55VHhjnBa5/usR53MnALGKwOnRH9L
-	1HvclKZU7w8ZrvhbG9z7m+8pwlX4iLH7dtBy3svAUX1e2tpKcZ6i6Fm5fNsyXBbT
-	0XPdKKQ1p2KWuDbq3pCNfJhckX9oB2B1JUriTePpqGxX5x9sWAlCU+rLL2LOs++8
-	IbWLSW5qiApcqzMWdAaaDaz3+P+OEHAtMIS0HO6E/zMarcZcPAa58BDMpV5yy8AQ
-	z2GiLgjfgTA1D52q4ES+HSy34wcFSjKtSxJRkGKObv0sdQ==
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ejyenaen5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 13:04:18 +0000 (GMT)
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-7e6fed63fe5so730518a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 06:04:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780578258; x=1781183058; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kygRY4F7eJ1NPjqjo+XnXvVIc/zT6FpT96y6RC3eCRo=;
-        b=ahjQ2Zaene+c4ub6bD6ilklRVboI6U7VWM0rYcqXpIqFzO/rJ4HGnkRp0i2kiv6vqu
-         bypbbq/cfVkcyJCnSSvkAzI8yOxg3JCiCWkZJaiEVG/y8yS0uypVIKeQ2maM2NwO6DIf
-         PNgleEBmNSHfpqCFovVtmm+XM/CXW06oPHEwmeoOYPvKPP/BO0mty7pkVgHMCIs55Kek
-         mefpOZkbVpZGY9z7P673POc+N9olcxO7iLXpFg4SKPiEbD2STh9NSrrvzCYjMF+Rdx8l
-         Rb4Q97zR0bHMWLVr7lLo/VpvtSZyBiTWYwGE8aaQ7d7SAedRhbLDZglNfHMDSlH1BDGZ
-         V5ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780578258; x=1781183058;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kygRY4F7eJ1NPjqjo+XnXvVIc/zT6FpT96y6RC3eCRo=;
-        b=TsK510jXtVmSIZLoup+zDacZxt3cpWQGPpGQw4CFa52zBRN3snGMliY1GSveaXHXO/
-         AQFWZKRpblMGPvjml8mcAr+YOwb6Zn9nihD97IRxxhKOYeA5WaG2+Zx7Ood+CcVpsCUU
-         A1npCTt3qb8782tKSZl87M3jnl7FuVh+qRp0mkmcOgrWwXtr+bVU7GxiMHUmNFDDwIlk
-         Sr5FuhgjpHjF19ajwNg/A15jd8iOh4kQ1rb6odrX4tNIGgnJgY31n5Od1HLSEmVS1LzW
-         actQraGU0Ah4tqyO0AzyvIEnnnw43cZ+uOT8Z0fVcrm2K0H/0CIF7GsiIcTV1tT5o0bC
-         QiKg==
-X-Forwarded-Encrypted: i=1; AFNElJ9YNCbpni/5L38WNMQx7ahoi7FRTM6xogvOI5WOYY68glfh/nBuZtc1ENcRyQEX32XkQHnbdm/Kpg9IlT02wbAz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEc47ZrzIJcOXZfKu0GvhyX2SfGsQ2D4NyhK4P99bmjQwW58QU
-	Oj37NuABQO/UH7l5mNbMZtH1HneM6cgeqbf4+PJLosgNpWqVzqzuL4wRj/ltEA2ZI6mcFgfblM0
-	0niINJMxQwAISTEWYu3JoeeLdzEHTHP+RF5rswJkjomKBSYumOxAAK+TFUITjT/4IhdJsrDq0yF
-	pmBg==
-X-Gm-Gg: Acq92OE3IppMEzHaTLd8cWciSBHmFO5jMakdKN+4KJYmhH4osl3m8xiwyZn0RrUKhBq
-	pZ+1dNPYCbS8FN7tQE1ezWUP5DhNKeKtjPeO3Y8yA+EeOLUzFuo+AziuJFTb4sRJRZgu6xt84Cp
-	w3cZMDkO6FMUnQ1VHTaVdN2DPTyCJ4Y0RIlinItxXFzci9BZEEJlMQ3cJjUZIDo7Fvjbh0qglym
-	u/X5hW8bQ4rij/3OROdrcLS0t9jOie9pInV/op4Di2bHEeMgEnAuo9NRFhETSpPRbqPYlpOIHOw
-	NPn3Ww4stwE2Z4eaQSkVDBBotKZSk63mVeIW4p3XIodeWcAhounvxsKOp8atcTpIIPZxQRZlUzs
-	YmOriyM/sIoUSDuZzrJtV6C8a+9shufy/6WkvvxYHpXlzhvM6zL2phtmKpl5gTIoaiOm0DvM7FP
-	ZdA3/0qwM5LxrUMjOrzfP5vUpQn51KHEV9/QC2iLf/cwts0Q==
-X-Received: by 2002:a9d:5e0c:0:b0:7e6:441:cb4d with SMTP id 46e09a7af769-7e6f91ca449mr1449307a34.3.1780578257764;
-        Thu, 04 Jun 2026 06:04:17 -0700 (PDT)
-X-Received: by 2002:a9d:5e0c:0:b0:7e6:441:cb4d with SMTP id 46e09a7af769-7e6f91ca449mr1449240a34.3.1780578256962;
-        Thu, 04 Jun 2026 06:04:16 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aa7b907269sm1197378e87.34.2026.06.04.06.04.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 06:04:15 -0700 (PDT)
-Date: Thu, 4 Jun 2026 16:04:13 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Nabige Aala <nabige.aala@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] soc: qcom: ubwc: Add Shikra UBWC config
-Message-ID: <nkzfcmzslcc4e2kp5fv2i2grb22ncf6ewd5pn57wy5tdth4zrt@ddrquhu4ijcd>
-References: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
- <20260604-shikra-display-v2-3-b3c1b2b67edc@oss.qualcomm.com>
+	Thu, 04 Jun 2026 13:19:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1780579162; x=1781183962; i=markus.elfring@web.de;
+	bh=0OSD/VKi/puZajyl57HBfU17CQYq2Ug+p7OAnLKX/+0=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Zr3QA0o5eZxZBwhfb3NHaztu21LIuwI1LTA5IMuDYmMVoN/TDLAT1XiPy9HgsySC
+	 hMKZ9dfWHMbwjhZO6VVw6ZxKHVO/lOtF+jLKGY1qGAlPI3tr3HyhEV9eyq1KDvrf5
+	 QdYAq9bwJipKBeSCFhFuF/fNo6F2TuWdPOc9jeCh6j7un18Qi5RI9WxbpWsin9Zuz
+	 35KXw+dRitnsPRlrZWYetAgxg3Ir85GJ6CNI7SbYERSa690yNP3W3yunVdRH33MiP
+	 AbEWzpl6lsLqMijM1waYS4vzDr0fJjVyqO0GTII0iXWmIOGP/xKBoKeiluua06BmA
+	 U0S2k7Ovhrev6q5j3Q==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mvsq5-1xNMxZ0tC3-010yTj; Thu, 04
+ Jun 2026 15:19:22 +0200
+Message-ID: <7b929238-1c8c-470b-a6ad-c929090f4c82@web.de>
+Date: Thu, 4 Jun 2026 15:19:15 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260604-shikra-display-v2-3-b3c1b2b67edc@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=JaSMa0KV c=1 sm=1 tr=0 ts=6a2177d2 cx=c_pps
- a=7uPEO8VhqeOX8vTJ3z8K6Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
- a=2Uxw_1zm03w2ut2Jle0A:9 a=CjuIK1q_8ugA:10 a=EXS-LbY8YePsIyqnH6vw:22
-X-Proofpoint-ORIG-GUID: 7gxbFWUKxCRNDERoowhbLuO8rypqttON
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA0MDEyNyBTYWx0ZWRfX9bpMqGPE2UgR
- SjRD+3R4ffuSzTqdvv6kxww81f1pd/hBe31DeMCmrsl/TqJp/NyOwtPLJY7nru2TdqLde5Z2LCv
- xLnYcebY8M9PXm2syzjRTPO7CV44avVbfIQw1XFVtG2Nl9LCtNQ28o6lbsf9LittV3VhIqBNsIo
- QzLUTDAPXqbXtEJUZqcTOoQeRMoCSojFGCt1Zo2/ZDgNwxILKo32IJH/3YVTSytZJv2wOZPdJI8
- qHT9x6IzcdEYpzrwF634uch8UQLSKqe00iAwIgWJZMxc8k/ewkUUc0CwRJ3ELVkQ8kjaHEX/1Sk
- ymEXuUOe17b3MqXyx3REh81gWhPBvpFdUQbZtYS1xJ4Li4w1xUCo+QPVyFkTHolJeyyWYuBaPYc
- B8dYgLzT1hXFFm+fOY5BMTa7Pq89cAkNS/wY9kCSKnCVm16DNwl90hwkCCFwH1+50aEooFmFJ82
- z4/KTmJhcH05W0KZMWA==
-X-Proofpoint-GUID: 7gxbFWUKxCRNDERoowhbLuO8rypqttON
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-04_04,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 bulkscore=0 adultscore=0 lowpriorityscore=0
- suspectscore=0 clxscore=1015 malwarescore=0 priorityscore=1501
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2606040127
+User-Agent: Mozilla Thunderbird
+To: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Yicong Yang <yangyicong@hisilicon.com>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] arm64/cpufeature: Simplify data output in c_show()
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:iAmZO3jXuqxLYt1Az3G1ukyTQnWxJ/DwiVQfBQTdycFxopHZt7L
+ P70Jzk27tFgM4eL/7Z+0xXtmyID1pyorRbnnufUx8x3RBjFbq3WtsQACFfD1sDaFURJFUqw
+ qqCCYPYJf9umF9vck8rrX2xNHAlEAwPKDAJ8Y0WjTVasP8MrejkmlRC/p6lnpeVLMEAjhdi
+ CER/J84zqwraGxNPpm0Kw==
+UI-OutboundReport: notjunk:1;M01:P0:txmsfiONF4E=;1fMPG/OhzXVl2lTWfinlftPZABl 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 WwgVbXBodwHGwb8CKJA2gk6qBrQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_060419_645980_888CFD7C 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260604_061932_712344_7331B14B 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,21 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 06:00:49PM +0530, Nabige Aala wrote:
-> Add UBWC configuration for the Shikra platform. Shikra shares the
-> same hardware as QCM2290 (Agatti), so reuse qcm2290_data for the
-> UBWC settings
-> 
-> Signed-off-by: Nabige Aala <nabige.aala@oss.qualcomm.com>
-> ---
->  drivers/soc/qcom/ubwc_config.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Thu, 4 Jun 2026 15:13:00 +0200
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Move the specification for a line break from a seq_puts() call
+to a seq_printf() call.
 
+The source code was transformed by using the Coccinelle software.
 
--- 
-With best wishes
-Dmitry
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ arch/arm64/kernel/cpuinfo.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d50e2a9b066b..a9704a11de57 100644
+=2D-- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -272,10 +272,8 @@ static int c_show(struct seq_file *m, void *v)
+ 			if (cpu_have_feature(j))
+ 				seq_printf(m, " %s", hwcap_str[j]);
+ 	}
+-	seq_puts(m, "\n");
+=20
+-	seq_printf(m, "CPU implementer\t: 0x%02x\n",
+-		   MIDR_IMPLEMENTOR(midr));
++	seq_printf(m, "\nCPU implementer\t: 0x%02x\n", MIDR_IMPLEMENTOR(midr));
+ 	seq_puts(m, "CPU architecture: 8\n");
+ 	seq_printf(m, "CPU variant\t: 0x%x\n", MIDR_VARIANT(midr));
+ 	seq_printf(m, "CPU part\t: 0x%03x\n", MIDR_PARTNUM(midr));
+=2D-=20
+2.54.0
+
 
