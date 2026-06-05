@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC67CD6E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 01:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2FECD6E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 01:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7RcozIfkgTb1ceMrXgVzxfNf3AdsB7YSa91tWGMELg=; b=WPdQX30UEjkJCT1rYWMpwxbIIF
-	2ej+e6Tyxx6OGw3jSJxxauN2fWt/6jYCF20lTvmGNBzny8hLLtGQFkwXJDeEGrkq6+N1uv9JOHKIM
-	6o9P3RIVkiHRPqWaIvxsb9A+Gfyjw1Vnfo3BWw5qYQYadeXsAhFf7ntsVi6orpaw9Sv5xcgqY2v3T
-	weYr08AmyOhadqZTzglRW6SSuJmP0aUOIXVsTTcE+FUKSEp31A2KDytQcZokv5cBesgKT1sVHMbGx
-	0I65yMekoV3vkaMeNyjkwknFAs3eufwtPNYaCRQji5mrkQ4JTHaoa1Jx1yeA5dvj4CGby4FG1tRRw
-	JObUN/dg==;
+	bh=s5/opMyYHstCvLC6D+VPIEWzznFTHx3VHFIRMnLujuM=; b=IOzOKjpGjz2ngjDQPIdOeml2nP
+	fSCTEdTjLGDqr+z+6esFJVXDgCaKYL49H06DlP3cWtrx3GfxQBk15N4nUkEIsTl+pXnm/RmcRw1S6
+	M7pxqd4MtLkIHzTMUT0mrA41ZSfp/S3xtPVMjDQ0Terb9Xtcv2ELy/dvSSv35bZ4ra8duqyd0arjU
+	RxivvOErkRlewyNoaMzUabHmpYRsfikV6Q+Ym8JS4hiSmqskLMXUjZjmo7mjPvcPUsx1fnL4btw18
+	jf0zFRuRA5ObBrkKXW9AO5xRQxQTzs6SXP7yxnggWcUhz2WlfK4FXHxyt8XEGwEjEYIZ1fOL2r39C
+	3sXm05LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVIvX-0000000HThZ-0ulv;
-	Fri, 05 Jun 2026 01:00:47 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1wVIvb-0000000HTll-1LJl;
+	Fri, 05 Jun 2026 01:00:51 +0000
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVIvU-0000000HTfC-3T8e
+	id 1wVIvY-0000000HTi9-1cyL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 01:00:46 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-4854d5cc708so851978b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 18:00:44 -0700 (PDT)
+	Fri, 05 Jun 2026 01:00:49 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-4863ee8474eso974505b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 18:00:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1780621244; x=1781226044; darn=lists.infradead.org;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1780621247; x=1781226047; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=d7RcozIfkgTb1ceMrXgVzxfNf3AdsB7YSa91tWGMELg=;
-        b=BHiL12/wavN1Ek4UUd77OSD/+stbL6Zf30oON+rAXTQ7x4QtYRk8dzV6wfYmcCxE6U
-         DHQrE6Q/FtGvJZk8UnMWDkt7ykHo7LQvutnEM/vSZBDlaogYqdMAjyKUWUsyZoQLxUjw
-         BgTBtVkbquj5nQglzeg0QgvjHgJP6xqPq+oTbmVQE0BlvxNJSdg01fzraQGroeWcp3oj
-         c91H2qZfJHChIoKmxM21xtN4OKOEtV4ni9KjSq3VfETgmiTxYusJti+geuyE1Sglf7SI
-         W2WdYSnQ5a/3A83vvPdxC0ouDbT8JthkSpTVKefIPjvF+3UYQlHoaXrmvw96g0d//NY/
-         8qgA==
+        bh=s5/opMyYHstCvLC6D+VPIEWzznFTHx3VHFIRMnLujuM=;
+        b=q0rQrGYBrLxwRWu2nxxFrQ2/uuNVsTkN0iJziWPrB9wblMLo2OBqt8vw//mBjcLFJr
+         TGydmyZQ7l6nRZlDdqD8gfE7XQkOJdrrA46xiUxQKDW3jOn0uqqpGhrMSOHGYoDCApUQ
+         4L2/AIKH0abB4+S++Noaay2TcZ61Ai4Msxwq+4MnhuQkG4dUI3dglSNkq0JELUX1QSMF
+         Af8g2dQ/JHa7ZGo8K+Cm/EVT/luYeUblhOcvB/G/k4vdaglI6ZJdSAI2KIUKRoker+s8
+         NLAd+n0w3jlgrMI5geTKUIfbPdVHylSBcQGOz0dxKmOZNdLZyX9zfcM4a46fOasZw7+G
+         cAOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780621244; x=1781226044;
+        d=1e100.net; s=20251104; t=1780621247; x=1781226047;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=d7RcozIfkgTb1ceMrXgVzxfNf3AdsB7YSa91tWGMELg=;
-        b=jxdimV1rtdBYdGoz52Bv41YsDaLZ1XuBgNP470lkFnB2fupcgs+W11PI7VVMKcFXX3
-         F5K0nqhIlrEiMyBwsb3L3/yY8MANj2DLTEyDw3paJAZrJ9IPpFpBcXO2TYgUZt0s7c/c
-         BsMtS2C0RYvJsX0U9apAnyr9jutJpNyWn7iOMuUsbnF1nuCVeA6HQ5SluV2hOPc62YN0
-         ODwNjvhNq4p2mWhFB5feU/mq/rsII9HQkAVul0oW+ezmmSxMr7yYhCxk+1gX1aYb7zdE
-         Nm2r0YJ7DfWl525qX8i6+DJNKjOkeTbUdIFrRR5+KlpGZFcFqGZWmsfROtWhWCqvJH6b
-         C1Jw==
-X-Forwarded-Encrypted: i=1; AFNElJ+VWCIvP6CQkDlteb8EmJVvFcMlFb50jX3i1tDm0CwooAUd49FA4q25JWHWyrQ+GJXjpH3O2TbvkPpPUVBmECpF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxra7c58kcHnwhykPNrQ0gBDgNlD3308zS7MK+8dMkPR7K6JG3c
-	W6t9XZblw3Zjsjc5wf7rbxjp5LNr4F5WWTgRcfOzzJKu/fNKNk1E+DDjdoWsGKlu2hI=
-X-Gm-Gg: Acq92OF1sr03FsdkyMN/kuxr3NCoZddOCUsNHnJI+YBMSb+6siC2Kyzvq+MeFsXKsHW
-	/etMWSj9Sdt+TIJnRrJKsA9gNPGARJyHwQeN2h7HnroUI0JL/zLGI2BqpQOEI4gWBb+VLhz9QtA
-	jsmVum8ntQ1Nur6MmvjZFv2dg3TkdYc4cU78ZnUFwnh7UVZHDVy0z+viFBReI3m7OQOyPzEE/YP
-	RNn0v2wJYfkX7p8EisTiumumXgjT9NkNPMmSJvL2kov6DoZOxVem31qXAVTvCuEzbV84clAkKse
-	kOlv4TaWndHx1fGVZBh8O5GhRarDI3jq96Mu12TijmYqlVy5i3QdoEgPrPK+DdRKD2u1nFzdzaB
-	AVJHii5yKM3UsFITCnlEhRAMuZhTJC1DQSPoEY9iL36yEesQ9Y2CLJpzJwbutBieli+M9VACMNy
-	GR/OdyoVTBnT8pMvZTltJ/bQyFT54BtBAV9fSGoA==
-X-Received: by 2002:a05:6808:a599:10b0:485:a99c:cfe3 with SMTP id 5614622812f47-4868df4dd74mr546927b6e.42.1780621243759;
-        Thu, 04 Jun 2026 18:00:43 -0700 (PDT)
+        bh=s5/opMyYHstCvLC6D+VPIEWzznFTHx3VHFIRMnLujuM=;
+        b=OJipwu2+eIIGNXSLrLSlRIVYBd05z719Djofsw7WxemotNET5G8Uoqw5AfEaX+Ytsu
+         sgnhFe7vneqVnlNiFpIOnXbBoZCiPRq8G2mlgguKLwRV7mVxt/VxE29SViPqdmcyL/dA
+         A+QNvpaMGJo9N69Wx0811HKAY4XhsJGuY2l/tPjnQ8AKcFHjmxiC9y6RYF6/zKmrqxLI
+         72Hi3ohDuAYbQ3T7VhLWTkAz0yCsFaBI3o9eIhxU1P9IY8xiXIQIoOEVfkFYw2GKwIwa
+         1ItC8Hh/GU98e7rhcY3tztjqpD4KKqrSh8pnbYXVbKzvRO577ZF83MopUpm6RBZ64auT
+         d8Yw==
+X-Forwarded-Encrypted: i=1; AFNElJ/xaCklp7Xzy8Qr8BkbI2crKnxXrny0K2IWuIMSFtpBVeYKaDKYKWeR4k9TGH/OsRSY2cECZyQye8oqy3i3rv/a@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztiytk3O0NJB1ajwQgbj4rAtyF5GDjXBvfSwaGgImUoOUxW1KU
+	+RQCwt7CiSPHADVRr/0vT/GyXGNKbiuGWldQC7InEMxpWOl8r7vziEYQ6y83nLUhgC8=
+X-Gm-Gg: Acq92OFcZO30va4dmmrp3aC1jubmToVa3jonYPzCDS5ivY7r50s2QZ2/LxGKqiSps5X
+	citZ3zsvUPmqeXEXqtdzIUTQUxhgRAWqeLRCf2iqr1VNP2PIu589Bi2GZTliU5mLy4+tazhRepQ
+	bgddGe+yvD4cwfyoGd6JDgOIwkHVqp6XNiZ3up8ZZ6+IuFnbXexpP2fNso0C4BqA5lus6LoiyOr
+	EDA5vvNloSE6x/w783MDokB7Lxs2YsVVjdCJ9lS/eC6l/ol9PgNaMSR+jVovFGhwifOps4Cn68J
+	UQOl8SFfY3AYLIVgvXWvXDQVfkYPXp8SizpVZArn7L4vvnDzvzkwPv0iJVtvJ2G6HCGOmL1qMDm
+	yb+9IiWlj0D1b7rbVLOAIghbTqebMqJOm5SOHFGN9SZh+5crgy63BhkEqeN0IIFqs4HneaBTOfy
+	ewRiW4SB7LKo6CzsfpDWTgZgTZXNSr/1bPr9BL2A==
+X-Received: by 2002:a05:6808:2e4e:b0:47c:6c9c:607d with SMTP id 5614622812f47-4868dc00eeemr864279b6e.2.1780621247107;
+        Thu, 04 Jun 2026 18:00:47 -0700 (PDT)
 Received: from zippy.localdomain ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4865b6ec694sm5544631b6e.5.2026.06.04.18.00.40
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4865b6ec694sm5544631b6e.5.2026.06.04.18.00.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 18:00:43 -0700 (PDT)
+        Thu, 04 Jun 2026 18:00:46 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -86,7 +86,7 @@ To: andrew+netdev@lunn.ch,
 	brgl@kernel.org,
 	arnd@arndb.de,
 	gregkh@linuxfoundation.org
-Cc: Daniel Thompson <daniel@riscstar.com>,
+Cc: daniel@riscstar.com,
 	elder@riscstar.com,
 	mohd.anwar@oss.qualcomm.com,
 	a0987203069@gmail.com,
@@ -119,17 +119,17 @@ Cc: Daniel Thompson <daniel@riscstar.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 05/14] net: pcs: pcs-xpcs: select operating mode for 10G-baseR capable PCS
-Date: Thu,  4 Jun 2026 20:00:12 -0500
-Message-ID: <20260605010022.968612-6-elder@riscstar.com>
+Subject: [PATCH net-next v2 06/14] net: stmmac: dma: create a separate dma_device pointer
+Date: Thu,  4 Jun 2026 20:00:13 -0500
+Message-ID: <20260605010022.968612-7-elder@riscstar.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260605010022.968612-1-elder@riscstar.com>
 References: <20260605010022.968612-1-elder@riscstar.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_180044_900876_ECE30272 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20260604_180048_484529_FDAC8348 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,92 +144,373 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Daniel Thompson <daniel@riscstar.com>
+The Toshiba TC956x Ethernet bridge chip is an Ethernet AVN/TSN bridge
+that is essentially a small but specialized SoC.  It provides two XGMAC
+Ethernet interfaces along with a number of internal IP blocks, some of
+which are used by both eMACs.
 
-Currently the XPCS found on Toshiba TC9564 (a.k.a. Qualcomm QPS615)
-is unable to operate at 2500base-X and slower with a PHY connected
-using SGMII/2500base-X (in our case a Qualcomm QCA8081).
+The chip implements two internal PCIe functions, and one of these is
+used to manage the common internal IPs.  Both of the PCIe functions
+use an auxiliary bus device to represent an XGMAC Ethernet interface.
+Separating the PCIe function from the XGMAC IP this way helps in
+managing the life cycle for various objects (common and per-MAC).
 
-The problem arises because this XPCS supports 10Gbase-R. That means that
-the reset value of SR_XS_PCS_CTRL2:PCS_TYPE_SEL (0) is valid and this
-suppresses the modal switching based on bit 13 of SR_PMA_CTRL1 or
-SR_XS_PCS_CTRL1.
+However this separation means that the MAC device is no longer the
+proper device to use for DMA.  To address this, we add support for
+a second "DMA device" pointer in the stmmac_priv structure.  The DMA
+device pointer is used for all DMA operations, while the "normal"
+device pointer is used for log messages, memory allocation, runtime
+power management, and a few other things.
 
-A fix for this behaviour is already implemented by
-txgbe_xpcs_switch_mode() as part of the quirks for WangXun devices.
+To set up the DMA device pointer, we add a new device structure pointer
+to the plat_stmmacenet_data structure.  If set, it will be assigned as
+the (new) dma_device pointer field in the stmmac_priv structure.  If
+the plat_stmmacenet_data field is NULL, the "normal" device pointer is
+assigned as the dma_device pointer instead (preserving existing behavior).
 
-Rather than introduce another quirk for TC956x let's attempt so solve
-this generically by setting SR_XS_PCS_CTRL2:PCS_TYPE_SEL to a reserved
-value when we detect the right we detect the right combination of phy
-interface and XPCS feature support.
-
-The generic strategy adopted requires the default value of PCS_TYPE_SEL
-to be 0 on devices that support 10Gbase-R. Based on TC9564 documentation
-and the logic already implemented for WangXun I believe this is likely
-to be the case for currently supported XPCS devices. Sadly I don't have
-access to generic XPCS docs to confirm. However I think the benefits
-of avoiding a cargo culted quirk outweights the risk of regression.
-
-Signed-off-by: Daniel Thompson <daniel@riscstar.com>
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- drivers/net/pcs/pcs-xpcs.c | 39 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ .../net/ethernet/stmicro/stmmac/chain_mode.c  | 12 ++--
+ .../net/ethernet/stmicro/stmmac/ring_mode.c   | 12 ++--
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 58 ++++++++++---------
+ .../net/ethernet/stmicro/stmmac/stmmac_xdp.c  |  2 +-
+ include/linux/stmmac.h                        |  1 +
+ 6 files changed, 45 insertions(+), 41 deletions(-)
 
-diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-index 76c04372b5b50..e58103ae8dadd 100644
---- a/drivers/net/pcs/pcs-xpcs.c
-+++ b/drivers/net/pcs/pcs-xpcs.c
-@@ -705,10 +705,49 @@ static void xpcs_get_interfaces(struct dw_xpcs *xpcs, unsigned long *interfaces)
- static int xpcs_switch_interface_mode(struct dw_xpcs *xpcs,
- 				      phy_interface_t interface)
- {
-+	int mdio_stat2, ret;
-+
- 	/* Wangxun provides a full alternative implementation to handle quirks */
- 	if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID)
- 		return txgbe_xpcs_switch_mode(xpcs, interface);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+index fc04a23342cfc..331e6523ee018 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
++++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+@@ -34,10 +34,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 	buf_len = min_t(unsigned int, nopaged_len, bmax);
+ 	len = nopaged_len - buf_len;
  
-+	mdio_stat2 = xpcs_read(xpcs, MDIO_MMD_PCS, MDIO_STAT2);
-+	if (mdio_stat2 < 0)
-+		return mdio_stat2;
-+
-+	/*
-+	 * If this XPCS supports 10Gbase-R then that will be the default
-+	 * operating mode. There are several interface modes where this default
-+	 * is unhelpful. Change the operating mode for interfaces were we know
-+	 * the default is wrong, and restore the default otherwise.
-+	 */
-+	if (mdio_stat2 & MDIO_PCS_STAT2_10GBR) {
-+		switch (interface) {
-+		case PHY_INTERFACE_MODE_SGMII:
-+		case PHY_INTERFACE_MODE_1000BASEX:
-+		case PHY_INTERFACE_MODE_2500BASEX:
-+			/*
-+			 * Why are we writing MDIO_PCS_CTRL2_TYPE + 1? We want
-+			 * the modal behaviour that comes when we pick a
-+			 * reserved value. XPCS allocates extra bits to this
-+			 * field and allocates values from 15 down so
-+			 * MDIO_PCS_CTRL2_TYPE + 1 is the value likely to be
-+			 * allocated last (and hopefully never).
-+			 */
-+			ret = xpcs_write(xpcs, MDIO_MMD_PCS, MDIO_CTRL2,
-+					 MDIO_PCS_CTRL2_TYPE + 1);
-+			if (ret < 0)
-+				return ret;
-+			break;
-+		default:
-+			ret = xpcs_write(xpcs, MDIO_MMD_PCS, MDIO_CTRL2,
-+					 MDIO_PCS_CTRL2_10GBR);
-+			if (ret < 0)
-+				return ret;
-+			break;
-+		}
-+	}
-+
- 	xpcs->interface = interface;
+-	des2 = dma_map_single(priv->device, skb->data,
++	des2 = dma_map_single(priv->dma_device, skb->data,
+ 			      buf_len, DMA_TO_DEVICE);
+ 	desc->des2 = cpu_to_le32(des2);
+-	if (dma_mapping_error(priv->device, des2))
++	if (dma_mapping_error(priv->dma_device, des2))
+ 		return -1;
+ 	tx_q->tx_skbuff_dma[entry].buf = des2;
+ 	tx_q->tx_skbuff_dma[entry].len = buf_len;
+@@ -51,11 +51,11 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 		desc = tx_q->dma_tx + entry;
  
- 	return 0;
+ 		if (len > bmax) {
+-			des2 = dma_map_single(priv->device,
++			des2 = dma_map_single(priv->dma_device,
+ 					      (skb->data + bmax * i),
+ 					      bmax, DMA_TO_DEVICE);
+ 			desc->des2 = cpu_to_le32(des2);
+-			if (dma_mapping_error(priv->device, des2))
++			if (dma_mapping_error(priv->dma_device, des2))
+ 				return -1;
+ 			tx_q->tx_skbuff_dma[entry].buf = des2;
+ 			tx_q->tx_skbuff_dma[entry].len = bmax;
+@@ -64,11 +64,11 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 			len -= bmax;
+ 			i++;
+ 		} else {
+-			des2 = dma_map_single(priv->device,
++			des2 = dma_map_single(priv->dma_device,
+ 					      (skb->data + bmax * i), len,
+ 					      DMA_TO_DEVICE);
+ 			desc->des2 = cpu_to_le32(des2);
+-			if (dma_mapping_error(priv->device, des2))
++			if (dma_mapping_error(priv->dma_device, des2))
+ 				return -1;
+ 			tx_q->tx_skbuff_dma[entry].buf = des2;
+ 			tx_q->tx_skbuff_dma[entry].len = len;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+index 78fc6aa5bbe95..0d334c51fc1c2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
++++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+@@ -37,10 +37,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 
+ 	if (nopaged_len > BUF_SIZE_8KiB) {
+ 
+-		des2 = dma_map_single(priv->device, skb->data, bmax,
++		des2 = dma_map_single(priv->dma_device, skb->data, bmax,
+ 				      DMA_TO_DEVICE);
+ 		desc->des2 = cpu_to_le32(des2);
+-		if (dma_mapping_error(priv->device, des2))
++		if (dma_mapping_error(priv->dma_device, des2))
+ 			return -1;
+ 
+ 		tx_q->tx_skbuff_dma[entry].buf = des2;
+@@ -58,10 +58,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 		else
+ 			desc = tx_q->dma_tx + entry;
+ 
+-		des2 = dma_map_single(priv->device, skb->data + bmax, len,
++		des2 = dma_map_single(priv->dma_device, skb->data + bmax, len,
+ 				      DMA_TO_DEVICE);
+ 		desc->des2 = cpu_to_le32(des2);
+-		if (dma_mapping_error(priv->device, des2))
++		if (dma_mapping_error(priv->dma_device, des2))
+ 			return -1;
+ 		tx_q->tx_skbuff_dma[entry].buf = des2;
+ 		tx_q->tx_skbuff_dma[entry].len = len;
+@@ -72,10 +72,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 				STMMAC_RING_MODE, 1, !skb_is_nonlinear(skb),
+ 				skb->len);
+ 	} else {
+-		des2 = dma_map_single(priv->device, skb->data,
++		des2 = dma_map_single(priv->dma_device, skb->data,
+ 				      nopaged_len, DMA_TO_DEVICE);
+ 		desc->des2 = cpu_to_le32(des2);
+-		if (dma_mapping_error(priv->device, des2))
++		if (dma_mapping_error(priv->dma_device, des2))
+ 			return -1;
+ 		tx_q->tx_skbuff_dma[entry].buf = des2;
+ 		tx_q->tx_skbuff_dma[entry].len = nopaged_len;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 8ba8f03e1ce03..76c8551687998 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -278,6 +278,7 @@ struct stmmac_priv {
+ 	void __iomem *ioaddr;
+ 	struct net_device *dev;
+ 	struct device *device;
++	struct device *dma_device;
+ 	struct mac_device_info *hw;
+ 	int (*hwif_quirks)(struct stmmac_priv *priv);
+ 	struct mutex lock;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 35da51c262484..09d2640a18b3c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1730,12 +1730,12 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
+ 	if (tx_q->tx_skbuff_dma[i].buf &&
+ 	    tx_q->tx_skbuff_dma[i].buf_type != STMMAC_TXBUF_T_XDP_TX) {
+ 		if (tx_q->tx_skbuff_dma[i].map_as_page)
+-			dma_unmap_page(priv->device,
++			dma_unmap_page(priv->dma_device,
+ 				       tx_q->tx_skbuff_dma[i].buf,
+ 				       tx_q->tx_skbuff_dma[i].len,
+ 				       DMA_TO_DEVICE);
+ 		else
+-			dma_unmap_single(priv->device,
++			dma_unmap_single(priv->dma_device,
+ 					 tx_q->tx_skbuff_dma[i].buf,
+ 					 tx_q->tx_skbuff_dma[i].len,
+ 					 DMA_TO_DEVICE);
+@@ -2166,7 +2166,7 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 
+ 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+ 
+-	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
++	dma_free_coherent(priv->dma_device, size, addr, rx_q->dma_rx_phy);
+ 
+ 	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
+ 		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
+@@ -2214,7 +2214,7 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 
+ 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+ 
+-	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
++	dma_free_coherent(priv->dma_device, size, addr, tx_q->dma_tx_phy);
+ 
+ 	kfree(tx_q->tx_skbuff_dma);
+ 	kfree(tx_q->tx_skbuff);
+@@ -2266,8 +2266,8 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
+ 	pp_params.pool_size = dma_conf->dma_rx_size;
+ 	pp_params.order = order_base_2(num_pages);
+-	pp_params.nid = dev_to_node(priv->device);
+-	pp_params.dev = priv->device;
++	pp_params.nid = dev_to_node(priv->dma_device);
++	pp_params.dev = priv->dma_device;
+ 	pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
+ 	pp_params.offset = stmmac_rx_offset(priv);
+ 	pp_params.max_len = dma_conf->dma_buf_sz;
+@@ -2290,7 +2290,7 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 
+ 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+ 
+-	addr = dma_alloc_coherent(priv->device, size, &rx_q->dma_rx_phy,
++	addr = dma_alloc_coherent(priv->dma_device, size, &rx_q->dma_rx_phy,
+ 				  GFP_KERNEL);
+ 	if (!addr)
+ 		return -ENOMEM;
+@@ -2369,7 +2369,7 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 
+ 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+ 
+-	addr = dma_alloc_coherent(priv->device, size,
++	addr = dma_alloc_coherent(priv->dma_device, size,
+ 				  &tx_q->dma_tx_phy, GFP_KERNEL);
+ 	if (!addr)
+ 		return -ENOMEM;
+@@ -2898,12 +2898,12 @@ static int stmmac_tx_clean(struct stmmac_priv *priv, int budget, u32 queue,
+ 		if (likely(tx_q->tx_skbuff_dma[entry].buf &&
+ 			   tx_q->tx_skbuff_dma[entry].buf_type != STMMAC_TXBUF_T_XDP_TX)) {
+ 			if (tx_q->tx_skbuff_dma[entry].map_as_page)
+-				dma_unmap_page(priv->device,
++				dma_unmap_page(priv->dma_device,
+ 					       tx_q->tx_skbuff_dma[entry].buf,
+ 					       tx_q->tx_skbuff_dma[entry].len,
+ 					       DMA_TO_DEVICE);
+ 			else
+-				dma_unmap_single(priv->device,
++				dma_unmap_single(priv->dma_device,
+ 						 tx_q->tx_skbuff_dma[entry].buf,
+ 						 tx_q->tx_skbuff_dma[entry].len,
+ 						 DMA_TO_DEVICE);
+@@ -4571,9 +4571,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	first = desc;
+ 
+ 	/* first descriptor: fill Headers on Buf1 */
+-	des = dma_map_single(priv->device, skb->data, skb_headlen(skb),
++	des = dma_map_single(priv->dma_device, skb->data, skb_headlen(skb),
+ 			     DMA_TO_DEVICE);
+-	if (dma_mapping_error(priv->device, des))
++	if (dma_mapping_error(priv->dma_device, des))
+ 		goto dma_map_err;
+ 
+ 	stmmac_set_desc_addr(priv, first, des);
+@@ -4599,10 +4599,10 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	for (i = 0; i < nfrags; i++) {
+ 		const skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
+ 
+-		des = skb_frag_dma_map(priv->device, frag, 0,
++		des = skb_frag_dma_map(priv->dma_device, frag, 0,
+ 				       skb_frag_size(frag),
+ 				       DMA_TO_DEVICE);
+-		if (dma_mapping_error(priv->device, des))
++		if (dma_mapping_error(priv->dma_device, des))
+ 			goto dma_map_err;
+ 
+ 		stmmac_tso_allocator(priv, des, skb_frag_size(frag),
+@@ -4827,9 +4827,9 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	} else {
+ 		bool last_segment = (nfrags == 0);
+ 
+-		dma_addr = dma_map_single(priv->device, skb->data,
++		dma_addr = dma_map_single(priv->dma_device, skb->data,
+ 					  nopaged_len, DMA_TO_DEVICE);
+-		if (dma_mapping_error(priv->device, dma_addr))
++		if (dma_mapping_error(priv->dma_device, dma_addr))
+ 			goto dma_map_err;
+ 
+ 		stmmac_set_tx_skb_dma_entry(tx_q, first_entry, dma_addr,
+@@ -4878,9 +4878,9 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 
+ 		desc = stmmac_get_tx_desc(priv, tx_q, entry);
+ 
+-		dma_addr = skb_frag_dma_map(priv->device, frag, 0, frag_size,
+-					    DMA_TO_DEVICE);
+-		if (dma_mapping_error(priv->device, dma_addr))
++		dma_addr = skb_frag_dma_map(priv->dma_device, frag, 0,
++					    frag_size, DMA_TO_DEVICE);
++		if (dma_mapping_error(priv->dma_device, dma_addr))
+ 			goto dma_map_err; /* should reuse desc w/o issues */
+ 
+ 		stmmac_set_tx_skb_dma_entry(tx_q, entry, dma_addr, frag_size,
+@@ -5190,9 +5190,9 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+ 
+ 	tx_desc = stmmac_get_tx_desc(priv, tx_q, entry);
+ 	if (dma_map) {
+-		dma_addr = dma_map_single(priv->device, xdpf->data,
++		dma_addr = dma_map_single(priv->dma_device, xdpf->data,
+ 					  xdpf->len, DMA_TO_DEVICE);
+-		if (dma_mapping_error(priv->device, dma_addr))
++		if (dma_mapping_error(priv->dma_device, dma_addr))
+ 			return STMMAC_XDP_CONSUMED;
+ 
+ 		buf_type = STMMAC_TXBUF_T_XDP_NDO;
+@@ -5201,7 +5201,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+ 
+ 		dma_addr = page_pool_get_dma_addr(page) + sizeof(*xdpf) +
+ 			   xdpf->headroom;
+-		dma_sync_single_for_device(priv->device, dma_addr,
++		dma_sync_single_for_device(priv->dma_device, dma_addr,
+ 					   xdpf->len, DMA_BIDIRECTIONAL);
+ 
+ 		buf_type = STMMAC_TXBUF_T_XDP_TX;
+@@ -5788,7 +5788,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		if (!skb) {
+ 			unsigned int pre_len, sync_len;
+ 
+-			dma_sync_single_for_cpu(priv->device, buf->addr,
++			dma_sync_single_for_cpu(priv->dma_device, buf->addr,
+ 						buf1_len, dma_dir);
+ 			net_prefetch(page_address(buf->page) +
+ 				     buf->page_offset);
+@@ -5867,7 +5867,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 			skb_mark_for_recycle(skb);
+ 			buf->page = NULL;
+ 		} else if (buf1_len) {
+-			dma_sync_single_for_cpu(priv->device, buf->addr,
++			dma_sync_single_for_cpu(priv->dma_device, buf->addr,
+ 						buf1_len, dma_dir);
+ 			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
+ 					buf->page, buf->page_offset, buf1_len,
+@@ -5876,7 +5876,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		}
+ 
+ 		if (buf2_len) {
+-			dma_sync_single_for_cpu(priv->device, buf->sec_addr,
++			dma_sync_single_for_cpu(priv->dma_device, buf->sec_addr,
+ 						buf2_len, dma_dir);
+ 			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
+ 					buf->sec_page, 0, buf2_len,
+@@ -7817,6 +7817,7 @@ static int __stmmac_dvr_probe(struct device *device,
+ 
+ 	priv = netdev_priv(ndev);
+ 	priv->device = device;
++	priv->dma_device = plat_dat->dma_device ? : device;
+ 	priv->dev = ndev;
+ 
+ 	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
+@@ -7945,8 +7946,8 @@ static int __stmmac_dvr_probe(struct device *device,
+ 		priv->dma_cap.host_dma_width = priv->dma_cap.addr64;
+ 
+ 	if (priv->dma_cap.host_dma_width) {
+-		ret = dma_set_mask_and_coherent(device,
+-				DMA_BIT_MASK(priv->dma_cap.host_dma_width));
++		ret = dma_set_mask_and_coherent(priv->dma_device,
++						DMA_BIT_MASK(priv->dma_cap.host_dma_width));
+ 		if (!ret) {
+ 			dev_info(priv->device, "Using %d/%d bits DMA host/device width\n",
+ 				 priv->dma_cap.host_dma_width, priv->dma_cap.addr64);
+@@ -7958,7 +7959,8 @@ static int __stmmac_dvr_probe(struct device *device,
+ 			if (IS_ENABLED(CONFIG_ARCH_DMA_ADDR_T_64BIT))
+ 				priv->plat->dma_cfg->eame = true;
+ 		} else {
+-			ret = dma_set_mask_and_coherent(device, DMA_BIT_MASK(32));
++			ret = dma_set_mask_and_coherent(priv->dma_device,
++							DMA_BIT_MASK(32));
+ 			if (ret) {
+ 				dev_err(priv->device, "Failed to set DMA Mask\n");
+ 				goto error_hw_init;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+index d7e4db7224b0c..7ba068f1ca88d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+@@ -25,7 +25,7 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
+ 	if (frame_size < ETH_FRAME_LEN + VLAN_HLEN * 2)
+ 		return -EOPNOTSUPP;
+ 
+-	err = xsk_pool_dma_map(pool, priv->device, STMMAC_RX_DMA_ATTR);
++	err = xsk_pool_dma_map(pool, priv->dma_device, STMMAC_RX_DMA_ATTR);
+ 	if (err) {
+ 		netdev_err(priv->dev, "Failed to map xsk pool\n");
+ 		return err;
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 4430b967abdeb..02ae177d5c27d 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -245,6 +245,7 @@ struct plat_stmmacenet_data {
+ 	struct stmmac_mdio_bus_data *mdio_bus_data;
+ 	struct device_node *phy_node;
+ 	struct device_node *mdio_node;
++	struct device *dma_device;
+ 	struct stmmac_dma_cfg *dma_cfg;
+ 	struct stmmac_safety_feature_cfg *safety_feat_cfg;
+ 	int clk_csr;
 -- 
 2.51.0
 
