@@ -4,59 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D011CCD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 10:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1111CD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 11:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tOOXj4RgjUI8SyxzAjx/PNoyHcUC1x39YMTE3tm4gHc=; b=zBz0YhDhpPTgxPMB20yE2XAIbF
-	t3L12xPkZQtJGHDB5XTHudHmeiQaGksBgHyO8FTdq8CjKAV4esN7GIWG0eoBBW4ZIDGN2LeHn/fPh
-	FcmhjWMuVPPSZeIrZtptxNQ+hxtHwU5oRcQ/jbGO/Mc9b2lK6IQrs3EmjGp5UhvjE6mbZphyGufR3
-	cJT3lLk9L5Z9KBNqH/fgPnh+izBGZQcmVHW6pDpLEr/GpNN0ic2k0G+Lcqq3xyfiaLGBZ1q0dgHos
-	H/BJJC8jwj9If5aYVgDXPBpdp8DDXK7P1QADe2DU2+l2XX5RW7JtbvtMmD25BQ7yG790ocA1uA8om
-	A8DsVBlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q82PVgIGzTZgPpsyjExIq+m9iYgUtH3WG4huRvZuYMA=; b=xnfmtjogfuwEoBJuGrV2ZeoP98
+	a6vcO07yKe7efEo+5B284ixNR24Bs0iFaNtnpAOmFC1GP0eHniAeobz22PWE5r4202BOyFYI15gHA
+	Rf0LcHkkHr56t2ON4OOz7Ua6qLmOhOs/KzNev7kRI+fyJgQ0X29vI03fIqchN8JFaU+Y+eHK/Hk8k
+	NGk4wqIA/+qOqor9i0+jgcFXquNs0WMVBcdzwO4scp3ZWq1E0Fjmg9wxo7rjMSXYgVIbbGErD3D0/
+	KWAqoN3V8bXc3ctAXrD45zr9VKo5r4vMLXsfrZD/NiZsIEXsyLz2I91zADeHbJMfoKgJB44JU2kYB
+	dPvlv0gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVS79-00000000Uxi-2I6T;
-	Fri, 05 Jun 2026 10:49:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVS73-00000000UvG-41ZF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 10:49:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C679C4CDF;
-	Fri,  5 Jun 2026 03:49:11 -0700 (PDT)
-Received: from login2.euhpc.arm.com (login2.euhpc.arm.com [10.6.38.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7892D3F7D8;
-	Fri,  5 Jun 2026 03:49:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780656556; bh=0lyrJLLtxMwwPvuR3YwQdKAWCRrrMtBf1G9kiN4wf+8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=q+KjuJAmRRB1DDYr2V7jBq2ZoFkt/GrPV8MljYk3iwYsqLMS67gxcLGvhZ4w8/kqQ
-	 rJMm6gR9OrNvbSS1CztQwSsjHUTtT3VDgascEjWm5jshFrWUOH+7DDrotlGlFvR/zG
-	 GMfzWRVeundg0KezYa1s8V1nXXcZ32cROXm/OX60=
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: vladimir.murzin@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	joey.gouly@arm.com,
-	Sascha.Bischoff@arm.com
-Subject: [BOOTWRAPPER PATCH v4 2/2] Add support for GICv5
-Date: Fri,  5 Jun 2026 11:48:53 +0100
-Message-Id: <20260605104853.2406-3-vladimir.murzin@arm.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20260605104853.2406-1-vladimir.murzin@arm.com>
-References: <20260605104853.2406-1-vladimir.murzin@arm.com>
+	id 1wVSRI-00000000W93-2Ca8;
+	Fri, 05 Jun 2026 11:10:12 +0000
+Received: from mail-swedencentralazon11013002.outbound.protection.outlook.com ([52.101.83.2] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wVSRF-00000000W86-2oV1;
+	Fri, 05 Jun 2026 11:10:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VteBlhoTCEmro7qrhzSL2piGGIHv7Eh268gzdquD0AiU9ZjVNrpj+9hTTpAVe/22FRcdoPKjy+VS7aGtrQDAYVNxsTMNVIdmuTlOvq4rOStWHNtwIM0dS+ALcXKvz7BMfGUb3syZ+VroCO5Wd2ka9A0r7dzHULtEsnYcD/6XTY8DB0g9uQupwbBiVtNXPrn6DDK7ay85x4W3wXFDkGCh/VOnsKU8HekRKbMj7EZ1wPesUzU2ppX0f+RhzYGcRcgD27EMeDqH86dDAAI1kpyNs4fp8MNMKa74UBD8igAUq9KLoh8+AU2jzmq7n66lUNUBPDHPuz2IZyAHpYWq6RYwyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q82PVgIGzTZgPpsyjExIq+m9iYgUtH3WG4huRvZuYMA=;
+ b=Yt8GYUGyM7ohOx6IFV2/6uJ7IbZotKVzK8E9jc4uk9yOEcOFQ9MM1Z+LNHJQvyvhkEqu8avucjhq13eQl+2pgAkrgiMgUMKmcGaiewpa2ZRKaqpZbeC2ga9iOXO65N2uYaJSMlvHAOMKrBq5LTGs39zrObULPi13nTlYnyDHuOC6RWFjO188Qpb0UwhOXlingwMsBKYHIVHLnnyhqWNxK4IN49KADkKW/biUjL+AlItY0/tX33K9023iiXdpNDIuL19Vemuiql0fpEd9Npbd1ixETwXPrfDiJX/rNgO/+99WRQjwrZ0mkRFRR4ytSxmwWhoOnCzdr9BUldbvKfnY9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q82PVgIGzTZgPpsyjExIq+m9iYgUtH3WG4huRvZuYMA=;
+ b=kQinR9nFQRpTJ6YvORvCWe92IXPtvHRcVe2SkO0fc6zBgtD3u1hzx97Yw0d6YKLQFySqMzY5RP1CtrC822fUkQvXg1T2KPw3amVHwrzf1+jIPBFsj37YmoBizj7ESL0zUyVFuIa/yIqb1x1WgGpBheAIbThJUxPEhYGTo7NJ2sQvgA/Fww3NOir02NTVDKZ4RMIWou9AquejYwTIWIs2rse4MeYCB9whwWKmpNwmiYPchmlSv/WdHcVgB+7LvNOHGNeoV/BitG6kLwTAFAdCA6lPEFUK8/sBZnk4A6h5qFoM/rhKBJlsaz6Bh/FFzLeNM+fbUm6WTiyStHrgZN+P5g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
+ by DUYPR04MB12689.eurprd04.prod.outlook.com (2603:10a6:10:661::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Fri, 5 Jun 2026
+ 11:10:02 +0000
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
+ 11:10:02 +0000
+From: Xu Yang <xu.yang_2@oss.nxp.com>
+Subject: [PATCH v4 0/5] phy: fsl-imx8mq-usb: few improvements
+Date: Fri, 05 Jun 2026 19:13:01 +0800
+Message-Id: <20260605-imx8mp-usb-phy-improvement-v4-0-b2ddf2f3862c@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAD2vImoC/33NOw6DMBBF0a2gqTORZSPjpMo+Igo+Q5jCH9nEA
+ iH2Hgcpbcrzivt2SBSZEtyrHSJlTuxdQX2pYJg79yLksRikkFpoIZHtamzAd+oxzFthiD6TJbd
+ gLRs5KmFGoyWUQIg08XrGn23xzGnxcTu/svquv6z6l80KBTbd1JvJ3Lp+0A+3huvgLbTHcXwAv
+ hwpZsIAAAA=
+X-Change-ID: 20260602-imx8mp-usb-phy-improvement-4272d308d862
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>
+Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>, stable@vger.kernel.org, 
+ Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780657990; l=1591;
+ i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=hEYLLjn3H0PKNWQRcmM3nSfIWbvHjWizdMbIaWztSKk=;
+ b=N03BqGgTXsqfBHAclij5ckjrXqyPw8GUJ17Aoi3XjpSS0T3HfTfm9yVzq5AUOx9JRhp99nSQI
+ MK2lUyal+B/C8bBlTUgEVRiL69UVINI5+qJXmDL+xlitKI/m7nI1i/B
+X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
+ pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
+X-ClientProxiedBy: SI3PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:4:295::18) To PAXPR04MB9422.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b4::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|DUYPR04MB12689:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e59fca3-1158-40d3-e768-08dec2f2fd70
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|56012099006|5023799004|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: EdhVY2rG8ZdzwpFwwhUPa/TREzKY4UndvDkuqYGtZD7VovJVJskqgGF3We72taweevS7HTKMl6L5Wbpn4sobvnBMk9tsMM1JfkLWvxtZUJFanfwfMB058y/y9zqYRkT+KrTcahEy5ZsMVgisgc+kS34/yN9xJTPRSzfMosW6z5xs0CTd/DYW5tFtoAPTfnFvpFgT4G+KJKmAPA5/l0cpvKdHlhg3g65Z3DYoAKi3qdUUGqf0PZJmLLtt0tfyNgExrX240EA3jjOKYw08E7WaQQ0nJPcUQ9GdPbyRQTlIC5x4cBbx6wn6djQdec87LxXjBiKBVSIciKvZfh1a3cCiilUL5cLJGLDw8L0n4i6PJzJleuauJe1g34QlLIqYD+WzFWlJZZzHYENHePf/SZFu60AtJSo3+bW3B2ecQLqtUQYhT2qAgYmigqAfWO/w81C0feEC1a16J0pFg7JJIS6H8pFXLnhwlBynXuVydINDSRSl/a5FMeSXps6Gog40VhyVNkhIlXOulCPYhkYg5kB6aZxkUJBjrc3+NjD4d9l6TSsMKuWt+kw7fw/lSvo1IqeRBLWcFmkIsGrnGQRc68hCrVTP11C2c+49PeE+YL/RcqGlfVMh5sEkdaGlHtpF5t/XpWhgHPJtwKjIYlHO67R5qg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(56012099006)(5023799004)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dnNaNzU1SFpnSW1qbDlPQWE5d3VtTm1KazhZZXFWZFpHU2lsSmQ0SmljeDNF?=
+ =?utf-8?B?allCUUhMVWhzL1pxTXFpcFFqaWV5N29HK0lnRFExTThqNlFadGNNTmFmMXRH?=
+ =?utf-8?B?SWRyNDc3dDlSMTMzOHgxYzdkemxHMzFHUGNaTXd5VXo3NEQxY2VGUTV5andy?=
+ =?utf-8?B?QkhZc2ZwcGkvOU1EYS8wQ1lBZ3FVR1h6YW92WVpjRWNuWW1FeU5sMUlRWXFh?=
+ =?utf-8?B?NlVzVlp6b0hVcGZ3K1lFblp2NjdzQzdUbi9CREdRVlAxWG5wS2YvQ2RlU1Rt?=
+ =?utf-8?B?YlhqWVdLUndrWWI4RFBUdTZMUlh2VENVemdmckx5R1pvQldDazlodFpZTE54?=
+ =?utf-8?B?a3cvNlY1Wjh6Q28wVXd5SGErVFdJT0dBanZQQ1ZuK0dFM3dwRGR4SElFa1Ft?=
+ =?utf-8?B?cE1VV0VPM3A1Y0l4eGNzYXdrRHJtTnBLQ3ZJT0JEMTVKelFHQ1ZKU0FheWhs?=
+ =?utf-8?B?L0srRlhyWWZ5OExUTnlMSWtsanpNM2F3aHBoQWwvWERvcUxMaU5ScXRjMmJO?=
+ =?utf-8?B?OFpmVlVkbGl4bktNanI1NzNvcXQvekNFVThiUGZGUkhQcjlFWHRmTnFLanor?=
+ =?utf-8?B?R1VGS1hTbUhqU0RraVlaRWk4RHZ0UXRidmpnZTNvdjgrOEFzYlBkWmcwY1Jq?=
+ =?utf-8?B?RlB2aGUzc1MrQ29jZ0dxbkRaR0dyS1Qrck1GYVNMZm11RGtjYlk5NHNOOUl1?=
+ =?utf-8?B?cUc1b1lOOTgxYmp2c0I1QnI4MFpJZ3RCZUdxUG00WngxdGpjSUZ1NWwrYktW?=
+ =?utf-8?B?RDJhMUk4Y0hPc2FFbm9tdHFZTXBZUzZRWmdHOTg3OFRRYjNuMVhSZkY0dzU1?=
+ =?utf-8?B?UDdITkF4U3pOYXdTNlA4L1RES1dDUFIreHRXcVV1cHhFcXl2c0R3c3VVbzQz?=
+ =?utf-8?B?OTM5RGdISTJRa0VsVElrcW1JVnVyKzNkaHIyWWcxY2dPL3R2eVd3azY4bTQw?=
+ =?utf-8?B?N1ZMV2Q5SUlRZkgrWk5Xcm92NmhvS3JVakIzRzlRQ1ZPcFRjWU5PSjRMUjBN?=
+ =?utf-8?B?LzBSRGsrVWNlcTVVVTJ6VzhvOE1iRFZQaGNrWmNmcDhISzBqOTUrYUY3QmU5?=
+ =?utf-8?B?Ni9LWkpoRkVScTVKWlRzZmtFYitxRHFFZHd4alFLSzA5MHhOTmR5VTlYUEpn?=
+ =?utf-8?B?WXE1dk9CSFBzTTAxUWxOOW4yMUdPTktoRE9CSUpmbmtFT3lkU0cvR2NpV1lF?=
+ =?utf-8?B?UlNzT0l6aVUyYkpzMXcxVnhBS3BWRGh5VWVKUVlnbGdlS2xYU3lOem1UV2tL?=
+ =?utf-8?B?R2Zka1M3VkNNTWVKSnJNOGhyS0xjRFdsVTIvcjFXcUNBcTdVNi8rT1JHcHNm?=
+ =?utf-8?B?NjdhMlh3K2U3SkpuWE1nSnVlVWxPdnQzSEJFRkhEZ2ZBS1AwMU5DeG82QnJv?=
+ =?utf-8?B?OGVGUlB0WHR2NGROa2p2eUVhNEIzSXZyS05wbmozdkFFdi95WXowRmg5aVFw?=
+ =?utf-8?B?czBkZVhHVTRPTTZQeTB5UTd4Ymd5S0xibXdhY0ZIQU9YWG5VdlpLNXVINVZm?=
+ =?utf-8?B?SzlQYzdTbndwMnpsSGJmUXM2NWk4RW85OUJ3Z0NNRm8xaEJxWXd2QUFCb25Q?=
+ =?utf-8?B?aGo5MTI0QnVNL1F2R0c3VUxERDArbWxqY29KdjBDLy8vdDNKVmErR3pnQ2ZD?=
+ =?utf-8?B?V3N5b2tEM0pLSkcrUnFwTkZqOEpVTzlFZlFFTlRDWnJuWUxTWHBYUnNkVUlm?=
+ =?utf-8?B?c2hleFVxSU51aXEvbkQ0ejcwN3UzWkhtYmEvWnFtSmZhOFhZMkVNU0l6M1lK?=
+ =?utf-8?B?eVVjdS9NSWhtS2NHV0dzaXgxbTNsSmVsQTlUcGREdmJCR25Fd29IMk1pbjU1?=
+ =?utf-8?B?ZTgwRnFGVHB2dXlaaXZjMmZ1UE1xZHdoWno3dFdyeTh4THExbCttRTRDanI2?=
+ =?utf-8?B?SnBuY2JWS3lnVmc1azY3L0NpclFjaHQyeng4aEE2eThvN1BycHpubk5BSnh1?=
+ =?utf-8?B?UlFobmhNa1lXdHdHL3F5cHA0ZEcxdDVEeTdEb0VERGgyWUFPYUpDc3BGNnEz?=
+ =?utf-8?B?ZGNuY0R5N2hlMEpwM2VxV2U3d29wL04rSnFVTG1tSjRkSkQ0c0lOZjNHbHFo?=
+ =?utf-8?B?dFBmRTVpU0NqVXdOOGp1US9SZGpYdDJSb0xHc2V4eWZFYjVGOHhiak10eGdD?=
+ =?utf-8?B?YUFtelpKYjJaWWgvQ2UzUnk0MkdlR3V1TWxwekEwaWVoRzE0YzB1OVgrT1FH?=
+ =?utf-8?B?T0dnZ1QyZ0VzdklYaEhlZ1pvR1RCZUdYK1ZLbThMZ00zVXlzSTlIcVlHZm0y?=
+ =?utf-8?B?bzk0aFA4UnBlN2tJNkF4ZG1iY0V2aDRoQmxTKzN5YnQ0QTAydi9QOVRVTDg2?=
+ =?utf-8?B?S01LWVZxWGMxb2xDRXczTGkwL0JLbkVrWjdJMHNZUXZpYUxIb3VCcjZkdTF1?=
+ =?utf-8?Q?QsTeXEbcBXn5MdhEijk4tse88HGMyULYV7Aq9?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e59fca3-1158-40d3-e768-08dec2f2fd70
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 11:10:02.6433
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TQ8jp/V4Hv57GlAa5CaCDqMB7UM+vvjBTiTzR+u9w7XDHPx+kp7ICHj4725Dj/u75D1X3rlVGxsOfePPdrPOEQYA4oOszdockQly6kC71NAM5BTEQLb+17nJ6CGuQKmH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUYPR04MB12689
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_034918_132901_E6E7D71D 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20260605_041009_720934_3F0C8A2B 
+X-CRM114-Status: UNSURE (   5.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,319 +162,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Performs the minimal initialization required for GICv5 support. GICv5
-support can be requested with --with-gic=v5.
+This patchset is a continuous of v2, it mainly resolves some concerns
+reported by sashiko-bot.
 
-Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Tested-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Patch #1 fix Type-C switch resource leak if probe() fails.
+Patch #3 add runtime PM support to avoid register access issue if the
+      USB controller enters into runtime suspended state, in this state
+      accessing USB PHY register may lack some resources. This will also
+      avoid regulator leak if power_on() fails.
+Patch #4 add debug control register regmap
+Patch #5 correct i.MX8MP USB runtime wakeup issue after introduce runtime
+      PM support.
+
 ---
- Makefile.am                    |   7 ++
- arch/aarch64/include/asm/cpu.h |  11 +++
- common/gic-v5.c                | 131 +++++++++++++++++++++++++++++++++
- configure.ac                   |   7 +-
- scripts/FDT.pm                 |  16 ++++
- scripts/findbase-by-regname.pl |  44 +++++++++++
- 6 files changed, 213 insertions(+), 3 deletions(-)
- create mode 100644 common/gic-v5.c
- create mode 100755 scripts/findbase-by-regname.pl
+Changes in v4:
+- add Rb tag
+- replace guard() with PM_RUNTIME_ACQUIRE()
+- Link to v3: https://patch.msgid.link/20260603-imx8mp-usb-phy-improvement-v3-0-7afb8f89abc6@nxp.com
 
-diff --git a/Makefile.am b/Makefile.am
-index 2710494..aacd639 100644
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -82,6 +82,13 @@ PSCI_NODE	:=
- CPU_NODES	:=
- endif
- 
-+if GICV5
-+GIC_IRS_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase-by-regname.pl $(KERNEL_DTB) "el3-config" 'arm,gic-v5-irs')
-+GIC_IWB_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v5-iwb')
-+DEFINES		+= -DGIC_IRS_BASE=$(GIC_IRS_BASE)
-+DEFINES		+= -DGIC_IWB_BASE=$(GIC_IWB_BASE)
-+endif
-+
- if GICV3
- GIC_DIST_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v3')
- GIC_RDIST_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 1 'arm,gic-v3')
-diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-index ac50474..af4191c 100644
---- a/arch/aarch64/include/asm/cpu.h
-+++ b/arch/aarch64/include/asm/cpu.h
-@@ -128,6 +128,7 @@
- #define ID_AA64PFR1_EL1_THE		BITS(51, 48)
- 
- #define ID_AA64PFR2_EL1			s3_0_c0_c4_2
-+#define ID_AA64PFR2_EL1_GCIE		BITS(15, 12)
- #define ID_AA64PFR2_EL1_FPMR		BITS(35, 32)
- 
- #define ID_AA64SMFR0_EL1		s3_0_c0_c4_5
-@@ -169,6 +170,11 @@
- #define ICC_CTLR_EL3		S3_6_C12_C12_4
- #define ICC_PMR_EL1		S3_0_C4_C6_0
- 
-+#define ICC_PPI_DOMAINR0_EL3	S3_6_C12_C8_4
-+#define ICC_PPI_DOMAINR1_EL3	S3_6_C12_C8_5
-+#define ICC_PPI_DOMAINR2_EL3	S3_6_C12_C8_6
-+#define ICC_PPI_DOMAINR3_EL3	S3_6_C12_C8_7
-+
- #define VSTCR_EL2		s3_4_c2_c6_2
- #define VSCTLR_EL2		s3_4_c2_c0_0
- 
-@@ -245,6 +251,11 @@ static inline int has_gicv3_sysreg(void)
- 	return !!mrs_field(ID_AA64PFR0_EL1, GIC);
- }
- 
-+static inline int has_gicv5_sysreg(void)
-+{
-+	return !!mrs_field(ID_AA64PFR2_EL1, GCIE);
-+}
-+
- #endif /* !__ASSEMBLY__ */
- 
- #endif
-diff --git a/common/gic-v5.c b/common/gic-v5.c
-new file mode 100644
-index 0000000..711366d
---- /dev/null
-+++ b/common/gic-v5.c
-@@ -0,0 +1,131 @@
-+/*
-+ * gic-v5.c
-+ *
-+ * Copyright (C) 2025 ARM Limited. All rights reserved.
-+ *
-+ * Use of this source code is governed by a BSD-style license that can be
-+ * found in the LICENSE.txt file.
-+ */
-+
-+#include <stdint.h>
-+
-+#include <cpu.h>
-+#include <gic.h>
-+#include <asm/io.h>
-+
-+#define IWB_IDR0			0x0
-+#define IWB_IDR0_IW_RANGE_SHIFT		0x0
-+#define IWB_IDR0_IW_RANGE_MASK		0x7ff
-+
-+#define IWB_CR0				0x80
-+#define IWB_CR0_IWBEN			(1 << 0)
-+#define IWB_CR0_IDLE			(1 << 1)
-+
-+#define IWB_WENABLE_STATUSR		0xc0
-+#define IWB_WENABLE_STATUSR_IDLE	(1 << 0)
-+
-+#define IWB_WDOMAIN_STATUSR		0xc4
-+#define IWB_WDOMAIN_STATUSR_IDLE	(1 << 0)
-+
-+#define IWB_WENABLER			0x2000
-+#define IWB_WDOMAINR			0x8000
-+
-+#define IRS_IDR6			0x0018
-+#define IRS_IDR6_SPI_IRS_RANGE_MASK	0x1ffffff
-+
-+#define IRS_IDR7			0x001c
-+#define IRS_IDR7_SPI_BASE_MASK		0xffffff
-+
-+#define IRS_SPI_SELR			0x108
-+#define IRS_SPI_DOMAINR			0x10c
-+
-+#define IRS_SPI_STATUSR			0x0118
-+#define IRS_SPI_STATUSR_IDLE		(1 << 0)
-+
-+static void gic_iwb_init(void) {
-+	void *iwb_ptr = (void *)GIC_IWB_BASE;
-+	unsigned int num;
-+	unsigned int i;
-+
-+	/* Get number of implemented wire control registers */
-+	num = ((raw_readl(iwb_ptr + IWB_IDR0) >> IWB_IDR0_IW_RANGE_SHIFT) & IWB_IDR0_IW_RANGE_MASK) + 1;
-+
-+	/* Disable all wires */
-+	for (i = 0; i < num; i++)
-+		raw_writel(0, iwb_ptr + IWB_WENABLER + i * 4);
-+
-+	while (!(raw_readl(iwb_ptr + IWB_WENABLE_STATUSR) & IWB_WENABLE_STATUSR_IDLE));
-+
-+	/* Assign all wires to Non-Secure domain */
-+	for (i = 0; i < num * 2; i++)
-+		raw_writel(0x55555555, iwb_ptr + IWB_WDOMAINR + i * 4);
-+
-+	while (!(raw_readl(iwb_ptr + IWB_WDOMAIN_STATUSR) & IWB_WDOMAIN_STATUSR_IDLE));
-+
-+	/* Enable IWB */
-+	raw_writel(IWB_CR0_IWBEN, iwb_ptr + IWB_CR0);
-+
-+	while (!(raw_readl(iwb_ptr + IWB_CR0) & IWB_CR0_IDLE));
-+}
-+
-+static void gic_irs_init(void) {
-+	void *irs_ptr = (void *)GIC_IRS_BASE;
-+	unsigned int range;
-+	unsigned int base;
-+	unsigned int i;
-+
-+	/* Get the range of implemented SPIs */
-+	base = raw_readl(irs_ptr + IRS_IDR7) & IRS_IDR7_SPI_BASE_MASK;
-+	range = raw_readl(irs_ptr + IRS_IDR6) & IRS_IDR6_SPI_IRS_RANGE_MASK;
-+
-+	for (i = base; i < base + range; i++) {
-+		/* Select SPI */
-+		raw_writel(i, irs_ptr + IRS_SPI_SELR);
-+		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) & IRS_SPI_STATUSR_IDLE));
-+
-+		/* Assign SPI to Non-Secure domain */
-+		raw_writel(1, irs_ptr + IRS_SPI_DOMAINR);
-+		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) & IRS_SPI_STATUSR_IDLE));
-+	}
-+}
-+
-+static void gic_ppi_init(void) {
-+	uint64_t val = 0;
-+
-+	val |= 1UL << (2 * 31); // Trace Buffer Unit
-+	val |= 1UL << (2 * 30); // EL1 Physical Timer
-+	val |= 1UL << (2 * 28); // Non-secure EL2 Virtual Timer
-+	val |= 1UL << (2 * 27); // EL1 Virtual Timer
-+	val |= 1UL << (2 * 26); // Non-secure EL2 Physical Timer
-+	val |= 1UL << (2 * 25); // GIC maintenance interrupt
-+	val |= 1UL << (2 * 24); // Generic CTI interrupt trigger event
-+	val |= 1UL << (2 * 23); // PMU overflow interrupt request
-+	val |= 1UL << (2 * 22); // Debug communication channel
-+	val |= 1UL << (2 * 21); // Profiling Buffer management interrupt request
-+	val |= 1UL << (2 * 15); // Hardware accelerator for cleaning Dirty state interrupt
-+	val |= 1UL << (2 * 3);  // Reserved for software usage
-+
-+	/* Assign PPI to Non-Secure domain */
-+	msr(ICC_PPI_DOMAINR0_EL3, val);
-+	isb();
-+}
-+
-+void gic_secure_init(void)
-+{
-+	/*
-+	 * If GICv5 is not available, skip initialisation. The OS will probably
-+	 * fail with a warning, but this should be easier to debug than a
-+	 * failure within the boot wrapper.
-+	 */
-+	if (!has_gicv5_sysreg())
-+		return;
-+
-+	if (this_cpu_logical_id() == 0) {
-+		gic_iwb_init();
-+		gic_irs_init();
-+	}
-+
-+	gic_ppi_init();
-+
-+	return;
-+}
-diff --git a/configure.ac b/configure.ac
-index 6f486c4..f4faff7 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -141,18 +141,19 @@ AC_SUBST([XEN_CMDLINE], [$X_CMDLINE])
- 
- 
- AC_ARG_WITH([gic],
--  AS_HELP_STRING([--with-gic={v2|v3}], [select GIC version]),
-+  AS_HELP_STRING([--with-gic={v2|v3|v5}], [select GIC version]),
-   [GIC_VERSION=$withval],
-   [GIC_VERSION=v2])
- 
- AS_CASE([$GIC_VERSION],
--  [v2|v3], [],
--  [AC_MSG_ERROR([Invalid GIC version: $GIC_VERSION (use v2 or v3)])])
-+  [v2|v3|v5], [],
-+  [AC_MSG_ERROR([Invalid GIC version: $GIC_VERSION (use v2, v3, or v5)])])
- 
- AC_SUBST([GIC_VERSION], [$GIC_VERSION])
- 
- AM_CONDITIONAL([GICV2], [test "x$GIC_VERSION" = "xv2"])
- AM_CONDITIONAL([GICV3], [test "x$GIC_VERSION" = "xv3"])
-+AM_CONDITIONAL([GICV5], [test "x$GIC_VERSION" = "xv5"])
- 
- 
- # Ensure that we have all the needed programs
-diff --git a/scripts/FDT.pm b/scripts/FDT.pm
-index 9adf70b..3f49ba6 100755
---- a/scripts/FDT.pm
-+++ b/scripts/FDT.pm
-@@ -322,6 +322,22 @@ sub get_num_reg_cells
- 	return ($ac, $sc);
- }
- 
-+sub get_regname_idx
-+{
-+    my $self = shift;
-+    my $regname = shift;
-+
-+    my $prop = $self->get_property("reg-names");
-+
-+    return undef if (not defined($prop));
-+
-+    my @names = $prop->read_strings();
-+
-+    my ($idx) = grep { $names[$_] eq $regname } 0 .. $#names;
-+
-+    return $idx;
-+}
-+
- sub translate_address
- {
- 	my $self = shift;
-diff --git a/scripts/findbase-by-regname.pl b/scripts/findbase-by-regname.pl
-new file mode 100755
-index 0000000..49cd0ce
---- /dev/null
-+++ b/scripts/findbase-by-regname.pl
-@@ -0,0 +1,44 @@
-+#!/usr/bin/perl -w
-+# Find device register base addresses.
-+#
-+# Usage: ./$0 <DTB> <regname> <compatible ...>
-+#
-+# Copyright (C) 2026 ARM Limited. All rights reserved.
-+#
-+# Use of this source code is governed by a BSD-style license that can be
-+# found in the LICENSE.txt file.
-+
-+use warnings;
-+use strict;
-+
-+use FDT;
-+
-+my $filename = shift;
-+die("No filename provided") unless defined($filename);
-+
-+my $regname = shift;
-+die("no reg regname provided") unless defined($regname);
-+
-+my @compats = shift;
-+
-+open (my $fh, "<:raw", $filename) or die("Unable to open file '$filename'");
-+
-+my $fdt = FDT->parse($fh) or die("Unable to parse DTB");
-+
-+my $root = $fdt->get_root();
-+
-+my @devs = ();
-+for my $compat (@compats) {
-+	push @devs, $root->find_compatible($compat);
-+}
-+
-+# We only care about finding the first matching device
-+my $dev = shift @devs;
-+die("No matching devices found") if (not defined($dev));
-+
-+my $idx = $dev->get_regname_idx($regname);
-+die("Cannot find reg name $regname") if (not defined($idx));
-+my ($addr, $size) = $dev->get_translated_reg($idx);
-+die("Cannot find reg entry $idx") if (not defined($addr) or not defined($size));
-+
-+printf("0x%016x\n", $addr);
--- 
-2.34.1
+Link to v2:
+ - https://lore.kernel.org/linux-phy/20260512101046.1498096-1-xu.yang_2@nxp.com/
+ - https://lore.kernel.org/linux-phy/20260512101212.1498223-1-xu.yang_2@nxp.com/
+
+---
+Felix Gu (1):
+      phy: fsl-imx8mq-usb: fix typec switch leak on probe error path
+
+Xu Yang (4):
+      phy: fsl-imx8mq-usb: set usb phy to be wakeup capable
+      phy: fsl-imx8mq-usb: add runtime PM support
+      phy: fsl-imx8mq-usb: add control register regmap
+      phy: fsl-imx8mq-usb: keep PHY power domain runtime always-on for i.MX8MP
+
+ drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 127 ++++++++++++++++++++---------
+ 1 file changed, 90 insertions(+), 37 deletions(-)
+---
+base-commit: 08484c504b55a98bd100527fbe10a3caf55ff3ff
+change-id: 20260602-imx8mp-usb-phy-improvement-4272d308d862
+
+Best regards,
+--  
+Xu Yang <xu.yang_2@nxp.com>
 
 
