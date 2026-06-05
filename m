@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5171CCD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F71CD6E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eak/H2RP49+LPFCmwdYPZS6m93vEyNFsDScWb7BTiE0=; b=t00TEU4hVM5fphIT2TffEUqKaF
-	Y3DyzZueEk3/NbqpysCk3etl3SenInGmQsPh8RIeMgs85ZiqkEKEU4u46HgWYW2eD+MS6fqJxOb03
-	bbt3/NVXN6Fv6za8Nd64RfCDjNUwX5FPcMuJYxCSisBgEsH+o1h1JRqN5mkomAvmt8sGqlUe1+RpJ
-	eN+S7fzaiIoCWSjoA0+HtXZlKUjIrcE0RuEKlrBIrxhhp3kz+1aLILh74VsxPLdkrF1ZHmem2cPv1
-	ZX+HUIAyodtEqGi6L44/KaIu1RPvLY6C9HoRmGOrzxhsKm1w6NkkhBx0QP/MTlYOzEvzJjTcFcfVV
-	jiFl7qaw==;
+	bh=FHeuOlC/gaOtesZkFgqVr9DoEMDIdfxTclEETE4eqSU=; b=44MERNUDO5JBaGfFP0d30iPDmc
+	drsLCn+obfCRv7PjWBXeMkYjwB1S2s0NbtuI39sS0C05Jg5cVNcl1Ifs5af9E3VJNMyOiL+y30rDN
+	Taxgkf+Co8Pq20B0S430Vhm9WgHRvR8liESiEggchZ2DSuWsg8BXop67hs4/6t4dxNoSwIcZUJNtk
+	xcZNb3LObEc0eFKEfn1ZmIj6kOiTcjAXWWuLoTtsbVxp46dUOhFyHj4pcrzI+91IOlfqb9EKfGTTo
+	nc6nY3Yuq77Vz4DHSlmkcqW918TQJ9KluRe4JUoB8HUSgP7FmSt8FSlV+mn5yrNDRjqLoMpNipi2E
+	c7mUfdFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWYY-00000000paS-1Jor;
-	Fri, 05 Jun 2026 15:33:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWYU-00000000pYx-2oBr
+	id 1wVWam-00000000pz4-14tQ;
+	Fri, 05 Jun 2026 15:36:16 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wVWai-00000000pxm-4A2a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 15:33:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E3D134FE;
-	Fri,  5 Jun 2026 08:33:48 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7F0C3F86F;
-	Fri,  5 Jun 2026 08:33:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780673632; bh=iJk4qjveu3UoNnJ691h+ELzlPLvx6w5PQjerE7+VMUs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rcmKxTgw5I4C0CsiJ4siCezSQ+0XGnrijovnLD0FgmitLGGEg4HMlrCtMh/ek4gqi
-	 H3NJlux6boKl7w8I7T353PXyeVYPpqtluvaKl165XjqIzO/WrL3jjxkMKtmVtzyFRv
-	 vQFMY00/wcnZoyEywrjdv0AuHDHxAWyLm3eLtd+U=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Gavin Shan <gshan@redhat.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH 1/2] KVM: arm64: Replace memslot_is_logging() with kvm_slot_dirty_track_enabled()
-Date: Fri,  5 Jun 2026 16:32:47 +0100
-Message-ID: <20260605153248.2412064-2-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260605153248.2412064-1-weilin.chang@arm.com>
-References: <20260605153248.2412064-1-weilin.chang@arm.com>
+	Fri, 05 Jun 2026 15:36:15 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 2D349C58479;
+	Fri,  5 Jun 2026 15:36:10 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4A1AB5FED1;
+	Fri,  5 Jun 2026 15:36:10 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C996106A24F0;
+	Fri,  5 Jun 2026 17:35:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780673767; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=FHeuOlC/gaOtesZkFgqVr9DoEMDIdfxTclEETE4eqSU=;
+	b=LSb3DbXwWwWowFJQbUezIa1BBhdJR5igSpOLdXQsCT+BMkRWsdW44ijdI9dXSrrrcI8V3I
+	ecL7Zv+Q2UVM43Odjp/o2hzqvGbJH9gcvwM6bdnjCKpscXz21KdbG5a15Kc6ylGOPoMikV
+	/27OcnmIj1H+3ddtxGC9cfiTRCWoqBfbWXl8ciMGadarXoTP7kfh+SkJNF+NmdT7qNf3N7
+	nOUpMyUSLjBesoK1WhJDphDI8xte4Zjy9kt1XGP1BSTgKvcUlm5wSd8QHvl7H5BQGa0SY4
+	7tx4Gs7DtT2TfocD21W8eEKgMWx1a3Dd+/HcnhtEgGNrly28oFopJXpGDFJybQ==
+Message-ID: <566af63b-05a9-43f8-94e9-19af737c848a@bootlin.com>
+Date: Fri, 5 Jun 2026 17:35:47 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 03/14] net: pcs: pcs-xpcs-regmap: support XPCS
+ memory-mapped MDIO bus via regmap
+To: Alex Elder <elder@riscstar.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, rmk+kernel@armlinux.org.uk, andersson@kernel.org,
+ konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, arnd@arndb.de,
+ gregkh@linuxfoundation.org
+Cc: Daniel Thompson <daniel@riscstar.com>, mohd.anwar@oss.qualcomm.com,
+ a0987203069@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, chenhuacai@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com,
+ inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com,
+ livelycarpet87@gmail.com, mcoquelin.stm32@gmail.com, me@ziyao.cc,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
+ rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn,
+ weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260605010022.968612-1-elder@riscstar.com>
+ <20260605010022.968612-4-elder@riscstar.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260605010022.968612-4-elder@riscstar.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_083354_934278_480D9B5F 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20260605_083613_974566_5EFEF305 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,83 +94,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When checking whether a memslot has dirty logging enabled, the
-KVM_MEM_LOG_DIRTY_PAGES flag is the source of truth. Previously we were
-using memslot_is_logging() which only tests dirty bitmap and did not
-consider dirty ring. This was not detected because
-KVM_CAP_DIRTY_LOG_RING_WITH_BITMAP was introduced together with KVM
-arm64 dirty ring, and users need to enable it to ensure dirty
-information is not lost for the case of VGIC LPI/ITS table changes.
+Hi Alex,
 
-Fix this by using kvm_slot_dirty_track_enabled() instead which checks
-KVM_MEM_LOG_DIRTY_PAGES.
+On 6/5/26 03:00, Alex Elder wrote:
+> From: Daniel Thompson <daniel@riscstar.com>
+> 
+> In some DesignWare XPCS implementatons the memory-mapped MDIO bus is
+> allocated to a register window that does not align to a page boundary.
+> This makes iomapping the registers problematic.
+> 
+> For example the Toshiba TC9564 (a PCIe Ethernet-AVB/TSN bridge) provides
+> an "eMAC" subsystem with the XPCS base address cuddled up to XGMAC
+> registers.
+> 
+> Let's introduce helpers to allow the driver that owns the eMAC to register
+> an XPCS using is regmap for the memory-mapped MDIO bus.
+> 
+> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+>  MAINTAINERS                         |   2 +
+>  drivers/net/pcs/Makefile            |   4 +-
+>  drivers/net/pcs/pcs-xpcs-regmap.c   | 219 ++++++++++++++++++++++++++++
+>  include/linux/pcs/pcs-xpcs-regmap.h |  20 +++
+>  4 files changed, 243 insertions(+), 2 deletions(-)
+>  create mode 100644 drivers/net/pcs/pcs-xpcs-regmap.c
+>  create mode 100644 include/linux/pcs/pcs-xpcs-regmap.h
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index eb8cdcc76324f..2aa6ea012c848 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -25931,8 +25931,10 @@ F:	drivers/net/ethernet/synopsys/
+>  SYNOPSYS DESIGNWARE ETHERNET XPCS DRIVER
+>  L:	netdev@vger.kernel.org
+>  S:	Orphan
+> +F:	drivers/net/pcs/pcs-xpcs-regmap.c
+>  F:	drivers/net/pcs/pcs-xpcs.c
+>  F:	drivers/net/pcs/pcs-xpcs.h
+> +F	include/linux/pcs/pcs-xpcs-regmap.h
+>  F:	include/linux/pcs/pcs-xpcs.h
+>  
+>  SYNOPSYS DESIGNWARE HDMI RX CONTROLLER DRIVER
+> diff --git a/drivers/net/pcs/Makefile b/drivers/net/pcs/Makefile
+> index 4f7920618b900..565f1b63fce0b 100644
+> --- a/drivers/net/pcs/Makefile
+> +++ b/drivers/net/pcs/Makefile
+> @@ -1,8 +1,8 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  # Makefile for Linux PCS drivers
+>  
+> -pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-plat.o \
+> -				   pcs-xpcs-nxp.o pcs-xpcs-wx.o
+> +pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-nxp.o pcs-xpcs-regmap.o \
+> +				   pcs-xpcs-plat.o pcs-xpcs-wx.o
+>  
+>  obj-$(CONFIG_PCS_XPCS)		+= pcs_xpcs.o
+>  obj-$(CONFIG_PCS_LYNX)		+= pcs-lynx.o
+> diff --git a/drivers/net/pcs/pcs-xpcs-regmap.c b/drivers/net/pcs/pcs-xpcs-regmap.c
+> new file mode 100644
+> index 0000000000000..55cd05d09c7db
+> --- /dev/null
+> +++ b/drivers/net/pcs/pcs-xpcs-regmap.c
+> @@ -0,0 +1,219 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Synopsys DesignWare XPCS regmap helpers
+> + *
+> + * Copyright (C) 2026 RISCstar Solutions.
+> + * Copyright (C) 2024 Serge Semin
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mdio.h>
+> +#include <linux/pcs/pcs-xpcs.h>
+> +#include <linux/pcs/pcs-xpcs-regmap.h>
+> +#include <linux/regmap.h>
+> +
+> +#include "pcs-xpcs.h"
+> +
+> +/* Page select register for the indirect MMIO CSRs access */
+> +#define DW_VR_CSR_VIEWPORT		0xff
+> +
+> +struct dw_xpcs_regmap {
+> +	struct device *dev;
+> +	struct mii_bus *bus;
+> +	struct regmap *regmap;
+> +	bool reg_indir;
+> +};
+> +
+> +static ptrdiff_t xpcs_regmap_addr_format(int dev, int reg)
+> +{
+> +	return FIELD_PREP(0x1f0000, dev) | FIELD_PREP(0xffff, reg);
+> +}
+> +
+> +static u16 xpcs_regmap_addr_page(ptrdiff_t csr)
+> +{
+> +	return FIELD_GET(0x1fff00, csr);
+> +}
+> +
+> +static ptrdiff_t xpcs_regmap_addr_offset(ptrdiff_t csr)
+> +{
+> +	return FIELD_GET(0xff, csr);
+> +}
+> +
+> +static int xpcs_regmap_read_reg_indirect(struct dw_xpcs_regmap *pxpcs, int dev,
+> +					 int reg)
+> +{
+> +	ptrdiff_t csr, ofs;
+> +	unsigned int val;
+> +	u16 page;
+> +	int res;
+> +
+> +	csr = xpcs_regmap_addr_format(dev, reg);
+> +	page = xpcs_regmap_addr_page(csr);
+> +	ofs = xpcs_regmap_addr_offset(csr);
+> +
+> +	res = regmap_write(pxpcs->regmap, DW_VR_CSR_VIEWPORT, page);
+> +	if (res < 0)
+> +		return res;
+> +
+> +	res = regmap_read(pxpcs->regmap, ofs, &val);
+> +	if (res < 0)
+> +		return res;
+> +
+> +	return val & 0xffff;
+> +}
+> +
+> +static int xpcs_regmap_write_reg_indirect(struct dw_xpcs_regmap *pxpcs, int dev,
+> +					  int reg, u16 val)
+> +{
+> +	ptrdiff_t csr, ofs;
+> +	u16 page;
+> +	int res;
+> +
+> +	csr = xpcs_regmap_addr_format(dev, reg);
+> +	page = xpcs_regmap_addr_page(csr);
+> +	ofs = xpcs_regmap_addr_offset(csr);
+> +
+> +	res = regmap_write(pxpcs->regmap, DW_VR_CSR_VIEWPORT, page);
+> +	if (res < 0)
+> +		return res;
+> +
+> +	return regmap_write(pxpcs->regmap, ofs, val);
+> +}
+> +
+> +static int xpcs_regmap_read_reg_direct(struct dw_xpcs_regmap *pxpcs, int dev,
+> +				       int reg)
+> +{
+> +	unsigned int val;
+> +	ptrdiff_t csr;
+> +	int res;
+> +
+> +	csr = xpcs_regmap_addr_format(dev, reg);
+> +	res = regmap_read(pxpcs->regmap, csr, &val);
+> +	if (res < 0)
+> +		return res;
+> +
+> +	return val & 0xffff;
+> +}
+> +
+> +static int xpcs_regmap_write_reg_direct(struct dw_xpcs_regmap *pxpcs, int dev,
+> +					int reg, u16 val)
+> +{
+> +	ptrdiff_t csr = xpcs_regmap_addr_format(dev, reg);
+> +
+> +	return regmap_write(pxpcs->regmap, csr, val);
+> +}
+> +
+> +static int xpcs_regmap_read_c22(struct mii_bus *bus, int addr, int reg)
+> +{
+> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
+> +
+> +	if (addr != 0)
+> +		return -ENODEV;
+> +
+> +	if (pxpcs->reg_indir)
+> +		return xpcs_regmap_read_reg_indirect(pxpcs, MDIO_MMD_VEND2, reg);
+> +	else
+> +		return xpcs_regmap_read_reg_direct(pxpcs, MDIO_MMD_VEND2, reg);
+> +}
+> +
+> +static int xpcs_regmap_write_c22(struct mii_bus *bus, int addr, int reg, u16 val)
+> +{
+> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
+> +
+> +	if (addr != 0)
+> +		return -ENODEV;
+> +
+> +	if (pxpcs->reg_indir)
+> +		return xpcs_regmap_write_reg_indirect(pxpcs, MDIO_MMD_VEND2, reg, val);
+> +	else
+> +		return xpcs_regmap_write_reg_direct(pxpcs, MDIO_MMD_VEND2, reg, val);
+> +}
+> +
+> +static int xpcs_regmap_read_c45(struct mii_bus *bus, int addr, int dev, int reg)
+> +{
+> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
+> +
+> +	if (addr != 0)
+> +		return -ENODEV;
+> +
+> +	if (pxpcs->reg_indir)
+> +		return xpcs_regmap_read_reg_indirect(pxpcs, dev, reg);
+> +	else
+> +		return xpcs_regmap_read_reg_direct(pxpcs, dev, reg);
+> +}
+> +
+> +static int xpcs_regmap_write_c45(struct mii_bus *bus, int addr, int dev,
+> +				 int reg, u16 val)
+> +{
+> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
+> +
+> +	if (addr != 0)
+> +		return -ENODEV;
+> +
+> +	if (pxpcs->reg_indir)
+> +		return xpcs_regmap_write_reg_indirect(pxpcs, dev, reg, val);
+> +	else
+> +		return xpcs_regmap_write_reg_direct(pxpcs, dev, reg, val);
+> +}
+> +
+> +static void devm_xpcs_regmap_destroy(void *data)
+> +{
+> +	struct dw_xpcs *xpcs = data;
+> +
+> +	xpcs_destroy(xpcs);
+> +}
+> +
+> +struct dw_xpcs *devm_xpcs_regmap_register(struct device *dev,
+> +					  const struct xpcs_regmap_config *config)
+> +{
+> +	static atomic_t id = ATOMIC_INIT(-1);
+> +	struct dw_xpcs_regmap *pxpcs;
+> +	struct dw_xpcs *xpcs;
+> +	int ret;
+> +
+> +	pxpcs = devm_kzalloc(dev, sizeof(*pxpcs), GFP_KERNEL);
+> +	if (!pxpcs)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	pxpcs->dev = dev;
+> +	pxpcs->regmap = config->regmap;
+> +	pxpcs->reg_indir = config->reg_indir;
 
-Note that memslot_is_logging() also treats a memslot as not logging if
-KVM_MEM_READONLY is set, hence a memslot with both dirty logging and
-read only would be seen as not logging for memslot_is_logging(), but
-logging for kvm_slot_dirty_track_enabled(). This allows a read only
-mapping of size > PAGE_SIZE to be built when memslot_is_logging() is
-used, leading to a better read performance compared to
-kvm_slot_dirty_track_enabled(). However memslots that have both
-KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY set do not really make
-sense as dirty logging is essentially nop for a read only memslot, so
-this shouldn't affect real workloads much.
+Looking at the overall series, is there any reason for this flag ?
 
-Fixes: 9cb1096f8590 ("KVM: arm64: Enable ring-based dirty memory tracking")
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
----
-It took me a long investigation to acquire the context needed to
-understand this change, however the reason for this problem not being
-detected is an educated guess. Please let me know if this is wrong or
-if there are other issues, thanks!
+Looks like the reg_indir=false path isn't used at all in this series.
 
- arch/arm64/kvm/mmu.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+Maybe just drop it and let anyone add it back should the need arise ?
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 4da9281312eb..06c46124d3e7 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -161,11 +161,6 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
- 	return ret;
- }
- 
--static bool memslot_is_logging(struct kvm_memory_slot *memslot)
--{
--	return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
--}
--
- /**
-  * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
-  * @kvm:	pointer to kvm structure.
-@@ -1748,7 +1743,7 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
- {
- 	short vma_shift;
- 
--	if (memslot_is_logging(s2fd->memslot)) {
-+	if (kvm_slot_dirty_track_enabled(s2fd->memslot)) {
- 		s2vi->max_map_size = PAGE_SIZE;
- 		vma_shift = PAGE_SHIFT;
- 	} else {
-@@ -1953,7 +1948,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 	*prot = KVM_PGTABLE_PROT_R;
- 
- 	if (s2vi->map_writable && (s2vi->device ||
--				   !memslot_is_logging(s2fd->memslot) ||
-+				   !kvm_slot_dirty_track_enabled(s2fd->memslot) ||
- 				   kvm_is_write_fault(s2fd->vcpu)))
- 		*prot |= KVM_PGTABLE_PROT_W;
- 
-@@ -2084,7 +2079,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	 * and a write fault needs to collapse a block entry into a table.
- 	 */
- 	memcache = get_mmu_memcache(s2fd->vcpu);
--	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
-+	if (!perm_fault || (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
- 			    kvm_is_write_fault(s2fd->vcpu))) {
- 		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
- 		if (ret)
--- 
-2.43.0
+Maxime
+
 
 
