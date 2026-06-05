@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF8ACD6E7B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 18:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383BACD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 19:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=381Fq/TSXo/JXln0nP+8I3E908K7YAJ7UEBMT46S5DU=; b=WCJwMgl3yfe3s7+tniasmm7op8
-	L4UGlyeCjMok69KGUJN9W0Hp/XVBGetQncNhhK9edKxtYJHaaI1e5/A3SJvjtmM88l2eUFk41gC1D
-	6Psgucs8Wao5RKbTK6/29DV6wE+kmVHywALhJ0fBjl29E+8YtZDeUrG1Ypps6KMWxYwyym8UJHRe9
-	lDHTxxFNrCnPmThbtPrTq34KSDuAIjQ7ikTBwnptfMTTBWRGX/8XsVwrUDohyoQaynulZcmcheFW0
-	QudqZ8tXBn6j1cpwGYbbHRfH1GVC8kUwX3vrrXLGQ9Tmtn3B76EGVvnpKK+pHG6q9Dib7FGjTwKPA
-	7ScdQG7g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gTs0cZaUUQQv4ViGpAM8i/wK3g92g6IK/a+nwJZu5P4=; b=ZbLWUzBukHKm8dgxs7JDdE1xdO
+	Ik6geLwcV0LjfBmvf1AnUWRcbhjD9SbKQN3Sd/RCyPAsVf1aGc36JhaIxX5szwXRgYeU8bnlA1XjA
+	DZfjKYFea1MAvIN4uuckKirMiXV35AL+zYmGZ9UyJbew41moS7AfCmO/xQcMfU0GXmTlZ8oS7q6GK
+	b6Befa7kF7FNK7mX1QoImNV/4X86RlNVN5idt4cRu6UwCjVkovkaOvmkKQoZNAEjKpcgK5mpcdXgq
+	yCJ6ehH8uZTTzdOcXGXnZixycXy2l+aK30XPcE40Od7PRHgecXX1x3l8p1zDicwyS/vzT0PnMzmad
+	da2pcpNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZfW-000000014nx-2Kwi;
-	Fri, 05 Jun 2026 18:53:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZfU-000000014nV-0P46
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 18:53:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A84947D8;
-	Fri,  5 Jun 2026 11:53:13 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D85C3F7D8;
-	Fri,  5 Jun 2026 11:53:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780685598; bh=LXJ4N9M7Q2HKVuHJiqod/o5k82b/D7efOXXT+s8XorA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AMI5okhrpHUmhc5NVTNmDPnAOcbbGme/mmAAZmNe98E9+W2v3TU3lBPqxHGunxbZ1
-	 G4QEg14jmqDdYWMJhgb0+sF6MYCihH4r3gzPtUTJ6I6/OURExxvW24WLcln3bzDeZE
-	 VFEHXDmxegfxEzB0N7eqIHJ3TM1bnfIveyeEjOrk=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH] KVM: arm64: Fix block mapping validity check in stage-1 walker
-Date: Fri,  5 Jun 2026 19:52:55 +0100
-Message-ID: <20260605185255.2431996-1-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wVZzc-000000015y1-2uBw;
+	Fri, 05 Jun 2026 19:14:08 +0000
+Received: from mail.netcube.li ([173.249.15.149])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wVZza-000000015wr-0KVg;
+	Fri, 05 Jun 2026 19:14:07 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
+	bh=gTs0cZaUUQQv4ViGpAM8i/wK3g92g6IK/a+nwJZu5P4=;
+	b=dw2lmfLgIZOp+0Amqt5LvJRVEdQd4CiK7dLOYbPX1C9QtzIhalHRQx3LzOKKF0m9IP1vgwag/PrQRFHY/bzIOn1iABeusecwIVmAXUCrMEOhTDlnIXEzaKCJyAOlLMEKWg97PnRsRWtjBl4UJJ3m7aYeM0Ys/n7SWjaC1Lx947I=
+Received: from lukas-hpz440workstation.lan.sk100508.local (194-166-56-114.hdsl.highway.telekom.at [194.166.56.114])
+	by mail.netcube.li with ESMTPA
+	; Fri, 5 Jun 2026 21:14:04 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Lukas Schmid <lukas.schmid@netcube.li>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 2/3] riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl required by NetCube Systems OpenNMC
+Date: Fri,  5 Jun 2026 21:13:14 +0200
+Message-ID: <20260605191322.1920944-3-lukas.schmid@netcube.li>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260605191322.1920944-1-lukas.schmid@netcube.li>
+References: <20260605191322.1920944-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_115320_395916_E6D31E80 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260605_121406_450102_2B89C913 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For the 64K granule size, FEAT_LPA determines whether a level 1 mapping
-is allowed. Using the result of has_52bit_pa() is too restrictive, as it
-also checks the selected output addressi size in TCR.(I)PS. Fix it by
-only checking FEAT_LPA.
+Added the "uart4_pb_pins" pinctrl used by the OpenNMC
 
-Fixes: 5da3a3b27a01 ("KVM: arm64: Expand valid block mappings to FEAT_LPA/LPA2 support")
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 ---
- arch/arm64/kvm/at.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 2ddb5b5a055e..30e6fa8ac07c 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -564,15 +564,18 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 	/* Block mapping, check the validity of the level */
- 	if (!(desc & BIT(1))) {
- 		bool valid_block = false;
-+		bool lpa = kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, PARANGE, 52);
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index 82cc85acccb1..00fddedfa36f 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -191,6 +191,12 @@ uart3_pb_pins: uart3-pb-pins {
+ 				pins = "PB6", "PB7";
+ 				function = "uart3";
+ 			};
++
++			/omit-if-no-ref/
++			uart4_pb_pins: uart4-pb-pins {
++				pins = "PB2", "PB3";
++				function = "uart4";
++			};
+ 		};
  
- 		switch (BIT(wi->pgshift)) {
- 		case SZ_4K:
- 			valid_block = level == 1 || level == 2 || (wi->pa52bit && level == 0);
- 			break;
- 		case SZ_16K:
--		case SZ_64K:
- 			valid_block = level == 2 || (wi->pa52bit && level == 1);
- 			break;
-+		case SZ_64K:
-+			valid_block = level == 2 || (lpa && level == 1);
-+			break;
- 		}
- 
- 		if (!valid_block)
+ 		ccu: clock-controller@2001000 {
 -- 
-2.43.0
+2.47.3
+
 
 
