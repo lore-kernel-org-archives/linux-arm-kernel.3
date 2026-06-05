@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DB5CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 02:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330C5CD6E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 02:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mIZRJWfB9uIoT21u274B0cnlZ9ADp5gVESO1zB5LtY0=; b=YK0ajuAEju4YSrOWxLKIvMh2IR
-	4mOl7VA5Gt0akhfHB9FyPDhPqY0xIf5DfgP/vcSoLMFhiKf2xan9UgfSCAr7h2L6Jpc1xZrCKLc7X
-	zyuOL2xntcos1qEeA77GDA/Fm0MDtsVNcj/RaHmO/DoXzCjLTzoKxtukmep7ayBD9aLqaO305oh8Q
-	MQf8ZhmqXrTtEvfAybSTDAj83CFiG9LseXN8IRvjNXyt/D1uwvjGSxE1mGY21YOR/lbQkDmz+CedE
-	Pu/I/P11Tm9CO6ZaV69pfqYgPcn8vrOZmvjXMPUbXGYRoCsn9uhw26Y215qvPq3ff8l15Whq8cDzk
-	AKB+vrIQ==;
+	bh=FDS6Cjxf+/JaLSZoJgj5+4lXnvtwYjgZb5JthpJtzIg=; b=mK+p/DKCF0N0U89Xintf+GsaAY
+	KjsKgrFreM7dhHU0n7IE48PYbaYeEJvAEWb3NWrDhSrmTkL2XIAxWkMbAgEIte67hHWO+MbpiXzre
+	07q4I7fQ8RXA4C80Q4+5cj8atB72qMeSR+Br5i7WmlfVAoLf2JEEVzH39l2HlDAvk/wv8Z1TmuZHr
+	tav0DTzgX42te9zppAHuOof18mO7y6/i9wOX39zEA9BWYZ7BM1I2cOVsk6owVW3GwG6o2nDEY8OSW
+	jVZe9mq0ui72KFmgwUInOgwvD8fIz2tVciG8jMQSj22rx79Xx/p3q0NS7ie1mHSN7jghcxa3kIGf6
+	RCPxBs7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVK9E-0000000HZCn-039a;
-	Fri, 05 Jun 2026 02:19:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wVK9G-0000000HZDl-0aKp;
+	Fri, 05 Jun 2026 02:19:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVK9C-0000000HZBr-1SUX
+	id 1wVK9D-0000000HZCO-3smp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 02:18:58 +0000
+	Fri, 05 Jun 2026 02:18:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8A22600B0;
-	Fri,  5 Jun 2026 02:18:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D20B41F00899;
-	Fri,  5 Jun 2026 02:18:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CE8743645;
+	Fri,  5 Jun 2026 02:18:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE901F0089A;
+	Fri,  5 Jun 2026 02:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780625937;
-	bh=mIZRJWfB9uIoT21u274B0cnlZ9ADp5gVESO1zB5LtY0=;
+	s=k20260515; t=1780625939;
+	bh=FDS6Cjxf+/JaLSZoJgj5+4lXnvtwYjgZb5JthpJtzIg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SnaSb2a1NiGHKTNUDDVS/xqHJAY6OKx82UAQ6E8istkspZEghE6Lr1pXt40a3G1+N
-	 coX3EKFfTlYu2Q7zgoJpqob88M/Zl8yJx5JOuzSE0m/i/LQCFDxHrv0gofIciiyj0e
-	 0kdOOXHnFVZ9c1863hF8sUwzlnwJ0F8khi4oI0rgmL1pXgSnYQrIYknCK80+FAyuli
-	 EfLcMlBLYeDOn0gJbycNJ5YoEF7BAVNooKBjioXeE8BaXviHhZGeWx4VkB4gl6aL+E
-	 JPSXYKwWGiVcUxtdAY5agkHqu8A+xBMf1E0DZdFVB8ck0NoU3h/WZvpo2CEK+N8A5x
-	 Gw8uX74FTenkg==
+	b=eSK1dnYs/i4g7x7knYUHW/Wl5/sSyoXtjWuckn2ea6tzYp5zrTDgrTa+9u4hsm/pO
+	 pHc5bJP+iGItN/dbiX7ZSBTHPx8/1Hr5dYgw2D9RYKnE4MXEa5KvB/54oYsCHNDLo/
+	 srRuaTwHWpV1uDkh/ypS872D0MAU22VP9P5PxEcwbNffgPpMg3eyTKTdhB2YmwEyLc
+	 2M9pTrN2mI7bQwOoog6vxYJCZgcDOvxukPYpG7hriBZQFD1PKD2JRemTDq1Y1xsJmI
+	 yLkTCTH5WUiR11orLkqg+CAYuKgK43f9El/wcVnnfNcKi4IQ1nZ/16ttbg/6FC5uJs
+	 46bwhGgMXMUSg==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lukasz.majewski@mailbox.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -58,12 +58,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	robh@kernel.org
-Subject: Re: [net-next v24 4/7] net: mtip: Add net_device_ops functions to the L2 switch driver
-Date: Thu,  4 Jun 2026 19:18:55 -0700
-Message-ID: <20260605021855.3594587-1-kuba@kernel.org>
+Subject: Re: [net-next v24 5/7] net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
+Date: Thu,  4 Jun 2026 19:18:57 -0700
+Message-ID: <20260605021857.3594621-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260601112437.2216043-5-lukasz.majewski@mailbox.org>
-References: <20260601112437.2216043-5-lukasz.majewski@mailbox.org>
+In-Reply-To: <20260601112437.2216043-6-lukasz.majewski@mailbox.org>
+References: <20260601112437.2216043-6-lukasz.majewski@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,236 +83,243 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: mtip: Add net_device_ops functions to the L2 switch driver
+net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
 
-This patch adds the ndo_start_xmit, ndo_set_rx_mode, ndo_tx_timeout,
-ndo_set_mac_address, and ndo_get_port_parent_id callbacks to the MTIP
-L2 switch driver, along with helpers and a tx_timeout work item.
+This patch fills in the previously stubbed mtip_switch_tx() and
+mtip_switch_rx() functions for the MTIP L2 switch driver, adds a small
+helper mtip_atable_get_entry_port_number() that looks a MAC up in the
+hardware address table, and a mtip_update_cbd() helper used to refill RX
+buffer descriptors from the page_pool.
 
 > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> index 5b5229ee411d..7dfeda230e3f 100644
+> index 7dfeda230e3f..212207861e13 100644
 > --- a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
 > +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
 
 [ ... ]
 
-> @@ -617,6 +740,76 @@ static void mtip_switch_restart(struct net_device *dev, int duplex0,
->  	mtip_config_switch(fep);
->  }
+> @@ -836,11 +873,233 @@ static irqreturn_t mtip_interrupt(int irq, void *ptr_fep)
 >  
-> +static void mtip_print_hw_state(struct net_device *dev)
-> +{
-
-[ ... ]
-
-> +static void mtip_timeout_work(struct work_struct *work)
-> +{
-> +	struct mtip_ndev_priv *priv =
-> +		container_of(work, struct mtip_ndev_priv, tx_timeout_work);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	struct net_device *dev = priv->dev;
-> +
-> +	rtnl_lock();
-> +	if (netif_device_present(dev) || netif_running(dev)) {
-> +		napi_disable(&fep->napi);
-> +		netif_tx_lock_bh(dev);
-> +		mtip_switch_restart(dev, fep->full_duplex[0],
-> +				    fep->full_duplex[1]);
-> +		netif_tx_wake_all_queues(dev);
-> +		netif_tx_unlock_bh(dev);
-> +		napi_enable(&fep->napi);
-> +	}
-> +	rtnl_unlock();
-> +}
-
-[High]
-Should the guard here be a logical AND rather than OR?
-
-	if (netif_device_present(dev) || netif_running(dev)) {
-
-netif_device_present() returns true unless netif_device_detach() has been
-called, and this driver never calls netif_device_detach().  So the OR
-collapses to "always true" once the device has been registered, and the
-work proceeds even after mtip_close().
-
-mtip_close() does this on the last close:
-
-	if (fep->usage_count == 1) {
-		napi_disable(&fep->napi);
-		netif_napi_del(&fep->napi);
-		mtip_free_buffers(dev);
-		clk_disable(fep->clk_ipg);
-	}
-
-After that, can mtip_timeout_work() running due to a previously scheduled
-watchdog still call napi_disable(&fep->napi) / napi_enable(&fep->napi) on
-a netif_napi_del()'d napi, and call mtip_switch_restart() which writes
-hardware registers after clk_ipg has been disabled?
-
-Would gating the work on fep->usage_count (and/or cancel_work_sync() in
-mtip_close()) be more correct than the present netif_device_present() ||
-netif_running() check?
-
-[ ... ]
-
-> @@ -1095,6 +1288,98 @@ static int mtip_close(struct net_device *dev)
->  	return 0;
->  }
->  
-> +#define FEC_HASH_BITS	6		/* #bits in hash */
-
-[ ... ]
-
-> +static int mtip_set_mac_address(struct net_device *dev, void *p)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	void __iomem *enet_addr = fep->enet_addr;
-> +	struct sockaddr *addr = p;
-> +	int ret;
-> +
-> +	if (!is_valid_ether_addr(addr->sa_data))
-> +		return -EADDRNOTAVAIL;
-> +
-> +	ret = mtip_update_atable_static((unsigned char *)addr->sa_data,
-> +					7, 7, fep);
-> +	if (ret)
-> +		return ret;
-
-[Medium]
-Is the previously-programmed MAC ever removed from the switch's static
-address table?  mtip_update_atable_static() either updates a matching
-entry in place or fills the first empty slot in an 8-entry block:
-
-	for (entry = block_index; entry < index_end; entry++) {
-		mtip_read_atable(fep, entry, &read_lo, &read_hi);
-		if (read_lo == write_lo &&
-		    ((read_hi & 0x0000FFFF) ==
-		     (write_hi & 0x0000FFFF))) {
-			mtip_write_atable(fep, entry, write_lo, write_hi);
-			...
-			return 0;
-		} else if (!(read_hi & (1 << 16))) {
-			mtip_write_atable(fep, entry, write_lo, write_hi);
-			...
-			return 0;
-		}
-	}
-	...
-	return -ENOSPC;
-
-After 8 distinct MAC changes whose CRC8 maps to the same block, will
-further mtip_set_mac_address() calls return -ENOSPC, and will the stale
-MACs continue to be honored as static entries with port mask 7 and
-priority 7?
-
-> +
-> +	eth_hw_addr_set(dev, addr->sa_data);
-> +
-> +	if (priv->portnum == 2)
-> +		enet_addr += MCF_ESW_ENET_PORT_OFFSET;
-> +
-> +	writel(dev->dev_addr[3] | (dev->dev_addr[2] << 8) |
-> +	       (dev->dev_addr[1] << 16) | (dev->dev_addr[0] << 24),
-> +	       enet_addr + MCF_FEC_PALR);
-> +	writel((dev->dev_addr[5] << 16) | (dev->dev_addr[4] << 24),
-> +	       enet_addr + MCF_FEC_PAUR);
-> +
-> +	return 0;
-> +}
-
-[Medium]
-Should fep->mac[priv->portnum - 1] be updated here as well?  The driver
-caches the MAC in fep->mac[] and mtip_get_port_parent_id() reads
-fep->mac[0] as the parent identifier.  After a userspace MAC change
-fep->mac[] stays at its boot/DT value, so ndo_get_port_parent_id keeps
-returning the old value while dev->dev_addr and the hardware registers
-have moved on.
-
-[Medium]
-Does this sequence need to disable the controller before reprogramming
-PALR/PAUR?  mtip_configure_enet_mii() programs ECR to MAGIC_ENA only
-(no ETHER_EN), then writes PALR/PAUR, then enables ETHER_EN at the end:
-
-	writel(MCF_FEC_ECR_MAGIC_ENA, enet_addr + MCF_FEC_ECR);
-	...
-	writel(... , enet_addr + MCF_FEC_PALR);
-	writel(... , enet_addr + MCF_FEC_PAUR);
-	...
-	writel(readl(enet_addr + MCF_FEC_ECR) | MCF_FEC_ECR_ETHER_EN,
-	       enet_addr + MCF_FEC_ECR);
-
-mtip_set_mac_address() writes PALR and PAUR while ETHER_EN can be set
-and traffic is being matched, and it does not take fep->hw_lock either,
-so it can race with mtip_configure_enet_mii() / mtip_switch_restart()
-that touch the same register block.  Is that intended?
-
-> +
-> +static int mtip_get_port_parent_id(struct net_device *ndev,
-> +				   struct netdev_phys_item_id *ppid)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(ndev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +
-> +	ppid->id_len = sizeof(fep->mac[0]);
-> +	memcpy(&ppid->id, &fep->mac[0], ppid->id_len);
-> +
-> +	return 0;
-> +}
-
-[Medium]
-Is fep->mac[0] a suitable choice for the switch parent id?  fep->mac[]
-is populated only from DT via of_get_mac_address() in mtip_parse_of();
-when DT does not supply a mac-address for port 1, fep->mac[0] stays
-zeroed (it is kzalloc'd in probe), since mtip_setup_mac()'s bootloader
-and random-MAC fallbacks update dev->dev_addr only and never write back
-into fep->mac[].
-
-If two MTIP switches both lack a DT MAC for port 1, both will report
-ppid = 00:00:00:00:00:00, which switchdev/bridge code will treat as the
-same switch (offload_fwd_mark, bridge offload decisions).
-
-Would a switch-wide identifier (a register-derived id, the platform
-of_node phandle, etc.) be more appropriate than a port MAC?
-
-[ ... ]
-
-> @@ -1158,10 +1448,14 @@ static int mtip_switch_dma_init(struct switch_enet_private *fep)
->  
->  static void mtip_ndev_cleanup(struct switch_enet_private *fep)
+>  static void mtip_switch_tx(struct switch_enet_private *fep)
 >  {
-> +	struct mtip_ndev_priv *priv;
->  	int i;
->  
->  	for (i = 0; i < SWITCH_EPORT_NUMBER; i++) {
->  		if (fep->ndev[i]) {
-> +			priv = netdev_priv(fep->ndev[i]);
-> +			cancel_work_sync(&priv->tx_timeout_work);
+> +	struct net_device *dev;
+> +	unsigned short status;
+> +	struct sk_buff *skb;
+> +	struct cbd_t *bdp;
+> +	int index;
 > +
->  			unregister_netdev(fep->ndev[i]);
->  			free_netdev(fep->ndev[i]);
->  			fep->ndev[i] = NULL;
+> +	spin_lock_bh(&fep->hw_lock);
+> +	bdp = fep->dirty_tx;
+> +
+> +	while (((status = bdp->cbd_sc) & BD_ENET_TX_READY) == 0) {
+> +		if (bdp == fep->cur_tx &&
+> +		    !mtip_netif_queues_stopped(fep))
+> +			break;
+> +
+> +		index = bdp - fep->tx_bd_base;
+> +		dma_unmap_single(&fep->pdev->dev, bdp->cbd_bufaddr,
+> +				 MTIP_SWITCH_TX_FRSIZE, DMA_TO_DEVICE);
+> +		bdp->cbd_bufaddr = 0;
+> +		skb = fep->tx_skbuff[index];
+> +		dev = skb->dev;
 
 [High]
-Is the order here safe against the netdev TX watchdog?  The watchdog
-timer is only stopped inside unregister_netdev() (via dev_deactivate),
-so between cancel_work_sync() returning and unregister_netdev() actually
-disarming the watchdog the timer can still fire mtip_timeout(), which
-calls schedule_work(&priv->tx_timeout_work) and re-queues the work that
-was just drained.
+Can mtip_switch_tx() race with mtip_adjust_link() and dereference a NULL
+skb here?
 
-After unregister_netdev() and free_netdev() complete, priv (which embeds
-tx_timeout_work) is freed, and when the worker thread later picks up
-the queued work it will dereference a freed priv/fep.
+mtip_adjust_link() runs in process context from phylib's state machine
+and calls:
 
-Would the sequence
+    mtip_netif_stop_queues(fep);
+    mtip_switch_restart(...);
+    if (mtip_netif_queues_stopped(fep))
+            mtip_netif_wake_queues(fep);
 
-	unregister_netdev(fep->ndev[i]);
-	cancel_work_sync(&priv->tx_timeout_work);
-	free_netdev(fep->ndev[i]);
+mtip_switch_restart() does not appear to take fep->hw_lock, does not
+disable NAPI, clears tx_skbuff[i] = NULL and resets cur_tx = dirty_tx
+= base, and at the end re-enables RX/TX interrupts via ESW_IMR.
 
-be safer, since unregister_netdev() quiesces all sources of new work
-before cancel_work_sync() drains what remains?  The same concern applies
-to the rollback path in mtip_ndev_init() for ports whose watchdog is
-already active.
+While this is in flight, both per-port queues are XOFF so
+mtip_netif_queues_stopped(fep) returns true. A concurrent RX interrupt
+on another CPU can schedule NAPI, which calls mtip_switch_tx() with
+this state:
+
+    bdp = fep->dirty_tx;             /* == base after restart */
+    while ((bdp->cbd_sc & BD_ENET_TX_READY) == 0) {
+            if (bdp == fep->cur_tx && !mtip_netif_queues_stopped(fep))
+                    break;           /* not taken: queues stopped */
+            ...
+            skb = fep->tx_skbuff[index];   /* NULL */
+            dev = skb->dev;                /* NULL deref */
+
+mtip_switch_restart() does not reset cbd_sc, so cbd_sc & BD_ENET_TX_READY
+can still be 0 from prior TX activity, which lets the loop body run.
+dma_unmap_single() would also be called with the stale cbd_bufaddr.
+
+The mtip_timeout_work() path wraps the same restart in napi_disable() /
+netif_tx_lock_bh(); should the adjust_link path do the same?
+
+> +		/* Check for errors */
+> +		if (status & (BD_ENET_TX_HB | BD_ENET_TX_LC |
+> +				   BD_ENET_TX_RL | BD_ENET_TX_UN |
+> +				   BD_ENET_TX_CSL)) {
+> +			dev->stats.tx_errors++;
+> +			if (status & BD_ENET_TX_HB)  /* No heartbeat */
+> +				dev->stats.tx_heartbeat_errors++;
+> +			if (status & BD_ENET_TX_LC)  /* Late collision */
+> +				dev->stats.tx_window_errors++;
+> +			if (status & BD_ENET_TX_RL)  /* Retrans limit */
+> +				dev->stats.tx_aborted_errors++;
+> +			if (status & BD_ENET_TX_UN)  /* Underrun */
+> +				dev->stats.tx_fifo_errors++;
+> +			if (status & BD_ENET_TX_CSL) /* Carrier lost */
+> +				dev->stats.tx_carrier_errors++;
+> +		} else {
+> +			dev->stats.tx_packets++;
+> +		}
+> +
+> +		if (status & BD_ENET_TX_READY)
+> +			dev_err_ratelimited(&fep->pdev->dev,
+> +					    "xmit interrupt and TX_READY.\n");
+
+[Low]
+Can this dev_err_ratelimited() ever fire?
+
+The enclosing loop is:
+
+    while (((status = bdp->cbd_sc) & BD_ENET_TX_READY) == 0) {
+
+status is only assigned in the loop header and is not re-read inside the
+body, so by construction status & BD_ENET_TX_READY is always 0 when this
+diagnostic is reached. Was the intent to re-read bdp->cbd_sc, or is this
+leftover scaffolding that should just be removed?
+
+> +
+> +		/* Deferred means some collisions occurred during transmit,
+> +		 * but we eventually sent the packet OK.
+> +		 */
+> +		if (status & BD_ENET_TX_DEF)
+> +			dev->stats.collisions++;
+> +
+> +		/* Free the sk buffer associated with this last transmit */
+> +		dev_consume_skb_any(skb);
+> +		fep->tx_skbuff[index] = NULL;
+
+[ ... ]
+
+> +	}
+> +	fep->dirty_tx = bdp;
+> +	spin_unlock_bh(&fep->hw_lock);
+>  }
+>  
+> +static int mtip_update_cbd(struct switch_enet_private *fep, struct cbd_t *bdp,
+> +			   int index)
+> +{
+
+[ ... ]
+
+> +}
+> +
+
+[ ... ]
+
+>  static int mtip_switch_rx(struct net_device *dev, int budget)
+>  {
+> -	return -ENOMEM;
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+
+[Low]
+After this patch mtip_switch_rx() only ever returns pkt_received, which
+is non-negative; the page_pool allocation failure path does
+pndev->stats.rx_dropped++ and goto rx_processing_done rather than
+returning -ENOMEM.
+
+The earlier patch in the series left mtip_rx_napi() with:
+
+    pkts = mtip_switch_rx(napi->dev, budget);
+    if (pkts == -ENOMEM) {
+            napi_complete(napi);
+            writel(MCF_ESW_IMR_RXF | MCF_ESW_IMR_TXF, fep->hwp + ESW_IMR);
+            return 0;
+    }
+
+Is that branch now unreachable, and should it be removed so the contract
+between mtip_switch_rx() and its caller stays consistent?
+
+[ ... ]
+
+> +
+> +		/* Get correct RX page */
+> +		index = bdp - fep->rx_bd_base;
+> +		page = fep->page[index];
+> +		/* Process the incoming frame */
+> +		pkt_len = bdp->cbd_datlen;
+> +
+> +		dma_sync_single_for_cpu(&fep->pdev->dev, bdp->cbd_bufaddr,
+> +					pkt_len, DMA_FROM_DEVICE);
+> +		net_prefetch(page_address(page));
+> +		data = page_address(page);
+> +
+> +		if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> +			swap_buffer(data, pkt_len);
+> +
+> +		eth_hdr = (struct ethhdr *)data;
+> +		mtip_atable_get_entry_port_number(fep, eth_hdr->h_source,
+> +						  &rx_port);
+
+[ ... ]
+
+> +
+> +		if (mtip_update_cbd(fep, bdp, index)) {
+> +			pndev->stats.rx_dropped++;
+> +			goto rx_processing_done;
+> +		}
+> +
+> +		/* The packet length includes FCS, but we don't want to
+> +		 * include that when passing upstream as it messes up
+> +		 * bridging applications.
+> +		 */
+> +		skb = build_skb(page_address(page), PAGE_SIZE);
+> +		if (unlikely(!skb)) {
+> +			page_pool_recycle_direct(fep->page_pool, page);
+> +			pndev->stats.rx_dropped++;
+> +
+> +			netdev_err_once(pndev, "build_skb failed!\n");
+> +			goto rx_processing_done;
+> +		}
+> +
+> +		skb_put(skb, pkt_len);      /* Make room */
+> +		skb_mark_for_recycle(skb);
+> +		skb->protocol = eth_type_trans(skb, pndev);
+> +		skb->offload_fwd_mark = fep->br_offload;
+> +		napi_gro_receive(&fep->napi, skb);
+> +
+> +		pndev->stats.rx_packets++;
+> +		pndev->stats.rx_bytes += pkt_len;
+
+[High]
+Is the FCS actually being stripped here?
+
+The comment above build_skb() states:
+
+    /* The packet length includes FCS, but we don't want to
+     * include that when passing upstream as it messes up
+     * bridging applications.
+     */
+
+but skb_put() and the rx_bytes accounting both use pkt_len unmodified:
+
+    skb_put(skb, pkt_len);      /* Make room */
+    ...
+    pndev->stats.rx_bytes += pkt_len;
+
+The equivalent fec_enet_rx_queue_napi() in fec_main.c does
+pkt_len - sub_len (with sub_len = 4 + fep->rx_shift). Combined with
+mtip_enet_init() programming MCF_FEC_RCR_CRC_FWD in the RCR register so
+the CRC is forwarded into the RX buffer, every skb handed to
+napi_gro_receive() ends up with 4 trailing FCS bytes and rx_bytes is
+overcounted by 4 per frame. Should pkt_len be reduced by 4 (or by
+4 + fep->rx_shift) before skb_put() and the stats update?
+
+[ ... ]
 
