@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F262ACD6E7B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 19:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36085CD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 19:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KE3Yd9aBqiM7+6VuFaFQ2f9ptin36tpfS9P+PDSGCTQ=; b=0kghjKdHif4I2oR/zGuBJ/HW5t
-	DT2tfrjQKXwKAuU2Np3Y4w4rsnm7jOLELGRvtI1wb59UrxqKYWeDV6PGjw3QgNNvSE+eqde4MmaJz
-	FRhg528lpViXdjPQxRXDekf25vEfew7uCtNZs8G7IUvsNQIopWPd54yyNkFNllAdvEC9n3NovvUyR
-	G6uLA6x3zQiapD5Up29shFgflAyJjYlOn2lczzpX7Bji2+0/R8G46mRPnpTGmO2BZ4Efw3jHaqtbo
-	AqH66oCGfDtuNUhd5YUQXj1B2eYC48lsgyEJLDD8cTSIc2GwhKa+ztnXsGEdS2mtfWMMyGL39xwN4
-	+lJUk3iw==;
+	bh=xgNX3BfF0sHR956gYPtFqiQRwqATyVW0rwVI7QS8mHU=; b=DkAf7Cwc1xCGaTrMvkLc08Mo1u
+	M2Kxd+z6keL2udQvUkbcM3tcf7DsxqyUk01NDy8W2F2BofKn9VPtKy2dijqtgPYxlWFkNwyWWcO+a
+	dqtAvSKeS8qHfV3jRUUi1vPCwDxbeqAPzoBVjimsPU0NCNqfXJvIyWbR+F7rgyLI+ALU1ELBKiQzc
+	qRiE5wUA31A9Pixts/FH40T/WnFhLoBi3jlH1JCosynbTONv7egpvkirVQukEBIQlj2/gUQN67hXD
+	3OEToyWRfjAvgN4qQfSFwutI8IZ9GeP33RVt9eaBGp8UKC7jaAOMWXne11FKRp0YYFO8tSSP5i7hg
+	CoF4pdlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZzo-0000000161X-3mOP;
-	Fri, 05 Jun 2026 19:14:20 +0000
+	id 1wVZzz-0000000168P-0qyi;
+	Fri, 05 Jun 2026 19:14:31 +0000
 Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZzm-000000015zq-0kbY;
-	Fri, 05 Jun 2026 19:14:19 +0000
+	id 1wVZzw-0000000165z-2GUO;
+	Fri, 05 Jun 2026 19:14:29 +0000
 dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
 	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=KE3Yd9aBqiM7+6VuFaFQ2f9ptin36tpfS9P+PDSGCTQ=;
-	b=g1Y36T3pY5Jk1Rdx82z6b8iQ0fn9NoJRI1L3eo/v0e8UVPZD6k0lLeZeV5bteDQQWU6iGVKrSzRxR2G5+eRNynyp74sntChz5BRRsnPFfXYv/qdFH+vz2qZulfdzGGBVCuiEz1KXRUJY1zzA08x7zSphURnV3bGOqIjHno6ehMM=
+	bh=xgNX3BfF0sHR956gYPtFqiQRwqATyVW0rwVI7QS8mHU=;
+	b=YJzz/5vBlwx7hPqGyZX8pBBWsNwfEMrzwPWls6nFnV6qkSpbeJm7yG8G6s32Dg4oaKOzIAqeJ4AtYCxAGfUnJvVGA+B2tS4Sy+W0MLRxCJxuAKalh9oINWhQeuHIMZJkT3w0/xG9qGkQr9MiT90w2ZwsZEWkZXbyiRk9R+D1MYg=
 Received: from lukas-hpz440workstation.lan.sk100508.local (194-166-56-114.hdsl.highway.telekom.at [194.166.56.114])
 	by mail.netcube.li with ESMTPA
-	; Fri, 5 Jun 2026 21:14:06 +0200
+	; Fri, 5 Jun 2026 21:14:02 +0200
 From: Lukas Schmid <lukas.schmid@netcube.li>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,17 +51,18 @@ Cc: Lukas Schmid <lukas.schmid@netcube.li>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 3/3] ARM: dts: sunxi: add support for NetCube Systems OpenNMC (dobermann)
-Date: Fri,  5 Jun 2026 21:13:15 +0200
-Message-ID: <20260605191322.1920944-4-lukas.schmid@netcube.li>
+Subject: [PATCH v2 1/3] dt-bindings: arm: sunxi: Add NetCube Systems OpenNMC (dobermann)
+Date: Fri,  5 Jun 2026 21:13:13 +0200
+Message-ID: <20260605191322.1920944-2-lukas.schmid@netcube.li>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260605191322.1920944-1-lukas.schmid@netcube.li>
 References: <20260605191322.1920944-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_121418_579897_83BF3594 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260605_121428_878928_FF51DC0C 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,181 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems OpenNMC is an open replacement for APC SmartSlot Management
-Cards. It is based on the Nagami System-on-Module. It breaks out the
-following interfaces:
-
-- 10/100 Mbps Ethernet
-- USB Type-C OTG using a TUSB320 (usb0)
-- USB Type-C Console Port using a CH340 (uart3)
-- USB Type-A Host with internal CH334 USB-Hub (usb1)
-- MicroSD Slot with Card-Detect (mmc0)
-- WiFi/Bluetooth using the modules built-in ESP32
-- SmartSlot serial interface (uart4)
-- DS3232 RTC with CR1220 Battery Backup
-- Extension connector providing SPI,I2C,USB,CAN,UART for future use.
+The OpenNMC is an open replacement for APC SmartSlot management cards
+based on the Nagami System-on-Module.
 
 Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 ---
- .../sun8i-t113s-netcube-dobermann.dts         | 149 ++++++++++++++++++
- 1 file changed, 149 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
-new file mode 100644
-index 000000000000..d7765caffe2a
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
-@@ -0,0 +1,149 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2026 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s-netcube-nagami.dtsi"
-+
-+#include <dt-bindings/leds/common.h>
-+
-+/ {
-+	model = "NetCube Systems OpenNMC (dobermann)";
-+	compatible = "netcube,dobermann", "netcube,nagami",
-+		     "allwinner,sun8i-t113s";
-+
-+	aliases {
-+		serial2 = &uart4; // UART on SmartSlot
-+		rtc0 = &ds3232;
-+		rtc1 = &rtc; // not battery backed
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led_heartbeat_green: led-heartbeat-green {
-+			gpios = <&pio 6 14 GPIO_ACTIVE_HIGH>; /* PG14 */
-+			linux,default-trigger = "heartbeat";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+		};
-+	};
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+
-+	tusb320: typec@60 {
-+		compatible = "ti,tusb320";
-+		reg = <0x60>;
-+		interrupts-extended = <&pio 3 22 IRQ_TYPE_LEVEL_LOW>;  /* PD22 */
-+	};
-+
-+	ds3232: rtc@68 {
-+		compatible = "dallas,ds3232";
-+		reg = <0x68>;
-+	};
-+};
-+
-+/* microSD Card Slot on the board */
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	disable-wp;
-+	bus-width = <4>;
-+	cd-gpios = <&pio 6 15 GPIO_ACTIVE_LOW>; /* PG15 */
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	gpio-line-names = "", "", "", "", // PA
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "SMART_TX", "SMART_RX", // PB
-+			  "EXT_IO3", "EXT_IO2", "CONSOLE_TX", "CONSOLE_RX",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-+			  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "", // PD
-+			  "", "", "", "",
-+			  "", "USB_SEC_EN", "EXT_SPI_nCS", "EXT_SPI_SCK",
-+			  "EXT_SPI_MOSI", "EXT_SPI_MISO", "EXT_IO5", "EXT_IO4",
-+			  "SMART_SEL", "", "", "",
-+			  "I2C2_SCL", "I2C2_SDA", "TUSB320_nINT", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-+			  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-+			  "ETH_MDC", "ETH_MDIO", "I2C3_nINT", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "uSD_D1", "uSD_D0", "uSD_CLK", "uSD_CMD", // PF
-+			  "uSD_D3", "uSD_D2", "TUSB320_ID", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+			  "ESP_D2", "ESP_D3", "ESP_TXD", "ESP_RXD",
-+			  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+			  "EXT_IO1", "EXT_IO0", "LED_HEARTBEAT", "SD_DETECT",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "";
-+};
-+
-+/* SmartSlot serial */
-+&uart4 {
-+	pinctrl-0 = <&uart4_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	extcon = <&tusb320 0>;
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index e6443c266fa1..077b65507645 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -598,6 +598,7 @@ properties:
+       - description: NetCube Systems Nagami SoM based boards
+         items:
+           - enum:
++              - netcube,dobermann
+               - netcube,nagami-basic-carrier
+               - netcube,nagami-keypad-carrier
+           - const: netcube,nagami
 -- 
 2.47.3
 
