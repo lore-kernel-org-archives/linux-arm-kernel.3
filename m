@@ -4,84 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D1BCD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB93CD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 21:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aiwy3kAG6tiKneQoUFU8UKdj2pAYVKoirLWT3K+q80M=; b=gj3UWZHqfWBNxRDXhqiU30sGkI
-	yEVdC/8sBRnOOVBoaBm6gVBrIiCSZf/22GJ5UQlsSmNLLOgEthbmOZC6QPfrnSCTq2rADWCDOr/P2
-	hK4+bYEV6zbZScGf2XnwnkpIK4WleG3WSare6lscagFJLLOf+N+lMR4hsuhJCIXWWaG0dHoDU4Alb
-	UU571dcigkifwcO9tst0arKenjDp2cimo8+wu+fjDMgnaij3QiHoFrsJXhG/hqzmB+7LdXCS3yOZ0
-	Udm+U9r6dO2eAuF2bved2cZ9TRhEmgEx7VD+Q/AdLTSdNl5lmeB5c1jDpV+aC6WcC7B/TkGzS1xe9
-	gndXJS7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=czHxBAolVx1VraDScwu9+FjCluhxvvdJOEu/z08ODOE=; b=O+owPPBOPgY3MPDBLsXuyovlYd
+	2DHZl5QZtZx6TG65D7SxQomzV/1nbVZp5/q9TvusUvuLie7dCE4KkOMyc2wr3xEek/ZyP+Du5PBIA
+	w+S3bgRLy+VTeCETbMLHLCtcg+J2D768AnrSuYGFvGswGFwScpJYJ+VP9MJWrcJB+H8A1LMYL27WX
+	c+7g2VFJfl3DEXFtNU//qDBzBkfCq6o0ZrY0LXocZQD9YnfdfHWFe8VeITOCnadxev15+XLA1YH3Q
+	GIxh0RmLLj7SicUq2X7Uj1GtgsSXYCSrqLC3bxQ3kA1epHngIfd2izut6+bOF9NvGVbfNRAkHNBCT
+	vVyeoq7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVbZz-00000001BIB-3pWH;
-	Fri, 05 Jun 2026 20:55:47 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wVbpq-00000001Bkz-176n;
+	Fri, 05 Jun 2026 21:12:10 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVbZw-00000001BHZ-1yKb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 20:55:46 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EC982C5847F;
-	Fri,  5 Jun 2026 20:55:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EAF5C5FED1;
-	Fri,  5 Jun 2026 20:55:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 67478106A2684;
-	Fri,  5 Jun 2026 22:55:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780692938; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Aiwy3kAG6tiKneQoUFU8UKdj2pAYVKoirLWT3K+q80M=;
-	b=tCPRrNLMs0jPN/GZmfj6j7TNfAJSCbK33+CrNODdKLuKoXXzYFyGf6js5mihWECprObzso
-	3BJZESVmDMgPN0teDEoTlR3lY0QZ7t+cAmL2jRosNN4r4vhs0MGKQk10zfWuvU9OZS9lEh
-	F2wNMgtKa6n36oasUCqPWwZytY8yY3m74xvinp9WpkRuO+tYebj4fx+KeZOGJJ+mDpru0h
-	vKP5hqkMrjRQ5JCFMY/f4hu0H17eH+txMdhmiuaQpQuUbfOewS5nO5reBzB8czYrCTbnH8
-	lKHOm0N1cxkfMmWsKyAW9CxQX2fT11pPjvgoVXw+SSku7tgW+Hr+1G4I6zwy1g==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 05 Jun 2026 22:55:25 +0200
-Message-Id: <DJ1EYKOXV11H.25EJOUKFI81T4@bootlin.com>
-Subject: Re: [PATCH bpf-next v2 8/8] selftests/bpf: add tests to validate
- KASAN on JIT programs
-Cc: <ebpf@linuxfoundation.org>, "Bastien Curutchet"
- <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Yonghong Song" <yonghong.song@linux.dev>,
- =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, "Alexei
- Starovoitov" <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>,
- "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
- Kartikeya Dwivedi" <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Jiri
- Olsa" <jolsa@kernel.org>, "John Fastabend" <john.fastabend@gmail.com>,
- "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Ihor Solodrai" <ihor.solodrai@linux.dev>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
- <20260604-kasan-v2-8-c066e627fda8@bootlin.com>
- <13b87293-5237-43d3-9f91-33c13041cb43@linux.dev>
- <DJ18PD6QWGA2.2HOYGKU7RUB68@bootlin.com>
- <f73d0971-0544-4a92-bde7-b2fbfcdaf28b@linux.dev>
-In-Reply-To: <f73d0971-0544-4a92-bde7-b2fbfcdaf28b@linux.dev>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1wVbpl-00000001BkP-3Bxh;
+	Fri, 05 Jun 2026 21:12:09 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.phl.internal (Postfix) with ESMTP id A7DAEEC0206;
+	Fri,  5 Jun 2026 17:12:02 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Fri, 05 Jun 2026 17:12:02 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
+	 t=1780693922; x=1780780322; bh=czHxBAolVx1VraDScwu9+FjCluhxvvdJ
+	OEu/z08ODOE=; b=VX88Al8obcXfoxjRgExahYgKrjn6grnWRYAtkqsTPjILQATZ
+	J3t20mfP+NfKYuC0Dllw9PNsU54XX6DGRv9Bu+kOLn7rkGn2PvkIvRly6thsDQEn
+	r2yTEvI2v2bSBXAqUmvHsCeYHMqK0RGBaiuDB0DTH3E0ta+OhbitYYh1wz5q8xew
+	ZVIXJy033PEFMrFbHqVFwrKqzdb+bhtHXeAxpqvDLICR7AJW5I8yJ0CV8GtDjQBM
+	r8lO/QURITe9ZO2k4nk9UrfV74q+SJ9HvwFKfnYFSrCDZRt12zy1zgNQr3pFG2IH
+	nXff37xobHDhCqtzVD2YLT7MOh0AgxfBL53j0Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1780693922; x=
+	1780780322; bh=czHxBAolVx1VraDScwu9+FjCluhxvvdJOEu/z08ODOE=; b=H
+	00p6Q+nSFkftXzqgz7gPw81toaQYLcmOYe6+W8ZtVkTkByEY7IIEn6ideF3Yh2cs
+	DJAw8iux16SCb8SV2tXO0bRBiyUeBB2SYWku6IiEesG2eOO3aHY1zKwtKdn6lr9y
+	zGReszzPchLrP2ew7WCDYNSTP5CZm0UAl9M2srmmgdHPAvjscQn/0Yhxz1DD8VKf
+	JB7P2M+LExZw9wZurOKbvxx2JVqOWO/kP10cYNRnCbsbQ0wtzb9SnBuulKFT9t9z
+	DJTQ26IXcnEcP/okvPKwjQje0ae6QSOmRttWn1kb4bF/bKmQLmGAlu1cozdP9gH1
+	vp38StTLP63z2PKkdq1rg==
+X-ME-Sender: <xms:oTsjat85PCeYoOqO-_tPnLM2cq4BuoZFt-WOmd2w9hSpOEVTPVU2xg>
+    <xme:oTsjak0AW1-0zxbVG-BVE4cgxe99b5QqiC6GvBCwSaxExlRMantsFmvAXmzata_qC
+    9HJrr1oJYZCAIj4vARcXVa668k27WmEjZN9flsB9z1cMF-zqgWPvXk>
+X-ME-Received: <xmr:oTsjaofgQI0e0VbyaHSzdJ3zAMs8Wf77Zgr2-xdbA9A6crx-_hKBjz5GlBONwg>
+X-ME-Proxy-Cause: dmFkZTF6+RKNZQ2h+QZZ8V84GlsXWPKSHungM30Fc2pouxwSgqJm7MhKo7fs1dVyDK80uK
+    qVH1x23rAWqn68hP3ng2DhcPR3tdN2vJOh29+FqGNN8qmvvrT7QVsG6qTgoDZ8AZbY3GDF
+    qYi30DLyYPbfUHxkJmp9UfscujcPyGgkaak4vgoKESCkjHKbKiVahv2rlAbaxf5CYfrUAH
+    MdDCLTFfmbgtZZSt/KFntxNdHe6iLMgz2Xjcv3o0g5Jued/LU8AafSnXk8UJM/4R1pN20c
+    lJ7wXeHCu7nWm3FJnFNFC58hHGbWMeFznbu6FvQN/RfjXs28ubTdarP7m/30ALyBYCF7Kv
+    ibcrV2d2hccGjRSGooJESWPsyJSHGanboeSvcWpxk6dajLu0U3TKJqMArDmkBQN0lmPTkD
+    YVD/oPiezwPSN4FK634KjHM+zT16KLv/gMzgcpuWMPNgxNEHMvEeTY/E/VseHFOJ/ijPea
+    KmEptg8112QdDRxOB1DZ5uRQEUUivPIiFF6K21MJvfIzYhhnRm7A1UqaWTt8xaBs6HyPmC
+    IdC/F50Zus/uc7S6v6itFS3RiXsff3sWHgXjAkxmICcE/zV7M6QD9oYLlF+kZqNoqNHF/0
+    u0a9LaV0KZPNOfNudiQ45D1hkY8+4EwFrWBlnfKKXUx7VV3N/udJDMwFwAbQ
+X-ME-Proxy: <xmx:oTsjamBi74uXOSgp6IQUc-nKhUhAuRBO13WGIhGc0G4H_Ob1mpW4fg>
+    <xmx:oTsjag1RrNKUst8DZ8tv2InyPk_D5DTwCkvq-MZHa2c6T73HrQfZ9A>
+    <xmx:oTsjahMUt38BSOy88J9zHzQdE2yWOoB0Ib3avqNk1baU4OAMzMPuIg>
+    <xmx:oTsjavZPsqKhI93Kvu847cCaVtYrNUUCPjukXaH9UFG9OwpwnVNuHQ>
+    <xmx:ojsjailwItGn8nimtB2Zpm3krK0fGJOreir145z2GuaOShnhzq3c6d86>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 5 Jun 2026 17:12:00 -0400 (EDT)
+Date: Fri, 5 Jun 2026 22:11:57 +0100
+From: Kiryl Shutsemau <kirill@shutemov.name>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
+	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>, 
+	Julien Thierry <julien.thierry.kdev@gmail.com>, Lecopzer Chen <lecopzer.chen@mediatek.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, kexec@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] arm64: wire SDEI NMI into the hardlockup watchdog
+Message-ID: <aiM69AZXtGduS4VY@thinkstation>
+References: <cover.1780496779.git.kas@kernel.org>
+ <6172eafcb9de6e626c0f1c36426d67e1e562ed32.1780496779.git.kas@kernel.org>
+ <CAD=FV=U4eJ__dQc1e8CGgj5sMDNrD1MgEEy9Cgj9M5n-WmYAXA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD=FV=U4eJ__dQc1e8CGgj5sMDNrD1MgEEy9Cgj9M5n-WmYAXA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_135544_826358_0B85DB3D 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20260605_141206_177474_854C51B7 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,174 +116,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jun 5, 2026 at 7:20 PM CEST, Yonghong Song wrote:
+On Fri, Jun 05, 2026 at 01:03:05PM -0700, Doug Anderson wrote:
+> Hi,
+> 
+> On Wed, Jun 3, 2026 at 7:36 AM Kiryl Shutsemau <kirill@shutemov.name> wrote:
+> >
+> > From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+> >
+> > Select HAVE_HARDLOCKUP_DETECTOR_ARCH so the framework takes its backend
+> > from this driver. A per-CPU hrtimer checks its buddy's heartbeat and
+> > signals event 0 at a stalled CPU, which runs watchdog_hardlockup_check()
+> > NMI-like.
+> >
+> > The source is chosen at boot: SDEI if firmware provides it, otherwise a
+> > perf-NMI counter (pseudo-NMI) fallback -- one image covers both.
+> >
+> > Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> > ---
+> >  arch/arm64/Kconfig          |   1 +
+> >  drivers/firmware/Kconfig    |   3 +
+> >  drivers/firmware/sdei_nmi.c | 247 +++++++++++++++++++++++++++++++++++-
+> >  3 files changed, 248 insertions(+), 3 deletions(-)
+> 
+> I'm a little confused about this patch. We already have a buddy
+> hardlockup detector using the hrtimer, and it's even been improved
+> recently to trigger in a smaller time bound. It looks as if you're
+> duplicating bits of the perf and buddy detector here?
+> 
+> I don't think you need this patch at all. The existing buddy detector
+> + patches #1 and #2 in your series should be sufficient.
 
-[...]
+You're mostly right.
 
->> Are you seeing any kasan report when you manually check your kernel
->> logs, or not at all ? If not at all, are you using the "CI" defconfig ?
->
-> I do see one report:
->
-> [   79.503059] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> [   79.503715] BUG: KASAN: slab-use-after-free in bpf_prog_bb753b2ee1f69a=
-a0_st_not_on_stack+0x115/0x160
-> [   79.503715] Write of size 1 at addr ff11000117210a20 by task test_prog=
-s/2153
->                                                                          =
-                                                                           =
-           =20
-> [   79.503715] CPU: 6 UID: 0 PID: 2153 Comm: test_progs Tainted: G       =
-    OE       7.1.0-rc5-gd552a156c2fa #1926 PREEMPT(full)
-> [   79.503715] Tainted: [O]=3DOOT_MODULE, [E]=3DUNSIGNED_MODULE
-> [   79.503715] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIO=
-S rel-1.14.0-0-g155821a1990b-prebuilt.qemu.org 04/01/2014
-> [   79.503715] Call Trace:
-> [   79.503715]  <TASK>
-> [   79.503715]  dump_stack_lvl+0x6d/0xa0
-> [   79.503715]  print_address_description+0x77/0x200
-> [   79.503715]  print_report+0x58/0x70
-> [   79.503715]  ? bpf_prog_bb753b2ee1f69aa0_st_not_on_stack+0x115/0x160
-> [   79.503715]  kasan_report+0xa2/0xe0
-> [   79.503715]  ? bpf_prog_bb753b2ee1f69aa0_st_not_on_stack+0x115/0x160
-> [   79.503715]  ? bpf_test_run+0x208/0x770
-> [   79.503715]  bpf_prog_bb753b2ee1f69aa0_st_not_on_stack+0x115/0x160
-> [   79.503715]  bpf_test_run+0x472/0x770
-> [   79.503715]  ? srso_alias_return_thunk+0x5/0xfbef5
-> [   79.503715]  ? __lock_acquire+0xe4a/0x2a10
-> [   79.503715]  ? __pfx___css_rstat_updated+0x10/0x10
-> [   79.503715]  ? __lock_acquire+0xe4a/0x2a10
-> [   79.503715]  ? __pfx_bpf_test_run+0x10/0x10
-> [   79.503715]  ? srso_alias_return_thunk+0x5/0xfbef5
-> [   79.503715]  ? lock_acquire+0xfd/0x2b0
-> [   79.503715]  ? srso_alias_return_thunk+0x5/0xfbef5
-> [   79.503715]  ? srso_alias_return_thunk+0x5/0xfbef5
-> [   79.503715]  ? rcu_is_watching+0x1f/0xa0
-> [   79.503715]  ? srso_alias_return_thunk+0x5/0xfbef5
-> [   79.503715]  ? __kasan_krealloc+0xe9/0x110
-> [   79.503715]  ? eth_type_trans+0x4b9/0x5f0
-> [   79.503715]  bpf_prog_test_run_skb+0xddf/0x22f0
-> [   79.503715]  ? __fget_files+0x29/0x350
-> [   79.503715]  ? srso_alias_return_thunk+0x5/0xfbef5
-> [   79.503715]  ? __fget_files+0x29/0x350
-> [   79.503715]  bpf_prog_test_run+0x1cc/0x2d0
-> [   79.503715]  __sys_bpf+0x740/0xa30
-> [   79.503715]  ? __pfx___sys_bpf+0x10/0x10
-> [   79.503715]  ? _prb_read_valid+0x334/0x770
-> [   79.503715]  ? handle_mm_fault+0x91b/0xc00
-> [   79.503715]  __x64_sys_bpf+0xba/0xd0
-> [   79.503715]  do_syscall_64+0xee/0x400
-> [   79.503715]  ? entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [   79.503715]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [   79.503715] RIP: 0033:0x7f92d8cfe1ad
-> [   79.503715] Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 4=
-8 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <=
-48> 3d 01 8
-> [   79.503715] RSP: 002b:00007ffe4237fee8 EFLAGS: 00000206 ORIG_RAX: 0000=
-000000000141
-> [   79.503715] RAX: ffffffffffffffda RBX: 00007ffe423807b8 RCX: 00007f92d=
-8cfe1ad
-> [   79.503715] RDX: 0000000000000050 RSI: 00007ffe4237ff70 RDI: 000000000=
-000000a
-> [   79.503715] RBP: 00007ffe4237ff10 R08: 0000000000000000 R09: 000000000=
-0000050
-> [   79.503715] R10: 0000000000000064 R11: 0000000000000206 R12: 000000000=
-0000000
-> [   79.503715] R13: 00007ffe423807d8 R14: 00007f92d8eb9000 R15: 000055857=
-78dd150
-> [   79.503715]  </TASK>
->
-> [   79.503715] Allocated by task 2153:
-> [   79.503715]  kasan_save_track+0x2f/0x70
-> [   79.503715]  __kasan_kmalloc+0x72/0x90
-> [   79.503715]  __kmalloc_node_noprof+0x34c/0x730
-> [   79.503715]  bpf_map_area_alloc+0x4a/0x110
-> [   79.503715]  array_map_alloc+0x19e/0x580
-> [   79.503715]  map_create+0x8b2/0x1500
-> [   79.503715]  __sys_bpf+0x7ea/0xa30
-> [   79.503715]  __x64_sys_bpf+0xba/0xd0
-> [   79.503715]  do_syscall_64+0xee/0x400
-> [   79.503715]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
->
-> [   79.503715] The buggy address belongs to the object at ff1100011721080=
-0
->                  which belongs to the cache kmalloc-cg-1k of size 1024
-> [   79.503715] The buggy address is located 0 bytes to the right of
->                  freed 544-byte region [ff11000117210800, ff11000117210a2=
-0)
->
-> [   79.503715] The buggy address belongs to the physical page:
-> [   79.503715] page: refcount:0 mapcount:0 mapping:0000000000000000 index=
-:0x0 pfn:0x117210
-> [   79.503715] head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped=
-:0 pincount:0
-> [   79.503715] memcg:ff11000117210411
-> [   79.503715] flags: 0x200000000000040(head|node=3D0|zone=3D2)
-> [   79.503715] page_type: f5(slab)
-> [   79.503715] raw: 0200000000000040 ff11000100072000 dead000000000100 de=
-ad000000000122
-> [   79.503715] raw: 0000000000000000 0000080000100010 00000000f5000000 ff=
-11000117210411
-> [   79.503715] head: 0200000000000040 ff11000100072000 dead000000000100 d=
-ead000000000122
-> [   79.503715] head: 0000000000000000 0000080000100010 00000000f5000000 f=
-f11000117210411
-> [   79.503715] head: 0200000000000003 fffffffffffffe01 00000000ffffffff 0=
-0000000ffffffff
-> [   79.503715] head: 0000000000000000 0000000000000000 00000000ffffffff 0=
-000000000000008
-> [   79.503715] page dumped because: kasan: bad access detected
->
-> [   79.503715] Memory state around the buggy address:
-> [   79.503715]  ff11000117210900: 00 00 00 00 00 00 00 00 00 00 00 00 00 =
-00 00 00
-> [   79.503715]  ff11000117210980: 00 00 00 00 00 00 00 00 00 00 00 00 00 =
-00 00 00
-> [   79.503715] >ff11000117210a00: 00 00 00 00 fb fb fc fc fc fc fc fc fc =
-fc fc fc
-> [   79.503715]                                ^
-> [   79.503715]  ff11000117210a80: fc fc fc fc fc fc fc fc fc fc fc fc fc =
-fc fc fc
-> [   79.503715]  ff11000117210b00: fc fc fc fc fc fc fc fc fc fc fc fc fc =
-fc fc fc
-> [   79.503715] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->
->
-> But when I am running another same test './test_progs -t kasan', there is=
- no kasan reports.
+Buddy + #2 covers the console case (the remote branch triggers the
+culprit's backtrace, which #2 makes deliverable), and #4 gets the wedged
+CPU's registers into the vmcore.
 
-Ok, I guess you are missing kasan_multi_shot on your kernel command
-line: without this option, only the first report is generated, then
-KASAN does not emit additional report until you restart your kernel.
-Could you please try adding it and running the tests again ?
+The one thing this patch adds that a config can't is boot-time source
+selection: PERF-compiled kernels have no detector on a pseudo_nmi=0
+boot, and PREFER_BUDDY costs the pseudo-NMI machines perf
+self-detection. But that's arguably out of scope for the patchset.
 
-Thanks,
+I'll drop this patch in v2 and run PREFER_BUDDY here. If a runtime
+perf->buddy fallback ever materializes, the gap closes entirely.
 
-Alexis
-
->>
->>    cat tools/testing/selftests/bpf/{config,config.vm,config.x86_64} > .c=
-onfig && make olddefconfig
->>
->> If not, would you mind sharing your defconfig ?
->
-> Attached.
->
->>
->> Thanks,
->>
->> Alexis
-
-
-
-
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
