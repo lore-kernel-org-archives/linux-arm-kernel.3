@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89138CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 07:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000C3CD6E74
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 07:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zXMiBMuQcMjTnraf2zd8LpCdPk7LLrmTooCxUL6h+/8=; b=tbs7kRQR1+8+Eg6EejYnfj/zlY
-	czgLvpzUK3e6qvqj/1rmFZbVKF3sQg5fTagyRzuli+7vZQ0e3E1KXECQ0Bb8LpJ6odz4/dTBaYDKP
-	c8WInu5HdtfhQPjw50i/LKdjxcJC/W5YBMq51oP/1qqdXYb/bWIJV2xclxFyc9daV6lVZyRxpZA25
-	bDeVfFusiM+vxABvwQlQ1zJkTURmej8+MGb0H3/5M7hStJOAqyZwjoL1YxTU5cH8Wf6tS+ThCArzy
-	rN6Bpwrgv6UVU8upzySBhVZoO2yfgGmo56/HkUNvB3lMIylPvsgF9hQMzLvuT7cR0pn96NoaHu4+8
-	8PUHY4ww==;
+	bh=FZVDInluTaIFvdMQJs+CfkcPbN0fYw+fpNJ0QFXGggI=; b=T+HBevtWZ10GiDqkbPW73bnIsu
+	JWgoKYMIIVXxEsBbzFZiEKZsbGzUTL/vwqFXHWJhIA+R7nWX9Emsr3DWk4+kTcpgfDqWZAEPuy82o
+	XujWVG1fbYj+tWfXH+B4jfKUdX/tnbPgT0rHiyiL5x3QeFE1iatjCY3Ns+su4YfkDAX5xvACLvBck
+	aAFE2Sg2NAR2+HY+oUhWdtsdnDbU35fWzRj63y7BJWfsw8fNnCwvlpxYTF32uAj5t1mqcltmqxkrg
+	tAaAIHU0HemzFmQBal0RNml46UXyaZpLt0PQnRHpqS/pfKqQsZLSChMiniTw1F9PAudhtsRuMmqRj
+	u13y9RqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPCI-00000000FWZ-1wZQ;
-	Fri, 05 Jun 2026 07:42:30 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wVPIG-00000000Fq0-0THt;
+	Fri, 05 Jun 2026 07:48:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPCF-00000000FW4-3EvQ
+	id 1wVPIE-00000000FpX-34aK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 07:42:29 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wVPBx-0001an-EM; Fri, 05 Jun 2026 09:42:09 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wVPBw-001Cpv-25;
-	Fri, 05 Jun 2026 09:42:08 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wVPBw-000000002rx-2NXJ;
-	Fri, 05 Jun 2026 09:42:08 +0200
-Message-ID: <78e26b2459b89b107b24bf9f86d251ba16be3848.camel@pengutronix.de>
-Subject: Re: [PATCH v2 4/5] clk: cix: add sky1 audss clock controller
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: joakim.zhang@cixtech.com, mturquette@baylibre.com, sboyd@kernel.org, 
-	bmasney@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, 	gary.yang@cixtech.com
-Cc: cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Fri, 05 Jun 2026 09:42:08 +0200
-In-Reply-To: <20260605032225.523669-5-joakim.zhang@cixtech.com>
-References: <20260605032225.523669-1-joakim.zhang@cixtech.com>
-	 <20260605032225.523669-5-joakim.zhang@cixtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
-MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_004227_812190_D04A4EFD 
-X-CRM114-Status: GOOD (  22.61  )
+	Fri, 05 Jun 2026 07:48:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B920B600AA;
+	Fri,  5 Jun 2026 07:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C2201F00893;
+	Fri,  5 Jun 2026 07:48:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780645717;
+	bh=FZVDInluTaIFvdMQJs+CfkcPbN0fYw+fpNJ0QFXGggI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=JNCVOusd8jyIc13IH7WKkfEk6t1xywT9EiJYqjlr8Q/On9JaG++34BP+NUbp5KwHg
+	 kD4dzS1MkMMx0zLHYruyz8S45U9VLyhmtYIpEthV4o1BOlStrNb+DE4HGnomyl5kOF
+	 XgAH8svOuJ6q2Kkotyjdi2Xj4MAIoAZDdzG1jkRT9SJL1K21Voj5wAZ/q/ly9gWL8L
+	 GFo2jS1hVfG0qWb/CCYD9WdJGe+00gH7lgJUKkK+82r1WwkhXamdftdBLJGXrQ7UOr
+	 dpkTfAjwSt/perK9Yz6QK614LQt2EGqmWWCp62jWGQtrsPiq6fpAMM9B6espwnbyDK
+	 mh36QibAAZIhw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wVPIB-00000009g0G-1WzI;
+	Fri, 05 Jun 2026 07:48:35 +0000
+Date: Fri, 05 Jun 2026 08:51:54 +0100
+Message-ID: <87cxy5a0h1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	christoffer.dall@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH] KVM: arm64: Reallocate the nested_mmus array under the mmu_lock
+In-Reply-To: <aiJgGBv3OCPNJJPc@v4bel>
+References: <aiHEKOeZMVwsRlvP@v4bel>
+	<aiH7xKnprU9bUap5@kernel.org>
+	<aiJgGBv3OCPNJJPc@v4bel>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: imv4bel@gmail.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,127 +90,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-06-05 at 11:22 +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
->=20
-> Add a platform driver for the Cix Sky1 Audio Subsystem (AUDSS) internal
-> clock controller. The driver binds to a cix,sky1-audss-clock device tree
-> node under the AUDSS syscon, obtains the parent regmap via
-> syscon_node_to_regmap(), and registers mux/divider/gate composite clocks
-> for DSP, SRAM, HDA, DMAC, watchdog, timer, mailbox and I2S outputs. Six
-> SoC-level audio reference clocks are brought up as inputs to the tree.
->=20
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
-> ---
->  drivers/clk/Kconfig              |    1 +
->  drivers/clk/Makefile             |    1 +
->  drivers/clk/cix/Kconfig          |   16 +
->  drivers/clk/cix/Makefile         |    3 +
->  drivers/clk/cix/clk-sky1-audss.c | 1129 ++++++++++++++++++++++++++++++
->  5 files changed, 1150 insertions(+)
->  create mode 100644 drivers/clk/cix/Kconfig
->  create mode 100644 drivers/clk/cix/Makefile
->  create mode 100644 drivers/clk/cix/clk-sky1-audss.c
->=20
-[...]
-> diff --git a/drivers/clk/cix/clk-sky1-audss.c b/drivers/clk/cix/clk-sky1-=
-audss.c
-> new file mode 100644
-> index 000000000000..899452d5ed14
-> --- /dev/null
-> +++ b/drivers/clk/cix/clk-sky1-audss.c
-> @@ -0,0 +1,1129 @@
-[...]
-> +/* register sky1 audio subsystem clocks */
-> +static int sky1_audss_clk_probe(struct platform_device *pdev)
-> +{
-> +	const struct sky1_audss_clks_devtype_data *devtype_data;
-> +	struct sky1_audss_clks_priv *priv;
-> +	struct device_node *parent_np;
-> +	struct device *dev =3D &pdev->dev;
-> +	struct reset_control *rst_noc;
-> +	struct clk_hw **clk_table;
-> +	struct regmap *regmap_cru;
-> +	int i, ret;
-> +
-> +	parent_np =3D of_get_parent(pdev->dev.of_node);
-> +	regmap_cru =3D syscon_node_to_regmap(parent_np);
-> +	of_node_put(parent_np);
-> +	if (IS_ERR(regmap_cru))
-> +		return dev_err_probe(dev, PTR_ERR(regmap_cru),
-> +				     "unable to get audss cru regmap");
-> +
-> +	devtype_data =3D device_get_match_data(dev);
-> +	if (!devtype_data)
-> +		return -ENODEV;
-> +
-> +	priv =3D devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	spin_lock_init(&priv->lock);
-> +
-> +	priv->clk_data =3D devm_kzalloc(&pdev->dev,
-> +				      struct_size(priv->clk_data, hws, AUDSS_MAX_CLKS),
-> +				      GFP_KERNEL);
-> +	if (!priv->clk_data)
-> +		return -ENOMEM;
-> +
-> +	priv->clk_data->num =3D AUDSS_MAX_CLKS;
-> +	clk_table =3D priv->clk_data->hws;
-> +
-> +	priv->dev =3D dev;
-> +	priv->regmap_cru =3D regmap_cru;
-> +	priv->devtype_data =3D devtype_data;
-> +
-> +	ret =3D sky1_audss_clks_get(priv);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rst_noc =3D devm_reset_control_get(dev, NULL);
+On Fri, 05 Jun 2026 06:35:20 +0100,
+Hyunwoo Kim <imv4bel@gmail.com> wrote:
+> 
+> On Thu, Jun 04, 2026 at 03:27:16PM -0700, Oliver Upton wrote:
+> > Hi,
+> > 
+> > The shortlog is very confusing, since "allocate behind $LOCK" is usually
+> > something alarming. Maybe instead:
+> > 
+> >   KVM: arm64: Reassign nested_mmus array behind mmu_lock
+> 
+> heh, that's confusing indeed. I'll change it that way.
+> 
+> > 
+> > On Fri, Jun 05, 2026 at 03:30:00AM +0900, Hyunwoo Kim wrote:
+> > > Code that walks kvm->arch.nested_mmus[] holds kvm->mmu_lock. By contrast,
+> > > kvm_vcpu_init_nested() reallocates the array and frees the old buffer while
+> > > holding only kvm->arch.config_lock, so a walker can reference the freed
+> > > array.
+> > 
+> > It wouldn't hurt to share slightly more information here. Are you
+> > dealing with a concurrent MMU notifier?
+> 
+> Yes. The MMU notifier path also walks nested_mmus[] under mmu_lock.
+> kvm_vcpu_init_nested() holds only config_lock, so if a notifier fires
+> during vCPU init, it races with the array realloc and free.
+> 
+> Here's the reworked changelog. Should I send v2?
+> 
+>   kvm->arch.nested_mmus[] is walked under kvm->mmu_lock, including from the
+>   MMU notifier path (kvm_unmap_gfn_range() -> kvm_nested_s2_unmap()), which
+>   can run at any time. kvm_vcpu_init_nested() reallocates the array and frees
+>   the old buffer while holding only kvm->arch.config_lock, so such a walker
+>   can reference the freed array.
+> 
+>   Allocate the new array outside of mmu_lock, as the allocation can sleep.
+>   Under the lock, copy the existing entries, fix up the back pointers and
+>   reassign the array. Free the old buffer after dropping the lock, as
+>   kvfree() can sleep as well.
 
-Please use devm_reset_control_get_exclusive() directly.
+That's significantly better. Please send a v2 with this.
 
-[...]
-> +static int __maybe_unused sky1_audss_clk_runtime_suspend(struct device *=
-dev)
-> +{
-> +	struct sky1_audss_clks_priv *priv =3D dev_get_drvdata(dev);
-> +	const struct sky1_audss_clks_devtype_data *devtype_data =3D priv->devty=
-pe_data;
-> +	unsigned long flags;
-> +	int i;
-> +
-> +	spin_lock_irqsave(&priv->lock, flags);
-> +	for (i =3D 0; i < devtype_data->reg_save_size; i++)
-> +		regmap_read(priv->regmap_cru,
-> +			    devtype_data->reg_save[i][0], &devtype_data->reg_save[i][1]);
-> +	spin_unlock_irqrestore(&priv->lock, flags);
-> +
-> +	sky1_audss_clks_disable(priv);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused sky1_audss_clk_runtime_resume(struct device *d=
-ev)
-> +{
-> +	struct sky1_audss_clks_priv *priv =3D dev_get_drvdata(dev);
-> +	const struct sky1_audss_clks_devtype_data *devtype_data =3D priv->devty=
-pe_data;
-> +	unsigned long flags;
-> +	int i, ret;
-> +
-> +	ret =3D sky1_audss_clks_enable(priv);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable clocks\n");
-> +		return ret;
-> +	}
-> +
-> +	reset_control_deassert(priv->rst_noc);
+Thanks,
 
-Deasserted on resume but not asserted on suspend, is this on purpose?
+	M.
 
-regards
-Philipp
+-- 
+Jazz isn't dead. It just smells funny.
 
