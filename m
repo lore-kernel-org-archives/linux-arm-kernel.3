@@ -4,86 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD90ACD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C61CD6E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oLdmVigfgi2ES1tykurI6AsaVZeRKNiKh17V/jrcIrs=; b=MI8p7q+lSiyZeict5SGcVmXtWe
-	1geM4UYZC5lM0qJdyANZ4wf6KrPxHdQ386TkVH8KkjQdQJ2MzwjCXIRsUddj5k1BpO9hdwmgE2rfv
-	ZLMoK1dWmu5Q4qAHtjFJL/tygBRPtPNRHgsPZ1lGmK51q+saqcuw9DnfiJsXgLLnfk60QfE0C92tj
-	x3fF5/9COcPq0Zu4RcPbWT8BC2nFZQLIkPlQ2NNX6VaI4PrpuGkV7+4E1SKLi1PbGPAAvJfWQlt1P
-	B+2XPuaeFnDdecc7KPCkLMjPjr4JqRbA4QZCVq8t3Ee56v/mRZWH8nbH7sqirokmAjYadffoUx/MF
-	K7jgAv6g==;
+	bh=iKL2XhPJcTe92U+7kcTY+J0V1P0lR2YbYloV0NBdglw=; b=JZzH/CBhwmOJR+83qyHyRgZpQM
+	4AVUSzObgnN88Wm+p+oXhDsVrBCDT3Apln6dpm2lzHdwCdZmOaz1YNprPvvrnkFjpf642I74gqQck
+	S3m9PR65ZtQzWP/+3DjEv33uR+AFFug9SQX6vRzT8wZwCJ+tnvUH7mofuDNs5IMqjK8T4rKEkwkr1
+	GVsCVGqXuzks22BB4mdQ+RT4K4G2NA/elHLdHrdEAGn1UoOweXpiSL76AAwc1PXDxbepyG6B+z0PJ
+	s/YLcKjEjvr0Z3hYSbb0jabhgneTXrAmRrRFN7BJOie/KFJAgXY72BuqcAAkHA50KspAMIS0aq97K
+	ZNc/Yr+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXme-00000000wLW-2twj;
-	Fri, 05 Jun 2026 16:52:36 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1wVXrb-00000000wcS-1Cac;
+	Fri, 05 Jun 2026 16:57:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXmb-00000000wL6-3qdz
+	id 1wVXrY-00000000wc3-2ss7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 16:52:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1780678302; x=1781283102; i=wahrenst@gmx.net;
-	bh=oLdmVigfgi2ES1tykurI6AsaVZeRKNiKh17V/jrcIrs=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=OJRDkLICoTY4nB4kNr92J0UuSzqEsinetgzqXcD6AC7ubT3rgC3SVIt8owIh/p7z
-	 Kum966oBeyGuZPmbXqXn3t5tXoh6yaVWxECl/6oPl6vD455xuqO7bq4Wp3G1QEB0S
-	 4i2xo7odkIVQcDB7PJbnD4UfnYoZHoTitN90Lu3ieSn1ehOiwcL6IPCwHKlmj5Rd7
-	 vCJIMd0KY05AgSf+Qs+6OA6h0XRlW18ETTeQzqI6DUEA2l2+Efsd/lWLf/uJ2mW+I
-	 sd9unvgUSH43yzrB1n3uUVZJ1YqpWNUpJygzWzpr1NF27DQAcrfvvJZhIodGNgU04
-	 +9BnRcJ8XmjHPspCDw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MXXuB-1wldLd2gvP-00IpKo; Fri, 05
- Jun 2026 18:51:42 +0200
-Message-ID: <b5e897f6-5d6a-4d5b-b862-c11b240890ab@gmx.net>
-Date: Fri, 5 Jun 2026 18:51:40 +0200
+	Fri, 05 Jun 2026 16:57:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1780678658;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iKL2XhPJcTe92U+7kcTY+J0V1P0lR2YbYloV0NBdglw=;
+	b=euFsZXDXqhGhuGOWAk3wZtZ/4pDvrG63MQ+QPpVRz/92pJTKXaqUrkjWtIh7lX2vQlDM8R
+	h+xpNmhGqwYzaTFxIIvOpAbMRt+RYdBUuod08vslOxcVOUNx6+8FCwsAg7bGCWpbrBa+Hr
+	hsTzwQ1fEQ5oJoL9qTOZs083N1MgnS0=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-275-8OWZAVWsOn-Sy_LO_IVe9g-1; Fri, 05 Jun 2026 12:57:36 -0400
+X-MC-Unique: 8OWZAVWsOn-Sy_LO_IVe9g-1
+X-Mimecast-MFC-AGG-ID: 8OWZAVWsOn-Sy_LO_IVe9g_1780678655
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4601c9b630fso872301f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 09:57:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780678655; x=1781283455;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=iKL2XhPJcTe92U+7kcTY+J0V1P0lR2YbYloV0NBdglw=;
+        b=cJjxa4O7zPQ829G6g8L3wGqeUNmzR1Cs2spJvY2W2i9Zd3Cpknazt5EJfMLap+cWnV
+         6DobK5QQjgdawmDYSKJL9OnJG5qJ+niLpgSWhmtH+Qb77/btEUQkai5r8TWpYreDXFSw
+         pxnW4ce/BvYj9bgLoduQxn/omQYXCvfrcgd2/XndV7/OxXX6PUorUV7sgcc1H+J91L+q
+         ykNs+V6w0QaHomK65J8O7buZvigf9JmrjGOjJxX4sURCgADDk9XGUZaWOBiVZmTKyW8a
+         R5QftDf0UuCQhM6ClTEGHdXlAWd4YU2ssB+2Fck6vb86lqBW9PYDyHtuxTdQqITxZf6o
+         QOOg==
+X-Forwarded-Encrypted: i=1; AFNElJ8yF1xs+krW+4aKkGdAZG/RbnNDQgYar9jbBzT84nVfeJe1QBgfBJuS1UeW4fy0eZAP/VcNqY2/NSi3s+TAw3IQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkiTpAG87TBP/SnkjaR5P/ax1ybf35JojpbaeoR08Lb/8Gr5vb
+	ejhFmrvMcstAoBZsRLgv5wFF7Z6YtRnmdDlo1EVOXVK6LB/kKmtFt0ZTgLynZBm2LKjVTUmWB7N
+	FIz1cdl6AnOU2nfL8yKnLZi2iNq7czUBGtE/12tiuObp7em6R+cHyoTyjH8MwXdBCcUV1sb8xJl
+	q5lUpqNSRY54dOBJXx9gU16pCxQBwNdb/qvxSZljaWCYoy1D467VA=
+X-Gm-Gg: Acq92OEKItXscLTyAdmg6pazfGkHJpKlVqGWGrpK3Lrz9AwpDhHKYi+Emo4fyf6tr0t
+	vuuULkQIQ0Oa2xfITnrIG2Fey/QSWeH5s8ezqEmBMGNmv4qCUFW96orghMKtGqLgX4KfAKHTZ15
+	OP4jBO5HYIX9FtFvzgCbuXG1f+8UB84gjnV/6Gm/arq9JY2ur/XcaYJUSm8oWiPwESGk6ypRjd/
+	LgtLZtMZYGifmqHCMF1TynD81J4UYH4Hyj3bGD5K0CDEae0x00nCgVURo1MP9Ze/s+dHc139VmN
+	pOxuQ0SxEp7yX3JDJQ==
+X-Received: by 2002:a05:6000:1889:b0:460:1987:7bb9 with SMTP id ffacd0b85a97d-46030753534mr7686106f8f.29.1780678655540;
+        Fri, 05 Jun 2026 09:57:35 -0700 (PDT)
+X-Received: by 2002:a05:6000:1889:b0:460:1987:7bb9 with SMTP id
+ ffacd0b85a97d-46030753534mr7686068f8f.29.1780678655186; Fri, 05 Jun 2026
+ 09:57:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] arm64: defconfig: Enable DP83822 PHY driver
-To: Frank Li <Frank.li@nxp.com>
-Cc: Christoph Stoidner <c.stoidner@phytec.de>,
- Primoz Fiser <primoz.fiser@norik.com>, linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Linus Walleij <linusw@kernel.org>
-References: <20260527151414.184823-1-wahrenst@gmx.net>
- <5cf05aec-bc70-4758-9c00-812a33a44946@gmx.net>
- <aiL5Yy7hiL30FENV@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <aiL5Yy7hiL30FENV@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:ozj+fS0F0Jfri/+5H9vsGbsv/iyFEonp79SI6lKb4pQh25sOoZ1
- VUsKd4XcNYJIgnQ3yzFHzKVz1oDU3srHjhJcjXLmA08TG/tFUhsPzEHgbZ1py2i+e/7pHDY
- iUUM2fuIq0/HaT+nWKKj2Ju8J+zVJ4TH5TRcTuzW6/pmrJM5Mt6okgTSli7E3qPrdZmEd84
- /B5r/3UvzzyOoqHVgHR2Q==
-UI-OutboundReport: notjunk:1;M01:P0:TK8rNONpRbA=;TlFUvNYF0amVqjW6V/lND2czL6A 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
+References: <20260605164516.2214533-1-maz@kernel.org>
+In-Reply-To: <20260605164516.2214533-1-maz@kernel.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Fri, 5 Jun 2026 18:57:22 +0200
+X-Gm-Features: AVVi8CdXD2dFjV3hwOcMaVAYJkQk2Ss55TNM_5tzf_zqwGUWPlvODfkGX82xJFw
+Message-ID: <CABgObfakiK_xLU_buKA_TknQNMPiKKo_=GMhgP71i_r8jPPY7A@mail.gmail.com>
+Subject: Re: [GIT PULL] KVM/arm64 fixes for 7.1, take #5
+To: Marc Zyngier <maz@kernel.org>
+Cc: Hyunwoo Kim <imv4bel@gmail.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zD2XMz5qJOLhCpmz7U_-WISebRGtibRDKxkz3En3Pyk_1780678655
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_095234_268480_7920EC71 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20260605_095740_816778_9E2C45E0 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,46 +108,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 05.06.26 um 18:29 schrieb Frank Li:
-> On Fri, Jun 05, 2026 at 06:22:14PM +0200, Stefan Wahren wrote:
->> Hi Frank,
->>
->> Am 27.05.26 um 17:14 schrieb Stefan Wahren:
->>> Enable DP83822 PHY driver as a module to support the Ethernet PHY,
->>> which is placed on phyCORE-i.MX93 SOM.
->>>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->> could you please take care of this patch?
-> I will pick it, next time please cc imx@lists.linux.dev, otherwise, my imx
-> patchwork can't see your patch
-Sorry for this and thanks for picking
+On Fri, Jun 5, 2026 at 6:45=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
+>
+> Paolo,
+>
+> Yes, I said that last week's pull request was the last. I really meant
+> it, honest. But people (and their AI best mate) keep finding ugly
+> stuff in dark corners, and I can't sit on this stuff much longer.
+>
+> So here we have an assorted mess of bad races, broken userspace, and
+> architectural bugs. What's not to like? As usual, details in the tag
+> below.
 
-Regards
+x86 isn't doing any better, so who am I to judge.
+
+Pulled, thanks.
+
+Paolo
+
 >
-> Frank
+> Please pull,
 >
->>> ---
->>>
->>> Changes in V2:
->>> - rebase patch
->>> - add Krzysztof's Reviewed-by
->>>
->>>    arch/arm64/configs/defconfig | 1 +
->>>    1 file changed, 1 insertion(+)
->>>
->>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->>> index d905a0777f93..20bbbd310d2f 100644
->>> --- a/arch/arm64/configs/defconfig
->>> +++ b/arch/arm64/configs/defconfig
->>> @@ -421,6 +421,7 @@ CONFIG_AT803X_PHY=y
->>>    CONFIG_QCA808X_PHY=m
->>>    CONFIG_REALTEK_PHY=y
->>>    CONFIG_ROCKCHIP_PHY=y
->>> +CONFIG_DP83822_PHY=m
->>>    CONFIG_DP83867_PHY=y
->>>    CONFIG_DP83869_PHY=m
->>>    CONFIG_DP83TG720_PHY=m
->>
+>         M.
+>
+> The following changes since commit 83726330748981372bde86ed5411d7b3066129=
+91:
+>
+>   KVM: arm64: Correctly cap ZCR_EL2 provided by a guest hypervisor (2026-=
+05-29 10:04:00 +0100)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
+marm-fixes-7.1-5
+>
+> for you to fetch changes up to 17f073f78fc43280891ecde8f8ec3f84f98bb37c:
+>
+>   KVM: arm64: Correctly identify executable PTEs at stage-2 (2026-06-05 1=
+4:07:57 +0100)
+>
+> ----------------------------------------------------------------
+> KVM/arm64 fixes for 7.1, take #5
+>
+> - Correctly drop the ITS translation cache reference when it actually
+>   gets invalidated
+>
+> - Take the SRCU lock for SW page table walks
+>
+> - Restore POR_EL0 access to host EL0, avoiding POR_EL0 becoming
+>   inaccessible from EL0 after running a guest
+>
+> - Reassign nested_mmus array behind mmu_lock, ensuring that vcpu init
+>   and MMU notifiers are mutually exclusive
+>
+> - Correctly handle FEAT_XNX at stage-2
+>
+> ----------------------------------------------------------------
+> Hyunwoo Kim (3):
+>       KVM: arm64: vgic-its: Drop the translation cache reference only for=
+ the erased entry
+>       KVM: arm64: Take the SRCU lock for page table walks in fault inject=
+ion and AT emulation
+>       KVM: arm64: Reassign nested_mmus array behind mmu_lock
+>
+> Joey Gouly (1):
+>       KVM: arm64: Restore POR_EL0 access to host EL0
+>
+> Oliver Upton (2):
+>       KVM: arm64: nv: Fix handling of XN[0] when !FEAT_XNX
+>       KVM: arm64: Correctly identify executable PTEs at stage-2
+>
+>  arch/arm64/include/asm/kvm_nested.h     |  4 ++--
+>  arch/arm64/kvm/at.c                     |  6 ++++--
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  2 ++
+>  arch/arm64/kvm/hyp/pgtable.c            |  4 +++-
+>  arch/arm64/kvm/nested.c                 | 33 ++++++++++++++++++++-------=
+------
+>  arch/arm64/kvm/vgic/vgic-its.c          |  6 ++++--
+>  6 files changed, 35 insertions(+), 20 deletions(-)
+>
 
 
