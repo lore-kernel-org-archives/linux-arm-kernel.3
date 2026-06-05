@@ -4,86 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7E3CD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 17:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC3DCD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 17:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mTylNt1UdVsHDUYp9gMjLb+SsTmA1WBHhrZ7uPff1cw=; b=LfYIJqRIwfN4+hxvd9BB94fwmx
-	dcskkZqAj+J5+548Y28K316rPfV+Da12Cn+UH+HL4oFyINrPxhiehIvWpE+9hB4ANmeOlGIUp0CCW
-	DzwDaBa3V7J8X+54fMx0tlsPeQXeYPyiuJL8OSfzykVAMstBi3ktfOJl6RE4qW8IIPOdYEVMSB1t0
-	WTNPM8502OrMYKS1Mcbd43oepGE8vpkGgns9bPueRiKR3TlS43gD1hs72rSSprCSyyxWvXQ6vLwPp
-	NIRZytq60ROu6vK8e76zJHwJhGJyKCjFCsYl8BIq620e3JOw5O9t2iv0o3hmNCD5qUQ8mQSlZtsEG
-	UsupgZrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aLR5zKm8dZ4Kkc1x2lngYopx3ogo4QcKPMe+rIOGwRE=; b=uBL6bB+HEQCJ/xDtuU0EK3DBs1
+	0toEtqkMseG9haryb+yt7lVbcjOrkNtVkUmzKkIpdynz2p3Mzbf50+fFFr1Zq9HpH+paRZmbI6E1v
+	f/qTlqhq7QAlmP5oqwCEWZmx5vjHhU3EyycEIXdXbVjxlHwehJpSSLkuVhzEe/XL2hoT+5agfAU/q
+	kgscLDu4v7c1ZusPWEDXKoYetyDoF8Pn9tf7a7IMet45SsloroZr5gng1h2UB5G+dXjQevmvJFIBm
+	Jfviv7nItmZbN1oPjWRzFYF+cFGnfeS6o4EFRyHwO87vYiMHffjMnwOZvSeVGCY+eWf/mqjWRt/A+
+	ooeQyRUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVY6J-00000000xhv-1zKD;
-	Fri, 05 Jun 2026 17:12:55 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1wVYCp-00000000y6d-0fzL;
+	Fri, 05 Jun 2026 17:19:39 +0000
+Received: from mail-westcentralusazon11020127.outbound.protection.outlook.com ([40.93.198.127] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVY6G-00000000xh6-1U1A
+	id 1wVYCm-00000000y6H-1miN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 17:12:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1780679500; x=1781284300; i=wahrenst@gmx.net;
-	bh=mTylNt1UdVsHDUYp9gMjLb+SsTmA1WBHhrZ7uPff1cw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=fovSec5RvZiTG5zLEZmcviwDh0EiZOyxHCJNAMop0UdB7dMOJubma0IvezKtlo+N
-	 R6mIMld0AVgZQCUw2C6gQEbJD4U4OaxGE1vRoPM8sq9SenQCWBgHKOeu86ezfiR33
-	 yqOHd0eKPMQQHIl5tv19DsI2q5WK/9vGMihIODEDlnDpri3hyQKVHQ0n278ZcJLRc
-	 mBoxddipAfPh/KmKVdEmy2Szr8EzpTbwwHDFgAUOBcSVXT5v2I2T0egYp9EdIbWKS
-	 hFTOYdU4EApucl5T2GSGtCRYerEHgJJ1E4Uix/B54dK8d/1LOEmGShVChiC+OY9+b
-	 gYSyhzpMh1ZHPMDbfw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MbivG-1x7e3G04dC-00nuoC; Fri, 05
- Jun 2026 19:11:40 +0200
-Message-ID: <a9304534-2d7d-4316-bcd1-36ff0931bcf0@gmx.net>
-Date: Fri, 5 Jun 2026 19:11:30 +0200
-MIME-Version: 1.0
+	Fri, 05 Jun 2026 17:19:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=onh12lNzYmFMRxVxYEFnz24DU1r32rkQ3qRdmzrI2XuNdVFxylMc96Ww0nrE34+5SKpxNvMkzQIw8RgvcQe468ViUA+KdOgva2zETAZTlb5r4CYK7RnVcWpXuiMk0W9vwWiwDX3UiDFvOxRT+TCc0zeHrdfs3nJ1FZI45da/a1r59lNGCErjw6baxtYpZnH5BWTQupynCHR0Ai3yOPVdNJxY8Fs6YHaWfApnVj1Yixw1waIukfs1B38/kGaboeMBxK7MrZWtidBEwAQFy3j8ips0ISwh6BtA8cVdWJTmRqpC/f4YbhNiZU212Aa7Xnep+kOHDEhOVC9mtRkV7guZeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aLR5zKm8dZ4Kkc1x2lngYopx3ogo4QcKPMe+rIOGwRE=;
+ b=kb/nb9N9dby/kbGNl5EP7DEJjnUpCMd4pyBhOHQsl9sazLxP795/0mlqNKQsTqJ/R7sZjn585kKxjSxhrpz2qVQ3L8GDn+6l/2OigJ2n/K/gypln6weCMUxRuFj8x4a/ysfvlwLAF3fWDWN+8zyHdTqmk3V0Q8BbueYffTy1g+JE5DbvCWsszhIWOJQc32egc6tvEhIvqcRSIM8cvcXPPiOE8k9Ok2PbJNpYt1SAg2zDNbj+fooZj/gOXKNAie9gM/yoSO7t1yGY2m3Tj/4zPUHtD/ZQu/vk8FjG1mfqCjaxmmip7AEy6B7jW46ARuC4ReFmGST5+c17ZuSfE4QlOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aLR5zKm8dZ4Kkc1x2lngYopx3ogo4QcKPMe+rIOGwRE=;
+ b=5WDR6O+kyEJYjK4FVpiT64Wei3kSI8JOhGUk9qmjcTGxIMxPhhihozw20B2VANjErRa8vGvWl+USr78X3NlY0Go+RCdscFhpCNWCLWiD9V4MPCQn7j/13twi/kTJ2TWKWisrNMT4oAcPQl0WpgidDnla/sAVtXfw6QwBBtKGGlo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from CY3PR01MB9194.prod.exchangelabs.com (2603:10b6:930:109::7) by
+ BL3PR01MB6803.prod.exchangelabs.com (2603:10b6:208:33e::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.10; Fri, 5 Jun 2026 17:19:29 +0000
+Received: from CY3PR01MB9194.prod.exchangelabs.com
+ ([fe80::4005:a1db:71b8:dc8c]) by CY3PR01MB9194.prod.exchangelabs.com
+ ([fe80::4005:a1db:71b8:dc8c%5]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
+ 17:19:28 +0000
+Message-ID: <8edb79f5-7a9e-4ab5-8a43-4017cf7b70f7@amperemail.onmicrosoft.com>
+Date: Fri, 5 Jun 2026 13:19:25 -0400
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] arm64: defconfig: Enable DP83822 PHY driver
-To: Frank Li <Frank.li@nxp.com>
-Cc: Christoph Stoidner <c.stoidner@phytec.de>,
- Primoz Fiser <primoz.fiser@norik.com>, linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Linus Walleij <linusw@kernel.org>
-References: <20260527151414.184823-1-wahrenst@gmx.net>
- <5cf05aec-bc70-4758-9c00-812a33a44946@gmx.net>
- <aiL638OLrfntKmSC@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v02] mailbox: pcc: report errors for PCC clients
+From: Adam Young <admiyo@amperemail.onmicrosoft.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+ Adam Young <admiyo@os.amperecomputing.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
+ Andi Shyti <andi.shyti@kernel.org>, Guenter Roeck <linux@roeck-us.net>,
+ Huisong Li <lihuisong@huawei.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, linux-arm-kernel@lists.infradead.org
+References: <20260518193006.27425-1-admiyo@os.amperecomputing.com>
+ <20260519-inquisitive-teal-yak-56abd1@sudeepholla>
+ <c61fa285-01a6-4ac3-82ec-2a6357a9e76f@amperemail.onmicrosoft.com>
 Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <aiL638OLrfntKmSC@lizhi-Precision-Tower-5810>
+In-Reply-To: <c61fa285-01a6-4ac3-82ec-2a6357a9e76f@amperemail.onmicrosoft.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:0j0g2y4cakvO89lH6W233JTea55vVfPqa5MU9ySEQwKimb09jfH
- cXKCIjXaLpWoFNmfA66DpoA6FEsKJAqbhYm+SWLkF2iwakvx97Yfmnarh5pkKawTFjQAdPe
- YLMm2f0PM7fxdIembibfzyXg+mnZsRXChx+YRGM8D8wvfHPLrqhfwYE3NQOFixk/6SFWqQv
- eaovbETQRtRfINW3snmCw==
-UI-OutboundReport: notjunk:1;M01:P0:NWH7hEEY1CU=;a31Oft3CdcZT0bun2OZpVGTjBwB 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
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CYZPR12CA0003.namprd12.prod.outlook.com
+ (2603:10b6:930:8b::16) To CY3PR01MB9194.prod.exchangelabs.com
+ (2603:10b6:930:109::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY3PR01MB9194:EE_|BL3PR01MB6803:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9b83c0b6-3c13-4b09-2b92-08dec326991d
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|10070799003|7416014|366016|1800799024|55112099003|18002099003|22082099003|6133799003|4143699003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: mgK2chqmSj8JIH/42LMTae71OBcHUUqFCa9fMMYLtPQ5usxgsYkJm9K2/eeDVz43xnsl/0LciK+KTFZA+ju9Jl5At89YWC+g/sxOoGQ4EGHQciHFSaLwkM+ljgH7zuKR2rdXxg9jvJdmskCUb+HHuhYeMrOiTEfg/NpY5qkUo/PNpJsnAQJ6lW27xz4l/xSdAKtJYZyRThAhbkSxdZakYrWzueT9XwAdcpr8ii73DPTwTWy9ZkgEJOPpIlfFb5+29DIPjFCl2vdWj119fAsuBFDXSr2wfUY4F7ow2ShZ5rKF9H9YpJH+Bf8VhcmHVi22+LWfM1b0LLDyjnRdsBEoC6xAWxdsbcROBe/KR6Bc0Xk5nqGXQlvLlfqxbYTpgCGRUcqVSYU+m+8YamBTnxehoSxT5PCcWbmUu7Qyb+JhujMywP+zpR9hSWkYwBwBX9ix5eFBGTj/dp0tmmgJPkK04lH++c/HRFuygsLWJcDqpp+2p/2mRa65Z5ki7CXtI2Xkt1N64zIXY0Gedaf1YOsgIbWR0d9cTiQOQrWE7OOWrkHBKsidZiF0+7M1KQRaokw+P58+Misq/hyTsiluaAMqZasz0t+epJuwt3//+8qoZlda6d9XvaLIszdl1KpaYMw2WqFGYA7TpoOPgIVjDgdemDZwEC+tF8++Dx/GJZ1taFw1wUuGF1Bdoh8axBZpkCkf
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY3PR01MB9194.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(10070799003)(7416014)(366016)(1800799024)(55112099003)(18002099003)(22082099003)(6133799003)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QVhPT0NhZHF6dTZDd1ovZmZLbkxLUitEV0JHMmxUZHdJUHduU2hSWS9jS0dF?=
+ =?utf-8?B?NmdYYk1IN2dPWjlwSG11Z28xRFUrczZQRk1JWEV3eW40eVY2bGM2RGRtc2Z1?=
+ =?utf-8?B?OUt4bGdhMkwzdktpU3JJS242eDdkeGZIV29SRFZCUDB4SUhVcVNhVXBCaWJF?=
+ =?utf-8?B?aTlGS0tGQTRYWCtSaDl5SWxQaHVZTnlVNkhHVnhmcTRFSyt5SG9oM1ozb0tD?=
+ =?utf-8?B?WS9PcDNQOEVrdmJwRWh3ZEZMd2V6bTZIMWRSOTdCQklZV0RiNmU0Z0hRSWFX?=
+ =?utf-8?B?bFVLR1gvNCtNdFlGU2p2Z2ZjTS9rSDJJWTg3QmUrVDNXWHRFNDBydFB5QmZV?=
+ =?utf-8?B?VGpmSjdQSDdKREc1OWc1NWdaZkFMMmZVc0tpWVpLOUxqVmQ5ekJJRWRjTFBz?=
+ =?utf-8?B?azg1MXlIUjV6aG5lYW4zWDZHQTlFZ0Zka2pJQlFJdStkM3BUT3R1OVBWM2VV?=
+ =?utf-8?B?ajNMUUl2RGtxb0JYVldPLzJHOWxUaWtwZXhpcGYyMGJmSnF1V3h4WHRCUktE?=
+ =?utf-8?B?aHc2Smc3eENCMG10bHl6akp0engrcXhUbEdaT2d6cXZzaS9vSTNZdDV5cmJV?=
+ =?utf-8?B?bVFyZVJsbklEdmY2VjhRN3dwYVp5NC95aVM5b3E0TTRQazVGSmQ5ZlZIOTBz?=
+ =?utf-8?B?dkxVSDlMVEVRcFZlZCs0RXBhR2NGS0g3Ly93SXRidHZ2ZFVLclMvVkhaMUcx?=
+ =?utf-8?B?OGVrRGdUMnJwRDZGVTZtdld5MC9TK1J5THNsMURqYnFrdHF4TUphTXNDZUxZ?=
+ =?utf-8?B?bjROaDcwVTFzRDZQa1RvYy9aWCtCL29OMXg0eUNHcE5TSVNwYWt1RXYrb3Zq?=
+ =?utf-8?B?cXRRV01VeGlkQ3NCM1JKdWkyOGhUNVExRVZiZzVmM0luWXRiTEtKL01xWVBu?=
+ =?utf-8?B?TC81VFRhOEdaZldreG5kMWV1SSt0RlpUbjFNaXN5eng0cVZxVjJ0RzdUWHQv?=
+ =?utf-8?B?TFVCZHA5MEpNRlJUczd0L09mcU1nZTllVjBvRUdCS2k5RzNVbXlaeW5abGk5?=
+ =?utf-8?B?cUQ2bEFoaXZGMXNRZHhKNnd4ODBtN05VTjJMR3VjS0xhaFJhcWlCMnRxS3Nt?=
+ =?utf-8?B?S2tQNGl1STN6a0pGMTUxT0xQWUNHczY2eS9PejlzemNjUXdvYnZESmhtYlVT?=
+ =?utf-8?B?SEl4T3hrbURRZFpXWm9hOWFKQjhNRXorQ1VibTludU9PN2k2dEZ4cklvVlYx?=
+ =?utf-8?B?OE1hNFhZNWFTS1hlWldvdjYvWXdaK0VpdXFJQmV3YUhOMW1LUTNjRE5JK0xF?=
+ =?utf-8?B?R296M3FLL2sxL2IxOHc3YTkzbHRJSDRUazJpbDM3ZlFreVUraDc2VnBySFZl?=
+ =?utf-8?B?TmRtU2lhVnFOenNXMnU2VkVSYksvQWRsQkkvUXlFSEoxdnhPRFk5WUJvUmFh?=
+ =?utf-8?B?R3ludENEM3Y3UXRYMERwM3Q5M3VJV2NzTHNweXkwR2JqakJyK252T0hLd0FR?=
+ =?utf-8?B?YkZlbjdOU1RzblhIeUV4L1NwbmsxTWN1c0RtSHZsQXZ2TFRFN1c5YVF6UFpD?=
+ =?utf-8?B?T25ZUjJGUGE2amcwSUxFUE9nUGlUTG9JWUpYdmxydHpYc3k4aVJzcHNWemM0?=
+ =?utf-8?B?MHFmdVNFaTBtOWNnYXdlaTZGUGZKc095cUtKVTRSVUdNYTNDZEo4RmJORzRt?=
+ =?utf-8?B?VThzaGJFZXp5YjIvVGpoYVVBd0RVbFBzcFR5NkkrM3NIRXJxZGg0eFJsRjEy?=
+ =?utf-8?B?clBrUDdzRk1ScEgraVVOWWhmZU05dExzTC9MUUF3aFg5NUgxbHdXeDBvMXNB?=
+ =?utf-8?B?UmNua1lDSlhyK2tsK0ZuVDFYOC96THpyWHAvc09NNFJnRWkrYVU1SStMWWdy?=
+ =?utf-8?B?TFltSmQweEpzOXQ5SzB3WnhucU9LeEc5NnpWN3VPTmMvbG4xMUpKVkZkelVw?=
+ =?utf-8?B?WjdCRm14eHEvdmhHU2pQTG5ZMWUzbmVQK0FyTlRRaExyWjN2alRHWTdERzha?=
+ =?utf-8?B?OVM3TWZmOE1QUXVVdkVRV3JTREEzd2taWVY5N2FQZFNUUGNJbExtRjE1MlhG?=
+ =?utf-8?B?U2plYlBhbW9tNUNZWE1RVld4RTZqZm44djJCRTBaMUwrL1Vpa29kbnErRk5q?=
+ =?utf-8?B?MFJMVEZuUzhRMUN0Q05Ma2NhbVc0RmxrTnhkcWJCMGc1RXBmS2d5MHQzK1B5?=
+ =?utf-8?B?MVlWWERvS1Vxa1haWll6aHY2VWk3bmZqZWdFRDlhVmhqT21GVW8xSTFEbzBT?=
+ =?utf-8?B?dUl4VHp6THhTMm12SlNtRGNLeDBJc3ZtZSs2RjFRUG55b1Y1S3JrRWFLNkha?=
+ =?utf-8?B?VlptTXNNTmlwVzVpdVkzREQ2Y3hqTGxIOFVqeVVJNHR4c05ybHF6QjVreWs5?=
+ =?utf-8?B?dnBWeC9PZVdKVElBOVEvUmluWWN2SmhHR0c3b0Z1Tk1USG9rZ3NvY1Ftd21M?=
+ =?utf-8?Q?XjCC8/4H7I/BB6kSO4duxSXzE2MULTWPkIshjUoovVaus?=
+X-MS-Exchange-AntiSpam-MessageData-1: fxUntkIVGcIdBFtZ4bRCPJ7MYVlou0uldzLEfKUh4nDQ2UWwvDARb7Zq
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b83c0b6-3c13-4b09-2b92-08dec326991d
+X-MS-Exchange-CrossTenant-AuthSource: CY3PR01MB9194.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 17:19:28.4821
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y4xleS5vvbj+dDqBwEkiSKoihMjxgF+4rCm7hbqgtC80YTwim6P9/MRhoU2PF4JlzEiy+QWDsCLqCNJGsHpb+q/bN130e7tTsJEGnVeBa91rfow1go27VT4jxiY1y24G
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR01MB6803
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_101252_843699_3164CFFF 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20260605_101936_472085_7FD9E6E3 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +157,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
 
-Am 05.06.26 um 18:35 schrieb Frank Li:
-> On Fri, Jun 05, 2026 at 06:22:14PM +0200, Stefan Wahren wrote:
->> Hi Frank,
->>
->> Am 27.05.26 um 17:14 schrieb Stefan Wahren:
->>> Enable DP83822 PHY driver as a module to support the Ethernet PHY,
->>> which is placed on phyCORE-i.MX93 SOM.
+On 6/3/26 11:15, Adam Young wrote:
+>
+> On 5/19/26 09:23, Sudeep Holla wrote:
+>> On Mon, May 18, 2026 at 03:30:06PM -0400, Adam Young wrote:
+>>> The tx_done callback function has a return code (rc) parameter
+>>> that the tx_done callback can use to determine how to handle an error.
+>>> However the IRQ handler was not setting that value if there is an 
+>>> error.
 >>>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->> could you please take care of this patch?
-> which is base commit, I can't apply clearly.
-I rebased against torvalds/v7.1-rc1
->
-> Frank
->
+>>> The following clients are affected:
+>>>
+>>> drivers/acpi/cppc_acpi.c
+>>> drivers/i2c/busses/i2c-xgene-slimpro.c
+>>> drivers/hwmon/xgene-hwmon.c
+>>> drivers/soc/hisilicon/kunpeng_hccs.c
+>>> drivers/devfreq/hisi_uncore_freq.c
+>>>
+>>> All of these only use the error code to report, so they
+>>> are expecting an error code to come thorugh, but they
+>>> do not modify behavior based on this code.
+>>>
+>>> In the case of an error code in the IRQ, the handler was returning
+>>> IRQ_NONE which is not correct:  the IRQ handler was matched
+>>> to the IRQ.  This mean that multiple error codes returned from
+>>> a PCC triggered interrupt would end up disabling the device.
+>>>
+>>> In addition, if the error code IRQ was coming from a Type4 Device 
+>>> that was
+>>> expecting an IRQ response, that device would then be hung.
+>>>
+>>> Fixes: c45ded7e1135 ("mailbox: pcc: Add support for PCCT extended 
+>>> PCC subspaces(type 3/4)")
+>>> Signed-off-by: Adam Young <admiyo@os.amperecomputing.com>
+>>>
 >>> ---
+>>> ---
+>>>   drivers/mailbox/pcc.c | 9 +++++----
+>>>   1 file changed, 5 insertions(+), 4 deletions(-)
 >>>
->>> Changes in V2:
->>> - rebase patch
->>> - add Krzysztof's Reviewed-by
->>>
->>>    arch/arm64/configs/defconfig | 1 +
->>>    1 file changed, 1 insertion(+)
->>>
->>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->>> index d905a0777f93..20bbbd310d2f 100644
->>> --- a/arch/arm64/configs/defconfig
->>> +++ b/arch/arm64/configs/defconfig
->>> @@ -421,6 +421,7 @@ CONFIG_AT803X_PHY=y
->>>    CONFIG_QCA808X_PHY=m
->>>    CONFIG_REALTEK_PHY=y
->>>    CONFIG_ROCKCHIP_PHY=y
->>> +CONFIG_DP83822_PHY=m
->>>    CONFIG_DP83867_PHY=y
->>>    CONFIG_DP83869_PHY=m
->>>    CONFIG_DP83TG720_PHY=m
->>
+>>> diff --git a/drivers/mailbox/pcc.c b/drivers/mailbox/pcc.c
+>>> index 636879ae1db7..16b9ce087b9e 100644
+>>> --- a/drivers/mailbox/pcc.c
+>>> +++ b/drivers/mailbox/pcc.c
+>>> @@ -314,6 +314,7 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
+>>>   {
+>>>       struct pcc_chan_info *pchan;
+>>>       struct mbox_chan *chan = p;
+>>> +    int rc;
+>>>         pchan = chan->con_priv;
+>>>   @@ -327,8 +328,7 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
+>>>       if (!pcc_mbox_cmd_complete_check(pchan))
+>>>           return IRQ_NONE;
+>>>   -    if (pcc_mbox_error_check_and_clear(pchan))
+>>> -        return IRQ_NONE;
+>>> +    rc = pcc_mbox_error_check_and_clear(pchan);
+>> I think we may have to skip the check inside 
+>> pcc_mbox_error_check_and_clear()
+>> for Type 4 channel as the spec expects OSPM to ignore it. It is a 
+>> separate
+>> fix, just noting that here.
+>
+> I think that should be in this patch, for correctness.  It is a small 
+> enough change.  I'll update.
+>
+
+Actually, it is a fix in its own right, and can be merged regardless of 
+this patch, so:
+https://lore.kernel.org/lkml/20260604163306.160017-1-admiyo@os.amperecomputing.com/
 
 
