@@ -4,86 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF0BCD6E74
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 06:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF51CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 07:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1UZT94PnJoQu2T3EfmNRaT5UXnQNxDr/1svbB4EHjo=; b=vMnAXkmsO8UXpA9JTf5yOcraLs
-	ZTrHzRRbaUGTpf94iW/CjmfOrcVG4PpXZhGwm5FmSePoq3Y21ujOtVRPG6xFqlqlhIhB7Yr/mYlvA
-	T4Ogf9WNocHUGjoodA+67SewO/RT6cOegOp6XmO4kLgDNXc1OrzIhUObFk1/x+oA3KxXSKBg74k4H
-	djvIeMA4ppTWycGt7ll9oHX+mdKGRU7Hr8uN0YoK5LGOIHPJfm2PetN51vj+X6tC3gxLvL2U78Uwa
-	NqSteHTGBxmHv/j/HD7mwHRPS7RgVQRVor/WwqeIAFy80A4h3d6fytYr00wOeWSh5PQ4MT5r+mswt
-	iZW0ncCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6wf5wsEaBEbi7V4bTOA8WpiI2FMdMe2pmDS666iTnCU=; b=sp35RYf6n5WvPxynT0QCS25wiq
+	y3E67kMfFN9H2dEpGPL04G4m91eu2p6CF2DbVMd7KsxdVxuZ70PIC+N/DChj8Qtsl85cG81hHqyz8
+	b+5sbVqUQumhRNV4we0pzyETuyZt/yZpzl15VBDQVA7ea4AAFwu9qGphcXeQ++FRkhCXLYWzRkuwq
+	TUQLeY/G7/ilLk9qq9fgtPSWgNfG70QoAfjWRcf5SYKEauXJeosYazwhVHTDc2rF14PLTHjJCjJpB
+	+0ophtGJ0RYUxL7sxAzxV5DCfEYsv/lXp6zk14kubYQVNHhxcIFQ5r+dO1JA/QmxFB+YgH7hK1Cxs
+	3r3Vb+Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVORd-00000000Bs2-17jE;
-	Fri, 05 Jun 2026 06:54:17 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1wVOgr-00000000Crh-1sGl;
+	Fri, 05 Jun 2026 07:10:01 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVORa-00000000BrD-2Gsz
+	id 1wVOgo-00000000Cqi-3oZP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 06:54:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780642455; x=1812178455;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Bfhxyeh0I+nLYaM2G8L9iOBrMI/5fCXfZhtYUW4UmJY=;
-  b=jGkmUauhpQllDyd4WzK+AsTEOcZoUXdOAKQFYjpE5kk5EAdE1HVpqfBy
-   r9pDMlUNkr9ih9uYvzfrPQFYa7N3cdhMUMN/vm88zZDzrLZtg8hx2OowR
-   fdTrs7klng3ecvsfzNauJZ7z6NFnlWVluixzblvjL5kyiWHrH4A+NlPV6
-   apGR2+UyV6HVdBS/wURk9a0Y2rv4hHxUjlO8v/+Gxnbtu+ZV0opQeik5H
-   909bOPPiUOkzb5qYfvdhLzEHcINFx8UO3Sl7yfoH3B/R8hOZrIHKIGIz7
-   mVCx6PQBUTjsVKudRzhqIfJSea3bVoasJaKPRQfsOkXwle6YelHJ1YX42
-   g==;
-X-CSE-ConnectionGUID: WwNBjRmzSmqJvRjOc3O2Kg==
-X-CSE-MsgGUID: smZra9H6RuSnrPM6QLlWeA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11807"; a="81474443"
-X-IronPort-AV: E=Sophos;i="6.24,188,1774335600"; 
-   d="scan'208";a="81474443"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2026 23:54:14 -0700
-X-CSE-ConnectionGUID: igsVH0E/Q920RoFFPu5r2g==
-X-CSE-MsgGUID: Mv2TdVCjQlahbFrWexy6Vg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,188,1774335600"; 
-   d="scan'208";a="238412207"
-Received: from igk-lkp-server01.igk.intel.com (HELO 892db79562d4) ([10.211.93.152])
-  by fmviesa009.fm.intel.com with ESMTP; 04 Jun 2026 23:54:10 -0700
-Received: from kbuild by 892db79562d4 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wVORU-000000002Uv-18Ka;
-	Fri, 05 Jun 2026 06:54:08 +0000
-Date: Fri, 5 Jun 2026 08:54:01 +0200
-From: kernel test robot <lkp@intel.com>
-To: Adam Young <admiyo@os.amperecomputing.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Saket Dumbre <saket.dumbre@intel.com>, Len Brown <lenb@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-	linux-acpi@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Huisong Li <lihuisong@huawei.com>,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v01] mailbox/pcc.c:  add query channel function
-Message-ID: <202606050825.2uv1FZrY-lkp@intel.com>
-References: <20260604203749.168752-1-admiyo@os.amperecomputing.com>
+	Fri, 05 Jun 2026 07:10:00 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490aebf33e9so8325035e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 00:09:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780643397; x=1781248197; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6wf5wsEaBEbi7V4bTOA8WpiI2FMdMe2pmDS666iTnCU=;
+        b=OpiXapPzDT1VA5IpzEoZNuMET/CrUjaYv1vyxxLc/7lh7LaQWDASkSc7jAM+R9JnOO
+         zVuGirkeVbY2BAbdGXQx2f1FR0CGUXKf5huF6fco+x/waTcZwSvirLhd33qHVwd5YkzT
+         1XSSelNxEcBGXsWWFfA6uwQCbgeSeu2unk3XVeB2KjIFVdvWCT1MxJRS1PkGxPqfNZLZ
+         DTFaO0Cii03JhAYc6uHmitg+PgY9kXfznYoSjfsd0lJD7LP15JzmRjOnFZk6wEUd1Nny
+         52n1W3qzU4ZFVmA7WywEWu758/v9w4HGrrHLvDt8tSUr1CfR7/lQ847KBchTAdzXTnHm
+         jSnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780643397; x=1781248197;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6wf5wsEaBEbi7V4bTOA8WpiI2FMdMe2pmDS666iTnCU=;
+        b=DIfhR+MNhR6FGLBmL0uRbs3fnrEo/VqgEIGY+PdBiJiYfpekzXLUaZBWllhSNiPgoI
+         t2ZxFBE80NYFb43PnH3G5rkw7sdiSR6683wgLEhL7HdysYBs4+0NhaHnm69SEKZoM/CF
+         V+Rh2+xFfHjzkRn0S1Amfn4I9GxSClpjyTJ5jbFBIMu/qlEAyfZkiRgPNxKAzpjY2qO3
+         9Rjb7z9zKdvP2Rw4dbbyJNuTFaDyCgwvD2ssHdPNcoV2gCZMBJIsbmgJJKl4zqXd6673
+         UY0yFw7LVRJUmrxzK5bEVeiyDhkYMfHnTNqyRihJu+UDTiEJ/F9Iprhkt0D1t6ubGTOA
+         xIhg==
+X-Gm-Message-State: AOJu0YwTOGd0jc7c3b/7cayOy7xI+lc7PBy2CWvVDcPdI9GKtaYNSLcv
+	lDbcV0rVWTGWnc4N6LiOq30NaMJ53ET+kCEDfBAgBIJixvuj5q8BZdXDnCmH/6dR8Jg=
+X-Gm-Gg: Acq92OHtc7cWbMGxLn4xzB6SQQPsrffmoGsWQn5LLxxESouRptuPVqb5kmBgS0vskCi
+	HJ4mLBUXT9iHLIHSTuVtdNp//49FhifHeDxHGD4UFeWl4ulgTJfUgnzU6ITxmMlaUKOQFfA8Y1X
+	ZkO2J+/mtA6KRxtxafsQzRdOVTHLifws1T347DCp6d48dKxK620F2YPFdJ0uodXjdnl1gsv9jT6
+	T20cz8HxqrvK0u+DS+tz34yG0KYvYrBLp3DXptRxsbqPXR+cHYldPjqD+7scLJK97xR94sUYsZv
+	IhqdUV/MH8nMNNrkHNVT97eK+JmD/i4BupiE9L0cYXERiAd6fZJ0eMmux3x1NxS0DWmqcRrYKrI
+	HGQ8tvlQ6Kp2g816zkJ8pfvFUQLK9VUZhYugascqSf56MVZALVnjdVaszN12/u1muQY67/KBrFR
+	Q8wDVEQAV7A+OFiYMgdqP/hKpwWwpPPMjFZvF8HDQikWAHofGMzrloC3CmW/OXKrHg7qEeq3jkx
+	8wbz3MkyUcSS0sl2Ee0nA==
+X-Received: by 2002:a05:600c:354a:b0:490:44eb:c1e5 with SMTP id 5b1f17b1804b1-490c2607c39mr29819615e9.31.1780643396855;
+        Fri, 05 Jun 2026 00:09:56 -0700 (PDT)
+Received: from localhost.localdomain (72.92.4.85.dynamic.cust.swisscom.net. [85.4.92.72])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2dcad5sm25132882f8f.5.2026.06.05.00.09.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Jun 2026 00:09:56 -0700 (PDT)
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hans de Goede <hansg@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>,
+	=?UTF-8?q?J=2E=20Neusch=C3=A4fer?= <j.ne@posteo.net>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Luca Weiss <luca@lucaweiss.eu>,
+	Sven Peter <sven@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-input@vger.kernel.org
+Subject: [PATCH v4 0/7] Add support for Baijie Helper A133 board
+Date: Fri,  5 Jun 2026 09:09:14 +0200
+Message-ID: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260604203749.168752-1-admiyo@os.amperecomputing.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_235414_616280_CAA8223F 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20260605_000959_000997_6F7BAE0C 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +115,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Adam,
+Baijie Helper A133 board is a development board around Baijie A133 Core
+SBC. Features:
 
-kernel test robot noticed the following build warnings:
+- 1/2/4GiB LPDDR4 DRAM
+- 8/16/32GiB eMMC
+- AXP707 PMIC
+- USB-C OTG port in peripheral mode (via onboard hub)
+- 2 USB 2.0 ports
+- MicroSD slot and on-board eMMC module
+- Gigabit Ethernet
+- Bluetooth
+- WiFi
 
-[auto build test WARNING on jassibrar-mailbox/for-next]
-[also build test WARNING on rafael-pm/linux-next rafael-pm/bleeding-edge soc/for-next linus/master v6.16-rc1 next-20260604]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Add initial support for both the Helper and Core boards, including UART,
+PMU, eMMC, USB, Ethernet, LRADC-connected buttons.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Adam-Young/mailbox-pcc-c-add-query-channel-function/20260605-044323
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git for-next
-patch link:    https://lore.kernel.org/r/20260604203749.168752-1-admiyo%40os.amperecomputing.com
-patch subject: [PATCH v01] mailbox/pcc.c:  add query channel function
-config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260605/202606050825.2uv1FZrY-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project f43d6834093b19baf79beda8c0337ab020ac5f17)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260605/202606050825.2uv1FZrY-lkp@intel.com/reproduce)
+UART1 can only be used for Bluetooth module, but BT-WiFi combo Allwinner
+AW869A chip has not mainline driver currently.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202606050825.2uv1FZrY-lkp@intel.com/
+Link: https://szbaijie.com/index/product/product_detail.html?product_id=23&language=en
 
-All warnings (new ones prefixed by >>):
+Changelog:
+v4:
+- reserve RAM for ATF
+- sun4i-lradc-keys: Add A100/A133 compatible
+- dt-bindings: renamed "Baijie Helper A133" -> "Baijie A133 HelperBoard"
+- dt-bindings: renamed "baijie,helper-a133" -> "baijie,helperboard-a133"
+- dt-bindings: introduced allwinner,sun50i-a100-lradc
+- reserve RAM for ATF
+- renamed "sun50i-a133-baijie-helper.dtb" -> "sun50i-a133-helperboard.dtb"
+- added "model" property into root of sun50i-a133-helperboard-core.dtsi
+- added "cap-mmc-highspeed" and "max-frequency" into &mmc2
+- added "x-powers,drive-vbus-en" and "*-supply" into &axp803
+- dropped all "regulator-enable-ramp-delay" properties
+- replaced &reg_dcdc3 with a "polyphased" comment
+- exact DRAM voltage in &reg_dcdc5
+- disabled &reg_dcdc6 to avoid "[   31.710641] dcdc6: disabling"
+- added &reg_vdd5v "root" regulator
+- added "disable-wp" into &mmc0
+- commented &usb_otg
+- assigned usb1_vbus-supply in &usbphy
+v3:
+- added lradc node to sun50i-a100.dtsi
+- enabled LRADC driver in arm64 defconfig
+- added my copyrights into the newly introduced DTs
+- all DT nodes sorted alphabetically
+- all always-on regulators commented/propetly named
+- all regulators got proper voltages (not default ranges)
+- ADC-sensed buttons K1..K5 added
+- re-labelled "eth_phy" -> "rgmii_phy"
+- usbphy 0 switched from host into peripheral mode (downstream from an
+  onboard hub)
+- typo sun50i-a133-baije-core.dtsi -> sun50i-a133-baijie-core.dtsi
+- https://lore.kernel.org/all/20260517234134.2737320-1-alexander.sverdlin@gmail.com/
+v2:
+- introduced baijie,helper-a133-core compatible for the Core (SoM) board
+- https://lore.kernel.org/all/20260510201644.4143710-1-alexander.sverdlin@gmail.com/
+v1:
+- https://lore.kernel.org/all/20260503191842.2736130-1-alexander.sverdlin@gmail.com/
 
->> Warning: drivers/mailbox/pcc.c:358 function parameter 'q_chan' not described in 'pcc_mbox_query_channel'
->> Warning: drivers/mailbox/pcc.c:358 function parameter 'subspace_id' not described in 'pcc_mbox_query_channel'
->> Warning: drivers/mailbox/pcc.c:358 function parameter 'q_chan' not described in 'pcc_mbox_query_channel'
->> Warning: drivers/mailbox/pcc.c:358 function parameter 'subspace_id' not described in 'pcc_mbox_query_channel'
+Alexander Sverdlin (7):
+  arm64: defconfig: Enable Allwinner LRADC input driver
+  dt-bindings: vendor-prefixes: Add Shenzhen Baijie Technology Co., Ltd.
+  dt-bindings: arm: sunxi: Add Baijie HelperBoard A133 compatible
+  dt-bindings: input: sun4i-lradc-keys: Add A100/A133 compatible
+  arm64: dts: allwinner: a100: Add LRADC node
+  arm64: dts: allwinner: a100: reserve RAM for ATF
+  arm64: dts: allwinner: A133: add support for Baijie Helper A133 board
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+ .../devicetree/bindings/arm/sunxi.yaml        |   6 +
+ .../input/allwinner,sun4i-a10-lradc-keys.yaml |   1 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+ .../arm64/boot/dts/allwinner/sun50i-a100.dtsi |  25 +++
+ .../sun50i-a133-helperboard-core.dtsi         | 197 ++++++++++++++++++
+ .../dts/allwinner/sun50i-a133-helperboard.dts | 148 +++++++++++++
+ arch/arm64/configs/defconfig                  |   1 +
+ 8 files changed, 381 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard.dts
+
+-- 
+2.54.0
+
 
