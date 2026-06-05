@@ -4,127 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF11DCD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339B4CD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1UXJ/HopNlJ1dodXDsMMfvnVhL/sLMHEDiwXVO+UtHI=; b=bwffCJ+kZwFzMCOv+nfzW6GUv2
-	dXA43zzNXjYmZMzVgs1Dcbn2Z35vwdbIpFxhygeZEaVJshjnEz70IaMhtacq+XEGAc1lpgeea60Bx
-	nRlq44JzjJ9h8DtzycqbYy0sqzVcjKD5ks6l+gL+RKiIH6ZGCtu23Guw3iSS1TLSTfNBlda6B4T3v
-	AnP7zmIQijgdlaFhvvIQCthlxoXmumViR0rc33QvTliHQctezDAAlDMk2lFb6jf3ENbOeso5vyy2B
-	F7LlAp+umK0gU/Ay8b0F1K/O5yLkLQzLt813MkdE6SbUKiJ+op687GqQHpIOZpcBuFCYAvXbJ4CgC
-	yikY9Zzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1BFFFgB57ZAob11PrIhvgonvaYPbDjOxXtuYXVUomG0=; b=TJBgSj6p/lF507if2pUXg/IwMH
+	dfHteycyVfYpraR+fExaYHHFAlX7XdvSitBizKOYi+DOeUOrNAQedJmjr4OBkNKOzF/8cvXfb7BG9
+	p1PL9Ooa+jFMpCEhDY5qLDvl1V5gMFroyQmcuRQ6wF7+5N0FzFoc3XU56/K9YWZb4tHH1utohEnTt
+	E5e3EpfjVLDWwwpQj0aFHLrr0eAptkogHY4q19NlgVmJZq74KiIFE0iqG+OBCDxGPVEua+PXteSY0
+	637nWLXiocenXe7XpNK6yzjoCPdcFF3x/GFvdVCmdwk7rFMJCDQYvrnv4tX/ARUBIWVir45mYnLTl
+	QkiwggWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWTp-00000000oou-3OqZ;
-	Fri, 05 Jun 2026 15:29:05 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wVWUr-00000000p0h-0V2R;
+	Fri, 05 Jun 2026 15:30:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWTn-00000000oo5-0OU9;
-	Fri, 05 Jun 2026 15:29:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wyg830CjUdP0My0Emx/SbPsYWrsf//ssD4rQgqLexeG/Al6K0qtsM8mI/UDPI9QXtZY1AFpqQP3qL866bx4ua2lFQ0xe11cYvnOsNfI1pfqCK33a9SuBiPI+ZCw0IXHfutcXvqRyYOD3/5+44WwEiNHvORytG4RoIUEazkXFFGAbbYnURoOnSB71uzwpmf/07sHsuUjeZdYTsP8oZhNWW1+vz0S5wh67RiWrOnY9QtbUqMFysYm3feezJsG7ATWGP04X4eWdNMAZXzBSC0L9rni+EGSKzVET5KRRgLPB/G5cQtGD0kGQUSRDWoAFhCZWGbh5aqg3M4AEMccykomPLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1UXJ/HopNlJ1dodXDsMMfvnVhL/sLMHEDiwXVO+UtHI=;
- b=ADtDEPuKVuJPYK/EdPLEltHzKw25h7hmgpqI/F2dPXYpNcKSOrDI64trGwtBFedMNeGDbE7OzLzBaNEmo+2Ekt3Ww/JFSCm0EWHR8INxtWQ5UH1eGMamaa50fJH4hkxzYgebSBPpbQsDkl5LbRwDiMc/M7N4CgGWdvB2hi5VCRN6gC+cC6rTkLD95K/6gTe46s1vyLEhIU7Oz00+TaP0nkEIS88RJKd7Pw0BfbkGLoaJrRdCTwQlEtK+E98/QUsE8zRgm76eTeqmRP5wFkuE8Tjz3KVjY206UFTJV5/kMI+hV67dEC87NrN6KnAGyXy5JVXD6Xz7taesHCmhzF9UYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1UXJ/HopNlJ1dodXDsMMfvnVhL/sLMHEDiwXVO+UtHI=;
- b=Oc3EAkTvk/5qROWDP2tEWynP2v8xLeu2gfERd4aPdGjRIAgw4t1IKHRT19FPH7bXUrG0/cGg0XP34UIa+ZM+fveDctHAIUyNKyOY2FHcWmqKJBIDQ1XROUTo6/80C0vtXQw2pzIVVvg2REqruqter9F1fG2020/0G0wKzYuzofwuSjBAD6vfXujCYs6aGnwdQIr0LNs780BlAKBjAUXtVKUq8N4H80rMifbWaMtM/1TnSqg1IXG6tu6i0zZnzbar3uM+wAqCbO32gnl0kGCY0ldUlXb8Q7IrDK4Tk6BkJD9LesyPtUQeom6TXBtf675LOfZklk58G0a4FKf+IdKwXg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VE1PR04MB7454.eurprd04.prod.outlook.com (2603:10a6:800:1a8::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Fri, 5 Jun 2026
- 15:28:57 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
- 15:28:57 +0000
-Date: Fri, 5 Jun 2026 11:28:50 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v4 4/5] phy: fsl-imx8mq-usb: add control register regmap
-Message-ID: <aiLrMs7AMECq7U66@lizhi-Precision-Tower-5810>
-References: <20260605-imx8mp-usb-phy-improvement-v4-0-b2ddf2f3862c@nxp.com>
- <20260605-imx8mp-usb-phy-improvement-v4-4-b2ddf2f3862c@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260605-imx8mp-usb-phy-improvement-v4-4-b2ddf2f3862c@nxp.com>
-X-ClientProxiedBy: PH7PR13CA0018.namprd13.prod.outlook.com
- (2603:10b6:510:174::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1wVWUq-00000000p0E-04Hx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Jun 2026 15:30:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BB1942B14;
+	Fri,  5 Jun 2026 15:30:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C001F00893;
+	Fri,  5 Jun 2026 15:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780673407;
+	bh=1BFFFgB57ZAob11PrIhvgonvaYPbDjOxXtuYXVUomG0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=RayKJ7ncq0sZEb9vdqzRVX7YDpHvVxSzRbkdFFpFXx+JmNyRvyody6M/TZBC+J1mC
+	 aijEDSFOVz044vXnDL+FBwplQJdbIFbUpu/BmIKdN10yjwCnxeqA3tttPoUnDrCfXj
+	 jJ77iJAoRNuPuAW5vKVhA6bptbyqojfT4V6HHh7zbnAH5oeRGBECqR9A8H+BWuiNEy
+	 xndf4zIX/VXugdxNVUP/9oD1IQfp6KuVrUa/LGQ+/TVcncmYM63Jcd3akd8jng6r8x
+	 16RFTi1oRG6rL/FWWoe+DWiKMkGU1UMQ8HFvlAKpM2e4qVOhrcaGRY+GkrU8dwNl9q
+	 jRADb53t0lpNg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0AF53930BA5;
+	Fri,  5 Jun 2026 15:30:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VE1PR04MB7454:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7bd54411-605c-4198-8147-08dec31728e0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|4143699003|11063799006|56012099006|22082099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: kUJChZh0rGl7hYGRLtMVLdao9C/S8bMm7eYZ4y4iCNAHBZUPdS0A0cUxZKz0ahnrPbE0kQv3696huOmsd3MbEMv/gKBrihawXZ/kHMtzErJqoAfXrS50IGTowGym9Fd9Z+ovzpsm2GseaDCFZV7lmuWecbHmJAQ4yb8N0d/i0VPwCHN0Sv+AqKSd7tn90sjm8NhgWmUJYufi8uPIbS8CaainKpHW0Bf7CZlY9Kez5/oHz/YA6FDyb4wxGXdq+VTSOb/xmbOU3n2QIAewVc1Jnu3OWZv41k2U+RBRKJ8ktSiTiQdU/8Oyk2WD1peCXU/tks4nQTaaae07nPULOcU21/iDzp+43ly/90w2V50wSW3KbX1beoXnvF5HNaXxAoK5XwJ0inT6pTFpts9GpOsPS/VFh4NY/ueeASJOj9fk+yKhNr77UQQkhfui1YdpGtA+YTO5xoEh9pwJefglYqqN1uIsU1Ey2+a7QjUUf/pBv4D5YWHUdcbVqmye0Gono2qGPLwq5LDys2BRWSXgDyElrdWhw7nmWsv3Zl4/EiP6WLYNIYf/eS4hfGRg3RuQVyGfWN/Sis8Qzkja4RvChGC7yZ8vGRgsADIsvlvxuMD0xSPMNo7DNUZDCGNcADDQnDrHecafMeUnMPVlGJ5mtPazd2NLyTtQYbHeAS+5uXyIJ8qIQOCRqum136xM5ljDBvAxOlGWqdPtJL+legPBE/pSWlnFfJQFfaKpsvwdHpKdeUkXciS6hNMbOWfu+SQIO0K1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mw6kjDtHQS2/L7K1tAY5M8u1YN1V+J2ZlRfaj5Ho6GlCYsXlhjpl2rUTSDc6?=
- =?us-ascii?Q?qIs/ht5odGOh8QSYSzkSz/5tZC0gRz+iFPL1ltMCu+tOK0lziy4F1VUewJWu?=
- =?us-ascii?Q?gX68EpywAifgLur3T3Bfz+VK58rIIig+H4MIITWmA432IoOOQQqERPylg49X?=
- =?us-ascii?Q?XD7o/wRd1Ik/1BJKroBxSHybSRvpM0PLER8Er5WKOv7PacqvDBdFeGCf8tVv?=
- =?us-ascii?Q?kaimqinPqYL72SlMxPMTMgZyZ5LlFo/0Sje4+y9KXhnpY9m8vACVSG4VnjOG?=
- =?us-ascii?Q?aS7BP31oufsfs0ifd6I19p9ZDyQN/sim7it0op5HfmrPZQOpgbqjNPJHinKR?=
- =?us-ascii?Q?YbQ6SLw72lhRmgCRqJ7qbPerpap5KLmREOx9fl1Iw0NGfcatAjCBtW8RSuAI?=
- =?us-ascii?Q?KwGQc847Q3QiOKhxG4r4PV+IFNnMIGwtAH9TH5GAiP6H8gXM1WFtAk1w+YSt?=
- =?us-ascii?Q?jpn2nBUtbmEfpV6RKkC1s5unar1Iboa9J5hR7YNfTQwV0OtijJjv4k6jPLv/?=
- =?us-ascii?Q?lL3hWD41/UECbNkVFaPoB39M6mttkFtopZ7Yj7JbJDJVwxe/x9qUqiqxkx3w?=
- =?us-ascii?Q?GWB3Ycfr+7GIPLXzlQdqMgf/ninEcLJ14Xnn4bXp5CfsWqT573Hf0EEstRlM?=
- =?us-ascii?Q?6hMcqQWWmlJZzt1r0PT2EGzHE9gnVknKXj7r+IazmHpx2L+moIV+cxC17ecK?=
- =?us-ascii?Q?qWTQaABbs3zVNGiP76MHiqPJX2OXx8yvpnFZ+A9V2FMiW9sYMPK8xNSeL4d6?=
- =?us-ascii?Q?59MOFWYvZfzFR2E5XlPovXxy/CGqIBUz9TZPotaKxLrvmWAF+/vhr3VfgpOo?=
- =?us-ascii?Q?I6p45kF5Okq5XAQhqahSszv2elgU1XXf3tcKrxa3B3MqJPKODdpgK8LKGHIg?=
- =?us-ascii?Q?yifR9nSmDra6E408oBSTydKxk+DwavADK5u9i3prYYes5jBkg+XTaGppJfCk?=
- =?us-ascii?Q?hoRo9BJekDJunR++s2kbvRuUdBZ0zqY9H23lD5dsJRbdjefT3ZfmzJQ1uHwV?=
- =?us-ascii?Q?VwvL+l4l3tjVF2PjMbMGKiVi+zhbivlcGX0kLTh5IqT98PlB5UrXItqTzPCs?=
- =?us-ascii?Q?3VAygVusJz0tD3N24CfRy4cRzHDOx1bCATCNjpp2AHUaVDU+s5CQwnXtoDZD?=
- =?us-ascii?Q?9DzaunTL4/Yv8DKW0B37oJ6mOQR6sAr4/5I8zPXq/XgixqZM0Q9bex/XSQDJ?=
- =?us-ascii?Q?L880/16zCxDN/nDAcL36hfydbXuLEVKeEepwLmAXoMXqJPUezfeLykOn1EsG?=
- =?us-ascii?Q?qIDeX4Vw0VEp04QqogknO9uf8MDSVXDsHOnYUk2oGU4zQanu3AU7BBrd1VSa?=
- =?us-ascii?Q?mNJQGG/GlmNz4MPhoXPDQEP82+huw4jys2lfNLsaQn33lKcXfEQhfdAbtYO/?=
- =?us-ascii?Q?5siPMD9H4J3wDI0I29IiS399voNEqjc/Det8/FYrt9nsmaOPTxPI8ENAwfC1?=
- =?us-ascii?Q?rT6bB0UWz6GRbuGGzqHMAn2/eosOEzSp5IBQKQUyiCc6m7HOgh/0ZqNw+g4y?=
- =?us-ascii?Q?SU6Lv4jXhmuWHjfxk5r1ymfsl4NHd+a+u0EhjY6JCNlD1m08E8zcJasPjjnI?=
- =?us-ascii?Q?B8vYIRuxGtEovLdnQvrFrPSgnywIbzNAzqttE1FIhw4r+l4OMjT3R49GBoQm?=
- =?us-ascii?Q?R1wIek7h+dpoXf20laaR5uC2ogY4KZ+8x5/vGnByLTC5qtk1XcQOT3MRbPAI?=
- =?us-ascii?Q?tn+akVH8lPLO0ax4+WVPPnSLB4jWIBK8QYbos1b+pQEtTW95?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7bd54411-605c-4198-8147-08dec31728e0
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 15:28:57.2429
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ue7gIpm8yy8yEFevvicIs6XLUeIcbEVeMh/BxZiydcA8mPjl/v9BZyguG8tR/7ZjqYMhYZ/u8HQrGrc7fv33SQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7454
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_082903_134216_FF484393 
-X-CRM114-Status: GOOD (  25.93  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH bpf-next] bpf: Replace scratch PTE atomically when
+ allocating
+ arena pages
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178067340741.3804693.1794735582974531631.git-patchwork-notify@kernel.org>
+Date: Fri, 05 Jun 2026 15:30:07 +0000
+References: <20260601183728.1800490-1-tj@kernel.org>
+In-Reply-To: <20260601183728.1800490-1-tj@kernel.org>
+To: Tejun Heo <tj@kernel.org>
+Cc: void@manifault.com, arighi@nvidia.com, changwoo@igalia.com,
+ ast@kernel.org, andrii@kernel.org, daniel@iogearbox.net,
+ martin.lau@linux.dev, memxor@gmail.com, peterz@infradead.org,
+ catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, akpm@linux-foundation.org,
+ david@kernel.org, rppt@kernel.org, emil@etsalapatis.com,
+ sched-ext@lists.linux.dev, bpf@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,125 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 05, 2026 at 07:13:05PM +0800, Xu Yang wrote:
-> From: Xu Yang <xu.yang_2@nxp.com>
->
-> The CR port is a simple 16-bit data/address parallel port that is
-> accessed through 32-bit MMIO registers for on-chip access to the
-> control registers inside the USB 3.0 femtoPHY. Add control register
-> regmap and export these registers by debugfs to help PHY's diagnostic.
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
->
+Hello:
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This patch was applied to bpf/bpf-next.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
 
-> ---
-> Changes in v4:
->  - improve commit message as Haibo's suggestion
-> Changes in v3:
->  - drop Frank's tag because it includes other changes
->  - new patch
-> ---
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 27 ++++++++++++++++++++++++++-
->  1 file changed, 26 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index 27aa696f5dd4..e24f46d7924b 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -1,5 +1,5 @@
->  // SPDX-License-Identifier: GPL-2.0+
-> -/* Copyright (c) 2017 NXP. */
-> +/* Copyright 2017-2026 NXP. */
->
->  #include <linux/bitfield.h>
->  #include <linux/clk.h>
-> @@ -11,6 +11,7 @@
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
-> +#include <linux/regmap.h>
->  #include <linux/usb/typec_mux.h>
->
->  #define PHY_CTRL0			0x0
-> @@ -56,6 +57,8 @@
->  #define PHY_CTRL6_ALT_CLK_EN		BIT(1)
->  #define PHY_CTRL6_ALT_CLK_SEL		BIT(0)
->
-> +#define PHY_CRCTL			0x30
-> +
->  #define PHY_TUNE_DEFAULT		0xffffffff
->
->  #define TCA_CLK_RST			0x00
-> @@ -119,6 +122,7 @@ struct imx8mq_usb_phy {
->  	void __iomem *base;
->  	struct regulator *vbus;
->  	struct tca_blk *tca;
-> +	struct regmap *cr_regmap;
->  	u32 pcs_tx_swing_full;
->  	u32 pcs_tx_deemph_3p5db;
->  	u32 tx_vref_tune;
-> @@ -667,6 +671,14 @@ static const struct of_device_id imx8mq_usb_phy_of_match[] = {
->  };
->  MODULE_DEVICE_TABLE(of, imx8mq_usb_phy_of_match);
->
-> +static const struct regmap_config imx_cr_regmap_config = {
-> +	.name = "cr",
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.max_register = 0x7,
-> +};
-> +
->  static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  {
->  	struct phy_provider *phy_provider;
-> @@ -696,6 +708,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  	if (IS_ERR(imx_phy->base))
->  		return PTR_ERR(imx_phy->base);
->
-> +	imx_phy->cr_regmap = devm_regmap_init_mmio(dev, imx_phy->base + PHY_CRCTL,
-> +						   &imx_cr_regmap_config);
-> +	if (IS_ERR(imx_phy->cr_regmap)) {
-> +		dev_warn(dev, "Fail to init debug register regmap\n");
-> +		imx_phy->cr_regmap = NULL;
-> +	}
-> +
->  	ret = devm_pm_runtime_set_active_enabled(dev);
->  	if (ret)
->  		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
-> @@ -731,6 +750,9 @@ static int imx8mq_usb_phy_runtime_suspend(struct device *dev)
->  {
->  	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
->
-> +	if (imx_phy->cr_regmap)
-> +		regcache_cache_only(imx_phy->cr_regmap, true);
-> +
+On Mon,  1 Jun 2026 08:37:28 -1000 you wrote:
+> apply_range_set_cb() maps the pages for a new arena allocation and returned
+> -EBUSY when the target PTE was already populated. Kernel-fault recovery
+> leaves the per-arena scratch page in unallocated arena PTEs, so a later
+> bpf_arena_alloc_pages() over such a page hits that -EBUSY, and every
+> subsequent allocation of it fails the same way. Allocation must install the
+> real page over scratch instead.
+> 
+> [...]
 
-I think this common problem, is possible to change
-regmap_read_debugfs(), let it call runtime_pm_get(), there are already
-have runtime_pm in regmap field.
+Here is the summary with links:
+  - [bpf-next] bpf: Replace scratch PTE atomically when allocating arena pages
+    https://git.kernel.org/bpf/bpf-next/c/f64c723741c9
 
-So you debug fs always to get update value, instead cached value?
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Frank
 
->  	clk_disable_unprepare(imx_phy->alt_clk);
->  	clk_disable_unprepare(imx_phy->clk);
->
-> @@ -752,6 +774,9 @@ static int imx8mq_usb_phy_runtime_resume(struct device *dev)
->  		return ret;
->  	}
->
-> +	if (imx_phy->cr_regmap)
-> +		regcache_cache_only(imx_phy->cr_regmap, false);
-> +
->  	return 0;
->  }
->
->
-> --
-> 2.34.1
->
 
