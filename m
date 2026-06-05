@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7464CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 08:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A46CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 08:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xomH7vFXWWtjI+devX73Or32J/jQoae12DQTVZVqU6c=; b=V0y7vZZ2rAzlagawC8xz1prfT9
-	ahawyCbo72Hd/dcdzKJy9SMMI9e3bXCMo095c/1MecL0Qp+Lr+Mkm2HyT603euItQsP0FKEUYzB13
-	4ohxIUy6iaV2gLdMPvChUsF4cUVU+fccOme8VEPX2mrVCfvByGbR+PrBPtvg246/VF58MfhnlL2OA
-	ap5c+pK4w2Q/WLsrOkcr9Ql8Z5KlxHHwSVH5utk8SMy6dXovNxlfBXfy8fV8jYnl58UbqkUyV/IxE
-	ga8hu4phDjGnZBqiTDYAqifr1534hEns4m5En5EkKYydDPtjz8XbApa1NuHL+QWkW5nY/GMIvjJRv
-	Md2uDTuQ==;
+	bh=Yu8TX8xnp5Yu5oGt44kALrElMZ8ip5Sl8d0Xx/+e4mQ=; b=mYvIKNX16ZJFdig/LpT72Kj359
+	tXTDYG7vFi94rKx4btQja85dRoAdiIFVplb4pGDUXLZWwcLx/yDqoSvTDZEu407J79gjWP5P6lA3l
+	2mJTQErlQcOySqWWrXBEIrfGh9RSYBvASLozobJxGq+DjxPSDf3WjX1sC/dfxi/oiUjdYdZrvf2fK
+	tbwhyd6qNVDP3e+oMDjXlpr0JjDFqnCN9ljm9sYlRbORaNNELXX+3LrYWsahndWK3qA3jukeq3YP4
+	vMdUeMV0lFJFt64+0wOWEnNTemoRyRSfl9kOf0Ku9m7SQfsIX4hTPf0YjSKlqT7qah0ikxQb0tGFL
+	Tlex4dzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQ9P-00000000Kn4-3hJP;
-	Fri, 05 Jun 2026 08:43:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wVQNa-00000000Lx8-3WWP;
+	Fri, 05 Jun 2026 08:58:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQ9O-00000000Kmw-3Hu8
+	id 1wVQNZ-00000000LwJ-2wRX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 08:43:34 +0000
+	Fri, 05 Jun 2026 08:58:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA9186012B;
-	Fri,  5 Jun 2026 08:43:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5930A1F008A7;
-	Fri,  5 Jun 2026 08:43:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B62A840853;
+	Fri,  5 Jun 2026 08:58:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 968F81F00893;
+	Fri,  5 Jun 2026 08:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780649013;
-	bh=xomH7vFXWWtjI+devX73Or32J/jQoae12DQTVZVqU6c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MxSEptM2U7b3TTvsRGnvsifV7/2mvhUon8g+ClkaM3W3XTRJlMSyNNELzD6lEOGuR
-	 8ms6RqLA8oJtaUJRIxlfVa7Ajpecpkm5C0qLki/zwwVPY4xnVsFB6hj3oHYJ0v5QGF
-	 /ljPAV+X1LdB+UoULpHhNqCIdeCg1YhEF7+2Hczm4flYNIjzKyTIsfD78NieftTSh8
-	 6XbmJDFnv55i1GzKK8i6YwOZPWUz6NOAyWoxVWkqZMvGWt2NqJ5uR3FQN4QyXO+3KQ
-	 15GMRsCJ6WZe9BgoDPhmZHsEhFCVrVF9lFHWZ3HQV5lEQpaR6RkjNyNdbnm8WjBvmK
-	 jw10Oqk5rBf7Q==
-Date: Fri, 5 Jun 2026 01:43:32 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Hyunwoo Kim <imv4bel@gmail.com>, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com,
-	jic23@kernel.org, timothy.hayes@arm.com, eric.auger@linaro.org,
-	christoffer.dall@linaro.org, andre.przywara@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours
- before migrating it
-Message-ID: <aiKMNIUMv9GQiIbD@kernel.org>
-References: <aiHnI1mu6SGQrgnz@v4bel>
- <aiJmBfXAxcytfGha@kernel.org>
- <87ecila0w3.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87ecila0w3.wl-maz@kernel.org>
+	s=k20260515; t=1780649891;
+	bh=Yu8TX8xnp5Yu5oGt44kALrElMZ8ip5Sl8d0Xx/+e4mQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XbzKnU3Q5/W6SSRjC052uv19rILHL1AvqzDpiBYsjU0MNYDjMY1eiAMOAxxiWe6yc
+	 4UTppxRlyw0Z81lKsboH//6XmsJGE1ySaDyeHDucomASARC7LTaRj5WxTWoEfAE4/Q
+	 w9/uFETcL/OZP7eIyorHoF/VBBPlfZQWv3FHir4eyU6ioQ/NloCL9CNJkuuaDm1GcQ
+	 ImAjUrN0lt0/kQXaTFob6OMBiLnikLPOc6f+oIjW1l4ziUzHw5FmIQFOg78KHvs8Xf
+	 y4lPH6HKZ5YSUxOr+7QWA53wQXo83oIYy7r0DR2FzGAttuksAuwi8ZuV+r68eAjRo0
+	 eFa2Il4vsI3gg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wVQNV-00000009hhZ-1uVe;
+	Fri, 05 Jun 2026 08:58:09 +0000
+Date: Fri, 05 Jun 2026 09:58:09 +0100
+Message-ID: <86zf19tlcu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: tabba@google.com,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 2/2] KVM: arm64: Bound used_lrs when flushing the pKVM hyp vCPU
+In-Reply-To: <20260604151210.1304051-3-imv4bel@gmail.com>
+References: <20260604151210.1304051-1-imv4bel@gmail.com>
+	<20260604151210.1304051-3-imv4bel@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: imv4bel@gmail.com, tabba@google.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,74 +89,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 05, 2026 at 08:42:52AM +0100, Marc Zyngier wrote:
-> On Fri, 05 Jun 2026 07:00:37 +0100,
-> Oliver Upton <oupton@kernel.org> wrote:
-> > 
-> > On Fri, Jun 05, 2026 at 05:59:15AM +0900, Hyunwoo Kim wrote:
-> > > vgic_prune_ap_list() drops both ap_list_lock and irq_lock while migrating
-> > > an interrupt to another vCPU. After reacquiring the locks it only checks
-> > > that the affinity is unchanged (target_vcpu == vgic_target_oracle(irq))
-> > > before moving the interrupt, which assumes that an interrupt whose affinity
-> > > is preserved is still queued on this vCPU's ap_list.
-> > > 
-> > > That assumption no longer holds if the interrupt is taken off the ap_list
-> > > while the locks are dropped. vgic_flush_pending_lpis() removes the
-> > > interrupt from the list and sets irq->vcpu to NULL, but leaves
-> > > enabled/pending/target_vcpu untouched. As the interrupt is still enabled
-> > > and pending, vgic_target_oracle() returns the same target_vcpu, so the
-> > > affinity check passes and list_del() is run a second time on an entry that
-> > > has already been removed.
-> > > 
-> > > Also check that the interrupt is still assigned to this vCPU
-> > > (irq->vcpu == vcpu) before moving it.
-> > > 
-> > > Fixes: 0919e84c0fc1 ("KVM: arm/arm64: vgic-new: Add IRQ sync/flush framework")
-> > > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
-> > 
-> > Looking at this and the other VGIC patch you sent (which should've been
-> > a combined series), are you trying to deal with a vCPU writing to
-> > another vCPU's redistributor? I.e. vCPU B setting GICR_CTLR.EnableLPIs=0
-> > behind the back of vCPU A?
-> > 
-> > That is extremely relevant information as the off-the-cuff reaction is
-> > that no race exists. But since the GIC architecture is awesome and
-> > allows for this sort of insanity, it obviously does....
-> > 
-> > Anyway, for LPIs resident on a particular RD, there's zero expectation
-> > that the pending state is preserved when EnableLPIs=0. So I'd rather
-> > vgic_flush_pending_lpis() just invalidate the pending state.
+On Thu, 04 Jun 2026 16:12:03 +0100,
+Hyunwoo Kim <imv4bel@gmail.com> wrote:
 > 
-> Just clearing the pending state introduces a potential problem as we
-> now have an interrupt that is neither active nor pending on the AP
-> list. It is not impossible to solve (we now have similar behaviours
-> with SPI deactivation from another vcpu), but that requires posting a
-> KVM_REQ_VGIC_PROCESS_UPDATE to the target vcpu.
-
-Right, I was suggesting that in addition to deleting the LPI from the AP
-list we actually invalidate the pending state so that someone sitting on
-a pointer to a to-be-freed LPI sees vgic_target_oracle() returning
-NULL
-
-> > Beyond that, I see two other fixes for lifetime issues around the
-> > vgic_irq in the middle of migration. I'd like to see explicit RCU
-> > protection around the release && reacquire of the ap_list_lock rather
-> > than depending on the precondition that IRQs are disabled.
+> flush_hyp_vcpu() copies the host vGIC state into the hyp's private vCPU
+> on every run. The vGIC list register save and restore use used_lrs as
+> their loop bound and expect it to stay within the number of implemented
+> list registers. While this is generally the case, flush_hyp_vcpu()
+> copies vgic_v3 verbatim and does not enforce this, so a value provided
+> by the host is used at EL2 to index vgic_lr[] and access ICH_LR<n>_EL2
+> (host -> EL2).
 > 
-> I'm not sure I follow. Are you suggesting turning the AP list into an
-> RCU protected list?
+> Fix by clamping used_lrs to the number of implemented list registers
+> after the copy, as the trusted path already does in
+> vgic_flush_lr_state().
+> 
+> Fixes: be66e67f1750 ("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()")
+> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 02c5d6e5abcbf..cd807fdb11ba8 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -7,6 +7,7 @@
+>  #include <hyp/adjust_pc.h>
+>  #include <hyp/switch.h>
+>  
+> +#include <asm/arch_gicv3.h>
+>  #include <asm/pgtable-types.h>
+>  #include <asm/kvm_asm.h>
+>  #include <asm/kvm_emulate.h>
+> @@ -142,6 +143,13 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  
+>  	hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3 = host_vcpu->arch.vgic_cpu.vgic_v3;
+>  
+> +	/* Bound used_lrs by the number of implemented list registers. */
+> +	if (static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
 
-No, sorry, I should expand a little.
+There is no pKVM support without a GICv3 CPU interface, and absolutely
+everything already assumes it. Why do we need this extra check?
 
-We store a reference on the vgic_irq struct in the AP list, which is
-stable so long as the ap_list_lock is held. It should be possible for
-the refcount to drop to 0 between releasing the ap_list_lock and
-reacquiring it.
+> +		hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs =
+> +			min_t(unsigned int,
+> +			      hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs,
+> +			      (read_gicreg(ICH_VTR_EL2) & 0xf) + 1);
+> +
 
-So either vgic_prune_ap_list() takes an additional reference on the
-vgic_irq before dropping the ap_list_lock or rely on RCU to protect
-vgic_irq structs observed with a non-zero refcount.
+Reading ICH_VTR_EL2 on each entry is going to cause some really heavy
+trapping under NV, and we should avoid this.
+
+kvm_vgic_global_state.nr_lr contains this information, and it should
+only be a matter of replicating it (or compute it once) at init time.
 
 Thanks,
-Oliver
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
