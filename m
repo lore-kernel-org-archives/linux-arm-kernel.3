@@ -4,93 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66EACD6E7E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70C2CD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=POfwTOxPePIR+bzQ/YWTWSHHwFIOZT4YImIC9EJ68WE=; b=3FkQWudJiWp9WAgIUMZNhzmpf/
-	gPSwzVJTTG4ZyfgL3WjMoqrCpkj4ubnmzeofMrgrTMYbTyn+6oODohK8NTmyIIA87lzy00SFgm/7Z
-	/t8CKkYYWMr+lOowgdZtfKKJVnKJjBTV55H4mZfU7aLiF6LYJ2kU8OkMJcWQsF95J4NYhhrMBMDve
-	CSd8VpqqBScqo4YC5GRVb8tUoJACSO+6qWT3TjQkdf+YM0rXWsfRtAPw6O+hnOn0XqYnQ2zqKSucd
-	DbbO08QtTAqxWslaWDJeEVbN3wR+l7GZ0lcOcCfDVKXcVZu/nT99yCI31F3jn2ZWHOyn7AsURKQ/D
-	Q/7JvXPg==;
+	bh=cho74LPPbfY4ufBiNs1OFbSMRQHOtbZk95CDddcuzRA=; b=dsMsD5tvj0KxMG+EY5GeK3n6vs
+	Czj5xHqwrd8MhlKpf4iF4gGz+ZwyOCbbEg7FKpuh+W2Jqg+kJphsHqSTVVfzbeJACsdsn3uXpX55p
+	X1fVTOS3z18qF57tn5JPQeXTPgQWSxlYzSoaZMD8ZNWSqVT8y2zb55Fz/SwmCHvyg6Jc0X8ngN+jc
+	/GRpu8UsC0Uda8xdHKI6ihKrOCmJsIllOX9+iIuH5LaMPBKSJELc7eGOZxsBv0uU0RlZwnF3dKNfD
+	9Z2TmKzQO5TV8uKcTZs/TgHJMvqJt/07/4kU7YGuH4EFjdBFLG6PzA7jYbWafx6xaeTpzaOhMjELk
+	UenixVJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVb0e-000000019hu-3FlM;
-	Fri, 05 Jun 2026 20:19:16 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wVbNp-00000001AVi-0oVz;
+	Fri, 05 Jun 2026 20:43:13 +0000
+Received: from mail-ua1-x932.google.com ([2607:f8b0:4864:20::932])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVb0b-000000019g6-17vd
+	id 1wVbNm-00000001AV8-37AK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 20:19:14 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490c0c92cffso13864795e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:19:12 -0700 (PDT)
+	Fri, 05 Jun 2026 20:43:12 +0000
+Received: by mail-ua1-x932.google.com with SMTP id a1e0cc1a2514c-963b09d5b91so2042085241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:43:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780690752; x=1781295552; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=POfwTOxPePIR+bzQ/YWTWSHHwFIOZT4YImIC9EJ68WE=;
-        b=k6tPwbag6Hgg2mRcBpA2FY3wp6nr230Z7dWto8+tvUeM4ZUpNcCcZXJU1TFKsDyfXd
-         3kTRPpGrdMyle9Buz0XW9K35h6gV4139ornTWE5OWV+yhjS8MeOw4joAETVa6wqsPShX
-         TNIH13Mb3q8PbZkmYGeZdDVZtHSOHGyYRdbajKMbVxos9zQ7t7eXgsVhZftv37NNdK10
-         iTgTz8TDNRtinuhCI+nl2YOoKDA6RzUDuGY4HEG88a8Xd/S/2Q5SaKWOs3WRINU5NYd6
-         /rLql/O04L79TRGkmSsp1HQP261wHYVJUM6Wy3gYmh3qYrIdha16Pd+RaipLamSMO6tU
-         dGuQ==
+        d=chromium.org; s=google; t=1780692189; x=1781296989; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cho74LPPbfY4ufBiNs1OFbSMRQHOtbZk95CDddcuzRA=;
+        b=e7bRVv94JMHTHLfvnsCVVcfkfjVGLLYqmZm5GHf6jSwbx8xuLq8psIqrBrU5ZTXA0u
+         +DzModjQp08YdREV7B9D1sZTIXBlJhocnWmLtbY0QhBjiii2RUUt0ZgUUmRZ4XLxrxk+
+         ZJG5tD1xYH5rssxWE+b5rPT74JSwqIxYs83kA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780690752; x=1781295552;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=POfwTOxPePIR+bzQ/YWTWSHHwFIOZT4YImIC9EJ68WE=;
-        b=d2StL6p+0ROCtKBG5t8ctxWPrDKRv3fdTcfsdJt/F/HvqzKbr2yuYKFGvAdEcKI3p2
-         8BuB5O4F0pxMV5bhg29+v9hfFNFBLJ1Kr4v9umY+yFheQBTWnEpYhAnpSwrfD0z6QpVW
-         q/6MOJrvYUSff6VNJYjyNAnwtqy1j7erej19me17XmvDix0ssEJ0eXK2lRZephA3JIWA
-         xWAaOLKZ7ahO6PEUhrnu4XKgs4iNBBZovBzRnx9P5QcCUr3WNT7o325QoGU+GHYh41My
-         8v21q7Gpn/KJLyOQ1iouKCs1VY/9g70j4VkjQQdv1+jA9MPh3xq4i7s11neaO9I5SiCA
-         XuJQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+k+9sik6p1aAOHi8drbZWtK+1kQ9yj9xqivb7SCovwFN0jikgqMxD662rnk5Y8p7IbMMXB74Uc+6aUiaQPe+LO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3lnVzv7xo76yl3LnUq2a1p2t54CnhskMqeQRCq2lA4vqQjDXN
-	AwtekXLJC7Ll+nBrXECae7sLY9ZA3WeasBI0sDtqex120QdVza82YQOteYBmwDVfpmw=
-X-Gm-Gg: Acq92OF1pezklDIhHFFQq/8fYRTpOxImjcuvNFaQ6L3dZF6837WBbEY7fJkjhS9pl2p
-	8BrSmAWPuVzNSNc1tRFQL0wGW0yeIe+OcpH63rTaeiawTzdf13WgGdcFw68SoaT+6hqilv6LewX
-	TmFc5n0ZOUWUJ5M23HP3lK2QFOBdkLxn9EYRm8NcFy3ckdUZvBIwStpCryD+DRlxI1xkrqc/T8j
-	DZXv7VijgGPTKUZVKAATPvDKiGsHOzPfaZpRzMLCvgIZK7VbG/Nvr/GLHEZFJuG+lpVML2/eFb+
-	vCyuXMyO3P2jRj8X75NCTN6XpQLCjIXZJhfmDetlEyQoj8ED4IQJtFtTLcA6YDmqK+ZFNmKjmYX
-	YiLhG0AgD1RUhYwXEnL2h1i2/GwoGBGt9bzW3NfRNY0IlmbHLvMRwedVU8wqRVdNFyuU5sgV7NA
-	Ku2i5bKqIdQ4A6sBCMU20hZpCz7Y9ENnOiVmCJJpnwM6AjzQHrpGfD2xaqgC3ADHTUyhEAczbeB
-	l16dmq3t47QbIeG9XqnSwcgyAw=
-X-Received: by 2002:a05:600c:8705:b0:488:ac01:72de with SMTP id 5b1f17b1804b1-490c25898efmr107486035e9.5.1780690751755;
-        Fri, 05 Jun 2026 13:19:11 -0700 (PDT)
-Received: from [127.0.1.1] ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc413541sm190533895e9.14.2026.06.05.13.19.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Jun 2026 13:19:10 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Fri, 05 Jun 2026 21:18:52 +0100
-Subject: [PATCH 3/3] soc: samsung: exynos-pmu: fix error paths in
- cpuhotplug/idle states setup
+        d=1e100.net; s=20251104; t=1780692189; x=1781296989;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=cho74LPPbfY4ufBiNs1OFbSMRQHOtbZk95CDddcuzRA=;
+        b=Ia/lW6vdtnJ2yWYBR8T0OBxsQieSv0X4JtqLrWvsXNeiUT8Zx0T15QUg1i8c0FSos7
+         7iXQ4GISs5+0uFWbKpgTIJ+rwu2nxAjVpWlEvxVMPTxE9rXuytOgSzEGRmq+/xB21M6A
+         T/QX7Dy9EusnHELcVuo46cD/sAtvibpmxAXWrg4IimokMGAdXtJgGSX38yf4pXdCJkWj
+         /2ABTyfeWF8N+h1Vra2h3eECrQBY2ftrkQF6Ln/NZOqNzl1UD4UQ/BvV3ir0XQBwN/Cs
+         4urUZVza1PqZ/UWkELqLzSQ5gU6zGbg4qWpivTlL3trFMtcZ4Kvc3K/hQqCHZ4930UVQ
+         Ciww==
+X-Forwarded-Encrypted: i=1; AFNElJ8o89e3jPEmzzeP1quFUZAtAO921OHM1C5jVxbmeQ7FMVDA26x1ofvcx5b5WLhkzXoBFsbnCdeKX2ePHvKyeIXS@lists.infradead.org
+X-Gm-Message-State: AOJu0YweA9I4CZCYHm/5/zhBG32TIgNaurR+98A1dzSnAs9Kv3wV+ibj
+	ymK3SSVbQL2RnLktg+zCQ5inOyrJgLr3M64n8fOuQr+mvr1GD4HAq54UvS7yk5BSabQxs7zu27J
+	VdTE=
+X-Gm-Gg: Acq92OE4jxnTBebAtbWY+WEH4xXlBKsWC1peFZDc3GXz+RC3hyWsQBxhkWsOMtC2vBM
+	h3Z5TthdRh0CwYXLA40KYmZQgn4yDNDlPClgZ71MRprlALy0paUFfKhc/vNsfLhiKevKphp3fZT
+	ff15S6DgXctE3TlB3TlljZVJ+o5YUfmWHknQyYQfYTiZ/wR+MX5Z6RlHUopmqR62bTHbdVrYOHk
+	30NzON2QIWjRRsO8guXdgFYgia0wK0St8CVLN/PA7CIsEvInbhdBh6N5lylaMnNbNTEFKWIduQ1
+	pS3Hb+PIuQpVT5xl9+UlrRFMz8G8VHYjyi0J9BOOYX0UP+s60tozyBoDzT/rbKBAFJO8NHpN++b
+	c+9p0QTA5TJZfliCu3B0NdoFKXdyBg6i0Mntx/UIcLZJYmEKedmPU3zIDvH9Rg9ICBvwsg5Le3S
+	W2hErKEGWCC6zQqLVpUJg+omU4sOB57UhWoZXG+l5j+ghbY4Eql5di9pDo3x7NCFmOUKGwzC3L7
+	JEOXmH/hQD81ZQ=
+X-Received: by 2002:a05:6102:419e:b0:6ce:d923:7642 with SMTP id ada2fe7eead31-7003bf5c587mr1726854137.14.1780692189256;
+        Fri, 05 Jun 2026 13:43:09 -0700 (PDT)
+Received: from mail-vk1-f173.google.com (mail-vk1-f173.google.com. [209.85.221.173])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-6eb36325d59sm8938097137.0.2026.06.05.13.43.08
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Jun 2026 13:43:09 -0700 (PDT)
+Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-59bf145a74fso2244823e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:43:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+r288faWj4tsF1gl0Gb5EELny+8kcDu1iEQJNGiPmAMxRy+42VSSIXWS0q7erVC5viruDDCM4jylOkJNsZiOff@lists.infradead.org
+X-Received: by 2002:a05:6122:6d0c:b0:56b:942f:b870 with SMTP id
+ 71dfb90a1353d-5acce97fa0bmr1782104e0c.0.1780692188106; Fri, 05 Jun 2026
+ 13:43:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-3-0cd05c81a82d@linaro.org>
-References: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
-In-Reply-To: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Sam Protsenko <semen.protsenko@linaro.org>, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Sashiko <sashiko-bot@kernel.org>
-X-Mailer: b4 0.14.3
+References: <cover.1780496779.git.kas@kernel.org> <54cb99db3c981dc39eb3031aff5caeaadb09e8b9.1780496779.git.kas@kernel.org>
+In-Reply-To: <54cb99db3c981dc39eb3031aff5caeaadb09e8b9.1780496779.git.kas@kernel.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Fri, 5 Jun 2026 13:42:57 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=X5++c-6Wd6babajiPbn07cfPcG0uW3ZeepznXgSVO2+w@mail.gmail.com>
+X-Gm-Features: AVVi8CflIYMiZRPhuoda88AFJmay5Li2jpcnqm8IPxUeStYcxSTeJUSPo89hfx4
+Message-ID: <CAD=FV=X5++c-6Wd6babajiPbn07cfPcG0uW3ZeepznXgSVO2+w@mail.gmail.com>
+Subject: Re: [PATCH 4/4] arm64: route crash_smp_send_stop() last resort
+ through SDEI
+To: Kiryl Shutsemau <kirill@shutemov.name>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Usama Arif <usama.arif@linux.dev>, 
+	Breno Leitao <leitao@debian.org>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
+	Lecopzer Chen <lecopzer.chen@mediatek.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_131913_340272_0B6AB886 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20260605_134310_856549_57677643 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,126 +114,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The setup_cpuhp_and_cpuidle() initialisation sequence currently ignores
-the return values of cpuhp_setup_state(), cpu_pm_register_notifier(), and
-register_reboot_notifier(). If any of these registrations fail during
-probe() routine, the driver returns 0, leaving the driver partially
-configured.
+Hi,
 
-Furthermore, if anything after setup_cpuhp_and_cpuidle() fails in probe()
-routine, for instance devm_mfd_add_devices(), the probe() lacks an error
-path and leaves notifiers and cpu hotplug states registered.
+On Wed, Jun 3, 2026 at 7:36=E2=80=AFAM Kiryl Shutsemau <kirill@shutemov.nam=
+e> wrote:
+>
+> @@ -1288,8 +1288,32 @@ void crash_smp_send_stop(void)
+>                 return;
+>         crash_stop =3D 1;
+>
+> +       /*
+> +        * Stop the normal way first: IPI_CPU_STOP escalating to a pseudo=
+-NMI
+> +        * IPI. Every CPU that responds saves its state via crash_save_cp=
+u()
+> +        * and parks in cpu_park_loop() with its online bit cleared -- th=
+e
+> +        * standard kdump stop, identical to a kernel without SDEI. Cruci=
+ally
+> +        * those CPUs stay in a clean, potentially-reusable state.
+> +        */
+>         smp_send_stop();
+>
+> +       /*
+> +        * Whatever is still online didn't respond -- typically a CPU wed=
+ged
+> +        * with interrupts masked. The plain IPI can't reach it, and a fl=
+eet
+> +        * that declines the pseudo-NMI hot-path cost has no NMI IPI to
+> +        * escalate to. Hit only the survivors with the SDEI cross-CPU NM=
+I
+> +        * (no-op if SDEI isn't active, or if everything already stopped)=
+:
+> +        * firmware delivers out of EL3 regardless of PSTATE.DAIF, and th=
+e
+> +        * handler captures crash_save_cpu() state from the wedged contex=
+t
+> +        * before parking the CPU.
+> +        *
+> +        * SDEI is deliberately last: an SDEI-stopped CPU never completes=
+ its
+> +        * event (it parks inside the handler, so EL3 retains its dispatc=
+h
+> +        * slot until reset), which is strictly less recoverable than a n=
+ormal
+> +        * stop. We pay that only for CPUs that left no other way to reac=
+h them.
+> +        */
+> +       sdei_nmi_crash_smp_send_stop();
 
-Introduce variables for the cpu hotplug state IDs in exynos_pmu_context
-struct, that should be initialised to CPUHP_INVALID by default. Check all
-return codes in setup_cpuhp_and_cpuidle(), and add an error path to remove
-registered states on failure. Finally, add destroy_cpuhp_and_cpuidle()
-helper to safely tear down notifiers and cpu hotplug states.
+It feels weird to me that you're adding SDEI for "crash stop" but not
+for regular "stop". It feels like you should modify smp_send_stop() to
+fall back to SDEI if sending the NMI failed, instead of adding this
+separate path.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
-Fixes: 78b72897a5c8 ("soc: samsung: exynos-pmu: Enable CPU Idle for gs101")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- drivers/soc/samsung/exynos-pmu.c | 57 ++++++++++++++++++++++++++++++++++------
- 1 file changed, 49 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index 9636287f6794..846313a28e9a 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -38,6 +38,8 @@ struct exynos_pmu_context {
- 	unsigned long *in_cpuhp;
- 	bool sys_insuspend;
- 	bool sys_inreboot;
-+	int cpuhp_prepare_state;
-+	int cpuhp_online_state;
- };
- 
- void __iomem *pmu_base_addr;
-@@ -404,6 +406,17 @@ static struct notifier_block exynos_cpupm_reboot_nb = {
- 	.notifier_call = exynos_cpupm_reboot_notifier,
- };
- 
-+static void destroy_cpuhp_and_cpuidle(void)
-+{
-+	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
-+	unregister_reboot_notifier(&exynos_cpupm_reboot_nb);
-+
-+	if (pmu_context->cpuhp_prepare_state != CPUHP_INVALID)
-+		cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
-+	if (pmu_context->cpuhp_online_state != CPUHP_INVALID)
-+		cpuhp_remove_state(pmu_context->cpuhp_online_state);
-+}
-+
- static int setup_cpuhp_and_cpuidle(struct device *dev)
- {
- 	struct device_node *intr_gen_node;
-@@ -465,16 +478,42 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
- 		gs101_cpuhp_pmu_online(cpu);
- 
- 	/* register CPU hotplug callbacks */
--	cpuhp_setup_state(CPUHP_BP_PREPARE_DYN,	"soc/exynos-pmu:prepare",
--			  gs101_cpuhp_pmu_online, NULL);
-+	pmu_context->cpuhp_prepare_state = CPUHP_INVALID;
-+	pmu_context->cpuhp_online_state = CPUHP_INVALID;
- 
--	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
--			  NULL, gs101_cpuhp_pmu_offline);
-+	ret = cpuhp_setup_state(CPUHP_BP_PREPARE_DYN, "soc/exynos-pmu:prepare",
-+				gs101_cpuhp_pmu_online, NULL);
-+	if (ret < 0)
-+		return ret;
-+
-+	pmu_context->cpuhp_prepare_state = ret;
-+
-+	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
-+				NULL, gs101_cpuhp_pmu_offline);
-+	if (ret < 0)
-+		goto clean_cpuhp_states;
-+
-+	pmu_context->cpuhp_online_state = ret;
- 
- 	/* register CPU PM notifiers for cpuidle */
--	cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
--	register_reboot_notifier(&exynos_cpupm_reboot_nb);
--	return 0;
-+	ret = cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
-+	if (ret)
-+		goto clean_cpuhp_states;
-+
-+	ret = register_reboot_notifier(&exynos_cpupm_reboot_nb);
-+	if (!ret)
-+		/* Success */
-+		return ret;
-+
-+	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
-+
-+clean_cpuhp_states:
-+	if (pmu_context->cpuhp_prepare_state != CPUHP_INVALID)
-+		cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
-+	if (pmu_context->cpuhp_online_state != CPUHP_INVALID)
-+		cpuhp_remove_state(pmu_context->cpuhp_online_state);
-+
-+	return ret;
- }
- 
- static int exynos_pmu_probe(struct platform_device *pdev)
-@@ -548,8 +587,10 @@ static int exynos_pmu_probe(struct platform_device *pdev)
- 
- 	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE, exynos_pmu_devs,
- 				   ARRAY_SIZE(exynos_pmu_devs), NULL, 0, NULL);
--	if (ret)
-+	if (ret) {
-+		destroy_cpuhp_and_cpuidle();
- 		return ret;
-+	}
- 
- 	if (devm_of_platform_populate(dev))
- 		dev_err(dev, "Error populating children, reboot and poweroff might not work properly\n");
+>  static int sdei_nmi_handler(u32 event, struct pt_regs *regs, void *arg)
+>  {
+> +       int cpu =3D smp_processor_id();
+> +
+> +       if (READ_ONCE(*this_cpu_ptr(&sdei_nmi_crash_stop_requested))) {
+> +               WRITE_ONCE(*this_cpu_ptr(&sdei_nmi_crash_stop_requested),=
+ 0);
+> +
+> +               /*
+> +                * Capture the wedged context for kdump while pt_regs sti=
+ll
+> +                * points at the interrupted PC. This is the main motivat=
+ion
+> +                * for using SDEI here: the plain IPI stop path can't rea=
+ch an
+> +                * interrupt-masked CPU (and the fleet declines pseudo-NM=
+I to
+> +                * keep the IRQ-mask hot path cheap), so crash_save_cpu()=
+ for
+> +                * that CPU would otherwise record nothing useful.
+> +                */
+> +               crash_save_cpu(regs, cpu);
+> +               set_cpu_online(cpu, false);
+> +
+> +               /* publish the crash state/offline before the requester s=
+ees the ack */
+> +               smp_wmb();
+> +               WRITE_ONCE(*this_cpu_ptr(&sdei_nmi_crash_stop_acked), 1);
+> +
+> +               /*
+> +                * Park forever from within the SDEI handler. We delibera=
+tely
+> +                * do NOT issue SDEI_EVENT_COMPLETE: the framework's retu=
+rn
+> +                * path restores firmware's saved interrupted context, wh=
+ich
+> +                * would land the CPU back wherever it was running (often
+> +                * do_idle, which then notices cpu_is_offline=3Dtrue and =
+BUGs
+> +                * at cpuhp_report_idle_dead). Returning the modified pt_=
+regs
+> +                * doesn't help -- arch/arm64/kernel/sdei.c::do_sdei_even=
+t
+> +                * only honours a PC override via its IRQ-state heuristic
+> +                * and otherwise hands EL3 its own saved-context slot bac=
+k.
+> +                *
+> +                * Trade-off: EL3 firmware retains ~one saved-context slo=
+t
+> +                * per parked CPU until the next hardware reset (~hundred=
+s of
+> +                * bytes per CPU). The CPU itself is parked in cpu_park_l=
+oop
+> +                * exactly as if IPI_CPU_STOP had stopped it; recoverabil=
+ity
+> +                * is unchanged versus the existing path (neither is
+> +                * recoverable without hardware reset, since PSCI sees th=
+e
+> +                * CPU as ALREADY_ON in both cases).
+> +                */
+> +               cpu_park_loop();
+> +               /* unreachable */
 
--- 
-2.51.0
+Any chance we could avoid duplicating stuff from ipi_cpu_crash_stop()?
 
+
+> +bool sdei_nmi_crash_smp_send_stop(void)
+> +{
+> +       unsigned int this_cpu, cpu, remaining;
+> +       unsigned long timeout;
+> +       cpumask_t mask;
+
+The above will probably get you a yell. Putting "cpumask_t" on the
+stack is a no-no since it can be quite large under certain CONFIG
+options. This is why it's nearly always defined as "static".
+
+-Doug
 
