@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C8BCD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 01:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7272CD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 01:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3xEuNbFobIfq47a7fzRigST3BA251er9sMioTh4rLKY=; b=Q9qSSEqtkdYYMI1jJU+BCrWjLX
-	U7Tx/FuHmdmjTT557aHqBOSqTXS4mRQ7G/b2Cjv9KS2Erh7iQAmYMAUX30bys510T5arWoe7v5jaZ
-	fsq/LX3QeIMwdO4TlHM1mAgJ+KorL70rqWUtynyK+HSeeqLW3kgdUDuAEsrTzRlBznrLMmCZX+2K1
-	2DoL4EyKVdUmh9e2sdH8CL2EItRByYZLd1ijtr52/D7jKMJcdGEivKRg6puGE/6mKCzkLbdlicSlw
-	xd0uvH5BQmGCcb3kz3RclrcLUJHQPefxth09af3SyxnznunuP1U2IEF98ZCpABVJjcH3Zad/XWG9/
-	6TWJTeyA==;
+	bh=NO3q3FjeZxoBvWVc1q8if2QrGoMmsDL+VfIf8U72prQ=; b=DhKdC8KN7fMOaaZNMenEb7ZmP7
+	mBtHFoq3Pz5XzGEGQyu51+VymLtmq1bUXxaKnpdL32LZFSGR8EKrF2vHn13cQ63pxKqPW0syhqJn6
+	yzujm0wMNUmcPjCbdgCG68f8uwgYVG4W/9o9+GxjB5n25Z5vQxw0b63w+2p2RW5JqkUCsiM2k8bxh
+	i+EY1m3byN8s4iSHdB/qtpJ76FgeDY7iSqCIXAbc1zfGwXhFUierIWV9vL02LGaWup0lArpAaEXo1
+	QxtqAqyoBhS8XE2gkZkBvhzP29TllQcz7+Q6U+EwFRM2qlD7EryW3+qSv6HXOP8VrBgL0UM+iiWru
+	OUE8eyRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVJcz-0000000HX4y-2Jjj;
-	Fri, 05 Jun 2026 01:45:41 +0000
-Received: from mail-northeuropeazon11010051.outbound.protection.outlook.com ([52.101.84.51] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wVJcq-0000000HWxv-0ZyB;
+	Fri, 05 Jun 2026 01:45:32 +0000
+Received: from mail-northeuropeazon11010028.outbound.protection.outlook.com ([52.101.84.28] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVJcx-0000000HX2z-3S3W
+	id 1wVJco-0000000HWtv-0I6h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 01:45:40 +0000
+	Fri, 05 Jun 2026 01:45:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rFHm15UyQdUAwUXwSxbTYacp9g7py7csJ87vnW79KTYXhl26VxjQEdBU7QLLlZC0ckdCELvhbqI+2+RsAWAO7tW8r0OStRF5T8VZtqfBtGKtgqcmcC92QVpI9IqHK8cJvWkLeYec3NuaiBubZ9PyVTYPWVXywu9T2ZnvAEnAvXmSAiqUI2qEjVM6hQ2iOo69QeL1fE1pgfk3JTcQckSnFQXHALFvSGRiA+bMGvs65Foo3OJF68JZIRfP6QScTmSiGCeGsUM2Y0ul9HxQGRZRjL8X3QHZ1dudMMiG7MyTv3oIkA+1wfNeoMOVrD3tqZacu36gPRAGoipkCD2uCLxNow==
+ b=VA+Ab7brCq4/5W0HRsadoA9w2CkmBd8k2rEOCw/DsorFpSGyrUQK0K9OWWSH7T/By2lvXJ4EQRjIMMEkcDG0Pibcr7aFD82uCSo/UkIu04Ktl++lLKUdwrQChAbk90ZfnHKqFceYvXG7EITg9iOrGjd3aoPh3oDL0/B2VJrqLC3USqBuigDBktxUd7nuA2NPtp+fcU91ngY6269ukj8PcKGFStYOFo9iVi92gNu7VSUIW9Zt48+4YEMRzjUzxWARmtFN4FgQ8CKio9U0HRay5qZpjWo15UX3cCrWXaOgKEirMJbBJyXcWAPNil1nUjdLm9rTkHZ/1WGI+lbckOQ2/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3xEuNbFobIfq47a7fzRigST3BA251er9sMioTh4rLKY=;
- b=REDEIFEMPYVP7uJ+ixC1B4fQv4oTGTFcPQDL+O6Y2RQWAd8H3kQRK0V7SDaphkij8O367brGO1G8iNu+8IQSUo88+y8G7vnVYq6jkXcKT/jdEOzpZzB/0xa6ZMdlw11CtFQcqwdSHTezeNcc2Kp1ogxhaBjJwp6BV12mbtOvA02AADpwyil2AJLEbFF6M1O1VcVr6EJoqYBkYrqYZlcC2itiAODbZVWZd5YEvS9mH9RgwJd7olu2EngZvebWWobaA47CouICpoAKi3nCqpMZUz/d/hjzIuiyHPQxLPGl/DQ3LMdFT5C5VQQdHIYwkaGi95dfTWdhoWgb9yhcKbzTaQ==
+ bh=NO3q3FjeZxoBvWVc1q8if2QrGoMmsDL+VfIf8U72prQ=;
+ b=rSfYvsZ2Pdy9fZNbQz1iP+oFgT6dNm/gtWQpbbVH3qHydaPqPKlvCFrM1v8jxttgTyvX5KHb6EKKT0gT8DCopV6zLrgOkGDGCopNDqB9Ce0iEwdKDTz9BO9HdA7vtz+2y7J2HiAb1FcKaQCNbBYV39yUU5ZKTagC5TcCtZx7oIhrN6cIhKg/4cuJHD5YJoi7/MNClnjLnRxHPVPuvpAoGc+VVp2bmnGT5N5LjcoHbygiiOx5mdidPIegZRHP8dN6R6A++X+fsfsLB4RLq8/LkCYwDSqEgwhScJsStKP9zRh85fF5PsieFs/CGMY/4TrjAyko9j0VGAXapnGK+pglIA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3xEuNbFobIfq47a7fzRigST3BA251er9sMioTh4rLKY=;
- b=xfn3leJ/mxr9CxN1mW5H/tGroLEmPR1rNQE5kAuvwge47Ykeo9u4QKWfU1OgxSdSS9P9yz8r1ooZkDsuAMRX/auO/9hZx6sw77aflqDMBi82hjWUglN/M27RfMG1zVvsNGNAFhQUDJmhjo2+4FaUGEq3lRXEL8aQSTjGpWRjxLRyrutPd8WOzjIn8dwlZIHKNlv0fJQkdUiMwC4TUpclneg6j6BlhbO4JjjC6WfRyIU/pUI8RLbFPA17jj3qzgwpO1fRYZTJfprvEOH2XNfCqiD7DD3qmMESW6QWUf2hfQKqXDIHVTW3jqw5SMbI8zODdYiGzVNIKykB4ciC+H71Lg==
+ bh=NO3q3FjeZxoBvWVc1q8if2QrGoMmsDL+VfIf8U72prQ=;
+ b=s7yt8YSH28FoJU837G9iXrMbnajc4y1ss54mbcTXyqEsz+WbFIkycALxkHrPZDZhCTjA3zZPCuNyeiQSrBhK6g1Ou6DivD3Xy9l3/pYQJzBHKzBFPhJ6hYDwgl/KUypnNoZPV8TLDn4nQv7GsOBS0Zc0PQ/SrOmPAzrpYSGptQFnR1+eZhLz6KG6ySF3QSaJ3DstA0MdVPzTAxVlkjavzQLdxppwGZUvih0zF0wbXgehDJ9R0XcNYgHcZN6aRI9cde9rq0oNhlKz4sQmbqlNOSQb/FlR97+KD2jEDXdAS0pHfpAv7DQevMHBSwzg62DZvWNcZM3EAJ4gho/SXJ7lgg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
  by PAXPR04MB9375.eurprd04.prod.outlook.com (2603:10a6:102:2b3::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Fri, 5 Jun 2026
- 01:45:37 +0000
+ 01:45:25 +0000
 Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
  ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
  ([fe80::a9a5:cf83:dbe8:1f74%3]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
- 01:45:37 +0000
+ 01:45:25 +0000
 From: wei.fang@oss.nxp.com
 To: claudiu.manoil@nxp.com,
 	vladimir.oltean@nxp.com,
@@ -72,71 +72,71 @@ Cc: wei.fang@nxp.com,
 	linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 net-next 6/9] net: enetc: add helpers to set/clear table bitmap
-Date: Fri,  5 Jun 2026 09:48:05 +0800
-Message-Id: <20260605014808.686024-7-wei.fang@oss.nxp.com>
+Subject: [PATCH v3 net-next 4/9] net: enetc: add "Update" operation to the egress count table
+Date: Fri,  5 Jun 2026 09:48:03 +0800
+Message-Id: <20260605014808.686024-5-wei.fang@oss.nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260605014808.686024-1-wei.fang@oss.nxp.com>
 References: <20260605014808.686024-1-wei.fang@oss.nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0030.apcprd02.prod.outlook.com
- (2603:1096:4:195::17) To VE1PR04MB7216.eurprd04.prod.outlook.com
+X-ClientProxiedBy: SI2PR06CA0004.apcprd06.prod.outlook.com
+ (2603:1096:4:186::20) To VE1PR04MB7216.eurprd04.prod.outlook.com
  (2603:10a6:800:1b0::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|PAXPR04MB9375:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55bc8207-b7b4-459a-e585-08dec2a423ee
+X-MS-Office365-Filtering-Correlation-Id: 1b400d07-ed7a-4f1d-15c0-08dec2a41d5f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|1800799024|376014|366016|921020|6133799003|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: QpgycvCz8hCxDtEIZNF+X2bDZhvAfu7Ys2bD5+6FTGSr9YkRZllNk2UIeUrbGwdaYzuNNIv4uadtwGSg0C4kVy3H4pGSwNapI3y8wf2HeGPVIC9poP7Smawr9yyhVnhMo/6Yppy6/PtVB6oBwoXA4rYVBMHe1xKeEj33KAy6lXxwt0oEQi3ptLHeWogqUy1rLmlb7Qo8AwbY1awD3Ta6uyKefymasZ7aTAqiddiIcKJv4uee971HfvMjFJs2UTMjdEvH19W+l2HyHMzUV02SMl/THjidQcnh6KNeKnDK5SbRRo2OEOQRPkYsGv09bKZasejqqPExKBeiHwoRSOG1qtQyYcbbBLAiqf8WHERhg59yF10frTeRF1bA2qUD2XWTsaj+xAAzLDJoLS2nJI8F6xkuf8iSkZoxzdKw1Q1e0FeC5r3EaxgYtcyRkw5ocjtaNtxIA4rT/pnn268gK9yfZqRWihtustAF9ZUbrd0y582qnbfW7Ca1a/+i/vlFuZuJYetPQfATXP0CegLAFIsyrcRt5QogTBn/Yaz3tWHBSta4IPlJ+1gPMEwiDagoqQdpuswOopIdnJR63St1Y7+RefMQkE8izLDmBKO/WPXoGJLKkTIhX4RoDGkGY2pZCkDeDlTjIwzQDruNPoZzHdl0C3pQWFqDxgr0bz3OjO4CXhBtM2qWIPYRJQBD2cC1wbz6uHP/fZHDZanpZxiW5S2obenhlgHrKmsNW17IZVl4YCI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(1800799024)(376014)(366016)(921020)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|1800799024|376014|366016|921020|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: s3Yr0uyCB02IxDM7QkhP4V19KAaiQwV6GRPAnjpcTLhSVYzWFw00fr1unI3l+Q/YTOnNEi3fTPb/JGjmonq0ot1YnkpqwDWxLFlqSL/av810wyb4gIp1S8GIKltr+WXE+4Ih+yJzZvdc4AAh+eDXTT5jiGwX+j+YdlV+D0RZsngvvrqgg1CezZLcuxyT7HTLntoHhatKXgPLF/PkKjH2OXlQDtZjij+hO7dGPp+MpOsKkQteHNgWky1e5UARR2X7Ms4poeIBUrPllWyNbVz87N0uMeu7FEbDDIcXzQkeOX7DXUsF/ymMTyWU7ielqTMe11HrpXa6eBZRMereHcy/HWM/nlkP93Lqx1BLa7erZVvQyPkf7Yi9kBZETiLrwGJJG/hoor3o3StTj5UNKtUAOclyUxRTHfSbmQwjFWRw7tzK8OnROqZGdzVrFU02M2RZSnDxHs6PvzLqE8ko3fI8KUE9AJHYUOfbrM61IhZMTncdc1TokCRxWzSQuSqNLLSV2xtWPHt24fj8QiOngdaumHfEeXQPJoB+/udfuECb8dTaxsWNTh9p36Ac7kVLe94nEeDl7IeaDBfRi0cyP2t0yy+9w7wQtbBDQBGsC3YVsxikglTvc/BwciWTYOhoEB5W6Khi+XdFAXlrqR37UU4voNLtuPxkmDt0NWqwPkb7qalA+HBpGZOIHEK0MJynwcrpQ2kU0C+bN9cXTCHhjyrhOcXNasDqtfpp3/NfCPkO2os=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(1800799024)(376014)(366016)(921020)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hLiTfLVvXnX8cm6mMsamF6ybhDYhWnUA+sOTfAdG26g4Zx2McpI+jZ7CJoDW?=
- =?us-ascii?Q?pJ/6vQmA4hfxCvlve2xHx5UDBMMxYbtu2PrxaQuddWegWbLwB4NUi0KcMj/f?=
- =?us-ascii?Q?ME604j7GtqIhe61UwMaz/QRBWICdOq22sPRdMMMDyGj/gRTTbGCDE/YlM8V6?=
- =?us-ascii?Q?7st+V0pGFoWSfmCWE90lHKAf2EXWUjnT5mE9nyDCdp8tEnetYGVLKIVFRm6i?=
- =?us-ascii?Q?Xh2kFBwlzpg7Mn19trlT1syHyF3oBNE258OnQZ0KpQ0GxbWQN+kXvZSEU88G?=
- =?us-ascii?Q?xAqB/iq03A1FbgNaj4plAYAs7GQaGAYsJQHn024xD+Zxwayw67pztQ71K/jA?=
- =?us-ascii?Q?kli8vFJhxZdEABtcim3f3YwLsV9USlp1CSgt7fXhqoJnmODTpvqFZ1d/Q2o4?=
- =?us-ascii?Q?+zDT6uzjzHIDFam+2MQQ++v8EPmgiZZjc2RbZ8Sk/cuULwOUvK67VSYQ+2gO?=
- =?us-ascii?Q?78xrTRsl66nuXaQ1mIuzuVoHSniigy+atM+AI2ePjjUsQdkAepIu2fPWlZ0N?=
- =?us-ascii?Q?v6nOPzgsy44KhtOnquOY0kFKWgN/WrYjGX48HErg5iiffsiZGc3QS5xI1isu?=
- =?us-ascii?Q?bOyiZCRnOMqTTXTGKtIKg51Rq0fO+6AVPKgup03O5Ki5Hl8d9GzqNlSOdafx?=
- =?us-ascii?Q?ftypESJc0SIhcWP2a/Pj7dOhdC4x8cOvDgCkAT2PeVGmcXP5fHjseP7ls7C7?=
- =?us-ascii?Q?cCpJKe78klPLGU/vMd7OLqyfWmg8DvMVp6l2zIsz8MG6X7uhtdfLnOe6ItJD?=
- =?us-ascii?Q?8KLIkZHEW0K/C5PhgZAKangQijjXv3P7fL+TNRnFh6nZHg8AHJ1Ilhpfq3Cz?=
- =?us-ascii?Q?bHgR8fzymbbyPB0WIVCDoMVQyraMfbGMR2AWIABqmbYJLzp4AJyaLO0Uvr6s?=
- =?us-ascii?Q?TvGytL3c3Aeo5oyJ9jMPn2EXHXTFZew/nZ/LBIIisg2nKvDm4R86rdIrD4NM?=
- =?us-ascii?Q?Lk9KVJiUptLHB63Uumyx6eQ7CDmzdjRnZciVIp1MxoOJUM/C6jIorFiml0qE?=
- =?us-ascii?Q?TYvy1wwnKRMAQP4FpdYF3p6HrDcO0gdbBlNhJ4Kk0cBuTBKmIbTt6FrvSJQl?=
- =?us-ascii?Q?SI7R7EqAYkf86SdDObCyZDdKHjTLDJcktiRZf97dyIpnIEinitGPvUs/H09E?=
- =?us-ascii?Q?WoUBOY3AbgY15t42P++GCdf7JBzLPFHkbLKUz9fjx668NVmkahrZ778DS1MP?=
- =?us-ascii?Q?E2E9DwhbiFdH5n3+R+JqkAQYUpe/gzkKHS7zLJj4Z2stn5w0vEizyDDbkFT6?=
- =?us-ascii?Q?gsiLWRBDk2hJb8z1CjXVtY3Qx9yahbswdKb+6E9E9I/7gZ1htK7cNx6dH3EQ?=
- =?us-ascii?Q?5akuAwJtJJXCN4XucUAsijE1T/yahMCSWaLWVPLlKy15xgaIpo81I2/3BYdk?=
- =?us-ascii?Q?Al/RaqVYctMZNBvNhE5jSROtn2gQNsg/HqimEh3kN6BlOTT8iPFuUbTqXZ7P?=
- =?us-ascii?Q?/eLv80wPpY+t8aKGRUrBLZb7Ctz8CcGrP7n+c7++d1nttFktJKvlB4bxgeCe?=
- =?us-ascii?Q?CrKPtT6cWgLRumz85yKOdeKNe/kynWKJ48leMy5jyCfPZWsSOAqYYofSRxEc?=
- =?us-ascii?Q?Fy4yAhfaFd2ZQKIxQOMOLJjq5EvHArYIVoP7y1xCp9ccmNQT/2NDlKanDEma?=
- =?us-ascii?Q?ow4sJMQ4JRxs7lv+oMpDQ4HVSaI2sds2kLXcDZjjrmQkh2qyc0rHHZI3n99e?=
- =?us-ascii?Q?+7JIFQPq7axm0DOPqLXPeGb394oE4Lmgf3AAYGZ4R1vhtMuvYiirkaUb4eZQ?=
- =?us-ascii?Q?m8Jdu6kLNJq8FrLi0sg/7K7CKLMKN6tQKu8EbmDUD4qR7/Rxy6+B?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kaJTWqyx0cBYuCsmd/b4ITYf+4kruzpBJg5tCp5F8pRKHykj6wZ9GYQZT2Ka?=
+ =?us-ascii?Q?q5KmbgCBfEEYvcVdUpsdkZAEkivUetyTVX5BdZP95fyzIlI7j5kB64bls0mZ?=
+ =?us-ascii?Q?Fi6au8P7/PoXDwnKSnjXs1Qg9nlofrMMx+XPSO0BiZf8D0+cU+R/Wz/TH17C?=
+ =?us-ascii?Q?pUNYclIjISEIyG5TKAYVmTDzLnkAmccHSm31FyBGa6PMw0/tPc0yT6GYYu1H?=
+ =?us-ascii?Q?UHpNNWmkpCN/x9ewpBZUhmKvKwxD2YvmyQrL+vrKEuap1IIrCefPJgc6f+j8?=
+ =?us-ascii?Q?kGzCS9jIOCfdYQBRYGKvq8hnCmtsOWRMTESPEywEqIp81htArREu+9WAa6GL?=
+ =?us-ascii?Q?G4olbLnRGIznBx/Fp0t4tHjz8SVaqlaiuK7KwwEfjNq4lernSeUspllkqL66?=
+ =?us-ascii?Q?DQCjsLkWUQZusVryLsqCevpvEXIhlixseWLb8nowlQ9MMGd/lj+BDHNR/h6Q?=
+ =?us-ascii?Q?3L4tDf+1bdkBXFyA1UniEl2wXgBCewU0VRbOP3rb4cOoy3TAmS/tB3+y50Ci?=
+ =?us-ascii?Q?pWN8f0k1Vk7/9WHXGWaMBXKCUPwsSkImD3vI2j1+8KxyYam8Ao59F+Ck6lzC?=
+ =?us-ascii?Q?KpBKmBQX92Ndvk1chciGXg7nv/SuhBheniPkd7PMViT3fxZK+hUtm75K8e2L?=
+ =?us-ascii?Q?/z4EZx3hksgU47B71Y5eTy1IbCbcXBUZ0jXMFgSg00CLRDqiGnCiAbM+1++P?=
+ =?us-ascii?Q?ct5LBl7rsfMgTKobifnIBInzA1jMAWPAFb0WiqnwZByHA/h4zfGMOLz+R2g6?=
+ =?us-ascii?Q?9V1O4g1eYajQUV7oa2Y4hjR5KWS3nhpsKxBtUtF+w0+Jofunfyvr757wA1nl?=
+ =?us-ascii?Q?221TKUWsCNVjBz4ohOM2BIbgzO5T7sRjgLhfRe8lpu7/NvvRBH70dLexrUOR?=
+ =?us-ascii?Q?OPpxFZ00BO4nFJu+P7bxGgW+ONCyWOxDv9D0XM0JXAyKxF/Nu2+fWMBCSTVP?=
+ =?us-ascii?Q?ZzYZztApF4VMx+aJ1Fg26J93qI4kT1bpgeoXjRcqhsMoEQ7ScJEAiXeRmmab?=
+ =?us-ascii?Q?66GZuts3y07W4xewgIkBENoUtwv34Jc/OjDPHcl4EXikCggBCs7cMWD5qAKe?=
+ =?us-ascii?Q?6Wj41S0DQYxdMM4tDq60NzVMA/S1R6+lK2L19RS9OX5is3NStSCqTyPTNyiX?=
+ =?us-ascii?Q?1zatrhXfVwNXk+2Pe1iTzKMqrFQBn0QmnysLrGOF4azmAV1LUzC74ARWYG3j?=
+ =?us-ascii?Q?bfUK8og6MV7My0KfVX6OPoWCaUtBa5joQJB7YawmNwIISeQ27oeK70dAm+d7?=
+ =?us-ascii?Q?wfIxUsNcir1knzu1XHA/5oQ134iVWIymnMR6aokKW5O72fQY/NJDOYgQfy8g?=
+ =?us-ascii?Q?pvOruUPC2lIZ7N/ns7x/7u7rIiDZUcc0hQ78ci7WMCGqfcNmoz0WEDRiLi22?=
+ =?us-ascii?Q?avMf1mdjKDNBfX3WJBlcq46nTSgSasQvW7kLVYIQupvnKbqg8WJb063EuCRB?=
+ =?us-ascii?Q?MkIWJvS9yXikshDcAeuB9x8nPLUZynz11XajqWvzpKCO0vhyy9XDIyDtF4Dl?=
+ =?us-ascii?Q?wF97Q3CQronyrHswfIHG3SKuQC5X4kaaC3VkVf5hmLx69gXuMo0RQmZYFhiX?=
+ =?us-ascii?Q?Z1ga3iW/F+kHIhoJrWgdwwPa8GQPt9iMUauycIEe+heYJ6lazR/P5hQiBl5D?=
+ =?us-ascii?Q?0bwSJ30gCCIMubJOxYF6fLHrgi4IxC1zoGXshsviAbsJEvW+A5OmQzKT3QVB?=
+ =?us-ascii?Q?3Mc3p8TzXuLeaSb29OK8AuPIJN2Q8VUJSceazN2v56txVmvH5zfn3EoYWvFf?=
+ =?us-ascii?Q?2fXqTwy0AbOVwNn8MQqRBfzMZLe/whVleP0c4WG8s+UQAKEiWXa3?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55bc8207-b7b4-459a-e585-08dec2a423ee
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b400d07-ed7a-4f1d-15c0-08dec2a41d5f
 X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 01:45:36.9206
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 01:45:25.8127
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eQjQ7jKE9H0VyiSpBo0fHGbnSdkXz0M9Mk2Y6oCHzLl5+E8LwExyPsoGN/VTx2xSk3W0L76L9Yyv4ljNaGjhDsmjduWzGqfH7OpcCJ9VYK3bptlBukCvH/ZRitSGSsN4
+X-MS-Exchange-CrossTenant-UserPrincipalName: OGynBDIo47vEEMpHCLOhjoMDQ+YOrHWkKEBnI4xLUpSHWFyPR/V5PxP9M3ifV0/R39alE6wI28lJaTTd4dPOGwfoP86XGkQ/PFiXwlpAJ0cyF4+ofb0nsEY47b7G9WTr
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9375
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_184539_865695_14F692CD 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260604_184530_113555_32A2FD3D 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,75 +153,121 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Wei Fang <wei.fang@nxp.com>
 
-NTMP index tables require software to allocate and manage entry IDs.
-Add two bitmap helper functions to facilitate this management:
+The egress count table is a static bounded index table, egress related
+statistics are maintained in this table. The table is implemented as a
+linear array of entries accessed using an index (0, 1, 2, ..., n) that
+uniquely identifies an entry within the array. Egress Counter Entry ID
+(EC_EID) is used as an index to an entry in this table. The EC_EID is
+specified in the egress treatment table.
 
-ntmp_lookup_free_eid(): finds the first zero bit in the given bitmap,
-sets it to mark the entry as in-use, and returns the corresponding entry
-ID. Returns NTMP_NULL_ENTRY_ID if no free entry is available.
-
-ntmp_clear_eid_bitmap(): clears the bit associated with the given entry
-ID in the bitmap to mark the entry as free. It is a no-op if the entry
-ID is NTMP_NULL_ENTRY_ID.
-
-Both functions are exported for use by other modules, such as the NETC
-switch driver which needs to manage group index bitmaps for the Egress
-Treatment Table (ETT) and Egress Count Table (ECT).
+Egress count table entries are always present and enabled. The table
+only supports access via entry ID, which is assigned by the software.
+And it supports Update, Query and Query followed by Update operations.
+Currently, only Update operation is supported.
 
 Signed-off-by: Wei Fang <wei.fang@nxp.com>
 ---
- drivers/net/ethernet/freescale/enetc/ntmp.c | 24 +++++++++++++++++++++
- include/linux/fsl/ntmp.h                    |  2 ++
- 2 files changed, 26 insertions(+)
+ drivers/net/ethernet/freescale/enetc/ntmp.c | 45 +++++++++++++++++++++
+ include/linux/fsl/ntmp.h                    |  2 +
+ 2 files changed, 47 insertions(+)
 
 diff --git a/drivers/net/ethernet/freescale/enetc/ntmp.c b/drivers/net/ethernet/freescale/enetc/ntmp.c
-index 601435966ed1..9f38f885ebb5 100644
+index 9249f78219ed..601435966ed1 100644
 --- a/drivers/net/ethernet/freescale/enetc/ntmp.c
 +++ b/drivers/net/ethernet/freescale/enetc/ntmp.c
-@@ -47,6 +47,30 @@
- #define RSST_STSE_DATA_SIZE(n)		((n) * 8)
- #define RSST_CFGE_DATA_SIZE(n)		(n)
+@@ -25,6 +25,7 @@
+ #define NTMP_FDBT_ID			15
+ #define NTMP_VFT_ID			18
+ #define NTMP_ETT_ID			33
++#define NTMP_ECT_ID			39
+ #define NTMP_BPT_ID			41
  
-+u32 ntmp_lookup_free_eid(unsigned long *bitmap, u32 size)
+ /* Generic Update Actions for most tables */
+@@ -33,6 +34,7 @@
+ 
+ /* Specific Update Actions for some tables */
+ #define FDBT_UA_ACTEU			BIT(1)
++#define ECT_UA_STSEU			BIT(0)
+ #define BPT_UA_BPSEU			BIT(1)
+ 
+ /* Query Action: 0: Full query. 1: Query entry ID, the fields after entry
+@@ -287,6 +289,8 @@ static const char *ntmp_table_name(int tbl_id)
+ 		return "VLAN Filter Table";
+ 	case NTMP_ETT_ID:
+ 		return "Egress Treatment Table";
++	case NTMP_ECT_ID:
++		return "Egress Count Table";
+ 	case NTMP_BPT_ID:
+ 		return "Buffer Pool Table";
+ 	default:
+@@ -1197,6 +1201,47 @@ int ntmp_ett_delete_entry(struct ntmp_user *user, u32 entry_id)
+ }
+ EXPORT_SYMBOL_GPL(ntmp_ett_delete_entry);
+ 
++/**
++ * ntmp_ect_update_entry - reset the statistics element data of the
++ * specified egress counter table entry
++ * @user: target ntmp_user struct
++ * @entry_id: entry ID
++ *
++ * Return: 0 on success, otherwise a negative error code
++ */
++int ntmp_ect_update_entry(struct ntmp_user *user, u32 entry_id)
 +{
-+	u32 entry_id;
++	struct ntmp_req_by_eid *req;
++	struct netc_swcbd swcbd;
++	struct netc_cbdr *cbdr;
++	union netc_cbd cbd;
++	int err;
 +
-+	entry_id = find_first_zero_bit(bitmap, size);
-+	if (entry_id == size)
-+		return NTMP_NULL_ENTRY_ID;
++	swcbd.size = sizeof(*req);
++	err = ntmp_alloc_data_mem(user->dev, &swcbd, (void **)&req);
++	if (err)
++		return err;
 +
-+	/* Set the bit once we found it */
-+	set_bit(entry_id, bitmap);
++	/* Request data */
++	ntmp_fill_crd_eid(req, user->tbl.ect_ver, 0, ECT_UA_STSEU, entry_id);
 +
-+	return entry_id;
++	/* Request header */
++	ntmp_fill_request_hdr(&cbd, swcbd.dma, NTMP_LEN(swcbd.size, 0),
++			      NTMP_ECT_ID, NTMP_CMD_UPDATE, NTMP_AM_ENTRY_ID);
++
++	ntmp_select_and_lock_cbdr(user, &cbdr);
++	err = netc_xmit_ntmp_cmd(cbdr, &cbd, &swcbd);
++	if (err)
++		dev_err(user->dev,
++			"Failed to update %s entry 0x%x, err: %pe\n",
++			ntmp_table_name(NTMP_ECT_ID), entry_id, ERR_PTR(err));
++
++	ntmp_unlock_cbdr(cbdr);
++
++	return err;
 +}
-+EXPORT_SYMBOL_GPL(ntmp_lookup_free_eid);
++EXPORT_SYMBOL_GPL(ntmp_ect_update_entry);
 +
-+void ntmp_clear_eid_bitmap(unsigned long *bitmap, u32 entry_id)
-+{
-+	if (entry_id == NTMP_NULL_ENTRY_ID)
-+		return;
-+
-+	clear_bit(entry_id, bitmap);
-+}
-+EXPORT_SYMBOL_GPL(ntmp_clear_eid_bitmap);
-+
- int ntmp_init_cbdr(struct netc_cbdr *cbdr, struct device *dev,
- 		   const struct netc_cbdr_regs *regs)
+ int ntmp_bpt_update_entry(struct ntmp_user *user, u32 entry_id,
+ 			  const struct bpt_cfge_data *cfge)
  {
 diff --git a/include/linux/fsl/ntmp.h b/include/linux/fsl/ntmp.h
-index e8b1bd802f19..4d329488763d 100644
+index 0c951e1c763d..1222901f48a7 100644
 --- a/include/linux/fsl/ntmp.h
 +++ b/include/linux/fsl/ntmp.h
-@@ -266,6 +266,8 @@ struct bpt_cfge_data {
- int ntmp_init_cbdr(struct netc_cbdr *cbdr, struct device *dev,
- 		   const struct netc_cbdr_regs *regs);
- void ntmp_free_cbdr(struct netc_cbdr *cbdr);
-+u32 ntmp_lookup_free_eid(unsigned long *bitmap, u32 size);
-+void ntmp_clear_eid_bitmap(unsigned long *bitmap, u32 entry_id);
+@@ -37,6 +37,7 @@ struct netc_tbl_vers {
+ 	u8 bpt_ver;
+ 	u8 ipft_ver;
+ 	u8 ett_ver;
++	u8 ect_ver;
+ };
  
- /* NTMP APIs */
- int ntmp_maft_add_entry(struct ntmp_user *user, u32 entry_id,
+ struct netc_swcbd {
+@@ -294,6 +295,7 @@ int ntmp_ett_add_entry(struct ntmp_user *user, u32 entry_id,
+ int ntmp_ett_update_entry(struct ntmp_user *user, u32 entry_id,
+ 			  const struct ett_cfge_data *cfge);
+ int ntmp_ett_delete_entry(struct ntmp_user *user, u32 entry_id);
++int ntmp_ect_update_entry(struct ntmp_user *user, u32 entry_id);
+ int ntmp_bpt_update_entry(struct ntmp_user *user, u32 entry_id,
+ 			  const struct bpt_cfge_data *cfge);
+ #else
 -- 
 2.34.1
 
