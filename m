@@ -4,50 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDC3CD6E7E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 264C2CD6E7E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 23:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SyL+KhKJOkLBPVYqIVEYemJAAJqjAzpI1nf+X+CuAeI=; b=KrDRXyp38xF0zgrFgnAu5yX/I8
-	E7bh0om6XJ3qB9PGkZizJHwJ9cmFG/cdw6tkyQ/H2Dc5Hfl4e4B8F1AKj+xZZS2WoWmfLXdKuYwED
-	CsmrXXnyIixK37bDsHsLwIHjOJtgq4Vy16rqHykobqWDM/kpxb7gerwFfPZJF4PXwyU6VwH2oD+2F
-	O2dtDXKMk+XR/wsf+TixOcKnrJ15r2hwIWWzd/NISgPEorxSa5FlqtNT8TZDFpjzrGmQ+4NZr/zFn
-	qRVKET+hw70PsCVQME2V+nkSXduWLYyFquAd3Z16Mh0jOU6zYG8g0viH/S05ZBAnOZVsforKLIhJf
-	Qc0f0Hhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NJXBtCaiiZlydeySBJ0Sh8PMzpq2y3Y8HSAq3152oo4=; b=OhltlYIIRrJ8i7NbCfF7CjFKDf
+	BNM+S0O1vaVCue2A+Cxj/T/sAWVksMl3I+rcjB3nk+6yBjA+Z48uValcu5jVaonmb05kN1wAAUjAh
+	CCWKw3eisruk9mLW5+u8P2Ya3MgoXD4Rtnrm7JI9F4wyiTBodRH79HoyGtaNNqkjB4iiny3Yx4G0S
+	p9Z1+P+I5P4l3hSOhm8l2IwnzVff40n6cNbTthZiVYL2rZtzVSmQRTSVKvnkrf4X9zRQxEEDMCMoH
+	HKaHIzH1Ug2479vBt2Qyhx1PpHpYickvDeYWo4vFVG3/ZtwXvsjjYObGQW1Fp/AQtT/tGoiypEwjZ
+	DFRGSNjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVcsY-00000001GcV-26gK;
-	Fri, 05 Jun 2026 22:19:02 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wVdZZ-00000001I5h-06UT;
+	Fri, 05 Jun 2026 23:03:29 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVcsW-00000001GbI-04xG;
-	Fri, 05 Jun 2026 22:19:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=SyL+KhKJOkLBPVYqIVEYemJAAJqjAzpI1nf+X+CuAeI=; b=loz66b8dq7vrC22SV6JKCgdn34
-	hgTPGakmdzwdWJHUXt9X50+NVZoUo4lxK4zPXerHNV+3lgNVgXi07/g2qP+wswru4+ErYkLjRTmYO
-	p4PuwoqA3RAIFR8gYelrynX0d1CifSbPci/Kba8VUI10IkHhCQhnaDhi5xFBuRWED3Q3hkrjHqdL/
-	hX8hiGO9UZU1Fl1SkWBgl3SJ3zfHcJSzIFiYXmO8vD8KRedruytvxXAj7LwfTfKbdlKRThbGeBCKt
-	NcqteKD0kr7CZKGlyDSNVwECPFYjF2DD61BQD0QLUNUy7BFubjlgNsEp8hjlU+JU06EYoR7nwdWe0
-	QUlqP5KA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts64 changes for 7.2 #2
-Date: Sat, 06 Jun 2026 00:18:53 +0200
-Message-ID: <21578066.fAMKPKieAE@phil>
+	id 1wVdZW-00000001I5N-2imy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Jun 2026 23:03:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZfPPtl9Dn7Msk/heGEyB6giz+VhMxAQxDTsdXAI6RMq87zsECsGmHbGywcY2IZbl8EUZrViiuwQI97iTcvsO1Dww/8bbLxRYYwxMlhJF5u5fa2kuC1AoAvzU1zgJAnhc2GJf7x4FVSZM2FocmWrNUzy50Tc56OTWOQlpgUhflYU5t5IphiMVNWcvL0Go+8UFJgmrKrXCsgS86XtJdPb8XFf2fH1IWpyb265FyNNurPJ3dmTYd35u7QcYS0nXNl8CJAxD5EXvL16fkFho0Is6X+1p8enQMEcF3N3dumPaODvPxaj88BgteTwFvw7i+ipxgEaYyUwgG0BIqf+3pJdKFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NJXBtCaiiZlydeySBJ0Sh8PMzpq2y3Y8HSAq3152oo4=;
+ b=D/fuSI5NPkfTktIaOpogomqYIUBxkG0HxxplpwjURyYGa0dHZZ12N3+0NEwr8MC0TghSzZ5In5w+IBhf/g1XnZAa9+WgMu1eiaT8Y2jqUrJScRJ0NJFF6czWreiZv1o8PBBjMy140/jRIz2TYEZFiCQqNcrkbYZBsOttKFOO9+5n1pBSz09R3yJ83aiAWQ2v/66eI02sDWs8hKcpkL1H1wWzic0iWoE0d7XFPdL7zpiCmErwDbV6xyplqsXXRTQflSfVzjeRxwzfNhx8bL6l1grLrzTA3wAYfp1ytn11aaqCexVBaFnCctBOHWqNmnc0tCgqPGkUIP6COHXAkvH8Hg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NJXBtCaiiZlydeySBJ0Sh8PMzpq2y3Y8HSAq3152oo4=;
+ b=I79br5XYuPK5e4KOJzzVoA+OCFT3cAbRCBi2XjSCJ6KN6r6ska2TLPJn1JSB8qcC8ttXhegRSSWat3WXdn4BqdnXWCodMP7VwyCsrLi2gxelmCA/myDBbD1VD4CTzIjnSG0ReyYYnqPOL4aprejumx64VnTjkjESEc47w4T8pmggdOGZ7/xPM+AxshDg+ipT02C4tAQTTfZx+lqFW7X0tFELB7lwvbYOwq4rr1NWBo77V7ub4JbEP1fL+9C598RoUgPLYjt4ogLf/WmGw8Vi3kNQSyOeyvXviSyTFL48EmLbB7PmmF/auXnxvTgX6u26gKRcU52lwwi1H4FPHDHRhQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH2PR12MB4037.namprd12.prod.outlook.com (2603:10b6:610:7a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Fri, 5 Jun 2026
+ 23:03:17 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
+ 23:03:17 +0000
+Date: Fri, 5 Jun 2026 20:03:15 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, vsethi@nvidia.com,
+	Shuai Xue <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v4 18/24] iommu/arm-smmu-v3: Introduce master->ats_broken
+ flag
+Message-ID: <20260605230315.GF1962447@nvidia.com>
+References: <cover.1779161849.git.nicolinc@nvidia.com>
+ <49dde0a2e2dc88e421a3010956db33d47cc92aa8.1779161849.git.nicolinc@nvidia.com>
+ <20260519120658.GB3477375@nvidia.com>
+ <aho9DB6it2R5O5Nm@Asurada-Nvidia>
+ <20260601123231.GG3195266@nvidia.com>
+ <ah3udmX5SIO9lAXR@Asurada-Nvidia>
+ <20260602001547.GR3195266@nvidia.com>
+ <ah5txKCvspL8zMeG@Asurada-Nvidia>
+ <20260605194259.GE1962447@nvidia.com>
+ <aiNF9kzjzDY/u1NG@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aiNF9kzjzDY/u1NG@nvidia.com>
+X-ClientProxiedBy: YT4PR01CA0230.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:eb::10) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB4037:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23d646a1-7480-4246-d124-08dec356a11a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|18002099003|56012099006|4143699003|5023799004|11063799006|6133799003|22082099003;
+X-Microsoft-Antispam-Message-Info: H6PAANQSch6H12G36TPVcgUzTqjvE7YYIHxR77c2nHP1c7ultVaHTKRJRIwLJwLIUMFMfUbVAGe6rBKbQtW3jUhA/sqgw5wHDkEJDoVfP9YT3Y06apCtlzZ1Xl27FZ1I7wQKN0uj/AzAPPZugHNL9+LORX3JZkMv1qjsTYG5dtIJRj1RfcBj+i8QKVjhPHdtjBTqTiMbe8P9q29Y7J3dvZtiaIUEMvo+4wZsW5aWND/IzpPD13GdHy+JP98KiJrNPt0c3sknBHZd7kmi/tFZOeWuLxzvqZ4VJhyB1K4mHbPtANcvAtmnrJRzD8XhoztLQp9Y5px6CroW2+u5fqfdCAAsSUf6D2XfMGCEct0J/onNc2dXxj6uA9PreGFBpVouBk7aBFnTlY00wDuBVMgq/yHj0Z3/e+U9X4CHzgwjdo3XPYk5Ap341MTazjSJ558jIHclimYAhVtUpTsrA9pjckR8HRVvuQdJEj6f0uKVEeAK5TrVr1LdumZcga0SDxTMfYQZ9u0LWBQw5Oq2T9GReNeSxZRFRoPRFyZHS+7NLu4CMqXWgC8KE6Ypzwpgw2sTLQlfzKKbfAp1YOxKGNhY7RvquTrwgFPF1jm0+Ex1LC8Hv0qluXZXo+GexuupARZyJwjc+Zekp0NYlIVxquCbtGSkMeIqG+9Q2ri3M6LxlJVN4KBU6+YYTqkNRHYUVN2C
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(18002099003)(56012099006)(4143699003)(5023799004)(11063799006)(6133799003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LiVeC43xLZ9q9lFn02mDLV5Htl+oHV2bDdMu8R0f+Sn4+eTqwVkHWSV4qQkM?=
+ =?us-ascii?Q?qoK22wT47OZPVeSiB6sCEvwFV/PC+qvTMnmvw2etZPohtGTKE1LmedLXhZVQ?=
+ =?us-ascii?Q?DJb2UXQRGlkkivJM/6CKACIt6484DWY49PZBeDZ4sy9Rd66fAvWR1HnCOlac?=
+ =?us-ascii?Q?KqqxwPm6eoWFD5fAEQXp684XZRA1HKns7BfYj/Vf9laX33CNJM+5Gdg4EWqE?=
+ =?us-ascii?Q?q7YUyP0rVE9ABtCurIT0sceDYdR8+AbTLcohier3Dyu1lER53Qum5VYKBrkS?=
+ =?us-ascii?Q?p4qEf4U2jS+Cxnwk/St3uw2tuFMAoOsh++8cwMspj56SSO8yUZOVG+xqROQG?=
+ =?us-ascii?Q?exKZL3ObAbgTzW4ZHu3L5XAYK+EFn7Etl0X2DjTPYrljPHd/YJTKDjb7HC8x?=
+ =?us-ascii?Q?Vop4AOTQWIQD/BdqvpsjGFJTNyhpej5mrQyobqWxhA+l0iGE5756xoZWGxfT?=
+ =?us-ascii?Q?udtrHYBsitWFqPbuAEzBZ46pWD/Ju+hyVsJ5BVSBQ0h8i457yY5X0EO2lk/7?=
+ =?us-ascii?Q?ux9sGYauPE0fy8ct93i59BZDfsFxYxJu+txz38SaNh0X0pxq2g+unynqM7Q5?=
+ =?us-ascii?Q?ispVqqz6hkAh57ocTnSDBVuLkNhsGgqb1vxmzVTel/9hWoqhdhSvL3ziPsjd?=
+ =?us-ascii?Q?m70kdeIhVsJAJ6AE7i4X8rupfFUNOP9dAqx+jju7W7BGQFZaBrlw6E72xEu5?=
+ =?us-ascii?Q?005IRYYTmY665ClW1DTZuaAmKW2BtLlUEHdTCJGp44naa2JJ8eg4ZUANe6K2?=
+ =?us-ascii?Q?TSDAp/xsT5lxvb+/6nMNL9/ArTZNcvDgw8l9WAwha9rZZxAC5z8UcGqcnRgU?=
+ =?us-ascii?Q?7GkwtscGGYQHCnWKy4RpCYVB+gcTm05yuhqhWYmQh36khwb8IHApJunGdfww?=
+ =?us-ascii?Q?XQNwwJpXHgTkaGL9b0OTYu3HubURa+3EzZr6YW31IzYnEYrpivAunem0Ivpy?=
+ =?us-ascii?Q?iClUwXyTxebeRzS22nwH4msqYAOfCJqX7bPY+5/o3KWL4lYgSWaaDiFUWKXk?=
+ =?us-ascii?Q?RMndByMbIg3uwel5cZEdQ7DL3FMOjJG2xR0fu5/+nvSPHvji3/mGlGDN5YoB?=
+ =?us-ascii?Q?A8ijaHce89MDCKWNgwtevPvE71hUijOBeviQxsGJs9DoWAPMhrW40lpapaHG?=
+ =?us-ascii?Q?ASHvJ5PYsVCELadjoRxcMWhj3bk0Nhb+aqVRX7Kw6gApVpYKoQEFM07aEhyX?=
+ =?us-ascii?Q?ndLnZ1h2Nv5OCdGwDTS3Hli9uycazrgzvZL6DD+2zI+NVQzP1o066Fdnbdco?=
+ =?us-ascii?Q?OkRSIFvwegUx5rnz8zjEJT1kfqD9Bzio3GCIpdSdecrKdTP5+v26h5cTi0rn?=
+ =?us-ascii?Q?eaChEcloZiRogRYhrfPFeSEjAhBfMQjjOblKiqUYQRLYHUly77x9T60ZrU6X?=
+ =?us-ascii?Q?hm11Eat/HNGzmCvG0Pn/1W+dwJaGUvt7mzcye7s4EyN/E8DglQOL2l1fTYd0?=
+ =?us-ascii?Q?GWFTFT9bjVbueNnMvI2Mt2pm54vw4LZirvaWIXD+Ybhe7ERoP2PlTMVf72OM?=
+ =?us-ascii?Q?YITHNG8A3JYAUvsWe8ica0GROqQktOyBfksmXkP8v2Rse9swbCKSmWyanN1H?=
+ =?us-ascii?Q?EWg36j6gcrjD3bcQd5jXmH/7UB2GYL5KYqBNg3VIcdtWHZLCkBtB7QklcyqD?=
+ =?us-ascii?Q?unGxH7p/VmORzPkx0NceGRFT5WSbRpR2ndA/GUjUjUpfgNGLrLO0Z+OmYYwR?=
+ =?us-ascii?Q?+XbTv4+W8rY0Hu+sHH0Pv+ghmpegVQt9Oj/q91zB3qXuVvyX?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23d646a1-7480-4246-d124-08dec356a11a
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 23:03:17.2893
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CP0T6J6QuBrrIhla0lUrxHYv52E3mAZX8bkeP9OBPOWNeeI8qIcpQ3HXFOQOtviZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_151900_116343_4F7AD196 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260605_160326_703061_250AFEA7 
+X-CRM114-Status: GOOD (  34.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,104 +153,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
+On Fri, Jun 05, 2026 at 02:56:06PM -0700, Nicolin Chen wrote:
+> On Fri, Jun 05, 2026 at 04:42:59PM -0300, Jason Gunthorpe wrote:
+> > I don't see any of these options as appealing. We have to maintain a
+> > few key invariants, and I think it cannot be done without a way to
+> > find all the domains that are using the STE.
+> > 
+> > One way or another you have to be using the invs list rw locks to
+> > synchronize the EATS state changes.
+> > 
+> > It is okayish to be sloppy when turning EATS off, but when turning it
+> > back on we do need to cycle through every invs list and toggle its
+> > lock to ensure that the invalidations are synchronized before
+> > EATS=enable happens.
+> 
+> I think the core guarantees that "cycle through every invs list"
+> happens: a PCI reset calls reset_prepare() blocking all the RID
+> and PASID domains and removing ATS entries from every invs list,
+> and then calls reset_done() that re-attach RID/PASID domains so
+> freshly new ATS entries will be installed before EATS=enable.
 
-please find below some more Rockchip DT changes for the merge-window
-for 7.2 .
+I think this whole thing is so async and racy this is not something we
+can truely rely on. The driver is going to have to make sure it
+doesn't get turned on accidentally while the CD is still populated.
 
-The most interesting addition is of course basic camera support
-on RK3588 which enables unfiltered camera capture (i.e. without
-postprocessing for whitebalance etc)
+> > Given you must have a way to go from STE -> master -> all invs lists
+> > I'm not sure either option really makes such a large difference.
+> > 
+> > If so then adjusting the invs to disable the ATS is pretty simple, run
+> > over the xarray and set them all off. Yes you could find the master
+> > through a SID lookup with some locking adjustment.
+> > > 
+> > > (1) Per-invs marker: INV_TYPE_ATS_BROKEN + master_domains
+> > >     disable_ats() in the timeout path walks master->master_domains
+> > >     and flips matching ATS invs entries to the BROKEN type.
+> > > 
+> > >   + invs walker is free (one case label in the existing type switch).
+> > >   + No lock or pointer deref in the invs walker.
+> > >   + No master pointer stored in invs; no lifetime concern.
+> > > 
+> > >   - disable_ats() walks every (master, domain) and marks each invs
+> > >     set; the list needs locking usable from atomic.
+> > 
+> > This doesn't seem so bad
+> 
+> Yea, the only thing is that the disable path has to deal with a
+> complexity from going through a per-device domain list. Maybe it
+> can reuse iommu_group->pasid_array by taking xa_lock?
 
+Maybe the locking seems tricky as the locks might end up nesting in
+weird ways.
 
-Please pull.
-Thanks
-Heiko
+The streams rb tree and existing master domains linked list seems
+appealing if the locking can nest acceptably.
 
+> > > (3) Per-master flag + inv->master pointer (v4)
+> > >     invs entry carries a master pointer; the invs walker reads
+> > >     cur->master->ats_broken directly.
+> > > 
+> > >   + invs walker is one READ_ONCE through a cached pointer.
+> > >   + disable_ats is one WRITE_ONCE.
+> > >   + atc_inv_master early-skip via one READ_ONCE.
+> > >   + attach gate + post-attach re-check, same as (2).
+> > > 
+> > >   - invs holds a master ptr, so release_device must synchronize_rcu()
+> > >     before freeing the master to drain walkers under rcu_read_lock().
+> > >     We dropped this from v4 for that reason.
+> > 
+> > synchronize_rcu is not right because you have to have gone through the
+> > rwlock so there can be no readers.
+> 
+> Ah, I think you are right! When release_device() is invoked, the
+> device must be already in the release (blocked) domain. So there
+> should be no domain->invs in the system holding its ATS entries.
+> And the enable part would work as (2).
+> 
+> In this case, (3) seems the best? It's fast on every aspect.
 
-The following changes since commit eb24b60553e0692cbbec2863ca31d2a56bff098d:
+I don't like it mainly because of the sketch enable side, and if we
+tighten that then you can just do 1 which doesn't have a perf impact..
 
-  arm64: dts: rockchip: Add watchdog node for RK3528 (2026-05-07 13:27:53 +=
-0200)
+But still, I'm not sure how all the asyncess and races will resolve in
+any of these cases.
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git =
-tags/v7.2-rockchip-dts64-2
-
-for you to fetch changes up to 8545eda00fdf3d7e17933ce0f706d005b1bad42d:
-
-  arm64: dts: rockchip: Fix vcc_sdio regulator max voltage on Pinebook Pro =
-(2026-06-02 22:47:18 +0200)
-
-=2D---------------------------------------------------------------
-We've got basic camera support on RK3588!
-
-New peripherals RK3588 vicap plus camera addition to some boards,
-RK3528 USB and USB enablement on some boards, RGA3 support on RK3588.
-Missing EL2 virtual timer interrupt added to RK3588.
-
-Some more added peripherals for the Khadas Edge 2L board.
-
-=2D---------------------------------------------------------------
-Chen-Yu Tsai (2):
-      arm64: dts: rockchip: Fix EEPROM compatible on rk3399-nanopi-r4s-ente=
-rprise
-      arm64: dts: rockchip: Disable removed devices from rk3399-nanopi-r4s
-
-Chukun Pan (1):
-      arm64: dts: rockchip: enable adc button for Radxa E25
-
-Gray Huang (2):
-      arm64: dts: rockchip: Enable USB for Khadas Edge 2L
-      arm64: dts: rockchip: Add Bluetooth support for Khadas Edge 2L
-
-Hugo Osvaldo Barrera (1):
-      arm64: dts: rockchip: Fix vcc_sdio regulator max voltage on Pinebook =
-Pro
-
-Jonas Karlman (5):
-      arm64: dts: rockchip: Add USB nodes for RK3528
-      arm64: dts: rockchip: Enable USB 2.0 ports on Radxa E20C
-      arm64: dts: rockchip: Enable USB ports on Radxa ROCK 2A/2F
-      arm64: dts: rockchip: Enable USB 2.0 ports on ArmSoM Sige1
-      arm64: dts: rockchip: Enable USB 2.0 ports on NanoPi Zero2
-
-Marc Zyngier (1):
-      arm64: dts: rockchip: Add EL2 virtual timer interrupt
-
-Michael Riesch (3):
-      arm64: dts: rockchip: add vicap node to rk3588
-      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam0
-      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam1
-
-Sven P=C3=BCschel (1):
-      arm64: dts: rockchip: add rga3 dt nodes to rk3588
-
- arch/arm64/boot/dts/rockchip/Makefile              |   7 ++
- .../dts/rockchip/rk3399-nanopi-r4s-enterprise.dts  |   2 +-
- .../arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi |  68 +++++++++++
- .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |   2 +-
- .../boot/dts/rockchip/rk3528-armsom-sige1.dts      |  25 ++++
- .../boot/dts/rockchip/rk3528-nanopi-zero2.dts      |  29 +++++
- arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts |  60 +++++++++
- arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi    |  17 +++
- arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts    |  11 ++
- arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts    |  12 ++
- arch/arm64/boot/dts/rockchip/rk3528.dtsi           |  80 ++++++++++++
- arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts  |  14 +++
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |   3 +-
- .../boot/dts/rockchip/rk3576-khadas-edge-2l.dts    |  82 +++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 135 +++++++++++++++++=
-++++
- .../rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso      |  99 +++++++++++++++
- .../rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      |  99 +++++++++++++++
- 17 files changed, 742 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-=
-cam4k-cam0.dtso
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-=
-cam4k-cam1.dtso
-
-
-
+Jason
 
