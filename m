@@ -4,94 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF94CD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 18:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF8ACD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 18:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VkS+9PTi0bQprMQXirOvrqsFrc81uGcDDom9cGbtCYc=; b=wuUxyagiWu0X5OqrDRq4cs3+6w
-	RNDPEmc3nFDTrgNa6vtw2V3EP3vG9Xbkl/eEDWgwxxLld5qz1Y0u/haM7AqxR4VAMORWQj6/mMYrR
-	iPPKFALV5dDkWYhMsLTKK8oSKvucbamxGqmLr3UKC1qS6Dv41tnTuPn7+ewuB3DYv7USIMTq8rgYs
-	gZKA69T9SREp1JnFYRtVQs83JB8br5dEfy3Ue7fgT0nDDX8SgvMT8onRRzgt3diFpsnJPVyZGQCVY
-	rdmuj+pt5aY87/ebrfrdz9fyD6gzl+NvlosWYvQkT9q/4Rb00uRzj2VPQPOtrIoijk/ZM7MNdBj6C
-	GFnNnC9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=381Fq/TSXo/JXln0nP+8I3E908K7YAJ7UEBMT46S5DU=; b=WCJwMgl3yfe3s7+tniasmm7op8
+	L4UGlyeCjMok69KGUJN9W0Hp/XVBGetQncNhhK9edKxtYJHaaI1e5/A3SJvjtmM88l2eUFk41gC1D
+	6Psgucs8Wao5RKbTK6/29DV6wE+kmVHywALhJ0fBjl29E+8YtZDeUrG1Ypps6KMWxYwyym8UJHRe9
+	lDHTxxFNrCnPmThbtPrTq34KSDuAIjQ7ikTBwnptfMTTBWRGX/8XsVwrUDohyoQaynulZcmcheFW0
+	QudqZ8tXBn6j1cpwGYbbHRfH1GVC8kUwX3vrrXLGQ9Tmtn3B76EGVvnpKK+pHG6q9Dib7FGjTwKPA
+	7ScdQG7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZWj-000000014HS-1oB2;
-	Fri, 05 Jun 2026 18:44:17 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZWf-000000014F2-24cU
+	id 1wVZfW-000000014nx-2Kwi;
+	Fri, 05 Jun 2026 18:53:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wVZfU-000000014nV-0P46
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 18:44:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id DB2B24E408FC;
-	Fri,  5 Jun 2026 18:44:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8F4885FED1;
-	Fri,  5 Jun 2026 18:44:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2A962106A25E4;
-	Fri,  5 Jun 2026 20:44:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780685046; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references:autocrypt;
-	bh=VkS+9PTi0bQprMQXirOvrqsFrc81uGcDDom9cGbtCYc=;
-	b=gc4GYF29BRUao23NMlI0LlyMYh33Db14Qxyye3dpp+chRGxjIbo8V04fYY5mSH2fVXC+NM
-	jKWN3o57sxbYH0CImLh5FtHdZLSCcyr/2Jlb3AQHa91atGW73LU9UG7DjjEYAzxP5h+P4t
-	hpPgF7AWeTOwfg9LlVtmHA+pqbUFa2WeyHlzLNef0fvmJXji4tZ6tFwF45MCzn1MeaVnOl
-	rU2+0D9fScncvf3GlIK++n0wR/ZBU0emOSPmd/Sya7gz6X5EyI4kSduDdnj5x5LuI8LJFJ
-	NS3PS/O8/GU5kG9q5KRIMxEDn9vQdgiH/ZUaL2HnmrC2KRzHnzO5+qpz237oCA==
-Message-ID: <4c56014675089901aba5cf648f0e79caa66852c8.camel@bootlin.com>
-Subject: Re: [PATCH v5 5/5] watchdog: aaeon: Add watchdog driver for
- SRG-IMX8P MCU
-From: Thomas Perrot <thomas.perrot@bootlin.com>
-To: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Linus Walleij	 <linusw@kernel.org>, Bartosz
- Golaszewski <brgl@kernel.org>, Shawn Guo	 <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- =?ISO-8859-1?Q?J=E9r=E9mie?= Dautheribes <jeremie.dautheribes@bootlin.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Lee Jones	 <lee@kernel.org>
-Cc: "thomas.perrot@bootlin.com" <thomas.perrot@bootlin.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miquel Raynal
- <miquel.raynal@bootlin.com>
-Date: Fri, 05 Jun 2026 20:42:50 +0200
-In-Reply-To: <bcc88b28-fa45-4a75-8a09-98d25a9377c9@roeck-us.net>
-References: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
-			 <20260408-dev-b4-aaeon-mcu-driver-v5-5-ad98bd481668@bootlin.com>
-			 <bcc88b28-fa45-4a75-8a09-98d25a9377c9@roeck-us.net>
-Autocrypt: addr=thomas.perrot@bootlin.com; prefer-encrypt=mutual;
- keydata=mQGNBF+/ZOUBDAC2DghCjZvmgYcve02OG7dGZ7Iy58uEwne3LB7w7nRwdAxKw7ZaiVqwY
- O+yNGVi+GVx7oA6Wn4pv46z+QDRLQiq6OseuXhkSGCg7U/yBCUq12B/GRGO1Qt2Qi1mJJT1s+1qZ5
- Gxv6Nypz9qKVn94GM2bR1hXBga0t87vBpebThOHmX5d/0dqIcVxRCM7onNb0dDyRoVgLS5rBhQzrL
- CMrJaCy39xZUy0J1SOlH4Mgk6EhJIPYY4wlzikGX6urg+Tc9EjGd78ry0e0p5U5qgjFR5QGJDy1Gn
- U3CfwbT9sowdCASDbQDUoltlv2iWJCLa0xl97KVchCa0pr7HKbFA3J5SLKqFYUBCkFL+5WudYlz2n
- XxiUgyviMQxyK+ij66kEi6/2zFDAecd43pHV7790ptqZBC3Jc67Emj7Vo3ShX6RXPPxxbeCTOF2uk
- I45aJ9XcVFH/MFE96NjXj8uahnIsiTPyuCUoJu8tj7TSQyue874qJqVQvqlFyt2aZYJZ8ruq8AEQE
- AAbQpVGhvbWFzIFBlcnJvdCA8dGhvbWFzLnBlcnJvdEBib290bGluLmNvbT6JAc4EEwEIADgCGwMF
- CwkIBwIGFQoJCAsCBBYCAwECHgECF4AWIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCX79mdwAKCRCfw
- AsFcf4K7fhbC/wP0kSl6id2E/K3+UdXk6CLMVRbCFLCREzQs5WFpQ6l/I0WGOamhrOgegdszheiVF
- orlUP8d37XSpFAqydhKGaN78V5Dps0Wmwm4lIlS4MtQXJtSLUHXDJLIZLW0pw8tiPLKsd1o/yDkXE
- dnpsjJTRG6SdDSHnyOB2/gh4p+yTaLytFdARk/r4/P26+L+FiH0fFl+RnBt19LPklfKgeDc7GwIif
- ja+nIWpp3W23DAUuI6xduEut25Q89yu7Ci8CliLfAiLy9bIGjBQWU2Y+1/j/7KuPj6VbBsZWLTZY0
- hUmpJSTnWAqc9SMsNxo7NSQuddgviz5e2tqucaRqxP02FGzNa8U4NAKdWaXrlHG5Dglj9XH0DK+SH
- +c96qqFewYD8VPQ6XAGxQcXbrtJmiMor1R2DfziispLRvJcfYs8xqabbCtoS3ouXB9XRi8hn7A2kh
- ME1ryS+Oh63JshXHnw6bmjCpVd/p+fGLIGU6A47pJOpviKR4jEO84pl2ejtDZ3Tc=
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-D+anXI9Ca6rCMw2yVrbP"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	Fri, 05 Jun 2026 18:53:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A84947D8;
+	Fri,  5 Jun 2026 11:53:13 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D85C3F7D8;
+	Fri,  5 Jun 2026 11:53:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780685598; bh=LXJ4N9M7Q2HKVuHJiqod/o5k82b/D7efOXXT+s8XorA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AMI5okhrpHUmhc5NVTNmDPnAOcbbGme/mmAAZmNe98E9+W2v3TU3lBPqxHGunxbZ1
+	 G4QEg14jmqDdYWMJhgb0+sF6MYCihH4r3gzPtUTJ6I6/OURExxvW24WLcln3bzDeZE
+	 VFEHXDmxegfxEzB0N7eqIHJ3TM1bnfIveyeEjOrk=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH] KVM: arm64: Fix block mapping validity check in stage-1 walker
+Date: Fri,  5 Jun 2026 19:52:55 +0100
+Message-ID: <20260605185255.2431996-1-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_114413_686809_B12CD4E0 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20260605_115320_395916_E6D31E80 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,74 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+For the 64K granule size, FEAT_LPA determines whether a level 1 mapping
+is allowed. Using the result of has_52bit_pa() is too restrictive, as it
+also checks the selected output addressi size in TCR.(I)PS. Fix it by
+only checking FEAT_LPA.
 
---=-D+anXI9Ca6rCMw2yVrbP
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Fixes: 5da3a3b27a01 ("KVM: arm64: Expand valid block mappings to FEAT_LPA/LPA2 support")
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/at.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Hello Guenter,
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index 2ddb5b5a055e..30e6fa8ac07c 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -564,15 +564,18 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+ 	/* Block mapping, check the validity of the level */
+ 	if (!(desc & BIT(1))) {
+ 		bool valid_block = false;
++		bool lpa = kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, PARANGE, 52);
+ 
+ 		switch (BIT(wi->pgshift)) {
+ 		case SZ_4K:
+ 			valid_block = level == 1 || level == 2 || (wi->pa52bit && level == 0);
+ 			break;
+ 		case SZ_16K:
+-		case SZ_64K:
+ 			valid_block = level == 2 || (wi->pa52bit && level == 1);
+ 			break;
++		case SZ_64K:
++			valid_block = level == 2 || (lpa && level == 1);
++			break;
+ 		}
+ 
+ 		if (!valid_block)
+-- 
+2.43.0
 
-On Fri, 2026-04-10 at 08:49 -0700, Guenter Roeck wrote:
-> On 4/8/26 10:21, Thomas Perrot (Schneider Electric) wrote:
-> > Add watchdog driver for the Aaeon SRG-IMX8P embedded controller.
-> > This driver provides system monitoring and recovery capabilities
-> > through the MCU's watchdog timer.
-> >=20
-> > The watchdog supports start, stop, and ping operations with a
-> > maximum
-> > hardware heartbeat of 25 seconds and a default timeout of 240
-> > seconds.
-> >=20
-> > snip
-> >=20
->=20
-> Odd, unusual, unnecessary, I would argue that most people would
-> consider a fixed
-> timeout of 240s as anything but reasonable, and as the comment says
-> arbitrary.
-> Since I am sure that I pointed this out before, you still insist, and
-> I am
-> tired of arguing: Your funeral, so
->=20
-
-I apologize for not addressing this in previous iterations.
-
-This will be addressed in v6 to make the software timeout configurable.
-The 240s value remains as the default fallback.
-
-Kind regards,
-Thomas
-
-> Acked-by: Guenter Roeck <linux@roeck-us.net>
->=20
-> Guenter
->=20
-> >=20
-> >=20
-
---=20
-Thomas Perrot, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
-
---=-D+anXI9Ca6rCMw2yVrbP
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQGzBAABCAAdFiEEh0B3xqajCiMDqBIhn8ALBXH+Cu0FAmojGKoACgkQn8ALBXH+
-Cu1ZQQwApYSqbfzLii5Qn294byLHYxr56RVOi+0rrMZsZzcmBNOHG6H+JE6QGpRb
-/UJIX7OVQ/ACKJIEL/QKR3SvF2DLvY97BCX2wBslodNzcRyVuHvTMEppM/bmQVpL
-5LFpUdHxXDVoT6dUmwqPCGOH+HGx0OX1L8EBo0UbEcNin7gyYspy5cI4V+0lsK7Y
-64HdBFpCtJmsu0OfWl+W0RLhZpxEPSFB8NbUJg5V0TqAzZZi3p+uBsLWqX944ocT
-la5kreLGE/fKZQ6ctWCN5+nT0neZ3lJe7LofrUYjJx8GapWavmD+cSPscqf537Sw
-oxdfMxcmlmWUEFOPLo1MlUrASdoss8zNuNfEGt0MitxTbZizPqS/wxteZib1gb6O
-x6Klhpl0Q+CCfP0ZIhSbVWMD9GY+ggelFfDEmn9HoDoH/Hz4Xbw1h3k4YWYp8d4f
-0YUf1QZC51lDB3J2DXJLVDCAzuSxDW3Sw+8eJ2gcBtcRD53nk75t11uZOCNafXnL
-Q3BgaQyl
-=ns9k
------END PGP SIGNATURE-----
-
---=-D+anXI9Ca6rCMw2yVrbP--
 
