@@ -4,61 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F376CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 04:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2190CD6E74
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 05:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hfuoa9jIuBFMW7E7dnxe8T1BD0cJPfKif5I8kRk0YR8=; b=0qPY7LmhinbdIAUC8wwrgm3y5d
-	rf490OL+yRe7QnB3FVb57I8x+PpQbvq1L4IqxNLnlXDiBrjBatc+598BJNNUePiWmug2QjmujWw/l
-	0IojYoGroad/X3+DgQpnLs/HDx3BHd7n4Npt/f5m+kVK+pR8dafs7C4OuqemtHSMRCa3hXsHWPuK5
-	X2XtgXJiIkfzK+63RzYFQWYLviQbUZddB7MBwl85JWhaq67pSXvajE/51X1kg+yiO8DWmQdKXj6lB
-	EeyEYHtgSTAj6NemNZkF3hzz8OKqyU5taibFYGfMHBB7v5mFb4svF4gX8uSTINTzdyNQyUT5xHGf2
-	HSZpOlrQ==;
+	bh=ZA27BTaDBEKi8r/WSFiJ0hysZrsoBQk8soZX6m2DKXU=; b=mev61DAsT8wjrJAvhb3m66S+ZH
+	CSrjOJONbIGeplnhZKtnBYeeQUwlJxdfdmCHwx11mgUwuBxkWqIaa/sGx37q6hNHqfbu+gOXtSaCD
+	FpfAfgb0VUBlpu1ajCq/rOH5XCNBiHeBeVLXwS8Fz6XtBr81SrRQ+eztlJ1Xo1V2cg8G6nfdkCiFH
+	XbuGoVEFnFivX+N4RPlJlisvAtI8Ax+0MuN9/QA/FyTAsS/m0gFOwUej9lXiwiKBVetaXo4znTGeQ
+	UIz1+af6xUw8p3VzwADtULgxUBZ3jpMMBiAyjsHF+76cRNwKOxUevZ0cIryuptd6O0XXgfEMz7kl5
+	de9Uk3pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVMME-000000004nh-0iMa;
-	Fri, 05 Jun 2026 04:40:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wVNDL-000000006vv-1jtY;
+	Fri, 05 Jun 2026 05:35:27 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVMMB-000000004nY-3aBS
+	id 1wVNDJ-000000006vI-1l3n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 04:40:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 815C260052;
-	Fri,  5 Jun 2026 04:40:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EDED1F00898;
-	Fri,  5 Jun 2026 04:40:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780634429;
-	bh=Hfuoa9jIuBFMW7E7dnxe8T1BD0cJPfKif5I8kRk0YR8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=kKvmEULJ7k4W6M7l2R2DdTfBcWiv0oeOJHdyQ8wtW/gqxZP73gQj+0tC3Svu9Os3j
-	 Q/Qv/P2Gcq854KBftl+pLJ/1Q2v1sa1usPXvsytOoiDExeIqcXtbNBboJnkXlEOJTS
-	 zYH4reXji8g1GXsXRgZ4WIKxQkGn2IV4Kpv8niLVc9r5gS847CUZH5W9kBw87mbcU0
-	 Wm5JcEo0lSdnp8lQb+6e5VO7nZ+fZzoI1Ifz01jzEgreWORC9X/CazoozwFsK1OTYU
-	 KSrbMbon3ACLkL1RI0YskPiJ9VtAB7/Uf+uZsgbtNI3f4HQK34I8LgyZ1cqBaTJPRj
-	 f9XssrQ3bO4cQ==
-Date: Thu, 04 Jun 2026 23:40:28 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 05 Jun 2026 05:35:26 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-8422c327755so838423b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 22:35:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780637724; x=1781242524; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZA27BTaDBEKi8r/WSFiJ0hysZrsoBQk8soZX6m2DKXU=;
+        b=Fv97NNnHwOd97IQyldFPzg46urF8uN0iZmjzjL7N2qteM5sbpiAngKdspRls03HrJS
+         5jPW/cBOeVuw6Y7AzxFX6B2nvAIgxlCoPQYpiaEUDYh12hj0E+FGo4vC4cUGJzTcuFef
+         LRHvrR58euKeVL96pgVT82I0fGttFk8o7471ZZOaZy9fJbrOa/VR0fnWrEu4iv2uHuIm
+         liSnJSR88Osqv8w9Ia132mCcO2bey0A/D8P4WFQzZt5YOhVVPbwb8Fst3oJS4uVtK7/4
+         rAWzucn/fFNbd7HdLi05F0NT8gNaxNlMWbp2PIdRH2jFq0jXJHpa3AJvryRNozsGe9Vp
+         TQ6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780637724; x=1781242524;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZA27BTaDBEKi8r/WSFiJ0hysZrsoBQk8soZX6m2DKXU=;
+        b=dnoflt+2Lzi8hxI0LEncCxaz1QBlCyPR1QUKY+I+GeO9ODy6n2j49vijldscRCzFbS
+         5vxW8LxxbuGPgq7xVIwh6fMQI/zyZO3kbXO4f2dPR61KawNhcehNY9Nfjm37VTFC3N3W
+         QTarNlg17mTrRhcLeBdYPnAbN/AqddcXJzhuSroUZsIn8bikGycz/lNfNCmSmahiPrFb
+         Zl243KdpiHJTmnz/2JdW8oU+81jELYxQwoYN6W+Fz7WUhF1ThP2rzn0V495cphDveIR8
+         LIQ5QuachGsJ/bgng42hMd6xVKqez1WdXDCajV+zoBXCOqR1HWfWSCOsXmgvE3p7s0lR
+         ktcw==
+X-Forwarded-Encrypted: i=1; AFNElJ8nw+pSUusHaAEGyTxxmPwf3nBIerbDwbLURuNN6TJh7+dnMLzyDrpflayhwnnrot6w8h9//JN6tXLe8yYIaqvA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3QESd5UXKvu9T9HIlY+yRB9nrx77APZ7fsHhs6A2sM47DIpWk
+	82rlQ/vpEh3MffPJ99AwEficJsBYsgsHjNlX516byHZtZaYa7mucCDx1
+X-Gm-Gg: Acq92OEFuTLGLdMJvNvpSx6DgbL2gyaAdgfHRDsMWBxb7KT4A+oouLwgNKK0CLRQbwE
+	geEZRRq3/IQMYrJM9yCn/YgXi4CXBPmgbO01UJe7uyqt969mVhCdBI50LiHWp5g+/dutEnGO+XZ
+	ZhxzK/vnswpxeIFgbN4vv4GC9G4pBH3GuIJc+2XVjTB2+h5GThAqLUkQajuZgzzvSxb8ThN6Zvz
+	4eoL2EgRk800q7TQ7gZzM7ATuqPcC6kU+ubhhdQRbhid121CtqTM1muH/MYiEB7BgxvbPOnm1Oc
+	yZGMbi98ImvY8SCqQKM8/EcBEYtqMQ27xY4Elbv/YH/yxHK/PMqvr0YER/DkyksF5MywXeDaUI7
+	L1kRKulV+J5E/mjEe/7Kte2hl5hKxwgaQDbA+2PMlEnJC6p+/Q+xrwGM/3f+41ZTwHYCeHdlkA3
+	/FMDBiR3XwQR5ExKex5dd9mzjsgpzXps2ic4H1DiCuRyKQqZeRrskZpg==
+X-Received: by 2002:a05:6a00:4512:b0:842:3be7:4d51 with SMTP id d2e1a72fcca58-842b0efa1damr1778931b3a.15.1780637724503;
+        Thu, 04 Jun 2026 22:35:24 -0700 (PDT)
+Received: from v4bel ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8428288217bsm9336558b3a.37.2026.06.04.22.35.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jun 2026 22:35:23 -0700 (PDT)
+Date: Fri, 5 Jun 2026 14:35:20 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, christoffer.dall@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	imv4bel@gmail.com
+Subject: Re: [PATCH] KVM: arm64: Reallocate the nested_mmus array under the
+ mmu_lock
+Message-ID: <aiJgGBv3OCPNJJPc@v4bel>
+References: <aiHEKOeZMVwsRlvP@v4bel>
+ <aiH7xKnprU9bUap5@kernel.org>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, cix-kernel-upstream@cixtech.com, sboyd@kernel.org, 
- conor+dt@kernel.org, mturquette@baylibre.com, bmasney@redhat.com, 
- devicetree@vger.kernel.org, p.zabel@pengutronix.de, gary.yang@cixtech.com, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-clk@vger.kernel.org
-To: joakim.zhang@cixtech.com
-In-Reply-To: <20260605032225.523669-2-joakim.zhang@cixtech.com>
-References: <20260605032225.523669-1-joakim.zhang@cixtech.com>
- <20260605032225.523669-2-joakim.zhang@cixtech.com>
-Message-Id: <178063442819.2077907.17839637858773523685.robh@kernel.org>
-Subject: Re: [PATCH v2 1/5] dt-bindings: soc: cix,sky1-system-control: add
- audss system control
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aiH7xKnprU9bUap5@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_223525_466668_A2E867B1 
+X-CRM114-Status: GOOD (  30.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,54 +102,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 05 Jun 2026 11:22:21 +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
+On Thu, Jun 04, 2026 at 03:27:16PM -0700, Oliver Upton wrote:
+> Hi,
 > 
-> The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related clock, reset
-> and control registers in a dedicated CRU block. Software reset lines are
-> exposed on the syscon parent via #reset-cells, following the same model
-> as the existing Sky1 FCH and S5 system control bindings.
+> The shortlog is very confusing, since "allocate behind $LOCK" is usually
+> something alarming. Maybe instead:
 > 
-> Add the cix,sky1-audss-system-control compatible to
-> cix,sky1-system-control.yaml for the MFD/syscon parent node, and define
-> AUDSS software reset indices in
-> include/dt-bindings/reset/cix,sky1-audss-system-control.h for I2S, HDA,
-> DMAC, mailbox, watchdog and timer blocks.
+>   KVM: arm64: Reassign nested_mmus array behind mmu_lock
+
+heh, that's confusing indeed. I'll change it that way.
+
 > 
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
-> ---
->  .../soc/cix/cix,sky1-system-control.yaml      | 39 ++++++++++++++++---
->  .../reset/cix,sky1-audss-system-control.h     | 27 +++++++++++++
->  2 files changed, 61 insertions(+), 5 deletions(-)
->  create mode 100644 include/dt-bindings/reset/cix,sky1-audss-system-control.h
+> On Fri, Jun 05, 2026 at 03:30:00AM +0900, Hyunwoo Kim wrote:
+> > Code that walks kvm->arch.nested_mmus[] holds kvm->mmu_lock. By contrast,
+> > kvm_vcpu_init_nested() reallocates the array and frees the old buffer while
+> > holding only kvm->arch.config_lock, so a walker can reference the freed
+> > array.
 > 
+> It wouldn't hurt to share slightly more information here. Are you
+> dealing with a concurrent MMU notifier?
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Yes. The MMU notifier path also walks nested_mmus[] under mmu_lock.
+kvm_vcpu_init_nested() holds only config_lock, so if a notifier fires
+during vCPU init, it races with the array realloc and free.
 
-yamllint warnings/errors:
+Here's the reworked changelog. Should I send v2?
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml: Unresolvable reference: /schemas/clock/cix,sky1-audss-clock.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.example.dtb: system-controller@7110000 (cix,sky1-audss-system-control): clock-controller: False schema does not allow {'compatible': ['cix,sky1-audss-clock'], 'power-domains': [[4294967295, 0]], '#clock-cells': 1, 'clocks': [[4294967295, 0], [4294967295, 1], [4294967295, 2], [4294967295, 3], [4294967295, 4], [4294967295, 5]], 'clock-names': ['audio_clk0', 'audio_clk1', 'audio_clk2', 'audio_clk3', 'audio_clk4', 'audio_clk5'], 'resets': [[4294967295, 0]]}
-	from schema $id: http://devicetree.org/schemas/soc/cix/cix,sky1-system-control.yaml
-Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.example.dtb: /example-1/system-controller@7110000/clock-controller: failed to match any schema with compatible: ['cix,sky1-audss-clock']
+  kvm->arch.nested_mmus[] is walked under kvm->mmu_lock, including from the
+  MMU notifier path (kvm_unmap_gfn_range() -> kvm_nested_s2_unmap()), which
+  can run at any time. kvm_vcpu_init_nested() reallocates the array and frees
+  the old buffer while holding only kvm->arch.config_lock, so such a walker
+  can reference the freed array.
 
-doc reference errors (make refcheckdocs):
+  Allocate the new array outside of mmu_lock, as the allocation can sleep.
+  Under the lock, copy the existing entries, fix up the back pointers and
+  reassign the array. Free the old buffer after dropping the lock, as
+  kvfree() can sleep as well.
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260605032225.523669-2-joakim.zhang@cixtech.com
+> 
+> > Allocate the new array outside the lock, as the allocation can sleep, and
+> > do only the copy and the pointer swap under the mmu_lock. After the swap no
+> > walker can reach the old buffer, so free it once the lock has been
+> > released.
+> > 
+> > Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> 
+> The diff itself LGTM
+> 
+> Reviewed-by: Oliver Upton <oupton@kernel.org>
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+Thanks for the review.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+> 
+> Thanks,
+> Oliver
+> 
+> > ---
+> >  arch/arm64/kvm/nested.c | 33 ++++++++++++++++++++-------------
+> >  1 file changed, 20 insertions(+), 13 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 38f672e940878..6f7bc9a9992e0 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -89,21 +89,28 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> >  	 * again, and there is no reason to affect the whole VM for this.
+> >  	 */
+> >  	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
+> > -	tmp = kvrealloc(kvm->arch.nested_mmus,
+> > -			size_mul(sizeof(*kvm->arch.nested_mmus), num_mmus),
+> > -			GFP_KERNEL_ACCOUNT | __GFP_ZERO);
+> > -	if (!tmp)
+> > -		return -ENOMEM;
+> >  
+> > -	swap(kvm->arch.nested_mmus, tmp);
+> > +	if (num_mmus > kvm->arch.nested_mmus_size) {
+> > +		tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
+> > +		if (!tmp)
+> > +			return -ENOMEM;
+> >  
+> > -	/*
+> > -	 * If we went through a realocation, adjust the MMU back-pointers in
+> > -	 * the previously initialised kvm_pgtable structures.
+> > -	 */
+> > -	if (kvm->arch.nested_mmus != tmp)
+> > -		for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
+> > -			kvm->arch.nested_mmus[i].pgt->mmu = &kvm->arch.nested_mmus[i];
+> > +		write_lock(&kvm->mmu_lock);
+> > +
+> > +		if (kvm->arch.nested_mmus_size) {
+> > +			memcpy(tmp, kvm->arch.nested_mmus,
+> > +			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
+> > +
+> > +			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
+> > +				tmp[i].pgt->mmu = &tmp[i];
+> > +		}
+> > +
+> > +		swap(kvm->arch.nested_mmus, tmp);
+> > +
+> > +		write_unlock(&kvm->mmu_lock);
+> > +
+> > +		kvfree(tmp);
+> > +	}
+> >  
+> >  	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
+> >  		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
+> > -- 
+> > 2.43.0
+> > 
 
-pip3 install dtschema --upgrade
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best regards,
+Hyunwoo Kim
 
