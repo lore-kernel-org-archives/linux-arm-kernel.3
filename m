@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B1CCD6E7E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9214CD6E7C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 12:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQ9iUdpaW/UgRLg2/BpFwjAvwsUvVTg65Q7BjB387tg=; b=FrK+9rZJyvHHwxmTLUsiwtmj+S
-	b/EbaOwTYrVjaYcPkwXFHguygKLMFCFse+z2b17meg77p4O9UkgEMW6Exx1cnHdRGUAkOhvchG6mb
-	eNKYyb5WfdTMgR7ii/YiUIijT7N59xWgStozRHmBLuHAkDP0OdXT/2fSxGz16pX6WL0oJT0xMI5l1
-	ZhpJi83k43yOn/shxa/zflw/HgedJ15ANcSwqwky+GytecS7A/UlEQ2mqLFCw3f/a6jyy/8SKsRyN
-	v+NiWhPpWVeUILhmzUa/gHt5vB50l3x+bxreXdhKG1IWI0KGC+SayTj9zopiivKsSXKTi/bwT/qKx
-	J3Ex99kw==;
+	bh=S0e8wESPhIuGnKBPbF3YDifoYbOSIP99q8OpeirAYTs=; b=OueNL+o4pfAdwncrlOFyyllMNS
+	Hrx9KgAeYII7WpU5KNhvwj7apqQz49nWHU1jZufLWiPbTOHnFs58QL3A2ewaqhEh+ViHZ7gdXRolI
+	Oi4Q9Zlh5GINE6ShvfLgHiTzUbbZ8DEbqvSQLSX9SAjrnb6UUGKCpv31T5aL1Lo1U3y7kpt3bxmX/
+	7dhrzLPefXjlDy66fTj6XP4miDbXLUSHHAE7iKdEaK+Z1kARUa6iYD1X7fnEkvzeBu0nDH9wI+1Vh
+	4wq2h8KNB9tQUzfr0KOCTh49TjJXwYpnb0/cQ43cZ7MOFfhsKaZ+cxkA54mSQOJ7G21UsPpOlsJMB
+	YwytVrsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTXB-00000000bfm-19eJ;
+	id 1wVTXB-00000000bfY-0gGb;
 	Fri, 05 Jun 2026 12:20:21 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTX7-00000000baH-3RLO
+	id 1wVTX6-00000000bZD-0g7d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 12:20:18 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490c0c92cffso10094155e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 05:20:17 -0700 (PDT)
+	Fri, 05 Jun 2026 12:20:17 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490af320e2aso21695815e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 05:20:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1780662016; x=1781266816; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1780662014; x=1781266814; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RQ9iUdpaW/UgRLg2/BpFwjAvwsUvVTg65Q7BjB387tg=;
-        b=nLbk59ickeOPIoEF26+6ZecxBv/2IXnbnnFo5UesUa1xUFvOanT6qonH5EzL1g9/EO
-         elseMPZ39nH446uMXgSniI5eqOUh2e1mTZ4LhLePoIAA30AaSWotwyqLIuiFdg1QrR0L
-         Diz7G2F8M8oEIFCMOFclvrJ+EpF1gPIHiqQ6g=
+        bh=S0e8wESPhIuGnKBPbF3YDifoYbOSIP99q8OpeirAYTs=;
+        b=QzCaDTnC8qC7MuPCQKHO+KduiYG2vsU5k/lqG7CDWI93aJeHIF3jGnW0o0IvH2aov8
+         9smmK+cPcyTKh3k0+41WUr42j9iTzTPIkeF6divFSE+z/HVAaILGvz+TfU8rHHOPNTsV
+         tfcARYwjfIBOE7R+ov9CIRIKQj2oo8uaP6f0A=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780662016; x=1781266816;
+        d=1e100.net; s=20251104; t=1780662014; x=1781266814;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=RQ9iUdpaW/UgRLg2/BpFwjAvwsUvVTg65Q7BjB387tg=;
-        b=DgLbqScKy8eWJCr4n8H/e7P+qA3vIl37rBb+UnByv7Kt6a+hHb4V1275WwLL1E5B+2
-         6tUOam7OMR5I/qKS8/UvjEjIdprpa5EQ+7xevPRYknpjIiPkZjytdia6kz3RUk6Vk1WN
-         RRJ42BabrM9xLcvOb3hN5BifuHLeQXr63p6bKPHfF17P/i0v9hzWziCApgTWXJF1zpnS
-         wxxQE9QcvEBxHw+eDtQxZQi5FB1uPZmHSmtpyc3d7LGTPdZZopisZYoiDPaEEwcUa47i
-         AH5qhOOP+zFn56rm0O6Y0Q47zUg5DyTqu3AM3PV0FDl1W/MwXRn5hrZC06WqvtcRwROZ
-         KNVA==
-X-Forwarded-Encrypted: i=1; AFNElJ+7OwmOYrqvSLV2ZCnoW7zqJDISDhhpr4MQjqTGE0ieb9X3TJCy7JPI9MWCyau0tuB0Yf64h9EA4Nlx11U4+Tfd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPUWkWdf+edbd3zqhghPUHcuaawcWAc6sxOCSNJdm0ZA5syQAN
-	fK/wayu5P3lTzknQvLDX2XsEwY9zTixNVQ3ekNX1WhZkKPOnxk0svI97V66/DqR5O0c=
-X-Gm-Gg: Acq92OFCgA5HRrqnqlMD6t9VHFY1UgdHkVg+BsBoAylP8J45WtrAMQcS+jcrN4+0hU1
-	xoPbCDqanZg3yommfRCfUmrQ7YBrzzZFDBljNbbqpi6bzhd2EoB77TX7RVgeUOhTnX0hRlAfaLV
-	n4FrrWVcrT1jd3N6FXEwYB6C8QiBXXitjg6gnNTeAIZYcQNRs2gFMS2QjWe7KF+bT6Kd3Vcck/y
-	7alnTzciNJJ9cl2iHMWBPnzETsOp+aGKsW+ww23+kPgpX1wNM6FqxrW8Uwl/O4BHKRWGTjHhHLc
-	BTR4yIZKrXA89cAgP6tN52pHWfX58rGjhj5GTExoag98mbmEjJJhNyNV8IjRphY0JuT1Nx6z0jJ
-	DKov/D7dSRAFqmHDHQiwAqeakviVBAAUjIRFVRxsRlWRCfC6LAY9up+6DFt99mb3Xc+LdXHC3vV
-	WrhWOi9wlYxoc2XNwPWYn6ciZg6qZ0Z2vfdjoyZxsorppnu97kPtyqOs1p1otIXD06TzT7rBt8p
-	kdR08cGbJWN/kRBto1Np+6pO6STge28GUy6Wo4c4+W2WcooOkCfUk5SLtqkADJA8DEX02a5Zaz5
-	RDCV7g2QbwUd5KraVcIUXV2zRZlsMzWZWeY=
-X-Received: by 2002:a05:600c:1d12:b0:490:afc5:f95d with SMTP id 5b1f17b1804b1-490c2602bdfmr52692865e9.29.1780662015953;
-        Fri, 05 Jun 2026 05:20:15 -0700 (PDT)
+        bh=S0e8wESPhIuGnKBPbF3YDifoYbOSIP99q8OpeirAYTs=;
+        b=dcGvsPu9fsvwJPfdnhBbn5u0ijksPxIJDAR8kPKq8fGcxVdrCMMUucQ3nS3LBV83WW
+         fJxaG8wxuCSz51tEos2gHROEbtkHXq4TrIJ3Ril2YTm0Rav2zF2jmsKWeA9nriNQX+P5
+         o0YlGPtRr+sNJ8AstPL/GaMp9ovQlS5KDM+GdCiTCkMHlKybAQM6DnavJPG0rEmHjA5F
+         EAXMJ2mqO+xtSrFB7O2vq21NVTTt7ts9u/5h3JYthdJrSa1zLu/95Io2DtRcxea/fEqN
+         3lw9KJcD9Dk41xXHSVopSatyI9HHiry1AyJr4nOgA/SIzSko8PGyaJH1MMNnXDvd40Z/
+         cGoQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8GolC3zU2fPypMC959SNEoozxRlaQodTIoQgkbLJzYP66jm7Mln2IHKgSIKWy8BiIEKkL6q2CYlVO2FEfuR5Se@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEQctdb44MAq1JbdsK8KWAfh38PRsqEcoqS81/7RLJ0buZ1/0b
+	/+RQGYwiH8MnRmkV0chmaiV/qqOMNdtze1b4HWYqx9UWHsYe85spF276h1ocmG7EqI0=
+X-Gm-Gg: Acq92OF+emgOxwS9QPhegIYS+bh4/+jxDa1Bn9Fv4hGSwLPLx5k78KY199X/eD8WppL
+	vbWCvC61umZ2aX8Fix4JcCvVwicOZaMDImHeldox5uk3oYR/bNIFcDjIBMfo2PXn+4ygFIhtcDj
+	iazg62AlFIy0gYOPg/8Pcqvf6JOIXYsFhttNHukL350a/BUhP4ShTKP0WYl9b8ueZGJbpMj5jJ2
+	rYFvt/npIZWRQGN1HjCiyEkGXs66lek5oQ6O5oa3TLR7GkGWAhvgGkCGQ48imE06q/ceGYa+AMP
+	pxsW/dXbCuFex+zbgpFD7gZLstnhB9VbNPrthwQgj4/VJOrxazuza0wwDQyqkNnBAX4rmE15SM0
+	KEBbjLOtugXizQUaaRzZnbnP4wXanYcLLA8olkjwQ6dhRioq58Oa7MESG3qPot/fyJgodbT9hL7
+	RFfv87rKjMhU6+nquMi8pdwIZqCdstqLigowPJT3i4WK6IyBw3wEZsUZKRCCglrxgJFVBDIpsGG
+	IItvldnhFP6hqfYnN6Db4An94sk0BXGgj5lnkkxu5DE5EnDHVUUjMWB8ukRrvChH/N2egbojTt5
+	QYAwXm1BMhz6KASaJ1I0tv2tmFnsOyfci9iUEx8zbgnzoQ==
+X-Received: by 2002:a05:600c:358d:b0:490:958f:2a5e with SMTP id 5b1f17b1804b1-490c25b22d7mr59154005e9.13.1780662014287;
+        Fri, 05 Jun 2026 05:20:14 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-82-48-44-238.retail.telecomitalia.it. [82.48.44.238])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2dcb13sm24785883f8f.2.2026.06.05.05.20.14
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2dcb13sm24785883f8f.2.2026.06.05.05.20.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Jun 2026 05:20:15 -0700 (PDT)
+        Fri, 05 Jun 2026 05:20:13 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: michael@amarulasolutions.com,
@@ -83,17 +83,17 @@ Cc: michael@amarulasolutions.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v4 07/14] arm64: dts: st: add pwm2/pwm4 pins for stm32mp25
-Date: Fri,  5 Jun 2026 14:18:18 +0200
-Message-ID: <20260605121957.78409-8-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v4 06/14] arm64: dts: st: add can1 pins for stm32mp25
+Date: Fri,  5 Jun 2026 14:18:17 +0200
+Message-ID: <20260605121957.78409-7-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260605121957.78409-1-dario.binacchi@amarulasolutions.com>
 References: <20260605121957.78409-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_052017_867800_DD670AA3 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20260605_052016_210298_E4F4EE4D 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,67 +108,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the pwm2 and pwm4 pins used on MicroGEA-STM32MP257-RMM board.
+Add the can1 pins used on MicroGEA-STM32MP257-RMM board.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
 (no changes since v1)
 
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 34 +++++++++++++++++++
- 1 file changed, 34 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-index 4be01a6574c7..eab8ebe71660 100644
+index 05bd07a0a561..4be01a6574c7 100644
 --- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
 +++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-@@ -433,6 +433,23 @@ pins {
+@@ -331,6 +331,28 @@ pins {
  		};
  	};
  
 +	/omit-if-no-ref/
-+	pwm2_pins_a: pwm2-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('I', 7, AF7)>; /* TIM2_CH1 */
-+			bias-pull-down;
++	m_can1_pins_a: m-can1-0 {
++		pins1 {
++			pinmux = <STM32_PINMUX('B', 9, AF7)>; /* CAN1_TX */
++			slew-rate = <1>;
 +			drive-push-pull;
-+			slew-rate = <0>;
++			bias-disable;
++		};
++		pins2 {
++			pinmux = <STM32_PINMUX('B', 11, AF7)>; /* CAN1_RX */
++			bias-disable;
 +		};
 +	};
 +
 +	/omit-if-no-ref/
-+	pwm2_sleep_pins_a: pwm2-sleep-0 {
++	m_can1_sleep_pins_a: m-can1-sleep-0 {
 +		pins {
-+			pinmux = <STM32_PINMUX('I', 7, ANALOG)>; /* TIM2_CH1 */
++			pinmux = <STM32_PINMUX('B', 9, ANALOG)>, /* CAN1_TX */
++				 <STM32_PINMUX('B', 11, ANALOG)>; /* CAN1_RX */
 +		};
 +	};
 +
  	/omit-if-no-ref/
- 	pwm3_pins_a: pwm3-0 {
- 		pins {
-@@ -450,6 +467,23 @@ pins {
- 		};
- 	};
- 
-+	/omit-if-no-ref/
-+	pwm4_pins_a: pwm4-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A', 12, AF7)>; /* TIM4_CH1 */
-+			bias-pull-down;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm4_sleep_pins_a: pwm4-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A', 12, ANALOG)>; /* TIM4_CH1 */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	pwm8_pins_a: pwm8-0 {
+ 	ospi_port1_clk_pins_a: ospi-port1-clk-0 {
  		pins {
 -- 
 2.43.0
