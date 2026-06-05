@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C332CD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D73CD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=THNpxThsfSQ5q0NoFb0ByoK4k8Hy0TqI7gl/VqmkI6g=; b=LRVwrtuQMH7CdvvzUOhIl33Duk
-	KM12SeDyQzH4qbE4DzZu8Iy+j/MB9iA+BAYC/jsi4GXbOhpvpxV8AEaoXWFIXjP0kji8eFBsRV9Ae
-	cGBpbenODI41QplLeKzbK7jr6lePMPgv7NrXZUg9NEJGh/Z4q/UbqlBIM+3Vaq0qtbuIMavtaA5Yc
-	bzYhsZGfZ6L2M/psDJ7Bpg9fXrRWrhiEb11vT0GyciFdd6PZMnzLGInJ8VAtrMm5j7S+DaSUISKbS
-	zBEexx5v612Re7kK7R83ou40Ts59TdHaczCPJTK9TqUo7/OdPHf9dRHbrkjqA4qHg8EtGFrSrnZvz
-	g51S5lmA==;
+	bh=nYScoSNB3jeAjdu79Y5o8uX0JVKrcUm3yPFfVKrfJhc=; b=B87Cy4wpCy9ahRRwt6sYtvD95h
+	ewPRnEfcWhJwe9CbUYMb/Nn7tKoTOmhKFLu1Gu7OtQOnnYMge4ctpWCVr9cu40dOVWAScj+s4T/wP
+	dc8m0tcccmzu3WJaYg5CUh8sOFJtRmhJzJ4q6d+FaQscinGCUtQIAHGoRR24XutLXvEPozXmUEupG
+	AcTvHVk+PWm3OA60rTo3ArGAl6GOPmKkGoZRO8fhi1NAAMgxZ1DBfL5ccD0UQHcDrL1agFpHwh8B1
+	oz+XkzhxkHJ4MshBE2vwgpvGxH5FXKjpUAVTEwBbqvY3gKBlYtu50Zu1P0KRpG/UOhsjfc+MsxJV3
+	mjUgKPPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVX8Z-00000000t3W-49Fd;
-	Fri, 05 Jun 2026 16:11:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wVXFi-00000000tzR-3kkT;
+	Fri, 05 Jun 2026 16:18:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVX8Y-00000000t3N-3yVm
+	id 1wVXFi-00000000tzJ-1F1m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 16:11:11 +0000
+	Fri, 05 Jun 2026 16:18:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60BD9601F9;
-	Fri,  5 Jun 2026 16:11:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E71201F00893;
-	Fri,  5 Jun 2026 16:11:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 55E094187A;
+	Fri,  5 Jun 2026 16:18:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36B001F00893;
+	Fri,  5 Jun 2026 16:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780675870;
-	bh=THNpxThsfSQ5q0NoFb0ByoK4k8Hy0TqI7gl/VqmkI6g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Iki9GiRvZWexLI/dKepIIPf42Ls5mfz3AraduxedE+IqJ5xuulE10BcoLemUhXGCU
-	 KiICLIkuX8DUwZrncFVCmtJ1uVElzDsq2TfxHPAfVVqmMJhSVXxzt9mY94fnxCWnuI
-	 surd4Lxkcvf5Ni+QhiPLkvsxSGv7k4tMfLwZz1n7jcZvpVul+5HusQCsyV2dW92L6d
-	 12/i4OJdn2tG/Cu/LuAp5r2S5ojUW19zqpos42alGqz2J6ajTBplAEi7cNAwqxWwGW
-	 shFuRAXxpKNErqqpxcqkp3JPcGoj3sTkY9ihJBaUeMV/AsWN5Qe/7jOe0jr8Hrm1UX
-	 trbpDt8bANszQ==
-Date: Fri, 5 Jun 2026 17:11:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hans de Goede <hansg@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Jun Yan <jerrysteve1101@gmail.com>,
-	Lukas Schmid <lukas.schmid@netcube.li>,
-	=?iso-8859-1?Q?J=2E_Neusch=E4fer?= <j.ne@posteo.net>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, Luca Weiss <luca@lucaweiss.eu>,
-	Sven Peter <sven@kernel.org>, Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org
-Subject: Re: [PATCH v4 4/7] dt-bindings: input: sun4i-lradc-keys: Add
- A100/A133 compatible
-Message-ID: <20260605-iciness-escapade-29764b0f52c4@spud>
-References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
- <20260605070923.3045073-5-alexander.sverdlin@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8XOEFWoS8IYeKQQa"
-Content-Disposition: inline
-In-Reply-To: <20260605070923.3045073-5-alexander.sverdlin@gmail.com>
+	s=k20260515; t=1780676313;
+	bh=nYScoSNB3jeAjdu79Y5o8uX0JVKrcUm3yPFfVKrfJhc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=KRR9fExACnOGFbKp94dMiMDBasEsk6vuaaszVAdHMf+gGgv7/QIltw6tLHZjGHnP6
+	 wO+YU2JfejPZe0+Uy4MpVDCwI7AEOJwMwsQGcBFAAK7upNUS0oLkSu1JIkKu8Bq+6c
+	 UNS/k7DOurCxr6G0BSnIY5cY8Heisr9VgRdXvBdlMhZECOJNmPBmATHOQiDoUzaHtr
+	 Bb1v0mPP2vRJiiJKUiBpYH/3TVpoANdFxMHIZ/NSJDb1Dnok8xFiILJiSkxKbetLBa
+	 z9ZRymp8+cvj0BqU3J91G6j7g4gcVO6L9/P5Zd3xLE0s1UKfUF5jCZjYQ7PgObKWXf
+	 ld8GQfLdnSinw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wVXFf-00000009q2m-0clu;
+	Fri, 05 Jun 2026 16:18:31 +0000
+Date: Fri, 05 Jun 2026 17:18:30 +0100
+Message-ID: <86wlwdt0yx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] KVM: arm64: Omit tag sync on stage-2 mappings of the zero page
+In-Reply-To: <20260604151151.150377-11-ardb+git@google.com>
+References: <20260604151151.150377-7-ardb+git@google.com>
+	<20260604151151.150377-11-ardb+git@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ardb+git@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, ardb@kernel.org, kevin.brodsky@arm.com, broonie@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +87,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 04 Jun 2026 16:11:56 +0100,
+Ard Biesheuvel <ardb+git@google.com> wrote:
+> 
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Commit
+> 
+>    f620d66af316 ("arm64: mte: Do not flag the zero page as PG_mte_tagged")
+> 
+> removed the PG_mte_tagged flag from the zero page, but missed a KVM code
+> path that may set this flag on the zero page when it is used in a
+> stage-2 CoW mapping of anonymous memory.
+> 
+> So disregard the zero page explicitly in sanitise_mte_tags().
+> 
+> Fixes: f620d66af316 ("arm64: mte: Do not flag the zero page as PG_mte_tagged")
+> Cc: <stable@vger.kernel.org> # 5.10.x
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/arm64/kvm/mmu.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index d089c107d9b7..445d6cf035c9 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1479,6 +1479,11 @@ static void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn,
+>  	if (!kvm_has_mte(kvm))
+>  		return;
+>  
+> +	if (is_zero_pfn(pfn)) {
+> +		WARN_ON_ONCE(nr_pages != 1);
+> +		return;
+> +	}
+> +
+>  	if (folio_test_hugetlb(folio)) {
+>  		/* Hugetlb has MTE flags set on head page only */
+>  		if (folio_try_hugetlb_mte_tagging(folio)) {
 
---8XOEFWoS8IYeKQQa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+	M.
 
---8XOEFWoS8IYeKQQa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiL1FwAKCRB4tDGHoIJi
-0hU3AP9o1TBwdrTrp0JHQJyNK1YL98B6p2dudAMEacv6gn9T0QD/cWA+agbYLfpd
-2TK5za4mqwGmQMDd4iURSwLJrzwNEAg=
-=m51E
------END PGP SIGNATURE-----
-
---8XOEFWoS8IYeKQQa--
+-- 
+Without deviation from the norm, progress is not possible.
 
