@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2BECD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 05:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA17CD6E74
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 06:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GD2Kr06zQNFkIwrVrOalWnuCkNJUXETOOuvMASHG1wc=; b=PvrWbgMGTZcjLiM2dnSf6hhQv+
-	HVSKSwciWdhVPtkSZIH/NxKcjz1sqW1Z75Hz1k2Netl7GSJ96jLZuYeYyqegmCgFkDK87GYW0gptO
-	5HxNomDIsYiY3PRIOgrN3ZalKUcOPX4T/Gmw0fuU+jPaCclCXkmKBBTSTp1n6oIcqIlBhcCo03TzZ
-	5aUO9uYM6PGygtE7wlABjozAGund+1LPH0AKNU0jzJYb9nlN2ug37RqadF6yupeJBwLTZGZBl+8iQ
-	dUnJsCTqGjpouJR7ANR+g26iTYRPP5liqr5U1O1y5R0ohGzhx4TzE7vLCfv7fGMhoxwv8YSf2MpEw
-	RQ68fkxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gaVHoAOUI9LUISZtbViLuvlWXQydHijJv4Tcvcf97rw=; b=L2v8S0WdnKp6s9be1+kJyYWx6f
+	WbM2YLFXDAOUqlUS9UGM6gp8BoNleQfCdSZZf0O3nJfDhZF0D30b15l3XH//SyqfxCOanlG6G7xHI
+	gLcq9llVdJm08gSJNpSvJF7NKS1ugxECLFCqbohXq95P5YpKtad6pd5C0/r6WNgzJRCcvYAVMEeFn
+	ER+xEEwqNEyXBNdbCZEo2AxJPtSAZ3zBELAN4C5zcG0utg6UvvKOAgQQgGxXZz3Gj8/rqL0fm1S1J
+	jWwB9eVNbLC2RpkM5H8Ie348KSh03gteehVqd1MlOlJ8x71CgZ/J9DlEqfAVQJb/wcIuNPFoZf/jJ
+	ts+YAWNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVNZK-000000007z6-3oLE;
-	Fri, 05 Jun 2026 05:58:10 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1wVNbl-0000000085g-17TY;
+	Fri, 05 Jun 2026 06:00:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVNZH-000000007yf-0Pbd
+	id 1wVNbj-0000000085X-3uUx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 05:58:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=GD
-	2Kr06zQNFkIwrVrOalWnuCkNJUXETOOuvMASHG1wc=; b=DbmCziOv5IknDVlK99
-	daj1ffrq+HwEfO5hUp3zaUPHJ4mWsF+C0X1NdDeCRGSFmnlioqmZ+X+YV/rurLl9
-	mBh+mTkxRqhtKkkPog+n9w1wGobIRA0raergS38laMxKw/+RLEz+nlQ58ctS4w4i
-	6LLVuZ74B58zsqIPOawbfVo34=
-Received: from haiyue-pc.localdomain (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id PCgvCgAXkGE7ZSJqxsLwAQ--.65168S4;
-	Fri, 05 Jun 2026 13:57:18 +0800 (CST)
-From: Haiyue Wang <haiyuewa@163.com>
-To: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org
-Cc: Haiyue Wang <haiyuewa@163.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Jammy Huang <jammy_huang@aspeedtech.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v4 2/2] ARM: dts: aspeed: add 'resets' to video node
-Date: Fri,  5 Jun 2026 13:52:43 +0800
-Message-ID: <20260605055712.118501-3-haiyuewa@163.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260605055712.118501-1-haiyuewa@163.com>
-References: <20260605055712.118501-1-haiyuewa@163.com>
+	Fri, 05 Jun 2026 06:00:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E24BF600AA;
+	Fri,  5 Jun 2026 06:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6386D1F00893;
+	Fri,  5 Jun 2026 06:00:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780639238;
+	bh=gaVHoAOUI9LUISZtbViLuvlWXQydHijJv4Tcvcf97rw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nKSoFLFzxN7azm4Cn4DB97IsmJ329/dL9s6fwzI/OROBryOO4b9sSxhniPBS+r3tH
+	 FI6ruK1wwV90ZNmCPSgMIO4Yj5fjDAGj+pAN/mJ6pWU7Chtn7WS8D6P9lkxoqryFfn
+	 16KL+uGoht8P9hNHncLU28eYrctOiWHlnkC1WfHeJS4yEgePP/dy4h//500BKoTXKR
+	 pOTx3HWlNXlQJj7dbcD9eDeubitAzbja40z4eU7arQJ37v6YdEYv7/rfbwNd/ywVCx
+	 n6aOxaIsv+eW4Cl11ECaTz0FqA1PIdKj5EZgm+hibSgpWllBzu/EmfgKGhmkkMM1b7
+	 LlRcJyf1o1N2w==
+Date: Thu, 4 Jun 2026 23:00:37 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com,
+	jic23@kernel.org, timothy.hayes@arm.com, eric.auger@linaro.org,
+	christoffer.dall@linaro.org, andre.przywara@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours
+ before migrating it
+Message-ID: <aiJmBfXAxcytfGha@kernel.org>
+References: <aiHnI1mu6SGQrgnz@v4bel>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PCgvCgAXkGE7ZSJqxsLwAQ--.65168S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr48Kr18WFy5Kw1UtF43Wrg_yoW8ury5pa
-	y7Cr4kX3ySgF45t34UGFyDKr1DAay5JF4rKrsIk34UXry3X3sYqr1ftrsag34UXrs5uw1S
-	gF1xXr9Fqw1DXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zE3xhJUUUUU=
-X-Originating-IP: [116.233.237.18]
-X-CM-SenderInfo: 5kdl53xhzdqiywtou0bp/xtbCzh+L9moiZT+z1QAA3Y
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_225807_627229_4BF9525D 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aiHnI1mu6SGQrgnz@v4bel>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +73,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The aspeed video (be compatible for ast2400, ast2500, ast2600) now needs
-the reset DTS handle specified, otherwise it will fail to load:
+On Fri, Jun 05, 2026 at 05:59:15AM +0900, Hyunwoo Kim wrote:
+> vgic_prune_ap_list() drops both ap_list_lock and irq_lock while migrating
+> an interrupt to another vCPU. After reacquiring the locks it only checks
+> that the affinity is unchanged (target_vcpu == vgic_target_oracle(irq))
+> before moving the interrupt, which assumes that an interrupt whose affinity
+> is preserved is still queued on this vCPU's ap_list.
+> 
+> That assumption no longer holds if the interrupt is taken off the ap_list
+> while the locks are dropped. vgic_flush_pending_lpis() removes the
+> interrupt from the list and sets irq->vcpu to NULL, but leaves
+> enabled/pending/target_vcpu untouched. As the interrupt is still enabled
+> and pending, vgic_target_oracle() returns the same target_vcpu, so the
+> affinity check passes and list_del() is run a second time on an entry that
+> has already been removed.
+> 
+> Also check that the interrupt is still assigned to this vCPU
+> (irq->vcpu == vcpu) before moving it.
+> 
+> Fixes: 0919e84c0fc1 ("KVM: arm/arm64: vgic-new: Add IRQ sync/flush framework")
+> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
 
-[    4.809494] aspeed-video 1e700000.video: irq 57
-[    4.809977] aspeed-video 1e700000.video: Unable to get reset
-[    4.810341] aspeed-video 1e700000.video: probe with driver aspeed-video failed with error -2
+Looking at this and the other VGIC patch you sent (which should've been
+a combined series), are you trying to deal with a vCPU writing to
+another vCPU's redistributor? I.e. vCPU B setting GICR_CTLR.EnableLPIs=0
+behind the back of vCPU A?
 
-Fixes: e83f8dd668ea ("media: aspeed: Fix dram hang at res-change")
-Signed-off-by: Haiyue Wang <haiyuewa@163.com>
----
- arch/arm/boot/dts/aspeed/aspeed-g4.dtsi | 1 +
- arch/arm/boot/dts/aspeed/aspeed-g5.dtsi | 1 +
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 1 +
- 3 files changed, 3 insertions(+)
+That is extremely relevant information as the off-the-cuff reaction is
+that no race exists. But since the GIC architecture is awesome and
+allows for this sort of insanity, it obviously does....
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
-index c3d4d916c69b..1547e28d77e2 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g4.dtsi
-@@ -242,6 +242,7 @@ video: video@1e700000 {
- 					 <&syscon ASPEED_CLK_GATE_ECLK>;
- 				clock-names = "vclk", "eclk";
- 				interrupts = <7>;
-+				resets = <&syscon ASPEED_RESET_VIDEO>;
- 				status = "disabled";
- 			};
- 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
-index 39500bdb4747..793570ca2518 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g5.dtsi
-@@ -296,6 +296,7 @@ video: video@1e700000 {
- 					 <&syscon ASPEED_CLK_GATE_ECLK>;
- 				clock-names = "vclk", "eclk";
- 				interrupts = <7>;
-+				resets = <&syscon ASPEED_RESET_VIDEO>;
- 				status = "disabled";
- 			};
- 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 189bc3bbb47c..3adf48987a17 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -428,6 +428,7 @@ video: video@1e700000 {
- 					 <&syscon ASPEED_CLK_GATE_ECLK>;
- 				clock-names = "vclk", "eclk";
- 				interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+				resets = <&syscon ASPEED_RESET_VIDEO>;
- 				status = "disabled";
- 			};
- 
--- 
-2.54.0
+Anyway, for LPIs resident on a particular RD, there's zero expectation
+that the pending state is preserved when EnableLPIs=0. So I'd rather
+vgic_flush_pending_lpis() just invalidate the pending state.
 
+Beyond that, I see two other fixes for lifetime issues around the
+vgic_irq in the middle of migration. I'd like to see explicit RCU
+protection around the release && reacquire of the ap_list_lock rather
+than depending on the precondition that IRQs are disabled.
+
+Then vgic_flush_pending_lpis() should leave IRQs intact that are pending
+a migration (e.g. irq->vcpu != vgic_target_oracle()) as the only expectation
+we need to uphold is that LPIs resident on the RD have the pending state cleared.
+
+Although I think we could benefit from the wetware implementation of the
+GIC giving this a once over too. Any thoughts Marc?
+
+Thanks,
+Oliver
+
+> ---
+>  arch/arm64/kvm/vgic/vgic.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index 1e9fe8764584..18b280de9a29 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -818,15 +818,16 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+>  		raw_spin_lock(&irq->irq_lock);
+>  
+>  		/*
+> -		 * If the affinity has been preserved, move the
+> -		 * interrupt around. Otherwise, it means things have
+> -		 * changed while the interrupt was unlocked, and we
+> -		 * need to replay this.
+> +		 * If the interrupt is still ours and its affinity has
+> +		 * been preserved, move it around. Otherwise, it means
+> +		 * things have changed while the interrupt was unlocked
+> +		 * (it may even have been taken off the list with its
+> +		 * affinity left untouched), and we need to replay this.
+>  		 *
+>  		 * In all cases, we cannot trust the list not to have
+>  		 * changed, so we restart from the beginning.
+>  		 */
+> -		if (target_vcpu == vgic_target_oracle(irq)) {
+> +		if (irq->vcpu == vcpu && target_vcpu == vgic_target_oracle(irq)) {
+>  			struct vgic_cpu *new_cpu = &target_vcpu->arch.vgic_cpu;
+>  
+>  			list_del(&irq->ap_list);
+> -- 
+> 2.43.0
+> 
 
