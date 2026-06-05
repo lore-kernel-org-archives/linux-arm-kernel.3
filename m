@@ -4,84 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C7ECD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93920CD6E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Cc:Subject:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SK9KuxS1ziFhMMC1VuJ1L9c3rL5t3987G0g0RIOVuXY=; b=nHCJnNXwPRvM9qLuAbMTJO2svn
-	7MeteUfvB7sXMes4SX34P7aSFVcZ6aahDUi0gKXKdYkKgA/JDU/AIF4aqyiwZGQoPH/G1XOGgx1Cs
-	YJ4PafP2mgUA7/X7YqGmL8L5MvQC1OejBjtwgRi5gQsfjSX++b/+HtHyhHB18o+fWpVjpGkz920ca
-	SrUX5S7QFbI57dh8Ds5mhAl7NP+0tWs0CWW1Bj4+NuHjszanINCMG5oQOAtUF7mDHZzFBpneAJRMo
-	hSyLTTcRKehXHf2xzKfNDTayE3dqR5zCRhvEqfU7WSUMlXNTMo7G/ZQ1BAfcAEms6KYzKGRoX0mw5
-	EKdqsiyQ==;
+	bh=9ksbjEziQ/klkTRNLQdAgetuDlG0vybDd4/Easyb/oE=; b=l/ll0FhViZNLsGjCBTN+U3fPbj
+	ruMFAk23mtojEYn/raURZWbHr5/S3yuRWV9WWrRC1koXLdcwQdm4I9tfkcmpZkEuqpztdkkIL88aX
+	VcoTOqyUbxAAnxGg/N/sMvN8ajNXHYipqiwNx5mAlD3DlH1piQuBSwMMPbz4S8+F2xXHRxgAySKNy
+	sAxwbueFnXLjHWNMt2q1A2kVSULz4lgpdjUeVaM0QfziiEh7Ewbsy9qXuDMhYhdAsn2EAVi6lhtk7
+	ppBhLbkjP8ERSn3lBKProMDJUTuk/XEXTZnudWUI8Z4dOoKEph8gvFiO3K0gAOdQUEtI0iaGYiOOT
+	zm5qP5eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWog-00000000rYp-0T4S;
-	Fri, 05 Jun 2026 15:50:38 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wVWx2-00000000rxQ-0Df7;
+	Fri, 05 Jun 2026 15:59:16 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWoc-00000000rYT-2WiW
+	id 1wVWwy-00000000rwe-27IY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 15:50:36 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D8384C58476;
-	Fri,  5 Jun 2026 15:50:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 132FF5FED1;
-	Fri,  5 Jun 2026 15:50:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 32D1B106A250B;
-	Fri,  5 Jun 2026 17:50:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780674630; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=SK9KuxS1ziFhMMC1VuJ1L9c3rL5t3987G0g0RIOVuXY=;
-	b=El9/+tTcBzEyeAzQTFeFhzTs0NAXSig/ZmmOW1SkHrjIZN/GGwlVIMVAMjCgFkoboVMyT5
-	GjqQxVRcv5LIvnYTgCxLDTFrCHFkkG9ZpREs9AebRMiO649TyfFEUKADbh5Xe/oUUqZ/ZX
-	BBTHkMNYQzk5Yih1Piqd+yX310sr7lzevEA+8dCEFlH4D0j0NZqN8+zLzGEDToLFop1RjW
-	dJgjW+AxMlIIi7Ao/uumGpK5HXwY6DuBuPOeSE+IvU4b2LCLeOVbgcDRJYvL98/D7m2469
-	PNHd/uU5/VwmiNsRGylx6YZaYjEQwEVQYHCQyPImefg1ag9BSF3eIjhLakZsIA==
-Mime-Version: 1.0
+	Fri, 05 Jun 2026 15:59:13 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-51776b4de37so16589981cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 08:59:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780675151; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WQl+JUGWDrt112p0ETn1HFIVKj7f3fNmlR7Kura2PQY1JOm49Z2YP08PaZZKZ9jQcr
+         8BXzzeST8GksUxiCqd6CXGFGvN7aSMs29dRBwuxN1/tI5B0S9KcNd5a4pCorMaLZ4YyM
+         OKWN4XO0izn2R36jOJkL2hwjcqWSjhyksMYGLc3qYlOftFdo2ubdBipF60jHWni+pQ5H
+         vgZQmsBZD2UOunIFL9H+9/alaJN2RpqfRxmzax1u/ySdoK8XZQu9Y7meOQzYw7GOrF+K
+         27HD32zTm18H4g9G0Vgo4+rmnAZGSIrSpqvWJnNB1OHC5tNBlMAFvs+XtGktGA+BZh8o
+         8gPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9ksbjEziQ/klkTRNLQdAgetuDlG0vybDd4/Easyb/oE=;
+        fh=NmR/E10RwRe3f+3MCFGqs/ky7UhQMZ0eBRMJr04hTN0=;
+        b=LzMcHwYZH2kfobUyxiL5+Y03cMBv6hdRZFweJaS/oh2MvZenjWRfXdzchTBv3IXMWz
+         eVOyx0QUgljEuiA8iQnQFB6pJQALNxvWgJP5MboJyX0q3t8fZFribPgiJ0EHLh41jNiX
+         UGWiFw6/E5RpaqQLRw1uJCdw7YP95l+jveitleFz2Ztu//C5dBrOOmbYJqNbJ5+8QqME
+         3LAMtQOTVO8udx0pX2+tv/Zg4BW9xQ5aa14/1QSaOP0Ri6+YLBztuLPbuUaPCFPS6IBv
+         mhI3rdy1lrUBZZGruDdCMJ4uM1lyenkuqBwajJNXpfOjPgUiOEA13rqSFc+2EwM0zR04
+         5ozA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780675151; x=1781279951; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9ksbjEziQ/klkTRNLQdAgetuDlG0vybDd4/Easyb/oE=;
+        b=ra7ZjgBrGgaLAo0PvpfUwP5UqKlGGYjL5Z3Ap5TsPG8KrfCiv4V+qgU8hytTFVTSs9
+         zRlerfhAhnYNpZCqMG1YIr+hJ3Bgq97VzDedd7FWAVnyPOUdzzAAKDhG3oZJVDUHQWt+
+         gFF2N3gh/4kJial5rjbi6yDdOa/xtiYrgaJA2fpIzwAHMc0juX7s9tDpK9RBr7hmOFoD
+         bOXyMg1J5Fp1OLAO60sOp3TVJmsqwgnQKGZffcZrUXq+eDH41WPCclRGA1ku8djliNKG
+         tE5xu5Gl43G6+aIQFgp0BEIRj6mrSWg22C8RwSZENI6xs/qcER7UXK4M/zAOYg/CLfhi
+         6Jjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780675151; x=1781279951;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9ksbjEziQ/klkTRNLQdAgetuDlG0vybDd4/Easyb/oE=;
+        b=CbJJJxHGP2nqHvwQVhopGy208VJWcc2C26eMJUjD/vDopjDcP3zJDsBCcDIPghsb7t
+         0C8NalNSQ3FglTUXn2+WPy7SYkGyLLohh73MSonK+J8SgNGGm9IRAgp/xp2nuURds71N
+         39fIM0Zmhtx/h9/Uul2zDL/bm5EpVU6R7+sP8eBKrM/5HyJdlD+kNK47gXzdLuB8MEiV
+         R/wkczjdbG74yMf+czypS/RP4H8WT5n7gKWwGH//aX2mmA9xfjaMF17QjZlzvbuL8ipY
+         yOEN+OxvBW9LUo90uQjvJuwku+3oZeyDGDPq+g+dJkiOh9aB/AM2J+SAxQU64EyTo40a
+         VvcQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+APGalEYBryAZIexPg55rELl2XowdpjvYcibwJE9eoGTrLPYG0fl5OWjaYSOS5mUwpadB4tepy565z6rIkCdU+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6c/pKuRe+eZTAfgTMbfHfFctXXyTaRwLBKdbQsMCWFOwfgsJh
+	3l9KIPAgZ5UH+TVZWcx2Q0TVCYrbcWavwShj5jhpCzcnLyQo3Px/MVjcBtTPqS0ltKEgMLcwGrN
+	rW3un54+Yxm1ULC0KXSy1g88fHc6ybcQ=
+X-Gm-Gg: Acq92OF6USy6WA0jPXx/zKD1PVCNBk0rBI/Yku02G7FvmuTWU0qjPzi1oEVAxgrILJj
+	UbhCNYOBzI2+cB9ZpZo/l82ujXdP0noA9++jJtuGYZAGR7CKZ4Rb5HF5H6e5Pas1gW/Beqd2Uwt
+	ezZ4q03QtUXFZ5tTyr52HjG99hp0bw+90/0Yjhzn5yfVe+p/Hvba8agDu5IEzgretU/yI2HhM8t
+	PdrINTyfTI/BhuhQ71omTi/NeKnhqG00NWYnk5kAjSshnDfZy8SOeCe8ELDQKFS+cW4Ume67q0n
+	7I8Ypjg5ljTiECkA
+X-Received: by 2002:ac8:7d16:0:b0:517:89d0:b8a9 with SMTP id
+ d75a77b69052e-51795a872cbmr62478381cf.9.1780675150571; Fri, 05 Jun 2026
+ 08:59:10 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260409-vop2-clk-rate-check-v2-1-b207cfc427d7@collabora.com>
+In-Reply-To: <20260409-vop2-clk-rate-check-v2-1-b207cfc427d7@collabora.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Fri, 5 Jun 2026 19:58:59 +0400
+X-Gm-Features: AVHnY4Kg55Cpi5Qk79GgU4qugmSkMCPyryYYbHOI9JHnUkY85yTZ0sefHW3lqDA
+Message-ID: <CABjd4Yw_HYpjhrgmonB9FmWV00q=r3yvqnFE4TXEHpM1ZgWOhA@mail.gmail.com>
+Subject: Re: [PATCH RFC v2] drm/rockchip: vop2: Add clock rate mode check
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 05 Jun 2026 17:50:24 +0200
-Message-Id: <DJ18H1FKONSJ.QNJHYMX6AW6B@bootlin.com>
-To: "Yonghong Song" <yonghong.song@linux.dev>,
- =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
- <alexis.lothore@bootlin.com>, "Alexei Starovoitov" <ast@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Jiri Olsa"
- <jolsa@kernel.org>, "John Fastabend" <john.fastabend@gmail.com>, "Thomas
- Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Shuah Khan"
- <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>
-Subject: Re: [PATCH bpf-next v2 5/8] bpf, x86: emit KASAN checks into x86
- JITed programs
-Cc: <ebpf@linuxfoundation.org>, "Bastien Curutchet"
- <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
- <20260604-kasan-v2-5-c066e627fda8@bootlin.com>
- <78009c06-4233-4e0a-88ec-33eba10ad8b3@linux.dev>
-In-Reply-To: <78009c06-4233-4e0a-88ec-33eba10ad8b3@linux.dev>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_085034_825862_98C00749 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260605_085912_571308_EB7B0A8B 
+X-CRM114-Status: GOOD (  27.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +121,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yonghong,
-
-On Fri Jun 5, 2026 at 4:54 PM CEST, Yonghong Song wrote:
+On Fri, Apr 10, 2026 at 2:37=E2=80=AFAM Sebastian Reichel
+<sebastian.reichel@collabora.com> wrote:
 >
-
-[...]
-
->>   			if (BPF_MODE(insn->code) =3D=3D BPF_PROBE_MEMSX ||
->>   			    BPF_MODE(insn->code) =3D=3D BPF_MEMSX)
->> @@ -2592,13 +2622,13 @@ static int do_jit(struct bpf_verifier_env *env, =
-struct bpf_prog *bpf_prog, int *
->>   			fallthrough;
->>   		case BPF_STX | BPF_ATOMIC | BPF_W:
->>   		case BPF_STX | BPF_ATOMIC | BPF_DW:
->> +			bool is64 =3D BPF_SIZE(insn->code) =3D=3D BPF_DW;
->> +			u32 real_src_reg =3D src_reg;
->> +			u32 real_dst_reg =3D dst_reg;
+> The display might offer modes, which exceed the maximum clock rate of a
+> video output. This usually happens for displays that offer refresh rates
+> above 60 Hz. This results in no picture (or a broken one) being displayed
+> without manual intervention. Fix this by teaching the driver about the
+> maximum achievable clock rates for each video port.
 >
-> With llvm23, I got the following build failure:
+> The information about the maximum clock rates for each video channel and
+> the tip about multiple pixels being processed per clock were provided by
+> Andy Yan and roughly checked against the information available in the
+> datasheet (which specifies limits like "2560x1600@60Hz with 10-bit"
+> instead of a specific pixel rate).
 >
->      /home/yhs/work/bpf-next/arch/x86/net/bpf_jit_comp.c:2625:4: error:
->              label followed by a declaration is a C23 extension [-Werror,=
--Wc23-extensions]
->       2625 |                         bool is64 =3D BPF_SIZE(insn->code) =
-=3D=3D BPF_DW;
->            |                         ^
->      1 error generated.
+> For the video ports supporting a 600 MHz input clock, there is some
+> logic to handle up to 4 pixels in parallel when needed resulting in
+> the extra multiplier.
 >
-> The below is a fix:
+> Suggested-by: Andy Yan <andy.yan@rock-chips.com>
+> Link: https://lore.kernel.org/linux-rockchip/1528d788.186b.19d08ed974c.Co=
+remail.andyshrk@163.com/
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+> I've kept the RFC tag, as I'm not sure about the 4x parallel pixel
+> processing. IIUIC all of the video ports with a maximum of 600 MHz
+> input clock support it, considering they can go to 4K @ 120Hz,
+> which is above 1.2GHz while Andy mentioned a max. support clock rate
+> of 600 MHz.
+> ---
+> Changes in v2:
+> - Link to v1: https://lore.kernel.org/r/20260217-vop2-clk-rate-check-v1-1=
+-989b569119ba@collabora.com
+> - based on v7.0-rc7
+> - rename max_clock_rate into max_pixel_clock_rate to distinguish from
+>   input clock
+> - update max clock rates to the numbers provided by Andy Yan with
+>   extra 4x multiplier for 4K 120Hz VPs
+> ---
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c |  3 +++
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  1 +
+>  drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 10 ++++++++++
+>  3 files changed, 14 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/d=
+rm/rockchip/rockchip_drm_vop2.c
+> index a195f5c819a2..35a0edda5375 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -1434,6 +1434,9 @@ static enum drm_mode_status vop2_crtc_mode_valid(st=
+ruct drm_crtc *crtc,
+>         if (mode->hdisplay > vp->data->max_output.width)
+>                 return MODE_BAD_HVALUE;
+>
+> +       if (mode->clock > vp->data->max_pixel_clock_rate / 1000)
+> +               return MODE_CLOCK_HIGH;
+> +
+>         return MODE_OK;
+>  }
+>
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/d=
+rm/rockchip/rockchip_drm_vop2.h
+> index 9124191899ba..fd46913f3346 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+> @@ -225,6 +225,7 @@ struct vop2_video_port_data {
+>         u16 gamma_lut_len;
+>         u16 cubic_lut_len;
+>         struct vop_rect max_output;
+> +       u32 max_pixel_clock_rate;
+>         const u8 pre_scan_max_dly[4];
+>         unsigned int offset;
+>         /**
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/d=
+rm/rockchip/rockchip_vop2_reg.c
+> index f3950e8476a7..6ae3d506c476 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> @@ -559,18 +559,21 @@ static const struct vop2_video_port_data rk3568_vop=
+_video_ports[] =3D {
+>                 .gamma_lut_len =3D 1024,
+>                 .cubic_lut_len =3D 9 * 9 * 9,
+>                 .max_output =3D { 4096, 2304 },
+> +               .max_pixel_clock_rate =3D 600000000U,
+>                 .pre_scan_max_dly =3D { 69, 53, 53, 42 },
+>                 .offset =3D 0xc00,
+>         }, {
+>                 .id =3D 1,
+>                 .gamma_lut_len =3D 1024,
+>                 .max_output =3D { 2048, 1536 },
+> +               .max_pixel_clock_rate =3D 200000000U,
+>                 .pre_scan_max_dly =3D { 40, 40, 40, 40 },
+>                 .offset =3D 0xd00,
+>         }, {
+>                 .id =3D 2,
+>                 .gamma_lut_len =3D 1024,
+>                 .max_output =3D { 1920, 1080 },
+> +               .max_pixel_clock_rate =3D 150000000U,
+>                 .pre_scan_max_dly =3D { 40, 40, 40, 40 },
+>                 .offset =3D 0xe00,
+>         },
+> @@ -775,6 +778,7 @@ static const struct vop2_video_port_data rk3576_vop_v=
+ideo_ports[] =3D {
+>                 .gamma_lut_len =3D 1024,
+>                 .cubic_lut_len =3D 9 * 9 * 9, /* 9x9x9 */
+>                 .max_output =3D { 4096, 2304 },
+> +               .max_pixel_clock_rate =3D 600000000U * 4,
 
-Thanks for the test, the report and the fix. So this warning looks
-specific to llvm23, as CI does not trigger it with LLVM21. I'll bring
-the fix in in the next revision.
+Hi Sebastian,
 
-Alexis
+I've tested it on a bunch of different displays with RK3576 while also
+giving VP0 an unlimited PLL to work with (and also expanding its rates
+table for each of the displays' EDID preferred pixel clocks), and I'm
+pretty sure this should be * 2 here, rather than * 4. That would also
+align with ".pixel_rate =3D 2" just below.
 
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+In its current form, some of the advanced displays with 240 Hz modes
+by default choose modes leading to visual artifacts indicative of
+overclocking strain of the graphics pipeline.
 
+The rest look plausible, so with that change please feel free to include:
+
+Tested-by: Alexey Charkov <alchark@flipper.net> # RK3576
+
+Best regards,
+Alexey
 
