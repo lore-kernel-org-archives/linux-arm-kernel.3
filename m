@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F273DCD6E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D8BCD6E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YskUxxS/ZoAl+6eSFA2U84FQf5UdFptbgxV9+fGlYRs=; b=jUfrAD6uEto+N3G359dujKQtnR
-	1y9THw51/a8khHtDNaa82+muOQ7c7J+Wlu7Z4B2YSyzAIC27giKFzllJ5793X7CM3FszyFD3Eou2o
-	1ZrTr17cWlgjYyymyYkBlf8G3Iqb9HkcH8f4xypTPW7OBcIr5L/iLOdU7Aqe5syM57z9HoRiAsRwm
-	zZ1RDAKOsYf56cQXdUw1029xY0MSYDog8J6uQZpN+Lbxlldo0d5bvR0+rvc+4S1mhI177ydl0+UmM
-	uGAWh945+MisBX9Af17rkDGPtUaeDiaYdMBMJz017jQyVBNI8U/Qop6W8tmpIncn+bHiFZQ1aSHJe
-	dX3D2nMQ==;
+	bh=d4yYSQXe7OPOMWceP4wbNkjroxC66deeYVcmM1POKAw=; b=Rl7cLMpMbJB22QqV84SSJm7jrO
+	oakn6vT9JpVIlF177I9XYX+JCsP2tHPh7gOeIeigSpGr3ckcVvn/qmdE/XY2b8ghjXNo22KeJwiJ+
+	XxNwVtRbK4IbGLQ28/c8o+iOucZPBlF8QDjj/PP1BfLpC47Hhs3XfxGrK+FkEmPQshy3BIKlesp3A
+	VbxxJe4OC09v4QqNSLirKAf/UkoJrhu4dKE8F/UI/yHTfe+r4FmFJrt9FtbhW49+eU0iIhuam51jl
+	3wdvGvHGnsckgV2DNC9Oiu2Mv/KxY1c42T55OIS/aeve5DNpmyE0x0levLnODvNcmoG881kH/Soyh
+	7wn1hqAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVcik-00000001FOp-0duP;
-	Fri, 05 Jun 2026 22:08:54 +0000
+	id 1wVcij-00000001FNQ-37sL;
+	Fri, 05 Jun 2026 22:08:53 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVciZ-00000001Evk-3vHm
+	id 1wVciX-00000001Eq2-3thB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 22:08:45 +0000
+	Fri, 05 Jun 2026 22:08:43 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wVci5-0000LW-3d; Sat, 06 Jun 2026 00:08:13 +0200
+	id 1wVciF-0000LW-J7; Sat, 06 Jun 2026 00:08:23 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Sat, 06 Jun 2026 00:06:52 +0200
-Subject: [PATCH 06/17] media: rockchip: rga: move power handling to
- device_run
+Date: Sat, 06 Jun 2026 00:07:02 +0200
+Subject: [PATCH 16/17] arm64: dts: rockchip: add rga3 dt nodes to rk3588
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260606-spu-rga3multicore-v1-6-3ec2b15675f7@pengutronix.de>
+Message-Id: <20260606-spu-rga3multicore-v1-16-3ec2b15675f7@pengutronix.de>
 References: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
 In-Reply-To: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -56,8 +55,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_150844_025257_3062FDA6 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260605_150842_199762_3BCCD6C5 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +71,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the power handling to the device_run function in preparation for
-enabling multiple cores. This allows to power the only the necessary cores
-instead of powering all available cores.
+Add devicetree nodes for the RGA3 (Raster Graphics Acceleration 3)
+peripheral in the RK3588.
 
-As the decision on which core the given job is executed will be done in
-device_run, we can only power to correct core there.
+The existing rga node refers to the RGA2-Enhanced peripheral. The RK3588
+contains one RGA2-Enhanced core and two RGA3 cores. Both feature a similar
+functionality of scaling, cropping and rotating of up to two input
+images into one output image. Key differences of the RGA3 are:
 
-To avoid unpowering the core in a streaming state switch to autosuspend.
-This avoids powering down the core when the next frame is scheduled in
-the next 50ms. The timeout maps to a framerate of 20fps, which should be
-pretty uncommon in a normal video stream.
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8 (RGA2 allows up to 16)
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+Link: https://patch.msgid.link/20260521-spu-rga3-v7-28-3f33e8c7145f@pengutronix.de
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- drivers/media/platform/rockchip/rga/rga-buf.c | 12 ------------
- drivers/media/platform/rockchip/rga/rga.c     | 11 +++++++++++
- 2 files changed, 11 insertions(+), 12 deletions(-)
+(cherry picked from commit 25ee898961a2c661e4cd72bc98f0060f1cd11222)
+picked from linux-next to have the necessary RGA3 nodes available.
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 44 +++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
-index c0ea6003336bf..3f7c3c68e0cb8 100644
---- a/drivers/media/platform/rockchip/rga/rga-buf.c
-+++ b/drivers/media/platform/rockchip/rga/rga-buf.c
-@@ -242,14 +242,6 @@ static int rga_buf_prepare_streaming(struct vb2_queue *q)
- static int rga_buf_start_streaming(struct vb2_queue *q, unsigned int count)
- {
- 	struct rga_ctx *ctx = vb2_get_drv_priv(q);
--	struct rockchip_rga *rga = ctx->rga;
--	int ret;
--
--	ret = pm_runtime_resume_and_get(rga->dev);
--	if (ret < 0) {
--		rga_buf_return_buffers(q, VB2_BUF_STATE_QUEUED);
--		return ret;
--	}
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 4fb8888c281c8..a4f44af512375 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1262,6 +1262,50 @@ vpu121_mmu: iommu@fdb50800 {
+ 		#iommu-cells = <0>;
+ 	};
  
- 	if (V4L2_TYPE_IS_OUTPUT(q->type))
- 		ctx->osequence = 0;
-@@ -261,11 +253,7 @@ static int rga_buf_start_streaming(struct vb2_queue *q, unsigned int count)
- 
- static void rga_buf_stop_streaming(struct vb2_queue *q)
- {
--	struct rga_ctx *ctx = vb2_get_drv_priv(q);
--	struct rockchip_rga *rga = ctx->rga;
--
- 	rga_buf_return_buffers(q, VB2_BUF_STATE_ERROR);
--	pm_runtime_put(rga->dev);
- }
- 
- const struct vb2_ops rga_qops = {
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 8c03422d669cf..0eff558d7f133 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -37,6 +37,14 @@ static void device_run(void *prv)
- 	struct rockchip_rga *rga = ctx->rga;
- 	struct vb2_v4l2_buffer *src, *dst;
- 	unsigned long flags;
-+	int ret;
++	rga3_core0: rga@fdb60000 {
++		compatible = "rockchip,rk3588-rga3";
++		reg = <0x0 0xfdb60000 0x0 0x200>;
++		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>, <&cru CLK_RGA3_0_CORE>;
++		clock-names = "aclk", "hclk", "sclk";
++		resets = <&cru SRST_RGA3_0_CORE>, <&cru SRST_A_RGA3_0>, <&cru SRST_H_RGA3_0>;
++		reset-names = "core", "axi", "ahb";
++		power-domains = <&power RK3588_PD_RGA30>;
++		iommus = <&rga3_0_mmu>;
++	};
 +
-+	ret = pm_runtime_resume_and_get(rga->dev);
-+	if (ret < 0) {
-+		v4l2_m2m_buf_done_and_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx,
-+						 VB2_BUF_STATE_ERROR);
-+		return;
-+	}
- 
- 	spin_lock_irqsave(&rga->ctrl_lock, flags);
- 	if (ctx->cmdbuf_dirty) {
-@@ -81,6 +89,8 @@ static irqreturn_t rga_isr(int irq, void *prv)
- 		v4l2_m2m_buf_done(src, VB2_BUF_STATE_DONE);
- 		v4l2_m2m_buf_done(dst, VB2_BUF_STATE_DONE);
- 		v4l2_m2m_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx);
++	rga3_0_mmu: iommu@fdb60f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdb60f00 0x0 0x100>;
++		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>;
++		clock-names = "aclk", "iface";
++		#iommu-cells = <0>;
++		power-domains = <&power RK3588_PD_RGA30>;
++	};
 +
-+		pm_runtime_put_autosuspend(rga->dev);
- 	}
- 
- 	return IRQ_HANDLED;
-@@ -797,6 +807,7 @@ static int rga_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "Unable to parse OF data\n");
- 
-+	pm_runtime_set_autosuspend_delay(rga->dev, 50);
- 	pm_runtime_enable(rga->dev);
- 
- 	rga->regs = devm_platform_ioremap_resource(pdev, 0);
++	rga3_core1: rga@fdb70000 {
++		compatible = "rockchip,rk3588-rga3";
++		reg = <0x0 0xfdb70000 0x0 0x200>;
++		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>, <&cru CLK_RGA3_1_CORE>;
++		clock-names = "aclk", "hclk", "sclk";
++		resets = <&cru SRST_RGA3_1_CORE>, <&cru SRST_A_RGA3_1>, <&cru SRST_H_RGA3_1>;
++		reset-names = "core", "axi", "ahb";
++		power-domains = <&power RK3588_PD_RGA31>;
++		iommus = <&rga3_1_mmu>;
++	};
++
++	rga3_1_mmu: iommu@fdb70f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdb70f00 0x0 0x100>;
++		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>;
++		clock-names = "aclk", "iface";
++		#iommu-cells = <0>;
++		power-domains = <&power RK3588_PD_RGA31>;
++	};
++
+ 	rga: rga@fdb80000 {
+ 		compatible = "rockchip,rk3588-rga", "rockchip,rk3288-rga";
+ 		reg = <0x0 0xfdb80000 0x0 0x180>;
 
 -- 
 2.54.0
