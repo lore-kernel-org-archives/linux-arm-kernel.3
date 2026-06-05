@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D95CD8C86
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EAE7CD6E7E
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2zNTH6mLeSKioV6YWOqZ6osV0quuFXjxlMRW0+Ybt8=; b=pWTeX1IpEYroJ9bL8oZl+x6gW2
-	YmG2tax9M6Vqm9fUhPwr/R0dNqR9Nejhk/vg6AdLEQnhe4b+sfg6Webo4/6oaJw3fJHQ/Qy2BV8+x
-	vhGzNhbrRLjUoErMDJWES78uVSsB84fHOgu1vlZDVVFSKurRtIu32Lbx10XMFRhEJfvbFkNnlvv3w
-	dJNbnhX4oMJ0M2UKonusZBA3X3qXwCmqKOAGSt8D7Kj4XBoUgWYairMdjDIj8BrpJ0OVdKS0AGVQP
-	HsmJJhbivaaEowUxa7xsFQQd39kO0d5WtNjNlE0Gxjq4VF4ly5pE8DTPae8cffWojQTAJcIFqSoEV
-	LEhhivVQ==;
+	bh=JWwOgHZdig1DsKeqldI5bKVD0X60HDqn5iucdkMvsx8=; b=3x184vK1jFZHENMzeURLr+MUHx
+	RHgUAEfFZQ2x5EDegRhqrjvKAR/M2nEvkFU4mYHVspI5m/SrDDld1aJHQp2vdL4a9Ypx2sAzUzj/g
+	BBL7EYlDcX36oisKCB6BDtDD2QLy/UvlN7wPngQI6FshrEhP/mf52nENkWA01XSKTU8fk/qaiK3wl
+	PK3PI304LO6V7WpaDxVQFRL/tf81PNrJdqI3rxtqP1oDDEeM0dMoc9t5ktpnHHwPbgt1XTaYHsOiG
+	yheeM1VhVNB8B/wyOc8NDMbZ9tb8iN2n8Z6viZMDWF+YOuegatD+pYEDe8MUhghKHECZpFYLmKoCd
+	YKypNvOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVciH-00000001EG3-3oQh;
+	id 1wVciH-00000001EEs-2Chr;
 	Fri, 05 Jun 2026 22:08:25 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVciE-00000001E9x-21zS
+	id 1wVciD-00000001E9C-0QRq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 22:08:23 +0000
+	Fri, 05 Jun 2026 22:08:22 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wVciC-0000LW-G9; Sat, 06 Jun 2026 00:08:20 +0200
+	id 1wVciB-0000LW-DK; Sat, 06 Jun 2026 00:08:19 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Sat, 06 Jun 2026 00:06:59 +0200
-Subject: [PATCH 13/17] media: rockchip: rga: bind all cores to the master
+Date: Sat, 06 Jun 2026 00:06:58 +0200
+Subject: [PATCH 12/17] media: rockchip: rga: move core initialization from
+ bind to probe
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260606-spu-rga3multicore-v1-13-3ec2b15675f7@pengutronix.de>
+Message-Id: <20260606-spu-rga3multicore-v1-12-3ec2b15675f7@pengutronix.de>
 References: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
 In-Reply-To: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -55,8 +56,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_150822_575713_6A25CB74 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20260605_150821_142529_C62D54C9 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,88 +72,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bind all core components to the master component. Previously only the
-first core has been added to the master device to avoid creating
-multiple video devices. As the video device creation has been moved to
-the master component, it allows us to bind all cores without creating
-additional video devices.
-
-We expect that all cores to report the same version number, as we only
-add cores with the same compatible value. This is important, as  we
-setup the command buffer before actually scheduling the work to a
-specific core. Therefore adjusting command buffers depending on the
-version register only works when all cores have the same value.
+Move the core initialization from the core binding function to the core
+probing function. This better matches the actual sequence, where the
+core probe initializes most things and the bind function just binds the
+core to the actual rga struct from the master device.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 22 +++++++++++-----------
- drivers/media/platform/rockchip/rga/rga.h |  1 +
- 2 files changed, 12 insertions(+), 11 deletions(-)
+ drivers/media/platform/rockchip/rga/rga.c | 83 ++++++++++++++++---------------
+ 1 file changed, 42 insertions(+), 41 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 0413b8518dfc8..6add6c510c127 100644
+index 952377ae467f5..0413b8518dfc8 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -742,6 +742,7 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
+@@ -740,21 +740,49 @@ static int rga_parse_dt(struct rga_core *core)
+ 
+ static int rga_core_bind(struct device *dev, struct device *master, void *data)
  {
+-	struct platform_device *pdev = to_platform_device(dev);
  	struct rockchip_rga *rga = data;
- 	struct rga_core *core = dev_get_drvdata(dev);
-+	struct rockchip_rga_version version;
- 	int ret = 0;
- 
- 	core->rga = rga;
-@@ -750,14 +751,21 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
- 	if (ret < 0)
- 		return ret;
- 
--	rga->version = rga->hw->get_version(core);
-+	version = rga->hw->get_version(core);
- 
- 	v4l2_info(&rga->v4l2_dev, "HW Version: 0x%02x.%02x\n",
--		  rga->version.major, rga->version.minor);
-+		  version.major, version.minor);
++	struct rga_core *core = dev_get_drvdata(dev);
++	int ret = 0;
 +
-+	if (rga->num_cores) {
-+		/* we are not the first core, expect that we have the same version */
-+		if (rga->version.major != version.major || rga->version.minor != version.minor)
-+			v4l2_warn(&rga->v4l2_dev, "Detected multi-core setup with different core versions!\n");
-+	} else
-+		rga->version = version;
++	core->rga = rga;
++
++	ret = pm_runtime_resume_and_get(core->dev);
++	if (ret < 0)
++		return ret;
++
++	rga->version = rga->hw->get_version(core);
++
++	v4l2_info(&rga->v4l2_dev, "HW Version: 0x%02x.%02x\n",
++		  rga->version.major, rga->version.minor);
++
++	pm_runtime_put(core->dev);
++
++	rga->cores[0] = core;
++
++	return 0;
++}
++
++static const struct component_ops rga_core_ops = {
++	.bind = rga_core_bind,
++};
++
++static int rga_core_probe(struct platform_device *pdev)
++{
+ 	struct rga_core *core;
++	const struct rga_hw *hw;
+ 	int ret = 0;
+ 	int irq;
  
- 	pm_runtime_put(core->dev);
+ 	if (!pdev->dev.of_node)
+ 		return -ENODEV;
+ 
++	hw = of_device_get_match_data(&pdev->dev);
++	if (!hw)
++		return dev_err_probe(&pdev->dev, -ENODEV, "failed to get match data\n");
++
+ 	core = devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
+-	core->rga = rga;
+ 	core->dev = &pdev->dev;
  
 -	rga->cores[0] = core;
-+	rga->cores[rga->num_cores++] = core;
- 
- 	return 0;
- }
-@@ -983,14 +991,6 @@ static int rga_probe(struct platform_device *pdev)
- 		component_match_add_release(dev, &match, component_release_of,
- 					    component_compare_of, core_node);
- 		num_cores++;
 -
--		/*
--		 * As multi core is not implemented yet,
--		 * break out of the loop to only have one core per rockchip_rga struct.
--		 * Also put the node, which otherwise would've been done by the loop iteration.
--		 */
--		of_node_put(core_node);
--		break;
+ 	ret = rga_parse_dt(core);
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "Unable to parse OF data\n");
+@@ -775,7 +803,7 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
  	}
  
- 	if (!match)
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index fcf1ef7d2029f..6237436b984eb 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -88,6 +88,7 @@ struct rockchip_rga {
+ 	ret = devm_request_irq(core->dev, irq, rga_isr,
+-			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
++			       hw->has_internal_iommu ? 0 : IRQF_SHARED,
+ 			       dev_name(core->dev), core);
+ 	if (ret < 0) {
+ 		dev_err(core->dev, "failed to request irq\n");
+@@ -790,42 +818,6 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
  
- 	const struct rga_hw *hw;
+ 	platform_set_drvdata(pdev, core);
  
-+	u8 num_cores;
- 	struct rga_core *cores[];
- };
+-	ret = pm_runtime_resume_and_get(core->dev);
+-	if (ret < 0)
+-		goto err_put_clk;
+-
+-	rga->version = rga->hw->get_version(core);
+-
+-	v4l2_info(&rga->v4l2_dev, "HW Version: 0x%02x.%02x\n",
+-		  rga->version.major, rga->version.minor);
+-
+-	pm_runtime_put(core->dev);
+-
+-	return 0;
+-
+-err_put_clk:
+-	pm_runtime_disable(core->dev);
+-
+-	return ret;
+-}
+-
+-static void rga_core_unbind(struct device *dev, struct device *master,
+-			    void *data)
+-{
+-	struct rga_core *core = dev_get_drvdata(dev);
+-
+-	pm_runtime_disable(core->dev);
+-}
+-
+-static const struct component_ops rga_core_ops = {
+-	.bind = rga_core_bind,
+-	.unbind = rga_core_unbind,
+-};
+-
+-static int rga_core_probe(struct platform_device *pdev)
+-{
+-	int ret = 0;
+-
+ 	ret = component_add(&pdev->dev, &rga_core_ops);
+ 	if (ret < 0) {
+ 		dev_err(&pdev->dev, "failed to register component: %d", ret);
+@@ -833,11 +825,20 @@ static int rga_core_probe(struct platform_device *pdev)
+ 	}
  
+ 	return 0;
++
++err_put_clk:
++	pm_runtime_disable(core->dev);
++
++	return ret;
+ }
+ 
+ static void rga_core_remove(struct platform_device *pdev)
+ {
++	struct rga_core *core = platform_get_drvdata(pdev);
++
+ 	component_del(&pdev->dev, &rga_core_ops);
++
++	pm_runtime_disable(core->dev);
+ }
+ 
+ static int __maybe_unused rga_runtime_suspend(struct device *dev)
 
 -- 
 2.54.0
