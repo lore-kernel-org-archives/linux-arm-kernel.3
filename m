@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3530ACD8C83
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66EACD6E7E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fEynX1/cef0pndZEPm8gcDuGDO9NpbMBOZFQHs0cVw4=; b=j6eUzDSz5wlmzuxLCOHg3M2OQa
-	L0aVE5DtgLTAS8z9dYLFCB7twQ+ZO3LKqCz1+vLWVDdJXUa/OYXRCoYtTHNtW7Ck4FWqxDlJDxI1X
-	hchbdh3rOkBnNrOfrA20THhA4UddhmR94QLVPUS518n1cS8lh0sdC44ldQtmiaTSs5/ZrvMeFwxQ8
-	Fms26HLW8UDnmXxVpgVa/7oAwe9BgWzFPXTWMabraTZFQ3sO5KIKd55cJhz+kPCqwuednsPaBgJ14
-	5X5VQTXOZVP5cPpK20iTwfsKu9YQ2YO49NTuMYOKwICpHVl4c7dmsKlBowfzTX16CPzuCMbTXpfiH
-	AiexfDhA==;
+	bh=POfwTOxPePIR+bzQ/YWTWSHHwFIOZT4YImIC9EJ68WE=; b=3FkQWudJiWp9WAgIUMZNhzmpf/
+	gPSwzVJTTG4ZyfgL3WjMoqrCpkj4ubnmzeofMrgrTMYbTyn+6oODohK8NTmyIIA87lzy00SFgm/7Z
+	/t8CKkYYWMr+lOowgdZtfKKJVnKJjBTV55H4mZfU7aLiF6LYJ2kU8OkMJcWQsF95J4NYhhrMBMDve
+	CSd8VpqqBScqo4YC5GRVb8tUoJACSO+6qWT3TjQkdf+YM0rXWsfRtAPw6O+hnOn0XqYnQ2zqKSucd
+	DbbO08QtTAqxWslaWDJeEVbN3wR+l7GZ0lcOcCfDVKXcVZu/nT99yCI31F3jn2ZWHOyn7AsURKQ/D
+	Q/7JvXPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVb0e-000000019hb-2o2G;
+	id 1wVb0e-000000019hu-3FlM;
 	Fri, 05 Jun 2026 20:19:16 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVb0Z-000000019fI-0pA2
+	id 1wVb0b-000000019g6-17vd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 20:19:13 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490afc47455so11824425e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:19:10 -0700 (PDT)
+	Fri, 05 Jun 2026 20:19:14 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490c0c92cffso13864795e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:19:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780690749; x=1781295549; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1780690752; x=1781295552; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fEynX1/cef0pndZEPm8gcDuGDO9NpbMBOZFQHs0cVw4=;
-        b=ShVFtu66rvdKknOHN5Pw6yVYjL9TR0PvHEqgCwX0M6vhku0aAucVeTRIX52LcRVhjF
-         +LBq/LL1MJs6h+GzlpPtUQe/MDeR+sdpuuoFHtO+5HhXA8omTPes5WgAOXQQxxQaJ71n
-         inL27ALgdfnTwm4bZja29rvQI8oSUutm1n9cbxaLr+NnP9elUadwR+a6FpjcOXbKxfks
-         koAOdso/5vVsvCea+jTTyaS5hS7fJQHzblAAfKhvoyXSk/n1MAmYWjpGJ/D0bT3Cvz3j
-         ivo0y+OiJzHE0piSCurJurz0k5SlMstFMWrcOTGPbpO30p/ffl8aHCoiP7xcfImZ839G
-         KBFA==
+        bh=POfwTOxPePIR+bzQ/YWTWSHHwFIOZT4YImIC9EJ68WE=;
+        b=k6tPwbag6Hgg2mRcBpA2FY3wp6nr230Z7dWto8+tvUeM4ZUpNcCcZXJU1TFKsDyfXd
+         3kTRPpGrdMyle9Buz0XW9K35h6gV4139ornTWE5OWV+yhjS8MeOw4joAETVa6wqsPShX
+         TNIH13Mb3q8PbZkmYGeZdDVZtHSOHGyYRdbajKMbVxos9zQ7t7eXgsVhZftv37NNdK10
+         iTgTz8TDNRtinuhCI+nl2YOoKDA6RzUDuGY4HEG88a8Xd/S/2Q5SaKWOs3WRINU5NYd6
+         /rLql/O04L79TRGkmSsp1HQP261wHYVJUM6Wy3gYmh3qYrIdha16Pd+RaipLamSMO6tU
+         dGuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780690749; x=1781295549;
+        d=1e100.net; s=20251104; t=1780690752; x=1781295552;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=fEynX1/cef0pndZEPm8gcDuGDO9NpbMBOZFQHs0cVw4=;
-        b=GpekaeWDdJ+Q4NvWqkpn4L5eKxUDnMBwmax12p25i3Alv6baC5zDUgfqyt/tEK/Eeq
-         ryTJmNRyGP3ZpkL4QKxNkC4OEH88QAGq8xQ3gtmp0NvMlK2KwYcoXUgGKM85SreK93gr
-         R1SpYnIhEs4SBZp5ABFkRuyB9aFMsZLMp2OtnFgID3FMqh4IXIQeXg3dH1O3u7CH8G3i
-         6Q2604jj+cZdZKhWVSeT/VXlTCcfIPAsWLtWnQCerIOfg25FODfPj4VZEF9YL1A0xoet
-         zdUmq146bQlY/G8MHK1XJreeZzTOE1BdApzk1Ql15EHKFt2Ds1M5N6qGtx3Ekx4sCpF1
-         VdoQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/P6HSpkTl1RRPdNDzGSIr4aMjHZi475n90RDKT4jDg9+pO5Q03qSZurU3YdzqBNch2+JbevNJecqki58pyd/10@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwOZUSRBEKE1hqbjwg+WqkV6YSlpdPXbrSNLUaQjO+UWkOvH1e
-	dDdc2tEUhysFgA5A7n/iGxInVSAd/JP3Hy5eOioP6Brn7fpRMnpGXfg3LaVeU0lSgYg=
-X-Gm-Gg: Acq92OH+egrJy7lpCqPHjlZmtpCMicyyubYJ/2gUKsfZajgOHWvzgsaEBi6iUJRzxQZ
-	mf9mSZP4pBVeuqfE0AQeGfPMZ/bmjjEQN2P/SzvNNC1zHIHX+CSejvkjF/ZpT9qFKecvR4qOZoe
-	kk3bHpUe31P/BHJH2K4r/u3RLI9txJ69ec8yw9boKOL4DBXFarSS7vLYSUb3vUVgjUzx8XdcUoM
-	BfXmwNvvUhUdHvMfYx9+3kyCyNmyuNlLlt+eMuiBiVPu3gSorEA0LpkCg6MLnY6GNF3eYDL0/I4
-	LGSAKh226wa5CrXMz/DgA/KrqKZKL1PAYOtRMVbYI4zfJgerYv6HTC3YawamfwCIs7hgfFsk4xU
-	ebEnZpj32xNPUdxk4idXPMiAwu3f39RWr8pUg+ve2fDmqpXIXUh3YL2BRKBnCWK49xqlDsfW5Ae
-	5sTp6QdFAYBpQb3NrTHNJXUFzovMWs1KJGoVjV23TWEBgVjIUlIs0mx8t02PVWa0UMqx0nwSXHj
-	Im7Yow60zKNitjKtqDyBtackJ4=
-X-Received: by 2002:a05:600c:4506:b0:490:4973:91a0 with SMTP id 5b1f17b1804b1-490c25c0bd7mr90063925e9.10.1780690749367;
-        Fri, 05 Jun 2026 13:19:09 -0700 (PDT)
+        bh=POfwTOxPePIR+bzQ/YWTWSHHwFIOZT4YImIC9EJ68WE=;
+        b=d2StL6p+0ROCtKBG5t8ctxWPrDKRv3fdTcfsdJt/F/HvqzKbr2yuYKFGvAdEcKI3p2
+         8BuB5O4F0pxMV5bhg29+v9hfFNFBLJ1Kr4v9umY+yFheQBTWnEpYhAnpSwrfD0z6QpVW
+         q/6MOJrvYUSff6VNJYjyNAnwtqy1j7erej19me17XmvDix0ssEJ0eXK2lRZephA3JIWA
+         xWAaOLKZ7ahO6PEUhrnu4XKgs4iNBBZovBzRnx9P5QcCUr3WNT7o325QoGU+GHYh41My
+         8v21q7Gpn/KJLyOQ1iouKCs1VY/9g70j4VkjQQdv1+jA9MPh3xq4i7s11neaO9I5SiCA
+         XuJQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+k+9sik6p1aAOHi8drbZWtK+1kQ9yj9xqivb7SCovwFN0jikgqMxD662rnk5Y8p7IbMMXB74Uc+6aUiaQPe+LO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3lnVzv7xo76yl3LnUq2a1p2t54CnhskMqeQRCq2lA4vqQjDXN
+	AwtekXLJC7Ll+nBrXECae7sLY9ZA3WeasBI0sDtqex120QdVza82YQOteYBmwDVfpmw=
+X-Gm-Gg: Acq92OF1pezklDIhHFFQq/8fYRTpOxImjcuvNFaQ6L3dZF6837WBbEY7fJkjhS9pl2p
+	8BrSmAWPuVzNSNc1tRFQL0wGW0yeIe+OcpH63rTaeiawTzdf13WgGdcFw68SoaT+6hqilv6LewX
+	TmFc5n0ZOUWUJ5M23HP3lK2QFOBdkLxn9EYRm8NcFy3ckdUZvBIwStpCryD+DRlxI1xkrqc/T8j
+	DZXv7VijgGPTKUZVKAATPvDKiGsHOzPfaZpRzMLCvgIZK7VbG/Nvr/GLHEZFJuG+lpVML2/eFb+
+	vCyuXMyO3P2jRj8X75NCTN6XpQLCjIXZJhfmDetlEyQoj8ED4IQJtFtTLcA6YDmqK+ZFNmKjmYX
+	YiLhG0AgD1RUhYwXEnL2h1i2/GwoGBGt9bzW3NfRNY0IlmbHLvMRwedVU8wqRVdNFyuU5sgV7NA
+	Ku2i5bKqIdQ4A6sBCMU20hZpCz7Y9ENnOiVmCJJpnwM6AjzQHrpGfD2xaqgC3ADHTUyhEAczbeB
+	l16dmq3t47QbIeG9XqnSwcgyAw=
+X-Received: by 2002:a05:600c:8705:b0:488:ac01:72de with SMTP id 5b1f17b1804b1-490c25898efmr107486035e9.5.1780690751755;
+        Fri, 05 Jun 2026 13:19:11 -0700 (PDT)
 Received: from [127.0.1.1] ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc413541sm190533895e9.14.2026.06.05.13.19.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc413541sm190533895e9.14.2026.06.05.13.19.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Jun 2026 13:19:09 -0700 (PDT)
+        Fri, 05 Jun 2026 13:19:10 -0700 (PDT)
 From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Fri, 05 Jun 2026 21:18:51 +0100
-Subject: [PATCH 2/3] soc: samsung: exynos-pmu: fix use-after-free of
- interrupt generator node
+Date: Fri, 05 Jun 2026 21:18:52 +0100
+Subject: [PATCH 3/3] soc: samsung: exynos-pmu: fix error paths in
+ cpuhotplug/idle states setup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-2-0cd05c81a82d@linaro.org>
+Message-Id: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-3-0cd05c81a82d@linaro.org>
 References: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
 In-Reply-To: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -89,8 +89,8 @@ Cc: Sam Protsenko <semen.protsenko@linaro.org>,
  Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_131911_257100_8DF513D1 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20260605_131913_340272_0B6AB886 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,14 +105,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The setup_cpuhp_and_cpuidle() parses the device tree node for the
-interrupt generation block via of_parse_phandle() and decrements its
-reference count using of_node_put() immediately after fetching the resource
-address. However, later the intr_gen_node pointer is passed into
-of_syscon_register_regmap().
+The setup_cpuhp_and_cpuidle() initialisation sequence currently ignores
+the return values of cpuhp_setup_state(), cpu_pm_register_notifier(), and
+register_reboot_notifier(). If any of these registrations fail during
+probe() routine, the driver returns 0, leaving the driver partially
+configured.
 
-Fix this by moving the of_node_put() invocation to after the
-of_syscon_register_regmap() call, and adding it to correct error paths.
+Furthermore, if anything after setup_cpuhp_and_cpuidle() fails in probe()
+routine, for instance devm_mfd_add_devices(), the probe() lacks an error
+path and leaves notifiers and cpu hotplug states registered.
+
+Introduce variables for the cpu hotplug state IDs in exynos_pmu_context
+struct, that should be initialised to CPUHP_INVALID by default. Check all
+return codes in setup_cpuhp_and_cpuidle(), and add an error path to remove
+registered states on failure. Finally, add destroy_cpuhp_and_cpuidle()
+helper to safely tear down notifiers and cpu hotplug states.
 
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Closes: https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
@@ -120,46 +127,102 @@ Fixes: 78b72897a5c8 ("soc: samsung: exynos-pmu: Enable CPU Idle for gs101")
 Cc: stable@vger.kernel.org
 Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 ---
- drivers/soc/samsung/exynos-pmu.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ drivers/soc/samsung/exynos-pmu.c | 57 ++++++++++++++++++++++++++++++++++------
+ 1 file changed, 49 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index 6e635872247a..9636287f6794 100644
+index 9636287f6794..846313a28e9a 100644
 --- a/drivers/soc/samsung/exynos-pmu.c
 +++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -428,23 +428,30 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
- 	 * syscon provided regmap.
- 	 */
- 	ret = of_address_to_resource(intr_gen_node, 0, &intrgen_res);
--	of_node_put(intr_gen_node);
-+	if (ret) {
-+		of_node_put(intr_gen_node);
+@@ -38,6 +38,8 @@ struct exynos_pmu_context {
+ 	unsigned long *in_cpuhp;
+ 	bool sys_insuspend;
+ 	bool sys_inreboot;
++	int cpuhp_prepare_state;
++	int cpuhp_online_state;
+ };
+ 
+ void __iomem *pmu_base_addr;
+@@ -404,6 +406,17 @@ static struct notifier_block exynos_cpupm_reboot_nb = {
+ 	.notifier_call = exynos_cpupm_reboot_notifier,
+ };
+ 
++static void destroy_cpuhp_and_cpuidle(void)
++{
++	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
++	unregister_reboot_notifier(&exynos_cpupm_reboot_nb);
++
++	if (pmu_context->cpuhp_prepare_state != CPUHP_INVALID)
++		cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
++	if (pmu_context->cpuhp_online_state != CPUHP_INVALID)
++		cpuhp_remove_state(pmu_context->cpuhp_online_state);
++}
++
+ static int setup_cpuhp_and_cpuidle(struct device *dev)
+ {
+ 	struct device_node *intr_gen_node;
+@@ -465,16 +478,42 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
+ 		gs101_cpuhp_pmu_online(cpu);
+ 
+ 	/* register CPU hotplug callbacks */
+-	cpuhp_setup_state(CPUHP_BP_PREPARE_DYN,	"soc/exynos-pmu:prepare",
+-			  gs101_cpuhp_pmu_online, NULL);
++	pmu_context->cpuhp_prepare_state = CPUHP_INVALID;
++	pmu_context->cpuhp_online_state = CPUHP_INVALID;
+ 
+-	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
+-			  NULL, gs101_cpuhp_pmu_offline);
++	ret = cpuhp_setup_state(CPUHP_BP_PREPARE_DYN, "soc/exynos-pmu:prepare",
++				gs101_cpuhp_pmu_online, NULL);
++	if (ret < 0)
 +		return ret;
-+	}
++
++	pmu_context->cpuhp_prepare_state = ret;
++
++	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
++				NULL, gs101_cpuhp_pmu_offline);
++	if (ret < 0)
++		goto clean_cpuhp_states;
++
++	pmu_context->cpuhp_online_state = ret;
  
- 	virt_addr = devm_ioremap(dev, intrgen_res.start,
- 				 resource_size(&intrgen_res));
--	if (!virt_addr)
-+	if (!virt_addr) {
-+		of_node_put(intr_gen_node);
- 		return -ENOMEM;
-+	}
+ 	/* register CPU PM notifiers for cpuidle */
+-	cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
+-	register_reboot_notifier(&exynos_cpupm_reboot_nb);
+-	return 0;
++	ret = cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
++	if (ret)
++		goto clean_cpuhp_states;
++
++	ret = register_reboot_notifier(&exynos_cpupm_reboot_nb);
++	if (!ret)
++		/* Success */
++		return ret;
++
++	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
++
++clean_cpuhp_states:
++	if (pmu_context->cpuhp_prepare_state != CPUHP_INVALID)
++		cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
++	if (pmu_context->cpuhp_online_state != CPUHP_INVALID)
++		cpuhp_remove_state(pmu_context->cpuhp_online_state);
++
++	return ret;
+ }
  
- 	pmu_context->pmuintrgen = devm_regmap_init_mmio(dev, virt_addr,
- 							&regmap_pmu_intr);
- 	if (IS_ERR(pmu_context->pmuintrgen)) {
- 		dev_err(dev, "failed to initialize pmu-intr-gen regmap\n");
-+		of_node_put(intr_gen_node);
- 		return PTR_ERR(pmu_context->pmuintrgen);
- 	}
+ static int exynos_pmu_probe(struct platform_device *pdev)
+@@ -548,8 +587,10 @@ static int exynos_pmu_probe(struct platform_device *pdev)
  
- 	/* register custom mmio regmap with syscon */
- 	ret = of_syscon_register_regmap(intr_gen_node,
- 					pmu_context->pmuintrgen);
-+	of_node_put(intr_gen_node);
- 	if (ret)
+ 	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE, exynos_pmu_devs,
+ 				   ARRAY_SIZE(exynos_pmu_devs), NULL, 0, NULL);
+-	if (ret)
++	if (ret) {
++		destroy_cpuhp_and_cpuidle();
  		return ret;
++	}
  
+ 	if (devm_of_platform_populate(dev))
+ 		dev_err(dev, "Error populating children, reboot and poweroff might not work properly\n");
 
 -- 
 2.51.0
