@@ -4,91 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C81CCD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 07:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28E8CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 07:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OAHd6WydKYBQCkvMXE/3oSe9e9pm1fVvh4h5O21kqfs=; b=CRsq7dzYRhQsoof1FK0u2Ah22d
-	MhtvU/+kHA3/WX4ygSB8z5l9joHNJ2QxoAqnD0Fkh94bAAY7gehafQcnixpUTv+Nr2TUrsExd7mQb
-	V5ApcbOBo7RL2YSH1dpkd8zTWhwEvt2oow/eeYA2Gxdaeds5Wndg51uxQZWnDIWV5dYd8FEZz0dP1
-	d//HRoR/ZibqJTMzg8cH0XkaHwTSY7z+aX40sWW/hQairO3QFORe65Dqdyz03dr1YkVaZZbo0JRbs
-	6LmLP4Z80aklPCla/nDh3lLVDjRfF9CiWzn3rpx7LTRC8RKEs/obssAFbE3tbbyNO9rX4hs2MfV+f
-	70rtAc6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6RlfFIgPGy7pGZjFawt4wYmr+kEbPPFQGpGp0fZuEYY=; b=E/LrI5PDxEJtPXZGJ+nzL0bhUa
+	VusON/dE+4IJtwHgJWxBv1E/UY/z3tmMOsMFlOMtp7BzLm6kVEtorTVWvebQGQah/EzJRJFCcRm1n
+	w19k5BMcEI0GFg/pnmP30rOFwNKuW3FgccK4OSPhY/NJ614uy6CMjMRpBtx8rtZ+aQVUGMq0qP0Fn
+	G67sxV6ZKJ3ACon7EZD+v3/NDwjexEyDRrzXOq8zxuK1qTqnCrkjWQHNgPwEnVVqYeyC0d4uDYL6v
+	Q/L6juLcMUs/UUZ0OMEEauHZ5VIpt+lPe63uQu+e3uPI+EE+Y4zCwBeCXx4vZeHRLy5xjTy9ZPv/2
+	0A9FzlZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVOk7-00000000Dde-3vCH;
-	Fri, 05 Jun 2026 07:13:23 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wVOq7-00000000E7a-1Qi8;
+	Fri, 05 Jun 2026 07:19:35 +0000
+Received: from mail-westus2azon11010010.outbound.protection.outlook.com ([52.101.46.10] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVOk5-00000000DcU-0i6j
+	id 1wVOq4-00000000E7E-0cZt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 07:13:22 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-46019edc13dso735609f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 00:13:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780643598; x=1781248398; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OAHd6WydKYBQCkvMXE/3oSe9e9pm1fVvh4h5O21kqfs=;
-        b=dNt081YKyhjLaPTj9d8Sf6iQQ8x9U0P5mhz65zvpTp67kqmsrJ3SFSqDiDDaGtdlCU
-         pTHpsl3aCVpb+wSKG+rtPv+V/sHA+4cVsoJ/BVdCkG/l7RD+c9MlxYAh0z1Yk2JVyP/7
-         M7vat7EuTwyrN6jnyR2L3o2jO3UpMOaEAJVKGXczXiqVpVtX4Gc3oS2v+ClyjOv7t8mo
-         +2sEfadadgF02Fkdm1UREmIWJoRKyqS8GvPhf1YK5505mq3bqjG5vS1L7+ldC/3zaCAz
-         BPncvcHWKcF1ul5waFuPqJNxT6g4qCLY00+aD4bO0MxnDhUZeeuUa3Uii7dROKoq3JTR
-         Elhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780643598; x=1781248398;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OAHd6WydKYBQCkvMXE/3oSe9e9pm1fVvh4h5O21kqfs=;
-        b=BMPazCOlEzuthl4T3RSgD11fOMZqPDvwbZ2zrGThAwntRVwwkAhGoDRt81ILjFiFE4
-         TJIV27qlPyzD7Hoz91pZ+gomTJTWf2h8NlgoPNgY44VKENiQpTpk+sTUlqTKdAqGg6Df
-         0xldFsAqOroJ78WEsChJ11WOFtyi8DxyJbLawHeM9AcdLXjsx3w/ql6CRN+GVcXoi6Jl
-         hOUdRpxwTHkgFqsaxNjOMahv5fRlQj7Ie45KhKtAFmNIg2D3agK04FG41ckhS38tWaHn
-         e+ePpx2Wd9cCGcIlO5rpbNXiABUdhFLpZgEUS1KYYXUauP4b+dKZkjdZZepLVg0cKGS8
-         5lIw==
-X-Forwarded-Encrypted: i=1; AFNElJ+C7ZiL5HLNi69K2eYtHRXkH8DDq6xUwe9fdTtu77+j7TCvlBnrHVOpVaDmKXWQ6JogoufIfy+xK875PQ34olk1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHEHjmoJacm01b6Rvl7kQze7h5NG4eb53AwXamDRw0r9hZ/BYf
-	XsWV5TMHFxY14HqM52Ipc6+ARUahGpfjeqXze+Sp1bcML9Flon/2zvQP
-X-Gm-Gg: Acq92OGhpOy12y1Img8dQmKWtfgnV8WzV2IyLpGwkL84mCy1LzU0Oo0L80WJnqrkorR
-	0fKG1byMfo8OmbTqDmqobIg5Q5v9Gt7kiHNRM8WFIXWkwo0k78KeHKR0ZtWy3gADBEbtW6SyA5Y
-	zzRaObc8UTOzx2WlhAMOYnxc18OFnP6viUa0lcFEkzx0lytmdNGl6aoVtZL4PXV1uIMrfFNJIAK
-	gGBQ88//eIJGa8vk8VhhUKJzmKgEW2aqfDesg7UUalnWJmCcSWAgZ5NlIxTRhfR4iHuFMVVHdSf
-	jsao3uH49q1PmL09v/PSHXl0/35btZxo5B8RpUR1UkYqDwvxNrKypP6+BW/DtVy1y8nY4dh15m6
-	SNwmxbWoDt1PPlr+Zv33FiRJJ60//m5M8ZWjZenZJAK7dEmi8gjQaFmEGuWWBKnfBDO1IXOd5V/
-	qtfxtaY+SkvzOditPhptzUpA5lprQVwMCuVII4IPSjApAveT9dAMwHiowHDVWiqSkgcHVAIkwzP
-	kFYUPM=
-X-Received: by 2002:adf:fd8b:0:b0:43b:498f:dceb with SMTP id ffacd0b85a97d-460304f6b48mr2770670f8f.9.1780643597933;
-        Fri, 05 Jun 2026 00:13:17 -0700 (PDT)
-Received: from Ansuel-XPS24 (host-79-42-252-49.retail.telecomitalia.it. [79.42.252.49])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4601f2f5612sm22221465f8f.15.2026.06.05.00.13.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Jun 2026 00:13:16 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] pinctrl: Move Airoha driver to dedicated directory
-Date: Fri,  5 Jun 2026 09:12:31 +0200
-Message-ID: <20260605071233.28873-1-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 05 Jun 2026 07:19:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Sj6DT+RI2iG90HR32P6mMbzxDNphmA/CYS5ethbMO3XRkrbM41CN0y5FtRXj9gdxazsHxyuD2ZNMoOUO7Lnx34663yj2boFe6cEklojtK41AK9YID20hzygjTdQJnBn6bonTowqRfTS/4ttDgjulW+iVKLE9kuWYUsh2qcL8Ss2vLZ64QGduiiDV0Av+evc9F6c/EzrXEpRnytMufVmAGJBLPQGhoDP3t4+jjEv2vZyM/5y+xs3ZeEkf3W0inub9VXFN42UgnFt52eKPkFnrycmTzuHb9Tp4p+375RIfBx7yMcZd8UzCIVRXgooouCe7UyeCrSkiS3ZLFj/Zg2gVcA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6RlfFIgPGy7pGZjFawt4wYmr+kEbPPFQGpGp0fZuEYY=;
+ b=OAM+fpyqjOOdNsvbiLdr1JicFzussF1RCKDSMoN1rv8ODF9gz5t0G8iadaKZmEodQLN27hy7IXcejk680EUoEeaxfpgbvdfYLykYHLktXFb3GA1u8HipE1OAMEUNg1wc1mkFyePxPMwwnU9VM5ASaLyUESie9CUYY6vl9282C9KLSrgUbAHKB9XD/mn5zSXOwJGHkIDzOGU1QS1g4FQl/v0kjf0tEQGO+wS9RFdgNgjsYkngIUbNLHltKGIkT059zH40oKgSkMqS/fFZGIfx52IvXZyiad0jmoa4kHqyjDuHjnvRCwCD5R2gHgOPj0m0TZatEzyu7/DEJO6ezRHORg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6RlfFIgPGy7pGZjFawt4wYmr+kEbPPFQGpGp0fZuEYY=;
+ b=BnCnYEt8lm1ptWb1KkryR9gLVXALBJ1Al59pPKGzQ86YKXLLK1rz+OAee2yohNA19u2Yn/wbVfVzmPFrfmrU3Z0/PQn39uNkwmQCxMzRwlGFZ5+4sXimbfHqYIpawMDUrGkcOzbFkzDTAaCrsAcf18MLNNfj/GWEY65gc3ZrG7o=
+Received: from BN0PR08CA0005.namprd08.prod.outlook.com (2603:10b6:408:142::20)
+ by LVUPR10MB997835.namprd10.prod.outlook.com (2603:10b6:408:3a2::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.9; Fri, 5 Jun 2026
+ 07:19:29 +0000
+Received: from BN2PEPF000055DD.namprd21.prod.outlook.com
+ (2603:10b6:408:142:cafe::3c) by BN0PR08CA0005.outlook.office365.com
+ (2603:10b6:408:142::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.8 via Frontend Transport; Fri, 5
+ Jun 2026 07:19:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN2PEPF000055DD.mail.protection.outlook.com (10.167.245.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.2 via Frontend Transport; Fri, 5 Jun 2026 07:19:28 +0000
+Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 5 Jun
+ 2026 02:19:28 -0500
+Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 5 Jun
+ 2026 02:19:28 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Fri, 5 Jun 2026 02:19:28 -0500
+Received: from a0507033-hp.dhcp.ti.com (a0507033-hp.dhcp.ti.com [10.24.68.129])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6557JNSs1404246;
+	Fri, 5 Jun 2026 02:19:24 -0500
+From: Aksh Garg <a-garg7@ti.com>
+To: <linux-pci@vger.kernel.org>, <vigneshr@ti.com>, <s-vadapalli@ti.com>,
+	<lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+	<robh@kernel.org>, <bhelgaas@google.com>, <mpillai@cadence.com>,
+	<unicorn_wang@outlook.com>, <me@ziyao.cc>, <18255117159@163.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<danishanwar@ti.com>, <a-garg7@ti.com>
+Subject: [PATCH] PCI: cadence: skip the link polling when endpoint not connected
+Date: Fri, 5 Jun 2026 12:49:22 +0530
+Message-ID: <20260605071922.1724499-1-a-garg7@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000055DD:EE_|LVUPR10MB997835:EE_
+X-MS-Office365-Filtering-Correlation-Id: 600d2589-7d87-4006-3fc1-08dec2d2c834
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|32650700020|921020|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: nkmhoYZNo5DGO9MFPheLQYMTA5fea9PQpNkPawdhWVQkzD1An12dykOXp1GfxwXi8BrQhOPg+Zg8RSzQby0y7KfwYVDxUjU75ZcBLqLIyrabmbsZF86T6M64y21bXMXvhRl3o0kchuT64eWmIKmdrfiPhcIgvrnKOChu9zL+eHltvHBUOfkIVn9O9ERNlptyzNpcWh8cK2AWhpBQaxIQEd6IR3BcFT7gIIs6/UnU3W02xNsyqD0PCcDo62af7Cd5oha2rH8VWU8ckAdwt9ie7dnNxl5m811DaXKuLAKdx/9VLfCwuA43NCXxGtyObJ5LrlCloc9ZrP0BfRFogzPOETvnq0qoWGSmmIzoJgRCzGvaGtmEIMFP82z4TVmBIhG4Op15K2PcFnxxUP5fiOJpuUE2Fm90j+we0S1ty6BTZ6EmfzcH1krpCmTVSO7TAnTDlX+qEh1uFxUH4hh62d0uCPdINqDUSBTBUheIjw4QfTeXWHV6nERT4rnYR9eNOFwuyUE0jaDykraIwvGf4Mk7pjeTaIhrqZaZgUJ7N9BNoDCIeP8vNq4rdMygETqvuJ5OuYAp9TWp+1Z/RhjF7QOj3SZ7h41dNH34H3MaszlkVpQxxNhypgaorIjjG2ToHuF0ILPhRXrFr2Lkk8gFo1+4AlNXx+/sNv1MJ7LydyVoIAkbBsMV7k9Rtriv0MGCFuGhj9o03tdbe3Ctff5lawfonm9V5iqFg1hDxvHvnXooxN0IJqlm4h4d3SLNOf5Gi+zQrIp41bXGGFO74TqNkfvMNg==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(32650700020)(921020)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Alat0+RJgDntlyluyqzwq3w5TpD80GFhtaBG1BGh8eTfv8LejPVjMC6y/Aq4hKgS0pMmpLWuLRRR9qlgu9fUrlIXi+CiXIEyx5WjImmxoygMt4gDefq8OHMTtRbgiTJmCHLrMZzzNj1NktBhHKjAHjYCJCoNE8CW/ciJjcDHDswUnx/d6JrAMZlTxiZWuSVGbeetdfWmJVWPxKBhBUoSsvLcKuPlUFvBYaQVtBferZDyYFxLX4rTilvlv6rhK/xKaNVRykleM0QI9TqTHrVBKXOZSLmg3m25zliGXC+QpfdyaxlFmfesdrJl6Oc8GaG5EPuF3gmYQsvnFB4h1BsiPykN+OgQ6jNOIdksRYSrqcOIgkIcWU7URplWBcJ/xO8LcY9yzKCo0k6u8dSdDFoe7/1p8imEUl3A5m+WRaOHMurNPg70QWoGqN/i3pFfKOlh
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 07:19:28.9735
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 600d2589-7d87-4006-3fc1-08dec2d2c834
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DD.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVUPR10MB997835
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_001321_239921_D9C9800D 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20260605_001932_321576_4B917D40 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,153 +130,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for additional SoC support, move the Airoha pinctrl driver
-for AN7581 SoC to a dedicated directory.
+cdns_pcie_host_wait_for_link() polls on link-up for 10 retries with a
+delay of 90-100ms each (~1 second). A call to cdns_pcie_host_link_setup()
+during the resume operation blocks the resume operation unnecessarily for
+~1s even when no endpoint device is connected.
 
-This is to tidy things up and keep code organized without polluting the
-Mediatek driver directory.
+Add skip_link_polling flag to track link state across suspend/resume
+cycles. If link was down before suspend, skip the expensive polling
+in resume since no endpoint was present.
 
-The driver doesn't depend on any generic or common code from the Mediatek
-codebase so it can be safely moved without any modification.
-
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Signed-off-by: Aksh Garg <a-garg7@ti.com>
 ---
- MAINTAINERS                                   |  2 +-
- drivers/pinctrl/Kconfig                       |  1 +
- drivers/pinctrl/Makefile                      |  1 +
- drivers/pinctrl/airoha/Kconfig                | 20 +++++++++++++++++++
- drivers/pinctrl/airoha/Makefile               |  3 +++
- .../{mediatek => airoha}/pinctrl-airoha.c     |  0
- drivers/pinctrl/mediatek/Kconfig              | 17 +---------------
- drivers/pinctrl/mediatek/Makefile             |  1 -
- 8 files changed, 27 insertions(+), 18 deletions(-)
- create mode 100644 drivers/pinctrl/airoha/Kconfig
- create mode 100644 drivers/pinctrl/airoha/Makefile
- rename drivers/pinctrl/{mediatek => airoha}/pinctrl-airoha.c (100%)
+ drivers/pci/controller/cadence/pci-j721e.c             | 5 +++++
+ drivers/pci/controller/cadence/pcie-cadence-host-hpa.c | 3 +++
+ drivers/pci/controller/cadence/pcie-cadence-host.c     | 3 +++
+ drivers/pci/controller/cadence/pcie-cadence.h          | 3 +++
+ 4 files changed, 14 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 21c0ef0b9ce5..38bf92149a15 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21024,7 +21024,7 @@ M:	Lorenzo Bianconi <lorenzo@kernel.org>
- L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/pinctrl/airoha,en7581-pinctrl.yaml
--F:	drivers/pinctrl/mediatek/pinctrl-airoha.c
-+F:	drivers/pinctrl/airoha/pinctrl-airoha.c
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index bfdfe98d5aba..849eb8bb9e45 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -686,6 +686,11 @@ static int j721e_pcie_suspend_noirq(struct device *dev)
+ 	struct j721e_pcie *pcie = dev_get_drvdata(dev);
  
- PIN CONTROLLER - AMD
- M:	Basavaraj Natikar <Basavaraj.Natikar@amd.com>
-diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-index 03f2e3ee065f..e0babad31445 100644
---- a/drivers/pinctrl/Kconfig
-+++ b/drivers/pinctrl/Kconfig
-@@ -679,6 +679,7 @@ config PINCTRL_RP1
- 	  multi function device.
- 
- source "drivers/pinctrl/actions/Kconfig"
-+source "drivers/pinctrl/airoha/Kconfig"
- source "drivers/pinctrl/aspeed/Kconfig"
- source "drivers/pinctrl/bcm/Kconfig"
- source "drivers/pinctrl/berlin/Kconfig"
-diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
-index f7d5d5f76d0c..36c55858801f 100644
---- a/drivers/pinctrl/Makefile
-+++ b/drivers/pinctrl/Makefile
-@@ -66,6 +66,7 @@ obj-$(CONFIG_PINCTRL_ZYNQMP)	+= pinctrl-zynqmp.o
- obj-$(CONFIG_PINCTRL_ZYNQ)	+= pinctrl-zynq.o
- 
- obj-y				+= actions/
-+obj-y				+= airoha/
- obj-$(CONFIG_ARCH_ASPEED)	+= aspeed/
- obj-y				+= bcm/
- obj-$(CONFIG_PINCTRL_BERLIN)	+= berlin/
-diff --git a/drivers/pinctrl/airoha/Kconfig b/drivers/pinctrl/airoha/Kconfig
-new file mode 100644
-index 000000000000..03adaeae8fc3
---- /dev/null
-+++ b/drivers/pinctrl/airoha/Kconfig
-@@ -0,0 +1,20 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+menu "Airoha pinctrl drivers"
-+	depends on ARCH_AIROHA || COMPILE_TEST
+ 	if (pcie->mode == PCI_MODE_RC) {
++		struct cdns_pcie_rc *rc = cdns_pcie_to_rc(pcie->cdns_pcie);
 +
-+config PINCTRL_AIROHA
-+	tristate "Airoha EN7581 pin control"
-+	depends on OF
-+	depends on ARM64 || COMPILE_TEST
-+	select PINMUX
-+	select GENERIC_PINCONF
-+	select GENERIC_PINCTRL_GROUPS
-+	select GENERIC_PINMUX_FUNCTIONS
-+	select GPIOLIB
-+	select GPIOLIB_IRQCHIP
-+	select REGMAP_MMIO
-+	help
-+	  Say yes here to support pin controller and gpio driver
-+	  on Airoha EN7581 SoC.
++		/* If link is down before suspend, skip polling in resume */
++		rc->skip_link_polling = !j721e_pcie_link_up(pcie->cdns_pcie);
 +
-+endmenu
-diff --git a/drivers/pinctrl/airoha/Makefile b/drivers/pinctrl/airoha/Makefile
-new file mode 100644
-index 000000000000..a25b744dd7a8
---- /dev/null
-+++ b/drivers/pinctrl/airoha/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
+ 		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
+ 		clk_disable_unprepare(pcie->refclk);
+ 	}
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
+index 0f540bed58e8..d78c1282a5ee 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
+@@ -301,6 +301,9 @@ int cdns_pcie_hpa_host_link_setup(struct cdns_pcie_rc *rc)
+ 		return ret;
+ 	}
+ 
++	if (rc->skip_link_polling)
++		return 0;
 +
-+obj-$(CONFIG_PINCTRL_AIROHA)		+= pinctrl-airoha.o
-diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/airoha/pinctrl-airoha.c
-similarity index 100%
-rename from drivers/pinctrl/mediatek/pinctrl-airoha.c
-rename to drivers/pinctrl/airoha/pinctrl-airoha.c
-diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
-index 4819617d9368..97980cc28b9c 100644
---- a/drivers/pinctrl/mediatek/Kconfig
-+++ b/drivers/pinctrl/mediatek/Kconfig
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- menu "MediaTek pinctrl drivers"
--	depends on ARCH_MEDIATEK || ARCH_AIROHA || RALINK || COMPILE_TEST
-+	depends on ARCH_MEDIATEK || RALINK || COMPILE_TEST
+ 	ret = cdns_pcie_host_wait_for_link(pcie, cdns_pcie_hpa_link_up);
+ 	if (ret)
+ 		dev_dbg(dev, "PCIe link never came up\n");
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
+index 0bc9e6e90e0e..026414c21ee1 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+@@ -352,6 +352,9 @@ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
+ 		return ret;
+ 	}
  
- config EINT_MTK
- 	tristate "MediaTek External Interrupt Support"
-@@ -126,21 +126,6 @@ config PINCTRL_MT8127
- 	select PINCTRL_MTK
++	if (rc->skip_link_polling)
++		return 0;
++
+ 	ret = cdns_pcie_host_start_link(rc, cdns_pcie_link_up);
+ 	if (ret)
+ 		dev_dbg(dev, "PCIe link never came up\n");
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+index 574e9cf4d003..01e49ecccc7b 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.h
++++ b/drivers/pci/controller/cadence/pcie-cadence.h
+@@ -117,6 +117,8 @@ struct cdns_pcie {
+  * @no_inbound_map: Whether inbound mapping is supported
+  * @quirk_broken_aspm_l0s: Disable ASPM L0s support as quirk
+  * @quirk_broken_aspm_l1: Disable ASPM L1 support as quirk
++ * @skip_link_polling: Skip link polling in resume if link was down before
++ *		       suspend, to avoid long delay in resume
+  */
+ struct cdns_pcie_rc {
+ 	struct cdns_pcie	pcie;
+@@ -131,6 +133,7 @@ struct cdns_pcie_rc {
+ 	unsigned int            no_inbound_map:1;
+ 	unsigned int            quirk_broken_aspm_l0s:1;
+ 	unsigned int            quirk_broken_aspm_l1:1;
++	unsigned int		skip_link_polling:1;
+ };
  
- # For ARMv8 SoCs
--config PINCTRL_AIROHA
--	tristate "Airoha EN7581 pin control"
--	depends on OF
--	depends on ARM64 || COMPILE_TEST
--	select PINMUX
--	select GENERIC_PINCONF
--	select GENERIC_PINCTRL_GROUPS
--	select GENERIC_PINMUX_FUNCTIONS
--	select GPIOLIB
--	select GPIOLIB_IRQCHIP
--	select REGMAP_MMIO
--	help
--	  Say yes here to support pin controller and gpio driver
--	  on Airoha EN7581 SoC.
--
- config PINCTRL_MT2712
- 	bool "MediaTek MT2712 pin control"
- 	depends on OF
-diff --git a/drivers/pinctrl/mediatek/Makefile b/drivers/pinctrl/mediatek/Makefile
-index ae765bd99965..6dc17b0c23f9 100644
---- a/drivers/pinctrl/mediatek/Makefile
-+++ b/drivers/pinctrl/mediatek/Makefile
-@@ -8,7 +8,6 @@ obj-$(CONFIG_PINCTRL_MTK_MOORE)		+= pinctrl-moore.o
- obj-$(CONFIG_PINCTRL_MTK_PARIS)		+= pinctrl-paris.o
- 
- # SoC Drivers
--obj-$(CONFIG_PINCTRL_AIROHA)		+= pinctrl-airoha.o
- obj-$(CONFIG_PINCTRL_MT7620)		+= pinctrl-mt7620.o
- obj-$(CONFIG_PINCTRL_MT7621)		+= pinctrl-mt7621.o
- obj-$(CONFIG_PINCTRL_MT76X8)		+= pinctrl-mt76x8.o
+ /**
 -- 
-2.53.0
+2.34.1
 
 
