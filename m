@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F71CD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB357CD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 15:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FHeuOlC/gaOtesZkFgqVr9DoEMDIdfxTclEETE4eqSU=; b=44MERNUDO5JBaGfFP0d30iPDmc
-	drsLCn+obfCRv7PjWBXeMkYjwB1S2s0NbtuI39sS0C05Jg5cVNcl1Ifs5af9E3VJNMyOiL+y30rDN
-	Taxgkf+Co8Pq20B0S430Vhm9WgHRvR8liESiEggchZ2DSuWsg8BXop67hs4/6t4dxNoSwIcZUJNtk
-	xcZNb3LObEc0eFKEfn1ZmIj6kOiTcjAXWWuLoTtsbVxp46dUOhFyHj4pcrzI+91IOlfqb9EKfGTTo
-	nc6nY3Yuq77Vz4DHSlmkcqW918TQJ9KluRe4JUoB8HUSgP7FmSt8FSlV+mn5yrNDRjqLoMpNipi2E
-	c7mUfdFA==;
+	bh=iZG4aMaH9HnROS+vLpUfnBWFNRF+eTigF60FCdnGxlg=; b=NfHj33Mr5cM54mhknIre/t86MV
+	0CIXFuUK3Q8aGZugYtvfyrsz6tJ2mKTBQKGPOkOyZVtqzIg2USYeXsou8bNEJgfntgUXAKvU8u+3V
+	0stEmIJmAnj9hQSfLVLuBvRoZdNXDg9r3TKYzfSi/IIY8fZz7u0O/b6fycWLMJqjiCijYQnXps5mr
+	kUvlNXHGqDi6A04miPTJUp8tv5SNgqfHs4Oe227iWvsYnK6VIby0Wi6e8de3g9ac+r6wGNzN/m7eE
+	zwXkp0c75N89hn3miSTyAJeKL+GsnX+SFtCIoymG8jYAJHZDjyG5GJ6viKqHfQzInDNZjM6Xq3qNB
+	xYxpHgTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWam-00000000pz4-14tQ;
-	Fri, 05 Jun 2026 15:36:16 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wVWln-00000000rG4-1wll;
+	Fri, 05 Jun 2026 15:47:39 +0000
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVWai-00000000pxm-4A2a
+	id 1wVWlk-00000000rFT-1PI4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 15:36:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 2D349C58479;
-	Fri,  5 Jun 2026 15:36:10 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4A1AB5FED1;
-	Fri,  5 Jun 2026 15:36:10 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C996106A24F0;
-	Fri,  5 Jun 2026 17:35:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780673767; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=FHeuOlC/gaOtesZkFgqVr9DoEMDIdfxTclEETE4eqSU=;
-	b=LSb3DbXwWwWowFJQbUezIa1BBhdJR5igSpOLdXQsCT+BMkRWsdW44ijdI9dXSrrrcI8V3I
-	ecL7Zv+Q2UVM43Odjp/o2hzqvGbJH9gcvwM6bdnjCKpscXz21KdbG5a15Kc6ylGOPoMikV
-	/27OcnmIj1H+3ddtxGC9cfiTRCWoqBfbWXl8ciMGadarXoTP7kfh+SkJNF+NmdT7qNf3N7
-	nOUpMyUSLjBesoK1WhJDphDI8xte4Zjy9kt1XGP1BSTgKvcUlm5wSd8QHvl7H5BQGa0SY4
-	7tx4Gs7DtT2TfocD21W8eEKgMWx1a3Dd+/HcnhtEgGNrly28oFopJXpGDFJybQ==
-Message-ID: <566af63b-05a9-43f8-94e9-19af737c848a@bootlin.com>
-Date: Fri, 5 Jun 2026 17:35:47 +0200
+	Fri, 05 Jun 2026 15:47:38 +0000
+Message-ID: <13b87293-5237-43d3-9f91-33c13041cb43@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780674451;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iZG4aMaH9HnROS+vLpUfnBWFNRF+eTigF60FCdnGxlg=;
+	b=CU3lwnr7dLF/lcnaKkaJnyuvAA8Nxo3qD4VS+Oc2hZ4JJFIEPLI567mvejISPJ/p18VGtg
+	Pne7bezX9KkPrqNIvoVD5gO3vtihOLj9Rk3FaLzyLWVLsLAlo0HCOMWRZcFfpweonp3GeT
+	UYGbz38W2W7kjrHxQLIZtxb6zUmHM/E=
+Date: Fri, 5 Jun 2026 08:47:19 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 03/14] net: pcs: pcs-xpcs-regmap: support XPCS
- memory-mapped MDIO bus via regmap
-To: Alex Elder <elder@riscstar.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, rmk+kernel@armlinux.org.uk, andersson@kernel.org,
- konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, arnd@arndb.de,
- gregkh@linuxfoundation.org
-Cc: Daniel Thompson <daniel@riscstar.com>, mohd.anwar@oss.qualcomm.com,
- a0987203069@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, chenhuacai@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com,
- inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com,
- livelycarpet87@gmail.com, mcoquelin.stm32@gmail.com, me@ziyao.cc,
- prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
- rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn,
- weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+Subject: Re: [PATCH bpf-next v2 8/8] selftests/bpf: add tests to validate
+ KASAN on JIT programs
+Content-Language: en-GB
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?=
+ <alexis.lothore@bootlin.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Song Liu <song@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>
+Cc: ebpf@linuxfoundation.org,
+ Bastien Curutchet <bastien.curutchet@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-4-elder@riscstar.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260605010022.968612-4-elder@riscstar.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+ linux-arm-kernel@lists.infradead.org
+References: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
+ <20260604-kasan-v2-8-c066e627fda8@bootlin.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yonghong Song <yonghong.song@linux.dev>
+In-Reply-To: <20260604-kasan-v2-8-c066e627fda8@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_083613_974566_5EFEF305 
-X-CRM114-Status: GOOD (  26.50  )
+X-CRM114-CacheID: sfid-20260605_084736_872699_F1DDAFD1 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,258 +87,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
 
-On 6/5/26 03:00, Alex Elder wrote:
-> From: Daniel Thompson <daniel@riscstar.com>
-> 
-> In some DesignWare XPCS implementatons the memory-mapped MDIO bus is
-> allocated to a register window that does not align to a page boundary.
-> This makes iomapping the registers problematic.
-> 
-> For example the Toshiba TC9564 (a PCIe Ethernet-AVB/TSN bridge) provides
-> an "eMAC" subsystem with the XPCS base address cuddled up to XGMAC
-> registers.
-> 
-> Let's introduce helpers to allow the driver that owns the eMAC to register
-> an XPCS using is regmap for the memory-mapped MDIO bus.
-> 
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> Signed-off-by: Alex Elder <elder@riscstar.com>
+
+On 6/4/26 1:22 PM, Alexis Lothoré (eBPF Foundation) wrote:
+> Add a basic KASAN test runner that loads and test-run programs that can
+> trigger memory management bugs. The test captures kernel logs and ensure
+> that the expected KASAN splat is emitted by searching for the
+> corresponding first lines in the report, hence validated that the needed
+> instrumentation has been inserted by the JIT compiler before the
+> relevant memory accesses.
+>
+> The runner covers different cases and settings: in the nominal case, it
+> validates kasan reports on basic instructions (on all supported accesses
+> sizes) but also when report _should not_ be emitted (eg: for accesses on
+> program stack). The runner also comes with a few specialized tests that
+> are then not executed for all sizes/locations. A few of those tests
+> depends on cpuv4 (load_acquire and store_release).
+>
+>    # ./test_progs -a kasan
+>    #164/1   kasan/st_1_not_on_stack:OK
+>    #164/2   kasan/st_1_on_stack:OK
+>    #164/3   kasan/st_2_not_on_stack:OK
+>    #164/4   kasan/st_2_on_stack:OK
+>    #164/5   kasan/st_4_not_on_stack:OK
+>    #164/6   kasan/st_4_on_stack:OK
+>    #164/7   kasan/st_8_not_on_stack:OK
+>    #164/8   kasan/st_8_on_stack:OK
+>    #164/9   kasan/stx_1_not_on_stack:OK
+>    #164/10  kasan/stx_1_on_stack:OK
+>    #164/11  kasan/stx_2_not_on_stack:OK
+>    #164/12  kasan/stx_2_on_stack:OK
+>    #164/13  kasan/stx_4_not_on_stack:OK
+>    #164/14  kasan/stx_4_on_stack:OK
+>    #164/15  kasan/stx_8_not_on_stack:OK
+>    #164/16  kasan/stx_8_on_stack:OK
+>    #164/17  kasan/ldx_1_not_on_stack:OK
+>    #164/18  kasan/ldx_1_on_stack:OK
+>    #164/19  kasan/ldx_2_not_on_stack:OK
+>    #164/20  kasan/ldx_2_on_stack:OK
+>    #164/21  kasan/ldx_4_not_on_stack:OK
+>    #164/22  kasan/ldx_4_on_stack:OK
+>    #164/23  kasan/ldx_8_not_on_stack:OK
+>    #164/24  kasan/ldx_8_on_stack:OK
+>    #164/25  kasan/simple_atomic_4_not_on_stack:OK
+>    #164/26  kasan/simple_atomic_4_on_stack:OK
+>    #164/27  kasan/simple_atomic_8_not_on_stack:OK
+>    #164/28  kasan/simple_atomic_8_on_stack:OK
+>    #164/29  kasan/load_acquire_1_not_on_stack:SKIP
+>    #164/30  kasan/load_acquire_1_on_stack:SKIP
+>    #164/31  kasan/load_acquire_2_not_on_stack:SKIP
+>    #164/32  kasan/load_acquire_2_on_stack:SKIP
+>    #164/33  kasan/load_acquire_4_not_on_stack:SKIP
+>    #164/34  kasan/load_acquire_4_on_stack:SKIP
+>    #164/35  kasan/load_acquire_8_not_on_stack:SKIP
+>    #164/36  kasan/load_acquire_8_on_stack:SKIP
+>    #164/37  kasan/store_release_1_not_on_stack:SKIP
+>    #164/38  kasan/store_release_1_on_stack:SKIP
+>    #164/39  kasan/store_release_2_not_on_stack:SKIP
+>    #164/40  kasan/store_release_2_on_stack:SKIP
+>    #164/41  kasan/store_release_4_not_on_stack:SKIP
+>    #164/42  kasan/store_release_4_on_stack:SKIP
+>    #164/43  kasan/store_release_8_not_on_stack:SKIP
+>    #164/44  kasan/store_release_8_on_stack:SKIP
+>    #164/45  kasan/ldx_patched:OK
+>    #164/46  kasan/stack_and_non_stack:OK
+>    #164     kasan:OK (SKIP: 16/46)
+>    Summary: 1/30 PASSED, 16 SKIPPED, 0 FAILED
+
+On my qemu run, I got a bunch of failures like below:
+
+[root@arch-fb-vm1 bpf]# ./test_progs -n 164
+test_kasan:PASS:alloc test ctx 0 nsec
+gzopen /boot/config-7.1.0-rc5-gec86c8156bd6: No such file or directory
+test_kasan:PASS:open prog 0 nsec
+test_kasan:PASS:find rnd_hi32 prog 0 nsec
+...
+All error logs:
+test_kasan:PASS:alloc test ctx 0 nsec
+gzopen /boot/config-7.1.0-rc5-gec86c8156bd6: No such file or directory
+test_kasan:PASS:open prog 0 nsec
+test_kasan:PASS:find rnd_hi32 prog 0 nsec
+test_kasan:PASS:load prog 0 nsec
+test_kasan:PASS:open kernel logs 0 nsec
+test_kasan:PASS:get map 0 nsec
+test_kasan:PASS:set map 0 nsec
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/1   kasan/st_1_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/3   kasan/st_2_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/5   kasan/st_4_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/7   kasan/st_8_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/9   kasan/stx_1_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/11  kasan/stx_2_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/13  kasan/stx_4_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/15  kasan/stx_8_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/17  kasan/ldx_1_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/19  kasan/ldx_2_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/21  kasan/ldx_4_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/23  kasan/ldx_8_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/25  kasan/simple_atomic_4_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/27  kasan/simple_atomic_8_not_on_stack:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/45  kasan/ldx_patched:FAIL
+run_subtest_with_size_and_location:PASS:find test prog 0 nsec
+run_subtest_with_size_and_location:PASS:fetch loaded program info 0 nsec
+run_subtest_with_size_and_location:PASS:run prog 0 nsec
+run_subtest_with_size_and_location:PASS:read kernel logs 0 nsec
+run_subtest_with_size_and_location:FAIL:report should be generated unexpected error: 1 (errno 11)
+#164/46  kasan/stack_and_non_stack:FAIL
+#164     kasan:FAIL
+
+I checked the subtest 164/1,
+
+For
+
+         ret = check_kasan_report_in_kernel_logs(klog_buffer, ctx,
+                                                 test->is_write, access_size);
+         if (on_stack || test->expect_no_report)
+                 ASSERT_NEQ(ret, 0, "no report should be generated");
+         else
+                 ASSERT_OK(ret, "report should be generated");
+
+the ret is equal to 1 as klog_buffer is empty. This caused the failure.
+
+>
+> Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
 > ---
->  MAINTAINERS                         |   2 +
->  drivers/net/pcs/Makefile            |   4 +-
->  drivers/net/pcs/pcs-xpcs-regmap.c   | 219 ++++++++++++++++++++++++++++
->  include/linux/pcs/pcs-xpcs-regmap.h |  20 +++
->  4 files changed, 243 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/net/pcs/pcs-xpcs-regmap.c
->  create mode 100644 include/linux/pcs/pcs-xpcs-regmap.h
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index eb8cdcc76324f..2aa6ea012c848 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25931,8 +25931,10 @@ F:	drivers/net/ethernet/synopsys/
->  SYNOPSYS DESIGNWARE ETHERNET XPCS DRIVER
->  L:	netdev@vger.kernel.org
->  S:	Orphan
-> +F:	drivers/net/pcs/pcs-xpcs-regmap.c
->  F:	drivers/net/pcs/pcs-xpcs.c
->  F:	drivers/net/pcs/pcs-xpcs.h
-> +F	include/linux/pcs/pcs-xpcs-regmap.h
->  F:	include/linux/pcs/pcs-xpcs.h
->  
->  SYNOPSYS DESIGNWARE HDMI RX CONTROLLER DRIVER
-> diff --git a/drivers/net/pcs/Makefile b/drivers/net/pcs/Makefile
-> index 4f7920618b900..565f1b63fce0b 100644
-> --- a/drivers/net/pcs/Makefile
-> +++ b/drivers/net/pcs/Makefile
-> @@ -1,8 +1,8 @@
->  # SPDX-License-Identifier: GPL-2.0
->  # Makefile for Linux PCS drivers
->  
-> -pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-plat.o \
-> -				   pcs-xpcs-nxp.o pcs-xpcs-wx.o
-> +pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-nxp.o pcs-xpcs-regmap.o \
-> +				   pcs-xpcs-plat.o pcs-xpcs-wx.o
->  
->  obj-$(CONFIG_PCS_XPCS)		+= pcs_xpcs.o
->  obj-$(CONFIG_PCS_LYNX)		+= pcs-lynx.o
-> diff --git a/drivers/net/pcs/pcs-xpcs-regmap.c b/drivers/net/pcs/pcs-xpcs-regmap.c
+> Changes in v2:
+> - simplify tests by just manually poisoning test areas with a dedicated
+>    kfunc
+> - introduce one prog per covered instruction family
+> - make sure that tests do not consume kernel logs (use /dev/kmgs rather
+>    than klogctl)
+> - add tests for stack accesses:
+>    - marking correctly set when there are diverging verifier states
+>      leading to different memory types
+>    - marking kept in sync with prog when it is patched
+> ---
+>   tools/testing/selftests/bpf/prog_tests/kasan.c     | 356 +++++++++++++++++++
+>   tools/testing/selftests/bpf/progs/kasan.c          | 382 +++++++++++++++++++++
+>   .../testing/selftests/bpf/test_kmods/bpf_testmod.c |  22 ++
+>   3 files changed, 760 insertions(+)
+>
+> diff --git a/tools/testing/selftests/bpf/prog_tests/kasan.c b/tools/testing/selftests/bpf/prog_tests/kasan.c
 > new file mode 100644
-> index 0000000000000..55cd05d09c7db
+> index 000000000000..adf61e230ec9
 > --- /dev/null
-> +++ b/drivers/net/pcs/pcs-xpcs-regmap.c
-> @@ -0,0 +1,219 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Synopsys DesignWare XPCS regmap helpers
-> + *
-> + * Copyright (C) 2026 RISCstar Solutions.
-> + * Copyright (C) 2024 Serge Semin
-> + */
+> +++ b/tools/testing/selftests/bpf/prog_tests/kasan.c
+> @@ -0,0 +1,356 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
+> +#include <bpf/bpf.h>
+> +#include <errno.h>
+> +#include <fcntl.h>
+> +#include <linux/if_ether.h>
+> +#include <unistd.h>
+> +#include <test_progs.h>
+> +#include <unpriv_helpers.h>
+> +#include "kasan.skel.h"
 > +
-> +#include <linux/device.h>
-> +#include <linux/kernel.h>
-> +#include <linux/mdio.h>
-> +#include <linux/pcs/pcs-xpcs.h>
-> +#include <linux/pcs/pcs-xpcs-regmap.h>
-> +#include <linux/regmap.h>
+> +#define SUBTEST_NAME_MAX_LEN	128
+> +#define PROG_NAME_MAX_LEN	128
 > +
-> +#include "pcs-xpcs.h"
+> +#define MAX_LOG_SIZE		(8 * 1024)
+> +#define READ_CHUNK_SIZE		256
 > +
-> +/* Page select register for the indirect MMIO CSRs access */
-> +#define DW_VR_CSR_VIEWPORT		0xff
+> +#define KASAN_PATTERN_SLAB_UAF "BUG: KASAN: slab-use-after-free " \
+> +	"in bpf_prog_%02x%02x%02x%02x%02x%02x%02x%02x_%s"
+> +#define KASAN_PATTERN_REPORT "%s of size %d at addr"
 > +
-> +struct dw_xpcs_regmap {
-> +	struct device *dev;
-> +	struct mii_bus *bus;
-> +	struct regmap *regmap;
-> +	bool reg_indir;
+> +static char klog_buffer[MAX_LOG_SIZE];
+> +
+> +struct test_spec {
+> +	char *prog_type;
+> +	bool is_write;
+> +	bool only_32_or_64;
+> +	bool needs_load_acq_store_rel;
+> +	bool skip_multi_size_testing;
+> +	bool skip_on_stack_testing;
+> +	int run_size;
+> +	bool expect_no_report;
+
+expect_no_report is not set in the code. The only usage is in
+
+         if (on_stack || test->expect_no_report)
+                 ASSERT_NEQ(ret, 0, "no report should be generated");
+         else
+                 ASSERT_OK(ret, "report should be generated");
+
+> +	bool rnd_hi32;
 > +};
 > +
-> +static ptrdiff_t xpcs_regmap_addr_format(int dev, int reg)
-> +{
-> +	return FIELD_PREP(0x1f0000, dev) | FIELD_PREP(0xffff, reg);
-> +}
+> +struct kasan_write_val {
+> +	__u8 data_1;
+> +	__u16 data_2;
+> +	__u32 data_4;
+> +	__u64 data_8;
+> +};
 > +
-> +static u16 xpcs_regmap_addr_page(ptrdiff_t csr)
-> +{
-> +	return FIELD_GET(0x1fff00, csr);
-> +}
-> +
-> +static ptrdiff_t xpcs_regmap_addr_offset(ptrdiff_t csr)
-> +{
-> +	return FIELD_GET(0xff, csr);
-> +}
-> +
-> +static int xpcs_regmap_read_reg_indirect(struct dw_xpcs_regmap *pxpcs, int dev,
-> +					 int reg)
-> +{
-> +	ptrdiff_t csr, ofs;
-> +	unsigned int val;
-> +	u16 page;
-> +	int res;
-> +
-> +	csr = xpcs_regmap_addr_format(dev, reg);
-> +	page = xpcs_regmap_addr_page(csr);
-> +	ofs = xpcs_regmap_addr_offset(csr);
-> +
-> +	res = regmap_write(pxpcs->regmap, DW_VR_CSR_VIEWPORT, page);
-> +	if (res < 0)
-> +		return res;
-> +
-> +	res = regmap_read(pxpcs->regmap, ofs, &val);
-> +	if (res < 0)
-> +		return res;
-> +
-> +	return val & 0xffff;
-> +}
-> +
-> +static int xpcs_regmap_write_reg_indirect(struct dw_xpcs_regmap *pxpcs, int dev,
-> +					  int reg, u16 val)
-> +{
-> +	ptrdiff_t csr, ofs;
-> +	u16 page;
-> +	int res;
-> +
-> +	csr = xpcs_regmap_addr_format(dev, reg);
-> +	page = xpcs_regmap_addr_page(csr);
-> +	ofs = xpcs_regmap_addr_offset(csr);
-> +
-> +	res = regmap_write(pxpcs->regmap, DW_VR_CSR_VIEWPORT, page);
-> +	if (res < 0)
-> +		return res;
-> +
-> +	return regmap_write(pxpcs->regmap, ofs, val);
-> +}
-> +
-> +static int xpcs_regmap_read_reg_direct(struct dw_xpcs_regmap *pxpcs, int dev,
-> +				       int reg)
-> +{
-> +	unsigned int val;
-> +	ptrdiff_t csr;
-> +	int res;
-> +
-> +	csr = xpcs_regmap_addr_format(dev, reg);
-> +	res = regmap_read(pxpcs->regmap, csr, &val);
-> +	if (res < 0)
-> +		return res;
-> +
-> +	return val & 0xffff;
-> +}
-> +
-> +static int xpcs_regmap_write_reg_direct(struct dw_xpcs_regmap *pxpcs, int dev,
-> +					int reg, u16 val)
-> +{
-> +	ptrdiff_t csr = xpcs_regmap_addr_format(dev, reg);
-> +
-> +	return regmap_write(pxpcs->regmap, csr, val);
-> +}
-> +
-> +static int xpcs_regmap_read_c22(struct mii_bus *bus, int addr, int reg)
-> +{
-> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
-> +
-> +	if (addr != 0)
-> +		return -ENODEV;
-> +
-> +	if (pxpcs->reg_indir)
-> +		return xpcs_regmap_read_reg_indirect(pxpcs, MDIO_MMD_VEND2, reg);
-> +	else
-> +		return xpcs_regmap_read_reg_direct(pxpcs, MDIO_MMD_VEND2, reg);
-> +}
-> +
-> +static int xpcs_regmap_write_c22(struct mii_bus *bus, int addr, int reg, u16 val)
-> +{
-> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
-> +
-> +	if (addr != 0)
-> +		return -ENODEV;
-> +
-> +	if (pxpcs->reg_indir)
-> +		return xpcs_regmap_write_reg_indirect(pxpcs, MDIO_MMD_VEND2, reg, val);
-> +	else
-> +		return xpcs_regmap_write_reg_direct(pxpcs, MDIO_MMD_VEND2, reg, val);
-> +}
-> +
-> +static int xpcs_regmap_read_c45(struct mii_bus *bus, int addr, int dev, int reg)
-> +{
-> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
-> +
-> +	if (addr != 0)
-> +		return -ENODEV;
-> +
-> +	if (pxpcs->reg_indir)
-> +		return xpcs_regmap_read_reg_indirect(pxpcs, dev, reg);
-> +	else
-> +		return xpcs_regmap_read_reg_direct(pxpcs, dev, reg);
-> +}
-> +
-> +static int xpcs_regmap_write_c45(struct mii_bus *bus, int addr, int dev,
-> +				 int reg, u16 val)
-> +{
-> +	struct dw_xpcs_regmap *pxpcs = bus->priv;
-> +
-> +	if (addr != 0)
-> +		return -ENODEV;
-> +
-> +	if (pxpcs->reg_indir)
-> +		return xpcs_regmap_write_reg_indirect(pxpcs, dev, reg, val);
-> +	else
-> +		return xpcs_regmap_write_reg_direct(pxpcs, dev, reg, val);
-> +}
-> +
-> +static void devm_xpcs_regmap_destroy(void *data)
-> +{
-> +	struct dw_xpcs *xpcs = data;
-> +
-> +	xpcs_destroy(xpcs);
-> +}
-> +
-> +struct dw_xpcs *devm_xpcs_regmap_register(struct device *dev,
-> +					  const struct xpcs_regmap_config *config)
-> +{
-> +	static atomic_t id = ATOMIC_INIT(-1);
-> +	struct dw_xpcs_regmap *pxpcs;
-> +	struct dw_xpcs *xpcs;
-> +	int ret;
-> +
-> +	pxpcs = devm_kzalloc(dev, sizeof(*pxpcs), GFP_KERNEL);
-> +	if (!pxpcs)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	pxpcs->dev = dev;
-> +	pxpcs->regmap = config->regmap;
-> +	pxpcs->reg_indir = config->reg_indir;
-
-Looking at the overall series, is there any reason for this flag ?
-
-Looks like the reg_indir=false path isn't used at all in this series.
-
-Maybe just drop it and let anyone add it back should the need arise ?
-
-Maxime
-
+>
+[...]
 
 
