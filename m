@@ -4,44 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F7CCD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F753CD8C84
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aA91jCq4/mNmUEH/kjvRtP6AJz8TabbXycFCA/n1dO8=; b=cHG8UQiGjMoF25
-	rqVysJkHldDAY1rP40sJmah3eTwOUPlEuwgG/4rJIIk83T66mq/+3R8JrpvpSkAADSLBW7zfMsfOI
-	Lo9ZBeaaPHcblIkv592k1oGPVkhzFsS160ftuagXYL1lsOuT5dSF2Alyqvqpo2MaNLVxYT6Tj+lOK
-	s6cJ9w9CRWF9AmZd2qZSjKy0Ah3yLhActyGpbQXIYMgJN5kDLQfi48mu4hDEu0blqeuH7tRDFLT9/
-	NgR9ZLP6j+6HQGgNeO7T8C08N+AaJInbOOarOchfbC5Cguai9esyu3aPpRcVTuf7bfDEAOqtAS8jt
-	svfzi/TELRXTDSTyND+A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lnC7vLoGVfscXCXpbQMGvoK6eBuMzhRQB3BGZ5MGe4M=; b=P7UsXc139MAOA6LF1fGRu/3KMX
+	VOH/aPqkZgG4An6SHovVlFvsCQqmDvU3pby3goGka1nZhdxCKI/fjEc/Z05GPGrTO4nokCVbylHd+
+	a9aHmv3cDGa5vysr27CWPCQZuW9Kt0GEyfNysoIxk+rWV8X920qHzLMkQshTYtJttR/wS29Viuf9z
+	Gp121mMENlDeAcdZsIvLlZg0ARn/uFXvWxsjKjnPmQeqYISD2TH45DKOL1OH//Uj0+Zytr7Kfnu5/
+	aG/djZzoD+U0j1TlJ4ax9t0l0n4nW2JkyCXM9/v53gzkBAGLuZlVPo4uCzireY02CNvW1EoZZRpF+
+	+ByJoNjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVci9-00000001E7w-0A5E;
-	Fri, 05 Jun 2026 22:08:17 +0000
+	id 1wVciE-00000001EA5-0ZQz;
+	Fri, 05 Jun 2026 22:08:22 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVci6-00000001E7B-0rAz
+	id 1wVciB-00000001E81-2fpn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 22:08:16 +0000
+	Fri, 05 Jun 2026 22:08:20 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wVchz-0000LW-1H; Sat, 06 Jun 2026 00:08:07 +0200
+	id 1wVci0-0000LW-Uk; Sat, 06 Jun 2026 00:08:09 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Subject: [PATCH 00/17] media: rockchip: rga: Add multi-core support
-Date: Sat, 06 Jun 2026 00:06:46 +0200
-Message-Id: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
+Date: Sat, 06 Jun 2026 00:06:48 +0200
+Subject: [PATCH 02/17] media: rockchip: rga: add comment about pixel
+ alignment for YUV formats
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMywqDMBBG4VeRWTcQUxDtq0gX6fRXp9QLM6YUx
- Hdvqstvcc5GBhUY3YqNFB8xmaeM8lIQD3Hq4eSZTcGHylc+OFuS0z5ex/RehWeFi6i55tj5Eg3
- lblF08j2e7f20pccLvP5HtO8/NhsQaHUAAAA=
-X-Change-ID: 20260602-spu-rga3multicore-ae8c8caf01e9
+Message-Id: <20260606-spu-rga3multicore-v1-2-3ec2b15675f7@pengutronix.de>
+References: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
+In-Reply-To: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
  Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -50,16 +49,15 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
  Michael Tretter <m.tretter@pengutronix.de>, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Simon Xue <xxm@rock-chips.com>, Joerg Roedel <joerg.roedel@amd.com>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_150814_246880_A0388725 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20260605_150819_681748_CFF112F1 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,121 +72,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add multi-core support to the RGA (Raster Graphic Accelerator) driver
-for Rockchip SoCs. This works by scheduling the given work to multiple
-identical RGA cores. Previously other identical cores were discarded
-while probing with -ENODEV to avoid exposing multiple video devices for
-identical cores and breaking the ABI when adding an in-kernel scheduling.
-
-This series targets the RK3588 SoC, which has one RGA2-Enhance core
-and two RGA3 cores (see [1] for an overview of the different RGA cores).
-The slimmed down RK3576 SoC also features two RGA2-Pro
-(also described as RGA2.5) cores, but is currently not supported by
-the driver. Tests are done on a Radxa Rock 5T SBC.
-
-The scheduling is done only on a context level, which causes no
-increased performance for a single stream (which uses only one mem2mem
-context). Therefore at least N parallel stream are necessary to utilize
-N cores. This avoids the more complex buffer handling required to avoid
-mixing the frame ordering when one core is slightly faster than the
-other (e.g. due to memory transfer timings or different clocks).
-
-While the work is based on Detlev Casanova's multi-core series for the
-rkvdec driver [2], it differs in two major aspects:
-
-(1) It doesn't directly call v4l2_m2m_job_finish to mark the current job
-as finished in the device_run callback. Detlev used this to trick the
-m2m framework to directly schedule the next job. This looked like a
-dirty hack and had me running into some of it's pitfalls (e.g. the
-difference between the v4l2_m2m_buf_done and the newly introduced
-v4l2_m2m_buf_done_manual function).
-Instead I've dropped the current curr_ctx member of the v4l2_m2m_dev
-struct and added a max_parallel_jobs member to specify the maximum
-number of parallel jobs. This allows the driver to set it's maximum
-number of parallel jobs with the newly introduced
-v4l2_m2m_set_max_parallel_jobs function. The RGA driver uses it to set
-it's number of parallel jobs to it's number of available cores. The m2m
-framework then schedules the first N jobs on it's job queue to the
-device_run callback instead of only one.
-
-(2) Instead of attaching an identical RGA core on probe to the first
-probed RGA core instance, use component helpers to add all cores as
-components to a virtual platform device. This has the advantage of only
-creating the video device after all cores have been probed successfully
-and tearing it down if one core is being removed (e.g. by the sysfs),
-which otherwise could lead to nasty memory bugs. The implementation is
-based on the driver of the etnaviv gpu. As the virtual platform device
-doesn't has an iommu, we still allocate all relevant drives on the first
-core, which shares it's iommu domain with all other cores.
-
-v4l2-compliance results:
-    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
-    ...
-    	Card type        : rga2
-    ...
-    Total for rockchip-rga device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
-    
-    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
-    ...
-    	Card type        : rga3
-    ...
-    Total for rockchip-rga device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
-
-The DTS and iommu changes at the end are picked out of other next trees
-to provide an easy way to actually test the changes with an RGA3 on a
-rk3588 SoC. They'll be dropped when they get into media/next.
-
-Patch 1-3 address review comments from my last RGA3 patch series
-Patch 4 additional driver cleanup
-Patch 5 implements support for parallel jobs in the m2m framework
-Patch 6-8 add multi core preparations to the driver
-Patch 9-13 rework the driver to use component helpers
-Patch 14 puts all cores into the same iommu domain
-Patch 15 enables the multi-core support
-patch 16-17 just pick patches required for testing
-
-[1] https://codeberg.org/airockchip/librga/src/branch/main/docs/Rockchip_Developer_Guide_RGA_EN.md#design-index
-[2] https://lore.kernel.org/linux-media/20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com/
+Add a comment to clarify the use of fixed step_height values for all YUV
+formats. While the commit introducing the change already explains the
+reasoning, add an explicit comment to improve the visibility of the
+reasoning.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
-Simon Xue (1):
-      iommu/rockchip: disable fetch dte time limit
+ drivers/media/platform/rockchip/rga/rga.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Sven Püschel (16):
-      media: rockchip: rga: zero cmdbuf in shared code
-      media: rockchip: rga: add comment about pixel alignment for YUV formats
-      media: rockchip: rga: move early return into if condition in vidioc_enum_fmt
-      media: rockchip: rga: removed unused regmap member
-      media: v4l2-mem2mem: support running multiple jobs in parallel
-      media: rockchip: rga:  move power handling to device_run
-      media: rockchip: rga: adjust get_version to return the version
-      media: rockchip: rga: add rga_core structure
-      media: rockchip: rga: use components to manage multiple cores
-      media: rockchip: rga: move rockchip_rga allocation to master probe
-      media: rockchip: rga: move video device to the master
-      media: rockchip: rga: move core initialization from bind to probe
-      media: rockchip: rga: bind all cores to the master
-      media: rockchip: rga: put all cores into first core iommu domain
-      media: rockchip: rga: schedule jobs to multiple cores
-      arm64: dts: rockchip: add rga3 dt nodes to rk3588
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index bd0afd33affe4..efe5541078214 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -414,6 +414,16 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 		.step_height = 1,
+ 	};
+ 
++	/*
++	 * Technically 4:2:2 YUV formats don't need a step_height of 2.
++	 * But for the RGA3 this is explicitly documented in  section 5.6.3
++	 * of the RK3588 TRM Part 2.
++	 * And the RGA2 vendor driver also checks that the height (and width)
++	 * is aligned to 2 when a YUV format is used.
++	 *
++	 * Therefore be safe and always align width and height to 2
++	 * when a YUV format is used.
++	 */
+ 	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
+ 		frmsize.step_width = 2;
+ 		frmsize.step_height = 2;
 
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  44 +++
- drivers/iommu/rockchip-iommu.c                |   8 +
- drivers/media/platform/rockchip/rga/rga-buf.c |  16 +-
- drivers/media/platform/rockchip/rga/rga-hw.c  |  40 +-
- drivers/media/platform/rockchip/rga/rga.c     | 501 +++++++++++++++++++-------
- drivers/media/platform/rockchip/rga/rga.h     |  45 ++-
- drivers/media/platform/rockchip/rga/rga3-hw.c |  32 +-
- drivers/media/v4l2-core/v4l2-mem2mem.c        |  89 +++--
- include/media/v4l2-mem2mem.h                  |   3 +
- 9 files changed, 541 insertions(+), 237 deletions(-)
----
-base-commit: 6a75e3d4f6428b90f398354212e3a2e0172851d6
-change-id: 20260602-spu-rga3multicore-ae8c8caf01e9
-
-Best regards,
---  
-Sven Püschel <s.pueschel@pengutronix.de>
+-- 
+2.54.0
 
 
