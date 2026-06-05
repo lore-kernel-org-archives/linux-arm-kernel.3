@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A53DCD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E5DCD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tgqhsze06HfbpZq35K9dBzb4bY+s/AG3gLWTDVJ0ELc=; b=sg5GbYiWmkOknYzbRML5dcB43E
-	DvIn4Xjf7UNry5TcZQgJ7f3r75kMT0jybRTnKFjvCVSXbyTZB5pyXmy60NxUaNyOdWgFk7og0zVaw
-	Sk4KRQhlLZSvFgEvDklbNtd/TvtLzp08a0/IZMFnIGLARKCBlWxifW0NbkzEnmJjvKWMKdOo5zqqv
-	9dwHlJX/FNNKTEN6P5fV4m4S1oOkk7gavBEpD6xyxFrEbgybfzaujhHT+jAdkDmDzgxseGE7/pb6X
-	dl/kPqL8mvF6tLUlef9diVQP8DQuDyKIwzzwv7hgSp9sgwlcAwZtA23bmxV7bYnqrB+hL3oIQnO7d
-	TRCaRy3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X8VbWPhTuC20viLwsnteWZWpqNUIF1WOp0iFWzHYFfs=; b=SFPe4hG4lU6hedHfg5rMcCzz3X
+	ohnKfFTsAEBcO3Z4it7jK4+lPVJF6xYkGmQLk5MaEmMblJbsyW3VMkRd5ApLVrja0+aqgndxaV6mu
+	XtUgFhZbK554+oTGHeeJG/lnPiPcGofeKhl1NL5Eb3+DsneUu7jXv+GsHS0VFQ7ajQh2j6BrGiZK9
+	vYgLEBwO6ULj2eSi87Tysz8WZvboMOSfm5at260/kfkC1F16xLhpwEvhBTMP1vi8pE9VtSnlqIpGX
+	jHNab/ZpBx2lYSn0y4JBC/wH/sjXC1EJ4HV93IzlVXy42DE52Ma/AxbQDCMQppLp8Paq3a0PHIvqB
+	UnQ5Dy7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXdM-00000000vEi-3rQ8;
-	Fri, 05 Jun 2026 16:43:00 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wVXda-00000000vIs-10ee;
+	Fri, 05 Jun 2026 16:43:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXdK-00000000vEK-1h4i;
-	Fri, 05 Jun 2026 16:43:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1780677735; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=kf3peC3t98Ib9KZYHmO3v+Vj/1d7k/dGYEP3n5awo3CqJoS4nr+EmTGunekAm/OjbB8Hh7Ln4fnQ2k3bX7tzwiWmAJlv5/Qql806HoMfjbQO1w1etKQ8RpIa+tBcSSLaDT9gEoOVAyigIh0RgBZbWWixB5AfooC3WUbsdLjuwGg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1780677735; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Tgqhsze06HfbpZq35K9dBzb4bY+s/AG3gLWTDVJ0ELc=; 
-	b=jddLMWFQ7e9GrDSSQ1kAmrwsIlFZ8EZBpfzVoXDj89Kd3iaa6rzeWfoNoHpKbs1s4dT5FTVMKs2gmn/GRnxL8ofaZxpKB5hkra5OptUl8SK5CH/7JIiopg/B9V5FMBmgY84tmobiKZraYR2vptFmfYM63Fy7hAPPa+6zASKTM/o=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780677735;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=Tgqhsze06HfbpZq35K9dBzb4bY+s/AG3gLWTDVJ0ELc=;
-	b=T56ePz11B9/m9NhHDl03em3oN80y6mfJfVFi8zqf1iVBjHLeZVMqFwVtHJdGxUGt
-	6EZ7UdXO+hjOsfo4wjehYz4pkZ1Xec2picOXlI7Z6XzOlKcWee+TJ323FtQudYmMh0r
-	/qLIS+mORuVNG0MI451IC38y1gvmY2ONavrw5maA=
-Received: by mx.zohomail.com with SMTPS id 1780677733010276.20170001455165;
-	Fri, 5 Jun 2026 09:42:13 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 82C56181D83; Fri, 05 Jun 2026 18:42:06 +0200 (CEST)
-Date: Fri, 5 Jun 2026 18:42:06 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Alexey Charkov <alchark@gmail.com>, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	kernel@collabora.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 05/12] drm/bridge: synopsys: dw-dp: Add follow-up
- bridge support
-Message-ID: <aiL4lUUa9j6_irAz@venus>
-References: <20260501-synopsys-dw-dp-improvements-v2-0-d7e7f6bac77f@collabora.com>
- <20260501-synopsys-dw-dp-improvements-v2-5-d7e7f6bac77f@collabora.com>
- <177918892313.537125.10814687633426590148.b4-review@b4>
+	id 1wVXdY-00000000vID-48W1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Jun 2026 16:43:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C9FD601E3;
+	Fri,  5 Jun 2026 16:43:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BAB91F00893;
+	Fri,  5 Jun 2026 16:43:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780677792;
+	bh=X8VbWPhTuC20viLwsnteWZWpqNUIF1WOp0iFWzHYFfs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=LyD8D3VpY5qB8VFGRKknfJ05yppizL8k5Fq5UiMe3uBE7G+Ole500RMzCM4MvWfIm
+	 WhFJ4HE8As1C/O3VKy2eLCRFqEjk7Y85TFhRf6XtHLFoi0vWkGqq3C0yJMO8NWOiSK
+	 D4yb710jjPlPlSUco8GHZMa2a87QSYaes8s/NZ44Om47YaZ6ev8qB6/74FLHP34PCj
+	 bzX+vfkC0x7saWV+xZw7wK/MX9Re1VYD/vo0hsgt72QcGmUmW3DvtbQt4E0FGoJYHt
+	 r7yfPVy49AC+dnB8mwHZ994ib84G7HOprQlA+w5rHCGdYDAAQE3GzpJDwqvMv0dnhf
+	 u5ROj8RBbDGBA==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2] arm64/mm: Rename ptdesc_t
+Date: Fri,  5 Jun 2026 17:43:02 +0100
+Message-ID: <178065627722.2113653.5493772948773143201.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260520063417.2363417-1-anshuman.khandual@arm.com>
+References: <20260520063417.2363417-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="m4w4l56frz4pgctv"
-Content-Disposition: inline
-In-Reply-To: <177918892313.537125.10814687633426590148.b4-review@b4>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.2.1.5.2/280.674.88
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_094258_476883_1F0A88FF 
-X-CRM114-Status: GOOD (  19.52  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,86 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 20 May 2026 07:34:17 +0100, Anshuman Khandual wrote:
+> ptdesc_t sounds very similar to the core MM struct ptdesc which is actually
+> the memory descriptor for page table allocations. Hence rename this typedef
+> element as ptval_t instead for better clarity and separation.
+> 
+> 
 
---m4w4l56frz4pgctv
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 05/12] drm/bridge: synopsys: dw-dp: Add follow-up
- bridge support
-MIME-Version: 1.0
+Applied to arm64 (for-next/mm), thanks!
 
-Hello Luca,
+[1/1] arm64/mm: Rename ptdesc_t
+      https://git.kernel.org/arm64/c/c34d4d48c4a1
 
-On Tue, May 19, 2026 at 01:08:43PM +0200, Luca Ceresoli wrote:
-> On Fri, 01 May 2026 00:20:32 +0200, Sebastian Reichel <sebastian.reichel@=
-collabora.com> wrote:
-> > diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/=
-bridge/synopsys/dw-dp.c
-> > index fc4ddb7792d7..ccc55e40e81c 100644
-> > --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> > +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> > @@ -2064,6 +2064,20 @@ struct dw_dp *dw_dp_bind(struct device *dev, str=
-uct drm_encoder *encoder,
-> >  		goto unregister_aux;
-> >  	}
-> > =20
-> > +	next_bridge =3D devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
->=20
-> devm_drm_of_get_bridge() looks for either a panel or a bridge. Is it
-> possible to have a panel connected here?
->=20
-> If it isn't, then using of_drm_get_bridge_by_endpoint() which has just be=
-en
-> merged [0] would be much simpler and cleaner.
+Cheers,
+-- 
+Will
 
-Technically this should always be connected to the USBDP PHY
-on the Rockchip platforms using this IP (RK3588 & RK3576) and
-there are no other upstream platforms using this code so far.
-
-Having said that, we do have some upstream DTs, which directly
-connect it to a DP connector instead (as the PHY does not yet
-expose a DRM bridge, that's being handled in a different series).
-But there is no upstream board connecting it to an eDP panel,
-so I will switch over to of_drm_get_bridge_by_endpoint().
-
-Thanks for the info.
-
-Greetings,
-
--- Sebastian
-
->=20
-> [0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/03d1078112fdd=
-d706b2c1e4a7d98cf18700eb5df
->=20
-> Luca
->=20
-> --=20
-> Luca Ceresoli, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
->=20
-
---m4w4l56frz4pgctv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmoi/FMACgkQ2O7X88g7
-+pphnA//Ybl+zfoxQYVFEOrEKJfflb05xZ7uBHTS161zwMfNHamKHq0m5XtJ0Cfy
-5HrJ/AQ8R5Eizb3kI09PWMimzpjr/9pDFo7d1xb25zzP42pPFsCniXq1W4p/+D39
-tsiUc7RruHWxniCf4xsZHSyYQd1L05KUwPbldLV1n7P+GEp5qGdmpsCPtlCxNJxr
-SJv1dGUo6Oq/enMdVd7Qs7gfE6ZQWXQ3+EHACruc7OldzfQoxi9L6+LFigsk8eAJ
-9zxlu/MVy7rDhRNLzZ0JApYpXpbPz/G5mbCQFEbAhRrf1YRhiSwE3XtVyvicBUXL
-8YeA+0/2e2W4WygQnC8B7bbOwnwaCYaek2hr5ftlVSjax8pLSJyH9LxGAgxY0tLF
-hxTl88B9PjKJUF8zTJLasGn/amgbB2amzfQKFxn8HYxQHy3k4MuP4uyhPE4PoVWH
-5CH5HQF/sHk9eEwoMowUI9Lvn8hM6iRkh2djcm4LzdAlfeVMRiV45V0nYlhvMIHZ
-d6h182Vgk6yxsIhTv0bNHjkU4VTi9nslIyOhGi4hnin9BrdLdhfl+5RHQVNCb4pX
-Re7DOKH8LtCN9TJkwJL7pHsN6dCdnWyYkiJc8Am2nkiNZQDXrpoZGDzxDrwU8aJZ
-uyDrcem4Z+CEK8DSg6I24U5a5vJa/WPLK5VN7EF1QpXO/vij2S0=
-=dAt0
------END PGP SIGNATURE-----
-
---m4w4l56frz4pgctv--
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
