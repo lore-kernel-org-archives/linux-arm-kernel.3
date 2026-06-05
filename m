@@ -4,102 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184F1CD6E77
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 12:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF5DCD6E77
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 12:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HZtMsZCveHI4X8ZrzVj8aDXOsaO+sqyBd2Umre1Tm44=; b=sBX67mdhYX1lKpN8g/p/jJSj18
-	ASGADY3VJIMCFoPScquO+LlmOHE5MbCXH8ztImvGVmrKOIs79Vgl6N+qnKOPZO8/d5y2tIF2J7/UM
-	Whhmcf3wNTtc4LPwXVZWNYDJG7+JErJSS94u/vUY2+82E2F9PW1XHSS5cH0OtVJEgUYh2Yy0OySvW
-	l6Tf7GRUb1BgWsJpIaSH/kd5hptu2xUOl1yiGyKMS5waulfjq03uMgrrTrEy52Td3NxaGrkLgF6gT
-	oQwDUYAIa93Y44VgHl/Yq4YtBI2vyZgKs/w4ZussruzI/onlncH5JZQCEknjMX/AfFo6weFEOn6pG
-	QdeOXysQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hOWy2W3C8F0epU9cKoqDrCPhuhX/iOel8Vt4x+uvwak=; b=aMvEx2Md3fcsJrdHKWERHVEF4n
+	O16Ikbi+N/xVwkT30k5jJ3W7TakMP6bgCxuM68eNZAUEGWECCzFQxKWDFcjFr179apMtBbR7Tvmf7
+	hv9ZOnqZoAGIdgmPGtBnXMtkVHxhsxPMNL2ruUcJCPT7VZl5FEZyMPGyQivIYja6XcjWAgFr+BMZQ
+	Ipw8Ny9FxluMTT8njmFxzssqN86+Az5TmLcScv3JdILJ37NtvBPfAJFZdCLwAoFDhc4g9wahPXeOP
+	p62flP0eWF150Wm4Yz0f1+64SJ8bobwvPw6N9M4T99LVFCwj/sKmmo5p/o26lqrO8EbXzqRppexv+
+	YOoAP6Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTgW-00000000cmo-1ZZo;
-	Fri, 05 Jun 2026 12:30:00 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1wVTif-00000000cty-2YzA;
+	Fri, 05 Jun 2026 12:32:13 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTgS-00000000cmT-37d5
+	id 1wVTid-00000000ctZ-1kFM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 12:29:58 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-68d233bf083so2598071a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 05:29:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780662594; cv=none;
-        d=google.com; s=arc-20240605;
-        b=F+/yXhP/2o0QvOAdOVzfHmYxKjwuxromMAsQDis/ksynwh1QECYps6asIYNckyh14Y
-         pmCwKFNqAElNt40R5ok7O0ncppezUOtXzhPPtgFCuxiNw2NuVMDWutd7X54Ov7V9iPjC
-         cl/wv3Cj1k/gwjKogAg9fP8pHVxZOEiUrTxpNP1AkojHuRwf+lTqTCohFC72UkCALq+l
-         Smn+FbCMWzcp2NFG9r9Cn9oamkp4AYHswaXwCL4l0QX2rogHlFAwqnzWeSrY1qdKWu5R
-         GQGYJ/yi1kZoANyUZZLKM39McSz3gnLLbqt7H4gLn2vWlZmmtfSPK8Re8SZHp+7JNdxx
-         V0Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=HZtMsZCveHI4X8ZrzVj8aDXOsaO+sqyBd2Umre1Tm44=;
-        fh=2cQ+AT1jffpdofteF36IEuoelipjvFLrD869cGv4jLU=;
-        b=gaqCqFFGLRorj6qaX4cz6CUWt58xJI9xhsmeoaCoVaV5A5atfDoGghRhc73WU5KS6s
-         i4omuC43NkG/HPRBSVPZoOY7NfW6wMndFVxU+nRBRTtLPJpyy1t0EaUpM6mAHzMHQryb
-         DmHKe9KlVtUORAmjPr7Zy4bY3C1VE33XZP4n1LqfzxJKPRcED70tlaRhGBBZ5UyzoJuT
-         mqwL17Dn2ICAWvRqnJB9Q/ZefBb+idEve/999lR1c1iSIGXEdhQKVeUlQ4/Wd4/agHhR
-         6ZC65D0e1B5N7u7jxMqqIc6w6TM1OhJ7rKtWzkWYsjfq4GYXdYNGJmveZDkJq28e7HUc
-         kDAg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 05 Jun 2026 12:32:12 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-91587626ae1so213650285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 05:32:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780662594; x=1781267394; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=HZtMsZCveHI4X8ZrzVj8aDXOsaO+sqyBd2Umre1Tm44=;
-        b=NA13sikYee0Z5KyDqxkQEFjzlruOBGnMDrTBy/a4bHHEIY1yp0xtXlZpdXUfM1n5pg
-         6nS7cR3jroiqxcQCiRSiG5J43pt4UBPtwror/JjTJ27dpzVokxmjVEjkTV7WxvyN7mzv
-         g/16EIo9StJ6Ni2HNQM0UvuHmSWtVJR1eK7MGJ3Ko+kKkTl2HPwvHL86BHjyj0l+PzDm
-         nMPpXm7AP3UZMgSGNb4S9qWD1cNTbun3CLZhHAiNnCqFT1G66dOKIFkZfG1CIo7G6k2r
-         m0h0OEKl9/q8DyYVSuTeqp+k0yqZMEi94suQDgWFJHePkoiVPyI0W3+0yF+UCwjRjsyE
-         oobQ==
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1780662730; x=1781267530; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hOWy2W3C8F0epU9cKoqDrCPhuhX/iOel8Vt4x+uvwak=;
+        b=oKSpvBU0ZOmMafoXtocwijZVGMV80BnBBxcC1IacYlUl09s8XbkX+MjVcnC25zH7PJ
+         rUBodU8+2HuKKZJGmY4MDR2jAsbLcj9ocewjL91F0DfJZV6v/oWYRSdMA+lKpXaMZQpI
+         CNMXT4liQj4su+7S+yDpv+06gBVTUhNS9bilQ5R4RNJ/ksaYTIy9qxRYLshI3QngoO54
+         XYP8zR8pXOjixfq189tCslhBy7oYSY2aGfnWGxUBr+H0KAMPTAzMHUpvzeXOVz6H+/PM
+         JYFfBw1yI/DqsMM36JuZ5NB7rFW2/SYWgl0TkAMbEtsnYxeZjyPId17oVlRUizlFZcbr
+         qRCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780662594; x=1781267394;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HZtMsZCveHI4X8ZrzVj8aDXOsaO+sqyBd2Umre1Tm44=;
-        b=HrKfpQK2ga2OFXOIwjdqcsMih79VLenJ7m+RDNs6yDbeNrKymg1HV83ehLWxwNZWyD
-         VR4cHIzy64/ljCpQx6ZegZRWGqQOG0MTpL/w74TT5xVuakbrjsVhKxKuItUYjhSsiD7d
-         tpjF/dwvTCz3LQUYpeKBCpTveFTXkQtwVkbCM/jF3YAA7U6gSm+2IjOD2ZswrPcFVNyU
-         qg/0RbB63WdWbQHiRJXSGzyRmyUHVY+SHkGAObLiSiz9X5iGHesC8UtPdMbxbnoGMPnT
-         MIUEwlk7x6MDnVzXIMXQWoOpVsOCrvMjdbjt8SI8oAiQTKjFuZrM2H0fVUFZXQ01GclC
-         VeKg==
-X-Forwarded-Encrypted: i=1; AFNElJ8j7/4KwPFRh4x5TvEJPf1TcE8khzBPKg6X/hYywC/8gFusEYi8+N8cOOFz3vmdQb/OuUZ4wZQArNXSXVcnW1VM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzF2nnbyvQFLzzexwTycpkjY/UFbnIfle0V+26iBU+UoVnEmSSo
-	YKZ76OqD5FvYpGTshQ/P6o2JexY0l5nXWIlnvvynWROYFdr8sMRdvpUXl4AugkdZ+SLSvK//un5
-	tQpOKi+YtZZJUmH+BZjRJr4ZlVplZU7o=
-X-Gm-Gg: Acq92OGN3bPcPhiE3o/dPEQ5sMRurg3t4wfhTM6ZVK+Pe0xRD3xE6dUFfZ/XGXS8yi1
-	snUDP0OyLYkehJC6kfMs61B2jHYW+NaDQXLdH+e6lMNp8SVo6tfAS5iRTO8WaN763bwt7NQBgrc
-	kDawpRVhlCbPSC2f6loXBbaS+vPe2b1vWTAAp8msnDuldBX5DUsnuP54ZTnyZA5zLmgmHH2nw2M
-	cUzVPqEBRw9ltL4xLil85wwNXJpuWM4bohHoFqyQSp8U2+A6aK9PjGqG44USo+Qs1afrznABO8i
-	wYCMQ5voU8xwcRBXeT/vZ8O/NkdO
-X-Received: by 2002:a17:906:7950:b0:bed:2a8b:3e72 with SMTP id
- a640c23a62f3a-bf370c66fbemr163870266b.21.1780662593888; Fri, 05 Jun 2026
- 05:29:53 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780662730; x=1781267530;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hOWy2W3C8F0epU9cKoqDrCPhuhX/iOel8Vt4x+uvwak=;
+        b=FaXiZaV/P4iM1SCT0AbOcaOHIPW9AD9LeIsJTJ1w2W2H12jw6AfvnCajdEoo19eoyq
+         w7g1cIdPCMhD+XlJrzynY/2ZmxS677jQL82Ob/RnhqkZ7vJK9OLWSld9mNhwll9LzcFw
+         e3anoPZgQ4rYqjN6t2CHNIRq560uVjCcOQ/cffxbVUk8yR857nnSa5Zr1Zei4eRCVx8u
+         K7zUE/D29tKjTlMNl7YLiqMgSkE6ABZT8O+HfEoRfoINQnqvzppyFLal2L9ETK0XAdQu
+         rrBz1N417PQqBRq7AVcWdNKiOMTgQITrSCb5j3sRGaMmk31feoZOkZMIBSwW8wuFjl7Z
+         Updw==
+X-Forwarded-Encrypted: i=1; AFNElJ/s4kYWstFnECOVioSfJig1JddADlIKIQeghqy2U2UVH/aUlVtFFARxtKP5h6F3QwihLCAeogr4DTCPooZaPmmv@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcrzd6nYcdzJhzdW/P3x8jkqScuEazxgQH6R23otyd6OBM0aas
+	IImeeydyROJlzpdRpwGbNbpHS8PUkYLkLaZEpE8QrTnuDpiaJPTHlIj5O1TuTbnM8WLRuMjzAj8
+	bgoDZUns=
+X-Gm-Gg: Acq92OHZBwy36dYF/1X53Fzw37z7bbBa9U8fmKqbIO1DWnNOqkLWA7wJOjEvpumuYQ/
+	BGrqfhY3caT3iTDDJVYIOHPs7JNH615sdliep82XCKktC/kad0Ur7VJp78ZdQY9wzRYVfNsi9C6
+	Uc4nFwzaKygiUTz6fD1gbmZFe5RZ/Fv0bzyjjO1ttoOdGs+Z5vKdswTQr6zA6+GxbrjRq8EhpVV
+	5NuTq+trXlocG3bVqdW/Iv5VA85X5BO3ZwomMLJX7x9jHfXXvtRNIO21nKBeLU1Jdq21CVpNPdw
+	e7qfP0TijQGjO6soW0NNXsJrG4/86B01WxcH6FJFL2XDZeA0uEc5I8GdsoJ8LMA7XgiUg5Z+7id
+	NUOqtH3udCsBau4N6EiGLWnaR5tQ6/eP7QnPuth2x+DOMr5QBMbSY+U2pN59NuxRg0ZtXXtfto8
+	JJkJFrKYlLMru7XDwJHo6T4WrHVqJL7wQl4dk=
+X-Received: by 2002:a05:6830:6685:b0:7e6:deb1:484d with SMTP id 46e09a7af769-7e70c7b1386mr1725355a34.13.1780662284484;
+        Fri, 05 Jun 2026 05:24:44 -0700 (PDT)
+Received: from [172.22.22.234] ([73.62.185.64])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e6e7974f22sm5817653a34.25.2026.06.05.05.24.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Jun 2026 05:24:44 -0700 (PDT)
+Message-ID: <bd2c09d4-462d-4392-bb3f-ca91b2f08bd7@riscstar.com>
+Date: Fri, 5 Jun 2026 07:24:40 -0500
 MIME-Version: 1.0
-References: <20260603204721.2200819-1-dbgh9129@gmail.com> <78e66f8f-3998-4051-99a5-7b5fccb40943@amd.com>
-In-Reply-To: <78e66f8f-3998-4051-99a5-7b5fccb40943@amd.com>
-From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
-Date: Fri, 5 Jun 2026 08:29:42 -0400
-X-Gm-Features: AVVi8CeJKw290M0R9jenRS-hV9guOrVhzaKPlhY7irgFmv3ztzLNsdBpf4gTFgc
-Message-ID: <CACrCO_ULbzeZLh_4iyqiQEjVAeR8OaD14RekExSr26uMxorzXA@mail.gmail.com>
-Subject: Re: [PATCH v1] EDAC/synopsys: Fix cleanup on injection sysfs failure
-To: Michal Simek <michal.simek@amd.com>
-Cc: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, linux-edac@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 10/14] dt-bindings: net: toshiba,tc9654-dwmac:
+ add TC9564 Ethernet bridge
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: weishangjuan@eswincomputing.com, linux-gpio@vger.kernel.org,
+ inochiama@gmail.com, davem@davemloft.net, devicetree@vger.kernel.org,
+ kuba@kernel.org, me@ziyao.cc, hawk@kernel.org, arnd@arndb.de,
+ konradybcio@kernel.org, mohd.anwar@oss.qualcomm.com, hkallweit1@gmail.com,
+ pabeni@redhat.com, ast@kernel.org, maxime.chevallier@bootlin.com,
+ bpf@vger.kernel.org, boon.khai.ng@altera.com, linusw@kernel.org,
+ andersson@kernel.org, sdf@fomichev.me, linux-kernel@vger.kernel.org,
+ livelycarpet87@gmail.com, a0987203069@gmail.com,
+ linux-stm32@st-md-mailman.stormreply.com, daniel@iogearbox.net,
+ john.fastabend@gmail.com, alexandre.torgue@foss.st.com,
+ richardcochran@gmail.com, rmk+kernel@armlinux.org.uk, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rohan.g.thomas@altera.com, gregkh@linuxfoundation.org,
+ Daniel Thompson <daniel@riscstar.com>, chenchuangyu@xiaomi.com,
+ andrew+netdev@lunn.ch, mcoquelin.stm32@gmail.com, edumazet@google.com,
+ siyanteng@cqsoftware.com.cn, wens@kernel.org, brgl@kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ julianbraha@gmail.com, netdev@vger.kernel.org, chenhuacai@kernel.org,
+ prabhakar.mahadev-lad.rj@bp.renesas.com
+References: <20260605010022.968612-1-elder@riscstar.com>
+ <20260605010022.968612-11-elder@riscstar.com>
+ <178062720108.1744752.12164392208085928081.robh@kernel.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <178062720108.1744752.12164392208085928081.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_052956_803235_A53A29AA 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260605_053211_497411_2B1E5F40 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,28 +121,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Michal
+On 6/4/26 9:40 PM, Rob Herring (Arm) wrote:
+> 
+> On Thu, 04 Jun 2026 20:00:17 -0500, Alex Elder wrote:
+>> From: Daniel Thompson <daniel@riscstar.com>
+>>
+>> Add devicetree bindings for the Toshiba TC956x family of Ethernet-AVB/TSN
+>> bridges.
+>>
+>> The TC9564 contains a PCIe switch with one upstream and three downstream
+>> PCIe ports.  The third PCIe downstream port has an attached embedded PCIe
+>> endpoint, and that endpoint implements two PCIe functions.  Each internal
+>> PCIe function has a Synopsys XGMAC Ethernet interface capable of 10 Gbps
+>> operation.
+>>
+>> The TC9564 also implements an embedded GPIO controller, which exposes
+>> 10 lines externally.  Some platforms use these GPIO lines, so this
+>> GPIO controller is managed by a separate driver.  Other embedded
+>> peripherals (like a microcontroller, SRAM, and UART) are currently
+>> unused.
+>>
+>> The GPIO controller is managed by registers accessed via MMIO on an
+>> internal PCIe function's registers.
+>>
+>> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> ---
+>>   .../bindings/net/toshiba,tc9564-dwmac.yaml    | 120 ++++++++++++++++++
+>>   MAINTAINERS                                   |   6 +
+>>   2 files changed, 126 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml
+>>
+> 
+> My bot found errors running 'make dt_binding_check' on your patch:
 
-I appreciate your time reviewing this.
+Thank you for this report.  After upgrading the "dtschema" package I
+also see these errors.  The "gpio" and "ethernet" properties will
+have an "unevaluatedProperties: false" constraint added in the next
+version of this series.  The name of the binding file will also be
+correct in the MAINTAINERS file.
 
-On Fri, 5 Jun 2026 at 05:03, Michal Simek <michal.simek@amd.com> wrote:
+					-Alex
 
-> I don't think this is nice way how to do it. I would do it above to avoid using
-> ifdefs here.
->
-> like this
->                 if (rc) {
->                         edac_printk(KERN_ERR, EDAC_MC,
->                                         "Failed to create sysfs entries\n");
->                         edac_mc_del_mc(&pdev->dev);
->                         goto free_edac_mc;
->
->                 }
->         }
->
-Yes, that is cleaner.
-I'll update it as suggested and send v2.
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: gpio: Missing additionalProperties/unevaluatedProperties constraint
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: ethernet: Missing additionalProperties/unevaluatedProperties constraint
+> 
+> doc reference errors (make refcheckdocs):
+> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+> MAINTAINERS: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+> 
+> See https://patchwork.kernel.org/project/devicetree/patch/20260605010022.968612-11-elder@riscstar.com
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
 
-Thanks,
-Yuho
 
