@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D1C9CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 08:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933FECD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 08:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=80P5JojD6lxQG8AaZDlXxzSX2ulhvqu/o5FnknnieX4=; b=TfBzXbOyIS0VaglAqRErHy5ZW1
-	pqHa59gkfqH8y+9VmZQmOFrTA7lQ3VDmwv50mjSsKFIutRbhcOMlDy+/25QzH1bSU4NJlbzG5kZxC
-	BLy2M6NC7X/nG83eCh+ktUUEN2KyN46yMtksqaCEcJqN/Q8mBKuv5LHMu0ruEC+QrEp8uOyE3QN5A
-	ryVpBvaJcB+51E66RFkRDagd4cIzIPgYA0d713GBqvzl1MfDx6NCfD//EoohqwbHg+hnS7adQ8RYm
-	JTOT3vbyBIrspYhCtAWgUD8RvAQuj/2aku1A4nu/qiPfsM23jaLAdC4YwgRKnuvjahbxuobcSECJJ
-	oQ4KUAZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9Sji47os0jTa4cBm8CX1o4kyY/7vJZ/hciUD/d1L5kY=; b=TgwavaGpAk65pGTYcmJHqIwMH4
+	PruMM1hgYNk/enclEILNMoAQIgXP9rvUiUPb/dZx85svDKyLVdpttTuGMozq70QxQoHVslFZO9FzR
+	B15h7BpzXeNhr1GYyYjW6bOFX9DrDIz87sX6tfUs9jLSJgbLiOM2DBe/gZIfUbgXqgEVwknzkxyIF
+	2jQa6Eo1MMFe5hBgPMGlCbz2UIrHgSwPQ5DBbgvt5eaWLdkx4oYne0otVqb+KqiCuwCfgQyTOwroL
+	6/yr6WsgpaYUJDdqgrznodc+o/OxWHn6fHE+1zL+QhAIBL3a9+NuZpLI2pDEgHCLnA6RgAGgpLRMR
+	DmAqD6Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPtV-00000000JNc-2bQX;
-	Fri, 05 Jun 2026 08:27:09 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wVPtb-00000000JOs-3ETr;
+	Fri, 05 Jun 2026 08:27:15 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPtS-00000000JNH-1boI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 08:27:07 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-842848fd613so1259617b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 01:27:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780648025; x=1781252825; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=80P5JojD6lxQG8AaZDlXxzSX2ulhvqu/o5FnknnieX4=;
-        b=VEQvDhL69eJD/1+5YM5bnqjyQyg6Wi+PP7yFm5sOR5qHp1Uy8wJfXbibsRMLFW2uzg
-         9z/7x86FMIWirNR/E6c9cWgTK1VdlEZ0ESkLTq8yfGCZGeml+7HIMU+GkK05K9ng4t2s
-         GHojBaB6P0/SDuSyH/pz4sSyloYXGSnTOWujlbq4YOIAnEwGJoMzfiqLeuZqEXQkQIUn
-         6IAYXEN6Iy9oX7d5+T62sARi0qyi3ywAVxdoxQQHamiPGLWV5EnVr3+fd6fN9xEF7JrQ
-         WsJP41ws2KEfLc3Ag6ZpD+aBvSLIUi6PZSqo/kShq+xVZLb8dl6NozQXNP4CkVwon0I+
-         iPcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780648025; x=1781252825;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=80P5JojD6lxQG8AaZDlXxzSX2ulhvqu/o5FnknnieX4=;
-        b=LWYiKImciaPC6nyQ6AEpmzRZF1Em9+ZHFoW/YgILhYLqi2+v8nI4l7uj8c10MQQ5Tb
-         Vi4VV5jExHMCaKOxrPOPqC34dm6xza9J5fceb691e9tRb40i6wChrUqIvFEhNS93/OB0
-         LpWjfVNK2+rMqwpJoHlBiMJ9W+Gyeaa9BMoiaYA1HFhtphuX1QflxJj4zd6/02UecvKk
-         wVb6l5/DuOgf2HHIBW2sKAqou0UgyduvjIwFWwp5994UQroPECwOeENy4arlqF1tY0Vk
-         dmmbmWy8tIWfgo6ktU8OB3w80pq1MLw0xasYEhY7Oo2m3za3VmTTNnlP/OgNVpkSGRCV
-         6BRQ==
-X-Gm-Message-State: AOJu0YyCusAlZgkXK5eK6YcJWn7OWItYi8EYxBnwUdKpLx/8AP7IAyWK
-	egU58tRQneghklrOx+8Av1lFunIcsU3c5k2WTtTTZPotKBTTsusmOWMP
-X-Gm-Gg: Acq92OEa9WjYY1AeirBpZxj/CWOhKD9R8lRq6bhebYay47xhxpwULgGbrmSrEkkm/xF
-	UgGG3+HvCBULuQRWRRMe1vsJPApsaB08Q2Y/CtomCC+m50BZfKprjH8CgCWRxaQ6Fv1QZYWLFZz
-	6jPj8gSDdIPM09cTaJZEYzmSuwnqvUL8cTsj+hUohJ4iCVZv6RBvwOwI9JeNztxTmm0tSbQjTDf
-	6g/ETrFC7BsWirXJM98osh2VE0ibLvqI+/ehkJriI8/Uig7yySfcVLR6EQC2GGHfrri3AtGxWj+
-	vwxYzKxZYKcVNndQZAHS+PxbDZTNAcvvNaYuv0lW3aZwVKvQKzoq/GxYQfCHD2D2Gu8G3sEOLQz
-	t/vYaKSr7s8kZwKVRAbN0SVGlDib5m5p4mU19Xnk2Gy/fReLVdgxxQfYrDsAdch8wr+FTnd2u4W
-	HAYBWPF5Sj0cfFDKTPL/X9j7xoUELZTiEXZrWq69FMWXhy0mZ2atmGYTZRtssxNYcm
-X-Received: by 2002:a05:6a00:bd13:b0:842:6a97:52f7 with SMTP id d2e1a72fcca58-842b0f1f25fmr2432559b3a.19.1780648025515;
-        Fri, 05 Jun 2026 01:27:05 -0700 (PDT)
-Received: from v4bel ([58.123.110.97])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828e02f9sm8388636b3a.48.2026.06.05.01.27.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Jun 2026 01:27:04 -0700 (PDT)
-Date: Fri, 5 Jun 2026 17:27:01 +0900
-From: Hyunwoo Kim <imv4bel@gmail.com>
-To: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, christoffer.dall@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	imv4bel@gmail.com
-Subject: [PATCH v2] KVM: arm64: Reassign nested_mmus array behind mmu_lock
-Message-ID: <aiKIVVeIr1aAB1yp@v4bel>
+	id 1wVPtY-00000000JNh-3i9A;
+	Fri, 05 Jun 2026 08:27:14 +0000
+X-UUID: 5493677260b811f1acbe4559397dec65-20260605
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=9Sji47os0jTa4cBm8CX1o4kyY/7vJZ/hciUD/d1L5kY=;
+	b=G3OdyITJXDH39dNWi5F+Dzwc8HL89e84ZljtcDwiR5P+xrMtTcekqPQtcPJ85egJiSofiQYm+z6NLHXz4xdRhHnoZx+sMOZCdoDl8HNRfMW8UA6iq1uDC2XE2iF/XN6N88hHsqBmI54XZ1FRoNdwj4xP4IMRWcpnq22KGKBApW4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:19fe6472-7941-446b-bd50-e81eafd30c3c,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:e274eeef-fd54-480d-9f18-ad647162bc62,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|865|888|898,TC:-5,Content:0|
+	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5493677260b811f1acbe4559397dec65-20260605
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <sarang.chaudhari@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1458926356; Fri, 05 Jun 2026 01:27:03 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 5 Jun 2026 16:27:00 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 5 Jun 2026 16:27:00 +0800
+From: Sarang Chaudhari <sarang.chaudhari@mediatek.com>
+To: Rob Herring <robh@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <zhaoyuan.chen@mediatek.com>, <Teddy.Chen@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Sarang Chaudhari
+	<sarang.chaudhari@mediatek.com>
+Subject: [PATCH v6 0/4] Add MT8188 AIE driver
+Date: Fri, 5 Jun 2026 16:20:08 +0800
+Message-ID: <20260605082629.2585874-1-sarang.chaudhari@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_012706_446921_17820A9E 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260605_012712_946462_01C9A9FA 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,76 +87,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm->arch.nested_mmus[] is walked under kvm->mmu_lock, including from the
-MMU notifier path (kvm_unmap_gfn_range() -> kvm_nested_s2_unmap()), which
-can run at any time. kvm_vcpu_init_nested() reallocates the array and frees
-the old buffer while holding only kvm->arch.config_lock, so such a walker
-can reference the freed array.
+AIE (AI Engine) is one of the units in MT8188 ISP which provides
+hardware-accelerated face detection function. It can detect different
+sizes of faces in a raw image using pyramid-based multi-scale detection.
 
-Allocate the new array outside of mmu_lock, as the allocation can sleep.
-Under the lock, copy the existing entries, fix up the back pointers and
-reassign the array. Free the old buffer after dropping the lock, as
-kvfree() can sleep as well.
+The AIE supports three operation modes:
+- Face Detection (FD): Multi-scale face detection using 3-level pyramid
+  (640x480 base, 2x downscale per level).
+- Attribute Analysis: Age, gender, and race classification.
+- Facial Landmark Detection (FLD): 11-point landmark localization using
+  Binary Tree Traversal on FD results.
 
-Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
-Reviewed-by: Oliver Upton <oupton@kernel.org>
----
+Changes in v6:
+- DT binding: Add ipe-smi-larb12 clock, remove iommus from required
+  properties, add mediatek,larb as optional, improve description.
+- DTS: Remove iommus and mediatek,larb properties, fix IRQ number.
+- UAPI: Simplify header to control ID definitions only, drop custom
+  V4L2_CTRL_TYPE (use V4L2_CTRL_TYPE_U32 compound controls instead).
+- Driver: Fix NULL pointer check inversion, fix resource leaks on error
+  path, remove debugfs return value checks, update clock names to hyphen
+  convention, remove freq_level per CK Hu's feedback.
+
+Changes in v5:
+- DT binding: Use hyphens in clock names, remove mediatek,larb.
+- UAPI: Add feature_threshold docs, rename structures, move structures
+  from mtk_aie.h to uapi header.
+- Driver: Update clock names, improve error handling in probe.
+
+Changes in v4:
+- DT binding: Remove address-cells/size-cells, remove larb12 content.
+- UAPI: Add V4L2_META_FMT_MTFD_RESULT documentation.
+- Driver: Remove larb12 related content.
+
+Changes in v3:
+- DTS: Remove non-MMIO nodes.
+
 Changes in v2:
-- reword shortlog and changelog per review 
-  (diff unchanged; kept Oliver's Reviewed-by)
-- v1: https://lore.kernel.org/all/aiHEKOeZMVwsRlvP@v4bel/
----
- arch/arm64/kvm/nested.c | 33 ++++++++++++++++++++-------------
- 1 file changed, 20 insertions(+), 13 deletions(-)
+- Fix coding style issues throughout.
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 38f672e94087..6f7bc9a9992e 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -89,21 +89,28 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	 * again, and there is no reason to affect the whole VM for this.
- 	 */
- 	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
--	tmp = kvrealloc(kvm->arch.nested_mmus,
--			size_mul(sizeof(*kvm->arch.nested_mmus), num_mmus),
--			GFP_KERNEL_ACCOUNT | __GFP_ZERO);
--	if (!tmp)
--		return -ENOMEM;
- 
--	swap(kvm->arch.nested_mmus, tmp);
-+	if (num_mmus > kvm->arch.nested_mmus_size) {
-+		tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
-+		if (!tmp)
-+			return -ENOMEM;
- 
--	/*
--	 * If we went through a realocation, adjust the MMU back-pointers in
--	 * the previously initialised kvm_pgtable structures.
--	 */
--	if (kvm->arch.nested_mmus != tmp)
--		for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
--			kvm->arch.nested_mmus[i].pgt->mmu = &kvm->arch.nested_mmus[i];
-+		write_lock(&kvm->mmu_lock);
-+
-+		if (kvm->arch.nested_mmus_size) {
-+			memcpy(tmp, kvm->arch.nested_mmus,
-+			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
-+
-+			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
-+				tmp[i].pgt->mmu = &tmp[i];
-+		}
-+
-+		swap(kvm->arch.nested_mmus, tmp);
-+
-+		write_unlock(&kvm->mmu_lock);
-+
-+		kvfree(tmp);
-+	}
- 
- 	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
- 		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
+Sarang Chaudhari (4):
+  media: dt-bindings: mediatek: Add AIE face detection support for
+    MT8188
+  arm64: dts: mediatek: mt8188: Add AIE face detection node
+  media: uapi: mediatek: Add MT8188 AIE control definitions
+  media: platform: mediatek: Add MT8188 AIE driver
+
+ .../bindings/media/mediatek,mt8188-aie.yaml   |   85 +
+ MAINTAINERS                                   |   10 +
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi      |   13 +
+ drivers/media/platform/mediatek/Kconfig       |    1 +
+ drivers/media/platform/mediatek/Makefile      |    1 +
+ drivers/media/platform/mediatek/aie/Kconfig   |   20 +
+ drivers/media/platform/mediatek/aie/Makefile  |    5 +
+ drivers/media/platform/mediatek/aie/mtk_aie.h | 1045 +++++++++++
+ .../platform/mediatek/aie/mtk_aie_drv.c       | 3667 +++++++++++++++++
+ .../platform/mediatek/aie/mtk_aie_v4l2.c      | 1907 +++++++++
+ drivers/media/v4l2-core/v4l2-ioctl.c          |    1 +
+ include/uapi/linux/mtk_aie_v4l2_controls.h    |   23 +
+ include/uapi/linux/videodev2.h                |    1 +
+ 13 files changed, 6779 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
+ create mode 100644 drivers/media/platform/mediatek/aie/Kconfig
+ create mode 100644 drivers/media/platform/mediatek/aie/Makefile
+ create mode 100644 drivers/media/platform/mediatek/aie/mtk_aie.h
+ create mode 100644 drivers/media/platform/mediatek/aie/mtk_aie_drv.c
+ create mode 100644 drivers/media/platform/mediatek/aie/mtk_aie_v4l2.c
+ create mode 100644 include/uapi/linux/mtk_aie_v4l2_controls.h
+
 -- 
-2.43.0
+2.45.2
 
 
