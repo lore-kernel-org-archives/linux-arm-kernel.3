@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9D6CD6E74
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C02CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C1I5Z16CZKuV8AfZRvYqbgqVxI+Ku9jR+lC7PC+UB8U=; b=p5ZDSy7IzmIyxOCawqntGplsg0
-	r/JuZ53uQPAMOkEDtf9FIQgEUhqpLBrITTaGBVyjMaUftbPItp/+q6yguqWW5gbSobzzl1jw3sbJn
-	mTEACFwwTqe/4kIfNLLWpqqqafAsLREPpgtlgyAvWjk8rDZqcNSrPde4rSvovclMUzNjPUgmedLkX
-	eDtj2ZwGcLLbxNLgUhaIl3dw1m+vZUAH/SPXjL3d5rmVgasvjXNBa8XmOoiG7R5QmDF9Gu2m2bm9J
-	qMyTE7ETyunjlMRKna9FnZK60K4M1seLS9obp0BdiSX+2GC1TYeCLo2ZsFuY54nxVOksvTHrwwdIv
-	09icPyJQ==;
+	bh=gXhoT+leVZI4/Qk+p2/PqLCrckwgEEZ0sHMv/uivWco=; b=xopFTnj4vLJ4Xam6fw5ZcNwUfq
+	ssX08+TnZeK7wcCvGD51iVJROzJSsEk8WFNaaAGcESwFxlMOaAomoI3tTWF22KWv71+iEW45r0sK/
+	YlkyKETLaCsP29t39IKOEJgaTPosSCKUZETnf5+m3y/zUyj/qYI2TXLUm4PZlzZxNoCC6HWLqtucx
+	QVWNgkuq73gZbnm24qeqFcy0nSFmGr+0amAAAgvpOloSWk61ooQZg1vYNnHWP3fFTv8NVrxiDly/c
+	Lf2mG6vRWf6LA133yKixlo64/wpVi3ALtKeCt6/08t5Gz7BmR00biAS3/0iuKGTm1gFQR+Qc39cxx
+	d0M5n1sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQy0-00000000Plf-17qi;
-	Fri, 05 Jun 2026 09:35:52 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wVRAt-00000000Rfz-0ivK;
+	Fri, 05 Jun 2026 09:49:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQxw-00000000Pgx-1qCO;
-	Fri, 05 Jun 2026 09:35:49 +0000
-X-UUID: eb98a95860c111f1afed4741b24580c9-20260605
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=C1I5Z16CZKuV8AfZRvYqbgqVxI+Ku9jR+lC7PC+UB8U=;
-	b=Lu8ohuBtvR1xwVsgndEEva5ZSXHW8BbB2QsS74w7rUuZ+k/9Gq99tzY5BshKupCH5WK7UoAS8EFPr8gcV/PpbJ0/KSIp2MRArxnqK+TXtslzxgM12EfI7aTQmki+Rm2ZN494+bKizn5/pT2QYM1+FDo7KBMCDLB115asCjLfKvM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:6fa82e7e-552d-4906-89f7-8a4cb9e80099,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e276073,CLOUDID:630d6720-87a8-421b-982c-f5939dba7cba,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
-	ent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0
-	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: eb98a95860c111f1afed4741b24580c9-20260605
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <irui.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2135924449; Fri, 05 Jun 2026 02:35:42 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 5 Jun 2026 17:35:39 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 5 Jun 2026 17:35:38 +0800
-From: Irui Wang <irui.wang@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	<angelogioacchino.delregno@collabora.com>, <nicolas.dufresne@collabora.com>,
-	Tiffany Lin <tiffany.lin@mediatek.com>, kyrie wu <kyrie.wu@mediatek.com>
-CC: Yunfei Dong <yunfei.dong@mediatek.com>, Maoguang Meng
-	<maoguang.meng@mediatek.com>, Longfei Wang <longfei.wang@mediatek.com>, Irui
- Wang <irui.wang@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v7 6/6] media: mediatek: encoder: Add MT8196 encoder compatible data
-Date: Fri, 5 Jun 2026 17:35:18 +0800
-Message-ID: <20260605093519.13695-7-irui.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260605093519.13695-1-irui.wang@mediatek.com>
-References: <20260605093519.13695-1-irui.wang@mediatek.com>
+	id 1wVRAr-00000000RfM-1pID;
+	Fri, 05 Jun 2026 09:49:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F5EC601F1;
+	Fri,  5 Jun 2026 09:49:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9BB1F00893;
+	Fri,  5 Jun 2026 09:49:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780652947;
+	bh=gXhoT+leVZI4/Qk+p2/PqLCrckwgEEZ0sHMv/uivWco=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CW2B9+X+lFeJtyK7dxmKS6/9ORWHnsrNM8oAf2l//Jd9wPtMy8fPexwyMJeWgh7oZ
+	 qdbPb6OmRTZi4i/Aj+NTw65n9Ku7NSTTSvS7WBWzyJhp2nrY7u8REEeM9BmX1nbrfg
+	 deC9NLM6ZgWSXLidGNkHTaqWpuVMO+PhHJFhu+GPl2ryXx5Syym3mX7t581VX5zUyV
+	 iFM8xpCoXE9ROHFWXuhThEbnbQFtfeCH/qm72VnZbspIwzJqwI7j3JGKXpR2tmpbzd
+	 sleeG+lEE46waKVkgtC7+0GTnFlsT8zvDQv9xTnTzZt2qoYPZEVrrOaJkZguaSlm5L
+	 qZXmL4T3jnafA==
+Date: Fri, 5 Jun 2026 11:49:05 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>, Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] pinctrl: Move Airoha driver to dedicated directory
+Message-ID: <aiKbkVvJ9-GDqZqY@lore-desk>
+References: <20260605071233.28873-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_023548_495940_F4A37CCA 
-X-CRM114-Status: GOOD (  13.05  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="q1A43My8ot58uOeO"
+Content-Disposition: inline
+In-Reply-To: <20260605071233.28873-1-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,90 +72,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8196 encoder use common firmware interface, add compatible data to
-support MT8196 encoding, and need set dma mask to support 34bit.
 
-Signed-off-by: Irui Wang <irui.wang@mediatek.com>
----
- .../vcodec/encoder/mtk_vcodec_enc_drv.c       | 22 +++++++++++++++++++
- .../vcodec/encoder/mtk_vcodec_enc_drv.h       |  2 ++
- 2 files changed, 24 insertions(+)
+--q1A43My8ot58uOeO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index 5f1feb3b07a6..bc6dfb564026 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -20,6 +20,8 @@
- #include "mtk_vcodec_enc_pm.h"
- #include "../common/mtk_vcodec_intr.h"
- 
-+#define VENC_DMA_BIT_MASK 34
-+
- static const struct mtk_video_fmt mtk_video_formats_output[] = {
- 	{
- 		.fourcc = V4L2_PIX_FMT_NV12M,
-@@ -298,6 +300,9 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
- 		goto err_res;
- 	}
- 
-+	if (dev->venc_pdata->set_dma_bit_mask)
-+		dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(VENC_DMA_BIT_MASK));
-+
- 	mutex_init(&dev->enc_mutex);
- 	mutex_init(&dev->dev_mutex);
- 	spin_lock_init(&dev->dev_ctx_lock);
-@@ -461,6 +466,22 @@ static const struct mtk_vcodec_enc_pdata mt8195_pdata = {
- 	.fw_init = mtk_vcodec_fw_scp_init,
- };
- 
-+static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
-+	.venc_model_num = 8196,
-+	.capture_formats = mtk_video_formats_capture_h264,
-+	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-+	.output_formats = mtk_video_formats_output,
-+	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
-+	.min_bitrate = 64,
-+	.max_bitrate = 100000000,
-+	.core_id = VENC_SYS,
-+	.uses_common_fw_iface = true,
-+	.set_dma_bit_mask = true,
-+	.fw_type = VCP,
-+	.fw_init = mtk_vcodec_fw_vcp_init,
-+	.ipi_id = VCP_IPI_ENCODER,
-+};
-+
- static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8173-vcodec-enc",
- 			.data = &mt8173_avc_pdata},
-@@ -470,6 +491,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8188-vcodec-enc", .data = &mt8188_pdata},
- 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
- 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
-+	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-index 8a69168c350e..1aad27008ce6 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-@@ -32,6 +32,7 @@
-  * @core_id: stand for h264 or vp8 encode index
-  * @uses_34bit: whether the encoder uses 34-bit iova
-  * @uses_common_fw_iface: whether the encoder uses common driver interface
-+ * @set_dma_bit_mask: whether the encoder need set extra DMA bit mask
-  * @fw_type: firmware type (VPU, SCP, or VCP)
-  * @fw_init: firmware-specific initialization callback
-  * @ipi_id: IPI ID for encoder communication with firmware
-@@ -48,6 +49,7 @@ struct mtk_vcodec_enc_pdata {
- 	u8 core_id;
- 	bool uses_34bit;
- 	bool uses_common_fw_iface;
-+	bool set_dma_bit_mask;
- 	enum mtk_vcodec_fw_type fw_type;
- 	struct mtk_vcodec_fw *(*fw_init)(void *priv, enum mtk_vcodec_fw_use fw_use);
- 	int ipi_id;
--- 
-2.45.2
+> In preparation for additional SoC support, move the Airoha pinctrl driver
+> for AN7581 SoC to a dedicated directory.
+>=20
+> This is to tidy things up and keep code organized without polluting the
+> Mediatek driver directory.
+>=20
+> The driver doesn't depend on any generic or common code from the Mediatek
+> codebase so it can be safely moved without any modification.
+>=20
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+
+> ---
+>  MAINTAINERS                                   |  2 +-
+>  drivers/pinctrl/Kconfig                       |  1 +
+>  drivers/pinctrl/Makefile                      |  1 +
+>  drivers/pinctrl/airoha/Kconfig                | 20 +++++++++++++++++++
+>  drivers/pinctrl/airoha/Makefile               |  3 +++
+>  .../{mediatek =3D> airoha}/pinctrl-airoha.c     |  0
+>  drivers/pinctrl/mediatek/Kconfig              | 17 +---------------
+>  drivers/pinctrl/mediatek/Makefile             |  1 -
+>  8 files changed, 27 insertions(+), 18 deletions(-)
+>  create mode 100644 drivers/pinctrl/airoha/Kconfig
+>  create mode 100644 drivers/pinctrl/airoha/Makefile
+>  rename drivers/pinctrl/{mediatek =3D> airoha}/pinctrl-airoha.c (100%)
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 21c0ef0b9ce5..38bf92149a15 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21024,7 +21024,7 @@ M:	Lorenzo Bianconi <lorenzo@kernel.org>
+>  L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/pinctrl/airoha,en7581-pinctrl.yaml
+> -F:	drivers/pinctrl/mediatek/pinctrl-airoha.c
+> +F:	drivers/pinctrl/airoha/pinctrl-airoha.c
+> =20
+>  PIN CONTROLLER - AMD
+>  M:	Basavaraj Natikar <Basavaraj.Natikar@amd.com>
+> diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+> index 03f2e3ee065f..e0babad31445 100644
+> --- a/drivers/pinctrl/Kconfig
+> +++ b/drivers/pinctrl/Kconfig
+> @@ -679,6 +679,7 @@ config PINCTRL_RP1
+>  	  multi function device.
+> =20
+>  source "drivers/pinctrl/actions/Kconfig"
+> +source "drivers/pinctrl/airoha/Kconfig"
+>  source "drivers/pinctrl/aspeed/Kconfig"
+>  source "drivers/pinctrl/bcm/Kconfig"
+>  source "drivers/pinctrl/berlin/Kconfig"
+> diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+> index f7d5d5f76d0c..36c55858801f 100644
+> --- a/drivers/pinctrl/Makefile
+> +++ b/drivers/pinctrl/Makefile
+> @@ -66,6 +66,7 @@ obj-$(CONFIG_PINCTRL_ZYNQMP)	+=3D pinctrl-zynqmp.o
+>  obj-$(CONFIG_PINCTRL_ZYNQ)	+=3D pinctrl-zynq.o
+> =20
+>  obj-y				+=3D actions/
+> +obj-y				+=3D airoha/
+>  obj-$(CONFIG_ARCH_ASPEED)	+=3D aspeed/
+>  obj-y				+=3D bcm/
+>  obj-$(CONFIG_PINCTRL_BERLIN)	+=3D berlin/
+> diff --git a/drivers/pinctrl/airoha/Kconfig b/drivers/pinctrl/airoha/Kcon=
+fig
+> new file mode 100644
+> index 000000000000..03adaeae8fc3
+> --- /dev/null
+> +++ b/drivers/pinctrl/airoha/Kconfig
+> @@ -0,0 +1,20 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +menu "Airoha pinctrl drivers"
+> +	depends on ARCH_AIROHA || COMPILE_TEST
+> +
+> +config PINCTRL_AIROHA
+> +	tristate "Airoha EN7581 pin control"
+> +	depends on OF
+> +	depends on ARM64 || COMPILE_TEST
+> +	select PINMUX
+> +	select GENERIC_PINCONF
+> +	select GENERIC_PINCTRL_GROUPS
+> +	select GENERIC_PINMUX_FUNCTIONS
+> +	select GPIOLIB
+> +	select GPIOLIB_IRQCHIP
+> +	select REGMAP_MMIO
+> +	help
+> +	  Say yes here to support pin controller and gpio driver
+> +	  on Airoha EN7581 SoC.
+> +
+> +endmenu
+> diff --git a/drivers/pinctrl/airoha/Makefile b/drivers/pinctrl/airoha/Mak=
+efile
+> new file mode 100644
+> index 000000000000..a25b744dd7a8
+> --- /dev/null
+> +++ b/drivers/pinctrl/airoha/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_PINCTRL_AIROHA)		+=3D pinctrl-airoha.o
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/=
+airoha/pinctrl-airoha.c
+> similarity index 100%
+> rename from drivers/pinctrl/mediatek/pinctrl-airoha.c
+> rename to drivers/pinctrl/airoha/pinctrl-airoha.c
+> diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/=
+Kconfig
+> index 4819617d9368..97980cc28b9c 100644
+> --- a/drivers/pinctrl/mediatek/Kconfig
+> +++ b/drivers/pinctrl/mediatek/Kconfig
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  menu "MediaTek pinctrl drivers"
+> -	depends on ARCH_MEDIATEK || ARCH_AIROHA || RALINK || COMPILE_TEST
+> +	depends on ARCH_MEDIATEK || RALINK || COMPILE_TEST
+> =20
+>  config EINT_MTK
+>  	tristate "MediaTek External Interrupt Support"
+> @@ -126,21 +126,6 @@ config PINCTRL_MT8127
+>  	select PINCTRL_MTK
+> =20
+>  # For ARMv8 SoCs
+> -config PINCTRL_AIROHA
+> -	tristate "Airoha EN7581 pin control"
+> -	depends on OF
+> -	depends on ARM64 || COMPILE_TEST
+> -	select PINMUX
+> -	select GENERIC_PINCONF
+> -	select GENERIC_PINCTRL_GROUPS
+> -	select GENERIC_PINMUX_FUNCTIONS
+> -	select GPIOLIB
+> -	select GPIOLIB_IRQCHIP
+> -	select REGMAP_MMIO
+> -	help
+> -	  Say yes here to support pin controller and gpio driver
+> -	  on Airoha EN7581 SoC.
+> -
+>  config PINCTRL_MT2712
+>  	bool "MediaTek MT2712 pin control"
+>  	depends on OF
+> diff --git a/drivers/pinctrl/mediatek/Makefile b/drivers/pinctrl/mediatek=
+/Makefile
+> index ae765bd99965..6dc17b0c23f9 100644
+> --- a/drivers/pinctrl/mediatek/Makefile
+> +++ b/drivers/pinctrl/mediatek/Makefile
+> @@ -8,7 +8,6 @@ obj-$(CONFIG_PINCTRL_MTK_MOORE)		+=3D pinctrl-moore.o
+>  obj-$(CONFIG_PINCTRL_MTK_PARIS)		+=3D pinctrl-paris.o
+> =20
+>  # SoC Drivers
+> -obj-$(CONFIG_PINCTRL_AIROHA)		+=3D pinctrl-airoha.o
+>  obj-$(CONFIG_PINCTRL_MT7620)		+=3D pinctrl-mt7620.o
+>  obj-$(CONFIG_PINCTRL_MT7621)		+=3D pinctrl-mt7621.o
+>  obj-$(CONFIG_PINCTRL_MT76X8)		+=3D pinctrl-mt76x8.o
+> --=20
+> 2.53.0
+>=20
+
+--q1A43My8ot58uOeO
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiKbkQAKCRA6cBh0uS2t
+rD8RAQCTqvwpjOmFdqe/mEXBddI5QVje6dYvxn4UEeu5m/9ffQD+NC30clolCJqz
+Y7UYWFyqWHg0ayUEETtXdvzZphkMHAQ=
+=7riA
+-----END PGP SIGNATURE-----
+
+--q1A43My8ot58uOeO--
 
