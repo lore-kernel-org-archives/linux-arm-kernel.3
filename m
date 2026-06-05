@@ -4,139 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F3DCD6E7B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 19:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EA6CD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBZRp0KaBQ+76913pWkiHwE610K2H+OXh3TaILdezsk=; b=JRlScw4TpCjR5VkX/UA1HvaJxi
-	nmCg11ZOgpNNPhCg65aijOqgQQjTGczbOrizUhu1QSpuyuHBiK4jt/YlGtDJNXpdmZts2aD2eiDea
-	FEAKi8QxLZh3bQI99xpbySOLzdGkj6n7I4BOrN4JDDLhXH2H1XBkTqlKvVWk7KvlVdCCDKDDL54vY
-	v6c1DOuLW9QahNjez9Nf4kbr5m5zmx7ay/Isqfj7dZtHt7583ptOPl1qUuQgzT7GmYQhi4tzivYDC
-	RbMY/yu8Qozws+jnSKiOfT3seKdcyadTXUg7VQ4YLCk8yr92uhRgTVN19W6vKD3jzHQx7JJaNa2pJ
-	kk1N3pSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ISDeP/qyYAEltSrqbCKLAdEkNOxIUqnGYCtw5a23CLI=; b=1iGcof3GEMgNu8uKZ3fcrxqI1n
+	nuuQ9b9SBcHpTkCOlKKE38SbaszD355UV1K5pUwUbdaNEN+5QFsqAImnMZ08PMfPbiH734OV8FT05
+	QO4LvjbDVcS55cQ0PeM7FJ5qK6SKrjMyoTsnVmKWPhZWFGM16R8Pjiimf0dPZX3HcviZSG6EWiOWn
+	O6XmeKc7ytMS39OU/+gvntQkfBLr0Gs7KTKXmDlmrRqJjcXPh7Q/1mabaLWiW5OMdhevJ80HYFJlX
+	txlokeHgsyynCNsYy+6DnTvVv6KnL4TRk1f/6KdBveg28yak71lGNu8B63oF+2ttJeGM15czFQASL
+	gNvpKg9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVaRl-000000017cn-1q0r;
-	Fri, 05 Jun 2026 19:43:13 +0000
-Received: from mail-eastusazon11012028.outbound.protection.outlook.com ([52.101.53.28] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wValH-000000018wb-35QE;
+	Fri, 05 Jun 2026 20:03:23 +0000
+Received: from mail-vs1-xe2e.google.com ([2607:f8b0:4864:20::e2e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVaRi-000000017cN-1UCE
+	id 1wValE-000000018vp-43TA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 19:43:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Hfx+EFxiqqx2RcQj3YanE+EDf288xh6Pqh6prbYfZmZ0ME7aP+1wqf/zK+sbrvuXe4ffI9BCj2JUVqMkwtkv8pTCKB2y7iwVquactv4aTgXVxLEd53qH4dw90xSm1w6+fRmhhHplR+U+S9ieXmFrLXTHgEmiWLFjFpwmjWRQzF/5Qh9Z5viGHby3z8ymJ8RtSL1cuVlrspLAln053MLj7j8xza0tAkRDqwo1jrv456tSGtM7d/Rqzh8Y1ZpEvgaIlhaFM/bebDXNWRvtmejqtNHQjuW2bsSIh7uUn7t2DGlQGNKgzwWiWPkjtXijpIghrgnvzsIIyxngm7ToazFsTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BBZRp0KaBQ+76913pWkiHwE610K2H+OXh3TaILdezsk=;
- b=PNnxNrYMeTeuFFhgQGKOf59zhUK7tUNOiIHXCvlubj7yOi6OLN+M3yBdcm1XOTzBkIhltz5s4+EXWdtmYL8m2imj2SQD5cNJ2CyDV+S9Oy/vt7WfM2DYmBuVhBBzRFfDN7ZJXdbSNdI0kfUyMlsLPQJZo3jX6IX/j5UaGuXVuNUJpvVMWFOkZFS24OO5CdkhROOYYHXN3B0oXTomj2xFxikTXSRRFv6B64wLu13CilmqcRKs6lADUKpxkcMQ7zvCsslzirfDCriSVM4MdP1/2LN3DO7Jf/h/WvD3VM4z+Tki0awnVkQWqpwAVv7UxaiPya6hU2kFgk4ybDrga9wtJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BBZRp0KaBQ+76913pWkiHwE610K2H+OXh3TaILdezsk=;
- b=PmnpjfuYzJ3F7KngOo4M+z+KXwxGk53SBiLhHP0QM0blsjGg+qfoYCXL91A8j4uyUI+B0zcDIZuja9MWMpBzqsw44kx3zeRJGrSVqK9VFDSc+EO4bsKbJmyDYPcKdBDLpq/bmVJpGfkyDlMp0LAOIxypZujcoI1HW4qhZ3NFqADYrb44YpDBA2BQQM6N1rcHs0pvzofFL9c8YrmNTaIz8E025MCajOOqignX7iwDVgRwHsIfeaiuboDU5olhXoL77XmbI5k3tbIzibYdpvb2+Qzwh/osPhxD3nZ5v4nk68Q3bqzO9Y3RHLMG6Pwnm3BW23SmDHKz1GIU+wFyU376tA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DS7PR12MB6190.namprd12.prod.outlook.com (2603:10b6:8:99::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.9; Fri, 5 Jun 2026
- 19:43:01 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
- 19:43:00 +0000
-Date: Fri, 5 Jun 2026 16:42:59 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, vsethi@nvidia.com,
-	Shuai Xue <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v4 18/24] iommu/arm-smmu-v3: Introduce master->ats_broken
- flag
-Message-ID: <20260605194259.GE1962447@nvidia.com>
-References: <cover.1779161849.git.nicolinc@nvidia.com>
- <49dde0a2e2dc88e421a3010956db33d47cc92aa8.1779161849.git.nicolinc@nvidia.com>
- <20260519120658.GB3477375@nvidia.com>
- <aho9DB6it2R5O5Nm@Asurada-Nvidia>
- <20260601123231.GG3195266@nvidia.com>
- <ah3udmX5SIO9lAXR@Asurada-Nvidia>
- <20260602001547.GR3195266@nvidia.com>
- <ah5txKCvspL8zMeG@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ah5txKCvspL8zMeG@Asurada-Nvidia>
-X-ClientProxiedBy: BL1PR13CA0143.namprd13.prod.outlook.com
- (2603:10b6:208:2bb::28) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 05 Jun 2026 20:03:22 +0000
+Received: by mail-vs1-xe2e.google.com with SMTP id ada2fe7eead31-6c25b040555so2180112137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:03:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1780689799; x=1781294599; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ISDeP/qyYAEltSrqbCKLAdEkNOxIUqnGYCtw5a23CLI=;
+        b=ViHrSR7dkVvZTHyKm+Gc0sbhWEQQShaJerfjxaVpXqC/6d2DNxs7WjLAs3Tj72KTqY
+         SPnpH35qTtrWKPazgfAp1G9EjjvQq4ShhBPjrVZigVVC73EB2NlMowDtUPKRjsuaGor+
+         FiuKaEIgnKpJ5ysEg46EVM2H0fJta5UIc3DrU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780689799; x=1781294599;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ISDeP/qyYAEltSrqbCKLAdEkNOxIUqnGYCtw5a23CLI=;
+        b=syUlkEjgkgvJTnYQiW6ldRis4EmOCxnAYhUkvdgohmHt5PObGxBM2GkeKEM00WNFsM
+         FMSK/oHiElAY+z+RgTu9x5e4mSigMt4F76SUJLqps3rPxJF1HiAdBs7u8L4EGW5E5C/6
+         QlCUvikoN2ZZxvd0hIZQQc6QQ+lZUCGYIxOLBgFfuh6I9FgSFG3UDv3u4G6qBO+6bMCq
+         jOVCOjA6qPPVuC2o5Hj03n4h8tQwi9Ki57LdrjNZ6zveyqn8f1O7hyrPRz7d3xGTD1jL
+         6g5vhkewWOCenVHb1YwyqtXREHANxalS+HdPNdHARvLXpFr6X3qgrcS57UwIFqGoa8YG
+         pl9A==
+X-Forwarded-Encrypted: i=1; AFNElJ+7iOg1o46WhO0Sf1tNAtFsHX/AC08nv5lu50Taz36zyyxkyJbxC+YTCv9RLrH1hYIEStwRP9Ss64j+5t6cRCDg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2+iCeNtBc+11RGJU5VodnR7bzac7hFBNZGsqWGz9+yMdmuYI6
+	77yopiEBoirTVJuCu7Qy3DNVB5bmTRLkDSKy/fjNMGYup7tQdEGF8b/FjPHrqZqtxRQ7SMn2Nlc
+	HOJk=
+X-Gm-Gg: Acq92OFHGEg/36fTmr46Q6C7VWY1ERL+Tby/dz8jtNeyCQ+mbl5eOicLj7phKsGDwfA
+	a6B4lfQpCNs57u2NFNfn0ls8kP4gm/uzxVuL1qsX0bKD6qohVq8rejN/rv1prq+HVaQ40uPR9G9
+	k/nPe+WhAV9D6JcGkGDHUB8y6MtxI67lJN/AFk1d4KVECvpjNUekAagvghQIcs1zPzqLDVFocIn
+	jagvHn81yaoEVi911bqhnq18EZ7++1uFHCYA/zNl4UzRHhdKjG3getIHJZ67TgPlV7fV/k/wJpA
+	DqYYyh/7JLmUmN1vI5DTfUiIzge5CCmMvtQ/KTYsX2N2ojfSfukvHqSWLcnplZme/XTzK9By4Iw
+	8I7SuNWLhX1RkZEnVPfcnREWmqIpq1/CiojL181RzTIjzOWATHB4yCDL3qNaeTgddQBFV9/5ezZ
+	33/5qJXLphTYxWxLiOeJymZWUH4cI1ukCGVvSAJAIDeNOnMYaF8jkE5SFb9jxMus6uvfrj2Got
+X-Received: by 2002:a05:6102:524b:b0:606:49d:1861 with SMTP id ada2fe7eead31-6fefe2c53bcmr3101403137.27.1780689799100;
+        Fri, 05 Jun 2026 13:03:19 -0700 (PDT)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-6eb551b4c56sm8367417137.2.2026.06.05.13.03.17
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Jun 2026 13:03:18 -0700 (PDT)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-963d7e5ffddso1402487241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:03:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ96L4r3OfOW4xCdI+Ce3+nZwaG91p01R6Byx7V7Jlf2tYRxRZAMuH0X2DdIdA4/X3ldsq1fwOBX6vjhHg5eJDMA@lists.infradead.org
+X-Received: by 2002:a05:6122:906:b0:56d:451b:e4dd with SMTP id
+ 71dfb90a1353d-5ac5792009bmr2730729e0c.12.1780689796811; Fri, 05 Jun 2026
+ 13:03:16 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS7PR12MB6190:EE_
-X-MS-Office365-Filtering-Correlation-Id: 917b9185-e4d5-476a-4853-08dec33aa691
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|22082099003|56012099006|11063799006|5023799004|4143699003;
-X-Microsoft-Antispam-Message-Info: Z7wc0Ds5udv5v1FlOtahq+ZLoPaOPcpPgJt50FQmespOSR0vcWBo+qCroZsuPfYsL2810RR7Q3qCxXynY4P4CaqSER2BKsg0lU2UJfDL7fB2F5ZrdbKCfPFlDdqYramHpB9CPQDvwgU45JYnq2nONVHmJpHPWlIGJktD0im+Jh55ULIbgnRvis1q2XKL5oviwBMNKDrR43wbO5kZ683opfJfVV7nvMz/iMiPoJWaIS4ESxjQVjAQNy9LX+0hLWdf0UyfvL0qhuO/8LfqasNJ8goihApAv41CI97qGZITTt3+P70dt61j/1dCfF9cGiDmBR2Gfq+jAwwLKInJNm/ecH/ls6URX9voMQqBbCuoqbmfqu3nqPktHujvowzKGdyDWI9MGRWFZ9uVZbZXlU5118P18ms4A/zamzK0tYuOeAz5nWCAzI/9PD0JTUmFB8KMOhxK8s8sThBqQerZb0W9kV2L7srwnrWY1XLPmd0GrVPOAK++V8KQtUVIPovnaAMMusrJCeEu6NPvnDu1HoBczOrl9DLAkGC4x9KoepFaUv/DcrglTANkOIQ9G7xRM72OyGMAQcAirWJ8Ttb5dhIBRLQ/h+WHwRMW0rUTFwyNJUocJrtN4Xlr3GBERz9Gn/hk3NIIEODBaBfXJXyXFCUoQ4jdmmk0+0M0z3/de5qfftUI/0TQtQTZ08h40P3ca/BA
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(56012099006)(11063799006)(5023799004)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7abrtNJ+AYNxVtIN4NiE/9GKLCm47dY/0kLoTAUzrwc+gVecxc18NjT2rp8g?=
- =?us-ascii?Q?sf2mKp7VvGpAfnsRTajvj3sd8IUEOaSXrgvvr78hj7ZqsarwGZfdX5A+i1xe?=
- =?us-ascii?Q?1/T9FsfC1r1R4GDST53eK02/yYkCoJHZYervfUYlScg9i78r114zfgLZ8c3r?=
- =?us-ascii?Q?uvudjxjhDlpWiYGNngCmscahC/lDYl+8y5kzduEeeJtw7QojCokA/91kjmQX?=
- =?us-ascii?Q?eDSowC9R7k9Qqj+OiYij32dI+GEDofyvistoROx6H9bFcbHyL6cln2BuF4Xb?=
- =?us-ascii?Q?P2hzeQJ7Q5bhxj6INsaqa5slTcIwxL/+sQD3Sfqpao3pZzx+mGsOEbfTYKXH?=
- =?us-ascii?Q?kAV3UXKpDR4izP8SCHPWb+rO2LxENAHxVR8h1WJH8IFVIUyZfTsxWAavZuBf?=
- =?us-ascii?Q?+XuS0g1KzsCFynQQn9NX83RR5NF++/Glxxgho4uYarhRO1i49UwlN4BhzjAu?=
- =?us-ascii?Q?g+6upu/vyxvMvDTA5/J+d6HaRRWMOvnNknTA4X2WeW7ZJo/VjOglzd8SBxLs?=
- =?us-ascii?Q?kCXHDvvkN5hFtVT8CoHP4cCPjmQ9YSFfp5LCn1JbfyLT0H3YZ5z5drfCxNV+?=
- =?us-ascii?Q?LnMc5T80fGikmP40DYsqDTgJBy7ENFIfVc0ijCYP9dCWq6vJVNx/n1EnQohK?=
- =?us-ascii?Q?aKNP71RdgEecS9UqShlkxqJliH0wOQ7DCjThsF/L/wxzYgHe2D6GpZjnVWHu?=
- =?us-ascii?Q?BvNjcFoaXc+y8yqABtZbkhjaWfgq9pHc4ynI5BIDy+ck1oGMs4ndJk3EM2dQ?=
- =?us-ascii?Q?Hg/LdQYMu8JFk97Jw/WhoGmTqD9zJRAEmUK+Bq4SvkFDupqVsSrSGBEosB1I?=
- =?us-ascii?Q?q4UGs9qn5+Ub4YjuyplWOFOZ85gvsvZkh0sp4qHGTFZNqP6+jjgDVEoxO914?=
- =?us-ascii?Q?AAVdTSBEDBpdAD0SHid2gyAlSZN2b8L1Gmh0Sh+Yz7QpdSLUMw6vm1jySTyT?=
- =?us-ascii?Q?qIGwnypj5tAqTU97GlvSZtJgD+7oszQCCwZwNggZbcheqBG5wKgGuQqFYOHo?=
- =?us-ascii?Q?Kmc9HSpMj7pfOtuEUUHI3TvHjTJ2dYuHutqb0ZGInu2ERwJxZ+ZlHT7xvOhT?=
- =?us-ascii?Q?oHKY7ffjNNAPnZgCbxmV/uKQQ0Rzqnt5DsS3KkNt09xi5gl3cCNyqzkC5tzF?=
- =?us-ascii?Q?B8DUYYGhX6HW/x92Ek77qS0Ve1gUDMPTk2ArYbjSB36GsVaoatrAacldf6pa?=
- =?us-ascii?Q?eKu7vZ42lcezXsJuBmN3YA/EbFu++zsrp9IslQizcj1Fl5bjPWlW9HIFHVGz?=
- =?us-ascii?Q?K3ABppkETJZ1EvWRYumuVX2MWVZznmMBcFI15O9WpBGMNWSFmOL7YdjaMj2+?=
- =?us-ascii?Q?oqXkOOlSJM8CByWuG862OVvuSHZ/PExXTiIBxSEJBA4F1hsFZgc8+SGaxsol?=
- =?us-ascii?Q?4tSJN6SmzCoPcwpwy2NGIUjhsa9r36t+MHeD1tzPsko+j0Eg8lf3xQcAvWef?=
- =?us-ascii?Q?SR7PiFPZvDbZPveJpy26cTeseEiIrDMk6CL7m1ylBSr08QUk6yYpikBQ/c1i?=
- =?us-ascii?Q?fmhjd/oTzVVZ92VlwT6/RbN/h8TVJshIe49KAht7jt8tsK777a6B2TwrZ0Z3?=
- =?us-ascii?Q?HefmZYY1B06v6/Acx4kIphpsSwe1RhAfjBBzkx+odi5V2Vuk0WuXs9pg3khs?=
- =?us-ascii?Q?kV1XIGEr7K4IaGhVS+shzjBcSHxKz5ATHRhpJqnwsie+a+5qzlVAZ3a7koxM?=
- =?us-ascii?Q?ZnAbapPlYKEn5/qwXw2WXKrdcAGKxXwXNhBx5Sbce0GaSSTi?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 917b9185-e4d5-476a-4853-08dec33aa691
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 19:43:00.6433
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KCqGiUkVCZZWGANpEaQvmKxPmlT4Pqk8danO3Q/uj6zLPcNOm7S1/TgYp7Nvvilv
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6190
+References: <cover.1780496779.git.kas@kernel.org> <6172eafcb9de6e626c0f1c36426d67e1e562ed32.1780496779.git.kas@kernel.org>
+In-Reply-To: <6172eafcb9de6e626c0f1c36426d67e1e562ed32.1780496779.git.kas@kernel.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Fri, 5 Jun 2026 13:03:05 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=U4eJ__dQc1e8CGgj5sMDNrD1MgEEy9Cgj9M5n-WmYAXA@mail.gmail.com>
+X-Gm-Features: AVVi8Cemd2ZnzLkxdzHldi4k5VmRnmgjGuGWN3228_wubZLNmG-MW1yRJDWJrzg
+Message-ID: <CAD=FV=U4eJ__dQc1e8CGgj5sMDNrD1MgEEy9Cgj9M5n-WmYAXA@mail.gmail.com>
+Subject: Re: [PATCH 3/4] arm64: wire SDEI NMI into the hardlockup watchdog
+To: Kiryl Shutsemau <kirill@shutemov.name>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Usama Arif <usama.arif@linux.dev>, 
+	Breno Leitao <leitao@debian.org>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
+	Lecopzer Chen <lecopzer.chen@mediatek.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_124310_401462_78A52B79 
-X-CRM114-Status: GOOD (  35.53  )
+X-CRM114-CacheID: sfid-20260605_130321_207874_44E32374 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,103 +112,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 10:44:36PM -0700, Nicolin Chen wrote:
-> On Mon, Jun 01, 2026 at 09:15:47PM -0300, Jason Gunthorpe wrote:
-> > On Mon, Jun 01, 2026 at 01:41:26PM -0700, Nicolin Chen wrote:
-> > > On Mon, Jun 01, 2026 at 09:32:31AM -0300, Jason Gunthorpe wrote:
-> > > > On Fri, May 29, 2026 at 06:27:40PM -0700, Nicolin Chen wrote:
-> > > > > On Tue, May 19, 2026 at 09:06:58AM -0300, Jason Gunthorpe wrote:
-> > > > > > On Mon, May 18, 2026 at 08:39:01PM -0700, Nicolin Chen wrote:
-> > > > > So I've tried INV_TYPE_ATS_BROKEN: during per-domain invalidation,
-> > > > > each batch is built from domain->invs so it can carry the "invs";
-> > > > > if the batch times out, we can immediately mutate its ATS entries.
-> > > > > 
-> > > > > But I realized a limitation. E.g., if a device attaches to two SVA
-> > > > > domains on two SSIDs. An invalidation timing out on one of the SVA
-> > > > > domains could mark INV_TYPE_ATS_BROKEN in its own invs, but not in
-> > > > > the other SVA domain's invs?
-> > > > 
-> > > > You'd have to mark all the S1's sharing the STE.
-> > > 
-> > > That would be a bit convoluted as we would have to go through all
-> > > other domains' invs arrays.
-> > 
-> > Ok, that is certainly an annoying problem.
-> > 
-> > I don't have a better idea than storing the master unfortunately
-> > 
-> > But I think the locking for that is going to be tricky, I'm not sure it does
-> > actually fully work..
-> 
-> Yes, there can be a race that sets STE.EATS back while per-master
-> flag is set, which would skip the ATC_INV in commit(), so no more
-> ATC_INV timeout that resets STE.EATS=0. To close it, we can force 
-> STE.EATS=0 at the end of commit() when state->ats_enabled and the
-> per-master flag are both set, which is only possible in a race.
+Hi,
 
-I don't see any of these options as appealing. We have to maintain a
-few key invariants, and I think it cannot be done without a way to
-find all the domains that are using the STE.
+On Wed, Jun 3, 2026 at 7:36=E2=80=AFAM Kiryl Shutsemau <kirill@shutemov.nam=
+e> wrote:
+>
+> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+>
+> Select HAVE_HARDLOCKUP_DETECTOR_ARCH so the framework takes its backend
+> from this driver. A per-CPU hrtimer checks its buddy's heartbeat and
+> signals event 0 at a stalled CPU, which runs watchdog_hardlockup_check()
+> NMI-like.
+>
+> The source is chosen at boot: SDEI if firmware provides it, otherwise a
+> perf-NMI counter (pseudo-NMI) fallback -- one image covers both.
+>
+> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> ---
+>  arch/arm64/Kconfig          |   1 +
+>  drivers/firmware/Kconfig    |   3 +
+>  drivers/firmware/sdei_nmi.c | 247 +++++++++++++++++++++++++++++++++++-
+>  3 files changed, 248 insertions(+), 3 deletions(-)
 
-One way or another you have to be using the invs list rw locks to
-synchronize the EATS state changes.
+I'm a little confused about this patch. We already have a buddy
+hardlockup detector using the hrtimer, and it's even been improved
+recently to trigger in a smaller time bound. It looks as if you're
+duplicating bits of the perf and buddy detector here?
 
-It is okayish to be sloppy when turning EATS off, but when turning it
-back on we do need to cycle through every invs list and toggle its
-lock to ensure that the invalidations are synchronized before
-EATS=enable happens.
+I don't think you need this patch at all. The existing buddy detector
++ patches #1 and #2 in your series should be sufficient.
 
-Given you must have a way to go from STE -> master -> all invs lists
-I'm not sure either option really makes such a large difference.
+Did I misunderstand?
 
-If so then adjusting the invs to disable the ATS is pretty simple, run
-over the xarray and set them all off. Yes you could find the master
-through a SID lookup with some locking adjustment.
-> 
-> (1) Per-invs marker: INV_TYPE_ATS_BROKEN + master_domains
->     disable_ats() in the timeout path walks master->master_domains
->     and flips matching ATS invs entries to the BROKEN type.
-> 
->   + invs walker is free (one case label in the existing type switch).
->   + No lock or pointer deref in the invs walker.
->   + No master pointer stored in invs; no lifetime concern.
-> 
->   - disable_ats() walks every (master, domain) and marks each invs
->     set; the list needs locking usable from atomic.
-
-This doesn't seem so bad
-
-> (2) Per-master flag + streams_lock
->     invs walker resolves SID -> master via streams_lock and reads
->     master->ats_broken.
-> 
->   + Single source of truth on the master.
->   + disable_ats() is one WRITE_ONCE.
->   + atc_inv_master early-skips via one READ_ONCE.
->   + attach gates ats_enabled on the flag; a concurrent quarantine
->     race can be closed by a short post-attach re-check in commit()
->   + No master pointer in invs; no lifetime concern.
-> 
->   - invs walker pays streams_lock + rb_find(SID) per ATS entry on
->     every invalidation. Measurable on ATS-heavy workloads.
-
-Doesn't consider how to enable
-
-> (3) Per-master flag + inv->master pointer (v4)
->     invs entry carries a master pointer; the invs walker reads
->     cur->master->ats_broken directly.
-> 
->   + invs walker is one READ_ONCE through a cached pointer.
->   + disable_ats is one WRITE_ONCE.
->   + atc_inv_master early-skip via one READ_ONCE.
->   + attach gate + post-attach re-check, same as (2).
-> 
->   - invs holds a master ptr, so release_device must synchronize_rcu()
->     before freeing the master to drain walkers under rcu_read_lock().
->     We dropped this from v4 for that reason.
-
-synchronize_rcu is not right because you have to have gone through the
-rwlock so there can be no readers.
-
-Jason
+-Doug
 
