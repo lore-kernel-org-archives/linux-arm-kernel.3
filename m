@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C41ECD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:43:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E12CD8C81
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q7o/1HbgL1GCqVfqtMs4C6Ndy3fCGgrPmvK03p5KpjE=; b=VAk70NwaLYaHZnYjNqSeihyUAT
-	D3mDzBjlE+IEVZTMbWanetDriRACYXwi2Mbkdj37sDo2LJ7xzRMQaxuX796QepmI4l/S1QqlVyLc2
-	Bz2DP1YtadIdxAxCPbycUlMIPjKYbaSMXZWgh/rVmsJ2p6OX1a65gyvpcCo+pN1ORxAZ5CC3zmvME
-	HDiI/x1Iw7A/QO613YyKKJINUv3JNOMO0a6YEK+TA3ZDSWPNOVLSgoEJE/he0JFuUr8wtQKI3DK9p
-	s6kpyzkQGRCGb8MULQ7QR6YNgOXewygJMp1Q1E8+tXCT6vuEIL90hl09CnvI5YD8swfQR7ommL6wx
-	YVXWB6Ng==;
+	bh=oAXBZW5d5jXNJnm6Pa8041wFx7pArTYcV483iwZEXh4=; b=DpES83Ly08CQQ1IVQfq9Su6fVv
+	RlhY/qm2pkcEjs0IUM3QUpQSP2B0rfhsm5lCbLU3JtnzyNtaJgO6Jmbvr7Kr/ZHu49cWixwupZ0f9
+	9jJOYViEkvFupc1MrPgVnft7cPQihRfJebXsPA+mwTTgi+6CSOYsxeMFUvip/7uQGBqjvtyHU/13T
+	KtutJVhEuUsu5Nd81FinC/ji0V36Yo3937UoJKdGdNuxD733OMZpPqVIW42G2bg2f+j68iukaS7ab
+	nn4wypmfpn4Ub0QBDEEnwwnUsMajtHd8W9BwwuXDXV468D+duIxyHKns+V9wJNk8Gh/0ROJjUmB0t
+	4HBYmQtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXdd-00000000vKB-1MGE;
-	Fri, 05 Jun 2026 16:43:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wVXde-00000000vKw-1jn2;
+	Fri, 05 Jun 2026 16:43:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXdb-00000000vJH-3RHC
+	id 1wVXdd-00000000vK7-3uLI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 16:43:15 +0000
+	Fri, 05 Jun 2026 16:43:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5A2B601FA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 185C940B43;
+	Fri,  5 Jun 2026 16:43:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 269DD1F00899;
 	Fri,  5 Jun 2026 16:43:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B04B1F00898;
-	Fri,  5 Jun 2026 16:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780677794;
-	bh=q7o/1HbgL1GCqVfqtMs4C6Ndy3fCGgrPmvK03p5KpjE=;
+	s=k20260515; t=1780677797;
+	bh=oAXBZW5d5jXNJnm6Pa8041wFx7pArTYcV483iwZEXh4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=R9gal9IKkvPj70Mu6Qw/EDaDMqjI/ozVA1k7tE1tuPzeVfaa5DfnMM3wNfK3pMj/E
-	 DYr49ov/lEtW00leOr53Wd4e3CpPyPy2/zWdqghOJrX/xzhbUw/mbexQEgMFs9nuJM
-	 b0r6MpktDaonchIeVx2jLCuzsm4EwTe1HdyAAul2TNH2JVOUHcimJKCUr0JgO++n1i
-	 pUuPuCf/77B/L7ThKJTeVzOajOHtT77z49xWDN7VbQIbAItOl7lbkbfeHqIl9Odf7Q
-	 2IofxpTstdSiUrTcNd8dTbKtydlMx2qOmKF6uryaVTTrY/+gMp7l1krIlr5ptYbvXl
-	 7EGydTNwfFmeg==
+	b=b6iK9LYrhNjBSxXb+v3te+vQuSblTi0Rveg6gygWIBpXGiFPn4gV6WMKWe3HL+0yK
+	 NfHg+9MQWRIbnsVS0+4lEqiDU8bU09RN0jhviQDENOu7OOBs0Qe6OW4BaRJ4cSgVGE
+	 Imiwcd8aGo+mGpGEnbTXeqwqXcSxvmXx2PaB1FIGF+i03JdqnZmM5gGvHUAyTTJnAt
+	 a+6xuwlRKI+W/Fsqs7paZFZQ/yLen300C52EAXk5tVE6iADf6R/Kjng6kAhRzvYgQp
+	 AHWCPHVa7ghVJxr7v4D982JUjKXlF+KPC4HJ/QxChOvuulV80anj63EipBY6nBvNOq
+	 CIeBXqxwQFI+Q==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb+git@google.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Breno Leitao <leitao@debian.org>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v2 0/5] fixes for data/bss linear alias unmap series
-Date: Fri,  5 Jun 2026 17:43:03 +0100
-Message-ID: <178065625154.2113262.3332503693546345283.b4-ty@kernel.org>
+	kernel-team@meta.com
+Subject: Re: [PATCH] arm64: arch_timer: reuse arch_timer_read_cnt{p,v}ct_el0() helpers
+Date: Fri,  5 Jun 2026 17:43:04 +0100
+Message-ID: <178065748094.2118608.15288564842969855420.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260604151151.150377-7-ardb+git@google.com>
-References: <20260604151151.150377-7-ardb+git@google.com>
+In-Reply-To: <20260523-arch64_fix-v1-1-283bd4b73d49@debian.org>
+References: <20260523-arch64_fix-v1-1-283bd4b73d49@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,29 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 04 Jun 2026 17:11:52 +0200, Ard Biesheuvel wrote:
-> Fixes for the data/bss linear alias unmap series:
+On Sat, 23 May 2026 12:59:26 -0400, Breno Leitao wrote:
+> __arch_counter_get_cntpct() and __arch_counter_get_cntvct() open-code
+> the same ECV-aware ALTERNATIVE block that arch_timer_read_cntpct_el0()
+> and arch_timer_read_cntvct_el0() already provide in the same header.
+> The two pairs are byte-for-byte identical except for the trailing
+> arch_counter_enforce_ordering() the __arch_counter_get_* variants add.
 > 
-> - Fix KASAN related issue reported by Mark, by moving all KASAN page
->   tables out of BSS [on arm64], not just the ones defined under
->   arch/arm64
-> 
-> - Fix two issues spotted by Sashiko
+> Replace the duplicated inline assembly in __arch_counter_get_cntpct()
+> and __arch_counter_get_cntvct() with calls to the corresponding helpers.
+> This mirrors commit 00b39d150986 ("arm64: vdso: Use
+> __arch_counter_get_cntvct()"), which removed similar duplication from
+> the vDSO, and keeps the system-counter read sequence in a single place,
+> reducing assembly code in the kernell
 > 
 > [...]
 
-Applied to arm64 (for-next/mm), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/5] arm64: Rename page table BSS section to .bss..pgtbl
-      https://git.kernel.org/arm64/c/9c401fa7398f
-[2/5] kasan: Move generic KASAN page tables out of BSS too
-      https://git.kernel.org/arm64/c/9f7f685758c6
-[3/5] arm64: Avoid double evaluation of __ptep_get()
-      https://git.kernel.org/arm64/c/568def8e87fc
-[4/5] KVM: arm64: Omit tag sync on stage-2 mappings of the zero page
-      https://git.kernel.org/arm64/c/2986a6257405
-[5/5] arm64: mm: Defer remap of linear alias of data/bss
-      https://git.kernel.org/arm64/c/53205d56212c
+[1/1] arm64: arch_timer: reuse arch_timer_read_cnt{p,v}ct_el0() helpers
+      https://git.kernel.org/arm64/c/11c33ffb3a4e
 
 Cheers,
 -- 
