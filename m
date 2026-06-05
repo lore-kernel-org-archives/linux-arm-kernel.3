@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4011BCD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 02:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7938DCD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 02:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSnd82QhzgsTc9VLihugRZhMWxwKpTg7Bj65m7IRRDM=; b=N4AvwouoRDqS9xjTOZL8/n5V7u
-	KQwLgbaN8xnW2ovGbejn8RiO4Pqy8vvudmwT7llY0vJ4lO23OJoOHkHN6Zl7lIThLvh44Q6CuT/n9
-	soYC0J4FeO/sS/ADM+66bk3tC2h9Tx1+Zsz23NxiC2/RiVAnyQUtCcZuQjyzAjDJF2MkAFSyU0Ccn
-	YvjOANdLkR1A7ZNyHVdIJDzfPO73L5TQo6A9WIDZm95Q5IRLoAsP8NYNQulBci15hTJXdv1RqSKMO
-	G5ifKxLo+6xXAcLkmjWY5TzRabj1e9xAT2XUSbDlLG1HHKUfwKZIpzr3sHnlay9Zo3bNftldgJg1V
-	iZJZbR4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tllH2akN3DKgD+UoBWgHQAr8zejNajjH9gvNHbzmQz4=; b=CM8AsNYigugVh0CeLxN2oR+Tya
+	OZYSLezS9Pa11iVhAYM04O6doTX+RWxtx3OvzsW57BS0Nvqj78htZ4byezU4C7fAkb7ylr4Y6P7tH
+	a6OwiZwJYEfJEd9YvxtCMo7hCD1fkHu9qqx+t9frGhr/eoJWuzh1i5hhAKXL1ifESspyxorafmgVW
+	23DDQIhsbaSpsVKvVfZBNLmqk0KKZ4NzJEg2sp56nUULrWc4vjmv55aVozVJNDdJr+JTvr3XojWA8
+	HAOQtUVUcrJde4/qi4FQPrUSCAdRSzRVs6GV1f3WKHLJ7jkMd3qYVmHmAneixZ9r5eNMdG4OFvH6b
+	Kx0sXv2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVKDa-0000000HZw5-1TrR;
-	Fri, 05 Jun 2026 02:23:30 +0000
-Received: from mail-m2416.xmail.ntesmail.com ([45.195.24.16])
+	id 1wVKTe-0000000Hagb-04nn;
+	Fri, 05 Jun 2026 02:40:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVKDS-0000000HZqz-1ie7;
-	Fri, 05 Jun 2026 02:23:24 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 412944cfa;
-	Fri, 5 Jun 2026 10:23:18 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de
-Cc: sebastian.reichel@collabora.com,
-	nicolas.frattaroli@collabora.com,
-	alchark@gmail.com,
-	detlev.casanova@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	michael.riesch@collabora.com,
-	andy.yan@rock-chips.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v11 2/3] arm64: dts: rockchip: Add missing hclk for RK3588 eDP1
-Date: Fri,  5 Jun 2026 10:23:04 +0800
-Message-Id: <20260605022305.3058853-3-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260605022305.3058853-1-damon.ding@rock-chips.com>
-References: <20260605022305.3058853-1-damon.ding@rock-chips.com>
-MIME-Version: 1.0
+	id 1wVKTc-0000000HagP-1M53
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Jun 2026 02:40:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6507560052;
+	Fri,  5 Jun 2026 02:40:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C65E81F00893;
+	Fri,  5 Jun 2026 02:40:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780627202;
+	bh=tllH2akN3DKgD+UoBWgHQAr8zejNajjH9gvNHbzmQz4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=lAaLyatX9St8nhqQo0UQ/9uNMDYC7ERdUrrJ955eaLGC68Q4BEbyJtxCnuOpH+wE5
+	 1AXtjz3uALVDPstbGEgr6C4JmW17eY9i7q6PHOttU7s1LkEb13kjC+GrIedR7KrHH3
+	 TMM3W6kfQFXT4In1YkR69oD98qyw2eTlyN2GvvIXf/r2svLy5e8ZvvH/qumjpBJuel
+	 1JVjXqJzP2s/kGu6Rljo/xOacax6XdcoxSvdK7AmXILmHTulkRyqE6OqtLSRrmWBWL
+	 A19ZMy9ZT0N9tLI3+bvJsKgMvRABazLfnw4FJhdiCRPHwCsSpoIt4SSkg+rIA9aXKC
+	 EKdzryl/DjZbw==
+Date: Thu, 04 Jun 2026 21:40:01 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e9597906603a8kunm9494c848401a1
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDHRpKVh1LGRpPGBpOTkkeTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=QeR2R4AH26+DWH/4sQHJtZA53PIVdzRoRMUGCyr4r9nijT5A0cxY95AaCuTx0Ay1UbY9QU722TgU7LfHCXEU1LShxXrlny9N9TIFhZ4eWYFFPF7Xx7KyTH6Lxa6l+yteNpstd2CCsVB9Z5p+hLsKKve5Ys8OihuGeReZ/X2ApM0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=FSnd82QhzgsTc9VLihugRZhMWxwKpTg7Bj65m7IRRDM=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_192322_666666_D301470A 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: weishangjuan@eswincomputing.com, linux-gpio@vger.kernel.org, 
+ inochiama@gmail.com, davem@davemloft.net, devicetree@vger.kernel.org, 
+ kuba@kernel.org, me@ziyao.cc, hawk@kernel.org, arnd@arndb.de, 
+ konradybcio@kernel.org, mohd.anwar@oss.qualcomm.com, hkallweit1@gmail.com, 
+ pabeni@redhat.com, ast@kernel.org, maxime.chevallier@bootlin.com, 
+ bpf@vger.kernel.org, boon.khai.ng@altera.com, linusw@kernel.org, 
+ andersson@kernel.org, sdf@fomichev.me, linux-kernel@vger.kernel.org, 
+ livelycarpet87@gmail.com, a0987203069@gmail.com, 
+ linux-stm32@st-md-mailman.stormreply.com, daniel@iogearbox.net, 
+ john.fastabend@gmail.com, alexandre.torgue@foss.st.com, 
+ richardcochran@gmail.com, rmk+kernel@armlinux.org.uk, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, rohan.g.thomas@altera.com, gregkh@linuxfoundation.org, 
+ Daniel Thompson <daniel@riscstar.com>, chenchuangyu@xiaomi.com, 
+ andrew+netdev@lunn.ch, mcoquelin.stm32@gmail.com, edumazet@google.com, 
+ siyanteng@cqsoftware.com.cn, wens@kernel.org, brgl@kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ julianbraha@gmail.com, netdev@vger.kernel.org, chenhuacai@kernel.org, 
+ prabhakar.mahadev-lad.rj@bp.renesas.com
+To: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20260605010022.968612-11-elder@riscstar.com>
+References: <20260605010022.968612-1-elder@riscstar.com>
+ <20260605010022.968612-11-elder@riscstar.com>
+Message-Id: <178062720108.1744752.12164392208085928081.robh@kernel.org>
+Subject: Re: [PATCH net-next v2 10/14] dt-bindings: net:
+ toshiba,tc9654-dwmac: add TC9564 Ethernet bridge
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +86,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the required HCLK_VO1 bus clock to RK3588 eDP1 node with
-corresponding clock-name "hclk". This clock is necessary for
-the eDP controller to access video output GRF and work properly.
 
-Previously the clock was enabled implicitly via GRF phandle
-reference. Add it explicitly now to align with updated binding.
+On Thu, 04 Jun 2026 20:00:17 -0500, Alex Elder wrote:
+> From: Daniel Thompson <daniel@riscstar.com>
+> 
+> Add devicetree bindings for the Toshiba TC956x family of Ethernet-AVB/TSN
+> bridges.
+> 
+> The TC9564 contains a PCIe switch with one upstream and three downstream
+> PCIe ports.  The third PCIe downstream port has an attached embedded PCIe
+> endpoint, and that endpoint implements two PCIe functions.  Each internal
+> PCIe function has a Synopsys XGMAC Ethernet interface capable of 10 Gbps
+> operation.
+> 
+> The TC9564 also implements an embedded GPIO controller, which exposes
+> 10 lines externally.  Some platforms use these GPIO lines, so this
+> GPIO controller is managed by a separate driver.  Other embedded
+> peripherals (like a microcontroller, SRAM, and UART) are currently
+> unused.
+> 
+> The GPIO controller is managed by registers accessed via MMIO on an
+> internal PCIe function's registers.
+> 
+> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+>  .../bindings/net/toshiba,tc9564-dwmac.yaml    | 120 ++++++++++++++++++
+>  MAINTAINERS                                   |   6 +
+>  2 files changed, 126 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml
+> 
 
-Fixes: a481bb0b1ad9 ("arm64: dts: rockchip: Add eDP1 dt node for rk3588")
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+My bot found errors running 'make dt_binding_check' on your patch:
 
----
+yamllint warnings/errors:
 
-Changes in v4:
-- Modify the commit msg.
----
- arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: gpio: Missing additionalProperties/unevaluatedProperties constraint
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: ethernet: Missing additionalProperties/unevaluatedProperties constraint
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-index a2640014ee04..b251bb129cdb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-@@ -285,8 +285,8 @@ hdmi1_out: port@1 {
- 	edp1: edp@fded0000 {
- 		compatible = "rockchip,rk3588-edp";
- 		reg = <0x0 0xfded0000 0x0 0x1000>;
--		clocks = <&cru CLK_EDP1_24M>, <&cru PCLK_EDP1>;
--		clock-names = "dp", "pclk";
-+		clocks = <&cru CLK_EDP1_24M>, <&cru PCLK_EDP1>, <&cru HCLK_VO1>;
-+		clock-names = "dp", "pclk", "hclk";
- 		interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH 0>;
- 		phys = <&hdptxphy1>;
- 		phy-names = "dp";
--- 
-2.34.1
+doc reference errors (make refcheckdocs):
+Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+MAINTAINERS: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260605010022.968612-11-elder@riscstar.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
