@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A4CCD6E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 01:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF68CCD6E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 01:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=weNg96zxEw0YQOLnRM6yhlBqLpFSoIZgsDdg6LWSa4E=; b=T21yfjrgYuGhp75GHxrIt2POHr
-	eltM971N+HNidbmjYuNpTyd13CDW/D43zobJA21Meq+ANIXnxfjWEHCe0gXhoMau7SNlZKgbExbML
-	vsXzAQOh9hlvrBbcp6DANBptDAB439HXCk92Mu2MQw9lSYemNpQx7/Tt66/jXy4cosLX/24TEAJRP
-	GTrInVE6PThMZ6f6BrSxeaEorf7CJRj2+z+jrDdmKXXwBOwWY9lHQGuApWSHAtI22xqyGl3dTj+yd
-	dDGCalt72spkK+QNszUQNgs7g9MpnZ3/rSgLJ1/nhnWOzy78/ooKTDlIkLyEUVce26S7ruFB71N9q
-	mF5my95g==;
+	bh=HZCd1/QFQRA8WZXHUaIlNXNKsRQnvTVs8VCYQyYdCeo=; b=uRnOdvga5pvU2pvSdGDZNnTQXC
+	QJAUpe58VKkAS4ZYuXZlWPVbOdwRpkUQFxlJmih5jV2B0wiGqZyaW3W11uJx97Df5VHj//DikHPva
+	SX1XkM7l8cDsCvmSBjWgn5jR4IE8K+A/jTGqakF7oUw6O+y8+XUC7xj5JyARnKOlKT1mscx6ioA0y
+	vJ/nEK764vWFOcJoGhBUnsvlY809/NSnMG+LdRLZJJTLoV0i0vO4BHkGCui3pi3HE/HzMTZo+bom1
+	EBKXLG8XlFODX+KYGs/613hNIBB86g1X9gxp+vuRpt+QwlTb+Oelu27FPqXGT8lS4CL3XO9x3uL5V
+	p9DyH96g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVJO5-0000000HW0B-26rM;
-	Fri, 05 Jun 2026 01:30:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wVJUM-0000000HWPC-283y;
+	Fri, 05 Jun 2026 01:36:46 +0000
+Received: from mail-m93172.xmail.ntesmail.com ([103.126.93.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVJO3-0000000HW00-0cQ6;
-	Fri, 05 Jun 2026 01:30:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4338160103;
-	Fri,  5 Jun 2026 01:30:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED28B1F00899;
-	Fri,  5 Jun 2026 01:30:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780623014;
-	bh=weNg96zxEw0YQOLnRM6yhlBqLpFSoIZgsDdg6LWSa4E=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=DCFmOPDaH6XNj24ToBjQJOCu2J6zcZoRZ6/WA1oskRuKTU9HiobgVsYJOk+q2zeFS
-	 gQLDtlTTZ8nI/T0p/K7X59cuTglFDyAmG6YQgPbRAanP3mNHUu0mgh2S/O20r8jsbL
-	 jTnq8oZxr9QOPo6NcFpjjK3icE0LC4U1Ged+52VL6vQ4FUDKEMgj2cKyUgkkcsx2F2
-	 CtxLesaj54PR1KdHOkf4C+2Cjk+QJl8G+iCxwh0Yfql/qWarr7y9dNhcOfvyoMIQAK
-	 VcOSSHgkVDvt0fClGN/zlG31QrB5GWxfOaBMfrPIsVu3X57AD5BW9ze9bnOBOrHb3C
-	 FtaV/n9CdHWxA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D094E3930A8A;
-	Fri,  5 Jun 2026 01:30:15 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wVJUJ-0000000HWNa-2AdQ;
+	Fri, 05 Jun 2026 01:36:45 +0000
+Received: from [172.16.12.90] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 412733262;
+	Fri, 5 Jun 2026 09:36:30 +0800 (GMT+08:00)
+Message-ID: <3d99569e-9c3a-49d1-93fb-1335382523e9@rock-chips.com>
+Date: Fri, 5 Jun 2026 09:36:28 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: airoha: Report extack error to the user if
- airoha_tc_htb_modify_queue() fails
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178062301439.3093327.853203913546216659.git-patchwork-notify@kernel.org>
-Date: Fri, 05 Jun 2026 01:30:14 +0000
-References: <20260603-airoha_tc_htb_modify_queue-err-message-v1-1-33ec3ab997d9@kernel.org>
-In-Reply-To: <20260603-airoha_tc_htb_modify_queue-err-message-v1-1-33ec3ab997d9@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 0/9] accel: rocket: Add RK3568 NPU support
+To: Midgy BALON <midgy971@gmail.com>
+Cc: tomeu@tomeuvizoso.net, ogabbay@kernel.org, heiko@sntech.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joro@8bytes.org,
+ will@kernel.org, robin.murphy@arm.com, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260604135255.62682-1-midgy971@gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260604135255.62682-1-midgy971@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9e956cb64203a7kunmae8f212e3422d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ0wfSVZLHUpPGBlJTR
+	gdT01WFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tIVUpLSU9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=g8ev1URPnB1NrgJV5kyG2ccC0Z11vTCKLanZgIdbPpNH/WcdJb7etuf0v1vH5Z8ewFZJisgwJzSBNw9D0lV0kcycsy/Y2Dt2CODLOhtPHvRztbQlKmEjudCshdaKw1b2qQtCANaxbApui4H/bao+cA21Bhx+GO+rzJmfLVfiyDI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=HZCd1/QFQRA8WZXHUaIlNXNKsRQnvTVs8VCYQyYdCeo=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_183644_111229_E45A45D9 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +74,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hello Midgy,
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 03 Jun 2026 12:30:01 +0200 you wrote:
-> Report an extack error message in airoha_tc_htb_modify_queue routine if
-> airoha_qdma_set_tx_rate_limit() fails.
+On 6/4/2026 9:52 PM, Midgy BALON wrote:
+> RFC, not for merge. End-to-end inference does not produce correct output
+> yet (see Status), so per the v2 discussion this is a request for design
+> feedback. It now probes, attaches, and submits cleanly on a stock
+> v7.1-rc6 tree; what remains is one hardware-internal issue.
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
+> The RK3568 has a single NVDLA-derived NPU core, the same IP family as the
+> RK3588 NPU the driver already supports; the register layout matches. The
+> RK3568 differences are a 32-bit NPU AXI/IOMMU (vs 40-bit) and explicit
+> PVTPLL/PMU bring-up to power and de-idle the NPU before it is reachable.
 > 
-> [...]
+> Patches:
+>   1-2  rocket: per-SoC data struct, then derive DMA width and core count
+>        from match data (refactors, no functional change).
+>   3    rocket: RK3568 SoC data + PVTPLL/PMU/NOC bring-up.
+>   4    rocket: reset the NPU before detaching the IOMMU on a job timeout
+>        (the detach otherwise stalls a wedged AXI master and WARNs).
+>   5    rocket: keep the IOMMU domain attached across jobs instead of
+>        re-attaching per job (the per-job rk_iommu handshake on the idle
+>        NPU MMU is slow and noisy).
+>   6    iommu/rockchip: clear AUTO_GATING bit 1 on the RK356x v1 IOMMU so
+>        the page-walker keeps its clock (else a TLB-miss walk never
+>        completes).
+>   7    dt-bindings: add the RK3568 NPU compatible.
+>   8-9  arm64 dts: add the NPU and its IOMMU, and enable them on ROCK 3B.
+> 
+> Dependency. The NPU MMU is rockchip-iommu v1 (32-bit) while the rest of
+> the RK3568 uses v2 (40-bit). They cannot coexist until the driver carries
+> per-device ops; this series is developed on top of Simon Xue's
+> "iommu/rockchip: Drop global rk_ops in favor of per-device ops" [1].
+> Without it the NPU IOMMU fails to probe on a full RK3568 boot.
+>
 
-Here is the summary with links:
-  - [net-next] net: airoha: Report extack error to the user if airoha_tc_htb_modify_queue() fails
-    https://git.kernel.org/netdev/net-next/c/144969cd80c5
+Hmmm. If I understand correctly, the NPU IOMMU should be v2 rather than
+v1, implying it should support 40-bit PAs. Nevertheless, please note that
+the upper limit for DTE is 32 bits.
 
-You are awesome, thank you!
+> Power bring-up. The NPU is brought up through the power-domain layer (no
+> driver hack): the NPU power-domain keeps its clocks but drops the pm_qos
+> phandle (qos_npu sits behind the gated NPU NoC, so genpd's power-off QoS
+> save faults reading it), and vdd_npu is marked always-on so the rail is
+> up before genpd de-idles the NoC at power-on. The PMU de-idle then ACKs
+> without PVTPLL running; PVTPLL is only needed for compute.
+>
+
+Can these operations not be completed via the pmdomain driver?
+If some operations are controlled by TF-A, are you using open
+source TF-A? Thank you.
+
+> Status. On v7.1-rc6 the driver probes, creates /dev/accel/accel0,
+> attaches an IOMMU domain, and submits jobs; the program controller
+> fetches and broadcasts the command list. Inference output is still wrong,
+> and the cause is split across three layers:
+>   - kernel (this series): the RK3568 differences appear handled;
+>   - mesa/Teflon userspace: still emits RK3588-tuned config, wrong for
+>     RK3568 (to be filed separately on mesa-dev);
+>   - hardware: with corrected config the NPU's DMA reads the full input
+>     and weight tensors (confirmed via its DMA bandwidth counters), but
+>     the MAC/output stage never completes, the job times out, and the
+>     output stays at the buffer's zero-point. I have not found the missing
+>     step; it is not in the command list (replaying the vendor's
+>     byte-exact command list behaves the same). Pointers welcome,
+>     especially from anyone with RK3568 NPU experience.
+> 
+> Known residual. On the first IOMMU attach the NPU MMU is idle with paging
+> already enabled; the rk_iommu stall/reset handshake does not complete in
+> that state and logs one burst of timeouts before the (kept) domain
+> settles. It is harmless here because the job times out regardless, but it
+> points at an idle-MMU reconfiguration corner the rk_iommu code does not
+> handle on this block.
+> 
+> [1] https://lore.kernel.org/linux-rockchip/20260310105303.128859-1-xxm@rock-chips.com/
+> 
+> Changes since v2:
+>   - Tagged RFC; now tested on a stock v7.1-rc6 tree.
+>   - Bring-up moved into the power-domain/DT layer (no initcall hack).
+>   - Added the IOMMU detach-on-timeout and attach-once driver fixes.
+>   - Split the driver patch (Heiko): soc_data / match-data / RK3568.
+>   - Derive DMA width and core count from match data; drop the DT rescans.
+>   - Binding describes the hardware; added the missing $ref on rockchip,pmu.
+>   - Disclosed the per-device-ops IOMMU dependency.
+> 
+> Midgy BALON (9):
+>   accel: rocket: Introduce per-SoC rocket_soc_data
+>   accel: rocket: Derive DMA width and core count from match data
+>   accel: rocket: Add RK3568 SoC support
+>   accel: rocket: Reset the NPU before detaching the IOMMU on timeout
+>   accel: rocket: Keep the IOMMU domain attached across jobs
+>   iommu/rockchip: Clear AUTO_GATING bit 1 on the RK356x v1 IOMMU
+>   dt-bindings: npu: rockchip,rk3588-rknn-core: Add RK3568
+>   arm64: dts: rockchip: rk356x: Add the NPU and its IOMMU
+>   arm64: dts: rockchip: rk3568-rock-3b: Enable the NPU
+> 
+>  .../npu/rockchip,rk3588-rknn-core.yaml        | 18 ++++-
+>  .../boot/dts/rockchip/rk3568-rock-3b.dts      | 14 +++-
+>  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 38 +++++++++++
+>  drivers/accel/rocket/rocket_core.c            | 22 ++++++-
+>  drivers/accel/rocket/rocket_core.h            | 19 ++++++
+>  drivers/accel/rocket/rocket_device.c          | 15 ++---
+>  drivers/accel/rocket/rocket_device.h          |  3 +-
+>  drivers/accel/rocket/rocket_drv.c             | 66 ++++++++++++++++++-
+>  drivers/accel/rocket/rocket_job.c             | 35 ++++++++--
+>  drivers/iommu/rockchip-iommu.c                | 12 ++++
+>  10 files changed, 219 insertions(+), 23 deletions(-)
+> 
+> 
+> base-commit: 52c800fdcf11888ebeb50c3d707f782cc15b66eb
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Best, 
+Chaoyi
 
