@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619C3CD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C332CD6E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xk45BjVakQOeHi7wm8QKE6eINYQ/jNZGrkwgZV41tIw=; b=J7V7uNHZksKjxVsgOZfEh0a6xU
-	cYHTk1/jMpEOZEvWuTqZiBSti44wVdbFp/zkjDTV0YLAdKZniPETYNSYM6lzF28aryMPNtq/c4G/S
-	rwSRfuIpTsR/z1HvrC0Hs1IVRFaOzIaC1Rrvp4d+ZkoIljVtVbm/3swtz5711qcr10gKZut8z0KiZ
-	loSC+hIPl5v6sD1IgqTIzso/QtmBuw5+lmrG7GYMPFVkjbdaKuoZObuyqXt9Fyezg2CaHPsu2rDhu
-	ewUo7xPut4Nx3hKhhz3EUh+SAf0z1DJpyG9C6Y3uMuAcbXQESavey84b+Tsb82uNn0BZb23SYYKDA
-	IPWxGovg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=THNpxThsfSQ5q0NoFb0ByoK4k8Hy0TqI7gl/VqmkI6g=; b=LRVwrtuQMH7CdvvzUOhIl33Duk
+	KM12SeDyQzH4qbE4DzZu8Iy+j/MB9iA+BAYC/jsi4GXbOhpvpxV8AEaoXWFIXjP0kji8eFBsRV9Ae
+	cGBpbenODI41QplLeKzbK7jr6lePMPgv7NrXZUg9NEJGh/Z4q/UbqlBIM+3Vaq0qtbuIMavtaA5Yc
+	bzYhsZGfZ6L2M/psDJ7Bpg9fXrRWrhiEb11vT0GyciFdd6PZMnzLGInJ8VAtrMm5j7S+DaSUISKbS
+	zBEexx5v612Re7kK7R83ou40Ts59TdHaczCPJTK9TqUo7/OdPHf9dRHbrkjqA4qHg8EtGFrSrnZvz
+	g51S5lmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVX3o-00000000saI-1CfW;
-	Fri, 05 Jun 2026 16:06:16 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wVX8Z-00000000t3W-49Fd;
+	Fri, 05 Jun 2026 16:11:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVX3l-00000000sZf-3WIK
+	id 1wVX8Y-00000000t3N-3yVm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 16:06:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 6F166C58478;
-	Fri,  5 Jun 2026 16:06:11 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9FF855FED1;
-	Fri,  5 Jun 2026 16:06:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 50A83106A2533;
-	Fri,  5 Jun 2026 18:05:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780675569; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=xk45BjVakQOeHi7wm8QKE6eINYQ/jNZGrkwgZV41tIw=;
-	b=zvphM/CawlI8lv+bypTyNGk5QI0aaFSd+ta/nOlof5HxsbAqYwrTcdlBWPnIuvZ2nkCCPu
-	hbcuN8XA2utGYiVw3vAMz/EUcccOZ6nAVIPhuIwnmU/ZvEKqcCf+mrXrS7xQPsGjH5VnyL
-	jfU+2CYStZaWkh9I/v2V82G2VXEFEMjU8prhXTzet2GaJQCHCWFcuFFJnXiVHMYzele/m8
-	M2jI6t+La0RoeTKiZzWM/fX9/gkeeAapQr2r4/psEj0S1ukX9nQtJ224jAudfxQR6QRZIR
-	I2AoympPGcN2+ig3zx84LnAejH56/NY9zf9b6R90qA0XuuKGwk4feZJ5SaU+tg==
-Message-ID: <c60d1819-18d7-4d4c-a997-586599323d7e@bootlin.com>
-Date: Fri, 5 Jun 2026 18:05:47 +0200
+	Fri, 05 Jun 2026 16:11:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 60BD9601F9;
+	Fri,  5 Jun 2026 16:11:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E71201F00893;
+	Fri,  5 Jun 2026 16:11:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780675870;
+	bh=THNpxThsfSQ5q0NoFb0ByoK4k8Hy0TqI7gl/VqmkI6g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Iki9GiRvZWexLI/dKepIIPf42Ls5mfz3AraduxedE+IqJ5xuulE10BcoLemUhXGCU
+	 KiICLIkuX8DUwZrncFVCmtJ1uVElzDsq2TfxHPAfVVqmMJhSVXxzt9mY94fnxCWnuI
+	 surd4Lxkcvf5Ni+QhiPLkvsxSGv7k4tMfLwZz1n7jcZvpVul+5HusQCsyV2dW92L6d
+	 12/i4OJdn2tG/Cu/LuAp5r2S5ojUW19zqpos42alGqz2J6ajTBplAEi7cNAwqxWwGW
+	 shFuRAXxpKNErqqpxcqkp3JPcGoj3sTkY9ihJBaUeMV/AsWN5Qe/7jOe0jr8Hrm1UX
+	 trbpDt8bANszQ==
+Date: Fri, 5 Jun 2026 17:11:03 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hans de Goede <hansg@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>,
+	=?iso-8859-1?Q?J=2E_Neusch=E4fer?= <j.ne@posteo.net>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, Luca Weiss <luca@lucaweiss.eu>,
+	Sven Peter <sven@kernel.org>, Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-input@vger.kernel.org
+Subject: Re: [PATCH v4 4/7] dt-bindings: input: sun4i-lradc-keys: Add
+ A100/A133 compatible
+Message-ID: <20260605-iciness-escapade-29764b0f52c4@spud>
+References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
+ <20260605070923.3045073-5-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 13/14] net: stmmac: tc956x: add TC956x/QPS615
- support
-To: Alex Elder <elder@riscstar.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, rmk+kernel@armlinux.org.uk, andersson@kernel.org,
- konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, arnd@arndb.de,
- gregkh@linuxfoundation.org
-Cc: Daniel Thompson <daniel@riscstar.com>, mohd.anwar@oss.qualcomm.com,
- a0987203069@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, chenhuacai@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com,
- inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com,
- livelycarpet87@gmail.com, mcoquelin.stm32@gmail.com, me@ziyao.cc,
- prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
- rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn,
- weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-14-elder@riscstar.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260605010022.968612-14-elder@riscstar.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_090614_040030_4B50974F 
-X-CRM114-Status: GOOD (  14.24  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8XOEFWoS8IYeKQQa"
+Content-Disposition: inline
+In-Reply-To: <20260605070923.3045073-5-alexander.sverdlin@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,47 +86,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
 
-On 6/5/26 03:00, Alex Elder wrote:
-> From: Daniel Thompson <daniel@riscstar.com>
-> 
-> Toshiba TC956x is an Ethernet AVB/TSN bridge and is essentially a
-> small and highly-specialized SoC. TC956x includes an "eMAC" subsystem
-> that can be accessed, along with several other peripherals, via two
-> PCIe endpoint functions. There is a main driver for the endpoint that
-> decomposes things and creates auxiliary bus devices to model the SoC.
-> 
-> The eMAC consists of a Designware XGMAC, XPCS and PMA. Each eMAC is
-> supported by an MSIGEN that bridges TC956x level interrupts to PCIe
-> MSIs.
-> 
-> Add a driver for the eMAC/MSIGEN combination.
-> 
-> Co-developed-by: Alex Elder <elder@riscstar.com>
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> ---
-[...]
+--8XOEFWoS8IYeKQQa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> +static int tc956x_lookup_max_speed(phy_interface_t phy_interface)
-> +{
-> +	switch (phy_interface) {
-> +	case PHY_INTERFACE_MODE_SGMII:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-The SGMII definition we use in the kernel is the Cisco SGMII de-facto
-standard that only supports 10/100/1000M. Some vendors use flavours with
-names such as HS-SGMII and such, that's basically SGMII clocked at 2.5G
-with aneg disabled. It kinda becomes 2500BaseX then.
+--8XOEFWoS8IYeKQQa
+Content-Type: application/pgp-signature; name="signature.asc"
 
-So all in all, we don't support 2500M on SGMII.
+-----BEGIN PGP SIGNATURE-----
 
-> +	case PHY_INTERFACE_MODE_2500BASEX:
-> +		return SPEED_2500;
-> +
-> +	default:
-> +		return -EOPNOTSUPP;
-> +	}
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiL1FwAKCRB4tDGHoIJi
+0hU3AP9o1TBwdrTrp0JHQJyNK1YL98B6p2dudAMEacv6gn9T0QD/cWA+agbYLfpd
+2TK5za4mqwGmQMDd4iURSwLJrzwNEAg=
+=m51E
+-----END PGP SIGNATURE-----
 
-Maxime
+--8XOEFWoS8IYeKQQa--
 
