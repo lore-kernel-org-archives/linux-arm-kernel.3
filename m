@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E12CD8C81
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA0ACD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 16:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oAXBZW5d5jXNJnm6Pa8041wFx7pArTYcV483iwZEXh4=; b=DpES83Ly08CQQ1IVQfq9Su6fVv
-	RlhY/qm2pkcEjs0IUM3QUpQSP2B0rfhsm5lCbLU3JtnzyNtaJgO6Jmbvr7Kr/ZHu49cWixwupZ0f9
-	9jJOYViEkvFupc1MrPgVnft7cPQihRfJebXsPA+mwTTgi+6CSOYsxeMFUvip/7uQGBqjvtyHU/13T
-	KtutJVhEuUsu5Nd81FinC/ji0V36Yo3937UoJKdGdNuxD733OMZpPqVIW42G2bg2f+j68iukaS7ab
-	nn4wypmfpn4Ub0QBDEEnwwnUsMajtHd8W9BwwuXDXV468D+duIxyHKns+V9wJNk8Gh/0ROJjUmB0t
-	4HBYmQtw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KB02rpRMRUcfAvlmeMfhCcaEDyoWU3wB7fjdf8ZKlQw=; b=RCB2NJujVwlQ1CLv4Ev/DiEcTL
+	IkfjFBTmtzVaUaEukHIkURw3BbyrE3Vxl3lZZzrmu7sOvyBZnQqDvVbAL7gsq+3XGx6fXUZahRCxZ
+	riJFTQCol/8u4WzPk5Ju14ZxnDKkulEqnGS8YoBkD9Gqshrmhw7yQnRCefCjUU8D1sua0AtySPZOh
+	o+yAykGiigbgz7WVy4uHpIPjdCqZ2BWsx7rGxVYN4QQm2Tv7BUiA7wXSJAjyDG/VQ4iI8FIndnDmC
+	iFxPHKUrA527oGaUCzjVS9vTvBr7k1hJqs0jI0MSiJn5ApfuRNDk03f/QpxTEwdEdO1qLkrXAO9nq
+	jcsDeKRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXde-00000000vKw-1jn2;
-	Fri, 05 Jun 2026 16:43:18 +0000
+	id 1wVXfe-00000000vgQ-2k06;
+	Fri, 05 Jun 2026 16:45:22 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVXdd-00000000vK7-3uLI
+	id 1wVXfd-00000000vg8-327j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 16:43:17 +0000
+	Fri, 05 Jun 2026 16:45:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 185C940B43;
-	Fri,  5 Jun 2026 16:43:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 269DD1F00899;
-	Fri,  5 Jun 2026 16:43:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CE5643910;
+	Fri,  5 Jun 2026 16:45:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EDBF1F00893;
+	Fri,  5 Jun 2026 16:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780677797;
-	bh=oAXBZW5d5jXNJnm6Pa8041wFx7pArTYcV483iwZEXh4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=b6iK9LYrhNjBSxXb+v3te+vQuSblTi0Rveg6gygWIBpXGiFPn4gV6WMKWe3HL+0yK
-	 NfHg+9MQWRIbnsVS0+4lEqiDU8bU09RN0jhviQDENOu7OOBs0Qe6OW4BaRJ4cSgVGE
-	 Imiwcd8aGo+mGpGEnbTXeqwqXcSxvmXx2PaB1FIGF+i03JdqnZmM5gGvHUAyTTJnAt
-	 a+6xuwlRKI+W/Fsqs7paZFZQ/yLen300C52EAXk5tVE6iADf6R/Kjng6kAhRzvYgQp
-	 AHWCPHVa7ghVJxr7v4D982JUjKXlF+KPC4HJ/QxChOvuulV80anj63EipBY6nBvNOq
-	 CIeBXqxwQFI+Q==
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Breno Leitao <leitao@debian.org>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+	s=k20260515; t=1780677921;
+	bh=KB02rpRMRUcfAvlmeMfhCcaEDyoWU3wB7fjdf8ZKlQw=;
+	h=From:To:Cc:Subject:Date;
+	b=OjK8K5k4KaldBITb/iA5qTAFwrvV+Gz3sVNozHPSYSqpatHJlA4PAM3PrAgaxalaC
+	 yP1GopJ/MRfoC7AlCiiVRmZH+OQYm61MHASiPoFtSdzn/eaSHIKAG2V2ruYdNss4v9
+	 JDgryOtfA3DFDORaflk9q9IU2xYM3cmpJ+qnTdd1eECZajiAMv/49yGpIwoU2SntaF
+	 kEQdDkge91TndMlGrma9fiUzSNwP8jXtM5q42q0QZistQu1mRwf8cRLhyIbeSSasKd
+	 o+xxLRt/6c7mpn1wyUpQLgCpr0oJcYYGZXDWqBoSMBIWcqigeujWfUfd7bSf2YAhoh
+	 kc2eHwqaDpaZQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wVXfb-00000009qai-1RCM;
+	Fri, 05 Jun 2026 16:45:19 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Hyunwoo Kim <imv4bel@gmail.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH] arm64: arch_timer: reuse arch_timer_read_cnt{p,v}ct_el0() helpers
-Date: Fri,  5 Jun 2026 17:43:04 +0100
-Message-ID: <178065748094.2118608.15288564842969855420.b4-ty@kernel.org>
+	kvm@vger.kernel.org
+Subject: [GIT PULL] KVM/arm64 fixes for 7.1, take #5
+Date: Fri,  5 Jun 2026 17:45:16 +0100
+Message-ID: <20260605164516.2214533-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260523-arch64_fix-v1-1-283bd4b73d49@debian.org>
-References: <20260523-arch64_fix-v1-1-283bd4b73d49@debian.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, imv4bel@gmail.com, joey.gouly@arm.com, oupton@kernel.org, weilin.chang@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +84,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 23 May 2026 12:59:26 -0400, Breno Leitao wrote:
-> __arch_counter_get_cntpct() and __arch_counter_get_cntvct() open-code
-> the same ECV-aware ALTERNATIVE block that arch_timer_read_cntpct_el0()
-> and arch_timer_read_cntvct_el0() already provide in the same header.
-> The two pairs are byte-for-byte identical except for the trailing
-> arch_counter_enforce_ordering() the __arch_counter_get_* variants add.
-> 
-> Replace the duplicated inline assembly in __arch_counter_get_cntpct()
-> and __arch_counter_get_cntvct() with calls to the corresponding helpers.
-> This mirrors commit 00b39d150986 ("arm64: vdso: Use
-> __arch_counter_get_cntvct()"), which removed similar duplication from
-> the vDSO, and keeps the system-counter read sequence in a single place,
-> reducing assembly code in the kernell
-> 
-> [...]
+Paolo,
 
-Applied to arm64 (for-next/misc), thanks!
+Yes, I said that last week's pull request was the last. I really meant
+it, honest. But people (and their AI best mate) keep finding ugly
+stuff in dark corners, and I can't sit on this stuff much longer.
 
-[1/1] arm64: arch_timer: reuse arch_timer_read_cnt{p,v}ct_el0() helpers
-      https://git.kernel.org/arm64/c/11c33ffb3a4e
+So here we have an assorted mess of bad races, broken userspace, and
+architectural bugs. What's not to like? As usual, details in the tag
+below.
 
-Cheers,
--- 
-Will
+Please pull,
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+	M.
+
+The following changes since commit 83726330748981372bde86ed5411d7b306612991:
+
+  KVM: arm64: Correctly cap ZCR_EL2 provided by a guest hypervisor (2026-05-29 10:04:00 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-7.1-5
+
+for you to fetch changes up to 17f073f78fc43280891ecde8f8ec3f84f98bb37c:
+
+  KVM: arm64: Correctly identify executable PTEs at stage-2 (2026-06-05 14:07:57 +0100)
+
+----------------------------------------------------------------
+KVM/arm64 fixes for 7.1, take #5
+
+- Correctly drop the ITS translation cache reference when it actually
+  gets invalidated
+
+- Take the SRCU lock for SW page table walks
+
+- Restore POR_EL0 access to host EL0, avoiding POR_EL0 becoming
+  inaccessible from EL0 after running a guest
+
+- Reassign nested_mmus array behind mmu_lock, ensuring that vcpu init
+  and MMU notifiers are mutually exclusive
+
+- Correctly handle FEAT_XNX at stage-2
+
+----------------------------------------------------------------
+Hyunwoo Kim (3):
+      KVM: arm64: vgic-its: Drop the translation cache reference only for the erased entry
+      KVM: arm64: Take the SRCU lock for page table walks in fault injection and AT emulation
+      KVM: arm64: Reassign nested_mmus array behind mmu_lock
+
+Joey Gouly (1):
+      KVM: arm64: Restore POR_EL0 access to host EL0
+
+Oliver Upton (2):
+      KVM: arm64: nv: Fix handling of XN[0] when !FEAT_XNX
+      KVM: arm64: Correctly identify executable PTEs at stage-2
+
+ arch/arm64/include/asm/kvm_nested.h     |  4 ++--
+ arch/arm64/kvm/at.c                     |  6 ++++--
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  2 ++
+ arch/arm64/kvm/hyp/pgtable.c            |  4 +++-
+ arch/arm64/kvm/nested.c                 | 33 ++++++++++++++++++++-------------
+ arch/arm64/kvm/vgic/vgic-its.c          |  6 ++++--
+ 6 files changed, 35 insertions(+), 20 deletions(-)
 
