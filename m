@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4125CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 14:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CE6CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 14:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bfFH8ZVDSQVCgdkYKT1+TMLQUY2s3jnNF65qom08fFI=; b=Evgo+hNabrpb0f8/cpaQdZNZPd
-	+KQTreSOgCWZ6Ts4pVHYmqac/3mk2HKuR5JeYFdbtePSEQGs/x8h2isYaJelVKg2WPqnRapZAq07B
-	ID0k4zNuDQVHN7l6knM0eup6Z2HTxKDqAF4+3sXUmw70aEpVHQDMiczCtHLO9AvVKDp7UKta1caSr
-	980Q2QICAqkAUaZ2IdBlrBoP+5yh4EllkJ8nwtPDskFOn79/BouiPaTJ4wqycTTF+GQt2agwwGRs0
-	UU95ipmIOooQRZ6+kjhly9Pl/ml7+4ao7yT/kv6qV2+Uo006wzhYQ7kI9DqW0L07lUTJ5JsiYg8vv
-	+q+Wy/aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7T10tbTpcV2pUBQyWyrHxm7GXYtp6nDFJhaWs/Lxnh8=; b=D+paCOV8R+t5lfFBp+GoXSlngK
+	378j4E6VtJSpMUwQCeOVyocbJY69HsgAxcGxQKhM8HMVNCkkbiMOCoPFLG/dmZKzivYnk0N5aMO18
+	rosAPE/qi6TUJTlvWctSwAyJmZDK21sKCktnv3wb2MvODffUVdcqeHCOHUoWZUQu44t9S2E0TrNGh
+	bCVyhHn3IECln692t+VOFwQXH5q2IdNNOu4yfgGouw901LF7oQZZix/K4q/U7xwH5uuDSD4A29c1x
+	1bid3T+3MLgbyQICgAhLZ+Mta+3nQS+gRLDJUlw2uBfPwDCH3rtKkiNvrT27I+qOsIc5FCvKbyKG2
+	qe3rEAsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVVq5-00000000kJL-0xcZ;
-	Fri, 05 Jun 2026 14:48:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wVVwZ-00000000kxB-1AfR;
+	Fri, 05 Jun 2026 14:54:43 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVVq3-00000000kJE-47QY
+	id 1wVVwV-00000000kt7-0fG2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 14:48:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 68DD9418A8;
-	Fri,  5 Jun 2026 14:47:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11E051F00893;
-	Fri,  5 Jun 2026 14:47:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780670879;
-	bh=bfFH8ZVDSQVCgdkYKT1+TMLQUY2s3jnNF65qom08fFI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YcDIn0z0biXIa+Od9GsBSTOJ6pAH9BCXCH0NzNYZHwJ4KR6orHsNPrVwhARZtUESp
-	 OfefIB+JQzAYPEJuu2J3LvHDwoWFp8awD03ZQ6Ex/NhPDXM4YI/xPao97CuyJ2lPwk
-	 5v3vGO29giHR0jblizx5wkkOoaJHIsI+0Cr8w2Pg4d1HeInCpGIZqsSNapx+UUhD00
-	 hfR+J+9fg+K2ZMjd4ybYE1mn5/IZtuvlV6CvREIwCZsJViRaL/NVGtLTUt06naaEA0
-	 lhrogLAmQTsiA59CvWJ7K0W0FmKbRwRUgp/eHEcZn4393IUGJDIZXYhJddrFW7TBIu
-	 4kjMdRx3q74Eg==
-Date: Fri, 5 Jun 2026 09:47:58 -0500
-From: Rob Herring <robh@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com,
-	rmk+kernel@armlinux.org.uk, andersson@kernel.org,
-	konradybcio@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linusw@kernel.org, brgl@kernel.org, arnd@arndb.de,
-	gregkh@linuxfoundation.org, Daniel Thompson <daniel@riscstar.com>,
-	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com,
-	alexandre.torgue@foss.st.com, ast@kernel.org,
-	boon.khai.ng@altera.com, chenchuangyu@xiaomi.com,
-	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	hkallweit1@gmail.com, inochiama@gmail.com, john.fastabend@gmail.com,
-	julianbraha@gmail.com, livelycarpet87@gmail.com,
-	mcoquelin.stm32@gmail.com, me@ziyao.cc,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
-	rohan.g.thomas@altera.com, sdf@fomichev.me,
-	siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com,
-	wens@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 13/14] net: stmmac: tc956x: add TC956x/QPS615
- support
-Message-ID: <20260605144758.GB3659201-robh@kernel.org>
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-14-elder@riscstar.com>
+	Fri, 05 Jun 2026 14:54:41 +0000
+Message-ID: <78009c06-4233-4e0a-88ec-33eba10ad8b3@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780671264;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7T10tbTpcV2pUBQyWyrHxm7GXYtp6nDFJhaWs/Lxnh8=;
+	b=BxFUAK/AN0wgD8eGGuFvdxWnrnCkHUxSLZUNCUu//z2V+cA/zvbouPYpYAlPSkzosrFZU4
+	J/W40RsQpiE5xjC0yjYu9DCCYN3v6ILmOEpt/EJFIv4gFx4ius1bqklwFG5NlxcYMFStI9
+	OVRzcmh7CdTWQmTPodFF0Il4jS6egCY=
+Date: Fri, 5 Jun 2026 07:54:10 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260605010022.968612-14-elder@riscstar.com>
+Subject: Re: [PATCH bpf-next v2 5/8] bpf, x86: emit KASAN checks into x86
+ JITed programs
+Content-Language: en-GB
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?=
+ <alexis.lothore@bootlin.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Song Liu <song@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>
+Cc: ebpf@linuxfoundation.org,
+ Bastien Curutchet <bastien.curutchet@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
+ <20260604-kasan-v2-5-c066e627fda8@bootlin.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yonghong Song <yonghong.song@linux.dev>
+In-Reply-To: <20260604-kasan-v2-5-c066e627fda8@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260605_075440_115205_0D98AC33 
+X-CRM114-Status: GOOD (  26.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,105 +87,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 08:00:20PM -0500, Alex Elder wrote:
-> From: Daniel Thompson <daniel@riscstar.com>
-> 
-> Toshiba TC956x is an Ethernet AVB/TSN bridge and is essentially a
-> small and highly-specialized SoC. TC956x includes an "eMAC" subsystem
-> that can be accessed, along with several other peripherals, via two
-> PCIe endpoint functions. There is a main driver for the endpoint that
-> decomposes things and creates auxiliary bus devices to model the SoC.
-> 
-> The eMAC consists of a Designware XGMAC, XPCS and PMA. Each eMAC is
-> supported by an MSIGEN that bridges TC956x level interrupts to PCIe
-> MSIs.
-> 
-> Add a driver for the eMAC/MSIGEN combination.
-> 
-> Co-developed-by: Alex Elder <elder@riscstar.com>
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
 
-The order is wrong here unless you worked on it and then Daniel took 
-over. Tags should be chronological order.
 
+On 6/4/26 1:22 PM, Alexis Lothoré (eBPF Foundation) wrote:
+> Insert KASAN shadow memory checks before memory load and store
+> operations in JIT-compiled BPF programs. This helps detect memory safety
+> bugs such as use-after-free and out-of-bounds accesses at runtime.
+>
+> The main instructions being targeted are BPF_ST, BPF_STX and BPF_LDX,
+> but not all of them are being instrumented:
+> - if the load/store instruction is in fact accessing the program stack,
+>    emit_kasan_check silently skips the instrumentation, as we already
+>    have page guards to monitor stack accesses.
+> - if the load/store instruction is a BPF_PROBE_MEM or a BPF_PROBE_ATOMIC
+>    instruction, we do not instrument it, as the passed address can fault
+>    (hence the custom fault management with BPF_PROBE_XXX instructions),
+>    and so the corresponding kasan check could fault as well.
+>
+> Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
 > ---
->  MAINTAINERS                                   |   2 +
->  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  14 +
->  drivers/net/ethernet/stmicro/stmmac/Makefile  |   2 +
->  .../ethernet/stmicro/stmmac/dwmac-tc956x.c    | 818 ++++++++++++++++++
->  4 files changed, 836 insertions(+)
->  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 0439607d1155f..418537cbefbbb 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -27059,6 +27059,8 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
->  F:	drivers/gpio/gpio-tc956x.c
->  F:	drivers/misc/tc956x_pci.c
-> +F:	drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
-> +F:	include/soc/toshiba/tc956x-dwmac.h
->  
->  TOSHIBA WMI HOTKEYS DRIVER
->  M:	Azael Avalos <coproscefalo@gmail.com>
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> index e3dd5adda5aca..8d247e033e356 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> @@ -404,6 +404,20 @@ config DWMAC_MOTORCOMM
->  	  This enables glue driver for Motorcomm DWMAC-based PCI Ethernet
->  	  controllers. Currently only YT6801 is supported.
->  
-> +config DWMAC_TC956X
-> +	tristate "Toshiba TC956X DWMAC support"
-> +	depends on PCI
-> +	depends on COMMON_CLK
-> +	depends on TOSHIBA_TC956X_PCI
-> +	default TOSHIBA_TC956X_PCI
-> +	select GENERIC_IRQ_CHIP
-> +	help
-> +	  This selects the Toshiba TC956X (and Qualcomm QPS615) support in the
-> +	  stmmac driver.
+> Changes in v2:
+> - support BPF_ATOMICS
+> - support BPF_ST
+> - make sure to systematically pass correct instruction to kasan check
+> ---
+>   arch/x86/net/bpf_jit_comp.c | 63 ++++++++++++++++++++++++++++++++++++++-------
+>   1 file changed, 53 insertions(+), 10 deletions(-)
+>
+> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+> index 943a0f315cf2..cb3c03edc4bd 100644
+> --- a/arch/x86/net/bpf_jit_comp.c
+> +++ b/arch/x86/net/bpf_jit_comp.c
+> @@ -1516,17 +1516,30 @@ static int emit_atomic_rmw_index(u8 **pprog, u32 atomic_op, u32 size,
+>   	return 0;
+>   }
+>   
+> -static int emit_atomic_ld_st(u8 **pprog, u32 atomic_op, u32 dst_reg,
+> -			     u32 src_reg, s16 off, u8 bpf_size)
+> +static int emit_atomic_ld_st(u8 **pprog, struct bpf_insn *insn, u8 *ip,
+> +			     u32 dst_reg, u32 src_reg, bool accesses_stack_only)
+>   {
+> +	u32 atomic_op = insn->imm;
+> +	int err;
 > +
-> +	  This provides support for the ethernet controllers found on these
-> +	  devices.
-> +
->  config STMMAC_PCI
->  	tristate "STMMAC PCI bus support"
->  	depends on PCI
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> index a1cea2f57252e..e8e7f95dbe3e8 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> @@ -51,4 +51,6 @@ obj-$(CONFIG_STMMAC_PCI)	+= stmmac-pci.o
->  obj-$(CONFIG_DWMAC_INTEL)	+= dwmac-intel.o
->  obj-$(CONFIG_DWMAC_LOONGSON)	+= dwmac-loongson.o
->  obj-$(CONFIG_DWMAC_MOTORCOMM)	+= dwmac-motorcomm.o
-> +obj-$(CONFIG_TC956X_PCI)	+= tc956x-pci.o
-> +obj-$(CONFIG_DWMAC_TC956X)	+= dwmac-tc956x.o
->  stmmac-pci-objs:= stmmac_pci.o
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
-> new file mode 100644
-> index 0000000000000..c77585e4a50e6
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
-> @@ -0,0 +1,818 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +/*
-> + * Copyright (C) 2026 by RISCstar Solutions Corporation.  All rights reserved.
-> + *
-> + * Derived from code having the following copyrights:
-> + * Copyright (C) 2011-2012  Vayavya Labs Pvt Ltd
-> + * Copyright (C) 2025 Toshiba Electronic Devices & Storage Corporation
-> + */
-> +
-> +#include <linux/auxiliary_bus.h>
+>   	switch (atomic_op) {
+>   	case BPF_LOAD_ACQ:
+> +		err = emit_kasan_check(pprog, src_reg, insn, ip, false,
+> +				       accesses_stack_only);
+> +		if (err)
+> +			return err;
+>   		/* dst_reg = smp_load_acquire(src_reg + off16) */
+> -		emit_ldx(pprog, bpf_size, dst_reg, src_reg, off);
+> +		emit_ldx(pprog, BPF_SIZE(insn->code), dst_reg, src_reg,
+> +			 insn->off);
+>   		break;
+>   	case BPF_STORE_REL:
+> +		err = emit_kasan_check(pprog, dst_reg, insn, ip, true,
+> +				       accesses_stack_only);
+> +		if (err)
+> +			return err;
+>   		/* smp_store_release(dst_reg + off16, src_reg) */
+> -		emit_stx(pprog, bpf_size, dst_reg, src_reg, off);
+> +		emit_stx(pprog, BPF_SIZE(insn->code), dst_reg, src_reg,
+> +			 insn->off);
+>   		break;
+>   	default:
+>   		pr_err("bpf_jit: unknown atomic load/store opcode %02x\n",
+> @@ -1904,6 +1917,7 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   		const s32 imm32 = insn->imm;
+>   		u32 dst_reg = insn->dst_reg;
+>   		u32 src_reg = insn->src_reg;
+> +		bool accesses_stack_only;
+>   		u8 b2 = 0, b3 = 0;
+>   		u8 *start_of_ldx;
+>   		s64 jmp_offset;
+> @@ -1924,6 +1938,8 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   			EMIT_ENDBR();
+>   
+>   		ip = image + addrs[i - 1] + (prog - temp);
+> +		accesses_stack_only =
+> +			bpf_insn_accesses_stack_only(env, bpf_prog, i - 1);
+>   
+>   		switch (insn->code) {
+>   			/* ALU */
+> @@ -2304,6 +2320,10 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   		case BPF_ST | BPF_MEM | BPF_H:
+>   		case BPF_ST | BPF_MEM | BPF_W:
+>   		case BPF_ST | BPF_MEM | BPF_DW:
+> +			err = emit_kasan_check(&prog, dst_reg, insn, ip, true,
+> +					       accesses_stack_only);
+> +			if (err)
+> +				return err;
+>   			switch (BPF_SIZE(insn->code)) {
+>   			case BPF_B:
+>   				if (is_ereg(dst_reg))
+> @@ -2369,6 +2389,10 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   				insn_off = outgoing_arg_base - outgoing_rsp - insn_off - 16;
+>   				dst_reg = BPF_REG_FP;
+>   			}
+> +			err = emit_kasan_check(&prog, dst_reg, insn, ip, true,
+> +					       accesses_stack_only);
+> +			if (err)
+> +				return err;
+>   			emit_stx(&prog, BPF_SIZE(insn->code), dst_reg, src_reg, insn_off);
+>   			break;
+>   
+> @@ -2530,6 +2554,12 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   				/* populate jmp_offset for JAE above to jump to start_of_ldx */
+>   				start_of_ldx = prog;
+>   				end_of_jmp[-1] = start_of_ldx - end_of_jmp;
+> +			} else {
+> +				err = emit_kasan_check(&prog, src_reg, insn, ip,
+> +						       false,
+> +						       accesses_stack_only);
+> +				if (err)
+> +					return err;
+>   			}
+>   			if (BPF_MODE(insn->code) == BPF_PROBE_MEMSX ||
+>   			    BPF_MODE(insn->code) == BPF_MEMSX)
+> @@ -2592,13 +2622,13 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   			fallthrough;
+>   		case BPF_STX | BPF_ATOMIC | BPF_W:
+>   		case BPF_STX | BPF_ATOMIC | BPF_DW:
+> +			bool is64 = BPF_SIZE(insn->code) == BPF_DW;
+> +			u32 real_src_reg = src_reg;
+> +			u32 real_dst_reg = dst_reg;
 
-Based on the block diagram, these are PCI devices. Auxiliary bus is the 
-wrong thing to use here.
+With llvm23, I got the following build failure:
 
-Rob
+     /home/yhs/work/bpf-next/arch/x86/net/bpf_jit_comp.c:2625:4: error:
+             label followed by a declaration is a C23 extension [-Werror,-Wc23-extensions]
+      2625 |                         bool is64 = BPF_SIZE(insn->code) == BPF_DW;
+           |                         ^
+     1 error generated.
+
+The below is a fix:
+
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index cb3c03edc4bd..61faf8d8f157 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -2621,7 +2621,7 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+                         }
+                         fallthrough;
+                 case BPF_STX | BPF_ATOMIC | BPF_W:
+-               case BPF_STX | BPF_ATOMIC | BPF_DW:
++               case BPF_STX | BPF_ATOMIC | BPF_DW: {
+                         bool is64 = BPF_SIZE(insn->code) == BPF_DW;
+                         u32 real_src_reg = src_reg;
+                         u32 real_dst_reg = dst_reg;
+@@ -2695,6 +2695,7 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+                         if (err)
+                                 return err;
+                         break;
++               }
+  
+                 case BPF_STX | BPF_PROBE_ATOMIC | BPF_B:
+                 case BPF_STX | BPF_PROBE_ATOMIC | BPF_H:
+
+> +			u8 *branch_target;
+>   			if (insn->imm == (BPF_AND | BPF_FETCH) ||
+>   			    insn->imm == (BPF_OR | BPF_FETCH) ||
+>   			    insn->imm == (BPF_XOR | BPF_FETCH)) {
+> -				bool is64 = BPF_SIZE(insn->code) == BPF_DW;
+> -				u32 real_src_reg = src_reg;
+> -				u32 real_dst_reg = dst_reg;
+> -				u8 *branch_target;
+>   
+>   				/*
+>   				 * Can't be implemented with a single x86 insn.
+> @@ -2612,7 +2642,19 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   				if (dst_reg == BPF_REG_0)
+>   					real_dst_reg = BPF_REG_AX;
+>   
+> +				ip += 3;
+> +			}
+> +			if (!bpf_atomic_is_load_store(insn)) {
+> +				err = emit_kasan_check(&prog, real_dst_reg,
+> +						       insn, ip, false,
+> +						       accesses_stack_only);
+> +				if (err)
+> +					return err;
+>   				branch_target = prog;
+> +			}
+> +			if (insn->imm == (BPF_AND | BPF_FETCH) ||
+> +			    insn->imm == (BPF_OR | BPF_FETCH) ||
+> +			    insn->imm == (BPF_XOR | BPF_FETCH)) {
+>   				/* Load old value */
+>   				emit_ldx(&prog, BPF_SIZE(insn->code),
+>   					 BPF_REG_0, real_dst_reg, insn->off);
+> @@ -2644,8 +2686,9 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
+>   			}
+>   
+>   			if (bpf_atomic_is_load_store(insn))
+> -				err = emit_atomic_ld_st(&prog, insn->imm, dst_reg, src_reg,
+> -							insn->off, BPF_SIZE(insn->code));
+> +				err = emit_atomic_ld_st(&prog, insn, ip,
+> +							dst_reg, src_reg,
+> +							accesses_stack_only);
+>   			else
+>   				err = emit_atomic_rmw(&prog, insn->imm, dst_reg, src_reg,
+>   						      insn->off, BPF_SIZE(insn->code));
+>
+
 
