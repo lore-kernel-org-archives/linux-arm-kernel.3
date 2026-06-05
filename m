@@ -4,72 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFACCD6E7E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDC3CD6E7E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xN8nFmtB+vJNqdxNSc/ZNQI7UXaeVmpysIu8wutUBA8=; b=tA+aewY+2wVpX5oe0Jfzmdm73/
-	ia4+9dD9Uhf38FuyrxSE8dtDQDEfh3V3r036UEOGBr4AE8arZGtjJUnCXj0lj+JZ0ndfcuyhvv9Mw
-	fmFbASIfNHpZPwN3yHuq5Wqtxhk/X/XcCjwTboPv1qU78LU15mfC2CE58AUR5iJ2PmDBffBHtl+0q
-	kjKkWKL8g6SXJjUFnMekJvE04Na1wYH03xq9IgE+WBaqrbM7RMA92dkTvMXxP2hlGcg6eOE+JK+uk
-	G5XcjAumIMcpwcYMP4D4cfpA4+Qch63PO9sDxnvQtrh9kBZYUB0ZvQPoeyCHM+LEFWmcB8845fROy
-	CQS1TOTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SyL+KhKJOkLBPVYqIVEYemJAAJqjAzpI1nf+X+CuAeI=; b=KrDRXyp38xF0zgrFgnAu5yX/I8
+	E7bh0om6XJ3qB9PGkZizJHwJ9cmFG/cdw6tkyQ/H2Dc5Hfl4e4B8F1AKj+xZZS2WoWmfLXdKuYwED
+	CsmrXXnyIixK37bDsHsLwIHjOJtgq4Vy16rqHykobqWDM/kpxb7gerwFfPZJF4PXwyU6VwH2oD+2F
+	O2dtDXKMk+XR/wsf+TixOcKnrJ15r2hwIWWzd/NISgPEorxSa5FlqtNT8TZDFpjzrGmQ+4NZr/zFn
+	qRVKET+hw70PsCVQME2V+nkSXduWLYyFquAd3Z16Mh0jOU6zYG8g0viH/S05ZBAnOZVsforKLIhJf
+	Qc0f0Hhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVcmx-00000001GPq-3M24;
-	Fri, 05 Jun 2026 22:13:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wVcsY-00000001GcV-26gK;
+	Fri, 05 Jun 2026 22:19:02 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVcmv-00000001GPU-1LZu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 22:13:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1780697590;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xN8nFmtB+vJNqdxNSc/ZNQI7UXaeVmpysIu8wutUBA8=;
-	b=M3SN1nUb5/oSCR+YwIk8re60foB/KLehxx2m0L6pOu6EXuQNcTW6/qpMBeJwUi9djD1dZk
-	dmmYQydtvGcSJRFuKru56y+KkQNG/avc8GedA8E/bZ6rSS28VRuq/H06SPaBO1mzMMRBoA
-	jO5iF+aNSj5YYUyM8GMztLt6rxeyTwE=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-461-62ZC3vXBPVGsvgYXzw3QMA-1; Fri,
- 05 Jun 2026 18:13:07 -0400
-X-MC-Unique: 62ZC3vXBPVGsvgYXzw3QMA-1
-X-Mimecast-MFC-AGG-ID: 62ZC3vXBPVGsvgYXzw3QMA_1780697586
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 762FB18004BB;
-	Fri,  5 Jun 2026 22:13:05 +0000 (UTC)
-Received: from [172.20.220.30] (unknown [10.30.44.120])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5C27E1800480;
-	Fri,  5 Jun 2026 22:13:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.1.0-rc6,
- upstream-arm-next, ffe7bef3)
-Date: Fri, 05 Jun 2026 22:13:04 -0000
-To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- will@kernel.org, yoyang@redhat.com
+	id 1wVcsW-00000001GbI-04xG;
+	Fri, 05 Jun 2026 22:19:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=SyL+KhKJOkLBPVYqIVEYemJAAJqjAzpI1nf+X+CuAeI=; b=loz66b8dq7vrC22SV6JKCgdn34
+	hgTPGakmdzwdWJHUXt9X50+NVZoUo4lxK4zPXerHNV+3lgNVgXi07/g2qP+wswru4+ErYkLjRTmYO
+	p4PuwoqA3RAIFR8gYelrynX0d1CifSbPci/Kba8VUI10IkHhCQhnaDhi5xFBuRWED3Q3hkrjHqdL/
+	hX8hiGO9UZU1Fl1SkWBgl3SJ3zfHcJSzIFiYXmO8vD8KRedruytvxXAj7LwfTfKbdlKRThbGeBCKt
+	NcqteKD0kr7CZKGlyDSNVwECPFYjF2DD61BQD0QLUNUy7BFubjlgNsEp8hjlU+JU06EYoR7nwdWe0
+	QUlqP5KA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts64 changes for 7.2 #2
+Date: Sat, 06 Jun 2026 00:18:53 +0200
+Message-ID: <21578066.fAMKPKieAE@phil>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <21400.126060518130700195@us-mta-461.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 08VXSvKYUyKH-Wd13J2-Aqw6_2mQv7CQDsAKZrJoRro_1780697586
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_151313_438729_69A4652F 
-X-CRM114-Status: UNSURE (   6.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260605_151900_116343_4F7AD196 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +62,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi soc maintainers,
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
+please find below some more Rockchip DT changes for the merge-window
+for 7.2 .
 
-
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2580039734
-
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        xfstests - btrfs
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2580039734_aarch64_kernel_kcidb_tool_21420461_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL generic/301
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2580039734_aarch64_kernel_kcidb_tool_21420462_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL generic/301
-
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
+The most interesting addition is of course basic camera support
+on RK3588 which enables unfiltered camera capture (i.e. without
+postprocessing for whitebalance etc)
 
 
+Please pull.
+Thanks
+Heiko
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+The following changes since commit eb24b60553e0692cbbec2863ca31d2a56bff098d:
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+  arm64: dts: rockchip: Add watchdog node for RK3528 (2026-05-07 13:27:53 +=
+0200)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git =
+tags/v7.2-rockchip-dts64-2
+
+for you to fetch changes up to 8545eda00fdf3d7e17933ce0f706d005b1bad42d:
+
+  arm64: dts: rockchip: Fix vcc_sdio regulator max voltage on Pinebook Pro =
+(2026-06-02 22:47:18 +0200)
+
+=2D---------------------------------------------------------------
+We've got basic camera support on RK3588!
+
+New peripherals RK3588 vicap plus camera addition to some boards,
+RK3528 USB and USB enablement on some boards, RGA3 support on RK3588.
+Missing EL2 virtual timer interrupt added to RK3588.
+
+Some more added peripherals for the Khadas Edge 2L board.
+
+=2D---------------------------------------------------------------
+Chen-Yu Tsai (2):
+      arm64: dts: rockchip: Fix EEPROM compatible on rk3399-nanopi-r4s-ente=
+rprise
+      arm64: dts: rockchip: Disable removed devices from rk3399-nanopi-r4s
+
+Chukun Pan (1):
+      arm64: dts: rockchip: enable adc button for Radxa E25
+
+Gray Huang (2):
+      arm64: dts: rockchip: Enable USB for Khadas Edge 2L
+      arm64: dts: rockchip: Add Bluetooth support for Khadas Edge 2L
+
+Hugo Osvaldo Barrera (1):
+      arm64: dts: rockchip: Fix vcc_sdio regulator max voltage on Pinebook =
+Pro
+
+Jonas Karlman (5):
+      arm64: dts: rockchip: Add USB nodes for RK3528
+      arm64: dts: rockchip: Enable USB 2.0 ports on Radxa E20C
+      arm64: dts: rockchip: Enable USB ports on Radxa ROCK 2A/2F
+      arm64: dts: rockchip: Enable USB 2.0 ports on ArmSoM Sige1
+      arm64: dts: rockchip: Enable USB 2.0 ports on NanoPi Zero2
+
+Marc Zyngier (1):
+      arm64: dts: rockchip: Add EL2 virtual timer interrupt
+
+Michael Riesch (3):
+      arm64: dts: rockchip: add vicap node to rk3588
+      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam0
+      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam1
+
+Sven P=C3=BCschel (1):
+      arm64: dts: rockchip: add rga3 dt nodes to rk3588
+
+ arch/arm64/boot/dts/rockchip/Makefile              |   7 ++
+ .../dts/rockchip/rk3399-nanopi-r4s-enterprise.dts  |   2 +-
+ .../arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi |  68 +++++++++++
+ .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |   2 +-
+ .../boot/dts/rockchip/rk3528-armsom-sige1.dts      |  25 ++++
+ .../boot/dts/rockchip/rk3528-nanopi-zero2.dts      |  29 +++++
+ arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts |  60 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi    |  17 +++
+ arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts    |  11 ++
+ arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts    |  12 ++
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi           |  80 ++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts  |  14 +++
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |   3 +-
+ .../boot/dts/rockchip/rk3576-khadas-edge-2l.dts    |  82 +++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 135 +++++++++++++++++=
+++++
+ .../rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso      |  99 +++++++++++++++
+ .../rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      |  99 +++++++++++++++
+ 17 files changed, 742 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-=
+cam4k-cam0.dtso
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-=
+cam4k-cam1.dtso
+
+
 
 
