@@ -4,100 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EA6CD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B861CD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 20:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISDeP/qyYAEltSrqbCKLAdEkNOxIUqnGYCtw5a23CLI=; b=1iGcof3GEMgNu8uKZ3fcrxqI1n
-	nuuQ9b9SBcHpTkCOlKKE38SbaszD355UV1K5pUwUbdaNEN+5QFsqAImnMZ08PMfPbiH734OV8FT05
-	QO4LvjbDVcS55cQ0PeM7FJ5qK6SKrjMyoTsnVmKWPhZWFGM16R8Pjiimf0dPZX3HcviZSG6EWiOWn
-	O6XmeKc7ytMS39OU/+gvntQkfBLr0Gs7KTKXmDlmrRqJjcXPh7Q/1mabaLWiW5OMdhevJ80HYFJlX
-	txlokeHgsyynCNsYy+6DnTvVv6KnL4TRk1f/6KdBveg28yak71lGNu8B63oF+2ttJeGM15czFQASL
-	gNvpKg9g==;
+	bh=l0yxG0zXdk7r1+vfGjZGqqrFGTovMPDmklAlD/sL2QA=; b=Vmw8kYtu4HrOv3cQRqY9p7eHCp
+	jgXgX1BMRzoqaj7E5TJjgiUoHS1FPgl2svEu7lAaFOjicuKmzF/BrRASfw/yKMn7B474rrArjXA5D
+	P/iEJlde5WkLcBohKkegRLxXM6ZM93e7f37Q7XxVGjCsLhIg6sboOmzDIEebsVTQlI51krQa1H9y9
+	RzOrMtJ8VojQZP4YpQWdwm1Cf0SNpp5ox+Ba5j3/f+Zi4Os7uShxNb4Da9z1HmyDRa3/HcQGVTF0/
+	mCQqd+isCXIv9wFf5ZWwaOOq2ylMmMZe8REPJy1KUmtnQE6s/LpIv1hg0d+b8NnLdM4dn+SJlAot0
+	T/+8BIlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wValH-000000018wb-35QE;
-	Fri, 05 Jun 2026 20:03:23 +0000
-Received: from mail-vs1-xe2e.google.com ([2607:f8b0:4864:20::e2e])
+	id 1wVb0b-000000019gZ-2QYf;
+	Fri, 05 Jun 2026 20:19:13 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wValE-000000018vp-43TA
+	id 1wVb0Y-000000019fF-1NYe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 20:03:22 +0000
-Received: by mail-vs1-xe2e.google.com with SMTP id ada2fe7eead31-6c25b040555so2180112137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:03:20 -0700 (PDT)
+	Fri, 05 Jun 2026 20:19:12 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-490c0c92cffso13864555e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:19:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1780689799; x=1781294599; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ISDeP/qyYAEltSrqbCKLAdEkNOxIUqnGYCtw5a23CLI=;
-        b=ViHrSR7dkVvZTHyKm+Gc0sbhWEQQShaJerfjxaVpXqC/6d2DNxs7WjLAs3Tj72KTqY
-         SPnpH35qTtrWKPazgfAp1G9EjjvQq4ShhBPjrVZigVVC73EB2NlMowDtUPKRjsuaGor+
-         FiuKaEIgnKpJ5ysEg46EVM2H0fJta5UIc3DrU=
+        d=linaro.org; s=google; t=1780690748; x=1781295548; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l0yxG0zXdk7r1+vfGjZGqqrFGTovMPDmklAlD/sL2QA=;
+        b=rHBvpFHq4yKCDD0ZUloYoQbAF2kE30ARDBbii7xbdcvXvHSgvpTi0GcSYyhkrN/kse
+         VrGOo483mSZ0iEMQ2PmCUdXCreJ49dJLDQKPbx2vtJegO8brO7uj1GGYsZKPMMPm3kRS
+         EMLKkIs4ZwCB9elBVqfGE9+q5oP+fTWelFYNaoMBK3eornf1AA1c2Py1HZBeC8igSrgL
+         ZElAlkt1WDUYFKS6cenlRXLJheyL+4YSwvciVkJGDM4+otQ0c5Umb8AoMF/NaDtW0l7I
+         /zlSWXPhr4YZtrsQodeBBqKbQbx2K79FkKWaf8/8R5QcqA2SmnSif+bRmcLQnUc2IB/+
+         Yw/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780689799; x=1781294599;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ISDeP/qyYAEltSrqbCKLAdEkNOxIUqnGYCtw5a23CLI=;
-        b=syUlkEjgkgvJTnYQiW6ldRis4EmOCxnAYhUkvdgohmHt5PObGxBM2GkeKEM00WNFsM
-         FMSK/oHiElAY+z+RgTu9x5e4mSigMt4F76SUJLqps3rPxJF1HiAdBs7u8L4EGW5E5C/6
-         QlCUvikoN2ZZxvd0hIZQQc6QQ+lZUCGYIxOLBgFfuh6I9FgSFG3UDv3u4G6qBO+6bMCq
-         jOVCOjA6qPPVuC2o5Hj03n4h8tQwi9Ki57LdrjNZ6zveyqn8f1O7hyrPRz7d3xGTD1jL
-         6g5vhkewWOCenVHb1YwyqtXREHANxalS+HdPNdHARvLXpFr6X3qgrcS57UwIFqGoa8YG
-         pl9A==
-X-Forwarded-Encrypted: i=1; AFNElJ+7iOg1o46WhO0Sf1tNAtFsHX/AC08nv5lu50Taz36zyyxkyJbxC+YTCv9RLrH1hYIEStwRP9Ss64j+5t6cRCDg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2+iCeNtBc+11RGJU5VodnR7bzac7hFBNZGsqWGz9+yMdmuYI6
-	77yopiEBoirTVJuCu7Qy3DNVB5bmTRLkDSKy/fjNMGYup7tQdEGF8b/FjPHrqZqtxRQ7SMn2Nlc
-	HOJk=
-X-Gm-Gg: Acq92OFHGEg/36fTmr46Q6C7VWY1ERL+Tby/dz8jtNeyCQ+mbl5eOicLj7phKsGDwfA
-	a6B4lfQpCNs57u2NFNfn0ls8kP4gm/uzxVuL1qsX0bKD6qohVq8rejN/rv1prq+HVaQ40uPR9G9
-	k/nPe+WhAV9D6JcGkGDHUB8y6MtxI67lJN/AFk1d4KVECvpjNUekAagvghQIcs1zPzqLDVFocIn
-	jagvHn81yaoEVi911bqhnq18EZ7++1uFHCYA/zNl4UzRHhdKjG3getIHJZ67TgPlV7fV/k/wJpA
-	DqYYyh/7JLmUmN1vI5DTfUiIzge5CCmMvtQ/KTYsX2N2ojfSfukvHqSWLcnplZme/XTzK9By4Iw
-	8I7SuNWLhX1RkZEnVPfcnREWmqIpq1/CiojL181RzTIjzOWATHB4yCDL3qNaeTgddQBFV9/5ezZ
-	33/5qJXLphTYxWxLiOeJymZWUH4cI1ukCGVvSAJAIDeNOnMYaF8jkE5SFb9jxMus6uvfrj2Got
-X-Received: by 2002:a05:6102:524b:b0:606:49d:1861 with SMTP id ada2fe7eead31-6fefe2c53bcmr3101403137.27.1780689799100;
-        Fri, 05 Jun 2026 13:03:19 -0700 (PDT)
-Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-6eb551b4c56sm8367417137.2.2026.06.05.13.03.17
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Jun 2026 13:03:18 -0700 (PDT)
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-963d7e5ffddso1402487241.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 13:03:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ96L4r3OfOW4xCdI+Ce3+nZwaG91p01R6Byx7V7Jlf2tYRxRZAMuH0X2DdIdA4/X3ldsq1fwOBX6vjhHg5eJDMA@lists.infradead.org
-X-Received: by 2002:a05:6122:906:b0:56d:451b:e4dd with SMTP id
- 71dfb90a1353d-5ac5792009bmr2730729e0c.12.1780689796811; Fri, 05 Jun 2026
- 13:03:16 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780690748; x=1781295548;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=l0yxG0zXdk7r1+vfGjZGqqrFGTovMPDmklAlD/sL2QA=;
+        b=JLZauWLC0qVkpfBPRUwIF5CXY8i+MNCwiwU/p8g1nTCkX96PxrZS9SwJp5kpIse06v
+         zGhbJXuHl6UUD4hITYaBS/5OoLTn6N26mk+/pRfoXoI8xVRhliDyTW/+IsB0NEo5UjsN
+         RvYi+9wx2Dzd+9mM18I7ZtCMcmJ5Wtf0czoZ2A64dXLEVfYcphC+Z1a4LhjSi3Zful9D
+         +OaV4RYXcjQN/XvS8+PxDd5TMJQxdqAPYdJSvJIImD7QhHDOr15gyTmY3s7qA/FIJj4y
+         duLrQh+oEXhb1+kYpineOD4vrQY3bcE7EjUaJ/wbbOujo/51BCYkOwlp8g81rYij/cG9
+         ReLw==
+X-Forwarded-Encrypted: i=1; AFNElJ/qottr6c+mjbUuSZmtfcHsglS8k9/cXkJOMl5aKoJuzpIxUzDFsDDx3tkRvNwQ33xgZwX0ORE6h5rYBcXkfUY5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNQbz8HDI68vI3icyM7wsWFb12vBkv/OB/cgTzYwHyZFjO+m6L
+	9VIZoyfpTRFbhiI/F9MwO7IyVbGuvCVpkZjSyDQMDMQmYw4qRjkmIe/TkA3aQH0/blc=
+X-Gm-Gg: Acq92OENrLi8CSGgCE56ulqppFjbUkY4kDStMHmFVRFKzIuQONT0yalEgyFywX5IyIk
+	oHgEjZ57z3SJifZoMiK4EXcoea3AuJlHQpwTL0audW0JQsSzM+2VUrT3sZ+5EvfhaLdaYIgBlKi
+	PHZAUFZZcnp3K6UeLn++amewnAIoLi3BD1aVfyz4hG2is7efDN+j1adCmuixZoqS3uwNgW149KP
+	FNYuvXabnmU7K+TyPGi3ZC/2FU0TNW89ofHuyU0nblYxyOhV9aheKkwipg1ZXUSuVKdA9IpuW5u
+	Lpne6zmZiOZC46yvc1WEESpUSHpsuJTKPkswwET6+NAAmrKhtUr0nvF5BPiMhc27GYGYDjzKBui
+	AWB2vc8ZxRySy1U77oMIURmqP2QGJjLuUOadCNEegpcPz3Bn+EA9mdoG/bxm67qZDS9Y/nUJclH
+	XLD80Lqbm8AvMpH5uBh7QGYivliNpDYEbHuKRBSAIZfsCyxx9YOkavAUUK+OO2gq6Ob4Af3b/aG
+	gRe8LO3NIbQCXBoUqf/0fT+kN4=
+X-Received: by 2002:a05:600c:8b68:b0:490:bad7:3634 with SMTP id 5b1f17b1804b1-490c25e1104mr89266485e9.19.1780690748518;
+        Fri, 05 Jun 2026 13:19:08 -0700 (PDT)
+Received: from [127.0.1.1] ([94.4.195.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc413541sm190533895e9.14.2026.06.05.13.19.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Jun 2026 13:19:08 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Date: Fri, 05 Jun 2026 21:18:50 +0100
+Subject: [PATCH 1/3] soc: samsung: exynos-pmu: use target cpu ID in hotplug
+ callbacks
 MIME-Version: 1.0
-References: <cover.1780496779.git.kas@kernel.org> <6172eafcb9de6e626c0f1c36426d67e1e562ed32.1780496779.git.kas@kernel.org>
-In-Reply-To: <6172eafcb9de6e626c0f1c36426d67e1e562ed32.1780496779.git.kas@kernel.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 5 Jun 2026 13:03:05 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=U4eJ__dQc1e8CGgj5sMDNrD1MgEEy9Cgj9M5n-WmYAXA@mail.gmail.com>
-X-Gm-Features: AVVi8Cemd2ZnzLkxdzHldi4k5VmRnmgjGuGWN3228_wubZLNmG-MW1yRJDWJrzg
-Message-ID: <CAD=FV=U4eJ__dQc1e8CGgj5sMDNrD1MgEEy9Cgj9M5n-WmYAXA@mail.gmail.com>
-Subject: Re: [PATCH 3/4] arm64: wire SDEI NMI into the hardlockup watchdog
-To: Kiryl Shutsemau <kirill@shutemov.name>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, 
-	Puranjay Mohan <puranjay@kernel.org>, Usama Arif <usama.arif@linux.dev>, 
-	Breno Leitao <leitao@debian.org>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
-	Lecopzer Chen <lecopzer.chen@mediatek.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-1-0cd05c81a82d@linaro.org>
+References: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
+In-Reply-To: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_130321_207874_44E32374 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260605_131910_388217_71B5EFE1 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,37 +105,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The CPU hotplug state callbacks __gs101_cpu_pmu_online() and
+__gs101_cpu_pmu_offline() currently partially use smp_processor_id() to
+determine the target register offset for the CPU inform hints. This may
+be fine for cpuidle flow but broken for cpu hotplug where the target
+cpu is passed as an argument and could be different from cpu where
+that is executing (e.g. CPU 0 offlining CPU 1), meaning that
+smp_processor_id() returns the id of local CPU but hotplug flow
+deals with another CPU core undergoing the transition.
 
-On Wed, Jun 3, 2026 at 7:36=E2=80=AFAM Kiryl Shutsemau <kirill@shutemov.nam=
-e> wrote:
->
-> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
->
-> Select HAVE_HARDLOCKUP_DETECTOR_ARCH so the framework takes its backend
-> from this driver. A per-CPU hrtimer checks its buddy's heartbeat and
-> signals event 0 at a stalled CPU, which runs watchdog_hardlockup_check()
-> NMI-like.
->
-> The source is chosen at boot: SDEI if firmware provides it, otherwise a
-> perf-NMI counter (pseudo-NMI) fallback -- one image covers both.
->
-> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> ---
->  arch/arm64/Kconfig          |   1 +
->  drivers/firmware/Kconfig    |   3 +
->  drivers/firmware/sdei_nmi.c | 247 +++++++++++++++++++++++++++++++++++-
->  3 files changed, 248 insertions(+), 3 deletions(-)
+This causes the pmu driver to write power down and power on configuration
+hints to the wrong hardware registers, messing up the power state of active
+cores and failing to configure the target core. Fix this by removing the
+cpuhint variable entirely and utilizing the target 'cpu' argument passed
+to the callbacks by the hotplug core infrastructure.
 
-I'm a little confused about this patch. We already have a buddy
-hardlockup detector using the hrtimer, and it's even been improved
-recently to trigger in a smaller time bound. It looks as if you're
-duplicating bits of the perf and buddy detector here?
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
+Fixes: 598995027b91 ("soc: samsung: exynos-pmu: enable CPU hotplug support for gs101")
+Cc: stable@vger.kernel.org
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+ drivers/soc/samsung/exynos-pmu.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-I don't think you need this patch at all. The existing buddy detector
-+ patches #1 and #2 in your series should be sufficient.
+diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+index d58376c38179..6e635872247a 100644
+--- a/drivers/soc/samsung/exynos-pmu.c
++++ b/drivers/soc/samsung/exynos-pmu.c
+@@ -235,11 +235,10 @@ EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
+ static int __gs101_cpu_pmu_online(unsigned int cpu)
+ 	__must_hold(&pmu_context->cpupm_lock)
+ {
+-	unsigned int cpuhint = smp_processor_id();
+ 	u32 reg, mask;
+ 
+ 	/* clear cpu inform hint */
+-	regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpuhint),
++	regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpu),
+ 		     CPU_INFORM_CLEAR);
+ 
+ 	mask = BIT(cpu);
+@@ -296,12 +295,10 @@ static int gs101_cpuhp_pmu_online(unsigned int cpu)
+ static int __gs101_cpu_pmu_offline(unsigned int cpu)
+ 	__must_hold(&pmu_context->cpupm_lock)
+ {
+-	unsigned int cpuhint = smp_processor_id();
+ 	u32 reg, mask;
+ 
+ 	/* set cpu inform hint */
+-	regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpuhint),
+-		     CPU_INFORM_C2);
++	regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpu), CPU_INFORM_C2);
+ 
+ 	mask = BIT(cpu);
+ 	regmap_update_bits(pmu_context->pmuintrgen, GS101_GRP2_INTR_BID_ENABLE,
 
-Did I misunderstand?
+-- 
+2.51.0
 
--Doug
 
