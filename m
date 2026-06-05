@@ -4,106 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D48CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DFACD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgp+/h4QmDMqtLCE1Y/k0cVkhXW2cBE4H6XqM6EAxrQ=; b=uGox0AbcwSwteVlN2aZi/chhBq
-	n3B0qFMuEP1XbODdYruHogMuigKAbDs66UcDJRJks56u6bVTGy8FaegPkgQcN4J0WLFMPJx81aJ3T
-	FJf62EUMqP57jeCyO8XCPyLN/S+wWXA77VjYXi0KG9Lb91cnXSWCUfJYxBrQJfLU7Mb3OExrvmdy8
-	prlUqIrtB+J5eedf609elpTD9r7T6WlQ0fAzsmaPt4oBic/hzzyGgWxdjdaaw9i4xY0JIUu3IarDD
-	r13KWScvZ/JMwCTvHpNAVf3PtSJu1W8IrdX4P3MBoIksjxTKdqTJOqByliaMjxy2OdnnOiDbgQZMQ
-	P4kPG7FQ==;
+	bh=27IyGzXryO4mCf3HcYxb8pG4aADIiP9FcTwQAI/ZmA8=; b=keGPm3xi3AW+S6Xwk5HcrCHux/
+	azNx0a7NJBkSf/95F+afb/dQwH9wHteVGn58I9MJs1fWXhaNkmqEhsEwMHxsv6PLYDbaiItrYQekL
+	up+wgF36H7GqwCY6zRLKP+96GYSE9AXRvTWHxDe8pScnrctCRvBZadM48l5DE0B2eHLivEbu6dFL3
+	UNrL8R5icxWTorT/poZVdmQOvqKaiY6fqLHrE/2cAeknhE4/uqqTlMCbHSakFgF6Ap+J+YIo/Pxd4
+	XaLepQHnrHX3cCcsvRtWQymeMHK+i8rgIAHElVqfktFftAHDIiSCz+5S4tf2MocGPMJb0X13OJ2qz
+	pQt5Wltw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQn0-00000000OUT-0SMy;
-	Fri, 05 Jun 2026 09:24:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQmy-00000000OUF-3cwa
+	id 1wVQp1-00000000Ohm-1oSZ;
+	Fri, 05 Jun 2026 09:26:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wVQoy-00000000OhH-2Z4x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 09:24:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 478A1416B6;
-	Fri,  5 Jun 2026 09:24:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E411A1F00893;
-	Fri,  5 Jun 2026 09:24:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780651468;
-	bh=kgp+/h4QmDMqtLCE1Y/k0cVkhXW2cBE4H6XqM6EAxrQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=osK+X5j9wl/8jlopXvzZEshpgKE7tl/vlNHdFLMt3jRVXUwb1QD9liFa1VbmqN/y4
-	 uH/GsW1o/KKHGxWyay9NXrQiSVzAUq0+RMfTsc6fOPv8wj0GEZIPn714C2GA8GEAhE
-	 YKmG/C0bQpPQ4N6L0+okdFS5UKMD340S/+JYtG821P5+wVt3qVquY7DxPeA3n2ZU6V
-	 k83M0QaCM2WKeCYlSc+2nhJ1GvotyZ9fzc4nfBD49sz7hOYqHIxXGYJgz+wvKLhnDm
-	 2SMx6KExhKDJ/VlUXFMLM0xFeOhgjzOOaBogjaHVyqxrhNEc5K5pkdJj1LtlWHq9zD
-	 Z4hH5o6fkAE4Q==
-Message-ID: <6c87641d-d505-44ff-a994-eeabf55f4c73@kernel.org>
-Date: Fri, 5 Jun 2026 11:24:21 +0200
+	Fri, 05 Jun 2026 09:26:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3294A4AB3;
+	Fri,  5 Jun 2026 02:26:26 -0700 (PDT)
+Received: from [10.1.34.147] (e121487-lin.cambridge.arm.com [10.1.34.147])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 633473F86F;
+	Fri,  5 Jun 2026 02:26:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780651591; bh=qLDVMzsp0gU9ZT+OeIVYdQXL4O9nCAvlhg1NGB8/Z/Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pc5HFOIJNGJddjic9h4Z3nHCCDTS1usEWCoRtTBJzuDeWeiskdxV6/pmk2pZ97P9B
+	 fAxd3MOD7j5ElA+q+JwOWz0ndXxVCL8Fd0aFrgvdNPDffVFIwnqbMXaUt4UQauq2zt
+	 LAz2BgrhZktIkxYJj2Xfg3flDBBRC3Sz2N5AAksQ=
+Message-ID: <fd729256-07e8-46eb-8473-74ae6ec3a07e@arm.com>
+Date: Fri, 5 Jun 2026 10:26:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] dt-bindings: clock: cix,sky1-audss-clock: add
- audss clock controller
-To: joakim.zhang@cixtech.com, mturquette@baylibre.com, sboyd@kernel.org,
- bmasney@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, gary.yang@cixtech.com
-Cc: cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+Subject: Re: [PATCH v1] arm64: errata: Workaround NVIDIA Olympus device
+ store/load ordering erratum
+To: Shanker Donthineni <sdonthineni@nvidia.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-arm-kernel@lists.infradead.org
-References: <20260605032225.523669-1-joakim.zhang@cixtech.com>
- <20260605032225.523669-4-joakim.zhang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260605032225.523669-4-joakim.zhang@cixtech.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
+ Jason Sequeira <jsequeira@nvidia.com>
+References: <20260604231254.1904988-1-sdonthineni@nvidia.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260604231254.1904988-1-sdonthineni@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260605_022633_116456_E4F75201 
+X-CRM114-Status: GOOD (  37.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,115 +74,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/06/2026 05:22, joakim.zhang@cixtech.com wrote:
-> +description: |
-> +  Clock provider for the Cix Sky1 audio subsystem (AUDSS).
+On 6/5/26 00:12, Shanker Donthineni wrote:
+> On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
+> observed by a peripheral before an older, non-overlapping Device-nGnR*
+> store to the same peripheral. This breaks the program-order guarantee
+> that software expects for Device-nGnR* accesses and can leave a
+> peripheral in an incorrect state, as a load is observed before an
+> earlier store takes effect.
+> 
+> The erratum can occur only when all of the following apply:
+> 
+>   - A PE executes a Device-nGnR* store followed by a younger
+>     Device-nGnR* load.
+>   - The store is not a store-release.
+>   - The accesses target the same peripheral and do not overlap in bytes.
+>   - There is at most one intervening Device-nGnR* store in program
+>     order, and there are no intervening Device-nGnR* loads.
+>   - There is no DSB, and no DMB that orders loads, between the store and
+>     the load.
+>   - Specific micro-architectural and timing conditions occur.
+> 
+> Two ways to restore ordering: insert a barrier (any DSB, or a DMB that
+> orders loads) between the store and the load, or make the store a
+> store-release. A load-acquire on the load side would not help, because
+> acquire semantics do not prevent a load from being observed ahead of an
+> older store; only the store side (release or a barrier) closes the
+> window.
+> 
+> Promote the raw MMIO store helpers (__raw_writeb/w/l/q) from plain str*
+> to stlr* (Store-Release), which removes the "store is not a
+> store-release" condition for every device write the kernel issues.
+> Because writel() and writel_relaxed() are both built on __raw_writel()
+> in asm-generic/io.h, patching the raw variants covers both the
+> non-relaxed and relaxed APIs without touching the higher layers. Note
+> that writel()'s own barrier sits before the store, so it does not order
+> the store against a subsequent readl(); the store-release promotion is
+> what provides that ordering.
+> 
+> Like ARM64_ERRATUM_832075 on the load side, the change is gated on a new
+> ARM64_WORKAROUND_DEVICE_STORE_RELEASE capability and only activated on
+> parts that match MIDR_NVIDIA_OLYMPUS, so unaffected CPUs continue to use
+> the plain str* sequence.
+> 
+> Co-developed-by: Vikram Sethi <vsethi@nvidia.com>
+> Signed-off-by: Vikram Sethi <vsethi@nvidia.com>
+> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 23 ++++++++++++++++++++
+>  arch/arm64/include/asm/io.h                 | 24 ++++++++++++++-------
+>  arch/arm64/kernel/cpu_errata.c              |  8 +++++++
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  5 files changed, 50 insertions(+), 8 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 211119ce7adc..899bed3908bb 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -256,6 +256,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| NVIDIA         | Olympus core    | T410-OLY-1027   | NVIDIA_OLYMPUS_1027_ERRATUM |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index fe60738e5943..a6bac84b05a1 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -564,6 +564,29 @@ config ARM64_ERRATUM_832075
+>  
+>  	  If unsure, say Y.
+>  
+> +config NVIDIA_OLYMPUS_1027_ERRATUM
+> +	bool "NVIDIA Olympus: device store/load ordering erratum"
+> +	default y
+> +	help
+> +	  This option adds an alternative code sequence to work around an
+> +	  NVIDIA Olympus core erratum where a Device-nGnR* store can be
+> +	  observed by a peripheral after a younger Device-nGnR* load to the
+> +	  same peripheral. This breaks the program order that drivers rely
+> +	  on for MMIO and can leave a device in an incorrect state.
 > +
-> +  This node is a child of a cix,sky1-audss-system-control MFD/syscon node
-> +  (see cix,sky1-system-control.yaml). It does not have a reg property; clock
-> +  mux, divider and gate fields are accessed through the parent register block.
+> +	  The workaround promotes the raw MMIO store helpers
+> +	  (__raw_writeb/w/l/q) to Store-Release (STLR), which restores the
+> +	  required ordering. Because writel() and writel_relaxed() are built
+> +	  on __raw_writel(), both are covered without changes to the higher
+> +	  layers.
 > +
-> +  Software reset lines for AUDSS blocks are exposed on the parent syscon via
-> +  #reset-cells. Reset indices are defined in
-> +  include/dt-bindings/reset/cix,sky1-audss-system-control.h.
+> +	  The fix is applied through the alternatives framework, so enabling
+> +	  this option does not by itself activate the workaround: it is
+> +	  patched in only when an affected CPU is detected, and is a no-op on
+> +	  unaffected CPUs.
 > +
-> +  Six SoC-level reference clocks listed in clocks/clock-names feed the AUDSS
-> +  clock tree. The provider exposes the internal AUDSS clocks to other devices
-> +  via #clock-cells; indices are defined in cix,sky1-audss.h.
+> +	  If unsure, say Y.
 > +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-audss-clock
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +    description:
-> +      Clock indices are defined in include/dt-bindings/clock/cix,sky1-audss.h.
-> +
-> +  clocks:
-> +    minItems: 6
+>  config ARM64_ERRATUM_834220
+>  	bool "Cortex-A57: 834220: Stage 2 translation fault might be incorrectly reported in presence of a Stage 1 fault (rare)"
+>  	depends on KVM
+> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+> index 8cbd1e96fd50..b6d7966e9c19 100644
+> --- a/arch/arm64/include/asm/io.h
+> +++ b/arch/arm64/include/asm/io.h
+> @@ -25,29 +25,37 @@
+>  #define __raw_writeb __raw_writeb
+>  static __always_inline void __raw_writeb(u8 val, volatile void __iomem *addr)
+>  {
+> -	volatile u8 __iomem *ptr = addr;
+> -	asm volatile("strb %w0, %1" : : "rZ" (val), "Qo" (*ptr));
+> +	asm volatile(ALTERNATIVE("strb %w0, [%1]",
+> +				 "stlrb %w0, [%1]",
+> +				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
+> +		     : : "rZ" (val), "r" (addr));
+>  }
+>  
 
-Drop
+Nitpick:
 
-> +    maxItems: 6
-> +    description:
-> +      Six SoC-level audio reference clocks that feed the audio subsystem,
-> +      in the same order as clock-names.
-> +
-> +  clock-names:
-> +    items:
-> +      - const: audio_clk0
-> +      - const: audio_clk1
-> +      - const: audio_clk2
-> +      - const: audio_clk3
-> +      - const: audio_clk4
-> +      - const: audio_clk5
+The change has the side effect of undoing d044d6ba6f02 ("arm64:
+io: permit offset addressing"), since stlr* do not support
+offset addressing. Unaffected CPUs would continue to use str*,
+but would lose the benefit of offset addressing :(
 
-Pretty pointless names. Names matching indexes have no benefits, drop
-all of them and instead list items in "clocks" with description.
+Not sure if this needs to be mentioned in the commit message...
 
-> +
-> +  resets:
-> +    maxItems: 1
-> +    description: Audio subsystem NoC (or bus) reset line.
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +    description: Audio subsystem power domain.
+Cheers
+Vladimir
 
-So the clock part has power domain but reset part does not? This is odd.
-Especially that parent is audss (right?) and here you describe that this
-is audss poer domain.
+>  #define __raw_writew __raw_writew
+>  static __always_inline void __raw_writew(u16 val, volatile void __iomem *addr)
+>  {
+> -	volatile u16 __iomem *ptr = addr;
+> -	asm volatile("strh %w0, %1" : : "rZ" (val), "Qo" (*ptr));
+> +	asm volatile(ALTERNATIVE("strh %w0, [%1]",
+> +				 "stlrh %w0, [%1]",
+> +				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
+> +		     : : "rZ" (val), "r" (addr));
+>  }
+>  
+>  #define __raw_writel __raw_writel
+>  static __always_inline void __raw_writel(u32 val, volatile void __iomem *addr)
+>  {
+> -	volatile u32 __iomem *ptr = addr;
+> -	asm volatile("str %w0, %1" : : "rZ" (val), "Qo" (*ptr));
+> +	asm volatile(ALTERNATIVE("str %w0, [%1]",
+> +				 "stlr %w0, [%1]",
+> +				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
+> +		     : : "rZ" (val), "r" (addr));
+>  }
+>  
+>  #define __raw_writeq __raw_writeq
+>  static __always_inline void __raw_writeq(u64 val, volatile void __iomem *addr)
+>  {
+> -	volatile u64 __iomem *ptr = addr;
+> -	asm volatile("str %x0, %1" : : "rZ" (val), "Qo" (*ptr));
+> +	asm volatile(ALTERNATIVE("str %x0, [%1]",
+> +				 "stlr %x0, [%1]",
+> +				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
+> +		     : : "rZ" (val), "r" (addr));
+>  }
+>  
+>  #define __raw_readb __raw_readb
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 5377e4c2eba2..958d7f16bfeb 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -809,6 +809,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+>  	},
+>  #endif
+> +#ifdef CONFIG_NVIDIA_OLYMPUS_1027_ERRATUM
+> +	{
+> +		/* NVIDIA Olympus core */
+> +		.desc = "NVIDIA Olympus device load/store ordering erratum",
+> +		.capability = ARM64_WORKAROUND_DEVICE_STORE_RELEASE,
+> +		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+> +	},
+> +#endif
+>  #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+>  	{
+>  		/*
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 811c2479e82d..d367257bf770 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -120,6 +120,7 @@ WORKAROUND_CAVIUM_TX2_219_PRFM
+>  WORKAROUND_CAVIUM_TX2_219_TVM
+>  WORKAROUND_CLEAN_CACHE
+>  WORKAROUND_DEVICE_LOAD_ACQUIRE
+> +WORKAROUND_DEVICE_STORE_RELEASE
+>  WORKAROUND_NVIDIA_CARMEL_CNP
+>  WORKAROUND_PMUV3_IMPDEF_TRAPS
+>  WORKAROUND_QCOM_FALKOR_E1003
+> -- 2.43.0
+> 
 
-Same question about resets.
-
-> +
-> +required:
-> +  - compatible
-> +  - '#clock-cells'
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - power-domains
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/cix,sky1.h>
-> +    #include <dt-bindings/reset/cix,sky1-audss-system-control.h>
-> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
-> +
-> +    audss_syscon: system-controller@7110000 {
-> +        compatible = "cix,sky1-audss-system-control", "simple-mfd", "syscon";
-> +        reg = <0x7110000 0x10000>;
-> +        #reset-cells = <1>;
-
-Drop parent node.
-
-> +
-> +        audss_clk: clock-controller {
-> +            compatible = "cix,sky1-audss-clock";
-> +            power-domains = <&smc_devpd 0>;
-> +            #clock-cells = <1>;
-> +            clocks = <&scmi_clk CLK_TREE_AUDIO_CLK0>, <&scmi_clk CLK_TREE_AUDIO_CLK1>,
-> +                     <&scmi_clk CLK_TREE_AUDIO_CLK2>, <&scmi_clk CLK_TREE_AUDIO_CLK3>,
-> +                     <&scmi_clk CLK_TREE_AUDIO_CLK4>, <&scmi_clk CLK_TREE_AUDIO_CLK5>;
-> +            clock-names = "audio_clk0", "audio_clk1", "audio_clk2",
-> +                          "audio_clk3", "audio_clk4", "audio_clk5";
-> +            resets = <&src SKY1_AUDIO_HIFI5_NOC_RESET_N>;
-> +        };
-> +    };
-
-
-
-> +#define CLK_MCLK4		40
-> +
-> +#define AUDSS_MAX_CLKS		41
-
-Drop
-
-
-Best regards,
-Krzysztof
 
