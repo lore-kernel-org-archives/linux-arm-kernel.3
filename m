@@ -4,109 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF5DCD6E77
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 12:32:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2B4CD6E74
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 12:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hOWy2W3C8F0epU9cKoqDrCPhuhX/iOel8Vt4x+uvwak=; b=aMvEx2Md3fcsJrdHKWERHVEF4n
-	O16Ikbi+N/xVwkT30k5jJ3W7TakMP6bgCxuM68eNZAUEGWECCzFQxKWDFcjFr179apMtBbR7Tvmf7
-	hv9ZOnqZoAGIdgmPGtBnXMtkVHxhsxPMNL2ruUcJCPT7VZl5FEZyMPGyQivIYja6XcjWAgFr+BMZQ
-	Ipw8Ny9FxluMTT8njmFxzssqN86+Az5TmLcScv3JdILJ37NtvBPfAJFZdCLwAoFDhc4g9wahPXeOP
-	p62flP0eWF150Wm4Yz0f1+64SJ8bobwvPw6N9M4T99LVFCwj/sKmmo5p/o26lqrO8EbXzqRppexv+
-	YOoAP6Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KAf++KXtEnJCbSKInGh8d467qbrr01PnLacX00V2BKY=; b=4BnYrDVGN998XXeyOTqJEhQKWz
+	/dHb4s8GuHini0lC5YCdOAb2uKMeXvxKOkRztj4VTbjjA7ySZTCBoPnxrAicpI7Y/smj+ZWXo4Dad
+	aLvruMRU/k4kKssIWW4E1nSnPXsHRsEYWS+IQXtmppgjB5/mDbp2Y5wc3b4C4ZS9qXigqCEqxkXve
+	ALW7vmQeA7LYrOyNPzyr7znbZETE6xIL9TqpYAijsa0VVlR3AnQlKiyMibIu2T26oUUOPb5sSXXcb
+	+PIczdcqV2qd1lwSbaH3CPHl838FTw1nY99ALTA1964bqpL4mLkicrqW8+frURDam0+m8eZ1wrnjW
+	b43iJ8Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTif-00000000cty-2YzA;
-	Fri, 05 Jun 2026 12:32:13 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1wVU1X-00000000ddd-1H3v;
+	Fri, 05 Jun 2026 12:51:43 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTid-00000000ctZ-1kFM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 12:32:12 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-91587626ae1so213650285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 05:32:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1780662730; x=1781267530; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hOWy2W3C8F0epU9cKoqDrCPhuhX/iOel8Vt4x+uvwak=;
-        b=oKSpvBU0ZOmMafoXtocwijZVGMV80BnBBxcC1IacYlUl09s8XbkX+MjVcnC25zH7PJ
-         rUBodU8+2HuKKZJGmY4MDR2jAsbLcj9ocewjL91F0DfJZV6v/oWYRSdMA+lKpXaMZQpI
-         CNMXT4liQj4su+7S+yDpv+06gBVTUhNS9bilQ5R4RNJ/ksaYTIy9qxRYLshI3QngoO54
-         XYP8zR8pXOjixfq189tCslhBy7oYSY2aGfnWGxUBr+H0KAMPTAzMHUpvzeXOVz6H+/PM
-         JYFfBw1yI/DqsMM36JuZ5NB7rFW2/SYWgl0TkAMbEtsnYxeZjyPId17oVlRUizlFZcbr
-         qRCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780662730; x=1781267530;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hOWy2W3C8F0epU9cKoqDrCPhuhX/iOel8Vt4x+uvwak=;
-        b=FaXiZaV/P4iM1SCT0AbOcaOHIPW9AD9LeIsJTJ1w2W2H12jw6AfvnCajdEoo19eoyq
-         w7g1cIdPCMhD+XlJrzynY/2ZmxS677jQL82Ob/RnhqkZ7vJK9OLWSld9mNhwll9LzcFw
-         e3anoPZgQ4rYqjN6t2CHNIRq560uVjCcOQ/cffxbVUk8yR857nnSa5Zr1Zei4eRCVx8u
-         K7zUE/D29tKjTlMNl7YLiqMgSkE6ABZT8O+HfEoRfoINQnqvzppyFLal2L9ETK0XAdQu
-         rrBz1N417PQqBRq7AVcWdNKiOMTgQITrSCb5j3sRGaMmk31feoZOkZMIBSwW8wuFjl7Z
-         Updw==
-X-Forwarded-Encrypted: i=1; AFNElJ/s4kYWstFnECOVioSfJig1JddADlIKIQeghqy2U2UVH/aUlVtFFARxtKP5h6F3QwihLCAeogr4DTCPooZaPmmv@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywcrzd6nYcdzJhzdW/P3x8jkqScuEazxgQH6R23otyd6OBM0aas
-	IImeeydyROJlzpdRpwGbNbpHS8PUkYLkLaZEpE8QrTnuDpiaJPTHlIj5O1TuTbnM8WLRuMjzAj8
-	bgoDZUns=
-X-Gm-Gg: Acq92OHZBwy36dYF/1X53Fzw37z7bbBa9U8fmKqbIO1DWnNOqkLWA7wJOjEvpumuYQ/
-	BGrqfhY3caT3iTDDJVYIOHPs7JNH615sdliep82XCKktC/kad0Ur7VJp78ZdQY9wzRYVfNsi9C6
-	Uc4nFwzaKygiUTz6fD1gbmZFe5RZ/Fv0bzyjjO1ttoOdGs+Z5vKdswTQr6zA6+GxbrjRq8EhpVV
-	5NuTq+trXlocG3bVqdW/Iv5VA85X5BO3ZwomMLJX7x9jHfXXvtRNIO21nKBeLU1Jdq21CVpNPdw
-	e7qfP0TijQGjO6soW0NNXsJrG4/86B01WxcH6FJFL2XDZeA0uEc5I8GdsoJ8LMA7XgiUg5Z+7id
-	NUOqtH3udCsBau4N6EiGLWnaR5tQ6/eP7QnPuth2x+DOMr5QBMbSY+U2pN59NuxRg0ZtXXtfto8
-	JJkJFrKYlLMru7XDwJHo6T4WrHVqJL7wQl4dk=
-X-Received: by 2002:a05:6830:6685:b0:7e6:deb1:484d with SMTP id 46e09a7af769-7e70c7b1386mr1725355a34.13.1780662284484;
-        Fri, 05 Jun 2026 05:24:44 -0700 (PDT)
-Received: from [172.22.22.234] ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e6e7974f22sm5817653a34.25.2026.06.05.05.24.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Jun 2026 05:24:44 -0700 (PDT)
-Message-ID: <bd2c09d4-462d-4392-bb3f-ca91b2f08bd7@riscstar.com>
-Date: Fri, 5 Jun 2026 07:24:40 -0500
+	id 1wVU1U-00000000ddC-1xCD;
+	Fri, 05 Jun 2026 12:51:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780663901; x=1812199901;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+Z7fkGLCJoGEOW8BWuJGCF5uNojahF7laTSAwAS/N3w=;
+  b=hD/Cf0DSGBlGWHxkhIUnNlxZ8BI+3sTyCB0kMKKnSqqx3Bvvz+gtA0RG
+   HjFYuG5vwyWJWQZU/RnCjyFeN4eZ5EY/U860hIlcccDYxNUVtkuov/Kl+
+   kl8NW6P2s9anhaTPr7DyiPev0N6TVZ7/yUuKaiSdIbhJFsSseWciU2EcR
+   EIL/Sz44z+XIHJDBXveOiG8ytneumUlFUf3t9l0NbXBK4WmSuPrh+uxsx
+   mtZ01gGEagKYSjz+RDQpWXDQIZGYcJSOXbYGccI7nnra9qhuoW454Ev/O
+   y9VYDhOT1jheFFqRC6IcP1gTTSiZbjQy88Qpr1+iibgur4VPD/KKTNgqt
+   w==;
+X-CSE-ConnectionGUID: FYlawMAKRFKO938mTaHpHA==
+X-CSE-MsgGUID: TUdikxhYQ4y4CsYz3cGsqg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11807"; a="81403404"
+X-IronPort-AV: E=Sophos;i="6.24,188,1774335600"; 
+   d="scan'208";a="81403404"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2026 05:51:38 -0700
+X-CSE-ConnectionGUID: 8UYQKWyNSLSmZbmHhYMM2Q==
+X-CSE-MsgGUID: FID66aKKRv25llgzYSd8vg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,188,1774335600"; 
+   d="scan'208";a="282917623"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa001.jf.intel.com with ESMTP; 05 Jun 2026 05:51:28 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1008)
+	id C960095; Fri, 05 Jun 2026 14:51:26 +0200 (CEST)
+Date: Fri, 5 Jun 2026 15:51:22 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Adrien Grassein <adrien.grassein@gmail.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
+	Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH RESEND v3 1/6] drm/connector: report IRQ_HPD events to
+ drm_connector_oob_hotplug_event()
+Message-ID: <aiLGSpd3cztbopDL@kuha>
+References: <20260513-hpd-irq-events-v3-0-086857017f16@oss.qualcomm.com>
+ <20260513-hpd-irq-events-v3-1-086857017f16@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 10/14] dt-bindings: net: toshiba,tc9654-dwmac:
- add TC9564 Ethernet bridge
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: weishangjuan@eswincomputing.com, linux-gpio@vger.kernel.org,
- inochiama@gmail.com, davem@davemloft.net, devicetree@vger.kernel.org,
- kuba@kernel.org, me@ziyao.cc, hawk@kernel.org, arnd@arndb.de,
- konradybcio@kernel.org, mohd.anwar@oss.qualcomm.com, hkallweit1@gmail.com,
- pabeni@redhat.com, ast@kernel.org, maxime.chevallier@bootlin.com,
- bpf@vger.kernel.org, boon.khai.ng@altera.com, linusw@kernel.org,
- andersson@kernel.org, sdf@fomichev.me, linux-kernel@vger.kernel.org,
- livelycarpet87@gmail.com, a0987203069@gmail.com,
- linux-stm32@st-md-mailman.stormreply.com, daniel@iogearbox.net,
- john.fastabend@gmail.com, alexandre.torgue@foss.st.com,
- richardcochran@gmail.com, rmk+kernel@armlinux.org.uk, krzk+dt@kernel.org,
- conor+dt@kernel.org, rohan.g.thomas@altera.com, gregkh@linuxfoundation.org,
- Daniel Thompson <daniel@riscstar.com>, chenchuangyu@xiaomi.com,
- andrew+netdev@lunn.ch, mcoquelin.stm32@gmail.com, edumazet@google.com,
- siyanteng@cqsoftware.com.cn, wens@kernel.org, brgl@kernel.org,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- julianbraha@gmail.com, netdev@vger.kernel.org, chenhuacai@kernel.org,
- prabhakar.mahadev-lad.rj@bp.renesas.com
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-11-elder@riscstar.com>
- <178062720108.1744752.12164392208085928081.robh@kernel.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <178062720108.1744752.12164392208085928081.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260513-hpd-irq-events-v3-1-086857017f16@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_053211_497411_2B1E5F40 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20260605_055140_578395_C1C9BC87 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,72 +118,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/4/26 9:40 PM, Rob Herring (Arm) wrote:
+On Wed, May 13, 2026 at 09:23:21PM +0300, Dmitry Baryshkov wrote:
+> The DisplayPort standard defines a special kind of events called IRQ.
+> These events are used to notify DP Source about the events on the Sink
+> side. It is extremely important for DP MST handling, where the MST
+> events are reported through this IRQ.
 > 
-> On Thu, 04 Jun 2026 20:00:17 -0500, Alex Elder wrote:
->> From: Daniel Thompson <daniel@riscstar.com>
->>
->> Add devicetree bindings for the Toshiba TC956x family of Ethernet-AVB/TSN
->> bridges.
->>
->> The TC9564 contains a PCIe switch with one upstream and three downstream
->> PCIe ports.  The third PCIe downstream port has an attached embedded PCIe
->> endpoint, and that endpoint implements two PCIe functions.  Each internal
->> PCIe function has a Synopsys XGMAC Ethernet interface capable of 10 Gbps
->> operation.
->>
->> The TC9564 also implements an embedded GPIO controller, which exposes
->> 10 lines externally.  Some platforms use these GPIO lines, so this
->> GPIO controller is managed by a separate driver.  Other embedded
->> peripherals (like a microcontroller, SRAM, and UART) are currently
->> unused.
->>
->> The GPIO controller is managed by registers accessed via MMIO on an
->> internal PCIe function's registers.
->>
->> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   .../bindings/net/toshiba,tc9564-dwmac.yaml    | 120 ++++++++++++++++++
->>   MAINTAINERS                                   |   6 +
->>   2 files changed, 126 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml
->>
+> In case of the USB-C DP AltMode there is no actual HPD pulse, but the
+> events are ported through the bits in the AltMode VDOs.
 > 
-> My bot found errors running 'make dt_binding_check' on your patch:
+> Extend the drm_connector_oob_hotplug_event() interface and report IRQ
+> events to the DisplayPort Sink drivers.
+> 
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-Thank you for this report.  After upgrading the "dtschema" package I
-also see these errors.  The "gpio" and "ethernet" properties will
-have an "unevaluatedProperties: false" constraint added in the next
-version of this series.  The name of the binding file will also be
-correct in the MAINTAINERS file.
+The displayport altmode looks okay to me. FWIW:
 
-					-Alex
+Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
-> yamllint warnings/errors:
+> ---
+>  drivers/gpu/drm/drm_connector.c          |  5 ++++-
+>  drivers/usb/typec/altmodes/displayport.c | 15 +++++++++++----
+>  include/drm/drm_connector.h              | 19 ++++++++++++++++++-
+>  3 files changed, 33 insertions(+), 6 deletions(-)
 > 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: gpio: Missing additionalProperties/unevaluatedProperties constraint
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: ethernet: Missing additionalProperties/unevaluatedProperties constraint
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> index 47dc53c4a738..edee9daccd51 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -3510,6 +3510,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+>   * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
+>   * @connector_fwnode: fwnode_handle to report the event on
+>   * @status: hot plug detect logical state
+> + * @extra_status: additional information provided by the sink without changing
+> + * the HPD state (or in addition to such a change).
+>   *
+>   * On some hardware a hotplug event notification may come from outside the display
+>   * driver / device. An example of this is some USB Type-C setups where the hardware
+> @@ -3520,7 +3522,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+>   * a drm_connector reference through calling drm_connector_find_by_fwnode().
+>   */
+>  void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+> -				     enum drm_connector_status status)
+> +				     enum drm_connector_status status,
+> +				     enum drm_connector_status_extra extra_status)
+>  {
+>  	struct drm_connector *connector;
+>  
+> diff --git a/drivers/usb/typec/altmodes/displayport.c b/drivers/usb/typec/altmodes/displayport.c
+> index 35d9c3086990..7182a8e2e710 100644
+> --- a/drivers/usb/typec/altmodes/displayport.c
+> +++ b/drivers/usb/typec/altmodes/displayport.c
+> @@ -189,7 +189,9 @@ static int dp_altmode_status_update(struct dp_altmode *dp)
+>  	} else {
+>  		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+>  						hpd ? connector_status_connected :
+> -						      connector_status_disconnected);
+> +						      connector_status_disconnected,
+> +						(hpd && irq_hpd) ? DRM_CONNECTOR_DP_IRQ_HPD :
+> +								   DRM_CONNECTOR_NO_EXTRA_STATUS);
+>  		dp->hpd = hpd;
+>  		sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
+>  		if (hpd && irq_hpd) {
+> @@ -212,7 +214,10 @@ static int dp_altmode_configured(struct dp_altmode *dp)
+>  	 */
+>  	if (dp->pending_hpd) {
+>  		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+> -						connector_status_connected);
+> +						connector_status_connected,
+> +						dp->pending_irq_hpd ?
+> +						DRM_CONNECTOR_DP_IRQ_HPD :
+> +						DRM_CONNECTOR_NO_EXTRA_STATUS);
+>  		sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
+>  		dp->pending_hpd = false;
+>  		if (dp->pending_irq_hpd) {
+> @@ -397,7 +402,8 @@ static int dp_altmode_vdm(struct typec_altmode *alt,
+>  			dp->data.conf = 0;
+>  			if (dp->hpd) {
+>  				drm_connector_oob_hotplug_event(dp->connector_fwnode,
+> -								connector_status_disconnected);
+> +								connector_status_disconnected,
+> +								DRM_CONNECTOR_NO_EXTRA_STATUS);
+>  				dp->hpd = false;
+>  				sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
+>  			}
+> @@ -827,7 +833,8 @@ void dp_altmode_remove(struct typec_altmode *alt)
+>  
+>  	if (dp->connector_fwnode) {
+>  		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+> -						connector_status_disconnected);
+> +						connector_status_disconnected,
+> +						DRM_CONNECTOR_NO_EXTRA_STATUS);
+>  
+>  		fwnode_handle_put(dp->connector_fwnode);
+>  	}
+> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> index f83f28cae207..e05197e970d3 100644
+> --- a/include/drm/drm_connector.h
+> +++ b/include/drm/drm_connector.h
+> @@ -91,6 +91,22 @@ enum drm_connector_status {
+>  	connector_status_unknown = 3,
+>  };
+>  
+> +/**
+> + * enum drm_connector_status_extra - additional events sent by the sink /
+> + * display together or in replacement of the HPD status changes.
+> + */
+> +enum drm_connector_status_extra {
+> +	/**
+> +	 * @DRM_CONNECTOR_NO_EXTRA_STATUS: No additional status reported.
+> +	 */
+> +	DRM_CONNECTOR_NO_EXTRA_STATUS,
+> +	/**
+> +	 * @DRM_CONNECTOR_DP_IRQ_HPD: DisplayPort Sink has sent the
+> +	 * IRQ_HPD (either by the HPD short pulse or via the AltMode event).
+> +	 */
+> +	DRM_CONNECTOR_DP_IRQ_HPD,
+> +};
+> +
+>  /**
+>   * enum drm_connector_registration_state - userspace registration status for
+>   * a &drm_connector
+> @@ -2521,7 +2537,8 @@ drm_connector_is_unregistered(struct drm_connector *connector)
+>  }
+>  
+>  void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+> -				     enum drm_connector_status status);
+> +				     enum drm_connector_status status,
+> +				     enum drm_connector_status_extra extra_status);
+>  const char *drm_get_connector_type_name(unsigned int connector_type);
+>  const char *drm_get_connector_status_name(enum drm_connector_status status);
+>  const char *drm_get_subpixel_order_name(enum subpixel_order order);
 > 
-> doc reference errors (make refcheckdocs):
-> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
-> MAINTAINERS: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
-> 
-> See https://patchwork.kernel.org/project/devicetree/patch/20260605010022.968612-11-elder@riscstar.com
-> 
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
-> 
+> -- 
+> 2.47.3
 
+-- 
+heikki
 
