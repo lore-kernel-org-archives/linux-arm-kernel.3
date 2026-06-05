@@ -4,178 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F25CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B2FCD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZpdntpYpQ0Csnq6Bcq6EhqzpjY3cP8bfO13e4w6sEs0=; b=UaspzO7Xw4kxhir/C+s5G1idxm
-	O1ftzt5GLDUMyChr/+6biyrwXAIfzqnwCnszbBZqssqEW6GDjrFX4IoWMyYXo+R7RNGIugeyvoOp4
-	d7ZffxmM9gvbjWZxwsFDBs8KzmSytqaR1ripzHQtwPBKsk1Hj4Nb9raMpBfJWMjmfyhMeV4b7Lcfz
-	+c75mC+LRY6Ik1OOzRnveq9jtdrqyGZTe0p/ul4Ym0tlwvqA+rV4p0D75xRA/vA5TZD7R1x0Yysy5
-	yKJDFqrC4ABByLDUTia2Q0T7GqYh9dZrsdjtgErnXoQkS8693KN8uyl68qIUumr/diyjUkIWt0weO
-	9gp892hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d7e/64Lm4FJCHnz40nUrkUeXHtudnHaWROVmMiFI1MM=; b=evg7h5FAGwNAhug0NOh3BQrHCT
+	ZI690f4kKS61f+1iwhvo1/O0LbxKVKnOZHA2ZqfDPl8infQ9iEd5GLUODZInJmlRgXbRCPLp+wA04
+	dIJBTxqCZNf3zUmineWGXXvBmUph0jdeJvBBhwoFrgpU7jQzTZ0vHQC0L5IxOrTtquxc5GxhGW5CF
+	1Uz1ny+KXQaX1pesqOTOJiN4sab+uSf0qotFeNtXoEqXq6ZfdlVXl8WzOPz1Z9xdW9bbeTHdcCnDL
+	V+eOZsyYi77tWxxFHMR90FcbcpJQgvfHJKJvnw9GceMvfbUReFjt0ukgUmt9r695FNvf+3z9XigNi
+	Exiz+JBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQSt-00000000MXL-2anf;
-	Fri, 05 Jun 2026 09:03:43 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wVQb1-00000000NVT-2dzZ;
+	Fri, 05 Jun 2026 09:12:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQSq-00000000MWB-0xio
+	id 1wVQaz-00000000NVM-3IpE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 09:03:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=exGcSNH4OfnsU7sQRcq/iRUowVTkjrNKKWQMdiUUcJSZZF9T7ddiqigdIrH5QoLOo9sIJ8RjZ32Ebe2YygttledRjoTiPo9t3+vuHyKME5pT1dA7wyGCuJ6i3J5NpMErQnl5X7+aCHSlCbOFXVDV5bzwosR77XS+Wcjo2Zzn+xMSh3+LnXpXt6qD42xBgNKy+yPF1I8jmT3zI1g+Hvdwve+8xiQFIJtTu/YuuoXgf4WwhGr+IMygzZFUUNC3wDEChj3syF+pMRUKk4kBvQOMLShXklB69SFl7n6J4fUxCbjmkHRBy4/VYsWHcv7LXf/Lb0iXewx5eSeXBF36j5B3vw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZpdntpYpQ0Csnq6Bcq6EhqzpjY3cP8bfO13e4w6sEs0=;
- b=FTthy8C2ZV9rK29+3KjCGJvLBemxOsqGkkv7S9IyIwANEbw9mR8D36kHZYRgQyGfg2EFaDE0ErbZJJNWWlyybT6exgMflXHIwyN6Na4IWtzHpHD2TSmM9NCWhN6XcW2F+nPFzMK4KjN72JiAbUScn5QQ8/P8u9ujw2nOjZcSrmoOPq1RKkQb34AAgLOcf7BQjZu8Z6AripndoeZNkhjOK6S2SDMwg5WpvLNAvbcA4xx6rupfeZbR9ZT+iQqZQsrq8cdiBqxkiPnGlqS0WB3yo2tJ21V71VxR45LkS4bSCSLzMng0WOiJyiLRyRqqsWQzfC/yZHsaON0E+DNudXzIzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZpdntpYpQ0Csnq6Bcq6EhqzpjY3cP8bfO13e4w6sEs0=;
- b=JekCWzjXRWY67nsVY2p7HPahPQbfMpKa3Emz9LZl+NYHqd7OJb0Kt9e4Vcw8FIuuqHDRp/dLYILfMQCTrfKdDuZ5oYJjR9roygczqqM1Yf/MLDtuKMcL54NcyXf+VkX2AW+gnUEcHMHZg24wNpqWpFRZ6ZzvvuhL3Aq00qBy2Yc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by IA1PR12MB6305.namprd12.prod.outlook.com (2603:10b6:208:3e7::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Fri, 5 Jun 2026
- 09:03:35 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
- 09:03:35 +0000
-Message-ID: <78e66f8f-3998-4051-99a5-7b5fccb40943@amd.com>
-Date: Fri, 5 Jun 2026 11:03:30 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] EDAC/synopsys: Fix cleanup on injection sysfs failure
-To: Yuho Choi <dbgh9129@gmail.com>, Borislav Petkov <bp@alien8.de>,
- Tony Luck <tony.luck@intel.com>
-Cc: linux-edac@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260603204721.2200819-1-dbgh9129@gmail.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <20260603204721.2200819-1-dbgh9129@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0156.namprd05.prod.outlook.com
- (2603:10b6:a03:339::11) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Fri, 05 Jun 2026 09:12:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F1854371C;
+	Fri,  5 Jun 2026 09:12:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CA11F00893;
+	Fri,  5 Jun 2026 09:11:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780650725;
+	bh=d7e/64Lm4FJCHnz40nUrkUeXHtudnHaWROVmMiFI1MM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=b4jjUShMkrkAmKNxKHC+rOncDO9lTBGvhVgQKmVj7x8ATGjGdsoqadL19HOJzjcxR
+	 abVTB3dLsl7EZQ2p2CPYahFdM4sgLY65GgoMHPZuL7sb7PSbwBdnznsIqcbMKnMOjt
+	 XTHTs1ZE4p3L6MxoST7yq0c+wxGMdPmtJwK2TMfXoZIljRBthAQ2h7zEsml9KWCxdL
+	 dAdzswtSkYkPB7Psqhpere9y5gLq0e8V2bg3fS7jUTi6jVBsAsuPxhlt5P48hVgeez
+	 rbz/xNkuNK7+DyNURO2sbUzqDd9qW8Gmmk+yn9qr9o/aSVbwXaRdOnaOWse3qXTmgc
+	 K3bZT7ZX4PBGg==
+Message-ID: <8387afa5-f2d9-4006-a1c9-d2122ea6245d@kernel.org>
+Date: Fri, 5 Jun 2026 11:11:55 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|IA1PR12MB6305:EE_
-X-MS-Office365-Filtering-Correlation-Id: f508c763-92e5-47b1-1a51-08dec2e1534b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: K+r1r6veoSZiEurNghn9vbNC/LohPJ1vSdVxbZVOBuhy+V3BFb2EGkC22eDD4XRlnefKpWgcIszqMnygBV4if/uBmWr+2PMDkpkCp43rw/UASVtcyYsy5dn8xN0Gzgaq8x7elRVGbozhweiIT4eGvbKFBEfrzeIDkbIN0HOEuj0niAPbDvpy2Ln702NNebR89KnZszbc+9Rwy/Jq5pNpFhyo+G11WDmSAiNBDKTe91KQybMDReGxQQXeh3LWlf/KuEr/cFaKcrC5WwCrRGRUd+9umGh+0wqmaJE64sMinUhEVH4DvUR1aBY/AoiTfL9lfTVdIGyrbmmwH885REtQtr5tmwt2CMkIHLBHgq3JdBSkaEVqrq0sn0+0u2M+cdAvWJbVfKIKV1VNkko9txVgjUDp5reuXg9AprrzEv4pzTZavewAedzsgzKAfHo/4zls52+xI6LLluR+yGKN7JJim02M92XqwnhAT0l0f+X7vqjVY4fuAnO2p2BkGK500faeOascv32CyaI+EZA1f3zIuM+TFWFHP5tiHTJyIVS7SLnlT/QepNzA50YuW85nI+MBu/WvxpLi/OFRYB2Esy13DM3yZlP2SbMFQM7MDYZY0B3omzbxN0Tq+z2YxbjgGOKnzc+DmySilkUDJkkBJw44g5Taj7oK3D0D62f2G6JxwC9RqlMNiVFGE9bgAarJ62sB
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZFhkZWVNOVMxVkE3elJodUcxLzJCSnVlaFZzUi9LV1pBTmpBRzJGY2RHRjVj?=
- =?utf-8?B?TlR1cktzc1h6N0syMjBpQlFQVjZHa2VGMFhWdjl6M1NkTUZnK2dnK3I5cFlN?=
- =?utf-8?B?MGRGSzM4ZFNac1hNRXpIbCt6dGkvNmZKL2dQM09JbUFMTkZHU2hjdjJYQjEx?=
- =?utf-8?B?c1dSdTRsY01OcXJ4ZHZwMHA5bjhjbDVLUEdLT0Qza1VNa1lianE3aUwranBN?=
- =?utf-8?B?SDBiQmI3ZXJVWGFWTlFsWkZUZGI0b3BSR2hRWUJzRktXblpHN1p0RDluTUV1?=
- =?utf-8?B?SXpERjhzQytCelRRVm1IRktQQTdrNHRuVVpBUWxkTkxHdHpUWGRJcFJieFor?=
- =?utf-8?B?RGNWT3lOU3FFTzFPZlJMQ2FsYWpDOHhPSkkzUVlYajJhTjl0d29VYWdBREdO?=
- =?utf-8?B?YlJhTFpTODR5bkt4SnJqK3VNc1h1bHlZS1paU0I4Z3JsaysvaWNTWklyMUFa?=
- =?utf-8?B?T2tXSkE3WmtHMnA4VVFSRVo1VllPVWx6bkluNlpDMFNKZE1EYSt0aWE2THNx?=
- =?utf-8?B?YWgxN1E4djBMR1dBVDBvMDgvS0wvZXk1SVp1ZDVFbEgvRGR1TG8yR2NhWUFv?=
- =?utf-8?B?SEEzOXVrOEQwRHVyWkl6bDFNdDVCNzcvdWc0QlZiYlliVkxYdTcvOE5yV3Y3?=
- =?utf-8?B?TkdGSDc2eFRtSW1qdTFpNXVtWXVHR2hJY21hY2dVVk9XNy82U2Rza3VVckNY?=
- =?utf-8?B?RER0TGhNdjJ3TmdKVWUrMWtoMjFBMUxIckFFZkN6c09yVnc1RldIYXBaVlZE?=
- =?utf-8?B?VjdlUXZnSnFNbEMxSERVMG1YbVB1OHE3Tk5RS3Q4c3ozci9IQkNRWUI4RVEr?=
- =?utf-8?B?OHZxYjc0UGRJZEp6L1ZoanU5TllMQnE3SHpqOGd4VmQxTnFwdm0yV29DN0Jk?=
- =?utf-8?B?N2JwWDdPdHgyT3plSllNS0k4Rm16TEhnREpoSUVIT1hxR1EzNVdnWjI0NUdH?=
- =?utf-8?B?bFNRek13S2FiYWY2U3VMYUJ4TkRIYVQxVmtPM3V2a2loM2RDZlN0T21UZ0Jt?=
- =?utf-8?B?Y3J2QmhqT0JiZGlHWURoM0Fjc1lveVJpSnpFOHMxbHJwemhlVmFUVzVQbU1x?=
- =?utf-8?B?OXEwQ3BQZm1USlhTcHpqWW5kaWhmMW1kRXRaUkJHRHJjRHNYOXdIQVRMdGtO?=
- =?utf-8?B?Ti9vbGUvTTUyRFovYjRnMEY0Z3JJT3N3SGVVckl1TWZGUElmMi9yallwYmdy?=
- =?utf-8?B?L3dsbWErZjZZWHVPQ1Z1MnFROEdyTGdlSTJxdmhvNHg3TmlXWG1pb05WV3hX?=
- =?utf-8?B?YS9OUURRTFVHVFdOS2RqcmVEbzVJSEo1TVp2dGdlYVIzcS9mNVJ6WnNMdFFS?=
- =?utf-8?B?aHFpVklOdDAydzR1S3BYcVJKTWJYWjM5QzQzeDdUUHpRbXFtUWRHbDdBMlh5?=
- =?utf-8?B?Zm9mMGRhRG5Td3NoMHJJNHZhMXd4VUFTVTRvQjdSU2xIekpFRVY0MGY4eHA2?=
- =?utf-8?B?Z2ZQQnNGSWtISjdpdTYrSlc1N3lBMmswcEdiYXUxSFd2ZjZvUGw3Z1ZHYnFr?=
- =?utf-8?B?TzdwWVIzWDIvd01tbjdmQ3NRZ0dJbXBPK3RKUUllTlpmUlhmMzkxOE51Lzg4?=
- =?utf-8?B?MitFOFY4TFlUQVFwVEthbTVCMzlLMjNXUWRpOEhsejBJem5ndi9nVC9adit2?=
- =?utf-8?B?aFk1MThYUW8xOCtwK29hd2FiNVN5bVVENmJJN0xUQUwwekxJTEZhMGI3UjYx?=
- =?utf-8?B?NWx6MmVTekZjRVM5S2dheG9aTlM1djZ1bHhXN1NydDNjUkpGTDJqc2ZnSU1U?=
- =?utf-8?B?c1lQUXN5Zm9lWlRzUFczZExrbkJsbmRpUU04aWw1dG1hNHNiN294WjZVc25F?=
- =?utf-8?B?K2E4TjhnSnh3RnZJU1FkMEpNaVpacnBrT3ZWTFhKM1VZSU1jTktZRFdTQjVU?=
- =?utf-8?B?c2ZoU0xlZXNTcVUrUEppQ05JU1RuRy9sSlhlNWVpYXZXNU5JWWVQUUtScFhP?=
- =?utf-8?B?LzNPcDFoRW9aOEw1VkhieEFkMlo4eWFEaENqQ214UmRPTk5NZTZwNzBYMTZR?=
- =?utf-8?B?R1NYbllxRTM2RWJsZlIvNWwrbVU1OEZuUG1CSkZEWWxQRnNrTld0WUpsdldh?=
- =?utf-8?B?ZzQ2UlF5dHk3aWFtMnhzK3pmM1EzME5VWS9GWFczZUw1OVplazlYdEZyYmsw?=
- =?utf-8?B?MkljUTdYT0t6cFc5aGx5UDhidlRKOWVOUDlLakRSM0J5L0V4SGdSbE9RS0Fz?=
- =?utf-8?B?SUJvY1F4eWVHNHAzOFNuK0F5MHFzczN6dW1TVDg0RnpPalJ3WVI0ejBCOU4v?=
- =?utf-8?B?MWlLWU5TbjU0SW4rR242SXBvQnNtRGpHaXFDdHpBQXFoYnR4S0oxdCtMWVRj?=
- =?utf-8?Q?uVsvVM6nlrA7e+iS7v?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f508c763-92e5-47b1-1a51-08dec2e1534b
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 09:03:35.5176
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hp1tZ71ecaXH4TwEIC2XpHT+InzCaWP4jK+ehk0oDg1F08nwXlOTqYqGaw7LR5Me
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6305
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_020340_273263_53D65364 
-X-CRM114-Status: GOOD (  21.19  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
+To: Frank Li <Frank.li@nxp.com>
+Cc: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>,
+ Chancel Liu <chancel.liu@nxp.com>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+References: <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
+ <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <20260519-macho-degu-from-nibiru-960af2@quoll>
+ <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
+ <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
+ <74eb56fb-546d-4b2c-9bbc-01a40937f5d3@kernel.org>
+ <AM9PR04MB835333895276201A81251210E30A2@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <8046287e-87a2-4d18-ad3d-248620a752a9@kernel.org>
+ <ah9WzQmwPrP4yWTC@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ah9WzQmwPrP4yWTC@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,73 +136,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/3/26 22:47, Yuho Choi wrote:
-> edac_create_sysfs_attributes() creates inject_data_error before
-> inject_data_poison. If the second file creation fails, the first file is
-> left behind.
+On 03/06/2026 00:18, Frank Li wrote:
+> On Mon, May 25, 2026 at 02:28:32PM +0200, Krzysztof Kozlowski wrote:
+>> On 25/05/2026 08:26, Chancel Liu (OSS) wrote:
+>>>>>>>>>>>>> +description:
+>>>>>>>>>>>>> +  The NXP I/O connector represents a physically present I/O
+>>>>>>>>>>>>> +connector on the
+>>>>>>>>>>>>> +  base board. It acts as a nexus that exposes a constrained
+>>>>>>>>>>>>> +set
+>>>>>>>> of
+>>>>>>>>>>>>> +I/O
+>>>>>>>>>>>>> +  resources, such as GPIOs, clocks, PWMs and interrupts,
+>>>>>>>>>>>>> +through fixed
+>>>>>>>>>>>>> +  electrical wiring. All actual hardware providers reside on
+>>>>>>>>>>>>> +the
+>>>>>>>> base
+>>>>>>>>>> board.
+>>>>>>>>>>>>> +  The connector node only defines index-based mappings to
+>>>>>>>>>>>>> + those
+>>>>>>>>>>>> providers.
+>>>>>>>>>>>>> +
+>>>>>>>>>>>>> +properties:
+>>>>>>>>>>>>> +  compatible:
+>>>>>>>>>>>>> +    const: fsl,io-connector
+>>>>>>>>>>>>
+>>>>>>>>>>>> Everything is IO. Everything is connector, so your compatible
+>>>>>>>>>>>> does not match requirements from writing bindings.
+>>>>>>>>>>>>
+>>>>>>>>>>>
+>>>>>>>>>>> Yes, this compatible is too generic. I will rename the
+>>>>>>>>>>> compatible to fsl,aud-io-connector.
+>>>>>>>>>>
+>>>>>>>>>> aud is not much better. Which boards have it? What's the pinout?
+>>>>>>>> What's
+>>>>>>>>>> standard? Is it described anywhere? If so, provide reference to
+>>>>>>>> spec/docs.
+>>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> This is not an industry standard electrical interface. This
+>>>>>>>>> connector
+>>>>>>>>
+>>>>>>>> Then if you do not have standard, then you have board specific
+>>>>>>>> layouts thus you need board-specific compatibles. You can use
+>>>>>>>> fallbacks. Generic fallback could work, but both io-connector and
+>>>>>>>> aud-io-connector are just too generic. Every connector is
+>>>>>>>> "connector" and "io", thus absolutely anything can be
+>>>>>>>> "io-connector". "aud" improves it only a bit, thus honestly I would
+>>>> go with board specific fallback as well.
+>>>>>>>>
+>>>>>>>
+>>>>>>> How about board specific + common fallback compatible like this:
+>>>>>>>   compatible:
+>>>>>>>     items:
+>>>>>>>       - enum:
+>>>>>>>           - fsl,imx95-19x19-evk-aud-io-connector
+>>>>>>>           - fsl,imx952-evk-aud-io-connector
+>>>>>>>       - const: fsl,imx-aud-io-connector Since the daughter board is
+>>>>>>> named “IMX-AUD-IO” in publicly available
+>>>>>>
+>>>>>> I don't think it is named like that.
+>>>>>>
+>>>>>> git grep -i imx-aud-io
+>>>>>>
+>>>>>>> documentation, common compatible clearly indicates that this
+>>>>>>> connector is intended for that.
+>>>>>>>
+>>>>>>> Also, I want to talk about the topic of generic connector. It's a
+>>>>>>> common design that daughter board is connected to base board through
+>>>>>>> a connector. This connector more often acts as a nexus that exposes
+>>>>>>> a constrained subset of GPIO, clock, PWM and interrupt resources to
+>>>>>>> the daughter board. Can we document this kind of connector as a
+>>>>>>> generic binding?
+>>>>>>
+>>>>>> So this binding is the connector between carrier and some addon? Then
+>>>>>> you don't get a compatible for that at all, because it is not
+>>>>>> necessary, not useful and NEVER used. Do you see socket LGA "connector"
+>>>> bindings? No.
+>>>>>
+>>>>> Not exactly. Any connector connects a carrier board with an add-on
+>>>> board.
+>>>>> The key point here is that this connector type is reused across
+>>>>> different boards, even though it is not an industry-standard
+>>>>> connector. Both the signal definitions and the mechanical layout are
+>>>> defined.
+>>>>>
+>>>>> The same add-on boards can therefore be reused across different base
+>>>>> boards that use this type of connector.
+>>>>>
+>>>>> There are also GPIO mappings involved. For example, pin 1 on the
+>>>>> connector may represent reset-gpios, but it could be connected to
+>>>>> GPIO0 on board A and GPIO1 on board B.
+>>>>>
+>>>>> Without a connector definition layer, this would create an N × M
+>>>>> combination problem. The Nexus node discussion already covered this
+>>>> topic:
+>>>>> https://osseu2025.sched.com/event/25Vrw
+>>>>>
+>>>>> An LGA socket is a CPU socket, where the signals are completely
+>>>>> transparent to software, so it is not a good comparison. A PCIe M.2
+>>>>> Key-M/E connector would be a more appropriate comparison.
+>>>>>
+>>>>
+>>>> So the terminology of daughter and carrier boards was confusing. If this
+>>>> is a hat, mezzanine or other addon, it's fine.
+>>>>
+>>>
+>>> The IMX-AUD-IO is an add-on board that attaches to the base board. To
+>>> make it clearer, I will replace "daughter board" with "add-on board"
+>>> throughout descriptions.
+>>>
+>>>> I still insist on board specific compatibles - fallback and specific.
+>>>>
+>>>
+>>> The base board has a slot component that is mechanically compatible
+>>> with a PCIe x8 connector. However, it carries no PCIe signals and the
+>>> pins are repurposed to carry fixed board-level audio I/O related
+>>> signals.
+>>>
+>>> I think we can name a compatible reflects a standard mechanical form
+>>> factor.
+>>> For the compatibles (specific + fallback) I propose:
+>>> - enum:
+>>>     - fsl,imx95-19x19-evk-aud-io-pcie-x8-slot
+>>>     - fsl,imx952-evk-aud-io-pcie-x8-slot
+>>> - const: fsl,aud-io-pcie-x8-slot
+>>
+>> Does not solve my request, so I won't ack it. Maybe you will get ack
+>> from other DT maintainer then.
 > 
-> The same failure path runs after edac_mc_add_mc() has registered the
-> memory controller with the EDAC core. Jumping directly to edac_mc_free()
-> skips edac_mc_del_mc() and leaves the registered controller state
-> unwound incorrectly.
+> Krzysztof:
+> 	Thank you for your support. This type header/slot is difficult to
+> name it.
 > 
-> Remove inject_data_error when inject_data_poison creation fails, and
-> route the probe failure through edac_mc_del_mc() before freeing mci.
+> After read again previous comments
 > 
-> Fixes: 1a81361f75d8 ("EDAC, synopsys: Add Error Injection support for ZynqMP DDR controller")
-> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
-> ---
->   drivers/edac/synopsys_edac.c | 10 ++++++++--
->   1 file changed, 8 insertions(+), 2 deletions(-)
+> "Then if you do not have standard, then you have board specific layouts
+> thus you need board-specific compatibles. You can use fallbacks. Generic
+> fallback could work, but both io-connector and aud-io-connector are just
+> too generic. Every connector is "connector" and "io", thus absolutely
+> anything can be "io-connector". "aud" improves it only a bit, thus
+> honestly I would go with board specific fallback as well."
 > 
-> diff --git a/drivers/edac/synopsys_edac.c b/drivers/edac/synopsys_edac.c
-> index 51143b3257de..c395a1e97a36 100644
-> --- a/drivers/edac/synopsys_edac.c
-> +++ b/drivers/edac/synopsys_edac.c
-> @@ -1120,8 +1120,10 @@ static int edac_create_sysfs_attributes(struct mem_ctl_info *mci)
->   	if (rc < 0)
->   		return rc;
->   	rc = device_create_file(&mci->dev, &dev_attr_inject_data_poison);
-> -	if (rc < 0)
-> +	if (rc < 0) {
-> +		device_remove_file(&mci->dev, &dev_attr_inject_data_error);
->   		return rc;
-> +	}
->   	return 0;
->   }
->   
-> @@ -1431,7 +1433,7 @@ static int mc_probe(struct platform_device *pdev)
->   		if (rc) {
->   			edac_printk(KERN_ERR, EDAC_MC,
->   					"Failed to create sysfs entries\n");
-> -			goto free_edac_mc;
-> +			goto del_mc;
->   		}
->   	}
->   
-> @@ -1448,6 +1450,10 @@ static int mc_probe(struct platform_device *pdev)
->   
->   	return rc;
->   
-> +#ifdef CONFIG_EDAC_DEBUG
+> Do you means
+> oneOf
+>   - items:
+>       - enum:
+>           - fsl,imx943-evk-aud-io-pcie-x8-slot
+>           - fsl,imx952-evk-aud-io-pcie-x8-slot
+>       - const: fsl,imx95-19x19-evk-aud-io-pcie-x8-slot
+>  - const: fsl,imx95-19x19-evk-aud-io-pcie-x8-slot
 
-I don't think this is nice way how to do it. I would do it above to avoid using 
-ifdefs here.
+Yes, could be a bit shorter like fsl,imx95-19x19-evk-aud-io-slot or even
+without slot because prefixing it with board compatible makes it very
+specific.
 
-like this
-    		if (rc) {
-    			edac_printk(KERN_ERR, EDAC_MC,
-    					"Failed to create sysfs entries\n");
-			edac_mc_del_mc(&pdev->dev);
-			goto free_edac_mc;
+> 
+> Frank
+> 
+>>
+>> Best regards,
+>> Krzysztof
 
-    		}
-    	}
 
-The patch itself is correct.
-
-Thanks,
-Michal
+Best regards,
+Krzysztof
 
