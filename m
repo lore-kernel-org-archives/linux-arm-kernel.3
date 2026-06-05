@@ -4,146 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4821ACD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 14:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D677CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 14:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IRYbGOjbP9SLjeZ6uBWt3gbp+e4gEjiWXBHOZOvJV5k=; b=zCUdDbYZiTHA91iBq/p10gAUlH
-	gObYgTblqKhigQr7wPWDWNOO95cYQkzNpetjEfdKfsJwqZJYjslyhOAznyXty8i01lY1He7tD17G5
-	QznHBMK+EuJBVm+q00rvBns7OUYE2Ihb0LJxoPlmIGjJN7wz6yDxh+DwHyVv9aq8YTlzI71aKAOvH
-	js2+tbsB4uLvOzB4BSlgr8GxtH2iZfoyR678jUoffxF6yYgzYI2NqcE3sOK0uS+BP1+a1jA5me90b
-	cBiboB3+B59k1Y/e12V7/ELsHs3tT5hlWeo+V3t//ATTqbN3T92SIdVwcLUI7rCFJUx7O3BE3i0xa
-	q4pUGA2A==;
+	bh=gHQEy22dR29lDsyV2x6IqTzwto8wTW3FheHhdqT4hjA=; b=2qy2vt3qzXqHp5MGG3Pr1xijT2
+	CYU/NwR4RjKmlZS6tqb/GA+DapU3TGmiEmLmjzZf3qt0CXNQEr7TPjajD3nvQ9Ghbu3bvy/ecDEYa
+	CTudOeIWCUPseJveu5y0Ao+yD7OMepicZM8gjORUhkLYltA8J3rEoPXLBc+fbh+zJm0EdopyacCLx
+	8B7BlZfCUIqVn6EDGp0Tuy+iXEn3TU1jd/bixCCq51ABUe2bGmdVrO8TP46q9Sg0oIVBhjBUChJ6P
+	0RyEj+JQA5j9pWp0UZhpihJ8xXEGWj8bSy+U1uFgtjuqbXcrXd/Iuc5gJHeK1ipaH6qYO4a2AYMWL
+	ojdBjX+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVVOp-00000000icV-39rp;
-	Fri, 05 Jun 2026 14:19:51 +0000
-Received: from mail-westus2azon11022106.outbound.protection.outlook.com ([52.101.48.106] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wVVcr-00000000jMQ-0Wz6;
+	Fri, 05 Jun 2026 14:34:21 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVVOm-00000000icA-45Nb
+	id 1wVVco-00000000jM2-1Kks
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 14:19:50 +0000
+	Fri, 05 Jun 2026 14:34:19 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kkRUiH9D/GkDLrzYxj/rTp/ZZnxiGW2uZo3KLyZOK84lb2mLBov6sLDFOcf1qjF+WdZ2T/7S+9cUFyFP22RvI0AudGR2v+44p2XeRwNsWjm4tw+pgu9FTP6viJQY5C5sr2fYRJmP2USe//XHIP2das1a4ACz4bpIdBDHLilMzBX/3ljtpNH6RCUlhYr3jfDToaTtI87t5Xd9k/BRMXCrOZ/+64rm4Y5Fh06vgG0n1afWYKKFDVj3dk1L45lPZrBrVvayhV4mA0Mg29wFy6eeWFHUW787QL7iAH3C/3amH61Kosdwvv36GbpwGT59VwmcRaekIOa6ONDyPMSwMuL2Eg==
+ b=q8wuLWulQUKBIg4/cyR/wfh7h6PMOe71sG1ZpHR+b6xWxiys1/YjBYQSU26AajqPLPFXCFxKH1jSjeVnaHrQ4Z4rG1FIjop5pSSrDT2EUtaNPpO2j3Y1Tc0+K8e7C9ZimSCciDWRWeESf6Fsbc+bjp7qHrX4k1esLcJmnCp5yIC6lAjr3f6kJSNWCFwzqqmHQS4Kw5BTsXQZYfUktTdxtoWoz2PSkaZd8lEl4RABUCAByF1Bh/3JtR0Rr6fdH0/rr1HmANRE6EmoJa9nE6iVrW9VukkOy42vRPSltiJ4IaP4USNsTlQ1jJT3Iw3m//4ZKoHMy/tuDLsW1/FCdXamJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IRYbGOjbP9SLjeZ6uBWt3gbp+e4gEjiWXBHOZOvJV5k=;
- b=GQVg9qoDPu01TWvjb4A0WA/04JdN1QWL10agbStsEeSTpm4ZH5VJhaAAXRyTValE3A6d+WHisitDnXxaoVbODcPKcAbaftl2OjvHw9pKpXIvK244atkkDz/ycVjz/z6VvnYaxgNsjZaPTUga9AyYzXJ1GCuKjPFA5lac0k8QXMi/b3CUqi7Md1/bXSjjZgmU/WUBfP7HoUKsAFst3vP+TY4VSy3rZcPijy2091VVcTY8V9wtnVJhPVZk4K1yG9wz1K/qO3nybgF8PkXJW17+Jk2lLeSpyOD7ED0byO1w+kNKybL8vqleId6p/j/xXK75pw5g15uRZJs1ArYafxg+9w==
+ bh=gHQEy22dR29lDsyV2x6IqTzwto8wTW3FheHhdqT4hjA=;
+ b=Pch2vqB+79f0ijmuO84/ZkK0AKt4pHq/kmq0Av4IjQTTYA1XIsEsYfjq059YQYGCa3yz1WNKviqLzO2xciMOutRlQoIyBpiSnAcF+CHtgRTPTznX0A4dbZv1fCBCjQ9VP03prqVycPYatzNDtiOXy9wGIWHg+32lhvuGzS1MO9ftHaOEBTmoMuw+1HNIqpjr1CrM4gNr7zKRcLfgWwJ5ufvv64KJJ57e6mxERIjXTvctC7r041dBjnp28UBq1g7sQrJCVGoyQi+FfiNm46mvCvVW1AAHE1qTFqvkK5DuUhPmUMF9R5YJxVLUVfk0O8VHDF98mf2c2dUS9LbJ2kNRSQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=amperemail.onmicrosoft.com; dkim=pass
- header.d=amperemail.onmicrosoft.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IRYbGOjbP9SLjeZ6uBWt3gbp+e4gEjiWXBHOZOvJV5k=;
- b=RXdlgPwooX4btNZO50IiRfd7tZsvj/B5rFjOIazzkPIYDtNb8EXcY6W5t6gNAt+VsgEvhIdzJePWTqUMJ/pQ/0ByiL2LsBgJbihwDwV8+TRRGEWKTwHx1FRTxMLqsqcDRVLAXjvHV606wLlpVquhIyVLAaBppi0PaOjYd+AlH6Q=
+ bh=gHQEy22dR29lDsyV2x6IqTzwto8wTW3FheHhdqT4hjA=;
+ b=WDAaor51fNkcO3BFntRIF5waS5H13uCItsz3Tg5VN3K+AAz8w2SZXxqjdLJyOKTV2ZKPDSFMvx56wSPBoNJUe35IS5do5kP7g4MJNKZBnyBsxXYKTTgeq4fElIlwNw/0NSxXW6qJ0uOMBVm7WiZtjQcuJezLpqDqp1fqSgvyWFJgPkDOSWAXBJ4dMSha6+7egwRVxIu+EhqhE8vYEDTqB497f+eDe/vIAK2yiuAbz7f+ryyqxFhFhulrKGg1woBZ+SKaF8xASs6V/zQ34ETD/ZosnbaXd7IVUztc59CM2cnOaiFEsk+++q0kJ6XSMYxFF4wzGgvz/rFpBVaHN3MmgQ==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
-Received: from CY3PR01MB9194.prod.exchangelabs.com (2603:10b6:930:109::7) by
- MW6PR01MB8577.prod.exchangelabs.com (2603:10b6:303:24b::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.7; Fri, 5 Jun 2026 14:19:33 +0000
-Received: from CY3PR01MB9194.prod.exchangelabs.com
- ([fe80::4005:a1db:71b8:dc8c]) by CY3PR01MB9194.prod.exchangelabs.com
- ([fe80::4005:a1db:71b8:dc8c%5]) with mapi id 15.21.0092.007; Fri, 5 Jun 2026
- 14:19:28 +0000
-Message-ID: <345d17ed-2795-4c28-8027-8b680c644b34@amperemail.onmicrosoft.com>
-Date: Fri, 5 Jun 2026 10:19:26 -0400
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SA1PR12MB9516.namprd12.prod.outlook.com (2603:10b6:806:45b::16)
+ by SA3PR12MB7880.namprd12.prod.outlook.com (2603:10b6:806:305::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.9; Fri, 5 Jun 2026
+ 14:34:11 +0000
+Received: from SA1PR12MB9516.namprd12.prod.outlook.com
+ ([fe80::16bc:1d1d:88e3:6a2b]) by SA1PR12MB9516.namprd12.prod.outlook.com
+ ([fe80::16bc:1d1d:88e3:6a2b%5]) with mapi id 15.21.0092.006; Fri, 5 Jun 2026
+ 14:34:11 +0000
+Message-ID: <f3fd520e-9412-473e-a7e8-4ebff097e809@nvidia.com>
+Date: Fri, 5 Jun 2026 09:34:10 -0500
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v01] mailbox/pcc.c: add query channel function
-To: Sudeep Holla <sudeep.holla@kernel.org>,
- Adam Young <admiyo@os.amperecomputing.com>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Saket Dumbre <saket.dumbre@intel.com>, Len Brown <lenb@kernel.org>,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-acpi@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>,
- Guenter Roeck <linux@roeck-us.net>, Huisong Li <lihuisong@huawei.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, linux-arm-kernel@lists.infradead.org
-References: <20260604203749.168752-1-admiyo@os.amperecomputing.com>
- <20260605-undetectable-polecat-of-wonder-f817c0@sudeepholla>
+Subject: Re: [PATCH v1] arm64: errata: Workaround NVIDIA Olympus device
+ store/load ordering erratum
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
+ Jason Sequeira <jsequeira@nvidia.com>
+References: <20260604231254.1904988-1-sdonthineni@nvidia.com>
+ <fd729256-07e8-46eb-8473-74ae6ec3a07e@arm.com>
 Content-Language: en-US
-From: Adam Young <admiyo@amperemail.onmicrosoft.com>
-In-Reply-To: <20260605-undetectable-polecat-of-wonder-f817c0@sudeepholla>
+From: Shanker Donthineni <sdonthineni@nvidia.com>
+In-Reply-To: <fd729256-07e8-46eb-8473-74ae6ec3a07e@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY8PR12CA0033.namprd12.prod.outlook.com
- (2603:10b6:930:49::12) To CY3PR01MB9194.prod.exchangelabs.com
- (2603:10b6:930:109::7)
+X-ClientProxiedBy: DM6PR06CA0073.namprd06.prod.outlook.com
+ (2603:10b6:5:336::6) To SA1PR12MB9516.namprd12.prod.outlook.com
+ (2603:10b6:806:45b::16)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY3PR01MB9194:EE_|MW6PR01MB8577:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19b72792-001a-4006-a965-08dec30d743c
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: SA1PR12MB9516:EE_|SA3PR12MB7880:EE_
+X-MS-Office365-Filtering-Correlation-Id: 10465124-18b2-44b0-48e4-08dec30f8223
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|10070799003|55112099003|6133799003|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: Jj1JBxQMHlLHqYka9piRxCg7+NIoB8KFNphz7lFscGrPM0Bt00bxxqpGVSv3vpV5fOkkfCTW6BnzttSNHaIuNmzkR0Y6wTQGRiGai8wO1XxKu4PpSfDnhmyoDAAjjKhEWu/HatxxLlORITBzWakMzttaVAIKztflomzfeOwV2/thhrio5Dv38RA9SHj/+2uJAzoXLfHTqMulktexA5cSmJRoqgstS0NfHWib4FeOZglCxsRPIvr/4rr1Z7jy3Swz1a/4qQphbC8nIyuoPQ7dEsyRuPA2lKMcyBVUqMZjWEk/HnseUHwjvxVxuHszHOC7sSaMJzAXnuxCCSulEWKAjivV3xuPEvEBh1G8s5PuXHv0bwb/ch0oFi7oyFV/mz0m86IiVu5LVrWDZgy1g8mC8YVoLfzHRj4UZT4iydZD6MHvuvyMIm0pMCHD6DFeWzlIXBIzJh1q73UAj7/b9++69+PW2LfXpinm2sj0QyItE098hr+hmsCsuw9+2xdoetXmNVJGzLVZsM5iWUDsYj3PXfcQWakjE+9kjMVGeAxkj9Gxlq0movidB0+eCK2ROZXX8coghgQC+k+T2T5Sgxte9uAmBKzBfQLgkBl1ikTpD+bFcLfjA65NRc4bHAyXqf/coGzmV7VSI5KNL3xMMSxGrZ5su8ws2K2FOn9Oke90Wo5mtya4StthVaIDg8CeBsATII6qMa/R/8Bfu20C4exJbg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY3PR01MB9194.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(10070799003)(55112099003)(6133799003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dWdrKzk3U0JSSGRmZEltSGlmbWxOUmI0YmdNZEZnTk41WWNlSVdub0c1VjBO?=
- =?utf-8?B?bDdUanNIV0JOZWZWV1M4N2pVcmc0M3laSE1NMWR5NjNVKy9kNXNWUmsrMjA2?=
- =?utf-8?B?Z3c4N1JiWUVHT1lTSGRLWXJRWVJBWWVwRWpUUkNsdExvK1BxUTlMR1RTMm9L?=
- =?utf-8?B?S21acHhUckVRTW5PaE14dlRPUzBuR0RTeWJTcnkzNGdKV2d3cHpuaFpueFNJ?=
- =?utf-8?B?R3dyTy9qWFhYN1c0NWE1Y2luYkhPMGJtK2pjUXpxWDI5YzN2dzQ2T04vY09r?=
- =?utf-8?B?SmJQSTcxZmlxL1NzeWVGKzRUQlA1TnV1L2NCTG9vUklnZGxzMzFreVhLancx?=
- =?utf-8?B?U0FISVF3K1lzcnZYR0ptSm40QU9MOVd4dHlrV2F2TkQvMnpUNmJGVHE2dzBn?=
- =?utf-8?B?dFZnbWo4VkhKUWtLL0RESFFDUVo4WDRPblRyY29NeE9XVkhaM21kZmNSODdn?=
- =?utf-8?B?ZFZITy9Rc3lYdDlwamFXc3JCOGlCOFN6NkZtMEZTQU8wV0NjL21IRjkxMjh5?=
- =?utf-8?B?bUg5MmhCd1lrUXd4emZ2Q0RMK20xQSt6dWh6MHVOU2g3SnNyWW44Q1dHWWRp?=
- =?utf-8?B?SWxyb0I3Vy9mYlVqSWV0enE3aytVTVJTang1eEoxb0w5eUFlZ1JuVlJyVUJy?=
- =?utf-8?B?dzAxdzkvbExuRGpkOXBKN0dmVkYyQWtuMlpoMWYrRXJ6QzlkaHZwUWl2MFBp?=
- =?utf-8?B?ckxmWGdISzJLUERTTEZUWUtieEdKNmlaeU91WWNwdDVjMDIxaDlPbUR2Qkxj?=
- =?utf-8?B?UGdwbDVwOFpCbkplbnNBY25Kc1FtcDBWVStwbnBRMkZBZnNJR1VYNWdVNDI2?=
- =?utf-8?B?VmRXWWwwbGN3R0JLRXlRZzlybmdXR0l6R0lLMFV5VURIaXp1L2QxU3RWUElJ?=
- =?utf-8?B?ZG9oQkNFTzJiQzFSRUF1RkswWVd5ZUNXSVZuM0NjVzQ2RkdyeVEwbVlHM2tS?=
- =?utf-8?B?YXA1YndicEhjUHZKc2hCYTZ6M1lacVplVC8zL2JxN251SFhDb1J1bFF0VWoy?=
- =?utf-8?B?YlA3c2RESmZXVGxPWlRCbkxzSjhzVi9VWkNialFjT1hZWXpMUUhmOERIT0Yr?=
- =?utf-8?B?UEpxTXVkQkNUWVdIakFteUtHN0JUT25ydVM4UUhRSkVCMUJDaUpaa1NHMkFM?=
- =?utf-8?B?R21EOXBmMU1vZ2ZPanA1eDFyK1I4YU9kbkZKb05EVm05NG93NTdkOGFScEtV?=
- =?utf-8?B?WWQ0dDl2bjl3d3FseHpldnFWWGk3QVN0UjRCQzY2Z1dsanp6ZVNrMUpTRUJs?=
- =?utf-8?B?QkFpQUNqbU5vSVJJVnNKbHh5OWpJd2djckNrSVhPSWVBRzdLUkEyUFZRWHpD?=
- =?utf-8?B?QW9PQXZHWmhEZVk2WXhZTXduT2gyL3BOQ1hBaEhYeGlSRWZqanFxdUU1Tk9q?=
- =?utf-8?B?QUc3QkZ6ZjVWS2thbDgwRkdNWFNXWit6S2NxY28xdjIyYjRIU2NsVlNTRXgy?=
- =?utf-8?B?emZjL254bEpCd1hjaXk0THBqZkNpWk1PT2MrcjhaTEpyQUJyUy9UZGE2aGRT?=
- =?utf-8?B?RWFlVHU2eTNEVUhiQklHNVVnOXp6YjE4Uis2SjdZWVJjK0Z0Rlc5d0xyV2gv?=
- =?utf-8?B?dDVwZUQ4WGNHNE5sRGVuQjVkenQvVlkzRS81UFFUUUZvSFBSK1B0SWppUklV?=
- =?utf-8?B?cGFRWHRhaTRtbGh1MzRGenYvck0vN1NOMEJmQkhvdkMvbjN4Y0EyYkEzQ2lV?=
- =?utf-8?B?VGE4Mi9CaU5FWmNiQlROdjhETktRL2ZOU0dPZ1ZIWFhtb25zOHFORWJRQXky?=
- =?utf-8?B?aXhyNnhZVnp4Y2t6eDJCUkNHQ0N1MFptcmFYYWkwN3R2M29FREY1SWlJRmZ3?=
- =?utf-8?B?M3JoM2ZSdFRuUzk3b0hZSWNjZTEzakxOOXhHNkhpc0k1M1VYM2NrTjhGRG9T?=
- =?utf-8?B?T0R6OWVMQ2RkNmdsTlJqTnFSVnMvMDZ5aW9mTUxPTjUybWRQR3BDMGJhdHdQ?=
- =?utf-8?B?YVRyUVFqUWdqVWdEcUYwcHY1THQ4VW1PNWZrbVFGOVBhMnowKzFlRzJmbjJ3?=
- =?utf-8?B?VWJkZHJGcnEwMUpTdC9DRzVYcXRuOVY0WVBIL3hGL3RsMzh2TmttS1hPdmZa?=
- =?utf-8?B?MHl0MHJNa3o2OVNuSW8vNnlMc1JaWXhNQURnRXVlak8wd3BHYVJOMHZSR0xF?=
- =?utf-8?B?a1cxbDhxdTBZYmR1NzZQOVFkdVRCejRxM3kwWk1mTUl3aHh2eWRkRXBnNTA3?=
- =?utf-8?B?MVBNdGZGU29ObmFXY1dON29wMStPTXlYYis3YThDRDY2Mnd5Z1RxamFESHNE?=
- =?utf-8?B?V3FjaXpRaFF0VW5SbVNMalBaWFlLdmpRS2Fsck1SNUgyTlVxRUxDRnNTOXQw?=
- =?utf-8?B?QStwei9GVXNPM1ZzY1BJbG9sQ2hiaGI0aGNLdW01WTl6a1pLVGR3WEkzVFJG?=
- =?utf-8?Q?5MMfkxY5eJsGDciMnIfNERs7nioBNsUR5zPHJrNAGanaP?=
-X-MS-Exchange-AntiSpam-MessageData-1: wQNapukJHB8sNJictABQMXlVwgnxAyOO6Yicab9j7CR/zxV8pBl+Cuy3
-X-OriginatorOrg: amperemail.onmicrosoft.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19b72792-001a-4006-a965-08dec30d743c
-X-MS-Exchange-CrossTenant-AuthSource: CY3PR01MB9194.prod.exchangelabs.com
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|6133799003|18002099003|22082099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: kWZyrk9KHzkHgo14zkc7zsvxo9cTQdItE0s38nqOhvsyxLgcQNypqjeokkHfymKvd38barGNMbl29k3W1VftVqRKuYbwOwLsf4XXlmYSpsWTUh35SaLn7PNTvgfR/PK8xJHYdtqF2Ypy68+8Wh4AsRGl6OC0MEclK9rXEk9rZBjHvVhRCXWtbFczyOL/rLiCbyWwjRTnEFgv9278RUoESXCJwPopCeEl+HOMSonhyelegN717i3dpaCOioS7eYN4LDc5Xjnxq7CzFUhJ3wHP7VYb9Y0hnHH2oqzjx5kGWk2qV3BmGria7vT5k06ItgLp7l+ian5S9S46ZRarsHj261OZENwFmrol++by7UNO1fo7iQjpskCR8jxpGj94DzJLvJKuHT2O3d63Z3tAjipKpsWYRXo0NquQaXexNehi7cULbfWuNXGVh4oPPR4kZn8GVafrfjmfjr31GevsJe1r2cPTaIbRYiCK4VxysTw0OfQ7lYhaUQvq4cAa6GzCZK/B9cM/KJzZecl2HqyYc0hzYVon/Xql9l/ig0GNsSNE5w7AC9qAc6cZwqFQIiO8zDGDY5hoWyB6k6REPIEA8i6A634iSH/zegr9Q3QPWS0Iv1AkJlcKAJBTz9ZWcs0gyikEs+bZ2ncEtA+q3SSfSkeucu/+BM+gierPalYsITf+L3k81KmlO4iy2uE7iGmFppBg
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB9516.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(6133799003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SUNEOFkvcC83eloybTR1b1F0b29ESlpoUFZld212MTBQek81dldZakhEdTJX?=
+ =?utf-8?B?TUJlS1hQaVlGOG9rbmJwaGdjQUVBUTVNbXk0LzkxUmV1akl2akYvSmt5OFZz?=
+ =?utf-8?B?ZVgvdVY2aG1TQ09RN0c1ODdSZjVIVENRMCtXbHFsYVNibG81bGV5MmhweHhr?=
+ =?utf-8?B?a3NwYSs2YkgrZ0s5WWMvRDB3UHZzMWRyaDBqQzdoU0NlUFNQQTRlRG1ZZlRh?=
+ =?utf-8?B?eUJ4eUlLbkdMNFcwSzlJSUlyUkFtZEMrSGVzYUVNdHBPaFJ5MThRTDYwRWph?=
+ =?utf-8?B?eE9BazZhRmdwaEJtSU5JN2FPei9NM2NUUURzamFYaTJiOHI5M29lS0ZiSnNM?=
+ =?utf-8?B?bnMzRXFaT2E5T2x2Y3h1OUMwbkM1ZjVFcmY3aU40a3E2MFpIVWVhbURTTmtS?=
+ =?utf-8?B?QVlPcUNWaEEzYlB1MjRwVmd4N1RlV3lQbXZWaWxzd09vMUgzTE9sYzZtY001?=
+ =?utf-8?B?TkNiOEIwNEJQOFIzSnlweFZnb3dIUXV2THUzQ0V0SnlwcGxHUDdKWmU0eW41?=
+ =?utf-8?B?djVzT3d3NzVQU1pOWUN2dVpBVllqczBWeHlsRmhXWm9EWGRUeitFOVNJcEVl?=
+ =?utf-8?B?aFk2bnRFNmxCSlJpRW5sODVvM01OQkpvWDJxS045QWpaL3h6MkZSYjFHTFI1?=
+ =?utf-8?B?dGFmL3RFdUpGMlZHL2Jod3FUYmRLUisxQ1Z2WndqZGJZZllDSExGWnE3elVm?=
+ =?utf-8?B?ZHA5NzkySzJqMEljODRKU1ZmVE1nSHVNbnFFeHorOEVTVlNPODhkMHJBWHZa?=
+ =?utf-8?B?Yk9FYkNiYlRQRXJVZ3MvSEpaM0dXdkRPTEs0V1FHVlhqaXFUS2FSY1k0eXlX?=
+ =?utf-8?B?dGZuM256YzdYajZWNEZkV1JhcWNDM2ZpVTlmdlFTZWxuR3o2a2Naa2ZhKytV?=
+ =?utf-8?B?cmR2cDBtYWw0aXZydzNMc2ZIRCtzK1JoL1dGUzBaYWJPNEZMem4wNFA1UHRy?=
+ =?utf-8?B?MGJ3L0pvMlhaR05PSndBcXhqMVU5eW8rVWJ5U2R2bDJXMExnWHo1Z0NxaDY4?=
+ =?utf-8?B?TWd5MHR4OU5KNW00Q1I2Z0xvZ0xhUjNXN3MvSTdrMDJkR1pFTzdneWhObncx?=
+ =?utf-8?B?SG0rOGZVQmFIK2FsZE85aWZsK2RzS2lkaEtSVmEyRzdKN3IwMldoWEYxU1ZV?=
+ =?utf-8?B?SHRoNGlSY3RHSE9qK3NQVDVQNnF5Qkl0bVJhakNhUjlXQlNWdXhpRGNmdnBI?=
+ =?utf-8?B?bkl2SmJoNVNoRHNrejZtRkM1MWs5L2c1UkhRZ2Zxd3B2bU81VTkvM1pCTk1r?=
+ =?utf-8?B?Zmp2WStOTzJMVHBTQUh3bkhVczEraGwxZmRjSlBGeCtORkFrK2JzVnVpanQr?=
+ =?utf-8?B?Zk1HaTBBdlJBcVhoeUwwaUpyRUV0WVVBbnJlQm5BWU54OCtpcTBiaGFKZjhX?=
+ =?utf-8?B?RUpnZVMza3FsWDRXQS90WEhacjY5WjlTeFNDTEpzUndjUGN4SXRMdGt5VjVL?=
+ =?utf-8?B?S1NyTWRkcFBjcmEzclhoeHdxWk11NFAyckptN2xkUndOcDM0eThBcDk0Y0lG?=
+ =?utf-8?B?eGVnUzVQQ2RhYTd1bW1WYU5KNWJML1hTNGhmaHJiNkJIU1ZsWlRnQklSTHBt?=
+ =?utf-8?B?L2Jjdnk4ckgwSzFMOG9HcVpOR2VOK3JoRmhsRVJ2Zzg0dmxySW9zQ3VTVzQ3?=
+ =?utf-8?B?Wm1PZFhvc21mRXRjQlh0dXZqTkVyNHFIcklCMGluMStzZ2lBTGRIMXpDZ0ZQ?=
+ =?utf-8?B?TkdXNUY1L3Z2MHY5Q0dmNFZ5MnUxVDNWV2g1NFd5eHlRRnZ2M2M3TnZIU2Y3?=
+ =?utf-8?B?SEF3WlBLTWdRQjdwSnlIVW1KUVpBaVJvWnpYTm9pMSsraDJNL05VWmt6bUZY?=
+ =?utf-8?B?UHpBdzhXczYzUUc2Q0ZsYjRtRGhoUm5vTU1teE50cHRFY2RHbHhCc0QyUkpi?=
+ =?utf-8?B?WXl4N3ZhTEY4Ri9XSGdoNFhnWVgrT2RmUVgxS1JXckR3ZzlYMFA3UEgrVGdN?=
+ =?utf-8?B?TWFhZUQ5SWhpRk5kVGUyWHBweFVhOWJyQUFDQnpxOUl5WWpPa1U1L1ZZZVdl?=
+ =?utf-8?B?L2hvdzVxV0U1UG5Fa1NSckVjTnFObnBHMTN2RW0xTEhKUkNud3lHc2lMWURF?=
+ =?utf-8?B?UmtSTG50QWdJUkdFRXlScDcyUWRVQWVJcGNRWEdyajNUVzlqSmZmZUpoNU5p?=
+ =?utf-8?B?RnBubi9mbk1BeGdiUFErRG1UQ1hRYkNxZk1UZkVCM1hTdFVnZmF3QWdvYXNl?=
+ =?utf-8?B?bENTa1dxWXhMTDh3YWFVczZmb2wwSWxwT0Z2aUUwVWxxNWhkMmI0MlErSVEv?=
+ =?utf-8?B?ZVd6REtUMnBjRjRPSndiZjBuSzFxS25ZbE50aVZzSTNkQzlFemFIdktLdSs0?=
+ =?utf-8?B?VzVoNFdUWXg0VkM0SHlTbzNqQnVtM2h1Skg5MTBEbHQzek9BY1hDZz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 10465124-18b2-44b0-48e4-08dec30f8223
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB9516.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 14:19:28.7407
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 14:34:11.1243
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t8Uhr92NgBpAVtJGmUI9193hgfwtmnj1/Q80UTXL6mauB03ZXeGM7yayiWb6U8tr7X4kC2PJxtKr5yrZ2SDsIzYyMFOYxbNhySv29cTlVGs9py8jPCLXTht5U088qsQ1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR01MB8577
+X-MS-Exchange-CrossTenant-UserPrincipalName: 52eYQfdpgMj6f81fT4xXBUMW4qGx7jpixiRqjmHpcpIZ+bPdE2zir/SzqUdrmiH8ODKUZbr/XQ7VwDeZ8UeXrg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7880
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_071949_030800_585CE0DB 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20260605_073418_404803_545134E3 
+X-CRM114-Status: GOOD (  30.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,124 +151,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MCTP-PCC.  I was not sure if I should ad the Patch to this one or not, 
-as the MCTP-PCC is still going through review.
+Hi Vladimir Murzin,
 
-Essentially, it need two pieces of information before start up. 1, it 
-needs to be able to check the sizes of the two shared memory buffers in 
-order to set the MTU.  2, it confirms that the Channels are indeed Type3 
-and Type4.
-
-The base patch for that is
-
-
-https://lore.kernel.org/lkml/20260522193610.234166-1-admiyo@os.amperecomputing.com/
-
-This is the diff that would use them.
-
-
-commit c02159450cf38cb778105f10a11708d358a3b633 
-(admiyo/mctp-pcc-v45-net-next, mctp-pcc-v45-net-next)
-Author: Adam Young <admiyo@os.amperecomputing.com>
-Date:   Thu Apr 30 10:48:41 2026 -0700
-
-     mctp-pcc query channel information without opening channel.
-
-     Opening the channel can trigger the sending of
-     a message from the remote side before the driver
-     is ready to read it.  Take advantage of the API that allows
-     querying of the channel data without opening the channel.
-
-diff --git a/drivers/net/mctp/mctp-pcc.c b/drivers/net/mctp/mctp-pcc.c
-index bb5d53ee3d7c..01a9966eddd2 100644
---- a/drivers/net/mctp/mctp-pcc.c
-+++ b/drivers/net/mctp/mctp-pcc.c
-@@ -318,25 +318,50 @@ static void mctp_cleanup_netdev(void *data)
-         mctp_unregister_netdev(ndev);
-  }
-
-+static int check_channel_types(struct mctp_pcc_ndev *mctp_pcc_ndev)
-+{
-+       struct mctp_pcc_mailbox *outbox;
-+       struct mctp_pcc_mailbox *inbox;
-+       struct pcc_mbox_chan chan;
-+       int actual_type;
-+
-+       outbox = &mctp_pcc_ndev->outbox;
-+        if (pcc_mbox_query_channel(&chan, outbox->index))
-+               return -EINVAL;
-+       actual_type = chan.type;
-+       if (actual_type != ACPI_PCCT_TYPE_EXT_PCC_MASTER_SUBSPACE){
-+               pr_err("MCTP-PCC outbox channel wrong type: 
-%d",actual_type);
-+               return -EINVAL;
-+       }
-+
-+       inbox = &mctp_pcc_ndev->inbox;
-+        if (pcc_mbox_query_channel(&chan, inbox->index))
-+               return -EINVAL;
-+       actual_type = chan.type;
-+       if (actual_type != ACPI_PCCT_TYPE_EXT_PCC_SLAVE_SUBSPACE){
-+               pr_err("MCTP-PCC inbox channel wrong type: %d",actual_type);
-+               return -EINVAL;
-+       }
-+
-+       return 0;
-+}
-+
-  static int initialize_mtu(struct net_device *ndev)
-  {
-         struct mctp_pcc_ndev *mctp_pcc_ndev;
-         struct mctp_pcc_mailbox *outbox;
-         struct pcc_mbox_chan *pchan;
-+       struct pcc_mbox_chan chan;
-         int mctp_pcc_max_mtu;
-
-         mctp_pcc_ndev = netdev_priv(ndev);
-         outbox = &mctp_pcc_ndev->outbox;
--       pchan = pcc_mbox_request_channel(&outbox->client, outbox->index);
--       if (IS_ERR(pchan))
--               return PTR_ERR(pchan);
--       if (pchan->shmem_size < MCTP_MIN_MTU + sizeof(struct 
-acpi_pcct_ext_pcc_shared_memory)) {
--               pcc_mbox_free_channel(pchan);
-+       if (pcc_mbox_query_channel(&chan, outbox->index))
-+               return -EINVAL;
-+       if (chan.shmem_size < MCTP_MIN_MTU + sizeof(struct 
-acpi_pcct_ext_pcc_shared_memory)) {
-                 return -EINVAL;
-         }
--       mctp_pcc_max_mtu = pchan->shmem_size - sizeof(struct 
-acpi_pcct_ext_pcc_shared_memory);
--       pcc_mbox_free_channel(pchan);
--
-+       mctp_pcc_max_mtu = chan.shmem_size - sizeof(struct 
-acpi_pcct_ext_pcc_shared_memory);
-         ndev->mtu = MCTP_MIN_MTU;
-         ndev->max_mtu = mctp_pcc_max_mtu;
-         ndev->min_mtu = MCTP_MIN_MTU;
-@@ -378,7 +403,6 @@ static int mctp_pcc_driver_add(struct acpi_device 
-*acpi_dev)
-                 return -ENOMEM;
-
-         mctp_pcc_ndev = netdev_priv(ndev);
--
-         mctp_pcc_ndev->inbox.index = context.inbox_index;
-         mctp_pcc_ndev->inbox.client.dev = dev;
-         mctp_pcc_ndev->outbox.index = context.outbox_index;
-
-
-
-On 6/5/26 03:55, Sudeep Holla wrote:
-> On Thu, Jun 04, 2026 at 04:37:48PM -0400, Adam Young wrote:
->> Drivers need information about a channel prior to creating a channel
->> or they risk triggering message delivery on the remote side of a
->> connection.
->>
->> One of those pieces of infomration is the type of channel.
->>
->> Add PCC channel type to records and expose PCC channel type to client.
->>
-> Please point me to the user of this interface.
+On 6/5/2026 4:26 AM, Vladimir Murzin wrote:
+> External email: Use caution opening links or attachments
 >
+>
+> On 6/5/26 00:12, Shanker Donthineni wrote:
+>> On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
+>> observed by a peripheral before an older, non-overlapping Device-nGnR*
+>> store to the same peripheral. This breaks the program-order guarantee
+>> that software expects for Device-nGnR* accesses and can leave a
+>> peripheral in an incorrect state, as a load is observed before an
+>> earlier store takes effect.
+>>
+>> The erratum can occur only when all of the following apply:
+>>
+>>    - A PE executes a Device-nGnR* store followed by a younger
+>>      Device-nGnR* load.
+>>    - The store is not a store-release.
+>>    - The accesses target the same peripheral and do not overlap in bytes.
+>>    - There is at most one intervening Device-nGnR* store in program
+>>      order, and there are no intervening Device-nGnR* loads.
+>>    - There is no DSB, and no DMB that orders loads, between the store and
+>>      the load.
+>>    - Specific micro-architectural and timing conditions occur.
+>>
+>> Two ways to restore ordering: insert a barrier (any DSB, or a DMB that
+>> orders loads) between the store and the load, or make the store a
+>> store-release. A load-acquire on the load side would not help, because
+>> acquire semantics do not prevent a load from being observed ahead of an
+>> older store; only the store side (release or a barrier) closes the
+>> window.
+>>
+>> Promote the raw MMIO store helpers (__raw_writeb/w/l/q) from plain str*
+>> to stlr* (Store-Release), which removes the "store is not a
+>> store-release" condition for every device write the kernel issues.
+>> Because writel() and writel_relaxed() are both built on __raw_writel()
+>> in asm-generic/io.h, patching the raw variants covers both the
+>> non-relaxed and relaxed APIs without touching the higher layers. Note
+>> that writel()'s own barrier sits before the store, so it does not order
+>> the store against a subsequent readl(); the store-release promotion is
+>> what provides that ordering.
+>>
+>> Like ARM64_ERRATUM_832075 on the load side, the change is gated on a new
+>> ARM64_WORKAROUND_DEVICE_STORE_RELEASE capability and only activated on
+>> parts that match MIDR_NVIDIA_OLYMPUS, so unaffected CPUs continue to use
+>> the plain str* sequence.
+>>
+>> Co-developed-by: Vikram Sethi <vsethi@nvidia.com>
+>> Signed-off-by: Vikram Sethi <vsethi@nvidia.com>
+>> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+>> ---
+>>   Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>>   arch/arm64/Kconfig                          | 23 ++++++++++++++++++++
+>>   arch/arm64/include/asm/io.h                 | 24 ++++++++++++++-------
+>>   arch/arm64/kernel/cpu_errata.c              |  8 +++++++
+>>   arch/arm64/tools/cpucaps                    |  1 +
+>>   5 files changed, 50 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+>> index 211119ce7adc..899bed3908bb 100644
+>> --- a/Documentation/arch/arm64/silicon-errata.rst
+>> +++ b/Documentation/arch/arm64/silicon-errata.rst
+>> @@ -256,6 +256,8 @@ stable kernels.
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>>   | NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>> +| NVIDIA         | Olympus core    | T410-OLY-1027   | NVIDIA_OLYMPUS_1027_ERRATUM |
+>> ++----------------+-----------------+-----------------+-----------------------------+
+>>   | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>>   | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index fe60738e5943..a6bac84b05a1 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -564,6 +564,29 @@ config ARM64_ERRATUM_832075
+>>
+>>          If unsure, say Y.
+>>
+>> +config NVIDIA_OLYMPUS_1027_ERRATUM
+>> +     bool "NVIDIA Olympus: device store/load ordering erratum"
+>> +     default y
+>> +     help
+>> +       This option adds an alternative code sequence to work around an
+>> +       NVIDIA Olympus core erratum where a Device-nGnR* store can be
+>> +       observed by a peripheral after a younger Device-nGnR* load to the
+>> +       same peripheral. This breaks the program order that drivers rely
+>> +       on for MMIO and can leave a device in an incorrect state.
+>> +
+>> +       The workaround promotes the raw MMIO store helpers
+>> +       (__raw_writeb/w/l/q) to Store-Release (STLR), which restores the
+>> +       required ordering. Because writel() and writel_relaxed() are built
+>> +       on __raw_writel(), both are covered without changes to the higher
+>> +       layers.
+>> +
+>> +       The fix is applied through the alternatives framework, so enabling
+>> +       this option does not by itself activate the workaround: it is
+>> +       patched in only when an affected CPU is detected, and is a no-op on
+>> +       unaffected CPUs.
+>> +
+>> +       If unsure, say Y.
+>> +
+>>   config ARM64_ERRATUM_834220
+>>        bool "Cortex-A57: 834220: Stage 2 translation fault might be incorrectly reported in presence of a Stage 1 fault (rare)"
+>>        depends on KVM
+>> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+>> index 8cbd1e96fd50..b6d7966e9c19 100644
+>> --- a/arch/arm64/include/asm/io.h
+>> +++ b/arch/arm64/include/asm/io.h
+>> @@ -25,29 +25,37 @@
+>>   #define __raw_writeb __raw_writeb
+>>   static __always_inline void __raw_writeb(u8 val, volatile void __iomem *addr)
+>>   {
+>> -     volatile u8 __iomem *ptr = addr;
+>> -     asm volatile("strb %w0, %1" : : "rZ" (val), "Qo" (*ptr));
+>> +     asm volatile(ALTERNATIVE("strb %w0, [%1]",
+>> +                              "stlrb %w0, [%1]",
+>> +                              ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
+>> +                  : : "rZ" (val), "r" (addr));
+>>   }
+>>
+> Nitpick:
+>
+> The change has the side effect of undoing d044d6ba6f02 ("arm64:
+> io: permit offset addressing"), since stlr* do not support
+> offset addressing. Unaffected CPUs would continue to use str*,
+> but would lose the benefit of offset addressing :(
+>
+> Not sure if this needs to be mentioned in the commit message...
+>
+Thanks for your feedback, You're right that this reverts the 
+offset-addressing benefit of d044d6ba6f02 for the str* path too, because 
+stlr* has no offset form and both alternates must share one compile-time 
+operand form (alternatives are patched at boot). Keeping offset 
+addressing only for the unaffected str* path would need a runtime branch 
+per str operation, which isn't worth it for this optimization. I'll call 
+this out explicitly in the commit message in the v2 patch. -Shanker
+
 
