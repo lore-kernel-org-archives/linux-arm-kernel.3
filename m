@@ -4,130 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8D3CD6E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 21:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F7CCD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 22:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QE0Md98pudZWMbItmpFfbAzubbC0Gb9q7XvgkEpElx4=; b=ssyyo9orkTyNkOAX6N1KrWSHLH
-	eVj3H/6iFMhzbQBUyELwqVBFO34Cz7dgz/VL90P9Od5s857VdfwOUxbzw6d+MncCGq67jrHCTSXsD
-	bIruDUNHiYyzoglhJG9hGsjvM1e8kHxSQFQD5SlldUMBeTZxXGrGfVk/L+AIZxNXOM6uyrfsWOPiy
-	dKGcZPpRWFuS1NLQaXGCm2fCNVwLdI1Pf9Q1uxYWGTyfwcCXHxcPTmYhiej50NFAI8FJI6AQmqiWL
-	5kUFTMjwQa8uE+G5Yssmd7K3k6nSzvzu70IvNu9z6ORXboCKeGFuCjMk4Ms+YuRWVpLJZK7MQxJcu
-	NYL2cDow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aA91jCq4/mNmUEH/kjvRtP6AJz8TabbXycFCA/n1dO8=; b=cHG8UQiGjMoF25
+	rqVysJkHldDAY1rP40sJmah3eTwOUPlEuwgG/4rJIIk83T66mq/+3R8JrpvpSkAADSLBW7zfMsfOI
+	Lo9ZBeaaPHcblIkv592k1oGPVkhzFsS160ftuagXYL1lsOuT5dSF2Alyqvqpo2MaNLVxYT6Tj+lOK
+	s6cJ9w9CRWF9AmZd2qZSjKy0Ah3yLhActyGpbQXIYMgJN5kDLQfi48mu4hDEu0blqeuH7tRDFLT9/
+	NgR9ZLP6j+6HQGgNeO7T8C08N+AaJInbOOarOchfbC5Cguai9esyu3aPpRcVTuf7bfDEAOqtAS8jt
+	svfzi/TELRXTDSTyND+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVcWp-00000001DjB-2r7k;
-	Fri, 05 Jun 2026 21:56:35 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wVci9-00000001E7w-0A5E;
+	Fri, 05 Jun 2026 22:08:17 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVcWn-00000001Dii-0QER
+	id 1wVci6-00000001E7B-0rAz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 21:56:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BsXhR4UYy5iyI5ABV4Vm4ZbdSKuSDN7Js+FStUMglwsIPPlo5SSn6vKMlTycXTZsmWu2aN9knSgksRZrtXAYE8xnqTL5z0iv3pPQZLySlaPA5hzNxdpR+7tjvjydIsbhqnu1uGxMxrz7MmMiCaH8X12aL4/aR5JDIuHpbo9Ju8lfbI4RCDqi5VPuiT2MfZl7FkQ0Bq7K2IS3yuJwvrC5m0zpRaUFAiam1TvJa80zSvlGK1jsvkJehsOpn3vuNwmXm7VfIiyCqPQKbGBgw4aH+vK5qWRr9vV8xqvuvsg6aX0xWBS6yup0lwIjvEB8SuExTZKqSvyDuhF/VP/851tnJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QE0Md98pudZWMbItmpFfbAzubbC0Gb9q7XvgkEpElx4=;
- b=YW5jsrJSQt8gHQx+hdfk34I3oY5JK3ksuglRbB1WK76PxRUSS+D9rZHbeFFp0sqyS0VSM9vgWXjj58lROE3zosudkSQrwe6/BiIcu/dxf+FEqzXEV6bsagQH9Ir3cUYyiskwIj0Y4jtLKLqM0BlTi3ZcXTBaT7SfGo4f/HA45fZ0WVgj+bnwdxj3ki65LB8/1anbZjfGN7ksq/8bSHD45xZxN8DaNTUxTpRExgcOL0NeFUSxnwD4CX9GlKJfN+FtZyIbQa201uiBxkFP1fk/dgiFZco6VUz1yGCauuRjeE11i8bxRQPK1EHs++Wg2nkUG1xcwwsknZtF7Cyj1L3efQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QE0Md98pudZWMbItmpFfbAzubbC0Gb9q7XvgkEpElx4=;
- b=Q+IbS9JL/o1/2FrwtqPBEiJWypUZE4Se6AQXjFmU1qWNsik4qhwtd5NEnYtcyW6v+ZFAvmDycZcg+g6XYUh1ogixiSGk8tapPIpl28adrjtfrFwBUnkA7gnDsZ0PRB3jdGcSPLolfrob/IYHANJspZ30EhIJCY9MfjRRcooAyynY1kVNQ0zDg4EbA8GGLuxn8FxD1TyBUhNeE3Pca0kclcYDo2y7mSpRa//kaUebnh3ST4KiWkNelenNolu1auMPO2oq8BtSvrnSjhzXZAyYGq31kzHjpsHBG5KfgfB9BW+KnghVPdq3H098LUZi3CMBEmn0KN6wqXHBqmZVIxxMpA==
-Received: from DS1P221CA0025.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:242::16) by
- SA3PR12MB9180.namprd12.prod.outlook.com (2603:10b6:806:39b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Fri, 5 Jun 2026
- 21:56:26 +0000
-Received: from SN1PEPF0002BA4B.namprd03.prod.outlook.com
- (2603:10b6:8:242:cafe::68) by DS1P221CA0025.outlook.office365.com
- (2603:10b6:8:242::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.10 via Frontend Transport; Fri, 5
- Jun 2026 21:56:26 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SN1PEPF0002BA4B.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Fri, 5 Jun 2026 21:56:26 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 5 Jun
- 2026 14:56:09 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 5 Jun 2026 14:56:08 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 5 Jun 2026 14:56:07 -0700
-Date: Fri, 5 Jun 2026 14:56:06 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Rafael J .
- Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, "Pranjal
- Shrivastava" <praan@google.com>, Mostafa Saleh <smostafa@google.com>, Lu
- Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
-	<xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v4 18/24] iommu/arm-smmu-v3: Introduce master->ats_broken
- flag
-Message-ID: <aiNF9kzjzDY/u1NG@nvidia.com>
-References: <cover.1779161849.git.nicolinc@nvidia.com>
- <49dde0a2e2dc88e421a3010956db33d47cc92aa8.1779161849.git.nicolinc@nvidia.com>
- <20260519120658.GB3477375@nvidia.com>
- <aho9DB6it2R5O5Nm@Asurada-Nvidia>
- <20260601123231.GG3195266@nvidia.com>
- <ah3udmX5SIO9lAXR@Asurada-Nvidia>
- <20260602001547.GR3195266@nvidia.com>
- <ah5txKCvspL8zMeG@Asurada-Nvidia>
- <20260605194259.GE1962447@nvidia.com>
+	Fri, 05 Jun 2026 22:08:16 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1wVchz-0000LW-1H; Sat, 06 Jun 2026 00:08:07 +0200
+From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Subject: [PATCH 00/17] media: rockchip: rga: Add multi-core support
+Date: Sat, 06 Jun 2026 00:06:46 +0200
+Message-Id: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260605194259.GE1962447@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4B:EE_|SA3PR12MB9180:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5cce636c-5e0d-4f55-4378-08dec34d4a7b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700016|6133799003|22082099003|18002099003|11063799006|5023799004|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: kWYh64XT6jWgjeqwkAXffr1Q1PF6L4T6tBSB9b2BGZ1UK6rS/GLxD2w+GRlDBdxZU5ZUzgl3rHYaG+srL7PrdTKWoMvomrGh/w7hdVIUIIqE6WxnGFbz2iS2ebsNPCmt1bi9bnugxLXUkWZB8nDGOKiIN9+iOYZK1PO2Vr/1oWrppBo48/E1Ns3QD1TFE3d9297bw2E8BPXeexKvajSdJ2fBuf+5NIt4OS/TlshRkiAXnlkkFJVJXVGYR94pgdWLjf2n2SVPCGXeKjmmtzFSR8t9F9uhjOKIjHvncAJVx3XWxUA3WDVJqaoXc00QPXfTgNSv6qCb36OSkhl844MswdSEZl0M2uFMbfbDhUU/6KwO6G/YvC1t8i37JC7xrPbNFk9DnnUllHh87dcbpXFE4ztsxu5YZbOkUwgWy9aa8gQQOlPmIL9UVrI+fhiync18JSXtrjmM8Nslk4Uc9yM67jiroCS6y6pe5VoijnyKiWvNP9CBvlF7kfKztw562lkO+aW0nd6YJtsWVk6SMOi73MOY+fJ50KY4Q+uHRJRyc/FeT4CrQOAFgVYR8YUptpCh2kdq3PQl/PHhhh6KOGYwEUf/9KPIMnvbMMkBY3UrEUbQdFO5uB3OGh6tnBNhewVrWKvokYxm9K8WR2nW9nARv9f802y4udzMn8EHY0w9j0XlH2SpJ9LIAfKLA8qTrq8vSnUm7tdIMEJTzhWibxjhIzqRHuZgOV8zN4nBB0FRmss=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700016)(6133799003)(22082099003)(18002099003)(11063799006)(5023799004)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: A4ejibje7oSZtyJKVdoGrdIlILpl0J0KqobTYIarvo8szqlmhSJqwkm6ncpR5KXgnR39ZDCb62rBnkv5yBxxOH3JCETMTVauMUzIkd7iFhv1UAdLk2klu/z9Kn8w5oyfJlZZEvlClkjevXtqTUXL00BuD/HInO2yXqz5H0RPoDHiH3qkJ/i/WCweWyfblHX9H4WEuS38bkWKhAPnGHZfiODQl3EAVtIOB63hSfoafiBS8YuYtWU50SVHaZLemNVq6d6N8M3s4Kne/6mMiAk2XJFVYiWAA387EmFJ9iLGWVDuGo4qVZz2NarZaKAJIaEUnYxU2tpylUlKw3u6+LV5ZoGecUCG+I+YsZEHfMUkQGbRZjemu/RNnVDIC9UR4tznSlyfb0fwGh0rUMrhmEmKeJJt+Re1zoGKCamqBeJDqDkfrnith60UqvWrkFeCAdfE
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 21:56:26.1191
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5cce636c-5e0d-4f55-4378-08dec34d4a7b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4B.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9180
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMywqDMBBG4VeRWTcQUxDtq0gX6fRXp9QLM6YUx
+ Hdvqstvcc5GBhUY3YqNFB8xmaeM8lIQD3Hq4eSZTcGHylc+OFuS0z5ex/RehWeFi6i55tj5Eg3
+ lblF08j2e7f20pccLvP5HtO8/NhsQaHUAAAA=
+X-Change-ID: 20260602-spu-rga3multicore-ae8c8caf01e9
+To: Jacob Chen <jacob-chen@iotwrt.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
+ Michael Tretter <m.tretter@pengutronix.de>, 
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
+ Simon Xue <xxm@rock-chips.com>, Joerg Roedel <joerg.roedel@amd.com>
+X-Mailer: b4 0.15.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_145633_162600_703B8AAF 
-X-CRM114-Status: GOOD (  31.31  )
+X-CRM114-CacheID: sfid-20260605_150814_246880_A0388725 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,114 +74,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the reply.
+Add multi-core support to the RGA (Raster Graphic Accelerator) driver
+for Rockchip SoCs. This works by scheduling the given work to multiple
+identical RGA cores. Previously other identical cores were discarded
+while probing with -ENODEV to avoid exposing multiple video devices for
+identical cores and breaking the ABI when adding an in-kernel scheduling.
 
-This is indeed a very complex and sophisticated topic..
+This series targets the RK3588 SoC, which has one RGA2-Enhance core
+and two RGA3 cores (see [1] for an overview of the different RGA cores).
+The slimmed down RK3576 SoC also features two RGA2-Pro
+(also described as RGA2.5) cores, but is currently not supported by
+the driver. Tests are done on a Radxa Rock 5T SBC.
 
-On Fri, Jun 05, 2026 at 04:42:59PM -0300, Jason Gunthorpe wrote:
-> I don't see any of these options as appealing. We have to maintain a
-> few key invariants, and I think it cannot be done without a way to
-> find all the domains that are using the STE.
-> 
-> One way or another you have to be using the invs list rw locks to
-> synchronize the EATS state changes.
-> 
-> It is okayish to be sloppy when turning EATS off, but when turning it
-> back on we do need to cycle through every invs list and toggle its
-> lock to ensure that the invalidations are synchronized before
-> EATS=enable happens.
+The scheduling is done only on a context level, which causes no
+increased performance for a single stream (which uses only one mem2mem
+context). Therefore at least N parallel stream are necessary to utilize
+N cores. This avoids the more complex buffer handling required to avoid
+mixing the frame ordering when one core is slightly faster than the
+other (e.g. due to memory transfer timings or different clocks).
 
-I think the core guarantees that "cycle through every invs list"
-happens: a PCI reset calls reset_prepare() blocking all the RID
-and PASID domains and removing ATS entries from every invs list,
-and then calls reset_done() that re-attach RID/PASID domains so
-freshly new ATS entries will be installed before EATS=enable.
+While the work is based on Detlev Casanova's multi-core series for the
+rkvdec driver [2], it differs in two major aspects:
 
-So, I think the enable path is not an issue, though the disable
-path or the invalidation path would need "a way to find all the
-domains that are using the STE".
+(1) It doesn't directly call v4l2_m2m_job_finish to mark the current job
+as finished in the device_run callback. Detlev used this to trick the
+m2m framework to directly schedule the next job. This looked like a
+dirty hack and had me running into some of it's pitfalls (e.g. the
+difference between the v4l2_m2m_buf_done and the newly introduced
+v4l2_m2m_buf_done_manual function).
+Instead I've dropped the current curr_ctx member of the v4l2_m2m_dev
+struct and added a max_parallel_jobs member to specify the maximum
+number of parallel jobs. This allows the driver to set it's maximum
+number of parallel jobs with the newly introduced
+v4l2_m2m_set_max_parallel_jobs function. The RGA driver uses it to set
+it's number of parallel jobs to it's number of available cores. The m2m
+framework then schedules the first N jobs on it's job queue to the
+device_run callback instead of only one.
 
-> Given you must have a way to go from STE -> master -> all invs lists
-> I'm not sure either option really makes such a large difference.
-> 
-> If so then adjusting the invs to disable the ATS is pretty simple, run
-> over the xarray and set them all off. Yes you could find the master
-> through a SID lookup with some locking adjustment.
-> > 
-> > (1) Per-invs marker: INV_TYPE_ATS_BROKEN + master_domains
-> >     disable_ats() in the timeout path walks master->master_domains
-> >     and flips matching ATS invs entries to the BROKEN type.
-> > 
-> >   + invs walker is free (one case label in the existing type switch).
-> >   + No lock or pointer deref in the invs walker.
-> >   + No master pointer stored in invs; no lifetime concern.
-> > 
-> >   - disable_ats() walks every (master, domain) and marks each invs
-> >     set; the list needs locking usable from atomic.
-> 
-> This doesn't seem so bad
+(2) Instead of attaching an identical RGA core on probe to the first
+probed RGA core instance, use component helpers to add all cores as
+components to a virtual platform device. This has the advantage of only
+creating the video device after all cores have been probed successfully
+and tearing it down if one core is being removed (e.g. by the sysfs),
+which otherwise could lead to nasty memory bugs. The implementation is
+based on the driver of the etnaviv gpu. As the virtual platform device
+doesn't has an iommu, we still allocate all relevant drives on the first
+core, which shares it's iommu domain with all other cores.
 
-Yea, the only thing is that the disable path has to deal with a
-complexity from going through a per-device domain list. Maybe it
-can reuse iommu_group->pasid_array by taking xa_lock?
+v4l2-compliance results:
+    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+    ...
+    	Card type        : rga2
+    ...
+    Total for rockchip-rga device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
+    
+    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+    ...
+    	Card type        : rga3
+    ...
+    Total for rockchip-rga device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
 
-> > (2) Per-master flag + streams_lock
-> >     invs walker resolves SID -> master via streams_lock and reads
-> >     master->ats_broken.
-> > 
-> >   + Single source of truth on the master.
-> >   + disable_ats() is one WRITE_ONCE.
-> >   + atc_inv_master early-skips via one READ_ONCE.
-> >   + attach gates ats_enabled on the flag; a concurrent quarantine
-> >     race can be closed by a short post-attach re-check in commit()
-> >   + No master pointer in invs; no lifetime concern.
-> > 
-> >   - invs walker pays streams_lock + rb_find(SID) per ATS entry on
-> >     every invalidation. Measurable on ATS-heavy workloads.
-> 
-> Doesn't consider how to enable
+The DTS and iommu changes at the end are picked out of other next trees
+to provide an easy way to actually test the changes with an RGA3 on a
+rk3588 SoC. They'll be dropped when they get into media/next.
 
-The enable side is core-driven: when reset_done() re-attaches
-the device from blocked_domain back to its RID/PASID domains,
-the new attach_dev callback (old_domain == blocked_domain) can
-clear the per-master flag. If the device is still broken, then
-arm_smmu_atc_inv_master() at the end of attach_commit() times
-out and re-triggers quarantine.
+Patch 1-3 address review comments from my last RGA3 patch series
+Patch 4 additional driver cleanup
+Patch 5 implements support for parallel jobs in the m2m framework
+Patch 6-8 add multi core preparations to the driver
+Patch 9-13 rework the driver to use component helpers
+Patch 14 puts all cores into the same iommu domain
+Patch 15 enables the multi-core support
+patch 16-17 just pick patches required for testing
 
-The flaw lives in the invalidation path as it must translate
-every SID to master using streams_lock + rb_find(SID) per ATS
-entry, which make it very less attractive.
+[1] https://codeberg.org/airockchip/librga/src/branch/main/docs/Rockchip_Developer_Guide_RGA_EN.md#design-index
+[2] https://lore.kernel.org/linux-media/20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com/
 
-> > (3) Per-master flag + inv->master pointer (v4)
-> >     invs entry carries a master pointer; the invs walker reads
-> >     cur->master->ats_broken directly.
-> > 
-> >   + invs walker is one READ_ONCE through a cached pointer.
-> >   + disable_ats is one WRITE_ONCE.
-> >   + atc_inv_master early-skip via one READ_ONCE.
-> >   + attach gate + post-attach re-check, same as (2).
-> > 
-> >   - invs holds a master ptr, so release_device must synchronize_rcu()
-> >     before freeing the master to drain walkers under rcu_read_lock().
-> >     We dropped this from v4 for that reason.
-> 
-> synchronize_rcu is not right because you have to have gone through the
-> rwlock so there can be no readers.
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+Simon Xue (1):
+      iommu/rockchip: disable fetch dte time limit
 
-Ah, I think you are right! When release_device() is invoked, the
-device must be already in the release (blocked) domain. So there
-should be no domain->invs in the system holding its ATS entries.
-And the enable part would work as (2).
+Sven Püschel (16):
+      media: rockchip: rga: zero cmdbuf in shared code
+      media: rockchip: rga: add comment about pixel alignment for YUV formats
+      media: rockchip: rga: move early return into if condition in vidioc_enum_fmt
+      media: rockchip: rga: removed unused regmap member
+      media: v4l2-mem2mem: support running multiple jobs in parallel
+      media: rockchip: rga:  move power handling to device_run
+      media: rockchip: rga: adjust get_version to return the version
+      media: rockchip: rga: add rga_core structure
+      media: rockchip: rga: use components to manage multiple cores
+      media: rockchip: rga: move rockchip_rga allocation to master probe
+      media: rockchip: rga: move video device to the master
+      media: rockchip: rga: move core initialization from bind to probe
+      media: rockchip: rga: bind all cores to the master
+      media: rockchip: rga: put all cores into first core iommu domain
+      media: rockchip: rga: schedule jobs to multiple cores
+      arm64: dts: rockchip: add rga3 dt nodes to rk3588
 
-In this case, (3) seems the best? It's fast on every aspect.
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  44 +++
+ drivers/iommu/rockchip-iommu.c                |   8 +
+ drivers/media/platform/rockchip/rga/rga-buf.c |  16 +-
+ drivers/media/platform/rockchip/rga/rga-hw.c  |  40 +-
+ drivers/media/platform/rockchip/rga/rga.c     | 501 +++++++++++++++++++-------
+ drivers/media/platform/rockchip/rga/rga.h     |  45 ++-
+ drivers/media/platform/rockchip/rga/rga3-hw.c |  32 +-
+ drivers/media/v4l2-core/v4l2-mem2mem.c        |  89 +++--
+ include/media/v4l2-mem2mem.h                  |   3 +
+ 9 files changed, 541 insertions(+), 237 deletions(-)
+---
+base-commit: 6a75e3d4f6428b90f398354212e3a2e0172851d6
+change-id: 20260602-spu-rga3multicore-ae8c8caf01e9
 
-And I think it would fit we plan to generalize the invs design:
+Best regards,
+--  
+Sven Püschel <s.pueschel@pengutronix.de>
 
-struct inv {
-	struct arm_smmu_device *smmu; // => struct iommu_device *iommu;
-	struct arm_smmu_master *master; // => void *priv;
-					//    (dev->iommu->priv)
-
-Thanks
-Nicolin
 
