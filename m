@@ -4,74 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7938DCD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 02:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8110CD6E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 02:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tllH2akN3DKgD+UoBWgHQAr8zejNajjH9gvNHbzmQz4=; b=CM8AsNYigugVh0CeLxN2oR+Tya
-	OZYSLezS9Pa11iVhAYM04O6doTX+RWxtx3OvzsW57BS0Nvqj78htZ4byezU4C7fAkb7ylr4Y6P7tH
-	a6OwiZwJYEfJEd9YvxtCMo7hCD1fkHu9qqx+t9frGhr/eoJWuzh1i5hhAKXL1ifESspyxorafmgVW
-	23DDQIhsbaSpsVKvVfZBNLmqk0KKZ4NzJEg2sp56nUULrWc4vjmv55aVozVJNDdJr+JTvr3XojWA8
-	HAOQtUVUcrJde4/qi4FQPrUSCAdRSzRVs6GV1f3WKHLJ7jkMd3qYVmHmAneixZ9r5eNMdG4OFvH6b
-	Kx0sXv2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9QzLVHeg1muNLj42jjICgkMx6QV964jMOA/+g2O6sls=; b=jehDbTEasdjG/kH3FcNeFUnMXx
+	h9/CIBLtxc6A5OK4Sj2klxLQ07tLSa0uj+MX4ncguKD/XQa72559XQFdYxO8MIKlp7rFu0whdqm9z
+	SpzN9N6rZIaxTCElzfq3VkIJt2UHSLsRRXuFxUJWUivkhqXJk28M6TRstLcAfvtsD2Rp4bUGfr8GO
+	YUuDfJtEm20saLqWQddMjyQznytwlAEptJpsi+3TS5hkgTPsoTJ08aOEOKjsQ+t18Kf6jbo6rh7P8
+	sY0t7O9NporxMvhCxEOlfykTLrHZC0KiemWYF/hZgLibgE4bBRPy1ZzDJzgKbYcatdUQgYHAMGGQL
+	ZJgS/wpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVKTe-0000000Hagb-04nn;
-	Fri, 05 Jun 2026 02:40:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wVKjh-00000000086-1xAj;
+	Fri, 05 Jun 2026 02:56:41 +0000
+Received: from mail-westus3azon11010034.outbound.protection.outlook.com ([52.101.201.34] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVKTc-0000000HagP-1M53
+	id 1wVKje-0000000007f-2k1v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 02:40:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6507560052;
-	Fri,  5 Jun 2026 02:40:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C65E81F00893;
-	Fri,  5 Jun 2026 02:40:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780627202;
-	bh=tllH2akN3DKgD+UoBWgHQAr8zejNajjH9gvNHbzmQz4=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=lAaLyatX9St8nhqQo0UQ/9uNMDYC7ERdUrrJ955eaLGC68Q4BEbyJtxCnuOpH+wE5
-	 1AXtjz3uALVDPstbGEgr6C4JmW17eY9i7q6PHOttU7s1LkEb13kjC+GrIedR7KrHH3
-	 TMM3W6kfQFXT4In1YkR69oD98qyw2eTlyN2GvvIXf/r2svLy5e8ZvvH/qumjpBJuel
-	 1JVjXqJzP2s/kGu6Rljo/xOacax6XdcoxSvdK7AmXILmHTulkRyqE6OqtLSRrmWBWL
-	 A19ZMy9ZT0N9tLI3+bvJsKgMvRABazLfnw4FJhdiCRPHwCsSpoIt4SSkg+rIA9aXKC
-	 EKdzryl/DjZbw==
-Date: Thu, 04 Jun 2026 21:40:01 -0500
-Content-Type: text/plain; charset="utf-8"
+	Fri, 05 Jun 2026 02:56:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ER+yQfRgyVvWmFcs6UK0gPEu7M3oSSEjEaQ7gdPfEa1YRDE16TKENtPiEXUSdUn+9TtV9ptc4O+vOI1WHexshN2VC6hx/8hB0smcHq2Qq6W15FYEI+x1E5voscNgkcSQNUPWMYAueKsdOYxnRVd0f0xGm8LiZ4UCX1EESdcI0XYjy39V7J3Z91zO/WaaygxtFEjcveZgS3A++bFpcHO8J7xqghKcAoVVKXOEnnDTTGOnpJK3q0UAX/U9uzdwQ4WkDjol9eZOiFR4nGvqNnB446qPRX9aqK7NAzAToOAeBY0KT9L27kke76y6/OZKt/oYuCEiG/5rG4fBZFC4TlAPlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9QzLVHeg1muNLj42jjICgkMx6QV964jMOA/+g2O6sls=;
+ b=mGYbgIokxsCBzAs5N8dlX4d+mC+tpzqSeD/XBYWyiTokoczJS9HHbxKmN+8UurMARbkicygbjeFLJR7NW9q+8adzUpwHwnif2XZvaxE+WI1isPtnPjVc/8iR8NAomIo7sRccXCPBnWCCEykaly4t7lYY2j2MrIRgbj90yqy+cOhSYSlvwxGQbhYwbU2Ud4kthWSJJIjaVD0X499/m+ezDxtSK7oAC96sIi9GcfwTLwDHUIgmNbLSgyI9x4+sCl+P+lnz5URHBzm6bFon4QSefdmwUyKSyCurXhZRP4nsWd9wIoJWPevJXKqJ8ZSoYnXazi9sfBu8d6IDOnHYYOVAjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9QzLVHeg1muNLj42jjICgkMx6QV964jMOA/+g2O6sls=;
+ b=UJmu3cS2VULr9fx7XQP1mptj9W0G7cOTg81CGLg+SyKZ3z/HFPkvyf6gxgEbbafed8k14rTZ05/oQ1QpUj7jFGHgl/F+ZxYotogvFXvdMqdvRQjoTzanQXVP9mLrPcN3QYp+uVKxyS8hTplXiXBr0dX+PjiygBOsyqKh8ScWVLAvD/whav8LX88Oz1M79DyBDBJhvMqbdKDSvF14ARGN/xOpRAYyX5dWfS12b00xchtaNrdxcTJoWQ8I+iR3YaosOD5YJHm3zk/WJ9QRbQZLwagTd6+YxWCS0tOPSrj/gUsvPrJmgKcRrODaG5gdGbbNQHndGWGtLxqzjJzNouU22Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by IA5PR03MB989628.namprd03.prod.outlook.com (2603:10b6:208:60b::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Fri, 5 Jun 2026
+ 02:56:33 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%6]) with mapi id 15.21.0092.006; Fri, 5 Jun 2026
+ 02:56:33 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] net: ethtool: mm: Increase FPE verification retry count
+Date: Thu,  4 Jun 2026 19:56:31 -0700
+Message-ID: <20260605025631.2872-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR05CA0185.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::10) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: weishangjuan@eswincomputing.com, linux-gpio@vger.kernel.org, 
- inochiama@gmail.com, davem@davemloft.net, devicetree@vger.kernel.org, 
- kuba@kernel.org, me@ziyao.cc, hawk@kernel.org, arnd@arndb.de, 
- konradybcio@kernel.org, mohd.anwar@oss.qualcomm.com, hkallweit1@gmail.com, 
- pabeni@redhat.com, ast@kernel.org, maxime.chevallier@bootlin.com, 
- bpf@vger.kernel.org, boon.khai.ng@altera.com, linusw@kernel.org, 
- andersson@kernel.org, sdf@fomichev.me, linux-kernel@vger.kernel.org, 
- livelycarpet87@gmail.com, a0987203069@gmail.com, 
- linux-stm32@st-md-mailman.stormreply.com, daniel@iogearbox.net, 
- john.fastabend@gmail.com, alexandre.torgue@foss.st.com, 
- richardcochran@gmail.com, rmk+kernel@armlinux.org.uk, krzk+dt@kernel.org, 
- conor+dt@kernel.org, rohan.g.thomas@altera.com, gregkh@linuxfoundation.org, 
- Daniel Thompson <daniel@riscstar.com>, chenchuangyu@xiaomi.com, 
- andrew+netdev@lunn.ch, mcoquelin.stm32@gmail.com, edumazet@google.com, 
- siyanteng@cqsoftware.com.cn, wens@kernel.org, brgl@kernel.org, 
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- julianbraha@gmail.com, netdev@vger.kernel.org, chenhuacai@kernel.org, 
- prabhakar.mahadev-lad.rj@bp.renesas.com
-To: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260605010022.968612-11-elder@riscstar.com>
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-11-elder@riscstar.com>
-Message-Id: <178062720108.1744752.12164392208085928081.robh@kernel.org>
-Subject: Re: [PATCH net-next v2 10/14] dt-bindings: net:
- toshiba,tc9654-dwmac: add TC9564 Ethernet bridge
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|IA5PR03MB989628:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e3fd88f-bbc6-45e2-a8b7-08dec2ae0cfe
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|18002099003|11063799006|56012099006|55112099003;
+X-Microsoft-Antispam-Message-Info: SQYuUtjbLgmbqUTnsXMg0uZuRQWEVU0Xon+1nxNW5QTgoqHSNLi+YdW54n2pKETWhhvj88zTgH/by/g+VyO/PZJVqSt2n7nNjYDFH+XPYQn9oXL9j91q+zoH9lUGT5C2zdWehRNCMI1gFbFrZrZOXFNaRYAzlQEhwVcqhsGWUiFdR1QkqZovZKXT1z/g1kRqaPqP5JIj5AMYFdEDWRZCl2NG10X5ZvE7cA36tcA2qRYT4wLc8FlHmY6tEz6P6nC/MM9bxAtSk03ojcj+RFsTJfYMBTCwZAgCugEqeilnSCHnJ8F3zaUCZ71cnBMmD6VSA4Qu3fFg3DyPBnZZGpyNfhFuMWmT83trqWdFQssseSB8OySOJG41vafPfFYe8x06QKu4DM1YBsa3GTp3m9mLVfc9rJFiCiHUVGK+JlqAEQWBYabQZVLufRILxljKyq2gVfvTs66igVXwipdZCaMdC/bs8xNz7pZReyuJd6rd5ggH5sMY86gNyXSCBFclE4wj2YI5XTu2o5abPrbDswHRxJDbMBMnEVbaRJzVRxzll6Nh4gqydi/qKS0X5CsKr27cgfs3wgYNFmsYIlVDSstep1TmiFJO6YetXIDMZNGZRNC7LEUzMUjKwg6VZOejXRS0dnmMVTtYm+xMHrmWe+VBLOtvDmyMRS1O36KVgWlg+jQVJy9LB8A90esuQTdrUdmp
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(18002099003)(11063799006)(56012099006)(55112099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FjeS7pr7ubKDGqarJoKaKJwf4IbpridRbsghNiLjU3FMDjQ1U8MTqNKJuoo3?=
+ =?us-ascii?Q?gUK++/P5OwFeJX0/VcYtAh0dHH6rZ+/X8yo1IpuFdSuU24QdemZ6jQvmNWYI?=
+ =?us-ascii?Q?u2dNKKu893wSkloOvV5F7zolplI3M16Dd1jDaGY1vJaYggb6vD9Tr74dwBMj?=
+ =?us-ascii?Q?shlgViOuVMSiPHpuP2k6xlhp7A0fJZuQFDBHg/0mqH6PgIv/VutXWIZ3j7E9?=
+ =?us-ascii?Q?U6O73q1mFJZ7JZOpsykDrv/7HzHgEmd7H4oiF2byozvwnNWHPgJtSoSDwyg7?=
+ =?us-ascii?Q?9cRysblPswjQxcGkofxjDzXZU/eQLFvzHIjI/ldeJi14L8s6Iq4qyB6JZFo9?=
+ =?us-ascii?Q?l9/Oo9wgJCXKr0ZHk7/hfLJdO5z7u9DgD1NqGff+DvR/fBQB6QxTsu5yW9M2?=
+ =?us-ascii?Q?KkVmbZuxa9WHCRkbYNmDZy2hyeQPfZjlm+0EGMG1i5t8NhEBBevV1EmifElr?=
+ =?us-ascii?Q?EgGVZ3uSMmdr3AdB9rOOYPeKT/gJReh6CcjvCvxHu0/EDk+NP4aLMc6acjd4?=
+ =?us-ascii?Q?BReQ8RwnMXFNYKQwZv6M8B2gpPKPzQ4Zm9lOV40wOzwy4G3JfIxbdsbhCQ2a?=
+ =?us-ascii?Q?9I/DFmmq6CnqSunLwbh+rUL90RHpIbDj2gVKF4rokZBlhOCQwxrHOF25TzDr?=
+ =?us-ascii?Q?AOaZqYk3nA+Q+XJ7uYvzsfQB9F6K+izCkpYKeqyDytpWREL9tyO8gVLdAW0W?=
+ =?us-ascii?Q?WAxfDc/Z0ExC0SZspN44ZDMh2gIxxQSkdhBXfmgRmoZ9IQJrN96Hpc8kiT0G?=
+ =?us-ascii?Q?tX2a3JF4jUX7aH9EN1a0ud2Fbuv/Ao8Rgqq8FUQDwUiBpM8/NZYFYOCtPUn4?=
+ =?us-ascii?Q?S188lRENtbjYt3tf9hSmxNHivA9MVW4hkGmeBbEX4PGM80RXwNmkw+PdzSMN?=
+ =?us-ascii?Q?3EiLtK44pOb9oSQyHDKoRe9jVDEnuJ1Nxrgvo4+aSrTdzgChoSP+SX5Jb5Vo?=
+ =?us-ascii?Q?QWMoYtskLi4NCZt43F7p08kN2pBVh00EtAH/wSWN+OgG3Kncwlr+qwp6E5Lr?=
+ =?us-ascii?Q?wRW3cCXFNco2/2OEtv96zUiLuDcuhNcztpUPvBWxwpjneAWFmhLPfGTEjd8g?=
+ =?us-ascii?Q?VBryw9rgqD8VNgDC6IfHnPdhMoLN6qXCTq45U6p9qsPLXzoHHWAmBJ9bMWZC?=
+ =?us-ascii?Q?2JwrES6NOgiWSceEMypM16CUQEWSnB3CwEaAScHq80s3Wdm3yQTKgjvI10Ms?=
+ =?us-ascii?Q?CFuyR2bC7y1N2BPbT1ONzh50MA/cXjsJaDyVOyEt3XqO4s3I6KeyrmakhKk7?=
+ =?us-ascii?Q?OnKa8+WXs+oN3QVj9muDxr3auNht1FbOZC0iErJQPU5q4VsbcRyRIbYlqqqt?=
+ =?us-ascii?Q?UNrUIyb9odN/J2nXUVrVR1Rc/OysUhqCyrjYlv1OuCfc471yWFaLDSkbII+l?=
+ =?us-ascii?Q?Mt6z5955v2kbS1ZJUzsYhgOomGS8FVTqZJGsLHEmLKJm2v6bfb7/cXOFHT61?=
+ =?us-ascii?Q?DGjg0z+oIJx5YabVC5D0ibYPqVFYKa8YVPqOwi/1DpEdDrej6muvDjDDIMlV?=
+ =?us-ascii?Q?lSNHg4xFxHZiGJE1WImNRkNtTVjgbt2U/q1hqpbAnkxDyh1DeWS20+wESa+J?=
+ =?us-ascii?Q?ok652yDtHZliQ3oyGR6jSdnobY3HjK0QKCxN50nMezh/JgqtotRlgR/W6COX?=
+ =?us-ascii?Q?o0/dXHfN6VsjGegdB/6soP03GNyx/jNCv4Hh658F7nKm0zKY3lgfZP/p6sBS?=
+ =?us-ascii?Q?+J1t0oJNKDU4aIygQK94SoF1/Mpfi+GJH+5uZzUPkG/Sws2AmFBt4W/i6aOt?=
+ =?us-ascii?Q?J9uPfemMBTOWjCLni1nbhrYIlhmyHILvrNWoExygWIy0cddtsRVRNpJKM/y9?=
+X-MS-Exchange-AntiSpam-MessageData-1: y2gDlBSVUtzCfA==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e3fd88f-bbc6-45e2-a8b7-08dec2ae0cfe
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 02:56:33.4446
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oHMTnzxJKzLz9fu23nmU9t4fV/0czhFHakAjalx0lwoPW0AKTG8G4160vnHqwMZV3neiXtosuzHQyRZ3Dtwg8gcyobIHVVwqNPSnAHlseBG5rJooyBD9YlfCau+5BE1WFlWTWsECo2GUSdCA8kOpVQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA5PR03MB989628
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_195638_719894_4EA7E4FA 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,62 +146,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-On Thu, 04 Jun 2026 20:00:17 -0500, Alex Elder wrote:
-> From: Daniel Thompson <daniel@riscstar.com>
-> 
-> Add devicetree bindings for the Toshiba TC956x family of Ethernet-AVB/TSN
-> bridges.
-> 
-> The TC9564 contains a PCIe switch with one upstream and three downstream
-> PCIe ports.  The third PCIe downstream port has an attached embedded PCIe
-> endpoint, and that endpoint implements two PCIe functions.  Each internal
-> PCIe function has a Synopsys XGMAC Ethernet interface capable of 10 Gbps
-> operation.
-> 
-> The TC9564 also implements an embedded GPIO controller, which exposes
-> 10 lines externally.  Some platforms use these GPIO lines, so this
-> GPIO controller is managed by a separate driver.  Other embedded
-> peripherals (like a microcontroller, SRAM, and UART) are currently
-> unused.
-> 
-> The GPIO controller is managed by registers accessed via MMIO on an
-> internal PCIe function's registers.
-> 
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> ---
->  .../bindings/net/toshiba,tc9564-dwmac.yaml    | 120 ++++++++++++++++++
->  MAINTAINERS                                   |   6 +
->  2 files changed, 126 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml
-> 
+The current FPE verification retry count is set to 3. However,
+the IEEE 802.3br standard does not specify a fixed value for this.
+A retry count of 3 may be insufficient when the remote device is
+slow to respond during link-up. Increase the retry count to 20 to
+improve robustness.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+---
+ include/linux/ethtool.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: gpio: Missing additionalProperties/unevaluatedProperties constraint
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml: ethernet: Missing additionalProperties/unevaluatedProperties constraint
-
-doc reference errors (make refcheckdocs):
-Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
-MAINTAINERS: Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260605010022.968612-11-elder@riscstar.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
+index f51346a6a686..9a1b1f5d37a4 100644
+--- a/include/linux/ethtool.h
++++ b/include/linux/ethtool.h
+@@ -23,7 +23,7 @@
+ #include <uapi/linux/net_tstamp.h>
+ 
+ #define ETHTOOL_MM_MAX_VERIFY_TIME_MS		128
+-#define ETHTOOL_MM_MAX_VERIFY_RETRIES		3
++#define ETHTOOL_MM_MAX_VERIFY_RETRIES		20
+ 
+ struct compat_ethtool_rx_flow_spec {
+ 	u32		flow_type;
+-- 
+2.43.7
 
 
