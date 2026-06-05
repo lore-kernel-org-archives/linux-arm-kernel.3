@@ -4,116 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B12CD6E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 14:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4125CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 14:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N2MbnZtEu+awVQT1JTOxOu3V+q1Piq0B75HUkZDs6YM=; b=O9lFR52y6bqL5Ut6rfxapwFViv
-	7ZLfOKDtcAQ/cNdaMbiDWbcSkmnHIMQNB742lJ2swSQn70y2xGLwypAZ8BJMMP5uUPV9kYP0CSwvG
-	VDNgqeh1XXvOKcp+Q8vdFmaB5N6RF5XBquxl62IiWVsVuy1MwKM/DMOeS3kOcPqohVWrjIt2Mi8Jy
-	FxrTrNUE7mmAxQvj8TrRW3ybfWOPgS1GsQFaROOAP0fc+AgAqojEP5GQe3St3DZN7XGQiA872cTrq
-	72cBPizI7RCmDQ8pmpiXE/hBfqz36wzW6Iz1CMIDVUwhn/iqIsWGXuBbk4xmkG59D0QirxLZWNDZj
-	XiBmUtAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bfFH8ZVDSQVCgdkYKT1+TMLQUY2s3jnNF65qom08fFI=; b=Evgo+hNabrpb0f8/cpaQdZNZPd
+	+KQTreSOgCWZ6Ts4pVHYmqac/3mk2HKuR5JeYFdbtePSEQGs/x8h2isYaJelVKg2WPqnRapZAq07B
+	ID0k4zNuDQVHN7l6knM0eup6Z2HTxKDqAF4+3sXUmw70aEpVHQDMiczCtHLO9AvVKDp7UKta1caSr
+	980Q2QICAqkAUaZ2IdBlrBoP+5yh4EllkJ8nwtPDskFOn79/BouiPaTJ4wqycTTF+GQt2agwwGRs0
+	UU95ipmIOooQRZ6+kjhly9Pl/ml7+4ao7yT/kv6qV2+Uo006wzhYQ7kI9DqW0L07lUTJ5JsiYg8vv
+	+q+Wy/aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVVof-00000000kCW-0BS2;
-	Fri, 05 Jun 2026 14:46:33 +0000
-Received: from mail-westus3azon11012040.outbound.protection.outlook.com ([40.107.209.40] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wVVq5-00000000kJL-0xcZ;
+	Fri, 05 Jun 2026 14:48:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVVoc-00000000kC0-2pYb
+	id 1wVVq3-00000000kJE-47QY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 14:46:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NVb2e3CGiz3uFK5ZwAD5vT5XhbbUquVS8DL80w7U6oBGQCm8pQq9qJ2ItVFFWS43cdrtAkP98L8nCpxfq4uMNycA6C5JgBRWaGw4kvUxFg0+Bran228lr0nRkYFIcdp+gDKxxROCPMUmfxiXq9Mr60M5XH7+Vv2DUNl+WhFo/TlXMpI9YSGWefZu8PchHNbATByAQ8cdvQdsV2hdc+Moyvo1Q9JaUdUThvcmmuF9F+RBLjcbWI3i9X3wp5hU7Wjocq/4JB2Ee8KIct2A3LKBaLhUUBD8IucmqKIuZRfibwi0nAAz0dQP8DcIoSxesuwnS8g4doxR/xIWh5hNRQ1l9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N2MbnZtEu+awVQT1JTOxOu3V+q1Piq0B75HUkZDs6YM=;
- b=ugPlcjwtgDfL+cWeM3SuZelq8fbiMb9G2AXpzUZ6wv55Zm1xjcS4Wlf2WS84veB0bgrdkA9DQGd0Z0fysgVQmlmF0i5YjBwHTZSaUGw7ToAgpDMG0Qp374mhPm6az0xIp9YFC9DzERO2jiyBbTLK7juxfr0Tlrp74kRUw9ch2GLd486v498nVBbSEfXrPbLltkLE9s/MrcOF3eZ+hgrZQBEkl/CxgwgSm+gfiex2jY7b8FgGXxjfULlgBRctQ8rIvM68hSupwGy/SnHVgTP6m3xOjw75FKd5m2FKIrnPKM3xXQt/UsOpc2sCh97rhWYfPFYS1lXU+jIE3EcE3PVTJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N2MbnZtEu+awVQT1JTOxOu3V+q1Piq0B75HUkZDs6YM=;
- b=IWJ1bXsC3E4Zlp96GJlpoMaB71DGmFTsx7w+cqbKDwzvlsmqvyKAMBV20WJb7Vnxemr24uiHFEnHtJbI61px+r4el3bTRKETUL/Ve7YjJs+NoR/H7HRr1YzrotQ85dTwLP/uVvuTfgIgqXC2fqWwMg84T/OHTKh4MMepna/ZBFisqJ4kDi9rVzYSRhrw2d/IXZAlUwuIolm8+3LK81JHmkPGfAEpqPZQq5OoasubJuqA2gyELdSdPypbgXLWrK0UJPuMHHPtRLqKbzS0+cUtVJ7gKfRYpdbbWpTI8ajk6R4V1zNkl77DijXs5IYLAA1PTv4FWxYJuw36WjBqGbe/bQ==
-Received: from CY5PR03CA0032.namprd03.prod.outlook.com (2603:10b6:930:8::14)
- by CH3PR12MB8903.namprd12.prod.outlook.com (2603:10b6:610:17a::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Fri, 5 Jun 2026
- 14:46:23 +0000
-Received: from CY4PEPF0000E9CD.namprd03.prod.outlook.com
- (2603:10b6:930:8:cafe::c) by CY5PR03CA0032.outlook.office365.com
- (2603:10b6:930:8::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Fri,
- 5 Jun 2026 14:46:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CY4PEPF0000E9CD.mail.protection.outlook.com (10.167.241.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Fri, 5 Jun 2026 14:46:23 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 5 Jun
- 2026 07:45:57 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 5 Jun 2026 07:45:56 -0700
-Received: from sdonthineni01.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Fri, 5 Jun 2026 07:45:55 -0700
-From: Shanker Donthineni <sdonthineni@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Vladimir Murzin
-	<vladimir.murzin@arm.com>
-CC: Mark Rutland <mark.rutland@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Jason Sequeira <jsequeira@nvidia.com>
-Subject: [PATCH v2] arm64: errata: Workaround NVIDIA Olympus device store/load ordering erratum
-Date: Fri, 5 Jun 2026 09:45:51 -0500
-Message-ID: <20260605144551.2004391-1-sdonthineni@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 05 Jun 2026 14:48:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 68DD9418A8;
+	Fri,  5 Jun 2026 14:47:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11E051F00893;
+	Fri,  5 Jun 2026 14:47:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780670879;
+	bh=bfFH8ZVDSQVCgdkYKT1+TMLQUY2s3jnNF65qom08fFI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YcDIn0z0biXIa+Od9GsBSTOJ6pAH9BCXCH0NzNYZHwJ4KR6orHsNPrVwhARZtUESp
+	 OfefIB+JQzAYPEJuu2J3LvHDwoWFp8awD03ZQ6Ex/NhPDXM4YI/xPao97CuyJ2lPwk
+	 5v3vGO29giHR0jblizx5wkkOoaJHIsI+0Cr8w2Pg4d1HeInCpGIZqsSNapx+UUhD00
+	 hfR+J+9fg+K2ZMjd4ybYE1mn5/IZtuvlV6CvREIwCZsJViRaL/NVGtLTUt06naaEA0
+	 lhrogLAmQTsiA59CvWJ7K0W0FmKbRwRUgp/eHEcZn4393IUGJDIZXYhJddrFW7TBIu
+	 4kjMdRx3q74Eg==
+Date: Fri, 5 Jun 2026 09:47:58 -0500
+From: Rob Herring <robh@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com,
+	rmk+kernel@armlinux.org.uk, andersson@kernel.org,
+	konradybcio@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linusw@kernel.org, brgl@kernel.org, arnd@arndb.de,
+	gregkh@linuxfoundation.org, Daniel Thompson <daniel@riscstar.com>,
+	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com,
+	alexandre.torgue@foss.st.com, ast@kernel.org,
+	boon.khai.ng@altera.com, chenchuangyu@xiaomi.com,
+	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+	hkallweit1@gmail.com, inochiama@gmail.com, john.fastabend@gmail.com,
+	julianbraha@gmail.com, livelycarpet87@gmail.com,
+	mcoquelin.stm32@gmail.com, me@ziyao.cc,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
+	rohan.g.thomas@altera.com, sdf@fomichev.me,
+	siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com,
+	wens@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 13/14] net: stmmac: tc956x: add TC956x/QPS615
+ support
+Message-ID: <20260605144758.GB3659201-robh@kernel.org>
+References: <20260605010022.968612-1-elder@riscstar.com>
+ <20260605010022.968612-14-elder@riscstar.com>
 MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9CD:EE_|CH3PR12MB8903:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01db23e3-92b6-4bc3-5385-08dec3113705
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|6133799003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: FfF2ts9HZXcwW7zmNEQ8Dqn4xLFU3hcgbRT9R345/vmVBeTiIxm8XVGqGhuyMFBT1BZLZ+IuvlEDvjo0/s4OKK635KZljdTaNe6f4OQOwTcu+/Yi9C8Xt5ZBe4t8KYWbfcTC+Vhp6rmcDT3rrw/XYBYtyutqyxpKCI8PdEW8N3MPwKgDwkigmzGI+Lwo7ZecmW2n4ZT++Hvprc1xNCD4cLgB1ukN6rkXm1WL/O05QT7EsDSyzta7JOWy9Rnrmi3WPPsgVff6/3HTWVI5wbTvPWuYw8iKbuvCbpkne6hOq1cmJdgd8q2HD/C+rnh1lZB188eKWiIP3qoddFMkkcGIhBGxnB8+8jNp57pUwWV5wbCk/h3ar7zJ07r7KjuBpoJcG9cdh3JHSnDEqDjJqEVXUN0f1SNu0Dw94dLscJFGzRu/YK3F5dm3C9L54uLXkxMibLBhAJ4JK1MXoApQyl5SrFoJqQhdCzn4656h+wojNgq5JJdhHF0GudEQgPnIWNLgovRbOxPCvffpypHZCopYAKfmfcbDPzsactPnRBmHLVZhf7HoKNZvC8ZSOAp+8Td14Pt8nZOYKYhWBGCthQHhqFlL7I8VocZVJ+dC+vMoln/ii36TFnt79xWozwg3+PQ4F9n7nw/DgMWk5vYuSm76SNyKD6GMc0mwYByo1YRiedkszTCyqlRZ6n6hCeH9iLg+oT7SUwv8tcl5Aw15OtnWKxzdbN/Zxm5d3Y0JTI+1Kj0=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(6133799003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vueGMi8pPQSNnxx6IF2Hv6i2mARkccTo6PbAehC/6cl6Qlz462n/Kg7uX00AZaXonFcFmse1DI8XCtLLYpP1RqoOfBIv2tDi5rHQ1d1A6SsEduCr54N/WZAs1srtgTPIXUKRFXmuwOgk7PloK95S9Uk5fAFiNWTOjh4so82e/barSpF9/ajvkaVsCC/HR5u2cVi8DLBuI/uVBkTqMMMPHJNTAdpRir7umjeX4KGWsqZayxg46uMNouZhcYYocx8hTNynbKltzFNxR8Hg70JbIjP2PLq00y7QJZm7ccPq693z9Y7OaKI6Vhreu3w8RnoLLQCurmJn/rqnJHvOHqa8fiLaCXlLQThBxjql9nRvXo1pscfM+ujQDplGrQp1lXLa693mSXE0N9akPKiY13hfJKnG045n5icaUqVN71luMjOpBnMMtuVzTIjV3q4l9gwW
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 14:46:23.5910
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01db23e3-92b6-4bc3-5385-08dec3113705
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9CD.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8903
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_074630_750729_122314DD 
-X-CRM114-Status: GOOD (  22.75  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260605010022.968612-14-elder@riscstar.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,203 +89,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
-observed by a peripheral before an older, non-overlapping Device-nGnR*
-store to the same peripheral. This breaks the program-order guarantee
-that software expects for Device-nGnR* accesses and can leave a
-peripheral in an incorrect state, as a load is observed before an
-earlier store takes effect.
+On Thu, Jun 04, 2026 at 08:00:20PM -0500, Alex Elder wrote:
+> From: Daniel Thompson <daniel@riscstar.com>
+> 
+> Toshiba TC956x is an Ethernet AVB/TSN bridge and is essentially a
+> small and highly-specialized SoC. TC956x includes an "eMAC" subsystem
+> that can be accessed, along with several other peripherals, via two
+> PCIe endpoint functions. There is a main driver for the endpoint that
+> decomposes things and creates auxiliary bus devices to model the SoC.
+> 
+> The eMAC consists of a Designware XGMAC, XPCS and PMA. Each eMAC is
+> supported by an MSIGEN that bridges TC956x level interrupts to PCIe
+> MSIs.
+> 
+> Add a driver for the eMAC/MSIGEN combination.
+> 
+> Co-developed-by: Alex Elder <elder@riscstar.com>
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
 
-The erratum can occur only when all of the following apply:
+The order is wrong here unless you worked on it and then Daniel took 
+over. Tags should be chronological order.
 
-  - A PE executes a Device-nGnR* store followed by a younger
-    Device-nGnR* load.
-  - The store is not a store-release.
-  - The accesses target the same peripheral and do not overlap in bytes.
-  - There is at most one intervening Device-nGnR* store in program
-    order, and there are no intervening Device-nGnR* loads.
-  - There is no DSB, and no DMB that orders loads, between the store and
-    the load.
-  - Specific micro-architectural and timing conditions occur.
+> ---
+>  MAINTAINERS                                   |   2 +
+>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  14 +
+>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   2 +
+>  .../ethernet/stmicro/stmmac/dwmac-tc956x.c    | 818 ++++++++++++++++++
+>  4 files changed, 836 insertions(+)
+>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 0439607d1155f..418537cbefbbb 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -27059,6 +27059,8 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+>  F:	drivers/gpio/gpio-tc956x.c
+>  F:	drivers/misc/tc956x_pci.c
+> +F:	drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
+> +F:	include/soc/toshiba/tc956x-dwmac.h
+>  
+>  TOSHIBA WMI HOTKEYS DRIVER
+>  M:	Azael Avalos <coproscefalo@gmail.com>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> index e3dd5adda5aca..8d247e033e356 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> @@ -404,6 +404,20 @@ config DWMAC_MOTORCOMM
+>  	  This enables glue driver for Motorcomm DWMAC-based PCI Ethernet
+>  	  controllers. Currently only YT6801 is supported.
+>  
+> +config DWMAC_TC956X
+> +	tristate "Toshiba TC956X DWMAC support"
+> +	depends on PCI
+> +	depends on COMMON_CLK
+> +	depends on TOSHIBA_TC956X_PCI
+> +	default TOSHIBA_TC956X_PCI
+> +	select GENERIC_IRQ_CHIP
+> +	help
+> +	  This selects the Toshiba TC956X (and Qualcomm QPS615) support in the
+> +	  stmmac driver.
+> +
+> +	  This provides support for the ethernet controllers found on these
+> +	  devices.
+> +
+>  config STMMAC_PCI
+>  	tristate "STMMAC PCI bus support"
+>  	depends on PCI
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+> index a1cea2f57252e..e8e7f95dbe3e8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+> @@ -51,4 +51,6 @@ obj-$(CONFIG_STMMAC_PCI)	+= stmmac-pci.o
+>  obj-$(CONFIG_DWMAC_INTEL)	+= dwmac-intel.o
+>  obj-$(CONFIG_DWMAC_LOONGSON)	+= dwmac-loongson.o
+>  obj-$(CONFIG_DWMAC_MOTORCOMM)	+= dwmac-motorcomm.o
+> +obj-$(CONFIG_TC956X_PCI)	+= tc956x-pci.o
+> +obj-$(CONFIG_DWMAC_TC956X)	+= dwmac-tc956x.o
+>  stmmac-pci-objs:= stmmac_pci.o
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
+> new file mode 100644
+> index 0000000000000..c77585e4a50e6
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
+> @@ -0,0 +1,818 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +/*
+> + * Copyright (C) 2026 by RISCstar Solutions Corporation.  All rights reserved.
+> + *
+> + * Derived from code having the following copyrights:
+> + * Copyright (C) 2011-2012  Vayavya Labs Pvt Ltd
+> + * Copyright (C) 2025 Toshiba Electronic Devices & Storage Corporation
+> + */
+> +
+> +#include <linux/auxiliary_bus.h>
 
-Two ways to restore ordering: insert a barrier (any DSB, or a DMB that
-orders loads) between the store and the load, or make the store a
-store-release. A load-acquire on the load side would not help, because
-acquire semantics do not prevent a load from being observed ahead of an
-older store; only the store side (release or a barrier) closes the
-window.
+Based on the block diagram, these are PCI devices. Auxiliary bus is the 
+wrong thing to use here.
 
-Promote the raw MMIO store helpers (__raw_writeb/w/l/q) from plain str*
-to stlr* (Store-Release), which removes the "store is not a
-store-release" condition for every device write the kernel issues.
-Because writel() and writel_relaxed() are both built on __raw_writel()
-in asm-generic/io.h, patching the raw variants covers both the
-non-relaxed and relaxed APIs without touching the higher layers. Note
-that writel()'s own barrier sits before the store, so it does not order
-the store against a subsequent readl(); the store-release promotion is
-what provides that ordering.
-
-Like ARM64_ERRATUM_832075 on the load side, the change is gated on a new
-ARM64_WORKAROUND_DEVICE_STORE_RELEASE capability and only activated on
-parts that match MIDR_NVIDIA_OLYMPUS, so unaffected CPUs continue to use
-the plain str* sequence.
-
-Note: stlr* only supports base-register addressing, so the raw accessors
-can no longer use the offset addressing introduced by commit d044d6ba6f02
-("arm64: io: permit offset addressing"). The str* and stlr* alternates
-share a single inline-asm operand and the sequence is selected at boot,
-so the operand form is fixed at compile time; unaffected CPUs keep using
-str* but also revert to base-register addressing. This keeps the store
-side as simple as the existing load-side patching (load-acquire) and
-avoids adding complexity to the device write path; retaining offset
-addressing only for str* would otherwise require a runtime branch on
-every write.
-
-Co-developed-by: Vikram Sethi <vsethi@nvidia.com>
-Signed-off-by: Vikram Sethi <vsethi@nvidia.com>
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
----
-Changes since v1:
- Update commit text based on feedback from Vladimir Murzin
-
- Documentation/arch/arm64/silicon-errata.rst |  2 ++
- arch/arm64/Kconfig                          | 23 ++++++++++++++++++++
- arch/arm64/include/asm/io.h                 | 24 ++++++++++++++-------
- arch/arm64/kernel/cpu_errata.c              |  8 +++++++
- arch/arm64/tools/cpucaps                    |  1 +
- 5 files changed, 50 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 211119ce7adc..899bed3908bb 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -256,6 +256,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
- +----------------+-----------------+-----------------+-----------------------------+
-+| NVIDIA         | Olympus core    | T410-OLY-1027   | NVIDIA_OLYMPUS_1027_ERRATUM |
-++----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index fe60738e5943..a6bac84b05a1 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -564,6 +564,29 @@ config ARM64_ERRATUM_832075
- 
- 	  If unsure, say Y.
- 
-+config NVIDIA_OLYMPUS_1027_ERRATUM
-+	bool "NVIDIA Olympus: device store/load ordering erratum"
-+	default y
-+	help
-+	  This option adds an alternative code sequence to work around an
-+	  NVIDIA Olympus core erratum where a Device-nGnR* store can be
-+	  observed by a peripheral after a younger Device-nGnR* load to the
-+	  same peripheral. This breaks the program order that drivers rely
-+	  on for MMIO and can leave a device in an incorrect state.
-+
-+	  The workaround promotes the raw MMIO store helpers
-+	  (__raw_writeb/w/l/q) to Store-Release (STLR), which restores the
-+	  required ordering. Because writel() and writel_relaxed() are built
-+	  on __raw_writel(), both are covered without changes to the higher
-+	  layers.
-+
-+	  The fix is applied through the alternatives framework, so enabling
-+	  this option does not by itself activate the workaround: it is
-+	  patched in only when an affected CPU is detected, and is a no-op on
-+	  unaffected CPUs.
-+
-+	  If unsure, say Y.
-+
- config ARM64_ERRATUM_834220
- 	bool "Cortex-A57: 834220: Stage 2 translation fault might be incorrectly reported in presence of a Stage 1 fault (rare)"
- 	depends on KVM
-diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-index 8cbd1e96fd50..b6d7966e9c19 100644
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -25,29 +25,37 @@
- #define __raw_writeb __raw_writeb
- static __always_inline void __raw_writeb(u8 val, volatile void __iomem *addr)
- {
--	volatile u8 __iomem *ptr = addr;
--	asm volatile("strb %w0, %1" : : "rZ" (val), "Qo" (*ptr));
-+	asm volatile(ALTERNATIVE("strb %w0, [%1]",
-+				 "stlrb %w0, [%1]",
-+				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
-+		     : : "rZ" (val), "r" (addr));
- }
- 
- #define __raw_writew __raw_writew
- static __always_inline void __raw_writew(u16 val, volatile void __iomem *addr)
- {
--	volatile u16 __iomem *ptr = addr;
--	asm volatile("strh %w0, %1" : : "rZ" (val), "Qo" (*ptr));
-+	asm volatile(ALTERNATIVE("strh %w0, [%1]",
-+				 "stlrh %w0, [%1]",
-+				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
-+		     : : "rZ" (val), "r" (addr));
- }
- 
- #define __raw_writel __raw_writel
- static __always_inline void __raw_writel(u32 val, volatile void __iomem *addr)
- {
--	volatile u32 __iomem *ptr = addr;
--	asm volatile("str %w0, %1" : : "rZ" (val), "Qo" (*ptr));
-+	asm volatile(ALTERNATIVE("str %w0, [%1]",
-+				 "stlr %w0, [%1]",
-+				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
-+		     : : "rZ" (val), "r" (addr));
- }
- 
- #define __raw_writeq __raw_writeq
- static __always_inline void __raw_writeq(u64 val, volatile void __iomem *addr)
- {
--	volatile u64 __iomem *ptr = addr;
--	asm volatile("str %x0, %1" : : "rZ" (val), "Qo" (*ptr));
-+	asm volatile(ALTERNATIVE("str %x0, [%1]",
-+				 "stlr %x0, [%1]",
-+				 ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
-+		     : : "rZ" (val), "r" (addr));
- }
- 
- #define __raw_readb __raw_readb
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 5377e4c2eba2..958d7f16bfeb 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -809,6 +809,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
- 	},
- #endif
-+#ifdef CONFIG_NVIDIA_OLYMPUS_1027_ERRATUM
-+	{
-+		/* NVIDIA Olympus core */
-+		.desc = "NVIDIA Olympus device load/store ordering erratum",
-+		.capability = ARM64_WORKAROUND_DEVICE_STORE_RELEASE,
-+		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
-+	},
-+#endif
- #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
- 	{
- 		/*
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 811c2479e82d..d367257bf770 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -120,6 +120,7 @@ WORKAROUND_CAVIUM_TX2_219_PRFM
- WORKAROUND_CAVIUM_TX2_219_TVM
- WORKAROUND_CLEAN_CACHE
- WORKAROUND_DEVICE_LOAD_ACQUIRE
-+WORKAROUND_DEVICE_STORE_RELEASE
- WORKAROUND_NVIDIA_CARMEL_CNP
- WORKAROUND_PMUV3_IMPDEF_TRAPS
- WORKAROUND_QCOM_FALKOR_E1003
--- 
-2.43.0
-
+Rob
 
