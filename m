@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA80CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 08:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F850CD6E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 08:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MrujfuRgv2BkE0UC6YnsNJizBYJH3r4XVo1YyTPivw8=; b=Wazncsw5aTjJZpdD8hmincfFSJ
-	ysS6GPf20fG3WN+gyL9Tk+NNp3mYuz5mJyHh9Qr4T7+48FUvWj/8FNFDst1jGCUVe5a6UUUJUNKkW
-	U9xY2jkJVlJF83SadWwuv/eJaqh081fjK9/YdKYQcg5HswtKJO/g2/bETRuBGCQ/TN2Ozi7ew/g3c
-	8y8HERTdeZhBvs3D7/86D/u/bYC3WenyrxzCcVP2QCht7kYTkGt5N58yVSEdFCHpjtLJz/HkbfFQd
-	rU8OYIc2KkiWhJNEWgBTYt/EUzSa63y4y3nOT3AOEKz/Ij+CQxy7NAJ9bixzXzyoYk+iwfVyrxU4m
-	mtulSt4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eJ3rd6muldb5Ys/jUa4C6DrQYqz6Oo7suf7mdItTnFQ=; b=biXBA1nmgZXw8YE0TUqcoN+iyF
+	R4SwUO0NHg46/3BAjd0BD8x96ys3NA0h3r5R/zCIRiptpYPqdkiPBI0WqS/85bVFiGTIUu3J5nqaa
+	m6Qen3DIqphX3YpS2pVI799+UJmmlfaSWVzrNxB1ulithEG8cmYy0gv3/BEd9rWoLgKfqpR7vybC2
+	jSDX4dv5eg+O2+BFHfv4azgVtO9EwYix7OvcZXu8SZdeF+lDN5K7umBIxfg0n8Zw4koVKI7O9jAJX
+	aRdNNNPJW7XPoyUoYlBSOH7Du5Bi9UMrcaxtdhytQoPSzN12/LzzpyfzEVy2DP0yiFdpzTH5JEag8
+	h6lAWozQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPwP-00000000Joo-2VHR;
-	Fri, 05 Jun 2026 08:30:09 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wVPx2-00000000Juo-33AR;
+	Fri, 05 Jun 2026 08:30:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPwM-00000000Jo1-3baV;
-	Fri, 05 Jun 2026 08:30:08 +0000
-X-UUID: becb576260b811f1acbe4559397dec65-20260605
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=MrujfuRgv2BkE0UC6YnsNJizBYJH3r4XVo1YyTPivw8=;
-	b=I37dTbOzPUdX4fmgZ/C8Rxd+DraWMgBKfhgEH0vKfdTRkXkOK1kjnzudoLOC0w7T03NorKvU7ttLUA5lYRjFXdxUy7ib/KeDGAqEriqkZsvlz7+LPSsjo0JD4dBkuNV001axzIxGFluNY0edtwv55h71zIJGxUDRHG53JkHyQtI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:124d7938-efca-413d-8240-e737f9f53de7,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e276073,CLOUDID:19a45737-f46c-458c-9a64-0117b9a7c6af,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|865|888|898,TC:-5,Content:0|
-	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: becb576260b811f1acbe4559397dec65-20260605
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <sarang.chaudhari@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 662287028; Fri, 05 Jun 2026 01:30:01 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+	id 1wVPx1-00000000JuY-2p2A
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 05 Jun 2026 08:30:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=eJ3rd6muldb5Ys/jUa4C6DrQYqz6Oo7suf7mdItTnFQ=; b=OOUU9FKnwCjLlLJvHwk6E6fgV8
+	B/ryeuvzxhBLFC3JImnNYkidPa3/7n9r6lpSv7h9D0A/0xn/mTI3DPRmXStml4VoV7SRt65bzkXFD
+	zNgzHC5QNIqkPk/iJ2ceAGGknFqyqFN89SIGtHw1UuP8tDkJOA7E9JJyJPEWN7p+eaMA0/+l+dBp3
+	nm74fLMvMBOk97hUwPdBVQGUVnWZXZhhyNMUsLoO/Q8FpfL+mwLjakff1M0I09L8OzU1TKwPZEbFe
+	TwbK/OzatZgfUaJ5GYp0ZUe2uC+ROiDRNgzZdqlXsqTsp26PfU8y0/O5uxsQG/Pmv+/U19XwsPnfu
+	VIig3N8g==;
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wVPws-0000000FKMi-0zgn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Jun 2026 08:30:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=eJ3rd6muldb5Ys/jUa4C6DrQYqz6Oo7suf7mdItTnFQ=;
+	b=HH0ktyBMxXWRTw/q/P8xozXjuNm27h8Fvyyfntd5ZSceMqPqC0q4E4xGLazt1dCP72cDoP+ce
+	EEIHUiS04j8T2FGa6sIvRJYuMTAsgJrOvZSoxWM7IdxbUpoUUZfAWjJ/WqKW2Z343vKak3V0mDP
+	fevTQXcqKN9aiQ/bJwyoZGQ=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gWvYL5dm4zmV8m;
+	Fri,  5 Jun 2026 16:21:58 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2980440562;
+	Fri,  5 Jun 2026 16:29:51 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 5 Jun 2026 16:29:59 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 5 Jun 2026 16:29:59 +0800
-From: Sarang Chaudhari <sarang.chaudhari@mediatek.com>
-To: Rob Herring <robh@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: <zhaoyuan.chen@mediatek.com>, <Teddy.Chen@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Sarang Chaudhari
-	<sarang.chaudhari@mediatek.com>
-Subject: [PATCH v6 3/4] media: uapi: mediatek: Add MT8188 AIE control definitions
-Date: Fri, 5 Jun 2026 16:29:53 +0800
-Message-ID: <20260605082956.2590511-1-sarang.chaudhari@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+ 15.2.1544.36; Fri, 5 Jun 2026 16:29:50 +0800
+Message-ID: <22abfaf8-8636-4ed3-9a5c-fb4fdef1bc19@huawei.com>
+Date: Fri, 5 Jun 2026 16:29:49 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
+To: Inochi Amaoto <inochiama@gmail.com>, Marc Zyngier <maz@kernel.org>
+CC: <oupton@kernel.org>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
+	<pbonzini@redhat.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>, <liuyonglong@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <yezhenyu2@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
+	<suzuki.poulose@arm.com>, <leo.bras@arm.com>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com>
+ <20260225040421.2683931-4-zhengtian10@huawei.com>
+ <ahzUUDAMoHtDFJD3@inochi.infowork> <864ijmvdpy.wl-maz@kernel.org>
+ <ah1KLrpYBXSMM91H@inochi.infowork>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <ah1KLrpYBXSMM91H@inochi.infowork>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_013007_033925_C5F56234 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20260605_093038_992467_5DBA4521 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,105 +101,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add AIE (AI Engine) UAPI control definitions and register the
-V4L2_META_FMT_MTFD_RESULT metadata format for the MediaTek face
-detection hardware accelerator.
 
-This patch adds:
-- include/uapi/linux/mtk_aie_v4l2_controls.h: Custom V4L2 control IDs
-  for AIE initialization and per-frame parameters.
-- V4L2_META_FMT_MTFD_RESULT format in videodev2.h for face detection
-  result metadata output.
-- Format description in v4l2-ioctl.c.
+On 6/1/2026 5:05 PM, Inochi Amaoto wrote:
+> On Mon, Jun 01, 2026 at 09:58:49AM +0100, Marc Zyngier wrote:
+>> On Mon, 01 Jun 2026 01:50:22 +0100,
+>> Inochi Amaoto <inochiama@gmail.com> wrote:
+>>> On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
+>>>> From: eillon <yezhenyu2@huawei.com>
+>>>>
+>>>> Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
+>>>> indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
+>>>> to notify the user of the feature.
+>>>>
+>>>> Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
+>>>> ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
+>>>> cannot be determined at KVM initialization, an IOCTL interface is
+>>>> required.
+>>>>
+>>>> Actually exposing the new capability to user space happens in a later
+>>>> patch.
+>>>>
+>>>> Signed-off-by: eillon <yezhenyu2@huawei.com>
+>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>>>> ---
+>>>>   arch/arm64/include/asm/cpufeature.h |  5 +++++
+>>>>   arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
+>>>>   arch/arm64/tools/cpucaps            |  1 +
+>>>>   include/uapi/linux/kvm.h            |  1 +
+>>>>   tools/include/uapi/linux/kvm.h      |  1 +
+>>>>   5 files changed, 20 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+>>>> index 4de51f8d92cb..dcc2e2cad5ad 100644
+>>>> --- a/arch/arm64/include/asm/cpufeature.h
+>>>> +++ b/arch/arm64/include/asm/cpufeature.h
+>>>> @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
+>>>>   	return cpus_have_final_cap(ARM64_HAFT);
+>>>>   }
+>>>>
+>>>> +static inline bool system_supports_hdbss(void)
+>>>> +{
+>>>> +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+>>>> +}
+>>>> +
+>>>>   static __always_inline bool system_supports_mpam(void)
+>>>>   {
+>>>>   	return alternative_has_cap_unlikely(ARM64_MPAM);
+>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>>> index c31f8e17732a..348b0afffc3e 100644
+>>>> --- a/arch/arm64/kernel/cpufeature.c
+>>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>>> @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>>>>   	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+>>>>   }
+>>>>
+>>>> +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
+>>>> +{
+>>>> +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
+>>>> +}
+>>>> +
+>>>>   bool cpu_supports_bbml2_noabort(void)
+>>>>   {
+>>>>   	/*
+>>>> @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>>>>   		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+>>>>   	},
+>>>>   #endif
+>>>> +	{
+>>>> +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
+>>>> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>>>> +		.capability = ARM64_HAS_HDBSS,
+>>>> +		.matches = has_vhe_hdbss,
+>>>> +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
+>>>> +	},
+>>>>   	{
+>>>>   		.desc = "CRC32 instructions",
+>>>>   		.capability = ARM64_HAS_CRC32,
+>>>> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+>>>> index 7261553b644b..f6ece5b85532 100644
+>>>> --- a/arch/arm64/tools/cpucaps
+>>>> +++ b/arch/arm64/tools/cpucaps
+>>>> @@ -68,6 +68,7 @@ HAS_VA52
+>>>>   HAS_VIRT_HOST_EXTN
+>>>>   HAS_WFXT
+>>>>   HAS_XNX
+>>>> +HAS_HDBSS
+>>>>   HAFT
+>>>>   HW_DBM
+>>>>   KVM_HVHE
+>>>
+>>>> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+>>>> index 65500f5db379..15ee42cdbd51 100644
+>>>> --- a/include/uapi/linux/kvm.h
+>>>> +++ b/include/uapi/linux/kvm.h
+>>>> @@ -985,6 +985,7 @@ struct kvm_enable_cap {
+>>>>   #define KVM_CAP_ARM_SEA_TO_USER 245
+>>>>   #define KVM_CAP_S390_USER_OPEREXEC 246
+>>>>   #define KVM_CAP_S390_KEYOP 247
+>>>> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+>>>>
+>>>>   struct kvm_irq_routing_irqchip {
+>>>>   	__u32 irqchip;
+>>>> diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
+>>>> index dddb781b0507..93e0a1e14dc7 100644
+>>>> --- a/tools/include/uapi/linux/kvm.h
+>>>> +++ b/tools/include/uapi/linux/kvm.h
+>>>> @@ -974,6 +974,7 @@ struct kvm_enable_cap {
+>>>>   #define KVM_CAP_GUEST_MEMFD_FLAGS 244
+>>>>   #define KVM_CAP_ARM_SEA_TO_USER 245
+>>>>   #define KVM_CAP_S390_USER_OPEREXEC 246
+>>>> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+>>>>
+>>>>   struct kvm_irq_routing_irqchip {
+>>>>   	__u32 irqchip;
+>>>> --
+>>>> 2.33.0
+>>>>
+>>> Instead of having these architecture specific capability, I wonder if
+>>> we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
+>>> other architecture supports similar things can reuse this capability,
+>> What of the existing stuff doing the same thing? x86's PML, to start
+>> with?
+>>
+> In fact I think the HDBSS is the first one with non-fixed size.
+> Although there is a in process RISC-V extension for it, there will
+> be a long story to make it ratified.
+>
+>>> For this generic thing I suggest, the getter returns the max support
+>>> entry count (or the buffer size) it supports like the dirty ring
+>>> capability. And the setter just let the architecture set the parameters
+>>> based on the user request.
+>> This looks wrong on a number of levels.
+>>
+>> - If you want something generic, there is the existing dirty
+>>    log/bitmap. How this stuff is populated is none of the user's
+>>    business (trapping write accesses, dirty bit collection from the
+>>    PTs, or HW-generated log), and we don't need an extra feature for
+>>    it. Performance will obviously suck, but that's what you pay for
+>>    something abstracted and cross-architecture.
+>>
+>> - If you want something architecture specific, then it can't be
+>>    generic, by definition. You get the raw speed and compatibility with
+>>    other arch-specific extensions.
+>>
+> OK, I agree, it is better to keep this thing arch-specific. Doing a
+> generic thing does not benefit too much, I have made a mistake on
+> it. Thanks for your kindly explanation.
 
-Signed-off-by: Sarang Chaudhari <sarang.chaudhari@mediatek.com>
----
-Changes in v6:
-- Simplify UAPI header to contain only control ID definitions. Full
-  structures kept in kernel-internal header for now, pending UAPI
-  structure redesign per CK Hu's feedback.
-- Drop V4L2_CTRL_TYPE_AIE_INIT and V4L2_CTRL_TYPE_AIE_PARAM from
-  v4l2_ctrl_type enum (use V4L2_CTRL_TYPE_U32 compound control instead).
-- Address CK Hu's review feedback: remove freq_level, improve
-  feature_threshold docs, clarify pyramid multi-scale detection, clarify
-  FLD mode uses FD results via Binary Tree Traversal.
 
-Changes in v5:
-- Add an introduction for feature_threshold.
-- Rename v4l2_aie_roi to aie_roi_coordinate.
-- Rename v4l2_aie_padding to aie_padding_size.
-- Explain en_padding and the three modes of fd_mode.
-- Move structures from mtk_aie.h to the uapi directory.
+Awesome. Thanks for the review.
 
-Changes in v4:
-- Document the detail of V4L2_META_FMT_MTFD_RESULT.
-- Add the introduction of related variables.
+I agree with Marc—keeping this ARM-specific is the right approach.
+Also, in v4 we're removing the ioctl interface entirely. HDBSS will be
+auto-enabled during migration setup and auto-disabled when migration
+completes, so the capability naming issue becomes moot.
 
-Changes in v3: None
+I plan to post v4 with the updated approach soon.
 
-Changes in v2:
-- Fix coding style.
 
- drivers/media/v4l2-core/v4l2-ioctl.c       |  1 +
- include/uapi/linux/mtk_aie_v4l2_controls.h | 23 ++++++++++++++++++++++
- include/uapi/linux/videodev2.h             |  1 +
- 3 files changed, 25 insertions(+)
- create mode 100644 include/uapi/linux/mtk_aie_v4l2_controls.h
-
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index e50e517..8754098 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -11,6 +11,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
- 	case V4L2_META_FMT_GENERIC_CSI2_16:	descr = "8-bit Generic Meta, 16b CSI-2"; break;
- 	case V4L2_META_FMT_GENERIC_CSI2_20:	descr = "8-bit Generic Meta, 20b CSI-2"; break;
- 	case V4L2_META_FMT_GENERIC_CSI2_24:	descr = "8-bit Generic Meta, 24b CSI-2"; break;
-+	case V4L2_META_FMT_MTFD_RESULT:	descr = "Mediatek Face Detect Result"; break;
- 
- 	default:
- 		/* Compressed formats */
-diff --git a/include/uapi/linux/mtk_aie_v4l2_controls.h b/include/uapi/linux/mtk_aie_v4l2_controls.h
-new file mode 100644
-index 0000000..a8b2927
---- /dev/null
-+++ b/include/uapi/linux/mtk_aie_v4l2_controls.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+/*
-+ * MediaTek AI Engine (AIE) V4L2 control definitions
-+ *
-+ * Copyright (c) 2020 MediaTek Inc.
-+ * Author: Fish Wu <fish.wu@mediatek.com>
-+ */
-+
-+#ifndef __UAPI_MTK_AIE_V4L2_CONTROLS_H__
-+#define __UAPI_MTK_AIE_V4L2_CONTROLS_H__
-+
-+#include <linux/videodev2.h>
-+
-+/*
-+ * The base for the MediaTek AIE driver controls.
-+ * We reserve 16 controls for this driver.
-+ */
-+#define V4L2_CID_USER_MTK_FD_BASE	(V4L2_CID_USER_BASE + 0x1fd0)
-+
-+#define V4L2_CID_MTK_AIE_INIT		(V4L2_CID_USER_MTK_FD_BASE + 1)
-+#define V4L2_CID_MTK_AIE_PARAM		(V4L2_CID_USER_MTK_FD_BASE + 2)
-+
-+#endif /* __UAPI_MTK_AIE_V4L2_CONTROLS_H__ */
-diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index 7668201..6d6866d 100644
---- a/include/uapi/linux/videodev2.h
-+++ b/include/uapi/linux/videodev2.h
-@@ -10,6 +10,7 @@ struct v4l2_pix_format {
- #define V4L2_META_FMT_GENERIC_CSI2_16	v4l2_fourcc('M', 'C', '1', 'G') /* 16-bit CSI-2 packed 8-bit metadata */
- #define V4L2_META_FMT_GENERIC_CSI2_20	v4l2_fourcc('M', 'C', '1', 'K') /* 20-bit CSI-2 packed 8-bit metadata */
- #define V4L2_META_FMT_GENERIC_CSI2_24	v4l2_fourcc('M', 'C', '1', 'O') /* 24-bit CSI-2 packed 8-bit metadata */
-+#define V4L2_META_FMT_MTFD_RESULT	v4l2_fourcc('M', 'T', 'f', 'd') /* Mediatek face detection result */
- #endif
- 
- /* priv field value to indicates that subsequent fields are valid. */
--- 
-2.45.2
-
+>>> This should do no harm to this implement, as everything still depends
+>>> on the architecture behavior, and leave room for other architecture
+>>> to reuse this.
+>> Again, the generic framework exists, you just have to implement the
+>> backend you want.
+>>
+>> 	M.
+>>
+>> -- 
+>> Without deviation from the norm, progress is not possible.
+> Regards,
+> Inochi
 
