@@ -4,76 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B2FCD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D97CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 09:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7e/64Lm4FJCHnz40nUrkUeXHtudnHaWROVmMiFI1MM=; b=evg7h5FAGwNAhug0NOh3BQrHCT
-	ZI690f4kKS61f+1iwhvo1/O0LbxKVKnOZHA2ZqfDPl8infQ9iEd5GLUODZInJmlRgXbRCPLp+wA04
-	dIJBTxqCZNf3zUmineWGXXvBmUph0jdeJvBBhwoFrgpU7jQzTZ0vHQC0L5IxOrTtquxc5GxhGW5CF
-	1Uz1ny+KXQaX1pesqOTOJiN4sab+uSf0qotFeNtXoEqXq6ZfdlVXl8WzOPz1Z9xdW9bbeTHdcCnDL
-	V+eOZsyYi77tWxxFHMR90FcbcpJQgvfHJKJvnw9GceMvfbUReFjt0ukgUmt9r695FNvf+3z9XigNi
-	Exiz+JBg==;
+	bh=eqX3jUpHIogQmCNm4Nvjf21Tcfqt7WTpDhp1du4BbYM=; b=kPkp9WCf2zP5XStN8dDTb8Ax1V
+	8MelhiYyrE7nI1NXtDtAQLSNBFchS6/wEqq5Le1UdiUudwL8ZiyB7WFOBTcZEmhlodxpSWmvNCltt
+	CD9xYzPLWWyMd8OSNRvgrkRz13fJRikgeLNhgzsMLmUgUBLdayzCT7ma3/gMg0zElkgSJlgnXBVN2
+	XkfeRFxHVnNpWv4IZKAOI+IVvuEXGXgrwx5WCd4XSvnkJAaRHStycH5OAepK/HAOjJhWyCFqH7Bbg
+	Wpm4xsHY1WoJa6pnmAic+i+hSgnDkpaZ7Nd4EJzd5kxmrTqTh+ct24KwPn8cvKWPKgk6jDaGibJ3V
+	BeTgH3bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQb1-00000000NVT-2dzZ;
-	Fri, 05 Jun 2026 09:12:07 +0000
+	id 1wVQhF-00000000O1o-12te;
+	Fri, 05 Jun 2026 09:18:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVQaz-00000000NVM-3IpE
+	id 1wVQhD-00000000O1e-09pf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 09:12:05 +0000
+	Fri, 05 Jun 2026 09:18:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F1854371C;
-	Fri,  5 Jun 2026 09:12:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CA11F00893;
-	Fri,  5 Jun 2026 09:11:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F6BC442C9;
+	Fri,  5 Jun 2026 09:18:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E46C61F00893;
+	Fri,  5 Jun 2026 09:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780650725;
-	bh=d7e/64Lm4FJCHnz40nUrkUeXHtudnHaWROVmMiFI1MM=;
+	s=k20260515; t=1780651110;
+	bh=eqX3jUpHIogQmCNm4Nvjf21Tcfqt7WTpDhp1du4BbYM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=b4jjUShMkrkAmKNxKHC+rOncDO9lTBGvhVgQKmVj7x8ATGjGdsoqadL19HOJzjcxR
-	 abVTB3dLsl7EZQ2p2CPYahFdM4sgLY65GgoMHPZuL7sb7PSbwBdnznsIqcbMKnMOjt
-	 XTHTs1ZE4p3L6MxoST7yq0c+wxGMdPmtJwK2TMfXoZIljRBthAQ2h7zEsml9KWCxdL
-	 dAdzswtSkYkPB7Psqhpere9y5gLq0e8V2bg3fS7jUTi6jVBsAsuPxhlt5P48hVgeez
-	 rbz/xNkuNK7+DyNURO2sbUzqDd9qW8Gmmk+yn9qr9o/aSVbwXaRdOnaOWse3qXTmgc
-	 K3bZT7ZX4PBGg==
-Message-ID: <8387afa5-f2d9-4006-a1c9-d2122ea6245d@kernel.org>
-Date: Fri, 5 Jun 2026 11:11:55 +0200
+	b=PqKe8T4q/jag/P+1p/RNY7o1OccadN9fagxWNtbiXxaBf1v1j9LKVxBBMSpfonx8P
+	 Ob/39kHxu0W1q0axx1PoE1FKRT3QmSaP60L5KirHzblMvNwJwEiowzJWpAk/oHgQPN
+	 dRDEhByIBUc92HLnQeYEIpyQLt4t/dwW5rcIh+fh91uz/MHbKjhEQxCsL9X53ReG+P
+	 3JAt4YqP+2UwxyC2p3DIq16fXrOUvJhhUBTvl1JzMyG1uC4c8sN6H3W7v2bP4Wuj33
+	 uHgZt5HH4ePWrPCLb4bFM1J5HEiawBc4CJhtigOx3EtmN6QOP8L6Np3Aq61H6tRcrt
+	 dmFMIeSwTchBw==
+Message-ID: <17528d9a-738c-48fe-ac24-b8d90875a74f@kernel.org>
+Date: Fri, 5 Jun 2026 11:18:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
-To: Frank Li <Frank.li@nxp.com>
-Cc: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>,
- Chancel Liu <chancel.liu@nxp.com>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-References: <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
- <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <20260519-macho-degu-from-nibiru-960af2@quoll>
- <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
- <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
- <74eb56fb-546d-4b2c-9bbc-01a40937f5d3@kernel.org>
- <AM9PR04MB835333895276201A81251210E30A2@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <8046287e-87a2-4d18-ad3d-248620a752a9@kernel.org>
- <ah9WzQmwPrP4yWTC@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v2 1/5] dt-bindings: soc: cix,sky1-system-control: add
+ audss system control
+To: joakim.zhang@cixtech.com, mturquette@baylibre.com, sboyd@kernel.org,
+ bmasney@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, p.zabel@pengutronix.de, gary.yang@cixtech.com
+Cc: cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260605032225.523669-1-joakim.zhang@cixtech.com>
+ <20260605032225.523669-2-joakim.zhang@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -119,9 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <ah9WzQmwPrP4yWTC@lizhi-Precision-Tower-5810>
+In-Reply-To: <20260605032225.523669-2-joakim.zhang@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,166 +118,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/06/2026 00:18, Frank Li wrote:
-> On Mon, May 25, 2026 at 02:28:32PM +0200, Krzysztof Kozlowski wrote:
->> On 25/05/2026 08:26, Chancel Liu (OSS) wrote:
->>>>>>>>>>>>> +description:
->>>>>>>>>>>>> +  The NXP I/O connector represents a physically present I/O
->>>>>>>>>>>>> +connector on the
->>>>>>>>>>>>> +  base board. It acts as a nexus that exposes a constrained
->>>>>>>>>>>>> +set
->>>>>>>> of
->>>>>>>>>>>>> +I/O
->>>>>>>>>>>>> +  resources, such as GPIOs, clocks, PWMs and interrupts,
->>>>>>>>>>>>> +through fixed
->>>>>>>>>>>>> +  electrical wiring. All actual hardware providers reside on
->>>>>>>>>>>>> +the
->>>>>>>> base
->>>>>>>>>> board.
->>>>>>>>>>>>> +  The connector node only defines index-based mappings to
->>>>>>>>>>>>> + those
->>>>>>>>>>>> providers.
->>>>>>>>>>>>> +
->>>>>>>>>>>>> +properties:
->>>>>>>>>>>>> +  compatible:
->>>>>>>>>>>>> +    const: fsl,io-connector
->>>>>>>>>>>>
->>>>>>>>>>>> Everything is IO. Everything is connector, so your compatible
->>>>>>>>>>>> does not match requirements from writing bindings.
->>>>>>>>>>>>
->>>>>>>>>>>
->>>>>>>>>>> Yes, this compatible is too generic. I will rename the
->>>>>>>>>>> compatible to fsl,aud-io-connector.
->>>>>>>>>>
->>>>>>>>>> aud is not much better. Which boards have it? What's the pinout?
->>>>>>>> What's
->>>>>>>>>> standard? Is it described anywhere? If so, provide reference to
->>>>>>>> spec/docs.
->>>>>>>>>>
->>>>>>>>>
->>>>>>>>> This is not an industry standard electrical interface. This
->>>>>>>>> connector
->>>>>>>>
->>>>>>>> Then if you do not have standard, then you have board specific
->>>>>>>> layouts thus you need board-specific compatibles. You can use
->>>>>>>> fallbacks. Generic fallback could work, but both io-connector and
->>>>>>>> aud-io-connector are just too generic. Every connector is
->>>>>>>> "connector" and "io", thus absolutely anything can be
->>>>>>>> "io-connector". "aud" improves it only a bit, thus honestly I would
->>>> go with board specific fallback as well.
->>>>>>>>
->>>>>>>
->>>>>>> How about board specific + common fallback compatible like this:
->>>>>>>   compatible:
->>>>>>>     items:
->>>>>>>       - enum:
->>>>>>>           - fsl,imx95-19x19-evk-aud-io-connector
->>>>>>>           - fsl,imx952-evk-aud-io-connector
->>>>>>>       - const: fsl,imx-aud-io-connector Since the daughter board is
->>>>>>> named “IMX-AUD-IO” in publicly available
->>>>>>
->>>>>> I don't think it is named like that.
->>>>>>
->>>>>> git grep -i imx-aud-io
->>>>>>
->>>>>>> documentation, common compatible clearly indicates that this
->>>>>>> connector is intended for that.
->>>>>>>
->>>>>>> Also, I want to talk about the topic of generic connector. It's a
->>>>>>> common design that daughter board is connected to base board through
->>>>>>> a connector. This connector more often acts as a nexus that exposes
->>>>>>> a constrained subset of GPIO, clock, PWM and interrupt resources to
->>>>>>> the daughter board. Can we document this kind of connector as a
->>>>>>> generic binding?
->>>>>>
->>>>>> So this binding is the connector between carrier and some addon? Then
->>>>>> you don't get a compatible for that at all, because it is not
->>>>>> necessary, not useful and NEVER used. Do you see socket LGA "connector"
->>>> bindings? No.
->>>>>
->>>>> Not exactly. Any connector connects a carrier board with an add-on
->>>> board.
->>>>> The key point here is that this connector type is reused across
->>>>> different boards, even though it is not an industry-standard
->>>>> connector. Both the signal definitions and the mechanical layout are
->>>> defined.
->>>>>
->>>>> The same add-on boards can therefore be reused across different base
->>>>> boards that use this type of connector.
->>>>>
->>>>> There are also GPIO mappings involved. For example, pin 1 on the
->>>>> connector may represent reset-gpios, but it could be connected to
->>>>> GPIO0 on board A and GPIO1 on board B.
->>>>>
->>>>> Without a connector definition layer, this would create an N × M
->>>>> combination problem. The Nexus node discussion already covered this
->>>> topic:
->>>>> https://osseu2025.sched.com/event/25Vrw
->>>>>
->>>>> An LGA socket is a CPU socket, where the signals are completely
->>>>> transparent to software, so it is not a good comparison. A PCIe M.2
->>>>> Key-M/E connector would be a more appropriate comparison.
->>>>>
->>>>
->>>> So the terminology of daughter and carrier boards was confusing. If this
->>>> is a hat, mezzanine or other addon, it's fine.
->>>>
->>>
->>> The IMX-AUD-IO is an add-on board that attaches to the base board. To
->>> make it clearer, I will replace "daughter board" with "add-on board"
->>> throughout descriptions.
->>>
->>>> I still insist on board specific compatibles - fallback and specific.
->>>>
->>>
->>> The base board has a slot component that is mechanically compatible
->>> with a PCIe x8 connector. However, it carries no PCIe signals and the
->>> pins are repurposed to carry fixed board-level audio I/O related
->>> signals.
->>>
->>> I think we can name a compatible reflects a standard mechanical form
->>> factor.
->>> For the compatibles (specific + fallback) I propose:
->>> - enum:
->>>     - fsl,imx95-19x19-evk-aud-io-pcie-x8-slot
->>>     - fsl,imx952-evk-aud-io-pcie-x8-slot
->>> - const: fsl,aud-io-pcie-x8-slot
->>
->> Does not solve my request, so I won't ack it. Maybe you will get ack
->> from other DT maintainer then.
-> 
-> Krzysztof:
-> 	Thank you for your support. This type header/slot is difficult to
-> name it.
-> 
-> After read again previous comments
-> 
-> "Then if you do not have standard, then you have board specific layouts
-> thus you need board-specific compatibles. You can use fallbacks. Generic
-> fallback could work, but both io-connector and aud-io-connector are just
-> too generic. Every connector is "connector" and "io", thus absolutely
-> anything can be "io-connector". "aud" improves it only a bit, thus
-> honestly I would go with board specific fallback as well."
-> 
-> Do you means
-> oneOf
->   - items:
->       - enum:
->           - fsl,imx943-evk-aud-io-pcie-x8-slot
->           - fsl,imx952-evk-aud-io-pcie-x8-slot
->       - const: fsl,imx95-19x19-evk-aud-io-pcie-x8-slot
->  - const: fsl,imx95-19x19-evk-aud-io-pcie-x8-slot
+On 05/06/2026 05:22, joakim.zhang@cixtech.com wrote:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - cix,sky1-system-control
+> -          - cix,sky1-s5-system-control
+> -      - const: syscon
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - cix,sky1-system-control
+> +              - cix,sky1-s5-system-control
+> +          - const: syscon
+> +      - items:
+> +          - const: cix,sky1-audss-system-control
+> +          - const: simple-mfd
+> +          - const: syscon
+>  
+>    reg:
+>      maxItems: 1
+> @@ -27,6 +32,11 @@ properties:
+>    '#reset-cells':
+>      const: 1
+>  
+> +  clock-controller:
+> +    $ref: /schemas/clock/cix,sky1-audss-clock.yaml#
+> +    description:
+> +      AUDSS internal clock provider (cix,sky1-audss-system-control only).
 
-Yes, could be a bit shorter like fsl,imx95-19x19-evk-aud-io-slot or even
-without slot because prefixing it with board compatible makes it very
-specific.
+Are you sure this patch builds? Your cover letter should explain merging
+dependencies/strategy/constraints in the first chapter. You start with
+THE MOST important information.
 
-> 
-> Frank
-> 
->>
->> Best regards,
->> Krzysztof
+You need to disallow node for other variants.
+
+
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -40,3 +50,22 @@ examples:
+>        reg = <0x4160000 0x100>;
+>        #reset-cells = <1>;
+>      };
+> +  - |
+> +    #include <dt-bindings/reset/cix,sky1-audss-system-control.h>
+> +
+> +    audss_syscon: system-controller@7110000 {
+> +        compatible = "cix,sky1-audss-system-control", "simple-mfd", "syscon";
+> +        reg = <0x7110000 0x10000>;
+> +        #reset-cells = <1>;
+> +
+> +        clock-controller {
+> +            compatible = "cix,sky1-audss-clock";
+> +            power-domains = <&smc_devpd 0>;
+> +            #clock-cells = <1>;
+> +            clocks = <&scmi_clk 0>, <&scmi_clk 1>, <&scmi_clk 2>,
+> +                     <&scmi_clk 3>, <&scmi_clk 4>, <&scmi_clk 5>;
+> +            clock-names = "audio_clk0", "audio_clk1", "audio_clk2",
+> +                          "audio_clk3", "audio_clk4", "audio_clk5";
+> +            resets = <&src 0>;
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/reset/cix,sky1-audss-system-control.h b/include/dt-bindings/reset/cix,sky1-audss-system-control.h
+> new file mode 100644
+> index 000000000000..2ebc5c4f10cd
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/cix,sky1-audss-system-control.h
+> @@ -0,0 +1,27 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright 2026 Cix Technology Group Co., Ltd.
+> + */
+> +#ifndef DT_BINDING_RESET_CIX_SKY1_AUDSS_SYSTEM_CONTROL_H
+> +#define DT_BINDING_RESET_CIX_SKY1_AUDSS_SYSTEM_CONTROL_H
+> +
+> +#define AUDSS_I2S0_SW_RST_N	0
+
+Most likely _N is redundant here. Consumers will ignore it completely
+and this is binding used by consumers, not by reset controller.
+
+> +#define AUDSS_I2S1_SW_RST_N	1
+> +#define AUDSS_I2S2_SW_RST_N	2
+> +#define AUDSS_I2S3_SW_RST_N	3
+> +#define AUDSS_I2S4_SW_RST_N	4
+> +#define AUDSS_I2S5_SW_RST_N	5
+> +#define AUDSS_I2S6_SW_RST_N	6
+> +#define AUDSS_I2S7_SW_RST_N	7
+> +#define AUDSS_I2S8_SW_RST_N	8
+> +#define AUDSS_I2S9_SW_RST_N	9
+> +#define AUDSS_WDT_SW_RST_N	10
+> +#define AUDSS_TIMER_SW_RST_N	11
+> +#define AUDSS_MB0_SW_RST_N	12
+> +#define AUDSS_MB1_SW_RST_N	13
+> +#define AUDSS_HDA_SW_RST_N	14
+> +#define AUDSS_DMAC_SW_RST_N	15
+> +
+> +#define SKY1_AUDSS_SW_RESET_NUM	16
+
+Drop, not a binding.
+
+> +
+> +#endif
 
 
 Best regards,
