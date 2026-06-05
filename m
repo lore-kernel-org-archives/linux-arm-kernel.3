@@ -4,118 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963EDCD6E74
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 11:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C930CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 11:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F927iQO2yHy5r4ReVfNbFmhFmycUVmgAeB7fBG6rev8=; b=aHl/vYAt3CtDomoKylYu4tsTvU
-	7t156pYQBpdXqaY1in+Vyz36aL1kS35WKOUkIfICEDeLnWzCl+lAfVDNAX5I78g1t77LFR6AterFc
-	B1RDgT3M4DzaLgL30tn9lsMI0OSw8GmqUSDjLSaLmLk+pMsUfbegdx1SIjeiBcoqTuSKlFaj/Kgb2
-	Abw/oxueI3QL9kJflHtGx5Q700wcux2WTzplwB67FKQv1pZHDKBuzFLQebYMt8vEOdJMH3LPUmgrq
-	vqH1OqG5cJBjD9O/jMRzu6j3g26EB//JzKZfuJQu+ZtZhOHou60TajmxRFxcVUoZQStRLU8iweRZz
-	JsMyZZbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W3r95IPdKLEoIca50s981PYU1XFf+JhCBe7GdZYnQ8c=; b=O62X5R6CAZgil+kHOSmp3htg1e
+	cI0ZhxBLPbZGdOkFR+1fPsxwe1wd+HlHo3by4g3I4E+AZJ7S9Cen+nrlC3mbRY3zBmFqyRLZvMvxc
+	IL6UfMTpvVvG6rxh9qlZtz+LRCN0HO6DTh8wDJhzgZ9+fsHgySDj1zS5jfG1vWh1kuKo1xMFbfjgP
+	3mJ5lh4Y9G+nZPU7IfdBduPzR84crlTlzrN/jQj8vfw27kLrkCDi0aADlJ/skwD8KqzRCXJDaPIKi
+	yP9zkZH54u6gmgqHnrk+JEFXwVLgQHwlX1c5W2uDoHAUrUfWtkIq0Fl8Eo/KZUN/iNP74KyWKY8Ea
+	j3Vl1b5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVSr6-00000000YSC-16vt;
-	Fri, 05 Jun 2026 11:36:53 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.9])
+	id 1wVSsB-00000000YZB-0XjN;
+	Fri, 05 Jun 2026 11:37:59 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVSr2-00000000YRT-2gNA
+	id 1wVSs8-00000000YYK-2hd7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 11:36:50 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-qw7b.prod.antispam.mailspamprotection.com; s=arckey; t=1780659408;
-	 b=J4gZUv7pavbYTPt+jrdhrYYBV6E0W0d8Xv+YUkZXO97HQP3NgD1TCqymULvsRuOTmpjTFOA1GV
-	  Cc9N1Nx0isUI3/IV9tvgz0P3nq87aqt3j/Wt67ozpkTpqQUwxRVit40IrKamk80JrE+Mf++n8X
-	  0Qa1bA0OQLhBPtJq4F9LD7Wk0aa5bW6lGcv2Q/Z6/+vldT2Oie4b0BPB8lV70d6bpP28hdBOwW
-	  OH+lGzdGeIYqcQbLFiz3898NqLmbREUDXT/LChDhap/nnoOmSEFMw/vnXRYNFm/lMOcQDFTVq9
-	  900DV566WvDTlb8XIyDAdavqWGBPqqJLLJ2Ke/QcDncVqQ==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-qw7b.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-qw7b.prod.antispam.mailspamprotection.com; s=arckey; t=1780659408;
-	bh=XNHtznNb9YuK+Ys5xRmERxuX6qwUALEMw5FejOZwa8M=;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	  Message-ID:Date:Subject:Cc:To:From:DKIM-Signature:DKIM-Signature;
-	b=Gih1lCB+GJmUIfmTcPo0sfdR8kWyy9oPTZptJtJLOArfSnEG9U6JXJ8gsQgzIPQ+UefawEcQFg
-	  fDTvZ5go7t8yD2edxqFOnMP/65v8WeENsv77dZiAsTuXfL0tcvCD8DOGjKa7cWfGoFDUttSdsw
-	  puxil9L14cqHXxH5P7mUAw9hQLYvh+v/Jy6PmoISn/90Q9zSfq8cc1xsNpIbmngJhpsMv5/QGu
-	  GW6I/q2hwyGiVVufeaMPFpHEMa/oWork3WQoGpx3aGcy5m0uXoB7amQDcon+3ZEN/26sejoFbW
-	  FFdUKL/McZH46lQscjzXsRhYp48lvb61jS6+7Z8Qjkil5Q==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
-	Cc:To:From:Reply-To:List-Unsubscribe;
-	bh=F927iQO2yHy5r4ReVfNbFmhFmycUVmgAeB7fBG6rev8=; b=lALx/Q29I0TF72XcmS4ulSYECN
-	fcMWUDcChruDngL5c4cZRcakk/sFIsxivrTTxijf8/qNh4FkTw7iqnq4OaJj5XNdqLeGTbQ/eeZSw
-	65o23Bl4sQShUjmIfoJfBfawPsq16T37b6AImRn1BaGtcbRUMW6Tf9MLO2l7r07r0mFU=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-qw7b.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <francesco@valla.it>)
-	id 1wVSqt-00000008aEk-3xmI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 11:36:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Date:Subject:Cc:To:From:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=F927iQO2yHy5r4ReVfNbFmhFmycUVmgAeB7fBG6rev8=; b=hWWMhmjpCi3qq3Fr1kFkjljgGg
-	Vj11SCwNaX7NdXLQ3qtQU0cIeMp5zUEHjseLafSbXct8roL3XC0mULS233X6ryPzSD3EvxZNa3D6Z
-	4wc4QhGzrtSUV1P56thuHX00CZKOx2WPSbw7LmpqnTIcF/4mX+jvQKGyYGzMmdtsRT5o=;
-Received: from [95.248.69.182] (port=62513 helo=bywater.localnet)
-	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.3)
-	(envelope-from <francesco@valla.it>)
-	id 1wVSqb-00000000Bzf-1M8X;
-	Fri, 05 Jun 2026 11:36:21 +0000
-From: Francesco Valla <francesco@valla.it>
-To: Joseph Guo <qijian.guo@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- steven.yang@nxp.com
-Subject: Re: [PATCH] arm64: dts: imx93-11x11-frdm: enable additional devices
-Date: Fri, 05 Jun 2026 13:36:20 +0200
-Message-ID: <_j4Ik3AsS5yfKb4Y7cSB1w@valla.it>
-In-Reply-To: <aiKP3EgdrCbqtUH0@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
-References: <20260115-imx93_devices-v1-1-b2c840cafa2e@valla.it>
- <aiKP3EgdrCbqtUH0@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
+	Fri, 05 Jun 2026 11:37:57 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-45fd464d51fso1037201f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 04:37:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780659475; x=1781264275; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W3r95IPdKLEoIca50s981PYU1XFf+JhCBe7GdZYnQ8c=;
+        b=dovOitHkirSqfdYHGNqaYL3FBSj7WN/TQ1dzjqu9Lf7ZWjiLhoSeAsi2BHm2Gqxtoy
+         JKi7JvRHw1mdQVwiQ8ARRpzcw4A/cN97redi5a4XbfeEjz1br5q0Qkqw4806Knz0soi1
+         vZ0qO2ITJwMzhNuh1fWV0bjvun/xAdcJr+Qf5Z8rGkxIVSNwQYVOqKkqHcM6TbmSUuiC
+         Nq5/GidJqoA0XlMYRDN8VE1j8WZd7X3K/kjvCO0fwn6AcuX07jLG6yx21uAYsGns8AQ/
+         d7bzopMdkc4bRZSp5SE/DVNmFT+KWW9YKIAgYOiMvqeIxqmJwykDgCgxPN51d/wCQkgf
+         7EyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780659475; x=1781264275;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W3r95IPdKLEoIca50s981PYU1XFf+JhCBe7GdZYnQ8c=;
+        b=SyONeqa6CvVYwCHtQ2gMJMHBKGDTgDVO1TDmQ3utskP1JVVJ4Jb1dNLT9uIMmclI5k
+         ft2GKU2qbBbd0qqkWVvsZjeDvyUIQwo/LR1omBvG8sp8R5omAhrdzzcST4OW8ckJuQNK
+         g/DXgneh4sBcDBB2SNi2q8yOiRhzNJzU2F5Lena7eNs2qhO0MspSkE9qAwpzOz7PYjHd
+         O2aEKiZDHiSTFXuQbeZDjEljRrj+3Sb2iz8Apz/1YLxnLcaziZNtLbZlzt607ezOt68H
+         8m6G6f5GBrOHXYHNuv2DQGSSuU2IOqq9ryndQJiM6DsNBeoboD0tpMcZk7gquAHRC1kU
+         MyqQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8uYR8Jln6EBPQuL7sEaGwoI9HSbiwhkdMcFKK7jX6hGOTPe86/B14CustjYxShObl6SJiOc1/yPWUA82mCvgQm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoOiCHoOtdWIszzfNoct5ekrNYFTjLGxJM1K05QyJEg0DCf5PV
+	w7kkklNjBIwM0wL8BSeRcjdaafD9bd5FkPi2ZJytvECsKckiqTS45kixUPJhX++w
+X-Gm-Gg: Acq92OH88yTP8/QuwA1BYRQH5cJhES4/X6qyn8zJjxhZdV9s5tjzu4SYxU9OBVO4fw8
+	5VSjkDPR8OJgLm4VuIxHg03Snk0lscplgD6Cp2fbUbJavT3lX8YCR/CDNsZ/UPzqORWtjthPZsy
+	fp/a+aawOOxBXmHDerZgErqvKTcZPoLloZUdVFKYIL/RySvBoacAvgojDBEgbrl0hpoecAewWsm
+	oNofhsxxBrFPdbpwv+bAB7q8Yl5hJPzLHco3Uf2BI8Ib08Iu60C7MwigSiGsP7iN8RJz9X9fB9/
+	JNd0IOdyBgUb5yHsNvPBrN3IQ2Au37OokpJprylQOKajikpSBcN/Zdmc/T2DIELX8Z+/jPDOXnJ
+	K1AEk3qRnW2T4dFd0yEmR0DOHSFKo7+40qGiUzeuO71vMc6j0nUrgpsHQ/SQOMjRIVQ6m9RDd6C
+	wc3ejMaFJ3gwhNXeIHNlONnaqyOvR3eAO/pUsObiQx+KIIkT78rJRU5sIOLpnt
+X-Received: by 2002:a05:6000:bce:b0:45f:f142:d56e with SMTP id ffacd0b85a97d-460302e4674mr4256841f8f.13.1780659474765;
+        Fri, 05 Jun 2026 04:37:54 -0700 (PDT)
+Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46028a6dcbdsm15262439f8f.7.2026.06.05.04.37.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Jun 2026 04:37:54 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@oss.nxp.com>,
+	Francesco Dolcini <francesco@dolcini.it>
+Cc: linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/4] Add RPROC support for the MX95-15x15-FRDM board
+Date: Fri,  5 Jun 2026 04:36:17 -0700
+Message-ID: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: 61a2b9b03f406512cacfd9e40296e269
-X-AntiAbuse: ID - 61a2b9b03f406512cacfd9e40296e269
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1wVSqt-00000008aEk-3xmI-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-qw7b.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_043648_946530_3D10750F 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260605_043756_704379_7094A2E0 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,47 +107,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joseph,
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-On venerd=C3=AC 5 giugno 2026 10:59:08 Ora legale dell=E2=80=99Europa centr=
-ale Joseph Guo=20
-wrote:
-> On Thu, Jan 15, 2026 at 06:11:34PM +0100, Francesco Valla wrote:
-> > Enable additional devices on the i.MX93 FRDM board:
-> >   - CAN port and associated transceiver
-> >   - Bluetooth portion of the IW612 chipset
-> >   - WiFi SDIO port
-> >   - user buttons
-> >=20
-> > The WiFi portion of the on-board IW612 chipset is still not supported
-> > upstream, but since SDIO is a discoverable bus it will be probed once it
-> > is.
-> >=20
-> > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > ---
-[...]
+Hi folks,
 
->=20
-> Hi Francesco,
->=20
-> Do you ever tried bluetooth feature? The bluetooth failed to scan with
-> 'device-wakeup-gpios' property.
->=20
-> Regards,
-> Joseph
->
+As you can see from the title, this series attempts to introduce/enable
+RPROC support for the MX95-15x15-FRDM board.
 
-Yes, Bluetooth was tested using bluetoothctl, I just briefly re-tested it
-with latest master branch (7.1.0-rc6).
+For a while now, the imx_rproc driver has been using the reserved memory
+DT nodes as the carveout names, which would force DT writers to go against
+the DT specification's recommendation and use non-generic names (e.g.
+"vdev0vring0", "vdev0vring1", etc...). This series also tries to fix this
+issue by introducing the "memory-region-names" property and using it in
+the imx_rproc driver to figure out the carveout names. The driver will
+still allow the old way of doing things (i.e. no "memory-region-names"
+property) but a warning will now be printed since this should be
+discouraged.
 
-Can you clarify what you mean with "The bluetooth failed to scan
-with 'device-wakeup-gpios' property."?
+---
 
-Thank you
+Changes in v2:
 
-Regards,
+* change commit message of binding patch to describe why it's needed
+* drop restrictions on the string names passed via "memory-region-names"
+* drop patch moving the CM7 node to the SoC DTSI. CM7 node is now added
+in the RPMSG DT overlay
+* rewrite commit message of patch removing some of the RMEM regions from
+the bord DTS - previous version was a stale version from first iterations
+of this series
+* change "micfil" node status from "disabled" to "reserved"
+* add check against rmem phandle count and string count mismatch
+* include "of_reserved_mem.h" in "imx_rproc.h" to avoid having to rely on
+the consumers including it
 
-=46rancesco
+---
 
+Laurentiu Mihalcea (4):
+  dt-bindings: remoteproc: imx_rproc: document optional
+    "memory-region-names"
+  remoteproc: imx_rpoc: fix carveout name parsing
+  arm64: dts: freescale: imx95-15x15-frdm: remove some rmem regions
+  arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
+
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    |  4 ++
+ arch/arm64/boot/dts/freescale/Makefile        |  3 +
+ .../dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 67 +++++++++++++++++++
+ .../boot/dts/freescale/imx95-15x15-frdm.dts   | 21 ------
+ drivers/remoteproc/imx_rproc.c                | 13 +++-
+ drivers/remoteproc/imx_rproc.h                | 21 ++++++
+ 6 files changed, 106 insertions(+), 23 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
+
+-- 
+2.43.0
 
 
