@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C468BCD6E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 11:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874FBCD6E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 11:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Lqj6XveyYBZCpXTTq2EJhjnBvrSDa14vRiJAI23sS1c=; b=rGbPef7jRYtJTI43QaSlR1eYYV
-	rYKZjFkJAczgiWSU2kfyIGUjDLFmTv+sMGq94tOqG4zqDBUAcXgRuY5FbB1DoepbSY/oTZtt+2aHs
-	kTUXb+LIevwRSjm6pddLaqj2lvOLgNQywasWBqBNZAg+qERw2v39u151jBu7gofAtIpzMD4WYt0w6
-	D+bCqAlvEP6NpWLCQy5DkM+6JTgRwMrPL/lcS3hLbauCrg0umDJ8PV+oMi+kl1qCJOedNAoOu0RkM
-	Rp60LtfZ8ezFcdX7MQlJ6XocPsNO/LrJPh3n8MxbEczaH33X8o+MMta6needDE9BJQNJKQNmLGygj
-	lBR2w52g==;
+	bh=hNQa0nu5JLC2wDAZ3TFl9G1d85SJvU0L/GpOPAH2uEs=; b=ukhnL6NL+82iLWBzP3fxTWjJTQ
+	qZEm/6Y9hLjOmE6munH7El1c+LlmYX2iwBgPbGWJshvDGQd+joEkQvTa1edzkvY86rDosexEW4Fmy
+	4dVZR/cVrJ91wYEn1BpDhu7nyLsJrFTuOw4SjBamPr1u4QzEw5FpBrc/zs5LOCjIe9dDZ5GXJrhM7
+	XfjKEfqHvP3L7v4kYYbaIyp5CJRLi0vcyJ1V4mp8OK8QYfzwMfXT7PYUiwf6fwqWjnJnDHHVuc/Kj
+	GSayjOuJW4I36ibjUVfUsRU3c+XO6zIfsAgnnKKD4Ni7cy6VRHmrJwsB+Ik25dsHRopGLgQo4hv8I
+	m4kn+WkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVT3B-00000000ZRx-3P6O;
-	Fri, 05 Jun 2026 11:49:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wVT8P-00000000ZzY-2cbK;
+	Fri, 05 Jun 2026 11:54:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVT38-00000000ZQT-0i1h;
-	Fri, 05 Jun 2026 11:49:18 +0000
+	id 1wVT8O-00000000ZzN-1ddD;
+	Fri, 05 Jun 2026 11:54:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 45878601DD;
-	Fri,  5 Jun 2026 11:49:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DADB3C2BCB4;
-	Fri,  5 Jun 2026 11:49:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A1C87441AB;
+	Fri,  5 Jun 2026 11:54:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7B32AC2BCB9;
+	Fri,  5 Jun 2026 11:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1780660156;
-	bh=tfvXGYpzHzgUbT4fabiFINiO/Hli57gjTIUW/sYiq14=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=TpEJ3aTqK3Ke/9+fIlU+olDB3VyMDoJDXr0r9jj66qTMUwbeANvZdSD1VeFr8zgYf
-	 gkTX4nj09ggSmo5VCvY6OIEQAq/T/cHfAEor9jgEzxtekk73N0clLTjgxSSGv/7OVd
-	 h7jqBo58NSmSUiNAqojEJiYXMArELZxIUkH26lugOrjCp5ouiGtLrDex83hNWJ7iB8
-	 7gl+EU0eH6k2VEtA/i1ArvceLVUAwHtF1TfHKDNRAKXfIlY1cgJLNDY/wvm9qTAyhi
-	 4O/SuGxqdhJqswAxgT2mcjxsP44VpHTryXZSIZXkeuONdaQ4+LEpoFWMsDYsbDRU7B
-	 dE8bUTIgRFmAQ==
+	s=k20201202; t=1780660483;
+	bh=4quFrMpJWBka7KBZ3BJNo1AoS735u/57CPXK32qFVzo=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=VFGcH8okXd/OrQDwMPf5JEGiAs7tqJZDQr97c46fTNJg8jQxH0cm+S371F4wmHFuD
+	 uGHZpnox6AC5tkozD8c9rl3YwxyeTsDQIjsurTvsbP3e+rMjtzhoWLbnBZrjPAYy5h
+	 7eU3/3pTzvBFXs6oajovMr1EqIL7ER1iS2YfISCxumTtA6v56YxGtzNQC++ICU51iI
+	 OSdlHvQ2cPYXBfdtJjBCRpdyg50vroKGRhja0SQIWZvXKteOO5o/dNK57cr07+pfy8
+	 8dS08EJdwEcOYxLFRUTE2ArcpD+H7TixgjqNgeWrg/6/Jr4FTNtErPvGX0ZO6wDDhD
+	 517pPIBnpVKqg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BF733CD6E79;
-	Fri,  5 Jun 2026 11:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 71BF7CD6E79;
+	Fri,  5 Jun 2026 11:54:43 +0000 (UTC)
 From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
-Subject: [PATCH v3 0/3] describe RTL8125 PCIe NICs on Rockchip boards (and
- add DT binding)
-Date: Fri, 05 Jun 2026 13:49:07 +0200
-Message-Id: <20260605-rk3588-dts-rtl-eth-describe-dt-alias-v3-0-8a8857b39daf@pardini.net>
+Date: Fri, 05 Jun 2026 13:54:35 +0200
+Subject: [PATCH] arm64: dts: rockchip: fix regulator names on NanoPC-T6
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OzQ6CMBAGX4X07Jq2UH48+R7GQ2kXWTWFtJVoC
- O8uYEz0xnE2X2Z2ZAE9YWCHZGQeBwrUuRnSXcJMq90FgezMTHKZcyUz8LdUlSXYGMDHO2BswWI
- wnmqcj6DvpAMYgVaURV0Yxdms6j029Fwzp/OHw6O+oomLe1m0FGLnX+sfg1h236TalhwECNB5Y
- 6xWeapNcey1t+Ro7zCyJTrIX221USuBQ1YVnMusFFna/GunaXoDhth9zkMBAAA=
-X-Change-ID: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
-To: Heiner Kallweit <hkallweit1@gmail.com>, nic_swsd@realtek.com, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+Message-Id: <20260605-rk3588-dts-rockchip-nanopct6-fix-schematic-names-v1-1-15dd3b23ab1a@pardini.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQrCMBBFr1Jm7UCaYhu8irhIJ1MzlqYlE0Uov
+ btRl+/zeW8H5SyscGl2yPwSlTVVaE8NUPTpziihMlhje9ObDvPcnZ3DUBTzSjNF2TD5tG5Uepz
+ kjUqRF1+E6rywom9HF+wwOcsDVO2Wud5+yevtz/ocH0zl24Hj+AC4kf6rlAAAAA==
+X-Change-ID: 20260603-rk3588-dts-rockchip-nanopct6-fix-schematic-names-a1b8d27f82e7
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, Ricardo Pardini <ricardo@pardini.net>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Ricardo Pardini <ricardo@pardini.net>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3319;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4043;
  i=ricardo@pardini.net; h=from:subject:message-id;
- bh=tfvXGYpzHzgUbT4fabiFINiO/Hli57gjTIUW/sYiq14=;
- b=owGbwMvMwMFoHWf/eN7xty8ZT6slMWQpbd8l9ppxGm9Z+qldOh58e89cS7V+FJzGyqzcGLDzo
- FtUWf7KTkZ/FgZGDgZLMUWWNRLKPN/Wvzp1x6NjMswgViaQKdIiDQxAwMLAl5uYV2qkY6Rnqm2o
- Z2ikY6BjzMDFKQBTXfiC/X+iBof8pSn+UyotKn6xTXr3xbUg2Pj34n/ztRb/DtSuWOa0b8GhCcH
- MFz8oeW2T7Yov5/5f5vXKTeOXhLAyn4PVp+1BvFGqy69/uyJguMPyynW93YrLNvFyl2SbRwfNe3
- Pmc2P1wjQ2yYq5n9bY+2z6/+DvkZLL8QyvPOW/i7v38f0OsmVKflC1/ny8hOQRljmZL810+xeF3
- SxUyrh69ECWzlZFHRkG9p2dZ4xWiuWdbPPs7vGRuSpjavPkRE695iU9g8b/mvePp+bdYNKaPz3T
- Z+lHIb4dc/i3mjEW7LWM3ftQ6ewmw/VNvYmPF6v90ZW0K5yhxV52YnLyWcOPEott6suLbi9hX6R
- +TVEnHAA=
+ bh=kgSZTfQ3v8bdt151HvlymrV22R4yaefcQJY9/TyNagE=;
+ b=owEBiQF2/pANAwAIATteP+Oex+3pAcsmYgBqIrkCKjjYJPyA0jamo3cGmC4t1a33loZ4y4QVl
+ 8IxJe1nsWOJAU8EAAEIADkWIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCaiK5AhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQO14/457H7enpNwf7BYfuQLgrCLiVvn1YHpmkizBLJrhd1kQ
+ 78tWZjq4WLqeGryGR/BFiSoyZ0dsYH9tdah9Cz4MPpsLn5RvLv2rKUTRm8Ucy4kEKkijZ5aDytg
+ dC7lzmx9l3iMXLbR0q80dUcn4oTRxcW4TZ8WY2MvqOccfl2C+EkQOPVhKRoEzdMCF3XbrBrnnCN
+ moTgXuQQ2hDscxrEEsu+eveq2jK3jDfZwNxtmIqC8ZfW7Tv92e9Jai5hJBK5kDvoi5cnIfroKI0
+ aEDi6Pp4MNYQU6NLEfnjz+FPHQOKzD4dXbouQAjB1V8hFppyve5pPhcEytS98D5oXjx1RfsrFLp
+ wTJyfKLfHLw==
 X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
  fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
 X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
@@ -99,75 +93,114 @@ Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several Rockchip rk35xx boards carry on-board Realtek RTL8125 2.5GbE
-NICs whose PCI function nodes are not described in the DT. Describing
-them allows for stable ethernetN aliases (matching the GMAC alias
-convention on these boards) and lets U-Boot's fdt_fixup_ethernet()
-inject mac-address properties from its ethaddr/ethNaddr env, so MACs
-stay stable across boots and U-Boot and kernel MAC match.
+From: Ricardo Pardini <ricardo@pardini.net>
 
-Patch 1 adds a DT binding for Realtek r8169 family PCIe Ethernet
-controllers.
+Three fixed-regulator names on the NanoPC-T6 don't match the board
+schematic [1].
 
-Patch 2 describes the on-board RTL8125 function nodes on the
-FriendElec NanoPC-T6 (and variants).
+- vcc3v3_pcie2x1l0 -> vdd_mpcie_3v3
+  This GPIO-switched 3v3 regulator is labeled vcc3v3_pcie2x1l0, but
+  it is wired to and consumed by &pcie2x1l1. Per the schematic,
+  the GPIO PCIE_M2_1_PWREN controls the power net VDD_MPCIE_3.3V;
+  rename to match.
+- vdd_2v0_pldo_s3 -> vcc_2v0_pldo_s3
+  Typo in the regulator-name property of RK806-1 DCDC reg7. The node
+  label and the schematic power-net name both already use the vcc_
+  form; only the regulator-name string had vdd_.
+- vcc3v3_pcie30 -> vcc3v3_pcie_m2_0
+  The GPIO-switched 3v3 feeding the M.2 M-Key (NVMe) slot is named
+  after the PCIe controller it sits behind rather than the schematic
+  power net. The schematic names it VCC3V3_PCIE_M2_0 (produced by an
+  MP2143-based buck off VCC_5V0, enabled by PCIE_M2_0_PWREN); rename
+  to match.
 
-Patch 3 is the same, but for the Radxa ROCK 5B / 5B+ / 5T family
-done based on lspci output provided by helpful Armbian folks.
+No functional change.
 
----
-Changes in v3:
-- new patch: add a DT binding for Realtek r8169 family PCIe Ethernet
-  controllers, per Sebastian Reichel's review (the "pciVVVV,DDDD" OF
-  spelling still needs a binding when used in a board DT).
-- new patch for Rock5 series, and include a brief rationale in each.
-- retitle the series, since it now covers a few boards and a binding
-  rather than just DeviceTree changes for the NanoPC-T6.
-- drop the v2 "rename vcc3v3_pcie2x1l0 regulator" patch from this
-  series; it will be sent separately as it is not relevant to this.
-- Link to v2: https://patch.msgid.link/20260529-rk3588-dts-rtl-eth-describe-dt-alias-v2-0-49700248143f@pardini.net
+[1] https://wiki.friendlyelec.com/wiki/images/9/97/NanoPC-T6_2301_SCH.PDF
 
-Changes in v2:
-- fix: pcie2x1l0, not pcie2x1l1; indirectly caught by Sashiko's review [1]
-- while-at-it: rename regulator vcc3v3_pcie2x1l0 to l1
-- Link to v1: https://patch.msgid.link/20260525-rk3588-dts-rtl-eth-describe-dt-alias-v1-1-a6fcda563ac7@pardini.net
-
-[1] https://sashiko.dev/#/patchset/20260525-rk3588-dts-rtl-eth-describe-dt-alias-v1-1-a6fcda563ac7%40pardini.net
-
-To: Heiner Kallweit <hkallweit1@gmail.com>
-To: nic_swsd@realtek.com
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@google.com>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: netdev@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
 Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+---
+Align three fixed-regulator names on the NanoPC-T6 (and LTS) with
+the labels used in the board schematic: the mini-PCIe 3v3 regulator
+(whose current name is actively misleading), a vdd_/vcc_ typo on
+RK806-1 DCDC reg7, and the M.2 M-Key 3v3 supply (named after the
+PCIe controller rather than the schematic power net).
+
+Using actual schematic names was pointed out by Sebastian during
+review of an earlier (and mostly unrelated) series [1].
+
+No functional change.
+
+[1] https://lore.kernel.org/linux-rockchip/ah2AYT4XmYR03I7z@venus/
+---
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index 84b6b53f016ab..b44aff39cb32e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -201,25 +201,25 @@ vbus5v0_usb: regulator-vbus5v0-usb {
+ 		vin-supply = <&vcc5v0_sys>;
+ 	};
+ 
+-	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
++	vdd_mpcie_3v3: regulator-vdd-mpcie-3v3 {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+ 		gpio = <&gpio4 RK_PC2 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pcie_m2_1_pwren>;
+-		regulator-name = "vcc3v3_pcie2x1l0";
++		regulator-name = "vdd_mpcie_3v3";
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
+ 		vin-supply = <&vcc5v0_sys>;
+ 	};
+ 
+-	vcc3v3_pcie30: regulator-vcc3v3-pcie30 {
++	vcc3v3_pcie_m2_0: regulator-vcc3v3-pcie-m2-0 {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+ 		gpios = <&gpio2 RK_PC5 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pcie_m2_0_pwren>;
+-		regulator-name = "vcc3v3_pcie30";
++		regulator-name = "vcc3v3_pcie_m2_0";
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
+ 		vin-supply = <&vcc5v0_sys>;
+@@ -639,7 +639,7 @@ &pcie2x1l0 {
+ 
+ &pcie2x1l1 {
+ 	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
+-	vpcie3v3-supply = <&vcc3v3_pcie2x1l0>;
++	vpcie3v3-supply = <&vdd_mpcie_3v3>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie2_1_rst>;
+ 	status = "okay";
+@@ -659,7 +659,7 @@ &pcie30phy {
+ 
+ &pcie3x4 {
+ 	reset-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
+-	vpcie3v3-supply = <&vcc3v3_pcie30>;
++	vpcie3v3-supply = <&vcc3v3_pcie_m2_0>;
+ 	status = "okay";
+ };
+ 
+@@ -965,7 +965,7 @@ vcc_2v0_pldo_s3: dcdc-reg7 {
+ 				regulator-min-microvolt = <2000000>;
+ 				regulator-max-microvolt = <2000000>;
+ 				regulator-ramp-delay = <12500>;
+-				regulator-name = "vdd_2v0_pldo_s3";
++				regulator-name = "vcc_2v0_pldo_s3";
+ 
+ 				regulator-state-mem {
+ 					regulator-on-in-suspend;
 
 ---
-Ricardo Pardini (3):
-      dt-bindings: net: add Realtek r8169 family PCIe Ethernet
-      arm64: dts: rockchip: describe PCIe RTL8125 Ethernet on NanoPC-T6
-      arm64: dts: rockchip: describe PCIe RTL8125 Ethernet on Radxa ROCK 5 family
-
- .../devicetree/bindings/net/realtek,r8169.yaml     | 54 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 30 ++++++++++++
- .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 15 ++++++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts    | 18 ++++++++
- 5 files changed, 118 insertions(+)
----
-base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
-change-id: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
+base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
+change-id: 20260603-rk3588-dts-rockchip-nanopct6-fix-schematic-names-a1b8d27f82e7
 
 Best regards,
 --  
