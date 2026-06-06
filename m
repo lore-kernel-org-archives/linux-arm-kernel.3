@@ -4,86 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F5BCD8C88
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 02:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AA6CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 03:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:
-	To:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7vqwzvv9pMkz9zvXFLT+vLs6d3Ry6X2b0UbPHWNDF7c=; b=H1YuxCpOYM4VTHYI2lGvp20+fP
-	jlYG2CmHZSkKRF6SnAx1KI1LSePd3dXkE5S2O3NfqQ5D41xqZcy5q0GEperS3tG2k1pNLgZ3qn9E1
-	TTkcj2N1fD1ez9ZAFMgnCeDdGm0EneU3Z0FRcqDZ36imiNeckdezsN8wQhc+YkJu1m5+yJojg5mXL
-	5N2eCKneRvk5fiWhR7vEo1A5Pd3BpNEl1DXPPl2n9P/N/EKwEivPbqa8K1819cOapvoaxSYSqWmhh
-	bc+D7LioC4jXw+wv/ZGhRcYZhhB+iRt0x1TQxs+RJft7x5Jtt4FGJZp6OutUsapInaoy7UkcS02Sq
-	+psrPcJw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x+ZF4/cjv9brM77l1xkezRH02pa+QC+OuiIb76gRAeM=; b=YwpXee+vE6xZnESjYrEPSGV861
+	16HWylLC/zbUODssNNjYFOxRmcho232rYEI4rbPCGH1rkBUouE+WxD2d0lfWRL9cxbhmoXU+EADr/
+	tlEvj/PKpFdFmsjZPmvfgMMUFuz2qBVS8YrRhoahu+0+u1Bsps/nw0REFpOHWODjatNqDsUEt5ucw
+	R/JOxbMrpP90tOMzO656OFlpO7pvV/HoqVz20hNQd2S9t+OsO6lNYLmiagj6Vl/+jxWc3MwV+c0jR
+	SaIxKWbbdggbTS6aLhi7o6CH4OzDoZAeIMXQ1Ec469NW7tRaEcA5bBxQRu1ILKtN8J7tiWEsykBx7
+	1BQa6+tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVgnx-00000001Onm-2qZ0;
-	Sat, 06 Jun 2026 02:30:33 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1wVhtg-00000001QCF-1tAQ;
+	Sat, 06 Jun 2026 03:40:32 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVgnu-00000001OnK-2B7h
+	id 1wVhte-00000001QBt-00jh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Jun 2026 02:30:33 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1363fe80fe8so3887620c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 19:30:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci.org; s=google; t=1780713029; x=1781317829; darn=lists.infradead.org;
-        h=message-id:date:reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7vqwzvv9pMkz9zvXFLT+vLs6d3Ry6X2b0UbPHWNDF7c=;
-        b=VTsZ5Wntsmi+0kol6MA2MZGwGSP9JTyR89Kh3YOwzfpfUnz81eXebXl+ar+BEHP+Bp
-         /eqzTmWAxpXlUFxCGvumFvLXHKvYMjwmgWaHjdXuZDPMZ1wQMCHnPLS8C8x1ecKJyK9u
-         4paXHfAdMB9FyGGwgVah7w4AhMr5OUn2NZOCH2EFG69aAdG9xtEEWTMJJ4Tn96R7/DNq
-         Ge+DrF/31Q6gzqS2q3xFRHVKiY4eJO7qTvu8i1aeG6gohbhg6tXc+G5N7x6meOEmgg/V
-         wEflxBiDljSeB7Kpbl13HOG8TWB+wz/+WsXOlH6XulHX0vGlTwVJmWNB1p4qGdGrPyqc
-         imAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780713029; x=1781317829;
-        h=message-id:date:reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7vqwzvv9pMkz9zvXFLT+vLs6d3Ry6X2b0UbPHWNDF7c=;
-        b=VRDfvEF+kAcT6HqbZwlWAbb0REfgbOsE5rMtN2JN5okZ+2kBeEjdxB/NG3hUwFG9UB
-         RknOtjA/Kq6r3QigtHDrezJEUva5yEZZ7o0MF0AZmHax/m+NuLUSXDt5D1SINGxzsafX
-         xpcBIC6eKXWbZngPAsvuimVjt1A+zsD3MHnQZBPPu+V9GjyuAmF2uFnu3p4kNGuRV37g
-         RBxDbJ6FGlqY4PlEdMi0L1rgTQstcva+KrZpCS8xpFP1JxelssUP9/F7y1flAGhf5NQ6
-         QrQhO1/Mfnr6dnKik65GOlBwzgIxmbbFFFFRjMWKG/KO23T1nhRIyGin41rYGaC+lJak
-         oLgA==
-X-Forwarded-Encrypted: i=1; AFNElJ8LoOCy5+975r0/MfbRZQPwG1nC5egmqW8UDoByp3dSpQ2TdwLN6wOT53SQSq0/HIU+8HR03Er4OxrsbcEXr4ZO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlqhsQc5Y6nQf4op8Ys29KEvYVdSF8q700Mb9kdJDTexyD7OU6
-	P70HvNqT9qYPp6xjM8otBH6yBZuvKedrvnbQm4PVA73Zszix21iqdj6ryJLuPuDXYmCo+Jt2yhT
-	a0j05
-X-Gm-Gg: Acq92OEbf8h7e64JwwOPg7bMLqBF7IrHTOYvVe+N/Uns/qrvAp1qYl4+XyTVDggegDt
-	q9tgTtE/r2U2FJsWAeSal6fQsI6BHG/CRlbuto94tGWOZHCyJX6+3sNS4JL125NoemNY5vSPAc9
-	B7Kj5J02tfFWiaK3I+QtWSgqz4P89+S34o1TnQkG5M87mjqindvy3CK4OLeo7O0vkWn8r1ADgzw
-	Ad+cBrdb0pquHeFuzC2rJcAtQuMt+HCNYhr6k9Fc9kfpLuApqhnGN6tbOmoR8GzpX0Zl0oiMdcr
-	Ceb74dbgxkj9NlsQXS/IhVhZFBmqr/dguG+aeKEiFEV2+GDzsPfZLLppgMuZNvU4REhKVA9Eee5
-	7jRkcBHS+ZXuE47x7RihjTFwA0V34c3vxVEvNJCN6ogzgR1xs2T/3fLvg0B7BRebdxEl3lAtMPV
-	SjTo1YmydLQUAeQSW2XLqBzuX/7tU=
-X-Received: by 2002:a05:7022:219:b0:138:144d:35a9 with SMTP id a92af1059eb24-138144d3684mr1227337c88.13.1780713028853;
-        Fri, 05 Jun 2026 19:30:28 -0700 (PDT)
-Received: from 330cfa3079ca ([20.38.40.137])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13803eb106esm3722666c88.5.2026.06.05.19.30.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Jun 2026 19:30:28 -0700 (PDT)
-Content-Type: text/plain; charset="utf-8"
+	Sat, 06 Jun 2026 03:40:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tM86KqPeaOfto53srJ/HpjGhqq+tV0xJTPXx7U0/LwtvUI+uzaMg+bP5XDsLC/nGw6UXd2k8KdBxP+mjP2C78Fe9tGQCC1QbJrD6+GUhJ4TbPkZ/ji3+bVGGI0cOlQEB9LPPqFhEUqoMOk/QgPmkGzJf87nxLsSW4piFjrVuK/y7Q7M/sknLKD1W+sssgTEgpRv/eRvgQzB4LS35DwNr/T/VYKnnYimKSaUunsL0Q+xaa3ygiuHeqE09b/li5hYTFRXfFsJwwZlxH1+3vs0I2UFVEXRwP7ODPx4hNgztQLo0Gf+b+hNqTmJLBBHa3W60izDtQ8RlVBdrkv/AJbkxzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x+ZF4/cjv9brM77l1xkezRH02pa+QC+OuiIb76gRAeM=;
+ b=srv8R8Ui7iJyYdm7qYHxrORa9pYfmTlmxz76cKJkzMSFFAuZpw86xebx6ik2FEitXBxbTZCJlG5b8cHifCamGHW09dnhZrs5rG+u93XR1PF7fvRu22deOcqpdctDNgjOD0hNEzHnuC2v92sP9whp0l2NoODAxoxVzs9KOh81GFXcwDZHZVrZ5hVHeSAEDKFoWhBKL302nxAQu4Mc/RvMVMBihaB3x3O2ZwlG6nv9qkvC1QkGXXwX4MdUIBkvJJeAysiRAsr42nKADu+Yv25QB/fHyAEdJ/QPD/C+csyajFTUthkcvwK6l97mO2VvSEB8FzRD7bE9FVF6NZI5DfbAVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x+ZF4/cjv9brM77l1xkezRH02pa+QC+OuiIb76gRAeM=;
+ b=bxf8kweDyt6S08/RSBoE3bY6fPcRYngT1weObGakcPxASMhOKzS/ZkUkMkmH3ktc5hIbli1Ch+yd3i9xB1bNNGTVPv5VEuQgxV8Jd+MVzIDCE3q4Np4YAU5P0i8kZDXV8/YwYFRV0tWL1i0yJH4eSNuQBX/KjOMPXUKRpd+8B73lGcFP5MBpoBqo5TQ+XgOxDPPdqab3VZAP/r8s9kM4j1ttpcgeWV34oGB1hsZnDETEvPRnjK9ZM8UvpIZjB1bTh/XNqqFWHh6qDbuTmE04vWcdnKK+dYUvbY27o4pfw7Rd2HVWv7+MF6+vC9gTf8NW6XrRjVTcpHihzuuNHsh/UQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
+ by AM0PR04MB6979.eurprd04.prod.outlook.com (2603:10a6:208:18b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Sat, 6 Jun 2026
+ 03:40:22 +0000
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0092.006; Sat, 6 Jun 2026
+ 03:40:21 +0000
+Date: Sat, 6 Jun 2026 11:43:19 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Ben Levinsky <ben.levinsky@amd.com>, arnaud.pouliquen@foss.st.com,
+	daniel.baluta@nxp.com, Bjorn Andersson <andersson@kernel.org>,
+	linux-remoteproc@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Tanmay Shah <tanmay.shah@amd.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v3 0/5] remoteproc: cleanup shared carveout and
+ resource-table helpers
+Message-ID: <aiOXV2k6/4zMh4ST@shlinux89>
+References: <20260529021637.2077602-1-ben.levinsky@amd.com>
+ <ah2aVdlsLqy9aeHP@p14s>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ah2aVdlsLqy9aeHP@p14s>
+X-ClientProxiedBy: SI2P153CA0016.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::17) To MRWPR04MB12330.eurprd04.prod.outlook.com
+ (2603:10a6:501:7f::23)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: [STATUS] arm64/for-kernelci -
- ffe7bef3786c1c2a725f80c2025010644452fd1c
-From: KernelCI bot <bot@kernelci.org>
-To: kernelci-results@groups.io
-Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Sat, 06 Jun 2026 02:30:28 -0000
-Message-ID: <178071302792.10884.9460167645001413637@330cfa3079ca>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MRWPR04MB12330:EE_|AM0PR04MB6979:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9194b4b4-c06a-40af-e3a4-08dec37d55a9
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|52116014|376014|38350700014|11063799006|4143699003|56012099006|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: LXemJ3yeKxg0SCG60y7Ca/bAzF84IIGSwepkYTsV9DrlWptzLRzqJtwWxZSrVO16eNCphn7I+opfYEeCqfBJBYn8g2KCJf90QfoLBZcrOI1PP/TZ3q8kkbHcTyjrZYGzaluTxay+kDpKSZptbK0zwGkP0Ub79HquZOGI76DEg13N+ITUuqfWmwOvnLqneUJxGD/AjJfFvWNfBFOqq6fsXe6S9RiRBYHhrhnnErKWuuWBhBkCGNb9epCs9tktotZds2Z0Tc0AZKqKSQd9qRSjtI5jULVA1yR0CN45TzJBeYNjxpi47Vggs1hPrRNamVP1WWoMHg8a5wu/Ftv/PumwrddEZpMbGWgKw9UKfKCWv6NC3HC/RWRgzRFNYVT4aL3/FvhpJfc9NDlWCjVrWTU9+UCMLbMIOgzrJ1r8jFT6fDjtV+NvT6RHyOk8ylOjbPNXB+KXFctu85riTwjc8oR/6bQYJb2plarHilmrJx7nW7POXrUj7vZTigo+DR1KCH3YEyBxTI3G/wFLdZtUmm4teMN2tMKjj32bHaEiYT2fo2jaRTyksDMRaAZUnT7kWCif9JImJF6nH/Ji1SF1W8OQM6l5Ln8ZJQgKE+2ljroItewmJDwIQ7PyTJP7+nleQB6GqNxY8QQTn0QRYec+mwdb8l/TefY1+x83el74jZ3+mMvGRxPZH1J0p4qGAA1GOxUeXezYog3ziJoXmAVDBhk8MRUEFT44pdeR+T5hwj40pbxrZU9O+YCeuDLwaFugxEuk
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(52116014)(376014)(38350700014)(11063799006)(4143699003)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dDJkCH7qdM1Ld+llCCiZ7+LM5RIkffFB+PlRQ1vUrUdH/85Wz46YIJX6wB5k?=
+ =?us-ascii?Q?c5wwzKoAjq4D3gn3D+OO8z/YrnWxb38AItoyXtQUR+N1PIZTsI87lf3gCXWm?=
+ =?us-ascii?Q?CyLApfMZaAdII+BgW9d26UJSkgQVR6eyCnORwynfzRkDwmoAr7LdYQMbyzJS?=
+ =?us-ascii?Q?IO1Q8e1/sqBp7GletPqo9aiMVhbspJNx2ZmV/GS7Fm8pH47KhlYknS+Fdwee?=
+ =?us-ascii?Q?DhHTJIlDK/CryvIE+hRTHVFA1oqU3tRnAAjDm0L6E3noE1LOwBOdOY79AkoZ?=
+ =?us-ascii?Q?aaaAhHedgXeJ67eV7N0+MV1Xd3tHQuNC9Xze+feGm5Fzf1Gd5+zeXZyyxtl/?=
+ =?us-ascii?Q?l2qpSD+RlU1VgtK+xPxpc4IwLmT3YEl2o5ieiLscZ4FPdGn8vI2OfQG+DR/F?=
+ =?us-ascii?Q?0TXjyMf0/WsVG3QZBEYYRi2Rs3xGWP5ruXC98vEJPl9gSNCuBujY8DouPadg?=
+ =?us-ascii?Q?+iPvnkMV1t2jz8gKnE6Jul3FJj9/EV1Mu8lFUsD8YqLNrijRbSqY01CUnPIl?=
+ =?us-ascii?Q?LvqFoUR3qeCwV/Da8rtsRYHTzOpdrSeRmLkQi/F3nUIoRJSEn+8aefo/KpAM?=
+ =?us-ascii?Q?aZ6tMgdzrabwimQNQNj/uJhugO2y3xP2N1/VhhjUftL03QUJhyRxv28Uo47q?=
+ =?us-ascii?Q?2InQMaIyB4a9JBI9ikR1duFt7q5+zuy1mr0EPx/3DngxlhlJsm7inbJrI2GT?=
+ =?us-ascii?Q?4BCdp/syt9l4xoK6V36/oMcQE9S3AUHY5wthgOBDF7mmtEow10Sla+q9EECg?=
+ =?us-ascii?Q?h3d5cwd2b9F34/ZPsjlnjNPI3LUzHnd4H7mB7gdT/Z4bEDZ8sOAsLIyVIets?=
+ =?us-ascii?Q?vu9S9Cl1iF20IhXYSOBNStTkusIcNoKeSJPaQ4ZGvnvofAka0SbyRq3VakSX?=
+ =?us-ascii?Q?Rsb24u8aPWJNCFc7Ine0sqLiHcxFWhe/BVdzlolmsX5upDiRYjSD+ZLjPr7p?=
+ =?us-ascii?Q?7LtYe3fhFqcP4oZx63Szj1TSr2ap8GgJ7T+SF2yvKmF3VK9intpjFWKHx0mB?=
+ =?us-ascii?Q?8yCN6olw/edAx9k+qe1R8fz2Sk/uoWr5AHSK8tuYfzhJgxQg68gPRUzUp0tE?=
+ =?us-ascii?Q?RIDTkGsZd0/U5R7UHUBZhNcmw5gEn/H0Nf0qJnywHsB+5Sbr1zrWFlCKdD4x?=
+ =?us-ascii?Q?SPIKarIA96w8iCuqLRpjiS5vxIoh/MR8oQgpj9ur+XvKTXLa2t+wVeo6xECk?=
+ =?us-ascii?Q?kiI6KnwIc0ngDkc6wiubPfkPSGFe6wyHHZsOs1yftD9R03HdXRdlaqfHofqS?=
+ =?us-ascii?Q?srQT+TU/pPQJBqcZBf/bnPWd512J9mbDmeL+CBeNIRiI82eA0zJ3GQlPpwJC?=
+ =?us-ascii?Q?6C2KrIVvV4e4OP/bRAyxEBXpc5dmAyLgAPbRan0obYjuYEVF8WxPJ+wHSWR/?=
+ =?us-ascii?Q?xHQxMQThNMfoBXW45beB/V/uJG6n2RJXSo0F6xEBnDq+Ggyrhi7gzrTSYoTO?=
+ =?us-ascii?Q?Gz7TmFxDrGfa4WQYeD65kWHD+O+QNaNoPFGIw4ep33ietaCygGCy09qv+lku?=
+ =?us-ascii?Q?X612Z3gOTIXwqk0PHhvSrRbEpbbYUXVW7AXvlRMsTpO/tpKXmgYFuFU71Kdf?=
+ =?us-ascii?Q?AVrR3wMZaDjD3aRv40MpcJHE1rEjMD7LgTn/rYuyDnF8f5FAreQwrLA75+0G?=
+ =?us-ascii?Q?u+5cc05+Zl/9dwGn4iiUSYVZQMdXROCs2a1r2ydNNqLr7cyEKAxnIN/2vcT3?=
+ =?us-ascii?Q?iujcQjUe/EQxy/V8UchJm84hlNuTWEjl4frDBPQLEO9zRJk0LiDXchP9SIj8?=
+ =?us-ascii?Q?Xjxsuwe9jg=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9194b4b4-c06a-40af-e3a4-08dec37d55a9
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2026 03:40:21.5583
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rrDm2PqwjjOQPX1QbOtMyKYGVGeeUrV56pEjztKUdV3mJEuC/h+IGP38LqqZ4qJqZ2iMSBu9zpP3p0tEeyU6mA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6979
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_193031_036099_4C26C1EF 
-X-CRM114-Status: UNSURE (   6.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260605_204030_082345_00AABF97 
+X-CRM114-Status: GOOD (  24.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,58 +149,111 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kernelci@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 01, 2026 at 08:42:29AM -0600, Mathieu Poirier wrote:
+>Good morning,
+>
+>On Thu, May 28, 2026 at 07:16:32PM -0700, Ben Levinsky wrote:
+>> This series is a preparatory remoteproc cleanup split out from review of
+>> the AMD BRAM-based remoteproc series.
+>> 
+>> During review, there was a request to move the duplicated plain
+>> ioremap_wc()/iounmap() carveout callbacks into common code and to
+>> factor the "missing resource table is OK" ELF parsing path into a
+>> common helper as well. There was also a request to send that cleanup as
+>> its own patchset first, with the AMD BRAM series respun afterwards on
+>> top once this cleanup is merged.
+>> 
+>> This version keeps the same overall cleanup goals as v2, but reworks
+>> the optional resource-table pieces based on follow-up review:
+>> 
+>>   - reshape the optional resource-table helper in patch 4 into the thin
+>>     parse_fw() wrapper form suggested on the thread
+>>   - switch the patch 5 clients over to that helper shape directly,
+>>     without post-helper rproc->table_ptr checks
+>>   - keep the driver-local parse_fw() wrappers and their existing log
+>>     messages and severity choices
+>>   - retain as much of the existing per-driver parse_fw() logic and code
+>>     placement as possible while moving the missing-table handling
+>>     through the shared helper
+>> 
+>> This series now does that in five patches:
+>> 
+>>   1. add common subsystem-private callbacks for the exact-match
+>>      wc-ioremap carveout case
+>>   2. switch the in-tree exact-match users over to those callbacks
+>>   3. mark carveouts mapped through the shared wc-ioremap helper as
+>>      iomem so the framework uses the proper I/O accessors
+>>   4. add a common helper for drivers that treat a missing ELF resource
+>>      table as optional while keeping per-driver logging decisions local
+>>   5. switch the matching in-tree drivers over to that helper while
+>>      keeping thin local parse_fw() wrappers
+>> 
+>> For the carveout map/unmap cleanup, this series covers the exact-match
+>> users called out in review: xlnx_r5_remoteproc, rcar_rproc,
+>> st_remoteproc, stm32_rproc, imx_rproc, and imx_dsp_rproc. The zynqmp R5
+>> TCM mapping path is left alone because it also clears the mapped memory
+>> and is not an exact match.
+>> 
+>> For the optional resource-table handling, this series converts
+>> xlnx_r5_remoteproc, rcar_rproc, stm32_rproc, imx_rproc, and
+>> imx_dsp_rproc. st_remoteproc is intentionally left unchanged because its
+>> parse_fw() callback also builds carveouts and is therefore not a direct
+>> match for the helper introduced here.
+>> 
+>> Changes in v3:
+>>   - rework patch 4 so the optional resource-table helper matches the
+>>     thin-wrapper form suggested in review
+>>   - note that patch 4 still triggers a checkpatch --strict warning for
+>>     the flow-control macro form, but that implementation follows the
+>>     maintainer's review suggestion for the thin parse_fw() wrapper shape
+>>   - update patch 5 to use that helper shape directly in the client
+>>     parse_fw() callbacks
+>>   - drop the post-helper rproc->table_ptr checks from the converted
+>>     drivers
+>>   - keep the converted parse_fw() wrappers otherwise close to their
+>>     existing structure and placement
+>>   - test xlnx_r5_remoteproc on the latest tree with firmware images
+>>     both with and without an ELF resource table
+>> 
+>> Changes in v2:
+>>   - split the mem->is_iomem change out into a separate patch
+>>   - add a common error message on ioremap_wc() failure
+>>   - drop logging from the optional resource-table helper
+>>   - keep driver-local parse_fw() wrappers to preserve per-platform
+>>     missing-resource-table logging policy
+>> 
+>> Ben Levinsky (5):
+>>   remoteproc: add common wc-ioremap carveout callbacks
+>>   remoteproc: switch exact-match drivers to wc-ioremap callbacks
+>>   remoteproc: mark wc-ioremap carveouts as iomem
+>>   remoteproc: add helper for optional ELF resource tables
+>>   remoteproc: switch drivers to optional resource-table helper
+>> 
+>>  drivers/remoteproc/imx_dsp_rproc.c       | 41 +++-----------
+>>  drivers/remoteproc/imx_rproc.c           | 40 ++------------
+>>  drivers/remoteproc/rcar_rproc.c          | 41 ++------------
+>>  drivers/remoteproc/remoteproc_internal.h | 38 +++++++++++++
+>>  drivers/remoteproc/st_remoteproc.c       | 31 +----------
+>>  drivers/remoteproc/stm32_rproc.c         | 39 ++-----------
+>>  drivers/remoteproc/xlnx_r5_remoteproc.c  | 70 +++++-------------------
+>
+>This set looks good to me.  I am fine with the checkpatch warning on the macro -
+>given the redundancy it avoids, I think it can be tolerated.
+>
+>Wolfram has already indicated he wanted to test these changes - Arnaud, Daniel
+>and Peng, please do the same for your platforms.
 
+Tested-by: Peng Fan <peng.fan@nxp.com> #i.MX8MP-EVK
 
-
-
-Hello,
-
-Status summary for arm64/for-kernelci
-
-Dashboard:
-https://d.kernelci.org/c/arm64/for-kernelci/ffe7bef3786c1c2a725f80c2025010644452fd1c/
-
-giturl: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-branch: for-kernelci
-commit hash: ffe7bef3786c1c2a725f80c2025010644452fd1c
-origin: maestro
-test start time: 2026-06-05 17:03:21.134000+00:00
-
-Builds:	    8 ✅    0 ❌    0 ⚠️
-Boots: 	   12 ✅    0 ❌    1 ⚠️
-Tests: 	10548 ✅   84 ❌   93 ⚠️
-
-### POSSIBLE REGRESSIONS
-
-  No possible regressions observed.
-
-
-### FIXED REGRESSIONS
-
-  No fixed regressions observed.
-
-
-### UNSTABLE TESTS
-    
-Hardware: bcm2711-rpi-4-b
-  > Config: defconfig+lab-setup+kselftest
-    - Architecture/compiler: arm64/gcc-14
-      - boot
-      last run: https://d.kernelci.org/test/maestro:6a230ad146e71b76f9f6eb2e
-      history:  > ⚠️  > ✅  > ✅  > ✅  > ⚠️  
-            
-
-
-Sent every day if there were changes in the past 24 hours.
-Legend: ✅ PASS   ❌ FAIL  ⚠️ INCONCLUSIVE
-
---
-This is an experimental report format. Please send feedback in!
-Talk to us at kernelci@lists.linux.dev
-
-Made with love by the KernelCI team - https://kernelci.org
+>
+>Thanks,
+>Mathieu
+>
+>>  7 files changed, 73 insertions(+), 227 deletions(-)
+>> 
+>> -- 
+>> 2.34.1
 
