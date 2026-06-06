@@ -4,71 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8CBCD8C8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 15:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D718CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 15:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Eu1MY9ThiflDbAsrd25Y2w2lb1JYhs4VKGEDHpwBAmI=; b=nSZbtTo67Q9RR4TW0LWox8lskD
-	2MoFEfaNtrhGp9oQ6uMVMJOX4A0MYN8qsr7T4vFRFuJHt6Rdcu7h4aocXTipsFLyEIwhp0TcKqGj6
-	3z+UKkiyEeSTKM/x/6m3yL7dQx9HJsFTq+QKjk9fDYphV7pa3oMkc/i34MHrNszQWe6K9UQnJ4mn6
-	Tuytmt85xTViBqo0+KWX9QFfBh5lejrGq00/PCzl4BwgRrTvspcW4GM9E9Ko9xbMtZPMEZd7ns3xg
-	MNlbEsb97eqae7ysfy7HBV4NaE8KUu5Teuny+w5/thhapRjdOy+mCNLQrPxaG6z38mHn9P5lbNMvD
-	mLhZ3UJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B145KD8e++H5H8gOSlDhp27emRCyB3jiBGAu0/EtMIQ=; b=l7L/UY0CHVV1MFhG9UTUcylBFG
+	PBqiIfbpdRR2rUGUQE8w3HsSuigYFI+01TZGemDsAn91sF+yOFPxyB7wHgYFoVsNPN+YuzZK7cduw
+	H8Iuuavwk1hdUxjIti0AS4phYp/ISSv9ukpofyYMbDw91Q14wgcYEppTtUL2heiVd8FAP5E/z7bMM
+	eh2r98Quq3G9qWgf8xj+W+uWMBacq87W3nvsopO5Zk/zlxfx5sTHGQ78JxoXRBD3mRo2/YdgkJCQC
+	d9OVH19sY/8SPf66nk/IC9tbqaTwGEP+JMRwNqFfWZ7RvvdrZz/KlS7lidYPKfP86c3iqwe29nDOP
+	NjCStlzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVsqM-00000001gRV-1lFC;
-	Sat, 06 Jun 2026 15:21:50 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1wVtIr-00000001hKA-36JO;
+	Sat, 06 Jun 2026 15:51:17 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVsqK-00000001gR8-1GlD
+	id 1wVtIo-00000001hJJ-3jx4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Jun 2026 15:21:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780759308; x=1812295308;
-  h=date:from:to:cc:subject:message-id;
-  bh=4ViJJEgdsPeZXg5PLYBxJlsdSAjprD82MuBv/ewYwKg=;
-  b=ROaweL1D8EvKhkWNWMD86m1F/gOmikwxM3hY0H5z3UL3IiePwvSgqgfX
-   NJAmS+B3Z1QV47bMQlTE97UgexU1iFnKWmorKXN/QenlmJad0vwTlLsmr
-   4T7PCpsbndhRmO9ZQ4nk5XcExo44MvyUnyQ/euuWio853AFz/my40Pg20
-   7RcPqZJFnD2b0CBS9hRX/MJhSP5WVpxOTmc0DpZRqz7FMpd794NxS0OaZ
-   hamlrEPFu2v3IXF7GxAL/WMJ4vfj1WWTK9OKjf1iiA8p7ImMDUpSBj5Ym
-   rfmUkiPQLl2Ylh6EAXuO7TPjX2q4gAdLf6Bmkp9iga7SEyc4P4cVJWokt
-   A==;
-X-CSE-ConnectionGUID: a50r/+dWSByE04Sed9TIVA==
-X-CSE-MsgGUID: fPB3jhpDRxGLCng0DqKZgA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11809"; a="107002719"
-X-IronPort-AV: E=Sophos;i="6.24,191,1774335600"; 
-   d="scan'208";a="107002719"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jun 2026 08:21:45 -0700
-X-CSE-ConnectionGUID: o1Pq6BWYSlOM6Xw8j77xVw==
-X-CSE-MsgGUID: JJg3wIUPQIScEoCw+dlJTg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,191,1774335600"; 
-   d="scan'208";a="249433650"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 06 Jun 2026 08:21:44 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wVsqC-00000000H62-1hij;
-	Sat, 06 Jun 2026 15:21:40 +0000
-Date: Sat, 06 Jun 2026 23:20:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- fb3fcb406b8882a91d1e51bae97101802fc991e1
-Message-ID: <202606062333.yjm67nqL-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Sat, 06 Jun 2026 15:51:16 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2bf0ddaf50fso19857905ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 08:51:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780761074; x=1781365874; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=B145KD8e++H5H8gOSlDhp27emRCyB3jiBGAu0/EtMIQ=;
+        b=T19xnWSrkCdbdMoo58ENkndOApiLA7kgOasY8DIababjyFcE/014sHLrQSeeWxWd4r
+         Ko2KAiDkYL3VB+eZpKFrUXlfgV+xlLONEcuUeII+byemo7cbwPyA/L1S5Oc2jesBNAkO
+         x2r+BbKY8SS7w2AV7ieUc6eyc4pAha0T7z2Sra9j7C10iZybyyeqvIgiU0g3bU1TwjTB
+         zd9A3eGJuiWOKD2GW2pQ+4si93KjX9PD2Lg+Zm7vx9x4LB2Ri4CnUHofdCYVcU7m3yAO
+         j71p4hWTN3SwP3OuMey/LS7v9d9yowi/qdNB9cY/mMfm6NDw+4I1gG2MNMcKh7tRIF1e
+         U4WQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780761074; x=1781365874;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B145KD8e++H5H8gOSlDhp27emRCyB3jiBGAu0/EtMIQ=;
+        b=nt7JtW4Zyblj2WQPBPxtiR+gc+aPSWCegDCTNeZiVZ2IYSkH8xXthQtmGfIGTXPyG7
+         M5qu17zVyHJnxCElRE2t04fWTLnfpYYmDfjh8/lHwQi9N0k7sNSjdxyRZ4uBoX5DvJnp
+         45adMTCw5OOA3kesigB0LM3nxMAlhLc7bUvopritLj06rIyAhPOpx6IyYsKNZeyyDT6j
+         2dROdt7eVIk2TomZBTg7585TRhQabohx1CRVWzqxbOQm4oF5pgXbtmqxN8xnltRXZ3eW
+         MXMzLjbsOfxWiFFuhqRagy1ioL4QkDT5/iHhuhBDK9oBAHLHc6XiUJt5FvsvJie37HKU
+         Bi/Q==
+X-Forwarded-Encrypted: i=1; AFNElJ9W7QfAQ34gEwVP88EKRpuNR8dHPeNnZY2GH8l383/WgG1uOn96QHlVULZ+qKjUGi42/m4XLLPIiPU8DKsPqVjX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW5k6kaLn2KwdCHhQoi1F6iX0J/SN5H61dUwHCdES/TMBtqGvV
+	vt9tHEyNuk9dHmG6beHL9klQXJJbyCLPrv/1FXPpb2xJ//+C8rjh+Npo
+X-Gm-Gg: Acq92OFaYMcCC2tLw7Tj+kffI92cYv02RwPtMmUUww4btz164VzpEKnVz1KcXWzRr4P
+	pTrtnBXpzB5tpJEEtvqdGaEKo2NkT+vVLXFClD+OzBNk6chTFFgrvl+bYNkr8X4YL/lLppl+b80
+	CwtDuScfd/ZSTWvbgHuud2gm5dVU9Gdm+/Ox57dhtMByRmAxRQ7RY51ImHHkcTGrgZaZPVlr6UR
+	Xl47Z3izriu/e30ZKoG/k1RpYkJozFn0glAPKJVbYvYuk3znXZWlz/i1EWqTOlDg/cKYub6VV4n
+	+4rC1VGilXvMtjLIPaRmll0K/B8uj5uClRNpJfi2e//Inn1xrhr08nyQXBdl7ieAbNRTwq4gIZN
+	HK3Dgvg07TWm/i6ShqsbYGQ/xkGpiCjl/V1aNoMs9dir11TgQa+b0q+nFinjRUYXJXXOi+0G09n
+	2rgORBD+yIThk4mWl/BCoCyq30sIOOzgOwGySe5LLzMQ==
+X-Received: by 2002:a17:903:1b44:b0:2c0:c262:b925 with SMTP id d9443c01a7336-2c1e7f9252fmr104566115ad.25.1780761073850;
+        Sat, 06 Jun 2026 08:51:13 -0700 (PDT)
+Received: from [192.168.1.111] ([223.122.38.120])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16649ab01sm121917285ad.71.2026.06.06.08.51.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 06 Jun 2026 08:51:13 -0700 (PDT)
+Message-ID: <9ca8d72c-af36-43a4-90ab-90f13b02f4fb@gmail.com>
+Date: Sat, 6 Jun 2026 23:51:07 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] nvme-apple: Prevent tag collision across queues even
+ if tag space is shared
+Content-Language: en-MW
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Yuriy Havrylyuk <yhavry@gmail.com>
+References: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
+ <20260606-prevent-tag-collision-t8015-v1-2-93ccf4eca550@gmail.com>
+ <20260606152930.6f2bf4ed@pumpkin>
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20260606152930.6f2bf4ed@pumpkin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_082148_395025_5985C827 
-X-CRM114-Status: UNSURE (   5.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260606_085114_939432_507B8143 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,301 +109,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: fb3fcb406b8882a91d1e51bae97101802fc991e1  soc: document merges
 
-elapsed time: 2514m
 
-configs tested: 281
-configs skipped: 6
+David Laight 於 2026/6/6 晚上10:29 寫道:
+> On Sat, 06 Jun 2026 21:25:26 +0800
+> Nick Chan <towinchenmi@gmail.com> wrote:
+> 
+>> From: Yuriy Havrylyuk <yhavry@gmail.com>
+>>
+>> Apple NVMe controllers require tags of pending commands to not be shared
+>> across admin and IO queues. However, on Apple A11 without linear SQ, it is
+>> not possible for either queue to skip over some tags and must go from 0 to
+>> the configured maximum before wrapping around.
+>>
+>> If a pending command tag is duplicated across queues, the firmware
+>> crashes with: "duplicate tag error for tag N", with N being the tag.
+>>
+>> Instead of partitioning the tag space, which is not possible without
+>> linear SQ, prevent tag collisions by keeping track of which tags are
+>> currently in-flight across either queues, and return BLK_STS_RESOURCE to
+>> temporaily block command submission when a collision would have occurred.
+> 
+> I look at using the atomic64_xxx() functions rather than the bitmask ones.
+> The for_each_bit_set() loop is then an atmomic64_andnot() call.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+That does in fact simplify the loop code. However, using the atomic function
+complicates the apple_nvme_reserve_tag_t8015() and
+apple_nvme_release_tag_t8015() since those functions deal with set/clear a
+a bit in terms of an integer (the tag).
 
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-alpha                            allyesconfig    gcc-15.2.0
-alpha                               defconfig    gcc-16.1.0
-arc                              allmodconfig    clang-17
-arc                              allmodconfig    gcc-15.2.0
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    gcc-15.2.0
-arc                                 defconfig    gcc-16.1.0
-arc                   randconfig-001-20260605    gcc-8.5.0
-arc                   randconfig-001-20260606    clang-23
-arc                   randconfig-002-20260605    gcc-8.5.0
-arc                   randconfig-002-20260606    clang-23
-arm                               allnoconfig    clang-23
-arm                               allnoconfig    gcc-15.2.0
-arm                              allyesconfig    clang-17
-arm                              allyesconfig    gcc-15.2.0
-arm                                 defconfig    clang-23
-arm                   randconfig-001-20260605    gcc-10.5.0
-arm                   randconfig-001-20260606    clang-23
-arm                   randconfig-002-20260605    gcc-13.4.0
-arm                   randconfig-002-20260606    clang-23
-arm                   randconfig-003-20260605    clang-23
-arm                   randconfig-003-20260606    clang-23
-arm                   randconfig-004-20260605    gcc-8.5.0
-arm                   randconfig-004-20260606    clang-23
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    gcc-15.2.0
-arm64                               defconfig    gcc-16.1.0
-arm64                          randconfig-001    gcc-8.5.0
-arm64                 randconfig-001-20260605    gcc-9.5.0
-arm64                          randconfig-002    gcc-14.3.0
-arm64                 randconfig-002-20260605    gcc-10.5.0
-arm64                          randconfig-003    clang-23
-arm64                 randconfig-003-20260605    gcc-11.5.0
-arm64                          randconfig-004    clang-23
-arm64                 randconfig-004-20260605    clang-23
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                                defconfig    gcc-16.1.0
-csky                           randconfig-001    gcc-10.5.0
-csky                  randconfig-001-20260605    gcc-16.1.0
-csky                           randconfig-002    gcc-10.5.0
-csky                  randconfig-002-20260605    gcc-9.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                          allmodconfig    gcc-15.2.0
-hexagon                           allnoconfig    clang-23
-hexagon                           allnoconfig    gcc-15.2.0
-hexagon                             defconfig    clang-23
-hexagon                        randconfig-001    gcc-11.5.0
-hexagon               randconfig-001-20260605    clang-20
-hexagon               randconfig-001-20260606    gcc-11.5.0
-hexagon                        randconfig-002    gcc-11.5.0
-hexagon               randconfig-002-20260605    clang-23
-hexagon               randconfig-002-20260606    gcc-11.5.0
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386                              allnoconfig    gcc-15.2.0
-i386                 buildonly-randconfig-001    gcc-14
-i386        buildonly-randconfig-001-20260605    clang-20
-i386        buildonly-randconfig-001-20260606    gcc-13
-i386                 buildonly-randconfig-002    clang-20
-i386        buildonly-randconfig-002-20260605    clang-20
-i386        buildonly-randconfig-002-20260606    gcc-13
-i386                 buildonly-randconfig-003    clang-20
-i386        buildonly-randconfig-003-20260605    clang-20
-i386        buildonly-randconfig-003-20260606    gcc-13
-i386                 buildonly-randconfig-004    gcc-14
-i386        buildonly-randconfig-004-20260605    clang-20
-i386        buildonly-randconfig-004-20260606    gcc-13
-i386                 buildonly-randconfig-005    gcc-14
-i386        buildonly-randconfig-005-20260605    gcc-12
-i386        buildonly-randconfig-005-20260606    gcc-13
-i386                 buildonly-randconfig-006    gcc-14
-i386        buildonly-randconfig-006-20260605    gcc-14
-i386        buildonly-randconfig-006-20260606    gcc-13
-i386                                defconfig    clang-22
-i386                           randconfig-001    clang-22
-i386                  randconfig-001-20260605    clang-22
-i386                  randconfig-001-20260606    clang-20
-i386                           randconfig-002    gcc-14
-i386                  randconfig-002-20260605    clang-22
-i386                  randconfig-002-20260606    clang-20
-i386                           randconfig-003    gcc-14
-i386                  randconfig-003-20260605    gcc-14
-i386                  randconfig-003-20260606    clang-20
-i386                           randconfig-004    clang-22
-i386                  randconfig-004-20260605    gcc-14
-i386                  randconfig-004-20260606    clang-20
-i386                           randconfig-005    gcc-14
-i386                  randconfig-005-20260605    clang-22
-i386                  randconfig-005-20260606    clang-20
-i386                           randconfig-006    gcc-14
-i386                  randconfig-006-20260605    gcc-14
-i386                  randconfig-006-20260606    clang-20
-i386                           randconfig-007    gcc-14
-i386                  randconfig-007-20260605    clang-22
-i386                  randconfig-007-20260606    clang-20
-i386                  randconfig-011-20260605    clang-22
-i386                  randconfig-012-20260605    clang-22
-i386                  randconfig-013-20260605    clang-22
-i386                  randconfig-014-20260605    clang-22
-i386                  randconfig-015-20260605    clang-22
-i386                  randconfig-016-20260605    clang-22
-i386                  randconfig-017-20260605    clang-22
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-23
-loongarch                         allnoconfig    gcc-15.2.0
-loongarch                           defconfig    clang-23
-loongarch                      randconfig-001    gcc-11.5.0
-loongarch             randconfig-001-20260605    clang-18
-loongarch             randconfig-001-20260606    gcc-11.5.0
-loongarch                      randconfig-002    gcc-11.5.0
-loongarch             randconfig-002-20260605    gcc-16.1.0
-loongarch             randconfig-002-20260606    gcc-11.5.0
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    clang-17
-m68k                             allyesconfig    gcc-15.2.0
-m68k                                defconfig    clang-23
-m68k                                defconfig    gcc-16.1.0
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    clang-23
-microblaze                          defconfig    gcc-16.1.0
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-mips                      malta_kvm_defconfig    gcc-16.1.0
-nios2                            allmodconfig    clang-23
-nios2                            allmodconfig    gcc-11.5.0
-nios2                             allnoconfig    clang-17
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    clang-23
-nios2                               defconfig    gcc-11.5.0
-nios2                          randconfig-001    gcc-11.5.0
-nios2                 randconfig-001-20260605    gcc-8.5.0
-nios2                 randconfig-001-20260606    gcc-11.5.0
-nios2                          randconfig-002    gcc-11.5.0
-nios2                 randconfig-002-20260605    gcc-11.5.0
-nios2                 randconfig-002-20260606    gcc-11.5.0
-openrisc                         allmodconfig    clang-23
-openrisc                         allmodconfig    gcc-15.2.0
-openrisc                          allnoconfig    clang-17
-openrisc                          allnoconfig    gcc-15.2.0
-openrisc                            defconfig    gcc-16.1.0
-parisc                           allmodconfig    gcc-15.2.0
-parisc                            allnoconfig    clang-17
-parisc                            allnoconfig    gcc-15.2.0
-parisc                           allyesconfig    gcc-15.2.0
-parisc                              defconfig    gcc-16.1.0
-parisc                randconfig-001-20260605    gcc-8.5.0
-parisc                randconfig-001-20260606    gcc-8.5.0
-parisc                randconfig-002-20260605    gcc-11.5.0
-parisc                randconfig-002-20260606    gcc-8.5.0
-parisc64                            defconfig    clang-23
-parisc64                            defconfig    gcc-16.1.0
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    clang-17
-powerpc                           allnoconfig    gcc-15.2.0
-powerpc               randconfig-001-20260605    gcc-8.5.0
-powerpc               randconfig-001-20260606    gcc-8.5.0
-powerpc               randconfig-002-20260605    gcc-9.5.0
-powerpc               randconfig-002-20260606    gcc-8.5.0
-powerpc                     tqm8560_defconfig    gcc-16.1.0
-powerpc64             randconfig-001-20260605    clang-23
-powerpc64             randconfig-001-20260606    gcc-8.5.0
-powerpc64             randconfig-002-20260605    gcc-13.4.0
-powerpc64             randconfig-002-20260606    gcc-8.5.0
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-17
-riscv                             allnoconfig    gcc-15.2.0
-riscv                            allyesconfig    clang-16
-riscv                            allyesconfig    clang-17
-riscv                               defconfig    clang-23
-riscv                               defconfig    gcc-16.1.0
-riscv                          randconfig-001    gcc-8.5.0
-riscv                 randconfig-001-20260605    gcc-8.5.0
-riscv                          randconfig-002    clang-23
-riscv                 randconfig-002-20260605    clang-23
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-17
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    clang-18
-s390                                defconfig    gcc-16.1.0
-s390                           randconfig-001    gcc-11.5.0
-s390                  randconfig-001-20260605    clang-23
-s390                           randconfig-002    clang-23
-s390                  randconfig-002-20260605    clang-23
-sh                               allmodconfig    gcc-15.2.0
-sh                                allnoconfig    clang-17
-sh                                allnoconfig    gcc-15.2.0
-sh                               allyesconfig    gcc-15.2.0
-sh                                  defconfig    gcc-14
-sh                                  defconfig    gcc-16.1.0
-sh                             randconfig-001    gcc-16.1.0
-sh                    randconfig-001-20260605    gcc-16.1.0
-sh                             randconfig-002    gcc-14.3.0
-sh                    randconfig-002-20260605    gcc-10.5.0
-sparc                             allnoconfig    clang-17
-sparc                             allnoconfig    gcc-15.2.0
-sparc                               defconfig    gcc-16.1.0
-sparc                 randconfig-001-20260605    gcc-8.5.0
-sparc                 randconfig-002-20260605    gcc-8.5.0
-sparc64                          allmodconfig    clang-23
-sparc64                             defconfig    clang-23
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260605    clang-23
-sparc64               randconfig-002-20260605    clang-22
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-17
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-14
-um                               allyesconfig    gcc-15.2.0
-um                                  defconfig    clang-23
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260605    clang-23
-um                    randconfig-002-20260605    clang-22
-um                           x86_64_defconfig    clang-23
-um                           x86_64_defconfig    gcc-14
-x86_64                           allmodconfig    clang-20
-x86_64                            allnoconfig    clang-17
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20260605    gcc-14
-x86_64      buildonly-randconfig-001-20260606    gcc-14
-x86_64      buildonly-randconfig-002-20260605    gcc-14
-x86_64      buildonly-randconfig-002-20260606    gcc-14
-x86_64      buildonly-randconfig-003-20260605    gcc-14
-x86_64      buildonly-randconfig-003-20260606    gcc-14
-x86_64      buildonly-randconfig-004-20260605    gcc-14
-x86_64      buildonly-randconfig-004-20260606    gcc-14
-x86_64      buildonly-randconfig-005-20260605    gcc-14
-x86_64      buildonly-randconfig-005-20260606    gcc-14
-x86_64      buildonly-randconfig-006-20260605    gcc-14
-x86_64      buildonly-randconfig-006-20260606    gcc-14
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-22
-x86_64                randconfig-001-20260605    clang-22
-x86_64                randconfig-001-20260606    gcc-14
-x86_64                randconfig-002-20260605    clang-22
-x86_64                randconfig-002-20260606    gcc-14
-x86_64                randconfig-003-20260605    clang-22
-x86_64                randconfig-003-20260606    gcc-14
-x86_64                randconfig-004-20260605    gcc-13
-x86_64                randconfig-004-20260606    gcc-14
-x86_64                randconfig-005-20260605    clang-22
-x86_64                randconfig-005-20260606    gcc-14
-x86_64                randconfig-006-20260605    gcc-14
-x86_64                randconfig-006-20260606    gcc-14
-x86_64                randconfig-011-20260605    clang-22
-x86_64                randconfig-011-20260606    gcc-14
-x86_64                randconfig-012-20260605    gcc-14
-x86_64                randconfig-012-20260606    gcc-14
-x86_64                randconfig-013-20260605    clang-22
-x86_64                randconfig-013-20260606    gcc-14
-x86_64                randconfig-014-20260605    clang-22
-x86_64                randconfig-014-20260606    gcc-14
-x86_64                randconfig-015-20260605    gcc-14
-x86_64                randconfig-015-20260606    gcc-14
-x86_64                randconfig-016-20260605    clang-22
-x86_64                randconfig-016-20260606    gcc-14
-x86_64                randconfig-071-20260605    gcc-14
-x86_64                randconfig-072-20260605    gcc-14
-x86_64                randconfig-073-20260605    clang-22
-x86_64                randconfig-074-20260605    gcc-14
-x86_64                randconfig-075-20260605    gcc-12
-x86_64                randconfig-076-20260605    gcc-14
-x86_64                               rhel-9.4    clang-22
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-22
-x86_64                    rhel-9.4-kselftests    clang-22
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    clang-17
-xtensa                            allnoconfig    gcc-15.2.0
-xtensa                           allyesconfig    clang-23
-xtensa                randconfig-001-20260605    gcc-12.5.0
-xtensa                randconfig-002-20260605    gcc-8.5.0
+Especially in the apple_nvme_reserve_tag_t8015() function the function body
+is then
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+	u64 tag_bit = BIT(nvme_tag_from_cid(cmd->common.command_id));
+
+	return !(atomic64_fetch_or(tag_bit, &anv->t8015_active_tags) & tag_bit);
+
+The function would need to explictly convert the tag to a bit, and then
+explictly extract the bit value after performing the atomic operation,
+both which of could have been done by test_and_set_bit().
+
+So I do not see any overall benefit for using atomic_xxx() functions.
+
+Best Regards,
+Nick Chan
+
+> 
+> -- David
+> 
+> 
+>>
+>> Cc: stable@vger.kernel.org
+>> Fixes: 04d8ecf37b5e ("nvme: apple: Add Apple A11 support")
+>> Signed-off-by: Yuriy Havrylyuk <yhavry@gmail.com>
+>> Co-developed-by: Nick Chan <towinchenmi@gmail.com>
+>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+>> ---
+>>  drivers/nvme/host/apple.c | 65 +++++++++++++++++++++++++++++++++++++++++++++++
+>>  1 file changed, 65 insertions(+)
+>>
+>> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+>> index c1115e27a0d6..6354edf27225 100644
+>> --- a/drivers/nvme/host/apple.c
+>> +++ b/drivers/nvme/host/apple.c
+>> @@ -203,6 +203,20 @@ struct apple_nvme {
+>>  
+>>  	int irq;
+>>  	spinlock_t lock;
+>> +
+>> +	/*
+>> +	 * Tags of pending commands must be unique across both Admin and IO
+>> +	 * queue. However, on T8015, unlike T8103, without linear submission
+>> +	 * queues, it is not possible for the either queue to skip some tags,
+>> +	 * and both queues must go from 0 to their respective configured
+>> +	 * maximum.
+>> +	 *
+>> +	 * Instead of reserving some tags for the admin queue, use a bitfield
+>> +	 * to keep track of pending commands on either queue, and temporaily
+>> +	 * block command submission by returning BLK_STS_RESOURCE until the
+>> +	 * tag is freed on the other queue.
+>> +	 */
+>> +	unsigned long t8015_active_tags;
+>>  };
+>>  
+>>  static_assert(sizeof(struct nvme_command) == 64);
+>> @@ -290,6 +304,28 @@ static void apple_nvmmu_inval(struct apple_nvme_queue *q, unsigned int tag)
+>>  				     "NVMMU TCB invalidation failed\n");
+>>  }
+>>  
+>> +static bool apple_nvme_reserve_tag_t8015(struct apple_nvme *anv,
+>> +					 struct nvme_command *cmd)
+>> +{
+>> +	u16 tag = nvme_tag_from_cid(cmd->common.command_id);
+>> +
+>> +	if (WARN_ON_ONCE(tag >= BITS_PER_LONG))
+>> +		return false;
+>> +
+>> +	return !test_and_set_bit(tag, &anv->t8015_active_tags);
+>> +}
+>> +
+>> +static void apple_nvme_release_tag_t8015(struct apple_nvme *anv,
+>> +					 __u16 command_id)
+>> +{
+>> +	u16 tag = nvme_tag_from_cid(command_id);
+>> +
+>> +	if (WARN_ON_ONCE(tag >= BITS_PER_LONG))
+>> +		return;
+>> +
+>> +	clear_bit(tag, &anv->t8015_active_tags);
+>> +}
+>> +
+>>  static void apple_nvme_submit_cmd_t8015(struct apple_nvme_queue *q,
+>>  				  struct nvme_command *cmd)
+>>  {
+>> @@ -652,6 +688,8 @@ static inline void apple_nvme_update_cq_head(struct apple_nvme_queue *q)
+>>  static bool apple_nvme_poll_cq(struct apple_nvme_queue *q,
+>>  			       struct io_comp_batch *iob)
+>>  {
+>> +	struct apple_nvme *anv = queue_to_apple_nvme(q);
+>> +	unsigned long completed_tags = 0;
+>>  	bool found = false;
+>>  
+>>  	while (apple_nvme_cqe_pending(q)) {
+>> @@ -664,11 +702,26 @@ static bool apple_nvme_poll_cq(struct apple_nvme_queue *q,
+>>  		dma_rmb();
+>>  		apple_nvme_handle_cqe(q, iob, q->cq_head);
+>>  		apple_nvme_update_cq_head(q);
+>> +
+>> +		if (!anv->hw->has_lsq_nvmmu) {
+>> +			struct nvme_completion *cqe = &q->cqes[q->cq_head];
+>> +			u16 tag = nvme_tag_from_cid(READ_ONCE(cqe->command_id));
+>> +
+>> +			if (!WARN_ON_ONCE(tag >= BITS_PER_LONG))
+>> +				__set_bit(tag, &completed_tags);
+>> +		}
+>>  	}
+>>  
+>>  	if (found)
+>>  		writel(q->cq_head, q->cq_db);
+>>  
+>> +	if (!anv->hw->has_lsq_nvmmu && completed_tags) {
+>> +		unsigned long tag_bit;
+>> +
+>> +		for_each_set_bit(tag_bit, &completed_tags, BITS_PER_LONG)
+>> +			clear_bit(tag_bit, &anv->t8015_active_tags);
+>> +	}
+>> +
+>>  	return found;
+>>  }
+>>  
+>> @@ -790,6 +843,12 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+>>  	if (ret)
+>>  		return ret;
+>>  
+>> +	if (!anv->hw->has_lsq_nvmmu &&
+>> +	    !apple_nvme_reserve_tag_t8015(anv, cmnd)) {
+>> +		ret = BLK_STS_RESOURCE;
+>> +		goto out_free_cmd;
+>> +	}
+>> +
+>>  	if (blk_rq_nr_phys_segments(req)) {
+>>  		ret = apple_nvme_map_data(anv, req, cmnd);
+>>  		if (ret)
+>> @@ -806,6 +865,9 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+>>  	return BLK_STS_OK;
+>>  
+>>  out_free_cmd:
+>> +	if (!anv->hw->has_lsq_nvmmu)
+>> +		apple_nvme_release_tag_t8015(anv, cmnd->common.command_id);
+>> +
+>>  	nvme_cleanup_cmd(req);
+>>  	return ret;
+>>  }
+>> @@ -1165,6 +1227,9 @@ static void apple_nvme_reset_work(struct work_struct *work)
+>>  	if (ret)
+>>  		goto out;
+>>  
+>> +	if (!anv->hw->has_lsq_nvmmu)
+>> +		WRITE_ONCE(anv->t8015_active_tags, 0);
+>> +
+>>  	dev_dbg(anv->dev, "Starting admin queue");
+>>  	apple_nvme_init_queue(&anv->adminq);
+>>  	nvme_unquiesce_admin_queue(&anv->ctrl);
+>>
+> 
+
 
