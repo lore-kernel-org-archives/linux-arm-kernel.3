@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5B1CD8C8E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BDACD8C90
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 17:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ME+xNkoeE4ctIAxfAzYaPkyPD55bBWMm21iy3jKU/r4=; b=jRN7mKUX0QTtidsxS/lwk8z06s
-	b9lkPn8mr1mkk1yC7UHuMwYEEjDosRB4Efw/l2WCEsyvCpKqClsyGBZBRhdgTB4ka2sEySajR5qvH
-	qQjv7149ChTOG6ws0tkckhmAD9liZCGxSoyIwLFLCWV6ksFcxLgqojI25qeO0od2F9krdm5gmdIFw
-	lftP0p54xXucLcbwvwHph5/vDM4DBUc2bF92lSKBykWIS0K0NZTOP2s5m1mc3mlFLUuGosWde3yE3
-	JcPftC5Fb5ptmfs80EbY5Gdm/n5TS4IbQhp0Cpl24CE/U1c1UJwS71yMqrayj+nanx73dJLETMp0O
-	2P/FxWJA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DtrLaj5ltFoAG/++WffsPSgWGaLrPwS8Itqpcy4i6xY=; b=CDSzQr9AXwsfEgeJSroRhJ9Odc
+	/ZOhClLxoMqD7eZREUIN+N1ng4pNrfQDwQS7cRmX8Buc9Z3E9AUqkhQeUpf8S5l9PQiOLTJEI6llm
+	jzOCE/83fDKOuVjXOGSfE8ed8v2cCmc6BAa4nkFzSMCr1riS0LcSWAFYQmILFmxFdoW8jSgYR382u
+	z+H7A92ElvnFzIi4w3+fUvK0tV1U5j9xj/actijmayGhPEuiTaA8GwodT9i8XUGoyaqy5vDlvANZs
+	Z5ZZR9Iy20UDwlfHrTJEbGAAbz/YyzdNLCiljd6wQY9OGAnyNek0xX/Blx1nhsigXl7wCLSrgGhK1
+	G0Ju2zug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVvGm-00000001k1E-2OEi;
-	Sat, 06 Jun 2026 17:57:16 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wVvGp-00000001k23-2lbG;
+	Sat, 06 Jun 2026 17:57:19 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVvGk-00000001k0v-2TBL
+	id 1wVvGn-00000001k1I-3eUK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Jun 2026 17:57:15 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2bf0ddaf50fso20204155ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 10:57:14 -0700 (PDT)
+	Sat, 06 Jun 2026 17:57:18 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2bf114b0cf9so25950115ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 10:57:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780768634; x=1781373434; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ME+xNkoeE4ctIAxfAzYaPkyPD55bBWMm21iy3jKU/r4=;
-        b=tC9Ytfz+kUiJIVJRdf7HEEZizH9FMKlkfQmSmFWOtyf3GX2zgsRQVicbVg/yzQPtEz
-         DlYPQ7C/+ZPKwnPTvwm++T98KvUFtFdcyzlfop/3MMmycZUZe5ntxb0WRVtQoyc4D3Im
-         7YDojDuJye92LSFjM/3cohV1bOiFOK7SCd2iAT0GNdT7wZzkGhfV+/as9mLMUo+BY78U
-         gL2MkkYqq+EC53oYgVnxo9RzJinLvFFGUOv5I4pEEwpvACXL9EDm+De+dUxeC0yFwngw
-         EYMi05fkaxBu9fgWIVt9D0XOAFQW7qiEFOWwScsH6I7efX+AqjY0PUbc2fhaHmOSljT7
-         PWpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780768634; x=1781373434;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1780768637; x=1781373437; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ME+xNkoeE4ctIAxfAzYaPkyPD55bBWMm21iy3jKU/r4=;
-        b=pLFnUMIPe3MG98BNB1eHS83fByXd6LiryTqiCaF7JtnqU0w6VTL5c2qrLp2IJQ4CqJ
-         dM8z7zI6kgw1yDz9U5nleEBHEL2fXUynI8wjSKCjYiysiDIkBmyjO59ytvt9+/fSknjc
-         FTunbCpZfqimXLYSHDbot7PT8uhQcwVlK6alFqXy2xNHCrqre7TIVMOU4+MvhnC/ohae
-         AkRRctAX0MXY9KuUigMFHJrNvwkZaEeCrIMe7veIKfvV7CLntWDZPV5LG37fZQ4KZUyo
-         VoPHWKilNu960H8RwxlqQJ+bDkaqlGRvQ+uYzUfyv9Vk/l0Z6H7VRCZRZDUqF3+WVkLx
-         pCHw==
-X-Gm-Message-State: AOJu0YyhJ2+GanrcrEaDbFpj76VKfJkDFWmVz9//reigyz0YJWWN8gzy
-	B5jbMu0VB4jRVz1A+UBS6OkQAsyLkweqrmWBp3zgGxmdTHSylStX2z9S
-X-Gm-Gg: Acq92OHl67JK5MAVZKm2K7lic8LhapIKm1S/rYkAJWJS7Fj/ZvizUUO0pYznwEuhNoe
-	N008GTZaBl7ODB32OJl0E5FWZLHBWfnPkKyKuKL6ZgKjYX9acmbIf607bAFeBWk1ifZEXbdlp8R
-	6hgdI66xYB9zsFphvzZvX5b6/oPMo2WgPut4iVbclx0yKFJd9qcAXd21HVARiexyFwcU92Fh+hx
-	eUVQGfS6mKWc7fHn4wkuPCu1CRARL3MRIPvxf2A8nGRW9TmG1ofIInqt/R67U6H7hwWY6kiLUg5
-	iwKmPY7VkmtDb14jfBQeDYgXkPaXb2kgnPYruu6ORWDg6URiB0aHvgp7X7W32Syi+3s/picMSzX
-	Vp38AK2d3Osja0707Anxu0V3UAi/NUawQH8np24U6po5RtLF3JNSyXR+i9CWzGX7H/hOvCtODNs
-	Ju9yNGPIK1Au9l1/cXxCCyhqoiJa56Imn25est1fJ7SjIhh4+9HJKI6esKwst1Nvap0lU=
-X-Received: by 2002:a17:902:e545:b0:2bf:1486:e6bc with SMTP id d9443c01a7336-2c1e80ee016mr102752615ad.29.1780768633594;
-        Sat, 06 Jun 2026 10:57:13 -0700 (PDT)
+        bh=DtrLaj5ltFoAG/++WffsPSgWGaLrPwS8Itqpcy4i6xY=;
+        b=XkJt3CEyzWyWJcNM31H00peLp+LXM9tgqQX8ZqD4ngoKRMLOAChK1WV91Rm94N7joN
+         pAqImU+wfiPxHyFoFoKBnJo1/XDZl3RMkgUaHTx1YNEkZMj9uEJfUSriQ313sUZ0yiQ4
+         wTQgTaUIMiI8WH/z8Y16hlpi+kaYEHMCYtry+e6nkFosVJmI6RTitYI8KE1uFCG25Ud2
+         rRTT9nz6qZnQN6S/k95JuNFgDh+8irTcp8X5NEtw0kznsklMlV7evKwfBToI2tzz22aU
+         /kHiEE9emmsiDdsuAliNvF8BBqOYjuy1vd9pwkKx18hLpwkEC+L4ubeF1d8v/od8/0j9
+         kjsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780768637; x=1781373437;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=DtrLaj5ltFoAG/++WffsPSgWGaLrPwS8Itqpcy4i6xY=;
+        b=MH91UKkxSsXJF/tyPgns8grmyUvICMJZrek5Xon2HxE6lGbfYa98kfm58w3F9RchsE
+         7LCUlaYcCEoQExX3H54/1GiwmQbV7PdUXKxb1MURB46tEBA4NbnX7i1LcRwqICTTi+PU
+         C1tc8nom+iLLOgQqChN8gIz2mDYMeN4sCREPvSdZpvR8tDQuEZYtQqC7UXFtyeiGoJPM
+         KPQwFaCE7FLu5xqjl2chIOAs2ABVEQVAjA29nEmyStO8bBZhVaLQ9Dz5JUddQu8h67Ud
+         QXo/1RLsPWhexpBtFoCfRudpov5cbNdAZSCnsWg3p2Lw/eJiCO78a6cLzACzrmi0wadn
+         +aCw==
+X-Gm-Message-State: AOJu0YyOM93OpkeHEC7F1TpXS6e1yGeWjJIUoPimXHM/ZW0pGhEm3yHt
+	ZQREr6VXHfbiCTDpqXpNC3RuBnoAJddFl+riadnkwiMc7Q5MdY7gA7CE3skvxw==
+X-Gm-Gg: Acq92OGh1vhvEa2J8wVvk3cmaUihG8sq+RqwRRzErbKDBTr3e8qRRdax0mHO1BRb5G/
+	myDjnLdbx9YSW148346uZ7srwmd70fheezS+0KFS+9cXSO8IlQMJPqqU9tuMtSKXVIUnkADBgx4
+	xamzazZftKpU/8YMka1dnreusRxIK8ZnzP973F+cCLbX/ueVVqn9ZKleG1vdb9uhpjcRL9gmhls
+	oiqirpHvmSD3zrNsVv4amPM2kkIniB4uUbMDqoEoJkDY3oxOfIpLoKQQqBhhrY2ax4McrCTYSR5
+	MB/RUyXXol4xYYqczOYUurfBYMpwIuKzb/veGtimkv3BQ97kWDFogTBwVO3KX9/WtO+NFw7bcID
+	fHBYb3F++aIvImYeWdHB3G/yIZ/8gttQR/4InYI2J5oB62OlRAxxa0Y85FO3xFOZ+bEb+3OYWdt
+	Ou60766N2Ex4jKr5tKuMe6m3CBk+WfOYpfqokilmfT1qvl06xgoT1IRkdL
+X-Received: by 2002:a17:902:c952:b0:2c0:fa4e:91ed with SMTP id d9443c01a7336-2c1e834699fmr108804645ad.18.1780768636898;
+        Sat, 06 Jun 2026 10:57:16 -0700 (PDT)
 Received: from v4bel.. ([58.123.110.97])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d69csm129196425ad.2.2026.06.06.10.57.10
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d69csm129196425ad.2.2026.06.06.10.57.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Jun 2026 10:57:13 -0700 (PDT)
+        Sat, 06 Jun 2026 10:57:16 -0700 (PDT)
 From: Hyunwoo Kim <imv4bel@gmail.com>
 To: tabba@google.com,
 	maz@kernel.org,
@@ -81,16 +82,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	stable@vger.kernel.org,
 	imv4bel@gmail.com
-Subject: [PATCH v3 0/2] KVM: arm64: Sanitise host vCPU fields copied in flush_hyp_vcpu()
-Date: Sun,  7 Jun 2026 02:56:09 +0900
-Message-ID: <20260606175614.83273-1-imv4bel@gmail.com>
+Subject: [PATCH v3 1/2] KVM: arm64: Clear __hyp_running_vcpu when flushing the pKVM hyp vCPU
+Date: Sun,  7 Jun 2026 02:56:10 +0900
+Message-ID: <20260606175614.83273-2-imv4bel@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260606175614.83273-1-imv4bel@gmail.com>
+References: <20260606175614.83273-1-imv4bel@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_105714_628654_29469BD0 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260606_105717_930176_54AA3E7C 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-flush_hyp_vcpu() copies the host vCPU context and vGIC state into the
-hyp's private vCPU on every run. This series sanitises two fields that
-it currently copies verbatim (host -> EL2): __hyp_running_vcpu is
-cleared in the guest context, and used_lrs is bounded by the number of
-implemented list registers.
+flush_hyp_vcpu() copies the host vCPU context into the hyp's private
+vCPU on every run. ctxt_to_vcpu() expects a guest context to have a
+NULL __hyp_running_vcpu, which is only ever set on the host context, so
+that it resolves the vCPU via container_of(). While this is generally
+the case, flush_hyp_vcpu() copies the context verbatim and does not
+enforce this, so a value provided by the host is dereferenced at EL2
+(host -> EL2).
 
-Changes in v3:
-- 2/2: replicate kvm_vgic_global_state.nr_lr into hyp_gicv3_nr_lr
-  once at init (guarded by gicv3_cpuif), instead of reading
-  ICH_VTR_EL2 on every entry behind a gicv3_cpuif gate. (Marc)
-- v2: https://lore.kernel.org/all/20260604151210.1304051-1-imv4bel@gmail.com/
+Fix by clearing __hyp_running_vcpu after the copy.
 
-Changes in v2:
-- split into two patches, one per field, per review.
-- v1: https://lore.kernel.org/all/aiFe-CXo-XVTFz1g@v4bel/
+Cc: stable@vger.kernel.org
+Fixes: be66e67f1750 ("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()")
+Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Hyunwoo Kim (2):
-  KVM: arm64: Clear __hyp_running_vcpu when flushing the pKVM hyp vCPU
-  KVM: arm64: Bound used_lrs when flushing the pKVM hyp vCPU
-
- arch/arm64/include/asm/kvm_hyp.h   |  1 +
- arch/arm64/kvm/arm.c               |  2 ++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 ++++++++++++
- 3 files changed, 15 insertions(+)
-
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 06db299c37a8..02c5d6e5abcb 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -128,6 +128,9 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 
+ 	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
+ 
++	/* __hyp_running_vcpu must be NULL in a guest context. */
++	hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
++
+ 	hyp_vcpu->vcpu.arch.mdcr_el2	= host_vcpu->arch.mdcr_el2;
+ 	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
+ 	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
 -- 
 2.43.0
 
