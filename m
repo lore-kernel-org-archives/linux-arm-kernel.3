@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10868CD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 16:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A11CD8C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 16:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNfkwEURV/025o1JMSHop7cofA++kyQHuGoph8UTpwE=; b=rC+b/rydCS7ea/lnzEw48eZ+nZ
-	2eobd1vB9ceBYHUaxi+XXtMtwnJp1I3IX7uMmHwyPXy6m9rwa3yE87e6EuoIilljg6xirul/8LWtn
-	DS6lbxG8eOKY3WgYhNlPHZmDREOIV8RjEQJZRvDsTyqabC2xRq2lV3vmG+CDaqSjJ+BOpSl0LhVoS
-	vWSlw1LClyc6nwgfvq0/lajwts8bfUk9ahC/au3vUQrNmvT6If6rVElQ7OlnjeY3+6LwS4Ya0lNed
-	uUXL4fYQ6/vjjyPRE68mvH65VX0JVobPD5WbB56z3OwHyybbYbowNFLqTVq3B+Mp0i04E6UjMwRwU
-	QVSui33Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3WzyYt48G4RQfAKtt5FczP1+tGEO7Yztn+HsGj1d6x4=; b=v+mU5U1hw6whsbmJCeYD4ndAyQ
+	1TX4z2bh0bYQ/4BAdmdf0YwW2seBqo+Kt11CFqX1vGYtpIHeNBes8huenr8jw0l70D00TV114osCt
+	JPsgZI5uTMG4jqcl5js+ICtOgbWEmLeKjfKCLwjG3fstaijBAz76uZL70FmYu43t94EOG93T4MSCv
+	EGiSyx7ydhbuyNlrJlM7+ySH6/YBn7spIBWri+xhrJoS323os+/Yg2y5QwheXjiiSjH0Ity/Ycnud
+	vNVhePcBOjAew+l8arIGDrl5vw5yqBM38b8WQeigE9VhiwKQAW1vWI5z3DqjzZN7OGJRcFLcYtXQY
+	f6pGcyYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVtXW-00000001hoA-39Vo;
-	Sat, 06 Jun 2026 16:06:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVtXS-00000001hnj-07Wi
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Jun 2026 16:06:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE08C4E42;
-	Sat,  6 Jun 2026 09:06:11 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A11B3F632;
-	Sat,  6 Jun 2026 09:06:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780761976; bh=snvrP3iXAE7+rPVGPdv2I0d1O8un1BOK8oUMCKBNj7o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fioo/WXR+6E2VeHXtpMTCyYZU27JnoxYA6CB0uRghrHJ5aZZyaaIcZRxJ0aH7JFsW
-	 xngkbzIzYdlUW15WY/Z2u7zCjIdmVIrsHgk/6sOUrC+EbqbHreg/CDeoNlbonXt/pY
-	 t9S0fleMOnVpzuZZbKKbyRo+Fo9udRji81CSAdsM=
-Date: Sat, 6 Jun 2026 17:06:11 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Tejun Heo <tj@kernel.org>
-Cc: bot+bpf-ci@kernel.org, void@manifault.com, arighi@nvidia.com,
-	changwoo@igalia.com, ast@kernel.org, andrii@kernel.org,
-	daniel@iogearbox.net, martin.lau@linux.dev, memxor@gmail.com,
-	peterz@infradead.org, will@kernel.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	akpm@linux-foundation.org, david@kernel.org, rppt@kernel.org,
-	emil@etsalapatis.com, sched-ext@lists.linux.dev,
-	bpf@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, eddyz87@gmail.com,
-	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
-Subject: Re: [PATCH bpf-next] bpf: Replace scratch PTE atomically when
- allocating arena pages
-Message-ID: <aiRFcz78QTZdIHHB@arm.com>
-References: <20260601183728.1800490-1-tj@kernel.org>
- <f45f02410d23c99d14f3577da9b27a327816b5a0904bdeefc8e229eac760d1cf@mail.kernel.org>
- <8f133924fbf8d259340f3057e505f663@kernel.org>
+	id 1wVtdV-00000001hxJ-1wk0;
+	Sat, 06 Jun 2026 16:12:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wVtdT-00000001hx9-0zUH;
+	Sat, 06 Jun 2026 16:12:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A3F76600AE;
+	Sat,  6 Jun 2026 16:12:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 979411F00893;
+	Sat,  6 Jun 2026 16:12:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780762353;
+	bh=3WzyYt48G4RQfAKtt5FczP1+tGEO7Yztn+HsGj1d6x4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=LZFx/r/wgFyEh7r0VkW0hzkrLcZCGzQoh7wlrQEcP4oQQ8eH9+FucJGz9h6g5VhtE
+	 wcAX81orLf6vRq3n1wV0WzoH0cWF9nIPYHRrKc5fDPngfDJV50X2EbKi0uYKuJjT+O
+	 /w9HMfhdNCWd3Z1YGQYHtPYnrBetTPo9BKog85Zb5MMIswkLqQmqn664cfQeXR5Wh5
+	 31/bSK6ZuwuqQ+NDO0gCjuKMN3LmfleyH3yMITrCX37TSrF/99MyDbKcucA5uc3Hk9
+	 AhEhWh1LwZu65s9LL8rhoEpP+9ZKImelmzLXOFTfznxyJPSGyjw54Xsg8ZzKQ1lSz4
+	 Y7YlIZY6ogq0w==
+Message-ID: <a0b0bea4-998e-4196-a2b0-9fcaf531d9f3@kernel.org>
+Date: Sat, 6 Jun 2026 18:12:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8f133924fbf8d259340f3057e505f663@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_090623_842550_67154112 
-X-CRM114-Status: GOOD (  12.52  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] nvme-apple: Prevent tag collision across queues even
+ if tag space is shared
+To: Nick Chan <towinchenmi@gmail.com>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Yuriy Havrylyuk <yhavry@gmail.com>
+References: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
+ <20260606-prevent-tag-collision-t8015-v1-2-93ccf4eca550@gmail.com>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20260606-prevent-tag-collision-t8015-v1-2-93ccf4eca550@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +75,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 12:09:11PM -1000, Tejun Heo wrote:
-> On Mon, Jun 01, 2026 at 08:15:34PM +0000, bot+bpf-ci@kernel.org wrote:
-> > After the real page is installed without a flush, can that stale
-> > kaddr -> scratch_page translation persist, so that later kernel-side
-> > accesses at kaddr reach the shared per-arena scratch page instead of
-> > the freshly allocated page?
+On 06.06.26 15:25, Nick Chan wrote:
+> From: Yuriy Havrylyuk <yhavry@gmail.com>
 > 
-> It can on x86, but it's harmless: that CPU faulted on an unallocated
-> address and got scratch-recovered, so reaching either the scratch or the
-> real page is fine. No flush needed.
+> Apple NVMe controllers require tags of pending commands to not be shared
+> across admin and IO queues. However, on Apple A11 without linear SQ, it is
+> not possible for either queue to skip over some tags and must go from 0 to
+> the configured maximum before wrapping around.
+> 
+> If a pending command tag is duplicated across queues, the firmware
+> crashes with: "duplicate tag error for tag N", with N being the tag.
+> 
+> Instead of partitioning the tag space, which is not possible without
+> linear SQ, 
 
-I think for arm64 it will be slightly different. After making the pte
-invalid, we flush the TLBs and subsequent access will be fault. However,
-ptep_try_set() is missing __set_pte_complete() with the necessary
-barriers. A subsequent access may fault rather than hit the old or the
-new page. Something like below, as a fixup for 258df8fce42f ("mm: Add
-ptep_try_set() for lockless empty-slot installs"):
+Isn't that just what the pci.c driver does with NVME_QUIRK_SHARED_TAGS 
+for the T2 macs or what we do in this driver with
+	if (anv->hw->has_lsq_nvmmu)
+		anv->tagset.reserved_tags = APPLE_NVME_AQ_DEPTH;
+?
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 3ce0f2a6cab6..dc8525431273 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1838,7 +1838,11 @@ static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
- {
- 	pteval_t old = 0;
- 
--	return try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte));
-+	if (!try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte)))
-+		return false;
-+
-+	__set_pte_complete(new_pte);
-+	return true;
- }
- #define ptep_try_set ptep_try_set
- 
 
--- 
-Catalin
+Sven
+
 
