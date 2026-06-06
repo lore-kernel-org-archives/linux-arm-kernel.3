@@ -4,96 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E04CD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 16:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5B1CD8C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 17:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0CCEPdnbAf9O7YZGI5gomWMwSVZTv0vCb5M8aGMFXew=; b=p7+ti1t7/uAQWxV1WhUZTnCtLk
-	Owwafv9xqBPZQtGiZWGJ/g8/fZZpi20+7hZnknCzkeuEWoAd1r6xiu+y3ewVwKcSmKbNiwubtI6JF
-	l+Lce2SgjJ1g/W7Ivw/1bFBrI5yx/MXWH77vL5qJwYVlqHhbHIvHXjsrNZy7UIdStXMM36zWpmILL
-	4/WjBSbpl68z4k3Ud9Tb0zDF03ltsyM5SvMefzJogbZ34bUj2xBzCATlLmCeGooACEeE4mzEYilqI
-	goa2rGpcTkVJp9PFW+0xQp0PYUxBzjUY6eLpPBKhc64ICcE6YeFtq+LYAqPd3s1+9I+62caFHBbBu
-	+gmRfDPA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ME+xNkoeE4ctIAxfAzYaPkyPD55bBWMm21iy3jKU/r4=; b=jRN7mKUX0QTtidsxS/lwk8z06s
+	b9lkPn8mr1mkk1yC7UHuMwYEEjDosRB4Efw/l2WCEsyvCpKqClsyGBZBRhdgTB4ka2sEySajR5qvH
+	qQjv7149ChTOG6ws0tkckhmAD9liZCGxSoyIwLFLCWV6ksFcxLgqojI25qeO0od2F9krdm5gmdIFw
+	lftP0p54xXucLcbwvwHph5/vDM4DBUc2bF92lSKBykWIS0K0NZTOP2s5m1mc3mlFLUuGosWde3yE3
+	JcPftC5Fb5ptmfs80EbY5Gdm/n5TS4IbQhp0Cpl24CE/U1c1UJwS71yMqrayj+nanx73dJLETMp0O
+	2P/FxWJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVu9z-00000001iWn-49G4;
-	Sat, 06 Jun 2026 16:46:11 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wVvGm-00000001k1E-2OEi;
+	Sat, 06 Jun 2026 17:57:16 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVu9y-00000001iW3-10tn
+	id 1wVvGk-00000001k0v-2TBL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Jun 2026 16:46:11 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36d6bb38b44so2139989a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 09:46:09 -0700 (PDT)
+	Sat, 06 Jun 2026 17:57:15 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2bf0ddaf50fso20204155ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 10:57:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780764369; x=1781369169; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0CCEPdnbAf9O7YZGI5gomWMwSVZTv0vCb5M8aGMFXew=;
-        b=boliuFEvrnPyh/Kj4HBG4ukAdBkTeX44dy7fMLP+x6zuKbuSMP5pg24kgeUwICtlgs
-         6HJbpBSJh/Gh3ucA6tuVoFxUQqpnHGoADpl2GIHn5Tc+g4b4IZE+BsLP6qI2W1lz6JMJ
-         iJSNhq4xS+Ok8IZQH3G+nt4nJUb2HGapkuks9Lt8I2Qrk4DD83n8P4eN/q9NzLmZSZrY
-         RAQeX7JlGeAP3UkfEKwEWzxMSGrcxRKFGNHFOaqTbXUy7CZjY7EGooj+Dy4Fvz6qksEG
-         qx28pzdQavGwQ1J+pwwV0y9cov2cMIZtPLEVeA7VpYpTsJGjnGBAG6XETLLChwIEhVmG
-         2d3g==
+        d=gmail.com; s=20251104; t=1780768634; x=1781373434; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ME+xNkoeE4ctIAxfAzYaPkyPD55bBWMm21iy3jKU/r4=;
+        b=tC9Ytfz+kUiJIVJRdf7HEEZizH9FMKlkfQmSmFWOtyf3GX2zgsRQVicbVg/yzQPtEz
+         DlYPQ7C/+ZPKwnPTvwm++T98KvUFtFdcyzlfop/3MMmycZUZe5ntxb0WRVtQoyc4D3Im
+         7YDojDuJye92LSFjM/3cohV1bOiFOK7SCd2iAT0GNdT7wZzkGhfV+/as9mLMUo+BY78U
+         gL2MkkYqq+EC53oYgVnxo9RzJinLvFFGUOv5I4pEEwpvACXL9EDm+De+dUxeC0yFwngw
+         EYMi05fkaxBu9fgWIVt9D0XOAFQW7qiEFOWwScsH6I7efX+AqjY0PUbc2fhaHmOSljT7
+         PWpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780764369; x=1781369169;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0CCEPdnbAf9O7YZGI5gomWMwSVZTv0vCb5M8aGMFXew=;
-        b=LRpJB+aIuQns+hNEy8lc9oWYGY7/fKF5qF2329z/173mQHqfHuuryivH83j5OZf21T
-         v/buMOVwd6RZejcVu/7gvZrM5CGot2AsBEljd5C8Vnxq/gumydQvcbr0thoJRmEou555
-         BfGlP0zNbJBCobObqKrMmu6f/pSNhaWLHx6zZyCxdIOLDdJsxMp+jIBYpkv5uNopD/9y
-         dI2/p83l2eROkRy9KCHDwh9NcLwbI32t7d6sUa/ENE8xrrusKhDTJVfkI5M/m4gNkRAJ
-         8Toco+uakTzfneCYM2VJw21JZaqazoa/nsTo2rRPaJagsKknlHeSCrn6pmiAT4TxBl9s
-         TACw==
-X-Forwarded-Encrypted: i=1; AFNElJ84AzvFPUhMFbsIdKrS0XbvRjXJChqLFsqQPLN00BlFWBd8WiSZPoaxeEPV4tXK1A7IR8bSTuYrFCAF8lGN4Z1u@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPtsM3lVOYfRt0J2GSm8tVkB9E6z/Hjeqh99QdMGiP/XExSXqA
-	TzLmAgprfkcEzd8CqsZA+TxXjA6YeYsRbdo1mrmctZupZAwHrxAMCjlW
-X-Gm-Gg: Acq92OEwVFzAkgwJK7cK8zPNEtNnzLErWBg7eh9zKdOietFOEZWdc4CHX+0mqY5atso
-	m4xsGlV/LZY7+NX2su1jnT2/rvfRpDJdfrIdHS1tbpfvKsWckR6tQTPZQ7GlbH+FSMZ21+lxiC5
-	Ack/WC7sjYNUKJh1G1ch2ZnLb+8yv4DVePR7wOdsWycPpHaWy+mxtEPz+PWmnN/tCinXGPhlOqJ
-	5gljmMcYqXLaB5Naambp7vi5qRd43P8gITBcV+XfJZr1FGfpZvEtqYGqMteikO5N1jHeAXPHDLP
-	Kh+O6vp/mMt48YNu/87O6Ya2UNQtD49b7u0SCXpwMH+0TK8Za0s2YCmsDkvA8xY1FyM2COfofBC
-	LQfUputwIkd8q0bTcbvFbI33MtmZ6iSKJmp1V/ZlTnYPfEJH28vAN/9iEQYblhaTbx6TjVQ8Iv4
-	kXm50k2xUtFcJsyPmI0c69L8LpuhyMLcU7zwlQhXG8vA==
-X-Received: by 2002:a17:90b:1ccd:b0:368:a297:bd38 with SMTP id 98e67ed59e1d1-370eedfff8dmr9852447a91.7.1780764369256;
-        Sat, 06 Jun 2026 09:46:09 -0700 (PDT)
-Received: from [192.168.1.111] ([223.122.38.120])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f714e26afsm10414758a91.17.2026.06.06.09.46.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 06 Jun 2026 09:46:08 -0700 (PDT)
-Message-ID: <b791aed1-cd05-45cd-973b-4d8bef27ee7c@gmail.com>
-Date: Sun, 7 Jun 2026 00:46:03 +0800
+        d=1e100.net; s=20251104; t=1780768634; x=1781373434;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ME+xNkoeE4ctIAxfAzYaPkyPD55bBWMm21iy3jKU/r4=;
+        b=pLFnUMIPe3MG98BNB1eHS83fByXd6LiryTqiCaF7JtnqU0w6VTL5c2qrLp2IJQ4CqJ
+         dM8z7zI6kgw1yDz9U5nleEBHEL2fXUynI8wjSKCjYiysiDIkBmyjO59ytvt9+/fSknjc
+         FTunbCpZfqimXLYSHDbot7PT8uhQcwVlK6alFqXy2xNHCrqre7TIVMOU4+MvhnC/ohae
+         AkRRctAX0MXY9KuUigMFHJrNvwkZaEeCrIMe7veIKfvV7CLntWDZPV5LG37fZQ4KZUyo
+         VoPHWKilNu960H8RwxlqQJ+bDkaqlGRvQ+uYzUfyv9Vk/l0Z6H7VRCZRZDUqF3+WVkLx
+         pCHw==
+X-Gm-Message-State: AOJu0YyhJ2+GanrcrEaDbFpj76VKfJkDFWmVz9//reigyz0YJWWN8gzy
+	B5jbMu0VB4jRVz1A+UBS6OkQAsyLkweqrmWBp3zgGxmdTHSylStX2z9S
+X-Gm-Gg: Acq92OHl67JK5MAVZKm2K7lic8LhapIKm1S/rYkAJWJS7Fj/ZvizUUO0pYznwEuhNoe
+	N008GTZaBl7ODB32OJl0E5FWZLHBWfnPkKyKuKL6ZgKjYX9acmbIf607bAFeBWk1ifZEXbdlp8R
+	6hgdI66xYB9zsFphvzZvX5b6/oPMo2WgPut4iVbclx0yKFJd9qcAXd21HVARiexyFwcU92Fh+hx
+	eUVQGfS6mKWc7fHn4wkuPCu1CRARL3MRIPvxf2A8nGRW9TmG1ofIInqt/R67U6H7hwWY6kiLUg5
+	iwKmPY7VkmtDb14jfBQeDYgXkPaXb2kgnPYruu6ORWDg6URiB0aHvgp7X7W32Syi+3s/picMSzX
+	Vp38AK2d3Osja0707Anxu0V3UAi/NUawQH8np24U6po5RtLF3JNSyXR+i9CWzGX7H/hOvCtODNs
+	Ju9yNGPIK1Au9l1/cXxCCyhqoiJa56Imn25est1fJ7SjIhh4+9HJKI6esKwst1Nvap0lU=
+X-Received: by 2002:a17:902:e545:b0:2bf:1486:e6bc with SMTP id d9443c01a7336-2c1e80ee016mr102752615ad.29.1780768633594;
+        Sat, 06 Jun 2026 10:57:13 -0700 (PDT)
+Received: from v4bel.. ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d69csm129196425ad.2.2026.06.06.10.57.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 06 Jun 2026 10:57:13 -0700 (PDT)
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: tabba@google.com,
+	maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	stable@vger.kernel.org,
+	imv4bel@gmail.com
+Subject: [PATCH v3 0/2] KVM: arm64: Sanitise host vCPU fields copied in flush_hyp_vcpu()
+Date: Sun,  7 Jun 2026 02:56:09 +0900
+Message-ID: <20260606175614.83273-1-imv4bel@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] nvme-apple: Prevent tag collision across queues even
- if tag space is shared
-Content-Language: en-MW
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Yuriy Havrylyuk <yhavry@gmail.com>
-References: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
- <20260606-prevent-tag-collision-t8015-v1-2-93ccf4eca550@gmail.com>
- <a0b0bea4-998e-4196-a2b0-9fcaf531d9f3@kernel.org>
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <a0b0bea4-998e-4196-a2b0-9fcaf531d9f3@kernel.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_094610_282726_968F900A 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20260606_105714_628654_29469BD0 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,41 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+flush_hyp_vcpu() copies the host vCPU context and vGIC state into the
+hyp's private vCPU on every run. This series sanitises two fields that
+it currently copies verbatim (host -> EL2): __hyp_running_vcpu is
+cleared in the guest context, and used_lrs is bounded by the number of
+implemented list registers.
 
+Changes in v3:
+- 2/2: replicate kvm_vgic_global_state.nr_lr into hyp_gicv3_nr_lr
+  once at init (guarded by gicv3_cpuif), instead of reading
+  ICH_VTR_EL2 on every entry behind a gicv3_cpuif gate. (Marc)
+- v2: https://lore.kernel.org/all/20260604151210.1304051-1-imv4bel@gmail.com/
 
-Sven Peter 於 2026/6/7 凌晨12:12 寫道:
-> On 06.06.26 15:25, Nick Chan wrote:
->> From: Yuriy Havrylyuk <yhavry@gmail.com>
->>
->> Apple NVMe controllers require tags of pending commands to not be shared
->> across admin and IO queues. However, on Apple A11 without linear SQ, it is
->> not possible for either queue to skip over some tags and must go from 0 to
->> the configured maximum before wrapping around.
->>
->> If a pending command tag is duplicated across queues, the firmware
->> crashes with: "duplicate tag error for tag N", with N being the tag.
->>
->> Instead of partitioning the tag space, which is not possible without
->> linear SQ, 
-> 
-> Isn't that just what the pci.c driver does with NVME_QUIRK_SHARED_TAGS 
-> for the T2 macs or what we do in this driver with
-> 	if (anv->hw->has_lsq_nvmmu)
-> 		anv->tagset.reserved_tags = APPLE_NVME_AQ_DEPTH;
-> ?
+Changes in v2:
+- split into two patches, one per field, per review.
+- v1: https://lore.kernel.org/all/aiFe-CXo-XVTFz1g@v4bel/
 
-After adjusting the apple_nvme_submit_cmd_t8015() function to account for
-the admin queue depth, it seems that the existing workaround for M1 of
-reserving two tags for the admin queue works on A11 as well.
+Hyunwoo Kim (2):
+  KVM: arm64: Clear __hyp_running_vcpu when flushing the pKVM hyp vCPU
+  KVM: arm64: Bound used_lrs when flushing the pKVM hyp vCPU
 
-Will post a much simplified v2.
+ arch/arm64/include/asm/kvm_hyp.h   |  1 +
+ arch/arm64/kvm/arm.c               |  2 ++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 ++++++++++++
+ 3 files changed, 15 insertions(+)
 
-Best regards,
-Nick Chan
-
-> 
-> 
-> Sven
-> 
+-- 
+2.43.0
 
 
