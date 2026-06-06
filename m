@@ -4,106 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96652CD6E7B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Jun 2026 23:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F738CD6E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 00:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2k7U07qtwbFmbaheJUqoAwqTh+vQ4LcZsVmb0igPq1c=; b=dJYp0cSsqeJEK/LjnW/cObY5KA
-	CVpmoqI9cmSSUtElBoJCJ+3hpVNmcfWK/uwnMwBnRKo/GyGh1msR426Yd8Rr3rnatAg80hkCoWNaN
-	xIho13ecm2ONi1/bGccw+ck4/F4Hq/aP9cT/+JNveCpVqPb0fxLePjwIopHsDM2J8HedujHDg11c0
-	SdsWpMFegylAicHCWJlFm3uybtg1nArupKNQSY8dPtwApvydpqeermhV0+sfrA+GiYu7ear4XJj0U
-	Ec82mXG8bSnT8PiE59PKCDWbRO7Oa0VzacneFENp0YrgA8t1KYRm7h32jMg+ZaOiJkrp6dcO1xlMC
-	gbqlLxtg==;
+	bh=10R7bpEJTdOdzVayFD9Q6l+SCZSwLyUlb7ZztL7dxms=; b=WOwo5+4Ki4Owu/pKFJcO4xyRGY
+	rsHNJ8cKRmQ4MIR/2qbSAs4kJIqOAT2k2H4xaK4boLrVylOiJRPqMgJkVjeIPliVWUb1O1/vieHHT
+	NgAayS1tp35VG1PMZXGGn+Bj/J6PDeyjDOFtqY4/Sm1e414epKXL3LZbl57PLDM2vt+4JgvPwuJmD
+	ZwZJJT2Cm1Nx8ODE9twKKyR2rb/gjdwBEWhHBEUgtMXfsNAzPKhJDNprHzsibBvEAspwb//T6u2kM
+	1jQgkrGF4MD/+Q1GiExzuWZYqN/FCUhDUv6tqHzGDNN9dbZgNqxmo8AjXzfh0MHhazk9SOerf8cp7
+	/eA4K0cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVdsC-00000001JWn-2h5F;
-	Fri, 05 Jun 2026 23:22:44 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1wVf0S-00000001LDz-2MDu;
+	Sat, 06 Jun 2026 00:35:20 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVdsA-00000001JWF-1zhH
+	id 1wVf0Q-00000001LDd-1TyS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Jun 2026 23:22:43 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7e6f586a0d5so1139077a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Jun 2026 16:22:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780701761; x=1781306561; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2k7U07qtwbFmbaheJUqoAwqTh+vQ4LcZsVmb0igPq1c=;
-        b=fs17hIV6THaHHpia9qpEKlNKV37eRFMPZlaggHlNwe4oR1iKKfzwafHMjWWN0kjNNn
-         D7fWQod/xpG8dlBQddVyFt3aABSPC8wRnOJ898JDXfXhShwkCzh12C+94UKhMM0Pq/bW
-         9jgIp2W5cgIl40Xofh2TQqMgQLhrE4pTivHBAas24FGtrCIhuuUpDjzEmlfQrIlxnDrn
-         R4kMutv/4m4vi4S4PezRsvOjjoW0L3NnPL6wXKTDDLnkBVkfZYJbHjUZZhW8qVxxdtAI
-         g7qv+k6fqBuugWBgB57pcmZqH6Og/Hu/SF66xnsPWULtIL451taUbF8vrk6RpYb68zpY
-         PLYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780701761; x=1781306561;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2k7U07qtwbFmbaheJUqoAwqTh+vQ4LcZsVmb0igPq1c=;
-        b=Q6HwK1jyIVi2uX4WjVN8/eim5VPKknp9o3lzHH4aHFVj7OlzVNfx4NRuHRBM7DhmF6
-         +KuGAGkGv6LYdVWoq2/rtbKuR0Cz09OU3vLQVdGOSAWEXdGAc+NaXhzGUiMGkzZEB29k
-         XcFA+fVlAfMkoS/VEnkJcq8OrR3pl2AjeavrtU9/IOxnL9RB7AtipBa8Ne/YxDtKiINX
-         IxM/eQN+SE93ESxiVkHGxTH5JpGqe504Y9Cz0Cm5m5Fz1MQXVnIq2sLL32kwz/Ml/jIq
-         JDxJ9Fu68YAkuX1/Z5Vck1WS0dVHqgDKGslIqLcX1vCKiblJU22WLFFZ8hEvDAIhg0Ny
-         e7/g==
-X-Forwarded-Encrypted: i=1; AFNElJ9gX/8N65pe2n4nk8n49rievQcZ4rGhU41pTcJeVcvbwKHpc10rlc5dc6sF1HGDmAbQxhAa5q2CZuS1K8ZYTJPM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJ8ZNv+KLYWBjjBJDu5yGi3+JRRdw0xy5XzszVsJ/dXUIP24KS
-	oNXer0vKq6c60M5f4dE80lH8WS2e7pjuB0wfi0q7NMSsiTRFDMkh60Ri
-X-Gm-Gg: Acq92OFtqawiQGWDGkyQonns1K045/EhUA64lSbh5n88wMw8ji8WpJftEGcdDitkss4
-	AypGNzz0tuuTdqlWZ0CZmXmXaShA+AYcmPpbsh0nxZmIaKMMrSV5koc8apRtmW7jScu4GpuUON4
-	RHOEnmWVzew9O4A8S1wBGHPGaUb3Wgvm/+Z+xP4VTwFZB7XJjgy5xgjQUHbBkgTsxkaUgho+BRL
-	HhpARH4PhpZEOwaYNY8tGl8iysJ9gsl2iT0tKTSYxFUdKKFnyYT/wNhUxL7621pS0Z0vuz8SXnU
-	I2Yb5lFiu1btIkgpx4K5BlVuvMkbF4//Nuw2NbbijQ47YIkJX0Uo+LI2BoHjRDTC1zGzl6mmlC/
-	7/WdWG8RKmkMmUzO8M502rqdlJA9u0efIF3C4Ji/o27O8dWNjediiPP6R/hFi39jZ/4DZ4toQO3
-	1SyVqDHSKUDVCIghUjCczTI9rUYK+9iXybE1WzgUET9ETWVA9DKu6CEIj9eR3uxbDZoD2G8WJy4
-	8sdtZf8l4NYZ0CoK7KxOsL2n+vy
-X-Received: by 2002:a05:6830:82bb:b0:7de:4fc6:a588 with SMTP id 46e09a7af769-7e70ca7b3c2mr3388171a34.23.1780701761185;
-        Fri, 05 Jun 2026 16:22:41 -0700 (PDT)
-Received: from localhost ([2a03:2880:10ff:4d::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e6e745fea5sm6605643a34.5.2026.06.05.16.22.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Jun 2026 16:22:40 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 05 Jun 2026 16:22:39 -0700
-Message-Id: <DJ1I3B2TSXSL.AV4PS9YH714@gmail.com>
-Cc: <ebpf@linuxfoundation.org>, "Bastien Curutchet"
- <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH bpf-next v2 4/8] bpf, x86: refactor BPF_ST management in
- do_jit
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
- <alexis.lothore@bootlin.com>, "Alexei Starovoitov" <ast@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Ihor Solodrai" <ihor.solodrai@linux.dev>
-X-Mailer: aerc
-References: <20260604-kasan-v2-0-c066e627fda8@bootlin.com>
- <20260604-kasan-v2-4-c066e627fda8@bootlin.com>
-In-Reply-To: <20260604-kasan-v2-4-c066e627fda8@bootlin.com>
+	Sat, 06 Jun 2026 00:35:19 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 655KPGLH3165334;
+	Sat, 6 Jun 2026 00:34:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=10R7bp
+	EJTdOdzVayFD9Q6l+SCZSwLyUlb7ZztL7dxms=; b=RoUHrZSBgzuGWiJYOobbkB
+	/uQkABo/YV4/wSRYGiwn9Ynd3JL66r4IQeDQvzBMEgK3kIX0ZxDPjx2aNkSaTOVs
+	gTquWUfkdJp4D41f8WqPwCGXecmnbTJYjOSAkisQRTD5eWdvIlADCk0h+ymg9sqe
+	ytafL6jBkxQn3Y+qxgVP9e42FMaX1eCiCBRPx1sy0V7uItqD3CJWavhEiEclAYIN
+	4+mS9hCXrkzBjH0VZP3xbY4y4HCfp9bXE2sYFBWify0bxsKhFP/TJoNtj1tuq+VE
+	4ytyKsZpXDnSEN1FkNsq/pCg6+k3ih0UWLoz7Bz8L5CZGjM0/fACZpgM+qBmTn5w
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4efpaep0sr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 06 Jun 2026 00:34:49 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6560O6gk027834;
+	Sat, 6 Jun 2026 00:34:48 GMT
+Received: from smtprelay05.dal12v.mail.ibm.com ([172.16.1.7])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4ega7qv6fn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 06 Jun 2026 00:34:48 +0000 (GMT)
+Received: from smtpav01.wdc07v.mail.ibm.com (smtpav01.wdc07v.mail.ibm.com [10.39.53.228])
+	by smtprelay05.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6560YlZk30933536
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 6 Jun 2026 00:34:47 GMT
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B8FA95804B;
+	Sat,  6 Jun 2026 00:34:46 +0000 (GMT)
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 147E058063;
+	Sat,  6 Jun 2026 00:34:45 +0000 (GMT)
+Received: from [9.61.255.106] (unknown [9.61.255.106])
+	by smtpav01.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Sat,  6 Jun 2026 00:34:44 +0000 (GMT)
+Message-ID: <fbf37e22-8698-4688-9fe2-9e38658920cb@linux.ibm.com>
+Date: Fri, 5 Jun 2026 19:34:43 -0500
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/20] s390: Expose protected virtualization through
+ cc_platform_has()
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-coco@lists.linux.dev
+Cc: Robin Murphy <robin.murphy@arm.com>,
+        Marek Szyprowski <m.szyprowski@samsung.com>,
+        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+        Steven Price <steven.price@arm.com>,
+        Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+        Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
+        Alexey Kardashevskiy <aik@amd.com>,
+        Dan Williams <dan.j.williams@intel.com>,
+        Xu Yilun
+ <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+        linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+        Halil Pasic <pasic@linux.ibm.com>,
+        Matthew Rosato <mjrosato@linux.ibm.com>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <20260604083959.1265923-2-aneesh.kumar@kernel.org>
+Content-Language: en-US
+From: JAEHOON KIM <jhkim@linux.ibm.com>
+In-Reply-To: <20260604083959.1265923-2-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=Zt3d7d7G c=1 sm=1 tr=0 ts=6a236b29 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=blRdvrxeXnuE--CKtYQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: ggpQfBSPHMe1E8vMi3W1YAcBxeGqHkU7
+X-Proofpoint-ORIG-GUID: R-cCnVSeKSEuXI4kZncs7oFO8xtbizvI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA1MDIzOCBTYWx0ZWRfX9CWxwkp73QOf
+ ZCH4PcwFj7hkSywfl53gPqnUYZONt+fisFvoWdZOYTyT/hiKmJ9eU+cj3qU6bOdD1JUJjUTnFwa
+ ucoZ3M+XIX/H7cgV5kPBdBK5BaKIZSeRJbxRpdepy5t8VxGknQ853KyhwMtTE/YQ2FN+AFuAGWL
+ d9i4B/tfPrel1DUWKv+3FV71IZJI4IX6EyXoSz/8AnFWX1hASHDLUA/+OpTgKTnZkjMBBvWY4az
+ ooWmu/2NwO95b7RZWbB5O/Pj1qgGuwwJZtlZkf6UxLW9lLcU9vvHHM201Mu0ZikAVCd0fMGCHHp
+ 9ns2dJJMnWbtvb2lhH1iR2pZGU73I+zgWWuTpgupFrYDkoYrbQCdgou2J4ENmDyinF5Jimv+1Yl
+ JX76uXu3wzudOrj/Ql4gsBnWAA+lAuSIXm00ffyXp7fu1ZI0zbiwzHJS/MepnwU8HYqA7viDiba
+ mDkSbz2OSX92hxN+c4w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-05_05,2026-06-05_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 priorityscore=1501 bulkscore=0 clxscore=1015
+ phishscore=0 spamscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606050238
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_162242_521042_5A3B3BC5 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20260605_173518_544551_C8672DD3 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,82 +145,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Jun 4, 2026 at 1:22 PM PDT, Alexis Lothor=C3=A9 (eBPF Foundation) wr=
-ote:
-> In order to prepare for KASAN checks insertion before every
-> memory-related load or store, group all BPF_ST instructions that indeed
-> access memory in a single block of fall-through cases to allow
-> instrumenting those in one call, rather than having to instrument all
-> cases individually.
+On 6/4/2026 3:39 AM, Aneesh Kumar K.V (Arm) wrote:
+> Protected virtualization guests use memory encryption, so advertise that to
+> the rest of the kernel through cc_platform_has(CC_ATTR_MEM_ENCRYPT).
 >
-> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boot=
-lin.com>
-> ---
->  arch/x86/net/bpf_jit_comp.c | 53 ++++++++++++++++++++++++++-------------=
-------
->  1 file changed, 31 insertions(+), 22 deletions(-)
+> s390 already forces DMA mappings to be unencrypted for protected
+> virtualization guests through force_dma_unencrypted(). Add
+> ARCH_HAS_CC_PLATFORM and provide the matching cc_platform_has()
+> implementation
 >
-> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> index 0981791014eb..943a0f315cf2 100644
-> --- a/arch/x86/net/bpf_jit_comp.c
-> +++ b/arch/x86/net/bpf_jit_comp.c
-> @@ -2300,41 +2300,50 @@ static int do_jit(struct bpf_verifier_env *env, s=
-truct bpf_prog *bpf_prog, int *
->  			EMIT_LFENCE();
->  			break;
-> =20
-> -			/* ST: *(u8*)(dst_reg + off) =3D imm */
->  		case BPF_ST | BPF_MEM | BPF_B:
-> -			if (is_ereg(dst_reg))
-> -				EMIT2(0x41, 0xC6);
-> -			else
-> -				EMIT1(0xC6);
-> -			goto st;
->  		case BPF_ST | BPF_MEM | BPF_H:
-> -			if (is_ereg(dst_reg))
-> -				EMIT3(0x66, 0x41, 0xC7);
-> -			else
-> -				EMIT2(0x66, 0xC7);
-> -			goto st;
->  		case BPF_ST | BPF_MEM | BPF_W:
-> -			if (is_ereg(dst_reg))
-> -				EMIT2(0x41, 0xC7);
-> -			else
-> -				EMIT1(0xC7);
-> -			goto st;
->  		case BPF_ST | BPF_MEM | BPF_DW:
-> -			if (dst_reg =3D=3D BPF_REG_PARAMS && insn->off =3D=3D -8) {
-> -				/* Arg 6: store immediate in r9 register */
-> -				emit_mov_imm64(&prog, X86_REG_R9, imm32 >> 31, (u32)imm32);
-> +			switch (BPF_SIZE(insn->code)) {
-> +			case BPF_B:
-> +				if (is_ereg(dst_reg))
-> +					EMIT2(0x41, 0xC6);
-> +				else
-> +					EMIT1(0xC6);
-> +				break;
-> +			case BPF_H:
-> +				if (is_ereg(dst_reg))
-> +					EMIT3(0x66, 0x41, 0xC7);
-> +				else
-> +					EMIT2(0x66, 0xC7);
-> +				break;
-> +			case BPF_W:
-> +				if (is_ereg(dst_reg))
-> +					EMIT2(0x41, 0xC7);
-> +				else
-> +					EMIT1(0xC7);
-> +				break;
-> +			case BPF_DW:
-> +				if (dst_reg =3D=3D BPF_REG_PARAMS &&
-> +				    insn->off =3D=3D -8) {
-> +					/* Arg 6: store immediate in r9 register */
-> +					emit_mov_imm64(&prog, X86_REG_R9,
-> +						       imm32 >> 31, (u32)imm32);
-> +					break;
-> +				}
-> +				EMIT2(add_1mod(0x48, dst_reg), 0xC7);
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-maybe it's an opportunity to cover this into separate helper function?
-When indent reaches 4 tabs it's about time.
+Tested-by: Jaehoon Kim <jhkim@linux.ibm.com>
+
+Tested on s390 PV guest with swiotlb_dynamic configuration. SWIOTLB
+bounce buffer allocation and dynamic pool management work correctly.
+Also concurrent I/O stress completed successfully.
+
+Thanks,
+Jaehoon.
+
+> ---
+> Cc: Halil Pasic <pasic@linux.ibm.com>
+> Cc: Matthew Rosato <mjrosato@linux.ibm.com>
+> Cc: Jaehoon  Kim <jhkim@linux.ibm.com>
+> ---
+>   arch/s390/Kconfig   |  1 +
+>   arch/s390/mm/init.c | 14 ++++++++++++++
+>   2 files changed, 15 insertions(+)
+>
+> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+> index ecbcbb781e40..9b5e6029e043 100644
+> --- a/arch/s390/Kconfig
+> +++ b/arch/s390/Kconfig
+> @@ -87,6 +87,7 @@ config S390
+>   	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+>   	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>   	select ARCH_HAS_CC_CAN_LINK
+> +	select ARCH_HAS_CC_PLATFORM
+>   	select ARCH_HAS_CPU_FINALIZE_INIT
+>   	select ARCH_HAS_CURRENT_STACK_POINTER
+>   	select ARCH_HAS_DEBUG_VIRTUAL
+> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+> index 1f72efc2a579..ad3c6d92b801 100644
+> --- a/arch/s390/mm/init.c
+> +++ b/arch/s390/mm/init.c
+> @@ -50,6 +50,7 @@
+>   #include <linux/virtio_anchor.h>
+>   #include <linux/virtio_config.h>
+>   #include <linux/execmem.h>
+> +#include <linux/cc_platform.h>
+>   
+>   pgd_t swapper_pg_dir[PTRS_PER_PGD] __section(".bss..swapper_pg_dir");
+>   pgd_t invalid_pg_dir[PTRS_PER_PGD] __section(".bss..invalid_pg_dir");
+> @@ -140,6 +141,19 @@ bool force_dma_unencrypted(struct device *dev)
+>   	return is_prot_virt_guest();
+>   }
+>   
+> +
+> +bool cc_platform_has(enum cc_attr attr)
+> +{
+> +	switch (attr) {
+> +	case CC_ATTR_MEM_ENCRYPT:
+> +		return is_prot_virt_guest();
+> +
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(cc_platform_has);
+> +
+>   /* protected virtualization */
+>   static void __init pv_init(void)
+>   {
+
+
 
