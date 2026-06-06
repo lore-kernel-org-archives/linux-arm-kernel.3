@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F467CD8C89
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 02:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB0FCD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 02:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kMLca7nfWY9RizQfqQEviPppjRfuz0UhEGaO/4cVevs=; b=Lt1cYhHHOrZpzNqwpGa/6C4wQj
-	JNMBTjjKf9TWaiW/91ZzFkLQa1mWHQkXSk8wQ0DUp/xCX7DwcuqQ8e4z+c3D9x14HrbAaF7ihRt2y
-	jKA1cZi7k1CAeHS66+k2NjMtz1GuH8CrCx2niXbk0rE8ZwlJTrsHRU1/P0e6ED4Yka9laIYX5kzqa
-	Cx5E9Z8EfPPSK+kJSIX1nBO8Hk4vdgCnC8gTqAtlcLMPnzFEYRYusCewN+66qZVIthl13aGs/oWcC
-	oXoGdzAfzl50rI4hNYDJWkFZMxzPDqLT7kj/wG8/HiBs7XvZ3pOGG7qgFnQnpdM2wnc5v/+XuuuxD
-	PE01Rw/Q==;
+	bh=IJ4dvH1AwTrkcpbGD0pqq9b3zvNc2O1tgQiFh615F/U=; b=py+5Jh/HO8KJOKSv7P1nzGabmO
+	pjhCiQhtaHxT3DIGswgaeo4xXwJyW6NqLapmESq47Vr8HiO7gCxq/skcHoLsiaQx/fQ2+KTbur4Ap
+	g8WvOp2EjjcW2gw9NkMgLIcH07ann95TQAr/lpK+RVHCBUED0mNjVy/Dy5XLEAdT53wE/8hYr3XcI
+	Qsuuou5A8Ssut7f2fW+5h12dvi2Hdu40hU5tlq6jl47mMgw0zQigFK/LJzsEl5B3xt8tTE6OHDO/y
+	MRmYzRjSUrDn9DnmDHZwoO8dF/n88QH8a4FlQ98WVhhZmULd/svf9t9GuNSldp/zPl5NMCdiz5CcJ
+	3IYTk8Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVgUV-00000001OE3-2sqm;
-	Sat, 06 Jun 2026 02:10:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wVgUY-00000001OFO-3Xha;
+	Sat, 06 Jun 2026 02:10:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVgUU-00000001ODh-2Jef;
-	Sat, 06 Jun 2026 02:10:26 +0000
+	id 1wVgUW-00000001OE2-03Cd
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Jun 2026 02:10:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8A04441CC;
-	Sat,  6 Jun 2026 02:10:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5B5F1F00893;
-	Sat,  6 Jun 2026 02:10:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780711825;
-	bh=kMLca7nfWY9RizQfqQEviPppjRfuz0UhEGaO/4cVevs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=TfEVPsW2JDPmWdJxiQloAJKrWYcn3IRGJ6yfNo8yR35J7dWRDFDbOaS5l/Duu393s
-	 r61sP4XE9OxzRF3L2TvMvtCPVtG0h5Ra9cTPqTrSsZLOyLQ0ml2m9dpVfmL0CfEFm2
-	 ywl+PjirMHj7sUS/bAKuVauTatFDdExPcn7dEzpqCn8XPOTKQbnnPdnoy7pi5GDfOV
-	 v8PZ01Lu+CQBfaf+Kgl0lmFfCpfTjvsYzFAwvAAqwLgVyALQXaEEnPk+QGNkWTqEzd
-	 zk7o8yl41w5La+mgN8zQGebVZHqlF8dqKb2QvKyoPSPTablFn0J9XqamR5xjFK8duD
-	 OnilhwFDZ9uWg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 198E43930A9C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 58955442B5;
 	Sat,  6 Jun 2026 02:10:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38FCF1F00898;
+	Sat,  6 Jun 2026 02:10:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780711827;
+	bh=IJ4dvH1AwTrkcpbGD0pqq9b3zvNc2O1tgQiFh615F/U=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=NEZ2zJL0FHiZnWoXcoL3deD35EaC+m68Vw79F8khU5o7rtOTWMmd/UwILCHmMWOj2
+	 oCblPP8M06oMtpMdE3vxLhAryFjbfUHrRChAT1coloYCjSgWBaBXuWFmZ6pIFvXrWX
+	 D5RREs4qZfT0/JZu/g9enIZ/H3VtMpSQ+C97Ies3c6c58bQd8z3ExwUGSplh1PYRby
+	 nDpppBF5ImVpOPSV6uBLF/b3DcJGHLnT3eO4TmJIw0wXRBlw1umveZdmWN4ZFRQNr/
+	 WOEv4qIe++HFRa2JRzbRa+Gp8EEJ6zy93J5UFD4qZcxtMtR40PcDgC3QsILFCWpyYY
+	 vYrPU/bXHUd+Q==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939CB3930A9C;
+	Sat,  6 Jun 2026 02:10:28 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v9 0/6] net: airoha: Support multiple net_devices
- connected to the same GDM port
+Subject: Re: [PATCH net-next v3] net: microchip: sparx5: clean up PSFP
+ resources
+ on flower setup failure
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178071182563.3993660.16859528929943768907.git-patchwork-notify@kernel.org>
-Date: Sat, 06 Jun 2026 02:10:25 +0000
-References: <20260603-airoha-eth-multi-serdes-v9-0-5d476bc2f426@kernel.org>
-In-Reply-To: <20260603-airoha-eth-multi-serdes-v9-0-5d476bc2f426@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, ansuelsmth@gmail.com, benjamin.larsson@genexis.eu,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org, xuegang.lu@airoha.com,
- madhur.agrawal@airoha.com
+Message-Id: <178071182714.3993660.9574307915751571601.git-patchwork-notify@kernel.org>
+Date: Sat, 06 Jun 2026 02:10:27 +0000
+References: <20260603061716.747282-1-lihaoxiang@isrc.iscas.ac.cn>
+In-Reply-To: <20260603061716.747282-1-lihaoxiang@isrc.iscas.ac.cn>
+To: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
+ pabeni@redhat.com, Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
+ UNGLinuxDriver@microchip.com, kees@kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +77,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 03 Jun 2026 08:00:14 +0200 you wrote:
-> EN7581 or AN7583 SoCs support connecting multiple external SerDes (e.g.
-> Ethernet or USB SerDes) to GDM3 or GDM4 ports via a hw arbiter that
-> manages the traffic in a TDM manner. As a result multiple net_devices can
-> connect to the same GDM{3,4} port and there is a theoretical "1:n"
-> relation between GDM ports and net_devices.
+On Wed,  3 Jun 2026 14:17:16 +0800 you wrote:
+> sparx5_tc_flower_psfp_setup() allocates PSFP stream gate, flow meter and
+> stream filter resources before adding VCAP actions. If a later step
+> fails, the resources allocated earlier in the function are not unwound.
 > 
->            ┌─────────────────────────────────┐
->            │                                 │    ┌──────┐
->            │                         P1 GDM1 ├────►MT7530│
->            │                                 │    └──────┘
->            │                                 │      ETH0 (DSA conduit)
->            │                                 │
->            │              PSE/FE             │
->            │                                 │
->            │                                 │
->            │                                 │    ┌─────┐
->            │                         P0 CDM1 ├────►QDMA0│
->            │  P4                     P9 GDM4 │    └─────┘
->            └──┬─────────────────────────┬────┘
->               │                         │
->            ┌──▼──┐                 ┌────▼────┐
->            │ PPE │                 │   ARB   │
->            └─────┘                 └─┬─────┬─┘
->                                      │     │
->                                   ┌──▼──┐┌─▼───┐
->                                   │ ETH ││ USB │
->                                   └─────┘└─────┘
->                                    ETH1   ETH2
+> Add error paths to release the stream filter, flow meter and stream gate
+> when setup fails after they have been acquired.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v9,1/6] dt-bindings: net: airoha: Add GDM port ethernet child node
-    https://git.kernel.org/netdev/net-next/c/a4597204b681
-  - [net-next,v9,2/6] net: airoha: Remove private net_device pointer in airoha_gdm_dev struct
-    https://git.kernel.org/netdev/net-next/c/4408f5206809
-  - [net-next,v9,3/6] net: airoha: Support multiple net_devices for a single FE GDM port
-    https://git.kernel.org/netdev/net-next/c/a9c2ca61fec7
-  - [net-next,v9,4/6] net: airoha: Do not stop GDM port if it is shared
-    https://git.kernel.org/netdev/net-next/c/99b9d095d71e
-  - [net-next,v9,5/6] net: airoha: Introduce WAN device flag
-    https://git.kernel.org/netdev/net-next/c/7758cb462ff7
-  - [net-next,v9,6/6] net: airoha: Support multiple LAN/WAN interfaces for hw MAC address configuration
-    https://git.kernel.org/netdev/net-next/c/ef2aee987174
+  - [net-next,v3] net: microchip: sparx5: clean up PSFP resources on flower setup failure
+    https://git.kernel.org/netdev/net-next/c/46e503673387
 
 You are awesome, thank you!
 -- 
