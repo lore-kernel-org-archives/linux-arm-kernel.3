@@ -4,110 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF692CD8C99
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 13:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D88CD8C97
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 13:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gt51o7gJucZDYngX+zezYd8oMcYGRKCaBEJDS7EqeeU=; b=f0OuptkeSyox9L
-	E5J+AciEL3KHBmKo/97e5c/K3+NZPq1bp0MGZpjy78vjMvIfM/8m7ict4N7LJ482jcltmPq37wwPE
-	B59DeZzwVn3GlarKMSeHa3xrfa6K0KNenqUCkEXAgIGC5OqqVqq+Bbzt9LAoPKYkKsGoerxUsgz2C
-	YYpjaWC3TYIYi0WXWbedmOgF3bhlU8GVr5uRskkQdafrjpuZXg4wF90Tj2imNlfz/EoHEcyuso/ce
-	78YstkvHMtYsJdBLMyUSw7TtNCFn599vkOgx88dEwtE4uXHS3mrsT5OnP4ViYNvNgMqgd12q3WD8k
-	Raocn+Wqb92CNuyB5d+A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NeEBBh0lNzCCAreOc9bk7WWW8nd2UTHn7HjqcTneUFU=; b=NTIB7iISLBcCOrNGT234D2rOAz
+	Phl9m0BROIJmPfWOIBH3kEr+FqMbxkIDhBvtg27zjzJGYBCJb0B0AEKHElqNcBeZMVAZunmBFMIlp
+	+U/JvLrESv98UX2ZG3ROBzHg/bRBfLNL8w0xa6VdzzpoWwvVahtnWNxm85LR8LkwG530b64r89+3t
+	Z1P4n3yG1m44tNsBbKEZ1KkOdQurd8wMyjrFwMQ49u+GfnTDiM2Tcf0psW7mhyWhauor0HR7f0x9Q
+	tKdQQGzgHJ0/UEcUDjER49EgHtTpSppsWkYxRbUSM1/h4WIlMb8427jwwFTVBoO7jbFarj4EFvqmw
+	RAUQy43w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVr2R-00000001c88-1hS5;
-	Sat, 06 Jun 2026 13:26:11 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1wVr2W-00000001cAN-2727;
+	Sat, 06 Jun 2026 13:26:16 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVr2O-00000001c7J-2qvY
+	id 1wVr2S-00000001c8P-18BG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Jun 2026 13:26:10 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-84226d0f1d2so1981216b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 06:26:07 -0700 (PDT)
+	Sat, 06 Jun 2026 13:26:15 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-84226d0f1d2so1981251b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 06:26:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780752367; x=1781357167; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gt51o7gJucZDYngX+zezYd8oMcYGRKCaBEJDS7EqeeU=;
-        b=AcbBa/cWnI+r1cKvmBkS6HPdgEJ+PmrCQDR7gKMgiuLnH7/L71Fq70DkHZHBk975ld
-         TlyGTCYCfSQEgWP+oaJKcV9H2O1pJ+3T1DSYxUOQmnxqCIMmv70d4K0o6Y8E70iV1aoy
-         8Sejs8tpxn2kQN5+JyValrmflqJoyaCPSl+fp+QmINTZ1MKff1sgqNxLNkO5MHzGDSfy
-         +9Fzwd6MBDHPTAh3IsnYOAqc6ADrvv2h4wpL4fQsz2sDfDwqpKNZ76TN5ycnITE2xzUx
-         G9QefbzXSnT7lje872LY8wv/rVnEdBrmYRlMwIyatoSpv4SKSpbi89oiGn4sxL5OCTP2
-         bA8w==
+        d=gmail.com; s=20251104; t=1780752371; x=1781357171; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NeEBBh0lNzCCAreOc9bk7WWW8nd2UTHn7HjqcTneUFU=;
+        b=DW5Hfp1aHZlb5Fw3I3RwBy6yzB/TEqU3N/PcykkSHnUVGQymgrJsGL9HG98pbtBHSz
+         Tc+6sC7AOYnovM7ADN2W/hADVlWD8EZ6IMeQ4cbuPceml4JlSR9q2tYXGy8h39of2EhE
+         pmjY+GKf1aO4yEV8obrndaWIPjP0DDGVKHi3t1HmRDAL6xUtSk6f39yyUcaH7F4CJH9Q
+         aRFDOr3Gi1CFAQWTIVXdJmbo52ZfFkjtPVFHHzWwsnVK/Pc5xEn/kU4VpaEeEmNmwFZC
+         +48w5iJVSEh2DU6T9dPq79RRiOEhLH3iTCCzME4SdJaf8nCdfKY5asVrmHPsWnQamMtm
+         aAXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780752367; x=1781357167;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gt51o7gJucZDYngX+zezYd8oMcYGRKCaBEJDS7EqeeU=;
-        b=Tudpme7dV8TNp/9nBOcw5i4MVPKOnjeshxORF/KIv+5B9p3qj0Ms8qyMWQ/lJQfBAY
-         VC9wW3kQl84cfszm8zVVJYtLTszTy3D9/L8dsR6vn2YhgAOoxNlE0X3lk/lrpOpfrKR4
-         4JiOmS/IwfyjAblRBrlDFSsfASE2k2r1rOJAHSJaPL3gxPK8/x0rRcUr2yEB/+3mIHuG
-         Aya25SR2dAlz2BAQKk/sXsDRAbJh+PzbZIs17hTNEmVlUGsYClUqKFaQ/hOtImE1bvkD
-         +RIXIM4g1pUHuehJVkpsFYbdLG0KTxAR7cyVcLPE13VytYAic2+9kJJ5NOn+Ji7uLdjC
-         Bbxg==
-X-Forwarded-Encrypted: i=1; AFNElJ8MIeGG530LWicYuvj9dVbLpdGgso3CXx8jqwcLiEPlNeeYMAsegTb4lyLgFy90mMUu4p78XimbOk2uCJH8SFu9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5vZVyK934RASfPaU9cb2eTxrtYANVLir82yG6jsP7AdUroZ1N
-	OfAbN2pqsQWByp4DzjQfNKbLJOMUKFLMezVryRZUShojbKLNBtFqViuB
-X-Gm-Gg: Acq92OF34bQijOUxOH7J7BWLI357o2Kr/gJrC1GVyKmUJE36cQcU0pcW5Nv42t8rbGx
-	JdDUAZGjwmNAOwQViwRhudJtmrZnLhvo2cfvnLQWMpH5jUM/NyHddKKMmvOS2dgJqkWxdnhSVqE
-	eQVpWTzXuBuf79sSA1WUd2apWnmfVsggr0qaz+xZ3C3MCefGRekT6SvqM8uQbs7rkF74ktFIyIU
-	AwWyzL5fiCCmcOa7pi09TnWovMYxid/6JL76tfRi5EH42tpoXwSdJ8mcOej1zN5ncQid0AtO6O3
-	oJ/C/QGsV7HoPB9f/e8p9wWrA6Ky/lt75U2vcepC/mfinNNbfqEl2Jy1X/WXKExgazJU689l4FA
-	YCQvVJn1GiadXXzveW83bKOnIwWHMImMHXOadGKwU0OZVyJWyRJDk/536V2pM9M8r0UspXGl3Zs
-	A5kiXA5BFas74If+scbptbEvu0fc3Aj0nC7kJR
-X-Received: by 2002:a05:6a00:2d96:b0:835:45bf:9660 with SMTP id d2e1a72fcca58-842b0ec1242mr8396268b3a.42.1780752367167;
-        Sat, 06 Jun 2026 06:26:07 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780752371; x=1781357171;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NeEBBh0lNzCCAreOc9bk7WWW8nd2UTHn7HjqcTneUFU=;
+        b=pYv/RF8UUJbgf30AJno28o9DWaORb3UZ2fIYYcpSwNWvtjnPdkJO8M9P3Oe8wnkysI
+         s4d63NP2uPBKKY0SjCOPultczu1ql/jSgpVzpm3B9CbRl8+Rs1cCvroabwxejbCMKZr9
+         vp+Ou8GGGUSsNXnBZZvL8J/gwkzKYtStBvxZS9EXCF3ICaAdlhP1R6iqLCX1BnUXK399
+         xfZugZOWk5qFJPd5gaecou0RJJt3sxbwBysGNmPq0EHNywhzAreakFtODIOEmFAqixxJ
+         iTY5Zv4QQBEw0Ru3FqC7ceo5VxWdvwwenJnHzFW/1kvZ/bpQtdju9XW9ZxGcd7FxGN7w
+         MR8Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/4sGr0sRnDbqivQLQs/SJwwwGEHGML//L9K+g/LRsMZzbyWVCEsTAoIobdsT2WpFvDBz4YuEaUSJiBGK1DgOhW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrkjJL99lKfgnTDr2CWVTxwP8RnHhWzetOOdOG0VIMfT9WvQOZ
+	JFBNTEvXmxjE2UYX+XnqRYeP32un3Oi+CAQFp8LNy7tpgmCXsoB7RB5q
+X-Gm-Gg: Acq92OE8r1fmc6i7Vh9pebDDSz/snbarZzAFyuc6lFUctNcgo4Y5UsDm+mktHwH9KjO
+	9resa7erJXZGBp72mvtPSik6GuW4q+26Cauq58oNdRYhLak8HYD+pbxaEd/ILaVQ4leqoM2piJm
+	k5+D+JL3N7zUKDZz28KldHuFSnYQBb13kjnaknOzBpVv7EMpEBLtQO4rm6liiFjE2D0Ihrgu9LP
+	4sR1o4p7Xhte/2WdUpHKRPFahSHX0MqLBaMdy5ODOOYaucVhyZVNF8oaaYxC5JVkTJ5qUh+CGKe
+	78bjYOM0dji3liNeKubXxer0bAyB+0PfqZnii8r/jFbi3/HtiqtuXplipc+/FHFn6VWqYbJr/yb
+	4IZhUGQgW+NDPKJJtg7J+b6OgIs35aVNgjtmgmfAE1CW/fVfwtmDsoudc1W6yuyVKa1VMxWAnSI
+	fNspWYjzEShAevTM6MTrmcDBhAFPTqAm/8HqlYEWWonCZKzGg=
+X-Received: by 2002:a05:6a00:1da3:b0:82f:3a1e:5618 with SMTP id d2e1a72fcca58-842b0dafd4bmr8292626b3a.22.1780752371348;
+        Sat, 06 Jun 2026 06:26:11 -0700 (PDT)
 Received: from [127.0.1.1] ([223.122.38.120])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-842829188b9sm12910688b3a.59.2026.06.06.06.26.02
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-842829188b9sm12910688b3a.59.2026.06.06.06.26.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Jun 2026 06:26:06 -0700 (PDT)
+        Sat, 06 Jun 2026 06:26:10 -0700 (PDT)
 From: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH 0/2] nvme-apple: Prevent tag collision across queues on
- Apple A11
-Date: Sat, 06 Jun 2026 21:25:24 +0800
-Message-Id: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
+Date: Sat, 06 Jun 2026 21:25:25 +0800
+Subject: [PATCH 1/2] nvme-apple: Only limit admin queue tag space when with
+ Linear SQ is present
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MSwqAMAwFryJZG2jrB/Eq4qK2UQOlii0iSO9uk
- LcamDcvJLqYEozVCxfdnPiIArquwO02boTshcEo0ysZnmJRzJjthu4I4X9gHpTuULvB+qUxTes
- JpCDuys9fn+ZSPlccjSltAAAA
-X-Change-ID: 20260606-prevent-tag-collision-t8015-1c8adb3234de
+Message-Id: <20260606-prevent-tag-collision-t8015-v1-1-93ccf4eca550@gmail.com>
+References: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
+In-Reply-To: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>, 
  Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>, 
  Sagi Grimberg <sagi@grimberg.me>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>, 
- Yuriy Havrylyuk <yhavry@gmail.com>
+ stable@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1728; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=N0iat9euPSfI1ozrhTkUFwtonZRHs7P7+pN8pw5Lenk=;
- b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBqJB/qkvWEJiDJdwuAwbXwF80g9Gz+3xtXU5NzS
- q5demgubFKJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaiQf6gAKCRABygi3psUI
- JD/lD/9wdAdvVm893ZEs7t9U1NqvQU+m1R8joTO0MSFw3Gz/v9nkAmdgA3DJPgfPJeRAaH2pSln
- COt//d9nV78OoIV7Xd95emThXhNuWWzlZ8+RoipvZ39pCQH18BkE+/k4sH4OmnUfAc9Xn78sXEo
- RXEWIGapLa03efOgvdLSRlWKk9+JM96Ztx1a3uBM0ZLkaan8f6JiWfRyUotgH8FTHZIuYpDwe6T
- +0nx7r7otrfEDHJpCQgO1TsiDHdHGBztPs/DUkSFctKbn3cEBS1jEHBFeKVRlHRVy6xJQIMjZTk
- MDyYGyNKRBKQwygmHU3uVAoxEBu/Di2evar+aLhdUmDMUm9wMaWlKx2ogMsWoX4acncB3xBqCu9
- o/FGp5CAbrb4cXvYj8OahtZeHOFeRbJTsCu1K8GpNRtxwWaYufaTIOkW6dqb5H8CsUrEO1d5p/X
- Xq0XLnqCM5wQJ+CKsUSJ8moOat1zsuhE9NbxGcJNMM8wBUc0GqSLJdhUqZtp/dkHhw/VDSaEwXP
- z5hn2oPSt3ej2qov2bl6Ex2DZvnZGQ+XiTvXiEpmPrerMrp0qsDNNw2QtBqPsEUIJT2PsXtTOtl
- kfRVFEgnIK4Fl6vCImpzDD/YFhJGTnvAMttZJskctGg0/828A1mEjxc15PobAOXVCDT598oQRO2
- ujV8N80CPGZFGsQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1520; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=m24MQbKzf1MwyNbAaZ52Y2HqborWGOg5ZSaflev6tNc=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBqJB/qBCoYq0Ez0tQV9FSpbDzHKmr987/6Tm152
+ E69XiIGqPCJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaiQf6gAKCRABygi3psUI
+ JL6OEACOBZpKq3tWJKlPioh5me2NNMMRMIe5utVW0bqMBKpjmqP3LeRjWQm/VfeKB48ntOYS1BI
+ hks3Rnd4mrLdzCbnspo9epLHKpgBwJ4CsEKcisn22n9MSykbzwBKIkpgp71ndvvIYb/bxqi086A
+ u440qaBo820Tyc74ElD93CuXgIsAutDV+hw3VJqvTSwPDTXEsZ03bQNGoe7yZOCyrqvj1PIz7fE
+ xkmtUoD+suZJTjmXCn2ohTLExkZnNPABpqNrQ8UkYQ/yjYIgiolVEl4X6LKCLw38/pxF+pIJs+3
+ 1+y88fttHsS7FbTj7lDp2ZSUC+KniJCuFaEJECQjCNpyNLZSpotYI8qY3OK/VaoiGNIgBnyGme+
+ 7RzHd9HylqE9CsUQs60eWBoCkBlnWEiwTnxWLark0pSduu/Phw7FMOMFlvhJxBcdyWdPCZTIkkt
+ k63yDX1dpoP3QNa37PkcG2VRM+CESHNgOHzcAbgbWQEgFgV7FFb6QJsT2piKh+ltPWZoGPcbZG7
+ h0CUC+KwmkfrHxHDJHo9+XjYtCKdlx58Pv2TPyH9iB8BXlLPjdsrQXQzWrV8z9kdIBQZ/gUo6KW
+ w14kgVGXMdIhSxF7Sssl/671LE82DMKMlS1Yx11HXwySbpL008BGXMl+pcypaWTzDmUeBo9i2cM
+ VFCscrmIgwrx07A==
 X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
  fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_062608_734184_26332AAD 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20260606_062612_444937_2B354D97 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,46 +121,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Apple NVMe controllers require tags of pending commands to not be shared
-across admin and IO queues.
+across admin and IO queues. However, on Apple A11 without linear SQ, it is
+not possible for either queue to skip over some tags and must go from 0 to
+the configured maximum before wrapping around.
 
-If a pending command tag is duplicated across queues, the firmware
-crashes with: "duplicate tag error for tag N", with N being the tag.
+As a result, in order to prevent tag collision, dynamic tag reservation
+while a command is in-flight becomes necessary. In this context, there is
+no reason to limit the admin queue's tag space, as it is not helpful in
+preventing tag collision.
 
-On Apple M1 or above, this is worked around by partitioning the tag
-space between the admin and IO queue.
-
-However, on Apple A11 without linear SQ, it is not possible for either
-queue to skip over some tags and must go from 0 to the configured maximum
-before wrapping around.
-
-Instead of partitioning the tag space, which is not possible without
-linear SQ, prevent tag collisions by keeping track of which tags are
-currently in-flight across either queues, and return BLK_STS_RESOURCE to
-temporaily block command submission when a collision would have occured.
-
-While fixing the issue, it became apparent the admin queue tag space
-is limited even on Apple A11. There is no reason to do this as it hampers
-performance and does not help preventing tag collisions, so also allow
-the admin queue to use the full tag space.
-
-Tested on iPhone 8, iPhone X and Macbook Pro (14-inch, M1 Pro, 2021).
-
+Cc: stable@vger.kernel.org
+Fixes: 04d8ecf37b5e ("nvme: apple: Add Apple A11 support")
 Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
-Nick Chan (1):
-      nvme-apple: Only limit admin queue tag space when with Linear SQ is present
+ drivers/nvme/host/apple.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Yuriy Havrylyuk (1):
-      nvme-apple: Prevent tag collision across queues even if tag space is shared
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index c692fc73babf..c1115e27a0d6 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -1303,7 +1303,10 @@ static int apple_nvme_alloc_tagsets(struct apple_nvme *anv)
+ 
+ 	anv->admin_tagset.ops = &apple_nvme_mq_admin_ops;
+ 	anv->admin_tagset.nr_hw_queues = 1;
+-	anv->admin_tagset.queue_depth = APPLE_NVME_AQ_MQ_TAG_DEPTH;
++	if (anv->hw->has_lsq_nvmmu)
++		anv->admin_tagset.queue_depth = APPLE_NVME_AQ_MQ_TAG_DEPTH;
++	else
++		anv->admin_tagset.queue_depth = anv->hw->max_queue_depth - 1;
+ 	anv->admin_tagset.timeout = NVME_ADMIN_TIMEOUT;
+ 	anv->admin_tagset.numa_node = NUMA_NO_NODE;
+ 	anv->admin_tagset.cmd_size = sizeof(struct apple_nvme_iod);
 
- drivers/nvme/host/apple.c | 70 ++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 69 insertions(+), 1 deletion(-)
----
-base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
-change-id: 20260606-prevent-tag-collision-t8015-1c8adb3234de
-
-Best regards,
 -- 
-Nick Chan <towinchenmi@gmail.com>
+2.54.0
 
 
