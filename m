@@ -4,64 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB3B5CD8C88
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 19:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF7ACD8C85
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Jun 2026 19:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ffnXUd5LBhLAi8JREDtR4sxemQe4e7mHjc/Pb44ejsU=; b=pT4T/IvqOUL+J58J53EtmY5OL1
-	5N7zkcn0ukFL9RqQTm3YcuP71sBkh9cZpKyaVPrtmNC8ymwlYVaxKOmvqf1lWAOPhBYn/q6YnHR04
-	Gsh3+QxLqujOjWOdWCbPic1OicgiofFHGWW5u2nxdvJO8hRRwKHF/Ub1zZVG9JFnc2fke0ayPBVfx
-	xZt9+cZT5Up48szOf1H91kMNLHhzpIl1GyPNkqnpkb65fo7zRSVZxU8cKKQaAH1daqmHjseo+gUqT
-	Uc5byO2nZEXY1tq3ZoHjYbxYey4kUJR4zPQBWuRAjKhD/QZhT6J9ESIgsuzk5DFLIPGqB4jsGIOFV
-	jiYtKCIw==;
+	bh=aipNwt5sgwd6I2ivj9RCM0/ZrytwIZT9mhs5XO0w3Nc=; b=NS+987KRV8uSPEiVA1gYnkumiD
+	pO7eRjNhJQ5W6Q9L1nX8817hh4iqfNXWFxa8q3cuk04GHEcMD88NR/4MEIIi84QV183aYzhBeNVli
+	reg0YWdKCpvTxEWYkbm9P04Lof2PC3UeuJKAkgDV14S1HjS4d5W1XboGm9g8Kdy8NBmhpnzncziOS
+	4wXoIOP99lhPo09LvAJM1rFeOJ4idL0ZfGaybTtnqtHaJUlcbmPh4jsj06AlKmYcR34USl4ttKnDI
+	R+RCWB4FCNp0UX8TpynjSLXELajShpRvCK2W3Q5xKeWoFgAOmLPaUAAfhbPB1dkjAbiTEyuFSwKKm
+	sKq1S7dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVwWM-00000001m2g-1X1J;
-	Sat, 06 Jun 2026 19:17:26 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1wVx2Z-00000001nER-31uN;
+	Sat, 06 Jun 2026 19:50:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVwWI-00000001m1x-49YO;
-	Sat, 06 Jun 2026 19:17:24 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=ffnXUd5LBhLAi8JREDtR4sxemQe4e7mHjc/Pb44ejsU=;
-	b=mcuVUmVFeZzEnQXfAVAhzvp+Lz/3htFarmZ6wAHsZJwdXdIvKmqlry3WKqfKVU1suy2cww1roC89Dq1eWXKvEjZdfzdcw3sbVA5+NYtJqTUrFywmc82oenXGV97teHhBKH2XEPuBa6kI2iazBUWwHS8LY2MXGDZtmS7AcLfJrQk=
-Received: from lukas-hpz440workstation.lan.sk100508.local (194-166-56-114.hdsl.highway.telekom.at [194.166.56.114])
-	by mail.netcube.li with ESMTPA
-	; Sat, 6 Jun 2026 21:17:18 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 3/3] ARM: dts: sunxi: add support for NetCube Systems OpenNMC (dobermann)
-Date: Sat,  6 Jun 2026 21:16:41 +0200
-Message-ID: <20260606191649.2347704-4-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260606191649.2347704-1-lukas.schmid@netcube.li>
-References: <20260606191649.2347704-1-lukas.schmid@netcube.li>
+	id 1wVx2X-00000001nEK-29kW
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Jun 2026 19:50:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B875C4426C;
+	Sat,  6 Jun 2026 19:50:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 284441F00893;
+	Sat,  6 Jun 2026 19:50:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780775439;
+	bh=aipNwt5sgwd6I2ivj9RCM0/ZrytwIZT9mhs5XO0w3Nc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=BBatmmhGWqi9eJTmjrUzToe40xnJnfEp0udQE+1O5/+aleAB1H/Zi3VOv7FLJi+3u
+	 QvaRez4MZSYvtwnKKom2Hsh3F9Mj+qrOie85lL/AzZPxsdqHEhTgKPajHXKvc8+AUY
+	 uZ8QYb1AfNk2VhHvsMLdUS0TLHWJRmVFrdKsO7QdMLizHFFgANjeakGSPA09oRvZQO
+	 nXqX3+PEtBK2j/voxnOlBhHX5lN4cyuPy/rgeRNlIZ+EgFMV48ELubRdd6Ho9BjJpd
+	 rpSasQ4syxftD+jk9zkACGjYTw5Ig81g43VP8L21E7PmUTmosTWPIPk26jEam6lk/A
+	 UpwOL8HYf0zAA==
+Message-ID: <1661f2c0-2fbe-4ae3-a08f-1b31183eca16@kernel.org>
+Date: Sat, 6 Jun 2026 21:50:26 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_121723_353337_D20FB625 
-X-CRM114-Status: GOOD (  14.69  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: display: msm: qcm2290: Add Shikra
+ MDSS
+To: Nabige Aala <nabige.aala@oss.qualcomm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Krishna Manikandan <quic_mkrishn@quicinc.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260605-shikra-display-v3-0-9846ba5fe635@oss.qualcomm.com>
+ <20260605-shikra-display-v3-1-9846ba5fe635@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260605-shikra-display-v3-1-9846ba5fe635@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,204 +131,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems OpenNMC is an open replacement for APC SmartSlot Management
-Cards. It is based on the Nagami System-on-Module. It breaks out the
-following interfaces:
+On 05/06/2026 12:18, Nabige Aala wrote:
+> diff --git a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
+> index be6cd8adb3b6..e166a73651df 100644
+> --- a/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
+> +++ b/Documentation/devicetree/bindings/display/msm/qcom,qcm2290-dpu.yaml
+> @@ -13,8 +13,11 @@ $ref: /schemas/display/msm/dpu-common.yaml#
+>  
+>  properties:
+>    compatible:
+> -    const: qcom,qcm2290-dpu
+> -
 
-- 10/100 Mbps Ethernet
-- USB Type-C OTG using a TUSB320 (usb0)
-- USB Type-C Console Port using a CH340 (uart3)
-- USB Type-A Host with internal CH334 USB-Hub (usb1)
-- MicroSD Slot with Card-Detect (mmc0)
-- WiFi/Bluetooth using the modules built-in ESP32
-- SmartSlot serial interface (uart4)
-- DS3232 RTC with CR1220 Battery Backup
-- Extension connector providing SPI,I2C,USB,CAN,UART for future use.
+Do not introduce additional changes. Blank line was there on purpose.
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- arch/arm/boot/dts/allwinner/Makefile          |   2 +
- .../sun8i-t113s-netcube-dobermann.dts         | 149 ++++++++++++++++++
- 2 files changed, 151 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
-
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index f71392a55df8..220a20734dc2 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -201,6 +201,7 @@ DTC_FLAGS_sun8i-h3-orangepi-pc := -@
- DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
- DTC_FLAGS_sun8i-t113s-netcube-nagami-basic-carrier := -@
-+DTC_FLAGS_sun8i-t113s-netcube-dobermann := -@
- DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
- dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a23-evb.dtb \
-@@ -261,6 +262,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-s3-lichee-zero-plus.dtb \
- 	sun8i-s3-pinecube.dtb \
- 	sun8i-t113s-mangopi-mq-r-t113.dtb \
-+	sun8i-t113s-netcube-dobermann.dts \
- 	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
- 	sun8i-t113s-netcube-nagami-keypad-carrier.dtb \
- 	sun8i-t3-cqa3t-bv3.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
-new file mode 100644
-index 000000000000..d7765caffe2a
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
-@@ -0,0 +1,149 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2026 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s-netcube-nagami.dtsi"
-+
-+#include <dt-bindings/leds/common.h>
-+
-+/ {
-+	model = "NetCube Systems OpenNMC (dobermann)";
-+	compatible = "netcube,dobermann", "netcube,nagami",
-+		     "allwinner,sun8i-t113s";
-+
-+	aliases {
-+		serial2 = &uart4; // UART on SmartSlot
-+		rtc0 = &ds3232;
-+		rtc1 = &rtc; // not battery backed
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led_heartbeat_green: led-heartbeat-green {
-+			gpios = <&pio 6 14 GPIO_ACTIVE_HIGH>; /* PG14 */
-+			linux,default-trigger = "heartbeat";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+		};
-+	};
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+
-+	tusb320: typec@60 {
-+		compatible = "ti,tusb320";
-+		reg = <0x60>;
-+		interrupts-extended = <&pio 3 22 IRQ_TYPE_LEVEL_LOW>;  /* PD22 */
-+	};
-+
-+	ds3232: rtc@68 {
-+		compatible = "dallas,ds3232";
-+		reg = <0x68>;
-+	};
-+};
-+
-+/* microSD Card Slot on the board */
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	disable-wp;
-+	bus-width = <4>;
-+	cd-gpios = <&pio 6 15 GPIO_ACTIVE_LOW>; /* PG15 */
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	gpio-line-names = "", "", "", "", // PA
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "SMART_TX", "SMART_RX", // PB
-+			  "EXT_IO3", "EXT_IO2", "CONSOLE_TX", "CONSOLE_RX",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-+			  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "", // PD
-+			  "", "", "", "",
-+			  "", "USB_SEC_EN", "EXT_SPI_nCS", "EXT_SPI_SCK",
-+			  "EXT_SPI_MOSI", "EXT_SPI_MISO", "EXT_IO5", "EXT_IO4",
-+			  "SMART_SEL", "", "", "",
-+			  "I2C2_SCL", "I2C2_SDA", "TUSB320_nINT", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-+			  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-+			  "ETH_MDC", "ETH_MDIO", "I2C3_nINT", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "uSD_D1", "uSD_D0", "uSD_CLK", "uSD_CMD", // PF
-+			  "uSD_D3", "uSD_D2", "TUSB320_ID", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+			  "ESP_D2", "ESP_D3", "ESP_TXD", "ESP_RXD",
-+			  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+			  "EXT_IO1", "EXT_IO0", "LED_HEARTBEAT", "SD_DETECT",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "";
-+};
-+
-+/* SmartSlot serial */
-+&uart4 {
-+	pinctrl-0 = <&uart4_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	extcon = <&tusb320 0>;
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
-+	status = "okay";
-+};
--- 
-2.47.3
-
-
+Best regards,
+Krzysztof
 
