@@ -4,75 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF6DCD8C85
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 03:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38EECCD8C88
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 03:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Xoeyoz5Vxaas+vev5ySBjxdxCFmfC++QibmT/yufOhk=; b=dn8+FCT0Ui8lcJAv08ruupsXwF
-	bW9p+jO+Av8f5QqbPemYJpKAhf21Asv931hp7SMvjIHmCAaylm2h+Topo9IvgvgvGkJrEWbUdtvR0
-	bPbj1w+Cy1RH45oApVan6pTV1psnu9S58qVv6DDRoB68lh7yFOzlho5G4UZAfo7H92NdEFhbUUCLc
-	AATCONPc2yZ+oCkEmenGZFzZ3X6w8kX08TxxR1pyqcK+uhinJQmM2rKw0kTvof2HQDITm9/qF5p0/
-	kcOThbt6cCUly1Avsq7hICzy8ZdSCFgkk261MyZvEo14XSs3nYO4Msq82PTttg/Rq1w/K+XeIuxvb
-	krkKXZaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=deuPBE4BaetM6ojGtefV9ckRbsUamk7OEDI2zXYc7Gs=; b=a+nwszdX4y0vlyKXjIegN8BcAE
+	BQS2XrGiV54poLkwCeFS0OYKsHDK1uEeQNzIM7pTNSeOux9EHKjNUGII2yJZU8lrHQUOxflXL0P4o
+	HRJzz+i276Kh3jq7b9R2GDhiKZdvMQpgKqVNmrHIS0Uxa9BNza54Xg1a/qJMyULbLBkXHEda7Mw3W
+	e30tCnSALnxcN6ExEVZHwNw9bo7D5Q9vxF1Yr1GntBGszg6HTEtXu9ta3jQvyYH8cKwYZ90ZQ3IAE
+	COAGHvqVJHLLP7mZPbBSiJKw28/9XGZSveKO8ZR88VrqiebTEq152ZWNFzYtiwsx9Yht8HIrYRza3
+	vXMtExTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW3tv-0000000204Y-0mOk;
-	Sun, 07 Jun 2026 03:10:15 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wW4O8-000000020VZ-3L5L;
+	Sun, 07 Jun 2026 03:41:28 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW3tr-00000002042-158G
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 03:10:14 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAC3m+IG4SRqr1_cEw--.13317S2;
-	Sun, 07 Jun 2026 11:09:58 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: wens@kernel.org,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] drm/sun4i: fix refcount leak in sun4i_backend_init_sat()
-Date: Sun,  7 Jun 2026 03:09:50 +0000
-Message-Id: <20260607030950.83636-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1wW4O5-000000020V3-1OTL;
+	Sun, 07 Jun 2026 03:41:27 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c66:476d:c684:fe78:389f:7375])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7F54D497;
+	Sun,  7 Jun 2026 05:40:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1780803653;
+	bh=QyCPnRf3F8ke+P9wWuP2lHv+Rfb9GviPoqyvg1WWKtg=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=n8ea4Y7QIV1KCBpiZFCJ5VLUYuMlJo5yIQkbLL+NABeBGoLQ0T+wPXTwezklx5DZY
+	 qH/ooGzRFbDgo0+IpQiA/gdnB5b9QgafRSCqvq0wU465AACEoz4QnAUGacpNcjibq5
+	 E7ft/QoCQMqWrRhsKL8avdbn0lKYWHyPOPo2wTyA=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAC3m+IG4SRqr1_cEw--.13317S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uF1DuF15JF17Ww4xJr15twb_yoW8GF1xpF
-	W8GFy5ArW8Ja4SvanrAry8XF13Za13GF98GwsYya1rZwn8JFy5urW5KFyagFWDKF4xA345
-	XF47Kr4Uu3WDAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7
-	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF
-	7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026x
-	CaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_
-	JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r
-	1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_
-	Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8Jr
-	UvcSsGvfC2KfnxnUUI43ZEXa7VU1eWlPUUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAYLA2okN2X5sAAAsX
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <ahyh0ZlwlZqr7VNa@kekkonen.localdomain>
+References: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org> <1ddf8baa-47db-4b9d-9df6-a6075bc94593@yoseli.org> <5b63761b-07dd-4786-bc98-d8a1c48a2ef4@kernel.org> <ahyh0ZlwlZqr7VNa@kekkonen.localdomain>
+Subject: Re: [PATCH v2] media: bcm2835-unicam: Fix log status runtime access
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Hans Verkuil <hverkuil@kernel.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Eugen Hristev <ehristev@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>
+Date: Sun, 07 Jun 2026 09:11:14 +0530
+Message-ID: <178080367434.9570.8101421417305606672@freya>
+User-Agent: alot/0.13.dev35+g4a69c46ca
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_201011_699244_54F5AB26 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20260606_204125_521644_68EF0816 
+X-CRM114-Status: GOOD (  37.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +65,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When sun4i_backend_init_sat() calls reset_control_deassert() it
-increments the deassert_count of the reset controller, and must
-pair that with a reset_control_assert() call to decrement it.
-In the error path where clk_prepare_enable() fails, the function
-returns immediately without calling reset_control_assert(), leaking
-the reference count.  Other error paths, like the devm_clk_get()
-failure, correctly jump to the err_assert_reset label which performs
-the missing assert.
+Hi Sakari, Eugen,
 
-Fix the leak by using the existing err_assert_reset label in the
-clk_prepare_enable error path instead of returning directly.
+Quoting Sakari Ailus (2026-06-01 02:32:09)
+> Hi Eugen, others,
+>=20
+> On Fri, May 29, 2026 at 06:06:42PM +0300, Eugen Hristev wrote:
+> > On 5/29/26 08:12, Jean-Michel Hautbois wrote:
+> > > Hi Eugen,
+> > >=20
+> > > Le 22/05/2026 =C3=A0 17:28, Eugen Hristev a =C3=A9crit=C2=A0:
+> > >> When requesting log status, the block might be powered off, but regi=
+sters
+> > >> are being read.
+> > >> Avoid reading the registers if the device is not resumed, thus also =
+avoid
+> > >> powering up the device just for log status.
+> > >>
+> > >> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CS=
+I2 camera interface")
+> > >> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+> > >> ---
+> > >> Changes in v2:
+> > >> - changed to use pm_runtime_get_if_active()
+> > >> - add corresponding put()
+> > >> - Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d=
+88045@kernel.org
+> > >>
+> > >> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+> > >> To: Mauro Carvalho Chehab <mchehab@kernel.org>
+> > >> To: Florian Fainelli <florian.fainelli@broadcom.com>
+> > >> To: Ray Jui <rjui@broadcom.com>
+> > >> To: Scott Branden <sbranden@broadcom.com>
+> > >> To: Broadcom internal kernel review list <bcm-kernel-feedback-list@b=
+roadcom.com>
+> > >> To: Sakari Ailus <sakari.ailus@linux.intel.com>
+> > >> To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+> > >> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > >> To: Hans Verkuil <hverkuil@kernel.org>
+> > >> To: Naushir Patuck <naush@raspberrypi.com>
+> > >> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > >> Cc: linux-media@vger.kernel.org
+> > >> Cc: linux-rpi-kernel@lists.infradead.org
+> > >> Cc: linux-arm-kernel@lists.infradead.org
+> > >> Cc: linux-kernel@vger.kernel.org
+> > >> ---
+> > >>   drivers/media/platform/broadcom/bcm2835-unicam.c | 9 +++++++++
+> > >>   1 file changed, 9 insertions(+)
+> > >>
+> > >> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/driv=
+ers/media/platform/broadcom/bcm2835-unicam.c
+> > >> index 8d28ba0b59a3..93815b8ab930 100644
+> > >> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > >> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > >> @@ -2052,6 +2052,13 @@ static int unicam_log_status(struct file *fil=
+e, void *fh)
+> > >>             node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
+> > >>    dev_info(unicam->dev, "V4L2 format:         %08x\n",
+> > >>             node->fmt.fmt.pix.pixelformat);
+> > >> +
+> > >> +  if (!pm_runtime_get_if_active(unicam->dev)) {
+> > >=20
+> > > Well, if I am picky I would say that pm_runtime_get_if_active() can=20
+> > > return -EINVAL if runtime PM is disabled for the device. It should th=
+en=20
+> > > be tested against '<=3D 0' ?
+> > >=20
+> > > I suppose this should not happen really often, as very few drivers=20
+> > > actually test this case...
+> >=20
+> > I saw that. Some do. This driver enables runtime pm in probe though. So
+> > I guess it cannot happen, unless runtime pm would not selected in kernel
+> > config, but the driver depends on PM.
+>=20
+> Runtime PM can be disabled for a device via sysfs.
+>=20
 
-Cc: stable@vger.kernel.org
-Fixes: 440d2c7b127a ("drm/sun4i: backend: Handle the SAT")
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/gpu/drm/sun4i/sun4i_backend.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I tried this on my board, and you can only do:
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c b/drivers/gpu/drm/sun4i/sun4i_backend.c
-index bc35dad53b07..c9ec5fc26f7e 100644
---- a/drivers/gpu/drm/sun4i/sun4i_backend.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
-@@ -686,7 +686,7 @@ static int sun4i_backend_init_sat(struct device *dev) {
- 	ret = clk_prepare_enable(backend->sat_clk);
- 	if (ret) {
- 		dev_err(dev, "Couldn't enable the SAT clock\n");
--		return ret;
-+		goto err_assert_reset;
- 	}
- 
- 	return 0;
--- 
-2.34.1
+echo on > /sys/class/<...>/control
 
+Which leads to RPM count to always stay 1 regardless of get/put.
+
+So if the driver enables RPM and never disables it unless it's removed,
+there's no way from userspace to make this function return -EINVAL.
+
+> >=20
+> > Ultimately I guess it's up to Sakari or Hans to decide whether it's
+> > worth checking for error code, but I picked the simpler path (and
+> > considering <depends on PM> in Kconfig) .
+>=20
+> pm_runtime_put() musn't be called if there was an error as it decrements
+> usage_count unconditionally.
+>=20
+> The vast majority of sensor drivers test for non-zero only and no-one has
+> complained. They should be fixed though...
+>=20
+
+This driver has an explicit "depends on PM", but even for other sensor
+drivers, the only case pm_runtime_get_if_active can return -EINVAL is when
+CONFIG_PM=3Dn, where pm_runtime_put is also stubbed out to return -ENOSYS..
+
+So there is nothing to fix in sesnor drivers which do:
+
+    if (!pm_runtime_get_if_active(&client->dev))
+            return 0;
+
+    /* write registers */
+
+    /* unconditional put */
+    pm_runtime_put(&client->dev)
+
+Thanks,
+    Jai
+
+> > >=20
+> > > With or without this small change:
+> > > Reviewed-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+> > >=20
+> > > Thanks,
+> > > JM
+> > >=20
+> > >> +          dev_info(unicam->dev,
+> > >> +                   "Live data N/A due to device inactive\n");
+> > >> +          return 0;
+> > >> +  }
+> > >> +
+> > >>    reg =3D unicam_reg_read(unicam, UNICAM_IPIPE);
+> > >>    dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
+> > >>             unicam_get_field(reg, UNICAM_PUM_MASK),
+> > >> @@ -2065,6 +2072,8 @@ static int unicam_log_status(struct file *file=
+, void *fh)
+> > >>    dev_info(unicam->dev, "Write pointer:       %08x\n",
+> > >>             unicam_reg_read(unicam, UNICAM_IBWP));
+> > >>  =20
+> > >> +  pm_runtime_put(unicam->dev);
+> > >> +
+> > >>    return 0;
+> > >>   }
+> > >>  =20
+> > >>
+> > >> ---
+> > >> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+> > >> change-id: 20260521-bcmpipm-6c578e73239c
+> > >>
+> > >> Best regards,
+>=20
+> --=20
+> Regards,
+>=20
+> Sakari Ailus
+>
 
