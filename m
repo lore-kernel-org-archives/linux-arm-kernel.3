@@ -4,93 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB2BCD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 20:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55210CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RpOFBj23taOxwcprfVeftqLa7EfFOLIHW3Oby+mxG4c=; b=0OG3Qo+HP3kJvUMdbLLl/nqtgY
-	J/yBnOFap9998ZT+QzhzW4plCRd8ImE8N3KyPahmTxwcoQ68d3aeeEXjWmWBZzXO3TT7OJMoUo91Z
-	yxsTlRRLzGjPvfQwlgs50zw3UHXkqTF/TywuRjoltNX9+THPrMdhscnw/Gz8N0CQ81P46HFMYKuvN
-	md6MvyI+MZ+GaNEk9H/0Y1aMVkPmAXDScpwYkRkmEf8mMiuyg3KnDZHG1tQS6AAyhM5T1f0xDizZ7
-	Rb6sp9US5eMkU5MpBLjbucaL5MVGbDh5dKB3hMkhK70HvUDnwLsue63ouoiQskZ/FlQ0UeoCwBFUC
-	Nabl+oqg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ab6NkRbgO8MmT1srYNgG1RYGxHSJUAoP80C+AxzOUBY=; b=UQ32x2hTk4K3clPX/rFds+GRRC
+	INC/gLJxNxhEToYngtvrdQzn/5+Ch4cTLVvRq5EToXwWg2ZkJtV4lbEh6k0aVq32Hendk2snQND4o
+	YlFBunlcH68ZLoWG5mE27M5OhryzKaVRD8bhKye80IIeCLeBhBakRhG4Yo26voMenzfDpcXt4O4RP
+	WG5p3kRKGKGBYutUZfM5P1imcTqdUYgRkFKkRPBpBGTmg3qb/N/qcwYgafCnEAVC1TcIkTcIckL4F
+	wZJlNlX9C6bGAw0DyPW75IaVFGge1uuh6bbqqADqnlGrVcChSgG9qqO5hOTTBEKnBhgyURPRN1WZ3
+	2EBs+7VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWJhC-00000002SjE-1pdo;
-	Sun, 07 Jun 2026 20:02:10 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wWKbb-00000002UVH-3ERj;
+	Sun, 07 Jun 2026 21:00:27 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWJh9-00000002Sip-3sak
+	id 1wWKbZ-00000002UUU-0072
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 20:02:09 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490c28f84fdso5031015e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 13:02:07 -0700 (PDT)
+	Sun, 07 Jun 2026 21:00:26 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-bebc80100efso387492266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:00:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780866023; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PdoGv2ByvsIyWW9Lkz6W6V4T7Z6WPuFLwBHn2hU8FiWqYtDscQ3mrHCqHig9jGFTy4
+         4mKuA6swkLM5kQ9Jtbw6AePdLWMVUH7WhkuK9XKeVQaBHsYEp6imDVZfO5XXoh4is90w
+         HCTuLnWVJxoUhwCtM3jvmpXA9i/4Q3o84ndL43Dh1Qdh0TrjNpiWMqutJ50pM1UyCBtE
+         CrYM4FbfkdQuO60vZJ6mqgyfhU1cLvyBVk9dqRCTiPtg1TVYZ+Xflfj2o2EPaBOmUHfv
+         d+YYPlkZaZg6/7BHNllPckLHxxkUv6kA3t/znD5DbVKcVk7+f/IfU2Z5oxeDpCjs0grd
+         BPaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ab6NkRbgO8MmT1srYNgG1RYGxHSJUAoP80C+AxzOUBY=;
+        fh=Uq/G3v+DLbvXyUcjuD6r9eSQvvTCZAlY/0gufwnmHi0=;
+        b=ZahV8AiG8GaHlYwff5lhrfmwp7ZS0jlaOpBgQmjvwHQ8/aUA2L/qVpQCzHT/rBN0W3
+         ykciSoksuJ0O427e98vIbrQf4aKKmR7c3XGzwDatLI92yNIetyQg6BI3iGajpPPwAqV7
+         vsWscUHZ8FSIynWRPwS+KwdPFu9sugCHa+HdWsYdmhc252Om5WT/XbHiaW32Lfbq1dYK
+         JqJyXu6IjuZRq+yn7GOeuzamp+QsxyqFdVrZWh95Qb7gj0GYCKxE1JCwOIrf5hk2+7dT
+         +mfeweCC3RkrRJWbWDMTmPEFA34Cv8tbjMcSbk3S9qVzpabc435cBVvRCKUDGHwpva7e
+         J5Bw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780862526; x=1781467326; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RpOFBj23taOxwcprfVeftqLa7EfFOLIHW3Oby+mxG4c=;
-        b=SwZupWEH+E2+o+/snoQtgEZTJ79aMsqo5dG97Fuy2cQS0g/9TioSdU/KZR5u6xSXNg
-         kpoCMwy0JeA20TrsyMCpx20/9g2nVRcD6Nc7ACherxC5b9SeV3io+VaRLCpeUsiX7iMU
-         cIeqrZ9pyyj9i7jxzLpNhJJzpAtPGtfaJMU7GEqW8QqQYse3AcOjAK038chNcQCO5toF
-         IpY9qEk6V89uFLVe8IWyZY1VPrOAL/izSIiu//g2ByyMozNlbrEbceoGzWKPzI7M/Zhh
-         3vyRZxeuwduKNDbzqQ1MsjV5A99G9zo9rIigbLvCUGpuTtLuhcL096NYmtXY1ozT+8GX
-         nmPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780862526; x=1781467326;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1780866023; x=1781470823; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RpOFBj23taOxwcprfVeftqLa7EfFOLIHW3Oby+mxG4c=;
-        b=k3krkUOEZ6P9GRSG0GNmIrO9sbWSZm3KqVoqKn39oXx4aBVZYknTD2Z8aW7KJJocjD
-         V4h2Y33bSwtqXvoppIRT2gtI8CYQR8+FsDnHlmXsp5GDrPo1haYy7wrrjlfUh+vpAJJz
-         +PMFdeux9Bnz829ZbjnDyqX8u1zUzy/NzTG+9qvJGnrxLrgt9yab5mVcX1gwK2NHrzhI
-         RFePeluWg9ZMImAHJGAeA7QmhLr0h1xfXGj+vfIpl/BUeE5a5gJUo+1T1rznmeCN2OC9
-         qsjiE6J4RCRigqg4qRzR9Bj+ZYBAQz0us/34gIwntkj2DFR8asfAfeKHgWoPtFwml3JV
-         7ceQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8u4+aG/eu6KX2qb0ylcN8eAK5ltw7fnofO+mDMspG+uT5Q4VoDz2ybR/FcO6f/6uDPEMOSn6Z/s+NtKCgIBEH9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXQiEL3Z4+ejU2+wPIcH1gP2QdpUBZ9Jy+5sM7Kr1Zy/spR61r
-	/hTbwMfqWOLcGzEtLUEFdoXrpAECcN2O5IeTwpJ5XNcqxUmnCxPiixhr
-X-Gm-Gg: Acq92OGoN6lvacuBhUY3fAmfkBaU/ezQe9/qnWCGefXCmEYcaJmd6t35jaIoaIh4tTA
-	Gylb761oDt6hAFL4rYSFdGXmG7qvRJniZT2SsdYBgOVXMHkYjP4shNFgVPI/n4Xt5EEDN6OwiMc
-	sRblJf8Ci4Wiqlf8neaLd07SOnfx0pJM6wkaWh3n+8Huq36RZdSJ0aZeUbYwlQ01TQH/lipfE8e
-	0ww0KHjDh7gXvYzXticwnt994iPl3VBmIspbwhemonagj6lA4xw8d/XeQAhBU/VrSZ5pQ/E/YT7
-	J5YOVWap9O2jAohizqNdvP8KhV234f8Xo81T46lB/7yAXXmvlr+tg4pz5JfUVyEg67Eaw7N0st7
-	FNkBwoAgy71+bRvP4nOanFa8aI9eUJvwnwN5YnUZXSKFLx1jDxZHgjdGm+mNrL3Pttuut8XGzJI
-	IkAK27clJAGZTEkr3k/HNYLAUrQDIEn+NDbcAdJEHoP0jR6O6xRkqTvnenT4bKlkuYBEe8d8qcU
-	Q==
-X-Received: by 2002:a05:600c:190b:b0:485:c456:5e4f with SMTP id 5b1f17b1804b1-490c24f5f07mr94700135e9.0.1780862525816;
-        Sun, 07 Jun 2026 13:02:05 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3b59f0sm388946455e9.2.2026.06.07.13.02.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Jun 2026 13:02:05 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	tudor.ambarus@linaro.org,
-	krzk+dt@kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH v4 1/1] crypto: atmel-ecc - fix multi-device use-after-free and registration races
-Date: Sun,  7 Jun 2026 20:02:02 +0000
-Message-Id: <20260607200202.39550-1-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
+        bh=ab6NkRbgO8MmT1srYNgG1RYGxHSJUAoP80C+AxzOUBY=;
+        b=hYy1gnDgEe6JDVifuyolye2Bms4M9p6CZjrDeFrfp2PXYs5dYGaGqf3Br0eZPx3U7D
+         KiNavSp4oVS7BsEUH60tsUJ2h7IGLs41ltqwqO/janhu91iNCm3WMSgUb+d7OfuHm1y9
+         Ev+CCSLVpOS5B4fJMqUP5S2a0bAlNXsB5DQEd5QmKFYL/KdkFaZm4CcRamDeCTA1ZQ8Y
+         sStSrr6VUQz0RF9D+ddubvKvqn0cCGLiweeoAeG76LxrquOC/3kIGTBUHD1tOiUA8joH
+         kLnyXtsIYPPyuDjxYIBcCzahgwrzqAN+HKNiFw2VVJQ6fCLE6BPYbEUi9Uz6otJhUSEj
+         t82w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780866023; x=1781470823;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ab6NkRbgO8MmT1srYNgG1RYGxHSJUAoP80C+AxzOUBY=;
+        b=tUbXWP0olIMUAUy0xoxbHKeCPxegAFC2WbRDp1V5LdITRgwkwYs8lBGKb6V4/XeA3F
+         0SSwm/VJb4rLfxvEyiryAq8LpLKKWSQ2U5X2fgSQU0jQiuwKOCBBxplui9kBbrNVsbaR
+         X0hStqT8NelO7b+zKWeJ5tuTfTUdzTYJ268W6+9dlqsMZgmlXbbK5NZMAsmVlBi2iwmj
+         xxuaY29V9b9O0TwvHUXGkz48baEcZ/X2//PFClE68ekHh2L3haOT1Yyp7LhoNfBDQT13
+         HS+tbUrALEPlc0rMGKDLxYWbpLlVoERKqcwSsKUBknAPYWtGZitlly8w/+WBFYHhlE9r
+         pA4g==
+X-Forwarded-Encrypted: i=1; AFNElJ8o0jD1e0GFG5RPO3ycxfw5lRt25osknFbYrHFNaFqAowKI8Ee8/xg7FgHPGqgXm6WBnZjSLd0TPcedLxdTE2s6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDrJdFisML+ret8ayNF8qgsj3if29h/v2Q0Twj3nL+omSNEFjF
+	V0dYZ81FLroi+3gtup7NgeCvWyeF9M5XQBgc4gt2BY/aydNm0jRD2/mQN5DMhk0B9RaLkWbS0AI
+	rD4p9O7MGFV732+hF11uY7TMvEliXWk4=
+X-Gm-Gg: Acq92OHQyckhzPTUUq7PnbwnHDT4XWU2DQA1QerKe4apgd3dqvYiXjzambvmFWmVS6Z
+	YJA6MCNdW7Cdw/BQ8gy+6W8Ee+K87Z6kYXeQdbgyuJnRvXkbhedHeKAhzd0HGkZI5uXy+VqNBp3
+	Qri36LYKOOSbQmMp6gwVRY62rkRojSp45QlrAMWWXy7yWtwTzFzk/kNnBG/D1ORWWWaRXkeGwYV
+	ZmOu6VnlJSt11rSsxD4d7/afDvLgQM77MBFyH9RMR/c3t0d6P/Tk5LQy+BqKaMcgZ4UfrCxXDFQ
+	7IIKkEqFL3N45NV7eP1kzUdhQTDB9M8mkYxDof/E+rAYxchbUwCmNqqLGCvrTw==
+X-Received: by 2002:a17:906:8a42:b0:bb8:fdf7:e132 with SMTP id
+ a640c23a62f3a-bf370a673a2mr449071866b.18.1780866022378; Sun, 07 Jun 2026
+ 14:00:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260604135255.62682-1-midgy971@gmail.com> <3d99569e-9c3a-49d1-93fb-1335382523e9@rock-chips.com>
+In-Reply-To: <3d99569e-9c3a-49d1-93fb-1335382523e9@rock-chips.com>
+From: Midgy Balon <midgy971@gmail.com>
+Date: Sun, 7 Jun 2026 23:03:08 +0200
+X-Gm-Features: AVVi8CeDCIQ6l1Xo0XYKychXQqz8K96nj5PXcE7mUgH_L3ruXovyZGyMkFh5fkU
+Message-ID: <CA+GS1Y1s78PwN63X2YJoS8VEGp7CpTERo_K65yKs00U4VRAw4Q@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 0/9] accel: rocket: Add RK3568 NPU support
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: tomeu@tomeuvizoso.net, ogabbay@kernel.org, heiko@sntech.de, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joro@8bytes.org, 
+	will@kernel.org, robin.murphy@arm.com, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_130208_025272_AF612019 
-X-CRM114-Status: GOOD (  36.38  )
+X-CRM114-CacheID: sfid-20260607_140025_096427_7446EE33 
+X-CRM114-Status: GOOD (  46.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,301 +120,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During parallel driver initialization or driver teardown sequences
-in setups with multiple atmel-ecc instances, a race condition exists
-between atmel_ecc_i2c_client_alloc() and the probe/remove paths.
+Hi Chaoyi,
 
-A concurrent transformation request can fetch an i2c_client instance
-from the global i2c_client_list before the kpp is fully registered, or
-while it is actively being unbound, resulting in a use-after-free (UAF)
-risk.
+Thanks a lot for looking at this -- input from Rockchip is exactly what thi=
+s
+series needs.
 
-1. The initialization problem in probe(): Adding first an i2c client to the
-i2c_client_list, and then registering the kpp algorim may result in a race,
-when this happens for a second (or further) probed device. In this case the
-algorithm is already registered, so a TFM may arrive, while the latest
-probing device is added to the list, but not kpp registered. In case this
-fails and this last device is going to be removed again from the list, this
-leaves a window where the TFM might obtain a pointer to the - now deleted -
-i2c client, which opens a UAF risk. Furthermore, there will happen atempts
-to multiple registering the same driver to the same type of algorithm.
-Note, a simple reverting of the order: first register kpp, second add the
-i2c client to the i2c_client_list - is not possible here, since the kpp
-registration immediately triggers the self tests, which then will allocate
-and require an i2c client.
+> Hmmm. If I understand correctly, the NPU IOMMU should be v2 rather than v=
+1,
+> implying it should support 40-bit PAs. Nevertheless, please note that the
+> upper limit for DTE is 32 bits.
 
-2. The critical race condition problem: It exists when an Atmel device
-instance is rapidly removed and immediately re-probed, before the global
-resources are fully cleaned up. In this scenario, the asynchronous
-unregistration sequence in the remove() lags behind the incoming probe()
-function. Because of the global algorithm structure being not yet
-completely cleaned up, the newly re-probed device incorrectly intercepts
-the static, partially-dismantled global context. It then overwrites active
-pointers and re-acquires the global instance prematurely. In this way, when
-the deregistration sequence finally completes its execution, under the
-newly initialized device, it may lose the tracking references, leaking the
-older driver memory blocks, and introducing an immediate UAF risk.
+Understood, and that 32-bit-DTE note is the crux of the trouble I had, so l=
+et
+me lay out what I see and ask how you'd prefer to solve it.
 
-3. The removal race problem, when a call to remove() starts removing the
-device, but another thread executing a TFM, a severe Time-of-Check to
-Time-of-Use (TOCTOU) race condition exists in the teardown path between the
-asynchronous remove() sequence and completing TFMs. When the device is
-unbound, the remove() function evaluates the active tfm_count and decides
-whether to wait or proceed with resource deallocation. However, if the
-final active TFM finishes its crypto operation and invokes the client free
-function immediately after remove() performs its reference check but before
-it can sleep, the completion signal is fired into a clearing state. The
-unbind thread then misinterprets the zeroed counter, skips the
-synchronization barrier entirely, and instantly deallocates the per-device
-private structures. This leaves the final TFM worker thread executing code
-inside a completely freed memory area, triggering an immediate UAF kernel
-panic. Note, simply calling the kpp unregister here won't clean up the
-situation in the context of having a setup with external hardware on a slow
-bus.
+The mainline node is already v2 (rockchip,rk3568-iommu in rk356x-base.dtsi)=
+.
+The problem on this 8 GiB board: with the v2 ops the page-table allocations
+(gfp_flags =3D=3D 0) can land above 4 GiB, so the DTE ends up > 32 bits and=
+ the
+NPU's first translation faults with DMA_READ_ERROR. To work around that I h=
+ad
+switched the NPU MMU to the v1 compatible (rockchip,iommu), whose ops set
+GFP_DMA32 and keep the DTE sub-4 GiB. That works in isolation, but because =
+the
+driver keeps a single global rk_ops, a v1 NPU MMU then trips
+WARN_ON(rk_ops !=3D ops) against the SoC's v2 instances (VOP/VDEC), which i=
+s why
+I based the series on Simon's per-device-ops work.
 
-Address this by implementing an independent subsystem reference counter
-kpp refcnt protected by a dedicated mutex to ensure the static global kpp
-algorithm structure is registered exactly once by the first probing device
-instance. In multi-device scenarios, or when extending the resource
-management support of the i2c_client_list to all atmel-i2c based device
-drivers, such scenarios can become realistic. The particular algorithm is
-registered only once. Each i2c client (i.e. each probing device driver) is
-added as client to the i2c_client_list. This guarantee that only the first
-probe will register the algorithm. The list is populated for further calls
-to probe, and subsequent calls to the client alloc function.
+So my question: with per-device ops in place, what's the intended way to ke=
+ep
+the NPU MMU on v2 *and* cap its DTE at 32 bits on boards with >4 GiB of RAM=
+?
+A v2 ops variant carrying GFP_DMA32 for this device, or is there a register=
+/
+config bit that constrains the DTE address? I'd rather follow the Rockchip
+intent here than carry the v1 workaround. (Simon, cc'd -- this is right nex=
+t to
+your per-device-ops series.)
 
-Concurrently, decouple list mutations from registration by moving the
-global list eviction to the absolute top of the remove lifecycle. This
-keeps the quick execution of the list allocation loop intact, ensures that
-unbinding hardware is instantly blind to the rest of the system, and
-completely bypasses the recursive deadlock condition previously triggered
-by synchronous crypto API self-tests.
+> Can these operations not be completed via the pmdomain driver?
+> If some operations are controlled by TF-A, are you using open source TF-A=
+?
 
-Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
----
- drivers/crypto/atmel-ecc.c | 130 +++++++++++++++++++++++++++++--------
- drivers/crypto/atmel-i2c.h |   3 +
- 2 files changed, 106 insertions(+), 27 deletions(-)
+Most of it is in pmdomain already. Power-on and NoC de-idle are done by the
+RK3568 NPU power domain (genpd) at power-on -- the driver no longer pokes t=
+he
+PMU directly. Two things remain outside it:
 
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 0ca02995a1de..7336c3661e52 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -23,6 +23,11 @@
- #include <crypto/kpp.h>
- #include "atmel-i2c.h"
- 
-+static DEFINE_MUTEX(atmel_ecc_kpp_lock);
-+static int atmel_ecc_kpp_refcnt;
-+DECLARE_COMPLETION(atmel_ecc_unreg_done);
-+static bool atmel_ecc_unreg_active;
-+
- static struct atmel_ecc_driver_data driver_data;
- 
- /**
-@@ -241,7 +246,10 @@ static void atmel_ecc_i2c_client_free(struct i2c_client *client)
- {
- 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
- 
--	atomic_dec(&i2c_priv->tfm_count);
-+	spin_lock(&driver_data.i2c_list_lock);
-+	if (atomic_dec_and_test(&i2c_priv->tfm_count) && i2c_priv->unbinding)
-+		complete(&i2c_priv->remove_done);
-+	spin_unlock(&driver_data.i2c_list_lock);
- }
- 
- static int atmel_ecdh_init_tfm(struct crypto_kpp *tfm)
-@@ -276,7 +284,8 @@ static void atmel_ecdh_exit_tfm(struct crypto_kpp *tfm)
- 	struct atmel_ecdh_ctx *ctx = kpp_tfm_ctx(tfm);
- 
- 	kfree(ctx->public_key);
--	crypto_free_kpp(ctx->fallback);
-+	if (ctx->fallback)
-+		crypto_free_kpp(ctx->fallback);
- 	atmel_ecc_i2c_client_free(ctx->client);
- }
- 
-@@ -295,6 +304,28 @@ static unsigned int atmel_ecdh_max_size(struct crypto_kpp *tfm)
- 	return ATMEL_ECC_PUBKEY_SIZE;
- }
- 
-+static int atmel_ecc_wait_for_tfms(struct atmel_i2c_client_priv *i2c_priv)
-+{
-+	unsigned long timeout;
-+
-+	spin_lock(&driver_data.i2c_list_lock);
-+	list_del(&i2c_priv->i2c_client_list_node);
-+	i2c_priv->unbinding = true;
-+	reinit_completion(&i2c_priv->remove_done);
-+	if (!atomic_read(&i2c_priv->tfm_count)) {
-+		spin_unlock(&driver_data.i2c_list_lock);
-+		return 0;
-+	}
-+	spin_unlock(&driver_data.i2c_list_lock);
-+
-+	timeout = wait_for_completion_timeout(&i2c_priv->remove_done,
-+					      msecs_to_jiffies(2000));
-+	if (!timeout)
-+		return -ETIMEDOUT;
-+
-+	return 0;
-+}
-+
- static struct kpp_alg atmel_ecdh_nist_p256 = {
- 	.set_secret = atmel_ecdh_set_secret,
- 	.generate_public_key = atmel_ecdh_generate_public_key,
-@@ -315,6 +346,7 @@ static struct kpp_alg atmel_ecdh_nist_p256 = {
- static int atmel_ecc_probe(struct i2c_client *client)
- {
- 	struct atmel_i2c_client_priv *i2c_priv;
-+	unsigned long timeout;
- 	int ret;
- 
- 	ret = atmel_i2c_probe(client);
-@@ -323,49 +355,93 @@ static int atmel_ecc_probe(struct i2c_client *client)
- 
- 	i2c_priv = i2c_get_clientdata(client);
- 
-+	init_completion(&i2c_priv->remove_done);
-+	i2c_priv->unbinding = false;
-+
- 	spin_lock(&driver_data.i2c_list_lock);
- 	list_add_tail(&i2c_priv->i2c_client_list_node,
- 		      &driver_data.i2c_client_list);
- 	spin_unlock(&driver_data.i2c_list_lock);
- 
--	ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
--	if (ret) {
--		spin_lock(&driver_data.i2c_list_lock);
--		list_del(&i2c_priv->i2c_client_list_node);
--		spin_unlock(&driver_data.i2c_list_lock);
-+	mutex_lock(&atmel_ecc_kpp_lock);
-+	/*
-+	 * For cases where the same/last such device is still in unregistering,
-+	 * and now re-registering (refcnt is 0, but completion still exists).
-+	 * Safely capture the pointer, drop the lock and sleep until it
-+	 * terminates upon completion or retry limit reached.
-+	 */
-+	while (atmel_ecc_unreg_active) {
-+		mutex_unlock(&atmel_ecc_kpp_lock);
-+		timeout = wait_for_completion_timeout(&atmel_ecc_unreg_done,
-+						      msecs_to_jiffies(2000));
-+		mutex_lock(&atmel_ecc_kpp_lock);
-+		if (timeout == 0) {
-+			mutex_unlock(&atmel_ecc_kpp_lock);
-+
-+			ret = atmel_ecc_wait_for_tfms(i2c_priv);
-+			if (ret)
-+				dev_err(&client->dev,
-+					"probe timed out, former instance active\n");
-+			return -ETIMEDOUT;
-+		}
-+	}
-+	if (atmel_ecc_kpp_refcnt == 0) {
-+		ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
-+		if (ret) {
-+			mutex_unlock(&atmel_ecc_kpp_lock);
- 
--		dev_err(&client->dev, "%s alg registration failed\n",
--			atmel_ecdh_nist_p256.base.cra_driver_name);
--	} else {
--		dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
-+			atmel_ecc_wait_for_tfms(i2c_priv);
-+			dev_err(&client->dev,
-+				"%s alg registration failed\n",
-+				atmel_ecdh_nist_p256.base.cra_driver_name);
-+
-+			return ret;
-+		}
- 	}
-+	atmel_ecc_kpp_refcnt++;
-+	mutex_unlock(&atmel_ecc_kpp_lock);
- 
-+	dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
- 	return ret;
- }
- 
- static void atmel_ecc_remove(struct i2c_client *client)
- {
- 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
--
--	/* Return EBUSY if i2c client already allocated. */
--	if (atomic_read(&i2c_priv->tfm_count)) {
--		/*
--		 * After we return here, the memory backing the device is freed.
--		 * That happens no matter what the return value of this function
--		 * is because in the Linux device model there is no error
--		 * handling for unbinding a driver.
--		 * If there is still some action pending, it probably involves
--		 * accessing the freed memory.
--		 */
--		dev_emerg(&client->dev, "Device is busy, expect memory corruption.\n");
--		return;
--	}
--
--	crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-+	bool trigger_unreg = false;
-+	bool wait_needed = false;
-+	unsigned long timeout;
- 
- 	spin_lock(&driver_data.i2c_list_lock);
- 	list_del(&i2c_priv->i2c_client_list_node);
-+	i2c_priv->unbinding = true;
-+	reinit_completion(&i2c_priv->remove_done);
-+	if (atomic_read(&i2c_priv->tfm_count) > 0)
-+		wait_needed = true;
- 	spin_unlock(&driver_data.i2c_list_lock);
-+	if (wait_needed) {
-+		timeout = wait_for_completion_timeout(&i2c_priv->remove_done,
-+						      msecs_to_jiffies(5000));
-+		if (timeout == 0)
-+			dev_emerg(&client->dev, "Teardown timed out! Active TFMs leaked, memory corruption imminent.\n");
-+	}
-+
-+	mutex_lock(&atmel_ecc_kpp_lock);
-+	atmel_ecc_kpp_refcnt--;
-+	if (atmel_ecc_kpp_refcnt == 0) {
-+		trigger_unreg = true;
-+		atmel_ecc_unreg_active = true;
-+		reinit_completion(&atmel_ecc_unreg_done);
-+	}
-+	mutex_unlock(&atmel_ecc_kpp_lock);
-+
-+	if (trigger_unreg) {
-+		crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-+		mutex_lock(&atmel_ecc_kpp_lock);
-+		atmel_ecc_unreg_active = false;
-+		complete_all(&atmel_ecc_unreg_done);
-+		mutex_unlock(&atmel_ecc_kpp_lock);
-+	}
- }
- 
- static const struct of_device_id atmel_ecc_dt_ids[] = {
-diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
-index 72f04c15682f..8e6617422191 100644
---- a/drivers/crypto/atmel-i2c.h
-+++ b/drivers/crypto/atmel-i2c.h
-@@ -129,6 +129,7 @@ struct atmel_ecc_driver_data {
-  * @wake_token_sz       : size in bytes of the wake_token
-  * @tfm_count           : number of active crypto transformations on i2c client
-  * @hwrng               : hold the hardware generated rng
-+ * @unbinding           : unbinding handshake
-  *
-  * Reads and writes from/to the i2c client are sequential. The first byte
-  * transmitted to the device is treated as the byte size. Any attempt to send
-@@ -145,6 +146,8 @@ struct atmel_i2c_client_priv {
- 	size_t wake_token_sz;
- 	atomic_t tfm_count ____cacheline_aligned;
- 	struct hwrng hwrng;
-+	struct completion remove_done;
-+	bool unbinding;
- };
- 
- /**
+ - vdd_npu: I mark it regulator-always-on in DT rather than wiring it as th=
+e
+   domain's domain-supply, because as a domain-supply it created a device-l=
+ink
+   to the I2C PMIC (rk809) and genpd's power-off QoS-save path then hung
+   reading the NPU QoS registers behind the (gated) NoC. If there's a clean=
+ way
+   to let genpd own vdd_npu without that I2C ordering deadlock I'd much pre=
+fer
+   that -- pointers welcome.
 
-base-commit: 79bbe453e5bfa6e1c6aa2e8329bfc8f152b81c9b
--- 
-2.53.0
+ - the NPU compute clock (PVTPLL): set from the driver via SCMI, and only
+   needed for actual compute, not for bring-up.
 
+One more pmdomain observation from testing, possibly relevant to how the NP=
+U
+domain should be modelled: the domain's power-off/on cycle doesn't reliably
+re-de-idle the NoC. If the NPU is probed after genpd has already powered th=
+e
+(unused) domain off, the power-on de-idle fails ("failed to set idle on dom=
+ain
+'npu'") and the NPU IOMMU then takes an external abort on its first MMIO ac=
+cess.
+Probing the NPU before the unused-domain power-off, or marking the domain
+always-on, both avoid it. Is the NoC de-idle expected to work on a genpd
+re-power here, or should this domain effectively stay on?
+
+On TF-A: yes -- bl31 is built from upstream arm-trusted-firmware
+(github.com/ARM-software/arm-trusted-firmware, RK3568 platform), providing =
+PSCI
+and the SCMI clock service. The only closed blob in the boot chain is Rockc=
+hip's
+DDR init (rkbin), which is the standard situation for mainline RK356x.
+
+Kind regards,
+Midgy
+
+Le ven. 5 juin 2026 =C3=A0 03:36, Chaoyi Chen <chaoyi.chen@rock-chips.com> =
+a =C3=A9crit :
+>
+> Hello Midgy,
+>
+> On 6/4/2026 9:52 PM, Midgy BALON wrote:
+> > RFC, not for merge. End-to-end inference does not produce correct outpu=
+t
+> > yet (see Status), so per the v2 discussion this is a request for design
+> > feedback. It now probes, attaches, and submits cleanly on a stock
+> > v7.1-rc6 tree; what remains is one hardware-internal issue.
+> >
+> > The RK3568 has a single NVDLA-derived NPU core, the same IP family as t=
+he
+> > RK3588 NPU the driver already supports; the register layout matches. Th=
+e
+> > RK3568 differences are a 32-bit NPU AXI/IOMMU (vs 40-bit) and explicit
+> > PVTPLL/PMU bring-up to power and de-idle the NPU before it is reachable=
+.
+> >
+> > Patches:
+> >   1-2  rocket: per-SoC data struct, then derive DMA width and core coun=
+t
+> >        from match data (refactors, no functional change).
+> >   3    rocket: RK3568 SoC data + PVTPLL/PMU/NOC bring-up.
+> >   4    rocket: reset the NPU before detaching the IOMMU on a job timeou=
+t
+> >        (the detach otherwise stalls a wedged AXI master and WARNs).
+> >   5    rocket: keep the IOMMU domain attached across jobs instead of
+> >        re-attaching per job (the per-job rk_iommu handshake on the idle
+> >        NPU MMU is slow and noisy).
+> >   6    iommu/rockchip: clear AUTO_GATING bit 1 on the RK356x v1 IOMMU s=
+o
+> >        the page-walker keeps its clock (else a TLB-miss walk never
+> >        completes).
+> >   7    dt-bindings: add the RK3568 NPU compatible.
+> >   8-9  arm64 dts: add the NPU and its IOMMU, and enable them on ROCK 3B=
+.
+> >
+> > Dependency. The NPU MMU is rockchip-iommu v1 (32-bit) while the rest of
+> > the RK3568 uses v2 (40-bit). They cannot coexist until the driver carri=
+es
+> > per-device ops; this series is developed on top of Simon Xue's
+> > "iommu/rockchip: Drop global rk_ops in favor of per-device ops" [1].
+> > Without it the NPU IOMMU fails to probe on a full RK3568 boot.
+> >
+>
+> Hmmm. If I understand correctly, the NPU IOMMU should be v2 rather than
+> v1, implying it should support 40-bit PAs. Nevertheless, please note that
+> the upper limit for DTE is 32 bits.
+>
+> > Power bring-up. The NPU is brought up through the power-domain layer (n=
+o
+> > driver hack): the NPU power-domain keeps its clocks but drops the pm_qo=
+s
+> > phandle (qos_npu sits behind the gated NPU NoC, so genpd's power-off Qo=
+S
+> > save faults reading it), and vdd_npu is marked always-on so the rail is
+> > up before genpd de-idles the NoC at power-on. The PMU de-idle then ACKs
+> > without PVTPLL running; PVTPLL is only needed for compute.
+> >
+>
+> Can these operations not be completed via the pmdomain driver?
+> If some operations are controlled by TF-A, are you using open
+> source TF-A? Thank you.
+>
+> > Status. On v7.1-rc6 the driver probes, creates /dev/accel/accel0,
+> > attaches an IOMMU domain, and submits jobs; the program controller
+> > fetches and broadcasts the command list. Inference output is still wron=
+g,
+> > and the cause is split across three layers:
+> >   - kernel (this series): the RK3568 differences appear handled;
+> >   - mesa/Teflon userspace: still emits RK3588-tuned config, wrong for
+> >     RK3568 (to be filed separately on mesa-dev);
+> >   - hardware: with corrected config the NPU's DMA reads the full input
+> >     and weight tensors (confirmed via its DMA bandwidth counters), but
+> >     the MAC/output stage never completes, the job times out, and the
+> >     output stays at the buffer's zero-point. I have not found the missi=
+ng
+> >     step; it is not in the command list (replaying the vendor's
+> >     byte-exact command list behaves the same). Pointers welcome,
+> >     especially from anyone with RK3568 NPU experience.
+> >
+> > Known residual. On the first IOMMU attach the NPU MMU is idle with pagi=
+ng
+> > already enabled; the rk_iommu stall/reset handshake does not complete i=
+n
+> > that state and logs one burst of timeouts before the (kept) domain
+> > settles. It is harmless here because the job times out regardless, but =
+it
+> > points at an idle-MMU reconfiguration corner the rk_iommu code does not
+> > handle on this block.
+> >
+> > [1] https://lore.kernel.org/linux-rockchip/20260310105303.128859-1-xxm@=
+rock-chips.com/
+> >
+> > Changes since v2:
+> >   - Tagged RFC; now tested on a stock v7.1-rc6 tree.
+> >   - Bring-up moved into the power-domain/DT layer (no initcall hack).
+> >   - Added the IOMMU detach-on-timeout and attach-once driver fixes.
+> >   - Split the driver patch (Heiko): soc_data / match-data / RK3568.
+> >   - Derive DMA width and core count from match data; drop the DT rescan=
+s.
+> >   - Binding describes the hardware; added the missing $ref on rockchip,=
+pmu.
+> >   - Disclosed the per-device-ops IOMMU dependency.
+> >
+> > Midgy BALON (9):
+> >   accel: rocket: Introduce per-SoC rocket_soc_data
+> >   accel: rocket: Derive DMA width and core count from match data
+> >   accel: rocket: Add RK3568 SoC support
+> >   accel: rocket: Reset the NPU before detaching the IOMMU on timeout
+> >   accel: rocket: Keep the IOMMU domain attached across jobs
+> >   iommu/rockchip: Clear AUTO_GATING bit 1 on the RK356x v1 IOMMU
+> >   dt-bindings: npu: rockchip,rk3588-rknn-core: Add RK3568
+> >   arm64: dts: rockchip: rk356x: Add the NPU and its IOMMU
+> >   arm64: dts: rockchip: rk3568-rock-3b: Enable the NPU
+> >
+> >  .../npu/rockchip,rk3588-rknn-core.yaml        | 18 ++++-
+> >  .../boot/dts/rockchip/rk3568-rock-3b.dts      | 14 +++-
+> >  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 38 +++++++++++
+> >  drivers/accel/rocket/rocket_core.c            | 22 ++++++-
+> >  drivers/accel/rocket/rocket_core.h            | 19 ++++++
+> >  drivers/accel/rocket/rocket_device.c          | 15 ++---
+> >  drivers/accel/rocket/rocket_device.h          |  3 +-
+> >  drivers/accel/rocket/rocket_drv.c             | 66 ++++++++++++++++++-
+> >  drivers/accel/rocket/rocket_job.c             | 35 ++++++++--
+> >  drivers/iommu/rockchip-iommu.c                | 12 ++++
+> >  10 files changed, 219 insertions(+), 23 deletions(-)
+> >
+> >
+> > base-commit: 52c800fdcf11888ebeb50c3d707f782cc15b66eb
+>
+> --
+> Best,
+> Chaoyi
 
