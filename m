@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF4DECD8C89
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 17:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A278CD8C89
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 17:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RC4UpJZWJ3dXT7LKa11Eh5lvkgD8MR6nBFl7fzqu7wY=; b=Exw7AlIquAKizeGoeJC5eskOJb
-	ac8jY1FMbjQ44C8sUyujjG7Q4AjE/OCV2w+/WzrR3HkFW9zJkxqf0SnCwm6t9MRQEp1gC99CsvQl0
-	BWNZEik4B252OgC5mcTDmU9ZvXL+MArvDlWP/Uw4BOYeUWYSC2MoccD4AZ6Uk9ftqex3eP62AkqC1
-	VH4bC0KHgaaeOWOwm9xIilqPIMkEjuholwG5oha8GzGp+s9RdNLupgOldBBbBNT2eGkH2Oau1dARB
-	gdH/eSs1EtZJqV7dchaITHN9NA1WbRteOGfswFoMcrWe8GH79MYJv3DUo5tYnHS9g3q+QftPAux97
-	B93OzDbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=liDRSDovqjC0vV1eIvbY6OQvKsCHLQ2zJENAx8zcP+E=; b=tYm0Qku4B2VrzAwL/U8zsiYePr
+	O2dEZBgWKgaJwhCY/wF6Ptjh6NPWiVlQlXrfi+vCg4iIVvgLGPOsl7wz9EERiRlUdl2+7KtoRZaLz
+	Zq2A81BhTc7owVtLRmgPe+N5A1Kl3WwaiePIV/49NL8TWS0M+ikMKte5n1KC+A9ETeDzYIyRRjL5c
+	vw3P3OeUwTN70I6LgtVkB1UHxQG6jTDLw7SX1388JSR7B44VTYOyyyp4R5lFBrszzC5vd6JKFE+jV
+	jTZgdT+ZejAP+ADO6lPcQDmUO42RQqHI/999N2fGkwe9i784hf4+uIYEbB/qCH3ya0936FypmLsHJ
+	86inc1Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHgf-00000002Nc2-0lqN;
-	Sun, 07 Jun 2026 17:53:29 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wWHhf-00000002Ni1-1dhO;
+	Sun, 07 Jun 2026 17:54:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHgc-00000002Nb4-0bA3
+	id 1wWHhe-00000002Nhu-3rzj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 17:53:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=RC4UpJZWJ3dXT7LKa11Eh5lvkgD8MR6nBFl7fzqu7wY=; b=0kEo+1jsZFmFPuILPU9h2Z8lK0
-	Tw3q/RsYcediV3XhUhcgz1JZyCPjTJbVqiHFhYhnrYRh5JjHvOVU4aib0LsSn1jxM9cKym+PQh0z+
-	bIovlTt9IcCUj1kEWGq/mQ6LuxQ+pbLPW6ZZ/t/TAnOA2bZRwcQwVSX+NwRlbO4jA79g=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wWHg4-006UW9-B8; Sun, 07 Jun 2026 19:52:52 +0200
-Date: Sun, 7 Jun 2026 19:52:52 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Alex Elder <elder@riscstar.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com,
-	rmk+kernel@armlinux.org.uk, andersson@kernel.org,
-	konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org,
-	arnd@arndb.de, gregkh@linuxfoundation.org,
-	Daniel Thompson <daniel@riscstar.com>, mohd.anwar@oss.qualcomm.com,
-	a0987203069@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
-	boon.khai.ng@altera.com, chenchuangyu@xiaomi.com,
-	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	hkallweit1@gmail.com, inochiama@gmail.com, john.fastabend@gmail.com,
-	julianbraha@gmail.com, livelycarpet87@gmail.com,
-	mcoquelin.stm32@gmail.com, me@ziyao.cc,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
-	rohan.g.thomas@altera.com, sdf@fomichev.me,
-	siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com,
-	wens@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 05/14] net: pcs: pcs-xpcs: select operating
- mode for 10G-baseR capable PCS
-Message-ID: <1225f728-8b54-44fb-bf70-94e3966359eb@lunn.ch>
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-6-elder@riscstar.com>
+	Sun, 07 Jun 2026 17:54:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D16A401D7;
+	Sun,  7 Jun 2026 17:54:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E359D1F00893;
+	Sun,  7 Jun 2026 17:54:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780854869;
+	bh=liDRSDovqjC0vV1eIvbY6OQvKsCHLQ2zJENAx8zcP+E=;
+	h=From:To:Cc:Subject:Date;
+	b=ZhFqd5BHcwUXOAeElcxo7M70LA2umMvTU/cov7hrXSDkHSVhnKtdkxGWjWfh4apGT
+	 6Sk92b254fjJtxFb5jFGqv+9JiO8Ntf4vkBVajWB38GTFdceM2A4z1387ecyhJSzpO
+	 eKVIWHECpORpfo3Mj6+GD8sf4GHq+jykDnZcBB5RtFYOXgj7RIInnTOCLEUDjZVFGA
+	 A6oPu0Hiv1PlVL4Wg/KfOve92tYHTmWuu1e3i385ozOIwpwVbPuQuI3+VPiMivpdYV
+	 HGQFDo9EvAdO9nTG5bdcWtW72KNegB0yIhtVtz2WRolqNCXO9TB6nr/1XMcT2dxrb/
+	 xOGNH3cSNXQgg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wWHhb-0000000AEMz-3IMj;
+	Sun, 07 Jun 2026 17:54:27 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] KVM: arm64: Add kvm_for_each_vncr_tlb() helper
+Date: Sun,  7 Jun 2026 18:57:45 +0100
+Message-ID: <20260607175745.297793-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260605010022.968612-6-elder@riscstar.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_105326_185549_5355FABA 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, imv4bel@gmail.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,12 +83,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Rather than introduce another quirk for TC956x let's attempt so solve
-> this generically by setting SR_XS_PCS_CTRL2:PCS_TYPE_SEL to a reserved
-> value when we detect the right we detect the right combination of phy
-> interface and XPCS feature support.
+VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions,
+and either can race against a vcpu not being onlined yet (no pseudo-TLB
+allocated). Similarly, the TLB might be invalid, and the invalidation
+should be skipped in this case.
 
-This sentence is broken.
+Both kvm_invalidate_vncr_ipa() and kvm_invalidate_vncr_va() are
+expected to perform the same checks, except that the latter doesn't
+check for the allocation and blindly dereferences the pointer.
 
-     Andrew
+Solve this by introducing a new iterator built on top of the usual
+kvm_for_each_vcpu() that checks for both of the above conditions,
+and convert the two users to it.
+
+Reported-by: Hyunwoo Kim <imv4bel@gmail.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/aiUvSbrWndQeUPc8@v4bel
+Fixes: 4ffa72ad8f37 ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kvm/nested.c | 36 +++++++++++++++---------------------
+ 1 file changed, 15 insertions(+), 21 deletions(-)
+
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index f8d3f3a723282..690b8e8564166 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -908,9 +908,21 @@ static void invalidate_vncr(struct vncr_tlb *vt)
+ 		clear_fixmap(vncr_fixmap(vt->cpu));
+ }
+ 
++/*
++ * VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions, and
++ * either can race against a vcpu not being onlined yet (no pseudo-TLB
++ * allocated). Similarly, the TLB might be invalid.  Skip those, as they
++ * obviously don't participate in the invalidation at this stage.
++ */
++#define kvm_for_each_vncr_tlb(idx, vcpup, tlbp, kvm)	\
++	kvm_for_each_vcpu(idx, vcpup, kvm)		\
++		if (((tlbp) = vcpup->arch.vncr_tlb) &&	\
++		    (tlbp)->valid)
++
+ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+ {
+ 	struct kvm_vcpu *vcpu;
++	struct vncr_tlb *vt;
+ 	unsigned long i;
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+@@ -918,24 +930,9 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
+ 		return;
+ 
+-	kvm_for_each_vcpu(i, vcpu, kvm) {
+-		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
++	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+ 		u64 ipa_start, ipa_end, ipa_size;
+ 
+-		/*
+-		 * Careful here: We end-up here from an MMU notifier,
+-		 * and this can race against a vcpu not being onlined
+-		 * yet, without the pseudo-TLB being allocated.
+-		 *
+-		 * Skip those, as they obviously don't participate in
+-		 * the invalidation at this stage.
+-		 */
+-		if (!vt)
+-			continue;
+-
+-		if (!vt->valid)
+-			continue;
+-
+ 		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+ 							    vt->wr.level));
+ 		ipa_start = vt->wr.pa & ~(ipa_size - 1);
+@@ -965,17 +962,14 @@ static void invalidate_vncr_va(struct kvm *kvm,
+ 			       struct s1e2_tlbi_scope *scope)
+ {
+ 	struct kvm_vcpu *vcpu;
++	struct vncr_tlb *vt;
+ 	unsigned long i;
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+-	kvm_for_each_vcpu(i, vcpu, kvm) {
+-		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
++	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+ 		u64 va_start, va_end, va_size;
+ 
+-		if (!vt->valid)
+-			continue;
+-
+ 		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+ 							   vt->wr.level));
+ 		va_start = vt->gva & ~(va_size - 1);
+-- 
+2.47.3
+
 
