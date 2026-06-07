@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6604CCD8C8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 17:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7EBCD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 17:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/KOKsw71E6GZdJzTzoVwlKCoJhLgUSQVcRLLZNcFO5I=; b=wT4Enrk6P4S4BVNRCaMOVmzs2Y
-	1tCYGecMUHUiNJHxG6pmUURTcYxEhNQSCKrmnarZJ3tSQkaVbk4mfnZ8+sHPO9nW2le0ps4r8PMVB
-	3Z022FK6nWXLu5SAPASd5jTI0LlGzeUfFHzvAnL9n4wDHIbeKIFYHfxLiiW8N80u1HHWDJ3v4v08G
-	c5lv7g/0FCWY9owEjwpzKth9XOMwAFIged2LRa/ASI+5VNQVp1HOx7HPNBEx6ttdR8m0X2OUoMx78
-	IPYSr/J1YapXDH78z3F4JTnqjCcIqTOcxLuK+kt3vWInsPmwUNIqtMJL/TIfGaiTIW4Iy1wyYL8Iz
-	Y/PpV/vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BjwXzAqn09XGqwiofLmSdzwFEecQWhSyb73CLPOpiE0=; b=3LXRGeJlT3gd2efh7Ut9cIXlog
+	ZP0Xwq1wqSvfLNNGa6w1eRWyP35l2g4sfUAgZl9JaiUCa49rvUtrqRgAxxi+eIQNP7prTAR/LAdc2
+	1OopktnFZC9IUZcGhHemibumbLmDpBnQ2kMDcLwSGZfiVzFvekHkfroW8DrM64+VXPeJh+utfVkfQ
+	mGmyT1uK95njSTb9VFOkF9MbTJEd7i6yOdlpTEbs5TF7jOupj6PN6/iElaigw6RwwdOeRCjjR3FNX
+	p5JCTLOWps/xsMaSV2jQLQltokomkmy9NPfZF9JLuP5L68RIbjX4Clwo2lK9fy7Vqw/1IxK8Faqoa
+	Y/yKVOjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWGsG-00000002M69-1k1O;
-	Sun, 07 Jun 2026 17:01:24 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1wWHk3-00000002Nsq-3Ahu;
+	Sun, 07 Jun 2026 17:56:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWGsD-00000002M5O-0Vbu
+	id 1wWHk3-00000002Nsk-0uAf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 17:01:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1780851678;
- bh=/KOKsw71E6GZdJzTzoVwlKCoJhLgUSQVcRLLZNcFO5I=;
- b=qtgAhbYINp3UG73MeqbESMFO5oIlJm3U0XowpJpZYoUQCph37W1RKKHijpV+e1dsLd7vf3ecZ
- WJICJLHD6Lewwq6A18CQEfVgLBuLxpCXlSj/RIaUPjIdpnCnFMT0T0oPxq5N2zsUzBPJeIc7W8Q
- UfgKU9FeBM5N+IMf6Iur+A0BMUgbYqJrlybS3pw0otm8nc05LnympCE/OJDfiwOHAndm7dFCwov
- D6QvCFnnvJH/oju6bDt5YiRCUX/SQPLIMgxdVV1fcEbi3L4pzQhneb1zsR/AFzNibnvF7q6RjJZ
- NpiYwWZKpjV4AJsEZ45Ou23kTzG8EbDZCSdqGMyLCdeA==
-X-Forward-Email-ID: 6a25a3da9dabeed5113106ce
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.8.22
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <c8f30973-450e-4995-b6f5-03e7b6afc75b@kwiboo.se>
-Date: Sun, 7 Jun 2026 19:01:10 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/rockchip: dsi: Open-code drm_simple_encoder_init()
-To: Diogo Silva <diogompaissilva@gmail.com>, heiko@sntech.de
-Cc: airlied@gmail.com, andy.yan@rock-chips.com,
- dri-devel@lists.freedesktop.org, hjc@rock-chips.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, simona@ffwll.ch, tzimmermann@suse.de
-References: <5277524.h16uAIiOU7@phil>
- <20260607123739.393974-2-diogompaissilva@gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260607123739.393974-2-diogompaissilva@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_100121_524788_D9240875 
-X-CRM114-Status: GOOD (  16.24  )
+	Sun, 07 Jun 2026 17:56:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40AFF60018;
+	Sun,  7 Jun 2026 17:56:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E864D1F00893;
+	Sun,  7 Jun 2026 17:56:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780855018;
+	bh=BjwXzAqn09XGqwiofLmSdzwFEecQWhSyb73CLPOpiE0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=md+5SvzoVgkMo++0FXqv/QtZ587IK43WpQwvAceByUuP0zfJHConm4uV9SdHR3bO6
+	 N56R7SE3gbHVbzVkph+kPwNPyKujt74YqmmihtqT0WDqZaSPp01NeXJ0uVgoXLZLMF
+	 TqlJdsboENkonutk15z9r/dg2gUtoWDp0t2ur4M0/qENZgECkJNKoH77df2v8N+b7u
+	 3Kr2Au/Wxi73fxVKgJpftMj2/RVYYZ3WNR/jDCNSDKFT7qOqZYAYx7+Y8CZNLiyOHV
+	 DF/V8C524sp4I1Z3BcenuskDK+u0j6aaiEDRvF4tmH6wcHge/OSZccujVxy0Qqb5lu
+	 Ul2M+sIb2Og2g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wWHk0-0000000AEPF-079p;
+	Sun, 07 Jun 2026 17:56:56 +0000
+Date: Sun, 07 Jun 2026 19:00:16 +0100
+Message-ID: <87wlwa8c3z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH] KVM: arm64: nv: Skip vCPUs without a pseudo-TLB in invalidate_vncr_va()
+In-Reply-To: <aiVz7O_FIpY2k2bV@v4bel>
+References: <aiUvSbrWndQeUPc8@v4bel>
+	<8733yya4ch.wl-maz@kernel.org>
+	<aiVz7O_FIpY2k2bV@v4bel>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: imv4bel@gmail.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +89,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diogo,
-
-On 6/7/2026 2:37 PM, Diogo Silva wrote:
-> Simple KMS helper are deprecated since they only add an intermediate
-> layer between drivers and the atomic modesetting.
-> This patch removes the dependency on drm_simple_encoder_init from rockchip
-> DRM drivers by inlining this helper.
+On Sun, 07 Jun 2026 14:36:44 +0100,
+Hyunwoo Kim <imv4bel@gmail.com> wrote:
 > 
-> Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
-> ---
->  drivers/gpu/drm/rockchip/analogix_dp-rockchip.c  | 9 ++++++---
->  drivers/gpu/drm/rockchip/cdn-dp-core.c           | 9 ++++++---
->  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c  | 9 +++++++--
->  drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c | 8 ++++++--
->  drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c      | 8 ++++++--
->  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c   | 8 ++++++--
->  drivers/gpu/drm/rockchip/rk3066_hdmi.c           | 8 ++++++--
->  drivers/gpu/drm/rockchip/rockchip_lvds.c         | 9 +++++++--
->  drivers/gpu/drm/rockchip/rockchip_rgb.c          | 8 ++++++--
->  9 files changed, 56 insertions(+), 20 deletions(-)
+> On Sun, Jun 07, 2026 at 02:05:02PM +0100, Marc Zyngier wrote:
+> > On Sun, 07 Jun 2026 09:43:53 +0100,
+> > Hyunwoo Kim <imv4bel@gmail.com> wrote:
+> > > 
+> > > vncr_tlb is not allocated before a vCPU runs for the first time, so
+> > > vcpu->arch.vncr_tlb is NULL for a vCPU that has been created but not yet
+> > > run. Code that iterates over every vCPU's pseudo-TLB must skip those.
+> > > 
+> > > invalidate_vncr_va() iterates over the vCPUs with kvm_for_each_vcpu() and
+> > > dereferences vt->valid without checking whether vncr_tlb is NULL.
+> > > 
+> > > While iterating, skip vCPUs whose pseudo-TLB has not been allocated.
+> > >
+> > > Fixes: 4ffa72ad8f37 ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+> > > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> > > ---
+> > >  arch/arm64/kvm/nested.c | 4 ++++
+> > >  1 file changed, 4 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > > index 6f7bc9a9992e..063e079d1d1a 100644
+> > > --- a/arch/arm64/kvm/nested.c
+> > > +++ b/arch/arm64/kvm/nested.c
+> > > @@ -969,6 +969,10 @@ static void invalidate_vncr_va(struct kvm *kvm,
+> > >  		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
+> > >  		u64 va_start, va_end, va_size;
+> > >  
+> > > +		/* Skip vCPUs whose pseudo-TLB hasn't been allocated yet */
+> > > +		if (!vt)
+> > > +			continue;
+> > > +
+> > >  		if (!vt->valid)
+> > >  			continue;
+> > >  
+> > 
+> > This looks correct and matches what we already have for
+> > invalidate_vncr_ipa().
+> > 
+> > But I think this misses the opportunity to squash a whole class of
+> > similar bugs, should we ever have the need for another function that
+> > iterates over all *valid* VNCR pseudo-TLBs.
+> > 
+> > Since I'm on a train and have nothing better to do, I've written the
+> > following hack.
+> > 
+> > Thoughts?
+> 
+> Looks like a good direction to me. I confirmed it fixes the issue (as
+> expected).
+> 
+> How about you submit this patch yourself?
 
-[snip]
+Sure, can do. I'll sent that in a minute.
 
-> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> index 0dc1eb5d2ae3..906264d65db3 100644
-> --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> @@ -16,7 +16,6 @@
->  #include <drm/drm_edid.h>
->  #include <drm/drm_of.h>
->  #include <drm/drm_probe_helper.h>
-> -#include <drm/drm_simple_kms_helper.h>
->  
->  #include "rockchip_drm_drv.h"
->  
-> @@ -322,6 +321,10 @@ dw_hdmi_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
->  	return 0;
->  }
->  
-> +static const struct drm_encoder_funcs dw_hdmi_rockchip_encoder_funcs = {
-> +	.destroy    = drm_encoder_cleanup,
-> +};
-> +
->  static const struct drm_encoder_helper_funcs dw_hdmi_rockchip_encoder_helper_funcs = {
->  	.mode_fixup = dw_hdmi_rockchip_encoder_mode_fixup,
->  	.mode_set   = dw_hdmi_rockchip_encoder_mode_set,
-> @@ -604,7 +607,8 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
->  	}
->  
->  	drm_encoder_helper_add(encoder, &dw_hdmi_rockchip_encoder_helper_funcs);
-> -	drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_TMDS);
-> +	drm_encoder_init(drm, encoder, &dw_hdmi_rockchip_encoder_funcs,
-> +			 DRM_MODE_ENCODER_TMDS, NULL);
+> > +#define kvm_for_each_vncr_tlb(idx, vcpup, tlbp, kvm)	\
+> > +	kvm_for_each_vcpu(idx, vcpu, kvm)		\
+> 
+> Maybe vcpu -> vcpup?
 
-Please base your work on latest drm-misc tree, this has already been
-addressed in commit 3de723684be5 ("drm/rockchip: dw_hdmi: Use drmres
-helpers for encoder resources") [1].
+Duh. Yes. Thanks.
 
-Also instead of open-code, maybe a change to use drmm_encoder_init() is
-more appropriate for some of the other drivers?
+	M.
 
-[1] https://cgit.freedesktop.org/drm/drm-misc/commit/?id=3de723684be5c13517dea3dba287d06e12678c86
-
-Regards,
-Jonas
-
->  
->  	platform_set_drvdata(pdev, hdmi);
->  
-
-[snip]
+-- 
+Jazz isn't dead. It just smells funny.
 
