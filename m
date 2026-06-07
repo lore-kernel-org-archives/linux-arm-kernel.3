@@ -4,89 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B72CD8C88
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 12:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC26BCD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 12:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzX90Dtqcl+cOEpVY5HErjumrgVIscJmmnCnneyC1iA=; b=Oem1BwrJ7vC7tSmqAMdEhXlly7
-	gx2qwHl73uSfHVX0ducwFpiMD5Q5nnBSHnAJA9Ao+qMmz22mpP9TJmYIe7PPg8b7yFT4XilCEgG7v
-	lSrIV7yhkyvSQSnSj1LyaKIuptgAIWDTp7S24hkqWTH6jKxkPQ9P4sbif+YfpY3Ma3nrSqPnD6UGD
-	e57o3RWPR176GUbg6+Sz5NkeXbazPuPQ8vqEPdTKS4nHLE8uGzzfoq9ZYvnWJzVoZRAwZUSWxqfjS
-	FM9qBL4buO6DjOn2X8vSkYBTLZcRnNJr3p49ebNqRdur4eAIlcbYP/wpYO7tuY9h50IaeXHkkf848
-	CijyiDTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=; b=TvqlwvxCepnhQp23j21G2oOgRr
+	u/o8P37B2DyZdv3RSfqDwsV/2Aef1rkKiqrASjAcbN2SVQ6eGd1Fuz3lV9ndSLzdBS2qnGIAyuIHz
+	ypnSn4wrPr6ekuiIG9R4auZgPcV0Eu0FTJrJnECl6nod/QSPJwFqWUVq0a6VaWrYzg3/fTtJGoB0Y
+	npeJURx4SldITpS0HZyQHJPgHBqTjDec7YXc6LLaFJhbMtndP3dneseb8yY9DOgscKdkgUats8pwf
+	JlatYSyPe0B86CKppTOTdh2dsoD6dYHuKxymNeBqwu+CBhyS1letscLTh2f3ILNuSqGizj6wc1IHT
+	e8VtxVNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWCyO-00000002FXh-2M5j;
-	Sun, 07 Jun 2026 12:51:28 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
+	id 1wWC8K-00000002E9F-1s0T;
+	Sun, 07 Jun 2026 11:57:40 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWCyJ-00000002FV8-2qxe
+	id 1wWC8H-00000002E87-2J0t
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 12:51:24 +0000
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 657BT63E3749526;
-	Sun, 7 Jun 2026 05:51:13 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=gzX90Dtqcl+cOEpVY5HErjumr
-	gVIscJmmnCnneyC1iA=; b=PdEFP5tG52IQR35Xtzufx+P+vg3XbrYosIsUJDnoK
-	xRe7xXrfUmf7wfA6e7oW16UXsRYJ/z5YriDu7T7G4fzb5JMqaRSt9FMfjjvZp9C8
-	uknHI13bJKhXTRxAe0a/DJgHOs6LmsHW6mkquNQ95YkrfcgbRUKfoPv0fbmrZeOq
-	o7FmE5CavqAKbkBQmg21A9G+aw7Zw4sf38eSt9Lk7A3VGkmq5xLSPExuugxb3wsX
-	N50fVmyv3Cn44GvkRwtKOzoQebwHP1FDLN6zwfmlUrmqGgP7Rj0/Uv/u1axt7gd3
-	LjKfyPriakSAkNPBwCpUELzzrZWtlqB3p3G7nykWM6/CA==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4en7t8r53e-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 07 Jun 2026 05:51:12 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Sun, 7 Jun 2026 05:51:12 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Sun, 7 Jun 2026 05:51:12 -0700
-Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id 8AACA3F70BA;
-	Sun,  7 Jun 2026 05:51:09 -0700 (PDT)
-From: Geetha sowjanya <gakula@marvell.com>
-To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
-        <gakula@marvell.com>
-Subject: [PATCH 2/3] perf: marvell: Add CN20K LLC-TAD PMU support
-Date: Sun, 7 Jun 2026 18:21:00 +0530
-Message-ID: <20260607125101.17778-3-gakula@marvell.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260607125101.17778-1-gakula@marvell.com>
-References: <20260607125101.17778-1-gakula@marvell.com>
+	Sun, 07 Jun 2026 11:57:39 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-69e59978deeso1280828eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 04:57:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780833456; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LOENbSA4okaCJmdYkXJwiBB6Hc9k9asIstpTFhDNTKZlElFgxGTqlYggjDQ3jSinf4
+         f7oM6jNciPsME9BNEETUbf1jv9dBrRC53I2PCxGVD151ULv5wWZQ7Pic+QyZxqp7Besa
+         /fH+njuUURjoVkBw+yAbnZe93TS9fMMCzFG3Fjt4no2kESX9PoV2HIEPzKrqXISaY0ZO
+         CG8vTsWPGEnlK8BKJO41uQxsivEdhNFxJVY9agatkwuN0tV/XpsD6aEQsvIMa3Vnj3N2
+         wfUoPGzUFZflHCV+0veLgBs3MPn5E484h37jJ+vRnjr1PJg0UOc7PolBOiR62AMytRps
+         yr2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=;
+        fh=Cy0LQ4AEUqeVdWqjLPn8RDvrg3Tt+T/qpcmDc8VqNzc=;
+        b=Ksmmp1/xDcFqFtWgtYTENaisy7ESu7gldRJ0aQmfRrvUGipQJzheXL0GizzFvVs7fd
+         /fbrOCgeruylU8lkhrKVYuOzYqdCWuRPG+6yI18zzQnReCus2ETa+FHVYKSm5BVgWUdd
+         dxG8TKo5IH8mcPFPMtFsapmIuf1dNh9cvSoX19a36aiTCBQs83uBrsp+ZKjWtJFcYa51
+         SDjyqUL9M+9IHd+anZ2nMdLCsRVdFGaH6mngq2oNTY4ngtYbKldMrJs8eEstuBr5zJTM
+         dnXzCVIm756MsFUGuhVs+QALnOUI3qc4RtJU7JFwY8x8PWyWKAS4O2VwxK/Ykk7zvASm
+         4tTQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780833456; x=1781438256; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=;
+        b=K+WAYoTJ1NzwyOnoA7+UqoPhIn2xJi77qkfiHkkhyPfjvxAhwVX6guq8Nz2ZblFo7m
+         GVqa/YvGVtZBiCplMLFOO1z5jqHjH2LkhtMWpTX7MsahzSO5jH9bZPjnC/uwraNDyybW
+         sTANotNSuGz0LpVr1rZ4ek4UaryTv4fTMZvx9Wn9JetM6JBc2DAH9J2p8X+AdzN+SJ6J
+         r+AEFWNuOLvOPELzHhqHGdzXYOABMa/0iVgL02DR1c5WCKZ+0OmIvGuV2RMHchE2iUvR
+         j8ascfNKWHADfGEkcPYaB94Zk2QADLAt53wQ/LNIbO7Hy6NEUakgtMXY7fu/RQzq6ymL
+         aW6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780833456; x=1781438256;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=;
+        b=YHN+Gjks0u+YisS7iXwUFUUnvqRHeWxYV0h/zsCa0Ih+R+ix8JdBFtnuqG9i0R30Z8
+         U2uUnX9CX0JuUPWVBtEXSgLH2x9Wvl2bdlpltAlsdmCybgK7PihirNfzVKsRrN4jiF2+
+         GPxH67HbfV4iM50gaNwiQvjKcmIym5uTs3bEOTOjeOiaF9cIuHkXbFGn4wd8zQmarnQA
+         BjgmOo8Fj1PGZuzBI81n/ZBQAbhXzDEyQeON2WkSlfFU6XL0oS0N9WROKy/lAtw2Q4nz
+         cRkePemtnuiUwuqMHhBA0SWpBIBQewPIaCuoMUIk3Ys+4dr4QMV+oqkUFZbAvNvqK+rh
+         aZPw==
+X-Forwarded-Encrypted: i=1; AFNElJ866lMUY7jzFXJh94cp635f41J27ZwgjBuNss5xAtI1rBrLdwE7UkBrWqMpP8zjjcaGAWETZDH+PJXkgEvr7nF3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDW6lFziDQcconezPaTmMrGCHnn4UUhj21oFCO+i05lbr9rSNI
+	0xZMmElQdFSXMJYWilxdB9JiuxIP4mQwJwSiKWA1x+fWWCj7Z2h9FAtxKJGbR2gVU0cqUaJ8J1a
+	GTz8m8Wuo+DRy91yL1XU+ZQAQFK+n3oQq01hWxCE=
+X-Gm-Gg: Acq92OFtLpS56lBBdhv2u8UnKHUzvlTIOXfqHwYj/HYdcftW3xMu8+xbqteZq9j60t2
+	Mr0L+FXmPbtvbbb9gzr8KWh95NNrUiDsFxt07nwa4vO0yCF0H60VidFt/1Iai5H0dDyz5lnuCiC
+	yMjeu7NU8Pa9lE13cyu4PrxYgNSxMOi1fVhpwcWiXr+1lZVHyWdJTiCM9YypGa1dV97A5G5fpiX
+	1vlgqRZsI8PEdhVq2gBhxcTfaOeYUbZclCFzfYvyhP26Zm5b6JzGOGda9ffubbqDROnrHjS6jgq
+	IrF/gBltBegAbZsXjaU=
+X-Received: by 2002:a05:6820:4b10:b0:69e:3e2a:a83f with SMTP id
+ 006d021491bc7-69e68b1b89dmr5965848eaf.9.1780833455855; Sun, 07 Jun 2026
+ 04:57:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA3MDEyOCBTYWx0ZWRfX9JdUTYcp82bL
- 04KFZ4at+fUzy9XdhIm6QpSporQPY3PtzMkZPHLN6awae6GiTFzoKMKgP+1r7Ad++Egke5qh761
- MN2ydUVlkY0DLqDRaVKzCVc+QfnHcXBsik8iGqqIUYJ7l/EiX9nBjy67VWgrSDZVohMfTwvaCfh
- XRQmHUj6tREwbfXqq5XS4/awV1jYukX/Q0w8mUDkVboTS48nsBgH+TIpaeUfOoiBkgju8Ll2gfI
- 421vsU6qLqR3UdeRHrEaUh0GMnOz91jpLeF7Ux3/xvuOmsV6ewu5918uZ9EgVj8Xo6VpjCT+4J0
- w3FdaNNpS8fGvcnsbr6ONCKb5ENsCYGz9LkIO42gtj/k+ulbt6ouU01PWldDu+7FE26t8T0dy3R
- oFGBvBR4hE11xAJBNJz/32w/AAns+DwGs3BxPAJlnz2lulfxPVbQBra3gE2MFfEd9uKLErJWJhr
- rIMkfSzHrqgJ7rVfSlQ==
-X-Authority-Analysis: v=2.4 cv=evLvCIpX c=1 sm=1 tr=0 ts=6a256940 cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=TtqV-g6YmW1Jfm2GSLaY:22 a=M5GUcnROAAAA:8 a=Ye5975JmM4DBnxqCyIMA:9
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-ORIG-GUID: QybdIdM_cGL4jEs5nNVnnEq9doSuyz9m
-X-Proofpoint-GUID: QybdIdM_cGL4jEs5nNVnnEq9doSuyz9m
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-07_03,2026-06-05_02,2025-10-01_01
+References: <20260604123224.192543-2-diogompaissilva@gmail.com> <5277524.h16uAIiOU7@phil>
+In-Reply-To: <5277524.h16uAIiOU7@phil>
+From: Diogo Silva <diogompaissilva@gmail.com>
+Date: Sun, 7 Jun 2026 13:57:24 +0200
+X-Gm-Features: AVVi8CeS1DNJb0AdX_LRZZVsQf_W_fU1VPXBidKJmKeVdQ9Na8oOOSQePlAqJH8
+Message-ID: <CAJpoHp41+mLPWsu0EpCHkNz_z3=+tGqfh0cDKEaCWxwoYOm_Jw@mail.gmail.com>
+Subject: Re: [PATCH] drm/rockchip: dsi: Open-code drm_simple_encoder_init()
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_055123_726982_B2489BD7 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260607_045737_601711_74B404D1 
+X-CRM114-Status: GOOD (  27.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,125 +119,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CN20K LLC-TAD uses non-standard PFC/PRF page offsets relative to each
-TAD region base. Add a TAD_PMU_V3 profile with per-platform register bases,
-extend the CN10K event map for new counters, and match the block via OF and
-ACPI.
+Hey Heiko,
 
-Signed-off-by: Geetha sowjanya <gakula@marvell.com>
----
- drivers/perf/marvell_cn10k_tad_pmu.c | 33 +++++++++++++++++++++++++---
- 1 file changed, 30 insertions(+), 3 deletions(-)
+> this description is missing a rationale.
+>
+> Looking at the drm git history, I guess here you could add a second
+> paragraph, with something like:
+>
+> ----------- 8< -----------
+> The helpers have been deprecated for years as they only add an an
+> intermediate layer between atomic modesetting and the DRM driver.
+> ----------- 8< -----------
+>
+> Shamelessly stolen from the Todo item ;-)
 
-diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
-index 7a3b659c999a..4daf109b89ee 100644
---- a/drivers/perf/marvell_cn10k_tad_pmu.c
-+++ b/drivers/perf/marvell_cn10k_tad_pmu.c
-@@ -17,6 +17,8 @@
- 
- #define TAD_PRF_OFFSET		0x900
- #define TAD_PFC_OFFSET		0x800
-+#define TAD_PRF_NS_OFFSET	0x30900
-+#define TAD_PFC_NS_OFFSET	0x30800
- #define TAD_PFC(base, counter)	((base) | ((u64)(counter) << 3))
- #define TAD_PRF(base, counter)	((base) | ((u64)(counter) << 3))
- #define TAD_PRF_CNTSEL_MASK	0xFF
-@@ -33,6 +35,7 @@ struct tad_region {
- enum mrvl_tad_pmu_version {
- 	TAD_PMU_V1 = 1,
- 	TAD_PMU_V2,
-+	TAD_PMU_V3,
- };
- 
- struct tad_pmu_data {
-@@ -80,8 +83,14 @@ static void tad_pmu_start_counter(struct tad_pmu *pmu,
- 	if (partid && event_idx > 0x19 && event_idx < 0x21) {
- 		partid_filter = TAD_PRF_MATCH_PARTID | TAD_PRF_PARTID_NS |
- 				((u64)partid << 11);
-+
-+		if (pdata->id == TAD_PMU_V3)
-+			partid_filter = TAD_PRF_MATCH_PARTID | BIT_ULL(25) |
-+				((u64)partid << 10);
- 	}
- 
-+	if (pdata->id == TAD_PMU_V1 && event_idx > 0x24)
-+		return;
- 
- 	for (i = 0; i < pmu->region_cnt; i++) {
- 		reg_val = event_idx & 0xFF;
-@@ -261,6 +270,18 @@ static struct attribute *tad_pmu_event_attrs[] = {
- 	TAD_PMU_EVENT_ATTR(tad_dat_rd_byp, 0x22),
- 	TAD_PMU_EVENT_ATTR(tad_ifb_occ, 0x23),
- 	TAD_PMU_EVENT_ATTR(tad_req_occ, 0x24),
-+	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dtg_evict, 0x25),
-+	TAD_PMU_EVENT_ATTR(tad_req_msh_out_ltg_evict, 0x26),
-+	TAD_PMU_EVENT_ATTR(tad_rsp_msh_out_mpam, 0x28),
-+	TAD_PMU_EVENT_ATTR(tad_replays, 0x29),
-+	TAD_PMU_EVENT_ATTR(tad_req_byp0, 0x2a),
-+	TAD_PMU_EVENT_ATTR(tad_req_byp1, 0x2b),
-+	TAD_PMU_EVENT_ATTR(tad_txreq_byp, 0x2c),
-+	TAD_PMU_EVENT_ATTR(tad_time_in_dslp, 0x2d),
-+	TAD_PMU_EVENT_ATTR(tad_time_elapsed, 0x2e),
-+	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dss_rd_128mrg, 0x2f),
-+	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dss_wr_128mrg, 0x30),
-+	TAD_PMU_EVENT_ATTR(tad_tot_cycle, 0xff),
- 	NULL
- };
- 
-@@ -426,7 +447,6 @@ static int tad_pmu_probe(struct platform_device *pdev)
- 	tad_pmu->region_cnt = tad_cnt;
- 
- 	tad_pmu->pmu = (struct pmu) {
--
- 		.module		= THIS_MODULE,
- 		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE |
- 				  PERF_PMU_CAP_NO_INTERRUPT,
-@@ -440,7 +460,7 @@ static int tad_pmu_probe(struct platform_device *pdev)
- 		.read		= tad_pmu_event_counter_read,
- 	};
- 
--	if (version == TAD_PMU_V1) {
-+	if (version == TAD_PMU_V1 || version == TAD_PMU_V3) {
- 		tad_pmu->pmu.attr_groups = tad_pmu_attr_groups;
- 		tad_pmu->ops		 = &tad_pmu_ops;
- 	} else {
-@@ -482,6 +502,11 @@ static const struct tad_pmu_data tad_pmu_data = {
- 	.tad_pfc_offset = TAD_PFC_OFFSET,
- };
- 
-+static const struct tad_pmu_data tad_pmu_cn20k_data = {
-+	.id   = TAD_PMU_V3,
-+	.tad_prf_offset = TAD_PRF_NS_OFFSET,
-+	.tad_pfc_offset = TAD_PFC_NS_OFFSET,
-+};
- #endif
- 
- #ifdef CONFIG_ACPI
-@@ -495,6 +520,7 @@ static const struct tad_pmu_data tad_pmu_v2_data = {
- #ifdef CONFIG_OF
- static const struct of_device_id tad_pmu_of_match[] = {
- 	{ .compatible = "marvell,cn10k-tad-pmu", .data = &tad_pmu_data },
-+	{ .compatible = "marvell,cn20k-tad-pmu", .data = &tad_pmu_cn20k_data },
- 	{},
- };
- #endif
-@@ -503,6 +529,7 @@ static const struct of_device_id tad_pmu_of_match[] = {
- static const struct acpi_device_id tad_pmu_acpi_match[] = {
- 	{"MRVL000B", (kernel_ulong_t)&tad_pmu_data},
- 	{"MRVL000D", (kernel_ulong_t)&tad_pmu_v2_data},
-+	{"MRVL000F", (kernel_ulong_t)&tad_pmu_cn20k_data},
- 	{},
- };
- MODULE_DEVICE_TABLE(acpi, tad_pmu_acpi_match);
-@@ -564,6 +591,6 @@ static void __exit tad_pmu_exit(void)
- module_init(tad_pmu_init);
- module_exit(tad_pmu_exit);
- 
--MODULE_DESCRIPTION("Marvell CN10K LLC-TAD Perf driver");
-+MODULE_DESCRIPTION("Marvell CN10K/CN20K LLC-TAD Perf driver");
- MODULE_AUTHOR("Bhaskara Budiredla <bbudiredla@marvell.com>");
- MODULE_LICENSE("GPL v2");
--- 
-2.25.1
+True. I will add the rationale then.
 
+> Any reason for only changing the DSI driver?
+>
+> Looking at [0] a number of the Rockchip drivers use the same pattern:
+> - drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> - drivers/gpu/drm/rockchip/cdn-dp-core.c
+> - drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> - drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+> - drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> - drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> - drivers/gpu/drm/rockchip/rk3066_hdmi.c
+> - drivers/gpu/drm/rockchip/rockchip_lvds.c
+> - drivers/gpu/drm/rockchip/rockchip_rgb.c
+>
+> You can just do all Rockchip ones - even in one patch I think :-) .
+
+Yes, indeed. I wanted to send a tiny patch to check if all my
+configurations were ok, but since it looks like they are, I will add the
+other rockchip drivers that have the deprecated functions.
+
+Thanks,
+Diogo
+
+On Sun, 7 Jun 2026 at 12:59, Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> Hi Diego,
+>
+> Am Donnerstag, 4. Juni 2026, 14:32:25 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Diogo Silva:
+> > Remove the dependency on drm_simple_kms_helper by open-coding the
+> > drm_simple_encoder_init call.
+>
+> this description is missing a rationale.
+>
+> Looking at the drm git history, I guess here you could add a second
+> paragraph, with something like:
+>
+> ----------- 8< -----------
+> The helpers have been deprecated for years as they only add an an
+> intermediate layer between atomic modesetting and the DRM driver.
+> ----------- 8< -----------
+>
+> Shamelessly stolen from the Todo item ;-)
+>
+>
+> > Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
+> > ---
+> >  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 9 +++++++--
+>
+> Any reason for only changing the DSI driver?
+>
+> Looking at [0] a number of the Rockchip drivers use the same pattern:
+> - drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> - drivers/gpu/drm/rockchip/cdn-dp-core.c
+> - drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> - drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+> - drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> - drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> - drivers/gpu/drm/rockchip/rk3066_hdmi.c
+> - drivers/gpu/drm/rockchip/rockchip_lvds.c
+> - drivers/gpu/drm/rockchip/rockchip_rgb.c
+>
+> You can just do all Rockchip ones - even in one patch I think :-) .
+>
+>
+> Thanks
+> Heiko
+>
+> [0] https://elixir.bootlin.com/linux/v7.1-rc6/A/ident/drm_simple_encoder_=
+init
+>
+>
+> >  1 file changed, 7 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/=
+gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> > index 3547d91b25d3..a09b382d208e 100644
+> > --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> > +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> > @@ -25,7 +25,6 @@
+> >  #include <drm/drm_mipi_dsi.h>
+> >  #include <drm/drm_of.h>
+> >  #include <drm/drm_print.h>
+> > -#include <drm/drm_simple_kms_helper.h>
+> >
+> >  #include "rockchip_drm_drv.h"
+> >
+> > @@ -825,6 +824,10 @@ static void dw_mipi_dsi_encoder_enable(struct drm_=
+encoder *encoder)
+> >       clk_disable_unprepare(dsi->grf_clk);
+> >  }
+> >
+> > +static const struct drm_encoder_funcs dw_mipi_dsi_encoder_funcs =3D {
+> > +     .destroy =3D drm_encoder_cleanup,
+> > +};
+> > +
+> >  static const struct drm_encoder_helper_funcs
+> >  dw_mipi_dsi_encoder_helper_funcs =3D {
+> >       .atomic_check =3D dw_mipi_dsi_encoder_atomic_check,
+> > @@ -840,7 +843,9 @@ static int rockchip_dsi_drm_create_encoder(struct d=
+w_mipi_dsi_rockchip *dsi,
+> >       encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm_dev,
+> >                                                            dsi->dev->of=
+_node);
+> >
+> > -     ret =3D drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODE=
+R_DSI);
+> > +     ret =3D drm_encoder_init(drm_dev, encoder,
+> > +                             &dw_mipi_dsi_encoder_funcs,
+> > +                             DRM_MODE_ENCODER_DSI, NULL);
+> >       if (ret) {
+> >               DRM_ERROR("Failed to initialize encoder with drm\n");
+> >               return ret;
+> >
+>
+>
+>
+>
 
