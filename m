@@ -4,107 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D24CD8C8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09710CD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=; b=XyG9g884kdgzjqo4N8VElwrpZN
-	b5kxj87JX6Sm+A+h1ISHM61nSArPrQmd0x3u6wvRxq3rzn/1cdgVtMgXn7KKYZUJfCVIGkbe3rn5x
-	FxWzGrv062t6hlkoBJzW0hQmxv8rLQMXd6e+/2E8ofByJ2Q+vHbJc2z1tF0LeMq4cqqviLZLmhR8S
-	q/e42vyGKlH3/goNoEywmEuUlwJqIirK6IPGk90SGu0aNzIB5pZ4YIPrKdjZKvG72LnpAy97r9yoD
-	re8aaih6zYhzLAjhr40fdBm6JfSIJI5gm4YPSx5S8/hbUQcFBCduT8i6zjsb+5qYrQqtDH6pwxWdO
-	xi3yJ63w==;
+	bh=nXKFoSv+OD8UufALvZn1QYM34hChzmAMz1kYVtXJuCs=; b=V8FVRbHGU9LSTZWOPZRxlWgoAC
+	Nom1n18PwFgeNrIqJacENDwvm1p4T0of8TCsf0FhkWSaAeYD+PXNtOJCn8g41SViBVpjnSdzUVdQ5
+	qMSU7Pq4rGmgtet+mPOXa5X7IeW6j6A9ZFruMWhoJRKycLVNxSMJazZVe4JBEz/uDUZKTDhADb9EG
+	XxFfQlT1BSICzrX+2i4bGRdLbGzjbuqiB55lszrwXq18WlK6ldblLM0Ryxs2zvF41AkJpByLmpjnB
+	Uwmm+uvtRCnRETkpEJNU7P1jaVJZon0QUOuK9wXzH2P4x5bxuRNb4zcj/ynafZc9ZuWGwjA47+xbe
+	n0avJRMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWLGk-00000002WiV-27HB;
-	Sun, 07 Jun 2026 21:42:58 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1wWL7U-00000002VRd-2BfE;
+	Sun, 07 Jun 2026 21:33:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWLGc-00000002Wfi-0YjY
+	id 1wWL7S-00000002VPT-2Ji1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 21:42:57 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-5177d1ff061so1234281cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:42:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780868569; cv=none;
-        d=google.com; s=arc-20240605;
-        b=AK5y0GMoIX7/xxVuxFYHW0CFpMwH/3cL4Hqre1DMEDMgObWrvKMBE/03vrqmDdiWnQ
-         sofzk9L7UhOF83dmo/gQDTrixUIhQz5qHETz2/nPmWDvWHDTl5ElFE/x/AOXWgew4AzO
-         n+HgcUhRX1M+qp5KHzUCsqomh19ZINKBUAmOiJTWSBJn4upnb25EX2cxOUvHfVY3dVYD
-         oFnw1QfGgCiQW2O7efBRy0WHrwLnV0SIxXlo4sf+vqO5BskD+gM/5ed+iH3hAESVQSmE
-         NI4hDlTaLWJk5AXFHXpOdMEoRGeycn54C9aI4K4Yr+LOUNdfOB7lu4/z0qTzHDpGrLBY
-         CIaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=;
-        fh=ZAcz3A4/ypOjbf5aweNvpPjrPjFcEoJbis/I4CKYGZs=;
-        b=kym02LRUwqF5JXCGj5ABFPCN5TEdqkrms7KoxJOH/F8EWQywV8zb1yW4wd3Iv1yjDn
-         QS+kisqyimGGhrWm31jETPx+DXokhprOIm68e4/ptNfQgBtX0aRP8sBAp8bR8CjNZBiP
-         OTCBXIa7PqmIEDWkLfHW1ygwTYo03rJklE7v1WEEQR8x04pD6aUqcmOlDPY2PK6qehep
-         onU0EdgJgSmRuRmRpo4EoXWTJ7Ra2PCc5kZ0QjOCtVM6GfOZEKipITmwGCFNMyF7heVc
-         A+a37BNeB+uWSOGey8vTLjR5pVPpdVW/RmxZg5M/0H2TngN0SI+LGLivOtpbkJXh0tA6
-         P1zg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 07 Jun 2026 21:33:23 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 657JN6gm994217
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 7 Jun 2026 21:33:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	nXKFoSv+OD8UufALvZn1QYM34hChzmAMz1kYVtXJuCs=; b=ngD8UMRRkCVGGPXg
+	fDoNGLDne2G4UuEFKonFSx0S0RwdRzAru+C7w6MEU7k/2OAsBmYgEhJ4x+R0qQbZ
+	L2qSTlNJ6APTR6FLdwyAJ3tv/FTIGvm8kU9rY7djgBDw15dFuemzomhxKdpWojTP
+	NaB337ghqIJozX29QuKHVtKhQqNLyrokSGQ5vE+zhAJI7N3oE7b9CM3wh6yVU1G1
+	vk/OHKxhODvOt+r2AiWgd6htZAPilaoag0Ma/JH8xhNRCCIiRtvi4NqQREpKDMw9
+	/qMjeOKjwfGpstW6QDVPpis/XwbOOD1OhUqxD8sbTdei0Ei4COfjwVsXoYPIexRF
+	B6tBMQ==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4embs1cq0m-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 21:33:22 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-5178fc89b1bso44816451cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:33:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780868569; x=1781473369; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=;
-        b=ESjv3WYbkq+PtXIV8CIJ66X/2HwN4c+M1GCKMlTft/fIxslxuUJY0na1c9ZFW/LmRE
-         KrxgOjT4x2OvUajtGoAjmadzMKBoMjmAiahAgii93zp8eRzgzAE4yrZqwJ10CjP3L0LD
-         COW4Caj3oAg5JbuO4UVuoY34BoO6wlWIZu0L+uXoIDlxur8pVGrXFX3HA5UDoqXSwnsL
-         m9cHaK0TwY2KoUXz4NeJ1SvX3B+pjRQ9wLQAZqzRfzTzFHgrNGIUg79X7jregfrps/CJ
-         z7hmpwiKVVJYKEThssQiXIWtcLMdZFJUMqmh1zIFAPRLQYZlgGeTH4MHfIakPAGj+/xP
-         TAug==
+        d=oss.qualcomm.com; s=google; t=1780868001; x=1781472801; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nXKFoSv+OD8UufALvZn1QYM34hChzmAMz1kYVtXJuCs=;
+        b=BNwNFw+W92c2WBkMgmjP75fpTHppIH2hfcU6lWQUcOc4m2Ovg6dEs6OlCHD8S72Qt2
+         ZP3RL1WnXhUeekXmn6l9YwskDWWHrRffmrgkDhAKHylQ/hu+NXKg3PSCqd0XN3GMP0jO
+         LgqeE0pv6EUqGJj8uFYSbakTOLvcea7r9r+uw1G4pU0iTJi98V/iEi31kZhiQAIC2aZc
+         wF8UIyIDyFYPgAE/OZEQ4qxjPxcrqF5LcGH1L0I7P2WJzr2DiyiYa9e7SHy2EtRl0UNw
+         PEtK1S5slDW0vM2DMfVhxi2rmwicJlHSoIbs9Bkmfw0EBffDkNeB1MAsFS2uOnjvWE2x
+         qB/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780868569; x=1781473369;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=;
-        b=AOZZ0pRLUsSR29j3aHquZ1cIIgD/SP4vzWDSnsuIjYuCVOYb67bmuo9MdWP9ni5/4j
-         C384FGE2xSHIATCY0Td6WWDPC6hKFmYR6MyOqgMtfkuJrcf+e31VCQIkLX8Y+k+U2SYY
-         PGQKJpMhMjKvrGDF+tv9FYclSoECVC/v31YSp/9FUWOlTA262ZPPQAtjr4YjoSld6y+L
-         wtpUeVFOhBj35CVsNVV4JtsVeIbxOuknLs80bBMpfgVjFnp5MyX7hbZ2RpIoQbOOCSzH
-         dEL5YwRV7LFjqDYDEUnP6c4VtRpxaCBh1wk2ehDp9qh8rxZGi48Xx1vOy2HgY2gafNXA
-         rixg==
-X-Forwarded-Encrypted: i=1; AFNElJ+Wz+ZmUETkQTxUyIJ+5j5k/iHqGvdXI/aqPK8sCdekQSFwvvVtnI3gUT4kc9Bg5e6N3ZJWTPK+8y/eEqbuWybu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/bECtGeYCPW7A3ViBd+K5AZMB4XVEMj5aORaCtexq8PIWvXDb
-	xvpcMu1BOs5ukTp7/GmFmQEPHnmX/wuywgwsxJ5r09iQRNot8yeeabCVXJxstWO5AUPbmbN3d0o
-	cqYzwWS78hWx91JYlluYrV/pdhVzLyOjOK7xQw0hp
-X-Gm-Gg: Acq92OHwhtoWnG36EixFEpGjN/LH7IV7YbQZXd8SXqKEhmJSHUbokRYN4qhST7jFCKM
-	KxcZjzNxyNaFhkdKYrkNlpqTIcybGfr1AlaZlgbGfIH027ituYXnYLOrmj6dNFBSP5px8l+CoOJ
-	bg5PvTXN+hjI/dzkZhytgkGugzRinX5p7rmeAoa3Zsj5nYyNKDOgv9hwwDJ+ya/1/sn31/OTte+
-	h7hEN64AvYyhkxn4ocmeBPQzHXGfXDONaJuGy3IMapil29ukCz27FLuKrtLvewol2Mozni2PbLv
-	CtN3wogCdxBkNj0=
-X-Received: by 2002:a05:622a:178a:b0:517:99ea:ab7c with SMTP id
- d75a77b69052e-51799eabedcmr13790861cf.28.1780868568251; Sun, 07 Jun 2026
- 14:42:48 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780868001; x=1781472801;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=nXKFoSv+OD8UufALvZn1QYM34hChzmAMz1kYVtXJuCs=;
+        b=R+e6Swfyp5EmouMLE3T8q19eGvJGVzL/0cuiSJZQ2iVeD4wTWqv71HW8UM/lY/7t92
+         hETTh47WTottbw7aFepxGJMsS9oMurHMt8G+pKBr6fxQY9sRAyei3d1jGrM1CwqqhJdp
+         fL4ucf8CoCAS46eMWvu/hZ3tVgVLhKVmKvqiB3VW3l3rA6E0DofE/BPyhhAermAh7CMQ
+         qC5kdGRMD7F0yTPq8gGQ9dyC76w/f8nRhRFNYRboX5BKt925W7MeqpR0otdoP8nCnioG
+         3DRuAz+0rBf2WR/dfajWLi89pO8LLTP2aVnVI3C8s6MYSuNxWEJWJWL99G9UeLI2GI6a
+         X6vQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8WMvWHyEiX7t6PtNj1rtHzO1V2oaGHRtyVjjB81MC5WLKLqO9mK4QfV4dbBmc59x+ptiRetQKUR9UZm8Lhsnlh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG85E+crOk+JJFkTfZ/AWUTHykY6rX15KEGhkgpMOz88OuBo6F
+	zPVjQRlUTCn5TpTflqDR0AIfXIx2Fyj/cD/O0wNAlGzPbS3q+St4qOJV5WMkUCFccACkF3B8lj/
+	bua/6ZcE7ANhepTGUY6Yx0iadS3z8UW3jjFoSezog1b4PjubgEzq3pVG2iZWSphjAk/fr7gSYRx
+	t4mQ==
+X-Gm-Gg: Acq92OE1S1b5s+hNvUEILtWkHiF4yE95BadddXWAW1IQD4v2udbHma9ANvjxt8S2H5W
+	ExD1eaWSQWjVTN7Go4ePK39EoRNVcKnCg/hilOIhwJ99Wd4K8wTMwBud9YiXH7U+N9nFMIqd/Cc
+	RhcCIEX/Mk12G7JmIjf13ZXI+CMmbiFZAzk4Rcw/A1fCHp5MJM1crO5jgfTisC2UHQ44TSvH7Nm
+	fxmN+jshXjuyhDLUJwlo6qMGAZxlntQO+xGxg/+iyIGipZ4yi4OC5vxeH0jD3v3NxQ+BwJdeVSM
+	bKSgc9lkWd215x6hgiMGkVD9eQmfs2GYPeFiykj/fYWJdiOmklAxtomjeqKCcQI+LKCSQnnH8re
+	W/zALedzwfxl5CDEDKwpGmbOC7BORa9+DvIcIpiyiji7PSkgoOosuMnXla4/5VLbfibpw6om4HQ
+	8Oh+quJXZx699g8EotmcIie721AWg9pa0B9vX0eXvaK3wDQA==
+X-Received: by 2002:a05:622a:2517:b0:517:5e32:af23 with SMTP id d75a77b69052e-51795aebe02mr194975941cf.23.1780868000988;
+        Sun, 07 Jun 2026 14:33:20 -0700 (PDT)
+X-Received: by 2002:a05:622a:2517:b0:517:5e32:af23 with SMTP id d75a77b69052e-51795aebe02mr194975711cf.23.1780868000589;
+        Sun, 07 Jun 2026 14:33:20 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-396ac2d5ea9sm40374041fa.32.2026.06.07.14.33.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Jun 2026 14:33:18 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Mon, 08 Jun 2026 00:33:04 +0300
+Subject: [PATCH v4 3/8] drm/bridge: aux-hpd: let drivers pass IRQ_HPD
+ events
 MIME-Version: 1.0
-References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-8-praan@google.com>
-In-Reply-To: <20260601215909.3958732-8-praan@google.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Sun, 7 Jun 2026 14:42:37 -0700
-X-Gm-Features: AVVi8Cc7vDwsTYlZ7xArJ-OaI4SeEU2xRhvF0rVcM1tRP9imeosdVyxxnu47IE0
-Message-ID: <CAE2F3rDF5dVJip2gc+vaxtM-FRttnUEnAetUYz6qDCXRM=fNYg@mail.gmail.com>
-Subject: Re: [PATCH v8 07/12] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
- gate CMDQ submissions
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260608-hpd-irq-events-v4-3-30b62b335487@oss.qualcomm.com>
+References: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
+In-Reply-To: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Adrien Grassein <adrien.grassein@gmail.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
+        Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Francesco Dolcini <francesco@dolcini.it>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7243;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=rdu6Lwit2C5KKaZ0v/12eMby0f1nLoCKXdHmYUOIy4U=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBqJeOQYUpV6AbZ+K+nm95Zl+WoXVrg+fMcXpgbX
+ h8vS/IYrmOJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaiXjkAAKCRCLPIo+Aiko
+ 1XWjB/9dqo7HAElaDvU+mxdxI+Ru2jHiFBIziemApDHFDezmPew+WlYPwGnF4HXVVGkwnqnNYXC
+ RdsLnO6V2yjRvaDUyB3jljvapCpKeqoAOjTWpYWuh7ruL4RvL3r7RJbVdFiRCgvjbBpkr4EIXLI
+ LPiNpjUmR/NV96lBKA8T7VZzMAO/WA0wS20cUkD+RMtdPlURGoSblZFEOZjOC6VhgmtUv6XT1mh
+ 2uMqBR0JZBDRXy8Exl1Wg7/eF3lvh3i2WAxvn0PsSWdr2wJKf9djD7ZnJrxViM/sOkJHaLMT12p
+ J6fPPAx0hkYm0ysKoMyk6Lw8ZrANBEfDyScM8c5G3um5s3Jo
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA3MDIxNyBTYWx0ZWRfX0MG2xvJDKaXx
+ qDOuQQoHn3x6VEG+m+M6fvNBzGVrf9bNHQPcOsDklEKox+RA89YX8JybUv2PtqYL2pf0sdiLDhQ
+ Tf8NZtdaAr+4avo7SIT4rUH9fXxb8P8mtDgxOUhqCy2mYuDOg0NaNq+Zw8D/t1+gYhhYmpLRVgs
+ HT3BvDLiiM6U+Mgs3ezIng+iTlsraYu7NXX7LPn9B5IS8tNodLq8NXMR77tL93bkiVjSnQzi7nF
+ f4KowwWTQ1aZFN9rGlkPBEokS84qKhWvp5Y3sChM7r0dpuQDKgHP7G9mDlErYRvFHg/ZswOpQxj
+ XdbzTtTRdOpiDGYQTHetKJ1YowtC3Vsz3tclsE0FUBnuudlehs90Fs0FM5xDbODWemTq6wfRDCB
+ J17OxVy/SxYvy1rUBlDhS/00eqylIwat2bJl7k5JMk6FxpQRjxCXOZB+3Tt5lT3yOAovQRjwj0d
+ jrTx7p47tYotMfyffOw==
+X-Authority-Analysis: v=2.4 cv=CeY4Irrl c=1 sm=1 tr=0 ts=6a25e3a2 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=sF2-0BiPaN5ps1Od_V4A:9 a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: VgajSvcasRMGOl8sFXVPK3vWwaXHO2TH
+X-Proofpoint-GUID: VgajSvcasRMGOl8sFXVPK3vWwaXHO2TH
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-07_04,2026-06-05_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 impostorscore=0 suspectscore=0 adultscore=0
+ priorityscore=1501 spamscore=0 malwarescore=0 phishscore=0 clxscore=1015
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
+ definitions=main-2606070217
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_144250_205860_5A8091A8 
-X-CRM114-Status: GOOD (  28.84  )
+X-CRM114-CacheID: sfid-20260607_143322_620872_F586D3CF 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,119 +191,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 1, 2026 at 2:59=E2=80=AFPM Pranjal Shrivastava <praan@google.co=
-m> wrote:
->
-> Introduce a new bit flag, CMDQ_PROD_STOP_FLAG (bit 30), in the command
-> queue's producer index to safely gate command submissions during device
-> suspension.
->
-> The flag embeds the suspend state directly into the existing global state
-> The flag checked in the cmpxchg loop in arm_smmu_cmdq_issue_cmdlist(),
-> which acts as a Point of Commitment, ensuring that no indices are
-> reserved or committed once the SMMU begins suspending.
->
-> This prevents a situation of "abandoned batches" where indices are
-> incremented but commands are never written, which would otherwise
-> lead to timeout during the drain poll.
->
-> Update queue_inc_prod_n() to preserve this flag during index
-> calculations, ensuring that any in-flight commands that successfully
-> passed the point of commitment can proceed to completion while the
-> flag remains set.
->
-> Suggested-by: Daniel Mentz <danielmentz@google.com>
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 20 +++++++++++++++++++-
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  2 ++
->  2 files changed, 21 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/=
-arm/arm-smmu-v3/arm-smmu-v3.c
-> index 6c8631e2f153..c4315bdde7d5 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -210,7 +210,8 @@ static int queue_sync_prod_in(struct arm_smmu_queue *=
-q)
->  static u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
->  {
->         u32 prod =3D (Q_WRP(q, q->prod) | Q_IDX(q, q->prod)) + n;
-> -       return Q_OVF(q->prod) | Q_WRP(q, prod) | Q_IDX(q, prod);
-> +
-> +       return Q_OVF(q->prod) | Q_STOP(q->prod) | Q_WRP(q, prod) | Q_IDX(=
-q, prod);
->  }
->
->  static void queue_poll_init(struct arm_smmu_device *smmu,
-> @@ -718,8 +719,25 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_devi=
-ce *smmu,
->         do {
->                 u64 old;
->
-> +               /*
-> +                * If the SMMU is suspended/suspending, any new CMDs are =
-elided.
-> +                * This loop is the Point of Commitment. If we haven't cm=
-pxchg'd
-> +                * our new indices yet, we can safely bail. Once the indi=
-ces are
-> +                * committed, we MUST write valid commands to those slots=
- to
-> +                * avoid indefinite polling in the drain function.
-> +                */
-> +               if (Q_STOP(llq.prod)) {
-> +                       local_irq_restore(flags);
-> +                       return 0;
+The DisplayPort standard defines a special kind of HPD events called
+IRQ_HPD. These events are used to notify DP Source about the events on
+the Sink side.
 
-On second thought, I no longer believe that this is safe. I understand
-that READ_ONCE(cmdq->q.llq.val) implies no ordering guarantees with
-respect to any writes to translation tables. In the non-stopped case,
-we can rely on the call to dma_wmb() further down in this function.
-However, for the stopped case, I can't identify any barriers that
-would ensure that the STOP flag is checked only after the writes are
-visible to SMMU. Here is an example: Let's assume the following
-program order:
+Let users of aux-hpd, the UCSI and PMIC GLINK drivers pass the IRQ_HPD
+events to the DisplayPort drivers.
 
- * Write to invalidate PTE
- * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
+The drm_aux_hpd_bridge_notify() is kept to ease merging of the series,
+preventing extra cross-tree merges. It will be removed once all
+drivers are converted. The drm_bridge_hpd_notify() function is kept for
+the drivers which only care about the connector status and will always
+pass DRM_CONNECTOR_NO_EXTRA_STATUS as the extra status.
 
-What prevents the CPU from reordering these operations as follows?
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+---
+ drivers/gpu/drm/bridge/aux-hpd-bridge.c | 11 +++++++----
+ drivers/gpu/drm/drm_bridge.c            | 15 +++++++++------
+ include/drm/bridge/aux-bridge.h         | 13 +++++++++++--
+ include/drm/drm_bridge.h                | 22 ++++++++++++++++++++--
+ 4 files changed, 47 insertions(+), 14 deletions(-)
 
- * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
- * Write to invalidate PTE
+diff --git a/drivers/gpu/drm/bridge/aux-hpd-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
+index f02a38a2638a..0e2f0b046121 100644
+--- a/drivers/gpu/drm/bridge/aux-hpd-bridge.c
++++ b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
+@@ -136,16 +136,19 @@ struct device *drm_dp_hpd_bridge_register(struct device *parent, struct device_n
+ EXPORT_SYMBOL_GPL(drm_dp_hpd_bridge_register);
+ 
+ /**
+- * drm_aux_hpd_bridge_notify - notify hot plug detection events
++ * drm_aux_hpd_bridge_notify_extra - notify hot plug detection events
+  * @dev: device created for the HPD bridge
+  * @status: output connection status
++ * @extra_status: extra status bits like DRM_CONNECTOR_DP_IRQ_HPD
+  *
+  * A wrapper around drm_bridge_hpd_notify() that is used to report hot plug
+  * detection events for bridges created via drm_dp_hpd_bridge_register().
+  *
+  * This function shall be called in a context that can sleep.
+  */
+-void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status)
++void drm_aux_hpd_bridge_notify_extra(struct device *dev,
++				     enum drm_connector_status status,
++				     enum drm_connector_status_extra extra_status)
+ {
+ 	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+ 	struct drm_aux_hpd_bridge_data *data = auxiliary_get_drvdata(adev);
+@@ -153,9 +156,9 @@ void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status sta
+ 	if (!data)
+ 		return;
+ 
+-	drm_bridge_hpd_notify(&data->bridge, status);
++	drm_bridge_hpd_notify_extra(&data->bridge, status, extra_status);
+ }
+-EXPORT_SYMBOL_GPL(drm_aux_hpd_bridge_notify);
++EXPORT_SYMBOL_GPL(drm_aux_hpd_bridge_notify_extra);
+ 
+ static int drm_aux_hpd_bridge_attach(struct drm_bridge *bridge,
+ 				     struct drm_encoder *encoder,
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 687b36eea0c7..84e55db5c1fe 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -1495,25 +1495,28 @@ void drm_bridge_hpd_disable(struct drm_bridge *bridge)
+ EXPORT_SYMBOL_GPL(drm_bridge_hpd_disable);
+ 
+ /**
+- * drm_bridge_hpd_notify - notify hot plug detection events
++ * drm_bridge_hpd_notify_extra - notify hot plug detection and sink IRQ events
+  * @bridge: bridge control structure
+  * @status: output connection status
++ * @extra_status: additional status recorded by the sink
+  *
+  * Bridge drivers shall call this function to report hot plug events when they
+- * detect a change in the output status, when hot plug detection has been
+- * enabled by drm_bridge_hpd_enable().
++ * detect a change in the output status or when the sink has reported extra HPD
++ * status events (like the IRQ_HPD in case of the DisplayPort), when hot plug
++ * detection has been enabled by drm_bridge_hpd_enable().
+  *
+  * This function shall be called in a context that can sleep.
+  */
+-void drm_bridge_hpd_notify(struct drm_bridge *bridge,
+-			   enum drm_connector_status status)
++void drm_bridge_hpd_notify_extra(struct drm_bridge *bridge,
++				 enum drm_connector_status status,
++				 enum drm_connector_status_extra extra_status)
+ {
+ 	mutex_lock(&bridge->hpd_mutex);
+ 	if (bridge->hpd_cb)
+ 		bridge->hpd_cb(bridge->hpd_data, status);
+ 	mutex_unlock(&bridge->hpd_mutex);
+ }
+-EXPORT_SYMBOL_GPL(drm_bridge_hpd_notify);
++EXPORT_SYMBOL_GPL(drm_bridge_hpd_notify_extra);
+ 
+ #ifdef CONFIG_OF
+ /**
+diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
+index c2f5a855512f..f9a86886b0df 100644
+--- a/include/drm/bridge/aux-bridge.h
++++ b/include/drm/bridge/aux-bridge.h
+@@ -25,7 +25,9 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent, str
+ int devm_drm_dp_hpd_bridge_add(struct device *dev, struct auxiliary_device *adev);
+ struct device *drm_dp_hpd_bridge_register(struct device *parent,
+ 					  struct device_node *np);
+-void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status);
++void drm_aux_hpd_bridge_notify_extra(struct device *dev,
++				     enum drm_connector_status status,
++				     enum drm_connector_status_extra extra_status);
+ #else
+ static inline struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent,
+ 								    struct device_node *np)
+@@ -44,9 +46,16 @@ static inline struct device *drm_dp_hpd_bridge_register(struct device *parent,
+ 	return NULL;
+ }
+ 
+-static inline void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status)
++static inline void drm_aux_hpd_bridge_notify_extra(struct device *dev,
++						   enum drm_connector_status status,
++						   enum drm_connector_status_extra extra_status)
+ {
+ }
+ #endif
+ 
++static inline void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status)
++{
++	drm_aux_hpd_bridge_notify_extra(dev, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
++}
++
+ #endif
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 4ba3a5deef9a..78b0d83ef2aa 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -1581,8 +1581,26 @@ void drm_bridge_hpd_enable(struct drm_bridge *bridge,
+ 				      enum drm_connector_status status),
+ 			   void *data);
+ void drm_bridge_hpd_disable(struct drm_bridge *bridge);
+-void drm_bridge_hpd_notify(struct drm_bridge *bridge,
+-			   enum drm_connector_status status);
++void drm_bridge_hpd_notify_extra(struct drm_bridge *bridge,
++				 enum drm_connector_status status,
++				 enum drm_connector_status_extra extra_status);
++
++/**
++ * drm_bridge_hpd_notify - notify hot plug detection events
++ * @bridge: bridge control structure
++ * @status: output connection status
++ *
++ * Bridge drivers shall call this function to report hot plug events when they
++ * detect a change in the output status, when hot plug detection has been
++ * enabled by drm_bridge_hpd_enable().
++ *
++ * This function shall be called in a context that can sleep.
++ */
++static inline void drm_bridge_hpd_notify(struct drm_bridge *bridge,
++					 enum drm_connector_status status)
++{
++	drm_bridge_hpd_notify_extra(bridge, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
++}
+ 
+ #ifdef CONFIG_DRM_PANEL_BRIDGE
+ bool drm_bridge_is_panel(const struct drm_bridge *bridge);
 
-Can the following situation occur?
+-- 
+2.47.3
 
- * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
- * (Different CPU resumes SMMU)
- * SMMU loads old PTE value into TLB
- * Write to invalidate PTE
- * (stale PTE remains in TLB)
-
-I propose the following: If you find the STOP flag set, run dma_mb()
-and check again. I'm afraid that running dma_mb() unconditionally
-might incur too much of a performance penalty.
-
-I have the same concerns with arm_smmu_cmdq_can_elide(): That
-READ_ONCE in arm_smmu_cmdq_can_elide() provides no guarantees in
-regards to ordering relative to PTE writes.
-
->
-> +               }
-> +
->                 while (!queue_has_space(&llq, n + sync)) {
->                         local_irq_restore(flags);
-> +
-> +                       /* Avoid waiting for space if the SMMU is suspend=
-ing */
-> +                       if (Q_STOP(READ_ONCE(cmdq->q.llq.prod)))
-> +                               return 0;
-> +
->                         if (arm_smmu_cmdq_poll_until_not_full(smmu, cmdq,=
- &llq))
->                                 dev_err_ratelimited(smmu->dev, "CMDQ time=
-out\n");
->                         local_irq_save(flags);
 
