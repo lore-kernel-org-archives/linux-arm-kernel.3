@@ -4,177 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02207CD8C8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E747CD8C90
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aqwCeGiS55Vf9HMiIq5R7znG8Y1OhJ6NDQ7vMB6NUdU=; b=l9iHKbCxvu4m2x4NgPkwMSgyLM
-	90qfL+b0YUfQH1FereWmYJ1BnmcZYHKh1JjevYXJbM6H0b/Ha+ADExj6DJbp8I56GmuLHFQP3lIWO
-	50RjsZrKlW7JJe6NGXp1BvZy7u3joq4hIARcyhcsFNgPrfEOO2uLIwU+VF0KH939a1U+GJ/Nd7f8T
-	jmQlTSACy4UFn+S/6+afEhpG9OI58Y0WsqmjQj2Qc1S+LrnVePFjaqznymXWztOKtsvK413ueyI8F
-	R7SXo93z2bBV924l465rUSWJW/gkZ5bzd1oA0fUvZWgiNjri+itTJAzAraiKbQ16jP9nOgC0HDrBF
-	rzTEH4Xw==;
+	bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=; b=tXEYdHYpya7jjitIVqKv5g8GK5
+	WHa/djzW94qiF4NijF/q+Lze5LbOZOphebtZLzT7VDgMBNE5sCLI+qT4VPdsqnm43TLtrPyEllQov
+	ghfyD3v17Z4h73pBWjtzDCMUX2CFLOKDaxDei3equ9Pl5MGy44Ok309vfF9kfjyp8TKS0slbFm2CJ
+	gamfrELZ8vawnthz787RkqyAxFPw1KDLvPvKp5BhS0hUf+W3CAHBf9nCfcLlWUMDLdWJ9ixEq6mIX
+	8CWNubmgLI6Am4dE4XDOFvUqRjB9ArSyk20RUbqDxrXDlc2FBHjquXAal3kFCOZCUIHhypPDGtt7R
+	hAcAW6Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWL7Y-00000002VVu-40YX;
-	Sun, 07 Jun 2026 21:33:28 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wWLR6-00000002XRi-3tQi;
+	Sun, 07 Jun 2026 21:53:40 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWL7V-00000002VSj-3XC4
+	id 1wWLR4-00000002XQn-1ahI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 21:33:27 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 657EjcRc436363
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 7 Jun 2026 21:33:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aqwCeGiS55Vf9HMiIq5R7znG8Y1OhJ6NDQ7vMB6NUdU=; b=VZFyBLWNd/Q1/Gt2
-	R/3Q0qddH8uIz4xr/Vi2dwaYYKBDTMYdvFLyKqfGmTVm+n7b3jJH2ZVadg9w37v6
-	oh2t2/rZ/7+YtF+E67j3kAzm5mA+HdMmCv3vcKCY3oIFyZWYWuvQpoiDSa0h4Q5w
-	CGj5YXzNnx3ltVgeypqCiTOMGXalehNIEhlnCzrP6Q/AOo5sHwwXvugiEY0+hbP1
-	yBdyPbQX3JxgQoNIecF4tfvIBjtiKMFIE0mO34kHVtmPczqZcOweNY7XCAUDMwUG
-	69UrqAZRwMiS9Oovk3Q+8cAfzjbDKul8OzF29C0OQPtMLOKc1QVnUATkfA/zCiYf
-	x0rK7A==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4emcu8vjgx-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 21:33:25 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51772325a64so50268881cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:33:24 -0700 (PDT)
+	Sun, 07 Jun 2026 21:53:39 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-51765531803so1573931cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:53:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780869217; cv=none;
+        d=google.com; s=arc-20240605;
+        b=IAJ0M/eT4ga0iWcWNf2fBW6UeTkC3ESX5M+br35WMZ3EGqaDrv1lj9+tlPRb22syM6
+         zhuAtP3vpToU4IPrEk4pTx23ToLRuyoZXUPhdo9g+pox+MrQrOXvyDYyk41GMw24AJIa
+         +XVXvc1TihNHVEqIWvr+/Q8XDE8pZAAHHX0ZUKZpZ6lEJhW13ik40ZJ8kLrR0LIeUNWh
+         EKUv7h2yYQJdLsIi9kj4GP/9tENpakf9FfLQ/vuHzDNzvDceunT0MZwxbNDgvA7AE97Z
+         OrYthZNtZJVGbc3K9EAPVMFKh83cR3b1cAzC1VgWb0Lx3KZY4zUMGzGvBxf8vMz86Suv
+         TEKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=;
+        fh=Bpl3JYccjvzoTTzWIKeaqrFGKhA4Hfgi+rSGMvHmeXA=;
+        b=fU38A67IZVG0xOHVjlz2IsyQ+dyhYPKikHHKfXnt++bjajupMRbj0iodyiI6nRElw1
+         Toc+ZLhDfLBAyOPWF1Y2HMWk51AO/HV4NEWEaDAwp5M8YBdxFKBnZskwugIGRae8zvUP
+         46VTxU98VGxzlVa+xBJwAcIap7ggL5OoZEQdmfrY6Q/jrr9obHCHt+zF1D4Gnm7rTKFh
+         b2rr82yOdSv9gxZdPU793ajoVnJE9UjxshSWfE4Yvpaph0YX15K7jgIO4Kz6zaf2Ner5
+         TgQE6+fw4cErjSZNPZB/mGo9eN5D7QPADT3b61HiVrB9I1axhrGtvMdqp49wxyYACk+T
+         zEVg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780868004; x=1781472804; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aqwCeGiS55Vf9HMiIq5R7znG8Y1OhJ6NDQ7vMB6NUdU=;
-        b=c+9VDzpzQNgoR+p+PiT6NfrSu2sAT95zOMQe5Y+DNTc3X2u5s+b0cjcsU/eR8Cy73R
-         WYrTqDITdfxcOBqoLt9XzsZT4CFfJcUDcXReGpJI+wHnHCEmb/Ar1cHwqMD+b0ieX1L0
-         qZOZUZwjnVp5DJr12J0torLV+DhAajU6Xbt8uMu9cTyo0FyU4RWTkeoOjF4QArJC+Ta9
-         UAoyjU1QWj2Sgrz0S87pRMAA/ojBYPixDuywEyXNutTCTeTDA+PzRoVdGZoAc2EG1KHw
-         6EorfGWvp1fesKGJZT1JLBSs8Si4HnwC8dpIa+gq+Di8UKaBYUet1wD86+dDBKIYiP57
-         TcWA==
+        d=google.com; s=20251104; t=1780869217; x=1781474017; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=;
+        b=p7wNOwFh6h7UVsEbJaqlpcBnQkGFPxV1W2wpgcNNkyENHVCCs9VdepHUwgHf0afvQB
+         ncl/e61GBUZ9r1CRaLME0Eh5QouKv9AQquP2tosi7mbD66V5OWQ9vQWYfSLdc/r7zYMf
+         ldHXtyvXehrWIPqjAlFS+feNliZR+UOx5Z+h+Ug6PSdKspiXbZpv/EJkzfoXDxtuAuQr
+         636gjACvbkgLbvkVY/vR+5RSvywsrKrSZrIzhmj3XbD/JFKcsyBEMpqA1JLKCA3qcRo1
+         evWZ9DrpwB2cOx/u3QChBhdq30sFRngC25fmeA8//7sDOYBQKMdKl27WcUBVuHjaPhfa
+         hp7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780868004; x=1781472804;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=aqwCeGiS55Vf9HMiIq5R7znG8Y1OhJ6NDQ7vMB6NUdU=;
-        b=djxEaYnlkseQF71Psb/MRp4ESPDUfzLuhQ2f/iC111UfABvB40ay7iIkrbc29MwTr4
-         OOiUE222+Y4WqnRgar57D7OqNklYq1wQDUGIkDF0N0bFa7nQeEOPXiHyI57rdvCum1Bf
-         TSq4U5+pCHeifzh+92/wdSjIHtfzew5hpPmbsBlGENVnpBASnx01zF2EcuMP6dHu2MOA
-         yMwzumccUvvuB935rFMRhb+gXsaAZgrv8HxmtjyFw/R3QHZ/QeM3gjTpdtSI0fDG2SaP
-         bGxAE/KP6iKPJmToFAyeMS+I44RYMwxaVSb8/PShrenRDano/28ufgW84XwVh9cNHlcK
-         FPwQ==
-X-Forwarded-Encrypted: i=1; AFNElJ92Ss5sLQtZOpNRPWXPs7CO4M456e0AWtxzQFzUbmNIAGg7AnQxUDaym+cU9R7xq1RIBn4Q5HL/M0A38u5LQhCh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUPPFXI5ikWRIQAhvKlwHPNLyjHfOJhhR86yYlJXnO5qyQUF8i
-	1ZO+vR4pFs1Mcajs7FM5o0iOo3Nj1xucjoTq9l+ZTvBS5XebPiKujNDC5LKZwR7z+wuW1cmuf5F
-	rPP9Di9NR0eq3CWmPWfs1gnzpXjD/W6yMTSJt6LAKtR2w71WYYKpN9UyzG7WouLqJ3pUok1+2Cf
-	MioQ==
-X-Gm-Gg: Acq92OEvRWS4C68J6viEgNt9IT9vVtWG2VS9kZwTcBviGPIbFGEtmDAW1347aEEmHir
-	qYsZe3Tu2aA3DBm4/13h6JgUJ3wJgS1c6qxAQIQlblG+oJYBw3LBHjCwZ3oKEJUFwPmlQ9FSqXf
-	NxNZtl7OR4HuCPcrvJB8zjuEbWrh5jy46mL/ZervLGECQb4HF8ogQ3LJvgUYZgIODiho+/HZ5JU
-	m4p5/6DYNqkzZaT/TaS58qyNq3WdIqVhwR8qpSDznvn1+szXQVOMR0LqPd61E1Rx84UdJdL04qF
-	Vq6P3jt2LaeroFftYoahRGs1jhdxnnOt+4QEIomYQQc/GQPZxpXvccC6Hq8pGpRClPwKTtrQcuI
-	xTN0hRyF3XweaNvR+XC990Mc/WWcFHlBi2q4n66lyT0fDbL356Zs+0laVpsnp+/gkGtkRSfChsI
-	4RYZP+OZwXMUQc8IoXy3I0y82ZbAlFZ8v9mtrAxTZIOLUWZw==
-X-Received: by 2002:a05:622a:20e:b0:517:9157:ecf3 with SMTP id d75a77b69052e-51795be129emr193812221cf.36.1780868003996;
-        Sun, 07 Jun 2026 14:33:23 -0700 (PDT)
-X-Received: by 2002:a05:622a:20e:b0:517:9157:ecf3 with SMTP id d75a77b69052e-51795be129emr193811791cf.36.1780868003426;
-        Sun, 07 Jun 2026 14:33:23 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-396ac2d5ea9sm40374041fa.32.2026.06.07.14.33.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Jun 2026 14:33:21 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Mon, 08 Jun 2026 00:33:05 +0300
-Subject: [PATCH v4 4/8] drm/bridge: pass extra events to the HPD callback
+        d=1e100.net; s=20251104; t=1780869217; x=1781474017;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=;
+        b=FXw9lYZubziaS4XZorLqipMuAnuB1oXtmTurJEmifGX72JguLJ8GalPnMnGGJevVcp
+         mECdi//9FY53qLIrCFUxNT2PDHSQEGOqmrd16v37grS0acsZWUIQc4jLM6a9Fb2s0OGv
+         3he72IisK5slcdxLbpzuA3z3ewFErnJ0f2v89OaAcsngzs1NUZdI8nOl0av4CwVUitgw
+         gwNtSeVsrGKCkNngz6psdYwgO/AaknTz4hotMriQr80oe2LwqUMZkmgQKBFw0njPX0QI
+         VDlEQuKQaWMAzvz7E5drSZqXibhjeHmdFQXB1ZM/SQwzvyl7/2GizbZU4FWuc62MrA+M
+         GIUg==
+X-Forwarded-Encrypted: i=1; AFNElJ8MOPcZQXb7lRJdIwZMT+vFCunlj0GMVAG0v/O0Uknv1pSW3DlYNKokIWPuo/io44qpxEALrkt/GiijzDk3+UkH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx68vCCqqg7f7jcIy2W8oac6O1tAqsUacPVhhVtiZFGyxX8/x2B
+	gYQSixqLmaR7dRhPiD6DUifSe8/Lx0bq230DdE69FM/3wd2xTYq+lwU/Sx1gpWvdOX0h2p8Ione
+	9dTd4WimKuKLRPikKTA7DFMXZL2icEc3JB6p8trT3
+X-Gm-Gg: Acq92OH5sbgHJ4sM0D0TEq8c9vVf5Gacy4Y1x2PypjDBTOFwnQUIlmF4BHVKqMB/lZN
+	4/Ug+enEXG2gS396vSW4XkygfqD0yKhXEokFD+uZhPiIxqnh/cUODMbgDxQsYx03DQIVsQbJWrC
+	YKQzagpZc/hgpmVI95oRBc1fFd7bzOdOQ8cBU9JCTToOWips60jJLOX+A/r7ToMz0lVhU4Gfz5f
+	1K+vFsTiXabdghlIVxNNYprlBWuP4+SI8sObB3NgEoRhqJ3j+RJQPrxOlZZ05ctz3YoDWFo3Cxt
+	p0h+rn/GpeWdGFryziqvtw79Uw==
+X-Received: by 2002:ac8:5995:0:b0:4ff:bfd9:dd31 with SMTP id
+ d75a77b69052e-5179802dae2mr21524831cf.5.1780869216488; Sun, 07 Jun 2026
+ 14:53:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260608-hpd-irq-events-v4-4-30b62b335487@oss.qualcomm.com>
-References: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
-In-Reply-To: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Adrien Grassein <adrien.grassein@gmail.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
-        Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Francesco Dolcini <francesco@dolcini.it>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
-        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5547;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=Xv8OK5b4aegzohrbDrEYK2LgkMwGQ21VRNuRHpj/5us=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBqJeOQTkKDpqt97cyPjjeSFT2syRbXebSWwlKv3
- 9mydw2N4yiJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaiXjkAAKCRCLPIo+Aiko
- 1QKhB/0bt9RHhoBHoeWzG982WH5dV54vogSpgf/IUDHcvtgk9lubK9mayJlYBeFGJ0ZIBUpzcs3
- jSDS3jSHxob1NPQdfrE4CuJxL1ttAWQ2ltEvFK8DPvdxL3rlQbWb+3vJ2wBhU7qo/SpXd5LyLzX
- z3dy6ikv1Xe0oxmdeOoeE1pztaMX9L2npVlthrH8PJeArW3Ge2WMtvQkWZiPzykgD2tNH67fE1F
- Zv6WdqrGj1pz42HnAvlRjEQ55aEtrGQjtIoM3K6dDw8hDMs1LUS+1536p77CDkRB/FUNi2mmaXy
- YqZSic4Y4eDW+mUWyoxgu1gPNfex2LX4ve6q7jqYnwxwmFhU
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-ORIG-GUID: q6dwTNszKiDZhnoanaQqreYo2gydw96V
-X-Authority-Analysis: v=2.4 cv=deGwG3Xe c=1 sm=1 tr=0 ts=6a25e3a5 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
- a=x0urvBsf9yKnxdYdiaoA:9 a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA3MDIxNyBTYWx0ZWRfX8WVk+mCsoXAM
- lMAk+PfQfl2jyQ8/OAae7akPr97UiC73UitleYIi14CT0ieOrdLmAhn7YCr7PAcqi5/ruP2U7jM
- S9R6ZlqIw7epQQbnzPDBShSXnD6u8/Hf0zqrY7PqKSntA/e4h7/+QjVz8C5ocHpD9u7u1zVsfGB
- UwSCvEWRTfVZ8krYW16CAEXRc/k5YYa/chtuyjXXMl0Fvj0fZjM8eOJLUdbhmcKZLBF/SQBVVmQ
- omLQpBBO95vO6kOJT6zxxFJwgSwdIOIaJktUe5aJcXVLGd56176cpVDeWdjZQ3EdvDcOe1bWWoi
- dZ9HjjMcHWpvK0fLgKIeFa2UDAHfr/BUCeTqrdFJUyYqaFph9yzAuTug8uothzUfXFG3T/WVA6l
- WIso23wBwBPz/bbLP8jux6faOBG9RTCjUzZ4zATrW+lj+8TyTvoZfkqALRdGA99KZ+WPDdMw1Dv
- QaUDLF/s/CO92u4+o9A==
-X-Proofpoint-GUID: q6dwTNszKiDZhnoanaQqreYo2gydw96V
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-07_04,2026-06-05_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 phishscore=0 impostorscore=0 priorityscore=1501
- bulkscore=0 adultscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606070217
+References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-10-praan@google.com>
+In-Reply-To: <20260601215909.3958732-10-praan@google.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Sun, 7 Jun 2026 14:53:24 -0700
+X-Gm-Features: AVVi8CfKncyI9LHnnKvLugy3BBPqZyYdVRq04rL-R-rQhbyBNf0ZfYmtc_38gXU
+Message-ID: <CAE2F3rDjFwacP0_TA8tv5_p7ZJejsXAKEb=juNaXgPcMPag+Eg@mail.gmail.com>
+Subject: Re: [PATCH v8 09/12] iommu/arm-smmu-v3: Implement pm_runtime & system
+ sleep ops
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_143325_887541_BBB72E15 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20260607_145338_448666_202ACE85 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,133 +119,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DisplayPort standard defines a special kind of HPD events called
-IRQ_HPD. These events are used to notify DP Source about the events on
-the Sink side.
+On Mon, Jun 1, 2026 at 2:59=E2=80=AFPM Pranjal Shrivastava <praan@google.co=
+m> wrote:
+> @@ -4898,6 +4939,21 @@ static int arm_smmu_device_reset(struct arm_smmu_d=
+evice *smmu)
+>         if (is_kdump_kernel())
+>                 enables &=3D ~(CR0_EVTQEN | CR0_PRIQEN);
+>
+> +       /*
+> +        * While the SMMU was suspended, concurrent CPU threads may have
+> +        * updated in-memory structures (such as STEs, CDs, and PTEs).
+> +        * Any invalidations corresponding to those updates were safely
+> +        * elided because the command queue was stopped (STOP_FLAG =3D=3D=
+ 1).
+> +        *
+> +        * Since the reset invalidate-all commands above have fully clear=
+ed
+> +        * the HW TLBs and config caches, the SMMU will fetch these descr=
+iptors
+> +        * directly from RAM as soon as translation is enabled.
+> +        *
+> +        * Add a memory barrier to collect all prior RAM writes to ensure=
+ the
+> +        * SMMU sees a consistent view of memory before translation is en=
+abled.
+> +        */
+> +       smp_mb();
 
-Bridge drivers report these events through the
-drm_bridge_hpd_notify_extra(). Pass down the extra status to the HPD
-callback, specified during the drm_bridge_hpd_enable(), letting
-underlying drivers (e.g. drm_bridge_connector) to receive these events.
+I'm not convinced that this is necessary. I understand that the write
+to smmu->cmdq.q.llq.atomic.prod needs to be ordered before setting
+CR0_SMMUEN in ARM_SMMU_CR0. However, this ordering requirement appears
+to already be met by the dma_wmb() in arm_smmu_cmdq_issue_cmdlist.
+Could you provide an example of a scenario that might fail if this
+smp_mb() were removed?
 
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/gpu/drm/bridge/chrontel-ch7033.c       | 3 ++-
- drivers/gpu/drm/bridge/lontium-lt8912b.c       | 3 ++-
- drivers/gpu/drm/bridge/ti-tfp410.c             | 3 ++-
- drivers/gpu/drm/display/drm_bridge_connector.c | 5 +++--
- drivers/gpu/drm/drm_bridge.c                   | 5 +++--
- include/drm/drm_bridge.h                       | 6 ++++--
- 6 files changed, 16 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/chrontel-ch7033.c b/drivers/gpu/drm/bridge/chrontel-ch7033.c
-index a237c65ebd69..35df99b02c9c 100644
---- a/drivers/gpu/drm/bridge/chrontel-ch7033.c
-+++ b/drivers/gpu/drm/bridge/chrontel-ch7033.c
-@@ -258,7 +258,8 @@ static const struct drm_connector_helper_funcs ch7033_connector_helper_funcs = {
- 	.best_encoder = ch7033_connector_best_encoder,
- };
- 
--static void ch7033_hpd_event(void *arg, enum drm_connector_status status)
-+static void ch7033_hpd_event(void *arg, enum drm_connector_status status,
-+			     enum drm_connector_status_extra extra_status)
- {
- 	struct ch7033_priv *priv = arg;
- 
-diff --git a/drivers/gpu/drm/bridge/lontium-lt8912b.c b/drivers/gpu/drm/bridge/lontium-lt8912b.c
-index 729b12b67470..b8e643cf1d4d 100644
---- a/drivers/gpu/drm/bridge/lontium-lt8912b.c
-+++ b/drivers/gpu/drm/bridge/lontium-lt8912b.c
-@@ -505,7 +505,8 @@ static int lt8912_attach_dsi(struct lt8912 *lt)
- 	return 0;
- }
- 
--static void lt8912_bridge_hpd_cb(void *data, enum drm_connector_status status)
-+static void lt8912_bridge_hpd_cb(void *data, enum drm_connector_status status,
-+				 enum drm_connector_status_extra extra_status)
- {
- 	struct lt8912 *lt = data;
- 
-diff --git a/drivers/gpu/drm/bridge/ti-tfp410.c b/drivers/gpu/drm/bridge/ti-tfp410.c
-index bf4ab4eaf269..e2eedaaa3552 100644
---- a/drivers/gpu/drm/bridge/ti-tfp410.c
-+++ b/drivers/gpu/drm/bridge/ti-tfp410.c
-@@ -110,7 +110,8 @@ static void tfp410_hpd_work_func(struct work_struct *work)
- 		drm_helper_hpd_irq_event(dvi->bridge.dev);
- }
- 
--static void tfp410_hpd_callback(void *arg, enum drm_connector_status status)
-+static void tfp410_hpd_callback(void *arg, enum drm_connector_status status,
-+				enum drm_connector_status_extra extra_status)
- {
- 	struct tfp410 *dvi = arg;
- 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 046efd913064..a34643d3ddef 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -171,9 +171,10 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
- }
- 
- static void drm_bridge_connector_hpd_cb(void *cb_data,
--					enum drm_connector_status status)
-+					enum drm_connector_status status,
-+					enum drm_connector_status_extra extra_status)
- {
--	drm_bridge_connector_handle_hpd(cb_data, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
-+	drm_bridge_connector_handle_hpd(cb_data, status, extra_status);
- }
- 
- static void drm_bridge_connector_oob_hotplug_event(struct drm_connector *connector,
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 84e55db5c1fe..3fd3e7bac588 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -1445,7 +1445,8 @@ EXPORT_SYMBOL_GPL(drm_bridge_edid_read);
-  */
- void drm_bridge_hpd_enable(struct drm_bridge *bridge,
- 			   void (*cb)(void *data,
--				      enum drm_connector_status status),
-+				      enum drm_connector_status status,
-+				      enum drm_connector_status_extra extra_status),
- 			   void *data)
- {
- 	if (!(bridge->ops & DRM_BRIDGE_OP_HPD))
-@@ -1513,7 +1514,7 @@ void drm_bridge_hpd_notify_extra(struct drm_bridge *bridge,
- {
- 	mutex_lock(&bridge->hpd_mutex);
- 	if (bridge->hpd_cb)
--		bridge->hpd_cb(bridge->hpd_data, status);
-+		bridge->hpd_cb(bridge->hpd_data, status, extra_status);
- 	mutex_unlock(&bridge->hpd_mutex);
- }
- EXPORT_SYMBOL_GPL(drm_bridge_hpd_notify_extra);
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 78b0d83ef2aa..6a5edfda2ddd 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -1260,7 +1260,8 @@ struct drm_bridge {
- 	 * @hpd_cb: Hot plug detection callback, registered with
- 	 * drm_bridge_hpd_enable().
- 	 */
--	void (*hpd_cb)(void *data, enum drm_connector_status status);
-+	void (*hpd_cb)(void *data, enum drm_connector_status status,
-+		       enum drm_connector_status_extra extra_status);
- 	/**
- 	 * @hpd_data: Private data passed to the Hot plug detection callback
- 	 * @hpd_cb.
-@@ -1578,7 +1579,8 @@ const struct drm_edid *drm_bridge_edid_read(struct drm_bridge *bridge,
- 					    struct drm_connector *connector);
- void drm_bridge_hpd_enable(struct drm_bridge *bridge,
- 			   void (*cb)(void *data,
--				      enum drm_connector_status status),
-+				      enum drm_connector_status status,
-+				      enum drm_connector_status_extra extra_status),
- 			   void *data);
- void drm_bridge_hpd_disable(struct drm_bridge *bridge);
- void drm_bridge_hpd_notify_extra(struct drm_bridge *bridge,
-
--- 
-2.47.3
-
+> +
+>         /* Enable the SMMU interface */
+>         enables |=3D CR0_SMMUEN;
+>         ret =3D arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
 
