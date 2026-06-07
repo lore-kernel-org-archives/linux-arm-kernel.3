@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAF5CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 18:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741B3CD8C89
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 20:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKo7HGAbgsIDL31kPHzl3tZYuwTp1av9mowY1XXGB9k=; b=YZ+T4Q+/NCaRlnffHCVVg0bbBc
-	1ku5n7M/czC4eGkjrF8/Ta1ysfxmdoyQbujdhBMwuRChV3RKyxfGTin7oIV5G3Xgy+KT85oVTcy3+
-	7vfyJX0gQevuDad4gDyRq7dJ1vfW6qfxAkobsp5xH03SIo1Kb3YXEpP9HVODIGykyKFjQacX8nWnR
-	ICJwNJaucEqOQCSpjR0GE6kwUnSBP91GpslUXTbvPt+Jo02EcdnPy6inYykASGrSHP2J674hauQZG
-	PER+aRqd/LxOVSisvChOGrHg6LkHkbcz3RBOQ6r7UXhqERzJ/OHIE6HG/6ALTikHUfFkWLROc5ei4
-	YnLXVCEA==;
+	bh=7wIHOSWYohEmLG6pMXnfULhqgb287plk20JlAu4I5Ys=; b=M+xHyKwa++kirC9wSoxQN5LYaq
+	CSbuy8OVqpfFiYh/jp5DAgOmolmM0/ExnCL4lR++nx6mOduqdDhYiFNUC3/etTFbPsgnXChWZ3UZm
+	ZBSzyWBvxdEnEtskYKpDVdveMfmunE0cw9VNQl2d2lDcMt8Q44AVCwzjUPGALZgjz5fIBoQyJq++J
+	i3YLBhiMIIU3SFf5lAOGMFTUK8AaPkcFuOvqpaXVuOCp0Fjuq4qRp5NI/UZ7wmSoKYk9salxibvRR
+	Ywzsr3YbM5kgWf1/w+DRMYDjQTs3xk9KHFoRs+S0U1zpsO0MgcPBAScY40jyb+JmFXUSSdhJNPIPa
+	xgzVfEtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWIYF-00000002QHv-1xbk;
-	Sun, 07 Jun 2026 18:48:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wWJpO-00000002T2K-1ft1;
+	Sun, 07 Jun 2026 20:10:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWIYD-00000002QHT-1qzb;
-	Sun, 07 Jun 2026 18:48:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=EKo7HGAbgsIDL31kPHzl3tZYuwTp1av9mowY1XXGB9k=; b=0CnGAI4MBR4qwHMnl6f2tC5l0x
-	hczLYBiRcqVZ82WBlypFVktHKhKO8lZAwNrnpFaAvK8zKDm3yqpBrED+lvyyFDEW3KKSsnYlY+Q06
-	rjO8v+kQ4dt0RVX6jV5JlL1tvnemkQTxZTIK16BN1hhdNszNJOOd8pNDSg35p1vUTnlk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wWIY3-006UzT-3N; Sun, 07 Jun 2026 20:48:39 +0200
-Date: Sun, 7 Jun 2026 20:48:39 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	id 1wWJpM-00000002T29-47M4
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 07 Jun 2026 20:10:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 13F3444281;
+	Sun,  7 Jun 2026 20:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2BEA1F00893;
+	Sun,  7 Jun 2026 20:10:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780863036;
+	bh=7wIHOSWYohEmLG6pMXnfULhqgb287plk20JlAu4I5Ys=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=bShHqSnI6oWOfUDSbW6cYy9eMbRTgUko/xyPhiYjQd4+q8UgRyl4FX9sU96QojKmj
+	 7jK6GH6Y5DzVZNl/oYRof/zwlsdAgIq4fxxaZFx4NGJtrqT4D5dnzx3nfJWfCBYTOo
+	 qOhK6VyjprDy5b4PtURtf5opb1bLBCMSUX9BCEzhGEFgCit94GdQXXSZ8nj/J1X447
+	 DHVTof/qqRgiYNi6dpMLHS0InhtO5TGWFhmblbiv2yVcqPhabshMvd3rR4d7/yfzL6
+	 CUrw06X/S8BL4t3f+hrAxCmBx9mGTYM7AciY6l3xlakeFNLHf3tkdeUpikDVPqcxDZ
+	 IOF2V8sJaovvQ==
+From: Tejun Heo <tj@kernel.org>
+To: bot+bpf-ci@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>
+Cc: david@kernel.org,
+	arighi@nvidia.com,
+	memxor@gmail.com,
+	akpm@linux-foundation.org,
+	rppt@kernel.org,
+	andrii@kernel.org,
+	daniel@iogearbox.net,
+	martin.lau@linux.dev,
+	martin.lau@kernel.org,
+	eddyz87@gmail.com,
+	yonghong.song@linux.dev,
+	emil@etsalapatis.com,
+	void@manifault.com,
+	changwoo@igalia.com,
+	clm@meta.com,
+	ihor.solodrai@linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v2] net: airoha: add ethtool priv_flags support
- for LAN/WAN and GDM2 loopback
-Message-ID: <e8f3d24a-985b-4bde-9f51-2d5ae3d25b01@lunn.ch>
-References: <20260607-airoha-ethtool-priv_flags-v2-1-742c7aa1e182@kernel.org>
- <33c3a87d-ad97-4f6a-8f76-ebab80c496ac@lunn.ch>
- <aiWzaV1f1Fpc2rhJ@lore-desk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aiWzaV1f1Fpc2rhJ@lore-desk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_114849_480746_E1929B86 
-X-CRM114-Status: GOOD (  14.17  )
+	linux-mm@kvack.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next] arm64: mm: Complete the PTE store in ptep_try_set()
+Date: Sun, 07 Jun 2026 10:04:19 -1000
+Message-Id: <1780862659.ccb18e27e916dc4b@kernel.org>
+In-Reply-To: <5f68f44310d4878185fd5ebc52d66530b99f174c6d04ab1170dc53cefaa54568@mail.kernel.org>
+References: <088f52fd25860ca961449d53f91b214a@kernel.org>
+	<5f68f44310d4878185fd5ebc52d66530b99f174c6d04ab1170dc53cefaa54568@mail.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,26 +87,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 07, 2026 at 08:07:37PM +0200, Lorenzo Bianconi wrote:
-> > > When a GDM3/GDM4 port is set to WAN mode, enable GDM2 loopback to
-> > > support hardware QoS. Conversely, when switching back to LAN mode,
-> > > disable the GDM2 loopback and restore the default forwarding
-> > > configuration.
-> > 
-> > Why not just use the presence of an off loadable qdisc as the
-> > indicator to change mode?
-> 
-> Hi Andrew,
-> 
-> Interesting, can you please provide more details about you mean?
+> Can this path actually loop, or is the deferred barrier guaranteed to be
+> flushed before the faulting instruction is retried?
 
-You say you need it to be in loopback mode in order to support
-hardware QoS. You configure QoS by using a qdisc, and something like
-mqprio, tcf etc. So when the user configures QoS, you can see if the
-hardware supports the request QoS. If so, swap to loopback mode and
-offload the QoS function to the hardware. If the hardware does not
-support the requested QoS, leave it in software and keep with LAN
-mode.
+I don't know the arm64 paths well enough to say. What I can see is that
+ptep_try_set() only runs as an apply_to_page_range() callback, and
+apply_to_pte_range() brackets it with lazy_mmu_mode_enable()/disable(), with
+the disable() flushing TIF_LAZY_MMU_PENDING before returning. The barriers
+would land before the access is retried. It also looks like the same
+queue_pte_barriers() path __set_pte() already uses. I'd defer to Catalin and
+the arm64 folks on whether that actually closes the case.
 
-	Andrew
+Thanks.
+
+--
+tejun
 
