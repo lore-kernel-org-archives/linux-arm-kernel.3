@@ -4,59 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BCCCD8C8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 05:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5DCCD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 06:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kmvxFLI4fafNJPsciPGiO4KBdNeRmX5zokI6/2cCmOY=; b=yfju4M76ZYVLoetvscok+l3tyA
-	LaHX1x3B0/smxwS7fiBPH+M2AxPRRmDWGJW2+gsHozytMWw5GysR0G+9tXRseW5jRcvcambsxk1Be
-	YEx06c0uqLIcNGo+LM3WBWnK7FQyWuVEFCp+Zz7BFXDUhPfW16IokRXRKfnyrAEZOTvXEMZ65cI00
-	MrlHfbkMuAvVVUQFvsrf0nc37GBbq6v16nTXF2UprAb/Dz2Yz7WHYFiWR6vdnnuxA5GKE5AKAYEv6
-	L+Qsp4zPMVT2AUy2cVb4UZVUwCBAwIeMAyJuJyQdYRC2ZyJ6QrfPDfGXBvjRk63TmmGNk9s1mqjUq
-	C8HooOAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n4CzgW3/VXNfJs9yhqU/zZT2TtJnYVsjAwImG97RFLc=; b=g9TVGisqOqJrmifv94g6aD6RqL
+	gBJKvz37o0PRfs//GGtpu1PFOXGcX85XCTIBXr5DbVmF/t47DNhpxlS3cidZ3Bess6nPnqnC231oD
+	wJo1mofPSiFy4IEHO7NbhMlxoeFr1c5fLaSGhFzS0+pw3T1hOApnscpvgXGvpO3sUdVHBn74ssBxQ
+	UkMuZdbKIfmjt32KNrMr6pRoNux1p1pm4nZKt+uFUGTo2lrTeqal7njj9ZExWgeeFXBd7WjlIKDS8
+	s7+ahqDbqwD3KXdSu2sPMBPOPL75Dky4P9nwkJlIR0WVMWq9w5E1mi8JJScU86gUL3XBu92TWGvfa
+	DeuHAtEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW6S1-000000023L4-0QHP;
-	Sun, 07 Jun 2026 05:53:37 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1wW6jp-000000023r5-2zJg;
+	Sun, 07 Jun 2026 06:12:01 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW6Ry-000000023Kd-44Sj
+	id 1wW6jm-000000023qM-3An0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 05:53:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=kmvxFLI4fafNJPsciPGiO4KBdNeRmX5zokI6/2cCmOY=; b=YPQEdc9rBqciC+1C7hKnMmBDQz
-	KxOaNDdNMerpsHZSL2S0x00aj9ZC0AUVFgo58E9nrV8tNXA2IP2+lHhmf018rWz6FaPzdMNrXe9f/
-	gf4cPlJsWHt43XJaBPAAPhAk2dkYRnRUV8R+H0NrxZuzhyki55DKtk0SNDi3/oajeUVd7cSbu2f5n
-	BxWxbMX6puE9GqskolaygZiEhUT45fNnSi4j53E9BEMsXysTELvCtu86/tqVFyO8trnjMbnU31DiN
-	oPslOTDfXgwBVncvS5uImc1SeUFQEqtlDA0n8oz2hJhnLWsXdywkJbjm7Smih7YLdfdkQmfr0A1r9
-	Pi9J6D6w==;
-Date: Sun, 7 Jun 2026 07:52:25 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Yuho Choi <dbgh9129@gmail.com>
-Cc: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>,
- Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] ARM: OMAP2+: Fix OF node reference leaks in
- omap_hwmod
-Message-ID: <20260607075225.7568cf53@kemnade.info>
-In-Reply-To: <20260504164711.2854116-1-dbgh9129@gmail.com>
-References: <20260504164711.2854116-1-dbgh9129@gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Sun, 07 Jun 2026 06:12:00 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-36bcf3d2565so2292736a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Jun 2026 23:11:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780812718; x=1781417518; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=n4CzgW3/VXNfJs9yhqU/zZT2TtJnYVsjAwImG97RFLc=;
+        b=XSpiEYkRnGF/g5V71uTmQtAzZheGSUDlK/jwtSf8LTzuRyoR6prxgYQfoP/edKwUfy
+         ddpTDFMJ5nuq/aE+W/tJhOevJHtN3EfsO1LFAUiAEhZvg/CuFIEOA/LXYczLPM/doi6t
+         IASVP88cqOiLDhh9oTO0gOB3s6A4mWqGk3QvKGWnvJGUq2m1cx+MRLQIFoByfpp2mSCG
+         hruYRgXeAeAK9/xd3Va4VSfIo+BmhCbWxhQ0CnS/U7DeZqgEW55nmXQNXb2gRPEWaRFg
+         3G34uqYnMAVC+kcT6EacQ3zCE/huso59sZ4bu0CIcde4A8sxVMDxlP6o6xDiviEivXfO
+         HlzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780812718; x=1781417518;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=n4CzgW3/VXNfJs9yhqU/zZT2TtJnYVsjAwImG97RFLc=;
+        b=qJzzpRpodGM6wlvoTY5XanK/qrvL2DLUls9SMVbGWrp4aRJ/ZQC46m4ar9riutbelS
+         RGaySh6VsDtNptzAahQvMI3k4vuAGETFMIzWbhywNOiNDGUbYPggazwJd0v4NrHhE4Dl
+         ZMUArS7uXWBHGta2UJklouIgwDngEyaPmbwQTZA5zIsGLEp8U3skFjZKsOl3VfaKZYWR
+         W+EXbfLitZmkzT55enrBPFYLlJaDiFzyU2Nx/Fk09SdNCXS3j1jXx01eu5CoCnz4HBY6
+         lxgxTit9NKZjgwkzn5HZVBJZsLnvx0PDnunLcTFR5XUGhBTEZLHQoHJ39GDPNuJX/cSa
+         lzUw==
+X-Forwarded-Encrypted: i=1; AFNElJ9fA/+ZSJGOr5KBtrCY8scb2uhUbSQoa/h52dcbyC0PodlJ2VW84Isjs/c5Wf0bPQH5BK4yfKL3m0efR4HjV5hE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTOh/MjuqdxuF7+evslVNoYM/IZshTFFM1XTau4icWQsJ684MZ
+	WGOlsrQTYPc9dQBtC2RfOcTWO12BQUMnwKNohFaVkglUqqG9/m3bMmOx
+X-Gm-Gg: Acq92OHidRp0XWgjNqxUT5ReRkgOFhxxroeKnbcXshWuUfkqz/0z360SHFQSiwdZq7w
+	eStXGuuCRt0/2GO2W7A/YHJohPDnsM0TF98hfqNk9Qml0T2LGPSX+/Sv53rbOjvFjd7CQGv+a+m
+	a7amCnOIOLEkhg5MhkQXIst7O84C0oFdjPQpA1LV6M4yey5qT2znzzZ1m9Zt4LdQ+FkIqxuv+TG
+	mOTlNF0yCgIVa22za9QSlIA/b5KQRpfinXIih4nOvULC7nmtQCGKY1RDNiA9HaQXJOqHPJBMhph
+	hwT057xcmp/iImRHn3R48GwR7ber8tacIExRQQ2AH/LZcGpBsp1ytaUWSXMyy0Nvo5VYv70dp/m
+	uncmnlLXN15CDxoeEoVte5ZabGvZ/OiXjr+Ba5iygBEN/y/PaYr1KdlHDyRv8dpoGnxHh/IEKqI
+	3PYYFHXfVLyIL/ACVt0rGtMzb8xqBG1Y7cCZL2
+X-Received: by 2002:a05:6a21:134b:b0:3b4:b216:2b1f with SMTP id adf61e73a8af0-3b4ccf80159mr13680216637.28.1780812717650;
+        Sat, 06 Jun 2026 23:11:57 -0700 (PDT)
+Received: from [127.0.1.1] ([223.122.38.120])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-c85df0a4afdsm14265308a12.19.2026.06.06.23.11.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 06 Jun 2026 23:11:57 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Date: Sun, 07 Jun 2026 14:10:58 +0800
+Subject: [PATCH v2] nvme-apple: Prevent shared tags across queues on Apple
+ A11
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260607-prevent-tag-collision-t8015-v2-1-dc4ef4fb42bc@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQ6CMBBFr0Jm7Zi2gEFX3sOwqMMAkwA1tCEa0
+ rs7cgIzq/fz/5sdIq/CEW7FDitvEiUsCu5UAI1+GRilUwZn3MXo4UtbvCRMfkAK03QsMDXG1mi
+ p8d2zdGXVMahBu728D/ujVR4lprB+jmeb/aX/eTeLBq8lUV8x+bo292H2Mp0pzNDmnL9xWMvex
+ gAAAA==
+X-Change-ID: 20260606-prevent-tag-collision-t8015-1c8adb3234de
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>, 
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>, 
+ Sagi Grimberg <sagi@grimberg.me>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2577; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=sD96oirqm4ckkhaWc1fQu9F2uL78837hDwpVhGdgQ3s=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBqJQuj5X7yX0st4BSLbvwlG4Y23Krqmjcv8kUJK
+ eJmcCRztTuJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaiULowAKCRABygi3psUI
+ JAj2D/9pVvXx4a209XoxNjr9ggO6sjnN9gdaSZUU6WD/bPUTGFUyk2mhMNzxfWJ2wIQQ89SnX6W
+ pJGIZH55vvdXeN3NI6t9RwdBoS98XmqHS9nGZFb9Wqb7dFhkxTGMVVOuSEn9661DibNck167UDu
+ boT1wYaIcB+T8RCR2QkqfaKq603iB1OizXUU+OQEqVCkIH5MigRf2S5/+AwzcqHYDh/epJyCk3Z
+ B6PSTSWNm7puzXwLDXdH3+o5WP8VWoPisatGyzTt70KMTs3wrFNIqK4aQ3rq06GXPC5f5RCWS+D
+ d6XVaiIIHuB60G7mJXVaETbfMIyhJZ/rEJb2BChuQXl9jv7O0vduj1977TUgaAG5LIHqY0EVDRD
+ SbIgcxt4EIYW6+JZJC2l6EFajmHi1wicQq9199JbTkLav7ZS1dTbuQDeEl6pLLqjI8Av16OoIkw
+ G3F1xlvBUoEEFi4h2cEFa4EqWFOmE6bNVqCpou1qHZq6zfovkqiRlmNi85ZcHg1+h66Tq+LZpZ1
+ BgdcHV89lsGc1vpmhWbRhnCD2CfWnKgiWdqU1u3rXXcNOD4IJeCFV3ejOk+xxfl9b9KhmbH36PQ
+ Ev6rU6o2iuHBvAzxFinW4zH3znRlCBPoZ6FYiClWNy1EbJUYGMiR2J9GK6PiFvOD/7x+D2eVKcp
+ Fa8BpKVdI21En8g==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_225335_037717_9005E05E 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20260606_231158_797879_CD434292 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,25 +122,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  4 May 2026 12:47:11 -0400
-Yuho Choi <dbgh9129@gmail.com> wrote:
+On Apple A11, tags of pending commands must be unique across the admin
+and IO queues, else the firmware crashes with
+"duplicate tag error for tag N", with N being the tag.
 
-> The OF helpers that return device nodes acquire references that must be
-> released by the caller.
-> 
-> _init() leaks the "ocp" bus node returned by of_find_node_by_name() on
-> all paths after lookup, and also leaks the child returned by
-> of_get_next_child() when parsing module flags. Route the post-lookup
-> returns through a common cleanup path and release the child after use.
-> 
-> omap_hwmod_setup_earlycon_flags() leaks the /chosen node and the UART
-> node resolved from stdout-path. Track them separately and drop both
-> references after use.
-> 
-> Fixes: 1aa8f0cb19e5 ("ARM: OMAP2+: Remove unused legacy code for interconnects")
-> Fixes: 4f2122473363 ("ARM: OMAP2+: Check also the first dts child for hwmod flags")
-> Fixes: 8dd6666f4937 ("ARM: OMAP2+: omap_hwmod: Add support for earlycon")
-> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+Apply the existing workaround for M1 of reserving two tags for the admin
+queue to A11.
 
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+Cc: stable@vger.kernel.org
+Fixes: 04d8ecf37b5e ("nvme: apple: Add Apple A11 support")
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+---
+Changes in v2:
+- Complete rewrite to use the existing workaround for M1.
+- Link to v1: https://lore.kernel.org/r/20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com
+---
+ drivers/nvme/host/apple.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index c692fc73babf..da6e983e2005 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -225,7 +225,7 @@ static unsigned int apple_nvme_queue_depth(struct apple_nvme_queue *q)
+ {
+ 	struct apple_nvme *anv = queue_to_apple_nvme(q);
+ 
+-	if (q->is_adminq && anv->hw->has_lsq_nvmmu)
++	if (q->is_adminq)
+ 		return APPLE_NVME_AQ_DEPTH;
+ 
+ 	return anv->hw->max_queue_depth;
+@@ -303,7 +303,7 @@ static void apple_nvme_submit_cmd_t8015(struct apple_nvme_queue *q,
+ 		memcpy((void *)q->sqes + (q->sq_tail << APPLE_NVME_IOSQES),
+ 			cmd, sizeof(*cmd));
+ 
+-	if (++q->sq_tail == anv->hw->max_queue_depth)
++	if (++q->sq_tail == apple_nvme_queue_depth(q))
+ 		q->sq_tail = 0;
+ 
+ 	writel(q->sq_tail, q->sq_db);
+@@ -1139,10 +1139,7 @@ static void apple_nvme_reset_work(struct work_struct *work)
+ 	}
+ 
+ 	/* Setup the admin queue */
+-	if (anv->hw->has_lsq_nvmmu)
+-		aqa = APPLE_NVME_AQ_DEPTH - 1;
+-	else
+-		aqa = anv->hw->max_queue_depth - 1;
++	aqa = APPLE_NVME_AQ_DEPTH - 1;
+ 	aqa |= aqa << 16;
+ 	writel(aqa, anv->mmio_nvme + NVME_REG_AQA);
+ 	writeq(anv->adminq.sq_dma_addr, anv->mmio_nvme + NVME_REG_ASQ);
+@@ -1325,8 +1322,7 @@ static int apple_nvme_alloc_tagsets(struct apple_nvme *anv)
+ 	 * both queues. The admin queue gets the first APPLE_NVME_AQ_DEPTH which
+ 	 * must be marked as reserved in the IO queue.
+ 	 */
+-	if (anv->hw->has_lsq_nvmmu)
+-		anv->tagset.reserved_tags = APPLE_NVME_AQ_DEPTH;
++	anv->tagset.reserved_tags = APPLE_NVME_AQ_DEPTH;
+ 	anv->tagset.queue_depth = anv->hw->max_queue_depth - 1;
+ 	anv->tagset.timeout = NVME_IO_TIMEOUT;
+ 	anv->tagset.numa_node = NUMA_NO_NODE;
+
+---
+base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
+change-id: 20260606-prevent-tag-collision-t8015-1c8adb3234de
+
+Best regards,
+-- 
+Nick Chan <towinchenmi@gmail.com>
+
 
