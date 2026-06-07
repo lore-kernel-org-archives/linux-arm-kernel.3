@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A41FCD8C88
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 13:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F76CD8C88
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 13:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2wN856jABN6Lp/eRQ2e+/2+RP7R/4j14VI4MAkxAbf4=; b=UcclJKz1aNkAEyefa9i0rUENoY
-	WJCeCwvvsmkcGV7cwts3NzwMLA0XZ01G38JuGTKJdanBRnOrytXxVr5dc1smj5u/kVeCMOjRQGJGw
-	cmtfa6BiUUi/wD2mMCqBKyMbDo6Z4hgb7luwDHMx045/KlJikhs4RPQAHmCao8LNRirOPY1FhuWcN
-	w3ZsTXBQYl/PjCxmJuz25ZP1yuPvwddT/De02vWfXUjsWXqG+fWKtW+9HS18C6/+6DJp1XKI+zSLs
-	5WSe31AqNkkXuW+TcIxWJ7hPrljTW43sUPZfneVIvTSis39reS5ZOB13Ou6iDlQJClx0SKiErIJvd
-	9tNvfdHA==;
+	bh=J7GnilSwRfi66VVqN5+bysGT6o5bX4Vlpx4/8SB2poU=; b=zJEQPQA/IXwIQRPE11GolvZ1nk
+	4lfARLXlUehfPjbmVhLeB2kS23YaCpO+rzXcnbRIXlmMqFblf4V/aAYPBEwIA7/KE/2lZpExkNaq0
+	HhXKTOvSzldF8cLc1ld3q4SlxOGJj8JQctKtCYVmUPfAk+JoGUQ377dKwV0TA8jk7qgJHPBD93CH+
+	d3NFa/UswIBAeq2KKiixkuNlB5bO/sW6YVDT6bHsHG0Bns57hKsYoenaSw/5OwRVIVe8nsG0gM3rI
+	FN4kjafQbvG9PpefyMGXVTitXZ+MhzImz8oJoR8kLmlWx+TdUEhscnHbJoyfzSyJopyBmPHEUrYWm
+	bR6xy6dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWD8w-00000002G6o-1t0p;
-	Sun, 07 Jun 2026 13:02:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWE0f-00000002HN9-39gf;
+	Sun, 07 Jun 2026 13:57:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWD8v-00000002G6e-0TWq
+	id 1wWE0d-00000002HN1-2cLh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 13:02:21 +0000
+	Sun, 07 Jun 2026 13:57:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 400C86001D;
-	Sun,  7 Jun 2026 13:02:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89B11F00893;
-	Sun,  7 Jun 2026 13:02:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 59A6F6001D;
+	Sun,  7 Jun 2026 13:57:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 067931F00893;
+	Sun,  7 Jun 2026 13:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780837340;
-	bh=2wN856jABN6Lp/eRQ2e+/2+RP7R/4j14VI4MAkxAbf4=;
+	s=k20260515; t=1780840669;
+	bh=J7GnilSwRfi66VVqN5+bysGT6o5bX4Vlpx4/8SB2poU=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hvpp5drAdsroCw8dOTkA+lg1gRm/pqsd0aC2FTmKB03MefjxTYpRRxBRfFUIEoc7c
-	 hEuKYV1WKmkGo2z+OefKkm4YqVqPIp7Hh1g30l4Iw6Dfgu3pin+ZEA0HAg9st5KwjZ
-	 LzBJFNwjMBfYz5Sy9Tnv7TVCH/RzsVuV/EBcRtUdVaU80ZVfdmYgfi7fb60Yt6/tlS
-	 SJW8kcGRG+nCe2F/IfDQKtSvpaSyryWM/p6B0tLS8rZLahirWIDLHdlAt885L+qPiy
-	 FA/utdrxsddoWBVSw6+Op2+9QnR6/bRLGT9Qu29aNmwNhJsCCipHIGsGq2zT4SKN/r
-	 xmq771bJNM+zA==
+	b=mVhK984xJhTtClRveStLHONb0f3rYZwW1fMV2ZHzEuE/Av/RsGjcrR8t4SyDAp/gE
+	 mVmmSWb8DSMfbT1FtIY9nGcHlkQbn+qNN72Kc8esF4Xh34h74FaWWTv3Wc9pSnciBF
+	 JzWobWRtW7L7OCcHWuI9IqPRzW/UAnI0NHlJyt2vzLys6tAqpBoP3HOWFZcy+yvlZz
+	 CnANzB9fXSByDiplR8HxEAiqShGfATbbQ6hVMi/3GWAqW3jibGDA9MNQldUekq9q67
+	 OKnq78XZ4xoy+0cbBpfgtbJJawoiZcTALPqYlR4huwYx1ud0wHPhCJZ4wqCVNkpWK1
+	 MTfzEWo0kslCQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wWD8M-0000000ACAj-1XrD;
-	Sun, 07 Jun 2026 13:02:17 +0000
-Date: Sun, 07 Jun 2026 14:05:02 +0100
-Message-ID: <8733yya4ch.wl-maz@kernel.org>
+	id 1wWE0X-0000000ACY9-1vhZ;
+	Sun, 07 Jun 2026 13:57:46 +0000
+Date: Sun, 07 Jun 2026 15:01:03 +0100
+Message-ID: <87zf168n6o.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Hyunwoo Kim <imv4bel@gmail.com>
-Cc: oupton@kernel.org,
+To: Will Deacon <will@kernel.org>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
+	oliver.upton@linux.dev,
 	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
 	suzuki.poulose@arm.com,
 	yuzenghui@huawei.com,
 	catalin.marinas@arm.com,
-	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH] KVM: arm64: nv: Skip vCPUs without a pseudo-TLB in invalidate_vncr_va()
-In-Reply-To: <aiUvSbrWndQeUPc8@v4bel>
-References: <aiUvSbrWndQeUPc8@v4bel>
+	kvmarm@lists.linux.dev,
+	kernel-team@android.com,
+	tabba@google.com
+Subject: Re: [PATCH] KVM: arm64: Set a linux errno on SMCCC error in kvm_call_hyp_nvhe()
+In-Reply-To: <aiKxvK8HXCac4SYU@willie-the-truck>
+References: <20260603110312.2909844-1-vdonnefort@google.com>
+	<aiKxvK8HXCac4SYU@willie-the-truck>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: imv4bel@gmail.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Rcpt-To: will@kernel.org, vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kernel-team@android.com, tabba@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -87,126 +89,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 07 Jun 2026 09:43:53 +0100,
-Hyunwoo Kim <imv4bel@gmail.com> wrote:
+On Fri, 05 Jun 2026 12:23:40 +0100,
+Will Deacon <will@kernel.org> wrote:
 > 
-> vncr_tlb is not allocated before a vCPU runs for the first time, so
-> vcpu->arch.vncr_tlb is NULL for a vCPU that has been created but not yet
-> run. Code that iterates over every vCPU's pseudo-TLB must skip those.
+> On Wed, Jun 03, 2026 at 12:03:12PM +0100, Vincent Donnefort wrote:
+> > If the HVC called in kvm_call_hyp_nvhe() fails with an SMCCC error code,
+> > we WARN. However, the returned value isn't initialized and the caller
+> > might get garbage or 0 which is likely to be interpreted as success.
+> > 
+> > Set a default -EPERM error value, ensuring all callers get the message
+> > when SMCCC calls fail.
+> > 
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > 
+> > ---
+> > 
+> > I have encountered this issue while working on a follow-up contribution to the
+> > hypervisor tracing. In that case it completely crashed the kernel because
+> > IS_ERR() failed on that res.a1 value.
+> > 
+> > Now, if it makes that function more robust, I do not believe it is fixing any
+> > existing bug which is why I haven't added a "Fixes:" tag. 
+> > 
+> > In case we want to stick one, here it is:
+> > 
+> > Fixes: 054698316d87 ("KVM: arm64: nVHE: Migrate hyp interface to SMCCC")
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index a49042bfa801..6b8fd494792c 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -1273,13 +1273,14 @@ void kvm_arm_resume_guest(struct kvm *kvm);
+> >  #define vcpu_has_run_once(vcpu)	(!!READ_ONCE((vcpu)->pid))
+> >  
+> >  #ifndef __KVM_NVHE_HYPERVISOR__
+> > -#define kvm_call_hyp_nvhe(f, ...)						\
+> > +#define kvm_call_hyp_nvhe(f, ...)					\
+> >  	({								\
+> >  		struct arm_smccc_res res;				\
+> >  									\
+> >  		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f),		\
+> >  				  ##__VA_ARGS__, &res);			\
+> > -		WARN_ON(res.a0 != SMCCC_RET_SUCCESS);			\
+> > +		if (WARN_ON(res.a0 != SMCCC_RET_SUCCESS))		\
+> > +			res.a1 = -EPERM;				\
+> >  									\
+> >  		res.a1;							\
+> >  	})
 > 
-> invalidate_vncr_va() iterates over the vCPUs with kvm_for_each_vcpu() and
-> dereferences vt->valid without checking whether vncr_tlb is NULL.
-> 
-> While iterating, skip vCPUs whose pseudo-TLB has not been allocated.
->
-> Fixes: 4ffa72ad8f37 ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
-> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
-> ---
->  arch/arm64/kvm/nested.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 6f7bc9a9992e..063e079d1d1a 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -969,6 +969,10 @@ static void invalidate_vncr_va(struct kvm *kvm,
->  		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
->  		u64 va_start, va_end, va_size;
->  
-> +		/* Skip vCPUs whose pseudo-TLB hasn't been allocated yet */
-> +		if (!vt)
-> +			continue;
-> +
->  		if (!vt->valid)
->  			continue;
->  
+> Looks like the only error code we return to the host is
+> SMCCC_RET_NOT_SUPPORTED, so maybe -EOPNOTSUPP would be more appropriate?
 
-This looks correct and matches what we already have for
-invalidate_vncr_ipa().
+Yes, this is better. I've hacked the patch to reflect this upon
+applying it.
 
-But I think this misses the opportunity to squash a whole class of
-similar bugs, should we ever have the need for another function that
-iterates over all *valid* VNCR pseudo-TLBs.
-
-Since I'm on a train and have nothing better to do, I've written the
-following hack.
-
-Thoughts?
+Thanks,
 
 	M.
-
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 38f672e940878..f0a9f81a08302 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -897,9 +897,21 @@ static void invalidate_vncr(struct vncr_tlb *vt)
- 		clear_fixmap(vncr_fixmap(vt->cpu));
- }
- 
-+/*
-+ * VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions, and
-+ * either can race against a vcpu not being onlined yet (no pseudo-TLB
-+ * allocated). Similarly, the TLB might be invalid.  Skip those, as they
-+ * obviously don't participate in the invalidation at this stage.
-+ */
-+#define kvm_for_each_vncr_tlb(idx, vcpup, tlbp, kvm)	\
-+	kvm_for_each_vcpu(idx, vcpu, kvm)		\
-+		if (((tlbp) = vcpu->arch.vncr_tlb) &&	\
-+		    (tlbp)->valid)
-+
- static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
- {
- 	struct kvm_vcpu *vcpu;
-+	struct vncr_tlb *vt;
- 	unsigned long i;
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
-@@ -907,24 +919,9 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
- 	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
- 		return;
- 
--	kvm_for_each_vcpu(i, vcpu, kvm) {
--		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
-+	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
- 		u64 ipa_start, ipa_end, ipa_size;
- 
--		/*
--		 * Careful here: We end-up here from an MMU notifier,
--		 * and this can race against a vcpu not being onlined
--		 * yet, without the pseudo-TLB being allocated.
--		 *
--		 * Skip those, as they obviously don't participate in
--		 * the invalidation at this stage.
--		 */
--		if (!vt)
--			continue;
--
--		if (!vt->valid)
--			continue;
--
- 		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
- 							    vt->wr.level));
- 		ipa_start = vt->wr.pa & ~(ipa_size - 1);
-@@ -954,17 +951,14 @@ static void invalidate_vncr_va(struct kvm *kvm,
- 			       struct s1e2_tlbi_scope *scope)
- {
- 	struct kvm_vcpu *vcpu;
-+	struct vncr_tlb *vt;
- 	unsigned long i;
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 
--	kvm_for_each_vcpu(i, vcpu, kvm) {
--		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
-+	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
- 		u64 va_start, va_end, va_size;
- 
--		if (!vt->valid)
--			continue;
--
- 		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
- 							   vt->wr.level));
- 		va_start = vt->gva & ~(va_size - 1);
 
 -- 
 Jazz isn't dead. It just smells funny.
