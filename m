@@ -4,54 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45918CD8C88
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 15:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A2E1CD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 16:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bD+g0bioO5e5vt2IwFQ8J7qJjU2HhnH3vIfXkJZr+6o=; b=XrE/g6QxW4c2Nw6EJsFlrV9DMY
-	C9Q0S4IJ1GxANhqaZE1rF1alTpoBueMjGqAr652SsP7Kn3VV8zzOgf4n7Hg6x5VV46+TOzaX48j7I
-	WIKTD1H3y7Fb3UU3ClOBi3rLWvh2FBxKtbTugG11AblRgUZJwOFS4Mtuzke6O3vr07FcVFR/duKi6
-	tmihAHSy8ikRAg/2r1V1JMDh4AOplOg0OnL0H6mDbCkQhtB1A4mNAbtIyGrUbozGZHv20t5anr1D6
-	8zjJ7B9H1ZrY1H/XqG6qOKh/1aPQtWMexNuXFZgaXVNJfG2CefJ8VYdX6tj75G4Otko1JZW/PVJ7M
-	CK8HDlpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=99zC0kq72jgYAVQdZ1ccwSMj89YTa/EzOnilbO1qrX8=; b=hVdc26IO6Re7AYEiocJ6J1AA/y
+	uuzRWgbJLRlm4NPxjPrb42kNZjul6rPao2luvacNIS4kqoczQoBw6s6/Fie+3Qww/FrwyNerroAq/
+	9GcnDZng03q3X2TQC6ocKYhGMzp1zw3kmMdfQvmFJc4qNes25/Nccxnao5ZsPhweO0r0II03GHZmj
+	00/GNHB8w0pjlca57iGZWaYSX3rnvGpjyv/ZU9YBjzhfB6TtchkualQfyL1jaay67ozSMbGFyXTu8
+	Y1x6NEFTm0TLa/dBkzWww+eYpyymgqnp5vKdUFZFWKcy2KhqME4L4J+W/8e6AKZNKGI4HTut1C3+q
+	8Vm9MpHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWFfZ-00000002Jwj-0R3H;
-	Sun, 07 Jun 2026 15:44:13 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1wWGPN-00000002LHQ-111v;
+	Sun, 07 Jun 2026 16:31:33 +0000
+Received: from mail-dy1-x1342.google.com ([2607:f8b0:4864:20::1342])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWFfW-00000002JwH-0yHe
+	id 1wWGPL-00000002LH5-0Bcz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 15:44:11 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=oN1rmGGFON05zRH67x+hh9wsLWzawMjcMP92az7A75oOp1CJ7RjwoZ1yKdiUi0axXDsgFVN6qZeytTfdPdSr6tmmnsMP7mw3Nu95if9HFwgaMWG1fzBhYBHgAzlvDsug7+ojXPJzf2KNc6KcBh6Aype7/Ksc7MdvRD3CM57S6af/NYcwxuF+OS0fYEOST2kKfePXg9FuYEnlr1fg3Tle++GpviyBOOA0PkM8NyJiBS/tPcvyREwwqNHTh6Xz+vHA9vMF2bkqPYiGe+OqrrqW6qyb5tg9OWIMMdwLGKobozw9wUN9uFP5UNXIpKX7KOGsSbE1kwXYV5nr3EU2RE9VsQ==; s=purelymail2; d=crawford.dev; v=1; bh=zrAJjVuVOpwkp0E3QaqJyJWIrOj4ATGmSLb+c4q06rg=; h=Received:From:To:Subject:Date;
-DKIM-Signature: a=rsa-sha256; b=aRafYyaqVIbsDkoajoxwglY4OZCSeX84SP0Hd0FmucpLePvHlvXcVodlOISPzDDKuZ6a932FOdLQXC5jdPndPiE3Pi1MPRr8ZBKCXrp8I9MohEElyEc+HmNRN/5O3U2dADuf4Ih0/DOJtmkRADnOXCYdNgwgxdruDOrEtbTQ9naNi6IWrBZ6GuJDlVX7u+SBL8pGFenEeqVH17ni4F6xVh2ixcgBJ8w62dZ+qrXjRIh6bSr+AOb5NQ3lLgjKCKjUEFxZs3MXgiChOx1E9/QpHuo9uYVkLsuIZn/Z4woenkuD3K0VxSquAGfP8TNKO3YZGnmLOMmAxT4j4ONBQPANBw==; s=purelymail2; d=purelymail.com; v=1; bh=zrAJjVuVOpwkp0E3QaqJyJWIrOj4ATGmSLb+c4q06rg=; h=Feedback-ID:Received:From:To:Subject:Date;
-Feedback-ID: 152360:15601:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 458897218;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Sun, 07 Jun 2026 15:43:56 +0000 (UTC)
-From: Steve Crawford <steve@crawford.dev>
-To: jassisinghbrar@gmail.com
-Cc: linux-kernel@vger.kernel.org,
+	Sun, 07 Jun 2026 16:31:32 +0000
+Received: by mail-dy1-x1342.google.com with SMTP id 5a478bee46e88-304d7f31215so2932687eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 09:31:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780849889; x=1781454689; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=99zC0kq72jgYAVQdZ1ccwSMj89YTa/EzOnilbO1qrX8=;
+        b=WthouSrhpIc4T2u8m7bktJxhF2+NL9m0BmvSSEjACR4QaUvNQz3eq8Qe69oiJnepQ4
+         4Q8zaw9wR6zEvDzXItGTH4iJgUKNMuKSdIEZj78t1m4SXYQXi8q9aBoSotssbdoWuyBt
+         nNy5O6g8MUgV10W02RlmpXDoziAdJzsFaJvlc4MXmguTZwa8L28ddfpjemCfqX1Ya9dG
+         JahBLqHqN3owi0U9yxIxKoF6PFSqO172WAuQy0jFqrhXTwyCm3tfK5rrIrBN05/aIsU+
+         uwkppEoe+ITPo/LAtoD8r6WMZPLSkIP+YxG6gYNeON5Y8On6WNrDf7oWykLsvyWCP6Fg
+         W74Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780849889; x=1781454689;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=99zC0kq72jgYAVQdZ1ccwSMj89YTa/EzOnilbO1qrX8=;
+        b=mhIqF/SdmfBHphIKYaGLtpXwB4GTTGpGrw7ycWgOIn0NWGUpxa6kmhKSghkFbLJ0Fr
+         Pbp2spcUatXPNGBr0hBIKWKJ/IeErdRRkxyXiZY4p4dpgATi3ajgvNQONx4oSt96rMaj
+         80zi9VfVX5ySLXTkNUXwX0fA0a5QODCE4ARDQ4pWNFXW6J49uFKBUVNduTTRqiTTWQ1O
+         0/R7DLmfjDgWlxvJtVfGyV0yHC/jlOpP0CDokpAu7KSbJDQVk4wao158DJolU8C1+YOP
+         /IiWFHIEbfwXOmgjcVMCnJlATe2rLamPWKnNomPrFs5s6ys/fsFSJHsRgYifAhk4G/1g
+         ky1g==
+X-Forwarded-Encrypted: i=1; AFNElJ8BxNX+InX4IWjggfLs/6NkpTw1cDZuf1LKUpXn1hb7NRZHJ3DZ1dDq0/ZXAB9H+03ZotwYT4uffgquWNNvQEYO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6B5587LlZolv0VQKgssg/XqSGFclFUJY3rPgIjYwVPaav337O
+	EvrmGARa/Zq4FkPa/bjFJZ4aXx5cSD3A1OG+8w7ffmfZqIy81HBIAfol
+X-Gm-Gg: Acq92OEnyMCqcGMCwGc4Shr52bXEotiLdvIziMJ4EYDQ+j1XnHp2uQ/dCFG0wcPC/W5
+	qDU5+Wox55hMs1aOKmw+pNsY4D1tAJbsI3Z0xre0QobvqKv9pWOeuQJ9967CpUxgFOdXjpo522s
+	+uglXRzpRil04+JvPTYlE5VYz6EOA+s17mOCBTG9vujfjqi1Kv6m+woP05ydKsAS/LjGXNKRW7C
+	0aD0F9yfdSU7hhx0lnJ3Wfwu/fkS8AVOTjymPU7nM4ZpxxbQMYGyTwwvOVVpFjC0fTVEY/5v8lb
+	sRTv3UHRUJsr3CazQzq6yaR/kNAO963WkzblUc2G7pWgCSJgOrRO98v+cVhhJV1rBJ+v7d7yRY9
+	wa6WGWRHze2I9d1/ZnEhvGDVzgQ+H21Hg+vXDoqZfR81mWccitLXBDATVA1Ie8TzGgh6EdZYGj/
+	WTmn3rNRg9jp9+z7MDFpe7/XEQZlkmQiKAdDo3yb5oJFpt4+dm6UQUWVQzPeO0Fa49pQ==
+X-Received: by 2002:a05:7300:6d07:b0:304:df0e:9dba with SMTP id 5a478bee46e88-3077b79d271mr6580259eec.31.1780849889307;
+        Sun, 07 Jun 2026 09:31:29 -0700 (PDT)
+Received: from localhost.localdomain ([76.32.119.210])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30777ecf9e9sm8906108eec.28.2026.06.07.09.31.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Jun 2026 09:31:28 -0700 (PDT)
+From: Hungyu Lin <dennylin0707@gmail.com>
+To: okaya@kernel.org,
+	vkoul@kernel.org
+Cc: Frank.Li@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kernel-list@raspberrypi.com,
-	Steve Crawford <steve@crawford.dev>
-Subject: [PATCH] mailbox: bcm2835: Add ACPI support for UEFI-booted Raspberry Pi 4
-Date: Sun,  7 Jun 2026 17:43:50 +0200
-Message-ID: <20260607154350.204064-1-steve@crawford.dev>
-X-Mailer: git-send-email 2.54.0
+	linux-arm-msm@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Hungyu Lin <dennylin0707@gmail.com>
+Subject: [PATCH] dmaengine: qcom: hidma: use sysfs_emit() in sysfs show callbacks
+Date: Sun,  7 Jun 2026 16:31:19 +0000
+Message-Id: <20260607163119.78717-1-dennylin0707@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
-Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_084410_384503_A4386795 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260607_093131_086776_870A7DE2 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,101 +100,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Raspberry Pi 4 booted via UEFI (e.g. using the pftf/RPi4 firmware),
-the kernel enumerates devices via ACPI rather than the device tree. The
-RPIQ mailbox device is already correctly described in the edk2-platforms
-GpuDevs.asl with HID BCM2849, complete with MMIO and interrupt resources,
-but the driver has no ACPI match table and therefore never binds.
+Replace sprintf() and strlen() patterns in sysfs show callbacks
+with sysfs_emit().
 
-Add an ACPI device ID table matching BCM2849, and replace the
-DT-only irq_of_parse_and_map() call with platform_get_irq(), which
-handles both DT and ACPI resource lookup transparently.
+sysfs_emit() is the preferred helper for formatting sysfs output
+and simplifies the implementation.
 
-The existing DT path (brcm,bcm2835-mbox) is unchanged; this is a
-purely additive change that has no effect on any boot path other than
-UEFI+ACPI on RPi4.
-
-Testing
--------
-On Fedora CoreOS 44 (kernel 7.0.8-200.fc44.aarch64) booted via pftf/RPi4
-UEFI v1.42, BCM2849:00 (the RPIQ mailbox device) is visible in ACPI but
-unbound. Using driver_override to force-bind the unpatched driver
-reproduces the exact failure this patch fixes:
-
-  # echo bcm2835-mbox > /sys/bus/platform/devices/BCM2849:00/driver_overrid=
-e
-  # echo BCM2849:00 > /sys/bus/platform/drivers/bcm2835-mbox/bind
-  bcm2835-mbox BCM2849:00: error -EINVAL: request_irq(0) bcm2835_mbox_irq 0=
-x0 BCM2849:00
-  bcm2835-mbox BCM2849:00: Failed to register a mailbox IRQ handler: -22
-
-irq_of_parse_and_map() returns 0 when dev->of_node is NULL (ACPI case).
-platform_get_irq() correctly reads the interrupt from the ACPI _CRS
-resources instead.
-
-Signed-off-by: Steve Crawford <steve@crawford.dev>
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
 ---
- bcm2835-mailbox.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+ drivers/dma/qcom/hidma.c          |  6 ++----
+ drivers/dma/qcom/hidma_mgmt_sys.c | 19 ++++++++-----------
+ 2 files changed, 10 insertions(+), 15 deletions(-)
 
-diff --git a/bcm2835-mailbox.c b/bcm2835-mailbox.c
-index ea12fb8..d450f3b 100644
---- a/bcm2835-mailbox.c
-+++ b/bcm2835-mailbox.c
-@@ -15,6 +15,7 @@
-  *    https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interf=
-ace
-  */
-=20
-+#include <linux/acpi.h>
- #include <linux/device.h>
- #include <linux/dma-mapping.h>
- #include <linux/err.h>
-@@ -24,7 +25,6 @@
- #include <linux/mailbox_controller.h>
- #include <linux/module.h>
- #include <linux/of_address.h>
--#include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/spinlock.h>
-=20
-@@ -144,7 +144,7 @@ static int bcm2835_mbox_probe(struct platform_device *p=
-dev)
- =09=09return -ENOMEM;
- =09spin_lock_init(&mbox->lock);
-=20
--=09ret =3D devm_request_irq(dev, irq_of_parse_and_map(dev->of_node, 0),
-+=09ret =3D devm_request_irq(dev, platform_get_irq(pdev, 0),
- =09=09=09       bcm2835_mbox_irq, IRQF_NO_SUSPEND, dev_name(dev),
- =09=09=09       mbox);
- =09if (ret) {
-@@ -186,10 +186,24 @@ static const struct of_device_id bcm2835_mbox_of_matc=
-h[] =3D {
- };
- MODULE_DEVICE_TABLE(of, bcm2835_mbox_of_match);
-=20
-+static const struct acpi_device_id bcm2835_mbox_acpi_match[] =3D {
-+=09/*
-+=09 * BCM2849 is the ACPI HID for the RPi4 UEFI firmware's RPIQ mailbox
-+=09 * device (defined in GpuDevs.asl of the tianocore/edk2-platforms RPi4
-+=09 * platform). On UEFI-booted systems this device carries the correct
-+=09 * MMIO and interrupt resources, allowing the driver to bind via ACPI
-+=09 * rather than the device tree.
-+=09 */
-+=09{ "BCM2849", 0 },
-+=09{ }
-+};
-+MODULE_DEVICE_TABLE(acpi, bcm2835_mbox_acpi_match);
+diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
+index 5a8dca8db5ce..7a7f302a9699 100644
+--- a/drivers/dma/qcom/hidma.c
++++ b/drivers/dma/qcom/hidma.c
+@@ -624,12 +624,10 @@ static ssize_t hidma_show_values(struct device *dev,
+ {
+ 	struct hidma_dev *mdev = dev_get_drvdata(dev);
+ 
+-	buf[0] = 0;
+-
+ 	if (strcmp(attr->attr.name, "chid") == 0)
+-		sprintf(buf, "%d\n", mdev->chidx);
++		return sysfs_emit(buf, "%d\n", mdev->chidx);
+ 
+-	return strlen(buf);
++	return 0;
+ }
+ 
+ static inline void  hidma_sysfs_uninit(struct hidma_dev *dev)
+diff --git a/drivers/dma/qcom/hidma_mgmt_sys.c b/drivers/dma/qcom/hidma_mgmt_sys.c
+index 930eae0a6257..9672ef9ee8fc 100644
+--- a/drivers/dma/qcom/hidma_mgmt_sys.c
++++ b/drivers/dma/qcom/hidma_mgmt_sys.c
+@@ -102,15 +102,12 @@ static ssize_t show_values(struct device *dev, struct device_attribute *attr,
+ 	struct hidma_mgmt_dev *mdev = dev_get_drvdata(dev);
+ 	unsigned int i;
+ 
+-	buf[0] = 0;
+-
+ 	for (i = 0; i < ARRAY_SIZE(hidma_mgmt_files); i++) {
+-		if (strcmp(attr->attr.name, hidma_mgmt_files[i].name) == 0) {
+-			sprintf(buf, "%d\n", hidma_mgmt_files[i].get(mdev));
+-			break;
+-		}
++		if (strcmp(attr->attr.name, hidma_mgmt_files[i].name) == 0)
++			return sysfs_emit(buf, "%d\n",
++					hidma_mgmt_files[i].get(mdev));
+ 	}
+-	return strlen(buf);
++	return 0;
+ }
+ 
+ static ssize_t set_values(struct device *dev, struct device_attribute *attr,
+@@ -143,15 +140,15 @@ static ssize_t show_values_channel(struct kobject *kobj,
+ 	struct hidma_chan_attr *chattr;
+ 	struct hidma_mgmt_dev *mdev;
+ 
+-	buf[0] = 0;
+ 	chattr = container_of(attr, struct hidma_chan_attr, attr);
+ 	mdev = chattr->mdev;
 +
- static struct platform_driver bcm2835_mbox_driver =3D {
- =09.driver =3D {
- =09=09.name =3D "bcm2835-mbox",
- =09=09.of_match_table =3D bcm2835_mbox_of_match,
-+=09=09.acpi_match_table =3D bcm2835_mbox_acpi_match,
- =09},
- =09.probe=09=09=3D bcm2835_mbox_probe,
- };
---=20
-2.54.0
+ 	if (strcmp(attr->attr.name, "priority") == 0)
+-		sprintf(buf, "%d\n", mdev->priority[chattr->index]);
++		return sysfs_emit(buf, "%d\n", mdev->priority[chattr->index]);
+ 	else if (strcmp(attr->attr.name, "weight") == 0)
+-		sprintf(buf, "%d\n", mdev->weight[chattr->index]);
++		return sysfs_emit(buf, "%d\n", mdev->weight[chattr->index]);
+ 
+-	return strlen(buf);
++	return 0;
+ }
+ 
+ static ssize_t set_values_channel(struct kobject *kobj,
+-- 
+2.34.1
 
 
