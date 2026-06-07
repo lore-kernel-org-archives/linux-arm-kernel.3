@@ -4,107 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E747CD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA47CD8C90
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=; b=tXEYdHYpya7jjitIVqKv5g8GK5
-	WHa/djzW94qiF4NijF/q+Lze5LbOZOphebtZLzT7VDgMBNE5sCLI+qT4VPdsqnm43TLtrPyEllQov
-	ghfyD3v17Z4h73pBWjtzDCMUX2CFLOKDaxDei3equ9Pl5MGy44Ok309vfF9kfjyp8TKS0slbFm2CJ
-	gamfrELZ8vawnthz787RkqyAxFPw1KDLvPvKp5BhS0hUf+W3CAHBf9nCfcLlWUMDLdWJ9ixEq6mIX
-	8CWNubmgLI6Am4dE4XDOFvUqRjB9ArSyk20RUbqDxrXDlc2FBHjquXAal3kFCOZCUIHhypPDGtt7R
-	hAcAW6Rg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tdMeoOld4FcgA8FppLQz+Ntxpynqqdfhs7oz1KaTiq4=; b=HhytIsafu2M5vOgQITirH9PqqO
+	IqzFWjS09wzf8QZLTNt7QM26lw97yWkS+i6/gNqigKQFBA0Eji8lJIFdrsD+AMN/HD8mWtbhDqzRa
+	+joDEkEaGSyJZwLr959siOGSncauBEpxJ2eElTdg99NQLPQMuocI3dr9sJw5sdgfFWZDlr+nRklEw
+	S4YljAujaWH+PJ1JR6ofKVVVgZV1b2RrTvuG8Ao9LVNzIPmvNsaLGnhgBYjZ80KZNpTZ1+Zp7pdXl
+	sOVqFk6KE89LjAL2TyjKwtXdGCGEkQo2Zcqj+4aVBmmcMqTLqLlHJaXqzSOH/h6YnBYaECwHs9ojm
+	fYFj0GaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWLR6-00000002XRi-3tQi;
-	Sun, 07 Jun 2026 21:53:40 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1wWLV9-00000002Xs4-0Evz;
+	Sun, 07 Jun 2026 21:57:51 +0000
+Received: from out13-173.antispamcloud.com ([185.201.17.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWLR4-00000002XQn-1ahI
+	id 1wWLV7-00000002Xre-0SRr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 21:53:39 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-51765531803so1573931cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:53:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780869217; cv=none;
-        d=google.com; s=arc-20240605;
-        b=IAJ0M/eT4ga0iWcWNf2fBW6UeTkC3ESX5M+br35WMZ3EGqaDrv1lj9+tlPRb22syM6
-         zhuAtP3vpToU4IPrEk4pTx23ToLRuyoZXUPhdo9g+pox+MrQrOXvyDYyk41GMw24AJIa
-         +XVXvc1TihNHVEqIWvr+/Q8XDE8pZAAHHX0ZUKZpZ6lEJhW13ik40ZJ8kLrR0LIeUNWh
-         EKUv7h2yYQJdLsIi9kj4GP/9tENpakf9FfLQ/vuHzDNzvDceunT0MZwxbNDgvA7AE97Z
-         OrYthZNtZJVGbc3K9EAPVMFKh83cR3b1cAzC1VgWb0Lx3KZY4zUMGzGvBxf8vMz86Suv
-         TEKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=;
-        fh=Bpl3JYccjvzoTTzWIKeaqrFGKhA4Hfgi+rSGMvHmeXA=;
-        b=fU38A67IZVG0xOHVjlz2IsyQ+dyhYPKikHHKfXnt++bjajupMRbj0iodyiI6nRElw1
-         Toc+ZLhDfLBAyOPWF1Y2HMWk51AO/HV4NEWEaDAwp5M8YBdxFKBnZskwugIGRae8zvUP
-         46VTxU98VGxzlVa+xBJwAcIap7ggL5OoZEQdmfrY6Q/jrr9obHCHt+zF1D4Gnm7rTKFh
-         b2rr82yOdSv9gxZdPU793ajoVnJE9UjxshSWfE4Yvpaph0YX15K7jgIO4Kz6zaf2Ner5
-         TgQE6+fw4cErjSZNPZB/mGo9eN5D7QPADT3b61HiVrB9I1axhrGtvMdqp49wxyYACk+T
-         zEVg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780869217; x=1781474017; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=;
-        b=p7wNOwFh6h7UVsEbJaqlpcBnQkGFPxV1W2wpgcNNkyENHVCCs9VdepHUwgHf0afvQB
-         ncl/e61GBUZ9r1CRaLME0Eh5QouKv9AQquP2tosi7mbD66V5OWQ9vQWYfSLdc/r7zYMf
-         ldHXtyvXehrWIPqjAlFS+feNliZR+UOx5Z+h+Ug6PSdKspiXbZpv/EJkzfoXDxtuAuQr
-         636gjACvbkgLbvkVY/vR+5RSvywsrKrSZrIzhmj3XbD/JFKcsyBEMpqA1JLKCA3qcRo1
-         evWZ9DrpwB2cOx/u3QChBhdq30sFRngC25fmeA8//7sDOYBQKMdKl27WcUBVuHjaPhfa
-         hp7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780869217; x=1781474017;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=vGjAiDQ5DI7hn7GSz64TnaLn5mVnu5JIIykSk0z4IsY=;
-        b=FXw9lYZubziaS4XZorLqipMuAnuB1oXtmTurJEmifGX72JguLJ8GalPnMnGGJevVcp
-         mECdi//9FY53qLIrCFUxNT2PDHSQEGOqmrd16v37grS0acsZWUIQc4jLM6a9Fb2s0OGv
-         3he72IisK5slcdxLbpzuA3z3ewFErnJ0f2v89OaAcsngzs1NUZdI8nOl0av4CwVUitgw
-         gwNtSeVsrGKCkNngz6psdYwgO/AaknTz4hotMriQr80oe2LwqUMZkmgQKBFw0njPX0QI
-         VDlEQuKQaWMAzvz7E5drSZqXibhjeHmdFQXB1ZM/SQwzvyl7/2GizbZU4FWuc62MrA+M
-         GIUg==
-X-Forwarded-Encrypted: i=1; AFNElJ8MOPcZQXb7lRJdIwZMT+vFCunlj0GMVAG0v/O0Uknv1pSW3DlYNKokIWPuo/io44qpxEALrkt/GiijzDk3+UkH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx68vCCqqg7f7jcIy2W8oac6O1tAqsUacPVhhVtiZFGyxX8/x2B
-	gYQSixqLmaR7dRhPiD6DUifSe8/Lx0bq230DdE69FM/3wd2xTYq+lwU/Sx1gpWvdOX0h2p8Ione
-	9dTd4WimKuKLRPikKTA7DFMXZL2icEc3JB6p8trT3
-X-Gm-Gg: Acq92OH5sbgHJ4sM0D0TEq8c9vVf5Gacy4Y1x2PypjDBTOFwnQUIlmF4BHVKqMB/lZN
-	4/Ug+enEXG2gS396vSW4XkygfqD0yKhXEokFD+uZhPiIxqnh/cUODMbgDxQsYx03DQIVsQbJWrC
-	YKQzagpZc/hgpmVI95oRBc1fFd7bzOdOQ8cBU9JCTToOWips60jJLOX+A/r7ToMz0lVhU4Gfz5f
-	1K+vFsTiXabdghlIVxNNYprlBWuP4+SI8sObB3NgEoRhqJ3j+RJQPrxOlZZ05ctz3YoDWFo3Cxt
-	p0h+rn/GpeWdGFryziqvtw79Uw==
-X-Received: by 2002:ac8:5995:0:b0:4ff:bfd9:dd31 with SMTP id
- d75a77b69052e-5179802dae2mr21524831cf.5.1780869216488; Sun, 07 Jun 2026
- 14:53:36 -0700 (PDT)
+	Sun, 07 Jun 2026 21:57:50 +0000
+Received: from s1041.use1.mysecurecloudhost.com ([192.250.231.249])
+	by mx207.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <dan@reactivated.net>)
+	id 1wWLUo-007FOl-QO; Sun, 07 Jun 2026 23:57:33 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=reactivated.net; s=default; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=tdMeoOld4FcgA8FppLQz+Ntxpynqqdfhs7oz1KaTiq4=; b=0qp+GHP0eA9XT3azcraOimorzL
+	WIBUZUwgyiosJW/rCM74G0Arze8Kw3E+L300TcPwsOPjZ2UwfS8dNAMczdb96wzTbGmLWh9UUJFj/
+	s5YbS/Lkj1DnhJjcOc1wZwbZjBQI1XeoaE/CpRHGgOGaSTXgHlabeD1rUGRRqR5A5vfROydFiIKGz
+	rumvDg/bjMWZO3zy5pgOGi8rwCm8oqamC5njPiOuikplMxjv8srdCbEQ0+c0+grlkgnU8O96RBR7m
+	obQQjJzZDZ+7D+cEV4MiCshzQBMRK32zwk7NfqZSZQP1oA1oExQumEyIx8eLICfJJgndFfnWwZw6w
+	EyQu0q4Q==;
+Received: from [188.251.249.2] (port=34882 helo=numbers)
+	by s1041.use1.mysecurecloudhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <dan@reactivated.net>)
+	id 1wWLUj-00000001qw4-173O;
+	Sun, 07 Jun 2026 21:57:25 +0000
+From: Daniel Drake <dan@reactivated.net>
+To: linusw@kernel.org,
+	brgl@kernel.org
+Cc: linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Drake <dan@reactivated.net>
+Subject: [PATCH] gpiolib: handle gpio-hogs only once
+Date: Sun,  7 Jun 2026 22:56:47 +0100
+Message-ID: <20260607215647.112488-1-dan@reactivated.net>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-10-praan@google.com>
-In-Reply-To: <20260601215909.3958732-10-praan@google.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Sun, 7 Jun 2026 14:53:24 -0700
-X-Gm-Features: AVVi8CfKncyI9LHnnKvLugy3BBPqZyYdVRq04rL-R-rQhbyBNf0ZfYmtc_38gXU
-Message-ID: <CAE2F3rDjFwacP0_TA8tv5_p7ZJejsXAKEb=juNaXgPcMPag+Eg@mail.gmail.com>
-Subject: Re: [PATCH v8 09/12] iommu/arm-smmu-v3: Implement pm_runtime & system
- sleep ops
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Get-Message-Sender-Via: s1041.use1.mysecurecloudhost.com: authenticated_id: dan@reactivated.net
+X-Authenticated-Sender: s1041.use1.mysecurecloudhost.com: dan@reactivated.net
+X-Originating-IP: 192.250.231.249
+X-Spampanel-Domain: s1041.use1.mysecurecloudhost.com
+X-Spampanel-Username: 192.250.231.249
+Authentication-Results: antispamcloud.com; auth=pass smtp.auth=192.250.231.249@s1041.use1.mysecurecloudhost.com
+X-Spampanel-Outgoing-Class: ham
+X-Spampanel-Outgoing-Evidence: Combined (0.06)
+X-Recommended-Action: accept
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuXsLW0z+VlcfY/wMv3CJzW0CkmwZvl1sHm1
+ KmFO1CRnJCu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
+ M0i5ZAms0EHrvcCaVIPSJ5FdNqHijoQ+Lk8NzN8YGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
+ EetczWAg1NJkF77+oGQ+lxJlCrsUeB7itP8hgjDRserKv4bhb5a9CD46iTOjXEpJEwP3fd9WBb39
+ uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKclZzoe+TZdeH39wA4E
+ grA4pE2PuLHIFQdBY9qb1rRWgyz0f29FZkQs6Ir87R/YNAvW7iH+6DoE8NeDBUxImZIxHxsBXq5d
+ 3sVlH8/8/BVjaCxdqoPv0tTPBZ82RqaKH6ZJMkXL9fD6+WIpcQ2t8oQM/WEMAHr5BYwqeYfWeqTu
+ 1YC/tOVjI4dWyTvfTQXGjT+aEfC5mTBtCltny75g3MKubALAOajlmHbHzeutXs2uHosTaX/E9TB8
+ 42c3huE/T1c93SsS4aMXJmiJ2G0eb5ahq2kqyMRk6DLUUjpi54Q90umYmC9jerRVX9sTO+FXU2n4
+ L0nk+TooPV1h2BXu3/c8Dfd/7JO6UaIAUVkvSizih0TzynhIhk347ucixeDFxznIHYi/jghIJpVk
+ vIZQze0Bc4OP9WjPZ/cr5H8qZypgvgrWxILsnce/vzk7Sg5HsMU105o7Arb8LdgQkbIszV2rqXUJ
+ pkwwvtJ3eaqr64J65gYh+EkDZ7F844A3amCNzUUxeOUmb7f2sSZgwwfArL3kN4znUXS+aQ2Zqid5
+ ZhuDgwCeIZyBg7HvH2nIa17LbgjKuFO+2mEj3Ei2hTvWconvzZPs/pnfZDHCBKz5ZsfM43T5M7YL
+ w6LVwB8ESiQZrfYccBIk1Sag4dKiqCrF8eZZNLgqwwzqzRhdGeE82QeHCPMhVWUJ6Lbki9dM28Lo
+ JGcCCe5x6ntEzvieEb+fqTMfTu3UcMCRWk93tDX2xq0IRHaigWR4GmnmvyoQF7RljOE5Dy0kIn1S
+ +xE6dEa4ITSORxoHJPO7jtECLiprxnxXDQkNiSsY2JE82yoZXENc5iBe5UBNo8b5j5EtxVNpEcGW
+ Tu3UcMCRWk93tDX2xq0IRHaigWR4GmnmvyoQF7RljOF2PyW5cLuSbbpC1c/2zTYs
+X-Report-Abuse-To: spam@quarantine16.antispamcloud.com
+X-Complaints-To: abuse@master.antispamcloud.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_145338_448666_202ACE85 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20260607_145749_159990_9A9E7DDF 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,42 +107,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 1, 2026 at 2:59=E2=80=AFPM Pranjal Shrivastava <praan@google.co=
-m> wrote:
-> @@ -4898,6 +4939,21 @@ static int arm_smmu_device_reset(struct arm_smmu_d=
-evice *smmu)
->         if (is_kdump_kernel())
->                 enables &=3D ~(CR0_EVTQEN | CR0_PRIQEN);
->
-> +       /*
-> +        * While the SMMU was suspended, concurrent CPU threads may have
-> +        * updated in-memory structures (such as STEs, CDs, and PTEs).
-> +        * Any invalidations corresponding to those updates were safely
-> +        * elided because the command queue was stopped (STOP_FLAG =3D=3D=
- 1).
-> +        *
-> +        * Since the reset invalidate-all commands above have fully clear=
-ed
-> +        * the HW TLBs and config caches, the SMMU will fetch these descr=
-iptors
-> +        * directly from RAM as soon as translation is enabled.
-> +        *
-> +        * Add a memory barrier to collect all prior RAM writes to ensure=
- the
-> +        * SMMU sees a consistent view of memory before translation is en=
-abled.
-> +        */
-> +       smp_mb();
+Commit d1d564ec49929 ("gpio: move hogs into GPIO core") introduced a
+behaviour change that breaks boot on Raspberry Pi 5 when using the
+firmware-supplied device tree:
 
-I'm not convinced that this is necessary. I understand that the write
-to smmu->cmdq.q.llq.atomic.prod needs to be ordered before setting
-CR0_SMMUEN in ARM_SMMU_CR0. However, this ordering requirement appears
-to already be met by the dma_wmb() in arm_smmu_cmdq_issue_cmdlist.
-Could you provide an example of a scenario that might fail if this
-smp_mb() were removed?
+  gpiochip_add_data_with_key: GPIOs 544..575
+    (/soc@107c000000/gpio@7d517c00) failed to register, -22
+  brcmstb-gpio 107d517c00.gpio: Could not add gpiochip for bank 1
+  brcmstb-gpio 107d517c00.gpio: probe with driver brcmstb-gpio failed
+    with error -22
 
-> +
->         /* Enable the SMMU interface */
->         enables |=3D CR0_SMMUEN;
->         ret =3D arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+gpio-brcmstb registers two gpio_chips against the device tree
+node gpio@7d517c00, one for each bank. The firmware-supplied DT includes
+a gpio-hog on RP1 RUN, and this gpio-hog is attempted to be applied to
+*both* gpio_chips. This succeeds against bank 0 (which hosts the GPIO)
+and fails for bank 1 (which does not).
+
+In the previous implementation, failures to apply gpio-hogs were
+quietly ignored. In the new code, the error code propagates and causes
+probe to fail.
+
+Closely approximate the previous behaviour by ensuring that each
+gpio-hog is processed only once. The handling of gpio-hogs on a DT node
+with multiple gpio_chips remains a bit incomplete/unclear, but this at
+least retains the ability to apply hogs to the first gpio_chip per node.
+
+Signed-off-by: Daniel Drake <dan@reactivated.net>
+---
+ drivers/gpio/gpiolib.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+This bug is only exposed by the firmware-provided DT that has the
+gpio-hog. The DT shipped in the mainline kernel does not have the hog
+here. I'm not sure to what extent Linux cares about supporting the
+RPi-downstream firmware DT.
+
+I'm also happy to consider other approaches. This multi-gpiochip setup is
+a bit weird and gpio-brcmstb could perhaps be converted to register only a
+single gpio_chip covering all banks. I verified that the other drivers
+that obviously follow this same multiple-gpiochip pattern
+(pinctrl-amlogic-a4, pinctrl-st and pinctrl-stm32) do not seem to be used by
+any board DTs that include gpio-hogs.
+
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 1e6dce430dca..fc4dacee0a84 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -1031,6 +1031,11 @@ static int gpiochip_hog_lines(struct gpio_chip *gc)
+ 		if (!fwnode_property_present(fwnode, "gpio-hog"))
+ 			continue;
+ 
++		/* The hog may have been handled by another gpio_chip on the same fwnode */
++		if (is_of_node(fwnode) &&
++		    of_node_check_flag(to_of_node(fwnode), OF_POPULATED))
++			continue;
++
+ 		ret = gpiochip_add_hog(gc, fwnode);
+ 		if (ret)
+ 			return ret;
+-- 
+2.54.0
+
 
