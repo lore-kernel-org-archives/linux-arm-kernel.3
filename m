@@ -4,54 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B55BCD8C89
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 03:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00A6CD8C88
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 05:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JxgxsJuQ0c93NDW8hY2lkxvNwmM3g9PEppq7lXseJkc=; b=KKwczn9cZ95oluD2EacKZSqAa2
-	oi1qYErwpSEGpudFJywRRQFgcz96hqcIL4FlNq1L46LMmv5TXr0GzAKFrodQud4Ss4vMf1MHiTFdo
-	3uk5VOpYXl8tJaKc6ouFPj1ZfckIiGWEF01xHqaH7W7A+dSpuwOBVB2/sPDNS8HuxJiRs/l4pQkpk
-	sPrtkM0Ws/RD6GsiT89JNpO03B0igPhH4wovfi/eB43CxhXhxvEv9pyPqKaSFkR/DFkOlg3x1YIde
-	aTH5gLakbHD0IEGKfIeuts3Af7GSz0VvfUmDt/vBNo95pU1aD8dB1Rj0nlS8gog6HG27jBqIPA+q9
-	JClZ/gJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EeZDeaUVX3w9Nxu7fiy/Om7OMZfziYeUq2vleKVEtww=; b=WsOlaMm5sJV8J0Fs5kuhSHq2JE
+	Qljs1fsXbSMegPElyK/88Q6CFfbsYMECAQ7n3bACiNXaRHKes4fwgwpHzrqNw9Vm1AAI4EOYwwDWE
+	mEMrQTNy6FkO9w/xz63CguYDvn89fgtNtTP28yOUadn6VtSOT64Xj4R76TyJqMsxsuD/Ozc4cWQS4
+	PkR/TIiioq/HxyhWYoEYKdt29TTcjl80a0fODDE7qH9YCeKxmZDu68uaxsOILbLHC9nRnjvwRqpFE
+	QWBHf6XNQ/ScL6S7KTOzvBT/JvuvPLWu684d97lol13h2/IXp+giYbkeYN0xU5sScE5+usfOVmBc2
+	WBXpeqOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW4PW-000000020Zq-0DSj;
-	Sun, 07 Jun 2026 03:42:54 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wW5lu-0000000220u-1oy9;
+	Sun, 07 Jun 2026 05:10:06 +0000
+Received: from mail-westcentralusazon11013065.outbound.protection.outlook.com ([40.93.201.65] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW4PT-000000020ZR-2qbX;
-	Sun, 07 Jun 2026 03:42:53 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c66:476d:c684:fe78:389f:7375])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9C8156A6;
-	Sun,  7 Jun 2026 05:42:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1780803743;
-	bh=WzsLg7Z9qC8yOvkZpd9qvN1UgwK29122xoI8S1PEp54=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=miBfHbCyZGRu8C4CWPM5CXmZr7rkKp8Nt6tsUAgU0jbvtrP5EMVYH8uy1bdPQ5jMO
-	 NhLjW5jnH6W2q9CTj4T9drJDD87jSfI8IdkKGZQJc8nNftZIXezO4SLIH3LHGrKtw1
-	 8/TY+OjIJYdmcWH3VTwnfQYgs79PFhamHUEZmmdQ=
-Content-Type: text/plain; charset="utf-8"
+	id 1wW5ls-0000000220Z-0GEG
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 07 Jun 2026 05:10:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sPLXb07pED7XgtxlcZZyePXVx2SwwY9kl3SSAkUbgkDrAwqK8Nrz6lJ4R//MsTvH07tpP5T0Nn4jczY2MhuwPXvPNRoz7otyKV6ZPfHolNg1MYH8aw9HAveiuxOuo0eUQ5hUp01W/FTH89XoXzIc4xN0WQoKDNpWNyA9aMiuW+45TBeP/bvoH5knrxR7Ao598GjjPM9yB8QPnvR/vAoawXIpgWLzGgU8bUVQzeXpT5aN6fjEFgUCCUNBIy9j+jB6UsP7kNzl52gq7DQzG9c5ZjTvoiFNLphAibVZCJIwqQRtNs+pVlEftBDMTRYak4WnyaAzJRpkeK2EJh1DKwAnTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EeZDeaUVX3w9Nxu7fiy/Om7OMZfziYeUq2vleKVEtww=;
+ b=thRqMDtb06yl3y04gucB/GOXKduej3ApxiWWYwFj9yM2aitGSisXFedyEvJlGi1rvGZJfSwCcoLSULHdqYIBZzsLauXgUmiPakoN7WoyNx1k5VosL3QeDD2maF9RhgvYZ0sarNtHqMFMmbgXYdj9XbAwhRR6tksGTziQi07mRRg8O0bY0I2brUpTHx+vR7vuuS5UoGbIlnXl9crBOpUsGcdKJR7MVAt+TghU7Hr+EuD/ezxqe52ck3bzvFbAKMAM6zR78LqvOa6n80JB89mNeMoFoa0ZiwaF/adAy3kjMkRYYJzgcrRoXiTVIVN15jpPGrIuwfQpo7It5O3zkitg5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EeZDeaUVX3w9Nxu7fiy/Om7OMZfziYeUq2vleKVEtww=;
+ b=tj3lV9/QNWxCWO+07rdeHN3KQYcmnUEDcJe6I/ViW1+OZMYUZ9gzR7KjwwjSl0SCXS+K0tf6SDhyygoZrrtHb7tBts6FBVXNo8Gi5J4uHIh7WZc3AYpc+lXe3zeqeGJYFc0ZwDmOWT7DcJ/+dkXoQ7DDY3e/sBkvwRUYSoiPFPmwI30607qEaX/JF3Waga+KK9o2COfmcpEOQchlw5qSFyNP7/cFj4BeA/hOAmOsMUjdRxgR1BGOIdKzox5bkj+mz7ULe3lhDU8KvmxKuBCmxqkC6p/R9mVpF4jwjp0i/VRtvHVVWME1sZdS7FGrN2cp+yArh22xANBrPZSBGbPVRw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
+ by MW6PR12MB8999.namprd12.prod.outlook.com (2603:10b6:303:247::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.9; Sun, 7 Jun 2026
+ 05:09:57 +0000
+Received: from DM4PR12MB5230.namprd12.prod.outlook.com
+ ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
+ ([fe80::6e87:1bde:1853:3b73%4]) with mapi id 15.21.0092.010; Sun, 7 Jun 2026
+ 05:09:56 +0000
+From: Fenghua Yu <fenghuay@nvidia.com>
+To: Ben Horgan <ben.horgan@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
+	Jesse Chick <jessechick@os.amperecomputing.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Fenghua Yu <fenghuay@nvidia.com>,
+	Matt Ochs <mochs@nvidia.com>
+Subject: [PATCH] arm_mpam: Fix MPAMCFG_MBW_PBM register setting
+Date: Sat,  6 Jun 2026 22:09:25 -0700
+Message-ID: <20260607050925.252475-1-fenghuay@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR03CA0192.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::17) To DM4PR12MB5230.namprd12.prod.outlook.com
+ (2603:10b6:5:399::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org>
-References: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org>
-Subject: Re: [PATCH v2] media: bcm2835-unicam: Fix log status runtime access
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
-To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Eugen Hristev <ehristev@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Hans Verkuil <hverkuil@kernel.org>, Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Ray Jui <rjui@broadcom.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, Scott Branden <sbranden@broadcom.com>
-Date: Sun, 07 Jun 2026 09:12:44 +0530
-Message-ID: <178080376439.9570.13838570363760506422@freya>
-User-Agent: alot/0.13.dev35+g4a69c46ca
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|MW6PR12MB8999:EE_
+X-MS-Office365-Filtering-Correlation-Id: 86111ea9-e9e2-460a-5c2e-08dec4530418
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|6133799003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: ElXRiiXoujkki0KjVbmU/2bKJ8PgaqhId/uR6s2ODxvcB9HmZ18MpZ7cIJmkAkzpNgeR6qnpbVKAm4oFUurdqDXfc2N4ZO4XNUbMJ+GD41i+IdqQeWBjuOu34FlrXdS5vlYvOxltGFJLgrTkR5opwGhlc/dSO2zaTjwKjkkMlr2TJTZYq9X2vepsw7toY/LN+SEVDXBPdUT1vSyype4uhcRAur9vjiQYpCPjghjvrW9r0ykXYG/TBrMHCcKNUQoCKM4oQCiGdPa8raPo1FDn5Jq5BsGJuCcCtHADvL1yX6QLouFeWWPPz+Wbjt6PHmXjz5/uxKIq67ydm0niuIm+xOl9WR8YxdsUf8c2I83ruC30v3ePC/mOeJbGdJLc0FHzIhdFqzsjzjW+E2a+RZFzNfKsYN3Y9VMJbsFBe9FalsWUyKrK0GxshEvOvWNHOUnH+GIq7FHx2Hw01hkSlwTzp/MTmcO069LECReM/nexJmW0uarupMhJE7jsfPCPtTzi8EJOPGnhyeiGawqRWuWEFZpt5wcqUB33zLZ/LI07JRjysfK1sYm9Bhq6DT4awSA+DStuAeNy01f0okZPa/ZJqsyIOBlbaiFOcrhwzJddJyE0uGP/FZmkflDh1qpD0iv2fVBF/LJ15rL6Tsu6E1VYpY3TIWQ2wSNrzTFDe+oIPnRvToIZsHu4g7F4TpWvoOxU
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(6133799003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GTtd83D3GAyYPcbBXg88qOPTEuE5j064YtHaLGYvB+DxvEhZ3Ol26pbcWOM0?=
+ =?us-ascii?Q?A/IiREIgU00PIjtGI9i+GQNj9zAqV/7IubNLKfRq5f8oNYv5koERXtKEDW8I?=
+ =?us-ascii?Q?8b/8/dqWE2hKyhZwxHy7jVudTFu/uDMlg34cd9A7YQ2Vukvorkxbsy4IW05G?=
+ =?us-ascii?Q?yCvA5MU4rnTFtIG+LibQ8PUCIjJ3VLLFKaAAuouC6HPPxc7LtGdt08MZtRVv?=
+ =?us-ascii?Q?NHD5s33lZDPwfOgwWSIOexrzKDKyh4LmwX5ZW3YiIk2V7R3Gr669GfaXR4sS?=
+ =?us-ascii?Q?V9kCm3oKGziTV9SUXvyUJrrAttEB7gOzWF0ja3i6GCtL/MGrEVyk8Al0kMMt?=
+ =?us-ascii?Q?ZErZHlp2eaYdwFHslL1ROZLVvIch6boTd/MI+T/6xE8o7x4rTqoM0p10Srh6?=
+ =?us-ascii?Q?qiu/0ph6a92eCattrU/IAsdRrshiO38bCgpYXpVf00h+iXLfAT5z1b23t1SO?=
+ =?us-ascii?Q?HLU8d6hjpFZjVBfuIj9GOGubSjsP+3mQdpjgpOu0nMirmqAiZKBIEGUjmiIJ?=
+ =?us-ascii?Q?68nGQAau/m/lh5Ya+iHKRZFU6GgH/JClXWxx1kQFOXtwVg+I1+O2bjEjQJZf?=
+ =?us-ascii?Q?3rWi7om7I5Ycq756IaTII1HKlBkG2bpFPamTC4zboT7sqkQ566im0e7sKu03?=
+ =?us-ascii?Q?yDDInrkizZTdOrnhUHQ6ThB0PobdoRvsRf4DM7esXZxekeB5h7NvJdRPXBgD?=
+ =?us-ascii?Q?b3t4S11lu2H8wsPjq0Pg1vxm5FQG5Lv757CbciCF3+EL14JYigZMlD26qdGi?=
+ =?us-ascii?Q?I3U5E0aoIySprdbzLOZfp5ncczllsF6GKX6bEQgijMA7btx8zUgh2hxHXTcr?=
+ =?us-ascii?Q?XPds7f3DUPkRZTdE/M5V1dRxpx+R6xpZt6kyAJVMq5HPZFP0aQIZlSrgdEbT?=
+ =?us-ascii?Q?nyaiJ4a/uWzfN6niJBRfd91M/upg64taqn2QLkKctHMbr626Gly6ATgLf5lY?=
+ =?us-ascii?Q?4f8IbWPCmbl0PgyKzIRgkAaaDeqYrGsDFba9c5YT481IuBBakITKZT4I154P?=
+ =?us-ascii?Q?yZP6n1jmGz9DXfW7bVcEBnJKKFyTnWbP8Jow+XC5a5BD6rhQ7tp3iX8Ga8S4?=
+ =?us-ascii?Q?r3qcjufh8wvBP5uICWHejFAW7EtURZBWQ+LkK6sKQmzjp865vaVCCUxHyldH?=
+ =?us-ascii?Q?NRN2ZFRnzb6cliKujl22vohYB2VtpBlmFYmqaDIWsL6Y8gyZDmnAslUNJDsT?=
+ =?us-ascii?Q?B5TJH8DMbUdTUJk/WbVv4r9yFivd07c+rESSr/1B6XT9ZQL/SjXplSsLoz70?=
+ =?us-ascii?Q?2q3Vbg3w6s/SNAUPFFy+1MWuhx0GkmJLVUf3CBf88jvhchcr0QsasMDpRtql?=
+ =?us-ascii?Q?0QuE9pBlk0XK4baOskXVPjuwcCX23zz4fkFdBGevpel30szA7NuL4TKYtAw8?=
+ =?us-ascii?Q?mKHBD8e3LTl923Uf3W+XEOlz1ZPI1wYT2zBFB3RPe7G+8vZ0YE8vYtVn1kHm?=
+ =?us-ascii?Q?4ug5o1KeLfpytU/yKj93ZT8WI6IbEjVr9wBDr4ZmfaCeyL4IWgmEy8RgoPQm?=
+ =?us-ascii?Q?rZEo3yHK+HU9QlneWrbF1sizZC9Y8dTVBmPDx4wBZdMU9UdZtITV059AIEo0?=
+ =?us-ascii?Q?yHZL1uWfmDOhc2jL+VebthrpPBED5ko5QbXZthVRFAzfuGPkyrMBQSQD0xPa?=
+ =?us-ascii?Q?2C/ciV5C8SwF7RB47+zBU6lMmtEUOpHnNDQwNnFsiWi30RWL32uj3EbfZEyf?=
+ =?us-ascii?Q?NTGFOBeTVy87kVMSa0wxQELh1U9fvlK9hG+M+2Mo/ZbNlWKnLqDgiiqutoGP?=
+ =?us-ascii?Q?Jx8cZujjkQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86111ea9-e9e2-460a-5c2e-08dec4530418
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jun 2026 05:09:56.5972
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: u3vAeha2liBiC+5zfNwgZmzbBV9PhqHIcowekRxHb8rPXOIPJe2oEGoOyyY+CYXaKEGnUIZGC6K/LmqE4r+DCw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8999
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260606_204251_859168_DD86AA57 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260606_221004_120489_BBA59141 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,45 +142,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Eugen Hristev (2026-05-22 20:58:50)
-> When requesting log status, the block might be powered off, but registers
-> are being read.
-> Avoid reading the registers if the device is not resumed, thus also avoid
-> powering up the device just for log status.
->=20
-> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 ca=
-mera interface")
-> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+MPAMCFG_MBW_PBM is written from cfg if cfg has the MBW partition feature.
+It is reset when cfg does not have the MBW partition feature.
 
-Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
+But the register handling is reversed. This may cause an incorrect
+register setting. For example, during an MPAM reset, reset_cfg is
+empty (no MBW partition feature set), and cfg->mbw_pbm is 0. Instead of
+resetting MPAMCFG_MBW_PBM to all 1's, the current logic will set it to
+cfg->mbw_pbm, which is 0.
 
-> ---
-> Changes in v2:
-> - changed to use pm_runtime_get_if_active()
-> - add corresponding put()
-> - Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045=
-@kernel.org
->=20
-> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-> To: Mauro Carvalho Chehab <mchehab@kernel.org>
-> To: Florian Fainelli <florian.fainelli@broadcom.com>
-> To: Ray Jui <rjui@broadcom.com>
-> To: Scott Branden <sbranden@broadcom.com>
-> To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadc=
-om.com>
-> To: Sakari Ailus <sakari.ailus@linux.intel.com>
-> To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> To: Hans Verkuil <hverkuil@kernel.org>
-> To: Naushir Patuck <naush@raspberrypi.com>
-> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Cc: linux-media@vger.kernel.org
-> Cc: linux-rpi-kernel@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
+Fix the issue by swapping the if/else branches.
 
-[snip]
+Fixes: a1cb6577f575 ("arm_mpam: Reset when feature configuration bit unset")
+Reported-by: Matt Ochs <mochs@nvidia.com>
+Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
+---
+ drivers/resctrl/mpam_devices.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Thanks,
-    Jai
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 4b93e89c2678..d8b0383cee92 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -1570,9 +1570,9 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 
+ 	if (mpam_has_feature(mpam_feat_mbw_part, rprops)) {
+ 		if (mpam_has_feature(mpam_feat_mbw_part, cfg))
+-			mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
+-		else
+ 			mpam_write_partsel_reg(msc, MBW_PBM, cfg->mbw_pbm);
++		else
++			mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
+ 	}
+ 
+ 	if (mpam_has_feature(mpam_feat_mbw_min, rprops)) {
+-- 
+2.43.0
+
 
