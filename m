@@ -4,194 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E43CD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D24CD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3FB7VsGWBD03rpwArJX/noldaF7TiU950Nm2TSbfvyU=; b=PUuDNLBR53AzHy2pYqk2NxXpzv
-	lH8cH7FEkpQ9bUWAf1FlexKPXJQ2TslWgJucaXWwDVFoWnS+yznXLYMW/a91HiLKlM7B+Rqx9h6Y0
-	dkzyTNLKDQImG0NxBJA70+9MITipHfgWbJuJs3w8MyrZZofe8X5bYixvb3mSKSrnTy72vgdJKCLPt
-	JAE77CPtgqYQoUfahCfCAz6oRnj68U62s9/qGap4PkoaTdX4DFZ7IOcvAoEA08yey5bVStaeqxao6
-	ihn8kRdx6UGT+AV/3EP6KtcFkYum2FQRUzvMzto4wqpSFKb1MdyqSkumJVetPxOLjdTNJrbV+hIA+
-	6cm9dIcg==;
+	bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=; b=XyG9g884kdgzjqo4N8VElwrpZN
+	b5kxj87JX6Sm+A+h1ISHM61nSArPrQmd0x3u6wvRxq3rzn/1cdgVtMgXn7KKYZUJfCVIGkbe3rn5x
+	FxWzGrv062t6hlkoBJzW0hQmxv8rLQMXd6e+/2E8ofByJ2Q+vHbJc2z1tF0LeMq4cqqviLZLmhR8S
+	q/e42vyGKlH3/goNoEywmEuUlwJqIirK6IPGk90SGu0aNzIB5pZ4YIPrKdjZKvG72LnpAy97r9yoD
+	re8aaih6zYhzLAjhr40fdBm6JfSIJI5gm4YPSx5S8/hbUQcFBCduT8i6zjsb+5qYrQqtDH6pwxWdO
+	xi3yJ63w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWL8T-00000002W5s-1wEc;
-	Sun, 07 Jun 2026 21:34:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wWLGk-00000002WiV-27HB;
+	Sun, 07 Jun 2026 21:42:58 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWL8R-00000002W4v-2fmp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 07 Jun 2026 21:34:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=3FB7VsGWBD03rpwArJX/noldaF7TiU950Nm2TSbfvyU=; b=Zv4psOJYjhbpRmMeobk7sUqsw8
-	lQcW1GMdsvpTG0xTUyzhTDzgbmYoJ/Ky1bY9Dapf1nN7tRZfSQJ1tZD70JX+9ZmzoC9zrGsbHcP1q
-	RGCfzijMIZwtjyP4q6UvJnvKgWjnb19WGLgeViSiU8zeiET/Hi8bomzsuufzT8Lonr9GuCtCTsfRi
-	IRv+3X+K1jNEEzKW5u2EfNpSCtlJ8ES+hBsZHAeA0sVPwre7s39aR2Dc54rRADfopM30EKO0SHRFw
-	u54x8QMmWpMw9ZdmEyoeD0sB+1aQuDOFzTf/Lgc+w7759N7DpfAQq+mEPqnI1Xnio/uRjZ5MFknIK
-	mbhTWnuQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wWL7o-00000000DBn-45Ed
+	id 1wWLGc-00000002Wfi-0YjY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 21:34:18 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 657ElMj9866578
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 7 Jun 2026 21:33:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3FB7VsGWBD03rpwArJX/noldaF7TiU950Nm2TSbfvyU=; b=EiVvTbWMNddLSWaX
-	m3G9rugq0EFbtLfwWqsRQ3hFgDPCVYJysVU7USetWURk2Wuq306mU05XNloSioDW
-	jcsrziM9VNVsqT8zM4nuiL99YeswMiGt/cBhD/5Ose//4pxfRa7cPiBA+2a1SyDN
-	+q3U49r1JRYSaK875YDBzAylCpDWi+xrsj1jXbNdJS1i8JWKIUaNzNki86Ky4ahB
-	BWtjMrua70BmHtF4shrL32VKmvGOviGHCrb+UuPkdZvshfA5ml2l0oCTfwBwuzgl
-	Q+GZbCfbRiPXyolSgympyGUcISNKDocU+ul3Bdmzao2loCOm/mFaVhfiWhgxhjCF
-	34NSUQ==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4emb4w4w1v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 21:33:39 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5178bcab15bso79089871cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:33:39 -0700 (PDT)
+	Sun, 07 Jun 2026 21:42:57 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-5177d1ff061so1234281cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:42:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780868569; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AK5y0GMoIX7/xxVuxFYHW0CFpMwH/3cL4Hqre1DMEDMgObWrvKMBE/03vrqmDdiWnQ
+         sofzk9L7UhOF83dmo/gQDTrixUIhQz5qHETz2/nPmWDvWHDTl5ElFE/x/AOXWgew4AzO
+         n+HgcUhRX1M+qp5KHzUCsqomh19ZINKBUAmOiJTWSBJn4upnb25EX2cxOUvHfVY3dVYD
+         oFnw1QfGgCiQW2O7efBRy0WHrwLnV0SIxXlo4sf+vqO5BskD+gM/5ed+iH3hAESVQSmE
+         NI4hDlTaLWJk5AXFHXpOdMEoRGeycn54C9aI4K4Yr+LOUNdfOB7lu4/z0qTzHDpGrLBY
+         CIaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=;
+        fh=ZAcz3A4/ypOjbf5aweNvpPjrPjFcEoJbis/I4CKYGZs=;
+        b=kym02LRUwqF5JXCGj5ABFPCN5TEdqkrms7KoxJOH/F8EWQywV8zb1yW4wd3Iv1yjDn
+         QS+kisqyimGGhrWm31jETPx+DXokhprOIm68e4/ptNfQgBtX0aRP8sBAp8bR8CjNZBiP
+         OTCBXIa7PqmIEDWkLfHW1ygwTYo03rJklE7v1WEEQR8x04pD6aUqcmOlDPY2PK6qehep
+         onU0EdgJgSmRuRmRpo4EoXWTJ7Ra2PCc5kZ0QjOCtVM6GfOZEKipITmwGCFNMyF7heVc
+         A+a37BNeB+uWSOGey8vTLjR5pVPpdVW/RmxZg5M/0H2TngN0SI+LGLivOtpbkJXh0tA6
+         P1zg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780868018; x=1781472818; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3FB7VsGWBD03rpwArJX/noldaF7TiU950Nm2TSbfvyU=;
-        b=P76RpIloJzp0yC4wLFJhkHcvm1nL2ceTX/yF2GChplt0X6avd7fBMA+dmkAxryxgWe
-         oJ30nFtjHoLt90TPZRfMem+B0b+JivKbLpsb6cRCwIvOTC+v8i4Ko6MJl4xn8WPjGgV6
-         U3gg4eNxWdIwNFI4aFdbyyOMhN7JK01Q8Iu+cPgqk1iscbSrKDCgHNp+3Ap9hwxfXpxi
-         TxntdakKVOWKQKC1PT0GPHhKS7J2ZJCWddgtKpimejeqk/3YUerZEw5N3hAwE4J0VM14
-         p21+/CRfyJ/jILA0ar9H/vhT1fLaLGVMfm/3rvf0aSPjqsGBQN6cM8K9p5OaKFInrd7U
-         e9ZQ==
+        d=google.com; s=20251104; t=1780868569; x=1781473369; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=;
+        b=ESjv3WYbkq+PtXIV8CIJ66X/2HwN4c+M1GCKMlTft/fIxslxuUJY0na1c9ZFW/LmRE
+         KrxgOjT4x2OvUajtGoAjmadzMKBoMjmAiahAgii93zp8eRzgzAE4yrZqwJ10CjP3L0LD
+         COW4Caj3oAg5JbuO4UVuoY34BoO6wlWIZu0L+uXoIDlxur8pVGrXFX3HA5UDoqXSwnsL
+         m9cHaK0TwY2KoUXz4NeJ1SvX3B+pjRQ9wLQAZqzRfzTzFHgrNGIUg79X7jregfrps/CJ
+         z7hmpwiKVVJYKEThssQiXIWtcLMdZFJUMqmh1zIFAPRLQYZlgGeTH4MHfIakPAGj+/xP
+         TAug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780868018; x=1781472818;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3FB7VsGWBD03rpwArJX/noldaF7TiU950Nm2TSbfvyU=;
-        b=jJSyXdg/BL0B7B1h0cStcVBsotFlmzRXX9/zogbH0A1adLjTEmJ7A8MiHnt8pVeLVa
-         39pfThLWoLmzPOp+Vptwn/5Wi3m4cQYzQmqY/gZhfr9OCXw3PImb/L6D1KgFPqW7uTuv
-         s/KOo/vplEnxmyI8XaYtZudBLqG2mF/JS4RBZbRxwwlw2LPH5a7wCu7eyEzz3VLehYVw
-         wQOK2pHAcO/8kG+eqHMN484vzd3RINV6HpGrJ1R/CyZYRVxTF05d+CpvFGleV2W+GqbD
-         5LmvVwpw0A7plUjjtI2uK4CT/ONsbvl7/Mm5IFQNsrr9v5Y5THskQHOxYDH+8SYTESv8
-         hbXw==
-X-Forwarded-Encrypted: i=1; AFNElJ+4yQ4vDuYk1d8HRDfHtzIi+LEAoT5x0bek6XoQzwpm0I8G4OHgqlh4/eGbJssuFkoOPpAPzHRZF+NXwBd7S+E5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8YX0tssTdW8l0H1PCMhcdG2e0TRwbuQq/qquRieB9Aonto0KX
-	uHw02x2ZPGNyRnZhoN5OZNdFpRMMbzxQSnipYiWEWNhRoO8V9RkuU2N+qRELZgwyw80AwpJpz6i
-	ea2EEAKjtL65xz2IZXH10FnpVHlFtUUzG+dOGOwl4UCTbt5af20T5/1u3BGZmquFafU5IedTGqN
-	qLpQ==
-X-Gm-Gg: Acq92OH5pewt4Up6r4HdY+cIiUy9RWXiRN4TcfWxXkw+2IwTtloPoTPKUuMKlKcwFMR
-	ZrnB4reGuHNKqQ9MJQLBeDxHmI8zt9LARCi7S9F8SIAvz+3C9/Sq4lNg30E4MolBMWluVQTKiYA
-	IHj7M7HzkPnPG3xniTxeHmiqiazn5f/fDu4ImKU006FjUH6QhMQpKJUzLUuGyQ3yexaCW4NMqHu
-	CUsGtOm+7eLG9KPKhV4GEHVQpOt85aver74VtGTad48c3m1JY6A7kV69a0YOzUsWSitiQDmN34y
-	/pYiNKNd1TtoGnp24J9oXHkEei3GGkcPGGxfalHavLGyS9kvvEqjAnZYvOAEtnmBZ7zBbOzHarB
-	pW9OGeF+w3YVF51TNxlXWlyjYzd0iikIUW+y8Dlg18yy0XacM3uH9NW/7sQ6dNos1pGIDmr+50o
-	Wovt0cPdriEYVG99Caxy40b4zFQPVXPwdnLUVyL11t9D5lfA==
-X-Received: by 2002:a05:622a:7d92:b0:517:b68a:8d8f with SMTP id d75a77b69052e-517b699d7d4mr24581111cf.19.1780868018454;
-        Sun, 07 Jun 2026 14:33:38 -0700 (PDT)
-X-Received: by 2002:a05:622a:7d92:b0:517:b68a:8d8f with SMTP id d75a77b69052e-517b699d7d4mr24580671cf.19.1780868017994;
-        Sun, 07 Jun 2026 14:33:37 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-396ac2d5ea9sm40374041fa.32.2026.06.07.14.33.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Jun 2026 14:33:35 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Mon, 08 Jun 2026 00:33:09 +0300
-Subject: [PATCH v4 8/8] usb: typec: ucsi: huawei-gaokun: pass down HPD_IRQ
- events
+        d=1e100.net; s=20251104; t=1780868569; x=1781473369;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Vyqe1/V8LOLZRRB2tkc6YkttN2Ie/2+WN0mY7kcvXhU=;
+        b=AOZZ0pRLUsSR29j3aHquZ1cIIgD/SP4vzWDSnsuIjYuCVOYb67bmuo9MdWP9ni5/4j
+         C384FGE2xSHIATCY0Td6WWDPC6hKFmYR6MyOqgMtfkuJrcf+e31VCQIkLX8Y+k+U2SYY
+         PGQKJpMhMjKvrGDF+tv9FYclSoECVC/v31YSp/9FUWOlTA262ZPPQAtjr4YjoSld6y+L
+         wtpUeVFOhBj35CVsNVV4JtsVeIbxOuknLs80bBMpfgVjFnp5MyX7hbZ2RpIoQbOOCSzH
+         dEL5YwRV7LFjqDYDEUnP6c4VtRpxaCBh1wk2ehDp9qh8rxZGi48Xx1vOy2HgY2gafNXA
+         rixg==
+X-Forwarded-Encrypted: i=1; AFNElJ+Wz+ZmUETkQTxUyIJ+5j5k/iHqGvdXI/aqPK8sCdekQSFwvvVtnI3gUT4kc9Bg5e6N3ZJWTPK+8y/eEqbuWybu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/bECtGeYCPW7A3ViBd+K5AZMB4XVEMj5aORaCtexq8PIWvXDb
+	xvpcMu1BOs5ukTp7/GmFmQEPHnmX/wuywgwsxJ5r09iQRNot8yeeabCVXJxstWO5AUPbmbN3d0o
+	cqYzwWS78hWx91JYlluYrV/pdhVzLyOjOK7xQw0hp
+X-Gm-Gg: Acq92OHwhtoWnG36EixFEpGjN/LH7IV7YbQZXd8SXqKEhmJSHUbokRYN4qhST7jFCKM
+	KxcZjzNxyNaFhkdKYrkNlpqTIcybGfr1AlaZlgbGfIH027ituYXnYLOrmj6dNFBSP5px8l+CoOJ
+	bg5PvTXN+hjI/dzkZhytgkGugzRinX5p7rmeAoa3Zsj5nYyNKDOgv9hwwDJ+ya/1/sn31/OTte+
+	h7hEN64AvYyhkxn4ocmeBPQzHXGfXDONaJuGy3IMapil29ukCz27FLuKrtLvewol2Mozni2PbLv
+	CtN3wogCdxBkNj0=
+X-Received: by 2002:a05:622a:178a:b0:517:99ea:ab7c with SMTP id
+ d75a77b69052e-51799eabedcmr13790861cf.28.1780868568251; Sun, 07 Jun 2026
+ 14:42:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260608-hpd-irq-events-v4-8-30b62b335487@oss.qualcomm.com>
-References: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
-In-Reply-To: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Adrien Grassein <adrien.grassein@gmail.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
-        Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Francesco Dolcini <francesco@dolcini.it>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
-        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1481;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=3SjZ31inNFNocQI2RmpCu4Tw/qg0rtSCt0SZ5oE3dI8=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBqJeOQ0bhQoOsJj857BdAUiqH5pox278y0oAyGy
- RFMbu1dyjqJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaiXjkAAKCRCLPIo+Aiko
- 1adXB/9gLuR7QGRjAk+HXqf2b8R0PyE0WvdRPYlehmbvDdwTKUxzBuDzzuiV0kTay/bmwkqLoYP
- eSEgECp1mqSpjvxIbCTbpUNLT81GFFEDtjKOgp0EizyaOAmRWZF431B/LHJEqBNRywGDAMR6g28
- XBko5Ih990ex9CIhpqFhfLNy8a/OK0J8+WGQPmWoxwIt9PsO976mFy3iFyD5v4yPJ19GDBS9g1L
- mBGAh4TQw1r6fDBZ0z7VjlgWvcKT0EJs+3W6Mwh/6R/5YhL3raA9bpt8HLs1yUxKd/64FRiW39e
- 4xRBwvcrgMfsxCVs47NwyImiptqBmFZy7rW5+/2YVxJAwuCc
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-ORIG-GUID: HdU8B9Y6A0_mJYdoPx3qiHX6a53cfz1S
-X-Proofpoint-GUID: HdU8B9Y6A0_mJYdoPx3qiHX6a53cfz1S
-X-Authority-Analysis: v=2.4 cv=YIWvDxGx c=1 sm=1 tr=0 ts=6a25e3b3 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=pGLkceISAAAA:8
- a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8 a=HJ0TMOZLSqZlwYNULgAA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA3MDIxNyBTYWx0ZWRfX9THqEAPzi5CX
- PWqcJ1sdPhPUOM/lP1PUOkd6kAGMAElYxrePaV+gEmXhn4JdemS2Cd11NtfnNxzckDMHXN1I4pH
- ng3yhFuEFhZOBlxxUTDhO/39WK160guCiT8qbjQ+MEEJI2Uft6At87CUrdXmFAElWZlZvfoJqac
- 4uc1IrYZEBO60ONZCKdn4AQtKZ8wkTDYZJiNyJ8MQutE1BdZ1oXsOljSPAeZEcRP1FILIt9mvGZ
- Xo9X4SUFGEkufc4lEYEYIabeDdALvdiZs9CuZT/qrJW9d2GFPxIbVaArt/9ti6MrEk8szLEWfWR
- YXNb5YPy9YHZ6sGglpldRanvIUdZZ1AGfS4lqNMuR0aSX70nQMuSJJ/VtY9pVs+SnrE9WBHFzBv
- xy+taw0Q9RGZmIMcMZUIMIgQwmZoPchuvOmtgRxeft8F+mk6J8XlXPQrgrfPDmMmVmvsfbR8bP3
- 59yLbuusMAbW3nG8/iw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-07_04,2026-06-05_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 impostorscore=0
- spamscore=0 phishscore=0 clxscore=1015 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606070217
+References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-8-praan@google.com>
+In-Reply-To: <20260601215909.3958732-8-praan@google.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Sun, 7 Jun 2026 14:42:37 -0700
+X-Gm-Features: AVVi8Cc7vDwsTYlZ7xArJ-OaI4SeEU2xRhvF0rVcM1tRP9imeosdVyxxnu47IE0
+Message-ID: <CAE2F3rDF5dVJip2gc+vaxtM-FRttnUEnAetUYz6qDCXRM=fNYg@mail.gmail.com>
+Subject: Re: [PATCH v8 07/12] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
+ gate CMDQ submissions
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_223410_215192_3A653E2D 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260607_144250_205860_5A8091A8 
+X-CRM114-Status: GOOD (  28.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,44 +119,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DisplayPort standard defines a special kind of HPD events called
-IRQ_HPD. These events are used to notify DP Source about the events on
-the Sink side.
+On Mon, Jun 1, 2026 at 2:59=E2=80=AFPM Pranjal Shrivastava <praan@google.co=
+m> wrote:
+>
+> Introduce a new bit flag, CMDQ_PROD_STOP_FLAG (bit 30), in the command
+> queue's producer index to safely gate command submissions during device
+> suspension.
+>
+> The flag embeds the suspend state directly into the existing global state
+> The flag checked in the cmpxchg loop in arm_smmu_cmdq_issue_cmdlist(),
+> which acts as a Point of Commitment, ensuring that no indices are
+> reserved or committed once the SMMU begins suspending.
+>
+> This prevents a situation of "abandoned batches" where indices are
+> incremented but commands are never written, which would otherwise
+> lead to timeout during the drain poll.
+>
+> Update queue_inc_prod_n() to preserve this flag during index
+> calculations, ensuring that any in-flight commands that successfully
+> passed the point of commitment can proceed to completion while the
+> flag remains set.
+>
+> Suggested-by: Daniel Mentz <danielmentz@google.com>
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Pranjal Shrivastava <praan@google.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 20 +++++++++++++++++++-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  2 ++
+>  2 files changed, 21 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/=
+arm/arm-smmu-v3/arm-smmu-v3.c
+> index 6c8631e2f153..c4315bdde7d5 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -210,7 +210,8 @@ static int queue_sync_prod_in(struct arm_smmu_queue *=
+q)
+>  static u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
+>  {
+>         u32 prod =3D (Q_WRP(q, q->prod) | Q_IDX(q, q->prod)) + n;
+> -       return Q_OVF(q->prod) | Q_WRP(q, prod) | Q_IDX(q, prod);
+> +
+> +       return Q_OVF(q->prod) | Q_STOP(q->prod) | Q_WRP(q, prod) | Q_IDX(=
+q, prod);
+>  }
+>
+>  static void queue_poll_init(struct arm_smmu_device *smmu,
+> @@ -718,8 +719,25 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_devi=
+ce *smmu,
+>         do {
+>                 u64 old;
+>
+> +               /*
+> +                * If the SMMU is suspended/suspending, any new CMDs are =
+elided.
+> +                * This loop is the Point of Commitment. If we haven't cm=
+pxchg'd
+> +                * our new indices yet, we can safely bail. Once the indi=
+ces are
+> +                * committed, we MUST write valid commands to those slots=
+ to
+> +                * avoid indefinite polling in the drain function.
+> +                */
+> +               if (Q_STOP(llq.prod)) {
+> +                       local_irq_restore(flags);
+> +                       return 0;
 
-Pass IRQ_HPD events from the EC to the HPD bridge, letting those
-to be delivered to the DisplayPort driver.
+On second thought, I no longer believe that this is safe. I understand
+that READ_ONCE(cmdq->q.llq.val) implies no ordering guarantees with
+respect to any writes to translation tables. In the non-stopped case,
+we can rely on the call to dma_wmb() further down in this function.
+However, for the stopped case, I can't identify any barriers that
+would ensure that the STOP flag is checked only after the writes are
+visible to SMMU. Here is an example: Let's assume the following
+program order:
 
-Reviewed-by: Pengyu Luo <mitltlatltl@gmail.com>
-Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ * Write to invalidate PTE
+ * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
 
-diff --git a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-index ca749fde49bd..5e3f887ecbd8 100644
---- a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-+++ b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-@@ -299,10 +299,13 @@ static void gaokun_ucsi_handle_altmode(struct gaokun_ucsi_port *port)
- 
- 	/* UCSI callback .connector_status() have set orientation */
- 	if (port->bridge)
--		drm_aux_hpd_bridge_notify(&port->bridge->dev,
--					  port->hpd_state ?
--					  connector_status_connected :
--					  connector_status_disconnected);
-+		drm_aux_hpd_bridge_notify_extra(&port->bridge->dev,
-+						port->hpd_state ?
-+						connector_status_connected :
-+						connector_status_disconnected,
-+						port->hpd_irq ?
-+						DRM_CONNECTOR_DP_IRQ_HPD :
-+						DRM_CONNECTOR_NO_EXTRA_STATUS);
- 
- 	gaokun_ec_ucsi_pan_ack(uec->ec, port->idx);
- }
+What prevents the CPU from reordering these operations as follows?
 
--- 
-2.47.3
+ * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
+ * Write to invalidate PTE
 
+Can the following situation occur?
+
+ * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
+ * (Different CPU resumes SMMU)
+ * SMMU loads old PTE value into TLB
+ * Write to invalidate PTE
+ * (stale PTE remains in TLB)
+
+I propose the following: If you find the STOP flag set, run dma_mb()
+and check again. I'm afraid that running dma_mb() unconditionally
+might incur too much of a performance penalty.
+
+I have the same concerns with arm_smmu_cmdq_can_elide(): That
+READ_ONCE in arm_smmu_cmdq_can_elide() provides no guarantees in
+regards to ordering relative to PTE writes.
+
+>
+> +               }
+> +
+>                 while (!queue_has_space(&llq, n + sync)) {
+>                         local_irq_restore(flags);
+> +
+> +                       /* Avoid waiting for space if the SMMU is suspend=
+ing */
+> +                       if (Q_STOP(READ_ONCE(cmdq->q.llq.prod)))
+> +                               return 0;
+> +
+>                         if (arm_smmu_cmdq_poll_until_not_full(smmu, cmdq,=
+ &llq))
+>                                 dev_err_ratelimited(smmu->dev, "CMDQ time=
+out\n");
+>                         local_irq_save(flags);
 
