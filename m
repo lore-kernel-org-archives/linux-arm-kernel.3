@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7EBCD8C8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 17:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B115CD8C89
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 17:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjwXzAqn09XGqwiofLmSdzwFEecQWhSyb73CLPOpiE0=; b=3LXRGeJlT3gd2efh7Ut9cIXlog
-	ZP0Xwq1wqSvfLNNGa6w1eRWyP35l2g4sfUAgZl9JaiUCa49rvUtrqRgAxxi+eIQNP7prTAR/LAdc2
-	1OopktnFZC9IUZcGhHemibumbLmDpBnQ2kMDcLwSGZfiVzFvekHkfroW8DrM64+VXPeJh+utfVkfQ
-	mGmyT1uK95njSTb9VFOkF9MbTJEd7i6yOdlpTEbs5TF7jOupj6PN6/iElaigw6RwwdOeRCjjR3FNX
-	p5JCTLOWps/xsMaSV2jQLQltokomkmy9NPfZF9JLuP5L68RIbjX4Clwo2lK9fy7Vqw/1IxK8Faqoa
-	Y/yKVOjA==;
+	bh=/Zf0m97OgoTucNTnDyhotBDI2qtIuVu0YxmjCd+niLc=; b=Kc65wLAeSy6hF/kcmanNoWPbCl
+	zjbgTDHDaZltGNiXzFq20B/J5d+/dEL9SEqMOBbuq2yUdDUGuWog/0baeFA8Tw9tQsGvSbpMdtgdL
+	T7WgsmvQRxezwmnwtkIFAkC+mRrVujcjvqruQS+ITFzgbTD41YZvwnX+RaRi4MSCR8mLdpIE8CEQD
+	PqJPYK/Km9YB31Y/c00MMKJZWMaE5gi7xBXPTlRWnq2nMJvudKCUZ5vFZyszXb9DGR3jon1oHlDeO
+	KnRfANEsLbrLukFNFJVT/XyQV/X306R1+pTKzjwbiaMFzuH2cNpeMrg5VZ2b6aCDNhiOAVUG++9dI
+	yWRGm5fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHk3-00000002Nsq-3Ahu;
-	Sun, 07 Jun 2026 17:56:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWHml-00000002O4K-139y;
+	Sun, 07 Jun 2026 17:59:47 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHk3-00000002Nsk-0uAf
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 17:56:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40AFF60018;
-	Sun,  7 Jun 2026 17:56:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E864D1F00893;
-	Sun,  7 Jun 2026 17:56:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780855018;
-	bh=BjwXzAqn09XGqwiofLmSdzwFEecQWhSyb73CLPOpiE0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=md+5SvzoVgkMo++0FXqv/QtZ587IK43WpQwvAceByUuP0zfJHConm4uV9SdHR3bO6
-	 N56R7SE3gbHVbzVkph+kPwNPyKujt74YqmmihtqT0WDqZaSPp01NeXJ0uVgoXLZLMF
-	 TqlJdsboENkonutk15z9r/dg2gUtoWDp0t2ur4M0/qENZgECkJNKoH77df2v8N+b7u
-	 3Kr2Au/Wxi73fxVKgJpftMj2/RVYYZ3WNR/jDCNSDKFT7qOqZYAYx7+Y8CZNLiyOHV
-	 DF/V8C524sp4I1Z3BcenuskDK+u0j6aaiEDRvF4tmH6wcHge/OSZccujVxy0Qqb5lu
-	 Ul2M+sIb2Og2g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wWHk0-0000000AEPF-079p;
-	Sun, 07 Jun 2026 17:56:56 +0000
-Date: Sun, 07 Jun 2026 19:00:16 +0100
-Message-ID: <87wlwa8c3z.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Hyunwoo Kim <imv4bel@gmail.com>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
+	id 1wWHmj-00000002O3O-22uq;
+	Sun, 07 Jun 2026 17:59:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=/Zf0m97OgoTucNTnDyhotBDI2qtIuVu0YxmjCd+niLc=; b=uOSn24Ne3rG8pgy8ZmDnF7JrgC
+	JIQgnG892K+WKMichL5TzfvCURJ6PWDszUyPbZl5imeD5mE8ZLvfMDB/KgsuEVMJ19VnTboJ/khRj
+	417BdqDtr3lvgz8RD2ksIIb0aUuvvrKP47szBy7FHlgngGu43eNHFslfAezouo0ctvLQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wWHmb-006UZP-QO; Sun, 07 Jun 2026 19:59:37 +0200
+Date: Sun, 7 Jun 2026 19:59:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH] KVM: arm64: nv: Skip vCPUs without a pseudo-TLB in invalidate_vncr_va()
-In-Reply-To: <aiVz7O_FIpY2k2bV@v4bel>
-References: <aiUvSbrWndQeUPc8@v4bel>
-	<8733yya4ch.wl-maz@kernel.org>
-	<aiVz7O_FIpY2k2bV@v4bel>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: imv4bel@gmail.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v2] net: airoha: add ethtool priv_flags support
+ for LAN/WAN and GDM2 loopback
+Message-ID: <33c3a87d-ad97-4f6a-8f76-ebab80c496ac@lunn.ch>
+References: <20260607-airoha-ethtool-priv_flags-v2-1-742c7aa1e182@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260607-airoha-ethtool-priv_flags-v2-1-742c7aa1e182@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260607_105945_526928_7E16E84C 
+X-CRM114-Status: UNSURE (   6.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +73,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 07 Jun 2026 14:36:44 +0100,
-Hyunwoo Kim <imv4bel@gmail.com> wrote:
-> 
-> On Sun, Jun 07, 2026 at 02:05:02PM +0100, Marc Zyngier wrote:
-> > On Sun, 07 Jun 2026 09:43:53 +0100,
-> > Hyunwoo Kim <imv4bel@gmail.com> wrote:
-> > > 
-> > > vncr_tlb is not allocated before a vCPU runs for the first time, so
-> > > vcpu->arch.vncr_tlb is NULL for a vCPU that has been created but not yet
-> > > run. Code that iterates over every vCPU's pseudo-TLB must skip those.
-> > > 
-> > > invalidate_vncr_va() iterates over the vCPUs with kvm_for_each_vcpu() and
-> > > dereferences vt->valid without checking whether vncr_tlb is NULL.
-> > > 
-> > > While iterating, skip vCPUs whose pseudo-TLB has not been allocated.
-> > >
-> > > Fixes: 4ffa72ad8f37 ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
-> > > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
-> > > ---
-> > >  arch/arm64/kvm/nested.c | 4 ++++
-> > >  1 file changed, 4 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > > index 6f7bc9a9992e..063e079d1d1a 100644
-> > > --- a/arch/arm64/kvm/nested.c
-> > > +++ b/arch/arm64/kvm/nested.c
-> > > @@ -969,6 +969,10 @@ static void invalidate_vncr_va(struct kvm *kvm,
-> > >  		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
-> > >  		u64 va_start, va_end, va_size;
-> > >  
-> > > +		/* Skip vCPUs whose pseudo-TLB hasn't been allocated yet */
-> > > +		if (!vt)
-> > > +			continue;
-> > > +
-> > >  		if (!vt->valid)
-> > >  			continue;
-> > >  
-> > 
-> > This looks correct and matches what we already have for
-> > invalidate_vncr_ipa().
-> > 
-> > But I think this misses the opportunity to squash a whole class of
-> > similar bugs, should we ever have the need for another function that
-> > iterates over all *valid* VNCR pseudo-TLBs.
-> > 
-> > Since I'm on a train and have nothing better to do, I've written the
-> > following hack.
-> > 
-> > Thoughts?
-> 
-> Looks like a good direction to me. I confirmed it fixes the issue (as
-> expected).
-> 
-> How about you submit this patch yourself?
+> When a GDM3/GDM4 port is set to WAN mode, enable GDM2 loopback to
+> support hardware QoS. Conversely, when switching back to LAN mode,
+> disable the GDM2 loopback and restore the default forwarding
+> configuration.
 
-Sure, can do. I'll sent that in a minute.
+Why not just use the presence of an off loadable qdisc as the
+indicator to change mode?
 
-> > +#define kvm_for_each_vncr_tlb(idx, vcpup, tlbp, kvm)	\
-> > +	kvm_for_each_vcpu(idx, vcpu, kvm)		\
-> 
-> Maybe vcpu -> vcpup?
-
-Duh. Yes. Thanks.
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+	  Andrew
 
