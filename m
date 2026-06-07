@@ -4,110 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E197CCD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE69CD8CA7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 21:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+9fNpCsE6s4qptEKDyb1NK+xycGWP9ueu0opDX1ZcA=; b=mEvwLaqIOdizt6U9wEuPlos+Dm
-	87DiMaWJBx3qtiHpw1xko0wjZIaFTwdSSkgTX1WIJIALtmk9tXDqw14MtuJOO7Q0y8FLC4W+ZlF1w
-	xn49b7fVUOyIb5Cxf0Bbks5SwWkztJafruHVX9ru8cF4Hpl2OJNlz3qnF4m6rt42NAuIBxyddMrLc
-	lOGy1Hb/IaTJKRfqYg/Rqwp7b4EIlXGMlaGcGPqnFCnLqMDcbwv2qmIiPNJmzqwrRS7kEoXLABLCZ
-	Ic4ntnGtRiR3z14OhcOTOkbMINnAcGKDPk2kX+9cYoev8eNXu5/36MYCrAwH3gOszxRhSD3CeiNTO
-	z4QBg8CA==;
+	bh=SCoT97Q5hVm4j6zlVv2MwuqAb+a0wwmxj8TjVN/oHI8=; b=nYP5RhkDXPBKfWIzbK7QPNi78h
+	f6FVE2gLT9VwwZR03/jApv1ZeStj80Q/Jg5r7ceT7v+0e3dH1BEsvMlhG0G2D6PryWrdfGSBYCRml
+	a25B2ssc0Ys3L9b6xV1BpQ0NYEy9hcQ7lZ6akinLB0aJcd5JEMtSeyhYjKB3vgsrybZ2hzgwUQa+y
+	Nx+l3kfcDyXcMRoIVrgKkxxLwz5EL4FRca5BekUKcLjGBdENtokS5iecWAJC+GBRq/SCS/GbmRWyr
+	3QwadIC+E3DsKxX874kN7yJn2MbphUjaw33ZwqPKV2uWjFGk1Q42/EjwEk0G+0UmdWe98NzlpGnii
+	TnNHLoKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWKdR-00000002UeC-0FcQ;
-	Sun, 07 Jun 2026 21:02:21 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1wWL7R-00000002VOo-10or;
+	Sun, 07 Jun 2026 21:33:21 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWKdO-00000002UdW-2I8U
+	id 1wWL7O-00000002VN4-14Vc
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 21:02:19 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-bebb72b845aso524232866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:02:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780866137; cv=none;
-        d=google.com; s=arc-20240605;
-        b=kpAE5w/L53vXI+GkwjPBqVwUL4pD6uMk/Si2IMftarjByrrzEbeeiUCLpLSUc454W4
-         MFu08egG7FQzIAaBhro0wTykDcPI23oYtVLZ5J2Yu9SzcjCKfb6v8UkZYybo8v72Sayu
-         AoK7ybou8vpt7E7UBTRmSWdVKX70LSwGIGcBMuMLJuR8A3NVTEMhZHkuJzxFrF6es1pi
-         9Ap8wItkVfKVNqDdch4k7hHCC5vpEVwEPTeCJmuWlJNQ6x9PetkZvzRuaZfd5rx247+0
-         l/IK6nAiTe1m1LLR0/k96HsYAvhphFxkG7vCubjA8m5ya58oROqXXkSahdriNxlhwEoN
-         lH4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=A+9fNpCsE6s4qptEKDyb1NK+xycGWP9ueu0opDX1ZcA=;
-        fh=nuxAcd4CPncyTDuUfUbBy2Sujs/6BN8FFuhkn5jAv3E=;
-        b=Wo+w9vnkHNcXKpoD2ZVJEWhfTWZqYI54y9e8kBrwOUdLqjSY4cFPULE40J08Q2/BFC
-         4rvOlogJUtt0eCXslnKWK3bGwW1tUc4dDSPm8FYDIgRwFnYEDOxNFU5MRWS0CMZqlhOQ
-         gV4IpfoK+/s12kMEKR7V/5hfiEUtMWb/Epe/Gly47HwRrm59Mvu7OmViyVeJMEhPmHq+
-         wfhpwxuFuFDP7ezoO4z4Lmj/3IiUVDUWQZCiPCXF8WfGXlZClXqpVIPkLs89rObJ2rdx
-         jjvIA/KAKm/Hf5leB04cO0wwlGfvKlxlTKGHKy119fMBT0y8S7O4zsfiuyDtl1wKo6Mf
-         JJXg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 07 Jun 2026 21:33:19 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 657EkmW4846978
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 7 Jun 2026 21:33:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SCoT97Q5hVm4j6zlVv2MwuqAb+a0wwmxj8TjVN/oHI8=; b=lgf/vqiQvwidXX+J
+	H3u0Hg+bm/YbqD90L3k8SZI/n3ibPQNlDNkNDvBLEr64+i6fWp/V5U5XpRMpQR2F
+	odM24vycGfIYPw3s60L2/A+/3QKHA6fxU9wgzMQfRsitxyYxItsY2UySoJr2DnPU
+	03QHC9EGoT8XIVoRj+k+Pg3hPud+QIt/ZW02lwQ1AAGV1uJLosZiP6kWv2qoaeCh
+	De5+wRgj7FIMkfONdSCG6cls9Bsftkis27VLuwXgZ4gqr8+rI2CwFz+UzeSTkLGR
+	DHHlFLjopbK8nfjbWPgBBvJKRiGuSEkT7lePsMNWxQIuoIv7E40uRIoTHGccEJCT
+	P/HFdA==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4em9k3n71m-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 21:33:17 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-517878a92c5so85634131cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 14:33:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780866137; x=1781470937; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A+9fNpCsE6s4qptEKDyb1NK+xycGWP9ueu0opDX1ZcA=;
-        b=Fti/M1tuP2EpqyYcOoutfKbhPj8FNG+KXakMNz3e3f/IdXTNKXu0tWL0KCf3C01tQ6
-         If2iwkB4ofR881QiqnUddXihH07P8t4h95+9kZHsf+2gXnKMmX9Hb9vsLExXmwS99BdR
-         L02cnJn1sCvW6+qfCJKjiCW0JVIGk2MmVGYppsAnpWDFyv74ADVopjV7XNie/QOKVPRr
-         p4ERdGihY2X9g0O6c4Et9HucQWbIbj3Ugf0zaEAPpcNgkma0xgSHASPZLvfHcG/p4J6v
-         oyx6IWmPMZzp+P09LsR8UZLTMMcpXRO+NqQHgn1MwJE8TUTNrehM0Wg/eigumY6EmW2B
-         iZkQ==
+        d=oss.qualcomm.com; s=google; t=1780867997; x=1781472797; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SCoT97Q5hVm4j6zlVv2MwuqAb+a0wwmxj8TjVN/oHI8=;
+        b=AVYKwsD8ybfCJyniI5Ektyx9IR3OX8oZqdwIz2ea2m0jle+fSAnCwL63k8LJNI+98f
+         XA1JNFqwbC61L/r35oaY3SvgRQwEhhvS2wDskoFWEJ5aPJw+P7sCv2fhCDt8oM7v9qdJ
+         8f8x/XS7y26YvlWbic6Ygb+KsyCrNJahmdUT25dsDrj5nA42pL/6Ut/Ze7Jt9CADY5pM
+         GALlYfDxFgiujuI1jMAouw/2x7AMRwpTthHqqipcje3HJFOshqq/G7o+J1OCPgkUmZUU
+         WTGwC2TJaeJh6GIzklh7JcDUZn+O+wbQHjH3u61RFAQ0ZI/U7Ws2D+TmOteoN/UJKmUg
+         khAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780866137; x=1781470937;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=A+9fNpCsE6s4qptEKDyb1NK+xycGWP9ueu0opDX1ZcA=;
-        b=ECRsrxSPelvpBzC/N6fro4dTal98isplXZceQpNpqaboAAF0zfXlzO79tBM41eNRFg
-         noKvalmlqPA/+Qb2Suw7Fjcw72II8xSyA00OmA7CdMjvVPx2uIJdc5F6b698+iKnBgnN
-         30UF7CGZkmxrDJYVy0iaw2KjmKjMk7b6cGiCuFgFri1XmQ509TiWsCX5CLVwMYPV1V7E
-         nNq6nJ59MLFdm6gl0r5E6M6SZNC2Qtq50SBtt8k3IbdS0U4vH7BRSapNL+rdGmDfK3dA
-         9PHfL2uEiH5KGZ71Gm3B1rSgtM06/pGvBWNc3V0qg/ym3k6nsw59t8dbp22IpJAdM8hm
-         ri/g==
-X-Forwarded-Encrypted: i=1; AFNElJ/4rQ7ArCjlXijVAieFIZg93fa+isYlVnJcKHNRJhHYXkYP2wfZ2UuNvLFVDobuFlf0+92Pd6JvCLlNcvWAAS8U@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqGqnaCWbyjqxHROzFG7liOoHet1LZsSDiKguhIztkoGz+OPZt
-	A0KClRfa7x4H1QA5g1WS8P0JcGbdkLKeaCYuoy9vyx02iKnj7h0Q9N0Ce6uE6E79NC7VO6GiA1z
-	1mWSeL8vlEOHJefjwec+5WdtIsA1QCuA=
-X-Gm-Gg: Acq92OHPWRgUPu0FyFsa0UTw8fJKg5/c+6E1gsLEoebrthYoWsDMIKpf9yjImrWTlMq
-	7xYunzIgFTHwcZMOiG9qExL/bv+KY0IzJtshr/ADJDywxoo30z+k+CYfC5T4QYmFJ1KpxssEeN0
-	lTbvOVl6CQF6j/4O7DRH+tFyPebcTjIqb+hheLRoc/hPF22CQPcYyokGXm6/zQKOj2/rQ6X7VAD
-	b6I66Lzw2wiM7XOcNM+4slCG1GoEgzYIU7gyMFN5WjSA2yGPQlD7xbNcCIOfE/MrgJiHYjJmMyD
-	eSb0n8+txvYshvWXaSocGblHCT5MAd/kjzmxF65a+PRRSLwDN/0=
-X-Received: by 2002:a17:907:2718:b0:bea:f4e0:c7b9 with SMTP id
- a640c23a62f3a-bf370d638ccmr437637066b.19.1780866136465; Sun, 07 Jun 2026
- 14:02:16 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780867997; x=1781472797;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SCoT97Q5hVm4j6zlVv2MwuqAb+a0wwmxj8TjVN/oHI8=;
+        b=LG/hcvxRYSbec4Nyrlicr7E0L49VtWj6+AEM/2YziModIPW8pRwFpVS1vf1R2iwXx6
+         M827JGy5g4O+VeFAdDAFa14sq1o0U6OnRGsH89sqRy75K4cXxsjf5Qc2Mf7hYvWRmm9z
+         kaPrq240tDoRqZWUcZzJVwLAEROzgjSVhn3R8yGsGPztWMHXJ1KlK2nQQO9uGXnr5C4d
+         qc47FPleQEiLrUcf6q55tPjL+Mo8Jedx970fO00228cap9ECPo2VxSZ8XSdSqpSOR9gC
+         GcWlk2Is8vZK+Is2W1OYrnGXQ4H25ZrivE7REHFODH3z0QrA7GSCquhgffSjIC77yCzS
+         guTg==
+X-Forwarded-Encrypted: i=1; AFNElJ/niZqksiTKnT4pUel9euJ6yryJocUOsLKZNEGa6bDdw1C5l1FP2fuzfdF4+ken++7nYp8DUmA5k4vKdRUrsDq5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDkvomtXj72jY+mT+Aao9P6Q+UdIL0Ml0h9iYnBfxkkYsEDUsn
+	4YDt1FUQSKMzgrhsIrqwZ2RfmdqFk3qE/qR0BPTaS6S0rrsDi9QEm6/9186keGY5ua+NVfzyYQu
+	boPNyjcX6cm3KBdDRAVHsFqLdI1Wu8/5antZ7+Opt3RHv6VCnJtM0XJ98l4nrWSVoQsVIfKniLp
+	SAgA==
+X-Gm-Gg: Acq92OGsLmQzZgZ/XMGD5kXiVddcKBR1opNVkSqwge7KEyv92NC+kunWxCN6DALmEDh
+	oNnTsn7pJ9YYTZWBRQNydNObft5YEeavudlzJ29ngSvAkjsYAHoO5SeH8Z5X1P/oxgRSWUXYL1W
+	c07S5kyXPxTvvG+DDw0aNZi923yRMeXJ4J/0LoL5mhkk3GZDXdXukr0+Z4U37KB2ozP9XLAXPnM
+	hHCvWa0KG3U+OmJNCg6vlp2hLOhfT7C89T0rBzoSMkxZCssukmwRBE6DPnTA+Iw9+86rradX5o4
+	Qg9pmEVwVxQj8DJUvYvaXSe6R5p9iQtDN/P2tgycR8lJH2jT/DwiNZNKRs1OzhnEQEMhnN3as+L
+	hWx6uK0/rjklkYtg0BUvJMKzPIN9IZzybPcjdot9W4SU48ZYLJFVHzmNc+lez56kRrsqYObMaVc
+	YXAfQb+3sH+RdaMlM/lhtMHV4LGGOXiBjSNaAForoINyCNwQ==
+X-Received: by 2002:ac8:6109:0:b0:517:8a19:a461 with SMTP id d75a77b69052e-51795c56d21mr173338701cf.42.1780867996764;
+        Sun, 07 Jun 2026 14:33:16 -0700 (PDT)
+X-Received: by 2002:ac8:6109:0:b0:517:8a19:a461 with SMTP id d75a77b69052e-51795c56d21mr173338131cf.42.1780867996264;
+        Sun, 07 Jun 2026 14:33:16 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-396ac2d5ea9sm40374041fa.32.2026.06.07.14.33.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Jun 2026 14:33:13 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Mon, 08 Jun 2026 00:33:03 +0300
+Subject: [PATCH v4 2/8] drm/connector: pass down IRQ_HPD to the drivers
 MIME-Version: 1.0
-References: <20260604135255.62682-1-midgy971@gmail.com> <20260604135255.62682-7-midgy971@gmail.com>
- <e44b506e-e9d2-48e3-acea-ab28b7be9b37@rock-chips.com>
-In-Reply-To: <e44b506e-e9d2-48e3-acea-ab28b7be9b37@rock-chips.com>
-From: Midgy Balon <midgy971@gmail.com>
-Date: Sun, 7 Jun 2026 23:05:03 +0200
-X-Gm-Features: AVVi8Cf-JVkWYJtDYXL1xfOVyosnpbnb7w4PJV4kFFggOhSQTxoQOwyJz0V_ZFQ
-Message-ID: <CA+GS1Y16++cztPxdUGLrPA73ENm4vJGFrjm-jP8r=8OQqcMJGA@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 6/9] iommu/rockchip: Clear AUTO_GATING bit 1 on the
- RK356x v1 IOMMU
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Simon Xue <xxm@rock-chips.com>, tomeu@tomeuvizoso.net, ogabbay@kernel.org, 
-	heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, 
-	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260608-hpd-irq-events-v4-2-30b62b335487@oss.qualcomm.com>
+References: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
+In-Reply-To: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Adrien Grassein <adrien.grassein@gmail.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
+        Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Francesco Dolcini <francesco@dolcini.it>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5290;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=A2PPAf8RIZIumN5Va/to+GsP1RDHctHNlwnN5DWn79k=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBqJeOPllDTwWwMp1vESqk1j4UB0AHP5j7B5bL5X
+ uq2IPLISouJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaiXjjwAKCRCLPIo+Aiko
+ 1VlqB/sGaQ+sksjZm1e69F9eT9jxsXnLzH5/YZqYUPV74YSWdt5FApSzNf7tmIphhpE0fUE4LWH
+ YozHAGahdOxwneinArqneGoOTQvp1aS5h+di+zQZRzeWHqayX0N7EXOGpaohwBQ4lC+hoBv/c8U
+ YLVwGvblsq7oFWaEfoE8yeFhSDBDDkIGhIPAeyPRq5ZThVvChLMwD6AbWU6i+EtF/dr6t42Lvhz
+ mHngSlPxsh/S1AoVsH3HstphanM+aA+WlDkXPZdW7t2CKF4cAZX7QfbWK3QPNP/frLMhRl0ND6W
+ xAWtiViB82XxNOvQFNCDI+lH9MaGzXCY3tiEVgH4V2bJFjLa
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA3MDIxNyBTYWx0ZWRfX8T6szxy+3GYE
+ AWlIC1TJrlrySDzX/ZhLhVyvOviuOs6Dqw0QgjoDQojCgF49hnpDavkg6vIBC3rVW7XMSijho6N
+ jNSRoJIythBLDK/szw8XQ1fx230nywwsQeJEnzQ8cZtDQ2SbI8s8vuSPYJM3LD1cKjC4GiUc6pF
+ jlxkOzYuArqIOXnU5gJYT49X3p4Y964sOdmKG9Hd/qasVZpOdBPf22qdEEY39IRX5iQZNGWDcnP
+ cjGuOI0uLeebekyvkUbrS5R1PZpFqdIpcEsbY1FVPWJ0vG9gGjZVO+QJtU9iN7H+1NFvOX46eay
+ rCSGdUyBIChNNJQ5Z9Fve35d7xHasW8qUjDCsfz+U8SbgboQXEnpc2Asc1SBTOTwU4DsvU8r3Kx
+ QTiwi+xY21cBFp8prxX8zS2kxvt8kQntt0yTQcU7ZDwkpb6L3A7pfI4wQTC7p+rGYbgMj77TAdK
+ P9WcKiWw07en8d9kxng==
+X-Proofpoint-ORIG-GUID: zmtSvs5U512tB6VjoRBg_Lw5Khw-Coqm
+X-Proofpoint-GUID: zmtSvs5U512tB6VjoRBg_Lw5Khw-Coqm
+X-Authority-Analysis: v=2.4 cv=TIB1jVla c=1 sm=1 tr=0 ts=6a25e39d cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=Uld_eVi5zExU9UbbJsYA:9 a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-07_04,2026-06-05_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 phishscore=0 clxscore=1015 adultscore=0 priorityscore=1501
+ bulkscore=0 malwarescore=0 suspectscore=0 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606070217
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_140218_625511_F03C5496 
-X-CRM114-Status: GOOD (  29.83  )
+X-CRM114-CacheID: sfid-20260607_143318_419895_3F01307A 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,139 +189,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chaoyi,
+The DisplayPort standard defines a special kind of HPD events called
+IRQ_HPD. These events are used to notify DP Source about the events on
+the Sink side.
 
-> As I said, it is v2. Could you please try using the code below instead an=
-d
-> see if it works?
-> [ auto_gate =3D read(RK_MMU_AUTO_GATING); auto_gate |=3D BIT(31); write(.=
-..) ]
+Extend drm_connector_funcs::oob_hotplug_event() to pass the
+notifications about the IRQ_HPD events down to the individual drivers,
+letting them handle those as required.
 
-Thanks -- that's clearly the right shape (read-modify-write, before paging =
-is
-enabled, keeping the reset value instead of my clobbering 0x2).
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+---
+ drivers/gpu/drm/display/drm_bridge_connector.c | 17 ++++++++++-------
+ drivers/gpu/drm/drm_connector.c                |  2 +-
+ drivers/gpu/drm/i915/display/intel_dp.c        |  3 ++-
+ include/drm/drm_connector.h                    |  3 ++-
+ 4 files changed, 15 insertions(+), 10 deletions(-)
 
-I rebuilt v7.1-rc6 (with the rocket RK3568 series + your per-device-ops wor=
-k)
-using your bit-31 version and tested it on a ROCK 3B: the NPU IOMMU comes u=
-p and
-services the NPU's DMA cleanly -- the NPU probes, attaches its domain, and =
-runs
-repeated conv submissions with no DMA_READ_ERROR and no page-walk stall. No
-regression from the write.
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 649969fca141..046efd913064 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -141,7 +141,8 @@ struct drm_bridge_connector {
+  */
+ 
+ static void drm_bridge_connector_hpd_notify(struct drm_connector *connector,
+-					    enum drm_connector_status status)
++					    enum drm_connector_status status,
++					    enum drm_connector_status_extra extra_status)
+ {
+ 	struct drm_bridge_connector *bridge_connector =
+ 		to_drm_bridge_connector(connector);
+@@ -154,7 +155,8 @@ static void drm_bridge_connector_hpd_notify(struct drm_connector *connector,
+ }
+ 
+ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bridge_connector,
+-					    enum drm_connector_status status)
++					    enum drm_connector_status status,
++					    enum drm_connector_status_extra extra_status)
+ {
+ 	struct drm_connector *connector = &drm_bridge_connector->base;
+ 	struct drm_device *dev = connector->dev;
+@@ -163,7 +165,7 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
+ 	connector->status = status;
+ 	mutex_unlock(&dev->mode_config.mutex);
+ 
+-	drm_bridge_connector_hpd_notify(connector, status);
++	drm_bridge_connector_hpd_notify(connector, status, extra_status);
+ 
+ 	drm_kms_helper_connector_hotplug_event(connector);
+ }
+@@ -171,16 +173,17 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
+ static void drm_bridge_connector_hpd_cb(void *cb_data,
+ 					enum drm_connector_status status)
+ {
+-	drm_bridge_connector_handle_hpd(cb_data, status);
++	drm_bridge_connector_handle_hpd(cb_data, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
+ }
+ 
+ static void drm_bridge_connector_oob_hotplug_event(struct drm_connector *connector,
+-						   enum drm_connector_status status)
++						   enum drm_connector_status status,
++						   enum drm_connector_status_extra extra_status)
+ {
+ 	struct drm_bridge_connector *bridge_connector =
+ 		to_drm_bridge_connector(connector);
+ 
+-	drm_bridge_connector_handle_hpd(bridge_connector, status);
++	drm_bridge_connector_handle_hpd(bridge_connector, status, extra_status);
+ }
+ 
+ static void drm_bridge_connector_enable_hpd(struct drm_connector *connector)
+@@ -223,7 +226,7 @@ drm_bridge_connector_detect(struct drm_connector *connector, bool force)
+ 		if (hdmi)
+ 			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
+ 
+-		drm_bridge_connector_hpd_notify(connector, status);
++		drm_bridge_connector_hpd_notify(connector, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
+ 	} else {
+ 		switch (connector->connector_type) {
+ 		case DRM_MODE_CONNECTOR_DPI:
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index bb128dd0263a..d99019fdea9c 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -3528,7 +3528,7 @@ void drm_connector_dp_oob_status(struct fwnode_handle *connector_fwnode,
+ 		return;
+ 
+ 	if (connector->funcs->oob_hotplug_event)
+-		connector->funcs->oob_hotplug_event(connector, status);
++		connector->funcs->oob_hotplug_event(connector, status, extra_status);
+ 
+ 	drm_connector_put(connector);
+ }
+diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
+index 85d3aa3b9894..31acb3129723 100644
+--- a/drivers/gpu/drm/i915/display/intel_dp.c
++++ b/drivers/gpu/drm/i915/display/intel_dp.c
+@@ -6990,7 +6990,8 @@ static int intel_dp_connector_atomic_check(struct drm_connector *_connector,
+ }
+ 
+ static void intel_dp_oob_hotplug_event(struct drm_connector *_connector,
+-				       enum drm_connector_status hpd_state)
++				       enum drm_connector_status hpd_state,
++				       enum drm_connector_status_extra extra_status)
+ {
+ 	struct intel_connector *connector = to_intel_connector(_connector);
+ 	struct intel_display *display = to_intel_display(connector);
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index 105da7c94910..5784bb9c4021 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -1720,7 +1720,8 @@ struct drm_connector_funcs {
+ 	 * has been received from a source outside the display driver / device.
+ 	 */
+ 	void (*oob_hotplug_event)(struct drm_connector *connector,
+-				  enum drm_connector_status status);
++				  enum drm_connector_status status,
++				  enum drm_connector_status_extra extra_status);
+ 
+ 	/**
+ 	 * @debugfs_init:
 
-To be precise about what I can and can't show: I tested both ways on v7.1-r=
-c6 --
-with your bit-31 write, and on the reset value (0x3) -- and the NPU
-IOMMU services
-the NPU's reads with zero faults in both cases (no DMA_READ_ERROR, no page-=
-walk
-stall). So I don't have a failing baseline here that bit-31 visibly
-fixes. Is the
-AUTO_GATING write needed on current mainline, or only under conditions I'm =
-not
-reproducing (a particular traffic pattern / silicon rev)? I'll keep the pat=
-ch in
-your form unless you'd prefer to drop it.
+-- 
+2.47.3
 
-One question so I document it correctly: what does bit 31 of RK_MMU_AUTO_GA=
-TING
-control on the v2 block -- is it a master "disable internal auto clock-gati=
-ng"
-for the page-table walker (i.e. so a TLB-miss walk's AXI master keeps its c=
-lock
-to completion)? The RK3568 TRM I have doesn't cover the IOMMU registers, so=
- a
-one-line description would let me write an accurate comment.
-
-
-
-Kind regards,
-Midgy
-
-Le ven. 5 juin 2026 =C3=A0 03:59, Chaoyi Chen <chaoyi.chen@rock-chips.com> =
-a =C3=A9crit :
->
-> Hello Midgy,
->
-> On 6/4/2026 9:52 PM, Midgy BALON wrote:
-> > On the RK356x v1 IOMMU, RK_MMU_AUTO_GATING resets to 0x3. Bit 1 enables
-> > auto clock-gating of the page-table walker, so the walker's AXI master
-> > loses its clock between transactions; a TLB-miss page walk then never
-> > completes and the IOMMU is left stuck (PAGING_ENABLED, never IDLE).
-> >
-> > Clear bit 1 (keeping bit 0, the slave-port gate) once paging is enabled
-> > so the walker keeps its clock. This is required for the RK3568 NPU MMU.
-> >
-> > Signed-off-by: Midgy BALON <midgy971@gmail.com>
-> > ---
-> >  drivers/iommu/rockchip-iommu.c | 12 ++++++++++++
-> >  1 file changed, 12 insertions(+)
-> >
-> > diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-io=
-mmu.c
-> > index 4da80136933c4..e3d8b6e9ca12b 100644
-> > --- a/drivers/iommu/rockchip-iommu.c
-> > +++ b/drivers/iommu/rockchip-iommu.c
-> > @@ -953,6 +953,18 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
-> >
-> >       ret =3D rk_iommu_enable_paging(iommu);
-> >
-> > +     if (!ret) {
-> > +             /*
-> > +              * RK356x v1 IOMMU: RK_MMU_AUTO_GATING bit 1 enables page=
--walker
-> > +              * auto clock-gating; the walker's AXI master then loses =
-its clock
-> > +              * between transactions and a TLB-miss page walk never co=
-mpletes,
-> > +              * leaving the IOMMU stuck (PAGING_ENABLED, never IDLE). =
- Clear
-> > +              * bit 1 (keep bit 0, the slave-port gate) once paging is=
- enabled.
-> > +              */
-> > +             for (i =3D 0; i < iommu->num_mmu; i++)
-> > +                     rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATIN=
-G, 0x2);
-> > +     }
-> > +
-> >  out_disable_stall:
-> >       rk_iommu_disable_stall(iommu);
-> >  out_disable_clocks:
->
-> As I said, it is v2. Could you please try using the code below
-> instead and see if it works? Thank you.
->
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iomm=
-u.c
-> index 0013cf196c57..89e3a83a0251 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -930,6 +930,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
->         struct iommu_domain *domain =3D iommu->domain;
->         struct rk_iommu_domain *rk_domain =3D to_rk_domain(domain);
->         int ret, i;
-> +       u32 auto_gate;
->
->         ret =3D clk_bulk_enable(iommu->num_clocks, iommu->clocks);
->         if (ret)
-> @@ -948,6 +949,10 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
->                                rk_ops->mk_dtentries(rk_domain->dt_dma));
->                 rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CAC=
-HE);
->                 rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_I=
-RQ_MASK);
-> +
-> +               auto_gate =3D rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_=
-GATING);
-> +               auto_gate |=3D BIT(31);
-> +               rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_=
-gate);
->         }
->
->         ret =3D rk_iommu_enable_paging(iommu);
->
-> --
-> Best,
-> Chaoyi
 
