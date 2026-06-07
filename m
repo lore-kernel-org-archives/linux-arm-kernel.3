@@ -4,107 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC26BCD8C8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 12:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC79CD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 13:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=; b=TvqlwvxCepnhQp23j21G2oOgRr
-	u/o8P37B2DyZdv3RSfqDwsV/2Aef1rkKiqrASjAcbN2SVQ6eGd1Fuz3lV9ndSLzdBS2qnGIAyuIHz
-	ypnSn4wrPr6ekuiIG9R4auZgPcV0Eu0FTJrJnECl6nod/QSPJwFqWUVq0a6VaWrYzg3/fTtJGoB0Y
-	npeJURx4SldITpS0HZyQHJPgHBqTjDec7YXc6LLaFJhbMtndP3dneseb8yY9DOgscKdkgUats8pwf
-	JlatYSyPe0B86CKppTOTdh2dsoD6dYHuKxymNeBqwu+CBhyS1letscLTh2f3ILNuSqGizj6wc1IHT
-	e8VtxVNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nomoDwC9apKbvhbkrNN8KmZTKGsxkb/dhs8zbSF9x9M=; b=s40ayYCBX0h2/Gs8bRKfVjAtCe
+	49YXsEUTWLWpCksnQ20meYpF+XcwM3LapDYxkYlv8EN7xEVB6v6sLgCYXhUR4tIepP+NFsakDmiZe
+	fjMwNROgy4H1QiWYnS4N7bxplKlK4jcPGyYJerSEhUaETdpI2KnBaEDtDbk/F1prH8qBBs0iTwZAq
+	YajKu0SLG//idqHtt1OCaT8r6nE1khX7E0iuuUpgzBwESNx08BgPFRK/tsd68d5Lkws2p5v4VYDzH
+	Q8Gv3w7AT8bS+lipsv/6D0B90Md7pR+rOnF1tMmO/qDVN28lG4K9UpF3sxBfZfBKg7bX4etfrGhik
+	pTY25LFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWC8K-00000002E9F-1s0T;
-	Sun, 07 Jun 2026 11:57:40 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1wWDgL-00000002Gfq-3vKm;
+	Sun, 07 Jun 2026 13:36:53 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWC8H-00000002E87-2J0t
+	id 1wWDgJ-00000002GfW-2Jwr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Jun 2026 11:57:39 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-69e59978deeso1280828eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 04:57:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780833456; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LOENbSA4okaCJmdYkXJwiBB6Hc9k9asIstpTFhDNTKZlElFgxGTqlYggjDQ3jSinf4
-         f7oM6jNciPsME9BNEETUbf1jv9dBrRC53I2PCxGVD151ULv5wWZQ7Pic+QyZxqp7Besa
-         /fH+njuUURjoVkBw+yAbnZe93TS9fMMCzFG3Fjt4no2kESX9PoV2HIEPzKrqXISaY0ZO
-         CG8vTsWPGEnlK8BKJO41uQxsivEdhNFxJVY9agatkwuN0tV/XpsD6aEQsvIMa3Vnj3N2
-         wfUoPGzUFZflHCV+0veLgBs3MPn5E484h37jJ+vRnjr1PJg0UOc7PolBOiR62AMytRps
-         yr2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=;
-        fh=Cy0LQ4AEUqeVdWqjLPn8RDvrg3Tt+T/qpcmDc8VqNzc=;
-        b=Ksmmp1/xDcFqFtWgtYTENaisy7ESu7gldRJ0aQmfRrvUGipQJzheXL0GizzFvVs7fd
-         /fbrOCgeruylU8lkhrKVYuOzYqdCWuRPG+6yI18zzQnReCus2ETa+FHVYKSm5BVgWUdd
-         dxG8TKo5IH8mcPFPMtFsapmIuf1dNh9cvSoX19a36aiTCBQs83uBrsp+ZKjWtJFcYa51
-         SDjyqUL9M+9IHd+anZ2nMdLCsRVdFGaH6mngq2oNTY4ngtYbKldMrJs8eEstuBr5zJTM
-         dnXzCVIm756MsFUGuhVs+QALnOUI3qc4RtJU7JFwY8x8PWyWKAS4O2VwxK/Ykk7zvASm
-         4tTQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 07 Jun 2026 13:36:52 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84275887a3fso2831778b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 06:36:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780833456; x=1781438256; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=;
-        b=K+WAYoTJ1NzwyOnoA7+UqoPhIn2xJi77qkfiHkkhyPfjvxAhwVX6guq8Nz2ZblFo7m
-         GVqa/YvGVtZBiCplMLFOO1z5jqHjH2LkhtMWpTX7MsahzSO5jH9bZPjnC/uwraNDyybW
-         sTANotNSuGz0LpVr1rZ4ek4UaryTv4fTMZvx9Wn9JetM6JBc2DAH9J2p8X+AdzN+SJ6J
-         r+AEFWNuOLvOPELzHhqHGdzXYOABMa/0iVgL02DR1c5WCKZ+0OmIvGuV2RMHchE2iUvR
-         j8ascfNKWHADfGEkcPYaB94Zk2QADLAt53wQ/LNIbO7Hy6NEUakgtMXY7fu/RQzq6ymL
-         aW6A==
+        d=gmail.com; s=20251104; t=1780839410; x=1781444210; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nomoDwC9apKbvhbkrNN8KmZTKGsxkb/dhs8zbSF9x9M=;
+        b=IqomSiwEwm+GIwTiMtcZn/BgU/UmFG0w3BS2Rpx4b5sm9Olxm+OO1DAvM75YDu1beS
+         a/qDIyYki6288LTV6b7LpafIPlKrGwnZcmFkvuPx1TbMsV4rGcM09xhidEQ2VS3tuOSp
+         9pzACoAV9xQ9Hxzn0Wq8g/s5M3+d75HUyjI6iXDWx2bpcMtk3Z9MAMhxnTFd2tnfZ7js
+         15eFZASyA0VOB5tfJ7OvWEzIsmQQoFuA6/xN4NE9Ic/fFCHBSf5buO5UDRXkBA3Nw6N+
+         RkOocpq3ikotLKk+N5oFegYMW8jR6+T8YsHhdcAhNRFafKigyjghLrFBbsciStARAQFI
+         ktng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780833456; x=1781438256;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=j9h3BEv4ybPahVYDpfjJtvwrAcdt2dlCFy6zwAbCCRw=;
-        b=YHN+Gjks0u+YisS7iXwUFUUnvqRHeWxYV0h/zsCa0Ih+R+ix8JdBFtnuqG9i0R30Z8
-         U2uUnX9CX0JuUPWVBtEXSgLH2x9Wvl2bdlpltAlsdmCybgK7PihirNfzVKsRrN4jiF2+
-         GPxH67HbfV4iM50gaNwiQvjKcmIym5uTs3bEOTOjeOiaF9cIuHkXbFGn4wd8zQmarnQA
-         BjgmOo8Fj1PGZuzBI81n/ZBQAbhXzDEyQeON2WkSlfFU6XL0oS0N9WROKy/lAtw2Q4nz
-         cRkePemtnuiUwuqMHhBA0SWpBIBQewPIaCuoMUIk3Ys+4dr4QMV+oqkUFZbAvNvqK+rh
-         aZPw==
-X-Forwarded-Encrypted: i=1; AFNElJ866lMUY7jzFXJh94cp635f41J27ZwgjBuNss5xAtI1rBrLdwE7UkBrWqMpP8zjjcaGAWETZDH+PJXkgEvr7nF3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDW6lFziDQcconezPaTmMrGCHnn4UUhj21oFCO+i05lbr9rSNI
-	0xZMmElQdFSXMJYWilxdB9JiuxIP4mQwJwSiKWA1x+fWWCj7Z2h9FAtxKJGbR2gVU0cqUaJ8J1a
-	GTz8m8Wuo+DRy91yL1XU+ZQAQFK+n3oQq01hWxCE=
-X-Gm-Gg: Acq92OFtLpS56lBBdhv2u8UnKHUzvlTIOXfqHwYj/HYdcftW3xMu8+xbqteZq9j60t2
-	Mr0L+FXmPbtvbbb9gzr8KWh95NNrUiDsFxt07nwa4vO0yCF0H60VidFt/1Iai5H0dDyz5lnuCiC
-	yMjeu7NU8Pa9lE13cyu4PrxYgNSxMOi1fVhpwcWiXr+1lZVHyWdJTiCM9YypGa1dV97A5G5fpiX
-	1vlgqRZsI8PEdhVq2gBhxcTfaOeYUbZclCFzfYvyhP26Zm5b6JzGOGda9ffubbqDROnrHjS6jgq
-	IrF/gBltBegAbZsXjaU=
-X-Received: by 2002:a05:6820:4b10:b0:69e:3e2a:a83f with SMTP id
- 006d021491bc7-69e68b1b89dmr5965848eaf.9.1780833455855; Sun, 07 Jun 2026
- 04:57:35 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780839410; x=1781444210;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nomoDwC9apKbvhbkrNN8KmZTKGsxkb/dhs8zbSF9x9M=;
+        b=luoDmImzrbgbdd/UqENMT/p78SRFH5f/MzwLA50/9RwVfoh9+FFoArsOEn79sKcSvT
+         yd1gR2OSjXtgm9E1/GJ37iK65SGsaPr5oEGUacj5E1LrLXr5aM9Ln3Y2VMrfDVnGaWYD
+         +nP94eAZ+w7+tDVszXO76WwzY5NhiL+Mwx3WrqmQ8QZ4dc3HnNBqJu8nJ6Yf+5YF6R8M
+         lttLBysSsMY3weixsCjAei5mw+1mwdEuD+VhkQmYbTBSB28BLDbuMzvGqXzUmAq9w1fl
+         K70vS1iDhFhFYI+0s1oVoXiTLs1kc/kdapywof1EImTLoUdvkMZkgJJvitzTevEmPbql
+         wdwg==
+X-Forwarded-Encrypted: i=1; AFNElJ9fZFQHEBm/T0XIC3IbkztaZOioM4q8fJxR0rpVot7waVnGwUdRleHAFneELA7RgnUj56S+XRGI+w3iX9rS7hVz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5ByCUx8/dynZCEsne4MxrxZrhwW9wO5HUxsyV6HXRx8xidk7X
+	LfPAegFsR4sE6b2x4ddaaTShk3LlS++7nluK4MmToYAD61d1lIwTGDte
+X-Gm-Gg: Acq92OHqdloYlPI5vqWeuorY2FbYR+u3ch8bDqsugCGcnVycTLyq0a9FJecbxJs/Xz7
+	fRLp6PBMk1Ao7eCihAryTf+iHd4/CJxQ6+aMpJk3HGOD9Yvdwjv25DDpo/Zy/jnUe5Tjk8u3NJ9
+	vipNsU4drY4AtPMb2OHJeoTVRFEq3evJgkK5O1Ihpnyq1B8XnU8iLLB2EpFfLdt+8nH48uEe1Rb
+	ObmAEncJ9E8fPsuLlM/Ww5faswT22KVCLaMGNjBXr9lI4zaJEMYSHT70o9S/FsV+9mSTEF0clhR
+	8D/ChLShh82Rr2UuccBEIV2jJvcLzJFrH02f6NfYu/9FEoTKhVsfwqhRbfbiVFginaaxjmwsyM1
+	P2XHIEMNg3OF8twZMHt4SE2q1tHRMBK7TF2kcoYPvF1dcuP/JCuNfTz41yKoslg/gT9PoASHCeZ
+	o0yVO25ZWhizA/21De/7gQVi7UcCLJxe/dhSFqkh5bgiHMcwUACMXnH1fu5CsqBQpI
+X-Received: by 2002:a05:6a00:1405:b0:842:3841:fdb9 with SMTP id d2e1a72fcca58-842b6823968mr8665149b3a.31.1780839409910;
+        Sun, 07 Jun 2026 06:36:49 -0700 (PDT)
+Received: from v4bel ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84282375f2dsm16053596b3a.19.2026.06.07.06.36.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Jun 2026 06:36:48 -0700 (PDT)
+Date: Sun, 7 Jun 2026 22:36:44 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	imv4bel@gmail.com
+Subject: Re: [PATCH] KVM: arm64: nv: Skip vCPUs without a pseudo-TLB in
+ invalidate_vncr_va()
+Message-ID: <aiVz7O_FIpY2k2bV@v4bel>
+References: <aiUvSbrWndQeUPc8@v4bel>
+ <8733yya4ch.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20260604123224.192543-2-diogompaissilva@gmail.com> <5277524.h16uAIiOU7@phil>
-In-Reply-To: <5277524.h16uAIiOU7@phil>
-From: Diogo Silva <diogompaissilva@gmail.com>
-Date: Sun, 7 Jun 2026 13:57:24 +0200
-X-Gm-Features: AVVi8CeS1DNJb0AdX_LRZZVsQf_W_fU1VPXBidKJmKeVdQ9Na8oOOSQePlAqJH8
-Message-ID: <CAJpoHp41+mLPWsu0EpCHkNz_z3=+tGqfh0cDKEaCWxwoYOm_Jw@mail.gmail.com>
-Subject: Re: [PATCH] drm/rockchip: dsi: Open-code drm_simple_encoder_init()
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8733yya4ch.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_045737_601711_74B404D1 
-X-CRM114-Status: GOOD (  27.71  )
+X-CRM114-CacheID: sfid-20260607_063651_617976_F45DE64F 
+X-CRM114-Status: GOOD (  34.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,137 +102,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Heiko,
-
-> this description is missing a rationale.
->
-> Looking at the drm git history, I guess here you could add a second
-> paragraph, with something like:
->
-> ----------- 8< -----------
-> The helpers have been deprecated for years as they only add an an
-> intermediate layer between atomic modesetting and the DRM driver.
-> ----------- 8< -----------
->
-> Shamelessly stolen from the Todo item ;-)
-
-True. I will add the rationale then.
-
-> Any reason for only changing the DSI driver?
->
-> Looking at [0] a number of the Rockchip drivers use the same pattern:
-> - drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> - drivers/gpu/drm/rockchip/cdn-dp-core.c
-> - drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> - drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
-> - drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> - drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> - drivers/gpu/drm/rockchip/rk3066_hdmi.c
-> - drivers/gpu/drm/rockchip/rockchip_lvds.c
-> - drivers/gpu/drm/rockchip/rockchip_rgb.c
->
-> You can just do all Rockchip ones - even in one patch I think :-) .
-
-Yes, indeed. I wanted to send a tiny patch to check if all my
-configurations were ok, but since it looks like they are, I will add the
-other rockchip drivers that have the deprecated functions.
-
-Thanks,
-Diogo
-
-On Sun, 7 Jun 2026 at 12:59, Heiko Stuebner <heiko@sntech.de> wrote:
->
-> Hi Diego,
->
-> Am Donnerstag, 4. Juni 2026, 14:32:25 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Diogo Silva:
-> > Remove the dependency on drm_simple_kms_helper by open-coding the
-> > drm_simple_encoder_init call.
->
-> this description is missing a rationale.
->
-> Looking at the drm git history, I guess here you could add a second
-> paragraph, with something like:
->
-> ----------- 8< -----------
-> The helpers have been deprecated for years as they only add an an
-> intermediate layer between atomic modesetting and the DRM driver.
-> ----------- 8< -----------
->
-> Shamelessly stolen from the Todo item ;-)
->
->
-> > Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
+On Sun, Jun 07, 2026 at 02:05:02PM +0100, Marc Zyngier wrote:
+> On Sun, 07 Jun 2026 09:43:53 +0100,
+> Hyunwoo Kim <imv4bel@gmail.com> wrote:
+> > 
+> > vncr_tlb is not allocated before a vCPU runs for the first time, so
+> > vcpu->arch.vncr_tlb is NULL for a vCPU that has been created but not yet
+> > run. Code that iterates over every vCPU's pseudo-TLB must skip those.
+> > 
+> > invalidate_vncr_va() iterates over the vCPUs with kvm_for_each_vcpu() and
+> > dereferences vt->valid without checking whether vncr_tlb is NULL.
+> > 
+> > While iterating, skip vCPUs whose pseudo-TLB has not been allocated.
+> >
+> > Fixes: 4ffa72ad8f37 ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+> > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
 > > ---
-> >  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 9 +++++++--
->
-> Any reason for only changing the DSI driver?
->
-> Looking at [0] a number of the Rockchip drivers use the same pattern:
-> - drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> - drivers/gpu/drm/rockchip/cdn-dp-core.c
-> - drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> - drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
-> - drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> - drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> - drivers/gpu/drm/rockchip/rk3066_hdmi.c
-> - drivers/gpu/drm/rockchip/rockchip_lvds.c
-> - drivers/gpu/drm/rockchip/rockchip_rgb.c
->
-> You can just do all Rockchip ones - even in one patch I think :-) .
->
->
-> Thanks
-> Heiko
->
-> [0] https://elixir.bootlin.com/linux/v7.1-rc6/A/ident/drm_simple_encoder_=
-init
->
->
-> >  1 file changed, 7 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/=
-gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> > index 3547d91b25d3..a09b382d208e 100644
-> > --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> > +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> > @@ -25,7 +25,6 @@
-> >  #include <drm/drm_mipi_dsi.h>
-> >  #include <drm/drm_of.h>
-> >  #include <drm/drm_print.h>
-> > -#include <drm/drm_simple_kms_helper.h>
-> >
-> >  #include "rockchip_drm_drv.h"
-> >
-> > @@ -825,6 +824,10 @@ static void dw_mipi_dsi_encoder_enable(struct drm_=
-encoder *encoder)
-> >       clk_disable_unprepare(dsi->grf_clk);
-> >  }
-> >
-> > +static const struct drm_encoder_funcs dw_mipi_dsi_encoder_funcs =3D {
-> > +     .destroy =3D drm_encoder_cleanup,
-> > +};
+> >  arch/arm64/kvm/nested.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 6f7bc9a9992e..063e079d1d1a 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -969,6 +969,10 @@ static void invalidate_vncr_va(struct kvm *kvm,
+> >  		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
+> >  		u64 va_start, va_end, va_size;
+> >  
+> > +		/* Skip vCPUs whose pseudo-TLB hasn't been allocated yet */
+> > +		if (!vt)
+> > +			continue;
 > > +
-> >  static const struct drm_encoder_helper_funcs
-> >  dw_mipi_dsi_encoder_helper_funcs =3D {
-> >       .atomic_check =3D dw_mipi_dsi_encoder_atomic_check,
-> > @@ -840,7 +843,9 @@ static int rockchip_dsi_drm_create_encoder(struct d=
-w_mipi_dsi_rockchip *dsi,
-> >       encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm_dev,
-> >                                                            dsi->dev->of=
-_node);
-> >
-> > -     ret =3D drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODE=
-R_DSI);
-> > +     ret =3D drm_encoder_init(drm_dev, encoder,
-> > +                             &dw_mipi_dsi_encoder_funcs,
-> > +                             DRM_MODE_ENCODER_DSI, NULL);
-> >       if (ret) {
-> >               DRM_ERROR("Failed to initialize encoder with drm\n");
-> >               return ret;
-> >
->
->
->
->
+> >  		if (!vt->valid)
+> >  			continue;
+> >  
+> 
+> This looks correct and matches what we already have for
+> invalidate_vncr_ipa().
+> 
+> But I think this misses the opportunity to squash a whole class of
+> similar bugs, should we ever have the need for another function that
+> iterates over all *valid* VNCR pseudo-TLBs.
+> 
+> Since I'm on a train and have nothing better to do, I've written the
+> following hack.
+> 
+> Thoughts?
+
+Looks like a good direction to me. I confirmed it fixes the issue (as
+expected).
+
+How about you submit this patch yourself?
+
+> 
+> 	M.
+> 
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 38f672e940878..f0a9f81a08302 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -897,9 +897,21 @@ static void invalidate_vncr(struct vncr_tlb *vt)
+>  		clear_fixmap(vncr_fixmap(vt->cpu));
+>  }
+>  
+> +/*
+> + * VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions, and
+> + * either can race against a vcpu not being onlined yet (no pseudo-TLB
+> + * allocated). Similarly, the TLB might be invalid.  Skip those, as they
+> + * obviously don't participate in the invalidation at this stage.
+> + */
+> +#define kvm_for_each_vncr_tlb(idx, vcpup, tlbp, kvm)	\
+> +	kvm_for_each_vcpu(idx, vcpu, kvm)		\
+
+Maybe vcpu -> vcpup?
+
+> +		if (((tlbp) = vcpu->arch.vncr_tlb) &&	\
+> +		    (tlbp)->valid)
+> +
+>  static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+>  {
+>  	struct kvm_vcpu *vcpu;
+> +	struct vncr_tlb *vt;
+>  	unsigned long i;
+>  
+>  	lockdep_assert_held_write(&kvm->mmu_lock);
+> @@ -907,24 +919,9 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+>  	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
+>  		return;
+>  
+> -	kvm_for_each_vcpu(i, vcpu, kvm) {
+> -		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
+> +	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+>  		u64 ipa_start, ipa_end, ipa_size;
+>  
+> -		/*
+> -		 * Careful here: We end-up here from an MMU notifier,
+> -		 * and this can race against a vcpu not being onlined
+> -		 * yet, without the pseudo-TLB being allocated.
+> -		 *
+> -		 * Skip those, as they obviously don't participate in
+> -		 * the invalidation at this stage.
+> -		 */
+> -		if (!vt)
+> -			continue;
+> -
+> -		if (!vt->valid)
+> -			continue;
+> -
+>  		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+>  							    vt->wr.level));
+>  		ipa_start = vt->wr.pa & ~(ipa_size - 1);
+> @@ -954,17 +951,14 @@ static void invalidate_vncr_va(struct kvm *kvm,
+>  			       struct s1e2_tlbi_scope *scope)
+>  {
+>  	struct kvm_vcpu *vcpu;
+> +	struct vncr_tlb *vt;
+>  	unsigned long i;
+>  
+>  	lockdep_assert_held_write(&kvm->mmu_lock);
+>  
+> -	kvm_for_each_vcpu(i, vcpu, kvm) {
+> -		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
+> +	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+>  		u64 va_start, va_end, va_size;
+>  
+> -		if (!vt->valid)
+> -			continue;
+> -
+>  		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+>  							   vt->wr.level));
+>  		va_start = vt->gva & ~(va_size - 1);
+> 
+> -- 
+> Jazz isn't dead. It just smells funny.
+
+
+Best regards,
+Hyunwoo Kim
 
