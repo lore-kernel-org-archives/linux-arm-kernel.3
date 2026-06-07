@@ -4,57 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A320ACD8C88
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 08:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53916CD8C8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Jun 2026 09:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=45cSvMa7vDWI7Fjd/qV78JqRiPhc3SzpDZcwTKRm9Hk=; b=lra6A5L5VHr/5zfIQRPfxskjlJ
-	2pAQCO98XFcrI2xCRoXfBnpI9GMl11Gd+AZiPIOoX00i9WWvdDyZUpGHBFWl8oMOqiRPmtts1o8bj
-	YiOkep2sDYYGIVS13YNXRNqtJ9HTHroMKsCnRXu8I8PM5Yb2nHIp8v9HVyibSmDpUvbAWVQBplYXr
-	MmcyKdNk8rmA3HwWTYZ3uW6tvxL8P1YcozvWZMPAJl3FnYB1kZtuDNy85G2wYmRWCF83DJUZiDmly
-	alD6zX75IMx0nLbypRdNk78dzB+uxHSZ16YKxdFg03wO3yuCoJ7sbMQ44DPoLvymR0+V6nKb36vMo
-	7ByiFR7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ldfCv/wOv4YhZ18a4biMRrzs4ZKfbtKwinX9i+RJioI=; b=y2+JbmtkbqIM+Cl+N1+vsTWlyI
+	mUSeoOFsKFJ1zIRG/i+FO+GrOXNUWgnwr6qdbKDu6PTwzxwiAPVjeVzDMJMFxzqVvvp5v0T3DpBro
+	d/t5JOVi+4+p/MqGRZM0qinJBFb+8E4M9RleMweyykJ3rh38kn5BQl8DIJglmNALbds7KOewJRC34
+	xeTIkJnKRpKCT2lunxsspcE90yTA8n91Ifs5/9jayIXLbUkCx0ngNFpYjTksDBTNFiVlUr6DjMJIh
+	gxFWIRohZ/IbFzEHPf6gze4BIxz51gLZN3wM/5Z7YvXT/T54NBgunJz1KMSbwL9vdQnXieqEhbHtZ
+	lYcEy4Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW98c-000000029IF-2lYH;
-	Sun, 07 Jun 2026 08:45:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wW9Zo-00000002A8P-41Cq;
+	Sun, 07 Jun 2026 09:13:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW98b-000000029I4-2jOC;
-	Sun, 07 Jun 2026 08:45:45 +0000
+	id 1wW9Zm-00000002A87-3yxF;
+	Sun, 07 Jun 2026 09:13:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9E5F43FDD;
-	Sun,  7 Jun 2026 08:45:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 218021F00893;
-	Sun,  7 Jun 2026 08:45:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 57C3E41B08;
+	Sun,  7 Jun 2026 09:13:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E33E11F00893;
+	Sun,  7 Jun 2026 09:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780821943;
-	bh=45cSvMa7vDWI7Fjd/qV78JqRiPhc3SzpDZcwTKRm9Hk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=U/+wCthyTzuKLedKqi3zGC9u8j3BbDTgHlHQGdmuose1HrKTsVvNL+sR9Ak4G+qAB
-	 3dE7kJJOtGtr9CV5GZkTq4pfoKBY5ldX3I0YqQhIAKT3YXv3ss1c+P0iLHio4N1Qo6
-	 pgyrH1OOsnBcv3GEnLwrngvgX525jkxAK7IecV4qhIzsdmVlggOilJMtmvsDqvulWi
-	 415miu3dHrLCEm728qUEIIaVIGBbKotl+gOu1AW3bpgf6FFW6t1xSL53/OoF8s+Uvs
-	 n+9dj0tHzv5hXMdzsj++SX7ERELJn9YYRQbl0qqbXLVAeFlcVYdx85F337j9qLtDZO
-	 cq01jaHvc3RNQ==
-Date: Sun, 7 Jun 2026 10:45:40 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] arm64: dts: rockchip: add Vicharak Axon board
-Message-ID: <20260607-platypus-of-perfect-pluck-b7ffd0@quoll>
-References: <20260601132529.139172-1-hrushirajg23@gmail.com>
- <20260601132529.139172-2-hrushirajg23@gmail.com>
+	s=k20260515; t=1780823630;
+	bh=ldfCv/wOv4YhZ18a4biMRrzs4ZKfbtKwinX9i+RJioI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=kVKQyt84aYsijtzFEb0FR+mXN6OIECmpD2f1IwQN1zp+lPJv63U/KmCRP9HGdEDC9
+	 6Ftsh2WtfbVqBYBKDhUxxeQtbYZQt3NpbAx51KVhRB2fZZ7GDN4Es/6QqFeOFvdw4s
+	 VS1kVQJqKHHHJJLjd2jSFAKnCTCoDGzIq5j525iBqccQTY3xh8fBiqjM7k3l0Mgdcs
+	 j+uQQWr4GzqLPuPV2fWOL1nkEJUz7xxVKqesgLRHhB+pLlhSv9N7zRnhGL6dtO3iHy
+	 kWq913KSrYQ7NvGgF/JDFNS/HmolM3Xfc53yEP4suQ/9G3vtevXq//1vYrWpsb62GV
+	 zjuTtU8rUwAGg==
+Message-ID: <96c9b1eb-9f8e-430d-9c38-eb4d489d7d24@kernel.org>
+Date: Sun, 7 Jun 2026 11:13:44 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260601132529.139172-2-hrushirajg23@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/3] dt-bindings: vendor-prefixes: add vicharak
+To: Hrushiraj Gandhi <hrushirajg23@gmail.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260601162143.170030-1-hrushirajg23@gmail.com>
+ <20260601162143.170030-2-hrushirajg23@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260601162143.170030-2-hrushirajg23@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,341 +116,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 06:55:28PM +0530, Hrushiraj Gandhi wrote:
-> Add initial support for the Vicharak Axon single-board computer based on
-> the Rockchip RK3588 SoC.
-> 
-> The board supports:
-> 
-> - eMMC storage
-> - microSD card
-> - Gigabit Ethernet
-> - HDMI output (dual HDMI)
-> - HDMI input
-> - USB 2.0 host ports
-> - PCIe 2.0 slots
-> - PCIe 3.0 x4 slot
-> - SATA
-> - RTC
-> - Status LEDs
-> 
-> The board uses an RK806 PMIC and provides the regulators required by
-> the RK3588 SoC.
+On 01/06/2026 18:21, Hrushiraj Gandhi wrote:
+> Add the vendor prefix for Vicharak Computers Pvt. Ltd.
 > 
 > Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
 > ---
->  arch/arm64/boot/dts/rockchip/Makefile         |    1 +
->  .../dts/rockchip/rk3588-vicharak-axon.dts     | 1038 +++++++++++++++++
->  2 files changed, 1039 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-vicharak-axon.dts
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index cb55c6b70d0e..fcb115b02eff 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -179,6 +179,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-rock-4d.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-sige7.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-w3.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-vicharak-axon.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-coolpi-cm5-evb.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-coolpi-cm5-genbook.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-io.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-vicharak-axon.dts b/arch/arm64/boot/dts/rockchip/rk3588-vicharak-axon.dts
-> new file mode 100644
-> index 000000000000..fecd13a52e88
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-vicharak-axon.dts
-> @@ -0,0 +1,1038 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/linux-event-codes.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-> +#include <dt-bindings/soc/rockchip,vop2.h>
-> +#include <dt-bindings/usb/pd.h>
-> +#include "rk3588.dtsi"
-> +
-> +/ {
-> +	model = "Vicharak Axon";
-> +	compatible = "vicharak,axon", "rockchip,rk3588";
-> +
-> +	aliases {
-> +		mmc0 = &sdmmc;
-> +		mmc1 = &sdhci;
-> +		mmc2 = &sdio;
-> +		serial2 = &uart2;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial2:1500000n8";
-> +	};
-> +
-> +	hdmi0-con {
-> +		compatible = "hdmi-connector";
-> +		type = "a";
-> +
-> +		port {
-> +			hdmi0_con_in: endpoint {
-> +				remote-endpoint = <&hdmi0_out_con>;
-> +			};
-> +		};
-> +	};
-> +
-> +	hdmi1-con {
-> +		compatible = "hdmi-connector";
-> +		type = "a";
-> +
-> +		port {
-> +			hdmi1_con_in: endpoint {
-> +				remote-endpoint = <&hdmi1_out_con>;
-> +			};
-> +		};
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +		status = "okay";
 
-Which DTSI disabled it?
-
-> +
-> +		power_led: power-led {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			function = LED_FUNCTION_STATUS;
-> +			gpios = <&pca9554 0 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger = "heartbeat";
-> +		};
-> +
-> +		status_led: status-led {
-> +			color = <LED_COLOR_ID_RED>;
-> +			function = LED_FUNCTION_STATUS;
-> +			gpios = <&pca9554 1 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger = "none";
-> +		};
-> +	};
-> +
-> +	pcie20_avdd0v85: regulator-pcie20-avdd0v85 {
-
-Unused, drop. Don't add useless/non-controllable supplies without
-consumers. They bring no benefits, except more review, slower kernel,
-more code to maintain.
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "pcie20_avdd0v85";
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		regulator-min-microvolt = <850000>;
-> +		regulator-max-microvolt = <850000>;
-> +		vin-supply = <&vdd_0v85_s0>;
-> +	};
-> +
-> +	pcie20_avdd1v8: regulator-pcie20-avdd1v8 {
-
-No users
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "pcie20_avdd1v8";
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&avcc_1v8_s0>;
-> +	};
-> +
-> +	pcie30_avdd0v75: regulator-pcie30-avdd0v75 {
-
-Is any of this real?
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "pcie30_avdd0v75";
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		regulator-min-microvolt = <750000>;
-> +		regulator-max-microvolt = <750000>;
-> +		vin-supply = <&vdd_0v75_s0>;
-> +	};
-> +
-> +	pcie30_avdd1v8: regulator-pcie30-avdd1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "pcie30_avdd1v8";
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&avcc_1v8_s0>;
-> +	};
-> +
-> +	sata_vcc_5v0: regulator-sata-vcc-5v0 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "sata_vcc_5v0";
-> +		startup-delay-us = <5000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc12v_dcin>;
-> +	};
-> +
-> +	sdio_pwrseq: sdio-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		clocks = <&hym8563>;
-> +		clock-names = "ext_clock";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&sdio_reset_wifi>;
-> +		reset-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
-> +		status = "okay";
-> +	};
-> +
-> +	vcc0_4v0: vcc4v0_sys: regulator-vcc0-4v0 {
-
-Odd sorting. And still not used!
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc0_4v0";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <4000000>;
-> +		regulator-max-microvolt = <4000000>;
-> +		vin-supply = <&vcc12v_dcin>;
-> +	};
-> +
-> +	vcc12v_dcin: regulator-vcc12v-dcin {
-
-Also not used
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc12v_dcin";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-max-microvolt = <12000000>;
-> +	};
-> +
-> +	vcc3v3_io_expander: regulator-vcc3v3-io-expander {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc3v3_io_expander";
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +	};
-> +
-> +	vcc3v3_pcie20_sata30: regulator-vcc3v3-pcie20-sata30 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc3v3_pcie20_sata30";
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		enable-active-high;
-> +		gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-min-microvolt = <3300000>;
-> +		vin-supply = <&vcc12v_dcin>;
-> +	};
-
-...
-
-> +
-> +&i2c0 {
-> +	pinctrl-0 = <&i2c0m2_xfer>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	vdd_cpu_big0_s0: regulator@42 {
-> +		compatible = "rockchip,rk8602";
-> +		fcs,suspend-voltage-selector = <1>;
-> +		reg = <0x42>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <1050000>;
-> +		regulator-min-microvolt = <550000>;
-> +		regulator-name = "vdd_cpu_big0_s0";
-> +		regulator-ramp-delay = <2300>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +
-> +		regulator-state-mem {
-> +			regulator-off-in-suspend;
-> +		};
-> +	};
-> +
-> +	vdd_cpu_big1_s0: regulator@43 {
-> +		compatible = "rockchip,rk8603", "rockchip,rk8602";
-> +		fcs,suspend-voltage-selector = <1>;
-> +		reg = <0x43>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <1050000>;
-> +		regulator-min-microvolt = <550000>;
-> +		regulator-name = "vdd_cpu_big1_s0";
-> +		regulator-ramp-delay = <2300>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +
-> +		regulator-state-mem {
-> +			regulator-off-in-suspend;
-> +		};
-> +	};
-> +
-> +	hym8563: rtc@51 {
-> +		compatible = "haoyu,hym8563";
-> +		reg = <0x51>;
-> +		#clock-cells = <0>;
-> +		clock-output-names = "hym8563";
-> +		interrupt-parent = <&gpio0>;
-> +		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&rtc_int>;
-> +		wakeup-source;
-> +		status = "okay";
-
-
-Why is this enabled but regulator above is not? What logic drivers this?
-
-
-> +	};
-> +};
-> +
-> +&i2c1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c1m2_xfer>;
-> +	status = "okay";
-> +
-> +	vdd_npu_s0: regulator@42 {
-> +		compatible = "rockchip,rk8602";
-> +		reg = <0x42>;
-> +		fcs,suspend-voltage-selector = <1>;
-> +		regulator-name = "vdd_npu_s0";
-> +		regulator-boot-on;
-> +		regulator-enable-ramp-delay = <500>;
-> +		regulator-min-microvolt = <550000>;
-> +		regulator-max-microvolt = <950000>;
-> +		regulator-ramp-delay = <2300>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +
-> +		regulator-state-mem {
-> +			regulator-off-in-suspend;
-> +		};
-> +	};
-> +};
-> +
-> +&i2c6 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c6m0_xfer>;
-> +	status = "okay";
-> +
-> +	pca9554: gpio@24 {
-> +		compatible = "nxp,pca9554";
-> +		#gpio-cells = <2>;
-> +		gpio-controller;
-> +		reg = <0x24>;
-> +		vcc-supply = <&vcc3v3_io_expander>;
-> +		status = "okay";
-
-Who disabled it?
+Drop the patch, it was already sent by someone else.
 
 Best regards,
 Krzysztof
-
 
