@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A23CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 17:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E30CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 17:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3X58+ak98zXIl0hmCwArn7OR21uOOHpsO2nLWNu5Jz8=; b=OvNExx6iJOI8kzFNUyz62PvL8g
-	BkFxNiTruY+xi+fEhNRODrUdJ4ur1ItyJ3KNeUlT7dJAHN4HK42VN2Z+1lztBYYAE3xUcNFvK8+Sf
-	NEh6chjbC4bjvBGb20F8GV4HQlmUF9AaiP6pUvsX+THltVf3jNoQ+NdaPoe5MZfRtt24uMyxkbDgU
-	WGZXDEdfshI/lw0letkY3d40sZOqsUimVHVNU225WNmYqlwlmFGOgNqG93dhJ5wPqTbZDzOnih5UP
-	AyUGXQ79KHxWNR7TiEXWxDjdlKrUtaDzqLwii7OSq7zvmE3H65xo8wD+G7UgjpPfLAMussSqFU+qM
-	PinI4GIw==;
+	bh=71h6rAOlIU4z1IUSO/OhHJCXmUdHXGbry+6wbBzzwng=; b=PEe9vy0/vYEJbbKbUZxLd+A1XT
+	/vUlVjgRfwrS5qonn4KmR3tQVX8N0zK2cNLmILCV84Hr+QXVQzQtHPKuqXbBC/PDNxpbBkXlcY6gE
+	0GOMBbwqqEXZcikcuoO1TcyavIAVvuddOnfOJmhLwiHEHhyzcnahEO46IoyJkdkJYsTfpbqVqh6oc
+	6oypZdz7zGWJnZDPvwQvMwRD8CvLnB36T4rx10tz3kxBTuHy5WS3a5xRPnIstRzltuJt6h9tTqAPw
+	YSk8X46vuq9QEv7oQCsEpRw0enlnV5zeKL5xU0Ma+uiZbneqqXcz6/aY6G5IvYHukt/6r9/v0YmRb
+	zkN6225Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdsM-00000004Cr4-48As;
-	Mon, 08 Jun 2026 17:35:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWe3U-00000004DSO-1JOc;
+	Mon, 08 Jun 2026 17:46:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdsL-00000004CqZ-1Vhm
+	id 1wWe3T-00000004DSB-2Kac
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 17:35:01 +0000
+	Mon, 08 Jun 2026 17:46:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A42C6001D;
-	Mon,  8 Jun 2026 17:35:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AFC81F00893;
-	Mon,  8 Jun 2026 17:34:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 26FD343D3D;
+	Mon,  8 Jun 2026 17:46:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E11E1F00893;
+	Mon,  8 Jun 2026 17:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780940100;
-	bh=3X58+ak98zXIl0hmCwArn7OR21uOOHpsO2nLWNu5Jz8=;
+	s=k20260515; t=1780940791;
+	bh=71h6rAOlIU4z1IUSO/OhHJCXmUdHXGbry+6wbBzzwng=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GgF9d1mJ5KXoPgzadwHPsD5LEFsR8UtWI0lxxsgSQm1ybcppy6X+/fjlDyzG/7WnM
-	 TG0s+Q3u+3fmhb18wIPBCvOo+atURJCqjdYhbaJxndpFezTFTDOHP79n7Vnb2VIzkr
-	 yPMoTBBle9hVplin8Y6woZZKFtCrn3v1nnDOiIxJ1YTKy9Tw7UaVXFVUvraAh68xZH
-	 eOXgoMUO7hu1w8TX0Wbo4aXnOjFuDvwfgUmHm9qqqd92xtQQGiQYXmaFaadCroP7TK
-	 x+FJjzO7+8xnudkVajSdZhNJ2qNsCwoZynXqRCvc+PCSZNwO/5FCk2bVC0QYH+LCPA
-	 E4zb1nd1CFQpQ==
-Date: Mon, 8 Jun 2026 18:34:56 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Geetha sowjanya <gakula@marvell.com>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	mark.rutland@arm.com, will@kernel.org, krzk+dt@kernel.org
-Subject: Re: [PATCH 3/3] dt-bindings: perf: marvell: Extend CN10K TAD PMU
- binding for CN20K
-Message-ID: <20260608-spiral-unsterile-66189c3241f8@spud>
-References: <20260607125101.17778-1-gakula@marvell.com>
- <20260607125101.17778-4-gakula@marvell.com>
+	b=IjgmbzJmcGsy2+q1OJn8D0JNNm1G0O0839MaDRkTiet96F+K/CzZZr5/hDUYqY5Uj
+	 SiJNPzyL5dREe0OExIGm/YkhiIQjrkR9AC2P/+Y7Ka70vdycJvgduCmmI8Lu5a7eUN
+	 DxOBK0aMZtPUfwADj/KvoNX8zkw1+pNZRIsxtUi9J0GaLEx0ZuBE3jLH8CKpAi6pgb
+	 5CBxYKFMJ/L/ia5iIs3jPCvl4OTDtbB6iBoCReKpjFkwz19EDDxy6oZzEZsgk6qpff
+	 Z3X9MU7nt1qxbYPXPfhkXmNO8XAo+/nhXVEbZFMJLdClKhA0rRr9ve4kBrn2jT2kd2
+	 PQRQv/r8R8bxw==
+Date: Mon, 8 Jun 2026 19:46:27 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, Frank.Li@nxp.com, 
+	s.hauer@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] i2c: imx: fix clock and pinctrl state inconsistency in
+ runtime PM
+Message-ID: <aib_3VNHPuaZn_l9@zenone.zhora.eu>
+References: <20260520104939.2897110-1-carlos.song@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GYpgjdsQiQTsrVfP"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260607125101.17778-4-gakula@marvell.com>
+In-Reply-To: <20260520104939.2897110-1-carlos.song@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,88 +71,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Carlos,
 
---GYpgjdsQiQTsrVfP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, May 20, 2026 at 06:49:39PM +0800, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+> 
+> In i2c_imx_runtime_suspend(), the clock is disabled before switching
+> the pinctrl state to sleep. If pinctrl_pm_select_sleep_state() fails,
+> the runtime suspend is aborted but the clock remains disabled, causing
+> a system crash when the hardware is subsequently accessed.
+> 
+> Fix this by switching the pinctrl state before disabling the clock so
+> that a pinctrl failure leaves the clock enabled and the hardware
+> accessible.
+> 
+> In i2c_imx_runtime_resume(), restore the pinctrl state back to sleep
+> if clk_enable() fails to keep the two consistent.
+> 
+> Fixes: 576eba03c994 ("i2c: imx: switch different pinctrl state in different system power status")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
 
-On Sun, Jun 07, 2026 at 06:21:01PM +0530, Geetha sowjanya wrote:
-> Allow marvell,cn20k-tad-pmu alongside marvell,cn10k-tad-pmu, document
-> CN20K in the title and description, add a maintainer, and include a
-> CN20K example node with the same required properties as CN10K.
-
-This is great and all, but is evident from the diff (other than the fact
-it talks about an example that does not exist).
-What is missing is an explanation of why a fallback comaptible is not
-usable.
-pw-bot: changes-requested
+merged to i2c/i2c-host-fixes.
 
 Thanks,
-Conor.
-
->=20
-> Signed-off-by: Geetha sowjanya <gakula@marvell.com>
-> ---
->  .../bindings/perf/marvell-cn10k-tad.yaml      | 20 +++++++++++--------
->  1 file changed, 12 insertions(+), 8 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yam=
-l b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-> index 362142252667..1612052b59ae 100644
-> --- a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-> +++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-> @@ -4,23 +4,27 @@
->  $id: http://devicetree.org/schemas/perf/marvell-cn10k-tad.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
-> =20
-> -title: Marvell CN10K LLC-TAD performance monitor
-> +title: Marvell CN10K / CN20K LLC-TAD performance monitor
-> =20
->  maintainers:
->    - Bhaskara Budiredla <bbudiredla@marvell.com>
-> +  - Geetha sowjanya <gakula@marvell.com>
-> =20
->  description: |
-> -  The Tag-and-Data units (TADs) maintain coherence and contain CN10K
-> -  shared on-chip last level cache (LLC). The tad pmu measures the
-> -  performance of last-level cache. Each tad pmu supports up to eight
-> -  counters.
-> +  The Tag-and-Data units (TADs) maintain coherence and contain the
-> +  shared on-chip last level cache (LLC) on Marvell CN10K and CN20K SoCs.
-> +  The TAD PMU measures last-level cache performance. Each TAD PMU
-> +  supports up to eight counters.
-> =20
-> -  The DT setup comprises of number of tad blocks, the sizes of pmu
-> -  regions, tad blocks and overall base address of the HW.
-> +  The DT setup describes the number of TAD blocks, the sizes of PMU
-> +  regions and TAD pages, and the overall MMIO base of the hardware.
-> =20
->  properties:
->    compatible:
-> -    const: marvell,cn10k-tad-pmu
-> +    items:
-> +      - enum:
-> +          - marvell,cn10k-tad-pmu
-> +          - marvell,cn20k-tad-pmu
-> =20
->    reg:
->      maxItems: 1
-> --=20
-> 2.25.1
->=20
->=20
-
---GYpgjdsQiQTsrVfP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaib9QAAKCRB4tDGHoIJi
-0iuaAP96ctiNghyt5d2J1nsjhd7clrVmybndmOZ62qcSmQkpFAEAtRVcR6SCoSR7
-HhSMhZEIIzV91tr2oTChrnix/m86bQM=
-=JDcj
------END PGP SIGNATURE-----
-
---GYpgjdsQiQTsrVfP--
+Andi
 
