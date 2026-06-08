@@ -4,101 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29715CD8CAB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 20:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C58CD8CAC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 20:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JZcc6TPeUx/2ww8Z8bbTx4r6S+aoLRf/jpoC61OzVbc=; b=0eyH0pjlXQl6Wr
-	JJ9ppO2DIvqnz86iIEj8ZyNoKXqB4zlLFBZ8wqogFa5rZ9qWgEVCTRmICN9D5vKr4aLTwhARHTL6b
-	0Ayyypro8W8LueN3R0Y3h+FJldsCe12uJgA9wkrYBRG9C2CPjgpVQXgi7XsV/tXkCAv3n6f48bS9P
-	L5vTuEJXmq1HtBUqImFoVOj/zIuZYZmIHqRF2J+mvwiLMKXQ6VMgdTKhAWNZzRVuXj53/s8PbVEHw
-	g6pFXViNk1Scq5ct3lD03Nn5a9mmwzA/bKLA151eMKj3vdt/K7q8TtqOF6H24n6mpaATaKyt2euuw
-	rXdfXo4FIyHrponvlUVg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aa+ndaOgUThxNdHVB0ASmJ3j4g2yeUEnhZvQ4B/J6e8=; b=q2liWhJk/8tCUjGAc4BWXax6q2
+	GTFVdytXsyTfXnmKUNcycD3PSNEkc9+RACbxfPlikeK/Kc9jaWVI8hSA7cCvEidXYizSd21GUOsyR
+	Z5CdKhvsyLMiEtSN8P2fKEQPC/pk+m9ySgMcDKKwQIxBIojq/j/QJjb3nAMpZjksgjZaChnzvioUD
+	e3yIEa1tRbY0b8xBhuaGl9rFQX00XHYqTKQOtMdcfidNlUpbSIKetrFDJWl1gnA0HSYee4NGBpDXg
+	wPw/+a3Osq4TuXOH23a9iuB41EPCBQe55XNOg8e1v8vfqMLWsU5HRRzFnhRqlr9dIkY+klOqjLdZa
+	TKFaXu/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWgpu-00000004NHe-3iUK;
-	Mon, 08 Jun 2026 20:44:42 +0000
+	id 1wWgpx-00000004NLC-2pDC;
+	Mon, 08 Jun 2026 20:44:45 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWgpq-00000004NEu-1hc5
+	id 1wWgpt-00000004NG0-1643
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 20:44:41 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 658IxSOH349169
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Jun 2026 20:44:37 GMT
+	Mon, 08 Jun 2026 20:44:42 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 658IxBZM346375
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Jun 2026 20:44:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=JZcc6TPeUx/2ww8Z8bbTx4
-	r6S+aoLRf/jpoC61OzVbc=; b=MGT7HmAOHcVdj0yATV7HMAwbU5uk4J313+T5nm
-	84kICFmcHfToU9Lqm9Zj1W8my/y4+rF2I1dGopuun62rFv8Fw2trVIkKDB3yKySW
-	qydpBOtZnfMRszANz62Pt50+mwOEp0Ujx4Zp18DgPJCVsRwORM4Er5MujfDwelpy
-	ptJDMUpbk/tCmC6s1na0lS+aQUhoepuuYyFJBT0tP7qg8AZABd46rd0j/jD4sGWe
-	Pih62qqCqyu29l++9QOUW7MKDU7kcjJF5AxMJXi8jD4J37DBGonSUMg6w0aopY6s
-	ItlzeTEe2ujWvVOt4J54RBTMEjcYrpwJuSquw8sPHnljJNCg==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	aa+ndaOgUThxNdHVB0ASmJ3j4g2yeUEnhZvQ4B/J6e8=; b=UxqmRTY9puFB7LWL
+	ZMu0Qiib4RidpT67QVHaJx2XWnplGgMlJDqfKD+FGvqkOGj77M2IhfxwqatB3Bh6
+	MeAf4wYyOGmzSi0oSa3FK7lEHss0rngDg95X8K1nywjpEmgKCuAiqFQ+ONKNH1Ud
+	ScjuO2ZDFawf0CTjKgY2LE8K6QdrArARPhp0oQZj6oDAFZ1EwOylfi+IfUKOBtoy
+	3onE4g7R4BmbKCdZurEZArH9podQMV73f6cSVxds3g7DT2AIhIJ0jmZ/EQmQwwxq
+	+FkX9f+XnfAEPJJQcwup7UXe9Yl/DaaPNiCll092tEMxTZCmQIrpIf8XB9SHUcSe
+	v31jAQ==
 Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4enwsvabq1-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4enxee235d-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 20:44:37 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-51772325a64so65798081cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 13:44:37 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 20:44:39 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-517c65e497eso9094091cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 13:44:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780951477; x=1781556277; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JZcc6TPeUx/2ww8Z8bbTx4r6S+aoLRf/jpoC61OzVbc=;
-        b=DHpabBgWq1vgimyfWBJm5tXUsueHfHjMvTWRA5eICygaBK4KtIGrU0X8xxFWF9ew3r
-         Zuln2eUxPHW3/dcQks6nsaZuvS5Qhc7c9vP/eLK2+dR4fJNG6B4PyruhLQtLMrk1sEO4
-         NJst35ym74K45uT5r5zQywUtEdX+noZwoOcB3kzXP5GPt2WnGRN2irNmufMpOlYhWqbe
-         twq83t6o44iWbmsXehv0k9mHVHmntuDmZQHkhz0JaYtbGw+N6fCfipzmK9fOhbZHpeFx
-         sf2DOgqcYL1vj8Atph+h6Tx3DNG0ivEkv7fbgbYeU8n4b875AYpbpe/CSe1GJDh6ptdK
-         kMLA==
+        d=oss.qualcomm.com; s=google; t=1780951479; x=1781556279; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aa+ndaOgUThxNdHVB0ASmJ3j4g2yeUEnhZvQ4B/J6e8=;
+        b=HYqL/Jop9Llpu3W1aV19NnbGiFjqvPIHOOIXURUlCPBlnwYylN34JX9VVGDqCwyROK
+         c5sMwyjUXO2g7g/2VxWREaemY8eEM8AuW+ioJClRzdd5dOfDAnjBHcYs6EaiQ2rm49cz
+         z8HnXfJ7g+aHbYPzV/EMqVD4tNpaq9CA/QWYnvu8aySUr5haStBqYYwb2vZHzSJE42of
+         UZhWiiKQSPS4kjkyDjUCbfyFK9RRyzZLNHCfsuA0RW7P1kpPvceeSrZHATn7ALkXb5cq
+         6PcjUQIXFvz1cpD95NToMN/oxw2hNdDERqJsT9y+Wz4yFoY4Ls1grrLltQ6qEhUH2RHL
+         89Rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780951477; x=1781556277;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JZcc6TPeUx/2ww8Z8bbTx4r6S+aoLRf/jpoC61OzVbc=;
-        b=OwSVAqLgT2B9QHaxpV6E1dJ1jSZHz65Vq6Li83FYzlg6yHoHtEaBmItpgiMJve9UGg
-         /SiAWyaCzhScrY+JUZy9prp6ChwmMie0tDO6AaR82cmcRQ4bZMlf4BJ8OveJDgmRmxn5
-         FvFQ0c5Upyk+4M471hrKvrOwWIF+8DuSQ3T0fC8ML2DlBBdF0hIsFTPOoxO01Zdm1hWV
-         scjgvd13VUXx2OQsI10h8kowp5vg79NYIjvdfWezr0OJmR3OsPeP2BJ0BrCwK1M2am4l
-         N/Sj5ZDA4XBFRlPI9kiMJPkb48TWjbifQ7O1kJ4agyTaqHmDoiZ6rdKjPtvT/UYqnCJD
-         bOzA==
-X-Forwarded-Encrypted: i=1; AFNElJ8HAglOWtYVkSdvfUhFKEEWqtOMv9Tbu6gr++KXRu+RUjNB42ZVsIonGCSfP3xoJfaoBp5cQT11f+4/jHThD5kq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+PcwVlOM0huo6tFTIAAfa/sI8FiAOk9aleCp8lS9tOXakakw0
-	gtLMW+1yLK8m7IfCQZIlq0GEInF1f3Ok3Oy8D38LlHZ3rdTPO2o65y6p4XwnBajxbzCSs5sN1Fx
-	qI3pRbNfRoueVFfs+nezFHJPg7rm+S8P4/cUXmGDmEchCDMRNJTeiH2lyNLeHGuoFx3r8v9sVYG
-	OrFw==
-X-Gm-Gg: Acq92OGspKHAkW+s8l9xMsuXTH04RK5GMu14QjY5lXSJhczr22Y2/oikxdxBhophbHn
-	g689rMdYCLyrkxlLZsj+1lrPBY3rP3cUh/pqIOejjWOYzCaAnlUzWlMfacssnZcXY+ol/su/GVS
-	Dth6VV/UjfP52Xd5WEYrD5CUgqEfz8VoFvUFqk9P/uz3X6TedRZOzL1+nP8ouMfLFwyi+xTnt55
-	Ba0t8eUsNwZK0pjz/J1KJ+bf7jTfjlE7RCGL86IdfIHj48vSPBd/ETAfNkenqabLaqp1WwRTDWf
-	OKg0bXlcXn2Vx33o3XFDPp/m8EMS4jaIsd9hPFXV3Db6NBknyhO8YjH0Mke0eGVrLR9ZXNlL51y
-	rI6wzks9bqWvHJKZLA2PQV9GpPUToUNjI2+FhnQuZpKLmKfUNZbDt//o=
-X-Received: by 2002:a05:622a:1f90:b0:517:75d8:b95d with SMTP id d75a77b69052e-51795c0cf7bmr247057251cf.40.1780951476573;
-        Mon, 08 Jun 2026 13:44:36 -0700 (PDT)
-X-Received: by 2002:a05:622a:1f90:b0:517:75d8:b95d with SMTP id d75a77b69052e-51795c0cf7bmr247056621cf.40.1780951475888;
-        Mon, 08 Jun 2026 13:44:35 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780951479; x=1781556279;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=aa+ndaOgUThxNdHVB0ASmJ3j4g2yeUEnhZvQ4B/J6e8=;
+        b=gIzUp4cJkMOq6TyBx0uvVkwoqnlrwNNNyzkCRNTj/z4cToqdQKG+GVi/qu8C7KSFqa
+         qgLpPBCsfBvqvEQOTz8Tm40S1S0MtrAcXWCN/rZWVG+povhIFpQrnOxU+4zWkMFmo5mS
+         34VjJXFQZoepHt6Dcwq0osLdWGNkzMJpaOcI1PPIYYslcAUXHyUH6yg7T0AZmhbRVU0c
+         Omce+3Ia9mgKce5p9myB3uQZrLaVIC5PEH11Rwfdv2hwFqJzlBaSX/Pp2RrOXHhmWMMS
+         IOm2y4x9A7OwEoQEpnjT5vxAWQLqLYXVir8oDRU8bDdRx6miTuTDW3kkEWp3C8Nkejve
+         TJ1Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8mnMX9AORhdkndJra4sgZaFVgL2aLSBwfAPtad9iVsQLHEbfWhfDRB1cLJjaJiCDWVsgdMH/SiZDtWaCErOhFF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywa/Df5xmQhsayRLfNIMS4pGsSFaPotQ4tIU6AdgFpW2ZuCkhjD
+	pIOaCJqQ5htgWAqvG1YmK6hn6pP7FH7Wp6EDiQc23K3qeF+mqw8TDth49k4ikBensu5alLtEzjF
+	fWu0yxj4ppktVwfiXFh2MUmAkIGPQEOp02ufo7ZJ7gkb5WI8piLrTspBC93c7oWkAGKwRZl/AHf
+	8UVV2SkOraZw==
+X-Gm-Gg: Acq92OHRaxJyffgFQZu8c+DFzY1jeMQl1uluVPiCD42CW61uy4KvkvQ37q5wSOwwGu3
+	NzyKhqkM7hM4nSeoUMu8MA1C9CHYFyNs7o1yy9oRTblbjgqXfmUjF/b+zBO3M39+xVpn9kc4f5o
+	heWvlrmTC6lSKfmGndTVBynlVV+Jg7AQo8PpzC+artf0v4zR+e1q6qIImo8nDsKH9bwssuhWaCB
+	gczcP/iUrvs4WiV1uiZX7a5fUWRbHLMvUy1Gq7XmxN1kwDiJAWnUiz4qaWskJEbALHU5NuhoW+c
+	RK5J2BYTKocE9Wn0FE/BR/Z/uDa2t08E0Nc37YWcDwZJhr0BzJ0+/GAWEOlpFNKXOKuAfAabQkz
+	UsViOaeiKOhUrXQWq3jVIAh6k+EJoAfCclkEByHxryE5QzS+34HMr0Og=
+X-Received: by 2002:ac8:7d94:0:b0:517:884d:3801 with SMTP id d75a77b69052e-51795b510a7mr238024321cf.25.1780951479308;
+        Mon, 08 Jun 2026 13:44:39 -0700 (PDT)
+X-Received: by 2002:ac8:7d94:0:b0:517:884d:3801 with SMTP id d75a77b69052e-51795b510a7mr238023911cf.25.1780951478802;
+        Mon, 08 Jun 2026 13:44:38 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4602cda3651sm44018439f8f.32.2026.06.08.13.44.33
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4602cda3651sm44018439f8f.32.2026.06.08.13.44.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 13:44:35 -0700 (PDT)
+        Mon, 08 Jun 2026 13:44:37 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v3 0/3] dt-bindings: mfd: syscon: Tighten checks
-Date: Mon, 08 Jun 2026 22:44:23 +0200
-Message-Id: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
+Date: Mon, 08 Jun 2026 22:44:24 +0200
+Subject: [PATCH v3 1/3] dt-bindings: mfd: syscon: Disallow simple-bus with
+ syscon
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OwQqDMBBEf0Vy7soSRbSn/kfxoMmqWzSxrkpF/
- PdG+wO9DPNgmJldCU1Mou7RriZaWdi7AMktUqarXEvANrDSqDPMMAcHdoaanWXXCggPY09QL8F
- uYrwDSgrbpJhXqK0KLeNEDX+uhWf5Y1nqF5n5rD0THcvsp+26sOoz9//aqgEBNSaUGZ0W1jy8S
- Pxeqt74YYiDqPI4ji9iGIV15wAAAA==
-X-Change-ID: 20260608-n-dt-bindings-simple-bus-syscon-e39df408a02d
+Message-Id: <20260608-n-dt-bindings-simple-bus-syscon-v3-1-4eba9ec1212a@oss.qualcomm.com>
+References: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
+In-Reply-To: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
@@ -118,51 +118,50 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-rockchip@lists.infradead.org, linux-omap@vger.kernel.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1955;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3471;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=5Xa72kw9Ltgd7CByB7B5latAUb0JYhrgHD01OqlPHas=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqJymqXzctnjCZTlgfqtTkKkReZfSxm69dcth3s
- +3KPVCaK/qJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaicpqgAKCRDBN2bmhouD
- 12o+D/9dEqmiBDrunvPNTigrYZ65joY0Y404B5kMuUHwxnjcIcSDy0bYTIMZus92hnmDEYvpC9U
- i2tw9EoYNrO1EeZYBOWcj+FJKTG5wLwU8EqAG5w3fIa2zQ5rVTe+zDoNtqRzLgckMUTIEZVoWSl
- xx/h49ZbzgXV9CJzte6U0Fp3ycwf0J/HUsNBQqNpdja+HyIoWu5Qd4HWIFShKkueEUH8KcNSwnJ
- 1TC2Rn4T9MbSDCBS/0klhPlGPyYvR1WG42P3wjHdLDH8pUHPHYBBPrRNq85x/OK1BKmigWgYkam
- 7ZIy5F0wlV+4bECVkaIfnFpsg2p78TeS9WWPQgGmIdmfb0GPbMkK9PkDozcrjmLEJk/QRny2IS2
- 79lvO18dQiOU738h5JoKCuWKzvLCoBtiw627Gbqo21BHDrLWo8oF3ZWR3kXm5RUPVnRTQ8EVr7x
- F07R0Zx2p4W1tYV4zFk1IV+3EbHBSbfAJQle3zzH24lTJr8rOPXXbnu+2F2CbirwcO++zy7xoTb
- dXOxD+QhaGr6V/LYklyLnTx9IdHl0LJsEnzLdfpfUal5h6SuMSxFInElOpARadLe8wgkHeegyap
- mybKDxrB8IWZUlFjKaqVHhruAjaUBKUEjuTpgmBT44Z5ACshQzaraQj4ifeRN4qFcde73irdf/H
- QC7QfMmQpvt0MRg==
+ bh=GGm0AisNFCyHSk5n1cRU+JBiint9Mvk66lCZxnmAJS8=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqJymuLrRKQk+tXDx2C3XILUa/Vb/m5SqeAMHbs
+ hX701Fcl6CJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaicprgAKCRDBN2bmhouD
+ 1xNzD/4owClN9H1JCOAoIzeu7RK56xSXZgce4N5pJJTSqM+cmLpO4VODAdnX9M90nuMT2mDNxlD
+ SdZfpjjNTupJPwAZX5x+aSPrqbWsyQm1nVutsjB3jp7H6S8/1OnP5Z4BhuiwQEAhch5x6k4NVvY
+ qL447Hya8vixLLsgY9sANwVmoXUKUmziA/9FQDpSgQUsoZsBPSZushtTAtPvFjdglp3PTDWJrSL
+ QDkuLE+q61ip5Hpuble0C5lsc2dMCKrlXW6Lez7hvabG0BOoND5THfBuKNChvxJ4qRTArQF/VLU
+ AAqUynQwJTUDLRNmHYcsvOuss3E1UqUdj45pZe23Wnlx/0WyPokJRUyqWtxelGER/rgEH4lAp3q
+ qItSXbI1oiHviWpwFk0wcXYCZ28ekjTgqi6y+NctPbsPQk0mtADjQiu2eoA9gP6J/gR0fpYjBrC
+ Q/en3j42uVe8KxZkbNTMCXke5RNveZKSbcz5vRoSFJiMNphlzRR382sRUXdhW8VSPf5cUIVjqlb
+ cm/On61l90dg5x69fhEH+rDEK1Sc8U1+vsUhiYhWoq9jtHVBFEWUxcS5GFohZLrO5VrGSfJb2xe
+ WRXhX3b9AoNrhcspfMTcxEmE1w2Z+SX9qPJ50ERHH5VTjFuC2lKRS09/TExgKqaabbdOzG+bCnK
+ L1BibnK0fC/izPQ==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-GUID: XaDWh_5NHTIkKfXjMT9yICtsxWyFQ_hJ
-X-Proofpoint-ORIG-GUID: XaDWh_5NHTIkKfXjMT9yICtsxWyFQ_hJ
-X-Authority-Analysis: v=2.4 cv=dIaWXuZb c=1 sm=1 tr=0 ts=6a2729b5 cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA4MDE4OCBTYWx0ZWRfX7spff6E1MN80
+ vPzkUpEe8eE1rXYzXxwiFJCytzkXphpeqQWJbSY0tEYq+z5xUpEcIpa/JAooS3I+2/RqEBVyurI
+ E2moe0WFaxJcIUZjFeSFlDh8kjwjQfNHAoG3QNCy+8838Tl4PtC01iSY3Zm1ZltzFm2/9WeIr/K
+ rsIogxBWFvuE+F9E7YpETje5BGLcw3FeDlfgqh4sfhD/Lpu+mjLEAbCoBIFEPP86lRFJMTSZ3Bq
+ 4kPSuHU82+yNfdqTKVdHu3toyARJi/R+/8zwPryVSYqtGYIoKdZXmJ1QHIRjjcapplbWDlqYhNM
+ UIHO7ThezB8CCCDOy57gXhksLKrtaAx/p428cfQ8tiF2hnowsR7kObYOKdzOy7NrM7xJhGk5gUy
+ HQdhdSy+88QVLASZ34/Hj+JoOH2bewMaTKn+aA9vWackti8V0Y5L9dtD9JzUfATgVJdPIZjELXV
+ MX89y/WWe/sYB1O7LZQ==
+X-Authority-Analysis: v=2.4 cv=V6BNF+ni c=1 sm=1 tr=0 ts=6a2729b8 cx=c_pps
  a=WeENfcodrlLV9YRTxbY/uA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=s4keiGDSzyMyFUzW_nEA:9
- a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22 a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA4MDE4OCBTYWx0ZWRfX7VD4MyupLQWK
- dRt7Qw+5vt42iNJ9LmpCvndbDVwhszUH6kO6Df+E3Beb/TqtQyNGVsXtvJKEkzg8VglJbFNJHd0
- PgvjZj5Lbu8pcbLP80lgQi1C7ScfTsjxWiSP82NWqgx6YTH7cFJ+A1/7/qW3o6GY8spvZdEdnZL
- 9j0Y8okt2Mp7P27tHJ0uVeilhQHy9YFyWHi/aESy5Ue6lRClTdQPJRZbbkP9JcQqcSo2KwS1F0Z
- aoMlYKYRm3fzwrDuFzfZ0Qy2x45zvWE+2a5apQQyprAsrjEmyNEjzf335ew4651i/YcA2dAS+kF
- h89FqW/SDZG5zi9Qgerzi85LUT0O2A2yxK2ACPmmPwwgtr5kWPqPQ6mDkTeSbFhFXvep1qyAtlP
- yoZ5kBbq7anYMSeIMHvSxcbw+WSJcSMkhezdoKPcD4xRyNGfbPJREulxzqYMCZcgJzuTiD5bXMz
- 4C448eqcesNzoP3CdWg==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=SC3sQ6iH9rxi55wiDKQA:9 a=QEXdDO2ut3YA:10
+ a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-GUID: KwPQgok1U3mENhglo1ZPq5M8ZLNQq84f
+X-Proofpoint-ORIG-GUID: KwPQgok1U3mENhglo1ZPq5M8ZLNQq84f
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-08_05,2026-06-05_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
- priorityscore=1501 impostorscore=0 phishscore=0 adultscore=0 bulkscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2606080188
+ priorityscore=1501 adultscore=0 spamscore=0 malwarescore=0 clxscore=1015
+ lowpriorityscore=0 suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606080188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_134438_590961_76ED36C5 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260608_134441_450398_C3C0A749 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,49 +176,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+"syscon" is a system controller with registers having their own
+functions, thus not really a trivial MMIO simple bus.  "simple-bus" on
+the other hand is just a bus on which multiple devices sit and the
+"simple" means no functions are allowed here.
+
+Combination of both "syscon" and "simple-bus" is abuse of DT for easier
+instantiating of Linux device drivers so add a schema to disallow that.
+
+Unfortunately there are a few old cases of that patterns, so add
+exceptions:
+
+1. "cznic,turris1x-cpld" and "img,pistachio-cr-periph" are already used
+   in upstream DTS.
+
+2. TI has several DTSI with a child of SCM device (e.g. "ti,am3-scm")
+   using "syscon" and "simple-bus" but without a dedicated compatible
+   documented anywhere.  Add new compatibles for such cases.
+
+Additionally, add comments around code enforcing two or three
+compatibles: it is similar safeguard detecting incorrect bindings.
+
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+---
+
 Changes in v3:
-- Drop patch #2:
-  dt-bindings: mfd: syscon: Drop unneeded case for syscon + simple-mfd
-- Bump dtschema requirement
-- Link to v2: https://patch.msgid.link/20260608-n-dt-bindings-simple-bus-syscon-v2-0-0203e6c249dc@oss.qualcomm.com
+1. s/ti,omap5-scm-conf/ti,omap5-sysc-padconf-global/ because it is more
+   appropriate (specific)
+2. Add comments, why simple-mfd+syscon has dedicated if:then:
 
 Changes in v2:
-1. New patches #2 and #3
-1. Add missing part of patch #1, thus not adding Rob's Ack.
-https://lore.kernel.org/all/20260531110404.12768-3-krzysztof.kozlowski@oss.qualcomm.com/
-
-I tested dt_binding_check and dtbs_check for arm, arm64 and riscv and I
-think I did not introduce new dtbs_check warnings. Old code anyway has
-multiple abuses of syscon, thus tricky to judge for arm at least.
-
-Best regards,
-Krzysztof
-
+1. Complete patch. I accidentally sent only part of it, built on top of
+   internal WIP which I forgot to squash.
+   I received Ack from Rob, but change is significant, so please kindly
+   re-review.
 ---
-Krzysztof Kozlowski (3):
-      dt-bindings: mfd: syscon: Disallow simple-bus with syscon
-      dt-bindings: mfd: syscon: Drop custom select for older dtschema
-      ARM: dts: ti: Add specific compatibles for SCM conf nodes
+ .../devicetree/bindings/mfd/syscon-common.yaml     | 34 ++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
- Documentation/devicetree/bindings/Makefile         |   2 +-
- .../devicetree/bindings/mfd/syscon-common.yaml     |  34 ++++++
- Documentation/devicetree/bindings/mfd/syscon.yaml  | 116 ---------------------
- arch/arm/boot/dts/ti/omap/am33xx-l4.dtsi           |   2 +-
- arch/arm/boot/dts/ti/omap/am437x-l4.dtsi           |   2 +-
- arch/arm/boot/dts/ti/omap/dm814x.dtsi              |   2 +-
- arch/arm/boot/dts/ti/omap/dm816x.dtsi              |   2 +-
- arch/arm/boot/dts/ti/omap/dra7-l4.dtsi             |   2 +-
- arch/arm/boot/dts/ti/omap/omap2430.dtsi            |   2 +-
- arch/arm/boot/dts/ti/omap/omap3.dtsi               |   2 +-
- arch/arm/boot/dts/ti/omap/omap4-l4.dtsi            |   2 +-
- arch/arm/boot/dts/ti/omap/omap5-l4.dtsi            |   6 +-
- 12 files changed, 46 insertions(+), 128 deletions(-)
----
-base-commit: 78f5e68a8d0a1123dd1b007688ccf0e6876a5c15
-change-id: 20260608-n-dt-bindings-simple-bus-syscon-e39df408a02d
+diff --git a/Documentation/devicetree/bindings/mfd/syscon-common.yaml b/Documentation/devicetree/bindings/mfd/syscon-common.yaml
+index 14a08e7bc8bd..2d5eef5add54 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon-common.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon-common.yaml
+@@ -32,6 +32,7 @@ properties:
+   compatible:
+     contains:
+       const: syscon
++    # Always require a specific compatible for syscon
+     minItems: 2
+     maxItems: 5  # Should be enough
+ 
+@@ -52,11 +53,44 @@ allOf:
+           contains:
+             const: simple-mfd
+     then:
++      # Always require a specific compatible for syscon with simple-mfd
+       properties:
+         compatible:
+           minItems: 3
+           maxItems: 5
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: simple-bus
++    then:
++      # simple-bus conflicts with syscon - if a device is a system controller
++      # with miscellaneous registers, then it has at least one dedicated
++      # function thus it is not a simple bus. Allow existing exceptions.
++      if:
++        properties:
++          compatible:
++            not:
++              contains:
++                # This list CANNOT grow
++                enum:
++                  - cznic,turris1x-cpld
++                  - img,pistachio-cr-periph
++                  - ti,am3352-scm-conf
++                  - ti,am4372-scm-conf
++                  - ti,dm814-scm-conf
++                  - ti,dm8168-scm-conf
++                  - ti,dra7-scm-conf
++                  - ti,omap2-scm-conf
++                  - ti,omap3-scm-conf
++                  - ti,omap4-sysc-padconf-global
++                  - ti,omap5-scm-wkup-conf
++                  - ti,omap5-sysc-padconf-global
++      then:
++        required:
++          - incorrect-usage-of-simple-bus-and-syscon
++
+ additionalProperties: true
+ 
+ examples:
 
-Best regards,
---  
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+-- 
+2.53.0
 
 
