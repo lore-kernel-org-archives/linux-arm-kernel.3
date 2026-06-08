@@ -4,98 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513FBCD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 05:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23488CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 05:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMS9EBgXRR4/02GUSuS9J98SE+hMJi428gTY835n4rI=; b=Jp2wZ/bx+3oFTkHcU5AANjp4rb
-	j57cqLET+ycn/1G1aELj8JgFkNDhC6OXu5J9gc/5YB5Ogr+H2SAKEucjkjJO4GttQVuiBwFs6vS2s
-	eNfuqBUmWkN90n+tZdzaXwog/yJc/fLhPLLPeo+sdlpKCsJCfU2HwQaHoErWst0B3yqPVzOI8chAR
-	vcunGC0OVwe/9t7LQUw1n6FnjhkOSiPp/oAj90DNnsg+qvB3OLdvGqWoWPOCneBpFOkO24iFXHVEZ
-	524CNAMQEfaDVtNL9Nbvg7vXQw0wJcOIryv/4H2uDIK/Ww/80U1lQY+Nf1XcrEQJ2NTvu/y49iQEW
-	zcYAe74Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JUhAuLoGrHSlYgqGh9alravQQWfpMZJjZW+NI04pdJM=; b=FHu16d3UyJs3FxPMUWVTsg0Edd
+	bch757tqemvzs8LzLHOs3y7O/xne8C3guQR4BP9NZxLH2UnGR8gQLHoZ1GaZdbnV/RCMQG7Z6vAPA
+	vvGvspTijrz/ctspvYF/FF29RvlmMI65UGYOIljvDi7P7l3fc1JInBOiuKOLosc7hl8hpbN2bOmfs
+	hTySKk0b5/X3mFrgAA/NoJcxp0i8ANIIRzTxyjQ9ZqpSH6yf/IqsX3IxXyc5LPgG/vQXz0XKU4I35
+	swz+phbAwnZZuEYlKJtvXaUB4zqDu/2YezExfB4VEDGQpkOHwrkW9WoWifDGjjXyoNYv+5XlH0abg
+	0KgVIN5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWSYa-00000002qEd-2eXp;
+	id 1wWSYa-00000002qEh-30qw;
 	Mon, 08 Jun 2026 05:29:52 +0000
-Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
+Received: from mail-norwayeastazon11013004.outbound.protection.outlook.com ([40.107.159.4] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWSYX-00000002qDo-1WW2
+	id 1wWSYY-00000002qE1-2rBE
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 08 Jun 2026 05:29:51 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id D47C6EC01C7;
-	Mon,  8 Jun 2026 01:29:45 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Mon, 08 Jun 2026 01:29:45 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1780896585;
-	 x=1780982985; bh=NMS9EBgXRR4/02GUSuS9J98SE+hMJi428gTY835n4rI=; b=
-	D2HlrqkQUXk0LSbb5e2QDMbH+gxoHaOICNfsS1MtI2nhPyw5pvfPmv1r6VCFTcAM
-	BqyRexsfj1qBZT0loVcUzJA4+pHvNbutt9GsPT9XeUNja7/nDP/IE+GSdPSK3MQg
-	tuZkt6RfGCzttli7UJlv0nbGXyZL+lc9l7Gjc05E8oM4SAFpuzzjUR2drtK+GXR6
-	B0mSUEAn6Jxe2QykRW9P6WNqwQCEgwq2C7+MRTRiZo4oGrhTKuuT4aghiQVlzhb+
-	U+kTfMVwHXrfx9BC2uF+gyKDFaA8yLreh05dFMFT5BzuOAHemCut6ywO4C78NwSH
-	syaI896MbeRB7mZBmZCcnw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1780896585; x=
-	1780982985; bh=NMS9EBgXRR4/02GUSuS9J98SE+hMJi428gTY835n4rI=; b=J
-	6W5lJDOkHmKKtCRGKRiTF8tLwRHn8uxOh3zTMStI3xlOYhPHKWLgnxu6Y1NrP2Wt
-	dUI9X1VSG9VoniW4KKBxuFaiXVaf0hxeBTThExydegqh1QPWDgdwuBMs3Nti+hNU
-	b4BTYm1ZVrYU08vo3mZ58APyJosVv2xzS63b4Bz5tkOtbErAMOpoXteG4xgl8nYS
-	Fd0PyZYZf4C5xrNVUi+ofN6FgtSAU799DqGIEOt3pVrRusDNi/voGxMaQt5olfOD
-	CQ6DHNNJz3jNpXZ2w87O4Qmjoitr0owI98azfiyttUMQiBiuspu45NzXH9O86uk3
-	/DmPmEi7NfYpovKMZHcyQ==
-X-ME-Sender: <xms:SVMmai8xSTcS1Vf8yonVMRc3GfdwesUqMq1dixLDwBklVSJW5xkNsw>
-    <xme:SVMmatj-PEH1McOZhbTIe4b-06sJwrWXZFPDoLLr0uvfSrNVwK2evP85thBb5kAyl
-    8aQpEEICwN6Umw-hvLrpAJXJXur__zLkYpYUnTjWyO36k6QDRf3nQ>
-X-ME-Proxy-Cause: dmFkZTEjhN5eAyps4RopbsqXKHVoYSp/qr1dPrgrLl4G4rhqcVzYy5m+WsA7iRsVdUizau
-    gOtR7utmsVUNr509JhN3hWhgKIzmrs0OCdHT4rcYOpLEHxXmor8MzX7zmnBZAH/sS9kZdz
-    pFExCgUD3RLKmvfI6SICEcFyFjoBu+ObTQF+mSLpO1IaOtHQXPCRPqp6wm0EiLliBj0GMx
-    DsxDokAvHNMKoZiCdfsVuqMSlJ6eJGiQwxKy+Yo8kFSr1QRu9Dz+5FM6vRI4Nyf45RzzeP
-    2EJQFlIoguQaStLMuS7LUVwRt6KMbMUnoG5tJsNV0tJNuXJf9tbtm2Zoc09GboEDS+LMFz
-    mldyprQPisHyUGVxxR9ld4SqLx59sQsMC/oaS64/oEvN2feI6KkV/FW/IM9DqZfAeVGfBh
-    rQKEDeBB5ip0B93e7rNXPG0+TIaCnrr56k4Lwre1V1lVogcXcFsKHtdd25MxJXaT8Urb+0
-    F2WrZdbOl6ZzXn5nelSHsDi0C1hgcK+4h1M2mPSHf/bpNI3Wdf5Il7r0kIsHwFV3qQrA+F
-    GCX2qroIKUIvwENG6mINzyxKTg5FXe6IUR6MCCJzy1lfb7HYCL93+22K1lY2mtn5uS0id9
-    bhsBYo1xz9iUMM6fadw+7daZzTo/0OPnMTw9tqA5l0FzpZHs95hEGZkd0pyA
-X-ME-Proxy: <xmx:SVMmalQCG8bdBzyVciVotgA3RY8TVUwr3XI7QHF1jQ6otUmjLLuCpA>
-    <xmx:SVMmaie3eJJjKzPS_gMoz-At7CiOuCXLOReTSO9kERPjjTFNikIpaw>
-    <xmx:SVMmakpgqsSwt56sEXqX8HR8YEebqnKsdWRM570m9goeOFbnOJqvuQ>
-    <xmx:SVMmaj_rMqNJR-eYLzergAGH5NSt2N-ZNuwy30JKHk1uLICfXK0AcQ>
-    <xmx:SVMmapb5yYmBo2LeiaM0LlOUVJZYTvfYUqfxL6JfAu65-_JGWj8GaHtz>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 54B1D182007E; Mon,  8 Jun 2026 01:29:45 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SeBZ5hgszy5IgU71XAn9Ram24RpnHjNtS8dkv6AF01XQQLW+9QFuH0obfNB7f8nrcveE/wUmOMtsjfOoX608icstS5l1o/7RKvhxBnLraI7GHYg+Cx1FIMypdteDii6zA+kjZCV8Su0l0oe0nQbQx4sctIpjElCOhSOEN9y3G5/Tg2v/uxdReka3sx7B06vVrIUGr2vjvzf+lTIxautxAWzEmWD7OgflL1NFmtMXc5DU3GOZtjSwBbjBRQhj4anQhAN9PeBaMnrlc3tn3jVofJGypSP17PoqntyIT+B56cnOIu8r6eIdP3SWkOKZsTx2FvUw3R0cU9gGrtVDRQO0Dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JUhAuLoGrHSlYgqGh9alravQQWfpMZJjZW+NI04pdJM=;
+ b=PYNIlpFt1GTNw7knf7AUH5TKYNJOJMdP+w15bTTNafFBGuwg6Lv30Vqo15A5VrMF+FTGVHIQg5KpaiTfHLXyBPDCR/1pQLvc1Tc3C+0NLTlHZNBB7Gzz5DhM2cj8vHINi+9fJxCT052l/OXuVjByhhPEvvmbd/TOCHdKzt5uazw1XSA0WFitDhgpU6JCto7klM+FN6Y16TAV5mTBvnc8HK84Km33Ly9INHo1f5bibB5wSaoYpVOr3J2qnCfiWONrpq6T20GzP4rKgyqg/sGSx0i3QWDG62wZkRp0+uzAmMyOsetJ+MVIq+Tljb7HBImsellBJJ0ZqwC0HIH0Fa0Z6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JUhAuLoGrHSlYgqGh9alravQQWfpMZJjZW+NI04pdJM=;
+ b=bCu9CkRn6h0t+iCOJuL31ekwH/FEvkcvT+3QJUEYCfvobN9/fovGhbCdt4ad7v+9UzGDiX8M3BXNT/IZTgKcOU5lAWCDs+wnWerDkaYA14rTq99D0vipXzSt5dEGlhiiy3D7DCh54lTzr4cBSVZregB2nhB3WEOlr0y9LTjXEevkFfJS3yDa6V2ZyGsRlalr7hOs83Sw6GqZUpV2ceW23SHbbg54BP5r7m7T9fy15GNjar8Nx5CfZfcLR8ezWcnfmwCYWOfxcWzhmKwDKpk33HgctyGLr1j3ZLiY+yfTyxzDWXubrwit6TrcZpFHYyELW4Vl4P5DiGLC8CI3XI9veg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
+ by AM8PR04MB7315.eurprd04.prod.outlook.com (2603:10a6:20b:1d4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Mon, 8 Jun 2026
+ 05:29:44 +0000
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0092.010; Mon, 8 Jun 2026
+ 05:29:44 +0000
+Date: Mon, 8 Jun 2026 13:32:49 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH v2 5/9] mailbox: imx: Start splitting the IRQ handler in
+ primary and threaded handler
+Message-ID: <aiZUAdrwhFn63a2a@shlinux89>
+References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
+ <20260603-imx_mbox_rproc-v2-5-a0059dc3b69a@linutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260603-imx_mbox_rproc-v2-5-a0059dc3b69a@linutronix.de>
+X-ClientProxiedBy: SG2P153CA0021.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::8)
+ To MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
 MIME-Version: 1.0
-X-ThreadId: AJMYJ9Y4Nbko
-Date: Mon, 08 Jun 2026 07:29:23 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: "Russell King" <linux@armlinux.org.uk>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Message-Id: <11295c52-c0f6-48ec-b032-da3e427606c8@app.fastmail.com>
-In-Reply-To: <20260608050926.88446-1-enelsonmoore@gmail.com>
-References: <20260608050926.88446-1-enelsonmoore@gmail.com>
-Subject: Re: [PATCH] ARM: arch/arm/kernel/signal.c: resolve set-but-not-used warning
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MRWPR04MB12330:EE_|AM8PR04MB7315:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ded7d41-b951-4eee-aa74-08dec51ef2aa
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|7416014|376014|366016|6133799003|22082099003|18002099003|38350700014|56012099006|11063799006|5023799004|4143699003;
+X-Microsoft-Antispam-Message-Info: ID5AxEcIPWE8Ppb4XH1pvgwOPggDYpnxZmlsv6d0E936prc2E6DZe3cPe1YoMpREprMZVS2VAYK43s1XQeijcGpTYqtXJxEMd9dobM7wZ8NT9H0pe20YQJNriD6tm3ca3kNy76G91Fihdol3Vpqd8IuRWZCRM48ByxY+7SB4u0VIcUCDEsRoHFdM3y7qxdnOPHJD+Rzvq4sfmuuXiKT3yyarSXgGygftNfO96Jd5CvIkb4/xcUjD4MiuzOAcdVck/Z17Pc/OZBqfH2Eje6ub/LxUhuem0kqs92qu4nb3YFRpU1cHw50EDST+IdFXRBdoXlWZ3UFouFzznEk0oECF3uCDCiBuxdZrAzS2rSjLGU/u0rVmVPhkcaa6vFMvFtWUiv05dHJiAEkn9jLS/Chv18iwXXyqknoeSzEeMZmIKAoYqyvhhhto+O2H63637GNj9s6+jn3blxQuinKTYeUH77J3sNzSx8tg7oAqhIK10OFRi9WhRlhrRNo0zqe/YnCuaHUldoRKyh+50rK056SoDCNwS9s66tochpnoX1hy46uJtjTEXSQQD1tuiC+OFAdL4WvewzOnndyCPLzmtblegM7qsBOgXbaMsCSuoriuI+W/weO5jYEo/Fh+5lv/74YZwSfCLOJhKee5MhBqdSoBxBHeUdNRD46jAOWgGtL5lQtxAu6QUZIQJoQreD/lssURJKWdQvNu0R6CB9gtI0l3oCgZrxo+HdCUJuF4Ng97g+dbkOB+1BLiLEBt2iwgv8qO
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(7416014)(376014)(366016)(6133799003)(22082099003)(18002099003)(38350700014)(56012099006)(11063799006)(5023799004)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7iG4crSgKMY6BWOrN0QLpgrLhybHmqypU8lGz/F4acg8SJ2fv0C0AWuaLhN9?=
+ =?us-ascii?Q?CTYRRt0ciDgcKklXpfoGAT/0z7HxmR2+7Ois0wQVbvOesexWKLcxRdhPfAdB?=
+ =?us-ascii?Q?yCK/dHpm8w+1SL77PzFgzMGJ7RP84Ritee1nOxfY+zXiOOTHgYFv3QyClbIu?=
+ =?us-ascii?Q?M2Jz7IESkFkhfizQRlBwb1+l4OxoGjaeM4ON6xxndvR7Qniha5xkMJWsPstJ?=
+ =?us-ascii?Q?4DA6Lr3dJPA8fyDNtyTAOVDu7WaDrmFDT99sMivvbFxMkAQbZ2NmVyjxUZwL?=
+ =?us-ascii?Q?KdSx9PYFMjCCYgWDP3bs4zwpwQAYZzYQXaDWQaBxSN2fUyN9LpaDLKPlYIgo?=
+ =?us-ascii?Q?Zadb0/1wUYf6+cgMdUySS0R1Cvu+Td0O0qsMvQxLR8Veke3fFU9HEf0tLQyU?=
+ =?us-ascii?Q?h5HUURBgb/9hHmuRd/N+CcuioD0ZFGy4V8+mQSRCubcIVf1h020avXvmMJ21?=
+ =?us-ascii?Q?klsWTAu4i8tdEpe4w8rzXkLFBiqVUjPUrEUNzTNC9pflHFpjFKn9MyShwe2R?=
+ =?us-ascii?Q?Uf7dgxR/nHgJFsp106yWvmXC8EviJygtSc1pvzUheYou2W6g6+vUdSFU4v4m?=
+ =?us-ascii?Q?rywA73dYN6ZNWt0bB8rYiZ3kzZIZ1TNr6KZD2zolD0rzngpHlcWFQm4M6j5r?=
+ =?us-ascii?Q?ioGvgoA0opzkSw050uBC1zPQ5v3dQUMfaPOJO8KgL7pDbIPFarHOCXOI24tg?=
+ =?us-ascii?Q?SWxO93Fl+Xxn7fXyPi450Uif7UcoQv72GWM2AtWD4LIIoVbZt2xZsVDgGV1k?=
+ =?us-ascii?Q?ZzSMmnNlvn3SEyieud3v34QHmABM4GGAMrx6D0WrgCAt65705aEn+IEhKuDn?=
+ =?us-ascii?Q?M3ojhV7ROio5BunZfLpABn7RyIFal893g8wR+scc374OHIOvjcQ9ftuL8EXO?=
+ =?us-ascii?Q?VBgqwpoi5BUeGZjRjfkvYVG4dBm+i2oPHqBOffES0iPGnB+BD19n7bIzoKiD?=
+ =?us-ascii?Q?hpS6OAVEbl+iWmwhK+wExgGatHOSxrDxHzVkdiT6qr1m70mtN/cgp1mK/Dlo?=
+ =?us-ascii?Q?WnKnQTNv8IUImrfv9Z/ry1k9DlVf7V/OnyfYnQDr2E+YYWQHuGSkqk0QuYla?=
+ =?us-ascii?Q?c/qd4owtReW1aiaTV54PDAyVllXs9T/3XkvJdS7vvgvSkGyfxFsheCPAfYmF?=
+ =?us-ascii?Q?3cL3yHHQLoIWtpyqZ5yNS3b+f9YVKw7uCrpzlgppRpfgNZ9hFY7bHsY/uvag?=
+ =?us-ascii?Q?Xy2N9UgVF3pA76y/cxFPnQDOOPvSn9M/Och/+L8tyJbw7Xk9q1wz3WbkaEhN?=
+ =?us-ascii?Q?LcbMk4IvkrQw1RMG2MG6wyMjwzGXEI0RBni902z7wpFESt+OItIB4uM1HpiY?=
+ =?us-ascii?Q?GrQYT6t3Bs6sJXTcE65du1cZuKPpyfFuu3uQotQSuuXcnHqJrd35EON67X3P?=
+ =?us-ascii?Q?UQitiTjJMKJd9fqbIVnSuU1Qg4L4bPpu2kcIKZoo5epbmxLHRRzHN/Hxkf4Q?=
+ =?us-ascii?Q?pJZMDCM5wmAa8PkaBTRukr42hr3RR9BXDxGQGrU8q2tBvizOWcJFmPybLwVl?=
+ =?us-ascii?Q?Mlgpubpr9rN47M1l1Z7KRqVPR24QhaMx0KBi2R/Te1F4OJt+UX6OlqjOPnn1?=
+ =?us-ascii?Q?nOG9+8dc+OFNatA5hgRBCqIt5Mu9MbKKVknls/uW8BcmZse1vVkB/T+lZOK7?=
+ =?us-ascii?Q?pQ17G+6JJGlBjv06OP5uZWaQQAYX1gR6vinXZJmDNr9ESW0F0nScrbCtKAOa?=
+ =?us-ascii?Q?bDWYZZ4fRAs2WEcDrdXYVeITuUhP1rFMMDzYNbPRiz5YVhBNR2Io+05Nemoy?=
+ =?us-ascii?Q?kpzoP7Vzjg=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ded7d41-b951-4eee-aa74-08dec51ef2aa
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 05:29:44.5051
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IbiZtCJtVUx4gBSMMXg9sSaSPLqU6/XMCwt8111yWNrDc9hwgJaP4QqIRJUQ2hIo1/PGc27w4ul0hrq89tSgbA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_222949_868401_1CD3A06A 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260607_222950_722583_BB7DE710 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,13 +147,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 8, 2026, at 07:09, Ethan Nelson-Moore wrote:
-> If neither CONFIG_IWMMXT nor CONFIG_VFP are enabled (which is the case,
-> for example, in rpc_defconfig), the variable "aux" is set but not used,
-> which generates a warning during W=1 builds. Resolve this issue by only
-> defining the variable if it will be used.
+On Wed, Jun 03, 2026 at 03:05:08PM +0200, Sebastian Andrzej Siewior wrote:
+>Split the mailbox irq handling into a primary handler (imx_mu_isr()) and
+>a threaded handler (imx_mu_isr_th()). The primary handler masks the
+>interrupt event so the threaded handler can run without raising the
+>interrupt again. The threaded handler can invoke the actuall callback in
+>preemtible context.
 >
-> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+>As a first step, prepare the logic and move TX handling part.
+>
+>Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+>---
+> drivers/mailbox/imx-mailbox.c | 33 ++++++++++++++++++++++++++++++---
+> 1 file changed, 30 insertions(+), 3 deletions(-)
+>
+>diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
+>index d1de07cc0ed62..006aa76b74b62 100644
+>--- a/drivers/mailbox/imx-mailbox.c
+>+++ b/drivers/mailbox/imx-mailbox.c
+>@@ -81,6 +81,7 @@ struct imx_mu_con_priv {
+> 	struct mbox_chan	*chan;
+> 	struct work_struct 	txdb_work;
+> 	bool			shutdown;
+>+	bool			pending;
+> };
+> 
+> struct imx_mu_priv {
+>@@ -539,11 +540,35 @@ static void imx_mu_txdb_work(struct work_struct *t)
+> 	mbox_chan_txdone(cp->chan, 0);
+> }
+> 
+>+static irqreturn_t imx_mu_isr_th(int irq, void *p)
+>+{
+>+	struct mbox_chan *chan = p;
+>+	struct imx_mu_priv *priv = to_imx_mu_priv(chan->mbox);
+>+	struct imx_mu_con_priv *cp = chan->con_priv;
+>+
+>+	if (!cp->pending)
+>+		return IRQ_NONE;
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+Is there a chance that cp->pending could be false here?
+
+Regards
+Peng
+
+>+
+>+	switch (cp->type) {
+>+	case IMX_MU_TYPE_TX:
+>+		cp->pending = false;
+>+		mbox_chan_txdone(chan, 0);
+>+		break;
+>+
+>+	default:
+>+		dev_warn_ratelimited(priv->dev, "Unhandled channel type %d\n",
+>+				     cp->type);
+>+		return IRQ_NONE;
+>+	}
+>+	return IRQ_HANDLED;
+>+}
+>+
+> static irqreturn_t imx_mu_isr(int irq, void *p)
+> {
+> 	struct mbox_chan *chan = p;
+> 	struct imx_mu_priv *priv = to_imx_mu_priv(chan->mbox);
+> 	struct imx_mu_con_priv *cp = chan->con_priv;
+>+	irqreturn_t ret = IRQ_HANDLED;
+> 	u32 val, ctrl;
+> 
+> 	switch (cp->type) {
+>@@ -579,7 +604,8 @@ static irqreturn_t imx_mu_isr(int irq, void *p)
+> 	if ((val == IMX_MU_xSR_TEn(priv->dcfg->type, cp->idx)) &&
+> 	    (cp->type == IMX_MU_TYPE_TX)) {
+> 		imx_mu_xcr_rmw(priv, IMX_MU_TCR, 0, IMX_MU_xCR_TIEn(priv->dcfg->type, cp->idx));
+>-		mbox_chan_txdone(chan, 0);
+>+		cp->pending = true;
+>+		ret = IRQ_WAKE_THREAD;
+> 	} else if ((val == IMX_MU_xSR_RFn(priv->dcfg->type, cp->idx)) &&
+> 		   (cp->type == IMX_MU_TYPE_RX)) {
+> 		priv->dcfg->rx(priv, cp);
+>@@ -594,7 +620,7 @@ static irqreturn_t imx_mu_isr(int irq, void *p)
+> 	if (priv->suspend)
+> 		pm_system_wakeup();
+> 
+>-	return IRQ_HANDLED;
+>+	return ret;
+> }
+> 
+> static int imx_mu_send_data(struct mbox_chan *chan, void *data)
+>@@ -629,7 +655,8 @@ static int imx_mu_startup(struct mbox_chan *chan)
+> 	if (!(priv->dcfg->type & IMX_MU_V2_IRQ))
+> 		irq_flag |= IRQF_SHARED;
+> 
+>-	ret = request_irq(priv->irq[cp->type], imx_mu_isr, irq_flag, cp->irq_desc, chan);
+>+	ret = request_threaded_irq(priv->irq[cp->type], imx_mu_isr, imx_mu_isr_th,
+>+				   irq_flag, cp->irq_desc, chan);
+> 	if (ret) {
+> 		dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->irq[cp->type]);
+> 		return ret;
+>
+>-- 
+>2.53.0
+>
 
