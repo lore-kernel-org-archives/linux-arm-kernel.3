@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C69CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC3BCD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U87KOvIaXEfWkmCPdpDSCM+l7v+E+UTZwehM8drO+VA=; b=iI9tBK7v4DBPUH0F4PJtW6AiRq
-	gnazADLbIx3EelCIA5Sy2Lo0LzbUZYI6qRvSZzssLx8wfv0/0bu0HBhU2yWxn9fiUw4ZtwVRM4ofx
-	RRg56S5PpiS1QCyu/fAkby++BI+RJvMVbfltGKONQb8ow4QZU8vm7mWDzGpLQcAdSFBbBSxlyKdA4
-	M2/cyssCWaJa44ZM+DYpc9ZWHQicMGgKbCvfQ5YHz+ki/GqzU125zQihdwTfstYUJJBuPM1A2NVLi
-	eoFNQLAcJ2dADUc8USlx0LWrasO0OwCdEoTeGLG77G9YCiljvypT4WVNWy/89MSZ2kNtVJ7ozcYm6
-	pki0yOrQ==;
+	bh=WTtvSs/e4atXwoKhD09E3lWjpJ5mSO88VMWBPo2Qa+Q=; b=lUhJW3bOeQwxHd9FrGs5KqLD43
+	BBrBoNi3USdaeogR77ifHkdNYcB0Faw0IdBpo1mAtDsAqCYO1D8PCX9JU/f+eDbVMV8LHYbhfg/L3
+	zCaFY/dqiX9GAfJ/bTfWphyE6P5R+F2iIVSvy4zHyMJSykQeBFTmvIsBWCI2GGUkuJLS4qK/M3rbv
+	PHqY8Z328M1EE+orJkbodmVFff6WzNRB11vKlyrQnBH/XNRzPzyjBXaSqM73J66cyDjSGk1nIZ4Dr
+	PmiY8tsar8eLBV3geqd24goVKOyI8SQ9QcU+1AMT3daNAchRBA1uaQtp1SMTC/rnocFvS8s/94wvb
+	WLwQyG0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWcdj-000000042jc-0ZJt;
-	Mon, 08 Jun 2026 16:15:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wWcf7-0000000430x-1vIC;
+	Mon, 08 Jun 2026 16:17:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWcdh-000000042jM-3hFk
+	id 1wWcf6-0000000430a-2aNI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 16:15:49 +0000
+	Mon, 08 Jun 2026 16:17:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00EB3444FB
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 16:15:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB8D81F0089B
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 16:15:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AD4E4445D
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 16:17:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41E231F008A5
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 16:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780935348;
-	bh=U87KOvIaXEfWkmCPdpDSCM+l7v+E+UTZwehM8drO+VA=;
+	s=k20260515; t=1780935434;
+	bh=WTtvSs/e4atXwoKhD09E3lWjpJ5mSO88VMWBPo2Qa+Q=;
 	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=MuVHfKC22FODBS6u/A71jx9ELs6buKcJ3Yjtdf53DXsqi5nvblC765j6NVUFKm2qu
-	 0Ri+S0hFnisr8L2DMFBoaTrJXfa8gFNN/ULKNeUFELPEUgxaArlJQBfWbBuyRlqVVn
-	 gpn08G+2CRZibqN+/1vJlrx0hss5BQdUnvY4YET82UyNPHYjvDBiYNvX9+AZocWb7q
-	 pk/Vn4Regm5HQilzqb6cXdMD7QOeenRhlc795utbsfn/Nnj4/1Uo3CGfqGPc/uwA8H
-	 4BIl2i1LlY+kE6DswScuPZEsjoLe9rS9L0/Gk9BUO71w1UnrDf24DvK7rAde9/qd86
-	 8a6gP9jA4+8Kg==
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-13810b63a1aso786380c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:15:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+8h8oQNiqEfSbv2AFCDgLWm+yhuMRDzuqJ78r+Tutyxeu6zllZSSzdlLp2ZSQ10O5yYi9g4Qwpp5FxPw+751oM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqjtHhgbg/SzwlfDBYq9lipvgMXEGdDWlZ/hZoSGLAvayLfdXg
-	9BMaqD9V2vhP5fch24nHQeS2IiLE/Nt/montbuvhiSoWCNjYgfDiyPBt5fdLlZkUXPTMGO0bPDK
-	Ihmbvo3HvudA1PsCK7yh514XybM9FNc4KSgVkkYUwww==
-X-Received: by 2002:a05:7022:3d04:b0:137:eda3:e5a9 with SMTP id
- a92af1059eb24-13806720e38mr8578839c88.28.1780935348033; Mon, 08 Jun 2026
- 09:15:48 -0700 (PDT)
+	b=LyueLEj7jp8yMu1AEQixDI8q4B3w+XWSiIw6WEYpDkY3cuAaHkVs+Gkv4r3oFQ+nE
+	 j2kEitMrOypDilGIkywdHYwTiG54nerTMKRg+wFacTquoygRP9xid7cpz+jTJSKgyW
+	 +abDJZazjpsyZjStWHiiW/goTyCBX6IkYG8xY8+2fwLgB6kacNDSnOUhIlgELABJ8H
+	 xljLDTpbnIBYx/FiATjwXyRPT3p9YhztzfUvwTF4kqjYUueHxZKf/ysMkp7zxVHY++
+	 dIwlZTpl2ALCGozXK+SRCdBONQkltTbaUrMFKqfaNg83xgGZ4OGeu5bHwlG5KZMyCF
+	 GonMhW5EFkO4g==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5aa5e9a64b4so4734447e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:17:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+M/7xXtIWu/umiRc2alUtlTak14rf08r6TMG+5S47uzc7vBOYwFEl+HyGLCWi5pcOsYyck7Qae61VLyvP2LOSh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdPLLcTgwtBN+6g+XH60RFclsDH+7YZEyZQ4FKb4dPxy6cpDX0
+	2ngw9NB8GZhCPz5Xany7DMyp7BDKUs+nNg8C7FsJ5yxxitdwmsbEYWMU2GJvrB9LefHgmncEzgp
+	xAhX3jEW8ZSsNsrRWh8nnxjHUKLXLyjaRzkpmBofRxQ==
+X-Received: by 2002:a05:6512:135a:b0:5aa:74f8:72f4 with SMTP id
+ 2adb3069b0e04-5aa87beffabmr3825436e87.32.1780935432883; Mon, 08 Jun 2026
+ 09:17:12 -0700 (PDT)
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 8 Jun 2026 11:15:45 -0500
+ HTTPREST; Mon, 8 Jun 2026 09:17:09 -0700
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 8 Jun 2026 11:15:44 -0500
+ HTTPREST; Mon, 8 Jun 2026 09:17:09 -0700
 From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260607001654.1439480-18-mikhail.kshevetskiy@iopsys.eu>
+In-Reply-To: <20260607001654.1439480-17-mikhail.kshevetskiy@iopsys.eu>
 MIME-Version: 1.0
-References: <20260607001654.1439480-1-mikhail.kshevetskiy@iopsys.eu> <20260607001654.1439480-18-mikhail.kshevetskiy@iopsys.eu>
-Date: Mon, 8 Jun 2026 11:15:44 -0500
-X-Gmail-Original-Message-ID: <CAMRc=MdG+Q+7p7r9t1qTAVBPEP4UWx98g6igSnrR9MBGx4+WbA@mail.gmail.com>
-X-Gm-Features: AVVi8CeehSwizvVfI-4XqLm19u4Xy3rLoafM6ZSuZ51yo6ba5Mu-K9LrhjWFHnY
-Message-ID: <CAMRc=MdG+Q+7p7r9t1qTAVBPEP4UWx98g6igSnrR9MBGx4+WbA@mail.gmail.com>
-Subject: Re: [PATCH 17/18] pinctrl: airoha: prepare for en7523 adding
+References: <20260607001654.1439480-1-mikhail.kshevetskiy@iopsys.eu> <20260607001654.1439480-17-mikhail.kshevetskiy@iopsys.eu>
+Date: Mon, 8 Jun 2026 09:17:09 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MdWhfR0gQz+cJsks_-L0+fKKXGPg1FKDqt8dSSGr1EA9Q@mail.gmail.com>
+X-Gm-Features: AVVi8CdSgzI-OCu4SAMZh4v6VzPB8Cgbp2XhrMRq6YuwW3nSlK1BMg5J-5Z-maM
+Message-ID: <CAMRc=MdWhfR0gQz+cJsks_-L0+fKKXGPg1FKDqt8dSSGr1EA9Q@mail.gmail.com>
+Subject: Re: [PATCH 16/18] pinctrl: airoha: an7583: remove an7583 prefix from
+ variable names
 To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
 Cc: Linus Walleij <linusw@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
 	Lorenzo Bianconi <lorenzo@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -88,18 +89,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 7 Jun 2026 02:16:53 +0200, Mikhail Kshevetskiy
+On Sun, 7 Jun 2026 02:16:52 +0200, Mikhail Kshevetskiy
 <mikhail.kshevetskiy@iopsys.eu> said:
-> en7523 a bit differs from an7581/an7583. It has different register
-> offsets and slightly different bitfield masks.
->
-> Let's adapt common header and existing drivers for the future addition
-> of en7523.
+> We have only an7583 specific code in the pinctrl-an7583 kernel module,
+> so 'an75831_' prefix is not necessary anymore. Remove it.
 >
 > Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
 > ---
 
-Looks good to me.
-
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
