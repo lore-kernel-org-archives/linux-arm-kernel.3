@@ -4,153 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F0FCD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DB2CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=; b=cj/SmGlIfZAL+xeZgu/9ut7vjM
-	V0s3WFAiVdScFCferqOGs/42oU2oEWaEPfHqQdpAMJ9sUL/V0YdTqsgGmsH+0PllKV1GuXEu/u8dh
-	6SMrjArsJNiq2Yy50YbC+DTvU+cwA3McnGGBXnkZ74NCJ+yXdcTNGtDljWLbdA47CZdrbqXm7PLXe
-	ZMDk1eQvsyE2UpevwNXFWwWnnVufpGve9ma0RXrAPWidRYLkAjdkw9ft+L8UC+XQSy6IqshtBEuk6
-	8nIU+wmTbTDyAAb2Tl/WQ86IFYKXMBzeSepRuJVUOatbxn8lEAQcCKoWvhVJTEDBljIhIAt4Hm3V4
-	Tw5LDO2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FITnT5hSRTOhc0v/k1uvO22mPCQJj8qfY19n4Uco4GQ=; b=RV22WSmcLQEEUMxQK6vAOXb4Hx
+	SfqiK7tUNBuj9b19nPWuxbHXFxFsp0+4PxjW/7sc2a8QoIsnNG9i5A3AQ3nwdd5tLzBHx8Ku5EB1V
+	kj8y+6k62HcufiuzDBeiw8+oUwnlg88RVgjaUY5JQFqkrLOqn+O/3EZP59aBFQvQhTxgTkxyqy+pt
+	V7B7VMREgFlVwbUF/5bfx9CRTlioZW/tfhqcyDejIxLLooEgzqTo/aq0jTyHA0U/FYdibT7lQoNVk
+	MmBd0sSQ8WrKqVne3FvoTha/UknSA+QvbkkvtobW310H2tnixV/BLG/PQWQIzzBm8zY3lhwCm0XVl
+	pG6z/Eog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVuo-000000038uu-1CvM;
-	Mon, 08 Jun 2026 09:05:02 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wWW0A-000000039JD-3jOV;
+	Mon, 08 Jun 2026 09:10:34 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVuk-000000038tI-3Npk
+	id 1wWW08-000000039Ip-32PE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 09:05:01 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=VPnG9i1LzoBJzuTB9KP9X8WDy+3cl9+ndKI6P5y+MmxFXuqs9nMfguNyU+rn0Dk/Qbl0k6icwV13zm6qXzxFiarpjmE495jeSII/9MCxjf4bUtJZrUqPUnWMjd7QxiKjMPqV16PSWkbGsa0aG/DRDjTo7k0mgtVkBs2ZjxAqJgqkQDca1jIo0s6xDfApb/TtkTZZnN1CM/xa6DgvSNttXGt2BwWEm8FEqXFLU4Sju/+YHWykORx14/HxrJ1QFU+irdlU2zbsCH/yzuNr+IShj/KhhiuLR/cgVp8QCHQBCNAra8Yp0cNIffbdlBXtW41pmMpTT/HiJuXf0PSfX+wB5g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
- b=We4dfOXIHMgiU62HsKtCZhmYz6HsnUgIRLy5ymVKI8qo3cXYuknrSUDuulH9Y6hPaInko7rvyRPlxiQlHzecpQYA11DE6cXrTpcWt5c7RtTr7XkWGqBvnGPsgAJqSrfzF7LsJUz7b6y/h2ijosvdH7RPie0z9cj5Qq/jz/q9ICijVu9AxQHg/dha0RKKhg1hIuaRVCGcNNAmLtKub2B+L9O+98nZy0gYfbhoqwRthRkTIJLdANeQRIYq9BmlXRkpPb/cOdbv9NcpN4HDHHH2FdkNR9gqNzYyAPADTzgU9+QUg1FWhpZs4Ct61WIShhi/ElQN14K97vM79eCXAxDMvQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
- b=YoLCMAaPkwI/uQt9jtb+jjqtC0g8C0xHBS1nU14kTMOLTIkjKMsNOv82Fh5DjBEZ8dstDvzz7J5Mgn6JI0WagnBj4hW4bcPptFuLGI7O7b14dS+q7ZLMShNOLo1msSeuaNAmb5cIB307jdti8hCiUI4OMu/dEz+93BtEgr3lym0=
-Received: from DU2PR04CA0081.eurprd04.prod.outlook.com (2603:10a6:10:232::26)
- by PA4PR08MB5981.eurprd08.prod.outlook.com (2603:10a6:102:e2::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
- 09:04:50 +0000
-Received: from DU2PEPF00028D0D.eurprd03.prod.outlook.com
- (2603:10a6:10:232:cafe::86) by DU2PR04CA0081.outlook.office365.com
- (2603:10a6:10:232::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.12 via Frontend Transport; Mon, 8
- Jun 2026 09:04:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D0D.mail.protection.outlook.com (10.167.242.21) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via
- Frontend Transport; Mon, 8 Jun 2026 09:04:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HYyoJa7NQaoT/gS0PJy4jSCWgNwKSJPiMURCGxZb64ptnfnejbv8ktJ3peYFkSGnFMsCddS+yd1YRpdQVnE4dtlPE/4GxaNZspEmkcJrPEsUAPfux3tl0SYgI5Ye8B9REjPplRYLnRw1+C3JV//m/gSBeJwGogeInirJVXMCDOdoeUaJ5pKR/acF3ljVbEG4KkQfWdja5BDVw8OCC4kz2kVmoT2/qbu3hWKMF2Rp30Ap1/LRn+ZEylLB3jUX2CuNPkRTYOwTL9pMmlw7pOtERMRWGXfYhn9MNIUmNQKLqxTHDRhLykDvlHpxqWQBkKsZYDueJk/pKeQYSvu6nbt6GA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
- b=UA4jWpwt1+U5hhY/AbGfMoLPuzYD1EthhrM5CLzkja8zK/CqJvVmPUqHTTpR52wTRgGDpiRGltE45lF+I3kTMlkHCkrWMvT0PBtO7VoJhDvp18riIlly8V7AQoF1vZCmt1MVEO9OgG+FD19qHoZ8KkV05ray9TkH2Yr2yOm3O6OryU6gLLZLjv2h1NlrX4qDL5V0tszFbVMG4wXQLKOpdbofCa0l3R8DL5NIHqpEeVoF88YVmVxsJ4swJSGZI+ZH6mqPy83peztxqG4joUwpWq6zJaMUfSkVq30kc7Lmky/0CuqpcjuSv/YJkwzcAZOCTtjD92IOFxY06Rhz4T/Hxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
- b=YoLCMAaPkwI/uQt9jtb+jjqtC0g8C0xHBS1nU14kTMOLTIkjKMsNOv82Fh5DjBEZ8dstDvzz7J5Mgn6JI0WagnBj4hW4bcPptFuLGI7O7b14dS+q7ZLMShNOLo1msSeuaNAmb5cIB307jdti8hCiUI4OMu/dEz+93BtEgr3lym0=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com (2603:10a6:102:46e::7)
- by GV1PR08MB8081.eurprd08.prod.outlook.com (2603:10a6:150:97::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
- 09:03:47 +0000
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15]) by PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15%7]) with mapi id 15.21.0092.011; Mon, 8 Jun 2026
- 09:03:47 +0000
-Message-ID: <e0071e90-c2f5-4d15-b3c6-fe05bf1464e4@arm.com>
-Date: Mon, 8 Jun 2026 10:03:46 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
- provider to an SMCCC device
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Steven Price <steven.price@arm.com>
-References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
- <20260527100233.428018-4-aneesh.kumar@kernel.org>
- <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
- <yq5ase72qvwb.fsf@kernel.org>
- <20260604-juicy-daft-starling-3eec1f@sudeepholla>
- <yq5ao6hlzbpa.fsf@kernel.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <yq5ao6hlzbpa.fsf@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P123CA0092.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:191::7) To PAWPR08MB10975.eurprd08.prod.outlook.com
- (2603:10a6:102:46e::7)
+	Mon, 08 Jun 2026 09:10:34 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5aa5f11deb2so4379309e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 02:10:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780909830; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DP3nB15zDrIEJC/ruHvln3d0G+eF+/WHAokr0JWERELMjVp8wZtas6qHTT9C36WkiO
+         ct+8bSiJM7L83K67MRpTk1jXOLUvqfnuNTOhzor1K6/nhkAl2mpzwBVcUhD5OFuJfI6y
+         gqlGLJPyin/Q+59UhnjWG7NcpcSkrepOdMMHsgUy9llI2Va5pvysJou/iEZ50VvsMtAw
+         gBagdT/tV+FxmvDZ8MwjPCToN96OCiAFyStK9QTyiNvER5PEMzHPOPfV1Mv9QBb2wUUl
+         lVIcaJVS3co97zKnuOeaSuySR+FnofrK4GwgIP2hH19nX0JgW9BPYD7tFEwUqUfazGvr
+         IPKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=FITnT5hSRTOhc0v/k1uvO22mPCQJj8qfY19n4Uco4GQ=;
+        fh=0BXxRNHXjZMCdLVdLTXN6uY3UsN6+6eS4pYansQMTzI=;
+        b=Ime1EGk2kIGjP7PSAWmcy/TNC0bp63boaM67tqusRrR0rbJYrKegZhz/M9cJQx89JC
+         VkjBDEqTRtql7vIvhotUwMAnXc1kMi3azTi68k9akjkwiLpBGGbKKq6FAT5lVfiCbSlT
+         H91bIvTzo9N4X31/1aKKWSIkv8/6irqB6VxYawe5Ky42lItxnwNNmRq/+oUbwIe/uCtW
+         YCoJl+vNNuQlPMXT7PgiwLTQ47gRKZDuV6E5q4LZ+cJLTDpxI++L6v5Yl1VCbrlfJxT0
+         fjcjHH/OvkHwPZqY08s+A+/yJnYrLFC678gpf0aJhgwlEigcu6o5HtKbQ9S5f+aN0sd1
+         66JA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780909830; x=1781514630; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FITnT5hSRTOhc0v/k1uvO22mPCQJj8qfY19n4Uco4GQ=;
+        b=ZwgJWE5N6Ear4K0nIu0A4az2yT2JhjnNcRxPRT2jZFKPA8Jrru0nSO5oupNO6Q+s/6
+         ev4T0cCd8UhNxQ/EAsYUwluomHP7l3gAw7QjAaTZe7K7H37uC+hntPiOAkR1vdrnH5Eq
+         qa31ee0pgR3tpAZ9UIh21reBzWO51RufmlyowxsYDSw89uwJOepLoW0OyAtv4IWQdpZc
+         Ts7XYQ6kufdDX4iDgpUQoV0HBhuYEaS8qDzsU1D4ruX3PL639Sy4gNL/i8Jf31rzdaHE
+         3X2xnEmHCmPbNLSeXpGyEtoB8ySLTP4Qrgzmc70+bQLUd3feOvElKDwsOGP4Ja8IUNwF
+         y4EA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780909830; x=1781514630;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=FITnT5hSRTOhc0v/k1uvO22mPCQJj8qfY19n4Uco4GQ=;
+        b=UrLjr6S76ZtP8xD1ZsKc9jVVgKRzvllmnrbbIQISRFkNPT0lm1yc4NNaLC+0F93yGr
+         LDLdM75T5dIWdBodcfnEi+aDyEhWjvAU24pXA/sC60nhbT6SovW/X8yBsaZyGhvGZFIB
+         gbrRt8j/6Pka6BwVCq7XZarzwWK3HCw0kSU6GHZBYWjSt5cmX/+Up9aOO+QCsaZAxQ6R
+         DmtRjIvnWg+a1wAtorIhwHFc6RXvWa2Syy5oZm+r9KdxF23aTJjr55jJRweTKbCX7XKK
+         XvGBXE6TT5VG9r2WRe6GJZIuVCfqedtzIqTR8PPGBEpMhLf1ybF1OYO4+4Zz3ItdWwaI
+         gytQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9ZUgSbsgh3mVGZJnUL1pZ0xoDqqCQD4yppMe6hG27QC7HniTDWCytUuW08GweR6irzE52f5/nzTqsbbHRZnf9m@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx14guKhh4HM7zki700KRDCHkZaBET7vD63L/7ylG2q5poZzqkm
+	QqpfRQt4Pdeyr5+QJW2xIedGuWvijz7pqVk1IvE6oL3OeJbJizgPHaf/VRW4t9blpgjek4m/El9
+	LPacXS1TunL/oHzMJUbojkLcfHObWl+I=
+X-Gm-Gg: Acq92OEudsNf5KcgKdXxFqhNUUn3rhoUuIDGRWfxWrx/c3Xuq6DpIRfj2XQ4xVflqNv
+	Fu3CL5X3aCf1D+8kQUuBYeleQXshr1k4W3WuhdRyX/dj2qtVrXj95bQypNwb6Bb+D3qHlrUI4dB
+	ofjf+n5v4e2vMTT8qrj7YlsJd2hW2Ta3naKIUVtP9t5icvsXXAqVcbUtNi1pl43X/WcSNW+S5qk
+	fgMntlMElMxLN7q6JRiUIQmSZ/0tQVnA+R1Bdw7xMuS+x8ViwOlKRdzqZMxshGLz3/YJp2tK5cY
+	x0cmcYb1u0fqkM6JJPpiYUGs2bjGDNmxHyh5wMvENFwY4N+1RK28tDHTsDAZljDQTbX9cB9pFKQ
+	Sp/nrtQg=
+X-Received: by 2002:a05:6512:1116:b0:5aa:6c66:e343 with SMTP id
+ 2adb3069b0e04-5aa87bc93bcmr3927231e87.38.1780909829307; Mon, 08 Jun 2026
+ 02:10:29 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|GV1PR08MB8081:EE_|DU2PEPF00028D0D:EE_|PA4PR08MB5981:EE_
-X-MS-Office365-Filtering-Correlation-Id: da01b14c-d877-4a65-891a-08dec53cff42
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|56012099006|3023799007|4143699003|5023799004|11063799006|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: p0tk+1pe0NSfZI2bLuZ0Mg2+lH+nDjWWteQIVMZJ+ypWUj5bgvI+Sh8oa0xV6jA8viFec7kOqyA/U0h20F0qPPKCKdo9RfnqkpmhtHfDmZSL5ivxYDrG3F9SDDIYUCXUromYQaTSqH1TksucsUs3EgXmnkBA6P8j1134XHUu81s3Bpf+oSl1W+MCxfm9sNLoknwkOPuR4pfX53KfwO48Qvu4Tz2+uH+V1FX+kckDJ43P0xiiiN7Pcyb5RkRHqgc1h3Ge1E/ILyyKw5yvnxDTXzjbsKr4W8a4ZhgYeVDRvNUDXvsKcyZaqGk/unW0mTd7VEwgepd80kTtX5hBHUFvFA7RB5l3orrmSPhHtuab5HT1wBxLEtza+3SwW8s6rpyDCC6q5dQ0e721M7nAHK9K/0+R6RvObZDsXcZ1v/ukXNGJiaS/Xp/K4iBuL1oXiT4uBWrESbQPbReRdVjP7JTx127fMxh/IefNuJmlYNTm8XbmoODa/dx1heDVdr1NzWIvRDOvQFjPZuDsTqkx38E+LB+xp3y7i854GDy3a4yCQLItCsNXy6POfizOjt/DONL7XM2a2mheVPcRqmpa0EaP4Imu+nJ4I4/iGZB4/N/4D1ZQNWSxyACypYzBtl5dNdjmUzLqDFu17yYgHP4SlxekBl3DVdojW4rYfiW4B86bZj9K8/dwfJKYFc2ievj6Dtq9b1qJyRCCOgIzmpcKdf92PA==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(56012099006)(3023799007)(4143699003)(5023799004)(11063799006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: qTa7nl++ByNjYeK1I3ysu+dQlf0ueQyCYzw4pYeSj6jzBsHH2ydzutEnohcJI7uCy13Ytl0ZhdJ17rbBLp6aJrcnsG2ZJ1NHd/tnzRZHbzWyLQo5yim3PoRtGr/5iGjDSfEiFOfN7EPQSrcrpTeg957R//MHRquL5iT1Qk6+1jUJ9vOZtg8qdbmNE0c5CGv1Gc6am82ye5odv9p32J9RVmcv/hZLP2QTGKBnQvEO9i+tZoHLYLdzg2ylTxclb1h1U1h3Te1+Y/wiZBi2zcHzj8eP5wdSN/82furHywXwunI2FaPrk/symIPVyKlsfwWhO3cBvS7XmnEbKWdje9+oKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8081
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D0D.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 3abb3bd6-da67-477f-51ad-08dec53cd982
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700016|14060799003|1800799024|82310400026|376014|11063799006|5023799004|4143699003|3023799007|56012099006|6133799003|13003099007|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: EmUOS3FpZI3pdXj9Zk/uw/935mfEVlsVXy7KX7+JlHQhgcMD7H+D9aw1HDGc5QfxuyIDvJlZ1r5q2ovvPilGYIoq/DAnrpgVnO4He2lucs2Re0hDzUN9Vzf8uI+MyM/TvuqywGXbaYb+ujEeeOWASlYqQYOhm/BwFESA5sa+NNat/xmbZpgvVkuLduV6EuS1JXbzML4OteOVxFhMHk5N6pebLaY/Ox6+Ve/yrUPfo5KxxujigRRSZ0BXVBnvyaZJLEQN1CpGggkF/ywVH+UXCVDetIyKghsxEfqs2fS4l/xQEV9ixMy9HxVn0cgLXESiYQB+BXuYqtIbVSTKHB9oRux0tdHID0/hPyGGj48UBpAFK6bQi1hkjHLQjUX5AwSsGk6nObhV2nS4ZIGQ65Kq0/IFYQVoMOfxSFEBIVg+t4rPlhlv2gvs1p8c/mTj5385HI2QMGTzcyFk2m0Of1q2O7URgDBgmU8XZGBoBEseGlOEy3pEpyAWtd4ZQG2hxGpHRS9mLNPu3nEFHiUsvdnJ0i0nHn1fCMgAJ5iYsmkdfegkGkx0rwmwcJXWfIUeWY3qyjxdKicH6hQ7lLk7L1PZ5/yJ6dBJV1qT3VM0pkiZ28iXssxSiZlbmtMrNcyCEiP30FniqTXt89Tx5MCzmLHpI6a1bspsGxKfNtETvcAHgWo/fdkVd1b/9I8mYa9haqW1PJP4kPEgS+unY1BMs49r9BVPnnlQ9D4aThV7H7iOfkg=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700016)(14060799003)(1800799024)(82310400026)(376014)(11063799006)(5023799004)(4143699003)(3023799007)(56012099006)(6133799003)(13003099007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: r/qzmH9ApVxMAK4IF52m7skodZNGUi8NIu/i9t2h/iw16TRU9JEJrmWzyt6awq52hRjlpjUakBbXKxfL14qOM9W89P49v7ckaJVu8b584swE2PFpoO+Hp3kkaKjaKH3Fm1CBQeoGT6R9JQP7qoismsriRXL7XtM9Lit4zKc385QOvzA8Ig/hA3YdCVPbe1LPWKIF5U96RijyiiQkXK8MQJveIhF2d7YTlmlUmNbarBoWb/5Kea3qkkZfH53jmom5rK9HiwddFvFdn1+W0gbShNleDoAqb55pOIm/zCmCM5UUiXgWzh7pcopUallX78ed+G4PFF4xSS5DLpdeYn80YkH2Dxp91va0d+EKiMb4dVCXgYw8kuCzngAIut6z+OBtOhUmmyoZ8D8qoe46z6ezzOlml9Rgk2mzBZYI9DdLKB5A++XiqkQLVyhd0Jwvpgqo
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 09:04:50.3374
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: da01b14c-d877-4a65-891a-08dec53cff42
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0D.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB5981
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20260605121112.27866-1-piyushpatle228@gmail.com> <aiZzxhljfyYQ68Gl@raspi>
+In-Reply-To: <aiZzxhljfyYQ68Gl@raspi>
+From: Piyush Patle <piyushpatle228@gmail.com>
+Date: Mon, 8 Jun 2026 14:39:52 +0530
+X-Gm-Features: AVVi8CcpFt73_s1W6tVAYjL6KIr_ANTO2-Kr_9uq4rs-k3XfwDZkGI2c1mIcJWo
+Message-ID: <CAMB+xkZm-FA_hmnAYRnXw6T4tZvVtamM=kmEyatFKZWV0+kJFA@mail.gmail.com>
+Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Marek Vasut <marek.vasut@mailbox.org>, dri-devel@lists.freedesktop.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Lucas Stach <l.stach@pengutronix.de>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Abel Vesa <abelvesa@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_020459_144406_F1FF95E0 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20260608_021032_819012_83164639 
+X-CRM114-Status: GOOD (  37.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,203 +124,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/06/2026 09:19, Aneesh Kumar K.V wrote:
-> Sudeep Holla <sudeep.holla@kernel.org> writes:
-> 
->> On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
->>> Sudeep Holla <sudeep.holla@kernel.org> writes:
->>>
->>> ...
->>>
->>>> +static const struct smccc_device_info smccc_devices[] __initconst = {
->>>> +       {
->>>> +               .func_id        = ARM_SMCCC_TRNG_VERSION,
->>>> +               .requires_smc   = false,
->>>> +               .min_return     = ARM_SMCCC_TRNG_MIN_VERSION,
->>>> +               .device_name    = "arm-smccc-trng",
->>>> +       },
->>>> +};
->>>> +
->>>> +static bool __init
->>>> +smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
->>>> +{
->>>> +       struct arm_smccc_res res;
->>>> +       unsigned long ret;
->>>> +
->>>> +       if (!IS_ENABLED(CONFIG_ARM64))
->>>> +               return false;
->>>> +
->>>> +       if (smccc_conduit == SMCCC_CONDUIT_NONE)
->>>> +               return false;
->>>> +
->>>> +       if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
->>>> +               return false;
->>>> +
->>>> +       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
->>>> +       ret = res.a0;
->>>> +
->>>> +       if ((s32)ret < 0)
->>>> +               return false;
->>>> +
->>>> +       return ret >= smccc_dev->min_return;
->>>> +}
->>>> +
->>>>
->>>
->>> I am not sure we want the check to be as simple as ret < 0. Some
->>> function IDs may return input errors based on the supplied arguments
->>> (for example, RMI_ERROR_INPUT). In those cases, we would likely want
->>> this to be handled via a callback.
->>>
->>
->> As I mentioned in response to Suzuki, we can defer that to probe of
->> that device. If *_VERSION, succeeds SMCCC core can add that device and
->> leave the rest to the core keeping the core and bus layer simple IMO.
->>
->>> We also want to use conditional compilation for some function IDs.
->>> Given the callback approach and the #ifdefs, I wonder whether what we
->>> currently have is actually simpler and more flexible.”
->>>
->>
->> I was trying to avoid conditional compilation altogether and hence the
->> reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
->> in above snippet must come as some condition to this generic probe.
->>
->> Adding any more logic or callback defeats the bus idea here if we need
->> to rely/depend on multiple conditional compilation or callbacks IMO.
->>
->> Let's find see if it can work with what we are adding now and may add in
->> near future and then decide.
->>
-> 
-> If we move all the conditional checks to the driver probe path, then I
-> think this can work. Something like the below:
-> 
-> struct smccc_device_info {
-> 	u32 func_id;
-> 	bool requires_smc;
-> 	const char *device_name;
-> };
-> 
-> static const struct smccc_device_info smccc_devices[] __initconst = {
-> 	{
-> 		.func_id        = ARM_SMCCC_TRNG_VERSION,
-> 		.requires_smc   = false,
-> 		.device_name    = "arm-smccc-trng",
-> 	},
-> 
-> 	{
-> 		.func_id        = RSI_ABI_VERSION,
+On Mon, Jun 8, 2026 at 1:16=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wrote:
+>
+> On Fri, Jun 05, 2026 at 05:41:05PM +0530, Piyush Patle wrote:
+> > Hi Marek, Liu Ying,
+>
+> Hi,
 
-Don't we need parameters passed to this (Requested Interface version for 
-e.g.) ? See more below.
+Hi Ying,
+Thanks for the detailed update.
 
+>
+> >
+> > I brought this series up on the i.MX95 15x15 FRDM (IT6263 LVDS-to-HDMI =
+on
+> > LVDS ch1). It mostly works, but I ran into a few issues around DI routi=
+ng,
+> > LVDS format handling, and DC enable sequencing which needed rework befo=
+re
+> > HDMI would come up reliably on the board.
+> >
+> > I don't see a v2 of the series and things seem to have been quiet since
+> > November. Are you planning to post an updated version?
+>
+> My plan was to enable prefetch engine support[1] for i.MX8QXP display
+> controller and add device tree for a whole i.MX8QXP LVDS display pipeline=
+,
+> before adding i.MX95 display controller support.
+>
+> Unfortunately, it seems that Marek is not a big fan of [1] and I'm busy
+> with downstream development so the plan doesn't move forward well.  I sti=
+ll
+> think [1] makes sense(maybe I need to rebase it on latest drm-misc-next),
+> so I'd like to see review comments on [1] and hopefully people think that
+> the overall idea of [1] is ok.
+>
+> >
+> > I've accumulated a fair amount of rework while getting this running on =
+the
+> > FRDM. If you're not planning a v2, I can clean things up and send one b=
+ased
+> > on the current series.
+>
+> I still think that i.MX95 display controller driver should be in a separa=
+te
+> driver, rather than sharing the same driver with i.MX8QXP display control=
+ler
+> like this patch series does, because the two display controllers are quit=
+e
+> different as I mentioned in comments on this patch series and in discussi=
+on
+> in [1].  Also, the common part between the two display controllers should
+> be extracted to a common helper library as I mentioned there too.
+>
+I agree with your direction. A separate i.MX95 DC driver with the common pi=
+eces
+factored into a shared helper library seems like a better long-term
+approach than
+extending the i.MX8QXP driver, given how different the two controllers are.
 
-> 		.requires_smc   = true,
-> 		.device_name    = RSI_DEV_NAME,
-> 	},
-> };
-> 
-> static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
-> {
-> 	unsigned long ret;
-> 	struct arm_smccc_res res;
-> 
-> 	if (smccc_conduit == SMCCC_CONDUIT_NONE)
-> 		return false;
-> 
-> 	if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
-> 		return false;
-> 
-> 	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
-> 	ret = res.a0;
-> 
-> 	if ((s32)ret == SMCCC_RET_NOT_SUPPORTED)
+> >
+> > Thanks,
+> > Piyush
+>
+> [1] lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-0-4ecb6c6d4941@nxp.c=
+om/
+>
+I've had the current series running on the i.MX95 15x15 FRDM (IT6263
+LVDS-to-HDMI
+on LVDS channel 1). HDMI now comes up reliably and remains stable. The mode
+and timing are correct (1280x720@60), the LVDS/LDB pixel clock is at
+74.25 MHz in
+single-link mode, and the DC plane is scanning out a linear XRGB8888
+buffer correctly
 
-Is this a reliable check for all possible SMCCC services ? i.e., Are we 
-expected to get RET_NOT_SUPPORTED for any service for which the backend
-is not available ?
+The one issue I'm still chasing is color. Timing and sync look
+correct, but the colors on
+screen are wrong. I've ruled out a few obvious causes and see the same
+result with a
+simple CPU-generated test pattern, so it doesn't appear to be GPU or
+Mesa related.
+I'm currently narrowing the root cause and will report back once I find it.
 
-Also, as pointed out RSI_ABI_VERSION may return other errors based on 
-the input (requested version, e.g., RSI_ERROR_INPUT) and we may still go
-ahead and register the device ?
+While bringing the series up on the FRDM, I ended up reworking three main a=
+reas:
+- DI routing (display interface selection and pixel-link to LVDS channel wi=
+ring)
+- LVDS bus-format handling
+- DC enable sequencing
 
-> 		return false;
-> 
-> 	return true;
-> }
-> 
-> static int __init smccc_devices_init(void)
-> {
-> 	struct arm_smccc_device *sdev;
-> 	const struct smccc_device_info *smccc_dev;
-> 
-> 	for (int i = 0; i < ARRAY_SIZE(smccc_devices); i++) {
-> 		smccc_dev = &smccc_devices[i];
-> 
-> 		if (!smccc_probe_smccc_device(smccc_dev))
-> 			continue;
-> 
->                 sdev = arm_smccc_device_register(smccc_dev->device_name);
->                 if (IS_ERR(sdev))
->                         pr_err("%s: could not register device: %ld\n",
->                                smccc_dev->device_name, PTR_ERR(sdev));
-> 
-> 	}
-> 
-> 	return 0;
-> }
-> device_initcall(smccc_devices_init);
-> 
-> with the diff to hw_random/smccc_trng
-> 
-> modified   arch/arm64/include/asm/archrandom.h
-> @@ -12,7 +12,7 @@
->   
->   extern bool smccc_trng_available;
->   
-> -static inline bool __init smccc_probe_trng(void)
-> +static inline bool smccc_probe_trng(void)
->   {
->   	struct arm_smccc_res res;
->   
-> modified   drivers/char/hw_random/arm_smccc_trng.c
-> @@ -19,6 +19,8 @@
->   #include <linux/arm-smccc.h>
->   #include <linux/arm-smccc-bus.h>
->   
-> +#include <asm/archrandom.h>
-> +
->   #ifdef CONFIG_ARM64
->   #define ARM_SMCCC_TRNG_RND	ARM_SMCCC_TRNG_RND64
->   #define MAX_BITS_PER_CALL	(3 * 64UL)
-> @@ -98,6 +100,10 @@ static int smccc_trng_probe(struct arm_smccc_device *sdev)
->   {
->   	struct hwrng *trng;
->   
-> +	/* validate the minimum version requirement */
-> +	if (!smccc_probe_trng())
-> +		return -ENODEV;
-> +
->   	trng = devm_kzalloc(&sdev->dev, sizeof(*trng), GFP_KERNEL);
->   	if (!trng)
->   		return -ENOMEM;
-> 
-> We can also move arch/arm64/include/asm/rsi_smc.h to
-> include/linux/arm-rsi-smccc.h. There was a suggestion to move these
+I have time available to help move this forward. I'm happy to continue
+testing on the
+FRDM and provide feedback on the reworks I've made.
 
-super minor nit: arm-smccc-rsi.h ?
+On the other hand, if additional help would be useful, I'd be
+interested in working on the
+separate i.MX95 driver under your guidance and posting the resulting
+series for review.
+If that sounds reasonable, I'd be glad to coordinate with you on how
+you'd like the work
+structured.
 
-Cheers
-Suzuki
+I'll also take a look at the prefetch engine series! Thanks again.
 
+> --
+> Regards,
+> Liu Ying
 
-> firmware interfaces out of architecture-specific code:
-> 
-> https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
-> 
-> This will also avoid the #ifdef CONFIG_ARM64
-> 
-> -aneesh
-
+Thanks,
+Piyush
 
