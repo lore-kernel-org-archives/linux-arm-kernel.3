@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B38CD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E2FCD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=arbkOLxe9TsPGb9HPmwkESSbqInm/MlNCMr1iWn69z4=; b=FZSKot7GiHagmitqO9Gg2UqapN
-	P9EDXy0HCP9d9/0cMJGVGinIDKP0WlXxqxR7DvLaSAxga779c61GPvH6SoO8kTySpZyEI8sGQZS6x
-	OhA1xFlSNecnvhTZrzpK4COzDUhyWzpXESk/T61VoAuMsvP+k9qjV32gl3EFAh0mjpdfXZyj1FnoM
-	ux/6NUaWRell9z0uQgGLdxOW9fJIiaPeN5IJgNqEy+z3TkAuoijJ3dDm7dwrqo9nlHIdIQqJakJaS
-	eIdQanhZQ2+dw+g37vdtF0OqpfShnVOXC1NAdnywvom1Ge79nrIIqDZ93QbmYo+xNIrdTUY/3azlr
-	IdTNwF7w==;
+	bh=BaD5dzE0XkKaVHaRfsV559bcL81Tx1hd4V5yWiB2MWI=; b=1X6r/MOKasrxjtDfG7w8tLV5NX
+	Bi0oB4vFpCclVD1a3x+ScVNRQpR90qgS0tyeG+skg4r4qlu/vah8SwzoxMy8ZqmGxXISOJJ9XpjKM
+	VzfcHHalK7MNLXx/lV7b3wmUbqtPa5nM8hK0QsIDVNDr/8l1b+epLtd+pzKZpRnBpTw5lQEO2525O
+	9T38yEZ7w4qft5GukgNNfQr+5RjgiYQwTz7Ike4apjYg+mPReD16DziyhGSqMUXMcBPb44TgOkJmA
+	vkxi6sH74L6BSnCwedfZrT5Wj60Mn7FwSUNC8zpQ4Go3S8gLnoWB0l1kkBkc1OUqmgzTDlDcQ1PPg
+	sOS+/z2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWYsL-00000003Uwj-0iv4;
-	Mon, 08 Jun 2026 12:14:41 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wWZ9r-00000003WBJ-31tj;
+	Mon, 08 Jun 2026 12:32:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWYsG-00000003Uvr-2BP8
+	id 1wWZ9q-00000003WBD-1oJL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 12:14:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=arbkOLxe9TsPGb9HPmwkESSbqInm/MlNCMr1iWn69z4=; b=lmJgB2ULtm4V40ha4u6XI+IhrV
-	dmQcyNzSpJzo2oZAVn1Behho8kdF8bjIBymSFWxrc4kRhOWpifBhGXLESY6h9NmuItbklaKgtzJF7
-	hagERND4I+XQbyGCpyYw3nQUlt6meeO2Y1J6VAlqx5HD/DLSKBWCuu4PVYe3jFHtBe3G9wZkJMn7D
-	CZiTysk+/wm0llBa+3whCOLF6xy3C0kIxd48kBl0bkm5B7Y5+aaicrpb3br/nHSGwC7KaR2JcwLgo
-	xhI53kvhRQOXJlSZc4+V/P2DXkrIqcgPn+Fk4a43Ipa/QQqS0pQG+W2lksDFDMsOLm33CvDGEw+Fu
-	DCWohZxQ==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wWYs8-007cCR-0E;
-	Mon, 08 Jun 2026 12:14:28 +0000
-Date: Mon, 8 Jun 2026 05:14:22 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Pratyush Anand <panand@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	clm@meta.com, leo.bras@arm.com, kernel-team@meta.com
-Subject: Re: [PATCH] arm64/hw_breakpoint: reject unaligned watchpoints that
- would truncate BAS
-Message-ID: <aiaqbmQSksKB6dTZ@gmail.com>
-References: <20260430-arm64_bas-v1-1-c6ab2b15aec0@debian.org>
- <ahmohv6vQGxY-asL@willie-the-truck>
+	Mon, 08 Jun 2026 12:32:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CB36640463;
+	Mon,  8 Jun 2026 12:32:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 787581F00893;
+	Mon,  8 Jun 2026 12:32:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780921965;
+	bh=BaD5dzE0XkKaVHaRfsV559bcL81Tx1hd4V5yWiB2MWI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BuHvmcAkpVGMkltyGW5aMyXfTrfPJA1k4i74plwI7JN1wJOeguiIw1CvPrqOhSDde
+	 dHCyfG0M60CGjOsa7iMZ6TzPKuGb8UGDM0Z4ScrWHJXriCcH6wn6abMp4fDWh50xkD
+	 Tv5NWdXMsHK2ye6j44vl+qkgNU4cUDGX8imV45eZPrfOmnQK4lkMVa/p9hMk+RNTDg
+	 UpK6ulMISI4SVj2GVuJJZTALZQKzJmZIAS5Opzl7tEhVwVvK1yyFLYCffGChBOxYsN
+	 JRUv/eci/eKuXmGfW9W4Fb+oRn1iu/CLpzVzHkRs72GKoSg5hLK01oJbp3iCX0Qu0a
+	 q879RRED3Z4VA==
+Date: Mon, 8 Jun 2026 13:32:41 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-coco@lists.linux.dev, Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+Message-ID: <20260608-hot-fascinating-tortoise-cccc61@sudeepholla>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
+ <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+ <yq5ase72qvwb.fsf@kernel.org>
+ <20260604-juicy-daft-starling-3eec1f@sudeepholla>
+ <yq5ao6hlzbpa.fsf@kernel.org>
+ <e0071e90-c2f5-4d15-b3c6-fe05bf1464e4@arm.com>
+ <yq5aldcpz316.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ahmohv6vQGxY-asL@willie-the-truck>
-X-Debian-User: leitao
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_051436_599224_50068FF3 
-X-CRM114-Status: GOOD (  40.00  )
+In-Reply-To: <yq5aldcpz316.fsf@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,117 +84,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 03:53:58PM +0100, Will Deacon wrote:
-> Hi Breno,
+On Mon, Jun 08, 2026 at 04:56:29PM +0530, Aneesh Kumar K.V wrote:
+> Suzuki K Poulose <suzuki.poulose@arm.com> writes:
 > 
-> Thanks for sending this out.
+> > On 08/06/2026 09:19, Aneesh Kumar K.V wrote:
+> >> Sudeep Holla <sudeep.holla@kernel.org> writes:
+> >> 
+> >>> On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
+> >>>> Sudeep Holla <sudeep.holla@kernel.org> writes:
+> >>>>
+> >>>> ...
 > 
-> On Thu, Apr 30, 2026 at 02:40:10AM -0700, Breno Leitao wrote:
-> > hw_breakpoint_arch_parse() positions the BAS bit pattern in
-> > hw->ctrl.len with
-> > 
-> > 	offset = hw->address & alignment_mask;	/* 0..7 */
-> > 	hw->ctrl.len <<= offset;
-> > 
-> > ctrl.len is an 8-bit bitfield (struct arch_hw_breakpoint_ctrl::len is
-> > u32 :8), so the shift silently drops any bits past bit 7.  For
-> > non-compat AArch64 watchpoints the offset is unbounded relative to
-> > ctrl.len: a perf_event_open(PERF_TYPE_BREAKPOINT) caller asking for
-> > HW_BREAKPOINT_W with bp_addr=page+1 and bp_len=HW_BREAKPOINT_LEN_8
-> > ends up with 0xff << 1 = 0x1fe, stored as 0xfe.  The kernel programs
-> > WCR.BAS=0xfe and the hardware watches bytes [1..7] instead of the
-> > requested [1..8] -- the eighth byte is silently dropped.  The
-> > syscall still returns success, leaving userspace to discover the
-> > gap by empirical probing.
-> > 
-> > The same class affects HW_BREAKPOINT_LEN_{2,4} when offset pushes the
-> > high BAS bit past bit 7 (e.g. LEN_4 with offset=5 yields 0xe0
-> > instead of 0x1e0).  No memory-safety impact -- the value is masked
-> > into 8 bits before encoding -- but debuggers and perf users observe
-> > missed events on bytes they thought they were watching.
-> > 
-> > The AArch32 branch immediately above already rejects unrepresentable
-> > (offset, len) combinations via an explicit switch.  Mirror that for
-> > the non-compat branch by checking that the shifted pattern fits in
-> > the BAS field, returning -EINVAL when it does not.
-> > 
-> > Reproducer:
-> > 
-> >   struct perf_event_attr a = {
-> >       .type = PERF_TYPE_BREAKPOINT, .size = sizeof(a),
-> >       .bp_type = HW_BREAKPOINT_W,
-> >       .bp_addr = (uintptr_t)(buf + 1),
-> >       .bp_len = HW_BREAKPOINT_LEN_8,
-> >       .exclude_kernel = 1, .exclude_hv = 1,
-> >   };
-> >   int fd = perf_event_open(&a, 0, -1, -1, 0);
-> >   /* before this fix: succeeds, watches 7 bytes (buf+1..buf+7)   */
-> >   /* after  this fix: fails with EINVAL                          */
-> > 
-> > Signed-off-by: Breno Leitao <leitao@debian.org>
-> > Fixes: b08fb180bb88 ("arm64: Allow hw watchpoint at varied offset from base address")
+> ...
 > 
-> Oh man, this has been broken for nearly a decade :/
+> >>> I was trying to avoid conditional compilation altogether and hence the
+> >>> reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
+> >>> in above snippet must come as some condition to this generic probe.
+> >>>
+> >>> Adding any more logic or callback defeats the bus idea here if we need
+> >>> to rely/depend on multiple conditional compilation or callbacks IMO.
+> >>>
+> >>> Let's find see if it can work with what we are adding now and may add in
+> >>> near future and then decide.
+> >>>
+> >> 
+> >> If we move all the conditional checks to the driver probe path, then I
+> >> think this can work. Something like the below:
+> >> 
+> >> struct smccc_device_info {
+> >> 	u32 func_id;
+> >> 	bool requires_smc;
+> >> 	const char *device_name;
+> >> };
+> >> 
+> >> static const struct smccc_device_info smccc_devices[] __initconst = {
+> >> 	{
+> >> 		.func_id        = ARM_SMCCC_TRNG_VERSION,
+> >> 		.requires_smc   = false,
+> >> 		.device_name    = "arm-smccc-trng",
+> >> 	},
+> >> 
+> >> 	{
+> >> 		.func_id        = RSI_ABI_VERSION,
+> >
+> > Don't we need parameters passed to this (Requested Interface version for 
+> > e.g.) ? See more below.
+> >
 > 
-> I think we probably should've stuck with the old behaviour of rejecting
-> unaligned base addresses, but it's too late now. Damn.
+> The idea is that we only check whether the function ID is supported. All
+> other conditional logic should be handled in the driver probe path, as
+> demonstrated by the changes in drivers/char/hw_random/arm_smccc_trng.c.
 > 
-> >  arch/arm64/kernel/hw_breakpoint.c | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-> > index ab76b36dce820..b8a1402119f3a 100644
-> > --- a/arch/arm64/kernel/hw_breakpoint.c
-> > +++ b/arch/arm64/kernel/hw_breakpoint.c
-> > @@ -559,6 +559,15 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
-> >  		else
-> >  			alignment_mask = 0x7;
-> >  		offset = hw->address & alignment_mask;
-> > +
-> > +		/*
-> > +		 * BAS is an 8-bit field in WCR/BCR; the shift below would
-> > +		 * silently drop the high bits of ctrl.len when offset + len
-> > +		 * exceeds 8, programming hardware to watch fewer bytes than
-> > +		 * the user requested.
-> > +		 */
-> > +		if (((u32)hw->ctrl.len << offset) > 0xff)
-> 
-> nit: Use ARM_BREAKPOINT_LEN_8 instead of 0xff
-> 
-> > +			return -EINVAL;
-> >  	}
-> 
-> I must confess, I'm very nervous about breaking userspace here. If GDB
-> is triggering this path, then this patch will change an unreliable
-> watchpoint into a hard error (which probably means GDB exits). Have you
-> looked to see what GDB and/or any other debuggers do?
-> 
-> I had a quick peek and found the bugzilla entry which motivated the
-> buggy change in the first place:
-> 
-> https://sourceware.org/bugzilla/show_bug.cgi?id=20207
-> 
-> and it looks like the aarch64_align_watchpoint() function does try to
-> spill into multiple watchpoints, so perhaps your patch is ok. I'd
-> appreciate your opinion, though.
 
-It won't, for two independent reasons.
++1. Yes, we just want to know whether the firmware is aware of that feature
+before creating the `smccc_device` for it. The device probe can then perform a
+more thorough, feature-specific check to determine whether the device/feature
+is usable.
 
-The new -EINVAL is unreachable from GDB; only a raw perf_event_open() passing
-an unaligned base with an oversized bp_len hits it, which is the bug.
+That is the main idea behind the approach I suggested. Please let me know if
+you still see any issues or think this may not work.
 
-Second, even if a debugger did hand the kernel such a request, GDB
-already treats EINVAL on NT_ARM_HW_WATCH as a downgrade signal, not a
-fatal error. aarch64_linux_set_debug_regs() catches it, clears
-kernel_supports_any_contiguous_range, calls aarch64_downgrade_regs()
-(which rounds the BAS up to a legacy 0x01/03/0f/ff mask and aligns the
-base down), and retries. That fallback is exactly the PR-20207 path.
-
-Confirmed on a Grace box: with the patch applied (under virtme-ng), the
-reproducer's unaligned LEN_8 now returns -EINVAL while aligned LEN_8
-still succeeds, and GDB still inserts the watchpoint and it still fires
-on every write.
-
-GDB in fact downgrades on the current kernel independently of this patch, so
-behaviour is unchanged for it.
+-- 
+Regards,
+Sudeep
 
