@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21116CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717F7CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mVNzA+YimPCo/s+zQoYkCPo7qeLSIJKww/AqXzNRCrY=; b=PHOVfnK/7T+RrPnAlzV2of1Xa/
-	E7OwwukvIX+ywj+4mgklMkTQR0ZxPqzSglxKdNL2BWawD44BawyM96q4tdx4yBQSxLzJwTDa/FmP+
-	AtOPYlbB/+JfsGP0Z9KaL75TlvgpbPW9nt+8IOakpByAVi2jQ177phjyP8wAb2uRKwbwVpDxk+2+5
-	ihS0HUvDc7v8NO4uq5XOA9s/XbsjCi4jIbk0QI/8ztNNQAqu8dvhpYqG+5KE352TMraFF1QUtxOTC
-	8De7Sbf3+andhOOSzaGR4IAfObnpFhGd4PCXSaWfGUCnwjzAiVSD9BOIuVcmMYM528+qDhgzG2E3M
-	WggywARw==;
+	bh=4C7eQEqBOO791XCceqw8Z0xQegoGOJJDuZXVi6UvHbM=; b=MvNCQaJzOSTdMNycx/SZvzHuxO
+	7Mk26Ac7Ub0/U3GJYou0463mxVjb1R21YUlMHYyIwNTWwrsySgpwsTPrV+6FzPOlDrMwOvrMdd3yJ
+	pi74BN+QWA8+ccVhTke1Gcs4MI+s6je1bwkrRlKTMrQASDFouABQ9lHR+0xFreCfSdG1tCE5q7i+B
+	AQiseR3S991rgHQiUQCsKyojMCnitpZYJ97M/KXARWQvkwwG9qlleIw7mzTnxPyjHGnLI+SPhE9VT
+	1Yic/9byH7feSzEn+kpLgNqNLAqQ4lMYTQRHiytWr+iHapDWW+pR1R+XJ3ikber06gbENzwnUcyfh
+	eJWXcyvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbIp-00000003rdb-08cs;
-	Mon, 08 Jun 2026 14:50:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWbJ3-00000003riA-0eZ2;
+	Mon, 08 Jun 2026 14:50:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbIo-00000003rd8-0M9h
+	id 1wWbIz-00000003rhP-3JKB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:50:10 +0000
+	Mon, 08 Jun 2026 14:50:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 843E4601E2
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 14:50:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38C441F0089E
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 14:50:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7EF8743635
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 14:50:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62AA91F0089B
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 14:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780930209;
-	bh=mVNzA+YimPCo/s+zQoYkCPo7qeLSIJKww/AqXzNRCrY=;
+	s=k20260515; t=1780930221;
+	bh=4C7eQEqBOO791XCceqw8Z0xQegoGOJJDuZXVi6UvHbM=;
 	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=TrIIizPtQOgkzaa+GxeDtKPfW60MyqU1ONtrYnymBFbmmpCZtxUqUup3bzaQQPPKd
-	 tAj/+o7ldAPervKxCXljVrSNnnVq7o0KTup4xhChoOaINKNyD+eKPTM/73A66/a8gr
-	 p76HRluvfS4WZKRcD6BcKNG/LDsXY7yAY+O7YHqa2Q5Jf/t5tBZUteik/pdG+I79+5
-	 TE+eOQUzAS5FG5c6GzIkcSrNLaTUVA2ev8ohezUqB/vrIj1AxPPmPJBtJ9IAnXkhOk
-	 6b0KOI24YGpsR965rKKvWQ9ja6OAaeyRFZj3GCncGEv1va69MPELTNerCcSxvgLzcG
-	 68umfE9R3kV9A==
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1363fe80fe8so6238067c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 07:50:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/4yD5nS0U50HT5QVgKSnMiatwFYLi3lTYBfWY4pxXzrrzg1j1f8C96QcziNYuNnwnGA9khQeS2kx1DoWC1pKwY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXSKHLQmakr5vQfvrIuehQOSyUXkrUxHSi9yuraPDDS6TCuCTM
-	4VLQG2FOYyEh7zVmU3hWAj5sGBeTXBh3npFzYgQOTV8EhPj5pXdCwcJmGERlqRvKCWYta/EzBzO
-	9ejQCe/jWkPWkkMBP1YehTYtAVmQAUsR/7jQcSdR4eA==
-X-Received: by 2002:a05:7022:219:b0:138:144d:35a9 with SMTP id
- a92af1059eb24-138144d3684mr5766531c88.13.1780930208569; Mon, 08 Jun 2026
- 07:50:08 -0700 (PDT)
+	b=Apv/a6CzrFxEHOE/yiae0WfnO7IfzkWtlYLu1TKe8iraFSwDFFLItddhAfC5E0vj0
+	 rzo93rpq7as5A+YzSqdocWiCY/zJDmVIvID5uh7xKn+sk0HfFCpxjSTWo9xoRx4c9x
+	 EHe6nqSyaiazcOFYQsroQabuw7lT5D+gE34xI/qoSj2qou39mLLdr3AOYWrY1w+iGk
+	 XwYNbX/FsZYcPbo+J5RGRaeKtbcL7BOa6lxJI+68Bxt/K2/c+cPAreI0/mbMjB0DHm
+	 RYiwJmMnr8kMDqt7NuFqMB2RRhpxhBunTj9u9mdALQl+/HJ7sbQkkXCRGJgq9LHqbl
+	 d1rPQHAhgdQkQ==
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-13807d2f898so3160260c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 07:50:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+f0nusjGqRJ8vWYW0mlWRChN2VtNfPp13f7LYI9BqZ06U5Dz37xNWEKLJRAN3SCmTaKKlL6IsUrGELTHkcXa0s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzeh4fiI5zGsIpzMdoJtPcJH7KC39HmkefrBbmq4fDibZw5JfpZ
+	WInkOZ9ttOxn2ufyjBcHbb2k/WVo7OxnmetGMw/9mGV64Jgfz/283BUZmj22xcBPM8rlLsAH957
+	te9g6gRu7n2ZgQstkR1EKgUYcw9/KoagZmV05mQUwuA==
+X-Received: by 2002:a05:7022:6882:b0:138:62a:ddac with SMTP id
+ a92af1059eb24-1380671fc24mr7463853c88.20.1780930220886; Mon, 08 Jun 2026
+ 07:50:20 -0700 (PDT)
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 8 Jun 2026 09:50:05 -0500
+ HTTPREST; Mon, 8 Jun 2026 09:50:17 -0500
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 8 Jun 2026 09:50:04 -0500
+ HTTPREST; Mon, 8 Jun 2026 09:50:17 -0500
 From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260607001654.1439480-4-mikhail.kshevetskiy@iopsys.eu>
+In-Reply-To: <20260607001654.1439480-5-mikhail.kshevetskiy@iopsys.eu>
 MIME-Version: 1.0
-References: <20260607001654.1439480-1-mikhail.kshevetskiy@iopsys.eu> <20260607001654.1439480-4-mikhail.kshevetskiy@iopsys.eu>
-Date: Mon, 8 Jun 2026 09:50:04 -0500
-X-Gmail-Original-Message-ID: <CAMRc=MfdwrgHU-uQ=23SOth0W69pEnWOBZNADW5V1TZehDrggw@mail.gmail.com>
-X-Gm-Features: AVVi8CfLdQbnTOwyGCfZAp__4hziGPZ_SRIyQWjmiKLBoe_O8lP48fbaszTAsbQ
-Message-ID: <CAMRc=MfdwrgHU-uQ=23SOth0W69pEnWOBZNADW5V1TZehDrggw@mail.gmail.com>
-Subject: Re: [PATCH 03/18] pinctrl: airoha: an7581: fix misprint in gpio19 pinconf
+References: <20260607001654.1439480-1-mikhail.kshevetskiy@iopsys.eu> <20260607001654.1439480-5-mikhail.kshevetskiy@iopsys.eu>
+Date: Mon, 8 Jun 2026 09:50:17 -0500
+X-Gmail-Original-Message-ID: <CAMRc=McXWg5sitpO-Z7KUbQOAcmnyyisOpYhXq7GuLRVZH6rFw@mail.gmail.com>
+X-Gm-Features: AVVi8CdYOVZheZlncuRFK8_OMQQp0mb0en76LtMMGY55th0ffQ5nIRalk61TbDk
+Message-ID: <CAMRc=McXWg5sitpO-Z7KUbQOAcmnyyisOpYhXq7GuLRVZH6rFw@mail.gmail.com>
+Subject: Re: [PATCH 04/18] pinctrl: airoha: an7583: fix misprint in gpio19 pinconf
 To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
 Cc: Linus Walleij <linusw@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
 	Lorenzo Bianconi <lorenzo@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -88,16 +88,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 7 Jun 2026 02:16:39 +0200, Mikhail Kshevetskiy
+On Sun, 7 Jun 2026 02:16:40 +0200, Mikhail Kshevetskiy
 <mikhail.kshevetskiy@iopsys.eu> said:
-> Pin 32 (gpio19) duplicate pinconf settings of pin 31. Fix it using
+> Pin 21 (gpio19) duplicate pinconf settings of pin 20. Fix it using
 > a proper bit number in the configuration register.
 >
-> Fixes: 1c8ace2d0725 ("pinctrl: airoha: Add support for EN7581 SoC")
+> Fixes: 3ffeb17a9a27 ("pinctrl: airoha: add support for Airoha AN7583 PINs")
 > Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
 > ---
-
-I think the term we typically use is "typo" but I won't die on that hill.
 
 Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
