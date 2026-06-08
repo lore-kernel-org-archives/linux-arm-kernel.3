@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF53CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CF7CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHWZem1sX5qRm+cZyCdgQwCQRbpaBa69F1l2ue7kqdc=; b=YaatI6L/uQBLog+vYZ+XbKPuf/
-	9Y9YaOJKklETP5ToFQ4bEwLVV/3i06hiqQXJI99ptKhQh9z9froRvjfBxWemGw2Ginsg17FpcAopT
-	UxMIF7h0Hmy8EBKDBitWUAaMqkCqyb2zqZM3Vxl+BS0GSHGX3Ang8cf5XwA6oQpSYbxLUkZEEWs5i
-	lOhSA2+Y5JvFaRegO3YrFEvf4535JEbdorKsO50/BXll2j8DEQKirehl5JpLQVS8s9cJW6C4N2HfJ
-	MWFIjFdm0LpdxxL96RV68ZUNAlQ0gPF4nSo3GfC8+VLCi2aRm0e842zhloFYxE9dCvPW+PKlfw4Lc
-	92Jqzcaw==;
+	bh=64UJfQ2QSCW26/FM2EwjLVEGz51jQfPQ49vALeyVjLU=; b=lHoAG+k+GkuNSoBVvdALo06riy
+	XtbxJMksAF9Jphw0jz6xjHiOrS2CIwlaoGbQXU+lBkORI6ZJ90qDdUw0lVPsvsxovg86f1BYPvKSg
+	cCiKY6/W30KKCBIvSYV6YzJsXCGmrrremIJ6kJTq8yOddp4syuQ2pI5eI0Vbu6eNcngs1NtxHnoou
+	je+Ybci5pdw+O7tuOZz0rbxbb2HIR931GiXlCVWYBGWX1zeqZCLu0vP8egY5Wub7EfxrawUr/OEkI
+	TD11sv/+jJR2Qi/rsDIbVRcenWcpv2waPKYeXLSYDj7mx57Fzp9X3lVMAwa2JlMiaa0/lqFqKLxbe
+	DqqD3h7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb8T-00000003nQK-0Oem;
-	Mon, 08 Jun 2026 14:39:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWb8i-00000003ndG-1Yxt;
+	Mon, 08 Jun 2026 14:39:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb8Q-00000003nNa-2tAu
+	id 1wWb8h-00000003ncf-0qMc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:39:27 +0000
+	Mon, 08 Jun 2026 14:39:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7107A41E5D;
-	Mon,  8 Jun 2026 14:39:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4EA31F00898;
-	Mon,  8 Jun 2026 14:39:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FD27601D8;
+	Mon,  8 Jun 2026 14:39:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D83301F00893;
+	Mon,  8 Jun 2026 14:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780929566;
-	bh=dHWZem1sX5qRm+cZyCdgQwCQRbpaBa69F1l2ue7kqdc=;
+	s=k20260515; t=1780929582;
+	bh=64UJfQ2QSCW26/FM2EwjLVEGz51jQfPQ49vALeyVjLU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=EstVCjGiY9h1/7Lhl8o/judv0Dse+qu37RZOU6ncX/qNnXLuCu3dfpmaawAQr7WI7
-	 /xBKC9kpyP2gkxPVmm1NwU5KqbgRk7ep4Dn2XzMU1iS47TF/pQuVNHcy3hsyC9d1pM
-	 7YG5rA3P9HnaSWrpoxiQOAW+mHJ2dV8SWRj3ijXMpXhB9ABsI3lsCgVePeoZo8y6/X
-	 BwXOgxoO8gLybcItH3UcJJATR5JGaGdqlm9Z63d0xMIQQgzr4zNvGpJNCfIZNEBs0l
-	 WvDP3yxAoCqOczaCgf1nfz8lrOy7nuiiRXExkKZqcjTX9RXw9DT/ffOsRvLPsP/vFv
-	 o9FFsxRWQudmQ==
+	b=I5Ky/beKPpBmBWZi6Q7JdN6b3MjXJWiyTVNfV0Q5bCSQ7WaLrx4sRr6mkzxVNU7c/
+	 2wVIdPkDHOkJu22CVa0i8dBh85pG0XXRmGWK/K20PIUBIgwalRBo6DGxyQ4RWGGzRi
+	 +u2dVlKPPQWPUgyf4rjsr0ferSsN4pqGSxnJAZelO6YDI24GTCBoOlZ+nSKp5AR5cq
+	 53YXon/ivTs7e+eJALRUWzkwLKZ90XgHxVcqHrT/YSAqCW/KDrYnIcMZSgISap0JFQ
+	 DerjCb+CtlfpOjuDzFWVqAmaKFUPmYyd1HpCMIaWO7l0TUgkpxsYo6A1imD3XGmLhx
+	 4O66X7MTxeyuQ==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Mon, 08 Jun 2026 16:36:49 +0200
-Subject: [PATCH v2 67/78] drm/stm: lvds: Switch to atomic_create_state
+Date: Mon, 08 Jun 2026 16:36:55 +0200
+Subject: [PATCH v2 73/78] drm/xlnx: zynqmp_dp: Switch to
+ atomic_create_state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260608-drm-no-more-bridge-reset-v2-67-0a91018bf886@kernel.org>
+Message-Id: <20260608-drm-no-more-bridge-reset-v2-73-0a91018bf886@kernel.org>
 References: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
 In-Reply-To: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -61,20 +62,17 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
  Simona Vetter <simona@ffwll.ch>
 Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, 
  Maxime Ripard <mripard@kernel.org>, 
- Yannick Fertre <yannick.fertre@foss.st.com>, 
- Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
- Philippe Cornu <philippe.cornu@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1557; i=mripard@kernel.org;
- h=from:subject:message-id; bh=FHLjqSxtAsmlVX/L9fjMlbC7Mb50wFkU0ZGIw6Dxevg=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlql5PmZ60N1t/HKbryxLx1f++EdcYceWIowxpz6aCCW
- eWEGGP1jqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjAR1+WMDWtn8z8y5uxIn/nd
- NuLpYoP7ifayUflnF+vNefaveP+MFa1L6hz9pE42vFJKV7gj9fT7T8aGv3qevcrv7vRtOHnG4tb
- /pomn3yRz3m373xXdlFNb+GvV0tw13bVH5PhNXhRcqHvHYWwOAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1753; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=IH9PWtifm+BMyJqxfBp0AXO6boHBpVX3QAQphfjt5r4=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlql1N7SisL7kzZe01jzYMFme0PmJQ0rs+s794S2r9KR
+ ZZxSuqvjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCRbSqMDZvF6w8sSEl7GNnN
+ eWul0PH3Yd+sGPIV75Y/PK0hIxf+L2npz6jtX8/dOLPNwbrRJPR2LmPDRq3nnytlp7FfWJXoP+v
+ /2lMxwatEdl3dxfE8RES9YLqRWZfDy7DEy2+89NyyX0W2eC8EAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,38 +95,37 @@ drm_atomic_helper_bridge_reset() helper are deprecated.
 Switch to the atomic_create_state callback and its
 drm_atomic_helper_bridge_create_state() counterpart.
 
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
-To: Yannick Fertre <yannick.fertre@foss.st.com>
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-To: Philippe Cornu <philippe.cornu@foss.st.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+To: Michal Simek <michal.simek@amd.com>
 Cc: dri-devel@lists.freedesktop.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/gpu/drm/stm/lvds.c | 2 +-
+ drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/stm/lvds.c b/drivers/gpu/drm/stm/lvds.c
-index 50a878688e47..90a44e722057 100644
---- a/drivers/gpu/drm/stm/lvds.c
-+++ b/drivers/gpu/drm/stm/lvds.c
-@@ -1036,11 +1036,11 @@ static const struct drm_bridge_funcs lvds_bridge_funcs = {
- 	.attach = lvds_attach,
- 	.atomic_enable = lvds_atomic_enable,
- 	.atomic_disable = lvds_atomic_disable,
+diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+index 7fb11b0a44f0..b209582bc130 100644
+--- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
++++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+@@ -2278,11 +2278,11 @@ static const struct drm_bridge_funcs zynqmp_dp_bridge_funcs = {
+ 	.mode_valid = zynqmp_dp_bridge_mode_valid,
+ 	.atomic_enable = zynqmp_dp_bridge_atomic_enable,
+ 	.atomic_disable = zynqmp_dp_bridge_atomic_disable,
  	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
  	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
 -	.atomic_reset = drm_atomic_helper_bridge_reset,
 +	.atomic_create_state = drm_atomic_helper_bridge_create_state,
- };
- 
- static int lvds_probe(struct platform_device *pdev)
- {
- 	struct device_node *port1, *port2, *remote;
+ 	.atomic_check = zynqmp_dp_bridge_atomic_check,
+ 	.detect = zynqmp_dp_bridge_detect,
+ 	.edid_read = zynqmp_dp_bridge_edid_read,
+ 	.atomic_get_input_bus_fmts = zynqmp_dp_bridge_get_input_bus_fmts,
+ 	.debugfs_init = zynqmp_dp_bridge_debugfs_init,
 
 -- 
 2.54.0
