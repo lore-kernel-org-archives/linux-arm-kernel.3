@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66137CD8CA7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD21CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plNYBzzaUu+CjxUfVgmwKMU0d70IRGPw0rK3BmwuPjc=; b=V6M7d1RbdccCN1RqEZJC4aHHEJ
-	42Yz+DrJtm3XPmzhmoXhaT37iFJ1jqa5SYQBOWzK8MGIjue9gtVg5ByUKiLJgXfWXrVdC/8Px4vTs
-	0fWW5PvINvdFm559lzbU5hFnapLr+9/+2luLB7GdKWPoIivixxsLhn0hO3hP0ReTBurEWOVoKbPVD
-	aqFI34mHYdQIfRa/QxNFjTD5J89oRDgWJTLM/SR6cUQ3wOfNP69CBVgZo34dsRWKeBPGYTkk+UPsb
-	yzVWoRr35KL1RdRI/Ix6ts41zcoNiM67ZBGV3HhWznHthbmq8qg5CqintDOGnDP4W7pN9Dy2Et9Rd
-	DLk4Syvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lwAr31YE3Z1pED6qS0szzIwG3QCMLEOLMnQ2RMJDUOM=; b=vrAc1LvXCIhjdOLHu6WhaYiUjx
+	UtZwZvnbTr60TO9ZGX/gUiew/TkQNI0ph/JTNBm0Lu6L1Lt7sdpZqPqaqb790UDcTaglqlKL7MJuZ
+	kNwB2dF1aMnMmAqFNn+Xv1YurmA6Yh2+3AEOFfmsqfAfi3YQcPxCK2tusv8GCzSaA18J8pDvyJpKZ
+	INydxpZHtsZ2uBEHbR31dTiaXB/8IYZ4u3cl9VGfPxzbmn7OQIZ2YpCuzKbwWUte5zUdZLGNt5Dvt
+	c9ZiMbB1JwXQuw1PcLPZgDd3zurGvGcm8dE1/XCLG3J/NbQmoJ+FNOAQ67jo/cv+m0hv1XYc/AgtF
+	YkuyDfrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWXTU-00000003Lsv-0XdD;
-	Mon, 08 Jun 2026 10:44:56 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1wWXUS-00000003M8e-1eon;
+	Mon, 08 Jun 2026 10:45:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWXTR-00000003Lqn-0mwt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 10:44:55 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260608104448euoutp02462bcf49bb960e5e74d4dfba6373e0ce~3FTN8Nl8Y2450824508euoutp02S;
-	Mon,  8 Jun 2026 10:44:48 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260608104448euoutp02462bcf49bb960e5e74d4dfba6373e0ce~3FTN8Nl8Y2450824508euoutp02S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1780915488;
-	bh=plNYBzzaUu+CjxUfVgmwKMU0d70IRGPw0rK3BmwuPjc=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=JoCZ/WKIAI4ynKcKsLsemvNM9WajLCXA73D5zw2xoD7lCL3z54ZkMrkLh/JyPdEyE
-	 /kqCaIilwuycoqSIz0z02aXZrhcLMotd35EHMU7drq2vG8mZar/SYgy1xT2vcdWCN6
-	 uGoRfxIdzyZOSLqUCzO80yrI3lBIVEMsvs8BDl3o=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260608104448eucas1p1685dd3246a9e2b35613d32758481919c~3FTNnAVOb0713807138eucas1p1-;
-	Mon,  8 Jun 2026 10:44:48 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260608104446eusmtip22e466d5ec2468bd35b4ff28e72e16298~3FTMH8FJe2930429304eusmtip2T;
-	Mon,  8 Jun 2026 10:44:46 +0000 (GMT)
-Message-ID: <4d30ec2d-72e4-4d5d-98aa-d2519ed6737e@samsung.com>
-Date: Mon, 8 Jun 2026 12:44:45 +0200
+	id 1wWXUR-00000003M8Q-3Hf3;
+	Mon, 08 Jun 2026 10:45:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F0A543AD6;
+	Mon,  8 Jun 2026 10:45:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50B051F00893;
+	Mon,  8 Jun 2026 10:45:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780915555;
+	bh=lwAr31YE3Z1pED6qS0szzIwG3QCMLEOLMnQ2RMJDUOM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dH7w9e5cFvpPBbow5Hvzni+rdfyCJ3vvHYC0PpS0hpnzJH/kiVkxTr/pH/L/j24io
+	 sHDosiUTCsVi0O5Ubn/CDuPWvynxVvwHKIpPhBSgGQ3iZMv+fvYy/03Om123qHfaD4
+	 rqeT5sS7i3FuHBqZd6+A8R2ymf1lu/2sUxKAw0MH8Fim/BFtCOl6gcXDQvg8yS7On5
+	 ulpkSxz+5tbOngYZa8XXDRazCC6gxRlGcimjE5YFDRx6ovgft23vkbHXt871HAA7Gl
+	 2PRBnv8wbkJj1Y9JtYZ+9uQ+snvAfGO2VJFOm6a9fC7m2kJ/2cThPgPlVs2Xlm1Rhe
+	 68JvJBYcj1lEw==
+Date: Mon, 8 Jun 2026 12:45:51 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: phy: nuvoton: Add MA35D1 USB2 OTG PHY
+ binding
+Message-ID: <20260608-demonic-horned-honeybee-4f6bb7@quoll>
+References: <20260604101220.1092822-1-a0987203069@gmail.com>
+ <20260604101220.1092822-2-a0987203069@gmail.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v5 05/20] dma-pool: track decrypted atomic pools and
- select them via attrs
-To: Jason Gunthorpe <jgg@ziepe.ca>, "Aneesh Kumar K.V"
-	<aneesh.kumar@kernel.org>
-Cc: Michael Kelley <mhklinux@outlook.com>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, Robin Murphy <robin.murphy@arm.com>, Will
-	Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Steven Price
-	<steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
-	Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Mostafa
-	Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>, Alexey
-	Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu
-	Yilun <yilun.xu@linux.intel.com>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
-	<svens@linux.ibm.com>, "x86@kernel.org" <x86@kernel.org>, Jiri Pirko
-	<jiri@nvidia.com>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260604182419.GC2487554@ziepe.ca>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260608104448eucas1p1685dd3246a9e2b35613d32758481919c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260604182425eucas1p172fc82b218cbed92f71a093549902d3a
-X-EPHeader: CA
-X-CMS-RootMailID: 20260604182425eucas1p172fc82b218cbed92f71a093549902d3a
-References: <20260522042815.370873-1-aneesh.kumar@kernel.org>
-	<20260522042815.370873-6-aneesh.kumar@kernel.org>
-	<SN6PR02MB415754E94A9505C2B9739E4DD4092@SN6PR02MB4157.namprd02.prod.outlook.com>
-	<yq5afr35sciu.fsf@kernel.org>
-	<SN6PR02MB4157D9955A93244014AB7978D4122@SN6PR02MB4157.namprd02.prod.outlook.com>
-	<20260603005454.GM2487554@ziepe.ca>
-	<SN6PR02MB4157F94C902B78E55E99372DD4102@SN6PR02MB4157.namprd02.prod.outlook.com>
-	<yq5apl26qrof.fsf@kernel.org>
-	<CGME20260604182425eucas1p172fc82b218cbed92f71a093549902d3a@eucas1p1.samsung.com>
-	<20260604182419.GC2487554@ziepe.ca>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_034453_824382_FC73EC2E 
-X-CRM114-Status: GOOD (  14.85  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260604101220.1092822-2-a0987203069@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,25 +73,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04.06.2026 20:24, Jason Gunthorpe wrote:
-> On Thu, Jun 04, 2026 at 08:27:36PM +0530, Aneesh Kumar K.V wrote:
->> I already sent a v6 in the hope of getting this merged for the next
->> merge window. Should I send a v7, or would you prefer that I do the
->> rename on top of v6?
-> I think it is too late for such a major change, but this should be
-> imaginged to be for rc2ish next cycle. You also have to spell out how
-> the pkvm patch will get sequenced as well, it would be best to push
-> that it gets picked up right away.
+On Thu, Jun 04, 2026 at 06:12:19PM +0800, Joey Lu wrote:
+
+A nit, subject: drop second/last, redundant "binding". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+
+> +properties:
+> +  compatible:
+> +    const: nuvoton,ma35d1-usb2-phy-otg
+> +
+
+Where is reg? MMIO is expressed with reg, not via custom phandle.
 
 
-I would like to give this a bit of time in linux-next so it is a bit too
-late for v7.2, but before merging it I would also like to have this code
-reviewed by someone with confidential computing knowledge.
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  nuvoton,sys:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to the system management syscon.
+> +          - description: PHY instance index.
+> +            enum:
+> +              - 0   # USB0, OTG port (shared with DWC2 gadget controller)
+> +              - 1   # USB1, host-only port
+> +    description:
+> +      A phandle to the syscon node covering the SYS register block, with
+> +      one argument selecting the PHY instance. Index 0 selects the OTG
+> +      port PHY (USB0) and index 1 selects the host-only PHY (USB1).
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +  nuvoton,rcalcode:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 15
+> +    description:
+> +      Resistor calibration trim code written to the RCALCODE field in
+> +      USBPMISCR. The 4-bit value adjusts the PHY's internal termination
+> +      resistance. When absent the hardware reset default is used.
+> +
+> +  nuvoton,oc-active-high:
+> +    type: boolean
+> +    description:
+> +      When present, the over-current detect input from the VBUS power
+> +      switch is treated as active-high. The default (property absent) is
+> +      active-low. This setting is shared by both USB host ports.
+> +
+> +required:
+> +  - compatible
+> +  - clocks
+> +  - nuvoton,sys
+> +  - "#phy-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
+> +
+> +    usb_hphy0: usb-host-phy {
 
+usb-phy
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+And drop unused label.
 
+> +        compatible = "nuvoton,ma35d1-usb2-phy-otg";
+> +        clocks = <&clk HUSBH0_GATE>;
+> +        nuvoton,sys = <&sys 0>;
+> +        #phy-cells = <0>;
+> +    };
+> -- 
+> 2.43.0
+> 
 
