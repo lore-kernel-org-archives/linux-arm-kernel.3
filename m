@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9691CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6709BCD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E05iHIbrevOWCYE7OJG8GXkZLu9ViZ4PELOG+JHp3Us=; b=cT4Ra8w7Xy1iYY7SdxqCBdpYl/
-	RLdlKTvNAgw9ZmNy7gOKL/EH4vAMESBkgFDhufIi9pZfsGglKWrWrboAkWWb5rLm6VelqRE6/8Cqt
-	B7WpDJ0ouyTB2aoP0IBFqvsno1LP8O/yvZXpOuMVhWhSJn9fk1p1nPQ/5TwgFACO8dvL06ThO5TSQ
-	rxvSYDUJO34FbXXmxnB1zBKw7I1goDqwWs1myU5Smyuquc2ZSZ/iDwljETQnSJ+LH9KL4GkY/XEoH
-	nZ/I9ED6gYUHeds+D9oUNaSaW2fw3X2h7Z6sUeR1mrby10idCMcRLQ6c7If9LxILgqGtD/oKFOUk5
-	QHKqE5Cg==;
+	bh=XhYNZb14iT7WTi/rIPt9D0xOIE2Ux7BaHdEjyhqsqYw=; b=0cTlk9HRBl6cYA4qPN9Yhr9HPJ
+	dVcxxFMcLsaFVNxo69qa32T+fNxliq1mR4+KIkTQlhmuIKjHB5aQfRGwSOj6QJC5HYUQyLEo4D/Su
+	pVWs2SBRoXf3xUeNnu4ikNcxiruLS2ch6Y0/X4vs9uQt/j8ntdXhpc6RASjAoD9HUR6LXMEIexFiJ
+	c4mvamSU0bbt8MaVp9kfJ6oa/tzTVu+4RBeIw4Jy1xvJqu8Y9FGoDegleT5G1bKJ6ecCv9Alde30d
+	qgKDuwgnWAMjbEizTHy5VPgufhRVaOV705Dpiw26vNqW9jCS0p3ADoCKw9D6gAIVyKhJoocbfDWQL
+	Mzf6rfDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVAB-000000034Mi-0Ro2;
-	Mon, 08 Jun 2026 08:16:51 +0000
+	id 1wWVCe-000000034fs-2IoN;
+	Mon, 08 Jun 2026 08:19:24 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVA7-000000034Jx-1R5n
+	id 1wWVCc-000000034fk-37Px
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:16:47 +0000
+	Mon, 08 Jun 2026 08:19:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F67F601DC
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:16:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 260E11F00898
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:16:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B5006001D;
+	Mon,  8 Jun 2026 08:19:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E37721F00893;
+	Mon,  8 Jun 2026 08:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780906606;
-	bh=E05iHIbrevOWCYE7OJG8GXkZLu9ViZ4PELOG+JHp3Us=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=n6MJHNNPw/rdEQ9+/wX3e7sYwrJeF4CxEinDh2sL+Z4GuijMSbsR5Dza3YJU0oBXh
-	 g2v/CHsHAp5LylgxEo6lI8SvRIbgPrJwZwTBCc4y7XL3sldmyIVN2ztGxeJgLk+GAO
-	 qf/IoQ27vT25AeCxtGYu7WdYJyS/rlRuBDSaWMcf3hAwFuoxL+NkdjyNOUN00/+LYZ
-	 WDFqmhOauGndRB0BYQvHkl9SjqGT9dYC7dUcD9QkWThF6FRKiDGbqjG/IxCjWtRLPV
-	 uhg7QHxXf26JNhq9GK5ka3afHwFMHqCw1EzWeTSZVKsKzNWSvtxYsmOq9oM1CTzO5S
-	 KZt47uQfgbIng==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aa68d7d757so4304756e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 01:16:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ81GxTGkPmueTUsAopo2Poon1bFMsOa2uD63bRirCGR119ZyVhlCpzF1CtqELD3x2vx+GF3h2KRbv/QOPJdJs47@lists.infradead.org
-X-Gm-Message-State: AOJu0YxALhiBiHoI5UrdSiMPCO+Gdti/EvOrcttabcWGGaJxePAdKLFm
-	+MNQmLad4pZG0Etwj7Mn7bClzbllsf0ZsVxgMW1Bf7AQt5krqYylj/gEW3eptvAlOdU4wIu+NF1
-	v5KrTcBB4A1N7MLt9dHWRpIZaEz/CzVs=
-X-Received: by 2002:a05:6512:4158:20b0:5aa:6f89:9378 with SMTP id
- 2adb3069b0e04-5aa87be9785mr2712017e87.33.1780906604512; Mon, 08 Jun 2026
- 01:16:44 -0700 (PDT)
+	s=k20260515; t=1780906761;
+	bh=XhYNZb14iT7WTi/rIPt9D0xOIE2Ux7BaHdEjyhqsqYw=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=Mmq5wbmIYFu1a4E9O/keCOTey2Zntjaf7yICd0m6BGd1oheJRkTRaN/GmCNq27lhd
+	 FjdHBn0GAX/d6+/TmxvmgoubTaAPzhxz+6eL4v/Y0t0GPudGyzAW51K2XYVw6sWjDd
+	 lB25o4DoPQPeM8Kl49NdCT847toI7uF1jIYZjxL0UT6LkcCoOVN6PirRxV4vx+tEYj
+	 8WsmQtJBm3ts4O+ccaHr1F7o+kdqpThzb9+ZYIzKNWa+9ytO363rGrbcO5J7UI0SA4
+	 DAIKA9oebiy06o+42gO47NIHTUwCT8PpWX7oNRCAGE1QHHF0+mx7XsUmVoICiYmln7
+	 DkjW0cxD5ONnA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+In-Reply-To: <20260604-juicy-daft-starling-3eec1f@sudeepholla>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
+ <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+ <yq5ase72qvwb.fsf@kernel.org>
+ <20260604-juicy-daft-starling-3eec1f@sudeepholla>
+Date: Mon, 08 Jun 2026 13:49:13 +0530
+Message-ID: <yq5ao6hlzbpa.fsf@kernel.org>
 MIME-Version: 1.0
-References: <20260605071233.28873-1-ansuelsmth@gmail.com>
-In-Reply-To: <20260605071233.28873-1-ansuelsmth@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 8 Jun 2026 10:16:32 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnSLnbt=haP75uu5R8uQCk2nWM4vT7=tH2ZZf5MyG45nQ@mail.gmail.com>
-X-Gm-Features: AVVi8CdivXSw4jUoM7pdXrQFsczZzpyDzmpPsLaovwgdJGugxO38xZTv12y0Owk
-Message-ID: <CAD++jLnSLnbt=haP75uu5R8uQCk2nWM4vT7=tH2ZZf5MyG45nQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: Move Airoha driver to dedicated directory
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,22 +84,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 5, 2026 at 9:13=E2=80=AFAM Christian Marangi <ansuelsmth@gmail.=
-com> wrote:
+Sudeep Holla <sudeep.holla@kernel.org> writes:
 
-> In preparation for additional SoC support, move the Airoha pinctrl driver
-> for AN7581 SoC to a dedicated directory.
+> On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
+>> Sudeep Holla <sudeep.holla@kernel.org> writes:
+>>=20
+>> ...
+>>=20
+>> > +static const struct smccc_device_info smccc_devices[] __initconst =3D=
+ {
+>> > +       {
+>> > +               .func_id        =3D ARM_SMCCC_TRNG_VERSION,
+>> > +               .requires_smc   =3D false,
+>> > +               .min_return     =3D ARM_SMCCC_TRNG_MIN_VERSION,
+>> > +               .device_name    =3D "arm-smccc-trng",
+>> > +       },
+>> > +};
+>> > +
+>> > +static bool __init
+>> > +smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+>> > +{
+>> > +       struct arm_smccc_res res;
+>> > +       unsigned long ret;
+>> > +
+>> > +       if (!IS_ENABLED(CONFIG_ARM64))
+>> > +               return false;
+>> > +
+>> > +       if (smccc_conduit =3D=3D SMCCC_CONDUIT_NONE)
+>> > +               return false;
+>> > +
+>> > +       if (smccc_dev->requires_smc && smccc_conduit !=3D SMCCC_CONDUI=
+T_SMC)
+>> > +               return false;
+>> > +
+>> > +       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+>> > +       ret =3D res.a0;
+>> > +
+>> > +       if ((s32)ret < 0)
+>> > +               return false;
+>> > +
+>> > +       return ret >=3D smccc_dev->min_return;
+>> > +}
+>> > +
+>> >
+>>=20
+>> I am not sure we want the check to be as simple as ret < 0. Some
+>> function IDs may return input errors based on the supplied arguments
+>> (for example, RMI_ERROR_INPUT). In those cases, we would likely want
+>> this to be handled via a callback.
+>>=20
 >
-> This is to tidy things up and keep code organized without polluting the
-> Mediatek driver directory.
+> As I mentioned in response to Suzuki, we can defer that to probe of
+> that device. If *_VERSION, succeeds SMCCC core can add that device and
+> leave the rest to the core keeping the core and bus layer simple IMO.
 >
-> The driver doesn't depend on any generic or common code from the Mediatek
-> codebase so it can be safely moved without any modification.
+>> We also want to use conditional compilation for some function IDs.
+>> Given the callback approach and the #ifdefs, I wonder whether what we
+>> currently have is actually simpler and more flexible.=E2=80=9D
+>>=20
 >
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> I was trying to avoid conditional compilation altogether and hence the
+> reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
+> in above snippet must come as some condition to this generic probe.
+>
+> Adding any more logic or callback defeats the bus idea here if we need
+> to rely/depend on multiple conditional compilation or callbacks IMO.
+>
+> Let's find see if it can work with what we are adding now and may add in
+> near future and then decide.
+>
 
-Patch applied because it's a good idea.
+If we move all the conditional checks to the driver probe path, then I
+think this can work. Something like the below:
 
-Yours,
-Linus Walleij
+struct smccc_device_info {
+	u32 func_id;
+	bool requires_smc;
+	const char *device_name;
+};
+
+static const struct smccc_device_info smccc_devices[] __initconst =3D {
+	{
+		.func_id        =3D ARM_SMCCC_TRNG_VERSION,
+		.requires_smc   =3D false,
+		.device_name    =3D "arm-smccc-trng",
+	},
+
+	{
+		.func_id        =3D RSI_ABI_VERSION,
+		.requires_smc   =3D true,
+		.device_name    =3D RSI_DEV_NAME,
+	},
+};
+
+static bool __init smccc_probe_smccc_device(const struct smccc_device_info =
+*smccc_dev)
+{
+	unsigned long ret;
+	struct arm_smccc_res res;
+
+	if (smccc_conduit =3D=3D SMCCC_CONDUIT_NONE)
+		return false;
+
+	if (smccc_dev->requires_smc && smccc_conduit !=3D SMCCC_CONDUIT_SMC)
+		return false;
+
+	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+	ret =3D res.a0;
+
+	if ((s32)ret =3D=3D SMCCC_RET_NOT_SUPPORTED)
+		return false;
+
+	return true;
+}
+
+static int __init smccc_devices_init(void)
+{
+	struct arm_smccc_device *sdev;
+	const struct smccc_device_info *smccc_dev;
+
+	for (int i =3D 0; i < ARRAY_SIZE(smccc_devices); i++) {
+		smccc_dev =3D &smccc_devices[i];
+
+		if (!smccc_probe_smccc_device(smccc_dev))
+			continue;
+
+               sdev =3D arm_smccc_device_register(smccc_dev->device_name);
+               if (IS_ERR(sdev))
+                       pr_err("%s: could not register device: %ld\n",
+                              smccc_dev->device_name, PTR_ERR(sdev));
+
+	}
+
+	return 0;
+}
+device_initcall(smccc_devices_init);
+
+with the diff to hw_random/smccc_trng
+
+modified   arch/arm64/include/asm/archrandom.h
+@@ -12,7 +12,7 @@
+=20
+ extern bool smccc_trng_available;
+=20
+-static inline bool __init smccc_probe_trng(void)
++static inline bool smccc_probe_trng(void)
+ {
+ 	struct arm_smccc_res res;
+=20
+modified   drivers/char/hw_random/arm_smccc_trng.c
+@@ -19,6 +19,8 @@
+ #include <linux/arm-smccc.h>
+ #include <linux/arm-smccc-bus.h>
+=20
++#include <asm/archrandom.h>
++
+ #ifdef CONFIG_ARM64
+ #define ARM_SMCCC_TRNG_RND	ARM_SMCCC_TRNG_RND64
+ #define MAX_BITS_PER_CALL	(3 * 64UL)
+@@ -98,6 +100,10 @@ static int smccc_trng_probe(struct arm_smccc_device *sd=
+ev)
+ {
+ 	struct hwrng *trng;
+=20
++	/* validate the minimum version requirement */
++	if (!smccc_probe_trng())
++		return -ENODEV;
++
+ 	trng =3D devm_kzalloc(&sdev->dev, sizeof(*trng), GFP_KERNEL);
+ 	if (!trng)
+ 		return -ENOMEM;
+
+We can also move arch/arm64/include/asm/rsi_smc.h to
+include/linux/arm-rsi-smccc.h. There was a suggestion to move these
+firmware interfaces out of architecture-specific code:
+
+https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
+
+This will also avoid the #ifdef CONFIG_ARM64
+
+-aneesh
 
