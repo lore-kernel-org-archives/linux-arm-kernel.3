@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F814CD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C54CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I8VuHm9Oa/BVszrFD5wv90Tzk1uGtRmh9CuI/PCvjbU=; b=4rBppDDOGO3AQEuvQXlLUvE01m
-	U4DuQU9p01gntyHeZpbiOeZXGK+U3NKgPeuaYq0p7qaGmSA2ryd6vt1rs9rtl69P8mnbeEeXSlyxt
-	LucgCkgvLfwAQUZMShrYAeZB7G9TRXT8ws85AN1tNyqF71pliEoeoUIaSBA4Ke2ZdNBjIkXZ3ksNU
-	R1jt3hH1Ugit69sBuymZXmnTF4LDBo9fRW47blrhxB1LVHKOTYriqAbv5fCTX6hTLftF/8OdZqo04
-	3lmVo6qerNVaoiGnEQO2qv1/IxK4SjORuJIbG+zi5oQyOUz6hEPjNGEQlJDfN9PeZqEJH4QwJL0wJ
-	/J+mp4Jw==;
+	bh=BbSbELZ/qhJGz8m9PkFP4eZM/CFetLN6lwudktuynGY=; b=oifDfTkbkfmKTAAS8E9hDEl7pX
+	Dycm920b87Qu+SdK4p3MNty7K2Tsu9onCKUA7zFrx4o1yBMx7rIT0KaGaZqhYjSTFLxDGCWGaDCsf
+	nZ47QwD0hK5p+QzJlZNdsEfa7JMKHaKffZKl3jdjbmzvQI4Q5ausYs1WMv/+37pMI6VW/UGvNjtO+
+	Sb9Jp9P3e48gKwKCuHa19PasaIJ4vPhJ7KrMkW18Tc0kYeeOvQsilVwyUnaZD2V/7YOkGxgt0oyl7
+	QQtFhq+LiIcVt6KpbhS9jwvVhjM9Urz0b5j/zRWGoMZH499pgHKAGpHzqMftPfBuO7BQm4Zkmro3f
+	0cfwRLRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWcpX-000000044DA-3o3q;
-	Mon, 08 Jun 2026 16:28:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWcpU-000000044CL-3Yq4
+	id 1wWcrD-000000044Qu-0neu;
+	Mon, 08 Jun 2026 16:29:47 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWcrA-000000044Q5-2r1c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 16:28:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 871F822D7;
-	Mon,  8 Jun 2026 09:27:54 -0700 (PDT)
-Received: from [10.57.73.11] (unknown [10.57.73.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74D7B3FD88;
-	Mon,  8 Jun 2026 09:27:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780936079; bh=o1gFPXFWJiu/z2dHtJZURkMXw13o+ZM7ANlgOI9GSJQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XjgYPwFZfhLCQqo6vvRmbJe2830zLANh86BF2ZdclMoy3/MRsdhK75KcshtcuPjQm
-	 ugZMDuczAeyCZSDIepP5x8Cs8XlKTF4fv0KGQvLEXd/y/MHFC5gc3v4sIgDjgDeO19
-	 /4PYGYcoZ0rYndCygfCmArJ/NERZT93i9fCUMwOQ=
-Message-ID: <6f58a9e0-8f61-4202-acef-901108808cfd@arm.com>
-Date: Mon, 8 Jun 2026 17:27:47 +0100
+	Mon, 08 Jun 2026 16:29:45 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gYyDd4cMlz9v04;
+	Mon,  8 Jun 2026 18:29:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1780936177;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BbSbELZ/qhJGz8m9PkFP4eZM/CFetLN6lwudktuynGY=;
+	b=AQE2xXfNVLdb0zenRfKtc1yr7vSNa3ByjQ0rIG1J/Ql0m4lBUCNWwtIrp3znIEbEDtsn8h
+	IMGOPgaK0+eCY7j1maEAItCcpQPyKJ7EnszJxY220kDYTU1J8pgWVcgvGRJmW0qTbOaB7D
+	qeMglUL8Fp+gPnHx9kzN5tpB+fajuXZY5KKPH9qumH7BnQAdWg/B3XKTwzgUFL6SO75SDb
+	I5g9Edd+BUNNLOAWjCxWxqIjDWMrqVw4VbJUSHIwz3efT8YHbNLMTMiFiMwwvEDuL+L9K0
+	a3UnfU9QVReNX3lcogtEW1Jj6oSeI1xs5OgCPqZoaRRXyNJHAUHpGEwOl8uTtg==
+Message-ID: <9ece4e08-a77f-4410-ba16-a77b9bd0aace@mailbox.org>
+Date: Mon, 8 Jun 2026 18:29:32 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
- provider to an SMCCC device
-To: Sudeep Holla <sudeep.holla@kernel.org>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Steven Price <steven.price@arm.com>
-References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
- <20260527100233.428018-4-aneesh.kumar@kernel.org>
- <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
- <yq5ase72qvwb.fsf@kernel.org>
- <20260604-juicy-daft-starling-3eec1f@sudeepholla>
- <yq5ao6hlzbpa.fsf@kernel.org> <e0071e90-c2f5-4d15-b3c6-fe05bf1464e4@arm.com>
- <yq5aldcpz316.fsf@kernel.org>
- <20260608-hot-fascinating-tortoise-cccc61@sudeepholla>
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260608-hot-fascinating-tortoise-cccc61@sudeepholla>
+Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
+To: Liu Ying <victor.liu@nxp.com>, Piyush Patle <piyushpatle228@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lucas Stach <l.stach@pengutronix.de>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Abel Vesa <abelvesa@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20260605121112.27866-1-piyushpatle228@gmail.com> <aiZzxhljfyYQ68Gl@raspi>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aiZzxhljfyYQ68Gl@raspi>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: yf38h31tgdjwq7mde8h8omnc7sio8pks
+X-MBO-RS-ID: 587bbf07cc5c34a1000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_092801_058334_7961FB46 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20260608_092944_892776_75B4865B 
+X-CRM114-Status: GOOD (  25.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +85,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/06/2026 13:32, Sudeep Holla wrote:
-> On Mon, Jun 08, 2026 at 04:56:29PM +0530, Aneesh Kumar K.V wrote:
->> Suzuki K Poulose <suzuki.poulose@arm.com> writes:
+On 6/8/26 9:48 AM, Liu Ying wrote:
+
+Hello everyone,
+
+>> I brought this series up on the i.MX95 15x15 FRDM (IT6263 LVDS-to-HDMI on
+>> LVDS ch1). It mostly works, but I ran into a few issues around DI routing,
+>> LVDS format handling, and DC enable sequencing which needed rework before
+>> HDMI would come up reliably on the board.
 >>
->>> On 08/06/2026 09:19, Aneesh Kumar K.V wrote:
->>>> Sudeep Holla <sudeep.holla@kernel.org> writes:
->>>>
->>>>> On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
->>>>>> Sudeep Holla <sudeep.holla@kernel.org> writes:
->>>>>>
->>>>>> ...
->>
->> ...
->>
->>>>> I was trying to avoid conditional compilation altogether and hence the
->>>>> reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
->>>>> in above snippet must come as some condition to this generic probe.
->>>>>
->>>>> Adding any more logic or callback defeats the bus idea here if we need
->>>>> to rely/depend on multiple conditional compilation or callbacks IMO.
->>>>>
->>>>> Let's find see if it can work with what we are adding now and may add in
->>>>> near future and then decide.
->>>>>
->>>>
->>>> If we move all the conditional checks to the driver probe path, then I
->>>> think this can work. Something like the below:
->>>>
->>>> struct smccc_device_info {
->>>> 	u32 func_id;
->>>> 	bool requires_smc;
->>>> 	const char *device_name;
->>>> };
->>>>
->>>> static const struct smccc_device_info smccc_devices[] __initconst = {
->>>> 	{
->>>> 		.func_id        = ARM_SMCCC_TRNG_VERSION,
->>>> 		.requires_smc   = false,
->>>> 		.device_name    = "arm-smccc-trng",
->>>> 	},
->>>>
->>>> 	{
->>>> 		.func_id        = RSI_ABI_VERSION,
->>>
->>> Don't we need parameters passed to this (Requested Interface version for
->>> e.g.) ? See more below.
->>>
->>
->> The idea is that we only check whether the function ID is supported. All
->> other conditional logic should be handled in the driver probe path, as
->> demonstrated by the changes in drivers/char/hw_random/arm_smccc_trng.c.
->>
+>> I don't see a v2 of the series and things seem to have been quiet since
+>> November. Are you planning to post an updated version?
 > 
-> +1. Yes, we just want to know whether the firmware is aware of that feature
-> before creating the `smccc_device` for it. The device probe can then perform a
-> more thorough, feature-specific check to determine whether the device/feature
-> is usable.
+> My plan was to enable prefetch engine support[1] for i.MX8QXP display
+> controller and add device tree for a whole i.MX8QXP LVDS display pipeline,
+> before adding i.MX95 display controller support.
 > 
-> That is the main idea behind the approach I suggested. Please let me know if
-> you still see any issues or think this may not work.
+> Unfortunately, it seems that Marek is not a big fan of [1]
 
-Ok, yea, I kind of forgot that we are boot strapping a driver based on
-this "smccc device" and the device is only an indication of the firmware
-service, the driver would decide if the service matches its expectation.
+I am fine with [1] as long as it can be isolated and does not affect 
+every SoC that might reuse this driver, which I think it can be done.
 
-Thanks for the clarification, apologies for the noise.
+> and I'm busy
+> with downstream development so the plan doesn't move forward well.  I still
+> think [1] makes sense(maybe I need to rebase it on latest drm-misc-next),
+> so I'd like to see review comments on [1] and hopefully people think that
+> the overall idea of [1] is ok.
 
-Suzuki
+My only concern is, to keep it isolated to MX8Q, so this driver can be 
+reused by MX95.
 
-
-
+>> I've accumulated a fair amount of rework while getting this running on the
+>> FRDM. If you're not planning a v2, I can clean things up and send one based
+>> on the current series.
 > 
+> I still think that i.MX95 display controller driver should be in a separate
+> driver, rather than sharing the same driver with i.MX8QXP display controller
+> like this patch series does, because the two display controllers are quite
+> different as I mentioned in comments on this patch series and in discussion
+> in [1].  Also, the common part between the two display controllers should
+> be extracted to a common helper library as I mentioned there too.
+Are they really? It seems this series adds support for the MX95 DC 
+without that many changes, so are the DCs really that different ? It 
+seems the MX95 DC is simply a reuse/evolution of the MX8Q DC blocks, so 
+duplicating the code seems like the wrong direction, it will only lead 
+to disparate sets of bugs in two drivers, which isn't desired.
 
+(I might not fully understand what you have in mind with the helper 
+library though?)
 
