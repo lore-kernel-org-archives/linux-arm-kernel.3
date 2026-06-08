@@ -4,155 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87E0CD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C8BCD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCNBeIBkpn6UT4+PIgk+xjWkTbjyGczmH4YzzZub104=; b=zkwKyIDKviSnFRCu80HvuFgkPi
-	ZjIujkUnXvGB66YsOdzVBSdfV8Y5h8oKOiVNvekIhhwdC21w1mEHtTAp0TzNyfxFBax+2NOivKBZs
-	2/t+IbmO3PyhW5sJAniqccnTmYgPn0QggJzNfzEr8rHdKZM7LLj2T+RN+UWMBkT9IGU3zz3e3vJwT
-	SB4wd1rb1PfonoIPVPWyw18LCUAEXF8M1gxJl7WUqharkyOoFyfn/D1FsjEVwnDPRpJgk5zgP0lwC
-	d5FVXheTQxkJc+tJwuZPrFE0ygvRvA+9dJaR+ctRxu4fJ6LmVSq8xhEVy68jjOLE+p+1tI3n2XYSy
-	ZoYaamjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QdqtVwTNX0imLywa7I0ecwdu4Le2YQgpibN80cjQUTg=; b=Rxb+k/HM2oau2eaOIeVQKQN44k
+	ehOWa3xhfSiYZkdRKBDzlQgQ7Aw1ZJoinlx1FXtC1+GIJOOQaHQ8gObwlgPdmGdGmSw+5AyFbKvO6
+	9v4L7gPFfC/9HxnRlGNcnBPLELtA9haJKTZrqDiGkZSySO4dYlG7eufJaWhEgZXTYFYmNd28swThg
+	cp43ml5+I3j2UwzS1rtPm8wBz85Hl+eg37fichbzyi5ONr4OshLgvkcn/0/2d43P2UQI5HLhgY9f4
+	g5koTN0LwXJ6bFh21T5AlYw4dR8/OT8dJbYF/WD6vYyPPXQTYnM5fYR/RDib5bOaoD/SNwhYwYiqr
+	pFwWBvfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWVf-00000003Cyx-45xM;
-	Mon, 08 Jun 2026 09:43:07 +0000
-Received: from mail-westeuropeazon11013021.outbound.protection.outlook.com ([52.101.72.21] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wWWWe-00000003DAk-28CW;
+	Mon, 08 Jun 2026 09:44:08 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWVd-00000003Cxv-0pUL
+	id 1wWWWb-00000003D9z-35zT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 09:43:06 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=JtxCcByXIHEk6ioI1wDMPvYgaI7TIi+UIL574XPXl10e70tIy0oVHp2I+DzJhW1eyJuwH22AiBur77uYAiPmyETvML+rinvlq4eNKF1LRT9SBSGhKhQI72H36wLbQhBYpH8dqRA7OR09X1GTdV5Nm3Q/OCRVwjgmkwgOfE+gwDqiSPpc3Ic1ZW8RK8Jnci0rGzklAJ9008RL6jkV/QluVoidJPInyKZu1Ak3fiZXLymmG9MTBAQeHQVpYwnm8zOazUZypTqdTm35H+RllBbiXfq7sn5P3zw2hbvNkEqEJN8LaVC72E7H9rN4LHoE/oNiiuQ8LIwdJZebxknvbwvnNA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yCNBeIBkpn6UT4+PIgk+xjWkTbjyGczmH4YzzZub104=;
- b=c6dq6DOz2aoODHVmfcek7wUCjiHY8I3zuobQfRMYl5Ru/I8u9uXhoKmggw0tmBlRRPq0g8SX6pYbrVxmjYdIvsE6bdJPqsri5/DwYbSCx/UVn80eOoHnmfHSoCNqjRCSmg7vDOaNDf+AugJ2AwLBrO9KEe4WRg6eBiqRIMp023BYBWGks6f8H3jhRlioguzOPANDzFUL4Vb07QYQ4tNCv3Cn+Gm0+eS0cI1UpeFUGZVrYDKkWz9gJjWlG0PDgcg4DvzMOVZOhaoTQGHRzmMbf6TMiA+myegHmiS1/x2E9CtqlJsCgo94uzmXlaMdNghEyCUUhgEogS0UhOeV93f7cg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yCNBeIBkpn6UT4+PIgk+xjWkTbjyGczmH4YzzZub104=;
- b=Foayqdja0X/CZw/kVm/a4w8xEBRTT/J7muFxf/eJQZ530lL2MODsdKQqRuUZmllHEFkuy+1URJr9M3OlSJrCeORR7WrMoRvGUTsNIFyWv0v5Qq4/jMJth+YTQo9W0EJk/3NU6LK5JCFl5UUCJcfmip0EWO/RYxmxpVOrHJ5PCvg=
-Received: from CWLP265CA0419.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1b6::14)
- by DU2PR08MB10132.eurprd08.prod.outlook.com (2603:10a6:10:49a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
- 09:42:53 +0000
-Received: from AMS0EPF000001AC.eurprd05.prod.outlook.com
- (2603:10a6:400:1b6:cafe::d) by CWLP265CA0419.outlook.office365.com
- (2603:10a6:400:1b6::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.12 via Frontend Transport; Mon, 8
- Jun 2026 09:42:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001AC.mail.protection.outlook.com (10.167.16.152) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.7
- via Frontend Transport; Mon, 8 Jun 2026 09:42:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l5s++dTbnqk5gabcqqFSM6xbNrn7CNEidPfjMbndA4eP0GnpeUMDaSi/uNePHms/7Y3F2+IKj0EJl4WPxwX2zZjj0U/jM8IvC8kW2CpQ82SUV+/3/H6jB5z7BQ4A5eBLg9q/wIhQ3YktRgeD2ekM2RompRNzJvpLR99MLvXK9mj0OaQlMKDkYK9f9jCAtM1426L0SSVcTlAYEfJI0D3CiTet1Yh2hd2EY7noi3RBgL+V66zy14jNjIbJNUS/Cq8Ntpi58w4u9gSIi3nLH3Kq29dU4V5dWygUvXeWh4dz9IRaafYCI4VJwRi2EaifbO4WaqG+0hGl06zsRg+Gb6cLBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yCNBeIBkpn6UT4+PIgk+xjWkTbjyGczmH4YzzZub104=;
- b=OVERTzP/ggUe2Jce1VZmN734iZbQVHjKQrE9PptF6PkaBD8qp6AeAr/x+VK09Hwk6lRF79gwP70lKetQHdpLLi2HKhskN42I6qM877GOiLDDlikv6YWKkkYm163hMs0O1587tgFpWLNdI717wMetg7oBjNxm6XB4OK8C+HaSsC2mxsKpqVw9dhp4vWI8bUpbB2YAfvMI3Iq2luX2maOW1G42MSG7dAZ9//GdLQdC1lgPwlQ0V+XszweAd+h+/0fTf8hEuc66gry7wDpYeLa92DJ9ETy0KXvLXM3Ex650wU80DagLmjOztoo92bNZNjibKEph5+boDJ8M1OipuG9ZLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yCNBeIBkpn6UT4+PIgk+xjWkTbjyGczmH4YzzZub104=;
- b=Foayqdja0X/CZw/kVm/a4w8xEBRTT/J7muFxf/eJQZ530lL2MODsdKQqRuUZmllHEFkuy+1URJr9M3OlSJrCeORR7WrMoRvGUTsNIFyWv0v5Qq4/jMJth+YTQo9W0EJk/3NU6LK5JCFl5UUCJcfmip0EWO/RYxmxpVOrHJ5PCvg=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com (2603:10a6:102:46e::7)
- by DB9PR08MB8458.eurprd08.prod.outlook.com (2603:10a6:10:3d6::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
- 09:41:48 +0000
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15]) by PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15%7]) with mapi id 15.21.0092.011; Mon, 8 Jun 2026
- 09:41:48 +0000
-Message-ID: <ad45c64c-18ab-4d42-9813-0ac1704bb127@arm.com>
-Date: Mon, 8 Jun 2026 10:41:47 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 26/44] arm64: RMI: Allow populating initial contents
-To: Steven Price <steven.price@arm.com>, Gavin Shan <gshan@redhat.com>,
- kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-27-steven.price@arm.com>
- <ea4be6c5-9506-4253-80c5-c76c9ac3b77d@redhat.com>
- <0c71b4b8-ad0b-4a24-9f4a-180b2aaacdb6@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <0c71b4b8-ad0b-4a24-9f4a-180b2aaacdb6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PA7P264CA0288.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:370::14) To PAWPR08MB10975.eurprd08.prod.outlook.com
- (2603:10a6:102:46e::7)
+	Mon, 08 Jun 2026 09:44:06 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c85c531d4a9so1578489a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 02:44:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780911845; x=1781516645; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QdqtVwTNX0imLywa7I0ecwdu4Le2YQgpibN80cjQUTg=;
+        b=VqZ8WDX/Yrz3ZubqVcm5y56s+7gessk5kGndy/Q670MsD4tOzb936zRNtYJohH3ZQp
+         hDz4MMa0Dje5G5+nwwRSinEZlI1TAr6tbTBR+hm90+GWeV0SzI9pWH7e8q8NNhHpMQog
+         DsM7QI1wnES/XWK8eTOVQt3cnCOLSxZ8rOtB1i4I3G6tbC2IJj8IGBYuy+EBtTyl4ulN
+         rcN6MWXcTQTZ85uioX7i/af+uT2dtlu+DC9WuoOM5j8i+pHaa0prCoEbuA+VmWhqsyx2
+         27WAdJAAzS6ARSbajNn39XdaxqoIcsht1z/zvbJbX8onPYzqCCfpMgNKinxr0TGj8pvl
+         wpwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780911845; x=1781516645;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QdqtVwTNX0imLywa7I0ecwdu4Le2YQgpibN80cjQUTg=;
+        b=kHziyuUwWjqWpRrIC+7u1cQ+HLZz6TfPNKAjcmqJPxr7hjQ8ydsEZzkW+rtyQLoPOY
+         7Ufyp4+VhOA5yiesZyuh6EeidYVhi+SPUOnOeSyHphLbSR+ht/CXlX9aaXTDtwDXgmIU
+         wVhLgs+S1UGApourH5fhy1jRR2iff1a15sc5TGg4+dcd7CEdBkfTLnMOS7+W3jJOAX2x
+         iHnIPioMfIcUvMxCf0wD5ZPpeOtLj5n/NSUKccPjjrpFlX45qhmzTpbZlTjVNeDuOtbe
+         49eFjIBALbTMvsyI9jCrcQnErzK9WtlAw5Uk04w68KT1GgMpMnpLFKHFc2GHstGhG8HB
+         tHWA==
+X-Forwarded-Encrypted: i=1; AFNElJ9PXy6z3TWqfq4H+uD2vwJmS7CGycHFAyzxyrG4VWCd3kMgdrbx5Bp/mNtLoyISYyogn6NVsg4oU1BHRag9EdFp@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywl3P4NgWD+mTXuISO99t0OS4XwgF93bHxr5+qkysf+nuaJELUX
+	7lPqpWfQT6daGDMDm6HunVFZqB7aZOgPWdy1a7doAXkhiVFnVS1tICsa
+X-Gm-Gg: Acq92OE2J/5dQOee1YW/XGoDsDfGefCPEx5OpOGaEtBB68QrXAbergcLDVSOdpSO2Zt
+	Oraw/wGlEt5iAkcavJhlYpUkGxY6ZpLru7jgmOtYEIhwwGwN/dUelHt910Ya9c0L8fXgqz3VY73
+	OKjS+KjnYOIivZd/jhSiaLZrS9s3rsyq25LIjIY6P+oyJ+jKtW0DX3/Djz+Ox54L7Svk5XDqTNm
+	vAN04bTSJ6D4YIDdeKCfZDEBHBx2LoZH6cLPNkcY7bTMAEaRSC9dkQN+rIIsKlknAFcHGC5570e
+	qJogP3WcY2gVIimhR+mV1HP3WCu1+9krxgIgMcPMvodRB3KyeE/h0OIhuKGkmNNSQaDRdzip3Ht
+	2UJhu7oQhxSygwD5X++ef2QHFTFCgl6xrkjXo6jCMo3EX/0y8fNu+REoWF5HzFk5+xriDgkDKpd
+	Q4yjL4BtTi8oSs3rTQZP6wVszu/OeKXYQOp95sYJg4V//l8r/UZQcBsZJEP/9WqD1FBAcDqi9O1
+	tGrGWjk6wJkIG4=
+X-Received: by 2002:a05:6a21:700e:b0:39b:f026:6f8d with SMTP id adf61e73a8af0-3b4cd09b5a1mr17772625637.43.1780911844599;
+        Mon, 08 Jun 2026 02:44:04 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df0bdb98sm14220666a12.31.2026.06.08.02.44.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Jun 2026 02:44:04 -0700 (PDT)
+Message-ID: <fb9c51bb-5e17-4e62-bfab-efc648cff4d6@gmail.com>
+Date: Mon, 8 Jun 2026 17:44:00 +0800
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|DB9PR08MB8458:EE_|AMS0EPF000001AC:EE_|DU2PR08MB10132:EE_
-X-MS-Office365-Filtering-Correlation-Id: 813b16d4-c25e-49b0-f04a-08dec5424f9a
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|6133799003|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info-Original: R1+lzmWhSdu9LZuW4sq+nmx/WI7ylvd2fAwc0Z4RCEAByY5iWm+RlzqaSUHrJZL0UqEzOosdxsn2xTZamhP5Y20xW1kO0XxZ2rSckWYgsEhTG9OXZhriqbh6R7wJ9bGNdczndMLMnOcHZjsval/ZIa3Bz14fqtdxAxn7eZcp1YOXXXj6FBA8rGrKsarDGUaqM80x9QKqKFt2nP37cDBlTwy1zd0rNyTIoZmrH02P0FEF1CBvR1bVg/kRm2Z7ogjlY4QadN15rNBDVcifxoyBWppQleDw3CkvGFBjzPYVnQY34jfTFTjsEglN/n7LENaBatPmSg80TwWzsRFgeP8122eNhZOnW1hsJ0fijMRC3ZpMHbGDihltDHlFJ6Nms4YROe4mSJ76EW4rUzeUd8j13Tpqgwg7Njh7getAmLY3zXofGjOtAQoBW5l/cMbc8mya6UeFUVF/uArSxEdCEA/PKpcZWTSEeThqlKc1HO9mYe6HU6P+r1+CDQX2R9Gzo17PohZAboEQgJgvsC4xeBsIO9aU4dvXzlCz78l18X+sU8j9oNXSKsX1nxO8ABCn8zj1IKlRxA316IhOzB2Ih25KaSjkrk3YorW6pcdZRpzQViWcdfvvs+1inmEhVi6Ycb+tA56JcGTNc/5APJGgbhKlbCJlkHRUjdO0A/OKHtyxAoZ70RQggq2QtN4hcjcwzTcC
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(6133799003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: jbJlIWq7Tti1HMTFP39HDYS6ESYREthIZMUwsK5mRAcZZyHmsx5rYlSz0ty+zxr70W4mcNJX3iJgML7Y+ltu4C2hGazhg+9gB49+28wX0v64bG+6HujEoLmUFh9JQ1o0XYXc9eJFCcFx26GEwGOUAPGqXuYnrXU95zRxRjl4djZyTZfbQOxVfgBE7wHsAtdeDxZhcAOx5kJSuYDqjGBX9pQw9piRJnQC7xYf+XoTHMfU8sA/LEFtrdwF5rh+wdt4FPng9HnmuxfguZnWe8GSBNeyH2odvAGlIohw5N43jPvVuxThUcNCjHkE2vZwt11t4B4kBlc4VgYu89S5sgmHmg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8458
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001AC.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 11c9c916-76af-4196-dcc8-08dec5422968
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|35042699022|82310400026|376014|7416014|1800799024|14060799003|18002099003|22082099003|6133799003|4143699003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 3WCqOnCLr9cjhUQ83RCcZPKkQsxp05YmpR03CKrg8Zf9MoEhvgAPSlw8fxZfvoTM85VlO5FbQM25I3v43rt+UK9b5F9O8truVgA1n/DwiCat4j4g4fZHJt2LwBAlK9TuXwGFRjjQShhTEsmBoX1vY7Xacu8q55NRrpQ97+ezaW1mNCut1GQLFi4bbZbxVQyUp/aW1NzkJ9+E1YS1lpNeb1hkaTtTnRswmBKoDMepOL8Mw3JQPFAUPjJATKgjoeoZYJFn+oeBJr8UbwbiEUDyi0WvM5rd37b7OGafKb/nuAoXPnN0F4wVqgnRge8hMb8vywNqXOQm1U2HN4AUg8u/C+Vtd6Ta1SY8cOEphHjrtbDeC/XsPid35V6OnchiDYqDkPuWlkyrycmMpw0PvoW7mdAAkJCRiE4hJRGQFKOS1a56kkAcqylt35YnOSsmNpYhHnHXB0KVYyAu2RZw59q7KmnwhTBe7SnkN4BcjCC8MYLmA3PuZQiHcqk/FFbkqgnPz5lJJVrCHtPXNkGMPT1CaEGzchAp/bJ+RY/vXtRS+tpKL5BdK/tZmTMSs0y8LNFvDcVk54D1tb6+hH5lLvTBq4ardQ9J0c0XpZbeSxQnBpzD6Um2M06whRpg4wc0CDRwSNalfajdgNMIraLoJqLdh06LanXKQa8KXIeCJHuBcLocZcPfun6lBxAw77LG7wTJ7dLhVmlqUq4sPAAldLuGmiDf/PO0gDBCWh9kHPji/FE=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(35042699022)(82310400026)(376014)(7416014)(1800799024)(14060799003)(18002099003)(22082099003)(6133799003)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: UEK1iCP2nr+/C2ZYltC1CCi7LUYCqK3OWdaOGG24uIR10400bLEb9Bwh6BBN75eWKF5QprwN8ZiiqpHc/ciYF2N/LWIkBFu9y7j6zhxXNEZoXbthp0WE6FXo+Fd54F6QjgGPSI7Vq4TQQtVMqruScu+Add2ZWd/okfjxx1RZGMUVMdsj3Bu0mH/sr9PzqC1LYU8QgQzYw9Bb3xUnA/ydZOQYTxqDaUqodnafoflDb4wvAQMGghYdCW6+v7DN+VJsPlVB6LNLepmwb9DUlQ4s0Vme5qF7UH6NWCeBsOLBi5ZW8m1c6PMj017RuiFoTAutcz3ETSfiqDWVBWMoULApI3v1BjmrmvsXsWtIiQkEl9JyJfhilC/Xs1Y4j2x+L4Zaz5j7nOSNHpIqI3br7P/SZqGputBwruKo0Ev/BcQB7P4WF+ild0tHpSQSt+UkaTCe
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 09:42:52.4388
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 813b16d4-c25e-49b0-f04a-08dec5424f9a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001AC.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10132
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: zhengxingda@iscas.ac.cn, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260608023237.305036-1-a0987203069@gmail.com>
+ <20260608023237.305036-2-a0987203069@gmail.com>
+ <20260608-emotional-rapid-woodlouse-61f7b9@quoll>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <20260608-emotional-rapid-woodlouse-61f7b9@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_024305_242007_F1707CDB 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260608_024405_790692_1A3EE20E 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,58 +109,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/06/2026 10:36, Steven Price wrote:
-> On 28/05/2026 06:30, Gavin Shan wrote:
->> Hi Steve,
+
+On 6/8/2026 4:00 PM, Krzysztof Kozlowski wrote:
+> On Mon, Jun 08, 2026 at 10:32:33AM +0800, Joey Lu wrote:
+>> The existing schema hard-codes the five-clock/three-reset/dual-port
+>> topology of the DC8200 IP block, preventing reuse for single-output
+>> variants such as the Verisilicon DCUltraLite used in the Nuvoton MA35D1
+>> SoC.
 >>
->> On 5/13/26 11:17 PM, Steven Price wrote:
->>> The VMM needs to populate the realm with some data before starting (e.g.
->>> a kernel and initrd). This is measured by the RMM and used as part of
->>> the attestation later on.
->>>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
-
-...
-
->>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
->>> index a89873a5eb77..209087bcf399 100644
->>> --- a/arch/arm64/kvm/rmi.c
->>> +++ b/arch/arm64/kvm/rmi.c
->>> @@ -486,6 +486,75 @@ void kvm_realm_unmap_range(struct kvm *kvm,
->>> unsigned long start,
->>>            realm_unmap_private_range(kvm, start, end, may_block);
->>>    }
->>>    +static int realm_data_map_init(struct kvm *kvm, unsigned long ipa,
->>> +                   kvm_pfn_t dst_pfn, kvm_pfn_t src_pfn,
->>> +                   unsigned long flags)
->>> +{
->>> +    struct realm *realm = &kvm->arch.realm;
->>> +    phys_addr_t rd = virt_to_phys(realm->rd);
->>> +    phys_addr_t dst_phys, src_phys;
->>> +    int ret;
->>> +
->>> +    dst_phys = __pfn_to_phys(dst_pfn);
->>> +    src_phys = __pfn_to_phys(src_pfn);
->>> +
->>> +    if (rmi_delegate_page(dst_phys))
->>> +        return -ENXIO;
->>> +
->>> +    ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys, flags);
->>> +    if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
->>> +        /* Create missing RTTs and retry */
->>> +        int level = RMI_RETURN_INDEX(ret);
->>> +
->>> +        KVM_BUG_ON(level == KVM_PGTABLE_LAST_LEVEL, kvm);
+>> Rework the schema so that variant-specific constraints are expressed via
+>> allOf/if blocks:
 >>
->>          KVM_BUG_ON(level >= KVM_PGTABLE_LAST_LEVEL, kvm);
-> 
-> Ack.
-> 
+>> - Add nuvoton,ma35d1-dcu to the SoC-specific compatible enum.  The
+>>    generic verisilicon,dc fallback remains the driver-binding string.
+>> - Relax the top-level clocks/resets definitions to minItems ranges so
+>>    the base schema accepts both variants.
+>> - Keep ports in the global required list and keep additionalProperties
+>>    tightened to unevaluatedProperties.
+>> - Add an allOf/if block for thead,th1520-dc8200: five-clock (core, axi,
+>>    ahb, pix0, pix1), three-reset (core, axi, ahb).
+>> - Add an allOf/if block for nuvoton,ma35d1-dcu: two-clock (core, pix0),
+>>    one-reset (core).
+>> - Fix a stray space in the port@0 description.
+>> - Add a DT example for the Nuvoton MA35D1 DCU Lite using ports/port@0.
+>>
+>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> ---
+>>   .../bindings/display/verisilicon,dc.yaml      | 103 +++++++++++++++---
+>>   1 file changed, 90 insertions(+), 13 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> index 9dc35ab973f2..db0260d874c5 100644
+>> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> @@ -17,7 +17,8 @@ properties:
+>>       items:
+>>         - enum:
+>>             - thead,th1520-dc8200
+>> -      - const: verisilicon,dc # DC IPs have discoverable ID/revision registers
+>> +          - nuvoton,ma35d1-dcu
+>> +      - const: verisilicon,dc  # DC IPs have discoverable ID/revision registers
+> Why do you need to change indentation? Why introducing irrelevant
+> changes to the diff?
+The extra space was introduced to satisfy `yamllint`'s "too few spaces 
+before comment" warning, which requires two spaces before an inline `#`. 
+Since this is an unrelated change that pollutes the diff, I will revert 
+it to the original single-space form.
+>>   
+>>     reg:
+>>       maxItems: 1
+>> @@ -26,6 +27,7 @@ properties:
+>>       maxItems: 1
+>>   
+>>     clocks:
+>> +    minItems: 2
+>>       items:
+>>         - description: DC Core clock
+>>         - description: DMA AXI bus clock
+> That's not true anymore. In such case the list should also be defined
+> per variant and here only min/maxItems.
+>
+Understood. I will remove the `items:` description list from the 
+top-level `clocks:` and keep only `minItems`/`maxItems`. The per-variant 
+items descriptions will be moved into the allOf/if blocks.
+>> @@ -34,24 +36,19 @@ properties:
+>>         - description: Pixel clock of output 1
+>>   
+>>     clock-names:
+>> -    items:
+>> -      - const: core
+>> -      - const: axi
+>> -      - const: ahb
+>> -      - const: pix0
+>> -      - const: pix1
+>> +    minItems: 2
+>> +    maxItems: 5
+>>   
+>>     resets:
+>> +    minItems: 1
+>>       items:
+>>         - description: DC Core reset
+>>         - description: DMA AXI bus reset
+>>         - description: Configuration AHB bus reset
+>>   
+>>     reset-names:
+>> -    items:
+>> -      - const: core
+>> -      - const: axi
+>> -      - const: ahb
+> This stays, with minItems. Variants only need min/maxItems
+>
+Understood. I will restore the top-level `clock-names` and `reset-names` 
+items lists and add `minItems` to each. The per-variant allOf blocks 
+will only carry `minItems`/`maxItems`.
+>
+>> +    minItems: 1
+>> +    maxItems: 3
+>>   
+>>     ports:
+>>       $ref: /schemas/graph.yaml#/properties/ports
+>> @@ -59,7 +56,7 @@ properties:
+>>       properties:
+>>         port@0:
+>>           $ref: /schemas/graph.yaml#/properties/port
+>> -        description: The first output channel , endpoint 0 should be
+>> +        description: The first output channel, endpoint 0 should be
+>>             used for DPI format output and endpoint 1 should be used
+>>             for DP format output.
+>>   
+>> @@ -77,7 +74,60 @@ required:
+>>     - clock-names
+>>     - ports
+>>   
+>> -additionalProperties: false
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: thead,th1520-dc8200
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          minItems: 5
+>> +          maxItems: 5
+>> +
+>> +        clock-names:
+>> +          items:
+>> +            - const: core
+>> +            - const: axi
+>> +            - const: ahb
+>> +            - const: pix0
+>> +            - const: pix1
+>> +
+>> +        resets:
+>> +          minItems: 3
+>> +          maxItems: 3
+>> +
+>> +        reset-names:
+> minItems: 3
+Understood. I will add `minItems: 3` to `reset-names` in the 
+thead,th1520-dc8200 block.
+>> +          items:
+>> +            - const: core
+>> +            - const: axi
+>> +            - const: ahb
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: nuvoton,ma35d1-dcu
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          minItems: 2
+>> +          maxItems: 2
+>> +
+>> +        clock-names:
+>> +          items:
+>> +            - const: core
+>> +            - const: pix0
+>> +
+>> +        resets:
+>> +          maxItems: 1
+>> +
+>> +        reset-names:
+> maxItems: 1
+Understood. I will add `maxItems: 1` to `reset-names` in the nuvoton block.
+>> +          items:
+>> +            - const: core
+>> +
+>> +unevaluatedProperties: false
+> Stop making random changes to the binding.
+>
+> Best regards,
+> Krzysztof
 
-Thinking more about this, I guess a buggy VMM can trigger this
-by populating twice ? (level == KVM_PGTABLE_LAST_LEVEL). So, we should
-return the error back, than warning here and suppressing the error ?
+Understood. I will revert to `additionalProperties: false` as in the 
+original binding.
 
+Many thanks!
 
-Suzuki
 
