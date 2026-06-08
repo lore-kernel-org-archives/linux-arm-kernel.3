@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F087DCD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F7ACD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pvf0tOC7mTFxwCrEWNHyHWtzHGoBY12hIxMDv76SqCk=; b=l5nVCyyAkOORGPaJfNA5GxPvvh
-	BXUqiHFoKyCQAhXkV3q2rXke4w9qxdxjDNEH6MHWTDrInnMjq3143o5kHvQjbgn7iQHEhm0x/OTxc
-	nuQ1p8J1A4lneWjyPNZyOaRjzQ4C41+W+R1+y1DQdM4XsGOleZy97AQV6s7iQu106fQxohmZQZf7E
-	IXt25NHrKqAlUYAPlx9znrdHpmMosBgO5gENeINqTHGSpo3tsXWiSAU+qvLif7HHu9v0mNrmYtgGt
-	W7z72VX36w0ytxNUNrjCxjZMyh+WkJ4gcRkpi8HGbKKFhPRRjJBGtqfKuJcmAWIvbI+iQrPwvfUjC
-	ctTzUpSQ==;
+	bh=z8UFPckcbkUDtOhYm05+yDC1pbRjWLGHos3Y900ReCg=; b=cX3voLlcybarcfurEwgiNqRyyv
+	639WSeN/42VrNW4vX/k1gbJPSq9YGFqFBCylRlk1TJkVeBaQkCa4l4CpLuKyvc2bW75eaUS7jzF47
+	ZPKZt4Scurj04oSDtbAO+5VKESaqci7NdyzG7rUXbTcHN2SGAcX3dSh4zO77xtyr2w773eFYkLnKb
+	Z89b5Zz51OQ2yO1mWuZnlPPot/o/EJOYQucbqZVBCx6T/jBr7+XVZedtJlu+fw+ciupLnddZWpjz6
+	zqOamuDwke7RWTRd3EvOFJIbZfZDeCU2iSodLfMUlpTy+LB0Qo5jWNcsC4pNF8YCa3W0lRywe5iAB
+	D9NLULiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVVz-000000036Gr-3K04;
-	Mon, 08 Jun 2026 08:39:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wWVW3-000000036I6-42Mh;
+	Mon, 08 Jun 2026 08:39:27 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVVx-000000036GH-2Q6c
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:39:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E93D943B77;
-	Mon,  8 Jun 2026 08:39:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 723D21F00898;
-	Mon,  8 Jun 2026 08:39:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780907960;
-	bh=pvf0tOC7mTFxwCrEWNHyHWtzHGoBY12hIxMDv76SqCk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MLHvzxjxOcnDaAI/0TCOB51+C97JsSw5I2CEfgADKLcil2Fj5Fy+qPueOBbFHc+nr
-	 t//H9ANpp3pp7m2+z0ZbIMQaKEvApXQZ28OQa1dmAhwW5/GxSzc9bpNEo41Ol/WeSL
-	 M0dbjy0ABgDSxjDPQIkzykZ8Dd6IhdUST5U95GN+auhn0wgDSwHE4MbtjbobdHEL8s
-	 3cduGyoLkfr/BD4x+xgUPbkVBEh4TeUnCel2+8ebPdRAwCYF1R32XtrOWe3VI/Ss7j
-	 n7a2a4n6MPU84h8grH02QuOaJ9kJ7mpmG/W43lZg7ixnaGMOMK3Jr8e9yxdq8IQx5n
-	 0zEDsTi1XBwdw==
-Date: Mon, 8 Jun 2026 09:39:16 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
- provider to an SMCCC device
-Message-ID: <20260608-economic-lucky-phoenix-2eaeaa@sudeepholla>
-References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
- <20260527100233.428018-4-aneesh.kumar@kernel.org>
- <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
- <yq5ase72qvwb.fsf@kernel.org>
- <20260604-juicy-daft-starling-3eec1f@sudeepholla>
- <yq5ao6hlzbpa.fsf@kernel.org>
+	id 1wWVW0-000000036Fz-3A7e;
+	Mon, 08 Jun 2026 08:39:26 +0000
+Received: from francesco-nb (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id CE9F41FC18;
+	Mon,  8 Jun 2026 10:39:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1780907957;
+	bh=z8UFPckcbkUDtOhYm05+yDC1pbRjWLGHos3Y900ReCg=; h=From:To:Subject;
+	b=k0CkhSSuENH6FvKBjSYNZqeeBs0nsjwzBN7/rWsUL39SC6f99XSrqQBMKFB57XHrd
+	 3I8h/qU+JaiL9PImIm+fRWgEURAlZsg+f6eiqkez2YVTzhHqLybK219HsDvkbDoqI3
+	 dM4IMHjgbC49Y7YiW/j9OtVVLjStJ5biCTWGGtjXn9zPcit2UxxQjslLiDtDhtZmzZ
+	 WnS/Mwz1fHg9p3qzbaIODY+ZdLF/BHd/P7MLF2aAX0JID2Crf3q5aUUGWFvUbsd9pF
+	 mK+nMKrowzyVzDHOpjAZ3SxbAStwTG5WA+EKfecTWhcLrCP3Gi+iVMNM8iNungmUR7
+	 MjXbLTJ+8CuiQ==
+Date: Mon, 8 Jun 2026 10:39:11 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Adrien Grassein <adrien.grassein@gmail.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
+	Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v4 4/8] drm/bridge: pass extra events to the HPD callback
+Message-ID: <20260608083911.GA35760@francesco-nb>
+References: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
+ <20260608-hpd-irq-events-v4-4-30b62b335487@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <yq5ao6hlzbpa.fsf@kernel.org>
+In-Reply-To: <20260608-hpd-irq-events-v4-4-30b62b335487@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_013924_974123_FBE6E113 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,93 +104,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 08, 2026 at 01:49:13PM +0530, Aneesh Kumar K.V wrote:
-> Sudeep Holla <sudeep.holla@kernel.org> writes:
+On Mon, Jun 08, 2026 at 12:33:05AM +0300, Dmitry Baryshkov wrote:
+> The DisplayPort standard defines a special kind of HPD events called
+> IRQ_HPD. These events are used to notify DP Source about the events on
+> the Sink side.
 > 
-> > On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
-> >> Sudeep Holla <sudeep.holla@kernel.org> writes:
-> >> 
-> >> ...
-> >> 
-> >> > +static const struct smccc_device_info smccc_devices[] __initconst = {
-> >> > +       {
-> >> > +               .func_id        = ARM_SMCCC_TRNG_VERSION,
-> >> > +               .requires_smc   = false,
-> >> > +               .min_return     = ARM_SMCCC_TRNG_MIN_VERSION,
-> >> > +               .device_name    = "arm-smccc-trng",
-> >> > +       },
-> >> > +};
-> >> > +
-> >> > +static bool __init
-> >> > +smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
-> >> > +{
-> >> > +       struct arm_smccc_res res;
-> >> > +       unsigned long ret;
-> >> > +
-> >> > +       if (!IS_ENABLED(CONFIG_ARM64))
-> >> > +               return false;
-> >> > +
-> >> > +       if (smccc_conduit == SMCCC_CONDUIT_NONE)
-> >> > +               return false;
-> >> > +
-> >> > +       if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
-> >> > +               return false;
-> >> > +
-> >> > +       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
-> >> > +       ret = res.a0;
-> >> > +
-> >> > +       if ((s32)ret < 0)
-> >> > +               return false;
-> >> > +
-> >> > +       return ret >= smccc_dev->min_return;
-> >> > +}
-> >> > +
-> >> >
-> >> 
-> >> I am not sure we want the check to be as simple as ret < 0. Some
-> >> function IDs may return input errors based on the supplied arguments
-> >> (for example, RMI_ERROR_INPUT). In those cases, we would likely want
-> >> this to be handled via a callback.
-> >> 
-> >
-> > As I mentioned in response to Suzuki, we can defer that to probe of
-> > that device. If *_VERSION, succeeds SMCCC core can add that device and
-> > leave the rest to the core keeping the core and bus layer simple IMO.
-> >
-> >> We also want to use conditional compilation for some function IDs.
-> >> Given the callback approach and the #ifdefs, I wonder whether what we
-> >> currently have is actually simpler and more flexible.”
-> >> 
-> >
-> > I was trying to avoid conditional compilation altogether and hence the
-> > reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
-> > in above snippet must come as some condition to this generic probe.
-> >
-> > Adding any more logic or callback defeats the bus idea here if we need
-> > to rely/depend on multiple conditional compilation or callbacks IMO.
-> >
-> > Let's find see if it can work with what we are adding now and may add in
-> > near future and then decide.
-> >
+> Bridge drivers report these events through the
+> drm_bridge_hpd_notify_extra(). Pass down the extra status to the HPD
+> callback, specified during the drm_bridge_hpd_enable(), letting
+> underlying drivers (e.g. drm_bridge_connector) to receive these events.
 > 
-> If we move all the conditional checks to the driver probe path, then I
-> think this can work. Something like the below:
-> 
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-Sounds good to me.
+Acked-by: Francesco Dolcini <francesco.dolcini@toradex.com> # lt8912b
 
-[...]
-
-> We can also move arch/arm64/include/asm/rsi_smc.h to
-> include/linux/arm-rsi-smccc.h. There was a suggestion to move these
-> firmware interfaces out of architecture-specific code:
-> 
-> https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
->
-
-Ah OK, sorry I had missed this.
-
--- 
-Regards,
-Sudeep
 
