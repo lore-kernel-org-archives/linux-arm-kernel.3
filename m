@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF4CCD8CAB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB969CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQTl5mAuEP4DtcZBSgrelYaUQgKwWO1dWiLAuH6V5cw=; b=sY5RAyFEE4S1ACpXNcq+aSQRsT
-	r84PfqnSZpt/mW4fGMcmv5Xc1BCew9I0q2oPm/7s8odVgbsYx0k1/jCdJutwLWKUHYIxpL1IA8J3x
-	Al2rDzbY9W+mrL1lgE96TwwFaXW76fv1FkOzM9oP7MS7sPd76X0lPs6rAlHQtY4DQZyksUQoseHFG
-	PH8GGIiAt+XNzB2gYH2uJymd/K57wAtZlE9PGYsbL9TTCxn83oPCWZMPhpW6JKmSHuJoVGW/rlLoo
-	/UvAVbU44qvxjdQJeSgJ8Xf5oeXyDgCakyI5UqGQRvhLZkKAGgSPlsv0plg2jCnyhwHTaXdAcTrUw
-	shs4YO2w==;
+	bh=3v0oVMCrGaOXwGAnDCM1DaTdys49j+n77POgvSAkY40=; b=QsbRKIkQDLJb0bzP12TMaDAzD5
+	YA+Is/SjiAUGlyC/w9QzF3dNGXC3VTGaVMFLGMSJQbXcOgb89YrlEBVkDG+kruhHQMTHxKn+OSiBm
+	3cNoC/cCwsXQKz7M38gKpX7OGwHoSS/CTyb/IWjji6e6FCq5JRB0CHiQmAcvE6LPFlD5CWF7e5zWf
+	Jm6eHC9G04c3LmOFOE1AsJoxyI2olx0m1m0MJKh8BSnzJTl5312hXXXyqagqPsB3ESE6E/BQLfhWm
+	obC03W24OM/ZWATINrQSgPLu1laFqAshM9+6uLWUp2AgRz3xwvwWEhA0KNhnLxyztFbNKrOyoH1y5
+	GKqBLmVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb6I-00000003m7P-147m;
-	Mon, 08 Jun 2026 14:37:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWb6L-00000003m9z-1ykb;
+	Mon, 08 Jun 2026 14:37:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb6H-00000003m6X-0t64
+	id 1wWb6K-00000003m8K-0Sjv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:37:13 +0000
+	Mon, 08 Jun 2026 14:37:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6B90601E1;
-	Mon,  8 Jun 2026 14:37:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC2631F00899;
-	Mon,  8 Jun 2026 14:37:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 563FD601D8;
+	Mon,  8 Jun 2026 14:37:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D9811F00899;
+	Mon,  8 Jun 2026 14:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780929432;
-	bh=tQTl5mAuEP4DtcZBSgrelYaUQgKwWO1dWiLAuH6V5cw=;
+	s=k20260515; t=1780929435;
+	bh=3v0oVMCrGaOXwGAnDCM1DaTdys49j+n77POgvSAkY40=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=lYhukQMdleaEcSHfNWp4Ch38Sg6irKt8+gJvtwldtVfBVhra+VHA1yiZWAFir3Mog
-	 K/zcFfDR4HCAEdaD4QorT7kAdPQwbk5s5O6UM8s2YFh9DYHAr0OKBSAabrTiZvHhoW
-	 nSOq5zPNTh/5liPjPTAkAhb+jzoDJm+LTcuCDCAGRU7DLTvdsr3i1MAhbZCrwXB2vi
-	 2D5h2ezzVHmxqlE3VAALkpKySKzrWzdbfmHtaKK3wOFR8SGPzc/GXCtJXIISYJQXpy
-	 9hnhA6RvP9T32yjaEdwrqCgFJ3T0Ls4/8QxTDTdcKC6f00orqwbRwPKhblSQdJ8nZZ
-	 X5kI+wmoXGtFA==
+	b=ezD/xBi1FH/sKEsx25sY9y0uYq/FfmOo5lMh0dKkr4gdeRC88Nt34BovjdkrmFFpj
+	 eprTI9DnRY6M2WUtnZU5nBYb5B4ckP8TsEnGsZtXv38AogsMAgwpdJpQwEWNBeXtaX
+	 EiFEWCEiNo1l5dBCDBNHfv6XNX/zfITpYlXsYOC57ZMQH8AciWPP7f67n9XpSLHspb
+	 ph//Or84blUXgk82q6WBeXkn+pcjoY7C+BkXA4qpLDkAfPZYaQardqrWb4zaZwPk5T
+	 0OXcKhXFwuKTJ2XUPDHfaDuzTjXcgFELFMlj22eeFn7zbp8uX+RHETAx9sXWgSq8zL
+	 l2xDe8W3iiSuw==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Mon, 08 Jun 2026 16:35:59 +0200
-Subject: [PATCH v2 17/78] drm/bridge: imx8qxp-pixel-combiner: Switch to
+Date: Mon, 08 Jun 2026 16:36:00 +0200
+Subject: [PATCH v2 18/78] drm/bridge: imx8qxp-pixel-link: Switch to
  atomic_create_state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260608-drm-no-more-bridge-reset-v2-17-0a91018bf886@kernel.org>
+Message-Id: <20260608-drm-no-more-bridge-reset-v2-18-0a91018bf886@kernel.org>
 References: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
 In-Reply-To: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -67,12 +67,12 @@ Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org,
  Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1693; i=mripard@kernel.org;
- h=from:subject:message-id; bh=IB7417fS5tW8QdBS3d/mUDYAekiUg8TKbNONBNaFUT4=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlql31qrV9PnJ5x7xer1hKrl6/5Y0qmieunJPoI3N998
- fzUBwIHOqayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBE4qUZG1Y8teOTuskomHBX
- 951VQeDW8JYOv0ybk9O8nx1mudFl+VhpyfUQPUGBD7NlBDqmxWvcY6wvUW+9n55yQU9MuGZN95x
- J/Woc/Z9+nhVmWv6arVbd5zVXg3nTrvDsk5kH+COMsrZEXAUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1727; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=49qldxF34k89KtOOsh2//1+nnc5HmDre/dbrfUH+qEU=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlql33nPXvR0Jbf7/vhYuZmua/ydgknWRe0d7pe3LRj1
+ Vz/VV+jOqayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBELDoZG/anOvoE2K6rvL0v
+ uu2JqoHU8tVJRy8/3/soVVH/T9rPb5531jtMbuIWWXTsSYPLk4fdKox1puE6pe2lolrXLx9TOuP
+ hHfHdbNPFo39/V3eJH0v48sFbj1UvsLNqf2Dr0gl3Mtqq9hUBAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -107,25 +107,25 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/gpu/drm/bridge/imx/imx8qxp-pixel-combiner.c | 2 +-
+ drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-combiner.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-combiner.c
-index e0ee51a9ca7f..941ce2f91e9e 100644
---- a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-combiner.c
-+++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-combiner.c
-@@ -249,11 +249,11 @@ imx8qxp_pc_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
+diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
+index ee6b6dbbe952..92b8b1ac35d0 100644
+--- a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
++++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
+@@ -227,11 +227,11 @@ imx8qxp_pixel_link_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
  }
  
- static const struct drm_bridge_funcs imx8qxp_pc_bridge_funcs = {
+ static const struct drm_bridge_funcs imx8qxp_pixel_link_bridge_funcs = {
  	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
  	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
 -	.atomic_reset		= drm_atomic_helper_bridge_reset,
 +	.atomic_create_state		= drm_atomic_helper_bridge_create_state,
- 	.mode_valid		= imx8qxp_pc_bridge_mode_valid,
- 	.attach			= imx8qxp_pc_bridge_attach,
- 	.mode_set		= imx8qxp_pc_bridge_mode_set,
- 	.atomic_disable		= imx8qxp_pc_bridge_atomic_disable,
+ 	.attach			= imx8qxp_pixel_link_bridge_attach,
+ 	.mode_set		= imx8qxp_pixel_link_bridge_mode_set,
+ 	.atomic_enable		= imx8qxp_pixel_link_bridge_atomic_enable,
+ 	.atomic_disable		= imx8qxp_pixel_link_bridge_atomic_disable,
  	.atomic_get_input_bus_fmts =
 
 -- 
