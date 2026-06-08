@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964C7CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 15:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2A6CD8CAB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 15:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/XMQ94f2NnI3UCxBWCQnjfay4QTl/Mm3LGr0hsRVrJs=; b=qxDrie9n7fIk9Cw15h2OgJQ6a/
-	K7XL688eFbD0T4ngb7p4LeJ6BbnEkVn6C2nvJRN38krhkFCauemMQLSldaY3EnQptAONLiekGmThd
-	YB9UBUjRO0d8jsQGQkXO3ewwZehAPn/RYprRKC9ZjVMnj5MAJlGFqa0Ft+JEsjieZ/QNBj8Pb4dQS
-	ZXCTIeoYkC3883RpkBsdIAUrl9Tfuvj7Oph8hkaTi/vXnwQUEZShO/t2Zqn3MtJDxVEyWxs9uNjCI
-	qKPDdfKtQPVAgEViVa0BiZSgGkIC3qMHqdxGNdpwkD/ZWWhTOey/CPZduFtpBf+4mtpG/KI9fbPXs
-	YkwZ6niA==;
+	bh=/XMQ94f2NnI3UCxBWCQnjfay4QTl/Mm3LGr0hsRVrJs=; b=QB0ghqlPocwqJyyuXOxltC6DJL
+	bWQNLSuVlpDl7OkWaGPdL3uGpYwSY2iixk8oK7F8X+UB1uo4Vtg/+b4tev+xCSwq7x4ZbNFiF3wIc
+	q7xNkkbagDkycivWK4IFPwuAdQQQuXWhXkcTpNBH0wYogqVcLZUu8UX4m+wXGDQHXsuvKwIGty34c
+	lEHXaOXCCeiSnDzfleoYIYOZfPf03OftCVqb4B5INbWcMf8yrzz+XnkyEC+UcUNyWuuWiL2C6ZQbg
+	9TWgtOrhFwKDnHguockJ+rRk0z1Fqh8oV2enQrDLM6rLwGyX5oyLc3I8UGO9aMHaGlzU5JF4wWEs5
+	PJoIlRhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbx1-00000003y1I-32j2;
-	Mon, 08 Jun 2026 15:31:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wWbxi-00000003y82-02St;
+	Mon, 08 Jun 2026 15:32:26 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbwz-00000003y0s-1Tqo;
-	Mon, 08 Jun 2026 15:31:42 +0000
+	id 1wWbxf-00000003y77-1NNH;
+	Mon, 08 Jun 2026 15:32:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1780932697;
+	s=mail; t=1780932740;
 	bh=0uQ4uyIwFgJ6UABF/dPRZy9vsW0+jj/YnI0z8Vmpot4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=n19TT7nrSz8GMd9ClrcDKnIhEzy9dZo7G0BVhZ5q4a5lNxYGuOtuboJ5MVjI+clw4
-	 kui5raZedjzWI8OUhm7sEfivYywFqp8OUfaDaB7lN1GNGt02n5NTptNkZe41V5HvZX
-	 YRpwmp5VjgBGkn777XeLlkH01N7luzKi7ClHeMWMwp4jJBCKMu9sFIv6ihW/J6k9jC
-	 SFyrSCfKrwvzUGYD221sic5CGyrPVwH/Hzvcdi7MQpBFSNUT8DNOjDDXizOO4MxzoX
-	 rGcj3h+cKjernboWU6QV08IiG9bc3Cp2xvf1tm1u2H3TOk9wXQPUdpC2p4dD2VJji0
-	 UclnOrjvj6HEQ==
+	b=D/5GDdGFDvH6mTnc2+1eYFBoojr+p4Y44ZIY5wlXhi2WDtWxnKodAMondy8zuotLe
+	 4Uj8SH4EGutvTInjjMh8VUDLqiyuxbaoOeZjccJHCFiod8Mp9+P4UE5/D3wM+ArN0V
+	 qqN8Vh9o7n1XvT9xutDKy0YjXVRqpHO6S7EYJKb7M1hpN9M4N3ySWE+VTuCpYZGzbV
+	 tu2/4FCZJhYhgP4DRHX81hY1BQH/9m5RHt2ohRIKYRcqnBvgoIi7elYKH/6JEwvjZz
+	 dcI00IEohlQzQ0pSBK6RBrLqCS4z4/MEi2utspP9pnR70wOPOYEL5TkkCBjt+6wCtL
+	 NhHWvxZQ5z0Qw==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E7FA717E062B;
-	Mon,  8 Jun 2026 17:31:36 +0200 (CEST)
-Message-ID: <dc181f94-0049-4a51-a442-20e0f1e05cc0@collabora.com>
-Date: Mon, 8 Jun 2026 17:31:36 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CBDDB17E0CA9;
+	Mon,  8 Jun 2026 17:32:19 +0200 (CEST)
+Message-ID: <d3b2ab1f-06ff-4ba8-a4bf-6eab95a81a2a@collabora.com>
+Date: Mon, 8 Jun 2026 17:32:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 53/78] drm/mediatek: hdmi_v2: Switch to
+Subject: Re: [PATCH v2 52/78] drm/mediatek: hdmi: Switch to
  atomic_create_state
 To: Maxime Ripard <mripard@kernel.org>,
  Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -65,15 +65,15 @@ Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org,
  linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
- <20260608-drm-no-more-bridge-reset-v2-53-0a91018bf886@kernel.org>
+ <20260608-drm-no-more-bridge-reset-v2-52-0a91018bf886@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260608-drm-no-more-bridge-reset-v2-53-0a91018bf886@kernel.org>
+In-Reply-To: <20260608-drm-no-more-bridge-reset-v2-52-0a91018bf886@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_083141_578890_1047D6AE 
-X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-CacheID: sfid-20260608_083223_506992_F1C0F617 
+X-CRM114-Status: UNSURE (   7.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
