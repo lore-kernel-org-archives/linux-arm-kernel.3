@@ -4,63 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90858CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9ECCD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgqu6KzfbRiaFztUl8n6hnkGE5DMDdl4m+11IAfZFe8=; b=caoxFFO1KvN3V+2ujH4sNzxQMR
-	PoL6IghiWmz47Prf1J9zuvk5eUdqe7KHyOw1DhbNFelPOQwzS/+rMQi79w5UzhDt+WUO5+xsArVMI
-	9AiiGwWZWPBkbsuiHuawSH85/73yV4+YSYBRDfEByc5vnn4TqC7Kptg4I0xVy96K9Ju9xJu9PqfPN
-	X4LB8RrA/TpfpG2yb4XMCHUwGeV6oDDVTia6HIG+VLRdluY66cwxC5X4RUNFPoT+26O5yvhwY7D+5
-	qbvEUmQxN4hlLs7I/t7lOqvmuMe0FFdfGJe6W2iuJRmWuXdo7ajqPwY3pLwKtMuk1u5mJOGTA0M+Y
-	iSCosjJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fz5Bg/D78093usgf5+fdj8sYVjMQjFuVf2DjS/EcSng=; b=xAx5dvbPOOsZko1EQtX+hoqpIy
+	qMJtVYAc+xxGgWDXTamDb30S5vKmG5lTxdgHnC66bbIOucgS8OoAuj5CvGMyVHtYn0GOX+PoF6Hxu
+	azbOi0wtDcBeKz5j2ZXHzEOD6GLKgoSJanxBkVxIz/9ahNh9OjiEIArIo8P95sGr8B2vit3YEc2jr
+	q3MQz6XPw5cMzZTSNUO7gpcp6vW9j5FvydzZNubxt8du+6kdeZUQtus+z7gsbPE0LLteb9y7q8Zs/
+	p4tT7lZRR55vRr/7aAYDWZdv9cH2l5tCXVIrPoHat47mHilNiO3eJEvGPpoPKEhzitBG3YgYcfus+
+	fX68V6wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWW7L-000000039zL-1IM9;
-	Mon, 08 Jun 2026 09:17:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWWDV-00000003ApB-40B1;
+	Mon, 08 Jun 2026 09:24:21 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWW7J-000000039yu-0TyF;
-	Mon, 08 Jun 2026 09:17:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2DE4406E7;
-	Mon,  8 Jun 2026 09:17:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D8F01F00893;
-	Mon,  8 Jun 2026 09:17:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780910276;
-	bh=dgqu6KzfbRiaFztUl8n6hnkGE5DMDdl4m+11IAfZFe8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=F8edl6OX6sIH78JKJF4DOVpRYHKkvWc/xgxsjZm/7f2JatgwoDI/di3zuqQYVxtq6
-	 5HU5xHZcuvyIuTwjSGQq6HP/fwXQE+6VUrkzR8NHLbKxK2OVDsDKRvirwcpG+i1XlD
-	 iY/xhiPw07uCqUn3fhZ+sszN8Kff0tuSmQ6IApP7ivvX4Bs+hB37ziO/clEdKEsAYI
-	 CZsNzNUOLZ2U87xY75+VDRhG4/vwuwXzKlrbQX72LQeWjDruzJNVJ1KmsP5/laFSja
-	 8gEQFLkwC6SpOUtFjSUyR1lCmd7GmLYE1zGBxyFZ1DvfQJN3+h7HbWl8xydcm62dTH
-	 fmx+4T5eg8w8g==
-Date: Mon, 8 Jun 2026 11:17:54 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] drm/rockchip: dw_hdmi_qp: expose "overscan" property
-Message-ID: <20260608-judicious-maroon-toucanet-a8f610@houat>
-References: <20260602-hdmi-overscan-v1-0-31f71b817c80@flipper.net>
- <20260602-hdmi-overscan-v1-2-31f71b817c80@flipper.net>
- <20260603-glittering-vigilant-beluga-0c6bf6@houat>
- <CAKTNdwE5uAOc9V+L1J7_QJfW45D-K-vTnpHuktxD2=x9e_4jOQ@mail.gmail.com>
+	id 1wWWDT-00000003AnX-2NFD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Jun 2026 09:24:20 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-490c1915793so24160385e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 02:24:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780910657; x=1781515457; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fz5Bg/D78093usgf5+fdj8sYVjMQjFuVf2DjS/EcSng=;
+        b=CH3TkGtYOV7AAn0Pc2JGMMrAF464uj6ro6W4L0S9TyJATX+IztUadyzsRkdkayX+Up
+         WFLSNFsBXkHzXWppV/aJbzWNuxov/2YxRb96fEl7RJAWiSFj9eWL0I4TD1PMrXPDgtWo
+         D/3RiT/Lx+5UOUQKBPsNb17IgQQEkbTuGT3MQISWc2KhTNFVHRFjaDkCau56BaVm6ezn
+         0RlOQ4RuBGZ8fkjEFvKzZwt+8nb02h7IbnsMv41hNM2dF7haAwMofzBgmjkk3IWlWkum
+         ZJP7K3dZv8HTeBAhu74PLbF2DCiKfZHDMljOwfNeOsTwJZahvs6vF5ngjyq2WjI0o665
+         wWZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780910657; x=1781515457;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fz5Bg/D78093usgf5+fdj8sYVjMQjFuVf2DjS/EcSng=;
+        b=rkiv0jzrPjhrrFHvDuxVBCIkgMFXeYC64TsuOcvuWOIdIH9GYxDYToRLRzaS1YplyY
+         aYM19MkXTs3OBOYmlWzN3xwj0PQxhBXZw3nVDQlNgj/jj5rgIlyP761pH+dpeEJPMjSg
+         xT9J+VFQua6WZtHUSbyOlHEYQn3sio2LzNgOSub4igdT6dLaljmJp98Rj0A/D/vAh3kv
+         Olw54ZPlUYbbZAZrjUl9zrJWwZNC90BGjDfaBXgbQlOIQ0pFNXmz4ujByYNJv0cnpPLL
+         bblwd/ja0MyZCUdsn1qtXUaCQ1BkG7feBOg1d7ZzxLJdwtuvQaZPl4KXVQZa8uQFojRL
+         NZdQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8pCo4/ZWHDniZZqUfBNdDsx+VU1VmvC047AZGLB/jtQxo/78mWLN6XsQiwG/P4TeNbriqQnDFikbgsgguTbusf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq6Dm/a+h+8ozzdbkJjOIm7FT1x0f4IONcigw3puG3Y+2k95dU
+	YJI5eiSFHxW8nMge7up7S1J9MZZ6Z2lfYrfTSiRKJ+CYfsFrj+rdghK/
+X-Gm-Gg: Acq92OF48uIzLc9PFpFhSGGEFUeC1IIAUFCCoFQchpJ4mIyFyu5rrREfLZ875AsfBG9
+	rQBO1yoSYiT3iLWQlQfMJ904kOHj4EILPIi7uZHVxpLqQRmGvH1Wsp8ma+9Y1eQilULUVh7f+bt
+	dxQUmhVhD+xrTHczWjxIFL8NNu5faYKVsM9za0NVR6/sGhyJN52hJxGk9evWFm0eF4ty9G5SEQa
+	jsPrbm6grBnw25okqiHMLNXKIdPW72shcerTjjviOq2REl3s2gkgqTJ2jSM1JqgfEFKc8lM71AI
+	P/imRqaM28JPBSXo3GHdVEPl2Zzg8m6i30OQWAKabpV9qAvsbw9ipudWPGcjv0mWSe+nX6+CVRj
+	Q0FHuC5mztf6E+b0GEcjG2vJ5ihAPDAGBkh1Z/0j4f6ZTGDIngJoP8UEyKLnWhqIurlANbLv76+
+	7WDiZYF/rpXGnFFfvuZu9X9XYe5eKT9CvxY2FGWWxXcEi31fVso81uFyagpJYE2Bh/5qxzO+4Yx
+	yXOduttvv/YdRO+bKRgRuPWSJyeC1vE+wz3s+GgcS4L6n2e
+X-Received: by 2002:a05:600c:c4a7:b0:490:b58a:dcc1 with SMTP id 5b1f17b1804b1-490c262183cmr233896345e9.29.1780910656960;
+        Mon, 08 Jun 2026 02:24:16 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc4082c3sm364812725e9.13.2026.06.08.02.24.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 02:24:16 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: [PATCH v1 0/3] Add support for Variscite DART-MX8M-PLUS and Sonata board
+Date: Mon,  8 Jun 2026 11:24:08 +0200
+Message-ID: <cover.1780910435.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="3wuqchwy36r7xdmf"
-Content-Disposition: inline
-In-Reply-To: <CAKTNdwE5uAOc9V+L1J7_QJfW45D-K-vTnpHuktxD2=x9e_4jOQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_022419_627916_4D0279E9 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,114 +116,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series adds support for the Variscite DART-MX8M-PLUS
+system on module and the Sonata carrier board.
 
---3wuqchwy36r7xdmf
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/2] drm/rockchip: dw_hdmi_qp: expose "overscan" property
-MIME-Version: 1.0
+The series includes:
+- SOM device tree with on-module peripherals
+- Sonata carrier board device tree with board-specific features
 
-Hi Alexey,
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-On Wed, Jun 03, 2026 at 12:15:04PM +0400, Alexey Charkov wrote:
-> On Wed, Jun 3, 2026 at 11:55=E2=80=AFAM Maxime Ripard <mripard@kernel.org=
-> wrote:
-> >
-> > On Tue, Jun 02, 2026 at 09:00:40PM +0400, Alexey Charkov wrote:
-> > > Expose the "overscan" connector property as recognized by KWin and the
-> > > likes to compensate for TV overscan cropping.
-> > >
-> > > The CRTC will use the margin values derived from this overscan percen=
-tage
-> > > in its post-composition scaler to add appropriate blank margins on all
-> > > sides of the output image so that the TV doesn't eat up visible conte=
-nt.
-> > >
-> > > Signed-off-by: Alexey Charkov <alchark@flipper.net>
-> > > ---
-> > >  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 16 ++++++++++++++++
-> > >  1 file changed, 16 insertions(+)
-> > >
-> > > diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers=
-/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > > index f35484715c2d..fae44d11dbef 100644
-> > > --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > > +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > > @@ -137,10 +137,18 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct=
- drm_encoder *encoder,
-> > >                                        struct drm_connector_state *co=
-nn_state)
-> > >  {
-> > >       struct rockchip_hdmi_qp *hdmi =3D to_rockchip_hdmi_qp(encoder);
-> > > +     const struct drm_display_mode *adj_mode =3D &crtc_state->adjust=
-ed_mode;
-> > >       struct rockchip_crtc_state *s =3D to_rockchip_crtc_state(crtc_s=
-tate);
-> > >       union phy_configure_opts phy_cfg =3D {};
-> > > +     unsigned int overscan;
-> > >       int ret;
-> > >
-> > > +     overscan =3D min(conn_state->tv.overscan, 100u);
-> > > +     s->tv_margins.left   =3D adj_mode->hdisplay * overscan / 200;
-> > > +     s->tv_margins.right  =3D s->tv_margins.left;
-> > > +     s->tv_margins.top    =3D adj_mode->vdisplay * overscan / 200;
-> > > +     s->tv_margins.bottom =3D s->tv_margins.top;
-> > > +
-> > >       if (hdmi->tmds_char_rate =3D=3D conn_state->hdmi.tmds_char_rate=
- &&
-> > >           s->output_bpc =3D=3D conn_state->hdmi.output_bpc)
-> > >               return 0;
-> > > @@ -603,6 +611,14 @@ static int dw_hdmi_qp_rockchip_bind(struct devic=
-e *dev, struct device *master,
-> > >               return dev_err_probe(hdmi->dev, PTR_ERR(connector),
-> > >                                    "Failed to init bridge connector\n=
-");
-> > >
-> > > +     ret =3D drm_mode_create_tv_properties_legacy(drm, 0, NULL);
-> > > +     if (ret)
-> > > +             return dev_err_probe(dev, ret,
-> > > +                                  "Failed to create TV connector pro=
-perties\n");
-> > > +
-> > > +     drm_object_attach_property(&connector->base,
-> > > +                                drm->mode_config.tv_overscan_propert=
-y, 0);
-> > > +
-> >
-> > As the name suggests, it's a legacy property only ever used for TV. You
-> > should be using drm_mode_create_tv_margin_properties()
->=20
-> Hi Maxime, I tried that one before going for the current solution but
-> realized that the userspace tooling I care about (KWin in particular)
-> doesn't recognize those properties, but it does recognize "overscan".
-> Maybe there's a compat helper somewhere that I missed, which would
-> translate between the two?
->=20
-> It is for TVs. Turns out that having a proper right-sized digital
-> input interface doesn't prevent them from doing weird stuff with the
-> image data, i.e. overscanning and cropping it right where one would
-> expect to see the system tray and panel.
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite DART-MX8M PLUS Boards
+  arm64: dts: freescale: Add support for Variscite DART-MX8M-PLUS
+  arm64: dts: imx8mp-var-dart: Add support for Variscite Sonata board
 
-When I said "TV", I meant old-school analog TV, not modern HDMI ones :)
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8mp-var-dart-sonata.dts  | 716 ++++++++++++++++++
+ .../boot/dts/freescale/imx8mp-var-dart.dtsi   | 476 ++++++++++++
+ 4 files changed, 1199 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-var-dart-sonata.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-var-dart.dtsi
 
-I guess it's a Kwin issue then. To my knowledge, there's 0 HDMI driver
-implementing the legacy tv properties, when VC4 implements the margin
-ones for HDMI.
 
-Maxime
+base-commit: be580423d3f84b84a2f549df91e66bc4f54eda02
+-- 
+2.47.3
 
---3wuqchwy36r7xdmf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaiaIwQAKCRAnX84Zoj2+
-dhCxAYD7DedUCXFMxG0zmpyP1mKhk0Nd/DHzQYvVYJqw8KALO6D0if0LDkgPoiEp
-ANJVCzIBgKeFDn4t7faQQCMU/doiZGX1KvxOkHQPnm76uToF7SfXfdOPNQX0SADd
-E85+6C88Gw==
-=+4Lh
------END PGP SIGNATURE-----
-
---3wuqchwy36r7xdmf--
 
