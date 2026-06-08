@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13E3CD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 02:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FA2CD8C90
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 02:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p0zPEFGhfG3QKVaGDZG1h1mxGzWJiUcHgpOMB7FKbFE=; b=VpnyfxpMac5iroYr6xSrk4mQY0
-	hNYBz97ogrMWieP07peEz6Dc7AnjcUnv+LtMOirUzcSKZWwvmKglAVyPI5cAtpqw+xDqs4R/97oJi
-	0Dp0A+6GAUrs3hUQnbcZN3sAwuqjGqyN99znb++6sPQuz7V8A6nKTfYIvUbVZa9tWge8VNVRWavuL
-	wLYI9+JRU1LcAU9TjSsauZDN1YqESswBr0+gMv8lQD4BIGeZnW9f8fIcrOgucLYalwIXBPAhvLqaZ
-	8WJZ0ddGe4vAwsAmqiAVGIoAu+cf+1vh/tcqyCerDsSOj98B3PBqhACMF48TO181vXMrFa5GHGNpC
-	ynJAlbGA==;
+	bh=0yGMFcYV1tIohBdQky37z1yVHzNg0LWhm86S/h80lZo=; b=YETieHytZceWMMS0krUYxaVHl4
+	jn3ObaI99D65da6k7L5H+fVandyE97CXzyEZvLLJLAvVJbqi+Jx7B3KCVheK6YW8nT9QhxVrvLPeD
+	YX5R+Kxd1yGePFrbGFU/+e1Dr4zCoilUQYumkYRJ8WtEX3A6xRU+pJj5bwB1G913uFqlUXpbcq8EB
+	95iUxfKvTk6AoHTcP2DVT84QIFz59AR//eRO6sq9eKZ6IPFHGbLnDEXde5QbB0dRI/F1IHFPHrDnu
+	yBw7FK/lleFUb85burIjXetD+ih2SDt/KY9fbJ0P+UkamqDqaOJWr9d8I2GZyMNlDfEAtmLWBAT9v
+	mSN0wFFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPnJ-00000002j3Q-1sSj;
-	Mon, 08 Jun 2026 02:32:53 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wWPnN-00000002j5I-2HSL;
+	Mon, 08 Jun 2026 02:32:57 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPnH-00000002j2Z-2w27
+	id 1wWPnL-00000002j4B-0tIN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 02:32:52 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2c0b9328c4aso26168005ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 19:32:51 -0700 (PDT)
+	Mon, 08 Jun 2026 02:32:56 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c0bd02d97eso44197065ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 19:32:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780885971; x=1781490771; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780885974; x=1781490774; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=p0zPEFGhfG3QKVaGDZG1h1mxGzWJiUcHgpOMB7FKbFE=;
-        b=Ds8L/FJQeWwIBwd+m/a+NSv5VaXJIoOuDkix314r/Nie1DhGCjtixQGi4Gsbqji8ls
-         Fwesyl/kE5QIZ89uM7QQlyTnFZHYrvtII6MK0rF1fdTQecM6hn7AR/5Cv3YM/JHUaFV7
-         c30/EsB1C2CSqr9AtSi/YS8atd56Rkx0JZonPmdkBtevCuHq7FMzHYHb8lPmdnVj0ITG
-         hJOcCRhNb0yaNmZ8khj2Gxn1IpayYBouIMSFAlwh57F8RJPFoUM3xeOnK5CZzHOt/Y4o
-         8up+wMVwcmPKyhWUVbddMpESJ47z9f5VEQ5/yd0m8MwKxFjz+D4+F5qYsSlgXWxONbuh
-         NWsw==
+        bh=0yGMFcYV1tIohBdQky37z1yVHzNg0LWhm86S/h80lZo=;
+        b=srf1mGlJab/mjXDRmUuZ/RXGshb/g+spAtbRvFCWdsCdOM2kg0S+pRC0bxoXwIqhtP
+         dUhrBgxaxNfIxnnQ9szr5wabtadM05Qf3ZZauoAIJKjf+TCetmgmgPfALWF94hIRFQKL
+         a7TgXm+P/RwVis4c3RUiQsCdvcRaRTAwgWBJUzpG+rSfjXBilnRAtafEupIYJ75TyMce
+         aRotJLaFxE1G/GoOX8lqWmYsdIWmFpgvTe/AsPZqsgVm+35Fhvog7MuXrOMSrrKVFqI7
+         CBXzLEpH9otw9NgIGsWYMPGj1PTk2mEkrBqJyiCfTUDIjnGJ3OWOd3P+PVMbjiWJfSsV
+         h8Ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780885971; x=1781490771;
+        d=1e100.net; s=20251104; t=1780885974; x=1781490774;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=p0zPEFGhfG3QKVaGDZG1h1mxGzWJiUcHgpOMB7FKbFE=;
-        b=cAZJxW+P89oMIhPEK9wmSgWoGE+RobtDTDk8MmK5bIaOtUzSxdY00RZUCkh2qy88J8
-         mWJPQPnsaeclK3NHyESBT8q4gkMcvXg8lxs+cH7Mfeu0hoXt+0feN6uTQ5fyG4KE9km8
-         IJTe0KcghsHPAup1dHUGqzrdAc25t2q23Iuk2FnUTmzB9Xw9yNjH3C8vmhlb8PUDFyR6
-         8FCaB6TC9UiYi3iADbXDr2TSMxUwQPe4AntZC5cRqKArczYwAo9OoVOshTA4kYr6nPRE
-         csUEfqYBOdIB/q+3J9EkNalvnWjxOrPMLQv4/dtJEnzB0tdR9sWRGmvPj+QbgzZjHBap
-         irTQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/NA5TzJiQul5Z/4vYQDqGgs1Gw8lPNfCtbgVIgiFTGwE8DWy20tGg/B9Ag53OypYJ9LyGgbXCHvP25EXj9dYMH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyd+E0ann3Acvn08e5dPGCHVEfcjuAhCZJ9LN2Ie5L48CiC6Ks+
-	WxjQtZYLJN1zCOLo5cM7x6M7nQY5NHpdu8nceClkr4LIQnPoyMDyGYMS
-X-Gm-Gg: Acq92OHjWoR028vmbbYSr5UTXmGZrHBm1McWl7I1OfPeL2daBJ9sd2exjlzAzbTfLC1
-	sTMfxFPYvJownmPU+oIub5ttavv9D+WxCyNquowTTiZvHlyCSvTjpNfSlUq4vPKOwiKkxFVKqnE
-	Ojn8nU0xTKvzyhi3teevoD/IinHTa5KCASHCXWDii0ty/2sVVf4rA/p2V7XM6OEycxmcNELSRyx
-	/t8Y4PgrXZCPKUeAMG7tIHFMCbzaUqSK/CBSakJI8t39x4fdv/FOEBcQKO0xD5BNFPnCbQEG3sv
-	XQZ5chFrJ2Xpk4X2WoU8RG/C5a4KqzTTJEaO22+49b/Y6X0jyLQLJlWOx5IkPe3Tt+FBVtYt/Wl
-	b4jNCFD29fKPwsUh7Y0WLfQfP7oK0bxv1EnjdJqwnKfLaxGffq/ELeGHBEnv3txHZKVTvAFgwT1
-	Ih82X8/AI9jYWzEuMDBQoLw//2xDi9PcsqoewPoJXZtXcrdjkMkfsdJ6qSJrC8Y1mcE6/CLmb8a
-	CA6CBWyCyRxxJUQWstOjSg=
-X-Received: by 2002:a17:902:f606:b0:2c0:ccdb:e02c with SMTP id d9443c01a7336-2c1e7b3fcdbmr158771995ad.7.1780885970776;
-        Sun, 07 Jun 2026 19:32:50 -0700 (PDT)
+        bh=0yGMFcYV1tIohBdQky37z1yVHzNg0LWhm86S/h80lZo=;
+        b=V9qgJJ5/oezIY4dTDEpfzhcj0o8e89Lav1tJSL2RqS3xLNivhuj3MONw7gBDZ2YcVz
+         i7jspyC/n2K/ZqNNwQnoxZgRGG0XA599VYG9l6Rc7BmhkMTenXCzwFouJSsg+OFg91ej
+         6tuz7fFOzN5JRGhZFwy4JiwxVD/5dXzupFQsatLi+TsWN5mNX4LMH/eJsPMyw0cGu/an
+         eWyCpgVsrMoqNl+9POaT1P7KkROaJeEfPQAZkBACW/phXQUBCbbpz7YAxPKLA8pmkz6H
+         O5MGAs+UIdjWRw6CTh2GfVNT9lQbr8OYj1PPo1UegLVfRgbNsXiTpDFKoBNgAWj2tmlW
+         ICVA==
+X-Forwarded-Encrypted: i=1; AFNElJ+ieQ3ADVF4H3fJjYJV064GJm6U8ZTicK8FzPF5UPFVVwr4BjiGuRI4Ggwnpo2ioeQn9+bMVsy4yNDGXUABOkJ/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEuyO5kKkrRCxb/uNabKxpzj9yDwxTII9JWqF40P044dnPovpt
+	J7iuAC6AEf3XT2fEzaGObkULe2NLqctdgWqWjObs3NHp/NNIDrk2EOrd
+X-Gm-Gg: Acq92OFnDKhDy5Xwkgco8wnX7yEvZvAqK5IdqetrP59gBr6tm03vohVrpi9r6P/WNC4
+	mdzEFkljFLrAyH5aJNlLetzLasA/O8z8S62s263lf/MlzHbvor/2Xl6j2q2hc3BSvl0GxL/AGHI
+	E9gWjhuJTx5sEw4WMhIMxdR4VIFf6EeRQs1dRRRoZcePAN9J26c2MbzBO7dpye0o6bk1h/kjMUl
+	CvMriPMAyPWYYbiMo5fjbMgeSS3lPc5YEH9bn3tM2w/pWr1nUhyA4F/P/4PmOPP7ETWJhrQBpWO
+	fRw8kwtdqCnayANF0OxRQhlKkKS7tqbYUcXvFPE0iBygOZoyYyG3inqmdu9PVBe60Xp52F1TIpk
+	bSdgkwbEexw4aqtKc5oEf9a9pmYKnuQQk/IlQ1xfJhxxqjmFOb8RPcVjDc0yjk8tGigz4QZ/ZtJ
+	Xh8ARqctkUVkhjr6j5TWYpBFocjWz3F4r+boxY/9qmLbyEyrWXMohKZTr5YT9KwCQs1uQVKV0Yk
+	hDojfsoSoj1Xj7yXM/kyg0KBA93WLKeFQ==
+X-Received: by 2002:a17:902:fc50:b0:2c0:e5ee:f554 with SMTP id d9443c01a7336-2c1e80d29b7mr146237945ad.8.1780885974255;
+        Sun, 07 Jun 2026 19:32:54 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c245dd3b5dsm38143485ad.81.2026.06.07.19.32.47
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c245dd3b5dsm38143485ad.81.2026.06.07.19.32.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Jun 2026 19:32:50 -0700 (PDT)
+        Sun, 07 Jun 2026 19:32:53 -0700 (PDT)
 From: Joey Lu <a0987203069@gmail.com>
 To: zhengxingda@iscas.ac.cn,
 	maarten.lankhorst@linux.intel.com,
@@ -88,17 +88,17 @@ Cc: ychuang3@nuvoton.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v3 2/5] drm/verisilicon: add register-level macros for DCU Lite
-Date: Mon,  8 Jun 2026 10:32:34 +0800
-Message-ID: <20260608023237.305036-3-a0987203069@gmail.com>
+Subject: [PATCH v3 3/5] drm/verisilicon: introduce per-variant hardware ops table
+Date: Mon,  8 Jun 2026 10:32:35 +0800
+Message-ID: <20260608023237.305036-4-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260608023237.305036-1-a0987203069@gmail.com>
 References: <20260608023237.305036-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_193251_746940_E6BE4FD7 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260607_193255_284081_83C1F2D3 
+X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,53 +113,509 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add register-level constants needed by the forthcoming DCUltraLite
-hardware ops:
+The DC8200 and DCUltraLite share a broadly similar register layout but
+differ in how the bridge, CRTC, primary plane and IRQ paths are driven.
+Introduce a vs_dc_funcs vtable so each variant can supply its own
+implementation without scattering conditionals across multiple files.
 
-  VSDC_DISP_IRQ_VSYNC(n) in vs_crtc_regs.h: bit mask for per-output
-  VSYNC interrupt bits in DISP_IRQ_STA (0x147C) / DISP_IRQ_EN (0x1480),
-  which are the IRQ registers used by DCUltraLite in place of the DC8200
-  TOP_IRQ_ACK / TOP_IRQ_EN registers.
+Add enum vs_dc_generation (VSDC_GEN_DC8000 / VSDC_GEN_DC8200) to
+vs_hwdb.h and a generation field to struct vs_chip_identity.  Annotate
+all four existing DC8200 HWDB entries with VSDC_GEN_DC8200.
 
-  VSDC_FB_CONFIG_ENABLE (bit 0), VSDC_FB_CONFIG_VALID (bit 3) and
-  VSDC_FB_CONFIG_RESET (bit 4) in vs_primary_plane_regs.h: control bits
-  in the FB_CONFIG register used by DCUltraLite for framebuffer enable
-  and per-frame commit handshake.
+Extract the DC8200-specific hardware ops into a new vs_dc8200.c:
+  bridge_enable / bridge_disable - PANEL_CONFIG/START + CONFIG_EX commit
+  enable_vblank / disable_vblank - TOP_IRQ_EN VSYNC bit
+  plane_enable_ex / disable_ex / update_ex - FB_CONFIG_EX path
+  irq_handler - reads TOP_IRQ_ACK
+
+Update vs_bridge.c, vs_crtc.c, vs_primary_plane.c and vs_dc.c to
+dispatch through dc->funcs instead of directly touching registers.
+vs_crtc.c gains atomic_begin and atomic_flush hooks to allow variants
+to gate per-frame commit cycles.
 
 No behaviour change for existing DC8200 platforms.
 
 Signed-off-by: Joey Lu <a0987203069@gmail.com>
 ---
- drivers/gpu/drm/verisilicon/vs_crtc_regs.h          | 1 +
- drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h | 3 +++
- 2 files changed, 4 insertions(+)
+ drivers/gpu/drm/verisilicon/Makefile          |   2 +-
+ drivers/gpu/drm/verisilicon/vs_bridge.c       |  20 +---
+ drivers/gpu/drm/verisilicon/vs_crtc.c         |  38 ++++++-
+ drivers/gpu/drm/verisilicon/vs_dc.c           |   6 +-
+ drivers/gpu/drm/verisilicon/vs_dc.h           |  33 ++++++
+ drivers/gpu/drm/verisilicon/vs_dc8200.c       | 107 ++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_hwdb.c         |   4 +
+ drivers/gpu/drm/verisilicon/vs_hwdb.h         |   6 +
+ .../gpu/drm/verisilicon/vs_primary_plane.c    |  32 +-----
+ 9 files changed, 197 insertions(+), 51 deletions(-)
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8200.c
 
-diff --git a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-index c7930e817635..d4da22b08cd5 100644
---- a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-+++ b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-@@ -54,6 +54,7 @@
- #define VSDC_DISP_GAMMA_DATA(n)			(0x1460 + 0x4 * (n))
+diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
+index 426f4bcaa834..9d4cd16452fa 100644
+--- a/drivers/gpu/drm/verisilicon/Makefile
++++ b/drivers/gpu/drm/verisilicon/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
  
- #define VSDC_DISP_IRQ_STA			0x147C
-+#define VSDC_DISP_IRQ_VSYNC(n)			BIT(n)
+-verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_drm.o vs_hwdb.o \
++verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o vs_drm.o vs_hwdb.o \
+ 	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
  
- #define VSDC_DISP_IRQ_EN			0x1480
+ obj-$(CONFIG_DRM_VERISILICON_DC) += verisilicon-dc.o
+diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c b/drivers/gpu/drm/verisilicon/vs_bridge.c
+index 7a93049368db..6a9af10c64e6 100644
+--- a/drivers/gpu/drm/verisilicon/vs_bridge.c
++++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+@@ -162,15 +162,8 @@ static void vs_bridge_enable_common(struct vs_crtc *crtc,
+ 			VSDC_DISP_PANEL_CONFIG_DE_EN |
+ 			VSDC_DISP_PANEL_CONFIG_DAT_EN |
+ 			VSDC_DISP_PANEL_CONFIG_CLK_EN);
+-	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG(output),
+-			VSDC_DISP_PANEL_CONFIG_RUNNING);
+-	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
+-			  VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+-	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
+-			VSDC_DISP_PANEL_START_RUNNING(output));
+-
+-	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG_EX(crtc->id),
+-			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
++
++	dc->funcs->bridge_enable(dc, output);
+ }
  
-diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-index cbb125c46b39..67d4b00f294e 100644
---- a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-+++ b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-@@ -16,6 +16,9 @@
- #define VSDC_FB_STRIDE(n)			(0x1408 + 0x4 * (n))
+ static void vs_bridge_atomic_enable_dpi(struct drm_bridge *bridge,
+@@ -228,14 +221,7 @@ static void vs_bridge_atomic_disable(struct drm_bridge *bridge,
+ 	struct vs_dc *dc = crtc->dc;
+ 	unsigned int output = crtc->id;
  
- #define VSDC_FB_CONFIG(n)			(0x1518 + 0x4 * (n))
-+#define VSDC_FB_CONFIG_ENABLE			BIT(0)
-+#define VSDC_FB_CONFIG_VALID			BIT(3)
-+#define VSDC_FB_CONFIG_RESET			BIT(4)
- #define VSDC_FB_CONFIG_CLEAR_EN			BIT(8)
- #define VSDC_FB_CONFIG_ROT_MASK			GENMASK(13, 11)
- #define VSDC_FB_CONFIG_ROT(v)			((v) << 11)
+-	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
+-			  VSDC_DISP_PANEL_START_MULTI_DISP_SYNC |
+-			  VSDC_DISP_PANEL_START_RUNNING(output));
+-	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_CONFIG(output),
+-			  VSDC_DISP_PANEL_CONFIG_RUNNING);
+-
+-	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG_EX(crtc->id),
+-			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
++	dc->funcs->bridge_disable(dc, output);
+ }
+ 
+ static const struct drm_bridge_funcs vs_dpi_bridge_funcs = {
+diff --git a/drivers/gpu/drm/verisilicon/vs_crtc.c b/drivers/gpu/drm/verisilicon/vs_crtc.c
+index 0b8a35d09cd2..679d6541ba1b 100644
+--- a/drivers/gpu/drm/verisilicon/vs_crtc.c
++++ b/drivers/gpu/drm/verisilicon/vs_crtc.c
+@@ -16,10 +16,33 @@
+ #include "vs_crtc_regs.h"
+ #include "vs_crtc.h"
+ #include "vs_dc.h"
+-#include "vs_dc_top_regs.h"
+ #include "vs_drm.h"
+ #include "vs_plane.h"
+ 
++static void vs_crtc_atomic_begin(struct drm_crtc *crtc,
++				  struct drm_atomic_commit *state)
++{
++	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
++	struct vs_dc *dc = vcrtc->dc;
++	unsigned int output = vcrtc->id;
++
++	if (dc->funcs->crtc_begin)
++		dc->funcs->crtc_begin(dc, output);
++}
++
++static void vs_crtc_atomic_flush(struct drm_crtc *crtc,
++				  struct drm_atomic_commit *state)
++{
++	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
++	struct vs_dc *dc = vcrtc->dc;
++	unsigned int output = vcrtc->id;
++
++	if (dc->funcs->crtc_flush)
++		dc->funcs->crtc_flush(dc, output);
++
++	drm_crtc_vblank_atomic_flush(crtc, state);
++}
++
+ static void vs_crtc_atomic_disable(struct drm_crtc *crtc,
+ 				   struct drm_atomic_commit *state)
+ {
+@@ -30,6 +53,9 @@ static void vs_crtc_atomic_disable(struct drm_crtc *crtc,
+ 	drm_crtc_vblank_off(crtc);
+ 
+ 	clk_disable_unprepare(dc->pix_clk[output]);
++
++	if (dc->funcs->crtc_disable)
++		dc->funcs->crtc_disable(dc, output);
+ }
+ 
+ static void vs_crtc_atomic_enable(struct drm_crtc *crtc,
+@@ -42,6 +68,9 @@ static void vs_crtc_atomic_enable(struct drm_crtc *crtc,
+ 	drm_WARN_ON(&dc->drm_dev->base,
+ 		    clk_prepare_enable(dc->pix_clk[output]));
+ 
++	if (dc->funcs->crtc_enable)
++		dc->funcs->crtc_enable(dc, output);
++
+ 	drm_crtc_vblank_on(crtc);
+ }
+ 
+@@ -119,7 +148,8 @@ static bool vs_crtc_mode_fixup(struct drm_crtc *crtc,
+ }
+ 
+ static const struct drm_crtc_helper_funcs vs_crtc_helper_funcs = {
+-	.atomic_flush	= drm_crtc_vblank_atomic_flush,
++	.atomic_begin	= vs_crtc_atomic_begin,
++	.atomic_flush	= vs_crtc_atomic_flush,
+ 	.atomic_enable	= vs_crtc_atomic_enable,
+ 	.atomic_disable	= vs_crtc_atomic_disable,
+ 	.mode_set_nofb	= vs_crtc_mode_set_nofb,
+@@ -132,7 +162,7 @@ static int vs_crtc_enable_vblank(struct drm_crtc *crtc)
+ 	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+ 	struct vs_dc *dc = vcrtc->dc;
+ 
+-	regmap_set_bits(dc->regs, VSDC_TOP_IRQ_EN, VSDC_TOP_IRQ_VSYNC(vcrtc->id));
++	dc->funcs->enable_vblank(dc, vcrtc->id);
+ 
+ 	return 0;
+ }
+@@ -142,7 +172,7 @@ static void vs_crtc_disable_vblank(struct drm_crtc *crtc)
+ 	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+ 	struct vs_dc *dc = vcrtc->dc;
+ 
+-	regmap_clear_bits(dc->regs, VSDC_TOP_IRQ_EN, VSDC_TOP_IRQ_VSYNC(vcrtc->id));
++	dc->funcs->disable_vblank(dc, vcrtc->id);
+ }
+ 
+ static const struct drm_crtc_funcs vs_crtc_funcs = {
+diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c b/drivers/gpu/drm/verisilicon/vs_dc.c
+index dad9967bc10b..c94957024189 100644
+--- a/drivers/gpu/drm/verisilicon/vs_dc.c
++++ b/drivers/gpu/drm/verisilicon/vs_dc.c
+@@ -8,9 +8,7 @@
+ #include <linux/of.h>
+ #include <linux/of_graph.h>
+ 
+-#include "vs_crtc.h"
+ #include "vs_dc.h"
+-#include "vs_dc_top_regs.h"
+ #include "vs_drm.h"
+ #include "vs_hwdb.h"
+ 
+@@ -33,7 +31,7 @@ static irqreturn_t vs_dc_irq_handler(int irq, void *private)
+ 	struct vs_dc *dc = private;
+ 	u32 irqs;
+ 
+-	regmap_read(dc->regs, VSDC_TOP_IRQ_ACK, &irqs);
++	irqs = dc->funcs->irq_handler(dc);
+ 
+ 	vs_drm_handle_irq(dc, irqs);
+ 
+@@ -136,6 +134,8 @@ static int vs_dc_probe(struct platform_device *pdev)
+ 	dev_info(dev, "Found DC%x rev %x customer %x\n", dc->identity.model,
+ 		 dc->identity.revision, dc->identity.customer_id);
+ 
++	dc->funcs = &vs_dc8200_funcs;
++
+ 	if (port_count > dc->identity.display_count) {
+ 		dev_err(dev, "too many downstream ports than HW capability\n");
+ 		ret = -EINVAL;
+diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h b/drivers/gpu/drm/verisilicon/vs_dc.h
+index ed1016f18758..d77d4a1babdf 100644
+--- a/drivers/gpu/drm/verisilicon/vs_dc.h
++++ b/drivers/gpu/drm/verisilicon/vs_dc.h
+@@ -14,6 +14,7 @@
+ #include <linux/reset.h>
+ 
+ #include <drm/drm_device.h>
++#include <drm/drm_plane.h>
+ 
+ #include "vs_hwdb.h"
+ 
+@@ -22,6 +23,34 @@
+ 
+ struct vs_drm_dev;
+ struct vs_crtc;
++struct vs_dc;
++
++struct vs_dc_funcs {
++	/* Bridge: atomic_enable, atomic_disable */
++	void (*bridge_enable)(struct vs_dc *dc, unsigned int output);
++	void (*bridge_disable)(struct vs_dc *dc, unsigned int output);
++
++	/* CRTC: atomic_begin, atomic_flush */
++	void (*crtc_begin)(struct vs_dc *dc, unsigned int output);
++	void (*crtc_flush)(struct vs_dc *dc, unsigned int output);
++
++	/* CRTC: atomic_enable, atomic_disable */
++	void (*crtc_enable)(struct vs_dc *dc, unsigned int output);
++	void (*crtc_disable)(struct vs_dc *dc, unsigned int output);
++
++	/* CRTC: enable_vblank, disable_vblank */
++	void (*enable_vblank)(struct vs_dc *dc, unsigned int output);
++	void (*disable_vblank)(struct vs_dc *dc, unsigned int output);
++
++	/* Primary plane: atomic_enable, atomic_disable, atomic_update */
++	void (*plane_enable_ex)(struct vs_dc *dc, unsigned int output);
++	void (*plane_disable_ex)(struct vs_dc *dc, unsigned int output);
++	void (*plane_update_ex)(struct vs_dc *dc, unsigned int output,
++				struct drm_plane_state *state);
++
++	/* IRQ handler */
++	u32 (*irq_handler)(struct vs_dc *dc);
++};
+ 
+ struct vs_dc {
+ 	struct regmap *regs;
+@@ -33,6 +62,10 @@ struct vs_dc {
+ 
+ 	struct vs_drm_dev *drm_dev;
+ 	struct vs_chip_identity identity;
++	const struct vs_dc_funcs *funcs;
+ };
+ 
++extern const struct vs_dc_funcs vs_dc8200_funcs;
++extern const struct vs_dc_funcs vs_dcu_lite_funcs;
++
+ #endif /* _VS_DC_H_ */
+diff --git a/drivers/gpu/drm/verisilicon/vs_dc8200.c b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+new file mode 100644
+index 000000000000..db9e1b3cd903
+--- /dev/null
++++ b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+@@ -0,0 +1,107 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
++ */
++
++#include <linux/regmap.h>
++
++#include "vs_bridge_regs.h"
++#include "vs_dc.h"
++#include "vs_dc_top_regs.h"
++#include "vs_plane.h"
++#include "vs_primary_plane_regs.h"
++
++static void vs_dc8200_bridge_enable(struct vs_dc *dc, unsigned int output)
++{
++	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG(output),
++			VSDC_DISP_PANEL_CONFIG_RUNNING);
++	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
++			  VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
++	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
++			VSDC_DISP_PANEL_START_RUNNING(output));
++
++	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG_EX(output),
++			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
++}
++
++static void vs_dc8200_bridge_disable(struct vs_dc *dc, unsigned int output)
++{
++	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_CONFIG(output),
++			  VSDC_DISP_PANEL_CONFIG_RUNNING);
++	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
++			  VSDC_DISP_PANEL_START_MULTI_DISP_SYNC |
++			  VSDC_DISP_PANEL_START_RUNNING(output));
++
++	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG_EX(output),
++			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
++}
++
++static void vs_dc8200_enable_vblank(struct vs_dc *dc, unsigned int output)
++{
++	regmap_set_bits(dc->regs, VSDC_TOP_IRQ_EN,
++			VSDC_TOP_IRQ_VSYNC(output));
++}
++
++static void vs_dc8200_disable_vblank(struct vs_dc *dc, unsigned int output)
++{
++	regmap_clear_bits(dc->regs, VSDC_TOP_IRQ_EN,
++			  VSDC_TOP_IRQ_VSYNC(output));
++}
++
++static void vs_dc8200_plane_commit(struct vs_dc *dc, unsigned int output)
++{
++	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
++			VSDC_FB_CONFIG_EX_COMMIT);
++}
++
++static void vs_dc8200_plane_enable_ex(struct vs_dc *dc, unsigned int output)
++{
++	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
++			VSDC_FB_CONFIG_EX_FB_EN);
++	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
++			   VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
++			   VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
++
++	vs_dc8200_plane_commit(dc, output);
++}
++
++static void vs_dc8200_plane_disable_ex(struct vs_dc *dc, unsigned int output)
++{
++	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
++			VSDC_FB_CONFIG_EX_FB_EN);
++
++	vs_dc8200_plane_commit(dc, output);
++}
++
++static void vs_dc8200_plane_update_ex(struct vs_dc *dc, unsigned int output,
++				       struct drm_plane_state *state)
++{
++	regmap_write(dc->regs, VSDC_FB_TOP_LEFT(output),
++		     VSDC_MAKE_PLANE_POS(state->crtc_x, state->crtc_y));
++	regmap_write(dc->regs, VSDC_FB_BOTTOM_RIGHT(output),
++		     VSDC_MAKE_PLANE_POS(state->crtc_x + state->crtc_w,
++					 state->crtc_y + state->crtc_h));
++	regmap_write(dc->regs, VSDC_FB_BLEND_CONFIG(output),
++		     VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
++
++	vs_dc8200_plane_commit(dc, output);
++}
++
++static u32 vs_dc8200_irq_handler(struct vs_dc *dc)
++{
++	u32 irqs;
++
++	regmap_read(dc->regs, VSDC_TOP_IRQ_ACK, &irqs);
++	return irqs;
++}
++
++const struct vs_dc_funcs vs_dc8200_funcs = {
++	.bridge_enable		= vs_dc8200_bridge_enable,
++	.bridge_disable		= vs_dc8200_bridge_disable,
++	.enable_vblank		= vs_dc8200_enable_vblank,
++	.disable_vblank		= vs_dc8200_disable_vblank,
++	.plane_enable_ex	= vs_dc8200_plane_enable_ex,
++	.plane_disable_ex	= vs_dc8200_plane_disable_ex,
++	.plane_update_ex	= vs_dc8200_plane_update_ex,
++	.irq_handler		= vs_dc8200_irq_handler,
++};
+diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+index 2a0f7c59afa3..91524d16f778 100644
+--- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
++++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+@@ -94,6 +94,7 @@ static struct vs_chip_identity vs_chip_identities[] = {
+ 		.revision = 0x5720,
+ 		.customer_id = ~0U,
+ 
++		.generation = VSDC_GEN_DC8200,
+ 		.display_count = 2,
+ 		.max_cursor_size = 64,
+ 		.formats = &vs_formats_no_yuv444,
+@@ -103,6 +104,7 @@ static struct vs_chip_identity vs_chip_identities[] = {
+ 		.revision = 0x5721,
+ 		.customer_id = 0x30B,
+ 
++		.generation = VSDC_GEN_DC8200,
+ 		.display_count = 2,
+ 		.max_cursor_size = 64,
+ 		.formats = &vs_formats_no_yuv444,
+@@ -112,6 +114,7 @@ static struct vs_chip_identity vs_chip_identities[] = {
+ 		.revision = 0x5720,
+ 		.customer_id = 0x310,
+ 
++		.generation = VSDC_GEN_DC8200,
+ 		.display_count = 2,
+ 		.max_cursor_size = 64,
+ 		.formats = &vs_formats_with_yuv444,
+@@ -121,6 +124,7 @@ static struct vs_chip_identity vs_chip_identities[] = {
+ 		.revision = 0x5720,
+ 		.customer_id = 0x311,
+ 
++		.generation = VSDC_GEN_DC8200,
+ 		.display_count = 2,
+ 		.max_cursor_size = 64,
+ 		.formats = &vs_formats_no_yuv444,
+diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.h b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+index 2065ecb73043..a15c8b565604 100644
+--- a/drivers/gpu/drm/verisilicon/vs_hwdb.h
++++ b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+@@ -9,6 +9,11 @@
+ #include <linux/regmap.h>
+ #include <linux/types.h>
+ 
++enum vs_dc_generation {
++	VSDC_GEN_DC8000,
++	VSDC_GEN_DC8200,
++};
++
+ struct vs_formats {
+ 	const u32 *array;
+ 	unsigned int num;
+@@ -19,6 +24,7 @@ struct vs_chip_identity {
+ 	u32 revision;
+ 	u32 customer_id;
+ 
++	enum vs_dc_generation generation;
+ 	u32 display_count;
+ 	/*
+ 	 * The hardware only supports square cursor planes, so this field
+diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+index 1f2be41ae496..75bc36a078f7 100644
+--- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
++++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+@@ -53,12 +53,6 @@ static int vs_primary_plane_atomic_check(struct drm_plane *plane,
+ 	return 0;
+ }
+ 
+-static void vs_primary_plane_commit(struct vs_dc *dc, unsigned int output)
+-{
+-	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+-			VSDC_FB_CONFIG_EX_COMMIT);
+-}
+-
+ static void vs_primary_plane_atomic_enable(struct drm_plane *plane,
+ 					   struct drm_atomic_commit *atomic_state)
+ {
+@@ -69,13 +63,8 @@ static void vs_primary_plane_atomic_enable(struct drm_plane *plane,
+ 	unsigned int output = vcrtc->id;
+ 	struct vs_dc *dc = vcrtc->dc;
+ 
+-	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+-			VSDC_FB_CONFIG_EX_FB_EN);
+-	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+-			   VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
+-			   VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
+-
+-	vs_primary_plane_commit(dc, output);
++	if (dc->funcs->plane_enable_ex)
++		dc->funcs->plane_enable_ex(dc, output);
+ }
+ 
+ static void vs_primary_plane_atomic_disable(struct drm_plane *plane,
+@@ -88,10 +77,8 @@ static void vs_primary_plane_atomic_disable(struct drm_plane *plane,
+ 	unsigned int output = vcrtc->id;
+ 	struct vs_dc *dc = vcrtc->dc;
+ 
+-	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+-			VSDC_FB_CONFIG_EX_FB_EN);
+-
+-	vs_primary_plane_commit(dc, output);
++	if (dc->funcs->plane_disable_ex)
++		dc->funcs->plane_disable_ex(dc, output);
+ }
+ 
+ static void vs_primary_plane_atomic_update(struct drm_plane *plane,
+@@ -133,18 +120,11 @@ static void vs_primary_plane_atomic_update(struct drm_plane *plane,
+ 	regmap_write(dc->regs, VSDC_FB_STRIDE(output),
+ 		     fb->pitches[0]);
+ 
+-	regmap_write(dc->regs, VSDC_FB_TOP_LEFT(output),
+-		     VSDC_MAKE_PLANE_POS(state->crtc_x, state->crtc_y));
+-	regmap_write(dc->regs, VSDC_FB_BOTTOM_RIGHT(output),
+-		     VSDC_MAKE_PLANE_POS(state->crtc_x + state->crtc_w,
+-					 state->crtc_y + state->crtc_h));
+ 	regmap_write(dc->regs, VSDC_FB_SIZE(output),
+ 		     VSDC_MAKE_PLANE_SIZE(state->crtc_w, state->crtc_h));
+ 
+-	regmap_write(dc->regs, VSDC_FB_BLEND_CONFIG(output),
+-		     VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
+-
+-	vs_primary_plane_commit(dc, output);
++	if (dc->funcs->plane_update_ex)
++		dc->funcs->plane_update_ex(dc, output, state);
+ }
+ 
+ static const struct drm_plane_helper_funcs vs_primary_plane_helper_funcs = {
 -- 
 2.43.0
 
