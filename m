@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A6E0CD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48470CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRDBSHYpzFBzXnPKcrs7qf2EMqGEh7EqJYnV9Ezibaw=; b=wuXndCADyb9fQ0FI6M8mO2oged
-	GP54+rfTw1GScz77ZWyA3/i0mPMFpzJzmpCGhVjR4TwqCHHJ7KjuSf1oYEUUQSR/MD8u/9T0dxuDl
-	h1LIn23guUvZwIATTd28vBhPrXTepy/LOmyLIskzxf4qIF8xJh61kxJRFO3ykvABXGweEsdalu6Rt
-	q0e4yHzwmwMi3bYMGbrHglp6dO1/eBzuXdwmkU9QA065OJ0MeWMOEn9rXP9f8p3+AWJn+VACzPztk
-	ur3ywXX5bZ0Z6OLA7bowsre0/Zwb2lBWQ7xHbJ2Js8j9jz56y6DMGX1zH1J2BadRoCxiNBWp0b/VG
-	pGLZfTpg==;
+	bh=auij8Mj6lGaN8B//sZO4VMF8WD/4lSlIkl1O0u/8z2A=; b=Puoptck6ZvR06D13PEDuK6bfHm
+	Pth1TAzZXWTmRSjfLYhSotvTO2FhCUYIk5y0IFmRG22JuNZe0b2lTdyOdeDTHh1BM/ZECDUsXU9S7
+	djtToEyUPYwKmbSeYX0BEWdQdWPmnSCOYWqGCK85VeXVfMeuI4m3UlmGOwMs2a6c/Xdu/yRB69VvD
+	NQwEfW+mjqD2E7SpcKLV4wHeafheb9AkxByv5/u/c7D9SaR3RwswesJDOTfuqF4rWlmD6RKPtdea7
+	bKbdQ9d8hA3J+zS3GnkJlyszvKiprwhR28HfVsvqZq/+A717hnKVeA+hmztiOO/2HBd/3KEXgCV3q
+	so1Hzw3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWZJ-00000003Dhq-27Zb;
-	Mon, 08 Jun 2026 09:46:53 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWZH-00000003DhK-2US4
+	id 1wWWba-00000003E4Q-031y;
+	Mon, 08 Jun 2026 09:49:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWWbW-00000003E3W-3wtf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 09:46:52 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36bd175fdbaso2431025a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 02:46:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780912010; x=1781516810; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yRDBSHYpzFBzXnPKcrs7qf2EMqGEh7EqJYnV9Ezibaw=;
-        b=jzbjCd1yrI3cX6gzopg67DHx61ARS1qCjgDKJWmrlTDtxTz+Vqj+PEowFcQUfXiDui
-         mBVmkhPrKiioKyumZXG5BsUfgCN8Adak53xDl92pPhiKRy/koSRzn3qU0k1ghBZM8Kl4
-         fYSz+VOb4pTaFavIG0+D/3srq0gFKMQJNml0jcd0+oDmDQZIlpr49Z32S/rLZqHwTckw
-         Uua9KhTpPvRDk3q7SjFQxDC66yLCLJV6YI81bKgjteqeOzMF4PGahPAvZ5+eKyfgJhYH
-         U/9jWufnLCc4Jq/1WeTJDzSJgoTmqRZUhxXO9E09suFNbrjLUWDKWbepFZNuk6I3oxHx
-         2P2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780912010; x=1781516810;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yRDBSHYpzFBzXnPKcrs7qf2EMqGEh7EqJYnV9Ezibaw=;
-        b=E0Ao7JG4uTL50PnO9JI6QeTAN3OULB0SvbvOZNb9B+N6hG+k66PiSAt6WgK0ulG0gP
-         AGjoIkqq5Yy1f7bMqwEXzAHB7klEjh2e+xcC9AWQl35HZBlDSNBtSouJxBoxmO5XkpBA
-         HPiUytpohweVZm84OnE8Jc42QKeVm5ep0OwkWRtI/qe8cIsUnxP3vrY9dyeUh2zSbSjr
-         C/TPbBI5kGBYuwixcvTGNGb5tfU4+k1wcpPWZkyaWtjlkM8WgqhgVQso/5s3o2lcwcdN
-         jS33Tq/wPsTnVHP8FpNI/SOHuDqazQO9SxJiM/S1jk/Ethh8BDiOqyJtQrB6ulB03m8U
-         7EpQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+bOsuFMA1FwmIcxjgH2wr5HlXVM9jCOQMgCCwnPuGH+9A/1KHzM1+e3VHZsfFMEcxEkTNxOpu7MM68KYypJNwv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOCPwDuQS3xqZr/9v7yly+3iwf72Ua4B4OSP1mIKP/H3098Z0d
-	MSJtJF0YVHKtwfKF/x7iP6ZQev3ZW7iOlmCfan3A4hIJyR3VzSZq2c8V
-X-Gm-Gg: Acq92OEiPww1Nt8suiqpNXwzYPLx3LoVBunMjpq1N0421EBOR+Hy3K5ufh7ZRoFg26V
-	1TUNx22Wo9HZtI+Jn+ihrRm/00Zcm3Xra61JVlnZzMMpHGqDTBzmKtAWG+qWoPDTkgNRr+g7gyB
-	RqzljQdr8xFGB1ruw+/OWjJkRuhXN1JSfTXd2Aw8oGQ/GEBwbMAeXH1wb2MkzsbABY6E68qyhmD
-	+11HXBFcYfipVCgk09VBxnnP/LRGwXrNEBIuGiXXexJbuXV0p3wcK49euvBEoRzojyceEgj/GTv
-	xTCQEGMinM9dpDxBhtGVSh8BjSnSLwu8ekRITiWBsqad4ANIWqhVVgemKv9Lkaby9J+BMaMDsTe
-	0D2hM/mHYMVY7WwiLO2Ccup7tY2Q7FVtc2AhgbzNO3DtOup8h7WYpAm3tEq9tJqTJa0egc9fLLi
-	bI14KyUeuvkbWdZ0wyOpFOwMb9t0bJBNb0fiCxKFgGglo7Xyn/oDuQfoUmltHsZJP9I47kpwfPG
-	W2O+Mf3yxgbB3k=
-X-Received: by 2002:a17:90b:5787:b0:36b:e8b9:46a4 with SMTP id 98e67ed59e1d1-370f0284a87mr15256643a91.14.1780912010481;
-        Mon, 08 Jun 2026 02:46:50 -0700 (PDT)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84282221086sm17761731b3a.10.2026.06.08.02.46.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Jun 2026 02:46:50 -0700 (PDT)
-Message-ID: <178c4511-a290-4526-9e80-2fe8291f6ed3@gmail.com>
-Date: Mon, 8 Jun 2026 17:46:46 +0800
+	Mon, 08 Jun 2026 09:49:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65E222454;
+	Mon,  8 Jun 2026 02:49:04 -0700 (PDT)
+Received: from [10.57.28.93] (unknown [10.57.28.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76A823F86F;
+	Mon,  8 Jun 2026 02:49:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780912149; bh=uO+K5XZc3A1yPDew6p5bzfIEE0/EbJtz0pfhUEFm8WY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gOaOej5Ma1BmUGVbAaMHEkY64ByWK5b/hPS4jTXRWfEYXYfY3ImDPhaYCWZo6V3jA
+	 5ZHKcBds4+oUmIuGPzzEc1hxNi9ADjsSYDjFKlsN4qPm7NdaCKn8R10gUlSenXcrYv
+	 6HoQyEqKXlKrxqITKgGzfwHdKf5MHdsQidK4WetI=
+Message-ID: <f4a598de-ef2c-4705-8399-90210af6e470@arm.com>
+Date: Mon, 8 Jun 2026 10:49:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] drm/verisilicon: add Nuvoton MA35D1 DCU Lite
- display controller support
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260608023237.305036-1-a0987203069@gmail.com>
- <20260608023237.305036-5-a0987203069@gmail.com>
- <335c237d2636764948e629dbab0b5b747ac48fa5.camel@iscas.ac.cn>
-Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <335c237d2636764948e629dbab0b5b747ac48fa5.camel@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v14 28/44] arm64: RMI: Create the realm descriptor
+To: Wei-Lin Chang <weilin.chang@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-29-steven.price@arm.com>
+ <wshgh4i6uqytq65rh3j2risam2y2evjnfyztoee46soemp5i4x@qhzj4lcs33yj>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <wshgh4i6uqytq65rh3j2risam2y2evjnfyztoee46soemp5i4x@qhzj4lcs33yj>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_024651_663995_5CDF83D1 
-X-CRM114-Status: GOOD (  25.84  )
+X-CRM114-CacheID: sfid-20260608_024911_154457_1C299745 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,230 +85,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 6/8/2026 2:26 PM, Icenowy Zheng wrote:
-> 在 2026-06-08一的 10:32 +0800，Joey Lu写道：
->> The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite display
->> controller whose register layout differs from the DC8200 in several
->> important ways:
+On 26/05/2026 23:47, Wei-Lin Chang wrote:
+> Hi,
+> 
+> On Wed, May 13, 2026 at 02:17:36PM +0100, Steven Price wrote:
+>> Creating a realm involves first creating a realm descriptor (RD). This
+>> involves passing the configuration information to the RMM. Do this as
+>> part of realm_ensure_created() so that the realm is created when it is
+>> first needed.
 >>
->> 1. No CONFIG_EX commit path: framebuffer updates use the enable (bit
->> 0)
->>     and reset (bit 4) bits in FB_CONFIG instead of the DC8200 staging
->>     registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT,
->>     FB_BLEND_CONFIG, PANEL_CONFIG_EX).
->>
->> 2. No PANEL_START register: panel output starts when
->>     PANEL_CONFIG.RUNNING is set; there is no multi-display sync start
->>     register.
->>
->> 3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA (0x147C) /
->>     DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (0x0010) /
->>     TOP_IRQ_EN (0x0014).
->>
->> 4. Per-frame commit cycle: DCUltraLite requires the VALID bit in
->>     FB_CONFIG to be set at the start of each atomic commit
->> (crtc_begin)
->>     and cleared after (crtc_flush).
->>
->> 5. Simpler clock topology: only 'core' (bus gate) and 'pix0' (pixel
->>     divider) clocks; no axi or ahb clocks required.  Make axi_clk and
->>     ahb_clk optional (devm_clk_get_optional_enabled) so DCUltraLite
->>     nodes without those clocks are handled gracefully.
->>
->> Add vs_dcu_lite.c implementing the vs_dc_funcs vtable for the above
-> Nitpick: could you use vs_dc8000 to make things more aligned? (Although
-> I must admit that DCUltraLite is the first revision to be supported in
-> this codepath).
-Understood. I will rename `vs_dcu_lite.c` to `vs_dc8000.c`, all internal 
-functions from `vs_dcu_lite_*` to `vs_dc8000_*`, the exported symbol 
-from `vs_dcu_lite_funcs` to `vs_dc8000_funcs`, and update the Makefile 
-accordingly.
->> differences.  The probe now selects vs_dcu_lite_funcs when the
->> identified generation is VSDC_GEN_DC8000 (DCUltraLite reads model
->> 0x0,
->> revision 0x5560, customer_id 0x305).
->>
->> Extend Kconfig to allow building on ARCH_MA35 platforms.
-> Maybe the Kconfig change could be in the last commit or a dedicated
-> commit before current ones? Because it's only meaningful after the HWDB
-> item is added.
->
-> Thanks,
-> Icenowy
-Understood. The Kconfig change adding `ARCH_MA35` will be moved to a 
-separate commit placed after the HWDB entry is added, or as the final 
-commit in the series.
->> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
 >> ---
->>   drivers/gpu/drm/verisilicon/Kconfig       |  2 +-
->>   drivers/gpu/drm/verisilicon/Makefile      |  2 +-
->>   drivers/gpu/drm/verisilicon/vs_dc.c       |  9 ++-
->>   drivers/gpu/drm/verisilicon/vs_dcu_lite.c | 78
->> +++++++++++++++++++++++
->>   4 files changed, 86 insertions(+), 5 deletions(-)
->>   create mode 100644 drivers/gpu/drm/verisilicon/vs_dcu_lite.c
+>> Changes since v13:
+>>  * The RMM no longer uses AUX granules, so no need to ask it how many it
+>>    needs.
+>>  * Adapted to other changes.
+>> Changes since v12:
+>>  * Since RMM page size is now equal to the host's page size various
+>>    calculations are simplified.
+>>  * Switch to using range based APIs to delegate/undelegate.
+>>  * VMID handling is now handled entirely by the RMM.
+>> ---
+>>  arch/arm64/kvm/rmi.c | 88 +++++++++++++++++++++++++++++++++++++++++++-
+>>  1 file changed, 86 insertions(+), 2 deletions(-)
 >>
->> diff --git a/drivers/gpu/drm/verisilicon/Kconfig
->> b/drivers/gpu/drm/verisilicon/Kconfig
->> index 7cce86ec8603..295d246eb4b4 100644
->> --- a/drivers/gpu/drm/verisilicon/Kconfig
->> +++ b/drivers/gpu/drm/verisilicon/Kconfig
->> @@ -2,7 +2,7 @@
->>   config DRM_VERISILICON_DC
->>   	tristate "DRM Support for Verisilicon DC-series display
->> controllers"
->>   	depends on DRM && COMMON_CLK
->> -	depends on RISCV || COMPILE_TEST
->> +	depends on RISCV || ARCH_MA35 || COMPILE_TEST
->>   	select DRM_BRIDGE_CONNECTOR
->>   	select DRM_CLIENT_SELECTION
->>   	select DRM_DISPLAY_HELPER
->> diff --git a/drivers/gpu/drm/verisilicon/Makefile
->> b/drivers/gpu/drm/verisilicon/Makefile
->> index 9d4cd16452fa..960af0861dfa 100644
->> --- a/drivers/gpu/drm/verisilicon/Makefile
->> +++ b/drivers/gpu/drm/verisilicon/Makefile
->> @@ -1,6 +1,6 @@
->>   # SPDX-License-Identifier: GPL-2.0-only
->>   
->> -verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
->> vs_drm.o vs_hwdb.o \
->> +verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
->> vs_dcu_lite.o vs_drm.o vs_hwdb.o \
->>   	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
->>   
->>   obj-$(CONFIG_DRM_VERISILICON_DC) += verisilicon-dc.o
->> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
->> b/drivers/gpu/drm/verisilicon/vs_dc.c
->> index c94957024189..81a8d9bf85bd 100644
->> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
->> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
->> @@ -90,13 +90,13 @@ static int vs_dc_probe(struct platform_device
->> *pdev)
->>   		return PTR_ERR(dc->core_clk);
->>   	}
->>   
->> -	dc->axi_clk = devm_clk_get_enabled(dev, "axi");
->> +	dc->axi_clk = devm_clk_get_optional_enabled(dev, "axi");
->>   	if (IS_ERR(dc->axi_clk)) {
->>   		dev_err(dev, "can't get axi clock\n");
->>   		return PTR_ERR(dc->axi_clk);
->>   	}
->>   
->> -	dc->ahb_clk = devm_clk_get_enabled(dev, "ahb");
->> +	dc->ahb_clk = devm_clk_get_optional_enabled(dev, "ahb");
->>   	if (IS_ERR(dc->ahb_clk)) {
->>   		dev_err(dev, "can't get ahb clock\n");
->>   		return PTR_ERR(dc->ahb_clk);
->> @@ -134,7 +134,10 @@ static int vs_dc_probe(struct platform_device
->> *pdev)
->>   	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
->>> identity.model,
->>   		 dc->identity.revision, dc->identity.customer_id);
->>   
->> -	dc->funcs = &vs_dc8200_funcs;
->> +	if (dc->identity.generation == VSDC_GEN_DC8200)
->> +		dc->funcs = &vs_dc8200_funcs;
->> +	else
->> +		dc->funcs = &vs_dcu_lite_funcs;
->>   
->>   	if (port_count > dc->identity.display_count) {
->>   		dev_err(dev, "too many downstream ports than HW
->> capability\n");
->> diff --git a/drivers/gpu/drm/verisilicon/vs_dcu_lite.c
->> b/drivers/gpu/drm/verisilicon/vs_dcu_lite.c
->> new file mode 100644
->> index 000000000000..11ef57d5ebaa
->> --- /dev/null
->> +++ b/drivers/gpu/drm/verisilicon/vs_dcu_lite.c
->> @@ -0,0 +1,78 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) 2026 Joey Lu <yclu4@nuvoton.com>
->> + */
->> +
->> +#include <linux/regmap.h>
->> +
->> +#include "vs_crtc_regs.h"
->> +#include "vs_dc.h"
->> +#include "vs_primary_plane_regs.h"
->> +
->> +static void vs_dcu_lite_bridge_enable(struct vs_dc *dc, unsigned int
->> output)
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index fb96bcaa73ed..cae29fd3353c 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -418,6 +418,77 @@ static void realm_unmap_shared_range(struct kvm *kvm,
+>>  			     start, end);
+>>  }
+>>  
+>> +static int realm_create_rd(struct kvm *kvm)
 >> +{
->> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			VSDC_FB_CONFIG_RESET);
+>> +	struct realm *realm = &kvm->arch.realm;
+>> +	struct realm_params *params = realm->params;
+>> +	void *rd = NULL;
+>> +	phys_addr_t rd_phys, params_phys;
+>> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
+>> +	int r;
+>> +
+>> +	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+>> +
+>> +	if (WARN_ON(realm->rd || !realm->params))
+>> +		return -EEXIST;
+>> +
+>> +	rd = (void *)__get_free_page(GFP_KERNEL_ACCOUNT);
+>> +	if (!rd)
+>> +		return -ENOMEM;
+>> +
+>> +	rd_phys = virt_to_phys(rd);
+>> +	if (rmi_delegate_page(rd_phys)) {
+>> +		r = -ENXIO;
+>> +		goto free_rd;
+>> +	}
+>> +
+>> +	if (rmi_delegate_range(kvm->arch.mmu.pgd_phys, pgd_size)) {
+>> +		r = -ENXIO;
+>> +		goto out_undelegate_tables;
+>> +	}
+>> +
+>> +	params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+>> +	params->rtt_level_start = get_start_level(realm);
+>> +	params->rtt_num_start = pgd_size / PAGE_SIZE;
+>> +	params->rtt_base = kvm->arch.mmu.pgd_phys;
+>> +
+>> +	if (kvm->arch.arm_pmu) {
+>> +		params->pmu_num_ctrs = kvm->arch.nr_pmu_counters;
+>> +		params->flags |= RMI_REALM_PARAM_FLAG_PMU;
+>> +	}
+>> +
+>> +	if (kvm_lpa2_is_enabled())
+>> +		params->flags |= RMI_REALM_PARAM_FLAG_LPA2;
+>> +
+>> +	params_phys = virt_to_phys(params);
+>> +
+>> +	if (rmi_realm_create(rd_phys, params_phys)) {
+>> +		r = -ENXIO;
+>> +		goto out_undelegate_tables;
+>> +	}
+>> +
+>> +	realm->rd = rd;
+>> +	kvm_set_realm_state(kvm, REALM_STATE_NEW);
+>> +	/* The realm is up, free the parameters.  */
+>> +	free_page((unsigned long)realm->params);
+>> +	realm->params = NULL;
+>> +
+>> +	return 0;
+>> +
+>> +out_undelegate_tables:
+>> +	if (WARN_ON(rmi_undelegate_range(kvm->arch.mmu.pgd_phys, pgd_size))) {
+>> +		/* Leak the pages if they cannot be returned */
+>> +		kvm->arch.mmu.pgt = NULL;
+>> +	}
+>> +	if (WARN_ON(rmi_undelegate_page(rd_phys))) {
+>> +		/* Leak the page if it isn't returned */
+>> +		return r;
+>> +	}
+>> +free_rd:
+>> +	free_page((unsigned long)rd);
+>> +	return r;
 >> +}
 >> +
->> +static void vs_dcu_lite_bridge_disable(struct vs_dc *dc, unsigned
->> int output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			  VSDC_FB_CONFIG_RESET);
->> +}
+>>  static void realm_unmap_private_range(struct kvm *kvm,
+>>  				      unsigned long start,
+>>  				      unsigned long end,
+>> @@ -647,8 +718,21 @@ static int realm_init_ipa_state(struct kvm *kvm,
+>>  
+>>  static int realm_ensure_created(struct kvm *kvm)
+>>  {
+>> -	/* Provided in later patch */
+>> -	return -ENXIO;
+>> +	int ret;
 >> +
->> +static void vs_dcu_lite_crtc_begin(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			VSDC_FB_CONFIG_VALID);
->> +}
+>> +	switch (kvm_realm_state(kvm)) {
+>> +	case REALM_STATE_NONE:
+>> +		break;
+>> +	case REALM_STATE_NEW:
+>> +		return 0;
+>> +	case REALM_STATE_DEAD:
+>> +		return -ENXIO;
+>> +	default:
+>> +		return -EBUSY;
+>> +	}
 >> +
->> +static void vs_dcu_lite_crtc_flush(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			  VSDC_FB_CONFIG_VALID);
->> +}
->> +
->> +static void vs_dcu_lite_crtc_enable(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			VSDC_FB_CONFIG_ENABLE);
->> +}
->> +
->> +static void vs_dcu_lite_crtc_disable(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			  VSDC_FB_CONFIG_ENABLE);
->> +}
->> +
->> +static void vs_dcu_lite_enable_vblank(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_set_bits(dc->regs, VSDC_DISP_IRQ_EN,
->> +			VSDC_DISP_IRQ_VSYNC(output));
->> +}
->> +
->> +static void vs_dcu_lite_disable_vblank(struct vs_dc *dc, unsigned
->> int output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_DISP_IRQ_EN,
->> +			  VSDC_DISP_IRQ_VSYNC(output));
->> +}
->> +
->> +static u32 vs_dcu_lite_irq_handler(struct vs_dc *dc)
->> +{
->> +	u32 irqs;
->> +
->> +	regmap_read(dc->regs, VSDC_DISP_IRQ_STA, &irqs);
->> +	return irqs;
->> +}
->> +
->> +const struct vs_dc_funcs vs_dcu_lite_funcs = {
->> +	.bridge_enable		= vs_dcu_lite_bridge_enable,
->> +	.bridge_disable		=
->> vs_dcu_lite_bridge_disable,
->> +	.crtc_begin		= vs_dcu_lite_crtc_begin,
->> +	.crtc_flush		= vs_dcu_lite_crtc_flush,
->> +	.crtc_enable		= vs_dcu_lite_crtc_enable,
->> +	.crtc_disable		= vs_dcu_lite_crtc_disable,
->> +	.enable_vblank		= vs_dcu_lite_enable_vblank,
->> +	.disable_vblank		=
->> vs_dcu_lite_disable_vblank,
->> +	.irq_handler		= vs_dcu_lite_irq_handler,
->> +};
+>> +	ret = realm_create_rd(kvm);
+>> +	return ret;
+>>  }
+> 
+> I think ret can be simplified out.
+Indeed.
+
+Thanks,
+Steve
+
+> Thanks,
+> Wei-Lin Chang
+> 
+>>  
+>>  static int set_ripas_of_protected_regions(struct kvm *kvm)
+>> -- 
+>> 2.43.0
+>>
+
 
