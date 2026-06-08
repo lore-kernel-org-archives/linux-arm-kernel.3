@@ -4,108 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836A6CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 13:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9953ECD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 13:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AfDmQD3XkqnhyOK6L1IuRTH5e227SPMKiBMcBej6ec8=; b=l264d2fAERr65CW/86RktfIAdt
-	l0OuFdb9q7lsyB+w1Sse2wibIuC65Qs2rdY9U72suDVSXm2ZT7KQ/tP0IZCzlS5EWVbPFjiTi9UPw
-	GgkhUXvwSIrVuZrevUVG00NZGX5Qu4xhbXV0vrNej6gQhMWvYaFoKNJXdXaC2w/OU+n8an+BWkgwt
-	qBJ7dEHlquHBjfXS3jZSn2xwwHwKzpv9NTOlOznJVYgPJT1HWJNqCWxdPZYYMMTDCxnsrurmUv4JC
-	HFv6umBglL9onqeG8q6lTPfoUqJy1WLQChu/yA0CV72JU1FLDPRZ610S8Fjwn53GLT+whZ+4Vyeto
-	WUnEQzoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pUEnvDqz1SSyEKVvs1pgOac32s1g7LZkjL1zUnxDxK8=; b=qg709jykC5gwLcBQdIeL0TMuX/
+	wH8g+SJWcXqbjgkdsewfeq0bbKJ4KQuvnYrOmELMlRuUjxNyx2nGAJQ7KRtcjJu5r3IDIZU6Xm43K
+	8m8NxUoibinHQAbSc31hTvl9tr4GREfVWBwvZn9Zkzev2PhCHpEwQKb/mztzmXTn7HRb0/TWoA0u2
+	pLz3da4scr3c82myq8jnsJLHPzpSDjHAsNogVneRYgXnelJK9lfJiRUogPwb40+8/oIht8Pw2uLwZ
+	+WoBEXFc92ZUrqhtbF3shwmy9Qw+x2wjSDVhtYhufWI0ld7LbuXKB/Pld8jBxqg6YaGYWH69XjhtX
+	ZxnylKzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWZqk-00000003b6K-0IAM;
-	Mon, 08 Jun 2026 13:17:06 +0000
-Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
+	id 1wWZvq-00000003cUI-0kiH;
+	Mon, 08 Jun 2026 13:22:22 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWZqg-00000003b5n-3Wy6
+	id 1wWZvo-00000003cQt-3HGv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 08 Jun 2026 13:22:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pUEnvDqz1SSyEKVvs1pgOac32s1g7LZkjL1zUnxDxK8=; b=Joagq6o6tSpLFV2suuF5RObgzz
+	zmbN9XzXsIEdNZ5O5/fPiZoVBpz5XewNBhbh0jKX74PtrdnYWNa1JVDMvDJ+y1QOVnThw+/ujR0Lf
+	XRqs1BFmPG5TiHDCOFtTbevI8fmKnM5QUg0OR1v7FRdUexH6L1XZIrqxgi/Ha3j1zzcs7EynPYtAR
+	9cE7hy8ON41bl99h9Ju6gBhGBxKtLaTK9v5tOyyOnk7KosQj9w75SdTekxoOyc6VQ9GKdHbNFKLd+
+	9u8C3voJlbmi6/01GzYTFqlG9RbzxrfhlLeZPe3t91fenCR8+UkJ0p+DdCmL0fcl0SEgjcGTlnDg2
+	UtK7O99A==;
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWZvk-0000000DlBj-2FNV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 13:17:04 +0000
-Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-43b7e186a0cso1553498fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 06:17:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780924621; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Ie/HJksN47xOQyNK7lJVBsNUEshREqQ/d7qfneT4lkzdTvZyxhiGLHQL+Wvk/XiTfc
-         FkrmLdJqft+THehupbJR+6HzIXm33Vylo5GV4KVOmnyeIgrK2NLm0xQx+GGqnCFZZVJJ
-         rhkKVdD0QxCkWcDbFjH/EZ+K16ltH+I2Q6UqhiJR/5ZutpUwebBp4tlcKdFySIjuZjNV
-         nRTmRXoGd6gh9PCgWTW+IpcH1nV0bN8uuQzM8UuxV4tmeWneAiKplNmn6BDrLM+u8FsY
-         h3hlbz9o0bvHqDXisN7lvrP9xqBvyWpQ3mZQGnZ7AUAewYQwZvl25zZ4TPpxzOPd7ayS
-         N8Gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=AfDmQD3XkqnhyOK6L1IuRTH5e227SPMKiBMcBej6ec8=;
-        fh=88WuWbWt94E03SBzLFLG/mkBydq/AvOkHYv5uxes9tw=;
-        b=SOLsmbM4b68Qgu7aX/OfBIcnaHvgD/AgiDIbIxPUSwKr7xxe1wwkq0NZa/vJ4lnp2d
-         bI1oCriZMHW7tLPqFDrVCHFtITyUYTJ7hQukcP9pjkC4Ki0rpHCsgOFFsL+sSULzezBk
-         IEHsQuHy/YykA/vsaEd1cEt3FkP9P7GZ+lnQ0WXTbatjHYhwEdJaYG/BLoPk3/Qp1qkS
-         cXNdecteaBDb92TMawBLbhp/XSGgc9RZhsoRoqMB6wnF2BF27EBMO+a7CrgIMt3gJNmZ
-         Lx4wlYk6M8Pj1UVzc0Rvfw7QmWInbm4zOJih+WBBy6tNp5Y2UEJVwklXC03E0OhnrfP1
-         xJLQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 08 Jun 2026 13:22:19 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490b3637b90so36850745e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 06:22:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780924621; x=1781529421; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AfDmQD3XkqnhyOK6L1IuRTH5e227SPMKiBMcBej6ec8=;
-        b=cvD9cPGc1F1Y1UmywKg6lXUsBKtxWncsU0c/byyW6iyOYC/6ScS5beroRb3nFKPNJI
-         URu2UYQJr2D8voTohefxH4xO5cpA1+/V6ygGAx1eThoKoAgc/y9XnU7vuyMI3vg9hlx7
-         OkKeCnYP3moKVUekceKQoEIH0jjQih/LOK39dQh/ORHkeD2DR7yDtlM8BPEqUtlzkUnQ
-         v+hDgLz2L8Yx293IpEfpChWjgl5097KCxvaA7jpDxxt/S7pjnOAfb0+kdgB3zgIH/O1e
-         ejYjrmHOq1668nm4TEPZa5756mfV6FDMhd3NSDjLZb+L5X06mpFJenbGHNrwV9wCt3R+
-         xRcQ==
+        d=suse.com; s=google; t=1780924935; x=1781529735; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pUEnvDqz1SSyEKVvs1pgOac32s1g7LZkjL1zUnxDxK8=;
+        b=ZPxqhbct7NEOUcWKCBXOADFPxT8HIHigrxKmwOku9mgyUmtCIM+/EPb7a4YIjbjoQC
+         gmwzk2Y5GUjEk4WSryEF89MhIlSVB96VpDmUlaJnCjItfFHXvYkJ3f/dVP3Dwdg+rVe3
+         4uVt8m0JY2gp9LkcMmbmrv+8gCeZBpgxHA/2Wv9OXPhpbCZQOU073jhclR1UAxmRsfrh
+         EL6QPwfL8lzLrxL65D3swh67RRn4ol7WZRMUNd0HMMY/0a1C+l7BeQDYuRFwo787qqxX
+         h5KkPrwUdUddd0V6eG2OK74gth/KokSCaaX/ubDjEI1lcawYDi41v4tviaGCG0UzZcbO
+         zMSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780924621; x=1781529421;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AfDmQD3XkqnhyOK6L1IuRTH5e227SPMKiBMcBej6ec8=;
-        b=ALGRow2R+WI8V9btM9COSbSlJh+54kzbLQQyfHSp82oLXUfVT5lbmlL1M0nbId0Lf9
-         Tkkgro6mxqKCJQFIXj0CWxEdEufUIGAkrTQLggY5+FZhALosl97zs2XooEq1RA/+t9OC
-         MWzVWwdDKintMPGy2ngy0IP1D2vrGb3x+q0mZGAuELC8Smq8zuKlus3dNaGiDbuG1YpH
-         jfAvSRtkbEr5QwbYAXMzMb3tjhug7zo/Twr/gcFRpz6q3mlS5B/Qx/DJbSItadSKe8PG
-         ybul9/Tt8Q7oH/zwiS91zzicmlFrt7caGsnr4hSYR656lFEOy82WnQ7atugiIhGRsQX0
-         zeFw==
-X-Forwarded-Encrypted: i=1; AFNElJ9jl8bmgJKCV5A7/DDPJDyEvyF8jyu4Mrpa8CvKq7E+uwl1byw88s1tafp6Fqo6ELBCQ2/p/orH7oHJtWreezOA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMNKQYR2fiEg+1I/omHb7OeniCwpEzMj6tSsvxIsYHAZeB+Fp7
-	ZWAnRkvxcNDtbhqZds551dhBbZ4eTm9vrscI1RFJmNQDn3SzEeFY+ZwpiD3f+qV0MaNZktqYqFe
-	Rkp/GSbx0GRoK1Onj3iLF2YHUMd9URJMY0x14DAvZnQ==
-X-Gm-Gg: Acq92OEDgyKb65dWZxiq5+r/mBCq4tdQPJzpX1ltPiFk5HtktA/Ukz/OK+QW5eCthnS
-	B/Pcs3Nk9hGZRkaTFJsPaAu5PHmW+Tcpx4Sq6A5UsjPhBeOqr87t00Z9Wbo89sj3w31z7U3oZx5
-	3SAtJM8jLXnOW6jy0bvBfhjv6AeqytY7eSGmzjVpvZM8QoTJWqd+E5PMxueVUpGz9TR6JjIjoi4
-	4dHiNRHzwsWck4fEuAXThug2qYPtL2EUboNAHRdd1bUibsPOKJfvRZUd6LkWQNmP6dkgLztKyWy
-	BzpIKuM+0U6irn1Cvfv4Zd05BWs+4gP4lhB7gObiw3qS/Y09
-X-Received: by 2002:a05:687c:2346:20b0:441:b0ff:132a with SMTP id
- 586e51a60fabf-441b0ff148fmr1273772fac.18.1780924620975; Mon, 08 Jun 2026
- 06:17:00 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780924935; x=1781529735;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pUEnvDqz1SSyEKVvs1pgOac32s1g7LZkjL1zUnxDxK8=;
+        b=pt4p8ttJTpRtfNm1B1x1knoH6Qbimqfn9VuXamRIbwxsnmsIv0iPCFCsM4jqsGXxrC
+         83edqlL35bSgPJYDGO+ogeXkh62f4tyEGayiGg7qrzf/8+gz/DSojYjt7L/4W3dhZhsl
+         CLwisP/NHbjj/cdZwJkwvJXoLNWMbcPE6idQYwJjIQsorU/tcg9rHD8fYl2yBD0fZKbi
+         LzvuY5Pc7zQqqTJRhNJS0yYcoSIe+ZXwr+iVqPHgTEUN69drcor3wLm6gY+mFVJyVIyL
+         GPF6q+ZvvZlW6gkZuKoLKGBCSAqpkyAa9Rwne0cMIxLA7DFJQfHrhjP/0PsUUO1bTydq
+         4dkg==
+X-Forwarded-Encrypted: i=1; AFNElJ9z280QnOaPzKXWXOWIYTMAVExRAdJrvWAEwmwBsD5TbnEUkpXM+Ho8peWmSzHO5v2ytotVLneSW4s3u30nr59Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHpf1E9hWC6G+6xbTJZJ1TyblU5Ob4uA5ggweT8HMSMC5T5ZD0
+	Ba6pHhmK1+zHTZD4OOVLq7fX/kgCel4DbnmtpwyFiX41qr2VNlg4allBvQlRiD7sKAE=
+X-Gm-Gg: Acq92OGy57MeW8z4MiosEM/9dGXaXPtpv6o5p3llo5wAIpF6q/qccPPLK+vCNRf8gLI
+	JcfmBD+UVLzfp+5qth6DrBJHA7hrApBJVFD8Bsld4JM2174tYEpwSfUzC662j4/6NWKnVbNzVOU
+	naksKYfVPofBes6l1qT5qB9djmo7GJ2LMTRAmnuxEOO5pFt8c3f7/K76BIapJvgd8GZMkixmIPW
+	ZAkzEkG5fPMNk/hw7eQG3yJUeF6FU0RaU8cPN2ZL1thYYVVUoLzJhUiI15EfWf4UBYpjDXEwqYi
+	XqasEk61i6vCavEapkWicWCfdK1tnXN6+yv9nbpD1HSUav8lYP/4ldD1Ax/Xxg2YkGG4RYpmvv5
+	Mr0vTpzOU8zkmOWR+w9NbsZroL1t0AKVWD8g8H7MpWEZAB1PvIUmRcSej0ZsjSz4k+7LDyaWOjM
+	h+A7cRIIMInBw7LMu2dQRvet5lRCjIeR3iuoN1
+X-Received: by 2002:a05:600c:3f0e:b0:490:bb45:79ef with SMTP id 5b1f17b1804b1-490c2508a5emr287463765e9.0.1780924934875;
+        Mon, 08 Jun 2026 06:22:14 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490be1f69bcsm428671945e9.8.2026.06.08.06.22.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 06:22:14 -0700 (PDT)
+Date: Mon, 8 Jun 2026 15:22:12 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Andrew Murray <amurray@thegoodpenguin.co.uk>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH RFC 1/4] printk: remove BOOT_PRINTK_DELAY config option
+Message-ID: <aibCBGjVk4yqtYyT@pathway.suse.cz>
+References: <20260601-deprecate_boot_delay-v1-0-c34c187142a6@thegoodpenguin.co.uk>
+ <20260601-deprecate_boot_delay-v1-1-c34c187142a6@thegoodpenguin.co.uk>
 MIME-Version: 1.0
-References: <20260526151934.3783707-1-smostafa@google.com> <20260526151934.3783707-2-smostafa@google.com>
- <aiK6lgW5YFWSMTxf@google.com>
-In-Reply-To: <aiK6lgW5YFWSMTxf@google.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Mon, 8 Jun 2026 15:16:49 +0200
-X-Gm-Features: AVVi8CfBberieRGRzkn_uKkTDDGnJq3OimnjM0eDLOzbP178qkP9W2-4m7NvonA
-Message-ID: <CAHUa44FO02DKqqNeFuRfx8bQjwcNRfPMF2=8MdjMUFp6vYUpNw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/6] optee: ffa: Add NULL check in optee_ffa_lend_protmem
-To: Sebastian Ene <sebastianene@google.com>
-Cc: Mostafa Saleh <smostafa@google.com>, op-tee@lists.trustedfirmware.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oupton@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, 
-	sumit.garg@kernel.org, vdonnefort@google.com, sudeep.holla@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260601-deprecate_boot_delay-v1-1-c34c187142a6@thegoodpenguin.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_061702_937180_51400990 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20260608_142217_095615_9BB7C4EB 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,46 +129,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 5, 2026 at 2:01=E2=80=AFPM Sebastian Ene <sebastianene@google.c=
-om> wrote:
->
-> On Tue, May 26, 2026 at 03:19:29PM +0000, Mostafa Saleh wrote:
-> > Sashiko (locally) reports a possible null dereference under memory
-> > pressure due to the lack of validation of the allocated pointer.
-> >
-> > Fix that by adding the missing check.
-> >
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  drivers/tee/optee/ffa_abi.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
-> > index b4372fa268d0..633715b98625 100644
-> > --- a/drivers/tee/optee/ffa_abi.c
-> > +++ b/drivers/tee/optee/ffa_abi.c
-> > @@ -698,6 +698,9 @@ static int optee_ffa_lend_protmem(struct optee *opt=
-ee, struct tee_shm *protmem,
-> >       int rc;
-> >
-> >       mem_attr =3D kzalloc_objs(*mem_attr, ma_count);
-> > +     if (!mem_attr)
-> > +             return -ENOMEM;
-> > +
-> >       for (n =3D 0; n < ma_count; n++) {
-> >               mem_attr[n].receiver =3D mem_attrs[n] & U16_MAX;
-> >               mem_attr[n].attrs =3D mem_attrs[n] >> 16;
-> > --
-> > 2.54.0.746.g67dd491aae-goog
-> >
->
-> Thanks for fixing this and for including my other patches in the series
-> Reviewed-by: Sebastian Ene <sebastianene@google.com>
+On Mon 2026-06-01 00:17:37, Andrew Murray wrote:
+> The boot_delay (BOOT_PRINTK_DELAY) kernel parameter and printk_delay sysctl
+> are two distinct mechanisms for providing similar functionality which add a
+> delay prior to each printed printk message.
+> 
+> In preparation of combining them into a single configurable feature, let's
+> first remove the kconfig option BOOT_PRINTK_DELAY.
+> 
+> Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
 
-Please add a Fixes: tag. This patch is independent of the others in
-the patch set, so if you send it alone with the Fixes: tag I'll pick
-it up.
+The option allowed to reduce a bit the vmlinux size when people were
+not interested into the functionality. I am not sure if it is worth
+it though. I am personally fine with this change.
 
-Cheers,
-Jens
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+
+Best Regards,
+Petr
 
