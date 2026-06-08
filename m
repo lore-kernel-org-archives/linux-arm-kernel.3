@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E9ECD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878DCCD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+o8svFCxO2rHzDsZerdi155VOjvat+y1/HHxxd5x+s=; b=T4era5uhP53tTvC0XkEQwsU3Dz
-	GKNYJfRf9qF8p61auV4+ZOnyeQGeOmI61srTIKo/3aoprlUXn2Wbm6DdD9c3Ko/WlJwFu1r8m5Kjf
-	TrLoJQDsbWopZ8iZhK9QLbSf8zD40VNTvz9PAbNYo8xtfTJxn1jkslS/RYV8ZU4c6qy63oUlH2lFM
-	hmqXknqv/BDu+K71x777BpU0p+Z6vdPpNImF0TliutA1oe1/+B9rlrOKyoml1KOpeYYTwwkW8f/qN
-	bTnr083Iy0YN4OkDXNK/gIPTbVhogSGvt0b9uUkrT4kSxXcGIdV/vieAHm+o8j0oZyyWSZxe7vq2+
-	FCAFcjvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ge2Ka7ZiWTZZ4XiOiKgnqGsdGuGGJlMJ7SGwJ0Ypbdk=; b=t+7/cASyYtb4aNK3nFW++HVc8c
+	53WqES/CRk+JfiAyto6xVcdYVzRL9BoaAzXxbG1zqbl+a9bGm8X5OElvE7ZWpMtPBe5nKZdGJK0sa
+	gnJNK/SLZMhT4YAvPlV/HXl2eMyg4yf89d2w9OUEezlYVk+Z4QYnYU2adFg6q0EVaB9abBMxM7Tfe
+	D4cgzJW3eaALqyIKKVebUdE6XAk4Rs74Y82Ki70GKKDQz1LXwwQa0hm4LNqrbTuhm+wAfUpc7niZj
+	xgadqWnNC7XiHmsTj0MbA7R2xyrbzS+8SGUdtjMj1IPFzNCGfS/tGERrUGI4q2C64nZ3PDvND4X+7
+	bycC9jRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWR2-00000003CFV-3chc;
-	Mon, 08 Jun 2026 09:38:20 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wWWRQ-00000003CIx-0MQw;
+	Mon, 08 Jun 2026 09:38:44 +0000
+Received: from mail-m8215.xmail.ntesmail.com ([156.224.82.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWR0-00000003CER-2DhL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 09:38:19 +0000
-Date: Mon, 8 Jun 2026 11:37:58 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1780911492;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l+o8svFCxO2rHzDsZerdi155VOjvat+y1/HHxxd5x+s=;
-	b=qSkXkyiMhG+yreJBJn8Bv+ukObN6m2OGhUPb65y3sGKyWWCw6XTaynyoEVXyQ1oAwc/Pw1
-	X2u/taqCLcxpZZffzmaDVueqDQoaZXaOUOJYZHQgyUNVBbhEA7R9gHii9orsMghKX57Kna
-	pc/waPc/ifmH66YVHTTi14N3d78/OZpusS+9nUVRMpq6sDM2mfZrLM0cLF3jOXjj2AIs3p
-	VwAV+tJtJfEO3MrzfL0LVFdNNxNmuzlS/jPl1rK3GyqSCNLM/kNu9NYdjCiy7wj/pxsvjZ
-	sZ43J9BtppHdiIgPuhtMxK/LF8fn7wOmiVVFXpzU812iGRlKyjqD7/T715YLdQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1780911492;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l+o8svFCxO2rHzDsZerdi155VOjvat+y1/HHxxd5x+s=;
-	b=CMnCKv0gZGa7h4OSPlnQSW6h7FnNdqcBQ0uhp3q44WMHwKvAuLV17PSdXoyWNYsGQi9Vc3
-	GRiILz9FH22KOJCQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH v2 5/9] mailbox: imx: Start splitting the IRQ handler in
- primary and threaded handler
-Message-ID: <20260608093758.0K8BkEnj@linutronix.de>
-References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
- <20260603-imx_mbox_rproc-v2-5-a0059dc3b69a@linutronix.de>
- <aiZUAdrwhFn63a2a@shlinux89>
+	id 1wWWRL-00000003CHf-1vuF;
+	Mon, 08 Jun 2026 09:38:41 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 41806bd9a;
+	Mon, 8 Jun 2026 17:38:33 +0800 (GMT+08:00)
+Message-ID: <bcedaff0-abf8-4585-a0ea-057062cd0411@rock-chips.com>
+Date: Mon, 8 Jun 2026 17:38:32 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aiZUAdrwhFn63a2a@shlinux89>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 0/9] accel: rocket: Add RK3568 NPU support
+To: Midgy Balon <midgy971@gmail.com>
+Cc: tomeu@tomeuvizoso.net, ogabbay@kernel.org, heiko@sntech.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joro@8bytes.org,
+ will@kernel.org, robin.murphy@arm.com, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Simon Xue <xxm@rock-chips.com>,
+ Finley Xiao <finley.xiao@rock-chips.com>
+References: <20260604135255.62682-1-midgy971@gmail.com>
+ <3d99569e-9c3a-49d1-93fb-1335382523e9@rock-chips.com>
+ <CA+GS1Y1s78PwN63X2YJoS8VEGp7CpTERo_K65yKs00U4VRAw4Q@mail.gmail.com>
+ <e5058919-9485-4de5-8eea-331ebfc2987c@rock-chips.com>
+ <CA+GS1Y3ysdWZ3qCq3ip_Pbw+v4LxHZd95aBo=jwB+orYaMBBNw@mail.gmail.com>
+ <CA+GS1Y0kAM_XGLQuKPTphif2HcQg18ZXhd8RHHr2xPOEMCDvXA@mail.gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <CA+GS1Y0kAM_XGLQuKPTphif2HcQg18ZXhd8RHHr2xPOEMCDvXA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9ea6991e1403a7kunm0ef6a63b1a581f
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDHhlLVk9CH0lMHxgYTU4dSFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=YNISX9hXTWB3JU79qXo0H1zIQ3fh38Q/5YMbGdbMb6fd15wfuSsjyr7euUN2kozRagih1CHfmjtNNcmqUqwDywkoiTwCLvwuXuGsg2ymzSQ1eBEYvRSSQEBl3Ac3zBVDZQENXtUYPsMZtRymEl4yLSxI4jnHatTSgFvAzWIKVPg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=ge2Ka7ZiWTZZ4XiOiKgnqGsdGuGGJlMJ7SGwJ0Ypbdk=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_023818_712174_92D96754 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20260608_023840_276393_B2DF1ABB 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-06-08 13:32:49 [+0800], Peng Fan wrote:
-> > drivers/mailbox/imx-mailbox.c | 33 ++++++++++++++++++++++++++++++---
-> > 1 file changed, 30 insertions(+), 3 deletions(-)
-> >
-> >diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
-> >index d1de07cc0ed62..006aa76b74b62 100644
-> >--- a/drivers/mailbox/imx-mailbox.c
-> >+++ b/drivers/mailbox/imx-mailbox.c
-> >@@ -81,6 +81,7 @@ struct imx_mu_con_priv {
-> > 	struct mbox_chan	*chan;
-> > 	struct work_struct 	txdb_work;
-> > 	bool			shutdown;
-> >+	bool			pending;
-> > };
-> > 
-> > struct imx_mu_priv {
-> >@@ -539,11 +540,35 @@ static void imx_mu_txdb_work(struct work_struct *t)
-> > 	mbox_chan_txdone(cp->chan, 0);
-> > }
-> > 
-> >+static irqreturn_t imx_mu_isr_th(int irq, void *p)
-> >+{
-> >+	struct mbox_chan *chan = p;
-> >+	struct imx_mu_priv *priv = to_imx_mu_priv(chan->mbox);
-> >+	struct imx_mu_con_priv *cp = chan->con_priv;
-> >+
-> >+	if (!cp->pending)
-> >+		return IRQ_NONE;
+Hi Midgy,
+
+On 6/8/2026 5:14 PM, Midgy Balon wrote:
+> Hello Chaoyi,
 > 
-> Is there a chance that cp->pending could be false here?
+> Following up on the need_regulator suggestion -- I implemented and
+> tested it on the
+> board, and unfortunately it doesn't avoid the deadlock on RK3568; it
+> moves it from
+> boot to the NPU job submit.
+> 
+> What I did: gave the RK3568 NPU power domain a regulator (a DOMAIN_M_R
+> variant with
+> need_regulator = true), wired domain-supply = <&vdd_npu>, and dropped the
+> regulator-always-on workaround.
+> 
+> Boot is now clean and the NPU probes, but there is a warning during boot:
+> 
+>   rockchip-pm-domain ...: Failed to create device link (0x180) with supplier
+>   0-0020 for .../power-domain@6
+> 
+> (0-0020 is the rk809 PMIC that supplies vdd_npu.) Then on the first NPU job
+> submit the board hard-hangs with an RCU stall:
+> 
+>   rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+>   rcu:     3-...!: (1 GPs behind) ...
+>   rcu: rcu_preempt kthread starved for 5115 jiffies! ... RCU_GP_WAIT_FQS(5)
+>   rcu: Unless rcu_preempt kthread gets sufficient CPU time, OOM is now expected
+> 
+> My reading: vdd_npu is on the rk809 *I2C* PMIC, so when genpd
+> enables/disables the
+> regulator during the NPU's runtime-PM power transition, the I2C
+> transfer runs in a
+> context that starves RCU and the box freezes. (I suspect
+> need_regulator is fine on
+> the RK3588 NPU because its supply isn't behind an I2C PMIC.) The always-on
+> workaround avoids this precisely because genpd never touches the I2C
+> regulator in
+> that path.
+>
 
-Maybe not. That handler is shared but the threaded handler is only woken
-up if pending is set to true. So it should not observe it set to false.
-You want me to get remove it?
+No, they are all controlled by RK809.
 
-> Regards
-> Peng
+And This looks werid. Is your rocket driver compiled as a module? 
+Please try compiling it as a module. When is the above error printed? 
+Please provide the complete boot log.
 
-Sebastian
+> So: for an NPU domain whose supply is an I2C PMIC, is there a
+> supported way to let
+> genpd own the regulator without performing the I2C op in the
+> power-transition path
+> (a deferred/async regulator enable, or a flag), or should RK3568 keep vdd_npu as
+> regulator-always-on? For v4 I'll keep always-on unless there's a cleaner path.
+> 
+
+-- 
+Best, 
+Chaoyi
 
