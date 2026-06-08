@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2776DCD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 05:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96668CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 05:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZ6Mb0lsJ2uNzDbvXcL2ZZQ7WA/csZ4ji01JP6JY5G8=; b=fBPgTZ7SkhBljnIvJtKoTwLLSp
-	ZKz0yYBugv0dOb8mdf5rnfa2sAI7KDu59IBCC22netfUy/Z52VqjSc/KjrVeNNTTzkBeq6xVxBtYG
-	fdoYXoYqBckP4PRPsskKbMxpm7oiJq/AseVrX/L4hgmIfdORaq9Yq9pzibuXulPf4wSpxRtXGzPVE
-	kV3vqAMjYyWPk+dyZufUM74nIU5ar76w+ZGfy8alj7583gmB/+7R1bGG007RKgS+l8Vl0xRI5tgYV
-	DCLWsp92VUFUQFRlRzTwzgsk6RspAhvpp1iAHZP3sA5uPC7vQstIP/xh3qXS+VEqJqs66+/LJpadf
-	guhlgL9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/psBy+Jgvatfvvf8zNKoD1kHN5hnr8RpxXntok5OONI=; b=BGzYA0P8Oo4ApeFMJGZ24xKLAs
+	/jjyU+cgiT4U2UwhrjBZQXWy42gqMZGXV4CS1O2UpG10m4pD2WPv6FMHDSdVutTHwqb0wsi0s5SMa
+	1HqEcgDnBHn1o/5wxPAdT+YZQ0rCzwUOftPKcCriVZRrb4Pka0xu7D0+B17dXACo4lZpqMF4fmPme
+	8ZMGTf6WgFEtxy6Nsd3ikDUqXqN/V+Gu9Fq1gcO3zDhX2yt3Z2tPPA3y0C39kJjycZhbCyzn2jY+4
+	7icZbwr3oKJTZ5nyLsSP/TPOv2knrPYTUD5+tk5kFAr3/kcdmqw89us1rmnUme6miZHVKywStqiip
+	mo9iEFsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWSfB-00000002qcH-2hzg;
-	Mon, 08 Jun 2026 05:36:41 +0000
-Received: from hours.tkos.co.il ([84.110.109.230] helo=mail.tkos.co.il)
+	id 1wWSxq-00000002roL-3mc0;
+	Mon, 08 Jun 2026 05:55:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWSf8-00000002qbW-119W
+	id 1wWSxq-00000002roF-0PYy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 05:36:40 +0000
-Received: from localhost (unknown [10.0.8.2])
-	by mail.tkos.co.il (Postfix) with ESMTP id BD0C6440887;
-	Mon,  8 Jun 2026 08:35:28 +0300 (IDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tkos.co.il;
-	s=default; t=1780896928;
-	bh=AM1ed5M6OqCnBRwBSXfKQdAPtRlTw0sdW96OUh0Cns0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=YN5j0RaXM+1MDQg3HAEPqb9uS1mUCiKLf2p9IQqi+4BvB4Hdt1TCBfYtvXfvtAxNn
-	 3H9yTBRXnoyHSZJo2MN/+4bPIBHAYAogbrN7Tb105WmKepHL/iA1dH7W7i93pqVSGR
-	 77PDjLyWMZxZM60nQn0tMtSbWWHjp7W62lVtMzVKkhc4iNyWa9fo9KXJlGkj8LN/+G
-	 ct886T7kwSy7l1Tawyo7oLJmDvTSXtJE0OjiMCCY25KfhmHp0qMwarn0exg1HXr8NH
-	 OVxaCBfv1L8zOcbSP56qrx/lLtQ3ZkqE0PT8pbd+2wyFIhGODmMRgeUg6p+U0ozXta
-	 s9h8q5uXHwsPQ==
-From: Baruch Siach <baruch@tkos.co.il>
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  Russell King <linux@armlinux.org.uk>,  Arnd Bergmann <arnd@arndb.de>,
-  Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Subject: Re: [PATCH] ARM: arch/arm/kernel/signal.c: resolve set-but-not-used
- warning
-In-Reply-To: <20260608050926.88446-1-enelsonmoore@gmail.com> (Ethan
-	Nelson-Moore's message of "Sun, 7 Jun 2026 22:09:24 -0700")
-References: <20260608050926.88446-1-enelsonmoore@gmail.com>
-User-Agent: mu4e 1.12.15; emacs 30.2
-Date: Mon, 08 Jun 2026 08:36:30 +0300
-Message-ID: <87tsrd8ug1.fsf@tarshish>
+	Mon, 08 Jun 2026 05:55:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F19C46001D;
+	Mon,  8 Jun 2026 05:55:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B8771F00893;
+	Mon,  8 Jun 2026 05:55:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780898156;
+	bh=/psBy+Jgvatfvvf8zNKoD1kHN5hnr8RpxXntok5OONI=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=WyPoKIKco7VmL7NDVBM79GDRt3qtu5GoODeti7ZQGDXZHZpuTwIR1kYabDknL8EOD
+	 VGLzsQ1oVTVOYd3PXfKVRpN9TB/7VNbQsMt/N4FiB6Y2ODXdyPazn7qjdmx0J5DcH+
+	 5haSWZIwmZUShgfU2ub3tY9xcng1u8sB+KZT5OPC7SJb3HxSoHf9l0uXr3zQMqa+zx
+	 GplqWfNZv5T41sI46gjYrvCncmlOKLijWBc5lKHVgbXMaFhreRoxAdOpyJliFQgPXv
+	 ny1OKs0a9R2udkNdNtsCsqdRNuJieneFbffUQVjgbi9JXI85FUNqh+2DKEwPZ0G5Il
+	 j4P9W4eWpHVcw==
+From: Vinod Koul <vkoul@kernel.org>
+To: Frank.Li@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+ festevam@gmail.com, dmaengine@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>
+In-Reply-To: <20260407032755.2758049-1-shengjiu.wang@nxp.com>
+References: <20260407032755.2758049-1-shengjiu.wang@nxp.com>
+Subject: Re: [PATCH v2] dmaengine: imx-sdma: Refine spba bus searching in
+ probe
+Message-Id: <178089815387.15844.2917826633500399356.b4-ty@kernel.org>
+Date: Mon, 08 Jun 2026 11:25:53 +0530
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_223638_756632_1605D89F 
-X-CRM114-Status: GOOD (  16.84  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,59 +71,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ethan,
 
-On Sun, Jun 07 2026, Ethan Nelson-Moore wrote:
+On Tue, 07 Apr 2026 11:27:55 +0800, Shengjiu Wang wrote:
+> There are multi spba-busses for i.MX8M* platforms, if only search for
+> the first spba-bus in DT, the found spba-bus may not the real bus of
+> audio devices, which cause issue for sdma p2p case, as the sdma p2p
+> script presently does not deal with the transactions involving two devices
+> connected to the AIPS bus.
+> 
+> Search the SDMA parent node first, which should be the AIPS bus, then
+> search the child node whose compatible string is spba-bus under that AIPS
+> bus for the above multi spba-busses case.
+> 
+> [...]
 
-> If neither CONFIG_IWMMXT nor CONFIG_VFP are enabled (which is the case,
-> for example, in rpc_defconfig), the variable "aux" is set but not used,
-> which generates a warning during W=1 builds. Resolve this issue by only
-> defining the variable if it will be used.
->
-> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-> ---
->  arch/arm/kernel/signal.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/arch/arm/kernel/signal.c b/arch/arm/kernel/signal.c
-> index 7be9188d83d9..1d015b696a76 100644
-> --- a/arch/arm/kernel/signal.c
-> +++ b/arch/arm/kernel/signal.c
-> @@ -140,7 +140,9 @@ static int restore_vfp_context(char __user **auxp)
->  static int restore_sigframe(struct pt_regs *regs, struct sigframe __user *sf)
->  {
->  	struct sigcontext context;
-> +#if defined(CONFIG_IWMMXT) || defined(CONFIG_VFP)
->  	char __user *aux;
+Applied, thanks!
 
-__maybe_unused is a common attribute marking local variables that are not
-always used. I find it nicer than another layer of #ifdef.
+[1/1] dmaengine: imx-sdma: Refine spba bus searching in probe
+      commit: d52d42e2e5d9f13166e81ac837ebb023d1306e61
 
-baruch
-
-> +#endif
->  	sigset_t set;
->  	int err;
->  
-> @@ -171,6 +173,7 @@ static int restore_sigframe(struct pt_regs *regs, struct sigframe __user *sf)
->  
->  	err |= !valid_user_regs(regs);
->  
-> +#if defined(CONFIG_IWMMXT) || defined(CONFIG_VFP)
->  	aux = (char __user *) sf->uc.uc_regspace;
->  #ifdef CONFIG_IWMMXT
->  	if (err == 0)
-> @@ -180,6 +183,7 @@ static int restore_sigframe(struct pt_regs *regs, struct sigframe __user *sf)
->  	if (err == 0)
->  		err |= restore_vfp_context(&aux);
->  #endif
-> +#endif /* defined(CONFIG_IWMMXT) || defined(CONFIG_VFP) */
->  
->  	return err;
->  }
-
+Best regards,
 -- 
-                                                     ~. .~   Tk Open Systems
-=}------------------------------------------------ooO--U--Ooo------------{=
-   - baruch@tkos.co.il - tel: +972.52.368.4656, http://www.tkos.co.il -
+~Vinod
+
+
 
