@@ -4,54 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62798CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F0FCD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gaxzxjs/vW8KUnXlGRbEJH8BuwjUHLEEzwHgn4vcNq8=; b=bu1RVxrCctphMwgb7wfZ2Bb+t0
-	uBEYRCCudVlHmFZBJbbHIk2kLns/VP86aQ5lRjFgyy8a7T6nW15TpoWp3tYL190zF5/0eTQ3IpzSB
-	ZOo5EuaLVLX6Dgt45fDMv/ZgbOS3Gd8ivnmduE2U732VM4eU9vkKNwbcZcwAeZlEyjwtCTnwx7fFp
-	nnmdFTVCOIDEot8YeUyqBWO32+zIIYRsRm8C1dyWH5Y81sncdqDMGGVUIO1u9a51ONI04h8bzvqDQ
-	Ee1hpOQeVI7hx6RCKpM7laXUADUmupCa+zGOydjo7e4cCWIwKc89jtjPn04/YPknWGn48QfqxpOjB
-	wWQcjOYA==;
+	bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=; b=cj/SmGlIfZAL+xeZgu/9ut7vjM
+	V0s3WFAiVdScFCferqOGs/42oU2oEWaEPfHqQdpAMJ9sUL/V0YdTqsgGmsH+0PllKV1GuXEu/u8dh
+	6SMrjArsJNiq2Yy50YbC+DTvU+cwA3McnGGBXnkZ74NCJ+yXdcTNGtDljWLbdA47CZdrbqXm7PLXe
+	ZMDk1eQvsyE2UpevwNXFWwWnnVufpGve9ma0RXrAPWidRYLkAjdkw9ft+L8UC+XQSy6IqshtBEuk6
+	8nIU+wmTbTDyAAb2Tl/WQ86IFYKXMBzeSepRuJVUOatbxn8lEAQcCKoWvhVJTEDBljIhIAt4Hm3V4
+	Tw5LDO2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVue-000000038sF-0pDb;
-	Mon, 08 Jun 2026 09:04:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWVuo-000000038uu-1CvM;
+	Mon, 08 Jun 2026 09:05:02 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVud-000000038s7-2p3M
+	id 1wWVuk-000000038tI-3Npk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 09:04:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D97D600AE;
-	Mon,  8 Jun 2026 09:04:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D31A61F00893;
-	Mon,  8 Jun 2026 09:04:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780909490;
-	bh=Gaxzxjs/vW8KUnXlGRbEJH8BuwjUHLEEzwHgn4vcNq8=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=SQ1Gqx3lfMg1hXe2Mb/ikw+gqB4wOZOyqjjovAYrXAeEsXeF1jK+guNjO5eGNGgo3
-	 Ua69ha6cNJlcOHmqQqGVviip9bSqm5kgnPgRtjVIpE0mFjsNWa82qbnV0UNUDcLnZD
-	 JvhfX6WW1qx5wmM13Xp24kzC7ArgAk5YtsnjF5ukKNAK5BDnD/a8A9PIQt1YHfu7FU
-	 n+nzjbnyVIo1jUpENZ48U7MrSuJ3svSENTZPp4eM3CYy8ExExiFO11uVKKmRoUeS4b
-	 okcmC8gz+smucdPSuFAFdXWyfUV46uXXG0rud4CX4NzWNh0Tp8SNGXRqPUDz+POEJ/
-	 VdEy+KASUxFXQ==
-Content-Type: multipart/mixed; boundary="===============6094207814609945116=="
+	Mon, 08 Jun 2026 09:05:01 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=VPnG9i1LzoBJzuTB9KP9X8WDy+3cl9+ndKI6P5y+MmxFXuqs9nMfguNyU+rn0Dk/Qbl0k6icwV13zm6qXzxFiarpjmE495jeSII/9MCxjf4bUtJZrUqPUnWMjd7QxiKjMPqV16PSWkbGsa0aG/DRDjTo7k0mgtVkBs2ZjxAqJgqkQDca1jIo0s6xDfApb/TtkTZZnN1CM/xa6DgvSNttXGt2BwWEm8FEqXFLU4Sju/+YHWykORx14/HxrJ1QFU+irdlU2zbsCH/yzuNr+IShj/KhhiuLR/cgVp8QCHQBCNAra8Yp0cNIffbdlBXtW41pmMpTT/HiJuXf0PSfX+wB5g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
+ b=We4dfOXIHMgiU62HsKtCZhmYz6HsnUgIRLy5ymVKI8qo3cXYuknrSUDuulH9Y6hPaInko7rvyRPlxiQlHzecpQYA11DE6cXrTpcWt5c7RtTr7XkWGqBvnGPsgAJqSrfzF7LsJUz7b6y/h2ijosvdH7RPie0z9cj5Qq/jz/q9ICijVu9AxQHg/dha0RKKhg1hIuaRVCGcNNAmLtKub2B+L9O+98nZy0gYfbhoqwRthRkTIJLdANeQRIYq9BmlXRkpPb/cOdbv9NcpN4HDHHH2FdkNR9gqNzYyAPADTzgU9+QUg1FWhpZs4Ct61WIShhi/ElQN14K97vM79eCXAxDMvQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
+ b=YoLCMAaPkwI/uQt9jtb+jjqtC0g8C0xHBS1nU14kTMOLTIkjKMsNOv82Fh5DjBEZ8dstDvzz7J5Mgn6JI0WagnBj4hW4bcPptFuLGI7O7b14dS+q7ZLMShNOLo1msSeuaNAmb5cIB307jdti8hCiUI4OMu/dEz+93BtEgr3lym0=
+Received: from DU2PR04CA0081.eurprd04.prod.outlook.com (2603:10a6:10:232::26)
+ by PA4PR08MB5981.eurprd08.prod.outlook.com (2603:10a6:102:e2::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
+ 09:04:50 +0000
+Received: from DU2PEPF00028D0D.eurprd03.prod.outlook.com
+ (2603:10a6:10:232:cafe::86) by DU2PR04CA0081.outlook.office365.com
+ (2603:10a6:10:232::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.12 via Frontend Transport; Mon, 8
+ Jun 2026 09:04:50 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D0D.mail.protection.outlook.com (10.167.242.21) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via
+ Frontend Transport; Mon, 8 Jun 2026 09:04:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HYyoJa7NQaoT/gS0PJy4jSCWgNwKSJPiMURCGxZb64ptnfnejbv8ktJ3peYFkSGnFMsCddS+yd1YRpdQVnE4dtlPE/4GxaNZspEmkcJrPEsUAPfux3tl0SYgI5Ye8B9REjPplRYLnRw1+C3JV//m/gSBeJwGogeInirJVXMCDOdoeUaJ5pKR/acF3ljVbEG4KkQfWdja5BDVw8OCC4kz2kVmoT2/qbu3hWKMF2Rp30Ap1/LRn+ZEylLB3jUX2CuNPkRTYOwTL9pMmlw7pOtERMRWGXfYhn9MNIUmNQKLqxTHDRhLykDvlHpxqWQBkKsZYDueJk/pKeQYSvu6nbt6GA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
+ b=UA4jWpwt1+U5hhY/AbGfMoLPuzYD1EthhrM5CLzkja8zK/CqJvVmPUqHTTpR52wTRgGDpiRGltE45lF+I3kTMlkHCkrWMvT0PBtO7VoJhDvp18riIlly8V7AQoF1vZCmt1MVEO9OgG+FD19qHoZ8KkV05ray9TkH2Yr2yOm3O6OryU6gLLZLjv2h1NlrX4qDL5V0tszFbVMG4wXQLKOpdbofCa0l3R8DL5NIHqpEeVoF88YVmVxsJ4swJSGZI+ZH6mqPy83peztxqG4joUwpWq6zJaMUfSkVq30kc7Lmky/0CuqpcjuSv/YJkwzcAZOCTtjD92IOFxY06Rhz4T/Hxw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qgbXUKZtdOtmAqIAg4VVIgk5JB0y/D2dz64WCKaIx28=;
+ b=YoLCMAaPkwI/uQt9jtb+jjqtC0g8C0xHBS1nU14kTMOLTIkjKMsNOv82Fh5DjBEZ8dstDvzz7J5Mgn6JI0WagnBj4hW4bcPptFuLGI7O7b14dS+q7ZLMShNOLo1msSeuaNAmb5cIB307jdti8hCiUI4OMu/dEz+93BtEgr3lym0=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAWPR08MB10975.eurprd08.prod.outlook.com (2603:10a6:102:46e::7)
+ by GV1PR08MB8081.eurprd08.prod.outlook.com (2603:10a6:150:97::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
+ 09:03:47 +0000
+Received: from PAWPR08MB10975.eurprd08.prod.outlook.com
+ ([fe80::3c7a:9a64:14bc:ce15]) by PAWPR08MB10975.eurprd08.prod.outlook.com
+ ([fe80::3c7a:9a64:14bc:ce15%7]) with mapi id 15.21.0092.011; Mon, 8 Jun 2026
+ 09:03:47 +0000
+Message-ID: <e0071e90-c2f5-4d15-b3c6-fe05bf1464e4@arm.com>
+Date: Mon, 8 Jun 2026 10:03:46 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Price <steven.price@arm.com>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
+ <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+ <yq5ase72qvwb.fsf@kernel.org>
+ <20260604-juicy-daft-starling-3eec1f@sudeepholla>
+ <yq5ao6hlzbpa.fsf@kernel.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <yq5ao6hlzbpa.fsf@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: LO4P123CA0092.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:191::7) To PAWPR08MB10975.eurprd08.prod.outlook.com
+ (2603:10a6:102:46e::7)
 MIME-Version: 1.0
-Message-Id: <05f7ab2eeaf872990f9f43125fe21311719d65271c2b1ef3c40bb2ca2e8c679b@mail.kernel.org>
-In-Reply-To: <20260608080440.127491-11-ankur.a.arora@oracle.com>
-References: <20260608080440.127491-11-ankur.a.arora@oracle.com>
-Subject: Re: [PATCH v12 10/15] bpf/rqspinlock: Use smp_cond_load_acquire_timeout()
-From: bot+bpf-ci@kernel.org
-To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
-Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@linaro.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,rdunlap@infradead.org,david.laight.linux@gmail.com,broonie@kernel.org,joao.m.martins@oracle.com,boris.ostrovsky@oracle.com,konrad.wilk@oracle.com,ashok.bhat@arm.com,ankur.a.arora@oracle.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Mon,  8 Jun 2026 09:04:49 +0000 (UTC)
+X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|GV1PR08MB8081:EE_|DU2PEPF00028D0D:EE_|PA4PR08MB5981:EE_
+X-MS-Office365-Filtering-Correlation-Id: da01b14c-d877-4a65-891a-08dec53cff42
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|56012099006|3023799007|4143699003|5023799004|11063799006|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: p0tk+1pe0NSfZI2bLuZ0Mg2+lH+nDjWWteQIVMZJ+ypWUj5bgvI+Sh8oa0xV6jA8viFec7kOqyA/U0h20F0qPPKCKdo9RfnqkpmhtHfDmZSL5ivxYDrG3F9SDDIYUCXUromYQaTSqH1TksucsUs3EgXmnkBA6P8j1134XHUu81s3Bpf+oSl1W+MCxfm9sNLoknwkOPuR4pfX53KfwO48Qvu4Tz2+uH+V1FX+kckDJ43P0xiiiN7Pcyb5RkRHqgc1h3Ge1E/ILyyKw5yvnxDTXzjbsKr4W8a4ZhgYeVDRvNUDXvsKcyZaqGk/unW0mTd7VEwgepd80kTtX5hBHUFvFA7RB5l3orrmSPhHtuab5HT1wBxLEtza+3SwW8s6rpyDCC6q5dQ0e721M7nAHK9K/0+R6RvObZDsXcZ1v/ukXNGJiaS/Xp/K4iBuL1oXiT4uBWrESbQPbReRdVjP7JTx127fMxh/IefNuJmlYNTm8XbmoODa/dx1heDVdr1NzWIvRDOvQFjPZuDsTqkx38E+LB+xp3y7i854GDy3a4yCQLItCsNXy6POfizOjt/DONL7XM2a2mheVPcRqmpa0EaP4Imu+nJ4I4/iGZB4/N/4D1ZQNWSxyACypYzBtl5dNdjmUzLqDFu17yYgHP4SlxekBl3DVdojW4rYfiW4B86bZj9K8/dwfJKYFc2ievj6Dtq9b1qJyRCCOgIzmpcKdf92PA==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(56012099006)(3023799007)(4143699003)(5023799004)(11063799006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: qTa7nl++ByNjYeK1I3ysu+dQlf0ueQyCYzw4pYeSj6jzBsHH2ydzutEnohcJI7uCy13Ytl0ZhdJ17rbBLp6aJrcnsG2ZJ1NHd/tnzRZHbzWyLQo5yim3PoRtGr/5iGjDSfEiFOfN7EPQSrcrpTeg957R//MHRquL5iT1Qk6+1jUJ9vOZtg8qdbmNE0c5CGv1Gc6am82ye5odv9p32J9RVmcv/hZLP2QTGKBnQvEO9i+tZoHLYLdzg2ylTxclb1h1U1h3Te1+Y/wiZBi2zcHzj8eP5wdSN/82furHywXwunI2FaPrk/symIPVyKlsfwWhO3cBvS7XmnEbKWdje9+oKA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8081
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D0D.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 3abb3bd6-da67-477f-51ad-08dec53cd982
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700016|14060799003|1800799024|82310400026|376014|11063799006|5023799004|4143699003|3023799007|56012099006|6133799003|13003099007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: EmUOS3FpZI3pdXj9Zk/uw/935mfEVlsVXy7KX7+JlHQhgcMD7H+D9aw1HDGc5QfxuyIDvJlZ1r5q2ovvPilGYIoq/DAnrpgVnO4He2lucs2Re0hDzUN9Vzf8uI+MyM/TvuqywGXbaYb+ujEeeOWASlYqQYOhm/BwFESA5sa+NNat/xmbZpgvVkuLduV6EuS1JXbzML4OteOVxFhMHk5N6pebLaY/Ox6+Ve/yrUPfo5KxxujigRRSZ0BXVBnvyaZJLEQN1CpGggkF/ywVH+UXCVDetIyKghsxEfqs2fS4l/xQEV9ixMy9HxVn0cgLXESiYQB+BXuYqtIbVSTKHB9oRux0tdHID0/hPyGGj48UBpAFK6bQi1hkjHLQjUX5AwSsGk6nObhV2nS4ZIGQ65Kq0/IFYQVoMOfxSFEBIVg+t4rPlhlv2gvs1p8c/mTj5385HI2QMGTzcyFk2m0Of1q2O7URgDBgmU8XZGBoBEseGlOEy3pEpyAWtd4ZQG2hxGpHRS9mLNPu3nEFHiUsvdnJ0i0nHn1fCMgAJ5iYsmkdfegkGkx0rwmwcJXWfIUeWY3qyjxdKicH6hQ7lLk7L1PZ5/yJ6dBJV1qT3VM0pkiZ28iXssxSiZlbmtMrNcyCEiP30FniqTXt89Tx5MCzmLHpI6a1bspsGxKfNtETvcAHgWo/fdkVd1b/9I8mYa9haqW1PJP4kPEgS+unY1BMs49r9BVPnnlQ9D4aThV7H7iOfkg=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700016)(14060799003)(1800799024)(82310400026)(376014)(11063799006)(5023799004)(4143699003)(3023799007)(56012099006)(6133799003)(13003099007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: r/qzmH9ApVxMAK4IF52m7skodZNGUi8NIu/i9t2h/iw16TRU9JEJrmWzyt6awq52hRjlpjUakBbXKxfL14qOM9W89P49v7ckaJVu8b584swE2PFpoO+Hp3kkaKjaKH3Fm1CBQeoGT6R9JQP7qoismsriRXL7XtM9Lit4zKc385QOvzA8Ig/hA3YdCVPbe1LPWKIF5U96RijyiiQkXK8MQJveIhF2d7YTlmlUmNbarBoWb/5Kea3qkkZfH53jmom5rK9HiwddFvFdn1+W0gbShNleDoAqb55pOIm/zCmCM5UUiXgWzh7pcopUallX78ed+G4PFF4xSS5DLpdeYn80YkH2Dxp91va0d+EKiMb4dVCXgYw8kuCzngAIut6z+OBtOhUmmyoZ8D8qoe46z6ezzOlml9Rgk2mzBZYI9DdLKB5A++XiqkQLVyhd0Jwvpgqo
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 09:04:50.3374
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: da01b14c-d877-4a65-891a-08dec53cff42
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0D.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB5981
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_020459_144406_F1FF95E0 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,94 +165,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============6094207814609945116==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On 08/06/2026 09:19, Aneesh Kumar K.V wrote:
+> Sudeep Holla <sudeep.holla@kernel.org> writes:
+> 
+>> On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
+>>> Sudeep Holla <sudeep.holla@kernel.org> writes:
+>>>
+>>> ...
+>>>
+>>>> +static const struct smccc_device_info smccc_devices[] __initconst = {
+>>>> +       {
+>>>> +               .func_id        = ARM_SMCCC_TRNG_VERSION,
+>>>> +               .requires_smc   = false,
+>>>> +               .min_return     = ARM_SMCCC_TRNG_MIN_VERSION,
+>>>> +               .device_name    = "arm-smccc-trng",
+>>>> +       },
+>>>> +};
+>>>> +
+>>>> +static bool __init
+>>>> +smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+>>>> +{
+>>>> +       struct arm_smccc_res res;
+>>>> +       unsigned long ret;
+>>>> +
+>>>> +       if (!IS_ENABLED(CONFIG_ARM64))
+>>>> +               return false;
+>>>> +
+>>>> +       if (smccc_conduit == SMCCC_CONDUIT_NONE)
+>>>> +               return false;
+>>>> +
+>>>> +       if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
+>>>> +               return false;
+>>>> +
+>>>> +       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+>>>> +       ret = res.a0;
+>>>> +
+>>>> +       if ((s32)ret < 0)
+>>>> +               return false;
+>>>> +
+>>>> +       return ret >= smccc_dev->min_return;
+>>>> +}
+>>>> +
+>>>>
+>>>
+>>> I am not sure we want the check to be as simple as ret < 0. Some
+>>> function IDs may return input errors based on the supplied arguments
+>>> (for example, RMI_ERROR_INPUT). In those cases, we would likely want
+>>> this to be handled via a callback.
+>>>
+>>
+>> As I mentioned in response to Suzuki, we can defer that to probe of
+>> that device. If *_VERSION, succeeds SMCCC core can add that device and
+>> leave the rest to the core keeping the core and bus layer simple IMO.
+>>
+>>> We also want to use conditional compilation for some function IDs.
+>>> Given the callback approach and the #ifdefs, I wonder whether what we
+>>> currently have is actually simpler and more flexible.”
+>>>
+>>
+>> I was trying to avoid conditional compilation altogether and hence the
+>> reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
+>> in above snippet must come as some condition to this generic probe.
+>>
+>> Adding any more logic or callback defeats the bus idea here if we need
+>> to rely/depend on multiple conditional compilation or callbacks IMO.
+>>
+>> Let's find see if it can work with what we are adding now and may add in
+>> near future and then decide.
+>>
+> 
+> If we move all the conditional checks to the driver probe path, then I
+> think this can work. Something like the below:
+> 
+> struct smccc_device_info {
+> 	u32 func_id;
+> 	bool requires_smc;
+> 	const char *device_name;
+> };
+> 
+> static const struct smccc_device_info smccc_devices[] __initconst = {
+> 	{
+> 		.func_id        = ARM_SMCCC_TRNG_VERSION,
+> 		.requires_smc   = false,
+> 		.device_name    = "arm-smccc-trng",
+> 	},
+> 
+> 	{
+> 		.func_id        = RSI_ABI_VERSION,
 
-> bpf/rqspinlock: Use smp_cond_load_acquire_timeout()
->
-> Switch out the conditional load interfaces used by rqspinlock
-> to smp_cond_read_acquire_timeout() and its wrapper,
-> atomic_cond_read_acquire_timeout().
->
-> Both these handle the timeout and amortize as needed, so use the
-> non-amortized RES_CHECK_TIMEOUT.
->
-> RES_CHECK_TIMEOUT does double duty here -- presenting the current
-> clock value, the timeout/deadlock error from clock_deadlock() to
-> the cond-load and, returning the error value via ret.
->
-> For correctness, we need to ensure that the error case of the
-> cond-load interface always agrees with that in clock_deadlock().
->
-> For the most part, this is fine because there's no independent clock,
-> or double reads from the clock in cond-load -- either of which could
-> lead to its internal state going out of sync from that of
-> clock_deadlock().
->
-> There is, however, an edge case where clock_deadlock() checks for:
->
->         if (time > ts->timeout_end)
->                 return -ETIMEDOUT;
->
-> while smp_cond_load_acquire_timeout() checks for:
->
->         __time_now = (time_expr_ns);
->         if (__time_now <= 0 || __time_now >= __time_end) {
->                 VAL = READ_ONCE(*__PTR);
->                 break;
->         }
->
-> This runs into a problem when (__time_now == __time_end) since
-> clock_deadlock() does not treat it as a timeout condition but
-> the second clause in the conditional above does.
-> So, add an equality check in clock_deadlock().
->
-> Finally, redefine SMP_TIMEOUT_POLL_COUNT to be 16k to be similar to
-> the spin-count used in the amortized version. We only do this for
-> non-arm64 as that uses a waiting implementation.
->
-> Cc: bpf@vger.kernel.org
-> Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> Cc: Alexei Starovoitov <ast@kernel.org>
-> Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-
-Besides switching to the new cond-load interface, this commit also
-changes the boundary comparison in clock_deadlock() from:
-
-        if (time > ts->timeout_end)
-                return -ETIMEDOUT;
-
-to:
-
-        if (time >= ts->timeout_end)
-                return -ETIMEDOUT;
-
-so that time == timeout_end is now treated as a timeout, matching the
-__time_now >= __time_end check in smp_cond_load_acquire_timeout().
-
-The time > ts->timeout_end check, and the timeout_end field itself, were
-first introduced in the then-named check_timeout() helper by:
-
-  commit 14c48ee81452 ("rqspinlock: Add support for timeouts")
-
-Should this commit carry a Fixes: tag for that boundary change?
-
-  Fixes: 14c48ee81452 ("rqspinlock: Add support for timeouts")
-
-This is offered tentatively: under the previous res_smp_cond_load_acquire
-interface the '>' comparison was internally consistent, and the boundary
-divergence only becomes observable once this commit switches to the
-'__time_now >= __time_end' interface. So this may read more as a
-self-contained adjustment than a fix for a pre-existing bug.
+Don't we need parameters passed to this (Requested Interface version for 
+e.g.) ? See more below.
 
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+> 		.requires_smc   = true,
+> 		.device_name    = RSI_DEV_NAME,
+> 	},
+> };
+> 
+> static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+> {
+> 	unsigned long ret;
+> 	struct arm_smccc_res res;
+> 
+> 	if (smccc_conduit == SMCCC_CONDUIT_NONE)
+> 		return false;
+> 
+> 	if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
+> 		return false;
+> 
+> 	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+> 	ret = res.a0;
+> 
+> 	if ((s32)ret == SMCCC_RET_NOT_SUPPORTED)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/27125050324
---===============6094207814609945116==--
+Is this a reliable check for all possible SMCCC services ? i.e., Are we 
+expected to get RET_NOT_SUPPORTED for any service for which the backend
+is not available ?
+
+Also, as pointed out RSI_ABI_VERSION may return other errors based on 
+the input (requested version, e.g., RSI_ERROR_INPUT) and we may still go
+ahead and register the device ?
+
+> 		return false;
+> 
+> 	return true;
+> }
+> 
+> static int __init smccc_devices_init(void)
+> {
+> 	struct arm_smccc_device *sdev;
+> 	const struct smccc_device_info *smccc_dev;
+> 
+> 	for (int i = 0; i < ARRAY_SIZE(smccc_devices); i++) {
+> 		smccc_dev = &smccc_devices[i];
+> 
+> 		if (!smccc_probe_smccc_device(smccc_dev))
+> 			continue;
+> 
+>                 sdev = arm_smccc_device_register(smccc_dev->device_name);
+>                 if (IS_ERR(sdev))
+>                         pr_err("%s: could not register device: %ld\n",
+>                                smccc_dev->device_name, PTR_ERR(sdev));
+> 
+> 	}
+> 
+> 	return 0;
+> }
+> device_initcall(smccc_devices_init);
+> 
+> with the diff to hw_random/smccc_trng
+> 
+> modified   arch/arm64/include/asm/archrandom.h
+> @@ -12,7 +12,7 @@
+>   
+>   extern bool smccc_trng_available;
+>   
+> -static inline bool __init smccc_probe_trng(void)
+> +static inline bool smccc_probe_trng(void)
+>   {
+>   	struct arm_smccc_res res;
+>   
+> modified   drivers/char/hw_random/arm_smccc_trng.c
+> @@ -19,6 +19,8 @@
+>   #include <linux/arm-smccc.h>
+>   #include <linux/arm-smccc-bus.h>
+>   
+> +#include <asm/archrandom.h>
+> +
+>   #ifdef CONFIG_ARM64
+>   #define ARM_SMCCC_TRNG_RND	ARM_SMCCC_TRNG_RND64
+>   #define MAX_BITS_PER_CALL	(3 * 64UL)
+> @@ -98,6 +100,10 @@ static int smccc_trng_probe(struct arm_smccc_device *sdev)
+>   {
+>   	struct hwrng *trng;
+>   
+> +	/* validate the minimum version requirement */
+> +	if (!smccc_probe_trng())
+> +		return -ENODEV;
+> +
+>   	trng = devm_kzalloc(&sdev->dev, sizeof(*trng), GFP_KERNEL);
+>   	if (!trng)
+>   		return -ENOMEM;
+> 
+> We can also move arch/arm64/include/asm/rsi_smc.h to
+> include/linux/arm-rsi-smccc.h. There was a suggestion to move these
+
+super minor nit: arm-smccc-rsi.h ?
+
+Cheers
+Suzuki
+
+
+> firmware interfaces out of architecture-specific code:
+> 
+> https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
+> 
+> This will also avoid the #ifdef CONFIG_ARM64
+> 
+> -aneesh
+
 
