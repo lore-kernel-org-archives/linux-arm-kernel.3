@@ -4,100 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060CBCD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4591ACD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXHFXu7L7X5+W85+6JMWjYQ7nh2xx8JsX3L6W7xEiLY=; b=umtL8tR0x8fukVEfLgFueORQZx
-	7lJugZDm0QaZQBKqrd7ydkQPsYuN6b+RkX15bWMD5W2EqefhC4GEmjho5AO2KFROkQxhstau68KxQ
-	VwuzSgAAg7PBAgaHzAvhxwHBDs3PbujR6m+mfJT5N2hQQlyuzIPJxp1jmgOseZtqfEPOh5L5TLbEz
-	GNZT/hG2cmpa6QjFyuHJB+HrVNgcNvOMMX79+G/QU+yO1RQO1fC5cfHvVxRSmRLhSUXDR+qqLshEJ
-	P+9GqaiWqmJ9G+mwTsl1iV6+gAVd+tmWJbwBtk9TBp7i6qGZD4IyXnQEOiY0W4Kb0iF7oGJp/Fg1W
-	vkQAX2ZQ==;
+	bh=gWFWjJHgZiy/GLN2e6ewnZP2ttGIyfRahDWZJrnWXfY=; b=L+eJkkZPHRgrk3jgySq7yLdl3f
+	kOs5sLBxQCmkink7VSUqx/i/eRS/BunZNrRdT+s08gZkj+9S11lrqdl+27uvd12bNA33NpUR+LJEE
+	tsMG/MvPl1JwYe0nYFVGqhy51/g49ZL3hbGdyYkGUsaXTyG1FyE8oHXJG/pUYpcI+usqDzJOWQtrV
+	PbZ6n9biZxEeUmhtdok0WinS2o+IB9Jfk4tipvD+zDhWvB/3XP3v0pXbdR9lcRBrLl9v2J/syyUJC
+	nXFNQO80MfhBNnpKwghVLNQ1FA35Igd245UzNclibaDuQil40ckkJU+u/J89T2g0PuqLwzXSaeUnA
+	qEvJBK+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb3g-00000003lmw-0Yka;
-	Mon, 08 Jun 2026 14:34:32 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wWb68-00000003m3f-4A2N;
+	Mon, 08 Jun 2026 14:37:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb3e-00000003lmW-1tk9
+	id 1wWb68-00000003m3T-1BU4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:34:31 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-45eec22fab7so2226555f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 07:34:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780929268; x=1781534068; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nXHFXu7L7X5+W85+6JMWjYQ7nh2xx8JsX3L6W7xEiLY=;
-        b=WfGZh3dl1W7CernD2Yxq+wJBG6loAMxFGzi1geK5WXiogMW210EEXjUZgSbakGFFiL
-         tFipPCCzh7jXaduxco6BIiOyghg/4mFDuZ/FHUJrExD2GTPziOHIxxwnb1qO7F3oGHqT
-         qpc11FJ6f9F2BLwdQn12a04ULlPuzHRmM9Cg0ijdngTydwcVzGFNsOb1Q2ZEQlxyEJ+5
-         /VvGDWZvNyhoyC8J16SHe9mt5R1Ha354B/kFDWPzA8HXAOKL39t9VO5scOlaDiY7KbVr
-         KXNX+J9jzPVES6+s7reBRWtdro4+aip/C36QAWzdtmRmVEkGYx3GQ6qhGnuqB7gV0l39
-         CzPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780929268; x=1781534068;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nXHFXu7L7X5+W85+6JMWjYQ7nh2xx8JsX3L6W7xEiLY=;
-        b=bY5/5KHl6wev5cHfREj78sLlPImRa91+L+kVcTrDfIJqaFncUt3dby1jgv3jt6kyEO
-         jqqDG6A3qv3nJcZ9ZOQlHVKlwGo/hC92BpRvPSdJ7TZSn+KUl3Bt3eEWXosCMgNfp4Ls
-         SO3UKSktFSufUkxJi1eieT2l3lHUFKQLmwh9VaWaR0lnG2V8GxowfOOIK7vUCBOi8sL3
-         7piOhOUObY9hd52xMSFxrg3Ora4ruIZQWYdZcJL9DhfvFNtRh8xVoEQLkRHkp16dgzh0
-         Q7IpQ8FWJuDmgupHy7awJrQXCs4wn8nwrZIEklhzHrTtjcjoinT1g3zzlF/2ZwAi1fqB
-         n49w==
-X-Forwarded-Encrypted: i=1; AFNElJ86pDy1LPckwsKR8ZxxPlnwznlAGA2KEVTIKyXK8QzGaf7OGK2FfnF0KUFKK01bgadN7HhU/A078xHt14ZO9S9a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0jWu/ODgU98IlctBxGKFvlnwPrZCN/5chZGnw5nDm3VOzgmhN
-	20eOQyGQz0LTuuFm5NcMh7qoCrGuaZH5lDcBYWPpiqpeK7Szx58ODysGoBTxkP8oRl4=
-X-Gm-Gg: Acq92OERZPY6Hb/xWeVLSeAdPz8mbVDd//tHwCsV7YT81I8CYru6RVz5vDs1ZQakGYO
-	UJsU+qLLbkyAItMhMd49ZBEDQIBIC+HlSXnQSsHhDm9/EbiLXADnYPbwwreUCVwOjIqE6kureWP
-	8pD2vXnykortbNetivHvipOURe+ZUKPOyJKZ+nmnm0iC7jcX5TIC1U6+xkh/CXs6vt2zSX753O4
-	4PblOw9mBm5tQxFqZnhMolUvZmgDXxTtJrtUdIQnmY7/4q6bMzSotbNu/KDUxg80fddEpXpGPtz
-	B0/jrjX0BBZteiXwwyLJ2IsYWTEY66dyMElM4EtLyMARhxxzRAUr8XLYzweHUBcNjKKsDlhdpCh
-	8H0V4rCfpyeHR8F3YzU+0QL1ZQJYRuf3DH1x0MiUP7yITouqc7VXMA4MiacFLRkiUIBBiZhI/u2
-	32kBH2jrcMsDRD3sO7HI2NlsBY1Kj2lffld05z1yoKcw==
-X-Received: by 2002:adf:fcce:0:b0:45e:df08:b18 with SMTP id ffacd0b85a97d-4603075ca65mr16848230f8f.32.1780929268183;
-        Mon, 08 Jun 2026 07:34:28 -0700 (PDT)
-Received: from [10.11.12.110] ([82.76.215.73])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f351ac0sm95437467f8f.27.2026.06.08.07.34.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Jun 2026 07:34:27 -0700 (PDT)
-Message-ID: <cc544c9d-0587-4d07-bc47-83636584fcef@linaro.org>
-Date: Mon, 8 Jun 2026 17:34:25 +0300
+	Mon, 08 Jun 2026 14:37:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB865437F3;
+	Mon,  8 Jun 2026 14:37:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 186691F00893;
+	Mon,  8 Jun 2026 14:37:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780929423;
+	bh=gWFWjJHgZiy/GLN2e6ewnZP2ttGIyfRahDWZJrnWXfY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=EBqKxcsSlkaprRmAbhUyDpltht1p7+kiEXNT/mT7clPqtO40oODZgiMH7cKlhvtsz
+	 uJtCJ1n+oMaPTG4Ys9yUlNjEYzFnt49qgbibw8K6hq4kLrpVWqKB3CancY7f/5HTfD
+	 2Pnt+eM3IOpa7z5PuMxbA8EzMiZAhLs6wj+yLkQDtvJIR3rMGl2loScY6os0eMBUSK
+	 DozuV8CGM95iArTqKUweKRlQ4uDAp5zgj9XkqYRERGJkmBRtjG34LegOQBpv1W/Cl+
+	 /oNWrmKamP6UmSDs1CLY9w4NRNu42JyoUsUUHKAuMJXWIVKAYR1nVN3nxWp1ysMjuD
+	 e9uRlnUeH6iWA==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Mon, 08 Jun 2026 16:35:56 +0200
+Subject: [PATCH v2 14/78] drm/bridge: imx8mp-hdmi-pvi: Switch to
+ atomic_create_state
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] mailbox: exynos: Add support for Exynos850 mailbox
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Juan Yescas <jyescas@google.com>
-References: <20260429-exynos850-ap2apm-mailbox-v3-0-8e2719608c46@linaro.org>
- <20260429-exynos850-ap2apm-mailbox-v3-2-8e2719608c46@linaro.org>
- <9b6fce56-6a94-44fe-ab55-5394ec6065e4@linaro.org>
- <DILX9UGAMXLN.2WVL25FJ87HDK@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <DILX9UGAMXLN.2WVL25FJ87HDK@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_073430_542415_5E9B24DB 
-X-CRM114-Status: GOOD (  17.71  )
+Message-Id: <20260608-drm-no-more-bridge-reset-v2-14-0a91018bf886@kernel.org>
+References: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
+In-Reply-To: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, 
+ Maxime Ripard <mripard@kernel.org>, Liu Ying <victor.liu@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1699; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=NEPayvVmX3q7Wj0iTg7FEvUzK//M1H9vGJB08M5p7Hc=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlql70vly32//oqaccaw6hv02dnzrTSPeEqVd9ul3qLn
+ 7H191+BjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjARxSWMDStWJTCWTClskpke
+ mG794XnBtae7ri65ebj5trvlKo9eNlW3JeIuu09qXFx//Mvf2avL1zPWhwdE3mMMrlqmybAu82/
+ oiff3NLr+/bQPeyZ7LuemoG/OQtX+JsVu0xmNGrZHK806A9cAAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,87 +89,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The drm_bridge_funcs.atomic_reset callback and its
+drm_atomic_helper_bridge_reset() helper are deprecated.
 
+Switch to the atomic_create_state callback and its
+drm_atomic_helper_bridge_create_state() counterpart.
 
-On 5/18/26 6:53 PM, Alexey Klimov wrote:
-> Hi Tudor,
-> 
-Hi!
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+To: Liu Ying <victor.liu@nxp.com>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->>>  	mbox->num_chans = EXYNOS_MBOX_CHAN_COUNT;
->>
->> EXYNOS_MBOX_CHAN_COUNT is globally defined as:
->> #define EXYNOS_MBOX_CHAN_COUNT		HWEIGHT32(EXYNOS_MBOX_INTGR1_MASK)
->>
->> Does the Exynos850 have the exact same number of channels as the GS101?
->>
->> You may move num_chans into struct exynos_mbox_driver_data alongside the
->> register offsets so each SoC explicitly declares its channel capacity.
-> 
-> Here:
-> 
-> => md 2040000 <--- sram_base + initdata_base
-> 02040000: 000063bc 00000007 0000650c 00000013  .c.......e......
-> 02040010: 00000000 00000007 0000000b 0000000e  ................
-> 				^^^^
-> 02040020: 00000000 00000000 00000013 00000009  ................
-> 02040030: 00008000 00008008 0000800c 00008010  ................
-> 02040040: 00000010 0000017f 00007800 00000080  .........x......
-> 02040050: 0001f800 00004000 00000300 00000010  .....@..........
-> 02040060: 66633931 20613261 65766164 00383130  19cfa2a dave018.
-> 02040070: 00000000 00000000 3a393000 353a3133  .........09:31:5
-> 02040080: 65462034 31312062 32303220 00000030  4 Feb 11 2020...
-> 02040090: 00000000 0000001b 00000002 00ff00df  ................
-> 
-> So it looks like the ipc_ap_max field is equal to 0xb.
-> 
-> [   12.972113] exynos-acpm-protocol firmware:power-management: calling acpm_channels_init
-> [   12.972216] acpm_channels_init: acpm->num_chans=b.
-> [   12.975541] exynos-acpm-protocol firmware:power-management: ID = 0 poll = 1, mlen = 16, qlen = 15
-> [   12.976522] exynos-acpm-protocol firmware:power-management: calling acpm_channels_init
-> [   12.979336] acpm_channels_init: acpm->num_chans=b.
-> [   12.984133] exynos-acpm-protocol firmware:power-management: ID = 0 poll = 1, mlen = 16, qlen = 15
-> [   12.993849] exynos-acpm-protocol firmware:power-management: ID = 1 poll = 1, mlen = 16, qlen = 3
-> [   13.001756] exynos-acpm-protocol firmware:power-management: ID = 2 poll = 1, mlen = 16, qlen = 5
-> [   13.010519] exynos-acpm-protocol firmware:power-management: ID = 3 poll = 0, mlen = 16, qlen = 1
-> [   13.019317] exynos-acpm-protocol firmware:power-management: ID = 4 poll = 1, mlen = 16, qlen = 3
-> [   13.028073] exynos-acpm-protocol firmware:power-management: ID = 5 poll = 0, mlen = 16, qlen = 1
-> [   13.036805] exynos-acpm-protocol firmware:power-management: ID = 6 poll = 0, mlen = 16, qlen = 1
-> [   13.050945] exynos-acpm-protocol firmware:power-management: ID = 7 poll = 1, mlen = 2, qlen = 1
-> [   13.065791] exynos-acpm-protocol firmware:power-management: ID = 8 poll = 1, mlen = 2, qlen = 1
-> [   13.079592] exynos-acpm-protocol firmware:power-management: ID = 9 poll = 1, mlen = 16, qlen = 7
-> [   13.088398] exynos-acpm-protocol firmware:power-management: ID = 10 poll = 1, mlen = 8, qlen = 1
-> 
-> That's what sram + initdata provides but I guess these are implemented
-> number of channels of ACPM firmware (when APM communicates with AP CPU).
-> The mailbox hardware register though can process or consume 16 bits or
-> in other words HWEIGHT32(GENMASK(15, 0)). I guess this field should
-> indicate hardware capability of mbox hardware like max number of
-> possible channels? I'll change the code to use HWEIGHT32(mask) of
-> corresponding register then.
+diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c
+index 7d5fda7173e5..a31d4fc76f35 100644
+--- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c
++++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c
+@@ -129,11 +129,11 @@ static const struct drm_bridge_funcs imx_hdmi_pvi_bridge_funcs = {
+ 	.atomic_enable	= imx8mp_hdmi_pvi_bridge_enable,
+ 	.atomic_disable	= imx8mp_hdmi_pvi_bridge_disable,
+ 	.atomic_get_input_bus_fmts = imx8mp_hdmi_pvi_bridge_get_input_bus_fmts,
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+-	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+ };
+ 
+ static int imx8mp_hdmi_pvi_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *remote;
 
-Exactly. The mailbox controller driver should model the underlying
-hardware's capabilities, not the firmware's specific usage limits.
-Since the Exynos850 hardware register uses a 16-bit mask, exposing
-16 hardware channels is the right move. Moving num_chans into
-struct exynos_mbox_driver_data alongside the register masks for
-each SoC is the cleanest approach.
+-- 
+2.54.0
 
-> 
-> Or should there be a call to acpm firmware driver to query the number
-> of channels? Or should we get it from device tree?
-
-There is no need to call the ACPM firmware driver. The mailbox
-controller merely exposes the available pipes.
-
-> 
-> Does gs101 have less than 16 number of ACPM ap channels?
-> 
-
-I don't remember, but regardless of how many channels the gs101 acpm
-firmware actually utilizes, its hw mask is also 16 bit, so exposing
-16 hardware channels for it is correct.
-
-Cheers,
-ta
 
