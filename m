@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A89CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6D2CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOnV9Nyke9Eq832xs7Gq6zdpN0nFnRMF0XzlVrudAyk=; b=tmjCSBPvobJIIN9iqpFBHne9Ph
-	QZH4NL92RrIkFFOvclTPYrKnGORFe9yBN4siq/68ODJfWlaB0zjUjz+OMXXZd3uVLJi96DI6KqAhk
-	LyiRaMv64MU9j4qf6KMLnpoqj0llHsMCO7LUm2Nk3h7hOsHHvxK5c4CbuH3P7K7PZKd5ccavmtHgJ
-	QA+z5kTW11f3YmYq2fmXgC/kDhJmlMIBkXLQUbw0G8+ClIbnA6qBCNG/0JifnAsTfUdpzRucA5/Xh
-	JcFxXPCe9ygE9HBspEXbCkPAcA8Hw7+lHzoYW8TZvlijYGod+fxHJ7YDDHCEVfNR1IDWMYWkNV7j9
-	8joupHqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i8fz5rrixxcXBSE5i7ASUW+eSqUQor3TCtORJAa6UrU=; b=SImgRUOB51BhLK5o6h8wRJedPc
+	gFYbddFC+dcjx1N4Rzm9q0tP+0jNpzv/19mpt5xhRqjFqaNHeQDlW55I/lMhlkPM/2RNSFctJGE1a
+	ZJFoebDvk+MYqCghkwLlW4QnWgLSFh0gUhrlnRUWIPcV1VQRsmg6gVJkBq9R5u9Qhq6adbXrJkCst
+	XX2Zrr12CBiO+sgJSOVIHvLA7KZ0U6FVXZA095z312qN+dh64d1ReafEvqShB3GlXaVIX8q9YxVHP
+	qpo8t4/wEFj623ZOvclnoSUYJH8XSklyVJ4+Y6eKp2pIw37TxIIEu+Aevf3JgDopp/f9Fd5ZtjpkQ
+	1nCrKViA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWsm-00000003HFw-1fey;
-	Mon, 08 Jun 2026 10:07:00 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wWWvM-00000003HX8-3i7x;
+	Mon, 08 Jun 2026 10:09:40 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWsi-00000003HF1-3FYH
+	id 1wWWvJ-00000003HVn-3oBF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 10:06:59 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.15])
-	by APP-05 (Coremail) with SMTP id zQCowAC3F9szlCZqCWuyEg--.3647S2;
-	Mon, 08 Jun 2026 18:06:44 +0800 (CST)
-Message-ID: <340c213ca47dabb8bc3d260311e2fd4818bd8001.camel@iscas.ac.cn>
-Subject: Re: [PATCH v3 3/5] drm/verisilicon: introduce per-variant hardware
- ops table
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 08 Jun 2026 18:06:43 +0800
-In-Reply-To: <98eb7772-257f-4fa7-8e9b-51a635cb12dd@gmail.com>
-References: <20260608023237.305036-1-a0987203069@gmail.com>
-	 <20260608023237.305036-4-a0987203069@gmail.com>
-	 <399cd127b56b4a2fb3161865a681606e04e6b2c6.camel@iscas.ac.cn>
-	 <98eb7772-257f-4fa7-8e9b-51a635cb12dd@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Mon, 08 Jun 2026 10:09:39 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490d1e54b3bso2914985e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 03:09:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780913376; x=1781518176; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=i8fz5rrixxcXBSE5i7ASUW+eSqUQor3TCtORJAa6UrU=;
+        b=Cb3LlQJvehYUzuGvvBVmnFIrgZo6+SPpOKuvRoupJ/Zz4W/7ksmwFZPtayIzwITcQq
+         6f28Ya0xpG04/s/NPpsCfy7rMhs9SaMliB6B3HO8BjoJyuarxHUDcww6xdYraaMb9AO3
+         t1tPE/OqBXllMEyUjZdWBVt+sZHBptQ/AYbPFBbZbNMQcEEXmzEsOhA0q4vkKjif8Orj
+         vHyqBmLRo6tlVrq18Y6CwcmE/bFOoyTquWya0CZD7Zzb0zEgQ7z0fDd0Z0I7MMPARu6l
+         4G9gwYAa+lBlLt4h0nNS1aOij0A1kLAOAsWL/9g9CeXBSN5qUmRzBEXleLv3ZktLmKgJ
+         6meA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780913376; x=1781518176;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=i8fz5rrixxcXBSE5i7ASUW+eSqUQor3TCtORJAa6UrU=;
+        b=c7XtfDL50WNkbBRgvINKVaWh6HAcoOmSIf+/3N7/7chIMNCXZn6HlsGFQJ+6cDOSNn
+         WF46hMXfTwyfppSqtqiRpzEAEe8D/oouwp0bxlNYAYGWbZZRpcKVPmHOD+efdnx8TaLd
+         O2RdX4siJZOUa5ccB6m09pbnAyVBicK2u9QeT5+/jf7+xYuYexvlQtxvU6POxgslWiQU
+         oqlZ/lvozDV4bPUhPK2Mlv1Fr/O+mIEFqq/snV5qbhCGfxLjwmKg7P/7v8L8PQNMCh8o
+         UxTiKDUBcvn1NRLoPTYCYDoc/yP6eeDCiVvbAXGisKB4Q10V8ZwX3wgQDJv6tSeTncZT
+         Q1ww==
+X-Forwarded-Encrypted: i=1; AFNElJ+1qNSX/Oo4kIFnFywmd2VFAVHiZA/aEFAPn4UlMDw1++kzR5GO734Le/xvFwmv+r1DDmuKmRSQDGbiFzR804X0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyasg3LztYvHXqOogE4FpWHJMV4ZePNbSvB6wurSzaaTNaRv0wA
+	35rBVqYkysZgE8+DSiqOhWmtZPDGQNdJ37NNDTaMZLvx6Eno6LPnPPZG
+X-Gm-Gg: Acq92OH6oL4VMmmWxG/6Skdg+4d6NVpASV49AvdomfNfipEDiCfefZGl5TzKw3gYpUn
+	KdGUAk9+a094QcMx1aTATaQi4ilwgd65DJKXre7K/HoJkVl/lLE92rR1eTaWQLHlWWwImcuQoh3
+	yUGQv2XYzjCakpXp8GUmsNOoA66YgzsrityipCHqlPZTV7ULtAkaFse75GeDsWmX24dlSkhLh0p
+	VvNtoVJ/X+l9PMScSF6jGRAQFZVRQAB+3qltbWdo+h1DiBQr0xN7vqB1De0vmYdaw5/PWx/Eunh
+	eQWEsy0NC24FRsfgZmNwf+xQOZP2lgdYj5Dnn8zDINVxxgAhDruTI5nM9belOaHx0fP23utJjQO
+	9llmZOG3yBlriYZ73psEokI5CARTbeawOKo3nhf1b9G+wIqoYzugB8WPdtEHKfvXx8QJcGjZGuH
+	EZrYeo+1KmO1V5HZbiBpkK8ricHS0J4gPdCuDj4Rb37HqWRAAPz6GUvpjED5Bv4omP2vYPP2zRt
+	MEL167gqHWTBdJtXfDWS25R4nmGp056dcRoVRBn187EMIpp
+X-Received: by 2002:a05:600c:8183:b0:488:a882:c7 with SMTP id 5b1f17b1804b1-490c25c6625mr215034015e9.25.1780913375963;
+        Mon, 08 Jun 2026 03:09:35 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4602cda3651sm39503219f8f.32.2026.06.08.03.09.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 03:09:35 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v4 00/14] arm64: dts: imx8mp-var-som-symphony: align DTS with hardware revision
+Date: Mon,  8 Jun 2026 12:09:18 +0200
+Message-ID: <cover.1780912893.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAC3F9szlCZqCWuyEg--.3647S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJFWUXrWDtF4xAF1DJr4xWFg_yoWrGFW8pr
-	1qkFy8Kr4rXrykJFy8tryvqFsxWw1xKw1Igr1UGa9Yqr1DtrnIgFW0qr93uF4kXrZ7G3Wf
-	Xw4SyanIvrWrAwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxU2wIDUUUUU
-X-Originating-IP: [112.94.101.15]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_030657_194699_35542268 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20260608_030937_992796_555CCD46 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,118 +107,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-08=E4=B8=80=E7=9A=84 17:45 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> > > diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> > > b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> > > index 1f2be41ae496..75bc36a078f7 100644
-> > > --- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> > > +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> > > @@ -53,12 +53,6 @@ static int
-> > > vs_primary_plane_atomic_check(struct
-> > > drm_plane *plane,
-> > > =C2=A0=C2=A0	return 0;
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > -static void vs_primary_plane_commit(struct vs_dc *dc, unsigned
-> > > int
-> > > output)
-> > > -{
-> > > -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> > > -			VSDC_FB_CONFIG_EX_COMMIT);
-> > > -}
-> > > -
-> > > =C2=A0=C2=A0static void vs_primary_plane_atomic_enable(struct drm_pla=
-ne
-> > > *plane,
-> > > =C2=A0=C2=A0					=C2=A0=C2=A0 struct
-> > > drm_atomic_commit
-> > > *atomic_state)
-> > > =C2=A0=C2=A0{
-> > > @@ -69,13 +63,8 @@ static void
-> > > vs_primary_plane_atomic_enable(struct
-> > > drm_plane *plane,
-> > > =C2=A0=C2=A0	unsigned int output =3D vcrtc->id;
-> > > =C2=A0=C2=A0	struct vs_dc *dc =3D vcrtc->dc;
-> > > =C2=A0=20
-> > > -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> > > -			VSDC_FB_CONFIG_EX_FB_EN);
-> > > -	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> > > -			=C2=A0=C2=A0 VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
-> > > -			=C2=A0=C2=A0
-> > > VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
-> > > -
-> > > -	vs_primary_plane_commit(dc, output);
-> > > +	if (dc->funcs->plane_enable_ex)
-> > > +		dc->funcs->plane_enable_ex(dc, output);
-> > Please note that all theae codes are for primary planes, maybe the
-> > helper should be named mentioning primary. Overlay planes will need
-> > a
-> > different codepath because they change different registers.
-> >=20
-> > Thanks,
-> > Icenowy
-> Understood. To avoid confusion, I will rename `plane_enable_ex`,=20
-> `plane_disable_ex`, and `plane_update_ex` to `primary_plane_enable`,=20
-> `primary_plane_disable`, and `primary_plane_update` in `vs_dc_funcs`,
-> `vs_dc8200.c`, and `vs_primary_plane.c`.
+This series updates the i.MX8MP VAR-SOM and Symphony device trees to
+better align them with the current hardware configuration.
 
-Maybe keep the `_ex` here as some operations is still on the common
-codepath?
+It adds the missing board peripherals and completes the related pinctrl,
+GPIO and bus configuration.
 
-Thanks,
-Icenowy
+v3->v4:
+ - Fixed USB irq edge type
+ - Add HDMI HPD support
+ - Add pcie reset-gpios instead of deprecated one
+ - Fixed eth regulator
 
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0static void vs_primary_plane_atomic_disable(struct drm_pl=
-ane
-> > > *plane,
-> > > @@ -88,10 +77,8 @@ static void
-> > > vs_primary_plane_atomic_disable(struct
-> > > drm_plane *plane,
-> > > =C2=A0=C2=A0	unsigned int output =3D vcrtc->id;
-> > > =C2=A0=C2=A0	struct vs_dc *dc =3D vcrtc->dc;
-> > > =C2=A0=20
-> > > -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> > > -			VSDC_FB_CONFIG_EX_FB_EN);
-> > > -
-> > > -	vs_primary_plane_commit(dc, output);
-> > > +	if (dc->funcs->plane_disable_ex)
-> > > +		dc->funcs->plane_disable_ex(dc, output);
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0static void vs_primary_plane_atomic_update(struct drm_pla=
-ne
-> > > *plane,
-> > > @@ -133,18 +120,11 @@ static void
-> > > vs_primary_plane_atomic_update(struct drm_plane *plane,
-> > > =C2=A0=C2=A0	regmap_write(dc->regs, VSDC_FB_STRIDE(output),
-> > > =C2=A0=C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 fb->pitches[0]);
-> > > =C2=A0=20
-> > > -	regmap_write(dc->regs, VSDC_FB_TOP_LEFT(output),
-> > > -		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_MAKE_PLANE_POS(state->crtc_x, state-
-> > > > crtc_y));
-> > > -	regmap_write(dc->regs, VSDC_FB_BOTTOM_RIGHT(output),
-> > > -		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_MAKE_PLANE_POS(state->crtc_x + state=
--
-> > > > crtc_w,
-> > > -					 state->crtc_y + state-
-> > > > crtc_h));
-> > > =C2=A0=C2=A0	regmap_write(dc->regs, VSDC_FB_SIZE(output),
-> > > =C2=A0=C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_MAKE_PLANE_SIZE(state->cr=
-tc_w, state-
-> > > > crtc_h));
-> > > =C2=A0=20
-> > > -	regmap_write(dc->regs, VSDC_FB_BLEND_CONFIG(output),
-> > > -		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
-> > > -
-> > > -	vs_primary_plane_commit(dc, output);
-> > > +	if (dc->funcs->plane_update_ex)
-> > > +		dc->funcs->plane_update_ex(dc, output, state);
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0static const struct drm_plane_helper_funcs
-> > > vs_primary_plane_helper_funcs =3D {
+v2->v3:
+ - Add FlexCAN2 controller support
+ - Add FEC controller and MaxLinear MXL86110 PHY support
+ - Describe PCIe PERST# reset GPIO
+
+v1->v2:
+ - Add missing HDMI pinctrl configuration
+ - Enable LCDIF3 for the HDMI display pipeline
+ - Adjust PCIe controller configuration
+ - Update PTN5150 interrupt trigger type
+
+Stefano Radaelli (14):
+  arm64: dts: imx8mp-var-som-symphony: add input keys
+  arm64: dts: imx8mp-var-som-symphony: enable USB support
+  arm64: dts: imx8mp-var-som-symphony: add TPM support
+  arm64: dts: imx8mp-var-som-symphony: add external RTC
+  arm64: dts: imx8mp-var-som-symphony: enable header UARTs
+  arm64: dts: imx8mp-var-som-symphony: enable PCIe
+  arm64: dts: imx8mp-var-som-symphony: add HDMI support
+  arm64: dts: imx8mp-var-som-symphony: add capacitive touchscreen
+  arm64: dts: imx8mp-var-som-symphony: enable ECSPI2
+  arm64: dts: imx8mp-var-som-symphony: keep RGB_SEL low
+  arm64: dts: imx8mp-var-som-symphony: enable PWM1
+  arm64: dts: imx8mp-var-som-symphony: enable CAN
+  arm64: dts: imx8mp-var-som-symphony: add second Ethernet port
+  arm64: dts: freescale: imx8mp-var-som: add I2C1 bus recovery GPIOs
+
+ .../dts/freescale/imx8mp-var-som-symphony.dts | 397 +++++++++++++++++-
+ .../boot/dts/freescale/imx8mp-var-som.dtsi    |  12 +-
+ 2 files changed, 407 insertions(+), 2 deletions(-)
+
+
+base-commit: b3c1d1631f097619f8091f0293e027c4301285d6
+-- 
+2.47.3
 
 
