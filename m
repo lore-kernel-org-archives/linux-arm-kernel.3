@@ -4,135 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23488CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 05:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65BECD8C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 05:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JUhAuLoGrHSlYgqGh9alravQQWfpMZJjZW+NI04pdJM=; b=FHu16d3UyJs3FxPMUWVTsg0Edd
-	bch757tqemvzs8LzLHOs3y7O/xne8C3guQR4BP9NZxLH2UnGR8gQLHoZ1GaZdbnV/RCMQG7Z6vAPA
-	vvGvspTijrz/ctspvYF/FF29RvlmMI65UGYOIljvDi7P7l3fc1JInBOiuKOLosc7hl8hpbN2bOmfs
-	hTySKk0b5/X3mFrgAA/NoJcxp0i8ANIIRzTxyjQ9ZqpSH6yf/IqsX3IxXyc5LPgG/vQXz0XKU4I35
-	swz+phbAwnZZuEYlKJtvXaUB4zqDu/2YezExfB4VEDGQpkOHwrkW9WoWifDGjjXyoNYv+5XlH0abg
-	0KgVIN5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wpy5I6qrcZoBL+aAYboFR4xjmZ4wLohsQTQs1EK7ZSs=; b=jhLoPKPnSTI+6SYGeK0tbnXBEs
+	BdcOMhxtz3cwKYd79hfaHeXQCOSGo3zPq2IlQOTK1sgpkXKkAwFSVpbAinyqa+G0+fK6EtnlVGrIw
+	a+o0hjLoKBvCrnWZg3laNbZYo1slzlR+VhsKdL1psxJkl3KiR9Tu6ONA5ZCx0CY0HhFuKXDiBYEin
+	ps1ZgwgmyaXqE3YiIrd2kjbmDzj6B7rctje+DtFrUWvEFut8s//YtObmG6JZKIhaZ+g2rxObHFmO8
+	Pzn1e6IaDl6vkiM4bsCgTzj/A2mbMpQUyzEXTDwNAqJ8abbPwkJ1SfVYR9TE/0PSrTGEXxpzXstL2
+	ROpQHAUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWSYa-00000002qEh-30qw;
-	Mon, 08 Jun 2026 05:29:52 +0000
-Received: from mail-norwayeastazon11013004.outbound.protection.outlook.com ([40.107.159.4] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wWSeJ-00000002qXH-23Iw;
+	Mon, 08 Jun 2026 05:35:47 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWSYY-00000002qE1-2rBE
+	id 1wWSeG-00000002qWV-2JlQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 05:29:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SeBZ5hgszy5IgU71XAn9Ram24RpnHjNtS8dkv6AF01XQQLW+9QFuH0obfNB7f8nrcveE/wUmOMtsjfOoX608icstS5l1o/7RKvhxBnLraI7GHYg+Cx1FIMypdteDii6zA+kjZCV8Su0l0oe0nQbQx4sctIpjElCOhSOEN9y3G5/Tg2v/uxdReka3sx7B06vVrIUGr2vjvzf+lTIxautxAWzEmWD7OgflL1NFmtMXc5DU3GOZtjSwBbjBRQhj4anQhAN9PeBaMnrlc3tn3jVofJGypSP17PoqntyIT+B56cnOIu8r6eIdP3SWkOKZsTx2FvUw3R0cU9gGrtVDRQO0Dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JUhAuLoGrHSlYgqGh9alravQQWfpMZJjZW+NI04pdJM=;
- b=PYNIlpFt1GTNw7knf7AUH5TKYNJOJMdP+w15bTTNafFBGuwg6Lv30Vqo15A5VrMF+FTGVHIQg5KpaiTfHLXyBPDCR/1pQLvc1Tc3C+0NLTlHZNBB7Gzz5DhM2cj8vHINi+9fJxCT052l/OXuVjByhhPEvvmbd/TOCHdKzt5uazw1XSA0WFitDhgpU6JCto7klM+FN6Y16TAV5mTBvnc8HK84Km33Ly9INHo1f5bibB5wSaoYpVOr3J2qnCfiWONrpq6T20GzP4rKgyqg/sGSx0i3QWDG62wZkRp0+uzAmMyOsetJ+MVIq+Tljb7HBImsellBJJ0ZqwC0HIH0Fa0Z6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JUhAuLoGrHSlYgqGh9alravQQWfpMZJjZW+NI04pdJM=;
- b=bCu9CkRn6h0t+iCOJuL31ekwH/FEvkcvT+3QJUEYCfvobN9/fovGhbCdt4ad7v+9UzGDiX8M3BXNT/IZTgKcOU5lAWCDs+wnWerDkaYA14rTq99D0vipXzSt5dEGlhiiy3D7DCh54lTzr4cBSVZregB2nhB3WEOlr0y9LTjXEevkFfJS3yDa6V2ZyGsRlalr7hOs83Sw6GqZUpV2ceW23SHbbg54BP5r7m7T9fy15GNjar8Nx5CfZfcLR8ezWcnfmwCYWOfxcWzhmKwDKpk33HgctyGLr1j3ZLiY+yfTyxzDWXubrwit6TrcZpFHYyELW4Vl4P5DiGLC8CI3XI9veg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
- by AM8PR04MB7315.eurprd04.prod.outlook.com (2603:10a6:20b:1d4::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Mon, 8 Jun 2026
- 05:29:44 +0000
-Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
- ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
- ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0092.010; Mon, 8 Jun 2026
- 05:29:44 +0000
-Date: Mon, 8 Jun 2026 13:32:49 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH v2 5/9] mailbox: imx: Start splitting the IRQ handler in
- primary and threaded handler
-Message-ID: <aiZUAdrwhFn63a2a@shlinux89>
-References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
- <20260603-imx_mbox_rproc-v2-5-a0059dc3b69a@linutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260603-imx_mbox_rproc-v2-5-a0059dc3b69a@linutronix.de>
-X-ClientProxiedBy: SG2P153CA0021.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::8)
- To MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
+	Mon, 08 Jun 2026 05:35:46 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2c0bd02d97eso45349725ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 22:35:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780896943; x=1781501743; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wpy5I6qrcZoBL+aAYboFR4xjmZ4wLohsQTQs1EK7ZSs=;
+        b=QXnAZHx44xo9fWeY0vt1UkBVcn2YG1H+qJabm3aV6r57iPFrNCu4dWzVLLvPROjRnc
+         mbVsi342BH87B513Jrw1zmD+blVf3XIedENfptBFvV9FNHXeKDh0GfExjnReihZY5VFx
+         phVCaUugPI3QyV4cHDV/5c5FbGi1RkA8Z+oly6vU5DEaPp8FB57JjjL+BXe39vPC6bX6
+         mvjadozA7WMsONmK/6PsR1v7j8K4tIYO+z04bFd4d5+P/SfZ4cIe4+jo5Erw2KnMyQIF
+         GR3x8RA6OZ6BfEAku/dX5/uY1o2gEIRXbAhyYVuTyDV6ST3OZS4MkWmJcxrXPtkbymfg
+         rDjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780896943; x=1781501743;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wpy5I6qrcZoBL+aAYboFR4xjmZ4wLohsQTQs1EK7ZSs=;
+        b=M3rNPDLdB/9F6lMm6KggGZ5z3dPh8xL0nz8GtVfwwgYYAxUuVCL8THH0/Glvfy36B9
+         erqW7h6AOvzLL15u5Q48YUyLUeZero2f6GjYzMH/tEwQdQ0ZIKcjFL97S2AZDDHG0zNd
+         jaEMARk4fzt0aNDX/Hub9CHgSPzZByRR1piO1kYcdd0F0YxVvscTU/w28a6xmy5P7egp
+         AmFP0OrJzFw9hnsIfcozzbpwVnvZ1O2yEOMrOL3/ERxE1XoLUm80W09FXo1+XlCbYRIA
+         nAvDZCov1IuYYEWDElMD6O9ccAEhh0gtOwQxYfWPQ+XSJ67REUssYE8HLBaN1St76V2K
+         VxzQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/LTLB6l7P+qXOvJ2QlTml9jhhSp82XAEIEtlM52Ob/kdL/edR2Uaudx4jlfx5QSOmeTHwo0m1rKT2HwOXCJBvV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVb/S1SEwVDEXEbQCkZPIGXLn7cWlTm3CHKbBf7aMgPcxtf348
+	uv/l8hmnN1t6cBpohZgGFUBH2MNbd4MpGFxpY47ciRG3s5/bu3Tc2xq8
+X-Gm-Gg: Acq92OHNCxrxzxepYWC7Zpa+BUPJZWigZRO42VwndZmI/GS4PW2/x6EIDJwK1QfhAjm
+	vB6OMebbtIoBwB3ExjFuLSGfAIrZjI8dSf2RPU3DI/GENQ++0HGBCq0PdBtNrnKupbEYtLOFkWJ
+	UPBZKq5fn9NdiBAL4KxqBzLog7bNson9s0WxCE+zROQ74MwQaxXfNJKSF0yxlQFL1sRA8EM04H2
+	dvMdvClRS1okrSnJ3e3e3XF3L5dc0ui7tS+5btd9QcY7E/9mDyLDe9Y88lYeRNPgkQ3TVWrKpVr
+	VrapUQzB+CDmHWa3lC1Hi7YzIasUc3tp8yz23JrMI4DOA3w2chBG1E5KIj895Bis+IVTIlydkXL
+	LqmKXBZ9Hwy+smI1WxNkydCeMrY8hudD87qltJGSAOwWbdCOe0QieplNmHSd5iHbgniEOe0XFqt
+	YXFz33q16ddPZw0q4QkghxMqIfYkAufQnRb4zig7knbgCB+NHsRuNX3F9QEStIp3ifNlBu2bQY7
+	R6HAZy0TE+AeI3K775nuAin9QB0c/eOCMg9tpgBwpK67Q==
+X-Received: by 2002:a05:6a21:4688:b0:3aa:c93b:625b with SMTP id adf61e73a8af0-3b4ccd77c1dmr16839353637.3.1780896943548;
+        Sun, 07 Jun 2026 22:35:43 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df0a61b3sm14526743a12.17.2026.06.07.22.35.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Jun 2026 22:35:43 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-phy@lists.infradead.org
+Cc: Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	asahi@lists.linux.dev (open list:ARM/APPLE MACHINE SUPPORT),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/APPLE MACHINE SUPPORT),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] phy: apple: atc: remove stale kernel-doc for removed struct members
+Date: Sun,  7 Jun 2026 22:35:25 -0700
+Message-ID: <20260608053525.12354-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MRWPR04MB12330:EE_|AM8PR04MB7315:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ded7d41-b951-4eee-aa74-08dec51ef2aa
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|7416014|376014|366016|6133799003|22082099003|18002099003|38350700014|56012099006|11063799006|5023799004|4143699003;
-X-Microsoft-Antispam-Message-Info: ID5AxEcIPWE8Ppb4XH1pvgwOPggDYpnxZmlsv6d0E936prc2E6DZe3cPe1YoMpREprMZVS2VAYK43s1XQeijcGpTYqtXJxEMd9dobM7wZ8NT9H0pe20YQJNriD6tm3ca3kNy76G91Fihdol3Vpqd8IuRWZCRM48ByxY+7SB4u0VIcUCDEsRoHFdM3y7qxdnOPHJD+Rzvq4sfmuuXiKT3yyarSXgGygftNfO96Jd5CvIkb4/xcUjD4MiuzOAcdVck/Z17Pc/OZBqfH2Eje6ub/LxUhuem0kqs92qu4nb3YFRpU1cHw50EDST+IdFXRBdoXlWZ3UFouFzznEk0oECF3uCDCiBuxdZrAzS2rSjLGU/u0rVmVPhkcaa6vFMvFtWUiv05dHJiAEkn9jLS/Chv18iwXXyqknoeSzEeMZmIKAoYqyvhhhto+O2H63637GNj9s6+jn3blxQuinKTYeUH77J3sNzSx8tg7oAqhIK10OFRi9WhRlhrRNo0zqe/YnCuaHUldoRKyh+50rK056SoDCNwS9s66tochpnoX1hy46uJtjTEXSQQD1tuiC+OFAdL4WvewzOnndyCPLzmtblegM7qsBOgXbaMsCSuoriuI+W/weO5jYEo/Fh+5lv/74YZwSfCLOJhKee5MhBqdSoBxBHeUdNRD46jAOWgGtL5lQtxAu6QUZIQJoQreD/lssURJKWdQvNu0R6CB9gtI0l3oCgZrxo+HdCUJuF4Ng97g+dbkOB+1BLiLEBt2iwgv8qO
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(7416014)(376014)(366016)(6133799003)(22082099003)(18002099003)(38350700014)(56012099006)(11063799006)(5023799004)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7iG4crSgKMY6BWOrN0QLpgrLhybHmqypU8lGz/F4acg8SJ2fv0C0AWuaLhN9?=
- =?us-ascii?Q?CTYRRt0ciDgcKklXpfoGAT/0z7HxmR2+7Ois0wQVbvOesexWKLcxRdhPfAdB?=
- =?us-ascii?Q?yCK/dHpm8w+1SL77PzFgzMGJ7RP84Ritee1nOxfY+zXiOOTHgYFv3QyClbIu?=
- =?us-ascii?Q?M2Jz7IESkFkhfizQRlBwb1+l4OxoGjaeM4ON6xxndvR7Qniha5xkMJWsPstJ?=
- =?us-ascii?Q?4DA6Lr3dJPA8fyDNtyTAOVDu7WaDrmFDT99sMivvbFxMkAQbZ2NmVyjxUZwL?=
- =?us-ascii?Q?KdSx9PYFMjCCYgWDP3bs4zwpwQAYZzYQXaDWQaBxSN2fUyN9LpaDLKPlYIgo?=
- =?us-ascii?Q?Zadb0/1wUYf6+cgMdUySS0R1Cvu+Td0O0qsMvQxLR8Veke3fFU9HEf0tLQyU?=
- =?us-ascii?Q?h5HUURBgb/9hHmuRd/N+CcuioD0ZFGy4V8+mQSRCubcIVf1h020avXvmMJ21?=
- =?us-ascii?Q?klsWTAu4i8tdEpe4w8rzXkLFBiqVUjPUrEUNzTNC9pflHFpjFKn9MyShwe2R?=
- =?us-ascii?Q?Uf7dgxR/nHgJFsp106yWvmXC8EviJygtSc1pvzUheYou2W6g6+vUdSFU4v4m?=
- =?us-ascii?Q?rywA73dYN6ZNWt0bB8rYiZ3kzZIZ1TNr6KZD2zolD0rzngpHlcWFQm4M6j5r?=
- =?us-ascii?Q?ioGvgoA0opzkSw050uBC1zPQ5v3dQUMfaPOJO8KgL7pDbIPFarHOCXOI24tg?=
- =?us-ascii?Q?SWxO93Fl+Xxn7fXyPi450Uif7UcoQv72GWM2AtWD4LIIoVbZt2xZsVDgGV1k?=
- =?us-ascii?Q?ZzSMmnNlvn3SEyieud3v34QHmABM4GGAMrx6D0WrgCAt65705aEn+IEhKuDn?=
- =?us-ascii?Q?M3ojhV7ROio5BunZfLpABn7RyIFal893g8wR+scc374OHIOvjcQ9ftuL8EXO?=
- =?us-ascii?Q?VBgqwpoi5BUeGZjRjfkvYVG4dBm+i2oPHqBOffES0iPGnB+BD19n7bIzoKiD?=
- =?us-ascii?Q?hpS6OAVEbl+iWmwhK+wExgGatHOSxrDxHzVkdiT6qr1m70mtN/cgp1mK/Dlo?=
- =?us-ascii?Q?WnKnQTNv8IUImrfv9Z/ry1k9DlVf7V/OnyfYnQDr2E+YYWQHuGSkqk0QuYla?=
- =?us-ascii?Q?c/qd4owtReW1aiaTV54PDAyVllXs9T/3XkvJdS7vvgvSkGyfxFsheCPAfYmF?=
- =?us-ascii?Q?3cL3yHHQLoIWtpyqZ5yNS3b+f9YVKw7uCrpzlgppRpfgNZ9hFY7bHsY/uvag?=
- =?us-ascii?Q?Xy2N9UgVF3pA76y/cxFPnQDOOPvSn9M/Och/+L8tyJbw7Xk9q1wz3WbkaEhN?=
- =?us-ascii?Q?LcbMk4IvkrQw1RMG2MG6wyMjwzGXEI0RBni902z7wpFESt+OItIB4uM1HpiY?=
- =?us-ascii?Q?GrQYT6t3Bs6sJXTcE65du1cZuKPpyfFuu3uQotQSuuXcnHqJrd35EON67X3P?=
- =?us-ascii?Q?UQitiTjJMKJd9fqbIVnSuU1Qg4L4bPpu2kcIKZoo5epbmxLHRRzHN/Hxkf4Q?=
- =?us-ascii?Q?pJZMDCM5wmAa8PkaBTRukr42hr3RR9BXDxGQGrU8q2tBvizOWcJFmPybLwVl?=
- =?us-ascii?Q?Mlgpubpr9rN47M1l1Z7KRqVPR24QhaMx0KBi2R/Te1F4OJt+UX6OlqjOPnn1?=
- =?us-ascii?Q?nOG9+8dc+OFNatA5hgRBCqIt5Mu9MbKKVknls/uW8BcmZse1vVkB/T+lZOK7?=
- =?us-ascii?Q?pQ17G+6JJGlBjv06OP5uZWaQQAYX1gR6vinXZJmDNr9ESW0F0nScrbCtKAOa?=
- =?us-ascii?Q?bDWYZZ4fRAs2WEcDrdXYVeITuUhP1rFMMDzYNbPRiz5YVhBNR2Io+05Nemoy?=
- =?us-ascii?Q?kpzoP7Vzjg=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ded7d41-b951-4eee-aa74-08dec51ef2aa
-X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 05:29:44.5051
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IbiZtCJtVUx4gBSMMXg9sSaSPLqU6/XMCwt8111yWNrDc9hwgJaP4QqIRJUQ2hIo1/PGc27w4ul0hrq89tSgbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7315
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_222950_722583_BB7DE710 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260607_223544_628065_EDB8AB9F 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,105 +103,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 03, 2026 at 03:05:08PM +0200, Sebastian Andrzej Siewior wrote:
->Split the mailbox irq handling into a primary handler (imx_mu_isr()) and
->a threaded handler (imx_mu_isr_th()). The primary handler masks the
->interrupt event so the threaded handler can run without raising the
->interrupt again. The threaded handler can invoke the actuall callback in
->preemtible context.
->
->As a first step, prepare the logic and move TX handling part.
->
->Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
->---
-> drivers/mailbox/imx-mailbox.c | 33 ++++++++++++++++++++++++++++++---
-> 1 file changed, 30 insertions(+), 3 deletions(-)
->
->diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
->index d1de07cc0ed62..006aa76b74b62 100644
->--- a/drivers/mailbox/imx-mailbox.c
->+++ b/drivers/mailbox/imx-mailbox.c
->@@ -81,6 +81,7 @@ struct imx_mu_con_priv {
-> 	struct mbox_chan	*chan;
-> 	struct work_struct 	txdb_work;
-> 	bool			shutdown;
->+	bool			pending;
-> };
-> 
-> struct imx_mu_priv {
->@@ -539,11 +540,35 @@ static void imx_mu_txdb_work(struct work_struct *t)
-> 	mbox_chan_txdone(cp->chan, 0);
-> }
-> 
->+static irqreturn_t imx_mu_isr_th(int irq, void *p)
->+{
->+	struct mbox_chan *chan = p;
->+	struct imx_mu_priv *priv = to_imx_mu_priv(chan->mbox);
->+	struct imx_mu_con_priv *cp = chan->con_priv;
->+
->+	if (!cp->pending)
->+		return IRQ_NONE;
+The @sw and @mux members were removed from struct apple_atcphy but their kernel-doc entries remained, causing kernel-doc warnings.
 
-Is there a chance that cp->pending could be false here?
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/phy/apple/atc.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-Regards
-Peng
+diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
+index 4156fabad742..f09305dd76d1 100644
+--- a/drivers/phy/apple/atc.c
++++ b/drivers/phy/apple/atc.c
+@@ -585,8 +585,6 @@ struct atcphy_mode_configuration {
+  * @phys.dp: DisplayPort PHY instance
+  * @phy_provider: PHY provider instance
+  * @rcdev: Reset controller device
+- * @sw: Type-C switch instance
+- * @mux: Type-C mux instance
+  * @lock: Mutex for synchronizing register access across PHY, Type-C switch/mux and reset controller
+  */
+ struct apple_atcphy {
+-- 
+2.54.0
 
->+
->+	switch (cp->type) {
->+	case IMX_MU_TYPE_TX:
->+		cp->pending = false;
->+		mbox_chan_txdone(chan, 0);
->+		break;
->+
->+	default:
->+		dev_warn_ratelimited(priv->dev, "Unhandled channel type %d\n",
->+				     cp->type);
->+		return IRQ_NONE;
->+	}
->+	return IRQ_HANDLED;
->+}
->+
-> static irqreturn_t imx_mu_isr(int irq, void *p)
-> {
-> 	struct mbox_chan *chan = p;
-> 	struct imx_mu_priv *priv = to_imx_mu_priv(chan->mbox);
-> 	struct imx_mu_con_priv *cp = chan->con_priv;
->+	irqreturn_t ret = IRQ_HANDLED;
-> 	u32 val, ctrl;
-> 
-> 	switch (cp->type) {
->@@ -579,7 +604,8 @@ static irqreturn_t imx_mu_isr(int irq, void *p)
-> 	if ((val == IMX_MU_xSR_TEn(priv->dcfg->type, cp->idx)) &&
-> 	    (cp->type == IMX_MU_TYPE_TX)) {
-> 		imx_mu_xcr_rmw(priv, IMX_MU_TCR, 0, IMX_MU_xCR_TIEn(priv->dcfg->type, cp->idx));
->-		mbox_chan_txdone(chan, 0);
->+		cp->pending = true;
->+		ret = IRQ_WAKE_THREAD;
-> 	} else if ((val == IMX_MU_xSR_RFn(priv->dcfg->type, cp->idx)) &&
-> 		   (cp->type == IMX_MU_TYPE_RX)) {
-> 		priv->dcfg->rx(priv, cp);
->@@ -594,7 +620,7 @@ static irqreturn_t imx_mu_isr(int irq, void *p)
-> 	if (priv->suspend)
-> 		pm_system_wakeup();
-> 
->-	return IRQ_HANDLED;
->+	return ret;
-> }
-> 
-> static int imx_mu_send_data(struct mbox_chan *chan, void *data)
->@@ -629,7 +655,8 @@ static int imx_mu_startup(struct mbox_chan *chan)
-> 	if (!(priv->dcfg->type & IMX_MU_V2_IRQ))
-> 		irq_flag |= IRQF_SHARED;
-> 
->-	ret = request_irq(priv->irq[cp->type], imx_mu_isr, irq_flag, cp->irq_desc, chan);
->+	ret = request_threaded_irq(priv->irq[cp->type], imx_mu_isr, imx_mu_isr_th,
->+				   irq_flag, cp->irq_desc, chan);
-> 	if (ret) {
-> 		dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->irq[cp->type]);
-> 		return ret;
->
->-- 
->2.53.0
->
 
