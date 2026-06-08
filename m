@@ -4,69 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF06CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF94CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9V8bpEqH6X4qmiHHTngsXUmKEwdN1ijUIAKzpeA0e0=; b=xwiGOsQmfWwIBTWwur9da7yUia
-	SpVageeVj940pzKZf68aFLb5ciYb9v/BgY4vltkJb6oavW7Dtr5a0F73KoclEnrmnXL5VUC/8NbX1
-	PAmhQyBA7QTG+RaWSZ8rG14AJvfIwQg3SZhgaMZcHMT3y7MIx6C6UJRCa/mi89MMVzN+zmEg7xZab
-	8NDgEQrXi2/KJYSSRhJx8dZWwrZGkOTAAJrH9BI5Pu4QQrRMBTFNUBrYFDdB1t4Fku8FTbUNCjIuJ
-	VqNQinVqh23Kc7yLc8Q3UBFrciiBBjO7H+ipnX44A+VwVrpGEoROFJqAAgroge+eZotQEeRUUCloD
-	uIGJfbhA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QaxSxNePW62N/aLYNU2ICZZcrY71w9JpJK96h4Ml418=; b=tAXUPGHGLNAbOnJOmBhk5rcgxu
+	BSyVdKCDYTfNtXrwgpObz9eAsKpmjXZHdmuoOPolTY5Q2nNt8YpqVPC2OM3KjeD74UK1GjdrrIiJa
+	T5DBBw9U2FfGFwf2siYtc/FVs2qOj538L1mA/7UkPRru3i8ihfigv5YGHcKG1HJS8hvBQM0d+0AB5
+	oFNQSD6GHA2EbjjWEUn2miuXpdBGeBBUR4GlgRTaKgPcNbu9BM/ZkUbzMb//ZvsMZg/LMnDd+lSRa
+	IHjUxikSC+gW2JTajdAbCyZa/QGAf6IUIUUty+Zks0S32M9y+4ptKdKzn6msgoPT8M/H4patmnooF
+	TcvaHQtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVCt-000000034hn-2oNT;
-	Mon, 08 Jun 2026 08:19:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWVDM-000000034oT-3Nx9;
+	Mon, 08 Jun 2026 08:20:08 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVCs-000000034hV-1VhU
+	id 1wWVDK-000000034nZ-3Mm4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:19:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C831D601E2
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:19:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1CE1F0089F
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:19:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780906777;
-	bh=P9V8bpEqH6X4qmiHHTngsXUmKEwdN1ijUIAKzpeA0e0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jdyPmYcZAAj5zajRoCfCfEUTkYIVOgfPo3QAIyGqN11uGTToJ96WZpRYI0Lx1V1I3
-	 2eDiVxAVrjMD+r/rHA0O6EN+Xl/szMs37czo6pzDR2xjCsJaqy4C2T8XQUhardqcC4
-	 wOVSKLeTDhpcRDpmIuCcZCuGpajZ+Z6yMKp+XxQYO40vtow7leMRui1N0onxuNgo6d
-	 Y6kupuQzlyi3bLPrd1WFHetFqT79kvx1hKimlQO9ryGMPBJdXGGAG1N3GEuEkvV+F8
-	 /KKqDFEeFmZlnACZo8EBEMPgG7o8c/hTqIRVA1Rj3USn5jfsJV3biifp/Q5X5nPDHu
-	 IP9tg38RSj/aQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5aa5f11deb2so4327294e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 01:19:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8Vcf4fGiMsdE4nyZYpOmRWkVZpf4qk6Rk/JrbN88kw4x+HoKPdLHpZUWkP4IoYJyJVXymWfzwkfQVvkbClQtEY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzxo2AML9ZHgy47/2b0JPax/JhkxZcob3O76W2pb6ULIFF82FjJ
-	ZkAhMWQzacajnOh/We7Rxxva+w9k5Qywx8fpUevLMrJU6FLzJsSF8ZMCUAlXm6e/fbnp7FBEbMF
-	Y23JZOZseIzCDDR78p4hgUU0GU4KdeQ0=
-X-Received: by 2002:a05:6512:611:10b0:5aa:703e:ce64 with SMTP id
- 2adb3069b0e04-5aa87b6fe39mr2685769e87.14.1780906776095; Mon, 08 Jun 2026
- 01:19:36 -0700 (PDT)
+	Mon, 08 Jun 2026 08:20:08 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c0c1e0d00bso39676765ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 01:20:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780906805; x=1781511605; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QaxSxNePW62N/aLYNU2ICZZcrY71w9JpJK96h4Ml418=;
+        b=MHTrOFBmduug7t3BDOPTZc0KHvhUDX4QzLG6lGz3VPaGJLMjzUHgCirVGeo+Zf+2AT
+         01WdIV8yg7ZNjVPCQZY+WIXUEDP1iYiwNO9a/9Lf/X0HhJkxybsNuTOibv9j7JGC7Rm3
+         32q9h3G6hW6ThGGZBXRNk0r0iBJ+ro3TJv5hN8/GoxuKA1CFIt0E7Rjar1E4GEd427lx
+         9/0AUtOVME2LOpxtGb5/qbQndtL46O8FjbaTprQbbZJYWLKw26G59dp30uRDbJf0HGAo
+         fZks9IqjGbcDe8cTvQa4s3ag5MYCA2H8yYWnfKzMjb4uu6dWcDA+KOA0O9Z4cV3rUYXT
+         T4Ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780906805; x=1781511605;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QaxSxNePW62N/aLYNU2ICZZcrY71w9JpJK96h4Ml418=;
+        b=FAKzFKTPGldnO10x2MUOf4aV2w5qKHMcRbd/J1l40Ef54RR4yXNIUudLVSaFR1d3JJ
+         Ge53CTAphClrzCl2o4m6jotf+9ZWkWmbmWATql4aeArbRTSL59/IOcF0IYZs2XtYBLlk
+         tdwKVFbkijBSSVhm3yLG5iYuk9FRM439UBvmxMLqxhwXDd9wsUmMYn1Gyopg74WCKSb8
+         BwofKvD5GtcHy1loTESmsjnfpMeJOdXIWGeGunJq+rOOOsboxsRi2YMglHSsUE4gUP0l
+         Cmitu3KG3mrrxDNeNmAlWimrYD+nJjIgpfmmB7CDz+XyoioTif5CXfeNYoq9hyxnOVP6
+         eiqQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+QjuIPSpFu//STRWvDwvk72FVhDYzkH+XKB1j81GViLKqDOkxmkBlb1SX3NBug0di1FxVO2VWX94fIxrUWjNn3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRNVx+VeQ5g3ziCFIw7ylyMoBhLVwzEpCrI2T3UD9dY33ZWRA3
+	K1zyve9PRRye3tkELesWYMoDfyvam4mIG0ikpFhtCMfYRCoN9bImhJGX
+X-Gm-Gg: Acq92OGhp9P47bMCwC7Qqx9JzyycE5HeSW5aFTGeSUCRqTvnq5D89uCD5zyVcpW/SsS
+	tOrl9m165Na6EH+MJ+bRiqf0iuq63U9UTR/DSn75Zs3k9xozojqAzaIkW1sNMckigzL/+1rHl/m
+	hB3ggNz1rmqM1ioI3Vu8L4YMkNxnk7XxI5WQhecCOWg6hFPkXkYe+MItJHkgejfwfhs2ldn6qRf
+	xjiez1Q35u3cfpY88rNr+ANGtIOsn/n6qocxqwcYm3S+PbEZlLplmM46g/oaFApqz8orjfIJDV6
+	HgXOsNvnkyKbQqDTYny0g5Tsii5ugv1XrsFeSEn1/24Wnhrt3c7WYFhB85RpZN7hEqsAXr7M52B
+	qXK1U/sjce0M9QrGBbHZ+mzuL0ycKixrHTiO0JL0ScTnG5jYOjozrnvni2S2hO5KBQ7VkMQAphz
+	9BMOAHFrA34cW4Yen+fnTTDgtRXHNZqdy/g9ezAW+eKRhla+xMYYPE
+X-Received: by 2002:a17:903:3c48:b0:2c0:eee2:fc40 with SMTP id d9443c01a7336-2c1e80cede0mr162261145ad.3.1780906804922;
+        Mon, 08 Jun 2026 01:20:04 -0700 (PDT)
+Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:9a2:954d:67fe:d9c2])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164fa3a5fsm183050945ad.36.2026.06.08.01.20.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 01:20:04 -0700 (PDT)
+From: Ruoyu Wang <ruoyuw560@gmail.com>
+To: Neal Liu <neal_liu@aspeedtech.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-aspeed@lists.ozlabs.org,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ruoyu Wang <ruoyuw560@gmail.com>
+Subject: [PATCH] usb: gadget: aspeed_udc: check endpoint DMA allocation
+Date: Mon,  8 Jun 2026 16:19:48 +0800
+Message-ID: <20260608081948.3-1-ruoyuw560@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20260605-pinctrl-fix-v1-1-3d8cf7a6c348@aspeedtech.com>
-In-Reply-To: <20260605-pinctrl-fix-v1-1-3d8cf7a6c348@aspeedtech.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 8 Jun 2026 10:19:24 +0200
-X-Gmail-Original-Message-ID: <CAD++jL==MdwmEM_9aHqfCnTfd4=g174Ytk3dZti0pwqcfU_UOw@mail.gmail.com>
-X-Gm-Features: AVVi8Cd0BwjOsWouqsrdYZ6Spm4i_Ll_H2pHRD9M65EFtdOV_cK55fSj8mFOoj4
-Message-ID: <CAD++jL==MdwmEM_9aHqfCnTfd4=g174Ytk3dZti0pwqcfU_UOw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: aspeed: Fix GPIO mux value for ADC-capable balls
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_012006_845927_3A391374 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +101,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 5, 2026 at 8:38=E2=80=AFAM Billy Tsai <billy_tsai@aspeedtech.co=
-m> wrote:
+ast_udc_probe() allocates a coherent DMA buffer used as the backing store
+for endpoint buffers. ast_udc_init_ep() derives per-endpoint buffer
+pointers from udc->ep0_buf, so a failed allocation is dereferenced during
+probe.
 
-> aspeed_g7_soc1_gpio_request_enable() unconditionally writes mux
-> function 0 to route the requested pin to GPIO. This is wrong for the
-> ADC-capable balls W17 through AB19 (ADC0-ADC15), where function 0
-> selects the ADC input and function 1 selects GPIO. Requesting one of
-> those GPIOs therefore muxed the ball to ADC instead.
->
-> Write mux value 1 for balls W17 through AB19 so the GPIO function is
-> actually selected.
->
-> Fixes: 4af4eb66aac3 ("pinctrl: aspeed: Add AST2700 SoC1 support")
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+Check the allocation before endpoint setup. The existing probe error path
+called ast_udc_remove(), which unregisters the gadget unconditionally and
+is not safe before usb_add_gadget_udc() succeeds. Add a local cleanup
+helper for probe failures so pre-registration failures only unwind the
+resources that were actually initialized.
 
-Patch applied! Will be for v7.2 at this point.
+This was found by a local static analysis checker for unchecked allocator
+returns while scanning Linux 6.16. The change was checked by applying it
+to current mainline and by running checkpatch. I do not have access to
+Aspeed UDC hardware, so no runtime testing was performed.
 
-Yours,
-Linus Walleij
+Fixes: 055276c13205 ("usb: gadget: add Aspeed ast2600 udc driver")
+Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+---
+Note: a 2022 patch attempted to add only a NULL check for this
+allocation:
+https://lore.kernel.org/all/20221213025120.23149-1-jiasheng@iscas.ac.cn/
+
+This version also fixes the probe unwind path so the clock is disabled
+on allocation failure and usb_del_gadget_udc() is not called before the
+gadget has been registered.
+
+diff --git a/drivers/usb/gadget/udc/aspeed_udc.c b/drivers/usb/gadget/udc/aspeed_udc.c
+index 7fc6696b7..809a7d5b7 100644
+--- a/drivers/usb/gadget/udc/aspeed_udc.c
++++ b/drivers/usb/gadget/udc/aspeed_udc.c
+@@ -1434,11 +1434,34 @@ static void ast_udc_init_hw(struct ast_udc_dev *udc)
+ 	ast_udc_write(udc, 0, AST_UDC_EP0_CTRL);
+ }
+ 
++static void ast_udc_cleanup(struct platform_device *pdev)
++{
++	struct ast_udc_dev *udc = platform_get_drvdata(pdev);
++	unsigned long flags;
++	u32 ctrl;
++
++	spin_lock_irqsave(&udc->lock, flags);
++
++	/* Disable upstream port connection */
++	ctrl = ast_udc_read(udc, AST_UDC_FUNC_CTRL) & ~USB_UPSTREAM_EN;
++	ast_udc_write(udc, ctrl, AST_UDC_FUNC_CTRL);
++
++	clk_disable_unprepare(udc->clk);
++
++	spin_unlock_irqrestore(&udc->lock, flags);
++
++	if (udc->ep0_buf)
++		dma_free_coherent(&pdev->dev,
++				  AST_UDC_EP_DMA_SIZE * AST_UDC_NUM_ENDPOINTS,
++				  udc->ep0_buf,
++				  udc->ep0_buf_dma);
++
++	udc->ep0_buf = NULL;
++}
++
+ static void ast_udc_remove(struct platform_device *pdev)
+ {
+ 	struct ast_udc_dev *udc = platform_get_drvdata(pdev);
+-	unsigned long flags;
+-	u32 ctrl;
+ 
+ 	usb_del_gadget_udc(&udc->gadget);
+ 	if (udc->driver) {
+@@ -1453,23 +1476,7 @@ static void ast_udc_remove(struct platform_device *pdev)
+ 		return;
+ 	}
+ 
+-	spin_lock_irqsave(&udc->lock, flags);
+-
+-	/* Disable upstream port connection */
+-	ctrl = ast_udc_read(udc, AST_UDC_FUNC_CTRL) & ~USB_UPSTREAM_EN;
+-	ast_udc_write(udc, ctrl, AST_UDC_FUNC_CTRL);
+-
+-	clk_disable_unprepare(udc->clk);
+-
+-	spin_unlock_irqrestore(&udc->lock, flags);
+-
+-	if (udc->ep0_buf)
+-		dma_free_coherent(&pdev->dev,
+-				  AST_UDC_EP_DMA_SIZE * AST_UDC_NUM_ENDPOINTS,
+-				  udc->ep0_buf,
+-				  udc->ep0_buf_dma);
+-
+-	udc->ep0_buf = NULL;
++	ast_udc_cleanup(pdev);
+ }
+ 
+ static int ast_udc_probe(struct platform_device *pdev)
+@@ -1523,6 +1530,10 @@ static int ast_udc_probe(struct platform_device *pdev)
+ 					  AST_UDC_EP_DMA_SIZE *
+ 					  AST_UDC_NUM_ENDPOINTS,
+ 					  &udc->ep0_buf_dma, GFP_KERNEL);
++	if (!udc->ep0_buf) {
++		rc = -ENOMEM;
++		goto err_disable_clk;
++	}
+ 
+ 	udc->gadget.speed = USB_SPEED_UNKNOWN;
+ 	udc->gadget.max_speed = USB_SPEED_HIGH;
+@@ -1553,20 +1564,20 @@ static int ast_udc_probe(struct platform_device *pdev)
+ 	udc->irq = platform_get_irq(pdev, 0);
+ 	if (udc->irq < 0) {
+ 		rc = udc->irq;
+-		goto err;
++		goto err_cleanup;
+ 	}
+ 
+ 	rc = devm_request_irq(&pdev->dev, udc->irq, ast_udc_isr, 0,
+ 			      KBUILD_MODNAME, udc);
+ 	if (rc) {
+ 		dev_err(&pdev->dev, "Failed to request interrupt\n");
+-		goto err;
++		goto err_cleanup;
+ 	}
+ 
+ 	rc = usb_add_gadget_udc(&pdev->dev, &udc->gadget);
+ 	if (rc) {
+ 		dev_err(&pdev->dev, "Failed to add gadget udc\n");
+-		goto err;
++		goto err_cleanup;
+ 	}
+ 
+ 	dev_info(&pdev->dev, "Initialized udc in USB%s mode\n",
+@@ -1574,9 +1585,14 @@ static int ast_udc_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
++err_disable_clk:
++	clk_disable_unprepare(udc->clk);
++	goto err;
++err_cleanup:
++	ast_udc_cleanup(pdev);
++	goto err;
+ err:
+ 	dev_err(&pdev->dev, "Failed to udc probe, rc:0x%x\n", rc);
+-	ast_udc_remove(pdev);
+ 
+ 	return rc;
+ }
+
+-- 
+2.51.0
 
