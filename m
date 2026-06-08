@@ -4,102 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A95C0CD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 02:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70AF6CD8C90
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 02:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SHDL9A0p+qg/zY9viVxZG48KToWrqbvzPRgHfU+dGGE=; b=adjCM5iRcabh9Wh6qRSflbyDN6
-	P2bUgt4yHJvtMYypBnQoYFwmcIXRLkxQ5KZFuOqK6WNenwdIDESuCkpYrEVi34M5D4G9b9XJ69ppe
-	5sLidS80Mgcz09cQ3MdG3mhX4YjVecaXyY6w+2cNHxznj6Zdx7Q8FVK0SdZ01AgwR18FhtudVxVOD
-	0Qbktq5wIiKTzt2ZwCMpylskAyXOnmMjGcz8+O4O4/cnavfYZE4pi3hP678QcqxPOga9Vrm6UUE16
-	EjxYh5YvvvcI5JSu44OyJYsM+ZJDsAa1UzQX+DBVMdBrM8G8nQe3hX3lrQa3w2/jIoz+Z30vB02j/
-	9m7KaNlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QgcMG5nFEAs89H2OIuVhEyONVcKyhkh1xoo32LhXMAQ=; b=UimXf8gxya2+dbA0KdgURvw9fF
+	IIc5fEGlUDbj1C6ZpeeQHHAKOHdQFJvwjkSeky4TBkFhOCcVLB465KkNVRzS3KUUMoHrjw3R1iPDH
+	AAFX9kIWW5K4nhFqO2luUuhVsDk5YqqDvdIOJVDDQznLoGA6UxoNsCfqLpRJff07ei/zw8/Ip3Jfv
+	uSy8eAIx2C8A/6DC9vjK/Z+vNwt6UfVEDMZqL2q/XBLrxVvI3yj530EcS9ag4YsazOn8E8SZNm7R5
+	AHOvXwlP3vacAjvbLynXNQBQcHLzMoYcpcRTbE2kOxQqMEry0E67ZZfh6HOgMrBCooK5igF+B8xf+
+	Npf4oj3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPYN-00000002iIU-2w8C;
-	Mon, 08 Jun 2026 02:17:27 +0000
-Received: from mail-japaneastazon11023114.outbound.protection.outlook.com ([52.101.127.114] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wWPnE-00000002j15-0Z61;
+	Mon, 08 Jun 2026 02:32:48 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPYK-00000002iI5-1Plu
+	id 1wWPnB-00000002j0g-1dxZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 02:17:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dyk9n+7bwFv2DdUDqj5r7g7YiFs1UryXI5agE5KrsgI9tWUdYnthGRnoyTRkjbyS02JyEqMd4XdiKwUtGmNJ0KhOc+p2FP/OMQrTLdVcbmgSR3ktUdvtgeXNrVYIt++8ocz8Dmx5K3riSIpRXbkj4F0IA5q+mNfLhJih26aU7QXz9KuyhZyjSCRponGdbg/MpGEEeNO3Oa2KU1o5r1DXyxMWW0BmYRQBzHvRHwBv7JgOjM+dQel7Mk1bK3dNTa1NxlCVCsOf1pXTfQdNdeuxkaZqwR5A1WWvrzYXWuxufSTcbll4cryH6lnJsxkq6EEFXzO0vex6j+8eRsy2jBMn2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SHDL9A0p+qg/zY9viVxZG48KToWrqbvzPRgHfU+dGGE=;
- b=kYp3I2vFehDk4b6E4N2gE+JXCY3SuVX5oS1Q5FkjiA1hL62uAdRopTvrHNJuHusPJCA2U4P/tkcmAKFLyfpoDnsykRnBqf4/TmDWFY6KGZdfhiH8kaLfIBzHFGAcLV7P47aRIDn4O6GHaCr1UYAq/2guZRF5XiOMGQTkSwxnnNY+uKFzSnkfDTD+/L+0DzCFCQZyFS5R0qhrB8jcJK4rxsDzV7e6fSxLVLMLeYWlZdd0CcqsmwziLTVjW2tgi6oy6rZgR7hiUTWvLER4s5NtdSR90Nvq5gQieSR5hgOp0wfaU/UKwhrpEpssTzYdn8Lt+6noiMiXgLW60ALfC39k9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arndb.de smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from PUVP216CA0006.KORP216.PROD.OUTLOOK.COM (2603:1096:301:16f::17)
- by SG2PR06MB5430.apcprd06.prod.outlook.com (2603:1096:4:1ba::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
- 02:17:15 +0000
-Received: from TY2PEPF0000AB8A.apcprd03.prod.outlook.com
- (2603:1096:301:16f:cafe::3b) by PUVP216CA0006.outlook.office365.com
- (2603:1096:301:16f::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.12 via Frontend Transport; Mon, 8
- Jun 2026 02:17:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB8A.mail.protection.outlook.com (10.167.253.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Mon, 8 Jun 2026 02:17:13 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0AC984084260;
-	Mon,  8 Jun 2026 10:17:13 +0800 (CST)
-From: Peter Chen <peter.chen@cixtech.com>
-To: arnd@arndb.de
-Cc: fugang.duan@cixtech.com,
-	cix-kernel-upstream@cixtech.com,
+	Mon, 08 Jun 2026 02:32:46 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2c0c35980fdso38385895ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 19:32:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780885964; x=1781490764; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QgcMG5nFEAs89H2OIuVhEyONVcKyhkh1xoo32LhXMAQ=;
+        b=bXwcnSP6QPUOXoLdZUroXBzhpYLgSZtc0ednSJ0sQOU8RLuTLK/WntDcnYVLb74HW6
+         fCYlBG6yS61Bo4IRWv82BI20indeHyWRaUp4jSj4LJ4b9lxsDKSNscaAKkPCacgcqU4t
+         9xzQbeUBOO0JJzsXAgGOL8L4xOWba/abRcyfTxTq/pOCehNca9Oh6hrV9gjrATeVCdmg
+         Rb3KL4wPLK4gQ5G4iWg7gjys0ZSHWKaZV0C2TnEL+cRUvJEFIrgRQztZxPe21v/iSNNE
+         WQ2dLXGjmqOwHCLaxHp5W45KX0HpbJmO+nMVBnj6XWa0dCir7aUpEGuJ64ovEqB5GiJ7
+         tdBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780885964; x=1781490764;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QgcMG5nFEAs89H2OIuVhEyONVcKyhkh1xoo32LhXMAQ=;
+        b=CVJX621ErbtqwH3Eei5DkLHyVPGv9vdaeHpzhVydQOUdjLOeQ5bIujXHIpBG7l2wBn
+         n+tWoSyCOY3yryWzaTxgC5WSytdQAgJ3LMaVGPhwTwbEjDo9Kn6MvE4iz+SM8NHBeWQU
+         xsD2f4YEN5fmb/AKgp7mNnVtBhtnmkyEmQFGCRlAL6++u3/AQeJigQfO2xCp/LaijzTt
+         qo+3hG4QRDvq6zTcdLyoS44/hTXQWBca5E6EakpVPBwokbYdPRuyZvizvyml0Tq55NWB
+         a5kZuhDIiBNWz8gtKI+a9OljQLSg6BKSaud3kaLbNyjKmo4KBUP0tANXuZWxqCOJ42AE
+         t8Uw==
+X-Forwarded-Encrypted: i=1; AFNElJ+G/XoPK8xgjwT1PhO9bWnePHM3AsDOAgrQBbBa1uoTNKiI/JBBcSBTJ1uT7+KtxUr0koXEZ/gIa/muncuwkXKS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuAEXVqJeyWid4w470v7/1s+6NSdWybiI4lQP5iNMkeaiHtX70
+	cSRclM0UbSzcmV1a+DxNPacCM1xvO2UX0Thg/SgP6tTvH4bpTeU/c6OW
+X-Gm-Gg: Acq92OEpLJTpGrN3Pyzg7u8OunvPxdWF1qegm2yG5Dllojc22IaX2AEu0dSOAxlzUes
+	H+wSbyTzJ8IYJguibwxYM8aMpx7b8oXk+w8fkrsYmN5/uIt0qLR+r72W5xK/EsYJUGIvGGlNIbG
+	sbAiyxPxqtF2I2UabiHZ0fyk/ufFMuzl1DizJuwyXS3ahwtvGPGKygJRttqtqDVVyAp4mUNXOzp
+	0dGF36qF7eJgqiiuwY8PYdS4sO5DbAnsH3JtXBAtboR2EnM7IOwOzAGmUbD8oqv/zbEqGtwHyt7
+	GeUMSg2VfKU1L2+sWNy7RtkW3g2mjMMvGksBFoRqnrG9WU9CRaTZaSIi2qGKDbzXSiXQ1YEluZL
+	SrpnnB5Ti9shIutqlCWV/xo9C9/hfpSrJujYmy4Du+I7jUBh8umfRHkVn68zRM3n4Fcvp12DxsB
+	6r56ROlv2mVGC4sUluOgH+o0gy1IV/r9ZafDsq5Tk6WRYUtwEDOFx+qZylz5fCPFSl/KNQyo/fs
+	x/Asi2JaD18S7aQ4LgjH2M=
+X-Received: by 2002:a17:902:ea0a:b0:2c1:564b:4f47 with SMTP id d9443c01a7336-2c1e8495453mr161310405ad.26.1780885963925;
+        Sun, 07 Jun 2026 19:32:43 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c245dd3b5dsm38143485ad.81.2026.06.07.19.32.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Jun 2026 19:32:43 -0700 (PDT)
+From: Joey Lu <a0987203069@gmail.com>
+To: zhengxingda@iscas.ac.cn,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	peter.chen@kernel.org,
-	Peter Chen <peter.chen@cixtech.com>
-Subject: [PATCH 1/1] MAINTAINERS: remove my name from CIX Maintainer
-Date: Mon,  8 Jun 2026 10:17:12 +0800
-Message-ID: <20260608021712.1313733-1-peter.chen@cixtech.com>
-X-Mailer: git-send-email 2.50.1
+	linux-kernel@vger.kernel.org,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH v3 0/5] drm/verisilicon: add Nuvoton MA35D1 DCU Lite support
+Date: Mon,  8 Jun 2026 10:32:32 +0800
+Message-ID: <20260608023237.305036-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB8A:EE_|SG2PR06MB5430:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: ec23b57c-75b4-40ee-c939-08dec5040e0f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: KFa2uK1ekuwN8c6K2D0EJUQ+goMYWxH92ScyZWI/bXCk6XnaMh8gTXRUyYNgGf7UIdwMFjXB/8DNgTsnavA83HyaD6cn+aNRXdHifNo1C0pGPrlvLV4qtU+JbTWZBAG8gN67NYeiU3DA+aECI/cVm3YpNZQubmI6i+ZcuFCJdcrSV1WQsv6oOcQ6gNwM78sYKvMYhzuClMqLnyLox8oNMAcLM1JabdqPcDEAwU0mIGkMbtFwjdEBVXQ+uyPiNbwG0ase0t4Fd0Wtr3F5MrrS3a+pVkNQGboBm9JTos/QNCwpVxkMJqppC2bb99x9xaxUb9/Nru8OpQzPRUDHvkBL1VZPJFbrUhueSZxAOZEkbq/HpRiWVow7LTqKYEz9l4m7gpg7mCIUKkH8zMPq0izvW62pR1iqoGsihisPfdp1g5caw2LkJy9Ee566394FdIIXaFSTiNFlN+Rk0y0XM4s7JleK2jVDZqgslFBjpR034foKm2/AdxUn8SATtZf145bQIn7O2G1q5qRelLfA0LFMqAmWlwRzNnuOx0IUPDW3rSFxwWBvS/YlY4qwA6xxb8i+5j/H6GGFQXliHu/sxvoVaOhYm0Hv+PiDoyobIhiPisKvQIF47wTc7OE1Q1dvH0oodNgz4B+2C/woqJmHGHEz+vvb8JPY+DE+G6QRxeszluc9znXwWHEkrNL5G6FPUIWP4Id9vP4159bOj4oYKQVxehQvQ8yc6liQlLfD1azcdN4=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(56012099006)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XOi8uauHcm/1GyyKCT8VUqGwrPxL2sbynNxVGAKzjZy5H5R51SJONSSBo0QLHwDOAdVDX+miA1ek1axKuzrObp0eXpHd74qnxEmjNXvcHSbmrUHibBrGxsLs6/u+ETIrIRtAZS1J3pd6xIiO3ZDyfCuewZwngxa7gCXrHXSG0oM1fD3YS7CsDWK35ZDGuYR/pGrMf5oiJ2SmttOusmoKydgwTezC/M6oUvW8Kp631CxKoSHMgtah0guD+ewzdkFzq1bFNdp7YZ6s9CaarECefIQHVAYyR7vMsatRrAassELiJVQYrNvfFf4TgZocY9Aakdd3xO+K1OQ+U6GojMCt5VHdBVjHw+bFtxr86sY9El6om8jpFGFi2GPUspfoaXEIms9Y4tJ2P6FL6NWbCuFCr+nhp+RYELT36FUyWzNrkwQcdeVAdQyTf7kk/rD6P3Yr
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 02:17:13.7596
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec23b57c-75b4-40ee-c939-08dec5040e0f
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB8A.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5430
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_191724_400530_23E1103F 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260607_193245_443946_8224274D 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,32 +110,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since I am going to leave CIX, and could not maintain it any more.
+This series adds support for the Verisilicon DCUltraLite display
+controller as integrated in the Nuvoton MA35D1 SoC.
 
-Signed-off-by: Peter Chen <peter.chen@cixtech.com>
----
- MAINTAINERS | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+The Verisilicon DC driver and its DT binding were originally written by
+Icenowy Zheng <zhengxingda@iscas.ac.cn> for the T-Head TH1520 SoC, which
+carries a DC8200 IP block.  The present series builds on that foundation
+with gratitude to Icenowy for the original work.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2fb1c75afd16..ca7d0f090906 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2692,12 +2692,11 @@ F:	arch/arm/mach-ep93xx/
- F:	drivers/iio/adc/ep93xx_adc.c
- 
- ARM/CIX SOC SUPPORT
--M:	Peter Chen <peter.chen@cixtech.com>
- M:	Fugang Duan <fugang.duan@cixtech.com>
- R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
--T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
-+T:	git https://github.com/cixtech/linux-mainline.git
- F:	Documentation/devicetree/bindings/arm/cix.yaml
- F:	Documentation/devicetree/bindings/mailbox/cix,sky1-mbox.yaml
- F:	arch/arm64/boot/dts/cix/
+The DCUltraLite is a different variant in the DC IP family.  While the two
+IPs share a broadly similar register layout, a number of differences
+prevent the existing driver from working on the MA35D1 without
+modification:
+
+  - No CONFIG_EX commit path: the DC8200 staging registers
+    (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT, FB_BLEND_CONFIG,
+    PANEL_CONFIG_EX) are absent.  The DCUltraLite uses enable (bit 0) and
+    reset (bit 4) bits in FB_CONFIG for direct framebuffer updates, and
+    requires a per-frame VALID bit toggle (FB_CONFIG bit 3) to latch
+    configuration changes.
+
+  - No PANEL_START register: panel output begins when
+    PANEL_CONFIG.RUNNING is set; the DC8200 multi-display sync start
+    register at 0x1CCC does not exist.
+
+  - Different IRQ registers: DISP_IRQ_STA at 0x147C / DISP_IRQ_EN at
+    0x1480, versus the DC8200's TOP_IRQ_ACK at 0x0010 / TOP_IRQ_EN at
+    0x0014.
+
+  - Simpler clock topology: two clocks ("core" bus gate and "pix0" pixel
+    divider); no axi or ahb clocks required.
+
+  - Single display output: no per-output indexing beyond index 0 is
+    needed.
+
+  - Hardware-discoverable identity: the DCUltraLite exposes chip identity
+    registers whose model field reads 0x0 (revision 0x5560,
+    customer_id 0x305), allowing the existing vs_fill_chip_identity()
+    path to identify the variant purely through register reads.
+
+Patch 1 generalises the verisilicon,dc DT binding to accommodate the
+Nuvoton MA35D1 SoC-specific compatible and the variant's two-clock,
+one-reset, single-port topology.
+
+Patch 2 adds the register-level macros needed by the DCUltraLite ops.
+
+Patches 3-5 introduce the driver changes in three logical steps: the
+vs_dc_funcs hardware ops vtable with DC8200 ops extracted into
+vs_dc8200.c; the DCUltraLite ops in vs_dcu_lite.c with the necessary
+Kconfig and clock-optionality changes; and finally the DCUltraLite HWDB
+entry that gates hardware recognition once all support is in place.
+
+All patches have been tested on Nuvoton MA35D1 hardware.
+
+Changes from v2:
+  - [dt-bindings] Replaced standalone verisilicon,dc compatible with the
+    SoC-specific nuvoton,ma35d1-dcu added to the existing enum list,
+    paired with verisilicon,dc as the generic fallback; this matches the
+    thead,th1520-dc8200 pattern and was explicitly requested by the
+    reviewer.
+  - [dt-bindings] Removed standalone 'port' property; kept 'ports' in the
+    global required list; MA35D1 example now uses ports/port@0 structure,
+    following reviewer feedback that a 'port' alias should not be added
+    since DC8000 (single-port) also supports DP output.
+  - [dt-bindings] Replaced additionalProperties with unevaluatedProperties
+    to allow per-variant if/then clauses to add constraints cleanly.
+  - [dt-bindings] Added separate allOf/if block for nuvoton,ma35d1-dcu
+    constraining clock-names to [core, pix0] and reset-names to [core];
+    the if/else structure from v2 is replaced by two independent if blocks.
+  - [dt-bindings] Removed all description strings from if/then branches per
+    reviewer request; descriptions remain only in the top-level properties.
+  - [hwdb] Removed VSDC_MODEL_DC8200 and VSDC_MODEL_DCU_LITE macros; HWDB
+    entries use literal values (0x8200, 0x0) with inline comments.
+  - [hwdb] Added enum vs_dc_generation (VSDC_GEN_DC8000 / VSDC_GEN_DC8200)
+    and a generation field to vs_chip_identity; funcs dispatch now uses
+    generation instead of the model register value, per reviewer suggestion
+    (DC8000 has model 0x8000 yet behaves like DCUltraLite with model 0x0).
+  - [hwdb] Moved the DCUltraLite HWDB entry to the final patch in the
+    series per reviewer request, making it a gate that is opened only
+    after all supporting code is in place.
+  - [ops] Split v2 patch 2 into two patches: register macros first, then
+    the per-variant ops table, per reviewer suggestion.
+  - [ops] Extracted DC8200-specific ops into vs_dc8200.c; DCUltraLite ops
+    are in vs_dcu_lite.c; dispatch in vs_dc_probe uses generation field.
+
+Joey Lu (5):
+  dt-bindings: display: verisilicon,dc: generalize for single-output
+    variants
+  drm/verisilicon: add register-level macros for DCU Lite
+  drm/verisilicon: introduce per-variant hardware ops table
+  drm/verisilicon: add Nuvoton MA35D1 DCU Lite display controller
+    support
+  drm/verisilicon: add DCUltraLite chip identity to HWDB
+
+ .../bindings/display/verisilicon,dc.yaml      | 103 ++++++++++++++---
+ drivers/gpu/drm/verisilicon/Kconfig           |   2 +-
+ drivers/gpu/drm/verisilicon/Makefile          |   2 +-
+ drivers/gpu/drm/verisilicon/vs_bridge.c       |  20 +---
+ drivers/gpu/drm/verisilicon/vs_crtc.c         |  38 ++++++-
+ drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |   1 +
+ drivers/gpu/drm/verisilicon/vs_dc.c           |  13 ++-
+ drivers/gpu/drm/verisilicon/vs_dc.h           |  33 ++++++
+ drivers/gpu/drm/verisilicon/vs_dc8200.c       | 107 ++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_dcu_lite.c     |  78 +++++++++++++
+ drivers/gpu/drm/verisilicon/vs_hwdb.c         |  14 +++
+ drivers/gpu/drm/verisilicon/vs_hwdb.h         |   6 +
+ .../gpu/drm/verisilicon/vs_primary_plane.c    |  32 +-----
+ .../drm/verisilicon/vs_primary_plane_regs.h   |   3 +
+ 14 files changed, 385 insertions(+), 67 deletions(-)
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8200.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dcu_lite.c
+
 -- 
-2.50.1
+2.43.0
 
 
