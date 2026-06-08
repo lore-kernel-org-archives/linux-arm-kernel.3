@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC79CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32EACD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xlgzZtWkhSRLPN2fmw7RI5SY6ZXquR97nXbPnLUoA2U=; b=rCRNdos1k9Ywz8iBud7n6L+cEn
-	G8RKDyEAXfx2bFE05eyrCsjt7qRAhTe3YaxBni+9PyWsyGKv4UfvuK/2FsbGYtIRXqTa8f9SpEZZO
-	KfNGYSwkctB2nC68xO8GLYOcViQ66+i6QSmnMrZrgGSgciLxYs/D0jypPh0+S3UPZnLb3rQozlkNT
-	QczJt3JTPq/tcvCdKJQQ64JOhAPQakzyiww8iIZmba2WOeL+sBsxN0KiEn5r5MvSbQE897i2X9l3T
-	B+aFcWINZO8Eev6kg8NdI9WikQDfw4XmjvwQqzeyFyFBpQM6J7Gk0cFsliB3sVdjOHrzXa+MR3CHh
-	nJjedyWg==;
+	bh=L9ZUAyPA++9VU0oc6CUX2aYB7mPcCRmX32/6vz2s6h8=; b=jxKtGuQ+Wb6AnkR/usoclrfe7j
+	LZvW/LUQeaZLmCW9awlvIlxM8aAPqqiYbbcGWTci8DXfpFBhsvGL+22ttHWsZVYPUigsKR47Iy9UH
+	usn0kIxHVe1mkSYTIPKjmw1ECCdbS1HQ7iqbrvtbXQlHCdnAU6RnSb6o3y79PKavHezR6g0U67zec
+	GF4PtthMIAy6uFsYbAi5h/Zs+MYcfDDS39d6LnopHdvBhWVCV+iCTEJdSR1b937+GqEYMbTMR2Kdc
+	u6xBsinPbpUfQBOmQOhZH5f6Los+B+LGt/dC6/umhO51W2WZuqW0TNIo420r99mundSTRHMcdYCao
+	/sYGv3ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb9a-00000003nsh-2Bxx;
-	Mon, 08 Jun 2026 14:40:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWbA9-00000003nzV-2hGP;
+	Mon, 08 Jun 2026 14:41:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWb9Z-00000003nsY-2lYb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:40:37 +0000
+	id 1wWbA8-00000003nz0-2cfW;
+	Mon, 08 Jun 2026 14:41:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DF7B601D8;
-	Mon,  8 Jun 2026 14:40:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E18A81F00893;
-	Mon,  8 Jun 2026 14:40:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id 567C6442D8;
+	Mon,  8 Jun 2026 14:41:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id BCD421F00893;
+	Mon,  8 Jun 2026 14:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780929636;
-	bh=xlgzZtWkhSRLPN2fmw7RI5SY6ZXquR97nXbPnLUoA2U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Npzdjz3Xq1UzjuuVBBG0NnSMVk5McHRhfN4uwjquRiwdcccTnwLPPF/7OYZTyDDz+
-	 chk63GUPEjLI0kgRcnnTnn/bLRc9Ca7x4iwTsyb4E77a7C+E47YPzMkn1x74axwQYQ
-	 jqkKBdGSkI3L9wcDkcvBLQXQ0gJH91RmSokyUPvKS7ztUjpXb7pRZVvs1ZZd4yw8yr
-	 4e64YhLCIAUB3aMxBccNLLD/Ufe0FptHj3Ti5/hS3Q8xKVpLgs/H4SsOT0Ym8FJQu6
-	 8UG8tI4ayI+HCSbG8lC9aew6k71VGwP3h7BHG457NDGBIkcPlcusrIqIj1KF7oa2Q4
-	 bdHSaQ2aZKIdg==
-Date: Mon, 8 Jun 2026 15:40:30 +0100
-From: Will Deacon <will@kernel.org>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, catalin.marinas@arm.com,
-	oupton@kernel.org, joey.gouly@arm.com, korneld@google.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, android-kvm@google.com,
-	mrigendra.chaubey@gmail.com, perlarsen@google.com,
-	suzuki.poulose@arm.com, vdonnefort@google.com, yuzenghui@huawei.com,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
-Message-ID: <aibUXmzfDsVWcZjY@willie-the-truck>
-References: <20260501114447.2389222-2-sebastianene@google.com>
- <86wlxgy00t.wl-maz@kernel.org>
- <afxuDpecPCVA56cL@google.com>
- <86se83xrwx.wl-maz@kernel.org>
- <afyd8u85L5XIl6dh@google.com>
- <86qznnxptx.wl-maz@kernel.org>
- <af3fW468-f1KXCrC@google.com>
- <ahmxiFXXTupafbXw@willie-the-truck>
- <aibQHiYimPP1ylk3@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aibQHiYimPP1ylk3@google.com>
+	s=k20260515; t=1780929672;
+	bh=L9ZUAyPA++9VU0oc6CUX2aYB7mPcCRmX32/6vz2s6h8=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To;
+	b=eYgNgmKSz8+8vUuSqQLqjGrIl5qnT7M50Z/l7zNFcZI6k+OTPILcDfXGjawgWrhHB
+	 DPTjMxWmNUGswh8HlOQkYtyl7NQobtkFASCTBzwVdl6BdxHJERevU6fsS12SS17T50
+	 /I9GXjvrHcJRc3rKD95RM34f36WJq5cj50yDXzt4HJhOx2NQl5DO0YiA4ccBhNzE3M
+	 5ZcTuULoOuKVYVNYdaaXKo+IAZYqBUZLRA2MF3U76/VUMl7ue22RAEFaMTUk+grOKo
+	 XuMS4MZA9OkL3AVLDuKPZFSTPTtu0r15VKgPdI73Yx2n8CiaTbOoKssberufKbUKSV
+	 U+yhd0NpMJdGw==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=ab88639452d187061230192ab1490bf4846f6d9975e50bf2597a3d568188;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Mon, 08 Jun 2026 16:41:08 +0200
+Message-Id: <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
+Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip()
+ accessor
+Cc: "linusw@kernel.org" <linusw@kernel.org>, "robh@kernel.org"
+ <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>, "afaerber@suse.com"
+ <afaerber@suse.com>, "wbg@kernel.org" <wbg@kernel.org>,
+ "mathieu.dubois-briand@bootlin.com" <mathieu.dubois-briand@bootlin.com>,
+ "lars@metafoo.de" <lars@metafoo.de>, "Michael.Hennerich@analog.com"
+ <Michael.Hennerich@analog.com>, "jic23@kernel.org" <jic23@kernel.org>,
+ "nuno.sa@analog.com" <nuno.sa@analog.com>, "andy@kernel.org"
+ <andy@kernel.org>, "dlechner@baylibre.com" <dlechner@baylibre.com>,
+ =?utf-8?b?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-realtek-soc@lists.infradead.org"
+ <linux-realtek-soc@lists.infradead.org>, "linux-iio@vger.kernel.org"
+ <linux-iio@vger.kernel.org>, =?utf-8?b?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?=
+ <cy.huang@realtek.com>, =?utf-8?b?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?=
+ <stanley_chang@realtek.com>, =?utf-8?b?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
+ <james.tai@realtek.com>, =?utf-8?b?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
+ <eleanor.lin@realtek.com>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Bartosz Golaszewski" <brgl@kernel.org>, "Andy Shevchenko"
+ <andriy.shevchenko@intel.com>
+X-Mailer: aerc 0.20.0
+References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
+ <20260512033317.1602537-3-eleanor.lin@realtek.com>
+ <agMM9soiqpG-TRSb@ashevche-desk.local>
+ <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
+ <ah92oEavMu4QRn8y@ashevche-desk.local>
+ <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com>
+In-Reply-To: <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +96,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Seb,
+--ab88639452d187061230192ab1490bf4846f6d9975e50bf2597a3d568188
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Mon, Jun 08, 2026 at 02:22:22PM +0000, Sebastian Ene wrote:
-> On Fri, May 29, 2026 at 04:32:24PM +0100, Will Deacon wrote:
-> > I'd probably structure it as a separate patch per call, tbh. That way,
-> > the commit message can talk about the specific fields that are reserved
-> > for a given call. See below.
-> > 
-> > > Refactor the handling logic in pKVM FF-A proxy to support checking for
-> > > SBZ/MBZ values. While at it, drop the do_ffa_mem_xfer macro and replace
-> > > it with two functions that make it clear that we re-write the
-> > > function-id with a 64-bit variant, to keep the same behavior as before.
-> > > Keep each handler in an array of structures together with a mask that
-> > > corresponds to the SBZ registers the spec expects.
-> > 
-> > Although I agree that we should be enforcing SBZ/MBZ paramaters (because
-> > we have no idea what they might do in future versions of the spec), I
-> > also think that doing this at the register level is too coarse.
-> > 
-> > For example, the VM ID parameter to FFA_NOTIFICATION_BITMAP_CREATE has bits
-> > 31:16 as MBZ. So I think we probably need to do the checking on a
-> > per-function basis, like Per is doing in his series:
-> > 
-> > https://lore.kernel.org/r/20260501-host-direct-messages-v6-0-3f4af727ed85@google.com
-> > 
-> 
-> For the newly added calls like FFA_NOTIFICATION_* we can do that in a
-> separate functions, but what about the other existing calls that have
-> MBZ registers ? that was the reason for the inline proposal in :
-> https://lore.kernel.org/all/af3fW468-f1KXCrC@google.com/
-> (to avoid duplicate checks).
+Hi,
 
-For unused parameter registers that are SBZ, I think you could just add
-a helper, e.g.:
+On Mon Jun 8, 2026 at 4:10 PM CEST, Bartosz Golaszewski wrote:
+> On Wed, 3 Jun 2026 02:34:40 +0200, Andy Shevchenko
+> <andriy.shevchenko@intel.com> said:
+>> On Mon, May 25, 2026 at 12:04:09PM +0000, Yu-Chun Lin [=E6=9E=97=E7=A5=
+=90=E5=90=9B] wrote:
+>>> > On Tue, May 12, 2026 at 11:33:12AM +0800, Yu-Chun Lin wrote:
+>>> > > Expose an accessor function to retrieve the gpio_chip pointer from =
+a
+>>> > > gpio_regmap instance.
+>>> > >
+>>> > > This is needed by drivers that use gpio_regmap but also manage thei=
+r
+>>> > > own irq_chip, where gpiochip_enable_irq()/gpiochip_disable_irq() mu=
+st
+>>> > > be called with the gpio_chip pointer.
+>>> > >
+>>> > > Add gpio_regmap_get_gpiochip() to allow drivers with complex custom
+>>> > > IRQ implementations.
+>>> >
+>>> > Hmm... Can't we rather add
+>>> > gpio_regmap_enable_irq()/gpio_regmap_disable_irq()
+>>> > that take regmap or GPIO regmap (whatever suits better for the purpos=
+e) and
+>>> > do the magic inside GPIO regmap library code?
+>>
+>>> Thanks for the review! I apologize for the misleading commit message.
+>>> The real reason I need the struct gpio_chip pointer is to properly set =
+up a custom
+>>> IRQ domain. Our SoC GPIO controller is quite complex. It routes differe=
+nt trigger
+>>> types to multiple parent IRQs, which doesn't fit the generic regmap_irq=
+ framework.
+>>> Therefore, we have to create our own irq_domain and pass it to
+>>> gpio_regmap_config.irq_domain.
+>>>
+>>> The core problem occurs inside our custom irq_domain_ops.map() callback=
+:
+>>>
+>>> static int rtd1625_gpio_irq_map(struct irq_domain *domain, unsigned int=
+ irq,
+>>>                                 irq_hw_number_t hwirq)
+>>> {
+>>> 	struct rtd1625_gpio *data =3D domain->host_data;
+>>> 	struct gpio_chip *gc =3D data->gpio_chip;
+>>>
+>>> 	/*
+>>> 	 * The second argument MUST be struct gpio_chip *.
+>>> 	 * If we pass our custom data structure here, the kernel will panic la=
+ter
+>>> 	 * in gpiochip_irq_reqres() when it calls irq_data_get_irq_chip_data()
+>>> 	 * and strictly expects it to be a gpio_chip.
+>>> 	 */
+>>> 	irq_set_chip_data(irq, gc);
+>>>
+>>> 	irq_set_lockdep_class(irq, &rtd1625_gpio_irq_lock_class,
+>>> 				&rtd1625_gpio_irq_request_class);
+>>>
+>>> 	irq_set_chip_and_handler(irq, &rtd1625_iso_gpio_irq_chip, handle_bad_i=
+rq);
+>>> 	irq_set_noprobe(irq);
+>>>
+>>> 	return 0;
+>>> }
+>>>
+>>> Without an accessor like gpio_regmap_get_gpiochip(), we cannot retrieve=
+ the
+>>> gpio_chip instantiated inside gpio-regmap.c to fulfill these requiremen=
+ts in our
+>>> map() function.
 
-	ffa_check_unused_args_sbz(struct kvm_cpu_context *ctxt, int reg);
+Why is gpiochip_irq_reqres() called in the first place? Isn't that
+only called if the irq handling is set up via gc->irq.chip and not
+via gpiochip_irqchip_add_domain() like in gpio-regmap?
 
-which takes the index of the first unused register and then checks that
-all the registers from there to the last unused parameter register are
-zero. You can then just call that directly before you start parsing the
-SBZ/MBZ fields on the used parameter registers and there's no need for
-the table-based indirection in [1].
+>> This is all good and needs to be depicted in the cover-letter and/or com=
+mit message.
+>>
+>>> Before I send a v4, I see 3 possible paths:
+>>>
+>>> Option 1: Keep the accessor (Current v3 approach)
+>>> We keep gpio_regmap_get_gpiochip() but I will completely rewrite the co=
+mmit message
+>>> to explain the custom irq_domain_ops.map and lockdep requirements.
+>>>
+>>> Option 2: Let gpiolib create the irq_domain via gpio_regmap_config
+>>> Instead of creating the irq_domain in our driver, we add all necessary =
+IRQ fields
+>>> (irq_chip, irq_handler, irq_parents, etc.) into struct gpio_regmap_conf=
+ig. Then
+>>> gpio-regmap.c populates the gpio_irq_chip structure before calling
+>>> gpiochip_add_data(). This prevents an early return and allows the core =
+gpiolib
+>>> (gpiochip_add_irqchip()) to automatically create the irq_domain for us.
+>>> Drawback: This adds a lot of fields to gpio_regmap_config and might vio=
+late the
+>>> original design philosophy of gpio-regmap.c (commit ebe363197e52), whic=
+h explicitly
+>>> states that it does not implement its own IRQ chip and delegates it to =
+the parent
+>>> driver.
+>>>
+>>> Option 3: Drop gpio-regmap entirely (Revert to v2 approach)
+>>> Currently, all drivers using gpio-regmap (mostly simple CPLDs and exter=
+nal I/O cards)
+>>> use regmap-irq to get their domain. Since our SoC has a complex IRQ rou=
+ting scheme
+>>> with multiple parents, maybe gpio-regmap is simply not the right tool f=
+or this
+>>> hardware, and we should just implement a standard GPIO driver directly =
+using gpiolib.
+>>>
+>>> Which approach would you prefer upstream?
+>>
+>> This question to Bart, Linus, and poissibly gpio-regmap stakeholders. I'=
+m not sure
+>> that my personal opinion will be the best fit here.
+>>
+>
+> My preference would be for #2 but I understand that this could risk getti=
+ng
+> stuck in endless bikeshedding so I'm fine with going #3 with potential fo=
+r
+> future refactoring if we have more similar users.
 
-Will
+Yeah, I'd like to keep that stuff out of gpio-regmap. But I'm on the
+same boat regarding the refactoring if we have more data and
+potential users.
 
-[1] https://lore.kernel.org/all/af3fW468-f1KXCrC@google.com/
+-michael
+
+--ab88639452d187061230192ab1490bf4846f6d9975e50bf2597a3d568188
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaibUhBIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/hoHwF+L2/C0SzzRn4Jx1XywdW3IuoaQvOH/CyM
+tM+DiaJqPgiaiQHKQPw34Zd2pdQ6KAWfAX4i8MWoU3pRuIBrOY9/uz1/yXmfdz0h
+BO8TtdBsdvvFAiFlxOBrtRXZDI/pOWJBA7U=
+=N+gM
+-----END PGP SIGNATURE-----
+
+--ab88639452d187061230192ab1490bf4846f6d9975e50bf2597a3d568188--
 
