@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980B6CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AAEACD8CAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ogyh4wObZizXAya8DYDVQH81cbqfbWCBqwPAMYcZIC4=; b=NF0EmSBT9Kv1ynYQsM/NU7DdyH
-	+hNxZ20sjdElyLItCidpFW519t2sOW/7tJt7mbrGZIV7p1SZw9qcsPhcvXByfFJvXR3jS02PNPQ2b
-	bXLQHxacc+V7OPnTAs3bUpMiqK7RDw85yf8dpbqc/1QKWKMtg1i3F+Vnd/wDEOFJVgr3w7uBarIHs
-	02H+fa6rTr5sxn8kfeWTKO+RxuByqE9GmluIaD3G47ef4sJUcOpXYXKLU6ydjNq3/tasDoJQ2R5zR
-	p1rTW91waMV2DRyIF5iFUmVmZGPgPNzS+YyLhRHlwigu8ix6MZ7UO2xZtA6e4NOZonKmS4gk+jY/P
-	zkyUvokg==;
+	bh=g9i0x40H0Bbrg9uecEkCuWCtLH9BINZc9mE+DeLnqEE=; b=ykaG6L1lcxsk6hfOtnqMj61ICT
+	fwlh80t+as04MK0cCtbTssYTm3LnY+yWxBFsr9ur+wzIaCNlXmbRRZLuawzCg9JrUDNtCZZJxKH6m
+	lKfc/ovb8eUYX60NIQYdHoZ6lFtzNpLY9hbhBSYi0dueta4UuD6o3sxddNVosof8Q7kAzHFLsE1Mf
+	1Dpv1XqyHq/aw5AcX7ZMj/VnrPErjTDg0kWoWX+uEMKxOb4pDwey191bVz9ZFqeTE5zlloPtZ52aV
+	Q9BOycA5kK2PCM0VD0TWLbRSULb10uEupWUE9coz8P1j6lRzvvxgtaXUzdUK2d0z0mnbptUz3CQfT
+	67TkZqXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWs0l-000000055VY-10Q3;
-	Tue, 09 Jun 2026 08:40:39 +0000
+	id 1wWs16-000000055cF-1SiD;
+	Tue, 09 Jun 2026 08:41:00 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWs0j-000000055Uz-32Ql
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 08:40:37 +0000
+	id 1wWs14-000000055bd-3V9R;
+	Tue, 09 Jun 2026 08:40:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1922C601E1;
-	Tue,  9 Jun 2026 08:40:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A01CD1F00893;
-	Tue,  9 Jun 2026 08:40:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49233601E1;
+	Tue,  9 Jun 2026 08:40:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D64AF1F00893;
+	Tue,  9 Jun 2026 08:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780994436;
-	bh=ogyh4wObZizXAya8DYDVQH81cbqfbWCBqwPAMYcZIC4=;
+	s=k20260515; t=1780994458;
+	bh=g9i0x40H0Bbrg9uecEkCuWCtLH9BINZc9mE+DeLnqEE=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=gLN3Tz0CeLBoINPbLoMDEUIeCS40M/eztQaoXb2xOXXCuWH/8ntgJohyObvQ49N/Q
-	 1vu3Qb/12zKwAVIoVIaEfG0NxUHdmW5xIwt6AYmcYQqhb/7ZS8P7VZlvkzuHG+81WE
-	 zBsafO+3vZ4CFTAr/PkIfa3TnPo1G736JHlBBX2/FTwVZDKeB9VpMyyUvfwl58YDPy
-	 p4derCnh8YJvfxsZaBUuaOqjHlp7BGDxE+Cbo+0O9Bo/cxQe23lKWqRQ9PpBk8KF1p
-	 Q/HbK8FCDH/RjSQSV+WqD9F2nxhyv6gZkuPeP/bbJb5Uamr+iW8Qluy335nZegcijS
-	 4FljBATGIB1Gg==
+	b=ij1vg7vxEvcR9WYtXKnQf/yeFdbd0zGHUgK2MdXiigTL1LiYZ1xOJlGcEPC59XFzI
+	 X5RBVF/qt4XQNRvYZXFOv1us2rFM0MplYp55aZQOum9ZyErtYGDjru/cxQ5eNmKwKI
+	 LRVsQLi3CKgeHqNdwy8Bk7xD13LmcIGzPfWz+QojmnxwusdIZLlgj5/gCQiDdGjyWY
+	 pNay+ls+JThjcx5M8QLKJlwsactzCwVol8C1Ac9zExlz1Om3ttrYcup8lIJmhymSMZ
+	 ILuwVHXIR8BczmZ5uPP7mFvYu3MKLJpa/HwO9so9eUCS+nxKVdFFYGs6s5KrPe5OCS
+	 AxfKidMWSUiAg==
 From: Mark Brown <broonie@kernel.org>
-To: lgirdwood@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, Chancel Liu <chancel.liu@nxp.com>
-Cc: shengjiu.wang@nxp.com, shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, 
- festevam@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com, 
- Frank.Li@nxp.com, s.hauer@pengutronix.de, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <20260528020725.2265321-1-chancel.liu@nxp.com>
-References: <20260528020725.2265321-1-chancel.liu@nxp.com>
-Subject: Re: [PATCH v2 0/3] ASoC: imx-rpmsg: Add headphone jack detection
- and driver_name support
-Message-Id: <178094123266.20828.2548677822968710520.b4-ty@b4>
-Date: Mon, 08 Jun 2026 18:53:52 +0100
+To: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ kuninori.morimoto.gx@renesas.com, ckeepax@opensource.cirrus.com, 
+ vulab@iscas.ac.cn, Tuo Li <islituo@gmail.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20260528064107.470824-1-islituo@gmail.com>
+References: <20260528064107.470824-1-islituo@gmail.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt8365-afe-pcm: fix possible
+ NULL-pointer dereferences in mt8365_afe_suspend()
+Message-Id: <178094172524.20828.3703159455539806775.b4-ty@b4>
+Date: Mon, 08 Jun 2026 19:02:05 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1653; i=broonie@kernel.org;
- h=from:subject:message-id; bh=XSjoHKs8MCMIjerSDcjBJdrB/+DJHhLIab/p1Ghmjxg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqJ9Fxq985rl6kfTLCWLnzgyx0mjqIxkqYD996p
- GmnbAq+9+WJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaifRcQAKCRAk1otyXVSH
- 0Pz7B/9FpjAQLHNUdUnnW0vYfUAIj7d1B+K/0BzPsIUnYoaLa/9/3mAYK+III9/dbbmJ5lIeciG
- BCywHAC0/i96S9Ocrz8FYBu6NXNozRr9GVGV2UrbqjjhaNKq/LI2fXnpYhPWj0jsPPWMX8/PPrr
- /c2nrMWRmZMhm2BrgvQI5FOyFqjMhAMl87ZfhHzxvvS5POknlQQw4Cb79LrELy2L4iuMgC+9PiX
- Jk121hJBNFh9wF4ozz83VsyVui5ZSg28uV+snrfVPV9/vm6E2w5RQMEp2zn2r8vAnllRum0htVE
- O2hed+mhbUu87ZlXDJavMdPzvvCturASxUp9R2Jsb2CnhHkr
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1200; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=hdVrRALsMIREIn7ihjdRcpf63ae8p5If5LNwop1xDLY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqJ9GVeS8SPkknehPnNp/lMxjPcs2Rkx1z3iMMJ
+ 8ws6nDdpz6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaifRlQAKCRAk1otyXVSH
+ 0H4KB/9FcdWXR1D5b0263Y9QjXLLjoaw69Hw1ounRpAGnrMqZ7t3Wu/tZ1xZdjqDpyw6OeUny27
+ xc69A8TOvRKM0SkvYxQNbB6UejDP1X6JuzlxigNyM36C6twkGR5q0fwuKwQ302YBAFfiW2nWq72
+ r5jhRMFZZdx+Dz76W+hXtIJ3/qFqAERwLsNw2Um6FeqaoPWEf0ed8oZTAmfvEF4EmZRbwx0+/oy
+ mQPxx8pev7ZJOMrMbUe1cL829ei7+vv74ZBvHTsmhPmTO7CZifEwjsFiq39WYU0uwHjA3ix650s
+ SJncaHJKjMll2pD1LYEYZd3+ac0wSwYvdLzdbvWUAL3Koylj
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,15 +83,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 May 2026 11:07:22 +0900, Chancel Liu wrote:
-> ASoC: imx-rpmsg: Add headphone jack detection and driver_name support
-> 
-> This series adds two features to the i.MX RPMSG ASoC card:
-> 1. Headphone jack detection via GPIO: Introduce the "hp-det-gpios"
->    device tree property and use simple_util_init_jack() to
->    register a headphone jack with GPIO-based insertion detection.
-> 
-> [...]
+On Thu, 28 May 2026 14:41:06 +0800, Tuo Li wrote:
+> ASoC: mediatek: mt8365-afe-pcm: fix possible NULL-pointer dereferences in mt8365_afe_suspend()
 
 Applied to
 
@@ -101,12 +92,8 @@ Applied to
 
 Thanks!
 
-[1/3] ASoC: dt-bindings: fsl,rpmsg: Add hp-det-gpios property
-      https://git.kernel.org/broonie/sound/c/1558039bea60
-[2/3] ASoC: imx-rpmsg: Support headphone jack detection
-      https://git.kernel.org/broonie/sound/c/ec74d4f934a6
-[3/3] ASoC: imx-rpmsg: Set driver_name for snd_soc_card
-      https://git.kernel.org/broonie/sound/c/af0d8aa7fcd5
+[1/1] ASoC: mediatek: mt8365-afe-pcm: fix possible NULL-pointer dereferences in mt8365_afe_suspend()
+      https://git.kernel.org/broonie/sound/c/b8948ac26efc
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
