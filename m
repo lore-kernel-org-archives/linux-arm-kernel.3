@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6711CD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 11:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8372FCD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 11:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xe3m8aEMLZ/02vgwpqo5f7f9hIk8DfPm8JBqFu+ZRLY=; b=qJSzKZhdubtK5VHS6jkQ/urtP7
-	gRQG1Ez+aOXydH/otQJ7Ejq2Hs8jvGTGLzxRqkLrXSZMQOIrsIWHjZSqiyg7r4e/JCT/bsX6DmANB
-	IlD+O2uFDQJ+qyA5I4JXcumQn2RUNcw/50TsyVDx7TBvn6vl4fLn6F51pG22yIM+aUMvM9gFSXSv4
-	WSXpOuFpPO+pvUurZAbXOPONVBOyogpSa1IMZV7G4Qceq5lnW6M+ceJLEORnZAzalrJF39nKzq+ei
-	GDZO1C/lMFkwn+vxfkA6P4H4A77T26fvgMomMHmYoDrglbypP7idbQs6X9lDtBFxBIQhqQCVoqx5K
-	1qZokxCw==;
+	bh=mN+u0pCJSsPAoXFbYCcI3ncWrm0wZKcAiKPT7u/ARIY=; b=i66CBKJTS/VPLe7NJQgnmjdqLn
+	7/m3QANnh6CKuW9HyScT5xsYnoVp49JhXvyw/4SL8zHMZwXDTDNPddVsq5MnytLD9CMuB9nX+63rt
+	7vZFc9pMbY9LU3i/70Tk/wyPpqeUJPgsW5eKX6xzgCRvuYe066uFziG1Y0zci8UpViG7pXHvn8VY1
+	mB84bEE29N7SSiKqp73UoQ+XyKcSqOdh+yhPDsv1QjzDzllqyJarQ7x9CHk7tkbKlTY+S3TC714jG
+	dp6zozr36WwdJ1wgORJFdsbSpMExUpreYsGFj+uzXZ5VU4v9Y/V3CHE7rxLVwp1b+6x9igA9OkiA2
+	1mMX8Ndw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWY3r-00000003Q7n-1W6K;
-	Mon, 08 Jun 2026 11:22:31 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wWY7s-00000003QM8-3SbN;
+	Mon, 08 Jun 2026 11:26:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWY3o-00000003Q7M-2uEQ
+	id 1wWY7r-00000003QM1-0tAw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 11:22:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Xe3m8aEMLZ/02vgwpqo5f7f9hIk8DfPm8JBqFu+ZRLY=; b=aSaIYF+jLzhpB2x34fAjS6W6zC
-	loVRKG/E/QhEiTlDPJMcEQvo5oD3KZHmM3qrRKPQX+s906GTCAgyDBmPoCKxSZ2qeCDinuRCnF7ta
-	4+EgcarogMFhI1xGe1gI9ewYCPWmyaMPvfUsDWW4LAm5JlddsX3QeRnEeLBNLgDnPLfj1LStca7Ap
-	6g1yvEkur6ogZdSTxcsP9CfxIp7cI8FQzjdhN4tLOxrDcRSyNxA6uCIiJSfrTUGD58D2XBycgNGAo
-	wnA5LMM5GzBuayQtbWmJubrV+Ao7MbEeRnpU1NirUVPPQgGN2L1MY5wmvP65Me+93YPSrts+0QxD8
-	G6cn+AyA==;
-Received: from sslproxy02.your-server.de ([78.47.166.47])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wWY3h-000EpY-0l;
-	Mon, 08 Jun 2026 13:22:21 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy02.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wWY3h-000HhD-0P;
-	Mon, 08 Jun 2026 13:22:20 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v4 4/4] arm64: dts: freescale: Add dual-channel LVDS overlay for
- TQMa8MPxS
-Date: Mon, 08 Jun 2026 13:22:19 +0200
-Message-ID: <6005215.DvuYhMxLoT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <aiL9i6IQzK3EHGpm@lizhi-Precision-Tower-5810>
-References: <20260603093621.2504490-1-alexander.stein@ew.tq-group.com>
- <20260603093621.2504490-4-alexander.stein@ew.tq-group.com>
- <aiL9i6IQzK3EHGpm@lizhi-Precision-Tower-5810>
+	Mon, 08 Jun 2026 11:26:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A8F3340674;
+	Mon,  8 Jun 2026 11:26:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246951F00893;
+	Mon,  8 Jun 2026 11:26:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780917998;
+	bh=mN+u0pCJSsPAoXFbYCcI3ncWrm0wZKcAiKPT7u/ARIY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=mT3HVqaw3DuU9tlhMrY09QOQltV352yiglepQMcHm1SLLiT/ypbKxV45DUzvAKld8
+	 EgGc4D5icVebi8W9iO1+Ms150cbeb7qE6vmDzUFOy0iqcvpIzEoHKvsOnSvANbhBCU
+	 YXQR3kHpKdx7v6wtMdhC9GbGkVcL8GT5egeSbhRBFj4Nl2BpotRLND1c43xt6Hd7/d
+	 e1yImNR4cPh8ikhKGwRxWIMpYHZKO1EejAwZbDUenP6/OiXIXKFnn6fROU/l0RJQnR
+	 Apj2v3s+UBe3X/kCk1+VkwAxJ6TbpQkE67WclAO6R8hShS3KldHQF117mEixaxtveo
+	 A3ECAMAWS50Xg==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+In-Reply-To: <e0071e90-c2f5-4d15-b3c6-fe05bf1464e4@arm.com>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
+ <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+ <yq5ase72qvwb.fsf@kernel.org>
+ <20260604-juicy-daft-starling-3eec1f@sudeepholla>
+ <yq5ao6hlzbpa.fsf@kernel.org>
+ <e0071e90-c2f5-4d15-b3c6-fe05bf1464e4@arm.com>
+Date: Mon, 08 Jun 2026 16:56:29 +0530
+Message-ID: <yq5aldcpz316.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28025/Mon Jun  8 08:33:34 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_042228_853905_3D2A33BE 
-X-CRM114-Status: GOOD (  20.56  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,166 +84,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Suzuki K Poulose <suzuki.poulose@arm.com> writes:
 
-Am Freitag, 5. Juni 2026, 18:47:07 CEST schrieb Frank Li:
-> On Wed, Jun 03, 2026 at 11:36:09AM +0200, Alexander Stein wrote:
-> > This adds an overlay for the supported LVDS display AUO G133HAN01.
-> > Configure the video PLL frequency to exactly match typical pixel clock =
-of
-> > 141.200 MHz.
-> >
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
->=20
-> Can you fix W=3D1 dtb build warnings?
+> On 08/06/2026 09:19, Aneesh Kumar K.V wrote:
+>> Sudeep Holla <sudeep.holla@kernel.org> writes:
+>> 
+>>> On Thu, Jun 04, 2026 at 06:56:28PM +0530, Aneesh Kumar K.V wrote:
+>>>> Sudeep Holla <sudeep.holla@kernel.org> writes:
+>>>>
+>>>> ...
 
-That would require to duplicate the setting from imx8mp.dtsi. Is this really
-intended?
+...
 
-imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso:51.10-55.5: Warning (unit_a=
-ddress_vs_reg): /fragment@3/__overlay__/ports/port@1: node has a unit name,=
- but no reg or ranges property
-imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso:57.10-61.5: Warning (unit_a=
-ddress_vs_reg): /fragment@3/__overlay__/ports/port@2: node has a unit name,=
- but no reg or ranges property
+>>> I was trying to avoid conditional compilation altogether and hence the
+>>> reason for keeping it as simple as possible. Also IS_ENABLED(CONFIG_ARM64)
+>>> in above snippet must come as some condition to this generic probe.
+>>>
+>>> Adding any more logic or callback defeats the bus idea here if we need
+>>> to rely/depend on multiple conditional compilation or callbacks IMO.
+>>>
+>>> Let's find see if it can work with what we are adding now and may add in
+>>> near future and then decide.
+>>>
+>> 
+>> If we move all the conditional checks to the driver probe path, then I
+>> think this can work. Something like the below:
+>> 
+>> struct smccc_device_info {
+>> 	u32 func_id;
+>> 	bool requires_smc;
+>> 	const char *device_name;
+>> };
+>> 
+>> static const struct smccc_device_info smccc_devices[] __initconst = {
+>> 	{
+>> 		.func_id        = ARM_SMCCC_TRNG_VERSION,
+>> 		.requires_smc   = false,
+>> 		.device_name    = "arm-smccc-trng",
+>> 	},
+>> 
+>> 	{
+>> 		.func_id        = RSI_ABI_VERSION,
+>
+> Don't we need parameters passed to this (Requested Interface version for 
+> e.g.) ? See more below.
+>
 
-IMHO this warning is not suitable for .dtbo, while it is for .dtb
-(with applied overlays). The .dtbo doesn't have all the information.
+The idea is that we only check whether the function ID is supported. All
+other conditional logic should be handled in the driver probe path, as
+demonstrated by the changes in drivers/char/hw_random/arm_smccc_trng.c.
 
-Best reagrds
-Alexander
+>
+>> 		.requires_smc   = true,
+>> 		.device_name    = RSI_DEV_NAME,
+>> 	},
+>> };
+>> 
+>> static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+>> {
+>> 	unsigned long ret;
+>> 	struct arm_smccc_res res;
+>> 
+>> 	if (smccc_conduit == SMCCC_CONDUIT_NONE)
+>> 		return false;
+>> 
+>> 	if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
+>> 		return false;
+>> 
+>> 	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+>> 	ret = res.a0;
+>> 
+>> 	if ((s32)ret == SMCCC_RET_NOT_SUPPORTED)
+>
+> Is this a reliable check for all possible SMCCC services ? i.e., Are we 
+> expected to get RET_NOT_SUPPORTED for any service for which the backend
+> is not available ?
+>
 
-> Frank
->=20
-> > Changes in v4:
-> > * New to series v4
-> >
-> >  arch/arm64/boot/dts/freescale/Makefile        |  2 +
-> >  ...p-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso | 74 +++++++++++++++++++
-> >  2 files changed, 76 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-s=
-marc-2-lvds-g133han01.dtso
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/d=
-ts/freescale/Makefile
-> > index dee2bea156740..3f466f102dc1d 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -385,8 +385,10 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-tqma8mpql-mba8m=
-p-ras314-imx219.dtbo
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070j=
-vhg33.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070j=
-vhg33-imx219.dtb
-> >
-> > +imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01-dtbs +=3D imx8mp-tqma8mpqs-=
-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtbo
-> >  imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33-dtbs +=3D imx8mp-tqma8mp=
-qs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtbo
-> >  imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33-dtbs +=3D imx8mp-tqma8mp=
-qs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtbo
-> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01=
-=2Edtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvh=
-g33.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvh=
-g33.dtb
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-=
-lvds-g133han01.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-sma=
-rc-2-lvds-g133han01.dtso
-> > new file mode 100644
-> > index 0000000000000..9595cf4d43cd0
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g1=
-33han01.dtso
-> > @@ -0,0 +1,74 @@
-> > +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> > +/*
-> > + * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> > + * D-82229 Seefeld, Germany.
-> > + * Author: Martin Schmiedel
-> > + */
-> > +
-> > +/dts-v1/;
-> > +/plugin/;
-> > +
-> > +&backlight_lvds0 {
-> > +	status =3D "okay";
-> > +};
-> > +
-> > +&panel_lvds0 {
-> > +	compatible =3D "auo,g133han01";
-> > +	status =3D "okay";
-> > +
-> > +	ports {
-> > +		#address-cells =3D <1>;
-> > +		#size-cells =3D <0>;
-> > +
-> > +		port@0 {
-> > +			reg =3D <0>;
-> > +			dual-lvds-odd-pixels;
-> > +
-> > +			panel_in_lvds0: endpoint {
-> > +				remote-endpoint =3D <&ldb_lvds_ch0>;
-> > +			};
-> > +		};
-> > +
-> > +		port@1 {
-> > +			reg =3D <1>;
-> > +			dual-lvds-even-pixels;
-> > +
-> > +			panel_in_lvds1: endpoint {
-> > +				remote-endpoint =3D <&ldb_lvds_ch1>;
-> > +			};
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +&lcdif2 {
-> > +	status =3D "okay";
-> > +};
-> > +
-> > +&lvds_bridge {
-> > +	status =3D "okay";
-> > +
-> > +	ports {
-> > +		port@1 {
-> > +			ldb_lvds_ch0: endpoint {
-> > +				remote-endpoint =3D <&panel_in_lvds0>;
-> > +			};
-> > +		};
-> > +
-> > +		port@2 {
-> > +			ldb_lvds_ch1: endpoint {
-> > +				remote-endpoint =3D <&panel_in_lvds1>;
-> > +			};
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +// Update VIDEO_PLL1 frequency
-> > +&media_blk_ctrl {
-> > +	assigned-clock-rates =3D <500000000>, <200000000>,
-> > +			       <0>, <0>, <500000000>,
-> > +			       <988400000>;
-> > +};
-> > +
-> > +&pwm3 {
-> > +	status =3D "okay";
-> > +};
-> > --
-> > 2.54.0
-> >
->=20
+That is correct. That is what the SMCCC specification says
 
+> Also, as pointed out RSI_ABI_VERSION may return other errors based on 
+> the input (requested version, e.g., RSI_ERROR_INPUT) and we may still go
+> ahead and register the device ?
+>
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+Correct, and the driver probe will check for the minimum and maximum supported versions.
 
+>> 		return false;
+>> 
+>> 	return true;
+>> }
+>> 
+>> static int __init smccc_devices_init(void)
+>> {
+>> 	struct arm_smccc_device *sdev;
+>> 	const struct smccc_device_info *smccc_dev;
+>> 
+>> 	for (int i = 0; i < ARRAY_SIZE(smccc_devices); i++) {
+>> 		smccc_dev = &smccc_devices[i];
+>> 
+>> 		if (!smccc_probe_smccc_device(smccc_dev))
+>> 			continue;
+>> 
+>>                 sdev = arm_smccc_device_register(smccc_dev->device_name);
+>>                 if (IS_ERR(sdev))
+>>                         pr_err("%s: could not register device: %ld\n",
+>>                                smccc_dev->device_name, PTR_ERR(sdev));
+>> 
+>> 	}
+>> 
+>> 	return 0;
+>> }
+>> device_initcall(smccc_devices_init);
+>> 
+>> with the diff to hw_random/smccc_trng
+>> 
+>> modified   arch/arm64/include/asm/archrandom.h
+>> @@ -12,7 +12,7 @@
+>>   
+>>   extern bool smccc_trng_available;
+>>   
+>> -static inline bool __init smccc_probe_trng(void)
+>> +static inline bool smccc_probe_trng(void)
+>>   {
+>>   	struct arm_smccc_res res;
+>>   
+>> modified   drivers/char/hw_random/arm_smccc_trng.c
+>> @@ -19,6 +19,8 @@
+>>   #include <linux/arm-smccc.h>
+>>   #include <linux/arm-smccc-bus.h>
+>>   
+>> +#include <asm/archrandom.h>
+>> +
+>>   #ifdef CONFIG_ARM64
+>>   #define ARM_SMCCC_TRNG_RND	ARM_SMCCC_TRNG_RND64
+>>   #define MAX_BITS_PER_CALL	(3 * 64UL)
+>> @@ -98,6 +100,10 @@ static int smccc_trng_probe(struct arm_smccc_device *sdev)
+>>   {
+>>   	struct hwrng *trng;
+>>   
+>> +	/* validate the minimum version requirement */
+>> +	if (!smccc_probe_trng())
+>> +		return -ENODEV;
+>> +
+>>   	trng = devm_kzalloc(&sdev->dev, sizeof(*trng), GFP_KERNEL);
+>>   	if (!trng)
+>>   		return -ENOMEM;
+>> 
+>> We can also move arch/arm64/include/asm/rsi_smc.h to
+>> include/linux/arm-rsi-smccc.h. There was a suggestion to move these
+>
+> super minor nit: arm-smccc-rsi.h ?
+>
 
+-aneesh
 
