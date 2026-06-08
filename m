@@ -4,72 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518C9CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 06:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C30CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 06:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtfYI9TNDy6XeLrMN+1NlqaW+44VDs452SSDI2AJNWs=; b=wuY3Fc+HF6xDHSDJuP641rTzLs
-	vlzsMN+mkscQoBHvpyZ4JrIbUjkxA9H2R3u5loAuHnESNIu6FC73eku4gKwERxzN90rfmfrQm+rvQ
-	mADZEyuhf2sIwr8JxH1P3peDbzKkSBDNNNzEEb7Tb+Zp66RnetTZUy3dITjwC2aJya+A9ifoFhIol
-	MD2eXkLM+9NN7OzC1BWB0mGcMEUagRcU/c9nmy7MnnOmifrBjkFIONJPg0Ay2AZV8Plr1pVX33ENj
-	klPPZ8CL2525CQ6K75ErwvfajehLU6myNC77oaroAJcyeZt0NgqlgomskO8c85pZwYP7oISaMT/+C
-	MLkpPNpQ==;
+	bh=gwl6bxoedBil6zkKjzP3xhadcmpC2ohFviRs8deqyrM=; b=0MHxYyOssfdg2l0elRf+8xe+Gr
+	PbGyMkGPTZ2KbYcWPEqMeKaYzOuo1xUQw/JKA7k28W650/OBniQR2d71gpFxFAQGmf+G5r4WZxTez
+	GKQ/+6SMNDXXB651hHMkF9a8yziqRydLghw299CsTeDeoGnxOBUicn5YH4Q+th3uJ+I4tpoWElNCd
+	cs65TGfFEdjjJJi6AWj+4h7AkxCZ5FGDfbkOyaq/KZCDXpr0+izPGN0zztiOSqvX71o1SsELb6wv2
+	EzXvR9uyrDjt8hzgMfHmo4hBcSon3jfpZGqA1YHSp6v3OdeCAk3gWKnfRJAAAANTn5gpo7rpMzMsZ
+	Go4QjUNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWTPM-00000002tV4-3H7N;
-	Mon, 08 Jun 2026 06:24:24 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wWTQq-00000002tcC-0TaN;
+	Mon, 08 Jun 2026 06:25:56 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWTPJ-00000002tUK-0kW1
+	id 1wWTQn-00000002tbo-2oEF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 06:24:23 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.15])
-	by APP-01 (Coremail) with SMTP id qwCowACXONEIYCZqwsffAA--.10346S2;
-	Mon, 08 Jun 2026 14:24:09 +0800 (CST)
-Message-ID: <399cd127b56b4a2fb3161865a681606e04e6b2c6.camel@iscas.ac.cn>
-Subject: Re: [PATCH v3 3/5] drm/verisilicon: introduce per-variant hardware
- ops table
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 08 Jun 2026 14:24:08 +0800
-In-Reply-To: <20260608023237.305036-4-a0987203069@gmail.com>
-References: <20260608023237.305036-1-a0987203069@gmail.com>
-	 <20260608023237.305036-4-a0987203069@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Mon, 08 Jun 2026 06:25:54 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-45ef616daf6so3478737f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 23:25:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780899951; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QJoQSwp5+j90OC8sjSNsELbMdVo8ZjCdPEKQKTkxYa7Frhpk1/gBgn4+9QxfsPznbM
+         hRkENqvh9LjrKBT0mpi5h8F0FQJXhpLVoI1T5kKf03Ni3MN5uTGOeG9TPwR0+EQT+YzF
+         uaumqTUXVUPy+3cJ1VNnQXcaUb5IYTga5a5g9TfRoM9Jgc2gstSMBhyCRWALRxky44hU
+         Gq6kE57M9t7dxloEQjKkVNb81NfoJF+Yj/+mLxOX3+DEJWjPT90JRq09jm4zqxIqJfxf
+         VNeDiycDS2+6HDJtiapqKQ6ISxjwYPQNxzIGj3YueoHhN3tYAFthKGSxZ1me5jMKN+wU
+         zThQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=gwl6bxoedBil6zkKjzP3xhadcmpC2ohFviRs8deqyrM=;
+        fh=1Yzh/ci6Uozrgz4zld3jQ5PmtmjyxyJefzHhJR5v354=;
+        b=iL+YqxI31YFKAOcO3fXbdXVrATc7nY3DH0ETGjtj94otThj37kjda/KQZu7Md9zry7
+         Q5MYCspQsM/ElAkU0P8T7m8Md0iiZdTxYGITY5jJbEBBWZRweIGBth9M8mlkGumLwQ4L
+         MMADGV+jBalI9GtBbDSG3ca6B8EGu0rqe/9Rcw9GAcj+yMlYkVVRaUNy8JbWq76CbZAG
+         R789oiQwkfrbx9rPe+6kstOVcARJswtxuGym3AvOOWHpfZv6hVyt52/RuyQbhJLFGyc6
+         2tLOEQCoQiKeZlcXQzMW874VUyR5Db0U6h04jcX2TGKWtQVwemMuYQxj58mM6pgmRO2q
+         L0Wg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780899951; x=1781504751; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=gwl6bxoedBil6zkKjzP3xhadcmpC2ohFviRs8deqyrM=;
+        b=DaB/sWKzlFS/qfT0KB8i4L4zQh0Sk3m4kOjIVTwvJdAe0Xtw58tywY1BhY25PLR+SB
+         rBzI8nGw/am57UPi86D/gJTAhgwyFQ7d7bsZtF5Se0s0TQaCDP7Qedfhj2lP/A+SkXte
+         oekVtsBHHwCI8ckzAo3cGYI0X2DAGtJRrp4D/LUP5yhnLaHS4PWboSL9BFA9P6lrW27c
+         QvU3nB13w5lAc4AW+FM8Id5DgqcYNMra5EIQkYfFdVOUWY1PbdOaXjdZZDFbbJe/zSGf
+         JWOQ5Lau59YJ01Qr0nZ9oZ+kTv5DxgE7ONNWdJbYH9iVgKvHaY4pJDUMKtsaDs6qkoZo
+         nK+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780899951; x=1781504751;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gwl6bxoedBil6zkKjzP3xhadcmpC2ohFviRs8deqyrM=;
+        b=AN1DBaSnEGPIYN8t4JqNL1sZkUZEqNmejiOAnq9cmDfbveyj2vVjsXZuZF2OFLawif
+         vKmW64ddoeVQtxcnqywMISYTy5DBhRxW7PUAifnZ5Al66PfPThKszaUpI49iZDt2Fm8+
+         L9FYAujDga7pLSfabSixlzDIUbw0DMFW0+dG6m4n2N99Yj+0Wm5DfSSNDIJYjgqlDZRK
+         M50ldnMxjAGhgon4Ln1vRwrDqvphCHBzCqvfx1BK4BfpWMsCpNq1UwNrYGn5H/x+aYS+
+         RWUuwla/97Q+dSYOdbRSO/9+Ll7TXa7OikNyicY6bqAOGYPfjdPmwr9nqu4cV0fTZ8pR
+         LN6w==
+X-Forwarded-Encrypted: i=1; AFNElJ9Lmrh5O3+vWniBBtFYPVTsRiuDFe5+/cRtK3UYmHziQLdtb3WbwLVQ9stIfUWvHhaOLyocEfal4bWrS4Odm+55@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw90ymmRzix6UeU9fscySizSKcJEP2CBDJhXumAzeS+5rpyG0Z2
+	f/E7J9mFzfL/hBfs5MKP3R8AqcoFKky7ItUHsKSLY9rf/2Fp+0BKEXuC9MPz4Ix0GlPX60cgIjQ
+	z6DQO1Mg5yuyrEbE+0ery3ckyNgnNYC9ThQ==
+X-Gm-Gg: Acq92OGyIVjeTHlMw8BM4jlwobTxK2IMVt/7SEGW5aRSzraLbVVupJb+XQy7yXIYwGx
+	vQ2KIpzuyMXVjL8mTMdESfP+Rp5/0G3zp8efZe0K919blJtEBqNlm3udNht5NzD2s47nqm5HVwF
+	Y6EeNHsZBo6+CMarC7MmOxJDV2JUfMCRqiZHX863LMzviMIy3Jgrn7FJsOwWOhGVz7M9bcARiX6
+	scLC8njJLrnF3oEBWfJjYyvhWL3lsLSHnEf8+y1WGFs+oP1MMlOeeWB3oCqkjC3+Hw07zlja01n
+	Gd90XfJtwphIsf/5yzA=
+X-Received: by 2002:adf:eac3:0:b0:45e:ce28:666a with SMTP id
+ ffacd0b85a97d-460302dcc75mr15718432f8f.1.1780899950996; Sun, 07 Jun 2026
+ 23:25:50 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowACXONEIYCZqwsffAA--.10346S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3tF13Xw4UWr48XF4fCrWrAFb_yoWkur4kpF
-	4vyrWIgrWrJas2gr9rJr4kKFy3Cwn7K3yfWws7Ga90vr1Dtr15WF18X34S9FWDWrZ7Aa4a
-	qFs2krsrCr1YyrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU56yI5UUUUU==
-X-Originating-IP: [112.94.101.15]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
+ <20260522053146.83209-5-jiangwenxiaomi@gmail.com> <46b0f2a7-3c0d-4372-a45d-946d8259d410@arm.com>
+ <CAHKocdEfX3dgUr3O6q1WOe4PddN2=LKfX6Y5DfrfTwF9MM5J3w@mail.gmail.com> <53a51128-8ad5-4faa-9151-1245084bdd4c@arm.com>
+In-Reply-To: <53a51128-8ad5-4faa-9151-1245084bdd4c@arm.com>
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+Date: Mon, 8 Jun 2026 14:25:39 +0800
+X-Gm-Features: AVVi8CdO-brXKZ74Vn--3CvlX_bimsMhmTttfAtKo0-xwHV3Y_noAP8U2d808V4
+Message-ID: <CAHKocdHNAWzvYwu_mpekix+fH4ePn7ZMfmvxVsgb6VWYJAdZkg@mail.gmail.com>
+Subject: Re: [PATCH v3 4/6] mm/vmalloc: Extend page table walk to support
+ larger page_shift sizes and eliminate page table rewalk
+To: Dev Jain <dev.jain@arm.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
+	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com, 
+	rppt@kernel.org, david@kernel.org, ryan.roberts@arm.com, 
+	anshuman.khandual@arm.com, ajd@linux.ibm.com, linux-kernel@vger.kernel.org, 
+	jiangwen6@xiaomi.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_232421_787624_B74673A4 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20260607_232553_771004_6695D340 
+X-CRM114-Status: GOOD (  39.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,352 +121,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-08=E4=B8=80=E7=9A=84 10:32 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> The DC8200 and DCUltraLite share a broadly similar register layout
-> but
-> differ in how the bridge, CRTC, primary plane and IRQ paths are
-> driven.
-> Introduce a vs_dc_funcs vtable so each variant can supply its own
-> implementation without scattering conditionals across multiple files.
->=20
-> Add enum vs_dc_generation (VSDC_GEN_DC8000 / VSDC_GEN_DC8200) to
-> vs_hwdb.h and a generation field to struct vs_chip_identity.=C2=A0
-> Annotate
-> all four existing DC8200 HWDB entries with VSDC_GEN_DC8200.
->=20
-> Extract the DC8200-specific hardware ops into a new vs_dc8200.c:
-> =C2=A0 bridge_enable / bridge_disable - PANEL_CONFIG/START + CONFIG_EX
-> commit
-> =C2=A0 enable_vblank / disable_vblank - TOP_IRQ_EN VSYNC bit
-> =C2=A0 plane_enable_ex / disable_ex / update_ex - FB_CONFIG_EX path
-> =C2=A0 irq_handler - reads TOP_IRQ_ACK
->=20
-> Update vs_bridge.c, vs_crtc.c, vs_primary_plane.c and vs_dc.c to
-> dispatch through dc->funcs instead of directly touching registers.
-> vs_crtc.c gains atomic_begin and atomic_flush hooks to allow variants
-> to gate per-frame commit cycles.
->=20
-> No behaviour change for existing DC8200 platforms.
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_bridge.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 20 +---
-> =C2=A0drivers/gpu/drm/verisilicon/vs_crtc.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 38 ++++++-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 6 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 33 ++++++
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc8200.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 107
-> ++++++++++++++++++
-> =C2=A0drivers/gpu/drm/verisilicon/vs_hwdb.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 4 +
-> =C2=A0drivers/gpu/drm/verisilicon/vs_hwdb.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 6 +
-> =C2=A0.../gpu/drm/verisilicon/vs_primary_plane.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 32 +-----
-> =C2=A09 files changed, 197 insertions(+), 51 deletions(-)
-> =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8200.c
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
-> b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> index 7a93049368db..6a9af10c64e6 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> @@ -162,15 +162,8 @@ static void vs_bridge_enable_common(struct
-> vs_crtc *crtc,
-> =C2=A0			VSDC_DISP_PANEL_CONFIG_DE_EN |
-> =C2=A0			VSDC_DISP_PANEL_CONFIG_DAT_EN |
-> =C2=A0			VSDC_DISP_PANEL_CONFIG_CLK_EN);
-> -	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG(output),
-> -			VSDC_DISP_PANEL_CONFIG_RUNNING);
-> -	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
-> -			=C2=A0 VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
-> -	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
-> -			VSDC_DISP_PANEL_START_RUNNING(output));
-> -
-> -	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_CONFIG_EX(crtc-
-> >id),
-> -			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
-> +
-> +	dc->funcs->bridge_enable(dc, output);
+On Fri, 5 Jun 2026 at 14:02, Dev Jain <dev.jain@arm.com> wrote:
+>
+>
+>
+> On 28/05/26 9:09 am, Wen Jiang wrote:
+> > On Wed, 27 May 2026 at 13:59, Dev Jain <dev.jain@arm.com> wrote:
+> >>
+> >>
+> >>
+> >> On 22/05/26 11:01 am, Wen Jiang wrote:
+> >> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+> >>
+> >> vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflush())
+> >> provides a clean interface by taking struct page **pages and mapping them
+> >> via direct PTE iteration. This avoids the page table rewalk seen when
+> >> using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
+> >>
+> >> Extend it to support larger page_shift values, and add PMD- and
+> >> contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_walk()
+> >> since it now handles more than just small pages.
+> >>
+> >> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
+> >> iterate over pages one by one via vmap_range_noflush(), which would
+> >> otherwise lead to page table rewalk. The code is now unified with the
+> >> PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
+> >>
+> >> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> >> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> >> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> >> ---
+> >>  mm/vmalloc.c | 71 +++++++++++++++++++++++++++++-----------------------
+> >>  1 file changed, 40 insertions(+), 31 deletions(-)
+> >>
+> >> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> >> index 53fd4ee460ea4..deb764abc0571 100644
+> >> --- a/mm/vmalloc.c
+> >> +++ b/mm/vmalloc.c
+> >> @@ -543,8 +543,10 @@ void vunmap_range(unsigned long addr, unsigned long end)
+> >>
+> >>  static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+> >>               unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> >> -             pgtbl_mod_mask *mask)
+> >> +             pgtbl_mod_mask *mask, unsigned int shift)
+> >>  {
+> >> +     unsigned long pfn, size;
+> >> +     unsigned int steps;
+> >>       int err = 0;
+> >>       pte_t *pte;
+> >>
+> >> @@ -575,9 +577,10 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+> >>                       break;
+> >>               }
+> >>
+> >> -             set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
+> >> -             (*nr)++;
+> >> -     } while (pte++, addr += PAGE_SIZE, addr != end);
+> >> +             pfn = page_to_pfn(page);
+> >> +             size = vmap_set_ptes(pte, addr, end, pfn, prot, shift);
+> >> +             steps = PFN_DOWN(size);
+> >> +     } while (pte += steps, *nr += steps, addr += size, addr != end);
+> >>
+> >>       lazy_mmu_mode_disable();
+> >>       *mask |= PGTBL_PTE_MODIFIED;
+> >> @@ -587,7 +590,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+> >>
+> >>  static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+> >>               unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> >> -             pgtbl_mod_mask *mask)
+> >> +             pgtbl_mod_mask *mask, unsigned int shift)
+> >>  {
+> >>       pmd_t *pmd;
+> >>       unsigned long next;
+> >>> @@ -597,7 +600,27 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+> >>>               return -ENOMEM;
+> >>>       do {
+> >>>               next = pmd_addr_end(addr, end);
+> >>> -             if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
+> >>> +
+> >>> +             if (shift == PMD_SHIFT) {
+> >>> +                     struct page *page = pages[*nr];
+> >>> +                     phys_addr_t phys_addr;
+> >>> +
+> >>> +                     if (WARN_ON(!page))
+> >>> +                             return -ENOMEM;
+> >>> +                     if (WARN_ON(!pfn_valid(page_to_pfn(page))))
+> >>> +                             return -EINVAL;
+> >>
+> >>
+> >> So I know these !page and !pfn_valid checks have been copied from vmap_pages_pte_range,
+> >> but do they mean anything?
+> >>
+> >> I think pfn_valid() makes sense in that someone may take a random VA/PA, convert it into a struct
+> >> page and pass to vmap layer. But I don't see how anyone would pass page == NULL? At the
+> >> very least, returning ENOMEM does not make sense because the pages are not being
+> >> allocated by vmap() but have already been allocated.
+> >
+> > Hi Dev,
+> >
+> > vmap() is EXPORT_SYMBOL with many callers across drivers, each
+> > constructing the pages array differently. The !page check guards
+> > against malformed arrays at this API boundary.
+> >
+> > The same -ENOMEM issue also exists in vmap_pages_pte_range().
+> > Should I fix both in this patchset or leave it as a separate cleanup?
+> >
+> >>
+> >>> +
+> >>> +                     phys_addr = page_to_phys(page);
+> >>> +
+> >>> +                     if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
+> >>> +                                             shift)) {
+> >>> +                             *mask |= PGTBL_PMD_MODIFIED;
+> >>> +                             *nr += 1 << (shift - PAGE_SHIFT);
+> >>> +                             continue;
+> >>> +                     }
+> >>> +             }
+> >>> +
+> >>> +             if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
+> >>>                       return -ENOMEM;
+> >>>       } while (pmd++, addr = next, addr != end);
+> >>>       return 0;
+> >>> @@ -605,7 +628,7 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+> >>>
+> >>>  static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+> >>>               unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> >>> -             pgtbl_mod_mask *mask)
+> >>> +             pgtbl_mod_mask *mask, unsigned int shift)
+> >>>  {
+> >>>       pud_t *pud;
+> >>>       unsigned long next;
+> >>> @@ -615,7 +638,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+> >>>               return -ENOMEM;
+> >>>       do {
+> >>>               next = pud_addr_end(addr, end);
+> >>> -             if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask))
+> >>> +             if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask, shift))
+> >>>                       return -ENOMEM;
+> >>>       } while (pud++, addr = next, addr != end);
+> >>>       return 0;
+> >>> @@ -623,7 +646,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+> >>>
+> >>>  static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+> >>>               unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> >>> -             pgtbl_mod_mask *mask)
+> >>> +             pgtbl_mod_mask *mask, unsigned int shift)
+> >>>  {
+> >>>       p4d_t *p4d;
+> >>>       unsigned long next;
+> >>> @@ -633,14 +656,14 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+> >>>               return -ENOMEM;
+> >>>       do {
+> >>>               next = p4d_addr_end(addr, end);
+> >>> -             if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask))
+> >>> +             if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask, shift))
+> >>>                       return -ENOMEM;
+> >>>       } while (p4d++, addr = next, addr != end);
+> >>>       return 0;
+> >>>  }
+> >>>
+> >>> -static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+> >>> -             pgprot_t prot, struct page **pages)
+> >>> +static int vmap_pages_range_noflush_walk(unsigned long addr, unsigned long end,
+> >>> +             pgprot_t prot, struct page **pages, unsigned int shift)
+> >>>  {
+> >>>       unsigned long start = addr;
+> >>>       pgd_t *pgd;
+> >>> @@ -655,7 +678,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+> >>>               next = pgd_addr_end(addr, end);
+> >>>               if (pgd_bad(*pgd))
+> >>>                       mask |= PGTBL_PGD_MODIFIED;
+> >>> -             err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
+> >>> +             err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask, shift);
+> >>>               if (err)
+> >>>                       break;
+> >>>       } while (pgd++, addr = next, addr != end);
+> >>> @@ -678,27 +701,13 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+> >>>  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> >>>               pgprot_t prot, struct page **pages, unsigned int page_shift)
+> >>>  {
+> >>> -     unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
+> >>> -
+> >>>       WARN_ON(page_shift < PAGE_SHIFT);
+> >>>
+> >>> -     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+> >>> -                     page_shift == PAGE_SHIFT)
+> >>> -             return vmap_small_pages_range_noflush(addr, end, prot, pages);
+> >>> +     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
+> >>> +             page_shift = PAGE_SHIFT;
+> >>>
+> >>> -     for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
+> >>> -             int err;
+> >>> -
+> >>> -             err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+> >>> -                                     page_to_phys(pages[i]), prot,
+> >>> -                                     page_shift);
+> >>> -             if (err)
+> >>> -                     return err;
+> >>> -
+> >>> -             addr += 1UL << page_shift;
+> >>> -     }
+> >>> -
+> >>> -     return 0;
+> >>> +     return vmap_pages_range_noflush_walk(addr, end, prot, pages,
+> >>> +                     min(page_shift, PMD_SHIFT));
+> >>
+> >>
+> >> We can easily extend to PUD huge mappings right? Not sure whether we
+> >> should keep everything symmetric to how vmap_range_noflush() operates
+> >> right now, since P4D mappings don't exist, but PUD looks worthwhile.
+> >>
+> >
+> > PUD mapping requires 1GB of contiguous physical memory, but the buddy
+> > allocator's MAX_PAGE_ORDER is 10 (4MB on 4K pages). So page_shift
+> > passed to vmap_pages_range_noflush_walk() never exceeds PMD_SHIFT.
+>
+> Can we then just drop the min()? You can guard the try_huge_pmd with
+> shift >= PMD_SHIFT - the walker has the necessary ingredients to work
+> with a shift > PMD_SHIFT, so let us not confuse by this min() truncation.
+>
 
-The code here being called "bridge" is only internal to kernel. Naming
-it in such a way is okay, but maybe naming it "panel" is better
-(because they're configuring PANEL-named registers).
+Will Drop the min() here.
+Thanks.
 
-And, as the common code setting common fields of DcregPanelConfig0 is
-still here, maybe the helper name should be named "panel_enable_ex" (or
-"bridge_enable_ex") ?
-
-> =C2=A0}
-> =C2=A0
-> =C2=A0static const struct drm_bridge_funcs vs_dpi_bridge_funcs =3D {
-=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
-> b/drivers/gpu/drm/verisilicon/vs_dc.c
-> index dad9967bc10b..c94957024189 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-> @@ -8,9 +8,7 @@
-> =C2=A0#include <linux/of.h>
-> =C2=A0#include <linux/of_graph.h>
-> =C2=A0
-> -#include "vs_crtc.h"
-> =C2=A0#include "vs_dc.h"
-> -#include "vs_dc_top_regs.h"
-> =C2=A0#include "vs_drm.h"
-> =C2=A0#include "vs_hwdb.h"
-> =C2=A0
-> @@ -33,7 +31,7 @@ static irqreturn_t vs_dc_irq_handler(int irq, void
-> *private)
-> =C2=A0	struct vs_dc *dc =3D private;
-> =C2=A0	u32 irqs;
-> =C2=A0
-> -	regmap_read(dc->regs, VSDC_TOP_IRQ_ACK, &irqs);
-> +	irqs =3D dc->funcs->irq_handler(dc);
-
-The IRQ isn't handled in this helper.
-
-So maybe call it "irq_ack"?
-
-> =C2=A0
-> =C2=A0	vs_drm_handle_irq(dc, irqs);
-> =C2=A0
-> @@ -136,6 +134,8 @@ static int vs_dc_probe(struct platform_device
-> *pdev)
-> =C2=A0	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
-> >identity.model,
-> =C2=A0		 dc->identity.revision, dc->identity.customer_id);
-> =C2=A0
-> +	dc->funcs =3D &vs_dc8200_funcs;
-> +
-> =C2=A0	if (port_count > dc->identity.display_count) {
-> =C2=A0		dev_err(dev, "too many downstream ports than HW
-> capability\n");
-> =C2=A0		ret =3D -EINVAL;
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h
-> b/drivers/gpu/drm/verisilicon/vs_dc.h
-> index ed1016f18758..d77d4a1babdf 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.h
-> @@ -14,6 +14,7 @@
-> =C2=A0#include <linux/reset.h>
-> =C2=A0
-> =C2=A0#include <drm/drm_device.h>
-> +#include <drm/drm_plane.h>
-> =C2=A0
-> =C2=A0#include "vs_hwdb.h"
-> =C2=A0
-> @@ -22,6 +23,34 @@
-> =C2=A0
-> =C2=A0struct vs_drm_dev;
-> =C2=A0struct vs_crtc;
-> +struct vs_dc;
-> +
-> +struct vs_dc_funcs {
-> +	/* Bridge: atomic_enable, atomic_disable */
-> +	void (*bridge_enable)(struct vs_dc *dc, unsigned int
-> output);
-> +	void (*bridge_disable)(struct vs_dc *dc, unsigned int
-> output);
-> +
-> +	/* CRTC: atomic_begin, atomic_flush */
-> +	void (*crtc_begin)(struct vs_dc *dc, unsigned int output);
-> +	void (*crtc_flush)(struct vs_dc *dc, unsigned int output);
-> +
-> +	/* CRTC: atomic_enable, atomic_disable */
-> +	void (*crtc_enable)(struct vs_dc *dc, unsigned int output);
-> +	void (*crtc_disable)(struct vs_dc *dc, unsigned int output);
-> +
-> +	/* CRTC: enable_vblank, disable_vblank */
-> +	void (*enable_vblank)(struct vs_dc *dc, unsigned int
-> output);
-> +	void (*disable_vblank)(struct vs_dc *dc, unsigned int
-> output);
-> +
-> +	/* Primary plane: atomic_enable, atomic_disable,
-> atomic_update */
-> +	void (*plane_enable_ex)(struct vs_dc *dc, unsigned int
-> output);
-> +	void (*plane_disable_ex)(struct vs_dc *dc, unsigned int
-> output);
-> +	void (*plane_update_ex)(struct vs_dc *dc, unsigned int
-> output,
-> +				struct drm_plane_state *state);
-> +
-> +	/* IRQ handler */
-> +	u32 (*irq_handler)(struct vs_dc *dc);
-
-See my comments elsewhere for the helper naming.
-
-> +};
-> =C2=A0
-> =C2=A0struct vs_dc {
-> =C2=A0	struct regmap *regs;
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> b/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> index 2a0f7c59afa3..91524d16f778 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> @@ -94,6 +94,7 @@ static struct vs_chip_identity vs_chip_identities[]
-> =3D {
-> =C2=A0		.revision =3D 0x5720,
-> =C2=A0		.customer_id =3D ~0U,
-> =C2=A0
-> +		.generation =3D VSDC_GEN_DC8200,
-> =C2=A0		.display_count =3D 2,
-> =C2=A0		.max_cursor_size =3D 64,
-> =C2=A0		.formats =3D &vs_formats_no_yuv444,
-> @@ -103,6 +104,7 @@ static struct vs_chip_identity
-> vs_chip_identities[] =3D {
-> =C2=A0		.revision =3D 0x5721,
-> =C2=A0		.customer_id =3D 0x30B,
-> =C2=A0
-> +		.generation =3D VSDC_GEN_DC8200,
-> =C2=A0		.display_count =3D 2,
-> =C2=A0		.max_cursor_size =3D 64,
-> =C2=A0		.formats =3D &vs_formats_no_yuv444,
-> @@ -112,6 +114,7 @@ static struct vs_chip_identity
-> vs_chip_identities[] =3D {
-> =C2=A0		.revision =3D 0x5720,
-> =C2=A0		.customer_id =3D 0x310,
-> =C2=A0
-> +		.generation =3D VSDC_GEN_DC8200,
-> =C2=A0		.display_count =3D 2,
-> =C2=A0		.max_cursor_size =3D 64,
-> =C2=A0		.formats =3D &vs_formats_with_yuv444,
-> @@ -121,6 +124,7 @@ static struct vs_chip_identity
-> vs_chip_identities[] =3D {
-> =C2=A0		.revision =3D 0x5720,
-> =C2=A0		.customer_id =3D 0x311,
-> =C2=A0
-> +		.generation =3D VSDC_GEN_DC8200,
-> =C2=A0		.display_count =3D 2,
-> =C2=A0		.max_cursor_size =3D 64,
-> =C2=A0		.formats =3D &vs_formats_no_yuv444,
-> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> b/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> index 2065ecb73043..a15c8b565604 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> @@ -9,6 +9,11 @@
-> =C2=A0#include <linux/regmap.h>
-> =C2=A0#include <linux/types.h>
-> =C2=A0
-> +enum vs_dc_generation {
-> +	VSDC_GEN_DC8000,
-> +	VSDC_GEN_DC8200,
-> +};
-> +
-> =C2=A0struct vs_formats {
-> =C2=A0	const u32 *array;
-> =C2=A0	unsigned int num;
-> @@ -19,6 +24,7 @@ struct vs_chip_identity {
-> =C2=A0	u32 revision;
-> =C2=A0	u32 customer_id;
-> =C2=A0
-> +	enum vs_dc_generation generation;
-> =C2=A0	u32 display_count;
-> =C2=A0	/*
-> =C2=A0	 * The hardware only supports square cursor planes, so this
-> field
-> diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> index 1f2be41ae496..75bc36a078f7 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> @@ -53,12 +53,6 @@ static int vs_primary_plane_atomic_check(struct
-> drm_plane *plane,
-> =C2=A0	return 0;
-> =C2=A0}
-> =C2=A0
-> -static void vs_primary_plane_commit(struct vs_dc *dc, unsigned int
-> output)
-> -{
-> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> -			VSDC_FB_CONFIG_EX_COMMIT);
-> -}
-> -
-> =C2=A0static void vs_primary_plane_atomic_enable(struct drm_plane *plane,
-> =C2=A0					=C2=A0=C2=A0 struct drm_atomic_commit
-> *atomic_state)
-> =C2=A0{
-> @@ -69,13 +63,8 @@ static void vs_primary_plane_atomic_enable(struct
-> drm_plane *plane,
-> =C2=A0	unsigned int output =3D vcrtc->id;
-> =C2=A0	struct vs_dc *dc =3D vcrtc->dc;
-> =C2=A0
-> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> -			VSDC_FB_CONFIG_EX_FB_EN);
-> -	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> -			=C2=A0=C2=A0 VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
-> -			=C2=A0=C2=A0 VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
-> -
-> -	vs_primary_plane_commit(dc, output);
-> +	if (dc->funcs->plane_enable_ex)
-> +		dc->funcs->plane_enable_ex(dc, output);
-
-Please note that all theae codes are for primary planes, maybe the
-helper should be named mentioning primary. Overlay planes will need a
-different codepath because they change different registers.
-
-Thanks,
-Icenowy
-
-> =C2=A0}
-> =C2=A0
-> =C2=A0static void vs_primary_plane_atomic_disable(struct drm_plane *plane=
-,
-> @@ -88,10 +77,8 @@ static void vs_primary_plane_atomic_disable(struct
-> drm_plane *plane,
-> =C2=A0	unsigned int output =3D vcrtc->id;
-> =C2=A0	struct vs_dc *dc =3D vcrtc->dc;
-> =C2=A0
-> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> -			VSDC_FB_CONFIG_EX_FB_EN);
-> -
-> -	vs_primary_plane_commit(dc, output);
-> +	if (dc->funcs->plane_disable_ex)
-> +		dc->funcs->plane_disable_ex(dc, output);
-> =C2=A0}
-> =C2=A0
-> =C2=A0static void vs_primary_plane_atomic_update(struct drm_plane *plane,
-> @@ -133,18 +120,11 @@ static void
-> vs_primary_plane_atomic_update(struct drm_plane *plane,
-> =C2=A0	regmap_write(dc->regs, VSDC_FB_STRIDE(output),
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 fb->pitches[0]);
-> =C2=A0
-> -	regmap_write(dc->regs, VSDC_FB_TOP_LEFT(output),
-> -		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_MAKE_PLANE_POS(state->crtc_x, state-
-> >crtc_y));
-> -	regmap_write(dc->regs, VSDC_FB_BOTTOM_RIGHT(output),
-> -		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_MAKE_PLANE_POS(state->crtc_x + state-
-> >crtc_w,
-> -					 state->crtc_y + state-
-> >crtc_h));
-> =C2=A0	regmap_write(dc->regs, VSDC_FB_SIZE(output),
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_MAKE_PLANE_SIZE(state->crtc_w, stat=
-e-
-> >crtc_h));
-> =C2=A0
-> -	regmap_write(dc->regs, VSDC_FB_BLEND_CONFIG(output),
-> -		=C2=A0=C2=A0=C2=A0=C2=A0 VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
-> -
-> -	vs_primary_plane_commit(dc, output);
-> +	if (dc->funcs->plane_update_ex)
-> +		dc->funcs->plane_update_ex(dc, output, state);
-> =C2=A0}
-> =C2=A0
-> =C2=A0static const struct drm_plane_helper_funcs
-> vs_primary_plane_helper_funcs =3D {
-
+> >
+> > Thanks,
+> > Wen
+> >>>  }
+> >>>
+> >>>  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> >>
+>
 
