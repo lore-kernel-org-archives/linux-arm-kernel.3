@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA61CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77EB9CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQAir/XhNgzln0FRrf8cgFa/spk0WCi7bswkv8ztqtM=; b=BHHgu/HxjROeJH+Vs/A9CO2In8
-	1U0oH+IUnT/MQlUo1ZLILQm2c/412a35tsOM3yJ0s/urnDgFs5aZnPrOJYtzN0gOrR3m+/fMtZrXS
-	BfT97+Wm9p2z0Zph/ATtiUoAK8iwVMeJwrCAzzbGjY/6JjZUTeVw3t/g4luhygsbh3RNYFW8+zbqk
-	kFP72wp7sbfXIdn1Dlt/27lmGGc4kBhOpU4vCj1D99kwjVTcPNgucIc1jabTsuvifJVo9yvJ7o398
-	/tdmXFrVdw75Vy2AwhC9+xRXk83nGRUrNQLuye8X+FJecmKg671Kl8u/FUDgiYu1flmSMgJxHsacG
-	tDTPCTlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fzKmRE/c3YW6bME9j/93sSqsxS7lu6l7nbyxWtTfJ8w=; b=QCuCzQwoTPa0OGg0kkCnu3NyVb
+	lnS8kJonHMZm8LT/lMNbB3peqkWnQjv7dnUfGk1qQGYuNXxldrfF6eYni54FEN7e9CsfscyUyjU6F
+	nL4ujyf2D1EF7heTIBYvOjsmY2h3Fsn6RU0uYetLgDclkrqypqkrz7wQrAzXOJ5GwONovCvMmJu2c
+	uBB2xicFXsIE4eGBG9oCJRjlAjhvAIgsP5tkjOYO2vmDL6uSjejICQ+Js5/miGGIYgMQYwGshb+Fa
+	irsMB3chzTrHAI6T8wie07T1yA5w8sFSpF4S9lvvcvuy9z7k9K1me/OsrNrzK4JoQRdxM4xDnndfr
+	adXsnRZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWYeM-00000003Tcm-2Ls7;
-	Mon, 08 Jun 2026 12:00:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWYlE-00000003UCC-0lJq;
+	Mon, 08 Jun 2026 12:07:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWYeL-00000003TcU-2ksS
+	id 1wWYlD-00000003UBz-1cpx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 12:00:13 +0000
+	Mon, 08 Jun 2026 12:07:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB5BA600AE;
-	Mon,  8 Jun 2026 12:00:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A5A11F00893;
-	Mon,  8 Jun 2026 12:00:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CB7434063B;
+	Mon,  8 Jun 2026 12:07:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D6921F00893;
+	Mon,  8 Jun 2026 12:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780920012;
-	bh=AQAir/XhNgzln0FRrf8cgFa/spk0WCi7bswkv8ztqtM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=VbshWzMbj8MuZE3fQBjIspMvk6Z4L2Uwp7JKBQDi7zG7PNGbjZK3FOiOyMtngTPId
-	 CkklEcZg91CINj0HiWVC9Gfc80+yDZibAE9nBvMPSJTfxTDEKqHrb0lb9w8/An9BC3
-	 9Xl+UnrxOrfGTQCSmcitJ3pVQ+6LKwQMJfY9ZcsX0XNPtKpQEkuSgjGS1npPm8Yabj
-	 zZCHUyW7t0Cx/M5eZPzlXgSExpuE5ueuuJ4zMNjja8Xlq35MjDAuiHyJtDoilmbwy8
-	 gC7j2SZOAcubRcT42zNoLs8sKFkCNY8v/D8sxnqGqf1kS1gPjGB+j6ydvtKLiE/0tK
-	 p8dcPzmqCGdgA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 938DC3930D69;
-	Mon,  8 Jun 2026 12:00:12 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1780920438;
+	bh=fzKmRE/c3YW6bME9j/93sSqsxS7lu6l7nbyxWtTfJ8w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QIhH3DkjuFmZdQJiQwpq3z684KdzevYBZ3FxzsTNbThYX0AQhcPzqB3KTwHEG5Qdn
+	 ir9AJIIbef4rlhl9JvHh46kwAoWNhJS8i2+G+GFyHAB9ezdL/Sm1bUWTgM6xAC4HoK
+	 JadouGx25hTowYD2ig0NRkQRzORb+h0elb1YPRgqjV8Snrlg7Suhk9/tI00wtigEPi
+	 tZZBdYmfA6Wv6gy0E65flr9h5Xctz1ekFWXmI0Da2Tqh240k1/k1uuF6V/xlR50nLc
+	 HEAtN4Be53++XNBN3GS7P0CljkTzNz1yIV9OWHFUZvwNLAd0UdnAh1dB0EKUa4Dd8q
+	 7C84hvM99oYzQ==
+Date: Mon, 8 Jun 2026 14:07:16 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 25/37] drm/bridge: shutdown and cleanup on bridge unplug
+Message-ID: <20260608-resilient-outgoing-panther-9efc53@houat>
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-25-45e2bdb3dfb4@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2 bpf-next] arm64: mm: Complete the PTE store in
- ptep_try_set()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178092001114.1007295.14338085080112012433.git-patchwork-notify@kernel.org>
-Date: Mon, 08 Jun 2026 12:00:11 +0000
-References: <7f5f7c94601312c1a401fb18998291cc@kernel.org>
-In-Reply-To: <7f5f7c94601312c1a401fb18998291cc@kernel.org>
-To: Tejun Heo <tj@kernel.org>
-Cc: catalin.marinas@arm.com, will@kernel.org, ast@kernel.org,
- david@kernel.org, arighi@nvidia.com, memxor@gmail.com,
- akpm@linux-foundation.org, rppt@kernel.org, andrii@kernel.org,
- daniel@iogearbox.net, martin.lau@linux.dev, eddyz87@gmail.com,
- yonghong.song@linux.dev, emil@etsalapatis.com, void@manifault.com,
- changwoo@igalia.com, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="runcsy6vq4746hhd"
+Content-Disposition: inline
+In-Reply-To: <20260519-drm-bridge-hotplug-v1-25-45e2bdb3dfb4@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +81,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to bpf/bpf-next.git (master)
-by Kumar Kartikeya Dwivedi <memxor@gmail.com>:
+--runcsy6vq4746hhd
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 25/37] drm/bridge: shutdown and cleanup on bridge unplug
+MIME-Version: 1.0
 
-On Sun, 07 Jun 2026 21:25:47 -1000 you wrote:
-> ptep_try_set() installs a kernel PTE with try_cmpxchg() but, unlike
-> __set_pte(), skips the barriers that arm64 requires after writing a valid
-> kernel PTE. Without them a subsequent access can fault instead of seeing
-> the new mapping.
-> 
-> Issue them with emit_pte_barriers() rather than __set_pte_complete().
-> ptep_try_set() must finish the store before it returns, but
-> __set_pte_complete() would defer the barriers when the calling context is in
-> lazy MMU mode.
-> 
-> [...]
+Hi,
 
-Here is the summary with links:
-  - [v2,bpf-next] arm64: mm: Complete the PTE store in ptep_try_set()
-    https://git.kernel.org/bpf/bpf-next/c/71385b78dbc2
+On Tue, May 19, 2026 at 12:37:42PM +0200, Luca Ceresoli wrote:
+> With the upcoming support for DRM bridge hot(un)plugging, bridges can be
+> removed at any time withotu tearing down the entire card. When this
+> happens, shutdown the pipeline and detach from the encoder chain the brid=
+ge
+> being removed along with all the following ones.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+>  drivers/gpu/drm/drm_bridge.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> index 7f2d1a81d730..d45fb74ec8c2 100644
+> --- a/drivers/gpu/drm/drm_bridge.c
+> +++ b/drivers/gpu/drm/drm_bridge.c
+> @@ -462,9 +462,17 @@ EXPORT_SYMBOL(devm_drm_bridge_add);
+>   * it won't be found by users via of_drm_find_and_get_bridge(), and add =
+it
+>   * to the lingering bridge list, to keep track of it until its allocated
+>   * memory is eventually freed.
+> + *
+> + * If the bridge is attached, also disable the active output and detach
+> + * this bridge and the following ones.
+>   */
+>  void drm_bridge_remove(struct drm_bridge *bridge)
+>  {
+> +	if (bridge->encoder) {
+> +		drm_atomic_shutdown(bridge->dev);
+> +		drm_encoder_cleanup_from(bridge->encoder, bridge);
+> +	}
+> +
+>  	mutex_lock(&bridge_lock);
+>  	list_move_tail(&bridge->list, &bridge_lingering_list);
+>  	mutex_unlock(&bridge_lock);
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+I don't think this makes a lot of sense to disable the whole device at
+once. The connector, encoder, and the CRTC might, but the whole device
+doesn't.
 
+Even then, I'm not sure we should disable anything. How does DP-MST
+handles removal?
 
+Maxime
+
+--runcsy6vq4746hhd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaiawdAAKCRAnX84Zoj2+
+dlutAXwLb/lzFiY4Bqaim2RwnNqhbTo/NPoCNzh8V/tQ1zxLugn7ChtaL/weqRTw
+httlwgABgNm0m35oh5VFSw6suBNeI5wca6gsWhRHRBjDmIOSoS/q5nAmz4DyindF
+FISfGAzktg==
+=7d4e
+-----END PGP SIGNATURE-----
+
+--runcsy6vq4746hhd--
 
