@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58907CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF85CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zvv+an6xLDGNzBLnOXXROxXfLkjVhoP4StmbjGm4UyM=; b=a3iuWolXisVcecgQ4fBQN6JJR4
-	vIjJFSBPaKxEK/2yFB2a/o5YrWhC2WftD3APCSKSGVjzgIAairxg67n55As+njt3rlXQnaM5Pmd/g
-	IQqEsrve4TZQl0NUjJLi9lw8NZxT+BiaLTTqNrWL+6JibUOfBZt14KKe3UVKH+IDm9392Pxenb13c
-	EMMzohKQz4B4fw5HVAW8ENKWIJm2hRr8cBPJPYqckXZArpIgvJKA3yzm6plQMo45+0N2rznSvjbq2
-	RYoVZGhebnF8sVB1A/9UEaMC/uSLHrdWuF3/SsA9qpITX01NFt3C8tVHnhsm6BkS5FdzZZ2iluFvi
-	8wJpIOiQ==;
+	bh=YpwJ9v/AiXpP4VJQJr26kjpknRLuUcx7eSaLf7M6YkA=; b=zkIUMVmJ4C0T6IsgcBbTWM2jgW
+	2LFTTJn6sHC8bMXVA7EjSPIX1rgvZSjDZJrK0/+X8lsubozKnv5+n5dSoxGgN/kZgS6MvAAdDk9AO
+	BsZMpZZncxrCRMf41Eu2u8oJe76R498QUvl43851p51n13QdgKJlyx7ePfYS+5InRwTIMomrPChBk
+	BqP+JXwpkEVK/w+Fig9GuQQpKlVf7QSxIb2yk0r/poLEZ92lwHJw0Fol9M8GcRqslLrwDYXafh9yr
+	9VGEXMFl5RybbbRoouTAlrnyhSFZBaBWOGx9Sc29X+XDS9hNUrryJ6VsMNYKqrg40BVZXdTgmVSta
+	lXsmEnxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdGm-000000047Ug-0bym;
-	Mon, 08 Jun 2026 16:56:12 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1wWdHR-000000047wp-1CQB;
+	Mon, 08 Jun 2026 16:56:53 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdGf-000000047Mv-34xU
+	id 1wWdHP-000000047ux-2CUy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 16:56:06 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-45efb6e60e4so4257185f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:56:05 -0700 (PDT)
+	Mon, 08 Jun 2026 16:56:52 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-304d0ac5e3cso8124213eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:56:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780937764; x=1781542564; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zvv+an6xLDGNzBLnOXXROxXfLkjVhoP4StmbjGm4UyM=;
-        b=SIlqqQCD2L95vuNL4SnzttCA1hzlG1RC9EhwSineUzg8GstBz1qrRwHR+bT33xvWag
-         ENk9347J/B1EmoFpdGokMw7ZsKzgs1FmsJOHht+N069VCgEpSpW2Ofa46XaZiduURXlS
-         ApehFpPnXgdUjkcrDDgTdbpAJmgdLN+YE5KEvhVwxKuJ3t+jLhNMOAMcBkz0SwovA8ul
-         33XsBguA8kR9TZAo7roxt1XxWMt96Lzj5jXq6mYgics4SS8OoZiU3gP6B//RFVj58MvQ
-         25VRyPKRPpYopYikITgfdq2HP+g/Dh8sYljTns8uIAvwNnGcJmiVWLYewlMgdYSFYO2C
-         x2hQ==
+        d=gmail.com; s=20251104; t=1780937810; x=1781542610; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YpwJ9v/AiXpP4VJQJr26kjpknRLuUcx7eSaLf7M6YkA=;
+        b=hWWXiQAX9NaomMjHwKNQyc8NepYQHG0rnG1UgdAAxoMNAFq9HkJgC2XAdlNbwaKs/T
+         Mkmev2q6HDjXn8nzoh3OT/yIw5GuNUmDJxOhTnFiPjtl7WMwfn3WdpVz8ob37V2GBEox
+         tmimDWDPC2GPN/n+pmOlUyCb5N1KQF54wSe27sBbrrljNdAFk5xvVIKnlZzfLIbdDPBF
+         XYJDpAX9H9zg9ToBU6t+j2lav58HxPYKJYqsUFOED5jlIccQex8dnWKhrmBOmiN4F1gZ
+         FLioX7cCkXrZtKfu08TzewpUDbf5AFpYV5T5vjm4WF4cFziBh5NYwODGU9+0NxRZ993w
+         2XxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780937764; x=1781542564;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zvv+an6xLDGNzBLnOXXROxXfLkjVhoP4StmbjGm4UyM=;
-        b=DD8u0vgOWdKiChuWJ2qGreQg6TwrLgrPIFtsV6SFKsP2D6MeWugExFGyi8DX2N9jS3
-         GXIN9MRGI4YtK0dftqkpoUAg7Xo9HjEJhTjX+ggWcoJCcSib61U4IeypGjGntC/RoJgw
-         VKHPEk9Fx7W/w+ygN00WuXPQzTDdpsC9CTS+I3QiE4zIAwwG2rOLNWofYpNhn9k0z3Jt
-         j0tHlHQa73FOH5SjYlDCmuLrcy+uQQrwEkKB/LvgD4eWH+XEQg5wN8yqV24IheZRe8bb
-         buXZ59H+9gdOWO6Yo1nbDGCtZMsexNtFwpSNbuQeHmb+LGmtDvudCkmiOVP2BuM5J9gT
-         LVaA==
-X-Forwarded-Encrypted: i=1; AFNElJ8qexwdyAYRk81j80GoLpknwQs85oAFz0nd88R52+AerO/OQGjyWg53fmzNofb6D3KH9s2TyjWUc7/EVidEEvNy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqJW2o87LndMChF6aJe1tzlOFxN+iLyix/hRThsnYNyPum6HEE
-	rKJmR9kE8YlaFXJKF0HyQ1433g+UU/vvtKC6YYfEA+wOv8n+uf9Kj59oRMFZalbE6WliETo5bQ5
-	uh+5lZywcbMVml2QmeFiQ4ZhtfV8+9Q==
-X-Received: from wrop15.prod.google.com ([2002:adf:f20f:0:b0:43b:4453:39d8])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:adf:e906:0:b0:43d:77f4:7145 with SMTP id ffacd0b85a97d-46030506818mr19157420f8f.19.1780937763520;
- Mon, 08 Jun 2026 09:56:03 -0700 (PDT)
-Date: Mon,  8 Jun 2026 16:55:49 +0000
-In-Reply-To: <20260608165549.1479409-1-sebastianene@google.com>
-Mime-Version: 1.0
-References: <20260608165549.1479409-1-sebastianene@google.com>
-X-Mailer: git-send-email 2.54.0.1064.gd145956f57-goog
-Message-ID: <20260608165549.1479409-8-sebastianene@google.com>
-Subject: [PATCH v2 7/7] KVM: arm64: Support FFA_NOTIFICATION_INFO_GET in host handler
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
-	will@kernel.org
-Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	android-kvm@google.com, mrigendra.chaubey@gmail.com, perlarsen@google.com, 
-	sebastianene@google.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
-	yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1780937810; x=1781542610;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YpwJ9v/AiXpP4VJQJr26kjpknRLuUcx7eSaLf7M6YkA=;
+        b=nAhEith8t28NN6bB1QPeOlL/am+4uuTJF9OSySnEmEZu+GIkMFlFJEEOjkuAfqxRm6
+         8CqBrF+Ov3Vp+mmGSy4+sHQEPIUZL5gVUNweGaF1F+Hoac8jNxvZYbDoZSNeJCR8/4lM
+         pmWKXLDpggpraXYb4NPxpYeBoSNm+Q5vnNMBQw9X4IbonWGGclZ6MkQTp1RJlo4dtaWQ
+         gCmuA56gVMqlaSbdyn+nTE4tr895hQ7WIdpCDg6IUoSQLee1VMMQIgxOopwLI7wlaMs5
+         tBVanZFISi5Tod6RjRqMb9gurVBjkwY336rekGb1oVFhXglfxfWf9fqwJONiC1EyHITW
+         LViQ==
+X-Gm-Message-State: AOJu0Yy0MzTsAWo1lL81CmYzuZMtV6Hag3YOFwZx9GO8D3uEFNVZFKsz
+	0xHkeWwP7KICLVYLofhA3Flkim6zgcjwhUF48phN2XO7k+yXGsConMpY
+X-Gm-Gg: Acq92OEozeMEFXgSuuGLPT4iDqf2ElpnAtsK8y8eslrama+sBUwUcYyLqTjKkCTkOMj
+	zIJsbB//rL2YvGZ809CINwRYt1lFCOqCLRFRAJDXyGrpqKzCJ1j8TRBiOI6PGKWF3KtlPLuZSMJ
+	B3Brd3qYXKq/yiZ1Cy2Q6HGmH6X2EErPVNhbz+ZBmRz5HLA3102Fyw7K2Onl6WhfZ81RTWRM2mF
+	k5Dz5ryrCbuRjnnFVR8irUqrG/wbzp9MAb1b8rlTHGiDhK3r9ZwA+vuzLqOynY3rovVAhHnakzF
+	IQYA2BbgZpQ84dUBcQOoSMM0L2PCTh/RO9HHlpDWU6A9fo0rNFiZNnzZH/OR8zDLMkrmM4yQz1b
+	aR+dlX4RWu3xK6tPzU3xAJ/onGW5rV+1gf0Bk5JupKXiepESM3SYe9Inq/1IzObGi+Juvoqz1Jm
+	MH+WKKzTEjxWUFPLvm3vzHReWPRBOffs7m0mYhCGH0GvZoX0TISxa1rDJABNnL83ErSCnXVCkvx
+	4w=
+X-Received: by 2002:a05:7300:7488:b0:304:e566:e000 with SMTP id 5a478bee46e88-3077b2db403mr9281297eec.31.1780937810237;
+        Mon, 08 Jun 2026 09:56:50 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:355d:c69b:fe36:8969])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3074df3b234sm22816203eec.23.2026.06.08.09.56.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 09:56:49 -0700 (PDT)
+Date: Mon, 8 Jun 2026 09:56:46 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
+	linux-serial@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+	Linus Walleij <linusw@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Steven Rostedt <rostedt@goodmis.org>, Thomas Weissschuh <thomas.weissschuh@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH] ARM: footbridge: convert to sparse IRQs
+Message-ID: <aibz3auoiq4CFa9l@google.com>
+References: <20260510052107.555825-1-enelsonmoore@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260510052107.555825-1-enelsonmoore@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_095605_780963_33EDB901 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260608_095651_562872_2C38320A 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,59 +103,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the host to query the FF-A notifiction status and proxy the info
-get message to Trustzone. Make sure that the SBZ fields are enforced.
+Hi Ethan,
 
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 19 +++++++++++++++++--
- 1 file changed, 17 insertions(+), 2 deletions(-)
+On Sat, May 09, 2026 at 10:20:49PM -0700, Ethan Nelson-Moore wrote:
+> diff --git a/drivers/input/serio/i8042-io.h b/drivers/input/serio/i8042-io.h
+> index a8f4b2d70e59..cea72bd888af 100644
+> --- a/drivers/input/serio/i8042-io.h
+> +++ b/drivers/input/serio/i8042-io.h
+> @@ -15,9 +15,9 @@
+>   * IRQs.
+>   */
+>  
+> -#if defined(__arm__)
+> -/* defined in include/asm-arm/arch-xxx/irqs.h */
+> -#include <asm/irq.h>
+> +#ifdef CONFIG_ARCH_FOOTBRIDGE
+> +/* defined in arch/arm/mach-footbridge/include/mach/irqs.h */
+> +#include <mach/irqs.h>
+>  #elif defined(CONFIG_PPC)
+>  extern int of_i8042_kbd_irq;
+>  extern int of_i8042_aux_irq;
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 28b6cb0e14c4..463a845557f9 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -689,8 +689,6 @@ static bool ffa_call_supported(u64 func_id)
- 	case FFA_RXTX_MAP:
- 	case FFA_MEM_DONATE:
- 	case FFA_MEM_RETRIEVE_REQ:
--       /* Optional notification interfaces added in FF-A 1.1 */
--	case FFA_NOTIFICATION_INFO_GET:
- 	/* Optional interfaces added in FF-A 1.2 */
- 	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
- 	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
-@@ -1003,6 +1001,20 @@ static void do_ffa_notif_get(struct arm_smccc_1_2_regs *res,
- 	arm_smccc_1_2_smc(args, res);
- }
- 
-+static void do_ffa_notif_info_get(struct arm_smccc_1_2_regs *res,
-+				  struct kvm_cpu_context *ctxt)
-+{
-+	struct arm_smccc_1_2_regs *args;
-+
-+	if (ffa_check_unused_args_sbz(ctxt, 1)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	args = (void *)&ctxt->regs.regs[0];
-+	arm_smccc_1_2_smc(args, res);
-+}
-+
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
- 	struct arm_smccc_1_2_regs res;
-@@ -1079,6 +1091,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_NOTIFICATION_GET:
- 		do_ffa_notif_get(&res, host_ctxt);
- 		goto out_handled;
-+	case FFA_NOTIFICATION_INFO_GET:
-+		do_ffa_notif_info_get(&res, host_ctxt);
-+		goto out_handled;
- 	}
- 
- 	if (ffa_call_supported(func_id))
+This does not look right. Did you mean to drop inclusion of asm/irq.h
+for all other arms?
+
+Thanks.
+
 -- 
-2.54.0.1064.gd145956f57-goog
-
+Dmitry
 
