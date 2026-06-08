@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF94CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEBD5CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QaxSxNePW62N/aLYNU2ICZZcrY71w9JpJK96h4Ml418=; b=tAXUPGHGLNAbOnJOmBhk5rcgxu
-	BSyVdKCDYTfNtXrwgpObz9eAsKpmjXZHdmuoOPolTY5Q2nNt8YpqVPC2OM3KjeD74UK1GjdrrIiJa
-	T5DBBw9U2FfGFwf2siYtc/FVs2qOj538L1mA/7UkPRru3i8ihfigv5YGHcKG1HJS8hvBQM0d+0AB5
-	oFNQSD6GHA2EbjjWEUn2miuXpdBGeBBUR4GlgRTaKgPcNbu9BM/ZkUbzMb//ZvsMZg/LMnDd+lSRa
-	IHjUxikSC+gW2JTajdAbCyZa/QGAf6IUIUUty+Zks0S32M9y+4ptKdKzn6msgoPT8M/H4patmnooF
-	TcvaHQtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=icMiBGKDzjWCyjcMX0LyKBPzn4jDdScDbFEPljPmY3c=; b=Z3E1O+Ct3shi+UTrZJa7byghfS
+	NlXVUR1ezJ2CoBoU10O4zgdmqyr9HUz+s07flK4xukZ78/hgOrZZ9u/M7qHqnZg2gB1ij0yw5sz3a
+	7HdkCvcnC4y3drCS79E+fQjTmzuQJi2C3YvdPlxKtHoGT6G4PpM4YnRGTjttu+R2huZ1ASNp1tbVN
+	6X0BbQoHz3GSI1jAygfa7n+tTPW+KkF4O4mK52MOeQwZWYCZyWdf4d3NQ9W6UsCKvyI3oQMI93wD/
+	cLvO0JcAtTzYX12GK5cggf8aYcFRSeccX9+k7wocs+lYjS6huNbA1jmYdM/b9sDy8xyFIrFF7Oqpw
+	hcBX/i5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVDM-000000034oT-3Nx9;
-	Mon, 08 Jun 2026 08:20:08 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wWVMS-000000035Yp-23T5;
+	Mon, 08 Jun 2026 08:29:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVDK-000000034nZ-3Mm4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:20:08 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c0c1e0d00bso39676765ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 01:20:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780906805; x=1781511605; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QaxSxNePW62N/aLYNU2ICZZcrY71w9JpJK96h4Ml418=;
-        b=MHTrOFBmduug7t3BDOPTZc0KHvhUDX4QzLG6lGz3VPaGJLMjzUHgCirVGeo+Zf+2AT
-         01WdIV8yg7ZNjVPCQZY+WIXUEDP1iYiwNO9a/9Lf/X0HhJkxybsNuTOibv9j7JGC7Rm3
-         32q9h3G6hW6ThGGZBXRNk0r0iBJ+ro3TJv5hN8/GoxuKA1CFIt0E7Rjar1E4GEd427lx
-         9/0AUtOVME2LOpxtGb5/qbQndtL46O8FjbaTprQbbZJYWLKw26G59dp30uRDbJf0HGAo
-         fZks9IqjGbcDe8cTvQa4s3ag5MYCA2H8yYWnfKzMjb4uu6dWcDA+KOA0O9Z4cV3rUYXT
-         T4Ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780906805; x=1781511605;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QaxSxNePW62N/aLYNU2ICZZcrY71w9JpJK96h4Ml418=;
-        b=FAKzFKTPGldnO10x2MUOf4aV2w5qKHMcRbd/J1l40Ef54RR4yXNIUudLVSaFR1d3JJ
-         Ge53CTAphClrzCl2o4m6jotf+9ZWkWmbmWATql4aeArbRTSL59/IOcF0IYZs2XtYBLlk
-         tdwKVFbkijBSSVhm3yLG5iYuk9FRM439UBvmxMLqxhwXDd9wsUmMYn1Gyopg74WCKSb8
-         BwofKvD5GtcHy1loTESmsjnfpMeJOdXIWGeGunJq+rOOOsboxsRi2YMglHSsUE4gUP0l
-         Cmitu3KG3mrrxDNeNmAlWimrYD+nJjIgpfmmB7CDz+XyoioTif5CXfeNYoq9hyxnOVP6
-         eiqQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+QjuIPSpFu//STRWvDwvk72FVhDYzkH+XKB1j81GViLKqDOkxmkBlb1SX3NBug0di1FxVO2VWX94fIxrUWjNn3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRNVx+VeQ5g3ziCFIw7ylyMoBhLVwzEpCrI2T3UD9dY33ZWRA3
-	K1zyve9PRRye3tkELesWYMoDfyvam4mIG0ikpFhtCMfYRCoN9bImhJGX
-X-Gm-Gg: Acq92OGhp9P47bMCwC7Qqx9JzyycE5HeSW5aFTGeSUCRqTvnq5D89uCD5zyVcpW/SsS
-	tOrl9m165Na6EH+MJ+bRiqf0iuq63U9UTR/DSn75Zs3k9xozojqAzaIkW1sNMckigzL/+1rHl/m
-	hB3ggNz1rmqM1ioI3Vu8L4YMkNxnk7XxI5WQhecCOWg6hFPkXkYe+MItJHkgejfwfhs2ldn6qRf
-	xjiez1Q35u3cfpY88rNr+ANGtIOsn/n6qocxqwcYm3S+PbEZlLplmM46g/oaFApqz8orjfIJDV6
-	HgXOsNvnkyKbQqDTYny0g5Tsii5ugv1XrsFeSEn1/24Wnhrt3c7WYFhB85RpZN7hEqsAXr7M52B
-	qXK1U/sjce0M9QrGBbHZ+mzuL0ycKixrHTiO0JL0ScTnG5jYOjozrnvni2S2hO5KBQ7VkMQAphz
-	9BMOAHFrA34cW4Yen+fnTTDgtRXHNZqdy/g9ezAW+eKRhla+xMYYPE
-X-Received: by 2002:a17:903:3c48:b0:2c0:eee2:fc40 with SMTP id d9443c01a7336-2c1e80cede0mr162261145ad.3.1780906804922;
-        Mon, 08 Jun 2026 01:20:04 -0700 (PDT)
-Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:9a2:954d:67fe:d9c2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164fa3a5fsm183050945ad.36.2026.06.08.01.20.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 01:20:04 -0700 (PDT)
-From: Ruoyu Wang <ruoyuw560@gmail.com>
-To: Neal Liu <neal_liu@aspeedtech.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-aspeed@lists.ozlabs.org,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ruoyu Wang <ruoyuw560@gmail.com>
-Subject: [PATCH] usb: gadget: aspeed_udc: check endpoint DMA allocation
-Date: Mon,  8 Jun 2026 16:19:48 +0800
-Message-ID: <20260608081948.3-1-ruoyuw560@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	id 1wWVMR-000000035YW-3vxI;
+	Mon, 08 Jun 2026 08:29:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C5ED6001D;
+	Mon,  8 Jun 2026 08:29:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B4E1F00893;
+	Mon,  8 Jun 2026 08:29:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780907370;
+	bh=icMiBGKDzjWCyjcMX0LyKBPzn4jDdScDbFEPljPmY3c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jN3QtXTZr//HwrqBb09/0XT8XOhkeCfqb2DRYVXHdScx3yf9AsLB9fjgTqebcIwd4
+	 BfME+lJ1kYJFULumDINdDGr6ENZ7MUQ7UO2q6SGY7+hfzIYXCV41y5uD0BJUyesfy3
+	 2CfnfHV3kxT4ohmBkcxMYwN5glPawxoDTA/x3z86vfPQyhcZBsRPq8zxKyK0K8a0IV
+	 LkolPxtL//k1wZfQPyHNBOIsvLOHCaaZO/ividOF2t/7AFbsVNgFmDCXiiSuGS6bcK
+	 iKJqYk9l+e1jy3ATN/ixwihpqc6tt3is96YjebS8tsIKaN1glxGribl++n8AXKzkG/
+	 ScqL7Uf1HVOgg==
+Date: Mon, 8 Jun 2026 10:29:28 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: simplify WAN device check in
+ airoha_dev_init()
+Message-ID: <aiZ9aLsfc89dq9v8@lore-desk>
+References: <20260606-airoha-eth-simplify-dev-init-v1-1-f08f8e404049@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_012006_845927_3A391374 
-X-CRM114-Status: GOOD (  17.35  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vQUe/Ioj7I3PszYE"
+Content-Disposition: inline
+In-Reply-To: <20260606-airoha-eth-simplify-dev-init-v1-1-f08f8e404049@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,151 +72,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ast_udc_probe() allocates a coherent DMA buffer used as the backing store
-for endpoint buffers. ast_udc_init_ep() derives per-endpoint buffer
-pointers from udc->ep0_buf, so a failed allocation is dereferenced during
-probe.
 
-Check the allocation before endpoint setup. The existing probe error path
-called ast_udc_remove(), which unregisters the gadget unconditionally and
-is not safe before usb_add_gadget_udc() succeeds. Add a local cleanup
-helper for probe failures so pre-registration failures only unwind the
-resources that were actually initialized.
+--vQUe/Ioj7I3PszYE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This was found by a local static analysis checker for unchecked allocator
-returns while scanning Linux 6.16. The change was checked by applying it
-to current mainline and by running checkpatch. I do not have access to
-Aspeed UDC hardware, so no runtime testing was performed.
+> airoha_register_gdm_devices() iterates eth->ports[] in order, so GDM2's
+> netdev is always registered before GDM3/GDM4. This means the explicit
+> check for eth->ports[1] && eth->ports[1]->devs[0] is a redundant
+> special-case of what airoha_get_wan_gdm_dev() already covers, since
+> GDM2 is always marked as WAN during its own ndo_init.
+> Remove the redundant check and rely solely on airoha_get_wan_gdm_dev()
+> which handles both the GDM2-present and GDM2-absent cases.
+>=20
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Fixes: 055276c13205 ("usb: gadget: add Aspeed ast2600 udc driver")
-Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
----
-Note: a 2022 patch attempted to add only a NULL check for this
-allocation:
-https://lore.kernel.org/all/20221213025120.23149-1-jiasheng@iscas.ac.cn/
+Please drop this patch since I need to modify it to address Andrew's request
+about LAN/WAN configuration.
 
-This version also fixes the probe unwind path so the clock is disabled
-on allocation failure and usb_del_gadget_udc() is not called before the
-gadget has been registered.
+Regards,
+Lorenzo
 
-diff --git a/drivers/usb/gadget/udc/aspeed_udc.c b/drivers/usb/gadget/udc/aspeed_udc.c
-index 7fc6696b7..809a7d5b7 100644
---- a/drivers/usb/gadget/udc/aspeed_udc.c
-+++ b/drivers/usb/gadget/udc/aspeed_udc.c
-@@ -1434,11 +1434,34 @@ static void ast_udc_init_hw(struct ast_udc_dev *udc)
- 	ast_udc_write(udc, 0, AST_UDC_EP0_CTRL);
- }
- 
-+static void ast_udc_cleanup(struct platform_device *pdev)
-+{
-+	struct ast_udc_dev *udc = platform_get_drvdata(pdev);
-+	unsigned long flags;
-+	u32 ctrl;
-+
-+	spin_lock_irqsave(&udc->lock, flags);
-+
-+	/* Disable upstream port connection */
-+	ctrl = ast_udc_read(udc, AST_UDC_FUNC_CTRL) & ~USB_UPSTREAM_EN;
-+	ast_udc_write(udc, ctrl, AST_UDC_FUNC_CTRL);
-+
-+	clk_disable_unprepare(udc->clk);
-+
-+	spin_unlock_irqrestore(&udc->lock, flags);
-+
-+	if (udc->ep0_buf)
-+		dma_free_coherent(&pdev->dev,
-+				  AST_UDC_EP_DMA_SIZE * AST_UDC_NUM_ENDPOINTS,
-+				  udc->ep0_buf,
-+				  udc->ep0_buf_dma);
-+
-+	udc->ep0_buf = NULL;
-+}
-+
- static void ast_udc_remove(struct platform_device *pdev)
- {
- 	struct ast_udc_dev *udc = platform_get_drvdata(pdev);
--	unsigned long flags;
--	u32 ctrl;
- 
- 	usb_del_gadget_udc(&udc->gadget);
- 	if (udc->driver) {
-@@ -1453,23 +1476,7 @@ static void ast_udc_remove(struct platform_device *pdev)
- 		return;
- 	}
- 
--	spin_lock_irqsave(&udc->lock, flags);
--
--	/* Disable upstream port connection */
--	ctrl = ast_udc_read(udc, AST_UDC_FUNC_CTRL) & ~USB_UPSTREAM_EN;
--	ast_udc_write(udc, ctrl, AST_UDC_FUNC_CTRL);
--
--	clk_disable_unprepare(udc->clk);
--
--	spin_unlock_irqrestore(&udc->lock, flags);
--
--	if (udc->ep0_buf)
--		dma_free_coherent(&pdev->dev,
--				  AST_UDC_EP_DMA_SIZE * AST_UDC_NUM_ENDPOINTS,
--				  udc->ep0_buf,
--				  udc->ep0_buf_dma);
--
--	udc->ep0_buf = NULL;
-+	ast_udc_cleanup(pdev);
- }
- 
- static int ast_udc_probe(struct platform_device *pdev)
-@@ -1523,6 +1530,10 @@ static int ast_udc_probe(struct platform_device *pdev)
- 					  AST_UDC_EP_DMA_SIZE *
- 					  AST_UDC_NUM_ENDPOINTS,
- 					  &udc->ep0_buf_dma, GFP_KERNEL);
-+	if (!udc->ep0_buf) {
-+		rc = -ENOMEM;
-+		goto err_disable_clk;
-+	}
- 
- 	udc->gadget.speed = USB_SPEED_UNKNOWN;
- 	udc->gadget.max_speed = USB_SPEED_HIGH;
-@@ -1553,20 +1564,20 @@ static int ast_udc_probe(struct platform_device *pdev)
- 	udc->irq = platform_get_irq(pdev, 0);
- 	if (udc->irq < 0) {
- 		rc = udc->irq;
--		goto err;
-+		goto err_cleanup;
- 	}
- 
- 	rc = devm_request_irq(&pdev->dev, udc->irq, ast_udc_isr, 0,
- 			      KBUILD_MODNAME, udc);
- 	if (rc) {
- 		dev_err(&pdev->dev, "Failed to request interrupt\n");
--		goto err;
-+		goto err_cleanup;
- 	}
- 
- 	rc = usb_add_gadget_udc(&pdev->dev, &udc->gadget);
- 	if (rc) {
- 		dev_err(&pdev->dev, "Failed to add gadget udc\n");
--		goto err;
-+		goto err_cleanup;
- 	}
- 
- 	dev_info(&pdev->dev, "Initialized udc in USB%s mode\n",
-@@ -1574,9 +1585,14 @@ static int ast_udc_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
-+err_disable_clk:
-+	clk_disable_unprepare(udc->clk);
-+	goto err;
-+err_cleanup:
-+	ast_udc_cleanup(pdev);
-+	goto err;
- err:
- 	dev_err(&pdev->dev, "Failed to udc probe, rc:0x%x\n", rc);
--	ast_udc_remove(pdev);
- 
- 	return rc;
- }
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 12 ++----------
+>  1 file changed, 2 insertions(+), 10 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 5a8e84fa9918..b333a7b309c2 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2004,18 +2004,10 @@ static int airoha_dev_init(struct net_device *net=
+dev)
+> =20
+>  	switch (port->id) {
+>  	case AIROHA_GDM3_IDX:
+> -	case AIROHA_GDM4_IDX: {
+> -		struct airoha_eth *eth =3D dev->eth;
+> -
+> -		/* GDM2 supports a single net_device */
+> -		if (eth->ports[1] && eth->ports[1]->devs[0])
+> -			break;
+> -
+> -		if (airoha_get_wan_gdm_dev(eth))
+> +	case AIROHA_GDM4_IDX:
+> +		if (airoha_get_wan_gdm_dev(dev->eth))
+>  			break;
+> -
+>  		fallthrough;
+> -	}
+>  	case AIROHA_GDM2_IDX:
+>  		/* GDM2 is always used as wan */
+>  		dev->flags |=3D AIROHA_PRIV_F_WAN;
+>=20
+> ---
+> base-commit: 903db046d5579bef0ea699eae4b279dd6455fc9f
+> change-id: 20260606-airoha-eth-simplify-dev-init-5d53c7cc004e
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
 
--- 
-2.51.0
+--vQUe/Ioj7I3PszYE
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiZ9aAAKCRA6cBh0uS2t
+rLcTAQCcIV8FMOBnL1whdLBuVU/v0KCYnQDJSmNx5YwbJvD7HgD9H5QXgRBA6qhL
+yVJtngNaDdKxUD5cs6169k2izhlukQs=
+=EWZk
+-----END PGP SIGNATURE-----
+
+--vQUe/Ioj7I3PszYE--
 
