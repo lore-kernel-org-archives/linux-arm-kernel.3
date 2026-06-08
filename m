@@ -4,72 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8AECD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06F0CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owPp2WTGol85f4Xo6sbmSK2j2EOjrf4lzpS/gogNVkA=; b=A8a3Gl4sakptVDoOxUpFs5A+XW
-	73GvuvQ2HotXljOR37BWStHxguxOAiAfkMefIXMiGWUUZ0VlwgJfc/o0ZJv5QDsYYguIkvcaE60tk
-	uAvBK+9tvQ2kL8pVIqeE08GcC5VlqS6pp7aQnezvs2GxqyF5DQNPNH3ir3BScG9RtFjJLS53O715b
-	Xj6fQDYbeHQCuveqP0Vjag++i8YZIdiFyZ4Px9K+O4lt/N2yq/eG12EAWJ4SOV7pzV4eNcTSXkdS/
-	2fcdgAOttZ+gBmQIPjI8+6ckAyNnKsXPwnzMYvGMHPbM8Qy+ystpB8lYuonFkz6U+/2Ua4hWz+FzE
-	CBygJiLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QhilvN5aSWTGwC57M5NdEtZmpsttzMJLF7Z7dKXPBic=; b=Xos1RlMh5/FpACOBiOGS/H+HLb
+	K8xVlB9vFcKhTguXvA4dhqmksBbDurWtKP6nTcnv57cYneOSIeEmntTGup9BRI2Q7tyIKAR7uGq6d
+	oQXkXl2l7bxqTW5X08M0NbOUrDMbwwaYq+VL9vVsDCA6ftEj+jjOH0h4BnBa1hyQTZrZi7S0cVvtm
+	n0bBR+53HuoNziUczI01BxC8vumYcqEZKW+sUOZlUJP6O61F7z7hZ0NvlpXBsJf1XzHeR0J9JvOkW
+	eCiQkG2GiNjPcoQHlw0/PIhGZN/AM9Kh5DrsnZkk8/38Pax/ur2msJJTzan3Mg+fDAXrBT9GGKYy6
+	80XWDMCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVgK-00000003759-3udi;
-	Mon, 08 Jun 2026 08:50:04 +0000
+	id 1wWVjc-000000037Q9-36dP;
+	Mon, 08 Jun 2026 08:53:28 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVgJ-00000003751-32To
+	id 1wWVjb-000000037Pz-3D7U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:50:03 +0000
+	Mon, 08 Jun 2026 08:53:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3024C601F8
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:50:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA2A41F00893
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:50:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2291D6001D;
+	Mon,  8 Jun 2026 08:53:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA7821F00893;
+	Mon,  8 Jun 2026 08:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780908602;
-	bh=owPp2WTGol85f4Xo6sbmSK2j2EOjrf4lzpS/gogNVkA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Mk+r112R6sszN5YTqTH3Ugpd9RebRKAb9jFZLY/zk2+IYDRoGs5z40dS/YOOIcCBe
-	 V1+KgJQO3cMLKL7L68oGNgIqUuLbEhY9/vbpBzJ6/j1v+Zarl51y/vyyoXXFvEKIrH
-	 DsYoKpnf35Y0c2gR2l0XJou1SPoolLFXIX/QC8cCQgp4KYq1X2+c+Z1d3a7lR1ZeBz
-	 yoty67iwkec7m8yuhgs/1uo0b2ThCbpHfMJE9NDVQheFwEqYOWrRl7pzDvKLOJ3Sar
-	 lt1ET6ATb6vHfYBcnQaXcH2C6/M5j7hzH81Fygev1FaM1PXNENrLjF/oPW5pgXIfPA
-	 wGOnFgDdie07A==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3965eab14cfso29964211fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 01:50:02 -0700 (PDT)
-X-Gm-Message-State: AOJu0YzlgVIAdztit3HB1y+RUNRNB56up8+xnzmXOKZq2Z59hLb67qai
-	pX0sqPb6oARQcIm4BqAmyjeZ4JZncSyXqLaXmJKfzUBzRObJEO8AlwPfjUAVahjCb+qOECfdQmS
-	GGoyM/1n0kn6bq1wpYWiaWw0pQWMq/eI=
-X-Received: by 2002:a05:651c:2128:b0:396:73ed:695d with SMTP id
- 38308e7fff4ca-396d0836ea3mr43576871fa.11.1780908601609; Mon, 08 Jun 2026
- 01:50:01 -0700 (PDT)
+	s=k20260515; t=1780908806;
+	bh=QhilvN5aSWTGwC57M5NdEtZmpsttzMJLF7Z7dKXPBic=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=VVKylabzMp3qTG1Y8XpYVm2td1ZJAiNomj2Dsel3X6DlStYttHKw6UziREvzu6bvE
+	 qeTsW+6f5YjsIdtXMybXSWiJUMBzhBzid2B0KwytadnWTrnPmVkRVpnzZXn5rCSj6z
+	 +2F/nf1YIDde22M+boo8HcElj18/w33+swdiixEwKVdUfrpfTs31gip6NZLQIxoRw9
+	 wY0NMamP5C5iWi0IXDxyxvB93QoQKp4GXDCxRB2crVs/NkaQm3JZvzT8Qec1NPel9D
+	 jyw4HritvyVZFaC8AdWv/C8M5QM9xpog4nTUrxEqyjTn/oFABVn6amVkQuABfoJG01
+	 JmhbKeRG1ndrg==
+Content-Type: multipart/mixed; boundary="===============1553892507643223952=="
 MIME-Version: 1.0
-References: <20260510052107.555825-1-enelsonmoore@gmail.com>
-In-Reply-To: <20260510052107.555825-1-enelsonmoore@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 8 Jun 2026 10:49:49 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmUW4KjxEjwv7_an_dEMTSOtvG=q2MjhqKvnuGrWaaCsQ@mail.gmail.com>
-X-Gm-Features: AVVi8Cey8G22PfktZkGwHwtR7mCZO1YUzasXgiZ-WMqXRZAcQy-0NUYhP4onn0k
-Message-ID: <CAD++jLmUW4KjxEjwv7_an_dEMTSOtvG=q2MjhqKvnuGrWaaCsQ@mail.gmail.com>
-Subject: Re: [PATCH] ARM: footbridge: convert to sparse IRQs
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
-	linux-serial@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
-	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Steven Rostedt <rostedt@goodmis.org>, Thomas Weissschuh <thomas.weissschuh@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Message-Id: <7d2189443a0181a123e53e5ea93f3a905b1cb4d71d5d6bdfa27a77ed4be65448@mail.kernel.org>
+In-Reply-To: <20260608080440.127491-2-ankur.a.arora@oracle.com>
+References: <20260608080440.127491-2-ankur.a.arora@oracle.com>
+Subject: Re: [PATCH v12 01/15] asm-generic: barrier: Add smp_cond_load_relaxed_timeout()
+From: bot+bpf-ci@kernel.org
+To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
+Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@linaro.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,rdunlap@infradead.org,david.laight.linux@gmail.com,broonie@kernel.org,joao.m.martins@oracle.com,boris.ostrovsky@oracle.com,konrad.wilk@oracle.com,ashok.bhat@arm.com,ankur.a.arora@oracle.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Mon,  8 Jun 2026 08:53:25 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +66,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 10, 2026 at 7:21=E2=80=AFAM Ethan Nelson-Moore
-<enelsonmoore@gmail.com> wrote:
+--===============1553892507643223952==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-> To improve future maintainability, change the interrupt handling for
-> mach-footbridge to use sparse IRQs.
->
-> Since the number of possible interrupts is already fixed and relatively
-> small, just make it use all legacy interrupts preallocated using the
-> .nr_irqs field in the machine descriptor, rather than actually
-> allocating domains on the fly.
->
-> Many files had to be adjusted to include <mach/irqs.h>
-> explicitly because it is no longer implicitly included with sparse
-> IRQs.
->
-> Description adapted from commit c78a41fc04f0 ("ARM: s3c24xx: convert
-> to sparse-irq").
->
-> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> index d4f581c1e21d..c56df9513a08 100644
+> --- a/include/asm-generic/barrier.h
+> +++ b/include/asm-generic/barrier.h
+> @@ -273,6 +273,75 @@ do {									\
 
-Have you tested this on real hardware?
-The commit doesn't really say.
+[ ... ]
 
-I might have to dig out my NetWinder to test this.
+> +#ifndef smp_cond_load_relaxed_timeout
+> +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,			\
+> +				      time_expr_ns, timeout_ns)		\
+> +({									\
+> +	typeof(ptr) __PTR = (ptr);					\
+> +	__unqual_scalar_typeof(*(ptr)) VAL;				\
+> +	u32 __count = 0, __spin = SMP_TIMEOUT_POLL_COUNT;		\
+> +	s64 __timeout = (s64)timeout_ns;				\
+> +	s64 __time_now, __time_end = 0;					\
+> +									\
+> +	for (;;) {							\
+> +		VAL = READ_ONCE(*__PTR);				\
+> +		if (cond_expr)						\
+> +			break;						\
+> +		cpu_poll_relax(__PTR, VAL, (u64)__timeout);		\
 
-Yours,
-Linus Walleij
+__timeout is held as a signed s64 but is cast to u64 here.  On the first
+iterations __timeout still holds the raw timeout_ns argument before any
+time-check has run.  If a caller passes a negative or already-expired
+timeout_ns, the (u64) cast turns it into a value close to U64_MAX.
+
+This is harmless while cpu_poll_relax() ignores its timeout argument and
+falls back to cpu_relax().  Would it misbehave on an architecture whose
+cpu_poll_relax() consumes the value, such as an arm64 WFET variant that
+uses it as an event-stream deadline?
+
+David Laight raised this on v11
+(https://lore.kernel.org/lkml/20260508093206.389d9af2@pumpkin/):
+
+  Yes, the code is ok if cpu_poll_relax() ignores the timeout. But for
+  WFE it is all broken. ... if you assume/require that the converted
+  time is either 0 or greater than 200 then it can be used as the
+  initialiser for __n.
+
+The Sashiko bot repeated the same concern as a medium finding on v12.
+The v12 cover note opts to document the valid range rather than clamp at
+runtime, but the code still passes (u64)__timeout unguarded, so would it
+be worth converting timeout_ns into an absolute end-time (or 0 when WFE
+is unused) before it reaches cpu_poll_relax()?
+
+> +		if (++__count < __spin)					\
+> +			continue;					\
+> +		__time_now = (s64)(time_expr_ns);			\
+> +		if (unlikely(__time_end == 0))				\
+> +			__time_end = __time_now + __timeout;		\
+> +		__timeout = __time_end - __time_now;			\
+> +		if (__time_now <= 0 || __timeout <= 0) {		\
+> +			VAL = READ_ONCE(*__PTR);			\
+> +			break;						\
+> +		}							\
+> +		__count = 0;						\
+> +	}								\
+> +	(typeof(*(ptr)))VAL;						\
+> +})
+> +#endif
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/27125050324
+--===============1553892507643223952==--
 
