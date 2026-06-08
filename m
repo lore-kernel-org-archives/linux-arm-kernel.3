@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A374BCD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 21:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FFCCD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 21:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5iNM2oNSuXbhf+0XmfrlArQGwY2yx5spc/F/HyXY+oI=; b=k4xmCzVxVxKinXzbEGugZU7hSG
-	YJFiHIL1ItskG8n3jEU4VJzzZM82iBggIYWw+E7pVo4PVp/PK6e9okLv4fAel4t/fZ0uRLTopwwdi
-	nvZd/gjX3cWFdrr2QWIDE3idk6AZPdSLjQsuPmIjYXMIgARPUVK54UwvVCjodYPUtw1IgDcZ91igm
-	9VByMYrgp2lp7+rZL0pWvlf4/s8DRwc5+gnw1pVw3Ta0QSLiPiKhek4ifYbeijLZ4aDMX9yDEAmbz
-	JZRwQPbUqQJX6awOIkGewFjmQvrEKx//DPdRRFVb2hyJ59ElbjjSwg5W4/Uyk4crI+xZ0IwVQ+V3M
-	qG47yRsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lC1xNdpfThPoEU7AeOqS+ELgjb12wf5EpBZH0iSZt2U=; b=PIgOAI/qcytOia5yoC5YsHDWg5
+	EnVWtABtvJLJW72ydf9Xjxjn1qHJTLozYzQfNg1j5nD3zucN3qckODtPhJEM72qNfD6hRzojyf96A
+	Sji+evQ2OUFhqWh0U4O2AIEuMyy/moeFMNoL2+DDGlcFfHHxY+0g+mO1NjyeEBAE1vVrHskoAa8yq
+	HatEoUyavuJXlckopqAdmEwy8j1n7k4Z/uPl7zyHENcWEbfI5FK+iTuWq2/Byfc2hkN0WJ519nSNo
+	XPjmbDDGNo5McM8Y8H+oTIY92dXVuxo6kpWKLVgRxaKZFUiaGZQLbWD0XcjKdk92qQzYHQwM2oo84
+	H1IzB+/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWhSY-00000004QYS-0qRa;
-	Mon, 08 Jun 2026 21:24:38 +0000
+	id 1wWhwQ-00000004SbH-1m6W;
+	Mon, 08 Jun 2026 21:55:30 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWhSX-00000004QYB-0Ljd;
-	Mon, 08 Jun 2026 21:24:37 +0000
+	id 1wWhwO-00000004Say-3HL6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Jun 2026 21:55:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D34926001D;
-	Mon,  8 Jun 2026 21:24:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09FD91F00893;
-	Mon,  8 Jun 2026 21:24:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CE7D3601D8
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 21:55:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 850F01F0089A
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 21:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780953875;
-	bh=5iNM2oNSuXbhf+0XmfrlArQGwY2yx5spc/F/HyXY+oI=;
-	h=From:Date:Subject:To:Cc;
-	b=SDk+vO2xgUwXGGWtyiI+J91tlK6Gzzltz/c9sj+I6bv3lcZQVVVPnb3XuxDNq7Qtg
-	 JYPJp3m7Wt1N9zqxLSxO5stkcQd7rk8nPM/oqfdoVwsqsxJaKeauAh1t+ScTc/kGqQ
-	 YqCkokyogvSC78opG/3KD4BmEVRfrBxqS/csgipFL8XpJIALVfQFYuJZw54Vvc1lIf
-	 dn4/t6YDyo1E/GnyRonoM7U3CktcpVFtS5ykf/jmfP18ZceIZFE3Z5UT4gFNCybMoJ
-	 zKZNLgdpj9yK7EQd+N07Mcs8OMGOBwGeyrDeIqUjw7AQ2RFgVeWw0TYh09LwMmr/0h
-	 5IJvDkncJtklA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 08 Jun 2026 23:24:15 +0200
-Subject: [PATCH net-next] net: airoha: move get_sport() callback at the
- beginning of airoha_enable_gdm2_loopback()
+	s=k20260515; t=1780955727;
+	bh=lC1xNdpfThPoEU7AeOqS+ELgjb12wf5EpBZH0iSZt2U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=bzSQe99D36YekRvVKmGLFfu3rNXzukdWlW3oMg3HAfj0UNq9D9y7UFyMrAlFD5fLg
+	 e6T7hqbBJBeKoFUyFSrtS1Ml+JGWhhx6qBfvf52NoUYuRZafpMmnuB4qg85hHYdYEu
+	 PeM/Yw7Anpo97bVrdrK7y19npfD3qQQPASXcXm3lCMkdLOWstQnkOihqTlNtHp6hh5
+	 naA5lvqlc/ep1nU7heLQUsf0cA/8dldiaJ15sdsLeqheEN3c11aVCvqEfMDFXuY4bJ
+	 cT+qX4RtWWgVqMFWE+/dkzgcIr3+2l60tE8bc0iAnoMwTuf90q6Arna1hn9JNfqT5G
+	 7Jf10B3J2rq8g==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5aa68d9d4a3so5241921e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 14:55:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+9VqTCs5YeQ74Lu+MqRtSi/xovepEcfHmQk2NH7vlrMKUwbuQ0+T3hvwJEmlQ83GoY1PfBzkwwe5sEw+juqs25@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTLYOSJ5S9z2aVAUrcACagg0V2YD7MbMHUdgP1KirvoD4qWqCz
+	TOWDflksZldKbrGApJZJUbdMBy8kLQxGTDos/lI5qaM4jCAry+mVQ8rfa+6aIgkFpr1bdTwQ6Qg
+	qNaWk5vvb5c+T/7+NB6NU6ID9EYW2zrI=
+X-Received: by 2002:a05:6512:10c3:b0:5aa:6ede:61 with SMTP id
+ 2adb3069b0e04-5aa87b535a3mr5504788e87.18.1780955726290; Mon, 08 Jun 2026
+ 14:55:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260608-airoha_enable_gdm2_loopback-minor-change-v1-1-1787a0f42b31@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NQQqDMBAAvyJ7biAmNJR+pZSwmlWX6kY2IoL49
- 4bS4xxm5oRCylTg2ZygtHPhLBXaWwP9hDKS4VQZnHXBBvswyJonjCTYzRTHtLg457x22H/MwpL
- V/L0hoUfv7y3aADW3Kg18/FYvENqM0LHB+7q+8TWxZoQAAAA=
-X-Change-ID: 20260608-airoha_enable_gdm2_loopback-minor-change-fda3a3351a06
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+References: <20260531162237.5290-1-l.scorcia@gmail.com>
+In-Reply-To: <20260531162237.5290-1-l.scorcia@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 8 Jun 2026 23:55:13 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=g+HBHrisHz5xpCQ19PUAgETg5Aup-TPW=z8OYYbbHDw@mail.gmail.com>
+X-Gm-Features: AVVi8Cdd7dUgCoIF72SNZ_fl1W0Mlc5iGGOTuSyuNj18UF2jvt6wdQnX3ggGyEM
+Message-ID: <CAD++jL=g+HBHrisHz5xpCQ19PUAgETg5Aup-TPW=z8OYYbbHDw@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: mediatek: mt8516: Fix Schmitt trigger register
+ offset of pins 34-39
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Fabien Parent <fparent@baylibre.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,56 +83,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the get_sport() callback invocation at the beginning of
-airoha_enable_gdm2_loopback() routine in order to avoid leaving the
-hardware in a partially configured state if get_sport() fails.
-Previously, get_sport() was called after GDM2 forwarding, loopback,
-channel, length, VIP and IFC registers had already been programmed.
-A failure at that point would return an error leaving GDM2 with
-loopback enabled but WAN port, PPE CPU port and flow control mappings
-not configured.
-Performing the get_sport() lookup before any register write guarantees
-the routine either completes the full configuration sequence or exits
-with no side effects on the hardware.
+On Sun, May 31, 2026 at 6:23=E2=80=AFPM Luca Leonardo Scorcia
+<l.scorcia@gmail.com> wrote:
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+> The correct Schmitt trigger register offset for pins 34-39 is 0xA00.
+>
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Fixes: 264667112ef0 ("pinctrl: mediatek: Add MT8516 Pinctrl driver")
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 5a8e84fa9918..cbc0f4079df0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1905,6 +1905,10 @@ static int airoha_enable_gdm2_loopback(struct airoha_gdm_dev *dev)
- 	u32 val, pse_port, chan;
- 	int i, src_port;
- 
-+	src_port = eth->soc->ops.get_sport(port, dev->nbq);
-+	if (src_port < 0)
-+		return src_port;
-+
- 	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
- 				    FE_PSE_PORT_DROP);
- 	airoha_fe_clear(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
-@@ -1934,10 +1938,6 @@ static int airoha_enable_gdm2_loopback(struct airoha_gdm_dev *dev)
- 	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
- 	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
- 
--	src_port = eth->soc->ops.get_sport(port, dev->nbq);
--	if (src_port < 0)
--		return src_port;
--
- 	airoha_fe_rmw(eth, REG_FE_WAN_PORT,
- 		      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
- 		      FIELD_PREP(WAN0_MASK, src_port));
+Patch applied.
 
----
-base-commit: 903db046d5579bef0ea699eae4b279dd6455fc9f
-change-id: 20260608-airoha_enable_gdm2_loopback-minor-change-fda3a3351a06
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Yours,
+Linus Walleij
 
