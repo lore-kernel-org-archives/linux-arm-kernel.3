@@ -4,99 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF2ECD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 07:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13480CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 07:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJBXqIdMo0uJb9odMwXPl2LzKb3wWNT/icd4kKoMmsw=; b=LNyfFzu+ya0HItx6m9Dc0TI7Yq
-	eUYRIVmDkLDJ5GCrxXGJwUQgzvP6bWUk/zQpru3DB8igi+652hvCmKc1EWtQ62imdDT0WcjR91Xjn
-	clevPXKEfCAoQ7wLZuUsprdPDnbddu7AF7lWj68t2vDUNiC0krVLfko8rgiWbQWrlIzXYj5iuSWRU
-	elaiqGyed2ZBh8SpTfEj4mCEyGR1gX81+Zh3bAIF7b4skpHOkx3IuAO7LWg9f5JGfi5FfWW3l7VmG
-	JfIhDm9Scf5BIb1/4skpP/znxN+AaPSgC2TmdOiMYLp4mEgyBMmSAmSSt5rQY4J3tVyz8j3wpFMOQ
-	91o3Lhkw==;
+	bh=TszHFZ7K4js/ZAFR2FtK66NQPI9cujME4oGOjetByeg=; b=Bdtfp3nS5T/N+SpSN5qwhpdZQf
+	ormkUJrjCXKvytWhJB6r4JiSjArIaOSf0AOd1tLxdcJoGJuYZoXkBMiBa1iFy2r8Ca0H98OlML+0w
+	aqRBOArU/nJxbHQjZhUFqHg4Y43ZfTQw2JmNmov1JjjB2hDuahGHDGeE6uCIxKyOxcxzOTrX8WVEg
+	kBI2YTqld9DFr9b3O49qGRYO1dkXwS1otVcOKmHgN4ydZoCh04XWBEhwnoeqvQNcmiAdS0mw/bF3y
+	PlF1tO0/wKEuBEW2nQZ8kVUOep+CbcCJxVX3y33Cu0xIThjYJCo0BROHk2iq8o134niyz8mMJqt+V
+	y7qVW5nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWU7W-00000002xRj-0tVM;
-	Mon, 08 Jun 2026 07:10:02 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1wWUGx-00000002yE6-0viN;
+	Mon, 08 Jun 2026 07:19:47 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWU7Q-00000002x9p-0Zne;
-	Mon, 08 Jun 2026 07:09:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1780902525;
-	bh=BJBXqIdMo0uJb9odMwXPl2LzKb3wWNT/icd4kKoMmsw=;
-	h=From:To:Subject:Date:Message-Id;
-	b=SD+s+nC3W+DsOCGoU1QcxXW4EWqB6d2JP1f95gV/OOD9gnl4cML8RdrjC/e767VwI
-	 RnEDvavwREQgWBW/bBpZAKvaBkZzQFNsDllV79kA3VWpakr95knryR7a1Qcjgc3X3m
-	 4EwR3mUUeYcIV+DIPODzOdHU0Z/Wulk4rXsyXHEA=
-X-QQ-mid: esmtpsz10t1780902520t711901a3
-X-QQ-Originating-IP: Jz5ZQWmRqpeGhkm7cKGk5fyrmUiArGhysVK7jI09zek=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 08 Jun 2026 15:08:35 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15018740618981124911
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Vinod Koul <vkoul@kernel.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH 4/5] drm/rockchip: cdn-dp: Support handle lane info without extcon
-Date: Mon,  8 Jun 2026 15:08:04 +0800
-Message-Id: <20260608070805.88-5-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260608070805.88-1-kernel@airkyi.com>
-References: <20260608070805.88-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MIAHdi1iQo+z1GmPE0rKtuhunHepKwu2QTXP5QZ7eFdleOfePEgY5NH0
-	QVzvXJg1x0c2a/Gt0jIJlxu6Sgb+4Rb927BifXkNuidf4ABON3de+0rzGt1iWL0FhBxiR8Z
-	WStYOvrkpVIfcmYFuP+1DGa8yauLsRfjcWLrOCD+x6SVThQcOON75tItbIFnWl3OJv1VeCv
-	o/U+ny+tDSkI5U3AHK9tEvkyyQay0ZbMrVopneZaZmYnOAOca1BWXq3WInEcGDw6bYd8clo
-	Z7kdbK4mui3MaJ4nm2JRYwvp1/DPuuhBIMNbGV7GTfE1uxz5EWWCOE7r3GA51pwkkUh5QwU
-	tiRYQSX0Ma+n5iujLMIkFiJUybVgX45M/sA8qcxki/WaUZj5IdLavIQjKrMpWnx3p0sxuDm
-	MEg91cW1yi8SzIsF8vdVNKUTvU4WMpXLzHOjinKUt2XtEkIATFdLfFo24uFmtaP8YL8AZvo
-	kFUOEybLdVfAxhSmmMEQMDJga+8qqianA5yA29Ocke6sV+al31g6GFge93QOGzO99V/5i+b
-	jTM4hA3zRSbUHfT+sqflTYKshrRYk2wBwIW4qwjIFjPkAkZt6NoYM9r7phgqnCDZGUaZ0vx
-	ME4E/xWwYMX93o0wV5t3YV7L534EnJc6LCXCJGg91178zRaQ2TAhPGB4BUV6XJ9GQjrqaOx
-	8TO9c+8/uY5EC7W6vUitDsNIvlZ7tyshnX0L0EQ0ZDBHNFvc1mS9MKZod3/HSPkSjB44K+U
-	bYDVXy9dV3E3vIuSSb7SM98SaoxHqPVJWjqMM5Z1Zl3PkZxyJbICkMqObSaXe4eKPG7VwcO
-	5zD4yGT2ZW0W8VatdkZQofoSpK7ZLI2j6kcmuCqWJhkTj9QtEC6UO/ZbeQhfolSjRdQFCzD
-	3Zu9mGM2g5oVXHi34YZbYO5dMQLCoadhEJdyabTQUuFT/6MPH44WUUQSbCl5CwnxmpsZnuL
-	c7AzXmSZ0VYlBCGZIVCKtzzfugTm1+3C2R8wXrdufxanBNpvyzTPcqDFqkypSGU6vWyrEI1
-	vCVb75bUH0BcuYNQ0kWeykG9Gzw0X+8nibzIqX+pKh7OuWlUy6
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
+	id 1wWUGu-00000002yDb-1nHv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Jun 2026 07:19:45 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6586OrLL2274530
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Jun 2026 07:19:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=TszHFZ7K4js/ZAFR2FtK66NQ
+	PI9cujME4oGOjetByeg=; b=jpcG/D0X2/E/WrFN1uFBDKV/q4WUAZwxEvep5M1J
+	j1BiCdduPfaq02JEUHAzRRGLIAwq7CjazfFRjN+HyM+LAM2dyysoT7hDLqIfAvXz
+	9Nwg5sfFc+41cIR/o+5tI5fRue7n2BZoRBGGIh5VJLcSrlIjAnd39++ucNtF89fP
+	bKfGg8DXlFg8BDDJFMlnFQDFUXh/JXj1VoZYWzUC8f/bcUENSh+7CQoCmrODHd/2
+	YiSkB7eeV7/TuLUszkH9X6BWGlPIN4wX9gb26VtOQ97G5a10pPn7UCuS583WphJE
+	jp469EdWpssWsVebwH5dn3ZN4TXUWvfxF6wbVymaoP7obQ==
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4emcqgx77q-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 07:19:43 +0000 (GMT)
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-96391e58e62so5400047241.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 00:19:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1780903183; x=1781507983; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TszHFZ7K4js/ZAFR2FtK66NQPI9cujME4oGOjetByeg=;
+        b=ee0aLi2woAvTemKuyMIIstClMpPrCu9HLXDfbbW6PebnlgKRuAi5ydudqFquIgDulW
+         ztopmofueKsdmPqtzHQ1+Duh6k9WQ2MvD2uM+qbVInXAD8y80q4gjNaqWnJhyPVbHRx2
+         kIV95Y1TDRthZVgvWa8hTw8CYvyKe1cwXlFaSFz8HhKNV4lnYp1CxQZUHb6LPPYXqTuy
+         1HDNhhFUpD0Zw+PMjagEqDJ6j59csRZkLlJ6N3HnD0dVb2XQCzmbNpkObvWGoLQ3HZqW
+         jAeDjCpnce2Mse3X15rNg+PI98aP3C4sJ2QiKhSnUXOqr9dyIaqF1eAJi0kvb4PLKJn7
+         FbTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780903183; x=1781507983;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TszHFZ7K4js/ZAFR2FtK66NQPI9cujME4oGOjetByeg=;
+        b=GIPFnX+CsmvxIL05/XvSLjK+zuj6SFNgIOJQD0oyvJedvO1naW8Zmc8dgyIQP5eB8e
+         36xFWqDVfelAlcqsmu+asK/ot0ZqEUNfHpEvsopCGKk3uVfNmixT9gtSg7mVnpbvNFSX
+         eHpffyzYe6ZccoIxxYV1dwh6dLzGdqoXZL0DDUh2AJVw3qs1EZg1XnnYtaC+smpC/hhl
+         BSbvZfYksHknbDI41AEzDJPRJR9Cjk3FJ7jxexXaHVoYkOFYIPIWKZQI5W5e3aFNne/8
+         M6ecrnYzKbFhtl7dVKlbsVlQLME8D/dw9B3hw6UOoEMnJ6dEGZGj2QCPjvkZ3Pk6FahU
+         i+tw==
+X-Forwarded-Encrypted: i=1; AFNElJ/jMIIC+mwIzWAe+W9OUpps5KfVp6CP3Mrgz4NfYuynRotWB6gBwGBWke1V/EmItlASbDbxyDFI2kE2rVR4NTJf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzMu5K6GDTG+kGlvcaJGyZcA7uy0yatcUXESWZ1wx051lQM93N
+	8v2oAWloXPYju9AJpwv5uSgPITQ0bFz1iBWBGPrT7Dl9RbGRLZLj03QGQZeZrzw1Izck7QzroV1
+	DtQt7XAHngTuGJGVsxxyScEvvU2Oe10eYO4I9dDUUz96Tu8OI+c0xyGj3YSx7ez6oOiHACKXF2h
+	Mn+A==
+X-Gm-Gg: Acq92OGGnj5D6/xDwYt82mpEg3SQug33x3PwM+H7VsYAjz5gWgK72j6SwrAYkZ3LT8A
+	9N879f+mrHpTXnR3KwORN5QB2l2ScNwHZ2tptnOSlKWThOeFPv93LxhkuEItrJgBAUN4mROKnIJ
+	FREcf06czclhgFHjviGaj/gzLfKJjmjH0upotU7LZYDPYiI2qzaorevKsFlTVtdt/drMW77x01q
+	IfIsqSS0K8JsKA4lP3fP7vl2ZtEWFToQlsPvavBaeky2eKH1hy9rY1T0hrmMNCxzWmxvubC5Sdu
+	Sg9pBWVxEx6S0r5M2hLqQOhIImzpJgXtt/Zc6HaiYhvKQGLw61eMfnKGLcVBRhmDQF60e5zC0ln
+	PhKWubjslPNK/hdwQkjbrXOeLOLxiEf6j5TXDv7uWcbYLuDvYZozW+9XkrPPJFVanjXxrlBJ+A3
+	DwXQ+UUi6hFcPGl8vh8GQvRwxZyas2zGo/icXgRF0hD99FkA==
+X-Received: by 2002:a05:6102:6204:10b0:6cb:b3db:c31c with SMTP id ada2fe7eead31-7001b3c61d6mr2919808137.0.1780903182940;
+        Mon, 08 Jun 2026 00:19:42 -0700 (PDT)
+X-Received: by 2002:a05:6102:6204:10b0:6cb:b3db:c31c with SMTP id ada2fe7eead31-7001b3c61d6mr2919793137.0.1780903182529;
+        Mon, 08 Jun 2026 00:19:42 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aa7b8fbcc7sm3605566e87.23.2026.06.08.00.19.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 00:19:41 -0700 (PDT)
+Date: Mon, 8 Jun 2026 10:19:39 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Nabige Aala <nabige.aala@oss.qualcomm.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: display: msm: qcm2290: Add Shikra
+ MDSS
+Message-ID: <dhtuvm4ejg456jy65kwbejdo2amrg2khaljlmurse4vkjok25p@rd6wd7tp4rwd>
+References: <20260608-shikra-display-v4-0-88a846afdd5d@oss.qualcomm.com>
+ <20260608-shikra-display-v4-1-88a846afdd5d@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260608-shikra-display-v4-1-88a846afdd5d@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=dJGWXuZb c=1 sm=1 tr=0 ts=6a266d0f cx=c_pps
+ a=KB4UBwrhAZV1kjiGHFQexw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8
+ a=h5pAuauRZTFNeIU57NgA:9 a=CjuIK1q_8ugA:10 a=o1xkdb1NAhiiM49bd1HK:22
+X-Proofpoint-GUID: V0vKnMippCqjbF6xeLWt8CdlErgzVezm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA4MDA2NiBTYWx0ZWRfX+wUHW39EfL+a
+ EHgGoo6C6XVRJUI25ZcPdfKVbVO0OwnWSjYgxeRUZIy4G0iUOztoQbuuRxDj9AehUanq62s0Ro7
+ lkbYGCRSL433QkWlLBbK4qNft+lapvi/kMSY7Hlq/7FTDmWaP1CoqVin0snGmyGRyluj6s08h5Q
+ 4s0g6xX2jszmxtM3q57ngTmafBec9HMM0oiTEuW9T70/qt3xeMFcoyjbjitL3LBTwNHN1mwq7ap
+ yy9B9TrhXRntpSN21uBy6Sh+aA6/b3BwXFKvEM0pLPDyoTpCwWWZ0FIXsST2ZtzV9n0W1pTKiN4
+ Wcaldra1aEcLPo/s9BCvJth64Gkjg4EGeSaS1Mmb9X0D1D+a1TF/Orva1AmV17kKdm9rN9J8kin
+ /kQoSzM6nenzIrAiE23YONo+V6ozHs7WGJzrzapY+BS7PjkpWBfiajcJ1Bw6F2/WxSNs0+92HQI
+ 7cTTod5MY3atAYkTdCA==
+X-Proofpoint-ORIG-GUID: V0vKnMippCqjbF6xeLWt8CdlErgzVezm
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-08_02,2026-06-05_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 adultscore=0 phishscore=0
+ clxscore=1015 lowpriorityscore=0 impostorscore=0 suspectscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606080066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_000956_974517_179921B9 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20260608_001944_495592_ABDA9CDB 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,96 +160,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On Mon, Jun 08, 2026 at 12:31:42PM +0530, Nabige Aala wrote:
+> Shikra reuses the same MDSS/DPU 6.5 hardware as QCM2290. Extend
+> the existing qcm2290 bindings to cover Shikra by adding fallback
+> compatible chains for MDSS, DPU and DSI controller nodes rather
+> than introducing a separate binding file.
+> 
+> Signed-off-by: Nabige Aala <nabige.aala@oss.qualcomm.com>
+> ---
+>  .../bindings/display/msm/dsi-controller-main.yaml     |  4 ++++
+>  .../bindings/display/msm/qcom,qcm2290-dpu.yaml        |  6 +++++-
+>  .../bindings/display/msm/qcom,qcm2290-mdss.yaml       | 19 ++++++++++++-------
+>  3 files changed, 21 insertions(+), 8 deletions(-)
+> 
 
-This patch add support for get PHY lane info without help of extcon.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-There is no extcon needed if the Type-C controller is present. In this
-case, the lane info can be get from PHY instead of extcon.
 
-The extcon device should still be supported if Type-C controller is
-not present.
-
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
----
-(no changes since v1)
-
----
- drivers/gpu/drm/rockchip/cdn-dp-core.c | 25 +++++++++++++++++--------
- 1 file changed, 17 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-index 177e30445ee8..9068118859e2 100644
---- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-+++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-@@ -157,6 +157,9 @@ static int cdn_dp_get_port_lanes(struct cdn_dp_port *port)
- 	int dptx;
- 	u8 lanes;
- 
-+	if (!edev)
-+		return phy_get_bus_width(port->phy);
-+
- 	dptx = extcon_get_state(edev, EXTCON_DISP_DP);
- 	if (dptx > 0) {
- 		extcon_get_property(edev, EXTCON_DISP_DP,
-@@ -220,7 +223,7 @@ static bool cdn_dp_check_sink_connection(struct cdn_dp_device *dp)
- 	 * some docks need more time to power up.
- 	 */
- 	while (time_before(jiffies, timeout)) {
--		if (!extcon_get_state(port->extcon, EXTCON_DISP_DP))
-+		if (port->extcon && !extcon_get_state(port->extcon, EXTCON_DISP_DP))
- 			return false;
- 
- 		if (!cdn_dp_get_sink_count(dp, &sink_count))
-@@ -386,11 +389,14 @@ static int cdn_dp_enable_phy(struct cdn_dp_device *dp, struct cdn_dp_port *port)
- 		goto err_power_on;
- 	}
- 
--	ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
--				  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
--	if (ret) {
--		DRM_DEV_ERROR(dp->dev, "get property failed\n");
--		goto err_power_on;
-+	property.intval = 0;
-+	if (port->extcon) {
-+		ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
-+					  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
-+		if (ret) {
-+			DRM_DEV_ERROR(dp->dev, "get property failed\n");
-+			goto err_power_on;
-+		}
- 	}
- 
- 	port->lanes = cdn_dp_get_port_lanes(port);
-@@ -1029,6 +1035,9 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
- 	for (i = 0; i < dp->ports; i++) {
- 		port = dp->port[i];
- 
-+		if (!port->extcon)
-+			continue;
-+
- 		port->event_nb.notifier_call = cdn_dp_pd_event;
- 		ret = devm_extcon_register_notifier(dp->dev, port->extcon,
- 						    EXTCON_DISP_DP,
-@@ -1121,14 +1130,14 @@ static int cdn_dp_probe(struct platform_device *pdev)
- 		    PTR_ERR(phy) == -EPROBE_DEFER)
- 			return -EPROBE_DEFER;
- 
--		if (IS_ERR(extcon) || IS_ERR(phy))
-+		if (IS_ERR(phy) || PTR_ERR(extcon) != -ENODEV)
- 			continue;
- 
- 		port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
- 		if (!port)
- 			return -ENOMEM;
- 
--		port->extcon = extcon;
-+		port->extcon = IS_ERR(extcon) ? NULL : extcon;
- 		port->phy = phy;
- 		port->dp = dp;
- 		port->id = i;
 -- 
-2.54.0
-
+With best wishes
+Dmitry
 
