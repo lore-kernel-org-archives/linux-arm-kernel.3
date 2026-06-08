@@ -4,58 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23EFCD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D65CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ax9etUuCAX8HrI/3FWFKmMvTI5O0tcCo1Lp+JGa4TKg=; b=J21lblo51j3oAE2d7BIHD6B2VS
-	DHXNmFnqUwryTlXB5OE+nrDS+U2xoeJBf+3GqobvnKjc4vAyVM/6egzLtT6LHKE9LjFZ/mfOm90t2
-	nDQv7oJ59HJS1yzCGIADNT8nnK0asG6Jckb/75Gvee03wv4b9tKC0cix5cHusl1eOHE9JqbL9IfNK
-	s1ojRxVlJtlxe4+Tlv4JQzopgbyVal37D7vMgDwc4kEZf6AgtWMIHwUUGd4NuKe8Ce3ayfLvMIkxv
-	6Mc3wX1VSIrd9oDUQqZfky7YHhHqR1cW1nABQ/6zVvvjM6BgVIZhxaOcbHMxOclIGe66CpNH0EgxJ
-	HalYKIbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=czAJKt5uCbtoAWFp9bjWXOYPCLzG0qz/KM//Y5Q2Ius=; b=oCjvsYQlGg4BQdt9g1AMECSso7
+	NMfQoI4kACt9/QHdLG3j0DYVr1uYODI+gbEMfT4QI62ejryaNt3/vhOxu9i42akbyV03a/2H1daCn
+	0gMfK26srZz5CNAKbtYZn3IJG37hXvD/vChnzGqlBXi50+CBZb94JNlK5jvJnh5P+a5k8Ij7hUXEj
+	z3ZYoZ1hjVbYR4D75cz1KElwFJDEGtv1r5MybB9QXfKc//AtF9Yq1pqY/LN1QAkMQW++FMlQLYSl4
+	zxSIoi9XgAO9VnayHsVZqKRJeVDrDNZ7zEjSVB0CZUjXIb12s2BYDfu7Di2EvXtgwK2xxlbaOK/t9
+	KoiN+8jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWZV5-00000003YSb-2YCI;
-	Mon, 08 Jun 2026 12:54:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWZV3-00000003YRT-1KWP
+	id 1wWZZz-00000003Yjl-0kRi;
+	Mon, 08 Jun 2026 12:59:47 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWZZv-00000003YjD-3bab
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 12:54:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D87C42437;
-	Mon,  8 Jun 2026 05:54:32 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5E77F3F632;
-	Mon,  8 Jun 2026 05:54:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780923277; bh=ItgFrqD4IAbzx+96NiJu6bZLdk9dQtwEm2A9ZWut61o=;
-	h=From:To:Cc:Subject:Date:From;
-	b=b7kYu+xb1uxkEDrrx4l7Gpt5MoJRrgn0Z2zx/JFDz9IHnTTz2RnUU07HgfGGeOGgF
-	 vVEiM11xsQz8g/7svphBN7azup6nSwDmGv+fzcCtOIn+0tYFespXdNvvFdIISyDFS9
-	 QPxqwdfwv62cW+O37AD7llghZ9+2jV+ZFgrULvoE=
+	Mon, 08 Jun 2026 12:59:45 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=sixcleEOC/mSGn3iF38C29XEVB30KshOjw3I6J2e1PCeCL9pe4rWtrNC2Q9zmvFGAVOXN6KYs47dXuUJfM1GzctQCOlKMC5+mL4YCKAFrJ7oFNjWC0C/MkVa5KyxAwHGxlCzuoPUKNbvcnhJnvtn+X4F+LTik7zX/+izlM43mvxc9YDWv5SJCc4Va5K8PSi7ke0uoGkeuw5zQy2o/bqJsH56DlEsdO6cxNbBdPx9Ecbagck2Wz6RVyOpd2xJbN8XVqhETdJ8jTCZm9yUDMMo+vSy03gJm3gIkOG+phGWwPBlTzX1qXCpcQTKMdSy3/82gVnYZumkI7FObz79+DJJeA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=czAJKt5uCbtoAWFp9bjWXOYPCLzG0qz/KM//Y5Q2Ius=;
+ b=hIlP7Zuj8nFhLJ2Lsnw0ohYQXvoLupdG1JjNhVFw0wwUvzHRrUh6bLOZ5r93t5aAYZXDIcOHpioPfyzWY6JnoA5Pims1iHA6CVuSt5Xiv3ijCn/8oE2Qw6xUUQipzaseUtTazmx8/C9qKjn6rVHuR5mw/n6+c99OWwsPElJ4YC25BRaTC9IchkmgzyT/MNnqgKGRKSnIVmRjEOO3TXKIIkDaYiBhuiiRh+4RsnH99FxbIituDjIsM3+KexipkLaVSONX2ydF+xpuaza+vJu9KNpnSuV79OnZ+FY2awlgYWYF3tBvkzbErBVv+iqbi1GesCPEadao0PyFWjdmdj0BTQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=czAJKt5uCbtoAWFp9bjWXOYPCLzG0qz/KM//Y5Q2Ius=;
+ b=oiCgokSYjt7zDI8E4cTKJszrrOmbWbEXRSovwEEmMflvyWqafB9QVef8cLsPdx2g32sjib24TyuYx0JjKMEr9tx1Me/YlHbQaGavfIyWDUB91hhkQFYlV+AFqd6cidQKQYp1LYxe+40Io5zFaykA7/AQDFhjSGlqqoWB7Esu3vw=
+Received: from AM9P193CA0016.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:21e::21)
+ by PAWPR08MB11557.eurprd08.prod.outlook.com (2603:10a6:102:511::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
+ 12:59:34 +0000
+Received: from AM4PEPF00027A6A.eurprd04.prod.outlook.com
+ (2603:10a6:20b:21e:cafe::a0) by AM9P193CA0016.outlook.office365.com
+ (2603:10a6:20b:21e::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.13 via Frontend Transport; Mon, 8
+ Jun 2026 12:59:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM4PEPF00027A6A.mail.protection.outlook.com (10.167.16.88) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.7
+ via Frontend Transport; Mon, 8 Jun 2026 12:59:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sOoUUT6r44gTEat1epLeojDqy5/AjMyZJMZtHNIHsVXHvtNMb8++9YFakAO3xgyYVRUeg6L7Xd8ScT9IVYywMAQYWvLhMiGnO/MyTv6YMeyacjcLl1XyW3qmWECxYyX8m8KwaT8/NncqdNK7HFOicPdEQfSM7R2B/CI7Zzx+f1h5Pv7MGZbFzcO8Pd0C6KOujg+FwOR70yERfJMIVNfBCrYxUzKhYgKPTsohkn/Ut8y8O4NUvJF0uLQil81zEqnuaPQrYbnuXziYzTWEoPSx17U+0Dv7TmsGTKhOGTgqJlxqHFS6fC+kKb/8iOElYLMrtOr/JQPGJLAX8MEnVEsnuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=czAJKt5uCbtoAWFp9bjWXOYPCLzG0qz/KM//Y5Q2Ius=;
+ b=lCThMZZ9A0qHdhQbJHdKexok3HDYqXxlq5QSi7T0BWqac5QPMDB58ivyOQrYS/ubtJzDOA//DUQPsVbguYbz5Gi3t2O0OlHHw6r9QDKqXbwK+JDRXbkQcHAM8ylf+YXmoV1eTo97Gf/+vExyjkhrs4EcY49o9QaWfFi0yYBwpgl65DVrPshutTMfK2D+KprqCksGusmw6n0Uyq3B85HS8HEcmSCxjEj1y55BmnlEJkHOEiLfwFt0LYZ5ZSte9MSXC4UZ5BhbwnsptuNeBAtJPT4mngrnZu6tDHlWSAr7GJHf0V8LduW1M1m5ZEFpZajgmtnxx/hsuUh/ix5eHpSiQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=czAJKt5uCbtoAWFp9bjWXOYPCLzG0qz/KM//Y5Q2Ius=;
+ b=oiCgokSYjt7zDI8E4cTKJszrrOmbWbEXRSovwEEmMflvyWqafB9QVef8cLsPdx2g32sjib24TyuYx0JjKMEr9tx1Me/YlHbQaGavfIyWDUB91hhkQFYlV+AFqd6cidQKQYp1LYxe+40Io5zFaykA7/AQDFhjSGlqqoWB7Esu3vw=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAWPR08MB10975.eurprd08.prod.outlook.com (2603:10a6:102:46e::7)
+ by AS2PR08MB8830.eurprd08.prod.outlook.com (2603:10a6:20b:5f3::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Mon, 8 Jun 2026
+ 12:58:24 +0000
+Received: from PAWPR08MB10975.eurprd08.prod.outlook.com
+ ([fe80::3c7a:9a64:14bc:ce15]) by PAWPR08MB10975.eurprd08.prod.outlook.com
+ ([fe80::3c7a:9a64:14bc:ce15%7]) with mapi id 15.21.0092.011; Mon, 8 Jun 2026
+ 12:58:24 +0000
+Message-ID: <06bfebdf-5698-4a60-aade-2b74c796fca3@arm.com>
+Date: Mon, 8 Jun 2026 13:58:23 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
+To: Steven Price <steven.price@arm.com>, Gavin Shan <gshan@redhat.com>,
+ kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-30-steven.price@arm.com>
+ <3359f788-07fa-41a1-9ac7-45c58577c1fa@redhat.com>
+ <cecbd148-5d33-49c8-928f-572f71b3dd69@arm.com>
+ <21abf014-a68c-49b6-a113-4ec59c520a30@arm.com>
+Content-Language: en-US
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: gregkh@linuxfoundation.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	james.clark@linaro.org,
-	leo.yan@linux.dev,
-	mike.leach@arm.com,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [GIT PULL] coresight: Updates for Linux v7.2
-Date: Mon,  8 Jun 2026 13:54:24 +0100
-Message-ID: <20260608125424.283998-1-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+In-Reply-To: <21abf014-a68c-49b6-a113-4ec59c520a30@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PA7P264CA0025.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:2df::12) To PAWPR08MB10975.eurprd08.prod.outlook.com
+ (2603:10a6:102:46e::7)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|AS2PR08MB8830:EE_|AM4PEPF00027A6A:EE_|PAWPR08MB11557:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96c64cce-8234-40fe-aafa-08dec55dca3e
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|6133799003|22082099003|18002099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info-Original: Zl8biRku4jfh7ac5PKgyd71seEIzKcss4DZm0UG9BXqgDtMxwFcWl1uqITUuAxThIRDi8QsB1+A0PqKSbAY+KAPEaVLNN+PlMXxtFy6H8ZUzNP9YqyMU7EZR5PefG3xCKNrCrDE1CI1fTOA8UPSEf8eSSYX8kb26AvvrWR8MnpbN+xOVa1vh+cYSoY+5fDant8uvroMf8tO92J4tkPqV6Ha8oSiSgPkU531LEM4wl21z2pecKvCnngP5xyAA3bPBVWYV4SHi3VPeEw9bGz5qfX8csWsGeWYtu1ZJAP2nC3S3sbk//yd5ET/dxPKosQ0UINQ/CMcaccx31jOclszUMhpM2+jtN3DxOxzMphAmRyuPfRMgUITwQpKBdluFGT/LyCszZ6EOBv3BXGBiZJb7U5xotbXq8+ZgH2PqBBksKczwMBSzN/5D2ixidQi7FkXtgKha+MNFzaJMC1qKKYQt5U4GhJcBl290TFMmWcwFniRaRE1YQN3/5m1hlPfx4XYW6v1r2VexsJLiHuYMCTbNtmAfR3sOjbzlQMJY+k0x60AyBerLnLJJPIPynY2jwoQaYQ/AGfCveoULSF1j+ElNrOB8wSOYeT37lqdAP0GQmwn75ccZpeWec12FOEhdg3IeRuJBHJ0qg+d+1iSkPwU3yRI3TCwTeBTVb4gusayOf/++Z+xzMgSuJVG9rFxp1HmS
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: mQLC4hDPvs9gDjdlHA3U/9LHTv8YbjSqgm/DfhnZIGGIRzNpHRvEkWq/jxVO8N4cIEWsQqPcCXm2XyPp7HrxhiO+1udQXNu4yTrQfm9aAMP0D4jRDzciRzsm8SHm8IaqftP+1IWwGnIid5vsuyk1zVO47Dc2+G7I+uhrk+PcM2lJ2W8BLpAkio5QKqIxyieZ+KJGjrE5M0c1nnz0M5ZbkbIs+RWctRk+q0JNh3UecEl4moBCyo5CjgZw0nVrwdM/sgrfXQ++6K96gjcpNqH5m1vz1gpKhWKFiyTN7u7lP5t6WdiN4RidFeFD7pj90l0ffUuDAgA5woYzXSAljK7Yag==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8830
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A6A.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: c4342021-90eb-477e-424c-08dec55da053
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|14060799003|376014|36860700016|82310400026|35042699022|11063799006|4143699003|56012099006|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: xHB5lG863/DCw4ygkHir7tCsT0nRsnyVox81+GYm17Mc1TZCYlLIwm8jUVTngX92J91LW9JHrNS++ClQaGtG0EfPKrmFGk8jat6QrbeBA0YKUXEPp+955K5Jc7ABKUfRMNa3eeK2Y0JDsySt+Tg0c+b5zvdkB8D1MOFTmeSoUBW+X+YH6+NPW4n3n74Zzp5sgeHhgYdd+ZjXSwDIB71Geh9WTT9gcV7WjT8bj42K7b3Mljib0kJJWsLJ2s5JuvcYVXj1HZbrejsN+cC/H9QVAih1HqLR9zwp3F3IiYUr+6FM48wsOpqsAKm/m9opWEudMrmwxs49ruuab62ZFj4tX8gWY8F/VlmUHz2KaWYL25mDvdoDlD+20/vr08mBAynYB8nTrmuE11t+yOWTP1aqSFkKX7zakgf1CoIQ9eDfNFnsvtkxoVunaZtN+yX++PIpWkW+xvROBBA5fNu0epabA+VckqTalBqCvxoLk57Kkmi6QOq3OD1e9RXLuJfqPfKswJy78ehskW41+qCsfbkUxduVMfUSGyXfQ/aVzpW0qyzeKEwtg9pYuR3ZMCV6tFGEv/Qj017gR0J7Rydk+8fbK9T83vOWVniidRjrK0LNShU8gtBlQzc31OmcYY8MbXHf/4YS8VL0RUkfAKVUgiCHgKBvhhuybPG/6EC9IPPb6LMzFbBa8Ns1k4RuOvXkddDg3SAeroHvUN6rYTv20dxpoJGyGUovzi5vNLpX5f4ArT8=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(14060799003)(376014)(36860700016)(82310400026)(35042699022)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: EXDSwdzcg0PrUx7KiP/dt5g4fNgM03hcIo97yBn7iYUY4OuGSOmEm76hGP/ccfXbQBBvd+dMpLzDAdMcpfsQcoUrxYcT1ZhfTj6aK/BQK+FhID/PyBeZIWvmIgoxLb74PP470wZP63hmomXd+nir3YTeVhTBRJN2YcB/byLVb01ZOEWdpFZQE8XfFL2OJouKm9CzU5qTzMdZcMGcmAJpu4PzcEjAayulsftMY80Wr6eLYt0qcA8Xb0q3oxjbpWRWNUxJiuUdLzRibfTbDtUrXlP4w6olG5yXSJafbsXyV8VZsdMnKqE4EsHs+xIt5P9WmNxmcRUAJsPcm9PDQ7dUZW02Qtd3Tl1ysg20mxKMYUlfLU7aOdCf8vgbQ8kSWK4bH1LPZIjqk8Ed1kljBdmvMo0ibtE5UCoulvQesGsyfE0nvClRrjPZklFSN0vJGP9k
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 12:59:34.7923
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96c64cce-8234-40fe-aafa-08dec55dca3e
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6A.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB11557
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_055441_444069_5912CE95 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20260608_055944_095953_DCE1655B 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,111 +168,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg
+On 08/06/2026 11:56, Steven Price wrote:
+> On 08/06/2026 10:30, Suzuki K Poulose wrote:
+>> On 05/06/2026 07:23, Gavin Shan wrote:
+>>> Hi Steve,
+>>>
+>>> On 5/13/26 11:17 PM, Steven Price wrote:
+>>>> At runtime if the realm guest accesses memory which hasn't yet been
+>>>> mapped then KVM needs to either populate the region or fault the guest.
+>>>>
+>>>> For memory in the lower (protected) region of IPA a fresh page is
+>>>> provided to the RMM which will zero the contents. For memory in the
+>>>> upper (shared) region of IPA, the memory from the memslot is mapped
+>>>> into the realm VM non secure.
+>>>>
+>>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>>> ---
+>>>> Changes since v13:
+>>>>    * Numerous changes due to rebasing.
+>>>>    * Fix addr_range_desc() to encode the correct block size.
+>>>> Changes since v12:
+>>>>    * Switch to RMM v2.0 range based APIs.
+>>>> Changes since v11:
+>>>>    * Adapt to upstream changes.
+>>>> Changes since v10:
+>>>>    * RME->RMI renaming.
+>>>>    * Adapt to upstream gmem changes.
+>>>> Changes since v9:
+>>>>    * Fix call to kvm_stage2_unmap_range() in kvm_free_stage2_pgd() to set
+>>>>      may_block to avoid stall warnings.
+>>>>    * Minor coding style fixes.
+>>>> Changes since v8:
+>>>>    * Propagate the may_block flag.
+>>>>    * Minor comments and coding style changes.
+>>>> Changes since v7:
+>>>>    * Remove redundant WARN_ONs for realm_create_rtt_levels() - it will
+>>>>      internally WARN when necessary.
+>>>> Changes since v6:
+>>>>    * Handle PAGE_SIZE being larger than RMM granule size.
+>>>>    * Some minor renaming following review comments.
+>>>> Changes since v5:
+>>>>    * Reduce use of struct page in preparation for supporting the RMM
+>>>>      having a different page size to the host.
+>>>>    * Handle a race when delegating a page where another CPU has
+>>>> faulted on
+>>>>      a the same page (and already delegated the physical page) but not
+>>>> yet
+>>>>      mapped it. In this case simply return to the guest to either use the
+>>>>      mapping from the other CPU (or refault if the race is lost).
+>>>>    * The changes to populate_par_region() are moved into the previous
+>>>>      patch where they belong.
+>>>> Changes since v4:
+>>>>    * Code cleanup following review feedback.
+>>>>    * Drop the PTE_SHARED bit when creating unprotected page table
+>>>> entries.
+>>>>      This is now set by the RMM and the host has no control of it and the
+>>>>      spec requires the bit to be set to zero.
+>>>> Changes since v2:
+>>>>    * Avoid leaking memory if failing to map it in the realm.
+>>>>    * Correctly mask RTT based on LPA2 flag (see rtt_get_phys()).
+>>>>    * Adapt to changes in previous patches.
+>>>> ---
+>>>>    arch/arm64/include/asm/kvm_emulate.h |   8 ++
+>>>>    arch/arm64/include/asm/kvm_rmi.h     |  12 ++
+>>>>    arch/arm64/kvm/mmu.c                 | 128 ++++++++++++++++----
+>>>>    arch/arm64/kvm/rmi.c                 | 173 +++++++++++++++++++++++++++
+>>>>    4 files changed, 301 insertions(+), 20 deletions(-)
+>>>>
+> 
+> [...]
+> 
+>>>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>>>> index cae29fd3353c..761b38a4071c 100644
+>>>> --- a/arch/arm64/kvm/rmi.c
+>>>> +++ b/arch/arm64/kvm/rmi.c
+>>>> @@ -597,6 +597,179 @@ static int realm_data_map_init(struct kvm *kvm,
+>>>> unsigned long ipa,
+>>>>        return ret;
+>>>>    }
+>>>> +static unsigned long addr_range_desc(unsigned long phys, unsigned
+>>>> long size)
+>>>> +{
+>>>> +    unsigned long out = 0;
+>>>> +
+>>>> +    switch (size) {
+>>>> +    case P4D_SIZE:
+>>>> +        out = 3 | (1 << 2);
+>>>> +        break;
+>>>> +    case PUD_SIZE:
+>>>> +        out = 2 | (1 << 2);
+>>>> +        break;
+>>>> +    case PMD_SIZE:
+>>>> +        out = 1 | (1 << 2);
+>>>> +        break;
+>>>> +    case PAGE_SIZE:
+>>>> +        out = 0 | (1 << 2);
+>>>> +        break;
+>>>> +    default:
+>>>> +        /*
+>>>> +         * Only support mapping at the page level granulatity when
+>>>> +         * it's an unusual length. This should get us back onto a
+>>>> larger
+>>>> +         * block size for the subsequent mappings.
+>>>> +         */
+>>>> +        out = 0 | ((MIN(size >> PAGE_SHIFT, PTRS_PER_PTE - 1)) << 2);
+>>>> +        break;
+>>>> +    }
+>>>> +
+>>>> +    WARN_ON(phys & ~PAGE_MASK);
+>>>> +
+>>>> +    out |= phys & PAGE_MASK;
+>>>> +
+>>>> +    return out;
+>>>> +}
+>>>> +
+>>>> +int realm_map_protected(struct kvm *kvm,
+>>>> +            unsigned long ipa,
+>>>> +            kvm_pfn_t pfn,
+>>>> +            unsigned long map_size,
+>>>> +            struct kvm_mmu_memory_cache *memcache)
+>>>> +{
+>>>> +    struct realm *realm = &kvm->arch.realm;
+>>>> +    phys_addr_t phys = __pfn_to_phys(pfn);
+>>>> +    phys_addr_t base_phys = phys;
+>>>> +    phys_addr_t rd = virt_to_phys(realm->rd);
+>>>> +    unsigned long base_ipa = ipa;
+>>>> +    unsigned long ipa_top = ipa + map_size;
+>>>> +    int ret = 0;
+>>>> +
+>>>> +    if (WARN_ON(!IS_ALIGNED(map_size, PAGE_SIZE) ||
+>>>> +            !IS_ALIGNED(ipa, map_size)))
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    if (rmi_delegate_range(phys, map_size)) {
+>>>> +        /*
+>>>> +         * It's likely we raced with another VCPU on the same
+>>>> +         * fault. Assume the other VCPU has handled the fault
+>>>> +         * and return to the guest.
+>>>> +         */
+>>>> +        return 0;
+>>>> +    }
+>>>> +
+>>>> +    while (ipa < ipa_top) {
+>>>> +        unsigned long flags = RMI_ADDR_TYPE_SINGLE;
+>>>> +        unsigned long range_desc = addr_range_desc(phys, ipa_top -
+>>>> ipa);
+>>>> +        unsigned long out_top;
+>>>> +
+>>>> +        ret = rmi_rtt_data_map(rd, ipa, ipa_top, flags, range_desc,
+>>>> +                       &out_top);
+>>>> +
+>>>> +        if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+>>>> +            /* Create missing RTTs and retry */
+>>>> +            int level = RMI_RETURN_INDEX(ret);
+>>>> +
+>>>> +            WARN_ON(level == KVM_PGTABLE_LAST_LEVEL);
+>>>> +            ret = realm_create_rtt_levels(realm, ipa, level,
+>>>> +                              KVM_PGTABLE_LAST_LEVEL,
+>>>> +                              memcache);
+>>
+>> Could we give the RMM a chance to make use of the Block mappings by
+>> creating the Missing RTTs to the level that may work for the current
+>> range_desc ? i.e., if the range_desc is a 2M block size, we could create
+>> tables upto L2 in the first go and if the RMM still needs RTT, we could
+>> go further down to the KVM_PGTABLE_LAST_LEVEL. I understand this is
+>> kind of an optimisation, so may be we could defer it. (Same applies for
+>> the non_secure map below).
+> 
+> A simple change would be just to create one level at a time like this:
+> 
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index b79b96f7dffb..3f3ade1d3895 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -767,15 +767,15 @@ static int realm_map_protected(struct kvm *kvm,
+>   			/* Create missing RTTs and retry */
+>   			int level = RMI_RETURN_INDEX(ret);
+>   
+> -			WARN_ON(level == KVM_PGTABLE_LAST_LEVEL);
+> +			if (WARN_ON(level >= KVM_PGTABLE_LAST_LEVEL))
+> +				goto err_undelegate;
+>   			ret = realm_create_rtt_levels(realm, ipa, level,
+> -						      KVM_PGTABLE_LAST_LEVEL,
+> +						      level + 1,
+>   						      memcache);
+>   			if (ret)
+>   				goto err_undelegate;
+>   
+> -			ret = rmi_rtt_data_map(rd, ipa, ipa_top, flags,
+> -					       range_desc, &out_top);
+> +			continue;
+>   		}
 
-Please find the updates for CoreSight self hosted tracing subsystem targeting
-Linux v7.2
+That looks good to me.
 
-Kindly pull,
-
+Cheers
 Suzuki
 
----
 
+>   
+>   		if (WARN_ON(ret))
+> 
+> Thanks,
+> Steve
+> 
 
-The following changes since commit 7fd2df204f342fc17d1a0bfcd474b24232fb0f32:
-
-  Linux 7.1-rc2 (2026-05-03 14:21:25 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v7.2
-
-for you to fetch changes up to 98495b5a4d77dd22e106f462b76e1093a55b29a7:
-
-  coresight: ultrasoc-smb: Fix OOB write in smb_sync_perf_buffer() (2026-06-04 09:56:13 +0100)
-
-----------------------------------------------------------------
-coresight: Self-hosted tracing updates for Linux v7.2
-
-Updates for the CoreSight self hosted tracing subsystem includes:
- - Better power management for components based on the CPU PM, including
-   support for components on the trace path for CPUs. Add support for
-   save/restore for TRBE
- - Miscellaneous fixes to the drivers
-   * Fix overflow when the buffer size is > 2GB for tmc-etr
-   * Ultrasoc SMB Perf buffer OOB access
-
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-----------------------------------------------------------------
-James Clark (1):
-      coresight: ete: Always save state on power down
-
-Jie Gan (3):
-      coresight: fix missing error code when trace ID is invalid
-      coresight: Fix source not disabled on idr_alloc_u32 failure
-      coresight: platform: defer connection counter increment until alloc succeeds
-
-Junrui Luo (1):
-      coresight: ultrasoc-smb: Fix OOB write in smb_sync_perf_buffer()
-
-Leo Yan (28):
-      coresight: tmc: Fix overflow when calculating is bigger than 2GiB
-      coresight: etm4x: Correct TRCVMIDCCTLR1 save and restore
-      coresight: Handle helper enable failure properly
-      coresight: Extract device init into coresight_init_device()
-      coresight: Populate CPU ID into coresight_device
-      coresight: Remove .cpu_id() callback from source ops
-      coresight: Take hotplug lock in enable_source_store() for Sysfs mode
-      coresight: perf: Retrieve path and source from event data
-      coresight: Take a reference on csdev
-      coresight: Move per-CPU source pointer to core layer
-      coresight: Take per-CPU source reference during AUX setup
-      coresight: Register CPU PM notifier in core layer
-      coresight: etm4x: Hook CPU PM callbacks
-      coresight: etm4x: Remove redundant checks in PM save and restore
-      coresight: syscfg: Use IRQ-safe spinlock to protect active variables
-      coresight: Disable source helpers in coresight_disable_path()
-      coresight: Control path with range
-      coresight: Use helpers to fetch first and last nodes
-      coresight: Introduce coresight_enable_source() helper
-      coresight: Save active path for system tracers
-      coresight: etm4x: Set active path on target CPU
-      coresight: etm3x: Set active path on target CPU
-      coresight: sysfs: Use source's path pointer for path control
-      coresight: Control path during CPU idle
-      coresight: Add PM callbacks for sink device
-      coresight: sysfs: Increment refcount only for software source
-      coresight: Move CPU hotplug callbacks to core layer
-      coresight: sysfs: Validate CPU online status for per-CPU sources
-
-Runyu Xiao (1):
-      coresight: etb10: restore atomic_t for shared reading state
-
-Yabin Cui (1):
-      coresight: trbe: Save and restore state across CPU low power state
-
-Yingchao Deng (1):
-      coresight: cti: Fix DT filter signals silently ignored
-
- drivers/hwtracing/coresight/coresight-catu.c       |   2 +-
- drivers/hwtracing/coresight/coresight-core.c       | 574 ++++++++++++++++++---
- drivers/hwtracing/coresight/coresight-cti-core.c   |   9 +-
- .../hwtracing/coresight/coresight-cti-platform.c   |   1 +
- drivers/hwtracing/coresight/coresight-etb10.c      |   6 +-
- drivers/hwtracing/coresight/coresight-etm-perf.c   | 289 ++++++-----
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  73 +--
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 216 +++-----
- drivers/hwtracing/coresight/coresight-platform.c   |  12 +-
- drivers/hwtracing/coresight/coresight-priv.h       |   8 +-
- drivers/hwtracing/coresight/coresight-syscfg.c     |  38 +-
- drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
- drivers/hwtracing/coresight/coresight-sysfs.c      | 135 ++---
- drivers/hwtracing/coresight/coresight-tmc-etr.c    |   4 +-
- drivers/hwtracing/coresight/coresight-trbe.c       |  61 ++-
- drivers/hwtracing/coresight/ultrasoc-smb.c         |   1 +
- include/linux/coresight.h                          |  27 +-
- include/linux/cpuhotplug.h                         |   2 +-
- 18 files changed, 939 insertions(+), 521 deletions(-)
 
