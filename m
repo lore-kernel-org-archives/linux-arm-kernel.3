@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDDFCD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32572CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shxmCQvSBBkNie3O/CcwrtLbRce6sySrtFuYPQ8CYKk=; b=ocqufyJxDUiKlQNXYKP3flYDio
-	TfFIg+y1vZxfws3Fz1RfNy4QVAg4iq5aSMRsCXYHhGqLK5HoTVmHraxPfMZqe1UZ90MKGHz6qC07+
-	yhi4yAE3bka334eeY4JwWrwoBvNQAcdsUQW/zCWM5HYouI4kCCQ6cWZvULDfKQMW0T8s/krgL04nx
-	rwlEY62AOOcq2zSVFQi4FDJAXl3nWXers4tVIaA70gpi8RHBfywU35LDPriCzC6B6pHe5Ym45wgAy
-	Z5ZAUW37mj+YlbzyiWBEhC4DgRU4Fsxt8hbWcj6rzVsrmYs2dEMOR3K/5aNCccpBx9l3YO66GgsZb
-	BoiL1AYA==;
+	bh=FQb6bDWfmdaPHwTtE1rATxeYREPUBuPE+e9MX/QLv7U=; b=XLxMTxlQVgr5DTM6xOYpMYkAiN
+	0+sfAUgYH3tIpiCsxJFUnuBsOkaObxL/dbn4rGcze1WoVk0DMLUH91hYKyEuZOoupO7JEcpVE+FZP
+	aOKIGfOL6hQ+3TpWnmB5R7RvRBbtuzA3W4XGQjxMCrIjpwm1QvPANh4RQPVjF6RbRCgIFHqT21Mg2
+	gh6PMFmYpY8jlL3g+QXx/s5JBAwJASGFQO4XKCwMmP6fQQbFUtzKOa68EvCMlrOAk7f2UIHe0Gza1
+	uacnmgRNcNmCuVpejoFOrx3djw3tAli4bUqAMLCOhJpHFmxuCjQqcKhNyS5F91fWeWxt+Z/HazD15
+	MBbutpBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUun-000000031hr-2ado;
-	Mon, 08 Jun 2026 08:00:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWUwA-000000031qt-3LVv;
+	Mon, 08 Jun 2026 08:02:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUul-000000031hi-3sE1
+	id 1wWUw9-000000031qj-1fIp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:00:56 +0000
+	Mon, 08 Jun 2026 08:02:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F1B56001D;
-	Mon,  8 Jun 2026 08:00:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36E251F00893;
-	Mon,  8 Jun 2026 08:00:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 791726001D;
+	Mon,  8 Jun 2026 08:02:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E831F00893;
+	Mon,  8 Jun 2026 08:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780905655;
-	bh=shxmCQvSBBkNie3O/CcwrtLbRce6sySrtFuYPQ8CYKk=;
+	s=k20260515; t=1780905740;
+	bh=FQb6bDWfmdaPHwTtE1rATxeYREPUBuPE+e9MX/QLv7U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RQOMOgPzEjoT70pPB5OMCCJi0hMd9T/OIYgzJ4wRIaMkJslVqmxoeFc2FLbXXl1wd
-	 zLhK55oHz5jto8g56BT3Wv29Fce7c7CxLGc2z0yOitcB5yKjy52UIfTbYGpwQngChf
-	 DCaa+P8O2fIzraUcsg9bxTByaU3j5zFeVlQAIOHK2VBmIgV5iJf96mGX2r5g4Byrxj
-	 Fbcm/tO+8z0/4C0fm0f+/WyjurR7I92iIuzO6l7Ng0D6XvJCHwNvapf4EXB5LI6kTG
-	 CSSnLT+Mce9d/u5j87dXp62lnA8Uj8cNlC5fRmoHW+oTFL1B1zv987rqe/8bBTbPz6
-	 YAEVkyPepQUhA==
-Date: Mon, 8 Jun 2026 10:00:51 +0200
+	b=QxafCn2zVadEMA2cQMxBU+mcAITO4xYSagCccGUk0EAoDIXUdM21Y6TuGrl5HttOo
+	 LloRY2bu2pPdx3pdHc258nCMAQ6aXX3drcbO3WIKwXMNTOLTWTHdluO84LXO44LWDT
+	 6zi4dwWEYnSSqwtiaeuCfpGfj728d/DpJ7Z+0MOMrKjxeWd+colgIzSaXndDp/VhQu
+	 iY6S+i3h7vqjAHVx7cLUgxQc87H8nHIbvlccxkQCPzmciRl/BpI7ymz9PcltbSwQes
+	 ufaTyThR+rtUiGaQywq/sbHd/O7fHrL4lKSeXaKY2PnQ3MJLIylWmhvyUTVmzIa972
+	 LhNznRmEGJszQ==
+Date: Mon, 8 Jun 2026 10:02:16 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Joey Lu <a0987203069@gmail.com>
 Cc: zhengxingda@iscas.ac.cn, maarten.lankhorst@linux.intel.com, 
@@ -53,7 +53,7 @@ Cc: zhengxingda@iscas.ac.cn, maarten.lankhorst@linux.intel.com,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v3 1/5] dt-bindings: display: verisilicon,dc: generalize
  for single-output variants
-Message-ID: <20260608-emotional-rapid-woodlouse-61f7b9@quoll>
+Message-ID: <20260608-baboon-of-theoretical-stamina-6db63f@quoll>
 References: <20260608023237.305036-1-a0987203069@gmail.com>
  <20260608023237.305036-2-a0987203069@gmail.com>
 MIME-Version: 1.0
@@ -95,154 +95,8 @@ On Mon, Jun 08, 2026 at 10:32:33AM +0800, Joey Lu wrote:
 >   one-reset (core).
 > - Fix a stray space in the port@0 description.
 > - Add a DT example for the Nuvoton MA35D1 DCU Lite using ports/port@0.
-> 
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
->  .../bindings/display/verisilicon,dc.yaml      | 103 +++++++++++++++---
->  1 file changed, 90 insertions(+), 13 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> index 9dc35ab973f2..db0260d874c5 100644
-> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> @@ -17,7 +17,8 @@ properties:
->      items:
->        - enum:
->            - thead,th1520-dc8200
-> -      - const: verisilicon,dc # DC IPs have discoverable ID/revision registers
-> +          - nuvoton,ma35d1-dcu
-> +      - const: verisilicon,dc  # DC IPs have discoverable ID/revision registers
 
-Why do you need to change indentation? Why introducing irrelevant
-changes to the diff?
-
->  
->    reg:
->      maxItems: 1
-> @@ -26,6 +27,7 @@ properties:
->      maxItems: 1
->  
->    clocks:
-> +    minItems: 2
->      items:
->        - description: DC Core clock
->        - description: DMA AXI bus clock
-
-That's not true anymore. In such case the list should also be defined
-per variant and here only min/maxItems.
-
-
-> @@ -34,24 +36,19 @@ properties:
->        - description: Pixel clock of output 1
->  
->    clock-names:
-> -    items:
-> -      - const: core
-> -      - const: axi
-> -      - const: ahb
-> -      - const: pix0
-> -      - const: pix1
-> +    minItems: 2
-> +    maxItems: 5
->  
->    resets:
-> +    minItems: 1
->      items:
->        - description: DC Core reset
->        - description: DMA AXI bus reset
->        - description: Configuration AHB bus reset
->  
->    reset-names:
-> -    items:
-> -      - const: core
-> -      - const: axi
-> -      - const: ahb
-
-This stays, with minItems. Variants only need min/maxItems
-
-
-
-> +    minItems: 1
-> +    maxItems: 3
->  
->    ports:
->      $ref: /schemas/graph.yaml#/properties/ports
-> @@ -59,7 +56,7 @@ properties:
->      properties:
->        port@0:
->          $ref: /schemas/graph.yaml#/properties/port
-> -        description: The first output channel , endpoint 0 should be
-> +        description: The first output channel, endpoint 0 should be
->            used for DPI format output and endpoint 1 should be used
->            for DP format output.
->  
-> @@ -77,7 +74,60 @@ required:
->    - clock-names
->    - ports
->  
-> -additionalProperties: false
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: thead,th1520-dc8200
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 5
-> +          maxItems: 5
-> +
-> +        clock-names:
-> +          items:
-> +            - const: core
-> +            - const: axi
-> +            - const: ahb
-> +            - const: pix0
-> +            - const: pix1
-> +
-> +        resets:
-> +          minItems: 3
-> +          maxItems: 3
-> +
-> +        reset-names:
-
-minItems: 3
-
-> +          items:
-> +            - const: core
-> +            - const: axi
-> +            - const: ahb
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: nuvoton,ma35d1-dcu
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
-> +          maxItems: 2
-> +
-> +        clock-names:
-> +          items:
-> +            - const: core
-> +            - const: pix0
-> +
-> +        resets:
-> +          maxItems: 1
-> +
-> +        reset-names:
-
-maxItems: 1
-
-> +          items:
-> +            - const: core
-> +
-> +unevaluatedProperties: false
-
-Stop making random changes to the binding.
+Difference in clocks and resets does not need a new new example.
 
 Best regards,
 Krzysztof
