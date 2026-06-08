@@ -4,82 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F93CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 15:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CDA8CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 15:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mey9nJbl/6Uat+RzZy4Iz6dhjdtya/34ZRmGSIIt2JA=; b=FZncVaDpMaMEYK2xb27jJj+2Xf
-	WJgNDOggNDL0IJjQQm1Z50hFNf7ezxlAQpZwl0M8Bq3ArQkNuk2mZOlE3q5V3uKUmV5cc7aV3m+95
-	cNij6ZzZp/mDOsnytL0Xfe20KDaUHkcKhW70Wu0BICDfNSYJcdMId46PBRtNtfYRzkcBXdxH2WtSo
-	fiC4jkkTOXaaMzDG9gaOVHIkzsx80abgHiqsIETyh2vHAzcgX5oaNViZBiAPfO5wDCf9y+NbZ93SL
-	xB14e45OuSV6KPa3ErZuz9I/S4DmDWvWLecMKvt+PavvaMf7ab8tFCCF5PT8qoSShESNsHhB61q3K
-	ctMKM4+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zEvrj3FcHgr8xXb2mLKuhtzTWtWLNi+whddxtH2ZY2w=; b=OfwJmyx9zHio4YPfmFzhPaxT6Y
+	2Lpjt/xFkNTf3xGHyjxcI60732OARQlkewDSeb7+MjHhmB230VCzqfWxOCJhitZ9thUwLwIE73Wqe
+	lYF5WMvNW41gkS1h00zSKNOe5pto/MEesd8CarvB+0wiTXN8YDQecKr1vQxOsamwYlH22IEoDCwVL
+	jizbWrgfdcdsyDbdx2asN1/CiIQvjKXwbAvfKaA87Ka/T2sjnix4cdxxWt89EsoTMXVNmimfMJmgQ
+	0pM+xKZoXQv+zhA8mZySgIulhLtCUwHUayL1MS3XRwJgr8tAFD9YxXZXZlLbTMdeMi5oE6Ni8dDeR
+	644VD0jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWarS-00000003j4P-0ar1;
-	Mon, 08 Jun 2026 14:21:54 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wWbro-00000003xYj-3uTk;
+	Mon, 08 Jun 2026 15:26:20 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWarP-00000003j3G-1N2O
+	id 1wWbrl-00000003xXG-1KDj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:21:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Mey9nJbl/6Uat+RzZy4Iz6dhjdtya/34ZRmGSIIt2JA=; b=hXdUgb3n7qGwkTK3nixNQyzVoZ
-	uhkFVvblP7TbVRecei1+rtfG6gxlMGhxV5nnqv9EFk3wkseWpMKip4Bzm/nhI4blFQqR39Q4dzWgo
-	scKvh4T4e0ac2561h7wvxG5H7XlCHbXTJRgIjuke5rFIoczywhRZ4wdHK28FIcPFLIVU5v7DAp6hg
-	7Ykj+hQ1ehZSvaVQRyNdX+CsHr+RhO8ivhN5NCjvGLYYivhPcfdDQZKWGB3FthAgI3QriM5UXpGCs
-	aQ2GJoqtGv4AmRy4jqg9JlaoxH14jaGe0mmU6+jaL+IDY86RbqtARoP/yXfebEKB126IprTHC4JK3
-	+r0wFLSg==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wWarN-000ITk-1r;
-	Mon, 08 Jun 2026 16:21:49 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wWarM-0008uk-1E;
-	Mon, 08 Jun 2026 16:21:48 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
+	Mon, 08 Jun 2026 15:26:19 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so10912275e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 08:26:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1780932375; x=1781537175; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zEvrj3FcHgr8xXb2mLKuhtzTWtWLNi+whddxtH2ZY2w=;
+        b=QL+VVbY9v6AdfBuQEkXALWSrw18EMZf6DX/lfMrXpqlzwVsmdVytO2hgmdFlD3WPth
+         PKkG9qahvh+zn/lcN9E46Jnp4AWNavYvyhO3gs8Gt/mYgonmFpwl6TOdz87RN4wXqk+c
+         fX/Sv61jkk/rxtl259OVuFxLphXWgmXhk3c+XK1XtiiFjq5AnJJz9Dj23T3o1YthXyR8
+         JlPIzn2z7PdKs822VA+dToPmgOPiOaIvhMHMNK70Uacjxo8YZ75ilw7bri7ulMMjBr8/
+         2ueUCTGo4KXz/kj4aU1qFuEkzCRoZbV4f00yZFJ/mIpG2wam0htQgmIxLJHZ1Bvtr3oD
+         SqzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780932375; x=1781537175;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zEvrj3FcHgr8xXb2mLKuhtzTWtWLNi+whddxtH2ZY2w=;
+        b=Bs3deChfgvOpRCBpUUDNpQx5caFH+oLsbhbGqc3JCV2m7okE//zTJxjonWpNy9LmIO
+         oUcGQwEQVamtuldTLCbcpq02RnF6xrisjFJnyDqrQElSBF6hVnFnUGt/Tk7js7CGU3qy
+         7dZZaMNPmIA5jXTW7w7gve5+ws0SJR9gJOov0FI+ri26nBxMhAzijMyBe7hjAp4Qq0As
+         wFJltG1HT079SXX5SNGbhmPWz5ZQZiYefGpSvb3ROSH56qWdZUp4EOB68wnWv4JK1BzH
+         GV9xH5xfqniS2mbYs2pkylW9AQs2QGkT6aAvN7+cs/m6kuQEZDmul4YABs5wbaGrCBUZ
+         FhWQ==
+X-Forwarded-Encrypted: i=1; AFNElJ99/HWPuQ8EHN41nmgfM+AkqT9fnk1HoHdlv8O/KoK4yq+yGSWJj1upbxN84gTxtnicXKBE+tcJKI0IzB97gnHz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHhB7EUnKrC7xDvgXtf+2CYPSebxxLO4GjUKIKyh1ppbtF01XD
+	ueshPRrR1ne8D0GAiYjhv0wY7YOhPtT9rWDLjJWvfoA9KbEQpvkdDqaJQ/bWEMi3a98=
+X-Gm-Gg: Acq92OGl2mKIR5/eJYnG/eKCu937Cg2X6mVul0XE3PVMuvFsbebQWOpVsQIzBArLowm
+	0cebe4iliFScFpJZKGfwDPYkgeD+dGguxTAkpmWDXpaJ6MJ+nZDASZ76hjvOfgjGbOZ8NDfYOfA
+	AcKEFCd73Gct7U8jK02ekK0mdzWRZRifzzOO47tVrsDppRvEKjT4ist+J9zE6bx6uf1x8FR2BK4
+	lcJ+gUbSjvIvKMRb6ZoEGxC4wcBYGTAWzTwzvcGutSCmG0YK7k6LDt4SweufaFUroaeS3irCNKN
+	v2WszFIuS+R0RtiwGzkriXQnOcA20KbOB2UBbWYTefJ2ZlBzLyb6MPoGS7LHBLinwdH1OgohibE
+	1X504fMDimkyt+4xeLwuJsQO0FMuo2i4wn2frV2OEH1fETlFeYbc3mVPiz3QyVqH7Poo+g6F3xe
+	9rfO0PYOtBi5YPy73Xp5betaNdkGP2oLklNgrVVQXSe9cofrI=
+X-Received: by 2002:a05:600d:849c:10b0:490:b58a:e6ff with SMTP id 5b1f17b1804b1-490c26e1aeemr178859365e9.22.1780932375459;
+        Mon, 08 Jun 2026 08:26:15 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f360bd6sm57162809f8f.36.2026.06.08.08.26.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 08:26:15 -0700 (PDT)
+Date: Mon, 8 Jun 2026 17:26:13 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Andrew Murray <amurray@thegoodpenguin.co.uk>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v5 4/4] arm64: dts: freescale: Add dual-channel LVDS overlay for TQMa8MPxS
-Date: Mon,  8 Jun 2026 16:21:33 +0200
-Message-ID: <20260608142144.564871-4-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260608142144.564871-1-alexander.stein@ew.tq-group.com>
-References: <20260608142144.564871-1-alexander.stein@ew.tq-group.com>
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH RFC 4/4] Documentation/kernel-parameters: add/update
+ printk_delay/boot_delay
+Message-ID: <aibfFQpK0Se-SiaT@pathway.suse.cz>
+References: <20260601-deprecate_boot_delay-v1-0-c34c187142a6@thegoodpenguin.co.uk>
+ <20260601-deprecate_boot_delay-v1-4-c34c187142a6@thegoodpenguin.co.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28025/Mon Jun  8 08:33:34 2026)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260601-deprecate_boot_delay-v1-4-c34c187142a6@thegoodpenguin.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_072151_470780_87BF9F03 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260608_082617_358876_95816556 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,123 +115,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds an overlay for the supported LVDS display AUO G133HAN01.
-Configure the video PLL frequency to exactly match typical pixel clock of
-141.200 MHz.
+On Mon 2026-06-01 00:17:40, Andrew Murray wrote:
+> boot_delay has been deprecated in favour of an extended printk_delay,
+> let's update kernel-parameters to reflect the addition of printk_delay
+> and the deprecation of boot_delay.
+> 
+> Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v5:
-* Fix dtbs_check warnings by adding reg property
+LGTM:
 
- arch/arm64/boot/dts/freescale/Makefile        |  2 +
- ...p-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso | 81 +++++++++++++++++++
- 2 files changed, 83 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
+Reviewed-by: Petr Mladek <pmladek@suse.com>
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 2f4568e7105f4..0c390ef6f7571 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -498,8 +498,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33-imx219.dtb
- 
-+imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtbo
- imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtbo
- imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
-new file mode 100644
-index 0000000000000..2d2dfda944faa
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
-@@ -0,0 +1,81 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Martin Schmiedel
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&backlight_lvds0 {
-+	status = "okay";
-+};
-+
-+&panel_lvds0 {
-+	compatible = "auo,g133han01";
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			dual-lvds-odd-pixels;
-+
-+			panel_in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			dual-lvds-even-pixels;
-+
-+			panel_in_lvds1: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch1>;
-+			};
-+		};
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&panel_in_lvds0>;
-+			};
-+		};
-+
-+		port@2 {
-+			reg = <2>;
-+
-+			ldb_lvds_ch1: endpoint {
-+				remote-endpoint = <&panel_in_lvds1>;
-+			};
-+		};
-+	};
-+};
-+
-+// Update VIDEO_PLL1 frequency
-+&media_blk_ctrl {
-+	assigned-clock-rates = <500000000>, <200000000>,
-+			       <0>, <0>, <500000000>,
-+			       <988400000>;
-+};
-+
-+&pwm3 {
-+	status = "okay";
-+};
--- 
-2.54.0
-
+Best Regards,
+Petr
 
