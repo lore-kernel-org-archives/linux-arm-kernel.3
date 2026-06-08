@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39D2CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7CC3CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=68P+IvGopl7vOMGvwR8RStoFVF/R6GJT532HBzXY5XY=; b=B5qix39Krx16uL3e+W1t19mBFB
-	S/HHEzkogHo4boN4SmRqlSKHnlZc/Qpy1Mfb+lUBODsd8+Gs0HB4KUGBbFzmYknk5eWPNCix2wGSt
-	mXjh9SP0Ljow8AbxoCZGBTbeWpilKoh9VK9MOGCO2VBxsteHeB2NprU0m1I/XHs3WdI8Xyfep54j0
-	ZBnojvb6mNnqW/h1h9IuZ6MvAzSqXSdsxFHBJ2dKwm2HSj7hV579M1DfCW3KDQZunA9BMUmKnKN7Y
-	148hpoDzpicORA28Q4/ko7P9d0EMZs2gp2hO+11sRDg9GCGSLGsm8a2irYQKQ3fOyYr6nCqxI3nr/
-	VkJ1GdDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NJFUZ3g9aKS+Y4VWSkImzVqj/8GtScBQXmsXxxvJoCg=; b=bYbgsBXGAJG1b73AfycA+E7pBz
+	KoSb+9ADYBLJqnHYovbraVSJVfmTcK8vV1T8YA8nA7qTcxBVyGyi7ff75zu6qzFCr3g/GgFULbvKn
+	8WqMeovxGNoVrrvolgXQZnWvlpAcarkmktWNPjJ5/sEgizzpA0IDqBZBSrZ3lqPsJ0T38YVadlqjd
+	spGeFGtxQy9VKwvlyqIR5aU2ao8M0/+N2jtiNkGb5U0fKR6XM+B1Jz2ZJmuT9rMvyWcE8jLgq9QmO
+	D3gs+9Fe6LYU/yGXlZKJav8BTOACmEzmsvE7f1R80ULMYUo+jovJcYewa2UPtHSzce9u3ctUs6zER
+	AjP0OGNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdFq-000000047CS-2m1N;
-	Mon, 08 Jun 2026 16:55:14 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1wWdGa-000000047Kc-3Ug2;
+	Mon, 08 Jun 2026 16:56:01 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdFn-000000047Bv-2c9i
+	id 1wWdGY-000000047J0-2Gur
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 16:55:12 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c8573e75425so1722842a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:55:11 -0700 (PDT)
+	Mon, 08 Jun 2026 16:55:59 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-bf44ff0961dso343715466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:55:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780937710; x=1781542510; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=68P+IvGopl7vOMGvwR8RStoFVF/R6GJT532HBzXY5XY=;
-        b=m/2/lF8iSctttN0jC41PIVwCeJ4KIrgXuX9iP+MdoOHpngpDjQiPymSV0VsB1oYsuO
-         1YIyV7LSaPqXAO2ly/1JotR7Xl+JLY+AFimNaCV+cBEldB/EqkAtEeag62/BFqq1mpeC
-         i5Os/ckfhYD4JRpNUx54P8WsY6tg3c1lJxe3/n76zm+jQO9VHQ2wjUTaWLXkBwYE3ETa
-         nJqA/9GmErWA0y2tnNKil0njrW6fAyVAQHv1HK+IvvIzB35dQDtkEiWZuLhwTC6hEAAR
-         +/OnH6W7XhtlogNMNyXHueVOdYQ94W+quI3yi+pvGkwWFfBHPb0qsXHN3w2pXU93KaVQ
-         f+rQ==
+        d=google.com; s=20251104; t=1780937756; x=1781542556; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=NJFUZ3g9aKS+Y4VWSkImzVqj/8GtScBQXmsXxxvJoCg=;
+        b=eCvu48R1AJuwyQSc3/9arIfIer+IT4307gXBkz7VlzPhjSq6fGlotk+2W9tx5DPbPX
+         v08dIzTb56cQUAwWOgXKJfifcCgHKMBFzWvgKOHn6kUKJpnolrADd/Z/b+oQ/BqMIgnL
+         FLezukpftSY5Le+p7ZlUCc7iqoXsuhv+jow4G5Ley28IJehbgeeDnGVzfmNKzy8/45FS
+         U/3AGHDD/hYk4RpApKmI04ToukI2Mq4M7H35rSF24ZruKDid5mX8Ifbr0b49pdxxXnFN
+         ftVx2IO28Br077Ql6euVyS1S4QRdFM912TwQhQ4Y9gJE3Ms+ja/Szvi0po5m1LDke6fH
+         rRmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780937710; x=1781542510;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=68P+IvGopl7vOMGvwR8RStoFVF/R6GJT532HBzXY5XY=;
-        b=dCYM7i8dPEPH0nIRoSdBc74cr0NvKcTbcGjAMt5wVv3Q7bhehHNNBNCLtx+LpZP+e6
-         YEEaSasZRjvQE/XNx3y1h8rJXc1VoripHgy2GvQ9VGWzuwv8L5IYKvFz5n1bWH+uQIZV
-         CC/W5Pda5HljyGp2sEVRjU3WOGUTYQWuGl6drkiVMwKj4QPKC4jvuL7eZegMHwvISxqU
-         y4vB7xvjmqOZb6uHk1dcjYVF0JOEji7bO85kidmjdbM/78tcu3bzpFAFTSLexxyb955o
-         K/wviPrMbhj4dVOep1N3+ztrzmHDJXJGhXaBVyt+zAoySduFZiE3UFidVSdcls+RFxHH
-         T5FA==
-X-Forwarded-Encrypted: i=1; AFNElJ87vM02yvDezsr0f7i0lN0Tn5b0P7TgJ1XSYovMetKiQWjGTPQTb6Y206tOoGbGlQVRLZHYKqsy6qbxrAf+ShF8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzK6VISyXLK6EoSFqGJN/d1U2Vbf3nbTXMrgWQd6cmvvaeTd8jB
-	HvGAkuC0aEBRZ1HswyW/Pk3uIMp1MWWaMrG29EwJ/6aG3dVshT0ZiyIa
-X-Gm-Gg: Acq92OF2dfdPQuBXtROv4e/QY77ddQ0WiCXiG5rh/rzSgjKYCcCjs+kBEu/NqJd8oZ0
-	wtwm/U5CE6puGxB90n9ukMV4E4gB0ZgeL2+pGOH7fJkoOj2evHoAiqe6xiv0S3PtzBE5GxoO/8/
-	LAtdjGiQCgb9P/afErUzDuYDybiw9DREe0A7m+Z4VrvcdriijPFMk5mwUOCViZ84Z8ahrBHrDZz
-	otQI3+8l/MODcQW7J5yum4+qyopirhAC5f57FKFl+YIdpQfdwSpR6n6l3pnQ4pin7h81tawI3HR
-	WNADy2lf5c1Unan4xQJhl5I/xxRtmHAdsJv7Mgb90GQeJhkw6SNfKCnfk4aZ6sY47XFfoqYarF8
-	d0v2EXyDcXFQ0AD/HprP1hpTWxl5VdBZ17pFw6bxsfnYm/8cEfB6kll+tHFmc+KQ9uBk//Yatfl
-	FWJcThcIqn8KTIsTM4KD0nTQS10u801buHtpBx
-X-Received: by 2002:a05:6a21:685:b0:3a8:7fb:ca0e with SMTP id adf61e73a8af0-3b4ccf91e30mr20858772637.23.1780937710303;
-        Mon, 08 Jun 2026 09:55:10 -0700 (PDT)
-Received: from google.com ([2402:7500:498:d80a:6ed1:11c1:50ff:fc30])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df034a2csm16345455a12.3.2026.06.08.09.55.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 09:55:09 -0700 (PDT)
-Date: Tue, 9 Jun 2026 00:55:03 +0800
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: James Clark <james.clark@linaro.org>, mike.leach@linaro.org,
-	alexander.shishkin@linux.intel.com, gregkh@linuxfoundation.org,
-	mathieu.poirier@linaro.org, leo.yan@arm.com, Al.Grant@arm.com,
-	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
-	milesjiang@google.com, nickpan@google.com,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3] coresight: etm3x: Fix cntr_val_show() to match
- cntr_val_store() behavior
-Message-ID: <aibz51FAJG1neRg1@google.com>
-References: <20251202082613.3265761-1-visitorckw@gmail.com>
- <3bec7ceb-61a8-4b38-a794-02ee2fc9e68c@linaro.org>
- <aYAxbbkHslAP9RBN@google.com>
- <bb521240-ab53-4c5a-aa1d-6b140ed4262e@arm.com>
- <ac-BEX0Rfe9RBJJn@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ac-BEX0Rfe9RBJJn@google.com>
+        d=1e100.net; s=20251104; t=1780937756; x=1781542556;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NJFUZ3g9aKS+Y4VWSkImzVqj/8GtScBQXmsXxxvJoCg=;
+        b=jFI+DGMku28w3NlxnB7FdB+dqeU+V16pawURD4/niphvmI3y/vaZktmghbhru226L7
+         QpRt8XMzUkVSHufhzITVl0IAX94tEBz3xhj81aVwTNIx2tOkxNO1gJu2/2vp9AE2ey43
+         bQVzNC4hlxFdVKxd4SMndoOMRJENpxAlHgD6sPcsK7AkY+QXQjd1nZOW5pEuC7l5dNUj
+         jilmQyYcM6CPYVHuPQcq8hnt4dlb24JfmN6SDqO6Ho/h6Plft2b4BuEXSH2TDmymtc0a
+         msfKuZK0Ycf0XoPZXUt4F3XBBiRbq0CAkmS0M+7TRyhNC1uFQjVSFZ7W6pgXoOQi39rQ
+         RTzA==
+X-Forwarded-Encrypted: i=1; AFNElJ/rG89U3skbwZ5jC+LQGr0ZH8CZFuXOrbaCbHNbh+IcOoUWDNDinwmfj6nEv51tbNzZGJfbEsOz8iFC/J/HrQn0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxb+5zLLYzEzGupxFnJkNkfsfOlj/FhLo3vYM2zcULSeIOX9MhT
+	QzE6Nr2//SaXnc15J8WLgiaIgRADdKDtHbmLlz5fARH0SYL3GzAAe8vEzMwJHNn/O+2nBNJxmpu
+	8Y4Bztin0ahh/586HXHG93UNOLn/37g==
+X-Received: from ejmj9.prod.google.com ([2002:a17:906:4309:b0:beb:4344:f63b])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:906:5a62:b0:bd5:405c:7964 with SMTP id a640c23a62f3a-bf3752e703amr582230166b.48.1780937755139;
+ Mon, 08 Jun 2026 09:55:55 -0700 (PDT)
+Date: Mon,  8 Jun 2026 16:55:42 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1064.gd145956f57-goog
+Message-ID: <20260608165549.1479409-1-sebastianene@google.com>
+Subject: [PATCH v2 0/7] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
+	will@kernel.org
+Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, mrigendra.chaubey@gmail.com, perlarsen@google.com, 
+	sebastianene@google.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_095511_669904_CFE64B73 
-X-CRM114-Status: GOOD (  38.32  )
+X-CRM114-CacheID: sfid-20260608_095558_587400_99343AC2 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,98 +90,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
+FF-A proxy. This restriction was preventing the use of asynchronous
+signaling mechanisms defined by the Arm FF-A specification to
+communicate with the secure services.
+While these calls are markes as optional, there is no reason why the
+hypervisor proxy would block them because:
 
-On Fri, Apr 03, 2026 at 04:57:59PM +0800, Kuan-Wei Chiu wrote:
-> Hi Suzuki,
-> 
-> On Mon, Feb 02, 2026 at 09:33:59AM +0000, Suzuki K Poulose wrote:
-> > Hello
-> > 
-> > On 02/02/2026 05:09, Kuan-Wei Chiu wrote:
-> > > On Tue, Dec 02, 2025 at 09:26:19AM +0000, James Clark wrote:
-> > > > 
-> > > > 
-> > > > On 02/12/2025 8:26 am, Kuan-Wei Chiu wrote:
-> > > > > The cntr_val_show() function was intended to print the values of all
-> > > > > counters using a loop. However, due to a buffer overwrite issue with
-> > > > > sprintf(), it effectively only displayed the value of the last counter.
-> > > > > 
-> > > > > The companion function, cntr_val_store(), allows users to modify a
-> > > > > specific counter selected by 'cntr_idx'. To maintain consistency
-> > > > > between read and write operations and to align with the ETM4x driver
-> > > > > behavior, modify cntr_val_show() to report only the value of the
-> > > > > currently selected counter.
-> > > > > 
-> > > > > This change removes the loop and the "counter %d:" prefix, printing
-> > > > > only the hexadecimal value. It also adopts sysfs_emit() for standard
-> > > > > sysfs output formatting.
-> > > > > 
-> > > > > Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
-> > > > > Cc: stable@vger.kernel.org
-> > > > > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> > > > > ---
-> > > > > Build test only.
-> > > > > 
-> > > > > Changes in v3:
-> > > > > - Switch format specifier to %#x to include the 0x prefix.
-> > > > > - Add Cc stable
-> > > > > 
-> > > > > v2: https://lore.kernel.org/lkml/20251201095228.1905489-1-visitorckw@gmail.com/
-> > > > > 
-> > > > >    .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
-> > > > >    1 file changed, 4 insertions(+), 11 deletions(-)
-> > > > > 
-> > > > > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > > > > index 762109307b86..b3c67e96a82a 100644
-> > > > > --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > > > > +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > > > > @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
-> > > > >    static ssize_t cntr_val_show(struct device *dev,
-> > > > >    			     struct device_attribute *attr, char *buf)
-> > > > >    {
-> > > > > -	int i, ret = 0;
-> > > > >    	u32 val;
-> > > > >    	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > > > >    	struct etm_config *config = &drvdata->config;
-> > > > >    	if (!coresight_get_mode(drvdata->csdev)) {
-> > > > >    		spin_lock(&drvdata->spinlock);
-> > > > > -		for (i = 0; i < drvdata->nr_cntr; i++)
-> > > > > -			ret += sprintf(buf, "counter %d: %x\n",
-> > > > > -				       i, config->cntr_val[i]);
-> > > > > +		val = config->cntr_val[config->cntr_idx];
-> > > > >    		spin_unlock(&drvdata->spinlock);
-> > > > > -		return ret;
-> > > > > -	}
-> > > > > -
-> > > > > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > > > > -		val = etm_readl(drvdata, ETMCNTVRn(i));
-> > > > > -		ret += sprintf(buf, "counter %d: %x\n", i, val);
-> > > > > +	} else {
-> > > > > +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
-> > > > >    	}
-> > > > > -	return ret;
-> > > > > +	return sysfs_emit(buf, "%#x\n", val);
-> > > > >    }
-> > > > >    static ssize_t cntr_val_store(struct device *dev,
-> > > > 
-> > > > Reviewed-by: James Clark <james.clark@linaro.org>
-> > > > 
-> > > Thanks for the review!
-> > > Is there anything else I need to do for this fix to land?
-> > 
-> > Thanks for the patch, I will queue this for the next release (v7.1).
-> >
-> Just a gentle ping.
-> 
-> Since the v7.1 merge window is presumably opening in about a week, I
-> noticed this patch isn't in linux-next yet and wanted to send a quick
-> reminder. Thanks.
-> 
-This patch still applies cleanly on top of linux-next.
-I suspect this patch may have fallen through the cracks.
-Would you still be willing to pick it up?
+1. Host is the Sole Non-Secure Endpoint: The Host operates as the
+   only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
+   Because all forwarded notifications are inherently attributed to
+   the Host by the SPMC, there is no risk of VM ID spoofing
+   originating from the Normal World.
 
-Regards,
-Kuan-Wei
+2. No Memory Pointers or Addresses: The FFA_NOTIFICATION_* ABIs
+   operate strictly via register-based parameters, passing only
+   VM IDs, VCPU IDs, flags, and bitmaps. Because these calls do
+   not contain memory addresses, offsets, or pointers, forwarding
+   them doesn't pose a risk of memory-based confused deputy attack
+   (e.g., tricking the SPMC into overwriting protected memory).
+
+While the pKVM proxy behaves as a relayer, it doesn't currently have its
+own FF-A ID(only the host has the ID 0). The behavior of the setup
+flow is covered by the spec in the: '10.9 Notification support without
+a Hypervisor'.
+
+---
+Changes in v2:
+- enforce the MBZ/SBZ fields
+- split the calls into separate patches
+- rebase on 7.1-rc7
+
+Link to v1:
+https://lore.kernel.org/all/20260501114447.2389222-2-sebastianene@google.com/
+
+Sebastian Ene (7):
+  KVM: arm64: Support FFA_NOTIFICATION_BITMAP_CREATE in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_BITMAP_DESTROY in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_BIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_UNBIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_SET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_GET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_INFO_GET in host handler
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 190 ++++++++++++++++++++++++++++++++--
+ 1 file changed, 182 insertions(+), 8 deletions(-)
+
+-- 
+2.54.0.1064.gd145956f57-goog
+
 
