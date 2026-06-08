@@ -4,70 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFBCCD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 11:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA092CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 11:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lOec7JCeOzKAR+RrPU86ss9vqed4P49rNrP3SnxLnHY=; b=oqfn/WxWz0cg2vvYNsyBOmFwIm
-	GRK9lHDzI03eOy2H9PBsKCrymgN9IBFxLp0UHO8S3ZQCy64LdhQ63eOGNHX1FKFPkxSszQNYd66QB
-	/MEtQgUGA11BNHBUJso+B9FxPbWwW2TMEyToaPwCPw70df7ngUrAVURGVOy+b40evQB+Gg7IN5I9U
-	maN3YFW/tesWN99BHWKCm+0HekbJTC7E//HKcqe8Zg0Zmlcjhxuxrldi5OTmaQff8TFlfoLI0QAXh
-	VD6zVshkCZqsTCNoFtTMidSq/3xTPHSicZdsd5xdv1VEkukLfR68yyHNlx3BXH+wARhVz38Tgr0sT
-	5W1QiZTQ==;
+	bh=Aa9UO/pE0gyb5PxSfhI0cZ1/8TETJjI/QExPNo8fb4Y=; b=AablpT2hcRgjkuj/EPPmXXgF/A
+	tNDjS1JbqxTMWzqx+wIQF/5RNO5NhywMHPFLeDIl/04kndrSkcHUPw3ne6AG3onFhVvxOgXfLj0OX
+	oeRV3OhH9ljaVnMqJ9Qr25wjQsuDcVb2uGqgVNfdNR78phLAeM709V0wlfxSGvqGJ45e4Pi+xLegg
+	awVAmN8x/KNpFmOwxda6FF0Oat3HSApLP7OjOg9bV1fMJfdKmRsEHVGnD9NROKDk7ElayCVR5IbRt
+	SdtFYfagqSt7HHDmks89v47YkdHybcTQoOZLS109bfh0Ly0clzmp9xbq0FAS1h7lTxE8ABIquXQK0
+	C7jTiF2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWY9s-00000003QeG-1rC5;
-	Mon, 08 Jun 2026 11:28:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWY9o-00000003QdE-3A2S
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 11:28:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C3EE2454;
-	Mon,  8 Jun 2026 04:28:32 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9F803F86F;
-	Mon,  8 Jun 2026 04:28:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780918117; bh=BobVUEY4qK+mzZSb5/y7VZVL+wSb1xSXIUpsrNTTNa0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LKYMfOE4ZeM0wxfN3x/MnCQ7zYLbVQoWb5WhmH0QI3hW9uJyCC90I1Cm1maGDXjqw
-	 re2UU9irWDrkejRy80eeIz376GpNGfpsqemWL09OzvHZI+qwg4Jxm1YVvSfxtD2/I3
-	 YnNVYRQ9Gz7Y74dL091QRC06zhcl6gzp5v/kDtzs=
-Date: Mon, 8 Jun 2026 12:28:34 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@linux.dev>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Al Grant <al.grant@arm.com>,
-	Paschalis Mpeis <paschalis.mpeis@arm.com>,
-	Amir Ayupov <aaupov@fb.com>
-Subject: Re: [PATCH v6 6/8] perf cs-etm: Filter synthesized branch samples
-Message-ID: <20260608112834.GM101133@e132581.arm.com>
-References: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
- <20260526-b4-arm_cs_callchain_support_v1-v6-6-f9f49f53c9dd@arm.com>
- <fbe0a097-ced7-44c6-ada1-01c3e9c1d7e7@linaro.org>
-MIME-Version: 1.0
+	id 1wWYAB-00000003Qhp-2pEx;
+	Mon, 08 Jun 2026 11:29:03 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWYA8-00000003Qgk-495G;
+	Mon, 08 Jun 2026 11:29:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LxdfQrVHh+5EBDu4N7rmj8tNp/D10dydQiuEuIuKHn4uKZGOlv6hC2RLh6Eu7fnN8bU7Y6OirasE3rKqGfGN6hk+VpSv0XDeUC0iEEFlY+bEAWrshpaDF7WkXTDcI9Vusax8unmHkM8QFWo2H9bQphYFCs9Hj6osBxXBtncb4r05y6FNa5xCiP+pXCzRiZ0a6B9KJ3NlBcz+4i098/PgkjppCvyix8he0uSzW8n66GIGa3y+um98EBrG0DTCc9dw2MNBh4Ka/T2LV6ZazNRmy2V2yIaQC4W9AER3lQuZmKyHXpxUeS1FflPVJt2Og1kF3hlhqBr6TEEj2LRqZk1DuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Aa9UO/pE0gyb5PxSfhI0cZ1/8TETJjI/QExPNo8fb4Y=;
+ b=qP1rDij0IY1B5gf5UVT0iWeBxYe7vnz/5JMOKjpnNFddcu4WqjYk7ltvpUtJLBGE4jWdOxP/SAu37HhNaBhNn83usSQ5QE1ulIS0q1B1Qfim/lRoMfrdoTRzshK5uhlmIqCIJv+FRQB84pb5ML4iuMxdhuIpjGqCMncfaf3DTaXx/OqaR3VvbQtfQiQ9NE9SY8mnGFVESVsVrjjllnFdqibIqqjWK6RbjmDEb2TlrsQniUkEaHPRInbbclfzphEiF1lEkv9b4wtCoy66A+O+6NsZIyMcc6/+Ycrp05ocYSeQ1EnMNVCOPNtycH6u7tBrWUNfVGiN5ZZHzCHafSgTdA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Aa9UO/pE0gyb5PxSfhI0cZ1/8TETJjI/QExPNo8fb4Y=;
+ b=Z0a7b41BJCEWbfZgQ05J1dnhYe3LO2t+avhdwt9BtIahlRJpEehDVbluQMarUWxNj5uvVQ/90RevwuYMA2iCiPj+7eFm7aN1fSB5pIXl4GbKcuxA4fHvL/U3/T6ALjUact2PUseyOPbGqUpOmXKf5zqreCPENr3dg3f7/JauIt2zyJ3Y9geW3UtC/mw41pILDwM9JKQKPhW+++6XSzKO1FL4P7RnBE7YY9Kv8Hy3ER/vUZH/0WF/focW/TrnNXzMi2LQgktUegCxCDrwCN3UtWgyCtEesBCOFII98OX5awe9omhzq7aG2HSs5dGOMr31cJM5YzMKRjSkqnrh8/18fA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
+ by AM9PR04MB8858.eurprd04.prod.outlook.com (2603:10a6:20b:409::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 8 Jun
+ 2026 11:28:56 +0000
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0092.011; Mon, 8 Jun 2026
+ 11:28:56 +0000
+Date: Mon, 8 Jun 2026 19:27:52 +0800
+From: Xu Yang <xu.yang_2@oss.nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>, 
+	linux-phy@lists.infradead.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH v4 5/5] phy: fsl-imx8mq-usb: keep PHY power domain
+ runtime always-on for i.MX8MP
+Message-ID: <qsjid2ur4t724arjs5y3na7lhdkiicqbu6hcvbbjgc5hoo4z76@6rsvxsssusni>
+References: <20260605-imx8mp-usb-phy-improvement-v4-0-b2ddf2f3862c@nxp.com>
+ <20260605-imx8mp-usb-phy-improvement-v4-5-b2ddf2f3862c@nxp.com>
+ <aiLrhzEdQE6zAauv@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <fbe0a097-ced7-44c6-ada1-01c3e9c1d7e7@linaro.org>
+In-Reply-To: <aiLrhzEdQE6zAauv@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: AS4P190CA0015.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5de::19) To PAXPR04MB9422.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b4::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|AM9PR04MB8858:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f5b7e03-2032-4d74-0d4d-08dec551206d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|11063799006|56012099006|18002099003|22082099003|4143699003;
+X-Microsoft-Antispam-Message-Info: f59WnfVBt8OUeoZg0CNj8anhqDof0+Tl0rWYzLgRO9+m2YasTWoa1zPbjVMseowTT6gICELlDlmLLqmtdpR/R0nlXNn4leFn6rW6x8h5lYFl0XAxxz1rZv621xXR59oWO4otuzPUj2jmtCHZ4++Hh20heY0vwBtUmYCP9kgOXE9Y5uPN8AfTW1Er5FKMEzx9GJl/jItv3ocQDUiaHYuYz0ZBNWD/tNDIVc2rzw6VteUGfmRyBoFzl4N/tpAXKdlL2E/HzMHypfHyhJSzYj/mzJ74II92coSXjlWkTmiJ7hSMkxbC9A0UHAUoyrx8E5j0/QSxEG144bpoaUHGPuwnazLDx7M0EXtMT9QNtTvfM0IrC+bWlnUciN9SLs+f2T3qzhrhyNaztSYQFJlbMKyttM7s13iuuOJI7NFyuBPvtoV0ylbeLR2l2MPrG/T2SoX5LZBL6twOhbUvgfxTqjMM/oUKGmnueHmLueheD71KiSnsW1HsD7JiBZGYm8bMrpeJ5pxiD6StIkK39WFQse3/jHVlSjZlgTr1DGhOzjVJLsSUtGDdhbR+Wso9Oa+9Oudc5GH1s31nN1dmSUxtL3JJhqj5RkvOnTSgNhT5kjGRs9ysFQkYZG10/vlZjyZaWL8Cz/QUqHlBOhEC1w5pv3Nh5ZaSWBOLqMN+Bpgt1XK/Qv+gtK6k0T0DtnEeFt9B90k1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(11063799006)(56012099006)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sxKWyBJi5zromnEnPyAH763rD8cpjd7fenKciQhUkMwhmXn7vv0FK1uWPUoz?=
+ =?us-ascii?Q?S8Bw1nTVd0t9DMSLyL9TQOFT6Nm+p45YfVec6gCQ68rXOH31GoW5LCeEtPdz?=
+ =?us-ascii?Q?5b/x/ip19F2vulm7RZ6JXEINatB1088MgwnOgfy/gtDFkAtdKrBexiUGhcFV?=
+ =?us-ascii?Q?TGyobxT9V9QNCQw69BbbhZXhfuVFLoVUJKNoXcvu5Aoy6BPXlWzvbp33H6fW?=
+ =?us-ascii?Q?mBiDFox7oBaC6wB8nDjJ8eO2wI4/8JJF7d41UDaEUucTzggxmZHI6cheATk1?=
+ =?us-ascii?Q?PTm/RxQSeGOBrZrvDRW9TGYElSbDtSoOTS40w/7XQQBvXtduNaVhRzoK1hvM?=
+ =?us-ascii?Q?XCrMNGi/D1yxteS0xQf58IUBc2c5jhbGcjjDaEZLUdjfCL5P1uNxBNE1FMlo?=
+ =?us-ascii?Q?CVMYArjZ0hNDSV5486ztpoU4QF/1ahs8jqjgCxeQvYT8aPHUGOpHjcnYiETG?=
+ =?us-ascii?Q?ZtnPD4wqW7bA8sdoXyyMoqML1VVNhlt9hOhb7Jpa8Yfzc+pajITYVNKt40TF?=
+ =?us-ascii?Q?sGTL8rKbf3r0irq54+ldrYdFN7GOKTdD4k2KSBz2sFFn4WWvqkV92Ng1TN2W?=
+ =?us-ascii?Q?sIlnpG22rUjNy0xngvQMqotUOPalfc9byY6eHIJ+mv67emcfB2DlgRtQL6g9?=
+ =?us-ascii?Q?1rvwk8zbrMr8BOUg7EnqlFNEuEP6ps6dNBZdYF9wmjmFGuIlfkMOYAm24O6w?=
+ =?us-ascii?Q?zU+zXmFQXwk3t3uNucgVmbryTEW6JJXHfKyrNFQBXdVaWRuz0S25z/gdsJXu?=
+ =?us-ascii?Q?QPm0YTuqcT28PnMvKjvdzuI98EiXn15tKRfg/QlctLhWXGT0YpPvHtj0Iypl?=
+ =?us-ascii?Q?qfiXpHqW7LY3pV4BaxbufNowtdhw1SNEXhB+GNOxkNXQK0mJMEUES8ZXSEV5?=
+ =?us-ascii?Q?EHCtQamfvpAew6UvYq2iE/E3MlpXVn/TB5/peGeyaIEyWin1QXOhIapBupfK?=
+ =?us-ascii?Q?nEp2vMnHnLSRQ9SIXACJ8a7WSvWfZ427mEIMkO+WPtBJIp/YgIgTRnuCTdwo?=
+ =?us-ascii?Q?G2nZXDFXOeORZ0be4fS4IjoVxIpopBUjKZlp/+r06jt5rM5VhkZk0jD8j9Aj?=
+ =?us-ascii?Q?+hsazZ98qsZ0knqZ88eHoF5uzSOveLM4Hp/IJEhzwrrnSAQjhCIvhnf3p3XU?=
+ =?us-ascii?Q?VUS3V6PDa9VegtR+zWLgv4CxX2nk5ql79o62ehRTf8twqwxx6KFnOxMQqLbL?=
+ =?us-ascii?Q?Cn8+OIq7j4NoOm1vqVOprH1P0goa7l7+zuWYMW3Oiix6R1gLVwra8MnZuz5x?=
+ =?us-ascii?Q?PVphb9eCE8NlO0AvicdLYPuFYqCcQdTswwKtnsHq/9vIoJzkeGHtDO03VgFc?=
+ =?us-ascii?Q?x8TOFAeaDIKVGf+OGs8cQwAr8c9G58l0ioVWt4y4/7vRE56m1uU/iT6fVMnX?=
+ =?us-ascii?Q?C2dGyXogXzMUnmSewj2zWllZztcTdpE1nxwUv7C5dqdSo/76JnrtrE5/SZEk?=
+ =?us-ascii?Q?LbM4XebKMHJdXchq8+8CGtsrg89JWPH1/B2+EPbUd5NVJkrPtgXTEEF6OI3j?=
+ =?us-ascii?Q?2uERrNGEQtP7LDjMRJGSsZTA1zbZIoredPEumTGkGq1A48GYI5ouMhbdM3SV?=
+ =?us-ascii?Q?lsL7PQgPxjO69jGswLGmhtspnyY1ae/H+pMqoDcvNOGWTphXXMlwq/uIZv+5?=
+ =?us-ascii?Q?w5WRmCuY+IL6GZAgxn7/ZaqEtfq838WPevvkOjytvuw3oou5rJGMI0W8CUtV?=
+ =?us-ascii?Q?V1L1HjKvQbhQ8AILSIzTiyDa/jyIcLXjjBZaw1Vk4OPjoHPCaTDIGoA3P3nc?=
+ =?us-ascii?Q?9pPf31kYCpmH2AX+VwcoLyjx7lq1mHu5naDzwujuAcFezwoK88s7?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f5b7e03-2032-4d74-0d4d-08dec551206d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 11:28:56.1372
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZN6pbZfA/tn0WRKpDpgSMyjBb0Sr5l11gVMP1qwqfP2eS6YVmPnBpmWpH76VQy4KXLxaRlp6D6pxYHuhnlv3eML37TjbUH5d6Y/QZoVQcOIl6WtK+CqdTD1U6vgY/I6P
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8858
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_042841_042090_9BEBBB15 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20260608_042901_032163_F3183C10 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +141,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 03:42:32PM +0100, James Clark wrote:
-
-[...]
-
-> > @@ -3442,6 +3447,16 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
-> >   		etm->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
-> >   	}
-> > +	if (etm->synth_opts.calls)
-> > +		etm->branches_filter |= PERF_IP_FLAG_CALL |
-> > +					PERF_IP_FLAG_TRACE_BEGIN |
-> > +					PERF_IP_FLAG_TRACE_END;
-> > +
-> > +	if (etm->synth_opts.returns)
-> > +		etm->branches_filter |= PERF_IP_FLAG_RETURN |
-> > +					PERF_IP_FLAG_TRACE_BEGIN |
-> > +					PERF_IP_FLAG_TRACE_END;
-> > +
+On Fri, Jun 05, 2026 at 11:30:15AM -0400, Frank Li wrote:
+> On Fri, Jun 05, 2026 at 07:13:06PM +0800, Xu Yang wrote:
+> > From: Xu Yang <xu.yang_2@nxp.com>
+> >
+> > On i.MX8MP, the USB PHY has a dedicated power domain that was previously
+> > never powered off at runtime. With the introduction of runtime PM support,
+> > the power domain will be powered off if the device is runtime suspended,
+> > which breaks USB wakeup functionality.
 > 
-> This changes the default "perf script" output quite significantly and will
-> possibly break people's workflows. synth_opts.calls is true by default but
-> synth_opts.returns is false so we lose all the returns that we used to have.
-> Not sure if the new behavior is more consistent with other tools so we can
-> justify changing it? Personally I think including returns by default made
-> more sense, and it's a more literal representation of the flow.
+> Does it need depend on if device enable wakeup?
 
-Makes sense. I will add below chunk to enable return events for default
-option:
-
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index ab3aa76dddb3..bd9eb794cc07 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -3541,6 +3541,14 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
-                                session->itrace_synth_opts->default_no_sample);
-                etm->synth_opts.callchain = false;
-                etm->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
-+
-+               /*
-+                * By default, only call events are enabled but no return
-+                * events. Enable return events to better represent the
-+                * execution flow.
-+                */
-+               if (etm->synth_opts.calls)
-+                       etm->synth_opts.returns = true;
-        }
-
-> 
-> itrace.txt says the default is "all events i.e. the same as
-> --itrace=iybxwpe", but I thought the default was branches? At least for
-> Coresight it is, so I'm a bit confused.
-
-"--itrace=iybxwpe" would be used for "perf report" command, the doc also
-mentions "--itrace=ce" for "perf script" specific.
+No. The wakeup is for system suspend. We handle the runtime case here.
 
 Thanks,
-Leo
+Xu Yang
 
