@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C368CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8056CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V+s8Holh3q/9jzVDb4hC8kDK6pYQ+A1ql6aTpYhtYaw=; b=1FAEQxF1Q5kG2Ju+Py15Ab7QnN
-	Dc5MjqttJMBtYqKtzHzE/tv5EDfZ8tTOjhfYFGXMb+5erkEjNlV8oFtI2A1dr4pDR459J294X8z8b
-	dzsyqO6s6rLlwIH797RRpkle6Vac9wq/BZaX7l3oS6zqYf8rkV4E993VkbbsajJ5ulf9rzseffPIu
-	vs/4UGKtNUcxhsV37ijHommd6Ydjz+GHk37uI/Qg1flJ/FhVTcuz4lwhNeaaiZvLvwqBAmHJbjcYr
-	TVkeJYysWZtNd31Aklahe4KFqX27dc/ta/kRCDGtyoOZPIW1S+97M4mU9SNn1WBWyv6lpE+wnD1B8
-	aKBi8Xuw==;
+	bh=obEQVdyJXAFkEI0Je/LnT9feisCX7gXrGWaTmDNS/as=; b=WBVBgxqWZvUJOqHr4Cr6KEYFTQ
+	2vfc8Lq+jrVjPLCBFmsmSeaPR2o8KSNgJkDXpsI257ywZt4VwbSY81r2wWJcLZVAfZ+6D7sg0mx3a
+	ieZ0LXHB7H7weOpGJEa00Co1aH5KPGE4QTAsV9cWuQQeC2h59gMd/L3Ifq0/he7T/jKwY0Kbw4Ujs
+	Z5792HGTrz2HLmZCp0iUXr1phCUpQPMe5BXp2u02RbKxbD0szDfa7sOuiRv/hFRS+6FOPya1+tbKd
+	7HmI1JtAYMf5KvNOmxPO03zYMHhMB8E48DSv18Vo+RRaiucBHXmygDsW1HwWNs51c1lbv5k0u9qQj
+	UQ6AULUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWSF-00000003CVi-1M4C;
-	Mon, 08 Jun 2026 09:39:35 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wWWUF-00000003Ckw-2gzm;
+	Mon, 08 Jun 2026 09:41:39 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWSD-00000003CV3-2YkK
+	id 1wWWU9-00000003Cjj-3hEc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 09:39:34 +0000
-Date: Mon, 8 Jun 2026 11:39:29 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1780911571;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V+s8Holh3q/9jzVDb4hC8kDK6pYQ+A1ql6aTpYhtYaw=;
-	b=PZOHHIOz2oTGf6wxfmBlJ+l2gG+CrHrdhpE1fLgbnWeHU3+GZB6FqhsojxhiC2vE7LEguj
-	LKetQlqV/DGIaafQTkbjhU1vFN/5YmaBc7o/7yUNoPJxVo+OSQnQoPGJPHpHOeRoqgLB2j
-	Lym4OcTHkBtdCj+VNP4ZFpcBvHdQZ7YmLPWxZ6Ii5w2QKEB17j+Wmo1SNTEBKEMj6gtZ6P
-	WolE0RuLiDZTF2gYFDImDvniotGa56fz5bCLAV/67LpdcmeQ5ITi6jfSau3XdoO8YS3yaf
-	I6uVMaOODKr6YqoT88YESwwWNz1XHbaQpYGOVHCGB5tuBGoNpXxzkr/VtHDb7w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1780911571;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V+s8Holh3q/9jzVDb4hC8kDK6pYQ+A1ql6aTpYhtYaw=;
-	b=YvkuTnn8uebWuLKJnMegLWKeTlmmFk+STOHYamb75Oip9T/oPsdXC6QTz7BD/5IEYBvJZ4
-	dNqZ17XyJxFB4fAA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH v2 4/9] mailbox: imx: Use channel index instead of zero
- in imx_mu_specific_rx()
-Message-ID: <20260608093929.k43eIA6-@linutronix.de>
-References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
- <20260603-imx_mbox_rproc-v2-4-a0059dc3b69a@linutronix.de>
- <aiZO9rf4K9Ixzw0Q@shlinux89>
+	Mon, 08 Jun 2026 09:41:38 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260608094127euoutp02a25129a3aced8e1d4d0e8f7df11908f3~3Eb6L4rvK1359613596euoutp02T
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 09:41:27 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260608094127euoutp02a25129a3aced8e1d4d0e8f7df11908f3~3Eb6L4rvK1359613596euoutp02T
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1780911687;
+	bh=obEQVdyJXAFkEI0Je/LnT9feisCX7gXrGWaTmDNS/as=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CtDu0a8cImy5JxUjV9LlIN1j5eGanH+PqXyibLEZXNH9fJe274NoQAk/Q2h19A2Im
+	 7QyqlhJENEB6aMlSbzDiBLNNr6vHhfJ3ksGVoYNZQy2OCt9DlE9s9uTni76Rni1MPt
+	 LbC0RGfORp+p2SBwZJHvG/Z6YosO+MwklwkJR46I=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260608094127eucas1p1c139d6aec7fe2c8dd308e1885033ff6e~3Eb56fxPn2011920119eucas1p1x;
+	Mon,  8 Jun 2026 09:41:27 +0000 (GMT)
+Received: from AMDC4622.eu.corp.samsungelectronics.net (unknown
+	[106.120.77.34]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260608094126eusmtip2229735d838ef62408503f8ed036fe734~3Eb4yXZk_2588725887eusmtip2-;
+	Mon,  8 Jun 2026 09:41:26 +0000 (GMT)
+Date: Mon, 8 Jun 2026 11:41:25 +0200
+From: Jakub Raczynski <j.raczynski@samsung.com>
+To: Ding Hui <dinghui1111@163.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, "Russell King (Oracle)"
+	<rmk+kernel@armlinux.org.uk>, Maxime Chevallier
+	<maxime.chevallier@bootlin.com>, Ding Hui <dinghui@lixiang.com>, "open
+ list:STMMAC ETHERNET DRIVER" <netdev@vger.kernel.org>, "moderated
+ list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	"moderated list:ARM/STM32 ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, open list
+	<linux-kernel@vger.kernel.org>, xiasanbo@lixiang.com,
+	yangchen11@lixiang.com, liuxuanjun@lixiang.com
+Subject: Re: [PATCH v3] net: stmmac: fix fatal bus error on resume by
+ reinitializing RX buffers
+Message-ID: <aiaORbb0lZVxDg8L@AMDC4622.eu.corp.samsungelectronics.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aiZO9rf4K9Ixzw0Q@shlinux89>
+In-Reply-To: <20260604144557.3175399-1-dinghui1111@163.com>
+X-CMS-MailID: 20260608094127eucas1p1c139d6aec7fe2c8dd308e1885033ff6e
+X-Msg-Generator: CA
+Content-Type: multipart/mixed;
+	boundary="----ri_B_5NHaOs85FNcStlWAa-YkdjA1OEu4E44JRLWFc1KTRWK=_126c1_"
+X-RootMTR: 20260604144752eucas1p180b6c1b783450a11e78584257e023f69
+X-EPHeader: CA
+X-CMS-RootMailID: 20260604144752eucas1p180b6c1b783450a11e78584257e023f69
+References: <CGME20260604144752eucas1p180b6c1b783450a11e78584257e023f69@eucas1p1.samsung.com>
+	<20260604144557.3175399-1-dinghui1111@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_023933_793417_48458E93 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260608_024134_516567_A6B4821D 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,24 +93,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-06-08 13:11:18 [+0800], Peng Fan wrote:
-> >diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
-> >index 1dda1437b87f6..d1de07cc0ed62 100644
-> >--- a/drivers/mailbox/imx-mailbox.c
-> >+++ b/drivers/mailbox/imx-mailbox.c
-> >@@ -407,7 +407,7 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv, struct imx_mu_con_priv *
-> > 		*data++ = imx_mu_read(priv, priv->dcfg->xRR + (i % num_rr) * 4);
-> > 	}
-> > 
-> >-	imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, 0));
-> >+	imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->idx));
-> > 	mbox_chan_received_data(cp->chan, (void *)priv->msg);
-> 
-> For specific rx channel, whether it is i.MX8 SCU or i.MX ELE, actually there is
-> only 1 channel as of now, but it seems better to use cp->idx in case more
-> channels in future.
+------ri_B_5NHaOs85FNcStlWAa-YkdjA1OEu4E44JRLWFc1KTRWK=_126c1_
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
 
-Thank you for clarifying.
+On Thu, Jun 04, 2026 at 10:45:54PM +0800, Ding Hui wrote:
+> From: Ding Hui <dinghui@lixiang.com>
+> +	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++) {
+> +		ret = stmmac_reinit_rx_descriptors(priv, &priv->dma_conf,
+> +						   queue);
+> +		if (ret) {
+> +			netdev_err(priv->dev,
+> +				   "%s: rx desc reinit failed on queue %u\n",
+> +				   __func__, queue);
+> +			mutex_unlock(&priv->lock);
+> +			rtnl_unlock();
+> +			return ret;
+> +		}
+> +	}
 
-Sebastian
+This is not directly related to the patch, but rather stmmac_resume() itself,
+but doesn't this return and hw_setup one leave bunch of descriptor memory
+hanging and effectively leaked?
+
+> +
+>  	ret = stmmac_hw_setup(ndev);
+>  	if (ret < 0) {
+>  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+> -- 
+
+Other than that, I don't see any obvious issues.
+
+Reviewed-by: Jakub Raczynski <j.raczynski@samsung.com>
+
+------ri_B_5NHaOs85FNcStlWAa-YkdjA1OEu4E44JRLWFc1KTRWK=_126c1_
+Content-Type: text/plain; charset="utf-8"
+
+
+------ri_B_5NHaOs85FNcStlWAa-YkdjA1OEu4E44JRLWFc1KTRWK=_126c1_--
 
