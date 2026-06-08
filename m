@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484FACD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 20:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE5ACD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 20:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOjBZkHBZjwgFY+2gRIf62N1RuUWDhpPmFlrCLR4zCo=; b=yEXA2mZDKO1y328fu5I7f4ZNeb
-	2TrmJL+cIfUV0WGyQ6I4O086k6+aDJehyV3JOWDPnnf4eAvHFBapTUCxz08ZiC0zRXQDCVCAXiWVK
-	QEgwQPzzxfp1JapFqhlp2jYTmioMoamP+bISSQEBQmAyezF9xAjAmC1TEFKwzK6BN3AZvqoAaCarV
-	33TfWJu5R1kkPogGcwCHQE0AaruygaPIW52Wom3jScJZtV4OG7F6yriq4w+IFh82bvPcwYETxRt/0
-	1LkK4n8oDuZGOZz5p0inzat8ZXim1d6eRaSUt70aaXC9ky/fEONh1J5QhVhfsY+imT6PhFLaMtJT6
-	A2zCCowg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ttf+CXD8PaiVb4YaZNmyWpFk8RBK9mCRAJjHgIQ9QMk=; b=J6RJFX9WW1CojmtCAQALFI1OQ1
+	QSLdPfN8qPXVZ0wsfRFI2B6RmRdOG8A+EtLAD9kq4LGU8ot4hVNKWGxznALOlzjuKrZ3QEPMaiHjW
+	j7XBTiP0DgvV2neYm/BNsjJbQu8KtSUbMCo1gKrQF3Dfs9QxFhShoXLB0ciouEvCr1JG/luV+fPc8
+	co1AVDAvXlqJByHBFe0uCB5M3FeyyKnHICJHikCIhbvQaHnZeYLbDV9wtynsBKiFs1iPyE3OTLEYZ
+	sasXjv511tTgP83uRtf9+/x1ywpzMrOZ3w/QU0XS/XOOA92QMwYkX47LcSG06THAsCejPu5tyf3Q1
+	3yKFzj9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWgIJ-00000004L3r-2R0u;
-	Mon, 08 Jun 2026 20:09:59 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1wWgNN-00000004LSZ-1Jrv;
+	Mon, 08 Jun 2026 20:15:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWgIF-00000004L1z-2Xvm
+	id 1wWgNL-00000004LST-4BRa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 20:09:56 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-7e8ec43e5f9so63822427b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 13:09:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780949394; x=1781554194; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qOjBZkHBZjwgFY+2gRIf62N1RuUWDhpPmFlrCLR4zCo=;
-        b=begu/l3apfxSXYpr3IgkmuDGubjxS8f97y7f01oU1+fx3ujrcA9GTiiztHPTRQk78I
-         x+gi8BTZ1ik3y4DcaufhfkJaQZ3sdd8/uoufWLT39DZVeaA9VOWvROWFAUAt7gRF90GM
-         QQ4YZ3YyiANAysvWZ0UglEhl4Y/6WCfSCg30Kfrbme5fqjT8GxqLIugLbjbSnzPCX8vM
-         TfYEXhHQCQU/uqADnMucKm2zrBtrzsIv3YXy7MyYk88B7ygOPhp5MGX6tL2X+kdDfUdk
-         3CvLDHwPkmV0iHw07ezyDIgcrabGkYlk/2gKV1NQIFCG9VawBG3Y4+KMSoWhnRF33Aou
-         1alA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780949394; x=1781554194;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qOjBZkHBZjwgFY+2gRIf62N1RuUWDhpPmFlrCLR4zCo=;
-        b=kQ6PyiMqCTaR4uCxZtMH+6ADQV/m/Q+S/WFi5DbQsUOylDEGFBHodQ5TopagA3vaxI
-         ijZj4SoElmJzYRTjqXk5sZnfYyngZRfKEWzRgJDXj11Bz4NeKDHv4MTbVfsc83omHhUv
-         t6IrxmKyLZEoazR087vaawVosWRo8Y6C6YAe67//TbJcnTwovyXu05v7oj6IudTeJ2Gp
-         hea8rLRfaHgYI7PoOURURbjl97gwGdM0gN9Cpd6pf3TQ47MEUS0aDTyPSNI7e1sVIwHS
-         r40INr5wxQnolUpL5LSFobmoqXEoaxSKiPDv6nQr9F+Kr8cS2TUNKICOUSamUpE4Zw80
-         WUeg==
-X-Forwarded-Encrypted: i=1; AFNElJ/BIsebVB/bkLEN5KS6x8BAGuShNcYJhrAPw0xm5ok5EBz2DkKDK1QJSSXQLCckXH+dvT3Pe5R9pvjvAImd0lEk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY2+cak2PC5uyR5JUA87+TdmJgLH1HlCSUkRumoSeTBdFu7Vyg
-	ftXAYjfdMXu/stqrgEpyi+79rHuWmyR1sOBIOM1aUUIbExmCrB3EeTqq
-X-Gm-Gg: Acq92OF6tRrfVQCjSbgTOcdlyBe90WtoTObtAl2uBrhpm6c6IhqlnEb53cNr53Wkmbn
-	+wlwVXNEFjzeBSDyjTDX+4aiPiN8JCtDgXevmeaOKfsOpgvFph9T9ZYP5c6YcmCiXpmslMyu4B5
-	R2fhZ9NAM+gxj3z3JpOi2BJOfsRFQiNWctjDqQuntqX3NuhUu7MTXNUw+Jo1d/+Lcq/F0OXz9EF
-	syWVaI98IuVT6x034DTZyftOiB3Bd0QoC+HQ8OEOlR1MX8LRkVbf01xr/HTN20idQFdZ+zSaSoA
-	uaKDouK2UT9JO1SRB2qAR2xBs15ooX7iYE5Lh10K708MWtEAh3BSpuNs2ZAVXHCgyr0c0NjKarB
-	Fo4BS4l4GnTgJeqk6H36rv1JzkOURIyzfpgNc4H0rEk9GgbVFIoifUX5jCc8XYuCQ2bt0PC4D+i
-	WyQ+bvslnBdfIdKWWqEC4j3uIBjAZ9Hp/vJPxB5iYMcvFA1yEDC3BJ6u6/XlALlJFT5Akb5i+ue
-	2DlQ9wRb17w9pk6erYwO05/X20jJYegWuyl9xvijMY+LA==
-X-Received: by 2002:a05:690c:46c3:b0:7bd:93b0:bd25 with SMTP id 00721157ae682-7ed0adbb639mr169428527b3.4.1780949394561;
-        Mon, 08 Jun 2026 13:09:54 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-7ea20ea986bsm88688987b3.9.2026.06.08.13.09.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 13:09:53 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-watchdog@vger.kernel.org
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2 2/3] watchdog: sama5d4: use platform_get_irq_optional()
-Date: Mon,  8 Jun 2026 13:09:32 -0700
-Message-ID: <20260608200933.18669-3-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260608200933.18669-1-rosenp@gmail.com>
-References: <20260608200933.18669-1-rosenp@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_130955_648973_C4A6372E 
-X-CRM114-Status: GOOD (  13.78  )
+	Mon, 08 Jun 2026 20:15:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 54D68431C1;
+	Mon,  8 Jun 2026 20:15:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3512F1F00893;
+	Mon,  8 Jun 2026 20:15:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780949711;
+	bh=Ttf+CXD8PaiVb4YaZNmyWpFk8RBK9mCRAJjHgIQ9QMk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Jmu1GR/+To5sVEw6wE2RAuXYDpc4smRB4AlsikHbMl4p5G6BCDz4AFoVkGTk7aNDs
+	 u/MCr4S0kzhQ0is9ghbtHh86D6rcbld6yZoXHcCvJ52/pHbUxSX9wyR/Q3uEH5A4oH
+	 pAjicT40HG415hYgYZLSIvLUZKBIKsu3nLmTMyXeqSeQF4bEOrKMdC6RZJhukeFBHr
+	 SeAM5CnUNWF8dCvKIsC5/4k1pdSRqSkRFjjhBJ5Ud2arJNjEq1mp8fh4hcYLYIROQu
+	 k//xUEF+iI4XKyTH+QJ9dLW6DXszubkYUZpJDGEjHFqakdhR/1Alk2+4ob4isefIy1
+	 rpo97W5Kc4q/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wWgNJ-0000000AeOf-0ywz;
+	Mon, 08 Jun 2026 20:15:09 +0000
+Date: Mon, 08 Jun 2026 21:18:29 +0100
+Message-ID: <87tsrc946i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>, Will Deacon <will@kernel.org>,
+    Catalin Marinas <catalin.marinas@arm.com>,
+    Ard Biesheuvel <ardb@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Aishwarya.TCV@arm.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: -next boot failures during KVM setup
+In-Reply-To: <aicVyebkEMs6w6UV@sirena.co.uk>
+References: <aicVyebkEMs6w6UV@sirena.co.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, will@kernel.org, catalin.marinas@arm.com, ardb@kernel.org, oupton@kernel.org, Aishwarya.TCV@arm.com, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +83,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-irq_of_parse_and_map() requires irq_dispose_mapping() on failure. Don't
-bother with it as platform_get_irq_optional() doesn't need it.
+[+ Will, Catalin, Ard]
 
-Also handle EPROBE_DEFER.
+On Mon, 08 Jun 2026 20:19:37 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> I'm seeing boot failures on a range of physical arm64 platforms in
+> today's -next.  Turning on earlycon it looks like we're getting bad
+> pointer dereferences during KVM initialisation:
+> 
+> [    0.728923] kvm [1]: nv: 570 coarse grained trap handlers
+> [    0.735138] kvm [1]: nv: 710 fine grained trap handlers
+> [    0.741326] kvm [1]: IPA Size Limit: 40 bits
+> [    0.748840] Unable to handle kernel paging request at virtual address ffff00000478e000
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/watchdog/sama5d4_wdt.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+That really doesn't look like a duff pointer.
 
-diff --git a/drivers/watchdog/sama5d4_wdt.c b/drivers/watchdog/sama5d4_wdt.c
-index f74f1e8956b5..2536e2f2ab32 100644
---- a/drivers/watchdog/sama5d4_wdt.c
-+++ b/drivers/watchdog/sama5d4_wdt.c
-@@ -11,7 +11,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/reboot.h>
- #include <linux/watchdog.h>
-@@ -245,7 +244,7 @@ static int sama5d4_wdt_probe(struct platform_device *pdev)
- 	struct watchdog_device *wdd;
- 	struct sama5d4_wdt *wdt;
- 	void __iomem *regs;
--	u32 irq = 0;
-+	int irq = 0;
- 	u32 reg;
- 	int ret;
- 
-@@ -281,8 +280,11 @@ static int sama5d4_wdt_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	if (wdt->need_irq) {
--		irq = irq_of_parse_and_map(dev->of_node, 0);
--		if (!irq) {
-+		irq = platform_get_irq_optional(pdev, 0);
-+		if (irq == -EPROBE_DEFER)
-+			return irq;
-+
-+		if (irq < 0) {
- 			dev_warn(dev, "failed to get IRQ from DT\n");
- 			wdt->need_irq = false;
- 		}
+> [    0.757027] Mem abort info:
+> [    0.759917]   ESR = 0x0000000096000147
+
+Translation fault, level 3. My take is that something is getting
+unmapped.
+
+> [    0.763772]   EC = 0x25: DABT (current EL), IL = 32 bits
+> [    0.851526] pc : dcache_clean_inval_poc+0x24/0x48
+> [    0.856367] lr : kvm_arm_init+0xbb0/0x13f0
+> ...
+> 
+> [    0.937120] Call trace:
+> [    0.939628]  dcache_clean_inval_poc+0x24/0x48 (P)
+> [    0.944457]  do_one_initcall+0x60/0x1d4
+> [    0.948393]  kernel_init_freeable+0x250/0x2d8
+> 
+>    https://lava.sirena.org.uk/scheduler/job/2849583#L848
+> 
+> (with other platforms I've got earlycon logs showing basically the same
+> thing).  I have some bisects but they seem to have been confused by
+> earlier driver core issues, I've tweaked to try to avoid that and am
+> retrying.  FVP and qemu seem unaffected:
+> 
+>   https://lava.sirena.org.uk/scheduler/job/2848374#L888
+>   https://lava.sirena.org.uk/scheduler/job/2848966#L447
+> 
+> The affected platforms thus far are all SMP Cortex A53/5 systems, but
+> that's the vast majority of my lab.  They have both GICv3 and GICv2.
+
+I've reproduced with -next on an A72 platform. But it doesn't happen
+with kvmarm/next on its own. So it is likely something coming from
+another tree that messes up with CMOs, or .
+
+The stack trace here is slightly better:
+
+[    0.099138] Unable to handle kernel paging request at virtual address ffff0023d9ead000
+[    0.099141] Mem abort info:
+[    0.099142]   ESR = 0x0000000096000147
+[    0.099144]   EC = 0x25: DABT (current EL), IL = 32 bits
+[    0.099146]   SET = 0, FnV = 0
+[    0.099148]   EA = 0, S1PTW = 0
+[    0.099150]   FSC = 0x07: level 3 translation fault
+[    0.099151] Data abort info:
+[    0.099153]   ISV = 0, ISS = 0x00000147, ISS2 = 0x00000000
+[    0.099155]   CM = 1, WnR = 1, TnD = 0, TagAccess = 0
+[    0.099157]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[    0.099159] swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000245983b000
+[    0.099162] [ffff0023d9ead000] pgd=18000027fffff403, p4d=18000027fffff403, pud=18000027ffffe403, pmd=18000027fffed403, pte=00e8002459eadf06
+[    0.099173] Internal error: Oops: 0000000096000147 [#1]  SMP
+[    0.582137] Freeing initrd memory: 29068K
+[    2.025400] Modules linked in:
+[    2.028447] CPU: 2 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.1.0-rc7-next-20260608 #6265 PREEMPT 
+[    2.037482] Hardware name: SolidRun Ltd. SolidRun CEX7 Platform, BIOS EDK II May 30 2024
+[    2.045559] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    2.052510] pc : dcache_clean_inval_poc+0x24/0x48
+[    2.057210] lr : kvm_hyp_init_symbols+0x370/0x388
+[    2.061904] sp : ffff80008009bd00
+[    2.065206] x29: ffff80008009bd00 x28: 0000000000000000 x27: 0000002022116000
+[    2.072332] x26: ffff0020232967f0 x25: 00000020a2116000 x24: 00000000000038b0
+[    2.079458] x23: 0000000000000030 x22: ffffc7dc575880c8 x21: ffffc7dc57948fb0
+[    2.086584] x20: 0000000000000001 x19: 0000000001002222 x18: 00000000ffffffff
+[    2.093709] x17: 000000007a3345b6 x16: 0000000073a611dd x15: 0000000000000000
+[    2.100835] x14: 0000000000000000 x13: 0000000000000000 x12: fffffffffffff800
+[    2.107960] x11: 00000000000007ff x10: 0000000000000000 x9 : fffffffffffff800
+[    2.115086] x8 : 00000000000007ff x7 : 0000000000000000 x6 : ffffc7dc5740af58
+[    2.122211] x5 : 0000000080000000 x4 : ffffc7b87de00000 x3 : 000000000000003f
+[    2.129336] x2 : 0000000000000040 x1 : ffff0023d9eaf000 x0 : ffff0023d9ead000
+[    2.136462] Call trace:
+[    2.138896]  dcache_clean_inval_poc+0x24/0x48 (P)
+[    2.143592]  init_hyp_mode+0x644/0x960
+[    2.147333]  kvm_arm_init+0x128/0x280
+[    2.150987]  do_one_initcall+0x4c/0x458
+[    2.154813]  kernel_init_freeable+0x1f4/0x2a0
+[    2.159161]  kernel_init+0x2c/0x150
+[    2.162642]  ret_from_fork+0x10/0x20
+[    2.166210] Code: 9ac32042 d1000443 8a230000 d503201f (d50b7e20) 
+[    2.172292] ---[ end trace 0000000000000000 ]---
+[    2.176958] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[    2.184608] SMP: stopping secondary CPUs
+[    2.188523] Kernel Offset: 0x47dbd5dc0000 from 0xffff800080000000
+[    2.194604] PHYS_OFFSET: 0x80000000
+[    2.198080] CPU features: 0x04000000,804b0008,00040001,0400421b
+[    2.203988] Memory Limit: none
+[    2.207031] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+
+This points to the following code in kvm_hyp_init_symbols():
+
+<quote>
+	/*
+	 * Flush entire BSS since part of its data containing init symbols is read
+	 * while the MMU is off.
+	 */
+	kvm_flush_dcache_to_poc(kvm_ksym_ref(__hyp_bss_start),
+				kvm_ksym_ref(__hyp_bss_end) - kvm_ksym_ref(__hyp_bss_start))
+
+</quote>
+
+which I suspect is related to some of the new BSS related code in
+arm64/for-next/mm.
+
+Ard, does this ring a bell?
+
+Thanks,
+
+	M.
+
 -- 
-2.54.0
-
+Jazz isn't dead. It just smells funny.
 
