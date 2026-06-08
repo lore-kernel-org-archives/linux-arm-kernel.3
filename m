@@ -4,110 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92646CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E9DCD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rx5DadAO67UpdbFbKqO4wfxzyxKs/HiVe57B5TgYgWY=; b=iPm5KIWZ4Ww5yOMi5K4IxXF8Vf
-	ra0VnlY8WPn6IWw8dBHTkELw/bBT+r+q0CV3TqG0JV/Kx5DbVkDTxjJiUjINwLB1c3MUOuMM1H15M
-	97mpowTo2e6KfSgWVHuC54VMSCO+NIh0hGrK3b+yoX0Jo4p2KuHTJTIKOA/LqNVimOeqnhi6k5Olk
-	Q4nYPhWgAD/TWx6ATOSM/HywvfzBcAmVWyNUCbXBwMwPOGHmesKrc8S7HOCh8OkYzSvoboLbmwQmR
-	+FMNpD6iFDJth0S2g26CmAYRMiPqK26fjqs6kwLBFxqZ5elVX1RAH5YCgAoaeItbSSAGI735DIbnl
-	FaJJTH0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iOWoKg8bMi6Do4nzQIDEVIfSXElFBp+RZqF3L/UFCXQ=; b=jx5j82qse30iQ1yYju9jMQ8nV0
+	e/iqhQ6d43KI5cOHk1XXUsNLF4so18ECr7n6KlJYnLAFJBx6GNT8TPs70IdklZUgkhmaG8ECbTt0z
+	i5QWEnSjfygfw2qNrCIaK5LJ7IGQVI2Obgt1QcUXdc+qAyM5ujZGdHp0zShIDHAU0XZr4B76mKDRG
+	/h0/6zhLGXebkf17lWin8tlgV014n9NzYUQVcrYnyJQiOBQEvYTvg+TM12BuAiY3fUiYNelSHtOm0
+	NJ6KQEmmTRySL4mI1qUVlMncwtVqzlHONHb0JKqR4TBnmfSNar0xIUTGHa1LSM4JSbUfw2JjJX36+
+	zuLAG32Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWd20-000000045sy-0xhK;
-	Mon, 08 Jun 2026 16:40:56 +0000
-Received: from mail-ua1-x943.google.com ([2607:f8b0:4864:20::943])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWd1x-000000045sd-06Gx
+	id 1wWdCt-000000046il-0yWy;
+	Mon, 08 Jun 2026 16:52:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWdCq-000000046hz-1kUL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 16:40:54 +0000
-Received: by mail-ua1-x943.google.com with SMTP id a1e0cc1a2514c-96387977596so1553352241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:40:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780936851; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gXWvjPNN8V+wsQg7HIjIzLrKNYv+fZzwMOZUAR1xGgX5c8W1my2Ezlq4kSFcNofz/+
-         ZuMSy9ph+a+xuTwpRkJwS0yb478qUi5BVVu1TnoQXdWoUfXm0MLAn4oQHwcOPRFahKkR
-         p7dp+G7kf1yLZ3j7hQhKl0txVwroBHMYbmRIDcdA+MA7dFJQciSGdhv1xaPdHVJl55kt
-         ee36Mu7tUcggcnMKtmgYzvL39a+BmDZY+uq4XfNOP9+CqCuYFpCoHHfDudqXHD1wYYry
-         wmZVMAVH4vrwChZlvJacUQiQgn0vCbtk4vOb7kHEkL44YR4OUew7VBOwiO+9JugNjZ4v
-         39nA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rx5DadAO67UpdbFbKqO4wfxzyxKs/HiVe57B5TgYgWY=;
-        fh=L38uJg7NxNM4aZqLTXDrRM1EDqF+6gmdUSJqQzxyYLk=;
-        b=TNCq0QHKq9Eh42EhKd44MOPRTZDpjFpUUbS8UXgCCiJWi1B7ZOnQ4SP9RowmKY1ouK
-         ntZmRPUoUexHKbcLOFL4+Ps9rhWrLIh3cCLKvHww89KTZtFk1GHjaFbVx6m+n/9d4E4D
-         5+YOf/VC1rCxN9uga3cYAzFBErb6kR59b+ilKVemhQTH6hXAJ8vtg0buTpBgqMItMSYX
-         iWQnrqON/LPcPIpZ3GQVIMFKoGXI6rXJ1Q/ed/MK26RMnmP/yDVMhLB+jRsj9UdG10SP
-         GXFSFcLc3ei0LqI8ZGWFcn+yaDpsTVPx3cdP9d7PFb2MrBoUieGkIxTdVzyG8JGqKuDM
-         zEtw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780936851; x=1781541651; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rx5DadAO67UpdbFbKqO4wfxzyxKs/HiVe57B5TgYgWY=;
-        b=EFdZMy/dE7sIZ9lIXkSpjO5/EuHK7ilA11s2vTmfKt6/iJW+CAv9ecOPcxXYldhFEo
-         OwzMmol4C7fq1lDNEsXnPQrjdPP585AIN5Wt45BCs1DhQ+bvO3yXl0qTz8KJ0OcaHCDy
-         t+LjKgWL4ACj9AXPxT3ujarYnLWGEmCYHTuqd3/x8TL7o+LlJXR5d2NIMqU062Fn9tuG
-         ayAvY5z9m8TLDPTF60WNiQhO/vbAq1y9tAIHTeM5J7gi/5ac/p6Vwilavgv4MqutHnPJ
-         WtnBjbXDOWPtel5JTatyf5vgkxH1sdEzs345t07mxFnftiOX2lBEbsrPZ/DaVsPbFTT8
-         vQQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780936851; x=1781541651;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=rx5DadAO67UpdbFbKqO4wfxzyxKs/HiVe57B5TgYgWY=;
-        b=R0uNF0oGvjg3aYf1dwHtwm1EZccrGdKQZe/+ktcNH2hPtETdS4zW7PrGBcOVw5Unpm
-         JXaFq3u9TJ8SKw9UbE/02KtlVvZcMQJfxNMLLX+06CvWj0iZkDvna3OYsw73AXl3RZip
-         5xfWyd/hs3W7H530JrItqyDshs35kSk0WUO89rhtoPwn+cYrYzr+VuRYeT9C+w1X95YT
-         Rb6vq5qUjFmeqDxvxZUO+WN/62wNWbyWPGcSXmQk9DexLrywwO4S3RXETDf0mlptjSn2
-         LcxGbNL3XEQy4I0pGhSMmF8+OWf3/Oez77RMiRvCMAVd1bXc47m5PhtV/Vv5VrH7bxgr
-         vHBw==
-X-Gm-Message-State: AOJu0Yz4y7xaFjJfZ0zzO0+FcBawRlhq9gAeaxzi1jcebHm6E19CeFOm
-	ycEcXCLuVeJRQsj5GGkdEEG+zTC2uy1hwzOH8hx85RAqNCos9vnOy220KBTg82RWe8H1v/eG/30
-	9/GUdq4a4tt74CRB9uHaQvZDpiujz+13UDBff
-X-Gm-Gg: Acq92OH6tSt7bZLn/9qZD3iXxkee4WvHL5f7VvQFc0oSkLGIS0BTFu9FpamIT82jIiq
-	t0cO6R1+YHSz5/LYHpuyZBR0vuQ3axlYJB3mmGwYN/QXP52sWX3JVGjmxsCBpEg7xmM25SB+hSm
-	AlsUvXNOsSI0ImxXugykq9Gfz5pXf4rhXgXnSTrioLarAYHH8uvG+29mvturD9id9icQ7J5rHnI
-	gmf2zhD3+xAAp3JLJYNH67BsfvwcW4qT7eNvue5Gw6XhaVtAscDjjLNEbrWJaIBKB9g3o6OOwra
-	GDZzh4E0quncHI8hy8swa/Tr8PdLrm+nDLrjQuf1EkR40BnomC9wJx4o2Vbdrco2GTfCZSYs40Q
-	52EI=
-X-Received: by 2002:a05:6102:5490:b0:607:4fde:1921 with SMTP id
- ada2fe7eead31-6fefddf2777mr7527961137.24.1780936851466; Mon, 08 Jun 2026
- 09:40:51 -0700 (PDT)
+	Mon, 08 Jun 2026 16:52:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FCB632D0;
+	Mon,  8 Jun 2026 09:52:00 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D90833FD88;
+	Mon,  8 Jun 2026 09:52:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780937525; bh=GXQqJibXtDdJXe76ihrp/1G0s+9m23d5580fR8hWzTQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HEQff/fbCYy8LXtoslR1up/38Nh1BCk/F9foSLQ4P4AyB1WfvP7G6VPMDdUM9M2z5
+	 uL5u9WtBgSvBMszAxf3fhPq8UDsRM7giLo7btZhdkbqGDZ7WhSJiu2T0R2WHo1gODm
+	 68EL/oyNuDPd3os1Scpdrz/mTgzlj9EWDoZ6vo9E=
+Date: Mon, 8 Jun 2026 17:51:57 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	guomin_chen@sina.com, linux-arm-kernel@lists.infradead.org,
+	peng.fan@nxp.com, quic_xinqzhan@quicinc.com, sudeep.holla@arm.com
+Subject: Re: [RFC PATCH 2/2] firmware: arm_scmi: Add bus support for
+ autoloading
+Message-ID: <aibzLcZiVwtUHAgV@pluto>
+References: <Z6CNWOp8B_ghIrJt@pluto>
+ <20250203100154.140877-1-cristian.marussi@arm.com>
+ <20250203100154.140877-2-cristian.marussi@arm.com>
+ <aibW10NMmzw3QnZ5@mai.linaro.org>
 MIME-Version: 1.0
-References: <20260510052107.555825-1-enelsonmoore@gmail.com> <CAD++jLmUW4KjxEjwv7_an_dEMTSOtvG=q2MjhqKvnuGrWaaCsQ@mail.gmail.com>
-In-Reply-To: <CAD++jLmUW4KjxEjwv7_an_dEMTSOtvG=q2MjhqKvnuGrWaaCsQ@mail.gmail.com>
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Date: Mon, 8 Jun 2026 09:40:39 -0700
-X-Gm-Features: AVVi8CckAHRTjPznUi9TSdmF40ARXCb9sYaYjHsEIjd_pzo-q6SLDDWWJhkDXvc
-Message-ID: <CADkSEUirvwVzdmGh0bS++cy8coOiMyuHNYQrC599eyVmWMh_Hw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: footbridge: convert to sparse IRQs
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
-	linux-serial@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
-	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Steven Rostedt <rostedt@goodmis.org>, Thomas Weissschuh <thomas.weissschuh@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aibW10NMmzw3QnZ5@mai.linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_094053_073702_DD5B5930 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260608_095208_511299_BA569D44 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,16 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Linus,
+On Mon, Jun 08, 2026 at 04:51:03PM +0200, Daniel Lezcano wrote:
+> On Mon, Feb 03, 2025 at 10:01:54AM +0000, Cristian Marussi wrote:
+> > Emit proper MODALIAS uevents when SCMI devices are created and make sure
+> > all the standard protocol devices are requested when the bus is
+> > initialized.
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> 
+> Hi Cristian,
+> 
 
-On Mon, Jun 8, 2026 at 1:50=E2=80=AFAM Linus Walleij <linusw@kernel.org> wr=
-ote:
-> Have you tested this on real hardware?
-> The commit doesn't really say.
+Hi Daniel,
 
-No, I haven't. I can try to test it in GXemul, but I'm not sure if it
-can boot Linux. The developer only lists it as capable of booting
-NetBSD.
+nice to hear from you in the SCMI land :P
 
-Ethan
+> what is the status of this patch ?
+
+....I'd say forgotten/abandoned...I worked on that a bit when I realized
+only part of the stack was autoloaded...then it did NOT received much
+love and then I forgot it....buried by other prios....
+
+Indeed I have still the local branch...but after a quick check I think
+is the same as the RFC posted.
+
+bbd14b0f7733 firmware: arm_scmi: Add bus support for autoloading
+8d982393b505 firmware: arm_scmi: Generate aliases for SCMI modules
+383c127faa97 (scmi_vendors_autoload_V2) firmware: arm_scmi: Add aliases to transport modules
+00caa894bce2 firmware: arm_scmi: Add module aliases to i.MX vendor protocols
+d900620c46bb firmware: arm_scmi: Support vendor protocol modules autoloading
+4fe57bbeb6dc firmware: arm_scmi: Allow transport properties for multiple instances
+ad236e5a7f01 Linux 6.13-rc1
+
+...where scmi_vendors_autoload_V2 is merged already...
+
+Thoughts ? Plans ?
+
+Thanks,
+Cristian
 
