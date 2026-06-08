@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C0ECD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 03:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A274CD8C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 04:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ybnh8S/ooqviaQ5QVM8foenQiJIP8ZWOyOXPrW9VaXY=; b=tJnOw8/ytd94Qs9gtOIS3ra9hU
-	DUjENgIQ83Q2DSyCVPA6nE4BuWE37v2CQV/aU9V2Bb3EZK8HXNOwOJqFLMFSYjSX1O0dc/DtzVpHy
-	S3LPybdvepjevx1ONqjWgEA/hnqFyKtGS5YHjyAVlXUu5KLsHSrmBGfkYGvBLaAyOnJiFv20W3zum
-	gtnB6PgPt3pq+T775jst8uODigQjkcQjnxdG9nLUHhcc+8m5nsIVxH71FbXluzF/l+SHKc90s+BVf
-	zR+wqVEQmDBNF28h3HqVBeBm4E3OIvfQ0VNVkrNrzvnyODNO1Df+iY3krPpeURWVQXhsBOHVVk9Py
-	ec7LHxOw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1W0WSOPePyu7VycvkA0dFLtFzunvd3MES835fx1lG5Q=; b=UnTNEsiMLGI4zsrS2x3gJ7C2Si
+	1A//GcCgT8HaCHWj9gZAFvqlCnO7IYmmu+Cf+KCY8xj32XRI4llEfHeW8GLJZkk5k2OriH4ZReLOi
+	AEobfLOekXD9KVN9Y20wXG1zbsNxsqddiTI1TkiDGxeB7+ZxWH/YIgwvd6+lJ1hIp8OMq598Fa0rk
+	8SHwWqRHSQU7Wzk+TmM5R7dY8WKlFiOQpLMklxlwkmW1j7fmoEEGlFFePPH8LnBJeNoejN4LTOloG
+	iu/y+MAr9UAbybLGeJhwb5hKDwscUCaXzZCP6hESv9kpsCotoZCC2xdJPO+2t7U2mydYykf4QuNe2
+	L6stWEsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWQqW-00000002ltH-0i5C;
-	Mon, 08 Jun 2026 03:40:16 +0000
-Received: from mail-m25490.xmail.ntesmail.com ([103.129.254.90])
+	id 1wWRWd-00000002nK4-2yqN;
+	Mon, 08 Jun 2026 04:23:48 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWQqS-00000002lsj-3YZ6;
-	Mon, 08 Jun 2026 03:40:15 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4171d1d3a;
-	Mon, 8 Jun 2026 11:40:04 +0800 (GMT+08:00)
-Message-ID: <42f1f39f-ab2b-4473-a82a-7ccefad41fcf@rock-chips.com>
-Date: Mon, 8 Jun 2026 11:40:02 +0800
+	id 1wWRWa-00000002nJZ-1Ye9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Jun 2026 04:23:45 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-8cceb2ecc03so33969536d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 21:23:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780892623; x=1781497423; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1W0WSOPePyu7VycvkA0dFLtFzunvd3MES835fx1lG5Q=;
+        b=JZ+Ho7K8E7M6jWnU8HFJki2/CUXtRaUVX6rufrXBBzh8F6ReWkhSDm3DSERiivOwyp
+         LcVYw8PGXBuQV4nOER3re4t1ZgN4m00Swlcuoy4KhENkG/Z/XJsvwzTo4C1gsakyvKDH
+         SxhDsnj9+2ZOST7zfq6UtMqFO1TJh+Of3e3pckOcRmDrcjr35XvhhwzPoIlvrufsUigu
+         XRQPvKHyqSYgKKAYE85riBcnTW8OnIUtBhs6YjpRqA4JVcrjjQwRcIV3rFZVA+AbVDQu
+         BNgQzx2T6TIggbdyoVGquBaxHLASGZNNqdpIZZ/ItoTMm5/Gq5LrYOlPLbioaHAcHCy6
+         h9/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780892623; x=1781497423;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1W0WSOPePyu7VycvkA0dFLtFzunvd3MES835fx1lG5Q=;
+        b=CssETB2utaECVKcKpf2akzPqgOr8j+zfDlzdgD2JLy9zurAI5Swyp76HR/TD9CnH4u
+         56bKk5oVnTg7Lk65spjGl5QIMmsw4fQiLFS7q/s77jKe4LhMfr3aFaiJDIovgQXvWoOs
+         MyBPw0/O/b0p2DVR5sNwvImNB7+KWm2P0IOWtIOTPW9EOv6zzgMtieA+epQ65KlFuxc5
+         DrF6AZpWvYmVNdwcIsvsFqMuUGnRKD6WA527FU1+AWbVk/+9qRCPKn9M8LBQxssidVts
+         2VwTUHnq4yck2cWMI3LkjQkmzLIzGMLPob+5utHxaLyHELoS0P/Z+7WU6X7M2GSEu89N
+         Jofw==
+X-Forwarded-Encrypted: i=1; AFNElJ+o8GLkoYHb69T4NXZuBGU6M0BOdAcAbP8mZ4qmch3GWBvMVnsli/ryyBbhlxLSXj7ZPbRLB5AFNMrgo+a2Lwab@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+UktDlr9WvvrwKavgbZwt2milmvagREXLobowEf3a2SvE3j26
+	urjTmB9WZJDSAM+Qywfe/TlM/Nclj8eg+HAVbbzowayqjPT6Dx+/MmYX
+X-Gm-Gg: Acq92OG1hsFsSfAM7RVJGLh9kr6uSlzamFtIYf/FFLTNJxckxg3dldOjrxnvOpMkv5N
+	ymmcg3TEestYUwxFOHBXFnkdT1scQ/tVJ2eI0EDTsPExVTH45freKMi3sqxkfhm5CizLZBKqkj9
+	os0wj8oN6GXK2gVw+vUErn5VS/Y624CR7Q6edGcukulBw/Qq5OJkO6psE+Y/Nk45kVeFRC7zai9
+	0JgUhUKugITOds3+PsnGPNHDXLJFlhBhkhpRfPWsQwm7yUDmRzpQ56Vp+OAIqa3TFIg1JiECNKA
+	SEFGM6WVm/oC8lRWTSUJZm8QKZludNXs6yC1YMRqxt5DYSF/KnXKxVHs8ZmMGmBZvCkx47Ht8u8
+	/TFn24Uk7qs6ddOcYEvSwTUg/otbXDm9RWGCZFaAl3UGAYeTP8PES0XHQ9u7ehlfD3l7I/VVTyr
+	34DUjJoIIwbfeX8N4HrLFpv7pWwGbbu2vbbOG2PkHFGeviHnzgLgI=
+X-Received: by 2002:ad4:5c45:0:b0:8cc:d756:802b with SMTP id 6a1803df08f44-8cee61529b6mr236711036d6.26.1780892622947;
+        Sun, 07 Jun 2026 21:23:42 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cecd06f5eesm154721996d6.37.2026.06.07.21.23.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Jun 2026 21:23:41 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] ARM: l2x0: Fix OF node reference leak in l2x0_of_init
+Date: Mon,  8 Jun 2026 00:23:30 -0400
+Message-ID: <20260608042331.2633217-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 6/9] iommu/rockchip: Clear AUTO_GATING bit 1 on the
- RK356x v1 IOMMU
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-To: Midgy Balon <midgy971@gmail.com>
-Cc: Simon Xue <xxm@rock-chips.com>, tomeu@tomeuvizoso.net,
- ogabbay@kernel.org, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260604135255.62682-1-midgy971@gmail.com>
- <20260604135255.62682-7-midgy971@gmail.com>
- <e44b506e-e9d2-48e3-acea-ab28b7be9b37@rock-chips.com>
- <CA+GS1Y16++cztPxdUGLrPA73ENm4vJGFrjm-jP8r=8OQqcMJGA@mail.gmail.com>
- <0919ffcc-81c3-483a-a3ba-404b455c2040@rock-chips.com>
-Content-Language: en-US
-In-Reply-To: <0919ffcc-81c3-483a-a3ba-404b455c2040@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9ea550ec4803a7kunm2506f40117785a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSkgdVhlMShlNQx4fGUMeS1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	JNS0pVSktLVUtZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=MJ8kb8iu3k9kUW5PdS39JNE44AdvDP+25KeKewqwvQ/RgHEyL5ihvn80S04I9v8iAvtmc4m/wGvYWr1o93LDIoaLW9JtrrfkctewvhkyIZG8jZ/HS/zECvUB/KflIKXaj175aJMBP6eJFRogrm+S1h77FT2JKEi6FVjAl0EYr2E=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Ybnh8S/ooqviaQ5QVM8foenQiJIP8ZWOyOXPrW9VaXY=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_204013_458381_AB790D6F 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20260607_212344_442609_5BA0CAE5 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +97,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/8/2026 9:45 AM, Chaoyi Chen wrote:
-> Hi Midgy,
-> 
-> On 6/8/2026 5:05 AM, Midgy Balon wrote:
->> Hi Chaoyi,
->>
->>> As I said, it is v2. Could you please try using the code below instead and
->>> see if it works?
->>> [ auto_gate = read(RK_MMU_AUTO_GATING); auto_gate |= BIT(31); write(...) ]
->>
->> Thanks -- that's clearly the right shape (read-modify-write, before paging is
->> enabled, keeping the reset value instead of my clobbering 0x2).
->>
->> I rebuilt v7.1-rc6 (with the rocket RK3568 series + your per-device-ops work)
->> using your bit-31 version and tested it on a ROCK 3B: the NPU IOMMU comes up and
->> services the NPU's DMA cleanly -- the NPU probes, attaches its domain, and runs
->> repeated conv submissions with no DMA_READ_ERROR and no page-walk stall. No
->> regression from the write.
->>
->> To be precise about what I can and can't show: I tested both ways on v7.1-rc6 --
->> with your bit-31 write, and on the reset value (0x3) -- and the NPU
->> IOMMU services
->> the NPU's reads with zero faults in both cases (no DMA_READ_ERROR, no page-walk
->> stall). So I don't have a failing baseline here that bit-31 visibly
->> fixes. Is the
->> AUTO_GATING write needed on current mainline, or only under conditions I'm not
->> reproducing (a particular traffic pattern / silicon rev)? I'll keep the patch in
->> your form unless you'd prefer to drop it.
->>
->> One question so I document it correctly: what does bit 31 of RK_MMU_AUTO_GATING
->> control on the v2 block -- is it a master "disable internal auto clock-gating"
->> for the page-table walker (i.e. so a TLB-miss walk's AXI master keeps its clock
->> to completion)? The RK3568 TRM I have doesn't cover the IOMMU registers, so a
->> one-line description would let me write an accurate comment.
->>
-> 
-> Glad to hear this works. Please refer to the commit below.
-> 
-> [0]: https://github.com/rockchip-linux/kernel/commit/7f8158fb41b5cc8e738aaeebc3637c50ebd74cae
-> [1]: https://github.com/rockchip-linux/kernel/commit/6a355e5f9a2069a2309e240791bc3aad63b7324e
-> 
+l2x0_of_init() gets the cache controller node with
+of_find_matching_node(), which returns the node with a reference held.
+The node is only needed while parsing the cache controller resources and
+properties, but the function returns without dropping that reference on
+the resource/ioremap failure paths or after __l2c_init() returns.
 
-It looks like RGA needs this patch too, and it has already been merged :).
+Use a single exit path after the node lookup and put the node before
+returning.
 
-https://lore.kernel.org/all/20260428-spu-iommudtefix-v2-1-f592f579e508@pengutronix.de/
+Fixes: 8c369264b6de ("ARM: 7009/1: l2x0: Add OF based initialization")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ arch/arm/mm/cache-l2x0.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
 
+diff --git a/arch/arm/mm/cache-l2x0.c b/arch/arm/mm/cache-l2x0.c
+index 470867160076..e20ac79dd500 100644
+--- a/arch/arm/mm/cache-l2x0.c
++++ b/arch/arm/mm/cache-l2x0.c
+@@ -1767,17 +1767,22 @@ int __init l2x0_of_init(u32 aux_val, u32 aux_mask)
+ 	u32 cache_id, old_aux;
+ 	u32 cache_level = 2;
+ 	bool nosync = false;
++	int ret;
+ 
+ 	np = of_find_matching_node(NULL, l2x0_ids);
+ 	if (!np)
+ 		return -ENODEV;
+ 
+-	if (of_address_to_resource(np, 0, &res))
+-		return -ENODEV;
++	if (of_address_to_resource(np, 0, &res)) {
++		ret = -ENODEV;
++		goto out_put_node;
++	}
+ 
+ 	l2x0_base = ioremap(res.start, resource_size(&res));
+-	if (!l2x0_base)
+-		return -ENOMEM;
++	if (!l2x0_base) {
++		ret = -ENOMEM;
++		goto out_put_node;
++	}
+ 
+ 	l2x0_saved_regs.phy_base = res.start;
+ 
+@@ -1821,6 +1826,10 @@ int __init l2x0_of_init(u32 aux_val, u32 aux_mask)
+ 	else
+ 		cache_id = readl_relaxed(l2x0_base + L2X0_CACHE_ID);
+ 
+-	return __l2c_init(data, aux_val, aux_mask, cache_id, nosync);
++	ret = __l2c_init(data, aux_val, aux_mask, cache_id, nosync);
++
++out_put_node:
++	of_node_put(np);
++	return ret;
+ }
+ #endif
 -- 
-Best, 
-Chaoyi
+2.43.0
+
 
