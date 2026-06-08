@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F757FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 03:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC451CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 15:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ix64vFLTMg1zfqNmmDku6bMK7XtzXkWd5VZgOslz+04=; b=QUHkhRpVaXwoPhI07vYKttM43h
-	OxLJuSXpu8CvAJSr0jmsnE1I5f0Hq/iC3r+rTCHTAnioon1AB6Fdz9A2fv1vRlsIllWNj4/+e5tF3
-	94Dm16UdsVWNkiZ/Bjr6OUSArpAPe4S1k4kosw7E/dZs4DqzNVDtpJ2foxcuN94+aJqkdq6Ny6lOd
-	wkjbfuCZV5h/mdGgLFkIwhXESIgMesG0BnB/Yc/x+n3/MeK40oTpoqnWErZBZnY0ra4GC1QP16iSG
-	fI+0HjdRl05a6DuDYcHbE7mjTuCzEIMdEyyk9Bj3xsMvpaxN3TkP9S23npS5mdNe3WBSLzMXSW8y2
-	HwfUl7JA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Q9Gr7IKyyrh6CkqHznMtILq2Yj9H3LSZNvYpyGmh8M=; b=x/wQvZaVE9yFLcfAK+voZzenxc
+	8ZpbE14yRSuqpfjjMum95ryi4BX+vUp3kcTDxsu1rNTIUO8z1q8OF4dbVVHn6obILqcopY6XB65Ut
+	Za2YfSMdX3d9MMczfthDhgmCGgAMJgqb+Vh+CoPEI6dZ89EMypjO8B78TqiGSjUFN6dRB2d8js21M
+	hheXAnVTjQQoLJ4fRfNvlFiacXq68Z4/PMwApSkBHdyfK3NrhxSGRxvMBaiJXPMHEoyJXwbxvnGfn
+	lyc1w+r/EtFhpqWGRKlrerOrJCmNUzd6G1SbCrKBvzWRHTigQkcQ/t1aEYzK+F7PL6Ewq84NCYrhP
+	PulcIf7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJjjV-0000000CEOf-1JRD;
-	Mon, 04 May 2026 03:12:33 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJjjT-0000000CEO6-0JIM
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWcKP-000000040le-0zNL;
+	Mon, 08 Jun 2026 15:55:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWcKM-000000040lB-3jca
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 03:12:32 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-50d7c12e48eso30840101cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 20:12:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777864350; x=1778469150; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ix64vFLTMg1zfqNmmDku6bMK7XtzXkWd5VZgOslz+04=;
-        b=P1P91eBBBkwAYcGdTpJwmMsdMp3TgnLofFZ0Jh5XLfG5OYtOeCLYXWcSvBVPB1yeFu
-         xlzaV+JDIDPtD+AncLchawdehBopTwSWV8aSurgrLTJRlw2VGKsg/GYX7gNNECY9TuMY
-         haQWkY9wqHPsibh4PS6Y6m+qtzGq9WCep3n4A84FOnL6iCs/tA394MG3FAeR9YVQd376
-         /LaVGqaVXuQNYHzNWRUtz8vDXhCtWjc2kKKHICEvb3k+6ft8RTeL45n6EmsH5CryYhys
-         VrrpKbdbSZpIPJVo5IApOzSP/xjpkFeFfM5+I5jlWgfTabicWcUNdeA2RjytSNbCmlfC
-         Wp6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777864350; x=1778469150;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ix64vFLTMg1zfqNmmDku6bMK7XtzXkWd5VZgOslz+04=;
-        b=dW4Uk7aecSb8uGo1TelXNQjCl1WfJyYZN9BX3B9tDV5itKzPICAwaOWtFr7YU3nouC
-         qyYINpw/TFRutdP91NedoOeCr11kGXdSd3YWhAHA1p4UJ3t66oCUl6KjpzAhkQk7CLs/
-         HnOV+V6WrQFGSsbc4HBnTEgb8yr0qf342bw7zGaln4xZ3dUpUCCgcHab6Qfe31OwmmTU
-         sNz4U+uWi5i7lSjfjI5vlzZa4a6TRTAnipoDaPOmvWp69/U/147xIGILda8dyjPg+S7n
-         sbFRNQ5L0Di03gRGjLUp5ZgTV9Uw2QdZmWqkWQgMmsPK+eieydjM8ayqD2WjzRSuQdA1
-         bJFQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9B0kEy1Ds4M1HEjsepXsMMMQlfQgviCEa8unHI6AL4vJ9sJyTp8f9o53oM9NyYfhhhc5RgMbSGQAuJ54XrK4GR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKqHR7A7KnXwPDf/SWA4jynAakhc2J6K+bnQpCsLrZ4spWbSLm
-	5JojJ3j2PrSb0d4Ztg87J40nwNoNMwqb4FV0zo+JtD0qr71v4/0wrXCW
-X-Gm-Gg: AeBDieu63cea0fPV0i/pgr6PYTHGu6h6J2T6o82lDC93Ivsjvy4/lkFjO/Tj0GmnisS
-	dsH2jOtBqJ8ovkboTjOKPREP1cqClGMQD1KVTQcS1NWKzlvogXkAJ4Jx1lIajEcijYfORySk3M3
-	7+DqlU2BlL6POTV64DCE0ahumGD75ZMM91EiHzfKwlxAMi8tcc6DzAfIY3UMwA7ZMdt2+UqEXax
-	ZwImJD1KtwuILYt1RqAgdxYRmMxNfOn+ZRe8s5IK9Mow4IQWIsvmC6eGfXL11v0pDfENkZetRgy
-	vLq+SpEs6/LUrjMaNoblN57DFJ6m7CuctwNL9E3gTFKUQ4ABC0m7rih37HlSGuqlu50C4LNBKsx
-	3D8uPgIN9e8M6z2BgDnPA0l2SlKSKAgZio0EFTe5rSdfUVVm/04PsbWfeXkG62/x/WUU/EoqJOF
-	aCG+nXGn7qGMFTRFHO1+KeroJn+OcUFPhzikduHoEbNQLIg3WiGqPYcdyEi4K6gNJhK34wO82KL
-	hLKPu2oqDv8LN+XvCsOXZB3Kv2SQP2fnzipc4R9gCCTXw==
-X-Received: by 2002:a05:622a:15cf:b0:50f:c9a2:1643 with SMTP id d75a77b69052e-5104b484d42mr108220031cf.11.1777864349633;
-        Sun, 03 May 2026 20:12:29 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51040ba8acdsm86540591cf.31.2026.05.03.20.12.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 May 2026 20:12:28 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-kernel@lists.infradead.org (moderated list:TEXAS INSTRUMENTS' SYSTEM CONTROL INTERFACE (TI...),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCHv2] firmware: ti_sci: simplify resource allocation
-Date: Sun,  3 May 2026 20:12:09 -0700
-Message-ID: <20260504031209.618949-1-rosenp@gmail.com>
+	Mon, 08 Jun 2026 15:55:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9CE7175A;
+	Mon,  8 Jun 2026 08:55:44 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5858B3FD80;
+	Mon,  8 Jun 2026 08:55:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780934149; bh=veGBV30tkSQy3O+cpkSjv7ZCdMRJYieHFctPW8nTs6c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Y8CzEdVWkK52WP2X2Wny7eBG1Cf0NkljIogcHYA+LhhrKB6mOLLiYeTg5NFrn6raD
+	 nvII1zooStZ5FIIpNg8OZHUWrW2ALX1U0FlMgy5kdM/QXx9EwTCF5fWgJfHhXvFOPn
+	 S/WkUNKVm+eUnTONsxYe7wj4TQQoAoC3feJouD/E=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Gavin Shan <gshan@redhat.com>
+Subject: Re: [PATCH 1/2] KVM: arm64: Replace memslot_is_logging() with kvm_slot_dirty_track_enabled()
+Date: Mon,  8 Jun 2026 16:55:45 +0100
+Message-ID: <aibmALTEbc7gzSZj@devkitleo>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260605153248.2412064-2-weilin.chang@arm.com>
+References: <20260605153248.2412064-1-weilin.chang@arm.com> <20260605153248.2412064-2-weilin.chang@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_201231_182668_1ED29475 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_085551_021516_DE54EFAE 
+X-CRM114-Status: GOOD (  32.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,462 +81,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to combine allocations.
+Hi Wei Lin,
 
-Add __counted_by for extra runtime analysis.
+On Fri, Jun 05, 2026 at 04:32:47PM +0100, Wei-Lin Chang wrote:
+> When checking whether a memslot has dirty logging enabled, the
+> KVM_MEM_LOG_DIRTY_PAGES flag is the source of truth. Previously we were
+> using memslot_is_logging() which only tests dirty bitmap and did not
+> consider dirty ring. This was not detected because
+> KVM_CAP_DIRTY_LOG_RING_WITH_BITMAP was introduced together with KVM
+> arm64 dirty ring, and users need to enable it to ensure dirty
+> information is not lost for the case of VGIC LPI/ITS table changes.
+> 
+> Fix this by using kvm_slot_dirty_track_enabled() instead which checks
+> KVM_MEM_LOG_DIRTY_PAGES.
+> 
+> Note that memslot_is_logging() also treats a memslot as not logging if
+> KVM_MEM_READONLY is set, hence a memslot with both dirty logging and
+> read only would be seen as not logging for memslot_is_logging(), but
+> logging for kvm_slot_dirty_track_enabled(). This allows a read only
+> mapping of size > PAGE_SIZE to be built when memslot_is_logging() is
+> used, leading to a better read performance compared to
+> kvm_slot_dirty_track_enabled(). However memslots that have both
+> KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY set do not really make
+> sense as dirty logging is essentially nop for a read only memslot, so
+> this shouldn't affect real workloads much.
 
-Fixup k3-udma as well since ti_sci_resource is used there as well and
-needs fixing up to use kzalloc_flex.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v2: add k3-udma fixes.
- drivers/dma/ti/k3-udma.c               | 180 +++++++++++++------------
- drivers/firmware/ti_sci.c              |   7 +-
- include/linux/soc/ti/ti_sci_protocol.h |   2 +-
- 3 files changed, 98 insertions(+), 91 deletions(-)
+It worries me a bit that we are ignoring the KVM_MEM_READONLY flag... 
+I have not yet gone through the whole s2_mmu code but IIUC we can have 
+scenarios on which a memslot can be read-only and have dirty-logging 
+enabled. If a memslot is not faulted yet, IIUC it is marked as read-only 
+(so it can be mapped on write fault), and we can have dirty-logging 
+enabled for it as well (as the VMM has no idea). 
 
-diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index c964ebfcf3b6..ad6c50d0b844 100644
---- a/drivers/dma/ti/k3-udma.c
-+++ b/drivers/dma/ti/k3-udma.c
-@@ -4584,9 +4584,10 @@ static int udma_setup_resources(struct udma_dev *ud)
- {
- 	int ret, i, j;
- 	struct device *dev = ud->dev;
--	struct ti_sci_resource *rm_res, irq_res;
-+	struct ti_sci_resource *rm_res, *irq_res;
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
- 	u32 cap3;
-+	u16 sets;
- 
- 	/* Set up the throughput level start indexes */
- 	cap3 = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
-@@ -4664,64 +4665,67 @@ static int udma_setup_resources(struct udma_dev *ud)
- 	rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
- 	if (IS_ERR(rm_res)) {
- 		bitmap_zero(ud->tchan_map, ud->tchan_cnt);
--		irq_res.sets = 1;
-+		sets = 1;
- 	} else {
- 		bitmap_fill(ud->tchan_map, ud->tchan_cnt);
- 		for (i = 0; i < rm_res->sets; i++)
- 			udma_mark_resource_ranges(ud, ud->tchan_map,
- 						  &rm_res->desc[i], "tchan");
--		irq_res.sets = rm_res->sets;
-+		sets = rm_res->sets;
- 	}
- 
- 	/* rchan and matching default flow ranges */
- 	rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
- 	if (IS_ERR(rm_res)) {
- 		bitmap_zero(ud->rchan_map, ud->rchan_cnt);
--		irq_res.sets++;
-+		sets++;
- 	} else {
- 		bitmap_fill(ud->rchan_map, ud->rchan_cnt);
- 		for (i = 0; i < rm_res->sets; i++)
- 			udma_mark_resource_ranges(ud, ud->rchan_map,
- 						  &rm_res->desc[i], "rchan");
--		irq_res.sets += rm_res->sets;
-+		sets += rm_res->sets;
- 	}
- 
--	irq_res.desc = kzalloc_objs(*irq_res.desc, irq_res.sets);
--	if (!irq_res.desc)
-+	irq_res = kzalloc_flex(*irq_res, desc, sets);
-+	if (!irq_res)
- 		return -ENOMEM;
-+
-+	irq_res->sets = sets;
-+
- 	rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
- 	if (IS_ERR(rm_res)) {
--		irq_res.desc[0].start = 0;
--		irq_res.desc[0].num = ud->tchan_cnt;
-+		irq_res->desc[0].start = 0;
-+		irq_res->desc[0].num = ud->tchan_cnt;
- 		i = 1;
- 	} else {
- 		for (i = 0; i < rm_res->sets; i++) {
--			irq_res.desc[i].start = rm_res->desc[i].start;
--			irq_res.desc[i].num = rm_res->desc[i].num;
--			irq_res.desc[i].start_sec = rm_res->desc[i].start_sec;
--			irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
-+			irq_res->desc[i].start = rm_res->desc[i].start;
-+			irq_res->desc[i].num = rm_res->desc[i].num;
-+			irq_res->desc[i].start_sec = rm_res->desc[i].start_sec;
-+			irq_res->desc[i].num_sec = rm_res->desc[i].num_sec;
- 		}
- 	}
- 	rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
- 	if (IS_ERR(rm_res)) {
--		irq_res.desc[i].start = 0;
--		irq_res.desc[i].num = ud->rchan_cnt;
-+		irq_res->desc[i].start = 0;
-+		irq_res->desc[i].num = ud->rchan_cnt;
- 	} else {
- 		for (j = 0; j < rm_res->sets; j++, i++) {
- 			if (rm_res->desc[j].num) {
--				irq_res.desc[i].start = rm_res->desc[j].start +
-+				irq_res->desc[i].start = rm_res->desc[j].start +
- 						ud->soc_data->oes.udma_rchan;
--				irq_res.desc[i].num = rm_res->desc[j].num;
-+				irq_res->desc[i].num = rm_res->desc[j].num;
- 			}
- 			if (rm_res->desc[j].num_sec) {
--				irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
-+				irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
- 						ud->soc_data->oes.udma_rchan;
--				irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
-+				irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
- 			}
- 		}
- 	}
--	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, &irq_res);
--	kfree(irq_res.desc);
-+	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, irq_res);
-+	kfree(irq_res);
- 	if (ret) {
- 		dev_err(ud->dev, "Failed to allocate MSI interrupts\n");
- 		return ret;
-@@ -4746,9 +4750,10 @@ static int bcdma_setup_resources(struct udma_dev *ud)
- {
- 	int ret, i, j;
- 	struct device *dev = ud->dev;
--	struct ti_sci_resource *rm_res, irq_res;
-+	struct ti_sci_resource *rm_res, *irq_res;
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
- 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
-+	u16 sets;
- 	u32 cap;
- 
- 	/* Set up the throughput level start indexes */
-@@ -4828,21 +4833,21 @@ static int bcdma_setup_resources(struct udma_dev *ud)
- 						    (char *)range_names[i]);
- 	}
- 
--	irq_res.sets = 0;
-+	sets = 0;
- 
- 	/* bchan ranges */
- 	if (ud->bchan_cnt) {
- 		rm_res = tisci_rm->rm_ranges[RM_RANGE_BCHAN];
- 		if (IS_ERR(rm_res)) {
- 			bitmap_zero(ud->bchan_map, ud->bchan_cnt);
--			irq_res.sets++;
-+			sets++;
- 		} else {
- 			bitmap_fill(ud->bchan_map, ud->bchan_cnt);
- 			for (i = 0; i < rm_res->sets; i++)
- 				udma_mark_resource_ranges(ud, ud->bchan_map,
- 							  &rm_res->desc[i],
- 							  "bchan");
--			irq_res.sets += rm_res->sets;
-+			sets += rm_res->sets;
- 		}
- 	}
- 
-@@ -4851,14 +4856,14 @@ static int bcdma_setup_resources(struct udma_dev *ud)
- 		rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
- 		if (IS_ERR(rm_res)) {
- 			bitmap_zero(ud->tchan_map, ud->tchan_cnt);
--			irq_res.sets += 2;
-+			sets += 2;
- 		} else {
- 			bitmap_fill(ud->tchan_map, ud->tchan_cnt);
- 			for (i = 0; i < rm_res->sets; i++)
- 				udma_mark_resource_ranges(ud, ud->tchan_map,
- 							  &rm_res->desc[i],
- 							  "tchan");
--			irq_res.sets += rm_res->sets * 2;
-+			sets += rm_res->sets * 2;
- 		}
- 	}
- 
-@@ -4867,36 +4872,39 @@ static int bcdma_setup_resources(struct udma_dev *ud)
- 		rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
- 		if (IS_ERR(rm_res)) {
- 			bitmap_zero(ud->rchan_map, ud->rchan_cnt);
--			irq_res.sets += 2;
-+			sets += 2;
- 		} else {
- 			bitmap_fill(ud->rchan_map, ud->rchan_cnt);
- 			for (i = 0; i < rm_res->sets; i++)
- 				udma_mark_resource_ranges(ud, ud->rchan_map,
- 							  &rm_res->desc[i],
- 							  "rchan");
--			irq_res.sets += rm_res->sets * 2;
-+			sets += rm_res->sets * 2;
- 		}
- 	}
- 
--	irq_res.desc = kzalloc_objs(*irq_res.desc, irq_res.sets);
--	if (!irq_res.desc)
-+	irq_res = kzalloc_flex(*irq_res, desc, sets);
-+	if (!irq_res)
- 		return -ENOMEM;
-+
-+	irq_res->sets = sets;
-+
- 	if (ud->bchan_cnt) {
- 		rm_res = tisci_rm->rm_ranges[RM_RANGE_BCHAN];
- 		if (IS_ERR(rm_res)) {
--			irq_res.desc[0].start = oes->bcdma_bchan_ring;
--			irq_res.desc[0].num = ud->bchan_cnt;
-+			irq_res->desc[0].start = oes->bcdma_bchan_ring;
-+			irq_res->desc[0].num = ud->bchan_cnt;
- 			i = 1;
- 		} else {
- 			for (i = 0; i < rm_res->sets; i++) {
--				irq_res.desc[i].start = rm_res->desc[i].start +
-+				irq_res->desc[i].start = rm_res->desc[i].start +
- 							oes->bcdma_bchan_ring;
--				irq_res.desc[i].num = rm_res->desc[i].num;
-+				irq_res->desc[i].num = rm_res->desc[i].num;
- 
- 				if (rm_res->desc[i].num_sec) {
--					irq_res.desc[i].start_sec = rm_res->desc[i].start_sec +
-+					irq_res->desc[i].start_sec = rm_res->desc[i].start_sec +
- 									oes->bcdma_bchan_ring;
--					irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
-+					irq_res->desc[i].num_sec = rm_res->desc[i].num_sec;
- 				}
- 			}
- 		}
-@@ -4907,28 +4915,28 @@ static int bcdma_setup_resources(struct udma_dev *ud)
- 	if (ud->tchan_cnt) {
- 		rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
- 		if (IS_ERR(rm_res)) {
--			irq_res.desc[i].start = oes->bcdma_tchan_data;
--			irq_res.desc[i].num = ud->tchan_cnt;
--			irq_res.desc[i + 1].start = oes->bcdma_tchan_ring;
--			irq_res.desc[i + 1].num = ud->tchan_cnt;
-+			irq_res->desc[i].start = oes->bcdma_tchan_data;
-+			irq_res->desc[i].num = ud->tchan_cnt;
-+			irq_res->desc[i + 1].start = oes->bcdma_tchan_ring;
-+			irq_res->desc[i + 1].num = ud->tchan_cnt;
- 			i += 2;
- 		} else {
- 			for (j = 0; j < rm_res->sets; j++, i += 2) {
--				irq_res.desc[i].start = rm_res->desc[j].start +
-+				irq_res->desc[i].start = rm_res->desc[j].start +
- 							oes->bcdma_tchan_data;
--				irq_res.desc[i].num = rm_res->desc[j].num;
-+				irq_res->desc[i].num = rm_res->desc[j].num;
- 
--				irq_res.desc[i + 1].start = rm_res->desc[j].start +
-+				irq_res->desc[i + 1].start = rm_res->desc[j].start +
- 							oes->bcdma_tchan_ring;
--				irq_res.desc[i + 1].num = rm_res->desc[j].num;
-+				irq_res->desc[i + 1].num = rm_res->desc[j].num;
- 
- 				if (rm_res->desc[j].num_sec) {
--					irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
-+					irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
- 									oes->bcdma_tchan_data;
--					irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
--					irq_res.desc[i + 1].start_sec = rm_res->desc[j].start_sec +
-+					irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
-+					irq_res->desc[i + 1].start_sec = rm_res->desc[j].start_sec +
- 									oes->bcdma_tchan_ring;
--					irq_res.desc[i + 1].num_sec = rm_res->desc[j].num_sec;
-+					irq_res->desc[i + 1].num_sec = rm_res->desc[j].num_sec;
- 				}
- 			}
- 		}
-@@ -4936,35 +4944,35 @@ static int bcdma_setup_resources(struct udma_dev *ud)
- 	if (ud->rchan_cnt) {
- 		rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
- 		if (IS_ERR(rm_res)) {
--			irq_res.desc[i].start = oes->bcdma_rchan_data;
--			irq_res.desc[i].num = ud->rchan_cnt;
--			irq_res.desc[i + 1].start = oes->bcdma_rchan_ring;
--			irq_res.desc[i + 1].num = ud->rchan_cnt;
-+			irq_res->desc[i].start = oes->bcdma_rchan_data;
-+			irq_res->desc[i].num = ud->rchan_cnt;
-+			irq_res->desc[i + 1].start = oes->bcdma_rchan_ring;
-+			irq_res->desc[i + 1].num = ud->rchan_cnt;
- 			i += 2;
- 		} else {
- 			for (j = 0; j < rm_res->sets; j++, i += 2) {
--				irq_res.desc[i].start = rm_res->desc[j].start +
-+				irq_res->desc[i].start = rm_res->desc[j].start +
- 							oes->bcdma_rchan_data;
--				irq_res.desc[i].num = rm_res->desc[j].num;
-+				irq_res->desc[i].num = rm_res->desc[j].num;
- 
--				irq_res.desc[i + 1].start = rm_res->desc[j].start +
-+				irq_res->desc[i + 1].start = rm_res->desc[j].start +
- 							oes->bcdma_rchan_ring;
--				irq_res.desc[i + 1].num = rm_res->desc[j].num;
-+				irq_res->desc[i + 1].num = rm_res->desc[j].num;
- 
- 				if (rm_res->desc[j].num_sec) {
--					irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
-+					irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
- 									oes->bcdma_rchan_data;
--					irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
--					irq_res.desc[i + 1].start_sec = rm_res->desc[j].start_sec +
-+					irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
-+					irq_res->desc[i + 1].start_sec = rm_res->desc[j].start_sec +
- 									oes->bcdma_rchan_ring;
--					irq_res.desc[i + 1].num_sec = rm_res->desc[j].num_sec;
-+					irq_res->desc[i + 1].num_sec = rm_res->desc[j].num_sec;
- 				}
- 			}
- 		}
- 	}
- 
--	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, &irq_res);
--	kfree(irq_res.desc);
-+	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, irq_res);
-+	kfree(irq_res);
- 	if (ret) {
- 		dev_err(ud->dev, "Failed to allocate MSI interrupts\n");
- 		return ret;
-@@ -4977,10 +4985,11 @@ static int pktdma_setup_resources(struct udma_dev *ud)
- {
- 	int ret, i, j;
- 	struct device *dev = ud->dev;
--	struct ti_sci_resource *rm_res, irq_res;
-+	struct ti_sci_resource *rm_res, *irq_res;
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
- 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
- 	u32 cap3;
-+	u16 sets;
- 
- 	/* Set up the throughput level start indexes */
- 	cap3 = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
-@@ -5057,13 +5066,13 @@ static int pktdma_setup_resources(struct udma_dev *ud)
- 	if (IS_ERR(rm_res)) {
- 		/* all rflows are assigned exclusively to Linux */
- 		bitmap_zero(ud->rflow_in_use, ud->rflow_cnt);
--		irq_res.sets = 1;
-+		sets = 1;
- 	} else {
- 		bitmap_fill(ud->rflow_in_use, ud->rflow_cnt);
- 		for (i = 0; i < rm_res->sets; i++)
- 			udma_mark_resource_ranges(ud, ud->rflow_in_use,
- 						  &rm_res->desc[i], "rflow");
--		irq_res.sets = rm_res->sets;
-+		sets = rm_res->sets;
- 	}
- 
- 	/* tflow ranges */
-@@ -5071,55 +5080,58 @@ static int pktdma_setup_resources(struct udma_dev *ud)
- 	if (IS_ERR(rm_res)) {
- 		/* all tflows are assigned exclusively to Linux */
- 		bitmap_zero(ud->tflow_map, ud->tflow_cnt);
--		irq_res.sets++;
-+		sets++;
- 	} else {
- 		bitmap_fill(ud->tflow_map, ud->tflow_cnt);
- 		for (i = 0; i < rm_res->sets; i++)
- 			udma_mark_resource_ranges(ud, ud->tflow_map,
- 						  &rm_res->desc[i], "tflow");
--		irq_res.sets += rm_res->sets;
-+		sets += rm_res->sets;
- 	}
- 
--	irq_res.desc = kzalloc_objs(*irq_res.desc, irq_res.sets);
--	if (!irq_res.desc)
-+	irq_res = kzalloc_flex(*irq_res, desc, sets);
-+	if (!irq_res)
- 		return -ENOMEM;
-+
-+	irq_res->sets = sets;
-+
- 	rm_res = tisci_rm->rm_ranges[RM_RANGE_TFLOW];
- 	if (IS_ERR(rm_res)) {
--		irq_res.desc[0].start = oes->pktdma_tchan_flow;
--		irq_res.desc[0].num = ud->tflow_cnt;
-+		irq_res->desc[0].start = oes->pktdma_tchan_flow;
-+		irq_res->desc[0].num = ud->tflow_cnt;
- 		i = 1;
- 	} else {
- 		for (i = 0; i < rm_res->sets; i++) {
--			irq_res.desc[i].start = rm_res->desc[i].start +
-+			irq_res->desc[i].start = rm_res->desc[i].start +
- 						oes->pktdma_tchan_flow;
--			irq_res.desc[i].num = rm_res->desc[i].num;
-+			irq_res->desc[i].num = rm_res->desc[i].num;
- 
- 			if (rm_res->desc[i].num_sec) {
--				irq_res.desc[i].start_sec = rm_res->desc[i].start_sec +
-+				irq_res->desc[i].start_sec = rm_res->desc[i].start_sec +
- 								oes->pktdma_tchan_flow;
--				irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
-+				irq_res->desc[i].num_sec = rm_res->desc[i].num_sec;
- 			}
- 		}
- 	}
- 	rm_res = tisci_rm->rm_ranges[RM_RANGE_RFLOW];
- 	if (IS_ERR(rm_res)) {
--		irq_res.desc[i].start = oes->pktdma_rchan_flow;
--		irq_res.desc[i].num = ud->rflow_cnt;
-+		irq_res->desc[i].start = oes->pktdma_rchan_flow;
-+		irq_res->desc[i].num = ud->rflow_cnt;
- 	} else {
- 		for (j = 0; j < rm_res->sets; j++, i++) {
--			irq_res.desc[i].start = rm_res->desc[j].start +
-+			irq_res->desc[i].start = rm_res->desc[j].start +
- 						oes->pktdma_rchan_flow;
--			irq_res.desc[i].num = rm_res->desc[j].num;
-+			irq_res->desc[i].num = rm_res->desc[j].num;
- 
- 			if (rm_res->desc[j].num_sec) {
--				irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
-+				irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
- 								oes->pktdma_rchan_flow;
--				irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
-+				irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
- 			}
- 		}
- 	}
--	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, &irq_res);
--	kfree(irq_res.desc);
-+	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, irq_res);
-+	kfree(irq_res);
- 	if (ret) {
- 		dev_err(ud->dev, "Failed to allocate MSI interrupts\n");
- 		return ret;
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index e027a2bd8f26..04d99c1fafa1 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -3574,16 +3574,11 @@ devm_ti_sci_get_resource_sets(const struct ti_sci_handle *handle,
- 	bool valid_set = false;
- 	int i, ret, res_count;
- 
--	res = devm_kzalloc(dev, sizeof(*res), GFP_KERNEL);
-+	res = devm_kzalloc(dev, struct_size(res, desc, sets), GFP_KERNEL);
- 	if (!res)
- 		return ERR_PTR(-ENOMEM);
- 
- 	res->sets = sets;
--	res->desc = devm_kcalloc(dev, res->sets, sizeof(*res->desc),
--				 GFP_KERNEL);
--	if (!res->desc)
--		return ERR_PTR(-ENOMEM);
--
- 	for (i = 0; i < res->sets; i++) {
- 		ret = handle->ops.rm_core_ops.get_range(handle, dev_id,
- 							sub_types[i],
-diff --git a/include/linux/soc/ti/ti_sci_protocol.h b/include/linux/soc/ti/ti_sci_protocol.h
-index fd104b666836..7632bb11c862 100644
---- a/include/linux/soc/ti/ti_sci_protocol.h
-+++ b/include/linux/soc/ti/ti_sci_protocol.h
-@@ -599,7 +599,7 @@ struct ti_sci_handle {
- struct ti_sci_resource {
- 	u16 sets;
- 	raw_spinlock_t lock;
--	struct ti_sci_resource_desc *desc;
-+	struct ti_sci_resource_desc desc[] __counted_by(sets);
- };
- 
- #if IS_ENABLED(CONFIG_TI_SCI_PROTOCOL)
--- 
-2.54.0
+Would not that change impact this scenario?
 
+I will take a better look in that part of the code as well, to properly 
+understand it.
+
+Thanks!
+Leo
+
+
+
+
+> 
+> Fixes: 9cb1096f8590 ("KVM: arm64: Enable ring-based dirty memory tracking")
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+> It took me a long investigation to acquire the context needed to
+> understand this change, however the reason for this problem not being
+> detected is an educated guess. Please let me know if this is wrong or
+> if there are other issues, thanks!
+> 
+>  arch/arm64/kvm/mmu.c | 11 +++--------
+>  1 file changed, 3 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 4da9281312eb..06c46124d3e7 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -161,11 +161,6 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
+>  	return ret;
+>  }
+>  
+> -static bool memslot_is_logging(struct kvm_memory_slot *memslot)
+> -{
+> -	return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
+> -}
+> -
+>  /**
+>   * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
+>   * @kvm:	pointer to kvm structure.
+> @@ -1748,7 +1743,7 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+>  {
+>  	short vma_shift;
+>  
+> -	if (memslot_is_logging(s2fd->memslot)) {
+> +	if (kvm_slot_dirty_track_enabled(s2fd->memslot)) {
+>  		s2vi->max_map_size = PAGE_SIZE;
+>  		vma_shift = PAGE_SHIFT;
+>  	} else {
+> @@ -1953,7 +1948,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+>  	*prot = KVM_PGTABLE_PROT_R;
+>  
+>  	if (s2vi->map_writable && (s2vi->device ||
+> -				   !memslot_is_logging(s2fd->memslot) ||
+> +				   !kvm_slot_dirty_track_enabled(s2fd->memslot) ||
+>  				   kvm_is_write_fault(s2fd->vcpu)))
+>  		*prot |= KVM_PGTABLE_PROT_W;
+>  
+> @@ -2084,7 +2079,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  	 * and a write fault needs to collapse a block entry into a table.
+>  	 */
+>  	memcache = get_mmu_memcache(s2fd->vcpu);
+> -	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
+> +	if (!perm_fault || (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
+>  			    kvm_is_write_fault(s2fd->vcpu))) {
+>  		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+>  		if (ret)
+> -- 
+> 2.43.0
+> 
 
