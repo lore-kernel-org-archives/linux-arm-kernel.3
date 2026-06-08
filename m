@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C93CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EAF1CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KA39cn/flypWKItQToPQ5sDUgjHNBdBr902xSalTxI8=; b=fqwTA9VD9wWiO8gm2iqc1uWrkc
-	faVnJmjSmzOXB0JhpXqoBmHFqmcgqLKbRVjUqKfrrtwGhG4thdS0owCzf2AWgGWjPO+TKBDkyGBwH
-	Czpakf5KWXNSVaS0FxeRStLUrbvVaO0aczWXaNPRHtM0yINdW8Bs1XTNYX6oDrJ4ztsJJ3kBFcViJ
-	ncPcm5vdNopKXUu5fdO744WFXsF3mM6zTAVWotZAZ9sFehHAyZHQ9PmNNfZj08wL0n3XzJqjUoOSk
-	PtNSeDJDEWxmlTliKzw8i8ZMfjDwzcI1FkIxyHVtYC/wYiya+BTXE8qdq7/sJ3JW97gO64aI7ghJl
-	r14M3MKQ==;
+	bh=ZgtnLKHSY2AVtPo+97MnJT2AA2h1V52oQfGIO76/OrU=; b=WI/bE5ZXCunjAeL8wfw8MoN0Qy
+	Y76DPG3dmO/c4hie6O6beakCewJphhg+afaJtG7eU8ZrPIbJ0PzEh7kSEQDuMdLO9KTDs+/3g+j92
+	7P9o838tjRih7gq4vAe4+sq5IA1EeYtpe1jURSQd2bVWJQ6IqCmKCDGmuGH2klyPsjpjiHjNUURzj
+	lyBhKefvtFn/hxeUvlnjXcSDcK1gf2LbPfLMPgTQVGGFQcWozn3mm2x8gp3Z8nV1lvdnVE7Q5IhWw
+	WHXDlTB4/lSwqlOwLrhoimgU4qoI38gGiiwuLl8/GrjbzfReV75f9dMJEuHRQ5SlYBE4wevJ3XENK
+	AOYIoSjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWva-00000003Hp3-1alQ;
-	Mon, 08 Jun 2026 10:09:54 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wWWvY-00000003HjP-07jR;
+	Mon, 08 Jun 2026 10:09:52 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWvW-00000003Hg9-1AFH
+	id 1wWWvS-00000003Hb3-3vnF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 10:09:51 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490bb83a3f6so33358325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 03:09:49 -0700 (PDT)
+	Mon, 08 Jun 2026 10:09:48 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490d1e54b3bso2916275e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 03:09:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780913388; x=1781518188; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780913385; x=1781518185; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KA39cn/flypWKItQToPQ5sDUgjHNBdBr902xSalTxI8=;
-        b=hkVYLuZ3zHacqO17cCBbE0J06QWmbcvAwUEAkBHZgX5CNh8hw+Zeb8wZvqvRCnxkHy
-         QcjNbiL8mw0prI9vD3MN3K9/ji0mEtNW6W6EEXwt/x85T/hsTvck6UDLaLXh0W+fQ1FS
-         LL6VXfXkzy6G0smxN5ZFW2vsjsXhkHsp1YMMNdq4A3akvCKDBsaQNKi6pPHrwIaGT0Fy
-         4HYn7aQAUN8wZoBShr0OSQJy19o+S9JG33nj23qc1S44NdXEooC1rfJ/aXYdD6AhKNIg
-         W7OOklhVlilecDE7gWn2j+dYXJhLKESCbyIiRkxEp0uXyBnFKNKP6s+ZDU4MRUfWAHtf
-         Qqdg==
+        bh=ZgtnLKHSY2AVtPo+97MnJT2AA2h1V52oQfGIO76/OrU=;
+        b=rtY+ezGsssZlYi13/rp8fnp3AVdlxyD6r2F3BHsjUbv4ajHVHNxgWMyqafEv2KsqH7
+         d1t69NNTb7EQE5pAYtwHnkqdNCdKQ81b0GkwwLIyEGz9ilcWqwT5o1jJuoAv9JSMJaMW
+         jYNXSUTs0qpdrgqrc1wwSndAuWcao3J+9rspPvxdoqvHhw+I84k/u5qe0HmMgWPOsZX0
+         m+d4yzVuy39lKYhlljo3QqgHD+ispHjcwwkusdy2yOG+CaK8rYbbFWqlOItRC8vqz6zR
+         rzMPStWQyOBeD1YpH3lCaScNqkR1uknCViYJFrpn/7++ogzFb7hTozotewvVJ9wuNucH
+         V/Yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780913388; x=1781518188;
+        d=1e100.net; s=20251104; t=1780913385; x=1781518185;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=KA39cn/flypWKItQToPQ5sDUgjHNBdBr902xSalTxI8=;
-        b=Xb8BwoI3/gNWIJt5CYAnKgk1uwBZ7G5kLj8E1nWi/XG1CiuHc3rndyHpkMZ5zpevxt
-         KbouY9HXD1EpzXN4Wztjfdc3iOoqOSoGZyZ5lZk1z8Izoh6lCSsCqxnxB/IIg1v003G3
-         bfpU5c7qyEBxYK0FDb/pbix2A6iiSIY+b1jm+jHguuZp8LFqfYt9WsBu0oQ4G2bqgrcE
-         2khmg1GSTMFCBdQgsamF0eGcOyLeCtRCE80H7sdNN5rK7UcmMKUNSxH1tR3v9J+S5Wwd
-         E9ThFzU3pLgKUqBLLr5U1oE2RCqlS85r8VWmufaAPRWtmss2rNVGaiLfzFOAQDYQAJW/
-         EOsA==
-X-Forwarded-Encrypted: i=1; AFNElJ/U1uflUkvOzIqNXlG/57x7/0W6KAMR64Ka8kM/YtZ0GulVbKDIWweLDphXLm0lcy+mqyInV5g+iVmfLd4s8Qbq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy72us2KIUsZuZJqLyeeCzWD6zBOd7LFUdMVJDwr7NNI5VT2lbF
-	QxEcXa0l3HfYXIMU/bWSiS8MMnVqZ+nDOPGNcL7lvwkBCqzOSE8c07Ly
-X-Gm-Gg: Acq92OGhKlnX5iDespQF/iJoZceH5GKciKJNQK7oGUt4b8kkDBvy1EBTaFP9bGYHC2M
-	eHjado4tVX+UPKK0MKl5tV9CGXzulbtjFfXsiiCStXKl4s8i4ZJsGrEOq1otkl//SSCiiKYlKuf
-	CnI+Tv4zWzPHb9kWxO9NMFjdlLrNz+BkIA64NBl5A1w6ztRignRQ0dJkGMW8cHA28wZQlFrMvNi
-	XEdc0ZOLZOFfBL+n3wzNRa8R9nlLZM3YlLbwmQ7gQVF57tFPpIyYeZK6HmGmlbnwEd3kjwcR1LM
-	l3UkEm1pJMbPw497R+7iauqtGeJPJDPY5qH4XZOh9Toq49w+/xQFeeZ2HBGcCfmw/TFfby/hQTp
-	l6HQaseGkGmY+iKFeMxQ8z6VoaknpCYBB+dDR1nvL2CDgNfg9CBxMgAHeYjOw0l/o2YMjVf1BK7
-	h4tNlRK4NzrRn8qZJ5pPf3DCKcTem8IpSGPNZH3Af+d/TcTRtpWfOYwsN/Z+yg6O0uA7NzPH0Sl
-	LEgeC+0cPRp8N6i+5Yw1pRUpeXoWBhCEIVzEsKDYej6zqRy
-X-Received: by 2002:a05:600c:6096:b0:490:b115:e03f with SMTP id 5b1f17b1804b1-490c25ba56cmr246682905e9.8.1780913388321;
-        Mon, 08 Jun 2026 03:09:48 -0700 (PDT)
+        bh=ZgtnLKHSY2AVtPo+97MnJT2AA2h1V52oQfGIO76/OrU=;
+        b=Y/kro56RgXo7DBVQAT4FT2CF+2KgU/cWQrMzjtpx2dOmkYCLqEd5nQi86YiyUcahSW
+         yfNjmZ9GEBngDJZdP4Wr0DpLMaYp6U3hjq32r0j/RblsmzEDAcNRMvKDcIPBzExSoI9F
+         3I5Z1VLL50NzKRg5fXP6+fZUmRoTXXDEXZj5xwQvfsUx5bNS7aB3AaLdKqgGawrY2u3U
+         yG2GMjNEH/FSbEa1YBJYUSoU2/dDRNCLErjXXzmMcnY6kpsvF0EdrCGJX5Zyv97wpZMM
+         g2BCFv51Bk2NsUcKaoFuQ0tneh1JFr4xMKROda8kpzPTWbtaKgA981HnOYeUH9Xzhuui
+         OyGg==
+X-Forwarded-Encrypted: i=1; AFNElJ/j9r7AfGExvp0ODsyiiMaih6LHUMv7JnHr8yVV3yKc8A/ElunrJ3oDxgKMsdFi3dZ2Hon/1m3S5bwugNdGo00b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1kggewsgIUccVK0ABT1tju35MXaABKJ3bbv/L+pC1GOEsDXiN
+	bOdDmNyBvwjer1U0RAYPpqPKWlMXJDvSCxeEsZlFGmzrLnRv0wfdmnn5
+X-Gm-Gg: Acq92OEUKyZBNAsESCweAc5jOomKp1pcow1/sYzSjTDIOyYxibAQxBQJEOQOGEh6IkL
+	feqr0XLG5Z+87lkxxtljGgpMVGJmeXUATEPe+V9O6aUoOcPbw7YlCnfdGdhBwrolpjfrGGB8zX2
+	hYdH8n4AVcj9sqxen8nfxQe+y20Am9ppnmCHZrpEpnPTrFuIU8WFtCV+hgYcErxGoDND6qrEZ4l
+	/hIRJFnauqfSi9cxlrkZfJ9C6mftmQY/v4YCDCObsT/A7UHlRIUMIDNPGnDK39HSMa18rEOQuM5
+	vqBy+5qi/XgYK1pN6kX2uobTKqOOmcXknL9+T2uYMuwxjWm1ALQdr2ZHdGx/9SQSHeaSREWsd4s
+	X2AGZ368yTFE3ekX6l5PoI1zUZEPv9oxldYL4N55+NwmlEMyHLxi23tMl9oL0Bj7A6pK8B0kFLU
+	JZ14svfJhRFTTg678WEyUSGrT4AZVzeYmIcQ/xnWbozI/tK6AHm4f51UL+5Ne5EChJ0R2oLuBHu
+	MsLf6GoXmSNFIbyrRY6qBG8azSbsBbD2+0nJ0YVSmLAJpaX9EWaDqyVTac=
+X-Received: by 2002:a05:600c:3551:b0:490:6237:521b with SMTP id 5b1f17b1804b1-490c25cc5c2mr241349195e9.27.1780913384743;
+        Mon, 08 Jun 2026 03:09:44 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4602cda3651sm39503219f8f.32.2026.06.08.03.09.47
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4602cda3651sm39503219f8f.32.2026.06.08.03.09.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 03:09:47 -0700 (PDT)
+        Mon, 08 Jun 2026 03:09:44 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v4 10/14] arm64: dts: imx8mp-var-som-symphony: keep RGB_SEL low
-Date: Mon,  8 Jun 2026 12:09:28 +0200
-Message-ID: <46a145f964514cf82e340cb0acc38d4bc310d4d9.1780912893.git.stefano.r@variscite.com>
+Subject: [PATCH v4 07/14] arm64: dts: imx8mp-var-som-symphony: add HDMI support
+Date: Mon,  8 Jun 2026 12:09:25 +0200
+Message-ID: <2ee49ad6bf9313d00e64d74128399e45ad4f519c.1780912893.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1780912893.git.stefano.r@variscite.com>
 References: <cover.1780912893.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_030950_363551_5C35AB53 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260608_030947_023151_A6E87CFC 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +112,118 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Keep the RGB_SEL line driven low on the Symphony carrier board.
-
-This avoids leaving the line floating and ensures the board remains in
-the expected display configuration.
+Enable the HDMI display pipeline and HDMI audio support on the Symphony
+carrier board.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v3->v4:
- - 
+ - Add HDMI HPD support
 
 v2->v3:
  - 
 
 v1->v2:
- - 
+ - Add missing HDMI pinctrl configuration
+ - Enable LCDIF3 for the HDMI display pipeline
 
- arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../dts/freescale/imx8mp-var-som-symphony.dts | 62 +++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-index c7073fcb679e..4f1d61c55ffb 100644
+index a2becf5409cf..f27ba602c743 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
 +++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-@@ -193,6 +193,14 @@ pcal6408: gpio@21 {
- 		reg = <0x21>;
- 		#gpio-cells = <2>;
- 		gpio-controller;
-+
-+		/* RGB_SEL */
-+		lvds-brg-enable-hog {
-+			gpio-hog;
-+			gpios = <7 GPIO_ACTIVE_HIGH>;
-+			output-low;
-+			line-name = "rgb_sel";
-+		};
+@@ -48,6 +48,18 @@ led-0 {
+ 		};
  	};
  
- 	st33ktpm2xi2c: tpm@2e {
++	native-hdmi-connector {
++		compatible = "hdmi-connector";
++		label = "HDMI OUT";
++		type = "a";
++
++		port {
++			hdmi_in: endpoint {
++				remote-endpoint = <&hdmi_tx_out>;
++			};
++		};
++	};
++
+ 	pcie0_refclk: pcie0-refclk {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+@@ -74,6 +86,43 @@ reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
+ 		states = <3300000 0x0 1800000 0x1>;
+ 		vin-supply = <&ldo5>;
+ 	};
++
++	sound-hdmi {
++		compatible = "fsl,imx-audio-hdmi";
++		model = "audio-hdmi";
++		audio-cpu = <&aud2htx>;
++		hdmi-out;
++	};
++};
++
++&aud2htx {
++	status = "okay";
++};
++
++&hdmi_pai {
++	status = "okay";
++};
++
++&hdmi_pvi {
++	status = "okay";
++};
++
++&hdmi_tx {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_hdmi>;
++	status = "okay";
++
++	ports {
++		port@1 {
++			hdmi_tx_out: endpoint {
++				remote-endpoint = <&hdmi_in>;
++			};
++		};
++	};
++};
++
++&hdmi_tx_phy {
++	status = "okay";
+ };
+ 
+ &i2c3 {
+@@ -152,6 +201,10 @@ rtc@68 {
+ 	};
+ };
+ 
++&lcdif3 {
++	status = "okay";
++};
++
+ &pcie {
+ 	reset-gpios = <&pcal6408 1 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
+@@ -253,6 +306,15 @@ &usdhc2 {
+ };
+ 
+ &iomuxc {
++	pinctrl_hdmi: hdmigrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL			0x1c2
++			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA			0x1c2
++			MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC				0x10
++			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD				0x10
++		>;
++	};
++
+ 	pinctrl_i2c3: i2c3grp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL                                 0x400001c2
 -- 
 2.47.3
 
