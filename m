@@ -4,130 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD3DCD8C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7183BCD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAc1xAuqrqBbaNGTCiUioRckoU10tWBV0WzMjQokYxU=; b=vYWg1KLVH5IKOEuAO6rqt9Kqwj
-	q3b2lGXR6O1eBv5SySiKsXObpbXWmoFLVSPX2Mzb7rWBL5AmXDupaP+V26W8yvI2uF8JvkLtGLW9w
-	pYa5vB1A+KW//P6q6b2K/1EGDXXNpM/6v5QiDR2o3k6zKk8NwfmdSc28OGxxvcQ6ciptpQoHCmrA8
-	7mbXaGbEqoNKKhZHeKNATwkl6fE00UybPu5owWCcuYxkKXi/etNYTMd2rt7r0Kg81NIcZ58LMEtX4
-	UWFpYjzRF2fu0l/A6QD5dRI1RGBafBnC8nZ9hDC+wCMn6/DZ8m0tuwKaY0aIaPo7565U5ETbcAZ9x
-	y39yoAPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yDq94AE2COVyqj0eDLL5JsdTWnDOBQADgtFT6pcEChc=; b=mULHKIzetJMUozCdMb8Y3fMf6w
+	XbLS/kERZUSE71Yw/IC+Jo/Kk7HdcMg2h+AH0udYvQ6glJ24fe0CxFPcfiTrfn8Y1S51iGn2oiHDa
+	lZuxpHjrdH2bCqkQzH8H2wL10U3YaS6rJCfsg/G54RPRgh4ng8YqflaqAL48AKxvcc5K1RiRVrp4c
+	2iIR/nNrH0ZRscug95K7H3Cgnf7HZDQ1gRdH9xzw2TF5ht2bS+cC6yX2ZWBPGGB+OxWVsaT5o8OTs
+	QuRvKnBHEwYwmDgatuieNC14+xxPpKwTU/uQd2MJaDTZnZqN+9F4fC10J1ea5Pz1yphGfBIj3oc0Y
+	mu+8ccqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWvY-00000003Hm5-3vIw;
+	id 1wWWvY-00000003Hjv-0lbI;
 	Mon, 08 Jun 2026 10:09:52 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWvU-00000003HeQ-2nOJ
+	id 1wWWvT-00000003Hbq-3be0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 10:09:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lP0I553QoX9iYlRB+9JOpDW6EPftwRBzpw6crKrwGH3bKUPrdgu9vup+XV+/wge+gyx99/UKex3t76VXHpGsjYOGEgMltYIeFUC5RAACvu/D1pHpFyVpt7GhYVvPO2bRMnqiBCoAPi+io/N6nmP+Xjmxe4/8wS0lBbP3ZpoK/BLPCmZV5Jrl4hBb5aP1thUv6zSg8iOWIftLOC90Q4zN9WYy1lGzEv6isXQ02AumfDpNNc+xogK6RKBmj8cWlsK1oT239y8Cm+5XOVhB5IT99TG6tX7ONaSjp2E0UueDfS/WBCIRKelG0TTAYjk4d+40kaDF3/KCOvb34d548frBFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UAc1xAuqrqBbaNGTCiUioRckoU10tWBV0WzMjQokYxU=;
- b=qxHsJW5903riVbIg0q6zZAo6dvGxd+V/6olA9XPGAYe8yjJOtlV31qpgQH/hEAybTtSwDuGDxmcrU65q0DMEadUaHHziXiQ9Xs2A04jLAi8SeNUDc5izsDS4KxfzTEZFUnWJGyMBEqoDdJwcQZ3FXcPwUh5meceuT7KHFkmWp1r5b+TBHmEgkPnGSC20Pr0qu+K/+Gwms1+huHjGuYuDinCGStXaOkazxz2Qp/tTjCqNR+rNh6SnCcb/RJbRSqjYybNE6CPPLg4ZQ7vOQwOjcGhRqbp80KA9Kp0jPd3TO7dctJgaQ7X9SbaTZqsFSB0+4QNmQ/Y3GC+cZnWXvvh9KQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=davemloft.net smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UAc1xAuqrqBbaNGTCiUioRckoU10tWBV0WzMjQokYxU=;
- b=BmnD7u0jHmvqBWGjxfHctVIU2TDb7Anq+VdokmtzRIpAc6/S5wodF98WNhcg69Mg/r2tA3OidBx1K7rvjHWYd4e1UUNwA+tjowCr8H09s4a5hXLW9ZzPk1/0OFKCMASCZuq7DuKrWXwOK3z+B032yF2tqWVTnqCaI/EGFpuju1M=
-Received: from SA9PR13CA0093.namprd13.prod.outlook.com (2603:10b6:806:24::8)
- by PH7PR10MB7765.namprd10.prod.outlook.com (2603:10b6:510:308::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Mon, 8 Jun 2026
- 10:09:43 +0000
-Received: from SA2PEPF00003F61.namprd04.prod.outlook.com
- (2603:10b6:806:24:cafe::74) by SA9PR13CA0093.outlook.office365.com
- (2603:10b6:806:24::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.7 via Frontend Transport; Mon, 8
- Jun 2026 10:09:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SA2PEPF00003F61.mail.protection.outlook.com (10.167.248.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Mon, 8 Jun 2026 10:09:41 +0000
-Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
- 2026 05:09:39 -0500
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
- 2026 05:09:38 -0500
-Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Mon, 8 Jun 2026 05:09:38 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 658A9cEn3995727;
-	Mon, 8 Jun 2026 05:09:38 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 658A9b1v015195;
-	Mon, 8 Jun 2026 05:09:38 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, MD Danish Anwar
-	<danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Jacob Keller <jacob.e.keller@intel.com>, "Meghana
- Malladi" <m-malladi@ti.com>, David Carlier <devnexen@gmail.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
-	Himanshu Mittal <h-mittal1@ti.com>, Hangbin Liu <liuhangbin@gmail.com>,
-	Markus Elfring <elfring@users.sourceforge.net>, Fernando Fernandez Mancera
-	<fmancera@suse.de>, Jan Vaclav <jvaclav@redhat.com>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH net-next v3 2/3] net: ti: icssg: Add static_assert to guard stat array counts
-Date: Mon, 8 Jun 2026 15:39:29 +0530
-Message-ID: <20260608100930.210149-3-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260608100930.210149-1-danishanwar@ti.com>
-References: <20260608100930.210149-1-danishanwar@ti.com>
+	Mon, 08 Jun 2026 10:09:49 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-45fd461e4a5so2873889f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 03:09:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780913386; x=1781518186; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yDq94AE2COVyqj0eDLL5JsdTWnDOBQADgtFT6pcEChc=;
+        b=sJr8LZT54a/5DOqcOf/G5FEX6/5Q9lU5BdQCO6C9jkqbD19TEe39/Pss2+sp9M2Zse
+         MC0ia/gd21ZpUwXIixs+e7dwZe0Pew2syDDkda7utc9YxOCi+Ay7OwWFlf0uNquqrhxl
+         1fD+AhjFf4tk7YtctKsvtLDFTR1/ykB4emohpReRurQnzDj28lv4UEFfbWe1fcxUAfDr
+         GzPeONR108MOR+cXJK20B3e63e0uYZtu5QQLCORx+EzE5kMbO+xjSnQ2f79Gs/fvUBIw
+         i0+YOMziv2ZzpaVaz03V+dWdkPJe/T7TqxWyeW/qcm53E2qz0x/6ZguPds9OjpWVyBg5
+         sqvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780913386; x=1781518186;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yDq94AE2COVyqj0eDLL5JsdTWnDOBQADgtFT6pcEChc=;
+        b=PZrTXQnKk1QM18044ji4pCghIbomtG+AYnct9i9ZMJrz2W6F7Lkvw049UmZSeV9GmQ
+         445ACADZAKzQkASI3GYUiICHgfl+U3qzypy7sJeaapLi9YOj3PKE+2V1unsJMlLlg/1I
+         N6FZTPgAkRWgHIoo6ucr19Dsw1caVrz5xP2fAxkmviWKrZnrybS4EhXfebxG5gCnmiP9
+         g27b6dS3H10utk3upXiuuj7EGTrefqGEm25LBCW2WzOl4QxVKyJxhK4WwgqTgGCF4p8+
+         u/8JbzeovB7OPRqYYBvns8m6Xm8rgy9oaht03HpbS7OR4RNYH3Mq8XT10g8e37RVJ9F/
+         9kiA==
+X-Forwarded-Encrypted: i=1; AFNElJ8u+FENxYay6E8YSeDEuxihHoG4g7vkCpM21+7/rbic/3Noz2wBxpa1TtBbHAnts5g3RnFUtAwOs09yEwN7wMXO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoJlF9ESxuBXBFNYAm/OrntugzwCwEzosLt3rIFwF4CeMBcFRF
+	5zMFqculxVFz8hBMP5vM3rOafCNse4w745i9v4gZCyt8PqlN9vBZ+R2q
+X-Gm-Gg: Acq92OFrLDeQO+mKOoXDjl0ZInXLkRmujuVtxjjdQn36j/xHO1t5RVGN4qc9XJEbJ99
+	H4SlPlqJmX1l3HSTi2q9PkUw7MGvl6qRGqYVd3mKXE4K8+C1x9L9Ya86wv4Q8ePpmwikD+kxCH7
+	RZRS8Ul2tYfK0JfXeOOJU5pc9dc1o3Bi7YICvGGah5BlNNKmIRlnIJbJ8LDi9UkiG4qwEEM+RW0
+	bcIMpfMtwrH3SRgD5HAnrIRztr/DQ+Yb8VEr/rt4xyeVdjHiy/WwPS0igvZ6myhBYrbrVJTyyLa
+	I3pW1kp7+PVSm5wd8QaWdEEclx0ylWa6CRp5I921UPCmyEqlYF5JKag+cRxznGzFeivTaZLVYg4
+	CX8pUa+79N2SVJymMdmeZfdYW7B2EJJNwwSJleZWdRlCCVP6nH93YmuqxwSuSy/1PFcXXtHD4lm
+	g3K8VMeg9+8szw+XDU4GfFYqU4yV9KAujZ4VDcZrTa93iqbVg5nnqualIrHSoapGpIQS0hVMt1p
+	1kGx0bssLYPAPFGqMeYHccRMWH07PkHI1IAZpYZSgg4FvxY
+X-Received: by 2002:a5d:58f8:0:b0:460:42c:1133 with SMTP id ffacd0b85a97d-46030510ae2mr17045022f8f.14.1780913385911;
+        Mon, 08 Jun 2026 03:09:45 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4602cda3651sm39503219f8f.32.2026.06.08.03.09.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 03:09:45 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v4 08/14] arm64: dts: imx8mp-var-som-symphony: add capacitive touchscreen
+Date: Mon,  8 Jun 2026 12:09:26 +0200
+Message-ID: <4159f23a5a3e52edb49964b7b3dbdc7ff4b83f50.1780912893.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1780912893.git.stefano.r@variscite.com>
+References: <cover.1780912893.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F61:EE_|PH7PR10MB7765:EE_
-X-MS-Office365-Filtering-Correlation-Id: a26eec06-01ee-44fd-06b1-08dec5460ea2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|7416014|82310400026|18002099003|22082099003|921020|56012099006;
-X-Microsoft-Antispam-Message-Info: fo/6OvJnmCOP/s5YB5rQZ6aPY+TlAzmpYzo0nZemT/5SlpTTDxrwAgjq4D5IS3lzKKzV4glQ8QX8pRAGGn5VXida8V7y2vfOqbMLpAed7de1xStZV339Hq0Db0WJk8LXyLs9pnMupCQH6JnlfH6Mlx5nyJH16ElL4SiyBQsgaatFBNJXjWnygsOKFqGfXyGrJdd749InOwsOH/7F+M0V/4rWm2tk+R6Xq+yGCcJbNMAQVjJu3vzoFCmqHsLsan1qlx9jaZ5HFzezAoxE3h3gbA1UCdrGlDMOs3r1ZVbmzQBHRfjIQzIGhAcfHUnwAvSNChTeHWSWUn4XnbY3djSpv0X2ve/TUqMryGVz4zsepZ0IQ+1aGjYHYRHTbQz6LlrJltQaRoumUWYlzu/kMMcXkAQZw890fgOrPvY0fCc/zvEF6Gc1OUDQePugU4ddmPl5Bo4xKlDydnisgEGkjXeVstaCMm28kpS32NwedbtsKgCim6JbbmlHh/zECFTrKSfJJjzxqBq9uwzv3tQ7xy3aopA50a6lHYMEbvDnbRlGn/paeChd/6mNMAdgn09Rf4UmxYs4jp4xCLJcKnbrph5ehXGjLhcS/3QOPgPtv+vGEbrh76gwQ8tbXav+bZ2yMdA4fHU7/WtoMB7TGJHjiokA/s8uXORjmngY3uCeM/qVQx0AbL3PU16pmfZIxzoSttbkiJRV5FwkL2P/bxv6Vj2L+CBltDvbbFCaQD2lFHUPmjQ9FOWQv1y4RPkrkIqO0lGnqCmTQUqgNg9No+ba8/nc/w==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(7416014)(82310400026)(18002099003)(22082099003)(921020)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: id5aPVzBbLHi3KDSA5Klu+LgAX5wdcqa92P+k+ejjnX+ROaTXsT3zJFlfe1D6OCfORFXDIrC0Wn2HfRMQK8hKUhrRe6TmO9zHwoDxipfpcehi2rHTr8hJgIFVmHcnU1e6P4rtdl1YrrZZFBopgvOSq1zDwCYnv/1IlTWZevsLeSfWz2arSL6DCny9E+4D73hDUWuq0Z3XFZQvj+BNWTNw1tcdSnSAuegoE++yx/hJYx/liJF2l1nIgBywIBKvZ3/ZnIy6vJuJ0uPDwxj6O0egRcn80EYAwq8YWJSIMp1n2DepGBD8QrxQzEIas5/jbtV9NJiRu24PZ7rKGwFAf6sy7Ethq6Phd/UW1H6phDMVzqyWJXYm9hGBduba3jotGB1ZxlTW8yQvSgPgiXgWkyLvODbhG6Y9XrlTcOobEdkUMOpV481KWpTqEVTj7qvGvAc
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 10:09:41.6266
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a26eec06-01ee-44fd-06b1-08dec5460ea2
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7765
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_030948_726072_D3BAC501 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20260608_030947_913908_AFA4A32A 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,38 +110,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Place static_assert() immediately after each of icssg_all_miig_stats[]
-and icssg_all_pa_stats[] in icssg_stats.h to verify at build time that
-ICSSG_NUM_MIIG_STATS and ICSSG_NUM_PA_STATS stay in sync with the
-actual array sizes. This turns a silent miscount into a build error
-should either the constant or the array be updated independently.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+Add the FT5206 capacitive touchscreen controller on the Symphony carrier
+board.
+Describe the interrupt pin and touchscreen geometry.
+
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
- drivers/net/ethernet/ti/icssg/icssg_stats.h | 4 ++++
- 1 file changed, 4 insertions(+)
+v3->v4:
+ - 
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-index 5ec0b38e0c67d..6f4400d8a0f61 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-@@ -155,6 +155,8 @@ static const struct icssg_miig_stats icssg_all_miig_stats[] = {
- 	ICSSG_MIIG_STATS(tx_bytes, true),
+v2->v3:
+ - 
+
+v1->v2:
+ - 
+
+ .../dts/freescale/imx8mp-var-som-symphony.dts | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
+index f27ba602c743..bac3de6e1530 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
+@@ -195,6 +195,21 @@ st33ktpm2xi2c: tpm@2e {
+ 		reset-gpios = <&pcal6408 4 GPIO_ACTIVE_LOW>;
+ 	};
+ 
++	/* Capacitive touch controller */
++	ft5x06_ts: touchscreen@38 {
++		compatible = "edt,edt-ft5206";
++		reg = <0x38>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_captouch>;
++		interrupt-parent = <&gpio5>;
++		interrupts = <3 IRQ_TYPE_EDGE_FALLING>;
++		touchscreen-size-x = <800>;
++		touchscreen-size-y = <480>;
++		touchscreen-inverted-x;
++		touchscreen-inverted-y;
++		wakeup-source;
++	};
++
+ 	rtc@68 {
+ 		compatible = "dallas,ds1337";
+ 		reg = <0x68>;
+@@ -306,6 +321,12 @@ &usdhc2 {
  };
  
-+static_assert(ARRAY_SIZE(icssg_all_miig_stats) == ICSSG_NUM_MIIG_STATS);
+ &iomuxc {
++	pinctrl_captouch: captouchgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SPDIF_TX__GPIO5_IO03				0x16
++		>;
++	};
 +
- #define ICSSG_PA_STATS(field)	\
- {				\
- 	#field,			\
-@@ -201,4 +203,6 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
- 	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_EXP_OVERFLOW),
- };
- 
-+static_assert(ARRAY_SIZE(icssg_all_pa_stats) == ICSSG_NUM_PA_STATS);
-+
- #endif /* __NET_TI_ICSSG_STATS_H */
+ 	pinctrl_hdmi: hdmigrp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL			0x1c2
 -- 
-2.34.1
+2.47.3
 
 
