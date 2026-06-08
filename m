@@ -4,103 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CDA8CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 15:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38C5CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 15:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEvrj3FcHgr8xXb2mLKuhtzTWtWLNi+whddxtH2ZY2w=; b=OfwJmyx9zHio4YPfmFzhPaxT6Y
-	2Lpjt/xFkNTf3xGHyjxcI60732OARQlkewDSeb7+MjHhmB230VCzqfWxOCJhitZ9thUwLwIE73Wqe
-	lYF5WMvNW41gkS1h00zSKNOe5pto/MEesd8CarvB+0wiTXN8YDQecKr1vQxOsamwYlH22IEoDCwVL
-	jizbWrgfdcdsyDbdx2asN1/CiIQvjKXwbAvfKaA87Ka/T2sjnix4cdxxWt89EsoTMXVNmimfMJmgQ
-	0pM+xKZoXQv+zhA8mZySgIulhLtCUwHUayL1MS3XRwJgr8tAFD9YxXZXZlLbTMdeMi5oE6Ni8dDeR
-	644VD0jg==;
+	bh=hctmouS3Oa1zQsA8OfIPu6NlW/Bf5FQLselaT1XAaWQ=; b=vtxRVoB1U4oOtLH2jgW47NiMow
+	8hqSPy9htZPLlOnYENr6au1F6CizYPylMaNOsMW/LS10rSw0sOY7tYLXC4kXzIGRWC4LuZhXXbEEF
+	YTszjf8hbz3edrEWG47MOcOCsO+X0uCH7OfQHA73/KedtCGvpPISt9DmJumknjqjMgz3pq2O8mnTg
+	Di1Z1QTGtcIFTOKxAaDkWy20AY/hso22/0CRW9W5mjtW2dKqS4Jhq48bRobi8YPNl/dDMTZ6IaRaW
+	70OVghgBWx6uAQSa6QmZtgxd8bBPYS2wGg2fmui392X3rSqQaWE47R2Su3b7uyB6NgxY/hveKWrYQ
+	RgjyRpcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbro-00000003xYj-3uTk;
-	Mon, 08 Jun 2026 15:26:20 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wWbuF-00000003xpE-1ICq;
+	Mon, 08 Jun 2026 15:28:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbrl-00000003xXG-1KDj
+	id 1wWbuD-00000003xp0-0Bq4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 15:26:19 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so10912275e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 08:26:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1780932375; x=1781537175; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zEvrj3FcHgr8xXb2mLKuhtzTWtWLNi+whddxtH2ZY2w=;
-        b=QL+VVbY9v6AdfBuQEkXALWSrw18EMZf6DX/lfMrXpqlzwVsmdVytO2hgmdFlD3WPth
-         PKkG9qahvh+zn/lcN9E46Jnp4AWNavYvyhO3gs8Gt/mYgonmFpwl6TOdz87RN4wXqk+c
-         fX/Sv61jkk/rxtl259OVuFxLphXWgmXhk3c+XK1XtiiFjq5AnJJz9Dj23T3o1YthXyR8
-         JlPIzn2z7PdKs822VA+dToPmgOPiOaIvhMHMNK70Uacjxo8YZ75ilw7bri7ulMMjBr8/
-         2ueUCTGo4KXz/kj4aU1qFuEkzCRoZbV4f00yZFJ/mIpG2wam0htQgmIxLJHZ1Bvtr3oD
-         SqzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780932375; x=1781537175;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zEvrj3FcHgr8xXb2mLKuhtzTWtWLNi+whddxtH2ZY2w=;
-        b=Bs3deChfgvOpRCBpUUDNpQx5caFH+oLsbhbGqc3JCV2m7okE//zTJxjonWpNy9LmIO
-         oUcGQwEQVamtuldTLCbcpq02RnF6xrisjFJnyDqrQElSBF6hVnFnUGt/Tk7js7CGU3qy
-         7dZZaMNPmIA5jXTW7w7gve5+ws0SJR9gJOov0FI+ri26nBxMhAzijMyBe7hjAp4Qq0As
-         wFJltG1HT079SXX5SNGbhmPWz5ZQZiYefGpSvb3ROSH56qWdZUp4EOB68wnWv4JK1BzH
-         GV9xH5xfqniS2mbYs2pkylW9AQs2QGkT6aAvN7+cs/m6kuQEZDmul4YABs5wbaGrCBUZ
-         FhWQ==
-X-Forwarded-Encrypted: i=1; AFNElJ99/HWPuQ8EHN41nmgfM+AkqT9fnk1HoHdlv8O/KoK4yq+yGSWJj1upbxN84gTxtnicXKBE+tcJKI0IzB97gnHz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHhB7EUnKrC7xDvgXtf+2CYPSebxxLO4GjUKIKyh1ppbtF01XD
-	ueshPRrR1ne8D0GAiYjhv0wY7YOhPtT9rWDLjJWvfoA9KbEQpvkdDqaJQ/bWEMi3a98=
-X-Gm-Gg: Acq92OGl2mKIR5/eJYnG/eKCu937Cg2X6mVul0XE3PVMuvFsbebQWOpVsQIzBArLowm
-	0cebe4iliFScFpJZKGfwDPYkgeD+dGguxTAkpmWDXpaJ6MJ+nZDASZ76hjvOfgjGbOZ8NDfYOfA
-	AcKEFCd73Gct7U8jK02ekK0mdzWRZRifzzOO47tVrsDppRvEKjT4ist+J9zE6bx6uf1x8FR2BK4
-	lcJ+gUbSjvIvKMRb6ZoEGxC4wcBYGTAWzTwzvcGutSCmG0YK7k6LDt4SweufaFUroaeS3irCNKN
-	v2WszFIuS+R0RtiwGzkriXQnOcA20KbOB2UBbWYTefJ2ZlBzLyb6MPoGS7LHBLinwdH1OgohibE
-	1X504fMDimkyt+4xeLwuJsQO0FMuo2i4wn2frV2OEH1fETlFeYbc3mVPiz3QyVqH7Poo+g6F3xe
-	9rfO0PYOtBi5YPy73Xp5betaNdkGP2oLklNgrVVQXSe9cofrI=
-X-Received: by 2002:a05:600d:849c:10b0:490:b58a:e6ff with SMTP id 5b1f17b1804b1-490c26e1aeemr178859365e9.22.1780932375459;
-        Mon, 08 Jun 2026 08:26:15 -0700 (PDT)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f360bd6sm57162809f8f.36.2026.06.08.08.26.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 08:26:15 -0700 (PDT)
-Date: Mon, 8 Jun 2026 17:26:13 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Mon, 08 Jun 2026 15:28:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 42012601D8;
+	Mon,  8 Jun 2026 15:28:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E99C41F00893;
+	Mon,  8 Jun 2026 15:28:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780932528;
+	bh=hctmouS3Oa1zQsA8OfIPu6NlW/Bf5FQLselaT1XAaWQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EcUMvxkaY4O1FldyBxtKNcGT+VLsCmOxbm/MZRJi8k+ial78uBS0B/bUb2NQ5mfxi
+	 ig/f5pjIoH+IFyCDnRLQ0Ay6cN5MKXi/wjrvlrtepUgJCuKrLykz3TU/tgBtOYuLyR
+	 ERJcdef+ZONjKIkCoLbpU+TeW5rgl9lTYW8a75cqGPSOpMmgccdFZaMGPdmh7U+WkB
+	 6vE6vhRDGeNRWu6Q/ggXbnIUW3vF8l+HH2M2gj2TTqN20ZRqT6mDQwQVWUpo5yrufO
+	 nHoVr46xRmSkI+UQgMBCpb514MDG1oSg2ROx7eIuBKn7RkKS0AaSPAN0L48uO/13lD
+	 dXXkT7RTZiEgg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wWbu9-0000000AYTW-3ofg;
+	Mon, 08 Jun 2026 15:28:46 +0000
+Date: Mon, 08 Jun 2026 16:28:45 +0100
+Message-ID: <86o6hlt5jm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jia He <justin.he@arm.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH RFC 4/4] Documentation/kernel-parameters: add/update
- printk_delay/boot_delay
-Message-ID: <aibfFQpK0Se-SiaT@pathway.suse.cz>
-References: <20260601-deprecate_boot_delay-v1-0-c34c187142a6@thegoodpenguin.co.uk>
- <20260601-deprecate_boot_delay-v1-4-c34c187142a6@thegoodpenguin.co.uk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260601-deprecate_boot_delay-v1-4-c34c187142a6@thegoodpenguin.co.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_082617_358876_95816556 
-X-CRM114-Status: GOOD (  10.00  )
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] KVM: arm64: Make kvm_s2_fault_pin_pfn() fault-in interruptible
+In-Reply-To: <20260608104336.2405384-2-justin.he@arm.com>
+References: <20260608104336.2405384-1-justin.he@arm.com>
+	<20260608104336.2405384-2-justin.he@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: justin.he@arm.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,17 +89,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon 2026-06-01 00:17:40, Andrew Murray wrote:
-> boot_delay has been deprecated in favour of an extended printk_delay,
-> let's update kernel-parameters to reflect the addition of printk_delay
-> and the deprecation of boot_delay.
+On Mon, 08 Jun 2026 11:43:36 +0100,
+Jia He <justin.he@arm.com> wrote:
 > 
-> Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
+> arm64 KVM faults guest memory into the host in kvm_s2_fault_pin_pfn() via
+> __kvm_faultin_pfn(). Today this request is made non-interruptible, so if
+> the host fault-in path blocks for a long time, a vCPU thread that already
+> has a pending signal cannot leave the fault-in path until GUP eventually
+> completes.
+> 
+> This is particularly painful during VM teardown, where userspace may
+> signal vCPU threads while they are blocked faulting in guest memory. In
+> that case there is no benefit in continuing to wait for the fault to
+> complete; the vCPU should return to userspace and let the pending signal
+> be handled.
+> 
+> Ask the generic KVM fault-in helper to use FOLL_INTERRUPTIBLE. When GUP
+> reports a pending signal it returns KVM_PFN_ERR_SIGPENDING; handle it by
+> calling kvm_handle_signal_exit() and returning -EINTR. This matches the
+> behaviour expected by the generic KVM fault-in path and mirrors the
+> signal-exit handling already done by the arm64 run loop, which sets
+> run->exit_reason = KVM_EXIT_INTR before returning to userspace. It is
+> also consistent with architectures such as x86 that already allow the
+> fault-in to be interrupted by pending signals.
 
-LGTM:
+Only x86, AFAICT. s390 handles signals, but doesn't set GUP as
+interruptible.
 
-Reviewed-by: Petr Mladek <pmladek@suse.com>
+> 
+> The interrupted fault does not install a partial stage-2 mapping: the
+> -EINTR is returned before any mapping is created, so the fault is simply
+> retried on a subsequent vCPU entry once userspace re-enters KVM_RUN. The
+> only observable effect in the absence of a pending signal is none; this
 
-Best Regards,
-Petr
+This sentence reads bizarrely. Do you mean to say "there is no
+observable effect in the absence of a pending signal"?
+
+> does not make ordinary stage-2 faults abortable.
+> 
+> Signed-off-by: Jia He <justin.he@arm.com>
+> ---
+>  arch/arm64/kvm/mmu.c | 10 +++++++++-
+>  1 file changed, 9 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 4da9281312eb..dfb779e6d792 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1872,19 +1872,27 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
+>  				struct kvm_s2_fault_vma_info *s2vi)
+>  {
+>  	int ret;
+> +	unsigned int flags = FOLL_INTERRUPTIBLE;
+>  
+>  	ret = kvm_s2_fault_get_vma_info(s2fd, s2vi);
+>  	if (ret)
+>  		return ret;
+>  
+> +	if (kvm_is_write_fault(s2fd->vcpu))
+> +		flags |= FOLL_WRITE;
+> +
+
+nit: you might as well keep the assignment and the update together.
+
+>  	s2vi->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, s2vi),
+> -				      kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0,
+> +				      flags,
+>  				      &s2vi->map_writable, &s2vi->page);
+>  	if (unlikely(is_error_noslot_pfn(s2vi->pfn))) {
+>  		if (s2vi->pfn == KVM_PFN_ERR_HWPOISON) {
+>  			kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi->vma_pagesize));
+>  			return 0;
+>  		}
+> +		if (is_sigpending_pfn(s2vi->pfn)) {
+> +			kvm_handle_signal_exit(s2fd->vcpu);
+> +			return -EINTR;
+> +		}
+>  		return -EFAULT;
+>  	}
+>  
+
+The VNCR handling code also uses __kvm_faultin_pfn(). Why isn't it
+similarly updated, given that you are specifically singling out NV as
+an area of concern?
+
+Similarly. pkvm_mem_abort() is using FOLL* flags and could benefit
+from the same optimisation.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
