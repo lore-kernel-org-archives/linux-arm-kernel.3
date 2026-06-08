@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006AFCD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD929CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWTK0vPDX9/u7hsXS3gp6N0x4YihiQ+Mlh3rTBzALqQ=; b=vuyicc/iw+E2GrYl+xZuDBzGzP
-	QNDyTdvYduAwRvxgwoJglvJhonMjOfosGEhhJ+ThA6D5SGK/Qnc5hg6oyO15PKIaREgODHQbGn+Md
-	WVJm4NZwF0T7eXCrswOSVMjoYRMmTdzpfdqiuSOU6gWOMP/bgL4BxV7e26Ot2kHTaAXj8EQ/4+ozY
-	qhDOz8wl5sAAdTNJ8jct8P6law943+BCLX+amKmZU9///V3dNWEqQnQs1Q6fCGhWKu2ckl+2sFclY
-	A1SOdW3LC7gPodBBW23O3n9yHZVVdw7+Q4jHBUdhFxOEZxj8ymdXSboFIdd2G2VK7hLuLkZl4v6N+
-	nRkL3HwA==;
+	bh=zgF2+FSMMZyB7xSc2hmicWFUfptsUmJ1dBy4jYz3nPg=; b=V8RsFkpB/xOqthf5SoI/9GvuUB
+	OkW/Y2FsV1mFIUjIXVPNeux6UAjc4buRGU4U5fQS7i8UP3fpaxv5UH9yIIcsMAH9J23QKErb9E043
+	UtBlR1712TfwwTHkCkPISKshOR8B4KFs2iqnUY9ag4Mg+/n7Rg6wj3N9jhyw5ipsQ3HnsLzJ7Wv+Q
+	Jj/2PoPrGEg0FvyjxYMhSqxFSezGhA5vAUxAlLRnFtWkyfIfnkpNY+FNU7esmxMIWhEaor04Rxqas
+	Xdb01tZ2/PBYKInpijbfd7KX6SIUc1ULx5QxcdPLyHXwOGqP7PXWXEY+8Pjh74NTWxcqAHVO9EboU
+	gYf5AWHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbAf-00000003oPt-1HWL;
-	Mon, 08 Jun 2026 14:41:45 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wWbAg-00000003oS3-0djU;
+	Mon, 08 Jun 2026 14:41:46 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbAU-00000003oAe-2MDl
+	id 1wWbAZ-00000003oHq-0h6A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:41:35 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4908b92904fso50901165e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 07:41:34 -0700 (PDT)
+	Mon, 08 Jun 2026 14:41:40 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so10348545e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 07:41:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780929693; x=1781534493; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780929697; x=1781534497; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pWTK0vPDX9/u7hsXS3gp6N0x4YihiQ+Mlh3rTBzALqQ=;
-        b=QrSER4Ml5vYzw9+t3kFXobq6asB9iUteXp0xzGoG4JNqEbfn6CE+wz0/edOPNUFmTG
-         H8FdGyrhEWcE+ZZYO3KRZhcPRRY/p+dEeRdMkR6hOyM9IR4jfmj6tUfmk0U80FcFVX+v
-         kSG6j/jJvtXxX1LXTDMAQ2ikDY76a6IWcjcGUzusatm5SeGacD3nRB6UX7DnzMJWQ3aj
-         iweHOcU/f7qDrMz08ix0yRrpnKLdFAXVOacHyaqim3JF41rJS1plD/oEWs6zp0p3LFZs
-         ffP0lFmcl97BVVwRQorJS2jrK7I0wYFqLaQ3mAzkLlmBp6wxg/4GUDJkagUyl59cQJzr
-         q7hg==
+        bh=zgF2+FSMMZyB7xSc2hmicWFUfptsUmJ1dBy4jYz3nPg=;
+        b=PnO+L7X+R2f4HKlUmrv8mb7QdDzfwO0Zfaw92HNvTOyRWgzvGZ16iJIdlHieZ4hDmX
+         v7chQT/WCzmSwKe7/VDe/5O+8dpv5mfMp9mCuRdAgxtT1uP2JEGj9or6x/SOA+tezzMe
+         4JZaxhMMT/ktWY5G89Oe1GjBVYa9l/xTiO7wZg4TDGf5/DmuWl//sTLbEnWWZA46H6rl
+         MSiB4NTFMxUKIy0SwktldsXij9kHioLQncNXqgjO3DbdJk/UObcty9RyyM4WJeKams/U
+         W2foWFX4Uv1TbJ8dx49X0dvXYkSAifQ8G723tt468tG6636uVlIvYyrXu7SQjOYKoyH6
+         9Gag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780929693; x=1781534493;
+        d=1e100.net; s=20251104; t=1780929697; x=1781534497;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=pWTK0vPDX9/u7hsXS3gp6N0x4YihiQ+Mlh3rTBzALqQ=;
-        b=LEVXFJPYqPs7grn/diXT0PoBGckG0HLxy0nFz0dVf0D/ohBWI2+kbuGm9V1E5PU6Q7
-         Lavfm52T0rh5PWmHYjsYsv6uhb7uUu/YCd4EAYEga9pH/8rDv0QZk0W+JD98AewuvLbQ
-         GxEHTybEzZkzu4+E+aUqEZrM8+Iq5ChZjbudLEHBrl2ER+9AYQDQJ8sWxDu47O3EJb9u
-         A8YRSDhTP4Wkdnos80Z2hJ68VbnVHB3LZiwUlXsjMIHRXFYO866i8qLX4GrOYTo0uEb9
-         yx3fgbefH0i4uvLS3pWlG/8VdMOG9p20fbWy6JGwpN/53UQ9CYV4MyTezix3EsgLOsq1
-         KfYw==
-X-Forwarded-Encrypted: i=1; AFNElJ+XjDmKYb8BzApfeCEGZF4aAhxxD4XYlLewVRAkqyM435wSomMawGEAZ1NnbynDzq3gy6CetgL+f2bUyvIFArhs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfW/c2ni5sGMatdLvtDvFjWx2zq8AXnoNHB3szfHpjk+TXWJ76
-	WOOEnkUCnKsbQ3v9cW2/wj8W9uZ14+qxAgX55+7eB0YOu/gHolw7J0wc
-X-Gm-Gg: Acq92OG8tzJ+7cUxW+xEtmPGlWrS449ch96G8yEGludVmLBZGDmIkRZ47VebeeV0RMD
-	tktp/NDN1HXJYlISfu1Cux5FTZsoKi+7pWtV1viUYymMLb0EiXB9AzbZWIui6hem9imxYoCTHVD
-	Up+T0cSi1EokVd2kvLh2Nh4Ny5zHBaPAfKoAvl8TzDDBzChUlovZTauFvUrnUEC2aJ3MMVD4K+E
-	QKsUu/jixks678DUJ0ORr9LyXOSEf/ejPtoZbYj11APPeYpoWzV3uhnWB0l0L/+ErGhpGhIsaP2
-	spgBhhxYJ1QuOnjYC1fYGCbYS/bZEkvGAWs80rVBfxBvG+s/oeALQKlPrN8QG0jNq2Yzkw5EyMP
-	6twjU6Plbi3zPVr7ksPhPBpYkBSv37TNsaDzmKEEptHsPvenGeJf6mW+RlLBi8R6RU810xfJZA9
-	M2D1M9ERUZC0aV3g7TiP9eXwYbvPWUt0nShOhdNpqyId43qrA7YN0WVmbUQypqb/ifRMUTtCw+i
-	w7qBazeXJWIcItqVFzmpdVuWsrqc2fEhg3pjIsPnrK8aje1
-X-Received: by 2002:a05:600d:6444:20b0:490:5466:8591 with SMTP id 5b1f17b1804b1-490c26e1acbmr190687155e9.12.1780929692574;
-        Mon, 08 Jun 2026 07:41:32 -0700 (PDT)
+        bh=zgF2+FSMMZyB7xSc2hmicWFUfptsUmJ1dBy4jYz3nPg=;
+        b=pzTK68WPD8IfOeDmTuhVscKfbubwv3hJ5D5BVhRxc5Co2VZW1QYnk+3uqKeohFw6f0
+         nFIB6SbSquBD6aindJOUDzs8YzAVeZWKqrO+kKsCiGKVERQgLLM2SawHJTwNpinVdAsP
+         AvtK8EXPDscxRz7QEK5GWvnTpfx+WnW8nXOM9S0+n2u/WoUeroP8oBUegZQ5I2YYrGUs
+         2LquL2v2UC/bmsWKlGuQvrErfgr64/qROrmTFOHquCQI9nRNCGfnw6t1cAroEjiWIrQi
+         WlDYiWunqUj6Pfd0dfSGE9cmZOyvxrbQzpjOw5pbi0SxkIvPLf8nIgilSpj4Wo2+z8Pi
+         +1jw==
+X-Forwarded-Encrypted: i=1; AFNElJ8XnfWoytNb08PKZCnXrSVjdGkP3Lp+0yh9D4fLJ9TCOhimT4by7Nj+gT1ZuTdusREByBvOt4ZqFsryEBWmFPUR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwitVy828LsEtxOL7+RE4EqdTqy3l1XMF8bUYq/3mmMIuFkuIIp
+	7Zcny+5cAPMfCq7RanN+SUxn0VrvVLCc2TDkAHYE0QJfwNGzeeJIGsyF
+X-Gm-Gg: Acq92OErKyn8zwAbO8p6GMei216zD/d1Tk+8SiEibd+4ldJmusmUtKyxupV2S70Ky5x
+	CmxZlJe18HNRS2cWOHvroFWcAS+gJyVHn7Y2PgeyHSj2LleDaYUI/wpbYRcDAvtnRdNgQNJ6qbV
+	4GyMYG6nqBq3heclO6YZoE5j0fsSDiVMrCgDXLo8X99CTyNcbsCaIxw5nYBN4UNt3zFqq3/ObOt
+	Svhu/Gt3uHra9FmvO4wlg+Co6UCYW2Z71Mvn/URisjOP42vMuDqNn83ZjBBXcIOqaBy3oSNOZul
+	P7I4N52FPNkIrYVASQ0fhP1tLV0MCJ/Xe0RII1pkbnA9OqOUhqmtgosYnren0jbhUcFhiIuH9Jj
+	DVjbuL9sKJn4xmNBc9poB9FlRU7enPbOeLmz7gINagNJu+0npUTqy5hLR7d/wE4mT3pXXAy1LQh
+	Mbl7nQSx87rLnBYEPcmfhr1cstDJjfuIXtGcVrvH9VXUoeSX1WVn13uLg9TMxUDQSFyOCyA/z+J
+	uqQupCLP+TrBlLLO5ZNx/Qd7uyt26AIZ2GmtaclmplOYXwx
+X-Received: by 2002:a05:600c:6087:b0:48a:8b02:ae91 with SMTP id 5b1f17b1804b1-490c25b0231mr276473505e9.11.1780929696365;
+        Mon, 08 Jun 2026 07:41:36 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2dcad5sm58222519f8f.5.2026.06.08.07.41.31
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2dcad5sm58222519f8f.5.2026.06.08.07.41.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 07:41:32 -0700 (PDT)
+        Mon, 08 Jun 2026 07:41:36 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v5 09/14] arm64: dts: imx8mp-var-som-symphony: enable ECSPI2
-Date: Mon,  8 Jun 2026 16:41:10 +0200
-Message-ID: <77a60c287ec6df2915806f80024b3d13a7905198.1780929317.git.stefano.r@variscite.com>
+Subject: [PATCH v5 13/14] arm64: dts: imx8mp-var-som-symphony: add second Ethernet port
+Date: Mon,  8 Jun 2026 16:41:14 +0200
+Message-ID: <7bcfeb748665154245f5dc3294b82ab79d96e4a1.1780929317.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1780929317.git.stefano.r@variscite.com>
 References: <cover.1780929317.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_074134_625979_4E6C0440 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260608_074139_269892_013413D7 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,60 +112,106 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Enable the ECSPI2 bus on the Symphony carrier board and add the pinctrl
-configuration for the SPI signals and chip select GPIO.
+Add support for the second Ethernet interface available on the Symphony
+carrier board.
+
+Enable the FEC controller, add the MaxLinear MXL86110 Gigabit Ethernet
+PHY on the MDIO bus, describe its reset and power configuration, and add
+the required RGMII pinctrl settings.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v4->v5:
- - 
+ - Remove regulator-always-on and duplicated vddio node
 
 v3->v4:
- - 
+ - Fixed eth regulator
 
 v2->v3:
- - 
+ - Add FEC controller and MaxLinear MXL86110 PHY support
 
-v1->v2:
- - 
-
- .../dts/freescale/imx8mp-var-som-symphony.dts    | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../dts/freescale/imx8mp-var-som-symphony.dts | 54 +++++++++++++++++++
+ 1 file changed, 54 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-index f8a4b5b2e9fb..387bbe3454c3 100644
+index 93dee9ec0b9b..e928a3d44b1d 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
 +++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-@@ -99,6 +99,13 @@ &aud2htx {
+@@ -66,6 +66,16 @@ pcie0_refclk: pcie0-refclk {
+ 		clock-frequency = <100000000>;
+ 	};
+ 
++	reg_fec_phy: regulator-fec-phy {
++		compatible = "regulator-fixed";
++		regulator-name = "fec-phy";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-enable-ramp-delay = <20000>;
++		gpio = <&pca9534 7 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
+ 	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "VSD_3V3";
+@@ -106,6 +116,33 @@ &ecspi2 {
  	status = "okay";
  };
  
-+&ecspi2 {
++&eqos {
++	mdio {
++		ethphy1: ethernet-phy@5 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <5>;
++			reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <20000>;
++			vddio-supply = <&reg_phy_vddio>;
++		};
++	};
++};
++
++&fec {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_ecspi2>;
-+	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&pinctrl_fec>;
++	/*
++	 * The required RGMII TX and RX 2ns delays are implemented directly
++	 * in hardware via passive delay elements on the SOM PCB.
++	 * No delay configuration is needed in software via PHY driver.
++	 */
++	phy-mode = "rgmii";
++	phy-handle = <&ethphy1>;
++	phy-supply = <&reg_fec_phy>;
 +	status = "okay";
 +};
 +
- &hdmi_pai {
- 	status = "okay";
- };
-@@ -327,6 +334,15 @@ MX8MP_IOMUXC_SPDIF_TX__GPIO5_IO03				0x16
+ &flexcan2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_flexcan2>;
+@@ -363,6 +400,23 @@ MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13				0x12
  		>;
  	};
  
-+	pinctrl_ecspi2: ecspi2grp {
++	pinctrl_fec: fecgrp {
 +		fsl,pins = <
-+			MX8MP_IOMUXC_ECSPI2_SCLK__ECSPI2_SCLK				0x12
-+			MX8MP_IOMUXC_ECSPI2_MOSI__ECSPI2_MOSI				0x12
-+			MX8MP_IOMUXC_ECSPI2_MISO__ECSPI2_MISO				0x12
-+			MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13				0x12
++			MX8MP_IOMUXC_SAI1_RXD4__ENET1_RGMII_RD0				0x90
++			MX8MP_IOMUXC_SAI1_RXD5__ENET1_RGMII_RD1				0x90
++			MX8MP_IOMUXC_SAI1_RXD6__ENET1_RGMII_RD2				0x90
++			MX8MP_IOMUXC_SAI1_RXD7__ENET1_RGMII_RD3				0x90
++			MX8MP_IOMUXC_SAI1_TXC__ENET1_RGMII_RXC				0x90
++			MX8MP_IOMUXC_SAI1_TXFS__ENET1_RGMII_RX_CTL			0x90
++			MX8MP_IOMUXC_SAI1_TXD0__ENET1_RGMII_TD0				0x00
++			MX8MP_IOMUXC_SAI1_TXD1__ENET1_RGMII_TD1				0x00
++			MX8MP_IOMUXC_SAI1_TXD2__ENET1_RGMII_TD2				0x00
++			MX8MP_IOMUXC_SAI1_TXD3__ENET1_RGMII_TD3				0x00
++			MX8MP_IOMUXC_SAI1_TXD4__ENET1_RGMII_TX_CTL			0x00
++			MX8MP_IOMUXC_SAI1_TXD5__ENET1_RGMII_TXC				0x00
 +		>;
 +	};
 +
- 	pinctrl_hdmi: hdmigrp {
+ 	pinctrl_flexcan2: flexcan2grp {
  		fsl,pins = <
- 			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL			0x1c2
+ 			MX8MP_IOMUXC_UART3_RXD__CAN2_TX					0x154
 -- 
 2.47.3
 
