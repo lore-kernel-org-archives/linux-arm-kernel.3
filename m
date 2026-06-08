@@ -4,130 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C5BCD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38FCCD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 10:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0GQmEDUeX5swW/5c6idyqserI2lthyRL/5DjUNihPmE=; b=LukqEHfXzajxaxMSeLGP6q8EQI
-	XCcB6zd2+/K0cKBoQm8ZrQ7R7WcaMRbjvSNORfvlvImwA/Ntyv1vgrgP2mzTwB00wKDKZtWXZCqa4
-	LuLb7Lxgh8Whc74KzFvv5DkNH5XpxAF0Skb76F9Tlj12NxmI2UoEkk/tySxjzduzIBGxUy+NqmzK2
-	f2J718tN3HpmQkSIpGmtLTWSnBgF4PU7nAxT7sU60qPqQ7sVggv5ZJiy0pq4umm+tnS8TKHy1N+uX
-	qHAc82tK6aoCnmdexZhBZ4rH0tc8AUyK3kZ24H7cdWRDSEzBzDq/XGqQlKDQiWV7kmJ/9J/OAyBRn
-	dekpmvkA==;
+	bh=b4M7oLkbEYpMFnDXvWy4q+ZCA9NW6fdqs7xW4QLchcE=; b=W/RPJqlHkj4843QjwBffJKEFqr
+	hI7IGxZYYgq1YWmzNbQFaPfkdyVoOfbS3dq/C+UlTb513hIB4Pa+4a0u4QP06zgzb4ASpxUgfmdwN
+	l2q24TgnPsd7hwbvwskks4SOczOg/ew+fYAgpNspAzzlUuW6/0y+tlt6Z+43Wnzs/bbnGWgCPqGlk
+	kjdciGMQmSD3KKTQ+TBSBOpzv0dTcxTL1TBVSHc0CjpA22dB4IWZ2kTWguhUqKLtvSzTRbxFhxYQf
+	coTJS8I7sOI3UYBUa1dWSHeXVT46OCdWPB0DHhi+fQNc3cECnG+wtPoZdYdtMZrqv1cOGQAImV14M
+	p8qwa1VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWvY-00000003Hks-25oX;
-	Mon, 08 Jun 2026 10:09:52 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wWXCR-00000003Ks0-3uSq;
+	Mon, 08 Jun 2026 10:27:19 +0000
+Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWWvU-00000003Hdh-1EiS
+	id 1wWXCP-00000003Krc-1Yqu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 10:09:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LSo5GJtBn4AVnOTLQ5+ABlC27kovMfWDZq6k9J3e8sruxCo6T8+4p+V712wg9ygCoCm1n5bWsQyLCHUqdhFkBkClggEvxQM/64h3dPrxu1ou8N4XlEtURWk1grmpw6fcTeFrR5ok7Zbgvie2hdw8f7UDea5OL7y+9D9I8DjdELW46mW5cFquEmPgI6pe0aavJwFzC2WurXB67YnimFupq/4TSZxY0lrI1O9YNkf7q06wJEjuY8ayZsvrjmjtFHzMFWP9Tei/K2IHx5MWXJkljMqXc/wpPCGWW+7eFKbWpvO8ifFTJ7xWf2FgWHKezyMUIqbfEUh/dnaA5f71iD2Vcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0GQmEDUeX5swW/5c6idyqserI2lthyRL/5DjUNihPmE=;
- b=fekohsXm9qhChlhdwN3YEg4/lbbPAIrz9JB5BBkqgK1y1W9spuhSJI0BX/71k5lQT7G02YfKV46dQXKPs1IFXZyofi84Yu6SS4w2jUc6f2p5cVHC9PLo1HS7J+E9rr1RCcLKhAkrZQzKjubfTTXyoKSKEjdBw0cT9KL8m0a3/hv/eP7IehrLlGoYTNY9RcdUGAGet8x8KfDV+MaXmZ7DEc8KFEBGFLx+xRA0lYZy2/pW+8pIq74J4KjTcdJeLFfzjd0SkfMZMLYazYlRA+fbz85tuVwxK/ypV0R+TJRiBYSdHWBdQdVszGqxz4HX8l5/fy2fa4ljbLiQRhxdfOnvHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=davemloft.net smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0GQmEDUeX5swW/5c6idyqserI2lthyRL/5DjUNihPmE=;
- b=E9FiZB6du4ssbHnXiNMNaT1+FoNW8Sc13X/uuQn5aJ9Si0J0rES5npubsSTYbB00U6OXtNezpSR5k0Z3AwDs5dPtPJ1EHzvoDh1mAsM2i2xoY3Y4x7AyAghSvlM9ZQkHIN9bypxLPPuih3Fae1fewwvRhR16wKK2o9ChxPm46nc=
-Received: from SA9PR13CA0097.namprd13.prod.outlook.com (2603:10b6:806:24::12)
- by BL3PR10MB6257.namprd10.prod.outlook.com (2603:10b6:208:38c::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Mon, 8 Jun 2026
- 10:09:41 +0000
-Received: from SA2PEPF00003F61.namprd04.prod.outlook.com
- (2603:10b6:806:24:cafe::34) by SA9PR13CA0097.outlook.office365.com
- (2603:10b6:806:24::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.8 via Frontend Transport; Mon, 8
- Jun 2026 10:09:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SA2PEPF00003F61.mail.protection.outlook.com (10.167.248.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Mon, 8 Jun 2026 10:09:39 +0000
-Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
- 2026 05:09:38 -0500
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
- 2026 05:09:36 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Mon, 8 Jun 2026 05:09:36 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 658A9aB13069880;
-	Mon, 8 Jun 2026 05:09:36 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 658A9ZNv015186;
-	Mon, 8 Jun 2026 05:09:35 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, MD Danish Anwar
-	<danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Jacob Keller <jacob.e.keller@intel.com>, "Meghana
- Malladi" <m-malladi@ti.com>, David Carlier <devnexen@gmail.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
-	Himanshu Mittal <h-mittal1@ti.com>, Hangbin Liu <liuhangbin@gmail.com>,
-	Markus Elfring <elfring@users.sourceforge.net>, Fernando Fernandez Mancera
-	<fmancera@suse.de>, Jan Vaclav <jvaclav@redhat.com>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH net-next v3 1/3] net: hsr: Add standard LRE stats via RTM_GETSTATS / IFLA_STATS_LINK_XSTATS
-Date: Mon, 8 Jun 2026 15:39:28 +0530
-Message-ID: <20260608100930.210149-2-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260608100930.210149-1-danishanwar@ti.com>
-References: <20260608100930.210149-1-danishanwar@ti.com>
+	Mon, 08 Jun 2026 10:27:18 +0000
+Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1336742714fso28680c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 03:27:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780914436; x=1781519236; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=b4M7oLkbEYpMFnDXvWy4q+ZCA9NW6fdqs7xW4QLchcE=;
+        b=Jk9oCsQSugO7hj9JDNzjmOFHbE4rC1fDm5knB5w1TeNTcxRC6GD+xi/GgQi/kkzlbP
+         MDmxBdvcIU8X8vkgrVxkyhLefac+ZFyw0mLUv3EQ9uFxUVXSSq570ttyqeXCNdaTPwmH
+         I/3RQ1yaAoQfrHko4mZx5gHoUZ875BU19VnyC26g2lTDClaFj37bZLkCd2uJU11sN2t5
+         ksTiafGZ/+rECPdZauel1E3+P3k+iNjdy2/RzS3bTp2oDPE204n3mAMM3zsa2lowQuKh
+         X8Zqg+zOIrgv45y+GZde3tCz1WwOcPB+oho5lUyynagjuCZ2ynxrLFxUKhR0SPWzYNEf
+         rlkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780914436; x=1781519236;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b4M7oLkbEYpMFnDXvWy4q+ZCA9NW6fdqs7xW4QLchcE=;
+        b=erhXcn3WSgfXJyEVFrYKGjbxFFHYdPEd8kKQIBjAWpqjodxxwCKkHqg8rGdJXZbiZo
+         xSQjpwgpE2FQJkuaYLeTmZIGciqC/hYonukAuCdoxh78vxOqRn3UoPelmA7eh8S+kgg+
+         XxDscA+4E4gay69AxFZIvUxwwFEAjSZt4UXOg5WJhOHT8fJhdCI8+tUdph28qHMCoqQe
+         OkEMy2Twc4WzSsSCfRz12raJFZKg/vx9gPp2yFBaifCNYDrXBWs3WDFqLg9Sced1hoO8
+         wN5taEiPFhz0BVW189IhGw+xFsUsqzr3Gv3eFBb1PGvTC5ERZklDdsX5cu044lPBZ1Pp
+         iPyg==
+X-Forwarded-Encrypted: i=1; AFNElJ8qj0cpLPZRRM26MX93dE2Hdb1qbRJrKuwUr5y+m6ds8FoGP8d+jscbvKJS8dOcnvV8sCi1Xhnuv7HIXWfSv4d/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8j1bX8xb+aEsiAdlgBJJy/TN3gOskhgNd+QEpuBQ9H0iRu2aK
+	eswpHXb2aNUCVV0n03+0y/HUBzon6JmBj3xBYDP+O6S++eHWR02nP2zaANU8JiZhNQ==
+X-Gm-Gg: Acq92OFjGeWPddH+ls0kVr0wZemeC4g3fcpJ0Da0Bjyq2gYu8m+K7UtPYSfP03MgzY8
+	+/If8mtQfeC16tYCGfC3LHFMr/I0w6xCiGlLSSafq1dVdcJ7ybLJoax05V5sep6zKLRUIr6K6Lu
+	R3OsUfeXD7rQigvRcnuQTdZbS4SBey5XBRdf5Cz39PILi/1sbhmhM6Hm8nxJpugtLCUIIw3eepl
+	VnPQyokgwDxKSqrO+cApoGLegX4uyg46a4Ig9WO5Q55h6wOsupTuwT8EjzIJ10YHSlhDcAlWGBM
+	+ceeBb8TLrlqSUKRdSq1dulmozlPm1lbFvqmZzcvlrYwVsAQvwoIiEYy1AOtiwCzK8gBHaNxYv1
+	K0YjJ4cq/tgavSRJj5cVZNKA/QJWsAO/GhN4CY+P80ttiYj8x6IDn+6K/knY/C5cajBV2nyccDI
+	SZ8J1xxV/mhhKEGgH7Oy3YSG7g3TXDvr9teQSXzzu9FJGuYFFtUkwqazQYuSMnRF2vbIwNGsI=
+X-Received: by 2002:a05:7022:38f:b0:11a:2c18:9e70 with SMTP id a92af1059eb24-13807c516c0mr363192c88.11.1780914434891;
+        Mon, 08 Jun 2026 03:27:14 -0700 (PDT)
+Received: from google.com (199.255.142.34.bc.googleusercontent.com. [34.142.255.199])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3074dba9d43sm15284369eec.10.2026.06.08.03.27.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 03:27:14 -0700 (PDT)
+Date: Mon, 8 Jun 2026 10:27:08 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Daniel Mentz <danielmentz@google.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, iommu@lists.linux.dev,
+	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 10/11] iommu/arm-smmu-v3: Invoke pm_runtime before hw
+ access
+Message-ID: <aiaY_EmbRxDxSe8-@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-11-praan@google.com>
+ <ahilX8Za1NRCH3ik@Asurada-Nvidia>
+ <ahi3uY9YZZtR1Lq5@google.com>
+ <CAE2F3rDeZe+w7-V6hyJtSOwCj619E5SNtjJjZ1-yu1sVdf=35A@mail.gmail.com>
+ <aiEm0yuNtG3PGJ4D@google.com>
+ <CAE2F3rDwx9qX3O0GQOJ-CQ1dqREKNp3vf_PkWWP+xmyEHRuOnQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F61:EE_|BL3PR10MB6257:EE_
-X-MS-Office365-Filtering-Correlation-Id: 68b41c7e-18e6-4998-63be-08dec5460d7e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|921020|56012099006|3023799007|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Ub4vIV0qFfKOTAC43CEb97zB+BFMRxv8CM3hbQ7vI8d6k9inrU7uEw6QY8ODnDHP/n5/btgdXz+co0+DpNfB3274iUO7dWhldAMMiCCDkmzvZ94TEaky/MlkXvYsrt6OmUH8F6litSKxXabyodcIWHPnmzb0zbDMvHnspIjfYrGFxRcBo0IOrwgt61mPpFjaMPNHcxtd70ovjxfduYw3XO29nztUWcQHmThOExVNEV06+nyOObZpmNT+FkP0fgg0BxciD++sWtdoIqsUMqQEohxtw926fIdMhIJLSoxHZ1enezWhY0TIXX8Fr8zPXTEURpRRPoQ2jR67w5ebKpGxDzpfKhE3kGXOIjig/z0S0sH+nlEj+b0ecyf83v02SWHmGV8lwu+el3MeMG+0ddYGA6NAQ6UMgKrXJEbOps8JhVQnSu3i5Q2gRB/22Br5RKKeT0ERazxyJCfeW+y9OSH20sivH9ecyrS5ExfDsu/8D3/f4+wi7oehw2jisBBvDxI6J13RNmnQcn+SdK5tFFYf7Prf+XUGvobahHKFADlu7VJZqi0GxaJvZ8OIEvkMt7ip+15B0N7h7FvCNntlivRkOAo0BTXxIEuXoaNoBbe9d1pDABAjFn7iQoRZSMjpeyLyZYTvPnVdXG2VyezbZksHJqL+NHoEAnwiZ2oSAjL1AaKUzt1f+Fi4YYl07k32yrT4bG5utATv4XtcRTHvfxvTRCEwkPbME7xHWjHnlKxk/TI13yb7OamPPb3Aw+4aueRwxvGyt8czLBTA9rInKLY8Hw==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(921020)(56012099006)(3023799007)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: JNLHvY1pHki5Nt8etVrOJ7FSJ021JYzRJ+vInWNDEakWxRIi4TS0ROl3l6XhV3hE0yb5P7At8iO03QMAoGyvG54xKPv/tJa1dFybrvPVh2/KMDTvW+NPvq3RKEtoFilq5FY4JK5iXl5fwyYonC+9rlv6B7/Gu8T0owQyGNs+QA9EivkWOJX1W5YAR1oj61SHp8eHINth48oS7wkJTvLz+dl12IOOvqpyIQllCEB/hK1Ae+EKl2cgk5UappJhkWflsr3Tj7QR1po7tZM4rZ3i9KLWIfzQS2gPmrrmj/3gc1b1mWeC515KHMtXAHAqqkNMre6UvR4jOTGAyU7ngMM6rOwmsY+2u5EPeKoFUjDgNjQ2Pq8r8IYtEjn1ptbSAoLaHG1w/sHDh2RsIMAtuUuq0sS+6W1guzx7E0pchvL2CnsyFO10WBOd+rpzzKJFPZJK
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2026 10:09:39.7278
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68b41c7e-18e6-4998-63be-08dec5460d7e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR10MB6257
+In-Reply-To: <CAE2F3rDwx9qX3O0GQOJ-CQ1dqREKNp3vf_PkWWP+xmyEHRuOnQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_030948_434664_4C79C9EA 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260608_032717_446969_F984E08E 
+X-CRM114-Status: GOOD (  25.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,350 +110,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per the IEC-62439-3 specification the Link Redundancy Entity (LRE)
-maintains a well-defined set of counters applicable to both software
-and offloaded HSR/PRP implementations. Define these counters as
-individual netlink attributes inside a LINK_XSTATS_TYPE_HSR nest,
-following the approach used by bridge and bond with IFLA_STATS_LINK_XSTATS.
+On Sun, Jun 07, 2026 at 01:17:39PM -0700, Daniel Mentz wrote:
+> On Thu, Jun 4, 2026 at 12:18 AM Pranjal Shrivastava <praan@google.com> wrote:
+> >
+> > On Wed, Jun 03, 2026 at 03:18:32PM -0700, Daniel Mentz wrote:
+> > > On Thu, May 28, 2026 at 2:46 PM Pranjal Shrivastava <praan@google.com> wrote:
+> > > >
+> > > > On Thu, May 28, 2026 at 01:28:15PM -0700, Nicolin Chen wrote:
+> > > > > On Wed, May 27, 2026 at 10:14:06PM +0000, Pranjal Shrivastava wrote:
+> > > > > > TLB and CFG invalidations are
+> > > > > > elided if the SMMU is suspended by observing the CMDQ_PROD_STOP_FLAG via
+> > > > > > the arm_smmu_can_elide() helper.
+> > > > >
+[..]
+> > > Hi Pranjal,
+> > >
+> > > Have you observed unmap storms in a real-world use case, or is this a
+> > > preemptive optimization? I would not expect a high rate of map/unmap
+> > > operations while the SMMU is suspended. If a client device calls
+> > > iommu_map/iommu_unmap (directly or indirectly), it suggests the client
+> > > device is RPM_ACTIVE, meaning the SMMU should be active as well.
+> > >
+> > > I am in favor of removing arm_smmu_can_elide().
+> >
+> > I saw some with DMA_FQ (fq_timer does batched async invalidations) but
+> > the early ellision doesn't really help with perf which I agreed to in my
+> > reply to Nicolin as well.
+> >
+> > The early checks were dropped in v8 (except for invs_array and for the
+> > WARN_ON in inv_master).
+> 
+> Hi Pranjal,
+> 
+> Please correct me if I'm wrong, but in v8, I can see a call to
+> arm_smmu_cmdq_can_elide() at the very beginning of
+> arm_smmu_domain_inv_range(). Isn't this the path every iommu_unmap
+> goes through?
 
-The full IEC-62439-3 MIB counter set is represented, with per-port (A,
-B, C) granularity where applicable:
+That's correct. In v7 there were 4-5 callsites for these checks, most of
+which were dropped. This one (for invs array) was retained in v8 based on
+this discussion with Nicolin [1].
 
-  lreCntTx{A,B,C}          - sent HSR/PRP tagged frames per port
-  lreCntRx{A,B,C}          - received HSR/PRP tagged frames per port
-  lreCntErrWrongLan{A,B,C} - received frames with wrong LAN ID (PRP)
-  lreCntErrors{A,B,C}      - received frames with errors per port
-  lreCntUnique{A,B,C}       - frames received without duplicate
-  lreCntDuplicate{A,B,C}    - frames received with exactly one duplicate
-  lreCntMulti{A,B,C}        - frames received with more than one duplicate
-  lreCntOwnRx{A,B}          - own-address frames received (HSR only)
+Thanks,
+Praan
 
-Each counter is encoded as its own HSR_XSTATS_* u64 netlink attribute.
-Unsupported counters are initialised to ~0ULL by the kernel and omitted
-from the netlink reply; user-space must treat an absent attribute as
-"not available".
-
-The UAPI attribute enum (HSR_XSTATS_*) is added to hsr_netlink.h.
-LINK_XSTATS_TYPE_HSR is added to the LINK_XSTATS_TYPE_* enum in both
-include/uapi/linux/if_link.h and tools/include/uapi/linux/if_link.h.
-
-A kernel-internal struct hsr_lre_stats (in linux/if_hsr.h) is provided
-for offload drivers to fill via ndo_get_offload_stats. Unsupported
-fields must be left at the ~0ULL value initialised by the HSR layer
-before calling the NDO.
-
-The HSR stack calls ndo_get_offload_stats(IFLA_STATS_LINK_XSTATS) on
-slave A to collect offload counters.
-
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
- include/linux/if_hsr.h             |  48 +++++++++++
- include/uapi/linux/hsr_netlink.h   |  56 ++++++++++++
- include/uapi/linux/if_link.h       |   1 +
- net/hsr/hsr_netlink.c              | 132 +++++++++++++++++++++++++++--
- tools/include/uapi/linux/if_link.h |   1 +
- 5 files changed, 230 insertions(+), 8 deletions(-)
-
-diff --git a/include/linux/if_hsr.h b/include/linux/if_hsr.h
-index f4cf2dd36d193..b8c20f0906194 100644
---- a/include/linux/if_hsr.h
-+++ b/include/linux/if_hsr.h
-@@ -38,6 +38,54 @@ struct hsr_tag {
- 
- #define HSR_HLEN	6
- 
-+/**
-+ * struct hsr_lre_stats - Kernel-internal IEC-62439-3 LRE counter set.
-+ *
-+ * This is the buffer type written by ndo_get_offload_stats() when called
-+ * with attr_id == IFLA_STATS_LINK_XSTATS on an HSR slave device.  Each
-+ * field maps to one HSR_XSTATS_* netlink attribute.  Fields that the
-+ * offload driver does not support must be left at the initialised value of
-+ * ~0ULL; the HSR layer will skip those when building the netlink reply.
-+ *
-+ * Per-port suffix: _a = port A (slave 1 / LAN-A),
-+ *                  _b = port B (slave 2 / LAN-B),
-+ *                  _c = interlink / application interface.
-+ *
-+ * @cnt_tx_a: lreCntTxA - sent HSR/PRP tagged frames on port A.
-+ * @cnt_tx_b: lreCntTxB - sent HSR/PRP tagged frames on port B.
-+ * @cnt_tx_c: lreCntTxC - sent HSR/PRP tagged frames on port C.
-+ * @cnt_rx_a: lreCntRxA - received HSR/PRP tagged frames on port A.
-+ * @cnt_rx_b: lreCntRxB - received HSR/PRP tagged frames on port B.
-+ * @cnt_rx_c: lreCntRxC - received HSR/PRP tagged frames on port C.
-+ * @cnt_err_wrong_lan_a: lreCntErrWrongLanA - wrong LAN ID frames on port A.
-+ * @cnt_err_wrong_lan_b: lreCntErrWrongLanB - wrong LAN ID frames on port B.
-+ * @cnt_err_wrong_lan_c: lreCntErrWrongLanC - wrong LAN ID frames on port C.
-+ * @cnt_errors_a: lreCntErrorsA - received frames with errors on port A.
-+ * @cnt_errors_b: lreCntErrorsB - received frames with errors on port B.
-+ * @cnt_errors_c: lreCntErrorsC - received frames with errors on port C.
-+ * @cnt_unique_a: lreCntUniqueA - frames received without duplicate on port A.
-+ * @cnt_unique_b: lreCntUniqueB - frames received without duplicate on port B.
-+ * @cnt_unique_c: lreCntUniqueC - frames received without duplicate on port C.
-+ * @cnt_duplicate_a: lreCntDuplicateA - frames with one duplicate on port A.
-+ * @cnt_duplicate_b: lreCntDuplicateB - frames with one duplicate on port B.
-+ * @cnt_duplicate_c: lreCntDuplicateC - frames with one duplicate on port C.
-+ * @cnt_multi_a: lreCntMultiA - frames with more than one duplicate on port A.
-+ * @cnt_multi_b: lreCntMultiB - frames with more than one duplicate on port B.
-+ * @cnt_multi_c: lreCntMultiC - frames with more than one duplicate on port C.
-+ * @cnt_own_rx_a: lreCntOwnRxA - own-address frames received on port A.
-+ * @cnt_own_rx_b: lreCntOwnRxB - own-address frames received on port B.
-+ */
-+struct hsr_lre_stats {
-+	u64 cnt_tx_a, cnt_tx_b, cnt_tx_c;
-+	u64 cnt_rx_a, cnt_rx_b, cnt_rx_c;
-+	u64 cnt_err_wrong_lan_a, cnt_err_wrong_lan_b, cnt_err_wrong_lan_c;
-+	u64 cnt_errors_a, cnt_errors_b, cnt_errors_c;
-+	u64 cnt_unique_a, cnt_unique_b, cnt_unique_c;
-+	u64 cnt_duplicate_a, cnt_duplicate_b, cnt_duplicate_c;
-+	u64 cnt_multi_a, cnt_multi_b, cnt_multi_c;
-+	u64 cnt_own_rx_a, cnt_own_rx_b;
-+};
-+
- #if IS_ENABLED(CONFIG_HSR)
- extern bool is_hsr_master(struct net_device *dev);
- extern int hsr_get_version(struct net_device *dev, enum hsr_version *ver);
-diff --git a/include/uapi/linux/hsr_netlink.h b/include/uapi/linux/hsr_netlink.h
-index d540ea9bbef4b..c414a2bb93b79 100644
---- a/include/uapi/linux/hsr_netlink.h
-+++ b/include/uapi/linux/hsr_netlink.h
-@@ -48,4 +48,60 @@ enum {
- };
- #define HSR_C_MAX (__HSR_C_MAX - 1)
- 
-+/* HSR/PRP LRE extended statistics attributes.
-+ * Reported inside LINK_XSTATS_TYPE_HSR (RTM_GETSTATS / ip stats show).
-+ * Counter definitions follow IEC-62439-3 MIB naming.
-+ *
-+ * All counters are __u64.  Unsupported counters are omitted from the
-+ * netlink reply; user-space must treat an absent attribute as "not available".
-+ *
-+ * Per-port suffix: _A = port A (slave 1), _B = port B (slave 2),
-+ *                  _C = interlink / application interface.
-+ */
-+enum {
-+	/* Sent HSR/PRP tagged frames per port */
-+	HSR_XSTATS_CNT_TX_A = 1,
-+	HSR_XSTATS_CNT_TX_B,
-+	HSR_XSTATS_CNT_TX_C,
-+
-+	/* Received HSR/PRP tagged frames per port */
-+	HSR_XSTATS_CNT_RX_A,
-+	HSR_XSTATS_CNT_RX_B,
-+	HSR_XSTATS_CNT_RX_C,
-+
-+	/* Received frames with wrong LAN ID (PRP only) per port */
-+	HSR_XSTATS_CNT_ERR_WRONG_LAN_A,
-+	HSR_XSTATS_CNT_ERR_WRONG_LAN_B,
-+	HSR_XSTATS_CNT_ERR_WRONG_LAN_C,
-+
-+	/* Received frames with errors per port */
-+	HSR_XSTATS_CNT_ERRORS_A,
-+	HSR_XSTATS_CNT_ERRORS_B,
-+	HSR_XSTATS_CNT_ERRORS_C,
-+
-+	/* Frames received with no duplicate per port */
-+	HSR_XSTATS_CNT_UNIQUE_A,
-+	HSR_XSTATS_CNT_UNIQUE_B,
-+	HSR_XSTATS_CNT_UNIQUE_C,
-+
-+	/* Frames received with exactly one duplicate per port */
-+	HSR_XSTATS_CNT_DUPLICATE_A,
-+	HSR_XSTATS_CNT_DUPLICATE_B,
-+	HSR_XSTATS_CNT_DUPLICATE_C,
-+
-+	/* Frames received with more than one duplicate per port */
-+	HSR_XSTATS_CNT_MULTI_A,
-+	HSR_XSTATS_CNT_MULTI_B,
-+	HSR_XSTATS_CNT_MULTI_C,
-+
-+	/* Frames received matching this node's own address (HSR only) */
-+	HSR_XSTATS_CNT_OWN_RX_A,
-+	HSR_XSTATS_CNT_OWN_RX_B,
-+
-+	HSR_XSTATS_PAD,
-+	__HSR_XSTATS_MAX,
-+};
-+
-+#define HSR_XSTATS_MAX (__HSR_XSTATS_MAX - 1)
-+
- #endif /* __UAPI_HSR_NETLINK_H */
-diff --git a/include/uapi/linux/if_link.h b/include/uapi/linux/if_link.h
-index 79ce4bc24cba6..3dcd51e64f29d 100644
---- a/include/uapi/linux/if_link.h
-+++ b/include/uapi/linux/if_link.h
-@@ -1905,6 +1905,7 @@ enum {
- 	LINK_XSTATS_TYPE_UNSPEC,
- 	LINK_XSTATS_TYPE_BRIDGE,
- 	LINK_XSTATS_TYPE_BOND,
-+	LINK_XSTATS_TYPE_HSR,
- 	__LINK_XSTATS_TYPE_MAX
- };
- #define LINK_XSTATS_TYPE_MAX (__LINK_XSTATS_TYPE_MAX - 1)
-diff --git a/net/hsr/hsr_netlink.c b/net/hsr/hsr_netlink.c
-index db0b0af7a6920..9455f65868ca2 100644
---- a/net/hsr/hsr_netlink.c
-+++ b/net/hsr/hsr_netlink.c
-@@ -11,6 +11,8 @@
- #include <linux/kernel.h>
- #include <net/rtnetlink.h>
- #include <net/genetlink.h>
-+#include <uapi/linux/if_link.h>
-+#include <uapi/linux/hsr_netlink.h>
- #include "hsr_main.h"
- #include "hsr_device.h"
- #include "hsr_framereg.h"
-@@ -189,15 +191,129 @@ static int hsr_fill_info(struct sk_buff *skb, const struct net_device *dev)
- 	return -EMSGSIZE;
- }
- 
-+/*
-+ * Number of real HSR_XSTATS_* u64 counter attributes.
-+ * Real counters run from HSR_XSTATS_CNT_TX_A(1) through
-+ * HSR_XSTATS_CNT_OWN_RX_B(25); HSR_XSTATS_PAD is not a counter.
-+ */
-+#define HSR_XSTATS_CNT_ATTRS (HSR_XSTATS_PAD - 1)
-+
-+static size_t hsr_get_linkxstats_size(const struct net_device *dev, int attr)
-+{
-+	if (attr != IFLA_STATS_LINK_XSTATS)
-+		return 0;
-+
-+	/* Nest header (LINK_XSTATS_TYPE_HSR) + one u64 nla per counter */
-+	return nla_total_size(0) +
-+	       HSR_XSTATS_CNT_ATTRS * nla_total_size_64bit(sizeof(u64));
-+}
-+
-+/* Put a u64 counter attribute; skip if value is ~0ULL (unsupported). */
-+static int hsr_put_stat(struct sk_buff *skb, int attr_id, u64 val)
-+{
-+	if (val == ~0ULL)
-+		return 0;
-+	return nla_put_u64_64bit(skb, attr_id, val, HSR_XSTATS_PAD);
-+}
-+
-+static int hsr_fill_linkxstats(struct sk_buff *skb,
-+			       const struct net_device *dev,
-+			       int *prividx, int attr)
-+{
-+	struct hsr_lre_stats stats;
-+	struct hsr_port *port;
-+	struct hsr_priv *hsr = netdev_priv(dev);
-+	struct nlattr *nest;
-+	int s_prividx = *prividx;
-+	int err;
-+
-+	if (attr != IFLA_STATS_LINK_XSTATS)
-+		return 0;
-+
-+	*prividx = 0;
-+
-+	nest = nla_nest_start_noflag(skb, LINK_XSTATS_TYPE_HSR);
-+	if (!nest)
-+		return -EMSGSIZE;
-+
-+	/* Initialise all counters to ~0ULL ("unsupported") */
-+	memset(&stats, 0xff, sizeof(stats));
-+
-+	/* Ask the offload driver (if any) via ndo_get_offload_stats on slave A.
-+	 * Guard with ndo_has_offload_stats so we only call drivers that
-+	 * explicitly declare support for IFLA_STATS_LINK_XSTATS, avoiding
-+	 * spurious -EINVAL from drivers that implement the NDO for a different
-+	 * attr_id (e.g. IFLA_OFFLOAD_XSTATS_CPU_HIT).
-+	 */
-+	port = hsr_port_get_hsr(hsr, HSR_PT_SLAVE_A);
-+	if (port) {
-+		const struct net_device_ops *ops = port->dev->netdev_ops;
-+
-+		if (ops->ndo_has_offload_stats &&
-+		    ops->ndo_has_offload_stats(port->dev,
-+					       IFLA_STATS_LINK_XSTATS) &&
-+		    ops->ndo_get_offload_stats) {
-+			err = ops->ndo_get_offload_stats(IFLA_STATS_LINK_XSTATS,
-+							 port->dev, &stats);
-+			if (err && err != -EOPNOTSUPP) {
-+				nla_nest_cancel(skb, nest);
-+				return err;
-+			}
-+		}
-+	}
-+
-+#define PUT_STAT(attr, field) \
-+	do { \
-+		if (HSR_XSTATS_##attr < s_prividx) \
-+			break; \
-+		if (hsr_put_stat(skb, HSR_XSTATS_##attr, stats.field)) { \
-+			*prividx = HSR_XSTATS_##attr; \
-+			nla_nest_end(skb, nest); \
-+			return -EMSGSIZE; \
-+		} \
-+	} while (0)
-+
-+	PUT_STAT(CNT_TX_A,		cnt_tx_a);
-+	PUT_STAT(CNT_TX_B,		cnt_tx_b);
-+	PUT_STAT(CNT_TX_C,		cnt_tx_c);
-+	PUT_STAT(CNT_RX_A,		cnt_rx_a);
-+	PUT_STAT(CNT_RX_B,		cnt_rx_b);
-+	PUT_STAT(CNT_RX_C,		cnt_rx_c);
-+	PUT_STAT(CNT_ERR_WRONG_LAN_A,	cnt_err_wrong_lan_a);
-+	PUT_STAT(CNT_ERR_WRONG_LAN_B,	cnt_err_wrong_lan_b);
-+	PUT_STAT(CNT_ERR_WRONG_LAN_C,	cnt_err_wrong_lan_c);
-+	PUT_STAT(CNT_ERRORS_A,		cnt_errors_a);
-+	PUT_STAT(CNT_ERRORS_B,		cnt_errors_b);
-+	PUT_STAT(CNT_ERRORS_C,		cnt_errors_c);
-+	PUT_STAT(CNT_UNIQUE_A,		cnt_unique_a);
-+	PUT_STAT(CNT_UNIQUE_B,		cnt_unique_b);
-+	PUT_STAT(CNT_UNIQUE_C,		cnt_unique_c);
-+	PUT_STAT(CNT_DUPLICATE_A,	cnt_duplicate_a);
-+	PUT_STAT(CNT_DUPLICATE_B,	cnt_duplicate_b);
-+	PUT_STAT(CNT_DUPLICATE_C,	cnt_duplicate_c);
-+	PUT_STAT(CNT_MULTI_A,		cnt_multi_a);
-+	PUT_STAT(CNT_MULTI_B,		cnt_multi_b);
-+	PUT_STAT(CNT_MULTI_C,		cnt_multi_c);
-+	PUT_STAT(CNT_OWN_RX_A,		cnt_own_rx_a);
-+	PUT_STAT(CNT_OWN_RX_B,		cnt_own_rx_b);
-+
-+#undef PUT_STAT
-+
-+	nla_nest_end(skb, nest);
-+	return 0;
-+}
-+
- static struct rtnl_link_ops hsr_link_ops __read_mostly = {
--	.kind		= "hsr",
--	.maxtype	= IFLA_HSR_MAX,
--	.policy		= hsr_policy,
--	.priv_size	= sizeof(struct hsr_priv),
--	.setup		= hsr_dev_setup,
--	.newlink	= hsr_newlink,
--	.dellink	= hsr_dellink,
--	.fill_info	= hsr_fill_info,
-+	.kind			= "hsr",
-+	.maxtype		= IFLA_HSR_MAX,
-+	.policy			= hsr_policy,
-+	.priv_size		= sizeof(struct hsr_priv),
-+	.setup			= hsr_dev_setup,
-+	.newlink		= hsr_newlink,
-+	.dellink		= hsr_dellink,
-+	.fill_info		= hsr_fill_info,
-+	.get_linkxstats_size	= hsr_get_linkxstats_size,
-+	.fill_linkxstats	= hsr_fill_linkxstats,
- };
- 
- /* attribute policy */
-diff --git a/tools/include/uapi/linux/if_link.h b/tools/include/uapi/linux/if_link.h
-index 7e46ca4cd31bb..13f122996d01a 100644
---- a/tools/include/uapi/linux/if_link.h
-+++ b/tools/include/uapi/linux/if_link.h
-@@ -1844,6 +1844,7 @@ enum {
- 	LINK_XSTATS_TYPE_UNSPEC,
- 	LINK_XSTATS_TYPE_BRIDGE,
- 	LINK_XSTATS_TYPE_BOND,
-+	LINK_XSTATS_TYPE_HSR,
- 	__LINK_XSTATS_TYPE_MAX
- };
- #define LINK_XSTATS_TYPE_MAX (__LINK_XSTATS_TYPE_MAX - 1)
--- 
-2.34.1
-
+https://lore.kernel.org/all/ahjNYqe8hjPUQIQD@Asurada-Nvidia/
 
