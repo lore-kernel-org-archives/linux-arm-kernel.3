@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB04CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1298CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 14:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AjzJOtlPOWolbocPDPj2Mu/WPgqYCce8DVRroR5vn9c=; b=Fzu8g7X0Mvoq8CM7DOo1/6oTwS
-	Zj5g7PrX/QA4e61i+/70uYh4PdFbTJ/xQPHSc0ES8wsuVsF5H5fsG+Gowluf7nTAxNogmsp2VaZJ2
-	Si3zxngckitDcMZBi6MShMaaT7xYnc0weScIbYq/oMprmmHArzi57qh5e5CGhkY4tmX3+aZfJ67C+
-	NaGxfBhucstmmDX/RjwKG+mVMeaDOLDvR44FnvGWx3vQFeFqQ1bfjWq23DakMTWkjz1eTV12KoOzR
-	EWo6jKp6HieYB3ZdBYw+KUwvVZz1MmhWCYU9Ji3GbuU2S3kIC8q2spByG2TnhX1xuo2M9vHLUm9+a
-	HV9ZEXDg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hKYKRZ8FtESJlyK6uHnHiclPFcshQw5hyacJie3Eij0=; b=umwFiU0Z9MSbPNN0CmcKDTFG0P
+	KKKSmegn4pbIHFJvFNOZpmJ7mbv+qbxzJVv3y0Xoq3vO5Askz40K2gEahOJGVC0AYa4OMSRtT1cf/
+	f1h8WphuRKBz/IU/voJ45Z334EPOYoY5JMFp9mqfJCYB+pLjF1ZXbJkBxSF9ayKFbf+yv126pWE65
+	LUhO5OJkAX018RF75bqO4khAaS8eXZiUbSRUYwZGec1k1I8ZyLvSuxekP18VPCqJNqqGwUZdGIacy
+	CdOeNwtRueKj8I/N/1sk7fbKyONgHcRPV1A+KSIFKsc/4H7j5cg6bxGYmnP8HNU0j2sfGPOmvZ77n
+	18WCfThg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWarS-00000003j4T-17yi;
-	Mon, 08 Jun 2026 14:21:54 +0000
+	id 1wWarX-00000003j70-2Rzc;
+	Mon, 08 Jun 2026 14:21:59 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWarP-00000003j3C-1DUW
+	id 1wWarT-00000003j50-3iLn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 14:21:53 +0000
+	Mon, 08 Jun 2026 14:21:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=AjzJOtlPOWolbocPDPj2Mu/WPgqYCce8DVRroR5vn9c=; b=ftZixARZc/H2Qog4qO3GgGme0O
-	udA+6UEUmOPWiroloDU1XrJJsCPQHefBi9eLtA8zLDSYie5AH5BA86mlU1hCjY6SS73bCVNMrOlln
-	U9q7hfvo3ouo1vdX5vd7Yx9MK3EkIXwsVtqqEfdymTswztIrAvG4Pecx8hKifGBh6N5Tht+EWdp6K
-	lVkM+rn4eujf40H4ekSQYglBtaOjaEFKT/EEzGUofn++mxkjqnJTExzpyynE4l7IOrxzFTDJ+H6Fo
-	j3070PKoZHUDj6sWjpKOGnK3G/kh9wUN8GdTj8rOyaJTxQusZebZYztQ+denizatZx4baZFGDGkAC
-	ldYa8PAQ==;
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=hKYKRZ8FtESJlyK6uHnHiclPFcshQw5hyacJie3Eij0=; b=Y24GZG/Hqkw4vjVvWGTrZZXO1h
+	Z45RVyKH/ICYAWnENd165CMalGpy/6JiYL7452ysr9aeuZ6jz7assiDwSscEt6/jaDsvTpZZRb6PS
+	XDkHG9SkuhJldxTf09fwYaeygYBe0isQPe0hsM8NW5XzeGCykTw/oKEINvuW2/j7xmyn8PzFNZZai
+	j0oK+/AIsh5u2HQ+cV/GuvG1nis8h8MnzWDb8aGV6kniFfO/dnmr8/k5RnoaLKZo2DZCDL3JpCZAF
+	cg3AYCeyFG4WYszr8NFuoV42jJRaz9C9WX/PFmuDrAsBipyJMEREAVsWnKCR+8KUG95+Tf11FrAUo
+	B7x6p5hg==;
 Received: from sslproxy06.your-server.de ([78.46.172.3])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wWarN-000ITW-0E;
-	Mon, 08 Jun 2026 16:21:49 +0200
+	id 1wWarM-000ITR-00;
+	Mon, 08 Jun 2026 16:21:48 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wWarL-0008uk-2p;
-	Mon, 08 Jun 2026 16:21:48 +0200
+	id 1wWarK-0008uk-2X;
+	Mon, 08 Jun 2026 16:21:47 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -68,19 +68,19 @@ Cc: Paul Gerber <paul.gerber@tq-group.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux@ew.tq-group.com,
 	linux-renesas-soc@vger.kernel.org,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH v5 3/4] arm64: dts: freescale: add LVDS overlays for TQMa8MPxS
-Date: Mon,  8 Jun 2026 16:21:32 +0200
-Message-ID: <20260608142144.564871-3-alexander.stein@ew.tq-group.com>
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v5 1/4] dt-bindings: arm: fsl: add TQMa8MPxS board
+Date: Mon,  8 Jun 2026 16:21:30 +0200
+Message-ID: <20260608142144.564871-1-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260608142144.564871-1-alexander.stein@ew.tq-group.com>
-References: <20260608142144.564871-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28025/Mon Jun  8 08:33:34 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_072151_471937_0A32486F 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20260608_072155_939838_F94C5552 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,141 +97,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Paul Gerber <paul.gerber@tq-group.com>
 
-This adds overlays for the supported LVDS display tianma tm070jvhg33
-for both LVDS channels.
+TQMa8MPxS is a SOM family using NXP i.MX8MP CPU family.
+MB-SMARC-2 is an evaluation mainbord for this SOM
 
-The display timings have to be specified explicitly. Using the typical
-pixel clock, the LDB clock can not be configured as the 7-fold of that.
-By setting pixel clock to 74.25 MHz, LDB can be configured to exactly
-519.75 MHz.
+The SOM needs a mainboard, therefore we provide two compatibles here:
+
+"tq,imx8mp-<SOM>" for the module and
+"tq,imx8mp-<SOM>-<SBC>"
 
 Signed-off-by: Paul Gerber <paul.gerber@tq-group.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 Changes in v5:
-* Reformat commit message.
+* None
 
- arch/arm64/boot/dts/freescale/Makefile        |  5 +++
- ...qma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso | 43 +++++++++++++++++++
- ...qma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso | 43 +++++++++++++++++++
- 3 files changed, 91 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso
+ Documentation/devicetree/bindings/arm/fsl.yaml | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index acb73cde76f16..2f4568e7105f4 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -498,6 +498,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33-imx219.dtb
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 86876311ec59a..6237fb2ae50e6 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1310,6 +1310,18 @@ properties:
+           - const: tq,imx8mp-tqma8mpql            # TQ-Systems GmbH i.MX8MP TQMa8MPQL SOM
+           - const: fsl,imx8mp
  
-+imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtbo
-+imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtb
++      - description:
++          TQMa8MPxS is a series of SOM featuring NXP i.MX8MP system-on-chip
++          variants. It has the SMARC-2.0 form factor and is designed to be
++          placed on different carrier boards. All CPU variants use the same
++          device tree hence only one compatible is needed. MB-SMARC-2 is a
++          carrier reference design.
++        items:
++          - enum:
++              - tq,imx8mp-tqma8mpqs-mb-smarc-2    # TQ-Systems GmbH i.MX8MP TQMa8MPQS SOM on MB-SMARC-2
++          - const: tq,imx8mp-tqma8mpqs            # TQ-Systems GmbH i.MX8MP TQMa8MPQS SOM
++          - const: fsl,imx8mp
 +
- dtb-$(CONFIG_ARCH_MXC) += imx8mq-evk.dtb
- imx8mq-evk-pcie1-ep-dtbs += imx8mq-evk.dtb imx-pcie1-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mq-evk-pcie1-ep.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso
-new file mode 100644
-index 0000000000000..2cf1de8c05b49
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso
-@@ -0,0 +1,43 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Paul Gerber
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&backlight_lvds0 {
-+	status = "okay";
-+};
-+
-+&panel_lvds0{
-+	compatible = "tianma,tm070jvhg33";
-+	status = "okay";
-+
-+	panel-timing {
-+		clock-frequency = <74250000>;
-+		hactive = <1280>;
-+		vactive = <800>;
-+		hfront-porch = <64>;
-+		hback-porch = <5>;
-+		hsync-len = <1>;
-+		vfront-porch = <40>;
-+		vback-porch = <2>;
-+		vsync-len = <1>;
-+		de-active = <1>;
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	status = "okay";
-+};
-+
-+&pwm3 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso
-new file mode 100644
-index 0000000000000..cbad0cfab2925
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso
-@@ -0,0 +1,43 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Paul Gerber
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&backlight_lvds1 {
-+	status = "okay";
-+};
-+
-+&panel_lvds1{
-+	compatible = "tianma,tm070jvhg33";
-+	status = "okay";
-+
-+	panel-timing {
-+		clock-frequency = <74250000>;
-+		hactive = <1280>;
-+		vactive = <800>;
-+		hfront-porch = <64>;
-+		hback-porch = <5>;
-+		hsync-len = <1>;
-+		vfront-porch = <40>;
-+		vback-porch = <2>;
-+		vsync-len = <1>;
-+		de-active = <1>;
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	status = "okay";
-+};
+       - description: Variscite VAR-SOM-MX8M Plus based boards
+         items:
+           - const: variscite,var-som-mx8mp-symphony
 -- 
 2.54.0
 
