@@ -4,54 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C6D8CD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4592CD8C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 09:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGkZcMBoAb+m8aY5hGGCVEYyH5C6dmJ8Ri3+vL0A/d8=; b=LPdHRsOVcS3hdT7jRowqnZGI9T
-	e66CfWeXrm2X9cnYq7tTKEMjp6V6aXOEqqLRDuXGz7O4/byNJVg9EU6zy4nLcv9dhgxOO2Ao0IMwQ
-	Gy6OIfQ3YF1T/ITX1Nl9oCzg6WCUI68GXEcPDN0NUFDgaVijf3tZmf0mWwrEAcs9TY1idx2IwZIhb
-	UYb3XVHBG0ZcDHc2CW68JEHjTStpOOJVVrf7Pdlv9+LZM0Zz2Dp36HdToJsezspb7DueuH+1WNUd5
-	SayMvhnqbku4w/8fvGM6hiqWveVUHgQvSYU0LTjSynYSbPUwL6crqdMc6g/KA6vaaBQ4WFFG5bj5c
-	7H4eftSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LGJeTRKsWTZd6TMNznExZMPKEFOtHdMmOsWk3k8oy6Y=; b=ao9PMIXqQH1SNH/1GvAQbi4t+Z
+	9S4lT077AszldRZmxb1a6t7m9nwhg4qX/+dwUtdptGquSKNnB7UHI0kOtwtP6i/Y5GhK1M3YJl6qV
+	0JIYymsDrpr1ak4vPH2PfNVj0I0mMKqwZo/SmAkk4gfY+VNxeyviubXfWIFFjqpcaEH0HUL/XmWhC
+	APRUQT1doBqFbKAnozSltuAHYOdobOuNCXPxj5BmbNDpXohjnx0Ow6086FjV3Wdvpx6du+36Hy+wz
+	6bCXEdSlVjVycp7m0e2SwtFJOVhxvHRtEbphKnEbBCB78+LhAfAUMBRRaqrDMCDiNgYBKiT+TTG99
+	zf2SFaxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVjj-000000037TQ-048S;
-	Mon, 08 Jun 2026 08:53:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWVrd-000000038BS-3U3G;
+	Mon, 08 Jun 2026 09:01:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWVjf-000000037RU-25VD
+	id 1wWVrd-000000038B7-1AlC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:53:31 +0000
+	Mon, 08 Jun 2026 09:01:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E8AC41A8C;
-	Mon,  8 Jun 2026 08:53:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 359F51F00893;
-	Mon,  8 Jun 2026 08:53:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F26B600AE
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 09:01:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA4541F00893
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 09:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780908811;
-	bh=aGkZcMBoAb+m8aY5hGGCVEYyH5C6dmJ8Ri3+vL0A/d8=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=fhjIuQp/Sup6o+sH0Z+zrskRvvuZfaaJITO4GbIdNebdzX5jnBc07vYHk8dWJB9WR
-	 yE5JBOka/s+xDQy+CpvrNBPHQ3o6370lJMwur9CnIaDh94eYmGVrt3HqpLTGiGLtz4
-	 XNVq6Z1OkRLsEt7V0WuaCnEkqNmQfdFvR9EYiJ+MdVc9jnZumiXmS27ia35iIAQrA0
-	 u7QEDn7oLO5QiDPdyZcgS3aciwL2MXTc1tUML4R6VdCInYg+lOOfYdQj6CDfrxlfVX
-	 IGXAlXAszT4xf+34dQdZ8C3QI3br29+cMutJROpEjDcUDgLTblYyD1UOktWHQCv23/
-	 W9snBZHWFI+4A==
-Content-Type: multipart/mixed; boundary="===============6216399173514572217=="
+	s=k20260515; t=1780909304;
+	bh=LGJeTRKsWTZd6TMNznExZMPKEFOtHdMmOsWk3k8oy6Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Xe2Kpgd6ysw9wl2YnpmSVvr3HAXiTGw9tpJSqvuB1dLcIhcvDLeZciesf414syDj3
+	 ZlefxnKbXXkM1er65J8Ml1y8dYgq2GgHHnnTAt5jkitjab67Z0o2socpPV+3TlXM/2
+	 WGmAX6N+tRdIgQm3Tvf4PFzNLJ5GH7MrJt9UC94Z0jnTnMaBFskEuRlOMiJ7E4vUUd
+	 I5zaWO48nJQz3WuyRAJAv5HYAo6Unl0M7LYBVjdkF9zYrNymYEkaYwBNzKhRtIia9u
+	 eAKGs5x5/Cx7JETdPkXaUw41Snr8SeRszR6DZrm82wLjYa77FhRSsBYD4tQ2JEJrVL
+	 agFtyunFRtr3Q==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5aa68cd8dd3so3642041e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 02:01:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/NC0y31pBNV6Qs6gcpQwtPzzdzztgZ/xS1As8dKc5UJzhSXrzkibjRP7N0qCJS9onNBdNLsrewudIfH0B/ShG0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yycf123NK+7nGLbMsCva8ikFEo3abo6vhCk1LxtVbv6E0mi397A
+	+Fmqu3FVrbKRGBAZu66yMaA3JysOak2GSNy24gtq+PIMTy5G1OryRbdq+Z7xtazkrKZ+9QiKsYs
+	Qs/PHxeIzYwB0zCbigGvB+SgHtVW/tzM=
+X-Received: by 2002:a05:6512:6c1:b0:5aa:7126:c62c with SMTP id
+ 2adb3069b0e04-5aa87b40d20mr3965582e87.1.1780909302629; Mon, 08 Jun 2026
+ 02:01:42 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <23edac0734ee3ef334237165500d8f34e3c649081db7b3140a4a8596a202f339@mail.kernel.org>
-In-Reply-To: <20260608080440.127491-3-ankur.a.arora@oracle.com>
-References: <20260608080440.127491-3-ankur.a.arora@oracle.com>
-Subject: Re: [PATCH v12 02/15] arm64: barrier: Support smp_cond_load_relaxed_timeout()
-From: bot+bpf-ci@kernel.org
-To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
-Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@linaro.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,rdunlap@infradead.org,david.laight.linux@gmail.com,broonie@kernel.org,joao.m.martins@oracle.com,boris.ostrovsky@oracle.com,konrad.wilk@oracle.com,ashok.bhat@arm.com,ankur.a.arora@oracle.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Mon,  8 Jun 2026 08:53:30 +0000 (UTC)
+References: <20260330110135.10316-1-khushalchitturi@gmail.com> <20260330110135.10316-3-khushalchitturi@gmail.com>
+In-Reply-To: <20260330110135.10316-3-khushalchitturi@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 8 Jun 2026 11:01:31 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmivL9gwoH=-8ckr1_ufV0pVpeLqjNH1GwZ3q1G=v3GhQ@mail.gmail.com>
+X-Gm-Features: AVVi8CcySFMrp_-u764vQiNFLySCbzgBlciziVHmIzBXSnKSliKS23ncy01nEGM
+Message-ID: <CAD++jLmivL9gwoH=-8ckr1_ufV0pVpeLqjNH1GwZ3q1G=v3GhQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] ARM: dts: gemini: Rename power controller node to poweroff
+To: Khushal Chitturi <khushalchitturi@gmail.com>
+Cc: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	ulli.kroll@googlemail.com, daniel.baluta@nxp.com, simona.toaca@nxp.com, 
+	d-gole@ti.com, m-chawdhry@ti.com, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,61 +82,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============6216399173514572217==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Mon, Mar 30, 2026 at 1:02=E2=80=AFPM Khushal Chitturi
+<khushalchitturi@gmail.com> wrote:
 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index fe60738e5943..fa676428ec3f 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1606,6 +1606,9 @@ config ARCH_SUPPORTS_CRASH_DUMP
->  config ARCH_DEFAULT_CRASH_DUMP
->  	def_bool y
+> Update the node name for the Cortina Gemini power controller from
+> power-controller to poweroff since node "power controller" is
+> reserved for power domain controller.
 >
-> +config ARCH_HAS_CPU_RELAX
-> +	def_bool y
-> +
+> Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
 
-ARCH_HAS_CPU_RELAX isn't private to the barrier code.  Before this it was
-defined only by arch/x86, and the generic kernel already keys cpuidle
-behavior off it in two places that arm64 builds.
+This patch 2/2 applied to the gemini for-next branch,
+sorry for missing it.
 
-In drivers/cpuidle/Makefile:
-
-  obj-$(CONFIG_ARCH_HAS_CPU_RELAX)	  += poll_state.o
-
-and in drivers/acpi/processor_idle.c:
-
-  #define ACPI_IDLE_STATE_START	(IS_ENABLED(CONFIG_ARCH_HAS_CPU_RELAX) ? 1 : 0)
-  ...
-  if (IS_ENABLED(CONFIG_ARCH_HAS_CPU_RELAX)) {
-          cpuidle_poll_state_init(drv);
-          count = 1;
-  }
-
-On arm64, ACPI_PROCESSOR is "default y" and depends on ARM64, and it
-selects ACPI_PROCESSOR_IDLE which selects CPU_IDLE.  So on an ACPI arm64
-system this now builds poll_state.o and makes acpi_processor_setup_cstates()
-register a POLL idle state as C-state index 0, shifting the firmware
-C-states up by one.
-
-The commit message describes this symbol only as indicating "an optimized
-implementation of cpu_poll_relax()", and the generic patch describes it as
-"a cpu_poll_relax() implementation that is expected to be cheaper".  Neither
-mentions the cpuidle/ACPI poll_state side effect.
-
-Is enabling the cpuidle polling idle state on arm64 intended here, or is
-ARCH_HAS_CPU_RELAX only meant to feed smp_cond_load_relaxed_timeout()?  If
-the latter, would a dedicated symbol (or decoupling poll_state/ACPI from
-ARCH_HAS_CPU_RELAX) avoid the unintended idle-path change?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/27125050324
---===============6216399173514572217==--
+Yours,
+Linus Walleij
 
