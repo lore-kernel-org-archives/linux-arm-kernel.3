@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B5FCD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 19:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E38CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 19:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pkl3sA5TXlWsbrnsE+Im29cYh921GTSdCSC/ZclY+nU=; b=o9w/uJbmplbM/5uKMOFyiCQGCE
-	DQMyWe//N7cE4HT5JUD54p+6/JrJ4sI+aTSPILbTOXSdLOv4XaMFY7lYp010s8p1MBLTiC9tvOFQg
-	uUAi0lkBobYRa/9EZGB4erOdB0Cx1hzbqBAx0Z7Sxm3imlMaxnSZbQ0537TDCB8ksra9AytLZ6y5o
-	Nl+3vU4pBuTeeIXk4TwF3NH+a1x7Q655b0y7D8YdhcGe9x7u8TqYH4K+T/P4xNE889qngzUIZlaZX
-	Wzy8O/tVAEirxUsicTR9njCHkPbZUD8MuQbkoDllVeMqJHoJc68s7M3PVBMT0xx6eItpxXvHipmpC
-	EbSynYWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rpEx0+La6xp+uh1Gw4xWDWNT+FHG8ZwUhMggbL059Ps=; b=A3uMtAqzOq4vcvltRJSAW+OmJS
+	i00QqdaBSo1yg2PZxR43YbkwJ+TFKewjEBTWpTvqaxoIy16898A2CafweoS9yWUpMjuQ6DE89D6sQ
+	p/qHyzmGIQIDcVrjo+Roi0YyHRTAL1cTCKHT6piXR8xXGHlc0E26bR1U73JvM6MHuuB6V5j6E1xLn
+	CHw0hUmtCe/xwKR6RTMjxbpHDugXPU5Dr6POrA2Pa33aAxypDfapLm5Xn3gcg1DGu1IPgkssK3MVg
+	mr/w91PYIMg80UPEwiXM8ZMYWBxnrTN95DQvJJq6nzdLjWZ2USOdYxDaP2eiKruIdsXfMH1/+2zqL
+	BbIYHhbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWfVo-00000004J8D-0tDW;
-	Mon, 08 Jun 2026 19:19:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWff4-00000004JKo-0WEC;
+	Mon, 08 Jun 2026 19:29:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWfVn-00000004J86-0YGo
+	id 1wWff2-00000004JKN-3Sus
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 19:19:51 +0000
+	Mon, 08 Jun 2026 19:29:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7220442DB8;
-	Mon,  8 Jun 2026 19:19:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E4131F00893;
-	Mon,  8 Jun 2026 19:19:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A94CC60098
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 19:29:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B79D1F0089B
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 19:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780946390;
-	bh=pkl3sA5TXlWsbrnsE+Im29cYh921GTSdCSC/ZclY+nU=;
-	h=Date:From:To:Cc:Subject;
-	b=lQs91aQv1vd4R0UV/kpr2pRa382Y82XFRQYLl1Dg4NtLwujsyBe1qM+YdkFZo27EF
-	 /RO0KuDI9v4Z5BIWrKYhmsaIyv305ztpxOkg13UKCpGM21RIa2uC5xPL5mJ/hqZMN1
-	 WaiRcdQj2bwRpR0Jb3hpcKgKfGh56gdb+4JdlQcgW8YbL8DQ4CTCVSqY/eXvpCUsgD
-	 XpI/sRhHEf2XiHLnSi6EXuE5Qk/Sdh/HSRHkX6CBNc2R3LQutL6PlzUb76Cguf6zyC
-	 C9oPEk1cAKF3serb/yExb94XFAjkeinYKQjyzcz9v5pqkcX+r6fACppQmBeer2/Niw
-	 M9Rg50EDzFr/g==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id EA7E81AC56AC; Mon, 08 Jun 2026 20:19:37 +0100 (BST)
-Date: Mon, 8 Jun 2026 20:19:37 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Aishwarya.TCV@arm.com, linux-arm-kernel@lists.infradead.org
-Subject: -next boot failures during KVM setup
-Message-ID: <aicVyebkEMs6w6UV@sirena.co.uk>
+	s=k20260515; t=1780946963;
+	bh=rpEx0+La6xp+uh1Gw4xWDWNT+FHG8ZwUhMggbL059Ps=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=SbK/KpmL0hK94CtJySNbWjwrOrBir/D8yRPZFlVo/glJnlPXNqrssNEVbb23xC21a
+	 fneBsk209DjPKm1sZBz4AB+8iCgBglm1aIBnDODDZB2w07sP/kTlTGUkMw+qLEg9F6
+	 LEbZu/kGIyGYSHR8fpESWqq3fYleGrg4QrylR1RgqkIBORetJdvm/nIrJG+qaXJbQD
+	 6NBKuudAnuOFzgbJDToq1uE2jvjRQy5frO6fe+/wMlSIn+gJV0WpLMEcrqSwmQEKR/
+	 bN3slQ0ILi1KzaLPLN7vRUz0nONTWfjytfVqT/qWnM3VLTl0gIVqE2weKdVf2lYKRw
+	 nWzz5owJsBG+w==
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-39677c434efso48891691fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 12:29:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+ZYNs+4+1EQ4UV7VBy/lIBiOLK2pPvzXdYqlKjKsArfQ7Sfs6e/F4FUp7kPdxofl4pdPw7UpDCRtrGM5L9t7us@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDwuCVZ9oDAaRtmBSj/DWbgxmSdEn6iUAbfxNuC0JwrjmL0T9N
+	GOuaqPrz4q25/YAHxmVn+3WzCPpGVRVA7v/NNn9TXCVNm6KtenDzfiH/A4anZlaXhh+I1eKrkC4
+	CulHI+mAU9VZNQM3SgIdf58mTKc5al2I=
+X-Received: by 2002:a05:6512:3c8c:b0:5a8:9909:50b4 with SMTP id
+ 2adb3069b0e04-5aa87be96a3mr4844941e87.21.1780946962145; Mon, 08 Jun 2026
+ 12:29:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xf4gFMD0UxwoEd0l"
-Content-Disposition: inline
-X-Cookie: Leave no stone unturned.
+References: <20260529100308.51271-1-justin.yeh@mediatek.com>
+In-Reply-To: <20260529100308.51271-1-justin.yeh@mediatek.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 8 Jun 2026 21:29:09 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=V59hoE=7Xv3=2kyO6Z9PbejiStUs5LXOo06fCpn=2xw@mail.gmail.com>
+X-Gm-Features: AVVi8CeHjAMDyz1xo5GR6gfqE45MW1Df0V_jwU7JlxT5b5PN4nUKH4NEzlAIG3g
+Message-ID: <CAD++jL=V59hoE=7Xv3=2kyO6Z9PbejiStUs5LXOo06fCpn=2xw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] pinctrl: mediatek: Enable MT8189 as loadable module
+To: Justin Yeh <justin.yeh@mediatek.com>
+Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,58 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 29, 2026 at 12:04=E2=80=AFPM Justin Yeh <justin.yeh@mediatek.co=
+m> wrote:
 
---xf4gFMD0UxwoEd0l
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> This series enables PINCTRL_MT8189 to be built as a loadable kernel
+> module, which is required for GKI (Generic Kernel Image) + vendor_dlkm
+> deployments where vendor-specific drivers must be kept separate from
+> the GKI vmlinux.
 
-I'm seeing boot failures on a range of physical arm64 platforms in
-today's -next.  Turning on earlycon it looks like we're getting bad
-pointer dereferences during KVM initialisation:
+Maybe tell us that this is for Android?
 
-[    0.728923] kvm [1]: nv: 570 coarse grained trap handlers
-[    0.735138] kvm [1]: nv: 710 fine grained trap handlers
-[    0.741326] kvm [1]: IPA Size Limit: 40 bits
-[    0.748840] Unable to handle kernel paging request at virtual address ffff00000478e000
-[    0.757027] Mem abort info:
-[    0.759917]   ESR = 0x0000000096000147
-[    0.763772]   EC = 0x25: DABT (current EL), IL = 32 bits
-[    0.851526] pc : dcache_clean_inval_poc+0x24/0x48
-[    0.856367] lr : kvm_arm_init+0xbb0/0x13f0
-...
+> Patch 1 restores the tristate option that was recently changed to bool,
 
-[    0.937120] Call trace:
-[    0.939628]  dcache_clean_inval_poc+0x24/0x48 (P)
-[    0.944457]  do_one_initcall+0x60/0x1d4
-[    0.948393]  kernel_init_freeable+0x250/0x2d8
+No the driver was merged with tristate.
+See
+commit a3fe1324c3c5c292ec79bd756497c1c44ff247d2 (tag: pinctrl-v6.17-1)
+"pinctrl: mediatek: Add pinctrl driver for mt8189"
 
-   https://lava.sirena.org.uk/scheduler/job/2849583#L848
+> preventing module builds. Patch 2 adds the missing MODULE_LICENSE macro
+> that's required when building as a module.
 
-(with other platforms I've got earlycon logs showing basically the same
-thing).  I have some bisects but they seem to have been confused by
-earlier driver core issues, I've tweaked to try to avoid that and am
-retrying.  FVP and qemu seem unaffected:
+So that should be squashed into one patch or it will not bisect.
 
-  https://lava.sirena.org.uk/scheduler/job/2848374#L888
-  https://lava.sirena.org.uk/scheduler/job/2848966#L447
+> Together these changes allow MT8189 pinctrl to be properly packaged as
+> a vendor kernel module while maintaining the existing built-in option.
 
-The affected platforms thus far are all SMP Cortex A53/5 systems, but
-that's the vast majority of my lab.  They have both GICv3 and GICv2.
+So why do we change this only for MT8189 and not for all
+Mediatek pinctrl drivers?
 
---xf4gFMD0UxwoEd0l
-Content-Type: application/pgp-signature; name="signature.asc"
+I would just add this tristate option and license to all of them while
+you're at it or I will get like 20 identical patches and it's a waste
+of time for me.
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmonFckACgkQJNaLcl1U
-h9A0NAf+Kfn/fOJ7Gd99nZ+NfVI8PmxAbZaVWijcDV/a/2CUJ7kR3iQj+vo1KfSn
-dEGDy4EjEA+lGEOQXAlgvL/SVmF2zCbtzBuq6+I6hThFNFLmgSZJYtKLE5ZBnZpl
-kgU+NjpgeizB5l/3lxZjEmpHndiTYeedLr/G/QgPC+TkBUYx+x840bh/iBTvepEH
-dnk0Awntv7bNFzX/syeoPYVnXEcmndM4helbSI0pdaqm/kDoAo+VcUNfV1nW5Iii
-Xkw9UgnyvHdsXRCI3f5YDwZxpGZh0DzUI3ziFYKB15kEMQHhtwVnFJc6mXyg0Pb4
-QPWSB9WTkb+LvAuD+GRPrv1QiISoWw==
-=iJxn
------END PGP SIGNATURE-----
-
---xf4gFMD0UxwoEd0l--
+Yours,
+Linus Walleij
 
