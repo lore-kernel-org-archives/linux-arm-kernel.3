@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37CACD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 06:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77AD2CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 06:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgDQMy7dDLyyqOFcKQLo5YOwlYirqHKHA0xRYx1UJBI=; b=CKDnRvbYFA8Uh9QfHXiDcnCkcw
-	Uc7Vh0mhX2X3m6E/LXmc64t/Ppa18CVxw3ODAb+a7kYIn0fNV7hP6GXG/NL14ZhB+qgu0G6yyNZpY
-	+UEjlYFEXKdhkIf7pR10KNnt/HdB1ZUqhk2ZVYjo8O6djtya+UB7SymeuBCFkPSd+LnKaFTu5y/I3
-	g4+83PLSUHcGahlhUj8534ukEvkek4+GXllEbTL4zxVcxzdAqoiD0GbWlIKpys6EqI9ZiTveMgPbF
-	WzYN0wAFfj8WTNBb2PjiuRCM2R8p3IqLQ34WpvqTUyfi0oTUcpFgbovAcyma7Iwy78eZsrt5B6S4d
-	vflPqskg==;
+	bh=3sprSrFZcHp0aDquTs0mfGHMkAhL/H7nU6opfttP7lY=; b=abKVD2MblvajoRBLriUFM5pbOi
+	E0KUeXE1I1/9wExZwRRLz+r7n8BKR0ubG4cxTEABQl7ssrlrrueTyDavkUPAdQRfpFcGZgiAwJ+Hz
+	lAQryw/jVTT1YZBT8W+xqrpEd5Hx6TaEOTQD+v3a5lJbAwcKDM/u996NUKO64l0Bbsna43+l+ZGF6
+	J5NRqmiYJy0fLyGto4xwvCGSuFdiVdbNqCJBwYmI8lSlkD5IQr6iZ3VsjvKyMztb+e+v+brUeTo+2
+	II1py54/V1XxcgmtYVvvnCYpGRSEBjp/l063J7K5Qc++e2PD74XahAGy0oJl0nKIzpr17AgqZqNEL
+	KJkC1ujA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWTRd-00000002tm8-25Ho;
-	Mon, 08 Jun 2026 06:26:45 +0000
+	id 1wWTXd-00000002uEF-0dk0;
+	Mon, 08 Jun 2026 06:32:57 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWTRb-00000002tlD-197n
+	id 1wWTXZ-00000002uDK-2zG1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 06:26:44 +0000
+	Mon, 08 Jun 2026 06:32:55 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.15])
-	by APP-01 (Coremail) with SMTP id qwCowADXetObYCZqKtDfAA--.1056S2;
-	Mon, 08 Jun 2026 14:26:35 +0800 (CST)
-Message-ID: <335c237d2636764948e629dbab0b5b747ac48fa5.camel@iscas.ac.cn>
-Subject: Re: [PATCH v3 4/5] drm/verisilicon: add Nuvoton MA35D1 DCU Lite
- display controller support
+	by APP-01 (Coremail) with SMTP id qwCowACHKtMPYiZqMerfAA--.5091S2;
+	Mon, 08 Jun 2026 14:32:48 +0800 (CST)
+Message-ID: <a3f6fa4529bff5390dd1beb164d600208dc650a5.camel@iscas.ac.cn>
+Subject: Re: [PATCH v3 1/5] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
 	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
@@ -40,36 +40,37 @@ To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com,
 Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
 	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 08 Jun 2026 14:26:35 +0800
-In-Reply-To: <20260608023237.305036-5-a0987203069@gmail.com>
+Date: Mon, 08 Jun 2026 14:32:47 +0800
+In-Reply-To: <20260608023237.305036-2-a0987203069@gmail.com>
 References: <20260608023237.305036-1-a0987203069@gmail.com>
-	 <20260608023237.305036-5-a0987203069@gmail.com>
+	 <20260608023237.305036-2-a0987203069@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: base64
 User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADXetObYCZqKtDfAA--.1056S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtr18Wr1rGrW5uFW7Aw17Awb_yoW3Ww15pF
-	Wvyay8Wr4UJa4I9r9rJry8KF98Aw1xtayrW3y8W3s093s0yFyUWFW0kFyUAFWkWr97AF1I
-	qr4v9w47CFW7ZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+X-CM-TRANSID: qwCowACHKtMPYiZqMerfAA--.5091S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtryrZr17WFW3tr1ftw1kKrg_yoWxtry7pF
+	n5JrWUJryUJrn5Xr4UJr1UJFy8Jw1DJ3WDJr18XF17Jr4UJr1jqr4UWr1qgr13Jr48Xr1U
+	Jr1UXr17Zr17Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPCb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
 	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
 	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
 	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
 	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU5IAp7UUUUU==
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4xvF2IEb7IF0Fy264kE64k0F24l
+	FcxC0VAYjxAxZF0Ex2IqxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtV
+	W8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UMVCEFcxC0VAYjxAxZFUvcSsGvfC2KfnxnUUI
+	43ZEXa7IU5DsqtUUUUU==
 X-Originating-IP: [112.94.101.15]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_232643_680058_ED3CE74C 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20260607_233254_133293_ED4C040D 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,235 +85,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-08=E4=B8=80=E7=9A=84 10:32 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite display
-> controller whose register layout differs from the DC8200 in several
-> important ways:
->=20
-> 1. No CONFIG_EX commit path: framebuffer updates use the enable (bit
-> 0)
-> =C2=A0=C2=A0 and reset (bit 4) bits in FB_CONFIG instead of the DC8200 st=
-aging
-> =C2=A0=C2=A0 registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT,
-> =C2=A0=C2=A0 FB_BLEND_CONFIG, PANEL_CONFIG_EX).
->=20
-> 2. No PANEL_START register: panel output starts when
-> =C2=A0=C2=A0 PANEL_CONFIG.RUNNING is set; there is no multi-display sync =
-start
-> =C2=A0=C2=A0 register.
->=20
-> 3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA (0x147C) /
-> =C2=A0=C2=A0 DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (0x0010) /
-> =C2=A0=C2=A0 TOP_IRQ_EN (0x0014).
->=20
-> 4. Per-frame commit cycle: DCUltraLite requires the VALID bit in
-> =C2=A0=C2=A0 FB_CONFIG to be set at the start of each atomic commit
-> (crtc_begin)
-> =C2=A0=C2=A0 and cleared after (crtc_flush).
->=20
-> 5. Simpler clock topology: only 'core' (bus gate) and 'pix0' (pixel
-> =C2=A0=C2=A0 divider) clocks; no axi or ahb clocks required.=C2=A0 Make a=
-xi_clk and
-> =C2=A0=C2=A0 ahb_clk optional (devm_clk_get_optional_enabled) so DCUltraL=
-ite
-> =C2=A0=C2=A0 nodes without those clocks are handled gracefully.
->=20
-> Add vs_dcu_lite.c implementing the vs_dc_funcs vtable for the above
-
-Nitpick: could you use vs_dc8000 to make things more aligned? (Although
-I must admit that DCUltraLite is the first revision to be supported in
-this codepath).
-
-> differences.=C2=A0 The probe now selects vs_dcu_lite_funcs when the
-> identified generation is VSDC_GEN_DC8000 (DCUltraLite reads model
-> 0x0,
-> revision 0x5560, customer_id 0x305).
->=20
-> Extend Kconfig to allow building on ARCH_MA35 platforms.
-
-Maybe the Kconfig change could be in the last commit or a dedicated
-commit before current ones? Because it's only meaningful after the HWDB
-item is added.
-
-Thanks,
-Icenowy
-
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 |=C2=A0 2 +-
-> =C2=A0drivers/gpu/drm/verisilicon/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-|=C2=A0 2 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 |=C2=A0 9 ++-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dcu_lite.c | 78
-> +++++++++++++++++++++++
-> =C2=A04 files changed, 86 insertions(+), 5 deletions(-)
-> =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/vs_dcu_lite.c
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/Kconfig
-> b/drivers/gpu/drm/verisilicon/Kconfig
-> index 7cce86ec8603..295d246eb4b4 100644
-> --- a/drivers/gpu/drm/verisilicon/Kconfig
-> +++ b/drivers/gpu/drm/verisilicon/Kconfig
-> @@ -2,7 +2,7 @@
-> =C2=A0config DRM_VERISILICON_DC
-> =C2=A0	tristate "DRM Support for Verisilicon DC-series display
-> controllers"
-> =C2=A0	depends on DRM && COMMON_CLK
-> -	depends on RISCV || COMPILE_TEST
-> +	depends on RISCV || ARCH_MA35 || COMPILE_TEST
-> =C2=A0	select DRM_BRIDGE_CONNECTOR
-> =C2=A0	select DRM_CLIENT_SELECTION
-> =C2=A0	select DRM_DISPLAY_HELPER
-> diff --git a/drivers/gpu/drm/verisilicon/Makefile
-> b/drivers/gpu/drm/verisilicon/Makefile
-> index 9d4cd16452fa..960af0861dfa 100644
-> --- a/drivers/gpu/drm/verisilicon/Makefile
-> +++ b/drivers/gpu/drm/verisilicon/Makefile
-> @@ -1,6 +1,6 @@
-> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
-> =C2=A0
-> -verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_drm.o vs_hwdb.o \
-> +verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_dcu_lite.o vs_drm.o vs_hwdb.o \
-> =C2=A0	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
-> =C2=A0
-> =C2=A0obj-$(CONFIG_DRM_VERISILICON_DC) +=3D verisilicon-dc.o
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
-> b/drivers/gpu/drm/verisilicon/vs_dc.c
-> index c94957024189..81a8d9bf85bd 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-> @@ -90,13 +90,13 @@ static int vs_dc_probe(struct platform_device
-> *pdev)
-> =C2=A0		return PTR_ERR(dc->core_clk);
-> =C2=A0	}
-> =C2=A0
-> -	dc->axi_clk =3D devm_clk_get_enabled(dev, "axi");
-> +	dc->axi_clk =3D devm_clk_get_optional_enabled(dev, "axi");
-> =C2=A0	if (IS_ERR(dc->axi_clk)) {
-> =C2=A0		dev_err(dev, "can't get axi clock\n");
-> =C2=A0		return PTR_ERR(dc->axi_clk);
-> =C2=A0	}
-> =C2=A0
-> -	dc->ahb_clk =3D devm_clk_get_enabled(dev, "ahb");
-> +	dc->ahb_clk =3D devm_clk_get_optional_enabled(dev, "ahb");
-> =C2=A0	if (IS_ERR(dc->ahb_clk)) {
-> =C2=A0		dev_err(dev, "can't get ahb clock\n");
-> =C2=A0		return PTR_ERR(dc->ahb_clk);
-> @@ -134,7 +134,10 @@ static int vs_dc_probe(struct platform_device
-> *pdev)
-> =C2=A0	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
-> >identity.model,
-> =C2=A0		 dc->identity.revision, dc->identity.customer_id);
-> =C2=A0
-> -	dc->funcs =3D &vs_dc8200_funcs;
-> +	if (dc->identity.generation =3D=3D VSDC_GEN_DC8200)
-> +		dc->funcs =3D &vs_dc8200_funcs;
-> +	else
-> +		dc->funcs =3D &vs_dcu_lite_funcs;
-> =C2=A0
-> =C2=A0	if (port_count > dc->identity.display_count) {
-> =C2=A0		dev_err(dev, "too many downstream ports than HW
-> capability\n");
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dcu_lite.c
-> b/drivers/gpu/drm/verisilicon/vs_dcu_lite.c
-> new file mode 100644
-> index 000000000000..11ef57d5ebaa
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_dcu_lite.c
-> @@ -0,0 +1,78 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Joey Lu <yclu4@nuvoton.com>
-> + */
-> +
-> +#include <linux/regmap.h>
-> +
-> +#include "vs_crtc_regs.h"
-> +#include "vs_dc.h"
-> +#include "vs_primary_plane_regs.h"
-> +
-> +static void vs_dcu_lite_bridge_enable(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dcu_lite_bridge_disable(struct vs_dc *dc, unsigned
-> int output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dcu_lite_crtc_begin(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dcu_lite_crtc_flush(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dcu_lite_crtc_enable(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dcu_lite_crtc_disable(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dcu_lite_enable_vblank(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static void vs_dcu_lite_disable_vblank(struct vs_dc *dc, unsigned
-> int output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			=C2=A0 VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static u32 vs_dcu_lite_irq_handler(struct vs_dc *dc)
-> +{
-> +	u32 irqs;
-> +
-> +	regmap_read(dc->regs, VSDC_DISP_IRQ_STA, &irqs);
-> +	return irqs;
-> +}
-> +
-> +const struct vs_dc_funcs vs_dcu_lite_funcs =3D {
-> +	.bridge_enable		=3D vs_dcu_lite_bridge_enable,
-> +	.bridge_disable		=3D
-> vs_dcu_lite_bridge_disable,
-> +	.crtc_begin		=3D vs_dcu_lite_crtc_begin,
-> +	.crtc_flush		=3D vs_dcu_lite_crtc_flush,
-> +	.crtc_enable		=3D vs_dcu_lite_crtc_enable,
-> +	.crtc_disable		=3D vs_dcu_lite_crtc_disable,
-> +	.enable_vblank		=3D vs_dcu_lite_enable_vblank,
-> +	.disable_vblank		=3D
-> vs_dcu_lite_disable_vblank,
-> +	.irq_handler		=3D vs_dcu_lite_irq_handler,
-> +};
+5ZyoIDIwMjYtMDYtMDjkuIDnmoQgMTA6MzIgKzA4MDDvvIxKb2V5IEx15YaZ6YGT77yaCj4gVGhl
+IGV4aXN0aW5nIHNjaGVtYSBoYXJkLWNvZGVzIHRoZSBmaXZlLWNsb2NrL3RocmVlLXJlc2V0L2R1
+YWwtcG9ydAo+IHRvcG9sb2d5IG9mIHRoZSBEQzgyMDAgSVAgYmxvY2ssIHByZXZlbnRpbmcgcmV1
+c2UgZm9yIHNpbmdsZS1vdXRwdXQKPiB2YXJpYW50cyBzdWNoIGFzIHRoZSBWZXJpc2lsaWNvbiBE
+Q1VsdHJhTGl0ZSB1c2VkIGluIHRoZSBOdXZvdG9uCj4gTUEzNUQxCj4gU29DLgo+IAo+IFJld29y
+ayB0aGUgc2NoZW1hIHNvIHRoYXQgdmFyaWFudC1zcGVjaWZpYyBjb25zdHJhaW50cyBhcmUgZXhw
+cmVzc2VkCj4gdmlhCj4gYWxsT2YvaWYgYmxvY2tzOgo+IAo+IC0gQWRkIG51dm90b24sbWEzNWQx
+LWRjdSB0byB0aGUgU29DLXNwZWNpZmljIGNvbXBhdGlibGUgZW51bS7CoCBUaGUKPiDCoCBnZW5l
+cmljIHZlcmlzaWxpY29uLGRjIGZhbGxiYWNrIHJlbWFpbnMgdGhlIGRyaXZlci1iaW5kaW5nIHN0
+cmluZy4KPiAtIFJlbGF4IHRoZSB0b3AtbGV2ZWwgY2xvY2tzL3Jlc2V0cyBkZWZpbml0aW9ucyB0
+byBtaW5JdGVtcyByYW5nZXMgc28KPiDCoCB0aGUgYmFzZSBzY2hlbWEgYWNjZXB0cyBib3RoIHZh
+cmlhbnRzLgo+IC0gS2VlcCBwb3J0cyBpbiB0aGUgZ2xvYmFsIHJlcXVpcmVkIGxpc3QgYW5kIGtl
+ZXAKPiBhZGRpdGlvbmFsUHJvcGVydGllcwo+IMKgIHRpZ2h0ZW5lZCB0byB1bmV2YWx1YXRlZFBy
+b3BlcnRpZXMuCj4gLSBBZGQgYW4gYWxsT2YvaWYgYmxvY2sgZm9yIHRoZWFkLHRoMTUyMC1kYzgy
+MDA6IGZpdmUtY2xvY2sgKGNvcmUsCj4gYXhpLAo+IMKgIGFoYiwgcGl4MCwgcGl4MSksIHRocmVl
+LXJlc2V0IChjb3JlLCBheGksIGFoYikuCj4gLSBBZGQgYW4gYWxsT2YvaWYgYmxvY2sgZm9yIG51
+dm90b24sbWEzNWQxLWRjdTogdHdvLWNsb2NrIChjb3JlLAo+IHBpeDApLAo+IMKgIG9uZS1yZXNl
+dCAoY29yZSkuCj4gLSBGaXggYSBzdHJheSBzcGFjZSBpbiB0aGUgcG9ydEAwIGRlc2NyaXB0aW9u
+Lgo+IC0gQWRkIGEgRFQgZXhhbXBsZSBmb3IgdGhlIE51dm90b24gTUEzNUQxIERDVSBMaXRlIHVz
+aW5nCj4gcG9ydHMvcG9ydEAwLgo+IAo+IFNpZ25lZC1vZmYtYnk6IEpvZXkgTHUgPGEwOTg3MjAz
+MDY5QGdtYWlsLmNvbT4KPiAtLS0KPiDCoC4uLi9iaW5kaW5ncy9kaXNwbGF5L3ZlcmlzaWxpY29u
+LGRjLnlhbWzCoMKgwqDCoMKgIHwgMTAzICsrKysrKysrKysrKysrKy0KPiAtLQo+IMKgMSBmaWxl
+IGNoYW5nZWQsIDkwIGluc2VydGlvbnMoKyksIDEzIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1n
+aXQKPiBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5L3ZlcmlzaWxp
+Y29uLGRjLnlhbWwKPiBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5
+L3ZlcmlzaWxpY29uLGRjLnlhbWwKPiBpbmRleCA5ZGMzNWFiOTczZjIuLmRiMDI2MGQ4NzRjNSAx
+MDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS92
+ZXJpc2lsaWNvbixkYy55YW1sCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
+bmdzL2Rpc3BsYXkvdmVyaXNpbGljb24sZGMueWFtbAo+IEBAIC0xNyw3ICsxNyw4IEBAIHByb3Bl
+cnRpZXM6Cj4gwqDCoMKgwqAgaXRlbXM6Cj4gwqDCoMKgwqDCoMKgIC0gZW51bToKPiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAtIHRoZWFkLHRoMTUyMC1kYzgyMDAKPiAtwqDCoMKgwqDCoCAtIGNvbnN0
+OiB2ZXJpc2lsaWNvbixkYyAjIERDIElQcyBoYXZlIGRpc2NvdmVyYWJsZSBJRC9yZXZpc2lvbgo+
+IHJlZ2lzdGVycwo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgLSBudXZvdG9uLG1hMzVkMS1kY3UKPiAr
+wqDCoMKgwqDCoCAtIGNvbnN0OiB2ZXJpc2lsaWNvbixkY8KgICMgREMgSVBzIGhhdmUgZGlzY292
+ZXJhYmxlCj4gSUQvcmV2aXNpb24gcmVnaXN0ZXJzCgpBaCBpcyBhbiBleHRyYSBzcGFjZSBhZGRl
+ZCBoZXJlLCB3aGljaCBsZWFkcyB0byB0aGlzIGh1bmsgbG9va2luZwpzdHJhbmdlPwoKPiDCoAo+
+IMKgwqAgcmVnOgo+IMKgwqDCoMKgIG1heEl0ZW1zOiAxCj4gQEAgLTI2LDYgKzI3LDcgQEAgcHJv
+cGVydGllczoKPiDCoMKgwqDCoCBtYXhJdGVtczogMQo+IMKgCj4gwqDCoCBjbG9ja3M6Cj4gK8Kg
+wqDCoCBtaW5JdGVtczogMgoKTWF5YmUgcmVzdHJpY3Rpb25zIGFib3V0IHRoZSBjbG9jayBjb3Vu
+dCBzaG91bGRuJ3QgYmUgaW5zZXJ0ZWQgaGVyZSwKYW5kIHRlY2huaWNhbGx5IGl0J3MgcG9zc2li
+bGUgdGhhdCBvbmx5IHRoZSBwaXhlbCBjbG9jayBpcyBjb250cm9sbGFibGUKYnkgTGludXggKGFs
+bCBvdGhlciBjbG9ja3MgYXJlIGluIGEgZml4ZWQgY29uZmlndXJhdGlvbikuCgo+IMKgwqDCoMKg
+IGl0ZW1zOgo+IMKgwqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBEQyBDb3JlIGNsb2NrCj4gwqDC
+oMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IERNQSBBWEkgYnVzIGNsb2NrCj4gQEAgLTM0LDI0ICsz
+NiwxOSBAQCBwcm9wZXJ0aWVzOgo+IMKgwqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBQaXhlbCBj
+bG9jayBvZiBvdXRwdXQgMQo+IMKgCj4gwqDCoCBjbG9jay1uYW1lczoKPiAtwqDCoMKgIGl0ZW1z
+Ogo+IC3CoMKgwqDCoMKgIC0gY29uc3Q6IGNvcmUKPiAtwqDCoMKgwqDCoCAtIGNvbnN0OiBheGkK
+PiAtwqDCoMKgwqDCoCAtIGNvbnN0OiBhaGIKPiAtwqDCoMKgwqDCoCAtIGNvbnN0OiBwaXgwCj4g
+LcKgwqDCoMKgwqAgLSBjb25zdDogcGl4MQoKQWggSSB0aGluayB0aGUgdG90YWwgbGlzdCBzaG91
+bGQgc3RpbGwgYXBwZWFyIGhlcmUsIGFuZCB0aGV5IHNob3VsZCBiZQpjb3JyZXNwb25kaW5nIHRv
+IHRoZSBkZXNjcmlwdGlvbnMgYWJvdmU/Cgo+ICvCoMKgwqAgbWluSXRlbXM6IDIKPiArwqDCoMKg
+IG1heEl0ZW1zOiA1Cj4gwqAKPiDCoMKgIHJlc2V0czoKPiArwqDCoMKgIG1pbkl0ZW1zOiAxCj4g
+wqDCoMKgwqAgaXRlbXM6Cj4gwqDCoMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IERDIENvcmUgcmVz
+ZXQKPiDCoMKgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogRE1BIEFYSSBidXMgcmVzZXQKPiDCoMKg
+wqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogQ29uZmlndXJhdGlvbiBBSEIgYnVzIHJlc2V0Cj4gwqAK
+PiDCoMKgIHJlc2V0LW5hbWVzOgo+IC3CoMKgwqAgaXRlbXM6Cj4gLcKgwqDCoMKgwqAgLSBjb25z
+dDogY29yZQo+IC3CoMKgwqDCoMKgIC0gY29uc3Q6IGF4aQo+IC3CoMKgwqDCoMKgIC0gY29uc3Q6
+IGFoYgoKRGl0dG8gaGVyZS4KCj4gK8KgwqDCoCBtaW5JdGVtczogMQo+ICvCoMKgwqAgbWF4SXRl
+bXM6IDMKPiDCoAo+IMKgwqAgcG9ydHM6Cj4gwqDCoMKgwqAgJHJlZjogL3NjaGVtYXMvZ3JhcGgu
+eWFtbCMvcHJvcGVydGllcy9wb3J0cwo+IEBAIC01OSw3ICs1Niw3IEBAIHByb3BlcnRpZXM6Cj4g
+wqDCoMKgwqAgcHJvcGVydGllczoKPiDCoMKgwqDCoMKgwqAgcG9ydEAwOgo+IMKgwqDCoMKgwqDC
+oMKgwqAgJHJlZjogL3NjaGVtYXMvZ3JhcGgueWFtbCMvcHJvcGVydGllcy9wb3J0Cj4gLcKgwqDC
+oMKgwqDCoMKgIGRlc2NyaXB0aW9uOiBUaGUgZmlyc3Qgb3V0cHV0IGNoYW5uZWwgLCBlbmRwb2lu
+dCAwIHNob3VsZCBiZQo+ICvCoMKgwqDCoMKgwqDCoCBkZXNjcmlwdGlvbjogVGhlIGZpcnN0IG91
+dHB1dCBjaGFubmVsLCBlbmRwb2ludCAwIHNob3VsZCBiZQo+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IHVzZWQgZm9yIERQSSBmb3JtYXQgb3V0cHV0IGFuZCBlbmRwb2ludCAxIHNob3VsZCBiZSB1c2Vk
+Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqAgZm9yIERQIGZvcm1hdCBvdXRwdXQuCj4gwqAKPiBAQCAt
+NzcsNyArNzQsNjAgQEAgcmVxdWlyZWQ6Cj4gwqDCoCAtIGNsb2NrLW5hbWVzCj4gwqDCoCAtIHBv
+cnRzCj4gwqAKPiAtYWRkaXRpb25hbFByb3BlcnRpZXM6IGZhbHNlCj4gK2FsbE9mOgo+ICvCoCAt
+IGlmOgo+ICvCoMKgwqDCoMKgIHByb3BlcnRpZXM6Cj4gK8KgwqDCoMKgwqDCoMKgIGNvbXBhdGli
+bGU6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBjb250YWluczoKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBjb25zdDogdGhlYWQsdGgxNTIwLWRjODIwMAo+ICvCoMKgwqAgdGhlbjoKPiArwqDCoMKg
+wqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKgwqDCoMKgwqDCoCBjbG9ja3M6Cj4gK8KgwqDCoMKgwqDC
+oMKgwqDCoCBtaW5JdGVtczogNQo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWF4SXRlbXM6IDUKPiAr
+Cj4gK8KgwqDCoMKgwqDCoMKgIGNsb2NrLW5hbWVzOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgaXRl
+bXM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBjb25zdDogY29yZQo+ICvCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIC0gY29uc3Q6IGF4aQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gY29u
+c3Q6IGFoYgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6IHBpeDAKPiArwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBwaXgxCj4gKwo+ICvCoMKgwqDCoMKgwqDCoCByZXNl
+dHM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBtaW5JdGVtczogMwo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqAgbWF4SXRlbXM6IDMKPiArCj4gK8KgwqDCoMKgwqDCoMKgIHJlc2V0LW5hbWVzOgo+ICvCoMKg
+wqDCoMKgwqDCoMKgwqAgaXRlbXM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBjb25zdDog
+Y29yZQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6IGF4aQo+ICvCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIC0gY29uc3Q6IGFoYgo+ICsKPiArwqAgLSBpZjoKPiArwqDCoMKgwqDCoCBw
+cm9wZXJ0aWVzOgo+ICvCoMKgwqDCoMKgwqDCoCBjb21wYXRpYmxlOgo+ICvCoMKgwqDCoMKgwqDC
+oMKgwqAgY29udGFpbnM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY29uc3Q6IG51dm90b24s
+bWEzNWQxLWRjdQo+ICvCoMKgwqAgdGhlbjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvC
+oMKgwqDCoMKgwqDCoCBjbG9ja3M6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBtaW5JdGVtczogMgo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWF4SXRlbXM6IDIKPiArCj4gK8KgwqDCoMKgwqDCoMKgIGNs
+b2NrLW5hbWVzOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgaXRlbXM6Cj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgLSBjb25zdDogY29yZQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6
+IHBpeDAKPiArCj4gK8KgwqDCoMKgwqDCoMKgIHJlc2V0czoKCkRvIHdlIGhhdmUgbWluSXRlbXM6
+IDEgaGVyZT8gKFRoZSBEVCBzY2hlbWEgdmFsaWRhdG9yIGFsd2F5cyBoYXMgc29tZQpxdWlya3Mg
+dGhhdCBJIGZhaWwgdG8gcmVtZW1iZXIsIHNvIEkgYW0gbm90IHN1cmUuKQoKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgIG1heEl0ZW1zOiAxCj4gKwo+ICvCoMKgwqDCoMKgwqDCoCByZXNldC1uYW1lczoK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgIGl0ZW1zOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0g
+Y29uc3Q6IGNvcmUKPiArCgpJIHRoaW5rIHJlc2V0cyBzaG91bGQgYmUgZGVzY3JpYmVkIGFzIHJl
+cXVpcmVkIGluIGJvdGggZGV2aWNlLXNwZWNpZmljCmJpbmRpbmdzLgoKVGhhbmtzLApJY2Vub3d5
+Cgo+ICt1bmV2YWx1YXRlZFByb3BlcnRpZXM6IGZhbHNlCj4gwqAKPiDCoGV4YW1wbGVzOgo+IMKg
+wqAgLSB8Cj4gQEAgLTEyMCwzICsxNzAsMzAgQEAgZXhhbXBsZXM6Cj4gwqDCoMKgwqDCoMKgwqDC
+oCB9Owo+IMKgwqDCoMKgwqDCoCB9Owo+IMKgwqDCoMKgIH07Cj4gKwo+ICvCoCAtIHwKPiArwqDC
+oMKgICNpbmNsdWRlIDxkdC1iaW5kaW5ncy9pbnRlcnJ1cHQtY29udHJvbGxlci9hcm0tZ2ljLmg+
+Cj4gK8KgwqDCoCAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvY2xvY2svbnV2b3RvbixtYTM1ZDEtY2xr
+Lmg+Cj4gK8KgwqDCoCAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvcmVzZXQvbnV2b3RvbixtYTM1ZDEt
+cmVzZXQuaD4KPiArCj4gK8KgwqDCoCBkaXNwbGF5QDQwMjYwMDAwIHsKPiArwqDCoMKgwqDCoMKg
+wqAgY29tcGF0aWJsZSA9ICJudXZvdG9uLG1hMzVkMS1kY3UiLCAidmVyaXNpbGljb24sZGMiOwo+
+ICvCoMKgwqDCoMKgwqDCoCByZWcgPSA8MHg0MDI2MDAwMCAweDIwMDAwPjsKPiArwqDCoMKgwqDC
+oMKgwqAgaW50ZXJydXB0cyA9IDxHSUNfU1BJIDIwIElSUV9UWVBFX0xFVkVMX0hJR0g+Owo+ICvC
+oMKgwqDCoMKgwqDCoCBjbG9ja3MgPSA8JmNsayBEQ1VfR0FURT4sIDwmY2xrIERDVVBfRElWPjsK
+PiArwqDCoMKgwqDCoMKgwqAgY2xvY2stbmFtZXMgPSAiY29yZSIsICJwaXgwIjsKPiArwqDCoMKg
+wqDCoMKgwqAgcmVzZXRzID0gPCZzeXMgTUEzNUQxX1JFU0VUX0RJU1A+Owo+ICvCoMKgwqDCoMKg
+wqDCoCByZXNldC1uYW1lcyA9ICJjb3JlIjsKPiArCj4gK8KgwqDCoMKgwqDCoMKgIHBvcnRzIHsK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAjYWRkcmVzcy1jZWxscyA9IDwxPjsKPiArwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCAjc2l6ZS1jZWxscyA9IDwwPjsKPiArCj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgcG9ydEAwIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJlZyA9
+IDwwPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGRwaV9vdXQ6IGVuZHBvaW50
+IHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmVtb3RlLWVuZHBv
+aW50ID0gPCZwYW5lbF9pbj47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB9Owo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIH07Cj4gK8KgwqDCoMKgwqDCoMKgIH07Cj4gK8KgwqDC
+oCB9Owo=
 
 
