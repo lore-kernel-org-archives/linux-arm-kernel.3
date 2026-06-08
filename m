@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55971CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 07:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDDFCD8C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2c67zNsS0HvgzZNh71DbxgcmS8tcATdydWycpSmMb/E=; b=nHWX2AZpSaankw8CoZt1OTUdFK
-	+l3DDu8/EgrbP0z5hiakaPvEZSQ2hb/4+A7U/g3nH+JdiVuf7sBg4IMer2Z+4OGkXVsYM6OfzemzK
-	LiSL7JpaGjguTRAt4L8rT6a/oMazNkM+W9ZYpsPLNM4zH1K+hiwuDoygUni1spuam+UO2eyX6a/BR
-	q6mHS8F6uP+8FzaFwMsdu2Y/KdG3XU9nDsUM0cm9nthckDnM9x8YYXjfrJwxweBfGnFd6gwgxLFtb
-	367a2LOiL4wFuBVjoaN6xbqbYZRL1rgJ/0E87vDzCl/3wqjWIx0Iq7r95TOsOKiUI8JIhuPTh47sz
-	o9dIDTLg==;
+	bh=shxmCQvSBBkNie3O/CcwrtLbRce6sySrtFuYPQ8CYKk=; b=ocqufyJxDUiKlQNXYKP3flYDio
+	TfFIg+y1vZxfws3Fz1RfNy4QVAg4iq5aSMRsCXYHhGqLK5HoTVmHraxPfMZqe1UZ90MKGHz6qC07+
+	yhi4yAE3bka334eeY4JwWrwoBvNQAcdsUQW/zCWM5HYouI4kCCQ6cWZvULDfKQMW0T8s/krgL04nx
+	rwlEY62AOOcq2zSVFQi4FDJAXl3nWXers4tVIaA70gpi8RHBfywU35LDPriCzC6B6pHe5Ym45wgAy
+	Z5ZAUW37mj+YlbzyiWBEhC4DgRU4Fsxt8hbWcj6rzVsrmYs2dEMOR3K/5aNCccpBx9l3YO66GgsZb
+	BoiL1AYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUs1-000000031Np-2Lil;
-	Mon, 08 Jun 2026 07:58:05 +0000
+	id 1wWUun-000000031hr-2ado;
+	Mon, 08 Jun 2026 08:00:57 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUrz-000000031Ng-3RQs;
-	Mon, 08 Jun 2026 07:58:03 +0000
+	id 1wWUul-000000031hi-3sE1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Jun 2026 08:00:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D350D6001D;
-	Mon,  8 Jun 2026 07:58:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90BDF1F00893;
-	Mon,  8 Jun 2026 07:58:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F1B56001D;
+	Mon,  8 Jun 2026 08:00:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36E251F00893;
+	Mon,  8 Jun 2026 08:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780905482;
-	bh=2c67zNsS0HvgzZNh71DbxgcmS8tcATdydWycpSmMb/E=;
+	s=k20260515; t=1780905655;
+	bh=shxmCQvSBBkNie3O/CcwrtLbRce6sySrtFuYPQ8CYKk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hT/m1biDqcx4HHvNJoG2hykcnOUtT84VJfuAbUwLAIKu4Hnk+ZXo5P2QkdZjY2wXJ
-	 LdNNSwOMzQPatplpQzEha26AG7OPbQVz3klo+T5aEl0HwCxAddaCbz5ZRIfKNxWzWz
-	 0vFCGwQAfOg8jMP1XJXLNMehOB7TVWR2I+ND/wvs8voq9X0rTemT/UcfmaEzCpggbT
-	 ke4FGNYQv+Slne1BYStrCVIXlSI/HB0utqa8HXEaYSjB8gMD0B52zJEKzgRj9Lrrvr
-	 CvB3tA/oX8qHrsCCqC/hu4kEihVSQ4qi0YlZmRTVFoGqGs0eZ8i73O1P83/zNi0U/q
-	 hlCpcmnqLyiDA==
-Date: Mon, 8 Jun 2026 09:57:58 +0200
+	b=RQOMOgPzEjoT70pPB5OMCCJi0hMd9T/OIYgzJ4wRIaMkJslVqmxoeFc2FLbXXl1wd
+	 zLhK55oHz5jto8g56BT3Wv29Fce7c7CxLGc2z0yOitcB5yKjy52UIfTbYGpwQngChf
+	 DCaa+P8O2fIzraUcsg9bxTByaU3j5zFeVlQAIOHK2VBmIgV5iJf96mGX2r5g4Byrxj
+	 Fbcm/tO+8z0/4C0fm0f+/WyjurR7I92iIuzO6l7Ng0D6XvJCHwNvapf4EXB5LI6kTG
+	 CSSnLT+Mce9d/u5j87dXp62lnA8Uj8cNlC5fRmoHW+oTFL1B1zv987rqe/8bBTbPz6
+	 YAEVkyPepQUhA==
+Date: Mon, 8 Jun 2026 10:00:51 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ricardo Pardini <ricardo@pardini.net>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>, nic_swsd@realtek.com, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: net: add Realtek r8169 family PCIe
- Ethernet
-Message-ID: <20260608-armored-ultra-uakari-ef1d77@quoll>
-References: <20260605-rk3588-dts-rtl-eth-describe-dt-alias-v3-0-8a8857b39daf@pardini.net>
- <20260605-rk3588-dts-rtl-eth-describe-dt-alias-v3-1-8a8857b39daf@pardini.net>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: zhengxingda@iscas.ac.cn, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com, 
+	schung@nuvoton.com, yclu4@nuvoton.com, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
+Message-ID: <20260608-emotional-rapid-woodlouse-61f7b9@quoll>
+References: <20260608023237.305036-1-a0987203069@gmail.com>
+ <20260608023237.305036-2-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260605-rk3588-dts-rtl-eth-describe-dt-alias-v3-1-8a8857b39daf@pardini.net>
+In-Reply-To: <20260608023237.305036-2-a0987203069@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +74,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 05, 2026 at 01:49:08PM +0200, Ricardo Pardini wrote:
-> Add a binding for fixed/soldered Realtek PCIe Ethernet controllers
-> driven by the r8169 driver (RTL8125/8126/8127/8168 and variants).
+On Mon, Jun 08, 2026 at 10:32:33AM +0800, Joey Lu wrote:
+> The existing schema hard-codes the five-clock/three-reset/dual-port
+> topology of the DC8200 IP block, preventing reuse for single-output
+> variants such as the Verisilicon DCUltraLite used in the Nuvoton MA35D1
+> SoC.
 > 
-> The "pciVVVV,DDDD" compatibles are the Open Firmware PCI Bus Binding
-> spelling, auto-derived from PCI-SIG vendor/device IDs, but they still
-> need a binding when used in a board DT - analogous to "usbVVVV,PPPP"
-> compatibles documented in their own bindings (e.g. microchip,lan95xx)
-> so board DTs attaching properties (fixed MAC, nvmem cell, ...) to
-> these PCI function nodes can be validated.
+> Rework the schema so that variant-specific constraints are expressed via
+> allOf/if blocks:
 > 
-> Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+> - Add nuvoton,ma35d1-dcu to the SoC-specific compatible enum.  The
+>   generic verisilicon,dc fallback remains the driver-binding string.
+> - Relax the top-level clocks/resets definitions to minItems ranges so
+>   the base schema accepts both variants.
+> - Keep ports in the global required list and keep additionalProperties
+>   tightened to unevaluatedProperties.
+> - Add an allOf/if block for thead,th1520-dc8200: five-clock (core, axi,
+>   ahb, pix0, pix1), three-reset (core, axi, ahb).
+> - Add an allOf/if block for nuvoton,ma35d1-dcu: two-clock (core, pix0),
+>   one-reset (core).
+> - Fix a stray space in the port@0 description.
+> - Add a DT example for the Nuvoton MA35D1 DCU Lite using ports/port@0.
+> 
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
 > ---
->  .../devicetree/bindings/net/realtek,r8169.yaml     | 54 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 55 insertions(+)
+>  .../bindings/display/verisilicon,dc.yaml      | 103 +++++++++++++++---
+>  1 file changed, 90 insertions(+), 13 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/realtek,r8169.yaml b/Documentation/devicetree/bindings/net/realtek,r8169.yaml
-> new file mode 100644
-> index 0000000000000..6923211ff4c93
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/realtek,r8169.yaml
+> diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> index 9dc35ab973f2..db0260d874c5 100644
+> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> @@ -17,7 +17,8 @@ properties:
+>      items:
+>        - enum:
+>            - thead,th1520-dc8200
+> -      - const: verisilicon,dc # DC IPs have discoverable ID/revision registers
+> +          - nuvoton,ma35d1-dcu
+> +      - const: verisilicon,dc  # DC IPs have discoverable ID/revision registers
 
-r8169 but no r8169 devices at all. This must match the device name, so
-most likely:
+Why do you need to change indentation? Why introducing irrelevant
+changes to the diff?
 
-realtek,rtl8168.yaml
+>  
+>    reg:
+>      maxItems: 1
+> @@ -26,6 +27,7 @@ properties:
+>      maxItems: 1
+>  
+>    clocks:
+> +    minItems: 2
+>      items:
+>        - description: DC Core clock
+>        - description: DMA AXI bus clock
 
-
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/realtek,r8169.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Realtek r8169 family PCIe Ethernet Controllers
-
-rtl8169? 8168? There is no r8169, is there?
-
-> +
-> +maintainers:
-> +  - Heiner Kallweit <hkallweit1@gmail.com>
-> +
-> +description:
-> +  PCI function node properties for fixed/soldered Realtek Ethernet
-> +  controllers driven by the r8169 driver.
-
-Describe hardware, not drivers.
+That's not true anymore. In such case the list should also be defined
+per variant and here only min/maxItems.
 
 
-> +
+> @@ -34,24 +36,19 @@ properties:
+>        - description: Pixel clock of output 1
+>  
+>    clock-names:
+> -    items:
+> -      - const: core
+> -      - const: axi
+> -      - const: ahb
+> -      - const: pix0
+> -      - const: pix1
+> +    minItems: 2
+> +    maxItems: 5
+>  
+>    resets:
+> +    minItems: 1
+>      items:
+>        - description: DC Core reset
+>        - description: DMA AXI bus reset
+>        - description: Configuration AHB bus reset
+>  
+>    reset-names:
+> -    items:
+> -      - const: core
+> -      - const: axi
+> -      - const: ahb
+
+This stays, with minItems. Variants only need min/maxItems
+
+
+
+> +    minItems: 1
+> +    maxItems: 3
+>  
+>    ports:
+>      $ref: /schemas/graph.yaml#/properties/ports
+> @@ -59,7 +56,7 @@ properties:
+>      properties:
+>        port@0:
+>          $ref: /schemas/graph.yaml#/properties/port
+> -        description: The first output channel , endpoint 0 should be
+> +        description: The first output channel, endpoint 0 should be
+>            used for DPI format output and endpoint 1 should be used
+>            for DP format output.
+>  
+> @@ -77,7 +74,60 @@ required:
+>    - clock-names
+>    - ports
+>  
+> -additionalProperties: false
 > +allOf:
-> +  - $ref: ethernet-controller.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: thead,th1520-dc8200
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 5
+> +          maxItems: 5
 > +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - pci10ec,8125  # RTL8125 2.5GbE
-> +      - pci10ec,8126  # RTL8126 5GbE
-> +      - pci10ec,8127  # RTL8127
-> +      - pci10ec,8161  # RTL8168 variant
-> +      - pci10ec,8162  # RTL8168 variant
-> +      - pci10ec,8168  # RTL8168/8111 GbE
+> +        clock-names:
+> +          items:
+> +            - const: core
+> +            - const: axi
+> +            - const: ahb
+> +            - const: pix0
+> +            - const: pix1
 > +
-> +  reg:
-> +    maxItems: 1
+> +        resets:
+> +          minItems: 3
+> +          maxItems: 3
 > +
-> +  local-mac-address: true
-> +  mac-address: true
-> +  nvmem-cells: true
-> +  nvmem-cell-names: true
+> +        reset-names:
 
-Drop all above
+minItems: 3
 
+> +          items:
+> +            - const: core
+> +            - const: axi
+> +            - const: ahb
 > +
-> +required:
-> +  - compatible
-> +  - reg
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: nuvoton,ma35d1-dcu
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
 > +
-> +additionalProperties: false
+> +        clock-names:
+> +          items:
+> +            - const: core
+> +            - const: pix0
+> +
+> +        resets:
+> +          maxItems: 1
+> +
+> +        reset-names:
 
-uneavaluatedProperties instead
+maxItems: 1
+
+> +          items:
+> +            - const: core
+> +
+> +unevaluatedProperties: false
+
+Stop making random changes to the binding.
 
 Best regards,
 Krzysztof
