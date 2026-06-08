@@ -4,144 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B521CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EC3CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 12:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lx5/sZHJfsfJ+guaof003PPuTXoIXivzBp1RA0FoL9A=; b=BpJy51LL4+dDQg9uoGZm0W9z78
-	w3qMMtCKv67iPOje2wmuI4RbwHfJpQMjJAB2Pi5y2v0VDByB8A+F4ybY6mHhKNR0+jyrhV+D/moKj
-	w6UbgQdkQNqjGccgoWhB80Kvc8ZITF9zmsDh+Y4IW+HLe3d5PBn63B3W3JpviejyazNgzpcZGGYKX
-	LAOwqUYJRZvheOsJIwb9YxNh0Gbn4oLOlBbOCVIo8D3kAIijHTagK94MyALmoatzM4R9fyG96kg+f
-	czF8dFeMnNr5OjCyyVbGtFlm1wZ8sNwJ3zgnr8s7Lxww28+yKmbTLtey8rqNm5tdFfbVIaxsqvyRz
-	Jjw7w0gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fbutwAgH34nQ+5CPzr8/espMkFdKyYE8DERk9Y5kQoE=; b=ZJF5+UDovF8SrWvjovjCqfkZHR
+	i5tAHM4vtReYJI0Z7MBf0ACFoBDqqIkcjgSy6r+4rROqjZD/XUakZLrstWfcMZzgZ6pdjvPpXakEG
+	hnJ0uXKKoV6LDmbCxUrPorWrIqKrpdb7wlvHbmDP95NjbNPqFDi5xgZ2VhtGZBqEt8lZCRcyen3VA
+	1/2GeDIasG14wo+AfAZTD5klQtkgqnIRgHvoWFGdy0ElWGBC5z+fFQvMjF3X68Yd5vlpOXpQ9piL1
+	okj4SwSG24ZM9peuKSoAgYbLBcxhf7OgVhG1RZoV6WdbNxlRTcCJRrwFHmACfCQPZfYONUWnVnWJi
+	/1dwnibg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWYnC-00000003UNs-1ulV;
-	Mon, 08 Jun 2026 12:09:22 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wWYoJ-00000003UTk-2cpd;
+	Mon, 08 Jun 2026 12:10:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWYnA-00000003UNW-0J7s
+	id 1wWYoH-00000003UTb-2PHt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 12:09:21 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 657Lcv9m646062;
-	Mon, 8 Jun 2026 12:09:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=lx5/sZ
-	HJfsfJ+guaof003PPuTXoIXivzBp1RA0FoL9A=; b=V4N8m0h5gplWYy5nhBBNAu
-	LUoWFeZfXih5bkK0YLMJ17hCK1nhLGUXoQGRwC4+4AIORSmLX9GYRINanTQp30ft
-	EtcQ27j2ZewQYlYhX8ZaJVxMfN63AIvXFtSDb8shI5/5TP6e3wcgfi5ejzosaPpa
-	rkivFm1P2b+Lrt3V9HFRGz6WbJuaqkqSjeVrBl3KkuU+2/2i2zsHb+7ieDyo6o72
-	Zs31JwAuwKTsxRf3voi0CWYfvf0ZgGO0fRs1060ngCyap6OAvlvalEmBvh4hl4te
-	rO2g81gGjBw16vsmj9ui++xITSru7TqaM6ZdysJEdRt1Pbt33gUmbMyboMwyEmHg
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4em9ydy4a3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Jun 2026 12:09:04 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 658BnguG023861;
-	Mon, 8 Jun 2026 12:09:03 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4emwvpwb1x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Jun 2026 12:09:03 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 658C8u1R27328966
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 8 Jun 2026 12:08:56 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4924620043;
-	Mon,  8 Jun 2026 12:08:56 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B5E7720040;
-	Mon,  8 Jun 2026 12:08:55 +0000 (GMT)
-Received: from t14-nrb (unknown [9.111.29.158])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  8 Jun 2026 12:08:55 +0000 (GMT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 08 Jun 2026 14:08:55 +0200
-Message-Id: <DJ3NN3DTFU62.CFTF1O1HOP93@linux.ibm.com>
-From: "Nico Boehr" <nrb@linux.ibm.com>
-To: "Oliver Upton" <oupton@kernel.org>,
-        "Andreas Grapentin"
- <gra@linux.ibm.com>
-Cc: "Steffen Eiden" <seiden@linux.ibm.com>, <kvm@vger.kernel.org>,
-        <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-s390@vger.kernel.org>,
-        "Alexander
- Gordeev" <agordeev@linux.ibm.com>,
-        "Arnd Bergmann" <arnd@arndb.de>,
-        "Catalin Marinas" <catalin.marinas@arm.com>,
-        "Christian Borntraeger"
- <borntraeger@linux.ibm.com>,
-        "Claudio Imbrenda" <imbrenda@linux.ibm.com>,
-        "David Hildenbrand" <david@kernel.org>,
-        "Friedrich Welter"
- <fritz@linux.ibm.com>,
-        "Gautam Gala" <ggala@linux.ibm.com>,
-        "Hariharan
- Mari" <hari55@linux.ibm.com>,
-        "Heiko Carstens" <hca@linux.ibm.com>,
-        "Hendrik Brueckner" <brueckner@linux.ibm.com>,
-        "Ilya Leoshkevich"
- <iii@linux.ibm.com>,
-        "Janosch Frank" <frankja@linux.ibm.com>,
-        "Joey Gouly"
- <joey.gouly@arm.com>, "Marc Zyngier" <maz@kernel.org>,
-        "Nico Boehr"
- <nrb@linux.ibm.com>,
-        "Nina Schoetterl-Glausch"
- <oss@nina.schoetterlglausch.eu>,
-        "Paolo Bonzini" <pbonzini@redhat.com>,
-        "Suzuki K Poulose" <suzuki.poulose@arm.com>,
-        "Sven Schnelle"
- <svens@linux.ibm.com>,
-        "Ulrich Weigand" <Ulrich.Weigand@de.ibm.com>,
-        "Vasily Gorbik" <gor@linux.ibm.com>, "Will Deacon" <will@kernel.org>,
-        "Zenghui Yu" <yuzenghui@huawei.com>
-Subject: Re: [PATCH v1 15/26] s390: Add functions to query arm guest time
-X-Mailer: aerc 0.21.0
-References: <20260529155601.2927240-1-seiden@linux.ibm.com>
- <20260529155601.2927240-16-seiden@linux.ibm.com>
- <ah4G847iT_pPRuQm@kernel.org>
- <ah7Ul7YwJOFuSMaD@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
- <ah9MFEq09ISAu9cb@kernel.org>
-In-Reply-To: <ah9MFEq09ISAu9cb@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA4MDExNCBTYWx0ZWRfXwMmg62f7h0sB
- RfcqtOVixT1f4AbtezpbVPnnHvj3LHz2fnYbybT7m/eYsZGA85CY3yxfEoQHIBG5+URxkgly1EO
- zzkIEqD5u0LOyxim1tyw7Lzofi+VcESL2dBXa8V+KQFVYyNWixGCIFyqwHhwLAMjoAkS71njNTw
- 4/EI3Zbv+ulFK3ntDnu2eU0/jxOqAYJQ3Sn96KlhGr5NqsF5okkRna7t9fIln2Lk/EMtRMkTJPF
- GxSFXtjqf4I7szJEAUCjecGvE3JBYHS4k0Gs0v1yRqJxFcC8FgMNWI9OnLM7ZQ6BkjGxzoCq2nr
- uV9DJp8ueyMF0Cy8bWaFEvu8QaPYId/X6n2z7Es4/UT5MQZoB6cIEEoV1bT0MAwdZlPNlD4+sbx
- ldAhYFivNU0rghPuUbu/oJOyHTk31LTOcgrcGuIrZiF1VYzEM0yr0JbiXnCw4dA8WgQWDWvtQCt
- g9qCVc5uIR/2K3u7iNQ==
-X-Authority-Analysis: v=2.4 cv=QKhYgALL c=1 sm=1 tr=0 ts=6a26b0e0 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=HgQSQ640rxy7bNeMIXcA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: huzLH-LR3kW0VDa6TnkgF4yRlFlgHVz1
-X-Proofpoint-ORIG-GUID: huzLH-LR3kW0VDa6TnkgF4yRlFlgHVz1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-08_03,2026-06-05_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0
- malwarescore=0 impostorscore=0 suspectscore=0 spamscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606080114
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_050920_249870_95B2F20D 
-X-CRM114-Status: GOOD (  10.87  )
+	Mon, 08 Jun 2026 12:10:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D438E6001D;
+	Mon,  8 Jun 2026 12:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B48C1F00893;
+	Mon,  8 Jun 2026 12:10:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780920628;
+	bh=fbutwAgH34nQ+5CPzr8/espMkFdKyYE8DERk9Y5kQoE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HeUvyhABLJR5DrF1Q7F+yAuP9T3dy3vUloNx6jrsOC743UEMJI1BEA50B968JnF/8
+	 zYldE28Z+IoGijHFx0NThpy0vpxd1fppOpcncMTRPQ57U9nHLVzeYxpAdYOzhWUHQc
+	 OcRJmDkT9TP9X2zWVF8fMd94k9JCyLX/HkYg5YlmRyXToPEwTe1rg+WCoA69BP+nA6
+	 4I9v0EKU47tmOlDm3v4kulzrQUcFl1e1S1VoOAnrEtcU+9CawpKAfcQiUs7ZzdLBa/
+	 7j8EsfnrR9WwKVbh/Jsh1FhV98qYMRL8tu5T0W1okWPoEI+SkMthTqS/vqs6sgXpOG
+	 b41REepoFRiDA==
+Date: Mon, 8 Jun 2026 14:10:26 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 23/37] drm/encoder: add drm_encoder_cleanup_from()
+Message-ID: <20260608-mighty-woodlouse-of-reading-162bca@houat>
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-23-45e2bdb3dfb4@bootlin.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mlq6rotmaedggjnf"
+Content-Disposition: inline
+In-Reply-To: <20260519-drm-bridge-hotplug-v1-23-45e2bdb3dfb4@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,12 +81,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Jun 2, 2026 at 11:33 PM CEST, Oliver Upton wrote:
-> I was trying to figure out how these functions
-> apply to the virtual and "physical" views of the counter inside the VM.
 
-I think conceptually these functions affect what is returned by
-PhysicalCountInt() in ARM pseudocode and thus they apply to both virtual an=
-d
-"physical" views inside the VM.
+--mlq6rotmaedggjnf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 23/37] drm/encoder: add drm_encoder_cleanup_from()
+MIME-Version: 1.0
+
+On Tue, May 19, 2026 at 12:37:40PM +0200, Luca Ceresoli wrote:
+> Supporting hardware whose final part of the DRM pipeline can be physically
+> removed requires the ability to detach all bridges from a given point to
+> the end of the pipeline.
+>=20
+> Introduce a variant of drm_encoder_cleanup() for this.
+>=20
+> Take care to not try detaching non-attached bridges. This is needed becau=
+se
+> when two or more bridges are removed not in the backwards order,
+> drm_encoder_cleanup_from() is called more than once for bridges closer to
+> the panel.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>=20
+> ---
+>=20
+> Note: in theory drm_encoder_cleanup() is now a superset of
+> drm_encoder_cleanup_from() and may be simplified to just call
+> drm_encoder_cleanup_from() and then do the extra actions. However the
+> common code is subtly different in terms of locking and checks, so this
+> would complicate the code in this patch and has thus been kept separate f=
+or
+> the time being to make reviewing sompler. Reimplementing
+> drm_encoder_cleanup() by using drm_encoder_cleanup_from() cvacn be done
+> later on.
+>=20
+> A much simpler and now obsolete version of this patch (missing locking and
+> checks) previously appeared in
+> https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-13-9d6f2c9c30=
+58@bootlin.com/
+> ---
+>  drivers/gpu/drm/drm_encoder.c | 38 ++++++++++++++++++++++++++++++++++++++
+>  include/drm/drm_encoder.h     |  1 +
+>  2 files changed, 39 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/drm_encoder.c b/drivers/gpu/drm/drm_encoder.c
+> index 0d5dbed06db4..40ece477b302 100644
+> --- a/drivers/gpu/drm/drm_encoder.c
+> +++ b/drivers/gpu/drm/drm_encoder.c
+> @@ -179,6 +179,44 @@ int drm_encoder_init(struct drm_device *dev,
+>  }
+>  EXPORT_SYMBOL(drm_encoder_init);
+> =20
+> +/**
+> + * drm_encoder_cleanup_from - remove a given bridge and all the following
+> + * @encoder: encoder whole list of bridges shall be pruned
+> + * @bridge: first bridge to remove
+> + *
+> + * Removes from an encoder all the bridges starting with a given bridge
+> + * and until the end of the chain.
+> + *
+> + * Does nothing if the bridge is not attached to an encoder chain.
+> + *
+> + * This should not be used in "normal" DRM pipelines. It is only useful =
+for
+> + * devices whose final part of the DRM chain can be physically removed a=
+nd
+> + * later reconnected (possibly with different hardware).
+> + */
+> +void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm_br=
+idge *bridge)
+> +{
+> +	struct drm_bridge *next;
+> +	LIST_HEAD(tmplist);
+> +
+> +	/*
+> +	 * We need the bridge_chain_mutex to modify the chain, but
+> +	 * drm_bridge_detach() will call DRM_MODESET_LOCK_ALL_BEGIN() (in
+> +	 * drm_modeset_lock_fini()), resulting in a possible ABBA circular
+> +	 * deadlock. Avoid it by first moving all the bridges to a
+> +	 * temporary list holding the lock, and then calling
+> +	 * drm_bridge_detach() without the lock.
+> +	 */
+> +	mutex_lock(&encoder->bridge_chain_mutex);
+> +	if (!list_empty(&bridge->chain_node))
+> +		list_for_each_entry_safe_from(bridge, next, &encoder->bridge_chain, ch=
+ain_node)
+> +			list_move_tail(&bridge->chain_node, &tmplist);
+> +	mutex_unlock(&encoder->bridge_chain_mutex);
+> +
+> +	while (!list_empty(&tmplist))
+> +		drm_bridge_detach(list_first_entry(&tmplist, struct drm_bridge, chain_=
+node));
+> +}
+> +EXPORT_SYMBOL(drm_encoder_cleanup_from);
+> +
+
+The name is super confusing, because it doesn't clean up anything.
+drm_encoder_cleanup is called that way because it cleans up the encoder.
+This function doesn't.
+
+Unlike what's being documented, it doesn't remove any bridge either. It
+just detaches bridge, so let's just call it that way?
+
+Maxime
+
+--mlq6rotmaedggjnf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaiaxMQAKCRAnX84Zoj2+
+dovlAYDHSeYV8vLX5Yg55j6rhisjuD4V7tgfgvUuaKvLMajioZJJKBD7Xw54Rr2o
+7LYJvRcBgILYvnRYdQyxSDhd/hJZ+6M81Ar4FO2sxsAOmKhx6+PU3JsOjpXlIXT1
+3LiK7BxQ2g==
+=Jtaz
+-----END PGP SIGNATURE-----
+
+--mlq6rotmaedggjnf--
 
