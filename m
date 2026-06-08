@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FC4CD8CA7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 22:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F514CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 22:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0C+5N6MmXKXBOJcIShHumvRXB1ZJWJmgKyIbWDPTDio=; b=0DODOVnYav59/vpV+s9X1egYOW
-	L5pnIFcXN2qkWnj9+3tl/htb+77HG8Wve3jYQb8NpfNflCK56u9QZi7mHKzn+Yiwade/8WMwNOPit
-	DSfxc2rRQFHl7Qwzn1soG0wyrnN5JNR7iRHC5ctOW7bUSXYxxwGA/nNC0TN2NEZX5ZWCka46jx/hu
-	BpGnD+80OTrJt794XuJqq2qTHOxZ6R/YdD3lmIMcruL3M94xqNKKJTmZpBHpHJYdlU3wlZCU97dZ6
-	NV3IkC5QgZ2+80lvwVVTbMqsSLEbQKC1naNS6lDcileS5QoycTsrp88LNhf/t1XGCrCNOaV1xEK2b
-	rA+KHoTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+sd0YG4NJYnrqOJ3l4vioxCsQYopEHLM78GABTPI8G8=; b=ft/NJVCV9dRB+kybgHFDp3oU7H
+	o6wOXxsK/9PAQYr4FYpU+YBCz7G1edn0362yW8//AAP0A4Q96W+rRXl7XSgq8FvjslGT8C0bJDJiO
+	dHZ6zLNvtMN9xuAwdNcPoSp1Aqn3dfww/jmrlI+n4rCXz+tY7bIG3HExEs34wVISipgmkq/jiZZQL
+	RS91SkwSLI3HO1KBuu3Jc23mbIdDJkeZKOAaDcyW7bY7cYZ6puGSMCygMUB6sA4SFTqb6+n4U6XqB
+	hDYo3boYHb3lfHx4ronXxTf1/w+bEiUYFvECoSkomonRUhR++wzdrEV6AFyuxjkcWOypSftVrQPg3
+	c9KkJOxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWiUU-00000004Ul6-0Ove;
-	Mon, 08 Jun 2026 22:30:42 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1wWiXe-00000004Uu9-2dj6;
+	Mon, 08 Jun 2026 22:33:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWiUR-00000004Ukm-2mU3
+	id 1wWiXd-00000004Uu2-1F7Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 22:30:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780957840; x=1812493840;
-  h=date:from:to:cc:subject:message-id;
-  bh=nZo0Jf/L6bMEYHOOWypuaccqVC+t1J/Z3kYlzk/izWc=;
-  b=CJjv+Kku2n08vj+ROLqaR6nf9tRReGs7NZGU+euFTX6aPGHYuBi9mNnP
-   BPTsDAR+7dM/STkp/V96mo2BsMFOBwOocYgEK4PYm30cMrulSMpFX68PD
-   I/Wru90Embunm/lUCDUDShto33HnmDXiDagyNLw5W8JjharTY6NCk4/gA
-   I7Z5zp+leLxp5HhK3+dXeigwwg0DZEorCYExWSdMOFM2W2Q7J0GiKkY6q
-   plTHeiMTSOZ8TVxDVEjE3XG7m67/664v/81bsY88CJpQeBMMy4JEh7mxY
-   HTwvubg0OUzDyQ+SQmkXroZjQSdocDX3dyg3kWuQeZNp4YZgGcWmU1Iwb
-   A==;
-X-CSE-ConnectionGUID: ctmAU83/Q82/wQODoBGurw==
-X-CSE-MsgGUID: OJcHzIltSriInAX+0vbIiA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11811"; a="92030258"
-X-IronPort-AV: E=Sophos;i="6.24,195,1774335600"; 
-   d="scan'208";a="92030258"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jun 2026 15:30:37 -0700
-X-CSE-ConnectionGUID: 1EhJ6UjdQLKeeubrHvLNUw==
-X-CSE-MsgGUID: zcs28u3uSEi9r44oDwf5eg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,195,1774335600"; 
-   d="scan'208";a="283755415"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 08 Jun 2026 15:30:36 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wWiUL-00000000JKc-0xh4;
-	Mon, 08 Jun 2026 22:30:33 +0000
-Date: Tue, 09 Jun 2026 06:30:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/arm] BUILD SUCCESS
- f6f84276c6cf2a257a8054137e49b5f37e19f27b
-Message-ID: <202606090655.9a4Vtwn9-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_153039_767982_2E0D5AB2 
-X-CRM114-Status: UNSURE (   5.00  )
-X-CRM114-Notice: Please train this message.
+	Mon, 08 Jun 2026 22:33:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E84744532
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 22:33:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7842D1F008A1
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 22:33:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780958036;
+	bh=+sd0YG4NJYnrqOJ3l4vioxCsQYopEHLM78GABTPI8G8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=afTSL/VpAcfmg9KaNA3tK3UABJm13fvJBePwt4nmkI0QyMy30zXxTA0x7jJmUH3f8
+	 +pQe29lMWvHYzNQngRJwSzI0fh+E+cPFMzssEbunZzfrI96M5HP2lIBUWrhj/Sqtnb
+	 aOD8qxeMwg4fY8QMVxHhEo/AkE+fVf2zRmIoULsGYwWBLg00waXPYtS9AurVlohqHd
+	 5GxYeQZ/FD3w5vrTcypUYywqEYu2dsrYb3GaWqWK/InabY7BrbccMQtwC7skt+VQMF
+	 LKGp40LcihtkIcGSfKTb0ekiecObpuGrMogBrBR5xwDsTprsMNVmWL//dHFrwoz7Wo
+	 7/GyPXXe6pBEQ==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5aa68cf03bfso5132020e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 15:33:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+mK3YNYhcWUl2o/WPXJxKvqCZqwCAPBMlhhzqFXr+R1UhQQH/ru/B7QuNKmxmw1/7IMlXBqMxtRpSaRKvduA8a@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9Y5AH5WW1GJ220j3i1hyFWGANNCm0J0M7VGM/F8XtWE+fyiZ+
+	z3AoRQpJWW/ntp91abAUqd+J508XqZX8YAKtUNpuAtWxs82FpKKJ2Lj/vH2qcxLljxf63A9G6lo
+	aS1tOkm5upP8oxUHmE/dXMZIF7WKEhhc=
+X-Received: by 2002:ac2:4e01:0:b0:5aa:6115:e4b6 with SMTP id
+ 2adb3069b0e04-5aa87bb76e1mr4983094e87.21.1780958035220; Mon, 08 Jun 2026
+ 15:33:55 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
+ <CAD++jLnk4q7L_cFzz+1gKkAqwhv=TW1_XSepuii7b_PHF7EPqQ@mail.gmail.com>
+ <704e9e7b-0f45-4ed3-a686-9e20056eab2a@oss.nxp.com> <CAD++jLk-7UqjCsM4jCdRmBMMaNNXe8Gi_E00fJ_MRMsEGQcMZQ@mail.gmail.com>
+ <48494e7b-4cba-4372-9090-f40240d820c4@oss.nxp.com>
+In-Reply-To: <48494e7b-4cba-4372-9090-f40240d820c4@oss.nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 9 Jun 2026 00:33:43 +0200
+X-Gmail-Original-Message-ID: <CAD++jLme25qcWpzVa44VwTmnAf+Rt7suF8DgUs5tGyM_UyNbyw@mail.gmail.com>
+X-Gm-Features: AVVi8CcCR-63_uafKf1goL660j2RzMYR76efORAe2ZPvWCw_f0wQxO2Fdy03EZE
+Message-ID: <CAD++jLme25qcWpzVa44VwTmnAf+Rt7suF8DgUs5tGyM_UyNbyw@mail.gmail.com>
+Subject: Re: [PATCH v9 6/7] pinctrl: s32cc: implement GPIO functionality
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
+	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +95,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
-branch HEAD: f6f84276c6cf2a257a8054137e49b5f37e19f27b  Merge tag 'samsung-soc-7.2' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into soc/arm
+Hi Khristine,
 
-elapsed time: 7302m
+On Tue, Jun 2, 2026 at 10:05=E2=80=AFAM Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> wrote:
 
-configs tested: 2
-configs skipped: 246
+> The new version (v10) has been updated to use gpio-regmap, with a virtual
+> regmap bridge dispatching GPIO accesses to the underlying SIUL2 register
+> blocks.
+>
+> I am not fully convinced this is the cleanest model, though.
+> SIUL2 does not expose GPIO as one regular register space: direction is in
+> MSCR, input values are read from PGPDI, and output values are written thr=
+ough
+> PGPDO. These are backed by separate regmaps in the driver, while gpio-reg=
+map
+> expects a single regmap.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+OK I did miss that detail earlier, I definitely thought it was using a sing=
+le
+regmap.
 
-tested configs:
-arm   allnoconfig    clang-23
-arm  allyesconfig    gcc-16.1.0
+> So the current path becomes:
+>   gpio-regmap -> virtual regmap -> MSCR/PGPDI/PGPDO regmap
+>
+> The version was updated this way so we can review the approach on top of =
+the
+> current code. If this is still the preferred direction, it can be polishe=
+d
+> further. Otherwise, I think direct gpio_chip callbacks using the existing=
+ regmap
+> helpers might be a simpler fit for this hardware.
+>
+> What do you think would be the preferred direction for the next revision?
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+I'm pretty much happy with either version.
+
+I see your point as to why you don't want to use gpio-regmap.
+
+I also think the virtual regmap thing looks pretty OK, it's complex
+but the driver is complex anyway.
+
+What could make the gpio-regmap approach is that it will probably
+get extended with get/set_multiple() at some point and then you
+will get that improvement for free.
+
+But I think you are the best person to choose what to use here,
+if you don't think the virtual regmap looks good, then trust your
+intuition and go back to the old design.
+
+Yours,
+Linus Walleij
 
