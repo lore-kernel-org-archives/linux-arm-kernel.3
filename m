@@ -4,83 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C136CD8C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF337CD8C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 08:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7p3nTq7oGJJLZEtBHFjP4g2fj9ud/Z4fq7Xd0f8dF48=; b=s8AFzcKrEhaR8mJSJMefeEHOoi
-	UicpWXLMG+g111B4K4Pm1zZn9D2MHlChPOC0LYSXAmLIiTpVGdZhmqwruLHhaK8Wj4VsdtAq7aVA7
-	kuZBKSMS5Umm/mJ3Z4WZfI86ua+k0lGGBRt/mH2B4P7bJOLqEk3FaZ2tGdznFvfQwJ/FcGx8vR4cy
-	w/W/i/KmGaAnCSiBcEwOUUy0YOJ/J/y+U7vOkh1TneBanTkAFKYiq3IXwCeLxRN15ph9Yz7uQAaDG
-	O96QtiTTMwPnXnGzv2KWPvQu0pahLOZnjZplnxytLDlCpVslkvu/Uws7560W7YB5RS85uwvdq0sKO
-	CYLE1iYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ybZQjal46FeOrn2hm6lTCaz+t/9Rl0Db41fcp16G+Dg=; b=LNxyVa0v4xnVjULH7iHCh4gpNT
+	tBEOVfErQvxQ33HwyAvZua2AAbMgqWUsMhZYmn/gA/J/gvQChAjnDP/Q69/9KVAcz+sp/JSpztjO9
+	MeDPmN918L4nfJ+X31scM858Ax9Cq0+TR693dccSWbkRZZWazOxpJyjCp2B+XoMPim/t1WDN6TLOU
+	6FAU+BlIg2ZgrueE+VVlsUXFD5vLiOf0Aj0eyE219ck653gGJLLW4XH7goiAHeW1V0MBPihuOynpq
+	faiy94aFssJ0UHcs8GrgO6Xe3u0p4PNUgSDEscvbjM+Dyg10QHRide0kmaxUtrbJpZ271OjtUEVyz
+	wZRrHxDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWV0x-000000033MZ-3JzC;
-	Mon, 08 Jun 2026 08:07:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWV42-000000033iB-0Ac7;
+	Mon, 08 Jun 2026 08:10:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWV0w-000000033Lk-2wul
+	id 1wWV40-000000033ht-1zJG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 08 Jun 2026 08:10:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ybZQjal46FeOrn2hm6lTCaz+t/9Rl0Db41fcp16G+Dg=; b=E67ZZDqGYJbd+31/fmANMONOwl
+	7eH77rkZk6ti09FGL1I1b3pEtQ4qjSbxEoXpfxdEXJphr0OLAxBqy4tedLgNND+xJ2IJ/lUVuu5qu
+	P6e6+xpFgr4+8jeMrf/e3mtqe3HtcIsYg4NMmoyvfP5uyHQ7xtfFnhAAZjDB3Kw5TWHz0TAwyTmUC
+	SqYDS3E/SLTfsU8CoGXIHCgdJDwWIycg3/JTGSiuPGcjk1SDIPYm/ZlJnh5bXLlo16N10inrT2wVK
+	bV47O18GcxnYCeAlmiHhsWaCMTzM3OTq09Hkujmrx9+c16yfEP3uJiYEpTbhQdxwVlcB60qZW6feX
+	Yv7I0OvQ==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wWV3s-00000000h5x-1j1L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 08:07:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B545760200
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:07:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C1471F0089A
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Jun 2026 08:07:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780906037;
-	bh=7p3nTq7oGJJLZEtBHFjP4g2fj9ud/Z4fq7Xd0f8dF48=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=W224uC4/IesJ34nuGEK+bZHPRAWeHalBbhvVaG3G77FpiSk+P8FmAM4KSth5/Zw6w
-	 L13BquVoXpaByhyynZxt7GPU3AtAhGunIkXPNSFx3YiuS0/1CNLiwwuQj8q0mLPJoH
-	 mc5nMCfL/id94JmzJB+LonJwSB2TNbYbx+zME9Z9TRPqfykSaTXwio7ErKUz/VvjvU
-	 9wrPsC0Di2YZZQoONx0IKIcxFfo7+ck0eL9OFSazszKoJpmUP7QFdp911LcKlJe99I
-	 g4TYxqSMC1Jl0PopCrS7zm8ggyKQ4c4sqCmK3JCgJACt9c1z/xa8OdOFMb9uT0YD1z
-	 wV4SQYMmT3UVg==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39664fe2dd8so33213711fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 01:07:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/oAcwpcyZw1owASG7dOdluXEoVnnEGy7c87xgGZTH1wXBjok4wA1hpKBhSRHrxQq/Wk8WGVNdQuIEXVIPqeuOD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA3jpoFM/12+gl58U2eA65GxPPachl//MtALa6/S7dBp7AOOAJ
-	Vj/MbkZj5AnGklSCGiE9cE8Sz5NDech0rjdlb2sg2rgSifTHvdt3o8/Fb4smw5Zd+bLccM9dkTX
-	+nxenK8pqKnSj1BX+FVS7xniPeCSMImw=
-X-Received: by 2002:a2e:9a16:0:b0:396:a6d3:f04d with SMTP id
- 38308e7fff4ca-396d0895474mr40010161fa.14.1780906035688; Mon, 08 Jun 2026
- 01:07:15 -0700 (PDT)
+	Mon, 08 Jun 2026 08:10:23 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6579b1fu2990707;
+	Mon, 8 Jun 2026 08:09:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=ybZQjal46FeOrn2hm6lTCaz+t/9Rl0
+	Db41fcp16G+Dg=; b=dBhyBufmfP4wvnfQ9Irzgd66IC9FtHX38d6Tu1bbxef+5D
+	0zrk4mJoy93bWMF4jAi5szsjPx9Tw/dzN7SGBbodJGrGOqRuuK8F84HlhzE2TyZi
+	mNUreGXVwOTCKQ0MBgGCTwM7lYoMjpWNi62HZ/MOKD34ZsLQ8YfyWNXNt1NStGko
+	UDG3fuO7F/oCayF7r/a4ntffPKO+ByTOyV3ownyCK3wZPJOEFhQtJGcD5OCtAxsm
+	CMSQeEW0+nlXK0XB7wiogaJIYF/YMDvNMwfcSVj9eLLutsaPf2MiNgLqeabF/Wke
+	mikzD0yQUw13FncQ6E/KoY8Ke+RhapWMmlhDBZzg==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4em8yhpf9x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 08 Jun 2026 08:09:58 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 65884ZXK014601;
+	Mon, 8 Jun 2026 08:09:57 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4en03fv82v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 08 Jun 2026 08:09:57 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 65889pCN55968026
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 8 Jun 2026 08:09:51 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A6EF920043;
+	Mon,  8 Jun 2026 08:09:51 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2336620040;
+	Mon,  8 Jun 2026 08:09:50 +0000 (GMT)
+Received: from osiris (unknown [9.87.136.35])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  8 Jun 2026 08:09:50 +0000 (GMT)
+Date: Mon, 8 Jun 2026 10:09:48 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v1 12/26] KVM: arm64: Add PVM_ prefix to avoid name
+ collisions
+Message-ID: <20260608080948.100035-A-seiden@linux.ibm.com>
+References: <20260529155601.2927240-1-seiden@linux.ibm.com>
+ <20260529155601.2927240-13-seiden@linux.ibm.com>
+ <ah4GaFNM7xfS7CJC@kernel.org>
 MIME-Version: 1.0
-References: <20260605010022.968612-1-elder@riscstar.com> <20260605010022.968612-3-elder@riscstar.com>
-In-Reply-To: <20260605010022.968612-3-elder@riscstar.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 8 Jun 2026 10:07:03 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnzaq+SghqjQhmS-wzJn8BqtpO9eFBet-Nvq1s6ftSPBA@mail.gmail.com>
-X-Gm-Features: AVVi8CdcVQZ5J_i_Iaqeix6_8YO_cjEHpzPIFDPmZBuvgJ3k-aHEuVOqwusuDcs
-Message-ID: <CAD++jLnzaq+SghqjQhmS-wzJn8BqtpO9eFBet-Nvq1s6ftSPBA@mail.gmail.com>
-Subject: Re: [PATCH net-next v2 02/14] net: phy: qcom: qca808x: Add regulator management
-To: Alex Elder <elder@riscstar.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
-	rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, brgl@kernel.org, 
-	arnd@arndb.de, gregkh@linuxfoundation.org, 
-	Daniel Thompson <daniel@riscstar.com>, mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, 
-	alexandre.torgue@foss.st.com, ast@kernel.org, boon.khai.ng@altera.com, 
-	chenchuangyu@xiaomi.com, chenhuacai@kernel.org, daniel@iogearbox.net, 
-	hawk@kernel.org, hkallweit1@gmail.com, inochiama@gmail.com, 
-	john.fastabend@gmail.com, julianbraha@gmail.com, livelycarpet87@gmail.com, 
-	mcoquelin.stm32@gmail.com, me@ziyao.cc, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com, 
-	rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn, 
-	weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org, 
-	bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ah4GaFNM7xfS7CJC@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA4MDA3NCBTYWx0ZWRfXyCkHnN7Bi5ra
+ BiLvAZzGqCaTUYlhd3Fu2wWFJ9R9s01M7j5kvTtiiXgAzuKU25KIjGu/i7RLgMErYk3Yn9t5okg
+ oJxFxM9tZARCVdPpr7liIYYsfyLRnLjy8uuNen+Huw0vxnYjQulU0I8aTW9NwWZJBx2fD1jhvKB
+ 4GFLIrU2JmKmNrNA3KED9vSxCpVgdp3ct1nmcbMvOvpiMtUm2bDdujf4+e3OCVFpGo3fHvYgDZb
+ qUr3+FWmcKKVISox41jOdQznLMMHuc+spBKWUsDra7nyaDWxixcMOYd6lxga/AgRwa6BlV8d32s
+ 1WfJDcNVFuo2gAHDjJ57La9sVXR0dNmatppsAyTb/UkgVgouggJ2i1jdzwNCwkjTwbhc3YGzNv+
+ ky2AqTU5puiuEGrdKe8qbYbgLZOUuijjX/x/rA6u/DNBHv2WYzD3fPoJSgbU9vBQyCQfvz13MFL
+ i8DwoVYtC6nBJM3B2OA==
+X-Authority-Analysis: v=2.4 cv=HvFG3UTS c=1 sm=1 tr=0 ts=6a2678d6 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=sjSFLaudIdQReGWt298A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: 0fCevorcLqPyPvXErUXpRrKCxITKL_ji
+X-Proofpoint-GUID: 0fCevorcLqPyPvXErUXpRrKCxITKL_ji
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-08_02,2026-06-05_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 lowpriorityscore=0 adultscore=0 suspectscore=0
+ spamscore=0 priorityscore=1501 phishscore=0 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606080074
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_091021_658509_79DD60D4 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +155,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex/Daniel,
+On Mon, Jun 01, 2026 at 03:23:36PM -0700, Oliver Upton wrote:
+> On Fri, May 29, 2026 at 05:55:45PM +0200, Steffen Eiden wrote:
+> > Rename ID_UNALLOCATED to PVM_ID_UNALLOCATED and read_id_reg to
+> > pvm_read_id_reg to prevent future name collisions with other subsystems.
+> > While at it, fix whitespace issues in the macro invocations
+> > 
+> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> 
+> No issues with the rename but do you even need the nVHE object at all
+> for s390?
 
-thanks for your patch!
+No we do not need those definitions. The problem comes with a later patch.
+The ID_UNALLOCATED macro moves to include/kvm/arm64/sys_regs.h. Then
+arch/arm64/kvm/hyp/nvhe/sys_regs.c redefines that macro.
 
-On Fri, Jun 5, 2026 at 3:00=E2=80=AFAM Alex Elder <elder@riscstar.com> wrot=
-e:
+I renamed the function to stay consistent. 
 
-> From: Daniel Thompson <daniel@riscstar.com>
->
-> QCA8081 appears in embedded board designs paired with GPIO controlled
-> regulators for its power rails. Add logic to allow these regulators to
-> be turned on during a probe.
->
-> In order to avoid the complexity of tracking state for suspend with and
-> without WoL we take a tremendously simple "always-on" approach to
-> regulator management, essentially relying on BMCR_PDOWN to conserve
-> power when the phy device exists.
->
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-
-(...)
-
-> +#ifdef CONFIG_OF
-
-Is this an extremely footprint-sensitive system?
-
-Regulators provide small stubs if unused, I don't know if they
-compile to zero bytes but this ifdeffery should normally not be
-necessary, just unconditionally get_enable the regulators.
-
-Yours,
-Linus Walleij
+	Steffen
 
