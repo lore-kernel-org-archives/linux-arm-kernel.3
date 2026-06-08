@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF85CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589E4CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 16:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YpwJ9v/AiXpP4VJQJr26kjpknRLuUcx7eSaLf7M6YkA=; b=zkIUMVmJ4C0T6IsgcBbTWM2jgW
-	2LFTTJn6sHC8bMXVA7EjSPIX1rgvZSjDZJrK0/+X8lsubozKnv5+n5dSoxGgN/kZgS6MvAAdDk9AO
-	BsZMpZZncxrCRMf41Eu2u8oJe76R498QUvl43851p51n13QdgKJlyx7ePfYS+5InRwTIMomrPChBk
-	BqP+JXwpkEVK/w+Fig9GuQQpKlVf7QSxIb2yk0r/poLEZ92lwHJw0Fol9M8GcRqslLrwDYXafh9yr
-	9VGEXMFl5RybbbRoouTAlrnyhSFZBaBWOGx9Sc29X+XDS9hNUrryJ6VsMNYKqrg40BVZXdTgmVSta
-	lXsmEnxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/XMQ94f2NnI3UCxBWCQnjfay4QTl/Mm3LGr0hsRVrJs=; b=pC5+7nuYqScPXmP3wxJlcm9raq
+	goZxPxPvHQz8CJ7z/l0ochYPsqsp1Af3nP/ckF0kaqAayPYy87af2JfqUkbz3DAWYauB95Gtc+cTB
+	ChmJWTmybSv6d3XtKcsiELbl1zeAYBLTSvs9rGyoGqiDPAehbaiQHnfwQmvm+hJo36+HfpHbfmG8S
+	Hx96vujd+o/rfpuh2e6eEVcKe9UHDd2FWGHNUQmEbadW7RD6XtII/B9i56ct52tGhLhF6J1rORFb4
+	0D+dchE/Tyv722sP4B/TejyFzXBLJYHnS1uUkYTYVOkuxofl9doFYve/YVkR1+Ke+xep8MTUgP/Nk
+	QuW0p0kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdHR-000000047wp-1CQB;
-	Mon, 08 Jun 2026 16:56:53 +0000
-Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
+	id 1wWbxq-00000003yG2-0cuM;
+	Mon, 08 Jun 2026 15:32:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWdHP-000000047ux-2CUy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 16:56:52 +0000
-Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-304d0ac5e3cso8124213eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 09:56:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780937810; x=1781542610; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YpwJ9v/AiXpP4VJQJr26kjpknRLuUcx7eSaLf7M6YkA=;
-        b=hWWXiQAX9NaomMjHwKNQyc8NepYQHG0rnG1UgdAAxoMNAFq9HkJgC2XAdlNbwaKs/T
-         Mkmev2q6HDjXn8nzoh3OT/yIw5GuNUmDJxOhTnFiPjtl7WMwfn3WdpVz8ob37V2GBEox
-         tmimDWDPC2GPN/n+pmOlUyCb5N1KQF54wSe27sBbrrljNdAFk5xvVIKnlZzfLIbdDPBF
-         XYJDpAX9H9zg9ToBU6t+j2lav58HxPYKJYqsUFOED5jlIccQex8dnWKhrmBOmiN4F1gZ
-         FLioX7cCkXrZtKfu08TzewpUDbf5AFpYV5T5vjm4WF4cFziBh5NYwODGU9+0NxRZ993w
-         2XxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780937810; x=1781542610;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YpwJ9v/AiXpP4VJQJr26kjpknRLuUcx7eSaLf7M6YkA=;
-        b=nAhEith8t28NN6bB1QPeOlL/am+4uuTJF9OSySnEmEZu+GIkMFlFJEEOjkuAfqxRm6
-         8CqBrF+Ov3Vp+mmGSy4+sHQEPIUZL5gVUNweGaF1F+Hoac8jNxvZYbDoZSNeJCR8/4lM
-         pmWKXLDpggpraXYb4NPxpYeBoSNm+Q5vnNMBQw9X4IbonWGGclZ6MkQTp1RJlo4dtaWQ
-         gCmuA56gVMqlaSbdyn+nTE4tr895hQ7WIdpCDg6IUoSQLee1VMMQIgxOopwLI7wlaMs5
-         tBVanZFISi5Tod6RjRqMb9gurVBjkwY336rekGb1oVFhXglfxfWf9fqwJONiC1EyHITW
-         LViQ==
-X-Gm-Message-State: AOJu0Yy0MzTsAWo1lL81CmYzuZMtV6Hag3YOFwZx9GO8D3uEFNVZFKsz
-	0xHkeWwP7KICLVYLofhA3Flkim6zgcjwhUF48phN2XO7k+yXGsConMpY
-X-Gm-Gg: Acq92OEozeMEFXgSuuGLPT4iDqf2ElpnAtsK8y8eslrama+sBUwUcYyLqTjKkCTkOMj
-	zIJsbB//rL2YvGZ809CINwRYt1lFCOqCLRFRAJDXyGrpqKzCJ1j8TRBiOI6PGKWF3KtlPLuZSMJ
-	B3Brd3qYXKq/yiZ1Cy2Q6HGmH6X2EErPVNhbz+ZBmRz5HLA3102Fyw7K2Onl6WhfZ81RTWRM2mF
-	k5Dz5ryrCbuRjnnFVR8irUqrG/wbzp9MAb1b8rlTHGiDhK3r9ZwA+vuzLqOynY3rovVAhHnakzF
-	IQYA2BbgZpQ84dUBcQOoSMM0L2PCTh/RO9HHlpDWU6A9fo0rNFiZNnzZH/OR8zDLMkrmM4yQz1b
-	aR+dlX4RWu3xK6tPzU3xAJ/onGW5rV+1gf0Bk5JupKXiepESM3SYe9Inq/1IzObGi+Juvoqz1Jm
-	MH+WKKzTEjxWUFPLvm3vzHReWPRBOffs7m0mYhCGH0GvZoX0TISxa1rDJABNnL83ErSCnXVCkvx
-	4w=
-X-Received: by 2002:a05:7300:7488:b0:304:e566:e000 with SMTP id 5a478bee46e88-3077b2db403mr9281297eec.31.1780937810237;
-        Mon, 08 Jun 2026 09:56:50 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:355d:c69b:fe36:8969])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3074df3b234sm22816203eec.23.2026.06.08.09.56.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 09:56:49 -0700 (PDT)
-Date: Mon, 8 Jun 2026 09:56:46 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
-	linux-serial@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
-	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Linus Walleij <linusw@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Steven Rostedt <rostedt@goodmis.org>, Thomas Weissschuh <thomas.weissschuh@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>
-Subject: Re: [PATCH] ARM: footbridge: convert to sparse IRQs
-Message-ID: <aibz3auoiq4CFa9l@google.com>
-References: <20260510052107.555825-1-enelsonmoore@gmail.com>
+	id 1wWbxk-00000003y8Z-02op;
+	Mon, 08 Jun 2026 15:32:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1780932745;
+	bh=0uQ4uyIwFgJ6UABF/dPRZy9vsW0+jj/YnI0z8Vmpot4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oifNKjqoBRqQVkVpFshpul2l82OGJJ9zNQv4itEKYchi7HnO99mvBhbqVWKoyNo5A
+	 bhviSrwbQZCopP9kiGRQkmnTT4H39OXEyXsslGsLKwQ0lyW5H190RRIYKRm0zdwL4T
+	 08Dy5/CLOKHFk3cfaDNeihTtNtRcGcnBcgnx347B3fpzTVyKU2wyS6N9pUG2ASJFcH
+	 8WSUr1EXUGOXB9W764v64hssr1LBnlWmxXNZho4XpPk+iqILTdJ4zMwRrOYjtOSw7J
+	 pJhosabBtcvUO3DNgDR9eTFSFyqu6IHHX/zJ530wwNcqlFGrUM5GBOu+TsoemGJ7Yb
+	 ppjRx0XBDMWtg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CE2A617E1031;
+	Mon,  8 Jun 2026 17:32:24 +0200 (CEST)
+Message-ID: <8b3e6f3b-7dfb-4ec1-bc55-0c5e91ca5bc5@collabora.com>
+Date: Mon, 8 Jun 2026 17:32:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260510052107.555825-1-enelsonmoore@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 49/78] drm/mediatek: dp: Switch to atomic_create_state
+To: Maxime Ripard <mripard@kernel.org>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
+ <20260608-drm-no-more-bridge-reset-v2-49-0a91018bf886@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260608-drm-no-more-bridge-reset-v2-49-0a91018bf886@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_095651_562872_2C38320A 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20260608_083228_248848_95D9E3F1 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +88,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ethan,
+On 6/8/26 16:36, Maxime Ripard wrote:
+> The drm_bridge_funcs.atomic_reset callback and its
+> drm_atomic_helper_bridge_reset() helper are deprecated.
+> 
+> Switch to the atomic_create_state callback and its
+> drm_atomic_helper_bridge_create_state() counterpart.
+> 
+> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+> To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+> To: Philipp Zabel <p.zabel@pengutronix.de>
+> To: Matthias Brugger <matthias.bgg@gmail.com>
+> To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-mediatek@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
 
-On Sat, May 09, 2026 at 10:20:49PM -0700, Ethan Nelson-Moore wrote:
-> diff --git a/drivers/input/serio/i8042-io.h b/drivers/input/serio/i8042-io.h
-> index a8f4b2d70e59..cea72bd888af 100644
-> --- a/drivers/input/serio/i8042-io.h
-> +++ b/drivers/input/serio/i8042-io.h
-> @@ -15,9 +15,9 @@
->   * IRQs.
->   */
->  
-> -#if defined(__arm__)
-> -/* defined in include/asm-arm/arch-xxx/irqs.h */
-> -#include <asm/irq.h>
-> +#ifdef CONFIG_ARCH_FOOTBRIDGE
-> +/* defined in arch/arm/mach-footbridge/include/mach/irqs.h */
-> +#include <mach/irqs.h>
->  #elif defined(CONFIG_PPC)
->  extern int of_i8042_kbd_irq;
->  extern int of_i8042_aux_irq;
-
-This does not look right. Did you mean to drop inclusion of asm/irq.h
-for all other arms?
-
-Thanks.
-
--- 
-Dmitry
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
