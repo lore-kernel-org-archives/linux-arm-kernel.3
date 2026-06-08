@@ -4,101 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61123CD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 02:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677B7CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 02:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j20V0GuPV7rBgGUjbhfpY7XnYJHwynd15A65eNviT9Q=; b=vkZ78beQ91GYeHpY/K2uAb3cdu
-	O1MzFCIj8JhnSu7hYFl2wvnVKGFMi6kXtNYtRyMuPpABjw9qYBoOtmoROpG4jtr0M0OPbGVYkGBSv
-	6hk9uc+4vPJE+eICGxPK61HPp1x49kUZYsn++ksJGv5/61SPuf/AR+I6+bzK/xItPFD5nhGDzXja8
-	UJplPTQ0716UwKQhuG2tk1yIF7W63H9124b9/Prs2Ln0XU1Gi+d9xaOn+yxUb6lVxb0bTG8U2thhb
-	4T+9arp/5AxqPSrRZfKjmmeTiXjo6ZqnACd/ZQTcVgFcQZ97q+rAzLxdDbpx5O7III5tTRjDK8WYi
-	UJr5PUcw==;
+	bh=ctvKOED8Rs2Y8iHtAz2kdUCrMqrD3cqKZ8ykp6Je8z4=; b=zb4sL1uxnVrr2nEoCboAEyaLJ3
+	0XkYwtn7U7cnl2Hy4zh7iJOQ/qDK/dX+2x4F0PpcYuxnAkb9/LpP6NC63B7SKII29yvLaB/LFlJY8
+	YsuwVrEhSaUc9m5K9vJ9GqwgrxUousvPQ0qyZFXCPQf0EVtL6A8GN9T68KVyJLcOJWpismAfe9Idh
+	UwmJeQfZEKV42/4224PnenRmBs87TUfpqAtUlLit4WknvbEwD88/ZVc41+CaQNW7cCyr062taa8SF
+	AZ6lsbRISMbMlyxP/7nNqFgGqJ/TV0p76Iy81seLl/gvWmKhszE/mrdtzSWUR+dagw8Yj7TKKmgq0
+	72I6LB9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPnV-00000002jBE-0SC7;
-	Mon, 08 Jun 2026 02:33:05 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wWPuq-00000002jfu-476y;
+	Mon, 08 Jun 2026 02:40:40 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPnS-00000002j8g-0N1S
+	id 1wWPuo-00000002jf7-1N1C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 02:33:03 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2c0c3543590so24740545ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 19:33:01 -0700 (PDT)
+	Mon, 08 Jun 2026 02:40:39 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8422f148dfcso1945347b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Jun 2026 19:40:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780885981; x=1781490781; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j20V0GuPV7rBgGUjbhfpY7XnYJHwynd15A65eNviT9Q=;
-        b=ToJ+iyQSdNpciee/wuOH4E4toHkbvU0FW6+5mfTvHVX42ykOwBbYjvQGnuSPosm9vX
-         /JiWscOjo4iPxqgapBaHYYpFtQ1ZbGOQCc7LRDVHVG71gwB4/0sk5ZjBDAGFvWGAHb6F
-         gYcJZWa4t4mkC1K3V3eDB0SvZlIzI7aZ1qMZo7bbanv3sUu8J/Zz6r2tu7yO/epfWIBF
-         c441+9plRMB9w0KCM+GQjAFFa4XxvvIyr9YcFj9rJgagrXtz28nRQE8M1K/1rLXTs8sD
-         +oE1OQf4yQ5RT4bgDXTyiOauIKsP3LI10VFF/7dxG7mvskhapemHVDB4NidDQ+ELYN/A
-         z+Cg==
+        d=gmail.com; s=20251104; t=1780886438; x=1781491238; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ctvKOED8Rs2Y8iHtAz2kdUCrMqrD3cqKZ8ykp6Je8z4=;
+        b=hFwRFTRh7vuKCGbkIDph7z5xtfsD9mCe1KrdlTWUSvmKSvvOcF4yivuDd4mSvRgqpw
+         8NsfK69N0EKe6EZcbkpUQXNdNcG7ndUHNntUJ2tQTPTWJLczPobCPF+BBGlfz1tjjabn
+         KU//N/nguYf29J2K4lQn1NGq9ne1GvVoavgCJi8Fc4icHHzmhq9uvSIOIGT7LIZvFGH1
+         zODCZ5GibNeV2TFNeBULad1CzCxlMvb26U6UTBgHWjU8pGeBis7j+SVJlE5uQT9GdVVb
+         CGpc/E+iQpmQx1pCHTyIs+oh2Xg2NroOEvD+VyCeHPrc4MlCBAQc1zKRsJLdJ79khcZH
+         fvtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780885981; x=1781490781;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=j20V0GuPV7rBgGUjbhfpY7XnYJHwynd15A65eNviT9Q=;
-        b=dzFDqeuA4gyCr/9QIE9i70HJe0JftHJmoE7PgjdyWRwZQ1Ph3FaaTiHTmQKyp3TR+z
-         bghEBkNO0mgcdbKuQjteFv9o3z2qnoLgDFCfmRKFOBTGie2hYhSXZyBYsIz3qL/jh3HM
-         gd7xRv2qQEcCZ8uyphUA7jHdzn3NxtkCRsAcpTuHr6BgQsSebFPyvhixKCf6I4x0FFoA
-         n1fsY3IPqBBqnC3mM16NOEw5a3V2dVnMPlzmq1P/srUubeq12Q8LH7gJ1j8MNAYSn/uN
-         xzfxiFU99yORbQE6Z5JidonzJsgbBgF5sB3GR8K4lsOblcxtYxho3+yNpnwhlVr339lh
-         P0NQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/Q7Qf5F22haf8YIFxoylRQtUkb+Lugbqt7GC6r116ncw7m14tcHEuAQ7LxQagcgOpYFpYnGq6IhSts3O7Oy51Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcL3n9j/UllaTriARuRUqbf7M9EiZExsI0fk/hrjnrYLp9PIB0
-	8Sy/LkWwRDtvsYuSQxymh9JXtlRw4l5DCMV6dzW95jkrirdSH2j44xsw
-X-Gm-Gg: Acq92OFXHL82j5tcFw4fabixFdmTnfrtKXMtRcxpb55hvuBFgeMMTNFdVRDSxuWY8/4
-	YtEVI2pYiwtyYDuTgEP7Ls3D3bSXbaGdKfpdBByBJMKXLFkKv0x3pGdVyMh6tMWEEFRiSCiC5ex
-	9x/JsGfiPGagJFJIlvRJITSuU1MJTJfYLAjjVYNOhjWs/V14iBt3pAeS2cgqZw7zyKc1nIEyt2C
-	v57hkbei0ZYp7dHXnlMqlbut5F7WUTpcBT6/cepQrnv7VzImKZnO98EKwqIsDmupwyg8V6G4EpC
-	dJxU6ZRCcAACUlAXvU49HOh414wFyKg/5B8OfmGgetROUTD2vt/sWoI6irk+A2ymelJ+wxsuXv9
-	KUvlvYFqq515tW97cg8U9YbJT1e2VhAJP3nnP2nKX6fgPZyjBGgNIUSsy98cN3jHp8Wva+qCED5
-	wHtoLSy9OxcQIQBY4uht1sTRa7qfO8yhIyJlYRFq280Fxiwi/5l/tX+aub61oZ0LR3N7w7XYgMr
-	617P8IuSo0mrm7WckuCN9s=
-X-Received: by 2002:a17:902:d2c6:b0:2c2:245a:3360 with SMTP id d9443c01a7336-2c2245a33c4mr100349275ad.6.1780885981043;
-        Sun, 07 Jun 2026 19:33:01 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c245dd3b5dsm38143485ad.81.2026.06.07.19.32.57
+        d=1e100.net; s=20251104; t=1780886438; x=1781491238;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ctvKOED8Rs2Y8iHtAz2kdUCrMqrD3cqKZ8ykp6Je8z4=;
+        b=C1lCKMoApGNUmgs/T5BGA0cHSUxPZt4ZSberLPxzZp2Y4+0+QyE3mfteuauoLChl9F
+         Cxu3VE4Ji7ppDcPaz+/D1pMKAJ45ZNFSZdN7f9XMBuTr6W0NwbsJVmMSSmLwpBtBWEil
+         /Z7/MxBdTHxwClI7iPn9akzJmiuG2k2GXB7vW4ACGFIbWTiK9S436xFKJ76O7tf8xNW3
+         HLf1MKSxXGmoqf4/l9pLgQ3+0Uk60MZiK6vCwmnJ18P131rAVxyV/SJ3zpWzji/UrSZH
+         dDVL8je328T5gHwV2l2FRNW9SkcwtnZUHO+WHE74gzV0qx32t5DKaNGaz9h0lBh77cav
+         UWFA==
+X-Forwarded-Encrypted: i=1; AFNElJ/GYCsOoFIwzjcmV4HelFXfoILCxaJfRjeJaZfdUhdY0Q7T59rWddNMGM/nrqf49ODdwllPA5jkTbLY0URSBgln@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhFNqKEZTzlAAnMGaHwSaP1nQftB+dEiDNaLwLKiah9qo49Kvd
+	ilDzCZ2BCpdO1q+neu/51dVsnRkJaTqaAwZpxY/MFc0n/fNjUmywTADikNdbmQ==
+X-Gm-Gg: Acq92OGDZIY5y/jA7BkXt4Fugdj08AOgR1K0rySymnKZ1jOrxir8aPfA13y6wxDGEG8
+	aQsQCHsvJpvlEpeKGo6wsHdDwt6k8gc1RmbrGoSZppmJ5k1A1oEVjrRnNs+dqzDCsLoQFdCrJnh
+	cnBtoU8AZmJU8nP1zSoLfwySUzhU+o1Re+uWWIhGnkHJDwHfAz02FLiQp1uBSC6r1+X5H0BPW2B
+	4RQLc93/6qNDJ91ZTWGSv84FbhayS7tAOiDwfcZDOV4A2X8+NjJ7pe+6s2dBfT9L+0HCU45FSzd
+	nad3wZPDWlXVfQ1tZrvcPLDjGNVv9MqGlS1OR9s78CNNX4N4CUSd9+q8qo4QgaBdod8FMaxxEKD
+	eG7DFvKMygGOoBAJZbSs4fhZMxNgO08j6tn25rbwndVGA8gZIclTzCTLJP4+Srs5JBg+8ucdLNJ
+	BheUzEbFunOguVWIEtIhHUWJyvweYtg0MuE2lU2AUSu2NowhY3z+ePtDns4Cc/96/rO9IXRJ+CV
+	g==
+X-Received: by 2002:a05:6a00:1994:b0:842:2efa:5fac with SMTP id d2e1a72fcca58-842b0a84dfamr13614984b3a.0.1780886437636;
+        Sun, 07 Jun 2026 19:40:37 -0700 (PDT)
+Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842824a1cb4sm19310520b3a.26.2026.06.07.19.40.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Jun 2026 19:33:00 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: zhengxingda@iscas.ac.cn,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v3 5/5] drm/verisilicon: add DCUltraLite chip identity to HWDB
-Date: Mon,  8 Jun 2026 10:32:37 +0800
-Message-ID: <20260608023237.305036-6-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260608023237.305036-1-a0987203069@gmail.com>
-References: <20260608023237.305036-1-a0987203069@gmail.com>
+        Sun, 07 Jun 2026 19:40:37 -0700 (PDT)
+From: Kyle Hsieh <kylehsieh1995@gmail.com>
+Date: Mon, 08 Jun 2026 10:42:08 +0800
+Subject: [PATCH v5 1/2] dt-bindings: arm: aspeed: add Meta ventura2 board
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260608-ventura2_initial_dts-v5-1-37ee5bcf58b6@gmail.com>
+References: <20260608-ventura2_initial_dts-v5-0-37ee5bcf58b6@gmail.com>
+In-Reply-To: <20260608-ventura2_initial_dts-v5-0-37ee5bcf58b6@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Kyle Hsieh <kylehsieh1995@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=909;
+ i=kylehsieh1995@gmail.com; h=from:subject:message-id;
+ bh=J3z5h5jN99f1BFk7jnvt5xoq1tLRgjc3X0kRzaksvsA=;
+ b=owEBbQGS/pANAwAKAaWDQrcJVsSBAcsmYgBqJiwEHsoVl4XOLzeORZ91RcLER02EI4M9I/iHZ
+ 9PYK+Fuq8+JATMEAAEKAB0WIQTJHsaNZOdY+THGqJelg0K3CVbEgQUCaiYsBAAKCRClg0K3CVbE
+ gbRdCACPE3XhgkbTVANCrtQpf2oP0lX8RvR/Vhcd6UN7TXYrajkCg7mmzR+0rYrPKVh2vJZKo1i
+ tsQxFq2BgoJMTuWQPfPk202YQfqyXHM5D+sL5lN+/GkZO+z+i4sYn7/9QD4CI3xZZdYsSDpLS9x
+ YdDQFBsHiU2IA6yAxK4abG0mR9RJoS65tafdFx45hv52vug+S3UajteRji1GOS6eElc0jOb9ICH
+ aMpx9wbfKzQUFFQDmH5SKXNF7y8tWMWPRHuONs0BUsmp7iCcMc/P3KV8xIWxc9ot+NQwUAAf2Mo
+ wTKdD7/sMe5RSsjdKuhp3YDGeMnNiO7KyHJwv1p7VxnsCKTw
+X-Developer-Key: i=kylehsieh1995@gmail.com; a=openpgp;
+ fpr=C91EC68D64E758F931C6A897A58342B70956C481
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_193302_215178_5ED7BE70 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260607_194038_371215_4B1E9D0E 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,46 +117,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register the Nuvoton MA35D1 DCUltraLite chip identity in
-vs_chip_identities[]:
-  model      = 0x0   (DCUltraLite; Verisilicon uses 0 for this IP)
-  revision   = 0x5560
-  customer_id = 0x305
-  generation = VSDC_GEN_DC8000
-  display_count = 1
-  max_cursor_size = 32
+Document the new compatibles used on Facebook ventura2.
 
-Placing this entry last makes it the gate that enables MA35D1 hardware
-recognition only after all the supporting ops and DTS changes are in
-place.
-
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
 ---
- drivers/gpu/drm/verisilicon/vs_hwdb.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c b/drivers/gpu/drm/verisilicon/vs_hwdb.c
-index 91524d16f778..7d630a667a3f 100644
---- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
-+++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
-@@ -129,6 +129,16 @@ static struct vs_chip_identity vs_chip_identities[] = {
- 		.max_cursor_size = 64,
- 		.formats = &vs_formats_no_yuv444,
- 	},
-+	{
-+		.model = 0x0,		/* DCUltraLite */
-+		.revision = 0x5560,
-+		.customer_id = 0x305,
-+
-+		.generation = VSDC_GEN_DC8000,
-+		.display_count = 1,
-+		.max_cursor_size = 32,
-+		.formats = &vs_formats_no_yuv444,
-+	},
- };
- 
- int vs_fill_chip_identity(struct regmap *regs,
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 9298c1a75dd1..d48607c86e8e 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -92,6 +92,7 @@ properties:
+               - facebook,harma-bmc
+               - facebook,minerva-cmc
+               - facebook,santabarbara-bmc
++              - facebook,ventura2-rmc
+               - facebook,yosemite4-bmc
+               - facebook,yosemite5-bmc
+               - ibm,balcones-bmc
+
 -- 
-2.43.0
+2.34.1
 
 
