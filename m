@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C5ECD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 20:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A65ACD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 21:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70yQ8bv6MXX6iZNUydJIVV6T4ubI6+gm2CGCrTBA49k=; b=X28kvlyCpoveo8JSR1hoZvfHsR
-	/4+lyGXqspgxl+0KgFkCZPYcakCRM7patE4c33/xgaoMpwNUQjBEjBzweLbYvDvYTLVKJTO4Y206Z
-	UYz5VMnNrmK2fzMwC0vEzkQ3IRY/bD+THC5u1fOCTf3aFUxJIEo0YtHNm3FbyJCuDTW0K3W8S8pgX
-	9JAwm14q/937grhOW2cdktWZhws4SF0boBEbTbBGV+R2Wwjee9DGf7F7XACdMTmy8cdsCA8WB2byi
-	SBKpOi9hzNh8Qrd9b4ehVwsQRW8BxTwnlk96RUPLbLi+ZtHFqyjTDbcpuJr/NiNl5DwHHZ1EoLloR
-	uCyI93mw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rzfx3/2Lg9FedtoMYav8nQPZl3cNmNWSkqzUmxYUKB0=; b=gL2glWxSBTQq1pHCAcfUH/cfMd
+	2vmc7WH4O5mCnplP0LQmhJmONg6tjOsiWp+9b4qPLL9xNKeeMCC3dnraxFDe09iz6Epo2r1IpD7Cn
+	mlGyJ4iyjmB0V2PJ23vSxxTtotZM/CDpMvCD2SMoNgMI2vJHUNKL9krgB7YEJOV3wBe3oAt6cHkCx
+	incaycNX50oZTca6/Ah/QzdiOhE5qztzXSrB0uuhyqg/65f+tKUiyqdBTr9hGeo1TUu1UmTIKb9/v
+	dt/w1C52X9uIJXbc4s6KAi5bISG2yedi6h6m8kML1K/ZeETTURIdrFIesOjm3ajU29KXd/CPKn6p2
+	FMyHL4bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWh1P-00000004Oy8-25ci;
-	Mon, 08 Jun 2026 20:56:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wWh6o-00000004PJK-1832;
+	Mon, 08 Jun 2026 21:02:10 +0000
+Received: from out16-31.antispamcloud.com ([185.201.18.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWh1O-00000004Oy2-15S7
+	id 1wWh6m-00000004PIu-1k8y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 20:56:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0BC7A441FC;
-	Mon,  8 Jun 2026 20:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95DE81F00898;
-	Mon,  8 Jun 2026 20:56:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780952193;
-	bh=70yQ8bv6MXX6iZNUydJIVV6T4ubI6+gm2CGCrTBA49k=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=eR47QBVsHXZofLip9psUhAEnJrLLtQG1WcQaS99HSCHBV53YzYm+blVy7j8+kbzZ7
-	 Q9M8nHmXB59YFS7MdufUstexwinSKiuHcEjyRGxK4CDnNm9Qm4yBYuz1vRqyZ3mvBa
-	 GccUyYvJywY6USo19PRp5QdpnawpUaq557jtYBld4TidI/Nj51kvCfqUlfTaFiGqqB
-	 +rZ63Pn+02o+uOvCfxUuzg6VNbFUm39lX+k5q8KpISDNMnWD71nGgapFS8yts9eg3O
-	 W7xZjL2mdpWa+9IBKad7rexyEkTltb0hYLFtHj1Nw1/tpogLo0qfp8S96Oygopcsy1
-	 8858O1wu1Rwfg==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id DC87AF40076;
-	Mon,  8 Jun 2026 16:56:32 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Mon, 08 Jun 2026 16:56:32 -0400
-X-ME-Sender: <xms:gCwnamS-Sdh-YcyPO4Ia3Yuwi6UKP5FW-vIq-ajIGnUKA_CH1i-tQA>
-    <xme:gCwnamm8MnBYju7x_HSA3yjOfj9Ofqd0m_c4hhsvMFji4DI1jbBDwidn6DNtdP2Mu
-    VvMG7p9KjiMF-q7N6dUhsfEvRhQSYSVSCXYmfW_8sLULNAlROsrNA>
-X-ME-Proxy-Cause: dmFkZTFJOFEcoyxJXRx69v+XjpS3PUhyEfjQZwp9H//NHMrCE2uXMekYtl2BZHZkNYEiRZ
-    FtwdZqKXunw/EDn2+6uTGj6xx+Wa/qzaaRBZTT6LTQIJFVJTZKLg9VPmVLHtgnubDJlJCN
-    BaWYITFrqjlUcreT3NJH24hkEuA1lqvdu7CM6jrZmatWLa5W6yliP2TGFXXxshM6huhUEI
-    cYpnOqtRNqmdApnKN8+RI1QLkldOhTzBehayEUln6z3FzBavBEJI1nYUuAJf5Gv2JmpX+G
-    Nne340WcWmc5XlBTfziac/FROmqWI2Y29n61Fqi3s+RW2uoyB7OWe50ch+OWkf0S8d69cD
-    1q+7NCa6T0FohD1UT0f8EQnrHsECgu+xt616ZYSh2S9AN8jVxyOooa4ejDtl/l82xYu0IR
-    Wh1jtHdbZJeIV7qvFhrbNqEKMwV3aaeWgDh7uuSh4QcsgNJVYl89SLBI+FmRsy4sv1ffi6
-    fIjaIzdcQQN+ZDToMmhOs486+ZZc8fV95YN1zIc3lJU8dyv7PeBWcCtLzJYHzI+DnSWcyT
-    2yYLS0jjYpsWdq9kLK3vclLNxE5R/vnS9Xgng83c9iGw989NETmZlSjmVtdEgXg+OGe59S
-    fkQsOF2IhF/iODFYtnhUwGstH4iWz8jxep4tfMDLImQvkUzIq72RmHaiGvyw
-X-ME-Proxy: <xmx:gCwnalIcnsMZucKYGxMSNqqv8zgrCpz0NdTK9q9JxTfcw4BaBTkCJw>
-    <xmx:gCwnah0pCx6acIcQuAj4hGC62xv59Vg0n1TbmLQ2gEtVnyPF_zebqA>
-    <xmx:gCwnar5jISbKO6Eq0OKR5yAvyb-1Pqlcu6-mD5ss43zQ6yGyJM-fVg>
-    <xmx:gCwnaq-LSUWeNjivbKcVoj0UUFW2hbnuLgguK7GHOsujSuy08JnZMQ>
-    <xmx:gCwnaiUP_o5AbGGbc_I5fwQuvCc_zsF-iyKAGHTuufLIbOkX4cCT9ti7>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BDBC31820082; Mon,  8 Jun 2026 16:56:32 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 08 Jun 2026 21:02:09 +0000
+Received: from s1041.use1.mysecurecloudhost.com ([192.250.231.249])
+	by mx199.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <dan@reactivated.net>)
+	id 1wWh6f-004mve-0F; Mon, 08 Jun 2026 23:02:04 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=reactivated.net; s=default; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rzfx3/2Lg9FedtoMYav8nQPZl3cNmNWSkqzUmxYUKB0=; b=G37tR6IJQC4ThP9e1mxPGfn8DA
+	qIFuCw+JS7LoPaGBorrrKy6yZ99pfq5Spb6dSbm9sbt2mb4LrHMr0HxeXHUwKUY+OfEvMIMeC74We
+	JrSfKGxOyui0kJ8ZdP/oyKByyAcmsLfGT/nHpujuQhhuFqWgyCo4yH07uxA7u0B3QKhigdE3h0qAI
+	ablDBrKJH5z/naPJpqcbFZ5IvVCtpB+9o6t81/cR0JEZFuhHj44OQc2W2coB1JlWSqdoF5yk0FxwW
+	keBMEQTiWcdymI4IMdwxusicGkXjfX4nLXFJLU9UIn0kXMUFdzTs5SYCJpveDS0z5f/aL+5432ek7
+	j2dlpr8w==;
+Received: from [188.251.249.2] (port=48646 helo=numbers)
+	by s1041.use1.mysecurecloudhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <dan@reactivated.net>)
+	id 1wWh6Y-000000022ez-3X24;
+	Mon, 08 Jun 2026 21:01:54 +0000
+From: Daniel Drake <dan@reactivated.net>
+To: linusw@kernel.org,
+	brgl@kernel.org
+Cc: linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Drake <dan@reactivated.net>
+Subject: [PATCH v2] gpiolib: handle gpio-hogs only once
+Date: Mon,  8 Jun 2026 22:01:08 +0100
+Message-ID: <20260608210108.36248-1-dan@reactivated.net>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Date: Mon, 08 Jun 2026 22:56:12 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Marc Zyngier" <maz@kernel.org>, "Mark Brown" <broonie@kernel.org>,
- "Will Deacon" <will@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>
-Cc: "Oliver Upton" <oupton@kernel.org>, Aishwarya.TCV@arm.com,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <8eac5e73-282d-4c72-b726-0c5c82fc81f0@app.fastmail.com>
-In-Reply-To: <87tsrc946i.wl-maz@kernel.org>
-References: <aicVyebkEMs6w6UV@sirena.co.uk> <87tsrc946i.wl-maz@kernel.org>
-Subject: Re: -next boot failures during KVM setup
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Get-Message-Sender-Via: s1041.use1.mysecurecloudhost.com: authenticated_id: dan@reactivated.net
+X-Authenticated-Sender: s1041.use1.mysecurecloudhost.com: dan@reactivated.net
+X-Originating-IP: 192.250.231.249
+X-Spampanel-Domain: s1041.use1.mysecurecloudhost.com
+X-Spampanel-Username: 192.250.231.249
+Authentication-Results: antispamcloud.com; auth=pass smtp.auth=192.250.231.249@s1041.use1.mysecurecloudhost.com
+X-Spampanel-Outgoing-Class: ham
+X-Spampanel-Outgoing-Evidence: Combined (0.05)
+X-Recommended-Action: accept
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuXD8nP0t5KbJKt1nTB5RgjSropx1bgdiqtr
+ ZszKkmfHPCu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
+ M0i5ZAms0EHrvcCaVIMNMtFmNil/JOMFlKm1w9vmGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
+ EetczWAg1NJkF77+oGQ+lxJlCrsUeB7itP8hgjDRserKv4bhb0/SRhwoSlflSk9103+2bwRWBb39
+ uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKclZzoe+TZdeH39wA4E
+ grA4pE2PuLHIFQdBY9qb1rRWgyz0f29FZkQs6Ir87R/YNAvW7iH+6DoE8NeDBUxImZIxHxsBXq5d
+ 3sVlH8/8/BVjaCxdqoPv0tTPBZ82RqaKH6ZJMkXL9fD6+WIpcQ2t8oQM/WEMAHr5BYwqeYfWeqTu
+ 1YC/tOVjI4dWyTvfTQXGjT+aEfC5mTBtCltny75g3MKubALAOajlmHbHzeutXs2uHosTaX/E9TB8
+ 42c3huE/T1c93SsS4aMXJmiJ2G0eb5ahq2kqyMRk6DLUUjpi54Q90umYmC9jerRVX9sTO+FXU2n4
+ L0nk+TooPV1h2BXu3/c8Dfd/7JO6UaIAUVkvSizih0TzynhIhk347ucixeDFxznIHYi/jghIJpVk
+ vIZQze0B3kz8gN6WZ2gYjiDJZ8+Xhccq6eblGj9pTfEleg7j+bhXujwKUFU8sFr6iwXfZAUpoMJ6
+ ZvLBGAuQy7kKe35X8A4hD1HJK3j/SWnY9PEN+60i4mPHPjd3IwkPyc5LFKq/kOGb0cYHyPY2j2dm
+ 0K42EWNTFNprR2YbHabvwl5Tonl6S6BRBSooSF0jYMHjtHZIXlwnafkB5tRGEHfx/aXf18fhf5LC
+ X5mVYquwf/zw2es8CVsONrMJuGzuoGnKTKcyg3bcd7cgjVVOyYbTvAjTK9NRUZyZh3i1BVa95w3H
+ U/64kfarWNx6rm5P0Cgcvjq6fukZTu7P1CHYFiX+k4WJzymhN1wTLjVDHau03TfE9xTeNHk15Vol
+ AGHS5rCXQKDy0SfOZK4LO/8RiwiQiWEeCWHDWbQkk7jdCVxF0EZ0jGH7WQnM6idBM1wpwQ7gvWTg
+ fukZTu7P1CHYFiX+k4WJz5FUgW/lUuMzise8yz5SBwf2OKHH5lr9xXvSM4nM3avg
+X-Report-Abuse-To: spam@quarantine16.antispamcloud.com
+X-Complaints-To: abuse@master.antispamcloud.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_140208_486046_1F3B0579 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,86 +107,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit d1d564ec49929 ("gpio: move hogs into GPIO core") introduced a
+behaviour change that breaks boot on Raspberry Pi 5 when using the
+firmware-supplied device tree:
 
-On Mon, 8 Jun 2026, at 22:18, Marc Zyngier wrote:
-> [+ Will, Catalin, Ard]
->
-> On Mon, 08 Jun 2026 20:19:37 +0100,
-> Mark Brown <broonie@kernel.org> wrote:
->> 
->> I'm seeing boot failures on a range of physical arm64 platforms in
->> today's -next.  Turning on earlycon it looks like we're getting bad
->> pointer dereferences during KVM initialisation:
->> 
->> [    0.728923] kvm [1]: nv: 570 coarse grained trap handlers
->> [    0.735138] kvm [1]: nv: 710 fine grained trap handlers
->> [    0.741326] kvm [1]: IPA Size Limit: 40 bits
->> [    0.748840] Unable to handle kernel paging request at virtual address ffff00000478e000
->
-> That really doesn't look like a duff pointer.
->
->> [    0.757027] Mem abort info:
->> [    0.759917]   ESR = 0x0000000096000147
->
-> Translation fault, level 3. My take is that something is getting
-> unmapped.
->
-...
-> I've reproduced with -next on an A72 platform. But it doesn't happen
-> with kvmarm/next on its own. So it is likely something coming from
-> another tree that messes up with CMOs, or .
->
-> The stack trace here is slightly better:
->
-> [    0.099138] Unable to handle kernel paging request at virtual 
-> address ffff0023d9ead000
-...
-> [    2.136462] Call trace:
-> [    2.138896]  dcache_clean_inval_poc+0x24/0x48 (P)
-> [    2.143592]  init_hyp_mode+0x644/0x960
-> [    2.147333]  kvm_arm_init+0x128/0x280
-> [    2.150987]  do_one_initcall+0x4c/0x458
-> [    2.154813]  kernel_init_freeable+0x1f4/0x2a0
-> [    2.159161]  kernel_init+0x2c/0x150
-> [    2.162642]  ret_from_fork+0x10/0x20
-> [    2.166210] Code: 9ac32042 d1000443 8a230000 d503201f (d50b7e20) 
-> [    2.172292] ---[ end trace 0000000000000000 ]---
-> [    2.176958] Kernel panic - not syncing: Attempted to kill init! 
-> exitcode=0x0000000b
-> [    2.184608] SMP: stopping secondary CPUs
-> [    2.188523] Kernel Offset: 0x47dbd5dc0000 from 0xffff800080000000
-> [    2.194604] PHYS_OFFSET: 0x80000000
-> [    2.198080] CPU features: 0x04000000,804b0008,00040001,0400421b
-> [    2.203988] Memory Limit: none
-> [    2.207031] ---[ end Kernel panic - not syncing: Attempted to kill 
-> init! exitcode=0x0000000b ]---
->
-> This points to the following code in kvm_hyp_init_symbols():
->
-> <quote>
-> 	/*
-> 	 * Flush entire BSS since part of its data containing init symbols is read
-> 	 * while the MMU is off.
-> 	 */
-> 	kvm_flush_dcache_to_poc(kvm_ksym_ref(__hyp_bss_start),
-> 				kvm_ksym_ref(__hyp_bss_end) - kvm_ksym_ref(__hyp_bss_start))
->
-> </quote>
->
-> which I suspect is related to some of the new BSS related code in
-> arm64/for-next/mm.
->
-> Ard, does this ring a bell?
->
+  gpiochip_add_data_with_key: GPIOs 544..575
+    (/soc@107c000000/gpio@7d517c00) failed to register, -22
+  brcmstb-gpio 107d517c00.gpio: Could not add gpiochip for bank 1
+  brcmstb-gpio 107d517c00.gpio: probe with driver brcmstb-gpio failed
+    with error -22
 
-Haven't seen this myself, surprisingly, but yeah, this is obviously related.
+gpio-brcmstb registers two gpio_chips against the device tree
+node gpio@7d517c00, one for each bank. The firmware-supplied DT includes
+a gpio-hog on RP1 RUN, and this gpio-hog is attempted to be applied to
+*both* gpio_chips. This succeeds against bank 0 (which hosts the GPIO)
+and fails for bank 1 (which does not).
 
-By now, I am wondering if unmapping that region entirely is really worth the
-hassle, or whether we'd be better off just remapping it read-only.
+In the previous implementation, failures to apply gpio-hogs were
+quietly ignored. In the new code, the error code propagates and causes
+probe to fail.
 
-Given we're at -rc7, I'd lean towards dropping the whole branch for now, or
-alternatively, only drop/revert "arm64: mm: Unmap kernel data/bss entirely from the 
-linear map" (and its followup fix "arm64: mm: Defer remap of linear alias of
-data/bss") so that the region always remains readable via the linear map.
+Closely approximate the previous behaviour by using the OF_POPULATED flag
+to ensure that each gpio-hog is processed only once. The flag was
+previously being set before the gpio-hogs were processed, so as part
+of this change, the flag now gets set only after the gpio-hog is actioned.
+The handling of gpio-hogs on a DT node with multiple gpio_chips remains a
+bit incomplete/unclear, but this at least retains the ability to apply
+hogs to the first gpio_chip per node.
+
+Signed-off-by: Daniel Drake <dan@reactivated.net>
+---
+ drivers/gpio/gpiolib-of.c | 5 -----
+ drivers/gpio/gpiolib.c    | 8 ++++++++
+ 2 files changed, 8 insertions(+), 5 deletions(-)
+
+v2: move OF_POPULATED flag setting to happen after the gpio-hog has
+been applied (otherwise all hogs were considered already-applied
+and never applied at all, oops!)
+
+This bug is only exposed by the RPi5 firmware-provided DT that has the
+gpio-hog. The DT shipped in the mainline kernel does not have the hog
+here. I'm not sure to what extent Linux cares about supporting the
+downstream firmware DT.
+
+I'm also happy to consider other approaches. This multi-gpiochip setup is
+a bit weird and gpio-brcmstb could perhaps be converted to register only a
+single gpio_chip covering all banks. I verified that the other drivers
+that obviously follow this same multiple-gpiochip pattern
+(pinctrl-amlogic-a4, pinctrl-st and pinctrl-stm32) do not seem to be used by
+any board DTs that include gpio-hogs.
+
+diff --git a/drivers/gpio/gpiolib-of.c b/drivers/gpio/gpiolib-of.c
+index 2c923d17541f..813dbcb91f6f 100644
+--- a/drivers/gpio/gpiolib-of.c
++++ b/drivers/gpio/gpiolib-of.c
+@@ -1066,11 +1066,6 @@ int of_gpiochip_add(struct gpio_chip *chip)
+ 
+ 	of_node_get(np);
+ 
+-	for_each_available_child_of_node_scoped(np, child) {
+-		if (of_property_read_bool(child, "gpio-hog"))
+-			of_node_set_flag(child, OF_POPULATED);
+-	}
+-
+ 	return ret;
+ }
+ 
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 1e6dce430dca..b02d711289d0 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -1031,9 +1031,17 @@ static int gpiochip_hog_lines(struct gpio_chip *gc)
+ 		if (!fwnode_property_present(fwnode, "gpio-hog"))
+ 			continue;
+ 
++		/* The hog may have been handled by another gpio_chip on the same fwnode */
++		if (is_of_node(fwnode) &&
++		    of_node_check_flag(to_of_node(fwnode), OF_POPULATED))
++			continue;
++
+ 		ret = gpiochip_add_hog(gc, fwnode);
+ 		if (ret)
+ 			return ret;
++
++		if (is_of_node(fwnode))
++			of_node_set_flag(to_of_node(fwnode), OF_POPULATED);
+ 	}
+ 
+ 	return 0;
+-- 
+2.54.0
 
 
