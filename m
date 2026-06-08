@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EA7CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 18:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82418CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Jun 2026 18:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pIqTdl36Y/WI7M7gGI5vXO46nocZuRjABb/SuQlLEJU=; b=CTwsLTXLULfadvkNKExNqWhqTh
-	BE3/8N7u61FwHK9BfKAYJOOt8bgn/4t7lv1uFKa/jSO4KipCqnJi09XadNdTPhpXW7lNPMEyrXzT1
-	jzDgeeFnHvmOqPAX9n5wfyEVhjM1TkUpJw94Dc1o4HuWUUhTTsjjcGbKKNX728Crpaerpi/C6UxBo
-	Egi9pKwGaTV8MK5TPgi+/l4YsAMmNzx8P3bZgnBkOa5B0zemJDGZ2PbAiFlXtXEMgWkN8hHR7Ki/6
-	NChz5TIGA67hSuvTzHfXME0ERO84zWsNpyeVbjXyLS7pwnkzKAOEcfElg7CLSvRBTK0/0tWQmNZGr
-	KkZjxWxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vv7cu92kT3EkQWt1MwDwvI+WPcoEimPtartjkzaIjvw=; b=FySoSQujOSx04Fy8MY0tzQB1G5
+	D2I8rGzBgrTadX+3sAlDRvzSGbsgzx752NOJJHb2qVR/VRDeQgyYOnRgBQDRl7f7FjbsNBKhTae5b
+	zYvKLiVSJpFiht9tRYPTwo6Psum+oFamqewKQIYyEPpMoRwe3ZTWVqB8DErUN/wiG9ySEKjqAgue2
+	JBcMtSrmbJbocdTYPkJUcdmHzwRg6AFUNFCbLzVp60qzwzP86WQ+B3tALMYow7ZVI1q+dxuZxxywZ
+	mrn1EQeLFzSCSko1daDXBXV0vAyFjBHhVWa1i0iXDuwM0jy+GsAI+QVZVnVPoh2EtuR61lnsFu8ui
+	Qs/GSvIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWeaI-00000004Gc3-2lxb;
-	Mon, 08 Jun 2026 18:20:26 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1wWehT-00000004Gz8-1mBX;
+	Mon, 08 Jun 2026 18:27:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWeaG-00000004Gbg-28j8
+	id 1wWehR-00000004Gz1-3As8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Jun 2026 18:20:25 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-91563382bcfso539518085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 11:20:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780942823; x=1781547623; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pIqTdl36Y/WI7M7gGI5vXO46nocZuRjABb/SuQlLEJU=;
-        b=gzibzittGSPSOEBYHgu906MysnErbvl+p8HBKqLvp/f4jGbjRL/hZylnusOd2RD/TO
-         iwvtZ7hn4VH15cIgnbzgGI+vv6p6rTk+Hc+nOKi28SDpm9r7O0jp3u9NgmUrlWb31oo+
-         XVEzr663gkzi3H6ql02NYHAsRsp7JPmJbEZsZlmRxHD/b9RLw7USGeTWtTlNIX/jEj8q
-         +joQ7gM81llej9m+f8UlMVPQG98MpQ/haZym83am6GZP8tjJ/2CbNcauljVVp5GCh+03
-         ry9IDrqxaX5rWDrOgZVdyRpyxa8xq3dljVtbetHb1SPACvrtc/B1HzDh6TlWtz3NTVR+
-         Ho7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780942823; x=1781547623;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pIqTdl36Y/WI7M7gGI5vXO46nocZuRjABb/SuQlLEJU=;
-        b=VIJWQ9jWRr4vRtrkMGIbM3RULMATwme30HvmwOV/b2IYPPHtJ9uJ6frw50pFWRMF6X
-         Fsv86KafUsDWtjzATO5cF/5AoahaQjeOOFC3rVtiZTztbrNU6GuHIUP/valR3kuPpDq8
-         1aymdbtuvEt63ZV23RbfV5M6CzBMPXj01LXRlAHP19M4dmAb3DMdYuupuctuC24eBf01
-         qeG53bQlW60OBAdMFN4h+/dqmOePCLRHkOvf8p4hpmIqOzYsVwX7B5BCYGQCQ1SWnXAU
-         S8xm561JwewhinMwbXbUPSS4fift97YT0viCDTPjGJdp4u4IoB+9hPGXQ6sP7fDdsLxc
-         Hkbg==
-X-Forwarded-Encrypted: i=1; AFNElJ96oLRZotpSn6YB/GvRzM5paEyvoZv/Epwf3qeW5T3ipSGVR93wbpf23KXXlYdbkziszWDc54TISePnmS5Eqhjo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yycc1qYriSDTCIheW4JsOJJRvagd5Bo9GL6QystRUVhDIrFIo84
-	FgnBwCOlsy6I+iQwaSrRikAGCgRGXXeYeFmiPPDl5l9kvySwwcLpYftDMr1pH1ubc/8=
-X-Gm-Gg: Acq92OHbJ1m2iKFgA+k7xokC0rgXhAmAKvoliBUre03FQ2J3kxYb17c+2pAHWEUqyWl
-	lV6ktmw0Xem11tG/yFCGWhaeueLCVv3NXweRlhc5a6R1kZ124CC0blqSqFnIfVyf21bE8aisDe3
-	gsyqfttwlmfekJ5y3ESDrh9dD92TRbNMS0Klu3Wjr+AeQYL4ZXsWENM8tTYesPyctnD1WcIBVHp
-	O/daCe3f1ZQvFKKDbq0rx+uxz9P7MYQTmvAp2frv+xFZCyMZbRYk0aXrEpdjbDss8701h1raJbR
-	nntbv5WQuZZudLF42IpNuZcKaE6mR/V+G1o3Te0uvb1OV5FlnE83hYhW+HgTh50fRr0UTBFlYQa
-	xIaI+rLj7eAGIXhEdsnSrCwXHfOx3GFdx7RL2eiVa09T4Covui2sbxQX2RoFs5oj8ZomUEYj8sL
-	H0fa559hQeVlwL9MD0nbMr5NRHxSRFkXXJ7uB0nXR9qqY5eOISlvo=
-X-Received: by 2002:a05:620a:bcb:b0:915:9125:e649 with SMTP id af79cd13be357-915a9df2c0dmr2633482185a.44.1780942822814;
-        Mon, 08 Jun 2026 11:20:22 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a3c764asm1846350885a.37.2026.06.08.11.20.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 11:20:22 -0700 (PDT)
-From: Yuho Choi <dbgh9129@gmail.com>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Boris Brezillon <bbrezillon@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <dbgh9129@gmail.com>
-Subject: [PATCH v1] clocksource/drivers/timer-atmel-pit: Fix init failure cleanup
-Date: Mon,  8 Jun 2026 14:20:15 -0400
-Message-ID: <20260608182016.99715-1-dbgh9129@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 08 Jun 2026 18:27:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 49083407A8;
+	Mon,  8 Jun 2026 18:27:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86D931F00893;
+	Mon,  8 Jun 2026 18:27:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780943269;
+	bh=vv7cu92kT3EkQWt1MwDwvI+WPcoEimPtartjkzaIjvw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GH0B0Usv2O9RNKcibpuQKE0FRIIdkXX5LrtIy9hWwY4fUZzmJTuHa4TTW+IEN5dbo
+	 cOd3kwRdzCruY+Iw8tKdVApAXwftecEf5p61znQUqNKkIr7MfxvP6z9yqlwHdhEqPR
+	 tNjdbgSPN1L2Z91VnEL/6ULEa3CrDQYc9NHbyTkxmvEF2GYlQxm6fsple817pNUdEU
+	 dRbuzJwerNQUEsRstquEiQWpqT71r1W/FUK+OHMSzX+DNfKXH2z1GktyRovuKYLUwt
+	 8t9Y8FsnqhljjeJogaWtnoiLHHXOIH2phr/Sij4coTbBZrD45hVoPNu6OFWKP1QDBt
+	 sSsSBHpTpQHxQ==
+Date: Mon, 8 Jun 2026 20:27:46 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Guillermo =?utf-8?Q?Rodr=C3=ADguez?= <guille.rodriguez@gmail.com>
+Cc: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Wolfram Sang <wsa@kernel.org>, linux-i2c@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] i2c: stm32f7: fix timing computation ignoring
+ i2c-analog-filter
+Message-ID: <aicJig0ySoUV5pw1@zenone.zhora.eu>
+References: <20260526091210.20383-1-guille.rodriguez@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-15
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_112024_558817_C8BB043D 
-X-CRM114-Status: GOOD (  13.70  )
+In-Reply-To: <20260526091210.20383-1-guille.rodriguez@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,96 +73,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After clk_prepare_enable(data->mck) succeeds, at91sam926x_pit_dt_init()
-can still fail while parsing the IRQ, registering the clocksource, or
-requesting the IRQ. These paths only free the driver data, leaving the
-master clock enabled.
+Hi Guillermo,
 
-Unwind each initialized state on failure. Stop the PIT after it has been
-started, dispose the IRQ mapping after it has been created, disable and
-put the master clock, and unmap the registers before freeing the driver
-data.
+On Tue, May 26, 2026 at 11:12:09AM +0200, Guillermo Rodríguez wrote:
+> stm32f7_i2c_compute_timing() uses i2c_dev->analog_filter to pick
+> the analog filter delay, but i2c_dev->analog_filter is parsed from
+> the "i2c-analog-filter" DT property only after the compute_timing
+> loop in stm32f7_i2c_setup_timing(), so in practice the timing
+> calculations always ignore the analog filter. On an STM32MP1 board
+> with clock-frequency = <400000> and i2c-analog-filter set, measured
+> SCL frequency was ~382 kHz.
+> 
+> This also affects (widens) the computed SDADEL range. At high bus
+> clock speeds, this can select an SDADEL value that violates tVD;DAT
+> (data valid time).
+> 
+> Fix by parsing "i2c-analog-filter" before the compute_timing loop.
+> 
+> Fixes: 83c3408f7b9c ("i2c: stm32f7: support DT binding i2c-analog-filter")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guillermo Rodríguez <guille.rodriguez@gmail.com>
 
-Fixes: 699e36e5b8e9 ("clocksource/drivers/timer-atmel-pit: Enable mck clock")
-Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
----
- drivers/clocksource/timer-atmel-pit.c | 21 ++++++++++++++++-----
- 1 file changed, 16 insertions(+), 5 deletions(-)
+merged to i2c/i2c-host-fixes.
 
-diff --git a/drivers/clocksource/timer-atmel-pit.c b/drivers/clocksource/timer-atmel-pit.c
-index 888b06731e54..edd427ab93e6 100644
---- a/drivers/clocksource/timer-atmel-pit.c
-+++ b/drivers/clocksource/timer-atmel-pit.c
-@@ -12,7 +12,9 @@
- #include <linux/clk.h>
- #include <linux/clockchips.h>
- #include <linux/interrupt.h>
-+#include <linux/io.h>
- #include <linux/irq.h>
-+#include <linux/irqdomain.h>
- #include <linux/kernel.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -185,13 +187,13 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
- 	if (IS_ERR(data->mck)) {
- 		pr_err("Unable to get mck clk\n");
- 		ret = PTR_ERR(data->mck);
--		goto exit;
-+		goto exit_iounmap;
- 	}
- 
- 	ret = clk_prepare_enable(data->mck);
- 	if (ret) {
- 		pr_err("Unable to enable mck\n");
--		goto exit;
-+		goto exit_clk_put;
- 	}
- 
- 	/* Get the interrupts property */
-@@ -199,7 +201,7 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
- 	if (!data->irq) {
- 		pr_err("Unable to get IRQ from DT\n");
- 		ret = -EINVAL;
--		goto exit;
-+		goto exit_clk_disable;
- 	}
- 
- 	/*
-@@ -227,7 +229,7 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
- 	ret = clocksource_register_hz(&data->clksrc, pit_rate);
- 	if (ret) {
- 		pr_err("Failed to register clocksource\n");
--		goto exit;
-+		goto exit_pit_disable;
- 	}
- 
- 	/* Set up irq handler */
-@@ -237,7 +239,7 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
- 	if (ret) {
- 		pr_err("Unable to setup IRQ\n");
- 		clocksource_unregister(&data->clksrc);
--		goto exit;
-+		goto exit_pit_disable;
- 	}
- 
- 	/* Set up and register clockevents */
-@@ -256,6 +258,15 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
- 
- 	return 0;
- 
-+exit_pit_disable:
-+	pit_write(data->base, AT91_PIT_MR, 0);
-+	irq_dispose_mapping(data->irq);
-+exit_clk_disable:
-+	clk_disable_unprepare(data->mck);
-+exit_clk_put:
-+	clk_put(data->mck);
-+exit_iounmap:
-+	iounmap(data->base);
- exit:
- 	kfree(data);
- 	return ret;
--- 
-2.43.0
-
+Thanks,
+Andi
 
