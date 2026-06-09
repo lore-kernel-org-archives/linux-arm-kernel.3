@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE4ECD8CAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F825CD8CAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DfwEQkFOR/ISCnGVWXbZ1uHPBV2amccjhWepZ+480bc=; b=h67SPZrymSyMU8XFuZwBbyhQG1
-	OZT4BqEiPyDdg8Uwv3mjT8FNu8hIrfW9Np+TOfWihllC35yndnpmC2yz+MlpMDts3eeQVItpzyD75
-	yEdUyCeMrLUa2oeEXMy1tH4ZKoXBkhf2iRzy704L3/XMd6UCXDsdTqhHky0zfl4BOiSqzVAtBdt/1
-	ZXEu6v/yZ71Aq1Ei3TWAm+SkFiEy94vlAbGhJKKxDKNWjvAclI/gbfKZrKW42z7SGO/9WTBzoK6+F
-	QPZB/Vrpoq/bDLy+/6rGBst+G8ro5CAZ/VtVyH04ubG+7VLxEDEpKDv0D8nXe0HpNKgsx7gQy7ddc
-	YlazZLpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pwx2gnjzoEu6wS23A8/5F0BeRt4mUzsviwvSFFA+naA=; b=s+zwTDAJFyvPjHN4US3fA8utZG
+	WZMp5XvKGQkJc9tby+mw4eU1o924wO1Mpx6d3IcBq1nyI9s2Uw18KF+2MBcerMOwfdSzjDL0wDbpy
+	xGanEF8l0LE6uAwtcYaZkSaQBP+Wy0RCyvNtZ5fTtDh01U5nz/Swo9VHYb61sxrf9V6HpXHwvaZsA
+	9VK4jCp4pqtcF5jqD0EQUNqtGYux0CbQY6Yo8+MzWy1vEQISQ2GNDx2+dXi9fePqWwt9S1/84E/BI
+	QqyESj6OkepmtmUJaHBZch9EhP8h7PFlx3I7Dlkc9RPYtNzz2Wwg34fSI0W7ur0380KBRyIicjC05
+	rM7PePgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWraJ-000000052M2-034I;
-	Tue, 09 Jun 2026 08:13:19 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wWrdA-000000052dS-1qmU;
+	Tue, 09 Jun 2026 08:16:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWraG-000000052LQ-1tY1;
-	Tue, 09 Jun 2026 08:13:18 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowACnAdUTyydqqErOEg--.7605S2;
-	Tue, 09 Jun 2026 16:13:07 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] net: ethernet: mediatek: fix refcount leak in mtk_probe()
-Date: Tue,  9 Jun 2026 08:13:00 +0000
-Message-Id: <20260609081300.208168-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1wWrd6-000000052d1-0oKW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Jun 2026 08:16:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 98880601E1;
+	Tue,  9 Jun 2026 08:16:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6B8F1F00893;
+	Tue,  9 Jun 2026 08:16:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780992971;
+	bh=Pwx2gnjzoEu6wS23A8/5F0BeRt4mUzsviwvSFFA+naA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dOGtJdAFu05vzTyBNYkhG2GJPMKtw828JD36nf94w2GGCiM54FlLj92vY85ZhQWzP
+	 IBGz6JOH74vtZ5Uuso2BrhmwZMZBhG0qbsFR7kdOII1mkcOL0OHzckvaCzqUsfx3MU
+	 1K0MugCOw9vD3D41NUdcQzPB3LU2qxGV0VQh4dxHfVyEXl7+Qu+em9GBxjDK840RTl
+	 Qk60eJI2nutYACIIyKpPbTI9yZVdz48EjF+KASGrJej24cnDZixytf2UFE5K9DSiMy
+	 77OAeX0T+sg7/7+3Hh5LX+9Z2/wQSCQF0zjq+up8njry9PhtLfx1eXqs6widOSyHM2
+	 znZiNvsg7kVyg==
+Date: Tue, 9 Jun 2026 10:16:08 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: aisheng.dong@nxp.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] i2c: imx-lpi2c: fix resource leaks switching to
+ devm_dma_request_chan()
+Message-ID: <aifLtWlPdLr7EEnj@zenone.zhora.eu>
+References: <20260520093323.2882070-1-carlos.song@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACnAdUTyydqqErOEg--.7605S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zw1DuF1rXFyDZr1xtry7Jrb_yoW8Jw4kpr
-	WUtayUCF95Jr13Ga1kua18XF1rAayrKry5Gr15Zw1fZ3s0yrW7JFyFqayjkFyIvrW0k3ZI
-	yrnFv39xCFyqvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr1j6rxdMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfU7TmhDUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAgNA2onpvyVpQAAst
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_011316_874950_FCBBAD49 
-X-CRM114-Status: GOOD (  11.85  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260520093323.2882070-1-carlos.song@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +71,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If mtk_sgmii_init() fails after successfully creating some PCS
-instances, it returns an error without cleaning up the partially
-created ones.  mtk_pcs_lynxi_create() increments the fwnode
-refcount for each PCS it creates, but this refcount is never
-released because mtk_probe() uses a plain "return err" instead of
-a goto to the err_destroy_sgmii label.  This leaks both the PCS
-devices and their fwnode references.
+Hi Carlos,
 
-Fix the leak by jumping to the existing err_destroy_sgmii path
-which calls mtk_sgmii_destroy() to safely release all allocated
-resources.
+On Wed, May 20, 2026 at 05:33:23PM +0800, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+> 
+> The LPI2C driver requests DMA channels using dma_request_chan(), but
+> never releases them in lpi2c_imx_remove(), resulting in DMA channel
+> leaks every time the driver is unloaded.
+> 
+> Additionally, when lpi2c_dma_init() successfully requests the TX DMA
+> channel but fails to request the RX DMA channel, the probe falls back
+> to PIO mode and completes successfully. Since probe succeeds, the devres
+> framework will not trigger any cleanup, leaving the TX DMA channel and
+> the memory allocated for the dma structure held for the lifetime of the
+> device even though DMA is never used.
+> 
+> Switch to devm_dma_request_chan() to let the device core manage DMA
+> channel lifetime automatically. Wrap all allocations within a devres
+> group so that devres_release_group() can release all partially acquired
+> resources when DMA init fails and probe continues in PIO mode.
+> 
+> Fixes: a09c8b3f9047 ("i2c: imx-lpi2c: add eDMA mode support for LPI2C")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
 
-Cc: stable@vger.kernel.org
-Fixes: 9ffee4a8276c ("net: ethernet: mediatek: Extend SGMII related functions")
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+merged to i2c/i2c-host-fixes.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 8d225bc9f063..0f185462cf85 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -5169,7 +5169,7 @@ static int mtk_probe(struct platform_device *pdev)
- 		err = mtk_sgmii_init(eth);
- 
- 		if (err)
--			return err;
-+			goto err_destroy_sgmii;
- 	}
- 
- 	if (eth->soc->required_pctl) {
--- 
-2.34.1
-
+Thanks,
+Andi
 
