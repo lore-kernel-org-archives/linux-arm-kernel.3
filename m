@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE881CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23929CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rzRJxBHC7K2Am3jz5aUgcwyLjbnwAMvjmPdpbfchiFw=; b=WFt+7yEludkfWx7SVj14p9pRdu
-	Dp5TWRzxUijh064B1Ochx4/gwOixO2Wy/iGb15BDKXXmUKJ2Es5ufd1o1LXdsm54gNgvhSEwiDaj+
-	LH2FHHUbkZC4W4Rq5VgkGNB6VJvgim+Nep8eMWUCuPyugDu2kAgYC4YkxmQKBTKeYZ7tlfY6Q9kyL
-	o6L7/MBTJEXGW/29tqICGOA26GDCdLt6cGtRUghlpmPEDg747THmiurRF84YuVeXGhQH4L5f0Zd00
-	T89F6tlgS9w6t2b0qTgWKb9x+VYq0Q6Jz4oqxsOG4ALF/YrCw/R0ydLIvsga373PTVBBuGngVokG/
-	NRZ4ImAQ==;
+	bh=GU6hxEB3LrImYHmp13AtCCpp8e8bRkCTpxK/TD8cOpY=; b=f+eVtf0EjuKDE9McVvnBsdMO/7
+	mbLZdYw0wcTEx4ar8P5W8dRF9DsP6aN7w84W2MaNn+3HloFpi40aM3OnXHI7j12XFO251JiY2OETb
+	2RvKpImpO7gejCSKNoOm/CPm+VUrKK0cxp2+AD45wxfEKPktybp+Fx+sENQ1v+m+nNdWWsBRlCH4R
+	ZqbAv0q10vsbV93ODz8s8JkdHKRKGEdhch45AG4uJe/KsWWM/Lh29tRldSpvuzWNFWDP5RK/vhMBA
+	6Ly/rseDCIfPuCB+6FM4llj1Jrits878zaaKMhw5+IeKBdwKGSKJgfJpnCbtmViJXMafAwHqRjynS
+	uTA4c9FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzMG-000000062v6-42hr;
-	Tue, 09 Jun 2026 16:31:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzMB-000000062ui-3dzh
+	id 1wWzO1-0000000636D-2jfT;
+	Tue, 09 Jun 2026 16:33:10 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWzNz-0000000631q-1qbO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 16:31:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10BAA22EE;
-	Tue,  9 Jun 2026 09:31:08 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 845B83FDBD;
-	Tue,  9 Jun 2026 09:31:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781022672; bh=edNA0mBFvb7KT9dQDcX5KX/wWm/FkS81I5Rs23y2GhQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ov2IsnKLxbLFbagTn2Y1Hx+XH5BZ35k7W7eWmMOFFzq/nJMTi2bJl37gvPQYmsvjc
-	 2P89O5Y9EgDF50rk60EKwWBr4lDXFWps84LMMCy23+W2/mnS0JLMW2RmkfDphiH5q6
-	 r+P2qR6t8T93PENWjMO45qPMoe+eGNjKilPBrOuw=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Gavin Shan <gshan@redhat.com>
-Subject: Re: [PATCH 1/2] KVM: arm64: Replace memslot_is_logging() with kvm_slot_dirty_track_enabled()
-Date: Tue,  9 Jun 2026 17:31:01 +0100
-Message-ID: <aig_xcTZKzux0OaS@devkitleo>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <aibmALTEbc7gzSZj@devkitleo>
-References: <20260605153248.2412064-1-weilin.chang@arm.com> <20260605153248.2412064-2-weilin.chang@arm.com> <aibmALTEbc7gzSZj@devkitleo>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+	Tue, 09 Jun 2026 16:33:08 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1781022750;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GU6hxEB3LrImYHmp13AtCCpp8e8bRkCTpxK/TD8cOpY=;
+	b=QOUagz86dzoPrDjhHrSwN/06Sdmkq2iGHnAcJWwwkB4jGy9cpZbeuBVKzUQ2wMbiBEhNfS
+	fkXZcqO/FX8Da8Q0Jb9q0Ri64dwxeIwsei3wq03ji5x/sDo2a0B2GzHSiIlmdfbqDYKmid
+	EBrn1SB3ts5kXNKC6WG9f27WKnnLVyBVAsiozmaoQqJlJEKXdh+T01Ds0t55ucLSSadvdw
+	uUknq9hMXc6S/2Q00PMkA2/C5aaG+6n43UK9L2qDQhzLWDO7kxIpqzKkWDvYmcreWWk91w
+	ytsziuJNh2KWUV6GtxJWxrmErpQ4KJkuERcFgsEFkG1uOfZG+MkDxu5o+509UA==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 09 Jun 2026 18:32:16 +0200
+Message-Id: <DJ4NVA328NUV.LSPMVBFE0PD8@cknow-tech.com>
+Subject: Re: [PATCH 1/2] dt-bindings: usb: Add Rockchip RK3568 compatible
+ for EHCI and OHCI
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Jonas Karlman" <jonas@kwiboo.se>, "Heiko Stuebner" <heiko@sntech.de>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>
+Cc: "Diederik de Haas" <diederik@cknow-tech.com>,
+ <devicetree@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
+ <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+References: <20260609154124.445182-1-jonas@kwiboo.se>
+ <20260609154124.445182-2-jonas@kwiboo.se>
+In-Reply-To: <20260609154124.445182-2-jonas@kwiboo.se>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_093115_993838_3BEF960E 
-X-CRM114-Status: GOOD (  49.18  )
+X-CRM114-CacheID: sfid-20260609_093307_626119_B72D95A4 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,159 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 08, 2026 at 04:55:45PM +0100, Leonardo Bras wrote:
-> Hi Wei Lin,
-> 
-> On Fri, Jun 05, 2026 at 04:32:47PM +0100, Wei-Lin Chang wrote:
-> > When checking whether a memslot has dirty logging enabled, the
-> > KVM_MEM_LOG_DIRTY_PAGES flag is the source of truth. Previously we were
-> > using memslot_is_logging() which only tests dirty bitmap and did not
-> > consider dirty ring. This was not detected because
-> > KVM_CAP_DIRTY_LOG_RING_WITH_BITMAP was introduced together with KVM
-> > arm64 dirty ring, and users need to enable it to ensure dirty
-> > information is not lost for the case of VGIC LPI/ITS table changes.
-> > 
-> > Fix this by using kvm_slot_dirty_track_enabled() instead which checks
-> > KVM_MEM_LOG_DIRTY_PAGES.
-> > 
-> > Note that memslot_is_logging() also treats a memslot as not logging if
-> > KVM_MEM_READONLY is set, hence a memslot with both dirty logging and
-> > read only would be seen as not logging for memslot_is_logging(), but
-> > logging for kvm_slot_dirty_track_enabled(). This allows a read only
-> > mapping of size > PAGE_SIZE to be built when memslot_is_logging() is
-> > used, leading to a better read performance compared to
-> > kvm_slot_dirty_track_enabled(). However memslots that have both
-> > KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY set do not really make
-> > sense as dirty logging is essentially nop for a read only memslot, so
-> > this shouldn't affect real workloads much.
-> 
-> 
-> It worries me a bit that we are ignoring the KVM_MEM_READONLY flag... 
-> I have not yet gone through the whole s2_mmu code but IIUC we can have 
-> scenarios on which a memslot can be read-only and have dirty-logging 
-> enabled. 
+Hi Jonas,
 
+On Tue Jun 9, 2026 at 5:41 PM CEST, Jonas Karlman wrote:
+> The Rockchip RK3568 EHCI/OHCI controller depends on clk_usbphy1_480m
+> being enabled, or the system may freeze when registers are accessed.
+>
+> Add Rockchip RK3568 EHCI and OHCI compatibles with a similar four-clock
+> constraint as RK3588.
+>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
+> Existing DTs for RK3568 use the plain generic-ehci/ohci compatible,
+> next patch make use of these new compatibles and adds the missing
+> clk_usbphy1_480m clock references.
+> ---
+>  .../devicetree/bindings/usb/generic-ehci.yaml          | 10 ++++++++++
+>  .../devicetree/bindings/usb/generic-ohci.yaml          |  5 ++++-
+>  2 files changed, 14 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/devicetree/bindings/usb/generic-ehci.yaml b/Do=
+cumentation/devicetree/bindings/usb/generic-ehci.yaml
+> index 55a5aa7d7a54..c49a1bbc8cfd 100644
+> --- a/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+> +++ b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+> @@ -52,6 +52,7 @@ properties:
+>                - ibm,476gtr-ehci
+>                - nxp,lpc1850-ehci
+>                - qca,ar7100-ehci
+> +              - rockchip,rk3568-ehci
+>                - rockchip,rk3588-ehci
+>                - snps,hsdk-v1.0-ehci
+>                - socionext,uniphier-ehci
+> @@ -186,6 +187,15 @@ allOf:
+>        required:
+>          - clocks
+>          - clock-names
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,rk3568-ehci
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 4
 
-> If a memslot is not faulted yet, IIUC it is marked as read-only 
-> (so it can be mapped on write fault), and we can have dirty-logging 
-> enabled for it as well (as the VMM has no idea). 
-> 
+I think that the constraint for rk3588 is this:
+- minItems: 1
+- maxItems: 4
 
-Ignore above bit, I confused memslot with block/page entry.
+Like ~ every other compatible; there's no 'branch' for rk3588-ehci.
 
-Looking a bit more, my viewpoint is that:
-- Due to dirty_ring, checking memslot.dirty_bitmap should be done only to 
-  detect the existence of a dirty_bitmap, not the migration process.
-- This changes how detection works, in regardas to read-only blocks:
-  memslot_is_logging() -> Checks dirty-bitmap + read-only memslot
-  kvm_slot_dirty_track_enabled()  -> Checks only memslot flag
-- As a simpler change, we could have:
+That's different from what you add for rk3568. Is that deliberate?
+Because from the commit message I assumed they should be the same.
 
-~~~
--   return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
-+   return kvm_slot_dirty_track_enabled(memslot) && !(memslot->flags & KVM_MEM_READONLY);
-~~~
+>  unevaluatedProperties: false
+> =20
+> diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Do=
+cumentation/devicetree/bindings/usb/generic-ohci.yaml
+> index d42f448fa204..5f1b4d2bff89 100644
+> --- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+> +++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+> @@ -47,6 +47,7 @@ properties:
+>                - hpe,gxp-ohci
+>                - ibm,476gtr-ohci
+>                - ingenic,jz4740-ohci
+> +              - rockchip,rk3568-ohci
+>                - rockchip,rk3588-ohci
+>                - snps,hsdk-v1.0-ohci
+>            - const: generic-ohci
+> @@ -198,7 +199,9 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: rockchip,rk3588-ohci
+> +            enum:
+> +              - rockchip,rk3568-ohci
+> +              - rockchip,rk3588-ohci
 
-Both are cheking memslot->flags, so it will be probably optimized by the 
-compiler as:
+Here they clearly do have the same constraint.
 
-~~~
-return memslot->flags & 3 == 1
-~~~
+Cheers,
+  Diederik
 
-My main worry was that in the curent patch we are changing the behavior 
-on skipping read-only memslots. So going through the users, we can see:
+>      then:
+>        properties:
+>          clocks:
 
-> > 
-> > Fixes: 9cb1096f8590 ("KVM: arm64: Enable ring-based dirty memory tracking")
-> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > ---
-> > It took me a long investigation to acquire the context needed to
-> > understand this change, however the reason for this problem not being
-> > detected is an educated guess. Please let me know if this is wrong or
-> > if there are other issues, thanks!
-> > 
-> >  arch/arm64/kvm/mmu.c | 11 +++--------
-> >  1 file changed, 3 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 4da9281312eb..06c46124d3e7 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -161,11 +161,6 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
-> >  	return ret;
-> >  }
-> >  
-> > -static bool memslot_is_logging(struct kvm_memory_slot *memslot)
-> > -{
-> > -	return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
-> > -}
-> > -
-> >  /**
-> >   * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
-> >   * @kvm:	pointer to kvm structure.
-> > @@ -1748,7 +1743,7 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
-> >  {
-> >  	short vma_shift;
-> >  
-> > -	if (memslot_is_logging(s2fd->memslot)) {
-> > +	if (kvm_slot_dirty_track_enabled(s2fd->memslot)) {
-> >  		s2vi->max_map_size = PAGE_SIZE;
-> >  		vma_shift = PAGE_SHIFT;
-> >  	} else {
-
-On the case dirty_track is enabled in a read-only slot, it will resolve to 
-a smaller vma_size. The fault granule will be smaller here. This could be 
-bad for performance, so maybe we could add a check for read-only block 
-here:
-
-~~~
--   if (memslot_is_logging(s2fd->memslot)) {
-+   if (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
-+       !memslot_is_readonly(s2fd->memslot) {
-~~~
-
-
-> > @@ -1953,7 +1948,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
-> >  	*prot = KVM_PGTABLE_PROT_R;
-> >  
-> >  	if (s2vi->map_writable && (s2vi->device ||
-> > -				   !memslot_is_logging(s2fd->memslot) ||
-> > +				   !kvm_slot_dirty_track_enabled(s2fd->memslot) ||
-> >  				   kvm_is_write_fault(s2fd->vcpu)))
-> >  		*prot |= KVM_PGTABLE_PROT_W;
-> >
-
-
-On the same scenario (dirty_track enabled on readonly memslot):
-This one should be safe, as kvm_is_write_fault() will check if the memslot 
-is readonly and return false in this case. But then, it will have to 
-actually call kvm_is_write_fault(), as the previous version would not even 
-call it in that scenario.
-
-Not sure how would that impact perforformance, though.
-
-> > @@ -2084,7 +2079,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
-> >  	 * and a write fault needs to collapse a block entry into a table.
-> >  	 */
-> >  	memcache = get_mmu_memcache(s2fd->vcpu);
-> > -	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
-> > +	if (!perm_fault || (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
-> >  			    kvm_is_write_fault(s2fd->vcpu))) {
-> >  		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
-> >  		if (ret)
-
-Same thing, if memslot is tracking and is readonly, topup_*() would be 
-called with the new patch, but not with the old behavior. 
-
-All of that depends on how the VMM uses dirty_tracking: does it enable for 
-all memory, or only for memory that is writable?
-
-I could not find anything that would prevent user from enabling 
-dirty_tracking on read-only memslots, so we can either ignore this 
-scenario, apply those patches and let those users carry the extra overhead, 
-or do an extra test to make sure it's doing the same thing as before.
-
-Thanks!
-Leo
 
