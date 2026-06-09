@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213CACD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 22:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CA5CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 22:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jagaY783ZQexk/NjgnRY09dQ8WqyYDUPOGhKANIhzfg=; b=lbGaRXoAT3npd+tyPrhNzzDAxE
-	q/YlAa/khnV4VtL1IgAykIxjrWPs48664XCbstg+0M21NIleN2lTgHYDZFse/ZyoxoMHjmNzPqEpT
-	BJ+tnaJMezyHhdUbb2CwVEfMS52hyhO1p39pl2TZFgFwPMoGc1b8bjwXVwWDfEmCR/ihaP7KmGmMo
-	apV31S6JPKl5CRPSQKq6b9GYMqvew1WuhcZbQ3Om1SRlEESA3CWnC28Pg7HHZg6ego89H6MBVvA2O
-	1BPdczwiCKWb7yh9V+/Vyi6vKn4Lxo1cxGiQVSj4codReo2fusGs4I753/8IKXVBDvPNgqMuhcpYH
-	q6F8vvQQ==;
+	bh=Enn6naQw+wLmV0GhfZ0seolUzIj1ObU+9VW8J0DyP44=; b=LnurEZKTJd3LiNzChmRtoonZ46
+	+H+nOSKowDSlgQcD39s4qj3GLEOjhsyZBmzO1Q3SbICv3mTEfR9xqY+HAkicbdsAguJX/wjXH8jUc
+	WfqimO1FVvEdbIfOTbm/XvmyQBl500CfESxIOGi3Nl1ifX+S9MZEUymG6KM8uD4fRdo8AgOcMV16s
+	6pnZcObzxS7of0LJifdJjDSjclsLhSuWfSfmdJmeW4MHXSQ4uWSjQlMKqBaB1iTWsJX8Ne/WUltRF
+	AdS98ejT3JhOVvDo2QssGhzAXBHmWWEJL2A7Y5TqcDgcZ1QfEP9z12skH3oRzWlHubFh0kHBps6PN
+	YgIB0BAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX54r-00000006Smo-0kxP;
+	id 1wX54r-00000006SnD-1FVm;
 	Tue, 09 Jun 2026 22:37:45 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX54l-00000006SkP-1rGY
+	id 1wX54m-00000006Sl1-3fOc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 22:37:40 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2c0c1e0b0faso42089385ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:37:39 -0700 (PDT)
+	Tue, 09 Jun 2026 22:37:42 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2bf18c30bb2so44092815ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:37:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781044659; x=1781649459; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781044660; x=1781649460; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jagaY783ZQexk/NjgnRY09dQ8WqyYDUPOGhKANIhzfg=;
-        b=pRi8Nug8PwZBV6PIDJvhdRJFiYteZc36qfo5SmNMCjQu4k39xBHDzDe/EQouyaKt/N
-         AXWp+m40HfUDcAufbrEODsYsTjlACOtZ+MWit0XQgvEPMfVeSeW2ZgJgfX5ypGJA2ytl
-         7gtxYDDgH5WhHZSJaPerJYcA9Wr1ck4/v7fMTyBr/QEb4Swg5SV7UGARRmQZywCHU54X
-         YhINNdXOrTlzy1L/CN8IaAaeqlfuNS/gHmCctjo9/EqHzyJJWrPLK3lFVutkSnsMLTEh
-         97iARAYNOdZ5kuH6kRqxvj0OWjDMbp8MJa7ZSkqCE0YF6tceyBHQH5huVaXBUd5niTgb
-         VmQQ==
+        bh=Enn6naQw+wLmV0GhfZ0seolUzIj1ObU+9VW8J0DyP44=;
+        b=DaHzBnQiBTxdRuRgLw991louTau2Rb9I3oj6t76WKJZHVzj68+RV4FcSx6MsOgbJb4
+         00F3kX9j37pp+ual9fmZ3TrLlarS4UlEMIlyG0q0lKAte6ff0sgY+ahDZ7yr+XSZznY2
+         qy2dwFgYhx/RUCQ0Wf7p57ZvvQf6vlVwL58Wt/jxdLlffil+QMnqk0sfHAPN6itu5ByX
+         IYpuucjr+V5ZMSV9ElWqdb59QC9QIsOeMqe/+TzECAOhr7L01RuwPMyfamPLuAjeVrRF
+         4k3Nb8fA9QJQBTGXUXAHitWJnT8hUKmGF6N+9ZYfHYhXhZM5lOZ2VL6Ju7GWq1IwwAcG
+         g3MA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781044659; x=1781649459;
+        d=1e100.net; s=20251104; t=1781044660; x=1781649460;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=jagaY783ZQexk/NjgnRY09dQ8WqyYDUPOGhKANIhzfg=;
-        b=XGe1I8ozCjZAKRn2ryUHeHd4JWvzsPwIew6png1zQOHa4rIujqvjdGd7cOqZ80LJJr
-         cHG4ASmwHRQnL4Ck2iYTfBx1KcxGFPBFBnby8X4GZFpG9387060M5kmLB3ql+f8RB2h2
-         gFG0+zViXlK46cVaIWn7iMSxiRa+qbGtBhVLVyEM8eXu0g23/jj0GP43x7mtHg/sKeNP
-         1CODyn5bUNtdhZfikm+R6O8n46Fu3ukZv+8OjlsFVgdkD/+RNbW7pWVrR4xVCcdb8P2q
-         QSRdyCj21HMOTzAhIFGER7hBSWQN+KLzGDqQjcDXAWqEmDF1f61Bibe9239mPSAkElcQ
-         8UAA==
-X-Forwarded-Encrypted: i=1; AFNElJ9zGc0bfPgWfxPu8ORJwRVuQ7n19S026Hxm5PVJnUjWWrcuYIEeI8We98KqAmfTKfbfeU6BVhfcCahHa0Hem9mA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxduLrDl2BZjWKBa4UoHv4b96QcXP01+8EKJzC6bM3GSrM90COO
-	j8WnTsO+0jjpHvC4Bvy0TBYkhywHtZ2AIEVueXOzus2FAlqA5LFbVLZx
-X-Gm-Gg: Acq92OGbZcrh0t5vuhXQhfaDNjgLSET5s29IXP3tqg64RLuP1I97ml6wAY2LzdMBZLT
-	nc9B/p+cGBbmk09pnS4mIcP6JyW3Xomf5tDOHHAfXpibFFxVf/4vAmAmDlNCVeIpvMlsszvTArb
-	2GeQRwfj0rswabpcbxaIadE4sPT0VCd9tZGfLb78csQ5qClFkMlD3Z6FKwBy904kB23k1A9D4Aq
-	g2lS+rDBc/+MrUZBpr5UN9FZ6RUQBzcVAsGCdBBwLZ8wUpSysROkGXwIHEDVNnLABeNq/er2a86
-	ZjhpbrcjTru82rglWAyPHUixhIIS13fcAOwDTHgVQKFvDOL8LhLZVribW8SuWpzqyfK9fEjPa6H
-	Qf4EYdV79Pdt5CxGFOfte2gYEHX0tv+EUaRUcXSpG+Nb/TWZDk7KEjrNl9TwyBUv68L+ub1NKAY
-	TwxwpTs+2dQK4dpVxBG9rGSdNfbdxqJdsyN/Dn3jvj0G3kUGddAkdXZDsAMmK2umlu47YNZI2VD
-	veiQu+FBI7BKK9DrL6i+l8SVI0LEw10ZC/h2gGn1BvJ2A==
-X-Received: by 2002:a17:903:290f:b0:2c0:f807:a760 with SMTP id d9443c01a7336-2c1e7e51dd8mr158956345ad.13.1781044658617;
-        Tue, 09 Jun 2026 15:37:38 -0700 (PDT)
+        bh=Enn6naQw+wLmV0GhfZ0seolUzIj1ObU+9VW8J0DyP44=;
+        b=a0BcdO31Rpx8B1nI97HsIp+E6M5DbSff31rlp6HRUao9ofMkcI/3zU0y9cblBZrxTs
+         va61AwuQuHw1PfoDcSRTCC8t7p3xn/luk25b1K6i5BF/F8oCYUsblELBGfKxiHG9cOWo
+         srn0FPO/3LKahZ9OTXPcr9jyxdkkydhtug5gHuiHeaGfa9oFcnB9CZx3lRHrnEAKOuLg
+         CggcFk9mrh1kH/giA9KoEvFGaO1bUNrur361/4kfQRRWVvG2Wk4YRLeuXJUWKIKOYd7/
+         EQsCKImbmo4D+luOmgNmiDUS8jvaZ2Axx9ptbIW5JBwP3FkgX+UEIu6cI+yC6m0MueQa
+         DMzQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/1P8MW9YSwzv7yCM2BRSJBoIR0eD25AG2WfRhtjcoifpWWpZ8IygH3sJlcLYmX80ZoL0/NkwPLsB57AHlncJY7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4npX/SDU6dK3i5imozX2EiF+hz95Vnd8dDlFGVPFhnFsU08C+
+	f+LBb6WDzqApWt0/ismQl9Q5O839yFo1iwWI0DnTcZXiyuxv4xkhlw4l
+X-Gm-Gg: Acq92OHBC+h6efFjry/l6p9RU9v2Cv2kZRpCSgHWclCopPpzSWe22cnpVCiUKzBcPRn
+	S35AFLalRMuH2K/9+eNWrwEp5HId1jZA0B9hi0mo4p7lM4JYIJ2Hi/cVL3wT7FLaMJHYFQV5KC5
+	tvVCDvrgspqakJAFj7Ue7NFXCct/TyPsuKjAeviooaW85PwQipOK5Xk030NwQ2FW9spGDxlxlBK
+	5k9w/WiBRgLPC/p5Kh8hZsQGvPGbqD6bicl5x5l3asni6q1y232Xv4oifmPkFO+2PCKpIXp2Aow
+	5ikqGSjxR3nAEWSKzKR9R8bjxFflr3V2c7TeAktGXgHCAwr8tS7N5Ygl+yW+8i+qFPGp69kB20F
+	qmC6QvB19BPi5cv6eULCBimpoKh82eGNMPPMg5CsvFuGkdTtsG1AWrLPpo3DtjtKtodQxI9BzVy
+	jPtjvddFvuRqnn5XmIeXmDIkpmm9q4Hxdr2eWdnlNaT5bFWe53WyX0UURx2MpRUrxprpH9nNxcl
+	A0Rz6iEAIgsQ0YdsfzV8t7eZpgu/qoco89/kNLq8fHFog==
+X-Received: by 2002:a17:903:1aef:b0:2c2:7e17:39f6 with SMTP id d9443c01a7336-2c27e173ecfmr119389525ad.36.1781044659986;
+        Tue, 09 Jun 2026 15:37:39 -0700 (PDT)
 Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d37esm293750655ad.9.2026.06.09.15.37.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d37esm293750655ad.9.2026.06.09.15.37.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 15:37:38 -0700 (PDT)
+        Tue, 09 Jun 2026 15:37:39 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-serial@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -81,17 +81,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
 	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
-Subject: [PATCHv2 3/4] serial: mxs-auart: use devm resources for iomem and GPIO IRQs
-Date: Tue,  9 Jun 2026 15:37:16 -0700
-Message-ID: <20260609223717.41670-4-rosenp@gmail.com>
+Subject: [PATCHv2 4/4] serial: mxs-auart: fix IRQ registration ordering and manage console clock
+Date: Tue,  9 Jun 2026 15:37:17 -0700
+Message-ID: <20260609223717.41670-5-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260609223717.41670-1-rosenp@gmail.com>
 References: <20260609223717.41670-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_153739_504839_3268BA9D 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20260609_153740_958587_E9D14EA9 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,141 +106,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace platform_get_resource + ioremap with
-devm_platform_get_and_ioremap_resource and convert GPIO IRQ
-request_irq/free_irq to devm_request_irq. This eliminates the
-mxs_auart_free_gpio_irq function and its call sites, and the
-out_iounmap error label. Simplify the remove function accordingly.
+Move the main UART IRQ registration after uart_add_one_port so that
+s->port.state and s->port.lock are initialized before the interrupt
+handler can run. Mask all UART interrupts before adding the port to
+prevent spurious IRQs left by the bootloader.
+
+After probe succeeds, disable the module clock for non-console ports
+since startup will re-enable it on port open. For console ports, keep
+the clock prepared so auart_console_write() can safely call
+clk_enable() from atomic context.
+
+Guard the IRQ handler and get_mctrl with clk_enable/clk_disable since
+GPIO IRQs and serial-core status queries can fire while the clock is
+disabled for non-console ports.
+
+In remove, disable the clock for console ports to balance the enable
+done in probe, preventing a clock leak on unbind.
 
 Assisted-by: opencode:big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/tty/serial/mxs-auart.c | 53 +++++++---------------------------
- 1 file changed, 11 insertions(+), 42 deletions(-)
+ drivers/tty/serial/mxs-auart.c | 49 +++++++++++++++++++++++++++-------
+ 1 file changed, 39 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-index aa59a48bfad7..4499e3206e85 100644
+index 4499e3206e85..e2b656638ab3 100644
 --- a/drivers/tty/serial/mxs-auart.c
 +++ b/drivers/tty/serial/mxs-auart.c
-@@ -1517,15 +1517,6 @@ static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
- 	return 0;
- }
- 
--static void mxs_auart_free_gpio_irq(struct mxs_auart_port *s)
--{
--	enum mctrl_gpio_idx i;
--
--	for (i = 0; i < UART_GPIO_MAX; i++)
--		if (s->gpio_irq[i] >= 0)
--			free_irq(s->gpio_irq[i], s);
--}
--
- static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
+@@ -738,9 +738,13 @@ static u32 mxs_auart_modem_status(struct mxs_auart_port *s, u32 mctrl)
+ static u32 mxs_auart_get_mctrl(struct uart_port *u)
  {
- 	int *irq = s->gpio_irq;
-@@ -1537,21 +1528,13 @@ static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
- 			continue;
+ 	struct mxs_auart_port *s = to_auart_port(u);
+-	u32 stat = mxs_read(s, REG_STAT);
++	u32 stat;
+ 	u32 mctrl = 0;
  
- 		irq_set_status_flags(irq[i], IRQ_NOAUTOEN);
--		err = request_irq(irq[i], mxs_auart_irq_handle,
--				IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
-+		err = devm_request_irq(s->dev, irq[i], mxs_auart_irq_handle,
-+				       IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
- 		if (err)
- 			dev_err(s->dev, "%s - Can't get %d irq\n",
- 				__func__, irq[i]);
++	clk_enable(s->clk);
++	stat = mxs_read(s, REG_STAT);
++	clk_disable(s->clk);
++
+ 	if (stat & AUART_STAT_CTS)
+ 		mctrl |= TIOCM_CTS;
+ 
+@@ -1079,6 +1083,7 @@ static irqreturn_t mxs_auart_irq_handle(int irq, void *context)
+ 	struct mxs_auart_port *s = context;
+ 	u32 mctrl_temp = s->mctrl_prev;
+ 
++	clk_enable(s->clk);
+ 	uart_port_lock(&s->port);
+ 
+ 	stat = mxs_read(s, REG_STAT);
+@@ -1118,6 +1123,7 @@ static irqreturn_t mxs_auart_irq_handle(int irq, void *context)
  	}
  
--	/*
--	 * If something went wrong, rollback.
--	 * Be careful: i may be unsigned.
--	 */
--	while (err && (i-- > 0))
--		if (irq[i] >= 0)
--			free_irq(irq[i], s);
--
- 	return err;
+ 	uart_port_unlock(&s->port);
++	clk_disable(s->clk);
+ 
+ 	return IRQ_HANDLED;
  }
- 
-@@ -1596,18 +1579,12 @@ static int mxs_auart_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (!r) {
--		ret = -ENXIO;
-+	s->port.membase = devm_platform_get_and_ioremap_resource(pdev, 0, &r);
-+	if (IS_ERR(s->port.membase)) {
-+		ret = PTR_ERR(s->port.membase);
- 		goto out_disable_clk;
- 	}
--
- 	s->port.mapbase = r->start;
--	s->port.membase = ioremap(r->start, resource_size(r));
--	if (!s->port.membase) {
--		ret = -ENOMEM;
--		goto out_disable_clk;
--	}
- 	s->port.ops = &mxs_auart_ops;
- 	s->port.iotype = UPIO_MEM;
- 	s->port.fifosize = MXS_AUART_FIFO_SIZE;
-@@ -1622,21 +1599,21 @@ static int mxs_auart_probe(struct platform_device *pdev)
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0) {
- 		ret = irq;
--		goto out_iounmap;
-+		goto out_disable_clk;
+@@ -1603,10 +1609,6 @@ static int mxs_auart_probe(struct platform_device *pdev)
  	}
  
  	s->port.irq = irq;
- 	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
- 			       dev_name(&pdev->dev), s);
- 	if (ret)
--		goto out_iounmap;
-+		goto out_disable_clk;
+-	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
+-			       dev_name(&pdev->dev), s);
+-	if (ret)
+-		goto out_disable_clk;
  
  	platform_set_drvdata(pdev, s);
  
- 	ret = mxs_auart_init_gpios(s, &pdev->dev);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to initialize GPIOs.\n");
--		goto out_iounmap;
+@@ -1627,9 +1629,28 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 
+ 	mxs_auart_reset_deassert(s);
+ 
++	/* Mask all UART interrupts to prevent spurious IRQs from bootloader */
++	mxs_write(0, s, REG_INTR);
++
+ 	ret = uart_add_one_port(&auart_driver, &s->port);
+-	if (ret)
+-		goto out_free_qpio_irq;
++	if (ret) {
++		auart_port[s->port.line] = NULL;
 +		goto out_disable_clk;
++	}
++
++	/*
++	 * Request the main IRQ after uart_add_one_port so that
++	 * s->port.state and s->port.lock are initialized before
++	 * the handler can run in response to a bootloader-left
++	 * interrupt.
++	 */
++	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
++			       dev_name(&pdev->dev), s);
++	if (ret) {
++		uart_remove_one_port(&auart_driver, &s->port);
++		auart_port[s->port.line] = NULL;
++		goto out_disable_clk;
++	}
+ 
+ 	/* ASM9260 don't have version reg */
+ 	if (is_asm9260_auart(s)) {
+@@ -1641,10 +1662,16 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 			 (version >> 16) & 0xff, version & 0xffff);
  	}
  
- 	/*
-@@ -1644,7 +1621,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
- 	 */
- 	ret = mxs_auart_request_gpio_irq(s);
- 	if (ret)
--		goto out_iounmap;
-+		goto out_disable_clk;
+-	return 0;
++	/*
++	 * Disable clock -- startup will re-enable when the port is opened.
++	 * For the console port the clock must stay prepared so that
++	 * auart_console_write() can safely call clk_enable() from
++	 * atomic context.
++	 */
++	if (!uart_console(&s->port))
++		clk_disable_unprepare(s->clk);
  
- 	auart_port[s->port.line] = s;
- 
-@@ -1667,11 +1644,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
- 	return 0;
- 
- out_free_qpio_irq:
--	mxs_auart_free_gpio_irq(s);
--	auart_port[pdev->id] = NULL;
--
--out_iounmap:
--	iounmap(s->port.membase);
-+	auart_port[s->port.line] = NULL;
+-out_free_qpio_irq:
+-	auart_port[s->port.line] = NULL;
++	return 0;
  
  out_disable_clk:
  	clk_disable_unprepare(s->clk);
-@@ -1683,11 +1656,7 @@ static void mxs_auart_remove(struct platform_device *pdev)
- 	struct mxs_auart_port *s = platform_get_drvdata(pdev);
+@@ -1657,6 +1684,8 @@ static void mxs_auart_remove(struct platform_device *pdev)
  
  	uart_remove_one_port(&auart_driver, &s->port);
--	auart_port[pdev->id] = NULL;
--	mxs_auart_free_gpio_irq(s);
--	iounmap(s->port.membase);
--	if (is_asm9260_auart(s))
--		clk_disable_unprepare(s->clk);
-+	auart_port[s->port.line] = NULL;
+ 	auart_port[s->port.line] = NULL;
++	if (uart_console(&s->port))
++		clk_disable_unprepare(s->clk);
  }
  
  static struct platform_driver mxs_auart_driver = {
