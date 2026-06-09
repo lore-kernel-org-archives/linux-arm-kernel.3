@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85AD2CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C68FCD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rg6Uwn3qcv35IqK5mO+5MuTecRwPgI2mpMh7ThDFKtQ=; b=PCsVhPmAyyWS3wFnI34xJDQ9gF
-	4xDfcAXRrppEo1V3nRUGNuKpYoOpx4DU+pCr8JTGiARkkeo3yiCphhub+GBGH1WKOkGxoR2nOpRnx
-	w97+nPxCL9dJi27bp8Sfkpb7oLfUWvZgwA5qKWsUbQyx7G6xHId9papd5ByAHJSGXxSDYFIeksZmN
-	kT+msf5D2dWJpvMZRqe27HyHE3ujBSTmFYRj8tI714EzANacPnoo4I+q18cyKdl97S+rJ+0GZR4nI
-	6HpI8qVk82QWv4GeyZeqQhWEa6DhJa+ztYefCp/Hvs3sF3R06/cAYNlxLmaVs+4LVI/Zipo/JxGed
-	6x4ytD4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rkRvDhdakGkuS3drIlrxrThJuZ1NF7hwtWDMZs8KAf8=; b=sUwoMt8SKJAfxE80DhDLGo2iPL
+	89oLDWp3t1j1tf2t0NnItL07DiXFTG4+6F8ttv859IQ0NFodCDU+wkSi3qH5w7fvpU9LmaKf2VLth
+	1xyvunR+x6icYssCxbxhbQUr5y8Aapx+GRd/8MVE2vSp56+tIwmELvYpoZDJFbQjHRMAgPG6ViY+F
+	jEwfdQv4vm3azbOiAdp+JS4tvb0TcXL7nDnCa4HyrqsBUx+EeNJkvTCePUmsrBPRCvOLRr3kN9/7s
+	rBo5dNSjZfQi3FVe/FTI+uxON775tsTjKJcdeaRpkTnbsjd/n1s4pIvIw7UGw1vCrHRKvEwGonIKq
+	RV3IcD4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwJW-00000005da2-2sn8;
-	Tue, 09 Jun 2026 13:16:18 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wWwKN-00000005dfL-0B5U;
+	Tue, 09 Jun 2026 13:17:11 +0000
+Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwJS-00000005dZd-454b
+	id 1wWwKI-00000005dey-32M5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 13:16:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=Rg6Uwn3qcv35IqK5mO+5MuTecRwPgI2mpMh7ThDFKtQ=; b=slKC5uQp8RpItbg43LgsfFS66j
-	5+UEJ9NQCJD1uUsXJFPHIE+x3pxdM0TQkE+tUXg6/LrxVJyhk/LvlxuJ2KVjH9pGnHhXfW8k8VmDW
-	Va+dxcG/ZOeB/byAJII33oByLOwhMgNI2l7AGmE3f6C/yCN2xZB5fN797Hz9ftP0YvQ5uG8A/Npt0
-	JI1Ro6YkzsPmgdD/uRE0gquxryfW1vHWdW2XrROjTfgTjyMpjrbPeJTYbmUS3Z0Ph+4sZgULTHtJS
-	VDpPscY+wZ7V4MaE3oRZ3sNTJbTk+UuKpp7xQGierJRadUfGaHl1cBPl8OVVKOx9agDTXlR4wnTlC
-	k8sLrceg==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wWwJK-008QXf-2e;
-	Tue, 09 Jun 2026 13:16:07 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Tue, 09 Jun 2026 06:15:53 -0700
-Subject: [PATCH v2] arm64/hw_breakpoint: reject unaligned watchpoints that
- would truncate BAS
+	Tue, 09 Jun 2026 13:17:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1781011026; x=1812547026;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=N/vFtBsEQhmzFRkg7JVXBFy8+0kq7irSjH06B5RYaow=;
+  b=T5p8l5MNMuCRUKmotbKZoWPpz9aYxMUOPzCk039pFrKQs4jncv2iXca+
+   T4O/xAQLenLsW1dJcKy4lXpuw2MgK+knEX8eedMW37Yfn2STzjzit04ft
+   51A8a3NwqsendBzcHfRdn+og3yuHG7k/nTutbzOyCnpyyrfhqdMUfC3jc
+   nB/c0g8gEVLPjJd4DSXZooT8rMECAGHXnjkPdJzhFcOoxyqEtoSOCVlik
+   ef/k+A6gUZUfaIaLZlCQxBengXDaf/G+3rWfoHry5JlaolJmaUvjjeT8r
+   VypsplW9x+W/SVzB8DAFuzsn1CG32YYaNASZjU0AeYD6eBdhRQaZMtDyc
+   A==;
+X-CSE-ConnectionGUID: oxTTc2+VRq2l/FpbWP4TVw==
+X-CSE-MsgGUID: kZSwjrQvQKmKhiSoU674XQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11811"; a="222428763"
+X-IronPort-AV: E=Sophos;i="6.24,196,1774278000"; 
+   d="scan'208";a="222428763"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 22:17:03 +0900
+Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 2BC858204C7
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 13:17:03 +0000 (UTC)
+Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id D328D18591D4
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 13:17:02 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.34.167])
+	by az2nlsmom3.fujitsu.com (Postfix) with SMTP id 5E34A101E52F;
+	Tue,  9 Jun 2026 13:16:59 +0000 (UTC)
+Date: Tue, 9 Jun 2026 22:16:57 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Will Deacon <will@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
+	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] virt: arm-cca-guest: use raw variant of
+ smp_processor_id() in arm_cca_report_new()
+Message-ID: <aigNbs89G4bCQdjY@FCCLS0092175.localdomain>
+References: <20260519101217.155740-1-enju.kohei@fujitsu.com>
+ <ah638FZAyCSqtzMi@willie-the-truck>
+ <41ab4dfb-b91c-46df-99a0-de36686c8fea@arm.com>
+ <aiAUceqBREjwXk_V@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260609-arm64_bas-v2-1-9f34dbbded88@debian.org>
-X-B4-Tracking: v=1; b=H4sIAAgSKGoC/23NSwrCMBSF4a2EO24kSWsiGbkPKZLHtb2CiSS1K
- KV7l9apwwM/31mgYiGsYNkCBWeqlBNYphoGYXRpQE4RLAMllBZdK7grD91dvavcGGxNPLVCKQ0
- Ng2fBG71369L/dn35O4ZpA7ZipDrl8tnPZrl1/9xZcsmDdl55eXQYxDmiJ5cOuQzQr+v6BSOQI
- oy1AAAA
-X-Change-ID: 20260430-arm64_bas-77e37d830226
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Pratyush Anand <panand@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, clm@meta.com, leo.bras@arm.com, 
- kernel-team@meta.com, Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3791; i=leitao@debian.org;
- h=from:subject:message-id; bh=60Hz5+3eEkrBAnUhEtk9VB5qfD8DLzTUtlgK14Fe8II=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBqKBIS+Gi5xCr81tProuji531Z+NisZK4+78aq7
- +5uy5lUJJCJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaigSEgAKCRA1o5Of/Hh3
- bcJ+D/4raj8CmXOiWXwdIcfpOWG1UBX+93rbwV1W3Bco7TxtN5Q19MtVB3OdrwFH6MD2cA4luDR
- hJzP9cvGuhPBLOLae7PVBohiA+w21izjHYsIvBFLZwD70pi2IJCgAdsQwI1egwRpmXU2bQQtO0Z
- dreS8LMBlQT3xNGc4fpVanTUWmRuEiQlyG/dGWL5FxcI+VdtUhf1s3jT/+EKubJsuFnCepAs8oD
- bAy1or+v1BZzRSwCxcdJcuPJblznVdGueec0sJ0O+ZPN1GTMJvplGUHt56uxtEZsP/dzW0LmHpK
- I+ZVulkkJJo2pQPh5WLIJllw2BBEzJVzIV5fpGBE9N+XtPgfCWEFXWImk2nBf9TdxXwzjQIJZ3a
- UintXDHWjpfvB6BLr2m+S4kZSFgG7GbQMPa23ItEJwXnZGUsFMgI7SGWpPRahRz8vWAN+vcKBEy
- sHYV5UjREU/1RTbqDd29rW5U2asIu28wkv2ZHKDmp0ZwbzmjUYzNVjbylANMzaOpZZ+OQGE55ri
- dsGinJGdgsqhpAeGc6Es8gS9YlK/QtrsFzCicfOxJhXpafajyQts4SZYdxMLIobKf3eN52gVCcI
- 6/6VRB7w2meF0FFuHj+/F0mMwXdS8sv2EWonHTgjWemPaX1hRQ/HuMlOE6Zu6j/oEBgClsMF1HK
- 8/TlgAGpZVv2uYg==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aiAUceqBREjwXk_V@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_061615_925125_1FDF3421 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20260609_061707_581974_D9F012C7 
+X-CRM114-Status: GOOD (  34.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,96 +97,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hw_breakpoint_arch_parse() positions the BAS bit pattern in
-hw->ctrl.len with
+On 06/03 12:48, Will Deacon wrote:
+> On Tue, Jun 02, 2026 at 04:48:43PM +0100, Suzuki K Poulose wrote:
+> > On 02/06/2026 12:01, Will Deacon wrote:
+> > > On Tue, May 19, 2026 at 07:12:08PM +0900, Kohei Enju wrote:
+> > > > With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
+> > > > debug_smp_processor_id(). This debug function complains when certain
+> > > > conditions that ensure CPU ID stability are not met, specifically when
+> > > > it's called from a preemptible context.
+> > > > 
+> > > > In arm_cca_report_new(), which runs in a preemptible context,
+> > > > smp_processor_id() triggers a splat [0] due to this.
+> > > > 
+> > > > However, the CPU ID obtained here is used as the target CPU for
+> > > > smp_call_function_single() to designate a specific CPU for subsequent
+> > > > operations, not to assert that the current thread will continue to
+> > > > execute on the same CPU. Therefore, snapshotting the CPU ID itself is
+> > > > correct, and thus there's no actual harm except for the splat.
+> > > > 
+> > > > Use raw_smp_processor_id() instead, to directly retrieve the current CPU
+> > > > ID without the debug checks, avoiding the unnecessary warning message
+> > > > while preserving the correct functional behavior.
+> > > 
+> > > That's pretty disgusting imo so I'd like to see some more justification
+> > > for this approach.
+> > > 
+> > > > Note that while migrate_disable() would pin the task to the current CPU,
+> > > > this path should not block CPU hotplug events. Therefore, we snapshot
+> > > > the current CPU ID and accept that smp_call_function_single() may fail
+> > > > if the CPU goes offline.
+> > > 
+> > > Why shouldn't it block CPU hotplug events? What happens if the CPU goes
+> > > offline and comes back online again during the loop of continue calls?
+> > 
+> > It need not. It can continue the calls. The RMM keeps track of the internal
+> > progress in the "REC" object for this "VCPU". Hotplug ON/OFF
+> > doesn't change the REC object in CCA Guest. So, a REC can come back and
+> > execute it. But the Linux could fail the operation if the CPU isn't
+> > available for fetching the report, after we do a RSI_ATTEST_TOKEN_INIT.
+> 
+> I couldn't really shake that out of the RMM spec tbh:
+> RSI_ATTESTATION_TOKEN_CONTINUE is allowed to return RSI_ERROR_UNKNOWN
+> and I couldn't find anything about hotplug.
+> 
+> But my main point, really, is why are we not using migrate_disable()
+> here? I can't see the justification.
 
-	offset = hw->address & alignment_mask;	/* 0..7 */
-	hw->ctrl.len <<= offset;
+Hi Will,
+Sorry for the late reply.
 
-ctrl.len is an 8-bit bitfield (struct arch_hw_breakpoint_ctrl::len is
-u32 :8), so the shift silently drops any bits past bit 7.  For
-non-compat AArch64 watchpoints the offset is unbounded relative to
-ctrl.len: a perf_event_open(PERF_TYPE_BREAKPOINT) caller asking for
-HW_BREAKPOINT_W with bp_addr=page+1 and bp_len=HW_BREAKPOINT_LEN_8
-ends up with 0xff << 1 = 0x1fe, stored as 0xfe.  The kernel programs
-WCR.BAS=0xfe and the hardware watches bytes [1..7] instead of the
-requested [1..8] -- the eighth byte is silently dropped.  The
-syscall still returns success, leaving userspace to discover the
-gap by empirical probing.
+I agree that using migrate_disable() makes this path simpler and
+clearer.
 
-The same class affects HW_BREAKPOINT_LEN_{2,4} when offset pushes the
-high BAS bit past bit 7 (e.g. LEN_4 with offset=5 yields 0xe0
-instead of 0x1e0).  No memory-safety impact -- the value is masked
-into 8 bits before encoding -- but debuggers and perf users observe
-missed events on bytes they thought they were watching.
+I've reviewed the discussion where the original commit was introduced:
+    https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
+but I couldn't find a strong reason why we shouldn't block CPU hotplug
+or use migrate_disable(), even though I can see the current design was
+intentional.
 
-The AArch32 branch immediately above already rejects unrepresentable
-(offset, len) combinations via an explicit switch.  Mirror that for
-the non-compat branch by checking that the shifted pattern fits in
-the BAS field, returning -EINVAL when it does not.
+So I'm happy to rework the patch to use migrate_disable() and remove
+the smp_call_function_single() calls if there are no objections.
 
-GDB and similar debuggers are unaffected by the stricter check.
-aarch64_linux_set_debug_regs() already treats EINVAL on
-NT_ARM_HW_WATCH as a downgrade signal: it clears
-kernel_supports_any_contiguous_range, calls aarch64_downgrade_regs()
-to round the BAS up to a legacy 0x01/03/0f/ff mask with an aligned
-base, and retries -- the same fallback path that PR-20207 introduced.
-The new -EINVAL is therefore reachable only from a raw
-perf_event_open() that pairs an unaligned base with an oversized
-bp_len, which is precisely the bug.
-
-Reproducer:
-
-  struct perf_event_attr a = {
-      .type = PERF_TYPE_BREAKPOINT, .size = sizeof(a),
-      .bp_type = HW_BREAKPOINT_W,
-      .bp_addr = (uintptr_t)(buf + 1),
-      .bp_len = HW_BREAKPOINT_LEN_8,
-      .exclude_kernel = 1, .exclude_hv = 1,
-  };
-  int fd = perf_event_open(&a, 0, -1, -1, 0);
-  /* before this fix: succeeds, watches 7 bytes (buf+1..buf+7)   */
-  /* after  this fix: fails with EINVAL                          */
-
-Fixes: b08fb180bb88 ("arm64: Allow hw watchpoint at varied offset from base address")
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
-Changes in v2:
-- Use ARM_BREAKPOINT_LEN_8 instead of the 0xff magic number (Will).
-- Checked and Expand the commit log to explain why GDB and similar
-  debuggers are unaffected by the new -EINVAL
-- Link to v1: https://patch.msgid.link/20260430-arm64_bas-v1-1-c6ab2b15aec0@debian.org
----
- arch/arm64/kernel/hw_breakpoint.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index ab76b36dce82..73cce8ac8368 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -559,6 +559,15 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
- 		else
- 			alignment_mask = 0x7;
- 		offset = hw->address & alignment_mask;
-+
-+		/*
-+		 * BAS is an 8-bit field in WCR/BCR; the shift below would
-+		 * silently drop the high bits of ctrl.len when offset + len
-+		 * exceeds 8, programming hardware to watch fewer bytes than
-+		 * the user requested.
-+		 */
-+		if (((u32)hw->ctrl.len << offset) > ARM_BREAKPOINT_LEN_8)
-+			return -EINVAL;
- 	}
- 
- 	hw->address &= ~alignment_mask;
-
----
-base-commit: 0787c45ea08a13b5482e701fabc741877cf681f6
-change-id: 20260430-arm64_bas-77e37d830226
-
-Best regards,
--- 
-Breno Leitao <leitao@debian.org>
-
+> 
+> Will
+> 
 
