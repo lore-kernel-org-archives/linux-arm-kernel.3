@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFCACD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F30ECD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oes17d4y2SsUvjGMdR6eWKDxHCGNkh3ruoJZHgWYwRc=; b=njNJqu136qr+rtT/0CZO4lr14k
-	LG0i3m3YFQtxqgPApouF+bv4ROw8+i889JhKXoT9Afz3vzRA27qsJ0dNCB1nn3EMeD59pqVVXNtRS
-	oTQs0bMcrt3p6qaizcf5CdWLdwDmhDIQ9H51nPW9sV8F0h2Zz/A7ditKIYlY3Wz8ib/P8Vcn4I7Ej
-	LJzyo5gPNPbucW6R91rs7s+veb9A5g/WlPZfpHVdZBr+N/Rmy1yWoFO0Jnbm0OVGTIMvJ4yzAV9lc
-	9k9+Br0RQChf65WdADAsdL+iNPBDNtKYfFypc+WBHr6/Z8iVUzKZU5eixPjfkZKMMS1SYSyLq4kjj
-	SoeLAvxQ==;
+	bh=Ydq/tbSss8qiRk9qUKdW43eESg1pJEOtT4lCL4jYh6s=; b=Z0LZq7s948bhAKAXu7BzFin20X
+	7kAXclNBLbtrRD4pLuvNq2lu2iWjOkgni9YdS27JDC+qkH0vcHqCmH1yTcFSn7lh+Ey27ig89mdFU
+	mKwwnfuFdUiscN/d66mPoaxAZs8rFVGPpBbMOY6sc0gOop/hTLxLADXpcZNSCFF8FM4EzNR1A/qou
+	AjzhZUxRtoQt73x9RGwuAMxjLAQJjD/1CFP+7M3Sp2oZdsJgC3oJJhmQjnL8TDZG5zM6pvmoglJIN
+	iDd3v70YrKOBAaQLzUB1x/zR5UXCyFBHjR4stYjW5FDczYzGYKWuF7JT4qvA2rmf12db307/FdV+h
+	8JTTfU8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvkL-00000005WuN-32wO;
-	Tue, 09 Jun 2026 12:39:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWvoL-00000005X8a-0J8O;
+	Tue, 09 Jun 2026 12:44:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvkK-00000005Wu2-17eT
+	id 1wWvoI-00000005X8S-3izU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 12:39:56 +0000
+	Tue, 09 Jun 2026 12:44:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C0DB343C04
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 12:39:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A52101F0089B
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 12:39:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A5CA601DC;
+	Tue,  9 Jun 2026 12:44:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53D991F00893;
+	Tue,  9 Jun 2026 12:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781008795;
-	bh=Oes17d4y2SsUvjGMdR6eWKDxHCGNkh3ruoJZHgWYwRc=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=dK1g7AQThBGrs3F0CW3ea3cG63zK3xJ9Fz7YkOCV5mbOgNFhTynB98GVFyu8Tea7s
-	 udLTlj8FxbkcqMfIFTG8I0bJW3D5ofVsw+RFcrQZF2JwjvZ5LL5asxmlgvVUFBziZZ
-	 0Zaxii9T2Vg7LM4lbSCu0uu/sCoAinbuHvn6xViPvr3Xe6bj+nEQJl8MNSq/+P2viz
-	 CyNh+WCimTntR95BJ+9AzHWOiH4rSGImX5y+lF3rfIohDVg8phNzSIlpYpqOk9qazS
-	 d+gaAQF2poEULs5owJ8zuhdK0IkvJX1LTRSGs503gZ2+uU+V+wBdxDVoNJSiQLH6md
-	 ZUHknX2LWZM3w==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39669bcaadfso38294171fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 05:39:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8NR5qmJXKNSpmxn/bQt0xR8PY0ai6iNI8FjSs9GVsDX/2+CMFOPM4YJvB1c3Rltqi1piMfd4X1nJ9AfxjwBYrT@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywynx9gzRF9d3hnGAFQVbypv2hrOFzc0JTEifZMMzKWXETcb9++
-	Qnx5YFCUbWtokRbkMUuL3N9f5scQx5m355XUYOG0oeA3gOlV6Aco6kGPf8gKQnaCqx8se+aW42N
-	DTaeg5GAWaZDX2XKGrb7AOwBB/QzXysA7+rk59HyMzg==
-X-Received: by 2002:a05:6512:1301:b0:5aa:6946:6e4d with SMTP id
- 2adb3069b0e04-5aa87b7da75mr5112133e87.19.1781008794127; Tue, 09 Jun 2026
- 05:39:54 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 9 Jun 2026 05:39:52 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 9 Jun 2026 05:39:52 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260608210108.36248-1-dan@reactivated.net>
+	s=k20260515; t=1781009041;
+	bh=Ydq/tbSss8qiRk9qUKdW43eESg1pJEOtT4lCL4jYh6s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N7u2vIFY+mXuNNnLLpaRqQQiiR8gMcqNjl+Ywtc5PJAbkIDP3TNdWE9voyP941Lcl
+	 lAY981OOyMir/AB2trdLks4i1Jo1uqPCHW50Q6us0gFqRvYTXxTyU8NfkOGXMVNDnL
+	 nEkiqZkx5Qli4pRsNHs4dmwUfFU0XSkAieKH1d94FAKMK/IudMBnu7C3I2vAYcmQri
+	 15698UfsH6NFV/WNQ4NbcCg/BHBnA483JKHkFrm9fwDPg4dHsSvUdVWsTWJZqH/yiL
+	 R4e2MEmKpg93NC+QgtIlbGww/E1v5HbixBLU3zp/QwglgYLMn3CyNlrCzoeMjPZ3z0
+	 UMCSGEObXnF6g==
+Date: Tue, 9 Jun 2026 14:43:59 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 23/37] drm/encoder: add drm_encoder_cleanup_from()
+Message-ID: <20260609-hypnotic-honeybee-of-adventure-d89b7c@houat>
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-23-45e2bdb3dfb4@bootlin.com>
+ <20260608-mighty-woodlouse-of-reading-162bca@houat>
+ <DJ4FR339GCKY.21P0315EZLRJU@bootlin.com>
 MIME-Version: 1.0
-References: <20260608210108.36248-1-dan@reactivated.net>
-Date: Tue, 9 Jun 2026 05:39:52 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MfUd3nwpjgz-87hrpQ9AV6T8_1zwCm+tfYFurkYHKoKTw@mail.gmail.com>
-X-Gm-Features: AVVi8CcKUtKWU4WYjIkAgXWTZXMdY_uS6sJr43g7KMrfeztXk2T4EHB-6stkVEU
-Message-ID: <CAMRc=MfUd3nwpjgz-87hrpQ9AV6T8_1zwCm+tfYFurkYHKoKTw@mail.gmail.com>
-Subject: Re: [PATCH v2] gpiolib: handle gpio-hogs only once
-To: Daniel Drake <dan@reactivated.net>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linusw@kernel.org, brgl@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="gtamny6ghjahqeyo"
+Content-Disposition: inline
+In-Reply-To: <DJ4FR339GCKY.21P0315EZLRJU@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,111 +83,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 8 Jun 2026 23:01:08 +0200, Daniel Drake <dan@reactivated.net> said:
-> Commit d1d564ec49929 ("gpio: move hogs into GPIO core") introduced a
-> behaviour change that breaks boot on Raspberry Pi 5 when using the
-> firmware-supplied device tree:
->
->   gpiochip_add_data_with_key: GPIOs 544..575
->     (/soc@107c000000/gpio@7d517c00) failed to register, -22
->   brcmstb-gpio 107d517c00.gpio: Could not add gpiochip for bank 1
->   brcmstb-gpio 107d517c00.gpio: probe with driver brcmstb-gpio failed
->     with error -22
->
-> gpio-brcmstb registers two gpio_chips against the device tree
-> node gpio@7d517c00, one for each bank. The firmware-supplied DT includes
-> a gpio-hog on RP1 RUN, and this gpio-hog is attempted to be applied to
-> *both* gpio_chips. This succeeds against bank 0 (which hosts the GPIO)
-> and fails for bank 1 (which does not).
->
-> In the previous implementation, failures to apply gpio-hogs were
-> quietly ignored. In the new code, the error code propagates and causes
-> probe to fail.
->
-> Closely approximate the previous behaviour by using the OF_POPULATED flag
-> to ensure that each gpio-hog is processed only once. The flag was
-> previously being set before the gpio-hogs were processed, so as part
-> of this change, the flag now gets set only after the gpio-hog is actioned.
-> The handling of gpio-hogs on a DT node with multiple gpio_chips remains a
-> bit incomplete/unclear, but this at least retains the ability to apply
-> hogs to the first gpio_chip per node.
->
-> Signed-off-by: Daniel Drake <dan@reactivated.net>
 
-This needs a Fixes tag.
+--gtamny6ghjahqeyo
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 23/37] drm/encoder: add drm_encoder_cleanup_from()
+MIME-Version: 1.0
 
-> ---
->  drivers/gpio/gpiolib-of.c | 5 -----
->  drivers/gpio/gpiolib.c    | 8 ++++++++
->  2 files changed, 8 insertions(+), 5 deletions(-)
->
-> v2: move OF_POPULATED flag setting to happen after the gpio-hog has
-> been applied (otherwise all hogs were considered already-applied
-> and never applied at all, oops!)
->
-> This bug is only exposed by the RPi5 firmware-provided DT that has the
-> gpio-hog. The DT shipped in the mainline kernel does not have the hog
-> here. I'm not sure to what extent Linux cares about supporting the
-> downstream firmware DT.
->
+On Tue, Jun 09, 2026 at 12:10:39PM +0200, Luca Ceresoli wrote:
+> On Mon Jun 8, 2026 at 2:10 PM CEST, Maxime Ripard wrote:
+> > On Tue, May 19, 2026 at 12:37:40PM +0200, Luca Ceresoli wrote:
+> >> Supporting hardware whose final part of the DRM pipeline can be physic=
+ally
+> >> removed requires the ability to detach all bridges from a given point =
+to
+> >> the end of the pipeline.
+> >>
+> >> Introduce a variant of drm_encoder_cleanup() for this.
+> >>
+> >> Take care to not try detaching non-attached bridges. This is needed be=
+cause
+> >> when two or more bridges are removed not in the backwards order,
+> >> drm_encoder_cleanup_from() is called more than once for bridges closer=
+ to
+> >> the panel.
+> >>
+> >> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> >>
+> >> ---
+> >>
+> >> Note: in theory drm_encoder_cleanup() is now a superset of
+> >> drm_encoder_cleanup_from() and may be simplified to just call
+> >> drm_encoder_cleanup_from() and then do the extra actions. However the
+> >> common code is subtly different in terms of locking and checks, so this
+> >> would complicate the code in this patch and has thus been kept separat=
+e for
+> >> the time being to make reviewing sompler. Reimplementing
+> >> drm_encoder_cleanup() by using drm_encoder_cleanup_from() cvacn be done
+> >> later on.
+> >>
+> >> A much simpler and now obsolete version of this patch (missing locking=
+ and
+> >> checks) previously appeared in
+> >> https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-13-9d6f2c9=
+c3058@bootlin.com/
+> >> ---
+> >>  drivers/gpu/drm/drm_encoder.c | 38 ++++++++++++++++++++++++++++++++++=
+++++
+> >>  include/drm/drm_encoder.h     |  1 +
+> >>  2 files changed, 39 insertions(+)
+> >>
+> >> diff --git a/drivers/gpu/drm/drm_encoder.c b/drivers/gpu/drm/drm_encod=
+er.c
+> >> index 0d5dbed06db4..40ece477b302 100644
+> >> --- a/drivers/gpu/drm/drm_encoder.c
+> >> +++ b/drivers/gpu/drm/drm_encoder.c
+> >> @@ -179,6 +179,44 @@ int drm_encoder_init(struct drm_device *dev,
+> >>  }
+> >>  EXPORT_SYMBOL(drm_encoder_init);
+> >>
+> >> +/**
+> >> + * drm_encoder_cleanup_from - remove a given bridge and all the follo=
+wing
+> >> + * @encoder: encoder whole list of bridges shall be pruned
+> >> + * @bridge: first bridge to remove
+> >> + *
+> >> + * Removes from an encoder all the bridges starting with a given brid=
+ge
+> >> + * and until the end of the chain.
+> >> + *
+> >> + * Does nothing if the bridge is not attached to an encoder chain.
+> >> + *
+> >> + * This should not be used in "normal" DRM pipelines. It is only usef=
+ul for
+> >> + * devices whose final part of the DRM chain can be physically remove=
+d and
+> >> + * later reconnected (possibly with different hardware).
+> >> + */
+> >> +void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm=
+_bridge *bridge)
+> >> +{
+> >> +	struct drm_bridge *next;
+> >> +	LIST_HEAD(tmplist);
+> >> +
+> >> +	/*
+> >> +	 * We need the bridge_chain_mutex to modify the chain, but
+> >> +	 * drm_bridge_detach() will call DRM_MODESET_LOCK_ALL_BEGIN() (in
+> >> +	 * drm_modeset_lock_fini()), resulting in a possible ABBA circular
+> >> +	 * deadlock. Avoid it by first moving all the bridges to a
+> >> +	 * temporary list holding the lock, and then calling
+> >> +	 * drm_bridge_detach() without the lock.
+> >> +	 */
+> >> +	mutex_lock(&encoder->bridge_chain_mutex);
+> >> +	if (!list_empty(&bridge->chain_node))
+> >> +		list_for_each_entry_safe_from(bridge, next, &encoder->bridge_chain,=
+ chain_node)
+> >> +			list_move_tail(&bridge->chain_node, &tmplist);
+> >> +	mutex_unlock(&encoder->bridge_chain_mutex);
+> >> +
+> >> +	while (!list_empty(&tmplist))
+> >> +		drm_bridge_detach(list_first_entry(&tmplist, struct drm_bridge, cha=
+in_node));
+> >> +}
+> >> +EXPORT_SYMBOL(drm_encoder_cleanup_from);
+> >> +
+> >
+> > The name is super confusing, because it doesn't clean up anything.
+> > drm_encoder_cleanup is called that way because it cleans up the encoder.
+> > This function doesn't.
+> >
+> > Unlike what's being documented, it doesn't remove any bridge either. It
+> > just detaches bridge, so let's just call it that way?
+>=20
+> Good point.
+>=20
+> What about:
+>=20
+>  * rename to drm_bridge_detach_from()
+>  * drop the @encoder argument (get if from bridge->encoder)
+>  * maybe even move to drm_bridge.c?
 
-We care about not breaking working setups, I think this should be fixed.
+Yeah, sounds good
+Maxime
 
-> I'm also happy to consider other approaches. This multi-gpiochip setup is
-> a bit weird and gpio-brcmstb could perhaps be converted to register only a
-> single gpio_chip covering all banks. I verified that the other drivers
-> that obviously follow this same multiple-gpiochip pattern
-> (pinctrl-amlogic-a4, pinctrl-st and pinctrl-stm32) do not seem to be used by
-> any board DTs that include gpio-hogs.
->
-> diff --git a/drivers/gpio/gpiolib-of.c b/drivers/gpio/gpiolib-of.c
-> index 2c923d17541f..813dbcb91f6f 100644
-> --- a/drivers/gpio/gpiolib-of.c
-> +++ b/drivers/gpio/gpiolib-of.c
-> @@ -1066,11 +1066,6 @@ int of_gpiochip_add(struct gpio_chip *chip)
->
->  	of_node_get(np);
->
-> -	for_each_available_child_of_node_scoped(np, child) {
-> -		if (of_property_read_bool(child, "gpio-hog"))
-> -			of_node_set_flag(child, OF_POPULATED);
-> -	}
-> -
->  	return ret;
->  }
->
-> diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-> index 1e6dce430dca..b02d711289d0 100644
-> --- a/drivers/gpio/gpiolib.c
-> +++ b/drivers/gpio/gpiolib.c
-> @@ -1031,9 +1031,17 @@ static int gpiochip_hog_lines(struct gpio_chip *gc)
->  		if (!fwnode_property_present(fwnode, "gpio-hog"))
->  			continue;
->
-> +		/* The hog may have been handled by another gpio_chip on the same fwnode */
-> +		if (is_of_node(fwnode) &&
-> +		    of_node_check_flag(to_of_node(fwnode), OF_POPULATED))
-> +			continue;
-> +
->  		ret = gpiochip_add_hog(gc, fwnode);
->  		if (ret)
->  			return ret;
-> +
-> +		if (is_of_node(fwnode))
-> +			of_node_set_flag(to_of_node(fwnode), OF_POPULATED);
+--gtamny6ghjahqeyo
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Sashiko correctly points out that on errors, the state will be corrupted. We
-could maybe move the clearing of the flag to gpiochip_free_hogs() and track its
-state when processing fwnodes in order not to clear it incorrectly?
+-----BEGIN PGP SIGNATURE-----
 
->  	}
->
->  	return 0;
-> --
-> 2.54.0
->
->
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaigKjgAKCRAnX84Zoj2+
+dgQLAX42LEgszKsjPU/+3LFQz8tNGVf56HqdErx1pXdLpTvWmUKH+fpmdnsdAvbC
+3ZlmGa4BgOnk3SuyXjrXLkyQvid/yT867XehPj4JCl3exDBnCQCUs5ObEmha8DRZ
++HJfoVLJ/Q==
+=Ujr9
+-----END PGP SIGNATURE-----
 
-Thanks,
-Bartosz
+--gtamny6ghjahqeyo--
 
