@@ -4,133 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5F3CD8CAE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A73BCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7CVODiw4fAagCc8F9Y8W3ftY8xsdsYa3eZ8Jian/vhU=; b=ls051y6nmEPJgk+Vq6WSZzTVqR
-	ZUNDcNKkeJGgOEeyO9GHGHWbDbZif3t37jUhXnA1bx7lG3cQvVcz5Tb7G+bI9HKcraj9pTc0FqXJB
-	r2e24Z4tY0UfTFC+RJai0zI1Jc1rtdSWQdM8ZGp5p5WHrsyIfpf8+HR3C8t+9V55gUVVWTjv51xTF
-	7rjLfGf8glZMSDbotucYazNXeIYGP1c93l5S5Pe8fOMiL8T8pV6NXHt1sp8j+M54JpgA0X+v+J5nY
-	1UEPvBwqSSi5C+wGx3LfRsW70KDbBGbQWSjNoZHS4pmoQ7obU04GWld33TqBp3T6HBoqqa8a1EjaK
-	pjtO3EaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sQDhEvXvj0vskWG5Nod+8TONy/NcJUoddZ5fD+XBrmU=; b=hBnk5WLTv2xB4anXmxh5+hMVHy
+	Fr7UHUi1Y491aQ6uKSovPo/svGOh6476uhp0gJLG0NdkSVdD+qPgsP5gQGn7qnyN6AqWk6LfjiK6G
+	sQ1Oa6NKueylsdMrrZBZgClDCCzSvTQsI9VcRq54Kn7m6m1NeKToT8uOi4Vg9o8efc7VAGdaqjNLO
+	niRzVEceTmeS6ywpKEAjXdV5/yK0EakXSCZLSAIQe3LRqruOx7qHKH3yXnuWGwHvaXQcFG9goyu9N
+	grJ5nVr6Q1IKqUCsfzoDrS4mE/d5m9C/FuRxHfUIu/rLBXK5PDqdbiqHWCEer9SoI/14xfKD+B76A
+	UzSmihzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpvt-00000004rTe-2xFo;
-	Tue, 09 Jun 2026 06:27:29 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wWpxD-00000004rfo-1vCP;
+	Tue, 09 Jun 2026 06:28:51 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpvq-00000004rSo-09WK
+	id 1wWpx8-00000004re8-2SDx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 06:27:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OJrtWxOSEvc34VPi4W3g11l90X1YuLfZkM96zGyhtTzIY0lGRhjjedxNH4BIaUhhJkin6SXr78pkzf5hA3c5A/nMEKCW76jetqdZQdFCRAGHifKr9gqNYzJqn/dIe4914yFrvHyDEhwmXEFU0UI4c8tmcEFRiQhnHgPzKbTdkxkg5l/gawoyj9UqxEd49bukk1FiO9q7KgBYJAtci/GifeHvrdZZAYITWTMEvFw0qnGK5D+jyH7MaP3SMWHRypuYl7Cas+KxJlfy4GsEabE5uQzUaBy+2o0QWdluZXDjdDJncEom+vlSGU2ZgqAAwKayOI7WEcRZVbhOCnndeYm6rA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7CVODiw4fAagCc8F9Y8W3ftY8xsdsYa3eZ8Jian/vhU=;
- b=rXYp/9nEw9Ebk4SVYR+tLCpM7xDLdWx3lbovkak3ft9kr22QqTNUio456cSMTQBP2qsai4GGYSN7/TqEVypoZ4IKbD30Y4veqlkeCNKxOLDA7wwujwPORDaYLs2/5yn+nX9WZLvRLeAAKrkl7EwzH/hB0MSfv2WLcG8QIkgw2UwFROadqNhiF0kojGN9B8OjYgiHpaYuAWF6hADMBUELYabnX2H2RdWNFGIrFeJDMGi1WN99OT3b2M0xLyDuRbRb3V3pk7hUYTEU2yHtU9GPDyZkGuJzx5gbPhYDjO4P2o8vWqhKtPnJwgsNMYX3DIAalYmVgEY82+x4mbP9ZIXd8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
- dkim=pass header.d=cixtech.com; arc=none
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com (2603:1096:101:df::13)
- by KUYPR06MB8554.apcprd06.prod.outlook.com (2603:1096:d10:8e::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Tue, 9 Jun 2026
- 06:27:21 +0000
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364]) by SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364%5]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 06:27:21 +0000
-From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "mturquette@baylibre.com"
-	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
-	"bmasney@redhat.com" <bmasney@redhat.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, Gary Yang <Gary.Yang@cixtech.com>
-CC: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v2 3/5] dt-bindings: clock: cix,sky1-audss-clock: add
- audss clock controller
-Thread-Topic: [PATCH v2 3/5] dt-bindings: clock: cix,sky1-audss-clock: add
- audss clock controller
-Thread-Index: AQHc9Jq591VKQm5fVEipnbHv8Jekj7YvsPmAgAXmAsA=
-Date: Tue, 9 Jun 2026 06:27:21 +0000
-Message-ID: <SEYPR06MB622688915CBD1AA9B65FFB33821D2@SEYPR06MB6226.apcprd06.prod.outlook.com>
-References: <20260605032225.523669-1-joakim.zhang@cixtech.com>
- <20260605032225.523669-4-joakim.zhang@cixtech.com>
- <6c87641d-d505-44ff-a994-eeabf55f4c73@kernel.org>
-In-Reply-To: <6c87641d-d505-44ff-a994-eeabf55f4c73@kernel.org>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cixtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB6226:EE_|KUYPR06MB8554:EE_
-x-ms-office365-filtering-correlation-id: 656df530-4206-469e-9856-08dec5f0297b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|56012099006|4143699003|6133799003|38070700021|22082099003|18002099003;
-x-microsoft-antispam-message-info: kWS46od/bPF65NDbBB9wqF7Pc/PQF80ncwx/BqZdTg1ID5Zij0R1Jd03DDf+vPSj+qSJqFF5GNwy1Bz7BtmMF2zEKLeLFtrgvUKdgiSakXPF3enYpPiVyB71fWygqVhWvHj3y/lc4rwQSqnxIQSX7M85wCMunuXvfIIjh+6QGhvUHY2QdBqNIr6NJap+kcJ29Go5bu2ekuXCb4zz/9D84B2SRv9j1sh9AprC6rvs5RuuuVOu9kRz0EDr3wgaHeoZbXXBloyPPxOWHsc/TXQFPsEZlwVE6rd7w1BHCulXkZwlbGfq7dkRXXg6fgxa1TPeSuHgStFddiwN3Tj5MHpasacoq6ek+ZAzQgDcsCol3qDRk5TUrLh9xz4B6OqVdB2NRsvqFQqlnH0NIgOUV84z61ACpfZUtt0InVTrB1+L/dDPua+zb08NuztTZG6hjK19sUXEAdin4oFxWoWBUb5bbInaEXA0JIR2yjMBOIpQAOboqQBKaz+oNUYPb0cShRyXrM91V9ihKK5OXnzYCJjublim/snmLJVWU9IRtuu8dF9YGHNl7ITyhNE81q12pEeLrIgRsFHSOz1j4fBp341cLnVeceJbxFzhRVH3sttp2bqmZrhJ0NEXetVPRgpNCsttvlvMT5EFORWpR81rfJXQCWMXo1Ub2HOE05ThjBC470UykovQMAUgMkz2a6OF6169UHhMfp1xa5F4vdCzjCWiA8L3P/QpFDpFvPEok4I3D/3UqQNnRbKP0I+74esLCr8h
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB6226.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(56012099006)(4143699003)(6133799003)(38070700021)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?urAHTIxAw9UAnPzKkeTf7YkUsxBy7zwiqKlaoOSzGUl42Z+4JqkHROxjMvLx?=
- =?us-ascii?Q?f3n8MJQqgvOmbyABv4e9wVwNbTI6NWrmOqWgirxJj2hPAbovENW2paIm3Pj+?=
- =?us-ascii?Q?FWFqSQ98oE+Uw0xQEY2ZmK7guUFnvTsnKFXErla7JeALJm9F08Q1atpTq7pu?=
- =?us-ascii?Q?ZLoBA7E+hs5qgmYFUfNd1IsnJVtmP1DIlpvOm44GCpq+5LDXb59xOXT/TVJh?=
- =?us-ascii?Q?UZ8ERnNtO5gHKhGIbFpgu7hzhcGX/t2xYy8UqxKG8V3jMX7BJg9+LNQ5so3t?=
- =?us-ascii?Q?7yIOuJ+7WyeZJVvh+WGqyEBbANJuTLdJ48EYGABrz51HRJCeiAEP9aaRHwqr?=
- =?us-ascii?Q?7DuO/Bn4K+G+PocrN4rB27F20qogcK+rHvrGQvNzeAe6+Gg90SRlD+7nJjeB?=
- =?us-ascii?Q?VZEcdvJIh/R3vaaIoWJZ9LtW7HZRiK5oc0cHl4yfgaxUCcReH5Zi4xVCGwpl?=
- =?us-ascii?Q?mrN4KivX0KF6/vy5mlLesBqXduWThn43TR/bWOavQ5JBfW3nGhA+2dFl9RUs?=
- =?us-ascii?Q?UHFxSEYzsJ2dUv0yOllaUOrRNXqeveXcrpj7RRaM6A02Sue4oFQXctyETdx4?=
- =?us-ascii?Q?kZpdhEiXAAhd9FJZ1x3w1bR74kkwNWB2pXuDF7uC2rHLMS1iGAnubd/UZj7p?=
- =?us-ascii?Q?GqN0JT1tlfQfQH5Rx2rQsx/rmd/Jbl/wyumCB9vpBYe0tqYu5dhEAEN1Npm3?=
- =?us-ascii?Q?dbKbn2K53y4ayUOg8bsxNR0+MDMoszezhAklZ7Zyl0EQyrK5z3ZzYTa3aHUG?=
- =?us-ascii?Q?UYA5k/4m/8SkV3KVTpglTXfE9z9rYl3XdlKz1K0oTXBHNi4YRzrz5pAoYB2u?=
- =?us-ascii?Q?BSYwuHdTcxH35FAyp85deXlykO68EV5kIncY3+483khR9QSDoK8xWOqudPZG?=
- =?us-ascii?Q?UVvwkXb+uDusnN+xk0h0ntGboiv4MV2W9TuekrlW2zx+btlm2HI+RT5ZwCws?=
- =?us-ascii?Q?xJCuti9Le3S623aiJshfOIVRuIYs5oZLr8VfJBfHlnb8QH1R1Sh3QMZe+a1k?=
- =?us-ascii?Q?SnOuIRzRRO7PekvJkRzE/hgwwNkwgaoIDhTJibNsAvheSEXGZ/xj/WnfOEW2?=
- =?us-ascii?Q?7MfcOJ2746y7hH8Hzl1SNt2uVkL9b7rl62/ngRuOgixmdLW6iYe/rr5mQrOq?=
- =?us-ascii?Q?2S4Ve5WfMqV5Qb2FYmHoG9fW6RQljNfJkNOzry0Phgmr5ddNbMhoxUhSYLZb?=
- =?us-ascii?Q?zxtM+dJybNZlGxnBtd9oUdlEp0N2yXzYMNQ5mIlKPcm04TAvyMlVDDeLySl4?=
- =?us-ascii?Q?YmNd25caMFJa08+8Bxw2IoE8cpdTCFAe66LxOjriMG5Jol2QK8xxtuWJYZe6?=
- =?us-ascii?Q?tckcJB9SM38ju1AHfqEpPK0Gbsz0Eujzup4ST3ALKclb7q9JSceywKBEWPzX?=
- =?us-ascii?Q?20PNSQpu76U8aLhBmbQZrQS9+Bj2BYnC5ElbqEqAauUYnnhkoi+s2vlzr+Db?=
- =?us-ascii?Q?h0MkYEpLB021GctNA8DhVPoURqEtMPV+7i2ViQgHb+GZVUDDC7nKIWgZFAwy?=
- =?us-ascii?Q?6fKcYSohPea7hFoHNiX1O0V1eYROK6MGnkeadVbF0mhmSTaFjb9ZOs2GgVms?=
- =?us-ascii?Q?IkrCkwt6n53XR1Dfm1UQ7wGnHiGamlVan2r6WkFCet15zUsQhmndWx5SamCS?=
- =?us-ascii?Q?bqG9KVHwaG/YzHS+E+98UqfKCzxZK4Tb4Fe6hRtYzeDHOyn74oYLgIlxg8y6?=
- =?us-ascii?Q?fpKEWraOQExar+kXNQvB1LCHYxK2li/jNin27Bg8hcghEpn25Dg5/YGJ1I9a?=
- =?us-ascii?Q?q2Bakguajg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 09 Jun 2026 06:28:50 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260609062840euoutp0166e4bd48148a38525bece214221c063d~3Vc3wD9Ba1705417054euoutp01w
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 06:28:40 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260609062840euoutp0166e4bd48148a38525bece214221c063d~3Vc3wD9Ba1705417054euoutp01w
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1780986520;
+	bh=sQDhEvXvj0vskWG5Nod+8TONy/NcJUoddZ5fD+XBrmU=;
+	h=Date:Subject:From:To:Cc:In-Reply-To:References:From;
+	b=L71YJc2PSiiRY1n+YPatJVjODV3Te89KEOTZimaueovjODrs9pyp0pdbH67JiyEmb
+	 wCUwBCsxT9/ecX7Nz8TuuKZuUCBE8zVB1UGNkFc3cWAa9XWukALnBxMuvL1JCRzJEL
+	 shJ6fMw0Ilby9yFLoZKS/Rtr8A02ChpckDYrgCqw=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260609062840eucas1p1d49831bfdb3447e38a3cadc803a9afc0~3Vc3M9lZT1760217602eucas1p1O;
+	Tue,  9 Jun 2026 06:28:40 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260609062837eusmtip165b8ffd20070283bf8a1cc3770a61ba5~3Vc0aQZiY2875428754eusmtip1_;
+	Tue,  9 Jun 2026 06:28:36 +0000 (GMT)
+Message-ID: <6a9c0f55-fe98-4063-864b-8f7e1f4fefd7@samsung.com>
+Date: Tue, 9 Jun 2026 08:28:35 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB6226.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 656df530-4206-469e-9856-08dec5f0297b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jun 2026 06:27:21.1700
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: nlLcf3bzOLxR5osicJpT/FbOx3s2faLarEhSE3jC5EnIXxzdsMra/2Oyt+Foc15DLJasWlFjOLWAN8VLlFVPeZRAW3mU5dYRSjNfBKyzmVA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUYPR06MB8554
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v7 15/15] arm64: mm: Unmap kernel data/bss entirely from
+ the linear map
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
+	mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts
+	<ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, Kevin
+	Brodsky <kevin.brodsky@arm.com>, Liz Prucka <lizprucka@google.com>, Seth
+	Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, Mike Rapoport
+	<rppt@kernel.org>, David Hildenbrand <david@kernel.org>, Andrew Morton
+	<akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
+	linux-mm@kvack.org, linux-hardening@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org
+Content-Language: en-US
+In-Reply-To: <a1b27e97-182c-485d-a448-56c19c5de2c2@samsung.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260609062840eucas1p1d49831bfdb3447e38a3cadc803a9afc0
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260609062840eucas1p1d49831bfdb3447e38a3cadc803a9afc0
+X-EPHeader: CA
+X-CMS-RootMailID: 20260609062840eucas1p1d49831bfdb3447e38a3cadc803a9afc0
+References: <20260529150150.1670604-17-ardb+git@google.com>
+	<20260529150150.1670604-32-ardb+git@google.com>
+	<a1b27e97-182c-485d-a448-56c19c5de2c2@samsung.com>
+	<CGME20260609062840eucas1p1d49831bfdb3447e38a3cadc803a9afc0@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_232726_090151_1D2052ED 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20260608_232848_014626_4031B9AC 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,168 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 09.06.2026 08:22, Marek Szyprowski wrote:
+> On 29.05.2026 17:02, Ard Biesheuvel wrote:
+>> From: Ard Biesheuvel <ardb@kernel.org>
+>>
+>> The linear aliases of the kernel text and rodata are also mapped
+>> read-only in the linear map. Given that the contents of these regions
+>> are mostly identical to the version in the loadable image, mapping them
+>> read-only and leaving their contents visible is a reasonable hardening
+>> measure.
+>>
+>> Data and bss, however, are now also mapped read-only but the contents of
+>> these regions are more likely to contain data that we'd rather not leak.
+>> So let's unmap these entirely in the linear map when the kernel is
+>> running normally.
+>>
+>> When going into hibernation or waking up from it, these regions need to
+>> be mapped, so map the region initially, and toggle the valid bit so
+>> map/unmap the region as needed.
+>>
+>> Doing so is required because pages covering the kernel image are marked
+>> as PageReserved, and therefore disregarded for snapshotting by the
+>> hibernate logic unless they are mapped.
+>>
+>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> This commit landed in yesterday's linux-next as commit 63e0b6a5b693
+> ("arm64: mm: Unmap kernel data/bss entirely from the linear map").
+> In my tests I found that it breaks booting of RaspberryPi3 and
+> RaspberryPi4 boards with the following kernel panic:
+One more comment - reverting 63e0b6a5b693 and 53205d56212c (dependent
+change) on top of next-20260608 fixes this issue.
 
-Hi Krzysztof,
-
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk@kernel.org>
-> Sent: Friday, June 5, 2026 5:24 PM
-> To: Joakim Zhang <joakim.zhang@cixtech.com>; mturquette@baylibre.com;
-> sboyd@kernel.org; bmasney@redhat.com; robh@kernel.org;
-> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de; Gary Yan=
-g
-> <gary.yang@cixtech.com>
-> Cc: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>; linux-
-> clk@vger.kernel.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel=
-.org;
-> linux-arm-kernel@lists.infradead.org
-> Subject: Re: [PATCH v2 3/5] dt-bindings: clock: cix,sky1-audss-clock: add=
- audss
-> clock controller
->=20
-> EXTERNAL EMAIL
->=20
-> On 05/06/2026 05:22, joakim.zhang@cixtech.com wrote:
-> > +description: |
-> > +  Clock provider for the Cix Sky1 audio subsystem (AUDSS).
-> > +
-> > +  This node is a child of a cix,sky1-audss-system-control MFD/syscon
-> > + node  (see cix,sky1-system-control.yaml). It does not have a reg
-> > + property; clock  mux, divider and gate fields are accessed through th=
-e parent
-> register block.
-> > +
-> > +  Software reset lines for AUDSS blocks are exposed on the parent
-> > + syscon via  #reset-cells. Reset indices are defined in
-> > + include/dt-bindings/reset/cix,sky1-audss-system-control.h.
-> > +
-> > +  Six SoC-level reference clocks listed in clocks/clock-names feed
-> > + the AUDSS  clock tree. The provider exposes the internal AUDSS
-> > + clocks to other devices  via #clock-cells; indices are defined in cix=
-,sky1-
-> audss.h.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: cix,sky1-audss-clock
-> > +
-> > +  '#clock-cells':
-> > +    const: 1
-> > +    description:
-> > +      Clock indices are defined in include/dt-bindings/clock/cix,sky1-=
-audss.h.
-> > +
-> > +  clocks:
-> > +    minItems: 6
->=20
-> Drop
-OK
-
-> > +    maxItems: 6
-> > +    description:
-> > +      Six SoC-level audio reference clocks that feed the audio subsyst=
-em,
-> > +      in the same order as clock-names.
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: audio_clk0
-> > +      - const: audio_clk1
-> > +      - const: audio_clk2
-> > +      - const: audio_clk3
-> > +      - const: audio_clk4
-> > +      - const: audio_clk5
->=20
-> Pretty pointless names. Names matching indexes have no benefits, drop all=
- of
-> them and instead list items in "clocks" with description.
-Yes, you are right, I will describe these more meaningful.
-
-> > +
-> > +  resets:
-> > +    maxItems: 1
-> > +    description: Audio subsystem NoC (or bus) reset line.
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +    description: Audio subsystem power domain.
->=20
-> So the clock part has power domain but reset part does not? This is odd.
-> Especially that parent is audss (right?) and here you describe that this =
-is audss
-> poer domain.
->=20
-> Same question about resets.
-
-The reset and power domain takes effect on the entire subsystem, i.e., auds=
-s can be accessed only after powered on and reset released, including the C=
-RU registers which contains clock/reset/control bits for all device within =
-the audss.
-
-Because the reset controller probe does not access the hardware, while the =
-clock controller does, so at that time, the power domain and reset were pla=
-ced in the clock driver. At present, it does not seem very reasonable eithe=
-r.=20
-
-Linking the "reset" and "power domain" to the parent node requires us to en=
-sure the order of the probes. We need to perform deferred probes within the=
- child nodes until the parent node has been probed.
-
-Do you have any good suggestions? I can also serve as a reference. Thanks
-
-> > +
-> > +required:
-> > +  - compatible
-> > +  - '#clock-cells'
-> > +  - clocks
-> > +  - clock-names
-> > +  - resets
-> > +  - power-domains
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/cix,sky1.h>
-> > +    #include <dt-bindings/reset/cix,sky1-audss-system-control.h>
-> > +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
-> > +
-> > +    audss_syscon: system-controller@7110000 {
-> > +        compatible =3D "cix,sky1-audss-system-control", "simple-mfd", =
-"syscon";
-> > +        reg =3D <0x7110000 0x10000>;
-> > +        #reset-cells =3D <1>;
->=20
-> Drop parent node.
-OK
-
-> > +
-> > +        audss_clk: clock-controller {
-> > +            compatible =3D "cix,sky1-audss-clock";
-> > +            power-domains =3D <&smc_devpd 0>;
-> > +            #clock-cells =3D <1>;
-> > +            clocks =3D <&scmi_clk CLK_TREE_AUDIO_CLK0>, <&scmi_clk
-> CLK_TREE_AUDIO_CLK1>,
-> > +                     <&scmi_clk CLK_TREE_AUDIO_CLK2>, <&scmi_clk
-> CLK_TREE_AUDIO_CLK3>,
-> > +                     <&scmi_clk CLK_TREE_AUDIO_CLK4>, <&scmi_clk
-> CLK_TREE_AUDIO_CLK5>;
-> > +            clock-names =3D "audio_clk0", "audio_clk1", "audio_clk2",
-> > +                          "audio_clk3", "audio_clk4", "audio_clk5";
-> > +            resets =3D <&src SKY1_AUDIO_HIFI5_NOC_RESET_N>;
-> > +        };
-> > +    };
->=20
->=20
->=20
-> > +#define CLK_MCLK4            40
-> > +
-> > +#define AUDSS_MAX_CLKS               41
->=20
-> Drop
-OK
-
-Thanks,
-Joakim
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
