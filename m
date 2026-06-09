@@ -4,143 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F978CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB5A5CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 17:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=; b=UZFS8NkpoCZTO31iYlWyCm16IE
-	OHe99Bixmpf5ACSnmjD0NcPfbBMFCNLwX0bUVDpjlKCFgoTOEibSVflO7X3ZYd0Ij4F4vwo2VN2mS
-	R5/LMI/jPchH2+agY3aRUxaue4dW4xbZPhVIhQ5BJIyEAIp0/kmT+YqqpVI8RsbnCc+RwrX752w2Y
-	BtDCGEFflv59B2NGWxKn14QYLoaxT/u73Gwt4uQG3fx2XbBZkrDBmywq7QQxPMVIhw292YOhgqx1W
-	QlMJtwmS6J4Wtdj4SHs/+1yfW2c0Y1pVfCDL3QhxMqPzJ91sdoc2VogPrS8JK3CliqgvX3MdFxwJh
-	pwS856LA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8eDv60t59fij6+u3viH7XuZxXWmRapj5ScjYDalAZhI=; b=4NSYSFhSfkUvgQ4v6jkVNUJOXh
+	q1c1z1PFagHHYILxoVxsh3ob5HVcosrlOyT3aGegDaxUP9HoijyMBkJRU9zZRAyPrCRcRQT+V94R3
+	z2LRA5kP3Iez1HBlXZ5MllvLNDPwTeuXcB3g1hNux/4jMrWwq8AjNrjPvodfn82QYC6pWv47IpJtl
+	GAGHG+v2+3rm6FWF+MgK4GRmiBHgjEdm8lTNo46SaLbxBd7WcJLQGkpHoxqrBndu1Ad1j0NakUDfY
+	uGLQwGB4UkoCL7Rc07rs1ad7u2o5zbzbQdlMJGmuOpZ1O7TufLJqmIhgmNYyw811i1cw7LEP9BU/5
+	TYjImu4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzZI-00000006506-1LVg;
-	Tue, 09 Jun 2026 16:44:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wWzz5-000000066wB-3iYz;
+	Tue, 09 Jun 2026 17:11:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzZG-000000064zK-0pKb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 16:44:47 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659GOjiH2750392
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 16:44:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=; b=Qs1uAAYitqroo6oR
-	MEex2tM+jfALsKMXl4umzN17elvz1uSM5FrlKwfR8IqOh6Ya4uxiZnSVO0tbq9Tr
-	QK481/Xt0zZOHbucSbNwg/ACKwZBYUILxpCm3VtL189aNeTmat06ophQGOxKEXZa
-	Gs80R+I8O+HI3tCavUrCrRhQbyEg0mUr7VR6xgOLejbs8/POqlMQyKY4OabUupcN
-	qNXyFBkCCv4abVW2RcZbqDqfvjcGD1SbntKqVZSd2/ex/8+nFOxqSpbZJvyag/Dm
-	2sUVmlNpVRh6pxgWa12soJ7jCMC74ByJzUr2QOJ13cAC9aX3KRyypDVgEChjNt+7
-	dEO9eg==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epeqgjkxx-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 16:44:45 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c85a2f1d1e5so3006002a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 09:44:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781023485; x=1781628285; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=;
-        b=iIvOD+bDLnqEPs5vezuKOzzQBNkR80BITSnfW0iDo9T+yCXL1rzJMZdKmweZc9P6X1
-         YMt/bQ2Fj36KdF+nigU4xnlprefZjYcjmi3aL7QLyM54iLz5TP/gsasTupPE1hvHY0+5
-         8hItnkIV4HdDDP/Q/ewHUZnCOtNGGKWXIzNDr/RLxPjuNieAfIc7rByqtSq8GO3syvhM
-         ct3FHYvvvtWeX06fm+O+ujFSoSh31gPsb7NhKNwWxq73JZFsmDh9U1NUzkXyhBY1MeVS
-         7rYaZBiWNChgJtWGk880Nc3QkAS5JxmGRtTtdOdU9cK8JZCqzKOMBBXZXKOmsSzI8iwg
-         dJrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781023485; x=1781628285;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=;
-        b=asTovOz8A1vomL5AjFQPfl4DIYDs2Ux0z/7/aG7weNWnCChTcw80f2YOg5lXdE1pGA
-         4nyAQ8SdeBidTkbleNOi2jkTlPpgmVeMBdB2LmbukQTYunOTRzFrat7wXxt2Y2dRiflu
-         s3Mzy76GiT63tq8SEt5JTwuGPMhrFFrHHgxiULPaG+gXkFn8tnGooVqG484Pts7FURLW
-         maX/7Lf2lM3Wp9YHTZvPncff/LOOgbb3ogva5p89Kw3f7NJPkKfEudQ73ihXZwzNxT02
-         4BMESCpkkrFpXuwfjnkuPinW84y5q0ZmpA4b99jV0pJ6O08MUjLkpXuUv5rafWdFkcXt
-         iDEw==
-X-Forwarded-Encrypted: i=1; AFNElJ/AJ/UXT2VDwAYKZHCt3Tnt+UZxoBhMnYFd3jDu/at7JiNgEqN9XCemJmYfe83/gI/3rg3MS6VUQ/cWqkKt3nL6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt8daJ7zXjX0pYj0dsvBpcQEfrNLlvfXDCLpznkXCFSUvBmQqV
-	nDHNYW9OZZEvV9gcXLP/BJNQfSrYoTb4UHB9tuyTQyTCKZUibT0TPuQqnGns5aKd8CgaKsxhYM0
-	kvxwGAK6oqkFkRHa48NuHRK0CSNxAaW6gHkUOTVCzU+MB1IFmZWd9PCj+vghCQRAtl1DfRaLcmq
-	aYhQ==
-X-Gm-Gg: Acq92OEgQu532YHU/+G8eVAAUJcHO0pJkyPuokr3+fNG/x5oz8qtlcX33sR4odLj0WQ
-	AIqZoySIujt8PL4nSfb4WBORz+ik2l4CeX3c4ChvEZrWX/3anot/dXOQ7U0TeQovMZfwIU3Hps9
-	iddFOvt5NtYyaMA3T5I/tFFstbj3Rztu9ZpH4yDbODnMDZhoiaVHUdkpv3WiPAwhmUCiOOTIu8Y
-	cEGQJcSkc9zHl20e5DNtoJOb6oIH/RQssirMVe8fIDz3s5vDTbCTyra5WxtF7fOjgWPzcIpAsBg
-	9+jn0YWMP88BdUv/3NN1EJFh+9Ut28fchsc0s9scObemR7ZH9fswsjPW0M5A7jqMorOfSqYDtkb
-	Mal5MPcRRt+E4JSjZEwsWS6gaIHJTXHY=
-X-Received: by 2002:a05:6a20:d505:b0:39b:89e0:2e37 with SMTP id adf61e73a8af0-3b53bc604dcmr5305652637.14.1781023484745;
-        Tue, 09 Jun 2026 09:44:44 -0700 (PDT)
-X-Received: by 2002:a05:6a20:d505:b0:39b:89e0:2e37 with SMTP id adf61e73a8af0-3b53bc604dcmr5305599637.14.1781023484241;
-        Tue, 09 Jun 2026 09:44:44 -0700 (PDT)
-Received: from [192.168.1.11] ([120.56.203.186])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df0b374fsm18673938a12.25.2026.06.09.09.44.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 09:44:43 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Jingoo Han <jingoohan1@gmail.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>, Yue Wang <yue.wang@Amlogic.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Shuvam Pandey <shuvampandey1@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Fan Ni <fan.ni@samsung.com>, Shradha Todi <shradha.t@samsung.com>,
-        Hanjie Lin <hanjie.lin@amlogic.com>, linux-pci@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <0f97352506d8d813f70f441de4d63fcd5b7d1c3e.1779123847.git.shuvampandey1@gmail.com>
-References: <0f97352506d8d813f70f441de4d63fcd5b7d1c3e.1779123847.git.shuvampandey1@gmail.com>
-Subject: Re: (subset) [PATCH 1/2] PCI: dwc: Guard RAS DES debugfs deinit
-Message-Id: <178102347813.14565.586041970354711771.b4-ty@kernel.org>
-Date: Tue, 09 Jun 2026 22:14:38 +0530
+	id 1wWzz3-000000066vs-2cqP;
+	Tue, 09 Jun 2026 17:11:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EB1FE40B02;
+	Tue,  9 Jun 2026 17:11:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E20E1F00893;
+	Tue,  9 Jun 2026 17:11:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781025084;
+	bh=8eDv60t59fij6+u3viH7XuZxXWmRapj5ScjYDalAZhI=;
+	h=From:Date:Subject:To:Cc;
+	b=a4kH32iFFZYBJ014WIRfA//0+3vbUCOXveTw2D8JHePmOxP9aTw8l0YT3ysWmv1Fe
+	 wbFEakxFIMKwZHJGw7nT0SLFU9PhtcDRaILcY6/rZgwXhjU0VrisDWrYElSo5SqPF/
+	 h7DgAr7Y2yzDPWatt5DABP0GBE5EoBbf/ncE0yGkIgP3vnXUCVYYMvbMHL14/sTIWn
+	 3YBfy96ew7blLPaMLMgFGMpvWipNdtUwxlYq6Xr0yY/1B6auzWuNF097zmMAvBxX2V
+	 FzTdEmGXvw54rsCCiXCdjv1OCc7d8k4keYi72hG13FfKD84rClgCkZpuOjxA+lwlHd
+	 lJJxOeMv3igPA==
+From: Eugen Hristev <ehristev@kernel.org>
+Date: Tue, 09 Jun 2026 20:05:23 +0300
+Subject: [PATCH] media: bcm2835-unicam: Fix asc leaked in error/remove path
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE1OSBTYWx0ZWRfX4CGrbj97DN7u
- 5+S8CY7Smy2qHDXcfaRsBEgYkXJe2qalU+u4z+WBievBXSBGcsb05NKZvnB0fbk5uA7EwGI/pHX
- AbCFpuoY+xREmnXGvcR6vt2AY25bz99ekt/5+c32DnupO+p3xz+2JqzNjvK1/BbuYW9oy7UMaCz
- lPuVvtvoSQYZbo6Eaz3eu4ZA1lbQ49T00/6vHHDx4gB2USu/wZdk/IDysjgmpzqdc4y3FCLC0m0
- Zbjn2o5ux6it1r0ty21r2/3zFr5T7x374BpJ8X0e2cirFWMoi7b/R0NEPm2AFYA3sIgr3uKlvQm
- hOvWy1OvllU2o9OaKYJtEUezTRmK3LBCBBh33H2VjmSBlxyk4mVuGNtc76gwOLjowFwL9x9YrAR
- pcqVi2paf4P0yT6VewOt0fAlSLncCEkd4xciO+LsgOCtImtMjZK++DVru5iGxK1iajn8GINA3CW
- u4nk0DkmgfwPbaZV+lQ==
-X-Proofpoint-ORIG-GUID: LFEDQ0t7FG0FW_hukkrJnYzhjLkTGPwz
-X-Authority-Analysis: v=2.4 cv=KdHidwYD c=1 sm=1 tr=0 ts=6a2842fd cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=eDurORsI8St+1bJHqsJewQ==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=VwQbUJbxAAAA:8 a=HaK6AIl19eK7yf7b4pgA:9 a=QEXdDO2ut3YA:10
- a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-GUID: LFEDQ0t7FG0FW_hukkrJnYzhjLkTGPwz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-09_04,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 bulkscore=0 clxscore=1015 adultscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090159
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_094446_334897_7F40D524 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <20260609-bcmpiclean-v1-1-23bdeb19caf6@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANJHKGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMwNL3aTk3ILM5JzUxDxdM8tEi9RUY0NLoyQDJaCGgqLUtMwKsGHRsRB
+ +cWlSVmpyCcgEpdpaAIgU7h9uAAAA
+X-Change-ID: 20260609-bcmpiclean-69a8ee3192b0
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Hans Verkuil <hverkuil@kernel.org>, Naushir Patuck <naush@raspberrypi.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Eugen Hristev <ehristev@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1933; i=ehristev@kernel.org;
+ h=from:subject:message-id; bh=BzLLIM23M2A1UoG7u/RhKM9xyYs5pfGf/s4pqyRUtvk=;
+ b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLI0PE3bqvuLAtnk7P21OB33B7Q5V9uKuMxbZV/9PpX33
+ G3X+3wdpSwMYlwMsmKKLNUm/2qF+3e4n3S1VIGZw8oEMoSBi1MAJiJ4nOGfoUpuLJf12fZds/6F
+ CL0oz0vdGHe1yyc7sMZGdr3Bsrxchn9W7//5vN0zMbJwHrPGyf9yx0/91Ek5yPVaMrTDcOemV62
+ 8AA==
+X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
+ fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,26 +88,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+v4l2_async_nf_add_fwnode_remote() allocates the asc, which is freed when
+v4l2_async_nf_cleanup() is called.
 
-On Mon, 18 May 2026 22:44:17 +0545, Shuvam Pandey wrote:
-> dwc_pcie_rasdes_debugfs_init() returns success when the controller has
-> no RAS DES capability, leaving pci->debugfs->rasdes_info unset. The
-> common debugfs teardown path still calls
-> dwc_pcie_rasdes_debugfs_deinit(), which dereferences rasdes_info
-> unconditionally.
-> 
-> Return early when no RAS DES state was allocated. In that case no RAS DES
-> mutex was initialized, so there is nothing to destroy.
-> 
-> [...]
+Call v4l2_async_nf_cleanup() properly in the driver paths.
 
-Applied, thanks!
+Discovered with kmemleak after rmmod:
 
-[1/2] PCI: dwc: Guard RAS DES debugfs deinit
-      commit: a5ee214bb36f43b4d8bb2615b30d3b5c0ea80826
+unreferenced object 0xffff000084526b80 (size 64):
+  comm "modprobe", pid 185, jiffies 4295013512
+  hex dump (first 32 bytes):
+    01 00 00 00 00 00 00 00 e8 0d ff bf 00 00 ff ff  ................
+    40 83 bc 84 00 00 ff ff 60 83 bc 84 00 00 ff ff  @.......`.......
+  backtrace (crc ac584083):
+    [<00000000ffb081a7>] kmemleak_alloc+0x38/0x44
+    [<00000000d2fd9301>] __kmalloc+0x1b0/0x250
+    [<000000004dd5354d>] __v4l2_async_nf_add_fwnode+0x28/0x9c
+    [<0000000067587657>] __v4l2_async_nf_add_fwnode_remote+0x3c/0x64
+
+Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
+Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+---
+ drivers/media/platform/broadcom/bcm2835-unicam.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+index 8d28ba0b59a3..1508843ae58c 100644
+--- a/drivers/media/platform/broadcom/bcm2835-unicam.c
++++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+@@ -2613,6 +2613,7 @@ static int unicam_async_nf_init(struct unicam_device *unicam)
+ 	return 0;
+ 
+ error:
++	v4l2_async_nf_cleanup(&unicam->notifier);
+ 	fwnode_handle_put(ep_handle);
+ 	return ret;
+ }
+@@ -2745,6 +2746,7 @@ static void unicam_remove(struct platform_device *pdev)
+ 	v4l2_device_unregister(&unicam->v4l2_dev);
+ 	media_device_unregister(&unicam->mdev);
+ 	v4l2_async_nf_unregister(&unicam->notifier);
++	v4l2_async_nf_cleanup(&unicam->notifier);
+ 
+ 	unicam_subdev_cleanup(unicam);
+ 
+
+---
+base-commit: a87737435cfa134f9cdcc696ba3080759d04cf72
+change-id: 20260609-bcmpiclean-69a8ee3192b0
 
 Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
+--  
+Eugen Hristev <ehristev@kernel.org>
 
 
