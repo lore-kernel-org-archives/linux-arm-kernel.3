@@ -4,96 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F37E1CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:35:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9750CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L+0aulJsKApTkmvzLBaKjR8wqqZe/Gm2cYIiLhYavTY=; b=FyLoYZ72iC4HbEml9fbIqn5Etg
-	lN1GZPDKjsJleC8eqpi5JqOiWs6J9e6TKoToRGji1bW6NH8Gp+L4HvBTpmP0Ax+2NGDHRVPD2x9L1
-	+wYM1KlWgeFeu9Jf7/mpkOuyZ0gXp7UfHS1yudBz4fBTsSdmsJ8Wk5Du3I16eVRkhQbDArT6voTD+
-	RVdTUaG0aNIqgoUakmNKUr+4OmxllQ2wcI5URoS2G5hJcq30+1ESbtX8tK2WgdgPPn2Q3fRFx8uby
-	04DLqHBrN/YgEA2hDW1MMduk7Ll//6VFM4SFjFXPjGbNGb1u4wd7r5JB0tgDmKXJieWszoMlz/UA+
-	AX2D/q4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JePwi7lGmk22L2ZvF+HlY3auiYE5qVYyUoJ9xEvdwo4=; b=01Dl9LggQc/w0Egpt+Mp+SDOzF
+	PNRgqeWCSmgzEoY1LAsAMqxTtHdExemNXiC42LTVxvvLwfZp6QzipTIRTiv32PgYmsjj084XhMuym
+	A3tzYwc7bJkxpRmBV+ccU2Uh0EcZWn8YMyzHwIDR9+UGKma0Iq+iYS+Ox5KX1a2Gn4OQKaik/6OdL
+	r2gSvf7JNeImz77kbDP8JYNSf7FZwoAi7Itcij1L78VngetbdL1/z7658Bsv4enavnDrVwVWqJ2oA
+	+vXUGfazGnjhqcJ9rwj/r1AZ4tC+Ak/ovonAC+e2eV8KXDhGyulNEiEMrfzev+t5b5vYxI4DHk58B
+	AccN33Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtnS-00000005Mis-0OwI;
-	Tue, 09 Jun 2026 10:35:02 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wWto0-00000005Mpa-1KUO;
+	Tue, 09 Jun 2026 10:35:36 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtnP-00000005MiB-0v46
+	id 1wWtnw-00000005Mna-0fCm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 10:35:00 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2bf22c18ad3so503195ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 03:34:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781001298; x=1781606098; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=L+0aulJsKApTkmvzLBaKjR8wqqZe/Gm2cYIiLhYavTY=;
-        b=vVJnbVFF4yfTmWoTBzN/xAoEWvEj4Jefd4RLj4KfBDc8BU/b5mceLXfbGqlXP4HQky
-         aghtgdRPTwZqSzuglhsH58ZHcjLdNXuhsjQhu8VjmVCOnavL3Bj44+Ho8hprYs4LLv5R
-         DmmScNB2L1O3saydUInJM86TSLTEyguwSJK09gCWe2VZgUqbU6xcMIEVdA9xu2087XKQ
-         5SUP4PJBVvqsjEGzBMidq4tc+o4T7zChJsPB5MXo3m8c6vpw5rKkHn53C+46vvDlNpWA
-         EffsXdsR+88CgeP3UWdEFJbck0JzoY9ZGTimdDxL/vaWMtv+xpwmaRIOcbmJooLsAuy0
-         ViJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781001298; x=1781606098;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=L+0aulJsKApTkmvzLBaKjR8wqqZe/Gm2cYIiLhYavTY=;
-        b=jtZ1aZrtDHwf89Peu3McscW7qt4Mp76xK6VRoP25YrAs7igTjeBccok6pfR47E+Ptn
-         +PV1Wp5Q+mNXeKdPiBihVrmsiyRNTSGr0foBnxpah5T37KXHPGV1Bg833npLhzAAgp2m
-         6JtJTfTWU3ECXAvtXTb9KA7P5xCWVdV+XItDbZPCnm/aGCrHOGGD+1weJgUGCBvKhoVN
-         U6XM5rVBroFVMhnUSuTgE4taaDd8g4S15QWhEINM/etkDvEkeSJpr6K86Gm2EBAKcS5I
-         bcaCXOJWFwu4GxXu0kDeQzmVkKkrTLcWuq/OT/GG9k4fl11q/rwWJ9oQAY3jNwQTKwki
-         NwSQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+8RHyu1cTrTSn/MOKdHDajM+MYw9y81RK/7kD8kC27/E7V6IoZ9VdRjOGaEO4t7bpnIg07dJa3UcgGA81ryp4f@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfoMBQTcj4Ir+D0cjEXVuIlIM3VuUFiTxafkPp8MYyYaiAKJfi
-	7WYLKkCefcIrUwgvNFhZ8eXH19zDlD3VuCPqYN4ZiYAnGx9cIlDjqXGExxlt5w3Hxg==
-X-Gm-Gg: Acq92OFNgcEBOiJ+mAok1Gg6a6dI9K5jDSGlQLPKIWpK/i6eirds0+fbvhzqccmYYl3
-	tSp1vcoLKXNj9DwrUx3yDphIdOouNjhcYaujx/RX13dKR9R3Q2ongKOMm94lcn/snKkjUuf3nXg
-	U4Zut8Sq8PluZO/m4dOYoLCgqdAM6drBMdLacGHFbEpsof3m6J1/uY5FzAvXfEnarxuDvirdTGg
-	4pGEfLxqyz97JSqEvm2h7VZq4Z3hR6xmaKy/7SSPvnN27PVIWo8Xdmfv7nsBf+kLUk+IyWFByV5
-	qwQxJT9CymuHsFyIZGLmUDM+SSeSeTtf96/NFEl4EXRPN7oiBNA7E1LHSzBMGh4xSEjUWlFbiWR
-	0y2r/ectScQBgKQcyIrz++7PN0tWGhJwVjCLQ4Pl0kA06iMqzur2CdKVmSlivWKa1j87C317FW4
-	819sqTugRLheLkKJYqY3rW8l4g1E6KKsPwl5CDXX5gYtHWayr703JyKwrVjwQ5ue+6jwO6QSw=
-X-Received: by 2002:a17:902:e5d0:b0:2b4:58ad:e987 with SMTP id d9443c01a7336-2c1eb6258c0mr8084515ad.17.1781001297678;
-        Tue, 09 Jun 2026 03:34:57 -0700 (PDT)
-Received: from google.com (199.255.142.34.bc.googleusercontent.com. [34.142.255.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84282220d1bsm22390753b3a.12.2026.06.09.03.34.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 03:34:57 -0700 (PDT)
-Date: Tue, 9 Jun 2026 10:34:51 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Daniel Mentz <danielmentz@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 11/12] iommu/arm-smmu-v3: Invoke pm_runtime before hw
- access
-Message-ID: <aifsSxEXX64J1Etq@google.com>
-References: <20260601215909.3958732-1-praan@google.com>
- <20260601215909.3958732-12-praan@google.com>
- <CAE2F3rCPgnFU=d5At1zrOLhsuVEbsweogOHGz9gDddRx73zRtw@mail.gmail.com>
- <aiEawEFsnG-LIahW@google.com>
- <CAE2F3rAWZ4Ac23D8eyAHfmaVVkHv8pz45+_dpMO1M4D7+RVCoA@mail.gmail.com>
+	Tue, 09 Jun 2026 10:35:34 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260609103528euoutp013d288c2fa123fdebeb748e734402df0f~3Y0WXXeaf1159111591euoutp01F;
+	Tue,  9 Jun 2026 10:35:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260609103528euoutp013d288c2fa123fdebeb748e734402df0f~3Y0WXXeaf1159111591euoutp01F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1781001328;
+	bh=JePwi7lGmk22L2ZvF+HlY3auiYE5qVYyUoJ9xEvdwo4=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=uqQ5MZL6StJuM8hFVb2CNy3r9XJVeTOlky3Nq0KHCVmrWf7sQnMCvsduf/Dc0eogH
+	 kOO8JE4vd7HNK7wtukgFBHcoSldIC2uyslzgp8XXmue6mj5Q/YvJPNCzH6KHfiXE+l
+	 ajoXf/AA7I1kTJXycD3CKdsUOq9B5DhRhZchI6Qs=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260609103527eucas1p283f7b84555c22cf98e0f014bcb0dde55~3Y0WG7z2a2784927849eucas1p2i;
+	Tue,  9 Jun 2026 10:35:27 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260609103525eusmtip28ff34c5b3a0f7565e2286427aae416f9~3Y0UFCurw2983029830eusmtip2X;
+	Tue,  9 Jun 2026 10:35:25 +0000 (GMT)
+Message-ID: <193cc406-0834-4dee-9b4a-02cdfd85e05c@samsung.com>
+Date: Tue, 9 Jun 2026 12:35:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAE2F3rAWZ4Ac23D8eyAHfmaVVkHv8pz45+_dpMO1M4D7+RVCoA@mail.gmail.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to
+ EL2 virtual timer when running VHE
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+	Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Mark
+	Rutland <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
+	Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+	Holland <samuel@sholland.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Ge Gordon
+	<gordon.ge@bst.ai>, BST Linux Kernel Upstream Group
+	<bst-upstream@bstai.top>, Jesper Nilsson <jesper.nilsson@axis.com>, Lars
+	Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Dinh Nguyen
+	<dinguyen@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter
+	<jonathanh@nvidia.com>, Bjorn Andersson <andersson@kernel.org>, Konrad
+	Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
+	<afaerber@suse.de>, =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
+	<eleanor.lin@realtek.com>, Heiko Stuebner <heiko@sntech.de>, Shawn Lin
+	<shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
+	<baolin.wang@linux.alibaba.com>, Michal Simek <michal.simek@amd.com>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <86ik7st3nh.wl-maz@kernel.org>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260609103527eucas1p283f7b84555c22cf98e0f014bcb0dde55
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba
+X-EPHeader: CA
+X-CMS-RootMailID: 20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba
+References: <20260523140242.586031-1-maz@kernel.org>
+	<20260523140242.586031-4-maz@kernel.org>
+	<CGME20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba@eucas1p1.samsung.com>
+	<ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
+	<86ik7st3nh.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_033459_588950_D1FBFF28 
-X-CRM114-Status: GOOD (  44.78  )
+X-CRM114-CacheID: sfid-20260609_033532_811743_A9E44F3C 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,96 +112,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 07, 2026 at 03:22:19PM -0700, Daniel Mentz wrote:
-> On Wed, Jun 3, 2026 at 11:27 PM Pranjal Shrivastava <praan@google.com> wrote:
-> >
-> > On Wed, Jun 03, 2026 at 01:28:19PM -0700, Daniel Mentz wrote:
-> > > On Mon, Jun 1, 2026 at 2:59 PM Pranjal Shrivastava <praan@google.com> wrote:
-> > > > @@ -2361,8 +2394,33 @@ static irqreturn_t arm_smmu_handle_gerror(struct arm_smmu_device *smmu)
-> > > >  static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
-> > > >  {
-> > > >         struct arm_smmu_device *smmu = dev;
-> > > > +       irqreturn_t ret;
-> > > > +
-> > > > +       /*
-> > > > +        * Global Errors are only processed if the SMMU is active.
-> > > > +        *
-> > > > +        * If the STOP_FLAG is set (can_elide == true), the hardware is
-> > > > +        * either already disabled or in the process of being disabled.
-> > > > +        * Any errors captured during the quiesce/drain phase will be
-> > > > +        * handled by the explicit arm_smmu_handle_gerror() call at the
-> > > > +        * end of arm_smmu_runtime_suspend() callback. On resume, the
-> > > > +        * STOP_FLAG is cleared before interrupts are re-enabled, ensuring
-> > > > +        * no valid errors are missed.
-> > > > +        *
-> > > > +        * A lockless check is favoured here over a dynamic PM core check
-> > > > +        * since the runtime_pm_get_if_active would return false during
-> > > > +        * transient states like RPM_RESUMING & ignore level-triggered
-> > > > +        * interrupts.
-> > > > +        */
-> > > > +       if (arm_smmu_cmdq_can_elide(smmu)) {
-> > > > +               dev_err(smmu->dev,
-> > > > +                       "Ignoring gerror interrupt because the SMMU is suspended\n");
-> > > > +               return IRQ_NONE;
-> > > > +       }
-> > >
-> > > Have you considered using arm_smmu_rpm_get() here instead?
-> > > I can see two issues with the currenlty proposal:
-> > >  * Returning IRQ_NONE when an interrupt is indeed active and needs to
-> > > be handled. This might be interpreted as a spurious interrupt
-> > >  * Nothing is preventing the suspend handler from running while
-> > > arm_smmu_gerror_handler is in the middle of handling an interrupt
-> > >
-> > > I understand that using arm_smmu_rpm_get() also has downsides,
-> > > including an unnecessary resume operation when the SMMU is already in
-> > > RPM_SUSPENDING state. However, using arm_smmu_rpm_get() would make it
-> > > easier to ensure correctness.
-> > >
-> >
-> > I don't think using arm_smmu_rpm_get() here is possible..
-> >
-> > GERROR is registered as a hard IRQ handler, so calling rpm_get (which
-> > can sleep) would be wrong.
-> 
-> You're right. Sorry, I missed that arm_smmu_gerror_handler is
-> registered as a hard irq handler.
-> 
-> > Regarding the race, the STOP_FLAG is set at the very beginning of the
-> > suspend sequence. If an IRQ fires after that, we return IRQ_NONE and
-> > let the explicit arm_smmu_handle_gerror() call at the end of
-> > runtime_suspend catch and clear it. After CMDQEN, PRIQEN, EVTQEN &
-> > SMMUEN are all cleared, getting a Gerror should be treated as spurious
-> >
-> > That said, I understand your concerns about a real IRQ being interpreted
-> > as a spurious one, and creating an IRQ storm since the gerror register
-> > isn't really written. I have 2 ideas here:
-> >
-> > 1. We could have a "suspended" flag and check it with can_elide here:
-> > arm_smmu_cmdq_can_elide() && is_suspended() to correctly return IRQ_NONE
-> >
-> > 2. We could explicitly disable Gerror in IRQ_CTRL write after setting
-> > the CMDQ_STOP_FLAG. Even if there are Gerrors during the CMDQ drain,
-> > we'll catcup to those at the end of our suspend callback.
-> >
-> > I'm more inclined towards 2 as it prevents potential races (execution of
-> > an IRQ handler with handle_gerror calls at the end of the suspend).
-> >
-> > WDYT?
-> 
-> I'm not sure if I have a good suggestion here. Have you considered the
-> following: Do not call arm_smmu_handle_gerror() from
-> arm_smmu_runtime_suspend(). Instead, call disable_irq() at the end of
-> the suspend handler (and enable_irq() at the beginning of the resume
-> handler)?
+On 09.06.2026 12:21, Marc Zyngier wrote:
+> On Tue, 09 Jun 2026 11:03:21 +0100,
+> Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+>> On 23.05.2026 16:02, Marc Zyngier wrote:
+>>> When running with at EL2 with VHE enabled, the architecture provides
+>>> two EL2 timer/counters, dubbed physical and virtual. Apart from their
+>>> names, they are strictly identical.
+>>>
+>>> However, they don't get virtualised the same way, specially when
+>>> it comes to adding arbitrary offsets to the timers. When running as
+>>> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
+>>> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
+>>> the architecture is broken past the first level of virtualisation
+>>> (it lacks some essential mechanisms to be usable, despite what
+>>> the ARM ARM pretends).
+>>>
+>>> This means that when running as a L2 guest hypervisor, using the
+>>> physical timer results in traps to L0, which are then forwarded to
+>>> L1 in order to emulate the offset, leading to even worse performance
+>>> due to massive trap amplification (the combination of register and
+>>> ERET trapping is absolutely lethal).
+>>>
+>>> Switch the arch timer code to using the virtual timer when running
+>>> in VHE by default, only using the physical timer if the interrupt
+>>> is not correctly described in the firmware tables (which seems
+>>> to be an unfortunately common case). This comes as no impact on
+>>> bare-metal, and slightly improves the situation in the virtualised
+>>> case.
+>>>
+>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> This patch landed recently in linux-next as commit d87773de9efe
+>> ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
+>> running VHE"). In my tests I found that it breaks booting of RaspberryPi5
+>> board. Reverting it on top of linux-next fixes the issue. Here is a boot
+>> log:
+> Huh.
+>
+> [...]
+>
+>> arch_timer: cp15 timer running at 54.00MHz (hyp-virt).
+>> clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xc743ce346, max_idle_ns: 440795203123 ns
+>> sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
+> The interrupt appears to be advertised in the DT, but doesn't seem to
+> fire. That's obviously not going to end well. My suspicion is that
+> either the interrupt isn't wired (that'd be hilariously abd), or is
+> left as Group-0 by the firmware (copy-paste from RPi4).
+>
+> Can you try the following hack and let me know if the kernel shouts at
+> you?
+>
+> Thanks,
+>
+> 	M.
+>
+> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+> index ec70c84e9f91d..d05791e6cc0db 100644
+> --- a/drivers/irqchip/irq-gic.c
+> +++ b/drivers/irqchip/irq-gic.c
+> @@ -213,6 +213,7 @@ static void gic_eoimode1_mask_irq(struct irq_data *d)
+>  static void gic_unmask_irq(struct irq_data *d)
+>  {
+>  	gic_poke_irq(d, GIC_DIST_ENABLE_SET);
+> +	WARN_ON(!gic_peek_irq(d, GIC_DIST_ENABLE_SET));
+>  }
+>  
+>  static void gic_eoi_irq(struct irq_data *d)
 
-I thought about using disable_irq(), but I think doing it at the
-hardware level (IRQ_CTRL) is better.
+I've applied this change, but it doesn't trigger any warning in the boot log.
 
-By disabling in IRQ_CTRL and keeping the manual arm_smmu_handle_gerror()
-call at the end of suspend, we ensure that we don't lose any gerror info
-We catch and handle any errors that occurred during the drain/quiesce 
-phase right before the power-down.
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-Thanks,
-Praan
 
