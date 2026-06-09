@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EB4CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C3E1CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MOBpQ0JRmmblQJ4PcSwUlho8DTvTXyDdtyxsMVR58xk=; b=FcYC1kZE6MoRThukTT7Tb8ZAtQ
-	0e3IzNSsLaTq4H4nZkYh5SOzs+RskbyCP0iU141h2gFxOYbu4f8OSxtN3HCkZieZsapzV/pSSE9xj
-	p6CXoKsxnHkiS/EiwD39eloyetYiZmjxV2p+OjEfXxMhDBpD0YWOtYI6kFrrMrBvPiDSsHOyANChe
-	LQtFJGDoEuKYpQw/AmsFO9asv/2L7Qo14HfRYO/+xUJENfqMCmKctUpsi6qn1GlQcRFk8E672N3Xd
-	jD1BoSTmF7NnKmD6XCgA0ADqKKzbbrekU9kEGm2Pl5rBBy/+ZuZkF0BiFY2Ulogd0YJjw2zzbeGkk
-	rpfRG+7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+8fDguGxy8oohflcodTncPHkHZ7SOvr+ZQteO3JTQvQ=; b=1wp9KC4ZWjUX7pLp1ZJikO+b19
+	vIHBBkBcWXSEZOWVU3Q1vZcPCfudhNYaX6OmhAX5ih91a+tkM8FFYwEvinDTzTL3Opzh4qQ4lDcje
+	i5eRqPm8CAlueQXLKRjxBjisy4rASvYeIDwnHgRT0Z7g89DtZrEYYQiyrViavjqMOmP6KIvk6+8XZ
+	+eewkpNKrzgcA6Czd3k3oc5kPiAJqLi3TMqCXdFy+j9GEyKcyg/X1xUxEIj9Ch4QQFJtZ/HEAn4Sk
+	ETb1uCNvduIj0EVLTDkEMFNRovoWYMdxzOEpyGXImsohH+TcW0O2Vulp17xoPbHylctsdGeVyPIwC
+	3wEB0mrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtMr-00000005Iev-1KPg;
-	Tue, 09 Jun 2026 10:07:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWtNx-00000005InH-2Nne;
+	Tue, 09 Jun 2026 10:08:41 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtMq-00000005IeU-0ZII
+	id 1wWtNv-00000005Imi-0wcG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 10:07:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86C8041740;
-	Tue,  9 Jun 2026 10:07:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F1411F00898;
-	Tue,  9 Jun 2026 10:07:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780999651;
-	bh=MOBpQ0JRmmblQJ4PcSwUlho8DTvTXyDdtyxsMVR58xk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=LWz4DKfgGJnelu8EZ4aRzGBiJ06JbirjU+eL59uzgm/1EVwjdoQcZimNDTZDq7ryM
-	 9QKZyDr5nHUsJgmgoVBKP7kVm4/ZfybP3o02Vb8P281t10sMdOTeqpcYzmczwJZdjl
-	 2E2WaFlqDkllKtXpVQiIFwFLVbVjbETBd5M61DTkC/758CCnStnRh5bi78+qK/vPLT
-	 hwauR1nyoSCBoobp58hQrdiMkhUuH59FPJGKK9vvRFnsEWpNY3BoEC767rFOlQZCq4
-	 paDQsy8OJP6LQgsbJneveyFLpV+u++spq0xYBK7Wog1odbsGySNKuo55RNvzHZetn6
-	 eBGV44Ldc/6eg==
-Message-ID: <c866dbcd-c211-48df-84e3-f66785ba8538@kernel.org>
-Date: Tue, 9 Jun 2026 12:07:26 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] soc: samsung: exynos-pmu: fix of_node refcount leak
- in exynos_get_pmu_regmap()
-To: geoffrey <geoffreyhe2@gmail.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Tomasz Figa <tomasz.figa@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260609095224.1706036-1-geoffreyhe2@gmail.com>
- <20260609095224.1706036-2-geoffreyhe2@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260609095224.1706036-2-geoffreyhe2@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Tue, 09 Jun 2026 10:08:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780999719; x=1812535719;
+  h=date:from:to:cc:subject:message-id;
+  bh=EepPOBi6zRq5UJ2d1UUZ1v7dtjlEPMRhSzmxPCMHFfU=;
+  b=dtmHzcglP90CjK8kFtKEtQuGHAbSWG5mYts93hfDopiaEhoXT5LPBOpf
+   EdwRQSCQNlKugUYq1wyT+M310OIXUOmld+RmvT9JYIRhDxAh81khVKddu
+   /U/JHHncFHvfJ35M+M0ow4USIkb7hIiKHSWFB3qhGgHux9PISNQkf5po+
+   V54Dct3Pc4g7QUGu73zZAf4YEVRq9jh6CIynhBhuImN0hITQ9QRttQAnW
+   NrqrjAyD3k1Ft9oBUaEWuhwThonk7nzzRXDBJdONfQOQux93omeGetR52
+   FS+lbN7QhDSkVG1xCUL8XCEImjj7MseWhHLtXLGwX1ZhVixplWxokxWr1
+   Q==;
+X-CSE-ConnectionGUID: 2hGXxO/mQBiTs4lTHvJK5A==
+X-CSE-MsgGUID: gpBMSDyvSC6nP57Jo13mOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11811"; a="85645859"
+X-IronPort-AV: E=Sophos;i="6.24,195,1774335600"; 
+   d="scan'208";a="85645859"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 03:08:23 -0700
+X-CSE-ConnectionGUID: nG1qZ0mCSLS3wYTLNJ0Bmw==
+X-CSE-MsgGUID: YqUjkoIXRUiwVkuTn1czMg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,195,1774335600"; 
+   d="scan'208";a="244964378"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 09 Jun 2026 03:08:22 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wWtNb-00000000JrI-0fTM;
+	Tue, 09 Jun 2026 10:08:19 +0000
+Date: Tue, 09 Jun 2026 18:07:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ 7b93c5b05877bc5df662d4edd827936fa2d39fc4
+Message-ID: <202606091819.xY6kjzBl-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_030839_302800_1C03B4F1 
+X-CRM114-Status: UNSURE (   5.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,43 +83,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2026 11:52, geoffrey wrote:
-> From: Weigang He <geoffreyhe2@gmail.com>
-> 
-> exynos_get_pmu_regmap() obtains a device_node via of_find_matching_node()
-> and passes it to exynos_get_pmu_regmap_by_phandle(np, NULL). With
-> propname == NULL the callee uses np directly and only drops a reference
-> when propname is set, so the reference taken by of_find_matching_node()
-> is leaked on every call -- including on each -EPROBE_DEFER retry of the
-> only in-tree caller, exynos_retention_init() in the Exynos pinctrl
-> driver.
-> 
-> Drop the reference in the function that acquired it.
-> 
-> Found by static analysis tool CodeQL.
-> 
-> Fixes: 76640b84bd7a ("soc: samsung: pmu: Provide global function to get PMU regmap")
-> Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
-> ---
->  drivers/soc/samsung/exynos-pmu.c | 16 +++++++++++-----
->  1 file changed, 11 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-> index d58376c38179b..a5da2741852b4 100644
-> --- a/drivers/soc/samsung/exynos-pmu.c
-> +++ b/drivers/soc/samsung/exynos-pmu.c
-> @@ -167,11 +167,17 @@ static const struct mfd_cell exynos_pmu_devs[] = {
->   */
->  struct regmap *exynos_get_pmu_regmap(void)
->  {
-> -	struct device_node *np = of_find_matching_node(NULL,
-> -						      exynos_pmu_of_device_ids);
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: 7b93c5b05877bc5df662d4edd827936fa2d39fc4  Merge tag 'socfpga_dts_updates_for_v7.2' of git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux into soc/dt
 
-Use __free() to make it simpler.
+elapsed time: 6520m
 
->  
+configs tested: 85
+configs skipped: 1
 
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Best regards,
-Krzysztof
+tested configs:
+alpha                             allnoconfig    gcc-16.1.0
+alpha                            allyesconfig    gcc-16.1.0
+arc                              allmodconfig    gcc-16.1.0
+arc                               allnoconfig    gcc-16.1.0
+arc                              allyesconfig    gcc-16.1.0
+arm                               allnoconfig    clang-23
+arm                              allyesconfig    gcc-16.1.0
+arm64                            allmodconfig    clang-23
+arm64                             allnoconfig    gcc-16.1.0
+arm64                 randconfig-001-20260609    clang-23
+arm64                 randconfig-002-20260609    gcc-13.4.0
+arm64                 randconfig-003-20260609    gcc-15.2.0
+arm64                 randconfig-004-20260609    clang-23
+csky                             allmodconfig    gcc-16.1.0
+csky                              allnoconfig    gcc-16.1.0
+csky                  randconfig-001-20260609    gcc-9.5.0
+csky                  randconfig-002-20260609    gcc-11.5.0
+hexagon                          allmodconfig    clang-23
+hexagon                           allnoconfig    clang-23
+hexagon               randconfig-001-20260609    clang-18
+hexagon               randconfig-002-20260609    clang-23
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-14
+i386                             allyesconfig    gcc-14
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-20
+loongarch             randconfig-001-20260609    clang-23
+loongarch             randconfig-002-20260609    clang-23
+m68k                             allmodconfig    gcc-16.1.0
+m68k                              allnoconfig    gcc-16.1.0
+m68k                             allyesconfig    gcc-16.1.0
+microblaze                        allnoconfig    gcc-16.1.0
+microblaze                       allyesconfig    gcc-16.1.0
+mips                             allmodconfig    gcc-16.1.0
+mips                              allnoconfig    gcc-16.1.0
+mips                             allyesconfig    gcc-16.1.0
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                 randconfig-001-20260609    gcc-11.5.0
+nios2                 randconfig-002-20260609    gcc-11.5.0
+openrisc                         allmodconfig    gcc-16.1.0
+openrisc                          allnoconfig    gcc-16.1.0
+openrisc                            defconfig    gcc-16.1.0
+parisc                           allmodconfig    gcc-16.1.0
+parisc                            allnoconfig    gcc-16.1.0
+parisc                           allyesconfig    gcc-16.1.0
+powerpc                          allmodconfig    gcc-16.1.0
+powerpc                           allnoconfig    gcc-16.1.0
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    gcc-16.1.0
+riscv                            allyesconfig    clang-23
+riscv                               defconfig    clang-23
+riscv                 randconfig-002-20260609    clang-23
+s390                             allmodconfig    clang-23
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-16.1.0
+s390                  randconfig-001-20260609    clang-23
+s390                  randconfig-002-20260609    gcc-16.1.0
+sh                               allmodconfig    gcc-16.1.0
+sh                                allnoconfig    gcc-16.1.0
+sh                               allyesconfig    gcc-16.1.0
+sh                    randconfig-001-20260609    gcc-13.4.0
+sh                    randconfig-002-20260609    gcc-11.5.0
+sparc                             allnoconfig    gcc-16.1.0
+sparc                 randconfig-001-20260609    gcc-16.1.0
+sparc                          randconfig-002    gcc-11.5.0
+sparc64                          allmodconfig    clang-20
+sparc64                        randconfig-001    gcc-12.5.0
+um                               allmodconfig    clang-23
+um                                allnoconfig    clang-16
+um                               allyesconfig    gcc-14
+x86_64                           allmodconfig    clang-22
+x86_64                            allnoconfig    clang-22
+x86_64                           allyesconfig    clang-22
+x86_64      buildonly-randconfig-004-20260609    gcc-14
+x86_64      buildonly-randconfig-006-20260609    gcc-14
+x86_64                randconfig-001-20260609    gcc-14
+x86_64                randconfig-002-20260609    clang-22
+x86_64                randconfig-003-20260609    gcc-14
+x86_64                randconfig-004-20260609    clang-22
+x86_64                randconfig-005-20260609    clang-22
+x86_64                randconfig-006-20260609    clang-22
+x86_64                          rhel-9.4-rust    clang-22
+xtensa                            allnoconfig    gcc-16.1.0
+xtensa                           allyesconfig    gcc-16.1.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
