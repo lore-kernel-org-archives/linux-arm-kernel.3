@@ -4,101 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D0CCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C66C0CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gdvr4XfLIetW/3i7USSlvVySj8J0w0NxH6C9I1FUuLA=; b=yKP6YEz9kUKMWUZF1Gs+ePgBky
-	ko69dc7+VriN2xufremo5QJ95OxUrMvm+h3fQhSJPjdG6gnOgF4WxvqZr+WzxamoW/K9Zyobot0QX
-	wQRbpDHrxKHSjSUrlkx7VEbux+ohgPAk8YbNCz3PhxeUp6Ekz73FNaf3g4JQa+MRnsA0l7SL86KtA
-	Cv6AqGe0ATpx1iqLzzgnHSIkawQubyx1umePfKsSCc8y9dDzep0FJ4ogqnSS30Z4rAdNC15CVnNJW
-	iAB2vzozysro+3ZumSXEB2Q/eTaEYSUyLA1+zSESd1rd8GIbWpCpDC6i6tsIhn9YVNWjURqLKa/Uc
-	2TvIlbMw==;
+	bh=aTF97Kd6W3WUQyV9EptgWTJTCL8FDvW643/bkmmD2vA=; b=W/in2P8D5mt3mjsnaIIyqTkmSm
+	ybUzraZqkoCQJDb2JCivfes8yrFyQIUrwx6amX6wkOp6r2FK1hBjQaaPkhUzXASe0VbjEGRQs5ItG
+	WcgYqR8RhNFVI3MTmcqt7bN7S5Gkf+hd2xesCmjZ/2HFSM+0sKlrqP28cO6wbfl59vhLrKZe17pfz
+	J6JUasg3mGhWsLyeOjUwNiZAPVGqD64AwswIWQlgRiBcB72R2EsOyY0Own6fWDb7CHbSbyj9OdMXN
+	SHOfA4HvwRtn7vlpb4Uu8fjhHPHwXQNzT3VnUCeo+wqJ//aobs+8rzbFBxsTHunFsK5RZfsXM/bQ3
+	fJFTm9Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtz5-00000005O37-3wgy;
-	Tue, 09 Jun 2026 10:47:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wWtzJ-00000005O5c-0K5j;
+	Tue, 09 Jun 2026 10:47:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtz4-00000005O2j-0NNx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 10:47:02 +0000
+	id 1wWtzI-00000005O5K-1fvC;
+	Tue, 09 Jun 2026 10:47:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D242F4182B;
-	Tue,  9 Jun 2026 10:47:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5166A1F00893;
-	Tue,  9 Jun 2026 10:47:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B19760172;
+	Tue,  9 Jun 2026 10:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A921F00893;
+	Tue,  9 Jun 2026 10:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781002021;
-	bh=Gdvr4XfLIetW/3i7USSlvVySj8J0w0NxH6C9I1FUuLA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=eUholNefkZlsvnMq/CdNGdJk8d1LA8K48BLvm+ftw6hc6tJ2kN2hCXVzyvMAdyHxO
-	 mR6BrP5WdmWkkbEwXFKZszYemKvXTtGay/FOmtesWbohe1k8GyQCTxi+SihXswwA6v
-	 lHgvijcWZ54IsqTClTHROd0Pfn5VGrpXu2zyfVd9mwYH2+GgzO6+WxTE9+/Jgx6iWi
-	 cVACxUP+f/M0GzDiAo2I8eHxelsvgYbxQr+s+HaRVLGYQyOjBhgXZMRi3MIYw8pQKh
-	 oMCHTHi/+4II8PDdwrZxOm2ANuBX1EtCrZXaMG7pj7hIbcHx4Byu3+nvlPuDovVPuB
-	 55pK216RqoU9w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wWtz0-0000000As9e-3A2g;
-	Tue, 09 Jun 2026 10:46:59 +0000
-Date: Tue, 09 Jun 2026 11:46:57 +0100
-Message-ID: <86ecigt2hq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org,	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,	devicetree@vger.kernel.org,	Lorenzo Pieralisi
- <lpieralisi@kernel.org>,	Hanjun Guo <guohanjun@huawei.com>,	Sudeep Holla
- <sudeep.holla@kernel.org>,	Catalin Marinas <catalin.marinas@arm.com>,	Will
-	Deacon <will@kernel.org>,	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark
-	Rutland <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,
-	Krzysztof	Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Chen-Yu	Tsai <wens@kernel.org>,	Jernej Skrabec
- <jernej.skrabec@gmail.com>,	Samuel	Holland <samuel@sholland.org>,	Neil
- Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
- Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
- <jesper.nilsson@axis.com>,	Lars	Persson <lars.persson@axis.com>,	Alim
- Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
- <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
- <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,	Thierry Reding
- <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
- Andersson <andersson@kernel.org>,	Konrad	Dybcio <konradybcio@kernel.org>,
-	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	=?UTF-8?B?Ill1LUNo?=
- =?UTF-8?B?dW4gTGluIFvmnpfnpZDlkJtdIg==?= <eleanor.lin@realtek.com>,	Heiko
- Stuebner <heiko@sntech.de>,	Shawn Lin <shawn.lin@rock-chips.com>,	Orson
- Zhai <orsonzhai@gmail.com>,	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>
-Subject: Re: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
-In-Reply-To: <193cc406-0834-4dee-9b4a-02cdfd85e05c@samsung.com>
-References: <20260523140242.586031-1-maz@kernel.org>
-	<20260523140242.586031-4-maz@kernel.org>
-	<CGME20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba@eucas1p1.samsung.com>
-	<ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
-	<86ik7st3nh.wl-maz@kernel.org>
-	<193cc406-0834-4dee-9b4a-02cdfd85e05c@samsung.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: m.szyprowski@samsung.com, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kern
- el.org, afaerber@suse.de, eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com, florian.fainelli@broadcom.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1781002035;
+	bh=aTF97Kd6W3WUQyV9EptgWTJTCL8FDvW643/bkmmD2vA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dAjmjkmNUGQASADxrO2i+LYGgcDEblBlP4n0z7h7XGH+P88yCHs0mTyqdpq90dp8u
+	 yQ6CGj58rgXsrPku93d5gF3xgZwfL4KX+yvcZuxab7Pm6I/Mck/k/usA7h3NMJIeLH
+	 EGqazf43XlTOdNjjij+a3uwHaT8Hl9Ltyg+5ggyEIwOwb4U0Lv1YTMKpxHXO3sB9hM
+	 hPT9VDF50xUXSeg6TpTuHucDwiWyKPIvWlLuiM9dySh7NmfyguKcFUy39Bfs8iuFs4
+	 iPoqNQhGPGNw3fpnCN4DIK3bdMrq2f2KmD+2qrcL7PM1urOiBNaKm9t9VT5EGKhmZt
+	 NQujfkgTJ6flg==
+Date: Tue, 9 Jun 2026 12:47:11 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: arm-soc <arm@kernel.org>, soc <soc@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
+Subject: Re: [GIT,PULL,1/3] MediaTek ARM64 Device Tree updates for v7.2
+Message-ID: <20260609-daffy-hot-chihuahua-a3cd23@quoll>
+References: <20260601091225.5223-1-angelogioacchino.delregno@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260601091225.5223-1-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,91 +67,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026 11:35:24 +0100,
-Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+On Mon, Jun 01, 2026 at 11:12:20AM +0200, AngeloGioacchino Del Regno wrote:
+> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 > 
-> On 09.06.2026 12:21, Marc Zyngier wrote:
-> > On Tue, 09 Jun 2026 11:03:21 +0100,
-> > Marek Szyprowski <m.szyprowski@samsung.com> wrote:
-> >> On 23.05.2026 16:02, Marc Zyngier wrote:
-> >>> When running with at EL2 with VHE enabled, the architecture provides
-> >>> two EL2 timer/counters, dubbed physical and virtual. Apart from their
-> >>> names, they are strictly identical.
-> >>>
-> >>> However, they don't get virtualised the same way, specially when
-> >>> it comes to adding arbitrary offsets to the timers. When running as
-> >>> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
-> >>> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
-> >>> the architecture is broken past the first level of virtualisation
-> >>> (it lacks some essential mechanisms to be usable, despite what
-> >>> the ARM ARM pretends).
-> >>>
-> >>> This means that when running as a L2 guest hypervisor, using the
-> >>> physical timer results in traps to L0, which are then forwarded to
-> >>> L1 in order to emulate the offset, leading to even worse performance
-> >>> due to massive trap amplification (the combination of register and
-> >>> ERET trapping is absolutely lethal).
-> >>>
-> >>> Switch the arch timer code to using the virtual timer when running
-> >>> in VHE by default, only using the physical timer if the interrupt
-> >>> is not correctly described in the firmware tables (which seems
-> >>> to be an unfortunately common case). This comes as no impact on
-> >>> bare-metal, and slightly improves the situation in the virtualised
-> >>> case.
-> >>>
-> >>> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> >> This patch landed recently in linux-next as commit d87773de9efe
-> >> ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
-> >> running VHE"). In my tests I found that it breaks booting of RaspberryPi5
-> >> board. Reverting it on top of linux-next fixes the issue. Here is a boot
-> >> log:
-> > Huh.
-> >
-> > [...]
-> >
-> >> arch_timer: cp15 timer running at 54.00MHz (hyp-virt).
-> >> clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xc743ce346, max_idle_ns: 440795203123 ns
-> >> sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
-> > The interrupt appears to be advertised in the DT, but doesn't seem to
-> > fire. That's obviously not going to end well. My suspicion is that
-> > either the interrupt isn't wired (that'd be hilariously abd), or is
-> > left as Group-0 by the firmware (copy-paste from RPi4).
-> >
-> > Can you try the following hack and let me know if the kernel shouts at
-> > you?
-> >
-> > Thanks,
-> >
-> > 	M.
-> >
-> > diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-> > index ec70c84e9f91d..d05791e6cc0db 100644
-> > --- a/drivers/irqchip/irq-gic.c
-> > +++ b/drivers/irqchip/irq-gic.c
-> > @@ -213,6 +213,7 @@ static void gic_eoimode1_mask_irq(struct irq_data *d)
-> >  static void gic_unmask_irq(struct irq_data *d)
-> >  {
-> >  	gic_poke_irq(d, GIC_DIST_ENABLE_SET);
-> > +	WARN_ON(!gic_peek_irq(d, GIC_DIST_ENABLE_SET));
-> >  }
-> >  
-> >  static void gic_eoi_irq(struct irq_data *d)
+>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 > 
-> I've applied this change, but it doesn't trigger any warning in the boot log.
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git/ tags/mtk-dts64-for-v7.2
+> 
+> for you to fetch changes up to 9897c586b09f79ebcf2e67a888743c046b20d254:
+> 
+>   arm64: dts: mediatek: add LED and key support on Xiaomi AX3000T (2026-05-25 10:43:10 +0200)
+> 
+> ----------------------------------------------------------------
+> MediaTek ARM64 DeviceTree updates
+> 
+> This adds improvements for already supported SoCs and devices.
 
-[+ Florian]
+Thanks, applied
 
-Huh. So that really points at the timer not being wired into the GIC,
-Samsung style... Can you confirm that removing the EL2 virtual timer
-from the DT results in a booting machine?
+Best regards,
+Krzysztof
 
-Florian, can you please check whether PPI12 is actually the EL2
-virtual timer on the RPI5 SoC?
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
