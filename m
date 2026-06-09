@@ -4,99 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E81CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B55ACD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/RvxSYlM/twIIgpH3kj5I2fsJv0XikpfNScMhyHup9o=; b=BRsfzdN+4KKx8WdlWx0xOw+7vu
-	1UZyihKgHRcSaukaFsbvfIzDytZnLy8h4l8sLoVivSkbh6APEmV+3JCSj3BH6v/4DBIY9M4rv4qRg
-	jgg/nZJ3rk5dnOuv2JpYZHPuxIo1av4ZlzwfGZsbgtNMPeIcKQfrykeMwHQJ4VNfdfJuOXIrKE17P
-	IOUBCFXCBAZWbjxMjKAgZLH87/ZasgRXJ+EwvjL8VbidMB6zYASHR2dhJYIFmOGL3MC5S3eXrq+z/
-	Plf0+nF/cKDSi1ZQfQu876Ey3Ed5qZJuv2XdtXcU8NPoO4gVGwpUjsCUnAPwoXHjXh2MhVvhWEibn
-	MH/yOnMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tvjjhZx2KbfbA3aG4zyyErvYRIPzEB2KAnDRxFD1IPc=; b=mt4Pp1JUiBegFglAbVb/GSlTS8
+	mbPiFrhmI9BxIHA3xCO6ivkXIwC0J0Pc8FJj4TuXsCUN4N1RjQ7RMd4plSN1x2OtmPQPOMjfOCwDp
+	Pqk3HUpKBiGPYm8vzkF8XiBGIQ2wjXWKJA7rVxvsGQH64nnF5+iBOKtHKq395tMqkI0l+t/Su/WcF
+	/WndHZpBtURZ6R5ANwLDJdC1b0HAHEmUuWyOOeZnmXbM6eOnfTq8H73mq/cK9vssvEN6bR9HV4d2o
+	18nmfu40IJZQvi9whSU+yvrhwQSJCVW1CyWUPBe7VggK9QaXElARNbRdpJqNKqtEi/kpRbQwi+0kw
+	rLpTQvrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWz3i-000000060YD-08rZ;
-	Tue, 09 Jun 2026 16:12:10 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
+	id 1wWz7I-0000000617L-3JGe;
+	Tue, 09 Jun 2026 16:15:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWz3f-000000060Wm-3o5x
+	id 1wWz7H-0000000616c-1j9A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 16:12:09 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 6E2C81D0006F;
-	Tue,  9 Jun 2026 12:12:06 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 09 Jun 2026 12:12:06 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1781021526;
-	 x=1781107926; bh=/RvxSYlM/twIIgpH3kj5I2fsJv0XikpfNScMhyHup9o=; b=
-	QygQNULOkUV4nWCxEImhr6xamOaYyI3aJtv1XjCya7JmSG8IfPhMYx5pKFOVML+j
-	C45cuLQKukTZ7uDBbbTkT5QTg3dfcbLdjnDqapBocmQhS394wsVGiaMILT7lMb44
-	hILvnY1w9yaWoJTheDt73/AMWgi/SCmGvQWNjDEplniLyWFguy8UqxHVwD0NVaop
-	w2kXp/dAHZljXmaOKk20KHWl25UBqum5+43t7oDYxxqTtzq9YFMwE1MaNbqPic6X
-	3/XYuxc1qqe6+02YYvQUk4hT7eQF9IbIemBjRSAp10iFUM1dmc8aEiJRe+0dLD2l
-	o+p9G/vUgm5HGAJ8UmK3Fg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781021526; x=
-	1781107926; bh=/RvxSYlM/twIIgpH3kj5I2fsJv0XikpfNScMhyHup9o=; b=Q
-	DhbPw7vEzr3x4Q42tcJIJhnt0AfQlxA0u+44aEBkfFqM6B1ys+HONdSBK5sze+1V
-	Zs7DNTDEGFj9GvBOylPvrCDQ70AKIZ4dmzpM6mJtx7LGnzYBhlmdpKTJfrDwPX+9
-	cLkG7Aut56DucMiJ0xJKDkh+/G5PzZTgY/2kpZDxlwdF4jPZVzQGtWlsjsA+w/XA
-	f8ztk3/z4weehX9Fa5un5oK2EaIP/E+mg4uScQE6XRYRHkXb+2tB7cigQr73eQl4
-	sCODc/LZNVw2pnPzj09bTwgFHRuYS8SZpawo80Rw5wtBEbHwCazXXlQxXxTtt+PO
-	SL4Cw1j2mG/PR3uqvJhgA==
-X-ME-Sender: <xms:VTsoavKUnL6v-nXhZXwJlIMPyxImA-yX7z-Z5ngRIuHGYlmIMjsprQ>
-    <xme:VTsoat-qI92DlKuc2Gee-sI66BAi8VPAnVMccEuh75KWbnhQFsYv3NSsyjY8_6zMt
-    KJ9ohlFzF5B7OsSPp5EjdeGab_1vqbBvG9qGlNYc0pWPX91hl1XeiU>
-X-ME-Proxy-Cause: dmFkZTFb6VnIwIzooEwwEqskmLizFX/ukRKZyIcrj+/WWSHHMok+ECOHIw6mfqN6BeZAQD
-    ddihDiuzVNRot2dlu1hkyg1a2hTRnDX+OezP6PWXpRfObYrcZ3Q0A5RgHiUqqW58k5oQ6D
-    ZcmptSb4RO8wiD7sNgEQ+v+KK45zAd1b1zEZqqZ8guT3udGa+QUlBhHJWgL1sRu8Nl2DFv
-    Ga3fmvQy8kydhBqw65Qtb2IxZeL7cadcghKymODatCb7q8UV586nWU/cnWP2ImOrQIUYa4
-    sp8e7eoIjKoEIA/FPUUge2Fd/8LuD9wcHGexvJBYmPMIc7OTzfvhi+LQPEBeSDsh6U74ao
-    5chIzweQNPu5dYa2n4+KF292g1QiddImilql6+ps7Q4mrI+KrOJxI4cHzo3Arfxry7aMBD
-    mHvfdECx652VAYlmPapjij3biPz5nK1l5T75tCTuyBe7AgxoXNoctwY3aTyYIkFsCv9xI9
-    aLxL6SBCuS4j4daJzBsDGsxtihLxfRmvP7fzQdqkQ7U9G953I/XCpSfq1OjYz3urAemCjE
-    htAfjYXaWSpPGuyVnt3EpupBq/XrPArcGnMnHRqBAfMTLf+HcRQHOq5ge6pXYIhdyXHbqG
-    LjzjgpM9g86PVYM3aBPMJMuf/QCyABf91lefZ1oUrvZg7XDrjgHvtgMK78sQ
-X-ME-Proxy: <xmx:VTsoajCb5V4euRW4p7nB0YEV3vuFipWebrU9Bsg3we4N2pfmBA9FXA>
-    <xmx:VTsoaqOhH_DhoUU_ywOQ6s8QLtG1FuXlS25o1SVZkN9w_PBaaqxRKg>
-    <xmx:VTsoaswYqUw86rw4erh-yyGKyzRNOMzc5jB1vgev2x6ksciOtAjfPw>
-    <xmx:VTsoaqU2pKa7tq35G2fimgY3nizedD_H9abq8sS7bZN5oA7q8qEAHA>
-    <xmx:VjsoapuOL1krTF8kMralGT7XGqPLEbhT0Fx74A9ofPdJ7pzSgh4n6U8e>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 89A8A182007E; Tue,  9 Jun 2026 12:12:05 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 09 Jun 2026 16:15:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8552460228;
+	Tue,  9 Jun 2026 16:15:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC841F00893;
+	Tue,  9 Jun 2026 16:15:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781021750;
+	bh=tvjjhZx2KbfbA3aG4zyyErvYRIPzEB2KAnDRxFD1IPc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ldVcXqpMfPnx7MbGkzjiKmG5isZtE6wHrZdwubDdIb/oUu3NPCUxvsgp5o992C4hc
+	 rwo0VTTx2ZEzMoUMaq8d91m8YgK8MrYVadGjb0/1Z2wnaVqI2emGX4LErES8j5cg0+
+	 8A7/LYour6QsZl9m9Endsdh9sMQObr8vDQ1H3Fa9MtiHEjkxB3qGMTjXEVVxPNsk6g
+	 /DbmAfHTfGzukSlxze2GHTAemwupHp7OiupCGs3nGZTWKWbVUfOjUbNlW+RpOAZJXD
+	 GkCh6tye7pA9DY0zyfEeEBC6GRqi7dEmzwDX09dgwJa3ecOtZmfeYwh9fm7vt+4MFY
+	 mXwYCTynEsBvA==
+Date: Tue, 9 Jun 2026 17:15:43 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: arm: fsl: add Variscite DART-MX8M
+ PLUS Boards
+Message-ID: <20260609-clumsy-material-b74a9b6bc7b7@spud>
+References: <cover.1780998600.git.stefano.r@variscite.com>
+ <c65129896fc6ce80044ee1d89e12dcdff34945be.1780998600.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-X-ThreadId: AUV8JOC_Zpjc
-Date: Tue, 09 Jun 2026 18:11:45 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Gregory Clement" <gregory.clement@bootlin.com>, arm <arm@kernel.org>,
- soc@kernel.org
-Cc: "Andrew Lunn" <andrew@lunn.ch>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- linux-arm-kernel@lists.infradead.org,
- "Aleksander Jan Bajkowski" <olek2@wp.pl>
-Message-Id: <bf8092a3-d037-44ee-8e08-8b2204e5cc95@app.fastmail.com>
-In-Reply-To: <8733z1c8uj.fsf@BLaptop.bootlin.com>
-References: <8733z1c8uj.fsf@BLaptop.bootlin.com>
-Subject: Re: [GIT PULL] ARM: mvebu: dt64 for v7.2 (#1)
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_091208_254467_D3C551DA 
-X-CRM114-Status: GOOD (  11.32  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IzjPPGoaiFY9Un2l"
+Content-Disposition: inline
+In-Reply-To: <c65129896fc6ce80044ee1d89e12dcdff34945be.1780998600.git.stefano.r@variscite.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +88,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 5, 2026, at 17:20, Gregory CLEMENT wrote:
->
-> ----------------------------------------------------------------
-> mvebu dt64 for 7.2 (part 1)
->
-> Mark EIP97 as dma-coherent for Armada 3720
->
-> ----------------------------------------------------------------
-> Aleksander Jan Bajkowski (1):
->       arm64: dts: marvell: armada-37xx: mark EIP97 as dma-coherent
 
-Hi Gregory and Aleksander,
+--IzjPPGoaiFY9Un2l
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I'm a bit surprised by this oneline change. Since you successfully tested
-this, I assume the change is correct, but I have two questions that
-I would like to have an answer for before I pull it.
+On Tue, Jun 09, 2026 at 11:51:18AM +0200, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
+>=20
+> Add DT compatible strings for Variscite DART-MX8MP SoM and Variscite
+> development carrier Board.
+>=20
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 
-- I would expect a missing 'dma-coherent' property to cause data
-  corruption, as the DMA master may write directly into the L2
-  cache, which is then invalidated before the CPU accesses it.
-  Do you have any idea how this one ends up working even when
-  the property is missing?
+My mailbox looking like
+| 169 ND  Jun 09 Stefano Radaell ( 27K) =E2=94=8C=E2=94=80>[PATCH v5 3/3] a=
+rm64: dts: imx8mp-var-dart: Add support for Variscite Sonata board
+| 170 ND  Jun 09 sashiko-bot@ker (7.2K) =E2=94=82 =E2=94=8C=E2=94=80>
+| 171 ND  Jun 09 Stefano Radaell ( 24K) =E2=94=9C=E2=94=80>[PATCH v5 2/3] a=
+rm64: dts: freescale: Add support for Variscite DART-MX8M-PLUS
+| 172  D  Jun 09 Stefano Radaell (  43) =E2=94=9C=E2=94=80>[PATCH v5 1/3] d=
+t-bindings: arm: fsl: add Variscite DART-MX8M PLUS Boards
+| 173 ND  Jun 09 Stefano Radaell ( 10K) [PATCH v5 0/3] Add support for Vari=
+scite DART-MX8M-PLUS and Sonata board
+| 174 ND  Jun 09 sashiko-bot@ker (7.1K)   =E2=94=8C=E2=94=80>
+| 175 ND  Jun 09 Hongliang Wang  (7.8K) =E2=94=8C=E2=94=80>[PATCH v1 2/3] L=
+oongArch: dts: i2c: Add clocks and clock-frequency properties to 2K1000
+| 176 ND  Jun 09 Hongliang Wang  (8.9K) =E2=94=9C=E2=94=80>[PATCH v1 1/3] L=
+oongArch: dts: i2c: Add clocks and clock-frequency properties to 2K0500
+| 177 ND  Jun 09 Hongliang Wang  (7.7K) =E2=94=9C=E2=94=80>[PATCH v1 3/3] L=
+oongArch: dts: i2c: Add clocks and clock-frequency properties to 2K2000
+| 178 ND  Jun 09 Hongliang Wang  (7.0K) [PATCH v1 0/3] LoongArch: dts: i2c:=
+ Add clocks and clock-frequency properties
+| 179 ND  Jun 09 Stefano Radaell ( 27K) =E2=94=8C=E2=94=80>[PATCH v4 3/3] a=
+rm64: dts: imx8mp-var-dart: Add support for Variscite Sonata board
+| 180 ND  Jun 09 sashiko-bot@ker (7.7K) =E2=94=82 =E2=94=8C=E2=94=80>
+| 181 ND  Jun 09 Stefano Radaell ( 24K) =E2=94=9C=E2=94=80>[PATCH v4 2/3] a=
+rm64: dts: freescale: Add support for Variscite DART-MX8M-PLUS
+| 182  D  Jun 09 Stefano Radaell (  40) =E2=94=9C=E2=94=80>[PATCH v4 1/3] d=
+t-bindings: arm: fsl: add Variscite DART-MX8M PLUS Boards
+| 183 ND  Jun 09 Stefano Radaell ( 10K) [PATCH v4 0/3] Add support for Vari=
+scite DART-MX8M-PLUS and Sonata board
+| 184  D  Jun 09 Paolo Abeni     (  19) Re: [PATCH v2 1/1] dt-bindings: net=
+: dsa: Convert lan9303.txt to yaml format
+| 185 N   Jun 09 Stefano Radaell ( 27K) =E2=94=8C=E2=94=80>[PATCH v3 3/3] a=
+rm64: dts: imx8mp-var-dart: Add support for Variscite Sonata board
+| 186 N   Jun 09 sashiko-bot@ker (7.1K) =E2=94=82 =E2=94=8C=E2=94=80>
+| 187 N   Jun 09 Stefano Radaell ( 24K) =E2=94=9C=E2=94=80>[PATCH v3 2/3] a=
+rm64: dts: freescale: Add support for Variscite DART-MX8M-PLUS
+| 188     Jun 09 Stefano Radaell (  36) =E2=94=9C=E2=94=80>[PATCH v3 1/3] d=
+t-bindings: arm: fsl: add Variscite DART-MX8M PLUS Boards
+| 189 N   Jun 09 Stefano Radaell ( 10K) [PATCH v3 0/3] Add support for Vari=
+scite DART-MX8M-PLUS and Sonata board
+is a pretty clear indication that you're iterating too quickly.
+Try to slow down and leave people time to respond before sending new
+versions, not just respin for every automated response you get.
 
-- I see that the Product Brief for Armada 37xx mentions that it
-  has a "High-bandwidth, low-latency IO Cache Coherency" interconnect,
-  which also indicates that the patch is correct. However I don't
-  see why it's only the crypto engine that needs it. What about
-  the other high-speed DMA masters (neta, xhci, pcie, sata, ...)?
+Cheers,
+Conor.
 
-       Arnd
+> ---
+> v4->v5:
+>  -=20
+>=20
+> v3->v4:
+>  -=20
+>=20
+> v2->v3:
+>  -=20
+>=20
+> v1->v2:
+>  -=20
+>=20
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentati=
+on/devicetree/bindings/arm/fsl.yaml
+> index 86876311ec59..11629b9eafc5 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -1310,6 +1310,12 @@ properties:
+>            - const: tq,imx8mp-tqma8mpql            # TQ-Systems GmbH i.MX=
+8MP TQMa8MPQL SOM
+>            - const: fsl,imx8mp
+> =20
+> +      - description: Variscite DART-MX8M Plus based boards
+> +        items:
+> +          - const: variscite,var-dart-mx8mp-sonata # Variscite DART-MX8M=
+P on Sonata Development Board
+> +          - const: variscite,var-dart-mx8mp # Variscite DART-MX8MP SOM
+> +          - const: fsl,imx8mp
+> +
+>        - description: Variscite VAR-SOM-MX8M Plus based boards
+>          items:
+>            - const: variscite,var-som-mx8mp-symphony
+> --=20
+> 2.47.3
+>=20
+
+--IzjPPGoaiFY9Un2l
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaig8LwAKCRB4tDGHoIJi
+0m4zAQCmUxD/ny43hOfglQERHwtFde8j02NcX+qT47L4RKlj1gEAkvLqrFrJ2iQs
+E8lVAVxb3YBc4akFxdaHWXuYhtsKpgw=
+=vM9U
+-----END PGP SIGNATURE-----
+
+--IzjPPGoaiFY9Un2l--
 
