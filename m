@@ -4,81 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E9DCD8C85
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A02CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNLMOTRHBXi4Z84O461LhX+rEh9cZpG943Cj00l7pcg=; b=u3KBvz2YlprdeBMhskb1r6c5V6
-	aJ753E2WLSAYCrjU1tjmY2qkXBkjDSmfD4Hc3e/NKKX/64SLSVEL1gR2OK0VWA7aQHf7QXgYjzR1q
-	wvqH8gMYckSWWmTBjqMowU0GBXm1mEYLJFQ7u7BqgVwmoptcgLApzg4axKijiIjAZGHoNf9TaMG57
-	3qPSScuq2xxFSMGXZhhS6dnbBsR2xltJoKWW4hJuc5pUIGiCj5Q7pY4/NMOVVnPTe/tBM5xCpDNn1
-	1zW2x1foOTGmSwqiwvWR6/cv98TT6cOvgVkdYfSTJrEAWS+P0exqoD6UPxUbGDegS7pWsqy5y5MGX
-	bbAgwQ9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zkwn2/QscLRTm4kq0gOmeosHPcn/UH9WZ/Z4eIQBSUU=; b=gKNvgnC6Lxaf7MFurvRNEqOt5o
+	Xi7D4nyqhqv4vHIPSuyrxkGX9p/DzzPX5HuAnoLVEsb4KV/lSWILpswr1m6+PbcU2Uc9YvXnIq3Pc
+	ZBgH4J26Gar8zKD26HWKdJKNsLTMxQ+xJvlP5x17O64y7oaxlzIqe0f1PvINWOwS8z3DdwSpFStaL
+	/pxVAlFpzLrDCHgztPBff8yM+DJ4kLBExr6RRv/70oDtoGIO06VSJOsi3+9QUJcq/GDDa7LR6B1v8
+	rC2YB+1naIwsGbTHgffajmN7I11tLqlkx2OSChdgDaTvaTgE0ma/LLG2m7vleAvPMO5iZXEl96uOB
+	2q/jqSdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWprH-00000004qfV-22NR;
-	Tue, 09 Jun 2026 06:22:43 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wWpsf-00000004qtN-33DV;
+	Tue, 09 Jun 2026 06:24:09 +0000
+Received: from mail-northeuropeazon11010010.outbound.protection.outlook.com ([52.101.84.10] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWprA-00000004qeI-0qgD
+	id 1wWpsd-00000004qsT-2OCo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 06:22:41 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260609062228euoutp01a013ff920146714d1e396319eb6d1426~3VXdYuVGe1106711067euoutp01l
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 06:22:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260609062228euoutp01a013ff920146714d1e396319eb6d1426~3VXdYuVGe1106711067euoutp01l
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1780986148;
-	bh=QNLMOTRHBXi4Z84O461LhX+rEh9cZpG943Cj00l7pcg=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=kEkid4Lc9CpRO/3yyOzVz5QUMceUdCkVZHKebqPeaNlT6tnzDo5I4F3ZPZBXOk8On
-	 5gBBhxvU8QM/nU5ODXUfDdfNgxHBxvxHcEGaliaAtVjJolwf72MxHzOQWCQV2TKj7I
-	 EB7BWOaYJ7qI4rHEe7WKsSSL3IF4YpJayVXGNTyo=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260609062228eucas1p211850bcf6ea79ef270bc6fbe29ffafdb~3VXdClAs70378003780eucas1p2G;
-	Tue,  9 Jun 2026 06:22:28 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260609062227eusmtip2cece3df82958ee4950f41c056ec8da55~3VXb-fGd70969909699eusmtip2E;
-	Tue,  9 Jun 2026 06:22:27 +0000 (GMT)
-Message-ID: <a1b27e97-182c-485d-a448-56c19c5de2c2@samsung.com>
-Date: Tue, 9 Jun 2026 08:22:26 +0200
-MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v7 15/15] arm64: mm: Unmap kernel data/bss entirely from
- the linear map
-To: Ard Biesheuvel <ardb+git@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
-	mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts
-	<ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, Kevin
-	Brodsky <kevin.brodsky@arm.com>, Liz Prucka <lizprucka@google.com>, Seth
-	Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, Mike Rapoport
-	<rppt@kernel.org>, David Hildenbrand <david@kernel.org>, Andrew Morton
-	<akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
-	linux-mm@kvack.org, linux-hardening@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260529150150.1670604-32-ardb+git@google.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260609062228eucas1p211850bcf6ea79ef270bc6fbe29ffafdb
-X-Msg-Generator: CA
+	Tue, 09 Jun 2026 06:24:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xjn2XSLkjLLBBO3r/tP3IyEpAlS+M6jqgigysfOOlbE9ILJ8ykSvHGdbqEonjjJjQ6qMHQYRPxXQ0lNNSFtEgnlLXu55ORTJ3jq6UnVXIlQ9IR3IB6QNPPZ9SBbkjI9PCat7sX/ayZm8+KgEr5dZkuYL2x3sD/elIR3f7tuoQPAKbdJfCixERJXySCrhPlG+j/4jITLgBW9h+70H2DaOGazXe/SPS3rDRpRJGGsch+kETps2U3Ol1/weinQN4BQQtjQaPekqPRBG5yiP6el1gKRFVZU4/Gx7o61asTKDgtj6HEReRpTWbtsFUeYTsWJp0vpB+cTFsphatl1vxrul+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zkwn2/QscLRTm4kq0gOmeosHPcn/UH9WZ/Z4eIQBSUU=;
+ b=xuX7dvzLsFExT1/oMGWrhluPd0ne6qfT61wbytkolWf9SIUebdV1M9iMRZSAIMB9YxF6Nw6QxNaJqj0dqCdEfwy61N+qNwTAgQrLxNoz+4ohF4eXEBBundi5cuy4IiPkOuUFLRkd4T9mNu6QEL5fcwkHWUqW7OD+623Dj17rZRBD1jSkUxkOYjx6+QIKGn+vRUlZ5cPDIn1wnxPRMw1wXa6lhLiMTJ696pxJFpOvJvLLlyChTxoSforLfGo7a/wflzqvI48VNzXV6AyvJ+AmMwKCVCHHjSRqPgZZ89G5TH8vADys8c1hgx848V1uL+79UFeOgEJeVK7zkP0uCZ/lKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Zkwn2/QscLRTm4kq0gOmeosHPcn/UH9WZ/Z4eIQBSUU=;
+ b=Sl9UNKTJPcbBAOK2p/s84cCEXcgaO76+CPo5epEMCPyqZT34rn858nE4JC5URJyIpHmFsaR4iZluVGzs2E5JermuAVx7jU3gKwwG9qaaOVDDU5eDPGZgz+t8kltnZUVXMBbjLOlkDU71KGW6N8HA5NfMdKNdRmx79MQdieQpu/fL/vXf3eICze8J7KKmNJipeayT5BGmCRBXLr2IQ9PbLhb4TnAqepUVM5B9y9POPvvw7+0eAmaEZA14UEqG68xFm4q5r7Saw/uMKsyj7VBq8FXMWKkEVpm7OVf46NRi8YPIJVrVf9iJiHpvLzZsMaN1MovyoTu2HUUeTw7Rl+Vn4w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by VI0PR04MB11670.eurprd04.prod.outlook.com (2603:10a6:800:2fc::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
+ 06:24:01 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
+ 06:24:00 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH 0/2] pmdomain: imx93: Fix shared MIPI PHY resource
+ management
+Date: Tue, 09 Jun 2026 14:26:39 +0800
+Message-Id: <20260609-pm_imx93-v1-0-d06c004b0f51@oss.nxp.com>
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260609062228eucas1p211850bcf6ea79ef270bc6fbe29ffafdb
-X-EPHeader: CA
-X-CMS-RootMailID: 20260609062228eucas1p211850bcf6ea79ef270bc6fbe29ffafdb
-References: <20260529150150.1670604-17-ardb+git@google.com>
-	<20260529150150.1670604-32-ardb+git@google.com>
-	<CGME20260609062228eucas1p211850bcf6ea79ef270bc6fbe29ffafdb@eucas1p2.samsung.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAB+yJ2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMwML3YLc+MzcCktjXbPk5GTDxERDQ0tjIyWg8oKi1LTMCrBR0bG1tQD
+ tA+hoWgAAAA==
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Ulf Hansson <ulfh@kernel.org>, 
+ Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780986431; l=1185;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=ChM6Xmi+OrpaDaZRR4LuTgJsBnkzKDxUww4gGYslkUU=;
+ b=mu8XZ2WlvAI2WQZOsiAaeE/xnj6UjeY9bAsm4maGdfAn4csLZEFlMcyauLiOhizdDQcQd2deV
+ YsNSO/HgxbLBZM1ink9DYyScFvNkUhowBM4LXXHqLCp6lKHL2yWODVC
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI2PR04CA0003.apcprd04.prod.outlook.com
+ (2603:1096:4:197::23) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|VI0PR04MB11670:EE_
+X-MS-Office365-Filtering-Correlation-Id: 27a408dc-38ec-41ca-ed63-08dec5efb1e1
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|52116014|7416014|376014|38350700014|921020|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: eWKLmflaf1wQhHL9xo5aWV3xoIHgxV51kMnTzUF8a9Kg71rguTA0Vrr8kP9ZlUHziI1TJnglADROt2Od0AkKD9KbBKKz4S1/7NZ7B0lq3PWaLaMtHshycQ9PaI37YosFh2OF/mI15Zvl3TgX5PIU6bKRnFiuyyfbh8d4x79Z+E49icGJeK8INIdNGGpDftZizWjeTeJv/YGhBUiHWOgS+TvNSsC64FJjuriDCPVIinSV5MtBO0QvJbYrWQkxPSubEnEhxTVplpxnMtP+7HQtgOkijO+/7A2yywtjVhWPUyIH0FkQX9mjagx6+zu8xpP7uBdvEhLr/2EHRdh/1NHSi8c6NOFYUJu2b1Iokw6Ix0WPKf3dAD53ufwqJ4y/cMchOLUm6VQQiGM/4sXMsXi0e2CjDfvZ0h5DAIVGQGloW2LyiBbZPXTSeZp1YhSwSUp61WaVzbdmwuDQtmA/emWdRVYRED2M2q9yncAz5tyFF79wa8+V1DnUBxGWKS4MyzqB35cfmk7/KgCmGy1/hUR48/WO1GzbqT0A7DL2mUIUKhLE0rrYrKzooia2MZef0JWKVcNwD3xXtfcJvR5joisksK3ZAbxbJyiMVcB1O9eqTZZq3TKmMUJ/cDCDfwz7CQYNNpjUMtS0pMlUY66WPzmw2/adXEV7tBoUaDp8uT/t3QbDHGNfQH7e6dEncfsL84n/dEE1IbY0TxZf6UOx8ZJtyuT+iFgl6nkUBOr5ID+MOUinQmf4GyvywDziYCPnIJRO0xyOHWHZ5udTV0covzeKkA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(52116014)(7416014)(376014)(38350700014)(921020)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WmVnUmJqQzgvV0hQQi9BN3VwUzlIdTcySEx2WUJFWTd0a3dxcmdSSFNDNEVm?=
+ =?utf-8?B?MTROZ2JJN3M1K0V0dE9rZzZaVjFRMHRmbHZFaTlkL2lCcDIwYmJnNjRMMndK?=
+ =?utf-8?B?ODRncjVMTzFqa200VVlWeFRmUkh1UmRYVDkwS3duNHF6WmtXbGVRejdwSFlN?=
+ =?utf-8?B?NURVcEszZFJidThPQ3F2K2pMS1Z2R2c1N1k2V0JabU8rbDFpU2NRbnJrd25z?=
+ =?utf-8?B?S3dkYTVML2E1eUVzS0NveHZJMXhjb1NkcE1GdG5yV2tlKytPQXpEdEVvRzJU?=
+ =?utf-8?B?T2NnalBlMW9PNWxQNFNYWjlzRkk3Ry9qakc3bEtrTmNrQkYzWW1jMkNRMm0w?=
+ =?utf-8?B?Q2NQTkFMdlQxYzg4QWllTElVVlMxTFZtcW93bkg5elo1L1hPYmtoL0RHaU4r?=
+ =?utf-8?B?N2M3RVZsMVFEY2MzRWJmNEdRd3A0K2E1cXdmOFRPekFXMm4zOUhXb2tOYnNt?=
+ =?utf-8?B?VGxpclJvd3VwTzdQellUTE55TWRYT2x0N0FqdVB6ejQ5cVJ0R0NwVlozbkh4?=
+ =?utf-8?B?bmF1RUQ1U1NYQSt6RkhzZjdCN3REWlIzbW1ZU3drd0FBSFFoRkFvMTROYzg2?=
+ =?utf-8?B?Q2YwaUtVem9rc05hUGFVSmxzejA0NHNkeXJ6MTJzUmNtVGI4YmZ6Q3dqMmxY?=
+ =?utf-8?B?NFIyU2VuTjVaOG50MWowTnFTYVNwRm00QTEyTG93YzBFYzc3U3lCRHE3eUFP?=
+ =?utf-8?B?dDhoZ01ybkdNNkNubG9xZWpQck5nU1Z0WElkbVdaMHNaVlJidFk2R1Vhc1Nl?=
+ =?utf-8?B?V3R0eVpZZm1KQWx1cVp6b1NLSFVQMDZ2OFd3aTNvR1RaeS9DVFpnTmpQREdY?=
+ =?utf-8?B?REd4R0NEaVc1ZHBCajk5bjZ6ZVZPUjlDT1dFWnRhTENQdG94UVdLN0JHTFln?=
+ =?utf-8?B?cGVqSDNnK0tzK1AwbURUNzZPV1lITVVtVG1yRFhlbjQ0eDZob1NWaXl4VGdv?=
+ =?utf-8?B?YWxWUGoyRFlZQmxpcFFIektvN2w0K28yMU1xMzcxZEM0VDFwc29jazQyMGRj?=
+ =?utf-8?B?QVR4L2ZSTmw5RW0zWDFxK0ljd0tlMjZYK25aSVk5a04rTHZqWVdBNmcyZnJG?=
+ =?utf-8?B?Vk9NNXByckM5ZlRkMmNZQWhVeUZwKzlwVERNYmZ5c3JCdGxzTlk4WG01SVlw?=
+ =?utf-8?B?aTZOVEJaRi9DdDI3ekgyVU5ueDhWTThpYzgzUlgvTUlzbXB0dWFENStzcmxt?=
+ =?utf-8?B?N1NmT0RSZU44N3YvSGFhaElvRTRMSEdIL3IyaklWOGxvVk91R1BMeXNHRDRK?=
+ =?utf-8?B?bGpjcUYrOUFCdDU4RUg5bzdVa1dna1BCeitVOVllRmlVS3pUaHV6Qi9tKzNB?=
+ =?utf-8?B?NlZ3N0I5TTA3Q1B3eEQ4aWVldjM0bGVZVUJOYXFvSTdaa3ZuTjQwZGVxSVpk?=
+ =?utf-8?B?MUNkSkcrSGNFR0JXSWpZZVk4Zm9GZExpVDU5MjRuYVVkd3RpUE8vakFmNzJk?=
+ =?utf-8?B?aEdqSGxjZEJKTGJtc0d5YnJHZXRKWlVtMVYyeU5XT1pVUmM1RSt2OXFRY1R4?=
+ =?utf-8?B?cDBqZlY3VGlkQTRWQ2lMR0w3QUNZY1BzVXJoV2ZtU0l0YzlFcUUzNlVIUHdZ?=
+ =?utf-8?B?RGVuODdTaVVCODM3LzZCN09DOE9paWxZbDI1bDB0YUgyeVlROUhHTTFDWDFn?=
+ =?utf-8?B?OUkxVzRtd3VmMFNmbkhrRnBGemk0Y3FCcGREN1BKYUo0Vm1jdjFONVVlNWJy?=
+ =?utf-8?B?OEJBMjlIUXlNbHlISDNSL25kS05FYjRJNytqK0YyZlZtZmFOWllOb0J0enlZ?=
+ =?utf-8?B?MThpWkhCQ2FERU5yTFBoampSV2c1VWc2NDJUWVFidnFCWE80OFhodDRpZlFN?=
+ =?utf-8?B?QW0wWXUzaVMwUTdxSVlQR2hRNEFqTEZZRXJaOXJzRG5Ub3lxRUkzSHJnSzNa?=
+ =?utf-8?B?ZllNdkE1SGxuVnUramJ6aFdjZGwwY2RSRFU4NUNaN0ZSMHMzL0dsQXl5Y0hv?=
+ =?utf-8?B?aHQ4VHdLU3lkTk9nMzdwUkNDREN2eVZqU0NtWEp4enVBTnJZMWtaUUtObEFi?=
+ =?utf-8?B?Rk8xWDNPV0RLMnV4MUIvbXVZQnVFaklVak1MalJpeVBTdlpMTytqZGkxbmJY?=
+ =?utf-8?B?U2VFQjJiM3ZrQXFBUVN3a1VNSW14bytvN0lKOGcxbUhEb3VqS2ZVZ1F3aTFW?=
+ =?utf-8?B?cExFUGIxcW1hT2RzSkhsR1NvZFFNemk4bDZLdzNJTkpLUmpXeThBZFB5OGN6?=
+ =?utf-8?B?aEVXQk9ERENDNkp6Y1V2enBSdUVRd2txQWlIeldwenJ0ZStqd2Z0dTJHL2th?=
+ =?utf-8?B?MVRlNjFrU2U3cU9xQXBzWitYWUJ1T3VtRmpqMEZac0lQNTJrcGc3dStaZzF5?=
+ =?utf-8?B?RUpUYUp3QlUrQXdDZnhSM09ONkdqVUFQU3VtUy9mdnZOd1l5dndWQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27a408dc-38ec-41ca-ed63-08dec5efb1e1
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 06:24:00.7401
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ln82O4WjcBkntIyb8OMA4EwIfss6z/DsKrQxCeDeEnqcEXhae025PQVhSmvOfixXkoLqcWn/5pSEW5dtkJjeLw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11670
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_232238_457483_9F35CC42 
-X-CRM114-Status: GOOD (  31.27  )
+X-CRM114-CacheID: sfid-20260608_232407_621037_88EDAA04 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,163 +164,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear All,
+The i.MX93 MIPI DSI and CSI domains share control bits for clock and
+reset in the media block controller. This creates a resource conflict
+where one domain can inadvertently disable shared resources while the
+other domain is still active, leading to system instability.
 
-On 29.05.2026 17:02, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> The linear aliases of the kernel text and rodata are also mapped
-> read-only in the linear map. Given that the contents of these regions
-> are mostly identical to the version in the loadable image, mapping them
-> read-only and leaving their contents visible is a reasonable hardening
-> measure.
->
-> Data and bss, however, are now also mapped read-only but the contents of
-> these regions are more likely to contain data that we'd rather not leak.
-> So let's unmap these entirely in the linear map when the kernel is
-> running normally.
->
-> When going into hibernation or waking up from it, these regions need to
-> be mapped, so map the region initially, and toggle the valid bit so
-> map/unmap the region as needed.
->
-> Doing so is required because pages covering the kernel image are marked
-> as PageReserved, and therefore disregarded for snapshotting by the
-> hibernate logic unless they are mapped.
->
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-This commit landed in yesterday's linux-next as commit 63e0b6a5b693
-("arm64: mm: Unmap kernel data/bss entirely from the linear map").
-In my tests I found that it breaks booting of RaspberryPi3 and
-RaspberryPi4 boards with the following kernel panic:
+This series fixes the issue by introducing a dedicated MIPI PHY power
+domain that owns the shared clock and reset control bits. The DSI and
+CSI domains are then made subdomains of this PHY domain, ensuring proper
+reference counting and preventing premature resource shutdown.
 
-kvm [1]: nv: 570 coarse grained trap handlers
-kvm [1]: nv: 710 fine grained trap handlers
-kvm [1]: IPA Size Limit: 40 bits
-Unable to handle kernel paging request at virtual address ffff000003a23000
-Mem abort info:
-  ESR = 0x0000000096000147
-  EC = 0x25: DABT (current EL), IL = 32 bits
-  SET = 0, FnV = 0
-  EA = 0, S1PTW = 0
-  FSC = 0x07: level 3 translation fault
-Data abort info:
-  ISV = 0, ISS = 0x00000147, ISS2 = 0x00000000
-  CM = 1, WnR = 1, TnD = 0, TagAccess = 0
-  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000002609000
-[ffff000003a23000] pgd=0000000000000000, p4d=180000003b3ff403, pud=180000003b3fe403, pmd=180000003b3e6403, pte=00e8000003a23f06
-Internal error: Oops: 0000000096000147 [#1]  SMP
-Modules linked in:
-CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.1.0-rc1+ #16768 PREEMPT
-Hardware name: Raspberry Pi 3 Model B (DT)
-pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-pc : dcache_clean_inval_poc+0x24/0x48
-lr : kvm_arm_init+0xa8c/0x165c
-sp : ffff8000844bbd00
-...
-Call trace:
- dcache_clean_inval_poc+0x24/0x48 (P)
- do_one_initcall+0x68/0x4f4
- kernel_init_freeable+0x24c/0x360
- kernel_init+0x24/0x1dc
- ret_from_fork+0x10/0x20
-Code: 9ac32042 d1000443 8a230000 d503201f (d50b7e20)
----[ end trace 0000000000000000 ]---
-Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-SMP: stopping secondary CPUs
-Kernel Offset: disabled
-CPU features: 0x00000000,03000008,00040000,0400421b
-Memory Limit: none
----[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+Tested on i.MX93 EVK with concurrent DSI and CSI operations.
 
+Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+---
+Guoniu Zhou (2):
+      dt-bindings: power: imx93: Add MIPI PHY power domain
+      pmdomain: imx93-blk-ctrl: Extract PHY as shared domain for DSI/CSI
 
+ drivers/pmdomain/imx/imx93-blk-ctrl.c       | 60 ++++++++++++++++++++++++++++-
+ include/dt-bindings/power/fsl,imx93-power.h |  1 +
+ 2 files changed, 59 insertions(+), 2 deletions(-)
+---
+base-commit: 3b7a18a34e8d3b14c7c926f033488a0350de9759
+change-id: 20260608-pm_imx93-6ccc1aa11932
 
-> ---
->  arch/arm64/mm/mmu.c | 45 ++++++++++++++++++--
->  1 file changed, 41 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 7b18dc2f1721..07a6fa210171 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -24,6 +24,7 @@
->  #include <linux/mm.h>
->  #include <linux/vmalloc.h>
->  #include <linux/set_memory.h>
-> +#include <linux/suspend.h>
->  #include <linux/kfence.h>
->  #include <linux/pkeys.h>
->  #include <linux/mm_inline.h>
-> @@ -1056,6 +1057,29 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
->  				 end - start, prot, early_pgtable_alloc, flags);
->  }
->  
-> +static void mark_linear_data_alias_valid(bool valid)
-> +{
-> +	set_memory_valid((unsigned long)lm_alias(__init_end),
-> +			 (unsigned long)(__bss_stop - __init_end) / PAGE_SIZE,
-> +			 valid);
-> +}
-> +
-> +static int arm64_hibernate_pm_notify(struct notifier_block *nb,
-> +				     unsigned long mode, void *unused)
-> +{
-> +	switch (mode) {
-> +	default:
-> +		break;
-> +	case PM_POST_HIBERNATION:
-> +		mark_linear_data_alias_valid(false);
-> +		break;
-> +	case PM_HIBERNATION_PREPARE:
-> +		mark_linear_data_alias_valid(true);
-> +		break;
-> +	}
-> +	return 0;
-> +}
-> +
->  void __init mark_linear_text_alias_ro(void)
->  {
->  	/*
-> @@ -1064,6 +1088,21 @@ void __init mark_linear_text_alias_ro(void)
->  	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
->  			    (unsigned long)__init_begin - (unsigned long)_text,
->  			    PAGE_KERNEL_RO);
-> +
-> +	/*
-> +	 * Register a PM notifier to remap the linear alias of data/bss as
-> +	 * valid read-only before hibernation. This is needed because the
-> +	 * snapshot logic disregards PageReserved pages (such as the ones
-> +	 * covering the kernel image) unless they are mapped in the linear
-> +	 * map.
-> +	 */
-> +	if (IS_ENABLED(CONFIG_HIBERNATION)) {
-> +		static struct notifier_block nb = {
-> +			.notifier_call = arm64_hibernate_pm_notify
-> +		};
-> +
-> +		register_pm_notifier(&nb);
-> +	}
->  }
->  
->  #ifdef CONFIG_KFENCE
-> @@ -1193,10 +1232,8 @@ static void __init map_mem(void)
->  			       flags);
->  	}
->  
-> -	/* Map the kernel data/bss read-only in the linear map */
-> -	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
-> -	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
-> -			       (unsigned long)lm_alias(__bss_stop));
-> +	/* Map the kernel data/bss as invalid in the linear map */
-> +	mark_linear_data_alias_valid(false);
->  }
->  
->  void mark_rodata_ro(void)
-
-Best regards
+Best regards,
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
 
