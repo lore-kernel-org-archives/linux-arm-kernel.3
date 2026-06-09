@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA48CD98CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C4CCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGLsNEvgsOokSRt2P87m8r94Kd1xZNQ7RfME0Rovs8A=; b=xX22IR1o+b86m2jFiE9WHzNn/B
-	NnB4KeSXO0aS11EeGhYxuMU6jYyQcvqwjZ4Et82GJfygSGgEkRNjqO6Q2b4YbnepVc5TbilHkL+4W
-	jzNtivUTVd9Vz++BVb3fEW+dVwpVWe2OsVtOfLdzd0m7zaBQQNkN8W5nDvDvy2N1AqM0c3KLJRXID
-	TX9S7yCfo4TjNDgKpo3R575xWLmz5nWt5lr0lum1LgN4X7M7QvzjNrX6au7ECvGzN6XzPT0iPKC+I
-	HB25ZxPTKwFdoJ2Mk/B3jD76qMWZNoH/eW5+dWW24QT0CMuBq1XG4n/YKoPJHmvmPJTdS9PiKDc48
-	Djh97vtw==;
+	bh=jYr9ToSIAsPSkOov0+iVDFxBzCa8JK5EE8bbWfn4nRI=; b=jOwkMLj2b0eQTT+PkW4xD4dEod
+	BqqhYCSyUECIVIU61AuFPmyqO7padP4eDO7VpclT0GDn5/ToQZyMRTeX1KnxaZ1WP+hOCckCrh+zH
+	pmv3zcvNWQhSI2GFy2DPe5NGULamZ0PyPZ5rFxxl6OwhcAeF1SUs+ettN5HNCZuURq3mpQbDj3mVs
+	Ui5uqP3Red+Kz5YhsKoJvJdW+uaTL5Uk/wjWFxii7ftRd8Svf6aIpkaqjPcxDKQpkjCrNTRk1Y8am
+	BQQJyxlSqqgmc7ge8zeciRiYiebvb0RDD/p3W3AFsqea7tSOpTNgKe4gSbKYKKAWAHt8fW4yQWXvt
+	IpvYVE6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0ue-00000006AhS-3Zsj;
-	Tue, 09 Jun 2026 18:10:56 +0000
+	id 1wX0ug-00000006Air-0kLU;
+	Tue, 09 Jun 2026 18:10:58 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0uZ-00000006Aer-0TBO
+	id 1wX0ub-00000006Afu-3Tjo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 18:10:54 +0000
+	Tue, 09 Jun 2026 18:10:55 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id E9F1920B716C;
-	Tue,  9 Jun 2026 11:10:32 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E9F1920B716C
+	by linux.microsoft.com (Postfix) with ESMTPSA id 4C60920B716D;
+	Tue,  9 Jun 2026 11:10:33 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4C60920B716D
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1781028633;
-	bh=xGLsNEvgsOokSRt2P87m8r94Kd1xZNQ7RfME0Rovs8A=;
+	bh=jYr9ToSIAsPSkOov0+iVDFxBzCa8JK5EE8bbWfn4nRI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IuJ7iNidMDVBOuCO1DnLihoOhHsa1FexmfVhEgCgDclLZQeFgjqnmqHew9RRny7cS
-	 qGwc/8OlCSOjyJ/XT6gajMFqGMP9fs+W65XCLqG+ccLlksEtnVT3kUjcxuEXZbVHF0
-	 5qHaQ0oosmF9RpFqsWrvFdqwnxH0Dm5xNHGGdxTY=
+	b=NHZlDGp+HB/iPgBD0iYEENY7VB5p6pAvvGGo/sAu6yibWCLUndRxOz1zNoMKTQ1eB
+	 YO6fXVh4F5HHgt93WjApW58xY/mElUnkpNkI1fQ36xOS9pvpQxxjM2QS2k9eva5Ip0
+	 LH4GCos2hUWoaN8VZnYZoX/DnW5Lh3KWPJoRR+98=
 From: Kameron Carr <kameroncarr@linux.microsoft.com>
 To: kys@microsoft.com,
 	haiyangz@microsoft.com,
@@ -56,17 +56,17 @@ Cc: catalin.marinas@arm.com,
 	linux-kernel@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	mhklinux@outlook.com
-Subject: [RFC PATCH 4/6] Drivers: hv: Mark shared memory as decrypted for CCA Realms
-Date: Tue,  9 Jun 2026 11:10:28 -0700
-Message-ID: <20260609181030.2378391-5-kameroncarr@linux.microsoft.com>
+Subject: [RFC PATCH 5/6] arm64: hyperv: Route hypercalls through RSI host call in CCA Realms
+Date: Tue,  9 Jun 2026 11:10:29 -0700
+Message-ID: <20260609181030.2378391-6-kameroncarr@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260609181030.2378391-1-kameroncarr@linux.microsoft.com>
 References: <20260609181030.2378391-1-kameroncarr@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_111051_235129_B5DD45FC 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260609_111053_901998_7ECBF7A1 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +81,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In hv_common_cpu_init(), the per-CPU hypercall input/output pages need
-to be marked as decrypted (shared) for confidential VM isolation types.
-This is already done for SNP and TDX isolation; extend the same handling
-to Arm CCA Realm guests so that the host hypervisor can access the
-shared hypercall buffers.
-
-is_realm_world() is only declared in arch/arm64/include/asm/rsi.h, so
-using it directly in the arch-neutral drivers/hv/hv_common.c would
-break the x86 build. Introduce a Hyper-V-specific helper following the
-established hv_isolation_type_snp() / hv_isolation_type_tdx() pattern.
-
-On architectures other than arm64 the weak default keeps the existing
-behaviour.
+Modify the five hypercall wrapper functions to check is_realm_world()
+and use the per-CPU rsi_host_call structure when inside a Realm.
 
 Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
 ---
- arch/arm64/hyperv/mshyperv.c   | 5 +++++
- drivers/hv/hv_common.c         | 9 ++++++++-
- include/asm-generic/mshyperv.h | 1 +
- 3 files changed, 14 insertions(+), 1 deletion(-)
+ arch/arm64/hyperv/hv_core.c | 175 +++++++++++++++++++++++++++++-------
+ 1 file changed, 141 insertions(+), 34 deletions(-)
 
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index 08fec82691683..b595b2b9bdbbb 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -208,3 +208,8 @@ bool hv_is_hyperv_initialized(void)
- 	return hyperv_initialized;
- }
- EXPORT_SYMBOL_GPL(hv_is_hyperv_initialized);
-+
-+bool hv_isolation_type_cca(void)
-+{
-+	return is_realm_world();
-+}
-diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-index 6b67ac6167891..010c7d98b5de1 100644
---- a/drivers/hv/hv_common.c
-+++ b/drivers/hv/hv_common.c
-@@ -499,7 +499,8 @@ int hv_common_cpu_init(unsigned int cpu)
- 		}
- 
- 		if (!ms_hyperv.paravisor_present &&
--		    (hv_isolation_type_snp() || hv_isolation_type_tdx())) {
-+		    (hv_isolation_type_snp() || hv_isolation_type_tdx() ||
-+		     hv_isolation_type_cca())) {
- 			ret = set_memory_decrypted((unsigned long)mem, pgcount);
- 			if (ret) {
- 				/* It may be unsafe to free 'mem' */
-@@ -666,6 +667,12 @@ bool __weak hv_isolation_type_tdx(void)
- }
- EXPORT_SYMBOL_GPL(hv_isolation_type_tdx);
- 
-+bool __weak hv_isolation_type_cca(void)
-+{
-+	return false;
-+}
-+EXPORT_SYMBOL_GPL(hv_isolation_type_cca);
-+
- void __weak hv_setup_vmbus_handler(void (*handler)(void))
- {
- }
-diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-index bf601d67cecb9..1fa79abce743c 100644
---- a/include/asm-generic/mshyperv.h
-+++ b/include/asm-generic/mshyperv.h
-@@ -79,6 +79,7 @@ u64 hv_do_fast_hypercall16(u16 control, u64 input1, u64 input2);
- 
- bool hv_isolation_type_snp(void);
- bool hv_isolation_type_tdx(void);
-+bool hv_isolation_type_cca(void);
+diff --git a/arch/arm64/hyperv/hv_core.c b/arch/arm64/hyperv/hv_core.c
+index e33a9e3c366a1..1759998ef2667 100644
+--- a/arch/arm64/hyperv/hv_core.c
++++ b/arch/arm64/hyperv/hv_core.c
+@@ -16,6 +16,7 @@
+ #include <asm-generic/bug.h>
+ #include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
++#include <asm/rsi.h>
  
  /*
-  * On architectures where Hyper-V doesn't support AEOI (e.g., ARM64),
+  * hv_do_hypercall- Invoke the specified hypercall
+@@ -25,12 +26,32 @@ u64 hv_do_hypercall(u64 control, void *input, void *output)
+ 	struct arm_smccc_res	res;
+ 	u64			input_address;
+ 	u64			output_address;
++	struct rsi_host_call *hostcall;
++	unsigned long flags;
++	u64 ret;
+ 
+ 	input_address = input ? virt_to_phys(input) : 0;
+ 	output_address = output ? virt_to_phys(output) : 0;
+ 
+-	arm_smccc_1_1_hvc(HV_FUNC_ID, control,
+-			  input_address, output_address, &res);
++	if (is_realm_world()) {
++		local_irq_save(flags);
++		hostcall = *this_cpu_ptr(hyperv_pcpu_hostcall_struct);
++		memset(hostcall, 0, sizeof(*hostcall));
++		hostcall->gprs[0] = HV_FUNC_ID;
++		hostcall->gprs[1] = control;
++		hostcall->gprs[2] = input_address;
++		hostcall->gprs[3] = output_address;
++
++		if (rsi_host_call(virt_to_phys(hostcall)) == RSI_SUCCESS)
++			ret = hostcall->gprs[0];
++		else
++			ret = HV_STATUS_INVALID_HYPERCALL_INPUT;
++		local_irq_restore(flags);
++		return ret;
++	}
++
++	arm_smccc_1_1_hvc(HV_FUNC_ID, control, input_address,
++			  output_address, &res);
+ 	return res.a0;
+ }
+ EXPORT_SYMBOL_GPL(hv_do_hypercall);
+@@ -45,9 +66,28 @@ u64 hv_do_fast_hypercall8(u16 code, u64 input)
+ {
+ 	struct arm_smccc_res	res;
+ 	u64			control;
++	struct rsi_host_call *hostcall;
++	unsigned long flags;
++	u64 ret;
+ 
+ 	control = (u64)code | HV_HYPERCALL_FAST_BIT;
+ 
++	if (is_realm_world()) {
++		local_irq_save(flags);
++		hostcall = *this_cpu_ptr(hyperv_pcpu_hostcall_struct);
++		memset(hostcall, 0, sizeof(*hostcall));
++		hostcall->gprs[0] = HV_FUNC_ID;
++		hostcall->gprs[1] = control;
++		hostcall->gprs[2] = input;
++
++		if (rsi_host_call(virt_to_phys(hostcall)) == RSI_SUCCESS)
++			ret = hostcall->gprs[0];
++		else
++			ret = HV_STATUS_INVALID_HYPERCALL_INPUT;
++		local_irq_restore(flags);
++		return ret;
++	}
++
+ 	arm_smccc_1_1_hvc(HV_FUNC_ID, control, input, &res);
+ 	return res.a0;
+ }
+@@ -62,9 +102,29 @@ u64 hv_do_fast_hypercall16(u16 code, u64 input1, u64 input2)
+ {
+ 	struct arm_smccc_res	res;
+ 	u64			control;
++	struct rsi_host_call *hostcall;
++	unsigned long flags;
++	u64 ret;
+ 
+ 	control = (u64)code | HV_HYPERCALL_FAST_BIT;
+ 
++	if (is_realm_world()) {
++		local_irq_save(flags);
++		hostcall = *this_cpu_ptr(hyperv_pcpu_hostcall_struct);
++		memset(hostcall, 0, sizeof(*hostcall));
++		hostcall->gprs[0] = HV_FUNC_ID;
++		hostcall->gprs[1] = control;
++		hostcall->gprs[2] = input1;
++		hostcall->gprs[3] = input2;
++
++		if (rsi_host_call(virt_to_phys(hostcall)) == RSI_SUCCESS)
++			ret = hostcall->gprs[0];
++		else
++			ret = HV_STATUS_INVALID_HYPERCALL_INPUT;
++		local_irq_restore(flags);
++		return ret;
++	}
++
+ 	arm_smccc_1_1_hvc(HV_FUNC_ID, control, input1, input2, &res);
+ 	return res.a0;
+ }
+@@ -76,24 +136,44 @@ EXPORT_SYMBOL_GPL(hv_do_fast_hypercall16);
+ void hv_set_vpreg(u32 msr, u64 value)
+ {
+ 	struct arm_smccc_res res;
++	struct rsi_host_call *hostcall;
++	unsigned long flags;
++	u64 status;
++
++	if (is_realm_world()) {
++		local_irq_save(flags);
++		hostcall = *this_cpu_ptr(hyperv_pcpu_hostcall_struct);
++		memset(hostcall, 0, sizeof(*hostcall));
++		hostcall->gprs[0] = HV_FUNC_ID;
++		hostcall->gprs[1] = HVCALL_SET_VP_REGISTERS |
++				    HV_HYPERCALL_FAST_BIT |
++				    HV_HYPERCALL_REP_COMP_1;
++		hostcall->gprs[2] = HV_PARTITION_ID_SELF;
++		hostcall->gprs[3] = HV_VP_INDEX_SELF;
++		hostcall->gprs[4] = msr;
++		hostcall->gprs[6] = value;
+ 
+-	arm_smccc_1_1_hvc(HV_FUNC_ID,
+-		HVCALL_SET_VP_REGISTERS | HV_HYPERCALL_FAST_BIT |
+-			HV_HYPERCALL_REP_COMP_1,
+-		HV_PARTITION_ID_SELF,
+-		HV_VP_INDEX_SELF,
+-		msr,
+-		0,
+-		value,
+-		0,
+-		&res);
++		if (rsi_host_call(virt_to_phys(hostcall)) == RSI_SUCCESS)
++			status = hostcall->gprs[0];
++		else
++			status = HV_STATUS_INVALID_HYPERCALL_INPUT;
++		local_irq_restore(flags);
++	} else {
++		arm_smccc_1_1_hvc(HV_FUNC_ID,
++				  HVCALL_SET_VP_REGISTERS |
++					  HV_HYPERCALL_FAST_BIT |
++					  HV_HYPERCALL_REP_COMP_1,
++				  HV_PARTITION_ID_SELF, HV_VP_INDEX_SELF, msr,
++				  0, value, 0, &res);
++		status = res.a0;
++	}
+ 
+ 	/*
+-	 * Something is fundamentally broken in the hypervisor if
+-	 * setting a VP register fails. There's really no way to
+-	 * continue as a guest VM, so panic.
++	 * Something is fundamentally broken in the hypervisor (or, in a
++	 * Realm, the RMM denied the host call) if setting a VP register
++	 * fails. There's really no way to continue as a guest VM, so panic.
+ 	 */
+-	BUG_ON(!hv_result_success(res.a0));
++	BUG_ON(!hv_result_success(status));
+ }
+ EXPORT_SYMBOL_GPL(hv_set_vpreg);
+ 
+@@ -108,29 +188,56 @@ void hv_get_vpreg_128(u32 msr, struct hv_get_vp_registers_output *result)
+ {
+ 	struct arm_smccc_1_2_regs args;
+ 	struct arm_smccc_1_2_regs res;
++	struct rsi_host_call *hostcall;
++	u64 status;
+ 
+-	args.a0 = HV_FUNC_ID;
+-	args.a1 = HVCALL_GET_VP_REGISTERS | HV_HYPERCALL_FAST_BIT |
+-			HV_HYPERCALL_REP_COMP_1;
+-	args.a2 = HV_PARTITION_ID_SELF;
+-	args.a3 = HV_VP_INDEX_SELF;
+-	args.a4 = msr;
++	if (is_realm_world()) {
++		unsigned long flags;
+ 
+-	/*
+-	 * Use the SMCCC 1.2 interface because the results are in registers
+-	 * beyond X0-X3.
+-	 */
+-	arm_smccc_1_2_hvc(&args, &res);
++		local_irq_save(flags);
++		hostcall = *this_cpu_ptr(hyperv_pcpu_hostcall_struct);
++		memset(hostcall, 0, sizeof(*hostcall));
++
++		hostcall->gprs[0] = HV_FUNC_ID;
++		hostcall->gprs[1] = HVCALL_GET_VP_REGISTERS |
++				    HV_HYPERCALL_FAST_BIT |
++				    HV_HYPERCALL_REP_COMP_1;
++		hostcall->gprs[2] = HV_PARTITION_ID_SELF;
++		hostcall->gprs[3] = HV_VP_INDEX_SELF;
++		hostcall->gprs[4] = msr;
++
++		if (rsi_host_call(virt_to_phys(hostcall)) == RSI_SUCCESS) {
++			status = hostcall->gprs[0];
++			result->as64.low = hostcall->gprs[6];
++			result->as64.high = hostcall->gprs[7];
++		} else {
++			status = HV_STATUS_INVALID_HYPERCALL_INPUT;
++		}
++		local_irq_restore(flags);
++	} else {
++		args.a0 = HV_FUNC_ID;
++		args.a1 = HVCALL_GET_VP_REGISTERS | HV_HYPERCALL_FAST_BIT |
++			  HV_HYPERCALL_REP_COMP_1;
++		args.a2 = HV_PARTITION_ID_SELF;
++		args.a3 = HV_VP_INDEX_SELF;
++		args.a4 = msr;
++
++		/*
++		 * Use the SMCCC 1.2 interface because the results are in
++		 * registers beyond X0-X3.
++		 */
++		arm_smccc_1_2_hvc(&args, &res);
++		status = res.a0;
++		result->as64.low = res.a6;
++		result->as64.high = res.a7;
++	}
+ 
+ 	/*
+-	 * Something is fundamentally broken in the hypervisor if
+-	 * getting a VP register fails. There's really no way to
+-	 * continue as a guest VM, so panic.
++	 * Something is fundamentally broken in the hypervisor (or, in a
++	 * Realm, the RMM denied the host call) if getting a VP register
++	 * fails. There's really no way to continue as a guest VM, so panic.
+ 	 */
+-	BUG_ON(!hv_result_success(res.a0));
+-
+-	result->as64.low = res.a6;
+-	result->as64.high = res.a7;
++	BUG_ON(!hv_result_success(status));
+ }
+ EXPORT_SYMBOL_GPL(hv_get_vpreg_128);
+ 
 -- 
 2.45.4
 
