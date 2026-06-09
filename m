@@ -4,139 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B15CD8C85
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 03:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317BECD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 03:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c3wZ2J0bG5FHp8ZaFE9Fot88k5dKTeGOujpGuBDm9Yc=; b=r1FNc4YloTNLLVvIXZr9+HKhru
-	oORGO+TT7hfSTzp44qov9HlEATyVR4FDGcnuFDR4XpBjso6OjvfH1dmFcd43DmgiZj9wfmDqbi7E3
-	emtiB68DadpbxBncEcejbCWHFnpyveMuP38AMXcVShKR0Nj/6Y9B0+jWFf13weQ8u744SS4vCtgOh
-	gpRk/XVmUNPzJzP3F14Zj85y68uLC/TwD8vDq8MRVMVY1IIh6BEURL1R6Ky7I7xte0yST1QaxI42y
-	ACrCZhVbrSoWlsgXrZtMrBVyJNplW7LCTU9ZdjgmRLlZuwIDleWV/76Q127hBgzAGgg4G4Ca2xnlz
-	kVLg5WAQ==;
+	bh=EZOjnHACVTon1pbpnkxGmBB0lMQWx3+ggQ4jgwjjkCA=; b=Lse8v3yHyFFu2vErhNYsisN6pc
+	QI3AD+ouJKUY7Sncz2M5Iq96x/qYptB0EqWv+4/4DU4uKVir2qdhnPL+eGqw0dEAoR9aC+M9q8CKZ
+	e1QF4Tcih+Lu/WhON8IcXrS8OF0R4kInBf4+CyzbnRj2MUCiNUW3Vw/MHvCCNfEgC38dPxiWgiFcz
+	wTAYxI2NSeatIcOeps5+CSgqMAMXtfOLkZmdl0PcWf/w6tLRgqfPojfS4mM1bSiXYeZ4t6dDJktfv
+	q5wydjbSY7XcLgtqkOhI0KNRXRhyL+QutyoG7NHb9XnYZ0PYY115LQ0H5kj/P6cemFiGSRLHYeXYp
+	KPq6af3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWn8C-00000004g3R-06ur;
-	Tue, 09 Jun 2026 03:28:00 +0000
-Received: from mail-westeuropeazon11010046.outbound.protection.outlook.com ([52.101.69.46] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wWnLD-00000004gti-3XaL;
+	Tue, 09 Jun 2026 03:41:27 +0000
+Received: from mail-northcentralusazon11012045.outbound.protection.outlook.com ([40.107.200.45] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWn87-00000004fyF-2Qi1
+	id 1wWnLB-00000004gtH-0ct9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 03:27:58 +0000
+	Tue, 09 Jun 2026 03:41:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZdWOSE9ZWm0afZA0CZQkb7IonI4KDLgeybx/oDNsfS065l8c54oNkBSAE51FQTa/HKonl5fVsr400VcqXpXOJHzWgFu5echvN3Zc9YiPSmxcXhv1w2cwuMotvD0yurkNI+w3iafmAVHYjqt8HXeYRwPHbwhWxw8Vi2f7So4MfekIAeaX5osMgFfR4p66aq+lYYA8v8YqOSssSp3vRb2ZvcPrJclrwJNJ1JXZ9hNsXoy4mkzT81OQ/rjM5FkeTIwbB/i62k2/zYEs2MRRnEVG0+dY4ru6ADf4HX++wLEn/ylacq1+M+6CmnpNN378gu9x9+H1MrtbZShXA2nJGL9/tg==
+ b=x6y4ATtsxjG+UziZXgBIIN0oDaRIeL3SpojlPH+CbszLmNTi7KCoABUR51dhfAc0LfwBtn3hEC2xQN23IOxWqIXcRcpsa24iMqFGpTYpcF7YGczm3IQFyGCdmNs1jC817yRKDf/8LfBfaQ249lBuuk9s35eTbHQRatK7qMC6R6i6faq8HaYgPdOa7C9gQdjqMielECuUoDxnkYLrp95ClLFGP0YgCOLDywNhi6kofIWoRpOr89srntq4XEnVoNr7yNX4ONrffyDzNNGAX9LS25X8WFCAT7aggGdLrIc4Aw3Bh+s10d7mTH9WwqSAjLwN30E+K/JyiXjjj5yRxaJayQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c3wZ2J0bG5FHp8ZaFE9Fot88k5dKTeGOujpGuBDm9Yc=;
- b=CKByrtvHc8ElCEzxd848FbGH8nthSOT/Jyt4cRQj+vex4G/dJKa80FIS5bPpIiqQedz9W02C12p80i5+tJUor03dw86m9FTRsbmj47n4UAYV9N+jyhI5NiTMi5RCzusUBz1F9JwVr7F1rqXD8TPaWUb8SaP7scrAhWAmMWQRlSNqdjR+lweW5VLuWXFdP3zLB90ANGVTPAPga5LUi4g2f+Eyx3x0Nx40AEdLdeFS9zm/K1gCl49Ln0jEZ06rJrZIlyVPy/2dNv9ZmMvOQm3nHbdva3zuDuZGrkkvM81xCeCJSzOHAJck3z1D486MKqCzIAUIFNl8yVphMphQ2SPVBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=EZOjnHACVTon1pbpnkxGmBB0lMQWx3+ggQ4jgwjjkCA=;
+ b=s3LqVLsTDBsUwJj5WUB9gmOvnxbMwWyOghLQbS9uKjJaJcl2F2CaQfT5kRddjXBLbhL+88TFDEzi6KoMALWQsu/rqPBA9LJo/xHMJ1bRYgHlKF1tU9efLqd7NICccESj7ZEkz7BDhydiXqg2zvIuMJ6mB1vVsFvVB8WSh1vdKH8ErI2NeHjRKTX4xvIMjpP9Olc0asy9BvUZkFMUHsUAfTOww+zq0DLfinv4mGb6Co/cRIEnOt9gz7wm5+gVWbDWlFzGJvrFNMsEMs70IwS3IyN9F+DXFyreua27GLpB21siiV9vBwrqMRJKteg9DRF9EKQ0LNCotCth9BZARWDi7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c3wZ2J0bG5FHp8ZaFE9Fot88k5dKTeGOujpGuBDm9Yc=;
- b=MBUOKbbeRosAI67hoid3T910PlX2nOtk87pEDIJh4jMDXCmrYd8is+E3CsHkVTIxLPIqCORYMwISiqVM34eg7cXuS7wHNaw203Pc9TzcRyyCxQUww9wF32HVrDsZ/AyvNXRFMHYo85K4IpxdPLcbSb3o/bZIbfJUQlFLuPlWROjA3ACaUFH0nA1YnRibuuP/It2xnBb4hVJhnmHg3rhybSnozv47ntI71bLdys7k9YnZy6SVpV9XfNqGaDzU3fB3iCSM9ZguzUNQ5rJRvksUoGJtN0pmF1o84G0VErmWXbPlEsR2kK6AyQBySYWnrvbKMjNDbx4HiwDEFY0WbLx4uQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
- by AS8PR04MB8946.eurprd04.prod.outlook.com (2603:10a6:20b:42d::18) with
+ bh=EZOjnHACVTon1pbpnkxGmBB0lMQWx3+ggQ4jgwjjkCA=;
+ b=b5ZNV0R798j3EyP7LZJnJ7gR2Hanv5K/GG+qXB8yXRR84rVIqKbsTLM6Zxs2iQ5006nKPRFZ599jP5DF2osSSZ7bzjDx7ARTBr7yDwsjhyghAbtp0Q4HhGoC9HfeWv3OPggmAliA8CkNRNhtZpBU3rLhaxYY463geMD+zZ2OrjY=
+Received: from CH0P221CA0023.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11c::24)
+ by CH3PR10MB7716.namprd10.prod.outlook.com (2603:10b6:610:1ba::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Tue, 9 Jun
- 2026 03:27:52 +0000
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74%3]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 03:27:51 +0000
-From: wei.fang@oss.nxp.com
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	chleroy@kernel.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	linux@armlinux.org.uk
-Cc: wei.fang@nxp.com,
-	imx@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 net-next 9/9] net: dsa: netc: implement dynamic FDB entry ageing
-Date: Tue,  9 Jun 2026 11:29:55 +0800
-Message-Id: <20260609032955.2066089-10-wei.fang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260609032955.2066089-1-wei.fang@oss.nxp.com>
-References: <20260609032955.2066089-1-wei.fang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0033.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::14) To VE1PR04MB7216.eurprd04.prod.outlook.com
- (2603:10a6:800:1b0::22)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Tue, 9 Jun 2026
+ 03:41:11 +0000
+Received: from CH2PEPF0000009E.namprd02.prod.outlook.com
+ (2603:10b6:610:11c:cafe::62) by CH0P221CA0023.outlook.office365.com
+ (2603:10b6:610:11c::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.14 via Frontend Transport; Tue, 9
+ Jun 2026 03:41:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CH2PEPF0000009E.mail.protection.outlook.com (10.167.244.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Tue, 9 Jun 2026 03:41:10 +0000
+Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
+ 2026 22:40:19 -0500
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
+ 2026 22:40:19 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 8 Jun 2026 22:40:19 -0500
+Received: from [10.24.68.110] (uda0492258.dhcp.ti.com [10.24.68.110] (may be forged))
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6593eEZO785862;
+	Mon, 8 Jun 2026 22:40:15 -0500
+Message-ID: <19ded2fa-4560-4b38-975c-6b490328e992@ti.com>
+Date: Tue, 9 Jun 2026 09:12:46 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+CC: <vigneshr@ti.com>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+	<mani@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+	<mpillai@cadence.com>, <unicorn_wang@outlook.com>, <me@ziyao.cc>,
+	<18255117159@163.com>, <linux-pci@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<danishanwar@ti.com>, <s-vadapalli@ti.com>
+Subject: Re: [PATCH] PCI: cadence: skip the link polling when endpoint not
+ connected
+To: Aksh Garg <a-garg7@ti.com>
+References: <20260605071922.1724499-1-a-garg7@ti.com>
+Content-Language: en-US
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <20260605071922.1724499-1-a-garg7@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|AS8PR04MB8946:EE_
-X-MS-Office365-Filtering-Correlation-Id: e3f3efa0-3504-4634-f376-08dec5d7166c
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009E:EE_|CH3PR10MB7716:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ea9202f-5a9f-4958-539c-08dec5d8f29a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|7416014|1800799024|3023799007|22082099003|18002099003|921020|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: ocFaiceIkUOeXFCugFWnn2Omry9Ba5YvJj4Q5+YisR7qZc1K4pyZaCikTGk3Vm/udXpJd7u2Fc23OTbk0mOB8WD+49FgZz+xJy5CzPJL2DrrovaeSLRN7ALSFzK9g+zHcrRXMxZPZMWRtKC3Eyv3bnhMbpZ8rc4OhXH15EN1p90rj+xtkWsCQFZwUSkHQmedY5NJNpy11eePmtwuzssoFrwxvq4aBP0O20+6ggxXBg77KZc+DyyfMy4U0Z6XsWzAcVL7tuHu9kCSOqD+40DKhFRTWAgGxspOdIlIp7vjTirHz8kjJtelblHMUPYWiYwAn0NsgsUl2F4roxBOujTPAyOi20AnmqeV48lO/KKr8WnOg80I4Z6ZADsEaNcfiHtpYk3Yz7oabLi8Dp7rBTkF8ipTQtpam5ki3dH0ZoG4fE6KGnvacMTLciB/KjXAVwUyfgQC1tChbvvc9aJdYGSRjrEhxzZZsSUmS5BTCoa8fqpfIPdrsL29CPLwYQvSMegq5pdxI4SWp7irvXCt67A7qfwB3JahRqY0TMfAF8pqxd+EzNLj5gj72mHMlkmH93orB5XOmGyFw58iPNQA0YJyre42OwteXe2pBpPvkG37wbPlhnmqMbIWLE8c+fxQ2sal4djVrQCZH9XQ3VwaROlLbITq5aQM9XhdojtCa52fzQDOTYYd4H8+R2L+MyaeEJQ7Ni/2nI8cW0BegdX7FhHtiwO84k0orPpq5grIn0Qzt/I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(7416014)(1800799024)(3023799007)(22082099003)(18002099003)(921020)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|32650700020|376014|1800799024|7416014|82310400026|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 8gi4xglmsF322nNjlLtrXlN8KtIehV9ZyVyEc6c8uyBZ+SUEVFtJMXXMjVqXZXlFlpqmqaxiKwj2LMXT9RcmZIsVzNCHWG1AlwXUsiqPyebaTySBVBGUBt0fTPb3a7hVs42L83vzfQlNIar2F6aXkzgRJy1qzK+VoxL80nGxjTfo7UEQ706rxL8UbeXPmJ++dycfNqn0lnknQkoIBAWhEHJrRu4w69vlGO3p8u/HbLkEegoqolpBiFkUuDBgeHpdwgp6TrYEpRoOy1BEbHqlFKpUIpQAvjzEGvv+0+VAh3SW1XojpWFghBlmXGN2QtAtWqjpKvCpgei2gWD7C9FZu2bAEOIDqfTzbLZYCDZpU/gBg2Ts4KtQbEA29DQ7dmLSaI50Y8t3rnj1OfMUyw/ezZueUcAxb5JFxw0D3cN6dNXQ1HmDx5wMdY7vc5L/KSrCEISMkveMWSPg1R4fgDj8XQl8dAQYTVf/3MrzMgNNYsA3cQIUFMh+Z5T+DhQLx6sJhaE97WZ7rw9lrU1bo23E3R6JTGIvoSJcSDaIoDQwR7h/69nGNCyJRDwcH5j64voJfCYZ/wUiBc/JIG2vAuSXk/oH+5mvk7AZGcZ5uBSeOV2GjB2R9z9k4TPMIYstyZSk63cafYCUxzyA70vnUeX+WG5QYOfUYD9fg8er0Pm6kH0zOxrWvOGkQtBq10iDkrsLmOe1aTf5caQQ3p6W+cUt/aTKlv5W9G04VaX1v8+U5gI=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(32650700020)(376014)(1800799024)(7416014)(82310400026)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yMuBkH3cq+Q9+7dKmN2oyiWy8iwXsOIsvHkQdDOzeKqRJ4c2CiHEgveR5nZX?=
- =?us-ascii?Q?ZcVe9+Ssl0e8gVuwpsOw8VfdGAUfvKWCeuSOpjSCptEqLHxm1JFIPMRNvwIt?=
- =?us-ascii?Q?hCsIxtWOmKEdDiSQ1SHK23z/Ocb9CgUE2BFmBti3HwPL3rTLDNFm9xrYG/62?=
- =?us-ascii?Q?Ko3pQkXfZIqn7f8x5j8FBJ1ops6n3/QSWLDaYU4PpoT5nwkWxOJOizfQL3Ou?=
- =?us-ascii?Q?a33CL3uXmSAu/9xnTquDt9UWpiVXHU1uvgMbK7GrcY/LIWB6Tw3ro5Iw9vf9?=
- =?us-ascii?Q?ilOIpG1T+YolwaHACWkkWbaD3GRmx0K8MqEmP1iBvhtkt48SykNnjvHWQqZ/?=
- =?us-ascii?Q?Gp9k8ZBWOCXHPUOkMMveNYIv/9ayCcZ2Em/2pv7uqde3YDv5VTWSNiAHY1w2?=
- =?us-ascii?Q?YiQRjllaKhbQxuQc6czbm2uvgvRzkL77SMhtk7TVPpw4WPFtJ9yzgZbHg18M?=
- =?us-ascii?Q?CiNHe95VMIrtO+tkjjLQQWvApkdirgz7XRN7V+EFDIqpEJzfLvUKjf/rEaiv?=
- =?us-ascii?Q?eD5XiIHLfaGiXJvmHmczz32CvCYYisrR34g3xhhMzc7njxzX7Mit7oENiB5b?=
- =?us-ascii?Q?/HRZEue9Q7DIXiMRmXUZqDF4LpyMGseHsNZaQRW1oZleOP2EechO+IEeuY+I?=
- =?us-ascii?Q?FmIXrx5etPwnALKgLsrPW4Y9rzpmZrHVwccg38671XiIXPYPMMFK50v7PRiP?=
- =?us-ascii?Q?tI1fyecCgcE3x0YTGeuCUSHinoXOzkFjkw7EGqiJIImFkD7SZASRtAIgS6jM?=
- =?us-ascii?Q?OFnJ/Aazb3NSFScmT3geNkPkd3eRXtrCuZXloXuMHb/MyPOR7OZwjBoB5Ew1?=
- =?us-ascii?Q?ookG6rIwkySIEzJ3Zgl3DPLlbTMaGi9YYp/SZ6CnJ8JQE18NsUoOJntWK9cn?=
- =?us-ascii?Q?i7qe3Qwlx83lPWAIJZaE0DX8c9wDlJ9DZgckGSL9Ze3nzDZ/PnrBKyLnGNLP?=
- =?us-ascii?Q?d9wNM3886np5yqSbiVjDivognZpdFE6xkAOqnj4RZ1pfs8U9ctyxb7LJOsWR?=
- =?us-ascii?Q?BdvvJJjECCdO84Glt0HffsI1iNrZB/ahGaCFKMWqTPB6kaLkoQH3R+Mrkq9U?=
- =?us-ascii?Q?6/ahVPWMJ401WIk8UP2750do7DOb0pdtNbrYU/mzzs8P9Ig07xOUvgcOfbPB?=
- =?us-ascii?Q?D/6sXUFTRUhR2fDj32FaFpqyy8lbqOEDZsskjmnoupAWJoaszRU2HK6HwOIF?=
- =?us-ascii?Q?XRvlUaHVJx5M0QWa58XRB1NLgsruun0bpe5nFi17BS3I50juKQm2uyZ3j+/5?=
- =?us-ascii?Q?LRQlJLBrqWYQAGNG/S3ozpocXrvqbiEM07fsFtyhGPiFfOGR/Ug7M6Rj/33A?=
- =?us-ascii?Q?VzSyHj1TqxOkeya9raJs8ciTawZJDqVNc2EsGXm6818SK9Qpk4XYqSz8xy9L?=
- =?us-ascii?Q?H22jIq+P8pOJ9d211vc+V4jdhtDWD9bOHpEcVS03u0RY8UXUGRF+G9rx+W8h?=
- =?us-ascii?Q?4kZAmtQWrjjAJK/NYrccbOnVBT/wrGutk8mpYwlekeNjoGIf70QDhDWVj8bj?=
- =?us-ascii?Q?nvl5WCfN4mUgPZEqRyCBjtPJA4dybsXPoMvtBiya7j6hw5TigzxxpplxomSJ?=
- =?us-ascii?Q?YjyP5zTRY4P8JxY2hQDXrNlwnoODB4AyDc29x9iLzyKmJYwRWLnYeaQgiRti?=
- =?us-ascii?Q?R/MrGmyNWgnYThSzO8EA5s9juSx6p1nFaqXpBJ61ZUnLZqePwHFFFWwNI8xk?=
- =?us-ascii?Q?Uq6uGfjxJFWVtFZ7AoIbXo1mMO8ZU7cgKzESOiX4GAyc+kOIClAHsdfmcfb9?=
- =?us-ascii?Q?j7np/tVch9ee7tIWaqjoelNyS3alprVSve91dLjpscVZmssmvShi?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e3f3efa0-3504-4634-f376-08dec5d7166c
-X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 03:27:51.9150
+X-MS-Exchange-AntiSpam-MessageData-0: 3byYDm7D/8d9Z4Z5Yg3CfMoV9QbWoH2it2OZ7fz8RdbmItjxGgMOE+FZLjGUFphXl47+sARLrvJZDNxZHOXFmDHgbo3gfD5B9nybeOWMkTwQLGzqp1syUMZ2cUDOCcYbzHsC7n/G+cuxB0v+DkkWTGUdWO9odI0EVTvnw5azIJc5htPu50hpTnlnPltbWflY3Y2L/WUAJOm/7hNyD01xsSiMsf8x1iwbQa1IBJLmHZ3FiN6FbtMEHESaPh8hgAyg/swv6Lj5UiCVRh7onb14Y5UZ8mKNx/0iPnDy3vGvYzgZ6A3AuEpbflEqFDa7tHQnAxweP2NpLrACNr6K0xN96otZL/pX5JoNBAu1/21f6p0U1fmXJqjzI34+it0/eO8mIcwolpXYbyBlQJy2oZvwdJywYxQ0MmVtu+ysI9bMDcKFj15vs0dNIMtFjkS+rTRB
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 03:41:10.5945
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0mVLnAEyHT3H5F9jtRZ+lI0ioJwLq5ZXBKKnbu8MHUf6J1P2T3c+1Il3oAQfnYcrnQ0y9yDOYKAH7DE3chqos4J1ovhSZtxrzFOFEUzJEq9Rt9+QgPFOKhLs7jVq6QbH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8946
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ea9202f-5a9f-4958-539c-08dec5d8f29a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_202755_773188_D9A852C0 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20260608_204125_312102_3DA119AB 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,198 +135,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wei Fang <wei.fang@nxp.com>
+On 05/06/26 12:49, Aksh Garg wrote:
+> cdns_pcie_host_wait_for_link() polls on link-up for 10 retries with a
+> delay of 90-100ms each (~1 second). A call to cdns_pcie_host_link_setup()
+> during the resume operation blocks the resume operation unnecessarily for
+> ~1s even when no endpoint device is connected.
+> 
+> Add skip_link_polling flag to track link state across suspend/resume
+> cycles. If link was down before suspend, skip the expensive polling
+> in resume since no endpoint was present.
+> 
+> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+> ---
+>   drivers/pci/controller/cadence/pci-j721e.c             | 5 +++++
+>   drivers/pci/controller/cadence/pcie-cadence-host-hpa.c | 3 +++
+>   drivers/pci/controller/cadence/pcie-cadence-host.c     | 3 +++
+>   drivers/pci/controller/cadence/pcie-cadence.h          | 3 +++
+>   4 files changed, 14 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> index bfdfe98d5aba..849eb8bb9e45 100644
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -686,6 +686,11 @@ static int j721e_pcie_suspend_noirq(struct device *dev)
+>   	struct j721e_pcie *pcie = dev_get_drvdata(dev);
+>   
+>   	if (pcie->mode == PCI_MODE_RC) {
+> +		struct cdns_pcie_rc *rc = cdns_pcie_to_rc(pcie->cdns_pcie);
+> +
+> +		/* If link is down before suspend, skip polling in resume */
+> +		rc->skip_link_polling = !j721e_pcie_link_up(pcie->cdns_pcie);
+> +
 
-The NETC switch does not age out dynamic FDB entries automatically.
-Without software management, stale entries persist after topology
-changes and cause incorrect forwarding.
+Please consider the following scenario:
+1. Endpoint device is not connected initially and we suspend with 
+'skip_link_polling' set to true.
+2. We resume and skip link polling.
+3. An Endpoint device is connected to the PCIe Connector a while later.
+4. We perform a bus rescan, but with skip_link_polling still set (in 
+resume), wouldn't we skip polling for the link to be up?
 
-Add a delayed work that periodically removes entries that have not been
-refreshed within the specified cycles. The effective ageing time is:
+Shouldn't 'skip_link_polling' be set to false on resume, after we skip the 
+polling initially, in order to allow waiting for a link up for a newly 
+connected device? Although this may not be done in practice and the 
+Endpoint device may always be left connected from the start, I am wondering 
+if we should clear 'skip_link_polling' on resume to account for the 
+aforementioned scenario. Let me know if I am overlooking something here.
 
-  ageing_time = fdbt_ageing_delay * 100
+>   		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
+>   		clk_disable_unprepare(pcie->refclk);
+>   	}
 
-Default values are 3s interval and 100 cycles (300s total), matching
-the IEEE 802.1Q default ageing time. The work starts when the first
-port joins a bridge (tracked via br_cnt) and is cancelled when the
-last port leaves. All FDB operations are serialized under fdbt_lock.
+[TRIMMED]
 
-Implement .set_ageing_time() to allow the bridge layer to reconfigure
-ageing parameters on demand.
-
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
----
- drivers/net/dsa/netc/netc_main.c   | 67 ++++++++++++++++++++++++++++++
- drivers/net/dsa/netc/netc_switch.h |  7 ++++
- 2 files changed, 74 insertions(+)
-
-diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
-index 299a9e76b9aa..c6082c6f8fd9 100644
---- a/drivers/net/dsa/netc/netc_main.c
-+++ b/drivers/net/dsa/netc/netc_main.c
-@@ -447,6 +447,25 @@ static void netc_free_ntmp_user(struct netc_switch *priv)
- 	netc_free_ntmp_bitmaps(priv);
- }
- 
-+static void netc_clean_fdbt_ageing_entries(struct work_struct *work)
-+{
-+	struct delayed_work *dwork = to_delayed_work(work);
-+	struct netc_switch *priv;
-+
-+	priv = container_of(dwork, struct netc_switch, fdbt_ageing_work);
-+
-+	/* Update the activity element in FDB table */
-+	mutex_lock(&priv->fdbt_lock);
-+	ntmp_fdbt_update_activity_element(&priv->ntmp);
-+	/* Delete the ageing entries after the activity element is updated */
-+	ntmp_fdbt_delete_ageing_entries(&priv->ntmp, NETC_FDBT_AGEING_THRESH);
-+	mutex_unlock(&priv->fdbt_lock);
-+
-+	if (atomic_read(&priv->br_cnt))
-+		schedule_delayed_work(&priv->fdbt_ageing_work,
-+				      READ_ONCE(priv->fdbt_ageing_delay));
-+}
-+
- static void netc_switch_dos_default_config(struct netc_switch *priv)
- {
- 	struct netc_switch_regs *regs = &priv->regs;
-@@ -872,6 +891,10 @@ static int netc_setup(struct dsa_switch *ds)
- 
- 	INIT_HLIST_HEAD(&priv->fdb_list);
- 	mutex_init(&priv->fdbt_lock);
-+	priv->fdbt_ageing_delay = NETC_FDBT_AGEING_DELAY;
-+	atomic_set(&priv->br_cnt, 0);
-+	INIT_DELAYED_WORK(&priv->fdbt_ageing_work,
-+			  netc_clean_fdbt_ageing_entries);
- 	INIT_HLIST_HEAD(&priv->vlan_list);
- 	mutex_init(&priv->vft_lock);
- 
-@@ -936,6 +959,7 @@ static void netc_teardown(struct dsa_switch *ds)
- {
- 	struct netc_switch *priv = ds->priv;
- 
-+	disable_delayed_work_sync(&priv->fdbt_ageing_work);
- 	netc_destroy_all_lists(priv);
- 	netc_free_host_flood_rules(priv);
- 	netc_free_ntmp_user(priv);
-@@ -1970,6 +1994,7 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
- 				 struct netlink_ext_ack *extack)
- {
- 	struct netc_port *np = NETC_PORT(ds, port);
-+	struct netc_switch *priv = ds->priv;
- 	u16 vlan_unaware_pvid;
- 	int err;
- 
-@@ -1997,6 +2022,10 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
- out:
- 	netc_port_remove_host_flood(np, np->host_flood);
- 
-+	if (atomic_inc_return(&priv->br_cnt) == 1)
-+		schedule_delayed_work(&priv->fdbt_ageing_work,
-+				      READ_ONCE(priv->fdbt_ageing_delay));
-+
- 	return 0;
- 
- disable_mlo:
-@@ -2023,6 +2052,7 @@ static void netc_port_bridge_leave(struct dsa_switch *ds, int port,
- {
- 	struct netc_port *np = NETC_PORT(ds, port);
- 	struct net_device *ndev = np->dp->user;
-+	struct netc_switch *priv = ds->priv;
- 	u16 vlan_unaware_pvid;
- 	bool mc, uc;
- 
-@@ -2030,6 +2060,9 @@ static void netc_port_bridge_leave(struct dsa_switch *ds, int port,
- 	netc_port_set_pvid(np, NETC_STANDALONE_PVID);
- 	np->pvid = NETC_STANDALONE_PVID;
- 
-+	if (atomic_dec_and_test(&priv->br_cnt))
-+		cancel_delayed_work_sync(&priv->fdbt_ageing_work);
-+
- 	netc_port_remove_dynamic_entries(np);
- 	uc = ndev->flags & IFF_PROMISC;
- 	mc = ndev->flags & (IFF_PROMISC | IFF_ALLMULTI);
-@@ -2066,6 +2099,37 @@ static void netc_port_bridge_leave(struct dsa_switch *ds, int port,
- 	netc_port_del_vlan_entry(np, vlan_unaware_pvid);
- }
- 
-+static int netc_set_ageing_time(struct dsa_switch *ds, unsigned int msecs)
-+{
-+	struct netc_switch *priv = ds->priv;
-+	unsigned long delay_jiffies;
-+
-+	/* The dynamic FDB entry is deleted when its activity counter reaches
-+	 * NETC_FDBT_AGEING_THRESH (100). Each delayed_work tick increments
-+	 * the counter by 1 if the entry is inactive.
-+	 *
-+	 * Therefore:
-+	 *   msecs (ms)    = NETC_FDBT_AGEING_THRESH * delay_ms (ms)
-+	 *   delay_ms      = msecs / NETC_FDBT_AGEING_THRESH
-+	 *   delay_jiffies = (delay_ms / 1000) * HZ
-+	 *                 = (msecs * HZ) / (1000 * NETC_FDBT_AGEING_THRESH)
-+	 *
-+	 * Use DIV_ROUND_CLOSEST_ULL to perform a single nearest-jiffy
-+	 * rounding, avoiding the two-step rounding error of the intermediate
-+	 * delay_ms approach.
-+	 *   Maximum error = +/-0.5 jiffy * 100 = +/-50000/HZ ms.
-+	 */
-+	delay_jiffies = DIV_ROUND_CLOSEST_ULL((u64)msecs * HZ,
-+					      1000 * NETC_FDBT_AGEING_THRESH);
-+	WRITE_ONCE(priv->fdbt_ageing_delay, delay_jiffies);
-+
-+	if (atomic_read(&priv->br_cnt))
-+		mod_delayed_work(system_percpu_wq, &priv->fdbt_ageing_work,
-+				 READ_ONCE(priv->fdbt_ageing_delay));
-+
-+	return 0;
-+}
-+
- static void netc_port_fast_age(struct dsa_switch *ds, int port)
- {
- 	struct netc_port *np = NETC_PORT(ds, port);
-@@ -2357,6 +2421,7 @@ static const struct dsa_switch_ops netc_switch_ops = {
- 	.port_vlan_del			= netc_port_vlan_del,
- 	.port_bridge_join		= netc_port_bridge_join,
- 	.port_bridge_leave		= netc_port_bridge_leave,
-+	.set_ageing_time		= netc_set_ageing_time,
- 	.port_fast_age			= netc_port_fast_age,
- 	.get_pause_stats		= netc_port_get_pause_stats,
- 	.get_rmon_stats			= netc_port_get_rmon_stats,
-@@ -2406,6 +2471,8 @@ static int netc_switch_probe(struct pci_dev *pdev,
- 	ds->phylink_mac_ops = &netc_phylink_mac_ops;
- 	ds->fdb_isolation = true;
- 	ds->max_num_bridges = priv->info->num_ports - 1;
-+	ds->ageing_time_min = 1000;
-+	ds->ageing_time_max = U32_MAX;
- 	ds->priv = priv;
- 	priv->ds = ds;
- 
-diff --git a/drivers/net/dsa/netc/netc_switch.h b/drivers/net/dsa/netc/netc_switch.h
-index 982c8d3a3fbf..305f2a92e2f9 100644
---- a/drivers/net/dsa/netc/netc_switch.h
-+++ b/drivers/net/dsa/netc/netc_switch.h
-@@ -50,6 +50,9 @@
- /* PAUSE refresh threshold: send refresh when timer reaches this value */
- #define NETC_PAUSE_THRESH		0x7FFF
- 
-+#define NETC_FDBT_AGEING_DELAY		(3 * HZ)
-+#define NETC_FDBT_AGEING_THRESH		100
-+
- struct netc_switch;
- 
- struct netc_switch_info {
-@@ -124,6 +127,10 @@ struct netc_switch {
- 	struct ntmp_user ntmp;
- 	struct hlist_head fdb_list;
- 	struct mutex fdbt_lock; /* FDB table lock */
-+	struct delayed_work fdbt_ageing_work;
-+	/* (fdbt_ageing_delay * NETC_FDBT_AGEING_THRESH) is ageing time */
-+	unsigned long fdbt_ageing_delay;
-+	atomic_t br_cnt;
- 	struct hlist_head vlan_list;
- 	struct mutex vft_lock; /* VLAN filter table lock */
- 
--- 
-2.34.1
-
+Regards,
+Siddharth.
 
