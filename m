@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F30ECD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:44:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A0DCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ydq/tbSss8qiRk9qUKdW43eESg1pJEOtT4lCL4jYh6s=; b=Z0LZq7s948bhAKAXu7BzFin20X
-	7kAXclNBLbtrRD4pLuvNq2lu2iWjOkgni9YdS27JDC+qkH0vcHqCmH1yTcFSn7lh+Ey27ig89mdFU
-	mKwwnfuFdUiscN/d66mPoaxAZs8rFVGPpBbMOY6sc0gOop/hTLxLADXpcZNSCFF8FM4EzNR1A/qou
-	AjzhZUxRtoQt73x9RGwuAMxjLAQJjD/1CFP+7M3Sp2oZdsJgC3oJJhmQjnL8TDZG5zM6pvmoglJIN
-	iDd3v70YrKOBAaQLzUB1x/zR5UXCyFBHjR4stYjW5FDczYzGYKWuF7JT4qvA2rmf12db307/FdV+h
-	8JTTfU8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IJIoq2lbW6FRY5oyhMQg8Qr0bvZCZUks/wUc5jCEynE=; b=EWbigafkpCgazQayCtAjQUhIwb
+	/Y16ZuggrlbzFx5DKpvCDBusS2c1bqO7WgZxZPGYeUwAhqVyuWw6rIFVeG18TzphA8JiYFPGoz9Xr
+	DBmLbhqxARyuuKFsf1veDmrv4W3zliFsHagaPMzIbmt6c5ED3D0et+WofEGFTUZGXOLXzBuhPoD+H
+	voVsbqw31DvLIytjxmwOGejnCVlXn5SUULw3xkg2DoLq/mZtNgZhSDIe2sisqcVwp+Rfm3Lt55p6y
+	s9YUwkI8v730P8EL5HI0gqzA3QHrS2jYmR/1GJBFL8Z+gpXnvUmAZ/8qXOkm+FDTTOVvAU7G3CBeW
+	/7RnkC0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvoL-00000005X8a-0J8O;
-	Tue, 09 Jun 2026 12:44:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWvpY-00000005XFk-1wRY;
+	Tue, 09 Jun 2026 12:45:20 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvoI-00000005X8S-3izU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 12:44:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A5CA601DC;
-	Tue,  9 Jun 2026 12:44:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53D991F00893;
-	Tue,  9 Jun 2026 12:44:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781009041;
-	bh=Ydq/tbSss8qiRk9qUKdW43eESg1pJEOtT4lCL4jYh6s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N7u2vIFY+mXuNNnLLpaRqQQiiR8gMcqNjl+Ywtc5PJAbkIDP3TNdWE9voyP941Lcl
-	 lAY981OOyMir/AB2trdLks4i1Jo1uqPCHW50Q6us0gFqRvYTXxTyU8NfkOGXMVNDnL
-	 nEkiqZkx5Qli4pRsNHs4dmwUfFU0XSkAieKH1d94FAKMK/IudMBnu7C3I2vAYcmQri
-	 15698UfsH6NFV/WNQ4NbcCg/BHBnA483JKHkFrm9fwDPg4dHsSvUdVWsTWJZqH/yiL
-	 R4e2MEmKpg93NC+QgtIlbGww/E1v5HbixBLU3zp/QwglgYLMn3CyNlrCzoeMjPZ3z0
-	 UMCSGEObXnF6g==
-Date: Tue, 9 Jun 2026 14:43:59 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 23/37] drm/encoder: add drm_encoder_cleanup_from()
-Message-ID: <20260609-hypnotic-honeybee-of-adventure-d89b7c@houat>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-23-45e2bdb3dfb4@bootlin.com>
- <20260608-mighty-woodlouse-of-reading-162bca@houat>
- <DJ4FR339GCKY.21P0315EZLRJU@bootlin.com>
+	id 1wWvpW-00000005XEv-1ZLi;
+	Tue, 09 Jun 2026 12:45:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1781009075; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IQqrUJv3v73mBlNpnTrq/db8Tl2np3v/pDYtoPFDxNB7KPYxSCKADSOsGwH223l7gVkxBNTv9N+1suxlplYdpYQMd7NmlMaoBwlo1vSKOgflVomX0pPNg1Kq/dEAixVpVd+p+XasTYhzGigYnPaWbT40+xR+ZdNr+YBdrQU1MzY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1781009075; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=IJIoq2lbW6FRY5oyhMQg8Qr0bvZCZUks/wUc5jCEynE=; 
+	b=UVJ7Tp+tu/QzVWpLKUEkZtckxhtJP9SKXIg2qMpnNidLLIMT3qFXZJQ27DtX7bOLKJHpgQKAkQ/LarlipJhM+rjUF/tXxQe7jjwQ5zQjw75HDfkaR2sm8s4+frjX82RsBKBpi59LoeIovpdD8HOqQ+VaHLdUA4wQDWvxBMd8v60=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781009075;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=IJIoq2lbW6FRY5oyhMQg8Qr0bvZCZUks/wUc5jCEynE=;
+	b=JpPnxvtzJlMslo4mK6q9UX5BH5eBH/A+YoL4tcWudAwXPCW21N4eWzLO0nLvBQny
+	m2zKRCG42MB7y8cdJwwqZMcLabI+qRfDeJu9ufwkwDUjeRLoAOCHM1+n+jbCvOyxHEY
+	O/X1osE51njsX0PXFmR1G/Ul5p/1Dea+Mekkb/uw=
+Received: by mx.zohomail.com with SMTPS id 178100907436179.35397232750938;
+	Tue, 9 Jun 2026 05:44:34 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 09 Jun 2026 14:43:49 +0200
+Subject: [PATCH v17 02/28] drm/display: hdmi-state-helper: Use default case
+ for unsupported formats
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="gtamny6ghjahqeyo"
-Content-Disposition: inline
-In-Reply-To: <DJ4FR339GCKY.21P0315EZLRJU@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260609-color-format-v17-2-35739b5782cc@collabora.com>
+References: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
+In-Reply-To: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Daniel Stone <daniel@fooishbar.org>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, wayland-devel@lists.freedesktop.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_054518_510944_78ED0D27 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,141 +102,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Switch statements that do not handle all possible values of an
+enumeration will generate a warning during compilation. In preparation
+for adding a COUNT value to the end of the enum, this needs to be dealt
+with.
 
---gtamny6ghjahqeyo
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 23/37] drm/encoder: add drm_encoder_cleanup_from()
-MIME-Version: 1.0
+Add a default case to sink_supports_format_bpc's DRM_OUTPUT_COLOR_FORMAT
+switch statement, and move the log-and-return unknown pixel format
+handling into it.
 
-On Tue, Jun 09, 2026 at 12:10:39PM +0200, Luca Ceresoli wrote:
-> On Mon Jun 8, 2026 at 2:10 PM CEST, Maxime Ripard wrote:
-> > On Tue, May 19, 2026 at 12:37:40PM +0200, Luca Ceresoli wrote:
-> >> Supporting hardware whose final part of the DRM pipeline can be physic=
-ally
-> >> removed requires the ability to detach all bridges from a given point =
-to
-> >> the end of the pipeline.
-> >>
-> >> Introduce a variant of drm_encoder_cleanup() for this.
-> >>
-> >> Take care to not try detaching non-attached bridges. This is needed be=
-cause
-> >> when two or more bridges are removed not in the backwards order,
-> >> drm_encoder_cleanup_from() is called more than once for bridges closer=
- to
-> >> the panel.
-> >>
-> >> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> >>
-> >> ---
-> >>
-> >> Note: in theory drm_encoder_cleanup() is now a superset of
-> >> drm_encoder_cleanup_from() and may be simplified to just call
-> >> drm_encoder_cleanup_from() and then do the extra actions. However the
-> >> common code is subtly different in terms of locking and checks, so this
-> >> would complicate the code in this patch and has thus been kept separat=
-e for
-> >> the time being to make reviewing sompler. Reimplementing
-> >> drm_encoder_cleanup() by using drm_encoder_cleanup_from() cvacn be done
-> >> later on.
-> >>
-> >> A much simpler and now obsolete version of this patch (missing locking=
- and
-> >> checks) previously appeared in
-> >> https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-13-9d6f2c9=
-c3058@bootlin.com/
-> >> ---
-> >>  drivers/gpu/drm/drm_encoder.c | 38 ++++++++++++++++++++++++++++++++++=
-++++
-> >>  include/drm/drm_encoder.h     |  1 +
-> >>  2 files changed, 39 insertions(+)
-> >>
-> >> diff --git a/drivers/gpu/drm/drm_encoder.c b/drivers/gpu/drm/drm_encod=
-er.c
-> >> index 0d5dbed06db4..40ece477b302 100644
-> >> --- a/drivers/gpu/drm/drm_encoder.c
-> >> +++ b/drivers/gpu/drm/drm_encoder.c
-> >> @@ -179,6 +179,44 @@ int drm_encoder_init(struct drm_device *dev,
-> >>  }
-> >>  EXPORT_SYMBOL(drm_encoder_init);
-> >>
-> >> +/**
-> >> + * drm_encoder_cleanup_from - remove a given bridge and all the follo=
-wing
-> >> + * @encoder: encoder whole list of bridges shall be pruned
-> >> + * @bridge: first bridge to remove
-> >> + *
-> >> + * Removes from an encoder all the bridges starting with a given brid=
-ge
-> >> + * and until the end of the chain.
-> >> + *
-> >> + * Does nothing if the bridge is not attached to an encoder chain.
-> >> + *
-> >> + * This should not be used in "normal" DRM pipelines. It is only usef=
-ul for
-> >> + * devices whose final part of the DRM chain can be physically remove=
-d and
-> >> + * later reconnected (possibly with different hardware).
-> >> + */
-> >> +void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm=
-_bridge *bridge)
-> >> +{
-> >> +	struct drm_bridge *next;
-> >> +	LIST_HEAD(tmplist);
-> >> +
-> >> +	/*
-> >> +	 * We need the bridge_chain_mutex to modify the chain, but
-> >> +	 * drm_bridge_detach() will call DRM_MODESET_LOCK_ALL_BEGIN() (in
-> >> +	 * drm_modeset_lock_fini()), resulting in a possible ABBA circular
-> >> +	 * deadlock. Avoid it by first moving all the bridges to a
-> >> +	 * temporary list holding the lock, and then calling
-> >> +	 * drm_bridge_detach() without the lock.
-> >> +	 */
-> >> +	mutex_lock(&encoder->bridge_chain_mutex);
-> >> +	if (!list_empty(&bridge->chain_node))
-> >> +		list_for_each_entry_safe_from(bridge, next, &encoder->bridge_chain,=
- chain_node)
-> >> +			list_move_tail(&bridge->chain_node, &tmplist);
-> >> +	mutex_unlock(&encoder->bridge_chain_mutex);
-> >> +
-> >> +	while (!list_empty(&tmplist))
-> >> +		drm_bridge_detach(list_first_entry(&tmplist, struct drm_bridge, cha=
-in_node));
-> >> +}
-> >> +EXPORT_SYMBOL(drm_encoder_cleanup_from);
-> >> +
-> >
-> > The name is super confusing, because it doesn't clean up anything.
-> > drm_encoder_cleanup is called that way because it cleans up the encoder.
-> > This function doesn't.
-> >
-> > Unlike what's being documented, it doesn't remove any bridge either. It
-> > just detaches bridge, so let's just call it that way?
->=20
-> Good point.
->=20
-> What about:
->=20
->  * rename to drm_bridge_detach_from()
->  * drop the @encoder argument (get if from bridge->encoder)
->  * maybe even move to drm_bridge.c?
+No functional change.
 
-Yeah, sounds good
-Maxime
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
---gtamny6ghjahqeyo
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index a331ebdd65af..c68b159f0a7f 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -542,10 +542,11 @@ sink_supports_format_bpc(const struct drm_connector *connector,
+ 		drm_dbg_kms(dev, "YUV444 format supported in that configuration.\n");
+ 
+ 		return true;
+-	}
+ 
+-	drm_dbg_kms(dev, "Unsupported pixel format.\n");
+-	return false;
++	default:
++		drm_dbg_kms(dev, "Unsupported pixel format.\n");
++		return false;
++	}
+ }
+ 
+ static enum drm_mode_status
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.54.0
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaigKjgAKCRAnX84Zoj2+
-dgQLAX42LEgszKsjPU/+3LFQz8tNGVf56HqdErx1pXdLpTvWmUKH+fpmdnsdAvbC
-3ZlmGa4BgOnk3SuyXjrXLkyQvid/yT867XehPj4JCl3exDBnCQCUs5ObEmha8DRZ
-+HJfoVLJ/Q==
-=Ujr9
------END PGP SIGNATURE-----
-
---gtamny6ghjahqeyo--
 
