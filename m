@@ -4,119 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BBACD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 20:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F1BCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 20:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CB3uqN+m7C8S/hlT2WiZWa5WYAgtzsD/nbEWBLMncI=; b=SnJy20TH4+/JkeMIhzG5uu9IGm
-	Bfs3Jyu7lE58FU2KxpQnRqRi9IkFo7tHZMV4+4EvpygbTIgW5FCzVGlJdGpVLmgBdSGmaivNQgQyU
-	PnFmDuTUtKXka4Dj1b5MAltM2OPc1IEykiPCH4CfDFmJpUMZTeM+pxN2znJqyubwZLy+4lRnpd1XH
-	kG7tGBC34yH/tTpWelOdPTNzZWt4uIBI5PBnUuXk24086CBLJUdRnDzuykVdkt2MW+f9Jwb+pZf6n
-	mZxw6ZZq67CzEL1bMz46zhmhXa5yQEZ7oOAWbnORvWEs1d5s+trvnm6d2+p7IZGZ3h3WJvRY40upA
-	b23lCJ7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oJ/YXPB/iVQYKnH/A0lTAooADjyGEwknQY/Na+W/VMo=; b=PxqOTxXpHqEVuo840mBI4k4tZk
+	gaR+dU+14J62ocUB8aKuYCzJbl2yrbA3gHoYy+Sk5vNwNHOIpdzznzpyArO9ko1P4Ge3AYbcGWxiw
+	njtupgJhBWxFREt3SvMPuLwXHPOMVZ0pxtgSHi+uts1sYQtejGO4md9CxnsJlBn8zTQXvDsUPOrSH
+	LMQTEYBxSqur0gZTR3xI2SqYTKjmdb0o9PlAwkE62BNjmrclP9ChX64pebt5aDYFjhDgmjeKVhM2b
+	pJv1aiUsqmmPcJMyiixzoxQitkieRbx8a3R2RS57M209x3TbG2icUHFKLps5rm3mhyvE0/HaAo0xf
+	GkYRwgtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX3Eu-00000006MUY-2RJG;
-	Tue, 09 Jun 2026 20:40:00 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.1])
+	id 1wX3Mo-00000006MoU-1sJc;
+	Tue, 09 Jun 2026 20:48:10 +0000
+Received: from mail-wm1-f46.google.com ([209.85.128.46])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX3Er-00000006MTq-0Ape
+	id 1wX3Ml-00000006Mo9-3oWb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 20:39:58 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com; s=arckey; t=1781037596;
-	 b=g2NFERmhU3+Z8EA4HqNnEvLA9l1HJdipUA64EeL/4coV83DlFTSfN25Lj9AHt9bx4GSWVynE/j
-	  G2EYAVZ8tJVnT625wti3bC+PrXy47vWIOtktlnzf2D54rVZ/iiQjW2LZPL49a3vKix26P2dhfz
-	  MwSbkA26iK80Xks5yYnAGVXe4Va7/64lFNgJOOvBU7qrZnAqM/Arp7mMP5CBAVtY5hJ+VWtbZJ
-	  PzbfSlOSIY8uTqX3X+WbjdlBjdnBRgL8NME2M3h5OiUDjFs/QoXZSjr9IXNu+LeX5rBeetVvao
-	  SjW0IAugcIeU4FAPKwMfeGwomZSty/nn4mt34xQjwPb0oQ==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com; s=arckey; t=1781037596;
-	bh=SQ4EKhSiwdW2m9zPBFJmKKyZiDpxnfusfBXNXXgOVM8=;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	  Message-ID:Date:Subject:Cc:To:From:DKIM-Signature:DKIM-Signature;
-	b=HmU39wgzBIA4w7D6MysiKYtW81nYGEEdWfjarxiHI6ol96uwVLSmE7hnrJ52PA87AbkEuSLohY
-	  y/v36M1O8Ie0/N5oReiGHA5lhoKmUeifonG2tqIwfkWoNG/LK3XNCUael31AO3JyHVCOi7aZKk
-	  rqTymeF1cET7yENVZa5Z7Dnc7XhKqhDi9WLVBzF/Jw9FU7geUGeekxGtl7fyMvSrKgiFpoV/oR
-	  g2+WnE+DQRTGfueqB4gYJX1L4JOgRkQpTLA/QEQGnXM1m1de/I5gQPgST/6+O6YY/dnsLV02oI
-	  lNc/IZCN0pgAAk/rQnpTcv4ht4BR7M5fm6XheEcoCacpOQ==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
-	Cc:To:From:Reply-To:List-Unsubscribe;
-	bh=/CB3uqN+m7C8S/hlT2WiZWa5WYAgtzsD/nbEWBLMncI=; b=Wd6ICNq2vkB8pmC0PPuoLBDIKF
-	5rYy2dA/VEr429dzyIWfH3AoOT8SSIGllPYU9TsZkABb3FBrjl90B34vBphdd+ckAHxz/nSTQCbsc
-	iu2dSVAvAF8v2HnSUDKfYBnf6E2qgS1XZWxzAnwwGNCd8xjNS94jrOMNvZFnFGrVwDts=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <francesco@valla.it>)
-	id 1wX3Ei-00000005RDD-1LXs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 20:39:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Date:Subject:Cc:To:From:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=/CB3uqN+m7C8S/hlT2WiZWa5WYAgtzsD/nbEWBLMncI=; b=mGxgiW0HLd56ARsb448DjEhxTl
-	YY/dJOylCz3UmiQSzcTqix8Dnx1fm27hErHNngSJ3m5WjS74Ppog2uePEzTAh7zmr0FGpdnh/2pWd
-	2368AnWdWTCS0X+1efQ0XAHr/zxQB+hrpHQbRW9TuA2Mu93IIDSdQmYS+P1vSD0I0qSE=;
-Received: from [95.248.69.182] (port=60980 helo=bywater.localnet)
-	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.3)
-	(envelope-from <francesco@valla.it>)
-	id 1wX3EN-00000000JTf-485z;
-	Tue, 09 Jun 2026 20:39:28 +0000
-From: Francesco Valla <francesco@valla.it>
-To: Joseph Guo <qijian.guo@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- steven.yang@nxp.com
-Subject: Re: [EXT] Re: [PATCH] arm64: dts: imx93-11x11-frdm: enable additional devices
-Date: Tue, 09 Jun 2026 22:39:27 +0200
-Message-ID: <qRn4DwQ2Twuq6ao1_CO5YA@valla.it>
-In-Reply-To: <db95fec5-d8ac-4d52-ad2a-75e5593f99ef@nxp.com>
-References: <20260115-imx93_devices-v1-1-b2c840cafa2e@valla.it>
- <_j4Ik3AsS5yfKb4Y7cSB1w@valla.it>
- <db95fec5-d8ac-4d52-ad2a-75e5593f99ef@nxp.com>
+	Tue, 09 Jun 2026 20:48:09 +0000
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-490b211ee6aso46535645e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 13:48:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781038086; x=1781642886;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oJ/YXPB/iVQYKnH/A0lTAooADjyGEwknQY/Na+W/VMo=;
+        b=WaDCUD0LhvTeUr/h59naCYdRa9/kG3n8eE/l9ocfAZkgtFO/Ue08oEmIPnRCvanjP3
+         3wK59LNwuXPUr3H2ZcO5qkttAtDBuEKMq3hqgY5i7ppvfMNELUOH2KB1cgOa2TisHtgo
+         3UjqErfRN7EjBL6G/HqxH2FDGRbaVJrFMfnjH5kJecgA6Dkul5CWM9hK7mVfcSsa/b3O
+         WY0eagxQD7pyP/wol8x/tTIa6sft8JNjz00xXfE7cN12ANxhYRmubimPBPR+E+No/0uW
+         pvxBq1h2tb+oAsjAG7v5JLoxv2kiphuzdgBG0EfZsh7UQnYwRegJbt+CBKUOx+mBFr09
+         XF7g==
+X-Forwarded-Encrypted: i=1; AFNElJ/fhI8fbUVt3KKBY5QA2L37EcTcdp4MQPZcIVQbvjOhWw57smw1lP6zGMmT5sPkjqWKlZyno56luxMSaZq6hXx6@lists.infradead.org
+X-Gm-Message-State: AOJu0YweLeu7p/+NN1ZDrjmWN0b6nOJ+pjl0s+0bCISfXQo9FwPKRL3Z
+	FoaeAXr7US9OpW0Xua3PWtRP0/KzWlrHIPzKA0YeByDv6ljD7Q1COLp/
+X-Gm-Gg: Acq92OE7Us10XS0ZbprXy85HbuziULt6nuZk/842UQjnbecIMN++YknCNq5GXGv+RHE
+	e6tU68voLU6koeJBe9XDQ469ZzLMKNgjlTQ5n/IXuApjIWVtnj61WObqwxAFSO6qrCITkS3qfdt
+	SkqxwzCPUoHN8G7QTioDlf4DlQVaeJrUVitm+rvikdZ2W+MJcm6bXG1ttXT21gtmKzGVCe8Xb4t
+	/4YIaZRQI7rKf7mJrIaEaxjG1QfCn/N2MDBSrhS9GBIRgiaJX1mqM10xYGaVRGRtXdCS/aGWbZW
+	YJKrjrRuy0TXEng0C0xzt1DtfnJymxJl5XqaVwAf5J9RUL+RYn1l/5cC4nJKKt2ng2u0yO+zUfv
+	AGBRpIF7vi0UgELdDx3RitF6y21S67QH1qRQYct5LJeOYaZE8wx1tuA0hrxiISFs77qaHQurW3I
+	93UUMjxTgts4G4CYN47wKAa/KW+8hakMTaW1S49i0hT7h4Hmt/2SmgxZL1YGnhJ97lDWA1JMywM
+	pvDco52JsFctxKXtqGqiaWAJ3JuH3ShP63bG5wMGg==
+X-Received: by 2002:a05:600c:4e45:b0:490:c01a:5f10 with SMTP id 5b1f17b1804b1-490c257f8cdmr363952705e9.15.1781038085472;
+        Tue, 09 Jun 2026 13:48:05 -0700 (PDT)
+Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3fd502sm509551525e9.11.2026.06.09.13.48.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Jun 2026 13:48:04 -0700 (PDT)
+Message-ID: <b07f5bd8-26f8-4de4-becb-4f76f9d33361@reactivated.net>
+Date: Tue, 9 Jun 2026 21:48:03 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: c01604b70a737d88e66c3cb6615420a6
-X-AntiAbuse: ID - c01604b70a737d88e66c3cb6615420a6
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1wX3Ei-00000005RDD-1LXs-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] gpiolib: handle gpio-hogs only once
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linusw@kernel.org
+References: <20260608210108.36248-1-dan@reactivated.net>
+ <CAMRc=MfUd3nwpjgz-87hrpQ9AV6T8_1zwCm+tfYFurkYHKoKTw@mail.gmail.com>
+Content-Language: en-US
+From: Daniel Drake <dan@reactivated.net>
+In-Reply-To: <CAMRc=MfUd3nwpjgz-87hrpQ9AV6T8_1zwCm+tfYFurkYHKoKTw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_133957_528761_F951CD1C 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20260609_134807_986380_1F7C1DEE 
+X-CRM114-Status: GOOD (  24.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,120 +91,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joseph,
+On 09/06/2026 13:39, Bartosz Golaszewski wrote:
+> On Mon, 8 Jun 2026 23:01:08 +0200, Daniel Drake <dan@reactivated.net> said:
+>> diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+>> index 1e6dce430dca..b02d711289d0 100644
+>> --- a/drivers/gpio/gpiolib.c
+>> +++ b/drivers/gpio/gpiolib.c
+>> @@ -1031,9 +1031,17 @@ static int gpiochip_hog_lines(struct gpio_chip *gc)
+>>   		if (!fwnode_property_present(fwnode, "gpio-hog"))
+>>   			continue;
+>>
+>> +		/* The hog may have been handled by another gpio_chip on the same fwnode */
+>> +		if (is_of_node(fwnode) &&
+>> +		    of_node_check_flag(to_of_node(fwnode), OF_POPULATED))
+>> +			continue;
+>> +
+>>   		ret = gpiochip_add_hog(gc, fwnode);
+>>   		if (ret)
+>>   			return ret;
+>> +
+>> +		if (is_of_node(fwnode))
+>> +			of_node_set_flag(to_of_node(fwnode), OF_POPULATED);
+> 
+> Sashiko correctly points out that on errors, the state will be corrupted. We
+> could maybe move the clearing of the flag to gpiochip_free_hogs() and track its
+> state when processing fwnodes in order not to clear it incorrectly?
 
-On luned=C3=AC 8 giugno 2026 07:14:24 Ora legale dell=E2=80=99Europa centra=
-le Joseph Guo=20
-wrote:
-> On 6/5/2026 7:36 PM, Francesco Valla wrote:
-> > Caution: This is an external email. Please take care when clicking links
-> > or opening attachments. When in doubt, report the message using the
-> > 'Report this email' button
-> >=20
-> >=20
-> > Hi Joseph,
-> >=20
-> > On venerd=C3=AC 5 giugno 2026 10:59:08 Ora legale dell=E2=80=99Europa c=
-entrale Joseph
-> > Guo>=20
-> > wrote:
-> >> On Thu, Jan 15, 2026 at 06:11:34PM +0100, Francesco Valla wrote:
-> >>> Enable additional devices on the i.MX93 FRDM board:
-> >>>   - CAN port and associated transceiver
-> >>>   - Bluetooth portion of the IW612 chipset
-> >>>   - WiFi SDIO port
-> >>>   - user buttons
-> >>>=20
-> >>> The WiFi portion of the on-board IW612 chipset is still not supported
-> >>> upstream, but since SDIO is a discoverable bus it will be probed once=
- it
-> >>> is.
-> >>>=20
-> >>> Signed-off-by: Francesco Valla <francesco@valla.it>
-> >>> ---
-> >=20
-> > [...]
-> >=20
-> >> Hi Francesco,
-> >>=20
-> >> Do you ever tried bluetooth feature? The bluetooth failed to scan with
-> >> 'device-wakeup-gpios' property.
-> >>=20
-> >> Regards,
-> >> Joseph
-> >=20
-> > Yes, Bluetooth was tested using bluetoothctl, I just briefly re-tested =
-it
-> > with latest master branch (7.1.0-rc6).
-> >=20
-> > Can you clarify what you mean with "The bluetooth failed to scan
-> > with 'device-wakeup-gpios' property."?
->=20
-> Hi Francesco,
->=20
-> If 'device-wakeup-gpios' property is set. The bluetoothctl can work, but
-> errors will show up if try to scan the bluetooth devices.
->=20
-> [bluetoothctl]> scan on
-> SetDiscoveryFilter success
-> Failed to start discovery: org.bluez.Error.InProgress
-> hci0 class of device changed: 0x000000
-> hci0 new_settings: bondable ssp br/edr le secure-conn cis-central
-> cis-peripheral iso-broadcaster sync-receiver ll-privacy past-sender
-> past-receiver [CHG] Controller 20:BA:36:5C:B0:D8 Class: 0x00000000 (0)
-> [CHG] Controller 20:BA:36:5C:B0:D8 Powered: no
-> [CHG] Controller 20:BA:36:5C:B0:D8 Discovering: no
-> [CHG] Controller 20:BA:36:5C:B0:D8 PowerState: on
-> [bluetoothctl]> discoverable on
-> Failed to set discoverable on: org.bluez.Error.Failed
->=20
-> After remove the 'device-wakeup-gpios' node. The bluetooth can work
-> normally.
+I guess you are referring to:
 
-This is not my experience:
-
-[bluetoothctl]> scan on
-SetDiscoveryFilter success
-hci0 type 7 discovering on
-Discovery started
-[CHG] Controller B8:F4:4F:AA:9D:1C Discovering: yes
-[NEW] Device C4:DE:E2:52:B9:96 BWT Perla BLue 16L 0025-003A
-
-[bluetoothctl]> discoverable on
-hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn c=
-is-
-central cis-peripheral iso-broadcaster sync-receiver ll-privacy past-sender=
-=20
-past-receiver=20
-[CHG] Controller B8:F4:4F:AA:9D:1C Connectable: yes
-hci0 new_settings: powered connectable discoverable bondable ssp br/edr le=
-=20
-secure-conn cis-central cis-peripheral iso-broadcaster sync-receiver ll-
-privacy past-sender past-receiver=20
-Changing discoverable on succeeded
-[CHG] Controller B8:F4:4F:AA:9D:1C Discoverable: yes
+> Does setting OF_POPULATED here cause state corruption if a secondary chip on a
+> shared node fails to probe?
+> When multiple gpio_chip instances share a device node, the first chip processes
+> its hogs and sets OF_POPULATED. If a subsequent chip fails probe (for example,
+> returning -EPROBE_DEFER), its cleanup path calls of_gpiochip_remove() which
+> clears the flag for all hogs.
+> If the flag is unconditionally cleared, will the deferred chip attempt to
+> process the first chip's hogs on retry, fail due to a mismatch, and
+> permanently abort probe?
 
 
-I also enabled the driver debug prints (through #define DEBUG) and can conf=
-irm
-that the GPIO is being driven:
+I don't think this is actually an issue. If we have two gpio_chips 
+sharing a device node, a first one with a hog that probes fine and a 
+subsequent one that fails during probe, both of the gpio_chips will 
+brought down and the flag is cleared. If it was a EPROBE_DEFER case 
+which is then retried later, the first chip's hogs will be set up a 2nd 
+time when the probe is retried.
 
-root@imx93-11x11-frdm:~# dmesg|grep h2c
-[   13.524321] hci0: Set Wakeup Method response: status=3D0, h2c_wakeupmode=
-=3D4
-[   15.586748] hci0: Set h2c_ps_gpio: high
-[   28.459963] hci0: Set h2c_ps_gpio: low
-[   32.034623] hci0: Set h2c_ps_gpio: high
+It is true that the teardown of the 2nd gpio_chip would erase the 
+OF_POPULATED flag of a gpio-hog node that it does not "own", but the 
+first gpio_chip would also be torn down at the same time (and 
+OF_POPULATED unset a 2nd time). This is not ideal, but harmless as far 
+as I can see.
 
-Maybe we have a different board revision? Do you know if there is a way I c=
-an
-read mine?
+I don't quite follow the suggestion for doing the clearing better in 
+gpiochip_free_hogs(). It would be neat if we could go from a hogged 
+gpio_desc back to the fwnode, so that we could only unset OF_POPULATED 
+on the fwnode at the point when we are really removing the hog, but I 
+don't see a way to derive the gpio-hog fwnode from gpio_desc. Also, this 
+would be complicated because one gpio-hog node can hog multiple gpios.
 
+Let me know if I'm missing anything or if you have any preference to 
+handle this differently!
 
-Regards,
-=46rancesco
-
-
-
+Thanks
+Daniel
 
 
