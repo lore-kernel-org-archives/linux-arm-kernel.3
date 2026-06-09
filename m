@@ -4,127 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A876ACD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3279CCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+hR6/rbyvdVnfpFd8NZ/iO8stq04jO6klXKge5x8WI=; b=JdsFWUZtHjL7fIz7HGTW4UuLk/
-	7ZKZVmhfT4K7kYsVhaHpKy71nxSpqyroi3JUZnJ7oZNajwapSuEpyZpkNEf32aKke56FyRF/CFjkd
-	22VTkfgrD579k03VnqVk3HgFJd8kB1qwaU+ys8IxAHPTVtepNvSQWrWzw0p3m2qWP1ydIZEIKTS0Z
-	p2+oFe/xjDMzuui0sDQ/XbO+f6YVZsl03i87OOIR6kqN1OE7oy0BvOHjUi+iD1M27gwKMSOK2QtLZ
-	ufZ8olFWpbI1cO12QEpIXbajzL9bQDZnWBZKEZji3AzJjGYUescMNjlPsuiKTTX4iArW/XJ2jdFsr
-	fNrfiABg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eW0rDfpFsySPqf1AUB4FLAgQw5OmaNrmK8cpMyCc6Kc=; b=wyud1waBuucbjsxV5eDsFAs1Fc
+	SYcm3k4Lh92mMMxjQVDno/z9vwUe81yXo1b+lKa7DONIIa/w0mH+xqXf+q2P4egVapV4i6IHpnDTI
+	Hvz6le5HH2GWdEtQwoUa2YnNg7F32eFZcEWGYaiRg9DvvKtPNMn99e4hpVI/KC5C9RA/gVAUp335C
+	YbcyxG+dglFf03u85zKSBSEj3vdUwKkqBjoSbLf35xzudVZOyrw//IO49Aclz11eZfVditTmJatGm
+	wAGBMLKeILMK5KE7xhP3XE/q4lUbNZbCZE8pZdDVsCP9dZFwPOrgGAulFBTVpjMfE9RBS+XWO1e3u
+	eKLOfNPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyXA-00000005wJD-3pTy;
-	Tue, 09 Jun 2026 15:38:32 +0000
-Received: from mail-westeuropeazon11013005.outbound.protection.outlook.com ([52.101.72.5] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wWya9-00000005wdv-1NJt;
+	Tue, 09 Jun 2026 15:41:37 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyX7-00000005wIt-416w
+	id 1wWya6-00000005wcO-2d5u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 15:38:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fDS5Hbn+ooHu5XFpRHFMzXfSfExmQYl27gNlT3ayAvbQGSdN1JYUet9kkQQElnri9IA+jFI68s7jmiF5dsOc7Q2gnGD99itzS9s6EB/h6+dtZnAxBTGjT5p6Qhz3zmuQcWF9vmUQolELDI2qvjPDIjTbUn5/IdYOWGDaKmhgKi9Tu+0WulQI7OzzPGhQBjMsB2ExrToXqD5djew6VVdez6yNiHmSzD1qML0GyPlzTStwHqiT/oQ85Vn8KNXT8cDurwmCxxqJ45q/FY9FeU15RwOcf5E6bCmgkf8eg+U43kU4G+WYsRIT7IC2K5WXeQ5NfHIkjtsemWaza507xgdItQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/+hR6/rbyvdVnfpFd8NZ/iO8stq04jO6klXKge5x8WI=;
- b=ooj85+3Xo7Cbc4FJOu9JL8pJg7BWMWmZlVYp83j2I+uFccsmkBrzVqtCARS6Sh+X2aC4zsybtWmzZqh2cFaBe4ePq24DQ0PULTKtR5nYlcO52g6Klzn0+q+HhfDvFcU8WukVRar/8iG4LdIVSAP4e1zV7Re1uKFFbUAsmRm/6r7Meyoq+pe6ms6NuIQOgBxyXm6CarPuuIsargbgo/EocJDXm7L8O9OFLixO3FyeTOkVzAhTN36bP2KW+vO+LMKtcjrAtM0EegxYduc21Z9y6lY1sawL3MAUXt15HNTbzZ3dPwjmJ/FyeIF3V5DphG6Ko87UWmxZWIN8T8tB2Fetqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/+hR6/rbyvdVnfpFd8NZ/iO8stq04jO6klXKge5x8WI=;
- b=BxckhhZy2odPYSjKek7q+O3T0GqE9iKICJgAegXjFsMwvY3JPNyH7eVHdZf0CYIeDcKTV1V/m8wRcS1N955HM24nHPD4OvuGqIktBZ5A9PFjDDOHVfYT1qP6DddIYT1h7/aYESZp0w7nP4wBul7K7Q/egIY8pYp3cZxS8yl8WpGbSaLIKqr4bmYUZ6l8K8l5wfuOYKM2gZNCSI5wwgMPiXD7A8We5PC+WU8abjtgGO5BZ2CEAhyHQaJyTzy0aBkNfBzPg9CnBauTpIg44yQnApgIlENPq61KikXamgZTHVOkmMM/k2H8LAt5hOxQBabvRnSGcu6LB37gRsHlGlfEAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA1PR04MB12224.eurprd04.prod.outlook.com (2603:10a6:102:561::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
- 15:38:25 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 15:38:25 +0000
-Date: Tue, 9 Jun 2026 10:38:15 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Li Jun <lijun01@kylinos.cn>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kernel@pengutronix.de,
-	festevam@gmail.com, peng.fan@nxp.com, shawnguo@kernel.org,
-	krzysztof.kozlowski@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] firmware: imx: sm-misc: Add NULL check for kmalloc in
- syslog_show
-Message-ID: <aigzZ8_uGT8bCzWc@SMW015318>
-References: <20260609004504.3402281-1-lijun01@kylinos.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609004504.3402281-1-lijun01@kylinos.cn>
-X-ClientProxiedBy: PH8PR07CA0024.namprd07.prod.outlook.com
- (2603:10b6:510:2cd::8) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 09 Jun 2026 15:41:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1781019693;
+ bh=eW0rDfpFsySPqf1AUB4FLAgQw5OmaNrmK8cpMyCc6Kc=;
+ b=ciIobUvlK9GjQCKoGxpAIsfVG4wFq/iaUuqss8vL74PeJgF9/R7c/1xcsRp+sfkCmiiooT1I1
+ eSxRKT/LLG6wi79dIkZqEpVNrebuE3ww0cwKPEgiF1gcOn4uSakXAmCR6jpSGWx30B+SZuoi9GW
+ hbci+LgecDdQGgUcIPd7QWR2GrP3l23/QExzurHl53qa45oOyxqOmp9AMHYM+FSI+wT+N8Bgxd0
+ fVycxKWlCSRa9LBh0S9bp2O4+llUXBBq4nZcmIfqj4BGr59gJ4GMO2VwrF1FbVtvgrmbPYJysxw
+ 3mpzbfnohHPE6FB/fWjzkj9d+nRbhgu/g6uGCvh7FVvA==
+X-Forward-Email-ID: 6a28342a2d71d6ad28f66de9
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.8.22
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Diederik de Haas <diederik@cknow-tech.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH 0/2] rockchip: Fix devices suspend freeze on RK3568/RK3566
+Date: Tue,  9 Jun 2026 15:41:21 +0000
+Message-ID: <20260609154124.445182-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB12224:EE_
-X-MS-Office365-Filtering-Correlation-Id: d98bd37c-2b80-46e4-8108-08dec63d24f2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|1800799024|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 8w1EKluv43+tvddis5fErIrWniFqtIvgPh/1u6ZY8n09PU9TnVX2aL5/oD8b+X9uCVs5HuUiyPxPjYdnzCbz+8LjXj1qvWcIKQRzDrU455SluipBME94bt3CiuSklMIIqxpcfVA6MVx5ajjVQettcsYbFwflsrebNTu22rpFKBclaBk27nVr6vg0BHCEMiPOlqMnnor9GEeLMWtHS//kWpO5FoKLgn/th2Cs1XJgQ/WOu5f5sBFdqOMwfemXeT+nI6AAYD3ZoLGKezoYGV3/0iSbgVgiP/HABOpAyk7BKOJI+kH25K8HhW6mpenSeThS8LcfGJMBF8qjwyWzjlSaC0RBzXPUkmK0kQ/S+FPQUxzafCHAO4Z0PU8pzAQ+8KrsrKm+7o8MVDq/zJTYod4jnC4LeC14RRPsf35ob8T4RrRwcARS+ft4DWNhoNnFhkQMWs3nv1ZUZIgXeg5SFNrs5w3iYh1z7X39413xElhE7CFD6+qLealBNS8f+MDEllHL7wykY+ka1Yl6r6NXM7W1rDyT7Dtm5O9qnugEccMG9PPdMWvjrbwdx2KlrdSGgkjOZ/0OuCQ1kmTRcmqVNLR2f0g0NqyltSHSwtzUvK42UQNzBkIKJiyrpKDkNt4n+xISPUDcdvGgMrM7rlHC4XYCzPuAzubIeY6koeHUII0YLMLtEYqWErACHJ1t0WwSCG3e
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(1800799024)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oXOT5+AHVGqbDLq4sh1zLVeviMgUubxwA1DFQV56YIYOcvrArDcbQW7OUVuo?=
- =?us-ascii?Q?8Zi1UfzNilpqBTfAkPWw1qbHcvwKKCSRQYVVjWZnVX6zogP2LRghpAPX2L0x?=
- =?us-ascii?Q?48IDSQgtMSNQqHU2a5REJ2DPHO+Ya20mr1gaAAhJE+RqSvTTcc1naMywFAKO?=
- =?us-ascii?Q?wr/MORVU71rG1Et9OUexiKvjyeRyitMpHqGS4rRMWljBouJ+f8w1ZQsZNubP?=
- =?us-ascii?Q?khoh6biUZFpArK/RvbaDdcSVQeF7n1v6utp9uLTf4c2wWwN/GdDL0k5J9F2/?=
- =?us-ascii?Q?twHfvUd+9ryuZeMmjojIyixB19t6Sb1YHpZw5Qswo6u7oAhAW2CqJmouGsa3?=
- =?us-ascii?Q?oKG/ocKaExvSSFw+4Pk/Yuea8FnQ683J/6IH81yDsGmGJsIA1kMbIy9gg4yN?=
- =?us-ascii?Q?uSoA4t/JcBvDMU6y8QQZBJlXQ9L+cLm1bzBTv/PXdkqV0a70nA5oqRe8PEnm?=
- =?us-ascii?Q?SgXsssXZ51Gka8/w3O5LB5wmdi6wHT45wy9Q8C4PVFjTdP8H3dSCHN0dVroR?=
- =?us-ascii?Q?EN8n1EFXmZDvKU8lmsf892zjzGK/arqWt7IwqrgT76T/4I0jdUYUZoBS2mWB?=
- =?us-ascii?Q?3bMj+qvgz4ssjQ+jRW6/IoUPkkOcef5dQ59cBgrLwRuvaWzPUOB+nAfdBRpS?=
- =?us-ascii?Q?X3aksVq5n5YTBbNbi46LipKbfdHXSXTkZpezzoGChrw9ByIBZBKm4rk6gmzm?=
- =?us-ascii?Q?rKqbACEAg+qgGSlTzzNvWto8SSOGexEzyZvb76JYNRm+Tz3QnWPwLISrfr+n?=
- =?us-ascii?Q?HZfrWnH03lRKoKpVFss6Z3vA8RG2qslOr92E1NEkLoAllJj4VlTuKmKPuCzn?=
- =?us-ascii?Q?qAHr5N3/0hSFnW+xno+8hSSa3jd118iZpQsTufcFWARuaSLyMbvy8sIWsqHG?=
- =?us-ascii?Q?E+F+QgUUYzJPtgttRXmBvpV2ZiN6LBXpx907LofsSZPiD6d/1UQje3Kn163g?=
- =?us-ascii?Q?B0AO0lVCY/FSi45pJmrD5+Qkp8Ztq5eo59YyRGDzG0uiHZynCAiudgGOhzOC?=
- =?us-ascii?Q?hJ/X7S4T8WN+c4utkdsroGXnO5rfjn3oZn7oFe/KzEE9jbtlUNiQYmG5orB2?=
- =?us-ascii?Q?qL+3u65e7L7mZ0unkkvpXeAXalnzMF63yr7gwJRVsVmrJz5ke/lJ9qQDuOaE?=
- =?us-ascii?Q?tXZj6JqRLmgRiVSDcr6vTsnlk6STDg/UXBGZnm6K/RNFVDvJ4fETrqt3M4k8?=
- =?us-ascii?Q?7q9Q5SHy8XhXjweWZUw25Xzkrmzz6lG9b48bP8FhzxupAIWop2TFuSy/kGOU?=
- =?us-ascii?Q?NuvtoZKE1w1AYqpbl19fsqG/FQrffqk40eLxeSRL5ha9ro4yNiYKvrlmPmoY?=
- =?us-ascii?Q?qvMrSef6IeDwxtyykWCL/0Jg2tq5bF9utvA5W7lUujittb4uOh19WwmlCyZT?=
- =?us-ascii?Q?MNqqG5P4Pah3G+Xja9amIKrzU1+/IaNXQp6gzTAtdU05hA2vXD4OEL20gSw2?=
- =?us-ascii?Q?EpuJzcnO80GFL9d+yEds6saBZno8/mzUyKPwXs8tuppQiP347IMldEWvnMH4?=
- =?us-ascii?Q?vTt5BNjO/z+ku3cy4YN5JdHXKdlCT5K311MyV3IGEaSHLamqYYyEBeYW6lmF?=
- =?us-ascii?Q?tN1eGA+rTdgIviebuEN9frFoHL6LGi0VKO64U8LoG+/RjfKCsg35tw+tZbpW?=
- =?us-ascii?Q?AXa8oaMVQSFsTfZTFEuwsU2kxWGyR1Ukk3wqXaOpJzSI/UAgvvKJTSo+0Dem?=
- =?us-ascii?Q?8JNL4D22lu0Jol0VYLtaOlH/73HcwcHtR5P/wYYWZGlnJ9YOPkssZvcdau/J?=
- =?us-ascii?Q?vwCgSiFRRu4RLkfqohzBG2mxhK5RCTdWTxlAxajuW87m4dd7qi/F?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d98bd37c-2b80-46e4-8108-08dec63d24f2
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 15:38:25.1847
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NY5YUACCwmchbsUDKgxMOLQZ0uopyuYTtblgSa5B8B6vgfS6Hq1r7gcO5YDK0x+FBxDptcPcbhp4KeSpYoWEIy2m0SSfXqBAiHk+iYk2dw4maQCV9ASmY6ZDTtvCmx53
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB12224
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_083830_003525_D2AC0860 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260609_084135_073334_BB21E865 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,38 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 08:45:04AM +0800, Li Jun wrote:
->
-> Add a proper NULL check for the kmalloc() return value in syslog_show().
-> If memory allocation fails, syslog would be NULL and passing it to
-> misc_syslog() could lead to a NULL pointer dereference.
->
-> Signed-off-by: Li Jun <lijun01@kylinos.cn>
-> ---
+This series fixes a system freeze during suspend in ohci_suspend() due
+to clk_usbphy1_480m not being enabled when EHCI/OHCI registers are
+accessed on e.g. a Raxa ROCK 3C board.
 
-Add a fix tags
+Following pm_test modes work on my ROCK 3C with the missing usbphy clk
+refs added:
 
-Frank
+  echo N > /sys/module/printk/parameters/console_suspend
 
->  drivers/firmware/imx/sm-misc.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
-> index ac9af824c2d4..fb8d7bdb5b08 100644
-> --- a/drivers/firmware/imx/sm-misc.c
-> +++ b/drivers/firmware/imx/sm-misc.c
-> @@ -79,6 +79,9 @@ static int syslog_show(struct seq_file *file, void *priv)
->         u16 size = SZ_4K / 4;
->         int ret;
->
-> +       if (!syslog)
-> +               return -ENOMEM;
-> +
->         if (!ph)
->                 return -ENODEV;
->
-> --
-> 2.25.1
->
->
+  echo devices > /sys/power/pm_test
+  echo platform > /sys/power/pm_test
+  echo processors > /sys/power/pm_test
+  echo core > /sys/power/pm_test
+
+  echo mem > /sys/power/state
+
+Jonas Karlman (2):
+  dt-bindings: usb: Add Rockchip RK3568 compatible for EHCI and OHCI
+  arm64: dts: rockchip: Fix devices suspend freeze on RK3568/RK3566
+
+ .../devicetree/bindings/usb/generic-ehci.yaml    | 10 ++++++++++
+ .../devicetree/bindings/usb/generic-ohci.yaml    |  5 ++++-
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi    | 16 ++++++++--------
+ 3 files changed, 22 insertions(+), 9 deletions(-)
+
+-- 
+2.54.0
+
 
