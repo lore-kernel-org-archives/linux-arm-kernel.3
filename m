@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C18CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:12:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB01CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PrEJxF0yh93aYoKZLB7gzVG9smZNwV0emvSqK1PE4BQ=; b=R98We99kWwKu/79SeEM8DPtr8r
-	SBu8UU4b25bbyfuZ34pgyN951MZH9CqXR7a+SjKfZZIWtxP9uzljiilGrTe525UnkaVQt8RPSZElG
-	a+75Fof2kLyiMcz6YfaMYz0EA24ptdK/9U0fqTYxpCyqZ73DMOT+1MEu8TTliGoezu09FhYMLhtaD
-	cZe0aBfOsGM2doHqdzM36MvaMY8nRN1ejLX9D1CAwVZiuv0Ppv7zmNIaCWbYHMLP9eD7h+UDk5ueT
-	GDE03bcjMbj433TRkONg/JHzaJWccuFBASuQg5A5y/jXOQe1eP0TlKEMVosVi87I+ZtReAfUV1QFF
-	kkTEAjbQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DBExo35kVAhTgBDgBLcpNG1azzDJ2+8gwo4xe9LiNUo=; b=nE/WramjpVOKkDlx3X86BY7aX5
+	FmkOoWIsxA1kYRHzCpdYD2LdnBGbpNj9Wo+C4negOwIcPi4l13u7WPBwGlVQiqiBYLAhePy2XblMK
+	w9X1ZO1I3MAoa7pkaHuX0rkRCeDS/XAkqOdhyS47IwQBIQM2YQke2qY91xb3XeMgf4ARar/q4oSej
+	3xtpFJkAn5AuRxHAQEE62eU18HO18lqBwxnODC/hEpnbLkmhhimLju0Rdn6wq3iH2DwfnjeOw6XUD
+	Kzx5GEE3Gs1gzz/K82ZwV5ZKhOb/r0WNpICm0drR104AN6WhdOXTdEGhb4/byfprQB0eNcREBJ8ga
+	TFYLhjPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtRq-00000005JNK-09C7;
-	Tue, 09 Jun 2026 10:12:42 +0000
+	id 1wWtRt-00000005JPo-1Jqi;
+	Tue, 09 Jun 2026 10:12:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtRm-00000005JLB-1PKX
+	id 1wWtRn-00000005JML-1P2h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 10:12:40 +0000
+	Tue, 09 Jun 2026 10:12:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 846BA2680;
-	Tue,  9 Jun 2026 03:12:30 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35EC32681;
+	Tue,  9 Jun 2026 03:12:33 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8DD7D3FDBD;
-	Tue,  9 Jun 2026 03:12:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3C1E03FDBD;
+	Tue,  9 Jun 2026 03:12:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780999955; bh=gswkRcdPDTUG0hZICYvu7w+a1ECgSO14nXP3KW8/bSk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kPN0JCP5/GIB2JYr/REGoTgPe0cOacbXResCybyEnBdBo9vnJexI/zQEhFStVAxWy
-	 AJ2zAJ2L3+WSby5Kw2cAwvxYF25lNwgkt9rbObELbL0jcDSHqvdvoBxFlhX+yNogS2
-	 fSJEYQkmpqiN4AH9+zc2FD735k2yfGIjwrocvi80=
+	t=1780999958; bh=K85VRd7iHvlD2uM2Bemj/TDFiVHLkpRfamulvwZPKRQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=O9/V2Xh3fsSggwns9g3v8EaBralqBeZ+49Ycp3ngiB502lpXWu0BhmvcAHjtA7o1a
+	 NubGtRrAdHVvMl3/qAnHyhx9mQryZcK9bZeNsqH+W+xDY5xrB5bYa+A+bFKmiSJ8ZW
+	 pT/FCy/LCa7OKq2P1yHvjzeWVYg4fBSv8pE9ez4o=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
 	mark.rutland@arm.com,
 	will@kernel.org
-Subject: [PATCH 0/3] arm64: errata: Mitigate TLBI errata on various Arm CPUs
-Date: Tue,  9 Jun 2026 11:12:00 +0100
-Message-Id: <20260609101203.1512409-1-mark.rutland@arm.com>
+Subject: [PATCH 1/3] arm64: cputype: Add C1-Ultra definitions
+Date: Tue,  9 Jun 2026 11:12:01 +0100
+Message-Id: <20260609101203.1512409-2-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260609101203.1512409-1-mark.rutland@arm.com>
+References: <20260609101203.1512409-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_031238_432543_ACB3036D 
-X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-CacheID: sfid-20260609_031239_417915_B99117B9 
+X-CRM114-Status: UNSURE (   9.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,41 +70,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A number of CPUs developed by Arm suffer from errata whereby a broadcast
-TLBI;DSB sequence may complete before the global observation of writes
-which are translated by an affected TLB entry.
+Add cputype definitions for C1-Ultra. These will be used for errata
+detection in subsequent patches.
 
-The ARM64_WORKAROUND_REPEAT_TLBI workaround is sufficient to mitigate
-the issue. This series enables the workaround on affected parts,
-requiring the addition of MIDR values for C1-Ultra and C1-Premium.
+These values can be found in the C1-Ultra TRM:
 
-I've based the series on the arm64 for-next/core branch to avoid
-conflicts with the recent formatting changes to
-Documentation/arch/arm64/silicon-errata.rst.
+  https://developer.arm.com/documentation/108014/0100/
 
-This issue has been assigned CVE ID CVE-2025-10263, and Arm have
-published a security bulletin:
+... in section A.5.1 ("MIDR_EL1, Main ID Register").
 
-  https://developer.arm.com/documentation/112137/latest/
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/cputype.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-This will require manual backporting, so I haven't CC'd stable
-explicitly. Once this is queueud I'll push out branches with backports
-to the active stable trees.
-
-Thanks,
-Mark.
-
-Mark Rutland (3):
-  arm64: cputype: Add C1-Ultra definitions
-  arm64: cputype: Add C1-Premium definitions
-  arm64: errata: Mitigate TLBI errata on various Arm CPUs
-
- Documentation/arch/arm64/silicon-errata.rst | 42 +++++++++++++++++++++
- arch/arm64/Kconfig                          | 36 ++++++++++++++++++
- arch/arm64/include/asm/cputype.h            |  4 ++
- arch/arm64/kernel/cpu_errata.c              | 32 +++++++++++++++-
- 4 files changed, 112 insertions(+), 2 deletions(-)
-
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 7b518e81dd15b..3e223a7781866 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -97,6 +97,7 @@
+ #define ARM_CPU_PART_CORTEX_X925	0xD85
+ #define ARM_CPU_PART_CORTEX_A725	0xD87
+ #define ARM_CPU_PART_CORTEX_A720AE	0xD89
++#define ARM_CPU_PART_C1_ULTRA		0xD8C
+ #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
+ #define ARM_CPU_PART_C1_PRO		0xD8B
+ 
+@@ -189,6 +190,7 @@
+ #define MIDR_CORTEX_X925 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X925)
+ #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
+ #define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
++#define MIDR_C1_ULTRA MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_ULTRA)
+ #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
+ #define MIDR_C1_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PRO)
+ #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
 -- 
 2.30.2
 
