@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29B0CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578CACD8CA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kFTsAOv1hKm4xZTbT6xMW++1uFPeFFAKMUDBgYxH4Gw=; b=whFTfGG1IBGwyOdmSg3TZuKZ4c
-	9wlcmsGr8nC/vu+DHE9fgYpUaObPxyPyRNVI0tO0Q4bQk36IhX4c7iJLJHw5k7ChLqa8QgHYw7OZ2
-	S66BjlOSfAvyhWRgFkJn7lpWL1ilrz/QEDchHmJPDzI1DdioZ8M2/v9cY06CJ4L1vylYJvMMIGncI
-	YKYL7cB40smPx+LqMzmGIWLHCpW/v1OGAdwx+P3srS4z9I+kJL5nczUI5/AN6Bsy4sx8536bjbsuI
-	Pli8Neto6apTTooqOW4/8eCn64xFuyFl343vQbeIOAT58f+GRbyoqvqXUIsB2SpsQ9Rd+Kt5k3zyB
-	hTw7dykA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zHx7IH4CQnKVKKiwpqK0zhDBHfLiKLUyXdppF6LNFCI=; b=ojxVFId2N108EQI7B7c0iXzO1q
+	/yYrlCuRQV9rAgsAPRk0GAg++RlgW7hJkBybDdx9Z/bh8yA6G2zOrxYDqP5+oWg6hTEPZxXjXfLY+
+	zgrsO1eXktbWhwYLeRs739oOpjoTr0UE6Is4089lmvDJody7ZOTAU5S+uDWGSZB7POVhcCy2htQgI
+	2cnju+MvjIhzrOQqs70GE8aZWvruoRvFkeTr3jHROVdMm4H4Mknqk8uUngX7n5Ii5xBArACqrwknu
+	4Jm0aLK8LJblAuCMoYqnGv0x+fUykUwo2IpCEabdUcRpDyowMsFDG6ULPPn4wYlid69+zwkXzFfHM
+	ZSNlWBXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWrfn-000000052xA-0t4U;
-	Tue, 09 Jun 2026 08:18:59 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wWrkM-000000053Vh-0DaL;
+	Tue, 09 Jun 2026 08:23:42 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWrfk-000000052vV-2YrR
+	id 1wWrkI-000000053Ud-3tQO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 08:18:58 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490d1e54b3bso15315735e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 01:18:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780993134; x=1781597934; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kFTsAOv1hKm4xZTbT6xMW++1uFPeFFAKMUDBgYxH4Gw=;
-        b=WmaFlIXZokL0r9Ssh+i7mAzourDUvRYtAcuhRVZ17tggN/Z345WK8ywDR4szw2Zo6U
-         7tgiZQHq8uvE6ZjcYXwqM2NpqwsjiiZir+9yL1QhGrT/VPdISqEMqqdXukTi3AjL1fqc
-         0bgG+OqsvHD06uxpfxYGCXOXHmSixIfKFw001rSCMWnSwkHH5o7LsB8hwsO9HC/vVeV1
-         ZVrHcnPd8s8NGlwrNINQYWFJtlOw2NQZlAzYQ3uoe4yoEAbvT5q5v1/hFhoKxo+vPTXx
-         365MW0qjUrgawnnWYJll9lkPSNQRLYJZDBTcudrPgHab0kp4dQLEsrrXGWe8/fF+PE/I
-         QtUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780993134; x=1781597934;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kFTsAOv1hKm4xZTbT6xMW++1uFPeFFAKMUDBgYxH4Gw=;
-        b=nAjFJbMRwv5TCMZAUR9UPSm35p3FMeqcbvleWi7MNAmHmvBlLs7lKbdhb29xnFgVXP
-         +jMHEEIDz/91I86d4EEoHjGmc0IO8aq7oPCYsRwGpivtGbpBk8nVTXFaNJJZG5ztbT9T
-         zAqq42Bq9LW6svkfNNU1/pGhubjc2GnHB1/2NlfPfzp6M1KVohrxh/fCDV7wiItST2S+
-         H8BvGcEdrSBt4Ogpq4w6zMP/I2anRFoJYthZQ5sPfcDsEL43cjqaUtzGfKegIHeGj8yV
-         jYOoxV2Y5nmZV8o2r+F4ihX/shBIDvdanpM5fdy0sLr8eSiTsxnlT2/6AoUJx63DR2VH
-         P/Zg==
-X-Forwarded-Encrypted: i=1; AFNElJ8m3TGakDMPopQbV9ogRkDrKnYupjZwdWc5Pvqptf0RCYI65LGyEOgyfS5F4PLgMe5NW7wRUIamrY/hw1buW/Xb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvFj/jI/X2iQoVxpf6Cwv1Zur5VGtSRi2MsgFAQQnrclGjqf00
-	iMFXhaAEk3DTQwnQIBZyfOULUTyfQX77ejYxuGhG0pDhAR28nDDgoJzp
-X-Gm-Gg: Acq92OHK2bsiNC1mmi3jp0iar67jqlC/AJ8zuVofFbDEOMKK+lHtJpTLUt5SjB+jj58
-	Ws1y5muvwVkb8oYnDw8FtESKrKyYByympfgn3xonFrTNqV0pJycZRkDVUYLFIcZ2zRt7BtnwsgT
-	1z803K88t4A5f8x6aP3ZZtfKwXg423fNyX3jZeT1XHmSpA0PApgV/ctnsGWytdEbU7IY7HrxpUe
-	zeqsMb9SkR/1BaKsxLvSmzIhMlraPq7Vlf8+BO8Rrm6R/qSHu+62+thXTE64R4UIllxXobyPake
-	T0z5CURoLHDHphm+uEjJzuYTAqeGX0zX2we2gMTNyasxF2l/wZDopwoR0jRPO4B/3Gwcj2HNfh/
-	/OLUAjRiG8BGBQm0DRs+l84mhrV1LShBDhMEzf5HJTn/Oo095KoUvRVG910aMu6QI5K360db9i7
-	94iNbXzEeN4QjzBYueVdV5+paH1NdVLxUBgvut8UqDM/oqaOYCaDuUCc8rhFzJwt8efeNqPHG4X
-	yGDE5Ew3dMK4bzPYqsOkdHXFQYc
-X-Received: by 2002:a05:600c:34cb:b0:48e:6db3:ff3a with SMTP id 5b1f17b1804b1-490c25b09a2mr318781815e9.16.1780993134354;
-        Tue, 09 Jun 2026 01:18:54 -0700 (PDT)
-Received: from thinkpad-l14-ju.lan (ip092042140082.rev.nessus.at. [92.42.140.82])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490c2d60a7csm43053615e9.2.2026.06.09.01.18.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 01:18:53 -0700 (PDT)
-From: Jakob Unterwurzacher <jakobunt@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
-	Quentin Schulz <quentin.schulz@cherry.de>
-Cc: stable@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: rockchip: fix emmc reset polarity on px30-cobra
-Date: Tue,  9 Jun 2026 10:17:25 +0200
-Message-ID: <20260609081728.30616-2-jakobunt@gmail.com>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 09 Jun 2026 08:23:40 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BE7BA4E42D42;
+	Tue,  9 Jun 2026 08:23:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 88A575FFC1;
+	Tue,  9 Jun 2026 08:23:35 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A6E7106A2A9D;
+	Tue,  9 Jun 2026 10:23:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780993414; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=zHx7IH4CQnKVKKiwpqK0zhDBHfLiKLUyXdppF6LNFCI=;
+	b=hBvKze0J9N8/PmsSE6wYyE0e6AUrZ2far59k3pTSOl2RKwQor+bVUthTqYbZzuGRC/LqUy
+	XEtovmur3V7GsJWjLsQPdA4/cQnjZRRpq3BRdCj7AHlZsPO4vJ3HMd0pMVjkoa8bot+yZq
+	LFfie0S6ftflFFnNPOtYWsJxBk2JgQRBT9NzJIrvDOhZ2NxHcQGletZrbMTNalwFH9wKN/
+	8MxgXYJ97sakzc/ZnElRG4JexPstQoQhZik71MXWLzyV6Pzz9mjBLw3BqxUDvTi+ToftvT
+	fLjB/nO/tKgurtlMQxRP5TWpzQQTooBZCawYuuYREldkQdfoNHDEoxYhf2B/6A==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 09 Jun 2026 10:23:24 +0200
+Message-Id: <DJ4DGYZ3GQZH.3AZOC0Z69W92S@bootlin.com>
+Subject: Re: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know
+ whether a bridge completes the pipeline
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
+ <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
+ "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-30-45e2bdb3dfb4@bootlin.com>
+ <20260608-shapeless-opal-ferret-c8b105@houat>
+In-Reply-To: <20260608-shapeless-opal-ferret-c8b105@houat>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_011856_655178_430C6542 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20260609_012339_107606_F4CB6B45 
+X-CRM114-Status: GOOD (  24.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +93,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+Hi Maxime,
 
-Technically, the reset signal is active low - it's called RST_n after all.
+thanks for the review of this long series!
 
-But it is ignored completely unless RST_n_FUNCTION=1 (byte 162 in extcsd)
-is set in the emmc. It is 0 per default.
+On Mon Jun 8, 2026 at 2:34 PM CEST, Maxime Ripard wrote:
+...
+>> --- a/include/drm/drm_bridge.h
+>> +++ b/include/drm/drm_bridge.h
+>> @@ -78,6 +78,19 @@ struct drm_bridge_funcs {
+>>  	int (*attach)(struct drm_bridge *bridge, struct drm_encoder *encoder,
+>>  		      enum drm_bridge_attach_flags flags);
+>>
+>> +	/**
+>> +	 * @is_tail:
+>> +	 *
+>> +	 * Returns true if this is a tail bridge, i.e. it does not need a
+>> +	 * next bridge to work. E.g. a panel_bridge is a tail bridge, a
+>> +	 * DSI-to-LVDS bridge is not a tail bridge (no matter whether the
+>> +	 * next bridge is present or not).
+>
+> Why a DSI-to-LDVS bridge isn't a tail bridge? It only needs a panel
+> next, right?
 
-For emmcs that have RST_n_FUNCTION=1 we failed like this:
+Uhm, good point, but I'd say it can be a tail bridge or not: in the
+ATTACH_NO_CONNECTOR case it will need a bridge (a panel_bridge most
+likely), no?
 
-	[    3.074480] mmc1: Failed to initialize a non-removable card
+However this is possibly irrelevant as the whole .is_tail is meant to
+disappear in v2, see below.
 
-With this change they work normally.
+>> +	 * The @is_tail callback is optional but it is required if the
+>> +	 * bridge is part of a pipeline with hot-pluggable components.
+>> +	 */
+>> +	bool (*is_tail)(struct drm_bridge *bridge);
+>> +
+>
+> I don't think that's the right way to think about it, if only because
+> you never really know at the driver level if you're supposed to be last
+> or not. A DSI-to-LVDS bridge might just as well be chained with an
+> LVDS-to-eDP bridge, or feed the panel directly without any additional
+> bridge.
+>
+> I *think* that what you're trying to find out here is whether the chain
+> is complete or not.
 
-Cc: stable@vger.kernel.org
-Fixes: bb510ddc9d3e ("arm64: dts: rockchip: add px30-cobra base dtsi and board variants")
-Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
----
-v2: Add correct "From: " line
+You nailed it.
 
- arch/arm64/boot/dts/rockchip/px30-cobra.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+That was the main point discussed during the Display Next Hackfest 2026
+(see the report [0]) and we all agreed the .is_tail along with the
+-EPROBE_DEFER changes (patches 20+35) are not a good approach.
 
-diff --git a/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi b/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
-index b7e669d8ba4d..90751b04f95c 100644
---- a/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
-@@ -35,7 +35,7 @@ emmc_pwrseq: emmc-pwrseq {
- 		compatible = "mmc-pwrseq-emmc";
- 		pinctrl-0 = <&emmc_reset>;
- 		pinctrl-names = "default";
--		reset-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_LOW>;
- 	};
- 
- 	gpio-leds {
--- 
-2.47.3
+This is actually the most crucial aspect of the whole work still not having
+no well-defined solution.
 
+> I think you can get the same information by checking
+> whether you have a connector for that bridge chain. If you don't, you
+> know the chain isn't complete, and if you do, it's supposed to be.
+
+There's a checken-egg problem here. Knowing whether the pipeline is
+complete or not is needed to know whether we have to create a
+connector. See patch 36:
+
+  +  if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
+  +          drm_bridge_connector_add_connector(bridge_connector);
+
+So the question is still open, what I need the most right now is comments
+on the overall architecture of this aspecs. Maybe replying to [0] can be
+more effective than here.
+
+In a nutshell what we need is:
+
+ * when a bridge needs a following element (a bridge, or a panel which
+   however might/should have a panel_bridge), but that element is not
+   present, instead of deferring the whole card probe the card should be
+   allowed to probe but without a connector
+
+ * when something is added to an incomplete pipeline we need to know
+   whether the pipeline has become complete (in order to create the
+   connector)
+
+How to implement this is still an open point. I'll welcome proposals in
+addition to the ones in [0].
+
+[0] https://lore.kernel.org/all/DIXTUCXAU68V.1T7X89LMEUF2F@bootlin.com/
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
