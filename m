@@ -4,104 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F8ECD8CAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 11:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516DACD8CAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 11:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u3LDWTRsN1cKuv8FC5z2+sA9gRCsd2Tw/CSKqKmGbxk=; b=4R5OasDqhs7icEEaedw8FZqLzd
-	01JHlzzubtrb74KIJoUz3DOB/ht+FaWTCa1MutF9zJYJ+KywEtR5/huJTZ/Hfi/ZWSb9JwI7B47kN
-	p+RFSMW8AZBBU8Ibo40meyMkc1+ydou90gvu6bNA5vfV2RCIZF/PD7f8n2u4Qo4nq6llhPMk/H1Vu
-	9ReR9Y7Aq4IUcpNteAGetWNk6IUF2wLjhKAdnFnDuHXqLc7wVvAILYeble1u+BJ4A8tOaKbfgnTUH
-	IfCEL3JEvykbe0SlE/J8fbhVSQuvpuSgRfG2iTfiXcETnpiLwgNYCl6tGJbIno5Ltgs4n0wLu5Dzb
-	jFC5QyCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qh57ithdNaKLyKzJTn+bCZN9e6uxSJT+tkkVV1Puba8=; b=v5ihBmAzZIH/2FFmKfcn1kfYVY
+	K7rV7Q3qqyIxn1r6gHEDY6ZvYP41KxzAwrNLCsLuH+uQUJBDqjIxzZuWocxeuChCiAGqcBMccvUYu
+	VMnG1aTLUBwEHfCHw5fxuyFYUvWKnyB9kVqA7p+xCHn3Fu16IW6VkXcJTmB2EDolsS9CPE01F7KUk
+	ylFV8ZvloYjq7oQbOK+H6LpVT8HtTsz/rka/2PDxjkWdngv/BgDcRJlqcBg4zdfMhOVNNDjzlt6Xd
+	JQd48lajwe6UbdcZKXUf4tWk3ZbNOQYRNoJIeYzjOdA24w6XhQfIAnbde1Le0gUh+XdakEDzAKa4m
+	zkDGbLkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWuzY-00000005TGJ-2DS2;
-	Tue, 09 Jun 2026 11:51:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWuzr-00000005TKG-2iD3;
+	Tue, 09 Jun 2026 11:51:55 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWuzW-00000005TG8-2TeL
+	id 1wWuzo-00000005TIv-2a5C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 11:51:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A27C4601FD;
-	Tue,  9 Jun 2026 11:51:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F7EA1F00893;
-	Tue,  9 Jun 2026 11:51:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781005893;
-	bh=u3LDWTRsN1cKuv8FC5z2+sA9gRCsd2Tw/CSKqKmGbxk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=SqZO31Z6JT6wYAc/xN3odI0sbYrz3YUp6LUJunyZcL7IjyEwHSfLOX8+Kior/oZ3k
-	 PqZqQ57rD+SD6dCyzt1ijaF2FOgQVT/gnzZUicFlP8RzwAF7Ya5YB3BQRVDdkOCyL9
-	 Nrn5XGdnjn3d4AqJj8D7ALfzmS1Tv4qoDDX8qP5O/uuLPk/yra9jpKAJWYYULgK5fO
-	 hc2Q55D3PooZ73f8/VTurSjWXMQSI6H/mM8I4pKCaZ9nZct/SAnH8sDeDkMJB3uLsB
-	 ghVRBJmb7KC7dqEUcCS/GIOMVGsFOrEAIlaUczmi+G71/s9Gday+QyZHSwuzdKhd7Q
-	 ysGQl9jbt1cbQ==
-Message-ID: <98f3e864-3a9e-4f96-a633-0c0053ec35fb@kernel.org>
-Date: Tue, 9 Jun 2026 13:51:28 +0200
+	Tue, 09 Jun 2026 11:51:53 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-befd83e0521so1158016266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 04:51:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1781005911; x=1781610711; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Qh57ithdNaKLyKzJTn+bCZN9e6uxSJT+tkkVV1Puba8=;
+        b=KIXyTLPGKvcrbOsGh50LRxejVVOYatuRvkP22yEFNIYH1T+Gpfr6Mjz9S0zb1nKiS3
+         /WaSAGPiMMD98juNrhOV87GMyHuLFL9HrEsZkiPNghlJEyCQT3jq8gmCgik1Yp5a14qK
+         ayvzq84czWZDuF67Zn53nAJeZKym7/a76L/njRkroHOHntPiQiLjrZUvcPVo9JNUz7Z1
+         NyciLbzmXIZBNJOy0dT6fP307bX2u/XntJCDAyvdXUnCVrQczEjD7cnV5K54CtzjsNCS
+         qUc96/hsBy2ceEe/HjvXULKO0Tx0M5enj6cQJ59toy81wo+Wye/8GxRj73SHy/AdXVLx
+         WBmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781005911; x=1781610711;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Qh57ithdNaKLyKzJTn+bCZN9e6uxSJT+tkkVV1Puba8=;
+        b=Ek92Ir4sPzG0uGBYg8hfEZpEm/KQ1tcxm130fzhsy7q6wFTdLqUyNF/kWkW9AiHQEi
+         PMHh/MIxL4MmCUhppEGwPIkN4iOXdSTTZ7r28hHfN8P79w1PTDv70L6MTeQ4gmhMyerB
+         uodBzTp3cp1sWoiYb7C8i9EWbP83lnT6uPpdFkhveN93zKcRaqW6bae9zFYQViuAqPIZ
+         QIAs1l8j5iYBUSr4eKI5KrnmLCDz4L8eAE9ceJiM2WoA04TbF+ImtK5RugTGUALuKQS9
+         KaOtKW8WVk/C388Mm4yH9WmLz7G619CZAAWslLqyFFDVfEnhq8iOvriE1U6nYPMnh/hP
+         vW8w==
+X-Forwarded-Encrypted: i=1; AFNElJ8Odg3bj01hmat6v9Qvaqw9dx6N8z3AiRJhFCM1m3LrJJRz0SeMdloopIC4M7uAx3cySAjaZ2kmGKVKQE8kUOOI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKReX1mdkeN7woKa7AWlM957lYGQy7SQmzC1wD5CaK9JTZdYsP
+	ZqqttdKVT5bQtkRr0tJMA/OHqV74CMQGRpTwUC0rH0inBubpoczxGX+jbmMvSqEER3k=
+X-Gm-Gg: Acq92OGeaxA3j8/iHJ9+7Xza6VVhDu0cHJsSsooqN42j7RXrJ05ckdMZw9DB5eO8WGm
+	4bZJ19eP0ERDxcBEIZQQ/Gkhf5sTdjsDDWJCvlpUWLcQCX7S/D4gfzGJL1GDMzbkK7aDd9q06HX
+	xEMNA98uMETCw6oGSHZl29O4ynU76YL8mT/t3fXcFUYX2WjweIkkO0tFcos6N5sZDXZlpenGrrj
+	v68jyF/UXwWtH0Ng9vPMQo3wTMNeux+d1jNuKUl7xd3nFN+VXLp2s1ku81cdyhnA4m+v31GVJix
+	0TDHgsuf3qzw6XhnYnfIZvnBgW9LeQMm9FI4sBZOnXrMHHCGUtYEsXR+2oOpXdeqBmRwGH0RUYM
+	CxPMDVKE0gjMCNZ5OwdNgc+5/XeciLO0yw17dDY17/x0+Z8jNKxLLlmSJMjbavB6nUFIIcR9Kd+
+	eod+eeSUBnvTFdYW1ttRjcFuUcMJ2bUuUbjyD03pehpp12
+X-Received: by 2002:a17:906:5a69:b0:bc5:2352:555c with SMTP id a640c23a62f3a-bf3a841c5c1mr624677366b.14.1781005910578;
+        Tue, 09 Jun 2026 04:51:50 -0700 (PDT)
+Received: from [192.168.107.26] ([80.233.69.159])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bf0553fd86csm1037260966b.46.2026.06.09.04.51.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 04:51:50 -0700 (PDT)
+Message-ID: <5d6f1195a7ba54d41063b44d3907b7a22f620ae5.camel@linaro.org>
+Subject: Re: [PATCH v8 2/5] thermal: samsung: Add Exynos ACPM TMU driver
+ GS101
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, "Rafael J. Wysocki"	
+ <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui	
+ <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
+ Krzysztof Kozlowski	 <krzk@kernel.org>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva"	 <gustavoars@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Alim Akhtar	 <alim.akhtar@samsung.com>
+Cc: jyescas@google.com, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski
+	 <krzysztof.kozlowski@oss.qualcomm.com>
+Date: Tue, 09 Jun 2026 12:51:47 +0100
+In-Reply-To: <20260603-acpm-tmu-v8-2-0f1810a356e6@linaro.org>
+References: <20260603-acpm-tmu-v8-0-0f1810a356e6@linaro.org>
+	 <20260603-acpm-tmu-v8-2-0f1810a356e6@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-8+build1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] Allwinner DT Changes for 7.2
-To: wens@kernel.org
-Cc: soc@kernel.org, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>
-References: <ah3ZAPLzh8ORGmpH@home.wens.tw>
- <20260609-mighty-excellent-shoebill-04d7fa@quoll>
- <CAGb2v64guguXmg-=WYmZyz=rw3PNRvh+TnEE1yWFz=AJbryssw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CAGb2v64guguXmg-=WYmZyz=rw3PNRvh+TnEE1yWFz=AJbryssw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_045152_679863_C328780D 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,47 +111,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2026 13:48, Chen-Yu Tsai wrote:
-> On Tue, Jun 9, 2026 at 8:43 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Tue, Jun 02, 2026 at 03:09:52AM +0800, Chen-Yu Tsai wrote:
->>> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
->>>
->>>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
->>>
->>> are available in the Git repository at:
->>>
->>>   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-7.2
->>>
->>> for you to fetch changes up to 44cf19e41c769720750dbb8752aca75c247e565f:
->>>
->>>   arm64: dts: allwinner: a523: add gpadc node (2026-05-25 05:02:58 +0800)
->>>
->>>
->>> As mentioned in the tag, this pull request contains a change that should
->>> be shared between the soc and clk trees. However since I don't have any
->>> clk changes to send this cycle, I think it can just go through the soc
->>> tree without any issues.
->>
->> But the clock driver change cannot be in the DTS branch. This should go
->> via clock tree even if it is one change. And definitely not via DTS
->> branch.
-> 
-> It is a shared change, because it moves two symbols from the driver's
-> private header to the public DT binding header. I don't see how this
-> can go through just the clk tree when one of the subsequent patches
-> uses those new symbols.
-> 
-> "clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public header"
-> is needed by "ARM: dts: sun8i: v3s: Add mbus node to represent the
-> interconnect".
-> 
-> The other way to go about this is to use raw numbers first, then
-> another patch in the next cycle to switch the numbers to actual
-> macros. IMHO not worth the churn and headache.
+On Wed, 2026-06-03 at 13:00 +0000, Tudor Ambarus wrote:
+> Add driver for the Thermal Management Unit (TMU) managed via the Alive
+> Clock and Power Manager (ACPM), found on Samsung Exynos SoCs such as
+> the Google GS101.
+>=20
+> The TMU on the GS101 utilizes a hybrid management model shared between
+> the Application Processor (AP) and the ACPM firmware. The driver
+> maintains direct memory-mapped access to the TMU interrupt pending
+> registers to identify thermal events, while delegating functional
+> tasks - such as sensor initialization, threshold configuration, and
+> temperature acquisition, to the ACPM firmware via the ACPM IPC
+> protocol.
+>=20
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+> =C2=A0drivers/thermal/samsung/Kconfig=C2=A0=C2=A0=C2=A0 |=C2=A0 19 ++
+> =C2=A0drivers/thermal/samsung/Makefile=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> =C2=A0drivers/thermal/samsung/acpm-tmu.c | 651 ++++++++++++++++++++++++++=
++++++++++++
+> =C2=A03 files changed, 672 insertions(+)
+>=20
+> diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kc=
+onfig
+> index f4eff5a41a84..bf9fb52e848e 100644
+> --- a/drivers/thermal/samsung/Kconfig
+> +++ b/drivers/thermal/samsung/Kconfig
+> @@ -9,3 +9,22 @@ config EXYNOS_THERMAL
+> =C2=A0	=C2=A0 the TMU, reports temperature and handles cooling action if =
+defined.
+> =C2=A0	=C2=A0 This driver uses the Exynos core thermal APIs and TMU confi=
+guration
+> =C2=A0	=C2=A0 data from the supported SoCs.
+> +
+> +config EXYNOS_ACPM_THERMAL
+> +	tristate "Exynos ACPM thermal management unit driver"
+> +	depends on THERMAL_OF
+> +	depends on HAS_IOMEM
+> +	depends on EXYNOS_ACPM_PROTOCOL
+> +	default ARCH_EXYNOS
+> +	help
+> +	=C2=A0 Support for the Thermal Management Unit (TMU) on Samsung Exynos =
+SoCs
+> +	=C2=A0 utilizing the ACPM IPC protocol, such as the Google GS101.
+> +
+> +	=C2=A0 The TMU on these platforms is managed through a hybrid architect=
+ure.
+> +	=C2=A0 This driver handles direct register access for thermal interrupt=
+ status
+> +	=C2=A0 monitoring and communicates with the Alive Clock and Power Manag=
+er
+> +	=C2=A0 (ACPM) firmware via the ACPM IPC protocol for functional sensor =
+control
+> +	=C2=A0 and configuration.
+> +
+> +	=C2=A0 Select this if you want to monitor device temperature and enable
+> +	=C2=A0 thermal mitigation on Samsung Exynos ACPM based devices.
 
-You can have a duplicated define.
+If you're sending a new version, it might make sense to add a brief
+clarification to the existing CONFIG_EXYNOS_THERMAL in that it only
+supports (the older?) non-ACPM designs.
 
-Best regards,
-Krzysztof
+In any case:
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
