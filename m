@@ -4,109 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80328CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A9CCD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=; b=4elF7HQvMFzCujlsaxHl0zZOzm
-	vHBgGi4+OrPaxX1Udxe63CRYyF8eI1s69xHZMfh4u9BeoYH6NTWYQ6rHQuZrznm3fZxSha1OWdi6r
-	u055Voa7bnckqyhn1tQwWuGHybLTvlX6o8fpgTcV+YcW308vvomlQL8WEZ4+u1JFxrL3yqDt5rBdH
-	MoIkiEV3ehJYOjwGVmR9MPMzy/s2niUDKowdI0oB6Zfs5WnvIEQMSfrm2q+ICm87KNmAa5NE7jGKf
-	C2mCVv8Un6DrZopbTXG1WyB+L9KlgKxXa7tMVt6kz7PHycxrhBxZ1aoOv5wymugZ2doEHfRcLzEVT
-	aHrs541A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+HgmsivMcka0FxO5n28WPRUyS7SBIOMsz34g/tl81a4=; b=1efT6pE+lUhEloymu76lzQJFtd
+	lJUqSly01eKlakLjVrt908LR6rFNyWY1yr8G2b33DiX2uMZguxKljKcRmu6WDClreO3AHa+ecRHCE
+	E44uPI05Nmr18t1vFchsUI7WecuVHCr+sOB6YAzTTsfMJKfx2p4Owm6jG1qbHuHZ5uIgSeakLQTFD
+	QM7FWlVUq+zBzVFFV7zDDVpFRH48xBLSrOnBqod7Kb4fvsXWC/dOa/JZhA28UcS4sUvK5CMBAwizn
+	oIuOWt38W6RnYX6XFH4A+mLayha2+utzSGY2rht8ZdlR0Bc/MUS3FLidHAyvy7WQTcrg1yAAPLU9B
+	uLhh6NvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX1Hu-00000006CgP-3Rpi;
-	Tue, 09 Jun 2026 18:34:58 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1wX1Iz-00000006Co0-0iiw;
+	Tue, 09 Jun 2026 18:36:05 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX1Hs-00000006Cg3-45Pw
+	id 1wX1Iw-00000006CnJ-1xV2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 18:34:58 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-68d22476e88so47874a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 11:34:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781030095; cv=none;
-        d=google.com; s=arc-20240605;
-        b=iJ832IRg8EjTBSMu/QNnydeLn95UbLPE5D5JcOL3l04ABcLgp48/Moa0Zx4g8lfXtq
-         NU+mANjhuQE907hD2/5UVOFotfD+ECVyBsJiAugd5OLd8j+k0lK6AODTi6Bpm9NcM9ds
-         zniGyzcT06HF8D9mDRLkzI976egHPVCsnu1SwTVAcYo3Iy/MIogtM4ulyQf2Sa86L15H
-         8tay7kRmMssbxeOocpObNdLG+e4wIt/MY8JsK5H8MX8IrciFLeXqGeOdm0Wt4bS3Af85
-         WlRaI6Px0QWVHOEuBz1CdPFSkFmMkudd0XWo8YJWM5p2xSCHVr+Jn9kAakjlo8gjXQbO
-         eO2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=;
-        fh=I9x9URCs4iNPgrNS87/LvIorEIa47mASVtcMYf6bhZc=;
-        b=Ldf4zrP913mG6S1NdFn8q+Cc2V7LkeRrN3PYehrJiCDMN3gxS0gFild0b7gwtyqMi3
-         vU8GMKPE3mI3evxsNcSAGmBzDgZvIbxJfuHeKqFFQKN0ciz2LX3lbreEys7HqXyj2X2N
-         i7bb7GjtGXlzQXC1d3SuAKun71YB37MC7fkYu+tiEJl3mRafMfwnSPbUGbmepvUkkGb7
-         nbrIB4Ku66/aVF1OXAe01s19MfJ9v1c2cLszulTMXzpvrTL0fXUwt1IYTpFcTDs6nopX
-         GksDxObgvFcyjdShjQQPriICRU5fPrwYlhnB4a1YedJVptg9/0TrjmStp6msgubw23Br
-         yEfQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 09 Jun 2026 18:36:03 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490cf3000f0so31274925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 11:36:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781030095; x=1781634895; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=;
-        b=f0eQDsPc3GnU9hJMWPJsyPxV27y7I3IgR7Ex4IIVHRMorNfJ2vQU+6n/eJWgoBRCNS
-         HgaPvpIeVOIQEiAgvYitnDogcUkIleyvRWQRFt4nYCj7lDITtZPVu4hXDpZRiCxatQe6
-         q8H9ey6HFV/Om6jDEnT1OLNJ7ROVTkowCi9r8VtxTaZqD3h4QfHqjNI7NrraY7m0ZeGT
-         I1zkgAah7IXOZUPL/UYN5qVT8KBIc0fcsoXXa/PudlWQmKrDuuD6DyYbByeJ8Q5kTz5A
-         LD9fMmONddmNCH8I5/mdUiFUsRIgjWIJ6yjFGjw3Zwop5wX6BoQhNu/t8R1kH4+xLziI
-         +UPw==
+        d=gmail.com; s=20251104; t=1781030160; x=1781634960; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+HgmsivMcka0FxO5n28WPRUyS7SBIOMsz34g/tl81a4=;
+        b=BTVMIWk1dv0R7a/1aUr6Ze8hyFsA+0BfO2hL7lMQd+5nfpiQo/RbG12kqrH88VjP/C
+         HPOlLQMdMto4fllXoBP8E+BIsMCYEl5bXVfMKuw+LlPuxnOVmvvY8FkEoXns508YTx8+
+         DXR6LDzQ79HAn2rPDufvnitgKvvP/BngHKgTcE0CYmzYqN3bKDw3H48xIM6/4zKjQncj
+         EsCopzbixjx4qdxvZ4PlMe+m+VIs9Q5fqG1uAICu3EVOBkKsFsHTVjM7ULhKAfDBFWF+
+         vuwpyaNXjbMse4t2FRQsh9CsVO8JspJnYKPIEKj0EJbZU6chWxzDCJqVtkiqExdhCY2X
+         YcBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781030095; x=1781634895;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=;
-        b=YdoxDEHniJ0nRs0VBYlaR+vUFBMoFZ+QVtBNG9fg82SFhAeRVO/UqrZPQtOyCU8vT7
-         XseIbMXd2OGFGjIaQeQNNKqRZ6ophsgeDZitnblK7kSwysev74yO6wv4o/M8Y6aXyhR2
-         58HGj5MSgEB6K21Zl7bNELaXaw765CVmLdFW4e/slvTAJjISWXo6hTVri2+FITdjrZYz
-         mH/dK0nFoAhlNxbvDfKN9tAzprLMpDU0XGbpGKQjBT9FASq5QJtAuACGE10jEHLQo2za
-         MtJMEaVNyICpLXQ8eInqQa0qwLew8WvDg5srLQ+r7BuTOUxQ2+qSIwOzwKrDHot2mQlP
-         hjug==
-X-Forwarded-Encrypted: i=1; AFNElJ/gklO2KJUIZOaKzQvUHnW614HklDVv2GVc6rvjFdUVFg8fIc53OVH0WDfOHbfI22Cop/djtTKKyKHEHQ59wUz7@lists.infradead.org
-X-Gm-Message-State: AOJu0YygrfaktLuklpz7VgxRboHktlKZ6kEHE12C3urdtsCkpaTS5Bdw
-	xhsbG8B6K4cNSD4vkNasYtO9fTAH59GD2RcSoyu0/7gewKxJHCTR/zLWM/IrB7aBt9z0gTxLMdf
-	+oIyNUJtNJ74fXjDBq6VxVfMy+4V9V6bOjve1r7cQ
-X-Gm-Gg: Acq92OFu5QtziHi33N9MvWaxyWPts0rITitCVcjKwWRlHL0oMKIzUOmfepN6mpZe2+B
-	5iFuY2t5b1krJIvfRsb3FOnUYNvfsCM4YK435AU05U/C/rVSDNff0ZJ8xvdY7o/uLrbT8GzaVdk
-	oyEhWq7fd7OnaW9BI0LsJ5nCLz/DDsCrVNarns5iwBeZtxhyu7twPV9n0HNJJ6I8KYyt7L8Ii58
-	rqqPITaKDaKSd23rqR4urtnVtJOuKESqUXciwkMuDNmrVw9h3axnCWTGCARCJdO4+U6BqEfXxqa
-	qGEtIjDjmA/rF/zmcXYIjZ5nKx90+1n2mVmZr1WfTSSxDOcI
-X-Received: by 2002:aa7:d848:0:b0:68f:d41d:ca5d with SMTP id
- 4fb4d7f45d1cf-68fe907ab8amr241229a12.11.1781030094610; Tue, 09 Jun 2026
- 11:34:54 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1781030160; x=1781634960;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+HgmsivMcka0FxO5n28WPRUyS7SBIOMsz34g/tl81a4=;
+        b=TDkn1AS/AETZm0pL0S8ZAs9FasspF4lyKdvl7UG8Jz1wtQaNwRDxGEczR12ww+pwd+
+         SYL2/1abagB/2ag4Vjq4T2Kb2GjXJyGTe2/OCNF3b4eyl7MQsSXQKaR6ai8nyS+O07qO
+         eCWjmgHlWQikjLbj0btHyJKRYV3mFxaQg+ZZX0sI+fJJpx/i/jrSs+Olqc2Y28bkwMs3
+         57VYb0H5urTH00Ond6ZcIhIH0Mb8eimRCmJuUtUdmxaKP5LCcYXK2hy72wMrnE0Bf9lz
+         3HIdwwr8yLUoi2HUcwC1496YTtR+TgRn/f7cv+NqoXLYbeLDRm+VDgG+SetqUytBpzSF
+         yaTw==
+X-Forwarded-Encrypted: i=1; AFNElJ+HwkNBsxY577uH0H6Vmsi9VilJgV4t9SVK3hmGW8jcXVvyqivNMMEchkr2mSD3tDNgsokKyWUhzG+Wwv+I8zAh@lists.infradead.org
+X-Gm-Message-State: AOJu0YycaioYSyHQDKd+BM3p3HFVFyI7t3rTKqGOq41gfBfC62giOgv7
+	VwWLEAJypICC/uCi/B/aok5z08k2Yofiv7e9LMfNeG0Zo0C2mnc8FbWf
+X-Gm-Gg: Acq92OEdiUFvEnm9x3B+qGXVNqcj2Q9gPneKy8qtSNp/NMRKq0jxa3wEcTES+MdKutk
+	EPul1dhoSM4sHRmZ/W2lkFuFlJ7ipa4PgA9Nf6TEs/n3Y48XgrHkH1wbPuMGaAq+Jvl3lgJAgK1
+	UWB8Wo+G8rsLzEogt5SZt6nf9cKsP1EhI7Eh/isLMlXEAleRmRDo3SSjf5zTVNlZAdCdQYC5ssW
+	xrSqqaXyourdCzoHCes3ShF7acAzUJeYEXaQawcBXrKwtFBxKyf/7h2bvKB6tlAk+6DCM7AqHsb
+	xJPRWCjIpaaeyt2XyjzjjXftXQp177jC9LbL0O9Cl6uM74ofa4e7zZjRlsT6AAFgQnbyMp+lnNi
+	WNMuQfLdMOobukpqgLEiAaw/vVqN83DkxjhNfwKDOW+Irwe3G5/meYXR4t/FA9kCfnp9keFJZ0/
+	De8gN4Y2l2k75slG9fos+WJKlHPkTRByPpL0XEBZUWBGLupvoos+QpE0dOP2urpPfwG9M1/5/v6
+	EggnCwqfRePz5fsiFOV93t7bTYyp8hcHqdwIuNmeIvYql+szEzAgXc=
+X-Received: by 2002:a05:600c:6389:b0:490:33b3:4be0 with SMTP id 5b1f17b1804b1-490c26233abmr364661655e9.20.1781030160046;
+        Tue, 09 Jun 2026 11:36:00 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3cbfe4sm512912365e9.7.2026.06.09.11.35.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 11:35:59 -0700 (PDT)
+Date: Tue, 9 Jun 2026 20:35:56 +0200
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: arm: fsl: add Variscite DART-MX8M
+ PLUS Boards
+Message-ID: <aihdDCS7LDcUELLt@Lord-Beerus.station>
+References: <cover.1780998600.git.stefano.r@variscite.com>
+ <c65129896fc6ce80044ee1d89e12dcdff34945be.1780998600.git.stefano.r@variscite.com>
+ <20260609-clumsy-material-b74a9b6bc7b7@spud>
 MIME-Version: 1.0
-References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-12-praan@google.com>
- <CAE2F3rCPgnFU=d5At1zrOLhsuVEbsweogOHGz9gDddRx73zRtw@mail.gmail.com>
- <aiEawEFsnG-LIahW@google.com> <CAE2F3rAWZ4Ac23D8eyAHfmaVVkHv8pz45+_dpMO1M4D7+RVCoA@mail.gmail.com>
- <aifsSxEXX64J1Etq@google.com>
-In-Reply-To: <aifsSxEXX64J1Etq@google.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Tue, 9 Jun 2026 11:34:42 -0700
-X-Gm-Features: AVVi8CeNBnG-Q0YRCS6Oc41AOhRgRaeDmNuOgUCDOQbTwPVqXo8DCJDnwgsr21s
-Message-ID: <CAE2F3rAGLH7si2S4aYhSUWyL-zZL7B_uo+WLE4zKY9SqKVi8zQ@mail.gmail.com>
-Subject: Re: [PATCH v8 11/12] iommu/arm-smmu-v3: Invoke pm_runtime before hw access
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260609-clumsy-material-b74a9b6bc7b7@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_113457_028586_ADC11EA4 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20260609_113602_544615_56B8CCC8 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,22 +120,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 9, 2026 at 3:34=E2=80=AFAM Pranjal Shrivastava <praan@google.co=
-m> wrote:
-> > I'm not sure if I have a good suggestion here. Have you considered the
-> > following: Do not call arm_smmu_handle_gerror() from
-> > arm_smmu_runtime_suspend(). Instead, call disable_irq() at the end of
-> > the suspend handler (and enable_irq() at the beginning of the resume
-> > handler)?
->
-> I thought about using disable_irq(), but I think doing it at the
-> hardware level (IRQ_CTRL) is better.
->
-> By disabling in IRQ_CTRL and keeping the manual arm_smmu_handle_gerror()
-> call at the end of suspend, we ensure that we don't lose any gerror info
-> We catch and handle any errors that occurred during the drain/quiesce
-> phase right before the power-down.
+Hi Conor,
 
-I think the beauty of disable_irq() is that it synchronizes any
-potentially running hard IRQ handler, which helps avoid races.
+On Tue, Jun 09, 2026 at 05:15:43PM +0100, Conor Dooley wrote:
+> On Tue, Jun 09, 2026 at 11:51:18AM +0200, Stefano Radaelli wrote:
+> > From: Stefano Radaelli <stefano.r@variscite.com>
+> > 
+> > Add DT compatible strings for Variscite DART-MX8MP SoM and Variscite
+> > development carrier Board.
+> > 
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+> 
+> My mailbox looking like
+> | 169 ND  Jun 09 Stefano Radaell ( 27K) ┌─>[PATCH v5 3/3] arm64: dts: imx8mp-var-dart: Add support for Variscite Sonata board
+> | 170 ND  Jun 09 sashiko-bot@ker (7.2K) │ ┌─>
+> is a pretty clear indication that you're iterating too quickly.
+> Try to slow down and leave people time to respond before sending new
+> versions, not just respin for every automated response you get.
+> 
+
+Sorry about that. I was making small fixes and re-sending the series
+immediately, without realizing that this could create unnecessary noise
+in the review process.
+
+I'll make sure to leave enough time between revisions from now on,
+so reviewers have a chance to look at the current version before I send
+an updated one.
+
+Thanks for the feedback, and sorry for the inconvenience.
+
+Best Regards,
+Stefano
 
