@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40216CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF32CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7MebkYWIC9fX8koapdNnYcES8xX/c+X/JbaqIYNwUvE=; b=iMHi57ySmAy+VocbfXWLTHc3cq
-	q6S6dYOOhh2yJoLcB4QKeRXTN/8dFL6nwh9eMTDuSbWR/WFjWj0qDnzGenDr9nu2um3qiQzMBGmnw
-	1K2AEdbGhJbc6Q5vP1NaJ93osgpuKnAAk/wjUHrbfUVroSDKQlfKo4U3WQwBS5nRl0VHgzpGR6qfM
-	57hkmPwort5kLezqwLAG/IFWzhq3c7Jq2PQTh6+iJ6oudAvEGTzR2gdEp5HSGC12a2d34xT7zEKTS
-	lXLgWjkxnpvQM/qEeqJ9MoNX/WfydPKqjDWFGyNAIkgLziOz1teUEPewjSHWtPAgRhZyJfHJkjoBP
-	S73lt97A==;
+	bh=o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=; b=dwpqRi7Af2M5V41d2+6xm9iO4+
+	Quq4Df+C+5QAAb1D9UIBpZPhEdp9I6hvXIdd+EBLBjFGTnEMlM177KSXVI8d5YhTzD5CoRiDRDPFr
+	YbQHpLGirTe2J9s1/479OtY5EV17T86LbEcYAays7g+QR6213REJS4w4r9MXTz2sdhEoS2wff+L/m
+	Wzd0vjvECcPpz+SwZszn1qz/wolBYQyFQ0G2j0IkVIV/8+YXNmjFkAbkj5IN9KXGRwZrntmQ0YgfW
+	kP+lh77jejpM0T/dBxEbx+A/dfhY94XRyquAjhrOkTi807WukG5xO5Om16u/T/hNp6BvWAuaOGto+
+	Lzh4v10A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyRq-00000005vIl-3Ky0;
-	Tue, 09 Jun 2026 15:33:02 +0000
+	id 1wWyRt-00000005vLB-3e83;
+	Tue, 09 Jun 2026 15:33:05 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyRk-00000005vDE-1oQG
+	id 1wWyRo-00000005vGh-39GL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 15:33:00 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659CmwKe2702029
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 15:32:55 GMT
+	Tue, 09 Jun 2026 15:33:03 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659CmRg92625178
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 15:33:00 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7MebkYWIC9fX8koapdNnYcES8xX/c+X/JbaqIYNwUvE=; b=M0Ti7pr0lxl1YnMT
-	/D2HX5jKSvASrexR5PfeNR8ZeWXaAiCnug6gJyheGBj3tln+m/vCvJjt+O77OtNr
-	oKVjlgnHOS85s7BPdDXdBvOIT9hggvGhsA0AuSavqsnWLIHnqRQ1iZeEcMxAfQ8H
-	eX+gXNjrcvRmEpCuGOI7V3y7XNJ+P9AcTOSQtohCxbj5xq1cJuh2hj06MbQu7xO2
-	3IklUfXTDenlm2gR6BJoE8OYki1GYLobBYGBV7Z/g1pndsi/nDm4nIKjRdIYvrkH
-	M26QKJC492yPGa+dMXCg3EPLCddn30/L7ZVJHHOvvJgJ2HA925g/pMm0cs5eEe5r
-	Z82ALQ==
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epeeat7pf-1
+	o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=; b=AifkM7NZ9iZ99pWd
+	ao9SnQgrrvukCnyKPeglzkfjpf/yxO9T7LG1qhxTrXhGrBa1ivhsF6q04bX0PuMP
+	dvrgW8FYt3GWBUgSXnMbsxqMLQ/JTOeR1tEN6t/cIA/6UQwUSqloVAOqL/ryYN5t
+	W6qZ/Vs5aUZjTboEDG3uHrInclObm1Vu2Dkb0vQyYvxm2Za0LETFPucTXkR2ePyf
+	1KJ8P3S92vxe05E1X1c0d6R9U/8c/rHwK89r/yOI3rSMzN/eioVm++QFcZNcUIsT
+	0CU76o/rtE6NKDJSxVTFbSobUky6qjc5mS6GO527v9n1AuXbZtG/YEfb1RHcz+D/
+	ujYEpQ==
+Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epddsajkk-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:32:55 +0000 (GMT)
-Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-6e907a982f5so8594141137.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 08:32:55 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:32:59 +0000 (GMT)
+Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-7e6f01486a0so10987380a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 08:32:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781019175; x=1781623975; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1781019179; x=1781623979; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7MebkYWIC9fX8koapdNnYcES8xX/c+X/JbaqIYNwUvE=;
-        b=SJnZCkjZPeEuTlQ+qy3VRFQJb6YrLfmPNHJs4DzwljCpdrNl+07M1JW0QAaS8/z5XH
-         aWxMMwiVlpRFcsxA4AfmWXDoFmac0/1JKhu5qNJ1nIaRLWLTiU0vzypnE0YBrJDx/XJv
-         l48iQkZgJ4egi/GgAK1zSV/M/+7bDcylwFYX7IEnmSc6zJ0NBTqIAld8yvS/N3izuhre
-         yyI8jBcXjWMuIyxJgESamb1q8ner4DKQf7ziLXYCMeecYAsK1WLsnfaZ7ZiaRaHv0Nbh
-         hh+ftB2YRhhqPFicYn5nZFD99CFvOMtNnqmEOrP2Y9Y3j1JYsWO5Le2jo6hsmSD7HkUw
-         OC3w==
+        bh=o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=;
+        b=PlxTsQKmYl5NPdbM1JLlGlOMGSUkZfYVp5np19asF+GZnXt3oXyMddEEnfMjSgzm8k
+         fFQcyXad/LWBoFnoGXzzdzs2cViYbEvD+eDLJMe+5F6CxH1ecTtByQf4de/IO/MRbOc4
+         wTs6+C4WBVTLgtHoQd8etORCx996I4kyB1D2GmmzMHVIFBNX68R64lY3+gvgWnO/0p6f
+         UTztcpAAu8xo/q8cXUdZZO5lYX0M0pdnAYkgwk+3nTQPpCn/Jnfnwkwgbeqbyam23/Uc
+         DyVxqsGZUsT+9MKbJxwA/AIwFOdUR9hLPnK44oThUPNdflPuQR1UqFXkJlH7OhXBAS7y
+         WoRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781019175; x=1781623975;
+        d=1e100.net; s=20251104; t=1781019179; x=1781623979;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=7MebkYWIC9fX8koapdNnYcES8xX/c+X/JbaqIYNwUvE=;
-        b=DnMuyZcEFT22xdOjRb/KWKmK6JH8/391oKhLz0zvgV4L87FLkY6ZDVNA0RHgCd8jdD
-         DvfhehFvtYzGHjinLhGoZwgzLHEA6YIvuYcpVt3iVm+91co9wWR+A5EvyCGuigDJig2K
-         XA+Rj4suC7Xem+FTGNvqgv1ckTG4HbP+qU86Abny+AtBASD3aURTX2vu2+2nTtb5YkEs
-         XJYpPHIF3Ev59pCtF7JexSW2NB6cfPsLLw5OfYBmQKwX7SGiCYFnP21lrbgoi6hoYgr3
-         OJuDfWOHN9Cbta6TiqwRsc5u016MAllRrv0ETaKU3wkh1XdnBKp+DnF0jfVvSX1lzTvp
-         L4Aw==
-X-Forwarded-Encrypted: i=1; AFNElJ9SlcTvedNh4GIwLi3/w+w1MHs3J9xI98gUcGgsyfIf4bAZpVd6L1qv3jbZY/8mkamQQVCPlW6NcBFJjHbpWdfL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDNqulNHMw8HhyOYW8MNLncgebJM2WcRHUIIsohpaKke0RwbFC
-	LbfpZJgjZ58DTv1Jvs3QgclF2h8k+MHhTFUeloMOIGPFPFMLP8KvhN13DvgKzzWUn94Axj009Nh
-	2NNAiU6m/OXb5/TCch7Eqke0mMxopc2f83Y6vSw38qePMFSV6gUiSWEOSEXEiItsFIUjLODxNAX
-	/OMA==
-X-Gm-Gg: Acq92OGlhJ9AbReIpDFl74Alsvo92XCqLezwwwvgiMcVMx3qv8k+qty6r7cJmPokRWg
-	puWa7shsHZMJUSILjXf4xELyPhXP1YnXSyqP1HscgvbGF4ccQ7sPsi+7ikIAxsPtWljDj6Xh3Qk
-	Z6moRS1Af2YTTKSkWXyCFBwjxu7PLzizjZk7iQH6GYi9fDEvU1Mtu1eLiAtVOV39BVyXKiDy/Wn
-	nO0DHG9apUeVxT3G/MP2puKDNdNlPPLczr255IDT5UmIhou068HTOVx10LxEfMq47/CkaYS1WJ1
-	PNY1Dht7D6sJprDIH1OURfjFirVG+8YgRyBO+iJAIOkZrDaIYLjpHvRIuiNvuP+ug8JSFNy82g/
-	sUtiO/h1eZYybxo8LEOMt4dvHn1ftW3cgFFwESsfbJjBTGThsQJFkmHIw
-X-Received: by 2002:a67:e35a:0:b0:6cd:23a8:3a31 with SMTP id ada2fe7eead31-7002b522c64mr5141161137.1.1781019174005;
-        Tue, 09 Jun 2026 08:32:54 -0700 (PDT)
-X-Received: by 2002:a67:e35a:0:b0:6cd:23a8:3a31 with SMTP id ada2fe7eead31-7002b522c64mr5141072137.1.1781019172738;
-        Tue, 09 Jun 2026 08:32:52 -0700 (PDT)
+        bh=o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=;
+        b=gj94yjd0r9I2vC49u4bgL/2dEpHkqeB1OENFpHOMRCrWj7VcH1Xat8bGMci2JZiAEK
+         Cjgkmgl4Wjkx9FC+Y3kMFhsSS/L7mParpHIorRWvjgV7m5CR3vvKdgbU66tP/h0AZhmV
+         xykntqXi4QVRayljzpOpn0faiPVa3AEEtu6G4io5IU8HpMolAZUPERK728RGBvIMXZ3q
+         J0d6IHqDg1vhitDOdaASDAxNf6/qH5jmJ86YIXl3df+P+gSfOlgajchDgqF+kJDvK45L
+         fJ9empeHtCH/P78+mFuTNID3HIvgbrOz9FSkPH1Jg7F0GDxnIyJ18JBFti7iPAolpOaP
+         A9Sg==
+X-Forwarded-Encrypted: i=1; AFNElJ//cPrexzrwZHIUJgvm5xylySA+Zox1IDkPVvjQQMg1MBUfev++yawNajn27m3MQmMZ0T+XATubTmdLtWzwjXFY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQvrX4zWzVPp9AvNbm2X2sDePh14dLzSoE+Mt/VdOmkXti83RP
+	xp5Gndm56+E4oFxHVf4T6/+k3ErqYwC6A+bcg47MwMx8XhjMeMhYnwwvDcc67NBl6BuKd6vSmJk
+	mzPkHbDLh/KAlbJV6an9xbWpC5maHTnRpv7oUAmLGo4Zn5vQEDsW0BhOOU0yZ80HQVjDP+qAFOB
+	P05g==
+X-Gm-Gg: Acq92OEmz3eomJgwTRVPkyHt7os04TBTqxFwbpBPy4cnchSYq/MI+7MsIRDI29B+7YK
+	KfY/ArYK0/ZlPAOLnwkDIrZe4XzlIVWD4pRTGsgHTD5ug++9o2HWYCqSXcyNBlT4IWYFJ6vAnQy
+	OytUDNIeAwy/ev41BWO6RGVamPjJQMgiBCDYOcikAMQsR/yhzboZ56/m956BCh+EXyH1//SLY2Z
+	3XSTzD+/JK39wgsReueBobCf9w4NAzUrd0ttkXPRPp96fB/uBWgvxtN55At0hokcGBuh2aljw4U
+	b/rTPbDZjNFNCwcw3N+sUxcjSXlqMeaIUHVDIo5W3za8SCDu0yBSEk/Mkrm37W/gdrwaNbYwzH0
+	zNapQYRkumgK8c56fFgPZ+K6THfyQ/uYpzYN+OXrHH7t7LoU+YRL8BMNp
+X-Received: by 2002:a05:6830:d0e:b0:7e6:ee6d:cb1f with SMTP id 46e09a7af769-7e750a6177cmr2734357a34.0.1781019179089;
+        Tue, 09 Jun 2026 08:32:59 -0700 (PDT)
+X-Received: by 2002:a05:6830:d0e:b0:7e6:ee6d:cb1f with SMTP id 46e09a7af769-7e750a6177cmr2734319a34.0.1781019178707;
+        Tue, 09 Jun 2026 08:32:58 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.222.150])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f368e9fsm60938203f8f.37.2026.06.09.08.32.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f368e9fsm60938203f8f.37.2026.06.09.08.32.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 08:32:51 -0700 (PDT)
+        Tue, 09 Jun 2026 08:32:57 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Tue, 09 Jun 2026 17:32:37 +0200
-Subject: [PATCH v2 3/7] clk: qcom: Make important ARM64 drivers default
+Date: Tue, 09 Jun 2026 17:32:40 +0200
+Subject: [PATCH v2 6/7] ARM/arm64: defconfig: Drop redundant Qualcomm clock
+ entries
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260609-clk-qcom-defaults-v2-3-0c67c06dca11@oss.qualcomm.com>
+Message-Id: <20260609-clk-qcom-defaults-v2-6-0c67c06dca11@oss.qualcomm.com>
 References: <20260609-clk-qcom-defaults-v2-0-0c67c06dca11@oss.qualcomm.com>
 In-Reply-To: <20260609-clk-qcom-defaults-v2-0-0c67c06dca11@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -106,50 +107,51 @@ Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=37987;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5559;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=Dmgsusx5VlRpQbmWA2DPJ1aIryKzbrubTphjJA0vkQE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqKDIXfj/XqvjlpLxDV8v4AFUfFm2KHKuPnBS7a
- wWEuAV/7rWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaigyFwAKCRDBN2bmhouD
- 1yTbD/49M1OBJlzNo8agFKPsORR7mIZXILdfzYGkPLNpWPvaIxlBMKyL8cJl9nkk3qhHhq+yiQZ
- 3bNgjrXEYlIAGSF42Ru+YwZDMHEhISOz18ZM3cvL78a8fMtDwYzW+HZqgVeRMIL/VwJxuyQdrSe
- u9JcwyySHhfcfYBnb+4iMv8g0TXxs/6WxpefwPj5rlkYKxdmBExcwXjE2yPBzZfSRO65Pa2C0Ng
- kh3UVTtzmEDEKQRyK1Smfkrl8Z32RiS2ywgDslWGwRoydKVqD1Y0ZrqXAAz0vGMROnvAz6q7aKb
- QF53LzJMk19D2IICmn5TBFS75pknAOpDx/zF6pc+hpVyErz5fl057wfiu49IBcuU1xQU4w9WHlf
- Lv6pt95xJMWehF6Vh6c0IILPWaNxjwhr80Qe6F6W+0UyJUR74FPvSBX5bHfTFY/XKjLO0L16lgA
- AZbeq5O1JljvaBYdbAbs4WTM9x39Ic/rs140laMCkzSH728RAGvDHMsvZfyHLSnlmoSFKefjcM3
- VSc8c6hkSQgK+MPWDBUmBdxgNnvPrSEDjn/XnTwex3kYdMx0iLJZ9d4mR2qiiNyeuUaiXxfRvmb
- VB7yVHDFSy9SmOImtN5QdHP9K2lGcH5Wb1Ityr8OVQShyGhAgugvqm4ytIAE6cB9LrODisacCtG
- HcWF5StZwy4Gr1w==
+ bh=Uj6PFrl95EPjQd87MKegbK48MLKZBpNQFspDgHqgLnQ=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqKDIaasrpps8plpO8eUL7uj+vrkyr5NJqiG5pd
+ Wg/6jbyMPGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaigyGgAKCRDBN2bmhouD
+ 18GLD/9V5YMYTXnI7PGpkkBM6NstQ3L1GOhxbzbVXDOfXHuHH3wav1Y1Kdy8wDKpEdLFCRnCknw
+ nELlwEf96Mcxhf2IvZOXciUL8icfIsUmKuguqAzMSapwmRjCaQZAvYlSwkS+s48gAx0p3WqRswj
+ HVEdTat2LMH+SUVO3M89c2lHxG4zN9G1dXMx5Ri728nv27wN4LrOzj1owi5MDdQapyJXKZuvoTs
+ vTBhrM1YHQghuQsNAb4zcyXsnY50iVX/lvg0Q3QlDkUIC4PYfCNE+lm9TwvPTdamPRN2SYbDayW
+ we5DV3Bb+UbR+Is2YjvM/qH3GcPLdvC4mhNCdYpFFNnoqhTmg8O4gn2PIAbC/kSFpkhao4GFeDM
+ PCkET17DWu0Ch+ZwE2PBGmI0cFjnF6qx2BrHpgPZKFFMOAA+tkNK33Fv/bY/JVVrUfqq/OKnvgG
+ 6QEjC7XnhZeB86bc3fjQES6ldyh+G85zVQkQ9957D+BjyztH5YCCCnmra/rnfvYWaBa8rPQMUc0
+ 4yGWmtai2qK1ffy/W+DGEGx/gGec0bjQ0jpwzIg2KD/6po/ftgnkXkjtjSEdcQl56ezMpwFPKgm
+ T1S2uUhGQ6T1icUGlu5tTemKOK2bW4Gn8tMDIleOVzapi+4MaiOwdwWn5lNp1pR7uq6GuSPT1W/
+ XRPlJyuYR2TwoFQ==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-ORIG-GUID: qUdxk-mvluyU62hVx8nK12VtnmsWaDud
-X-Authority-Analysis: v=2.4 cv=Iey3n2qa c=1 sm=1 tr=0 ts=6a283227 cx=c_pps
- a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=jO6dYz2E5lbJ9Xj+xBc9tQ==:17
+X-Proofpoint-ORIG-GUID: 4gDu9ITIzObdxvpzevCGvSQVpAkbu-BP
+X-Authority-Analysis: v=2.4 cv=EI42FVZC c=1 sm=1 tr=0 ts=6a28322b cx=c_pps
+ a=OI0sxtj7PyCX9F1bxD/puw==:117 a=jO6dYz2E5lbJ9Xj+xBc9tQ==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=bqaog6Zag4lIKP_6AjkA:9 a=91Ohj-z5vtWLULLE:21
- a=QEXdDO2ut3YA:10 a=gYDTvv6II1OnSo0itH1n:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0NyBTYWx0ZWRfX6kdLb5RC7Y8J
- a7nD5cYURtyMA8fY4AAI5M1gRfSvAiSd1KOvUOV5jwULQjtwAj01w23Q+aK27QgbdIswtCIJfCX
- 8ONQ1Sf0PUiVIBMzMBqnSQRE/aqTKjl48KsLBh39gUmfR4sHa4fB+Tw1vRbwHCKzqcHVhUscazc
- 3NyRtPReGNcQJnwokHRgaGrIJEO/8wqKJ9TB2dGKiTAoVhJbsi44Y5MGHm+LaYfLF6c/6t55HhG
- 31Ys4yRd6JosMGQBkcAdM+bgMlfIcoFBH7l1HuweRbSkaNx4Ig0oJlFfViZWn4YEZ0EdnC7O3dY
- j3FhssyVwzA8r4o5suyXpoKccY1opG+pujDgomBlS8R9idzkPBwb5p+NSZKakkw5MTEOEwMMfkP
- q9H0YtPc51VIO5ERoOEqyZqiajsmr5lz1pSeITn+QbEwi9RhveVw5NBqF9SVYxRVH7ApCplf6fC
- LFm+076ey83vpoFoUOA==
-X-Proofpoint-GUID: qUdxk-mvluyU62hVx8nK12VtnmsWaDud
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=yyKv-1BC-DQKXCkl3jQA:9 a=QEXdDO2ut3YA:10
+ a=Z1Yy7GAxqfX1iEi80vsk:22
+X-Proofpoint-GUID: 4gDu9ITIzObdxvpzevCGvSQVpAkbu-BP
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0NyBTYWx0ZWRfX0F/DGjjGjYV/
+ e0k88msjSGFv8ztL7dA/mHNJHJvMOyJzf7RSrdmMN25QNx/rY7ZLP4nnhKxNlRs1Fcc3rPwX/fN
+ A2g4OAE9GgVzn8U3CKZI2yoJFM/coIzoEauvlOhOZQ8lBVpqMJErXPsHjsDczFRywlFvVD/Ucsg
+ akCzF+bGZx7oxD5aYzpeYIZ2n4gq3mAi5aDZ56LlUoufNzm86CUtT4SFVm6+W1SONmdjW4wErLR
+ tjrGSyXA9Ycj+EtoEjeJiWAzcrv6hGhcL6Jym7laeEJXc40VIfg5GRcZv8xCiP2a+sJRw8e9Co1
+ 0Ol9agRecVcPirwJXMymoEt6RHnNLue6kvW34Ap3lyOL0q6N21Hg0EbsjQ8IOHi0iSfZHSKfOce
+ fAurtVmPasm0rMmc6BApju/BfT2yAvtHkl6CTG+dLLPMxX6Dvbun7y9GEKTMWCESGVkvduLVKex
+ IckvvkxlC2k3xwWootA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-09_03,2026-06-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 bulkscore=0 phishscore=0 clxscore=1015
- priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090147
+ impostorscore=0 spamscore=0 adultscore=0 bulkscore=0 phishscore=0
+ suspectscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
+ definitions=main-2606090147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_083256_739930_7468DBB3 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260609_083300_991928_021350C4 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,1015 +166,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clock controller drivers are essential for booting up SoCs and are not
-really optional for a given platform.  Kernel should not ask users
-choice of drivers when that choice is obvious and known to the
-developers that answer should be 'yes' or 'module'.
-
-Switch all Qualcomm clock controller drivers which are chosen in
-defconfig to respective default 'yes' or 'module'.
-
-This has no impact on ARM64 defconfig include/generated/autoconf.h,
-however changes few drivers for ARM 32-bit:
-
-1. multi_v7_defconfig: Enable QCOM_CLK_RPMH as module, because SDX55
-   (ARM 32-bit) uses it.
-
-2. qcom_defconfig: Enable QCOM_A53PLL, QCOM_CLK_APCS_MSM8916 and
-   MSM_GCC_8916 as built-in, because MSM8916 is also used ARM 32-bit.
+Drop all drivers from defconfig which have defaults in Kconfig.  Drop
+also MDM_LCC_9615 which is gone since commit bac4675a4d1b ("clk: qcom:
+drop lcc-mdm9615 in favour of lcc-msm8960").
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 ---
 
-Changes in v2:
-1. Add defaults for msm8994-8996-8998.
-2. Move defconfig change to separate commit.
-3. Drop Rb tag becauase of above.
----
- drivers/clk/qcom/Kconfig | 122 +++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 122 insertions(+)
+Depends on clock patches - this can wait a cycle.
 
-diff --git a/drivers/clk/qcom/Kconfig b/drivers/clk/qcom/Kconfig
-index 3b8768d80d89..d8281ed68dc5 100644
---- a/drivers/clk/qcom/Kconfig
-+++ b/drivers/clk/qcom/Kconfig
-@@ -23,6 +23,7 @@ config CLK_ELIZA_DISPCC
- 	tristate "Eliza Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_ELIZA_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controllers on Eliza SoCs.
- 	  Say Y if you want to support display devices and functionality such as
-@@ -32,6 +33,7 @@ config CLK_ELIZA_GCC
- 	tristate "Eliza Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on Eliza devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -41,6 +43,7 @@ config CLK_ELIZA_TCSRCC
- 	tristate "Eliza TCSR Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the TCSR clock controller on Eliza devices.
- 	  Say Y if you want to use peripheral devices such as USB/PCIe/UFS.
-@@ -49,6 +52,7 @@ config CLK_GLYMUR_DISPCC
- 	tristate "Glymur Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_GLYMUR_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controllers on Qualcomm
- 	  Technologies, Inc. Glymur devices.
-@@ -59,6 +63,7 @@ config CLK_GLYMUR_GCC
- 	tristate "Glymur Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on Glymur devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -77,6 +82,7 @@ config CLK_GLYMUR_TCSRCC
- 	tristate "Glymur TCSR Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the TCSR clock controller on Glymur devices.
- 	  Say Y if you want to use peripheral devices such as USB/PCIe/EDP.
-@@ -94,6 +100,7 @@ config CLK_KAANAPALI_CAMCC
- 	tristate "Kaanapali Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_KAANAPALI_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on Qualcomm Technologies, Inc
- 	  Kaanapali devices.
-@@ -104,6 +111,7 @@ config CLK_KAANAPALI_DISPCC
- 	tristate "Kaanapali Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_KAANAPALI_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  Kaanapali devices.
-@@ -114,6 +122,7 @@ config CLK_KAANAPALI_GCC
- 	tristate "Kaanapali Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on Kaanapali devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -123,6 +132,7 @@ config CLK_KAANAPALI_GPUCC
- 	tristate "Kaanapali Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_KAANAPALI_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on Kaanapali devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -132,6 +142,7 @@ config CLK_KAANAPALI_TCSRCC
- 	tristate "Kaanapali TCSR Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the TCSR clock controller on Kaanapali devices.
- 	  Say Y if you want to use peripheral devices such as PCIe, USB, UFS.
-@@ -140,6 +151,7 @@ config CLK_KAANAPALI_VIDEOCC
- 	tristate "Kaanapali Video Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_KAANAPALI_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on Kaanapali devices.
- 	  Say Y if you want to support video devices and functionality such as
-@@ -159,6 +171,7 @@ config CLK_X1E80100_CAMCC
- 	tristate "X1E80100 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_X1E80100_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on X1E80100 devices.
- 	  Say Y if you want to support camera devices and camera functionality.
-@@ -167,6 +180,7 @@ config CLK_X1E80100_DISPCC
- 	tristate "X1E80100 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_X1E80100_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the two display clock controllers on Qualcomm
- 	  Technologies, Inc. X1E80100 devices.
-@@ -177,6 +191,7 @@ config CLK_X1E80100_GCC
- 	tristate "X1E80100 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on Qualcomm Technologies, Inc
- 	  X1E80100 devices.
-@@ -187,6 +202,7 @@ config CLK_X1E80100_GPUCC
- 	tristate "X1E80100 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_X1E80100_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on X1E80100 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -196,6 +212,7 @@ config CLK_X1E80100_TCSRCC
- 	tristate "X1E80100 TCSR Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the TCSR clock controller on X1E80100 devices.
- 	  Say Y if you want to use peripheral devices such as SD/UFS.
-@@ -204,6 +221,7 @@ config CLK_X1P42100_GPUCC
- 	tristate "X1P42100 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select CLK_X1E80100_GCC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on X1P42100 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -213,6 +231,7 @@ config CLK_QCM2290_GPUCC
- 	tristate "QCM2290 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCM_GCC_2290
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on QCM2290 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -220,6 +239,7 @@ config CLK_QCM2290_GPUCC
- 
- config QCOM_A53PLL
- 	tristate "MSM8916 A53 PLL"
-+	default ARCH_QCOM
- 	help
- 	  Support for the A53 PLL on MSM8916 devices. It provides
- 	  the CPU with frequencies above 1GHz.
-@@ -238,6 +258,7 @@ config QCOM_A7PLL
- config QCOM_CLK_APCS_MSM8916
- 	tristate "MSM8916 APCS Clock Controller"
- 	depends on QCOM_APCS_IPC || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the APCS Clock Controller on msm8916 devices. The
- 	  APCS is managing the mux and divider which feeds the CPUs.
-@@ -249,6 +270,7 @@ config QCOM_CLK_APCC_MSM8996
- 	select QCOM_KRYO_L2_ACCESSORS
- 	select INTERCONNECT_CLK if INTERCONNECT
- 	depends on ARM64
-+	default ARCH_QCOM
- 	help
- 	  Support for the CPU clock controller on msm8996 devices.
- 	  Say Y if you want to support CPU clock scaling using CPUfreq
-@@ -279,6 +301,7 @@ config QCOM_CLK_RPM
- config QCOM_CLK_SMD_RPM
- 	tristate "RPM over SMD based Clock Controller"
- 	depends on QCOM_SMD_RPM
-+	default ARCH_QCOM
- 	help
- 	  The RPM (Resource Power Manager) is a dedicated hardware engine for
- 	  managing the shared SoC resources in order to keep the lowest power
-@@ -291,6 +314,7 @@ config QCOM_CLK_SMD_RPM
- config QCOM_CLK_RPMH
- 	tristate "RPMh Clock Driver"
- 	depends on QCOM_RPMH
-+	default ARCH_QCOM
- 	help
- 	 RPMh manages shared resources on some Qualcomm Technologies, Inc.
- 	 SoCs. It accepts requests from other hardware subsystems via RSC.
-@@ -356,6 +380,7 @@ config IPQ_APSS_6018
- 	depends on ARM64 || COMPILE_TEST
- 	depends on QCOM_APCS_IPC || COMPILE_TEST
- 	depends on QCOM_SMEM
-+	default ARCH_QCOM
- 	help
- 	  Support for APSS clock controller on IPQ platforms. The
- 	  APSS clock controller manages the Mux and enable block that feeds the
-@@ -366,6 +391,7 @@ config IPQ_APSS_6018
- config IPQ_CMN_PLL
- 	tristate "IPQ CMN PLL Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
-+	default m if ARCH_QCOM
- 	help
- 	  Support for CMN PLL clock controller on IPQ platform. The
- 	  CMN PLL consumes the AHB/SYS clocks from GCC and supplies
-@@ -384,6 +410,7 @@ config IPQ_GCC_4019
- config IPQ_GCC_5018
- 	tristate "IPQ5018 Global Clock Controller"
- 	depends on ARM || ARM64 || COMPILE_TEST
-+	default ARCH_QCOM && ARM64
- 	help
- 	  Support for global clock controller on ipq5018 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -392,6 +419,7 @@ config IPQ_GCC_5018
- config IPQ_GCC_5210
- 	tristate "IPQ5210 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on ipq5210 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -400,6 +428,7 @@ config IPQ_GCC_5210
- config IPQ_GCC_5332
- 	tristate "IPQ5332 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on ipq5332 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -408,6 +437,7 @@ config IPQ_GCC_5332
- config IPQ_GCC_5424
- 	tristate "IPQ5424 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on ipq5424 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -416,6 +446,7 @@ config IPQ_GCC_5424
- config IPQ_GCC_6018
- 	tristate "IPQ6018 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for global clock controller on ipq6018 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -443,6 +474,7 @@ config IPQ_GCC_8074
- 	tristate "IPQ8074 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for global clock controller on ipq8074 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -452,6 +484,7 @@ config IPQ_GCC_8074
- config IPQ_GCC_9574
- 	tristate "IPQ9574 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for global clock controller on ipq9574 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -472,6 +505,7 @@ config IPQ_NSSCC_5424
- 	tristate "IPQ5424 NSS Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	depends on IPQ_GCC_5424
-+	default m if ARCH_QCOM
- 	help
- 	  Support for NSS clock controller on ipq5424 devices.
- 	  NSSCC receives the clock sources from GCC, CMN PLL and UNIPHY (PCS).
-@@ -483,6 +517,7 @@ config IPQ_NSSCC_9574
-         tristate "IPQ9574 NSS Clock Controller"
-         depends on ARM64 || COMPILE_TEST
-         depends on IPQ_GCC_9574
-+	default m if ARCH_QCOM
-         help
-           Support for NSS clock controller on ipq9574 devices.
- 
-@@ -515,6 +550,7 @@ config MSM_GCC_8909
- config MSM_GCC_8916
- 	tristate "MSM8916 Global Clock Controller"
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on msm8916 devices.
- 	  Say Y if you want to use devices such as UART, SPI i2c, USB,
-@@ -583,6 +619,7 @@ config MSM_MMCC_8960
- config MSM_GCC_8953
- 	tristate "MSM8953 Global Clock Controller"
- 	select QCOM_GDSC
-+	default ARCH_QCOM if ARM64
- 	help
- 	  Support for the global clock controller on msm8953 devices.
- 	  Say Y if you want to use devices such as UART, SPI i2c, USB,
-@@ -619,6 +656,7 @@ config MSM_MMCC_8994
- 	tristate "MSM8994 Multimedia Clock Controller"
- 	select MSM_GCC_8994
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM && ARM64
- 	help
- 	  Support for the multimedia clock controller on msm8994 devices.
- 	  Say Y if you want to support multimedia devices such as display,
-@@ -626,6 +664,7 @@ config MSM_MMCC_8994
- 
- config MSM_GCC_8994
- 	tristate "MSM8994 Global Clock Controller"
-+	default ARCH_QCOM if ARM64
- 	help
- 	  Support for the global clock controller on msm8994 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -634,6 +673,7 @@ config MSM_GCC_8994
- config MSM_GCC_8996
- 	tristate "MSM8996 Global Clock Controller"
- 	select QCOM_GDSC
-+	default ARCH_QCOM if ARM64
- 	help
- 	  Support for the global clock controller on msm8996 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -643,6 +683,7 @@ config MSM_MMCC_8996
- 	tristate "MSM8996 Multimedia Clock Controller"
- 	select MSM_GCC_8996
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM && ARM64
- 	help
- 	  Support for the multimedia clock controller on msm8996 devices.
- 	  Say Y if you want to support multimedia devices such as display,
-@@ -651,6 +692,7 @@ config MSM_MMCC_8996
- config MSM_GCC_8998
- 	tristate "MSM8998 Global Clock Controller"
- 	select QCOM_GDSC
-+	default ARCH_QCOM if ARM64
- 	help
- 	  Support for the global clock controller on msm8998 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -669,6 +711,7 @@ config MSM_MMCC_8998
- 	tristate "MSM8998 Multimedia Clock Controller"
- 	select MSM_GCC_8998
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM && ARM64
- 	help
- 	  Support for the multimedia clock controller on msm8998 devices.
- 	  Say Y if you want to support multimedia devices such as display,
-@@ -678,6 +721,7 @@ config QCM_GCC_2290
- 	tristate "QCM2290 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on QCM2290 devices.
- 	  Say Y if you want to use multimedia devices or peripheral
-@@ -687,6 +731,7 @@ config QCM_DISPCC_2290
- 	tristate "QCM2290 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCM_GCC_2290
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  QCM2290 devices.
-@@ -697,6 +742,7 @@ config QCS_DISPCC_615
- 	tristate "QCS615 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCS_GCC_615
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  QCS615 devices.
-@@ -707,6 +753,7 @@ config QCS_CAMCC_615
- 	tristate "QCS615 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCS_GCC_615
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on Qualcomm Technologies, Inc
- 	  QCS615 devices.
-@@ -715,6 +762,7 @@ config QCS_CAMCC_615
- 
- config QCS_GCC_404
- 	tristate "QCS404 Global Clock Controller"
-+	default y if ARCH_QCOM && ARM64
- 	help
- 	  Support for the global clock controller on QCS404 devices.
- 	  Say Y if you want to use multimedia devices or peripheral
-@@ -731,6 +779,7 @@ config SA_CAMCC_8775P
- 	tristate "SA8775P Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SA_GCC_8775P
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on Qualcomm Technologies, Inc
- 	  SA8775P devices.
-@@ -741,6 +790,7 @@ config QCS_GCC_8300
- 	tristate "QCS8300 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on Qualcomm Technologies, Inc
- 	  QCS8300 devices.
-@@ -751,6 +801,7 @@ config QCS_GCC_615
- 	tristate "QCS615 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on QCS615 devices.
- 	  Say Y if you want to use multimedia devices or peripheral
-@@ -760,6 +811,7 @@ config QCS_GPUCC_615
- 	tristate "QCS615 Graphics clock controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCS_GCC_615
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on QCS615 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -769,6 +821,7 @@ config QCS_VIDEOCC_615
- 	tristate "QCS615 Video Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCS_GCC_615
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on QCS615 devices.
- 	  Say Y if you want to support video devices and functionality such as
-@@ -788,6 +841,7 @@ config SC_CAMCC_7280
- 	tristate "SC7280 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_7280
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on Qualcomm Technologies, Inc
- 	  SC7280 devices.
-@@ -808,6 +862,7 @@ config SC_CAMCC_8280XP
- 	tristate "SC8280XP Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_8280XP
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on Qualcomm Technologies, Inc
- 	  SC8280XP devices.
-@@ -818,6 +873,7 @@ config SA_DISPCC_8775P
- 	tristate "SA8775P Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SA_GCC_8775P
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the two display clock controllers on Qualcomm
- 	  Technologies, Inc. SA8775P devices.
-@@ -838,6 +894,7 @@ config SC_DISPCC_7280
- 	tristate "SC7280 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_7280
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc.
- 	  SC7280 devices.
-@@ -848,6 +905,7 @@ config SC_DISPCC_8280XP
- 	tristate "SC8280XP Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_8280XP
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the two display clock controllers on Qualcomm
- 	  Technologies, Inc. SC8280XP devices.
-@@ -859,6 +917,7 @@ config SA_GCC_8775P
- 	select QCOM_GDSC
- 	depends on ARM64 || COMPILE_TEST
- 	depends on COMMON_CLK_QCOM
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SA8775 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -869,6 +928,7 @@ config SA_GPUCC_8775P
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
- 	select SA_GCC_8775P
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SA8775P devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -897,6 +957,7 @@ config SC_GCC_7180
- 	select QCOM_GDSC
- 	depends on COMMON_CLK_QCOM
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SC7180 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -907,6 +968,7 @@ config SC_GCC_7280
- 	select QCOM_GDSC
- 	depends on COMMON_CLK_QCOM
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SC7280 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -917,6 +979,7 @@ config SC_GCC_8180X
- 	select QCOM_GDSC
- 	depends on COMMON_CLK_QCOM
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SC8180X devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -927,6 +990,7 @@ config SC_GCC_8280XP
- 	select QCOM_GDSC
- 	depends on COMMON_CLK_QCOM
- 	depends on ARM64 || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SC8280XP devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -945,6 +1009,7 @@ config SC_GPUCC_7280
- 	tristate "SC7280 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_7280
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SC7280 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -954,6 +1019,7 @@ config SC_GPUCC_8280XP
- 	tristate "SC8280XP Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_8280XP
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SC8280XP devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -972,6 +1038,7 @@ config SC_LPASSCC_8280XP
- 	tristate "SC8280 Low Power Audio Subsystem (LPASS) Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_8280XP
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the LPASS clock controller on SC8280XP devices.
- 	  Say Y if you want to use the LPASS branch clocks of the LPASS clock
-@@ -992,6 +1059,7 @@ config SC_LPASS_CORECC_7280
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_7280
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the LPASS(Low Power Audio Subsystem) core and audio clock
- 	  controller on SC7280 devices.
-@@ -1011,6 +1079,7 @@ config SC_VIDEOCC_7280
- 	tristate "SC7280 Video Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SC_GCC_7280
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on SC7280 devices.
- 	  Say Y if you want to support video devices and functionality such as
-@@ -1020,6 +1089,7 @@ config SDM_CAMCC_845
- 	tristate "SDM845 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SDM_GCC_845
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on SDM845 devices.
- 	  Say Y if you want to support camera devices and camera functionality.
-@@ -1071,6 +1141,7 @@ config QDU_GCC_1000
- 	tristate "QDU1000/QRU1000 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on QDU1000 and
- 	  QRU1000 devices. Say Y if you want to use peripheral
-@@ -1089,6 +1160,7 @@ config SDM_GCC_845
- 	tristate "SDM845/SDM670 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SDM845 and SDM670 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -1098,6 +1170,7 @@ config SDM_GPUCC_845
- 	tristate "SDM845 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SDM_GCC_845
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SDM845 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1108,6 +1181,7 @@ config SDM_VIDEOCC_845
- 	depends on ARM64 || COMPILE_TEST
- 	select SDM_GCC_845
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on SDM845 devices.
- 	  Say Y if you want to support video devices and functionality such as
-@@ -1117,6 +1191,7 @@ config SDM_DISPCC_845
- 	tristate "SDM845 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SDM_GCC_845
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  SDM845 devices.
-@@ -1127,6 +1202,7 @@ config SDM_LPASSCC_845
- 	tristate "SDM845 Low Power Audio Subsystem (LPAAS) Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SDM_GCC_845
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the LPASS clock controller on SDM845 devices.
- 	  Say Y if you want to use the LPASS branch clocks of the LPASS clock
-@@ -1153,6 +1229,7 @@ config SDX_GCC_65
- config SDX_GCC_75
- 	tristate "SDX75 Global Clock Controller"
- 	select QCOM_GDSC
-+	default ARCH_QCOM if ARM64
- 	help
- 	  Support for the global clock controller on SDX75 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1170,6 +1247,7 @@ config SM_CAMCC_6350
- 	tristate "SM6350 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_6350
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on SM6350 devices.
- 	  Say Y if you want to support camera devices and camera functionality.
-@@ -1186,6 +1264,7 @@ config SM_CAMCC_MILOS
- 	tristate "Milos Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_MILOS
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on Milos devices.
- 	  Say Y if you want to support camera devices and camera functionality.
-@@ -1204,6 +1283,7 @@ config SM_CAMCC_8250
- 	tristate "SM8250 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8250
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on SM8250 devices.
- 	  Say Y if you want to support camera devices and camera functionality.
-@@ -1220,6 +1300,7 @@ config SM_CAMCC_8550
- 	tristate "SM8550 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8550
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on SM8550 devices.
- 	  Say Y if you want to support camera devices and camera functionality.
-@@ -1228,6 +1309,7 @@ config SM_CAMCC_8650
- 	tristate "SM8650 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8650
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on SM8650 devices.
- 	  Say Y if you want to support camera devices and camera functionality.
-@@ -1236,6 +1318,7 @@ config SM_CAMCC_8750
- 	tristate "SM8750 Camera Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8750
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the camera clock controller on SM8750 devices.
- 	  The camera clock controller has a separate cambist controller which
-@@ -1256,6 +1339,7 @@ config SM_DISPCC_6115
- 	tristate "SM6115 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	depends on SM_GCC_6115
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  SM6115/SM4250 devices.
-@@ -1286,6 +1370,7 @@ config SM_DISPCC_8250
- 	tristate "SM8150/SM8250/SM8350 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	depends on SM_GCC_8150 || SM_GCC_8250 || SM_GCC_8350
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  SM8150/SM8250/SM8350 devices.
-@@ -1296,6 +1381,7 @@ config SM_DISPCC_6350
- 	tristate "SM6350 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	depends on SM_GCC_6350
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  SM6350 devices.
-@@ -1316,6 +1402,7 @@ config SM_DISPCC_MILOS
- 	tristate "Milos Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	depends on SM_GCC_MILOS
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  Milos devices.
-@@ -1326,6 +1413,7 @@ config SM_DISPCC_8450
- 	tristate "SM8450 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	depends on SM_GCC_8450
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  SM8450 or SM8475 devices.
-@@ -1336,6 +1424,7 @@ config SM_DISPCC_8550
- 	tristate "SM8550 Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	depends on SM_GCC_8550 || SM_GCC_8650 || SAR_GCC_2130P
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  SAR2130P, SM8550 or SM8650 devices.
-@@ -1347,6 +1436,7 @@ config SM_DISPCC_8750
- 	depends on ARM64 || COMPILE_TEST
- 	depends on SM_GCC_8750
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the display clock controller on Qualcomm Technologies, Inc
- 	  SM8750 devices.
-@@ -1357,6 +1447,7 @@ config SM_GCC_4450
- 	tristate "SM4450 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM4450 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -1366,6 +1457,7 @@ config SM_GCC_6115
- 	tristate "SM6115 and SM4250 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM6115 and SM4250 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -1384,6 +1476,7 @@ config SM_GCC_6350
- 	tristate "SM6350 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM6350 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1411,6 +1504,7 @@ config SM_GCC_MILOS
- 	tristate "Milos Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on Milos devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1420,6 +1514,7 @@ config SM_GCC_8150
- 	tristate "SM8150 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM8150 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1429,6 +1524,7 @@ config SM_GCC_8250
- 	tristate "SM8250 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM8250 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1438,6 +1534,7 @@ config SM_GCC_8350
- 	tristate "SM8350 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM8350 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1447,6 +1544,7 @@ config SM_GCC_8450
- 	tristate "SM8450 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM8450 or SM8475
- 	  devices.
-@@ -1457,6 +1555,7 @@ config SM_GCC_8550
- 	tristate "SM8550 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM8550 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1466,6 +1565,7 @@ config SM_GCC_8650
- 	tristate "SM8650 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM8650 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1475,6 +1575,7 @@ config SM_GCC_8750
- 	tristate "SM8750 Global Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SM8750 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
-@@ -1493,6 +1594,7 @@ config SM_GPUCC_6115
- 	tristate "SM6115 Graphics Clock Controller"
- 	select SM_GCC_6115
- 	depends on ARM64 || COMPILE_TEST
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM6115 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1520,6 +1622,7 @@ config SM_GPUCC_6350
- 	tristate "SM6350 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_6350
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM6350 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1529,6 +1632,7 @@ config SM_GPUCC_MILOS
- 	tristate "Milos Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_MILOS
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on Milos devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1538,6 +1642,7 @@ config SM_GPUCC_8150
- 	tristate "SM8150 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8150
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM8150 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1547,6 +1652,7 @@ config SM_GPUCC_8250
- 	tristate "SM8250 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8250
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM8250 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1556,6 +1662,7 @@ config SM_GPUCC_8350
- 	tristate "SM8350 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8350
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM8350 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1565,6 +1672,7 @@ config SM_GPUCC_8450
- 	tristate "SM8450 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8450
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM8450 or SM8475
- 	  devices.
-@@ -1575,6 +1683,7 @@ config SM_GPUCC_8550
- 	tristate "SM8550 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8550
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM8550 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1584,6 +1693,7 @@ config SM_GPUCC_8650
- 	tristate "SM8650 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8650
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM8650 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1593,6 +1703,7 @@ config SM_GPUCC_8750
- 	tristate "SM8750 Graphics Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8750
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the graphics clock controller on SM8750 devices.
- 	  Say Y if you want to support graphics controller devices and
-@@ -1611,6 +1722,7 @@ config SM_TCSRCC_8550
- 	tristate "SM8550 TCSR Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the TCSR clock controller on SM8550 devices.
- 	  Say Y if you want to use peripheral devices such as SD/UFS.
-@@ -1619,6 +1731,7 @@ config SM_TCSRCC_8650
- 	tristate "SM8650 TCSR Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the TCSR clock controller on SM8650 devices.
- 	  Say Y if you want to use peripheral devices such as SD/UFS.
-@@ -1627,6 +1740,7 @@ config SM_TCSRCC_8750
- 	tristate "SM8750 TCSR Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the TCSR clock controller on SM8750 devices.
- 	  Say Y if you want to use peripheral devices such as UFS/USB/PCIe.
-@@ -1636,6 +1750,7 @@ config SA_VIDEOCC_8775P
- 	depends on ARM64 || COMPILE_TEST
- 	select SA_GCC_8775P
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on Qualcomm Technologies, Inc.
- 	  SA8775P devices.
-@@ -1647,6 +1762,7 @@ config SM_VIDEOCC_6350
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_6350
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on SM6350 devices.
- 	  Say Y if you want to support video devices and functionality such as
-@@ -1667,6 +1783,7 @@ config SM_VIDEOCC_MILOS
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_MILOS
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on Qualcomm Technologies, Inc.
- 	  Milos devices.
-@@ -1688,6 +1805,7 @@ config SM_VIDEOCC_8250
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8250
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on SM8250 devices.
- 	  Say Y if you want to support video devices and functionality such as
-@@ -1707,6 +1825,7 @@ config SM_VIDEOCC_8550
- 	tristate "SM8550 Video Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on Qualcomm Technologies, Inc.
- 	  SM8550 or SM8650 or X1E80100 devices.
-@@ -1718,6 +1837,7 @@ config SM_VIDEOCC_8750
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8750
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on Qualcomm Technologies, Inc.
- 	  SM8750 devices.
-@@ -1758,6 +1878,7 @@ config KRAITCC
- config CLK_GFM_LPASS_SM8250
- 	tristate "SM8250 GFM LPASS Clocks"
- 	depends on ARM64 || COMPILE_TEST
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the Glitch Free Mux (GFM) Low power audio
-           subsystem (LPASS) clocks found on SM8250 SoCs.
-@@ -1767,6 +1888,7 @@ config SM_VIDEOCC_8450
- 	depends on ARM64 || COMPILE_TEST
- 	select SM_GCC_8450
- 	select QCOM_GDSC
-+	default m if ARCH_QCOM
- 	help
- 	  Support for the video clock controller on Qualcomm Technologies, Inc.
- 	  SM8450 or SM8475 devices.
+Changes in v2:
+1. New patch (split from previous)
+---
+ arch/arm/configs/multi_v7_defconfig |   9 ---
+ arch/arm/configs/qcom_defconfig     |  14 -----
+ arch/arm64/configs/defconfig        | 112 ------------------------------------
+ 3 files changed, 135 deletions(-)
+
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 2891eeba9032..e075da05c7e0 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -1095,15 +1095,6 @@ CONFIG_COMMON_CLK_S2MPS11=m
+ CONFIG_CLK_TWL=m
+ CONFIG_CLK_RASPBERRYPI=y
+ CONFIG_COMMON_CLK_QCOM=y
+-CONFIG_QCOM_A53PLL=y
+-CONFIG_QCOM_CLK_APCS_MSM8916=y
+-CONFIG_QCOM_CLK_RPM=y
+-CONFIG_QCOM_CLK_SMD_RPM=y
+-CONFIG_APQ_MMCC_8084=y
+-CONFIG_MSM_GCC_8660=y
+-CONFIG_MSM_GCC_8916=y
+-CONFIG_MSM_MMCC_8960=y
+-CONFIG_MSM_MMCC_8974=y
+ CONFIG_HWSPINLOCK=y
+ CONFIG_HWSPINLOCK_OMAP=y
+ CONFIG_HWSPINLOCK_QCOM=y
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index 03309b89ea4c..5316126fb41e 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -205,20 +205,6 @@ CONFIG_DMADEVICES=y
+ CONFIG_QCOM_BAM_DMA=y
+ CONFIG_STAGING=y
+ CONFIG_COMMON_CLK_QCOM=y
+-CONFIG_QCOM_A7PLL=y
+-CONFIG_QCOM_CLK_APCS_SDX55=y
+-CONFIG_QCOM_CLK_RPM=y
+-CONFIG_QCOM_CLK_SMD_RPM=y
+-CONFIG_QCOM_CLK_RPMH=y
+-CONFIG_APQ_MMCC_8084=y
+-CONFIG_IPQ_GCC_4019=y
+-CONFIG_IPQ_LCC_806X=y
+-CONFIG_MSM_GCC_8660=y
+-CONFIG_MSM_LCC_8960=y
+-CONFIG_MDM_LCC_9615=y
+-CONFIG_MSM_MMCC_8960=y
+-CONFIG_MSM_MMCC_8974=y
+-CONFIG_SDX_GCC_55=y
+ CONFIG_HWSPINLOCK=y
+ CONFIG_HWSPINLOCK_QCOM=y
+ CONFIG_MAILBOX=y
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb753cc0f5a4..91c8e9435dd6 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1458,126 +1458,14 @@ CONFIG_COMMON_CLK_MT8192_SCP_ADSP=y
+ CONFIG_COMMON_CLK_MT8192_VDECSYS=y
+ CONFIG_COMMON_CLK_MT8192_VENCSYS=y
+ CONFIG_COMMON_CLK_QCOM=y
+-CONFIG_CLK_ELIZA_DISPCC=m
+-CONFIG_CLK_ELIZA_GCC=y
+-CONFIG_CLK_ELIZA_TCSRCC=m
+-CONFIG_CLK_GLYMUR_DISPCC=m
+-CONFIG_CLK_GLYMUR_GCC=y
+-CONFIG_CLK_GLYMUR_TCSRCC=m
+-CONFIG_CLK_KAANAPALI_CAMCC=m
+-CONFIG_CLK_KAANAPALI_DISPCC=m
+-CONFIG_CLK_KAANAPALI_GCC=y
+-CONFIG_CLK_KAANAPALI_GPUCC=m
+-CONFIG_CLK_KAANAPALI_TCSRCC=m
+-CONFIG_CLK_KAANAPALI_VIDEOCC=m
+-CONFIG_CLK_X1E80100_CAMCC=m
+-CONFIG_CLK_X1E80100_DISPCC=m
+-CONFIG_CLK_X1E80100_GCC=y
+-CONFIG_CLK_X1E80100_GPUCC=m
+-CONFIG_CLK_X1E80100_TCSRCC=y
+-CONFIG_CLK_X1P42100_GPUCC=m
+-CONFIG_CLK_QCM2290_GPUCC=m
+-CONFIG_QCOM_A53PLL=y
+-CONFIG_QCOM_CLK_APCS_MSM8916=y
+-CONFIG_QCOM_CLK_APCC_MSM8996=y
+-CONFIG_QCOM_CLK_SMD_RPM=y
+-CONFIG_QCOM_CLK_RPMH=y
+-CONFIG_IPQ_APSS_6018=y
+-CONFIG_IPQ_CMN_PLL=m
+-CONFIG_IPQ_GCC_5018=y
+-CONFIG_IPQ_GCC_5210=y
+-CONFIG_IPQ_GCC_5332=y
+-CONFIG_IPQ_GCC_5424=y
+-CONFIG_IPQ_GCC_6018=y
+-CONFIG_IPQ_GCC_8074=y
+-CONFIG_IPQ_GCC_9574=y
+-CONFIG_IPQ_NSSCC_5424=m
+-CONFIG_IPQ_NSSCC_9574=m
+-CONFIG_MSM_GCC_8916=y
+-CONFIG_MSM_GCC_8953=y
+-CONFIG_MSM_MMCC_8994=m
+-CONFIG_MSM_GCC_8994=y
+-CONFIG_MSM_GCC_8996=y
+-CONFIG_MSM_MMCC_8996=m
+-CONFIG_MSM_GCC_8998=y
+-CONFIG_MSM_MMCC_8998=m
+-CONFIG_QCM_GCC_2290=y
+-CONFIG_QCM_DISPCC_2290=m
+-CONFIG_QCS_DISPCC_615=m
+-CONFIG_QCS_CAMCC_615=m
+-CONFIG_QCS_GCC_404=y
+-CONFIG_SA_CAMCC_8775P=m
+-CONFIG_QCS_GCC_8300=y
+-CONFIG_QCS_GCC_615=y
+-CONFIG_QCS_GPUCC_615=m
+-CONFIG_QCS_VIDEOCC_615=m
+-CONFIG_SC_CAMCC_7280=m
+-CONFIG_SC_CAMCC_8280XP=m
+-CONFIG_SA_DISPCC_8775P=m
+-CONFIG_SC_DISPCC_7280=m
+-CONFIG_SC_DISPCC_8280XP=m
+-CONFIG_SA_GCC_8775P=y
+-CONFIG_SA_GPUCC_8775P=m
+-CONFIG_SC_GCC_7180=y
+-CONFIG_SC_GCC_7280=y
+-CONFIG_SC_GCC_8180X=y
+-CONFIG_SC_GCC_8280XP=y
+-CONFIG_SC_GPUCC_7280=m
+-CONFIG_SC_GPUCC_8280XP=m
+-CONFIG_SC_LPASSCC_8280XP=m
+-CONFIG_SC_LPASS_CORECC_7280=m
+-CONFIG_SC_VIDEOCC_7280=m
+-CONFIG_SDM_CAMCC_845=m
+-CONFIG_QDU_GCC_1000=y
+ CONFIG_SDM_GPUCC_845=y
+ CONFIG_SDM_VIDEOCC_845=y
+ CONFIG_SDM_DISPCC_845=y
+-CONFIG_SDM_LPASSCC_845=m
+-CONFIG_SDX_GCC_75=y
+-CONFIG_SM_CAMCC_6350=m
+-CONFIG_SM_CAMCC_MILOS=m
+-CONFIG_SM_CAMCC_8250=m
+-CONFIG_SM_CAMCC_8550=m
+-CONFIG_SM_CAMCC_8650=m
+-CONFIG_SM_CAMCC_8750=m
+-CONFIG_SM_DISPCC_6115=m
+ CONFIG_SM_DISPCC_8250=y
+-CONFIG_SM_DISPCC_6350=m
+-CONFIG_SM_DISPCC_MILOS=m
+-CONFIG_SM_DISPCC_8450=m
+-CONFIG_SM_DISPCC_8550=m
+-CONFIG_SM_DISPCC_8750=m
+-CONFIG_SM_GCC_4450=y
+-CONFIG_SM_GCC_6115=y
+-CONFIG_SM_GCC_6350=y
+-CONFIG_SM_GCC_MILOS=y
+-CONFIG_SM_GCC_8350=y
+-CONFIG_SM_GCC_8450=y
+-CONFIG_SM_GCC_8550=y
+-CONFIG_SM_GCC_8650=y
+-CONFIG_SM_GCC_8750=y
+-CONFIG_SM_GPUCC_6115=m
+-CONFIG_SM_GPUCC_6350=m
+-CONFIG_SM_GPUCC_MILOS=m
+ CONFIG_SM_GPUCC_8150=y
+ CONFIG_SM_GPUCC_8250=y
+-CONFIG_SM_GPUCC_8350=m
+-CONFIG_SM_GPUCC_8450=m
+-CONFIG_SM_GPUCC_8550=m
+-CONFIG_SM_GPUCC_8650=m
+-CONFIG_SM_GPUCC_8750=m
+-CONFIG_SM_TCSRCC_8550=y
+-CONFIG_SM_TCSRCC_8650=y
+-CONFIG_SM_TCSRCC_8750=m
+-CONFIG_SA_VIDEOCC_8775P=m
+-CONFIG_SM_VIDEOCC_6350=m
+-CONFIG_SM_VIDEOCC_MILOS=m
+ CONFIG_SM_VIDEOCC_8250=y
+-CONFIG_SM_VIDEOCC_8550=m
+-CONFIG_SM_VIDEOCC_8750=m
+ CONFIG_QCOM_HFPLL=y
+-CONFIG_CLK_GFM_LPASS_SM8250=m
+-CONFIG_SM_VIDEOCC_8450=m
+ CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
+ CONFIG_CLK_RENESAS_VBATTB=m
+ CONFIG_EXYNOS_ACPM_CLK=m
 
 -- 
 2.53.0
