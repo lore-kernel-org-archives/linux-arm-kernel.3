@@ -4,65 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CC0CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 22:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B32ECD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 22:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYcniqLgoc6rs2Y66tZnRmYsvusegrTq2ElWgRTEb2A=; b=ArsUZ5peAuXneUqbWhvl42ZkIj
-	cY/4BijG7UEjG178jpjV9OoNL4tdWlaTPTlNC/A+5qxW7fWUeb+i5vAuRVgiragT3LoYWXnj4omkM
-	m9Yu9RlmhorOH43FLgRDdyM6iQtrt8Tg63j7m6ZSt9Rs9Gk6RLI7Sa91W1M5/hv2XdGsuQAq0SOTS
-	N6RD79038MEZQHXe0dWIVEwMmXILl+LfwqsbvT0d8jn8eAsiRPAIsx1nUoVGXLVOKFF0s1dDH6Zy0
-	zUznHkvx+0V9Zj6MT5o6hEZNhHsP1Xe4C/DNugk+bhgDuWiwRTTj34jrGc02MO/leowQ1bk2KGkms
-	U04E6FVA==;
+	bh=6D7duqRcD3fdsTRow2UhPRWiLjw5TIDW3U11ZLjAtzg=; b=Vu22QW6GZLjdNJ404OE0FEplfa
+	vZzeoU6tTUHES0umF5uQat+HZnZUum3YossXTvIVQrT+KtoclUhBFU36GDHEqbemrNX3bsFu5Zc0E
+	hKN2y/JjuytGqkLtZe1p5ie6eFLgPZv1qke0dZ1Sls+13nYz49vkwctxRJRByToRENlmYVRbfQ1V6
+	JpXo7wj17GcP9gQcgw/Va5mWehkNf+MvlPjHMhajr9L8YzGMvrdjXyV6B647QgAKyxxVGNdM9QE1Y
+	kp1iSBnAls72+goggkIRA51+glIiBRXgPSysAB0vrEGBW9BRGnVY412zsUoiFBs8Tt7eXncjFHkkX
+	jv/aSC5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX4ch-00000006RKA-0ohU;
-	Tue, 09 Jun 2026 22:08:39 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1wX4tV-00000006S1q-1b0V;
+	Tue, 09 Jun 2026 22:26:01 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX4ce-00000006RJm-38SM
+	id 1wX4tS-00000006S0c-0XOZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 22:08:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1781041007;
-	bh=+UpxFgUmXKI9oYhaSkDpyCrRN4C/28ZAOd9PNSzgBjQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=R4rZHjGNqidz2ttQSWkuPB0kjevviKYQo0L2HhvAbHAQW7obk8FEoQ8GiYYxJM8ER
-	 X7lM4s2OpGrEGkDuikl1s2k/wSfVrYc6exOL3PUWjuwlq3Jc5NmgObsM9ziymgxf2y
-	 NkyXHbF+kvJbMqOjwozBzLjAAcoJNa/JAujFTsGQ=
-Received: by gentwo.org (Postfix, from userid 1012)
-	id E225540BC5; Tue, 09 Jun 2026 14:36:47 -0700 (PDT)
-From: sk@gentwo.org
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	cl@gentwo.org,
-	Sayali Kulkarni <sskulkarni@amperecomputing.com>
-Subject: [PATCH 2/2] arm64: tlbflush: Reset active_cpu on ASID rollover
-Date: Tue,  9 Jun 2026 14:34:33 -0700
-Message-ID: <20260609213615.2788698-3-sk@gentwo.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260609213615.2788698-1-sk@gentwo.org>
-References: <20260609213615.2788698-1-sk@gentwo.org>
+	Tue, 09 Jun 2026 22:26:00 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36bdda53d99so2639958a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:25:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1781043956; x=1781648756; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6D7duqRcD3fdsTRow2UhPRWiLjw5TIDW3U11ZLjAtzg=;
+        b=lNypZYM6M3eh9j2/8ZkDDYn4xGAYuPQWuoWjr038maNXCGlg0558H33ckPdQLU4O/q
+         MDungkfmosicniNnTsaITASnfEZ4MdEO0ya3x+kEDLd0Tim/kEBJ0694XjgacSUJR7dO
+         ekZXaGkOsi4SR61hHAPBz2Ny0j18Kg35W9CqzDyoIp+8rQgMxeqxFx82GFEd4gGNDcex
+         sstpq4RlSLA6E09OUqM9A88/HYIrvYYwg7C0ZtPJv3GWNvW6I9QHMJPM4dlFsTHBz5Z/
+         WejiTtD4BdeEP7zyDxdLjz1EMFydsEqWRPUGYNoifzHrOvOYLwyGA2re9abVDt5WYTTw
+         rY/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781043956; x=1781648756;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6D7duqRcD3fdsTRow2UhPRWiLjw5TIDW3U11ZLjAtzg=;
+        b=FKgLjAOsg9Y8ja6D0qGt8UP0W/R23nMgEIVTyKIWE6Vac4Q8GlznQgqEHZSeLlflQt
+         a66l94VQS9JsnjBhhrPGFEdOIhZRy6VLRHYqRV/xbUaWvmiccDgeRL+8JiRc7788uWEA
+         GQnvpwtz6lmOUckTke/jYkOCQSZkDO+x7gt5fm4zeMMb0VaCrnA0R/csV99b+lXe3kZ/
+         c/m3pOCKMR/NOhpDqO5B3ANDPlmwSsF+F5Vsa1M9665pHcWWRTLjQoV3idZEiB1XwEC3
+         D+winCUavRERNmhC+Pi8As8tsvTOmK6+DQfuAVIGbtISte81ULSlCjJ06kg/E+JlcV+B
+         Zn/Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+CRNrRqFZPIq/xE1EVHH703307R2WCmazJENrdc/0lOtBqddN/rDqmjxX2CS2RVUQHRlkYvCj/95ba+f21Lti6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZoC7pjc0+hyUEIpWh6j6uZNHM8c+9umfC9zZ6x30pa9f/bFvH
+	K2QYJ8e938w9pkvCpwy5ZNKrU9+UPWxr6gMU0cqpXa+gWDwvNGfwpFg0tlHcAdgDLt0=
+X-Gm-Gg: Acq92OHDVV9FxSC4gUeUh5WCsQpVY4N1iy/v5mGQCqlCyATsK7UhDoL+qgLmtIqCHLo
+	NzB0ttzZNKgqtN1sYRDvw1zZcVMNcPV/ekhMetmlG6/pHOkau92XixI0W5eL+kW6PHxZ5/BB/OA
+	kbaVxXB+rByq6swiiLNKUVPPaPsnvae1xD1vpuXMbSpakTamPP+ccFtmUqXjx1vEOPVavKgWfLO
+	jIXQFj0TO6Dpa8nXJObJ5wBZRfYYukuuHq0+7k1ghss0lrgH7iKFhvtXRf9fNXbmFW7kdivJYqU
+	skj8h2SwByikfroWOviTya7mxea7CVRcdTY6y2LUJ1RdZ5p4/PplGax2z3aBZ9sw6h+lHxB7EoU
+	IN+R+IvPhVEtNly8oelVmki7PC5iu2fo+tFmKHde3A1rYJylIbMkSXuXmcZrGMrmRSQic5iFc3E
+	dn4L4iEhDyX6C+4lbXIrararrXaJLiIBQ=
+X-Received: by 2002:a17:903:2381:b0:2c2:27be:39a7 with SMTP id d9443c01a7336-2c2a1c9ac2emr57718625ad.29.1781043956535;
+        Tue, 09 Jun 2026 15:25:56 -0700 (PDT)
+Received: from localhost ([71.212.202.210])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2c164f6e2adsm238181875ad.5.2026.06.09.15.25.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 15:25:56 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: linux-gpio@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Lamparter <chunkeey@googlemail.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+ Tony Lindgren <tony@atomide.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>, 
+ Pavel Machek <pavel@kernel.org>, Matti Vaittinen <mazziesaccount@gmail.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Jonas Gorski <jonas.gorski@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Vladimir Oltean <olteanv@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ linux-wireless@vger.kernel.org, linux-omap@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+ linux-sh@vger.kernel.org, linux-input@vger.kernel.org, 
+ linux-leds@vger.kernel.org, netdev@vger.kernel.org
+In-Reply-To: <20260520183815.2510387-1-arnd@kernel.org>
+References: <20260520183815.2510387-1-arnd@kernel.org>
+Subject: Re: (subset) [PATCH v2 00/10] gpiolib: fence off legacy interfaces
+Message-Id: <178104395573.234140.4413143072350533512.b4-ty@b4>
+Date: Tue, 09 Jun 2026 15:25:55 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_150836_826391_40FE014A 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260609_152558_181328_011E532B 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +120,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sayali Kulkarni <sskulkarni@amperecomputing.com>
 
-Once active_cpu flips to ACTIVE_CPU_MULTIPLE, it never resets, even if the process settles back to one CPU. Reset it to ACTIVE_CPU_NONE when a new ASID is assigned after rollover, since flush_context() already issued a global TLB flush at that point meaning no stale TLB entries exist on any CPU.
+On Wed, 20 May 2026 20:38:05 +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> This is an update of all the patches that are still required before
+> we can actually turn off CONFIG_GPIOLIB_LEGACY for most platforms
+> in the final patch of this series.
+> 
+> I originally posted this as a series in
+> https://lore.kernel.org/all/20250808151822.536879-1-arnd@kernel.org/
+> 
+> [...]
 
-This gives processes a fresh chance at the local-only flush fast path after each ASID generation rollover.
+Applied, thanks!
 
-Signed-off-by: Sayali Kulkarni <sskulkarni@amperecomputing.com>
----
- arch/arm64/mm/context.c | 2 ++
- 1 file changed, 2 insertions(+)
+[09/10] ARM: dts: omap2: add stlc4560 spi-wireless node
+        commit: c5a0ac76b364bbd1d4fb7e440edabcd2a369343c
 
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index f34ed78393e0..0c92cc8fb4cd 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -250,6 +250,7 @@ void check_and_switch_context(struct mm_struct *mm)
- 	if (!asid_gen_match(asid)) {
- 		asid = new_context(mm);
- 		atomic64_set(&mm->context.id, asid);
-+		WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
- 	}
- 
- 	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
-@@ -321,6 +322,7 @@ unsigned long arm64_mm_context_get(struct mm_struct *mm)
- 		 */
- 		asid = new_context(mm);
- 		atomic64_set(&mm->context.id, asid);
-+		WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
- 	}
- 
- 	nr_pinned_asids++;
+Best regards,
 -- 
-2.47.3
+Kevin Hilman (TI) <khilman@baylibre.com>
 
 
