@@ -4,138 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09262CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A022CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oqnvk+IqNSgxtN7lgrT9gTWIrgCsQaSWQxoR1KyhfjQ=; b=O8kVb4J8ls5XEkkzZNXjZTF5pt
-	lrBXaAgB3cQ2M5gf0j+t/NmwyKnd18/r4elqVrrxq+s+IDgMd64xQSZm2IQ1E7evos7o/UI4Rxi3L
-	l6ZYL5DNhul+wOA4MQrSF1VkRemeXME1h8twrd3JNDhVKGv3JkfLMk9IGm2uSm82VuRHuRy3V/v4p
-	StAKPFVn0rDhNtLde8erv9TsGqx28F3Z2QsNjGHqBXE2w3GyO2nKjc48/JAs5A57nq6QtcXIUfIVm
-	CfKxLESYgP3ME50rP/2umxjvgdWShpVhalCPWfy9yOH01V2yRS+sbH8bpDpwSKU50Vt4WvMuLtrLe
-	bPmpEhsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=; b=hY8UM7scEk53bcYNQoZoS+/XZR
+	Zkh7mTylMp/JCcDrWG8bTLSlTtU3PS5FLZ9k0oRjMH4XgRhis729XaUxeL4J1on4PbkKm+WYRRxcb
+	eNPAUVkzjAAxQzdbBfUhpUu9mtRvTP3KUMj9U4jM5jz121Of9n4/qQRSxBKFXaL2UbOKdVECeeP4S
+	o5U/o2c8LorA94HGyF72VqJuG2buttXmeS7Bj9Yg/MCZ78H2QbwxHLvGfGTJjRjJYetGK0eKYsIMe
+	v2umOLhR/4SiytBcKgcCyOdFDbZzks8l6IrxtbNvJx79eXs20rAE5GndCDWYBTscdx3u13dv7l5yD
+	t78k0R5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX12S-00000006BTX-3Onv;
-	Tue, 09 Jun 2026 18:19:00 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wX14a-00000006BiS-0OZ6;
+	Tue, 09 Jun 2026 18:21:12 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX12Q-00000006BT4-1n9F
+	id 1wX14W-00000006Bho-2jEy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 18:18:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rLcShSUve3C2g/oZrKHHKWi3ZspZyAOOevKCw7OIXgvJcTkJq6K+LMIUB6HF1SJRt4ez6O1goneaiJCXuDUK3IBzV335S3JaZ6mrr5fdAtHuJhyQaMJpvcrh7O49ZxULBCVTwzPw/8l6NAJsN8uqV1bWopI1BRYPfd1o+MVMCSw/X2w5XqZB5YaXTnlCLL894up5VZvhAnUKc7k5nvsYx2iIdekmcnhGXJF/vQ9ISSZFmpzEEQiwQvP9MgscT1bSZ3phSHbUPnikd21y9aAxwbBKVvcIjj2jZDQQN4fB+qK2NuT0I2SBL34TceRUB17/wdGB1iRCwDIlAzikwLS2/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oqnvk+IqNSgxtN7lgrT9gTWIrgCsQaSWQxoR1KyhfjQ=;
- b=XkS25RUR2GdX3Zm3e5dP4UlzCxyCyxhXeQE87ilSL/y6KQIWKCfuEmStzIsMcXt1CBlByf+aTv8hX93mNC3NqnztvcB8eF8T9R7AyFxr1cV8Mtr5oUtVaQEp5mK+xRqt089xIyzz66tEtXr1bSIUpgst/UBO29M6s0ZfVoiVC09cRre2soa+qlz7Xouj0IfmSPaLndif35KAyjQieQ86uCiTbIKj830xAX/h7T2P8aex877b9rdPBeANIe3mHVgzTn56UcCfii7fLwwsnVf+Qp+qgQ13dUZyhXXHSjzojmFFoAk8WUN96AnnBdoTy7U1DZClXYbQEL2zUBH8tcno0w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oqnvk+IqNSgxtN7lgrT9gTWIrgCsQaSWQxoR1KyhfjQ=;
- b=vqk2o/2lYYeAJYZB4EgEJwAkioQRxEW0Dvlgnepab0u73jQPejbwU3Il+R8NLuj/uCIhMdtcTWRdJPXGPZCqRxC6EaLca/VvL0pEn3p7Eost4MTXEoUDjxmok0Qlu6bDVRxXxgzf6llH63MxtUxpSSvkkwIXJ2BZ9+c4zVhCdcB5iYiFXp2SLpVq3L9prf2Qp1obEFXy483MkYdHRLpHncu5Pw7GdjEMjI9QsUQ6UBzDqDoVhRwKHjNNfObS+7LTJZrT6ypIWpluy5mC+soNE0mKmLz/NesRQ1jLCveqeI/WOjm8Dhv4O7BudMAietucpr9GRW0SwEtl0J8dH9NVZQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB11013.eurprd04.prod.outlook.com (2603:10a6:150:20a::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
- 18:18:53 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 18:18:52 +0000
-Date: Tue, 9 Jun 2026 14:18:44 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
- optional "memory-region-names"
-Message-ID: <aihZBB0rMob3a23f@lizhi-Precision-Tower-5810>
-References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
- <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
- <aihB5rVLsVqzg6cb@p14s>
- <aihIIwt_9T7yYxP3@SMW015318>
- <CANLsYkxw6rbWNom8rNfKurKAXKpihqV1LTd51D5YXG4oFP6-wg@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANLsYkxw6rbWNom8rNfKurKAXKpihqV1LTd51D5YXG4oFP6-wg@mail.gmail.com>
-X-ClientProxiedBy: SA1PR04CA0024.namprd04.prod.outlook.com
- (2603:10b6:806:2ce::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 09 Jun 2026 18:21:10 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-68ced08613aso47621a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 11:21:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781029267; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SROsTRDoklw0qvD4ikk2FaBFhdhi9cZD3RV2VyVwm8BkurzIO2/gp+kq+S/YmvOCUA
+         D8OOe3k3CO2Nczhi2n/wlJEqJouXhrXV3AQqpccum7GuCeaoNM4bhEpZI7t7PXBcMhBf
+         SNKKKbXoTkvHl3aMxA58TE4E0Cwn1/Yhj5koS9HCuPRdM1QJbX7LlTLOfyVfXFeMO5qx
+         mbmqjd1UPl0GPibO3a2QbF9uXhG7ymK+gOz9Eg5vPq3Zz9PXIvxcK687KGH8MQDpEXY6
+         rxp8j1gAROJkl9yg5PyKUIBBrvJv+FJYmARHn2WuLBzxQCdhZAQBKQOIVPbCIWYdw6q4
+         4UAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=;
+        fh=dhwYiYqaXnDlcYtmPSpOQ1w8tPFudJ/rzzXVZ8zoKyo=;
+        b=gY2tjYkqsx4aO37/+FDy8z5rjLbCiRY2iMuMN11ECc+uRhzLNAHrePkHOkXmCInv0/
+         /kM/2jk8yaDdnFncYcGPYpb1WE/Rzb6+A9wV1HPIWs8Qd9roUj/lMWSdxKSr8eGFOVsu
+         A+kKsze/+16DqrQcom7fPsQFD3l7PG+ACuHhvskk7tngpYWRM0sQxTSfys7d4kSfAHWr
+         5VBvhl2tdpcia4igtJXX+GUsyK9/aN2rQGBEyai+sV2LaZE/Rxtm+y4F2FM63RphNB3f
+         47KbpcIY7abBdIOXGMJZXp4zjmAyfzeiffbFp3ndS+dDDH1AN1Iq8iUM/hVJOWWuEfkv
+         HvmA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781029267; x=1781634067; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=;
+        b=k49c0Lsos0d0QVQK6hRIzT+GnjHuLVgR7/vdPS0ZQs3WwFQaas9G2st5eMnIdHZga+
+         JrANUUpwKfNPkASoYiDD1SNPxH+N/lZn8z2GfGi/LIUmKndY3G/gkozNGIPHjvt20ehZ
+         GxdbmEc7t4gV8ZdeOUVeh7sPT9vLvzqgjYT6HRhHjK9hXKlmVC70YW+WS5gLVS/0EGDC
+         TXkfDKyTSYX3TrVul3Inxe1Ol2AZO8LX33Ggd+Z3g7R90dOVSpuiEY1vsfew5wdSSc+d
+         1y5h1aPF4uQvhOMXpP/avfw1gCK87qeWqglUd+kWf4CUCRycTd9xQjS8+8rJd+xUw19d
+         /n+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781029267; x=1781634067;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=;
+        b=rEzucqvTOFLbTeelp4xaka6Qdaj6dNv55S0vBVYxetblfHf4jjPojXORGRZOECcY8y
+         ScqT/VipZe2/jUEl/6z+ZBn5prMz3tz12ZwyhhjWHli8SEMFLXDdsdl06e6VqzRdxgaG
+         PDPcz5hdd3EP0o+oW+buCzD/hfTcHAH+asyjSHTq1lKbaSM6z3wJhNn9cCNzerE1zAdz
+         HHdePvPdEvwxS6J+MAGs8UFyDs5vuTM+gShVVEMSR0bLkStf4qnYVyiqUEXsptboxYbl
+         P2UY9fQND9RGFWmmU3Y0sei7o8QOUFjPqO6te7a1MboKLG0KmaOreMVrfE3qOmEn+Icg
+         S13w==
+X-Forwarded-Encrypted: i=1; AFNElJ89CEu71v4N4LGnIh/rwDRVxpI3YFDXThJ6im3yb2s5BndI/V6mVkfd7RToyAydknrGv317hezoOj5pSwxjbvto@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA3izOOvJFvvWURS7koXNn2379QVXs59a4HhYO0yvV+exAd6sB
+	02dHSbP/2FLicd/mn/XTZ6afZE+e8bz844xdPXt/KkyD/C8lxDlHmsyoADYzaOLQ83/LE8z2t2f
+	3wToNbfHdVRsogoUrXjRoPDacZ1UX8NDvcfF2NMqX
+X-Gm-Gg: Acq92OEn+pnEjq/vBUT1+L/d+qafSCAqMNF5iPyFnpwLO3tGXMh9Z51i7cpOwbK5WUO
+	PpyM2Pq5q+qdNy9d6UWVRAgw3CKotEbUpiQyZ/foFXffD4bUsI6l+/3d3o4wxz3vCEaKcRv0pwl
+	EeEmnNreBekQo+MFK1s3mh7k+S8ryuXYhoWCJYlFXQBqr1SbNYf14ZpDxoI3Hg/wUqrxYtAVYlg
+	DOpIWhk9HqU6jejs+9FCMzrVnxNk1P1hwqHBc1NnoFEqvtsXhBKIGYw/iipypfndUBtf7vtjtYD
+	agMdqZ/OYVqXPgPq5uiTvz/TtafTKc0A2z+RZUf4HNHPNNkG
+X-Received: by 2002:a05:6402:31ec:b0:68f:d45f:e495 with SMTP id
+ 4fb4d7f45d1cf-68fe9382c98mr232792a12.12.1781029265990; Tue, 09 Jun 2026
+ 11:21:05 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB11013:EE_
-X-MS-Office365-Filtering-Correlation-Id: c87dffcc-34da-47d7-e35f-08dec6538f81
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|13003099007|18002099003|22082099003|11063799006|4143699003|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: OGR1q8gZ+tKX1Vpzb8h1ITLSH05LXzqhnzrAHWLf8t7cYpDGKGkFzmziziZxu92T9dFovPELGzD3EnlwzhAQhd/lIbA2ygVXshFH9O8bkDDRO0jw7WrKinSrmsHFE4XV9MwOrztAbP5i3Z7MJrLMiZZX115n4AipA1eghNjO5IS/kgKT5RnT9MSCcTaMUjQG0gu9vCxP6Gdp/5vijXS6uckeG6igRyumZnWnDK9LN6AjugyY5NIigzYlPj/8Bb/5Q4B1hDRRK5XsMYcRgrN+r9Y3Iqzsr1Ghu7Kuna6PbZ5qjFs+NPNCoZOaqJ2XQDMrLZ1Zu215kksRazVy9JtFbHnDXxDVUVfKzuRBs+g3kFkbFXbe4NtQv5dmg07NKLPkxKy4p4JF4zBV+0sblXUM2JHdBzbC62JXB9aQ5puuFoyNqQbCZ+xPxSLNQ0tWeQ1VOO+LqpUEF7qsdivkDAQQDOuCjm2JcnnOkjv38U8QCj1v4gBCDyDoBFPkNyWiGmCNnBaf/o8jhJJjUBuS5xxL/bGnJJFptDH6lY2gsnViOcyGXid5uYmXmJbN5qpi0XeBO8X1Zay+EgGlnM1qWEVqvPe09tOquBCico0HFmL1oDZh2KJrXHL9R5AsqIc8N30GWi/f4nUux3t1rVGuhPMKlpnKy3sPL8UKCZKYwtEKN3CTo2hkLNSzG0KFa5+8jgK0
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(13003099007)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gTNDpuVln3jS//dtQWkibK9FMmAqe5RXsf/87zm07z0O/FkCZv96kAkW94dL?=
- =?us-ascii?Q?rMy/MSJcskpOO2AQJZvSqidr/Mdn7guHQjScOWjGXXHH3ud28rL4z5wKSsnU?=
- =?us-ascii?Q?oUVVqaBTJzgunGUH3UmduRvUdq0gqJS96vFx5GgiRK3BAs83gnhCjFDOOvXO?=
- =?us-ascii?Q?/uNEI8w4yDsH+p5HlML6+S1lpGnaBKeFWLGPoOYKiOcqj9cZumAyQzjh8Xky?=
- =?us-ascii?Q?rpOGzIUOZByrP1+Wl/Zzekdia/38OFDGPFhgUMSxuI59/A5bBJBToPzcmdyw?=
- =?us-ascii?Q?4vqkQ7ZCkZJJxwViYnCShymdyrX9ftmKgzDoAJsuohLAheqRgOUEQzGi47vG?=
- =?us-ascii?Q?0m3T277ytnF7fhGTRRCrECwhxwFE5Sx2nX/yY/XE2dhHTT0f7pYsVgJqYh1K?=
- =?us-ascii?Q?LgNawYCu+6MrQiTByHjbrdKu0FzNLJg2+yFwNLaG4b/9Kmkgxh9oEQL8G7bJ?=
- =?us-ascii?Q?dzmLCiQsg+P8x59rkefjFGF2f6vEY1BPAeqgtp/nCfxiLz2YwZxyfv04Zkut?=
- =?us-ascii?Q?2umQcp0JOQP0ec5IIOZ0VSJUgYgusTYVgemtfyujbmzQFGIt9duBFpsM2PEn?=
- =?us-ascii?Q?t7IK3t15oNdHWELyo4wggOrG66ZObXYhwZ445awUw60pEnnmPSWGEJNNFdxh?=
- =?us-ascii?Q?Qb1oZVtcs+4/Sk12ERXcffBR8pwke9/rh18xsYjzmfpbGlRZHG6UArAKd1/L?=
- =?us-ascii?Q?k8ls2DO5WQAM7sVJujTUO89+TRWuc3YLGHMEpVISIKRtRKPCboZbvHBaDdpv?=
- =?us-ascii?Q?+WutnbO+czf97JNyMUadD2TnUmKC1neF04NsFScWNr+P41IpmCylly13pP0u?=
- =?us-ascii?Q?XVeQVianq2CT8mGuoYC3TTXaDHxuELXOQRu7yp+yvOP7CCU+SzeT7Ct6eaMo?=
- =?us-ascii?Q?Xe/sqYuTq5vgBuIOOemp1SQtvr/CN1ZHIxXFrAUUGOmJbSW706BqQREdQPS3?=
- =?us-ascii?Q?XG1Z4KBO/GomXpSkGjabP7DxlldHBJc5uqOvg9y3tInNpLXexc01EtpQdhXO?=
- =?us-ascii?Q?Ce/bh/LVskA3aaomdQqFonb1UfSFIKRPoRH3noLn6yx+Dusv1uuTj/pgiTeg?=
- =?us-ascii?Q?TNXQaDFONMLCC99pZ2Lx97bLXj6HjCS2nBD/pXAmEh0vGIvQTim4FK1SEtBa?=
- =?us-ascii?Q?3ObeiP2lFnuXpjdZvTqKKUZoEQrkH3dETb6vcvqbFNq2Nh9Vju90OQW2pmwV?=
- =?us-ascii?Q?ziCbeNs/p9hHr3IOFp9vnSSVKXz/yWtzcS/4M4FlAZ+6TnZcT1j38hWq7TS2?=
- =?us-ascii?Q?3rzC6RKzeAJE6n8yzC0AliYk+I97UTFNz31KXeXS0Nv65gpEEQPyFPZuKdGX?=
- =?us-ascii?Q?VwueSoY979OcYp6wJHkC3CX4arWwSLf78Ev4JS7/2zvEk5QEfS7ahLBbDZyC?=
- =?us-ascii?Q?H0T6EC+i9qApVHknvkpw5dE/8wPra3ytCA7kN112r+KmwZo3k/yjTyViNPOk?=
- =?us-ascii?Q?7PMvxOPSnoVf9wN/QuKrdM5zXGcvmfh0SWB53huwJ38KpYyRg9M/aAHNmzMi?=
- =?us-ascii?Q?zox8G8kvnMbDtOzXvFHnh8kz8/f31SxsHtVYhQ99/aHudhOGxx1nZr2o3YeP?=
- =?us-ascii?Q?VRK2Fqp6NaWxhOXWhWte4aADKha8yt8ALh/fkRTq1HEzFXfXHF82/pB63L/f?=
- =?us-ascii?Q?J+RsBd4b2QaqlIuzeFb6CxIIz9bXpikpNvI0AGFt+++xcYjCMuGMLdBoO+h5?=
- =?us-ascii?Q?Yp5NQTAvj2X+aLxj1UdCZjlQs5o7TycmRvSXJhrrg4U2HDSmgp16WkMJCw7a?=
- =?us-ascii?Q?NyK/o/VzI9SDbjcUbAlS5miySdIVeU9fY/JQxtpBmoVFoPPSy3RO?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c87dffcc-34da-47d7-e35f-08dec6538f81
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 18:18:52.7219
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CA2pU0oobHArsCfzFBQC43xJ3+x/kpAmFktLn9ayLBo6iD2ApV5F0gTCIvoSufuz+BXzsW2E1IfRd3Q2YD16XS/Og9DONvTgCdocm2GMRMORcAdro45f1XeXmPkQ7Npt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11013
+References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-8-praan@google.com>
+ <CAE2F3rDF5dVJip2gc+vaxtM-FRttnUEnAetUYz6qDCXRM=fNYg@mail.gmail.com>
+ <aiZe97OkmvcUwCzS@google.com> <CAE2F3rDZupDgq5tQrvpuixGi-kVs+oi-Tacqa=Rxtri03LBPHQ@mail.gmail.com>
+ <aiflaI4svEJvZbsC@google.com>
+In-Reply-To: <aiflaI4svEJvZbsC@google.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Tue, 9 Jun 2026 11:20:52 -0700
+X-Gm-Features: AVVi8CeTKRxbhFjrttlZsJY9AQdiqj4OtT4AHceLLJ3_VrIG10WtubU1Iu-Bo5A
+Message-ID: <CAE2F3rDgXxAhJFUX6=xars9H92t8NBDqcFRxU7d5wJQ7buUbNA@mail.gmail.com>
+Subject: Re: [PATCH v8 07/12] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
+ gate CMDQ submissions
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_111858_518760_B282C4E7 
-X-CRM114-Status: GOOD (  33.66  )
+X-CRM114-CacheID: sfid-20260609_112108_856031_19B648AA 
+X-CRM114-Status: GOOD (  37.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,89 +122,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 11:33:03AM -0600, Mathieu Poirier wrote:
-> [You don't often get email from mathieu.poirier@linaro.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> On Tue, 9 Jun 2026 at 11:06, Frank Li <Frank.li@oss.nxp.com> wrote:
+On Tue, Jun 9, 2026 at 3:05=E2=80=AFAM Pranjal Shrivastava <praan@google.co=
+m> wrote:
 > >
-> > On Tue, Jun 09, 2026 at 10:40:06AM -0600, Mathieu Poirier wrote:
-> > > [You don't often get email from mathieu.poirier@linaro.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> > > Even if the worker CPU reorders the PTE write after the STOP_FLAG che=
+ck,
+> > > it is benign because the SMMU is incapable of fetching that (or any) =
+PTE
+> > > while the gate is closed. Because GATE_CLOSED =3D=3D SMMUEN =3D 0, im=
+plying no
+> > > access to any HW structures whatsoever.
 > > >
-> > > On Fri, Jun 05, 2026 at 04:36:18AM -0700, Laurentiu Mihalcea wrote:
-> > > > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > > >
-> > > > The names of the carveout regions are derived using the names of the
-> > > > reserved memory devicetree nodes, which are referenced using the
-> > > > "memory-region" property. This adds a restriction on the names of said
-> > > > devicetree nodes, often bearing specific names such as: "vdevbuffer",
-> > > > "vdev0vring0", "rsc-table", etc... This goes against the devicetree
-> > > > specification's recommendation, which states that the devicetree node
-> > > > names should be generic.
+> > > The real synchronization happens in the Resume Path:
 > > >
-> > > I don't see what is so restrictive in using the node name of the reserved-memory
-> > > regions.  Function of_reserved_mem_region_to_resource() is already doing all the
-> > > parsing, packaging everything in a neat and easy to use "struct resource".  What
-> > > will you gain with this new "memory-region-names" that can't be done with the
-> > > current solution?
+> > > 1. arm_smmu_device_reset() clears all caches / TLBs.
+> > >    (None of these can have entries before SMMUEN=3D1)
+> > >
+> > > 2. We execute a full smp_mb() before setting SMMUEN=3D1. (that's why =
+we
+> > >    need smp_mb before SMMUEN=3D1). This barrier ensures that any PTE
+> > >    writes made by any thread=E2=80=94including those that were elided=
+ while the
+> > >    gate was closed, are globally visible before the SMMU hardware sta=
+rts
+> > >    fetching into TLBs again. (This is why Jason suggested this in v6 =
+[1])
 > >
-> > DT Binding check can't find such wrong if node name is not what expected.
-> > Binding can't restrict memory's node name because there ware not specific
-> > compatible string for it.
+> > A barrier on one CPU has no bearing on whether writes by any other CPU
+> > can be observed by any particular agent in the system.
+> >
+> > Let's compare this with the long comment in
+> > arm_smmu_domain_inv_range() which is what I believe Jason was
+> > referring to. In that example, you see smp_mb() in the code path on
+> > CPU0 and dma_wmb() in the code path on CPU1. Hence, barriers exist on
+> > both sides. If you compare the runtime PM design with
+> > arm_smmu_domain_inv_range(), then smp_mb() belongs in the CPU thread
+> > that performs the translation table updates not the one that performs
+> > the suspend/resume operation.
 > >
 >
-> But what "wrong" could that be, and what kind of restriction are you
-> hoping to enforce?  What specific problem are you hoping to solve?
+> I might be missing something here, so please bear with me. My
+> understanding it that's needed because the IOMMU is live & actively
+> caching, which is not true for our case.
 
-The sometime miss rsc-table or wrong use rsc_table as node name, dt check
-will be pass, but related driver will be failure.
+I think the "invs" design (Per-domain invalidation array) is more
+similar than you think! An SMMU being absent from invs is equivalent
+to the STOP flag, and the STE pointing to TTB0 is roughly the
+equivalent of SMMEN=3D1 i.e. the IOMMU is not actively caching a
+particular translation domain until an STE (or CD) points to it.
+
+> [Assuming we use non-relaxed semantics & ordering for the STOP flag,
+> i.e. set STOP_FLAG + barrier & clear STOP_FLAG (implicit dma_wmb())]
+>
+> In our case, during the resume op, we first clear the STOP_FLAG before
+> setting SMMUEN=3D1 in program order. Thus, any PTE invalidations occurrin=
+g
+> before SMMUEN=3D1 are executed, i.e. EVEN when the SMMU is guaranteed not
+> to access any structures, we've resumed invalidations.
+
+"[...] we first clear the STOP_FLAG before setting SMMUEN=3D1 in program
+order." I think this should be modified to "we first clear the
+STOP_FLAG and ensure that the cleared STOP_FLAG is observable by all
+other CPUs before setting SMMUEN=3D1"
+
+Re "Thus, any PTE invalidations occurring before SMMUEN=3D1 are
+executed,": I think that "a PTE invalidation occurring" is not clearly
+defined. Also, it's not clear to me what this statement implies. It's
+paramount that invalidations are performed when SMMUEN=3D1. The fact
+that we perform invalidations before SMMUEN=3D1 is more of a side effect
+of our methodology.
+
+I would define a set of invariants:
+
+ * If an agent observes the STOP flag, it is guaranteed that SMMUEN=3D0
+(with ABORT set) at the time of observation.
+ * Any transition from a set STOP flag to SMMUEN=3D1 involves an
+invalidate-all operation prior to setting SMMUEN=3D1
+
+Hence, if a CPU observes the STOP flag, it is assured that (a)
+transactions are blocked and (b) if the SMMU is ever re-enabled, an
+invalidate-all is performed prior to it being enabled.
+
+I would then argue that all operations support these invariants. For
+example, we need proper barriers in the iommu_unmap path to ensure
+that the STOP flag is only checked *after* the translation table
+update is made. Hence, we need a memory barrier.
+
+I look at it this way: Every elided invalidation creates an
+"invalidation deficit", and this deficit is tolerable for two reasons:
+(a) SMMU blocks all transactions while there is a deficit. (b) An
+invalidate-all eliminates any deficit accrued while the STOP flag was
+set.
+
+> Let's consider a few examples:
+>
+> 1. SUSPEND (say CPU0 is suspending)
+>
+> [CPU0] SMMUEN =3D 0 =3D=3D> SMMU stops accessing HW structures (ABORT NOT=
+ set)
+
+I thought we never disable the SMMU unless ABORT is set.
+
+
+>                       HW structures not accessed means no TLB / CFG
+>                       cache accesses as well according to the spec.
+>
+> [CPU1] =3D=3D> PTE update =3D> Invalidate =3D> Succeeds (although SMMUEN =
+=3D 0)
+>
+> [CPU0] GBPA.Abort set =3D=3D> Txns are blocked
+>
+> [CPU2] =3D> PTE update =3D> Invalidate =3D> Succeeds [Txns blocked + SMMU=
+EN=3D0]
+>
+> [CPU0] =3D=3D> SET STOP_FLAG =3D=3D> Elision begins
+>
+> [CPU3] =3D=3D> PTE update =3D=3D> Invalidation =3D=3D> Elided [Txns block=
+ed + SMMUEN=3D0]
+>
+> Hence, the races in the suspend sequence are handled correctly.
+
+I'm not sure if this description demonstrates that every possible race
+is handled correctly. If I compare this with Nicolin's presentation in
+arm_smmu_domain_inv_range, I like that presentation, as it explicitly
+mentions loads and barriers. For example, it has an smp_mb() followed
+by "// load the updated invs". I think you should make have something
+like "smp_mb() ; CHECK STOP_FLAG" in your presentation. Currently, the
+STOP_FLAG checking is somehow implicit in "Invalidation".
 
 >
-> I'll wait to see what the DT people think about this - I personally
-> don't see the value in it.
+> 2. RESUME (say CPU0 is resuming)
+>
+> [CPU1] =3D=3D> Update PTE =3D=3D> Invalidate =3D=3D> Elided [Txns blocked=
+ + SMMUEN=3D0]
+>
+> [CPU0] =3D=3D> Clear STOP_FLAGs [Txns still blocked + SMMUEN=3D0]
+>
+> [CPU2] =3D=3D> Update PTE =3D=3D> Invalidate =3D=3D> Succeeds [Txns block=
+ed + SMMUEN=3D0]
+>
+> [CPU0] =3D=3D> Invalidate all TLB =3D=3D> Succeeds [Txns still blocked + =
+SMMUEN=3D0]
+> [CPU0] =3D=3D> Invalidate all CFG =3D=3D> Succeeds [Txns still blocked + =
+SMMUEN=3D0]
+>
+> [CPU2] =3D=3D> Update PTE =3D=3D> Invalidate =3D=3D> Succeeds [Txns still=
+ blocked + SMMUEN=3D0]
+>
+> [CPU0] =3D=3D> Set SMMUEN =3D 1 [SMMU can now access in memory structures=
+]
+>            However, the TLBs and CFG caches are clean because everything
+>            until this point couldn't have cached anything anyway.
 
-It will align dt spec and align ABI defination requirement. Node name can't
-be used as ABI except that is defined. It will elimiated this kinds
-hide ABI.
-
-Frank
+My concern with this diagram is that it appears sequential, suggesting
+operations happen in a specific order across CPUs when they, in fact,
+occur in parallel. I find these diagrams more useful for describing
+failure cases than for proving that every race is handled correctly.
 
 >
-> > Frank
-> >
-> > >
-> > > >
-> > > > Fix this by documenting an additional, optional property:
-> > > > "memory-region-names". This way, the carveout names can use the values
-> > > > passed via "memory-region-names", while keeping the devicetree node
-> > > > names of the reserved memory regions generic.
-> > > >
-> > > > There are no restrictions imposed on the values of the strings passed via
-> > > > the new property since the software allows any name to be used, with some
-> > > > names (e.g. "vdev%dbuffer", "vdev%dvring%d", "rsc-table") bearing a
-> > > > special meaning.
-> > > >
-> > > > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > > > ---
-> > > >  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
-> > > >  1 file changed, 4 insertions(+)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > > > index c18f71b64889..8e3e6676a95e 100644
-> > > > --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > > > +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > > > @@ -62,6 +62,10 @@ properties:
-> > > >      minItems: 1
-> > > >      maxItems: 32
-> > > >
-> > > > +  memory-region-names:
-> > > > +    minItems: 1
-> > > > +    maxItems: 32
-> > > > +
-> > > >    power-domains:
-> > > >      minItems: 2
-> > > >      maxItems: 8
-> > > > --
-> > > > 2.43.0
-> > > >
-> > >
+> Hence, right after clearing the STOP_FLAG, we're taking in invalidations
+> as normal in the resume, much before the real caching can begin.
+>
+> Thus, by resuming invalidations before SMMUEN=3D1, we guarantee a
+> consistent state before the very first translation is performed.
+>
+> Apart from this, I guess I'll drop the can_elide check from all
+> invalidation paths.
+>
+> Does that sound fine?
+
+Dropping can_elide sounds fine. However, if you still use this
+function, for example in the gerror handler, then you might consider
+renaming it.
 
