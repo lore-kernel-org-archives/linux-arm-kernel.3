@@ -4,99 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379FBCD8CAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBC8CD8CAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQpu1OhWPmLhgQCfoB8dpZ9HJ92662GsLDeWYFfZD/c=; b=MHcjSbontsskcG2l8CEKxX60ye
-	bnlo8LsDqmwgtyW9Ml0CV+7twauczZZA1UeS//8W5gqho3shM/qM6AThOdUlYfq/yj7daBXHxFYfY
-	3z0IFFmSr8Q5z91DTiZsHbZJTo0dSk4S9+2YJDxNaHAJALPPC8GAKFUB4fegAzTRR5w1DATcnkEbc
-	f9m9NzwnYA9JLHvP6oQN8Ap1eSy2cmgrr/fiR5C2lq1kRwm+iIrlN0hhVFKUAGYmE0VxvybYseGsW
-	Wb7YfHlp1VGQd6Sf0xL+LnyGNbe19OaRGp+gJZelAeaoW0OgmBRhucAKtF/CkMyBPdc5obDhrH1xV
-	tbAfMtiQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ptWu2hzkQ1kCjnXDRGNBo5UqedD/Jo7SZZDSrDj9pAA=; b=UJPizKD2uZh/2IiazMkyZLnDi0
+	98gAIihjhmnXBkoxTCBdSXbLpG+vlvmNYwusW2RS/VRHt4pq+Tjluj7iv+upkK8Q9cC/EEoPqbZX4
+	FfDLvl1VN5Rab+4jo0ks+61gJYRaElUCUBchaUBBH68bA6w375rKo7+tCO7arGBnUcKcBVfbqVyIa
+	lYxLEYwxR7hSpUpM8cirqC73/CrXJceZWPnlMW6RFVi3eNGKkof8G8r/jHK3u6BUkBTqRdUhuqRDh
+	IUMq8VXIksY7UUStL+S9Qyu9iFMM6BC3qB6c6eWtva5g5lXMYpyWiqFost5eANAVZjYaPW/7S2s0v
+	blRtBTrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxb2-00000005nSp-1Ed4;
-	Tue, 09 Jun 2026 14:38:28 +0000
-Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
+	id 1wWxbD-00000005nVg-1GOn;
+	Tue, 09 Jun 2026 14:38:39 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxay-00000005nRn-41mH
+	id 1wWxb8-00000005nUl-3Xek
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 14:38:27 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id A8C7E1D00108;
-	Tue,  9 Jun 2026 10:38:23 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 09 Jun 2026 10:38:23 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1781015903;
-	 x=1781102303; bh=OQpu1OhWPmLhgQCfoB8dpZ9HJ92662GsLDeWYFfZD/c=; b=
-	FlfGOwzGAo4KLfS3a9UDfQgvgvsMVtAWe0VHKf2094vgfx28DwmI5w/JMa379O/1
-	b5ToDqNjmSSbVTkRsi+gdt3s8X7rDZcO225BW/cJ6ZHQW/PLPdWEmMPWC1D3no15
-	xRhNXiyB1oDimx0vvBibUEO84xd++meXtt1ZdlFVSJ+JhlqOWY5oEyNmBDKMRPzQ
-	ka9YgZHvpibjkA3Ym6I8BtP8/HYdnPfkr4SAzl9c6KI3DHFlv+Y0fT/oTnNcs8FX
-	XJIt7WrbcuMRU0f5MC169vpDFcR5aENaos9ZFw2FOWYC+JmhW9mcOVX4VKMLZ38S
-	gMzdBSxgKvZy1cP30+B6oA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781015903; x=
-	1781102303; bh=OQpu1OhWPmLhgQCfoB8dpZ9HJ92662GsLDeWYFfZD/c=; b=Z
-	uSsEXRihfmEOUbNXyyzlD9lGf8bwbihB+p+m7QZwQ2pRIZ5wmdChrOzp7MeK1HZm
-	hTDwT4eWV0cIT3Nkgb9iJU8EuMMaHD1ltY9tM+NzEF6cRfF/JpuCiowi9u/UQnLx
-	rEpJa+LhD9nacbkpQYAHeVRiig8Q8eU2lMuQadafP57pGML5R6pOMsMt2PtA17KL
-	Fi9952rSYFVgcB1LpZb9JPUEU5HCooucwTCulTBvKfuXUyqeMf+7W7GSNTC2QLvq
-	9PHLmncpg7rgM/g8XSrh07jxLNA2BFrPi7ThNxIrPXdPoGGQcLJcpzp2J6bcdCvX
-	9rbTzvGq18jPdwrXcKPwA==
-X-ME-Sender: <xms:XyUoak86mUy0BYaOQlug-VUWM2yVQGXhrWFnMQ2UY8SF802vP2G_Ww>
-    <xme:XyUoanihA2ZaAwd_4eRMoS_aHd5iGseMc2rQCcsBhYA6jYD5N0c6kVhUZYogom3mo
-    _LuNr5uwkEWV-mHNRp4uNmaKuKvOY0mqRvYFPsM1gMVJDQ0cFBtE-4>
-X-ME-Proxy-Cause: dmFkZTFYUZGOq/AvS7Q2hJPmVjv314Ck0BIhy23s9lgogZcHS1ANaQJSO05P+xI2m+WrIR
-    lS0w8oye2jIfpymb+Xyu+duM38FHTA0w5MO9K0uFSW6i6r5TZZv2HW1r8H4iPH2gwKajXd
-    ybcger4XpWtJzJzXPOUGlxTOi3xmHRqzWMDhXj7CprbXoftoBaiyX62VReqrV6f/ukiGXl
-    DuYkbc+aL1lS+ysovuDQNGVYjo1eWZTrmxXji5PPnyWIU8Be+oNKrKOyWPmnJ0wBAsSleZ
-    twTroz8W1RaQWvJwrpO+6fAiuH+t6Q8kwt8EeEHS+/1laRcNeAX4QsUMcejITyWOgWXFnS
-    F8X1iBZd8rz58KC8Y6q4D8PCPd+l2LaQaaFitxkUTkzfTRttzlQ+jy0XGpG/4zReZ6hDDk
-    mMccy5K1kaqGdLfKVYcImaF1Wu91WfsjgMjfOO/MmXqW2dzO+PR7K+7tIiRqI+3/FE7ga/
-    8qOSXitySgUQZ2JqsLqOI11K31Jx/PxFuHJ9YBPrxM6YnqQhvKMIrsbvl4cpcADleQ/UHJ
-    9yEPxDezdFtmTHlKmlM+7pEsbGAB80EiZ06iTYzTVYquJ6R3H8GX5HCHMVUwUJdD04c+a2
-    AFZ+P9oZOW8dC0jkOWmWjCU9AxH+CodVXJh5n90lTRlDnjjQPoseKq2auwYg
-X-ME-Proxy: <xmx:XyUoaulhNvs6XOCpyY-0yWjPT6_IGL-Akc6hKsWC54nUxBoPyFw4Qw>
-    <xmx:XyUoav5lOHVcwXLMM32Ol2K4KaZ_X29CE1guqtgQ1QXUDn86bBje0Q>
-    <xmx:XyUoasj8p1IgzrX2TxbttAVsYUtkxyQWG5xe798aoy72z1fAqLTNlw>
-    <xmx:XyUoakFMayXJxA1LLaVEZDFlW5YqAzN2CO54YHxVBeNogLqk7cw7rw>
-    <xmx:XyUoaiiR3g_UTWdn5fFxY7otM63eK8dJgglpMd__i7KDr_Mi4GX2YT4a>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 3BED41820082; Tue,  9 Jun 2026 10:38:23 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 09 Jun 2026 14:38:36 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-36b78532b0dso551182a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 07:38:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781015913; x=1781620713; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ptWu2hzkQ1kCjnXDRGNBo5UqedD/Jo7SZZDSrDj9pAA=;
+        b=VCCVbn0M7sWXgnp+bPEtbw8AsT9q+9Ec7VfNbyIERRfrQLtgSH07hGhQK9ON0mAu0p
+         SByLShELGl7b3PCHBK6NcV6O0j/wFfI5x+gGHaDLQoYzA7O4ZDizTRymgGu8KDQQia5c
+         TgblRAzYG1tTOorXfMG+Fl+NhC8INmiZGnSCgR1D2eeor8AMDjrMEUfV1cPp5MYImmhQ
+         9p4BFfciYHcvrrWK/TGaIKmvioRUynQnZ1XadODu1gi7U/TzM6qqbO4wiqr/XNMOzI5O
+         cJ8zyX96t+jlP6eMXAxosK5z9DIoazd4LJlMJCVCAeolwg53N1jRezzxoU/sXlXdkeXP
+         PhyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781015913; x=1781620713;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ptWu2hzkQ1kCjnXDRGNBo5UqedD/Jo7SZZDSrDj9pAA=;
+        b=Vz1zQrCNgKX7U8viF51KDkQkaDX/8i7gag4AI4pSY8nV51y1kpFwZkHUMhMbuPZN3R
+         t4KCCL8VFpvC7TrBgeMIehLY8u+hJoRBzciaJmvB5QtonA3RZzFdeIZgAPTMxejfdgtH
+         obcGlwOgZ/lMDJ0rvbYwhMu/yTUEF5to3HvPYi3xmieo7lTmQD963VW0mptkmBgejEk1
+         Z2tHAPmssZlHkgzkFjJ6CPhkM+LK/ONfxc+Brwi85LM72ETAb703HJpuzcusifRbpJ+W
+         G0s7IKIVzKpj3Tg5zBdnl1OYDgfNb6vKi8mUSRcGKlvLkvYnsiMtmgmp2bcoTDH2K+eL
+         dnVQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9yEcFFP6SvSoO3+TlUCMFvsBh2xSzFxySwtDtVaLznhO/WSVnUnB8gkH+8WY+ca/hTeFPGcoLuQX56jQLzTlXq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgtQvoiRHh+4QmyL2qWlotq7oQvypACgdSToMPzwQjX3KOxcGQ
+	hC9UNRgS1F5jSlVlwnKcM0xCOOOigTk+iGcSUeSjxVsjIg5qCv3Qi4Pl
+X-Gm-Gg: Acq92OEQjA2rYGXW2L+lsAv3ituKb17NbCYgIKnzZa0uqYef/CC9+KhxBq3E1XZbIYU
+	ovr5MUCRMHaQy1u/Mh7/wi3p3eARxCLd7xqKHCApCi73EKJRT7lNoW07v5uGDohb5Dvj/zu4cvG
+	/cPURUuOlkDVVzIsS64DfzyBDHjGuUCZLk37cupohMelwBDmr8xguvACUhaff0G35pTPSIOc91t
+	Z+i4hMub7Cv+jqtqlOiBodJ+hGTSKUgqjm9qTVLtnnvR1nYnEneLWDv6CBBuCrUrQ3f1oS8S5jf
+	0tltGyJw6YpalmXv4do080cHYvqj0T4JKmmtxjGdZh1DqyKYGyxmAKgAkILf97p82FoZqLnPnw/
+	BjHtZN67BRXu37El/EXPqCAvULU+5BKJIOGTcnAfw3OS0/snGUKUaCbf3yJxC+S2P5T/E4jPr1A
+	yApBUmMxHbGtkyPZDz46tyuB/2BXmV2c/qmRAALZjZRduekhpvqXlo+Uqc0ZbwPIrGQv1uizzm0
+	OGnAMT9XOjNLbBVJACAn4jco0YE/Q4H1iM=
+X-Received: by 2002:a17:90b:4d06:b0:36b:9323:c726 with SMTP id 98e67ed59e1d1-370f0963a47mr10191618a91.4.1781015912704;
+        Tue, 09 Jun 2026 07:38:32 -0700 (PDT)
+Received: from o6.lan ([188.253.112.242])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df0b315esm17939677a12.26.2026.06.09.07.38.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 07:38:31 -0700 (PDT)
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+To: akpm@linux-foundation.org,
+	linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	luto@kernel.org,
+	peterz@infradead.org,
+	hpa@zytor.com,
+	david@kernel.org,
+	ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	npache@redhat.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	lance.yang@linux.dev,
+	yang@os.amperecomputing.com,
+	jannh@google.com,
+	Xueyuan Chen <xueyuan.chen21@gmail.com>
+Subject: [RFC PATCH v2 0/3] make persistent huge zero folio read-only
+Date: Tue,  9 Jun 2026 22:37:58 +0800
+Message-ID: <20260609143801.7917-1-xueyuan.chen21@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-ThreadId: AJX4MtyQJOMN
-Date: Tue, 09 Jun 2026 16:38:02 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Thierry Reding" <thierry.reding@kernel.org>, arm <arm@kernel.org>,
- soc@kernel.org
-Cc: "Jon Hunter" <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, "Sasha Levin" <sashal@kernel.org>
-Message-Id: <7c575b6d-5543-42e8-9b7c-be1e7148c454@app.fastmail.com>
-In-Reply-To: <20260531060825.1855391-4-thierry.reding@kernel.org>
-References: <20260531060825.1855391-1-thierry.reding@kernel.org>
- <20260531060825.1855391-4-thierry.reding@kernel.org>
-Subject: Re: [GIT PULL 4/6] firmware: tegra: Changes for v7.2-rc1
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_073825_279588_A6DA29D6 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260609_073834_891383_45EED84A 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,27 +124,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 31, 2026, at 08:08, Thierry Reding wrote:
-> From: Thierry Reding <thierry.reding@gmail.com>
-> ----------------------------------------------------------------
-> Jon Hunter (2):
->       firmware: tegra: bpmp: Propagate debugfs errors
->       firmware: tegra: bpmp: Add support for multi-socket platforms
->
-> Sasha Levin (1):
->       firmware: tegra: Make TEGRA_IVC a hidden Kconfig symbol
+Hi all,
 
-I'm merging this, but I would like to point out that the third
-patch does not actually solve a real problem and the patch
-description is complete nonsense.
+This series makes the persistent huge zero folio read-only in the direct
+map where the architecture can support it.
 
-Looking through linux-next, I see two more of Sasha's patches
-addressing kconfiglint 'K002' warnings. I have not used that
-tool and the warning sounds useful in general, but all three
-of these patches look like false positives.
+The motivation comes from Jann Horn's read-only zero page work[1] and the
+follow-up discussion[2] with Yang Shi. As Jann pointed out, the kernel has
+had bugs, including security bugs, where pages taken with read-only
+semantics were later written to. For the huge zero folio, making the direct
+map read-only turns such writes into faults instead of silently corrupting
+shared zero contents.
 
-Sasha, please try to understand better what the tool is
-trying to warn about.
+Patch 1 adds a generic arch_make_pages_readonly() hook and uses it after
+the persistent huge zero folio is allocated. Patches 2 and 3 implement the
+hook for arm64 and x86.
 
-      Arnd
+If the hook is not implemented, or the architecture cannot safely update
+the mapping, the existing writable mapping is left in place.
+
+[1] https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/
+[2] https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/
+
+RFC v1 -> RFC v2:
+- Patch #01: Drop the READONLY_HUGE_ZERO_FOLIO Kconfig option
+  (per Dave, thanks!).
+- Patch #01: Replace the huge-zero-folio-specific hook with a generic
+  page-range hook (per David, thanks!)
+- Patch #02 and #03: Update the arm64 and x86 implementations for the new
+  hook.
+- https://lore.kernel.org/linux-mm/20260527035607.14919-1-xueyuan.chen21@gmail.com/
+
+Xueyuan Chen (3):
+  mm/huge_memory: make persistent huge zero folio read-only
+  arm64/mm: make pages read-only in the linear map
+  x86/mm: make pages read-only in the direct map
+
+ arch/arm64/mm/pageattr.c | 13 +++++++++++++
+ arch/x86/mm/init.c       |  9 +++++++++
+ include/linux/mm.h       |  2 ++
+ mm/huge_memory.c         | 13 ++++++++++++-
+ 4 files changed, 36 insertions(+), 1 deletion(-)
+
+-- 
+2.47.3
+
 
