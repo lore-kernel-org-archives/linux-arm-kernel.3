@@ -4,116 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72CACD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 23:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B0ECD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 23:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zofyvuanNtU7rvhrOWQ/U6Dpwf7zRWxjdAcD9akXNkM=; b=v1/6G4KDW9Q2v79SHWvdZlbDAp
-	L62h490rxr2QQ6POsPX+tFLxBV4+TMhVGciKZA7fLPV/u3jFmJX/oL2J5vtBDylTklcBEyU5mh1Ov
-	j6W4Kpwbvb+uevLDnCl9ZEh1Q8jamokQDQaPKoRp/ixJb2Rn1T0/LuanLQIr6pzWb/sBo01kZEQaB
-	bLeXpdQr1KXgfJJYxXm2nfkuTUBI+jwPlaNs/i6TCOsdnIyy8Epq5URHnUDTkwsDjUmh7enAD0M3G
-	kJsH++l84wtGgJJB6vBYnn83Llz9xiFr4GgXpsxlARkaLZCBAIn8enAn37IC5C0WjaaThRbDORrhs
-	iRuE7XBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sEcoODBbAmHhF71HEbR7vlQdemMO8cJnQFdN0SVH2Vk=; b=4axlrOe3kCxS9UWxp/ZDWTF327
+	waWRFQqno39ggkVPtOG1/2KAd/Zv1loIvTt7CkOyE1BTGr8FOYjFbqTZcHiYVbXnjg923MIxqSqKh
+	MeIKx3WA4LQIOPoxquq/4sASM1tPaeQLqMtPJ+/JAeU9uxSSRYohTClGXc8+xnoNNyoIRRQO75AIg
+	AGaxxdLhX8eUNB/6d7NOeAqSqFoh7quU2oZt+wM8nBUQj3Df0JEz8CSBsnfchGZZhSmqQ//7B2IWY
+	wirumkL0PsFH4WiB738cP2X/J07DrJ5jlEmfDC9UQvtfwP3cq3ZCNGVmUBAr2zaE8Xr46iM8mZavk
+	uFMotxkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX65n-00000006WCN-1EOb;
-	Tue, 09 Jun 2026 23:42:47 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wX6EX-00000006WbP-1LTu;
+	Tue, 09 Jun 2026 23:51:49 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX65k-00000006WBw-1BVO
+	id 1wX6EU-00000006Wae-0msv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 23:42:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qHQqpZOaKwX3WSwWBUQwhwrzfe2ulnOMYbQNzhFxIETxP1SaIp5R6nly88RpL1q0bZ5UTQQey+ENzh9U7kg7TOwlIXmWgDULWaSdZZ3vMPO9bvb46dSiUbKNwc3o2hXTAGhSWxByqu22KBzdKGK3GtfQnByJw94rpr8d1f1+J8ESzhjaqrBHWWOWdnhwhGJJPWTmzSaQ0/JYP83dZao67py7hC/c8s+6Mabbn4W58uM7qALuvpi80Ha/jezxL1j9W4DJucYVrGfwlGywFivIRtVJL4NLxsUR7qssyjM2Y8csat7cHcht8eZTO1qzbETsa5/hMifPjSEWufRA7OcKTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zofyvuanNtU7rvhrOWQ/U6Dpwf7zRWxjdAcD9akXNkM=;
- b=avLQJbDlg12eO+V+teymozGlq93sITkFyTTCWG6cTw8wtzeM+0H98FTqr4joRwFbXWFjBDapdWx1zgQx32jeM0c3ZO4klgIwgFzhJc0jHkd6isa0ePQ8c1eMg+xpcp2q5ieKslm33LvFTHcyWfrx6rUZ0FM4INm0BTDLGhmSda+2YlCOgzovczp2G3hta9HbF0quKChakhfbcg+8q9ECxAlwSvKk7RMsOwg2yledoqi67OPwCZSA6VxNQXcBhXdfGKxBFPt1dkoMtWWYIsxd/2bTPLw2p98hjyDouTR7cwGFsaU6p9cAtViQ5wU1TENvwTbrQxCdDtfHWE7s8JvhEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zofyvuanNtU7rvhrOWQ/U6Dpwf7zRWxjdAcD9akXNkM=;
- b=RoAJShWHheA7uGlGSrRJqmjdwq+p+sru90wwc7pJPXvjwjW46elXw2Cf14IdX9188TDw9bn3kkjXcaIq9xmhkqaW3Ouc8aPTjTooRpdlQvjCdVgVWYNquuTJMbkIO+1/XQpyyiKGGJcIhQfb/lOocH4y45R41EKerssAA58j29rnne7zIXsrFNDc/si01HBjv62+A7lHXgVvAv0sAH86XwDY+Svge2V1OO0XvX/14RfGnCHnyPxK5WLj9tk7iq7iJ7LmV+pDSZPUreZztQoN3GvIhBJ7nUSDWpxGeg61Tkfy7nDxkJRcW8mME7yk76l1SvvVTjSjWEGKiM9JSLrplA==
-Received: from CH2PR16CA0027.namprd16.prod.outlook.com (2603:10b6:610:50::37)
- by SN7PR12MB6713.namprd12.prod.outlook.com (2603:10b6:806:273::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
- 23:42:37 +0000
-Received: from DS2PEPF000061C2.namprd02.prod.outlook.com
- (2603:10b6:610:50:cafe::65) by CH2PR16CA0027.outlook.office365.com
- (2603:10b6:610:50::37) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Tue, 9
- Jun 2026 23:42:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS2PEPF000061C2.mail.protection.outlook.com (10.167.23.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Tue, 9 Jun 2026 23:42:37 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 9 Jun
- 2026 16:42:20 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 9 Jun
- 2026 16:42:20 -0700
-Received: from sdonthineni01.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Tue, 9 Jun 2026 16:42:19 -0700
-From: Shanker Donthineni <sdonthineni@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Mark Rutland <mark.rutland@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>, "Shanker
- Donthineni" <sdonthineni@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>,
-	"Jason Sequeira" <jsequeira@nvidia.com>, Alok Mooley <amooley@nvidia.com>,
-	Rich Wiley <rwiley@nvidia.com>
-Subject: [PATCH v1] arm64: errata: Mitigate TLBI errata on NVIDIA Olympus CPU
-Date: Tue, 9 Jun 2026 18:40:44 -0500
-Message-ID: <20260609234044.3945938-1-sdonthineni@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 09 Jun 2026 23:51:47 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4908b92904fso70518885e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 16:51:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781049104; x=1781653904; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=sEcoODBbAmHhF71HEbR7vlQdemMO8cJnQFdN0SVH2Vk=;
+        b=nOjNOAW17LNAraewBfQw5JAb3VkPerHgWSZazYh2UF9eM6v2lP8wey0VM7rkkLyLac
+         10mv+vwcpVJEvekVs+OMp/rSnWGei+0VgK/gPz//8wx2BdwAJzci+UtavEFy9dAAoGDZ
+         9HlDh1f2QLy5GLtES5bhUcz1/2VS30/cLhVFCPKRn50MY3cS6fB9yD/PubSYBtZq8kST
+         Q7xkVIFlBg7Dgfg2q37mOrNwV+181RCKLVszAjrcym/Zx0ELCLxI+PUKoY7bx8lgE8/v
+         Efm3rVLQcCgQs8A+v3R5i9nNTPjCoGS2tro+Hi296q0fu1VEIFK4P3nv6G12fwYg5ydT
+         X0oA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781049104; x=1781653904;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sEcoODBbAmHhF71HEbR7vlQdemMO8cJnQFdN0SVH2Vk=;
+        b=bJUZZQxGq7LscIG/DdXSOS+rkuc8wg5BmoIGqjCqPilMKwN+AzKsTNE6bP15MJR0k2
+         aVLR7Jffoj5shLvkjgetC7cwWABMOOM14FcHN76V7HRSHnT/Ou5fd7l9OK1m+s1BUhvX
+         OxZSMiUt6oAIlUBZ8ir4kLHIBOafsbvn94it1PjdQXUnow6OBndhn2MA/QBGLc6P/Vgq
+         ai9uyOXQxXHIadPWCtW/08f8yTJiHtcWLw8PsIms+yYsYh72lomDFIy+m1zi/UE1yMh8
+         nv8RWG8R3hC5lClic84PsqrlSBHbmwMG5DzR+yQCCEGBjeUEgiEuUAETT1CCGbsl2J1Y
+         wuHQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/tFnWNWZP0JD8Iemja6xKUZOWOUZ8IjTQmWg/2GhYhpe5f8JdDRMir3qZCFYPtCtdZtyQQ3bPFyVHj0kTPqH26@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXJV39HVTlJHlhdqLBSKsEllamxmZH2F4WstHBNoV8vgnaKNxp
+	TFsznOMBUo0tG22iuFh+WWR9l2VGYqRg0U76j0b3Diw7laONGJQWin4r
+X-Gm-Gg: Acq92OEBowqtOD1WG93GHSJvHPXMMUayorESE28tdLmFHxhSjqQLFtaG5iL3EAOAnXs
+	n8uGFGfmbbhdgoUQgXqBhflqzez0WJZ6zSA/trh9WGQ5/eHZPN2H+r6s/K5Hffk3o7XEUh47c38
+	B+zB4ACHqaFGJnibPlcXnBRzrPWcKqFCkmX4CQ22K/GH+f1j5HByU6jqe/GgltUaEyMWaegmdxi
+	zRd2/BVoTornoBbpoDOAXaDQkAkD5CsxD/L6LcivLlQLIvte4woAhawwdpJGfS8baVg3EsTH12D
+	QVOxaEzFoRXeZayxkBTmxXQdJ1Jqs5PLDx8P4REPwB7GZVFDp2bjxxFxFXpX6dFMoVJkJpdvvRh
+	Or7AO5I8XalRjm1k6DARekT+aWrscmHZe+qX98UmzaK5c+SZhLKGrMq0RGCE+RfZmXzt6Exx+9c
+	GphkTHM9PGdSk+hx/c8zr8o6RFZnhc2opuqtJS1Bw6I1GflYpQFfzlv3Dnzh+p+bX7
+X-Received: by 2002:a05:600c:c165:b0:490:a2fd:e1e5 with SMTP id 5b1f17b1804b1-490c2623527mr425785595e9.17.1781049103934;
+        Tue, 09 Jun 2026 16:51:43 -0700 (PDT)
+Received: from Ansuel-XPS. (93-34-88-103.ip49.fastwebnet.it. [93.34.88.103])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490dcaa924bsm23335215e9.1.2026.06.09.16.51.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 16:51:43 -0700 (PDT)
+Message-ID: <6a28a70f.3dabba3e.312002.39c0@mx.google.com>
+X-Google-Original-Message-ID: <aiinCyCvlCBpEVQX@Ansuel-XPS.>
+Date: Wed, 10 Jun 2026 01:51:39 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+Subject: Re: [PATCH net-next v6 12/12] net: airoha: add phylink support
+References: <20260609151212.29469-1-ansuelsmth@gmail.com>
+ <20260609151212.29469-13-ansuelsmth@gmail.com>
+ <aigxaDtZDnI-RTwN@lore-desk>
 MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF000061C2:EE_|SN7PR12MB6713:EE_
-X-MS-Office365-Filtering-Correlation-Id: 30ba13fe-6f9e-4adb-dd8d-08dec680c98d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|23010399003|36860700016|6133799003|13003099007|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: fGpgwPY891hDbpCH4UEiXQ5dDcIuLpiadmdJTtRf9yjwxoHPyi2NrCti4ydVIEbO0fN12zCFE423nmlxZ+x0tsmZYQD6JsscnG/P/BJrrpglc6nB7q8GG3u6uPDvkM5mIKWZcXQRnAiWk8/FiMcI6bvMh5hSaM85lvztt0YrrLESvV5NF4GfnWi6rmLrXgtR9dwNxyOyPGOVVm/ChItcRRK/je1DHbWR2Eri4lqRK8EEGSz13oyOKZqjkfZSe942ClE4SQHo+CGfbOOn0cgT+jNgK10k21dMqxfSJDu69eyezgqMWo0LVlACQi32g3bzofsxSwp7sA/1iLvHHBnlPDawgM7W0hrO5gxju8k1fSY27SGyTPfN5EqR/4SdfSHViB7J65II8KKofOfE5z5XzCXUS2Uv1Hov7pqkbwe9URu4t6wTVIQNM9WrGu+gV+JJo+k93kcxto0U/PztyXmVJmuZCX/FswSyh9f11Ri8OmxTnrNCvDmd0Gqy3uT99By2fk5LnuI5nA9Us0CjMcOtEo2blHyFLvzEnLWBOFpXzvJa3YOu1/HZvimRJPxGST0q0CL+or2v3BEqEjgjIKrpgGNsGfAIwUSIKHuVX7khrENGy+qce4M1OpZbnzXoKxsUlJyKJZ1z9HpQAxszn2r1hWf3I1efc0+bieRPUfCnCxT2f86GCxIMjhoxh2y2gavF7on8lbgFpTll6M6h9t2bLzMZNsj5GpeCS+eEfDHV+zxRFf4m7HaM3Ruo8Oud87un
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(23010399003)(36860700016)(6133799003)(13003099007)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lHQtqpUu8t8eEO7gOr8Y6QQ9IETcyaEwqfLWkVFHbte9m1Aovuik+EO8X7DizyQP44Z02HcUZjHM2dFDF1LCQXrnk1jHDY7/LR6S+oL9XTYDcaccaiEJk1HESJikdVjVGpM34otLuAs5HwaFArwlSChEBkIM0FTXlcNwBNSRylr9Vp9xfsbc0EZWd/vMMp3bwQAa6RGPFmrE74V+BT7XwVvdSNPKQixwX6N7Csax343QsdYZAVhNEMWcd+AL3Bqj4oXCrVL617kGa2q82cWeO3gC4KFax49bV48vKiYaS5Wue/vlANdOpl077I+8Nr5I5Fa/nw1p0V/sq38gHRNs921GO9ck4nR2IVnhywZWKA6vXTpmbLQ3onqnf4oKLu6I7W7jyEA3NkmEWXYy+d4OKEHA0Nsxxh6kIvsgppsdpmqOg8hYZpEbYzka9gFWPHiE
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 23:42:37.1536
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30ba13fe-6f9e-4adb-dd8d-08dec680c98d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C2.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6713
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aigxaDtZDnI-RTwN@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_164244_324020_23FA0922 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20260609_165146_292104_5694020E 
+X-CRM114-Status: GOOD (  40.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,76 +118,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NVIDIA Olympus cores are affected by the TLBI completion issue tracked as
-CVE-2025-10263. The existing ARM64_ERRATUM_4118414 handling already uses
-ARM64_WORKAROUND_REPEAT_TLBI to issue an additional broadcast TLBI;DSB
-sequence and ensure affected memory write effects are globally observed.
+On Tue, Jun 09, 2026 at 05:29:44PM +0200, Lorenzo Bianconi wrote:
+> > Add phylink support for each GDM port. For GDM1 add the internal interface
+> > mode as the only supported mode. For GDM2/3/4 add the required
+> > configuration of the PCS to make the external PHY or attached SFP cage
+> > work.
+> > 
+> > These needs to be defined in the GDM port node using the pcs-handle
+> > property.
+> > 
+> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> 
+> Hi Christian,
+> 
+> some nits inline.
+> 
+> Regards,
+> Lorenzo
+> 
+> > ---
+> >  drivers/net/ethernet/airoha/Kconfig       |   1 +
+> >  drivers/net/ethernet/airoha/airoha_eth.c  | 167 +++++++++++++++++++++-
+> >  drivers/net/ethernet/airoha/airoha_eth.h  |   3 +
+> >  drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
+> >  4 files changed, 181 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
+> > index ad3ce501e7a5..38dcc76e5998 100644
+> > --- a/drivers/net/ethernet/airoha/Kconfig
+> > +++ b/drivers/net/ethernet/airoha/Kconfig
+> > @@ -20,6 +20,7 @@ config NET_AIROHA
+> >  	depends on NET_DSA || !NET_DSA
+> >  	select NET_AIROHA_NPU
+> >  	select PAGE_POOL
+> > +	select PHYLINK
+> >  	help
+> >  	  This driver supports the gigabit ethernet MACs in the
+> >  	  Airoha SoC family.
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> > index 5a8e84fa9918..eabd7b058f82 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> > @@ -8,6 +8,7 @@
+> >  #include <linux/of_reserved_mem.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/tcp.h>
+> > +#include <linux/pcs/pcs.h>
+> 
+> Can you please respect the alphabetic order?
+> 
+> >  #include <linux/u64_stats_sync.h>
+> >  #include <net/dst_metadata.h>
+> >  #include <net/page_pool/helpers.h>
+> > @@ -1779,6 +1780,15 @@ static int airoha_dev_open(struct net_device *netdev)
+> >  	u32 cur_len, pse_port = FE_PSE_PORT_PPE1;
+> >  	struct airoha_qdma *qdma = dev->qdma;
+> >  
+> > +	err = phylink_of_phy_connect(dev->phylink, netdev->dev.of_node, 0);
+> > +	if (err) {
+> > +		netdev_err(netdev, "%s: could not attach PHY: %d\n", __func__,
+> > +			   err);
+> 
+> Do we need specify the __func__ argument here?
+>
 
-Add MIDR_NVIDIA_OLYMPUS to the repeat-TLBI match list so the same
-mitigation is enabled on affected Olympus systems. Also document the
-NVIDIA Olympus erratum in the arm64 silicon errata table and list it in
-the Kconfig help text.
-
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
----
-Note: This patch depends on the following series as a prerequisite:
-https://lore.kernel.org/all/20260609101203.1512409-1-mark.rutland@arm.com/
-
- Documentation/arch/arm64/silicon-errata.rst | 2 ++
- arch/arm64/Kconfig                          | 3 ++-
- arch/arm64/kernel/cpu_errata.c              | 1 +
- 3 files changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index a01e916ede17..ad09bbb10da8 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -298,6 +298,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
- +----------------+-----------------+-----------------+-----------------------------+
-+| NVIDIA         | Olympus core    | T410-OLY-1029   | ARM64_ERRATUM_4118414       |
-++----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 48233b54c482..c65cef81be86 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1155,7 +1155,7 @@ config ARM64_ERRATUM_4193714
- 	  If unsure, say Y.
+I was following a pattern also used in other driver. Maybe we should stop
+following it?
  
- config ARM64_ERRATUM_4118414
--	bool "Cortex-*/Neoverse-*/C1-*: Completion of affected memory accesses might not be guaranteed by completion of a TLBI"
-+	bool "Cortex-*/Neoverse-*/C1-*/Olympus: Completion of affected memory accesses might not be guaranteed by completion of a TLBI"
- 	default y
- 	select ARM64_WORKAROUND_REPEAT_TLBI
- 	help
-@@ -1182,6 +1182,7 @@ config ARM64_ERRATUM_4118414
- 	  * ARM Neoverse-V2 erratum 4193787
- 	  * ARM Neoverse-V3 erratum 4193784
- 	  * ARM Neoverse-V3AE erratum 4193784
-+	  * NVIDIA Olympus erratum T410-OLY-1029
- 
- 	  On affected cores, some memory accesses might not be completed by
- 	  broadcast TLB invalidation.
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index fe6fe5de495b..d597896b0f7f 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -364,6 +364,7 @@ static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
- 			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
- 			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3),
- 			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3AE),
-+			MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
- 			{}
- 		})),
- 	},
+> > +		return err;
+> > +	}
+> > +
+> > +	phylink_start(dev->phylink);
+> > +
+> >  	netif_tx_start_all_queues(netdev);
+> >  	err = airoha_set_vip_for_gdm_port(dev, true);
+> >  	if (err)
+> > @@ -1876,6 +1886,9 @@ static int airoha_dev_stop(struct net_device *netdev)
+> >  		}
+> >  	}
+> >  
+> > +	phylink_stop(dev->phylink);
+> > +	phylink_disconnect_phy(dev->phylink);
+> > +
+> >  	return 0;
+> >  }
+> >  
+> > @@ -3148,6 +3161,153 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+> >  	return false;
+> >  }
+> >  
+> > +/* Nothing to do in MAC, everything is handled in PCS */
+> > +static void airoha_mac_config(struct phylink_config *config, unsigned int mode,
+> > +			      const struct phylink_link_state *state)
+> > +{
+> > +}
+> > +
+> > +static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
+> > +			       unsigned int mode, phy_interface_t interface,
+> > +			       int speed, int duplex, bool tx_pause, bool rx_pause)
+> > +{
+> > +	struct airoha_gdm_dev *dev = container_of(config, struct airoha_gdm_dev,
+> > +						  phylink_config);
+> > +	struct airoha_gdm_port *port = dev->port;
+> > +	struct airoha_eth *eth = dev->eth;
+> > +	u32 frag_size_tx, frag_size_rx;
+> > +	u32 mask, val;
+> > +
+> > +	/* TX/RX frag is configured only for GDM4 */
+> > +	if (port->id != 4)
+> 
+> 	if (port->id != AIROHA_GDM4_IDX)
+> 		...
+> 
+> > +		return;
+> > +
+> > +	switch (speed) {
+> > +	case SPEED_10000:
+> > +	case SPEED_5000:
+> > +		frag_size_tx = 8;
+> > +		frag_size_rx = 8;
+> > +		break;
+> > +	case SPEED_2500:
+> > +		frag_size_tx = 2;
+> > +		frag_size_rx = 1;
+> > +		break;
+> > +	default:
+> > +		frag_size_tx = 1;
+> > +		frag_size_rx = 0;
+> > +	}
+> > +
+> > +	/* Configure TX/RX frag based on speed */
+> > +	if (dev->nbq == 1) {
+> > +		mask = GDMA4_SGMII1_TX_FRAG_SIZE_MASK;
+> > +		val = FIELD_PREP(GDMA4_SGMII1_TX_FRAG_SIZE_MASK,
+> > +				 frag_size_tx);
+> > +	}  else {
+> > +		mask = GDMA4_SGMII0_TX_FRAG_SIZE_MASK;
+> > +		val = FIELD_PREP(GDMA4_SGMII0_TX_FRAG_SIZE_MASK,
+> > +				 frag_size_tx);
+> > +	}
+> > +	airoha_fe_rmw(eth, REG_GDMA4_TMBI_FRAG, mask, val);
+> > +
+> > +	if (dev->nbq == 1) {
+> > +		mask = GDMA4_SGMII1_RX_FRAG_SIZE_MASK;
+> > +		val = FIELD_PREP(GDMA4_SGMII1_RX_FRAG_SIZE_MASK,
+> > +				 frag_size_tx);
+> > +	} else {
+> > +		mask = GDMA4_SGMII0_RX_FRAG_SIZE_MASK;
+> > +		val = FIELD_PREP(GDMA4_SGMII0_RX_FRAG_SIZE_MASK,
+> > +				 frag_size_tx);
+> > +	}
+> > +	airoha_fe_rmw(eth, REG_GDMA4_RMBI_FRAG, mask, val);
+> > +}
+> > +
+> > +/* Nothing to do in MAC, everything is handled in PCS */
+> > +static void airoha_mac_link_down(struct phylink_config *config, unsigned int mode,
+> > +				 phy_interface_t interface)
+> > +{
+> > +}
+> > +
+> > +static const struct phylink_mac_ops airoha_phylink_ops = {
+> > +	.mac_config = airoha_mac_config,
+> > +	.mac_link_up = airoha_mac_link_up,
+> > +	.mac_link_down = airoha_mac_link_down,
+> > +};
+> > +
+> > +static int airoha_fill_available_pcs(struct phylink_config *config,
+> > +				     struct phylink_pcs **available_pcs,
+> > +				     unsigned int num_available_pcs)
+> > +{
+> > +	struct device *dev = config->dev;
+> > +
+> > +	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
+> > +					&num_available_pcs);
+> > +}
+> > +
+> > +static int airoha_setup_phylink(struct net_device *netdev)
+> > +{
+> > +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+> > +	struct device_node *np = netdev->dev.of_node;
+> > +	struct airoha_gdm_port *port = dev->port;
+> > +	struct phylink_config *config;
+> > +	phy_interface_t phy_mode;
+> > +	struct phylink *phylink;
+> > +	int err;
+> > +
+> > +	err = of_get_phy_mode(np, &phy_mode);
+> > +	if (err) {
+> > +		dev_err(&netdev->dev, "incorrect phy-mode\n");
+> > +		return err;
+> > +	}
+> > +
+> > +	config = &dev->phylink_config;
+> 
+> remove new-line here.
+> 
+> > +
+> > +	config->dev = &netdev->dev;
+> > +	config->type = PHYLINK_NETDEV;
+> > +	config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |  MAC_10000FD;
+> > +	if (port->id > AIROHA_GDM1_IDX)
+> 
+> maybe
+> 	if (port->id != AIROHA_GDM1_IDX)
+> 		...
+> 
+> > +		config->mac_capabilities |= MAC_10 | MAC_100 | MAC_1000 |
+> > +					    MAC_2500FD | MAC_5000FD;
+> > +
+> > +	err = fwnode_phylink_pcs_parse(dev_fwnode(&netdev->dev), NULL,
+> > +				       &config->num_available_pcs);
+> > +	if (err)
+> > +		return err;
+> > +
+> > +	config->fill_available_pcs = airoha_fill_available_pcs;
+> > +
+> > +	/*
+> > +	 * GDM1 only supports internal for Embedded Switch
+> > +	 * and doesn't require a PCS.
+> > +	 */
+> > +	if (port->id == AIROHA_GDM1_IDX) {
+> > +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
+> > +			  config->supported_interfaces);
+> > +	} else {
+> > +		__set_bit(PHY_INTERFACE_MODE_SGMII,
+> > +			  config->supported_interfaces);
+> > +		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
+> > +			  config->supported_interfaces);
+> > +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
+> > +			  config->supported_interfaces);
+> > +		__set_bit(PHY_INTERFACE_MODE_10GBASER,
+> > +			  config->supported_interfaces);
+> > +		__set_bit(PHY_INTERFACE_MODE_USXGMII,
+> > +			  config->supported_interfaces);
+> > +
+> > +		phy_interface_copy(config->pcs_interfaces,
+> > +				   config->supported_interfaces);
+> > +	}
+> > +
+> > +	phylink = phylink_create(config, of_fwnode_handle(np),
+> > +				 phy_mode, &airoha_phylink_ops);
+> > +	if (IS_ERR(phylink))
+> > +		return PTR_ERR(phylink);
+> > +
+> > +	dev->phylink = phylink;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+> >  				   struct airoha_gdm_port *port,
+> >  				   int nbq, struct device_node *np)
+> > @@ -3210,7 +3370,7 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+> >  	dev->nbq = nbq;
+> >  	port->devs[index] = dev;
+> >  
+> > -	return 0;
+> > +	return airoha_setup_phylink(netdev);
+> >  }
+> >  
+> >  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+> > @@ -3435,8 +3595,10 @@ static int airoha_probe(struct platform_device *pdev)
+> >  				continue;
+> >  
+> >  			netdev = netdev_from_priv(dev);
+> > -			if (netdev->reg_state == NETREG_REGISTERED)
+> > +			if (netdev->reg_state == NETREG_REGISTERED) {
+> > +				phylink_destroy(dev->phylink);
+> >  				unregister_netdev(netdev);
+> > +			}
+> >  			of_node_put(netdev->dev.of_node);
+> >  		}
+> >  		airoha_metadata_dst_free(port);
+> > @@ -3472,6 +3634,7 @@ static void airoha_remove(struct platform_device *pdev)
+> >  				continue;
+> >  
+> >  			netdev = netdev_from_priv(dev);
+> > +			phylink_destroy(dev->phylink);
+> >  			unregister_netdev(netdev);
+> >  			of_node_put(netdev->dev.of_node);
+> >  		}
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+> > index 8f42973f9cf5..1b25603dc64d 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> > @@ -554,6 +554,9 @@ struct airoha_gdm_dev {
+> >  
+> >  	u32 flags;
+> >  	int nbq;
+> > +
+> > +	struct phylink *phylink;
+> > +	struct phylink_config phylink_config;
+> >  };
+> >  
+> >  struct airoha_gdm_port {
+> > diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+> > index 436f3c8779c1..27f2583e143a 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> > +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> > @@ -358,6 +358,18 @@
+> >  #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
+> >  #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
+> >  
+> > +#define REG_GDMA4_TMBI_FRAG		0x2028
+> > +#define GDMA4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
+> > +#define GDMA4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
+> > +#define GDMA4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
+> > +#define GDMA4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
+> > +
+> > +#define REG_GDMA4_RMBI_FRAG		0x202c
+> > +#define GDMA4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
+> > +#define GDMA4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
+> > +#define GDMA4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
+> > +#define GDMA4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
+> > +
+> >  #define REG_MC_VLAN_EN			0x2100
+> >  #define MC_VLAN_EN_MASK			BIT(0)
+> >  
+> > -- 
+> > 2.53.0
+> > 
+
+
+
 -- 
-2.43.0
-
+	Ansuel
 
