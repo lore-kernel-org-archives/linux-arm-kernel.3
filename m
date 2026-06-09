@@ -4,48 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D54CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E539CD8C85
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+RY5vs8Ycg6LE30rSiyWAmudN3MbQny6JzyIGr7w5M=; b=FKbhw0OF8OEFrBSrlyqbE0/fdP
-	eWUa0cYc3CRSbPMwTvMhU+N89gkE/1ehO1rYLR2sfL0A9a+eaFLyb3C2Q9yIWEHWIRMHZfaO+UJ/t
-	rSOFqtn/MF6eq7GmggMUVzwBlgS2GfksavALpq495GlBIX3jNQ/da7TJxrKSi5ONpOctjso+Hf1U3
-	QqcapL0oSuhReagFAmvAYGqJfIRhyT62mJr+uSjeBU+nwsrvDjyO+3X6hRK9Tz6oFGwOPDYCQmbJ6
-	q4dPZfeOMn/ec2OBDyXQoGCzkTBdZeDdb9JR/pczawKW1gMabF1Ff4GuJ44Y7h8eZW0ee9bzi2uCv
-	HwX9o1Zw==;
+	bh=sMReWLDLXVskrK7YvKiFAJhgJ2Bnx+tOpFTmEt9zhgs=; b=s4MwhYYelYA5Bb3vWWYI5bMgaS
+	xR93Ja2Rcqj1QXuTExKC0sghb5EEBbXDnyaGJKLxgkMAQrLxi2SGPpvmQR5MWA6hHT99zYvedQA1n
+	0zmvCJJuvfkx9ke4/Yl3tBvrcUygJFc17AeJ4BONbhu82H/v/+XjIq3/mBgFAlobQ8YCyOF5qe6cs
+	aYd6GoTQIGJ++kLHhbpcj9vVDYr0kH9dPr1bjoVNs697qLaNDo+/FYQCzjrOID/5yMhxEMSSPj5f8
+	oVgVrJWNmIvbf0igxQuE6bv2b1oI0RnQ7BZJ1t5RP7XgSyNTVYRb8LbRfX5awD5CJbwneLHwCWogi
+	pe5n6QhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpYN-00000004o47-30Vp;
-	Tue, 09 Jun 2026 06:03:11 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1wWpYR-00000004oBY-2tid;
+	Tue, 09 Jun 2026 06:03:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpYH-00000004nr7-1cB5
+	id 1wWpYN-00000004o2m-3sSL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Jun 2026 06:03:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=sMReWLDLXVskrK7YvKiFAJhgJ2Bnx+tOpFTmEt9zhgs=; b=gy1cqmlNX4qZajnRj2QcfT0SSE
+	JQ7dc+/EqyVOprFo4uGnWzI2dFDIkGO0Rbw6kHCYJOns9Nkex2G113kOxeW3dl6pD7OJH33SnBmDU
+	5M2R3ypB3GyQD17uD6jqeTaYwBZdMFaSMTWFeK+MCom1F1Nz+os8juk+EmcOSLF7+JDr46AUBRwzM
+	67RMsyBonduuRsegG3DZVsu9etyzXpXkPsFLNiqQYfCrLPSsUTZLqOEBabnDJvmfHq3TmyDVG4rcl
+	vNiDt3PMapzCkP2HGQjK8Lf/UgjcBRGSkbtMl7PspM29gy6RbOS3pFdFWyQgzG9ySElEPqd3zMpUJ
+	Nft6RSZQ==;
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wWpYL-000000020BQ-0SVH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 06:03:06 +0000
+	Tue, 09 Jun 2026 06:03:10 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780984983;
+	t=1780984986;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=D+RY5vs8Ycg6LE30rSiyWAmudN3MbQny6JzyIGr7w5M=;
-	b=hP9Rm69mOpasNJw11/lRGlyztBd+hadPrkDV5aRjA3ORORrIZs+J6QDIwHl8yzt28C5xis
-	IOKTkP8psc4VuO54NNW8FxTrKPJUkDumKoFTr6XdHjPB1aIRpcmV9Kp2DgwpOp6fKoqI8L
-	sGTDNS1Ath5FnCtwfgNSX2lm9pIjYRY=
+	bh=sMReWLDLXVskrK7YvKiFAJhgJ2Bnx+tOpFTmEt9zhgs=;
+	b=gvRwUWkoqGKbVUgPgeiG7/g1s8sdwcUdIJLcVniP2hi4alfPvPizJHNpMvj/acPeEM//pw
+	jkn9A0DD8DgGaEyoEm4GXmghWb3BktXQ2A2xZEzzXtCPKQ4SniAx95gCMnAwL5jSmAowFc
+	/b6lCTnqECHLw7/opEnGd5Kii5Arzcc=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Mon, 08 Jun 2026 23:01:32 -0700
-Subject: [PATCH v6 18/21] tools/perf: Support event code for arch standard
- events
+Date: Mon, 08 Jun 2026 23:01:33 -0700
+Subject: [PATCH v6 19/21] tools/perf: Add RISC-V CounterIDMask event field
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260608-counter_delegation-v6-18-285b72ed65a9@meta.com>
+Message-Id: <20260608-counter_delegation-v6-19-285b72ed65a9@meta.com>
 References: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
 In-Reply-To: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
 To: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -60,8 +74,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_230305_641266_2E8C894D 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260609_070309_262415_0776E6D8 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,50 +92,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Atish Patra <atishp@rivosinc.com>
 
-RISC-V relies on the event encoding from the json file. That includes
-arch standard events. If event code is present, event is already updated
-with correct encoding. No need to update it again which results in losing
-the event encoding.
+Counter delegation lets supervisor mode choose the hpmcounter for an event,
+but the hardware may only allow a given event on a subset of counters. Add a
+RISC-V specific "CounterIDMask" json event field, handled like the other
+arch-specific entries in event_fields[], that carries the allowed-counter
+bitmask through to the driver's existing counterid_mask (config2:0-31) format.
+
+The value is the bitmask directly so no counter-list to bitmask conversion is
+needed, and because the field is RISC-V specific it is a no-op for every other
+architecture's events (unlike the shared "Counter" field).
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- tools/perf/pmu-events/arch/riscv/arch-standard.json | 10 ++++++++++
- tools/perf/pmu-events/jevents.py                    |  6 +++++-
- 2 files changed, 15 insertions(+), 1 deletion(-)
+ tools/perf/pmu-events/jevents.py | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/tools/perf/pmu-events/arch/riscv/arch-standard.json b/tools/perf/pmu-events/arch/riscv/arch-standard.json
-new file mode 100644
-index 000000000000..96e21f088558
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/arch-standard.json
-@@ -0,0 +1,10 @@
-+[
-+  {
-+    "EventName": "cycles",
-+    "BriefDescription": "cycle executed"
-+  },
-+  {
-+    "EventName": "instructions",
-+    "BriefDescription": "instruction retired"
-+  }
-+]
 diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index 3a1bcdcdc685..457fce7a5982 100755
+index 457fce7a5982..c1ed8a05c9a4 100755
 --- a/tools/perf/pmu-events/jevents.py
 +++ b/tools/perf/pmu-events/jevents.py
-@@ -413,7 +413,11 @@ class JsonEvent:
-         self.long_desc = None
-     if arch_std:
-       if arch_std.lower() in _arch_std_events:
--        event = _arch_std_events[arch_std.lower()].event
-+        # If the JSON event already specified an event code, the encoding has
-+        # been set above; don't overwrite it with the arch standard event or
-+        # the event encoding would be lost.
-+        if not eventcode:
-+          event = _arch_std_events[arch_std.lower()].event
-         # Copy from the architecture standard event to self for undefined fields.
-         for attr, value in _arch_std_events[arch_std.lower()].__dict__.items():
-           if hasattr(self, attr) and not getattr(self, attr):
+@@ -396,6 +396,7 @@ class JsonEvent:
+         ('EnAllSlices', 'enallslices='),
+         ('SliceId', 'sliceid='),
+         ('ThreadMask', 'threadmask='),
++        ('CounterIDMask', 'counterid_mask='),
+     ]
+     for key, value in event_fields:
+       if key in jd and not is_zero(jd[key]):
 
 -- 
 2.53.0-Meta
