@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E19FCD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:47:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007C9CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ehwC4+p6kz8win9+9tJOLmuWLTHCo6mGAGt8WUYA5c=; b=WATijPDefK2WakKytkdHO/64Wk
-	qE2G4774CUSqtXlS955zRaPE60KuN8FRmHYVZPef01/YZfzPGOvz5nbDdpPHXBy9RwlmLupsgjfbd
-	VmaPHf5TmdS9ISaVI6k98IgjIG2y+xsK3e0h4iCEurq6g5v6tAFJ3ytRtuUDFRVgZHO+BakFR7KVu
-	D237fWH7HNsSe18N3WFVApsv6ODJDf+5AVMmomYLzWh1JpnoB06Cl35B7al306ayy6Ka6s3jsehRz
-	YSe3wnYCLh5oH7roioIFbPjfHOvDNNc7BWJJuhFyZE8jecHjo7NZcfSeJTPKDmBViI7mt3vX5aFQT
-	oW8a4a3A==;
+	bh=tcD/rsO9xynf7NP8eA8bnOejKKWGyFuEY+zDeq4pxrM=; b=NStNrIG35qa2eLkLFGP3S5mBn1
+	VeB4G5HcphS+VQFSH8s4jJWVoOBtkDax8e0zHTeYOcadAD0WntQkbMvHH5HWatbLgoaai6zZuQlKc
+	1qgkOcabz35IWlCZx7qByvoXhOj2oUZO/vdS+Dm+w8XGOl83fEVJAKWV+FfcDF4ZhSyKw0erOV7O3
+	zafRve2hs2l8LMTiOyHLhSSU/qhfyne6agDRoAnmi8HxaWa9qU2N9d3FVTaMY3LKKpl58g8WJhiwq
+	JhU7Ht/1ST+d36L6w0IM4VDrAPm0BzSTzmiYb1w9m9mGyPiM0BNGSq2v9cAGI8hAsymvMVlGRIG3j
+	8Xaxb2Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvrI-00000005YnH-2S3j;
-	Tue, 09 Jun 2026 12:47:08 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wWvrP-00000005YwA-19IF;
+	Tue, 09 Jun 2026 12:47:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvrC-00000005Yhz-4712
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 12:47:06 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2c0a5354da1so44453675ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 05:47:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781009221; x=1781614021; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3ehwC4+p6kz8win9+9tJOLmuWLTHCo6mGAGt8WUYA5c=;
-        b=ozdR+eDnUtZ00srJCOFAT9hugo5/+47/li9wFt0M1Z3mHLe+mVghCnL+l1RBCUcRO6
-         46Yg/gNHtYeKegmHPv3UlihO2fAgWzL/hXxP6cWVc2ZDSuxKsUQWnsZL5AjhxUxM0/D8
-         hlj9BeQ74+bnUIkQaOxd80qCKtS44qti27JtqTW1++Qit77oECc/i4BCzJ3KUxJBax/T
-         5LtO35p2J2enB+scSa+7VJb6GNgMPgu3vCj6SfV3/fiyBlLxtUyspqSuSpNXGJDTCUmf
-         Br84cjvDgfQchj0GvE3SMd4AvIiEuG7tUZB6sshjs+ViAHi1gI9UTFGjT7adTyPCILL2
-         FoaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781009221; x=1781614021;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3ehwC4+p6kz8win9+9tJOLmuWLTHCo6mGAGt8WUYA5c=;
-        b=Utv4B2WTViP+8KSejo8bJ9vTwdHPOI2s90ooAOVk/cEvhsKHr4pR6q3c0mdHNjNT5Z
-         SLrwoWac6BurCaod6QLqF4zvjF7XfRPrJNzYVk1v3Wr3Xf/XCd4CFU5XboJ+hYK4ZamO
-         FAmYUNH4yvMNFU3apPvBQ3NNejgB3EIBwSbzmxxSYKy+KTkb3VXCQQfOIfFnaAkV184G
-         gco2vUeUXNnvFxRjZ3yucDXcW1f4cQRFxTD1WR0WM3t7qm+WuE9lrKtB152BfKkCuNZd
-         EK5OUMaCWN5J+oMTesVPqijm1OEeQj9vyGfX3wPhw0jCFhzXgI/+66RSRh4khcIRXm29
-         jRgg==
-X-Forwarded-Encrypted: i=1; AFNElJ97V39/FidUFqPQRzTSbrTXfeYn+OOqnKA9gOD9BjZ5SeNpL0xrmfZqsw9gD2mMu55Vz0aqthRj74pzlv4LTeAn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkQg9EWCX+b1dfACcNZUEb+ERse6e+WJ7JIE/hPzVz91LUrXfy
-	q1Tf/x5047GB0FHHb+ahaXXE8tL6Y0Fx1umBmC8aKN6p+LrTii3Nm99A
-X-Gm-Gg: Acq92OERMqe+rdSyV3BRTMgXcsCVSBm2ghTBC1Yjs1JTW0xNa4jIzLfG7TQrGHgTfym
-	vW75J3T+EtGQUucqR0kCvROFJhKcevl6mOs4/ECDdTt/hlqAcCdd2hFnChn7K+nB8q8CT6hyzbc
-	5F8MJN8ewh/qOVaF4px2CKtfqKKk0mgLXv4jP3ZCNE+we0rrXPkLGPkESo6+PyQDC+7cklbbarZ
-	/vcKm4EF2gf8A9k7s+PQNqrOhF8Hbpa7mxJ4lKF3j7efVDeomUMt6SBF0WQovPL7ddwxAwcz7FB
-	xh62Ejvq2zH2EPE66aA/+1tpChZfE3JEeVIo3R8AGQ5f8uRA44WX/TxAeuhZb/VTdJSokrUELGH
-	wEbpxUYFN8DQSUFO+PSVEpnfznFCQJfGWlktENazFteGR2mSWksjFqif3UumVH/vmluY6L1U/ru
-	R/e/sGUp3Yrfd7t/39/3FbvfeMtr15u6wp6u1btDHYbNQJLbVVsaO7LNz1N2n5pM2Wi6O2+0heA
-	h2ZQ+9wJKQDNEjl/vcJwfYnEPU=
-X-Received: by 2002:a17:902:f650:b0:2bd:2c3a:2a36 with SMTP id d9443c01a7336-2c1eb7476d2mr171953745ad.0.1781009220767;
-        Tue, 09 Jun 2026 05:47:00 -0700 (PDT)
-Received: from nugod-NUC15CRHU5.tail9f095a.ts.net ([218.237.104.87])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16629d40asm204686345ad.64.2026.06.09.05.46.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 05:46:59 -0700 (PDT)
-From: HyeongJun An <sammiee5311@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	HyeongJun An <sammiee5311@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: [PATCH 2/4] ASoC: meson: aiu: Validate written enum values
-Date: Tue,  9 Jun 2026 21:43:14 +0900
-Message-ID: <20260609124317.38046-3-sammiee5311@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260609124317.38046-1-sammiee5311@gmail.com>
-References: <20260609124317.38046-1-sammiee5311@gmail.com>
+	id 1wWvrL-00000005Yqb-3evF;
+	Tue, 09 Jun 2026 12:47:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1781009192; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nOIPQLbeDBn1Bt8BAB0/0g1vkcCeToAwa59y5TESDTsh2rPKIUpTBM9Ps2UeeXaTU3ZpT4Zqa2Zmd9MgA7Y1YTUparVhB+9FWE5Ah6De/9/eBCENNg5QHnAFX0xcEnElo0+anKyTwChPVXYXLyRfSQbKzjjuT70wZga19vAvhHo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1781009192; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=tcD/rsO9xynf7NP8eA8bnOejKKWGyFuEY+zDeq4pxrM=; 
+	b=RJQce/JfNI+71NKsv8zsqknhje6eHbxvOQNxtqxC0QjxWAiag/oYVEpo2HqjOjSKpwukO5wy/xYCzTJVEL/Gm4rXNGpNelEwreyavMYmO9KJsUiXf+urlT8BTg+prSsjVCooyjwNFFMQ6Zr3j+p+P4ifDA+1zL0+5WE1Sg9YJ9I=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781009192;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=tcD/rsO9xynf7NP8eA8bnOejKKWGyFuEY+zDeq4pxrM=;
+	b=ccaqK+I+AAsu0wRbnTiDXR81MY2E5iqrml42d/wCYcm3mKAr3CQ3Jj0RYHVF0zbM
+	VoHugWxlkLbSjwCXBaU8gor6qwbLgVhmS+eSD11WYx/aqXPjH7q7ow/6LN0PudjumgL
+	lAbgRjlAzfx/xPen84Zf/X0OIFr0jyTJYc4Rr+uY=
+Received: by mx.zohomail.com with SMTPS id 1781009189380792.875917367303;
+	Tue, 9 Jun 2026 05:46:29 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 09 Jun 2026 14:44:01 +0200
+Subject: [PATCH v17 14/28] drm/rockchip: vop2: Set correct output format
+ for RK3576 YUV422
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260609-color-format-v17-14-35739b5782cc@collabora.com>
+References: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
+In-Reply-To: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Daniel Stone <daniel@fooishbar.org>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, wayland-devel@lists.freedesktop.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Andy Yan <andyshrk@163.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_054704_113863_A0B6E0CD 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260609_054711_998397_BFA32767 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +102,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AIU HDMI and internal codec mux put callbacks use the written enum
-value with snd_soc_enum_item_to_val() before checking whether the value is
-valid for the enumeration.
+For RK3576 to be able to output YUV422 signals, it first needs to be
+able to pick the right output mode in the display controller to do so.
 
-Reject out-of-range values before converting the enum item, matching the
-validation already done by the G12A HDMI and internal codec mux controls.
+The RK3576 hardware specifies different output formats depending on the
+used display protocol.
 
-Fixes: b82b734c0e9a ("ASoC: meson: aiu: add hdmi codec control support")
-Fixes: 65816025d461 ("ASoC: meson: aiu: add internal dac codec control support")
-Assisted-by: Claude:claude-opus-4-8
-Signed-off-by: HyeongJun An <sammiee5311@gmail.com>
+Adjust the written register value based on the SoC and connector, so
+other users of vcstate->output_mode don't have to care about this.
+
+Reviewed-by: Andy Yan <andyshrk@163.com>
+Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- sound/soc/meson/aiu-acodec-ctrl.c | 3 +++
- sound/soc/meson/aiu-codec-ctrl.c  | 3 +++
- 2 files changed, 6 insertions(+)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/sound/soc/meson/aiu-acodec-ctrl.c b/sound/soc/meson/aiu-acodec-ctrl.c
-index 483772ba69cd..94c5d6533523 100644
---- a/sound/soc/meson/aiu-acodec-ctrl.c
-+++ b/sound/soc/meson/aiu-acodec-ctrl.c
-@@ -36,6 +36,9 @@ static int aiu_acodec_ctrl_mux_put_enum(struct snd_kcontrol *kcontrol,
- 	struct soc_enum *e = (struct soc_enum *)kcontrol->private_value;
- 	unsigned int mux, changed;
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 3fad79fe2d89..4cce3e336f5b 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1824,6 +1824,22 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+ 	if (vcstate->output_mode == ROCKCHIP_OUT_MODE_AAAA &&
+ 	    !(vp_data->feature & VOP2_VP_FEATURE_OUTPUT_10BIT))
+ 		out_mode = ROCKCHIP_OUT_MODE_P888;
++	else if (vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV422 &&
++		 vop2->version == VOP_VERSION_RK3576)
++		switch (vcstate->output_type) {
++		case DRM_MODE_CONNECTOR_DisplayPort:
++		case DRM_MODE_CONNECTOR_eDP:
++			out_mode = ROCKCHIP_OUT_MODE_YUV422_RK3576_DP;
++			break;
++		case DRM_MODE_CONNECTOR_HDMIA:
++			out_mode = ROCKCHIP_OUT_MODE_YUV422_RK3576_HDMI;
++			break;
++		default:
++			drm_err(vop2->drm, "Unknown DRM_MODE_CONNECTOR %d\n",
++				vcstate->output_type);
++			vop2_unlock(vop2);
++			return;
++		}
+ 	else
+ 		out_mode = vcstate->output_mode;
  
-+	if (ucontrol->value.enumerated.item[0] >= e->items)
-+		return -EINVAL;
-+
- 	mux = snd_soc_enum_item_to_val(e, ucontrol->value.enumerated.item[0]);
- 	changed = snd_soc_component_test_bits(component, e->reg,
- 					      CTRL_DIN_LRCLK_SRC,
-diff --git a/sound/soc/meson/aiu-codec-ctrl.c b/sound/soc/meson/aiu-codec-ctrl.c
-index 396f815077e2..60bb4cdfee52 100644
---- a/sound/soc/meson/aiu-codec-ctrl.c
-+++ b/sound/soc/meson/aiu-codec-ctrl.c
-@@ -28,6 +28,9 @@ static int aiu_codec_ctrl_mux_put_enum(struct snd_kcontrol *kcontrol,
- 	struct soc_enum *e = (struct soc_enum *)kcontrol->private_value;
- 	unsigned int mux, changed;
- 
-+	if (ucontrol->value.enumerated.item[0] >= e->items)
-+		return -EINVAL;
-+
- 	mux = snd_soc_enum_item_to_val(e, ucontrol->value.enumerated.item[0]);
- 	changed = snd_soc_component_test_bits(component, e->reg,
- 					      CTRL_DATA_SEL,
+
 -- 
-2.43.0
+2.54.0
 
 
