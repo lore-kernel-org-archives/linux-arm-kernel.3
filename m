@@ -4,136 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AED6CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 17:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7A8CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 17:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eRG0raM0hl8/ZVV+9zJpR2BhgfYZVaCfmmXZwTGzByA=; b=o/RaP/5S5BgvmCOazLDsO6dlG3
-	cKkTsB4U/yZiX/Q7yRDmpQF/o3m7OunDsrn6kA9nN0GJkBkXjZz+WdLeWfWjW5kjIJQp8xH1yAOrV
-	hqVA0glXmYnvk2r0G0OHdAWJSRlut/TuLskTGlPYKaO0cg36cZ4EgwFRTudu4FdMr5XdfKIwTBsfF
-	0NO4LIZrx6zIVN6CX+qm+3FuNPoHfjKax4ZP8sMAQTgdz6u7NiqBHBZKmvzpS7OntMkFXgVcUS0NB
-	GkSPr4sWkwBraEZHnIa2jG49ps/QqeJf5Iims4Y/nwrTSJXXg0wVWX1qv3VNDsOuuPm8/ymjF0ljz
-	puhR9VHA==;
+	bh=4aSgkWUhPzx8K4/mClsjqZv3PnnYgZuNJSn0DMQeoXY=; b=CIj+v6YSKR2zhlBk1aJHfNhJjw
+	r5tQoVl7Gx8yeWH83ift2/N5dpgQvxrbsb7S/oI+u4ylFKcICOwRmVYVIG63SA4Yu+ueTSfMzAIgJ
+	v5LOWBgk34FF7spD+BTKnYzDNN3t1sCEmBxGfWVPc04GsoCdJSf5bkgQ/mmt6HfpTXT3qfYx3eOOe
+	+a0oF06hgJj/jMm8AAp27/7bZfAw4WNd6Z96vSSf9jWnm9/xgnoIxgwBLU7aw56XAkSwj61aCjV9b
+	Egr0UkiJgNIx4kF5xam2edXxRksuGQxmOYlTPWihLPGk+hGz7x7LIpzOTm32i54t4lIUqfkuMl5Pb
+	6VDw4vcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzun-000000066dz-1aoA;
-	Tue, 09 Jun 2026 17:07:01 +0000
-Received: from mail-westeuropeazon11010024.outbound.protection.outlook.com ([52.101.69.24] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wX0hq-000000069sc-3LKr;
+	Tue, 09 Jun 2026 17:57:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzuk-000000066dQ-0krN
+	id 1wX0hp-000000069sV-01Tp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 17:07:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mWE2IYLpNidGzKZ/PUW193yrxWWXJjqG8nyaVQpPyrL0s/XR9Wa9WofZdj9R4De5CQiBbWICPHf9n+mPYRuB9vYNd+U8icZn1pjl8o3IjsosNGFo1+y1Lk9hmfU5RTx9agGbAMFoeBKA8GPNiMaFdD6BAIk6FACBwWG7Sn5x6XcxMkfYn35SkKEpqJBpIE3loCgtYFe/gq1dhqnm3WgqJoFhwI+CVnF/LKqOqK8XChEBGwFCrzcmgX8s8ZS0XS2HuqmaDXnXbTnCQRuCj7f05RKBGQHjZTF5kwuEtUImguVUpFv/8yn5uxK1tWbv4hO+X5mSCcwUMBr/lgxjWQjcuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eRG0raM0hl8/ZVV+9zJpR2BhgfYZVaCfmmXZwTGzByA=;
- b=SeJzaVejwX0fTqR3z0e453tJ8GWuRr574JCwYnd6uBLrfVAqUBwZyEmLtU2AYMAtHG9JAD9xqDlD5Ul6ZabNI3C2tD3ak3QGcQqyNlO36njh49WyVcBLxceAJyYXWNZ66LOnf8q7BnU5jCo/8Kf5rUj1G29+oSBB/7hHsaWXjRi4W/AEnmJqOFC+reBBCP2XgSt8QKH7b2MTzwbkc4nyj0robJ7PJTwA/jgHL40J7GLHoAiSBV6HRMVGIHKYMDJ9/tI/G2JGOkIoO/j8e5YvDIT6tPmgEya3RS9d6tL8aTXNs4GrtXYlRHW3T1JtUAJrrWqiE/YFgnjrNTNU+pwWvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eRG0raM0hl8/ZVV+9zJpR2BhgfYZVaCfmmXZwTGzByA=;
- b=Dg5zuFBwsvC5SrGZTNbCxVpawY9295fpsm0v5lbJChyfp6Z2KwNA9RzBylpS3bBTlzX5WGNKe7jv739A+Oa47HmFy4rNBSFEsrtzxp6yThd3+yumJ3G09Gn9R8EvwIM/vAP3AbUMXAlney5bId9zOd+hWsKwIkwBC98yT+QjRsxryyfwD6LHwbz/vODq2/MkGo9cqKcsS1dNQLZ/SGgWWzTCApSW2KoJ8NHupSKiVJH7OX3Qr5hO9EL3LY62P0WOC5TNDW8FW6UOHtUxaRegwpephReumB3/78LNTTaaeGsNPOxKwPeAe1KwrLlJgRwyy2dVWk4Sb+tr7+1tk35fNw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS5PR04MB9854.eurprd04.prod.outlook.com (2603:10a6:20b:673::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
- 17:06:52 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 17:06:52 +0000
-Date: Tue, 9 Jun 2026 12:06:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
- optional "memory-region-names"
-Message-ID: <aihIIwt_9T7yYxP3@SMW015318>
-References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
- <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
- <aihB5rVLsVqzg6cb@p14s>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aihB5rVLsVqzg6cb@p14s>
-X-ClientProxiedBy: SA9PR03CA0012.namprd03.prod.outlook.com
- (2603:10b6:806:20::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 09 Jun 2026 17:57:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EF74F60218
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 17:57:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A97AA1F00899
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 17:57:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781027859;
+	bh=4aSgkWUhPzx8K4/mClsjqZv3PnnYgZuNJSn0DMQeoXY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=LN/tXPw8AXNYmFuAjkSA7IVKHeFaZ05LF1royqZl9sc1zcIoamIT+zZtZ1WVFqRa2
+	 D+ICBldMrN/b1bC4KA7owAgjiEzBwlTMuaGBPqBKaOwCCwofdFUG543t/jvahPomwH
+	 F3o7Dvpj3oLQQqTFQI5fr67OvEfVEQwQYtrXchKwxwJjJzONw7Mv0oRFokR7bmed7z
+	 pucShdDe481EdQuxZ6O8iZzcRREpT7k4d+qBjByMUtVMNiHUqGH1P7/LE7hwsF4cxF
+	 zz52MWE3dFrnrOdIWmGW8BDeWVCmlrDekijIq6xc6AcSJYbR/EGD3w4pxRP3sXk//o
+	 55a+inVeDEt9g==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-bef8b97655eso1076422066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 10:57:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+8rHekR4C/T2HRDCbucpG/wrCR4eqqPHo6uQcF0/aDtvLMJ7rRMMy1nqRCjb3R3uRbzbC5i8TF9M3I/o1atwHq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRHUNGvE4CuP74Ve1lnnfxFJuAfTJ0/e/qw/VloL86tbbfPudQ
+	iGgeXHMDYJVp4fL4dvW7z/Xx+SVj8V3GDQhLyc1i7hzQAHjl4hiKACx+NxrMbCIL62sy3dkV9Om
+	U/uz+OoqN0sWKLHzx/uu8anXaAjHshNE=
+X-Received: by 2002:a17:906:d550:b0:bec:1632:eceb with SMTP id
+ a640c23a62f3a-bf3a840d8bcmr919741066b.19.1781027858565; Tue, 09 Jun 2026
+ 10:57:38 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB9854:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3faa01ee-a6f4-4e44-0bdb-08dec6498032
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|366016|18002099003|22082099003|3023799007|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: gHts3zrHbzHd1GS7gFNAcnJh1+u3tekVudN6z1NjHCpccbX4E6v2Fq+vCEltl4+iFFObgkJF4+ujoKBO9YJ9bpbbt0bMPBIbuv4cwvMpT/o0sXr2zR/vaVy0yCCmPzHr8Km9tyVa/9c4YXyVGkT0SB5Js2fgvLxCkxJiOsPllMEc27xWqul1lGKQR+HCe4N3OWak/k6gm7Ol9ptUZlwzrm35oMITLXUhQEC07VkxiHaCOfqJWE3n5EpGLw0m1PRjd/Ml2CLUWS8E8oKZES1NfDWU35Wgrh6WXhQNrQ5dI9j3xqJTfdDqPQWCCiVrOElPt37dFM4ACu44YdNnEDxS/eQvG5viOAvJzwdLt0NE8MbyDlxadFtlN4GdHuabRI65rJStEJ9UsUMKMJ/VZVtDkc0RcRmbG/J7I0MJfRjEOeU6Vyv7BXGlNwxgHcfBZRW3LUUAPTgoSpWqqtNOKpJHfUiDmcqrkBtUWCO4sAmMzBcewWu58ZO05tYAEwHSgXlNQG+K14RNKuxrAzqBS6+5PXEpO8B/HY3SgZpMo6yv12QO8X+qwRm5BNmW5ZhS6acTLW0Y3Gvoy6Ohwk4Uv/BDa5cZp6UNa3WQqUC5+KsJHGX5uK42ClMlIjHkTArEcPm58TnDuQAXMc67CQHgYpNgGWU5Ep3vk6oOWB4MbedinN7GsaE6VXNGcDctnwZ63nYi
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(366016)(18002099003)(22082099003)(3023799007)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vd+tW7BAfwuuuHkGhaSn2yaP0PWIPT2dQC4TLpaIHD1HmcTVfKWoafNcl0A7?=
- =?us-ascii?Q?w4W+m8PvugQxf3VpieW9ugqekDfFH3Ka6t/PCwzs3db+23nXnTwNkORuhm4R?=
- =?us-ascii?Q?uOFFFs9IVd2e/yjqBzi4m4p5TqKCBM4tay0qAWBuBDdNbT5aflxL5Scths88?=
- =?us-ascii?Q?pbKMtoW317K046PSctAoQDwridl22f3epyvQqt2nCNpq2ySsSXDNJBQV90fl?=
- =?us-ascii?Q?RlIW0EF/i8zF9umxm+UhC365EwB29/hG0UOhvcjHTkfeRtGW40XL8LWTU/zB?=
- =?us-ascii?Q?RvYJ7vA081YS0fsU3XegjnlJb6vygRuqqwZn0vpyg8mT3z2bqGLVXVxfNzHO?=
- =?us-ascii?Q?6FMixQpRDemn1kbnn2IjVpzPZrE/bz9WkqqxykJM5v0ELqnpy1dTUfZxPUf3?=
- =?us-ascii?Q?qIqAlIA8mqTFDgjnvPtw8mrgE6kCrZz+KUqa3KZNBCeYootBLCZ4OCppTrFK?=
- =?us-ascii?Q?2qstebP6pVy6XKFSge3HepyZSsg6hHnuW+JHk7RxDjWszhsb4BgIWANKfDwy?=
- =?us-ascii?Q?o7M5V/JCtS/+dlT8qYeor/Ma6XnQmZce48GjA0R3mHYYcG10MqlRkqgx5xID?=
- =?us-ascii?Q?VNn4s6y/nRDJn7/eKyFFY1fB290CL6sXW8sPbKObDt21KibQeMK+50lED9zw?=
- =?us-ascii?Q?catyHO7j4hgXgEmBZ6ak6CwMSdlDt4Pv8AyD8booeGWRIOdOef5ob4SpaL9i?=
- =?us-ascii?Q?pWVSuBWy7WSm3USqDAXsX0TZLBcnc1j81yB+hiCpOYTjPkGQ+Pirh73xoOOl?=
- =?us-ascii?Q?EwcFhdeKlrpbkaK403mu1yFDN90FnRptG5+wUOBZz9hfNOaDPySm2A6zXmb8?=
- =?us-ascii?Q?waFslon6b/n3mZfSlC2vwhvnRc8XGTb/ETbLOhoqTLASiaRfoBC36TB9BDV+?=
- =?us-ascii?Q?uJ/E+0rHjxqgez1wffLhFM8PKB1T2rUem7zfoxbyBI2tKHlasBYZVumxypLj?=
- =?us-ascii?Q?E++4SS55J3TpiBWPDcd1u9LCPjGTmU1eq3vKYhvwWxpkYlteISDgd17s5i0/?=
- =?us-ascii?Q?+Mf6HDJCtUOHqZNeKH9iF1C9UEWX2DqUhuTAZW/zmYItePHrzv3j0zzI5jpQ?=
- =?us-ascii?Q?4w47x0QzaCANQj7gmj2zUnu+GfVKWSOSxk33IjbM9G2yNeUk6HTRCKBkFNh4?=
- =?us-ascii?Q?jYkPCFfla2SGkla91PeMQgb9eTe85nX8SETbttakCzynGK2x+NrWcVC/CmQ5?=
- =?us-ascii?Q?Nq37tesiC6HsLXj8W5zCoREvGIuzi2V0cAItjScm6tU7b6xs3EW+jvR79qAk?=
- =?us-ascii?Q?e/UNFmOxp2LhxjrrdhAqV5CNvZDuj3XS44f7ymkzv0IyiTuWw/QGIuH4YzcS?=
- =?us-ascii?Q?WIlISZiHSnHmS+AAvO+hrU5lQC1cnfAaKy/5+dnTojs2hEJk00ky0ONRGwxd?=
- =?us-ascii?Q?tEoS6WTcQH9xKfCm5sRyOcKTsX3aA1nh3paYtrTlSHQvu57cYkjQ6F1/hGKW?=
- =?us-ascii?Q?Ksktms72GbhVHGPbT+lLM+zCU8LcGIbhSheAR2ZgBCPn4/ropGNVopZkeBhw?=
- =?us-ascii?Q?055A4H1RijbHnjTHH16qLPBKHqJ1mOodBfxKgwpJh+jOQIClZuWb8+Cdco//?=
- =?us-ascii?Q?L7eNxgh6zTudjMgbS4e2sISv8QYLm41oOoeSviNldQRHB0NsHNr1IEPFz/Pr?=
- =?us-ascii?Q?PhJYZ9V03SwCZPB6bCZxmS5HTBFioBZ6uj8HhZu09LRoaoZ81ilrH62MsdUQ?=
- =?us-ascii?Q?Aud34z7mNUZp40q3UYM44aPDTOSXW4XYOSrj/9Rj9PiLYPEiqXpZpsTdjoj6?=
- =?us-ascii?Q?2wjntmbL0HHIc42Uvpm2WzjyCQxhLY4edENJ209VFqvRAtJ0yHVt?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3faa01ee-a6f4-4e44-0bdb-08dec6498032
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 17:06:52.1777
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: E8zpqaBMLEngVdsZgnolDi3iq1kAt9p+X+E/DigLVyFwsfjJdgA8uOCswHmbWrF9Cr9O5MSgO46p1PG1QQvMH6AaPx+ht7oHlksm2ahI808fzRNtro3aHUrPby0g7L0O
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9854
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_100658_242762_2F4FFF15 
-X-CRM114-Status: GOOD (  26.98  )
+References: <20260608081108.2244133-1-maz@kernel.org> <aicqzM4W4NN-GndT@google.com>
+ <86ldcotbub.wl-maz@kernel.org>
+In-Reply-To: <86ldcotbub.wl-maz@kernel.org>
+From: Yosry Ahmed <yosry@kernel.org>
+Date: Tue, 9 Jun 2026 10:57:26 -0700
+X-Gmail-Original-Message-ID: <CAO9r8zMpvxoVcDvWn3q0C0Dv=0Kknt_BqZ8KqddwuKa5bd44Dw@mail.gmail.com>
+X-Gm-Features: AVVi8CcBbJljDF-ob_nMqw_7wUVvIUirAOYqofuY07VBH15GCgGGqOLIaMxlMSM
+Message-ID: <CAO9r8zMpvxoVcDvWn3q0C0Dv=0Kknt_BqZ8KqddwuKa5bd44Dw@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Hold kvm->mmu_lock while initialising vcpu->arch.vncr_tlb
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,66 +81,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 10:40:06AM -0600, Mathieu Poirier wrote:
-> [You don't often get email from mathieu.poirier@linaro.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> On Fri, Jun 05, 2026 at 04:36:18AM -0700, Laurentiu Mihalcea wrote:
-> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> > If yes, I think the code looks confusing, at least to a layman like
+> > myself. It initially seems like the lock protects against concurrent
+> > initializations, but then the NULL check is not done again under the
+> > lock. The goal of the lock is not clear without the original report.
 > >
-> > The names of the carveout regions are derived using the names of the
-> > reserved memory devicetree nodes, which are referenced using the
-> > "memory-region" property. This adds a restriction on the names of said
-> > devicetree nodes, often bearing specific names such as: "vdevbuffer",
-> > "vdev0vring0", "rsc-table", etc... This goes against the devicetree
-> > specification's recommendation, which states that the devicetree node
-> > names should be generic.
+> > Mayeb it's clearer to explicitly use barriers if the goal is preventing
+> > reordering?
 >
-> I don't see what is so restrictive in using the node name of the reserved-memory
-> regions.  Function of_reserved_mem_region_to_resource() is already doing all the
-> parsing, packaging everything in a neat and easy to use "struct resource".  What
-> will you gain with this new "memory-region-names" that can't be done with the
-> current solution?
+> This would require both the initialisation of vncr_tlb to use a store
+> release, *and* all the other call sites to use a load acquire.
+>
+> I really don't think it is worth the churn, nor the (very small)
+> burden on the readers.
 
-DT Binding check can't find such wrong if node name is not what expected.
-Binding can't restrict memory's node name because there ware not specific
-compatible string for it.
-
-Frank
-
->
-> >
-> > Fix this by documenting an additional, optional property:
-> > "memory-region-names". This way, the carveout names can use the values
-> > passed via "memory-region-names", while keeping the devicetree node
-> > names of the reserved memory regions generic.
-> >
-> > There are no restrictions imposed on the values of the strings passed via
-> > the new property since the software allows any name to be used, with some
-> > names (e.g. "vdev%dbuffer", "vdev%dvring%d", "rsc-table") bearing a
-> > special meaning.
-> >
-> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > ---
-> >  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > index c18f71b64889..8e3e6676a95e 100644
-> > --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > @@ -62,6 +62,10 @@ properties:
-> >      minItems: 1
-> >      maxItems: 32
-> >
-> > +  memory-region-names:
-> > +    minItems: 1
-> > +    maxItems: 32
-> > +
-> >    power-domains:
-> >      minItems: 2
-> >      maxItems: 8
-> > --
-> > 2.43.0
-> >
->
+That's fair. I was mainly just pointing out my initial confusion and
+that others may share it. Avoiding the churn on the readers' side is
+understandable. Maybe a comment here would help explain why the lock
+needs to be held?
 
