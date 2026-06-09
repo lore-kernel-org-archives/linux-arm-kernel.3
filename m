@@ -4,72 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F39CD8CAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F13CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DIZIK8PnwGd41Y19B48/hAerlfXbkRInPJ4vUvQE2jE=; b=lsp3ya6B2GV3B/
-	p/r8+zg/fSE6hTvr85/N7OkMogu62va+HT4E0QCG+90fzvTs2H77fVswMvfXzLu/3LG6N51ukSEnU
-	62+MqePQMl5WI7Pr66iU/9OErXW7WPp2LNTUZN5bliLaVKNUEaKxmWYwOyuB+CplMrx97sqXVBOGP
-	yRzkHTgzwwsOhf1S5mRdTLauj/DpZ1cm2HufwjTCDn4uLuUdTKeqrVAd5vg5tt+/M5i1iSF8f7Mmj
-	40Q5JxhzDa6n/BgAKqWGCeEk22OwOy59B+vrgJ5P8rklZQwUggr6Jb30BbO/D2RiYZxJc1tuJpZMM
-	9lVlizkqavxNC0S1RbEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/t/KVtkqwokTt2oNchcdf4xUUArUEApR4RsM4t4GGaI=; b=qJ0KjJ1G2C7uFuQivqN1GqhbER
+	gVEII35QwlFtmC/Tn7zdOCcIX8yUXEG8x/lQp/zibJ8WYAkrXx3GJnTEN4LSZ5kp2Kdbdp8V3GTdN
+	cf1SYcj7Z55BwWPugQNySjj6sRkMVIwG+r5XB/Rjs6aSZxFJwyZRqGoE/ceJzTjXcTJRGxeGXNs9E
+	GEbMyk3v/d5p/xgSfsZ2dZCZnO8O6Ia64pWivxUKp5MLhz2sMv6AIoWNgc0ouSM+heqjXKBz70RKV
+	TYXMCjXtDaBv5QuJ/M9iyKsBjyBw7ujBPTqemrktwb+ikUXavJMQhmR6CxJPp8lMHmGSq8QlC8Fgy
+	qKYgRmug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWx2a-00000005jRD-253t;
-	Tue, 09 Jun 2026 14:02:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wWxFH-00000005kWs-2zKn;
+	Tue, 09 Jun 2026 14:15:59 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWx2Y-00000005jQi-2c1h
+	id 1wWxFB-00000005kWS-2qzL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 14:02:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 137C0434A2
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 14:02:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8EB1F00899
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 14:02:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781013770;
-	bh=DIZIK8PnwGd41Y19B48/hAerlfXbkRInPJ4vUvQE2jE=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=T4v6ecYl2+2aDvXhixvZD/qvUEi30CGNHn+AUBZsSv8BJph6Jz+hzZX2Lt2H+dzqb
-	 kLW0nb/aKOKWbJpSS1OGmxvKUz1/FoRpy5XlWT90EmYtDscBsRZqIKKhqo+hdW8ewB
-	 sAcxfjTkW9luqqMClqJYmw1wAzxm1iDOUfW6rCpMGGQMP5goV3OKUXo2Ksd3YRNIUB
-	 lPvo54NG5xDbIZxvU8POi1NM9BbzvwJM1ffRbKvoJXbZH2HHX7opb/e7BA9V8eWTUH
-	 VuOYTDzU4gvAfrYeKagBvkilEb1mTCPDTxITi6jkMFpDb3p1ICrx/omRd9x1u5Hhlk
-	 pzX4cCb1/BX+Q==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aa5f11deb2so6176857e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 07:02:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+wROYFdWiCEgEJvbs5eOWOmC6BFc7rsjJuptZlSmNR3DypWjUSVLbaI4qX56O5R0Mo6DDFoihlS7CLKOvRKSXR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzqw447yYpoImLuatGKqM7jMsJ3QHUuvWDPAxTLDp4t4Y65ufAH
-	vNSsr9VTmEMZdX/X9cH5vzMo/mTfJts7iF+nvL1ZDNXNhfZ+vEYaY38PErokTVopDxc3mF9Zds7
-	SpyMpXxziJD93fFTL2qH0IbrlSBxQ0Z0=
-X-Received: by 2002:a05:6512:3b9a:b0:5aa:6e86:55e5 with SMTP id
- 2adb3069b0e04-5acf6be8927mr979674e87.13.1781013768217; Tue, 09 Jun 2026
- 07:02:48 -0700 (PDT)
+	Tue, 09 Jun 2026 14:15:57 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-8ccf18ef922so78968896d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 07:15:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1781014552; x=1781619352; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/t/KVtkqwokTt2oNchcdf4xUUArUEApR4RsM4t4GGaI=;
+        b=Hh3cVAu83XKQfw23M35in0LmV/tSmk1HOT0f2FQgzUK2vwYAwoqjUAGDW142ACWcip
+         VuecX3ZVcNwoQfJ30iXAONi2EhLQlGvFFpvvx/a7p5vICC2ab7wauWqIdWwWenC9NykM
+         njoR3zWn6kSn4yt6w4gW6oZzihA0Sz9Q+NRi2xA2TdM5NJSJlUXYr8zslscwuPpSiIWo
+         nTfa2oamWnEG0w3q2/d9lslqURRB3erTGpmK5A9vaDZhv/ThdCNoYpY9bnGwFe8+3z8P
+         4k820CyISactfybhZ2bBMcdtdpztjMlWWsA17Km89rqYbDk33E9By3LixSBnaOt36PMD
+         3UpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781014552; x=1781619352;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/t/KVtkqwokTt2oNchcdf4xUUArUEApR4RsM4t4GGaI=;
+        b=sTxX22q11XhT+Kj7Dbt91J9oW5j3BMLx73OBGe7PAbW7TGP5yGtQRzA3rMCOxaMqpU
+         u/EY5bl8RGMtJnyeqC14DEEk1AUSiWr+zhFLUeJzsQUTlSsMDQh7c8f1hoxE/knwUCy9
+         BC18xxlK5AuZR36fPtfAmgKBLd4dKPzWAFforR52iOdhRgAfdJ1cR1MXL7a9vZI218jk
+         MuwOclAzaLJzVtXpRu2hUZ6nMAlkiXLYL9beTPUd4a1a9lekD8XkjOP+IMeu4Z9QNbFd
+         FSPt2WJR2WusN/cGwivDChx3Q8PLvOI7ZPeoZMtVG+4IafuoojEpL/5gAZKsRH4Fyymt
+         4Tlg==
+X-Forwarded-Encrypted: i=1; AFNElJ88hEHDvMJLipNlLYEm3v6yOvVLotOOqnJMUEi9tha/8x+CfracSlpHWghtiIwBNZwXhIrRDRcswMx/rQrnzb0I@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjYdGFBTls4iJH4sv3Bec99OZG2d6FMKL9hUFDyY5ZIhk0dTu9
+	l9NXuK0QQRRMfl3m4ARPE0Hyz+7HXYU7NAdQn3Pg1QBub3zMr9Tz+ieGj/yN0JDu6zI=
+X-Gm-Gg: Acq92OGa0eJQTe4JSSckRPbqL18XmBec3Hknm3rcTig4kT/CDQX+4BTPX9YhgJ8xabv
+	zCL/gR5sgIQiV7sFBQE4FQw+xHvujdc5raS8LIrm1JnmqckYUhdv9egzo6nyTKAJBHylT6GAX8c
+	qZ+TgR1vvyjdPPOv6/Wo4S6Sm8eDyvcUQnXkHaB1us4/GFlu+z2UMvgY4PM/RFhH8852umq+X6G
+	WKL+PGiwRDZBZ9LJHxQTkW4aowh3R/e2H8h4+ieNfEazIcsE/L7QiyQkT/dU/i4dWoxQm+fenlp
+	WXJbU4LwrQvfQA33KX5xcZBBF46M+lU+Vb34hvau4ya/pGN55vib6wxY0dUry6m3TzhQkGHdmgR
+	SQqs1iB/SSthe8PiElBp8yODxbPNacdTaiqp/d0QbhrAKacKP5irlUUlescr0cuWJlS87HlyUQI
+	8ClQe86py//mNYGh/6ga8NsRdg2cRgJCYpmAI/n90RpfTbt3xXoGd8LqZ9RUigHZGQ3ZkdiTntF
+	+oT5/O6B5xwfh3N
+X-Received: by 2002:a05:6214:626:b0:8ce:ba04:7bc2 with SMTP id 6a1803df08f44-8cee626f0eamr293032506d6.38.1781014535341;
+        Tue, 09 Jun 2026 07:15:35 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cecd077be8sm204702746d6.40.2026.06.09.07.15.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 07:15:34 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wWxEs-000000021xL-0mOX;
+	Tue, 09 Jun 2026 11:15:34 -0300
+Date: Tue, 9 Jun 2026 11:15:34 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	stable@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v6 14/20] dma-direct: return struct page from
+ dma_direct_alloc_from_pool()
+Message-ID: <20260609141534.GJ2764304@ziepe.ca>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <20260604083959.1265923-15-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-References: <ah3ZAPLzh8ORGmpH@home.wens.tw> <20260609-mighty-excellent-shoebill-04d7fa@quoll>
- <CAGb2v64guguXmg-=WYmZyz=rw3PNRvh+TnEE1yWFz=AJbryssw@mail.gmail.com>
- <98f3e864-3a9e-4f96-a633-0c0053ec35fb@kernel.org> <CAGb2v64o+tgnLqK_xDoauB4ThF_0979_5XPB38KiZHYyh1BnVQ@mail.gmail.com>
- <e2bf1f8b-677e-4184-b752-26e987f29121@kernel.org> <CAGb2v654d6kj_CjWKtCGE+mLnSUBrQhywA9aCAGFhqh1SGQ1vg@mail.gmail.com>
- <aigZP9W6AWzde2qo@collins>
-In-Reply-To: <aigZP9W6AWzde2qo@collins>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 9 Jun 2026 23:02:36 +0900
-X-Gmail-Original-Message-ID: <CAGb2v64Qk9uWDiuR3oM5aE5xSi_eC+cVZT3ZUT3JJQUazE6g8w@mail.gmail.com>
-X-Gm-Features: AVVi8Cccpi1_OhVw7fhQSEKzKM9A1mVInpapc_87jyD4L-bqqQfD3ViCMlP8kbM
-Message-ID: <CAGb2v64Qk9uWDiuR3oM5aE5xSi_eC+cVZT3ZUT3JJQUazE6g8w@mail.gmail.com>
-Subject: Re: [GIT PULL] Allwinner DT Changes for 7.2
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, soc@kernel.org, Jernej Skrabec <jernej@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260604083959.1265923-15-aneesh.kumar@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_071553_726315_337F1E04 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,113 +124,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 9, 2026 at 10:46=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
-o> wrote:
->
-> Hi,
->
-> Le Tue 09 Jun 26, 22:26, Chen-Yu Tsai a =C3=A9crit :
-> > On Tue, Jun 9, 2026 at 10:18=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> > >
-> > > On 09/06/2026 14:38, Chen-Yu Tsai wrote:
-> > > > On Tue, Jun 9, 2026 at 8:51=E2=80=AFPM Krzysztof Kozlowski <krzk@ke=
-rnel.org> wrote:
-> > > >>
-> > > >> On 09/06/2026 13:48, Chen-Yu Tsai wrote:
-> > > >>> On Tue, Jun 9, 2026 at 8:43=E2=80=AFPM Krzysztof Kozlowski <krzk@=
-kernel.org> wrote:
-> > > >>>>
-> > > >>>> On Tue, Jun 02, 2026 at 03:09:52AM +0800, Chen-Yu Tsai wrote:
-> > > >>>>> The following changes since commit 254f49634ee16a731174d2ae34bc=
-50bd5f45e731:
-> > > >>>>>
-> > > >>>>>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
-> > > >>>>>
-> > > >>>>> are available in the Git repository at:
-> > > >>>>>
-> > > >>>>>   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.g=
-it tags/sunxi-dt-for-7.2
-> > > >>>>>
-> > > >>>>> for you to fetch changes up to 44cf19e41c769720750dbb8752aca75c=
-247e565f:
-> > > >>>>>
-> > > >>>>>   arm64: dts: allwinner: a523: add gpadc node (2026-05-25 05:02=
-:58 +0800)
-> > > >>>>>
-> > > >>>>>
-> > > >>>>> As mentioned in the tag, this pull request contains a change th=
-at should
-> > > >>>>> be shared between the soc and clk trees. However since I don't =
-have any
-> > > >>>>> clk changes to send this cycle, I think it can just go through =
-the soc
-> > > >>>>> tree without any issues.
-> > > >>>>
-> > > >>>> But the clock driver change cannot be in the DTS branch. This sh=
-ould go
-> > > >>>> via clock tree even if it is one change. And definitely not via =
-DTS
-> > > >>>> branch.
-> > > >>>
-> > > >>> It is a shared change, because it moves two symbols from the driv=
-er's
-> > > >>> private header to the public DT binding header. I don't see how t=
-his
-> > > >>> can go through just the clk tree when one of the subsequent patch=
-es
-> > > >>> uses those new symbols.
-> > > >>>
-> > > >>> "clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public he=
-ader"
-> > > >>> is needed by "ARM: dts: sun8i: v3s: Add mbus node to represent th=
-e
-> > > >>> interconnect".
-> > > >>>
-> > > >>> The other way to go about this is to use raw numbers first, then
-> > > >>> another patch in the next cycle to switch the numbers to actual
-> > > >>> macros. IMHO not worth the churn and headache.
-> > > >>
-> > > >> You can have a duplicated define.
-> > > >
-> > > > I honestly did not know that it worked.
-> > > >
-> > > > However, splitting what is effectively one logical change (*move*
-> > > > something) into two patches just to be able to merge them through t=
-wo
-> > > > separate trees still seems wrong to me.
-> > >
-> > > It is not really one logical change. Defining a new ABI (binding head=
-er
-> > > define) is considered one change. Merging binding change into driver
-> > > commit breaks rule of splitting bindings from implementation.
-> > >
-> > > Second rule is that DTS branch CANNOT take driver changes. So if you =
-do
-> > > not want to adhere to the above rule you still cannot combine it into
-> > > DTS branch.
-> >
-> > Very well. I will drop the two changes and send a revised pull request.
-> >
-> > Paul, can you redo the clk changes as requested in the next cycle?
->
-> Sure, so if I understand correctly, commit:
-> clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public headersunxi
->
-> should be split into two, one adding the definitions to the dt-bindings
-> headers first and a second one removing them from the clk driver?
+On Thu, Jun 04, 2026 at 02:09:53PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> @@ -270,9 +270,12 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  	 * the atomic pools instead if we aren't allowed block.
+>  	 */
+>  	if ((remap || (attrs & DMA_ATTR_CC_SHARED)) &&
+> -	    dma_direct_use_pool(dev, gfp))
+> -		return dma_direct_alloc_from_pool(dev, size, dma_handle,
+> -						  gfp, attrs);
+> +	    dma_direct_use_pool(dev, gfp)) {
+> +		page = dma_direct_alloc_from_pool(dev, size,
+> +					dma_handle, &cpu_addr,
+> +					gfp, attrs);
+> +		return page ? cpu_addr : NULL;
+> +	}
 
-Correct.
+You should probably put this at the start of the series so it can be
+backported
 
-> Can it still make it for 7.2?
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-If you send it out soon, then maybe I can send both in a PR to Stephen.
-But the v3s dts patch is not going to make it.
+To Petr's question I think this just shows nobody is really stressing
+the PCI dma paths on CC VMs today.
 
+	if (force_dma_unencrypted(dev) && dma_direct_use_pool(dev, gfp))
+		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
 
-ChenYu
+For instance the places even calling dma_alloc_pages() don't look like
+things people would use in a CC VM.
+
+Jason
 
