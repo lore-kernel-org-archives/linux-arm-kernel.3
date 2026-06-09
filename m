@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FF4CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC27BCD8CAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zF4YvrG+EB8JDL3R6ViMoPNp6HVm/PdHGw9XeWtWNP0=; b=PWnzMvVR0mS8SfMDaArYSS51rN
-	3Mwx+mLorK6NF1o48LfBOluBGjviDb2Q5bHzhQO61MxPJ5EKxCFj1XLGHrV84QeHQV50Szoi6iw3K
-	xpIAifwFAb3pldjohuut3D3Dv2AucGmPC2zPxYR542OR6jSSWyowDcRS0I6fM5UicOEoCXV7d/bqI
-	WTPfMrMzPvQ+lTVnRpHgrK/MRNBu+b1Bv6oDrqCF9jR1UIwbi1eBSEKQ0gLUPLTikBcxQRYEtjYau
-	XDltKjFwm0qMoGNtywizMgX9HIHjGp1hCOpsEU+ltBqO1wWsfBC1PFfvi3jOM7SSquioZkbsQSF5X
-	F0tYIhRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ri11zf+v7SxgmYD6i7DvpHcfbDLj9WFbIP81D8nKxw0=; b=uHKzGeu4dySb88EfVhB0cDzZ/8
+	fXspYyVpVB54hZPhkmHETsY5ylIBb3HQhQhjU/E2J5NwajkwzcOXMYWit+wKR67iwHNE0M5YYaIQP
+	+Lj+qd9pb5A64S+jj0VoPebKtJYYuzeVZiOXwa41u3QPxOOX7/kQ4s7nFDDKcxsovvO0Fn+xNLSd/
+	CkPomSlTJNMLX0fqVRarV24RElT4QqFRACnt01l/WunqGvhwiPEdX5L8E05qB/SK915XvkoCxaByZ
+	SfkD8fj7ZJj96e5WR8u+74Ajcoxwc1ZJG9Vb5eI9r3GZJVZFiQtsKnVzD7JWjIYO37z+LENOCZPXL
+	TVa16mjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWrC0-00000004zNj-25Ey;
-	Tue, 09 Jun 2026 07:48:12 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wWrQN-000000051Qb-2gKi;
+	Tue, 09 Jun 2026 08:03:03 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWrBw-00000004zNR-1aOh
+	id 1wWrQK-000000051Q4-0956
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 07:48:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3687F4E42C86;
-	Tue,  9 Jun 2026 07:48:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 04C3D5FFC1;
-	Tue,  9 Jun 2026 07:48:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1E3FA106A2A94;
-	Tue,  9 Jun 2026 09:47:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780991280; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=zF4YvrG+EB8JDL3R6ViMoPNp6HVm/PdHGw9XeWtWNP0=;
-	b=xXMrahGTUeXtXkGJ1zr5F+G2D852jhc0/A03F6lBVcfVrqhzqKmoQEv40R2zqW46cZb6d6
-	hjDKHl0Ur5/kPTFE/PJ/7TEAjbBgzB6uQhLLJIkJYFDjjTSoEOx9QwzRYfA118qcc/odXr
-	Hz/1d4uUwhmoOmPoq/n2fCNgxMgvxOg4lZKcSBkP3v6OqjqmkI66vOm0TiK0yPR/5+ohAD
-	2Cf5wZnQShXjtrfW5ZZQIXYEN2Wj3ewmIrG+S4x/muNFYbtWCjIstkGSpo+yflrDbrMyEs
-	KBFw/VyPOjX/cHVPSscxfEfQ2IftJzHJEmcwawDGO+k0XjHEt/hZ44sXn9MRdA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 09 Jun 2026 09:47:51 +0200
-Message-Id: <DJ4CPR3MZ41U.2HKE3R0WUGSOY@bootlin.com>
-Subject: Re: [PATCH 00/37] drm bridge hotplug
-Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
- <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
- "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <DIXTUCXAU68V.1T7X89LMEUF2F@bootlin.com>
-In-Reply-To: <DIXTUCXAU68V.1T7X89LMEUF2F@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 09 Jun 2026 08:03:02 +0000
+Received: from ubuntu.. (unknown [202.112.113.208])
+	by APP-03 (Coremail) with SMTP id rQCowADX9t2gyCdqKU8gFA--.1122S2;
+	Tue, 09 Jun 2026 16:02:51 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com,
+	mathieu.poirier@linaro.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	Ma Ke <make24@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [RESEND PATCH v3] coresight: etm-perf: Fix reference count leak in etm_setup_aux
+Date: Tue,  9 Jun 2026 16:02:36 +0800
+Message-ID: <20260609080236.425072-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowADX9t2gyCdqKU8gFA--.1122S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4UAr17uF43tr4kJF48Crg_yoW8ZFy8pF
+	4jkws0yF98Gr40vws7Jr18Zay5uw4SvF4agryfKw4DuF4YqFW3ZFyjgryFyrn3CrZ5Kas0
+	g3WxtF409FWUJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7V
+	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
+	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
+	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
+	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
+	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7UUUUU==
+X-Originating-IP: [202.112.113.208]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_004808_731784_56385D7B 
-X-CRM114-Status: UNSURE (   5.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260609_010300_450170_086F5FFF 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,22 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+bus_find_device() returns a device with its reference count
+incremented. When a user-selected sink is obtained through
+coresight_get_sink_by_id(), etm_setup_aux() keeps using the returned
+sink while building the path and allocating the sink buffer.
 
-On Mon Jun 1, 2026 at 5:44 PM CEST, Luca Ceresoli wrote:
-> Hello,
->
-> I presented this series last Friday during the Display Next Hackfest
-> 2026. Here's a summary of the discussion.
+Therefore the lookup reference must remain valid while etm_setup_aux()
+is still using the sink, otherwise the sink could be removed under the
+caller. Drop the lookup reference on the common exit path, after
+etm_setup_aux() no longer directly uses the user-selected sink.
 
-For the records, the presentation slides are available at
-https://bootlin.com/pub/conferences/2026/display-next-hackfest/ceresoli-drm=
--bridge-hotplug.pdf
+The CoreSight path code takes the references it needs for built paths,
+so the initial lookup reference from coresight_get_sink_by_id() is no
+longer needed after setup_aux finishes.
 
-Luca
+Found by code review.
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+Cc: stable@vger.kernel.org
+Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
+---
+Changes in v3:
+- do not drop the lookup reference in coresight_get_sink_by_id(), as 
+that would return a sink pointer without keeping the device reference 
+while etm_setup_aux() is still using it.
+- dropped the lookup reference in etm_setup_aux on the common exit path, 
+as suggested by Suzuki.
+- updated the commit message to describe why the reference is kept 
+until etm_setup_aux() finishes using the sink.
+Changes in v2:
+- modified the patch as suggestions.
+---
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f85dedf89a3f..d5116177c1b9 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -456,6 +456,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 		goto err;
+ 
+ out:
++	if (user_sink) {
++		put_device(&user_sink->dev);
++		user_sink = NULL;
++	}
++
+ 	return event_data;
+ 
+ err:
+-- 
+2.43.0
+
 
