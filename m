@@ -4,91 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A026CD8CAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EF8CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EZxhU2iD6PdOyojyjLvdXFMxCVOPuNzGVXqMgxsvNpE=; b=ZFGvtEilCnDrfN301ld9SZgM7y
-	5DxzLuNFACRf9RWzLpmLsB0bM8nQxY9GYd+PGVrwTaWLPUkCKiHS6thYRQQBXTWRcQjtyr4Yw7Uyd
-	FIzv/i1wvUWowMoCXHww/XIIkVRKWSGRFT2dtpCmq1r2kb5LbBxWLRHUXWJZmEu1QKVsIQUzjqpfX
-	A5+CmCotTIMUdXfynnbxbkdYTuY0dqyFdw5nsuegePf7zhg7iHAfU9MoyBhUmSSyQbvgfwT1P9a6v
-	TQ0kNcYLdYsfH346oih8gnlaI77EziIMof3RBnRKKdEsHKp8aUA1kkkd6PgxDv5nJ5NnqtugtaQoN
-	dpNaA+hg==;
+	bh=u3g+p7pQ6JoJVQEnX5LE48ozxdUNMa5LUsxD2CLpza4=; b=L2/sw7EB15rhfrgM51u0XeWiQm
+	CorQ8Ax1gqvtm/FMRgqo1bN8wGTzl6IHL2Aj28DC6sX+Ebs1Hf5ey05oDN81yfQBi9gT0ASwHlKrK
+	gIrBXwPaWPxK+6zRFwPxROaj2q0C2rdwGTn8YWQjV6HUKlNBnrygCoxmCM0qw8TWHbgUEBCnpEOuk
+	RPpE3+w9dmn27VvGQ/kOySNMnWeZeA76SI2keI/DR5CF+0SXhTVAQ75Fgrffl4DX1gEoqh3yYKBuf
+	Z65TvpYKNk3EWYKTBYAgwcZdDPDk4q7xa2orwn1diExwXvafpdgbKOiXKCLR6wNZpCSNgQS6t/+3Z
+	eAvE0xVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWqxf-00000004yOI-0HwY;
-	Tue, 09 Jun 2026 07:33:23 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1wWr3H-00000004ylM-42CQ;
+	Tue, 09 Jun 2026 07:39:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWqxc-00000004yNH-1dxv
+	id 1wWr3G-00000004yl8-0fnH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 07:33:21 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-84275887a3fso3856952b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 00:33:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780990400; x=1781595200; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=EZxhU2iD6PdOyojyjLvdXFMxCVOPuNzGVXqMgxsvNpE=;
-        b=lQ+iFMJ13J1eo9s4cKsnl/x1CNjr8mPaoecNJwz55pSiJVumug4rtFQyX6eeUNxrPi
-         61EivPFr6MN/4ATlxhPoTUN2eoR1I27G99W5vQERmJuq7NM+0ODY6NQ7Wc69i3SwdQg6
-         jC+CMhqn2dJAOcnGmSP87o2+VdrAgDqZFK1bW0xDIJn9qZfg6WIoNlDOHdAGi1HcgOoJ
-         N/mxMmkFVKsqLJTURTWxSkwwe9B8OO15bu3yCSdeKFPA8WJSmDDLsgfwLS/xO97hAekF
-         XN96wJvehoTlrItNYVFMXSZsPCdXduWSj3F7byRgh+fuPPeRA6wabUCucpSfSQO2b6Q5
-         TnLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780990400; x=1781595200;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EZxhU2iD6PdOyojyjLvdXFMxCVOPuNzGVXqMgxsvNpE=;
-        b=mKrBl17mlHBqkCkbJ4Mdh0zTNZTs0gqtC3fj/ZuvJQtOCL7rjhHa53C9DZ4dG9m6Tg
-         A4X6Pd5u952vald6XGLSQ63Y05hP9dIzVbHVU+P+hHWVRfd7h1Vuh+Ine6bcFvD2Y660
-         7jweUgznsIm5A6v24tV4jsWwx/bzdU4BZV4k7K4pDOT6VMEbHBZtxFmquGn1NjiNox6L
-         Cf7pVm/9bWvlTB6+6jWLkeNUgsjha7GQi+yWTW+4JzTGmcICmM/H4NLzYpG9opXSlF2J
-         tDgvvt8qvurw6W0p96kLe3VPiC3BDStcUrZlu+kQF9SxajpWnVaQvOJg5mqfoWXsWkz+
-         MB3A==
-X-Forwarded-Encrypted: i=1; AFNElJ9exp5ZpBsvxPj2tToANCLYxcKZhQq6SZikcrQ/HYu1yrabyrIIxoi1B5fl10MqJO7Y6/hvd8qvx7BvDaPQLvC/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLQnzAABeONLplHrZfLGyCeQh/PX0DVyGU9U1ganowIh8Xsukr
-	Hal8xQyEK283wEKNMhg2pTzpswz3HmbaS6NCNYaCzbt8AwiinYPdHTgs
-X-Gm-Gg: Acq92OFjMfrgQUW8Z89oZfXGOwCriS3aUXq4WWamFSo2UELvypnsu/jbYxWENG5/BKf
-	UaVAFQ7orlF7tKhbVs5nelx8kr1KvLFNden9iZLr5nPBTEzBs10xCVnnQSFteDvN7XBjcqHu6/a
-	WZi0l72LliJYAQcd2nEdnw2JkomNeZMm0d5Vg+U6OrYsRf1jXkJV0Xi8YMNfcyjfy86LgHqua4D
-	MrhgU7A4J27T3M08dtwsDZlXs8/JYeLvPVx6VYi2aVF97sG84NQgoZ4iVqSk3+xnyMZlwwY0Ozh
-	kncpuvUOYv0+lt/fYucxSURPGbhTMNa/zXdKdOtGhieeF67AUkXT0lO6bMI0ceTb1IZ4UmAZLH0
-	3fAWVhdvduYQZJi3dzSGZhH+bAqfKPkmfBYbBv6pk8jpCDOmzsfGcWDGFvbLNRMWLjJ08jgarc0
-	japu9+fK35g0Ggw7C80YRK8HPniZjqNvoJxGzC6Pn2E60qAYgvOsJ/5g==
-X-Received: by 2002:a05:6a21:7a9b:b0:3b2:86a4:acbd with SMTP id adf61e73a8af0-3b4d39ff987mr15436890637.2.1780990399495;
-        Tue, 09 Jun 2026 00:33:19 -0700 (PDT)
-Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:37c9:44fa:729b:6aaa])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df034a2csm17670712a12.3.2026.06.09.00.33.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 00:33:19 -0700 (PDT)
-From: Ruoyu Wang <ruoyuw560@gmail.com>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: Harini Katakam <harini.katakam@xilinx.com>,
-	Soren Brinkmann <soren.brinkmann@xilinx.com>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ruoyu Wang <ruoyuw560@gmail.com>
-Subject: [PATCH] gpio: zynq: fix runtime PM leak on remove
-Date: Tue,  9 Jun 2026 15:33:13 +0800
-Message-ID: <20260609073313.5-1-ruoyuw560@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	Tue, 09 Jun 2026 07:39:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 36C8A601DC;
+	Tue,  9 Jun 2026 07:39:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EFB41F00893;
+	Tue,  9 Jun 2026 07:39:07 +0000 (UTC)
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+To: soc@kernel.org,
+	arm@kernel.org
+Cc: claudiu.beznea@tuxon.dev,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Microchip AT91 defconfig updates for v7.2
+Date: Tue,  9 Jun 2026 10:39:04 +0300
+Message-ID: <20260609073904.813405-1-claudiu.beznea@tuxon.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_003320_431612_088FC5D5 
-X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +59,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pm_runtime_get_sync() increments the runtime PM usage counter even when it
-returns an error. zynq_gpio_remove() uses it to keep the controller active
-while removing the GPIO chip, but never drops the usage counter again.
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-Balance the get with pm_runtime_put_noidle() after disabling runtime PM.
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-Fixes: 3242ba117e9b ("gpio: Add driver for Zynq GPIO controller")
-Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
----
- drivers/gpio/gpio-zynq.c | 1 +
- 1 file changed, 1 insertion(+)
+are available in the Git repository at:
 
-diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
-index 571e366624d2a..fafca91128b2e 100644
---- a/drivers/gpio/gpio-zynq.c
-+++ b/drivers/gpio/gpio-zynq.c
-@@ -1014,6 +1014,7 @@ static void zynq_gpio_remove(struct platform_device *pdev)
- 	gpiochip_remove(&gpio->chip);
- 	device_set_wakeup_capable(&pdev->dev, 0);
- 	pm_runtime_disable(&pdev->dev);
-+	pm_runtime_put_noidle(&pdev->dev);
- }
- 
- static struct platform_driver zynq_gpio_driver = {
--- 
-2.51.0
+  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-defconfig-7.2
 
+for you to fetch changes up to ac75ae436723e5fe68dcc8e806f66d0358dd56f7:
+
+  ARM: configs: at91: sama7: add sama7d65 i3c-hci (2026-05-25 22:55:30 +0300)
+
+----------------------------------------------------------------
+Microchip AT91 defconfig updates for v7.2
+
+This update includes:
+- I3C flags for the SAMA7 family of SoCs
+
+----------------------------------------------------------------
+Manikandan Muralidharan (1):
+      ARM: configs: at91: sama7: add sama7d65 i3c-hci
+
+ arch/arm/configs/sama7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
