@@ -4,108 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BBECD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 04:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A66CCD8CAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 04:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7I5kMFjUfQLKS3kOHOooOjgfOrWOEd0p39OkS4SVB1k=; b=Kw0r1NNfSSFH3HkHtDQAfAaJde
-	WqX0VdoFV5xKq1nDbTkcwpzFLt45zcaNRteEUjd0aWDdB14x7+BJ+NmNtUCwdSVIoEJRFyqhEWy/K
-	MTswZYEDXOeda1Am6YHxeYMPtCnj96PfRbsDLK9aPLDGAGRAlvB3BgcEBurvA4F5Tg+FFaD7sLisz
-	hfWWOXrajGnCay0V/htXQ/fUk0fFFKrcbRtiktMaQBcSgKAk0UWgP/kWk7hEFaXmVhHreKF+/Nk9m
-	HSgGsFw7luWKPsud3gv7PKwME9fIq2yOZyTGjwCueuSTa02XOT5E3PSBXX0y8yqz4TTiOO9rBlb4t
-	8QTMbH2w==;
+	bh=8ymppbXqM6XJFFxa93+J+kuVf/yq2ZgzwdYtpCHV3cU=; b=Ei5TadDLFCQiwzPlDp7LzwJeGV
+	9GEwxFy/qCmIBzoTi5WgNQNjjQbgzzuwPY7Pi8bugCPOelNVUvvRuOiXmrJd9IbN5c8tTZqpMQtrN
+	BvbPIcm50fioHoqlBtmFdTs+rcimP4yvl3n2zwxN37XE1kNcUvgNeWu8hiWIS/IXnwYKEbjyInA3H
+	vJT9S3RVn+mshvGa4CBC5WQ1xejLXh65PfE5XIgzchKXHEsm3k/R5UgoJHnAbr4B3SAMUI0Jj2SEu
+	mw6LDCr42sbKDiZOg2zFrxdKPq6ARiXmzor0SugQYXBEOnnHoJU74LRcNNnSPpd96yebwGd91wKfp
+	QZH1JQ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWnxU-00000004iTS-0VY8;
-	Tue, 09 Jun 2026 04:21:00 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1wWo4q-00000004iil-3zD4;
+	Tue, 09 Jun 2026 04:28:36 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWnxR-00000004iT1-3JZd
+	id 1wWo4o-00000004iiL-25UM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 04:20:59 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-51765531803so2423811cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 21:20:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780978855; cv=none;
-        d=google.com; s=arc-20240605;
-        b=OZUa17FCQT0z+bFb86drWm+16p1RIeLT0E3MGZAw5NOq4cYf+x/PlSNXDW/GepMTE7
-         l6+qyvcTWhXICY87gT/OtP07gP6hBPP6x4QCwtQEXQx24wphrJ2mgGVLxct1Cl7bRHQa
-         oHuvQpkGlTYXkdrSgvrzU/oyWQOtBYRatfgHd6X84IGm0BKOsGDfefbk3w+9a0C2ZLGu
-         96KQn9QtT2T6flCptgsNiy7QlnGJ6lJ4L4iBF+Q6WsD63rY2/p+IQxeuVLnChvS2ocne
-         ONEbO30xQSNRuXgxcMIsTgGd5HPy1SSCC58dKsxud0uyiML4qUZjMH+QjK/DucH90ssu
-         7Wvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7I5kMFjUfQLKS3kOHOooOjgfOrWOEd0p39OkS4SVB1k=;
-        fh=kwIszNg5m5W+iCXoRy0mOpAE52qI4+5tp/ijBVCfLWU=;
-        b=QjFWX/TSHnRJqm0yESesgKnilawNGw65PqFmiHTkNhRCk0OBKGFQBRJxUQslDaaOl4
-         +MRrkRNR9qEyehFFBN+9Uc0fxspu4/fAeVHefpY9Bco8eukRcIUXYNvOQwTbH8bMDA7D
-         aS/8fu+sxCOc04oYbpmLyz61gaeWlrx8DpoueDwNm/8t7a854KrFRiXrQb06VziqQxwn
-         O7a16EHcvM4gbZ5zhAMFBMSnY/A3nnmaWrgPNuSNZ9k7+FySNFfONQpM7nydxlQwic2q
-         chr10yyIWwRmYvVUIOa0CHTwNPchYP64099UMd2x10gORB1YHugtPdHX028qr578R3/x
-         Tq+A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780978855; x=1781583655; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7I5kMFjUfQLKS3kOHOooOjgfOrWOEd0p39OkS4SVB1k=;
-        b=KRBLCYKdJxdSYoNIf1nBC30F0Bxc01xS8v1P0kLXffooRrMvuwETo/hUM9yhx9tIaR
-         h0RBTja9X4o7mAjCaF/hwP2rdL/lswgRR/9WDXaxDbImFPq5FQBY6eHKRllUKjjUvXJU
-         bQw6TEVvyhlGGd+Ix54/JFE7R2b2PBZd+fnNV6L61qwQ3FqH4ZhNH7JYAgrMQQsvRywI
-         j52fpBFnQLbXlPZhQEdqm7xL5+sMa3yXWFENuxdLCGOddV2mon8sLphblBFoai/Fsnh9
-         vWiCobHrbm7W2z/7uYDSHJ4mmoGC0c5bKdvNSW7AUHB7Uz1WqvtvRcOQHIqBrZaYYSKG
-         1jmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780978855; x=1781583655;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7I5kMFjUfQLKS3kOHOooOjgfOrWOEd0p39OkS4SVB1k=;
-        b=JL/mMdbc0gkltX7/MgRsAyD2NaylZ1JZq5HD8zNON+PgJArLp0GDH0d/E+zYKtK4Kb
-         Ss52k8uGPE4X3f1zyijr3+TEv3MQCnPkK7fkrWNAzmZvu/YgFv9/8euNH2iiklhSJLmb
-         5L8XkUziQtOctKimSC8oY7a39lkNv1/VivELo/lKZsl86FDklzv7LQ9880fp8ay8YwZ1
-         9hhis/ppDcCw2nb12TU3UZdvhVIPQmUDG7yIDp4SzzaPtned1ho0vSAMmvO/1p+0xa9K
-         CTQyNylh9EoSBjFHpEtAOifp/aoDFN7fAYWIWxLy95AUmwZIIbDy8/M2FycLKjKCy5he
-         0eUw==
-X-Forwarded-Encrypted: i=1; AFNElJ8RCpoB3DjY9SOrx8Xs5fc/0t8QTHyxjBXlDwz6MB3kvCvMsZf9tw2q27LOSTB6mJIQhlC5+h/ZEitzNAs1fhv9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy16+qvbOZcvR/iqBIfqdMjxbnYOUks/D8FUO5bSQ3dNWkYkYrd
-	222deVmZq/WhyAQHQusJmg9tltJeQfl6wvs+0dxtbCod9SiJinWmsX38Tsnnu3ixMVNktv26NzA
-	4y7voz+5oxq2GT+C4cVnSC02mvjlx91ohNOI5KMt1
-X-Gm-Gg: Acq92OEvVnIgGrROK6kgNIAkWIBJaoeLRNUwlYoEGMt628KFpswK+9LPJyLHqhf1AK1
-	2N92joK35RMA6ig5xFGDNLecZHGxKqr+50ChFOq3VvpODXLrNeaC9aWE+4BRAZL8VMLag2gC8f7
-	1/PcY6J2dsoOMhKtLjupsSd1QNZooqDwFfpvFn7r6QrC4nzTdRSIzoN/deL4eJ46syDt9jyYE3U
-	6dDDpMYR/zjLS61gJB7Ef1OyAa2npc0xU0pBw//R5gHdmb8Z04HeFjdUOIfEifOt3JRMwkNSa9t
-	t4PwdLVR9Vc/e75SKf8+7fNJdA==
-X-Received: by 2002:a05:622a:2cb:b0:517:5ac7:332e with SMTP id
- d75a77b69052e-51798069433mr36450171cf.6.1780978854584; Mon, 08 Jun 2026
- 21:20:54 -0700 (PDT)
+	Tue, 09 Jun 2026 04:28:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CJrEBEII4ZsrooWzM0BYgrQmrDziFM2/jkCzD8K8nBr40+QxpyBhux8AE46cBvl7LwzFT8btz5569+BCKbnfjnYIVPaYoRotRCnDTqcV7By2lHN1WPJgXhl7RQiZwWxlkJ7bhXXL2bFUf5OSRJ/m09ie01DUwm8ESIwoUt26GdhyrhIvLQPN2LN0ubkRcOp40HLb5aens+zIVk0WE77Hyf9BC07co9dEFcxUnmeHkqCuzbaTKxOExJrkjgCXYhCPiiB1j6+vnQIMfQeFMu0/GzvvO7DuAPt6eq1PpJRxNL2TL2MTTMQMsgOVreYi0WZ6aU839/MQaslKhPtAQmuF2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8ymppbXqM6XJFFxa93+J+kuVf/yq2ZgzwdYtpCHV3cU=;
+ b=xr7OUIi0dYKoLy5svxeJfz6Uou7Sz0H19QqN9hFAVT4i0Jgb7WN+X9Fb+fYdjLEuxTv6hvWblS1DII34KrtqaLCuopt4hisRlKUbnYIt2jyJUSqyLILC9fZsBK0DtqO5MlKjjrV3GglhUvCWOZncK3XhkUrsxtugdYcExAjGQ+7CKP9fUYc1bKCOgs33K8hq+7Cbs6TFTo2tGJ/oKOZ7OdGXnX6S9Bat4C+oo02v74qBTrGuE2Zr2oGmEoXtAB57Ua84HdoZCHHCwwmbB3p4I1FnATwX039JZchJjdgBmZ9Z/hARWcr9xc7vxHnrGdoTKoUd2GApEmr/OdA4ji1F5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8ymppbXqM6XJFFxa93+J+kuVf/yq2ZgzwdYtpCHV3cU=;
+ b=Yey9F5cGVHrlOllAFcWOvr699LAPIJ6ktN4YJxu6dPwXB/U/zAOO8reFrWBY4s0gZeRCMOJQJTCb1Uwxs3ApmBOdJxkyQrC8Aua7hHQkgMw8e4wWlsI/y7siqhpNb3UOIVjHS0LoEQujmPLLXKVvyEME7KrskLKs4z1uBbJK9BA=
+Received: from BLAPR05CA0033.namprd05.prod.outlook.com (2603:10b6:208:335::14)
+ by BY5PR10MB4324.namprd10.prod.outlook.com (2603:10b6:a03:205::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 9 Jun 2026
+ 04:28:29 +0000
+Received: from BN1PEPF00006003.namprd05.prod.outlook.com
+ (2603:10b6:208:335:cafe::6c) by BLAPR05CA0033.outlook.office365.com
+ (2603:10b6:208:335::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.9 via Frontend Transport; Tue, 9
+ Jun 2026 04:28:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN1PEPF00006003.mail.protection.outlook.com (10.167.243.235) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Tue, 9 Jun 2026 04:28:28 +0000
+Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
+ 2026 23:28:27 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 8 Jun
+ 2026 23:28:27 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 8 Jun 2026 23:28:27 -0500
+Received: from [10.24.68.129] (a0507033-hp.dhcp.ti.com [10.24.68.129])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6594SNrH305516;
+	Mon, 8 Jun 2026 23:28:23 -0500
+Message-ID: <1362dccd-24b0-4b44-8e45-75cba81180ae@ti.com>
+Date: Tue, 9 Jun 2026 09:58:22 +0530
 MIME-Version: 1.0
-References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-8-praan@google.com>
- <CAE2F3rDF5dVJip2gc+vaxtM-FRttnUEnAetUYz6qDCXRM=fNYg@mail.gmail.com> <aiZe97OkmvcUwCzS@google.com>
-In-Reply-To: <aiZe97OkmvcUwCzS@google.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Mon, 8 Jun 2026 21:20:42 -0700
-X-Gm-Features: AVVi8CdrHIiMqoDE8c7fuS7HvynOrR6RKi0d9Z9EqIwtonGtr0ODV-o_ZMQl_cU
-Message-ID: <CAE2F3rDZupDgq5tQrvpuixGi-kVs+oi-Tacqa=Rxtri03LBPHQ@mail.gmail.com>
-Subject: Re: [PATCH v8 07/12] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
- gate CMDQ submissions
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: cadence: skip the link polling when endpoint not
+ connected
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+CC: <vigneshr@ti.com>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+	<mani@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+	<mpillai@cadence.com>, <unicorn_wang@outlook.com>, <me@ziyao.cc>,
+	<18255117159@163.com>, <linux-pci@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<danishanwar@ti.com>
+References: <20260605071922.1724499-1-a-garg7@ti.com>
+ <19ded2fa-4560-4b38-975c-6b490328e992@ti.com>
+Content-Language: en-US
+From: Aksh Garg <a-garg7@ti.com>
+In-Reply-To: <19ded2fa-4560-4b38-975c-6b490328e992@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00006003:EE_|BY5PR10MB4324:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a4bb9da-6963-40e0-72e6-08dec5df8dff
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|32650700020|36860700016|18002099003|22082099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: OYvHmZZhGR2Jkx0/gJrGMf7sYTjLxl4yn1l8UoHh0eteAweMcm6AmIhvlpE5ieZMzqNoInAfNkSTbIedpkK1Y6E/X9g7YIZMYQTueFhTFd3IaMsBGEP9fHDsN5MWqF2N0e3zObVxXR59pJrbkPsfoqLayRrWxKFvyQdZJ6VgAT19aNtOU9Vh0LRDaxP8Y5gN6J8Nkhkyq650cLMmDxyR2dYytUrm8JymYSWoQKkllZihJ937xl/7uEoLCC/7VLrIeD9cKrHAzjU3jfSrsQB21vJnVL80R++JhL6baEOabWff3suvV7OTreu/ybT+8LXki0UjygMlS3qpS2oeNWj2xQsz0TMMwCQuaealXkAYem0bfKazU0JY4epDi4UPxnz6nCvETtGRHwQ6GjLeRs/S2rUiDqDNk2VY65D6yKVz4DeyZ5J+xYwZgBg2wP8Zjk9gbAZYwNMcQVcyw0ptsYS45MF8jF+mz1r9tl/hLVHaMbF+bnTF/9NfKmfY8EYLOxJVGZWscjlCxvaVm981CilUFYSARjQyzuNE60V4jvMGJrHJ1YirgjqqLJsDiNqirIvvCZjI5nr+aUFs3z0x374t2LaQdy2CMDharbqMmyD9laDYx9Ztjn7Fc4Bfgfx7jIDPQU4gkxohJsFP6PB6a7/1ssxzIIl8G5MlVGbwVArV95Deq/n7OhQd1ctFFvQma5BGCZnC080PiWEp2O3b9HOgASK2AJx/uJJycmefzcY4+PY=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(32650700020)(36860700016)(18002099003)(22082099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: FuU1rs85VjW/I1+VV9iG2a+bJH8tEXapl2c1OdiwIDf5w6QzZ6RseztkQEzSVcV5IaI9HvEKH56fPyaRe32NN3dj8QUedblLLme55aEhoin5Rg/QTT0RUtn6DHWVlGDM+IJzeua1ZTL6F6g7lHfdslnF7hzvkTi36rpofQ/LNCUYZICLzyn/9ydgqi2WL7N3RhN7fuZvjjcaIJ1mz+jlyGV4SL4OXeVjYkrVa+1nenM7hf5rXw3BXSXt4LfbxxvbwhoQfzpWKCa9rYK6xNDsk8gG4/gsu0HUuPKF3bEHvNuhXbX2lKcNxsQlOAnQqykJSgsWZDQBW4h65L4igKC82RK1Fx3Vb9iG2yfVrWvAfO5/1bdsOacSkFJmKrQgU9OmhVhZKISSWzK863HYj5CTKlPA/ML3xN1fpEoTWiW+djjHbH/mxjnFQ7wf3tlWDox+
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 04:28:28.2535
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a4bb9da-6963-40e0-72e6-08dec5df8dff
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00006003.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_212057_885323_73030420 
-X-CRM114-Status: GOOD (  44.70  )
+X-CRM114-CacheID: sfid-20260608_212834_581350_FD3C8D49 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,159 +136,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 7, 2026 at 11:19=E2=80=AFPM Pranjal Shrivastava <praan@google.c=
-om> wrote:
-> > >
-> > >  static void queue_poll_init(struct arm_smmu_device *smmu,
-> > > @@ -718,8 +719,25 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_=
-device *smmu,
-> > >         do {
-> > >                 u64 old;
-> > >
-> > > +               /*
-> > > +                * If the SMMU is suspended/suspending, any new CMDs =
-are elided.
-> > > +                * This loop is the Point of Commitment. If we haven'=
-t cmpxchg'd
-> > > +                * our new indices yet, we can safely bail. Once the =
-indices are
-> > > +                * committed, we MUST write valid commands to those s=
-lots to
-> > > +                * avoid indefinite polling in the drain function.
-> > > +                */
-> > > +               if (Q_STOP(llq.prod)) {
-> > > +                       local_irq_restore(flags);
-> > > +                       return 0;
-> >
-> > On second thought, I no longer believe that this is safe. I understand
-> > that READ_ONCE(cmdq->q.llq.val) implies no ordering guarantees with
-> > respect to any writes to translation tables. In the non-stopped case,
-> > we can rely on the call to dma_wmb() further down in this function.
-> > However, for the stopped case, I can't identify any barriers that
-> > would ensure that the STOP flag is checked only after the writes are
-> > visible to SMMU. Here is an example: Let's assume the following
-> > program order:
-> >
-> >  * Write to invalidate PTE
-> >  * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
-> >
-> > What prevents the CPU from reordering these operations as follows?
-> >
-> >  * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
-> >  * Write to invalidate PTE
 
-Now, I believe that the smp_mb() call in arm_smmu_domain_inv_range()
-actually prevents this (if we remove arm_smmu_cmdq_can_elide or move
-it to after the smp_mb() call)
 
-> >
-> > Can the following situation occur?
->
-> Not really because:
->
-> >
-> >  * Read from cmdq->q.llq.val, determine STOP flag is set, elide TLBI
-> >  * (Different CPU resumes SMMU)
->
-> We do a full smp_mb() here to ensure all writes are seen before SMMUEN=3D=
-1
-> (note that the STOP_FLAG is already unset at that point, so we stop
-> eliding commands much before the SMMU is physically able to access any
-> config/xlation structures, I've explained everything below).
->
-> >  * SMMU loads old PTE value into TLB
-> >  * Write to invalidate PTE
-> >  * (stale PTE remains in TLB)
-> >
-> > I propose the following: If you find the STOP flag set, run dma_mb()
-> > and check again. I'm afraid that running dma_mb() unconditionally
-> > might incur too much of a performance penalty.
->
-> IMHO, I think this might be overcomplicating things here..
-> Here's why the current version works according to me:
->
-> Till SMMUEN=3D0, the SMMU is spec-guaranteed to never access translation
-> or configuration structures (Section 6.3.9.6).
->
-> Our runtime_suspend callback sets SMMUEN=3D0 before setting the STOP_FLAG=
-.
+On 09/06/26 09:12, Siddharth Vadapalli wrote:
+> On 05/06/26 12:49, Aksh Garg wrote:
+>> cdns_pcie_host_wait_for_link() polls on link-up for 10 retries with a
+>> delay of 90-100ms each (~1 second). A call to cdns_pcie_host_link_setup()
+>> during the resume operation blocks the resume operation unnecessarily for
+>> ~1s even when no endpoint device is connected.
+>>
+>> Add skip_link_polling flag to track link state across suspend/resume
+>> cycles. If link was down before suspend, skip the expensive polling
+>> in resume since no endpoint was present.
+>>
+>> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+>> ---
+>>   drivers/pci/controller/cadence/pci-j721e.c             | 5 +++++
+>>   drivers/pci/controller/cadence/pcie-cadence-host-hpa.c | 3 +++
+>>   drivers/pci/controller/cadence/pcie-cadence-host.c     | 3 +++
+>>   drivers/pci/controller/cadence/pcie-cadence.h          | 3 +++
+>>   4 files changed, 14 insertions(+)
+>>
+>> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/ 
+>> controller/cadence/pci-j721e.c
+>> index bfdfe98d5aba..849eb8bb9e45 100644
+>> --- a/drivers/pci/controller/cadence/pci-j721e.c
+>> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+>> @@ -686,6 +686,11 @@ static int j721e_pcie_suspend_noirq(struct device 
+>> *dev)
+>>       struct j721e_pcie *pcie = dev_get_drvdata(dev);
+>>       if (pcie->mode == PCI_MODE_RC) {
+>> +        struct cdns_pcie_rc *rc = cdns_pcie_to_rc(pcie->cdns_pcie);
+>> +
+>> +        /* If link is down before suspend, skip polling in resume */
+>> +        rc->skip_link_polling = !j721e_pcie_link_up(pcie->cdns_pcie);
+>> +
+> 
+> Please consider the following scenario:
+> 1. Endpoint device is not connected initially and we suspend with 
+> 'skip_link_polling' set to true.
+> 2. We resume and skip link polling.
+> 3. An Endpoint device is connected to the PCIe Connector a while later.
+> 4. We perform a bus rescan, but with skip_link_polling still set (in 
+> resume), wouldn't we skip polling for the link to be up?
+> 
+> Shouldn't 'skip_link_polling' be set to false on resume, after we skip 
+> the polling initially, in order to allow waiting for a link up for a 
+> newly connected device? Although this may not be done in practice and 
+> the Endpoint device may always be left connected from the start, I am 
+> wondering if we should clear 'skip_link_polling' on resume to account 
+> for the aforementioned scenario. Let me know if I am overlooking 
+> something here.
 
-Does "before" refer to program order or the order in which other
-agents can observe the STOP_FLAG relative to when SMMUEN=3D0 is set?
-Your program might read "Set SMMUEN=3D0 then set STOP_FLAG". However, my
-question is whether other observers might see the STOP_FLAG before
-SMMUEN is cleared. I couldn't identify any barriers in
-arm_smmu_runtime_suspend() that would prevent this type of
-re-ordering.
+This path is not used during bus rescan. This implies that during the 
+rescan, we do not call cdns_pcie_host_link_setup() or 
+cdns_pcie_hpa_host_link_setup().
 
-> Even if the worker CPU reorders the PTE write after the STOP_FLAG check,
-> it is benign because the SMMU is incapable of fetching that (or any) PTE
-> while the gate is closed. Because GATE_CLOSED =3D=3D SMMUEN =3D 0, implyi=
-ng no
-> access to any HW structures whatsoever.
->
-> The real synchronization happens in the Resume Path:
->
-> 1. arm_smmu_device_reset() clears all caches / TLBs.
->    (None of these can have entries before SMMUEN=3D1)
->
-> 2. We execute a full smp_mb() before setting SMMUEN=3D1. (that's why we
->    need smp_mb before SMMUEN=3D1). This barrier ensures that any PTE
->    writes made by any thread=E2=80=94including those that were elided whi=
-le the
->    gate was closed, are globally visible before the SMMU hardware starts
->    fetching into TLBs again. (This is why Jason suggested this in v6 [1])
+> 
+>>           gpiod_set_value_cansleep(pcie->reset_gpio, 0);
+>>           clk_disable_unprepare(pcie->refclk);
+>>       }
+> 
+> [TRIMMED]
+> 
+> Regards,
+> Siddharth.
 
-A barrier on one CPU has no bearing on whether writes by any other CPU
-can be observed by any particular agent in the system.
-
-Let's compare this with the long comment in
-arm_smmu_domain_inv_range() which is what I believe Jason was
-referring to. In that example, you see smp_mb() in the code path on
-CPU0 and dma_wmb() in the code path on CPU1. Hence, barriers exist on
-both sides. If you compare the runtime PM design with
-arm_smmu_domain_inv_range(), then smp_mb() belongs in the CPU thread
-that performs the translation table updates not the one that performs
-the suspend/resume operation.
-
-Actually, now that I think of it: We could just piggy pack on the
-existing smp_mb() in arm_smmu_domain_inv_range(). For your
-arm_smmu_cmdq_can_elide() to work correctly, though, you would need to
-move it to *after* the smp_mb() call. This being said, I would prefer
-to remove arm_smmu_cmdq_can_elide() as I wrote on the other thread.
-If we do take advantage of the existing smp_mb() in
-arm_smmu_domain_inv_range(), then we should probably update that
-comment to state that the runtime PM implementation now also depends
-on it.
-
->
-> Adding a dma_mb() to the elision path would be redundant given the
-> SMMU can't access any structures and the resume barrier. We'd be
-> needlessly injecting dma_mbs when no entity is actually accessing those
-> structures while the STOP_FLAG is set.
-> >
-> > I have the same concerns with arm_smmu_cmdq_can_elide(): That
-> > READ_ONCE in arm_smmu_cmdq_can_elide() provides no guarantees in
-> > regards to ordering relative to PTE writes.
-> >
->
-> The same as above, No structures are accessed during SMMUEN=3D0 (spec) an=
-d
-> during resume before setting SMMUEN=3D1, we do a full smp_mb() to ensure
-> all concurrent PTE writes are acquired in our resume thread before we
-> enable SMMUEN=3D1
-
-I think the definition of "all concurrent PTE writes" is a bit vague.
-I don't think the architecture allows you to wait for writes performed
-by other CPUs to be observable by all other agents. The only thing you
-can do is to ensure that other agents can observe that the STOP_FLAG
-has been cleared *before* SMMUEN is set. However, this is already
-achieved by the existing dma_wmb() in arm_smmu_cmdq_issue_cmdlist().
-Hence, the extra smp_mb() is not required.
-
->
-> Thanks,
-> Praan
->
-> [1] https://lore.kernel.org/all/20260424151639.GE3611611@ziepe.ca/
 
