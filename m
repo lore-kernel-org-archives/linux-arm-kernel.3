@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E37CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BF3CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytbyKI+RdUvyVlcNYTn52rG1AH2yMD9Qe40oM2s5RvY=; b=dbWyJ3eR7F4JWKgVmBmkHsKgd5
-	9G/H3W9iUJsdPluyX8sPJyeI9fNIVd5xAoFUr6re5GL7lL08A6vam/lQ3UEZR9LJw2okg9b8UTunT
-	qhWJ2jo6IfBguHAjIVR55JtLj+Nn5VV6j0cYwq4oJU91qReLDCoAGC3dI85S/qnhOrK4cb3eRByhN
-	czWaeczqgcm82P7DNSRvepqky6+xKkdwow2xk9i4nUBEOZ8oVF5A+0IaNz4cy45K3qT4hfaSlfJzr
-	hcYHY3hOHgEeuFAE2I6jcIpI7ItIKqlH3VZ8EDWZEry+2wsEvK7ADokNfygWv58XZIa0BOzPdI1+F
-	WC/kkJ3Q==;
+	bh=KI069RBnL/iLpjQNmwGOrF7XUz9O+JaN3/9K4v8CLNc=; b=zyNjuJ6CNHz3TLl87ahEuw9HzU
+	8tqkcp0HrRlcR3tk8HILwwsFKOUHE/v+ms2M6KVu9lpigeO4VmKrP0JADVZpgBQjClDt33aoBC1dV
+	Vfvzv3g7QWfZcqxSGi+VenVk9mdaSmZ1wWqoKjVZLbJxYKMFEe4LuA/xkQt+eKNKHqQ+yY7QyznrT
+	Z+bfBLc4fHIhRC2klq1ycLzD+MfjtHBY+AUq4FGWDFpsjPZ1Ye+gJFQgTvgM0ecA+rw286L/FUgKh
+	93KBG7hnz4kQOJdtHjt58UUnU6Z/7OZta3BWQkW2vsnyMK7tzq28ZculhTH5g5aWt3wXtW/Lm5h69
+	Kqo9lZ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0qK-00000006ANH-1hCE;
-	Tue, 09 Jun 2026 18:06:28 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0qG-00000006AMX-4BOC
+	id 1wX0uc-00000006AgR-1kvX;
+	Tue, 09 Jun 2026 18:10:54 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wX0uY-00000006AeV-3fgC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 18:06:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1781028383;
- bh=ytbyKI+RdUvyVlcNYTn52rG1AH2yMD9Qe40oM2s5RvY=;
- b=RNAns0VLyaGmhjVFUFuVeo6B5UsmymLOXRad9pqF4ND0DcJ/ou2seEzFlPdryHfyRSdV9FZGp
- SPGqSQjSQySaY2NZ9Fzxb0o4XTJsKa7ZaUfHU0Sf8o4YvI7gIlnBvOyUsOLsxSbeX4+8uT/icBc
- oVW/woKKC0W0qUXR24lwh0985KuYIdtuXo5g2/XVSJp2y9Nh2hcJz8HnGg6VUdcGqxpQFdZu4lT
- 2N/sTRNJcfZ2XeF11io7kZ3liX3Zs5ZYvm5K6uOZoXxitokfyHfZ+dRKKPbAfxtR3lBxoyfBXNr
- LnI88mCBTR/TIvreXMagO7SaeUVOY+Y2ZJMOuG6jSk4Q==
-X-Forward-Email-ID: 6a28561cb3badaab58d3c4fc
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.8.22
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <9e8f806d-72ec-4eb4-8967-3f82eb0e7dd4@kwiboo.se>
-Date: Tue, 9 Jun 2026 20:06:17 +0200
+	Tue, 09 Jun 2026 18:10:53 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7BEEE20B7168;
+	Tue,  9 Jun 2026 11:10:32 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7BEEE20B7168
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1781028632;
+	bh=KI069RBnL/iLpjQNmwGOrF7XUz9O+JaN3/9K4v8CLNc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=e5J64Wa6hJ9DNZkCEcNuQZvMgRlsTx4zQmbL1+pODyn2Q9XkM8CSdCKEGJdQDw+IL
+	 1amN2VZTQFRryC50weiL0IGCdkNA76FPN7KMD/6ppQLxwZcZn9j89edEjOWG8DTF/9
+	 HalUfEy5ORrlehvRhwVM2WRtUEMEqr+usyt8QfwQ=
+From: Kameron Carr <kameroncarr@linux.microsoft.com>
+To: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	longli@microsoft.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@kernel.org,
+	arnd@arndb.de,
+	thuth@redhat.com,
+	linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	mhklinux@outlook.com
+Subject: [RFC PATCH 3/6] arm64: hyperv: Add per-CPU RSI host call infrastructure for CCA Realms
+Date: Tue,  9 Jun 2026 11:10:27 -0700
+Message-ID: <20260609181030.2378391-4-kameroncarr@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260609181030.2378391-1-kameroncarr@linux.microsoft.com>
+References: <20260609181030.2378391-1-kameroncarr@linux.microsoft.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: usb: Add Rockchip RK3568 compatible for
- EHCI and OHCI
-To: Diederik de Haas <diederik@cknow-tech.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260609154124.445182-1-jonas@kwiboo.se>
- <20260609154124.445182-2-jonas@kwiboo.se>
- <DJ4NVA328NUV.LSPMVBFE0PD8@cknow-tech.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <DJ4NVA328NUV.LSPMVBFE0PD8@cknow-tech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_110625_502529_C6862745 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20260609_111050_967942_466B71E7 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,106 +81,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
+Arm CCA Realms cannot issue Hyper-V hypercalls via HVC; the guest must
+route them through the RSI_HOST_CALL interface, which takes the IPA of a
+per-CPU rsi_host_call structure as its argument.
 
-On 6/9/2026 6:32 PM, Diederik de Haas wrote:
-> Hi Jonas,
-> 
-> On Tue Jun 9, 2026 at 5:41 PM CEST, Jonas Karlman wrote:
->> The Rockchip RK3568 EHCI/OHCI controller depends on clk_usbphy1_480m
->> being enabled, or the system may freeze when registers are accessed.
->>
->> Add Rockchip RK3568 EHCI and OHCI compatibles with a similar four-clock
->> constraint as RK3588.
->>
->> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
->> ---
->> Existing DTs for RK3568 use the plain generic-ehci/ohci compatible,
->> next patch make use of these new compatibles and adds the missing
->> clk_usbphy1_480m clock references.
->> ---
->>  .../devicetree/bindings/usb/generic-ehci.yaml          | 10 ++++++++++
->>  .../devicetree/bindings/usb/generic-ohci.yaml          |  5 ++++-
->>  2 files changed, 14 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/usb/generic-ehci.yaml b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
->> index 55a5aa7d7a54..c49a1bbc8cfd 100644
->> --- a/Documentation/devicetree/bindings/usb/generic-ehci.yaml
->> +++ b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
->> @@ -52,6 +52,7 @@ properties:
->>                - ibm,476gtr-ehci
->>                - nxp,lpc1850-ehci
->>                - qca,ar7100-ehci
->> +              - rockchip,rk3568-ehci
->>                - rockchip,rk3588-ehci
->>                - snps,hsdk-v1.0-ehci
->>                - socionext,uniphier-ehci
->> @@ -186,6 +187,15 @@ allOf:
->>        required:
->>          - clocks
->>          - clock-names
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: rockchip,rk3568-ehci
->> +    then:
->> +      properties:
->> +        clocks:
->> +          minItems: 4
-> 
-> I think that the constraint for rk3588 is this:
-> - minItems: 1
-> - maxItems: 4
-> 
-> Like ~ every other compatible; there's no 'branch' for rk3588-ehci.
-> 
-> That's different from what you add for rk3568. Is that deliberate?
-> Because from the commit message I assumed they should be the same.
+Add hyperv_pcpu_hostcall_struct as a per-CPU pointer to that buffer and
+allocate it for the boot CPU during hyperv_init() and for each secondary
+CPU in hv_cpu_init(). The allocation is gated on is_realm_world() so
+non-Realm arm64 Hyper-V guests pay no memory cost.
 
-It was deliberate, the intention is to use min/maxItems: 4 for rk3568
-for both EHCI and OHCI. I left out anything related to k3588 to keep
-existing behavior and avoid any possible breakage, and why I used
-'similar' and not 'same' in the commit message ;-)
+Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+---
+ arch/arm64/hyperv/mshyperv.c      | 78 ++++++++++++++++++++++++++++++-
+ arch/arm64/include/asm/mshyperv.h |  3 ++
+ 2 files changed, 79 insertions(+), 2 deletions(-)
 
-Did a check and the rk3588 variant also uses 4 clocks so I will add same
-constraint for the rk3588 variant and address Sashiko's concern in v2.
-
-Regards,
-Jonas
-
-> 
->>  unevaluatedProperties: false
->>  
->> diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
->> index d42f448fa204..5f1b4d2bff89 100644
->> --- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
->> +++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
->> @@ -47,6 +47,7 @@ properties:
->>                - hpe,gxp-ohci
->>                - ibm,476gtr-ohci
->>                - ingenic,jz4740-ohci
->> +              - rockchip,rk3568-ohci
->>                - rockchip,rk3588-ohci
->>                - snps,hsdk-v1.0-ohci
->>            - const: generic-ohci
->> @@ -198,7 +199,9 @@ allOf:
->>        properties:
->>          compatible:
->>            contains:
->> -            const: rockchip,rk3588-ohci
->> +            enum:
->> +              - rockchip,rk3568-ohci
->> +              - rockchip,rk3588-ohci
-> 
-> Here they clearly do have the same constraint.
-> 
-> Cheers,
->   Diederik
-> 
->>      then:
->>        properties:
->>          clocks:
-> 
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 4fdc26ade1d74..08fec82691683 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -15,10 +15,16 @@
+ #include <linux/errno.h>
+ #include <linux/version.h>
+ #include <linux/cpuhotplug.h>
++#include <linux/slab.h>
++#include <linux/percpu.h>
+ #include <asm/mshyperv.h>
++#include <asm/rsi.h>
+ 
+ static bool hyperv_initialized;
+ 
++void * __percpu *hyperv_pcpu_hostcall_struct;
++EXPORT_SYMBOL_GPL(hyperv_pcpu_hostcall_struct);
++
+ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+ {
+ 	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
+@@ -60,6 +66,46 @@ static bool __init hyperv_detect_via_acpi(void)
+ 
+ #endif
+ 
++static void hv_hostcall_free(void)
++{
++	int cpu;
++
++	if (!hyperv_pcpu_hostcall_struct)
++		return;
++
++	for_each_possible_cpu(cpu)
++		kfree(*per_cpu_ptr(hyperv_pcpu_hostcall_struct, cpu));
++	free_percpu(hyperv_pcpu_hostcall_struct);
++	hyperv_pcpu_hostcall_struct = NULL;
++}
++
++static int hv_cpu_init(unsigned int cpu)
++{
++	void **hostcall_struct;
++	gfp_t flags;
++	void *mem;
++
++	if (hyperv_pcpu_hostcall_struct) {
++		/* hv_cpu_init() can be called with IRQs disabled from hv_resume() */
++		flags = irqs_disabled() ? GFP_ATOMIC : GFP_KERNEL;
++
++		hostcall_struct = (void **)this_cpu_ptr(hyperv_pcpu_hostcall_struct);
++		/*
++		 * The hostcall_struct memory is not freed when the CPU
++		 * goes offline. If a previously offlined CPU is brought
++		 * back online, the memory is reused here.
++		 */
++		if (!*hostcall_struct) {
++			mem = kzalloc_obj(struct rsi_host_call, flags);
++			if (!mem)
++				return -ENOMEM;
++			*hostcall_struct = mem;
++		}
++	}
++
++	return hv_common_cpu_init(cpu);
++}
++
+ static bool __init hyperv_detect_via_smccc(void)
+ {
+ 	uuid_t hyperv_uuid = UUID_INIT(
+@@ -73,6 +119,8 @@ static bool __init hyperv_detect_via_smccc(void)
+ static int __init hyperv_init(void)
+ {
+ 	struct hv_get_vp_registers_output	result;
++	void **hostcall_struct;
++	void *mem;
+ 	u64	guest_id;
+ 	int	ret;
+ 
+@@ -85,6 +133,27 @@ static int __init hyperv_init(void)
+ 	if (!hyperv_detect_via_acpi() && !hyperv_detect_via_smccc())
+ 		return 0;
+ 
++	/*
++	 * The RSI host-call buffer is only ever used when
++	 * is_realm_world() is true. Skip the per-CPU allocation on
++	 * non-Realm guests.
++	 */
++	if (is_realm_world()) {
++		hyperv_pcpu_hostcall_struct = alloc_percpu(void *);
++		if (!hyperv_pcpu_hostcall_struct)
++			return -ENOMEM;
++
++		hostcall_struct = (void **)this_cpu_ptr(hyperv_pcpu_hostcall_struct);
++		if (!*hostcall_struct) {
++			mem = kzalloc_obj(struct rsi_host_call);
++			if (!mem) {
++				ret = -ENOMEM;
++				goto free_hostcall_mem;
++			}
++			*hostcall_struct = mem;
++		}
++	}
++
+ 	/* Setup the guest ID */
+ 	guest_id = hv_generate_guest_id(LINUX_VERSION_CODE);
+ 	hv_set_vpreg(HV_REGISTER_GUEST_OS_ID, guest_id);
+@@ -106,12 +175,13 @@ static int __init hyperv_init(void)
+ 
+ 	ret = hv_common_init();
+ 	if (ret)
+-		return ret;
++		goto free_hostcall_mem;
+ 
+ 	ret = cpuhp_setup_state(CPUHP_AP_HYPERV_ONLINE, "arm64/hyperv_init:online",
+-				hv_common_cpu_init, hv_common_cpu_die);
++				hv_cpu_init, hv_common_cpu_die);
+ 	if (ret < 0) {
+ 		hv_common_free();
++		hv_hostcall_free();
+ 		return ret;
+ 	}
+ 
+@@ -125,6 +195,10 @@ static int __init hyperv_init(void)
+ 
+ 	hyperv_initialized = true;
+ 	return 0;
++
++free_hostcall_mem:
++	hv_hostcall_free();
++	return ret;
+ }
+ 
+ early_initcall(hyperv_init);
+diff --git a/arch/arm64/include/asm/mshyperv.h b/arch/arm64/include/asm/mshyperv.h
+index b721d3134ab66..65a00bd14c6cb 100644
+--- a/arch/arm64/include/asm/mshyperv.h
++++ b/arch/arm64/include/asm/mshyperv.h
+@@ -63,4 +63,7 @@ static inline u64 hv_get_non_nested_msr(unsigned int reg)
+ 
+ #include <asm-generic/mshyperv.h>
+ 
++/* Per-CPU RSI host call structure for CCA Realms */
++extern void *__percpu *hyperv_pcpu_hostcall_struct;
++
+ #endif
+-- 
+2.45.4
 
 
