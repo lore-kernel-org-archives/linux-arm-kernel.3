@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C08CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B01ACD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WTvP0lPke9tdXWHBSp8VVmCBcodaAo5HdZeUd/qpTIM=; b=jKEMtalz9QBKPnF48QUVr1dKqR
-	V7T1cdFOjaCQsQdJ8OztniEmGGaBoVnWqTHwkaeeXL8Gj9jHR6DpYyWXV7LpfpnKuh1YkxMeEBoP+
-	jDuI2gCSSLR8AhZN2AmPWg34Pnvtwfwxj+h7OGhGzZhFAldAgsi2fRpzHVu+OMmDZPGxhHfRKViAH
-	1M4BtaX3ZyVcE2SRN4r6MHVqI0pA8G42jYs9BlCehJSqwt10bJHsbDYZU//NYjvvrs7LL9MRGH+Et
-	aW7shgW0XaE+9q+hrsf4FVEax4zzC7mIoX/TzdY27RQcALVi+/ZziBIYAs3Zct4Mx6l653IamFdV+
-	t0jFKhZg==;
+	bh=jIxkjYPi5r64g4tKh8xey/X68WIJJQZ/eTl8Upurhj4=; b=3zoE9bS0RcnILBL16OECbikTbm
+	iecvSjFafOp/KazazpEfYloJKOoF8LR+Q32khqGMutq3u4MYzZYkVFChlaXa6KINR25xNcedPdCHq
+	oGP8QTZr7upviY4N1pGuPcU8UfzkyZnkLH0hyu6WEnfGcpkDnPW0MuW21PInsVH5/u3ag0Id1gB3S
+	YcFHEgXjmGExwCQ/Xaz3YF+S5J3h+NrFX/Ewei7fP5ebgkEn6CdiwYTMSv9r3uq6wRlBQuG4Hl8Vg
+	vUyH+hYnPYsXdpJaWiNJ6DD+SFi56CcH2doBKxsPmtoaP2MZ8Kcp+/xgoxfmVosQRhsQZJbfV1v74
+	zn2c47gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyRo-00000005vGr-2QIx;
-	Tue, 09 Jun 2026 15:33:00 +0000
+	id 1wWyRu-00000005vLr-1uO5;
+	Tue, 09 Jun 2026 15:33:06 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyRl-00000005vDf-1Gnx
+	id 1wWyRq-00000005vI8-2ESs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 15:32:59 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659CmmM62700902
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 15:32:56 GMT
+	Tue, 09 Jun 2026 15:33:03 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659CnKud2668476
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 15:33:01 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	WTvP0lPke9tdXWHBSp8VVmCBcodaAo5HdZeUd/qpTIM=; b=Bplrk6K68e8hUO1I
-	cDeb1LJ6SG7fIslSAwW3xMowylIS9OX22CGqR8HIN306WKETv7Wps+4eyx/OHorU
-	ozv098GLKJQX5W+RJOyysGBidcKsMASHHespZPFaJ291ioOwgcYe7Rn2zMgKechO
-	0NeU0WKPElh1PMcBK5rLCA2zb1INfZMiWKiPGUlzJxw4XS+E+aFuJQ8BbOmucrRy
-	IwwATNEHkI2VlxevxGMxZsl69D0OtR26/xkbgNVeBSQfJ9fes+phkWoVyBjojOQ6
-	GXHISFi42y4eqGuHbTJQXiy+Wp+uf4SrGK22w3Ytm6hFeWNAqLd3Rozgez1Bh0Cy
-	0Ur4jg==
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epeeat7ph-1
+	jIxkjYPi5r64g4tKh8xey/X68WIJJQZ/eTl8Upurhj4=; b=USq5plSFL/AkikjM
+	A+Dg3xKEjy77GqiTwyuM3icTtyNpiJfjysy3J+ZAGTv9P0bVZI9EjaSrYjf79TbN
+	7e7PiNcqBL+aRzQ6q0f6iqxTkfdf4jUofs4yMv3vcTHLD9gm1202+yZKGZuwFpoM
+	Kp0mAIgG03eZjJwtSFW6ZhTw5stXNn4kTZmnCduvxxYYBj7cLWcJkfdG3goHuasf
+	MD/zxwjKdPP5jBanIk0n9T++H+XDVi3GLV0tA/9Qb+j0HuznRPf7EWmDQA+suK7w
+	jELQZfGHv86epryj14rXwCx8PDDSoc5t48RtcEIe3+A+nUJbdk9ieu1aCrA8XDL8
+	ytBQ+A==
+Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epe25tb5h-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:32:56 +0000 (GMT)
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-7e6f7f4e47eso8728545a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 08:32:56 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:33:01 +0000 (GMT)
+Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-7e6f01486a0so10987418a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 08:33:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781019175; x=1781623975; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1781019181; x=1781623981; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=WTvP0lPke9tdXWHBSp8VVmCBcodaAo5HdZeUd/qpTIM=;
-        b=Wdic+/AsKnMSppHuXzaDXJUDm64TWoxNesaLBPUHF4Z0UKy7w7Hx7XYnav1bi7Zzoz
-         tdVuE0RY29ZximDF9Zmdxdia+tUOIWYIjcAlxQmgmOaZfdNQl1aF3dgzam9Xg5xR6kSM
-         w7tS6ok2SqrNZ/MUYC4ZCsHzmEqmidsrXUM6eQ7GoSMi6tE9SxDPpPqtRFCJqU5aE3oG
-         OqarRNrp2jhR+LFsKNy7HxSSpVxVc7HCyQ1jBjUA7jiWQXZanptgoawryEsCqzrnD9Cg
-         4Mt5IlIyDrirfAPYi9JlmDt/gtiFshR9MxZdKGOhKXi7WwXxky7pRdacd6XSDAEc9Px9
-         f4Gg==
+        bh=jIxkjYPi5r64g4tKh8xey/X68WIJJQZ/eTl8Upurhj4=;
+        b=H9ucUMap8wsyTBKrwJlSlCs72zxzm1BrLP46a5AI44nJe3DwUaUzlxeslDlQvswbjd
+         zc2Dlem5BvXQ7gZOeIPD1ZSuHBkySQZblMNfR2GmYSZ+nGK8L+gulTiT3WnjlXBTLY21
+         LCs0dWwhhUf5/5NmzAmVAqd2unnTmYq+XnyrfBW7y40spEnkFvRrXSqcq21Ks/mfWP4K
+         Gi0VHmJH8QPi8DORqbMcAWC1OcFGYPkdARcLEkrVa9FJh1I48lefy0uTs3v0ES1OI/Vt
+         c86e7CxQwGsFu1E5b/jhdDadhBer4AqxrUxUFL73iUus5PTs3zuSkdioJMCVqJDw1sUj
+         /kow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781019175; x=1781623975;
+        d=1e100.net; s=20251104; t=1781019181; x=1781623981;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=WTvP0lPke9tdXWHBSp8VVmCBcodaAo5HdZeUd/qpTIM=;
-        b=faWAEkYI4Hu17Olxd+fTNR4EVVXAfY5PTXo5cg01U68P802Qfvyt/Lx0Oru2Ou5CeI
-         7rQ+S8M7F760KD6YP3503YGw8lvdbbh1X+xyhQwXpg4RIx3S/Gqd/zRXfMKk//Vbu7+e
-         ku5wqV6Zxujy84x7+NHuVcYuexVIOfeUKcNpvDMQ0uQseT1Vy3D++2x1gVxI5/7VscH+
-         Oih0/aIKBMfwyizdOtxOOBrp2s1cQYLCTPGXHn09oapl7Is1hYoA1BpAgz+QsubSfFIQ
-         FA7n3Yvr0miCCULgOrpmqzVgif63DDASBKqHTFhzdSmYv6lf7mrUaiYcsrK9dlbv3z8I
-         nMJQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+MOZ6Z6kmv+7Kz31kUie3RBatkx6Ec4wGTzEXuAloJ4FtbTE86accx3TDM7Eu+CoOzSvt6K23s7Xe3K7GoIyiQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0vahr8Dzc1Es8KjF1e+YJODhqG31HBR5pDnUFgkhklIWWvrFw
-	VPDPrixhFnZB/8tkO/EQL5QDHw18x0+YvSkLHAtaUU0z3cbjpWbhFFncmMtITNg/eMKFuoY4I2x
-	Hn/bfkda83I3CyEUIyWaey5VCoyZ39+i/unm/GxRQEQKgzHIeIsSrOZfddw8Oq16eppxxQdTedF
-	GamA==
-X-Gm-Gg: Acq92OFq1SeWVAWMzi8Tm0+qhmwMzXyzfOGuzeH9ILMQRc5nrB5rSp1j1SzF7J9AEIj
-	TJo2Q8M6tqQVQ7WnZkuh7njj3LKBaT22XFyb/DEDwNyBPoegoJ2uMwuK+SO363yX2bCHm/VYIQf
-	lO3MVXZZ/bNWuHBakgTnlV+p1+RTk9YN77iTcVp3RofEEuDSxTfJBEzJX8QrE1y7q4eMCW/2kEx
-	ivu0bM7WvAA/7GuAhlskCLM3yrJpgFfvJ9DxuHUerqJ+OqbY278mu4ymA6sgWrJK1aLJeQ3YmBx
-	wV5qAvNwlsFRzV7KFH7o37tUm/W/jXHMBL+8+5DyFKJPBWj8qi036JImIhbqALFtaWuSX15hBwd
-	X9IimuVJQ66Vev1bSyqFOtmPm4VGeUFLXMTIuOFYwDDFpHPOCJ5I5+rzW
-X-Received: by 2002:a05:6830:270e:b0:7e6:1e3c:912 with SMTP id 46e09a7af769-7e70c5c188amr12136451a34.2.1781019175547;
-        Tue, 09 Jun 2026 08:32:55 -0700 (PDT)
-X-Received: by 2002:a05:6830:270e:b0:7e6:1e3c:912 with SMTP id 46e09a7af769-7e70c5c188amr12136384a34.2.1781019175057;
-        Tue, 09 Jun 2026 08:32:55 -0700 (PDT)
+        bh=jIxkjYPi5r64g4tKh8xey/X68WIJJQZ/eTl8Upurhj4=;
+        b=Lh7fZgv7he9mT532Kxl7XidFHcaRTaKHdW1iEs36CcH6XlZ2E6+BZxi9/3IggUwe08
+         MlR03ORBxNaxMTa5DwE39M7Ce9cptTqhZe61k39vKqSIYLaD1Wj2l8vfdPIj28Mzk7lW
+         Amh014+6q2weu4Is1tFCl3Z/3zz3c+j/278353Si/4hK2FbxNJG0r8h99+xhCVrfM7cV
+         vkW2nMW3N+Xg2+PUNKJarXkM2qAL5NqFIPiHDdTh4hJtNurzCgSIQkTZITOiJSry6e1f
+         WznVqT0okXfjTYrMNfqoVSNwdu/ZztowHls1IGBszrPhG2zJ519iIIG7z2EMfG/+Objd
+         dJgw==
+X-Forwarded-Encrypted: i=1; AFNElJ8YmiyTYsoodgxYSxWtvKohGyW7huXTliHbez9TemJDiGmRApbUCNqvsP1Ly5IUJT0H2tZP3mKO+eBsYURNwJGg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxwq4TYsuuVIpLAnuRq8N94qMK+mnzsH3kpk4v+B2uv2UhN/vRD
+	boXIhzX/ZIxE40dqByJy3qHII3F8KCfGXakTSu7vQPKkcxZiQJd8qCBGFQK89EheigFEpJFZ9K0
+	oVpiUpxsSD2P1I0tzF/phEy+ztnE3zBql89975iDv04U6UNPb2PKh7qtWDo7g8kM63vVnbegUxl
+	p+Sw==
+X-Gm-Gg: Acq92OHVB/uZ85HFDyj8TKVp5qfN2CiRdkOpEbD/RvsuqiQa4j/Mrp+fFHs7Igr+GYF
+	/s2N86Cx28J1IVy6yNrczWfXrN+jvTPsjX/v1pOVIK8TxtW1W647WEK7mXON7tg5b8awgOKX1gg
+	zI+2UBV785xgiVEtlUv6xmmGN4r34JP4qSHxxEBpV0fJ+blJ+VHPW+YLimMvbk8y5KK7HWMw8j2
+	S5URD7lGQFWa84nZh/lwysl6JYagydM4CZsK9Psk//8Hx2q3MspkhYso8bm/bnigc77NxkzIT2N
+	pIed7wG2r5roKo8Tezt7ckDQNojlFl7mlGBgZCheBJgjVjWQ/YzP7jLcD4JxUcQ8HN4QOZOzqnT
+	2pyae0E32DANR3lgHsmOYPUExoBoOKvAVoQvu+gt+KGZNlTdqeusqGUaj
+X-Received: by 2002:a05:6830:314e:b0:7dd:9b19:a875 with SMTP id 46e09a7af769-7e7516c9182mr2225994a34.2.1781019180953;
+        Tue, 09 Jun 2026 08:33:00 -0700 (PDT)
+X-Received: by 2002:a05:6830:314e:b0:7dd:9b19:a875 with SMTP id 46e09a7af769-7e7516c9182mr2225966a34.2.1781019180525;
+        Tue, 09 Jun 2026 08:33:00 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.222.150])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f368e9fsm60938203f8f.37.2026.06.09.08.32.53
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f368e9fsm60938203f8f.37.2026.06.09.08.32.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 08:32:54 -0700 (PDT)
+        Tue, 09 Jun 2026 08:32:59 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Tue, 09 Jun 2026 17:32:38 +0200
-Subject: [PATCH v2 4/7] clk: qcom: Make important ARM32 drivers default
+Date: Tue, 09 Jun 2026 17:32:41 +0200
+Subject: [PATCH v2 7/7] arm64: defconfig: Switch Qualcomm SDM845, SM8150
+ and SM8250 drivers to modules
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260609-clk-qcom-defaults-v2-4-0c67c06dca11@oss.qualcomm.com>
+Message-Id: <20260609-clk-qcom-defaults-v2-7-0c67c06dca11@oss.qualcomm.com>
 References: <20260609-clk-qcom-defaults-v2-0-0c67c06dca11@oss.qualcomm.com>
 In-Reply-To: <20260609-clk-qcom-defaults-v2-0-0c67c06dca11@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -106,50 +107,50 @@ Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5676;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1148;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=VhUpIZusEDwNFbqFlc2LibIE0jDqP22f5bKnLwzbnmQ=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqKDIY4Pfn5koudJH+mfnjIyKNZEyH+Gskr2Qi/
- Pg35c9Ft1KJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaigyGAAKCRDBN2bmhouD
- 1z01D/4jmDMsz26CKN+LYCZcjTH9MlvvLWZHkPeGIyVg7AO3D1HCVFsT+DmnU/0xXtHM+k1cZe8
- SXNbAyWF8pDNKPjvDO8bog3jkSsnXua8vrX4NeCaY8coHalKtxA9Pvp9u0qeOEsvXgkPgK7x1jt
- +HwLKGuR8k5GdvyIokFOkZ1VkDH5FY3JC1vdK7tcIfVhc7IIu0CXr5S1Vb52eVgTtLhPPu1DV4e
- qhmnMoYLuVJcFG3slwCQa2KVJPJ6gULSIHAGl+pTI4qYBAo5S23HWS+wJtFg2nADJiTLVwsAa73
- I7G5CmBYeHvC58fwt71/JS9jFU145yd+yGYuFu3oqCHrNnYQTWEPdkVISPH2U0OAX2WWmvhWIUa
- VnXmnlB20QnT2a5/OBa/hW9FtoMLd42wjCml1bTqdkDpoPo9RqSoPlof/f+c3bp8USxLQg1p8rs
- scAUFGx820AREfkY0RHRTQzfrFg01Rk/sumljTn7IvC0BTsskEpDsekuxLcIl+KcbG0A3t14uzd
- eM+dMLNsHfV7ONMQUfrAt45j0xGuLNfaGu58LBkxc30gJOVAeUWxQ6Ztsa2UAwBJ2hexOptFQAr
- WUYqtbHrnWGsYKpo0vbbGMa6WMIUKTpQMtCGyGP0lTMO3+5nfDF++K/vRH9wareKC550NZjqu6V
- xl1Znqdej071O1Q==
+ bh=TsASqrfqbK0Ps3uvYuUtqGTp6RdNEPy2IAP416/PQBM=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqKDIbxw51CymIPshnJtl+jqcnyY1YLMgo1IVsQ
+ z73JtMk7rOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaigyGwAKCRDBN2bmhouD
+ 1x+RD/0bpM00k+so0N5oxtFjPrS7HNV5jtV44ex3SVyHoTMfdmLQ7+G1llSaeQc+pFydUAK1neI
+ bbYUm0I2S4spbDPtWCMRQ0/+ZrsQ9vcSfpOweNwHaJLbnaXzcbQAqMD/0vZiSyMmFp1xImlUOFv
+ QyenkWbloWNj3dV88vtGG09dF0+buRnrzs32ISiPnyHTaXGA0DqdvqfOjd4cOU9MTyXpK7wWSU8
+ B9zDJZ4dDRLWxYyjIJB8nQAM22kkUpxprsEGf39YmbBzPVgrYWCXyEsr3FHw5T//MygKPof538t
+ FeUD16G0KHGl9aiFLYXfd1YiI6+kq0Xyd2J5QuPbxzbhexI2Slor2t84rEqBkI2jRWZ04yFkMdr
+ 9/mrgCqWRxfdiWc9OFbc4xNPCGo8MBio14DkM7a+4TC/1U+c/29qt6ZNabB0FE4M2E8QMCvf71f
+ G07oXUTq+npp8NThEpSfji0H1BOOFmqbUNudWu7SZc2Gu+sppYEmLUo0YNz8V0od2a1vx4aepDe
+ ir6n0XspwYqNoc97rJdT3VPjuKMGWrpEUMklDte4BsQ11uA8zXxo3HlDLe7RL7TP/+osA5329RR
+ vUifkOTrzccaTxO/E4wh+TkZmQT4WfugicEh/DXwDg0fuvXN2EHEJSnywHrm+w+QoGhgWIcn/2y
+ 1fTnGcK8aTeRD+Q==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-ORIG-GUID: HJAhvBXwPG0TWPhyLIr-nhze7vI-YhOt
-X-Authority-Analysis: v=2.4 cv=Iey3n2qa c=1 sm=1 tr=0 ts=6a283228 cx=c_pps
- a=OI0sxtj7PyCX9F1bxD/puw==:117 a=jO6dYz2E5lbJ9Xj+xBc9tQ==:17
+X-Proofpoint-ORIG-GUID: 2OOWJ3QEyUIsjZKabN5eDSc2ar1NRleO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0NyBTYWx0ZWRfXzshBAKqR0f1x
+ pYyq62jUERQYEYsGOKagzrLIy9wVxvXhyQRkgQH8ijaCg09FPOQBlweNH0PjhWhHBF284rR6JTV
+ IjDHdvBVk7fQ3mjbPhH0OKiLijgncYO19u8Y8ab3qYmILQtpQzVBaOWwr6SBV/IHfqP1/wY3t1g
+ /Zs8K1M28/pajEo1D8Ugg09nPRc7t9F0Bdmw6l8SGpG0BqSg3iHn0l1T3b7tvm6CyWYLuCkOg/V
+ 7bkRjZz8eBhQbfYM7KhOqUETk3P8VXaVkWlYNGM5cmhYF4UA2DlHZ3ZXOyVk92GhI9KVCyQv3E1
+ habA7Avivrbxa6Z+r1WsOhT0DmqDzqQanDS/MJmktSdmQ1n3k7rr1+y7vpDHOkd1SodGfEfohab
+ TzBcfbPJkC/vum0azlG18F4Vi2ddm34TDhFCbUPu/zY12gM2mMN6f9ZD9o2tJABpdrOgUODg2hl
+ InKezxvAyxwH+N//3HQ==
+X-Proofpoint-GUID: 2OOWJ3QEyUIsjZKabN5eDSc2ar1NRleO
+X-Authority-Analysis: v=2.4 cv=LoqiDHdc c=1 sm=1 tr=0 ts=6a28322d cx=c_pps
+ a=+3WqYijBVYhDct2f5Fivkw==:117 a=jO6dYz2E5lbJ9Xj+xBc9tQ==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=nVu6gHFLEUU7Sl8RD4kA:9 a=QEXdDO2ut3YA:10
- a=Z1Yy7GAxqfX1iEi80vsk:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0NyBTYWx0ZWRfXzQljqIKiwMYK
- QgLeGxFpWV54QGInpYGBL0/+6HULhgPMr+LmoJOVM7dIXJpbSBd9VrWoODEJTmS2UwundkYYjMC
- aCTXS2L3qSLpMONUg+kHfaCwHkTpLp6R8jI8jS8k+AF919cqM00vcokZx7LqKMLUCBKRD+POChc
- mHmuLPnE2K0aAjzgn2sXUtb/JIJVhE5BtgL081sgFN3D21xoIeLNx4ukYDFDEENlhGe3YGiWMBN
- W4v9siI37hiT+8Z3gqbXfwuQ7nNOctYb5PSPkCS82JaPpLg+WRoYiZUUXAWPmzeJ9jM/kO+AIAD
- GAXU5thaw0pO9pn2RoJA67nhUXwsIg/hh2ZNhnV8pd91F5SenTFBCFov29aL4Yh5aIa7FCuTcZQ
- 7XT2B5JOdg+8USPi2hjt1F1rSJpDYoBByXJLVMKI/h+JCAIq0+GT+fUMxQd/+c2zDEe2V6W6PhD
- THxJRvWorK9c095eqJw==
-X-Proofpoint-GUID: HJAhvBXwPG0TWPhyLIr-nhze7vI-YhOt
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=Qd1XWP2DvpO_7if9oiIA:9 a=QEXdDO2ut3YA:10
+ a=eYe2g0i6gJ5uXG_o6N4q:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-09_03,2026-06-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 bulkscore=0 phishscore=0 clxscore=1015
- priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0 malwarescore=0
+ lowpriorityscore=0 spamscore=0 bulkscore=0 phishscore=0 impostorscore=0
+ adultscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_083257_520761_9CE4E123 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20260609_083302_700829_1DA790AC 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,155 +165,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clock controller drivers are essential for booting up SoCs and are not
-really optional for a given platform.  Kernel should not ask users
-choice of drivers when that choice is obvious and known to the
-developers that answer should be 'yes' or 'module'.
-
-Switch all Qualcomm clock controller drivers which are chosen in
-ARM 32-bit qcom defconfig to a default 'yes'.
-
-This has no impact on ARM32 qcom defconfig and ARM64 defconfig
-include/generated/autoconf.h, however enables a few drivers for ARM32
-multi_v7 defconfig: IPQ_GCC_4019, QCOM_CLK_APCS_SDX55, MSM_LCC_8960,
-SDX_GCC_55, QCOM_CLK_RPMH as module, IPQ_GCC_806X, IPQ_LCC_806X and
-QCOM_A7PLL.  Enabling these on multi_v7 is expected to properly boot
-these SoCs with defconfig.
+Display, GPU and video clock controllers on Qualcomm SDM845, SM8150 and
+SM8250 SoCs should not be built-in because they are not necessary for
+platform bring-up to shell or even mounting rootfs.  Drop their explicit
+selection in defconfig, relying on defaults which makes them modules.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 ---
 
-Changes in v2:
-1. New patch
----
- drivers/clk/qcom/Kconfig | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+Depends on previous patches.
 
-diff --git a/drivers/clk/qcom/Kconfig b/drivers/clk/qcom/Kconfig
-index d8281ed68dc5..ed969553649c 100644
---- a/drivers/clk/qcom/Kconfig
-+++ b/drivers/clk/qcom/Kconfig
-@@ -249,6 +249,7 @@ config QCOM_A53PLL
- config QCOM_A7PLL
- 	tristate "A7 PLL driver for SDX55 and SDX65"
- 	depends on ARM || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the A7 PLL on SDX55 and SDX65 devices. It provides the CPU with
- 	  frequencies above 1GHz.
-@@ -280,6 +281,7 @@ config QCOM_CLK_APCS_SDX55
- 	tristate "SDX55 and SDX65 APCS Clock Controller"
- 	depends on QCOM_APCS_IPC || COMPILE_TEST
- 	depends on ARM || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the APCS Clock Controller on SDX55, SDX65 platforms. The
- 	  APCS is managing the mux and divider which feeds the CPUs.
-@@ -289,6 +291,7 @@ config QCOM_CLK_APCS_SDX55
- config QCOM_CLK_RPM
- 	tristate "RPM based Clock Controller"
- 	depends on MFD_QCOM_RPM
-+	default ARCH_QCOM
- 	help
- 	  The RPM (Resource Power Manager) is a dedicated hardware engine for
- 	  managing the shared SoC resources in order to keep the lowest power
-@@ -341,6 +344,7 @@ config APQ_GCC_8084
- 	tristate "APQ8084 Global Clock Controller"
- 	depends on ARM || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on apq8084 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -351,6 +355,7 @@ config APQ_MMCC_8084
- 	depends on ARM || COMPILE_TEST
- 	select APQ_GCC_8084
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the multimedia clock controller on apq8084 devices.
- 	  Say Y if you want to support multimedia devices such as display,
-@@ -402,6 +407,7 @@ config IPQ_CMN_PLL
- config IPQ_GCC_4019
- 	tristate "IPQ4019 Global Clock Controller"
- 	depends on ARM || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on ipq4019 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -456,6 +462,7 @@ config IPQ_GCC_6018
- config IPQ_GCC_806X
- 	tristate "IPQ806x Global Clock Controller"
- 	depends on ARM || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on ipq806x devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -465,6 +472,7 @@ config IPQ_LCC_806X
- 	tristate "IPQ806x LPASS Clock Controller"
- 	depends on ARM || COMPILE_TEST
- 	select IPQ_GCC_806X
-+	default ARCH_QCOM
- 	help
- 	  Support for the LPASS clock controller on ipq806x devices.
- 	  Say Y if you want to use audio devices such as i2s, pcm,
-@@ -533,6 +541,7 @@ config IPQ_NSSCC_QCA8K
- config MSM_GCC_8660
- 	tristate "MSM8660 Global Clock Controller"
- 	depends on ARM || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on msm8660 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -577,6 +586,7 @@ config MSM_GCC_8939
- config MSM_GCC_8960
- 	tristate "APQ8064/MSM8960 Global Clock Controller"
- 	depends on ARM || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on apq8064/msm8960 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -585,6 +595,7 @@ config MSM_GCC_8960
- config MSM_LCC_8960
- 	tristate "APQ8064/MSM8960/MDM9650 LPASS Clock Controller"
- 	depends on ARM || COMPILE_TEST
-+	default ARCH_QCOM
- 	help
- 	  Support for the LPASS clock controller on apq8064/msm8960/mdm9650
- 	  devices.
-@@ -611,6 +622,7 @@ config MSM_MMCC_8960
- 	tristate "MSM8960 Multimedia Clock Controller"
- 	depends on ARM || COMPILE_TEST
- 	select MSM_GCC_8960
-+	default ARCH_QCOM
- 	help
- 	  Support for the multimedia clock controller on msm8960 devices.
- 	  Say Y if you want to support multimedia devices such as display,
-@@ -629,6 +641,7 @@ config MSM_GCC_8974
- 	tristate "MSM8974 Global Clock Controller"
- 	depends on ARM || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on msm8974 devices.
- 	  Say Y if you want to use peripheral devices such as UART, SPI,
-@@ -639,6 +652,7 @@ config MSM_MMCC_8974
- 	depends on ARM || COMPILE_TEST
- 	select MSM_GCC_8974
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the multimedia clock controller on msm8974 devices.
- 	  Say Y if you want to support multimedia devices such as display,
-@@ -1212,6 +1226,7 @@ config SDX_GCC_55
- 	tristate "SDX55 Global Clock Controller"
- 	depends on ARM || COMPILE_TEST
- 	select QCOM_GDSC
-+	default ARCH_QCOM
- 	help
- 	  Support for the global clock controller on SDX55 devices.
- 	  Say Y if you want to use peripheral devices such as UART,
+Changes in v2:
+1. Rebase
+---
+ arch/arm64/configs/defconfig | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 91c8e9435dd6..766915f8a050 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1458,13 +1458,6 @@ CONFIG_COMMON_CLK_MT8192_SCP_ADSP=y
+ CONFIG_COMMON_CLK_MT8192_VDECSYS=y
+ CONFIG_COMMON_CLK_MT8192_VENCSYS=y
+ CONFIG_COMMON_CLK_QCOM=y
+-CONFIG_SDM_GPUCC_845=y
+-CONFIG_SDM_VIDEOCC_845=y
+-CONFIG_SDM_DISPCC_845=y
+-CONFIG_SM_DISPCC_8250=y
+-CONFIG_SM_GPUCC_8150=y
+-CONFIG_SM_GPUCC_8250=y
+-CONFIG_SM_VIDEOCC_8250=y
+ CONFIG_QCOM_HFPLL=y
+ CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
+ CONFIG_CLK_RENESAS_VBATTB=m
 
 -- 
 2.53.0
