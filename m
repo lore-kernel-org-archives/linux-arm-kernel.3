@@ -4,96 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664E6CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06BDCD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mRBPNmR1OtFkGxuqAKs88NJp8h9p2yjslNUV+/qzLE=; b=0lSoBwA8ITkDtrpcHxuyAqB83G
-	O108eBvzBPgcvTzqpoqfll1bjYFRri5Le5VUv2imXwi79Il2vBB3ARc3LijD1/nZVYPguITjprgu2
-	8yG5XCPv/tB53i33pGGaCrqbSGfAbjylCqiO/4W7f1+m72s1SBBFRJuEdQrRwrNuDRKLt593rO8Bb
-	KVq5E3c1L4VxGsXXNgSiFZcm7ne1FTRblkemCZ9E5gcQdoaV8CokYp5VNwTHiVPOd9SPq2W2sD3fL
-	RmRId8oAXc0LAMinWwwWU5Vj5hbl4ZS/VTdZ0JxjmbypUrF9OJ48byBtgkCEe0ZTumU1D0b2IFgJ+
-	+ZX5dmuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2O0A8k7i0uc3+GN/wePb/LhobyOV72RtaqOWFuiG+AE=; b=I/ltSHTiN+RdwgMPU66q5TiKxr
+	q1c3Ps6limDpETpifEf2gLSLgt9McbHG7LB8lFy3o3kto2RKnhxcep+/5minRZ65XQulZeUSvAr79
+	4CpO0ZO2P4EjGlfvWXVr0bbmRtAdQt23ZZMHI3yQQG77nXD8IGxG/O7aHYWQwfoU7dGrNGSqLYxcE
+	AQppGNVdqSEF0uQRULzaoyH0QDcot5NWfitKSOzvwi5ONjh2NjMdil6bCnG9SiVeWMQ1esTjHQ+6N
+	7Dvy6f/cvBvFT6zYPnGhLOUjkEeNcr7BZoUcNGpGM7NBmxTsd3h0L0v8yaBjvMEwuO8TwNlP65mrV
+	nIQdlWyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsnh-00000005D8d-2rpt;
-	Tue, 09 Jun 2026 09:31:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wWso7-00000005DDr-3aZP;
+	Tue, 09 Jun 2026 09:31:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsnf-00000005D83-1bTD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Jun 2026 09:31:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4mRBPNmR1OtFkGxuqAKs88NJp8h9p2yjslNUV+/qzLE=; b=mH8AirSv21gEd9cE7OLHOxd9mD
-	nfg5vz8ZkXV+6POvaJhX1vlZdFndatn9DHUqCyMh78gA7oSlyMKOddrb/KDRjqwpdnOTSwro7IPge
-	IRufxITNs6h/oEh6O2SxAb71LxOdgspz2AxhlBSAwkdwvIgHZM9lQ8ynZ7bTmtZP/J7WU1xlr3oNG
-	2Btuf9NUZdcGgDWYyyVffVKIFZTrzmTyMLlMDj3VxlNccjZBubYAksWMlrhFF/JmMASGY2oizErnW
-	yrLaIHFwiLdy0Rx1Tndb2TsdtbUuxxLTIqUSjoiYD7a5p/gbfR4I91jGeOZPoF7RZi0SGfQvdHhax
-	QpWlrlrA==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wWsnc-00000002FrJ-0N0K
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 09:31:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 625AEC4FED7;
-	Tue,  9 Jun 2026 09:31:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F1C835FFC1;
-	Tue,  9 Jun 2026 09:31:04 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2156B106A2ACA;
-	Tue,  9 Jun 2026 11:30:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780997463; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=4mRBPNmR1OtFkGxuqAKs88NJp8h9p2yjslNUV+/qzLE=;
-	b=xyprXdNFrB0MTFjyuj1yRt4FGoAYSUSksWS7Jm3cTcx0eI+zTv4/9QMmFUmHzFSeN7BfpA
-	Oh2kQLxV4VhmWk8y0DUWCH6baH+UYkAyrIvn7YYbgM11mEVLLTWGlkdYw2/41Z7j/QjVmU
-	SdeN2Sbpk8SLYhLbvz72roOjWsMh9PyH7lh+3HQ+ebMbgYEoxnx7m1Ac+ixwcNRrnqJOLK
-	JyDVQ7iKg7ADJ1oL9A4wmAH/xPTrNp0Q1+gt9TINL4PDuyQFT0Xt35wOXZ6EIvzo2NK5ul
-	6fM2APzJlzP/fZJYdVvX1U3vPjjxj6qK2qjA84MEZy71oY+zccv+Z83Ln3pMQQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 09 Jun 2026 11:30:52 +0200
-Message-Id: <DJ4EWMIX84PN.3VTENLJT2FWDH@bootlin.com>
-Subject: Re: [PATCH 26/37] drm: event-notifier: add mechanism to notify
- about hotplug events
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
- "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-26-45e2bdb3dfb4@bootlin.com>
- <20260608-maize-rooster-of-youth-c0bbde@houat>
-In-Reply-To: <20260608-maize-rooster-of-youth-c0bbde@houat>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_103108_288442_CF2FA06F 
-X-CRM114-Status: GOOD (  13.54  )
+	id 1wWso6-00000005DDO-1onP;
+	Tue, 09 Jun 2026 09:31:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0503743F92;
+	Tue,  9 Jun 2026 09:31:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0606B1F00893;
+	Tue,  9 Jun 2026 09:31:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780997497;
+	bh=2O0A8k7i0uc3+GN/wePb/LhobyOV72RtaqOWFuiG+AE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mAI6hhRXHfGBva7Rk3YIaxAe7+mGw8/Nc1CfF0iSOK7POUGUFrcPUd8rhYyAIQ/PA
+	 dlYb0Z433wrDey4OY33Evo/RywrrH3HIGh1lADXKvY+gT6ZAUmg6ZBjy9/IrdeOviS
+	 NuiO0yVrE5IWQNWfJz8xhh0BIlRrIE9lOhSaL3/LGs4BGbbOAr8eiDOybX/erkM50Z
+	 B52wIBz2lnFpm0+319gQkrelQ1Y5h7gPp1y7bgpmHtOqRm2vnr9gBYfgU/iSufmUkS
+	 R9LDV5FA/sPADE1rEeSrsfU5+o2bX1TWV5nsX2r5S6NA9HAXJye9hxqLxf1vBOU5LO
+	 B5RcmBKv9b83Q==
+Date: Tue, 9 Jun 2026 11:31:31 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Len Brown <lenb@kernel.org>, Sunil V L <sunilvl@ventanamicro.com>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev
+Subject: Re: [PATCH v2 6/6] irqchip/gic-v5: Enable GICv5 IWB ACPI probe
+ ordering detection
+Message-ID: <aifdc2E/+YCvCnwG@lpieralisi>
+References: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
+ <20260603-gic-v5-acpi-iwb-probe-deferral-v2-6-23ffa16b6ebb@kernel.org>
+ <CAJZ5v0ibZKfzJwGyUb92-K1N9C_ab0QujpAKCrvMdyygquS1Vw@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJZ5v0ibZKfzJwGyUb92-K1N9C_ab0QujpAKCrvMdyygquS1Vw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,51 +78,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jun 8, 2026 at 2:13 PM CEST, Maxime Ripard wrote:
-> On Tue, May 19, 2026 at 12:37:43PM +0200, Luca Ceresoli wrote:
->> In preparation for supporting DRM bridge hotplug, add an event notifier =
-to
->> allow interested parties to be notified about events they need to react =
-to.
->>
->> For the initial implementation of bridge hotplug, two events are needed:
->> bridge detach (happening in drm_bridge.c) and MIPI device attach to MIPI
->> host (happening in drm_mipi_dsi.c).
->>
->> For this reason implement the event notifier in a new common file that
->> event producers can easily use to send events.
->>
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->
-> So, you claim in the commit message that it's about a hotplug event, but
-> the only events are the bridge being attached and detached, so not a
-> hotplug event?
->
-> And why a bridge would want to be notified that itself (or another?)
-> bridge is being attached or detached?
->
-> You need documentation, and a more descriptive commit message.
+On Mon, Jun 08, 2026 at 07:18:15PM +0200, Rafael J. Wysocki wrote:
+> On Wed, Jun 3, 2026 at 10:21 AM Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> >
+> > Register an ACPI hook in the ACPI interrupt management code for GICv5 to
+> > retrieve the ACPI interrupt controller handle (if any) of the controller
+> > handling a specific GSI, by updating the acpi_set_irq_model() call with
+> > the gic_v5_get_gsi_handle() function pointer parameter.
+> >
+> > gicv5_get_gsi_handle() allows ACPI core to detect the ACPI handle
+> > of the controller that manages a specific GSI interrupt.
+> >
+> > Update the IWB driver to clear device dependencies in ACPI core once the
+> > IWB driver has probed.
+> >
+> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Thomas Gleixner <tglx@kernel.org>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
+> >  drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
+> >  2 files changed, 16 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
+> > index 9103feb70ce8..a02cb9537b15 100644
+> > --- a/drivers/irqchip/irq-gic-v5-iwb.c
+> > +++ b/drivers/irqchip/irq-gic-v5-iwb.c
+> > @@ -269,6 +269,11 @@ static int gicv5_iwb_device_probe(struct platform_device *pdev)
+> >         if (IS_ERR(iwb_node))
+> >                 return PTR_ERR(iwb_node);
+> >
+> > +#ifdef CONFIG_ACPI
+> > +       if (has_acpi_companion(&pdev->dev))
+> > +               acpi_dev_clear_dependencies(ACPI_COMPANION(&pdev->dev));
+> > +#endif
+> 
+> I would rather add a wrapper for this, along with an empty stub for
+> the !CONFIG_ACPI case.
 
-Yes.
+Ok, I will.
 
-But before that I need a decision about the scope we want to give to this
-notifier. It is a very generic module, with basically no dependencies, so
-people will try to add more unrelated events and we'd need to set a
-boundary.
+> > +
+> >         return 0;
+> >  }
+> >
+> > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> > index 03cc2830b260..26cfaea1af41 100644
+> > --- a/drivers/irqchip/irq-gic-v5.c
+> > +++ b/drivers/irqchip/irq-gic-v5.c
+> > @@ -1217,11 +1217,19 @@ static struct fwnode_handle *gsi_domain_handle;
+> >  static struct fwnode_handle *gic_v5_get_gsi_domain_id(u32 gsi)
+> >  {
+> >         if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
+> > -               return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
+> > +               return iort_iwb_handle_fwnode(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
+> 
+> Why is this change needed?
 
-Options:
+This is a mistake, thanks for spotting it, it belongs in the previous patch
+(IMO patch 5 and 6 are a single logical entity, I split it to try to keep
+irqchip specific changes in one patch).
 
- * Should it be for hotplug-related events only?
- * Should it be for any DRM event that needs notifications?
- * Something else?
+iort_iwb_handle() was refactored to return an acpi_handle not a fwnode_handle
+(in preparation for adding gic_v5_get_gsi_handle() below - the dependency
+chain requires acpi_handle retrieval not fwnode_handle), so the change above
+belongs in patch 5, I will move this line change to patch 5 in v3.
 
-I'm happy to write that in the docs and commit message once it's agreed, so
-any comments would be welcome right now.
+Thanks,
+Lorenzo
 
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> >
+> >         return gsi_domain_handle;
+> >  }
+> >
+> > +static acpi_handle gic_v5_get_gsi_handle(u32 gsi)
+> > +{
+> > +       if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
+> > +               return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
+> > +
+> > +       return NULL;
+> > +}
+> > +
+> >  static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsigned long end)
+> >  {
+> >         struct acpi_madt_gicv5_irs *irs = (struct acpi_madt_gicv5_irs *)header;
+> > @@ -1242,7 +1250,8 @@ static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsig
+> >         if (ret)
+> >                 goto out_irs;
+> >
+> > -       acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id, NULL);
+> > +       acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id,
+> > +                          gic_v5_get_gsi_handle);
+> >
+> >         return 0;
+> >
+> >
+> > --
 
