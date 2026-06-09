@@ -4,72 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C1BFCD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63535CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2mNfNUmklU9bFAjBbAD3Iaxi1EmNNL5ROjmhSuGaNU=; b=X20itME1o7uqF+jViF4B7AO2pf
-	ZcIciBRlZQQ3QBCKl45WaMZ+MpPKuxNwdiFJhxPFD9QGO7XHEbmzO4SoIm2cRFB5IGEICFkQmy17c
-	pOGnhipHiy4yoiNBrwiu73u59oETzBy8UWep7iaGrX49lOnQWDyUSfJTprizPsy3bPMLXYGqRdXVX
-	R1tIfImgI0KP6BNPRMW9CUcqzqZUvGuOxtgsKntWWh3kefQC0yOb88WsKjC+1G5NOaT3QYz2fjbGL
-	uPAU9Us7Q2vmy4iegRbG2ppSu/tO/QGv/W+KlJ691bgtbjDVMaDgen1kNUlRXks9STJXIxRBpjEhM
-	GAd6wnqw==;
+	bh=RPWwZ28sryBvAqUjMYHhEr9FWKHZ1osoh9nWLLk7GQk=; b=eTQOVaQRE+mnA/3kxV/sv/aGFu
+	DjDe6Vxeu5yFsVQSdrSCTcUO3peEoT+ODiHGigYKaBHkZTwW+5hagNZyKwbUnqjIK53eU9tyKCIO4
+	lc7Av0tbWjktpKf2qtWFCfnPc+U4kP87nEKvBxOEUfxxS09MzjkojIH2DGnQILHq2dNJ5932J9wKF
+	tsu6oZF0JH4O/le22L12+Q5Oj7omlxQCEh976LzcCM4Pbo2iS19YV4XcoWND+dt6n8BG9SPa8Sgul
+	ZxcyG1g7wR1A0a1HQW/fgt+zxXCLknvYEBG5S9zJck5JpCxpUe1mZtGCjqr4cdPfz7kUUtUvk9Ty7
+	DK1OrMvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyaH-00000005wj4-0BhS;
-	Tue, 09 Jun 2026 15:41:45 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1wWy8s-00000005sRi-1853;
+	Tue, 09 Jun 2026 15:13:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyaE-00000005wgg-0MDp
+	id 1wWy8p-00000005sNh-2OKD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 15:41:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1781019701; bh=k2mNfNUmklU9bFAjBbAD3Iaxi1EmNNL5ROjmhSuGaNU=;
- b=NVK2vBLSYdw9UyyOlBresJSZQIWaCbsOR6U44LwskUM8yA3m6faQ9dOgimTOl+teTH3kOaOHK
- MF783dDuwMTSwnLwv3aACDtHfWL9wjBpLNwB4rgIvbONU7lY76lC2ZLYEqdFSNT+hJ61vKxg1x0
- qviw2yTjef3tVWYztuEevcpnzYGuvheT0fB5WvRy8pMaHShmaM+r0Y4aA7j1BWMxvBVMXwPt9Ua
- 12uC3GxEa0QbNpO92xO57aX6IFzrEIg7JhKAQWZ+voNLzAEElKejKrrVKfgHwUoB6sspGdXxw4s
- 5v1yh0zryJMJCPeDEbQijJxihXHuHam2KVumorkYzxtQ==
-X-Forward-Email-ID: 6a2834322d71d6ad28f66e5b
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.8.22
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Peter Geis <pgwipeout@gmail.com>,
-	Michael Riesch <michael.riesch@collabora.com>
-Cc: Diederik de Haas <diederik@cknow-tech.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 2/2] arm64: dts: rockchip: Fix devices suspend freeze on RK3568/RK3566
-Date: Tue,  9 Jun 2026 15:41:23 +0000
-Message-ID: <20260609154124.445182-3-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260609154124.445182-1-jonas@kwiboo.se>
-References: <20260609154124.445182-1-jonas@kwiboo.se>
+	Tue, 09 Jun 2026 15:13:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C48240361;
+	Tue,  9 Jun 2026 15:13:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A34CC1F0089B;
+	Tue,  9 Jun 2026 15:13:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781018002;
+	bh=RPWwZ28sryBvAqUjMYHhEr9FWKHZ1osoh9nWLLk7GQk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nf+e4rFl0G7r4X79TWurFV+mtLC6QzcJ3lZZXRhhldcwDpKeyqskXZ4r9CZtvECSB
+	 5UAJtyOzwqOahPGg+8zlkpk1s2kxd32atov7XJ6DS0dmSyNYgrtFZkghSaQ2x8R3Yb
+	 y4WIioHweMn553g65RI2Ak300j36w1ohWQ4avH+56C0zyE9C9gWgrXLLA03u29bYBq
+	 IMDwVsAEfo1xq5cRBBie94OC+vAc90UQxJ54+Jj14R4nr4UR2Nzi5wzBSeuF0ZxOz7
+	 sExJWQ/OVg2BW+D7WsVytZW7oX4rIFAEr76zukI3NxcaB1tTiRy7eg98zZwbvT9nO9
+	 WsvHnjmQMV4TQ==
+Message-ID: <a547d2b6-cf3e-4039-9fb3-abb25fb9d0a6@kernel.org>
+Date: Tue, 9 Jun 2026 17:13:15 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_084142_323837_E2FC5BE0 
-X-CRM114-Status: GOOD (  11.35  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: power: imx93: Add MIPI PHY power domain
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Ulf Hansson <ulfh@kernel.org>,
+ Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+References: <20260609-pm_imx93-v1-0-d06c004b0f51@oss.nxp.com>
+ <20260609-pm_imx93-v1-1-d06c004b0f51@oss.nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <20260609-pm_imx93-v1-1-d06c004b0f51@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,91 +121,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EHCI/OHCI controller depends on clk_usbphy1_480m being enabled, or
-the system may freeze when registers are accessed, i.e. during suspend
-in ohci_suspend().
+On 09/06/2026 08:26, Guoniu Zhou wrote:
+> Add MIPI PHY power domain for shared PHY resources used by both
+> MIPI DSI and CSI blocks.
+> 
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> ---
+>  include/dt-bindings/power/fsl,imx93-power.h | 1 +
 
-Add the missing clk_usbphy1_480m clocks reference to EHCI/OHCI
-controllers to ensure the clock is enabled when ECHI/OHCI registers are
-accessed to prevent a system freeze.
 
-Fixes suspend pm_test issue with EHCI/OHCI devices due to the missing
-clk_usbphy1_480m reference and makes following pm_test modes work:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-  echo N > /sys/module/printk/parameters/console_suspend
-
-  echo devices > /sys/power/pm_test
-  echo platform > /sys/power/pm_test
-  echo processors > /sys/power/pm_test
-  echo core > /sys/power/pm_test
-
-  echo mem > /sys/power/state
-
-Fixes: 91c4c3e06a25 ("arm64: dts: rockchip: add usb2 nodes to rk3568 device tree")
-Fixes: 78f7186095db ("arm64: dts: rockchip: rename and sort the rk356x usb2 phy handles")
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index a5832895bd39..c930a6fd6ea0 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -321,44 +321,44 @@ its: msi-controller@fd440000 {
- 	};
- 
- 	usb_host0_ehci: usb@fd800000 {
--		compatible = "generic-ehci";
-+		compatible = "rockchip,rk3568-ehci", "generic-ehci";
- 		reg = <0x0 0xfd800000 0x0 0x40000>;
- 		interrupts = <GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>;
- 		clocks = <&cru HCLK_USB2HOST0>, <&cru HCLK_USB2HOST0_ARB>,
--			 <&cru PCLK_USB>;
-+			 <&cru PCLK_USB>, <&usb2phy1>;
- 		phys = <&usb2phy1_otg>;
- 		phy-names = "usb";
- 		status = "disabled";
- 	};
- 
- 	usb_host0_ohci: usb@fd840000 {
--		compatible = "generic-ohci";
-+		compatible = "rockchip,rk3568-ohci", "generic-ohci";
- 		reg = <0x0 0xfd840000 0x0 0x40000>;
- 		interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
- 		clocks = <&cru HCLK_USB2HOST0>, <&cru HCLK_USB2HOST0_ARB>,
--			 <&cru PCLK_USB>;
-+			 <&cru PCLK_USB>, <&usb2phy1>;
- 		phys = <&usb2phy1_otg>;
- 		phy-names = "usb";
- 		status = "disabled";
- 	};
- 
- 	usb_host1_ehci: usb@fd880000 {
--		compatible = "generic-ehci";
-+		compatible = "rockchip,rk3568-ehci", "generic-ehci";
- 		reg = <0x0 0xfd880000 0x0 0x40000>;
- 		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
- 		clocks = <&cru HCLK_USB2HOST1>, <&cru HCLK_USB2HOST1_ARB>,
--			 <&cru PCLK_USB>;
-+			 <&cru PCLK_USB>, <&usb2phy1>;
- 		phys = <&usb2phy1_host>;
- 		phy-names = "usb";
- 		status = "disabled";
- 	};
- 
- 	usb_host1_ohci: usb@fd8c0000 {
--		compatible = "generic-ohci";
-+		compatible = "rockchip,rk3568-ohci", "generic-ohci";
- 		reg = <0x0 0xfd8c0000 0x0 0x40000>;
- 		interrupts = <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
- 		clocks = <&cru HCLK_USB2HOST1>, <&cru HCLK_USB2HOST1_ARB>,
--			 <&cru PCLK_USB>;
-+			 <&cru PCLK_USB>, <&usb2phy1>;
- 		phys = <&usb2phy1_host>;
- 		phy-names = "usb";
- 		status = "disabled";
--- 
-2.54.0
-
+Best regards,
+Krzysztof
 
