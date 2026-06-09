@@ -4,105 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3477CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D2ACD8CAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=; b=IK6+924MCe0uD4WnHnIyFPf1F+
-	qCc9BXyaG0RHj3Af+W3mFdMNN0+9CAFqXaQ5TyHPHsgvD2cWpF1QiZYJLX6rR5aYieCPZOYotHl0a
-	JzpZDoFPmgrtJhuI32EAkG8qefGCpdhbbY2aau99hHgt+ySnclAGp0AN7jPNfFHi/gV25/X9Sj4Li
-	AXIw76oewpsO9Z+/uEh7+dSSq0OxkRHV2BDOOgifVuwxiQ2R44xxkr2BlOc2ZOIqygf2IvbGZsrjj
-	mXo1po+RtldBx450gd01eLlBFB9T0IZeC6Agqwy/1utHdU3tjYTZuOXbExm5ygrwt1Jg8fi3640qj
-	XPHHvJRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZcKDdH1yhiVL50Qlb5vKMH/mf+UgMoMx7KZoBbcwRZQ=; b=CrdJY7EHCxMELXF4BOScZmThdG
+	wW4eNWhY9+LP2unTEtGCBQ2PIXtiVUqshnVHU64aDJ1hOzB9F4kjl6SOGXmpiyT2Gr2oveWbvUsvK
+	Q6fxJ9T3jGGFB9eXkdAbN/dW7k33kfObgLfUN8QyT4nKXmWr+uRlqucAKypI7XQCcVlnqhQeZAR8J
+	MqvkLSe+/fFWhmkZhIRcFEAOIpaluNk4wRwsy5JrQeB/Va1xkqecglZdmcfLe/oYWu/9kSTtP1XnK
+	jZYA18V/aUzSKS0Qqr3R2LOEYSr4BTfK47qk9lxVkjvb9RHzOkqMm1+/A5YOQAo44TqwUzOudTIFM
+	qoi5fJyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwbA-00000005fvu-4Byi;
-	Tue, 09 Jun 2026 13:34:33 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wWwc5-00000005g5I-1usF;
+	Tue, 09 Jun 2026 13:35:29 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwb6-00000005fup-1fQU
+	id 1wWwc2-00000005g4c-3AWP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 13:34:31 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-46019b190b6so4157412f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 06:34:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781012066; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gLE280+CIzCsa+9ENyagOfS7wOHlHZH5ZsIIUfWktvnYpOqAUpe/h5UH/tw4Gm3cjS
-         PaJq9IJEZw5cl5z+VgqK5MsbFwMbVudoEMWfUv6AvgLcrqDKr6RbnF5fnqWIooBJGkA3
-         RBbR3B+PPYSe8GruM59E4H5cF5J+7+LrN+h4z/BOxIfHY7hGW/zPFO3DfX0M2lxIw76q
-         Ial+ZI7A4RXOsQVQlRFWBivqfyFTYlTxm/VM4EGF7PzA3pnR7uNAgWXF2ysIVhOJXGAl
-         vOISrZrCeM+eKf6o2AKby2a8tVT2U2yd697awn4LGWyjLf+1jlYeryZpLmHDM5siy/ld
-         Qv2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=;
-        fh=mHscCnFM/tKhShSGJyhgby0Wsmbm7CpsZ1VpnH6SdO8=;
-        b=TJkoPzXZh2selzPj8kGuJ7q9F6G6bgLzNyktzCQuURNHV9PqdnUBxJJ6c1Tz5wTCvd
-         7eDcJYOTrppL2uPKbb77EsTNcaLLHVG3byT4dEtMJ8M9WPpN1PT/HdnA6FogaEiKlxts
-         1ijmuwCDIbOfmq8p7ZynahR4vx5gaDRpg/VN4/kTOvc/O9Vg6qgoyqBEbJBZwA/4xw3d
-         UkM4aUsk9oolpI4TShinQ5PojuUak6Fxy+e0RB9hTSWhWydyVc6F5EyBU93u9Ly9KOft
-         cItH99QHtpQLZ5VfjsZXEBYIqTT95M+eK0xXJWFh7+neOVswCc6TzgpxcLmqPpc9Lq/Z
-         8Vtw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 09 Jun 2026 13:35:28 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36d9794d82aso3932954a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 06:35:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1781012066; x=1781616866; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=;
-        b=USr9C621iTsM6aJJyufEr9yhE0ReZ0YF5H5sJFr70qcSlgJm5KUGIrTfguj6ajxTsV
-         51jYx4SmNkXfB8M1IrKjfeZzSmUM+z5YSs0uH8OXwgBFmP29FjGIxeEIKohFHCXE0P4a
-         qDuYCiq4J0yjWKNFZzM7uCyPMtwB/aGuGDqaLbT5Y9bAPVDe2Dl77qxs3dvAixbojhjG
-         kav5iit0U22jT327r5zeHtpjdVQai4bzzntNWH8FAYhwf1lk4ODEIupmaoCCMqF/31vd
-         LNw+9JfidGipJBuRhprsYPfzAlsOEMijBZqc7MXo3b4djVhrWhPfxlrx6WgvRIE7LrEI
-         51Tg==
+        d=gmail.com; s=20251104; t=1781012126; x=1781616926; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZcKDdH1yhiVL50Qlb5vKMH/mf+UgMoMx7KZoBbcwRZQ=;
+        b=CqQjEnH0ApQ7JSokdszP383uhWgJojNwL09a6JPl5H4lB5VCB/3GzsOsQ9QL/p+Rdz
+         YmyVhJ4CWGDRE5DP4F0gqVP1PVPiPvxig85W98GGKd59N6tsaa2KhChdfXNq9M+f6/vl
+         85kJ86Rh+TTRQz+C3PfFnTW/EUDHfw6Qunp5rvHtIDmXjln3zM+TPpqqN0xzKq9kOuis
+         ldq6DKdyPtQa11zOoITl0990Oh0u4ODCugbTk+c6W4+xUhWDh2Y9HKusTgE2kQP7A5Be
+         rFQz22Gz7BTNIfo5a/9J8BnOvUyhmlgMokN76PbV+2TFB4yxREnGvvIKYZ+e5KMJe3Qa
+         Y3zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781012066; x=1781616866;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1781012126; x=1781616926;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=;
-        b=MXb6izr9UAl/ghPjgI2w4XNi5gMXhYaQW5EmoW+PuK1GXW0/bvmS1R7M5dZMrN7g4O
-         GI88o80D4b+8dj1+q0dAD/kuhElKrMzwb9l8dr4vBGqB+CRo/ZA7rqQHoXw7sJgQAhNz
-         cOCdEzm+bfPLyGyl7gs9grEik85fr47KPYCFTVGKAVAgyPiybtQAEMCt7Rnjgss+1xyc
-         2EA79kgJZyHKEPO9wj8Rn5XzbELVyIKVomIuF16Ohhi435LQFmPbrnhlOZ9vab0DX6Uk
-         f9pKq40ZPz/uCuORnqmnc6E0zizG7r2719ykEL7SUWX2ThLAeSxQZrxjnhGCX0vmAMOP
-         b8Zw==
-X-Forwarded-Encrypted: i=1; AFNElJ9Ifr5a0mYhnmEIrXB/hP5fXra8isqK/B0MrRIyZwXI3nv2ygCobCsMf2A/CF8Rc7N8SMxP/7shBZZmOoS0ojG7@lists.infradead.org
-X-Gm-Message-State: AOJu0YymydnGH9kBKWWXUVotelj/BXR7vcvP62Yh4I//AZ3t2lsyKsMW
-	5xywv+hZRoQCA5xKC/nekYXb4+VqCbTi4Ulhp0nUBOp8gqOzO1haBIyBTxTriV69jOr0fnys5q1
-	TGY2cx3OVU37LeztbYN+Y0T5njZ9P+tFKlxvkKL9ycg==
-X-Gm-Gg: Acq92OGwT4FEztciRoSzjpq+Q5xAjocq4nMJ0l585BL60JJneCvrDdyXnAhEc7U5Rm3
-	/ZwiFCP77KAu5gu0epOKmeinLbPnJm3OUCTf8cwPhBNo0iSIIALqI+QI2xsVa/yloPcwaRPZChY
-	/riSsmh/mxlG2uM0jmIi6/nhTuYU9iiiWl2g2mC9iqGu1i+w1ecAOXF473rizKnSQGiKf+acGZl
-	n4pOBlWO5o4ARldOjejRLGvq4MuXOmbWLSpGZHa3jsjWZiic5nSdZbcxuPAoO93J7esz5mj84Yi
-	NOucApD+4WjyDOu/MjnSSdZspxPAR4aJZmPrX5hTMzuyJ/7luGEwEHRT+JCLi7FY0EhF0r7y3SK
-	eyXDaUEim8A8u0A==
-X-Received: by 2002:a5d:4d4c:0:b0:43d:50c:6f33 with SMTP id
- ffacd0b85a97d-4603060b001mr23218990f8f.26.1781012066371; Tue, 09 Jun 2026
- 06:34:26 -0700 (PDT)
+        bh=ZcKDdH1yhiVL50Qlb5vKMH/mf+UgMoMx7KZoBbcwRZQ=;
+        b=eCA2p+8UNQqp0rtFKKmlR895iAi60/Mq2O+LucqZLJFk/k0Vsfx2DHRTOcZKrMLSDX
+         +UccVN8aYfNhiZcHTSZI/Pat6tSZ+gqMSYUkQtBQKl/kArAN1BvjwHLxKYXvapMj7ApP
+         GAav1weey2IkS8LwFCzNBCKAZR6zwOXl4JeiTAinOga2gD71U5upzyXBjxrEVHZSIIBV
+         94852gYogQwp6BSnvI7Wbx2RpsKJ1KyX2K4TYshLUSciEK4MVad2w5vQvw6LKAd2KdS3
+         gHmaYcN430yV4xHuWO8QovCCj+MUONsiYTGt4DiJz9yFiQ7TOqVezmQ8Eoz9AqkRmIMZ
+         hKsQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/XedcSStz6P4h9F14OLUyF0P1d2VQlT+6vYMB4t3uwtrJ59RNWybnh6TIbAfuYJT7FDSGLsHHJ19MlS1BZUhXf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+aL7xm4u9kZWCLJaA+rs6+Ou+5AoggOlCxaGRT1tkhkFJsL4a
+	af1dwdzDoyTexJ72bjxmN/tjkJDNuwHfuKgeH2GZwy6BQGAucDacvawT
+X-Gm-Gg: Acq92OHFnhmxfXcm0YC2bkJipfKv4mZ6l5bzux7v+fXrPxf4gtf1ApFPTbchQutWsWd
+	sOzdnt8BdGFhkRsEHXirY4GAod/jl4AaJem1r8kGng9cT7dPnskR9MKiytibVKAvX2b1yai0Gv+
+	Ctw+WNEof+/mjqNYdKJuanNUc6VtwgUjnUrM3sc7Yp6mETbFNV/XZSDcMFLdEBgIFXNJ/o8WX3u
+	C15OgJ+ZCo/0Gc4JErgzHtw2TcB9kLIQ76RXW3GolVWZqu7OuQvYz8awxZ2uJxyXs3ZWkBq5HHa
+	05l4t2FePOmmh8O+S0A8SI7coxTROI27vhj4g7InDe0oSi3fHYftvFqqCxlClxlJOqb9kcowuLq
+	SFSr0k6BgMwGL708Ze+r//jO2x5jlkOsKey7vMblQ3cBTrGYYbxlijpwJd02MlyQad4k8yHIQpS
+	e/qgOue/ed0xF9MsUt3axMZRR5tElVg4EZklUnCEFv/LAxruXie+Jvb/OOOVghm8bnv/tmyGctG
+	NnU8HZEbxT7KoyqX5tcNZ1GxWehp0GqYqw0n/Ma5vP13UA6KvDRWcxSZhbK5H5y
+X-Received: by 2002:a17:90b:57c4:b0:35f:b647:d98a with SMTP id 98e67ed59e1d1-370ee64373dmr21339868a91.5.1781012125708;
+        Tue, 09 Jun 2026 06:35:25 -0700 (PDT)
+Received: from localhost.localdomain (n49-176-80-106.mas22.nsw.optusnet.com.au. [49.176.80.106])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf827f1sm23628719a91.3.2026.06.09.06.35.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 06:35:25 -0700 (PDT)
+From: Weigang He <geoffreyhe2@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Tomasz Figa <tomasz.figa@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Weigang He <geoffreyhe2@gmail.com>
+Subject: [PATCH v2] soc: samsung: exynos-pmu: fix of_node refcount leak in exynos_get_pmu_regmap()
+Date: Tue,  9 Jun 2026 23:33:20 +1000
+Message-ID: <20260609133320.1748882-1-geoffreyhe2@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <cover.1780409151.git.gregoire.layet@9elements.com>
- <cover.1780929570.git.gregoire.layet@9elements.com> <63654bb5-c246-41c4-bb7e-5bfa23e59f2e@lunn.ch>
-In-Reply-To: <63654bb5-c246-41c4-bb7e-5bfa23e59f2e@lunn.ch>
-From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
-Date: Tue, 9 Jun 2026 15:34:15 +0200
-X-Gm-Features: AVVi8Cea43-8TO0qQAyqeIGR0QvD_re8rhGrQhZ5B93W67dWApUxz4ngQN1Zqg0
-Message-ID: <CAFi2wKYOAotiezepDqaR5PZDqDaPKKDfAEnpx5EHC0mL39hy6w@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] soc: aspeed: Add BMC and host driver for PCIe BMC device
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, jacky_chou@aspeedtech.com, 
-	yh_chung@aspeedtech.com, ninad@linux.ibm.com, linux-aspeed@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_063428_848976_AC300F1E 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260609_063526_796140_E7FD78B3 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,63 +101,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From the replies i got the host can access anything on the LPC bus of the
-> aspeed.
+exynos_get_pmu_regmap() obtains a device_node via of_find_matching_node()
+and passes it to exynos_get_pmu_regmap_by_phandle(np, NULL). With
+propname == NULL the callee uses np directly and does not drop a
+reference, so the reference taken by of_find_matching_node() is leaked on
+every call -- including on each -EPROBE_DEFER retry of the only in-tree
+caller, exynos_retention_init() in the Exynos pinctrl driver.
 
-The PCI-to-LPC bridge only decodes some addresses.
-In fact, only the following are accessible over PCIe :
-- LPC Channel 4, which only supports the KCS protocol
-- The 2 VUARTs
-- SuperIO-style Mailbox
+Annotate np with the __free(device_node) cleanup attribute so the
+reference is released when the function returns.
 
-Regarding the KCS interface over the LPC channel 4,
-the BMC driver in this series does not set this up.
-It just needs to be activated in the DTS.
-Then the host can just start the ipmi_si driver with the correct address.
-This is the intended usage for IPMI management and is part of the normal
-trust model of a BMC-managed system.
+Found by static analysis tool CodeQL.
 
-Here is a summary dump of the PCI BAR1 from the host.
-The BAR0 is only used to expose a BMC DRAM region for shared memory access.
-This v2 removed the memory mapping so BAR0 is not exposed to userspace.
-The BAR1 is used for the PCI-to-LPC bridge.
+Fixes: 76640b84bd7a ("soc: samsung: pmu: Provide global function to get PMU regmap")
+Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
+---
+v2:
+ - Use the __free(device_node) cleanup attribute instead of an explicit
+   of_node_put(), as suggested by Krzysztof Kozlowski.
+ - Drop the former patch 2/2 (regmap lookup helper refactor); with
+   __free() the leak is fixed in place and the refactor is no longer
+   needed.
+v1: https://lore.kernel.org/linux-samsung-soc/  (<<FILL IN v1 Message-ID link>>)
 
-Offset          Size        Contents
---------        --------    ------------------------------------
-0x0000-0x00B7   184 B       Blank (0xFF)
-0x00B8-0x00BF   8 B         SuperIO Index/Data port, mailbox config only
-0x00C0-0x0E87   3528 B      Blank (some no decode 0xFF and some reading 0x00)
-0x0E88-0x0E8F   8 B         LPC KCS4
-0x0E90-0x0FDF   336 B       Blank (0xFF)
-0x0FE0-0x0FFF   32 B        VUART1
-0x1000-0x2FFFF  188 KiB     Blank (some no decode 0xFF and some reading 0x00)
-0x30000-0x3FFFF 64 KiB      Inert region: 256 times repeating reset-default
-                            values, not affected by mailbox activation,
-                            not accessed by this driver
-                            The datasheet doesn't explain what this is.
+ drivers/soc/samsung/exynos-pmu.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-So, the host does not have arbitrary LPC bus access,
-it can only access a small subset of it.
-The relevant peripherals must be explicitly enabled the PCI bridge
-to be activated on the BMC to be accessed over PCIe.
+diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+index d58376c38179b..265a095316079 100644
+--- a/drivers/soc/samsung/exynos-pmu.c
++++ b/drivers/soc/samsung/exynos-pmu.c
+@@ -167,11 +167,13 @@ static const struct mfd_cell exynos_pmu_devs[] = {
+  */
+ struct regmap *exynos_get_pmu_regmap(void)
+ {
+-	struct device_node *np = of_find_matching_node(NULL,
+-						      exynos_pmu_of_device_ids);
+-	if (np)
+-		return exynos_get_pmu_regmap_by_phandle(np, NULL);
+-	return ERR_PTR(-ENODEV);
++	struct device_node *np __free(device_node) =
++		of_find_matching_node(NULL, exynos_pmu_of_device_ids);
++
++	if (!np)
++		return ERR_PTR(-ENODEV);
++
++	return exynos_get_pmu_regmap_by_phandle(np, NULL);
+ }
+ EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap);
+ 
 
-Only the specific interfaces listed above are exposed,
-and each one must be enabled by the BMC.
+base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
+-- 
+2.43.0
 
-The security implications are limited.
-The host side attack surface is bounded by what the BMC chooses to expose.
-
-> TPMs are often there, but does a BMC have a TPM?
-The AST2600 chip doesn't have a TPM.
-The Asus IPMI card doesn't have a TPM module either.
-If a similar PCIe add-in IPMI card has a TPM module,
-it will be accessible to the BMC via the LPC bus.
-
-But this will not be bridged to BAR1 by default
-as only the above-listed interfaces are exposed.
-
-However, the host could access the TPM with some specific BMC side
-configuration of the PCIe BMC Device (PBMC).
-That would be a deliberate BMC side firmware decision or bug.
-This driver doesn't expose a BMC TPM.
 
