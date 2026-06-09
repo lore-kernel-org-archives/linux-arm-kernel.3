@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D797BCD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE90DCD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Atlbwdb5r6O9CLVUIxIon+j2XEv/nqOX8bGypd9DhqI=; b=U5d+BAePEAC00r4l5/Mr2DQXs6
-	Vva7SHhP3jdLB5u7ABPccqq0ZLDKJL9dgefwuC8q9KeNULLM41YTiUcAM5EgVIN+KyjSbUBXkozM5
-	lvFoT/yOlvcO5iNOdDxubOiJQolxnS7P0fXFeGhF/Gu/vhz3qDY7/KYLbkuJIaOIGiuFCYrUsdyOK
-	CROo1RTF+R0tL+Oer1pV4IVfMe+OiB+EJGIbfr2qJ8xx8w3gg9drle5UJIHl9b7u+KryLbxy4JFBH
-	bub5kvbyUVI4Um+QXCNqUKLzuFeYb6u25ehO58BwsKjtYlFX+CT7S2wNL6MJ3vgnd2qNa/XDaHsGK
-	TnbC+1vg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GtRmLzA0ZT60bBVMGm4lGXTRSY/cD/E4T6nl5lxjKr4=; b=v1ybDQe7Gqt8DAG4JPQGZe0XLx
+	OGpdbvf2S+Yk25Vs6OPICnlV1jNbK3FNPDwbjTXMzUyh3ecwYPOtMKeulvGM1uXoztKqy8ZHVnumf
+	Sl9AZshPGyf2Lrp/CpTjlkH6KruXj/bIVHrewsWWnxujopQlhe67ukYP5ovN3DTwL/ssKHmylmi6T
+	DSKt4RnVmr53bGig9pKPEdn7S7XX5N2l6+rY1DpYw3+bxFGf04cP8mWbubne80Ek7BVYOKSmEYRH1
+	+9KVA6zBvM26xGB+8oQNZnqEJGcW36E4DonJ4sZ4n5uHjyn9ISqMPAv1phYENNthSN/2/Lu9/fWkq
+	bPb4U38A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWt8X-00000005GRl-0qog;
-	Tue, 09 Jun 2026 09:52:45 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1wWt8n-00000005GWZ-1Xu6;
+	Tue, 09 Jun 2026 09:53:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWt8U-00000005GQj-43ND
+	id 1wWt8m-00000005GW4-1Acp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Jun 2026 09:53:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=GtRmLzA0ZT60bBVMGm4lGXTRSY/cD/E4T6nl5lxjKr4=; b=MOUey+GVN1MrEDpCCp92K79q1U
+	slNr4cLkoQMK3EE9SBXVHchqXQqlZF5ATI5MVC13VWPin/2QWJFO4VBL84K08kmQxizfhMzcvapex
+	4QqqVqgMFz2CzI2TtC0UEuKxzAOfhxBCaJ+rXwjOQMnn4rZ9DzmOgCgI/HHrFEig64Ff9LtUFD3Uz
+	htssvDCLqHbONjELGIsVfMjgtLylhyQty4KJXB56jqhwEnwpWpMmGmYZr5GUXMTNQeEXb2lE2D4NX
+	82WB05UN/a/COQvREs47EWRkikJ3okQbDN72QpoOf03ynOuFK4kJDouFat3NVDEkiurwtmQ8B/b/g
+	QNlTmijA==;
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wWt8R-00000002HR3-1f7i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 09:52:44 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c8585c51f1fso2572397a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 02:52:42 -0700 (PDT)
+	Tue, 09 Jun 2026 09:52:55 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-36dac5d5da0so2727494a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 02:52:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780998761; x=1781603561; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Atlbwdb5r6O9CLVUIxIon+j2XEv/nqOX8bGypd9DhqI=;
-        b=D3aVFybkJ2fNU/3oTYDDX8uJ8XVz8Y0QVhA5SgZQtewMYU2uav5S1UR3KtEMZUnceO
-         4xSZ3sc2ZJ9Ui5/FemxaqTzc3DXpp+H6FAduxw1FndCSHphwRtDGf5PIGYWMh44kqBAR
-         xHMDrVCLs9xqMV6uCn3Cf01uhzcFX4b5dh+nZLqQAMJIPqvTfcKDIEkGWh27M6l1NG9W
-         aPfq/738Jm7/0c0y0GiwYf+Upsj6R9SXMLTRU0oWRoesldtsbKqjk8QqpiDCm/UaW4T+
-         l4jrAZAEy4cm9FZ28GRbjxRr0kCHeGQJaeUqR8rFTrnwulVIRm5gI0b00aRXnzPgbKR6
-         /Vig==
+        d=gmail.com; s=20251104; t=1780998755; x=1781603555; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GtRmLzA0ZT60bBVMGm4lGXTRSY/cD/E4T6nl5lxjKr4=;
+        b=huXjCJWFHAGhKLaM2gT8CdUwsiaTAqNGguVE0RRMWO3B6qbbsuApN9AJS/cZA4H0OY
+         TE96lCodB5R23pwjrOe4coYhZvfVxkM6QVN1fNN9xYo1MgJsPlowKnx5Eu/LH4yh8BZC
+         eIq1G0vhP82TADeR8D3QQRyysIkFGpmIvjUZLqsL/HUwVJRA1URK2Dl4DTWKzXRFF7++
+         G32xaWJ3/DyOzgXArLKG/smChG4m1CodvfOL6ee52uPRfUzOL4BHxrNlKgNf4RkN8py8
+         Z/RkQyboSxlG7Fig7NXpRvJYmQp4pEX6XBA5/flH4e2lXD1ajtXDoJRFrqvAV0glmYxf
+         muFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780998761; x=1781603561;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Atlbwdb5r6O9CLVUIxIon+j2XEv/nqOX8bGypd9DhqI=;
-        b=BrVF/5R8eWoVnnHtRsWXWJxzPHH3g+0kC40LRHilB3G/LiXyhoyqrBCT9axhwddtv+
-         Tuy5E1ph4grNTeLx2z16bNC64tggqKZ1tuCXp087eeinPQbwc3NxIZXo3npWgqOG9fgB
-         z/9Y+Epfe6niQ5hc7duiLxig9m3laEL5NSAi8zBwB5k8TG+jmmCMFXAIyQzlFFHK4XYn
-         I8Za5z9hUO1v8vGaWNAFN9kYbf64ggjyO2dNKef0aRsoOeis1O4fQB3JGKM2ldmLTniW
-         BEVsiUKvBO3PM85q/Hj7eyKKezHnXzsNw9v4U8XAZJL/MfPx4QSE46TGPDQCwEb0rRjE
-         Zqmw==
-X-Forwarded-Encrypted: i=1; AFNElJ8QZOfg6hG09YE31UHl1TMm26a5NXDGKDUPWpu9eF+pGyy/jK9gzSHT6spLSLdlIEbgRdwz7S00l6vky4Aua17+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+nJfAGbsz9Q9Oye3DflO/dVnJlvMjeqTKObA6zED62g+FiVtp
-	tJDEoVlnyvpMYS/VbxIbtKl4cJYEijXS/pNI85Hdx386LcZW/5/tAfFP
-X-Gm-Gg: Acq92OH5yK3odt4lCR478q5E7RRXBnbqWOnN9IT39sikkUHy++leEhKCW1vst+yhW8F
-	Z1uCieK+jgvFbnj24e4pry3IXiYsDbiHroTgjtVR6whcC62dY2MRUBM+/d4rq7U04LQZXlfNTJ1
-	UWAXHEx4P4iYlf5Yf0Y/5SgQL4vCSCt5WzAzrnVYRoJRnXUICrWxUidCMCnvQK978GtTFFjyrLf
-	ky/QREwdn+y9doTzDOkHn//P1jNdFjVEuvcDGW7MSClWbVHVXcn7rz8p2qw4frW8Uuc7te6lvwb
-	R+zzTNSe2IRj1FI/k6PHZB7eHcuTIKN6rt0pObPUJwmvQ7ljq52D42sY65mTTAsIblaz9N1/1zD
-	iio6QY+mjPP4zc5UnKEo20TMqiMjiDHuVePDaqDTCcVMyQf9KB4XNNim1AJ9HE01gyPpf44FS+z
-	XUueN3i2NNmNdeEBe6poJmQzUgM2gz+6i0DEfK8qWoApbHdAUWV350ZOnA/n1CIqYW1ZhOu1sC9
-	Mig4ZSpVOMOU/j01QDoi76kRG7pMHEY0dLZ6ITFTozxqqyOl0UjkQ==
-X-Received: by 2002:a17:90a:c88e:b0:35a:10b6:1208 with SMTP id 98e67ed59e1d1-37132b9aaebmr15941311a91.14.1780998761313;
-        Tue, 09 Jun 2026 02:52:41 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780998755; x=1781603555;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GtRmLzA0ZT60bBVMGm4lGXTRSY/cD/E4T6nl5lxjKr4=;
+        b=JumfKxy+LlNhnLAzDeBW3EKtXUJnyfXz45yP+xCVdHNnmOD/qConMlRLfBwI8ZZjNW
+         4KkKVCFHVCo2PxsOIezFEpclVX0IkpCP61s4oVogee5LETYscc2R579+FrlsA9Q3mAZq
+         D71Hr9+5VwLnUazqymdWEu6VOInlglJPoXb5Ii7fVwgZlaOQyXLxLMuD+NB0KuajLsSA
+         SJ5AU0dx/LOA7nltpBLmT87DzfaTejhcW5zi3Zyfnb7WOwNeiwrdzjQ8nNFGJbsJz+T4
+         RMmD8UUEMQsDnrTaudmhff7UWRRBTIaO0XMOCFJXVZu2cPJjIyNQg2Rs3h+6WYRjtLcZ
+         Qk+g==
+X-Forwarded-Encrypted: i=1; AFNElJ/1m4Z4tCkfFZZCOMDcyqi3lag5tld33Gotn5PHtxi6s8OYb98Y+ffTCN9BnC8aQsL0If4ND2FpnF/8E+MOdcry@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcELqTD4Hn5GyNs/WGSBG8Zaci6RZclVOepog0RRUOzMc6dNsP
+	WEdYwS65Vwjokws47bUFWKvBeen3DNHLXvQhHG+4OoDZw7PtvmSKSfir
+X-Gm-Gg: Acq92OHr3JF4FPSuzH1R0C6AUt2DrbGixnA6J7aDPL3XHv+Fnl/6aKotNclCt53Meaq
+	//ThoGkVsEms2Hq4nehlx1t+xN3VQJ8h2rPpyB/zB02Cer+/nrMUPtgMTYjIWV0NuZWrHhllqP3
+	2xBpwCfeRma5Fz2lDyoTXj2UQ+iq1WTPDwaahhrhpGnLvI9DCXyntkfMktaioGFQW6kZ6yviPBL
+	E/EyzIP6mK9N3UgRZaZ2IL7hz/o82xzsZI/CsVBOAzSSrmqAd/jHxnnmAoM19e869GLS7PVPKIx
+	PnwgvBGOwAxY7zYX9kcjBagSQUN8VNW2df4YzU+JkSs+fRnxBi8RITD4VSc+LHofq5fqn1ZiJzf
+	CndyqlzLMzHH/VAJicEyLDBgVPeU9gXrD9IMFYOeQTHRUjGOKk/hcGx0w+w984GwTg97IYlLYEZ
+	zi3v9xS+5SkDlHGcktOWzUueQmJaVGwS+k4YWBPxSbIW63un4o3Ckqvhcxfb5Yqy/viOv4KyGdm
+	m5N0tRyMxrbR8bPavgWesAAX+fBKBwg3N/kR41QgGbFKBr/yPsXFw==
+X-Received: by 2002:a17:90b:55cd:b0:368:ac5f:d31b with SMTP id 98e67ed59e1d1-370f0770bcemr20382207a91.24.1780998755286;
+        Tue, 09 Jun 2026 02:52:35 -0700 (PDT)
 Received: from localhost.localdomain (n49-176-80-106.mas22.nsw.optusnet.com.au. [49.176.80.106])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3713346cd9fsm13185172a91.2.2026.06.09.02.52.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3713346cd9fsm13185172a91.2.2026.06.09.02.52.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 02:52:40 -0700 (PDT)
+        Tue, 09 Jun 2026 02:52:34 -0700 (PDT)
 From: geoffrey <geoffreyhe2@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
@@ -79,17 +93,15 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Weigang He <geoffreyhe2@gmail.com>
-Subject: [PATCH 1/2] soc: samsung: exynos-pmu: fix of_node refcount leak in exynos_get_pmu_regmap()
-Date: Tue,  9 Jun 2026 19:52:23 +1000
-Message-ID: <20260609095224.1706036-2-geoffreyhe2@gmail.com>
+Subject: [PATCH 0/2] soc: samsung: exynos-pmu: fix of_node leak and refactor regmap lookup
+Date: Tue,  9 Jun 2026 19:52:22 +1000
+Message-ID: <20260609095224.1706036-1-geoffreyhe2@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260609095224.1706036-1-geoffreyhe2@gmail.com>
-References: <20260609095224.1706036-1-geoffreyhe2@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_025243_008503_9298B268 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20260609_105254_282281_CEB55291 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +118,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Weigang He <geoffreyhe2@gmail.com>
 
-exynos_get_pmu_regmap() obtains a device_node via of_find_matching_node()
-and passes it to exynos_get_pmu_regmap_by_phandle(np, NULL). With
-propname == NULL the callee uses np directly and only drops a reference
-when propname is set, so the reference taken by of_find_matching_node()
-is leaked on every call -- including on each -EPROBE_DEFER retry of the
-only in-tree caller, exynos_retention_init() in the Exynos pinctrl
-driver.
+exynos_get_pmu_regmap() leaks the device_node reference taken by
+of_find_matching_node(): it passes the node to
+exynos_get_pmu_regmap_by_phandle(np, NULL), which with propname == NULL
+uses the node directly and never drops the reference.
 
-Drop the reference in the function that acquired it.
+Patch 1 is the minimal fix: drop the reference in the function that
+acquired it. It is small and safe to backport.
 
-Found by static analysis tool CodeQL.
+Patch 2 is a follow-up cleanup that factors the shared PMU-node lookup
+into a helper so that each public function owns and releases only the
+node it acquired, removing the need to pass NULL to the by-phandle
+helper. It also makes exynos_get_pmu_regmap_by_phandle() reject
+propname == NULL with -EINVAL (passing NULL was never a documented use
+of that interface). It is a cleanup only and not needed for the fix.
 
-Fixes: 76640b84bd7a ("soc: samsung: pmu: Provide global function to get PMU regmap")
-Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
----
- drivers/soc/samsung/exynos-pmu.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+The leak was found by the static analysis tool CodeQL. I do not have
+Exynos hardware, so the series has been build-tested only (arm64);
+runtime testing on real hardware would be appreciated.
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index d58376c38179b..a5da2741852b4 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -167,11 +167,17 @@ static const struct mfd_cell exynos_pmu_devs[] = {
-  */
- struct regmap *exynos_get_pmu_regmap(void)
- {
--	struct device_node *np = of_find_matching_node(NULL,
--						      exynos_pmu_of_device_ids);
--	if (np)
--		return exynos_get_pmu_regmap_by_phandle(np, NULL);
--	return ERR_PTR(-ENODEV);
-+	struct device_node *np;
-+	struct regmap *regmap;
-+
-+	np = of_find_matching_node(NULL, exynos_pmu_of_device_ids);
-+	if (!np)
-+		return ERR_PTR(-ENODEV);
-+
-+	regmap = exynos_get_pmu_regmap_by_phandle(np, NULL);
-+	of_node_put(np);
-+
-+	return regmap;
- }
- EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap);
- 
+Weigang He (2):
+  soc: samsung: exynos-pmu: fix of_node refcount leak in
+    exynos_get_pmu_regmap()
+  soc: samsung: exynos-pmu: refactor PMU regmap lookup helpers
+
+ drivers/soc/samsung/exynos-pmu.c | 71 +++++++++++++++++++-------------
+ 1 file changed, 43 insertions(+), 28 deletions(-)
+
+
+base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
 -- 
 2.43.0
 
