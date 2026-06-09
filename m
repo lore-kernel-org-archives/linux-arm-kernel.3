@@ -4,103 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF09DCD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7E6CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O02wNSMoFIM0rygGZbIsJGDCRWP98Rp09cGml3zivWA=; b=FPn8ggs56PP/+CPOGlhxroQ7hp
-	3/Os4B+063ZfM8PZ38fOq1heIiBSir+dz/+L/BmaFi/POsvJ4ay5c5nX1a0CkKJ51mpT7+tJXqihf
-	gAqEPDy1fujvySMcVtUXbls6ko5TTv4u7mB0fBBWGcUqCE7bZKd8TrKlaEZDhjdndtJijuXOV+1uq
-	xsazuMb5nVVrhg/XubeCLG4k3AP20alkIkNNP1MynA2YmAH6Th1ERwCwNrk+Scg6EPeufMWQGUfkf
-	jx5Vap5iH7QEqyNF8mF25NKE5h8bTmK9Ek0l2U7Uv81pSQFZqfCQesetUzqFtR5RrwmVPSmETAau0
-	rgcd3MCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d7sN51CIvQwRuTJi3qMza06o4wJMznBiMEkiJVIlNBs=; b=mBjr1+EsN9F+d2nId3JDdXAlW5
+	/noPG7ZdRrpeinOpRekF+KVx7TSUumWc8zGjWW40y3lnA3L8mpcnRjSEpcDbnHJlS8/EshRMOiGe2
+	VcqFoF+S+bKtY3srHQxr1sF/bZJLr+8j+tE4ncRSMEhAnLcD5DA2s3DFG1nMIWtbTdOPPa7jdm6z7
+	tT9rR7CbF9Z/51v5/bRwasD02i6drE4aqCdb4lzqcfr2daX3mXDhCGsfLfuZU3szsM3HzmoTVu/YO
+	54JvRVlKF7lsO6zAacuwg73vLALZCcYDHlDOEzIE2epvnOhQwo7uR02AsbNq9yFpI60IV3kNVGgyf
+	neMAGvsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvN3-00000005VOl-3Ipv;
-	Tue, 09 Jun 2026 12:15:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWvNC-00000005VQx-09DP;
+	Tue, 09 Jun 2026 12:16:02 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvN1-00000005VOf-3va0
+	id 1wWvN9-00000005VPO-252Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 12:15:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3444601D6;
-	Tue,  9 Jun 2026 12:15:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ECB21F00893;
-	Tue,  9 Jun 2026 12:15:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781007350;
-	bh=O02wNSMoFIM0rygGZbIsJGDCRWP98Rp09cGml3zivWA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=U5Iy8ByXoOEv4Es+WJDoGvQezhugFYHIhxmHfowiy+fGi1olC7g8B1P5lmLYKyLWR
-	 l6JqBulAaFuwOu1R7My3lyCXO2svWxxnn/foPSVaw+MHWryDVv3EJJyRCti+vxbM4/
-	 nb+aKfa8TlP1eUI9wLq4IleCmyDyvNcw+DMWGd8JAvhiYr8OyDR2CDzx6qST5qNYYQ
-	 SezlBJT7GI/PR2a9/coHGVHLlzP933O5IYBhtANKSu3ciPiFLOkRPGEJG8N/ScOUrk
-	 5gyTi7RI/Dq29WNn6GqsS1FJldRmHBRjwHyR6Z+0ue6g8NRULZymopbT9TR45z5kOF
-	 eARDeHSgzv56Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wWvMx-0000000Au0g-2IwC;
-	Tue, 09 Jun 2026 12:15:47 +0000
-Date: Tue, 09 Jun 2026 13:15:46 +0100
-Message-ID: <86cxxzucy5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org,	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,	devicetree@vger.kernel.org,	Lorenzo Pieralisi
- <lpieralisi@kernel.org>,	Hanjun Guo <guohanjun@huawei.com>,	Sudeep Holla
- <sudeep.holla@kernel.org>,	Catalin Marinas <catalin.marinas@arm.com>,	Will
-	Deacon <will@kernel.org>,	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark
-	Rutland <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,
-	Krzysztof	Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Chen-Yu	Tsai <wens@kernel.org>,	Jernej Skrabec
- <jernej.skrabec@gmail.com>,	Samuel	Holland <samuel@sholland.org>,	Neil
- Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
- Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
- <jesper.nilsson@axis.com>,	Lars	Persson <lars.persson@axis.com>,	Alim
- Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
- <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
- <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,	Thierry Reding
- <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
- Andersson <andersson@kernel.org>,	Konrad	Dybcio <konradybcio@kernel.org>,
-	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	=?UTF-8?B?Ill1LUNo?=
- =?UTF-8?B?dW4gTGluIFvmnpfnpZDlkJtdIg==?= <eleanor.lin@realtek.com>,	Heiko
- Stuebner <heiko@sntech.de>,	Shawn Lin <shawn.lin@rock-chips.com>,	Orson
- Zhai <orsonzhai@gmail.com>,	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>,	Florian Fainelli
- <florian.fainelli@broadcom.com>
-Subject: Re: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
-In-Reply-To: <658bffa9-bd70-4b62-ac03-505822ba0be9@samsung.com>
-References: <20260523140242.586031-1-maz@kernel.org>
-	<20260523140242.586031-4-maz@kernel.org>
-	<CGME20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba@eucas1p1.samsung.com>
-	<ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
-	<86ik7st3nh.wl-maz@kernel.org>
-	<193cc406-0834-4dee-9b4a-02cdfd85e05c@samsung.com>
-	<86ecigt2hq.wl-maz@kernel.org>
-	<658bffa9-bd70-4b62-ac03-505822ba0be9@samsung.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	Tue, 09 Jun 2026 12:16:00 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490b1aefe1cso5820325e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 05:15:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1781007357; x=1781612157; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d7sN51CIvQwRuTJi3qMza06o4wJMznBiMEkiJVIlNBs=;
+        b=GB0K4ICrEptSJpVODo1GEt5gdWQOwihNX0WZUYFqT1u3NQQJKYbBZ/1BNdcx36bqvL
+         qqIGPUMJjP3bmsCScdfwzbDgg2UiAVn5pqJMzvYmZs7n0/Jbl3Uhvm5htGfKi5BMdxlp
+         C+hCZSCQgNIL4gDiogIVEZRy1M2MKVqwIWt6jJRPjToNkwKnGzTpKLzNtgoo9ih42m63
+         ga9egUtoGNRI/wKTbecB7amJ6qbfOPO95X6kKFjva7+olK+Lk/ZUOvR7Zqj/G2F3p8Fi
+         FqEPDj3Pqrza47Ki6PqGfDHHuM4O+8DLxcDppX5pZfK807vX5Xb0KFzX0XlRhIpsRswg
+         5R0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781007357; x=1781612157;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=d7sN51CIvQwRuTJi3qMza06o4wJMznBiMEkiJVIlNBs=;
+        b=Zwc/l0mAMB5WubiV9T1uiN39+rvjgP38gbzsLvILJOG8kVuSxIuyk83XS9vqutoAGM
+         qwITksS1wXCKsLHfM019dkCACNmkI4jWz9fyEoPbrBKMUudBuOHUN9sO9YN3f+zOIRUf
+         B4e2Y8G9uKMaLQd2EjTEV1/i1K9L+mtymXtQfIW323jo77Ich+sY9d0Y5LKlU+zBI8Lj
+         1kd6O/pQMuh99WIOBRAukfCPuKvMRdMi04p3r59Vs+AwSmNnAYJbNyvE3JJ2HbP/u3Mj
+         eFGGgVMeqPa0adexsx2lWM6tkJGAwHyCTSbsSbUdZMmVX9AU9zBqAAUGRtf12AV+IzsO
+         02rA==
+X-Forwarded-Encrypted: i=1; AFNElJ/cCEFzdcOLgFvU3ntSNJ1WTvx/E4/Hp7shluG9++S9JUjxV1/UZhjyiqRoHR4GOkR/8BSAbvM//xhS5tmlXw5K@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ4tnEpf+bknPgNvGPH1Ek98pmGXszOYcojix4XlWBtZ/yfJ1i
+	bNiQajzOXz4vTBVdET+lvMEKYzvFn/P9ek3Wd8lhlhpWsXyIAiMQqq/UlV+gfchkZE0=
+X-Gm-Gg: Acq92OEQ8kEn/gLukvpDNMn3WcYRnqxzChcfk2/KKF4TZWXt+wMkv73i7hwfQQkeZSL
+	IaipdjQBPF/4nt2Kj0dgIkhA73K2g34WwIXhk158pI39q8im3+MIFLVzD+k9RTYj73nHcFdfQat
+	uT3Tg+bI8VcmBfXu8I37+D8hjeisEWdiW2XKyduPGZMwcnp93qfHW9R1kIbdYUl5oMli4fufY/5
+	4JQPPbh+AY9Y9kbtOsul5fqkernAJIAJQNexDK8TteF14vJrl/l7xpvZ+OTLZGgKjsD44mvJ0xD
+	EsvamyykZ4ktAHepryCmLLMDELxEQTTJAtaaoyr7GNQL5JH7S205w2QNtZV4b5GPCXcA3X9Q69p
+	Mf0GjuLmkpsBUJHJ2g6EEIlRn0+OlsZjHZ7k8hIKB2rNqmamtn8CHXb6yhyZCtwcXgH4uPOO5W5
+	mZE8eSu7V8St/ZjyTlo5x2f94=
+X-Received: by 2002:a05:600c:620d:b0:48d:1021:e5d1 with SMTP id 5b1f17b1804b1-490c25f597emr139602585e9.3.1781007356518;
+        Tue, 09 Jun 2026 05:15:56 -0700 (PDT)
+Received: from mordecai ([62.77.90.70])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3e5a00sm473055565e9.15.2026.06.09.05.15.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 05:15:55 -0700 (PDT)
+Date: Tue, 9 Jun 2026 14:15:48 +0200
+From: Petr Tesarik <ptesarik@suse.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev, Robin Murphy
+ <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Will
+ Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Steven Price
+ <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
+ Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Alexey
+ Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu
+ Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, x86@kernel.org, Jiri Pirko <jiri@nvidia.com>,
+ Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v6 02/20] dma-direct: swiotlb: handle swiotlb alloc/free
+ outside __dma_direct_alloc_pages
+Message-ID: <20260609141548.70a5848d@mordecai>
+In-Reply-To: <20260604083959.1265923-3-aneesh.kumar@kernel.org>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+	<20260604083959.1265923-3-aneesh.kumar@kernel.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-suse-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: m.szyprowski@samsung.com, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kern
- el.org, afaerber@suse.de, eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com, florian.fainelli@broadcom.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_051559_595048_07F55BCA 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,94 +116,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026 12:32:24 +0100,
-Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+On Thu,  4 Jun 2026 14:09:41 +0530
+"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+
+> Move swiotlb allocation out of __dma_direct_alloc_pages() and handle it in
+> dma_direct_alloc() / dma_direct_alloc_pages().
 > 
-> On 09.06.2026 12:46, Marc Zyngier wrote:
-> > On Tue, 09 Jun 2026 11:35:24 +0100,
-> > Marek Szyprowski <m.szyprowski@samsung.com> wrote:
-> >> On 09.06.2026 12:21, Marc Zyngier wrote:
-> >>> On Tue, 09 Jun 2026 11:03:21 +0100,
-> >>> Marek Szyprowski <m.szyprowski@samsung.com> wrote:
-> >>>> On 23.05.2026 16:02, Marc Zyngier wrote:
-> >>>>> When running with at EL2 with VHE enabled, the architecture provides
-> >>>>> two EL2 timer/counters, dubbed physical and virtual. Apart from their
-> >>>>> names, they are strictly identical.
-> >>>>>
-> >>>>> However, they don't get virtualised the same way, specially when
-> >>>>> it comes to adding arbitrary offsets to the timers. When running as
-> >>>>> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
-> >>>>> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
-> >>>>> the architecture is broken past the first level of virtualisation
-> >>>>> (it lacks some essential mechanisms to be usable, despite what
-> >>>>> the ARM ARM pretends).
-> >>>>>
-> >>>>> This means that when running as a L2 guest hypervisor, using the
-> >>>>> physical timer results in traps to L0, which are then forwarded to
-> >>>>> L1 in order to emulate the offset, leading to even worse performance
-> >>>>> due to massive trap amplification (the combination of register and
-> >>>>> ERET trapping is absolutely lethal).
-> >>>>>
-> >>>>> Switch the arch timer code to using the virtual timer when running
-> >>>>> in VHE by default, only using the physical timer if the interrupt
-> >>>>> is not correctly described in the firmware tables (which seems
-> >>>>> to be an unfortunately common case). This comes as no impact on
-> >>>>> bare-metal, and slightly improves the situation in the virtualised
-> >>>>> case.
-> >>>>>
-> >>>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> >>>> This patch landed recently in linux-next as commit d87773de9efe
-> >>>> ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
-> >>>> running VHE"). In my tests I found that it breaks booting of RaspberryPi5
-> >>>> board. Reverting it on top of linux-next fixes the issue. Here is a boot
-> >>>> log:
-> >>> Huh.
-> >>>
-> >>> [...]
-> >>>
-> >>>> arch_timer: cp15 timer running at 54.00MHz (hyp-virt).
-> >>>> clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xc743ce346, max_idle_ns: 440795203123 ns
-> >>>> sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
-> >>> The interrupt appears to be advertised in the DT, but doesn't seem to
-> >>> fire. That's obviously not going to end well. My suspicion is that
-> >>> either the interrupt isn't wired (that'd be hilariously abd), or is
-> >>> left as Group-0 by the firmware (copy-paste from RPi4).
-> >>>
-> >>> Can you try the following hack and let me know if the kernel shouts at
-> >>> you?
-> >>>
-> >>> Thanks,
-> >>>
-> >>> 	M.
-> >>>
-> >>> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-> >>> index ec70c84e9f91d..d05791e6cc0db 100644
-> >>> --- a/drivers/irqchip/irq-gic.c
-> >>> +++ b/drivers/irqchip/irq-gic.c
-> >>> @@ -213,6 +213,7 @@ static void gic_eoimode1_mask_irq(struct irq_data *d)
-> >>>  static void gic_unmask_irq(struct irq_data *d)
-> >>>  {
-> >>>  	gic_poke_irq(d, GIC_DIST_ENABLE_SET);
-> >>> +	WARN_ON(!gic_peek_irq(d, GIC_DIST_ENABLE_SET));
-> >>>  }
-> >>>  
-> >>>  static void gic_eoi_irq(struct irq_data *d)
-> >> I've applied this change, but it doesn't trigger any warning in the boot log.
-> > [+ Florian]
-> >
-> > Huh. So that really points at the timer not being wired into the GIC,
-> > Samsung style... Can you confirm that removing the EL2 virtual timer
-> > from the DT results in a booting machine?
+> This is needed for follow-up changes that simplify the handling of
+> memory encryption/decryption based on the DMA attribute flags.
 > 
-> With the following diff the board boots again:
+> swiotlb backing pages are already mapped decrypted by
+> swiotlb_update_mem_attributes() and rmem_swiotlb_device_init(), so
+> dma-direct should not call dma_set_decrypted() on allocation nor
+> dma_set_encrypted() on free for swiotlb-backed memory.
+> 
+> Update alloc/free paths to detect swiotlb-backed pages and skip
+> encrypt/decrypt transitions for those paths. Keep the existing highmem
+> rejection in dma_direct_alloc_pages() for swiotlb allocations.
+> 
+> Only for "restricted-dma-pool", we currently set `for_alloc = true`, while
+> rmem_swiotlb_device_init() decrypts the whole pool up front. This pool is
+> typically used together with "shared-dma-pool", where the shared region is
+> accessed after remap/ioremap and the returned address is suitable for
+> decrypted memory access. So existing code paths remain valid.
+> 
+> Tested-by: Jiri Pirko <jiri@nvidia.com>
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  include/linux/swiotlb.h |  6 ++++
+>  kernel/dma/direct.c     | 71 ++++++++++++++++++++++++++++++-----------
+>  kernel/dma/swiotlb.c    |  6 ++++
+>  3 files changed, 65 insertions(+), 18 deletions(-)
+> 
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index 3dae0f592063..133bb8ca9032 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -284,6 +284,8 @@ extern void swiotlb_print_info(void);
+>  #ifdef CONFIG_DMA_RESTRICTED_POOL
+>  struct page *swiotlb_alloc(struct device *dev, size_t size);
+>  bool swiotlb_free(struct device *dev, struct page *page, size_t size);
+> +void swiotlb_free_from_pool(struct device *dev, phys_addr_t tlb_addr,
+> +		size_t size, struct io_tlb_pool *pool);
+>  
+>  static inline bool is_swiotlb_for_alloc(struct device *dev)
+>  {
+> @@ -299,6 +301,10 @@ static inline bool swiotlb_free(struct device *dev, struct page *page,
+>  {
+>  	return false;
+>  }
+> +static inline void swiotlb_free_from_pool(struct device *dev, phys_addr_t tlb_addr,
+> +		size_t size, struct io_tlb_pool *pool)
+> +{
+> +}
+>  static inline bool is_swiotlb_for_alloc(struct device *dev)
+>  {
+>  	return false;
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index 583c5922bca2..a741c8a2ee66 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -96,14 +96,6 @@ static int dma_set_encrypted(struct device *dev, void *vaddr, size_t size)
+>  	return ret;
+>  }
+>  
+> -static void __dma_direct_free_pages(struct device *dev, struct page *page,
+> -				    size_t size)
+> -{
+> -	if (swiotlb_free(dev, page, size))
+> -		return;
+> -	dma_free_contiguous(dev, page, size);
+> -}
+> -
+>  static struct page *dma_direct_alloc_swiotlb(struct device *dev, size_t size)
+>  {
+>  	struct page *page = swiotlb_alloc(dev, size);
+> @@ -125,9 +117,6 @@ static struct page *__dma_direct_alloc_pages(struct device *dev, size_t size,
+>  
+>  	WARN_ON_ONCE(!PAGE_ALIGNED(size));
+>  
+> -	if (is_swiotlb_for_alloc(dev))
+> -		return dma_direct_alloc_swiotlb(dev, size);
+> -
+>  	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
+>  	page = dma_alloc_contiguous(dev, size, gfp);
+>  	if (page) {
+> @@ -204,6 +193,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
+>  {
+>  	bool remap = false, set_uncached = false;
+> +	bool mark_mem_decrypt = true;
+>  	struct page *page;
+>  	void *ret;
+>  
+> @@ -250,11 +240,21 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  	    dma_direct_use_pool(dev, gfp))
+>  		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+>  
+> +	if (is_swiotlb_for_alloc(dev)) {
+> +		page = dma_direct_alloc_swiotlb(dev, size);
+> +		if (page) {
+> +			mark_mem_decrypt = false;
+> +			goto setup_page;
+> +		}
+> +		return NULL;
+> +	}
+> +
+>  	/* we always manually zero the memory once we are done */
+>  	page = __dma_direct_alloc_pages(dev, size, gfp & ~__GFP_ZERO, true);
+>  	if (!page)
+>  		return NULL;
+>  
+> +setup_page:
+>  	/*
+>  	 * dma_alloc_contiguous can return highmem pages depending on a
+>  	 * combination the cma= arguments and per-arch setup.  These need to be
+> @@ -281,7 +281,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  			goto out_free_pages;
+>  	} else {
+>  		ret = page_address(page);
+> -		if (dma_set_decrypted(dev, ret, size))
+> +		if (mark_mem_decrypt && dma_set_decrypted(dev, ret, size))
+>  			goto out_leak_pages;
+>  	}
+>  
+> @@ -298,10 +298,11 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  	return ret;
+>  
+>  out_encrypt_pages:
+> -	if (dma_set_encrypted(dev, page_address(page), size))
+> +	if (mark_mem_decrypt && dma_set_encrypted(dev, page_address(page), size))
+>  		return NULL;
+>  out_free_pages:
+> -	__dma_direct_free_pages(dev, page, size);
+> +	if (!swiotlb_free(dev, page, size))
+> +		dma_free_contiguous(dev, page, size);
+>  	return NULL;
+>  out_leak_pages:
+>  	return NULL;
+> @@ -310,6 +311,9 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  void dma_direct_free(struct device *dev, size_t size,
+>  		void *cpu_addr, dma_addr_t dma_addr, unsigned long attrs)
+>  {
+> +	phys_addr_t phys;
+> +	bool mark_mem_encrypted = true;
+> +	struct io_tlb_pool *swiotlb_pool;
+>  	unsigned int page_order = get_order(size);
+>  
+>  	if ((attrs & DMA_ATTR_NO_KERNEL_MAPPING) &&
+> @@ -338,16 +342,25 @@ void dma_direct_free(struct device *dev, size_t size,
+>  	    dma_free_from_pool(dev, cpu_addr, PAGE_ALIGN(size)))
+>  		return;
+>  
+> +	phys = dma_to_phys(dev, dma_addr);
+> +	swiotlb_pool = swiotlb_find_pool(dev, phys);
+> +	if (swiotlb_pool)
+> +		/* Swiotlb doesn't need a page attribute update on free */
+> +		mark_mem_encrypted = false;
+> +
+>  	if (is_vmalloc_addr(cpu_addr)) {
+>  		vunmap(cpu_addr);
+>  	} else {
+>  		if (IS_ENABLED(CONFIG_ARCH_HAS_DMA_CLEAR_UNCACHED))
+>  			arch_dma_clear_uncached(cpu_addr, size);
+> -		if (dma_set_encrypted(dev, cpu_addr, size))
+> +		if (mark_mem_encrypted && dma_set_encrypted(dev, cpu_addr, size))
+>  			return;
+>  	}
+>  
+> -	__dma_direct_free_pages(dev, dma_direct_to_page(dev, dma_addr), size);
+> +	if (swiotlb_pool)
+> +		swiotlb_free_from_pool(dev, phys, size, swiotlb_pool);
+> +	else
+> +		dma_free_contiguous(dev, dma_direct_to_page(dev, dma_addr), size);
+>  }
+>  
+>  struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+> @@ -359,6 +372,15 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+>  	if (force_dma_unencrypted(dev) && dma_direct_use_pool(dev, gfp))
+>  		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+>  
+> +	if (is_swiotlb_for_alloc(dev)) {
+> +		page = dma_direct_alloc_swiotlb(dev, size);
+> +		if (!page)
+> +			return NULL;
+> +
+> +		ret = page_address(page);
+> +		goto setup_page;
+> +	}
+> +
+>  	page = __dma_direct_alloc_pages(dev, size, gfp, false);
+>  	if (!page)
+>  		return NULL;
+> @@ -366,6 +388,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+>  	ret = page_address(page);
+>  	if (dma_set_decrypted(dev, ret, size))
+>  		goto out_leak_pages;
+> +setup_page:
+>  	memset(ret, 0, size);
+>  	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page));
+>  	return page;
+> @@ -377,16 +400,28 @@ void dma_direct_free_pages(struct device *dev, size_t size,
+>  		struct page *page, dma_addr_t dma_addr,
+>  		enum dma_data_direction dir)
+>  {
+> +	phys_addr_t phys;
+>  	void *vaddr = page_address(page);
+> +	struct io_tlb_pool *swiotlb_pool;
+> +	bool mark_mem_encrypted = true;
+>  
+>  	/* If cpu_addr is not from an atomic pool, dma_free_from_pool() fails */
+>  	if (IS_ENABLED(CONFIG_DMA_COHERENT_POOL) &&
+>  	    dma_free_from_pool(dev, vaddr, size))
+>  		return;
+>  
+> -	if (dma_set_encrypted(dev, vaddr, size))
+> +	phys = page_to_phys(page);
+> +	swiotlb_pool = swiotlb_find_pool(dev, phys);
+> +	if (swiotlb_pool)
+> +		mark_mem_encrypted = false;
+> +
+> +	if (mark_mem_encrypted && dma_set_encrypted(dev, vaddr, size))
+>  		return;
+> -	__dma_direct_free_pages(dev, page, size);
+> +
+> +	if (swiotlb_pool)
+> +		swiotlb_free_from_pool(dev, phys, size, swiotlb_pool);
+> +	else
+> +		dma_free_contiguous(dev, page, size);
+>  }
+>  
+>  #if defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_DEVICE) || \
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index 1abd3e6146f4..ac03a6856c2e 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -1809,6 +1809,12 @@ bool swiotlb_free(struct device *dev, struct page *page, size_t size)
+>  	return true;
+>  }
+>  
+> +void swiotlb_free_from_pool(struct device *dev, phys_addr_t tlb_addr, size_t size,
+> +		struct io_tlb_pool *pool)
 
-OK, so it really is the EL2 virtual timer PPI that is misbehaving.
-Let's see what Florian comes up with on the status of this interrupt.
+What's the reason to pass the buffer size if it's not used?
 
-Thanks,
+Other than that, this patch looks good to me.
 
-	M.
+Petr T
 
--- 
-Without deviation from the norm, progress is not possible.
+> +{
+> +	swiotlb_release_slots(dev, tlb_addr, pool);
+> +}
+> +
+>  static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
+>  				    struct device *dev)
+>  {
 
