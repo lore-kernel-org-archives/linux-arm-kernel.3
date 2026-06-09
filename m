@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB26CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 19:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E5DCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 19:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMeBqfIANjuB2z0BodQbfcwU2KdM59UZ/QBGLC1c+2k=; b=kQPM5h9JmWtuVjbqZjOl6vWKuX
-	s7StW2GrYmEW11Iyv7WDNhR/ouCudsGybttHdACjLLaByAxRl0pwGxYE/383wAh9LUuDMb16Wtb2Z
-	O/VrqeMUeQ/d+Oo09tcT59aKzRUOsRqV32IBrdjLv9oyY8YwKEIlcJypvejHq+FBRFpU7bDclKUCI
-	yz/ClqyZ4CB3a1tSEW7lBPG+bA0coMjFQ91hVW6+l1NxMeAZj6TyHje0eEeSFUbbjbxTzglumr7wM
-	nYhKfSH2ZQgbggLm6UF3NboDXUnwMzE49UzP83TEOUX/UIM/uz9SlXt9PaoOxtDun6Faive62KkiF
-	4xpjOICA==;
+	bh=FmI8PUvl0y9cOUVYzfjTqYiM/XJNLR0tm65qzan3Ppo=; b=qG6lyYnasQV1214qu7c9KYHbYG
+	Wx+uy2MOC0fnAzJ0DUncnro1iWxAIGlOQkZq/YWBu3KVG5gCoCjB4Nxn68P8LgX4rcYrNf5/FUS35
+	YHK+gP7mQOOdJXYkIXCwYsQhe+1/9bdcnNwMSklTEen464Sp1zER0HiB3FCqCZk/TSyy5043AQEDD
+	13bETXJ/m+DPtRkSr0TG/MFiINEE4Z+H9lVg8Ac7GHE8GK/36/ojYmIqfELy9XKpYqypUG0QpCC/R
+	y5EpnmC90Fjqfm5Npy3crXktEOmJLPm0+pbpBMSiOCvS/dKv0x6Vi7VyPRSXC9S966y/jXLQDk1Cw
+	Nu5c3+7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2To-00000006JiI-3lWX;
-	Tue, 09 Jun 2026 19:51:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wX2Uv-00000006JwH-0ojP;
+	Tue, 09 Jun 2026 19:52:29 +0000
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2Tn-00000006JiA-47dV
+	id 1wX2Us-00000006JvB-3gqU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 19:51:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07D246024D;
-	Tue,  9 Jun 2026 19:51:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C22091F00893;
-	Tue,  9 Jun 2026 19:51:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781034678;
-	bh=QMeBqfIANjuB2z0BodQbfcwU2KdM59UZ/QBGLC1c+2k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dziBB5dHsa7EnBkYvZDTTxHglDhPLrVZO5+5Ty/q/KUfuf/21PM2gnqk5xIzBahWF
-	 AuRqNBEiYUEO3IhT9ELTw07O66FMMRYXMvm0QyJQLmfNuyCHKDnpHj3QZO4TtPeB+0
-	 i4og588mJkrYb/mqVF9EZoHg2E+e+x6f+twDCqi+8KVVjCanGfmI7epCqf0AiR7yAt
-	 t/A3BWzKnUDpgdSPP4Ir3rziUxvasVpFbTrX+GMcchlxxXOU4Ln0t5WYs7PMfG0IFl
-	 S6YpNpk3xeGIhCQ0dtw4ikZuCkeL2vYsbD/gUnwRvGiqFbPJCHdI5YRC8z1jh+zi46
-	 end+eultxPHqA==
-Message-ID: <132bb73c-b98d-41aa-a8bb-0f93abbd408b@kernel.org>
-Date: Tue, 9 Jun 2026 21:51:13 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/8] can: flexcan: add FLEXCAN_QUIRK_IRQ_BERR quirk
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
- Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- linux-can@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Haibo Chen <haibo.chen@nxp.com>
-References: <20260609142954.1807421-1-ciprianmarian.costea@oss.nxp.com>
- <20260609142954.1807421-6-ciprianmarian.costea@oss.nxp.com>
-From: Vincent Mailhol <mailhol@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=mailhol@kernel.org; keydata=
- xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
- JFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbEBrZXJuZWwub3JnPsKZBBMWCgBBFiEE7Y9wBXTm
- fyDldOjiq1/riG27mcIFAmdfB/kCGwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcC
- F4AACgkQq1/riG27mcKBHgEAygbvORJOfMHGlq5lQhZkDnaUXbpZhxirxkAHwTypHr4A/joI
- 2wLjgTCm5I2Z3zB8hqJu+OeFPXZFWGTuk0e2wT4JzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrb
- YZzu0JG5w8gxE6EtQe6LmxKMqP6EyR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDl
- dOjiq1/riG27mcIFAmceMvMCGwwFCQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8V
- zsZwr/S44HCzcz5+jkxnVVQ5LZ4BANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
-In-Reply-To: <20260609142954.1807421-6-ciprianmarian.costea@oss.nxp.com>
+	Tue, 09 Jun 2026 19:52:28 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1781034734;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FmI8PUvl0y9cOUVYzfjTqYiM/XJNLR0tm65qzan3Ppo=;
+	b=AOeaBGzl7oMpuwX23rf7rzw3qcQOe4ogFQhAi5TCmbEhKy3OJ3PlVbsf3fkxMKcPI59mwR
+	IN4//tCOpt2V8cRmt5BBAi90+ch/VAQ66+lTqMTJOo9bUJ0uGtatt4sPivCzQyNDNV3Db2
+	3z3QYkUdr4UliUsE9o6zoJfhFAFnzAxhO3L8BinjviZNYhJ66T+37dM7iPVWHOQH81gWe+
+	/KgeVxgk3g7Or73PDL87I8Q6IZVMpzUPENF7OkqgW7A/PzF1kThV5qvFG03roQQrjdgn8I
+	qCjl5MaVs+zzOkXkO3WH4KqZrOI9EbX0EdR4ape2N8QTMKEp/i6VXf1k0Hk/Qw==
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Tue, 09 Jun 2026 21:51:58 +0200
+Message-Id: <DJ4S46HX0BMK.25LUHCHQY4V7K@cknow-tech.com>
+Cc: "Heiko Stuebner" <heiko@sntech.de>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+ "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: usb: Add Rockchip RK3568 compatible
+ for EHCI and OHCI
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Jonas Karlman" <jonas@kwiboo.se>, "Diederik de Haas"
+ <diederik@cknow-tech.com>
+References: <20260609154124.445182-1-jonas@kwiboo.se>
+ <20260609154124.445182-2-jonas@kwiboo.se>
+ <DJ4NVA328NUV.LSPMVBFE0PD8@cknow-tech.com>
+ <9e8f806d-72ec-4eb4-8967-3f82eb0e7dd4@kwiboo.se>
+In-Reply-To: <9e8f806d-72ec-4eb4-8967-3f82eb0e7dd4@kwiboo.se>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_125227_202607_77D623B2 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,182 +82,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2026 at 16:29, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> 
-> Introduce FLEXCAN_QUIRK_IRQ_BERR quirk to handle hardware integration
-> where the FlexCAN module has a dedicated interrupt line for signaling
-> bus errors and device state changes.
-> 
-> This adds the flexcan_irq_esr() handler which composes
-> flexcan_do_state() and flexcan_do_berr() to handle platforms where
-> these events share a single IRQ line.
-> 
-> Also extend flexcan_chip_interrupts_enable() to disable/enable the
-> new IRQ line during IMASK register writes.
-> 
-> This is required for NXP S32N79 SoC support.
-> 
-> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Reviewed-and-tested-by: Haibo Chen <haibo.chen@nxp.com>
-> Tested-by: Enric Balletbo i Serra <eballetb@redhat.com>
+Hi Jonas,
 
-Reviewed-by: Vincent Mailhol <mailhol@kernel.org>
+On Tue Jun 9, 2026 at 8:06 PM CEST, Jonas Karlman wrote:
+> Hi Diederik,
+>
+> On 6/9/2026 6:32 PM, Diederik de Haas wrote:
+>> Hi Jonas,
+>>=20
+>> On Tue Jun 9, 2026 at 5:41 PM CEST, Jonas Karlman wrote:
+>>> The Rockchip RK3568 EHCI/OHCI controller depends on clk_usbphy1_480m
+>>> being enabled, or the system may freeze when registers are accessed.
+>>>
+>>> Add Rockchip RK3568 EHCI and OHCI compatibles with a similar four-clock
+>>> constraint as RK3588.
+>>>
+>>> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+>>> ---
+>>> Existing DTs for RK3568 use the plain generic-ehci/ohci compatible,
+>>> next patch make use of these new compatibles and adds the missing
+>>> clk_usbphy1_480m clock references.
+>>> ---
+>>>  .../devicetree/bindings/usb/generic-ehci.yaml          | 10 ++++++++++
+>>>  .../devicetree/bindings/usb/generic-ohci.yaml          |  5 ++++-
+>>>  2 files changed, 14 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/usb/generic-ehci.yaml b/=
+Documentation/devicetree/bindings/usb/generic-ehci.yaml
+>>> index 55a5aa7d7a54..c49a1bbc8cfd 100644
+>>> --- a/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+>>> +++ b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+>>> @@ -52,6 +52,7 @@ properties:
+>>>                - ibm,476gtr-ehci
+>>>                - nxp,lpc1850-ehci
+>>>                - qca,ar7100-ehci
+>>> +              - rockchip,rk3568-ehci
+>>>                - rockchip,rk3588-ehci
+>>>                - snps,hsdk-v1.0-ehci
+>>>                - socionext,uniphier-ehci
+>>> @@ -186,6 +187,15 @@ allOf:
+>>>        required:
+>>>          - clocks
+>>>          - clock-names
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            const: rockchip,rk3568-ehci
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          minItems: 4
+>>=20
+>> I think that the constraint for rk3588 is this:
+>> - minItems: 1
+>> - maxItems: 4
+>>=20
+>> Like ~ every other compatible; there's no 'branch' for rk3588-ehci.
+>>=20
+>> That's different from what you add for rk3568. Is that deliberate?
+>> Because from the commit message I assumed they should be the same.
+>
+> It was deliberate, the intention is to use min/maxItems: 4 for rk3568
 
-> ---
->  drivers/net/can/flexcan/flexcan-core.c | 54 +++++++++++++++++++++-----
->  drivers/net/can/flexcan/flexcan.h      |  2 +
->  2 files changed, 47 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-> index 0ed838f0719a..adf3af57fb0a 100644
-> --- a/drivers/net/can/flexcan/flexcan-core.c
-> +++ b/drivers/net/can/flexcan/flexcan-core.c
-> @@ -1300,6 +1300,22 @@ static irqreturn_t flexcan_irq_boff(int irq, void *dev_id)
->  	return handled;
->  }
->  
-> +/* Combined bus error and state change IRQ handler */
-> +static irqreturn_t flexcan_irq_esr(int irq, void *dev_id)
-> +{
-> +	struct net_device *dev = dev_id;
-> +	struct flexcan_priv *priv = netdev_priv(dev);
-> +	irqreturn_t handled;
-> +
-> +	handled = flexcan_do_state(dev);
-> +	handled |= flexcan_do_berr(dev);
-> +
-> +	if (handled)
-> +		can_rx_offload_irq_finish(&priv->offload);
-> +
-> +	return handled;
-> +}
-> +
->  static void flexcan_set_bittiming_ctrl(const struct net_device *dev)
->  {
->  	const struct flexcan_priv *priv = netdev_priv(dev);
-> @@ -1540,10 +1556,10 @@ static void flexcan_chip_interrupts_enable(const struct net_device *dev)
->  	u64 reg_imask;
->  
->  	disable_irq(dev->irq);
-> -	if (quirks & FLEXCAN_QUIRK_NR_IRQ_3) {
-> +	if (quirks & FLEXCAN_QUIRK_NR_IRQ_3)
->  		disable_irq(priv->irq_boff);
-> +	if (quirks & (FLEXCAN_QUIRK_NR_IRQ_3 | FLEXCAN_QUIRK_IRQ_BERR))
->  		disable_irq(priv->irq_err);
-> -	}
->  	if (quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ)
->  		disable_irq(priv->irq_secondary_mb);
->  
-> @@ -1554,10 +1570,10 @@ static void flexcan_chip_interrupts_enable(const struct net_device *dev)
->  	enable_irq(dev->irq);
->  	if (quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ)
->  		enable_irq(priv->irq_secondary_mb);
-> -	if (quirks & FLEXCAN_QUIRK_NR_IRQ_3) {
-> -		enable_irq(priv->irq_boff);
-> +	if (quirks & (FLEXCAN_QUIRK_NR_IRQ_3 | FLEXCAN_QUIRK_IRQ_BERR))
->  		enable_irq(priv->irq_err);
-> -	}
-> +	if (quirks & FLEXCAN_QUIRK_NR_IRQ_3)
-> +		enable_irq(priv->irq_boff);
->  }
->  
->  static void flexcan_chip_interrupts_disable(const struct net_device *dev)
-> @@ -1881,7 +1897,8 @@ static int flexcan_open(struct net_device *dev)
->  
->  	can_rx_offload_enable(&priv->offload);
->  
-> -	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3)
-> +	if (priv->devtype_data.quirks &
-> +			(FLEXCAN_QUIRK_NR_IRQ_3 | FLEXCAN_QUIRK_IRQ_BERR))
->  		err = request_irq(dev->irq, flexcan_irq_mb,
->  				  IRQF_SHARED, dev->name, dev);
->  	else
-> @@ -1902,6 +1919,13 @@ static int flexcan_open(struct net_device *dev)
->  			goto out_free_irq_boff;
->  	}
->  
-> +	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_IRQ_BERR) {
-> +		err = request_irq(priv->irq_err,
-> +				  flexcan_irq_esr, IRQF_SHARED, dev->name, dev);
-> +		if (err)
-> +			goto out_free_irq_boff;
-> +	}
-> +
->  	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ) {
->  		err = request_irq(priv->irq_secondary_mb,
->  				  flexcan_irq_mb, IRQF_SHARED, dev->name, dev);
-> @@ -1916,7 +1940,8 @@ static int flexcan_open(struct net_device *dev)
->  	return 0;
->  
->   out_free_irq_err:
-> -	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3)
-> +	if (priv->devtype_data.quirks &
-> +			(FLEXCAN_QUIRK_IRQ_BERR | FLEXCAN_QUIRK_NR_IRQ_3))
->  		free_irq(priv->irq_err, dev);
->   out_free_irq_boff:
->  	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3)
-> @@ -1948,10 +1973,12 @@ static int flexcan_close(struct net_device *dev)
->  	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ)
->  		free_irq(priv->irq_secondary_mb, dev);
->  
-> -	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3) {
-> +	if (priv->devtype_data.quirks &
-> +			(FLEXCAN_QUIRK_IRQ_BERR | FLEXCAN_QUIRK_NR_IRQ_3))
->  		free_irq(priv->irq_err, dev);
-> +
-> +	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3)
->  		free_irq(priv->irq_boff, dev);
-> -	}
->  
->  	free_irq(dev->irq, dev);
->  	can_rx_offload_disable(&priv->offload);
-> @@ -2338,12 +2365,21 @@ static int flexcan_probe(struct platform_device *pdev)
->  	if (transceiver)
->  		priv->can.bitrate_max = transceiver->attrs.max_link_rate;
->  
-> +	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_IRQ_BERR) {
-> +		priv->irq_err = platform_get_irq_byname(pdev, "berr");
-> +		if (priv->irq_err < 0) {
-> +			err = priv->irq_err;
-> +			goto failed_platform_get_irq;
-> +		}
-> +	}
-> +
->  	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3) {
->  		priv->irq_boff = platform_get_irq(pdev, 1);
->  		if (priv->irq_boff < 0) {
->  			err = priv->irq_boff;
->  			goto failed_platform_get_irq;
->  		}
-> +
+Thanks :-)
 
-Nitpick: you shouldn't have unrelated changes, like this newline
-addition, in you patches.
+> for both EHCI and OHCI. I left out anything related to k3588 to keep
+> existing behavior and avoid any possible breakage, and why I used
+> 'similar' and not 'same' in the commit message ;-)
+>
+> Did a check and the rk3588 variant also uses 4 clocks so I will add same
+> constraint for the rk3588 variant and address Sashiko's concern in v2.
 
-@Marc, do you mind removing this while applying?
+FWIW: I would be absolutely fine if you restrict this patch set to just RK3=
+568.
+For the same reason you mentioned. All I wanted to know if it was deliberat=
+e
+and you confirmed that :-)
 
->  		priv->irq_err = platform_get_irq(pdev, 2);
->  		if (priv->irq_err < 0) {
->  			err = priv->irq_err;
-> diff --git a/drivers/net/can/flexcan/flexcan.h b/drivers/net/can/flexcan/flexcan.h
-> index 16692a2502eb..bbb1a8dd4777 100644
-> --- a/drivers/net/can/flexcan/flexcan.h
-> +++ b/drivers/net/can/flexcan/flexcan.h
-> @@ -74,6 +74,8 @@
->   * both need to have an interrupt handler registered.
->   */
->  #define FLEXCAN_QUIRK_SECONDARY_MB_IRQ	BIT(18)
-> +/* Setup dedicated bus error and state change IRQ */
-> +#define FLEXCAN_QUIRK_IRQ_BERR	BIT(19)
->  
->  struct flexcan_devtype_data {
->  	u32 quirks;		/* quirks needed for different IP cores */
+Cheers,
+  Diederik
 
-
-Yours sincerely,
-Vincent Mailhol
+> Regards,
+> Jonas
+>
+>>=20
+>>>  unevaluatedProperties: false
+>>> =20
+>>> diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/=
+Documentation/devicetree/bindings/usb/generic-ohci.yaml
+>>> index d42f448fa204..5f1b4d2bff89 100644
+>>> --- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+>>> +++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+>>> @@ -47,6 +47,7 @@ properties:
+>>>                - hpe,gxp-ohci
+>>>                - ibm,476gtr-ohci
+>>>                - ingenic,jz4740-ohci
+>>> +              - rockchip,rk3568-ohci
+>>>                - rockchip,rk3588-ohci
+>>>                - snps,hsdk-v1.0-ohci
+>>>            - const: generic-ohci
+>>> @@ -198,7 +199,9 @@ allOf:
+>>>        properties:
+>>>          compatible:
+>>>            contains:
+>>> -            const: rockchip,rk3588-ohci
+>>> +            enum:
+>>> +              - rockchip,rk3568-ohci
+>>> +              - rockchip,rk3588-ohci
+>>=20
+>> Here they clearly do have the same constraint.
+>>=20
+>> Cheers,
+>>   Diederik
+>>=20
+>>>      then:
+>>>        properties:
+>>>          clocks:
+>>=20
 
 
