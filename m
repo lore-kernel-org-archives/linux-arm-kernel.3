@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C77ACD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 05:20:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D03CD8C85
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 05:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ClAMcshP9ole+jZsJ6EjKcYMFHKoHLwcztBI66MgTZo=; b=pSxwnrkRp83z8p
-	1juJ8LvQFBpqhaUXrCggTU58v28gIhRQJIHF39p78N9xcc9bY7vz6/uLbDSwghYrjx6ZplScu0k/u
-	7rxEjYTNyNschp6QC27wIcpdg++I3CNmVEu0y1s78dexxmLlLjQqBXebj3FJ0Ok8G8bzhF3aYM9sN
-	ToulRnIhg7HbWC7vvkC9KrHhV0Qk7qhIVjSgEJ0bI4VzgLVJ6Hh/YQWwKViwy6UedA4FEJzQWJZ74
-	ty9f+k/dm5+ITSW3RTyaeA3+cZJl/FntyI3HGBUQBOOgjpz6J8ClRJtXCOsIQzMd71hQpV/rTxwiJ
-	ZhvYNhFer4S+EDvGZgzQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VVmqcnVsjodgCjG3U/o5eRCKAusFzgiBIJq4ut+6lTg=; b=vSGpOcnT+qhXUKVw7UBGuvVsla
+	zWYxTIj+5MKrsI/6QeYHv5vd3AhiW/tbmU6hV2Vhiw2Lf2wEK7/xEw/5NeuzJ+7k6lN3F1UstdR5l
+	3Tt74HguwQrS0cRWl8c+HBrrvz+BdBvcsKmRZTpZsE0uZwsgARBSmdn1s77zRSSPvlrpy6+ef0S5H
+	Yptljt47uWNmNoJTOt5dliQnN+2J9r9xDUgked5Uq5pJojQogb98CH5EZViZ9IofmNNs8O5Uxk6Yy
+	6VL/FrZ9qYQNj68Pv3H/n9npnku+CPSBA35sosn5pFKuLLtSWZfCjRF9DauYlEEVN2Hyurj/t8EKn
+	W0MBWWtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWosj-00000004kLO-1qQ5;
-	Tue, 09 Jun 2026 05:20:09 +0000
-Received: from out-178.mta0.migadu.com ([91.218.175.178])
+	id 1wWosl-00000004kMf-43PA;
+	Tue, 09 Jun 2026 05:20:11 +0000
+Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWosg-00000004kJD-0YAB
+	id 1wWosi-00000004kJF-2JOJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 05:20:08 +0000
+	Tue, 09 Jun 2026 05:20:10 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780982390;
+	t=1780982394;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ClAMcshP9ole+jZsJ6EjKcYMFHKoHLwcztBI66MgTZo=;
-	b=k+jlu7oEVRMPaM5cZ0DElHGQr26MJ5LHN0b3FzhQmloM/0Qot3EJAJj0Fvb1geyVU9Na+S
-	R739AVvmFqxlSXDfecnwF9G+611PlKBgQbh7b9dt4Mfkl30r2cg/pjnr8RF6B7ouVv/MN4
-	d9IQAY6Nmoh2745sJ4Y8fioopbNvITU=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VVmqcnVsjodgCjG3U/o5eRCKAusFzgiBIJq4ut+6lTg=;
+	b=CsQ6WOywrUqfG/jYS6DeCAEfy3Mucvl8747hxez4wCFKgNWvESAh7FrW/4ZrkN16ffN0Y9
+	+gND0uCghNRWgOOIsMvrrag32fn5ube0Ku/eHm644yqIC9NWjOyzOihlw59ti4993532TT
+	p6nytidjYkMGT1uWj9o1t0V2BZ9ZC2Q=
 From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Subject: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
-Date: Tue, 09 Jun 2026 05:19:25 +0000
-Message-Id: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+Date: Tue, 09 Jun 2026 05:19:26 +0000
+Subject: [PATCH 1/2] arm64: ftrace: prepare ftrace_modify_call() for use
+ without CALL_OPS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAF2iJ2oC/yWM0Q6CMAxFf4X02cYxlSX+ivGhjAI1MEw7jQnh3
- x36eG7uOSsYq7DBtVpB+S0mSypQHyqII6WBUbrC4J1vXOMCks7NGfusFBk7UY4ZI02TYX3x/uS
- 4Dy4EKP5TuZfPr327/9le7aMIe3B/tGSMrVKK4z4tKoOk40yWWWHbvkKjaSSdAAAA
-X-Change-ID: 20260607-arm64-ftrace-direct-calls-152230ef7077
+Message-Id: <20260609-arm64-ftrace-direct-calls-v1-1-4a46f266697f@linux.dev>
+References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+In-Reply-To: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
 To: Steven Rostedt <rostedt@goodmis.org>, 
  Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -61,8 +61,8 @@ Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
  "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_222006_344506_9FAFB355 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260608_222008_751846_395E13D3 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,76 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On arm64, HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS is currently selected
-only when DYNAMIC_FTRACE_WITH_CALL_OPS is available. CALL_OPS, in
-turn, is mutually exclusive with kCFI: the pre-function NOPs it needs
-would change the offset of the pre-function type hash (see
-baaf553d3bc3 ("arm64: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS")),
-and the compiler support needed to reconcile the two does not exist
-yet.
+ftrace_modify_call() is guarded by CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+and calls ftrace_rec_set_ops(rec, arm64_rec_get_ops(rec)) directly,
+which only exists when CALL_OPS is enabled.
 
-The result is that a CONFIG_CFI=y arm64 kernel has no
-ftrace direct calls at all, so register_fentry() fails with -ENOTSUPP
-and no BPF trampoline can attach: fentry/fexit, fmod_ret and BPF LSM
-programs are all unavailable. Deployments that want both kCFI
-hardening and BPF-based security monitoring currently have to give
-one of them up. systemd's bpf-restrict-fs feature hits this today:
-https://lore.kernel.org/all/20250610232418.GA3544567@ax162/
+Generic ftrace also needs ftrace_modify_call() when
+CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS is enabled, to retarget a
+callsite between two non-FTRACE_ADDR destinations, as happens when a
+direct trampoline is modified. The next patch allows DIRECT_CALLS without
+CALL_OPS, so widen the guard to cover both configurations and switch
+the body to the ftrace_rec_update_ops() wrapper, which already has a
+stub for the !CALL_OPS case. ftrace_make_call() already uses the same
+wrapper today.
 
-CALL_OPS is an optimization for direct calls, not a dependency.
-In-BL-range trampolines are reached by a direct branch without
-consulting the ops pointer, and out-of-range trampolines already
-fall back to ftrace_caller, where the DIRECT_CALLS machinery
-(call_direct_funcs() storing the trampoline in ftrace_regs, the
-ftrace_caller tail-call) is gated on DIRECT_CALLS alone. s390 and
-loongarch ship HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS this way,
-without having CALL_OPS at all.
+No functional change: with CALL_OPS enabled, ftrace_rec_update_ops()
+expands to the exact call this replaces.
 
-Patch 1 prepares ftrace_modify_call() to build without CALL_OPS by
-widening its #ifdef and using the existing ftrace_rec_update_ops()
-wrapper (no functional change for current configurations). Patch 2
-drops the CALL_OPS requirement from the DIRECT_CALLS select.
-
-Configurations that keep CALL_OPS (clang !CFI, and GCC without
-CC_OPTIMIZE_FOR_SIZE) are unchanged. We verified this: in an arm64
-clang build, every object file is byte-identical before and after
-the series except ftrace.o itself, and its disassembly is identical.
-CFI builds (and GCC -Os builds) gain working direct calls, with
-out-of-range attachments taking the ftrace_caller dispatch path
-instead of the per-callsite fast path.
-
-We tested on a 6.18.y-based kernel and on this base with clang
-kCFI builds (CONFIG_CFI=y, enforcing) under qemu (TCG, and KVM on an
-arm64 host) and on GB200-based arm64 hardware: fentry/fexit, fmod_ret
-and BPF LSM programs load, attach and execute; the ftrace-direct
-sample modules (including both modify samples, exercising
-ftrace_modify_call()) run cleanly; no CFI violations observed. The
-fentry_test, fexit_test, fentry_fexit, fexit_sleep, fexit_stress,
-modify_return, tracing_struct, lsm and trampoline_count selftests and
-the ftrace direct-call selftests (test.d/direct) pass on the new
-configuration with results identical to a CALL_OPS kernel built from
-the same tree, and a broader test_progs sweep showed no differences
-attributable to this series. Without the series, all of the above
-fail at attach time with -ENOTSUPP.
-
-riscv has the same gap (its DIRECT_CALLS select also requires
-CALL_OPS, and its CALL_OPS is likewise !CFI); if this approach is
-acceptable for arm64 we can follow up there.
-
+Assisted-by: Claude:unspecified
+Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
 ---
-Jose Fernandez (Anthropic) (2):
-      arm64: ftrace: prepare ftrace_modify_call() for use without CALL_OPS
-      arm64: ftrace: allow DIRECT_CALLS without CALL_OPS
-
- arch/arm64/Kconfig         | 2 +-
  arch/arm64/kernel/ftrace.c | 5 +++--
- 2 files changed, 4 insertions(+), 3 deletions(-)
----
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-change-id: 20260607-arm64-ftrace-direct-calls-152230ef7077
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Best regards,
---  
-Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+index 5a1554a441628..e1a3c0b3a0514 100644
+--- a/arch/arm64/kernel/ftrace.c
++++ b/arch/arm64/kernel/ftrace.c
+@@ -409,7 +409,8 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+ 	return ftrace_modify_code(pc, old, new, true);
+ }
+ 
+-#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
++#if defined(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS) || \
++	defined(CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS)
+ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+ 		       unsigned long addr)
+ {
+@@ -417,7 +418,7 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+ 	u32 old, new;
+ 	int ret;
+ 
+-	ret = ftrace_rec_set_ops(rec, arm64_rec_get_ops(rec));
++	ret = ftrace_rec_update_ops(rec);
+ 	if (ret)
+ 		return ret;
+ 
+
+-- 
+2.52.0
 
 
