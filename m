@@ -4,132 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EECCD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB5ACD8CAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C3EvHfPfEgaxy20YgUSnW4NVbXF+8ONiAjCdl2IaDuQ=; b=c9S4isGZ6fVKpRN4877eCqvXcK
-	NN5+UE6c0h64bIhFH0PZLmhziEXJai3QYum6b2ruoQ3jqnkPlimYugMiW+dSVBoSOKFmOEs6uEkzj
-	MToBCL1dywmkqeNEyh/jGtkGiklf1JHQPeiKzhD8WjoTGCwPonTNU9wun6VcSeQIi9LWLoZunAIp0
-	+yp8upnHzq0Q/aLDnxGdHL2YuDYEvArNRXvSLLvAAvnQp6+sk2qoaieS19XP3dQ4DZXjdNPkUA8Cc
-	BhCoMFTi3yzn9avNwNVZEKWId3SPQuSlkGC0lJTNi6Yor19QGBkrXKn9JchJgzb5h/gduQaadEQ5U
-	62472Irw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8EM4W/LPFkVTamC5bX+lGeXNaVfuL6P3AGe9bieX5rA=; b=dzMR9Zr3/oH1spESp6dr7Wwvuk
+	sIO1Wf1lveLX/nvf1IEUKXwhK4gNcFMfJxXD1exzupBvrvaWFav2EHwluu8RW5unxUyYlaFUMOzMp
+	Fnbt89/xVsLnRQx1iQtd3YhUMpxDfTVe8/hIbbmSJ/28tBUp9JL+OWE53JF+ycQK0pLqTfNRYH6By
+	PWl2vVAyRQM3HGKfQPTHPOmyOFAG6ccuv+pFRx71+zveo/Y1LAcuLPxLwjXaVN0g/SIAFGwKKIhZG
+	VtGsjNuaaqrlbNKEAT0foAEyW8PyRAkiuImrgkCL1oqxtL+1Vrc2FYVGb78Wm+xeZdutoT0YFIp5u
+	fkV/Sk3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWy5J-00000005rnn-3JWn;
-	Tue, 09 Jun 2026 15:09:45 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wWy8S-00000005s4f-34X6;
+	Tue, 09 Jun 2026 15:13:00 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWy5H-00000005rnJ-13wK
+	id 1wWy8Q-00000005s3j-090t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 15:09:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LtyvA/6EMm8RO8OyBOZvXXWInAOBU+HkMgxO0bzh+MAnIwLp0UNkNZUGJOmiuZ5Ojp+ZqvO1XHapBxJZU+XhyqEIKlL8lich+fA7KRKxuK0jW5qdQ1mWBmrh4EAerGEP7xJV/AHwmZ+EPqQTK9D280/Os9AKAIgR3jWDVr/y6atucWKs/pHJev6vECP9njRRKK/9CR4ys65Jq/Bdwc9J2DP6PCiWB/7gbSJPqeIoRuurZQq6RJSEgbo5+Dey6oA13AElT4sTXsFa6TCjxtOgwGjSsIxKQveYpRpx0fK6VT1oM6WwCNja6I3tIicxE2VQy5Us8L/WjknPo+NxAytZrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C3EvHfPfEgaxy20YgUSnW4NVbXF+8ONiAjCdl2IaDuQ=;
- b=LJx8PbI8ffKTdzEoObXOx1IqO6JzElU4HLMFSChwuZVYc+izo/QXLx3hhW6ifqy3ljrFRbzAHcCMOgl9f2BfBpQln0iqGlIsKhC1FcZtk+5DPz/6lYAGAQyaPgrEKr7oXcn2mASf99T3FpexRA98W0oVff+dyYYhnxxgluXITikaR0f/bcLwztF7H9/sCu7o+F/7Y3OlTnfRh6LD8kaR8FVzXlbszYJoHty1jWybYpJ2J4Z4uMp9AaTYh4wio+OBH95bxuHbStjZOeRmfCoj4WRQJRUr7NYT92OmmPetq3zqLe0zjbCbOmqH0ilI//9ViCX9fRQDyb0pMj+RC3GIiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C3EvHfPfEgaxy20YgUSnW4NVbXF+8ONiAjCdl2IaDuQ=;
- b=d/b2QOHJqwBG7XCYhb6OKGO9DjnZEZbMvUNDPKpFBGyWRz/fUxUubPSGmXwaJgXczHhkb+pvTyvzQjsPj0jQuNq5sO224zjIYQv2TpUh7E9qW3LrKsRozh0tmPPsF+iDGb4HPJAaUuTI/RKDPBqW0m/Ne70DlW1RbASmZdIfHsx9ZhJR4EJnWE1DTrGUB5Pj+gtkSL9xO/thF9TPBlJyNJN/U+SFpsFKuIgoD1YwGyjRu6X9HV3PotuBlmVOdfrC6oGrgCVqgOhslTC0YyKfBxqJMUV1XRmUYJ2FWavT4atTL+NEEDR4j+tVcYV2b9hhOhHkV+9ztPezG3vZH1Kcfg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI2PR04MB10089.eurprd04.prod.outlook.com (2603:10a6:800:227::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Tue, 9 Jun 2026
- 15:09:37 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 15:09:36 +0000
-Date: Tue, 9 Jun 2026 10:09:27 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Ulf Hansson <ulfh@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 2/2] pmdomain: imx93-blk-ctrl: Extract PHY as shared
- domain for DSI/CSI
-Message-ID: <aigsp1VYu1tE6AFR@SMW015318>
-References: <20260609-pm_imx93-v1-0-d06c004b0f51@oss.nxp.com>
- <20260609-pm_imx93-v1-2-d06c004b0f51@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609-pm_imx93-v1-2-d06c004b0f51@oss.nxp.com>
-X-ClientProxiedBy: SA0PR11CA0072.namprd11.prod.outlook.com
- (2603:10b6:806:d2::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 09 Jun 2026 15:12:59 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-69155ca09d8so4128673a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 08:12:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781017976; x=1781622776; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8EM4W/LPFkVTamC5bX+lGeXNaVfuL6P3AGe9bieX5rA=;
+        b=YEHx2pNEkp2pH+PMTngRMFQRYlA3xgQF7MX7fTuHLmkw8+DIwWZ0KN33u7vo/eI6SF
+         c2oqFyF0/wrs7yYYCW7hnnofYVKpwgdiwnyPkjqhGYwnK95ctLde4/z4JSFLgfZA5ILc
+         DzrVybLf6r4mO/Ddrk8h6YvLiDZPznZsjOTzvEm/rw48u2O0eFh6yVm7v5btJtW9iMpU
+         nOrN0Ndw5LXokuJytBaUi2s1Nri8E9P8jTY7c3MXlQoVPU+yS+n4Io3QtqL+fb7Q18Ve
+         lGW5kcbhAiPPAX4sICoia/ZyeTNBIk5hFE7FlYffK79Li8B0YmJYaKAi+V5mlGwrwreB
+         9nGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781017976; x=1781622776;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8EM4W/LPFkVTamC5bX+lGeXNaVfuL6P3AGe9bieX5rA=;
+        b=ElzSalYcwsunxX3Sd647OGUAgmbLsNhGOlHZpzQZsaHUUMjAmfGqqh4duuPRn5MoWk
+         KghzG5Xc9j4t75ukuaSSChLNLQT2F8GcgWqU/T0NFnkgEneIh0Dxkal4fwEBh197S5XJ
+         nGiiRU5qYSE1HLbXjtoKj1lpFAc4LBObCNX72J/nyuYiKUcGJM3PBMq9fqQPTCEPzdn6
+         f1h9nf8sAdh1llBWrVVSBtGk3HMW9GiU3D5mtmSrpFXA6DQYcCAyEjxq41Pg0QQKBERZ
+         3pXajQjkrZ/ivv5bIZ9SvyxRpxqKlYx5YeOPe/wIoThKCfPhD+mP0nlH/P0GoGwltQQn
+         j/jg==
+X-Forwarded-Encrypted: i=1; AFNElJ8R3EIKJFUH59GWicrGoK1Ms07xIq0E28QLSFE3mHQQACE71CMe00TGrYnCLFODcP68dbNm9yjISOlpjT4ehmRP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyv5muz2SwxX1Ffi4CQSxMXMPCCyDogyHAePTF/ZlmvFS2BB1cZ
+	CeFJzoB9Zgqgkh3+aLqLUGlXAVn7kW5Ijym2KcdoAEqM+pEynHUmCoV6
+X-Gm-Gg: Acq92OGwHM3jedW+j9wFZxIvc5pfw3WUp36+crGwXpBSu5KYvmzPshtLyxm52P4m9Hd
+	abLF93ZpDlJ6fKtWM32nqFqvLS2Mg9L5skS5OVICuFcmwBt14WZyg+3SLW8BCr67a3iBgFfY4Vd
+	Ek2oEe4isH6IvzYV9GZ8WbbeMojSN03s4sFtTM+D60yh7lAh6iwPqXH2OTdpaA81KqZRyRbR7ls
+	2P+/mq4HHENbebXW2dQCn7yE6yGV/0Vk6t8klOpJZuQLgNOptRDL9+sqLXJm29ExcBov9YSm8H7
+	uXe3Pofjh7W+4FmWvacMskj9uY77B/T2a1syMhkCY91Jupwzn9NtIyZ5MQIl0Fc4j1hoDIddTNP
+	ei7U3kJRMXQJl5OAKxJLmhsoWPNKM9ImuCohekPqJHBw5fLDJjJASwwM0qMj1hFyQJwF38FX2kk
+	twkUI6wr50WvTp8OiG/3zvKX0aFek7mBW7
+X-Received: by 2002:a17:907:a0b:b0:bec:b4e3:e930 with SMTP id a640c23a62f3a-bf936ce5946mr185365466b.12.1781017975406;
+        Tue, 09 Jun 2026 08:12:55 -0700 (PDT)
+Received: from Ansuel-XPS24 ([2.195.136.12])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-bf0517721e5sm1073637866b.9.2026.06.09.08.12.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 08:12:54 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v6 00/12] net: pcs: Introduce support for fwnode PCS
+Date: Tue,  9 Jun 2026 17:11:56 +0200
+Message-ID: <20260609151212.29469-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10089:EE_
-X-MS-Office365-Filtering-Correlation-Id: c27f076c-6210-4165-1d80-08dec6391ed8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|11063799006|4143699003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: pAsODAbELw5LpTnvI2Pum/Wrh76WzAZqZbi4Kjd2N/L0HZqCM4OMwd/9//9MQj8yN67z+WrAY0b7psvaNjHblFYzjRY5ibKP5XWXommxP99cUmCkbOsWwIfTZ4sRgCevjXtQ35bRzORwD9pV5WZeoaTZZfuYqU6W+/XtMJQ2TiQ+ip5i8RUKXt+I91Y0NpB6hMAehB4oXJN4yU14AmmQqwW8wX6LncK0RlNO+0KxtuBz13GyFyBaxPTVVGaUiSbLenFih2EdYg4hmWymfULQ8JVKq+gQ6ZqiFAcjcgzLBSdERcMHhFtQCAg7JfB3Mgr2MC51JG5teWfyfpllI5cfdMSsyC0um6F++dwD3212eqBEDZhnueNemdEBAD5bxRCcgGAEaPYqCkbA60kJGHxqr+BfxOH9UXbt1zC4sedjGaGbOr33kx+bWBLYm7eyAm4CaQ5g+M5F8BtbhP513iBfGSTO2O26QWn9baAsn8TzniQrapz4JR16NKo4CD1pmdoYEDDVP5ZFpuXGLAEQlffC4/wBxf97LO9uAc1KE/X1A5mQ6qj0A8GBJ8zmZnKXrCYjtPaZpqXQ1cjuBF+CMqIxFQbmU3FIRrzCDny2Z8IHmEu2nivSB1vtPPvykSuVlKJq6RS5QA5qyPV/BiwozGd9j3pkn3+zJEvynTy7IajZNlwtMAFzQ/3dlI2/W5riGcdh
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lyRIQBQdlnjOEwt8AswPYTNCDkSuQWpQjzskuvABN61s/u+ZeM0VkH9doIyG?=
- =?us-ascii?Q?50U9oWHZM4dFqQ8Czki4yyKgGJSD/Jslx88tzsM4F3jykpG3TgaBCy8mpyuo?=
- =?us-ascii?Q?+HqluIqcPKv2C7ia1JDfadknW5+CFG9RYYCFrJAOmbKtt4GvdEzTeEQEZgmd?=
- =?us-ascii?Q?53Z/YEucDgozXuMHZ1aLV5Bl7lSzy2vZdaYSkhUX5Aahu/2MrdJS85GA8eKY?=
- =?us-ascii?Q?77EHyeLLsAtiF+CxbCyqsqdniPlKj1JlSE5uTBqg1zxcS2eu0y4KjTLc8AaD?=
- =?us-ascii?Q?3qHYrYmAKyJPMzQ/Q7LPu07Rrk6u3xQvBoHN4dYwUaauLJSS2FxVIjUUb8vy?=
- =?us-ascii?Q?VEHlCme4KrCl8QCb5Q2h19gSnpi+gL+k8YFErbM5fy1bGkqstQFDJxchB3al?=
- =?us-ascii?Q?e/Xg4I+juYe9xL+ocWTAoWBBma6C88nbyktWHm3CkraOfDjvJU8P5X2lC13M?=
- =?us-ascii?Q?WreKow+gDnJRb251SE1MCPfEki7/5u4BhaCto8iVmW5FY2nxbmRbiw11bbOh?=
- =?us-ascii?Q?zkDWTxs1/5dk/tt3iWbyaU96x3EmMJrUaZJTjKRKSZ8RdFbcqa0oYrnTAyRA?=
- =?us-ascii?Q?y2z6CpYq4p7NrCNsuLesmES/JCev1V4VxbQb0r3XwNe7OhIg0dlhvaj2IwqS?=
- =?us-ascii?Q?5FVQG+aDszPSjxQVUW+D+50CBbGoHyZk1kpOaMEi7M+U9dFSe2iO60mzxK0M?=
- =?us-ascii?Q?SgcrHt4TUmYtGMC5NWNWyQ66ZHcVI04/1Cqu459MgshDp+e/wxfw+ZU5/fgQ?=
- =?us-ascii?Q?/lKfI8l73CYjt2kslO7w5T3CppuilLcTBOIMVIUSv2g/N87k8MKOAQjLr8ys?=
- =?us-ascii?Q?nf16Q7D0cSUI5PFea7LkmSLCsDtz/cnI1qaVi3e++FO/m9AUF5+CkxeYmeum?=
- =?us-ascii?Q?JZsEcV/o4HfynZWCuX1fv4EqcqASev3q/kvHAhCCVhZiVkK6J2x+DWo63nMT?=
- =?us-ascii?Q?c04EHyxcIy1Odr9unLOls3BznrD34Stcj6eYWHfex5KAj5rIflGu0vg/zLLr?=
- =?us-ascii?Q?w+upEdvQ2VoP8shyXjJv9ul+dNPWpMsVPod/9JFpgLlPtJtmnYpJZd7DTJlQ?=
- =?us-ascii?Q?oFM7zs1uPY4UFRLCzrgrWp+ffrnb4pp0+nme92Z4mB7pw/4/qgxSuaahBIZj?=
- =?us-ascii?Q?WehNPi5YcHp3g/MUw4+F7B4VR3ewJbGd1Ja833vw6ePlmh8Q0JKUSPN4QvAX?=
- =?us-ascii?Q?TYevfHq4Gq+Hc1bKndYBEFMlwP3LrIPpWcrIG/Vxay6WoXQ3nUv0+YFTINf9?=
- =?us-ascii?Q?wjX3OFijNKF/J5vqhgcyI7rbYp6OX44RXuOmG3E+F3ox16YFZsZoqXjK4nyH?=
- =?us-ascii?Q?8VCNl+6AVbr4m63szM5EWOGHFiHft2OkpjyRqsAxR0vw8R9WoUNFjlKBZiw8?=
- =?us-ascii?Q?W6J4Ooz1MXf+LplKsAIc3TYQVb32YFkqYVOTzczjKQn8UFRj2Ie0bMZhJWu3?=
- =?us-ascii?Q?u1jJ7Vvq7Ktgvto8Uqhh5F1Q/boS5cU4b6IRS3Aog1Y4QizH+oIeX0LsMOWr?=
- =?us-ascii?Q?AXl59k4pTccNExRcSVEfiUI5Gl8jH8hJKGMjUOnSOG0+czc+FXv4JQ6draV5?=
- =?us-ascii?Q?QhP7Uxshu28mSkvAmtBoG3t37nNOQ5ieiHDUe734Ah38r6+rl/C3fQBJOQdi?=
- =?us-ascii?Q?ZmkjMMmxeY6Y0mr8Kz56KZtJpx/xGG88uzQ3VZsQAA8BE44lJ5rd1R8fZ6lS?=
- =?us-ascii?Q?ckR7zv/I0w/eKGzQJQSX5rBUF8gm4SwcPe8ARfqfUjHIeRZO/OcDhLQmlkwm?=
- =?us-ascii?Q?tB/v1A5qetKDY8wW3azj36RsZwwcD7O+O2Qwl+dxsjlLn45DlWXR?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c27f076c-6210-4165-1d80-08dec6391ed8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 15:09:36.8378
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i1pwm3tDUW72QXBhp+kNjhAx4WawhAI3Mrw9Yt/Mv3BntkkfY85fjB2r3Xpef3uPYvmMUZ/pfkVE3l+8EIkGfe9IEIgjx75+Wf4pgYHOUq2gma3/U0R+3cD9+zjbof57
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10089
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_080943_434438_356A3244 
-X-CRM114-Status: GOOD (  27.85  )
+X-CRM114-CacheID: sfid-20260609_081258_121166_3614E093 
+X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,169 +120,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 02:26:41PM +0800, Guoniu Zhou wrote:
->
-> The MIPI DSI and CSI domains share control bits for clock and reset, which
-> can lead to incorrect behavior if one domain disables the shared resource
-> while the other is still active.
->
-> To fix the issue, introduce a shared MIPI PHY power domain to own the
-> common resources and make DSI and CSI its subdomains. This ensures the
-> shared bits are properly managed and not disabled while still in use.
->
-> Fixes: e9aa77d413c9 ("soc: imx: add i.MX93 media blk ctrl driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> ---
+This series introduce a most awaited feature that is correctly
+provide PCS with fwnode without having to use specific export symbol
+and additional handling of PCS in phylink.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+At times there were 2 different implementation (this and the one
+from Sean) but Sean agreed that this can be picked and used in favor
+of his implementation as long as his case with race condition is
+correctly handled.
 
->  drivers/pmdomain/imx/imx93-blk-ctrl.c | 60 +++++++++++++++++++++++++++++++++--
->  1 file changed, 58 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> index 1afc78b034fa..243ce939ba68 100644
-> --- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> @@ -48,6 +48,8 @@
->
->  #define PRIO(X)                        (X)
->
-> +#define BLK_CTRL_NO_PARENT     UINT_MAX
-> +
->  struct imx93_blk_ctrl_domain;
->
->  struct imx93_blk_ctrl {
-> @@ -68,12 +70,18 @@ struct imx93_blk_ctrl_qos {
->         u32 cfg_prio;
->  };
->
-> +struct imx93_blk_ctrl_subdomain_link {
-> +       struct generic_pm_domain *parent;
-> +       struct generic_pm_domain *subdomain;
-> +};
-> +
->  struct imx93_blk_ctrl_domain_data {
->         const char *name;
->         const char * const *clk_names;
->         int num_clks;
->         u32 rst_mask;
->         u32 clk_mask;
-> +       u32 parent;
->         int num_qos;
->         struct imx93_blk_ctrl_qos qos[DOMAIN_MAX_QOS];
->  };
-> @@ -203,6 +211,13 @@ static void imx93_release_pm_genpd(void *data)
->         pm_genpd_remove(genpd);
->  }
->
-> +static void imx93_release_subdomain(void *data)
-> +{
-> +       struct imx93_blk_ctrl_subdomain_link *link = data;
-> +
-> +       pm_genpd_remove_subdomain(link->parent, link->subdomain);
-> +}
-> +
->  static struct lock_class_key blk_ctrl_genpd_lock_class;
->
->  static int imx93_blk_ctrl_probe(struct platform_device *pdev)
-> @@ -302,6 +317,34 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
->                 bc->onecell_data.domains[i] = &domain->genpd;
->         }
->
-> +       for (i = 0; i < bc_data->num_domains; i++) {
-> +               struct imx93_blk_ctrl_domain *domain = &bc->domains[i];
-> +               const struct imx93_blk_ctrl_domain_data *data = domain->data;
-> +               struct imx93_blk_ctrl_subdomain_link *link;
-> +
-> +               if (bc_data->skip_mask & BIT(i) ||
-> +                   data->parent == BLK_CTRL_NO_PARENT)
-> +                       continue;
-> +
-> +               link = devm_kzalloc(dev, sizeof(*link), GFP_KERNEL);
-> +               if (!link)
-> +                       return -ENOMEM;
-> +
-> +               link->parent = &bc->domains[data->parent].genpd;
-> +               link->subdomain = &domain->genpd;
-> +
-> +               ret = pm_genpd_add_subdomain(&bc->domains[data->parent].genpd,
-> +                                            &domain->genpd);
-> +               if (ret)
-> +                       return dev_err_probe(dev, ret, "failed to add subdomain %s\n",
-> +                                            domain->genpd.name);
-> +
-> +               ret = devm_add_action_or_reset(dev, imx93_release_subdomain, link);
-> +               if (ret)
-> +                       return dev_err_probe(dev, ret,
-> +                                            "failed to add subdomain release callback\n");
-> +       }
-> +
->         ret = devm_pm_runtime_enable(dev);
->         if (ret)
->                 return dev_err_probe(dev, ret, "failed to enable pm-runtime\n");
-> @@ -326,8 +369,9 @@ static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[]
->                 .name = "mediablk-mipi-dsi",
->                 .clk_names = (const char *[]){ "dsi" },
->                 .num_clks = 1,
-> -               .rst_mask = BIT(11) | BIT(12),
-> -               .clk_mask = BIT(11) | BIT(12),
-> +               .rst_mask = BIT(11),
-> +               .clk_mask = BIT(11),
-> +               .parent = IMX93_MEDIABLK_PD_MIPI_PHY,
->         },
->         [IMX93_MEDIABLK_PD_MIPI_CSI] = {
->                 .name = "mediablk-mipi-csi",
-> @@ -335,6 +379,7 @@ static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[]
->                 .num_clks = 2,
->                 .rst_mask = BIT(9) | BIT(10),
->                 .clk_mask = BIT(9) | BIT(10),
-> +               .parent = IMX93_MEDIABLK_PD_MIPI_PHY,
->         },
->         [IMX93_MEDIABLK_PD_PXP] = {
->                 .name = "mediablk-pxp",
-> @@ -342,6 +387,7 @@ static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[]
->                 .num_clks = 1,
->                 .rst_mask = BIT(7) | BIT(8),
->                 .clk_mask = BIT(7) | BIT(8),
-> +               .parent = BLK_CTRL_NO_PARENT,
->                 .num_qos = 2,
->                 .qos = {
->                         {
-> @@ -363,6 +409,7 @@ static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[]
->                 .num_clks = 2,
->                 .rst_mask = BIT(4) | BIT(5) | BIT(6),
->                 .clk_mask = BIT(4) | BIT(5) | BIT(6),
-> +               .parent = BLK_CTRL_NO_PARENT,
->                 .num_qos = 1,
->                 .qos = {
->                         {
-> @@ -379,6 +426,7 @@ static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[]
->                 .num_clks = 1,
->                 .rst_mask = BIT(2) | BIT(3),
->                 .clk_mask = BIT(2) | BIT(3),
-> +               .parent = BLK_CTRL_NO_PARENT,
->                 .num_qos = 4,
->                 .qos = {
->                         {
-> @@ -404,6 +452,14 @@ static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[]
->                         }
->                 }
->         },
-> +       [IMX93_MEDIABLK_PD_MIPI_PHY] = {
-> +               .name = "mediablk-mipi-phy",
-> +               .clk_names = NULL,
-> +               .num_clks = 0,
-> +               .rst_mask = BIT(12),
-> +               .clk_mask = BIT(12),
-> +               .parent = BLK_CTRL_NO_PARENT,
-> +       },
->  };
->
->  static const struct regmap_range imx93_media_blk_ctl_yes_ranges[] = {
->
-> --
-> 2.34.1
->
->
+---
+First the PCS fwnode:
+
+The concept is to implement a producer-consumer API similar to other
+subsystem like clock or PHY.
+
+That seems to be the best solution to the problem as PCS driver needs
+to be detached from phylink and implement a simple way to provide a
+PCS while maintaining support for probe defer or driver removal.
+
+To keep the implementation simple, the PCS driver devs needs some
+collaboration to correctly implement this. This is O.K. as helper
+to correctly implement this are provided hence it's really a matter
+of following a pattern to correct follow removal of a PCS driver.
+
+A PCS provider have to implement and call fwnode_pcs_add_provider() in
+probe function and define an xlate function to define how the PCS
+should be provided based on the requested interface and phandle spec
+defined in fwnode (based on the #pcs-cells)
+
+fwnode_pcs_get() is provided to provide a specific PCS declared in
+fwnode at index.
+
+A simple xlate function is provided for simple single PCS
+implementation, fwnode_pcs_simple_get.
+
+A PCS provider on driver removal should first call
+fwnode_pcs_del_provider() to delete itself as a provider and then
+release the PCS from phylink with phylink_release_pcs() under rtnl
+lock.
+
+---
+Second PCS handling in phylink:
+
+We have the PCS problem for the only reason that in initial
+implementation, we permitted way too much flexibility to MAC driver
+and things started to deviate. At times we couldn't think SoC
+would start to put PCS outside the MAC hence it was OK to assume
+they would live in the same driver. With the introduction of
+10g in more consumer devices, we are observing a rapid growth
+of this pattern with multiple PCS external to MAC.
+
+To put a stop on this, the only solution is to give back to phylink
+control on PCS handling and enforce more robust supported interface
+definition from both MAC and PCS side.
+
+It's suggested to read patch 0003 of this series for more info, here
+a brief explaination of the idea:
+
+This series introduce handling of PCS in phylink and try to deprecate
+.mac_select_pcs.
+
+Phylink now might contain a linked list of available PCS and
+those will be used for PCS selection on phylink_major_config.
+
+MAC driver needs to define pcs_interfaces mask in phylink_config
+for every interface that needs a dedicated PCS.
+
+These PCS needs to be provided to phylink at phylink_create time
+by setting the available_pcs and num_available_pcs in phylink_config.
+A helper to parse PCS from fwnode is provided
+fwnode_phylink_pcs_parse() that will fill a preallocated array of
+PCS. (the same function can be used to get the number of PCS
+defined in DT, more info in patch 0005)
+
+phylink_create() will fill the internal PCS list with the passed
+array of PCS. phylink_major_config and other user of .mac_select_pcs
+are adapted to make use of this new PCS list.
+
+The supported interface value is also moved internally to phylink
+struct. This is to handle late removal and addition of PCS.
+(the bonus effect to this is giving phylink a clear idea of what
+is actually supported by the MAC and his constraint with PCS)
+
+The supported interface mask in phylink is done by OR the
+supported_interfaces in phylink_config with every PCS in PCS list.
+
+PCS removal is supported by forcing a mac_config, refresh the
+supported interfaces and run a phy_resolve().
+
+PCS late addition is supported by introducing a global notifier
+for PCS provider. If a phylink have the pcs_interfaces mask not
+zero, it's registered to this notifier.
+
+PCS provider will emit a global PCS add event to signal any
+interface that a new PCS might be avialable.
+
+The function will then check if the PCS is related to the MAC
+fwnode and add it accordingly.
+
+A user for this new implementation is provided as an Airoha PCS
+driver. This was also tested downstream with the IPQ95xx QCOM SoC
+and with the help of Daniel also on the various Mediatek MT7988
+SoC with both SFP cage implementation and DSA attached.
+
+Lots of tests were done with driver unbind/bind and with interface
+up/down also by adding print to make sure major_config_fail gets
+correctly triggered and reset once the PCS comes back.
+
+The dedicated commits have longer description on the implementation
+so it's suggested to also check there for additional info.
+
+It's worth to mention that OpenWrt is currently using this on
+Mediatek SoC and QCOM ipq807x/ipq60xx/ipq50xx and Airoha are
+already ported in staging tree for testing.
+
+---
+
+Changes v6:
+- Rebase on top of net-next
+- Add Documentation files
+- Add fw_devlink patch
+- Fix some comments typo
+- Rework the airoha_eth.c implementation with new multi serdes code
+- Extend PCS code with PCIe and USB support
+- Align schema to new property
+Changes v5:
+- Rebase on top of net-next
+- Use the new force_major_config
+- Reword some comments and commit description
+- Return -ENODEV instead of -EPROBE_DEFER to perevent race condition
+- Drop phy_interface_copy patch (Russell pushed an equivalent version)
+Changes v4:
+- Move patch 0002 phy_interface_copy to 0002 (fix bisectability
+  problem)
+- Address review from Lorenzo for Airoha ethernet driver
+- Fix kdoc error with missing Return (actually missing : before Return)
+- Fix UNMET dependency reported error for CONFIG_FWNODE_PCS
+- Revert to pcs.c instead of core.c (due to name conflict with other kmod)
+- Fix clang compilation error for Airoha PCS driver
+- Add missing inline function to pcs.h function
+Changes v3:
+- Out of RFC
+- Fix various spelling mistake
+- Drop circular dependency patch
+- Complete Airoha Ethernet phylink integration
+- Introduce .pcs_link_down PCS OP
+Changes v2:
+- Switch to fwnode
+- Implement PCS provider notifier
+- Better split changes
+- Move supported_interfaces to phylink
+- Add circular dependency patch
+- Rework handling with indirect addition/removal and
+  trigger of phylink_resolve()
+
+Christian Marangi (12):
+  net: phylink: keep and use MAC supported_interfaces in phylink struct
+  net: phylink: introduce internal phylink PCS handling
+  net: phylink: add phylink_release_pcs() to externally release a PCS
+  net: pcs: implement Firmware node support for PCS driver
+  net: phylink: support late PCS provider attach
+  net: Document PCS subsystem
+  MAINTAINERS: add myself as PCS subsystem maintainer
+  of: property: fw_devlink: Add support for "pcs-handle"
+  net: phylink: add .pcs_link_down PCS OP
+  dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
+  net: pcs: airoha: add PCS driver for Airoha AN7581 SoC
+  net: airoha: add phylink support
+
+ .../bindings/net/pcs/airoha,pcs.yaml          |  260 ++
+ Documentation/networking/index.rst            |    1 +
+ Documentation/networking/pcs.rst              |  228 ++
+ MAINTAINERS                                   |    9 +
+ drivers/net/ethernet/airoha/Kconfig           |    1 +
+ drivers/net/ethernet/airoha/airoha_eth.c      |  167 +-
+ drivers/net/ethernet/airoha/airoha_eth.h      |    3 +
+ drivers/net/ethernet/airoha/airoha_regs.h     |   12 +
+ drivers/net/pcs/Kconfig                       |    8 +
+ drivers/net/pcs/Makefile                      |    3 +
+ drivers/net/pcs/airoha/Kconfig                |   12 +
+ drivers/net/pcs/airoha/Makefile               |    7 +
+ drivers/net/pcs/airoha/pcs-airoha-common.c    | 1313 +++++++++++
+ drivers/net/pcs/airoha/pcs-airoha.h           | 1309 +++++++++++
+ drivers/net/pcs/airoha/pcs-an7581.c           | 2093 +++++++++++++++++
+ drivers/net/pcs/pcs.c                         |  241 ++
+ drivers/net/phy/phylink.c                     |  316 ++-
+ drivers/of/property.c                         |    2 +
+ include/linux/pcs/pcs-provider.h              |   41 +
+ include/linux/pcs/pcs.h                       |  104 +
+ include/linux/phylink.h                       |   20 +
+ 21 files changed, 6123 insertions(+), 27 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+ create mode 100644 Documentation/networking/pcs.rst
+ create mode 100644 drivers/net/pcs/airoha/Kconfig
+ create mode 100644 drivers/net/pcs/airoha/Makefile
+ create mode 100644 drivers/net/pcs/airoha/pcs-airoha-common.c
+ create mode 100644 drivers/net/pcs/airoha/pcs-airoha.h
+ create mode 100644 drivers/net/pcs/airoha/pcs-an7581.c
+ create mode 100644 drivers/net/pcs/pcs.c
+ create mode 100644 include/linux/pcs/pcs-provider.h
+ create mode 100644 include/linux/pcs/pcs.h
+
+-- 
+2.53.0
+
 
