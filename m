@@ -4,155 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFEB8CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52897CD8CAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=; b=Li4mTwvfnH9pjT
-	jqdJxKhJyt1V5boqwb5w0uPhpOBpt6zCntjJplqf3Q3VuLQruQ3YYDr3qLufmOh+VThn6Mi3HscJc
-	PcBOJnoKon0nTWmGNb8C7PXrFKyGJfYnF/7mEFzyEo7x6dH9y3cY91j4Tf4wGcp3ur0o1j5snW18T
-	8vrMw+sby6FqUDLSrvzWqOYw28wcG8MNLfPQrvlkcWYIpY6JZSr6aVtC919qReOpHM6IJ8vKzZ4yv
-	a60lkjEdVWCsltrrWlB5r254pVLiqEv82EDii5AjzO5/YyTVBt7ipIlrvkZhiQYyECohVlyvyXd9z
-	Qr2gFO4YAX0AVfVtjlVg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ri7tSJG5mUTuRRWknZxoqDMXsmg7P3TI0tHO5RjBIYk=; b=qXdBRc8arQS7+OVIVu8uL/cpat
+	CQRaRcZMK/pSA4rfbWql7WA1lnN8T6cTtq/XKCmTJ0kiZzyRoMeqeSp8gteR3P4TjQA8FQpDJsgDa
+	o+WkS6AvqJ5S//E50HxSQk7ldwGiCpcuJancA370XKK+hS8gN9asxF4cLTLS7Z+qUsUvCBnYAPwGq
+	VbBSXLdNYmOwkJDPZQgjjaPOrPGeXxNLuyb3DZR+IHDtgCOk6JfHIxFNGvuhUBq1zs9rcyUIcOQB2
+	lz/EcRRknW4CY0pfX4/ZR4wrci/J6E/mZwoeX5j+45MlEw44evKIiqZ0kz0w8dFkRBJB4wf+4a00L
+	HXKnPvVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxiQ-00000005oXe-1ELA;
-	Tue, 09 Jun 2026 14:46:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wWxiX-00000005oaN-38gc;
+	Tue, 09 Jun 2026 14:46:13 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxiO-00000005oWX-0Uky
+	id 1wWxiQ-00000005oX5-2zFN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 14:46:05 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659ClGBv2251529
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 14:46:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:to; s=
-	qcppdkim1; bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=; b=YU
-	qcfUNUaOVUkovl/5AssMnAttWPY7SDezAdkO+w640KWrdDbDpxlMFLt8DDCQtOjc
-	+GKx50SzLMy8zXgyM7r6SadFmanGTCCh7Y6CNvOHlCuk5QzVyVhgliKcnHKdVXmD
-	LHJOQTbG1Jl9u1IVSLFyut3VMqBblidslvPIklCQxjOKdvhp+hQKHcPB1D48e31v
-	xP0VHjZ6VJo8RfJSRmq929I3fyQ45t0Xb3iClFnOMwR0OPWnJ4pZGWf1y+awNqtD
-	LPFHaxwjMu5LiQ2a/EO+zXdnCzNmY2kzen8bQG/C0g/roSiKTi0NDEoSqxzcFxPM
-	AGOBDDAAltAUPagEOjNQ==
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epeqghxa0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 14:46:03 +0000 (GMT)
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-7e90f879daaso99997567b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 07:46:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781016363; cv=none;
-        d=google.com; s=arc-20240605;
-        b=AEwz9te4b6YhVwlbWEQRBD+I+6lkl/ETAnfPAirDCXfkr9opcWTGFW/UWLtlyYihUf
-         nLboVvpx8Z6TeQSni/PNd765Zx5VSAE8/3cRaRX+GZMBUlsBYtzfPKIgnvxu/UDg/gEw
-         7kfWVG+pBNVsYce4Ki39cuZ++H7lhiPW1xf2fpTrsejdhAGzgeA4nLk35Ylvgy41SzNM
-         O8OIg7u47/+gFvaBQ19UR/f65ns5UBdaaof3H/5830WQ0Fw0Yy9XJD/eniHxxdusWXGJ
-         0ORycAP4HvUIuhcIwZRh6bF3IQUyGjb52uxcuRiBEsogb5+yHxWGMJSVrAun1DVBAhs/
-         FASQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:dkim-signature;
-        bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=;
-        fh=Ef9ORcl8AzCD5t1/zWouLigqHZvqfklNJRYPzmR/o+4=;
-        b=gBStxLPBZ4Yrm2tQmZ/QQ5OsxcpcCf4iVDQ9QIAkPc57ccPxctblyzEk43Wv+mAj+J
-         f1eJUS/ySHVuiItu9FXZazvvqXmfiyOgxzWrt7y0MA2P5zAfdk2rmsY5IaM1tNEcks8D
-         yJv+kMmO9KjEMrTNb6wHgVYt7qPRaUiXwGrDRb2Ytb8zz5YonOdvPVeEQOoADzKXx6rx
-         QwFGiRivohuUMup/TuTBw9FMjZY/d1Dnvur785sYArXK8hnLOtUOkTrmJ6y4NG8x2dXR
-         kiWd1PYzQRBxg9sZRfmcSPjLGll1EUUOSbYIH0D84R2+M7LJloRQY2+nWZtPvtfhTNlr
-         YiVw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781016363; x=1781621163; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=;
-        b=UT5iqQJdBjh2EvTu6iq9XUV220is7djhH0y5zRRPf/MncV9XdSDbbhdefoi6UizX7G
-         zW+femH/nuqTUe4mh24jV3pvJztPJO/Kqu6Wb4e4+iqTw7+hKaMCsWkch/KJPP6TecAA
-         PkUbbFJeE13sLd6BPCpEO5QtDiC1Qvf+mXR2hm7z+yq7ouuD+Rc76lhygGmxjFBHv9aN
-         jwUtCIgjjlX9+//awDl83xYQE0Sb6Ka2FQS3XFZBtG3IdM6YTSEv/98bTA5E9frBXfwe
-         yvDXMEhICEDGJR+R7M2AipFy2PNXeuS/KfWfQeRgOeNbb4+T3unvhMghBfhqaY0ZDsAN
-         XN1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781016363; x=1781621163;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=;
-        b=Z1daLIpqxBogX1q/3mm2SAQHbfq0icXOen9y/THzOweB9N+XsQbBYMbBi44lV4qiiG
-         3DG1l9N82wazHsloz1GPoVoYWKjrSseDS1IUsujtsvw6bTRYZLPZrzniHNXDmtSoyJtV
-         HtxrO2MOYZVHqfgTEH7U4lBc3hNPMjkCBqREfWkhMXM7O4o8DnlH1DqUsegjD3XkwfKf
-         KVOJ9mTQ+ByBdk+Rh/QGCcVD4xK12Hn3g+mWpfF7PI+7CjyA5zR+45zPBntiqWWpHd6d
-         FByhkGrYF00epY1cNSGYUEoLHEAX7+StJpWRIPajfvHsL4GFFo+7BxPF1eDxLy6df1PY
-         SUdA==
-X-Forwarded-Encrypted: i=1; AFNElJ8ye5gb3j4BoUz4gVDS+e4P0r/Vuz1XQAFiI6ElHAKxhje0ZTCn7Tg0AN2M5L3QM3GZyzwcYKS2j72iQjdLgP/5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVsagLN+IQRI54UrCi5HExcidZKaZlRUflJrlI3DqgNAhg9X5i
-	rT+QhBTMTVV9QLucqxiOnGr01FVozmU48IGvEHw0TSOuucWWEUDuEJTZ95pyjEwI5/VoMtVaK3G
-	cezYMyMPq/MlhO2PD8nqSt7agYd/xR7FH+y9tYOGoiaZqpJrUiQfP0k4Jc/ymXfVUrz51aOrfvn
-	bBmgMuf2O2gHnV2YhXdxLyyVjiJfyOxIAbjDoKnDYScnERr6rrSW8L
-X-Gm-Gg: Acq92OEFzXGu0zUk681+5PrpN3NY1/s0u0AdnNksgTlehm5iXu0kFIL+QKuQN2Jhrv5
-	UiNv934YbffHxnBx7l8WvrPFqTR5QWb80HYpZCAsMNtN2B/vsnIeeYxZTDMd0uMcI2T6uTu4A3a
-	plpsLB8lUIeQ0loybAWWT/wsKJcFIt+9tE7W4useIbgoCWk54lr55ew88wU8awyig6Slr+inIq/
-	ZuczHPk8xLQeOu5Ew==
-X-Received: by 2002:a05:690c:600a:b0:7dd:35fb:a529 with SMTP id 00721157ae682-7ed0f826fb1mr175041197b3.25.1781016362730;
-        Tue, 09 Jun 2026 07:46:02 -0700 (PDT)
-X-Received: by 2002:a05:690c:600a:b0:7dd:35fb:a529 with SMTP id
- 00721157ae682-7ed0f826fb1mr175040657b3.25.1781016362226; Tue, 09 Jun 2026
- 07:46:02 -0700 (PDT)
+	Tue, 09 Jun 2026 14:46:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q66Sk828N6FhgILcXGpLcsvSLygoqh3HayV3tzplho4Ir0lYVq99+Iqqdl0iYHGc0kBsAY+TL3ftgBQvMe4nP8NiLZ8d2gn/awX9Oa+kpM4e7lcFjrBvF8WKYZkmzEO4jXBGV9Nf6FfQpnyh6kLxPPU/l8Bcj69dhzKVt4HCtqhCgE8vYZV/Xg9QdVi3iskG1UcApRdYcreafGUcsGeN0o25UGKevtpUFXdS1CzsCgp/xFCiafuibSwD49chjY5BozHW93HeNRRgcjlhjFBtWM4xingGdyw+9PkS6SY6fujT9OuExBRjLTMPG6laVJAGEvVr9ChN/oS8iSbEly5D5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ri7tSJG5mUTuRRWknZxoqDMXsmg7P3TI0tHO5RjBIYk=;
+ b=d3qJOrTDxWN7sdU0h/aMEW7ouwqbR8k0+14wEL06Kmk4s60bMlsc0wT9HZaz670G6XrFE+ZP1ycFCmekAp0ujGIDr4083RIn1qRMhvFasbfaK9oNXVm1GhAOer7wJ2tqu5j7Lbtxu5veQlCVrdnjOFPWsa4GeLj0jaPlKMA098KVuCOfJS79Tst9aahb+DugeuGLOls0U2tO68274r68LKpfRKfj1sATR01d95D+nHhZlnROK5e+MN9jI6Gb2DbMtzK48vzWn56+AZcJiEpLK7u9yMxU9pe/PL6WQ7IjacZwYGv4I8stP+hQgeoQH602QRMESnmO3IR/DELd7UJCNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ri7tSJG5mUTuRRWknZxoqDMXsmg7P3TI0tHO5RjBIYk=;
+ b=eqR9Fpg9qOY8cvl67sZivT1mCuL0KK4qJ22t7untWetM0zOH2Ig0fCiBFjcpdRLsGUv9kVrbSPnDZDNaTITZ+hXA7VgFoIJVhxY4t1A6L7LgvcGGw6LZYT24OgaaIL7y3H/yOSAjUqfYJ3hwNVO7kWbPzFPC2U8ZCxXr41VrEBYC6AmcaPdw0pOXj2nFENzA7WyMqvGuTGgPZIJNKzsV8X6/DGHWh/RJfpPvLMizwJeDH3L4pEEshnWsW7oj72YFCfNP96v8FKyOI+8+IvsZoQ3kmglttUWOHufoQsXPBfH+DCmQ2J+QFrrSWQwn9TYOzF+PYtsBRcg/w47x8nXezg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VE1PR04MB7327.eurprd04.prod.outlook.com (2603:10a6:800:1ac::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
+ 14:46:01 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
+ 14:46:00 +0000
+Date: Tue, 9 Jun 2026 09:45:50 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Enric Balletbo i Serra <eballetb@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: Enric Balletbo i Serra <eballetbo@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] clocksource: move NXP timer selection to
+ drivers/clocksource
+Message-ID: <aignHiLu4wbh86Ut@SMW015318>
+References: <20260514-fix-nxp-timer-v3-1-a3e68fdb505e@redhat.com>
+ <CALE0LRtJemHQj7o8iV1GaWJLVfTse6fp-TFvodC=AeWov6s39w@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CALE0LRtJemHQj7o8iV1GaWJLVfTse6fp-TFvodC=AeWov6s39w@mail.gmail.com>
+X-ClientProxiedBy: PH8P221CA0044.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:346::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
- <20260603-gic-v5-acpi-iwb-probe-deferral-v2-1-23ffa16b6ebb@kernel.org>
- <CAB19ukFFwm3ehzkBFr+oXRjA7VK_4_=XHFSuqdEpbVqUz8Do4Q@mail.gmail.com> <aifahCtdj8GpHN/v@lpieralisi>
-In-Reply-To: <aifahCtdj8GpHN/v@lpieralisi>
-From: Sunil V L <sunilvl@oss.qualcomm.com>
-Date: Tue, 9 Jun 2026 20:15:51 +0530
-X-Gm-Features: AVVi8Cd9pzTcVntwOkdct8eFjOpuS2Xxx1qo-G3imlUBB7gP99ylMuHrty8LTZg
-Message-ID: <CAB19ukHAAHp5kmm+5KBDqtn969h3V4LBr2put9hJSWphPS8jmw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] ACPI: RISC-V: Fix riscv_acpi_irq_get_dep() loop termination
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-        Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0MCBTYWx0ZWRfX96gkHi4datxQ
- +eaUQTDpxUGMbWjeUOhbmsnMY91L3aVeyOwpKuUmkvAwG/Ekenh6ofVjzFI4t09DZOprSkRZ8R3
- 4TJDjnvS8NFFY3dGwZxvRK0VX8Yu22JpSBBlpbY///UATIgx/pwUdA0LA9jzUj4rMbRhHAPh+4F
- PCI1wMKnJGa5Ov8gYpZ8bsul7SOJya3nJR1JFvGrWS+wzNrXbECN2qUG4Ag5WCJ1VcAVt620BzH
- U+kMXE4EsAbP8on2Bv6AoG0pTn8dUq2lj1N1U0WL0ZTrPBt5pQkbWgtWy+n0HavYzowVbfL0/FG
- v1MrssPDlsq/v6K9qR4jlb/AqM79PJFjYKoiWtvzqAuBePDLSekz6lQ8LsmxXz7Qc1IPWRTR9I0
- GeTnDgAt6HCTDtrFrKMTRJT0TO8xjrSI6gqFB1Y+StJkgTTIvXYqjJsrKMqpLgTCnM4SNDj1GF4
- kT7fQOAoZL8Pp/UD4qw==
-X-Proofpoint-ORIG-GUID: -3X9d6zThq7gaANNJKjdr7xQLT3fviMN
-X-Authority-Analysis: v=2.4 cv=KdHidwYD c=1 sm=1 tr=0 ts=6a28272b cx=c_pps
- a=NMvoxGxYzVyQPkMeJjVPKg==:117 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=45POYx1-RFdywSfKWh4A:9 a=QEXdDO2ut3YA:10 a=kLokIza1BN8a-hAJ3hfR:22
-X-Proofpoint-GUID: -3X9d6zThq7gaANNJKjdr7xQLT3fviMN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-09_03,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 bulkscore=0 clxscore=1015 adultscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090140
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VE1PR04MB7327:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5facbab0-d7dc-40d2-1481-08dec635d2a2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|6133799003|4143699003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Eth6MlGiNQFTrQDM/9FnlO3NAeJk3RQ9emKqtS32e6B9ygFoX4/1eVg9irTRlppqsKT1kNNqRsQWO/bgxsVz47PmsD2J/eJhIQ6t602Q8IBJzF7j4yytXoEbdVPkWOQ4mkTjcbrvDXfFOrP8/jZl2kFvXAAjAETtKsgOsne0x/hm48VQNeMPNmTrpfhBdDue+7NqxYjEGbd5S7cwzDQVLqOm5L3vF+BRtNa/4QsKMSs3YkE10na/E8PMK2s4ObFWPQDnigPG776LkgHgRyzULbnVfHtiqhZmSFL4XUXGReUA6SZwXg2bL57iS0WOqsdqR99b+vdyOzUkwcYCP3CzhYBEdFN7HZ50IN3W3ftiu4F4ib/pyXLgwIWtuvTwXCyjweNLvXesVRCeGdrC4TIgDJNffoDk8QnwqDbJz9Zt6ATvFaH+YgwKEh2ps02AzOvbkbTR0WCK8NxvIcd6+b+1bWSwbHCzaXmQxSrp/lfv1oBCE2igtVyUcfvgCPso6hvccKA1AXGwegjKckwjQZ2GpnqZ9qU1263VHt4YzAjS2KbXtNC+SJPtjU/Nalb+LGmqTv3gtAwtDh3lBRUyho29blDA1jwRfaKQfg7rsGHhco3MOyVlnPmazn1c9ARFgax1Yl5UCCVFwz/ZVkVyvadAAkOCJ26qrybhV2Ox+JHveQb3oUyEGJypeIPRCn1lwcTymHyO5b4Cgj1ciffbTqJG5Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(6133799003)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R1d3KysvNFBENjlmRm0vRC9lU0ZKb2UwbDVuRm9HWFhHTnh4cXVzNEFsV211?=
+ =?utf-8?B?UnpIWlkrYWQ4dlR1bG5wT2RWV1laWllPTlVMbm04RU91aHhhTi9icHc5ODlF?=
+ =?utf-8?B?TDMvVVFUSGhtWWxPTm9Vd2VEUDNjcGtQNnpHZlE4dnV5LzRaSkI3a3dpMkdV?=
+ =?utf-8?B?MXY0VFVQNUp5NnRELzgvZkVlTjlUd3VnbW95UnNHMGZZQ0t2dEQ2ZWlyckRB?=
+ =?utf-8?B?SEhhZWZRM3I0ZllZL25HczFMcGk3UzJUN0ZUNUJLTGtHbmxPQ3R2Vk1ibUVL?=
+ =?utf-8?B?U1AxSkFwcGkvNE1iUTd1QVpPVVJyaWd2ZFV4ek9RM2lrcWkrN3pzUHRPRWRT?=
+ =?utf-8?B?RXhlM0JQMVRLSndxRklDMFJ6L01pYW1JMEVYMnA4cWE0dFB5NTlpZmlnMkFH?=
+ =?utf-8?B?TllEUW9NOEVaNlRJWXJxQUpTWUUxdE0xWnIza09ML0JtNmJpbVVKb2JQRzdV?=
+ =?utf-8?B?L1g0Ymk0MDRWek1JdHp4b1YrVC9vTjRLbTJYTmcxK0ViMkRYZW9zdFdOeHl0?=
+ =?utf-8?B?REsrZzRzcjhxRFRwWHprT0hEaHVDWHVvem1yS0hBdGVrdVJRa2RDOGZTNUlk?=
+ =?utf-8?B?UU5oMkJHYnQ3dEJXZXBjU2JZVFRTcExtWFhiNERHK0pIREhoNmxuWXRCN2dx?=
+ =?utf-8?B?bTVvUlA5Z2Q2eXNLR1hEK3g2dFU2UzRNRTR6Zk5YUXY5eER0M0tOSXJ3Y3Zi?=
+ =?utf-8?B?aE96ekorTmpLNGZGY3VlZHJMbzdmSzczQlR1dWxpcDQyblNnR0dWc3ByZEFZ?=
+ =?utf-8?B?WGZialBUekVSQVBxM1FsdmhpbGxEOVdZYkxnQTY5UTZOanl0aTlSZDNjaFhD?=
+ =?utf-8?B?WEhkMHA3RC9ZVEtwOTIxZnhBSnpncVdMRGUxOE0xQ2hGcEdBY3ExWHJ1VDM3?=
+ =?utf-8?B?QUVPNVdNTFp1TmFJelBTRXAxQ0YxQUVGOFRuWGVKMkxGeHgwOHp0akx3SWlB?=
+ =?utf-8?B?SmM3N3ByV1BSZmR6YSthS3ovMjNpNEJHQytCUjlVNks0dU1CQUZpSGhSNFNZ?=
+ =?utf-8?B?aDZ5R0w0ZThZaHZIVVZrRG5uTmg3anppcmoyRU1DYlhpZEZHSC9xWlZwUGVu?=
+ =?utf-8?B?czBodGlpOVIzM0JWS1JSeTVYSlBWRXpxRHlkOHczZWlGMWJ6anZvTzJtSnAr?=
+ =?utf-8?B?SGZ5VmRIMU1RSFFEMzlJa25Wd0NLemtnQk9NZEZvMDRiN1d3WUtzdmVuUnNK?=
+ =?utf-8?B?eU1Xb2c0Y3lTMG1RNG5ITTRlZ3V6ZDBDVnlCZGJYY3ZPZkNZMnpxcjJDOEo4?=
+ =?utf-8?B?TlRkSEJKVlQrL2dmaEdlMUh3VTlCOEJkQXp5Y3M5eG9NU1dDeXBHYkJRc0NK?=
+ =?utf-8?B?d29CQTQweHJ5QjNXalY1T0V1cGR0bzZvUlhrTWQrUWhTRFlpQTFXeStia1Bz?=
+ =?utf-8?B?WlE2M2V5K2k5U2tsRnZ0TC9EUTUvWFZsWlZSbENvTmZsSWp0NjZaT21FMm43?=
+ =?utf-8?B?WWhqdFhiNjRIelY4YlpTVFd1eEZjdFIxeW5tNjV3d1JSTU1pTUJGRU45djc4?=
+ =?utf-8?B?aXJpNWt1U0k4OUVmWGR6ZUszNGEydGdyUHR3RGpCYUJkcG1RK0VXRTM3Ulhm?=
+ =?utf-8?B?SU9kcjhVcDNQNmhVWTVGRklWZ3VBTklIcVJWT21HUjRRWDBCejI4TXdJNnNt?=
+ =?utf-8?B?ZUpWTDRCSSsrUTFYbkk1VE1JdklzTFFQOGpWSXRmU01BVlIrRGhiZm50dWpS?=
+ =?utf-8?B?TUdaOFlRbjYxQlBHaXhSZkgwU2tpMFA2RjhHVHFIV2lCOVAwVGlmbGhnYStI?=
+ =?utf-8?B?Qm16TVU1a0c4M2xFY2lySFRqTU1ON1JleWlMdnNlMjdpWStKY1pWcndXUlhJ?=
+ =?utf-8?B?MHVmVXlHc1drdmEwZ1Bmak5lQmMvc1lCZ1gyeUNDUzhhVXBLK2dPUmJsQ2ZH?=
+ =?utf-8?B?NlRnK1V2dVgxYW5DVU5pWVpQd2dBRXh5ZWFDcU04U01LeXdHYXhJdDR6MTlB?=
+ =?utf-8?B?REtsYWo0ckJnR1VzVFB2NWRYR21GQkEvQm1wWlNKRDY5YU8rMVVUZ0dEL1R6?=
+ =?utf-8?B?V3o3Z2FwZUhkYk40YjdaOXVpa00ydUtoSitGK0ZvdXp5aDJnT2I4ZHJvQ3Zo?=
+ =?utf-8?B?ZUt6UEZ0MStOcHQzOFJ3K1orN3hBSzduWDA0cGUyR3IvUUpyN2hHdXo3NENK?=
+ =?utf-8?B?QS8xZVljQUNYN1ZyV1o3Zy9KTUFYTXpxR0xwSndUSG1OVG16NmlKUkgzUVcw?=
+ =?utf-8?B?OVZxcXA3dGpXYTh0UlhnQ3JDK09iaVR4VTJZN2d3NXVGemlmMm0wRVdjOEhU?=
+ =?utf-8?B?bGJUUDJDNHF3ODFTcE5ReDd2OEhCTC9pYTlJTjV0QUpZeWpsY3FibGFLZVdB?=
+ =?utf-8?B?bjg2M3BUbEhLelNqL1NzRkZWMG42TFRDWHJPaGRkWDFNS1JaS2JFelRRWHp5?=
+ =?utf-8?Q?oZbW3unEUPfsgnmwNS/O35LEXzCCaFkwkczL7?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5facbab0-d7dc-40d2-1481-08dec635d2a2
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 14:46:00.7118
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LZ/i+X/HO2VD9BPxz3W2X3AbINIyPnfyWWZflV4ueFBhqEo7dHKmq95lzEUqM5quMXyoV0xSrhAt++bsKB5/lXLnqG18dgDaHfrcUELbcuIdSnA053GTW/OpKDpCONcO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7327
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_074604_207526_AFA22042 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20260609_074607_369816_AE8DC164 
+X-CRM114-Status: GOOD (  36.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,34 +153,168 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sunilvl@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 9, 2026 at 2:49=E2=80=AFPM Lorenzo Pieralisi <lpieralisi@kernel=
-.org> wrote:
+On Tue, Jun 09, 2026 at 08:57:59AM +0200, Enric Balletbo i Serra wrote:
+> Hi all,
 >
-> On Mon, Jun 08, 2026 at 09:54:28PM +0530, Sunil V L wrote:
-> > Hi Lorenzo,
+> On Thu, May 14, 2026 at 1:14 PM Enric Balletbo i Serra
+> <eballetbo@kernel.org> wrote:
 > >
-> > On Wed, Jun 3, 2026 at 1:51=E2=80=AFPM Lorenzo Pieralisi <lpieralisi@ke=
-rnel.org> wrote:
-> > >
-[...]
-> > Do these fixes need the Fixes tag?
+> > From: Enric Balletbo i Serra <eballetb@redhat.com>
+> >
+> > The Kconfig logic for selecting the scheduler clocksource on
+> > NXP Vybrid (VF610) uses a `choice` block restricted to 32-bit ARM. This
+> > prevents 64-bit architectures, such as the NXP S32 family, from enabling
+> > the NXP Periodic Interrupt Timer (PIT) driver (CONFIG_NXP_PIT_TIMER).
+> >
+> > Relocate the NXP clocksource selection from arch/arm/mach-imx/Kconfig to
+> > drivers/clocksource/Kconfig. This allows the configuration to be shared
+> > across different architectures.
+> >
+> > Update the selection to include support for ARCH_S32 and add a "None"
+> > option restricted to ARCH_S32, since Vybrid lacks the ARM Architected
+> > Timer. The Vybrid Global Timer option is restricted to ARCH_MULTI_V7
+> > SOC_VF610 platforms to prevent it from being visible on Cortex-M4 builds,
+> > which lack the ARM Global Timer hardware.
+> >
+> > Fixes: bee33f22d7c3 ("clocksource/drivers/nxp-pit: Add NXP Automotive s32g2 / s32g3 support")
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
 >
-> I can add a Fixes: tag but I wanted first some help testing them, it
-> is code perusal that got me there.
+> Now that Frank [1] has created a merge request for Linux 7.1-rc1 and
+> the request includes
+
+Thomas:
+	It touch drivers/clocksource, Is it okay go through Soc tree Or you
+can help take care this one?
+
+Frank
+
+
 >
-Oh, yes. I tested these changes on the RISC-V virt platform.
-
-So for RISC-V testing,
-
-Tested-by: Sunil V L <sunilvl@oss.qualcomm.com>
-
-> > Otherwise, LGTM.
-> > Reviewed-by: Sunil V L <sunilvl@oss.qualcomm.com>
+>       arm64: dts: s32g: add PIT support for s32g2 and s32g3
 >
-> Thanks,
-> Lorenzo
+> If this patch is ok, would it make sense to pick that patch?
+> Otherwise, we won't be able to select the PIT timer for aarch64 only
+> builds.
+>
+> Thanks.,
+>   Enric
+>
+> [1] From: Frank.Li@nxp.com
+>
+> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+>
+>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
+> tags/imx-dt64-7.2
+>
+> for you to fetch changes up to c10cfc952215644956284a42fa7b7860dfbcb5f5:
+>
+>
+>
+> > ---
+> > Changes in v3:
+> > - Restrict VF_TIMER_NONE to ARCH_S32 to prevent selecting it on Vybrid
+> >   platforms which lack the ARM Architected Timer
+> > - Link to v2: https://lore.kernel.org/r/20260513-fix-nxp-timer-v2-1-533b99c57b67@redhat.com
+> >
+> > Changes in v2:
+> > - Fix VF_USE_ARM_GLOBAL_TIMER dependency: use ARCH_MULTI_V7 instead of
+> >   ARM to prevent the option from being visible on Cortex-M4 builds
+> >   (Sashiko AI review)
+> > - Link to v1: https://lore.kernel.org/r/20260302-fix-nxp-timer-v1-1-af4bc62d4ffa@redhat.com
+> > ---
+> >  arch/arm/mach-imx/Kconfig   | 21 ---------------------
+> >  drivers/clocksource/Kconfig | 31 +++++++++++++++++++++++++++++++
+> >  2 files changed, 31 insertions(+), 21 deletions(-)
+> >
+> > diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
+> > index 6ea1bd55acf8..a361840d7a04 100644
+> > --- a/arch/arm/mach-imx/Kconfig
+> > +++ b/arch/arm/mach-imx/Kconfig
+> > @@ -227,27 +227,6 @@ config SOC_VF610
+> >         help
+> >           This enables support for Freescale Vybrid VF610 processor.
+> >
+> > -choice
+> > -       prompt "Clocksource for scheduler clock"
+> > -       depends on SOC_VF610
+> > -       default VF_USE_ARM_GLOBAL_TIMER
+> > -
+> > -       config VF_USE_ARM_GLOBAL_TIMER
+> > -               bool "Use ARM Global Timer"
+> > -               depends on ARCH_MULTI_V7
+> > -               select ARM_GLOBAL_TIMER
+> > -               select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
+> > -               help
+> > -                 Use the ARM Global Timer as clocksource
+> > -
+> > -       config VF_USE_PIT_TIMER
+> > -               bool "Use PIT timer"
+> > -               select NXP_PIT_TIMER
+> > -               help
+> > -                 Use SoC Periodic Interrupt Timer (PIT) as clocksource
+> > -
+> > -endchoice
+> > -
+> >  endif
+> >
+> >  endif
+> > diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+> > index d1a33a231a44..d9c76dd443f8 100644
+> > --- a/drivers/clocksource/Kconfig
+> > +++ b/drivers/clocksource/Kconfig
+> > @@ -793,4 +793,35 @@ config RTK_SYSTIMER
+> >           this option only when building for a Realtek platform or for compilation
+> >           testing.
+> >
+> > +choice
+> > +       prompt "NXP clocksource for scheduler clock"
+> > +       depends on SOC_VF610 || ARCH_S32
+> > +       # Default to Global Timer for Vybrid (32-bit)
+> > +       default VF_USE_ARM_GLOBAL_TIMER if SOC_VF610
+> > +       # Default to None for S32 (64-bit)
+> > +       default VF_TIMER_NONE if ARCH_S32
+> > +
+> > +       config VF_USE_ARM_GLOBAL_TIMER
+> > +               bool "Use NXP Vybrid Global Timer"
+> > +               depends on ARCH_MULTI_V7 && SOC_VF610
+> > +               select ARM_GLOBAL_TIMER
+> > +               select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
+> > +               help
+> > +                 Use the NXP Vybrid Global Timer as clocksource.
+> > +
+> > +       config VF_USE_PIT_TIMER
+> > +               bool "Use NXP PIT timer"
+> > +               select NXP_PIT_TIMER
+> > +               help
+> > +                 Use NXP Periodic Interrupt Timer (PIT) as clocksource.
+> > +
+> > +       config VF_TIMER_NONE
+> > +               bool "None (Use standard Arch Timer)"
+> > +               depends on ARCH_S32
+> > +               help
+> > +                 Do not use any specific NXP timer driver. Use the standard
+> > +                 ARM Architected Timer instead.
+> > +
+> > +endchoice
+> > +
+> >  endmenu
+> >
+> > ---
+> > base-commit: 7fd2df204f342fc17d1a0bfcd474b24232fb0f32
+> > change-id: 20260302-fix-nxp-timer-9cb1fbd7afcd
+> >
+> > Best regards,
+> > --
+> > Enric Balletbo i Serra <eballetb@redhat.com>
+> >
+>
+>
 
