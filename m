@@ -4,103 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E642CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DF1CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dP1Zw6xqfNHqzyukhIpR7O8aPQtmr0Xc0TjrzEu5Xck=; b=j0MBW6w5p2IF5Wr/02vRO5g/f1
-	qncmlZt6eit80IN7NzNQjAQJqmEgTKXPGS7QoU2LfSBWlA04lxPDIZpWARH37b1Qb1V37P5j+/TLd
-	iwuYhiJGS66qN3p7X/OdA4x68YIuycXwh/55EYXbjXOtdCkLm9VziXRmqgzDQsGlORxnGIAfwGjJ9
-	VwvfUeT+nvMVCJg0+4ZIKD2WNU8VJMla2bOpbhsIEsX9otpJ6GWxGxAyjg766uGd34xTm2ddCRAxV
-	f1hZNVF3z67LzdKqw0aozI25XTa/ETYiGGu5/CN11sO4fTgO9Uutu6cfS8aCLKBixtOYDqws8i9IK
-	FPKy6Q4Q==;
+	bh=jOb0YWdrCyqRf70PqWxcCcSyY2RJrYltX6EkSx4+w3M=; b=0MMIh9gHzvyFGSXM2GYT6Qbp9x
+	fBncJxunnia4PRY54sMwvVuA7RObrOR1poGU7aWrpPJx+jElKZ3MdTBOw714g3yZ5ML6p3oc0NT6D
+	GcEvqJ/HBMZMmCLWgsxKfkdqPKk2eOaJ5Mo+FtDTY+tGDc+la/6BQ+055T0hqD8cLZP1PrQ76Tg6E
+	ZW6gbTkP1MbYBK6Z+oae05fruWneW8E+u78xG+0euvEd8AViCG9YR24BDeyclWh9c0N6O9vTeJeKp
+	ZjLDoA3tpPrcdqei0bjjsHGnxMmIlTD+NqsK1R1kWYjbOVZ0kvmFavvTlfB64yZE8nR0kbDNfakPA
+	0fJkqFOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWuhE-00000005RlY-160U;
-	Tue, 09 Jun 2026 11:32:40 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1wWwFz-00000005dIt-2dkZ;
+	Tue, 09 Jun 2026 13:12:39 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWuh9-00000005Rkb-2NpF
+	id 1wWwFv-00000005dIT-2jdv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 11:32:38 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260609113227euoutp02811ffddbe5f6c1e4800c2a3d8392b021~3ZmHR_DvP0812608126euoutp02d;
-	Tue,  9 Jun 2026 11:32:27 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260609113227euoutp02811ffddbe5f6c1e4800c2a3d8392b021~3ZmHR_DvP0812608126euoutp02d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1781004748;
-	bh=dP1Zw6xqfNHqzyukhIpR7O8aPQtmr0Xc0TjrzEu5Xck=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=sUqNR0enH3oHDoKJRkr/hYQpxeen6LqZeeZvXHR96jlJqh7z5vMsxj8lYGT8t2yIt
-	 jkmrUWeaeC3PvPVM4Xtdo1BqoqGXxMT/5EXc6+HVHuS2VpWbOH5CxDQWAg6+adY7tR
-	 w/b+XfxOkluv17fjONVFAER0jexSL91cHvahOtBI=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260609113227eucas1p270d53f6f2654b828e83102e4472bcfa7~3ZmG6ELhE0757307573eucas1p2V;
-	Tue,  9 Jun 2026 11:32:27 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260609113225eusmtip15c9f2d7cabf785cd9fcfa92556661a88~3ZmE6DYYu2874928749eusmtip1R;
-	Tue,  9 Jun 2026 11:32:25 +0000 (GMT)
-Message-ID: <658bffa9-bd70-4b62-ac03-505822ba0be9@samsung.com>
-Date: Tue, 9 Jun 2026 13:32:24 +0200
+	Tue, 09 Jun 2026 13:12:37 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490a78fbd7bso6635085e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 06:12:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1781010754; x=1781615554; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jOb0YWdrCyqRf70PqWxcCcSyY2RJrYltX6EkSx4+w3M=;
+        b=UdRFt3XsgDSRyIa17PziTfVUr017/Ur7a+2dQmUFoPGQg1bP8G73duUKZ5ouHRguFo
+         qNla7KNpoKROUyhsKy8O2X+OcCta8EV3gru+etb2SzS3SizF+Lo8rq72GyPsPiaGqLLY
+         9eEh3zdgELULmvIVyOZggciH18CdpSLnBzSXXbl5hk1vSIJZ/dC9ENSHhHCJTdzBFEhV
+         OJYWgNgM/DI98gUnDb1Pd5jhQC787lod4mP5yxXc/EBdKkXK7Dw1+CjMBMDiifLiVPS8
+         Zoh413n36j2kWfC/VBpBwyZK2ZvmBrq+Ufnn5LA2s+9aaVEpdPQIpEs+wQtfO1FUd5Yn
+         W5Ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781010754; x=1781615554;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jOb0YWdrCyqRf70PqWxcCcSyY2RJrYltX6EkSx4+w3M=;
+        b=l+sgPM1G+Ilv8aZyp1lcc2vRZm8zeYs0ENxYNIVYjaGz7KflhrfGxQ5pD9VR9lhwgU
+         JQ+r0yzSGp3C1Wt0YqXp/U0urUI2xTLKn0r5t5kLUGzKNNpjt+tOQrkojIhv66eV1S9c
+         Qk3DMxpM0l+W5BbbPwRY50Gou3NPBmSe+ccygEVH8L2W9mqWq3KaK24WqjvX9OckTnCO
+         2pY31/zYyfdB0SMyNPjezs1CRQPKkwuHzGW2fg7Xh+AvdSndNr+FKgYL0BqW//n97071
+         Wo2aLTE0S95ImYF/twnhiyPhu5BAAi2SkeHy4ysdroWX5VXUEyUCIrfuyXicQbn1Ga1a
+         +q1A==
+X-Forwarded-Encrypted: i=1; AFNElJ+U7E7G6HuW90BwjjK6fl60KrBSkDVzjnHPHLODIaXbUMa8Z9it3xtDuR2QMPyLlHdja+2/15qJ+H/WHon5uqae@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRQOwCFZR23zAGreSy2n2VeNC/5vEOMwWQ0KmNjvP6qc2ySB7+
+	kcpuPdXFLbG9ZEZJ/md+3JcKX8LrPCIv9X9MvZB6DBLXA3AQDyT/ASJ5cPjm9Szgk/4=
+X-Gm-Gg: Acq92OFgIoCBsH5OwUF8d9eLbFkCamRF0JfObs05VoV2KgiRI7ZOchseq49i/V03nG+
+	LEFQNgevdTInNQJ93gRW1X6AJ95kpKg5XLQT7sogyMMjQAPaM7a2+K06sSrdlwg+pEQtAmIDfK3
+	031UibP5XlvkSWlgJKgMuUjTdGyTL2hUTXoQw5wdRyYtn92urO8I1AWTaUU89BF8jxQFD/5y0u6
+	YUA6KdUNVKKLakyjGspekTxjYLj32aRArAM3t1YaRDDHfoY2+GTWD+6SN7N3cb16MBawgeOMPRR
+	811lxe9B8uoheIcNbxWDBP88wQM3xpqduitCP0t+Jv9o3BpUgmGmm76c5eJamws06RoRLJlSfpH
+	q5TE5KJGixS0+I+XjZI5CmsTnz+3VYkg42hSfMq66tU8cW4KLw/NVDpAxhGLbJCLdoY8T0ejG1R
+	tsyyL06HkKe4L1xt97p1qlyDQ=
+X-Received: by 2002:a05:600c:8b65:b0:490:b4d4:5c16 with SMTP id 5b1f17b1804b1-490d72759f0mr16962775e9.8.1781010753634;
+        Tue, 09 Jun 2026 06:12:33 -0700 (PDT)
+Received: from mordecai ([62.77.90.70])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f351d69sm111677469f8f.29.2026.06.09.06.12.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 06:12:26 -0700 (PDT)
+Date: Tue, 9 Jun 2026 15:12:22 +0200
+From: Petr Tesarik <ptesarik@suse.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev, Robin Murphy
+ <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Will
+ Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Steven Price
+ <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
+ Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Alexey
+ Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu
+ Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, x86@kernel.org, stable@vger.kernel.org, Michael
+ Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v6 14/20] dma-direct: return struct page from
+ dma_direct_alloc_from_pool()
+Message-ID: <20260609151222.476a5521@mordecai>
+In-Reply-To: <20260604083959.1265923-15-aneesh.kumar@kernel.org>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+	<20260604083959.1265923-15-aneesh.kumar@kernel.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-suse-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to
- EL2 virtual timer when running VHE
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
-	Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Mark
-	Rutland <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
-	Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
-	Holland <samuel@sholland.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Ge Gordon
-	<gordon.ge@bst.ai>, BST Linux Kernel Upstream Group
-	<bst-upstream@bstai.top>, Jesper Nilsson <jesper.nilsson@axis.com>, Lars
-	Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Dinh Nguyen
-	<dinguyen@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Bjorn Andersson <andersson@kernel.org>, Konrad
-	Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
-	<afaerber@suse.de>, =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
-	<eleanor.lin@realtek.com>, Heiko Stuebner <heiko@sntech.de>, Shawn Lin
-	<shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
-	<baolin.wang@linux.alibaba.com>, Michal Simek <michal.simek@amd.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <86ecigt2hq.wl-maz@kernel.org>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260609113227eucas1p270d53f6f2654b828e83102e4472bcfa7
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba
-X-EPHeader: CA
-X-CMS-RootMailID: 20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba
-References: <20260523140242.586031-1-maz@kernel.org>
-	<20260523140242.586031-4-maz@kernel.org>
-	<CGME20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba@eucas1p1.samsung.com>
-	<ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
-	<86ik7st3nh.wl-maz@kernel.org>
-	<193cc406-0834-4dee-9b4a-02cdfd85e05c@samsung.com>
-	<86ecigt2hq.wl-maz@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_043236_210289_1912D460 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20260609_061236_092689_BF48C702 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,103 +116,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.06.2026 12:46, Marc Zyngier wrote:
-> On Tue, 09 Jun 2026 11:35:24 +0100,
-> Marek Szyprowski <m.szyprowski@samsung.com> wrote:
->> On 09.06.2026 12:21, Marc Zyngier wrote:
->>> On Tue, 09 Jun 2026 11:03:21 +0100,
->>> Marek Szyprowski <m.szyprowski@samsung.com> wrote:
->>>> On 23.05.2026 16:02, Marc Zyngier wrote:
->>>>> When running with at EL2 with VHE enabled, the architecture provides
->>>>> two EL2 timer/counters, dubbed physical and virtual. Apart from their
->>>>> names, they are strictly identical.
->>>>>
->>>>> However, they don't get virtualised the same way, specially when
->>>>> it comes to adding arbitrary offsets to the timers. When running as
->>>>> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
->>>>> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
->>>>> the architecture is broken past the first level of virtualisation
->>>>> (it lacks some essential mechanisms to be usable, despite what
->>>>> the ARM ARM pretends).
->>>>>
->>>>> This means that when running as a L2 guest hypervisor, using the
->>>>> physical timer results in traps to L0, which are then forwarded to
->>>>> L1 in order to emulate the offset, leading to even worse performance
->>>>> due to massive trap amplification (the combination of register and
->>>>> ERET trapping is absolutely lethal).
->>>>>
->>>>> Switch the arch timer code to using the virtual timer when running
->>>>> in VHE by default, only using the physical timer if the interrupt
->>>>> is not correctly described in the firmware tables (which seems
->>>>> to be an unfortunately common case). This comes as no impact on
->>>>> bare-metal, and slightly improves the situation in the virtualised
->>>>> case.
->>>>>
->>>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>>> This patch landed recently in linux-next as commit d87773de9efe
->>>> ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
->>>> running VHE"). In my tests I found that it breaks booting of RaspberryPi5
->>>> board. Reverting it on top of linux-next fixes the issue. Here is a boot
->>>> log:
->>> Huh.
->>>
->>> [...]
->>>
->>>> arch_timer: cp15 timer running at 54.00MHz (hyp-virt).
->>>> clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xc743ce346, max_idle_ns: 440795203123 ns
->>>> sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
->>> The interrupt appears to be advertised in the DT, but doesn't seem to
->>> fire. That's obviously not going to end well. My suspicion is that
->>> either the interrupt isn't wired (that'd be hilariously abd), or is
->>> left as Group-0 by the firmware (copy-paste from RPi4).
->>>
->>> Can you try the following hack and let me know if the kernel shouts at
->>> you?
->>>
->>> Thanks,
->>>
->>> 	M.
->>>
->>> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
->>> index ec70c84e9f91d..d05791e6cc0db 100644
->>> --- a/drivers/irqchip/irq-gic.c
->>> +++ b/drivers/irqchip/irq-gic.c
->>> @@ -213,6 +213,7 @@ static void gic_eoimode1_mask_irq(struct irq_data *d)
->>>  static void gic_unmask_irq(struct irq_data *d)
->>>  {
->>>  	gic_poke_irq(d, GIC_DIST_ENABLE_SET);
->>> +	WARN_ON(!gic_peek_irq(d, GIC_DIST_ENABLE_SET));
->>>  }
->>>  
->>>  static void gic_eoi_irq(struct irq_data *d)
->> I've applied this change, but it doesn't trigger any warning in the boot log.
-> [+ Florian]
->
-> Huh. So that really points at the timer not being wired into the GIC,
-> Samsung style... Can you confirm that removing the EL2 virtual timer
-> from the DT results in a booting machine?
+On Thu,  4 Jun 2026 14:09:53 +0530
+"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
 
-With the following diff the board boots again:
+> Commit 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool
+> helper") changed dma_direct_alloc_from_pool() to return the CPU address
+> from dma_alloc_from_pool(). That fits dma_direct_alloc(), but
+> dma_direct_alloc_pages() also uses the helper and expects a struct page *.
+> 
+> Fix this by making dma_direct_alloc_from_pool() return the struct page *
+> again, and pass the CPU address back through an out-parameter for the
+> dma_direct_alloc() caller.
+> 
+> Fixes: 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool helper")
+> Cc: stable@vger.kernel.org
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 761c59d90ffc..09ff5e9959d3 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -678,8 +678,6 @@ IRQ_TYPE_LEVEL_LOW)>,
-                             <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) |
-                                          IRQ_TYPE_LEVEL_LOW)>,
-                             <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) |
--                                         IRQ_TYPE_LEVEL_LOW)>,
--                            <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) |
-                                          IRQ_TYPE_LEVEL_LOW)>;
-        };
+While I totally agree with the reasoning and the fix, it's interesting
+that this bug has been apparently present in the kernel for 5+ years
+without anybody hitting nasty memory corruption bugs.
 
-> Florian, can you please check whether PPI12 is actually the EL2
-> virtual timer on the RPI5 SoC?
+How can it be? Is the buggy code path never actually used in practice?
+Does it hint at a missed opportunity to simplify the code?
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Anyway, these these thoughts are intended for a possible future
+cleanup. For now, let's apply the fix as is, of course.
+
+Petr T
+
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  kernel/dma/direct.c | 21 ++++++++++++---------
+>  1 file changed, 12 insertions(+), 9 deletions(-)
+> 
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index 4e446aa4130e..e0ab9ff3f1d6 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -157,24 +157,24 @@ static bool dma_direct_use_pool(struct device *dev, gfp_t gfp)
+>  	return !gfpflags_allow_blocking(gfp) && !is_swiotlb_for_alloc(dev);
+>  }
+>  
+> -static void *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+> -		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
+> +static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+> +		dma_addr_t *dma_handle, void **cpu_addr, gfp_t gfp,
+> +		unsigned long attrs)
+>  {
+>  	struct page *page;
+>  	u64 phys_limit;
+> -	void *ret;
+>  
+>  	if (WARN_ON_ONCE(!IS_ENABLED(CONFIG_DMA_COHERENT_POOL)))
+>  		return NULL;
+>  
+>  	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
+> -	page = dma_alloc_from_pool(dev, size, &ret, gfp, attrs,
+> +	page = dma_alloc_from_pool(dev, size, cpu_addr, gfp, attrs,
+>  				   dma_coherent_ok);
+>  	if (!page)
+>  		return NULL;
+>  	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page),
+>  					 !!(attrs & DMA_ATTR_CC_SHARED));
+> -	return ret;
+> +	return page;
+>  }
+>  
+>  static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
+> @@ -270,9 +270,12 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  	 * the atomic pools instead if we aren't allowed block.
+>  	 */
+>  	if ((remap || (attrs & DMA_ATTR_CC_SHARED)) &&
+> -	    dma_direct_use_pool(dev, gfp))
+> -		return dma_direct_alloc_from_pool(dev, size, dma_handle,
+> -						  gfp, attrs);
+> +	    dma_direct_use_pool(dev, gfp)) {
+> +		page = dma_direct_alloc_from_pool(dev, size,
+> +					dma_handle, &cpu_addr,
+> +					gfp, attrs);
+> +		return page ? cpu_addr : NULL;
+> +	}
+>  
+>  	if (is_swiotlb_for_alloc(dev)) {
+>  		page = dma_direct_alloc_swiotlb(dev, size, attrs);
+> @@ -445,7 +448,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+>  
+>  	if ((attrs & DMA_ATTR_CC_SHARED) && dma_direct_use_pool(dev, gfp))
+>  		return dma_direct_alloc_from_pool(dev, size, dma_handle,
+> -						  gfp, attrs);
+> +						  &cpu_addr, gfp, attrs);
+>  
+>  	if (is_swiotlb_for_alloc(dev)) {
+>  		page = dma_direct_alloc_swiotlb(dev, size, attrs);
 
 
