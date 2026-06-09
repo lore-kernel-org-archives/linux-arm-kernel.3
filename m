@@ -4,85 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8BFCD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80328CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ugU9VS+djQcCi7Ijxcbj58hPt9KlHsIRjlMUCkTq2R0=; b=Iomcbxd2fDSAEJcrtCp013gj/7
-	2hd876jmRikvdg/WV7cpRDbp314JzXYTWqrx9gC0myFpQfkeu8Dg+Y+Lr4Q4ponFJ/xsecIPMwZ1o
-	uzMTqlc+HU/gDsNtKgzI5JOmcxQo0e1QE615+o0vn6R23qMgPAAuDrCjYOJRMdkIBU6TQHzYvBDzQ
-	nyvVIfA0IUkRKg8PHHpQ2MN9Jqjz6LTs2pkYy8Qf1jFt18KTY7THAF+B9YZJEYuJrcdkzK+7Zy0oc
-	HHVnsU+oueyZaG0NkEFFjA1h3v0zCtHVAjSbuw7qjrTPqSsFN4Ix7/3PY4t6YyQ275xKWZUDuw/rD
-	r/iuz9pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=; b=4elF7HQvMFzCujlsaxHl0zZOzm
+	vHBgGi4+OrPaxX1Udxe63CRYyF8eI1s69xHZMfh4u9BeoYH6NTWYQ6rHQuZrznm3fZxSha1OWdi6r
+	u055Voa7bnckqyhn1tQwWuGHybLTvlX6o8fpgTcV+YcW308vvomlQL8WEZ4+u1JFxrL3yqDt5rBdH
+	MoIkiEV3ehJYOjwGVmR9MPMzy/s2niUDKowdI0oB6Zfs5WnvIEQMSfrm2q+ICm87KNmAa5NE7jGKf
+	C2mCVv8Un6DrZopbTXG1WyB+L9KlgKxXa7tMVt6kz7PHycxrhBxZ1aoOv5wymugZ2doEHfRcLzEVT
+	aHrs541A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX1Dl-00000006CEU-3D7K;
-	Tue, 09 Jun 2026 18:30:41 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1wX1Hu-00000006CgP-3Rpi;
+	Tue, 09 Jun 2026 18:34:58 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX1Dh-00000006CE4-33o5;
-	Tue, 09 Jun 2026 18:30:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781029838; x=1812565838;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=W0vFigz4egcwCqqfYcLa0B3UG4B5j/8tAmG05me37jA=;
-  b=HxQOyV8EGuq9nL1DH3ja9V/91ybVg0T1ftyrthaZtN4Tqk1MvhHml19L
-   OGY9n36V1sB2bGIoalMc8dD/xyX7NNeT53wbt9BPrYbH4uBRnW8oP1tsb
-   hYa29Yoy4Pc8SNs/l68eSGHtGTaquKFXcZEdzpKM+4L7Y72NHZv0nGo0K
-   j1iW8frar2AlA4DQnAaJvPZWvvaIBS/VIcSNcWWRd3GVTvwXHKDc8pi70
-   69uBLUWzUyy6KtElQKlUZhGSz5QipSvTxKNQ18Sk/0S44F45lVyS26AOn
-   oNbXLI9ia3G4+98P1iwZGabtITI80vYh2wfBAkWMeMOqNbivm2TXy90n1
-   w==;
-X-CSE-ConnectionGUID: PK+4PGdZRTCDpDeODkNlJg==
-X-CSE-MsgGUID: troVyXvrQ2ynJ/lngGhZEQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11812"; a="81781638"
-X-IronPort-AV: E=Sophos;i="6.24,196,1774335600"; 
-   d="scan'208";a="81781638"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 11:30:37 -0700
-X-CSE-ConnectionGUID: 1+SmyyssQRKPAPX76A14TQ==
-X-CSE-MsgGUID: XHLlIjFDTwKlwWHCZBRSQA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,196,1774335600"; 
-   d="scan'208";a="241798924"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.162])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 11:30:33 -0700
-Date: Tue, 9 Jun 2026 21:30:30 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: rva333@protonmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 2/4] iio: adc: mt6323-auxadc: add mt6323 PMIC AUXADC
- driver
-Message-ID: <aihbxowyAIlSeDjH@ashevche-desk.local>
-References: <20260609-mt6323-adc-v2-0-aa93a22309f9@protonmail.com>
- <20260609-mt6323-adc-v2-2-aa93a22309f9@protonmail.com>
+	id 1wX1Hs-00000006Cg3-45Pw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Jun 2026 18:34:58 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-68d22476e88so47874a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 11:34:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781030095; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iJ832IRg8EjTBSMu/QNnydeLn95UbLPE5D5JcOL3l04ABcLgp48/Moa0Zx4g8lfXtq
+         NU+mANjhuQE907hD2/5UVOFotfD+ECVyBsJiAugd5OLd8j+k0lK6AODTi6Bpm9NcM9ds
+         zniGyzcT06HF8D9mDRLkzI976egHPVCsnu1SwTVAcYo3Iy/MIogtM4ulyQf2Sa86L15H
+         8tay7kRmMssbxeOocpObNdLG+e4wIt/MY8JsK5H8MX8IrciFLeXqGeOdm0Wt4bS3Af85
+         WlRaI6Px0QWVHOEuBz1CdPFSkFmMkudd0XWo8YJWM5p2xSCHVr+Jn9kAakjlo8gjXQbO
+         eO2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=;
+        fh=I9x9URCs4iNPgrNS87/LvIorEIa47mASVtcMYf6bhZc=;
+        b=Ldf4zrP913mG6S1NdFn8q+Cc2V7LkeRrN3PYehrJiCDMN3gxS0gFild0b7gwtyqMi3
+         vU8GMKPE3mI3evxsNcSAGmBzDgZvIbxJfuHeKqFFQKN0ciz2LX3lbreEys7HqXyj2X2N
+         i7bb7GjtGXlzQXC1d3SuAKun71YB37MC7fkYu+tiEJl3mRafMfwnSPbUGbmepvUkkGb7
+         nbrIB4Ku66/aVF1OXAe01s19MfJ9v1c2cLszulTMXzpvrTL0fXUwt1IYTpFcTDs6nopX
+         GksDxObgvFcyjdShjQQPriICRU5fPrwYlhnB4a1YedJVptg9/0TrjmStp6msgubw23Br
+         yEfQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781030095; x=1781634895; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=;
+        b=f0eQDsPc3GnU9hJMWPJsyPxV27y7I3IgR7Ex4IIVHRMorNfJ2vQU+6n/eJWgoBRCNS
+         HgaPvpIeVOIQEiAgvYitnDogcUkIleyvRWQRFt4nYCj7lDITtZPVu4hXDpZRiCxatQe6
+         q8H9ey6HFV/Om6jDEnT1OLNJ7ROVTkowCi9r8VtxTaZqD3h4QfHqjNI7NrraY7m0ZeGT
+         I1zkgAah7IXOZUPL/UYN5qVT8KBIc0fcsoXXa/PudlWQmKrDuuD6DyYbByeJ8Q5kTz5A
+         LD9fMmONddmNCH8I5/mdUiFUsRIgjWIJ6yjFGjw3Zwop5wX6BoQhNu/t8R1kH4+xLziI
+         +UPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781030095; x=1781634895;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QAVeQUNR8QlKT88CvPGnIFfod1jue+dHBAvLJtDcBos=;
+        b=YdoxDEHniJ0nRs0VBYlaR+vUFBMoFZ+QVtBNG9fg82SFhAeRVO/UqrZPQtOyCU8vT7
+         XseIbMXd2OGFGjIaQeQNNKqRZ6ophsgeDZitnblK7kSwysev74yO6wv4o/M8Y6aXyhR2
+         58HGj5MSgEB6K21Zl7bNELaXaw765CVmLdFW4e/slvTAJjISWXo6hTVri2+FITdjrZYz
+         mH/dK0nFoAhlNxbvDfKN9tAzprLMpDU0XGbpGKQjBT9FASq5QJtAuACGE10jEHLQo2za
+         MtJMEaVNyICpLXQ8eInqQa0qwLew8WvDg5srLQ+r7BuTOUxQ2+qSIwOzwKrDHot2mQlP
+         hjug==
+X-Forwarded-Encrypted: i=1; AFNElJ/gklO2KJUIZOaKzQvUHnW614HklDVv2GVc6rvjFdUVFg8fIc53OVH0WDfOHbfI22Cop/djtTKKyKHEHQ59wUz7@lists.infradead.org
+X-Gm-Message-State: AOJu0YygrfaktLuklpz7VgxRboHktlKZ6kEHE12C3urdtsCkpaTS5Bdw
+	xhsbG8B6K4cNSD4vkNasYtO9fTAH59GD2RcSoyu0/7gewKxJHCTR/zLWM/IrB7aBt9z0gTxLMdf
+	+oIyNUJtNJ74fXjDBq6VxVfMy+4V9V6bOjve1r7cQ
+X-Gm-Gg: Acq92OFu5QtziHi33N9MvWaxyWPts0rITitCVcjKwWRlHL0oMKIzUOmfepN6mpZe2+B
+	5iFuY2t5b1krJIvfRsb3FOnUYNvfsCM4YK435AU05U/C/rVSDNff0ZJ8xvdY7o/uLrbT8GzaVdk
+	oyEhWq7fd7OnaW9BI0LsJ5nCLz/DDsCrVNarns5iwBeZtxhyu7twPV9n0HNJJ6I8KYyt7L8Ii58
+	rqqPITaKDaKSd23rqR4urtnVtJOuKESqUXciwkMuDNmrVw9h3axnCWTGCARCJdO4+U6BqEfXxqa
+	qGEtIjDjmA/rF/zmcXYIjZ5nKx90+1n2mVmZr1WfTSSxDOcI
+X-Received: by 2002:aa7:d848:0:b0:68f:d41d:ca5d with SMTP id
+ 4fb4d7f45d1cf-68fe907ab8amr241229a12.11.1781030094610; Tue, 09 Jun 2026
+ 11:34:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609-mt6323-adc-v2-2-aa93a22309f9@protonmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-12-praan@google.com>
+ <CAE2F3rCPgnFU=d5At1zrOLhsuVEbsweogOHGz9gDddRx73zRtw@mail.gmail.com>
+ <aiEawEFsnG-LIahW@google.com> <CAE2F3rAWZ4Ac23D8eyAHfmaVVkHv8pz45+_dpMO1M4D7+RVCoA@mail.gmail.com>
+ <aifsSxEXX64J1Etq@google.com>
+In-Reply-To: <aifsSxEXX64J1Etq@google.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Tue, 9 Jun 2026 11:34:42 -0700
+X-Gm-Features: AVVi8CeNBnG-Q0YRCS6Oc41AOhRgRaeDmNuOgUCDOQbTwPVqXo8DCJDnwgsr21s
+Message-ID: <CAE2F3rAGLH7si2S4aYhSUWyL-zZL7B_uo+WLE4zKY9SqKVi8zQ@mail.gmail.com>
+Subject: Re: [PATCH v8 11/12] iommu/arm-smmu-v3: Invoke pm_runtime before hw access
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_113037_867086_2311E5A9 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260609_113457_028586_ADC11EA4 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,116 +121,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 04:31:59PM +0300, Roman Vivchar via B4 Relay wrote:
+On Tue, Jun 9, 2026 at 3:34=E2=80=AFAM Pranjal Shrivastava <praan@google.co=
+m> wrote:
+> > I'm not sure if I have a good suggestion here. Have you considered the
+> > following: Do not call arm_smmu_handle_gerror() from
+> > arm_smmu_runtime_suspend(). Instead, call disable_irq() at the end of
+> > the suspend handler (and enable_irq() at the beginning of the resume
+> > handler)?
+>
+> I thought about using disable_irq(), but I think doing it at the
+> hardware level (IRQ_CTRL) is better.
+>
+> By disabling in IRQ_CTRL and keeping the manual arm_smmu_handle_gerror()
+> call at the end of suspend, we ensure that we don't lose any gerror info
+> We catch and handle any errors that occurred during the drain/quiesce
+> phase right before the power-down.
 
-> The mt6323 AUXADC is a 15-bit ADC used for system monitoring. This driver
-> provides support for reading various channels including battery and
-> charger voltages, battery and chip temperature, current sensing and
-> accessory detection.
-> 
-> Add a driver for the AUXADC found in the MediaTek mt6323 PMIC.
-
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-
-A few nit-picks, most important from which is the scoped_guard() versus
-guard()() use.
-
-...
-
-> +static int mt6323_auxadc_prepare_channel(struct mt6323_auxadc *auxadc)
-> +{
-> +	struct regmap *map = auxadc->regmap;
-> +	u32 val;
-> +	int ret;
-> +
-> +	ret = regmap_read(map, MT6323_AUXADC_CON19, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* The ADC is idle. */
-> +	if (!(val & AUXADC_CON19_DECI_GDLY_MASK))
-> +		return 0;
-
-> +	ret = regmap_read_poll_timeout(map, MT6323_AUXADC_ADC19, val,
-> +				       !(val & AUXADC_ADC19_BUSY_MASK),
-> +				       10, 500);
-
-It's better to split on logical boundaries:
-
-	ret = regmap_read_poll_timeout(map, MT6323_AUXADC_ADC19,
-				       val, !(val & AUXADC_ADC19_BUSY_MASK),
-				       10, 500);
-
-> +	if (ret)
-> +		return ret;
-> +
-> +	return regmap_clear_bits(map, MT6323_AUXADC_CON19,
-> +				 AUXADC_CON19_DECI_GDLY_MASK);
-> +}
-
-...
-
-> +static int mt6323_auxadc_read(struct mt6323_auxadc *auxadc,
-> +			      const struct iio_chan_spec *chan, int *out)
-> +{
-> +	struct regmap *map = auxadc->regmap;
-> +	u32 val;
-> +	int ret;
-> +
-> +	ret = regmap_read_poll_timeout(map, chan->address, val, (val & AUXADC_READY_MASK),
-> +				       1 * USEC_PER_MSEC, 100 * USEC_PER_MSEC);
-
-Perhaps
-
-	ret = regmap_read_poll_timeout(map, chan->address,
-				       val, (val & AUXADC_READY_MASK),
-				       1 * USEC_PER_MSEC, 100 * USEC_PER_MSEC);
-
-(see above why).
-
-> +	if (ret)
-> +		return ret;
-> +
-> +	*out = FIELD_GET(AUXADC_DATA_MASK, val);
-> +
-> +	return 0;
-> +}
-
-...
-
-> +	case IIO_CHAN_INFO_RAW:
-> +		scoped_guard(mutex, &auxadc->lock) {
-
-I'm wondering why we haven't moved to guard()() here
-
-	case IIO_CHAN_INFO_RAW: {
-		guard(mutex)(&auxadc->lock);
-
-> +			ret = mt6323_auxadc_prepare_channel(auxadc);
-> +			if (ret)
-> +				return ret;
-> +
-> +			ret = mt6323_auxadc_request(auxadc, chan->channel);
-> +			if (ret)
-> +				return ret;
-> +
-> +			/* Hardware limitation: the AUXADC needs a delay to become ready. */
-> +			fsleep(300);
-> +
-> +			ret = mt6323_auxadc_read(auxadc, chan, val);
-> +
-> +			if (mt6323_auxadc_release(auxadc, chan->channel))
-> +				dev_err(&indio_dev->dev,
-> +					"failed to release channel %d\n", chan->channel);
-> +
-> +			if (ret)
-> +				return ret;
-> +		}
-> +		return IIO_VAL_INT;
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+I think the beauty of disable_irq() is that it synchronizes any
+potentially running hard IRQ handler, which helps avoid races.
 
