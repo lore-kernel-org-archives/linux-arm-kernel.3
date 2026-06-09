@@ -4,149 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E7BCCD8CAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 11:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3A3CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 11:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HI875jYf6oZt9E58hwLiPYwC1E985trATMrMqlmvZkg=; b=kY8BXJJGhqzlrMHnEDn75cJAil
-	S5rrIQp3uLIqFoiprwNK01ieh/97vw9nm3eBZ04GtpvQUnZJlJE9V+M+c+XA8LI3u8fjYIhpi2Sem
-	AeCw2UUK/DK335fri4m7jnrHwjBzxG9TdH2w0gMCEvpKaU54TTpuPsxDRRFLBrFUTWxhtRdoqkH3e
-	aHFTZ54T6gx/AdtXRNV7wnS1Ceh2jFxjAopT6em83ollW4d7+8ML4I5536W+wPPVWILKaSosVyaej
-	GHpeoopzu3zYAiV5E6+2yEqFO4uJ4tC3uv6sDT1EMuUrKccZJGdCBIjJ2ZtdRb7Z9ZsRLp12CuLv1
-	7c3N8utw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C2ZycUM2sF4NHnCdd+yV05hq4usltNMY+o6sDqF6H4A=; b=bI+237itXLsY1fFqRw8YmLEmNX
+	BClr4f6EZYT3wo6ErvnWFLGyVPHfalN5ATQnLcfm+mFyWWe2tiO3pg300mkcYqDNL9gRbLssSc5jh
+	cuKDcqQORdfdGMdoK7rpRhIduFCa11VV+6ArLqggAodinsTUqNmfAZGxVhID8n20bqkStYkKi3PIh
+	aoKC3q4eMEnCNjkwx0FSNEdUQT6uCFPMnUw4MvXw4FMihk7Zvj6bkkYl3lTFLFi4CSdDTIWR7h8w4
+	0Q3LmYeDIJsrgFQkFO7GfBGRgDxKg9JbeZRU/NF1qqGd7elKUnb3v76gSWkgxEESO5nn8ujHzjUcv
+	d8XzxxCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWuVS-00000005Qyj-1xr4;
-	Tue, 09 Jun 2026 11:20:30 +0000
-Received: from mail-norwayeastazon11013046.outbound.protection.outlook.com ([40.107.159.46] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wWuZf-00000005RAk-0Ucy;
+	Tue, 09 Jun 2026 11:24:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWuVP-00000005QyG-2HSx
+	id 1wWuZc-00000005R9v-21ad
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 11:20:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aux4XRZZGfidMiwEeROnm+SLW//oP96VsM2ph7rMw7aqs4iZG/VQh30PT/Sumvi1yEUx5c90T5zWsELwxfaplQr5J/bToYr7ZKn8FWUlrmkZyBogplcwGWcxyiNjRyjADbauU/KcXT9W56twQllRwozMoDTCd7/NB/Cg4MpVen6DihKfIXqJl4F0hfCwb05HgGhuaW6xVBGGzzYv11d/g+KHX9rxQYnVNYSAhDoAS3JOyUOjfcIBmg2QAKPkJbHRCWIp6rhOkUKmbyPV3TSSjBYYURZJReZ0ftfksPEz+nHQVioxxfsSVIvJSepH/3RV+B511ewqm4+SkVdgbICfkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HI875jYf6oZt9E58hwLiPYwC1E985trATMrMqlmvZkg=;
- b=qS3iRSBW5QXFbp85XW89ACiDL+PP3svB/ooGDYiVeWFB9ajTnnTnZ/6CE+QjE+enB2DIh9cEqdXxdvecIa/B9UzYC6IE0rvmYoWIIQuHrL7/laSCEm+9I4vG6s9keYyNtzrdic5v3HKYUYPE7IS7ahBLVk52p2KfoqpSXrJjhL4yUVhiuhIEyoDlWQeGdgQolCvx2CbA73mYNftwqeuqA9TPiNifsjXvIrh3rmScW4sJt2LzpwESb9K0EToHkkolBqPn5k5b4W80IrdFkfvNAVGat1vf4dUzfrrGxJH1sOnCD5rCzobzSbyfH6CZbMYzwqx6MbDYDI+j05595zaG8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HI875jYf6oZt9E58hwLiPYwC1E985trATMrMqlmvZkg=;
- b=W43gL4SQlNm2YqP2hhyotIpLRkPFEjjO+AlVapPrGVOEDoMDyyy2otR6E1eAkxMht9/sUykYkG6+xJf1GADVVYozuHlLpQtIsLTCF8QSOMQvJEXGUdG9G0LnonpubJW9YhLEPCdgAnL4EuKNtqJtv0MjbOL2/ph1bwloQ1aHtvg35Urp5moYb6Fa6BBawoZ3QSuX7MvkfbKB/fKnGHZHzqtH3tDBLV3XIg4TLawCjY7JOLd6DjulmJhAz15FJIEK3n7XcRMFVySOi76h/pJ2RGSi0gHbliE20yZM3Isf3ERWNgzow3puGb6XqmfEp3AWB1amZKuZuPiX/uFDDKsbEA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
- by GVXPR04MB12091.eurprd04.prod.outlook.com (2603:10a6:150:312::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.11; Tue, 9 Jun 2026
- 11:20:20 +0000
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6%4]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 11:20:20 +0000
-Message-ID: <a3d15b30-b9bf-4fcf-8b1b-0cb48021ec0d@oss.nxp.com>
-Date: Tue, 9 Jun 2026 14:20:17 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v4 3/8] can: flexcan: split rx/tx masks per mailbox
- IRQ line
-To: Vincent Mailhol <mailhol@kernel.org>,
- Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- linux-can@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>
-References: <20260603071342.641874-1-ciprianmarian.costea@oss.nxp.com>
- <20260603071342.641874-4-ciprianmarian.costea@oss.nxp.com>
- <c50194dd-3a3c-4193-9296-1e35c6732351@kernel.org>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <c50194dd-3a3c-4193-9296-1e35c6732351@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P250CA0025.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e3::15) To AM0PR04MB5858.eurprd04.prod.outlook.com
- (2603:10a6:208:132::23)
+	Tue, 09 Jun 2026 11:24:50 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6599xpSV2288124
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 11:24:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	C2ZycUM2sF4NHnCdd+yV05hq4usltNMY+o6sDqF6H4A=; b=VKa3KD6d6rPTcQ/N
+	DOj2iy76uxUSVU6IyT5NOPI2v5SZgwHGlZZBOVSzebAhUh7oeDy0VnEOhQcoRlUw
+	BZ1fsmOGjyo1RBYcl+J3KaiAoorEoscZLyltDzuTynePTMFXRID27LK0vQXDNvOq
+	4b73WGx4s+v5c9dnvUTtOfuw/01LpqLBhdzv01dFC9MCi4CoOTF3z+yqAydJtcqH
+	Q0xwxtVNit2ODdYsRJ+CsjNH9s267Vruc4kQv+bLuPm/eWZ7OTuvU9G9SRr5afVX
+	Z1ZtfSr+uuI4ept107238+ukbdM68qb7W1+x5CO4/m3x08cFbJ21WI9Ia0kpfH7+
+	hMTd6w==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epe25s1w1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 11:24:47 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-5176cc5bf2aso73818521cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 04:24:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1781004287; x=1781609087; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=C2ZycUM2sF4NHnCdd+yV05hq4usltNMY+o6sDqF6H4A=;
+        b=ZJ/m9yKMh1lCBNIot/I4JNvxWYbrEkzDcTC7DYcVbLbBW5tl+AiZhov06tFLBxwhge
+         7k1+IEvnBIGT3NfMutqPor/ko3AC5kVHTAwl2PwBsuPf7eXy3tpcBpqEyDzK9pWiPfiq
+         BaWJE2W13eOurxPHY71z5fMB1r84wowBanvXYtajCVDo07P8a+63uPqbfi52lOYf9PcS
+         Q5vL1eOKWM+JY9sZblLqk/1GAyhbUfEYnw3twPUJvRNc2JEYqXw4nKPpPwFpQrs6fRxr
+         ugdk4MFE2ja56vT3PIEWpD2ifxXjggnH9chDiJnUcn7UsHAkK6o9IVYvHdVayFualC0T
+         73jQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781004287; x=1781609087;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=C2ZycUM2sF4NHnCdd+yV05hq4usltNMY+o6sDqF6H4A=;
+        b=hjyRuSSkVfQ7owgo16DAAFrFBb5l9QELPH+gOsfxylU+2Smq+05AfyEmB60Sj/Md7l
+         rQTny/MPD9Vo51WnJhIrjgv5qjxOmJodJUAngh74jBeQ0NMyqSZFaO7W437hm2iKtb58
+         850ZmPX7jUkbuEMgBets4Y50GIfMbGPYOkQGmHwrVCmD/XFkBQyIvCPn8S2bUMNvabTT
+         wTCRFucrVgYuJt0WTBRfSkOnKs+GKaMvR9yBLRO8N1H7xILV7Em0fGdqfas8kuc1rpLe
+         QgSu3/DoXFXCIFOSKkpa5PgtS1Qo0L9Vl6cCq6VHxyKfwbQe60L/rCl0kCTqMyW7O90v
+         NKwg==
+X-Forwarded-Encrypted: i=1; AFNElJ+2LBjU3W7IabH0v5KmxXzc9WlYGqTMLBNAQFSdtaASakutH4ZSEg1shqeamNPa4hLLfgIOITW19HTIfPtzAIf+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxtx9jtUNRYHdf9H9umK1iDxOeXvSjVbiMDQb772DYMidP6tAp7
+	7Boi+7a8HaFi+Y4Q0XOHRVL8bZZRsSXQXefB+POwZI7BAVWrgBZ0a/mxNla4vpEzT/ROOVMYh24
+	Y8UUNxeIB91Fy47SuSY4WDX/37MmW/RDllGFbN2g77QKkBn2gqmQ5b8kmVTgH1R36qQbqqwg28r
+	CHHA==
+X-Gm-Gg: Acq92OFmuqEWyZlgMFkiRNr4OsdVYiI1UTUv7s3kGJRedVFDVKndgEg21l+YlCG6SdB
+	aM8aellXV64Ofz4WgeG4/nTJ1YLawV6MJulZaZ9pb8FPXyjmDsOjp+3PzLOrpR01i1imWoSshBc
+	ArEbfG1D3w7Xo/gNqW5Z0AptDjXHkcTHKt0n5HZMnZvwYbUISNNRcArUZzETnCHIEG+F+VVrobN
+	SSivgIUA+RrO0FtT3DMR4JgC96alyDqTxwZxB9s0ukPag9v23K2INQGTUaBlnQ0IKzWpY6r8n56
+	PJ0n7Lc0RmkHi8lnhkCc0CamOtKuIR/zulzqGgatTjhcJYto66C/7RG6VVD9hM1u1npFkggCLlZ
+	toNc+eWzWyRskVexe8a8A7Ui6/wV/5Qe0iycuNFzUjaMh/oyRw9yhdmDqwYRC
+X-Received: by 2002:a05:622a:1f94:b0:517:626b:778 with SMTP id d75a77b69052e-517ca609d99mr31124641cf.49.1781004286783;
+        Tue, 09 Jun 2026 04:24:46 -0700 (PDT)
+X-Received: by 2002:a05:622a:1f94:b0:517:626b:778 with SMTP id d75a77b69052e-517ca609d99mr31124181cf.49.1781004286240;
+        Tue, 09 Jun 2026 04:24:46 -0700 (PDT)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:7c63:2aa1:b7ca:7546])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2ec711sm59688589f8f.12.2026.06.09.04.24.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 04:24:45 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        Marco Scardovi <scardracs@disroot.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Heiko Stuebner <heiko@sntech.de>, Jianqun Xu <jay.xu@rock-chips.com>,
+        linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH 0/3] gpio: rockchip: Fix generic IRQ chip leak and modernize resource mapping
+Date: Tue,  9 Jun 2026 13:24:43 +0200
+Message-ID: <178100427596.130110.2423070495677836224.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260607230504.35392-1-scardracs@disroot.org>
+References: <20260607230504.35392-1-scardracs@disroot.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|GVXPR04MB12091:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09219495-2576-473b-9a46-08dec619175e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|11063799006|4143699003|3023799007|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: P3PnJtCJI979lDPZAH8cWOnixaASH9s3va/lK7j2KXIZk6DlUnY+ZBhF6XrmQlIWUVIJ/0a1OtQqNqGCIBSQu+ax8ybrJ4TD6nJEXiE4WtpOReU41YdFdK3JEFB/3RqAvBJTRl4PccFZOHBVI3gqft4PqFa7vdQ5Se5yK+289yxHAx585QlaaaJ/ggHjG/+cmO0zLVDRVjo0WvI+OWbvBXGUA4Y5j49YlNCSRc0148uJlU7dyKKFnwP5HuRqIZno48a6anLSX/ih6gbkZbuDUWEnL1jN8d2AWLNLLFgwcHTQUp4b0612xpAT0j4ZELBXmP+RnvvFiS9bj8DCHz/vz5+/LxjzCEx8Z4MBVIlHSJVwh8iQkouFLdw9ljZLKMCKVDMVHdj4ShVsDdL6Z7HsHMTuGzWzqDwEjm1BPtBhKD9OSVcEjQLOYWIlAhm12t/acTEEZ6xdxkbukBorWmdhiuIo9BwVrPDWyz5QbuwlkOL70TkFIq87Iwl4FEUGaVrL6s6DiCLDobHWlHJv0HXHRhzLQL48YpBIAX1CC5m2aBtDtqrj8IGIMXMYWlEOFz6KvyqOrMyXFN+PMxL/CwZG1Cko7azWRVUP0If6cuBrCLdgnjjP8OI+8A0Qun5GrmKaDmfJxPyKKScBJ0Txebs7XF9QXB88DBqdcYZSqBVMDG71VzZzOhZaCDtP8sWcElhJ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(11063799006)(4143699003)(3023799007)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Si9kUHpHMlcxVTR1UU9FUVNaTDlNb1l6S2FpUHp0QytiQmx4RW4wQUgzcG42?=
- =?utf-8?B?dFZrbU9BNnp6a2JpaStFZSs3SEZqdVZ3RTAxWHFtMWtkODR6ZW9odk9iYll6?=
- =?utf-8?B?S1ZmLzZqdTBRRGpac0NJWEptak5oQ0o1ajZFc2NwWVdYNlU0Q3R4YkNhYnlO?=
- =?utf-8?B?NlU5bDNqUEdWVmVtTUNTSE9oZkZWMUpIRGI3TzFDTFJtZFJHcng5VkJ2OGN6?=
- =?utf-8?B?bG93dFJhVUtOQlM0bVZoMmdXdm4vaE5yWlVWdEdlUGJtUFg0QTBmZzRuTjRL?=
- =?utf-8?B?U1V1MUN6Njd6N2RERzZQd2ZwZ2xJSEhoNzhyTDVBWk02bFl2NXZ2MXBGTG5X?=
- =?utf-8?B?VjJIYzRFZzBncllTYTN2aHh0NlkrYUZRN0tBZlZPZ29oQTFEbG4wT1QwNHIv?=
- =?utf-8?B?NXZJaXhHM3gvRTZmTFMzOU1TQmFQb0MyMmFXbXZoc1Iwck4vY2Z4ZlpsQnU5?=
- =?utf-8?B?OVhaTFNDYlBnNjVGRWtSMGJuMndRUXFpSHFkNHRoNmMyNFBXTCtlSGxMbEln?=
- =?utf-8?B?SkFXK0VwcGNNNjhQa2ZQQ1MyWnF6aGF2d0kyMlVielhJTjVSVnFMNkZTNyth?=
- =?utf-8?B?NGtEMmZmV2xjRVFzV1cydDZKWjN2RHdpQ0t6MVlkVmczUWlqbVJHaFVHOTd2?=
- =?utf-8?B?aTltc3JSdlpEdkFhdExkeTl4YWw2aTl2bWZ6UGtodnNYMG9pSlVpMzNUOWUy?=
- =?utf-8?B?THE3eWVoQmNhSGFsbWRlcGpXekZ5S0IvMnhBTkxUQ3hxNGJ6MEc4OFRvNFhu?=
- =?utf-8?B?S0tacUlWam0vdE5MekpLbEdFRGtRcHBzemh6YURPQ2FlSzh0WnhmUThpem0v?=
- =?utf-8?B?YUlCTG5sQzdHTU5PTmJyWnNMUmh5dHd0dVVSSzFuTFpMb0xZbUZscmlaODlI?=
- =?utf-8?B?RisvU05kTzFHY0dSYWIzWk9ubDZaUTlWcndQUFg4ejkxQWhUeWtvZlVVNTBI?=
- =?utf-8?B?Z1RScWloZmF4cVhDR2lqU1FkbnN5Zjl1ZlQ3NEQrS2dqc2FlQTkzajZFd3Zr?=
- =?utf-8?B?NmRBM1NoMUN6S01pVWpmcFNsUUJFQlpFTUR6VmJYZ2d5VHBXL2F4ZmF1WXhK?=
- =?utf-8?B?dCtlSlduVDhCWk9Ya20wTVhLL2o2bzMyVzc2czZBNk1Sa3gzOVdvblJBTSt3?=
- =?utf-8?B?MWMwU0hnNlpJODJRR2hycEptV0NkeUtjczRZeXJSRDlId2V1MklLV3hvUkZq?=
- =?utf-8?B?bis3UitCK3JFNWo4NCtRaUJFRjJMaXVLNHdRTFBpbHlseXlDZVMxRjhLOEdy?=
- =?utf-8?B?SHhsaFFMbWkvdVQ3b0hxZEpIcW1hZTN1TVFHM1U5MVZRc0lkR283eDJSczl1?=
- =?utf-8?B?SW0wMkVzMEJJQko1RGFOVUtxQ0N0R2didC9GSUNxdnlKYkoyV011SHlpa3Yz?=
- =?utf-8?B?Z25SWXVKS3BHdVJxRnFFM2NPTWJhYnhCRlhBbHB1WXFzQlg4MlBoL3FBRGtt?=
- =?utf-8?B?K3hjYm5TTFFhZmxqNFJRRnh5TmllcVdaKzdzazN6SXZUd0YxRE9tdUhQL2x2?=
- =?utf-8?B?OUpjZk9PdVc4WmRQLzl4N2QybFFaRUpHc3ZaSTIwWVJZVmJNYnFKRno2ODk3?=
- =?utf-8?B?aWxQVjI2dGpNYUtHZzY0UG1OTUthWW9QeWlmYVFwcHNtV1pkSllIRjRKWksr?=
- =?utf-8?B?OFgrKzZGQXZpalVHanVtbzMrUCtxNG5xSzdnQm9mUTV4SkxsSFpadnFtaWxD?=
- =?utf-8?B?cnAxZTVBbHBoNWY5dGptYmFGM250NnVtc05DRjlJUytiVVRCVlduTCtRWEcr?=
- =?utf-8?B?QWdtSlJNL3hacFMyTldQTGk0MjliaGM3Q2MwbHUxTVl0NE5NcWh4dythYkhG?=
- =?utf-8?B?dng1NDJUMnZ6S2hDN00rU3JGRmVTMkUwaVBMeXZqQ0kyYjhuYkVHekJHVnBQ?=
- =?utf-8?B?VERZZ1B6emw2Y01XcUdDbTlPUmFlb2hoejM3TGE4M3ZVUkhMaDRlWkhzNklh?=
- =?utf-8?B?NnZrUGlRR00wWnpwam5WbFh4djNQelhuR1NURGZ3WFVLa2NtaDFYS2JJV1J1?=
- =?utf-8?B?bXBJNE1OZU1WYzJjcU5sU1AvQTRacGFuclZwZ0Y5WGU2N3lwVndLNHFrRENJ?=
- =?utf-8?B?RzAzUmFpMy9HNndRM3JUdVpRVmg0eHFtSkRLcnBrZzNvWDg5MlUwbkxzMTNE?=
- =?utf-8?B?MStGRDdZOEw5RnplYXZyeFVhSFByYTdmS0ordk1BWUhMaXh5UW0zLzkwaUN2?=
- =?utf-8?B?MjkvWlRHd295cjBRWGsrMzVNbXdsMCtiekJQYXBNZXpRcnZ0QUIyYjdzbWpB?=
- =?utf-8?B?Y0VmSFdRTHBZSzlvMHdDaWxTaWF6YW45aVE2dlU1bFFpb29Yby9hOXJiNnpj?=
- =?utf-8?B?OExrRHpHZTZXOWZRTWprb2EwcEJybjl2Q0RBMm5icm1FWngvSnUyMEJoVDdH?=
- =?utf-8?Q?CzMvVDhQRbrt7Dg0=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09219495-2576-473b-9a46-08dec619175e
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 11:20:20.3669
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NXtVXubRbiHkpHEOq79OUrG1ubgz8I4Pd9tgY1nSsH+DG69Rj0jMeMDm53/crM0/tBIwHzFvg21DHJsxUjxaQaIaqNzVZXbuiK9NIl8JOP4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12091
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: iAclTK_li__0aM7y1VD_zYGbzobqK2PD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDEwNyBTYWx0ZWRfX985aJIQvypRQ
+ pF751MAeHLfKmf7hE8iLZDD0kTvqXtwxSnsTYwacOY9kF28e7cxWi9eYmWA47x2DRVju3fsiS/i
+ 9x6+HTC6Ifbg8e59mtXDGdZQfVwAHRSyY+qfqOUleQc1fJYfmHLk7GZ1mwb1F21W+S+jcTNXphz
+ A+1xmEXUuftWKtRrji7GT4tNwfKLO5pVHVaWUB6CSqAEIe/j5vuljFqcuL0vj4ROiBRVMTd+c7a
+ scRvgwlYHtQcu/LEFygt4fGGofGEMMnnhrS+geF9/H4aaMGPGnIeAnqOxhVWoICXtxgfOlgbDBS
+ riZM8blBhCZwJrr31Mi272ahx4JkhmwQtBK0A1gYxLz5kIw6XnhD9tn++P2sqiMJC785p9Az8nm
+ Hp4DrXxkgvO2VXLq0Pvwmy7R1csUqQWTkJvg8t8rg6x2YOm5N1ANmu+VksUK8LISU/S3gEc7mDr
+ eZ4vznmk0KIwuZHVJ2w==
+X-Proofpoint-GUID: iAclTK_li__0aM7y1VD_zYGbzobqK2PD
+X-Authority-Analysis: v=2.4 cv=LoqiDHdc c=1 sm=1 tr=0 ts=6a27f7ff cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=jhzgRxFtsokRwiMRIIMA:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-09_02,2026-06-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 spamscore=0 bulkscore=0 phishscore=0 impostorscore=0
+ adultscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_042027_755394_EEAC3B4A 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20260609_042448_641135_338689EF 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,257 +146,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/9/2026 12:24 PM, Vincent Mailhol wrote:
-> On 03/06/2026 at 09:13, Ciprian Costea wrote:
->> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>
->> On S32G2, which has two mailbox IRQ lines (mb-0 for MBs 0-7, mb-1
->> for MBs 8-127), both handlers currently process the full rx_mask/tx_mask
->> range,
->>
->> Introduce struct flexcan_mb_irq to hold per-IRQ-line rx and tx masks.
->>
->> In flexcan_irq_mb(), the irq argument selects the correct mask set: the
->> primary MB IRQ uses mb_irq[0] and the secondary uses mb_irq[1].
->>
->> For single-IRQ platforms, mb_irq[0] holds the full combined masks with no
->> functional change.
->>
->> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->> ---
->>   drivers/net/can/flexcan/flexcan-core.c | 61 +++++++++++++++++++-------
->>   drivers/net/can/flexcan/flexcan.h      | 10 ++++-
->>   2 files changed, 52 insertions(+), 19 deletions(-)
->>
->> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
->> index 7dde2e623def..32e4d4da00a1 100644
->> --- a/drivers/net/can/flexcan/flexcan-core.c
->> +++ b/drivers/net/can/flexcan/flexcan-core.c
->> @@ -957,14 +957,16 @@ static inline void flexcan_write64(struct flexcan_priv *priv, u64 val, void __io
->>   		priv->write(lower_32_bits(val), addr);
->>   }
->>   
->> -static inline u64 flexcan_read_reg_iflag_rx(struct flexcan_priv *priv)
->> +static inline u64 flexcan_read_reg_iflag_rx(struct flexcan_priv *priv,
->> +					    u64 rx_mask)
->>   {
->> -	return flexcan_read64_mask(priv, &priv->regs->iflag1, priv->rx_mask);
->> +	return flexcan_read64_mask(priv, &priv->regs->iflag1, rx_mask);
->>   }
->>   
->> -static inline u64 flexcan_read_reg_iflag_tx(struct flexcan_priv *priv)
->> +static inline u64 flexcan_read_reg_iflag_tx(struct flexcan_priv *priv,
->> +					    u64 tx_mask)
->>   {
->> -	return flexcan_read64_mask(priv, &priv->regs->iflag1, priv->tx_mask);
->> +	return flexcan_read64_mask(priv, &priv->regs->iflag1, tx_mask);
->>   }
->>   
->>   static inline struct flexcan_priv *rx_offload_to_priv(struct can_rx_offload *offload)
->> @@ -1071,7 +1073,8 @@ static struct sk_buff *flexcan_mailbox_read(struct can_rx_offload *offload,
->>   }
->>   
->>   /* Process mailbox (RX + TX) events */
->> -static irqreturn_t flexcan_do_mb(struct net_device *dev)
->> +static irqreturn_t flexcan_do_mb(struct net_device *dev,
->> +				 const struct flexcan_mb_irq *mb_irq)
->>   {
->>   	struct net_device_stats *stats = &dev->stats;
->>   	struct flexcan_priv *priv = netdev_priv(dev);
->> @@ -1084,7 +1087,8 @@ static irqreturn_t flexcan_do_mb(struct net_device *dev)
->>   		u64 reg_iflag_rx;
->>   		int ret;
->>   
->> -		while ((reg_iflag_rx = flexcan_read_reg_iflag_rx(priv))) {
->> +		while ((reg_iflag_rx = flexcan_read_reg_iflag_rx(priv,
->> +								 mb_irq->rx_mask))) {
->>   			handled = IRQ_HANDLED;
->>   			ret = can_rx_offload_irq_offload_timestamp(&priv->offload,
->>   								   reg_iflag_rx);
->> @@ -1110,10 +1114,10 @@ static irqreturn_t flexcan_do_mb(struct net_device *dev)
->>   		}
->>   	}
->>   
->> -	reg_iflag_tx = flexcan_read_reg_iflag_tx(priv);
->> +	reg_iflag_tx = flexcan_read_reg_iflag_tx(priv, mb_irq->tx_mask);
->>   
->>   	/* transmission complete interrupt */
->> -	if (reg_iflag_tx & priv->tx_mask) {
->> +	if (reg_iflag_tx & mb_irq->tx_mask) {
->>   		u32 reg_ctrl = priv->read(&priv->tx_mb->can_ctrl);
->>   
->>   		handled = IRQ_HANDLED;
->> @@ -1125,7 +1129,7 @@ static irqreturn_t flexcan_do_mb(struct net_device *dev)
->>   		/* after sending a RTR frame MB is in RX mode */
->>   		priv->write(FLEXCAN_MB_CODE_TX_INACTIVE,
->>   			    &priv->tx_mb->can_ctrl);
->> -		flexcan_write64(priv, priv->tx_mask, &regs->iflag1);
->> +		flexcan_write64(priv, mb_irq->tx_mask, &regs->iflag1);
->>   		netif_wake_queue(dev);
->>   	}
->>   
->> @@ -1228,7 +1232,7 @@ static irqreturn_t flexcan_irq(int irq, void *dev_id)
->>   	struct flexcan_priv *priv = netdev_priv(dev);
->>   	irqreturn_t handled;
->>   
->> -	handled = flexcan_do_mb(dev);
->> +	handled = flexcan_do_mb(dev, &priv->mb_irq[0]);
->>   	handled |= flexcan_do_state(dev);
->>   	handled |= flexcan_do_berr(dev);
->>   
->> @@ -1243,9 +1247,15 @@ static irqreturn_t flexcan_irq_mb(int irq, void *dev_id)
->>   {
->>   	struct net_device *dev = dev_id;
->>   	struct flexcan_priv *priv = netdev_priv(dev);
->> +	const struct flexcan_mb_irq *mb_irq;
->>   	irqreturn_t handled;
->> +	int idx;
->>   
->> -	handled = flexcan_do_mb(dev);
->> +	idx = (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ &&
->> +	       irq == priv->irq_secondary_mb) ? 1 : 0;
->> +	mb_irq = &priv->mb_irq[idx];
->> +
->> +	handled = flexcan_do_mb(dev, mb_irq);
->>   
->>   	if (handled)
->>   		can_rx_offload_irq_finish(&priv->offload);
->> @@ -1473,6 +1483,7 @@ static void flexcan_ram_init(struct net_device *dev)
->>   static int flexcan_rx_offload_setup(struct net_device *dev)
->>   {
->>   	struct flexcan_priv *priv = netdev_priv(dev);
->> +	u64 rx_mask, tx_mask;
->>   	int err;
->>   
->>   	if (priv->can.ctrlmode & CAN_CTRLMODE_FD)
->> @@ -1494,20 +1505,35 @@ static int flexcan_rx_offload_setup(struct net_device *dev)
->>   			flexcan_get_mb(priv, FLEXCAN_TX_MB_RESERVED_RX_FIFO);
->>   	priv->tx_mb_idx = priv->mb_count - 1;
->>   	priv->tx_mb = flexcan_get_mb(priv, priv->tx_mb_idx);
->> -	priv->tx_mask = FLEXCAN_IFLAG_MB(priv->tx_mb_idx);
->> -
->>   	priv->offload.mailbox_read = flexcan_mailbox_read;
->>   
->>   	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_USE_RX_MAILBOX) {
->>   		priv->offload.mb_first = FLEXCAN_RX_MB_RX_MAILBOX_FIRST;
->>   		priv->offload.mb_last = priv->mb_count - 2;
->>   
->> -		priv->rx_mask = GENMASK_ULL(priv->offload.mb_last,
->> -					    priv->offload.mb_first);
->> +		rx_mask = GENMASK_ULL(priv->offload.mb_last,
->> +				      priv->offload.mb_first);
->> +		tx_mask = FLEXCAN_IFLAG_MB(priv->tx_mb_idx);
->> +
->> +		if (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ) {
->> +			/* S32G2 has two MB IRQ lines with the split at MB 8:
->> +			 * mb-0 IRQ handles MBs 0-7,
->> +			 * mb-1 IRQ handles MBs 8-127.
->                                                    ^^^
-> Your comment says 8-127 but the code uses GENMASK_ULL(63, 8). Is this
-> intentional?
 
-Hello Vincent,
+On Mon, 08 Jun 2026 01:05:01 +0200, Marco Scardovi wrote:
+> This series fixes a generic IRQ chip leak in the gpio-rockchip driver
+> and performs two small cleanups to use standard platform device helper APIs.
+> 
+> Patch 1 fixes a leak caused by generic IRQ chips not being removed before
+> IRQ domain teardown.
+> 
+> Patch 2 converts register mapping to use devm_platform_ioremap_resource().
+> 
+> [...]
 
-Thank you for taking time in reviewing this series.
+Applied, thanks!
 
-This is not intentional. The driver currently supports up to 64 MBs
-(bounded by the iflag1 + iflag2 register layout and the u64 mask).
-I will update the comment accordingly in V5.
+[1/3] gpio: rockchip: fix generic IRQ chip leak on remove
+      https://git.kernel.org/brgl/c/1c1e0fc88d6ef65bf15d517853251f75ab9d18c3
 
-> 
->> +			 */
->> +			priv->mb_irq[0].rx_mask = rx_mask & GENMASK_ULL(7, 0);
->> +			priv->mb_irq[0].tx_mask = tx_mask & GENMASK_ULL(7, 0);
->> +			priv->mb_irq[1].rx_mask = rx_mask & GENMASK_ULL(63, 8);
->> +			priv->mb_irq[1].tx_mask = tx_mask & GENMASK_ULL(63, 8);
->> +		} else {
->> +			priv->mb_irq[0].rx_mask = rx_mask;
->> +			priv->mb_irq[0].tx_mask = tx_mask;
->> +		}
->> +
-> 
-> The introduction of the struct flexcan_mb_irq seems a bit overkill.
-> Can't you just define two new masks and keep the existing struct
-> flexcan_stop_mode untouched:
-> 
-> 	#define FLEXCAN_SECONDARY_MB_IRQ_MB0_MASK GENMASK_U64(7, 0)
-> 	#define FLEXCAN_SECONDARY_MB_IRQ_MB1_MASK GENMASK_U64(63, 8)
-> 
-> and when you need to access the MB, just select the correct mask. For
-> example, flexcan_irq_mb() becomes something like this:
-> 
-> 	u64 mb_mask;
-> 
-> 	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ
-> 	    && irq == priv->irq_secondary_mb)
-> 		mb_mask = FLEXCAN_SECONDARY_MB_IRQ_MB0_MASK;
-> 	else
-> 		mb_mask = FLEXCAN_SECONDARY_MB_IRQ_MB1_MASK;
-> 
-> 	handled = flexcan_do_mb(dev, mb_mask);
-> 
-
-Sounds like a good simplification indeed. I will update it in V5.
-
-
-Regards,
-Ciprian
-
->>   		err = can_rx_offload_add_timestamp(dev, &priv->offload);
->>   	} else {
->> -		priv->rx_mask = FLEXCAN_IFLAG_RX_FIFO_OVERFLOW |
->> +		priv->mb_irq[0].rx_mask = FLEXCAN_IFLAG_RX_FIFO_OVERFLOW |
->>   			FLEXCAN_IFLAG_RX_FIFO_AVAILABLE;
->> +		priv->mb_irq[0].tx_mask = FLEXCAN_IFLAG_MB(priv->tx_mb_idx);
->>   		err = can_rx_offload_add_fifo(dev, &priv->offload,
->>   					      FLEXCAN_NAPI_WEIGHT);
->>   	}
->> @@ -1531,7 +1557,8 @@ static void flexcan_chip_interrupts_enable(const struct net_device *dev)
->>   		disable_irq(priv->irq_secondary_mb);
->>   
->>   	priv->write(priv->reg_ctrl_default, &regs->ctrl);
->> -	reg_imask = priv->rx_mask | priv->tx_mask;
->> +	reg_imask = priv->mb_irq[0].rx_mask | priv->mb_irq[0].tx_mask |
->> +		    priv->mb_irq[1].rx_mask | priv->mb_irq[1].tx_mask;
->>   	priv->write(upper_32_bits(reg_imask), &regs->imask2);
->>   	priv->write(lower_32_bits(reg_imask), &regs->imask1);
->>   	enable_irq(dev->irq);
->> diff --git a/drivers/net/can/flexcan/flexcan.h b/drivers/net/can/flexcan/flexcan.h
->> index 16692a2502eb..22aa097ec3c0 100644
->> --- a/drivers/net/can/flexcan/flexcan.h
->> +++ b/drivers/net/can/flexcan/flexcan.h
->> @@ -75,10 +75,17 @@
->>    */
->>   #define FLEXCAN_QUIRK_SECONDARY_MB_IRQ	BIT(18)
->>   
->> +#define FLEXCAN_NR_MB_IRQS	2
->> +
->>   struct flexcan_devtype_data {
->>   	u32 quirks;		/* quirks needed for different IP cores */
->>   };
->>   
->> +struct flexcan_mb_irq {
->> +	u64 rx_mask;
->> +	u64 tx_mask;
->> +};
->> +
->>   struct flexcan_stop_mode {
->>   	struct regmap *gpr;
->>   	u8 req_gpr;
->> @@ -99,8 +106,7 @@ struct flexcan_priv {
->>   	u8 clk_src;	/* clock source of CAN Protocol Engine */
->>   	u8 scu_idx;
->>   
->> -	u64 rx_mask;
->> -	u64 tx_mask;
->> +	struct flexcan_mb_irq mb_irq[FLEXCAN_NR_MB_IRQS];
->>   	u32 reg_ctrl_default;
->>   
->>   	struct clk *clk_ipg;
-> 
-> 
-> Yours sincerely,
-> Vincent Mailhol
-> 
-
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
