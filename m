@@ -4,90 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0E0CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF09DCD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 12:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=md0oLfExsjhQ5s9zgCStyVmZOOcuKHtb2pCgbVaO+NY=; b=r7yaVG0kTp0eKmdfkO4TrDkFs5
-	tp8+tImWYXuH51M96GgB4cE9arfW6/Ug5IMn/P2VZANg2uYtC7yba2DKhvlZ5FNEAFYH8Z5Mgx6+h
-	nZuA3dqRticJy2LysJF3S20QfmLT6JA9ZE+TFq6fzbLY/f0dCdGhHx9dW1z/8KH2zx1L8WYjB6h4e
-	O8Qlc9wvbMQjlFG5u7UlQ35ghj2SYRO/fgZMNG3HMQFMo3ZhGgn0FrDwy81onO5f7ZtE2vrRRJe6a
-	kYzsn/YgAtSEX6JGbJ5TXNDDz30F30AXoZybw4K7vIWNRQRBLvdCIMusOi9D908/TKNgGjBuhM7zt
-	nKRlR48A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O02wNSMoFIM0rygGZbIsJGDCRWP98Rp09cGml3zivWA=; b=FPn8ggs56PP/+CPOGlhxroQ7hp
+	3/Os4B+063ZfM8PZ38fOq1heIiBSir+dz/+L/BmaFi/POsvJ4ay5c5nX1a0CkKJ51mpT7+tJXqihf
+	gAqEPDy1fujvySMcVtUXbls6ko5TTv4u7mB0fBBWGcUqCE7bZKd8TrKlaEZDhjdndtJijuXOV+1uq
+	xsazuMb5nVVrhg/XubeCLG4k3AP20alkIkNNP1MynA2YmAH6Th1ERwCwNrk+Scg6EPeufMWQGUfkf
+	jx5Vap5iH7QEqyNF8mF25NKE5h8bTmK9Ek0l2U7Uv81pSQFZqfCQesetUzqFtR5RrwmVPSmETAau0
+	rgcd3MCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvL5-00000005VF0-2CD5;
-	Tue, 09 Jun 2026 12:13:51 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wWvN3-00000005VOl-3Ipv;
+	Tue, 09 Jun 2026 12:15:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWvL3-00000005VEA-0ZHN
+	id 1wWvN1-00000005VOf-3va0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 12:13:51 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-36dac5d5d05so2877135a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 05:13:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1781007227; x=1781612027; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=md0oLfExsjhQ5s9zgCStyVmZOOcuKHtb2pCgbVaO+NY=;
-        b=aXBuRPlWfP5qqTqi9w2+i/+HnIy84dGugLEa6sYEXCseEFij5rbMt26tOYnmk87CU+
-         z0YQSfdsWmm+URtI4OOAAV4bxaOJx/8kki3ZczNQKze2ad2EOkNGjfRylA5RYg9OowTP
-         HLU2MnNclqJfWHMWEOkl/RFQrbW+htrMPZUE4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781007227; x=1781612027;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=md0oLfExsjhQ5s9zgCStyVmZOOcuKHtb2pCgbVaO+NY=;
-        b=qZQItw1hRLf4kxt4DaQ3XMtCq6E62C6wq+wFjvyXTP0rJixKTRxPUMcs2KwS0mjtw9
-         jWApxdrIE/qry7mqfOw+h94jxghjnfa2iHiF7CrQWzzUfU9vEEklRk8P+s1IpBTCARrw
-         zkpdYr26P54n4vMDVQSkz7CqyVH8wwuTlePp5/szTZCkJBqiFCn32eCvlnwFxQK6yy8K
-         ppR1xWqnu9St5h3P4WC8UmqpglCZaSRnbolHzDYS1X9rIgg16Bceduk7Cevj8zR0yLQH
-         4rakIFhkS2mkI82kwUg2XTSn/QjCkuCgJQjNNIwx+bFoptxIiwakG6bNC0YBlF/H265m
-         T9xA==
-X-Forwarded-Encrypted: i=1; AFNElJ9lzTvbmMYdOQEAq+vIm6kRS/JItwFLx6qRsnLwL8E2TbrxkygN+g3ipk/oQt3w5EaVAjyNvYrRDuTKUCHNee4P@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXb/aq7KRESLKvI8x101T+88ZUQGqvbHUzyIWn9L0lcVfy/nnt
-	DUQq+Rrn9OnGuTyT07r5UMcHztbXCOEZPjUhAXA+jrhQtnZS4JeXh1sp5cHwCHuk+IaCGaz4nfy
-	yZYA=
-X-Gm-Gg: Acq92OE/cA9a0Ut1axgvuUtq5i+NQNUKgh14NDh4hvLMVclnKYhyZsdbx/dlec38fux
-	vHSLpbZsYrpQED2A6KPCwongtwjzn2AnTxaQNXBH6LTyVq9JC/n+B91C2AE2gIxL3sbxgo08erB
-	HqTWRb2DDT0C0UKKuDUq1uq5R2z/hR0dnndufWttK66u+ng8QjrOKWRn9oceV0VILic5J8q9/fp
-	VsMELJefPSyo15Gz4ctBxiPcchVm7CFENSiXSujOXO5mjOvcaELVkDK2rxrMaHnL73/wlFVVk2T
-	Ldj0aLqKTSsh28ymUe9iqF0kNUyE8qOTjeLNBdficpJ7S3e9v0HFbE98tlu5XqZU8GQygTEolNB
-	Te8HnKeZZEJDCFF9MHkc3dR+vLrsTRzNqQyiy8Y0VpFsPFd8/vECmr83iOkCCpNd8GKF7f5HE+u
-	f+xtQEiPQFhzkC92NA4JxUgg5Ruk5no84ob/bPHwMQpQKOQcpWlyu95VuEAvH1BHjik5ONQGaYr
-	amctXKL3V5RkOFE0MjaFAm/
-X-Received: by 2002:a17:903:fad:b0:2b2:ebed:7af5 with SMTP id d9443c01a7336-2c1e7b13addmr221626095ad.13.1781007227564;
-        Tue, 09 Jun 2026 05:13:47 -0700 (PDT)
-Received: from tigerii.tok.corp.google.com ([2a00:79e0:2031:6:62ce:f303:81a5:1cce])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d37esm279998175ad.9.2026.06.09.05.13.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 05:13:45 -0700 (PDT)
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Mark-yw Chen <mark-yw.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>
-Cc: Tomasz Figa <tfiga@chromium.org>,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] Bluetooth: btmtksdio: fix infinite loop in btmtksdio_txrx_work()
-Date: Tue,  9 Jun 2026 21:10:06 +0900
-Message-ID: <20260609121329.1262170-1-senozhatsky@chromium.org>
-X-Mailer: git-send-email 2.54.0.1064.gd145956f57-goog
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_051349_449106_CBB3A2D1 
-X-CRM114-Status: GOOD (  14.33  )
+	Tue, 09 Jun 2026 12:15:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E3444601D6;
+	Tue,  9 Jun 2026 12:15:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ECB21F00893;
+	Tue,  9 Jun 2026 12:15:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781007350;
+	bh=O02wNSMoFIM0rygGZbIsJGDCRWP98Rp09cGml3zivWA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=U5Iy8ByXoOEv4Es+WJDoGvQezhugFYHIhxmHfowiy+fGi1olC7g8B1P5lmLYKyLWR
+	 l6JqBulAaFuwOu1R7My3lyCXO2svWxxnn/foPSVaw+MHWryDVv3EJJyRCti+vxbM4/
+	 nb+aKfa8TlP1eUI9wLq4IleCmyDyvNcw+DMWGd8JAvhiYr8OyDR2CDzx6qST5qNYYQ
+	 SezlBJT7GI/PR2a9/coHGVHLlzP933O5IYBhtANKSu3ciPiFLOkRPGEJG8N/ScOUrk
+	 5gyTi7RI/Dq29WNn6GqsS1FJldRmHBRjwHyR6Z+0ue6g8NRULZymopbT9TR45z5kOF
+	 eARDeHSgzv56Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wWvMx-0000000Au0g-2IwC;
+	Tue, 09 Jun 2026 12:15:47 +0000
+Date: Tue, 09 Jun 2026 13:15:46 +0100
+Message-ID: <86cxxzucy5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org,	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	devicetree@vger.kernel.org,	Lorenzo Pieralisi
+ <lpieralisi@kernel.org>,	Hanjun Guo <guohanjun@huawei.com>,	Sudeep Holla
+ <sudeep.holla@kernel.org>,	Catalin Marinas <catalin.marinas@arm.com>,	Will
+	Deacon <will@kernel.org>,	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark
+	Rutland <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,
+	Krzysztof	Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
+ <conor+dt@kernel.org>,	Chen-Yu	Tsai <wens@kernel.org>,	Jernej Skrabec
+ <jernej.skrabec@gmail.com>,	Samuel	Holland <samuel@sholland.org>,	Neil
+ Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
+ Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
+ <jesper.nilsson@axis.com>,	Lars	Persson <lars.persson@axis.com>,	Alim
+ Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
+ <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
+ <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,	Thierry Reding
+ <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
+ Andersson <andersson@kernel.org>,	Konrad	Dybcio <konradybcio@kernel.org>,
+	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	=?UTF-8?B?Ill1LUNo?=
+ =?UTF-8?B?dW4gTGluIFvmnpfnpZDlkJtdIg==?= <eleanor.lin@realtek.com>,	Heiko
+ Stuebner <heiko@sntech.de>,	Shawn Lin <shawn.lin@rock-chips.com>,	Orson
+ Zhai <orsonzhai@gmail.com>,	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>,	Florian Fainelli
+ <florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
+In-Reply-To: <658bffa9-bd70-4b62-ac03-505822ba0be9@samsung.com>
+References: <20260523140242.586031-1-maz@kernel.org>
+	<20260523140242.586031-4-maz@kernel.org>
+	<CGME20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba@eucas1p1.samsung.com>
+	<ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
+	<86ik7st3nh.wl-maz@kernel.org>
+	<193cc406-0834-4dee-9b4a-02cdfd85e05c@samsung.com>
+	<86ecigt2hq.wl-maz@kernel.org>
+	<658bffa9-bd70-4b62-ac03-505822ba0be9@samsung.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: m.szyprowski@samsung.com, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kern
+ el.org, afaerber@suse.de, eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com, florian.fainelli@broadcom.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +115,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Every once in a while we see a hung btmtksdio_flush() task:
+On Tue, 09 Jun 2026 12:32:24 +0100,
+Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+> 
+> On 09.06.2026 12:46, Marc Zyngier wrote:
+> > On Tue, 09 Jun 2026 11:35:24 +0100,
+> > Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+> >> On 09.06.2026 12:21, Marc Zyngier wrote:
+> >>> On Tue, 09 Jun 2026 11:03:21 +0100,
+> >>> Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+> >>>> On 23.05.2026 16:02, Marc Zyngier wrote:
+> >>>>> When running with at EL2 with VHE enabled, the architecture provides
+> >>>>> two EL2 timer/counters, dubbed physical and virtual. Apart from their
+> >>>>> names, they are strictly identical.
+> >>>>>
+> >>>>> However, they don't get virtualised the same way, specially when
+> >>>>> it comes to adding arbitrary offsets to the timers. When running as
+> >>>>> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
+> >>>>> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
+> >>>>> the architecture is broken past the first level of virtualisation
+> >>>>> (it lacks some essential mechanisms to be usable, despite what
+> >>>>> the ARM ARM pretends).
+> >>>>>
+> >>>>> This means that when running as a L2 guest hypervisor, using the
+> >>>>> physical timer results in traps to L0, which are then forwarded to
+> >>>>> L1 in order to emulate the offset, leading to even worse performance
+> >>>>> due to massive trap amplification (the combination of register and
+> >>>>> ERET trapping is absolutely lethal).
+> >>>>>
+> >>>>> Switch the arch timer code to using the virtual timer when running
+> >>>>> in VHE by default, only using the physical timer if the interrupt
+> >>>>> is not correctly described in the firmware tables (which seems
+> >>>>> to be an unfortunately common case). This comes as no impact on
+> >>>>> bare-metal, and slightly improves the situation in the virtualised
+> >>>>> case.
+> >>>>>
+> >>>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> >>>> This patch landed recently in linux-next as commit d87773de9efe
+> >>>> ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
+> >>>> running VHE"). In my tests I found that it breaks booting of RaspberryPi5
+> >>>> board. Reverting it on top of linux-next fixes the issue. Here is a boot
+> >>>> log:
+> >>> Huh.
+> >>>
+> >>> [...]
+> >>>
+> >>>> arch_timer: cp15 timer running at 54.00MHz (hyp-virt).
+> >>>> clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xc743ce346, max_idle_ns: 440795203123 ns
+> >>>> sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
+> >>> The interrupt appears to be advertised in the DT, but doesn't seem to
+> >>> fire. That's obviously not going to end well. My suspicion is that
+> >>> either the interrupt isn't wired (that'd be hilariously abd), or is
+> >>> left as Group-0 by the firmware (copy-paste from RPi4).
+> >>>
+> >>> Can you try the following hack and let me know if the kernel shouts at
+> >>> you?
+> >>>
+> >>> Thanks,
+> >>>
+> >>> 	M.
+> >>>
+> >>> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+> >>> index ec70c84e9f91d..d05791e6cc0db 100644
+> >>> --- a/drivers/irqchip/irq-gic.c
+> >>> +++ b/drivers/irqchip/irq-gic.c
+> >>> @@ -213,6 +213,7 @@ static void gic_eoimode1_mask_irq(struct irq_data *d)
+> >>>  static void gic_unmask_irq(struct irq_data *d)
+> >>>  {
+> >>>  	gic_poke_irq(d, GIC_DIST_ENABLE_SET);
+> >>> +	WARN_ON(!gic_peek_irq(d, GIC_DIST_ENABLE_SET));
+> >>>  }
+> >>>  
+> >>>  static void gic_eoi_irq(struct irq_data *d)
+> >> I've applied this change, but it doesn't trigger any warning in the boot log.
+> > [+ Florian]
+> >
+> > Huh. So that really points at the timer not being wired into the GIC,
+> > Samsung style... Can you confirm that removing the EL2 virtual timer
+> > from the DT results in a booting machine?
+> 
+> With the following diff the board boots again:
 
- INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
- __cancel_work_timer+0x3f4/0x460
- cancel_work_sync+0x1c/0x2c
- btmtksdio_flush+0x2c/0x40
- hci_dev_open_sync+0x10c4/0x2190
- [..]
+OK, so it really is the EL2 virtual timer PPI that is misbehaving.
+Let's see what Florian comes up with on the status of this interrupt.
 
-It all boils down to incorrect time_is_before_jiffies() usage in
-btmtksdio_txrx_work().  The btmtksdio_txrx_work() loop is expected
-to be terminated if running for longer than 5*HZ.  However the
-timeout check is twisted:  time_is_before_jiffies(old_jiffies + 5*HZ)
-evaluates to true when old_jiffies + 5*HZ is in the past i.e. when a
-timeout has occurred.  Using OR with time_is_before_jiffies(txrx_timeout)
-means that:
-- before the 5-second timeout: the condition is `int_status || false`,
-  so it loops as long as there are pending interrupts.
-- after the 5-second timeout: the condition becomes `int_status || true`,
-  which is always true.
+Thanks,
 
-When the loop becomes infinite btmtksdio_txrx_work() loop never
-terminates and never releases the SDIO host.
+	M.
 
-Fix loop termination condition to actually enforce a 5*HZ timeout.
-
-Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to work")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
----
- drivers/bluetooth/btmtksdio.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index 5b0fab7b89b5..c6f80c419e90 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struct *work)
- 			if (btmtksdio_rx_packet(bdev, rx_size) < 0)
- 				bdev->hdev->stat.err_rx++;
- 		}
--	} while (int_status || time_is_before_jiffies(txrx_timeout));
-+	} while (int_status && time_is_after_jiffies(txrx_timeout));
- 
- 	/* Enable interrupt */
- 	if (bdev->func->irq_handler)
 -- 
-2.54.0.1064.gd145956f57-goog
-
+Without deviation from the norm, progress is not possible.
 
