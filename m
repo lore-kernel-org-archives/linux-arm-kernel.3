@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4921CCD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F41CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sw1opRUXcAw/1NhWQ+DjHthGw6A5mSCQCWdmv0WppA8=; b=iKQQ2wgZ9FzOkdd6ldhpd7H2gB
-	7mBr98TikW6kETNo/3X5X75Vyl9Ejbh7F+NOuK/5O0R3yMvwTKYt9LqOcIP06+JlX/dFqibIrwusc
-	mTT0amjxtbshNIa/oyr1lUqft7Ur4dnGHHOZxU9Mmo7fjJzdi0Ga6/rBfGEr7Jd+kjT+YwOJhKd9D
-	SZ5z4A8o2MtQex9cGUYhRJfHzcO9S+Ginf1osByInb0cvEjz2FJguZl9EuZ0BzQpH5exoz7b62fqG
-	13Q49cVt5DAVYmuC7MYx1/B1E09ANLF2PFpIYB4IG/WquR8w94k7i/qT+afEyD7WI/8mz9FRuUMNe
-	wb6KduaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N8+mvEz/uros8or36J+62LaI0/57hxHXfoqkEFi7n/E=; b=S83/eImdOZO6FHiMSdNCXNGgEM
+	Ze3nsyOCa6uCF6ciMh0PTAJgq6gsCw8L8G6V9wk9R1OKgDTLx86tn2UGRW8pwNUj6oXaAfx1c48f8
+	nMmM1RdcsNOdj+PFz3reFOKo9xGm5NOdUkqTmsI5ZRVwVz3qyjOxlbNnD0Xg5JAofxv0dTVOtnpnh
+	PDqF0o7j0ZbHT1kms7UdQ9Ueiq0tHaGn0lrQ5BH7NyMMraD8ScJ6vKYEAVmtWvigrFaCHCFOy7x+L
+	rTFwmV7WKg4I6aznmNCmgdk8A+N+Fnk/fddsCt48UqTy2GgsGRjKKcQHd9EQ/8KOM5e5D3T6gNkF3
+	QGXNR6Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWt2v-00000005Etf-3l4A;
-	Tue, 09 Jun 2026 09:46:57 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wWt3U-00000005Ezm-0BpW;
+	Tue, 09 Jun 2026 09:47:32 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWt2s-00000005Es7-466P
+	id 1wWt3R-00000005Eym-1rpG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 09:46:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Sw1opRUXcAw/1NhWQ+DjHthGw6A5mSCQCWdmv0WppA8=; b=rI2a0MbTWMwB/3rZkDrP74q/UO
-	i3TT9fSM3f58ih8ydJ6Ch4Z18EcAsceHJaRcSitWe9Huvmzcnzmhcpm+YsXeKjhf7jjOVUePegtCr
-	hbnvvyYlpN/GDs+VpIYaSSfh+hlbgM1IW69ApQOscaGfruBO8EGhKAgjIc+BRNpkT4kr+kY7wrgEj
-	T5dvAEGruxhqDBVlQ1m7bu5WLPETHgXLi4lplfFNEnDczmEbY5gFCHr7tB1frRf2TYDTNreGinGbC
-	gYfsjpvi6A0kIJuLga6bad/k1qJzZnHrx8ETlk37HTKDN55Koe7D1GWHbdDpp5aAWW/4QQqgNgsQT
-	CQMzCRmw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43128)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wWt2j-0000000063F-3tfB;
-	Tue, 09 Jun 2026 10:46:46 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wWt2g-000000002ua-3S77;
-	Tue, 09 Jun 2026 10:46:42 +0100
-Date: Tue, 9 Jun 2026 10:46:42 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Helge Deller <deller@gmx.de>
-Cc: linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] fbdev/arm: Export acorndata_8x8 font symbol for
- bootloader
-Message-ID: <aifhAn2RMdxQ2p86@shell.armlinux.org.uk>
-References: <20260609091056.265794-1-deller@gmx.de>
+	Tue, 09 Jun 2026 09:47:30 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-490a78fbd7bso6382315e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 02:47:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780998447; x=1781603247; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=N8+mvEz/uros8or36J+62LaI0/57hxHXfoqkEFi7n/E=;
+        b=NAftnlw8zB+Yyk3OQJwQy+26MZ5cSCi/OdVRhJZjtEk8xUveJiOsbKfCI1EFErcIuY
+         aHEOYhKKvfSIlb+CawDunJLskBqghWhAeh8lvQUyrlsKT61Vmlq1DPJ8Lr5Myn6lp2vj
+         1SYfwKfTWpmTiseMCIADRfIDgL4OIzCcHaHdtuu0OiWa5WXGYUstz/Eb0KeYzxmYKVJW
+         GK7boH1Rapi9PsoyS8cPxz0fjCz0ACcglhzLRHWSbTpMqirYAPzlTQRqu3nXDVMKMZ4Q
+         ruaoEYMSsW0pnA2GOibnPHlnhJGm7OB7Xg+A7qvaExOtrTeQZzc4u9UvDF6rGlV7bRI2
+         PAUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780998447; x=1781603247;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N8+mvEz/uros8or36J+62LaI0/57hxHXfoqkEFi7n/E=;
+        b=roqER3Z7NWRpEUydZIe/lGXFE3pnuiD9KANj5zKcqUB5K7OxKRTM791b4rx4ZUm5rG
+         aeSrO30OUQlrRg6nHnmtsQFnD5gQ/H4eySkJGmoCzlzO9uhh2ayxZ7nOpOFKYgzHyxvt
+         uVq7OVMgIOA1vr/DUn/LknXaPeo/GfMq/WMTrU9AYXr4PlwPYLf3sxdpXcxcjxafPbx2
+         cysfxEe7bgWHQb6WN6tO5PfiXoCRgmXMqURS2/0Y62u3nywolg3Z2f3a9BlRRm7FcwX2
+         1qAkeCOmUxn4dXgNKvBjyxCvYrFHa6AzAYFQGYQ1x/pOrGxV7Ze53yX0R1wyrOhNdYCY
+         Ir2Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/JvOqrjnugP5rvFk1ItkmY4ORo8ihbDU55UGvn11fsA9b43vlIdPvWUMKB9/weaBVt4BT2VU60mEj6OnvMkQpt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0AES6Fv/w6UZ56geei9V35QURmvWRRbCueNGa3bvzcy4kII7B
+	h8qGhmTotR2aWhciqb3ZWF7rjkDp+56go6wFZkVprPUGumpcE/OERjNE
+X-Gm-Gg: Acq92OHGF6y7LEPRRaJDmIKgRX0tvby0n2+Yrhd3OKcNB8n3pGrAyDrMoCX+EPj1YNo
+	RdCljDJ49QRQJAxfO73DZe3rqQjbixDr9ncSvrTb/+mWNft6rIBL/QNNEcJDr0Yv8cwtRPRXyfQ
+	Yf7qzju5P1v+/LtCvAl2wj3JQC89UMInVqeu6pAxsKFRkZ7ccoEshAgvQYu46AiYcBFqzmzjPkn
+	Qpaa1U2oMaFwzxAZ1lal1wi3dou1kcLJj5c1BcwzyJy1zGFJvrpV71HoqwBd58Yu57MdZQbKrrm
+	6LuVRYLMDv12Pog0uhe9qepCO+tOzqJsIHnczg5Jk46fDZRdASyzlDTc9r3ksctuRxK3HigLmDD
+	mz3lW9kmMNE7Z5RXkzStX7bFFApMUFfrHZ2+rvLBQPf3Y/W7Q2nOMcVXDWRTuRDpCP+IEJDzhcL
+	SglbW2z4yibnt++j5CEyYXDfpURKLuVfU/n06zjqyfYu+EbnYkfs8f5w9EsMyVZCMO+KEnIiJ/H
+	Q==
+X-Received: by 2002:a05:600c:8718:b0:490:b2b2:87d2 with SMTP id 5b1f17b1804b1-490d7255c0bmr10214735e9.5.1780998447423;
+        Tue, 09 Jun 2026 02:47:27 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3e59f5sm496152705e9.14.2026.06.09.02.47.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 02:47:27 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: thorsten.blum@linux.dev,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	ardb@kernel.org,
+	krzk+dt@kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [PATCH RESEND v2 1/1] crypto: atmel-sha204a - fix heap info leak on I2C transfer failure
+Date: Tue,  9 Jun 2026 09:47:23 +0000
+Message-Id: <20260609094723.47237-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609091056.265794-1-deller@gmx.de>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_024655_306403_97F897EA 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20260609_024729_499813_F3E79B5B 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +105,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 11:10:56AM +0200, Helge Deller wrote:
-> The text display code used in the Risc PC kernel image decompression
-> code uses arch/arm/boot/compressed/font.c, which includes
-> lib/fonts/font_acorn_8x8.c, which further includes <linux/font.h>.
-> 
-> Since commit 97df8960240a ("lib/fonts: Provide helpers for calculating
-> glyph pitch and size") <linux/font.h> contains inline functions that
-> require __do_div64, which is not linked into the ARM kernel
-> decompressor. This makes Risc PC zImages fail to build.
-> 
-> Resolve this issue by defining the BOOTLOADER symbol and use it to avoid
-> a static declaration of the acorndata_8x8 symbol. That way it can be
-> referenced by the arm bootloader, and other static math functions and
-> symbols (like __do_div64) stay static and don't get unneccesary included
-> in the ARM kernel bootloader decompressor object file.
+The nonblocking RNG path allocates a work_data structure to track the
+state of an in-flight asynchronous I2C request. This pointer is stored
+in rng->priv and later consumed by the read path once the transaction
+completes.
 
-The decompressor font support has actually been broken since:
+If the underlying I2C transfer fails, the completion callback is invoked
+with a non-zero status. In this case, the allocated work_data is not
+usable for producing RNG output and must not remain associated with the
+hwrng state.
 
-commit 6735b4632def0640dbdf4eb9f99816aca18c4f16
-Author: Peilin Ye <yepeilin.cs@gmail.com>
-Date:   Thu Sep 24 09:42:22 2020 -0400
+Previously, the failure path only logged a warning but left the pointer
+state uncleared, which can result in subsequent read attempts observing
+stale state and interpreting it as valid completion data.
 
-    Fonts: Support FONT_EXTRA_WORDS macros for built-in fonts
+Fix this by freeing the pending work_data and clearing rng->priv when
+the I2C transaction reports an error. This ensures that failed requests
+do not leave residual state behind that could be interpreted as valid
+RNG data on later reads.
 
-which added extra data to the beginning of the array of font
-information:
+The explicit clearing of rng->priv in the error path is retained as a
+defensive measure. While it may overlap with existing state handling in the
+read path, the ownership and lifecycle across asynchronous completion,
+read, and teardown paths is not fully localised. Clearing the pointer
+ensures no stale state remains after a failed transaction.
 
-ENTRY(ll_write_char)
-        stmfd   sp!, {r4 - r7, lr}
-...
-        /*
-         * calculate offset into character table
-         */
-        mov     r1, r1, lsl #3
+Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+Assisted-by: Gemini:1.5 Pro [google]
+Reviewed-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/crypto/atmel-sha204a.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-r1 is the character, this multiplies the character value by 8.
+diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
+index 4c9af737b33a..20cd915ea8a3 100644
+--- a/drivers/crypto/atmel-sha204a.c
++++ b/drivers/crypto/atmel-sha204a.c
+@@ -31,10 +31,15 @@ static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
+ 	struct atmel_i2c_client_priv *i2c_priv = work_data->ctx;
+ 	struct hwrng *rng = areq;
+ 
+-	if (status)
++	if (status) {
+ 		dev_warn_ratelimited(&i2c_priv->client->dev,
+ 				     "i2c transaction failed (%d)\n",
+ 				     status);
++		kfree(work_data);
++		rng->priv = 0;
++		atomic_dec(&i2c_priv->tfm_count);
++		return;
++	}
+ 
+ 	rng->priv = (unsigned long)work_data;
+ 	atomic_dec(&i2c_priv->tfm_count);
 
-        adr     ip, LC0
-        ldmia   ip, {r3, r4, r5, r6, lr}
-        sub     ip, ip, r3
-        add     r6, r6, ip
-
-in conjunction with the data table:
-
-LC0:    .word   LC0
-        .word   bytes_per_char_h
-        .word   video_size_row
-        .word   acorndata_8x8
-        .word   con_charconvtable
-
-results in r6 pointing at acorndata_8x8. We then index this using the
-modified character value above:
-
-        orr     r1, r1, #7
-        ldrb    r7, [r6, r1]
-
-This breaks if extra data is added to the start, and thus has been
-broken since the above commit.
-
+base-commit: 79bbe453e5bfa6e1c6aa2e8329bfc8f152b81c9b
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.53.0
+
 
