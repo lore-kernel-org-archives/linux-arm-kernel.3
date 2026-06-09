@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F8BDCD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 17:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05584CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 17:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YX6ZPm2D502cqZx4/+zrPYcRnZ97EQtYMDg4SYAmRws=; b=1loZWfW1nXvZJuM40q/vLyaz02
-	Z/htBYiGYujLXJlT9jITPYSTyZiRnWpgQRaFP230gLgkGzJcXrG7nhxUuenzs/UL/POSFsmct7tFg
-	Ri0UjP2VEMCPQ3XE6qLOvRdzzf7OYDpNvtn9/tJVGp/B0xEs4qLpN+/OlS5rfQA/w1kbPWfvd7lFs
-	z33MxdpXy2webcw+zhIWVn0hYRnpGvkHKsQ4oc4pLqPM932u0OTTosTVnBf9VQywO6DR0or7l//ej
-	IefRmv4xVObTL1SQVPT8ijaYI5B80Xxuwmp1E+AXNSzSsk5cE9rFSotRh2Jnw/FscNy79DZnYc+lr
-	aIFRJDbg==;
+	bh=qzGCiTeCStiKkPzefQJeYM5JOvHm2x+evqxUb+M6NvM=; b=ICx9MFJzu2C3cmVVvcDJoTPMeT
+	WK8Hkdzjv8/AXVBk/dr5FpQWnPsJl40+FcuvWmkD0eMpoqulWB6tSSnV4TCfCkS3uD6VtPROV+o9n
+	H5wuUDhOdy4DcO48J+Niggw4vCaUAOwPKxraE7lQO3tjqZN9ow6Pky1qV+dIathif99mNxxFcATKv
+	U7fxM9Mmg7iDorDhZYJ7WITm01E8OrTzLzwwq5KTp6DiHthFTVJbXEIuA1kU+CYP5YR4OSC51z2/t
+	WBNQVY4Pd1HH7rBUHdyt70qcq2TIZI/j3LvZdNCerNEpkRUqyPpucEzlWAlJIvlHOGZ6mme+JpXIx
+	nMY4GaTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0QM-000000068M6-37GO;
-	Tue, 09 Jun 2026 17:39:39 +0000
+	id 1wX0QN-000000068Mp-3NOj;
+	Tue, 09 Jun 2026 17:39:40 +0000
 Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0QH-000000068JV-2oPH
+	id 1wX0QI-000000068Jl-2eed
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 17:39:35 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490b8a97b11so64458705e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 10:39:33 -0700 (PDT)
+	Tue, 09 Jun 2026 17:39:36 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490b43e2b95so48329025e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 10:39:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781026772; x=1781631572; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1781026773; x=1781631573; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YX6ZPm2D502cqZx4/+zrPYcRnZ97EQtYMDg4SYAmRws=;
-        b=ItjX15qb8i+yAhFFAS0U7fdTgWZB/IzXKwK705Od3e+O2Yhf9S7c5lVoUBiS0TxkL4
-         f5J2uHAeqVghG11cvpYux8a0FvpClMHXf+lvlNO37feTwj+HyNjReEpuylb7pC6hx81G
-         Jio4c77fxfnQFZ+Y674UeK0VMFw572yYJ49+jEX6g4yhaStEPpSqawwPVNKUF6IDDHLI
-         dPhOuTBAOl5pzRUlx2DZCQ5kQGVrLnN/DfUM0ibyDcrfwENCtjlgtbeHKgOnLBVbqE8c
-         zXP5QnkG0wpAmFgQf03NHx/uDwpILxLUuDXATQfRys3okKj3ZB5AqeTI5SKML9nsRKRw
-         M2lA==
+        bh=qzGCiTeCStiKkPzefQJeYM5JOvHm2x+evqxUb+M6NvM=;
+        b=mS17ftQ21typflwwgM+VbDsBSaOoAdd8pHCLqZz6qqBKE3a32YoNFmj9gD6nZX4dZs
+         LleUBuTXIfPqlPSmKcYrMZ61t70eOPpEH+rFUmi0JgnSONwYiaEJVafjTNa9uMQ9x1K0
+         7JvKr0uN05tP5TkHYj13Zm1v+M2sOWmKzBOqemkruiFdmOk8tL2BI3VIkCPzQ1QWRzdW
+         N+Yo7GBIJ9UcbdgKExU9S2D/YplXL4YucWsm7LKik3Y2u4PRiKo/IqI87h1VSuxNHhd3
+         ioIxrnQNfMM9vjoGmHKWCkMHBeodhZ0GFcx73yYAak9c77ripPcfTE7pybg1Pflq3as8
+         /kRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781026772; x=1781631572;
+        d=1e100.net; s=20251104; t=1781026773; x=1781631573;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=YX6ZPm2D502cqZx4/+zrPYcRnZ97EQtYMDg4SYAmRws=;
-        b=hXMSVY72dvrwXjJ3i6vVm67VkyrCyP7YqSuPHiD8QDOkMpzupmmdW1YzWQeyeTGCnv
-         93z5nIuOp7lSejZDAR+VSr9LIe4LvayQ5wk3Oq9KAD1vBteThuHtSnkayBLiittZgrJx
-         lvWtx9dSk9Q5uOuIJe5ltWyahkI28KjKTiwYTBYXNh/fALBGsD4LgfUoHPtVtgYRScAI
-         Jejywc+V2GD9qqlhFWFfXXgC5dhDn2VfUOXjZVCB/pAIRF6pj6MAdy4DEVEzjBruIX7V
-         PvA/CoZ5OxvDspSDYSbourRLpSElLj+VJj1E3rXVQhPADvUUi6I3JsEXNf+Krkgm+61l
-         n8VA==
-X-Forwarded-Encrypted: i=1; AFNElJ9ruUKGUNAWVJf78aUY+4t5cVLIHSlp6pMoAnjUU5V2ARaP6bAECtAmafAM1HZFdmvb9rEloLedoKk8hwie9MOg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMrt1wr6sftDlwvh/n5E4/FGrVFjYHkiFVWC13ewt4zKH4t80X
-	YXQ8brVuUtaQWXCqMK89hSDwCRAHT2pjMGwTwQfhoD3EpGPIY4/ZL4r7FhjryiKKBMNdEsHlqCW
-	BmRZrxJ0=
-X-Gm-Gg: Acq92OGEGPwgKU8sEBF/eD12ny79fTbZ+4iOQKUb471VZxbBgewN8S798n3cs7iZUuA
-	E4huPdVMFUATb6yLM24BIOE7p2ykuBUL7s7FGSUIOTg458jl5w8WY7gDEkW7zc0czkPx8lk9wvy
-	6BXkI0HN2o0kWy0THNi4qJ9DYyWD5JYs+Fzi/lDT+HfucPaUmM183xjUE/qbIoTL9vuo7o1lt+7
-	D9riDyFD5cOH4+jnM3NqKegg7IlcmXnqMc3JVLu2lDlXWzETvY8RJEeI5X3krGFxTTWXYrLgJRE
-	KZI3W8+xm+wLbnKwISVMhxtpCek8nZo1c0aFhIq4hO7bytYJxYAE5InUb25I74Zhp3ylJ26U3eh
-	oM9xwuBA29BUF60whRwEEFTHQ0lTtwhsuOPEZqZHpZ0lt0s+OhBd9rVjyBAUWyp7cRwLUMs72oi
-	rZZXrxri4yAIJ9ucMA4H9ExiYZAzYmmWp5SgP0Yxcxn05hJcpHG4gM3+0o78taRyPpRAxM2EVRN
-	Ja2GmEL+y1S2AsoVnPlNd5X32s=
-X-Received: by 2002:a05:600c:1396:b0:490:d946:47cf with SMTP id 5b1f17b1804b1-490d94647e9mr41460835e9.4.1781026771736;
-        Tue, 09 Jun 2026 10:39:31 -0700 (PDT)
+        bh=qzGCiTeCStiKkPzefQJeYM5JOvHm2x+evqxUb+M6NvM=;
+        b=A1gEXCkh3kRyJKPq86KynoD4c0cdAkJNGrr8wz1EQ+j+dzsUi4Glfud0PXn1AJpOdn
+         h47NcZhX/HGU0X131SL4O7cGxeQbcSbAcr9rtN2ah7DYB3+5fCaCVV8LiAF7yA8ZGsis
+         GqegrqLBvzCc/hZppncYmZ6jyMK52FyCT3fd3mHhNb9Zv7+Nki35WmKXfJm63HPFjaMI
+         jK2tlqZglaEquPmZJWXdeyOpu60Sy3JzacQoe3Baad44QzjUhNAIeuzZ63xp02BpAi5Z
+         6Z0qCEUxnJV3pZG+Ynra5mfSGogzu2vVD/shNZdbU1pb4BLBG7GtUZljAtornvoojetk
+         IhIg==
+X-Forwarded-Encrypted: i=1; AFNElJ9PNSbEX1TG6A9GnQLAqnJKpw3Ag/uU8y+t7pNsnYw895EjIRb/EsHokiC/qlE8GFIuEiXXaY156Od/lZv/li2F@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+7zPNCVyprZrB4sTTt051FgpLBex71mvdKyCIYm41nWi0vf1x
+	8urMaKO6kIGw49mx9iFHbfcdrvxliu8XRfN53L7DzyX5C3s3p/FlG3kDTMv7OSjZC2VZUgF/6Xl
+	FiTm1AUw=
+X-Gm-Gg: Acq92OGR+f1Utv2pAweSn+BOoZ01k619AsSYWSqgg6d+YFvtoMPTiboLOenRvN9C2mr
+	9PXZ+ab3Majk2fRPaRsfjiDIhXaeSu1JXJCvaLDXtjisE43Z0Gk14R7mZZy095fxOWDt/iSV9qc
+	sUSLPLPQ3/YSeJgrMB/CW/oGGSII50SgqiwuOdEVeOoC//DfuXIymsjB6T1DNizCniNQxx0BBxg
+	wFZmMFdajLgSmM8CYvIdV9FdULs7IQy3zul0qOTEkhmE7MCGnGV4z1uSPBNnSQbHiem/VgWZeZ0
+	iGM/l4NHt4pBGuaPD1ivVaJCIvtzTA7WQr4N13vyF4u2I65jkMV4JIhdrakEUF3twrDabzkVh1j
+	bOvAfZ2sG76PWTYco6OkqHbBHttCQTYrfRX8KzL+LhxsylHq3pu/zd1P7qesO+ahmLbDyDkV8IR
+	c9BSkU7QzDeSQi90JQxl0DE7QLlmWj8bOJttIfLLh/znYHU4CgUvc/Im42ZddhAOyumCDfrU/W8
+	hXvL2Zcx27RJaYzLj/fzLg3ljkhuarvAqoFqg==
+X-Received: by 2002:a05:600c:3e0a:b0:490:b724:dbe3 with SMTP id 5b1f17b1804b1-490c25a07c4mr328438815e9.8.1781026773036;
+        Tue, 09 Jun 2026 10:39:33 -0700 (PDT)
 Received: from [127.0.1.1] ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3fcf5bsm593605215e9.9.2026.06.09.10.39.30
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3fcf5bsm593605215e9.9.2026.06.09.10.39.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 10:39:31 -0700 (PDT)
+        Tue, 09 Jun 2026 10:39:32 -0700 (PDT)
 From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Tue, 09 Jun 2026 18:39:23 +0100
-Subject: [PATCH v5 1/6] dt-bindings: soc: move,rename
- google,gs101-pmu-intr-gen and add exynos850
+Date: Tue, 09 Jun 2026 18:39:24 +0100
+Subject: [PATCH v5 2/6] dt-bindings: soc: samsung: exynos-pmu: Require
+ pmu-intr-gen-syscon for Exynos850
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260609-exynos850-cpuhotplug-v5-1-8422cf80d43b@linaro.org>
+Message-Id: <20260609-exynos850-cpuhotplug-v5-2-8422cf80d43b@linaro.org>
 References: <20260609-exynos850-cpuhotplug-v5-0-8422cf80d43b@linaro.org>
 In-Reply-To: <20260609-exynos850-cpuhotplug-v5-0-8422cf80d43b@linaro.org>
 To: Sam Protsenko <semen.protsenko@linaro.org>, 
@@ -93,8 +93,9 @@ Cc: linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_103933_740833_1E0A7CDD 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260609_103934_742514_6B89D985 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,75 +110,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMU interrupt generation block introduced for the Google GS101 is
-actually a standard Samsung Exynos IP block found in older SoCs, such
-as the Exynos850, and is not exclusive to Google SoCs. To accurately
-reflect its origin, move the schema file to under soc/samsung/
-directory and rename it.
-Concurrently, add the new "samsung,exynos850-pmu-intr-gen" compatible
-string to the bindings. Support for this block is required to enable
-power management features like CPU hotplug and idle states on Exynos850
-platforms.
-Also, move this file under Exynos850 SoC in MAINTAINERS entry.
+Update the Exynos PMU schema to mandate the 'google,pmu-intr-gen-syscon'
+property for the 'samsung,exynos850-pmu' compatible so the driver can
+obtain the necessary syscon regmap.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+The Exynos850 PMU relies on a separate system controller block to handle
+interrupts generation, similar to the hardware design of the GS101
+SoC. To ensure the hardware is correctly described, this syscon phandle
+must be explicitly provided.
+
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 ---
- .../samsung,exynos850-pmu-intr-gen.yaml}                          | 8 +++++---
- MAINTAINERS                                                       | 2 +-
- 2 files changed, 6 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml
-similarity index 70%
-rename from Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
-rename to Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml
-index 2be022ca6a7d..df23467d0e0e 100644
---- a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml
-@@ -1,10 +1,10 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/soc/google/google,gs101-pmu-intr-gen.yaml#
-+$id: http://devicetree.org/schemas/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Google Power Management Unit (PMU) Interrupt Generation
-+title: Samsung Power Management Unit (PMU) Interrupt Generation
- 
- description: |
-   PMU interrupt generator for handshaking between PMU through interrupts.
-@@ -15,7 +15,9 @@ maintainers:
- properties:
-   compatible:
-     items:
--      - const: google,gs101-pmu-intr-gen
-+      - enum:
-+          - google,gs101-pmu-intr-gen
-+          - samsung,exynos850-pmu-intr-gen
-       - const: syscon
- 
-   reg:
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 86ca9297edab..498ca30a00c5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10952,7 +10952,6 @@ P:	Documentation/process/maintainer-soc-clean-dts.rst
- C:	irc://irc.oftc.net/pixel6-kernel-dev
- F:	Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
- F:	Documentation/devicetree/bindings/phy/google,lga-usb-phy.yaml
--F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
- F:	Documentation/devicetree/bindings/usb/google,lga-dwc3.yaml
- F:	arch/arm64/boot/dts/exynos/google/
- F:	drivers/clk/samsung/clk-gs101.c
-@@ -23652,6 +23651,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	linux-samsung-soc@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/clock/samsung,exynos850-clock.yaml
-+F:	Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml
- F:	arch/arm64/boot/dts/exynos/exynos850*
- F:	drivers/clk/samsung/clk-exynos850.c
- F:	include/dt-bindings/clock/exynos850.h
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index 76ce7e98c10f..6550c3736a3b 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -182,6 +182,7 @@ allOf:
+           contains:
+             enum:
+               - google,gs101-pmu
++              - samsung,exynos850-pmu
+     then:
+       required:
+         - google,pmu-intr-gen-syscon
 
 -- 
 2.51.0
