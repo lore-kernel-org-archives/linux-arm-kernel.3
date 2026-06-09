@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94F3CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4921CCD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6zXrAUk1pFWryVHJ+cTmWZacOn6b/LzGd6CUX95U4bk=; b=h5Pgf+b8zIlZdB4Oas+40MGfXf
-	znX7QqcvUmq32MolP397mAx9T5ehhJZ1wwi2X4A47jBmwUV9nLfG8IoDHUHoHmFQOZRxd+Gy7rL7q
-	oCwNyodyDfEjMrlaD5MTh1LjTo9d2MTPTQ9EGcW+a+qvh2RZPWVUF37NCGBJRmkhSRhJbDuL7SoCj
-	uUrc3fb2Zklx9nPzPx+qfl6mvrCN1EwbkfSAo9mbPWLK1s828cvlur3+/vS1JcO1trWzdh7nu45Q0
-	FTAjwPhzCzS21YzA/tpMFyJ466q3fM3Eget1Lb/h3AesS6gUrEpWtS/2qV2ZkN6XEkRzdt9spASb5
-	Qu4uokbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sw1opRUXcAw/1NhWQ+DjHthGw6A5mSCQCWdmv0WppA8=; b=iKQQ2wgZ9FzOkdd6ldhpd7H2gB
+	7mBr98TikW6kETNo/3X5X75Vyl9Ejbh7F+NOuK/5O0R3yMvwTKYt9LqOcIP06+JlX/dFqibIrwusc
+	mTT0amjxtbshNIa/oyr1lUqft7Ur4dnGHHOZxU9Mmo7fjJzdi0Ga6/rBfGEr7Jd+kjT+YwOJhKd9D
+	SZ5z4A8o2MtQex9cGUYhRJfHzcO9S+Ginf1osByInb0cvEjz2FJguZl9EuZ0BzQpH5exoz7b62fqG
+	13Q49cVt5DAVYmuC7MYx1/B1E09ANLF2PFpIYB4IG/WquR8w94k7i/qT+afEyD7WI/8mz9FRuUMNe
+	wb6KduaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsoc-00000005DNc-0WmZ;
-	Tue, 09 Jun 2026 09:32:10 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wWt2v-00000005Etf-3l4A;
+	Tue, 09 Jun 2026 09:46:57 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsoZ-00000005DLu-20Vo
+	id 1wWt2s-00000005Es7-466P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 09:32:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7E47F1A37EC;
-	Tue,  9 Jun 2026 09:32:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 516A45FFC1;
-	Tue,  9 Jun 2026 09:32:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 66026106A2B00;
-	Tue,  9 Jun 2026 11:31:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780997523; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=6zXrAUk1pFWryVHJ+cTmWZacOn6b/LzGd6CUX95U4bk=;
-	b=v53Jn3IKQ5rZa2HCyXQ90s8wLx3ywQ0LmCHWSpsKOlmG1GMrLmdJxhURMAuhdpUyfinCA5
-	kBWsBqIZCUE3jUB5DcF7VI5zsALo2/URxkoqIMpU9T5QbnrPR7dQO093j8HHedbVVOo2g5
-	r7eYn6p2PY5AgtYgjfgsbmtDruRPk1bLjSAsX5o5/XT2voEgPPx/+iWWcCTepf/A3Xw1xV
-	IqOLuAjykmVA4gL2UkS3NucPuWkEIYICi2KknBjygTjP6z8FaoZqD3OQ/+lhvN87bd3wYM
-	PKSmwi8rne9T2Lttqex5iV4qcahwOiAynoxVzOj/A6pU/U5ZTAbSOVGqGZbk1Q==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 09 Jun 2026 11:31:59 +0200
-Message-Id: <DJ4EXH5Y424H.3455WD05N981M@bootlin.com>
-Subject: Re: [PATCH 25/37] drm/bridge: shutdown and cleanup on bridge unplug
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
- "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-25-45e2bdb3dfb4@bootlin.com>
- <20260608-resilient-outgoing-panther-9efc53@houat>
-In-Reply-To: <20260608-resilient-outgoing-panther-9efc53@houat>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 09 Jun 2026 09:46:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Sw1opRUXcAw/1NhWQ+DjHthGw6A5mSCQCWdmv0WppA8=; b=rI2a0MbTWMwB/3rZkDrP74q/UO
+	i3TT9fSM3f58ih8ydJ6Ch4Z18EcAsceHJaRcSitWe9Huvmzcnzmhcpm+YsXeKjhf7jjOVUePegtCr
+	hbnvvyYlpN/GDs+VpIYaSSfh+hlbgM1IW69ApQOscaGfruBO8EGhKAgjIc+BRNpkT4kr+kY7wrgEj
+	T5dvAEGruxhqDBVlQ1m7bu5WLPETHgXLi4lplfFNEnDczmEbY5gFCHr7tB1frRf2TYDTNreGinGbC
+	gYfsjpvi6A0kIJuLga6bad/k1qJzZnHrx8ETlk37HTKDN55Koe7D1GWHbdDpp5aAWW/4QQqgNgsQT
+	CQMzCRmw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43128)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wWt2j-0000000063F-3tfB;
+	Tue, 09 Jun 2026 10:46:46 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wWt2g-000000002ua-3S77;
+	Tue, 09 Jun 2026 10:46:42 +0100
+Date: Tue, 9 Jun 2026 10:46:42 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Helge Deller <deller@gmx.de>
+Cc: linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] fbdev/arm: Export acorndata_8x8 font symbol for
+ bootloader
+Message-ID: <aifhAn2RMdxQ2p86@shell.armlinux.org.uk>
+References: <20260609091056.265794-1-deller@gmx.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260609091056.265794-1-deller@gmx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_023207_657698_CD3D35AA 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20260609_024655_306403_97F897EA 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,58 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jun 8, 2026 at 2:07 PM CEST, Maxime Ripard wrote:
-> Hi,
->
-> On Tue, May 19, 2026 at 12:37:42PM +0200, Luca Ceresoli wrote:
->> With the upcoming support for DRM bridge hot(un)plugging, bridges can be
->> removed at any time withotu tearing down the entire card. When this
->> happens, shutdown the pipeline and detach from the encoder chain the bri=
-dge
->> being removed along with all the following ones.
->>
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->> ---
->>  drivers/gpu/drm/drm_bridge.c | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
->> index 7f2d1a81d730..d45fb74ec8c2 100644
->> --- a/drivers/gpu/drm/drm_bridge.c
->> +++ b/drivers/gpu/drm/drm_bridge.c
->> @@ -462,9 +462,17 @@ EXPORT_SYMBOL(devm_drm_bridge_add);
->>   * it won't be found by users via of_drm_find_and_get_bridge(), and add=
- it
->>   * to the lingering bridge list, to keep track of it until its allocate=
-d
->>   * memory is eventually freed.
->> + *
->> + * If the bridge is attached, also disable the active output and detach
->> + * this bridge and the following ones.
->>   */
->>  void drm_bridge_remove(struct drm_bridge *bridge)
->>  {
->> +	if (bridge->encoder) {
->> +		drm_atomic_shutdown(bridge->dev);
->> +		drm_encoder_cleanup_from(bridge->encoder, bridge);
->> +	}
->> +
->>  	mutex_lock(&bridge_lock);
->>  	list_move_tail(&bridge->list, &bridge_lingering_list);
->>  	mutex_unlock(&bridge_lock);
->
-> I don't think this makes a lot of sense to disable the whole device at
-> once. The connector, encoder, and the CRTC might, but the whole device
-> doesn't.
+On Tue, Jun 09, 2026 at 11:10:56AM +0200, Helge Deller wrote:
+> The text display code used in the Risc PC kernel image decompression
+> code uses arch/arm/boot/compressed/font.c, which includes
+> lib/fonts/font_acorn_8x8.c, which further includes <linux/font.h>.
+> 
+> Since commit 97df8960240a ("lib/fonts: Provide helpers for calculating
+> glyph pitch and size") <linux/font.h> contains inline functions that
+> require __do_div64, which is not linked into the ARM kernel
+> decompressor. This makes Risc PC zImages fail to build.
+> 
+> Resolve this issue by defining the BOOTLOADER symbol and use it to avoid
+> a static declaration of the acorndata_8x8 symbol. That way it can be
+> referenced by the arm bootloader, and other static math functions and
+> symbols (like __do_div64) stay static and don't get unneccesary included
+> in the ARM kernel bootloader decompressor object file.
 
-Indeed this is wrong. Dmitry pointed it out during the discussion at
-Display Next Hackfest (see my report in reply to the cover letter). The
-drm_atomic_shutdown() call will be dropped.
+The decompressor font support has actually been broken since:
 
-Luca
+commit 6735b4632def0640dbdf4eb9f99816aca18c4f16
+Author: Peilin Ye <yepeilin.cs@gmail.com>
+Date:   Thu Sep 24 09:42:22 2020 -0400
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+    Fonts: Support FONT_EXTRA_WORDS macros for built-in fonts
+
+which added extra data to the beginning of the array of font
+information:
+
+ENTRY(ll_write_char)
+        stmfd   sp!, {r4 - r7, lr}
+...
+        /*
+         * calculate offset into character table
+         */
+        mov     r1, r1, lsl #3
+
+r1 is the character, this multiplies the character value by 8.
+
+        adr     ip, LC0
+        ldmia   ip, {r3, r4, r5, r6, lr}
+        sub     ip, ip, r3
+        add     r6, r6, ip
+
+in conjunction with the data table:
+
+LC0:    .word   LC0
+        .word   bytes_per_char_h
+        .word   video_size_row
+        .word   acorndata_8x8
+        .word   con_charconvtable
+
+results in r6 pointing at acorndata_8x8. We then index this using the
+modified character value above:
+
+        orr     r1, r1, #7
+        ldrb    r7, [r6, r1]
+
+This breaks if extra data is added to the start, and thus has been
+broken since the above commit.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
