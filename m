@@ -4,63 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C04CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EB4CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CHX+Uqp94Mx/sL3KWNcxbSaBfKGgYhEKd9xG+2kJxy4=; b=GOZG3imDff8loBMG+jbH8cLrhb
-	0y91XnToy5Z5S/h6hJtU2Wso04/I2C8Hj5jWmAAl8I0c41VZPnxFOCfyyqEeiwy4tHnF9LBi2AAyV
-	6xAlznbXlgj7qQAU+lbyAYz43eqA1sGk/KF6CnRA5Sm1ARV6ZUlVjl/xbDtaTcyJgo0XouxG2w/zg
-	wEiJVO6egyRWBN+tdNhnctrhpgXDx2KS5wFm6r1uk+ctwCjdCnVwq6QzHYCMdMTu7+ljWwaf7my75
-	NXqRWTIL/n19HGEx3ZcU+as3o4xDmlAcsHszh6iNAtvO81w9Rjap4u8H6Qcf+vtEZxvW39HyMLT3e
-	Od9IkF0A==;
+	bh=MOBpQ0JRmmblQJ4PcSwUlho8DTvTXyDdtyxsMVR58xk=; b=FcYC1kZE6MoRThukTT7Tb8ZAtQ
+	0e3IzNSsLaTq4H4nZkYh5SOzs+RskbyCP0iU141h2gFxOYbu4f8OSxtN3HCkZieZsapzV/pSSE9xj
+	p6CXoKsxnHkiS/EiwD39eloyetYiZmjxV2p+OjEfXxMhDBpD0YWOtYI6kFrrMrBvPiDSsHOyANChe
+	LQtFJGDoEuKYpQw/AmsFO9asv/2L7Qo14HfRYO/+xUJENfqMCmKctUpsi6qn1GlQcRFk8E672N3Xd
+	jD1BoSTmF7NnKmD6XCgA0ADqKKzbbrekU9kEGm2Pl5rBBy/+ZuZkF0BiFY2Ulogd0YJjw2zzbeGkk
+	rpfRG+7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtLs-00000005IR9-04FC;
-	Tue, 09 Jun 2026 10:06:32 +0000
-Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
+	id 1wWtMr-00000005Iev-1KPg;
+	Tue, 09 Jun 2026 10:07:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtLk-00000005IOI-3jc3
+	id 1wWtMq-00000005IeU-0ZII
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 10:06:26 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780999582;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CHX+Uqp94Mx/sL3KWNcxbSaBfKGgYhEKd9xG+2kJxy4=;
-	b=oSz7YhaY/xmNlGBLjNf8NbSwjaCfRdSX+ag3nXokSPBFQuwJo/NRFsR3kqEqera5PrYVok
-	DSZ6pWeAn+ZAhHDSOtCeEm/xJ0HSXhLQebHrIHs8wFX+Cq6klPxdjjPmEiWxoqypMl4SMX
-	pey5kdTSeKimNayC1yqQCiBMXNUcrAI=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Thorsten Blum <thorsten.blum@linux.dev>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] crypto: atmel-ecc - clean up and improve ECDH comments
-Date: Tue,  9 Jun 2026 12:05:54 +0200
-Message-ID: <20260609100552.233494-4-thorsten.blum@linux.dev>
-In-Reply-To: <20260609100552.233494-3-thorsten.blum@linux.dev>
-References: <20260609100552.233494-3-thorsten.blum@linux.dev>
+	Tue, 09 Jun 2026 10:07:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 86C8041740;
+	Tue,  9 Jun 2026 10:07:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F1411F00898;
+	Tue,  9 Jun 2026 10:07:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780999651;
+	bh=MOBpQ0JRmmblQJ4PcSwUlho8DTvTXyDdtyxsMVR58xk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=LWz4DKfgGJnelu8EZ4aRzGBiJ06JbirjU+eL59uzgm/1EVwjdoQcZimNDTZDq7ryM
+	 9QKZyDr5nHUsJgmgoVBKP7kVm4/ZfybP3o02Vb8P281t10sMdOTeqpcYzmczwJZdjl
+	 2E2WaFlqDkllKtXpVQiIFwFLVbVjbETBd5M61DTkC/758CCnStnRh5bi78+qK/vPLT
+	 hwauR1nyoSCBoobp58hQrdiMkhUuH59FPJGKK9vvRFnsEWpNY3BoEC767rFOlQZCq4
+	 paDQsy8OJP6LQgsbJneveyFLpV+u++spq0xYBK7Wog1odbsGySNKuo55RNvzHZetn6
+	 eBGV44Ldc/6eg==
+Message-ID: <c866dbcd-c211-48df-84e3-f66785ba8538@kernel.org>
+Date: Tue, 9 Jun 2026 12:07:26 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5396; i=thorsten.blum@linux.dev; h=from:subject; bh=KeHEHRQE6UbIsPx/FC1558S5CUfVwEVG4iZDQD9tJ0Y=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFnqT1sbnirMcOst6nF6U1tz6dITwe5Fd5cE7TvhseB2w nEL83fVHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRuqWMDHMlTfS+Wu37X8pQ pJUQVptz66JX47O53zU1694mMG7cZcbI8PyW3Z5O7UTriW36i14wfJ0W0l2ZXtB15oe+11O3nAl hXAA=
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_030625_078846_FA898166 
-X-CRM114-Status: GOOD (  20.33  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] soc: samsung: exynos-pmu: fix of_node refcount leak
+ in exynos_get_pmu_regmap()
+To: geoffrey <geoffreyhe2@gmail.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Tomasz Figa <tomasz.figa@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260609095224.1706036-1-geoffreyhe2@gmail.com>
+ <20260609095224.1706036-2-geoffreyhe2@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260609095224.1706036-2-geoffreyhe2@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,138 +117,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Improve the kerneldoc for struct atmel_ecdh_ctx by removing the stale
-"unsupported curves" wording, since the device only supports a single
-curve (P-256), and move the set_secret() constraint to the description.
+On 09/06/2026 11:52, geoffrey wrote:
+> From: Weigang He <geoffreyhe2@gmail.com>
+> 
+> exynos_get_pmu_regmap() obtains a device_node via of_find_matching_node()
+> and passes it to exynos_get_pmu_regmap_by_phandle(np, NULL). With
+> propname == NULL the callee uses np directly and only drops a reference
+> when propname is set, so the reference taken by of_find_matching_node()
+> is leaked on every call -- including on each -EPROBE_DEFER retry of the
+> only in-tree caller, exynos_retention_init() in the Exynos pinctrl
+> driver.
+> 
+> Drop the reference in the function that acquired it.
+> 
+> Found by static analysis tool CodeQL.
+> 
+> Fixes: 76640b84bd7a ("soc: samsung: pmu: Provide global function to get PMU regmap")
+> Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
+> ---
+>  drivers/soc/samsung/exynos-pmu.c | 16 +++++++++++-----
+>  1 file changed, 11 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+> index d58376c38179b..a5da2741852b4 100644
+> --- a/drivers/soc/samsung/exynos-pmu.c
+> +++ b/drivers/soc/samsung/exynos-pmu.c
+> @@ -167,11 +167,17 @@ static const struct mfd_cell exynos_pmu_devs[] = {
+>   */
+>  struct regmap *exynos_get_pmu_regmap(void)
+>  {
+> -	struct device_node *np = of_find_matching_node(NULL,
+> -						      exynos_pmu_of_device_ids);
 
-In atmel_ecdh_set_secret(), clarify that the device generates the
-private key, and drop the redundant "only supports NIST P256" comment.
+Use __free() to make it simpler.
 
-In atmel_ecdh_done() and atmel_ecdh_generate_public_key(), clarify the
-truncation comments. Also note that a P-256 public key consists of two
-32-byte coordinates in atmel_ecdh_compute_shared_secret(), and remove
-the unnecessary fall-through comment and other redundant comments.
+>  
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
-Changes in v2:
-- Adjust atmel_ecdh_ctx kerneldoc formatting/indentation according to:
-  https://www.kernel.org/doc/html/latest/doc-guide/kernel-doc.html#members
-- v1: https://lore.kernel.org/r/20260603192708.1237715-4-thorsten.blum@linux.dev/
----
- drivers/crypto/atmel-ecc.c | 38 ++++++++++++++------------------------
- 1 file changed, 14 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 0ca02995a1de..cd33d3f132cc 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -27,15 +27,14 @@ static struct atmel_ecc_driver_data driver_data;
- 
- /**
-  * struct atmel_ecdh_ctx - transformation context
-- * @client     : pointer to i2c client device
-- * @fallback   : used for unsupported curves or when user wants to use its own
-- *               private key.
-- * @public_key : generated when calling set_secret(). It's the responsibility
-- *               of the user to not call set_secret() while
-- *               generate_public_key() or compute_shared_secret() are in flight.
-- * @curve_id   : elliptic curve id
-- * @do_fallback: true when the device doesn't support the curve or when the user
-- *               wants to use its own private key.
-+ * @client: I2C client device
-+ * @fallback: ECDH fallback used for caller-provided private keys
-+ * @public_key: cached public key for the device-generated private key
-+ * @curve_id: elliptic curve id
-+ * @do_fallback: true when ECDH operations should use @fallback
-+ *
-+ * The caller must not invoke set_secret() while generate_public_key()
-+ * or compute_shared_secret() are in flight.
-  */
- struct atmel_ecdh_ctx {
- 	struct i2c_client *client;
-@@ -55,7 +54,7 @@ static void atmel_ecdh_done(struct atmel_i2c_work_data *work_data, void *areq,
- 	if (status)
- 		goto free_work_data;
- 
--	/* might want less than we've got */
-+	/* copy only as much as requested, capped at 32 bytes */
- 	n_sz = min(ATMEL_ECC_NIST_P256_N_SIZE, req->dst_len);
- 
- 	/* copy the shared secret */
-@@ -64,15 +63,15 @@ static void atmel_ecdh_done(struct atmel_i2c_work_data *work_data, void *areq,
- 	if (copied != n_sz)
- 		status = -EINVAL;
- 
--	/* fall through */
- free_work_data:
- 	kfree_sensitive(work_data);
- 	kpp_request_complete(req, status);
- }
- 
- /*
-- * A random private key is generated and stored in the device. The device
-- * returns the pair public key.
-+ * If no private key is provided, generate one in the device and cache
-+ * the corresponding public key. The generated private key never leaves
-+ * the device.
-  */
- static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 				 unsigned int len)
-@@ -83,9 +82,7 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	struct ecdh params;
- 	int ret = -ENOMEM;
- 
--	/* free the old public key, if any */
- 	kfree(ctx->public_key);
--	/* make sure you don't free the old public key twice */
- 	ctx->public_key = NULL;
- 
- 	if (crypto_ecdh_decode_key(buf, len, &params) < 0) {
-@@ -94,7 +91,6 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	}
- 
- 	if (params.key_size) {
--		/* fallback to ecdh software implementation */
- 		ctx->do_fallback = true;
- 		return crypto_kpp_set_secret(ctx->fallback, buf, len);
- 	}
-@@ -103,11 +99,6 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	if (!cmd)
- 		return -ENOMEM;
- 
--	/*
--	 * The device only supports NIST P256 ECC keys. The public key size will
--	 * always be the same. Use a macro for the key size to avoid unnecessary
--	 * computations.
--	 */
- 	public_key = kmalloc(ATMEL_ECC_PUBKEY_SIZE, GFP_KERNEL);
- 	if (!public_key)
- 		goto free_cmd;
-@@ -120,7 +111,6 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	if (ret)
- 		goto free_public_key;
- 
--	/* save the public key */
- 	memcpy(public_key, &cmd->data[RSP_DATA_IDX], ATMEL_ECC_PUBKEY_SIZE);
- 	ctx->public_key = public_key;
- 
-@@ -149,7 +139,7 @@ static int atmel_ecdh_generate_public_key(struct kpp_request *req)
- 	if (!ctx->public_key)
- 		return -EINVAL;
- 
--	/* might want less than we've got */
-+	/* copy only as much as requested, capped at 64 bytes */
- 	nbytes = min(ATMEL_ECC_PUBKEY_SIZE, req->dst_len);
- 
- 	/* public key was saved at private key generation */
-@@ -175,7 +165,7 @@ static int atmel_ecdh_compute_shared_secret(struct kpp_request *req)
- 		return crypto_kpp_compute_shared_secret(req);
- 	}
- 
--	/* must have exactly two points to be on the curve */
-+	/* A P-256 public key must contain two 32-byte coordinates */
- 	if (req->src_len != ATMEL_ECC_PUBKEY_SIZE)
- 		return -EINVAL;
- 
+Best regards,
+Krzysztof
 
