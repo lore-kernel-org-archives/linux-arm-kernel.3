@@ -4,63 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7F8CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507F0CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=h7faoyGZs3OJkuFbiA3Gvd2LN1DYn4vSLLXoTLlzgg8=; b=ZjkDpzCxKkkAal
-	J20Wvhv3B8mku6TdnpF6qGMfJntQLjRkGhDhC1ylZITGGvMfF7Ph44UtACfkTqLqTolIepeHz5OuC
-	0/roANaamIg1rUgj0BDUPrjhRy+wZ1vBFMJTCffkc+V/PmSd2zLNjUtZUjSuViNDCMuAftBAOutSC
-	97yaSXQEMkfWpgPnhrsBjzQwQkMkZTFU6eS6iH8VuzABSYA3GpO5ibfH2nbnaXCzFuwZ9gNHXMu16
-	/GIGEgydnmn+e7f5H44vnnlJKyruzMyTX8K2BSaZuCqA+rYXA/SpqDmNdyTGc1AqAouLuXUjMf3FG
-	ekwUd4ZY1H45Eywy95cg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k24q97luPyuLBfwxlI0Lq42ZOCnAVMFQqsPBYDzdDVQ=; b=pcYIBVejDsv8CI9CJlC67HyG+U
+	yIaXZWXapX6r+z/3x2SfwJetmoW43MiYjyBrrv1y+LQPUE+gwBuUzk7m2ZnEBTxWqH7Ivvr9qlR4b
+	ZZUi/QecjhwMSlpcWieX+TwbNJ7HOIYIT5Rfe9EkBT/FQ252Y6CozOQA3l1O8/CJ5o1K2t0xw9jyP
+	PHy0lpo2NQ5FNFcIhALBXd0cePpAbgI+rwXbj3FduSSWXnAa3sedQj6aZdbYyhaZEj1OoGBLPjASB
+	aoOTARdXcr0OhzhBKds5/m5LmCwP/t8hLx+mbuwDpLlEt6D3hwACK6NddR2isq6bzyK4xABK/vGmc
+	yimWieVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWt4Y-00000005FD3-1by1;
-	Tue, 09 Jun 2026 09:48:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWt4U-00000005FC3-3bNg
+	id 1wWt5M-00000005FO6-2Wmw;
+	Tue, 09 Jun 2026 09:49:28 +0000
+Received: from mail-northeuropeazon11011069.outbound.protection.outlook.com ([52.101.65.69] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWt5J-00000005FMk-3zPp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 09:48:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F29302680;
-	Tue,  9 Jun 2026 02:48:27 -0700 (PDT)
-Received: from entos-yitian-01.Arm.com (unknown [10.168.197.75])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 80E3B3FE53;
-	Tue,  9 Jun 2026 02:48:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780998512; bh=WJQY5ou3eMvIN8qfMQO/miWVII6tdbQNF9XnBaEKqc0=;
-	h=From:To:Cc:Subject:Date:Reply-To:From;
-	b=iFWwP7thd8N0A0OFADiu87+hSKOky73VuRNwTZyZiOGcCFhppSimmQkqN8N8/tseE
-	 FeY0Tgb3rEKQRxbk4d18EvYkfad4l3H2KeL6T6El4Vq3QOGxUqf1PllCwhwdikVAi1
-	 jsFMeimwWxY6/6Y7wbdFpT2RpRvcaXu7u4gpEUjg=
-From: Jia He <justin.he@arm.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	Tue, 09 Jun 2026 09:49:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=C3r3D0TNHry2Jp71RupcFOwanAbu9cMosqy+RlOuphsaoVfrwcuUIqC9n9zOs6L4dk3tzbihwbkFu3S6k6KIkbhuWBfeKAPsF/iaakOEc8wukMYTkY8++NK6RPcpxbj8uKosORVLQTzsg4b8Jk7BGpqbOcz3C2CBmAhdcFxogiieR5O11pJVt7otvh11qrCUPlewGeoYiVu+KOCdAAb4UOrDkq+6a/FW78krKmlS4JjtVXzWeKdCvq+lHcnjn3eiimIJaUuViOU3Ac8k4xGgDDvFyAQyqgukbFHkDVBiT3n8ApaYOky4jMy3TO7pCWj4jFxv3J55+era8skvRrL+rQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k24q97luPyuLBfwxlI0Lq42ZOCnAVMFQqsPBYDzdDVQ=;
+ b=U7ib9WjDMLqXk0Czka558Y+VADVEiO2w+XmO+Bzs6eTpkqLNjkjAlKnG+Gn3SzTQu5NDCS3/L8ktn5BG3DL8nSH1PHi2SkaOTGYxal89+uMcY1LKigkDGA/rfcCkqEKce+ET916LFoBiwKEGJ47qhApxj8VYEpAnDYpRqh6GsO7NHpMpzVDffG+apv/hb3NlsG1P0sgxR7wfA0ZzeNv5CEQbKRPskdcsvkidiVvQWBBZ9e03Y4ciFUHeS7eKeAcO2mNNGrRLQP91ukkTjjvNp0aYzvJuZAKYsVDNxOyhe+06I+DwEDbj3YmAbd8HvPtVQUUJXtp7WNlGPqGGIn4K8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k24q97luPyuLBfwxlI0Lq42ZOCnAVMFQqsPBYDzdDVQ=;
+ b=J+219aNVW4ciIs9UXL7aM+JGhz7AeZpyiGjDsmTAdeggyHiriqJiP7X+6EMqth4BsFM5E0OekSJhr+Zq2FkC0/t5GdrNeIZyQHa7SDQDGpHip02tfPX3KV1DMGP5NAw3SkFArYI10AldMV8pSTaMSd6voi4KGQxKVDcwYL2MqieCjaNh2sUaZJWA1u5R0IMH/GE1cXBF2/zqha9Xs63hf03E6/47CZVUlwp+LDrufyAzG59LPXZKNkCYOY1XkZLpkVcNiZCktzWNh/ccdxXh8AAWm1VilxkdpLZjS1soXjsRzuJT8ulof2x0cnIaUmjT+YYcb3pwQUlTNz9J7bUJHA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9466.eurprd04.prod.outlook.com (2603:10a6:10:35a::6)
+ by DB9PR04MB9820.eurprd04.prod.outlook.com (2603:10a6:10:4c3::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
+ 09:49:19 +0000
+Received: from DU0PR04MB9466.eurprd04.prod.outlook.com
+ ([fe80::326b:ef06:42b5:c83c]) by DU0PR04MB9466.eurprd04.prod.outlook.com
+ ([fe80::326b:ef06:42b5:c83c%4]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
+ 09:49:19 +0000
+From: carlos.song@oss.nxp.com
+To: aisheng.dong@nxp.com,
+	andi.shyti@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Jia He <justin.he@arm.com>
-Subject: [PATCH v2] KVM: arm64: Make guest memory fault-in interruptible
-Date: Tue,  9 Jun 2026 09:48:18 +0000
-Message-Id: <20260609094818.498775-1-justin.he@arm.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	Carlos Song <carlos.song@nxp.com>
+Subject: [PATCH v4 0/2] i2c: imx-lpi2c: fix probe error handling and reset controller
+Date: Tue,  9 Jun 2026 17:51:17 +0800
+Message-ID: <20260609095119.924029-1-carlos.song@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA5PR01CA0018.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:177::7) To DU0PR04MB9466.eurprd04.prod.outlook.com
+ (2603:10a6:10:35a::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9466:EE_|DB9PR04MB9820:EE_
+X-MS-Office365-Filtering-Correlation-Id: 36b90829-9021-4449-7fd0-08dec60c5fdc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|18002099003|6133799003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: Wbo4h/BiIedbCmUd41+hy+bRG+tZfwCTjPhoB4+AGwylq6Gl2VnuUK+YcEfGkaqiKwZ+46cUPePyr06cQGOTSLT2edKYJrmNRb7JVZnhNmVNcUwZA2++Sz1kXuHxYQY/6AWTy2Yan37FNe2ZKmFz0uIxmm14Ddb+6jB5NC3qK8JZUgB48c2mTs3n5v1sRbri2o4C2bRYnyBFZx43hhQXAV1AWwN1AvoE8TMzoofWGox9EqDbenIuECzHfp2UUymt8LfXmoVEvDE+9Qjj7BrEafFsrwTJannNOI57xaOeGlikPpbTv4s+Kv2nESu/oYpku+Y3DD7Ldjd3VxMnE6jEnb1QjwDGOCkTuy3DzijtCPOPXJomsy8exoUbJ0kYAkQWlIdYMhKcsrQJJzR1eXkYWSkC1o21kWT9nzqpcbmEm3Wdp5cv2d3yioS3vrNrO+kOr2YMvGPL+BbLMkvOAu5K6F8oxMuBaji/SRhQYa/7tAuMqAfLSSj7PdIJXFsNJlMLu8RH0ijiFeqSjKMGAGotfp9pB1kjaZkHx3YSyYPLSGX7jbTCqYGGG0h1V1QygofPFVz9mva2KJBNiGrLa7fPGdju+6ssUYrMKKkjlIc+B349TwsBgzV5u0yTGxgyOItbqLYdZJsrkRrRGxXF9NMbNwkwM/CnPtIrz05/27D250xyslwjB8MkGs8HK5k/l2WA
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9466.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(18002099003)(6133799003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UAMv/plRXUcwLbN7Z8ao7PG6WbBI/ZioMBqvtyzidWMW3BX7xQOqv2ZDs1X8?=
+ =?us-ascii?Q?Xt5Sihf8lqNpcS8+cm93BjCEeQE3pzuuUrxaJhwmpUBuxlZCGnEC8wRFLiRY?=
+ =?us-ascii?Q?AyIjj1kjBeREQQOIUlnbM2zeMPiGJfaC/83+emhUfTkV3tZ4Na+UAjFsPfxa?=
+ =?us-ascii?Q?lhoaPFTsCoLMIB1kpfkQTVsJ7GAazs4DDklGCQMGFpVpW9ppZ8SHRWk40ZY7?=
+ =?us-ascii?Q?3y/PzdfbFkHqYCHV/APo7ftymErYvHyW8/tDwKCAa8JyEJTIMc5Y5jJ4ZnWM?=
+ =?us-ascii?Q?Qbh0XWmxEU2mj1N1KEHeWOpTADU3ogurImtGW1geswNlOH8+kiKzuMlOgDZ3?=
+ =?us-ascii?Q?kkUpuxnMpeb9uNiedtgCnXJMBsMlC16bxLcKE1HfnX7BLi15ZZaStuYWykrk?=
+ =?us-ascii?Q?UGuTblDx56r1HUbOituOH3EQ/Vvte1VvgZAZT07cwaRCVgcLyq3vGiw7Z9/h?=
+ =?us-ascii?Q?arhSkqLOPdDYOYDfCyyHgGlHlMf8AXRmLPGuddlZ2k6shL7pMYZacIvjEz15?=
+ =?us-ascii?Q?mnPO/ZSzHXTmsia7zU2Ww5EvQvrILcCKcQlAeykAFg25IvfQUggYKnrg2Oqc?=
+ =?us-ascii?Q?IcoL7iznrAIelPfDBOY0clqGAuOy39KjqDN6TZUL6bnoGskYwND8a5zBKm6T?=
+ =?us-ascii?Q?bRvTERgUzbStH5Fsfmo5BcImh6jzi8gVOaWGMbWnmRlvRBdBzv2csKpNJRi2?=
+ =?us-ascii?Q?XqKwqprS2UpMkY//zTN28ppBYLobnk/hbRnvO6lZTTB8lue3+oC3TSEYpIBs?=
+ =?us-ascii?Q?6zVsBqbXVIFGmRzIvzmzYPzcF0deNRYEsNIDtTBNpLjiE7uSFZ962UNCN5wa?=
+ =?us-ascii?Q?NOkrCD5ib28hvfVim56wlfUW5qNLZj3LwMlVJezzufZqIp+jL2BnK4WUmQs2?=
+ =?us-ascii?Q?CmlxfLRdtbi3IGNxy8oRmlZwyNH2Bcb8467GIufeaXtIrBZifcuoODx3ErW+?=
+ =?us-ascii?Q?Xm3XUKL0yssDwcoUsFKMziVdsmlFEpJpRhKSLKp5+8MUC0vZE18tQXmgdTBw?=
+ =?us-ascii?Q?sDc6uIABi2UUGn9MJ+fbSQHhjxvV4YP5gQDn5hBEC7IPtMhE2GCR+wf5i7na?=
+ =?us-ascii?Q?mQV08fQI5YBkfV+/qZbkCd6SwMtzKGMTe61zDQq1Hiu2zQ/CQ/n8L+JQAwqJ?=
+ =?us-ascii?Q?Rv6QYFTgF5L6i0HkIra/+C9GDZWlB2Jjjgw775Dp3/w4s14ABicvMm3ItSH1?=
+ =?us-ascii?Q?u7eAFM7cDmdOp9eYyDYKgbo86kXmFS0FUY0QXx6fpEW3FnzdYEtpZgjGPVAE?=
+ =?us-ascii?Q?yRtmzAdAKaKxixqDpYzcJ7Za9na1vdUv7d+J87n+FGFgTWhI3g6hWEp803a1?=
+ =?us-ascii?Q?U+hMHO0JtmCQj98ZxOXybSv98dy1PJi1Tmr8ZQjwLJM8YtUDZzTSFo5Kxj/s?=
+ =?us-ascii?Q?TR1dRI7zUiK6iODfreqAiLwW3T0vxM7/l6b4fEPjmbwSh0LVgsJr+e3EZJHY?=
+ =?us-ascii?Q?MTnYioNKSTR80OUIrBamNhibjRxcXYAb25BpjDGDWvGXpLp68nWuaAZh1oS1?=
+ =?us-ascii?Q?38KwG9D8rdBkxRuWL/XcT19e8LSD0LxGKspxn/W/akZjH/dLsV5DGo1YM0HV?=
+ =?us-ascii?Q?73tansZX8mjAp92bKo89wE7ASsTqoMTHhS8AknilAl+h+tFH1aBng9mozx17?=
+ =?us-ascii?Q?3Rbb50l7OGKk1Grs7q3vG6vKKjv3CSJkIDIl2/Qrda7LI3Dkrq+N6F8c0nsy?=
+ =?us-ascii?Q?hGwN+cX/SXJF0J6ycdF1NRRjFsx64jD2nJ2QfwCp9QtTkM7fJICBEcsujDUp?=
+ =?us-ascii?Q?mo9352o83IxVynyOEV5BRvDh0esOryrW4nqss4XalG1KbznQ685m?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 36b90829-9021-4449-7fd0-08dec60c5fdc
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9466.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 09:49:18.7815
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9SC9GI194hl7hvU37TzRNS3ZUGnYLmgLtW2QQkF0WAEUTFM8/7VlHbsMm4+qlTHgjyCa+M5wXbDkjf+lDmWBoWHSdKZKkcelx9RFjGl6dPxuOskWF1LAAM/3BUioSM/X
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9820
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_024834_988807_E1062118 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20260609_024925_993722_B01F65F1 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,149 +140,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: 20260608104336.2405384-2-justin.he@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64 KVM faults guest memory into the host in kvm_s2_fault_pin_pfn(),
-kvm_translate_vncr() (for NV's VNCR page) and pkvm_mem_abort() (for
-protected guests). Today these requests are made non-interruptible, so
-if the host fault-in path blocks for a long time, a vCPU thread that
-already has a pending signal cannot leave the fault-in path until GUP
-eventually completes.
+From: Carlos Song <carlos.song@nxp.com>
 
-This is particularly painful during VM teardown, where userspace may
-signal vCPU threads while they are blocked faulting in guest memory. In
-that case there is no benefit in continuing to wait for the fault to
-complete; the vCPU should return to userspace and let the pending signal
-be handled.
+During probe, two issues exist in the LPI2C driver:
 
-Ask the generic KVM fault-in helper to use FOLL_INTERRUPTIBLE (and pass
-the same flag to pin_user_pages() for the pKVM path). When GUP reports a
-pending signal, __kvm_faultin_pfn() returns KVM_PFN_ERR_SIGPENDING and
-pin_user_pages() returns -EINTR; handle both by calling
-kvm_handle_signal_exit() and returning -EINTR. This mirrors the
-signal-exit handling already done by the arm64 run loop, which sets
-run->exit_reason = KVM_EXIT_INTR before returning to userspace. It is
-also consistent with x86, which already allows the fault-in to be
-interrupted by pending signals.
+1. The error paths do not properly unwind all acquired resources on
+   failure. Clocks enabled before runtime PM initialization are never
+   disabled on certain error paths, and pm_runtime_put_sync() may
+   trigger the runtime suspend callback before resources are fully
+   set up.
 
-For the VNCR path, kvm_handle_vncr_abort() handles -EINTR before the
-translation-failure path. A signal-interrupted host fault-in is not a VNCR
-translation failure: kvm_translate_vncr() has already prepared the signal
-exit, while the failure path assumes vt->wr.failed is set and would
-otherwise trip BUG_ON(!vt->wr.failed).
+2. The LPI2C controller may retain unexpected state from previous
+   boot stages, causing the system to hang during probe.
 
+This series addresses both issues. Patch 1 restructures the probe
+error paths to ensure correct resource cleanup on failure. Patch 2
+resets the Master and Target controller logic before IRQ registration
+to clear any leftover state.
 
-The interrupted fault does not install a partial stage-2 mapping: the
--EINTR is returned before any mapping is created, so the fault is simply
-retried on a subsequent vCPU entry once userspace re-enters KVM_RUN.
-Ordinary stage-2 faults continue to complete as before unless the task
-already has a pending signal while blocked in the fault-in path.
+Changes for v4:
+  - Split v3 into two patches per reviewer feedback:
+    * Patch 1 contains only the error path restructuring.
+    * Patch 2 contains only the controller reset and the IRQ
+      relocation that is required by the reset ordering.
 
-Signed-off-by: Jia He <justin.he@arm.com>
----
-Changelog:
-v2:
-- Also make the VNCR (kvm_translate_vncr) and pKVM (pkvm_mem_abort)
-  fault-in paths interruptible, not just kvm_s2_fault_pin_pfn(); retitle
-  accordingly. (Marc)
-v1: https://lkml.org/lkml/2026/6/8/1033
+Changes for v3:
+  - Reset the Target logic via LPI2C_SCR in addition to MCR.
+  - Replace pm_runtime_put_sync() with pm_runtime_disable() +
+    pm_runtime_set_suspended() + pm_runtime_put_noidle() to avoid
+    triggering the suspend callback during error recovery.
+  - Add clk_disable and free_irq labels for complete error unwinding.
+  - Update commit log to cover the SCR reset rationale.
 
- arch/arm64/kvm/mmu.c    | 15 +++++++++++++--
- arch/arm64/kvm/nested.c | 19 +++++++++++++++++--
- 2 files changed, 30 insertions(+), 4 deletions(-)
+Changes for v2:
+  - Jump to rpm_disable instead of returning directly if the IRQ
+    request fails.
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 4da9281312eb..f1dce829fefe 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1675,7 +1675,8 @@ struct kvm_s2_fault_vma_info {
- 
- static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- {
--	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
-+	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE |
-+			     FOLL_INTERRUPTIBLE;
- 	struct kvm_vcpu *vcpu = s2fd->vcpu;
- 	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
- 	struct mm_struct *mm = current->mm;
-@@ -1701,6 +1702,10 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 		kvm_send_hwpoison_signal(s2fd->hva, PAGE_SHIFT);
- 		ret = 0;
- 		goto dec_account;
-+	} else if (ret == -EINTR) {
-+		/* GUP was interrupted by a pending signal, return to userspace. */
-+		kvm_handle_signal_exit(vcpu);
-+		goto dec_account;
- 	} else if (ret != 1) {
- 		ret = -EFAULT;
- 		goto dec_account;
-@@ -1872,19 +1877,25 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
- 				struct kvm_s2_fault_vma_info *s2vi)
- {
- 	int ret;
-+	unsigned int flags = FOLL_INTERRUPTIBLE |
-+			     (kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0);
- 
- 	ret = kvm_s2_fault_get_vma_info(s2fd, s2vi);
- 	if (ret)
- 		return ret;
- 
- 	s2vi->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, s2vi),
--				      kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0,
-+				      flags,
- 				      &s2vi->map_writable, &s2vi->page);
- 	if (unlikely(is_error_noslot_pfn(s2vi->pfn))) {
- 		if (s2vi->pfn == KVM_PFN_ERR_HWPOISON) {
- 			kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi->vma_pagesize));
- 			return 0;
- 		}
-+		if (is_sigpending_pfn(s2vi->pfn)) {
-+			kvm_handle_signal_exit(s2fd->vcpu);
-+			return -EINTR;
-+		}
- 		return -EFAULT;
- 	}
- 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 883b6c1008fb..6b4161327222 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1312,8 +1312,16 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
- 
- 	*is_gmem = kvm_slot_has_gmem(memslot);
- 	if (!*is_gmem) {
--		pfn = __kvm_faultin_pfn(memslot, gfn, write_fault ? FOLL_WRITE : 0,
--					&writable, &page);
-+		unsigned int flags = FOLL_INTERRUPTIBLE;
-+
-+		if (write_fault)
-+			flags |= FOLL_WRITE;
-+
-+		pfn = __kvm_faultin_pfn(memslot, gfn, flags, &writable, &page);
-+		if (is_sigpending_pfn(pfn)) {
-+			kvm_handle_signal_exit(vcpu);
-+			return -EINTR;
-+		}
- 		if (is_error_noslot_pfn(pfn) || (write_fault && !writable))
- 			return -EFAULT;
- 	} else {
-@@ -1436,6 +1444,13 @@ int kvm_handle_vncr_abort(struct kvm_vcpu *vcpu)
- 			/* Hack to deal with POE until we get kernel support */
- 			inject_vncr_perm(vcpu);
- 			break;
-+		case -EINTR:
-+			/*
-+			 * The fault-in was interrupted by a pending signal;
-+			 * kvm_translate_vncr() has already set up the signal
-+			 * exit. Return to userspace and retry on re-entry.
-+			 */
-+			return -EINTR;
- 		case 0:
- 			break;
- 		}
+Carlos Song (2):
+  i2c: imx-lpi2c: properly unwind resources on probe failure
+  i2c: imx-lpi2c: reset controller in probe stage
+
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 52 +++++++++++++++++++++---------
+ 1 file changed, 36 insertions(+), 16 deletions(-)
+
 -- 
-2.34.1
+2.43.0
 
 
