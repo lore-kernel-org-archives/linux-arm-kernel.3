@@ -4,104 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DF1CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:12:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85AD2CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jOb0YWdrCyqRf70PqWxcCcSyY2RJrYltX6EkSx4+w3M=; b=0MMIh9gHzvyFGSXM2GYT6Qbp9x
-	fBncJxunnia4PRY54sMwvVuA7RObrOR1poGU7aWrpPJx+jElKZ3MdTBOw714g3yZ5ML6p3oc0NT6D
-	GcEvqJ/HBMZMmCLWgsxKfkdqPKk2eOaJ5Mo+FtDTY+tGDc+la/6BQ+055T0hqD8cLZP1PrQ76Tg6E
-	ZW6gbTkP1MbYBK6Z+oae05fruWneW8E+u78xG+0euvEd8AViCG9YR24BDeyclWh9c0N6O9vTeJeKp
-	ZjLDoA3tpPrcdqei0bjjsHGnxMmIlTD+NqsK1R1kWYjbOVZ0kvmFavvTlfB64yZE8nR0kbDNfakPA
-	0fJkqFOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rg6Uwn3qcv35IqK5mO+5MuTecRwPgI2mpMh7ThDFKtQ=; b=PCsVhPmAyyWS3wFnI34xJDQ9gF
+	4xDfcAXRrppEo1V3nRUGNuKpYoOpx4DU+pCr8JTGiARkkeo3yiCphhub+GBGH1WKOkGxoR2nOpRnx
+	w97+nPxCL9dJi27bp8Sfkpb7oLfUWvZgwA5qKWsUbQyx7G6xHId9papd5ByAHJSGXxSDYFIeksZmN
+	kT+msf5D2dWJpvMZRqe27HyHE3ujBSTmFYRj8tI714EzANacPnoo4I+q18cyKdl97S+rJ+0GZR4nI
+	6HpI8qVk82QWv4GeyZeqQhWEa6DhJa+ztYefCp/Hvs3sF3R06/cAYNlxLmaVs+4LVI/Zipo/JxGed
+	6x4ytD4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwFz-00000005dIt-2dkZ;
-	Tue, 09 Jun 2026 13:12:39 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wWwJW-00000005da2-2sn8;
+	Tue, 09 Jun 2026 13:16:18 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwFv-00000005dIT-2jdv
+	id 1wWwJS-00000005dZd-454b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 13:12:37 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490a78fbd7bso6635085e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 06:12:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1781010754; x=1781615554; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jOb0YWdrCyqRf70PqWxcCcSyY2RJrYltX6EkSx4+w3M=;
-        b=UdRFt3XsgDSRyIa17PziTfVUr017/Ur7a+2dQmUFoPGQg1bP8G73duUKZ5ouHRguFo
-         qNla7KNpoKROUyhsKy8O2X+OcCta8EV3gru+etb2SzS3SizF+Lo8rq72GyPsPiaGqLLY
-         9eEh3zdgELULmvIVyOZggciH18CdpSLnBzSXXbl5hk1vSIJZ/dC9ENSHhHCJTdzBFEhV
-         OJYWgNgM/DI98gUnDb1Pd5jhQC787lod4mP5yxXc/EBdKkXK7Dw1+CjMBMDiifLiVPS8
-         Zoh413n36j2kWfC/VBpBwyZK2ZvmBrq+Ufnn5LA2s+9aaVEpdPQIpEs+wQtfO1FUd5Yn
-         W5Ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781010754; x=1781615554;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=jOb0YWdrCyqRf70PqWxcCcSyY2RJrYltX6EkSx4+w3M=;
-        b=l+sgPM1G+Ilv8aZyp1lcc2vRZm8zeYs0ENxYNIVYjaGz7KflhrfGxQ5pD9VR9lhwgU
-         JQ+r0yzSGp3C1Wt0YqXp/U0urUI2xTLKn0r5t5kLUGzKNNpjt+tOQrkojIhv66eV1S9c
-         Qk3DMxpM0l+W5BbbPwRY50Gou3NPBmSe+ccygEVH8L2W9mqWq3KaK24WqjvX9OckTnCO
-         2pY31/zYyfdB0SMyNPjezs1CRQPKkwuHzGW2fg7Xh+AvdSndNr+FKgYL0BqW//n97071
-         Wo2aLTE0S95ImYF/twnhiyPhu5BAAi2SkeHy4ysdroWX5VXUEyUCIrfuyXicQbn1Ga1a
-         +q1A==
-X-Forwarded-Encrypted: i=1; AFNElJ+U7E7G6HuW90BwjjK6fl60KrBSkDVzjnHPHLODIaXbUMa8Z9it3xtDuR2QMPyLlHdja+2/15qJ+H/WHon5uqae@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRQOwCFZR23zAGreSy2n2VeNC/5vEOMwWQ0KmNjvP6qc2ySB7+
-	kcpuPdXFLbG9ZEZJ/md+3JcKX8LrPCIv9X9MvZB6DBLXA3AQDyT/ASJ5cPjm9Szgk/4=
-X-Gm-Gg: Acq92OFgIoCBsH5OwUF8d9eLbFkCamRF0JfObs05VoV2KgiRI7ZOchseq49i/V03nG+
-	LEFQNgevdTInNQJ93gRW1X6AJ95kpKg5XLQT7sogyMMjQAPaM7a2+K06sSrdlwg+pEQtAmIDfK3
-	031UibP5XlvkSWlgJKgMuUjTdGyTL2hUTXoQw5wdRyYtn92urO8I1AWTaUU89BF8jxQFD/5y0u6
-	YUA6KdUNVKKLakyjGspekTxjYLj32aRArAM3t1YaRDDHfoY2+GTWD+6SN7N3cb16MBawgeOMPRR
-	811lxe9B8uoheIcNbxWDBP88wQM3xpqduitCP0t+Jv9o3BpUgmGmm76c5eJamws06RoRLJlSfpH
-	q5TE5KJGixS0+I+XjZI5CmsTnz+3VYkg42hSfMq66tU8cW4KLw/NVDpAxhGLbJCLdoY8T0ejG1R
-	tsyyL06HkKe4L1xt97p1qlyDQ=
-X-Received: by 2002:a05:600c:8b65:b0:490:b4d4:5c16 with SMTP id 5b1f17b1804b1-490d72759f0mr16962775e9.8.1781010753634;
-        Tue, 09 Jun 2026 06:12:33 -0700 (PDT)
-Received: from mordecai ([62.77.90.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f351d69sm111677469f8f.29.2026.06.09.06.12.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 06:12:26 -0700 (PDT)
-Date: Tue, 9 Jun 2026 15:12:22 +0200
-From: Petr Tesarik <ptesarik@suse.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev, Robin Murphy
- <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Will
- Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Steven Price
- <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
- Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Alexey
- Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu
- Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, x86@kernel.org, stable@vger.kernel.org, Michael
- Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v6 14/20] dma-direct: return struct page from
- dma_direct_alloc_from_pool()
-Message-ID: <20260609151222.476a5521@mordecai>
-In-Reply-To: <20260604083959.1265923-15-aneesh.kumar@kernel.org>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
-	<20260604083959.1265923-15-aneesh.kumar@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-suse-linux-gnu)
+	Tue, 09 Jun 2026 13:16:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=Rg6Uwn3qcv35IqK5mO+5MuTecRwPgI2mpMh7ThDFKtQ=; b=slKC5uQp8RpItbg43LgsfFS66j
+	5+UEJ9NQCJD1uUsXJFPHIE+x3pxdM0TQkE+tUXg6/LrxVJyhk/LvlxuJ2KVjH9pGnHhXfW8k8VmDW
+	Va+dxcG/ZOeB/byAJII33oByLOwhMgNI2l7AGmE3f6C/yCN2xZB5fN797Hz9ftP0YvQ5uG8A/Npt0
+	JI1Ro6YkzsPmgdD/uRE0gquxryfW1vHWdW2XrROjTfgTjyMpjrbPeJTYbmUS3Z0Ph+4sZgULTHtJS
+	VDpPscY+wZ7V4MaE3oRZ3sNTJbTk+UuKpp7xQGierJRadUfGaHl1cBPl8OVVKOx9agDTXlR4wnTlC
+	k8sLrceg==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wWwJK-008QXf-2e;
+	Tue, 09 Jun 2026 13:16:07 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Tue, 09 Jun 2026 06:15:53 -0700
+Subject: [PATCH v2] arm64/hw_breakpoint: reject unaligned watchpoints that
+ would truncate BAS
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260609-arm64_bas-v2-1-9f34dbbded88@debian.org>
+X-B4-Tracking: v=1; b=H4sIAAgSKGoC/23NSwrCMBSF4a2EO24kSWsiGbkPKZLHtb2CiSS1K
+ KV7l9apwwM/31mgYiGsYNkCBWeqlBNYphoGYXRpQE4RLAMllBZdK7grD91dvavcGGxNPLVCKQ0
+ Ng2fBG71369L/dn35O4ZpA7ZipDrl8tnPZrl1/9xZcsmDdl55eXQYxDmiJ5cOuQzQr+v6BSOQI
+ oy1AAAA
+X-Change-ID: 20260430-arm64_bas-77e37d830226
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Pratyush Anand <panand@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, clm@meta.com, leo.bras@arm.com, 
+ kernel-team@meta.com, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3791; i=leitao@debian.org;
+ h=from:subject:message-id; bh=60Hz5+3eEkrBAnUhEtk9VB5qfD8DLzTUtlgK14Fe8II=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBqKBIS+Gi5xCr81tProuji531Z+NisZK4+78aq7
+ +5uy5lUJJCJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaigSEgAKCRA1o5Of/Hh3
+ bcJ+D/4raj8CmXOiWXwdIcfpOWG1UBX+93rbwV1W3Bco7TxtN5Q19MtVB3OdrwFH6MD2cA4luDR
+ hJzP9cvGuhPBLOLae7PVBohiA+w21izjHYsIvBFLZwD70pi2IJCgAdsQwI1egwRpmXU2bQQtO0Z
+ dreS8LMBlQT3xNGc4fpVanTUWmRuEiQlyG/dGWL5FxcI+VdtUhf1s3jT/+EKubJsuFnCepAs8oD
+ bAy1or+v1BZzRSwCxcdJcuPJblznVdGueec0sJ0O+ZPN1GTMJvplGUHt56uxtEZsP/dzW0LmHpK
+ I+ZVulkkJJo2pQPh5WLIJllw2BBEzJVzIV5fpGBE9N+XtPgfCWEFXWImk2nBf9TdxXwzjQIJZ3a
+ UintXDHWjpfvB6BLr2m+S4kZSFgG7GbQMPa23ItEJwXnZGUsFMgI7SGWpPRahRz8vWAN+vcKBEy
+ sHYV5UjREU/1RTbqDd29rW5U2asIu28wkv2ZHKDmp0ZwbzmjUYzNVjbylANMzaOpZZ+OQGE55ri
+ dsGinJGdgsqhpAeGc6Es8gS9YlK/QtrsFzCicfOxJhXpafajyQts4SZYdxMLIobKf3eN52gVCcI
+ 6/6VRB7w2meF0FFuHj+/F0mMwXdS8sv2EWonHTgjWemPaX1hRQ/HuMlOE6Zu6j/oEBgClsMF1HK
+ 8/TlgAGpZVv2uYg==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_061236_092689_BF48C702 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260609_061615_925125_1FDF3421 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,98 +97,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  4 Jun 2026 14:09:53 +0530
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+hw_breakpoint_arch_parse() positions the BAS bit pattern in
+hw->ctrl.len with
 
-> Commit 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool
-> helper") changed dma_direct_alloc_from_pool() to return the CPU address
-> from dma_alloc_from_pool(). That fits dma_direct_alloc(), but
-> dma_direct_alloc_pages() also uses the helper and expects a struct page *.
-> 
-> Fix this by making dma_direct_alloc_from_pool() return the struct page *
-> again, and pass the CPU address back through an out-parameter for the
-> dma_direct_alloc() caller.
-> 
-> Fixes: 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool helper")
-> Cc: stable@vger.kernel.org
+	offset = hw->address & alignment_mask;	/* 0..7 */
+	hw->ctrl.len <<= offset;
 
-While I totally agree with the reasoning and the fix, it's interesting
-that this bug has been apparently present in the kernel for 5+ years
-without anybody hitting nasty memory corruption bugs.
+ctrl.len is an 8-bit bitfield (struct arch_hw_breakpoint_ctrl::len is
+u32 :8), so the shift silently drops any bits past bit 7.  For
+non-compat AArch64 watchpoints the offset is unbounded relative to
+ctrl.len: a perf_event_open(PERF_TYPE_BREAKPOINT) caller asking for
+HW_BREAKPOINT_W with bp_addr=page+1 and bp_len=HW_BREAKPOINT_LEN_8
+ends up with 0xff << 1 = 0x1fe, stored as 0xfe.  The kernel programs
+WCR.BAS=0xfe and the hardware watches bytes [1..7] instead of the
+requested [1..8] -- the eighth byte is silently dropped.  The
+syscall still returns success, leaving userspace to discover the
+gap by empirical probing.
 
-How can it be? Is the buggy code path never actually used in practice?
-Does it hint at a missed opportunity to simplify the code?
+The same class affects HW_BREAKPOINT_LEN_{2,4} when offset pushes the
+high BAS bit past bit 7 (e.g. LEN_4 with offset=5 yields 0xe0
+instead of 0x1e0).  No memory-safety impact -- the value is masked
+into 8 bits before encoding -- but debuggers and perf users observe
+missed events on bytes they thought they were watching.
 
-Anyway, these these thoughts are intended for a possible future
-cleanup. For now, let's apply the fix as is, of course.
+The AArch32 branch immediately above already rejects unrepresentable
+(offset, len) combinations via an explicit switch.  Mirror that for
+the non-compat branch by checking that the shifted pattern fits in
+the BAS field, returning -EINVAL when it does not.
 
-Petr T
+GDB and similar debuggers are unaffected by the stricter check.
+aarch64_linux_set_debug_regs() already treats EINVAL on
+NT_ARM_HW_WATCH as a downgrade signal: it clears
+kernel_supports_any_contiguous_range, calls aarch64_downgrade_regs()
+to round the BAS up to a legacy 0x01/03/0f/ff mask with an aligned
+base, and retries -- the same fallback path that PR-20207 introduced.
+The new -EINVAL is therefore reachable only from a raw
+perf_event_open() that pairs an unaligned base with an oversized
+bp_len, which is precisely the bug.
 
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  kernel/dma/direct.c | 21 ++++++++++++---------
->  1 file changed, 12 insertions(+), 9 deletions(-)
-> 
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index 4e446aa4130e..e0ab9ff3f1d6 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -157,24 +157,24 @@ static bool dma_direct_use_pool(struct device *dev, gfp_t gfp)
->  	return !gfpflags_allow_blocking(gfp) && !is_swiotlb_for_alloc(dev);
->  }
->  
-> -static void *dma_direct_alloc_from_pool(struct device *dev, size_t size,
-> -		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
-> +static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
-> +		dma_addr_t *dma_handle, void **cpu_addr, gfp_t gfp,
-> +		unsigned long attrs)
->  {
->  	struct page *page;
->  	u64 phys_limit;
-> -	void *ret;
->  
->  	if (WARN_ON_ONCE(!IS_ENABLED(CONFIG_DMA_COHERENT_POOL)))
->  		return NULL;
->  
->  	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
-> -	page = dma_alloc_from_pool(dev, size, &ret, gfp, attrs,
-> +	page = dma_alloc_from_pool(dev, size, cpu_addr, gfp, attrs,
->  				   dma_coherent_ok);
->  	if (!page)
->  		return NULL;
->  	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page),
->  					 !!(attrs & DMA_ATTR_CC_SHARED));
-> -	return ret;
-> +	return page;
->  }
->  
->  static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
-> @@ -270,9 +270,12 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  	 * the atomic pools instead if we aren't allowed block.
->  	 */
->  	if ((remap || (attrs & DMA_ATTR_CC_SHARED)) &&
-> -	    dma_direct_use_pool(dev, gfp))
-> -		return dma_direct_alloc_from_pool(dev, size, dma_handle,
-> -						  gfp, attrs);
-> +	    dma_direct_use_pool(dev, gfp)) {
-> +		page = dma_direct_alloc_from_pool(dev, size,
-> +					dma_handle, &cpu_addr,
-> +					gfp, attrs);
-> +		return page ? cpu_addr : NULL;
-> +	}
->  
->  	if (is_swiotlb_for_alloc(dev)) {
->  		page = dma_direct_alloc_swiotlb(dev, size, attrs);
-> @@ -445,7 +448,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
->  
->  	if ((attrs & DMA_ATTR_CC_SHARED) && dma_direct_use_pool(dev, gfp))
->  		return dma_direct_alloc_from_pool(dev, size, dma_handle,
-> -						  gfp, attrs);
-> +						  &cpu_addr, gfp, attrs);
->  
->  	if (is_swiotlb_for_alloc(dev)) {
->  		page = dma_direct_alloc_swiotlb(dev, size, attrs);
+Reproducer:
+
+  struct perf_event_attr a = {
+      .type = PERF_TYPE_BREAKPOINT, .size = sizeof(a),
+      .bp_type = HW_BREAKPOINT_W,
+      .bp_addr = (uintptr_t)(buf + 1),
+      .bp_len = HW_BREAKPOINT_LEN_8,
+      .exclude_kernel = 1, .exclude_hv = 1,
+  };
+  int fd = perf_event_open(&a, 0, -1, -1, 0);
+  /* before this fix: succeeds, watches 7 bytes (buf+1..buf+7)   */
+  /* after  this fix: fails with EINVAL                          */
+
+Fixes: b08fb180bb88 ("arm64: Allow hw watchpoint at varied offset from base address")
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+Changes in v2:
+- Use ARM_BREAKPOINT_LEN_8 instead of the 0xff magic number (Will).
+- Checked and Expand the commit log to explain why GDB and similar
+  debuggers are unaffected by the new -EINVAL
+- Link to v1: https://patch.msgid.link/20260430-arm64_bas-v1-1-c6ab2b15aec0@debian.org
+---
+ arch/arm64/kernel/hw_breakpoint.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
+index ab76b36dce82..73cce8ac8368 100644
+--- a/arch/arm64/kernel/hw_breakpoint.c
++++ b/arch/arm64/kernel/hw_breakpoint.c
+@@ -559,6 +559,15 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
+ 		else
+ 			alignment_mask = 0x7;
+ 		offset = hw->address & alignment_mask;
++
++		/*
++		 * BAS is an 8-bit field in WCR/BCR; the shift below would
++		 * silently drop the high bits of ctrl.len when offset + len
++		 * exceeds 8, programming hardware to watch fewer bytes than
++		 * the user requested.
++		 */
++		if (((u32)hw->ctrl.len << offset) > ARM_BREAKPOINT_LEN_8)
++			return -EINVAL;
+ 	}
+ 
+ 	hw->address &= ~alignment_mask;
+
+---
+base-commit: 0787c45ea08a13b5482e701fabc741877cf681f6
+change-id: 20260430-arm64_bas-77e37d830226
+
+Best regards,
+-- 
+Breno Leitao <leitao@debian.org>
 
 
