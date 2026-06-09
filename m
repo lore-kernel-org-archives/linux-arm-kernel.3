@@ -4,139 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC94CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0D6CD8CAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WVS5oXvPoqcJTdXItjAbnJSwIXpKlGJRZbCUoHrt99Q=; b=3xqZPh4fknusrjOzXb3eFZgGjP
-	qvm8RpF15kfZXyp61As2/WRh0DEOxFD6jRhZTPHzCWQCEa/hGWQZ+fiHUN1xKs56w1Rfg8IYC5y6K
-	eFPglRro8lzVHDz/Eum7v4uz0QVPtu0zfnDbbIEgGL2NFl287tMb2skEO3JphDa9Zu9Xy1TFWzlzr
-	ZvOlQ2IuqaXXjQUpt6LZz/LjnxmCqoNtYIQVK3Q+1AY5dpmm5TnbO80onpkqeqWMBZ0nRqfIIgJNi
-	+zR9zmb6a5Ncs8WiqIO0+0OfXCVq0uPb+XfzDxdceFvt30r7Ci7tQnNgYwIKYpYB3DTf5fnWAXg6y
-	mxJRQW4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nYwOg3xzzJ1xkjPHiCCBV9Leo3HRwljOW68csu9Byzs=; b=dm+P2zDAl1Grpd12rwsTRimnVe
+	G592edpNVG1lnnOKwbod6KeC5B0zYx2m7XPY03v+PhWJ7i8RXa9/g5+iUEWCoyCAkGUZCYzPdgTwD
+	Bbo+F+sQ1Z7Fa032bfawL2pvhSVsxlYfZyfO0Aao4RC7hEaojWOlyRMEdOmlVjUwrkBVmMQS6N/So
+	VQUdGg8FCDk+f4rV8Sdyy6zmgpbWA7pZKXJYhAllimFUaAQKw+wqaGuXStPccydmpbvkKEsUKMsfC
+	3N+oOpq+agTDhgHhiobAnQhlj/I+asw6A5D/pj+YlPQZwqiUNZlQOxj5CzmHoiIWRZ0Jy+fs0dr4f
+	jNH3nRbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWqKw-00000004vGM-0TkE;
-	Tue, 09 Jun 2026 06:53:22 +0000
-Received: from mail-northeuropeazon11011063.outbound.protection.outlook.com ([52.101.65.63] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wWpY8-00000004nf1-0alQ;
+	Tue, 09 Jun 2026 06:02:56 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWqKu-00000004vFl-10nP
+	id 1wWpY3-00000004nXq-0gIh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 06:53:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CaSSYuxEH+bq/MAmZ9qIdrPt5Tq/5ZsWCsWK/6txY8S0QMF44A2pSTBaOVNrUSIXT4TrD9DL9dLhpGI3ab+BBsV25DBzg4jwCxsxyQiSz3TyAXJ1nWZsNZqqLjuSK1VJdNbsqk+jnqhG7QwOrZwc/y+DMwLcqtQY5E4PVPAafTbjNfjuozhh1GSjnXPCHdgENFLbVLlnUJkVeDpb0oWCNsdhjT9ZoS4yfuGJ4OdmtlHiYcER9+zmEZkiaCpyNPY+UI89kN688lIkh41YXZHwLp0aNBIXoeraYECg+00+cD/D5OxY2SNWWFCw6zT8dVxlON82s1hUQsxg8FNCiHpKXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WVS5oXvPoqcJTdXItjAbnJSwIXpKlGJRZbCUoHrt99Q=;
- b=XhM54CjP5M2pB5tUJEMltCMwv+50u5wEn3sPwIYaC/d+OAvjpTkl9bqIy2XSDG9tyNFs8gEfDnPuWIFojs9HEHORnVNOdWj0+t8zEfXuFGZWDR07Fi8ZPB5JSqLKy3h50o6MC4nW7DE3BmHPyh81jk2nfDQeipgipoaK1aku3+tRrUphwVuE0vxRwKX5PliDIuiRvpXG657uX0ItaDcNpXwIR++JxO9yPYVdh89JjkJXnwiQ7z7sjryTqh7ofAeJi0qIGWKquez502HQxFFWWcwMrR19trEuFaJgUjLGOiR1jIuoNQ2RI5GwwQ4Fmadkw0B/TRxy5RLb7kmfyiRhPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WVS5oXvPoqcJTdXItjAbnJSwIXpKlGJRZbCUoHrt99Q=;
- b=Lo7bWlXHnQszqxf2774Z3r15yQNfRtmyE3Qj7LEocKQxZPb2w0re2MqgpDvmrM6pre8Y3PB1iwsBGeAeBSkJ33YKMHUdwLxFh4HacSvMlQdQ20DQFtUhJ1Y+abJNZgrhXDdL0gmN8MgiKBF3nZM07gS/++3lf2qJipTNAP4yPA7jvGcCFYk8dV6t90hANTyZt7j3jIYHLFTvW+ndyLfvUX+YXSHjUqF3pz99GTwFVXfnvftCbmH9fRvtaTwzFHfHOZwS4/MFvX9D9Mtrb/xsO9iS275k8pAot/sEPObFL2ByRNJF7UPj+se1lH1VAzEK/VmEF3+iHfktYFaIx6rpEA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
- by GVXPR04MB9952.eurprd04.prod.outlook.com (2603:10a6:150:117::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
- 06:53:14 +0000
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 06:53:14 +0000
-Date: Tue, 9 Jun 2026 14:54:42 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	dri-devel@lists.freedesktop.org, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 19/78] drm/bridge: imx8qxp-pxl2dpi: Switch to
- atomic_create_state
-Message-ID: <aie4sgD6AKSwY7V3@raspi>
-References: <20260608-drm-no-more-bridge-reset-v2-0-0a91018bf886@kernel.org>
- <20260608-drm-no-more-bridge-reset-v2-19-0a91018bf886@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260608-drm-no-more-bridge-reset-v2-19-0a91018bf886@kernel.org>
-X-ClientProxiedBy: MA5PR01CA0207.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b0::6) To AS1PR04MB9287.eurprd04.prod.outlook.com
- (2603:10a6:20b:4dd::8)
+	Tue, 09 Jun 2026 06:02:53 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780984967;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nYwOg3xzzJ1xkjPHiCCBV9Leo3HRwljOW68csu9Byzs=;
+	b=Qujoi4g+vT6bPokPwyYQmNVIIl8pnWS/KScH7W9dvSqvkSltJKq09HpK1gpdBXGlrbd2pr
+	NApCP2Pfk/HgQp0sCslatu48VMeiOIlksRxu6Q06uOn16Ml7Uti95EoDENPR/WYPNyumSz
+	AY1zPC47yN12tnR540knXSgNs5S16b4=
+From: Atish Patra <atish.patra@linux.dev>
+Date: Mon, 08 Jun 2026 23:01:29 -0700
+Subject: [PATCH v6 15/21] RISC-V: perf: Use config2/vendor table for event
+ to counter mapping
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|GVXPR04MB9952:EE_
-X-MS-Office365-Filtering-Correlation-Id: b725d4a4-f2be-45e6-a2e6-08dec5f3c70d
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016|56012099006|4143699003|11063799006|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 2IvMrSE2cRuMHWcackV3BAHcuj2yxz1xhwHfL3KZRFpbPH1hBgGw8jp4n1n7zjCgIMviWj5K4teTu6Uz9J9RctjtJlFkRYO3PHydStmREx4m3nkc1GOk847Nr7WlR4VfUHeOmvO1W4tvNKQWrfzJcJteHNPxTGEKia2s9t0h0TaCXHpCJGJSo/TDmM2c0tqHV7AFlc4wathOXwoglyrlV5HlbkBCQ+8Qk/B9y6MI2HtUAiyqvQy+RimcXuAkBvioqO9chBM2kRH2Y3PnWpJ3jokB+6Iwy0Ap/LOAJSZOV/H4LJVmiGOCVA+bhbsZ1ZPsUCotIadIA10hjMTdZ2CUMy4EOxCpqnxC528ukXCi/ALK22AAjLHb/y153cVXAnNpIB6bgR+VqjCeDXVgUFF4K6Q2rUWEBIVxbdQS5HTvcUrLgpmhvo5CBTuEL81Qimm1o7LyCTQ7TelHziGt6tROAw801hzy/sF5UeJYB9yLO3SH5Pb18swYZOFfz3wZm4xoyzIpyU1iXbLSSzngYiS03VlC2gfbKh0mNxN0uWRCjvSduUCjy/0FlRn/zJKuv1VSdjP+W9m5aU3Fl1Q0a+2gnamiupeKKy9cCaJBu+aH9WARt6VbHIPGIaA+T4NjA8q6Paw5CJBv7PIDtP2tBnxWCc8AFytaSBQ8g0OxByLkkPlXHHevg63x9MwzqrtUQQKM
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016)(56012099006)(4143699003)(11063799006)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8fFvPbM/EYwaOKwrrvRMpn6aJ+MxXEFR2OMpeHEM93m9AfI+PpQuui/3gP2j?=
- =?us-ascii?Q?37+zYtMx1tR43XIohCwkMeTAQI3nEbjov5VzNYgaWLat3gI2Fe2+0+F8nqtj?=
- =?us-ascii?Q?Oh901BWlVnet1coxTBwVNm/XP1y47Q5YuhyjadZjV6oaSegJXJ9N42oQfdZF?=
- =?us-ascii?Q?B/kEnjjHPwh2nyhxT6wEnQMnjrSRHlnx2XCWqMpRGLJvMVQxR3OJOnwSrolE?=
- =?us-ascii?Q?QvtEamszb1lqwn41KQ8gPafR4ld+zKJn8CDnSjYF/guLKXip4YdFLZor9Exm?=
- =?us-ascii?Q?xPEdMmijvnrX8L5mItq3QGQR+C/YuGwSUR8UklQw8JgxOKu2i3ec5W0Txr3W?=
- =?us-ascii?Q?sVDQ5W4wX1zUDtC7x1a75Sz7gI8AMFI02PIMu5dLLScUXVhN9BLv5mMTMJdH?=
- =?us-ascii?Q?GsIg6TsvvIwd3hmVGhmGIc6IrimX2dhCpr0oZDaCj9VnMrsxtdGnn7Flmsrq?=
- =?us-ascii?Q?SkRICFqvIKyaALg/Hf09FtN1AxO0XOGB7D/HKZIFKl8XT9j0OO7lCRYnIBvI?=
- =?us-ascii?Q?5yppIuumPBa7TagCKza876WtqxmS6NYpMyHfcSPRfJ5eV49U3F+6BIyREiUu?=
- =?us-ascii?Q?jKlZKe1RpEoFNrTVhVrsZ73tfGGYAaJta3ffXbR4gf2u7WQ5s8kRBAilAZh9?=
- =?us-ascii?Q?LFsOfrcu7ihtO1jkp9Ht6f7cMo/w/q+RM5IbymGSECvVdKN74x7NZ1Ueve02?=
- =?us-ascii?Q?6JldZaEHaFkZnsdKUZWzb9zGxYw3vBZi6UTqSdKlYOSmyJutl5ivrgFjW8FD?=
- =?us-ascii?Q?AAc75R6o2nTBYbjixkvaAB+gmKdIOCMXA17H02HiE01rckEhIbW6meGsR9B9?=
- =?us-ascii?Q?Y7iDlV9XD5WKL3XNkNzHnjTR8lZXKMrCnJxXUcdQKHh9vkMDve/ELQWcy5Hw?=
- =?us-ascii?Q?Mw22lZWGO7mkBtIqGMn5Ck7hOy9/C4heFhLN1Z3c16rLRP9y2Q5m0kikjEhs?=
- =?us-ascii?Q?6Qzj1z9VrOD9ZnLe02aSy1ll357War9VF/w1KBsfSEIjdgxTgEJclWek7Khn?=
- =?us-ascii?Q?gL/tZx8jgr+I7KPLsYK4RxjPBzoBGHbN/t5EH9o7SocfNbUYpz1UXdF3VNnv?=
- =?us-ascii?Q?Ib9Qyq3dSREEyNGIvsAoaihcG6u8LqdELcNSQh07aNW2R0StMzUMqnkHcTfd?=
- =?us-ascii?Q?5Jj9Bw7EdZoerCdjNo+xzO27OPoEBA7GY3gDYLM75It2lxKyEXfePmWMlYTm?=
- =?us-ascii?Q?QQe11XQWYYJCU4QFtYzUuoUAFCyF8DFdQbML7/HmQHu1S1jZg6tVDv5hhnJI?=
- =?us-ascii?Q?jzOblqGwxbWGia955O3PJWmSO8T6vspbrA0q0ohFd4Vvg++rg3wYwV5NeETK?=
- =?us-ascii?Q?aZetTwfuH85dkpfIl2l9Um8cCypgekSgdkxvCXtVvMd4tseO/uN7BvA/IF/o?=
- =?us-ascii?Q?qr43QAQZt3XCZ5KRxmF1joudMYAh6J7fy+64we8Jx5CjYLhWSYPzE8umSzmD?=
- =?us-ascii?Q?ltti6TpQLMNY8RhLa7GOhNFl3g5otGIZL3e9/Vv3TnW6ADfxB81GR8SX0wXR?=
- =?us-ascii?Q?Y5xchu8sOLj68QOu17GFFZoV0Sb6CimYLmK2eackit60mN5A2/gBCOdX8kFk?=
- =?us-ascii?Q?0RU/H67/8l8mwD7lp2GJfkKE5dXxBbhFcPflxurI711Tgoxb2t7TjETmu+iE?=
- =?us-ascii?Q?3oKFnvF3XfjL9d8JJzUUsKAdUpCD7D6V4S3AFR6XjnsdYn5zG/oTHzTOVo8p?=
- =?us-ascii?Q?1gXYTveiwCsA0WTTjd7/HFljoP76pYci0RjYhDDc+e5nHh1Ak3KXVBwc98Sb?=
- =?us-ascii?Q?wdXwvgA4lw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b725d4a4-f2be-45e6-a2e6-08dec5f3c70d
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 06:53:14.2246
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A9rEu5q9wtgjYCJEL1vVA+udHDZV2dUm097xBHTmd80YE5MpIbaXFVDj08j/K2+RWQcuFvzlaoohf/QxqP+Bnw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9952
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260608-counter_delegation-v6-15-285b72ed65a9@meta.com>
+References: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
+In-Reply-To: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
+To: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Atish Patra <atish.patra@linux.dev>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Ian Rogers <irogers@google.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_235320_283134_DC3E25B8 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260608_230251_387918_C829F5FE 
+X-CRM114-Status: GOOD (  27.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,56 +76,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 08, 2026 at 04:36:01PM +0200, Maxime Ripard wrote:
-> The drm_bridge_funcs.atomic_reset callback and its
-> drm_atomic_helper_bridge_reset() helper are deprecated.
-> 
-> Switch to the atomic_create_state callback and its
-> drm_atomic_helper_bridge_create_state() counterpart.
-> 
-> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> ---
-> To: Liu Ying <victor.liu@nxp.com>
-> To: Frank Li <Frank.Li@nxp.com>
-> To: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> index 87305d3e0c39..2fc9831f7e61 100644
-> --- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> +++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> @@ -208,11 +208,11 @@ imx8qxp_pxl2dpi_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
->  }
->  
->  static const struct drm_bridge_funcs imx8qxp_pxl2dpi_bridge_funcs = {
->  	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
->  	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-> -	.atomic_reset		= drm_atomic_helper_bridge_reset,
-> +	.atomic_create_state		= drm_atomic_helper_bridge_create_state,
+From: Atish Patra <atishp@rivosinc.com>
 
-Nit: drop a tab after .atomic_create_state to align '=' characters vertically.
+The counter restriction specified in the json file is passed to
+the drivers via config2 paarameter in perf attributes. This allows
+any platform vendor to define their custom mapping between event and
+hpmcounters without any rules defined in the ISA.
 
-Reviewed-by: Liu Ying <victor.liu@nxp.com>
+For legacy events, the platform vendor may define the mapping in
+the driver in the vendor event table.
+The fixed cycle and instruction counters are fixed (0 and 2
+respectively) by the ISA and maps to the legacy events. The platform
+vendor must specify this in the driver if intended to be used while
+profiling. Otherwise, they can just specify the alternate hpmcounters
+that may monitor and/or sample the cycle/instruction counts.
 
->  	.attach			= imx8qxp_pxl2dpi_bridge_attach,
->  	.destroy		= imx8qxp_pxl2dpi_bridge_destroy,
->  	.atomic_check		= imx8qxp_pxl2dpi_bridge_atomic_check,
->  	.mode_set		= imx8qxp_pxl2dpi_bridge_mode_set,
->  	.atomic_disable		= imx8qxp_pxl2dpi_bridge_atomic_disable,
-> 
-> -- 
-> 2.54.0
-> 
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ drivers/perf/riscv_pmu_sbi.c   | 90 ++++++++++++++++++++++++++++++++++--------
+ include/linux/perf/riscv_pmu.h |  2 +
+ 2 files changed, 76 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 5bfcd3821f57..4b4f151a0744 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -76,6 +76,7 @@ static ssize_t __maybe_unused rvpmu_format_show(struct device *dev, struct devic
+ 	RVPMU_ATTR_ENTRY(_name, rvpmu_format_show, (char *)_config)
+ 
+ PMU_FORMAT_ATTR(firmware, "config:62-63");
++PMU_FORMAT_ATTR(counterid_mask, "config2:0-31");
+ 
+ static bool sbi_v2_available;
+ static bool sbi_v3_available;
+@@ -120,6 +121,7 @@ static const struct attribute_group *riscv_sbi_pmu_attr_groups[] = {
+ static struct attribute *riscv_cdeleg_pmu_formats_attr[] = {
+ 	RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_CDELEG_PMU_FORMAT_ATTR),
+ 	&format_attr_firmware.attr,
++	&format_attr_counterid_mask.attr,
+ 	NULL,
+ };
+ 
+@@ -1480,24 +1482,80 @@ static int rvpmu_deleg_find_ctrs(void)
+ 	return num_hw_ctr;
+ }
+ 
++/*
++ * The json file must correctly specify counter 0 or counter 2 is available
++ * in the counter lists for cycle/instret events. Otherwise, the drivers have
++ * no way to figure out if a fixed counter must be used and pick a programmable
++ * counter if available.
++ */
+ static int get_deleg_fixed_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
+ {
+-	return -EINVAL;
++	struct hw_perf_event *hwc = &event->hw;
++	bool guest_events = event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS;
++
++	if (guest_events) {
++		if (hwc->event_base == SBI_PMU_HW_CPU_CYCLES)
++			return 0;
++		if (hwc->event_base == SBI_PMU_HW_INSTRUCTIONS)
++			return 2;
++		else
++			return -EINVAL;
++	}
++
++	if (!event->attr.config2)
++		return -EINVAL;
++
++	if (event->attr.config2 & RISCV_PMU_CYCLE_FIXED_CTR_MASK)
++		return 0; /* CY counter */
++	else if (event->attr.config2 & RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK)
++		return 2; /* IR counter */
++	else
++		return -EINVAL;
+ }
+ 
+ static int get_deleg_next_hpm_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
+ {
+-	unsigned long hw_ctr_mask = 0;
++	u32 hw_ctr_mask = 0, temp_mask = 0;
++	u32 type = event->attr.type;
++	u64 config = event->attr.config;
++	int ret;
+ 
+-	/*
+-	 * TODO: Treat every hpmcounter can monitor every event for now.
+-	 * The event to counter mapping should come from the json file.
+-	 * The mapping should also tell if sampling is supported or not.
+-	 */
++	/* Select only available hpmcounters */
++	hw_ctr_mask = cmask & (~0x7) & ~(cpuc->used_hw_ctrs[0]);
++
++	switch (type) {
++	case PERF_TYPE_HARDWARE:
++		temp_mask = current_pmu_hw_event_map[config].counter_mask;
++		break;
++	case PERF_TYPE_HW_CACHE:
++		ret = cdeleg_pmu_event_find_cache(config, NULL, &temp_mask);
++		if (ret)
++			return ret;
++		break;
++	case PERF_TYPE_RAW:
++		/*
++		 * Mask off the counters that can't monitor this event (specified via json)
++		 * The counter mask for this event is set in config2 via the property 'Counter'
++		 * in the json file or manual configuration of config2. If the config2 is not set,
++		 * it is assumed all the available hpmcounters can monitor this event.
++		 * Note: This assumption may fail for virtualization use case where they hypervisor
++		 * (e.g. KVM) virtualizes the counter. Any event to counter mapping provided by the
++		 * guest is meaningless from a hypervisor perspective. Thus, the hypervisor doesn't
++		 * set config2 when creating kernel counter and relies default host mapping.
++		 */
++		if (event->attr.config2)
++			temp_mask = event->attr.config2;
++		break;
++	default:
++		break;
++	}
++
++	if (temp_mask)
++		hw_ctr_mask &= temp_mask;
++
++	if (!hw_ctr_mask)
++		return -EINVAL;
+ 
+-	/* Select only hpmcounters */
+-	hw_ctr_mask = cmask & (~0x7);
+-	hw_ctr_mask &= ~(cpuc->used_hw_ctrs[0]);
+ 	return __ffs(hw_ctr_mask);
+ }
+ 
+@@ -1526,10 +1584,6 @@ static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
+ 	u64 priv_filter;
+ 	int idx;
+ 
+-	/*
+-	 * TODO: We should not rely on SBI Perf encoding to check if the event
+-	 * is a fixed one or not.
+-	 */
+ 	if (!is_sampling_event(event)) {
+ 		idx = get_deleg_fixed_hw_idx(cpuc, event);
+ 		if (idx == 0 || idx == 2) {
+@@ -1547,10 +1601,14 @@ static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
+ 		goto out_err;
+ found_idx:
+ 	priv_filter = get_deleg_priv_filter_bits(event);
++	if (test_and_set_bit(idx, cpuc->used_hw_ctrs))
++		goto out_err;
+ 	update_deleg_hpmevent(idx, hwc->config, priv_filter);
++	return idx;
+ skip_update:
+-	if (!test_and_set_bit(idx, cpuc->used_hw_ctrs))
+-		return idx;
++	if (test_and_set_bit(idx, cpuc->used_hw_ctrs))
++		goto out_err;
++	return idx;
+ out_err:
+ 	return -ENOENT;
+ }
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index f6a710c83a4c..06171e7aadfb 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -30,6 +30,8 @@
+ #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
+ 
+ #define RISCV_PMU_DELEG_RAW_EVENT_MASK GENMASK_ULL(55, 0)
++#define RISCV_PMU_CYCLE_FIXED_CTR_MASK 0x01
++#define RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK 0x04
+ 
+ #define HW_OP_UNSUPPORTED		0xFFFF
+ #define CACHE_OP_UNSUPPORTED		0xFFFF
 
 -- 
-Regards,
-Liu Ying
+2.53.0-Meta
+
 
