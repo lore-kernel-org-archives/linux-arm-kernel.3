@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EF8CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 429AACD8CAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u3g+p7pQ6JoJVQEnX5LE48ozxdUNMa5LUsxD2CLpza4=; b=L2/sw7EB15rhfrgM51u0XeWiQm
-	CorQ8Ax1gqvtm/FMRgqo1bN8wGTzl6IHL2Aj28DC6sX+Ebs1Hf5ey05oDN81yfQBi9gT0ASwHlKrK
-	gIrBXwPaWPxK+6zRFwPxROaj2q0C2rdwGTn8YWQjV6HUKlNBnrygCoxmCM0qw8TWHbgUEBCnpEOuk
-	RPpE3+w9dmn27VvGQ/kOySNMnWeZeA76SI2keI/DR5CF+0SXhTVAQ75Fgrffl4DX1gEoqh3yYKBuf
-	Z65TvpYKNk3EWYKTBYAgwcZdDPDk4q7xa2orwn1diExwXvafpdgbKOiXKCLR6wNZpCSNgQS6t/+3Z
-	eAvE0xVQ==;
+	bh=S/SmChEyaTxwNDvJOsJZuPwTbPPjn5OrsQpqNkPazWo=; b=4DLfetBITFUHSRSV/WWDBDOtO+
+	flaJC2374b7cyyY8NSdtgGM5F/OpxI2nd/NVgUphYTcy3/FAXWeN4Jy4th6YyIAHYeEjlT2Zjeq5/
+	fKLAQ9XberHlcdwe3oaY3GEmFGEDexxttrfyLCuNzwkGQHzo2cuJtXF4nMlNXjdzr8AKQO9donley
+	pmJzf2CrungRO9mFS1N+LCxbY+hViwSHDV8jvDWHAByVFd1xKNug+OrpXhyMzw6R2P3k8IVkCRyd1
+	+tPYE+jmKlvfcc7apej9VQg3nM8yLKGiKKZgCqZWaA+gpKLRF9TxIfpucDonVAmUv4Zfzv6OXTzCs
+	CpyRcrWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWr3H-00000004ylM-42CQ;
-	Tue, 09 Jun 2026 07:39:11 +0000
+	id 1wWr3q-00000004yp1-0HBP;
+	Tue, 09 Jun 2026 07:39:46 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWr3G-00000004yl8-0fnH
+	id 1wWr3p-00000004yok-14IF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 07:39:10 +0000
+	Tue, 09 Jun 2026 07:39:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 36C8A601DC;
-	Tue,  9 Jun 2026 07:39:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EFB41F00893;
-	Tue,  9 Jun 2026 07:39:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B22D0601E6;
+	Tue,  9 Jun 2026 07:39:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7AF61F00893;
+	Tue,  9 Jun 2026 07:39:42 +0000 (UTC)
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 To: soc@kernel.org,
 	arm@kernel.org
@@ -39,9 +39,9 @@ Cc: claudiu.beznea@tuxon.dev,
 	nicolas.ferre@microchip.com,
 	alexandre.belloni@bootlin.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Microchip AT91 defconfig updates for v7.2
-Date: Tue,  9 Jun 2026 10:39:04 +0300
-Message-ID: <20260609073904.813405-1-claudiu.beznea@tuxon.dev>
+Subject: [GIT PULL] Microchip AT91 device tree updates for v7.2
+Date: Tue,  9 Jun 2026 10:39:39 +0300
+Message-ID: <20260609073939.813573-1-claudiu.beznea@tuxon.dev>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -65,22 +65,22 @@ The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-defconfig-7.2
+  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-dt-7.2
 
-for you to fetch changes up to ac75ae436723e5fe68dcc8e806f66d0358dd56f7:
+for you to fetch changes up to 96b33938cf783c790036e35860b206cf029f2e2a:
 
-  ARM: configs: at91: sama7: add sama7d65 i3c-hci (2026-05-25 22:55:30 +0300)
+  ARM: dts: microchip: add I3C controller (2026-05-25 22:54:37 +0300)
 
 ----------------------------------------------------------------
-Microchip AT91 defconfig updates for v7.2
+Microchip AT91 device tree updates for v7.2
 
 This update includes:
-- I3C flags for the SAMA7 family of SoCs
+- I3C controller device tree node for SAMA7D65 SoC
 
 ----------------------------------------------------------------
-Manikandan Muralidharan (1):
-      ARM: configs: at91: sama7: add sama7d65 i3c-hci
+Durai Manickam KR (1):
+      ARM: dts: microchip: add I3C controller
 
- arch/arm/configs/sama7_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
