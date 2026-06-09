@@ -4,98 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67F0CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 20:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3005ECD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 20:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nS7IcpZWz3b5YwmqEgZ6XKILf3MOjCp/zrLboq3oDIk=; b=spgWL1yr+lXEzFhDsl6cI9kSB3
-	LgUHCxdf3S64pg8EBKVtJ+0douDN6eWGAIwrygTZPvivX4Iq+XVxUXSTQNLiBuYdRfYSH/G7uOkPo
-	cUAzHjTe6XlqgMs2Is9dKNw2Jhfo+Kcf9ZFwHq8+YqacWCEzWGB3YUQMDJ5YJRte68xToWaAkXkfZ
-	pOAlOUW2dsOrSjzJ8fHRduaXVj+w5/7ocylP23gPDszeCVJOZU/XzW3mQYra8TCoSzyawbM0W37xD
-	jNP2mA55QBSI75wYL3/WGioX/BWnO5Rq94/WJj/vdtXcV0v6PIwGzItD0iXZK0fmjCq+qNRBBdfRq
-	G5NlceTg==;
+	bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=; b=QsqSkIJ5EJkRoH/fASHVHeK3Eh
+	w2gMLOQwiqZkbJSSn7Dyiejvf8Y7baz2JW4InvW2x2s/UJFLw8Z54Y9vMDlEAXPIUkmgZQRSlbr8C
+	ZcW932F96T6QsVMvIiVYPzPDfD8iYLxwnaFjCKyArZ+dUg88gA5t9inaXxHeRu2t1hZcwM3xSaZX+
+	bj8GhPbpR7EOEhmQECgkElTSaq7ByIni7uep04mVLJ8rhMMfUkfOYdNBvoXAiq2K6DxHG9kBgggGi
+	pIevM5VPv+5U0ZvkZHYTeTxHT0NM88OqOtWf6qdLnuvP1VtTL7eeR+EGkKfkHjQcNJGYDea96mcgp
+	d9hQF0vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2nl-00000006LTf-1GxQ;
-	Tue, 09 Jun 2026 20:11:57 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wX2nt-00000006LWA-1zpy;
+	Tue, 09 Jun 2026 20:12:05 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2nj-00000006LTK-28Kw
+	id 1wX2nq-00000006LUn-2j1h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 20:11:56 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2c0b1a48855so1445ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 13:11:54 -0700 (PDT)
+	Tue, 09 Jun 2026 20:12:04 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36da8439078so5325030a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 13:12:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781035921; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O0qprDsomwj9pZnZn/LiSEa7SDMw9NawPopeUg/ikJVsMzRWbnRMGoI8zpaXaqO0fE
+         vRJt2zRpej1hkfcX1LaCM5FPQnU4nUDw2BfOSkBjUiX/fN5UHeCqIsOb+kv8E2CiP0xh
+         LqfucsG/gpTV6/2RsAdpkYbmXQlsV1kIdiNaqCu4eiGJHijeBt4HB9pRJPg2KimmivU5
+         P3y/CtRW5XReubkg0tntI9tAiO+lsRLxKOveiDru0okvMr4wD00zHi4B/MKhtym/Rlx1
+         X2UWIAr4ZXKt92YKMMplNVeqbgWYIoAM/x59k3bpTOB6eigIWnjLifRPHGHpXKcolifa
+         jduA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=;
+        fh=OIpFkgzEageeV70VlpM91mZzY2ZAIr/DbURx3HfLjDk=;
+        b=JnjuU3b/1YMEV/l+k1y/E+GJ5AdU8QgoZqsBqDJg9+uHQqiOOANApsy18YScB5Ap9S
+         DzcI3mERl9V0Q6aSJyAUFLYyR7xInTw9PAgHYVhos6XlKiOY0rgUN3+gFm1F4Rbx+abA
+         rSb6J2+r7nukVtLYrQKI293TOjJUeqwJpJUw+8PpKj2b0e6jBPO1mOcUbJHqoQ7hwAjK
+         i8Z013AqDBxb3DBbZGbL9MNueNVALWkYK5G2dHOyC7QqVlhYruyPbzLv3Io4R9VsISZm
+         pEud3FuI5/i4Otur+y/QrAb5IaP3NdQR2jeIn3Kpv+96IgjAN7k4r3LcHB79fwjILtaU
+         LKlw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781035913; x=1781640713; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=nS7IcpZWz3b5YwmqEgZ6XKILf3MOjCp/zrLboq3oDIk=;
-        b=SUcCKQwDK7QaBMaqTB9NOU0VHJbtP41MIOm4Twah7I93AKHUkfUtcoQuGK2tF5d/hD
-         EQMVQn/efolFD2TH0X13lzVoXB4Gol5RUmP9VgCoqXElvDdv7xEIFQjPHAYla7VgZWKQ
-         +9ZWGDKGLoP8alGMtCqluON5Ca63dAaPwi6jazvZZiN2S5tuRYchsKIYckkIXCpQIVn8
-         ttpsRjyHPCFxPgAnQUe+BMytpExZJeOvysUCpeJPAgHNldIDd76cj+6nPnn3LAZ8Biid
-         tC7kJ7gfyHjn68eelv4F7WKG/r+EH+52dUBJ0gnjarn//xX//pkKt7ReVKaByBj1j6ui
-         z0fQ==
+        d=fooishbar.org; s=google; t=1781035921; x=1781640721; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=;
+        b=dG/z91W8UrZF3/72kxqwBBUVCJwxud95fvvuUOSjgApUjYYMuHLVDwyM3Fjq4yo8+7
+         zDG/r6yxbueU0l8DZ7YvzgvqNdqpfu1gp0N4nv6Ncfasy7NmTMOicdBymXEQNL0L8wql
+         qgN/ZNYAPYr2lLrXKFFWp5ltFnQhSX0rbYYzs6bZM68xq8c8NJYdTmnkmWyobOFfmN99
+         vyUCWLQeXqEA43vU8B+LajzvvyJq05woKrB2ts7ORd5gqxYTvtW1XAslBi0r79Vu1OLf
+         Rv7oT6EBtdySNoripitxw54hQ98nnPD+cqTjs7wUriwjwNRbZFKKPPSl/vM9t7592QSO
+         vYdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781035913; x=1781640713;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nS7IcpZWz3b5YwmqEgZ6XKILf3MOjCp/zrLboq3oDIk=;
-        b=XczRP/NTmXIc3GxPtAIRjOyTI9IM8/QxdldyraNsDbkPFhkbY9U07RTJknDhMrq2Un
-         Q9zhJcnGEs5aKmRK2T+KWVTwGqBZ4r8Aka/kOgAJv0x9FptG+NSwGil+bxmRfsr4YhMO
-         zyl0xyTo625jheKXAMfktitF5RbZLk5KoXfMW1UGqAwOaPBNfkdVa0v34A3Ms/xKiwYD
-         Ag+nqN8NctDvUX44O3xmsTNpNiPUaX/NfFTM7rmDgyr6GpZsW64A0AgrKoNEANWRULq8
-         lhuNSKniIOJcJpqb1J6aCagGhsvMB1KIPaQ9EQSqDjKmFQiVHkgMDZz2uDQTh4+vUxeL
-         JHeg==
-X-Forwarded-Encrypted: i=1; AFNElJ9KgnP7La0LTaA13t/bUVm3bFbUJKB7s5Iy4UPcSBfOKbaCX75b0V8bb9iUWQgycWNnYelUIuvzFNZPFvX4HoZz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0IcF55PptgQc6s6zC2vhp+S6/pIuEt8NgmndfXiDh+C2255Gu
-	VwggYK+M1M0y/zw/K2eDsRBKrmS5yBv9+FGMK1XAWuGvzVdtxYSgCFPhr5FUKkwoNQ==
-X-Gm-Gg: Acq92OHcB/c4Rv+HMQgQgfXVLx9q3OkY8dDEDfXzOwE2coHOOL8KHEDuZu0NKvcU3ph
-	WlQWseKY75J5ouOtUx/+ZDBFvayBZix5BdhOhGMU+BuPHoFqqRxAWzJgsnL2z1KMVmM5Ilskbl2
-	iQVoGRbQSkpXSjAjD44L1odQlNmTXUOm3xQDJyoxyXHRRIf1s4kkhNYPed07+oPpYP4IVVmLGuR
-	tcMsfzF0heY4gm8F6k0XJHPmXhpQZVTlrKSKqaAbs+BI/DKMzfFtnqxy9H9YlLf3BWL1SlTOgR6
-	ldYeQ91feaJMm8XcBufy3XrrsIioxZOhPdqPDvn86utVJIqfaYbcobzD0TEAeyFwQolN6M0o/mM
-	8k2qy27BL3jPzqxVU7rscosF9smRxd77WYVFckS91zTpN6f/hm8xuxa18lNYUqfml5WCRrAWRia
-	2oqBNHA26laC44tVo9R4WvIhpPnZ0tJKqphKSpEptUuLXdLkzA3wxy4esntUybq5m3H9Y3z2Y=
-X-Received: by 2002:a17:903:2349:b0:2bd:a61:8536 with SMTP id d9443c01a7336-2c1eb74103fmr6509495ad.6.1781035912985;
-        Tue, 09 Jun 2026 13:11:52 -0700 (PDT)
-Received: from google.com (199.255.142.34.bc.googleusercontent.com. [34.142.255.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828fa877sm22581227b3a.51.2026.06.09.13.11.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 13:11:52 -0700 (PDT)
-Date: Tue, 9 Jun 2026 20:11:46 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Daniel Mentz <danielmentz@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 11/12] iommu/arm-smmu-v3: Invoke pm_runtime before hw
- access
-Message-ID: <aihzgtczL99fM-1c@google.com>
-References: <20260601215909.3958732-1-praan@google.com>
- <20260601215909.3958732-12-praan@google.com>
- <CAE2F3rCPgnFU=d5At1zrOLhsuVEbsweogOHGz9gDddRx73zRtw@mail.gmail.com>
- <aiEawEFsnG-LIahW@google.com>
- <CAE2F3rAWZ4Ac23D8eyAHfmaVVkHv8pz45+_dpMO1M4D7+RVCoA@mail.gmail.com>
- <aifsSxEXX64J1Etq@google.com>
- <CAE2F3rAGLH7si2S4aYhSUWyL-zZL7B_uo+WLE4zKY9SqKVi8zQ@mail.gmail.com>
+        d=1e100.net; s=20251104; t=1781035921; x=1781640721;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=;
+        b=UeX6VNzmPnV0TSD6MOARpzKx2Rxaf3C6hqttNm7rqbu5jRBY9Q7Yktxpe7kG9V4bVt
+         BZhdQVAChLVDelG1mLXCsgN+nJGNcn7uvwsTr8RVUZQGQaStKYp3O7tcGXzQnk/vjgcp
+         AtcbzLi9mLdiJxtXKRpYmiZ6lUbbKJTNcKqNyJG01fqKLZW1K9lrKyrkSSjc+CGMBE4y
+         8PTi8CXgb/SGMwRg25xikulD191xUnBrV8WRktVY44wEJxBLBE7e+OKkHUVJcDEWV8T+
+         4n7rZY1TlzsnvA3Gn5BU/EuVrr+8ExbvSXyYdK2ooSwpGd4Dc24F9lx1bivRWG9j91Ul
+         6fBg==
+X-Forwarded-Encrypted: i=1; AFNElJ8ZZ6Nd2B0Md5InEuf8BIESvt6VHtq3M6kq81EhFt+Qhn718mGBxAIQJJvNf9lN7ITMbAQgCsr8CJYx3a5ahtFi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx46cpl6mB2j31w0C70FU34/8AGBNxU2Swi2auwP6Ki3kSq31Nt
+	qUJaUiPnHRJL+Q+Vr10pudduqQ/c+eL0wpoYf7CbN7v5LbjjI+1jQdtjHlNoXs5xAQCEUvi86lA
+	vWav/Y3uTuqG9OJgmhnMrC2d6BsM/8Q5vVYXNzPzPKA==
+X-Gm-Gg: Acq92OGNxwFc/AshRYxpah4/7umkpuVyMhaF+7eVCQnC8TNS89hUWBsT6FSLLXYHe4l
+	BIzGFY1/VidrV7s5qoshHkHLAc5ZE+4fa3aKDzhQ3CnbsnHPJYVv1DihOjrmAevZ3UWUFZA1/jV
+	oBHZ0bGT3hKg24XlEH8LrtKdoFCh+XVi+ucLkmfeC1u8Ct1to87ylt3yErQP00I2nJtSJnLW1tk
+	whH+RRt/AJMz1eFm9zduudahIjUqhcEWN+0Y8AUxnpJ2osbeSKbzw824UHLx1t642ZMxFsP15Ji
+	IsoVSf0Xa0jMIp5nSw==
+X-Received: by 2002:a17:90b:3bcb:b0:367:cb53:7435 with SMTP id
+ 98e67ed59e1d1-370f1525ed1mr21923499a91.24.1781035921449; Tue, 09 Jun 2026
+ 13:12:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAE2F3rAGLH7si2S4aYhSUWyL-zZL7B_uo+WLE4zKY9SqKVi8zQ@mail.gmail.com>
+References: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
+In-Reply-To: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Tue, 9 Jun 2026 21:11:46 +0100
+X-Gm-Features: AVVi8Cf7R-IrVdYhsGfa6ARvQUl6VjYbn-pxlLXZ6UvxdCSIBKSlKWHfn1zLb40
+Message-ID: <CAPj87rNhTViuff5qWeoGkPgyRvP0uOAcUGpcJJPTkPR2b8fJcw@mail.gmail.com>
+Subject: Re: [PATCH v17 00/28] Add new general DRM property "color format"
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	wayland-devel@lists.freedesktop.org, Werner Sembach <wse@tuxedocomputers.com>, 
+	Andri Yngvason <andri@yngvason.is>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+	Marius Vlad <marius.vlad@collabora.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Andy Yan <andyshrk@163.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_131155_587428_2FE469D3 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20260609_131202_860049_041EF8F3 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,32 +135,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 11:34:42AM -0700, Daniel Mentz wrote:
-> On Tue, Jun 9, 2026 at 3:34 AM Pranjal Shrivastava <praan@google.com> wrote:
-> > > I'm not sure if I have a good suggestion here. Have you considered the
-> > > following: Do not call arm_smmu_handle_gerror() from
-> > > arm_smmu_runtime_suspend(). Instead, call disable_irq() at the end of
-> > > the suspend handler (and enable_irq() at the beginning of the resume
-> > > handler)?
-> >
-> > I thought about using disable_irq(), but I think doing it at the
-> > hardware level (IRQ_CTRL) is better.
-> >
-> > By disabling in IRQ_CTRL and keeping the manual arm_smmu_handle_gerror()
-> > call at the end of suspend, we ensure that we don't lose any gerror info
-> > We catch and handle any errors that occurred during the drain/quiesce
-> > phase right before the power-down.
-> 
-> I think the beauty of disable_irq() is that it synchronizes any
-> potentially running hard IRQ handler, which helps avoid races.
+Hi Nicolas,
 
-Alright, I guess we could:
+On Tue, 9 Jun 2026 at 13:44, Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+> this is a follow-up to
+> https://lore.kernel.org/all/20250911130739.4936-1-marius.vlad@collabora.com/
+> which in of itself is a follow-up to
+> https://lore.kernel.org/dri-devel/20240115160554.720247-1-andri@yngvason.is/ where
+> a new DRM connector property has been added allowing users to
+> force a particular color format.
+>
+> That in turn was actually also a follow-up from Werner Sembach's posted at
+> https://lore.kernel.org/dri-devel/20210630151018.330354-1-wse@tuxedocomputers.com/
+>
+> As the number of cooks have reached critical mass, I'm hoping I'll be
+> the last person to touch this particular series.
 
-1. SMMUEN=0
-2. IRQ_CTRL.gerror=0
-3. disable_irq();
-4. handle_gerror(); at the end of suspend
+Thanks for seeing this through!
 
-Thanks,
-Praan
+I've pushed this now, minus the Intel patches which they can merge
+through their own tree. The AMD tree required a pretty trivial
+conflict resolution which seems to work OK here.
+
+Cheers,
+Daniel
 
