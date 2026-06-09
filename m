@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB006CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 19:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C051CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 19:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLMhKaFbIcEcm6K9KA6SmjkstYc3dFol4GbDZ9pO91s=; b=iBtNJH/cMUZuvDXlxig8aPxLEr
-	RgP3xbxeNsVb85BFTwNZK8npyKb1iqpwNsV3OQGdMRjwlq6z62aStvKqLhaP239RnnCK3kJjwR6VG
-	wHFg8p9r/jOsK9uTZ7lBBQ6CaoUs4vQfxmmVrabjlBWDgWljdHY8q5vIV0k/x3nmcDC33+nj+6Ea1
-	Q8n4jIHXyZf9n1hGBJHG+MFXlzzlWMZdwT1E/ZYLYeUe6VdkjRGhbdSa4QDkIm7QcLY0GJWYf1jfF
-	59zh9WMS6lIx+S/uaFzKr2SY/HDpsDOpa5342jP/S5TLTNQkiOceZqSJTzYzQsA25mAPYj8I8AC3P
-	Oo1CrgTw==;
+	bh=sDnT/R8r7fr0S+byBNjg5mZPhI3/Z2+xQc0Imi0qg1U=; b=mRDQM5293UgntEREHcYRbxBX2Q
+	sw3/4AIbZDuN3/sgtEoI6gAlzlRdVyHh+JlJu8ilQNY68irQMl/8L2CgZ7nr9qncsZpX7czN1xRKN
+	rNOtMy06hQ7RqdR7+m3mMIJjvnuentZ1aExgtbP73oxg3zJ34AlAis21bYvrk0mBUMV8cKMcK90fI
+	2zvtErH9PegADfZmLvY9zLc+YLR07iXdFU7VuS4Uv7HwQXVCkK4Srbz0zqe0SLFcpQ93/VVWN8taG
+	VYVzm/iPD3sh02pFNvTiiCq2xUAfXch8GLXFSvnM1w59e+r9/Q0z00dh++Fyp5NOaT7yGiTRpOdIu
+	hq2VilQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX1eB-00000006ENL-2LZs;
-	Tue, 09 Jun 2026 18:57:59 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wX2OY-00000006JHD-00jB;
+	Tue, 09 Jun 2026 19:45:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX1e4-00000006EIw-3Qtz
+	id 1wX2OW-00000006JH1-0Rtg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 18:57:54 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-45fe59255beso3109171f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 11:57:52 -0700 (PDT)
+	Tue, 09 Jun 2026 19:45:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4141D4399E;
+	Tue,  9 Jun 2026 19:45:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D041F00893;
+	Tue,  9 Jun 2026 19:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781031471; x=1781636271; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZLMhKaFbIcEcm6K9KA6SmjkstYc3dFol4GbDZ9pO91s=;
-        b=Xg5mIhIpVQrHI5ZmIL2c/w/8IkBpW/7/ja/6MQtw1VSt+Yh/ubOd5j8JeGHW+DRiUA
-         nPLoKm+uU38o/UHnHKCD2o0K8KSeX7/7dTSIpaRMJdwTEUTBV2YLriFhK+IgmstAK4sQ
-         7YC7fUXBcwc5gtCVEH1iDON41K8bnrbgnG87wc+BJmvBSCnkDLIeDdeMeNQ8UrszYqVo
-         OKITTGf+0ITjHqK7hzGsSeFg0llTY5SY/OEA4uJLyZu3VBTAqxU36JxUol7GaI6afm7L
-         L6+nVLsgYs/nUxxsGY25v+lBvCRlWJjbw/nkptPj8uamE8oniG8w7xy0p0/ypr8PS8bO
-         7jGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781031471; x=1781636271;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ZLMhKaFbIcEcm6K9KA6SmjkstYc3dFol4GbDZ9pO91s=;
-        b=HIUGBk/BrjeTZXKpqIT5cT5Elf7iwxxs+2pX6VeZMsJVTL69gFgPmw9qeNbYg7E7gb
-         S3EN7P33EU2h1dKEKoRuSDlhdc+Gy21MMe3Fo0OjdCUwm5EmXyBkG12bT/b/WafeOl3U
-         IuD0V5oyQZLOdde1BReJ+ADfaNXn0a0x1i+QXNO6/RKGLnuEwq1wDMi2qOJViqE00SsI
-         eSJLVhAZ9Bbg1Z8/kxSq0rJ12sL2MkMKzCDE4DTa5KqcrxUpb/i9BQyAQXJRX+k9ggqC
-         9ebOqWyozQlTXAo7drXSf1ftMeE0qvTdqfxtYqqN2ojIzPzW/z2v0P04pq+q7zW0VFR/
-         aJ+Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8MuaZgxsmto2ShO/kkKk/jTEzMY+cz2SOS6RZnfW1UKCqIifa4Ani1rDo8a8GxNWNYwErK9hpWviMVNPX6KS6G@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxkAj/CHUbY2aaYQfnFzdANx2ucKFo/YkESaURnTxHGGB2GK7o
-	8FA0KbvKoYY0IqpfR5rRi0a1p0qvMb/DBwdvrHLsZOATP6qDxs3mZauB11FILB4Pu40=
-X-Gm-Gg: Acq92OFsYovAa1Nsxm2/7d9cw/p8Q545SY//6yGA3C7O3TK6PM1WyrmnUwKbZBb8xb0
-	fiAV2Cr+JnNijJCMB3YQ2rMTzpk8VRLp5ltCoTBFMZ5s5kT4wCHlaVfgLxi69PDgGRO23+CAHLe
-	0vZ+1cUDTSMqSDadN6L3QXcJLEIo8xra/4Gq01KQn6hI4TdF5RcbafpTsm85WfJU174i1ULp93L
-	STRMV6vSMS6VGv0BWqtr4cqA8tFuqJptPSO1s6ZiPp7frfOXoTIfXIj9C6qkThbpM0HVmUxG2q1
-	wdaAssiumhAaLfLM/dphRkPW/qSepr2H8obZVg2TmrFd9w+cw8Vcl6HmzdYBC+kJ75ZLPMt0NBc
-	IGuzOk9nR27F6QMZPBM0hC4yVqZfnlV97q1LcECHTIxGW6+eZTsb0UtbqWLngtsmVKGX47rHedY
-	aa4HBj07dbXvXfT3uryEz6cl/a31kAsllQjsFZw7x0Yw==
-X-Received: by 2002:a05:6000:bc9:b0:45e:9417:556f with SMTP id ffacd0b85a97d-460306413bemr23436818f8f.39.1781031470876;
-        Tue, 09 Jun 2026 11:57:50 -0700 (PDT)
-Received: from localhost ([2001:4091:a245:857c:bd97:47c2:83e4:8d45])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f3444fesm64579981f8f.20.2026.06.09.11.57.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 11:57:50 -0700 (PDT)
-From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Date: Tue, 09 Jun 2026 20:56:16 +0200
-Subject: [PATCH v6 04/11] arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F
- memory region size
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	d=linux-foundation.org; s=korg; t=1781034351;
+	bh=sDnT/R8r7fr0S+byBNjg5mZPhI3/Z2+xQc0Imi0qg1U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WAftlABopgVwyK7vGdX/rtSLAO9xtr0zc+DLl4US/9eBTEMgAwekI2vvfzqxbkLvT
+	 Wd4X5e2nqodqCSdGijAYC7Pm0so6Nq5F0UhcYuMuxk2QEPxd8donUTVOuSSVYE3uBv
+	 Zw7XdRWDnVlqpb2ACbHDkFj65maHJqMxriyS8hL0=
+Date: Tue, 9 Jun 2026 12:45:49 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+ luto@kernel.org, peterz@infradead.org, hpa@zytor.com, david@kernel.org,
+ ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org,
+ surenb@google.com, mhocko@suse.com, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, npache@redhat.com, ryan.roberts@arm.com,
+ dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev,
+ yang@os.amperecomputing.com, jannh@google.com, Dave Hansen
+ <dave.hansen@intel.com>
+Subject: Re: [RFC PATCH v2 1/3] mm/huge_memory: make persistent huge zero
+ folio read-only
+Message-Id: <20260609124549.aff7e774603c4af188009408@linux-foundation.org>
+In-Reply-To: <20260609143801.7917-2-xueyuan.chen21@gmail.com>
+References: <20260609143801.7917-1-xueyuan.chen21@gmail.com>
+	<20260609143801.7917-2-xueyuan.chen21@gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260609-topic-am62a-ioddr-dt-v6-19-v6-4-16afba97fbe0@baylibre.com>
-References: <20260609-topic-am62a-ioddr-dt-v6-19-v6-0-16afba97fbe0@baylibre.com>
-In-Reply-To: <20260609-topic-am62a-ioddr-dt-v6-19-v6-0-16afba97fbe0@baylibre.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Judith Mendez <jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>, 
- Andrew Davis <afd@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
- Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>, 
- Jai Luthra <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>, 
- Beleswar Padhi <b-padhi@ti.com>, 
- Francesco Dolcini <francesco.dolcini@toradex.com>, 
- Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, 
- Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
- "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1499; i=msp@baylibre.com;
- h=from:subject:message-id; bh=PgsaEoQtBnkk8LYO0JIjLGE5WMkDKUfvgkVifb7kbTo=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhiyNxDetYY9E/+Qpmaae+nImR91ahWfDzsWLrl977qx0Z
- 39p5qJNHaUsDGJcDLJiiiydiaFp/+V3HktetGwzzBxWJpAhDFycAjAR70MM/4NyuXxOTHtyflrG
- jdrzjjeTPduXHVkZtK7j2UbO8tp1u2wYGc5l2OtcPPPO9NrEiHXLRTaYb9YK3/i4bvWSxo+LL1Z
- 9W80LAA==
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_115752_914525_DF5CA040 
-X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,40 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The wkup_r5fss0_core0_memory_region was reserved with only
-0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
-AM62P defines the DM code/data DDR footprint differently:
+On Tue,  9 Jun 2026 22:37:59 +0800 Xueyuan Chen <xueyuan.chen21@gmail.com> wrote:
 
-    /* DDR for DM R5F code/data [ size 27 MiB + 396 KB ] */
-    DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B63000
+> The huge zero folio is shared globally, and its contents should never
+> change after initialization. As Jann Horn pointed out[1], the kernel has
+> had bugs, including security bugs, where read-only pages were later written
+> to. If the persistent huge zero folio is read-only in the direct map, such
+> writes fault instead of silently corrupting the shared zero contents.
+> 
+> Add arch_make_pages_readonly() so mm code can request read-only direct-map
+> protection for a page range. Direct-map protection is
+> architecture-specific, so the generic weak implementation does nothing.
+> 
+> This was inspired by Jann Horn's read-only zero page work[1] and follow-up
+> discussion[2] with Yang Shi.
+> 
+> [1] https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/
+> [2] https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/
+> 
+> ...
+>
+> --- a/mm/huge_memory.c
+> +++ b/mm/huge_memory.c
+> @@ -308,6 +308,11 @@ static unsigned long shrink_huge_zero_folio_scan(struct shrinker *shrink,
+>  	return 0;
+>  }
+>  
+> +bool __weak arch_make_pages_readonly(struct page *page, int nr_pages)
+> +{
+> +	return false;
+> +}
+> +
+>  static struct shrinker *huge_zero_folio_shrinker;
+>  
+>  #ifdef CONFIG_SYSFS
+> @@ -982,8 +987,14 @@ static int __init thp_shrinker_init(void)
+>  		 * that get_huge_zero_folio() will most likely not fail as
+>  		 * thp_shrinker_init() is invoked early on during boot.
+>  		 */
+> -		if (!get_huge_zero_folio())
+> +		if (!get_huge_zero_folio()) {
+>  			pr_warn("Allocating persistent huge zero folio failed\n");
+> +			return 0;
+> +		}
+> +
+> +		arch_make_pages_readonly(folio_page(huge_zero_folio, 0),
+> +					HPAGE_PMD_NR);
 
-which results in an end at 0x9e608000. For this memory region which
-starts at 0x9c900000 this means a length of:
+Can it simply pass the folio?
 
-    0x9e608000 - 0x9c900000 = 0x1d08000
-
-Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62px-sk/wkup-r5fss0-0_freertos/ti-arm-clang/linker.cmd
-Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
-Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index 7ee894d59113aa727d41b7ecd6b2bc7e12760823..8a5ff5c457579c7b1be7157d235fd4b4e5c6af11 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -170,7 +170,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
- 
- 		wkup_r5fss0_core0_memory_region: memory@9c900000 {
- 			compatible = "shared-dma-pool";
--			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-+			reg = <0x00 0x9c900000 0x00 0x01d08000>;
- 			no-map;
- 		};
- 	};
-
--- 
-2.53.0
 
 
