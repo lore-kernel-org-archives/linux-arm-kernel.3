@@ -4,100 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9750CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75C6CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JePwi7lGmk22L2ZvF+HlY3auiYE5qVYyUoJ9xEvdwo4=; b=01Dl9LggQc/w0Egpt+Mp+SDOzF
-	PNRgqeWCSmgzEoY1LAsAMqxTtHdExemNXiC42LTVxvvLwfZp6QzipTIRTiv32PgYmsjj084XhMuym
-	A3tzYwc7bJkxpRmBV+ccU2Uh0EcZWn8YMyzHwIDR9+UGKma0Iq+iYS+Ox5KX1a2Gn4OQKaik/6OdL
-	r2gSvf7JNeImz77kbDP8JYNSf7FZwoAi7Itcij1L78VngetbdL1/z7658Bsv4enavnDrVwVWqJ2oA
-	+vXUGfazGnjhqcJ9rwj/r1AZ4tC+Ak/ovonAC+e2eV8KXDhGyulNEiEMrfzev+t5b5vYxI4DHk58B
-	AccN33Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8wi9fizjtE9V4ujGFA2Tw2npgNQ/OF9fNC3bNYWZjDA=; b=iABAxv2KMsbYhfEXcDF+KkWSpN
+	bdMP3+kd4awZVXlJx81l4EXWWLl1rbisAV+ZnubrQZksgy5CryAnuSuJVOexcWhABr9iJDU3IJb0U
+	94Fpqn/dEnB1ynOe9WVwD5GDOQygUjUw57cViQA71T/3QFvpsRvjEJScIwJn67Sk+3nYbHDXNx9BU
+	9xTxCMpN0fXcQIIHUY85ywbvSI1ObYJfEuGK2YL3E/+4GG5uxBZOh1k5MNDS1QMqI4iN1iezKMs8P
+	cZyIefAUuvgAnsMGjphOHQ2MNyUDHOUZSR0nV5vjo3Z4MhgqUbkfUmJAqTV3W04I0AUaVV69K/Y8v
+	D3p9kn7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWto0-00000005Mpa-1KUO;
-	Tue, 09 Jun 2026 10:35:36 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wWtrT-00000005N5H-3OEz;
+	Tue, 09 Jun 2026 10:39:11 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtnw-00000005Mna-0fCm
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 10:35:34 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260609103528euoutp013d288c2fa123fdebeb748e734402df0f~3Y0WXXeaf1159111591euoutp01F;
-	Tue,  9 Jun 2026 10:35:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260609103528euoutp013d288c2fa123fdebeb748e734402df0f~3Y0WXXeaf1159111591euoutp01F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1781001328;
-	bh=JePwi7lGmk22L2ZvF+HlY3auiYE5qVYyUoJ9xEvdwo4=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=uqQ5MZL6StJuM8hFVb2CNy3r9XJVeTOlky3Nq0KHCVmrWf7sQnMCvsduf/Dc0eogH
-	 kOO8JE4vd7HNK7wtukgFBHcoSldIC2uyslzgp8XXmue6mj5Q/YvJPNCzH6KHfiXE+l
-	 ajoXf/AA7I1kTJXycD3CKdsUOq9B5DhRhZchI6Qs=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260609103527eucas1p283f7b84555c22cf98e0f014bcb0dde55~3Y0WG7z2a2784927849eucas1p2i;
-	Tue,  9 Jun 2026 10:35:27 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260609103525eusmtip28ff34c5b3a0f7565e2286427aae416f9~3Y0UFCurw2983029830eusmtip2X;
-	Tue,  9 Jun 2026 10:35:25 +0000 (GMT)
-Message-ID: <193cc406-0834-4dee-9b4a-02cdfd85e05c@samsung.com>
-Date: Tue, 9 Jun 2026 12:35:24 +0200
+	id 1wWtrR-00000005N3r-232A;
+	Tue, 09 Jun 2026 10:39:10 +0000
+X-UUID: 6e4d8d0263ef11f1afed4741b24580c9-20260609
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=8wi9fizjtE9V4ujGFA2Tw2npgNQ/OF9fNC3bNYWZjDA=;
+	b=hePFc5C6akCxa1LY+UAG3mUFFEuCgND93AcNectV0mBRSOdTQRV4D8NHHB+KDxYhlSgYw1ys+wrxMIoet/iUtvgXe64CdbWb5o4X4IY4rRvPwZaFVW2AbSRKIgqg5IW//Qs9qH4RTqPhY6ajXUNSlE28U1oFgbXExV7ZAVikf4M=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:73f4b8cf-13a9-4515-9b08-0be550fcdcbe,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:4ed69030-7784-4a77-a538-47ed6151d81b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|123|836|865|888|898,TC:-5,
+	Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,C
+	OL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 6e4d8d0263ef11f1afed4741b24580c9-20260609
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <ed.tsai@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 228756677; Tue, 09 Jun 2026 03:39:02 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 9 Jun 2026 18:38:59 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 9 Jun 2026 18:38:59 +0800
+From: <ed.tsai@mediatek.com>
+To: <alim.akhtar@samsung.com>, <avri.altman@wdc.com>, <bvanassche@acm.org>,
+	<James.Bottomley@HansenPartnership.com>, <martin.petersen@oracle.com>,
+	<linux-scsi@vger.kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <wsd_upstream@mediatek.com>,
+	<peter.wang@mediatek.com>, <alice.chao@mediatek.com>,
+	<naomi.chu@mediatek.com>, <chun-hung.wu@mediatek.com>, Ed Tsai
+	<ed.tsai@mediatek.com>
+Subject: [PATCH 1/2] ufs: core: Add get_hba_nortt callback for vendor-specific RTT capability
+Date: Tue, 9 Jun 2026 18:38:55 +0800
+Message-ID: <20260609103856.676222-2-ed.tsai@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20260609103856.676222-1-ed.tsai@mediatek.com>
+References: <20260609103856.676222-1-ed.tsai@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to
- EL2 virtual timer when running VHE
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
-	Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Mark
-	Rutland <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
-	Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
-	Holland <samuel@sholland.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Ge Gordon
-	<gordon.ge@bst.ai>, BST Linux Kernel Upstream Group
-	<bst-upstream@bstai.top>, Jesper Nilsson <jesper.nilsson@axis.com>, Lars
-	Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Dinh Nguyen
-	<dinguyen@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Bjorn Andersson <andersson@kernel.org>, Konrad
-	Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
-	<afaerber@suse.de>, =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
-	<eleanor.lin@realtek.com>, Heiko Stuebner <heiko@sntech.de>, Shawn Lin
-	<shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
-	<baolin.wang@linux.alibaba.com>, Michal Simek <michal.simek@amd.com>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <86ik7st3nh.wl-maz@kernel.org>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260609103527eucas1p283f7b84555c22cf98e0f014bcb0dde55
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba
-X-EPHeader: CA
-X-CMS-RootMailID: 20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba
-References: <20260523140242.586031-1-maz@kernel.org>
-	<20260523140242.586031-4-maz@kernel.org>
-	<CGME20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba@eucas1p1.samsung.com>
-	<ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
-	<86ik7st3nh.wl-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_033532_811743_A9E44F3C 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20260609_033909_540716_FCAE0C88 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,78 +90,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.06.2026 12:21, Marc Zyngier wrote:
-> On Tue, 09 Jun 2026 11:03:21 +0100,
-> Marek Szyprowski <m.szyprowski@samsung.com> wrote:
->> On 23.05.2026 16:02, Marc Zyngier wrote:
->>> When running with at EL2 with VHE enabled, the architecture provides
->>> two EL2 timer/counters, dubbed physical and virtual. Apart from their
->>> names, they are strictly identical.
->>>
->>> However, they don't get virtualised the same way, specially when
->>> it comes to adding arbitrary offsets to the timers. When running as
->>> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
->>> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
->>> the architecture is broken past the first level of virtualisation
->>> (it lacks some essential mechanisms to be usable, despite what
->>> the ARM ARM pretends).
->>>
->>> This means that when running as a L2 guest hypervisor, using the
->>> physical timer results in traps to L0, which are then forwarded to
->>> L1 in order to emulate the offset, leading to even worse performance
->>> due to massive trap amplification (the combination of register and
->>> ERET trapping is absolutely lethal).
->>>
->>> Switch the arch timer code to using the virtual timer when running
->>> in VHE by default, only using the physical timer if the interrupt
->>> is not correctly described in the firmware tables (which seems
->>> to be an unfortunately common case). This comes as no impact on
->>> bare-metal, and slightly improves the situation in the virtualised
->>> case.
->>>
->>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->> This patch landed recently in linux-next as commit d87773de9efe
->> ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
->> running VHE"). In my tests I found that it breaks booting of RaspberryPi5
->> board. Reverting it on top of linux-next fixes the issue. Here is a boot
->> log:
-> Huh.
->
-> [...]
->
->> arch_timer: cp15 timer running at 54.00MHz (hyp-virt).
->> clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xc743ce346, max_idle_ns: 440795203123 ns
->> sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
-> The interrupt appears to be advertised in the DT, but doesn't seem to
-> fire. That's obviously not going to end well. My suspicion is that
-> either the interrupt isn't wired (that'd be hilariously abd), or is
-> left as Group-0 by the firmware (copy-paste from RPi4).
->
-> Can you try the following hack and let me know if the kernel shouts at
-> you?
->
-> Thanks,
->
-> 	M.
->
-> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-> index ec70c84e9f91d..d05791e6cc0db 100644
-> --- a/drivers/irqchip/irq-gic.c
-> +++ b/drivers/irqchip/irq-gic.c
-> @@ -213,6 +213,7 @@ static void gic_eoimode1_mask_irq(struct irq_data *d)
->  static void gic_unmask_irq(struct irq_data *d)
->  {
->  	gic_poke_irq(d, GIC_DIST_ENABLE_SET);
-> +	WARN_ON(!gic_peek_irq(d, GIC_DIST_ENABLE_SET));
->  }
->  
->  static void gic_eoi_irq(struct irq_data *d)
+From: Ed Tsai <ed.tsai@mediatek.com>
 
-I've applied this change, but it doesn't trigger any warning in the boot log.
+The number of outstanding RTTs read from host controller capability
+register is problematic on some platforms. Add a new vendor callback
+get_hba_nortt() to allow platform vendors to override the default RTT
+capability value with platform-specific handling.
 
-Best regards
+For platforms without the callback, continue to use the value from the
+host controller capability register.
+
+Also remove the max_num_rtt field from ufs_hba_variant_ops as it is
+replaced by the new get_hba_nortt callback.
+
+Signed-off-by: Ed Tsai <ed.tsai@mediatek.com>
+---
+ drivers/ufs/core/ufshcd.c | 9 +++++----
+ include/ufs/ufshcd.h      | 5 +++--
+ 2 files changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index c3f08957d179..00072bff9dcd 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -2529,7 +2529,10 @@ static inline int ufshcd_hba_capabilities(struct ufs_hba *hba)
+ 	hba->nutmrs =
+ 	((hba->capabilities & MASK_TASK_MANAGEMENT_REQUEST_SLOTS) >> 16) + 1;
+ 
+-	hba->nortt = FIELD_GET(MASK_NUMBER_OUTSTANDING_RTT, hba->capabilities) + 1;
++	if (hba->vops && hba->vops->get_hba_nortt)
++		hba->nortt = hba->vops->get_hba_nortt(hba);
++	else
++		hba->nortt = FIELD_GET(MASK_NUMBER_OUTSTANDING_RTT, hba->capabilities) + 1;
+ 
+ 	/* Read crypto capabilities */
+ 	err = ufshcd_hba_init_crypto_capabilities(hba);
+@@ -8554,8 +8557,6 @@ static void ufshcd_set_rtt(struct ufs_hba *hba)
+ 	struct ufs_dev_info *dev_info = &hba->dev_info;
+ 	u32 rtt = 0;
+ 	u32 dev_rtt = 0;
+-	int host_rtt_cap = hba->vops && hba->vops->max_num_rtt ?
+-			   hba->vops->max_num_rtt : hba->nortt;
+ 
+ 	/* RTT override makes sense only for UFS-4.0 and above */
+ 	if (dev_info->wspecversion < 0x400)
+@@ -8571,7 +8572,7 @@ static void ufshcd_set_rtt(struct ufs_hba *hba)
+ 	if (dev_rtt != DEFAULT_MAX_NUM_RTT)
+ 		return;
+ 
+-	rtt = min_t(int, dev_info->rtt_cap, host_rtt_cap);
++	rtt = min_t(int, dev_info->rtt_cap, hba->nortt);
+ 
+ 	if (rtt == dev_rtt)
+ 		return;
+diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+index cfbc75d8df83..13d0d7798294 100644
+--- a/include/ufs/ufshcd.h
++++ b/include/ufs/ufshcd.h
+@@ -370,7 +370,6 @@ struct ufshcd_tx_eq_params {
+ /**
+  * struct ufs_hba_variant_ops - variant specific callbacks
+  * @name: variant name
+- * @max_num_rtt: maximum RTT supported by the host
+  * @init: called when the driver is initialized
+  * @exit: called to cleanup everything done in init
+  * @set_dma_mask: For setting another DMA mask than indicated by the 64AS
+@@ -415,10 +414,11 @@ struct ufshcd_tx_eq_params {
+  * @get_rx_fom: called to get Figure of Merit (FOM) value.
+  * @tx_eqtr_notify: called before and after TX Equalization Training procedure
+  *	to allow platform vendor specific configs to take place.
++ * @get_hba_nortt: called to get maximum number of outstanding RTTs supported by
++ *	the controller.
+  */
+ struct ufs_hba_variant_ops {
+ 	const char *name;
+-	int	max_num_rtt;
+ 	int	(*init)(struct ufs_hba *);
+ 	void    (*exit)(struct ufs_hba *);
+ 	u32	(*get_ufs_hci_version)(struct ufs_hba *);
+@@ -477,6 +477,7 @@ struct ufs_hba_variant_ops {
+ 	int	(*tx_eqtr_notify)(struct ufs_hba *hba,
+ 				  enum ufs_notify_change_status status,
+ 				  struct ufs_pa_layer_attr *pwr_mode);
++	int	(*get_hba_nortt)(struct ufs_hba *hba);
+ };
+ 
+ /* clock gating state  */
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+2.45.2
 
 
