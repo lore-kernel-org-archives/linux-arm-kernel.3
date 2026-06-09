@@ -4,106 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA78CD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8492DCD8CAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9qQyIW7o6DCu+mNhXKcjjfee6yGqblUEOyM3JGRz3Q=; b=a+ZdRqWr82R4g+NXM0HhCVbQkx
-	K192wJuJu6JzivqH4pjvAapHtPBwGawnYOGtoFUqr2+JYd1QiiTuVfs2KGB7egQti+ndFjueb1AR2
-	VleFpf4jXgzhvDnmCUJ8VGEJjzYeaAG1D95dWMBq5A2PvJF+VvXPdTf7QWs8c1ws3vK4EF/ymPZ5Z
-	LxHztS6p3Awv0U3AsrKeZbSkOucFtmK6JLMEVer85Nqwvs9l/JBB+QQeq6H8xd1Y77serOU4NqH3S
-	O0TV4Ddg+ZxT9SCrNvRcPO3AIZEeADOHClGfapu6wmp8O1xjroNHyjUo0ia+GtJx2rNnX/f6dpk8c
-	c9HaucMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3kfzfYUQjmzrzaNngkfG7jEfCJtYkrmcPuvtAzgJevo=; b=Av3hNky4PzZ1JarKINoxvDFYYm
+	Ra4PO5006wa3EYjkj85wWTDP6/PaFn+Wizqhl3YYWNfyEYImkBgge4aORYZsyxVJe60yx/K+ozZWD
+	B2l+PekethcTW78pDOxmAoOdhUb6EqJ20r46vHpvO6SgeqTLCyFsshSe4yy7FjEW/gAEdh4jy2P+k
+	2urMJ9cPPVK1uXH6ET1ODpTEV/h5mTeDYpBVj9S5mr5qcbiGxuZ0VraKVy2YBPGZbpi2Lt/GyemQ4
+	gbuZ9B2sikWLlWP9kHJdr3EBMEUwA2UNABYoBfLyAX/h2DvDTuNBTHVeEANmACzbwBPyVAdCjsHQ4
+	PAxnMdjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwLL-00000005dlu-1hGu;
-	Tue, 09 Jun 2026 13:18:11 +0000
+	id 1wWwNC-00000005dvT-1vey;
+	Tue, 09 Jun 2026 13:20:06 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwLJ-00000005dlb-1SHh
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 13:18:09 +0000
+	id 1wWwNA-00000005dv7-3Cg5;
+	Tue, 09 Jun 2026 13:20:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B20B843E31;
-	Tue,  9 Jun 2026 13:18:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C121F1F00893;
-	Tue,  9 Jun 2026 13:18:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F6FC4369A;
+	Tue,  9 Jun 2026 13:20:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5F451F0089B;
+	Tue,  9 Jun 2026 13:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781011088;
-	bh=u9qQyIW7o6DCu+mNhXKcjjfee6yGqblUEOyM3JGRz3Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mumQ40iUTeqjgzPAOz8A3wd/Dw9ibbr9m2wx+zodzHxsqvuEFtkuEKPSAaBA0emUC
-	 mB0X5rx5KPR70GOAUlKBxryjU+/k+eXCWL/nu+nghwR3CltV/zNVnbiTqauP9Rh4CS
-	 wv7pu4RVC4mLvG6owG72dWs5PW3kL+7DJItXvpdLfDcBP5Bs96DpRjLPyN8gEfcU9t
-	 nmA2ubVG9DLMCbD0g92haa8nipgoSeuwiP3Yk3sOtlF/HJDYO7xGkppBSU4sbb1ddi
-	 FH74Bv7S93wgY3RvCGodEPUtZde4PKfUa2nO/uYHAz0sVVj4G5sypu60R3Mqao+QWI
-	 xzWb8LrCIOyLg==
-Message-ID: <e2bf1f8b-677e-4184-b752-26e987f29121@kernel.org>
-Date: Tue, 9 Jun 2026 15:18:02 +0200
+	s=k20260515; t=1781011204;
+	bh=3kfzfYUQjmzrzaNngkfG7jEfCJtYkrmcPuvtAzgJevo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Nu3c//AlzSp8dePkkxInyBwOH1za16zBtOfwyKKYtLFFLjiG8i4p3lxnz7/woXZRt
+	 JtKfFb9rqoH+SnrrC4q2iV44PdZ/9zVTsMNh6FhyvEl7aeFW7q1jiKXD0iYDuZT/19
+	 WAoTm2OfHpFKUjwDV7p3e1NXD1LDpjNUjE5OJ0BXTDAqSNdwXFpcotHjICirfRcDqq
+	 gXCCws+Lwj8qzUFh7jDIZdWSsogSZOcJi186LTV8ZYFAGhPuAZOcImMurdCnIqzQ5X
+	 HlfUlKnoNl7MCbPDCPLxB+eDFsxDgAHMilxw3DMD1rCWpElmqaPJkEJURsALDig2p1
+	 sWS4POf/gNapw==
+Date: Tue, 9 Jun 2026 15:20:01 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Adrien Grassein <adrien.grassein@gmail.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
+	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>, 
+	Yongxing Mou <yongxing.mou@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Francesco Dolcini <francesco@dolcini.it>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v4 1/8] drm/connector: report out-of-band IRQ_HPD events
+Message-ID: <20260609-bouncy-tomato-dalmatian-70ccee@houat>
+References: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
+ <20260608-hpd-irq-events-v4-1-30b62b335487@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] Allwinner DT Changes for 7.2
-To: wens@kernel.org, Stephen Boyd <sboyd@kernel.org>
-Cc: soc@kernel.org, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <ah3ZAPLzh8ORGmpH@home.wens.tw>
- <20260609-mighty-excellent-shoebill-04d7fa@quoll>
- <CAGb2v64guguXmg-=WYmZyz=rw3PNRvh+TnEE1yWFz=AJbryssw@mail.gmail.com>
- <98f3e864-3a9e-4f96-a633-0c0053ec35fb@kernel.org>
- <CAGb2v64o+tgnLqK_xDoauB4ThF_0979_5XPB38KiZHYyh1BnVQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAGb2v64o+tgnLqK_xDoauB4ThF_0979_5XPB38KiZHYyh1BnVQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="25e53fw4vpfchyki"
+Content-Disposition: inline
+In-Reply-To: <20260608-hpd-irq-events-v4-1-30b62b335487@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,64 +88,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2026 14:38, Chen-Yu Tsai wrote:
-> On Tue, Jun 9, 2026 at 8:51 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 09/06/2026 13:48, Chen-Yu Tsai wrote:
->>> On Tue, Jun 9, 2026 at 8:43 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>
->>>> On Tue, Jun 02, 2026 at 03:09:52AM +0800, Chen-Yu Tsai wrote:
->>>>> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
->>>>>
->>>>>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
->>>>>
->>>>> are available in the Git repository at:
->>>>>
->>>>>   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-7.2
->>>>>
->>>>> for you to fetch changes up to 44cf19e41c769720750dbb8752aca75c247e565f:
->>>>>
->>>>>   arm64: dts: allwinner: a523: add gpadc node (2026-05-25 05:02:58 +0800)
->>>>>
->>>>>
->>>>> As mentioned in the tag, this pull request contains a change that should
->>>>> be shared between the soc and clk trees. However since I don't have any
->>>>> clk changes to send this cycle, I think it can just go through the soc
->>>>> tree without any issues.
->>>>
->>>> But the clock driver change cannot be in the DTS branch. This should go
->>>> via clock tree even if it is one change. And definitely not via DTS
->>>> branch.
->>>
->>> It is a shared change, because it moves two symbols from the driver's
->>> private header to the public DT binding header. I don't see how this
->>> can go through just the clk tree when one of the subsequent patches
->>> uses those new symbols.
->>>
->>> "clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public header"
->>> is needed by "ARM: dts: sun8i: v3s: Add mbus node to represent the
->>> interconnect".
->>>
->>> The other way to go about this is to use raw numbers first, then
->>> another patch in the next cycle to switch the numbers to actual
->>> macros. IMHO not worth the churn and headache.
->>
->> You can have a duplicated define.
-> 
-> I honestly did not know that it worked.
-> 
-> However, splitting what is effectively one logical change (*move*
-> something) into two patches just to be able to merge them through two
-> separate trees still seems wrong to me.
 
-It is not really one logical change. Defining a new ABI (binding header
-define) is considered one change. Merging binding change into driver
-commit breaks rule of splitting bindings from implementation.
+--25e53fw4vpfchyki
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 1/8] drm/connector: report out-of-band IRQ_HPD events
+MIME-Version: 1.0
 
-Second rule is that DTS branch CANNOT take driver changes. So if you do
-not want to adhere to the above rule you still cannot combine it into
-DTS branch.
+Hi,
 
-Best regards,
-Krzysztof
+On Mon, Jun 08, 2026 at 12:33:02AM +0300, Dmitry Baryshkov wrote:
+> The DisplayPort standard defines a special kind of events called IRQ.
+> These events are used to notify DP Source about the events on the Sink
+> side. It is extremely important for DP MST handling, where the MST
+> events are reported through this IRQ.
+>=20
+> In case of the USB-C DP AltMode there is no actual HPD pulse, but the
+> events are reported through the bits in the AltMode VDOs.
+>=20
+> Rename drm_connector_oob_hotplug_event() to drm_connector_dp_oob_status()
+> and extend its interface to report IRQ events to the DisplayPort Sink
+> drivers.
+>=20
+> Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> ---
+>  drivers/gpu/drm/drm_connector.c          | 20 ++++++++++++--------
+>  drivers/usb/typec/altmodes/displayport.c | 23 +++++++++++++++--------
+>  include/drm/drm_connector.h              | 21 +++++++++++++++++++--
+>  3 files changed, 46 insertions(+), 18 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connec=
+tor.c
+> index 3fa4d2082cd7..bb128dd0263a 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -3502,20 +3502,24 @@ struct drm_connector *drm_connector_find_by_fwnod=
+e(struct fwnode_handle *fwnode)
+>  }
+> =20
+>  /**
+> - * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to=
+ connector
+> + * drm_connector_dp_oob_status - Report out-of-band hotplug event to Dis=
+playPort connector
+>   * @connector_fwnode: fwnode_handle to report the event on
+>   * @status: hot plug detect logical state
+> + * @extra_status: additional information provided by the sink without ch=
+anging
+> + * the HPD state (or in addition to such a change).
+>   *
+> - * On some hardware a hotplug event notification may come from outside t=
+he display
+> - * driver / device. An example of this is some USB Type-C setups where t=
+he hardware
+> - * muxes the DisplayPort data and aux-lines but does not pass the altmod=
+e HPD
+> - * status bit to the GPU's DP HPD pin.
+> + * In some cases when DisplayPort signals are being routed through the U=
+SB
+> + * Type-C port the hotplug event notifications come from outside of the =
+display
+> + * driver / device. In this case hardware muxes the DisplayPort data and
+> + * AUX-lines but does not pass the altmode HPD status bit to the GPU's D=
+P HPD
+> + * pin.
+>   *
+>   * This function can be used to report these out-of-band events after ob=
+taining
+>   * a drm_connector reference through calling drm_connector_find_by_fwnod=
+e().
+>   */
+> -void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwn=
+ode,
+> -				     enum drm_connector_status status)
+> +void drm_connector_dp_oob_status(struct fwnode_handle *connector_fwnode,
+> +				 enum drm_connector_status status,
+> +				 enum drm_connector_status_extra extra_status)
+
+Thanks for the renaming, but I think we can also rename
+drm_connector_status_extra to something a bit more descriptive now?
+drm_connector_dp_oob_event? status?
+
+The rest looks good.
+
+Maxime
+
+--25e53fw4vpfchyki
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaigTAQAKCRAnX84Zoj2+
+dnv2AX9le3hz+Lu8gxYvgEXc1sDIBCPM1bh/zkVwBN3wZ9THVMA3l8RMscsHED+I
+ZdjXquUBeQESub4sfU2kH0nggZa7VB2wC1SqcPxTrCSdEwKVl5n4RlSMJ/F47hOK
+i6kZa+CMlQ==
+=wSKV
+-----END PGP SIGNATURE-----
+
+--25e53fw4vpfchyki--
 
