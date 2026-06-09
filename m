@@ -4,85 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C68FCD8C92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA78CD8C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkRvDhdakGkuS3drIlrxrThJuZ1NF7hwtWDMZs8KAf8=; b=sUwoMt8SKJAfxE80DhDLGo2iPL
-	89oLDWp3t1j1tf2t0NnItL07DiXFTG4+6F8ttv859IQ0NFodCDU+wkSi3qH5w7fvpU9LmaKf2VLth
-	1xyvunR+x6icYssCxbxhbQUr5y8Aapx+GRd/8MVE2vSp56+tIwmELvYpoZDJFbQjHRMAgPG6ViY+F
-	jEwfdQv4vm3azbOiAdp+JS4tvb0TcXL7nDnCa4HyrqsBUx+EeNJkvTCePUmsrBPRCvOLRr3kN9/7s
-	rBo5dNSjZfQi3FVe/FTI+uxON775tsTjKJcdeaRpkTnbsjd/n1s4pIvIw7UGw1vCrHRKvEwGonIKq
-	RV3IcD4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u9qQyIW7o6DCu+mNhXKcjjfee6yGqblUEOyM3JGRz3Q=; b=a+ZdRqWr82R4g+NXM0HhCVbQkx
+	K192wJuJu6JzivqH4pjvAapHtPBwGawnYOGtoFUqr2+JYd1QiiTuVfs2KGB7egQti+ndFjueb1AR2
+	VleFpf4jXgzhvDnmCUJ8VGEJjzYeaAG1D95dWMBq5A2PvJF+VvXPdTf7QWs8c1ws3vK4EF/ymPZ5Z
+	LxHztS6p3Awv0U3AsrKeZbSkOucFtmK6JLMEVer85Nqwvs9l/JBB+QQeq6H8xd1Y77serOU4NqH3S
+	O0TV4Ddg+ZxT9SCrNvRcPO3AIZEeADOHClGfapu6wmp8O1xjroNHyjUo0ia+GtJx2rNnX/f6dpk8c
+	c9HaucMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwKN-00000005dfL-0B5U;
-	Tue, 09 Jun 2026 13:17:11 +0000
-Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
+	id 1wWwLL-00000005dlu-1hGu;
+	Tue, 09 Jun 2026 13:18:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwKI-00000005dey-32M5
+	id 1wWwLJ-00000005dlb-1SHh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 13:17:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1781011026; x=1812547026;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=N/vFtBsEQhmzFRkg7JVXBFy8+0kq7irSjH06B5RYaow=;
-  b=T5p8l5MNMuCRUKmotbKZoWPpz9aYxMUOPzCk039pFrKQs4jncv2iXca+
-   T4O/xAQLenLsW1dJcKy4lXpuw2MgK+knEX8eedMW37Yfn2STzjzit04ft
-   51A8a3NwqsendBzcHfRdn+og3yuHG7k/nTutbzOyCnpyyrfhqdMUfC3jc
-   nB/c0g8gEVLPjJd4DSXZooT8rMECAGHXnjkPdJzhFcOoxyqEtoSOCVlik
-   ef/k+A6gUZUfaIaLZlCQxBengXDaf/G+3rWfoHry5JlaolJmaUvjjeT8r
-   VypsplW9x+W/SVzB8DAFuzsn1CG32YYaNASZjU0AeYD6eBdhRQaZMtDyc
-   A==;
-X-CSE-ConnectionGUID: oxTTc2+VRq2l/FpbWP4TVw==
-X-CSE-MsgGUID: kZSwjrQvQKmKhiSoU674XQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11811"; a="222428763"
-X-IronPort-AV: E=Sophos;i="6.24,196,1774278000"; 
-   d="scan'208";a="222428763"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 22:17:03 +0900
-Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 2BC858204C7
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 13:17:03 +0000 (UTC)
-Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id D328D18591D4
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Jun 2026 13:17:02 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.34.167])
-	by az2nlsmom3.fujitsu.com (Postfix) with SMTP id 5E34A101E52F;
-	Tue,  9 Jun 2026 13:16:59 +0000 (UTC)
-Date: Tue, 9 Jun 2026 22:16:57 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Will Deacon <will@kernel.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
-	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] virt: arm-cca-guest: use raw variant of
- smp_processor_id() in arm_cca_report_new()
-Message-ID: <aigNbs89G4bCQdjY@FCCLS0092175.localdomain>
-References: <20260519101217.155740-1-enju.kohei@fujitsu.com>
- <ah638FZAyCSqtzMi@willie-the-truck>
- <41ab4dfb-b91c-46df-99a0-de36686c8fea@arm.com>
- <aiAUceqBREjwXk_V@willie-the-truck>
+	Tue, 09 Jun 2026 13:18:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B20B843E31;
+	Tue,  9 Jun 2026 13:18:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C121F1F00893;
+	Tue,  9 Jun 2026 13:18:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781011088;
+	bh=u9qQyIW7o6DCu+mNhXKcjjfee6yGqblUEOyM3JGRz3Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=mumQ40iUTeqjgzPAOz8A3wd/Dw9ibbr9m2wx+zodzHxsqvuEFtkuEKPSAaBA0emUC
+	 mB0X5rx5KPR70GOAUlKBxryjU+/k+eXCWL/nu+nghwR3CltV/zNVnbiTqauP9Rh4CS
+	 wv7pu4RVC4mLvG6owG72dWs5PW3kL+7DJItXvpdLfDcBP5Bs96DpRjLPyN8gEfcU9t
+	 nmA2ubVG9DLMCbD0g92haa8nipgoSeuwiP3Yk3sOtlF/HJDYO7xGkppBSU4sbb1ddi
+	 FH74Bv7S93wgY3RvCGodEPUtZde4PKfUa2nO/uYHAz0sVVj4G5sypu60R3Mqao+QWI
+	 xzWb8LrCIOyLg==
+Message-ID: <e2bf1f8b-677e-4184-b752-26e987f29121@kernel.org>
+Date: Tue, 9 Jun 2026 15:18:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aiAUceqBREjwXk_V@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_061707_581974_D9F012C7 
-X-CRM114-Status: GOOD (  34.65  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] Allwinner DT Changes for 7.2
+To: wens@kernel.org, Stephen Boyd <sboyd@kernel.org>
+Cc: soc@kernel.org, Jernej Skrabec <jernej@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <ah3ZAPLzh8ORGmpH@home.wens.tw>
+ <20260609-mighty-excellent-shoebill-04d7fa@quoll>
+ <CAGb2v64guguXmg-=WYmZyz=rw3PNRvh+TnEE1yWFz=AJbryssw@mail.gmail.com>
+ <98f3e864-3a9e-4f96-a633-0c0053ec35fb@kernel.org>
+ <CAGb2v64o+tgnLqK_xDoauB4ThF_0979_5XPB38KiZHYyh1BnVQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAGb2v64o+tgnLqK_xDoauB4ThF_0979_5XPB38KiZHYyh1BnVQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +118,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/03 12:48, Will Deacon wrote:
-> On Tue, Jun 02, 2026 at 04:48:43PM +0100, Suzuki K Poulose wrote:
-> > On 02/06/2026 12:01, Will Deacon wrote:
-> > > On Tue, May 19, 2026 at 07:12:08PM +0900, Kohei Enju wrote:
-> > > > With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
-> > > > debug_smp_processor_id(). This debug function complains when certain
-> > > > conditions that ensure CPU ID stability are not met, specifically when
-> > > > it's called from a preemptible context.
-> > > > 
-> > > > In arm_cca_report_new(), which runs in a preemptible context,
-> > > > smp_processor_id() triggers a splat [0] due to this.
-> > > > 
-> > > > However, the CPU ID obtained here is used as the target CPU for
-> > > > smp_call_function_single() to designate a specific CPU for subsequent
-> > > > operations, not to assert that the current thread will continue to
-> > > > execute on the same CPU. Therefore, snapshotting the CPU ID itself is
-> > > > correct, and thus there's no actual harm except for the splat.
-> > > > 
-> > > > Use raw_smp_processor_id() instead, to directly retrieve the current CPU
-> > > > ID without the debug checks, avoiding the unnecessary warning message
-> > > > while preserving the correct functional behavior.
-> > > 
-> > > That's pretty disgusting imo so I'd like to see some more justification
-> > > for this approach.
-> > > 
-> > > > Note that while migrate_disable() would pin the task to the current CPU,
-> > > > this path should not block CPU hotplug events. Therefore, we snapshot
-> > > > the current CPU ID and accept that smp_call_function_single() may fail
-> > > > if the CPU goes offline.
-> > > 
-> > > Why shouldn't it block CPU hotplug events? What happens if the CPU goes
-> > > offline and comes back online again during the loop of continue calls?
-> > 
-> > It need not. It can continue the calls. The RMM keeps track of the internal
-> > progress in the "REC" object for this "VCPU". Hotplug ON/OFF
-> > doesn't change the REC object in CCA Guest. So, a REC can come back and
-> > execute it. But the Linux could fail the operation if the CPU isn't
-> > available for fetching the report, after we do a RSI_ATTEST_TOKEN_INIT.
+On 09/06/2026 14:38, Chen-Yu Tsai wrote:
+> On Tue, Jun 9, 2026 at 8:51 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On 09/06/2026 13:48, Chen-Yu Tsai wrote:
+>>> On Tue, Jun 9, 2026 at 8:43 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>
+>>>> On Tue, Jun 02, 2026 at 03:09:52AM +0800, Chen-Yu Tsai wrote:
+>>>>> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+>>>>>
+>>>>>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+>>>>>
+>>>>> are available in the Git repository at:
+>>>>>
+>>>>>   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-7.2
+>>>>>
+>>>>> for you to fetch changes up to 44cf19e41c769720750dbb8752aca75c247e565f:
+>>>>>
+>>>>>   arm64: dts: allwinner: a523: add gpadc node (2026-05-25 05:02:58 +0800)
+>>>>>
+>>>>>
+>>>>> As mentioned in the tag, this pull request contains a change that should
+>>>>> be shared between the soc and clk trees. However since I don't have any
+>>>>> clk changes to send this cycle, I think it can just go through the soc
+>>>>> tree without any issues.
+>>>>
+>>>> But the clock driver change cannot be in the DTS branch. This should go
+>>>> via clock tree even if it is one change. And definitely not via DTS
+>>>> branch.
+>>>
+>>> It is a shared change, because it moves two symbols from the driver's
+>>> private header to the public DT binding header. I don't see how this
+>>> can go through just the clk tree when one of the subsequent patches
+>>> uses those new symbols.
+>>>
+>>> "clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public header"
+>>> is needed by "ARM: dts: sun8i: v3s: Add mbus node to represent the
+>>> interconnect".
+>>>
+>>> The other way to go about this is to use raw numbers first, then
+>>> another patch in the next cycle to switch the numbers to actual
+>>> macros. IMHO not worth the churn and headache.
+>>
+>> You can have a duplicated define.
 > 
-> I couldn't really shake that out of the RMM spec tbh:
-> RSI_ATTESTATION_TOKEN_CONTINUE is allowed to return RSI_ERROR_UNKNOWN
-> and I couldn't find anything about hotplug.
+> I honestly did not know that it worked.
 > 
-> But my main point, really, is why are we not using migrate_disable()
-> here? I can't see the justification.
+> However, splitting what is effectively one logical change (*move*
+> something) into two patches just to be able to merge them through two
+> separate trees still seems wrong to me.
 
-Hi Will,
-Sorry for the late reply.
+It is not really one logical change. Defining a new ABI (binding header
+define) is considered one change. Merging binding change into driver
+commit breaks rule of splitting bindings from implementation.
 
-I agree that using migrate_disable() makes this path simpler and
-clearer.
+Second rule is that DTS branch CANNOT take driver changes. So if you do
+not want to adhere to the above rule you still cannot combine it into
+DTS branch.
 
-I've reviewed the discussion where the original commit was introduced:
-    https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
-but I couldn't find a strong reason why we shouldn't block CPU hotplug
-or use migrate_disable(), even though I can see the current design was
-intentional.
-
-So I'm happy to rework the patch to use migrate_disable() and remove
-the smp_call_function_single() calls if there are no objections.
-
-> 
-> Will
-> 
+Best regards,
+Krzysztof
 
