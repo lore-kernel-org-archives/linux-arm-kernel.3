@@ -4,89 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A088CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F978CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ltcN6lrCBn1i7VizWEDzmvqmfmSuDzvei1Fc92HuNdU=; b=uVX5ZXuJUh05YXLbOEAr5UUoqo
-	r6vKyADbZgO+whnRYXaAo58UVnCE3/iCRAFDNYpJdC635E9bHoOfxZnit/iXGBCNE5EjasAcP9hJW
-	B/d58vmMJQfuoPobN+MZz4NF7wylSDE8ZYgpZS5+MWLc8pLg2OLih0q62/Ohm1yx5k9z/NvTybdcI
-	fTEuOvXr2qQ/LZoNxEmkoq0m0F5tOlCZVedB1AovkESPrXyRNQN9HS8qOF1cu3mWiV736TVJv9g0O
-	JYHzij07JpuHzb9WqBKC7MU6os/KNmlDKPcWG9gYRhS+GbQHa7A0lOLjOmHfL1YI5/AB7a4YWijcf
-	Od2FxCmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=; b=UZFS8NkpoCZTO31iYlWyCm16IE
+	OHe99Bixmpf5ACSnmjD0NcPfbBMFCNLwX0bUVDpjlKCFgoTOEibSVflO7X3ZYd0Ij4F4vwo2VN2mS
+	R5/LMI/jPchH2+agY3aRUxaue4dW4xbZPhVIhQ5BJIyEAIp0/kmT+YqqpVI8RsbnCc+RwrX752w2Y
+	BtDCGEFflv59B2NGWxKn14QYLoaxT/u73Gwt4uQG3fx2XbBZkrDBmywq7QQxPMVIhw292YOhgqx1W
+	QlMJtwmS6J4Wtdj4SHs/+1yfW2c0Y1pVfCDL3QhxMqPzJ91sdoc2VogPrS8JK3CliqgvX3MdFxwJh
+	pwS856LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzWr-000000064gM-2hXB;
-	Tue, 09 Jun 2026 16:42:19 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wWzZI-00000006506-1LVg;
+	Tue, 09 Jun 2026 16:44:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzWp-000000064ey-0RdO
+	id 1wWzZG-000000064zK-0pKb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 16:42:16 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-490ac357c55so62927135e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 09:42:14 -0700 (PDT)
+	Tue, 09 Jun 2026 16:44:47 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659GOjiH2750392
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 16:44:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=; b=Qs1uAAYitqroo6oR
+	MEex2tM+jfALsKMXl4umzN17elvz1uSM5FrlKwfR8IqOh6Ya4uxiZnSVO0tbq9Tr
+	QK481/Xt0zZOHbucSbNwg/ACKwZBYUILxpCm3VtL189aNeTmat06ophQGOxKEXZa
+	Gs80R+I8O+HI3tCavUrCrRhQbyEg0mUr7VR6xgOLejbs8/POqlMQyKY4OabUupcN
+	qNXyFBkCCv4abVW2RcZbqDqfvjcGD1SbntKqVZSd2/ex/8+nFOxqSpbZJvyag/Dm
+	2sUVmlNpVRh6pxgWa12soJ7jCMC74ByJzUr2QOJ13cAC9aX3KRyypDVgEChjNt+7
+	dEO9eg==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epeqgjkxx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 16:44:45 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c85a2f1d1e5so3006002a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 09:44:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781023333; x=1781628133; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ltcN6lrCBn1i7VizWEDzmvqmfmSuDzvei1Fc92HuNdU=;
-        b=M4MHjebfeUGjRfiJq/QqBpi0dJXLK/nztkrp3og78UyQfDRdJcYT6zL2spMbMHEQB7
-         HLvVEFvog/Xv1IkBYHSsFMUrnA08OzXeQyKDt0kWhnDUr7hnIdWR4g249HNdNwvY2+hV
-         o520YalmWEKmau7bRN09nXX/MpDpsYp+benHqBTQq/K/uE4ULEgUN+wbjAmMgxWSOk6I
-         lQ/y0M1FwwNTncg499QoAbMvvyo6dxA/jevgsBhF90hlSlsZ3gYPD4dlBgR7wiHaELPA
-         siqY5yEnHfACHCtciloVE/K11vJ7SIYa+X+tB9MskydgybEWvRkWsh4kwQzf7GoLnODx
-         pttw==
+        d=oss.qualcomm.com; s=google; t=1781023485; x=1781628285; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=;
+        b=iIvOD+bDLnqEPs5vezuKOzzQBNkR80BITSnfW0iDo9T+yCXL1rzJMZdKmweZc9P6X1
+         YMt/bQ2Fj36KdF+nigU4xnlprefZjYcjmi3aL7QLyM54iLz5TP/gsasTupPE1hvHY0+5
+         8hItnkIV4HdDDP/Q/ewHUZnCOtNGGKWXIzNDr/RLxPjuNieAfIc7rByqtSq8GO3syvhM
+         ct3FHYvvvtWeX06fm+O+ujFSoSh31gPsb7NhKNwWxq73JZFsmDh9U1NUzkXyhBY1MeVS
+         7rYaZBiWNChgJtWGk880Nc3QkAS5JxmGRtTtdOdU9cK8JZCqzKOMBBXZXKOmsSzI8iwg
+         dJrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781023333; x=1781628133;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ltcN6lrCBn1i7VizWEDzmvqmfmSuDzvei1Fc92HuNdU=;
-        b=JN+xizRCc8UV/KOY0GC5c5VCjU12PyFZOu6OL5stCkZMrHtQxuug1/lr+BxByiGrYG
-         9phGDsMuPX24f3sbt0mYeVzbNvNybs78CBpcbSKXTzYlAp9sYjgAFfXZ0tykP01+K+JM
-         ceNL7L8PEWKlBVzTIWUHdR4BBeezOA62KiXmnhWs7iV2zMYWZch/stW9tKPbDcGdZ6aA
-         73pHHaT377dwRKpeVuq7Pybsn/7TJLZh6aG8LsMAvYXFzvEx53obwC61teEJFRVVRNJa
-         eZQk6Gc/w7/+XghxRY6a85E1qH0nZLVzDkBr8lyQmOHlwrMDYYnx3nbKnxwskZa6bvTm
-         JGgw==
-X-Forwarded-Encrypted: i=1; AFNElJ+JiEqGe4oAyBsvBDxpznSifc9NcKZl07GE3dGT/KiCTXikgFq5THNLaXHDk4gfiXnD/bDm1AySXupM6zAZsFft@lists.infradead.org
-X-Gm-Message-State: AOJu0Yya57Xr9TZ8X7ducP+EEbaIg0Jl9P3Z6YXq/rvBQBX8yWh/O3mE
-	gQw2ANnB++t6FEv+MkQvtXFIDPNrM33pWdJ63iLjGdwccw/+Gc8i0ALH
-X-Gm-Gg: Acq92OHQ9DBtM1iPvtCGaJTeP1b6MN+DnmvcEV8yo4YKJ9RrIb/tG9Dbq/Qphpx8nEo
-	VxgQbj6Bcrr1wVxFX9bkASj1QE3xqmkxd9eUr8l03s+DJjPEbzh7JfBaEQa18aWz2B2LL31zhIp
-	7HwuQB0YqV4rB7H3Yurro9R8tFypQxrhD1Y2MTbd3zNjNcTNjP/rjbmik8MSOa9KWV6rPUv6n4g
-	zxf76f8F8ov1tAO+ZjyqOa2T6Bxv4PZS2IoWPS6MJcNQp6En0WUIozU4Rag2Wi71Ted+QIo7+jw
-	6SRbF2b/W2IXXh0QJPSLCchMjK7fjkuWfgIrkBub4pSHHkmn84I6DxhfciY/C07cqRtOhukZvjT
-	GpA+OHsUnEWi61B646FMn0i+shSdf22kPcVrd0+MmooAgoa7GY3c6Yn531RPypLhJWmiXZZuo0s
-	pqst5ASgRq0tNIo60lLmcHyHLkGh2EbmiCnt6QQ8xC4Z725afMEQ==
-X-Received: by 2002:a05:600c:529b:b0:490:5380:f2cb with SMTP id 5b1f17b1804b1-490c2528b6amr352314605e9.0.1781023332863;
-        Tue, 09 Jun 2026 09:42:12 -0700 (PDT)
-Received: from silicon.doe.home ([197.250.227.145])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46059346676sm2398593f8f.26.2026.06.09.09.42.09
+        d=1e100.net; s=20251104; t=1781023485; x=1781628285;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Xg4V4XVPFGl1sJFsiI9GpGRx0QGGgthYiJp8Gmdz5BE=;
+        b=asTovOz8A1vomL5AjFQPfl4DIYDs2Ux0z/7/aG7weNWnCChTcw80f2YOg5lXdE1pGA
+         4nyAQ8SdeBidTkbleNOi2jkTlPpgmVeMBdB2LmbukQTYunOTRzFrat7wXxt2Y2dRiflu
+         s3Mzy76GiT63tq8SEt5JTwuGPMhrFFrHHgxiULPaG+gXkFn8tnGooVqG484Pts7FURLW
+         maX/7Lf2lM3Wp9YHTZvPncff/LOOgbb3ogva5p89Kw3f7NJPkKfEudQ73ihXZwzNxT02
+         4BMESCpkkrFpXuwfjnkuPinW84y5q0ZmpA4b99jV0pJ6O08MUjLkpXuUv5rafWdFkcXt
+         iDEw==
+X-Forwarded-Encrypted: i=1; AFNElJ/AJ/UXT2VDwAYKZHCt3Tnt+UZxoBhMnYFd3jDu/at7JiNgEqN9XCemJmYfe83/gI/3rg3MS6VUQ/cWqkKt3nL6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt8daJ7zXjX0pYj0dsvBpcQEfrNLlvfXDCLpznkXCFSUvBmQqV
+	nDHNYW9OZZEvV9gcXLP/BJNQfSrYoTb4UHB9tuyTQyTCKZUibT0TPuQqnGns5aKd8CgaKsxhYM0
+	kvxwGAK6oqkFkRHa48NuHRK0CSNxAaW6gHkUOTVCzU+MB1IFmZWd9PCj+vghCQRAtl1DfRaLcmq
+	aYhQ==
+X-Gm-Gg: Acq92OEgQu532YHU/+G8eVAAUJcHO0pJkyPuokr3+fNG/x5oz8qtlcX33sR4odLj0WQ
+	AIqZoySIujt8PL4nSfb4WBORz+ik2l4CeX3c4ChvEZrWX/3anot/dXOQ7U0TeQovMZfwIU3Hps9
+	iddFOvt5NtYyaMA3T5I/tFFstbj3Rztu9ZpH4yDbODnMDZhoiaVHUdkpv3WiPAwhmUCiOOTIu8Y
+	cEGQJcSkc9zHl20e5DNtoJOb6oIH/RQssirMVe8fIDz3s5vDTbCTyra5WxtF7fOjgWPzcIpAsBg
+	9+jn0YWMP88BdUv/3NN1EJFh+9Ut28fchsc0s9scObemR7ZH9fswsjPW0M5A7jqMorOfSqYDtkb
+	Mal5MPcRRt+E4JSjZEwsWS6gaIHJTXHY=
+X-Received: by 2002:a05:6a20:d505:b0:39b:89e0:2e37 with SMTP id adf61e73a8af0-3b53bc604dcmr5305652637.14.1781023484745;
+        Tue, 09 Jun 2026 09:44:44 -0700 (PDT)
+X-Received: by 2002:a05:6a20:d505:b0:39b:89e0:2e37 with SMTP id adf61e73a8af0-3b53bc604dcmr5305599637.14.1781023484241;
+        Tue, 09 Jun 2026 09:44:44 -0700 (PDT)
+Received: from [192.168.1.11] ([120.56.203.186])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df0b374fsm18673938a12.25.2026.06.09.09.44.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 09:42:12 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v3 0/5] ZTE zx297520v3 clock bindings and driver
-Date: Tue, 09 Jun 2026 19:42:02 +0300
-Message-ID: <QsCV4VffTSWWBp014o7Pkg@gmail.com>
-In-Reply-To: <f92114a3658185b57bffe546c0f4079a9d39afce.camel@pengutronix.de>
-References: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com> <2062167.PYKUYFuaPT@strix>
- <f92114a3658185b57bffe546c0f4079a9d39afce.camel@pengutronix.de>
+        Tue, 09 Jun 2026 09:44:43 -0700 (PDT)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
+To: Jingoo Han <jingoohan1@gmail.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>, Yue Wang <yue.wang@Amlogic.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Shuvam Pandey <shuvampandey1@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Fan Ni <fan.ni@samsung.com>, Shradha Todi <shradha.t@samsung.com>,
+        Hanjie Lin <hanjie.lin@amlogic.com>, linux-pci@vger.kernel.org,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <0f97352506d8d813f70f441de4d63fcd5b7d1c3e.1779123847.git.shuvampandey1@gmail.com>
+References: <0f97352506d8d813f70f441de4d63fcd5b7d1c3e.1779123847.git.shuvampandey1@gmail.com>
+Subject: Re: (subset) [PATCH 1/2] PCI: dwc: Guard RAS DES debugfs deinit
+Message-Id: <178102347813.14565.586041970354711771.b4-ty@kernel.org>
+Date: Tue, 09 Jun 2026 22:14:38 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartFLf7VarUTpi_4IXxXYdobw";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE1OSBTYWx0ZWRfX4CGrbj97DN7u
+ 5+S8CY7Smy2qHDXcfaRsBEgYkXJe2qalU+u4z+WBievBXSBGcsb05NKZvnB0fbk5uA7EwGI/pHX
+ AbCFpuoY+xREmnXGvcR6vt2AY25bz99ekt/5+c32DnupO+p3xz+2JqzNjvK1/BbuYW9oy7UMaCz
+ lPuVvtvoSQYZbo6Eaz3eu4ZA1lbQ49T00/6vHHDx4gB2USu/wZdk/IDysjgmpzqdc4y3FCLC0m0
+ Zbjn2o5ux6it1r0ty21r2/3zFr5T7x374BpJ8X0e2cirFWMoi7b/R0NEPm2AFYA3sIgr3uKlvQm
+ hOvWy1OvllU2o9OaKYJtEUezTRmK3LBCBBh33H2VjmSBlxyk4mVuGNtc76gwOLjowFwL9x9YrAR
+ pcqVi2paf4P0yT6VewOt0fAlSLncCEkd4xciO+LsgOCtImtMjZK++DVru5iGxK1iajn8GINA3CW
+ u4nk0DkmgfwPbaZV+lQ==
+X-Proofpoint-ORIG-GUID: LFEDQ0t7FG0FW_hukkrJnYzhjLkTGPwz
+X-Authority-Analysis: v=2.4 cv=KdHidwYD c=1 sm=1 tr=0 ts=6a2842fd cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=eDurORsI8St+1bJHqsJewQ==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=VwQbUJbxAAAA:8 a=HaK6AIl19eK7yf7b4pgA:9 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-GUID: LFEDQ0t7FG0FW_hukkrJnYzhjLkTGPwz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-09_04,2026-06-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0 suspectscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 adultscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_094215_178967_B804D8A3 
-X-CRM114-Status: GOOD (  26.80  )
+X-CRM114-CacheID: sfid-20260609_094446_334897_7F40D524 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,136 +155,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartFLf7VarUTpi_4IXxXYdobw
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Subject: Re: [PATCH RFC v3 0/5] ZTE zx297520v3 clock bindings and driver
-Date: Tue, 09 Jun 2026 19:42:02 +0300
-Message-ID: <QsCV4VffTSWWBp014o7Pkg@gmail.com>
-In-Reply-To: <f92114a3658185b57bffe546c0f4079a9d39afce.camel@pengutronix.de>
-MIME-Version: 1.0
 
-Hi Philipp,
-
-I did some more reading and checked past clock driver submissions. This email 
-is to check if I understood it right.
-
-Am Donnerstag, 4. Juni 2026, 18:23:01 Ostafrikanische Zeit schrieb Philipp 
-Zabel:
-> > The register lock because all LSP and at least one TOP register contains
-> > both clocks and resets.
+On Mon, 18 May 2026 22:44:17 +0545, Shuvam Pandey wrote:
+> dwc_pcie_rasdes_debugfs_init() returns success when the controller has
+> no RAS DES capability, leaving pci->debugfs->rasdes_info unset. The
+> common debugfs teardown path still calls
+> dwc_pcie_rasdes_debugfs_deinit(), which dereferences rasdes_info
+> unconditionally.
 > 
-> That could be solved with regmap.
-
-This will require me to change the clk component to use regmaps too. There's 
-no regmap equivalent to clk-{div,gate,mux}.c, so I'll need my own. qcom and 
-meson have similar drivers already, so I'd likely copy one of them. Is there a 
-particular reason why there isn't a regmap equivalent of clk-{div,gate,mux}.c?
-
-Another hypothetical solution is a custom regmap implementation that locks my 
-clk driver's lock. I see that only in imx/clk-imx8ulp-sim-lpav.c.
-
-However, the topclk region also has a stray register that controls if a 
-watchdog timeout resets the board. So there's no good way past a syscon 
-compatible and syscon generated regmap anyway.
-
-Afaics syscon regmaps only support a single IO region, so I'd likely revert 
-back to the topclk/matrixclk split with different bindings, bite the other 
-bullet and list all 50 or so PLL outputs as clocks passed from top to matrix.
-
-Which gives a device tree setup like this:
-
-topcrm: something@13b000 {
-	compatible = "zte,zx297520v3-topcrm", "syscon", "simple-mfd";
-	reg = <0x0013b000 0x400>;
-	#address-cells = <1>;
-	#size-cells = <1>;
-	ranges;
-
-	topclk: clock-controller@0 {
-		compatible = "zte,zx297520v3-topclk";
-		reg = <0x0 0x400>;
-		#clock-cells = <1>;
-		#reset-cells = <1>;
-		clocks = <&osc26m>, <&osc32k>;
-		clock-names = "osc26m", "osc32k";
-	};
-
-	reboot {
-		compatible = "syscon-reboot";
-		offset = <0x0>;
-		mask = <0x1>;
-	};
-};
-
-watchdog_t18: watchdog@148000 {
-	compatible = "zte,zx297520-wdt";
-	reg = <0x00148000 0x20>;
-	clocks = <&topclk ZX297520V3_WDT_T18_WCLK>, <&topclk 
-ZX297520V3_WDT_T18_PCLK>;
-	clock-names = "wclk", "pclk";
-	resets = <&topclk ZX297520V3_WDT_T18_RESET>;
-	zte,wdt-reset-sysctrl = <&topcrm 0x2c 0x3 0x3>;
-};
-
-(I did not attempt to build this, might have typos)
-
-And the reset controller will be an aux-bus child of the clock controller. I 
-could make the reset controller its own device with its own bindings, but that 
-would misrepresent the hardware.
-
-Did I understand this correctly?
-
-For some reason in my dev tree the reset sysctrl works even though my clock 
-driver does not use the syscon compatible nor manually create a regmap.
-
-> > Shared register definition: in the case of the LSP clocks breaking up the
-> > composite definition would sacrifice readability.
+> Return early when no RAS DES state was allocated. In that case no RAS DES
+> mutex was initialized, so there is nothing to destroy.
 > 
-> That is a matter of perspective.
-> 
-> I had a harder time validating that the resets[] array is properly
-> initialized from the two different composite arrays because of the
-> unordered reset_ids, and some remaining resets[] being filled via code.
+> [...]
 
-I do have a sanity check loop for that.
+Applied, thanks!
 
-> It would be much simpler if you split the reset definitions out into a
-> single, separate, const array, indexed by reset id. In fact,
-> I would suggest this even if you don't intend to move the reset code.
+[1/2] PCI: dwc: Guard RAS DES debugfs deinit
+      commit: a5ee214bb36f43b4d8bb2615b30d3b5c0ea80826
 
-I had to collect the clocks and resets from all over ZTE's kernel and U-Boot 
-sources plus manual testing, so maybe I am a bit too attached to seeing all 
-controls for a given device in one place. If the reset controls move to a 
-different file, the composite structure becomes less useful, so I'll probably 
-split it up and just list single div, gates and regs.
-
---nextPartFLf7VarUTpi_4IXxXYdobw
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmooQlobFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoiKesQAJRepE5jSEE8unaib32O
-EpI63wWhBCKBNi9UCv8iIeAt61Av/y7m/U19SEHHCCyv2IdoH8hhqoPLjcJjt+/v
-UsWNcEujOPf+JbRRRtSP2UyoirW5rsoYHEMOTuMfJSBvk2/SIrTApo7AwDhV59rb
-nJ/MZI9DtTBOGF3CV+vuc9qPWtO8hntdu+jlLeg7TmUSkqtJJZEjknUKZdBZGpDQ
-NSd2dY7wHnf7RhLEP73OBXwm9ebely5izLtAyNiDltkDAOAjJXZibKzRbZ/bPgdz
-XkiQ854wIcynNBQPEaDwsHu4tAzpQSBd6qrZzAzrGn/Nw7XCBvTT3rD2xGhJUEU6
-KUJmfCYzS+5dpY1tfSvsstPruM936JzgH6EBCpY0pQjvrs+QdW1lEMrT1NE890rC
-shggbu9bGsS714qLLk54JffkJlpwTAPlObtNqOdyQH22cAvZvKfZ5cZY+rJzdoAs
-2+d6glovGoZ1aJDGU8WhE9nnlKVgTYObenacdL+fedcfBKo0AwRc8Bu5EYnvn4DP
-v+IKyecGKLWSiudu0Jh8oH3uguoKGpFHlZtXcd0jpLn6h7VvS3wqU3LeBpKRu6Em
-Q04ptHCtkq5eJZBqHFBuBWbfT0XfkAF3sVmZqMxq7/SrzT1e3xJ3apVLcdo9u9Fe
-b8l88Dq5BUMzyvr1kCAAFtGj
-=8F5V
------END PGP SIGNATURE-----
-
---nextPartFLf7VarUTpi_4IXxXYdobw--
-
-
+Best regards,
+-- 
+Manivannan Sadhasivam <mani@kernel.org>
 
 
