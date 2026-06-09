@@ -4,98 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6438FCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B41C3CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8bHjzB+Y1nVZc9YR0CyX9HxvU4vZsf002qWHNt27b8=; b=USYWz7T3q6cWduXqQ9UkshxZYP
-	XtMeyv6ctvvkSnS4wgmqpbJeHpEKp9SNSzJX9fJP7mdrPY7EcMdA+V4k3IaRWZRjawbiblZ2gY6qo
-	/bYknJVmnD82Ud4ljxTG86nHl3H3v0gbSvW38iBYP2ejiUxcnD91WQNXWFJKwhDN0K/PiRNnNOe4X
-	p3AX8dQSJSYcpl6Sgg8ZFzRvL7BgWGqGFUskUGYr4OynNYArc5LY1b6QbWE/X73GOEMY7KJj1HM4Y
-	CEP9lWNHxc0gHm5c1nR3eqiUhonSuhXhxg3RrEshwr2gf7rVMUcEd+iqIvcQQ+HNHQ96Q6IQsSIYY
-	dyvAiUyg==;
+	bh=ilTpfhF1TQEFmYf28SNwirdITOkRxUVFe4Pi+3nX/fk=; b=B6q39tgJ7KQ8Svi9koXvHLPh1c
+	Ed4GAGoJwG9jVz5l2zG5obDTpq3mKbU8G3t1jSrft4+Hy3RiCvXtTuCi8rt1o171rU6MGXAL7/Ln6
+	6e4sGUBCXIMwLrAiEg1Gx6Qy8yYBYVkA5tLKpkmIFcFl6A/i3wf9c8xz5CBh5SJDFqZgQNYeJi1al
+	it/g+n+D36KW6DxDCPcYTim2FkYpYMYIQoexWHHQ7jUmfKH49dYiiHYmiaDPFK7Ry727UnoTMIx39
+	HmXZxCs2Kb+abpeK8/w2HEKU08ADhhz7O9jV7hLuAAONLhuNshVtsyJd3euCnak2O49p140QI4ovc
+	905ppMsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtap-00000005L3d-07To;
-	Tue, 09 Jun 2026 10:21:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWtas-00000005L4y-0rfJ;
+	Tue, 09 Jun 2026 10:22:02 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtao-00000005L3R-2gvm
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wWtan-00000005L2q-1tVR;
 	Tue, 09 Jun 2026 10:21:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C156543512;
-	Tue,  9 Jun 2026 10:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94CE51F00893;
-	Tue,  9 Jun 2026 10:21:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781000517;
-	bh=Y8bHjzB+Y1nVZc9YR0CyX9HxvU4vZsf002qWHNt27b8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=QV3MKUV2JVXXWwjRYG7XiKjAFUAKl2Jpb6V9UjF4IHLAoawWiZHZSf0z5A/xttQkb
-	 wX2nq++d+ExUb/BZlUl0TC2mnX+LxUjyLOMODE63G2L9L+TIPeCXttpwIN+zq4S//F
-	 1HqqydXqqQykamnHja1q18lTSdtmKd0m1jC/JT5gDdO6HxdxWVG/5oyGOzR9bHoQJM
-	 2BfD/55SWYsvZa+KfpvNOUfu2zaoz74wqjUecX4HWVprTTJf+8ImA3uMmN4o/RoIOA
-	 VDEAlYXGMkELksKePQQfUI8i02AzVIFfjx+nVaJMdtkItilfhX15ql/tIDzCuEQkSN
-	 YYHpW8nX5dPxQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wWtak-0000000Arao-3oCd;
-	Tue, 09 Jun 2026 10:21:55 +0000
-Date: Tue, 09 Jun 2026 11:21:54 +0100
-Message-ID: <86ik7st3nh.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org,	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,	devicetree@vger.kernel.org,	Lorenzo Pieralisi
- <lpieralisi@kernel.org>,	Hanjun Guo <guohanjun@huawei.com>,	Sudeep Holla
- <sudeep.holla@kernel.org>,	Catalin	Marinas <catalin.marinas@arm.com>,	Will
- Deacon <will@kernel.org>,	"Rafael J.\ Wysocki" <rafael@kernel.org>,	Mark
- Rutland <mark.rutland@arm.com>,	Daniel	Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,	Rob	Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor	Dooley
- <conor+dt@kernel.org>,	Chen-Yu Tsai <wens@kernel.org>,	Jernej Skrabec
- <jernej.skrabec@gmail.com>,	Samuel Holland <samuel@sholland.org>,	Neil
-	Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
-	Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
- <jesper.nilsson@axis.com>,	Lars Persson <lars.persson@axis.com>,	Alim
- Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
- <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
- <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,	Thierry Reding
- <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
-	Andersson <andersson@kernel.org>,	Konrad Dybcio <konradybcio@kernel.org>,
-	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	=?UTF-8?B?Ill1LUNo?=
- =?UTF-8?B?dW4gTGluIFvmnpfnpZDlkJtdIg==?= <eleanor.lin@realtek.com>,	Heiko
- Stuebner <heiko@sntech.de>,	Shawn Lin <shawn.lin@rock-chips.com>,	Orson
- Zhai <orsonzhai@gmail.com>,	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
-In-Reply-To: <ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
-References: <20260523140242.586031-1-maz@kernel.org>
-	<20260523140242.586031-4-maz@kernel.org>
-	<CGME20260609100324eucas1p146c5ffe86a104677143baaeca1d3feba@eucas1p1.samsung.com>
-	<ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: m.szyprowski@samsung.com, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kern
- el.org, afaerber@suse.de, eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id F3E597A01DD;
+	Tue,  9 Jun 2026 06:21:52 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-10.internal (MEProxy); Tue, 09 Jun 2026 06:21:54 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm2; t=1781000512; x=
+	1781086912; bh=ilTpfhF1TQEFmYf28SNwirdITOkRxUVFe4Pi+3nX/fk=; b=L
+	MvTZafklm6pirpgWULiMME4ofFgQnQyajJTBZ/JTk2kQdWbQ7usp5s93IejBMqHn
+	gd9lCLtjZonw4mI2GB+MFjmungjhswb+HHUzmVYkGjitZBTPzlQNIY+8GZwIVlF2
+	prYPOffuPcSqqufwgqdyA+OhTBy6RQueekuBbpa7oneutoxIuXL9R8UOst9xhfDd
+	6GCICWklYZeC7qsHUviSlY1P+YfldkhyzoxFiFDj7gFJ6PtGYwnShA7NoX0uf0g1
+	Yv6InD+tfK8Jgp14xM5IIq/h6Ag9MW6jdi3x+DxcNUYxPvq/AJpRWDwr73V5mupP
+	rqvd8iMrP43BqRYL9lOIg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1781000512; x=1781086912; bh=ilTpfhF1TQEFmYf28SNwirdITOkRxUVFe4P
+	i+3nX/fk=; b=F8dTsqwHKD1mtzn1fmk1xRl23AFGtIRXKARdiNRm3nn6B+jk7cs
+	PKNhxYSZRpAWCgzDi5TiMrxiSw5/uKKlSoB+SqN8T7SEA0CRnDwIUEVxFVpx/Zyc
+	uJ+sFRl1bSWDZKpzoy4LY0Z7juNVIwQqhvMYZBYJf+SLm2KPympCYI7WNbw0+a6+
+	tUtIHgjgyE0DjmlamAEaEXz1PxAh2Yzn1KMXuAKO1BLpa5qDeXsJjG0EHtsFwxlT
+	eR8QoCiH0ZAGkdAL88bZwWK88XaAiDrfuGn1FBtDuJpTTaTD6ycZ5bNT8Eqma0YL
+	xR8Huid/9DMaeTjV3Pm6tSsbp6nC8W4qXEw==
+X-ME-Sender: <xms:P-knanQeFK1VvVBcemZ9iBQTh1zTKNs5cg7NZz9FIIM3Aa6cbpZmFA>
+    <xme:P-knaiLBHZSv4fLSROgS69NVRK0oAOd0B62tq_z6A6Yppba5Qjihxx6puSSMnlEd0
+    EMpRv1_Vb29btKnQIobuhFSrQBRi9IXtDm9ogmQa0rAmokscFKQ>
+X-ME-Received: <xmr:P-knal9GqmJpBu88d53GLzGlM9HMvKVknhNENbEvbf1HHqntT3vv7IQxFNIijg>
+X-ME-Proxy-Cause: dmFkZTEw8PCireUhD2Te30Mqdwt+PvgCXGBAsv4g7AkCagsJvs/QPTVeTaGl5+FbMgDmWj
+    e2FLorIG0RlcycKDz0QZrQolMDi+MlHxcXJ/OLkDuQ5Mr6PMgKF5Zqm0y1R2oI5nMEP27Z
+    uoeYbA8E8RzrfluscWrFSgOtHEKaWCebeXcY7RSKuFu0cBuLAuP0yuHOG/L4rCXpUrWmuj
+    loojJ7MaoVuUQwSoZ0qRuQdxaF7jXkb+n3TcnSh3pJj2ZBalUN672m7lkPlTIvzXdLqgaC
+    //uoXljtwk76/m/TeaXrpPvmxQs/iAR0fTazfsbwet2RzDmA2siPiOaOCHHVj4xPDvtvih
+    nWqIMAErxw78eoPCcffU5cD1YNFRFy5U6op7QQPBrLBvIxGAhOOIgGuOrs4E5a8mc8zugO
+    E2WsPC3UQXpYmASxXMBFtLvpA0iuPg6cywqWbgubX53a/rAvG71/oGeltWq2sGfiuTX1s+
+    vtE7o2tY5cSpooqkwPFD9v5hxYzuog+tFj06AbAGutt27kp2zqkIJ+dhRK+9OHAKENr9Va
+    3z0URZ2WilEYExUgDT2sxgh1FRPdzfzpHJiywfd4yL6NYH41/Sd54xY3BCK4ptX3vSUBzg
+    VZDUDMJ16s5Ko+bMLq0B07li9+gAsc53ysNCQCMRieayJwIBBAJ56SX5KZxg
+X-ME-Proxy: <xmx:P-knaqB-KnryVATRi-bEpsfUA9GQuJ3sgbaGkPKsMKv4VhTQhiIiPg>
+    <xmx:P-knaqqN5qqCC1dnjNuP9VNkTnQ1s8xzsoEMOCFW2Q0deQepBzFoIg>
+    <xmx:P-knakG_WraszKzBAXQW5HtAUkBDLgZrGHLsdENcNbU7U_zvodtTqg>
+    <xmx:P-knaixq_KpRWZl26WWoWDU-hwnT_0JR9wSbRgmkobk0uTobyEi8aw>
+    <xmx:QOknamh5rmLfaaeGrBSddIAwNh1VSefNLv9j74zfnkdnGefeHPnzIV4I>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 9 Jun 2026 06:21:51 -0400 (EDT)
+Date: Tue, 9 Jun 2026 11:21:49 +0100
+From: Kiryl Shutsemau <kirill@shutemov.name>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
+	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>, 
+	Julien Thierry <julien.thierry.kdev@gmail.com>, Lecopzer Chen <lecopzer.chen@mediatek.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, kexec@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] arm64: route crash_smp_send_stop() last resort
+ through SDEI
+Message-ID: <aifoH0Gy3v0DIZ1G@thinkstation>
+References: <cover.1780496779.git.kas@kernel.org>
+ <54cb99db3c981dc39eb3031aff5caeaadb09e8b9.1780496779.git.kas@kernel.org>
+ <CAD=FV=X5++c-6Wd6babajiPbn07cfPcG0uW3ZeepznXgSVO2+w@mail.gmail.com>
+ <aiNCk2M0OlD7VaEs@thinkstation>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aiNCk2M0OlD7VaEs@thinkstation>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_032157_654372_7303F9CF 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,77 +116,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026 11:03:21 +0100,
-Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+On Fri, Jun 05, 2026 at 10:46:11PM +0100, Kiryl Shutsemau wrote:
+> On Fri, Jun 05, 2026 at 01:42:57PM -0700, Doug Anderson wrote:
+> > > +       sdei_nmi_crash_smp_send_stop();
+> > 
+> > It feels weird to me that you're adding SDEI for "crash stop" but not
+> > for regular "stop". It feels like you should modify smp_send_stop() to
+> > fall back to SDEI if sending the NMI failed, instead of adding this
+> > separate path.
 > 
-> Dear All,
+> Fair. A wedged CPU ignores the reboot-path stop just the same, and the
+> escalation logic already lives in smp.c, so I'll restructure in v2.
 > 
-> On 23.05.2026 16:02, Marc Zyngier wrote:
-> > When running with at EL2 with VHE enabled, the architecture provides
-> > two EL2 timer/counters, dubbed physical and virtual. Apart from their
-> > names, they are strictly identical.
-> >
-> > However, they don't get virtualised the same way, specially when
-> > it comes to adding arbitrary offsets to the timers. When running as
-> > a guest, the host CNTVOFF_EL2 does apply to the guest's view of
-> > CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
-> > the architecture is broken past the first level of virtualisation
-> > (it lacks some essential mechanisms to be usable, despite what
-> > the ARM ARM pretends).
-> >
-> > This means that when running as a L2 guest hypervisor, using the
-> > physical timer results in traps to L0, which are then forwarded to
-> > L1 in order to emulate the offset, leading to even worse performance
-> > due to massive trap amplification (the combination of register and
-> > ERET trapping is absolutely lethal).
-> >
-> > Switch the arch timer code to using the virtual timer when running
-> > in VHE by default, only using the physical timer if the interrupt
-> > is not correctly described in the firmware tables (which seems
-> > to be an unfortunately common case). This comes as no impact on
-> > bare-metal, and slightly improves the situation in the virtualised
-> > case.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> This patch landed recently in linux-next as commit d87773de9efe
-> ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
-> running VHE"). In my tests I found that it breaks booting of RaspberryPi5
-> board. Reverting it on top of linux-next fixes the issue. Here is a boot
-> log:
+> One thing to sort out there: this patch parks the stopped CPU inside
+> its SDEI handler without completing the event, which is fine for the
+> crash case (nothing expects the CPU back before reset), but a generic
+> stop path probably wants SDEI_EVENT_COMPLETE_AND_RESUME into a parking
+> stub instead, so that e.g. a regular kexec can bring all CPUs back up
+> in the new kernel. I'll look into that as part of the rework.
 
-Huh.
+Regular kexec takes different path and offlines CPU normally. So the
+next kernel can start them. But crash kernel cannot re-use wedged CPU.
 
-[...]
+C&R alone doesn't buy us anything. We need to get the CPU to CPU_OFF.
 
-> arch_timer: cp15 timer running at 54.00MHz (hyp-virt).
-> clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xc743ce346, max_idle_ns: 440795203123 ns
-> sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
-
-The interrupt appears to be advertised in the DT, but doesn't seem to
-fire. That's obviously not going to end well. My suspicion is that
-either the interrupt isn't wired (that'd be hilariously abd), or is
-left as Group-0 by the firmware (copy-paste from RPi4).
-
-Can you try the following hack and let me know if the kernel shouts at
-you?
-
-Thanks,
-
-	M.
-
-diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-index ec70c84e9f91d..d05791e6cc0db 100644
---- a/drivers/irqchip/irq-gic.c
-+++ b/drivers/irqchip/irq-gic.c
-@@ -213,6 +213,7 @@ static void gic_eoimode1_mask_irq(struct irq_data *d)
- static void gic_unmask_irq(struct irq_data *d)
- {
- 	gic_poke_irq(d, GIC_DIST_ENABLE_SET);
-+	WARN_ON(!gic_peek_irq(d, GIC_DIST_ENABLE_SET));
- }
- 
- static void gic_eoi_irq(struct irq_data *d)
+I am trying to do this, but so far no luck. Crash kernel fails to start
+at all if try to do C&R and then CPU_OFF. C&R alone works, but CPU is
+still unreachable by the next kernel, as expected.
 
 -- 
-Without deviation from the norm, progress is not possible.
+  Kiryl Shutsemau / Kirill A. Shutemov
 
