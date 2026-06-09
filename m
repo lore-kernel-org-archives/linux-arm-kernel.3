@@ -4,119 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C24CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3477CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 13:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+UubitX36JVc6CTd2RtBwcVL2yqRgVyLq15MXv0auc=; b=H6QFKUdvEZXbBW0kzdMsMp4Owq
-	4TMnwBxWUO1URjEfpdQvOFdPbw8Y3A52DyilVVgiHZiQrDxFomxzrxUrbVitFzFqA6V5NEHanxm2w
-	dtMiMbmF7JFSU/Vlb8jvJm2vRw/25ak5Tow2BvKgj3EWDvcBMbvMKJOBVi2wicfxG4ljebKXX9G35
-	1nRUjiiYu9e98C3Sa6tzksAtQKZbtavw+sVQ1y8GixsKjwehO+zkSXE7cwuOFnP36GVTMzEJ9PqGN
-	+vpORBhKGxPdpAhGVhEKxElwLisZUCuxurpycxo6K/LdDMcoijmkFwogqpsPAUDo1hBn9wkiysvvv
-	WxL/TQQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=; b=IK6+924MCe0uD4WnHnIyFPf1F+
+	qCc9BXyaG0RHj3Af+W3mFdMNN0+9CAFqXaQ5TyHPHsgvD2cWpF1QiZYJLX6rR5aYieCPZOYotHl0a
+	JzpZDoFPmgrtJhuI32EAkG8qefGCpdhbbY2aau99hHgt+ySnclAGp0AN7jPNfFHi/gV25/X9Sj4Li
+	AXIw76oewpsO9Z+/uEh7+dSSq0OxkRHV2BDOOgifVuwxiQ2R44xxkr2BlOc2ZOIqygf2IvbGZsrjj
+	mXo1po+RtldBx450gd01eLlBFB9T0IZeC6Agqwy/1utHdU3tjYTZuOXbExm5ygrwt1Jg8fi3640qj
+	XPHHvJRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwa1-00000005feM-02UG;
-	Tue, 09 Jun 2026 13:33:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wWwbA-00000005fvu-4Byi;
+	Tue, 09 Jun 2026 13:34:33 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWwZt-00000005fc8-3pc7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Jun 2026 13:33:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=r+UubitX36JVc6CTd2RtBwcVL2yqRgVyLq15MXv0auc=; b=SxgQe7HRK03lh/BpGmJUTncY4m
-	p5xvQCyOfX4OEl0oW+/Nt+k1kptXqi9ZB8MWf1nhJzl75K0bsnauSAJwoo3nYi1cBE/sDLXTPxnQy
-	MLFv6ZQD4edh9x2MupVbKGbM5/u7LUZCCygjoeLdGoDMtt7306eI1RkxuiydJ4JJ0gACp4i6+l0bQ
-	4fX8JgERSFA1H1garVamB4OngOmkAjc1PV2xuWwJknZBDSDr3+OPHbpXEFo5LaI0+r9MjIKO6nVLt
-	53wuC0/04Jw3vzQhF86uqNczjoXBXoos6TykBSWh4Zq/l89MK68sAM0WjzY8SUkR5u2dsvw8dDZzR
-	mn8SR46w==;
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wWwZn-00000002a91-3e1M
+	id 1wWwb6-00000005fup-1fQU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 13:33:12 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-46018d6c00aso310534f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 06:33:05 -0700 (PDT)
+	Tue, 09 Jun 2026 13:34:31 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-46019b190b6so4157412f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 06:34:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781012066; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gLE280+CIzCsa+9ENyagOfS7wOHlHZH5ZsIIUfWktvnYpOqAUpe/h5UH/tw4Gm3cjS
+         PaJq9IJEZw5cl5z+VgqK5MsbFwMbVudoEMWfUv6AvgLcrqDKr6RbnF5fnqWIooBJGkA3
+         RBbR3B+PPYSe8GruM59E4H5cF5J+7+LrN+h4z/BOxIfHY7hGW/zPFO3DfX0M2lxIw76q
+         Ial+ZI7A4RXOsQVQlRFWBivqfyFTYlTxm/VM4EGF7PzA3pnR7uNAgWXF2ysIVhOJXGAl
+         vOISrZrCeM+eKf6o2AKby2a8tVT2U2yd697awn4LGWyjLf+1jlYeryZpLmHDM5siy/ld
+         Qv2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=;
+        fh=mHscCnFM/tKhShSGJyhgby0Wsmbm7CpsZ1VpnH6SdO8=;
+        b=TJkoPzXZh2selzPj8kGuJ7q9F6G6bgLzNyktzCQuURNHV9PqdnUBxJJ6c1Tz5wTCvd
+         7eDcJYOTrppL2uPKbb77EsTNcaLLHVG3byT4dEtMJ8M9WPpN1PT/HdnA6FogaEiKlxts
+         1ijmuwCDIbOfmq8p7ZynahR4vx5gaDRpg/VN4/kTOvc/O9Vg6qgoyqBEbJBZwA/4xw3d
+         UkM4aUsk9oolpI4TShinQ5PojuUak6Fxy+e0RB9hTSWhWydyVc6F5EyBU93u9Ly9KOft
+         cItH99QHtpQLZ5VfjsZXEBYIqTT95M+eK0xXJWFh7+neOVswCc6TzgpxcLmqPpc9Lq/Z
+         8Vtw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1781011984; x=1781616784; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r+UubitX36JVc6CTd2RtBwcVL2yqRgVyLq15MXv0auc=;
-        b=ZnoToxEIVOSOnV+THofAYbtFIE2VL62dm+Gq5tfp6ro8HJAOLKxLQF18rVOZjDFaKP
-         yBuTX1z6lsJVmyd1oT74M6vzok5GTzmPBqQ/ylhEzpLTVZM55NJv0Z8h/xEp31iEOLtz
-         8fvB8mQjWbcePPPCH6SrJBX1Bj5fZXHM9uKb2UU0Z712mY6Lcg5viL0CpZCB6djiGpt4
-         AU4TDmqVfj7uncp764rdL7B3JpRv5wvc8pcap+W+n7xkz6y17sz3L7ZMUoPV9r+qxsfB
-         OAxOEqHgQz7w5rZRW3IaNUcaqB/unw+tIb7d9b0xanjsf42hnRjj+whmS43rUDtsU7Fb
-         E8Kw==
+        d=9elements.com; s=google; t=1781012066; x=1781616866; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=;
+        b=USr9C621iTsM6aJJyufEr9yhE0ReZ0YF5H5sJFr70qcSlgJm5KUGIrTfguj6ajxTsV
+         51jYx4SmNkXfB8M1IrKjfeZzSmUM+z5YSs0uH8OXwgBFmP29FjGIxeEIKohFHCXE0P4a
+         qDuYCiq4J0yjWKNFZzM7uCyPMtwB/aGuGDqaLbT5Y9bAPVDe2Dl77qxs3dvAixbojhjG
+         kav5iit0U22jT327r5zeHtpjdVQai4bzzntNWH8FAYhwf1lk4ODEIupmaoCCMqF/31vd
+         LNw+9JfidGipJBuRhprsYPfzAlsOEMijBZqc7MXo3b4djVhrWhPfxlrx6WgvRIE7LrEI
+         51Tg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781011984; x=1781616784;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=r+UubitX36JVc6CTd2RtBwcVL2yqRgVyLq15MXv0auc=;
-        b=Q/UwcABxFKD2qDHwZzJRWNKhLaUKQdcKiV8ejyC4ovQmmTT0R+rZ1L+DWrk53FrgBd
-         Q127fCjJNGzUfCtqJ7RvmtgeX/83HDtsLQ3Ie0I9QRlENH2qaXwKlnZsk3BJufowL8Ra
-         QIwspsDrJhdAIZiDU3zfZi77PlmHPrTPmgbS53cEVEDQMCEWnqPDMobBK0bnNQV8JOJ2
-         l2TEml018SA49eC2MOOb12fDTB1uACOjskTgegR21ZhvUjyqZi9vh5dm0BX+v22fkjfX
-         UvFCxLBs7DGdvl5siD4yhhuRiitG0uTV6URyegRnCRqw2UlETdh/y7grvVzc5fC8v+ZG
-         5wKw==
-X-Forwarded-Encrypted: i=1; AFNElJ+bGQ/t3tAqzLckhqNpBAHrKpugVy/WnjNrLQj1vMlRkL3pfhnkYi1dNNtlKHMs1o8ktijqPUttUXqHRIhRsmM3@lists.infradead.org
-X-Gm-Message-State: AOJu0YySQnWh4Lpt/bNkQBa+lgC7I5Ze2GBvVRKoIf4MnrCbLneiURb7
-	E/g/Omj8Nag/tL6Bpb9ABbUubOMnx8xXU4I/431QwyusQMmPqkNNO1EvqabYA3jjb2Q=
-X-Gm-Gg: Acq92OFatBi4k6M3fhD0VOSzS9ozvr85dv+JMBTF/tjes9/vzStJl+bdrLvx0oiiiX9
-	jumLmCPbsxM+L3Aju0pyOTfrhij6VQlA94oZdW+UbJe04eTrcEaLFUUMTrGc0WZiY3d2XW4S4kI
-	J+XUjGXHX02BI8jombSYgs4MXHjcR9zblPG1+7yl/8y3tE6gmyvIoVtr4fO1YiGnFXUGeFcXejs
-	bnJPuhxu0wVRG5jWLRIjqQLBPxyjAh/vpbpxT9PvyJB8+De40xTZIK2Rn/ttVGgRPjJLidEtVE/
-	pjpwvKvOIGHsQB75IsfvaFMeYlEQyTbK6sakGyzBx9KGBhXft2GTUmX5zeu4q15lfqGn2cWTzKk
-	9mowwu6O+su1xXzkbCqXLm5we/yTo8dECKaLzmOpk47Xcl6kHgBk5IHqHv/bwc12JTVkVnsPuax
-	+8XqDhW7U+3dzg8xVstf3nN+0=
-X-Received: by 2002:a05:6000:4022:b0:45e:f68d:e7ac with SMTP id ffacd0b85a97d-46056439196mr1887515f8f.0.1781011984149;
-        Tue, 09 Jun 2026 06:33:04 -0700 (PDT)
-Received: from mordecai ([62.77.90.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46059346676sm1079048f8f.26.2026.06.09.06.32.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 06:32:58 -0700 (PDT)
-Date: Tue, 9 Jun 2026 15:32:55 +0200
-From: Petr Tesarik <ptesarik@suse.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev, Robin Murphy
- <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Will
- Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Steven Price
- <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
- Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Alexey
- Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu
- Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, x86@kernel.org, Michael Kelley
- <mhklinux@outlook.com>
-Subject: Re: [PATCH v6 17/20] dma: swiotlb: handle set_memory_decrypted()
- failures
-Message-ID: <20260609153255.4b9e9373@mordecai>
-In-Reply-To: <20260604083959.1265923-18-aneesh.kumar@kernel.org>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
-	<20260604083959.1265923-18-aneesh.kumar@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-suse-linux-gnu)
+        d=1e100.net; s=20251104; t=1781012066; x=1781616866;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dnx5Tp560S/h00zHw7AF+ZWXuzVRsTvpYdbuKDqUzGM=;
+        b=MXb6izr9UAl/ghPjgI2w4XNi5gMXhYaQW5EmoW+PuK1GXW0/bvmS1R7M5dZMrN7g4O
+         GI88o80D4b+8dj1+q0dAD/kuhElKrMzwb9l8dr4vBGqB+CRo/ZA7rqQHoXw7sJgQAhNz
+         cOCdEzm+bfPLyGyl7gs9grEik85fr47KPYCFTVGKAVAgyPiybtQAEMCt7Rnjgss+1xyc
+         2EA79kgJZyHKEPO9wj8Rn5XzbELVyIKVomIuF16Ohhi435LQFmPbrnhlOZ9vab0DX6Uk
+         f9pKq40ZPz/uCuORnqmnc6E0zizG7r2719ykEL7SUWX2ThLAeSxQZrxjnhGCX0vmAMOP
+         b8Zw==
+X-Forwarded-Encrypted: i=1; AFNElJ9Ifr5a0mYhnmEIrXB/hP5fXra8isqK/B0MrRIyZwXI3nv2ygCobCsMf2A/CF8Rc7N8SMxP/7shBZZmOoS0ojG7@lists.infradead.org
+X-Gm-Message-State: AOJu0YymydnGH9kBKWWXUVotelj/BXR7vcvP62Yh4I//AZ3t2lsyKsMW
+	5xywv+hZRoQCA5xKC/nekYXb4+VqCbTi4Ulhp0nUBOp8gqOzO1haBIyBTxTriV69jOr0fnys5q1
+	TGY2cx3OVU37LeztbYN+Y0T5njZ9P+tFKlxvkKL9ycg==
+X-Gm-Gg: Acq92OGwT4FEztciRoSzjpq+Q5xAjocq4nMJ0l585BL60JJneCvrDdyXnAhEc7U5Rm3
+	/ZwiFCP77KAu5gu0epOKmeinLbPnJm3OUCTf8cwPhBNo0iSIIALqI+QI2xsVa/yloPcwaRPZChY
+	/riSsmh/mxlG2uM0jmIi6/nhTuYU9iiiWl2g2mC9iqGu1i+w1ecAOXF473rizKnSQGiKf+acGZl
+	n4pOBlWO5o4ARldOjejRLGvq4MuXOmbWLSpGZHa3jsjWZiic5nSdZbcxuPAoO93J7esz5mj84Yi
+	NOucApD+4WjyDOu/MjnSSdZspxPAR4aJZmPrX5hTMzuyJ/7luGEwEHRT+JCLi7FY0EhF0r7y3SK
+	eyXDaUEim8A8u0A==
+X-Received: by 2002:a5d:4d4c:0:b0:43d:50c:6f33 with SMTP id
+ ffacd0b85a97d-4603060b001mr23218990f8f.26.1781012066371; Tue, 09 Jun 2026
+ 06:34:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <cover.1780409151.git.gregoire.layet@9elements.com>
+ <cover.1780929570.git.gregoire.layet@9elements.com> <63654bb5-c246-41c4-bb7e-5bfa23e59f2e@lunn.ch>
+In-Reply-To: <63654bb5-c246-41c4-bb7e-5bfa23e59f2e@lunn.ch>
+From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Date: Tue, 9 Jun 2026 15:34:15 +0200
+X-Gm-Features: AVVi8Cea43-8TO0qQAyqeIGR0QvD_re8rhGrQhZ5B93W67dWApUxz4ngQN1Zqg0
+Message-ID: <CAFi2wKYOAotiezepDqaR5PZDqDaPKKDfAEnpx5EHC0mL39hy6w@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] soc: aspeed: Add BMC and host driver for PCIe BMC device
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, jacky_chou@aspeedtech.com, 
+	yh_chung@aspeedtech.com, ninad@linux.ibm.com, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_143308_043291_08A19900 
-X-CRM114-Status: GOOD (  30.46  )
+X-CRM114-CacheID: sfid-20260609_063428_848976_AC300F1E 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,204 +117,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  4 Jun 2026 14:09:56 +0530
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+> From the replies i got the host can access anything on the LPC bus of the
+> aspeed.
 
-> Check the return value when converting swiotlb pools between encrypted and
-> decrypted mappings. If the default pool cannot be decrypted after early
-> initialization, mark the pool fully used so it cannot satisfy future bounce
-> allocations.
-> 
-> For late initialization, return the `set_memory_decrypted()` failure. For
-> restricted DMA pools, fail device initialization if the reserved pool
-> cannot be decrypted.
-> 
-> This prevents swiotlb from using pools whose encryption attributes do not
-> match their metadata, and avoids returning pages with uncertain encryption
-> state back to the allocator.
+The PCI-to-LPC bridge only decodes some addresses.
+In fact, only the following are accessible over PCIe :
+- LPC Channel 4, which only supports the KCS protocol
+- The 2 VUARTs
+- SuperIO-style Mailbox
 
-This works fine, but instead of effectively leaking the memory, we
-could return it to the buddy allocator and reset nslabs to zero as if
-SWIOTLB was not even initialized.
+Regarding the KCS interface over the LPC channel 4,
+the BMC driver in this series does not set this up.
+It just needs to be activated in the DTS.
+Then the host can just start the ipmi_si driver with the correct address.
+This is the intended usage for IPMI management and is part of the normal
+trust model of a BMC-managed system.
 
-OTOH I don't want to overthink this, because the system is probably not
-too useful after such a boot-time failure, so unless you _want_ to
-improve the error path, you can simply add:
+Here is a summary dump of the PCI BAR1 from the host.
+The BAR0 is only used to expose a BMC DRAM region for shared memory access.
+This v2 removed the memory mapping so BAR0 is not exposed to userspace.
+The BAR1 is used for the PCI-to-LPC bridge.
 
-Reviewed-by: Petr Tesarik <ptesarik@suse.com>
+Offset          Size        Contents
+--------        --------    ------------------------------------
+0x0000-0x00B7   184 B       Blank (0xFF)
+0x00B8-0x00BF   8 B         SuperIO Index/Data port, mailbox config only
+0x00C0-0x0E87   3528 B      Blank (some no decode 0xFF and some reading 0x00)
+0x0E88-0x0E8F   8 B         LPC KCS4
+0x0E90-0x0FDF   336 B       Blank (0xFF)
+0x0FE0-0x0FFF   32 B        VUART1
+0x1000-0x2FFFF  188 KiB     Blank (some no decode 0xFF and some reading 0x00)
+0x30000-0x3FFFF 64 KiB      Inert region: 256 times repeating reset-default
+                            values, not affected by mailbox activation,
+                            not accessed by this driver
+                            The datasheet doesn't explain what this is.
 
-Petr T
+So, the host does not have arbitrary LPC bus access,
+it can only access a small subset of it.
+The relevant peripherals must be explicitly enabled the PCI bridge
+to be activated on the BMC to be accessed over PCIe.
 
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  kernel/dma/swiotlb.c | 80 +++++++++++++++++++++++++++++++++++---------
->  1 file changed, 65 insertions(+), 15 deletions(-)
-> 
-> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-> index 4c56f64602ea..14d834ca298b 100644
-> --- a/kernel/dma/swiotlb.c
-> +++ b/kernel/dma/swiotlb.c
-> @@ -248,6 +248,23 @@ static inline unsigned long nr_slots(u64 val)
->  	return DIV_ROUND_UP(val, IO_TLB_SIZE);
->  }
->  
-> +static void swiotlb_mark_pool_used(struct io_tlb_pool *pool)
-> +{
-> +	unsigned long i;
-> +
-> +	for (i = 0; i < pool->nareas; i++) {
-> +		pool->areas[i].index = 0;
-> +		pool->areas[i].used = pool->area_nslabs;
-> +	}
-> +
-> +	for (i = 0; i < pool->nslabs; i++) {
-> +		pool->slots[i].list = 0;
-> +		pool->slots[i].orig_addr = INVALID_PHYS_ADDR;
-> +		pool->slots[i].alloc_size = 0;
-> +		pool->slots[i].pad_slots = 0;
-> +	}
-> +}
-> +
->  /*
->   * Early SWIOTLB allocation may be too early to allow an architecture to
->   * perform the desired operations.  This function allows the architecture to
-> @@ -272,8 +289,16 @@ void __init swiotlb_update_mem_attributes(void)
->  		return;
->  	bytes = PAGE_ALIGN(mem->nslabs << IO_TLB_SHIFT);
->  
-> -	if (io_tlb_default_mem.unencrypted)
-> -		set_memory_decrypted((unsigned long)mem->vaddr, bytes >> PAGE_SHIFT);
-> +	if (io_tlb_default_mem.unencrypted) {
-> +		int ret;
-> +
-> +		ret = set_memory_decrypted((unsigned long)mem->vaddr,
-> +					   bytes >> PAGE_SHIFT);
-> +		if (ret) {
-> +			pr_warn("Failed to decrypt default memory pool, disabling it\n");
-> +			swiotlb_mark_pool_used(mem);
-> +		}
-> +	}
->  }
->  
->  static void swiotlb_init_io_tlb_pool(struct io_tlb_pool *mem, phys_addr_t start,
-> @@ -442,9 +467,10 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
->  {
->  	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
->  	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
-> +	unsigned int order, area_order, slot_order;
-> +	bool leak_pages = false;
->  	unsigned int nareas;
->  	unsigned char *vstart = NULL;
-> -	unsigned int order, area_order;
->  	bool retried = false;
->  	int rc = 0;
->  
-> @@ -504,6 +530,7 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
->  			(PAGE_SIZE << order) >> 20);
->  	}
->  
-> +	rc = -ENOMEM;
->  	nareas = limit_nareas(default_nareas, nslabs);
->  	area_order = get_order(array_size(sizeof(*mem->areas), nareas));
->  	mem->areas = (struct io_tlb_area *)
-> @@ -511,14 +538,20 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
->  	if (!mem->areas)
->  		goto error_area;
->  
-> +	slot_order = get_order(array_size(sizeof(*mem->slots), nslabs));
->  	mem->slots = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO,
-> -		get_order(array_size(sizeof(*mem->slots), nslabs)));
-> +					      slot_order);
->  	if (!mem->slots)
->  		goto error_slots;
->  
-> -	if (io_tlb_default_mem.unencrypted)
-> -		set_memory_decrypted((unsigned long)vstart,
-> -				     (nslabs << IO_TLB_SHIFT) >> PAGE_SHIFT);
-> +	if (io_tlb_default_mem.unencrypted) {
-> +		rc = set_memory_decrypted((unsigned long)vstart,
-> +					  (nslabs << IO_TLB_SHIFT) >> PAGE_SHIFT);
-> +		if (rc) {
-> +			leak_pages = true;
-> +			goto error_decrypt;
-> +		}
-> +	}
->  
->  	swiotlb_init_io_tlb_pool(mem, virt_to_phys(vstart), nslabs, true,
->  				 nareas);
-> @@ -527,16 +560,20 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
->  	swiotlb_print_info();
->  	return 0;
->  
-> +error_decrypt:
-> +	free_pages((unsigned long)mem->slots, slot_order);
->  error_slots:
->  	free_pages((unsigned long)mem->areas, area_order);
->  error_area:
-> -	free_pages((unsigned long)vstart, order);
-> -	return -ENOMEM;
-> +	if (!leak_pages)
-> +		free_pages((unsigned long)vstart, order);
-> +	return rc;
->  }
->  
->  void __init swiotlb_exit(void)
->  {
->  	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
-> +	bool leak_pages = false;
->  	unsigned long tbl_vaddr;
->  	size_t tbl_size, slots_size;
->  	unsigned int area_order;
-> @@ -552,19 +589,23 @@ void __init swiotlb_exit(void)
->  	tbl_size = PAGE_ALIGN(mem->end - mem->start);
->  	slots_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), mem->nslabs));
->  
-> -	if (io_tlb_default_mem.unencrypted)
-> -		set_memory_encrypted(tbl_vaddr, tbl_size >> PAGE_SHIFT);
-> +	if (io_tlb_default_mem.unencrypted) {
-> +		if (set_memory_encrypted(tbl_vaddr, tbl_size >> PAGE_SHIFT))
-> +			leak_pages = true;
-> +	}
->  
->  	if (mem->late_alloc) {
->  		area_order = get_order(array_size(sizeof(*mem->areas),
->  			mem->nareas));
->  		free_pages((unsigned long)mem->areas, area_order);
-> -		free_pages(tbl_vaddr, get_order(tbl_size));
-> +		if (!leak_pages)
-> +			free_pages(tbl_vaddr, get_order(tbl_size));
->  		free_pages((unsigned long)mem->slots, get_order(slots_size));
->  	} else {
->  		memblock_free(mem->areas,
->  			array_size(sizeof(*mem->areas), mem->nareas));
-> -		memblock_phys_free(mem->start, tbl_size);
-> +		if (!leak_pages)
-> +			memblock_phys_free(mem->start, tbl_size);
->  		memblock_free(mem->slots, slots_size);
->  	}
->  
-> @@ -1938,9 +1979,18 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
->  		 * restricted mem pool is decrypted by default
->  		 */
->  		if (cc_platform_has(CC_ATTR_MEM_ENCRYPT)) {
-> +			int ret;
-> +
->  			mem->unencrypted = true;
-> -			set_memory_decrypted((unsigned long)phys_to_virt(rmem->base),
-> -					     rmem->size >> PAGE_SHIFT);
-> +			ret = set_memory_decrypted((unsigned long)phys_to_virt(rmem->base),
-> +						   rmem->size >> PAGE_SHIFT);
-> +			if (ret) {
-> +				dev_err(dev, "Failed to decrypt restricted DMA pool\n");
-> +				kfree(pool->areas);
-> +				kfree(pool->slots);
-> +				kfree(mem);
-> +				return ret;
-> +			}
->  		} else {
->  			mem->unencrypted = false;
->  		}
+Only the specific interfaces listed above are exposed,
+and each one must be enabled by the BMC.
 
+The security implications are limited.
+The host side attack surface is bounded by what the BMC chooses to expose.
+
+> TPMs are often there, but does a BMC have a TPM?
+The AST2600 chip doesn't have a TPM.
+The Asus IPMI card doesn't have a TPM module either.
+If a similar PCIe add-in IPMI card has a TPM module,
+it will be accessible to the BMC via the LPC bus.
+
+But this will not be bridged to BAR1 by default
+as only the above-listed interfaces are exposed.
+
+However, the host could access the TPM with some specific BMC side
+configuration of the PCIe BMC Device (PBMC).
+That would be a deliberate BMC side firmware decision or bug.
+This driver doesn't expose a BMC TPM.
 
