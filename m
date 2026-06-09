@@ -4,154 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF32CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B35CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=; b=dwpqRi7Af2M5V41d2+6xm9iO4+
-	Quq4Df+C+5QAAb1D9UIBpZPhEdp9I6hvXIdd+EBLBjFGTnEMlM177KSXVI8d5YhTzD5CoRiDRDPFr
-	YbQHpLGirTe2J9s1/479OtY5EV17T86LbEcYAays7g+QR6213REJS4w4r9MXTz2sdhEoS2wff+L/m
-	Wzd0vjvECcPpz+SwZszn1qz/wolBYQyFQ0G2j0IkVIV/8+YXNmjFkAbkj5IN9KXGRwZrntmQ0YgfW
-	kP+lh77jejpM0T/dBxEbx+A/dfhY94XRyquAjhrOkTi807WukG5xO5Om16u/T/hNp6BvWAuaOGto+
-	Lzh4v10A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7oCwJ3UsXVKjeIXDecx1YBlhFBEm2+Ds2zhJdoNlDsE=; b=vrTJdqS/5rVbUzmlSAFddhddrg
+	47M+6dIV1TB+2HzQge5k+fZxZaeRR/WFehXRmU3/tErv2nfFDDaOYmdUwswW8qyQYsajTGt79uOrc
+	EPlAhhndFO1Gxs+9SrUidgjnTmpHnh6a05HkjDCeCI2iUib1SHgqx1fMqtqygFKq4vBKekFFxgdrw
+	bQ+K2kGK24PgkRMmsvIpYKfz6kxgOSYwGLRuAztoWpAe2nE6ljeJFNrPgKYDWMmwfZ6cqbImMmzDe
+	3hY0avFfz165D9ziYakgR30zSHDWJmQhGObFMfHZ++2nnF3gfy1r23C9pmEWHbXVXl/Nyk1IDE/Qq
+	m7v19mDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyRt-00000005vLB-3e83;
-	Tue, 09 Jun 2026 15:33:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wWyUQ-00000005w9t-19T3;
+	Tue, 09 Jun 2026 15:35:42 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyRo-00000005vGh-39GL
+	id 1wWyUN-00000005w9D-47bC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 15:33:03 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659CmRg92625178
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 15:33:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=; b=AifkM7NZ9iZ99pWd
-	ao9SnQgrrvukCnyKPeglzkfjpf/yxO9T7LG1qhxTrXhGrBa1ivhsF6q04bX0PuMP
-	dvrgW8FYt3GWBUgSXnMbsxqMLQ/JTOeR1tEN6t/cIA/6UQwUSqloVAOqL/ryYN5t
-	W6qZ/Vs5aUZjTboEDG3uHrInclObm1Vu2Dkb0vQyYvxm2Za0LETFPucTXkR2ePyf
-	1KJ8P3S92vxe05E1X1c0d6R9U/8c/rHwK89r/yOI3rSMzN/eioVm++QFcZNcUIsT
-	0CU76o/rtE6NKDJSxVTFbSobUky6qjc5mS6GO527v9n1AuXbZtG/YEfb1RHcz+D/
-	ujYEpQ==
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epddsajkk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:32:59 +0000 (GMT)
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-7e6f01486a0so10987380a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 08:32:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781019179; x=1781623979; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=;
-        b=PlxTsQKmYl5NPdbM1JLlGlOMGSUkZfYVp5np19asF+GZnXt3oXyMddEEnfMjSgzm8k
-         fFQcyXad/LWBoFnoGXzzdzs2cViYbEvD+eDLJMe+5F6CxH1ecTtByQf4de/IO/MRbOc4
-         wTs6+C4WBVTLgtHoQd8etORCx996I4kyB1D2GmmzMHVIFBNX68R64lY3+gvgWnO/0p6f
-         UTztcpAAu8xo/q8cXUdZZO5lYX0M0pdnAYkgwk+3nTQPpCn/Jnfnwkwgbeqbyam23/Uc
-         DyVxqsGZUsT+9MKbJxwA/AIwFOdUR9hLPnK44oThUPNdflPuQR1UqFXkJlH7OhXBAS7y
-         WoRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781019179; x=1781623979;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=o1XQNwY2YBqOGM0jRhuo+EDi7V+lOXGtju1Q/2Fompg=;
-        b=gj94yjd0r9I2vC49u4bgL/2dEpHkqeB1OENFpHOMRCrWj7VcH1Xat8bGMci2JZiAEK
-         Cjgkmgl4Wjkx9FC+Y3kMFhsSS/L7mParpHIorRWvjgV7m5CR3vvKdgbU66tP/h0AZhmV
-         xykntqXi4QVRayljzpOpn0faiPVa3AEEtu6G4io5IU8HpMolAZUPERK728RGBvIMXZ3q
-         J0d6IHqDg1vhitDOdaASDAxNf6/qH5jmJ86YIXl3df+P+gSfOlgajchDgqF+kJDvK45L
-         fJ9empeHtCH/P78+mFuTNID3HIvgbrOz9FSkPH1Jg7F0GDxnIyJ18JBFti7iPAolpOaP
-         A9Sg==
-X-Forwarded-Encrypted: i=1; AFNElJ//cPrexzrwZHIUJgvm5xylySA+Zox1IDkPVvjQQMg1MBUfev++yawNajn27m3MQmMZ0T+XATubTmdLtWzwjXFY@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQvrX4zWzVPp9AvNbm2X2sDePh14dLzSoE+Mt/VdOmkXti83RP
-	xp5Gndm56+E4oFxHVf4T6/+k3ErqYwC6A+bcg47MwMx8XhjMeMhYnwwvDcc67NBl6BuKd6vSmJk
-	mzPkHbDLh/KAlbJV6an9xbWpC5maHTnRpv7oUAmLGo4Zn5vQEDsW0BhOOU0yZ80HQVjDP+qAFOB
-	P05g==
-X-Gm-Gg: Acq92OEmz3eomJgwTRVPkyHt7os04TBTqxFwbpBPy4cnchSYq/MI+7MsIRDI29B+7YK
-	KfY/ArYK0/ZlPAOLnwkDIrZe4XzlIVWD4pRTGsgHTD5ug++9o2HWYCqSXcyNBlT4IWYFJ6vAnQy
-	OytUDNIeAwy/ev41BWO6RGVamPjJQMgiBCDYOcikAMQsR/yhzboZ56/m956BCh+EXyH1//SLY2Z
-	3XSTzD+/JK39wgsReueBobCf9w4NAzUrd0ttkXPRPp96fB/uBWgvxtN55At0hokcGBuh2aljw4U
-	b/rTPbDZjNFNCwcw3N+sUxcjSXlqMeaIUHVDIo5W3za8SCDu0yBSEk/Mkrm37W/gdrwaNbYwzH0
-	zNapQYRkumgK8c56fFgPZ+K6THfyQ/uYpzYN+OXrHH7t7LoU+YRL8BMNp
-X-Received: by 2002:a05:6830:d0e:b0:7e6:ee6d:cb1f with SMTP id 46e09a7af769-7e750a6177cmr2734357a34.0.1781019179089;
-        Tue, 09 Jun 2026 08:32:59 -0700 (PDT)
-X-Received: by 2002:a05:6830:d0e:b0:7e6:ee6d:cb1f with SMTP id 46e09a7af769-7e750a6177cmr2734319a34.0.1781019178707;
-        Tue, 09 Jun 2026 08:32:58 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.222.150])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f368e9fsm60938203f8f.37.2026.06.09.08.32.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 08:32:57 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Tue, 09 Jun 2026 17:32:40 +0200
-Subject: [PATCH v2 6/7] ARM/arm64: defconfig: Drop redundant Qualcomm clock
- entries
+	Tue, 09 Jun 2026 15:35:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E9zt2BwfWO3/ja/zVwh0ubfDYvGTil9mh+E2dokltCrcN5ivOwwAeWY2Xb5g8w1irmx55r2hyx0NHMCaWYjANg17H458MErldDG2OA6VqSb43k2ioa9vTejPVBIqKUrvMxOlOrc5GPbRrMhOay1IjZFngC44hyvlBd5RxyNKDAXmHcNX2DMGjxe0QvUAMH6DzX1w3/wuMcB2efXSh/Mf/pQN/hDHMkkvraspOwoEo9DiSL9JIo0TsT0mCVE6g1RIdxJ8Gp9vOgwNb/GC8inpr2tV/P9qVFxMCz6gifju79io3+Neml23u1ZwWDW8bZBrI6d5Ud2YtxjjBKjMEu4wVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7oCwJ3UsXVKjeIXDecx1YBlhFBEm2+Ds2zhJdoNlDsE=;
+ b=txQcPcMuss+v1nx46jNmBpIImPN37pLe5TBJZtZhhBUdnwvucgpj7JH6JfGM5rFeF6rKWgNIX9/CjKnQWROojANtC8Lt9wGV+xWRu7tv9gAGdPKEjp9+fnIcmGumZ1kwto2vsmvMjLm8Uip8waxH1k05MbHQzN6eSQDo0e+BigE+XxU5W1asqV/Xs7U4VAY01TwJx9uVVsX/yfTJyj+KKbIvgRU3fTYnKaYhmjRh/NOdtrZlNtCxtGOfpVZQrOuv7w0u6OjLJfO5r61yoCgkdLtL02FlSpX0OOwbPVwGa7hPzYWzxPN4Tx3W1kYtQCQBZS+ObWn41xUYB93gxc4KXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7oCwJ3UsXVKjeIXDecx1YBlhFBEm2+Ds2zhJdoNlDsE=;
+ b=ByW4ICzwHXrEy81ocxfuNQ09AjL9QMmWM1W99F0Dq58vGdDuz/pJ4X+djLKWYeORdUhUfhRG/+fZKRmLLKrMNhwU2bM1yi9eHGSf/2g7aq0m2AtGgbgohL6LZFdoDuSjTDBjOkLV2Fn5Qngrr7vXj99bnJp9Ku+plzQ1ToNwj4j45s6IDbh9TQdN2PqhvYU++GlsRWRNm864ONN3MY6lajDmHL9DZZcFgXSrXUmQYm9EY0NDHWGfYmHPGAepUd7m28ThFDWICynC4+12J9MJ8qq3axVZP6VPmx47ZLGZHM7HxYIudZim1oGydnXE3zcunP/hJKkAYyZqx7yejbRwOw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB7555.eurprd04.prod.outlook.com (2603:10a6:20b:2d6::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Tue, 9 Jun 2026
+ 15:35:33 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
+ 15:35:33 +0000
+Date: Tue, 9 Jun 2026 10:35:24 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: carlos.song@oss.nxp.com
+Cc: aisheng.dong@nxp.com, andi.shyti@kernel.org, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Carlos Song <carlos.song@nxp.com>
+Subject: Re: [PATCH v4 1/2] i2c: imx-lpi2c: properly unwind resources on
+ probe failure
+Message-ID: <aigyvJNKYAFNpHh3@SMW015318>
+References: <20260609095119.924029-1-carlos.song@oss.nxp.com>
+ <20260609095119.924029-2-carlos.song@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260609095119.924029-2-carlos.song@oss.nxp.com>
+X-ClientProxiedBy: PH0PR07CA0050.namprd07.prod.outlook.com
+ (2603:10b6:510:e::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260609-clk-qcom-defaults-v2-6-0c67c06dca11@oss.qualcomm.com>
-References: <20260609-clk-qcom-defaults-v2-0-0c67c06dca11@oss.qualcomm.com>
-In-Reply-To: <20260609-clk-qcom-defaults-v2-0-0c67c06dca11@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5559;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=Uj6PFrl95EPjQd87MKegbK48MLKZBpNQFspDgHqgLnQ=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqKDIaasrpps8plpO8eUL7uj+vrkyr5NJqiG5pd
- Wg/6jbyMPGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaigyGgAKCRDBN2bmhouD
- 18GLD/9V5YMYTXnI7PGpkkBM6NstQ3L1GOhxbzbVXDOfXHuHH3wav1Y1Kdy8wDKpEdLFCRnCknw
- nELlwEf96Mcxhf2IvZOXciUL8icfIsUmKuguqAzMSapwmRjCaQZAvYlSwkS+s48gAx0p3WqRswj
- HVEdTat2LMH+SUVO3M89c2lHxG4zN9G1dXMx5Ri728nv27wN4LrOzj1owi5MDdQapyJXKZuvoTs
- vTBhrM1YHQghuQsNAb4zcyXsnY50iVX/lvg0Q3QlDkUIC4PYfCNE+lm9TwvPTdamPRN2SYbDayW
- we5DV3Bb+UbR+Is2YjvM/qH3GcPLdvC4mhNCdYpFFNnoqhTmg8O4gn2PIAbC/kSFpkhao4GFeDM
- PCkET17DWu0Ch+ZwE2PBGmI0cFjnF6qx2BrHpgPZKFFMOAA+tkNK33Fv/bY/JVVrUfqq/OKnvgG
- 6QEjC7XnhZeB86bc3fjQES6ldyh+G85zVQkQ9957D+BjyztH5YCCCnmra/rnfvYWaBa8rPQMUc0
- 4yGWmtai2qK1ffy/W+DGEGx/gGec0bjQ0jpwzIg2KD/6po/ftgnkXkjtjSEdcQl56ezMpwFPKgm
- T1S2uUhGQ6T1icUGlu5tTemKOK2bW4Gn8tMDIleOVzapi+4MaiOwdwWn5lNp1pR7uq6GuSPT1W/
- XRPlJyuYR2TwoFQ==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-ORIG-GUID: 4gDu9ITIzObdxvpzevCGvSQVpAkbu-BP
-X-Authority-Analysis: v=2.4 cv=EI42FVZC c=1 sm=1 tr=0 ts=6a28322b cx=c_pps
- a=OI0sxtj7PyCX9F1bxD/puw==:117 a=jO6dYz2E5lbJ9Xj+xBc9tQ==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=yyKv-1BC-DQKXCkl3jQA:9 a=QEXdDO2ut3YA:10
- a=Z1Yy7GAxqfX1iEi80vsk:22
-X-Proofpoint-GUID: 4gDu9ITIzObdxvpzevCGvSQVpAkbu-BP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0NyBTYWx0ZWRfX0F/DGjjGjYV/
- e0k88msjSGFv8ztL7dA/mHNJHJvMOyJzf7RSrdmMN25QNx/rY7ZLP4nnhKxNlRs1Fcc3rPwX/fN
- A2g4OAE9GgVzn8U3CKZI2yoJFM/coIzoEauvlOhOZQ8lBVpqMJErXPsHjsDczFRywlFvVD/Ucsg
- akCzF+bGZx7oxD5aYzpeYIZ2n4gq3mAi5aDZ56LlUoufNzm86CUtT4SFVm6+W1SONmdjW4wErLR
- tjrGSyXA9Ycj+EtoEjeJiWAzcrv6hGhcL6Jym7laeEJXc40VIfg5GRcZv8xCiP2a+sJRw8e9Co1
- 0Ol9agRecVcPirwJXMymoEt6RHnNLue6kvW34Ap3lyOL0q6N21Hg0EbsjQ8IOHi0iSfZHSKfOce
- fAurtVmPasm0rMmc6BApju/BfT2yAvtHkl6CTG+dLLPMxX6Dvbun7y9GEKTMWCESGVkvduLVKex
- IckvvkxlC2k3xwWootA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-09_03,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 bulkscore=0 phishscore=0
- suspectscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2606090147
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB7555:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c915b1f-e5a4-494e-12e9-08dec63cbe76
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|56012099006|4143699003|5023799004|11063799006|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 5AnUYXx5uLAfH3sc+P2Y5GygOjfmxb8lPIBN0LsMrkvCCgtGFpIrgXq+lFpfXtFNjl1W6V1WgsuY6fz7vDsGLk04WfXGMCxRbcvcfnKUrBU2Ih0TP7wrI6mspobyC3aB/4ilplVWbZvgMA5a2DgCeDAw+2U7i2FntQLl6mv79bDWcpM5Vs8arKd3cN0g+KXVWcysR9AUKo79rPJXAP69XCM1UI/F22xYMJq0C+298MiBOF26KkQNADx6yuG67hGlD8Riqbm5cRw7XQ151mIRDJ95j9LRoj18XuOsgYwPFjRyUWhYHB+Ed3yz+MM1/c9PEB4SQU+a74HSf2EzOd7riJ35Sc0hgmuoh2Fhhde4I7b/QcQt8jyIhiBxurGCHcPBECF1Y5/cdtjWUSfdigvro1+ciqTEBuZEl5sGqNzyLIyW/nh09ns34SyAbC8U9pCtZnSD+UaAbc+J3VTIB+EYu2l4C2V7Tnwp77xrCoTOGJKg+pA/apqoffvCbtpZ3eyDY9BPBMZ2tocpDopaZv7v6U1CGSLh5ZQb6LbfIVmHLQKmdMdy20A8TyE0gx/MYWCzSiVwS4SHUtAzoP3P7H/v/bPoAup3wYfElt6bmbxthi8EvoyPH/mXuCjIFOS9/K40Af50g81UFzMMyScn9W8DUdo7Zdyi+5Sh0txsBQFYCbOGyIg2NjP/dBJdPZ7I3cBU
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(56012099006)(4143699003)(5023799004)(11063799006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sXruUWshCkrzfHNDp1obL3J8wTqCCd7pZpRZHevz2g1oPuvhM3OX1HAvU1We?=
+ =?us-ascii?Q?JEWWn0qOI3OC7ey5/bpSqPKGxG9xT+SuJDUbFsURNN0oaoxscJXDzvL6YC7J?=
+ =?us-ascii?Q?cM55UO2Pwm/FabhFB7QRTSvQnQ3f2r1+BrxG06nCJRyJMfuCHjBZdRl3gfym?=
+ =?us-ascii?Q?pHscxhtnAe4oL2aGf8Q0buffSBVOK7OjCAqucBspBi0k3w0DpzcZPbWtbc5k?=
+ =?us-ascii?Q?rBLhGtjnNGBbyBZSGEcFMhP2WwFISC0Oj058eaCXGpyhYlfU6FbnySNuvx2y?=
+ =?us-ascii?Q?9NoY10MR306c4aKhUDhNlk/CnXuCfsFs+k4+BlCNmUTORvoOGB6cBDmA5YfA?=
+ =?us-ascii?Q?LmTcwYB0hzify1ofrDgAFTy1ItwdsfAVhdmM07dkJXSpxA5oKrXSO/bvW3ze?=
+ =?us-ascii?Q?u/AGcsl6RECYURvjImFQYelJT/t7OHKhl1AnGtP17X0p0j6MakSWezoyz8VC?=
+ =?us-ascii?Q?FwwTUZmDM1Hb0j9xHbBtygKvbF80bsQJLWgZQEhumTmDh8WtsX1Tu+7aXeKU?=
+ =?us-ascii?Q?GE8emA7YDrkROtR4E6KenyMqpR4FWY8gaVWbJqwB7xk+jQxubaYlo5teC5AJ?=
+ =?us-ascii?Q?t2LXNsuXlTsrvJCZJgpYassQB8d12nd5CYtLd2bHFSWZ683lE+knBPYp1cfz?=
+ =?us-ascii?Q?01OZWxMrLt1/8buzPR5LSDG7ntNUtAQIbNb56jc+ha6Oa/jKXtHBxm9lSAny?=
+ =?us-ascii?Q?cYnidwWqZRFCD6YE4c60igDfkT16kawyqkWzFYoUVhOoWhDwZnlbXqwd6wDg?=
+ =?us-ascii?Q?lIQjnKcNpjVW5rnnBafh/fjToUfo9F071VhsedEA215a1ThDM2p2IBNCjaKw?=
+ =?us-ascii?Q?dYvBYGmlPZcqE9yajH/CKWK6FlgvU4tiITdmR6iDOWtijNaVCy+fYROxhlv0?=
+ =?us-ascii?Q?sIAB7B248Fk67sPbJ6x+RPIkpLe9HsSFEWigyxrKOqdvzOKKViP1fUlcre4G?=
+ =?us-ascii?Q?VcAfMbh3z3v4D7imZcNW6YtOTIVu1y1Klpp6IKK6NZB1AhGKgKfkjVpisiUx?=
+ =?us-ascii?Q?dvxxgRHw2pH4kN7iHVlw2XbFsJcyoQqNnk/0HvBxI6qWoT4TbANniGpYLU4k?=
+ =?us-ascii?Q?NyYFY+P4E7sfgE1IZbd52shc/aJhIGlC9e1x5FCJvXiB9l2xNCgJyVEj10FE?=
+ =?us-ascii?Q?uttps/Dp6nKpBAG4HZP6ydFrU15b7Kymp3+//yyfpYXNUct1duu3KSvdgZMs?=
+ =?us-ascii?Q?3ohH1diII2f8aM8bh6jgklCdpap0sH+Fd7/NqAcm1RXKNNP8uptN5GkRZ+4V?=
+ =?us-ascii?Q?McUVXsV3g+hU0YSxN/3TAu18DqNUb/UFShju4kvsG4jHfOHLiOPAmcBDC1S8?=
+ =?us-ascii?Q?pffQ9SEme/UDXiAjiFvOhhSNGrIoSq7f04rjr4BoL+sJfHRg3iCamBiTTLSV?=
+ =?us-ascii?Q?LqpwmVcY2xfvvWgL3nGUnAjCCNpvFGw9e5ONaNMj3XQhSX0gtQjmzVs5HkeM?=
+ =?us-ascii?Q?naKigGw8Shd29KuaCUgQIDoAWY2rdDke0bUE//6Cd/2uoN1gulSewqnfcfdv?=
+ =?us-ascii?Q?l1oeASr/d1o76r8wJlVza4TvU6HvYxz88YhVxmW7W1h/vOgD0PNcw3Oaxf42?=
+ =?us-ascii?Q?KcSuofWDVfPISQGgbMFkOx8vT4HbMqgmbiE8oTp5I/bG+v4R2Qx7IPv1U+ty?=
+ =?us-ascii?Q?yY0BIyWSsek64/zPrV25xxZufGkj9LRSp/CS6v9Qf7n6ajfUVJq0Ih27z3Rb?=
+ =?us-ascii?Q?JZGXA/3T9LEEl5BnDP7e5I117j3YqY0Nzc+TfVpL5iXZ5Hu5mFXLPX6m21A9?=
+ =?us-ascii?Q?hz4UChT16uOnL/eFTdpkTb+IZjhjLhGv9uuoPkHThX269l5VCsw8?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c915b1f-e5a4-494e-12e9-08dec63cbe76
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 15:35:33.5460
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 88zr6RTMKFWp7QFyKBJkHklINIfagtzVYuXXxurKX+cA/vXp3x4UL0DvtRPGZZR1zlmSzGZoao/piNTyBSn1J2WExJciXxZusoptGX5oee1O5e3thoFeq5HS2w6d9feV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7555
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_083300_991928_021350C4 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260609_083540_028060_1FF772B0 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,202 +140,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop all drivers from defconfig which have defaults in Kconfig.  Drop
-also MDM_LCC_9615 which is gone since commit bac4675a4d1b ("clk: qcom:
-drop lcc-mdm9615 in favour of lcc-msm8960").
+On Tue, Jun 09, 2026 at 05:51:18PM +0800, carlos.song@oss.nxp.com wrote:
+> [You don't often get email from carlos.song@oss.nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> From: Carlos Song <carlos.song@nxp.com>
+>
+> When probe fails after clk_bulk_prepare_enable() succeeds but before
+> runtime PM is initialized, the enabled clocks are never disabled.
+> Additionally, calling pm_runtime_put_sync() in the error path can
+> trigger the runtime suspend callback, which may attempt to disable
+> clocks that have not been fully set up, leading to potential issues
+> during error unwinding.
+>
+> Introduce two new error labels: clk_disable to explicitly invoke
+> clk_bulk_disable_unprepare(), and free_irq to release the IRQ via
+> devm_free_irq(). Replace pm_runtime_put_sync() with the sequence of
+> pm_runtime_disable(), pm_runtime_set_suspended() and
+> pm_runtime_put_noidle() to bypass the runtime suspend callback during
+> error recovery. Update all goto targets so that each failure site
+> releases only the resources acquired up to that point.
+>
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
+>  drivers/i2c/busses/i2c-imx-lpi2c.c | 25 +++++++++++++++++--------
+>  1 file changed, 17 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> index cd4da50c4dd9..fbb9c0b0a99c 100644
+> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
+> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> @@ -1520,21 +1520,25 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
+>
+>         ret = clk_bulk_prepare_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
+>         if (ret)
+> -               return ret;
+> +               goto free_irq;
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+If you use runtime pm, you should not manually manange clock again.
 
----
+generally method is
 
-Depends on clock patches - this can wait a cycle.
+	devm_clk_get()
+	devm_runtime_pm_enable()
 
-Changes in v2:
-1. New patch (split from previous)
----
- arch/arm/configs/multi_v7_defconfig |   9 ---
- arch/arm/configs/qcom_defconfig     |  14 -----
- arch/arm64/configs/defconfig        | 112 ------------------------------------
- 3 files changed, 135 deletions(-)
+	call runtime_pm_get_sync(), \\there are PM AQUIRE help macro to help
+elimiate goto branch.
+	... // if need clock enable to do some works.
+	call runtime_pm_put()
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 2891eeba9032..e075da05c7e0 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -1095,15 +1095,6 @@ CONFIG_COMMON_CLK_S2MPS11=m
- CONFIG_CLK_TWL=m
- CONFIG_CLK_RASPBERRYPI=y
- CONFIG_COMMON_CLK_QCOM=y
--CONFIG_QCOM_A53PLL=y
--CONFIG_QCOM_CLK_APCS_MSM8916=y
--CONFIG_QCOM_CLK_RPM=y
--CONFIG_QCOM_CLK_SMD_RPM=y
--CONFIG_APQ_MMCC_8084=y
--CONFIG_MSM_GCC_8660=y
--CONFIG_MSM_GCC_8916=y
--CONFIG_MSM_MMCC_8960=y
--CONFIG_MSM_MMCC_8974=y
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_OMAP=y
- CONFIG_HWSPINLOCK_QCOM=y
-diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
-index 03309b89ea4c..5316126fb41e 100644
---- a/arch/arm/configs/qcom_defconfig
-+++ b/arch/arm/configs/qcom_defconfig
-@@ -205,20 +205,6 @@ CONFIG_DMADEVICES=y
- CONFIG_QCOM_BAM_DMA=y
- CONFIG_STAGING=y
- CONFIG_COMMON_CLK_QCOM=y
--CONFIG_QCOM_A7PLL=y
--CONFIG_QCOM_CLK_APCS_SDX55=y
--CONFIG_QCOM_CLK_RPM=y
--CONFIG_QCOM_CLK_SMD_RPM=y
--CONFIG_QCOM_CLK_RPMH=y
--CONFIG_APQ_MMCC_8084=y
--CONFIG_IPQ_GCC_4019=y
--CONFIG_IPQ_LCC_806X=y
--CONFIG_MSM_GCC_8660=y
--CONFIG_MSM_LCC_8960=y
--CONFIG_MDM_LCC_9615=y
--CONFIG_MSM_MMCC_8960=y
--CONFIG_MSM_MMCC_8974=y
--CONFIG_SDX_GCC_55=y
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_QCOM=y
- CONFIG_MAILBOX=y
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index cb753cc0f5a4..91c8e9435dd6 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1458,126 +1458,14 @@ CONFIG_COMMON_CLK_MT8192_SCP_ADSP=y
- CONFIG_COMMON_CLK_MT8192_VDECSYS=y
- CONFIG_COMMON_CLK_MT8192_VENCSYS=y
- CONFIG_COMMON_CLK_QCOM=y
--CONFIG_CLK_ELIZA_DISPCC=m
--CONFIG_CLK_ELIZA_GCC=y
--CONFIG_CLK_ELIZA_TCSRCC=m
--CONFIG_CLK_GLYMUR_DISPCC=m
--CONFIG_CLK_GLYMUR_GCC=y
--CONFIG_CLK_GLYMUR_TCSRCC=m
--CONFIG_CLK_KAANAPALI_CAMCC=m
--CONFIG_CLK_KAANAPALI_DISPCC=m
--CONFIG_CLK_KAANAPALI_GCC=y
--CONFIG_CLK_KAANAPALI_GPUCC=m
--CONFIG_CLK_KAANAPALI_TCSRCC=m
--CONFIG_CLK_KAANAPALI_VIDEOCC=m
--CONFIG_CLK_X1E80100_CAMCC=m
--CONFIG_CLK_X1E80100_DISPCC=m
--CONFIG_CLK_X1E80100_GCC=y
--CONFIG_CLK_X1E80100_GPUCC=m
--CONFIG_CLK_X1E80100_TCSRCC=y
--CONFIG_CLK_X1P42100_GPUCC=m
--CONFIG_CLK_QCM2290_GPUCC=m
--CONFIG_QCOM_A53PLL=y
--CONFIG_QCOM_CLK_APCS_MSM8916=y
--CONFIG_QCOM_CLK_APCC_MSM8996=y
--CONFIG_QCOM_CLK_SMD_RPM=y
--CONFIG_QCOM_CLK_RPMH=y
--CONFIG_IPQ_APSS_6018=y
--CONFIG_IPQ_CMN_PLL=m
--CONFIG_IPQ_GCC_5018=y
--CONFIG_IPQ_GCC_5210=y
--CONFIG_IPQ_GCC_5332=y
--CONFIG_IPQ_GCC_5424=y
--CONFIG_IPQ_GCC_6018=y
--CONFIG_IPQ_GCC_8074=y
--CONFIG_IPQ_GCC_9574=y
--CONFIG_IPQ_NSSCC_5424=m
--CONFIG_IPQ_NSSCC_9574=m
--CONFIG_MSM_GCC_8916=y
--CONFIG_MSM_GCC_8953=y
--CONFIG_MSM_MMCC_8994=m
--CONFIG_MSM_GCC_8994=y
--CONFIG_MSM_GCC_8996=y
--CONFIG_MSM_MMCC_8996=m
--CONFIG_MSM_GCC_8998=y
--CONFIG_MSM_MMCC_8998=m
--CONFIG_QCM_GCC_2290=y
--CONFIG_QCM_DISPCC_2290=m
--CONFIG_QCS_DISPCC_615=m
--CONFIG_QCS_CAMCC_615=m
--CONFIG_QCS_GCC_404=y
--CONFIG_SA_CAMCC_8775P=m
--CONFIG_QCS_GCC_8300=y
--CONFIG_QCS_GCC_615=y
--CONFIG_QCS_GPUCC_615=m
--CONFIG_QCS_VIDEOCC_615=m
--CONFIG_SC_CAMCC_7280=m
--CONFIG_SC_CAMCC_8280XP=m
--CONFIG_SA_DISPCC_8775P=m
--CONFIG_SC_DISPCC_7280=m
--CONFIG_SC_DISPCC_8280XP=m
--CONFIG_SA_GCC_8775P=y
--CONFIG_SA_GPUCC_8775P=m
--CONFIG_SC_GCC_7180=y
--CONFIG_SC_GCC_7280=y
--CONFIG_SC_GCC_8180X=y
--CONFIG_SC_GCC_8280XP=y
--CONFIG_SC_GPUCC_7280=m
--CONFIG_SC_GPUCC_8280XP=m
--CONFIG_SC_LPASSCC_8280XP=m
--CONFIG_SC_LPASS_CORECC_7280=m
--CONFIG_SC_VIDEOCC_7280=m
--CONFIG_SDM_CAMCC_845=m
--CONFIG_QDU_GCC_1000=y
- CONFIG_SDM_GPUCC_845=y
- CONFIG_SDM_VIDEOCC_845=y
- CONFIG_SDM_DISPCC_845=y
--CONFIG_SDM_LPASSCC_845=m
--CONFIG_SDX_GCC_75=y
--CONFIG_SM_CAMCC_6350=m
--CONFIG_SM_CAMCC_MILOS=m
--CONFIG_SM_CAMCC_8250=m
--CONFIG_SM_CAMCC_8550=m
--CONFIG_SM_CAMCC_8650=m
--CONFIG_SM_CAMCC_8750=m
--CONFIG_SM_DISPCC_6115=m
- CONFIG_SM_DISPCC_8250=y
--CONFIG_SM_DISPCC_6350=m
--CONFIG_SM_DISPCC_MILOS=m
--CONFIG_SM_DISPCC_8450=m
--CONFIG_SM_DISPCC_8550=m
--CONFIG_SM_DISPCC_8750=m
--CONFIG_SM_GCC_4450=y
--CONFIG_SM_GCC_6115=y
--CONFIG_SM_GCC_6350=y
--CONFIG_SM_GCC_MILOS=y
--CONFIG_SM_GCC_8350=y
--CONFIG_SM_GCC_8450=y
--CONFIG_SM_GCC_8550=y
--CONFIG_SM_GCC_8650=y
--CONFIG_SM_GCC_8750=y
--CONFIG_SM_GPUCC_6115=m
--CONFIG_SM_GPUCC_6350=m
--CONFIG_SM_GPUCC_MILOS=m
- CONFIG_SM_GPUCC_8150=y
- CONFIG_SM_GPUCC_8250=y
--CONFIG_SM_GPUCC_8350=m
--CONFIG_SM_GPUCC_8450=m
--CONFIG_SM_GPUCC_8550=m
--CONFIG_SM_GPUCC_8650=m
--CONFIG_SM_GPUCC_8750=m
--CONFIG_SM_TCSRCC_8550=y
--CONFIG_SM_TCSRCC_8650=y
--CONFIG_SM_TCSRCC_8750=m
--CONFIG_SA_VIDEOCC_8775P=m
--CONFIG_SM_VIDEOCC_6350=m
--CONFIG_SM_VIDEOCC_MILOS=m
- CONFIG_SM_VIDEOCC_8250=y
--CONFIG_SM_VIDEOCC_8550=m
--CONFIG_SM_VIDEOCC_8750=m
- CONFIG_QCOM_HFPLL=y
--CONFIG_CLK_GFM_LPASS_SM8250=m
--CONFIG_SM_VIDEOCC_8450=m
- CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
- CONFIG_CLK_RENESAS_VBATTB=m
- CONFIG_EXYNOS_ACPM_CLK=m
+	...
 
--- 
-2.53.0
+and needn't call devm_free_irq().
 
+Frank
+
+
+>
+>         /*
+>          * Lock the parent clock rate to avoid getting parent clock upon
+>          * each transfer
+>          */
+>         ret = devm_clk_rate_exclusive_get(&pdev->dev, lpi2c_imx->clks[0].clk);
+> -       if (ret)
+> -               return dev_err_probe(&pdev->dev, ret,
+> -                                    "can't lock I2C peripheral clock rate\n");
+> +       if (ret) {
+> +               dev_err_probe(&pdev->dev, ret,
+> +                             "can't lock I2C peripheral clock rate\n");
+> +               goto clk_disable;
+> +       }
+>
+>         lpi2c_imx->rate_per = clk_get_rate(lpi2c_imx->clks[0].clk);
+> -       if (!lpi2c_imx->rate_per)
+> -               return dev_err_probe(&pdev->dev, -EINVAL,
+> -                                    "can't get I2C peripheral clock rate\n");
+> +       if (!lpi2c_imx->rate_per) {
+> +               ret = dev_err_probe(&pdev->dev, -EINVAL,
+> +                                   "can't get I2C peripheral clock rate\n");
+> +               goto clk_disable;
+> +       }
+>
+>         if (lpi2c_imx->hwdata->need_prepare_unprepare_clk)
+>                 pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_LONG_TIMEOUT_MS);
+> @@ -1576,8 +1580,13 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
+>
+>  rpm_disable:
+>         pm_runtime_dont_use_autosuspend(&pdev->dev);
+> -       pm_runtime_put_sync(&pdev->dev);
+>         pm_runtime_disable(&pdev->dev);
+> +       pm_runtime_set_suspended(&pdev->dev);
+> +       pm_runtime_put_noidle(&pdev->dev);
+> +clk_disable:
+> +       clk_bulk_disable_unprepare(lpi2c_imx->num_clks, lpi2c_imx->clks);
+> +free_irq:
+> +       devm_free_irq(&pdev->dev, lpi2c_imx->irq, lpi2c_imx);
+>
+>         return ret;
+>  }
+> --
+> 2.43.0
+>
+>
 
