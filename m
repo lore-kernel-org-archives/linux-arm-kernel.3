@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E50CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664E6CD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pRzTXFA5FdxPZzzcvlQRBiMd6g7fdENgr5qKURqqC88=; b=Yhp7IKJzzLjIdEBORJYLZuwFHd
-	2xST4WBjPO++eP7LZhGFLuFx1t6HYnVCKm9UqwA7xmUgorEp3wmR+MlFIY8RDmoYhlq07QaREyKfL
-	08CKp6c59RrLsF+cDPRCWXfGjDhIpc9CpHdUrZHiNqIKjWOCD1XCdpPqKskxDZKVgqrTXxwGOgyuz
-	jZEjMB9Hb2ZhZNc2r7z0KaDPYlYncIMG3zFA5ixlwN5XA2anLXrLZ88l7+73dgL25WDLzPIcq1vBx
-	6hFiXCzr8FndVZhtbidvE15GWgxSdQqsPGCI9/0LxoTb7oAu1yyuQCqv7J7GmJWpRCxxkrTL+YMxE
-	dz/VN6Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4mRBPNmR1OtFkGxuqAKs88NJp8h9p2yjslNUV+/qzLE=; b=0lSoBwA8ITkDtrpcHxuyAqB83G
+	O108eBvzBPgcvTzqpoqfll1bjYFRri5Le5VUv2imXwi79Il2vBB3ARc3LijD1/nZVYPguITjprgu2
+	8yG5XCPv/tB53i33pGGaCrqbSGfAbjylCqiO/4W7f1+m72s1SBBFRJuEdQrRwrNuDRKLt593rO8Bb
+	KVq5E3c1L4VxGsXXNgSiFZcm7ne1FTRblkemCZ9E5gcQdoaV8CokYp5VNwTHiVPOd9SPq2W2sD3fL
+	RmRId8oAXc0LAMinWwwWU5Vj5hbl4ZS/VTdZ0JxjmbypUrF9OJ48byBtgkCEe0ZTumU1D0b2IFgJ+
+	+ZX5dmuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsmA-00000005CxJ-0nDh;
-	Tue, 09 Jun 2026 09:29:38 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wWsnh-00000005D8d-2rpt;
+	Tue, 09 Jun 2026 09:31:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsm7-00000005Cwm-2TxE
+	id 1wWsnf-00000005D83-1bTD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Jun 2026 09:31:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=4mRBPNmR1OtFkGxuqAKs88NJp8h9p2yjslNUV+/qzLE=; b=mH8AirSv21gEd9cE7OLHOxd9mD
+	nfg5vz8ZkXV+6POvaJhX1vlZdFndatn9DHUqCyMh78gA7oSlyMKOddrb/KDRjqwpdnOTSwro7IPge
+	IRufxITNs6h/oEh6O2SxAb71LxOdgspz2AxhlBSAwkdwvIgHZM9lQ8ynZ7bTmtZP/J7WU1xlr3oNG
+	2Btuf9NUZdcGgDWYyyVffVKIFZTrzmTyMLlMDj3VxlNccjZBubYAksWMlrhFF/JmMASGY2oizErnW
+	yrLaIHFwiLdy0Rx1Tndb2TsdtbUuxxLTIqUSjoiYD7a5p/gbfR4I91jGeOZPoF7RZi0SGfQvdHhax
+	QpWlrlrA==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wWsnc-00000002FrJ-0N0K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 09:29:36 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490a7629453so4630455e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 02:29:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780997374; x=1781602174; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pRzTXFA5FdxPZzzcvlQRBiMd6g7fdENgr5qKURqqC88=;
-        b=DvmbeOGu3Wcx9pt+qIXtOuNa2Qf4ce+g3tP+g+D5ozkZ7oJu0lWDNNO/AIL7PHDe5J
-         KGQDHq+EoXrgISfj85zKkHc0BxM/Af9BPLclXZz8ifMev7uG5a0vASY+qfXWbYJP0FMK
-         DyamaYMrQCCvXafQ/5aBhTSUVaex7vFkC45JWHuWt2hue4/KAt/EHXvFcI87+yKTpodq
-         9QCsbZaMarhuflqc76qIdIUadtwrK0RfQuOdQ1qtHgwxbd0+vl9kZQY8CIbbLje0Cxr5
-         a0LcnmLG2dTZ4ch47kGkqem1O8EEBC14Z5w9gm7woEzL2Oj1rI59BUXzm3gbVJI+NtO0
-         M+sQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780997374; x=1781602174;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pRzTXFA5FdxPZzzcvlQRBiMd6g7fdENgr5qKURqqC88=;
-        b=i6hMi0iP/lhYu05hNQXTA0BcvNoP8lYa4vVc3rk96ess+cLcGvnKL+EJbzm+mnQt5c
-         xbUHyy19szyf3fUdLQke6sM+/t6inuScUMvQxhgTWiKNFPAONKcvg0dnf5abnL8+3D67
-         HJ5pcvG6WYarnS9hIW+7Cj3gv7NGtH1WFEM8IAMwJtfVz1V1qgtuI8a7GUuA9K5wA6ry
-         pUaKrND6UWeGHt77Jd4GanDriYBt8yE/gDHC7MoT0EUyczoc2/lpOw3UzW0Yu3/DUNgY
-         dAvlP/P9+dD2kFzMDqenDHSQNf6/0ZBXnzFASTQVLsNGCZ6AoRV5B8VO9hN4fIbAr0Xp
-         yb/w==
-X-Forwarded-Encrypted: i=1; AFNElJ+MdeUWKZEt9wG4jfn9BX8rlvpVKVddwuW/T0siOnwqeD8rkXFs2k/LTlpdkZERqhjasQ7PML6sdQeY/xrDrDq5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZqQrwu/TSvxJDzXJCBTq+nEOnB62G/vaaRQGYwnPt2yQPRKkj
-	y+DzIcAYQVPNxOGmE3vDYaRi7hYsUQ+LSyGmR7FL/5dq2uKtkoaabtms
-X-Gm-Gg: Acq92OHJ6l5rfWe+HUu5FpDNy95ytGnz9iojiVN/A0le0v3Fg3IXSxxeh1PNwVUD8wl
-	QrSxs2tLJ+191i0F9C8F613QqH4Ha9Jk46MS6qyxeA/CpRzdstyzaPjihzk1C4mMqwl1sNqbqxk
-	uV9aepEH+vA9S+scqTkK2760DeZCYS9yENdk1qA7eBe2N5868oHCEH7amcOIqyne5sZ6dfz+Wc/
-	qjC4LHcXxVniPiJ7J66z0RVwzGCDbypMbXYuwruQqEQvlVgMytu+Tp9E2L0eX+RnBoWcVBhtT6I
-	HHR36O4jcgxLVg5hxYhC+s+zdIDdNBu9N29TRdNerjAJ9oHIlcraAfmZ/n23XW6N5z2m4eUTRqC
-	WKyG/ZbndRWAdNVv1zeA53XC1czT/dahInZXoHpD8e4Kp8HuseK/FO3CEc80l/unEJuI9HdWZkl
-	vCL6sQJjA7F/KY8EWJD6dxjUYNUqfBH2P7DUJx/NUk0Qm0sQkLQshilzD638I81maJ7Q7c8t03Q
-	gCRCX4tHB8/
-X-Received: by 2002:a05:600c:45d1:b0:490:9f89:7eba with SMTP id 5b1f17b1804b1-490c2609e2fmr128490115e9.5.1780997373485;
-        Tue, 09 Jun 2026 02:29:33 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490c2d52e5esm226021065e9.2.2026.06.09.02.29.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 02:29:32 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	tudor.ambarus@linaro.org,
-	krzk+dt@kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [RFC PATCH v6 1/1] crypto: atmel-ecc - fix multi-device use-after-free and registration races
-Date: Tue,  9 Jun 2026 09:29:27 +0000
-Message-Id: <20260609092927.47222-1-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 09 Jun 2026 09:31:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 625AEC4FED7;
+	Tue,  9 Jun 2026 09:31:06 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F1C835FFC1;
+	Tue,  9 Jun 2026 09:31:04 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2156B106A2ACA;
+	Tue,  9 Jun 2026 11:30:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780997463; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=4mRBPNmR1OtFkGxuqAKs88NJp8h9p2yjslNUV+/qzLE=;
+	b=xyprXdNFrB0MTFjyuj1yRt4FGoAYSUSksWS7Jm3cTcx0eI+zTv4/9QMmFUmHzFSeN7BfpA
+	Oh2kQLxV4VhmWk8y0DUWCH6baH+UYkAyrIvn7YYbgM11mEVLLTWGlkdYw2/41Z7j/QjVmU
+	SdeN2Sbpk8SLYhLbvz72roOjWsMh9PyH7lh+3HQ+ebMbgYEoxnx7m1Ac+ixwcNRrnqJOLK
+	JyDVQ7iKg7ADJ1oL9A4wmAH/xPTrNp0Q1+gt9TINL4PDuyQFT0Xt35wOXZ6EIvzo2NK5ul
+	6fM2APzJlzP/fZJYdVvX1U3vPjjxj6qK2qjA84MEZy71oY+zccv+Z83Ln3pMQQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 09 Jun 2026 11:30:52 +0200
+Message-Id: <DJ4EWMIX84PN.3VTENLJT2FWDH@bootlin.com>
+Subject: Re: [PATCH 26/37] drm: event-notifier: add mechanism to notify
+ about hotplug events
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
+ <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
+ "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-26-45e2bdb3dfb4@bootlin.com>
+ <20260608-maize-rooster-of-youth-c0bbde@houat>
+In-Reply-To: <20260608-maize-rooster-of-youth-c0bbde@houat>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_022935_810324_5B1BD709 
-X-CRM114-Status: GOOD (  37.60  )
+X-CRM114-CacheID: sfid-20260609_103108_288442_CF2FA06F 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,365 +108,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During parallel driver initialization or driver teardown sequences
-in setups with multiple atmel-ecc instances, a race condition exists
-between atmel_ecc_i2c_client_alloc() and the probe/remove paths.
+On Mon Jun 8, 2026 at 2:13 PM CEST, Maxime Ripard wrote:
+> On Tue, May 19, 2026 at 12:37:43PM +0200, Luca Ceresoli wrote:
+>> In preparation for supporting DRM bridge hotplug, add an event notifier =
+to
+>> allow interested parties to be notified about events they need to react =
+to.
+>>
+>> For the initial implementation of bridge hotplug, two events are needed:
+>> bridge detach (happening in drm_bridge.c) and MIPI device attach to MIPI
+>> host (happening in drm_mipi_dsi.c).
+>>
+>> For this reason implement the event notifier in a new common file that
+>> event producers can easily use to send events.
+>>
+>> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>
+> So, you claim in the commit message that it's about a hotplug event, but
+> the only events are the bridge being attached and detached, so not a
+> hotplug event?
+>
+> And why a bridge would want to be notified that itself (or another?)
+> bridge is being attached or detached?
+>
+> You need documentation, and a more descriptive commit message.
 
-A concurrent transformation request can fetch an i2c_client instance
-from the global i2c_client_list before the kpp is fully registered, or
-while it is actively being unbound, resulting in a use-after-free (UAF)
-risk.
+Yes.
 
-1. The initialization problem in probe(): Adding first an i2c client to the
-i2c_client_list, and then registering the kpp algorim may result in a race,
-when this happens for a second (or further) probed device. In this case the
-algorithm is already registered, so a TFM may arrive, while the latest
-probing device is added to the list, but not kpp registered. In case this
-fails and this last device is going to be removed again from the list, this
-leaves a window where the TFM might obtain a pointer to the - now deleted -
-i2c client, which opens a UAF risk. Furthermore, there will happen atempts
-to multiple registering the same driver to the same type of algorithm.
-Note, a simple reverting of the order: first register kpp, second add the
-i2c client to the i2c_client_list - is not possible here, since the kpp
-registration immediately triggers the self tests, which then will allocate
-and require an i2c client.
+But before that I need a decision about the scope we want to give to this
+notifier. It is a very generic module, with basically no dependencies, so
+people will try to add more unrelated events and we'd need to set a
+boundary.
 
-2. The critical race condition problem: It exists when an Atmel device
-instance is rapidly removed and immediately re-probed, before the global
-resources are fully cleaned up. In this scenario, the asynchronous
-unregistration sequence in the remove() lags behind the incoming probe()
-function. Because of the global algorithm structure being not yet
-completely cleaned up, the newly re-probed device incorrectly intercepts
-the static, partially-dismantled global context. It then overwrites active
-pointers and re-acquires the global instance prematurely. In this way, when
-the deregistration sequence finally completes its execution, under the
-newly initialized device, it may lose the tracking references, leaking the
-older driver memory blocks, and introducing an immediate UAF risk.
+Options:
 
-3. The removal race problem, when a call to remove() starts removing the
-device, but another thread executing a TFM, a severe Time-of-Check to
-Time-of-Use (TOCTOU) race condition exists in the teardown path between the
-asynchronous remove() sequence and completing TFMs. When the device is
-unbound, the remove() function evaluates the active tfm_count and decides
-whether to wait or proceed with resource deallocation. However, if the
-final active TFM finishes its crypto operation and invokes the client free
-function immediately after remove() performs its reference check but before
-it can sleep, the completion signal is fired into a clearing state. The
-unbind thread then misinterprets the zeroed counter, skips the
-synchronization barrier entirely, and instantly deallocates the per-device
-private structures. This leaves the final TFM worker thread executing code
-inside a completely freed memory area, triggering an immediate UAF kernel
-panic. Note, simply calling the kpp unregister here won't clean up the
-situation in the context of having a setup with external hardware on a slow
-bus.
+ * Should it be for hotplug-related events only?
+ * Should it be for any DRM event that needs notifications?
+ * Something else?
 
-Address this by implementing an independent subsystem reference counter
-kpp refcnt protected by a dedicated mutex to ensure the static global kpp
-algorithm structure is registered exactly once by the first probing device
-instance. In multi-device scenarios, or when extending the resource
-management support of the i2c_client_list to all atmel-i2c based device
-drivers, such scenarios can become realistic. The particular algorithm is
-registered only once. Each i2c client (i.e. each probing device driver) is
-added as client to the i2c_client_list. This guarantee that only the first
-probe will register the algorithm. The list is populated for further calls
-to probe, and subsequent calls to the client alloc function.
+I'm happy to write that in the docs and commit message once it's agreed, so
+any comments would be welcome right now.
 
-Concurrently, decouple list mutations from registration by moving the
-global list eviction to the absolute top of the remove lifecycle. This
-keeps the quick execution of the list allocation loop intact, ensures that
-unbinding hardware is instantly blind to the rest of the system, and
-completely bypasses the recursive deadlock condition previously triggered
-by synchronous crypto API self-tests.
+Luca
 
-Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-Assisted-by: Gemini:1.5-Pro [google]
----
-RFC: feedback and probably architectural decision needed
-
-The current atmel-ecc driver contains instabilities which should be fixed.
-At least the situation with the i2c_client_list and the kpp registration.
-Ideally we should have one algorithm registration, but one or multiple
-device instances on the i2c list and ensure this to happen as originally
-also designed by providing this i2c_client_list approach, which I highly
-appreciate. The problematic remove() situation is another known topic here.
-Probably more theoretically, but it was commented already before. As also
-teardown synchronization might affect probe(), this is a round-trip to open
-issues at the i2c list and kpp registration.
-
-While my patch adresses and attempts to fix the above mentioned problems.
-The following dilemma is popping up, getting flagged in both cases by
-sashiko.
-
-A) Applying unbound wait
-Using wait_for_completion() assures waiting for all active TFMs to clear.
-Nevertheless, it carries the risk of waiting infinitely.
-
-B) Timed wait
-Using wait_for_completion_timeout() avoids infinite waits. Nevertheless, it
-introduces the risk of a UAF. In case of an aborting probe() or remove(),
-any TFM in progress being cut off devres memory.
-
-Questions:
-1. First, please review the current state of the fixes elaborated with
-sashiko feedbacks. Do you agree to the approach taken? Do you disagree and
-why? Please, let me know what you think.
-
-2. Initially I tried to separately only present a (kind of) fix to problem
-1 (v1). Since everything seems to be somehow intertwined, I've put them
-together, which increases complexity leading to a huge commit message.
-Shall I split or shall I leave it together?
-
-3. Do you see an alternative? If you agree, then which direction you would
-like me to take here, A or B? The alternative, I can see here is, we also
-could move away from `devm_` memory resources to active
-allocation/deallocation in probe here to avoid the UAF.
-
-v5 -> v6:
-- RFC
-- going back to using timeouts as in v4
-- removing redundant code
-v4 -> v5:
-- sashiko warning: revert wait_for_completion_timeout() by
-  wait_for_completion() when former instance still active at probe()
-- change return type of atmel_ecc_wait_for_tfms() to void
-v3 -> v4:
-- sashiko warning: replace wait_for_completion() by
-  wait_for_completion_timeout() in remove; decision is a kind of dilemma
-- move redundant code of this fix out into a separate function
-- make also use of the wait_for_completion_timeout() function at probe for
-  convenience
-v2 -> v3:
-- sashiko warning: fix missing init_completion() for remove_done
-- add comment naming all three related main problem situations
-v1 -> v2:
-- remove the initial approach with "ready" state bool, replace it by
-  this be a more comprehensive approach
-
- drivers/crypto/atmel-ecc.c | 134 +++++++++++++++++++++++++++++--------
- drivers/crypto/atmel-i2c.h |   3 +
- 2 files changed, 108 insertions(+), 29 deletions(-)
-
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 0ca02995a1de..702d988a6547 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -23,6 +23,11 @@
- #include <crypto/kpp.h>
- #include "atmel-i2c.h"
- 
-+static DEFINE_MUTEX(atmel_ecc_kpp_lock);
-+static int atmel_ecc_kpp_refcnt;
-+DECLARE_COMPLETION(atmel_ecc_unreg_done);
-+static bool atmel_ecc_unreg_active;
-+
- static struct atmel_ecc_driver_data driver_data;
- 
- /**
-@@ -241,7 +246,10 @@ static void atmel_ecc_i2c_client_free(struct i2c_client *client)
- {
- 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
- 
--	atomic_dec(&i2c_priv->tfm_count);
-+	spin_lock(&driver_data.i2c_list_lock);
-+	if (atomic_dec_and_test(&i2c_priv->tfm_count) && i2c_priv->unbinding)
-+		complete(&i2c_priv->remove_done);
-+	spin_unlock(&driver_data.i2c_list_lock);
- }
- 
- static int atmel_ecdh_init_tfm(struct crypto_kpp *tfm)
-@@ -276,7 +284,8 @@ static void atmel_ecdh_exit_tfm(struct crypto_kpp *tfm)
- 	struct atmel_ecdh_ctx *ctx = kpp_tfm_ctx(tfm);
- 
- 	kfree(ctx->public_key);
--	crypto_free_kpp(ctx->fallback);
-+	if (ctx->fallback)
-+		crypto_free_kpp(ctx->fallback);
- 	atmel_ecc_i2c_client_free(ctx->client);
- }
- 
-@@ -295,6 +304,26 @@ static unsigned int atmel_ecdh_max_size(struct crypto_kpp *tfm)
- 	return ATMEL_ECC_PUBKEY_SIZE;
- }
- 
-+static int atmel_ecc_wait_for_tfms(struct atmel_i2c_client_priv *i2c_priv,
-+				   unsigned long timeout)
-+{
-+	spin_lock(&driver_data.i2c_list_lock);
-+	list_del(&i2c_priv->i2c_client_list_node);
-+	i2c_priv->unbinding = true;
-+	reinit_completion(&i2c_priv->remove_done);
-+	if (!atomic_read(&i2c_priv->tfm_count)) {
-+		spin_unlock(&driver_data.i2c_list_lock);
-+		return 0;
-+	}
-+	spin_unlock(&driver_data.i2c_list_lock);
-+
-+	if (!wait_for_completion_timeout(&i2c_priv->remove_done,
-+					 msecs_to_jiffies(timeout)))
-+		return -ETIMEDOUT;
-+
-+	return 0;
-+}
-+
- static struct kpp_alg atmel_ecdh_nist_p256 = {
- 	.set_secret = atmel_ecdh_set_secret,
- 	.generate_public_key = atmel_ecdh_generate_public_key,
-@@ -315,6 +344,7 @@ static struct kpp_alg atmel_ecdh_nist_p256 = {
- static int atmel_ecc_probe(struct i2c_client *client)
- {
- 	struct atmel_i2c_client_priv *i2c_priv;
-+	unsigned long timeout;
- 	int ret;
- 
- 	ret = atmel_i2c_probe(client);
-@@ -323,49 +353,95 @@ static int atmel_ecc_probe(struct i2c_client *client)
- 
- 	i2c_priv = i2c_get_clientdata(client);
- 
-+	init_completion(&i2c_priv->remove_done);
-+	i2c_priv->unbinding = false;
-+
- 	spin_lock(&driver_data.i2c_list_lock);
- 	list_add_tail(&i2c_priv->i2c_client_list_node,
- 		      &driver_data.i2c_client_list);
- 	spin_unlock(&driver_data.i2c_list_lock);
- 
--	ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
--	if (ret) {
--		spin_lock(&driver_data.i2c_list_lock);
--		list_del(&i2c_priv->i2c_client_list_node);
--		spin_unlock(&driver_data.i2c_list_lock);
-+	mutex_lock(&atmel_ecc_kpp_lock);
-+	/*
-+	 * For cases where the same/last such device is still in unregistering,
-+	 * and now re-registering (refcnt is 0, but completion still exists).
-+	 * Safely capture the pointer, drop the lock and sleep until it
-+	 * terminates upon completion or retry limit reached.
-+	 */
-+	while (atmel_ecc_unreg_active) {
-+		mutex_unlock(&atmel_ecc_kpp_lock);
-+		timeout = wait_for_completion_timeout(&atmel_ecc_unreg_done,
-+						      msecs_to_jiffies(2000));
-+		mutex_lock(&atmel_ecc_kpp_lock);
-+		if (timeout == 0) {
-+			mutex_unlock(&atmel_ecc_kpp_lock);
-+			/*
-+			 * FIXME / RFC: If we time out here, returning -ETIMEDOUT
-+			 * triggers devres cleanup, causing a UAF for any lagging TFMs.
-+			 * Should this be changed to an unbounded wait_for_completion()
-+			 * to prioritize memory safety over thread liveness?
-+			 */
-+			if (atmel_ecc_wait_for_tfms(i2c_priv, 2000))
-+				dev_emerg(&client->dev,
-+					  "Probe abort timed out! Active TFMs leaked, memory corruption imminent.\n");
-+			else
-+				dev_err(&client->dev,
-+					"Probe timed out waiting for former instance unregistration\n");
-+
-+			return -ETIMEDOUT;
-+		}
-+	}
-+	if (atmel_ecc_kpp_refcnt == 0) {
-+		ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
-+		if (ret) {
-+			mutex_unlock(&atmel_ecc_kpp_lock);
-+
-+			atmel_ecc_wait_for_tfms(i2c_priv, 2000);
-+			dev_err(&client->dev,
-+				"%s alg registration failed\n",
-+				atmel_ecdh_nist_p256.base.cra_driver_name);
- 
--		dev_err(&client->dev, "%s alg registration failed\n",
--			atmel_ecdh_nist_p256.base.cra_driver_name);
--	} else {
--		dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
-+			return ret;
-+		}
- 	}
-+	atmel_ecc_kpp_refcnt++;
-+	mutex_unlock(&atmel_ecc_kpp_lock);
- 
-+	dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
- 	return ret;
- }
- 
- static void atmel_ecc_remove(struct i2c_client *client)
- {
- 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
-+	bool trigger_unreg = false;
- 
--	/* Return EBUSY if i2c client already allocated. */
--	if (atomic_read(&i2c_priv->tfm_count)) {
--		/*
--		 * After we return here, the memory backing the device is freed.
--		 * That happens no matter what the return value of this function
--		 * is because in the Linux device model there is no error
--		 * handling for unbinding a driver.
--		 * If there is still some action pending, it probably involves
--		 * accessing the freed memory.
--		 */
--		dev_emerg(&client->dev, "Device is busy, expect memory corruption.\n");
--		return;
-+	/*
-+	 * FIXME / RFC: The timeout prevents a permanent hang,
-+	 * but since remove() returns void, devres will instantly
-+	 * free i2c_priv anyway. Memory corruption is imminent
-+	 * when the active TFM eventually closes.
-+	 */
-+	if (atmel_ecc_wait_for_tfms(i2c_priv, 5000))
-+		dev_emerg(&client->dev,
-+			  "Teardown timed out! Active TFMs leak, memory corruption imminent.\n");
-+
-+	mutex_lock(&atmel_ecc_kpp_lock);
-+	atmel_ecc_kpp_refcnt--;
-+	if (atmel_ecc_kpp_refcnt == 0) {
-+		trigger_unreg = true;
-+		atmel_ecc_unreg_active = true;
-+		reinit_completion(&atmel_ecc_unreg_done);
-+	}
-+	mutex_unlock(&atmel_ecc_kpp_lock);
-+
-+	if (trigger_unreg) {
-+		crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-+		mutex_lock(&atmel_ecc_kpp_lock);
-+		atmel_ecc_unreg_active = false;
-+		complete_all(&atmel_ecc_unreg_done);
-+		mutex_unlock(&atmel_ecc_kpp_lock);
- 	}
--
--	crypto_unregister_kpp(&atmel_ecdh_nist_p256);
--
--	spin_lock(&driver_data.i2c_list_lock);
--	list_del(&i2c_priv->i2c_client_list_node);
--	spin_unlock(&driver_data.i2c_list_lock);
- }
- 
- static const struct of_device_id atmel_ecc_dt_ids[] = {
-diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
-index 72f04c15682f..8e6617422191 100644
---- a/drivers/crypto/atmel-i2c.h
-+++ b/drivers/crypto/atmel-i2c.h
-@@ -129,6 +129,7 @@ struct atmel_ecc_driver_data {
-  * @wake_token_sz       : size in bytes of the wake_token
-  * @tfm_count           : number of active crypto transformations on i2c client
-  * @hwrng               : hold the hardware generated rng
-+ * @unbinding           : unbinding handshake
-  *
-  * Reads and writes from/to the i2c client are sequential. The first byte
-  * transmitted to the device is treated as the byte size. Any attempt to send
-@@ -145,6 +146,8 @@ struct atmel_i2c_client_priv {
- 	size_t wake_token_sz;
- 	atomic_t tfm_count ____cacheline_aligned;
- 	struct hwrng hwrng;
-+	struct completion remove_done;
-+	bool unbinding;
- };
- 
- /**
-
-base-commit: 79bbe453e5bfa6e1c6aa2e8329bfc8f152b81c9b
--- 
-2.53.0
-
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
