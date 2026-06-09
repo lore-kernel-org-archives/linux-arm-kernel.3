@@ -4,149 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C207ECD8CBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70124CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHLU9Wv7U2nV/lzMd0Ob4wJkLcW0JbeSeI5RPzv4S/8=; b=i0kem8Jh1NdQvyehKluOm+0qNQ
-	lQQxNsfhbbzlEs5pQkSfIwY+z/bbfsG6/QoMuBOrYuxJz+GEY0Em3hA0x5ML9CsHpnFeFNmHa1O0D
-	p8MKcWLyqqV7XuEBGYaaZrV2PW1tizLsNBDO/GIInwZI6BXq0BmvRD6RXNXemV4pYxcebpsE19gGh
-	I6yYYdFCsgh9AErwIsJjCxwkrfv7CzNGxaqaE2RntqZlVuJDfhRsR72li/AkS8q20kghv7M+PJeA5
-	daYk9Sak1R8McWWoxIU5Ag0uqVv9wmzOeDF5QP5wjYSFrHMiuTu2Ld+STaLQFEjvRAqOn2Hpy2trL
-	1EC0vV8w==;
+	bh=Qpz3SdkUYISithjygHc1jib5Zu/rO+fgThVHu853SKI=; b=H3F3Hjt4BY1ks7Y1vOzax3eMNi
+	HA76RRzIOSgP9oHdCzv0LqhqNRuH/BmAzpHmEge3+7iRJazP7axc5/fj4NtK+SwwSf2ShcB3qcn6O
+	Zq/nRj/zjROQA0fnTrPq11Hm1Q+zx57Wrq7RQ45uuOcYR0YMImagpkmMYCgjqJ31T/laXHuaskhtz
+	FfuYYCh5Js4zEovJc/lDtfTO65nHwhHAkZNE2vFXds4OmnjU9rvaYZSjxeOM0iV2g7Sly2YJt94fU
+	DF/wT5jYB+FlIvW2QH/kaHt+BOhxYe2yWmyQkhpsb+eOt9yzd34Qof/x8u/S857a32riiPQkI1IKr
+	xoBeKLlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWqk6-00000004xA0-2ynC;
-	Tue, 09 Jun 2026 07:19:25 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wWqpc-00000004xfa-3d7o;
+	Tue, 09 Jun 2026 07:25:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWqk3-00000004x9N-3Dkg
+	id 1wWqpb-00000004xfM-2zDz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 07:19:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cWW+ksse/3I3DXm2r3wMjNdc5+hz+kH/xo3qrsEfDWXxZI6WgxOCisdtSn3M5lFZoXR7xbWSQ6P+7VjsoIym8et4BYXdZUt8fsdw22dg+4VDfg7QCq0cwRcH4t8eVBqTsEHEv3gii4UgAXVAKwijfzJpixNsHJZSKPE8iRGEaITzGinIWlQ9Pr333/EinFMcozna8OP+GAdUge4tb2PMrhmdyXwX4nLwK+oKkQe+IBOlMLLzD72pbCTC4uL+sMpAzXh7qnIxUZMOj2d0SDPhvdZ4NRaf9U0HLCoXJtWcGluWd6oVJVlFyOHLMa9E9bmrCHHb9gLY7W9KQ+jrL9CVUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dHLU9Wv7U2nV/lzMd0Ob4wJkLcW0JbeSeI5RPzv4S/8=;
- b=F0BNQ2WZWIJwulGzCRQKuvWeUj3+E0B/j2WsO+enkVJh52W4isw7N+hZw/z/wiwV6i3/55VrVJYBpoEY55qGYibQ9sKe0R0i/UNFYa+Iy+SmXpuOsPV2zMCJcxNotwyxhzgdIiB6OgSjCw6VYGFFYYD8DF1fdQfl7pINYlYMeH/SD1UQgOwm+Br8QiEO6AfxM3qMoiLpKqvz23AtaF2lLXFV8TNInvcY6mAyUyYvTffrorIfHqvMd115Mw4YW/q8VxJsBfiZGebpySOTFrWt+5PQBsGyMlLNv/OOiKsEZYpZbambN3wboaLThSJk9J6oXzRfTLbxWDUkHfaifkRNiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dHLU9Wv7U2nV/lzMd0Ob4wJkLcW0JbeSeI5RPzv4S/8=;
- b=XY+WNBRn+rfjhZb5aVUr0rS6J+J0o4C7yIMizOhkEOvCvgmYzf+OIuuQWAfJKUCCOpT0a84Iab7XYaWx8mZ2qiGtqlrVrZjNbiEALsEe0NMgXFCZkLGpqTdk6bDhIE50Domc9/FAqv8pw4S1bglRMr9n/zI6ZYmKrUk1QAG7XcW8eIjJ/C/xnmswJPY46VCFGL6qsOeZXuRTTHAUG7ibVULztDn+G+b3QvMcYfvJ3974xqqVaqX1iAB9FKrGdnkG9vlFE6Zz7Us57GN9gcLHkB1STaqW4IwvzEF4kH2hvatour+8JiTokbGi5fspGO4BR3/MkpgtqHaOiWAKyVAQ4w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
- by VI1PR04MB6895.eurprd04.prod.outlook.com (2603:10a6:803:13b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Tue, 9 Jun 2026
- 07:19:05 +0000
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6%4]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 07:19:04 +0000
-Message-ID: <971e5c8c-dafa-404d-ac6c-8e52a42b2986@oss.nxp.com>
-Date: Tue, 9 Jun 2026 10:19:01 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v4 0/8] can: flexcan: Add NXP S32N79 SoC support
-To: Marc Kleine-Budde <mkl@pengutronix.de>,
- Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
- Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
- Alberto Ruiz <aruizrui@redhat.com>, Eric Chanudet <echanude@redhat.com>
-References: <20260603071342.641874-1-ciprianmarian.costea@oss.nxp.com>
- <20260603093941.ysev5do557hy2rui@nxp.com>
- <CALE0LRuqZhm03QbYg-ZOJcKe0XqCLqVZ8j-4o07QuBF-OqX9BA@mail.gmail.com>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <CALE0LRuqZhm03QbYg-ZOJcKe0XqCLqVZ8j-4o07QuBF-OqX9BA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0050.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cc::11) To AM0PR04MB5858.eurprd04.prod.outlook.com
- (2603:10a6:208:132::23)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|VI1PR04MB6895:EE_
-X-MS-Office365-Filtering-Correlation-Id: e7e8932a-f7b9-4da9-41ce-08dec5f76343
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|366016|6133799003|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: BMmmMRuOc8kbea7C9r3kzpcQDr7D4r7h712vv4DlrU6Q2Y5PW/3W7EeJgKzeK6QY2v7jWh8qgbazTJoOex6z3fX3G3D5xhe5tcHQmjRidZ9Um6dlQsR5LuwtsRkY0AP0o4Jv4dJu33GzfW+5s2jR0myvvVodWwyKKGccwY/6HpSOoUaxtNzIPMIAbopG1iR61xGX6OTPIYIvl+qVp+4K0CqXMmM60jF5eyjM/AYIYGuWFvuEHfI09jkefjUXDOrrBAYrNdpdO9RCwxyb7p23sQhczMvubM4HYa0vik9nvoY5fDKtPvgFSvyVpE3OWi1gW/25f4kIeue//6kJ8fIubvmtnYMqL2lfSEsRwpHvjWw18o31IVEB9NnXRtD40fIjGIk6fd8/RrvWcjLeGlL/kXs7d45Euc/8rSV7oqA6FidZ5iG4DL7fIqZjtxO6kRFMHIwzf+G0fDgWWQXcHFS8DlKmX5bibHwcvDUyofd2HE0PXPubHH9+aaqSWCetM3Iofm1WwWjeZMC1sihMfYGW8vSjiiMObDBpyVd6n6KdNu8bizvs5Mu04nDK8btDPLAWjYyMBM2QQtkrAevV6fdsnjn+9c+AQkyFSX1cjbvte622IYIXJSBETBJZ1YggVicCYNoWlE5eMtgvau5sMgnDZZ58ciRKFWYopRDWHPuoLzqf65mT4SUXRO3zx+CH7MSl
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(366016)(6133799003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eWtyL0h4eEt1ZUZ1QTRaZ2pkOUZ1M1lYaGdiczV5aFQ4VVF0T2R6VEsxdGFr?=
- =?utf-8?B?OUU5RWJrTDB5d2llT2NnbGxKR0xZOC9kdldTTmVBc2duSVJpaU5HQWFIVndo?=
- =?utf-8?B?bUh4c3EySGZFcnRUdFVwV3FpSHVNOXdhVVE3UFhyVzdHS2J0djFwbEVuZVVY?=
- =?utf-8?B?QSs4WkVXYVBIZExyeWZ6MUFWUW9Sb0hrbGRZSGJYZE5qb08rNHJrbHVJMFFo?=
- =?utf-8?B?YTk0NWdlOTVqNzlMUTB1RVpnRWZnSU1kYTNDOVEvc0xTVzVXdC9nTHNLUnBl?=
- =?utf-8?B?dlNaRWYvMTY5azdDOUtvSUNCdUJBZWpOclRrVWpvU01Eb05nelkwWXlkT0t4?=
- =?utf-8?B?b2xqN3dXWkt3akFuMnNIT2YzVWhmMVdCcSsxKzVPajMzbEI4a1YyR0VxdG03?=
- =?utf-8?B?M2FSVWNGVWRheGxSMFVTVzZJTS9rRElUNEh2dVRucHczSS9yRDdCWSsrN1h5?=
- =?utf-8?B?MldCNHdEelR3K05rUVhyTVVXZUxiZG11YitpaXZmZzhaK0pJekJwV1RwaGdE?=
- =?utf-8?B?N1pXQ3BJVWhFR0paZU1Gc0dJdTUwSHBpaFRxNktmSXdrdXN2aTViaUdpZWpE?=
- =?utf-8?B?OWgzVld0elpsb2Vjdks4dk81TnRSZUpFQksvSTlRd2VvUEYvQnp6UWdqbVFS?=
- =?utf-8?B?c25CeUg1N1lNMVpweWZEWHB3ZThiRUlFSldYeGhJeVFUVjdHNzBnVDNrMSs0?=
- =?utf-8?B?bTNzTzZvQWRzUTBEdVVVMUVUMERtVkVTTWNObXFOYTQ4czJBSHNUMUFJcmxO?=
- =?utf-8?B?NytQaE1pazdUQnJKbklCRVFsVUx6ZUtlMWY0aXV1d1B4RExvem40MFRXN1d2?=
- =?utf-8?B?TjRzdmtENFZ5ejArZzltaWF5YUFMd1piUjFocEVIWSs1anZ1eEpqS2tDNkZp?=
- =?utf-8?B?UXYrZ0FpL1p4ekxVc3dKQlZpR3VHWDJ6Y0xiR2ZzYWgya3BIcmpMVVdGWjVy?=
- =?utf-8?B?YTlUaGtwdFphdEFDbGpxMGRNZ3daSUIyTUpiQUxoaTlsM0p5UE0xcERWM0VD?=
- =?utf-8?B?K2Z5aWM2MjRObDhPblBSUkdPb1BndkdZVGg1Y3QrakNEWHNMSDh2Q1VTR0NK?=
- =?utf-8?B?MklsWFNMOGJpWFhuZnpLTWFXQjUrVGVPWUF4YUZiSWxNcVl6SGE2Q1h6NWt6?=
- =?utf-8?B?RC9WL3duc2d0RnJxckpTOWxxbm9zYXh5SWlNMWNtQ0N0bnIvVVlhL25WKzBz?=
- =?utf-8?B?anZwN1I1YWFtVWxkZ3VWeXpmNG54TkwzQmNQWnp2WlZqTTQ4aFZLSE1aRk96?=
- =?utf-8?B?cTNpYm12NTBmODQrWmlHWkc4ZFZiNEE3cnhIV1ZYZUExQUVZcjlEUjhwNWZX?=
- =?utf-8?B?OVIrQS9iSW1tYnZ0cFIxT21TcHZlWE9yMnBTU01yeVJua2Q0eUpRMU9sbXR6?=
- =?utf-8?B?Y3RBdnF6Szh2a0tTZVRFU0hBUVNCSU03L1I1ODFCcUJ0QURoVlVNY28zMWxu?=
- =?utf-8?B?M1lyTmIvdWNyd2R5dWpWcktHRTVHNk1sMGUxYjRBTS9nUk91YlRxU1dNa3U1?=
- =?utf-8?B?NVdISGFyU1dKMkJJUFFBQlpJakg3U2FlWHNTQTlUdHI1aFJ4OE5wNTZnc1NZ?=
- =?utf-8?B?WithZlhRdlNSdUpETnlyc3FpN0hwQ0FHUllmaWJUODB3WXRJTmw4dHFrWHVT?=
- =?utf-8?B?eDdxWkxISm1sZ2RxTmw2a3k2V1k1WlBCM1d0NnUzS0tTZm90NjFWbi95QUVu?=
- =?utf-8?B?MzFuSks2WnBrcHVGNG5ZK2pBTmNKS21SYzFTWm9nbXBuSlpWY2JHVTVOUFFZ?=
- =?utf-8?B?TTluZ3pnenQrcGFmcFhZQmRxMVpqbGFLMmx2ZVJjSG1ZdGFjYkY1RW5hOHFv?=
- =?utf-8?B?TmJoNWJHZnJhUldwRnNSTnlNSnZiay9JV1JnUE5XZDJJMHRwZ0ExZDZlaXU4?=
- =?utf-8?B?Mm1sM3RNa1dBZVZFWFlmTVhUcks4M0hmR2QzUzZCUU5wbDlPVmMrZ3p0TkY4?=
- =?utf-8?B?UmtpZ1R5UGJ6MUpnYjJUUEF3Z2tiblZGVTJjOFdpZk1hMExscDhkelh0Z0pD?=
- =?utf-8?B?NlM4TW94VmJRSFB0bFZVVlROdmdIOGZDbm5oYmd6cWJldVF3MmRHeVB2MXNQ?=
- =?utf-8?B?aGtlVHc0TjdmUksybEE2Mk1LaW8vN3ZDRXdocHdMSUYxTGJzYzN1L0xtbGZw?=
- =?utf-8?B?bUhVYk04b25URG9sWUxERXlIbmNucllIeTVNRTI1ejZLTyt4YzdLcVZYbG9K?=
- =?utf-8?B?V0VxM0w2eTJiT2kyMjQ2TUc3SnhFaUR6UFRDaEx5UGdYVHRBaW4xSXRZME5y?=
- =?utf-8?B?eFRNWDJkeng5MjdVbFdoNzlGbkF3bmhsNVBRY3dvWitIMVBRZUIybjFyci9X?=
- =?utf-8?B?eEpPRWdvMWZGQUlVOGc0QUlPUFlaSVc0VE43cmdCM1VzWkNGaDU0a2w4U3VU?=
- =?utf-8?Q?3uVVelOs8I8N/I7I=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e7e8932a-f7b9-4da9-41ce-08dec5f76343
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 07:19:04.8022
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: do0LAzTpXKQXmTVqJua5xwfwGhmssUbTJegHHzC/sqOn6NoiqCueu4/oadpQp9n1C1Tn2JOvsA+tE/teC6EA4QgT11MdV7tdpxDbDoJ7QEs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6895
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_001919_809931_FE01FBF6 
-X-CRM114-Status: GOOD (  20.52  )
+	Tue, 09 Jun 2026 07:25:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 930E6601E6;
+	Tue,  9 Jun 2026 07:25:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48E8A1F00893;
+	Tue,  9 Jun 2026 07:25:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780989902;
+	bh=Qpz3SdkUYISithjygHc1jib5Zu/rO+fgThVHu853SKI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=diCh9CroxRr1M/NLX82W9xpSc2vmG5xzr4jz6sRjKRyV3XXh9NeqKnYzFQfOH4Nwh
+	 sFr3o9p4StESVETMkgR1gEBFAB45lfCaAI1WOjXOS0XN0WonIcAZ/P14Ir0l03f2p3
+	 4iGOvT+GtroGBJ9LiW/LCDivHr//MiOKARWqAn2j6YLXyJVXdmiMUs2+rrH9E7vy4i
+	 6M38Tw6ftE8Mp2WVYv8dVbRFOz+StYiGze+nQRvPeTA7SI1n6Freqhf+yOckfJflyg
+	 XccN8eXWgnp5ZHfnoGW+C19PsttbJcQmNlj6LGr75guvbdyGcRUqNbWq/BIIreoerN
+	 ofDyyzCfYkyeg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wWqpY-0000000AnMP-1UFX;
+	Tue, 09 Jun 2026 07:25:00 +0000
+Date: Tue, 09 Jun 2026 08:25:00 +0100
+Message-ID: <86ldcotbub.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yosry Ahmed <yosry@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Hold kvm->mmu_lock while initialising vcpu->arch.vncr_tlb
+In-Reply-To: <aicqzM4W4NN-GndT@google.com>
+References: <20260608081108.2244133-1-maz@kernel.org>
+	<aicqzM4W4NN-GndT@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yosry@kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,114 +87,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/3/2026 1:28 PM, Enric Balletbo i Serra wrote:
-> Hi Ciprian,
+On Mon, 08 Jun 2026 21:55:25 +0100,
+Yosry Ahmed <yosry@kernel.org> wrote:
 > 
-> Sorry in advance for the noise, for some strange reason I didn't get
-> or find the cover until now, so I added my tested patch in 1. Doing it
-> now properly.
+> On Mon, Jun 08, 2026 at 09:11:08AM +0100, Marc Zyngier wrote:
+> > Sashiko reports that there is a race between initialising vncr_tlb
+> > and making use of it, as we don't hold the mmu_lock at this point.
+> > 
+> > Additionally, it identifies a memory leak, should userspace repeatedly
+> > invokes the KVM_RUN ioctl after a failure of kvm_arch_vcpu_run_pid_change(),
+> > as we assign vncr_tlb blindly on first run, irrespective of prior
+> > allocations.
+> > 
+> > Slap the two bugs in one go by taking the kvm->mmu_lock on assigning
+> > vncr_tlb, preventing the race for good, and by checking that vncr_tlb
+> > is indeed NULL prior to allocation.
+> > 
+> > Reported-by: Sashiko <sashiko-bot@kernel.org>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Link: https://lore.kernel.org/r/20260607180815.85FBC1F00893@smtp.kernel.org
+> > ---
+> >  arch/arm64/kvm/nested.c | 10 ++++++++--
+> >  1 file changed, 8 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 690b8e8564166..d11e36b3cfcc2 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -1253,8 +1253,14 @@ int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu)
+> >  	if (!kvm_has_feat(vcpu->kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
+> >  		return 0;
+> >  
+> > -	vcpu->arch.vncr_tlb = kzalloc_obj(*vcpu->arch.vncr_tlb,
+> > -					  GFP_KERNEL_ACCOUNT);
+> > +	if (!vcpu->arch.vncr_tlb) {
+> > +		struct vncr_tlb *vt = kzalloc_obj(*vcpu->arch.vncr_tlb,
+> > +						  GFP_KERNEL_ACCOUNT);
+> > +
+> > +		scoped_guard(write_lock, &vcpu->kvm->mmu_lock)
+> > +			vcpu->arch.vncr_tlb = vt;
+> > +	}
 > 
-> On Wed, Jun 3, 2026 at 11:44 AM Bough Chen <haibo.chen@oss.nxp.com> wrote:
+> (I am not familiar with this code at all, so apologies in advance if I
+> am making an idiot out of myself here)
+> 
+> IIUC, the point of holding the lock here is *not* to protect against
+> concurrent initialization, as in this case the NULL check needs to be
+> done under the lock.
+> 
+> Rather, the goal is to prevent re-ordering of zeroing from kzalloc and
+> the assignment to vcpu->arch.vncr_tlb, by depending on the barriers
+> provided by the lock. The lock is held by the readers so holding it here
+> conviently means we do not need to add any barriers to the readers.
+> 
+> Is my understanding correct?
 
-Hello Marc and Vincent,
+It is correct.
 
-Sorry for bothering. Do you expect any more changes to this V4 patchset ?
+> 
+> If yes, I think the code looks confusing, at least to a layman like
+> myself. It initially seems like the lock protects against concurrent
+> initializations, but then the NULL check is not done again under the
+> lock. The goal of the lock is not clear without the original report.
+>
+> Mayeb it's clearer to explicitly use barriers if the goal is preventing
+> reordering?
 
-Best Regards,
-Ciprian
+This would require both the initialisation of vncr_tlb to use a store
+release, *and* all the other call sites to use a load acquire.
 
->>
->> On Wed, Jun 03, 2026 at 09:13:34AM +0200, Ciprian Costea wrote:
->>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>>
->>> This patch series adds FlexCAN support for the NXP S32N79 SoC.
->>>
->>> The S32N79 is an automotive-grade processor from NXP with multiple
->>> FlexCAN instances. The FlexCAN IP integration on S32N79 differs from
->>> other SoCs in the interrupt routing - it uses two separate interrupt
->>> lines:
->>>    - one interrupt for mailboxes 0-127
->>>    - one interrupt for bus error detection and device state changes
->>>
->>> The CAN controllers are connected through an irqsteer interrupt
->>> controller in the RCU (Resource Control Unit) domain.
->>>
->>> This series:
->>>    1. Splits flexcan_irq() into dedicated handlers for multi-IRQ platforms
->>>    2. Adds dt-bindings documentation for S32N79 FlexCAN
->>>    3. Introduces FLEXCAN_QUIRK_IRQ_BERR to handle the two-interrupt
->>>       configuration
->>>    4. Adds S32N79 device data and compatible string to the driver
->>>    5. Adds FlexCAN device tree nodes for S32N79 SoC
->>>    6. Enables FlexCAN devices on the S32N79-RDB board
->>>
->>> Tested on S32N79-RDB board with CAN and CAN FD communication.
->>
->> Tested on imx95-19x19-evk board with CAN and CAN FD communication. No issue found.
->> This means this patch set do not impact the original platforms.
->>
->> For this patch set, feel free to add tag:
->> Reviewed-and-tested-by: Haibo Chen <haibo.chen@nxp.com>
->>
->> Regards
->> Haibo Chen
-> 
-> Tested-by: Enric Balletbo i Serra <eballetb@.redhat.com>
-> 
-> Tested on the NXP S32G399A-RDB3 with loopback and high-rate traffic.
-> No regressions observed:
->    CAN frames transmit and receive correctly, with no duplicates.
->    Frame reception showed no errors during stress testing.
-> 
-> Regards,
->    Enric Balletbo
-> 
->>>
->>> This is a resend of v4 with no changes.
->>>
->>> v4 -> v3
->>> - flexcan_chip_interrupts_enable(): disable/enable all IRQ lines
->>>    (not just dev->irq) during IMASK register writes
->>> - Split rx/tx masks per mailbox IRQ line (struct flexcan_mb_irq) so
->>>    each handler on S32G2 only processes its own MB range
->>> - Added received Acked-by tag on DT bindings patch
->>>
->>> v3 -> v2
->>> - Split flexcan_irq() into dedicated handlers (flexcan_irq_mb,
->>>    flexcan_irq_boff, flexcan_irq_berr) to fix duplicate event
->>>    processing when multiple IRQ lines run concurrently (new patch).
->>> - Added flexcan_irq_esr() handler composing state + berr for S32N79
->>> - Ordered quirks used by s32n devtype data by value.
->>>
->>> v2 -> v1
->>> - Renamed FLEXCAN_QUIRK_NR_IRQ_2 to FLEXCAN_QUIRK_IRQ_BERR to better
->>> describe the actual hardware feature
->>> - Appended new quirk at the end
->>> - Switched from platform_get_irq to platform_get_irq_byname usage
->>> - Updated interrupt description in dt-bindings
->>>
->>> Ciprian Marian Costea (8):
->>>    can: flexcan: use dedicated IRQ handlers for multi-IRQ platforms
->>>    can: flexcan: disable all IRQ lines in
->>>      flexcan_chip_interrupts_enable()
->>>    can: flexcan: split rx/tx masks per mailbox IRQ line
->>>    dt-bindings: can: fsl,flexcan: add NXP S32N79 SoC support
->>>    can: flexcan: add FLEXCAN_QUIRK_IRQ_BERR quirk
->>>    can: flexcan: add NXP S32N79 SoC support
->>>    arm64: dts: s32n79: add FlexCAN nodes
->>>    arm64: dts: s32n79: enable FlexCAN devices
->>>
->>>   .../bindings/net/can/fsl,flexcan.yaml         |  30 ++-
->>>   arch/arm64/boot/dts/freescale/s32n79-rdb.dts  |  12 +
->>>   arch/arm64/boot/dts/freescale/s32n79.dtsi     |  50 ++++
->>>   drivers/net/can/flexcan/flexcan-core.c        | 249 +++++++++++++++---
->>>   drivers/net/can/flexcan/flexcan.h             |  12 +-
->>>   5 files changed, 316 insertions(+), 37 deletions(-)
->>>
->>> --
->>> 2.43.0
->>>
->>
-> 
+I really don't think it is worth the churn, nor the (very small)
+burden on the readers.
 
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
