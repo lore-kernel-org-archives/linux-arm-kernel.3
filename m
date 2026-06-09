@@ -4,178 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A696DCD8CAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C55DCD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pYQ6SjyKljV7W5J1GWfUT/d1geSAsKuICmq9fCljWsw=; b=ploApR8at9fJWKOWYrRfixq1W7
-	TLzhCpVi8MflQvZB4dDlQP0SYqXEdl83aMJXfLNSW72ttSC2xAkAAmugKxUoLD94OvtNVhOoNv0Fo
-	xUTydPN3SjIvS8i+E87dkaN6K0Gk4vUFjODeNHRR4eidJ7hbMQnkl0QEiQm11mH7sIPks5d5ze28W
-	Xs7S08sljdWXhHVsH9ThFzuj7dLLpYTJWLbcfPJxkRO9zk85FejerF9YjuEPZwYHSP/TRW/u+ZRks
-	/usB06dAfbjK3wedEUruadjfUUufYmfAbQQMsDM2VKQARmJH9tjVXyYsjb6eDIAY4eqhOAE9GGUqi
-	4Auk6I0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xjikVzeHQvQn86OhIn4rkOMRYcykRqfrspB/jiiXnos=; b=kaAJCPVs+EcyevzVak6jc5Ekud
+	QJT+sJMqv2iW2ICmwWhTZO7smiwhcOEt91IEyFEWT6PqGc7KWZxbruhy1iGL2lJy8suXPonfYMS3u
+	wNjh1yGskqjUh5WvjyBD9RvZIe5Jg6OAadgbe/yPtYWYzk786Ivpffe4c2vJsOVKhHeNBolzPavRL
+	RtF9G+HdLa1AukIrdwqDtvhDMm9iccJJZP4uiXcP5DaoJNQ1b29TxhTaO1fOHReNO884qP9d7U8Rx
+	FiV/vPtUQC74ORhAb8eiDz95vRrdyre+ADgA9NM1zMkGroPoZ/HdXdNtHz9pE9eEBZ24JsfbJGpZk
+	1EIOL48A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxcE-00000005npr-0OIe;
-	Tue, 09 Jun 2026 14:39:42 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wWxcT-00000005nwL-2nGM;
+	Tue, 09 Jun 2026 14:39:57 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxcB-00000005noB-0qca
+	id 1wWxcR-00000005nus-0sBP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 14:39:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=erpn5X9txyoWnIh5eHNL0bpuJGaQc0HG+xM5D49Wz+lkndit+69RW5V7R30qu30rPhjW5QwHiDbw1mY0e++zMrUqwGKg9BHKtgbw26Ux+bs9O/JHTxsC+Seg4dPmYJ7e+DufveAK1an0M+D7yhbfD/KOA9Ydbhryt6NFPXnWPckiYGCoERPR3WaiA1g17IZ6HRV0XyILN220rEkA8Qk7Jd22V6mfwEsNJhOb1E11ychKeZn31OdwMuTfZ65z5DWGs6mYklJQ3v0T1+Lpigb3fBsQ3l/6QyVATbklo9PzMkbLS9dIGyZV5df6WWyZ28hEp4Lwvx2sPn3LYEGIKcatrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pYQ6SjyKljV7W5J1GWfUT/d1geSAsKuICmq9fCljWsw=;
- b=KT1EAnhguzixYsUqc5XdaPpG7B8XCUqqg4d18VdxqgH33SaI6e5C1O3oRk+VCukBZ3EaH6EU006vFX93bVt0nokjUrDPNDnVysRPClNIkGs5DH9iu8c8TlXKXd/rY/Y3WvSine7oPzqM9mzLCuuC9VZHrLab57COoEtaq9Bocag1/wnj8LXg1soUz/OQgSJo91X+ylnSKgEStyg1pyGvmVQitBobYqBVe1LyQaon8LH0JempAFptatvWU6jn+OI6bswye1JpAS9ooN3lHkCcWujGm0HGrtpP6TLGNFq90puoulPF8kVixFOfnbn5wSunyb2ge8owaOcIYKmvB61rQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pYQ6SjyKljV7W5J1GWfUT/d1geSAsKuICmq9fCljWsw=;
- b=Mm9hrXxrXVoUmFFWC5rPBiJIvOz7Bqdd/joMj69WUtpDCd6nQ2ZerhsCpkFA2YIK8EZqcK9zmg33SB5gjpWrBpn2soGcstYwzPtr0b2dY0Xs0cvvLsdJYtvQhsv9NegSwvQ7gAqRE5b23hEFM7i/0RY9fpRSqMIbuYNmzYoprdg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by DS7PR12MB8322.namprd12.prod.outlook.com (2603:10b6:8:ed::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Tue, 9 Jun 2026
- 14:39:32 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0092.011; Tue, 9 Jun 2026
- 14:39:32 +0000
-Message-ID: <0dec4aec-5a62-41af-9509-3bd9e2854739@amd.com>
-Date: Tue, 9 Jun 2026 16:39:27 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] i2c: xiic: fix SMBus block read and PEC support
-To: Shubhrajyoti Datta <shubhrajyoti.datta@gmail.com>, abdurrahman@nexthop.ai
-Cc: Andi Shyti <andi.shyti@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260427-i2c-xiic-v1-0-e6207f9aa5ad@nexthop.ai>
- <CAKfKVtGztJkU_HXZTrb2h3hrTJp0SbRo-sDHM4Sj_1SG8ymOyw@mail.gmail.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <CAKfKVtGztJkU_HXZTrb2h3hrTJp0SbRo-sDHM4Sj_1SG8ymOyw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR13CA0103.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::18) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Tue, 09 Jun 2026 14:39:56 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c862b05a78bso97517a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 07:39:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781015994; x=1781620794; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xjikVzeHQvQn86OhIn4rkOMRYcykRqfrspB/jiiXnos=;
+        b=MiIxf+E1MuIDSQ86V9AJGoqw0XzwkI4ZqgehY9F9NaQOWu6etNDZROGxAu6nNh6TCr
+         F5aGJz4nSK4BwhbpX7Ct/fup4KOA4mrlm8XsOg7pAuAInrfOWGrmUGUKgl9e5VUHseWC
+         bINvkf4cznYKc0D4w1MIeDr6T6UvDjwVbglM3Z8LEn4RGVOgvsc4GG2eSsnhJmEyl7uo
+         whIMuSzD88n4ZHnnOwPQx152UNWzve+WampZaK6mvRpkf9SQnIJPouLQHeQSnAya78yq
+         uRAv2w3ok0FnbVbFzs+d9eGuGpyqo39v/77p1fA7rZhg6fp2dQE8XjKrmLMhu3DmngWW
+         lyZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781015994; x=1781620794;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=xjikVzeHQvQn86OhIn4rkOMRYcykRqfrspB/jiiXnos=;
+        b=KUhnTWoeSZTLrT99pmXTSZzMGRJPKMgig2+fXBtFkWFNadv63YvuSoIHmVYyl/WVsQ
+         Rd15RDzDKU28A5dSc/qPL/F2mcxDNd7ZZ6+MxPgevSnnys95ghDoorf9Bl92NuC3R9ER
+         g1Z2RgN9NYTM2pICcfkjhv81s4HwMvDopuIZzI6y9125FyzqzMpykl0lV9shLzkAW/bF
+         7XdM591L6pzR1Gdm+SgB44IlbkjPbqgib+nhbsa/sUHI1XKXnB06+zBh0Eeg4Oe5ha70
+         MkeZKDhRhZrVN6fJDZA/zKQHNJ+wxygoSN0bLBklhf03YCO+uP6lAmL0r8DgjN+xbMAB
+         UNug==
+X-Forwarded-Encrypted: i=1; AFNElJ9XAkULnI8IdTf98VwSV0X499FeO7aWwZzaKqFMN7nFNM2+5tc32++hyvoLmMbIZmyX0b/oL5IEmrUvReXvp+4G@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaQux9AueoeuaMdj3D4PjgIX2NB1+WEPhS6KQ8e79CUENpvrfn
+	dDp6T3xY73i0LnMj9YPP5YrS2FYPDnGAIlHaBxrujZoL+V9VU0YeCT6R
+X-Gm-Gg: Acq92OEayOvX1whogCbp2x2ab183XHm1VtGqGDCZsWeIIrkVyumGfYYv1Wxg7THc6ds
+	HM+b8OfyEwoZ2XcUZ6Hv93s0RAyyU37d1oggByVpBBrP6IIpLBLsQp83jB7qmahKoekJCBm+K1s
+	gs6InVM3H2SSRygoPyjMPQuHWtJe2SnBc5Vq4sv4T87SR6xVKntZ6m13yjINKk1KA7FYsAwY5Bh
+	wywLNzvlLh8VfDWUKq78LBDG5TgCAFjzCa0GKwD1HDBAUqvR9e1M6sscBO/Nb/HM46N3vbBVWB7
+	DO9hpkm0LLv2FTIAHu2oliyAB/1PeReEvXTXQL2sJKyC4r/qrhbODvUswtrqMqmlDCwL4ad0Pie
+	GfFoccAn5RlrYYGb6xPt/sDUMr82XnTScYXf7FazJnMr54zitHsd2iPZMceVyNi11gs9jemaVlL
+	u3j9VcqxAtXCRqEKV3pJqPkPUHFiIOfa1r3UBAK2zgO2z+1XeAKgL9ZvI8RY8yu5sO3eVBR50Qv
+	FqAFjb72xYHYasKsHsiJGru
+X-Received: by 2002:a05:6a21:699:b0:3b4:82e5:b906 with SMTP id adf61e73a8af0-3b4cd424041mr11738801637.3.1781015993812;
+        Tue, 09 Jun 2026 07:39:53 -0700 (PDT)
+Received: from o6.lan ([188.253.112.242])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df0b315esm17939677a12.26.2026.06.09.07.39.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 07:39:53 -0700 (PDT)
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+To: akpm@linux-foundation.org,
+	linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	luto@kernel.org,
+	peterz@infradead.org,
+	hpa@zytor.com,
+	david@kernel.org,
+	ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	npache@redhat.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	lance.yang@linux.dev,
+	yang@os.amperecomputing.com,
+	jannh@google.com,
+	Xueyuan Chen <xueyuan.chen21@gmail.com>
+Subject: [RFC PATCH v2 3/3] x86/mm: make pages read-only in the direct map
+Date: Tue,  9 Jun 2026 22:38:01 +0800
+Message-ID: <20260609143801.7917-4-xueyuan.chen21@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260609143801.7917-1-xueyuan.chen21@gmail.com>
+References: <20260609143801.7917-1-xueyuan.chen21@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|DS7PR12MB8322:EE_
-X-MS-Office365-Filtering-Correlation-Id: 05abc5b8-2b81-496d-546e-08dec634eb4e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|56012099006|11063799006|4143699003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: HpUIalx6wc9vwqQqUb2Na5AdSbuWkp9Ck2xc59xdW3Da0ZsX3F1jxTxESCqA1ZPKssh3Kste8Ry4tEFq4aLFDj+QZRFRPVMeMSEq5EYIvMyAEw3Jh7qNP2NH1i+DyeYed51CJBKckeud2iU7ohk8ODdCrvcylIb8ep6+Pnmlfbsmd1YilMqX/eOUpeplp39IdhVBxQHLpd6cTUFXgREwmzCHY1euFznei7Q9Bgue1AGCWpUd3qhLOKuQmr9CoFl7t18dqKdCugRP6573wHHLwELHA1QoEiefi2ZubeqnsgxrVodbYFH1hQ0xhw0Fnb4/9ZNxhA2hH2RhYV5OjyFlghpkC/cFlLhJGzIRcaAhKuBYscfBSo5nywjy/LDLJ/npr04iXiKnrVsumrVin/Hf9dCd6VGclpLfJdrWR6OO8BwIK2Qwqr3B9ThlDtDbI2s+DDGt5O9IDvFbKP+RRmT9yT53ZK4yV9wKzZl6efDTWp55d9ELUE5S0/qemifNeq146T1bPOZi8SBqT74RFNwd8nvh6RcBwgZF5junV8at0mxVowHr+MkhefJ6CQfdPvQ9UjQiyqFdmaM/obMcdVCsQYADsdEIZjWvIsr8HL4/ugCEqq3H6GN51CUByGRSaw8pqbMlS/zpEf9IQ6cXmcTqalIkkJXL14z5CmZjpr4KIR7njoyoebk3ySYtdOO5f8K8
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MjRDSlZYMHFJTHVTdGNXZS9ZSHpzdFd6UEVuVTNoTDd4OXlJcjhmWlU1UGYw?=
- =?utf-8?B?NExqOVJuWEo0dGNsSk9VRlRBVzdyUlQ3WURORWUzb1FVVFN6TThDblgzK3V3?=
- =?utf-8?B?SGRuV2xLVXJ0UVRHd1Btck1aVHRuZkNnTlB3U3pwMjM1L0hPUmVrWWx5dk1D?=
- =?utf-8?B?MzdUQ1JkYSs3UU83aU5ndlgyZ3QxUTNxSndybWt2Z2M1dzdlNFRWWU1UT0lK?=
- =?utf-8?B?ZUJEbmJGZ1MraHNobzlMOTdBOFR5dm9SZnp5K2pBbk5KdFlKa3pMNzRlUU1S?=
- =?utf-8?B?RHEzODF1VnRsQlFKVXVzK1BpVDg5SkdESStNakhpTmVPN1pDSWJsYSttT0Fu?=
- =?utf-8?B?QkVrekdSUW4rTVRUbGFWL3NBdy9iV1hvTStsNEJPL1E1ZStGRmI3Mm9yd0I1?=
- =?utf-8?B?MXNyN1RVZmRPZXBEOFltS203SFpsTERvRWxBa0xuWkt0K2J6TThWeCtSOTVa?=
- =?utf-8?B?UEpkZjJDQmlGTGsvSFkzV3lKTGx0aiszaDF6Y0lnK2JqSUx1Q3RsUk81VEJr?=
- =?utf-8?B?WnVKVm9RaVI4MUVtUGxWV1dwOThNOHJBR1Z6UVErc0QybG45YnpkL29zaEpY?=
- =?utf-8?B?bmVuSStYcE8zMnBkVmlvVUkwbjk2Yk5sVks1VlBLc08vK0FjVXhHNnppZWsv?=
- =?utf-8?B?L01NQ0h5TVJFYkc2am5EWWVCL3FxQVdZOExpM2t4bWFrTDIvVUVtMnVGdW5W?=
- =?utf-8?B?NzVzb2R1c3R0YlBHQ2ZCOElkM1c2aDVkcWF3eE9iTk5XWE1xU0xlUlcyaCs3?=
- =?utf-8?B?L3lvOFUzM20yOXhSSlJRNjZXRzlMaldaUjhkb1d0N2VpNlpNQWp1SUo4RXQ2?=
- =?utf-8?B?VVAzUGxwQlE4a0xrQmRCa1U0bnF0OVUyeG5DeUtHcTZzOFRxVEd5SjUwaHBL?=
- =?utf-8?B?Nzl5OG1KZXN5R29ZLyt0VFhzVzU1WXFkWk9yVGxtWE9BUy9Ka1NBUWNDM3hS?=
- =?utf-8?B?WDRHcXl6dFZRUzlzb0dVaG9NMzQ5TXVOTGhjLzMzMGtONzhsbkJqSDAvR1cr?=
- =?utf-8?B?cjNQbG84bVRqUVVZb1duQVhROE5RWUV2VWtJcTZ6dm84M2ZGdFQrck1RdUxv?=
- =?utf-8?B?ZDlZRlZJTkRhSXJaakJ5cDVkZ28zeVM5NTJhRUJ1MkdENVZSSlh1K1NrK1BW?=
- =?utf-8?B?Y0ZwOEk3M29vT1ZiMHJvVXBqUnBBS1pWcndUR3lJdDVrZmxkUXVOU1AzSllF?=
- =?utf-8?B?VTNRUENuYjQ1QXVKUFgxRGxRNzE2a09RUGpWTVpUSit2ZHJLTkNMYys2ZmZB?=
- =?utf-8?B?UjIvQ04vaHlya2lhbUc3MzFYc1MzRThHVmVmM0Q5b3JLZVdwSjBUN2NLN0xl?=
- =?utf-8?B?MHRqNWN3YlhkQTdXNDVnTEhzRUtDQnZzRnc4bE5IK2FSN0F3RDhxanpaVEdz?=
- =?utf-8?B?ZUpCMTJiQW81a2dMVTViOGlFc0ZjZGF6RUtFcW5SMHVSSkNPNytPS1RwVmlw?=
- =?utf-8?B?WnFYRGNNMllrSTYxT2tMUm4yWExJQTZxSmtkSUpOeVJVMnBxZHduM20vT29n?=
- =?utf-8?B?SWNhckNhOFpDTncwQWtwUTU5dmdHODhEWm5yUGIySE5vcm5pUWtkSEdZcVZZ?=
- =?utf-8?B?dU5NUFBhMXozbi8rOTZpNkVNOTN3eEMxT2I0SjJncGJkSGZrNmtlRkYxZThk?=
- =?utf-8?B?Ui81Mjhlbkp4SDc5OWVZWXhVYW5xaFVxa29DUCtNN01FQnVGV2JtaXhadS93?=
- =?utf-8?B?TUw1a25XL1FWMFkxcWU0OG9xZHhLWWRFK2ovRXU2M2c1MUFMWDFyNnBkU0Fw?=
- =?utf-8?B?bDRLZHgxUVBxMFFuWlNYSFBIQVY3K281WG93cG1UWm9DYW1FRnRQaUZ3Y3pS?=
- =?utf-8?B?Ymt0VHI1SGVZQnBMZXJreCtwbHpvN1NuTWVINkp0cUUrY3Q1VlBjY0EwMVFP?=
- =?utf-8?B?ZU0yQ0Q2bVRrME5CcEp5MitRalFsa3NDNzYrZHR3Znc1VXpXdjM4OTJvR2dx?=
- =?utf-8?B?dGx3VStzREhxeGlFS0xocmJPMld1a045SjYzc1Y4eENHQzJFTE51MFJyUXJz?=
- =?utf-8?B?OElycldXbG16WjhSTHZsTnphNTBaUmxZNkJFVU5KcnFwU2tDVVRrUkx0ZGph?=
- =?utf-8?B?bFpOR3ZrT3JnVEZjSEhrdFU0TFVLRUpaYTJrdXlsZ1lzckx6Q3h2cnBIZ0Jw?=
- =?utf-8?B?NTBtSXB3NEkrR0ZvUTVGY0xuSUt4WndNVVBkTzJCY3NtUERDMWJIMUl2Tk96?=
- =?utf-8?B?OFoxTjJPc1dHREVudFVHYWY4cFFGUDVMRWpSL2lZUjhsVW9JWTB3TE5WVDlk?=
- =?utf-8?B?Ky96TXNhRTc0dDNyQVVObWtoTm9oYXlwUThXZE1mczI0RlpWc1ozYkNOSzQw?=
- =?utf-8?B?a2hmSVdZdS9BUXUvZ1Z4eWFBbXVwNTJvTXQxRzBTd2J1QUUwY042Zz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 05abc5b8-2b81-496d-546e-08dec634eb4e
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 14:39:32.2920
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mz8h2Acr9CzvBP+EHjElbC1xnpCoEzfUD0j2AS0YxdEYvzJxfWSxhD5S+XH4lFoO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8322
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_073939_667564_E4D72B63 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20260609_073955_247379_FC11635A 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,49 +127,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Implement arch_make_pages_readonly() for x86. Make the corresponding
+direct-map range read-only so unexpected writes fault instead of
+corrupting shared contents.
 
+Reject highmem pages because they have no permanent direct-map address.
+Treat the set_memory_ro() update as best effort. If it fails, leave the
+mapping unchanged.
 
-On 6/9/26 16:26, Shubhrajyoti Datta wrote:
-> On Tue, Apr 28, 2026 at 5:48 AM Abdurrahman Hussain via B4 Relay
-> <devnull+abdurrahman.nexthop.ai@kernel.org> wrote:
->>
->> This series fixes three independent bugs in the Xilinx AXI IIC driver
->> that together make SMBus block reads with PEC return -EBADMSG or -EIO
->> on otherwise clean transfers. They only surface when the client has
->> I2C_CLIENT_PEC set; non-PEC block reads happen to mask each issue in
->> turn.
->>
->> The problems were uncovered driving an adm1266 PMBus device behind a
->> Xilinx AXI IIC FPGA block and reading its 64-byte blackbox record.
->>
->> Patch 1 stops xiic_smbus_block_read_setup() from truncating rx_msg->len.
->> The i2c core appends a byte to msg->len when PEC is enabled, so
->> overwriting the length to "block size + 1" silently drops the PEC byte
->> and i2c_smbus_check_pec() then reads the last payload byte as the PEC.
->>
->> Patch 2 raises the RX_FULL threshold so the interrupt only fires once
->> every remaining byte (payload plus optional PEC) is already buffered in
->> the FIFO. The previous threshold of rxmsg_len - 2 caused the
->> bytes_rem == 1 path in xiic_read_rx() to NACK a byte still on the wire.
->>
->> Patch 3 stops the BNB handler from forcing tx_msg->len = 1 to signal
->> completion. tx_msg and rx_msg alias the same i2c_msg during a receive,
->> so this also clobbered rx_msg->len; and because tx_pos is already at 2
->> in the PEC case, the unsigned subtraction in xiic_tx_space() underflowed
->> and the STATE_DONE check fell through to STATE_ERROR. Advancing tx_pos
->> up to msg->len drives tx_space to zero without touching the length.
->>
->> All three patches are pure bug fixes; non-PEC behaviour is unchanged.
->> Tested on real hardware -- a Xilinx AXI IIC controller talking to an
->> adm1266, where 64-byte PEC-checked block reads now complete cleanly.
->>
->> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-> 
-> LGTM
-> Reviewed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Co-developed-by: Lance Yang <lance.yang@linux.dev>
+Signed-off-by: Lance Yang <lance.yang@linux.dev>
+Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+---
+ arch/x86/mm/init.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Acked-by: Michal Simek <michal.simek@amd.com>
+diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
+index fb67217fddcd..ff0a7003eaeb 100644
+--- a/arch/x86/mm/init.c
++++ b/arch/x86/mm/init.c
+@@ -3,6 +3,7 @@
+ #include <linux/ioport.h>
+ #include <linux/swap.h>
+ #include <linux/memblock.h>
++#include <linux/mm.h>
+ #include <linux/swapfile.h>
+ #include <linux/swapops.h>
+ #include <linux/kmemleak.h>
+@@ -38,6 +39,14 @@
+ 
+ #include "mm_internal.h"
+ 
++bool arch_make_pages_readonly(struct page *page, int nr_pages)
++{
++	if (PageHighMem(page))
++		return false;
++
++	return !set_memory_ro((unsigned long)page_address(page), nr_pages);
++}
++
+ /*
+  * Tables translating between page_cache_type_t and pte encoding.
+  *
+-- 
+2.47.3
 
-Thanks,
-Michal
 
