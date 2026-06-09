@@ -4,115 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A76CD8CAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379FBCD8CAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 14:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9KAUhO8tYdZLzMRayCE9PmCg2//sOlzvRLMvdEyREI=; b=alDNKQQybMB6FqM/zUm4emQykP
-	Lm7z0jlOSaQjZYWv2NRpwy/WGrzDGmITI/MgdM1D1r090suFDCFtMnL567dYq9QENSxELpPPF5gQZ
-	Wa+bPr9AlU+RGsulEvE5HRm+Qh9f+PH03MY6jf7Un6BKc0pX90k04V5L6iZyTJU6xMVRzDXGRfknI
-	f2O/hW9S8rgFRZ9DRkmp7HMfVa4ttWc5DRIah0dmDqsvTIAifnXrbLOX/Xh9C6LTa69VKTUa9jWp9
-	V6Y4Q4C+iUUhCB/oqrdi0sqFCKRk2TTGgWkB8YhXLr5+R3BxYIKDgwOuiirDGcSsKzrkEInA656Fq
-	uEANT4Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OQpu1OhWPmLhgQCfoB8dpZ9HJ92662GsLDeWYFfZD/c=; b=MHcjSbontsskcG2l8CEKxX60ye
+	bnlo8LsDqmwgtyW9Ml0CV+7twauczZZA1UeS//8W5gqho3shM/qM6AThOdUlYfq/yj7daBXHxFYfY
+	3z0IFFmSr8Q5z91DTiZsHbZJTo0dSk4S9+2YJDxNaHAJALPPC8GAKFUB4fegAzTRR5w1DATcnkEbc
+	f9m9NzwnYA9JLHvP6oQN8Ap1eSy2cmgrr/fiR5C2lq1kRwm+iIrlN0hhVFKUAGYmE0VxvybYseGsW
+	Wb7YfHlp1VGQd6Sf0xL+LnyGNbe19OaRGp+gJZelAeaoW0OgmBRhucAKtF/CkMyBPdc5obDhrH1xV
+	tbAfMtiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxVY-00000005mqK-1kyf;
-	Tue, 09 Jun 2026 14:32:48 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1wWxb2-00000005nSp-1Ed4;
+	Tue, 09 Jun 2026 14:38:28 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxVV-00000005mpz-3qU2
+	id 1wWxay-00000005nRn-41mH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 14:32:47 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-91563382bcfso646319485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 07:32:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1781015564; x=1781620364; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=D9KAUhO8tYdZLzMRayCE9PmCg2//sOlzvRLMvdEyREI=;
-        b=muDoGXs34cRz+cITFXQzwDkw1eU9zxmhjshNf+yojTX694wqcc9P5lTMs+UrlZFGXP
-         dNEQQRe/b4w8y8ZBIydveMDcZG40TRC50M9S8y+oU4aDul15xszEwKtdq4xDMVFlRNEq
-         sNoFKjwa/afYWo0+egsLdQ4LSBGIe1jWc+GnljyvSdBtXeZouCeu1CXlht4xwXVosx8y
-         YatG+j4F/GhOtFvTnj/0WN5teCfpTb0wafxdvGx3TrfcFu48xpXwbKK7uv4bCDWYyash
-         RKJKuduMs6r2nxRcli4E+QPA62H49rjW5/mytUYn3D+93bu9lAbj0ifAOD/gwgOjt6fV
-         ObJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781015564; x=1781620364;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=D9KAUhO8tYdZLzMRayCE9PmCg2//sOlzvRLMvdEyREI=;
-        b=sm2xCnuefh+0ARWcDS66F8IpZ6H4ghKBy6KAwls9vWJnA4svq11GsaGrSBTRgGS7nt
-         0nol8NTUKClflBVHQTirw+9QNoGZe1HlGOpfB5g5vF4/UoQ1CjAgSlyD+xvPeNBf0IaW
-         tihuGbc6hGQbdxtxD5iM2UgBvPNxYSchgQXv5qFizzqSZXsKeMAa904RaENAVHOZsZbx
-         EweWq/CJMnw+zMSzTl0fCivkNcTuI6OaEukqcJqzeLVCJ3yfG1Tk8WN9H9NWGRTjLnCE
-         egkAi1MTr7cDl1KlxiaLyEFYLSFFUAOTxRabEH0TGXCfyUf+J++XSpjMlLtm3gTCJ2ZL
-         EENg==
-X-Forwarded-Encrypted: i=1; AFNElJ8m2417ZJbJ7N8/o7fdNb8hfRQz+jq3Wb5SOa3XsVRQuzrxGslYsIGOBDyYPU57onCSft/Vij8xZgjWhsuFIi0c@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDeP/NE/ofXGt57+jWVuzuMf28R1hK1SACyhbcUZeYJ2HonyJ9
-	NNcV0M3HwvJo7oumf7eqlhcGoEB9GM4GcfRlJ/3ts3idLcqofk67YTq68Ah15K0vSKg=
-X-Gm-Gg: Acq92OEDDcRAfO1YLphSgJbsDJ8uwdze1AavDeYrN/dZw08+MCH31NXu4OCAVJxVFjv
-	nEHrloq46fVkyjqVC1n2RbfbUrC7ph12Gax5pleVxZusHJmAKZGMkzdcNkCClZPrdlqe6SUP4uQ
-	Z6JMe4b/8NKJeBAP7dHeHk28Aw9rJ5bt3BfkBM91nxG1rDyQb4FA4HIMXkEdzp8NcwKroQWDskw
-	pTxicu3+FfV6YtKPTlF1WuTCf0iWBW0Gnc25uLH3qhhQ2zSuySFy2T84hlL2XU5+kidI+8mcE31
-	jIUGsjlcYx7GT9hyUMQkRNSCmJwXBOLpPaBJ5tJ1e3iTiNNibS3yfiHi5aOSv3EdNnfuWr7HL96
-	vfmk87PValO8cJT6h9MJ4qc3GP6Y+daycdoKTP2+r5h2kIeAYnpuk+oH2qnzMrm8vcQKCTkfJ9e
-	IIjxurxjNoHf2ntFgA6DcXiQvx6ibkaPU48dxLRkvy6NXhotSOglfgKpFf1p5bs0kuIluV4+esD
-	T11tPH0EqUMpZS3
-X-Received: by 2002:a05:620a:c46:b0:915:9f28:6748 with SMTP id af79cd13be357-915a9cdcf02mr3443110085a.23.1781015564257;
-        Tue, 09 Jun 2026 07:32:44 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a00afafsm2106743685a.2.2026.06.09.07.32.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 07:32:43 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wWxVS-0000000241b-3Vv0;
-	Tue, 09 Jun 2026 11:32:42 -0300
-Date: Tue, 9 Jun 2026 11:32:42 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v6 04/20] dma-pool: track decrypted atomic pools and
- select them via attrs
-Message-ID: <20260609143242.GK2764304@ziepe.ca>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <20260604083959.1265923-5-aneesh.kumar@kernel.org>
+	Tue, 09 Jun 2026 14:38:27 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id A8C7E1D00108;
+	Tue,  9 Jun 2026 10:38:23 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Tue, 09 Jun 2026 10:38:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1781015903;
+	 x=1781102303; bh=OQpu1OhWPmLhgQCfoB8dpZ9HJ92662GsLDeWYFfZD/c=; b=
+	FlfGOwzGAo4KLfS3a9UDfQgvgvsMVtAWe0VHKf2094vgfx28DwmI5w/JMa379O/1
+	b5ToDqNjmSSbVTkRsi+gdt3s8X7rDZcO225BW/cJ6ZHQW/PLPdWEmMPWC1D3no15
+	xRhNXiyB1oDimx0vvBibUEO84xd++meXtt1ZdlFVSJ+JhlqOWY5oEyNmBDKMRPzQ
+	ka9YgZHvpibjkA3Ym6I8BtP8/HYdnPfkr4SAzl9c6KI3DHFlv+Y0fT/oTnNcs8FX
+	XJIt7WrbcuMRU0f5MC169vpDFcR5aENaos9ZFw2FOWYC+JmhW9mcOVX4VKMLZ38S
+	gMzdBSxgKvZy1cP30+B6oA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781015903; x=
+	1781102303; bh=OQpu1OhWPmLhgQCfoB8dpZ9HJ92662GsLDeWYFfZD/c=; b=Z
+	uSsEXRihfmEOUbNXyyzlD9lGf8bwbihB+p+m7QZwQ2pRIZ5wmdChrOzp7MeK1HZm
+	hTDwT4eWV0cIT3Nkgb9iJU8EuMMaHD1ltY9tM+NzEF6cRfF/JpuCiowi9u/UQnLx
+	rEpJa+LhD9nacbkpQYAHeVRiig8Q8eU2lMuQadafP57pGML5R6pOMsMt2PtA17KL
+	Fi9952rSYFVgcB1LpZb9JPUEU5HCooucwTCulTBvKfuXUyqeMf+7W7GSNTC2QLvq
+	9PHLmncpg7rgM/g8XSrh07jxLNA2BFrPi7ThNxIrPXdPoGGQcLJcpzp2J6bcdCvX
+	9rbTzvGq18jPdwrXcKPwA==
+X-ME-Sender: <xms:XyUoak86mUy0BYaOQlug-VUWM2yVQGXhrWFnMQ2UY8SF802vP2G_Ww>
+    <xme:XyUoanihA2ZaAwd_4eRMoS_aHd5iGseMc2rQCcsBhYA6jYD5N0c6kVhUZYogom3mo
+    _LuNr5uwkEWV-mHNRp4uNmaKuKvOY0mqRvYFPsM1gMVJDQ0cFBtE-4>
+X-ME-Proxy-Cause: dmFkZTFYUZGOq/AvS7Q2hJPmVjv314Ck0BIhy23s9lgogZcHS1ANaQJSO05P+xI2m+WrIR
+    lS0w8oye2jIfpymb+Xyu+duM38FHTA0w5MO9K0uFSW6i6r5TZZv2HW1r8H4iPH2gwKajXd
+    ybcger4XpWtJzJzXPOUGlxTOi3xmHRqzWMDhXj7CprbXoftoBaiyX62VReqrV6f/ukiGXl
+    DuYkbc+aL1lS+ysovuDQNGVYjo1eWZTrmxXji5PPnyWIU8Be+oNKrKOyWPmnJ0wBAsSleZ
+    twTroz8W1RaQWvJwrpO+6fAiuH+t6Q8kwt8EeEHS+/1laRcNeAX4QsUMcejITyWOgWXFnS
+    F8X1iBZd8rz58KC8Y6q4D8PCPd+l2LaQaaFitxkUTkzfTRttzlQ+jy0XGpG/4zReZ6hDDk
+    mMccy5K1kaqGdLfKVYcImaF1Wu91WfsjgMjfOO/MmXqW2dzO+PR7K+7tIiRqI+3/FE7ga/
+    8qOSXitySgUQZ2JqsLqOI11K31Jx/PxFuHJ9YBPrxM6YnqQhvKMIrsbvl4cpcADleQ/UHJ
+    9yEPxDezdFtmTHlKmlM+7pEsbGAB80EiZ06iTYzTVYquJ6R3H8GX5HCHMVUwUJdD04c+a2
+    AFZ+P9oZOW8dC0jkOWmWjCU9AxH+CodVXJh5n90lTRlDnjjQPoseKq2auwYg
+X-ME-Proxy: <xmx:XyUoaulhNvs6XOCpyY-0yWjPT6_IGL-Akc6hKsWC54nUxBoPyFw4Qw>
+    <xmx:XyUoav5lOHVcwXLMM32Ol2K4KaZ_X29CE1guqtgQ1QXUDn86bBje0Q>
+    <xmx:XyUoasj8p1IgzrX2TxbttAVsYUtkxyQWG5xe798aoy72z1fAqLTNlw>
+    <xmx:XyUoakFMayXJxA1LLaVEZDFlW5YqAzN2CO54YHxVBeNogLqk7cw7rw>
+    <xmx:XyUoaiiR3g_UTWdn5fFxY7otM63eK8dJgglpMd__i7KDr_Mi4GX2YT4a>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 3BED41820082; Tue,  9 Jun 2026 10:38:23 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260604083959.1265923-5-aneesh.kumar@kernel.org>
+X-ThreadId: AJX4MtyQJOMN
+Date: Tue, 09 Jun 2026 16:38:02 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thierry Reding" <thierry.reding@kernel.org>, arm <arm@kernel.org>,
+ soc@kernel.org
+Cc: "Jon Hunter" <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, "Sasha Levin" <sashal@kernel.org>
+Message-Id: <7c575b6d-5543-42e8-9b7c-be1e7148c454@app.fastmail.com>
+In-Reply-To: <20260531060825.1855391-4-thierry.reding@kernel.org>
+References: <20260531060825.1855391-1-thierry.reding@kernel.org>
+ <20260531060825.1855391-4-thierry.reding@kernel.org>
+Subject: Re: [GIT PULL 4/6] firmware: tegra: Changes for v7.2-rc1
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_073245_987846_7D34D612 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20260609_073825_279588_A6DA29D6 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,58 +111,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 02:09:43PM +0530, Aneesh Kumar K.V (Arm) wrote:
->  struct page *dma_alloc_from_pool(struct device *dev, size_t size,
-> -		void **cpu_addr, gfp_t gfp,
-> +		void **cpu_addr, gfp_t gfp, unsigned long attrs,
->  		bool (*phys_addr_ok)(struct device *, phys_addr_t, size_t))
->  {
-> -	struct gen_pool *pool = NULL;
-> +	struct dma_gen_pool *dma_pool = NULL;
->  	struct page *page;
->  	bool pool_found = false;
->  
-> -	while ((pool = dma_guess_pool(pool, gfp))) {
-> +	while ((dma_pool = dma_guess_pool(dma_pool, gfp))) {
-> +
-> +		if (dma_pool->unencrypted != !!(attrs & DMA_ATTR_CC_SHARED))
-> +			continue;
+On Sun, May 31, 2026, at 08:08, Thierry Reding wrote:
+> From: Thierry Reding <thierry.reding@gmail.com>
+> ----------------------------------------------------------------
+> Jon Hunter (2):
+>       firmware: tegra: bpmp: Propagate debugfs errors
+>       firmware: tegra: bpmp: Add support for multi-socket platforms
+>
+> Sasha Levin (1):
+>       firmware: tegra: Make TEGRA_IVC a hidden Kconfig symbol
 
-I don't think you should be overloading DMA_ATTR_CC_SHARED like this.
+I'm merging this, but I would like to point out that the third
+patch does not actually solve a real problem and the patch
+description is complete nonsense.
 
-	/*
-	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
-	 * attribute. The direct allocator uses it internally after it has
-	 * decided that the backing pages must be shared/decrypted, so the
-	 * rest of the allocation path can consistently select DMA addresses,
-	 * choose compatible pools and restore encryption on free.
-	 */
-	if (attrs & DMA_ATTR_CC_SHARED)
-		return NULL;
+Looking through linux-next, I see two more of Sasha's patches
+addressing kconfiglint 'K002' warnings. I have not used that
+tool and the warning sounds useful in general, but all three
+of these patches look like false positives.
 
-	if (force_dma_unencrypted(dev)) {
-		attrs |= DMA_ATTR_CC_SHARED;
-		mark_mem_decrypt = true;
-	}
+Sasha, please try to understand better what the tool is
+trying to warn about.
 
-It is fine to have a bit inside the attrs that is only used by the
-internal logic, but it needs to have a clearer name
-__DMA_ATTR_REQUIRE_CC_SHARED perhaps.
-
-The sashiko note does look legit though:
-
-	if (IS_ENABLED(CONFIG_DMA_DIRECT_REMAP) &&
-	    !gfpflags_allow_blocking(gfp) && !coherent) {
-		page = dma_alloc_from_pool(dev, PAGE_ALIGN(size), &cpu_addr,
-					   gfp, attrs, NULL);
-		if (!page)
-			return NULL;
-
-I don't see anything doing the force_dma_unencrypted test along this
-callchain..
-
-I guess it should be done one step up in dma_alloc_attrs() instead of
-in dma_direct_alloc()?
-
-Jason
+      Arnd
 
