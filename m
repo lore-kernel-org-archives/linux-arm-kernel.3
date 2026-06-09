@@ -4,47 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508A7CD8CAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38CECD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 06:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g0CMNWEqrDOucVLL8KJozQojI6+LfSI56XzYeVMxjRY=; b=j48hEGClX9YSsiCZOftBiu8rvL
-	zFw5TyLyYSCJqISXKrv2eq2GXsNurJenwLeny09rlBpur01rMTBpKeyizy4pKzJOaohBMEQOLjG7y
-	fy0JrdHrdXAdc41lBDH6gOP3cTNGj06CTYTZYyb7xDBQ3q5GI2YfnpRjSih8XlvtYlHDHOtn751/Y
-	t9UbONBtHPD0kpLvurUtHBwVoGNW8Dr07aXObuUhgq7BeZHRg9oFj6Qa/JtoS2lAQVyIi0f1ZPnRq
-	j16whf3b0NtUHjB3tqcaL+k2LWLIs0KEUOk5WGB5CnKtEFTVuo2tcNDJxCkUB4drMVPR7sHPft33M
-	0IMeFt8A==;
+	bh=E82w67fq9EBYXBV6jCxGeX2AO5J6owLbBNFrIt5fD0A=; b=Jxf1Hm3RbmnHQ2uEHShfEFY4+J
+	Xhyn/k54IFxcFaf2Jnf3Gt0qHudY2S9QqGWeMDqyLM6pox3ihAZvWrpb9FccgYuk9E81OwKQahTkE
+	e0XYxf9+jkhaek8RwtB/l79oKjrGaaNqlAiKslFRQMoPMocZueBK8ss/MAazIozmyIpnxueMbekSO
+	o8TiIiMilgOuK9Dpff5xOY3HvwNYhD7xiGtY4z8O6VSC78/QzFewCO+06HbGGPGqdmvdOTS6+2xFH
+	mFL5HJjH5eLX4uzax9PXlahKLX7ZIUjXGF3qyMdjyFr6PZYdkZ0eiSTxo5dTOZjD0eNr4+WOGLL2r
+	tZ13pZVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpX8-00000004mYi-0vQ7;
-	Tue, 09 Jun 2026 06:01:54 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1wWpXF-00000004mgh-2ISx;
+	Tue, 09 Jun 2026 06:02:01 +0000
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpX3-00000004mS9-29eV
+	id 1wWpXD-00000004mbw-13yh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 06:01:50 +0000
+	Tue, 09 Jun 2026 06:02:00 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780984907;
+	t=1780984916;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=g0CMNWEqrDOucVLL8KJozQojI6+LfSI56XzYeVMxjRY=;
-	b=mK5dqfHyJvdr6BZk1BEPRAOOBoUrzsqiJToe6+57nd3OgfEwMMrTqUyrc3C6R13eoQV5bK
-	GUd32G9qEHzpJgzCqyn0F5yG34JjsrJYcKg9DLtbQluj8ZeTgYYOfoj9ghxvNFsaJ8AipB
-	BIL+VGKswhlCmSmJs/bHwvc2vYkoVLk=
+	bh=E82w67fq9EBYXBV6jCxGeX2AO5J6owLbBNFrIt5fD0A=;
+	b=Aq/6FHUGy1MFnD7UhRFq2ls14v0LzlHHh3gqMxZZYRUpcAEWBtjxqjPBpiEY6wIVtkLpZN
+	BV6VDQGEPM4yKusFGdKKOt5rTq4YKfrjJJUT0tjVpyv7k4PyZEH57pZmlFUX+74cA1y545
+	Z6JxgYRYQOgAPIKQay1poWzSMLcUjPk=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Mon, 08 Jun 2026 23:01:19 -0700
-Subject: [PATCH v6 05/21] RISC-V: Add Smcntrpmf extension parsing
+Date: Mon, 08 Jun 2026 23:01:20 -0700
+Subject: [PATCH v6 06/21] dt-bindings: riscv: add Smcntrpmf ISA extension
+ description
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260608-counter_delegation-v6-5-285b72ed65a9@meta.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260608-counter_delegation-v6-6-285b72ed65a9@meta.com>
 References: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
 In-Reply-To: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
 To: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -59,8 +60,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_230149_714704_D56C19C7 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20260608_230159_454637_5EF9CDB0 
+X-CRM114-Status: UNSURE (   8.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,44 +79,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Atish Patra <atishp@rivosinc.com>
 
-Smcntrpmf extension allows M-mode to enable privilege mode filtering
-for cycle/instret counters. However, the cyclecfg/instretcfg CSRs are
-only available only in Ssccfg only Smcntrpmf is present.
+Add the description for Smcntrpmf ISA extension
 
-That's why, kernel needs to detect presence of Smcntrpmf extension and
-enable privilege mode filtering for cycle/instret counters.
-
-Reviewed-by: Clément Léger <cleger@rivosinc.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpufeature.c | 1 +
- 2 files changed, 2 insertions(+)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index d4a7b90e2d78..51ad55b9677a 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -114,6 +114,7 @@
- #define RISCV_ISA_EXT_ZICFISS		105
- #define RISCV_ISA_EXT_SSCSRIND		106
- #define RISCV_ISA_EXT_SMCSRIND		107
-+#define RISCV_ISA_EXT_SMCNTRPMF		108
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 4be557dc215d..ece3edccee42 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -189,6 +189,12 @@ properties:
+             mechanism in M-mode as ratified in the 20240326 version of the
+             privileged ISA specification.
  
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 3fa0a563fb21..1452521d740a 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -576,6 +576,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksg, riscv_zvksg_bundled_exts, riscv_ext_vector_crypto_validate),
- 	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-+	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
- 	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
- 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
- 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
++        - const: smcntrpmf
++          description: |
++            The standard Smcntrpmf supervisor-level extension for the machine mode
++            to enable privilege mode filtering for cycle and instret counters as
++            ratified in the 20240326 version of the privileged ISA specification.
++
+         - const: smmpm
+           description: |
+             The standard Smmpm extension for M-mode pointer masking as
 
 -- 
 2.53.0-Meta
