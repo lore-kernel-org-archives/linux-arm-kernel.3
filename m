@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C152CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1345CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 10:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oGapPqde/L8XcWbgwW8R8fZSYz2OachDKg2LbyV/LTA=; b=qa4xGIfXPAiq42tnbUwoi2wrQy
-	Wa+S2e9TED5WPgdbkv28m+2athB6V5ijdO8mnTO8M0ahUryUZvYG0mIaqPYxe/jrsci9ohBSJhWoq
-	dlFfuhX+qaGvqUMAc6fc8D0iGuYJHH0xGnCYPXC08LtdQ8evfEYF9CyUS9/+MYh3EJVWP5InM45xz
-	LnafBbCiDYQbnGF/fN9Ri3IDTQU3ZbWea/cG4dM1Xrk9hH7snIsa1MK70YcD+xQiEdZ+bQa04pebq
-	BQqAYahEWqflfn7tHmoUm32ffgkGUlAqWqMsIbzZG+rm6yRADFKLPGo3bd/jdD4TFGGMwBakJuitL
-	b5kMDT1A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h55UH12lvi5qvyEigfzQK2YfBNXbPcu1QXY1N2+KKxs=; b=bHtFCGJoQXhhSNoRQqtIJfIQew
+	YznkLy04+VMOSt1G491gESYkatSKQM7ldSHpJbXcp0ThmifUvuhxrdQf5AEPJqL0NRhqzj9zWsoOb
+	bNrSDHVp7m/KlY5RQE7ws59kck5ciIu2IRj+oKF5cStLXzVvfLadvgB5BtOO4Tpt9Bf91KVDG2EDR
+	tcnMUfIu52e0uVCor3U3y3pnGv5VEC8m614eAtwQAuIj4BvcK0QOnDm8opslJcdhzYEfZ3Jb3HI7C
+	A1xn9ChW+aFR6XR3Ti6op1s0rjeKPkj9gRsdhIBRY7/Qv8u/zfE5lKrP4xtkcmimTpl9sRPXmQPjK
+	csF/SmJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtbw-00000005LKn-1epZ;
-	Tue, 09 Jun 2026 10:23:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wWtbz-00000005LNU-2NlO;
+	Tue, 09 Jun 2026 10:23:11 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWtbt-00000005LJd-1jLN
+	id 1wWtbw-00000005LKl-2JEQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 10:23:06 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6599xTMN2287646
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 10:23:04 GMT
+	Tue, 09 Jun 2026 10:23:09 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6599vHZi1869322
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 10:23:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=oGapPqde/L8XcWbgwW8R8f
-	ZSYz2OachDKg2LbyV/LTA=; b=oK1vEgCwMRWmWTdRU+YtNKprw5kl2WGsT2ZTwe
-	5ysNuCmaARcWHlq04CnAsMhVuqEuScYuJIgau+RL6AS6T1/SNrn/O/UyGAMfOJDR
-	li+aozatQnJUL1PC6/geZtl5VcqjrevGJgGaHFSP/4oWmJuOS8J/RZ9LcLmx0gBi
-	153WJkDPROS5loJgNSnGBWA0pg14sY4Wm9XWcG3DkG/RTRFfRGewubj8wakRuAOd
-	EGskiursJ4hUYqAFDAh7LYn5LAdx8OtLJld36oiQXlmXBBg5mRUv6nqxrdAAgoMA
-	Za/KXn36Oai48YwPHXJ2oShYa9iZwIVkHNj/C6YI/WbFVrng==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epe25rtq6-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=h55UH12lvi5
+	qvyEigfzQK2YfBNXbPcu1QXY1N2+KKxs=; b=jFT8E2cO0n5l+K+kyNE9tMAtkO+
+	VJGvA9nZnxZoyZfOdJGFtLAfBqiYwmhAHrtJNfXOiCl3hHbg/zO5B2xt5MJFuGtG
+	tAmp8W5ojoszhWGOcBIqDmh1U5SgK1rbEdFddP3NkxsbGv6TbtpuMgFH6fZdbax3
+	sKF12ckZ9P2OKXr5VLGvtkP8Xqkozy2BAV1tFcZlJlN3FN2eoymskJxnwSCXgLEu
+	sRuo7BdrOEXFTGdxlzQq9z435xh8TU1YbFviag5kf9CBkWLmRiW06058Blj/RbqY
+	CftS5gyqFsm8vdtZX7H5kxZlT6Ilwp7xEoDJC39eyv6xkPdAPH/Ub2KfXVA==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epeqggn1b-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 10:23:03 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2c0c272e532so55708785ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 03:23:03 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 10:23:07 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2bf335549b8so82745165ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 03:23:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781000583; x=1781605383; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oGapPqde/L8XcWbgwW8R8fZSYz2OachDKg2LbyV/LTA=;
-        b=Txb+Lgn+U5wHhrjNLQx79qNDlOyyOKzC6U6aMZGSWbP0dLArHqQRCdAZjQoc/xxyW5
-         ad2qi9NvACaOnyiPUTcrXOd6HXlR9FZSfYPQXwFdm54hJcDHYl5QHhls1/PtY7JnLP0u
-         ONamuaPj1lKPiwvPBI6qXa8+NUikzCAMySEt8MPsBBedN742NLW/JW2pfJtzYFPUq/hJ
-         02iRI+ABcfO/iH9ZSzBqiB5bWInbiNiiNqNp/L+vpatrv+MA4at8eZsR4OFA7Diu9rR+
-         C49+bT2b986OQ8q9Vdt+yuogm9hpgEVbcdLMWYXHMhkvGOi06zddMGDJe+mQTy5ESz8v
-         Qpbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781000583; x=1781605383;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1781000587; x=1781605387; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oGapPqde/L8XcWbgwW8R8fZSYz2OachDKg2LbyV/LTA=;
-        b=QyOOynfAiM9OfokWlELueRe18XHtUcXNYWv/8qKeuBd1igwwwsqi6b2EzkCZSWoO/2
-         7+htsv4wl/PNlFcs/+JCZHNUi96k1UlUHoDxVg6aX6OJ7h3FbPSSNrJZ0p6RfeDWSgJT
-         94wWp9bg8E9l2UgFShd7lw3i2acvHB2XjihGV0SBmqc1DZL2i/r2MfIRXmgJlq9EOR4T
-         fAFqJEXPM7lh1J8KWJ/bt6BctLpcKsCZZYZslNZg6PyvPZod4VMx9AAHRhev+PhIMVdt
-         GMQ/QAvlg5hiPmrFJk4cZk5AaFMUvcuJJp4KDz3XEIQtLDKfV1N9m8I/SDjoYFhbidD9
-         NK5w==
-X-Forwarded-Encrypted: i=1; AFNElJ9v7dt0ir8xTCtb8r9c4TGE2ZZ1xEdpXnQP87jNH7053rSIO2EnyMH4DUA91hMCppwU9DAbNksiLm3dW5SAbBDp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMSzwbi2TWMUzE/j4RoG7zpmmJTt1PS16o6BarcZFSeZ7elOYW
-	Hn0UXVZQpRzCECsk+kC1kYNpgdNIQeKSpl0sftQ76ZS9ljmD5SUn1FZUjweNaxZ0zWLxMgvCpTa
-	oknEDM2GdqTUiWTVaXZ0b8TL56y8/Wipd6A7yXSiZMeRlM2/1uucRCAGX9iUXzUj60amOvl+Q2X
-	4V8fErlB7g9A==
-X-Gm-Gg: Acq92OFxOPzD/5MBKiSMqFs1Nmv9R4vmleq+nJfaPLUTZxBbxFmdhGHOcSP6PZgQYJk
-	OY/s0nemFMwiIg0I6uHX2S02DRlFjcfa5YwzoVFnWQi+ZNhJVfoHITMIIZEILaALHq708fJ0AjR
-	b8tMX/T7mRtDvMbWrqJW3V4jWkzU49rFOjYKbzhLbEGFKHoXmhuFtmWKaQqV6KPctuDZqYYOv5k
-	MKnV1sgzr8Q76kJNIcO+cekhKxQfz72r5I84D6ltyHTXKmB5EfcLj4VZLT7jcxlmyw3lKB/bnuE
-	f6+2eM1VEBvl4+JJU17LfGTn6dSy6vE2WDKw5VYhyD0L+cROwZB2sVPz8Cf5kvkaNhVtoKszR8+
-	6UZB4kUJjeaUEq19p4iXfqtSRj+HNwir9VjcPOSBA+a7UBjAPjRyN5XWCGzE=
-X-Received: by 2002:a17:903:1245:b0:2c0:bcb3:86f with SMTP id d9443c01a7336-2c1e78e431dmr207447045ad.6.1781000582760;
-        Tue, 09 Jun 2026 03:23:02 -0700 (PDT)
-X-Received: by 2002:a17:903:1245:b0:2c0:bcb3:86f with SMTP id d9443c01a7336-2c1e78e431dmr207446785ad.6.1781000582247;
-        Tue, 09 Jun 2026 03:23:02 -0700 (PDT)
+        bh=h55UH12lvi5qvyEigfzQK2YfBNXbPcu1QXY1N2+KKxs=;
+        b=NJ3wxuP6Sh/BX/n362U8D6yGCuwDg+3rX3kV1dKdmaXaWCpJylSRV0ZkoRukyKmCNb
+         f1TlENleh3g82aEmn/bY9LM70hA1WGMiQkgF2Jb/yPio3Z59M29FaECRLD3uDMg5E7Fx
+         Yh1VY01CbC8PM2GZ9rxS25fxK/9Q6FZGdhMuGP+QBvMNy2MmK1bc8qNSuZWiNBEHSwsa
+         vpjemjYQxpyoHVu1nf7d1MND6dEI/CQn2EF2OFcjM7tPT1g6bWsq0k7zXbGvDJEglOM7
+         Q7JdGHoJ2DO/Qx2pcXEYNPvH630a6YUx5iIHkNXM40qng7zJZCxsgOoMeGWPfndPvyRI
+         3mYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781000587; x=1781605387;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=h55UH12lvi5qvyEigfzQK2YfBNXbPcu1QXY1N2+KKxs=;
+        b=SPS8s0h2lZ8rYwbu0tOsDZ5i/aNvnyR4ayYwPBT44X8R+zVu6hwnOHptzBTCgeJduL
+         utJkNTlSF2fmzvCZA4J/TlHCTOFcn7yMdf0OcARnCeW/VGn4W8m3H19vthR6hzxDUg74
+         0wGxWGhEH3m4No1cvumtom9qbokUg81FjZdwDNyR+afRQOazXHHCi15KEJfmcJHr6A6r
+         9O2H1F1aEiAcojB7OboMadQcn53Do+hI7zED4NCqYEi6l2VNWhARDcl5wHOMggbhyUlb
+         eXq/Ok2mIGKUsfuYs632GQXgBsgML3lGsTkfkPCFnywgDVnveA3KEG3y/jhi+qR7Rlac
+         paFA==
+X-Forwarded-Encrypted: i=1; AFNElJ8XXoLP8WlXKKCWbM9yddQKqQjrmGQKbCbsji5Is5XRz0wIjkNAvXJIiLRlmYiaczPZrzwMnL0A/pr6BRbcDdaa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAj9v1qAFGa7Bm3qliB+vplqn5YU7XFA5wvqlBjCz2wnnakNxX
+	Ogej7+pmhpUgsDqwBZAX6dze0IuZhAPkuiZLymouAbBgc9pkzEeTXPU4uwXRgfUERAaUZ7eVxqq
+	AzYN3/owTWT8KX5ZnFePUEMlSiQLDW9kHcJY6anljYt9Cq8xPZnZcoqmmn6NDaxqJyE94z18H1H
+	08IA==
+X-Gm-Gg: Acq92OH8GHQJKXNvp+2bKRoO2XXuKIUhrOYYOoYqisACvQAG6pcBudf+zyMYyYq6tqf
+	gIiTRrWiRSOJ/Et2i2RbOgPZqCDtD7bgK13nTI8eH4Pgu8yF+seEEZJJwdVBEAgf8BeJOs9hG8q
+	9gPcbkzpRzNFDkkrSDBrx/N/0AI8pmK1CTnfKnNlAwq8jHWByZShSYZ0wdVhS+daN74Pp7URlu+
+	fH2ILBWRtVz8TnPPYIjTICUvcjutR9ESqXJUHburNm0p+oQIJ1q9geVdncMnZsk4bg31aWr3A2l
+	HwRDU4wAOIwk+Q23jHCPYrnVeCuSKbWcn33C/rNkgJ3cWejaYELWdXwGAafePxdXZfEhS9A2pYP
+	HbCbSwKdpQEfB0ghj6X7+v1VODc0hU4snneGVQ0cspszarFPO+Ab5zInd7cE=
+X-Received: by 2002:a17:903:8ce:b0:2c0:b4f5:41ea with SMTP id d9443c01a7336-2c1e7e93bf0mr204077495ad.17.1781000587142;
+        Tue, 09 Jun 2026 03:23:07 -0700 (PDT)
+X-Received: by 2002:a17:903:8ce:b0:2c0:b4f5:41ea with SMTP id d9443c01a7336-2c1e7e93bf0mr204077095ad.17.1781000586575;
+        Tue, 09 Jun 2026 03:23:06 -0700 (PDT)
 Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6e86dsm213121685ad.8.2026.06.09.03.22.58
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6e86dsm213121685ad.8.2026.06.09.03.23.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 03:23:01 -0700 (PDT)
+        Tue, 09 Jun 2026 03:23:05 -0700 (PDT)
 From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Mathieu Poirier <mathieu.poirier@linaro.org>,
@@ -96,40 +97,40 @@ Cc: linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-mediatek@lists.infradead.org,
         Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Subject: [PATCH 0/3] remoteproc: fix silent teardown failures and prevent SMMU faults on hung DSP
-Date: Tue,  9 Jun 2026 15:52:50 +0530
-Message-ID: <20260609102254.2671238-1-mukesh.ojha@oss.qualcomm.com>
+Subject: [PATCH 1/3] remoteproc: check return value of subdev stop and unprepare callbacks
+Date: Tue,  9 Jun 2026 15:52:51 +0530
+Message-ID: <20260609102254.2671238-2-mukesh.ojha@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260609102254.2671238-1-mukesh.ojha@oss.qualcomm.com>
+References: <20260609102254.2671238-1-mukesh.ojha@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: JqSj18dXjk5OKZ6D2BHLYHa0AujqsSo2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDA5NiBTYWx0ZWRfX26mRuxp9xrAG
- Je0V3hjfrnsYGclCOrKaS38xh1zJpkqRK6lg30HhSjSQ1A1teoZe/yQi43W27SUT49y8pubbWi7
- iYaT/mVp47xU09T0emJgQHKAl3lZBsACAQxJ63xSFJEDVUur5ByG1k1CLxri5vPcN9La/1H2jQY
- 53i2oxHcsb7k187tmxgKNyPkx2FN/VJzDwt6tNiICIH5WgFz553oyCWBJwZG6hJhRWnF4d8aoGf
- bj2J5hKP5eFA0FpM/BoZB1QSXkAoZ+ICV0RQ5WKZB6Sa3pakyKks4Sg0ppc72IiO3cvgpzejZRn
- 8YHBPafw+elhbvFQsHisWNtr5REg/qP1GSrSSzVSL82irQq8wOVOgGZXaYLFG30oFY4ySEfKAL7
- hBGSAeEeVWah6+JY7lK4YNsdT0qK2PAecYWSfynlhzReQYqJJz/+VsmCVKKeZ+MSPcVJN3REHii
- 0iH3wu+kpgbJejGx97g==
-X-Proofpoint-GUID: JqSj18dXjk5OKZ6D2BHLYHa0AujqsSo2
-X-Authority-Analysis: v=2.4 cv=LoqiDHdc c=1 sm=1 tr=0 ts=6a27e987 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=oORZlF2qDzti3-ymW0gA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDA5NyBTYWx0ZWRfXxRaNmbqS1yLP
+ BR/fOGXSkjVx9zYpCGA4sCnahDbXnY4eZfe+7K6YxshQ8uWqHTgn8Art+PgLohMtMumO+rCWSOE
+ be2VQQp+xqHOQINPEeDGEV/vxZG9tRUI8RHmwMWuYHDkww5S1dURbPcHczmd4K4J296lXbQ/Csn
+ f+1TTAPkYYP3nW8rbgoSKmeXhRX0eS/W0886CayKNq5tcCDwuEY8NxE9EyTbazOOlhynxuV/u0a
+ Y8kTElV0Z4b8ekisYqI+nMOpxyQzlYERe1dz6fVwhk5O0XFB2BB5ymFYX5xq9ByIWJTw6fAJyMc
+ eWdn2b+N93K85qtBaXVnUy60vAYh13l8UGRwspK7WEswzPo2lBklyRnkl0ON1KFIv79l1xzFsu9
+ KsbgeQusCG40+sMzhjcJENbuxRAfQR+EgsJXki9auCDzsD0qkyrKGEBgGioHgYlOoG3NaiEfE0F
+ xZtOYsIbt/5ulP1BXqA==
+X-Proofpoint-ORIG-GUID: I6CAqyxUQSlemZ7gmRT8fqBaDrwvAIwh
+X-Authority-Analysis: v=2.4 cv=KdHidwYD c=1 sm=1 tr=0 ts=6a27e98b cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
+ a=KgjLDdhTq4KzWEx1KCkA:9 a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-GUID: I6CAqyxUQSlemZ7gmRT8fqBaDrwvAIwh
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-09_02,2026-06-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 bulkscore=0 phishscore=0 impostorscore=0
- adultscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ impostorscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0 suspectscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 adultscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090096
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_032305_573543_A701AE53 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20260609_032308_623551_F2B74009 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,49 +145,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a DSP hangs without triggering its own crash handler, a graceful
-shutdown via sysmon times out.  Before this series, two things went
-wrong:
+The stop() and unprepare() callbacks in struct rproc_subdev were void,
+making it impossible for implementations to report failures.  Unlike
+prepare() and start() which already return int and have their errors
+checked, errors during teardown were silently discarded.
 
-  1. The stop() and unprepare() callbacks in struct rproc_subdev were
-     void.  Implementations had no way to surface failures, and callers
-     discarded any internal error state silently.
+Change the callback signatures to return int.  Update
+rproc_stop_subdevices() and rproc_unprepare_subdevices() to check each
+return value and emit a warning on failure while continuing to visit all
+remaining subdevices (best-effort teardown).
 
-  2. Even if an error had been detectable, rproc_stop_subdevices() kept
-     iterating after a failed stop.  This meant glink and ssr subdevices
-     were torn down regardless, causing HLOS to unregister and unmap the
-     shared memory regions.  If the remote still had DMA in flight
-     against those regions — as is often the case with a hung DSP — the
-     result was an SMMU fault.
+rproc_vdev_do_stop() propagates the error from device_for_each_child()
+which it was already computing but had no way to surface. All other
+implementations (glink, smd, ssr, pdm, sysmon) gain a return 0 as they
+have no failure paths.
 
-This series fixes both problems in three steps.
+Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+---
+ drivers/remoteproc/qcom_common.c       | 26 +++++++++++++++++++-------
+ drivers/remoteproc/qcom_sysmon.c       | 10 +++++++---
+ drivers/remoteproc/remoteproc_core.c   | 16 ++++++++++++----
+ drivers/remoteproc/remoteproc_virtio.c |  4 +++-
+ drivers/rpmsg/mtk_rpmsg.c              |  8 ++++++--
+ include/linux/remoteproc.h             |  4 ++--
+ 6 files changed, 49 insertions(+), 19 deletions(-)
 
-Patch 1 changes stop() and unprepare() from void to int, matching
-prepare() and start().  Most implementations gain a trivial return 0;
-rproc_vdev_do_stop() now surfaces the error it was already computing.
-Callers warn on failure but continue iterating (best-effort).
-
-Patch 2 changes rproc_stop_subdevices() to abort and return error on the
-first failing subdev, propagating through rproc_stop() and
-__rproc_detach().
-
-Patch 3 makes sysmon_stop() return -ETIMEDOUT when the remote does not
-acknowledge a graceful shutdown request.  Combined with patch 2, this
-prevents glink and ssr from unmapping shared memory against a hung DSP.
-
-Mukesh Ojha (3):
-  remoteproc: check return value of subdev stop and unprepare callbacks
-  remoteproc: abort subdev stop sequence on first failure
-  remoteproc: qcom_sysmon: abort stop on unacknowledged shutdown
-
- drivers/remoteproc/qcom_common.c       | 26 ++++++++++++++-----
- drivers/remoteproc/qcom_sysmon.c       | 15 ++++++++---
- drivers/remoteproc/remoteproc_core.c   | 36 +++++++++++++++++++++-----
- drivers/remoteproc/remoteproc_virtio.c |  4 ++-
- drivers/rpmsg/mtk_rpmsg.c              |  8 ++++--
- include/linux/remoteproc.h             |  4 +--
- 6 files changed, 71 insertions(+), 22 deletions(-)
-
+diff --git a/drivers/remoteproc/qcom_common.c b/drivers/remoteproc/qcom_common.c
+index fd2b6824ad26..05a599318763 100644
+--- a/drivers/remoteproc/qcom_common.c
++++ b/drivers/remoteproc/qcom_common.c
+@@ -216,19 +216,23 @@ static int glink_subdev_start(struct rproc_subdev *subdev)
+ 	return PTR_ERR_OR_ZERO(glink->edge);
+ }
+ 
+-static void glink_subdev_stop(struct rproc_subdev *subdev, bool crashed)
++static int glink_subdev_stop(struct rproc_subdev *subdev, bool crashed)
+ {
+ 	struct qcom_rproc_glink *glink = to_glink_subdev(subdev);
+ 
+ 	qcom_glink_smem_unregister(glink->edge);
+ 	glink->edge = NULL;
++
++	return 0;
+ }
+ 
+-static void glink_subdev_unprepare(struct rproc_subdev *subdev)
++static int glink_subdev_unprepare(struct rproc_subdev *subdev)
+ {
+ 	struct qcom_rproc_glink *glink = to_glink_subdev(subdev);
+ 
+ 	qcom_glink_ssr_notify(glink->ssr_name);
++
++	return 0;
+ }
+ 
+ /**
+@@ -327,12 +331,14 @@ static int smd_subdev_start(struct rproc_subdev *subdev)
+ 	return PTR_ERR_OR_ZERO(smd->edge);
+ }
+ 
+-static void smd_subdev_stop(struct rproc_subdev *subdev, bool crashed)
++static int smd_subdev_stop(struct rproc_subdev *subdev, bool crashed)
+ {
+ 	struct qcom_rproc_subdev *smd = to_smd_subdev(subdev);
+ 
+ 	qcom_smd_unregister_edge(smd->edge);
+ 	smd->edge = NULL;
++
++	return 0;
+ }
+ 
+ /**
+@@ -465,7 +471,7 @@ static int ssr_notify_start(struct rproc_subdev *subdev)
+ 	return 0;
+ }
+ 
+-static void ssr_notify_stop(struct rproc_subdev *subdev, bool crashed)
++static int ssr_notify_stop(struct rproc_subdev *subdev, bool crashed)
+ {
+ 	struct qcom_rproc_ssr *ssr = to_ssr_subdev(subdev);
+ 	struct qcom_ssr_notify_data data = {
+@@ -475,9 +481,11 @@ static void ssr_notify_stop(struct rproc_subdev *subdev, bool crashed)
+ 
+ 	srcu_notifier_call_chain(&ssr->info->notifier_list,
+ 				 QCOM_SSR_BEFORE_SHUTDOWN, &data);
++
++	return 0;
+ }
+ 
+-static void ssr_notify_unprepare(struct rproc_subdev *subdev)
++static int ssr_notify_unprepare(struct rproc_subdev *subdev)
+ {
+ 	struct qcom_rproc_ssr *ssr = to_ssr_subdev(subdev);
+ 	struct qcom_ssr_notify_data data = {
+@@ -487,6 +495,8 @@ static void ssr_notify_unprepare(struct rproc_subdev *subdev)
+ 
+ 	srcu_notifier_call_chain(&ssr->info->notifier_list,
+ 				 QCOM_SSR_AFTER_SHUTDOWN, &data);
++
++	return 0;
+ }
+ 
+ /**
+@@ -572,16 +582,18 @@ static int pdm_notify_prepare(struct rproc_subdev *subdev)
+ }
+ 
+ 
+-static void pdm_notify_unprepare(struct rproc_subdev *subdev)
++static int pdm_notify_unprepare(struct rproc_subdev *subdev)
+ {
+ 	struct qcom_rproc_pdm *pdm = to_pdm_subdev(subdev);
+ 
+ 	if (!pdm->adev)
+-		return;
++		return 0;
+ 
+ 	auxiliary_device_delete(pdm->adev);
+ 	auxiliary_device_uninit(pdm->adev);
+ 	pdm->adev = NULL;
++
++	return 0;
+ }
+ 
+ /**
+diff --git a/drivers/remoteproc/qcom_sysmon.c b/drivers/remoteproc/qcom_sysmon.c
+index 913e3b750a86..44b905a7e129 100644
+--- a/drivers/remoteproc/qcom_sysmon.c
++++ b/drivers/remoteproc/qcom_sysmon.c
+@@ -531,7 +531,7 @@ static int sysmon_start(struct rproc_subdev *subdev)
+ 	return 0;
+ }
+ 
+-static void sysmon_stop(struct rproc_subdev *subdev, bool crashed)
++static int sysmon_stop(struct rproc_subdev *subdev, bool crashed)
+ {
+ 	struct qcom_sysmon *sysmon = container_of(subdev, struct qcom_sysmon, subdev);
+ 	struct sysmon_event event = {
+@@ -548,7 +548,7 @@ static void sysmon_stop(struct rproc_subdev *subdev, bool crashed)
+ 
+ 	/* Don't request graceful shutdown if we've crashed */
+ 	if (crashed)
+-		return;
++		return 0;
+ 
+ 	if (sysmon->ssctl_instance) {
+ 		if (!wait_for_completion_timeout(&sysmon->ssctl_comp, HZ / 2))
+@@ -559,9 +559,11 @@ static void sysmon_stop(struct rproc_subdev *subdev, bool crashed)
+ 		sysmon->shutdown_acked = ssctl_request_shutdown(sysmon);
+ 	else if (sysmon->ept)
+ 		sysmon->shutdown_acked = sysmon_request_shutdown(sysmon);
++
++	return 0;
+ }
+ 
+-static void sysmon_unprepare(struct rproc_subdev *subdev)
++static int sysmon_unprepare(struct rproc_subdev *subdev)
+ {
+ 	struct qcom_sysmon *sysmon = container_of(subdev, struct qcom_sysmon,
+ 						  subdev);
+@@ -574,6 +576,8 @@ static void sysmon_unprepare(struct rproc_subdev *subdev)
+ 	sysmon->state = SSCTL_SSR_EVENT_AFTER_SHUTDOWN;
+ 	blocking_notifier_call_chain(&sysmon_notifiers, 0, (void *)&event);
+ 	mutex_unlock(&sysmon->state_lock);
++
++	return 0;
+ }
+ 
+ /**
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index f003be006b1b..21127d972bff 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -1113,20 +1113,28 @@ static int rproc_start_subdevices(struct rproc *rproc)
+ static void rproc_stop_subdevices(struct rproc *rproc, bool crashed)
+ {
+ 	struct rproc_subdev *subdev;
++	int ret;
+ 
+ 	list_for_each_entry_reverse(subdev, &rproc->subdevs, node) {
+-		if (subdev->stop)
+-			subdev->stop(subdev, crashed);
++		if (subdev->stop) {
++			ret = subdev->stop(subdev, crashed);
++			if (ret)
++				dev_warn(&rproc->dev, "subdev stop failed: %d\n", ret);
++		}
+ 	}
+ }
+ 
+ static void rproc_unprepare_subdevices(struct rproc *rproc)
+ {
+ 	struct rproc_subdev *subdev;
++	int ret;
+ 
+ 	list_for_each_entry_reverse(subdev, &rproc->subdevs, node) {
+-		if (subdev->unprepare)
+-			subdev->unprepare(subdev);
++		if (subdev->unprepare) {
++			ret = subdev->unprepare(subdev);
++			if (ret)
++				dev_warn(&rproc->dev, "subdev unprepare failed: %d\n", ret);
++		}
+ 	}
+ }
+ 
+diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
+index d5e9ff045a28..128d3088a959 100644
+--- a/drivers/remoteproc/remoteproc_virtio.c
++++ b/drivers/remoteproc/remoteproc_virtio.c
+@@ -480,7 +480,7 @@ static int rproc_vdev_do_start(struct rproc_subdev *subdev)
+ 	return rproc_add_virtio_dev(rvdev, rvdev->id);
+ }
+ 
+-static void rproc_vdev_do_stop(struct rproc_subdev *subdev, bool crashed)
++static int rproc_vdev_do_stop(struct rproc_subdev *subdev, bool crashed)
+ {
+ 	struct rproc_vdev *rvdev = container_of(subdev, struct rproc_vdev, subdev);
+ 	struct device *dev = &rvdev->pdev->dev;
+@@ -489,6 +489,8 @@ static void rproc_vdev_do_stop(struct rproc_subdev *subdev, bool crashed)
+ 	ret = device_for_each_child(dev, NULL, rproc_remove_virtio_dev);
+ 	if (ret)
+ 		dev_warn(dev, "can't remove vdev child device: %d\n", ret);
++
++	return ret;
+ }
+ 
+ static int rproc_virtio_probe(struct platform_device *pdev)
+diff --git a/drivers/rpmsg/mtk_rpmsg.c b/drivers/rpmsg/mtk_rpmsg.c
+index 1b670ed54cfa..d8ea77055f31 100644
+--- a/drivers/rpmsg/mtk_rpmsg.c
++++ b/drivers/rpmsg/mtk_rpmsg.c
+@@ -326,7 +326,7 @@ static int mtk_rpmsg_prepare(struct rproc_subdev *subdev)
+ 	return 0;
+ }
+ 
+-static void mtk_rpmsg_unprepare(struct rproc_subdev *subdev)
++static int mtk_rpmsg_unprepare(struct rproc_subdev *subdev)
+ {
+ 	struct mtk_rpmsg_rproc_subdev *mtk_subdev = to_mtk_subdev(subdev);
+ 
+@@ -334,9 +334,11 @@ static void mtk_rpmsg_unprepare(struct rproc_subdev *subdev)
+ 		mtk_rpmsg_destroy_ept(mtk_subdev->ns_ept);
+ 		mtk_subdev->ns_ept = NULL;
+ 	}
++
++	return 0;
+ }
+ 
+-static void mtk_rpmsg_stop(struct rproc_subdev *subdev, bool crashed)
++static int mtk_rpmsg_stop(struct rproc_subdev *subdev, bool crashed)
+ {
+ 	struct mtk_rpmsg_channel_info *info, *next;
+ 	struct mtk_rpmsg_rproc_subdev *mtk_subdev = to_mtk_subdev(subdev);
+@@ -372,6 +374,8 @@ static void mtk_rpmsg_stop(struct rproc_subdev *subdev, bool crashed)
+ 		kfree(info);
+ 	}
+ 	mutex_unlock(&mtk_subdev->channels_lock);
++
++	return 0;
+ }
+ 
+ struct rproc_subdev *
+diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+index 7c1546d48008..315c479d163a 100644
+--- a/include/linux/remoteproc.h
++++ b/include/linux/remoteproc.h
+@@ -335,8 +335,8 @@ struct rproc_subdev {
+ 
+ 	int (*prepare)(struct rproc_subdev *subdev);
+ 	int (*start)(struct rproc_subdev *subdev);
+-	void (*stop)(struct rproc_subdev *subdev, bool crashed);
+-	void (*unprepare)(struct rproc_subdev *subdev);
++	int (*stop)(struct rproc_subdev *subdev, bool crashed);
++	int (*unprepare)(struct rproc_subdev *subdev);
+ };
+ 
+ /* we currently support only two vrings per rvdev */
 -- 
 2.53.0
 
