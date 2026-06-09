@@ -4,110 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A022CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8BFCD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 18:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=; b=hY8UM7scEk53bcYNQoZoS+/XZR
-	Zkh7mTylMp/JCcDrWG8bTLSlTtU3PS5FLZ9k0oRjMH4XgRhis729XaUxeL4J1on4PbkKm+WYRRxcb
-	eNPAUVkzjAAxQzdbBfUhpUu9mtRvTP3KUMj9U4jM5jz121Of9n4/qQRSxBKFXaL2UbOKdVECeeP4S
-	o5U/o2c8LorA94HGyF72VqJuG2buttXmeS7Bj9Yg/MCZ78H2QbwxHLvGfGTJjRjJYetGK0eKYsIMe
-	v2umOLhR/4SiytBcKgcCyOdFDbZzks8l6IrxtbNvJx79eXs20rAE5GndCDWYBTscdx3u13dv7l5yD
-	t78k0R5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ugU9VS+djQcCi7Ijxcbj58hPt9KlHsIRjlMUCkTq2R0=; b=Iomcbxd2fDSAEJcrtCp013gj/7
+	2hd876jmRikvdg/WV7cpRDbp314JzXYTWqrx9gC0myFpQfkeu8Dg+Y+Lr4Q4ponFJ/xsecIPMwZ1o
+	uzMTqlc+HU/gDsNtKgzI5JOmcxQo0e1QE615+o0vn6R23qMgPAAuDrCjYOJRMdkIBU6TQHzYvBDzQ
+	nyvVIfA0IUkRKg8PHHpQ2MN9Jqjz6LTs2pkYy8Qf1jFt18KTY7THAF+B9YZJEYuJrcdkzK+7Zy0oc
+	HHVnsU+oueyZaG0NkEFFjA1h3v0zCtHVAjSbuw7qjrTPqSsFN4Ix7/3PY4t6YyQ275xKWZUDuw/rD
+	r/iuz9pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX14a-00000006BiS-0OZ6;
-	Tue, 09 Jun 2026 18:21:12 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wX1Dl-00000006CEU-3D7K;
+	Tue, 09 Jun 2026 18:30:41 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX14W-00000006Bho-2jEy
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 18:21:10 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-68ced08613aso47621a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 11:21:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781029267; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SROsTRDoklw0qvD4ikk2FaBFhdhi9cZD3RV2VyVwm8BkurzIO2/gp+kq+S/YmvOCUA
-         D8OOe3k3CO2Nczhi2n/wlJEqJouXhrXV3AQqpccum7GuCeaoNM4bhEpZI7t7PXBcMhBf
-         SNKKKbXoTkvHl3aMxA58TE4E0Cwn1/Yhj5koS9HCuPRdM1QJbX7LlTLOfyVfXFeMO5qx
-         mbmqjd1UPl0GPibO3a2QbF9uXhG7ymK+gOz9Eg5vPq3Zz9PXIvxcK687KGH8MQDpEXY6
-         rxp8j1gAROJkl9yg5PyKUIBBrvJv+FJYmARHn2WuLBzxQCdhZAQBKQOIVPbCIWYdw6q4
-         4UAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=;
-        fh=dhwYiYqaXnDlcYtmPSpOQ1w8tPFudJ/rzzXVZ8zoKyo=;
-        b=gY2tjYkqsx4aO37/+FDy8z5rjLbCiRY2iMuMN11ECc+uRhzLNAHrePkHOkXmCInv0/
-         /kM/2jk8yaDdnFncYcGPYpb1WE/Rzb6+A9wV1HPIWs8Qd9roUj/lMWSdxKSr8eGFOVsu
-         A+kKsze/+16DqrQcom7fPsQFD3l7PG+ACuHhvskk7tngpYWRM0sQxTSfys7d4kSfAHWr
-         5VBvhl2tdpcia4igtJXX+GUsyK9/aN2rQGBEyai+sV2LaZE/Rxtm+y4F2FM63RphNB3f
-         47KbpcIY7abBdIOXGMJZXp4zjmAyfzeiffbFp3ndS+dDDH1AN1Iq8iUM/hVJOWWuEfkv
-         HvmA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781029267; x=1781634067; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=;
-        b=k49c0Lsos0d0QVQK6hRIzT+GnjHuLVgR7/vdPS0ZQs3WwFQaas9G2st5eMnIdHZga+
-         JrANUUpwKfNPkASoYiDD1SNPxH+N/lZn8z2GfGi/LIUmKndY3G/gkozNGIPHjvt20ehZ
-         GxdbmEc7t4gV8ZdeOUVeh7sPT9vLvzqgjYT6HRhHjK9hXKlmVC70YW+WS5gLVS/0EGDC
-         TXkfDKyTSYX3TrVul3Inxe1Ol2AZO8LX33Ggd+Z3g7R90dOVSpuiEY1vsfew5wdSSc+d
-         1y5h1aPF4uQvhOMXpP/avfw1gCK87qeWqglUd+kWf4CUCRycTd9xQjS8+8rJd+xUw19d
-         /n+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781029267; x=1781634067;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RxRV+giO3XkJijo1vRcVAE46LXSC1XwSsC6Fxr10BXY=;
-        b=rEzucqvTOFLbTeelp4xaka6Qdaj6dNv55S0vBVYxetblfHf4jjPojXORGRZOECcY8y
-         ScqT/VipZe2/jUEl/6z+ZBn5prMz3tz12ZwyhhjWHli8SEMFLXDdsdl06e6VqzRdxgaG
-         PDPcz5hdd3EP0o+oW+buCzD/hfTcHAH+asyjSHTq1lKbaSM6z3wJhNn9cCNzerE1zAdz
-         HHdePvPdEvwxS6J+MAGs8UFyDs5vuTM+gShVVEMSR0bLkStf4qnYVyiqUEXsptboxYbl
-         P2UY9fQND9RGFWmmU3Y0sei7o8QOUFjPqO6te7a1MboKLG0KmaOreMVrfE3qOmEn+Icg
-         S13w==
-X-Forwarded-Encrypted: i=1; AFNElJ89CEu71v4N4LGnIh/rwDRVxpI3YFDXThJ6im3yb2s5BndI/V6mVkfd7RToyAydknrGv317hezoOj5pSwxjbvto@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA3izOOvJFvvWURS7koXNn2379QVXs59a4HhYO0yvV+exAd6sB
-	02dHSbP/2FLicd/mn/XTZ6afZE+e8bz844xdPXt/KkyD/C8lxDlHmsyoADYzaOLQ83/LE8z2t2f
-	3wToNbfHdVRsogoUrXjRoPDacZ1UX8NDvcfF2NMqX
-X-Gm-Gg: Acq92OEn+pnEjq/vBUT1+L/d+qafSCAqMNF5iPyFnpwLO3tGXMh9Z51i7cpOwbK5WUO
-	PpyM2Pq5q+qdNy9d6UWVRAgw3CKotEbUpiQyZ/foFXffD4bUsI6l+/3d3o4wxz3vCEaKcRv0pwl
-	EeEmnNreBekQo+MFK1s3mh7k+S8ryuXYhoWCJYlFXQBqr1SbNYf14ZpDxoI3Hg/wUqrxYtAVYlg
-	DOpIWhk9HqU6jejs+9FCMzrVnxNk1P1hwqHBc1NnoFEqvtsXhBKIGYw/iipypfndUBtf7vtjtYD
-	agMdqZ/OYVqXPgPq5uiTvz/TtafTKc0A2z+RZUf4HNHPNNkG
-X-Received: by 2002:a05:6402:31ec:b0:68f:d45f:e495 with SMTP id
- 4fb4d7f45d1cf-68fe9382c98mr232792a12.12.1781029265990; Tue, 09 Jun 2026
- 11:21:05 -0700 (PDT)
+	id 1wX1Dh-00000006CE4-33o5;
+	Tue, 09 Jun 2026 18:30:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781029838; x=1812565838;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=W0vFigz4egcwCqqfYcLa0B3UG4B5j/8tAmG05me37jA=;
+  b=HxQOyV8EGuq9nL1DH3ja9V/91ybVg0T1ftyrthaZtN4Tqk1MvhHml19L
+   OGY9n36V1sB2bGIoalMc8dD/xyX7NNeT53wbt9BPrYbH4uBRnW8oP1tsb
+   hYa29Yoy4Pc8SNs/l68eSGHtGTaquKFXcZEdzpKM+4L7Y72NHZv0nGo0K
+   j1iW8frar2AlA4DQnAaJvPZWvvaIBS/VIcSNcWWRd3GVTvwXHKDc8pi70
+   69uBLUWzUyy6KtElQKlUZhGSz5QipSvTxKNQ18Sk/0S44F45lVyS26AOn
+   oNbXLI9ia3G4+98P1iwZGabtITI80vYh2wfBAkWMeMOqNbivm2TXy90n1
+   w==;
+X-CSE-ConnectionGUID: PK+4PGdZRTCDpDeODkNlJg==
+X-CSE-MsgGUID: troVyXvrQ2ynJ/lngGhZEQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11812"; a="81781638"
+X-IronPort-AV: E=Sophos;i="6.24,196,1774335600"; 
+   d="scan'208";a="81781638"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 11:30:37 -0700
+X-CSE-ConnectionGUID: 1+SmyyssQRKPAPX76A14TQ==
+X-CSE-MsgGUID: XHLlIjFDTwKlwWHCZBRSQA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,196,1774335600"; 
+   d="scan'208";a="241798924"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.162])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 11:30:33 -0700
+Date: Tue, 9 Jun 2026 21:30:30 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: rva333@protonmail.com
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 2/4] iio: adc: mt6323-auxadc: add mt6323 PMIC AUXADC
+ driver
+Message-ID: <aihbxowyAIlSeDjH@ashevche-desk.local>
+References: <20260609-mt6323-adc-v2-0-aa93a22309f9@protonmail.com>
+ <20260609-mt6323-adc-v2-2-aa93a22309f9@protonmail.com>
 MIME-Version: 1.0
-References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-8-praan@google.com>
- <CAE2F3rDF5dVJip2gc+vaxtM-FRttnUEnAetUYz6qDCXRM=fNYg@mail.gmail.com>
- <aiZe97OkmvcUwCzS@google.com> <CAE2F3rDZupDgq5tQrvpuixGi-kVs+oi-Tacqa=Rxtri03LBPHQ@mail.gmail.com>
- <aiflaI4svEJvZbsC@google.com>
-In-Reply-To: <aiflaI4svEJvZbsC@google.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Tue, 9 Jun 2026 11:20:52 -0700
-X-Gm-Features: AVVi8CeTKRxbhFjrttlZsJY9AQdiqj4OtT4AHceLLJ3_VrIG10WtubU1Iu-Bo5A
-Message-ID: <CAE2F3rDgXxAhJFUX6=xars9H92t8NBDqcFRxU7d5wJQ7buUbNA@mail.gmail.com>
-Subject: Re: [PATCH v8 07/12] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
- gate CMDQ submissions
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260609-mt6323-adc-v2-2-aa93a22309f9@protonmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_112108_856031_19B648AA 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20260609_113037_867086_2311E5A9 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,176 +97,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 9, 2026 at 3:05=E2=80=AFAM Pranjal Shrivastava <praan@google.co=
-m> wrote:
-> >
-> > > Even if the worker CPU reorders the PTE write after the STOP_FLAG che=
-ck,
-> > > it is benign because the SMMU is incapable of fetching that (or any) =
-PTE
-> > > while the gate is closed. Because GATE_CLOSED =3D=3D SMMUEN =3D 0, im=
-plying no
-> > > access to any HW structures whatsoever.
-> > >
-> > > The real synchronization happens in the Resume Path:
-> > >
-> > > 1. arm_smmu_device_reset() clears all caches / TLBs.
-> > >    (None of these can have entries before SMMUEN=3D1)
-> > >
-> > > 2. We execute a full smp_mb() before setting SMMUEN=3D1. (that's why =
-we
-> > >    need smp_mb before SMMUEN=3D1). This barrier ensures that any PTE
-> > >    writes made by any thread=E2=80=94including those that were elided=
- while the
-> > >    gate was closed, are globally visible before the SMMU hardware sta=
-rts
-> > >    fetching into TLBs again. (This is why Jason suggested this in v6 =
-[1])
-> >
-> > A barrier on one CPU has no bearing on whether writes by any other CPU
-> > can be observed by any particular agent in the system.
-> >
-> > Let's compare this with the long comment in
-> > arm_smmu_domain_inv_range() which is what I believe Jason was
-> > referring to. In that example, you see smp_mb() in the code path on
-> > CPU0 and dma_wmb() in the code path on CPU1. Hence, barriers exist on
-> > both sides. If you compare the runtime PM design with
-> > arm_smmu_domain_inv_range(), then smp_mb() belongs in the CPU thread
-> > that performs the translation table updates not the one that performs
-> > the suspend/resume operation.
-> >
->
-> I might be missing something here, so please bear with me. My
-> understanding it that's needed because the IOMMU is live & actively
-> caching, which is not true for our case.
+On Tue, Jun 09, 2026 at 04:31:59PM +0300, Roman Vivchar via B4 Relay wrote:
 
-I think the "invs" design (Per-domain invalidation array) is more
-similar than you think! An SMMU being absent from invs is equivalent
-to the STOP flag, and the STE pointing to TTB0 is roughly the
-equivalent of SMMEN=3D1 i.e. the IOMMU is not actively caching a
-particular translation domain until an STE (or CD) points to it.
+> The mt6323 AUXADC is a 15-bit ADC used for system monitoring. This driver
+> provides support for reading various channels including battery and
+> charger voltages, battery and chip temperature, current sensing and
+> accessory detection.
+> 
+> Add a driver for the AUXADC found in the MediaTek mt6323 PMIC.
 
-> [Assuming we use non-relaxed semantics & ordering for the STOP flag,
-> i.e. set STOP_FLAG + barrier & clear STOP_FLAG (implicit dma_wmb())]
->
-> In our case, during the resume op, we first clear the STOP_FLAG before
-> setting SMMUEN=3D1 in program order. Thus, any PTE invalidations occurrin=
-g
-> before SMMUEN=3D1 are executed, i.e. EVEN when the SMMU is guaranteed not
-> to access any structures, we've resumed invalidations.
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-"[...] we first clear the STOP_FLAG before setting SMMUEN=3D1 in program
-order." I think this should be modified to "we first clear the
-STOP_FLAG and ensure that the cleared STOP_FLAG is observable by all
-other CPUs before setting SMMUEN=3D1"
+A few nit-picks, most important from which is the scoped_guard() versus
+guard()() use.
 
-Re "Thus, any PTE invalidations occurring before SMMUEN=3D1 are
-executed,": I think that "a PTE invalidation occurring" is not clearly
-defined. Also, it's not clear to me what this statement implies. It's
-paramount that invalidations are performed when SMMUEN=3D1. The fact
-that we perform invalidations before SMMUEN=3D1 is more of a side effect
-of our methodology.
+...
 
-I would define a set of invariants:
+> +static int mt6323_auxadc_prepare_channel(struct mt6323_auxadc *auxadc)
+> +{
+> +	struct regmap *map = auxadc->regmap;
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret = regmap_read(map, MT6323_AUXADC_CON19, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* The ADC is idle. */
+> +	if (!(val & AUXADC_CON19_DECI_GDLY_MASK))
+> +		return 0;
 
- * If an agent observes the STOP flag, it is guaranteed that SMMUEN=3D0
-(with ABORT set) at the time of observation.
- * Any transition from a set STOP flag to SMMUEN=3D1 involves an
-invalidate-all operation prior to setting SMMUEN=3D1
+> +	ret = regmap_read_poll_timeout(map, MT6323_AUXADC_ADC19, val,
+> +				       !(val & AUXADC_ADC19_BUSY_MASK),
+> +				       10, 500);
 
-Hence, if a CPU observes the STOP flag, it is assured that (a)
-transactions are blocked and (b) if the SMMU is ever re-enabled, an
-invalidate-all is performed prior to it being enabled.
+It's better to split on logical boundaries:
 
-I would then argue that all operations support these invariants. For
-example, we need proper barriers in the iommu_unmap path to ensure
-that the STOP flag is only checked *after* the translation table
-update is made. Hence, we need a memory barrier.
+	ret = regmap_read_poll_timeout(map, MT6323_AUXADC_ADC19,
+				       val, !(val & AUXADC_ADC19_BUSY_MASK),
+				       10, 500);
 
-I look at it this way: Every elided invalidation creates an
-"invalidation deficit", and this deficit is tolerable for two reasons:
-(a) SMMU blocks all transactions while there is a deficit. (b) An
-invalidate-all eliminates any deficit accrued while the STOP flag was
-set.
+> +	if (ret)
+> +		return ret;
+> +
+> +	return regmap_clear_bits(map, MT6323_AUXADC_CON19,
+> +				 AUXADC_CON19_DECI_GDLY_MASK);
+> +}
 
-> Let's consider a few examples:
->
-> 1. SUSPEND (say CPU0 is suspending)
->
-> [CPU0] SMMUEN =3D 0 =3D=3D> SMMU stops accessing HW structures (ABORT NOT=
- set)
+...
 
-I thought we never disable the SMMU unless ABORT is set.
+> +static int mt6323_auxadc_read(struct mt6323_auxadc *auxadc,
+> +			      const struct iio_chan_spec *chan, int *out)
+> +{
+> +	struct regmap *map = auxadc->regmap;
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret = regmap_read_poll_timeout(map, chan->address, val, (val & AUXADC_READY_MASK),
+> +				       1 * USEC_PER_MSEC, 100 * USEC_PER_MSEC);
+
+Perhaps
+
+	ret = regmap_read_poll_timeout(map, chan->address,
+				       val, (val & AUXADC_READY_MASK),
+				       1 * USEC_PER_MSEC, 100 * USEC_PER_MSEC);
+
+(see above why).
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	*out = FIELD_GET(AUXADC_DATA_MASK, val);
+> +
+> +	return 0;
+> +}
+
+...
+
+> +	case IIO_CHAN_INFO_RAW:
+> +		scoped_guard(mutex, &auxadc->lock) {
+
+I'm wondering why we haven't moved to guard()() here
+
+	case IIO_CHAN_INFO_RAW: {
+		guard(mutex)(&auxadc->lock);
+
+> +			ret = mt6323_auxadc_prepare_channel(auxadc);
+> +			if (ret)
+> +				return ret;
+> +
+> +			ret = mt6323_auxadc_request(auxadc, chan->channel);
+> +			if (ret)
+> +				return ret;
+> +
+> +			/* Hardware limitation: the AUXADC needs a delay to become ready. */
+> +			fsleep(300);
+> +
+> +			ret = mt6323_auxadc_read(auxadc, chan, val);
+> +
+> +			if (mt6323_auxadc_release(auxadc, chan->channel))
+> +				dev_err(&indio_dev->dev,
+> +					"failed to release channel %d\n", chan->channel);
+> +
+> +			if (ret)
+> +				return ret;
+> +		}
+> +		return IIO_VAL_INT;
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
->                       HW structures not accessed means no TLB / CFG
->                       cache accesses as well according to the spec.
->
-> [CPU1] =3D=3D> PTE update =3D> Invalidate =3D> Succeeds (although SMMUEN =
-=3D 0)
->
-> [CPU0] GBPA.Abort set =3D=3D> Txns are blocked
->
-> [CPU2] =3D> PTE update =3D> Invalidate =3D> Succeeds [Txns blocked + SMMU=
-EN=3D0]
->
-> [CPU0] =3D=3D> SET STOP_FLAG =3D=3D> Elision begins
->
-> [CPU3] =3D=3D> PTE update =3D=3D> Invalidation =3D=3D> Elided [Txns block=
-ed + SMMUEN=3D0]
->
-> Hence, the races in the suspend sequence are handled correctly.
-
-I'm not sure if this description demonstrates that every possible race
-is handled correctly. If I compare this with Nicolin's presentation in
-arm_smmu_domain_inv_range, I like that presentation, as it explicitly
-mentions loads and barriers. For example, it has an smp_mb() followed
-by "// load the updated invs". I think you should make have something
-like "smp_mb() ; CHECK STOP_FLAG" in your presentation. Currently, the
-STOP_FLAG checking is somehow implicit in "Invalidation".
-
->
-> 2. RESUME (say CPU0 is resuming)
->
-> [CPU1] =3D=3D> Update PTE =3D=3D> Invalidate =3D=3D> Elided [Txns blocked=
- + SMMUEN=3D0]
->
-> [CPU0] =3D=3D> Clear STOP_FLAGs [Txns still blocked + SMMUEN=3D0]
->
-> [CPU2] =3D=3D> Update PTE =3D=3D> Invalidate =3D=3D> Succeeds [Txns block=
-ed + SMMUEN=3D0]
->
-> [CPU0] =3D=3D> Invalidate all TLB =3D=3D> Succeeds [Txns still blocked + =
-SMMUEN=3D0]
-> [CPU0] =3D=3D> Invalidate all CFG =3D=3D> Succeeds [Txns still blocked + =
-SMMUEN=3D0]
->
-> [CPU2] =3D=3D> Update PTE =3D=3D> Invalidate =3D=3D> Succeeds [Txns still=
- blocked + SMMUEN=3D0]
->
-> [CPU0] =3D=3D> Set SMMUEN =3D 1 [SMMU can now access in memory structures=
-]
->            However, the TLBs and CFG caches are clean because everything
->            until this point couldn't have cached anything anyway.
-
-My concern with this diagram is that it appears sequential, suggesting
-operations happen in a specific order across CPUs when they, in fact,
-occur in parallel. I find these diagrams more useful for describing
-failure cases than for proving that every race is handled correctly.
-
->
-> Hence, right after clearing the STOP_FLAG, we're taking in invalidations
-> as normal in the resume, much before the real caching can begin.
->
-> Thus, by resuming invalidations before SMMUEN=3D1, we guarantee a
-> consistent state before the very first translation is performed.
->
-> Apart from this, I guess I'll drop the can_elide check from all
-> invalidation paths.
->
-> Does that sound fine?
-
-Dropping can_elide sounds fine. However, if you still use this
-function, for example in the gerror handler, then you might consider
-renaming it.
 
