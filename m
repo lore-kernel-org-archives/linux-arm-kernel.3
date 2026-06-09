@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6DACD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E50CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 09:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJ60kBjWAJGClfdgON5i50ME0WuDweXsexe8c1DjGOY=; b=FmhsImTZwlvLkYWK/ar0xcZCej
-	f8qPq4Q2AWv0aqlVRW7TxVowBIFsxFtylWj6X+oR7cb4tbPqOWmSu7CxrQh3PXxb2o7vYpToJPSOY
-	Z2Tqbm4oXFWt2rykCUPoeX5LvTnSh8AbEKQ8H8ywFJFzjH6oYR3GWiajPhBFVOfyVFyTr1wfhXdwn
-	oa/sXFKq93afxRF0TXFrsBN/BwHD6x5LVNuDOTFXujDorO3ZI1u6RZl88zvBgIYeU8HBj/DE1U7E9
-	Wf9HymC5oTeO2lEj8emK3/l2nTTWj219kTSHYEG8BMRCv2qp4tv3MreTOWD7mHGk+bNxMdviLx61F
-	k27sDqzQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pRzTXFA5FdxPZzzcvlQRBiMd6g7fdENgr5qKURqqC88=; b=Yhp7IKJzzLjIdEBORJYLZuwFHd
+	2xST4WBjPO++eP7LZhGFLuFx1t6HYnVCKm9UqwA7xmUgorEp3wmR+MlFIY8RDmoYhlq07QaREyKfL
+	08CKp6c59RrLsF+cDPRCWXfGjDhIpc9CpHdUrZHiNqIKjWOCD1XCdpPqKskxDZKVgqrTXxwGOgyuz
+	jZEjMB9Hb2ZhZNc2r7z0KaDPYlYncIMG3zFA5ixlwN5XA2anLXrLZ88l7+73dgL25WDLzPIcq1vBx
+	6hFiXCzr8FndVZhtbidvE15GWgxSdQqsPGCI9/0LxoTb7oAu1yyuQCqv7J7GmJWpRCxxkrTL+YMxE
+	dz/VN6Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWshm-00000005CWa-1jGp;
-	Tue, 09 Jun 2026 09:25:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wWsmA-00000005CxJ-0nDh;
+	Tue, 09 Jun 2026 09:29:38 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWshl-00000005CWT-0Q4d
+	id 1wWsm7-00000005Cwm-2TxE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 09:25:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C0BB4455A;
-	Tue,  9 Jun 2026 09:25:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46FAE1F00893;
-	Tue,  9 Jun 2026 09:24:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780997104;
-	bh=yJ60kBjWAJGClfdgON5i50ME0WuDweXsexe8c1DjGOY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=EQcaFDcvAfJBZLt1sk2F4oVpqklrDooFDyAR9r8krEc6Cttbx38JBoke99EX5oJib
-	 AZChEhROze4PqPSzWKRsvXXAlewpzJKxknovpGTuHmLf5gdLOFY8DPC8fDWl/5YHok
-	 snctg/OfXjCKJlOojBpxLCDUqgMH3ZDO0Wj2O24IBet5+2whuRhwxurtAc2KtHXh2D
-	 aBYFPGOrZclVsXVPHB7Gdd9ExuPALR0f50hXDqP4KAlGdtM7RZeD7dVGRugpj+dpvr
-	 xmZc9YGlnF02UkKwPcX2YqSFLw9WC15mYNHfdLeaF0BN6oE/W0cwbJx7z68ttx4juG
-	 cBKWior0bcVLQ==
-Message-ID: <c50194dd-3a3c-4193-9296-1e35c6732351@kernel.org>
-Date: Tue, 9 Jun 2026 11:24:57 +0200
+	Tue, 09 Jun 2026 09:29:36 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490a7629453so4630455e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 02:29:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780997374; x=1781602174; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pRzTXFA5FdxPZzzcvlQRBiMd6g7fdENgr5qKURqqC88=;
+        b=DvmbeOGu3Wcx9pt+qIXtOuNa2Qf4ce+g3tP+g+D5ozkZ7oJu0lWDNNO/AIL7PHDe5J
+         KGQDHq+EoXrgISfj85zKkHc0BxM/Af9BPLclXZz8ifMev7uG5a0vASY+qfXWbYJP0FMK
+         DyamaYMrQCCvXafQ/5aBhTSUVaex7vFkC45JWHuWt2hue4/KAt/EHXvFcI87+yKTpodq
+         9QCsbZaMarhuflqc76qIdIUadtwrK0RfQuOdQ1qtHgwxbd0+vl9kZQY8CIbbLje0Cxr5
+         a0LcnmLG2dTZ4ch47kGkqem1O8EEBC14Z5w9gm7woEzL2Oj1rI59BUXzm3gbVJI+NtO0
+         M+sQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780997374; x=1781602174;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pRzTXFA5FdxPZzzcvlQRBiMd6g7fdENgr5qKURqqC88=;
+        b=i6hMi0iP/lhYu05hNQXTA0BcvNoP8lYa4vVc3rk96ess+cLcGvnKL+EJbzm+mnQt5c
+         xbUHyy19szyf3fUdLQke6sM+/t6inuScUMvQxhgTWiKNFPAONKcvg0dnf5abnL8+3D67
+         HJ5pcvG6WYarnS9hIW+7Cj3gv7NGtH1WFEM8IAMwJtfVz1V1qgtuI8a7GUuA9K5wA6ry
+         pUaKrND6UWeGHt77Jd4GanDriYBt8yE/gDHC7MoT0EUyczoc2/lpOw3UzW0Yu3/DUNgY
+         dAvlP/P9+dD2kFzMDqenDHSQNf6/0ZBXnzFASTQVLsNGCZ6AoRV5B8VO9hN4fIbAr0Xp
+         yb/w==
+X-Forwarded-Encrypted: i=1; AFNElJ+MdeUWKZEt9wG4jfn9BX8rlvpVKVddwuW/T0siOnwqeD8rkXFs2k/LTlpdkZERqhjasQ7PML6sdQeY/xrDrDq5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZqQrwu/TSvxJDzXJCBTq+nEOnB62G/vaaRQGYwnPt2yQPRKkj
+	y+DzIcAYQVPNxOGmE3vDYaRi7hYsUQ+LSyGmR7FL/5dq2uKtkoaabtms
+X-Gm-Gg: Acq92OHJ6l5rfWe+HUu5FpDNy95ytGnz9iojiVN/A0le0v3Fg3IXSxxeh1PNwVUD8wl
+	QrSxs2tLJ+191i0F9C8F613QqH4Ha9Jk46MS6qyxeA/CpRzdstyzaPjihzk1C4mMqwl1sNqbqxk
+	uV9aepEH+vA9S+scqTkK2760DeZCYS9yENdk1qA7eBe2N5868oHCEH7amcOIqyne5sZ6dfz+Wc/
+	qjC4LHcXxVniPiJ7J66z0RVwzGCDbypMbXYuwruQqEQvlVgMytu+Tp9E2L0eX+RnBoWcVBhtT6I
+	HHR36O4jcgxLVg5hxYhC+s+zdIDdNBu9N29TRdNerjAJ9oHIlcraAfmZ/n23XW6N5z2m4eUTRqC
+	WKyG/ZbndRWAdNVv1zeA53XC1czT/dahInZXoHpD8e4Kp8HuseK/FO3CEc80l/unEJuI9HdWZkl
+	vCL6sQJjA7F/KY8EWJD6dxjUYNUqfBH2P7DUJx/NUk0Qm0sQkLQshilzD638I81maJ7Q7c8t03Q
+	gCRCX4tHB8/
+X-Received: by 2002:a05:600c:45d1:b0:490:9f89:7eba with SMTP id 5b1f17b1804b1-490c2609e2fmr128490115e9.5.1780997373485;
+        Tue, 09 Jun 2026 02:29:33 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490c2d52e5esm226021065e9.2.2026.06.09.02.29.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 02:29:32 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: thorsten.blum@linux.dev,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	tudor.ambarus@linaro.org,
+	krzk+dt@kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [RFC PATCH v6 1/1] crypto: atmel-ecc - fix multi-device use-after-free and registration races
+Date: Tue,  9 Jun 2026 09:29:27 +0000
+Message-Id: <20260609092927.47222-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v4 3/8] can: flexcan: split rx/tx masks per mailbox
- IRQ line
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
- Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- linux-can@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>
-References: <20260603071342.641874-1-ciprianmarian.costea@oss.nxp.com>
- <20260603071342.641874-4-ciprianmarian.costea@oss.nxp.com>
-From: Vincent Mailhol <mailhol@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=mailhol@kernel.org; keydata=
- xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
- JFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbEBrZXJuZWwub3JnPsKZBBMWCgBBFiEE7Y9wBXTm
- fyDldOjiq1/riG27mcIFAmdfB/kCGwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcC
- F4AACgkQq1/riG27mcKBHgEAygbvORJOfMHGlq5lQhZkDnaUXbpZhxirxkAHwTypHr4A/joI
- 2wLjgTCm5I2Z3zB8hqJu+OeFPXZFWGTuk0e2wT4JzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrb
- YZzu0JG5w8gxE6EtQe6LmxKMqP6EyR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDl
- dOjiq1/riG27mcIFAmceMvMCGwwFCQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8V
- zsZwr/S44HCzcz5+jkxnVVQ5LZ4BANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
-In-Reply-To: <20260603071342.641874-4-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_022935_810324_5B1BD709 
+X-CRM114-Status: GOOD (  37.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,239 +105,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/06/2026 at 09:13, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> 
-> On S32G2, which has two mailbox IRQ lines (mb-0 for MBs 0-7, mb-1
-> for MBs 8-127), both handlers currently process the full rx_mask/tx_mask
-> range,
-> 
-> Introduce struct flexcan_mb_irq to hold per-IRQ-line rx and tx masks.
-> 
-> In flexcan_irq_mb(), the irq argument selects the correct mask set: the
-> primary MB IRQ uses mb_irq[0] and the secondary uses mb_irq[1].
-> 
-> For single-IRQ platforms, mb_irq[0] holds the full combined masks with no
-> functional change.
-> 
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> ---
->  drivers/net/can/flexcan/flexcan-core.c | 61 +++++++++++++++++++-------
->  drivers/net/can/flexcan/flexcan.h      | 10 ++++-
->  2 files changed, 52 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-> index 7dde2e623def..32e4d4da00a1 100644
-> --- a/drivers/net/can/flexcan/flexcan-core.c
-> +++ b/drivers/net/can/flexcan/flexcan-core.c
-> @@ -957,14 +957,16 @@ static inline void flexcan_write64(struct flexcan_priv *priv, u64 val, void __io
->  		priv->write(lower_32_bits(val), addr);
->  }
->  
-> -static inline u64 flexcan_read_reg_iflag_rx(struct flexcan_priv *priv)
-> +static inline u64 flexcan_read_reg_iflag_rx(struct flexcan_priv *priv,
-> +					    u64 rx_mask)
->  {
-> -	return flexcan_read64_mask(priv, &priv->regs->iflag1, priv->rx_mask);
-> +	return flexcan_read64_mask(priv, &priv->regs->iflag1, rx_mask);
->  }
->  
-> -static inline u64 flexcan_read_reg_iflag_tx(struct flexcan_priv *priv)
-> +static inline u64 flexcan_read_reg_iflag_tx(struct flexcan_priv *priv,
-> +					    u64 tx_mask)
->  {
-> -	return flexcan_read64_mask(priv, &priv->regs->iflag1, priv->tx_mask);
-> +	return flexcan_read64_mask(priv, &priv->regs->iflag1, tx_mask);
->  }
->  
->  static inline struct flexcan_priv *rx_offload_to_priv(struct can_rx_offload *offload)
-> @@ -1071,7 +1073,8 @@ static struct sk_buff *flexcan_mailbox_read(struct can_rx_offload *offload,
->  }
->  
->  /* Process mailbox (RX + TX) events */
-> -static irqreturn_t flexcan_do_mb(struct net_device *dev)
-> +static irqreturn_t flexcan_do_mb(struct net_device *dev,
-> +				 const struct flexcan_mb_irq *mb_irq)
->  {
->  	struct net_device_stats *stats = &dev->stats;
->  	struct flexcan_priv *priv = netdev_priv(dev);
-> @@ -1084,7 +1087,8 @@ static irqreturn_t flexcan_do_mb(struct net_device *dev)
->  		u64 reg_iflag_rx;
->  		int ret;
->  
-> -		while ((reg_iflag_rx = flexcan_read_reg_iflag_rx(priv))) {
-> +		while ((reg_iflag_rx = flexcan_read_reg_iflag_rx(priv,
-> +								 mb_irq->rx_mask))) {
->  			handled = IRQ_HANDLED;
->  			ret = can_rx_offload_irq_offload_timestamp(&priv->offload,
->  								   reg_iflag_rx);
-> @@ -1110,10 +1114,10 @@ static irqreturn_t flexcan_do_mb(struct net_device *dev)
->  		}
->  	}
->  
-> -	reg_iflag_tx = flexcan_read_reg_iflag_tx(priv);
-> +	reg_iflag_tx = flexcan_read_reg_iflag_tx(priv, mb_irq->tx_mask);
->  
->  	/* transmission complete interrupt */
-> -	if (reg_iflag_tx & priv->tx_mask) {
-> +	if (reg_iflag_tx & mb_irq->tx_mask) {
->  		u32 reg_ctrl = priv->read(&priv->tx_mb->can_ctrl);
->  
->  		handled = IRQ_HANDLED;
-> @@ -1125,7 +1129,7 @@ static irqreturn_t flexcan_do_mb(struct net_device *dev)
->  		/* after sending a RTR frame MB is in RX mode */
->  		priv->write(FLEXCAN_MB_CODE_TX_INACTIVE,
->  			    &priv->tx_mb->can_ctrl);
-> -		flexcan_write64(priv, priv->tx_mask, &regs->iflag1);
-> +		flexcan_write64(priv, mb_irq->tx_mask, &regs->iflag1);
->  		netif_wake_queue(dev);
->  	}
->  
-> @@ -1228,7 +1232,7 @@ static irqreturn_t flexcan_irq(int irq, void *dev_id)
->  	struct flexcan_priv *priv = netdev_priv(dev);
->  	irqreturn_t handled;
->  
-> -	handled = flexcan_do_mb(dev);
-> +	handled = flexcan_do_mb(dev, &priv->mb_irq[0]);
->  	handled |= flexcan_do_state(dev);
->  	handled |= flexcan_do_berr(dev);
->  
-> @@ -1243,9 +1247,15 @@ static irqreturn_t flexcan_irq_mb(int irq, void *dev_id)
->  {
->  	struct net_device *dev = dev_id;
->  	struct flexcan_priv *priv = netdev_priv(dev);
-> +	const struct flexcan_mb_irq *mb_irq;
->  	irqreturn_t handled;
-> +	int idx;
->  
-> -	handled = flexcan_do_mb(dev);
-> +	idx = (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ &&
-> +	       irq == priv->irq_secondary_mb) ? 1 : 0;
-> +	mb_irq = &priv->mb_irq[idx];
-> +
-> +	handled = flexcan_do_mb(dev, mb_irq);
->  
->  	if (handled)
->  		can_rx_offload_irq_finish(&priv->offload);
-> @@ -1473,6 +1483,7 @@ static void flexcan_ram_init(struct net_device *dev)
->  static int flexcan_rx_offload_setup(struct net_device *dev)
->  {
->  	struct flexcan_priv *priv = netdev_priv(dev);
-> +	u64 rx_mask, tx_mask;
->  	int err;
->  
->  	if (priv->can.ctrlmode & CAN_CTRLMODE_FD)
-> @@ -1494,20 +1505,35 @@ static int flexcan_rx_offload_setup(struct net_device *dev)
->  			flexcan_get_mb(priv, FLEXCAN_TX_MB_RESERVED_RX_FIFO);
->  	priv->tx_mb_idx = priv->mb_count - 1;
->  	priv->tx_mb = flexcan_get_mb(priv, priv->tx_mb_idx);
-> -	priv->tx_mask = FLEXCAN_IFLAG_MB(priv->tx_mb_idx);
-> -
->  	priv->offload.mailbox_read = flexcan_mailbox_read;
->  
->  	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_USE_RX_MAILBOX) {
->  		priv->offload.mb_first = FLEXCAN_RX_MB_RX_MAILBOX_FIRST;
->  		priv->offload.mb_last = priv->mb_count - 2;
->  
-> -		priv->rx_mask = GENMASK_ULL(priv->offload.mb_last,
-> -					    priv->offload.mb_first);
-> +		rx_mask = GENMASK_ULL(priv->offload.mb_last,
-> +				      priv->offload.mb_first);
-> +		tx_mask = FLEXCAN_IFLAG_MB(priv->tx_mb_idx);
-> +
-> +		if (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ) {
-> +			/* S32G2 has two MB IRQ lines with the split at MB 8:
-> +			 * mb-0 IRQ handles MBs 0-7,
-> +			 * mb-1 IRQ handles MBs 8-127.
-                                                  ^^^
-Your comment says 8-127 but the code uses GENMASK_ULL(63, 8). Is this
-intentional?
+During parallel driver initialization or driver teardown sequences
+in setups with multiple atmel-ecc instances, a race condition exists
+between atmel_ecc_i2c_client_alloc() and the probe/remove paths.
 
-> +			 */
-> +			priv->mb_irq[0].rx_mask = rx_mask & GENMASK_ULL(7, 0);
-> +			priv->mb_irq[0].tx_mask = tx_mask & GENMASK_ULL(7, 0);
-> +			priv->mb_irq[1].rx_mask = rx_mask & GENMASK_ULL(63, 8);
-> +			priv->mb_irq[1].tx_mask = tx_mask & GENMASK_ULL(63, 8);
-> +		} else {
-> +			priv->mb_irq[0].rx_mask = rx_mask;
-> +			priv->mb_irq[0].tx_mask = tx_mask;
-> +		}
-> +
+A concurrent transformation request can fetch an i2c_client instance
+from the global i2c_client_list before the kpp is fully registered, or
+while it is actively being unbound, resulting in a use-after-free (UAF)
+risk.
 
-The introduction of the struct flexcan_mb_irq seems a bit overkill.
-Can't you just define two new masks and keep the existing struct
-flexcan_stop_mode untouched:
+1. The initialization problem in probe(): Adding first an i2c client to the
+i2c_client_list, and then registering the kpp algorim may result in a race,
+when this happens for a second (or further) probed device. In this case the
+algorithm is already registered, so a TFM may arrive, while the latest
+probing device is added to the list, but not kpp registered. In case this
+fails and this last device is going to be removed again from the list, this
+leaves a window where the TFM might obtain a pointer to the - now deleted -
+i2c client, which opens a UAF risk. Furthermore, there will happen atempts
+to multiple registering the same driver to the same type of algorithm.
+Note, a simple reverting of the order: first register kpp, second add the
+i2c client to the i2c_client_list - is not possible here, since the kpp
+registration immediately triggers the self tests, which then will allocate
+and require an i2c client.
 
-	#define FLEXCAN_SECONDARY_MB_IRQ_MB0_MASK GENMASK_U64(7, 0)
-	#define FLEXCAN_SECONDARY_MB_IRQ_MB1_MASK GENMASK_U64(63, 8)
+2. The critical race condition problem: It exists when an Atmel device
+instance is rapidly removed and immediately re-probed, before the global
+resources are fully cleaned up. In this scenario, the asynchronous
+unregistration sequence in the remove() lags behind the incoming probe()
+function. Because of the global algorithm structure being not yet
+completely cleaned up, the newly re-probed device incorrectly intercepts
+the static, partially-dismantled global context. It then overwrites active
+pointers and re-acquires the global instance prematurely. In this way, when
+the deregistration sequence finally completes its execution, under the
+newly initialized device, it may lose the tracking references, leaking the
+older driver memory blocks, and introducing an immediate UAF risk.
 
-and when you need to access the MB, just select the correct mask. For
-example, flexcan_irq_mb() becomes something like this:
+3. The removal race problem, when a call to remove() starts removing the
+device, but another thread executing a TFM, a severe Time-of-Check to
+Time-of-Use (TOCTOU) race condition exists in the teardown path between the
+asynchronous remove() sequence and completing TFMs. When the device is
+unbound, the remove() function evaluates the active tfm_count and decides
+whether to wait or proceed with resource deallocation. However, if the
+final active TFM finishes its crypto operation and invokes the client free
+function immediately after remove() performs its reference check but before
+it can sleep, the completion signal is fired into a clearing state. The
+unbind thread then misinterprets the zeroed counter, skips the
+synchronization barrier entirely, and instantly deallocates the per-device
+private structures. This leaves the final TFM worker thread executing code
+inside a completely freed memory area, triggering an immediate UAF kernel
+panic. Note, simply calling the kpp unregister here won't clean up the
+situation in the context of having a setup with external hardware on a slow
+bus.
 
-	u64 mb_mask;
+Address this by implementing an independent subsystem reference counter
+kpp refcnt protected by a dedicated mutex to ensure the static global kpp
+algorithm structure is registered exactly once by the first probing device
+instance. In multi-device scenarios, or when extending the resource
+management support of the i2c_client_list to all atmel-i2c based device
+drivers, such scenarios can become realistic. The particular algorithm is
+registered only once. Each i2c client (i.e. each probing device driver) is
+added as client to the i2c_client_list. This guarantee that only the first
+probe will register the algorithm. The list is populated for further calls
+to probe, and subsequent calls to the client alloc function.
 
-	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_SECONDARY_MB_IRQ
-	    && irq == priv->irq_secondary_mb)
-		mb_mask = FLEXCAN_SECONDARY_MB_IRQ_MB0_MASK;
-	else
-		mb_mask = FLEXCAN_SECONDARY_MB_IRQ_MB1_MASK;
+Concurrently, decouple list mutations from registration by moving the
+global list eviction to the absolute top of the remove lifecycle. This
+keeps the quick execution of the list allocation loop intact, ensures that
+unbinding hardware is instantly blind to the rest of the system, and
+completely bypasses the recursive deadlock condition previously triggered
+by synchronous crypto API self-tests.
 
-	handled = flexcan_do_mb(dev, mb_mask);
+Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+Assisted-by: Gemini:1.5-Pro [google]
+---
+RFC: feedback and probably architectural decision needed
 
->  		err = can_rx_offload_add_timestamp(dev, &priv->offload);
->  	} else {
-> -		priv->rx_mask = FLEXCAN_IFLAG_RX_FIFO_OVERFLOW |
-> +		priv->mb_irq[0].rx_mask = FLEXCAN_IFLAG_RX_FIFO_OVERFLOW |
->  			FLEXCAN_IFLAG_RX_FIFO_AVAILABLE;
-> +		priv->mb_irq[0].tx_mask = FLEXCAN_IFLAG_MB(priv->tx_mb_idx);
->  		err = can_rx_offload_add_fifo(dev, &priv->offload,
->  					      FLEXCAN_NAPI_WEIGHT);
->  	}
-> @@ -1531,7 +1557,8 @@ static void flexcan_chip_interrupts_enable(const struct net_device *dev)
->  		disable_irq(priv->irq_secondary_mb);
->  
->  	priv->write(priv->reg_ctrl_default, &regs->ctrl);
-> -	reg_imask = priv->rx_mask | priv->tx_mask;
-> +	reg_imask = priv->mb_irq[0].rx_mask | priv->mb_irq[0].tx_mask |
-> +		    priv->mb_irq[1].rx_mask | priv->mb_irq[1].tx_mask;
->  	priv->write(upper_32_bits(reg_imask), &regs->imask2);
->  	priv->write(lower_32_bits(reg_imask), &regs->imask1);
->  	enable_irq(dev->irq);
-> diff --git a/drivers/net/can/flexcan/flexcan.h b/drivers/net/can/flexcan/flexcan.h
-> index 16692a2502eb..22aa097ec3c0 100644
-> --- a/drivers/net/can/flexcan/flexcan.h
-> +++ b/drivers/net/can/flexcan/flexcan.h
-> @@ -75,10 +75,17 @@
->   */
->  #define FLEXCAN_QUIRK_SECONDARY_MB_IRQ	BIT(18)
->  
-> +#define FLEXCAN_NR_MB_IRQS	2
-> +
->  struct flexcan_devtype_data {
->  	u32 quirks;		/* quirks needed for different IP cores */
->  };
->  
-> +struct flexcan_mb_irq {
-> +	u64 rx_mask;
-> +	u64 tx_mask;
-> +};
-> +
->  struct flexcan_stop_mode {
->  	struct regmap *gpr;
->  	u8 req_gpr;
-> @@ -99,8 +106,7 @@ struct flexcan_priv {
->  	u8 clk_src;	/* clock source of CAN Protocol Engine */
->  	u8 scu_idx;
->  
-> -	u64 rx_mask;
-> -	u64 tx_mask;
-> +	struct flexcan_mb_irq mb_irq[FLEXCAN_NR_MB_IRQS];
->  	u32 reg_ctrl_default;
->  
->  	struct clk *clk_ipg;
+The current atmel-ecc driver contains instabilities which should be fixed.
+At least the situation with the i2c_client_list and the kpp registration.
+Ideally we should have one algorithm registration, but one or multiple
+device instances on the i2c list and ensure this to happen as originally
+also designed by providing this i2c_client_list approach, which I highly
+appreciate. The problematic remove() situation is another known topic here.
+Probably more theoretically, but it was commented already before. As also
+teardown synchronization might affect probe(), this is a round-trip to open
+issues at the i2c list and kpp registration.
 
+While my patch adresses and attempts to fix the above mentioned problems.
+The following dilemma is popping up, getting flagged in both cases by
+sashiko.
 
-Yours sincerely,
-Vincent Mailhol
+A) Applying unbound wait
+Using wait_for_completion() assures waiting for all active TFMs to clear.
+Nevertheless, it carries the risk of waiting infinitely.
+
+B) Timed wait
+Using wait_for_completion_timeout() avoids infinite waits. Nevertheless, it
+introduces the risk of a UAF. In case of an aborting probe() or remove(),
+any TFM in progress being cut off devres memory.
+
+Questions:
+1. First, please review the current state of the fixes elaborated with
+sashiko feedbacks. Do you agree to the approach taken? Do you disagree and
+why? Please, let me know what you think.
+
+2. Initially I tried to separately only present a (kind of) fix to problem
+1 (v1). Since everything seems to be somehow intertwined, I've put them
+together, which increases complexity leading to a huge commit message.
+Shall I split or shall I leave it together?
+
+3. Do you see an alternative? If you agree, then which direction you would
+like me to take here, A or B? The alternative, I can see here is, we also
+could move away from `devm_` memory resources to active
+allocation/deallocation in probe here to avoid the UAF.
+
+v5 -> v6:
+- RFC
+- going back to using timeouts as in v4
+- removing redundant code
+v4 -> v5:
+- sashiko warning: revert wait_for_completion_timeout() by
+  wait_for_completion() when former instance still active at probe()
+- change return type of atmel_ecc_wait_for_tfms() to void
+v3 -> v4:
+- sashiko warning: replace wait_for_completion() by
+  wait_for_completion_timeout() in remove; decision is a kind of dilemma
+- move redundant code of this fix out into a separate function
+- make also use of the wait_for_completion_timeout() function at probe for
+  convenience
+v2 -> v3:
+- sashiko warning: fix missing init_completion() for remove_done
+- add comment naming all three related main problem situations
+v1 -> v2:
+- remove the initial approach with "ready" state bool, replace it by
+  this be a more comprehensive approach
+
+ drivers/crypto/atmel-ecc.c | 134 +++++++++++++++++++++++++++++--------
+ drivers/crypto/atmel-i2c.h |   3 +
+ 2 files changed, 108 insertions(+), 29 deletions(-)
+
+diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+index 0ca02995a1de..702d988a6547 100644
+--- a/drivers/crypto/atmel-ecc.c
++++ b/drivers/crypto/atmel-ecc.c
+@@ -23,6 +23,11 @@
+ #include <crypto/kpp.h>
+ #include "atmel-i2c.h"
+ 
++static DEFINE_MUTEX(atmel_ecc_kpp_lock);
++static int atmel_ecc_kpp_refcnt;
++DECLARE_COMPLETION(atmel_ecc_unreg_done);
++static bool atmel_ecc_unreg_active;
++
+ static struct atmel_ecc_driver_data driver_data;
+ 
+ /**
+@@ -241,7 +246,10 @@ static void atmel_ecc_i2c_client_free(struct i2c_client *client)
+ {
+ 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
+ 
+-	atomic_dec(&i2c_priv->tfm_count);
++	spin_lock(&driver_data.i2c_list_lock);
++	if (atomic_dec_and_test(&i2c_priv->tfm_count) && i2c_priv->unbinding)
++		complete(&i2c_priv->remove_done);
++	spin_unlock(&driver_data.i2c_list_lock);
+ }
+ 
+ static int atmel_ecdh_init_tfm(struct crypto_kpp *tfm)
+@@ -276,7 +284,8 @@ static void atmel_ecdh_exit_tfm(struct crypto_kpp *tfm)
+ 	struct atmel_ecdh_ctx *ctx = kpp_tfm_ctx(tfm);
+ 
+ 	kfree(ctx->public_key);
+-	crypto_free_kpp(ctx->fallback);
++	if (ctx->fallback)
++		crypto_free_kpp(ctx->fallback);
+ 	atmel_ecc_i2c_client_free(ctx->client);
+ }
+ 
+@@ -295,6 +304,26 @@ static unsigned int atmel_ecdh_max_size(struct crypto_kpp *tfm)
+ 	return ATMEL_ECC_PUBKEY_SIZE;
+ }
+ 
++static int atmel_ecc_wait_for_tfms(struct atmel_i2c_client_priv *i2c_priv,
++				   unsigned long timeout)
++{
++	spin_lock(&driver_data.i2c_list_lock);
++	list_del(&i2c_priv->i2c_client_list_node);
++	i2c_priv->unbinding = true;
++	reinit_completion(&i2c_priv->remove_done);
++	if (!atomic_read(&i2c_priv->tfm_count)) {
++		spin_unlock(&driver_data.i2c_list_lock);
++		return 0;
++	}
++	spin_unlock(&driver_data.i2c_list_lock);
++
++	if (!wait_for_completion_timeout(&i2c_priv->remove_done,
++					 msecs_to_jiffies(timeout)))
++		return -ETIMEDOUT;
++
++	return 0;
++}
++
+ static struct kpp_alg atmel_ecdh_nist_p256 = {
+ 	.set_secret = atmel_ecdh_set_secret,
+ 	.generate_public_key = atmel_ecdh_generate_public_key,
+@@ -315,6 +344,7 @@ static struct kpp_alg atmel_ecdh_nist_p256 = {
+ static int atmel_ecc_probe(struct i2c_client *client)
+ {
+ 	struct atmel_i2c_client_priv *i2c_priv;
++	unsigned long timeout;
+ 	int ret;
+ 
+ 	ret = atmel_i2c_probe(client);
+@@ -323,49 +353,95 @@ static int atmel_ecc_probe(struct i2c_client *client)
+ 
+ 	i2c_priv = i2c_get_clientdata(client);
+ 
++	init_completion(&i2c_priv->remove_done);
++	i2c_priv->unbinding = false;
++
+ 	spin_lock(&driver_data.i2c_list_lock);
+ 	list_add_tail(&i2c_priv->i2c_client_list_node,
+ 		      &driver_data.i2c_client_list);
+ 	spin_unlock(&driver_data.i2c_list_lock);
+ 
+-	ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
+-	if (ret) {
+-		spin_lock(&driver_data.i2c_list_lock);
+-		list_del(&i2c_priv->i2c_client_list_node);
+-		spin_unlock(&driver_data.i2c_list_lock);
++	mutex_lock(&atmel_ecc_kpp_lock);
++	/*
++	 * For cases where the same/last such device is still in unregistering,
++	 * and now re-registering (refcnt is 0, but completion still exists).
++	 * Safely capture the pointer, drop the lock and sleep until it
++	 * terminates upon completion or retry limit reached.
++	 */
++	while (atmel_ecc_unreg_active) {
++		mutex_unlock(&atmel_ecc_kpp_lock);
++		timeout = wait_for_completion_timeout(&atmel_ecc_unreg_done,
++						      msecs_to_jiffies(2000));
++		mutex_lock(&atmel_ecc_kpp_lock);
++		if (timeout == 0) {
++			mutex_unlock(&atmel_ecc_kpp_lock);
++			/*
++			 * FIXME / RFC: If we time out here, returning -ETIMEDOUT
++			 * triggers devres cleanup, causing a UAF for any lagging TFMs.
++			 * Should this be changed to an unbounded wait_for_completion()
++			 * to prioritize memory safety over thread liveness?
++			 */
++			if (atmel_ecc_wait_for_tfms(i2c_priv, 2000))
++				dev_emerg(&client->dev,
++					  "Probe abort timed out! Active TFMs leaked, memory corruption imminent.\n");
++			else
++				dev_err(&client->dev,
++					"Probe timed out waiting for former instance unregistration\n");
++
++			return -ETIMEDOUT;
++		}
++	}
++	if (atmel_ecc_kpp_refcnt == 0) {
++		ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
++		if (ret) {
++			mutex_unlock(&atmel_ecc_kpp_lock);
++
++			atmel_ecc_wait_for_tfms(i2c_priv, 2000);
++			dev_err(&client->dev,
++				"%s alg registration failed\n",
++				atmel_ecdh_nist_p256.base.cra_driver_name);
+ 
+-		dev_err(&client->dev, "%s alg registration failed\n",
+-			atmel_ecdh_nist_p256.base.cra_driver_name);
+-	} else {
+-		dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
++			return ret;
++		}
+ 	}
++	atmel_ecc_kpp_refcnt++;
++	mutex_unlock(&atmel_ecc_kpp_lock);
+ 
++	dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
+ 	return ret;
+ }
+ 
+ static void atmel_ecc_remove(struct i2c_client *client)
+ {
+ 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
++	bool trigger_unreg = false;
+ 
+-	/* Return EBUSY if i2c client already allocated. */
+-	if (atomic_read(&i2c_priv->tfm_count)) {
+-		/*
+-		 * After we return here, the memory backing the device is freed.
+-		 * That happens no matter what the return value of this function
+-		 * is because in the Linux device model there is no error
+-		 * handling for unbinding a driver.
+-		 * If there is still some action pending, it probably involves
+-		 * accessing the freed memory.
+-		 */
+-		dev_emerg(&client->dev, "Device is busy, expect memory corruption.\n");
+-		return;
++	/*
++	 * FIXME / RFC: The timeout prevents a permanent hang,
++	 * but since remove() returns void, devres will instantly
++	 * free i2c_priv anyway. Memory corruption is imminent
++	 * when the active TFM eventually closes.
++	 */
++	if (atmel_ecc_wait_for_tfms(i2c_priv, 5000))
++		dev_emerg(&client->dev,
++			  "Teardown timed out! Active TFMs leak, memory corruption imminent.\n");
++
++	mutex_lock(&atmel_ecc_kpp_lock);
++	atmel_ecc_kpp_refcnt--;
++	if (atmel_ecc_kpp_refcnt == 0) {
++		trigger_unreg = true;
++		atmel_ecc_unreg_active = true;
++		reinit_completion(&atmel_ecc_unreg_done);
++	}
++	mutex_unlock(&atmel_ecc_kpp_lock);
++
++	if (trigger_unreg) {
++		crypto_unregister_kpp(&atmel_ecdh_nist_p256);
++		mutex_lock(&atmel_ecc_kpp_lock);
++		atmel_ecc_unreg_active = false;
++		complete_all(&atmel_ecc_unreg_done);
++		mutex_unlock(&atmel_ecc_kpp_lock);
+ 	}
+-
+-	crypto_unregister_kpp(&atmel_ecdh_nist_p256);
+-
+-	spin_lock(&driver_data.i2c_list_lock);
+-	list_del(&i2c_priv->i2c_client_list_node);
+-	spin_unlock(&driver_data.i2c_list_lock);
+ }
+ 
+ static const struct of_device_id atmel_ecc_dt_ids[] = {
+diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
+index 72f04c15682f..8e6617422191 100644
+--- a/drivers/crypto/atmel-i2c.h
++++ b/drivers/crypto/atmel-i2c.h
+@@ -129,6 +129,7 @@ struct atmel_ecc_driver_data {
+  * @wake_token_sz       : size in bytes of the wake_token
+  * @tfm_count           : number of active crypto transformations on i2c client
+  * @hwrng               : hold the hardware generated rng
++ * @unbinding           : unbinding handshake
+  *
+  * Reads and writes from/to the i2c client are sequential. The first byte
+  * transmitted to the device is treated as the byte size. Any attempt to send
+@@ -145,6 +146,8 @@ struct atmel_i2c_client_priv {
+ 	size_t wake_token_sz;
+ 	atomic_t tfm_count ____cacheline_aligned;
+ 	struct hwrng hwrng;
++	struct completion remove_done;
++	bool unbinding;
+ };
+ 
+ /**
+
+base-commit: 79bbe453e5bfa6e1c6aa2e8329bfc8f152b81c9b
+-- 
+2.53.0
 
 
