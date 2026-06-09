@@ -4,140 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757C4CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01CD8CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZ0RRpoiTcyO43kD7baXaPj3wcmkJLLGJPD4QWeYn7c=; b=EeAcSC9nVUkGtBr2ufEOQKijxS
-	+BGuJdi1FQ68Vn1bBjKIiB0yRqLwmVn1eYS0PtutyKXhJNKialj6UpiNE4qjkJyYphHlZ5V+J202S
-	76XRc3ED7AYnwExDuSnW9Nfu1gRtw8HMFbAMTNhgZIm71ghxYtPceSmd+uH1vgoLmUEr4GLe8Zl6S
-	Y3XjatyNSpIc82P1SUpJbiacE/4LMQ480Ldhp6dUQ7JEQTVONInaqRgSamz8HR17PPDLl4gTFE6BU
-	4E13EAmr6sIF667v0HEBHnSVY63mWB0lWECtWwzQHIOK3uVrZ9h9yniYfOjBO4JVaNrLEuVUDnTET
-	4iM/syZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mnBqr/oojprozlQZfNYplJlBKL2vf9+PvY5mWTT3dsc=; b=LdC7Zk6LUuskbjM0XJ0OlkTxPM
+	yKHn4kkRv+8y4w1b/aXZ2tMJRdbhfVpk4Ecbp1kDqtp40OZgt9gYbafFas92QP94jRyxQOUrWRNIP
+	RArV13re+b1dphwpVJheZxFhzSEfr1R7RjVLlHaHu9MmiR/otmFeCBhv3A2GCzSwvbZrxjHpVU7Uj
+	w0gLwugPs4RLQNWosGW8hGUmQnRrg7rjif0CJSHTn/rjRySqSJNP/bOat/eK36IEUVl797ahp2SEx
+	MysnhPKss/sVr4LX4195UVgyY0GRyXpkBrEnfDjCgJ/MDQdq2eTMJNs2AHSfpX/e550lBuEtny7RK
+	f3enlhhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzGZ-000000062HZ-2uTr;
-	Tue, 09 Jun 2026 16:25:27 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wWzJW-000000062Zm-0d8P;
+	Tue, 09 Jun 2026 16:28:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzGU-000000062GC-4C8w
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 16:25:25 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659GODs62748479
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 16:25:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	gZ0RRpoiTcyO43kD7baXaPj3wcmkJLLGJPD4QWeYn7c=; b=TAWczO2aidQaIoXM
-	CC2ktMv8IynppxZsasLjjfJ52g3otyjQyn/MsteSYkqsWxvFBXVnBolc+LeiPa4g
-	OZLGof7YuybsJVv8LAqENi9JSGzTdn0d+eDbOCuDOZPN0yMtyJ0S+1SEySIjJxBM
-	lstghTt3DsUuQfhoaijNrGd/X5SQjQ3TgGA/wzwYX1J9zaWDoBafp3gHiyjH+Ufw
-	jxmkuF3jXWwr5BMmU41FH/oHi7d0Oq5LLIYWvEDmKOisU2IWMHYd5/M0ZLjaPxcE
-	lncCTIWfn2KQq0U80eAQNVczYw2UFVSmYdK1fwqdklgHGtswSh3FgTaR+d9NbjAL
-	IQ3mVw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epdeetugt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 16:25:22 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-36b9106b0fbso4646731a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 09:25:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781022322; x=1781627122; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gZ0RRpoiTcyO43kD7baXaPj3wcmkJLLGJPD4QWeYn7c=;
-        b=TJduPaT7KkwagDjY8Z++AmufCmpMsU0JGIIPziAPS49eK0oOG0AiJv+RTPkDW/9pwZ
-         t5u5/X6JSkSqclx4Tu8cUpRkKPuNx7Xhoy8BVgCY4OZGzhosy6PABKD/Hp170xPkT3JZ
-         Egae16psrc6m9Vln5JMRn6B9ywCgDSYivk2H12yskZRYCQTgNAw0IKVGqn+ZdoMisiMQ
-         ei+d3MVrkQ6kd7j6AkC1w90sa7wif9LKa799J+mMIeJGpn6cvoOG0K3cSIW7z67YDLim
-         THsG8qVLUrP0baxjb1SVFCSjIUxP6L25WiCQ1gq73Ta3uLS4+omsyP91V6uyJQOhO46F
-         zDCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781022322; x=1781627122;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gZ0RRpoiTcyO43kD7baXaPj3wcmkJLLGJPD4QWeYn7c=;
-        b=jQM6k1TJ8v3eIeGI3i54aDtuPOOEkXoG07N8f71IZYXa1qgFisYlv2KrdPkJYMwltf
-         /q8K3no1hYBt7No0kFXddDFf1ArSDYqXMVMiDvTEtSwgh+XNljEGfY8fVTJjAKPLXn5+
-         uKQl5rBcvuvCiZx6+dGAPq3fGYJ0Pt1YmfQyGf3Er59zdxRtg8AJ1aigIkXtlN9rzyxf
-         u1j4W9REXWW5SUWCFyZu0hqx/wku/YkSi7lxUBk77FupMgEWQfV48pSEk1FnWTmZPoUa
-         sCZr2FZWPYqfcbVQrVjZCkdSHtZruDYva2gaTPF+5WJ49X308/U/tKRgC21GorLapjFZ
-         VONw==
-X-Forwarded-Encrypted: i=1; AFNElJ/r5gbkpEiwe3ayRP2RMCUUjPhQ9z6z39n/t3b9YRaLDIat1H9miSyLLrcuDnX1Qzk8xpUuUyKIFFCM5EY3BCCY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyzq0iRfIQ6/9xYoO3VPwaMu00NLkMMbSsesn++7dDV1w/esgPP
-	5tnK4MnCHbRVy92Eg0O0B60yvz9S7Im6GxDz5eSqD3AQvTsLRIoUBr2yNhaM+SaIr9bExYwaWMI
-	Y5JDyMM3ZvY20Qvpuawct8OjZ+BC+ahxDsxkqylpzZCgSN8qaIf0NK8XlIZUptWxcHkM65RjS6E
-	84RA==
-X-Gm-Gg: Acq92OGy5xM51ZXrkyxf9U0djcENBqBhq16cgpw4m75wswWf8Qv8UGv1cxiuXK2ag0J
-	1xxbvsZ56ATbJpG+T5t5vOUKTSyPqfeJ7hs3f+8Ot+ixZpSrTi+8APUT6CDrEki24gD5vimY/PY
-	N2A1YcHcOijabsFVRN+BXYRB/kmQNA6wylZXnkDSi+FEir92CCPmwzjkC7bQNsDuK/iR8wBsL0I
-	BvPXiEOQ82esjczOPl59hlsBgptQgQJTr9TL24XrC0AC/xZoXR5/UHlgny88Oqf9INF0o6zBQfi
-	daCvdtUnREZOOq6d18l8C/Yr3bvQNX+hp0JzH3LINIBdjkIzHHHMMOkLW2J+ISXnmiBxS4a0cla
-	Y1g1hh0WYRYQk+L+kKb/aHVDJ72vYeys=
-X-Received: by 2002:a17:90b:3903:b0:36b:4d63:4a93 with SMTP id 98e67ed59e1d1-371328ae3c0mr17914260a91.13.1781022321818;
-        Tue, 09 Jun 2026 09:25:21 -0700 (PDT)
-X-Received: by 2002:a17:90b:3903:b0:36b:4d63:4a93 with SMTP id 98e67ed59e1d1-371328ae3c0mr17914221a91.13.1781022321282;
-        Tue, 09 Jun 2026 09:25:21 -0700 (PDT)
-Received: from [192.168.1.11] ([120.56.203.186])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf827e6sm24900815a91.1.2026.06.09.09.25.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 09:25:20 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Yue Wang <yue.wang@Amlogic.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Shuvam Pandey <shuvampandey1@gmail.com>
-Cc: linux-pci@vger.kernel.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <177909148011.9588.6639767953842842291@gmail.com>
-References: <177909148011.9588.6639767953842842291@gmail.com>
-Subject: Re: [PATCH] PCI: meson: Propagate devm_add_action_or_reset()
- failure
-Message-Id: <178102231651.11622.14383228802721431855.b4-ty@kernel.org>
-Date: Tue, 09 Jun 2026 21:55:16 +0530
+	id 1wWzJU-000000062ZZ-1qiy;
+	Tue, 09 Jun 2026 16:28:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E866E40A53;
+	Tue,  9 Jun 2026 16:28:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 871F31F00893;
+	Tue,  9 Jun 2026 16:28:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781022507;
+	bh=mnBqr/oojprozlQZfNYplJlBKL2vf9+PvY5mWTT3dsc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CGnbzpbq2ir2U0YUoU/MVcUkdXc64ZBJ+JQYXxd1mlBrNLidxG0iEGQtF794/JCSf
+	 Cm87Zv+Kr0eeLuesxsB5NlkuHMBtBXm+Rl4JQvFG8eE4dXoCjapRwJCfklohYejAsN
+	 Kl1bnCQmucj/MxHTBB8rqq1uRx5WVM8asYTBPM+OxIDwvzWxka4jWUJvTZQmKk3WWt
+	 +YgG7EHJyx8UW0IIV9gZNkI+gzoBTNNSSfrDASZ33xMKUMu2Qgz0WP+P5J2GZbyk/t
+	 gk/w5WmaVZ0OSwl/wWMwuEKu0Jo5cLTUzjIwysY9xH8sK/9E31SKoQqaqmVcBxoKYM
+	 5uamaEaf/Nl5w==
+Date: Tue, 9 Jun 2026 17:28:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-omap@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] dt-bindings: mfd: syscon: Drop custom select for
+ older dtschema
+Message-ID: <20260609-vertical-antarctic-e18a7ec91685@spud>
+References: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
+ <20260608-n-dt-bindings-simple-bus-syscon-v3-2-4eba9ec1212a@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Authority-Analysis: v=2.4 cv=H+DrBeYi c=1 sm=1 tr=0 ts=6a283e72 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=eDurORsI8St+1bJHqsJewQ==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=YIal6LhKh1zn__LXBV8A:9 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE1NSBTYWx0ZWRfX73Yx25KBhwfo
- 5dAawQ6nXtThfxGZxI4zH5bdHys3unaJzgd/smgZYyL9vHloe8goA6jFF+8bAlQXJVdkX96ZedS
- DQ+/sNE5cxlBnjvGTTkMVmE6JPRlza+4Q7FBa8Bfz3H5Bv6g9ZFoebWVwZ6GNdi0iWGwJkD77wC
- NX1/NZO2ij1XmCvivQl4IfKRzcwIbjSoZSRR7yTt0OcdmcBNhkcCf2W+mURSei5UFJD+3Nvyax9
- 570z0WjXnazipFUwawzCE1SuA8D58aDrBvN+5IUEprC1IcMBLYUJdXaTRA2uOnm3Tb3r39iW3uv
- Vl2a47+cUeRWdpehFKNB2z4NtD84IO6NBTPuzGqtgUwUqqTeEowrKjutlbQVwf3tw9Slu3acfYb
- WVo2SW+Kh4PaguYjIeslHu872r1YAoyPOW1GnAKnmMS5ZstydhKiJedzkkWln8ThW/TZ/7FHdoE
- xfR2ls84jS+v6/fo31g==
-X-Proofpoint-ORIG-GUID: 2u1gVlRErQgEUt428N2POJEyjt8MGnQc
-X-Proofpoint-GUID: 2u1gVlRErQgEUt428N2POJEyjt8MGnQc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-09_04,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 malwarescore=0
- spamscore=0 lowpriorityscore=0 priorityscore=1501 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2606090155
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_092523_054588_644B9C03 
-X-CRM114-Status: GOOD (  10.85  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ht75Ke9Mrmo6QJOk"
+Content-Disposition: inline
+In-Reply-To: <20260608-n-dt-bindings-simple-bus-syscon-v3-2-4eba9ec1212a@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,24 +88,210 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 18 May 2026 13:49:40 +0545, Shuvam Pandey wrote:
-> meson_pcie_probe_clock() enables a clock and then registers a devres
-> action to disable it during teardown. If devm_add_action_or_reset()
-> fails, it runs the action immediately, disabling the clock.
-> 
-> The return value is currently ignored, so on that failure path
-> meson_pcie_probe_clock() returns the disabled clock and probe continues.
-> Return the error so the existing probe error path unwinds normally.
-> 
-> [...]
+--ht75Ke9Mrmo6QJOk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied, thanks!
+On Mon, Jun 08, 2026 at 10:44:25PM +0200, Krzysztof Kozlowski wrote:
+> Older dtschema <2024.02 required custom select to avoid applying this
+> binding to anything having "syscon" compatible.  That's not the case
+> anymore and this additional select has two headaches:
+>=20
+> 1. Duplicates all the compatibles listed in the schema.
+>=20
+> 2. Is error-prone, because it requires contributor to add the compatible
+>    in two places, otherwise the schema will be silently ignored.
+>    The select list already misses mentioning compatibles:
+>    mediatek,mt8365-infracfg-nao and renesas,r9a08g046-lvds-cmn (with the
+>    latter being reverted for different reasons).
+>=20
+> This requires bumping minimum dtschema requirement to v2024.04, which
+> feels old enough to be a safe requirement.
 
-[1/1] PCI: meson: Propagate devm_add_action_or_reset() failure
-      commit: b12341b98d5ac52f48ca1390e1e371aed81346c8
+I agree, seems reasonable enough given it's a jump from 2023.09 and not
+some large jump.
+The diff is nice too!
+I assume Rob will be taking it, but just in case..
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
+Cheers,
+Conor.
 
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>=20
+> ---
+>=20
+> Changes in v3:
+> 1. Bump dtschema requirement
+>=20
+> Changes in v2:
+> 1. New patch
+> ---
+>  Documentation/devicetree/bindings/Makefile        |   2 +-
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 116 ----------------=
+------
+>  2 files changed, 1 insertion(+), 117 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/Makefile b/Documentation/d=
+evicetree/bindings/Makefile
+> index 7b668f7fd400..40c2094f47c2 100644
+> --- a/Documentation/devicetree/bindings/Makefile
+> +++ b/Documentation/devicetree/bindings/Makefile
+> @@ -6,7 +6,7 @@ DT_MK_SCHEMA ?=3D dt-mk-schema
+>  DT_SCHEMA_LINT =3D $(shell which yamllint || \
+>    echo "warning: python package 'yamllint' not installed, skipping" >&2)
+> =20
+> -DT_SCHEMA_MIN_VERSION =3D 2023.9
+> +DT_SCHEMA_MIN_VERSION =3D 2024.4
+> =20
+>  PHONY +=3D check_dtschema_version
+>  check_dtschema_version:
+> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Document=
+ation/devicetree/bindings/mfd/syscon.yaml
+> index 9c81010d5a74..b70018bf1bcf 100644
+> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> @@ -19,122 +19,6 @@ description: |
+>  maintainers:
+>    - Lee Jones <lee@kernel.org>
+> =20
+> -# Need a select with all compatibles listed for compatibility with older
+> -# dtschema (<2024.02), so this will not be selected for other schemas ha=
+ving
+> -# syscon fallback.
+> -select:
+> -  properties:
+> -    compatible:
+> -      contains:
+> -        enum:
+> -          - airoha,en7581-pbus-csr
+> -          - al,alpine-sysfabric-service
+> -          - allwinner,sun8i-a83t-system-controller
+> -          - allwinner,sun8i-h3-system-controller
+> -          - allwinner,sun8i-v3s-system-controller
+> -          - allwinner,sun50i-a64-system-controller
+> -          - altr,l3regs
+> -          - altr,sdr-ctl
+> -          - amd,pensando-elba-syscon
+> -          - amlogic,meson-mx-assist
+> -          - amlogic,meson-mx-bootrom
+> -          - amlogic,meson8-analog-top
+> -          - amlogic,meson8b-analog-top
+> -          - amlogic,meson8-pmu
+> -          - amlogic,meson8b-pmu
+> -          - apm,merlin-poweroff-mailbox
+> -          - apm,mustang-poweroff-mailbox
+> -          - apm,xgene-csw
+> -          - apm,xgene-efuse
+> -          - apm,xgene-mcb
+> -          - apm,xgene-rb
+> -          - apm,xgene-scu
+> -          - atmel,sama5d2-sfrbu
+> -          - atmel,sama5d3-nfc-io
+> -          - atmel,sama5d3-sfrbu
+> -          - atmel,sama5d4-sfrbu
+> -          - axis,artpec6-syscon
+> -          - brcm,cru-clkset
+> -          - brcm,sr-cdru
+> -          - brcm,sr-mhb
+> -          - cirrus,ep7209-syscon1
+> -          - cirrus,ep7209-syscon2
+> -          - cirrus,ep7209-syscon3
+> -          - cnxt,cx92755-uc
+> -          - econet,en751221-chip-scu
+> -          - freecom,fsg-cs2-system-controller
+> -          - fsl,imx93-aonmix-ns-syscfg
+> -          - fsl,imx93-wakeupmix-syscfg
+> -          - fsl,ls1088a-reset
+> -          - fsl,vf610-anatop
+> -          - fsl,vf610-mscm-cpucfg
+> -          - hisilicon,dsa-subctrl
+> -          - hisilicon,hi6220-sramctrl
+> -          - hisilicon,hip04-ppe
+> -          - hisilicon,pcie-sas-subctrl
+> -          - hisilicon,peri-subctrl
+> -          - hpe,gxp-sysreg
+> -          - loongson,ls1b-syscon
+> -          - loongson,ls1c-syscon
+> -          - lsi,axxia-syscon
+> -          - marvell,armada-3700-cpu-misc
+> -          - marvell,armada-3700-nb-pm
+> -          - marvell,armada-3700-avs
+> -          - marvell,armada-3700-usb2-host-device-misc
+> -          - marvell,armada-3700-usb2-host-misc
+> -          - marvell,dove-global-config
+> -          - mediatek,mt2701-pctl-a-syscfg
+> -          - mediatek,mt2712-pctl-a-syscfg
+> -          - mediatek,mt6397-pctl-pmic-syscfg
+> -          - mediatek,mt7981-topmisc
+> -          - mediatek,mt7988-topmisc
+> -          - mediatek,mt8135-pctl-a-syscfg
+> -          - mediatek,mt8135-pctl-b-syscfg
+> -          - mediatek,mt8173-pctl-a-syscfg
+> -          - mediatek,mt8365-syscfg
+> -          - microchip,lan966x-cpu-syscon
+> -          - microchip,mpfs-control-scb
+> -          - microchip,mpfs-sysreg-scb
+> -          - microchip,sam9x60-sfr
+> -          - microchip,sama7d65-ddr3phy
+> -          - microchip,sama7d65-sfrbu
+> -          - microchip,sama7g5-ddr3phy
+> -          - mscc,ocelot-cpu-syscon
+> -          - mstar,msc313-pmsleep
+> -          - nuvoton,ma35d1-sys
+> -          - nuvoton,wpcm450-shm
+> -          - nxp,s32g2-gpr
+> -          - nxp,s32g3-gpr
+> -          - qcom,apq8064-mmss-sfpb
+> -          - qcom,apq8064-sps-sic
+> -          - rockchip,px30-qos
+> -          - rockchip,rk3036-qos
+> -          - rockchip,rk3066-qos
+> -          - rockchip,rk3128-qos
+> -          - rockchip,rk3228-qos
+> -          - rockchip,rk3288-qos
+> -          - rockchip,rk3368-qos
+> -          - rockchip,rk3399-qos
+> -          - rockchip,rk3528-qos
+> -          - rockchip,rk3562-qos
+> -          - rockchip,rk3568-qos
+> -          - rockchip,rk3576-qos
+> -          - rockchip,rk3588-qos
+> -          - rockchip,rv1126-qos
+> -          - st,spear1340-misc
+> -          - stericsson,nomadik-pmu
+> -          - starfive,jh7100-sysmain
+> -          - ti,am62-opp-efuse-table
+> -          - ti,am62-usb-phy-ctrl
+> -          - ti,am625-dss-oldi-io-ctrl
+> -          - ti,am62p-cpsw-mac-efuse
+> -          - ti,am654-dss-oldi-io-ctrl
+> -          - ti,j784s4-acspcie-proxy-ctrl
+> -          - ti,j784s4-pcie-ctrl
+> -          - ti,keystone-pllctrl
+> -  required:
+> -    - compatible
+> -
+>  properties:
+>    compatible:
+>      oneOf:
+>=20
+> --=20
+> 2.53.0
+>=20
+
+--ht75Ke9Mrmo6QJOk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaig/JQAKCRB4tDGHoIJi
+0oLlAQCHwNbINj7drMDGPuJbu0+4qMK+maKGF6EB/ix0tWHZuAEA142K2XiPf6pe
+EJkgVBoshBZ7NIiPUqXP5uO/FD3ooQM=
+=4Xd/
+-----END PGP SIGNATURE-----
+
+--ht75Ke9Mrmo6QJOk--
 
