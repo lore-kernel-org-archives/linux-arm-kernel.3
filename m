@@ -4,137 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E60BCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62528CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 15:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bw+HTzEU5Iy7MtnFBkzSQ787/7xbF41rkOAgUgVqkcE=; b=SBFn7qsQOHoR++rqap09E73qLV
-	8R6c1KFzkNluXhlxC3QwQPTxskbmhYPhdI/P33kKKbbMwXTXCd+mpdjzpPTZFlh9Wiu1he4cp5AmG
-	rPiyNNizbm5ROCY3YtxRCnP5fGfhJy5lJTmdSF0i2w+pXhHac8P+9RrJyigS8F7R/4zMo4RYJ42pX
-	Pnh6X9FiZH0tOYlokIBxMKcFteho9nKOCPwP9JrgQv3U1HlDQAjq5gsIghuy1T8K3pCaaWfGE6Csh
-	iCKRe6ugovGhzS9i6apF+N7VgZomZjyIBgyJ/6QdblxRUXyLfefceTlZ2esPjR1nuOklL2zrpvWHO
-	1IpHq82g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M1W7CRAqGX1E8dfJFnTYqdwHB0D9gv4yn30ZbnB9uVE=; b=lIWuELxqQO9tS9CX9rXZfTrKdA
+	WkenfPsI2CK6swiENFD8nTF/YgbexIo6oy/RM99sQuLN+wbtW6G7MlLosTtjtP2jrB2fhZ3FJAnHm
+	0YD89PO+2hmynRmj1peJTjFbkC1Ze8cPbNrfGYI58bFywLjNTAM5H5eOtU5pbwQbegZ54DZwuzGHF
+	ncgt25bKNkUel0geL8XbzVM+sCpCvPEaIEP8BHopEpJ6yFIlLYONl+Pds8mHo3FIvvv4HEq7AgOgN
+	+kfFX3owGOMLKPsInDWjyUFDqBSRvJkjHWDcR5EsC0Fg1eYxL+XBt/WYmx3uBbyGPhaiwSAupOrY/
+	D2iuFirw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyfE-00000005xQa-2V1K;
-	Tue, 09 Jun 2026 15:46:52 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wWyg7-00000005xaj-3e9P;
+	Tue, 09 Jun 2026 15:47:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWyfA-00000005xQ4-06S7
+	id 1wWyg3-00000005xZY-1Id0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 15:46:50 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659CmRpI2625146
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 15:46:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Bw+HTzEU5Iy7MtnFBkzSQ787/7xbF41rkOAgUgVqkcE=; b=WB/qeZzddWSLZJTu
-	/kqDbSiNiL8Z2yHm7uiR+9yGFtaSJt4XO1Oq2kxdOH77TwFt4I8fj/in4uXT+LQ9
-	VisEKgHgJ7omEEmwGHD64v/f3zq6eDcznHVcE8DEfsZcr15SBF9J/4UrSSn8X93B
-	KcSCLBZdKlCArg8oA1IXykcFFzX8vIVoz1v16dxA713hQrCBzUcUra5AGWqmgp0Q
-	EhzvjWlYFWyZGgwLin/ZxCrpU0lFSk+7lkj2euau6U7TCiNmTrjQ6aBFgMcp4YaO
-	TptR0OrX4j4zsKG+33g3lJnohWXnpUAGErm4XVxJu8y2xb9L05PgjH8/fexZqS5k
-	EV0aAA==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epddsamth-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 15:46:46 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2c10cd7df22so75848605ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 08:46:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781020006; x=1781624806; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bw+HTzEU5Iy7MtnFBkzSQ787/7xbF41rkOAgUgVqkcE=;
-        b=i+7icbJzbybuia2cbDo1zvZ1crLVCNIqakCT9UJivQViGRLMTYZg7ep8ugPf6UWKFC
-         SnOrFgwzTzFBVpWP/zfBogu2O4taMs+BAUVwsjUPRU0A10aGuOUsT03MsFFg5d0RvJ1V
-         GdISrePKOSq7MZ5ZjtpM2RrTJKFgkku54JtjzN1f23N06eRrnb+YXkHwYmw8F4RRz8iS
-         r9iB5NfGA9z4j3rrYPz2lfqlVuGL8NHRXGmD2Q/u2bg5Zfi67r9F7cxrId6XZAZJNE/N
-         8Vf2mTEPdhnM/48tJcFOyrcad3fw4IXBolxkxhQLTc0YmUoMyga9U9H9AA3jeuGvchGa
-         nB4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781020006; x=1781624806;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Bw+HTzEU5Iy7MtnFBkzSQ787/7xbF41rkOAgUgVqkcE=;
-        b=IYKyS6I4VB+pcNYEQQt387jM6lpwIE1lI2LRE25RUPyllOcR7ngqcbybdPxerzNi2T
-         ufQMeMUQhj2SdTI0twV5x0Tq9+rVFqSjADY5VhofBh+Ei+rxE0mahrpAE0mYzmjpTNmu
-         9+BnAP1CFKkQK+60gClulzJK6wqtcdCCBpuFmk14WFyZBZ9/K8Ky8FMiBpqlYwKSJXHb
-         1aSUOBBbwZRXxf3K03SUMROiezwng9j6VULUOhNbckZUD0jqo5423eJKvnYYKT1uf4CV
-         wH7Gi8DduICd5KvMZwTfuJWzoiuAHp7keyYrdD9WJ3mR6RUNrN2/jiVqz3prqWFfNi+o
-         V35w==
-X-Forwarded-Encrypted: i=1; AFNElJ9aAoaGW8uK56Bz4qxOruIpbYRW6guqrlt5rczC+SMYfWL6lnQhL6nCl+7W0V4dPwcvDUsvwOR7nIYpow0D2rjn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1vXV8XqyTSoBwgs1I5PQsw1+plyl9k9omngUR5zzIy0KbNrYt
-	0dhBAjQ0apA4IA0KJD7L2jUT6J5JdXFx4yUfh3tj332vKynFQ3IDxwddf5xLbMLNhc+Kh6EHLrz
-	Ah9yOzkF5yTtUGAZgBVhmuxMf/YA4rd6hcLpByvhxoTFldcm58uDL+wnhcIri2oc+DE68X8+jus
-	GVzA==
-X-Gm-Gg: Acq92OFunZ6Zj6LhWNx4/cVqASHgCGlN2PK14tjr+RVrTfGdFJh6QQDmKPW4efCbwO9
-	U10U7tb3OaW+Y3rTtwbF25OEDhm8jMUs64IIgjaAfwu4jWbZc9mBaRwuZOVtUjAiz3P4qN11b8z
-	N5ZUKIYljWd6EATjUfYN/gkoxTMNzYRgROna51ORZ29p2pyi9mtrLB8HdipIEFzXEO2bJ0Qp7Mk
-	quKXryEE9HcYQThtu7DRCmA0rOfjmR6bhgOVm0KdqQt6gaUtNf0EcxIytvknh194ybJtRurDkhj
-	QlgLpb6NXVJW7Utqwa43+rZCh0lKg1l10HebpBPUyrPU37KBULi39m1/unilQHsaXO9dzS2PToX
-	iIiZGcOEik1BuIQjos5hEYkfNtMlV4Po=
-X-Received: by 2002:a17:902:c409:b0:2c2:15c7:ad77 with SMTP id d9443c01a7336-2c215c7ae15mr207432775ad.37.1781020005574;
-        Tue, 09 Jun 2026 08:46:45 -0700 (PDT)
-X-Received: by 2002:a17:902:c409:b0:2c2:15c7:ad77 with SMTP id d9443c01a7336-2c215c7ae15mr207432405ad.37.1781020005013;
-        Tue, 09 Jun 2026 08:46:45 -0700 (PDT)
-Received: from [192.168.1.11] ([120.56.203.186])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f8792bsm223401015ad.23.2026.06.09.08.46.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 08:46:44 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
-To: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-        kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
-        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-        Richard Zhu <hongxing.zhu@nxp.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        imx@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <20260518072715.3166514-1-hongxing.zhu@nxp.com>
+	Tue, 09 Jun 2026 15:47:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6573360200;
+	Tue,  9 Jun 2026 15:47:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 848DE1F00893;
+	Tue,  9 Jun 2026 15:47:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781020062;
+	bh=M1W7CRAqGX1E8dfJFnTYqdwHB0D9gv4yn30ZbnB9uVE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ftE0HrztmsU8QOKAipN0RVsg9+hFmlEX/gcr/B0muCWCk2NcG6rBy14Kz3V4w59uv
+	 ySUyPSUYFtMVkok4w7vYMZe4GLCayGjLWr4Cb23yG+zCnOzBRivoFarrAoND0goLN7
+	 /b8RiY2cC44AXgj3fgnAtnwp3oNscE2qgBIa89ACDOmbqdI6e51NGe7x/h2hsYoAKo
+	 0Z+T5LZUgexpPN8pKGvpuSFDvOkrlEYspCSmErNL0QI/UyJRy6m/eZCLiDoolOYSPu
+	 fT31i7Y6VNydiZOelzi5FjWxASApqxkIqUpFhMRVxWFD3DKJgaZtC/7kd8aQQcMmOx
+	 70fjglbLcnhLw==
+Date: Tue, 9 Jun 2026 21:17:33 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset
+ for i.MX95
+Message-ID: <xwupi3bxiihnmddqkdc6xsixkbirdpnips6qy5n4xchtcysnfq@f6pa5usw2a4f>
 References: <20260518072715.3166514-1-hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v2 0/2] PCI: imx6: Fix i.MX95 PCIe PHY initialization
- sequence
-Message-Id: <178101999933.10755.15039783004341281715.b4-ty@kernel.org>
-Date: Tue, 09 Jun 2026 21:16:39 +0530
+ <20260518072715.3166514-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Proofpoint-ORIG-GUID: 6yfO6urpsuYwBqqTp2ZVmxgswmfRuNBO
-X-Authority-Analysis: v=2.4 cv=EI42FVZC c=1 sm=1 tr=0 ts=6a283566 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=eDurORsI8St+1bJHqsJewQ==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=VwQbUJbxAAAA:8 a=6xSj6z8mzX6N8v9Jz00A:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-GUID: 6yfO6urpsuYwBqqTp2ZVmxgswmfRuNBO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0OSBTYWx0ZWRfX0nFg5/QEQRGA
- TABqoXj8emTIVUm1JSaNgUCmqKz781OYM4lJPWlOg/2/6pK+AhTLLXP7NRHH0evwVyQkPWnqlII
- qsY26BanGUDSaoAk5NOkOMlB16OBfVfLZrCPZq8XlongL34gjMfJrBt8XWjikDByhlAkLJ1J8Rx
- WRPSDCPoyDVM/4tjYjyM0zqkm+3bjHXPLmD0AikhTdswhX1UXE/6na0TcqT7SGKnyN4XPMSeHWo
- 75LQXKE8mkRFrd7nfgvJWbyrfFhlqkY/QHZLBJi6+xPB/Oqv9ZV0pmxqL+lt56g6QvU6S6qhAUp
- Z3/FfiQEuPz+saShcmgWbEuujqMA7F4DLL1oBIROB8GIyRszXLoji49/sAHowsoQisrJRgQp1XV
- 92CxrgYNb02IQCOfzYEcVf8FhRcOu6eyjD3arF9yOeyBMFkHSQZvELv3sdf5PQO9cdMsi+pvzyT
- Evu0+4SBBIzL3DrUkng==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-09_03,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 bulkscore=0 phishscore=0
- suspectscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2606090149
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_084648_212163_2DE33850 
-X-CRM114-Status: GOOD (  11.08  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260518072715.3166514-2-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,27 +74,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 18 May 2026 15:27:13 +0800, Richard Zhu wrote:
-> This series addresses PHY initialization sequence issues for i.MX95 PCIe
-> that were identified through careful review of the i.MX95 PCIe PHY Databook.
+On Mon, May 18, 2026 at 03:27:14PM +0800, Richard Zhu wrote:
+> According to the i.MX95 PCIe PHY Databook, the ref_use_pad signal in the
+> Common Block Signals section selects the reference clock source connected
+> to the PHY pads. Per the specification, any change to this input must be
+> followed by a PHY reset assertion to take effect.
 > 
-> The current implementation does not strictly follow the timing requirements
-> specified in the PHY documentation for reference clock configuration and
-> PHY reset sequencing. These violations can potentially lead to unreliable
-> PHY initialization.
+> Move the REF_USE_PAD configuration before the PHY reset toggle to comply
+> with the required initialization sequence.
 > 
-> [...]
+> Fixes: 47f54a902dcd ("PCI: imx6: Toggle the core reset for i.MX95 PCIe")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 27 ++++++++++++++++++++++++---
+>  1 file changed, 24 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 002e0a0d9382..66e760015c92 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -138,6 +138,7 @@ struct imx_pcie_drvdata {
+>  	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
+>  	const u32 mode_mask[IMX_PCIE_MAX_INSTANCES];
+>  	const struct pci_epc_features *epc_features;
+> +	int (*init_pre_reset)(struct imx_pcie *pcie);
 
-Applied, thanks!
+I renamed the callback and helper while applying:
 
-[1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset for i.MX95
-      commit: 0c26b1c34d12d4debfb5363cc0be6cdf68e87ba2
-[2/2] PCI: imx6: Assert ref_clk_en after reference clock stabilizes on i.MX95
-      commit: 9dda3f83ba677b9cc2613cecd9120123000ae50f
+s/init_pre_reset/select_ref_clk_src
 
-Best regards,
+- Mani
+
+>  	int (*init_phy)(struct imx_pcie *pcie);
+>  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+>  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+> @@ -249,6 +250,24 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
+>  	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
+>  }
+>  
+> +static int imx95_pcie_init_pre_reset(struct imx_pcie *imx_pcie)
+> +{
+> +	bool ext = imx_pcie->enable_ext_refclk;
+> +
+> +	/*
+> +	 * Regarding the Signal Descriptions of i.MX95 PCIe PHY, ref_use_pad is
+> +	 * used to select reference clock connected to a pair of pads.
+> +	 *
+> +	 * Any change in this input must be followed by phy_reset assertion.
+> +	 */
+> +
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
+> +			   IMX95_PCIE_REF_USE_PAD,
+> +			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
+> +
+> +	return 0;
+> +}
+> +
+>  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  {
+>  	bool ext = imx_pcie->enable_ext_refclk;
+> @@ -271,9 +290,6 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  			IMX95_PCIE_PHY_CR_PARA_SEL,
+>  			IMX95_PCIE_PHY_CR_PARA_SEL);
+>  
+> -	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
+> -			   IMX95_PCIE_REF_USE_PAD,
+> -			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
+>  	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
+>  			   IMX95_PCIE_REF_CLKEN,
+>  			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
+> @@ -1348,6 +1364,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  		pp->bridge->disable_device = imx_pcie_disable_device;
+>  	}
+>  
+> +	if (imx_pcie->drvdata->init_pre_reset)
+> +		imx_pcie->drvdata->init_pre_reset(imx_pcie);
+> +
+>  	imx_pcie_assert_core_reset(imx_pcie);
+>  
+>  	if (imx_pcie->drvdata->init_phy)
+> @@ -2047,6 +2066,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+> +		.init_pre_reset = imx95_pcie_init_pre_reset,
+>  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+>  		.enable_ref_clk = imx95_pcie_enable_ref_clk,
+>  		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
+> @@ -2102,6 +2122,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+>  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+> +		.init_pre_reset = imx95_pcie_init_pre_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+> 
+> base-commit: 40b7f61a1a4d7fd18188f3f87e15ff5a90ce1d31
+> -- 
+> 2.37.1
+> 
+
 -- 
-Manivannan Sadhasivam <mani@kernel.org>
-
+மணிவண்ணன் சதாசிவம்
 
