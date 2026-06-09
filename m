@@ -4,110 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FC5CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 17:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8064CCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 17:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qk5OSgpm2QKOum3ErlbYh3UpTiSxTWavV2qBzb8WH/o=; b=bSLkNU6+U4r2zjYPfncde+nvIg
-	WJ+w6KFe52rL+umF91RA/2byU+zcMFDQnbOZaUFOl++alSQUtW+T3obSidCPwQg7oeBvwSjWw4iV7
-	m5XrpwauPDr29TUBkECTfif/UQJ/uttkHphK184M1dwblRPO7HmqXxCUJBvnwWNBhqrreRhB3kOxJ
-	DtwvrSU/hXVW+CD1Kq5Z3pEZZYwIupW/RfleEd0VyaRO7vfeTJGkVr62sGBopHqZv1EFeDhTabsYG
-	aYO4Vz3fFF8yUxR4NisQhXvwF/vJD5/b6TiA4YAsCW9SL15B4sv7YfIii2rHvZqzNmj/J4pOEndCE
-	Tg3Yzi2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3XXa+HnCx+EvL2zpZfTV4/ly5SJjDsiYcuCwIf54NbE=; b=sH/YeMzJXRhJcFcUuSdm82W+oL
+	cv1HfaFYVVBVthEd/cO2aVZ/IGhUTMkj1tjdxTPXKY6SGnhlED60M3cVSWCSG/19R1/wz/gUjQEUB
+	ACQMsP6w71jJWt4dYR/dyNMmF67OnpA4Rn+VxiM1COe0IBCPPQsEwtnh/pn8D1nkqtFcugH/RC1z1
+	UPtBG7zEwrZ/+i3JB3cBm2Pvba52rjRwsEW684fxQL07VKQkb5XVfnrEVmWVt0q0YJnGteJBD8SR9
+	+cwn8EtEQK+35Cna/w37jqLECROh/QYZ4gDWdReoifsudVbR0Dx4SwmJMjn1uZMIfNiMuGSIQL8LW
+	HFh6dXNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0KG-000000067zr-0MLh;
-	Tue, 09 Jun 2026 17:33:20 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1wX0M3-0000000687k-211h;
+	Tue, 09 Jun 2026 17:35:11 +0000
+Received: from mx3.wp.pl ([212.77.101.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX0KD-000000067zS-1Lhe
+	id 1wX0Lz-00000006875-2X4M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 17:33:19 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-68852b58d87so10797516a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 10:33:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781026394; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Mgtr/weOWaT8b7P6XbzHlvbKnjoSg31ZxF1koejw4gvxtAC/YseQmiMAuy6lxCs5ng
-         pbK8XorSujN5oKBezM8xa47xATcsJf/H5TBnTAoaQ3YeHKQp5AvShcsEJeRSqMT7FZCG
-         jsSzU4cIrRY45G5h5CwLvTVGA3qRU0B21xBrIB8OCuBxvgOSGhkDXq2UImq2oKmUdJ5+
-         SEGacmftkop2bY64i/A77CV30GCTmq0DckodFuZXllQz3Pd6d21Lk53oOg9i+urzDjP6
-         ouBdQ1h3anKF0Sty/lbl757/JqSBp/o1JYf6O39Be3JUuAH710MO4iKU9s2C+8YFxqdD
-         Gj3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=qk5OSgpm2QKOum3ErlbYh3UpTiSxTWavV2qBzb8WH/o=;
-        fh=bWggSvVG0AOhqIOxAiTuqkiFldjLm4vadFpE6MiSsSo=;
-        b=X5t4FIZ/30fEE1vB98bGXufwP3xOMQTu+XnYNpsjTH+dQeXbodUf7xflrYL3X7mVJU
-         yBfhhB0l1Nvdiwbzoea/2vECnpWIWiJLK9z2gauY73ZjG6LZPsc3ZmNbTeAbi2vRwQxR
-         1jbdQZWZ4u7j57H2U2KlZl/xHKnPx2oaX6ExGKnitbI+EsjjSHA/zrcEt2WdHKDL4jvi
-         9qNBXVDUhiLV5rhXvm3HTWkW+i9PTCo4ATpTHs8TGp9oCqmb3QiZKHByx+T7tCjlgNc9
-         4UwaP1Jx5+JUk1kEq1H0qSzEUWa5SCevlfO2wkY3zJSyFPgP6UTYJp5sFJdsu7WLuTFP
-         VUAA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781026394; x=1781631194; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=qk5OSgpm2QKOum3ErlbYh3UpTiSxTWavV2qBzb8WH/o=;
-        b=ZgMZbI88sXaejLSf0R2k5fWctW2adMorozUaG036fWJQwPqMaiVJ30bNQRlob8byuz
-         njd1EeY2G3dT9dFMQTo2FYxJRXWJyNY8bsfqGqnpqoPd9FH/aSAjKY+x91heoVB5DAx3
-         vSIqV/37UL8mL4dUoyfqsX/tCA3YcqtIg/E/9FYRRV4ooZlYE0mUgLnCwgMoqSl26Lzo
-         D3x7cEiBhWv+Ik+g5dGl9ThBYdLOTbSYPnaXOJVlN08PCQISlQc3P1YQn34dJ5Rsjiph
-         iOnwsxZzr7okTXWt8TmlIbjOyM8S0B0DbHu5rbdhWKyZjw7Z56y/AuCJcOD89FOWzKV8
-         OGRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781026394; x=1781631194;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qk5OSgpm2QKOum3ErlbYh3UpTiSxTWavV2qBzb8WH/o=;
-        b=oh7AozYQx14kRnYpP3MAEW40qelrtS1IiuDpEX++3DCbX/m42FpeoDfjQefKi/wH8I
-         0/yYR0bz4olY6rcn5DPPQtGqU94AlmK+aIOZNbvlxkkD6+fvnNkrBHTfmEBN/b0fe9n9
-         mX5Azt5Xqb4DGILHFQb8NYdPfTydiSVoL2DgMg6LmUXNfAS3YoxoPSFKlo5t2NKlPvCb
-         D5cwSVtc+PklTUaAH+LQ5A1bcwvuS5NZJ7HYHNrpLGIxPhAe2PFm+mACWKfIJt+Ef8Ww
-         7bCoLQkHnZIc3VfRIAqQ8qFGwh+B4jCArs8boihwxfE+l3PqeUwwVThD6IjI5frbfWP0
-         7dkQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9Q6gxmzNfT1U/bkrCD8AXH+Rwc1T6Cj44MKkv+vRYIdgfkMIXqhKIjlDZscvRWvRdLrKuij6eTX8bycGDwFeTR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx28R4uAUpIajvHRrkZFVupwuGL+hkiuolsNXBZ9HjROPVXpidi
-	9s/I108JOydWE3TNTBT9oCmfP4wvh8usH9sn4rs7p5rgmCnPiXYw1suUwpVxbDC+coEga2yTS2T
-	hKX6umHtSgRKwy1/RourwxaOMejknmaCpzYDQpsQJHA==
-X-Gm-Gg: Acq92OH4s9MpcyF/HiwJ75d2OkqaB9jpv9T1vQTbPGr91aEN/R+hqvfI7L5OoiZuRkv
-	L7K52z97NLXoIxzsI5ySDADrcDA5uwcUBFOdoJ7166X8ft+5MpuWkKle2KIfn0qGW1BDo/7u5CN
-	+PgUa7vFm1vpMtroPnYeV1rC1JuM+iLGZQsj3OF6OVqdIig++uDNOXGCP3tl51qc8vQZfSY/5sX
-	q0UVl5Hgg9vJoJpnxk/Tf+9uzwm7d1g4ae5Al5kUjWLVkvJ1+d+gi4lYVwyGKpsR/nMi43TejOg
-	WDBqx+BcVVnogxvTQWXbx+eTQHdzX28SN8D00GHvse4ZuqKQH/qH
-X-Received: by 2002:a05:6402:2686:b0:68c:3994:45f2 with SMTP id
- 4fb4d7f45d1cf-68fa503fde8mr10046906a12.19.1781026394348; Tue, 09 Jun 2026
- 10:33:14 -0700 (PDT)
+	Tue, 09 Jun 2026 17:35:09 +0000
+Received: (wp-smtpd smtp.wp.pl 25410 invoked from network); 9 Jun 2026 19:35:00 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1781026500; bh=3XXa+HnCx+EvL2zpZfTV4/ly5SJjDsiYcuCwIf54NbE=;
+          h=Subject:To:Cc:From;
+          b=IlJYvbCNTdYpAfzFSwUACkDF5GDE9kEZ4Unr/1alPuWctQTriJCAXxhYftxgD1Ekm
+           GNAwewaH3s1tsTYaCILYEhLWxXuLY7aHeQPtHzCCxPk+aYvzsB1NHy2hvcvqqQ43UE
+           ciCEA7QbVmof13Edp0JJDbJpY+vQnIOsdoLTxgFibhnwl/VkwlmKiZU544hBQQLw26
+           1cLZh2pQP2NtTABNBLiEkB87JXmtL1PQSNieIpm3wIsiMCXOQl2vOA1wBf+z2fzLzc
+           xZ+znJxnNRXPzuJHOi/zYB9ilLGrvFMVHrnw4nrJuKId7R49GGP41piBHXl/aH6VnU
+           2GI/aUxSqeLYg==
+Received: from 83.24.121.144.ipv4.supernova.orange.pl (HELO [192.168.3.203]) (olek2@wp.pl@[83.24.121.144])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <arnd@arndb.de>; 9 Jun 2026 19:35:00 +0200
+Message-ID: <4e690104-b42f-4a2b-ac52-5ebfc82f6853@wp.pl>
+Date: Tue, 9 Jun 2026 19:35:02 +0200
 MIME-Version: 1.0
-References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
- <20260605113621.1479-2-laurentiumihalcea111@gmail.com> <aihB5rVLsVqzg6cb@p14s>
- <aihIIwt_9T7yYxP3@SMW015318>
-In-Reply-To: <aihIIwt_9T7yYxP3@SMW015318>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Tue, 9 Jun 2026 11:33:03 -0600
-X-Gm-Features: AVVi8CfajwXrk0zh9dxoFsW97FohDkxe-xDUhgkWnVGwuNvfV4UW4Y-xjQ1W9M4
-Message-ID: <CANLsYkxw6rbWNom8rNfKurKAXKpihqV1LTd51D5YXG4oFP6-wg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
- optional "memory-region-names"
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>, 
-	Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@oss.nxp.com>, 
-	Francesco Dolcini <francesco@dolcini.it>, linux-remoteproc@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] ARM: mvebu: dt64 for v7.2 (#1)
+To: Arnd Bergmann <arnd@arndb.de>,
+ Gregory Clement <gregory.clement@bootlin.com>, arm <arm@kernel.org>,
+ soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <8733z1c8uj.fsf@BLaptop.bootlin.com>
+ <bf8092a3-d037-44ee-8e08-8b2204e5cc95@app.fastmail.com>
+Content-Language: pl
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <bf8092a3-d037-44ee-8e08-8b2204e5cc95@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-WP-MailID: cabdebd1a1134808a63f1e9b82ce9f8e
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000000 [YUN8]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_103318_078121_5DB1E219 
-X-CRM114-Status: GOOD (  30.56  )
+X-CRM114-CacheID: sfid-20260609_103508_379177_E3441CDC 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,75 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 9 Jun 2026 at 11:06, Frank Li <Frank.li@oss.nxp.com> wrote:
->
-> On Tue, Jun 09, 2026 at 10:40:06AM -0600, Mathieu Poirier wrote:
-> > [You don't often get email from mathieu.poirier@linaro.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> >
-> > On Fri, Jun 05, 2026 at 04:36:18AM -0700, Laurentiu Mihalcea wrote:
-> > > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > >
-> > > The names of the carveout regions are derived using the names of the
-> > > reserved memory devicetree nodes, which are referenced using the
-> > > "memory-region" property. This adds a restriction on the names of said
-> > > devicetree nodes, often bearing specific names such as: "vdevbuffer",
-> > > "vdev0vring0", "rsc-table", etc... This goes against the devicetree
-> > > specification's recommendation, which states that the devicetree node
-> > > names should be generic.
-> >
-> > I don't see what is so restrictive in using the node name of the reserved-memory
-> > regions.  Function of_reserved_mem_region_to_resource() is already doing all the
-> > parsing, packaging everything in a neat and easy to use "struct resource".  What
-> > will you gain with this new "memory-region-names" that can't be done with the
-> > current solution?
->
-> DT Binding check can't find such wrong if node name is not what expected.
-> Binding can't restrict memory's node name because there ware not specific
-> compatible string for it.
->
+Hi Arnd,
 
-But what "wrong" could that be, and what kind of restriction are you
-hoping to enforce?  What specific problem are you hoping to solve?
-
-I'll wait to see what the DT people think about this - I personally
-don't see the value in it.
-
-> Frank
+On 09/06/2026 18:11, Arnd Bergmann wrote:
+> On Fri, Jun 5, 2026, at 17:20, Gregory CLEMENT wrote:
+>> ----------------------------------------------------------------
+>> mvebu dt64 for 7.2 (part 1)
+>>
+>> Mark EIP97 as dma-coherent for Armada 3720
+>>
+>> ----------------------------------------------------------------
+>> Aleksander Jan Bajkowski (1):
+>>        arm64: dts: marvell: armada-37xx: mark EIP97 as dma-coherent
+> Hi Gregory and Aleksander,
 >
-> >
-> > >
-> > > Fix this by documenting an additional, optional property:
-> > > "memory-region-names". This way, the carveout names can use the values
-> > > passed via "memory-region-names", while keeping the devicetree node
-> > > names of the reserved memory regions generic.
-> > >
-> > > There are no restrictions imposed on the values of the strings passed via
-> > > the new property since the software allows any name to be used, with some
-> > > names (e.g. "vdev%dbuffer", "vdev%dvring%d", "rsc-table") bearing a
-> > > special meaning.
-> > >
-> > > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > > ---
-> > >  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
-> > >  1 file changed, 4 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > > index c18f71b64889..8e3e6676a95e 100644
-> > > --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > > +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> > > @@ -62,6 +62,10 @@ properties:
-> > >      minItems: 1
-> > >      maxItems: 32
-> > >
-> > > +  memory-region-names:
-> > > +    minItems: 1
-> > > +    maxItems: 32
-> > > +
-> > >    power-domains:
-> > >      minItems: 2
-> > >      maxItems: 8
-> > > --
-> > > 2.43.0
-> > >
-> >
+> I'm a bit surprised by this oneline change. Since you successfully tested
+> this, I assume the change is correct, but I have two questions that
+> I would like to have an answer for before I pull it.
+By the way, the upstream safexcel driver works correctly only on coherent
+platforms. On non-coherent platforms (MediaTek), the SHA-384 and SHA-512
+selftests fail. Since the selftests pass on Armada's SoC, I assume I'm 
+right.
+I have a plan to send a patch upstream, which has long been maintained
+downstream in OpenWRT[1]. But I need to think a bit more about how to do
+this properly.
+[1] 
+https://github.com/openwrt/openwrt/blob/main/target/linux/mediatek/patches-6.18/401-crypto-fix-eip97-cache-incoherent.patch 
+
+>
+> - I would expect a missing 'dma-coherent' property to cause data
+>    corruption, as the DMA master may write directly into the L2
+>    cache, which is then invalidated before the CPU accesses it.
+>    Do you have any idea how this one ends up working even when
+>    the property is missing?
+No idea. Don't have access the Armada SoC TRM. Maybe the folks at
+Marvel will be able to explain it.
+>
+> - I see that the Product Brief for Armada 37xx mentions that it
+>    has a "High-bandwidth, low-latency IO Cache Coherency" interconnect,
+>    which also indicates that the patch is correct. However I don't
+>    see why it's only the crypto engine that needs it. What about
+>    the other high-speed DMA masters (neta, xhci, pcie, sata, ...)?
+I didn't test to determine whether the other DMA masters are coherent.
+But I'm assuming you're correct and they are also coherent. My recent
+work has been focused on improving the Rambus/Verimatrix/Safenet crypto
+drivers :)
+
+Best regards,
+Aleksander
 
