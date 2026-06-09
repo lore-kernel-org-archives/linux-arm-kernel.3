@@ -4,48 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4610FCD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FF4CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 07:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LHGG1rrfCa6iW5IzHFVnISXxH0BdHc+dP0J0kdkANIg=; b=C/lAAwUJizhzI9+DwEPzqulGH8
-	OA39B3PGDsDzl9xgLVm0j76MBgw9WVc7HlVVyRj1vk3HQlYRMPOa6plw2XECCccAEfDv3EiOzYggY
-	zyvXXFP4TpySg2u1nRyxtCWDpe+s7ZgArfRweRJE3wY44cl1U20VKvL1/iOLU12VEpDuLosQ3lYko
-	/D7U2SYzIRDqXQwv8QhcAsPi7sYtuqItjz0NOtwpJujP9s0YCOUGaoHnKu1hX80X4ypWAEWMMyO6g
-	E09SbEr9/WYXn5Xd32/tdXmfn4t1tY2iZhwvNbQGAJI2RXFD1wqj9G7t9rZ0p+15tnEQ1bHqaB3BQ
-	npPQPgIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zF4YvrG+EB8JDL3R6ViMoPNp6HVm/PdHGw9XeWtWNP0=; b=PWnzMvVR0mS8SfMDaArYSS51rN
+	3Mwx+mLorK6NF1o48LfBOluBGjviDb2Q5bHzhQO61MxPJ5EKxCFj1XLGHrV84QeHQV50Szoi6iw3K
+	xpIAifwFAb3pldjohuut3D3Dv2AucGmPC2zPxYR542OR6jSSWyowDcRS0I6fM5UicOEoCXV7d/bqI
+	WTPfMrMzPvQ+lTVnRpHgrK/MRNBu+b1Bv6oDrqCF9jR1UIwbi1eBSEKQ0gLUPLTikBcxQRYEtjYau
+	XDltKjFwm0qMoGNtywizMgX9HIHjGp1hCOpsEU+ltBqO1wWsfBC1PFfvi3jOM7SSquioZkbsQSF5X
+	F0tYIhRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWr5B-00000004ywp-0vsd;
-	Tue, 09 Jun 2026 07:41:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWrC0-00000004zNj-25Ey;
+	Tue, 09 Jun 2026 07:48:12 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWr5A-00000004ywe-1YGy
+	id 1wWrBw-00000004zNR-1aOh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 07:41:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEDCE4457D;
-	Tue,  9 Jun 2026 07:41:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7831F00893;
-	Tue,  9 Jun 2026 07:41:04 +0000 (UTC)
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: soc@kernel.org,
-	arm@kernel.org
-Cc: claudiu.beznea@tuxon.dev,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	conor@kernel.org
-Subject: [GIT PULL] Microchip ARM64 device tree updates for v7.2
-Date: Tue,  9 Jun 2026 10:41:03 +0300
-Message-ID: <20260609074103.814073-1-claudiu.beznea@tuxon.dev>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 09 Jun 2026 07:48:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3687F4E42C86;
+	Tue,  9 Jun 2026 07:48:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 04C3D5FFC1;
+	Tue,  9 Jun 2026 07:48:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1E3FA106A2A94;
+	Tue,  9 Jun 2026 09:47:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780991280; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=zF4YvrG+EB8JDL3R6ViMoPNp6HVm/PdHGw9XeWtWNP0=;
+	b=xXMrahGTUeXtXkGJ1zr5F+G2D852jhc0/A03F6lBVcfVrqhzqKmoQEv40R2zqW46cZb6d6
+	hjDKHl0Ur5/kPTFE/PJ/7TEAjbBgzB6uQhLLJIkJYFDjjTSoEOx9QwzRYfA118qcc/odXr
+	Hz/1d4uUwhmoOmPoq/n2fCNgxMgvxOg4lZKcSBkP3v6OqjqmkI66vOm0TiK0yPR/5+ohAD
+	2Cf5wZnQShXjtrfW5ZZQIXYEN2Wj3ewmIrG+S4x/muNFYbtWCjIstkGSpo+yflrDbrMyEs
+	KBFw/VyPOjX/cHVPSscxfEfQ2IftJzHJEmcwawDGO+k0XjHEt/hZ44sXn9MRdA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 09 Jun 2026 09:47:51 +0200
+Message-Id: <DJ4CPR3MZ41U.2HKE3R0WUGSOY@bootlin.com>
+Subject: Re: [PATCH 00/37] drm bridge hotplug
+Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
+ <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
+ <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
+ "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <DIXTUCXAU68V.1T7X89LMEUF2F@bootlin.com>
+In-Reply-To: <DIXTUCXAU68V.1T7X89LMEUF2F@bootlin.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_004808_731784_56385D7B 
+X-CRM114-Status: UNSURE (   5.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,28 +92,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+Hello,
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+On Mon Jun 1, 2026 at 5:44 PM CEST, Luca Ceresoli wrote:
+> Hello,
+>
+> I presented this series last Friday during the Display Next Hackfest
+> 2026. Here's a summary of the discussion.
 
-are available in the Git repository at:
+For the records, the presentation slides are available at
+https://bootlin.com/pub/conferences/2026/display-next-hackfest/ceresoli-drm=
+-bridge-hotplug.pdf
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/microchip-dt64-7.2
+Luca
 
-for you to fetch changes up to 8071815790141d3f05e32b972a6c79fdbbb88cfa:
-
-  arm64: dts: microchip: lan969x: add OTP node (2026-05-25 22:59:07 +0300)
-
-----------------------------------------------------------------
-Microchip ARM64 device tree updates for v7.2
-
-This update includes:
-- the device tree node for the OTP controller on LAN9691 SoC
-
-----------------------------------------------------------------
-Robert Marko (1):
-      arm64: dts: microchip: lan969x: add OTP node
-
- arch/arm64/boot/dts/microchip/lan9691.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
