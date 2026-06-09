@@ -4,70 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD61CD8CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D284CD8CBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAPy2awkQcYnVSy1fnfZF/v+f5XqDfdm+3r4Ry3/eo4=; b=1K45N+7uBliFKCeKt+4wfIDoLO
-	geRwxqHl488IZpG4N9yVCnDxrVqlSduxP/t3yHGoAN7i+0VwjCsjnbIq0ESWGXQ60MA2It4ekgkih
-	GEq76yM4rNrveNUNjOGS0jqOZ94y2/riCu639EfwrZ4AKDYZ3EQqL1z1Q6Hrl3OooSTxiZRBmRini
-	WoWe+OLyovX/uzhfojeSzuTBNcbS4sBtV5sAjUhGpHL+pAt7PwX29aYAC9fgJzfTFVw+zauUBL4xE
-	avNeinP+0at3lrYdKiWc9GG7nvPs2J1183oM3kdGnEPNbT8JYopr+PR7sS2AQiWgqI5D3HqCyekpZ
-	qajFS/4A==;
+	bh=3R0ahbIHG3t80occ2STzev2g5gbwSy/D+BGWspE8/4E=; b=Gd1xOvtzUvIPrth+1V7nThiTL5
+	9gj9yC9cb7mU/y+ImrHhcnrGtvYnxHSV7kkbz1ARgGnoFum616ngp6jtO9xZB032Pm/TFHkhTY5Rn
+	2rHaRzOYn2uD9ipPER49WptYBcnPXMaAImitH8tCgBpNUIbr4mlwL5VJ/A+6WVdEhuHQeDuTIelD4
+	A8HlNNrGNSKcgOVPfkVxvDzMZCsvs5ht11vRKuBBOVM6TAv5SZGYkTzBrwIWHtNy17qk6ak4xA6PT
+	o9EMMO+r0SfO+AkPkMuIDQqhwPDp5o/31yeagl20HQkyLcBQjIWlxi2UcogxxEdBbPLZEZRDh19Kp
+	YTrHhaXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWrqy-000000054MJ-1z5I;
-	Tue, 09 Jun 2026 08:30:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWrrR-000000054Qk-2cMZ;
+	Tue, 09 Jun 2026 08:31:01 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWrqx-000000054MD-2rMV
+	id 1wWrrP-000000054Pl-1nUo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 08:30:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 496F74428A;
-	Tue,  9 Jun 2026 08:30:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6863C1F00893;
-	Tue,  9 Jun 2026 08:30:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780993831;
-	bh=vAPy2awkQcYnVSy1fnfZF/v+f5XqDfdm+3r4Ry3/eo4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SuiDaMZaogYBR8IVKecr1WRDmd0oh7gOCSew3JZXv71uXuTavPzO4IU4gRbQsSmNn
-	 qQetzE7dOzFT3erHs1SLTkF04XuKJ2TW2CPaleBL6Uv2QcFZ9Mbf1vDelfu3FMIqn+
-	 Qy2S5RqNGtNCgJi58UkuQZlRHbe2qHkYtlm2c0lKlCsBycvw5fm93rh/+vxHqFE4pN
-	 xgH49PxObrEDObWNR5RF09uykuJ/vue7yrvMkrNUm+W4AmxAuTtKtp+TfiFLfRUhsj
-	 gZKRud0Z8HoYdKIeKhfjJopcMyxn1H5iuKfsDpSOQCPF4s9UZYHq0qspNc/CDnCM1k
-	 UbI7Eul1/SgPw==
-Date: Tue, 9 Jun 2026 10:30:27 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Nabige Aala <nabige.aala@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krishna Manikandan <quic_mkrishn@quicinc.com>, 
-	Loic Poulain <loic.poulain@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
-	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: display: msm: qcm2290: Add Shikra
- MDSS
-Message-ID: <20260609-nimble-beige-swift-eb1846@quoll>
-References: <20260608-shikra-display-v4-0-88a846afdd5d@oss.qualcomm.com>
- <20260608-shikra-display-v4-1-88a846afdd5d@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Tue, 09 Jun 2026 08:31:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ApF7Gwz4evKEyeUAqXukz4oYdp31nuzE8Po3qN4W+toGNaM7J7OQOGsfXkHJeSkr936zPJe5D+ufk+H9wZnb54AZC9Nl6V6r957GlZkoY7HnrQyNkg2POgJtQ91MvCZXSloYJ99FmbxrApgWD2MmxCzI5yEIWcUApb+0qmUP8gOS23FqeSfTzTgOmkioFgODSCgFR1WbNYiyR6Fl5i42CX/L+gx39afQzFmDHwZxDY/h7I6YmAGhOQ/92WKd5AHrlZp7j90uOj4OY0ORMxyPNognZHmSYjDMvRsLz6gyHj1DVm9I9dWuQ4mnu5hcQIlM+YtbzEEorWwbA/xY6rQSPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3R0ahbIHG3t80occ2STzev2g5gbwSy/D+BGWspE8/4E=;
+ b=UGzV6fTmxa2Oeen2fzyGL6fZ+BqQt3U62gFtYvg2JziQh1W27vz+NaQN3D39SORDqPOZP4pm5VC/6F3m3rCUzbPcberFX7NvlkEFwJSgTQnv0A5infT4L/vfwdGYvBXsykqN+ghKAU4Xjf4uAcD9DnBHDF5O+5SgaenHizxecnozpSAfUthGa4NwcdPOsscrvYt7WFZPCM00VS8p0Pqe6e8slmjvbzdVrJxVT7v99zaQ9w4oXP99Du7BC4hM3Z9K8B+h93fWOhYLqgVvXbqn3g8UgnDQj4fyU+6QDbEkho9oWs7zCBhEAYPILRwhyEPmuNhMXjyl15hXJHRkShoBFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3R0ahbIHG3t80occ2STzev2g5gbwSy/D+BGWspE8/4E=;
+ b=yEczv0GzXjEsjwP7nDKXSzT9BtTGeMcjujQyQ0SUnPIZC+2EgfGXWLhH1j/Tc/6n2c7pSXA7D9yxkPuI3WRNiFO98atdaaifYlpHHVn5qPf8GO/ZsFqJ39Y6P3QfqzuMf+WnylFBd4vDuAcVlVysW2/EKUmhn2WB0eTVU2QxsItKLdxNwCMhSIApwyIwFUW5sBUZwWuFjrz8hn4FMED2qOwUz9PaguhPWh2LceLfvhCXSxuaHoNMm9fFfe1XSSdOxxM1I8k7afOJ6S/MHLC0sKGPzP9rf2lS8YRh8UEAxm/KPhRh3IaS+ZSPK8PiYf9/LKlWC8xoAbKr6m3RVvYUKA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
+ by VI2PR04MB10668.eurprd04.prod.outlook.com (2603:10a6:800:26d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.12; Tue, 9 Jun 2026
+ 08:30:52 +0000
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0092.010; Tue, 9 Jun 2026
+ 08:30:52 +0000
+Date: Tue, 9 Jun 2026 16:33:54 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3] clk: imx: Add audio PLL debugfs for K-divider control
+Message-ID: <aifP4qpH/oJhGd+I@shlinux89>
+References: <20260604-imx8m_pll_debugfs-v3-1-4e331ebc85d7@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260608-shikra-display-v4-1-88a846afdd5d@oss.qualcomm.com>
+In-Reply-To: <20260604-imx8m_pll_debugfs-v3-1-4e331ebc85d7@nxp.com>
+X-ClientProxiedBy: MA5P287CA0261.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1f1::17) To MRWPR04MB12330.eurprd04.prod.outlook.com
+ (2603:10a6:501:7f::23)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MRWPR04MB12330:EE_|VI2PR04MB10668:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1241fcb4-db6b-43bf-c301-08dec6016aa3
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|52116014|376014|1800799024|38350700014|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: NpW8QeLsQ3bhavpJ3ioDGe2uKeKV91sv2PXt07DlhJP3wlz6xGuzuEfTNf2I0otWiZWmekrHpNIX7YPtd6p+LioW2Wkg7eO3aprb7yarlWRgU3Mdhr7a+ER6oHMGb6SShDHtoz7cM3wHXiJXB08+bFUgaGauzf+TO0waE2/E5X0oum4Xd7xLF0upoSaDtUsyYQUfTij/kO040vmEyQfau/mB2IgSyHAP88AfwnRDTadUeMp70O4HQxc4C8PRLf8Z4FZB3+7knv2PZgmXnleDBor0jYV1Z53FEPRmvcUAC+N3/U5HppkqDCJKaGk3DykhTBQXFx7MbOgI7nZJ/syeJo8ehhFoK/HaBOFOMFaLdv/3AsH0Qgan+wvFYLaX9Nsy11lOV+O7gg5gYtvnhTnQ5/OjuCGKj4A/kwcnl7lQrGg9cowJYY5cidyfdbcZM2x5c4yTSy5fZu4Af8uZiMWbw0MwTVt7Sp3OJBE9v/B/+Iic0v0XSJ0riqswxZONosli5iUAlFMeMx4WENclIKv+9QebfIwjsieUZGzezFtFkJSxic4wGZsfommkaSlfBdEZAhIAGKq1QTTWyBV2LHyMyn07jcVKqNp44RhUZNtJD0RmYupDWvbm2H6PZ6m0fFpLHDYGcZGf5hutH/tspy2YoFKQDyqEFmbhaEioMJlsBLrcQXPh6WCxQL+P6fP7Lbb344uHqC26iJKuj0CrWYQVULuP3oYft8E36kU8EcvUP1ucWBvav4y672tyIiQ2xNAV
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(52116014)(376014)(1800799024)(38350700014)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GtBmJVhIyw0OkzJN/9wROqwqwNn+5HfzemAkBiUuFVJcwjmAXktu0S3CxOke?=
+ =?us-ascii?Q?FGv+Xwd36e6yY1cTpc2j2Jy69g4i+qX6QQkkeCBbAy67fO4VqyFvmYfp/qsA?=
+ =?us-ascii?Q?/ncqO0+EFU36EFecy8ZpUEu0lM1onnLWF5u2VPkBaF8/cyZV0EcFVFJdtiE0?=
+ =?us-ascii?Q?YKWc57wiXUzz8bNglvVtw4kRtK1byRakm5YTyCPCs8je+wo2eH2nduC/gLHR?=
+ =?us-ascii?Q?1K9udKrKx2toBmB2bM3WVIRlED1B0dO0Xt1ZyGsjF50fuoKxk3UJfvCdxFAQ?=
+ =?us-ascii?Q?Kcn326JlDkAtw2BxMMICul9H4JpeSjQWxrCda5JyR5KTQnj/gid3D52n36SS?=
+ =?us-ascii?Q?ljJkcu4VKMz0x5VyV8/Mvk6DaokLNbZ/SRlXfWHm6+yaVetD1psGKpn5Kpx5?=
+ =?us-ascii?Q?liNhPgmtlCI1I+WOutrX6Icjx9JiQAjffFndfPvKa92ed6jo30sqUgBgXbg+?=
+ =?us-ascii?Q?o3DS2tRy7GLlofqwVWIqA9lTbyT3aU9osewCpS3hUvbDquv2ajXH2u1kQl3b?=
+ =?us-ascii?Q?TsgjcMyQFvE9KEhL/gfri6PTlF6OHjd68Hrad/FOgrqkozN6w8CWxAVw7Q0m?=
+ =?us-ascii?Q?gm1q9ldYzAHyTcmqbMs8lA7ohUGoNwrWRq3HiTq5Q4hINdz7/Uy8gli4BbOg?=
+ =?us-ascii?Q?xI9Nq0c9XCHdLukCCcHQzskeDy4+SJ9OzM+5kaRoNGBoskNvV4V1pSr+27QT?=
+ =?us-ascii?Q?JdtrL/DHqdJ4J4fZsCU3p4qJYHYDRrWYiSI/CFkFUB/s4qVja14xjH3DW2D5?=
+ =?us-ascii?Q?VoMbK5BBIUioEZ/ViBBFGzbZcZr45py3kErIomXD2UIyud+GyNEPvFecWOGW?=
+ =?us-ascii?Q?a1xj/rU6Xdm2sTXU+xAHtgEaLf9uKLSIWO3UGvVyXgo5wwWfwrj1rWBFZ/Nn?=
+ =?us-ascii?Q?yUU0TOtSHo213xqbVvfllBiLN8TMwDbzHSEuqOo7HQps7fLzVmGpZBcaQ/fZ?=
+ =?us-ascii?Q?KMf6y1zsgu0aWntYWX55fJc8cE3eN5oy5OB5FL5JO/BpvytzWeMF9TAD8uG5?=
+ =?us-ascii?Q?esZvGCklQKT/1bE8WaBKJZ0EO8+/KMmX0WuY+VgdmP+MDdLQ2QNTnN9xP4ra?=
+ =?us-ascii?Q?TPujPN9e8zJLbX++Dys0Xl/aRGa9IMKuYkwxgoix2vpubpOfKqivTatwy8IN?=
+ =?us-ascii?Q?i3dOLSbxrCWMmJsH2lwajjcZhZTK+fMkGDDcMb8Amvhdc1i9dRp5oX1l1t3G?=
+ =?us-ascii?Q?ybJVygyoRlq1r+HLw0BVAp70uq92odd99lYrUCg0AliWPaLGnauLwKICr9RP?=
+ =?us-ascii?Q?ATBqDRJ8dtlxxpmPj9+y7GJe03jVFvB1iRUGFHjRAdhRw3Uv4LrDMJFxWlgG?=
+ =?us-ascii?Q?h6RgfHcnCi+WxVrqH2v2JrJBeq0g32Aq4+s2kB9w7w53MDBapjGnCWmpzyrv?=
+ =?us-ascii?Q?7UHM3ZpHGJdk0rGyxdqEmK3ObvwwO3eBTfi7g4xwH1GvopXM9279/TRMZ3+A?=
+ =?us-ascii?Q?gLhoiGL44Lqo6h46MEUVvMXsgWkFdrrGu/xBxiKhRhlBDJKYkR94qreQW886?=
+ =?us-ascii?Q?j/07WI/sx4RlDWpkChMF8fSTlT4ZsYzawb3ozF3th2RAz5m4wmz4+t1EQQUg?=
+ =?us-ascii?Q?bWB+DBojjuapbl6D+8XOUg/TRWM26RKnHxC0/q8jp976QZ+Ba78hmULAVd06?=
+ =?us-ascii?Q?E3Xd1tG2QEvd1PZhQC79d0/uAmtlnxDUM7NUAAcENLgGwGAYcEPy6yZLfrq8?=
+ =?us-ascii?Q?/QwLwNVyFVA7JTOKwyLAp0t3EocKzgMqrGzS9H/w1j6xXdpWesYfFCqxY/ur?=
+ =?us-ascii?Q?1kcOQdRXXQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1241fcb4-db6b-43bf-c301-08dec6016aa3
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 08:30:52.0773
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6xmHSDeLsHfAGl+BzAAR1VAvagvtU4YXwLbIi4em9YOX3f4iNAVTe0wYRHru/4lDdJtdNk5nxkYNk3OTLfegNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10668
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_013059_471423_477403A8 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +143,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 08, 2026 at 12:31:42PM +0530, Nabige Aala wrote:
-> Shikra reuses the same MDSS/DPU 6.5 hardware as QCM2290. Extend
-> the existing qcm2290 bindings to cover Shikra by adding fallback
-> compatible chains for MDSS, DPU and DSI controller nodes rather
-> than introducing a separate binding file.
-> 
-> Signed-off-by: Nabige Aala <nabige.aala@oss.qualcomm.com>
+On Thu, Jun 04, 2026 at 09:48:01PM +0800, Jacky Bai wrote:
+>Add debugfs support for runtime tuning of the audio PLL K divider,
+>which enables fine-grained frequency adjustments for audio PLL.
+>This is used for:
+>  - Audio clock calibration and testing
+>  - Debugging audio synchronization issues
+>
+>Two debug interfaces are exported to userspace:
+>  - delta_k: It is used to adjust the K divider in PLL based on small
+>    steps
+>  - pll_parameter: It is used for get PLL's current M-divider,
+>    P-divider, S-divider & K-divider setting in PLL register
+>
+>Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
