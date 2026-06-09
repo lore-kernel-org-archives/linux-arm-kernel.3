@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D03CD8C85
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 05:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1AA6CD8CAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 05:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVmqcnVsjodgCjG3U/o5eRCKAusFzgiBIJq4ut+6lTg=; b=vSGpOcnT+qhXUKVw7UBGuvVsla
-	zWYxTIj+5MKrsI/6QeYHv5vd3AhiW/tbmU6hV2Vhiw2Lf2wEK7/xEw/5NeuzJ+7k6lN3F1UstdR5l
-	3Tt74HguwQrS0cRWl8c+HBrrvz+BdBvcsKmRZTpZsE0uZwsgARBSmdn1s77zRSSPvlrpy6+ef0S5H
-	Yptljt47uWNmNoJTOt5dliQnN+2J9r9xDUgked5Uq5pJojQogb98CH5EZViZ9IofmNNs8O5Uxk6Yy
-	6VL/FrZ9qYQNj68Pv3H/n9npnku+CPSBA35sosn5pFKuLLtSWZfCjRF9DauYlEEVN2Hyurj/t8EKn
-	W0MBWWtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PsT1Zt8eX96C5Vy0ysyPoJWLG8nBvHsoCwEXo1y0+xg=; b=U/ioKhWdYLWkmcr0e9UgCNsfs6
+	NBpkaRmQ5n7X0ThdayLJPPddEHR00IOuL2WZT6UOpVD67xEalDjI+d0OIHcrAtMiZKC+kT3LQl7/t
+	sBCYAQVWiT/i8RLwhHzo3IammvXGoC9CiMRpL232jRhjIMghCBQ14/ckLKigwQeRST1jQlMs8if/j
+	uGVH36L+VRgcQkQjJqXb2AR+QRc7iUv8ujSrb/TZ4YyFxh2m4g/liKQB8JR2Scl4fBflA744r0y5w
+	UitE5SpMrnAl++X5LaGTnbkECJKFbqAOioXaSjCkiYkJhVHBql0hsxjg+C34RmGsASqeWnw6jIf+3
+	4gVJo0sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWosl-00000004kMf-43PA;
-	Tue, 09 Jun 2026 05:20:11 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1wWozK-00000004kkj-39Uo;
+	Tue, 09 Jun 2026 05:26:58 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWosi-00000004kJF-2JOJ
+	id 1wWozH-00000004kjv-2R6r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 05:20:10 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780982394;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VVmqcnVsjodgCjG3U/o5eRCKAusFzgiBIJq4ut+6lTg=;
-	b=CsQ6WOywrUqfG/jYS6DeCAEfy3Mucvl8747hxez4wCFKgNWvESAh7FrW/4ZrkN16ffN0Y9
-	+gND0uCghNRWgOOIsMvrrag32fn5ube0Ku/eHm644yqIC9NWjOyzOihlw59ti4993532TT
-	p6nytidjYkMGT1uWj9o1t0V2BZ9ZC2Q=
-From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Date: Tue, 09 Jun 2026 05:19:26 +0000
-Subject: [PATCH 1/2] arm64: ftrace: prepare ftrace_modify_call() for use
- without CALL_OPS
+	Tue, 09 Jun 2026 05:26:57 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-842288702fbso2030194b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Jun 2026 22:26:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780982814; x=1781587614; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PsT1Zt8eX96C5Vy0ysyPoJWLG8nBvHsoCwEXo1y0+xg=;
+        b=aUX0ZLJ2CLr6wPGMRmMCQZVZm3U1bcouzA/ufn6DBWBlBOdPjeSAuk0mOOc0i6jTDE
+         ULOn5dde5q+uoMAS4jtNktMtqjBKkanP8+wtA2zWAeHNPe1J2b9Mb6hQDIW7ZVU5ZYD5
+         Qt8Z7Cs8UPfZJljb2AnUANIaHQQIReLTBaZ8e+U4qpPezYdwYF/ZNBmutpOwfA+DjLjs
+         WFS4jYiaTd6YuwTuVgsb7/O/QZWWL9wt0E5mbMr1O9G9muBzPFjivg373CTafBrUjzN3
+         KBcVfB2RHTNiLH7X39/jXmSByebUPjMDzL+5O+AMJv3qTB8oIV8vMI8BImrGUtN+aDOG
+         Ig4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780982814; x=1781587614;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PsT1Zt8eX96C5Vy0ysyPoJWLG8nBvHsoCwEXo1y0+xg=;
+        b=gdkEnKcBk2QyBLtmQFMFjLf6XS73mSZ9hisGpL14G7yWxS1kP180GBKWNLCRiCqGEG
+         Sjq/9qYPqk7gvBdqH0+Js0jGDeKMikTgdnVokulmUf9bQL1iCxhrJEZfgJQEbkJ1BcBV
+         ZDD/V9pjiKZq4I3X4N4KPDUtnHJaEPJ6fILRLrSYUukvklqSm9d/zzDgeqR+taEK2Y6Z
+         kYND/614QYS0i3InQjxALsSwhf6naSsAUhX5W0HpkcOx0UwAzUGfwGSM2erB1rNXC3jk
+         x2whcO65OoUSMa+Gx5BiqAko8wPy1jHdNS3772gvsqMnPE6xdwxSJNQiePO05biF4gmy
+         oSDQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/IbasqjyMNu1Lt9Y+hc5NSy48jJLRKqOu21n8c8O4PaXPhkHCwOpiMivyUjYsSUCQOuEpLqXIxVtkBptc64Eu5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBCRwGzdorIktbdU5ZQK65b+zzDJF5lh2BDX39ncWC7mb4bj6b
+	GfODEvMWgagluCszJTNMkJDitnHPoSx/rEyJqV6dCtxE7/JvHAVduhB9
+X-Gm-Gg: Acq92OFqAK0Z20lQ+fIzPoHfrhkjr/gi+Dvcx9kDZSwT1aSbpraPF3o1EpC7Zo7vCcZ
+	0j2j8AlHDteocnrLLrxrYM8ZJ4/468ZlRyoTE9muoIBoM7k3yphC2aMGu87SW2LutLKn85fvOoa
+	8XCKwYsEpIDMfT9RwmBEFt9j9LPGapZpuEwqaqUnMDLO2DhG6FmVIYcI9ngyoar9HNB01iB4EYH
+	QolemGUpM0S0C3m1LXOKhADKmURg9yFYwAzTJc6e2FDmiDvAphPQ0eSFLfgW/UTcEZ8ItS4V56d
+	Cw30aRSK2jrLvhy/gPbjWEeundm8zqmQpxvE08je9q5XBClqs0UIaQYoyIkQax1/6jC15T73mWs
+	Hzw5vxpP7k6dFerc5CsJtoMu2/T+PT+qAV8lDTXiamxhwg4I6zGWbxzDsuqBcYekeFbO3KdEkjq
+	4pziJMVUy4U5m5OE94ybChQkhXfYRwy5qahOKH22PBuVrxP/VM5xXeEQ==
+X-Received: by 2002:a05:6a00:1d84:b0:842:5ea5:5fdd with SMTP id d2e1a72fcca58-842b10b2f1dmr17770012b3a.40.1780982814465;
+        Mon, 08 Jun 2026 22:26:54 -0700 (PDT)
+Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:37c9:44fa:729b:6aaa])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828e21c8sm23445657b3a.49.2026.06.08.22.26.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 22:26:54 -0700 (PDT)
+From: Ruoyu Wang <ruoyuw560@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	linux-spi@vger.kernel.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Beniamino Galvani <b.galvani@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ruoyu Wang <ruoyuw560@gmail.com>
+Subject: [PATCH] spi: meson-spifc: fix runtime PM leak on remove
+Date: Tue,  9 Jun 2026 13:26:47 +0800
+Message-ID: <20260609052647.5-1-ruoyuw560@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260609-arm64-ftrace-direct-calls-v1-1-4a46f266697f@linux.dev>
-References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
-In-Reply-To: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
-To: Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
- bpf@vger.kernel.org, Florent Revest <revest@chromium.org>, 
- Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huawei.com>, 
- "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_222008_751846_395E13D3 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20260608_222655_624256_FCB059E6 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,53 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ftrace_modify_call() is guarded by CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-and calls ftrace_rec_set_ops(rec, arm64_rec_get_ops(rec)) directly,
-which only exists when CALL_OPS is enabled.
+pm_runtime_get_sync() increments the runtime PM usage counter even when it
+returns an error. meson_spifc_remove() uses it to resume the controller
+before disabling runtime PM, but never drops the usage counter again.
 
-Generic ftrace also needs ftrace_modify_call() when
-CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS is enabled, to retarget a
-callsite between two non-FTRACE_ADDR destinations, as happens when a
-direct trampoline is modified. The next patch allows DIRECT_CALLS without
-CALL_OPS, so widen the guard to cover both configurations and switch
-the body to the ftrace_rec_update_ops() wrapper, which already has a
-stub for the !CALL_OPS case. ftrace_make_call() already uses the same
-wrapper today.
+Balance the get with pm_runtime_put_noidle() after disabling runtime PM,
+matching the teardown pattern used by other SPI controller drivers.
 
-No functional change: with CALL_OPS enabled, ftrace_rec_update_ops()
-expands to the exact call this replaces.
+Found by static analysis. I do not have hardware to test this.
 
-Assisted-by: Claude:unspecified
-Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+Fixes: c3e4bc5434d2 ("spi: meson: Add support for Amlogic Meson SPIFC")
+Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
 ---
- arch/arm64/kernel/ftrace.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/spi/spi-meson-spifc.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-index 5a1554a441628..e1a3c0b3a0514 100644
---- a/arch/arm64/kernel/ftrace.c
-+++ b/arch/arm64/kernel/ftrace.c
-@@ -409,7 +409,8 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- 	return ftrace_modify_code(pc, old, new, true);
+diff --git a/drivers/spi/spi-meson-spifc.c b/drivers/spi/spi-meson-spifc.c
+index b818950a8cb7d..e2d19c3873f71 100644
+--- a/drivers/spi/spi-meson-spifc.c
++++ b/drivers/spi/spi-meson-spifc.c
+@@ -351,6 +351,7 @@ static void meson_spifc_remove(struct platform_device *pdev)
+ {
+ 	pm_runtime_get_sync(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
++	pm_runtime_put_noidle(&pdev->dev);
  }
  
--#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-+#if defined(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS) || \
-+	defined(CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS)
- int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
- 		       unsigned long addr)
- {
-@@ -417,7 +418,7 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
- 	u32 old, new;
- 	int ret;
- 
--	ret = ftrace_rec_set_ops(rec, arm64_rec_get_ops(rec));
-+	ret = ftrace_rec_update_ops(rec);
- 	if (ret)
- 		return ret;
- 
-
+ #ifdef CONFIG_PM_SLEEP
 -- 
-2.52.0
-
+2.51.0
 
