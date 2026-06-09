@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9622DCD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 19:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D84CD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 19:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SB0hkJoV0gPF+mcJ/isTFdgNlIuPqjaVKGVPd+vcG44=; b=mycWw2uOP1IlPxBFd6v0YEsgRl
-	BDyxXT8kMN1zTldG7zQkP4ffg7ChE802amb3crFeg0f4GkeF4F0RE88bTvOGwKieBGEOVmQeTP7yH
-	3u/ySoG0Ii2uV2TS0L5c4n9M3bnmwuSkJFqlJPb9nByjH+BFts+Ksj9RXtPSaovgsm64oCSPZQFVF
-	mnTMGEkfHaLQjyD0XS1GJ8WrqxZ9QjmqvvpmhmggXbJTsl66se9qY9NF7hCAs7jmYuP343w26zfiP
-	ypxpVdSvq4N53/CpLzjEtbLE29DidaA8lxYlik6PzCA3c+QFZ5WzacOjRy/J9AnVlPNIkVQMUKyqJ
-	P7RfXHGg==;
+	bh=WqDaomdcEkmPt/kMkSkh61O8nncSS4SHKIlJjYIogSM=; b=Nli88cVGGJowmmC9Na4ax3AlOR
+	jOYbEZxBot6/pUw1bdGpuMn/WwvHr5JtIaLcMTHyIrGmXTrMqIYr91C06RHDXbmK+b9YyVhkyU9Rt
+	cNdML5CgA9TbqC5mkWnXYblQsU1pbG9jiHOWHhSMIKrLy6zzPi8Rl/XuCvZhilkFEG0sXJCXBSpqB
+	O/hqkgOXMCfGgsXqSe5aCmAQjytsSemxXTc0dxKhFTIYz6Ou/WFH+/lcbEhUT7KbX2N/nu9dZK2sL
+	8LKO6nAWeCM6EPHVj9vPRpyjiu6K+lAUoFZwjdD+Z23wBpWt/8NOvGkVWXd0KljlYoYDAl2vD95Sm
+	swcdqc4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2B8-00000006Hnx-3FtJ;
-	Tue, 09 Jun 2026 19:32:02 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1wX2BB-00000006Hpw-49BF;
+	Tue, 09 Jun 2026 19:32:05 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2B5-00000006Hn5-2QoF
+	id 1wX2BA-00000006HoW-1Rqf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 19:32:01 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-43bf9548df4so4204564fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 12:31:59 -0700 (PDT)
+	Tue, 09 Jun 2026 19:32:05 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-48611ccd5aeso3473101b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 12:32:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1781033518; x=1781638318; darn=lists.infradead.org;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1781033523; x=1781638323; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=SB0hkJoV0gPF+mcJ/isTFdgNlIuPqjaVKGVPd+vcG44=;
-        b=LA1Xs7PxmDZQTpxGddpgSE9tRjUox7aXcNCw9h6QhH2FknK/NcLtxryLeFecEf5nW8
-         8mJFvt/OBZIqEzgOKn4VaOwqqYkO909aZSFTSufihfZm01E5vfe39ePMcEMkGB3RRHt4
-         y0kaLP0AlM2Q4HJ1eV8FLLDKQChecj0PNWydHkNAzJZ4ob0ne67PEECXFsty6hbt3TBi
-         oh+pAMmrjiD/87xTe0+WY690BlkgHZfRumuUXWWuMtsu5avXHxkQE6n5wGV+JpfX+Yy6
-         yMW1Z+DxrNgGIZOzEFKzwXi3AZAP3ZfFaf5H6p4LEP72ET3VZcvTjoq0kGrPKxdvfbQz
-         6gyg==
+        bh=WqDaomdcEkmPt/kMkSkh61O8nncSS4SHKIlJjYIogSM=;
+        b=t0vgbCeHXWP8Vip0NxhXQoTfh1UdD8jSzkwkCRrYvssX9J10OZrhH4pl7NP4+MoqLN
+         kkKgbIlyD+00eu68ETerj2GVgC+Aqn1i2b0XITEwP2q8NV8prltH4G5hilQaXDCcqDFO
+         ib/6RRFnyMzXtb1qWukAVERzlLP8Fw2zDA4PvVIzdX8T/7LyC/iwkZpgi2jWmcKOEYvR
+         D+O3D2/TqtMxdLoDeYiZWrln+e3CgkwJEZ2bqurelswP6UA3C3YgKAmqz2Lb6cO0I4X4
+         rCBkDkj/8FOKe9k9R8cYLHqxw86zmftwSZJHKjxof++Z/6btBpoduUMduQ42zNPfYa4c
+         Ci2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781033518; x=1781638318;
+        d=1e100.net; s=20251104; t=1781033523; x=1781638323;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SB0hkJoV0gPF+mcJ/isTFdgNlIuPqjaVKGVPd+vcG44=;
-        b=KDHgE87C0KRXkmEPQg1KPakEmo5q7K2H2rR5Gy7h8Wl8nzs1pBC8JNLb0FgzhsklGJ
-         YwDab44/SsIVafdx2dRmFJMYGv+rnxPzeHVosvFwQgJuRsq/l8644w1BBgNaMgOoZBaw
-         kpLZypgOKXW2hkUjADI5diMb7viecP+un8TgmD/0zhKIlYhWGrPX76zzGXYLCu97M2BT
-         Qed8bjVN5rH6vsIZ/T4o8QI/hKOymzy+daYHRDxKBjlpunHgVe5BKazhtYk0sbblMlxe
-         vmhyM9s3plSpNeyRxuQNi+ZX8/p87aEOP6/oE8q1vqvjw4OSO9uO6aA7ATdIhk67jCi1
-         3ueA==
-X-Forwarded-Encrypted: i=1; AFNElJ+RPSW1y888AdNFQheDW+eOuNqWPeesE7BYKUYkdoyyvGM4QN+BmuJXV5jpZo+owT7CjuralMw24VbvpWbASMM2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+zibnctRXynZZbEAO821FU9eGFKBid/nZNd/kggMGzvJgK05T
-	U0LUfUZQcxZ2rvHEyhFb/1drFzs9AJ0WTANj1udUxzguYqL0a7hlQ2JLaWirzNyXt3c=
-X-Gm-Gg: Acq92OG59aLI8WEC3KI9T5XYbxdiOteo8VeDoyOIF5zC8H3kaJOMHMKFii21Z/iEPQ5
-	ukyjPibN9ekCR9PulOjHRuieasLNxhX2BEFVht6MUmGov9KwrFo2Akjjmy7LWK5D3jTOgJMyrCq
-	vW/KoSej08pefUDEKHLi/khir9SCIdEqWd7uUTbxy11Up4uGA3oZGLAlT0agVt3UUEQWnwQxm9m
-	L5Lm1eY89cLd26Z//mv7crbwzZefq9KH+GI6m50AP3xnO8gE+myevAx7InQpK+gO3R+JByF5gl3
-	oUla5IrMY9kErr5yHx+xp64u1wqUQdX8FBwlBnFCgZoZCitVVrroRi1fWFQaQ1ooEWcu7J/GFN+
-	maMBpJehEcYE9G64dGpO/P2WuqMGcvZGo2vFu/hT97NSFpb11repqaeDWycAFTLC6bpgi3YUqTh
-	BXxqgVY7sSBGVJmxMbmAvfT9BZP55yJ7eSxg==
-X-Received: by 2002:a05:6808:2448:b0:467:eccb:b788 with SMTP id 5614622812f47-4868dddb842mr13686943b6e.9.1781033517995;
-        Tue, 09 Jun 2026 12:31:57 -0700 (PDT)
+        bh=WqDaomdcEkmPt/kMkSkh61O8nncSS4SHKIlJjYIogSM=;
+        b=U90IN7k6JLtGtb2naTCUZZpy/NqmfPY/ndzYF0WwLZMaCakkNAbGqI5Qkj0mDO40RE
+         A6rPFnBYg4h8Eh60/WyVwZqkcmiF2C0DXAm/zoJOWsIQpvb3oEJfpCU6rWoLCzoYw65u
+         b1RYUmx8u58SrpCVLKrwe4hFmXeq9SqswQtA8T9vVFmTSfn9ICOvvhktpfdPNObmpmus
+         0SFOmXXAW+iyw/sJM+uksWUYurA6+Dr0AGEAmmYxZtO90mJ2raY+iLDRsO/T3tSDYKmV
+         brqHrWMEUyKifJoCJBZoSbzR2FQuloIBiGtkiwiGP5MnCZZhqRVDZV2kq4t1VC29ePAE
+         qosg==
+X-Forwarded-Encrypted: i=1; AFNElJ/lucJ/rsI+dcdAal2SqDDRLBXN8YCBhvn87q/OuqbDbHpJD1Fms3KQw/o48pvNR+XOb92Plbp2k+C6CAB7MJ+L@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEtqmIIOt5iC+CHpbrb4Ohi/XRsZmCmQ2Cc/Qq7SmoVL8xBc7t
+	YYSJ2ufZDqHo0F5zrVPZ8+UXaN4rPo4MetPvUvxnwIOx+ZohGSwCDkSRG8vA+fvnbsw=
+X-Gm-Gg: Acq92OE58HK3CbHXJKAr3HqYCiYiYUzOFUDYc2dU9DlmRbRW32bhAL5O6bSXVvRiDcL
+	DAUtwgyqMH0wCyTSVsZc42NaPz1FONd8fImKDegjtnEcPAd8mar1re0qRlegYF2UYeuheX/Xjue
+	8Xi2BJ2t7J7/bBuHpW9GHB57oYot8pIQMj4L4qbe9wyYpgA7mmDZDgqPxKZsEQPkj1rOTxbKkWI
+	NdjaoOQiW0yw4NdjeI+eKZE/FYqNTIIZa2bM8lIq8Z/Ipl6QYdC2gIaJK6gK8bad939wmgn6zIR
+	6+RUEq+TCgiYd7kfc8zY8vnesLKAckYTTvKExX96dwUWAKz8iR1kzYHve2kQjDM72Dewmg1WoIT
+	3ZHmaPWxZmDR0Mox9eE8DYpKecOy8LCYm5xm9+ndHUYbTpDSfVBe6EznNh7Omlzz/b98LNT5Q+U
+	Tdtl2GRPfi1Kpa/l2WXK9O33AHxNwCaXkiZg==
+X-Received: by 2002:a05:6808:4fe2:b0:485:7c72:786e with SMTP id 5614622812f47-4868df054eemr14537468b6e.21.1781033523165;
+        Tue, 09 Jun 2026 12:32:03 -0700 (PDT)
 Received: from [172.22.22.28] ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4865b32f372sm16507092b6e.0.2026.06.09.12.31.55
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4865b32f372sm16507092b6e.0.2026.06.09.12.32.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Jun 2026 12:31:57 -0700 (PDT)
-Message-ID: <6e289973-53c7-4008-baff-d7f31edf6910@riscstar.com>
-Date: Tue, 9 Jun 2026 14:31:54 -0500
+        Tue, 09 Jun 2026 12:32:02 -0700 (PDT)
+Message-ID: <47a9909a-da5b-4b12-806a-1b9542cf8bc2@riscstar.com>
+Date: Tue, 9 Jun 2026 14:32:00 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 03/14] net: pcs: pcs-xpcs-regmap: support XPCS
- memory-mapped MDIO bus via regmap
+Subject: Re: [PATCH net-next v2 13/14] net: stmmac: tc956x: add TC956x/QPS615
+ support
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
  pabeni@redhat.com, rmk+kernel@armlinux.org.uk, andersson@kernel.org,
@@ -96,16 +96,16 @@ Cc: Daniel Thompson <daniel@riscstar.com>, mohd.anwar@oss.qualcomm.com,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-4-elder@riscstar.com>
- <566af63b-05a9-43f8-94e9-19af737c848a@bootlin.com>
+ <20260605010022.968612-14-elder@riscstar.com>
+ <c60d1819-18d7-4d4c-a997-586599323d7e@bootlin.com>
 Content-Language: en-US
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <566af63b-05a9-43f8-94e9-19af737c848a@bootlin.com>
+In-Reply-To: <c60d1819-18d7-4d4c-a997-586599323d7e@bootlin.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_123159_764545_742E1DB0 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20260609_123204_417793_1A380F1F 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,40 +120,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/5/26 10:35 AM, Maxime Chevallier wrote:
->> +					  const struct xpcs_regmap_config *config)
+On 6/5/26 11:05 AM, Maxime Chevallier wrote:
+> Hi Alex,
+> 
+> On 6/5/26 03:00, Alex Elder wrote:
+>> From: Daniel Thompson <daniel@riscstar.com>
+>>
+>> Toshiba TC956x is an Ethernet AVB/TSN bridge and is essentially a
+>> small and highly-specialized SoC. TC956x includes an "eMAC" subsystem
+>> that can be accessed, along with several other peripherals, via two
+>> PCIe endpoint functions. There is a main driver for the endpoint that
+>> decomposes things and creates auxiliary bus devices to model the SoC.
+>>
+>> The eMAC consists of a Designware XGMAC, XPCS and PMA. Each eMAC is
+>> supported by an MSIGEN that bridges TC956x level interrupts to PCIe
+>> MSIs.
+>>
+>> Add a driver for the eMAC/MSIGEN combination.
+>>
+>> Co-developed-by: Alex Elder <elder@riscstar.com>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+>> ---
+> [...]
+> 
+>> +static int tc956x_lookup_max_speed(phy_interface_t phy_interface)
 >> +{
->> +	static atomic_t id = ATOMIC_INIT(-1);
->> +	struct dw_xpcs_regmap *pxpcs;
->> +	struct dw_xpcs *xpcs;
->> +	int ret;
->> +
->> +	pxpcs = devm_kzalloc(dev, sizeof(*pxpcs), GFP_KERNEL);
->> +	if (!pxpcs)
->> +		return ERR_PTR(-ENOMEM);
->> +
->> +	pxpcs->dev = dev;
->> +	pxpcs->regmap = config->regmap;
->> +	pxpcs->reg_indir = config->reg_indir;
-> Looking at the overall series, is there any reason for this flag ?
+>> +	switch (phy_interface) {
+>> +	case PHY_INTERFACE_MODE_SGMII:
 > 
-> Looks like the reg_indir=false path isn't used at all in this series.
-> 
-> Maybe just drop it and let anyone add it back should the need arise ?
+> The SGMII definition we use in the kernel is the Cisco SGMII de-facto
+> standard that only supports 10/100/1000M. Some vendors use flavours with
+> names such as HS-SGMII and such, that's basically SGMII clocked at 2.5G
+> with aneg disabled. It kinda becomes 2500BaseX then.
 
-You're right that it's always true (in this one case it's used).
+So for SGMII then, the max speed returned/used should be
+SPEED_1000, correct?  And for 2500BASEX it's SPEED_2500.
+(I'll fix this.)
 
-I think it's fine to get rid of the reg_indir flag, and that
-will simplify a lot of things.  It eliminates the need for the
-xpcs_regmap_config structure (just register with regmap pointer
-instead).
+For USXGMII I presume we'd use SPEED_10000 as the max_speed.
 
-The "pcs-xpcs-regmap.h" header could be removed too if we declared
-devm_xpcs_regmap_register() in "drivers/net/pcs/pcs-xpcs.h".  (I
-won't do this unless you or someone else suggests it though.)
+Can someone explain when the plat_stmmacenet_data->max_speed value
+must be set?  It seems like plat_stmmacenet_data->phy_interface
+should normally imply the right maximum speed.  It looks like
+phylink_interface_max_speed() has a big switch statement related
+to this.
 
-I will rearrange the code to support only the indirect access
-method for this code.
+Thanks.
 
 					-Alex
+
+> So all in all, we don't support 2500M on SGMII.
+> 
+>> +	case PHY_INTERFACE_MODE_2500BASEX:
+>> +		return SPEED_2500;
+>> +
+>> +	default:
+>> +		return -EOPNOTSUPP;
+>> +	}
+> 
+> Maxime
+
 
