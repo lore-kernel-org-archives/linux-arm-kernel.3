@@ -4,100 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB4ECD8CAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75693CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 08:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/OesEzAfal6z36LgdXCq9SyfPK1un/F0y/2bpb/9BmA=; b=CkgJvrN/SqAodjgFII/gY5KN0B
-	tfux70MCHT0mxS7SOnuNqGypwFO0Uj3l4+2Fka2Gu9jtJO+vKQIw8egxlFUA6MOwzxw1r17pcbeoG
-	rfKbsBXlG3cypbcq/849hDJjJM+V5qVF2fENPBWRdeTZyu+BZKeR9gOgAllHXzQitGkkEHklvmp4o
-	tHeb5PWJ+dXJ5g1BBphndb4/Z+Cde7pXoc5PMw7uBdFe8VMPKhTcMY4A/xWQ4rfkqbM08gvUo5T6e
-	Sx4j2pN6NJt7oZwCkxhUQEu9IDR7eod20pWOGP7K0nQR+UFlsfxHFU7JFrtPElXEF7GkgWktG25xs
-	fWu0VjXg==;
+	bh=N1J30wpRr/zoxFVY10vvN98wpm4s2FZR/qZwrLhfn4I=; b=q1wOiarO95p+NdTfOIdE3Oamk+
+	2ZcRcSKVSIeKQJNCw8O70yVHQZytM+/AeVFWVrWdaCSACk680zXZJ0ChZ0WdGMOS5sS0/fXFBIXQ2
+	oAuZyRGFuv7nT7jOmKYDaCwpkpWyalrDfqKj3IMSSBwqlshR1O+kifGo8GH803+KVdcwWvbjbzw0D
+	5gp+QQURyjR28QezgNHwZGpAPNMyU4IrLKw8GL6vADdjSKvjETrrXpM0zZtllbNTaTIlT3fiogmKE
+	PtjJ2tY/O3umS8YL3PTR1rN8HMkaZ7om1vth1A0OmCYyOdA4M/bOr1fXCamtYHGRY9O0R0fCNlyjm
+	ixJ309EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsA9-000000056c3-1Pag;
-	Tue, 09 Jun 2026 08:50:21 +0000
+	id 1wWsD0-000000056vw-3rhd;
+	Tue, 09 Jun 2026 08:53:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWsA8-000000056bx-2ifV
+	id 1wWsCz-000000056vQ-32tK
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Jun 2026 08:50:20 +0000
+	Tue, 09 Jun 2026 08:53:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/OesEzAfal6z36LgdXCq9SyfPK1un/F0y/2bpb/9BmA=; b=f5RqwBLdZRBwmX0lW24V6Cm+7S
-	zbmMuW3CnMwdHiHPH426l7z7NnMGZrXgCzoVYY9I8utrwa4jy/WsZ0BEtQujFBrWS7f0bS1yIfXIN
-	WjuV7d6yQ6V0JZL4Kc73+zDnVn33fCt0UXU4bpvDNp5GfmsDc62bJvNwut99xgf8JHcyW/WrnJY7j
-	EvCsHfy9NytqlQjkykacoCHKNoSwgHb351cwWIWpaKGpw/rnnfnxFc3F+PY2PKQ6Wm/V5jEgMAab6
-	7gMN/WR+2791wn6Q872tPJZCnV7BTjOReOcs78YnFkm/9RrDpxq0GiM9iCLfkAeymgy+3PQRwEOrH
-	IrV9TE0Q==;
-Received: from mail-ed1-f51.google.com ([209.85.208.51])
+	bh=N1J30wpRr/zoxFVY10vvN98wpm4s2FZR/qZwrLhfn4I=; b=p9Y1ILBHCMPHBQA0nINDalI4e0
+	VhEwhMAB/s+bsBYmQwH4U8rcRShZeqHXgIu4S8vdrhkMM9KVxNrQoOchk18dEeyDezxSqcFfX/sT+
+	W6az9CuuzzzLcI5gsxMAKxQjSV7EjxsSY4JIuVZSCJW9GflsvUFd9/X+CryPyKq9WwnYrwQZ1rUR8
+	035oshxoFMfVVdqqg2FwZYfTSkFPJ99H6YNZevGW9PFbT1TJBJt+lnWZjySjYGUyaqS3ZCFfKLF/y
+	O9slZMe4fWbJ/K2N6lvN66TLaXp6liJA8LuS+Iq/M/Qfnk+30gUVmSmUUta0uYydwzLo3VcIMU9wZ
+	kbTQlANg==;
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wWsA5-00000002CSZ-2bEG
+	id 1wWsCw-00000002Ch9-2WHC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 08:50:19 +0000
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-68c201ec1cfso721810a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 01:50:16 -0700 (PDT)
+	Tue, 09 Jun 2026 08:53:16 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6877c719cb0so6690878a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 01:53:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1780995192; x=1781599992; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=N1J30wpRr/zoxFVY10vvN98wpm4s2FZR/qZwrLhfn4I=;
+        b=C0EQuy1eQSzOl0a7sOXDQ93l76DHk7Bh4hmjFMvPWEAZ21fbAEUajg4arV6cQYDmOS
+         STfmF8RhyMpFGT+1fIp/qnDdwJkhEu88XRpjdDjjcVuYff6qq+rkP6ijHw7puA/vMeso
+         ZGjyXW809oGQK0ZJ4tCCHGKHWvDY1lRRyyLprXbICG318pkYP5DHm+wl2b6Up16Mzt4g
+         uzOF0WP9j3hbYwZGr2HCWDyLoq3JftASzhS55GyDRQVotihto+c49YznvJzpkP1zDRs0
+         pEpsKSkQQaYiuwbdXo8G/VMjMot29qeEX70ECp9xim1ucBXBIDLaVEWCrvkf7AQy9E5L
+         D1Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780995016; x=1781599816;
+        d=1e100.net; s=20251104; t=1780995192; x=1781599992;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=/OesEzAfal6z36LgdXCq9SyfPK1un/F0y/2bpb/9BmA=;
-        b=KZzH7Vmswxx744LSNgled+3GHq/vakufanLthezNRcs0WFe/AdsNO0ahjRye7KHjVW
-         65VTC/c3AORpBbNFB9VxROn5z3ZX2dS2gEiDnFERD1m4HVjsTSnydxDVc7lMpwPRKCfV
-         6EBMUrwtIU6ob/8eyvKZyNw5BHBtqqDFkUgPpuH6/XlMBIcNctSU+kiZsXVHDeKUxLN3
-         jEEFbRQmrZbdVnxc4/TwnIaY2OYWbfSIQYTAG2JaCPi2KgP4zsYL1mGva5Z8UbzsReYM
-         j59d/YNvFEwkBJqcNGTbssfbBiSwBhNqrVBM943I5+9y6+hOEqlQAxZTZtRPTHiHkPsq
-         YfjQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+8WOb80jERlpu7tJsw3wHeXBae8bzyptLejY/ll+vC6KVFGSTjyZJJu94GkXYMJlKQ4syY0YBQwNIn5neh7vrR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyS/1Wy9I32kv1dvav2Ekt6qtIlMAa9QUW3Ekl91lcbeRL2ZUV+
-	wTderPL8OWap52ATbn77wz/omEWC2Oi2GYtBCKf61w3gW5OpZjdhUhaN
-X-Gm-Gg: Acq92OGlzlMadQ+A7DSODlZkCkPijC5z7DaKUXvbvmT+TBEScXmz/C21Iq9gJ+fe1xs
-	iDgao7pogRFn1k/qiATjSvMp8gXk+XVvAJubazjN/bJauZv772na/31e6QZwvUGZO3Uj8/WkaNz
-	osze8GaV4qFBMCzN+bM38ZKBe3QPh9ujyBzsHI7STqCR4Ao3faMESCB+YkRvWN1YCv0QI7CTJGd
-	NNqu62KvGWUm16to8bVwRl7SSwStPckx9s5d/QeNmMvRpYFGUS1GFsDJBQhJP4BuenaIlfw8I+w
-	DVWp/IVBk+KCuKSASeIUZZsdElr0XMzSlXzBsEIvn65i2sjB6DxCOVxFfgjWDj1fWBrceiE7zqs
-	kxFSD63vEc+rTs+VKSXsP/UEiF+1z5WjBm0MbBYb6tNCcTYCPz+Lbs+nzVU+FCWg35JueKsuumJ
-	N1YBwRhurm6cPljTSfnK3tUECSJC29WiLo6fIYMwM48lSnUdQLbPz+A/+sl5AOylbPU++Xag0Fg
-	Ycc3hBX+gqlGcBSVAoa18uLkWV9ITPKD6sPTLe0OPXNUmyEb4KFwlBQOkGQUT6P
-X-Received: by 2002:a05:6402:3809:b0:68c:76fb:7e8f with SMTP id 4fb4d7f45d1cf-68fa46b5608mr3785815a12.0.1780995015438;
-        Tue, 09 Jun 2026 01:50:15 -0700 (PDT)
-Received: from [10.147.180.168] ([192.176.1.78])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-68e65851d7bsm8185098a12.14.2026.06.09.01.50.13
+        bh=N1J30wpRr/zoxFVY10vvN98wpm4s2FZR/qZwrLhfn4I=;
+        b=cgYESm3ZmaXlh/1u/zbtNGSIZ4DbG8FOg7fBWOzckvfsptgz77u1K0j4o7eWFb86Yj
+         MCaSQTy0EN2FR2in5Rj3xYV3rQ37sPNdT334Wl7IP/LEU2hP/DEYDqEbALuXt8U7wEho
+         C3nUC4MXGQfBwWea9axJkhTjMZJFDg5C+RnQURxTMjIFcFCf/m5DYf43S7m7N721BzKz
+         GZI97Eui2MSPqJ5HsKnelOf76Mvsgthh3r2O8bTcyhP7ca40lol1n+MFfwFyM1OJNqUS
+         6NSf71Q6H8S9pkfhPNlFQO5BkrR/wjiBpSXSSKEeFnI7m4T4hdKnFOfQurJs6Sjs69pd
+         RnDA==
+X-Forwarded-Encrypted: i=1; AFNElJ+kD2TMz6du3gRYgdIZ9QMyFToEbD892n+SVn6s7kxd0kVcKAirv6bBxSHTERIUPxJC4MjvRdcRWQSMzFVWWtv4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdOg23Es7459rjL9bj0v5UVaoIBBdyblTvy31Ynjct0y52m1BN
+	NL1kEa6TjYdbP/4sWmwaMNdAZ7UUjEDI+HQc+FBbpM71tS09kFXoJL/fYZQQI25Qpj8=
+X-Gm-Gg: Acq92OEs+D3PKfzbBCLnXVrdatqu77IMbohgbXMfyFS4jTTMVazyZrbAk4jywZJCRYF
+	jjzRmP6SqN087sXl3gKEW4Zd0Q/bV907IxaASpyXbIanKzA3BMrfqCJkhEnBL4YlDDCdOYDVtc4
+	QoXVchYYBCCqPKEMP/+AjUCLa/x778yJiB4jvjsA8dLarsHLbDPfSCEc2aDH0w372U7uazSvAq7
+	0xP1EEMIpY/TBIl2f/RNw8Gt29+xmDyDkIT/GMTGOI1TUUc5p0KYlUhe12VkB5475y/plFqMYv+
+	IB3G3GVO5LGHuM+YdcT2+3EsD3Xss5zecfnjJalKmyosU0zw9byBUlUTuyGw+KCv6uybkvLPu0P
+	5mF1COaIgdVopGDO++83UTok9wSb8MbP0wA9F8ZtUDW92Lt7HS86W7F5f1RJlirToMdwotmhoVe
+	sqRydO8g7CnECxAsJsiBojnRTxPqBTlx/POUf5wspgP45U
+X-Received: by 2002:a05:6402:4506:b0:68a:88cd:eb22 with SMTP id 4fb4d7f45d1cf-68fa535d734mr8754916a12.26.1780995192260;
+        Tue, 09 Jun 2026 01:53:12 -0700 (PDT)
+Received: from [192.168.0.167] ([109.77.72.26])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-68e6595c722sm8240110a12.22.2026.06.09.01.53.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Jun 2026 01:50:15 -0700 (PDT)
-Message-ID: <b5eecbd3-40fa-4348-8ec6-9f960dd969b9@kzalloc.com>
-Date: Tue, 9 Jun 2026 10:50:13 +0200
+        Tue, 09 Jun 2026 01:53:11 -0700 (PDT)
+Message-ID: <11db2b96-975d-40df-b902-c1772f83a1fd@linaro.org>
+Date: Tue, 9 Jun 2026 09:53:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [Question] Enabling CoreSight TRBE in firmware on CIX Orion O6
-To: Yunseong Kim <yunseong.kim@est.tech>, Peter Chen
- <peter.chen@cixtech.com>, Fugang Duan <fugang.duan@cixtech.com>,
- Guomin Chen <Guomin.Chen@cixtech.com>, Hans Zhang <hans.zhang@cixtech.com>,
- Gary Yang <gary.yang@cixtech.com>, Joakim Zhang <joakim.zhang@cixtech.com>,
- Jerry Zhu <jerry.zhu@cixtech.com>
-Cc: CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Yunseong Kim <yunseong.kim@ericsson.com>
-References: <5d1bdf6d-ed77-4de9-b788-cf04a98d054d@est.tech>
-From: Yunseong Kim <ysk@kzalloc.com>
+Subject: Re: [PATCH v2 1/7] dt-bindings: media: qcom: Add Shikra CAMSS
+ compatible
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+ Bryan O'Donoghue <bod@kernel.org>,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+ Andi Shyti <andi.shyti@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ Suresh Vankadara <quic_svankada@quicinc.com>,
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+References: <20260608-shikra-camss-review-v2-0-ca1936bf1219@oss.qualcomm.com>
+ <20260608-shikra-camss-review-v2-1-ca1936bf1219@oss.qualcomm.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Content-Language: en-US
-In-Reply-To: <5d1bdf6d-ed77-4de9-b788-cf04a98d054d@est.tech>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260608-shikra-camss-review-v2-1-ca1936bf1219@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_095017_930009_0E94BB75 
-X-CRM114-Status: UNSURE (   5.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260609_095314_816272_BD9AF8AB 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,14 +133,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I wrote the wrong output:
+On 08/06/2026 15:06, Nihal Kumar Gupta wrote:
+> Shikra contains the same Camera Subsystem IP as QCM2290. Document the
+> platform-specific compatible string, using qcom,qcm2290-camss as
+> fallback.
+> 
+> Unlike QCM2290, Shikra omits the CDM and OPE blocks, requiring only a
+> single IOMMU context bank instead of four.
+> 
+> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+> ---
+>   .../devicetree/bindings/media/qcom,qcm2290-camss.yaml    | 16 +++++++++++++---
+>   1 file changed, 13 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml b/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml
+> index 391d0f6f67ef5fdfea31dd3683477561516b1556..4f39eefb4898ebc22117407f26cfb4f41deb111b 100644
+> --- a/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml
+> +++ b/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml
+> @@ -14,8 +14,11 @@ description:
+>   
+>   properties:
+>     compatible:
+> -    const: qcom,qcm2290-camss
+> -
+> +    oneOf:
+> +      - items:
+> +          - const: qcom,shikra-camss
+> +          - const: qcom,qcm2290-camss
+> +      - const: qcom,qcm2290-camss
+>     reg:
+>       maxItems: 9
+>   
+> @@ -76,7 +79,14 @@ properties:
+>         - const: sf_mnoc
+>   
+>     iommus:
+> -    maxItems: 4
+> +    oneOf:
+> +      - items:
+> +          - description: S1 HLOS VFE non-protected (VFE only)
+> +      - items:
+> +          - description: S1 HLOS VFE non-protected
+> +          - description: S1 HLOS CDM non-protected
+> +          - description: S1 HLOS OPE read non-protected
+> +          - description: S1 HLOS OPE write non-protected
+>   
+>     power-domains:
+>       items:
+> 
 
->      $ perf record -e cs_etm// -- ls
->      intel_pt: aux mmap: Cannot allocate memory
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
-Current output:
-
-     $ perf record -e cs_etm// -- ls
-     cs_etm: Not found on CPU 0. Check hardware and firmware support and that all Coresight drivers are loaded 
-
+---
+bod
 
