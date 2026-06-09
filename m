@@ -4,95 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016ADCD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552ECCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 16:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5HJL58J1eZJZ2b60pokq8zoselIZjiEHemGuH3SCnY=; b=lTgIjVUURqvyQWufjpLU37lGpa
-	o2fiD35zCMFp5ptRqO1qEU3YBKpELqGcygAsAUo2TI6z4/SnmL22vsmYuKBNswyA8p6mP7Xt7NtfR
-	D1CFK/yQafcmCGGV72wNr00B1W2u5rtzLxDfTODc8JdAsHOjFPcB2JX4LwLlp5OunAuKvG5tD68Kj
-	o9a+wk/o3VGHegsIhTlHErMFZfPpDO2XBkhaNKNL3TBeiCS571TR7bOw1M7+6vtt4EjKxdYRntBgm
-	DDh5jeD6mnmxPVDdPCPsr2f5D8G6MMyB0rfsvonshxfoMMdFU5v7izXZf574hQfv8OL0Mv2izU0hC
-	ubQFn1Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0+SJ1odAbeV0uTMzVMi5ad2jR+3gn11BCR39nm6EOKs=; b=uMlRUa4q0MhfC6KEp5OtlX+w38
+	1wdn7xUmw5txlVd8yifiFMBvzFI7NDF6fYchB+J3+P1NBpAqvVxGBlS9apRJzMjj5gOkhM/0sqUYM
+	9RWThZHujn/dhTsovCBKkWTY/WmGbsryR9S3NnxmMnCf4BKTVt/rVz+afllgyjTSZ14lxJz6tf90t
+	a+ER+RBrJR8z4WFHMUw67Xd/XW+mByb9bQEPpvqiOIbygn4PEPwHwLzN2mWfgFhh7IgujsEhJyUNS
+	jxgotU8nEo/wuuLoDxg+VzR9rC9jlvLg4WH5FGtThu42gvPZyBqtSDl50887R4iZBA0IJDxuoSnre
+	R2+2GHeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzUs-000000064QO-2XXU;
-	Tue, 09 Jun 2026 16:40:14 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wWzWJ-000000064Y1-14qz;
+	Tue, 09 Jun 2026 16:41:43 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWzUo-000000064Pk-2xHl
+	id 1wWzWG-000000064XM-1FYj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 16:40:12 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2bf30d530bdso58090315ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 09:40:10 -0700 (PDT)
+	Tue, 09 Jun 2026 16:41:41 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659GOiRo2750374
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Jun 2026 16:41:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0+SJ1odAbeV0uTMzVMi5ad2jR+3gn11BCR39nm6EOKs=; b=QBlLSGej2K0E+f/T
+	21hcAjzBrBx/5WrXDO1EWdVmXtHAKkw+lq3CxaKIsIKt+sxjRazrqvhJ6g3HcvXm
+	rtyicrP11SYYMUmeCHltMUiUSzt9KjV3fixwRPY+hwH4ENjVLv32g2nFq8tTGQ82
+	+oTjgne6bwvjdnui8flGxRH1Mdqp/OHow7tIxabFNlDVvZKJR0CsTYNWLn1cjKXA
+	NIy0hWDtj+XoBarJd17JmXggrbGJ0Ajf0PTxHcJgGLhYT5qcy7qo3u6rxlZyFaKn
+	pIUi6WlRB/7owAR1KtEf9lN/SgRRO0fLkRRLliK1hm3uMsBOP+dij5k81KNVpD2R
+	Cy6wkw==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epeqgjkep-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 16:41:39 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2c0a99db8dfso64499075ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 09:41:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781023210; x=1781628010; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=F5HJL58J1eZJZ2b60pokq8zoselIZjiEHemGuH3SCnY=;
-        b=zuldTBGjAVk8JkzHqUCvrrqI+vAVEUOMF7s577F0J355kavz/2DsPQtmJf0jTS3uhC
-         3rnUfGvMJMuWHOEioCHY6sZpUmxmkWmvn9urh4IXAT38+olaxTVaRS4VkSgzpCV331/f
-         JTq+MAxlsO9NjtNreVta7HwpvnIYMdvdLQRWYet/Gx7hHcHqcxtAkwNaoIkiE4saajQp
-         38BDIEDGk4NKfw9zBN3WUuySQqb1KZZ8BmBnAi6u51kEJz8AmMvOhYLAB5MJ8ABc3AXk
-         8ukUiFSbPjaZxmD+h0TXyBgIPU2MHUmkIWh8RpQeJRpj5tYxK6u+pIM7betLc+efuR1p
-         X//w==
+        d=oss.qualcomm.com; s=google; t=1781023299; x=1781628099; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0+SJ1odAbeV0uTMzVMi5ad2jR+3gn11BCR39nm6EOKs=;
+        b=EVAMOl9bg8cFnLPjIFHkaarAAtGwC1YTK3dxorjG68M+16zD4tP4DzD/2VrWfGPp/v
+         XmAIyAov1t79vRmVFfgI3WvgCEuWPA9Tp0NiohzbxZDUU9cfDO4eMtwgzgIiId5dypFU
+         dYpY4YJByiJTI8/VVtvAFlpmhvDIm/GID70l+BNzZzPOJM+e7yoimmtFnWbMTI1Dp7LV
+         3DH94DUs6ke23nqaNA5AWfD7vZbXr3izuzQqexk7zWBUgQz5dtdCSYfl9AU2W344fTWP
+         JBxMOoAepGAHkLNA/TXLAkg1KjOWDwEQhexkkl99uiwq9FFIRm6wAkE2yVN4sZfvux5j
+         ogvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781023210; x=1781628010;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=F5HJL58J1eZJZ2b60pokq8zoselIZjiEHemGuH3SCnY=;
-        b=O0tI2YMgjUVwbTIACTbWB4WRmvv+tERtuRgWm0t6S+9D0VsR0ZoB6G50G6yCctNU2t
-         CwsbyTGSOV5BOqVaotgUJT5H7pV85hIfbC7X1cqs/7vlXAnSMKVU829P6KiF13bIqeiy
-         oktOOo5OIq7XTmTP4xXASXX3i8wuhSTSyF4pgNRmG6vX5yEL1tFbM4AmIICIcKIS1NOl
-         99Gh7lYveMDG0ykCJiOxbL/FRvL3x8zkv8FfRfo0ubNL9dBm2n5BzU9iAXcvsZocnt5D
-         E12n0esq/HxOjOF55i0zNYM3A7e9FvcaAriogIsdusWaBIp8o6Jbi0HzOpV5D2r5T5Nx
-         iIlA==
-X-Forwarded-Encrypted: i=1; AFNElJ/JQPmtF+zoikyHp4oPuRfTdHmZIvpXdqLZNGCBnKeoqrteKoh4Yv6O6KyPWvSGZhpsgtOI/osmqQKzIvhtXqai@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbIvEs46vZXbFOwnYrRraqkaDMRgouLkMrDwJHrrHQw4EjDr07
-	v3zqVcj0fml7iZRiwMT0A0tWhUAuGeWVDGp//jBhpixoGrvWI++ItyBpGzSg8R55n4I=
-X-Gm-Gg: Acq92OH80Wf1pAMduIGOH6KSL59SHV8XyvFg393xqbCmhujlEaVKaR9s87L1heHcd8c
-	Dv/whrX//uODbTvZWKF2Mmank7MD7xNIDuTLLXBQPINRKaGShWEOI5ArDBKGHvvEpZeruOr3lcL
-	5dLJ4A8fmYRgeVuDtWi7OuPfX7kk6WaFzZx6CpDF8/shoh34W4m5CE0cHoUnbqm4W+IOBO/brly
-	2atf5Tr5YaCD9fzyBac6D5frFfSFUCbRK8CD90QbXRX6FI7XKU8d+1rePMeYj2mu1eOdtra2ZAb
-	4S78FvbD137fKWbh/Gu8EBkhOixTkdzkcwkdQNPNXGcVRJHo/hAlRKP21vFu/CoGimrxaMQjV11
-	mwB2SygmJZCE1K96xg8U6Cg9q/pEImzsHXjkw7vRQcgWy0JHL1mJzB0BXukWhl+Darnb5hubqIp
-	HLMAktP/6vvr6JehHEAxODmmm/YScrO4jP+ltE
-X-Received: by 2002:a17:903:2450:b0:2c0:3400:5c42 with SMTP id d9443c01a7336-2c1e820bffemr225857055ad.26.1781023209568;
-        Tue, 09 Jun 2026 09:40:09 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:7f00:843c:9d87:e9dc])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16609e0a2sm225550575ad.46.2026.06.09.09.40.08
+        d=1e100.net; s=20251104; t=1781023299; x=1781628099;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=0+SJ1odAbeV0uTMzVMi5ad2jR+3gn11BCR39nm6EOKs=;
+        b=Tz0BnNz+ftN6xcfxmboLvx5Zjms4vLFBZAaXQbsVRQBckaKfVK6tUimrlw3EVDK2kO
+         /2VZZxfpdbBZgvlvydhLZFwO/98XLY9+95YiShtu+GeAiya/tJHpnoT6hTzL1UYlUkAT
+         dDFlny5wjWib6XxcI9JbBRRVKu3XEk34cCF1P0RBq8Hpw8yRTAmPzKSisvlJXzrzDX2d
+         4if6Ka7oKWcCklkR80e1AVhPnvmRHl5nVG/s3GLJWTA8GYRjbv7OZJwz/fvh5oZI/oeK
+         kxHzUvR+tYv3TyTA81LygZ0evu74dAgSk0v7E8OZ1TwxyAJJZ/bEpUZjfKOP0/yneIB3
+         TLFw==
+X-Forwarded-Encrypted: i=1; AFNElJ9i25wyr/vDi2PKjGI8GAsA0x1AUUl7R4nI1hjYXviHasilkdPHzI48CZOaLBPk+NNISSbrT4/QkRyvyR941K61@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCVFVzG45iSNXKyKiFwS+JYiRtFevWOhCLo/JPVEbkTHvjztwF
+	r73PKzOA/7NryQ9TSJ8ydY+QFHFo48T48C9VOs/cD68tZaJyvSg1NQmKzFH0F4Yvy4Rsrm9ROPx
+	ylZ6Fx9seWV94Md0/UOXd7XGC6FiEz96YDfrtx6uLmDNMbHMoZXsK+UUeq1iLo15jLWs7UvR197
+	H53Q==
+X-Gm-Gg: Acq92OEqcaqUkBcCPNYub/NuZSgtHiIQwHwHuZdtPB4D9CmZS8GZc8aoKC5qmjmnebc
+	CMVFbGV0b06a4QyGjIN55S50uahn3h1vIHq44GVanplEkBihVdEfyc/rBQfqpTHQg4mHnYdPGXs
+	/CX57UpI1vn4awGIExwax5Rfi+q5phN61spnXID0qHEikKTm1I88M6eATgnHQXWpRUMQL8jguX2
+	eZDG5FBLYfR0TqpAcSGYrx0VMfDKdt4c1BNBecGWkTEwJLL0L2m9MR8Tw3HA8O6TMQOeyGRByV1
+	8jrZVhODSCnSdsbqhLW5hQ1FagCYu/OlMVw3Ci1nsOQ4dx2MX75LnqsnH7MLF3pG/WEVFfu3JCi
+	FDT8FOCd0m9rvraSdGQkDSl3h2rnHHyQ=
+X-Received: by 2002:a17:903:4407:b0:2c1:d49c:8398 with SMTP id d9443c01a7336-2c1e78df934mr243154305ad.8.1781023298985;
+        Tue, 09 Jun 2026 09:41:38 -0700 (PDT)
+X-Received: by 2002:a17:903:4407:b0:2c1:d49c:8398 with SMTP id d9443c01a7336-2c1e78df934mr243153835ad.8.1781023298472;
+        Tue, 09 Jun 2026 09:41:38 -0700 (PDT)
+Received: from [192.168.1.11] ([120.56.203.186])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16609df63sm215177165ad.40.2026.06.09.09.41.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 09:40:08 -0700 (PDT)
-Date: Tue, 9 Jun 2026 10:40:06 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
- optional "memory-region-names"
-Message-ID: <aihB5rVLsVqzg6cb@p14s>
-References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
- <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
+        Tue, 09 Jun 2026 09:41:37 -0700 (PDT)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
+To: Jingoo Han <jingoohan1@gmail.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>, Yue Wang <yue.wang@Amlogic.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Shuvam Pandey <shuvampandey1@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Fan Ni <fan.ni@samsung.com>, Shradha Todi <shradha.t@samsung.com>,
+        Hanjie Lin <hanjie.lin@amlogic.com>, linux-pci@vger.kernel.org,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <1a0c86ab264cdc1c79c917e984b90991af51d827.1779123847.git.shuvampandey1@gmail.com>
+References: <0f97352506d8d813f70f441de4d63fcd5b7d1c3e.1779123847.git.shuvampandey1@gmail.com>
+ <1a0c86ab264cdc1c79c917e984b90991af51d827.1779123847.git.shuvampandey1@gmail.com>
+Subject: Re: (subset) [PATCH 2/2] PCI: meson: Add missing remove callback
+Message-Id: <178102329225.12739.7391385656856361501.b4-ty@kernel.org>
+Date: Tue, 09 Jun 2026 22:11:32 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE1OCBTYWx0ZWRfX0pEYTHIxm42y
+ 3XaeHzd/pyAiAamru7tYJKCPJzI1d5DhFZHrFu259oQT6DLq3fnc5xFQjkuuJzs1rkf8c+EirzK
+ 4oGHO+JC5eYaVGYAHqn+BWEnf+RrvwXNhKXr/dqzJVLbZVbGyoy3ecXV/9E99ja635gbYz5PzQ/
+ eAjs9gzr8YjZIEt2ceiAZT2iltGWuN0Akzfxl3yZ4rMAcq/DMEpvu8t2unJwM24FoPurk3SMz5h
+ 7ICXUJGBXVFcpScQI4MZ9n8aKXjlSDAcDvsBNCj1simkP+UAOVIO/mL8oLEp8SUxJiuM/0okevw
+ LaJ2QSoZBrZ/WjT0ine5u4w8CGKEmYX1f/huZzVc0MoLbl+8zGIbsjpI+W6qUDtXmKKyqvx5soZ
+ 5t0grSZkFDorwXaGDhCYpBcKIs/+HORPRtMgyXm93EVsAVH0gZjC+Vyb3SRuzSZU0tKMLSzsHvr
+ 72uZx9tKs8CdDzPRfMw==
+X-Proofpoint-ORIG-GUID: APgx2IXWe_fGtxLB_EzVECVEaEm0ftOi
+X-Authority-Analysis: v=2.4 cv=KdHidwYD c=1 sm=1 tr=0 ts=6a284243 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=eDurORsI8St+1bJHqsJewQ==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=VwQbUJbxAAAA:8 a=Mn0DOdAkTdazpQ9XZsUA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-GUID: APgx2IXWe_fGtxLB_EzVECVEaEm0ftOi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-09_04,2026-06-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0 suspectscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 adultscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090158
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_094010_781211_87A77C06 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20260609_094140_593283_19088AA7 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,55 +155,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 05, 2026 at 04:36:18AM -0700, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> The names of the carveout regions are derived using the names of the
-> reserved memory devicetree nodes, which are referenced using the
-> "memory-region" property. This adds a restriction on the names of said
-> devicetree nodes, often bearing specific names such as: "vdevbuffer",
-> "vdev0vring0", "rsc-table", etc... This goes against the devicetree
-> specification's recommendation, which states that the devicetree node
-> names should be generic.
 
-I don't see what is so restrictive in using the node name of the reserved-memory
-regions.  Function of_reserved_mem_region_to_resource() is already doing all the
-parsing, packaging everything in a neat and easy to use "struct resource".  What
-will you gain with this new "memory-region-names" that can't be done with the
-current solution?
+On Mon, 18 May 2026 22:44:18 +0545, Shuvam Pandey wrote:
+> meson_pcie_probe() powers on the PHY and registers the DesignWare host
+> bridge with dw_pcie_host_init(), but the driver has no remove callback.
+> On driver unbind or module unload, the driver core therefore proceeds to
+> devres cleanup without first unregistering the host bridge or powering off
+> the PHY.
+> 
+> Add a remove callback that deinitializes the DesignWare host bridge and
+> powers off the PHY while device-managed resources are still valid.
+> 
+> [...]
 
-> 
-> Fix this by documenting an additional, optional property:
-> "memory-region-names". This way, the carveout names can use the values
-> passed via "memory-region-names", while keeping the devicetree node
-> names of the reserved memory regions generic.
-> 
-> There are no restrictions imposed on the values of the strings passed via
-> the new property since the software allows any name to be used, with some
-> names (e.g. "vdev%dbuffer", "vdev%dvring%d", "rsc-table") bearing a
-> special meaning.
-> 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> index c18f71b64889..8e3e6676a95e 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> @@ -62,6 +62,10 @@ properties:
->      minItems: 1
->      maxItems: 32
->  
-> +  memory-region-names:
-> +    minItems: 1
-> +    maxItems: 32
-> +
->    power-domains:
->      minItems: 2
->      maxItems: 8
-> -- 
-> 2.43.0
-> 
+Applied, thanks!
+
+[2/2] PCI: meson: Add missing remove callback
+      commit: 4b0dc84b293984f75598881809fb2d3daf54a2a8
+
+Best regards,
+-- 
+Manivannan Sadhasivam <mani@kernel.org>
+
 
