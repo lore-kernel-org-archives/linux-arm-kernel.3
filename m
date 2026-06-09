@@ -4,123 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3005ECD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 20:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BBACD8CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Jun 2026 20:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=; b=QsqSkIJ5EJkRoH/fASHVHeK3Eh
-	w2gMLOQwiqZkbJSSn7Dyiejvf8Y7baz2JW4InvW2x2s/UJFLw8Z54Y9vMDlEAXPIUkmgZQRSlbr8C
-	ZcW932F96T6QsVMvIiVYPzPDfD8iYLxwnaFjCKyArZ+dUg88gA5t9inaXxHeRu2t1hZcwM3xSaZX+
-	bj8GhPbpR7EOEhmQECgkElTSaq7ByIni7uep04mVLJ8rhMMfUkfOYdNBvoXAiq2K6DxHG9kBgggGi
-	pIevM5VPv+5U0ZvkZHYTeTxHT0NM88OqOtWf6qdLnuvP1VtTL7eeR+EGkKfkHjQcNJGYDea96mcgp
-	d9hQF0vg==;
+	bh=/CB3uqN+m7C8S/hlT2WiZWa5WYAgtzsD/nbEWBLMncI=; b=SnJy20TH4+/JkeMIhzG5uu9IGm
+	Bfs3Jyu7lE58FU2KxpQnRqRi9IkFo7tHZMV4+4EvpygbTIgW5FCzVGlJdGpVLmgBdSGmaivNQgQyU
+	PnFmDuTUtKXka4Dj1b5MAltM2OPc1IEykiPCH4CfDFmJpUMZTeM+pxN2znJqyubwZLy+4lRnpd1XH
+	kG7tGBC34yH/tTpWelOdPTNzZWt4uIBI5PBnUuXk24086CBLJUdRnDzuykVdkt2MW+f9Jwb+pZf6n
+	mZxw6ZZq67CzEL1bMz46zhmhXa5yQEZ7oOAWbnORvWEs1d5s+trvnm6d2+p7IZGZ3h3WJvRY40upA
+	b23lCJ7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2nt-00000006LWA-1zpy;
-	Tue, 09 Jun 2026 20:12:05 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wX3Eu-00000006MUY-2RJG;
+	Tue, 09 Jun 2026 20:40:00 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX2nq-00000006LUn-2j1h
+	id 1wX3Er-00000006MTq-0Ape
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Jun 2026 20:12:04 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36da8439078so5325030a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 13:12:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781035921; cv=none;
-        d=google.com; s=arc-20240605;
-        b=O0qprDsomwj9pZnZn/LiSEa7SDMw9NawPopeUg/ikJVsMzRWbnRMGoI8zpaXaqO0fE
-         vRJt2zRpej1hkfcX1LaCM5FPQnU4nUDw2BfOSkBjUiX/fN5UHeCqIsOb+kv8E2CiP0xh
-         LqfucsG/gpTV6/2RsAdpkYbmXQlsV1kIdiNaqCu4eiGJHijeBt4HB9pRJPg2KimmivU5
-         P3y/CtRW5XReubkg0tntI9tAiO+lsRLxKOveiDru0okvMr4wD00zHi4B/MKhtym/Rlx1
-         X2UWIAr4ZXKt92YKMMplNVeqbgWYIoAM/x59k3bpTOB6eigIWnjLifRPHGHpXKcolifa
-         jduA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=;
-        fh=OIpFkgzEageeV70VlpM91mZzY2ZAIr/DbURx3HfLjDk=;
-        b=JnjuU3b/1YMEV/l+k1y/E+GJ5AdU8QgoZqsBqDJg9+uHQqiOOANApsy18YScB5Ap9S
-         DzcI3mERl9V0Q6aSJyAUFLYyR7xInTw9PAgHYVhos6XlKiOY0rgUN3+gFm1F4Rbx+abA
-         rSb6J2+r7nukVtLYrQKI293TOjJUeqwJpJUw+8PpKj2b0e6jBPO1mOcUbJHqoQ7hwAjK
-         i8Z013AqDBxb3DBbZGbL9MNueNVALWkYK5G2dHOyC7QqVlhYruyPbzLv3Io4R9VsISZm
-         pEud3FuI5/i4Otur+y/QrAb5IaP3NdQR2jeIn3Kpv+96IgjAN7k4r3LcHB79fwjILtaU
-         LKlw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1781035921; x=1781640721; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=;
-        b=dG/z91W8UrZF3/72kxqwBBUVCJwxud95fvvuUOSjgApUjYYMuHLVDwyM3Fjq4yo8+7
-         zDG/r6yxbueU0l8DZ7YvzgvqNdqpfu1gp0N4nv6Ncfasy7NmTMOicdBymXEQNL0L8wql
-         qgN/ZNYAPYr2lLrXKFFWp5ltFnQhSX0rbYYzs6bZM68xq8c8NJYdTmnkmWyobOFfmN99
-         vyUCWLQeXqEA43vU8B+LajzvvyJq05woKrB2ts7ORd5gqxYTvtW1XAslBi0r79Vu1OLf
-         Rv7oT6EBtdySNoripitxw54hQ98nnPD+cqTjs7wUriwjwNRbZFKKPPSl/vM9t7592QSO
-         vYdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781035921; x=1781640721;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1TP2hUiA2w4UiubJG1d5nR2maW5WDwIWjpRzO+M+ax0=;
-        b=UeX6VNzmPnV0TSD6MOARpzKx2Rxaf3C6hqttNm7rqbu5jRBY9Q7Yktxpe7kG9V4bVt
-         BZhdQVAChLVDelG1mLXCsgN+nJGNcn7uvwsTr8RVUZQGQaStKYp3O7tcGXzQnk/vjgcp
-         AtcbzLi9mLdiJxtXKRpYmiZ6lUbbKJTNcKqNyJG01fqKLZW1K9lrKyrkSSjc+CGMBE4y
-         8PTi8CXgb/SGMwRg25xikulD191xUnBrV8WRktVY44wEJxBLBE7e+OKkHUVJcDEWV8T+
-         4n7rZY1TlzsnvA3Gn5BU/EuVrr+8ExbvSXyYdK2ooSwpGd4Dc24F9lx1bivRWG9j91Ul
-         6fBg==
-X-Forwarded-Encrypted: i=1; AFNElJ8ZZ6Nd2B0Md5InEuf8BIESvt6VHtq3M6kq81EhFt+Qhn718mGBxAIQJJvNf9lN7ITMbAQgCsr8CJYx3a5ahtFi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx46cpl6mB2j31w0C70FU34/8AGBNxU2Swi2auwP6Ki3kSq31Nt
-	qUJaUiPnHRJL+Q+Vr10pudduqQ/c+eL0wpoYf7CbN7v5LbjjI+1jQdtjHlNoXs5xAQCEUvi86lA
-	vWav/Y3uTuqG9OJgmhnMrC2d6BsM/8Q5vVYXNzPzPKA==
-X-Gm-Gg: Acq92OGNxwFc/AshRYxpah4/7umkpuVyMhaF+7eVCQnC8TNS89hUWBsT6FSLLXYHe4l
-	BIzGFY1/VidrV7s5qoshHkHLAc5ZE+4fa3aKDzhQ3CnbsnHPJYVv1DihOjrmAevZ3UWUFZA1/jV
-	oBHZ0bGT3hKg24XlEH8LrtKdoFCh+XVi+ucLkmfeC1u8Ct1to87ylt3yErQP00I2nJtSJnLW1tk
-	whH+RRt/AJMz1eFm9zduudahIjUqhcEWN+0Y8AUxnpJ2osbeSKbzw824UHLx1t642ZMxFsP15Ji
-	IsoVSf0Xa0jMIp5nSw==
-X-Received: by 2002:a17:90b:3bcb:b0:367:cb53:7435 with SMTP id
- 98e67ed59e1d1-370f1525ed1mr21923499a91.24.1781035921449; Tue, 09 Jun 2026
- 13:12:01 -0700 (PDT)
+	Tue, 09 Jun 2026 20:39:58 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com; s=arckey; t=1781037596;
+	 b=g2NFERmhU3+Z8EA4HqNnEvLA9l1HJdipUA64EeL/4coV83DlFTSfN25Lj9AHt9bx4GSWVynE/j
+	  G2EYAVZ8tJVnT625wti3bC+PrXy47vWIOtktlnzf2D54rVZ/iiQjW2LZPL49a3vKix26P2dhfz
+	  MwSbkA26iK80Xks5yYnAGVXe4Va7/64lFNgJOOvBU7qrZnAqM/Arp7mMP5CBAVtY5hJ+VWtbZJ
+	  PzbfSlOSIY8uTqX3X+WbjdlBjdnBRgL8NME2M3h5OiUDjFs/QoXZSjr9IXNu+LeX5rBeetVvao
+	  SjW0IAugcIeU4FAPKwMfeGwomZSty/nn4mt34xQjwPb0oQ==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com; s=arckey; t=1781037596;
+	bh=SQ4EKhSiwdW2m9zPBFJmKKyZiDpxnfusfBXNXXgOVM8=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	  Message-ID:Date:Subject:Cc:To:From:DKIM-Signature:DKIM-Signature;
+	b=HmU39wgzBIA4w7D6MysiKYtW81nYGEEdWfjarxiHI6ol96uwVLSmE7hnrJ52PA87AbkEuSLohY
+	  y/v36M1O8Ie0/N5oReiGHA5lhoKmUeifonG2tqIwfkWoNG/LK3XNCUael31AO3JyHVCOi7aZKk
+	  rqTymeF1cET7yENVZa5Z7Dnc7XhKqhDi9WLVBzF/Jw9FU7geUGeekxGtl7fyMvSrKgiFpoV/oR
+	  g2+WnE+DQRTGfueqB4gYJX1L4JOgRkQpTLA/QEQGnXM1m1de/I5gQPgST/6+O6YY/dnsLV02oI
+	  lNc/IZCN0pgAAk/rQnpTcv4ht4BR7M5fm6XheEcoCacpOQ==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
+	Cc:To:From:Reply-To:List-Unsubscribe;
+	bh=/CB3uqN+m7C8S/hlT2WiZWa5WYAgtzsD/nbEWBLMncI=; b=Wd6ICNq2vkB8pmC0PPuoLBDIKF
+	5rYy2dA/VEr429dzyIWfH3AoOT8SSIGllPYU9TsZkABb3FBrjl90B34vBphdd+ckAHxz/nSTQCbsc
+	iu2dSVAvAF8v2HnSUDKfYBnf6E2qgS1XZWxzAnwwGNCd8xjNS94jrOMNvZFnFGrVwDts=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <francesco@valla.it>)
+	id 1wX3Ei-00000005RDD-1LXs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Jun 2026 20:39:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Date:Subject:Cc:To:From:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=/CB3uqN+m7C8S/hlT2WiZWa5WYAgtzsD/nbEWBLMncI=; b=mGxgiW0HLd56ARsb448DjEhxTl
+	YY/dJOylCz3UmiQSzcTqix8Dnx1fm27hErHNngSJ3m5WjS74Ppog2uePEzTAh7zmr0FGpdnh/2pWd
+	2368AnWdWTCS0X+1efQ0XAHr/zxQB+hrpHQbRW9TuA2Mu93IIDSdQmYS+P1vSD0I0qSE=;
+Received: from [95.248.69.182] (port=60980 helo=bywater.localnet)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.3)
+	(envelope-from <francesco@valla.it>)
+	id 1wX3EN-00000000JTf-485z;
+	Tue, 09 Jun 2026 20:39:28 +0000
+From: Francesco Valla <francesco@valla.it>
+To: Joseph Guo <qijian.guo@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ steven.yang@nxp.com
+Subject: Re: [EXT] Re: [PATCH] arm64: dts: imx93-11x11-frdm: enable additional devices
+Date: Tue, 09 Jun 2026 22:39:27 +0200
+Message-ID: <qRn4DwQ2Twuq6ao1_CO5YA@valla.it>
+In-Reply-To: <db95fec5-d8ac-4d52-ad2a-75e5593f99ef@nxp.com>
+References: <20260115-imx93_devices-v1-1-b2c840cafa2e@valla.it>
+ <_j4Ik3AsS5yfKb4Y7cSB1w@valla.it>
+ <db95fec5-d8ac-4d52-ad2a-75e5593f99ef@nxp.com>
 MIME-Version: 1.0
-References: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
-In-Reply-To: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Tue, 9 Jun 2026 21:11:46 +0100
-X-Gm-Features: AVVi8Cf7R-IrVdYhsGfa6ARvQUl6VjYbn-pxlLXZ6UvxdCSIBKSlKWHfn1zLb40
-Message-ID: <CAPj87rNhTViuff5qWeoGkPgyRvP0uOAcUGpcJJPTkPR2b8fJcw@mail.gmail.com>
-Subject: Re: [PATCH v17 00/28] Add new general DRM property "color format"
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
-	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	wayland-devel@lists.freedesktop.org, Werner Sembach <wse@tuxedocomputers.com>, 
-	Andri Yngvason <andri@yngvason.is>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Marius Vlad <marius.vlad@collabora.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Andy Yan <andyshrk@163.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: c01604b70a737d88e66c3cb6615420a6
+X-AntiAbuse: ID - c01604b70a737d88e66c3cb6615420a6
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1wX3Ei-00000005RDD-1LXs-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-5dnl.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_131202_860049_041EF8F3 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20260609_133957_528761_F951CD1C 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,29 +131,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Hi Joseph,
 
-On Tue, 9 Jun 2026 at 13:44, Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
-> this is a follow-up to
-> https://lore.kernel.org/all/20250911130739.4936-1-marius.vlad@collabora.com/
-> which in of itself is a follow-up to
-> https://lore.kernel.org/dri-devel/20240115160554.720247-1-andri@yngvason.is/ where
-> a new DRM connector property has been added allowing users to
-> force a particular color format.
->
-> That in turn was actually also a follow-up from Werner Sembach's posted at
-> https://lore.kernel.org/dri-devel/20210630151018.330354-1-wse@tuxedocomputers.com/
->
-> As the number of cooks have reached critical mass, I'm hoping I'll be
-> the last person to touch this particular series.
+On luned=C3=AC 8 giugno 2026 07:14:24 Ora legale dell=E2=80=99Europa centra=
+le Joseph Guo=20
+wrote:
+> On 6/5/2026 7:36 PM, Francesco Valla wrote:
+> > Caution: This is an external email. Please take care when clicking links
+> > or opening attachments. When in doubt, report the message using the
+> > 'Report this email' button
+> >=20
+> >=20
+> > Hi Joseph,
+> >=20
+> > On venerd=C3=AC 5 giugno 2026 10:59:08 Ora legale dell=E2=80=99Europa c=
+entrale Joseph
+> > Guo>=20
+> > wrote:
+> >> On Thu, Jan 15, 2026 at 06:11:34PM +0100, Francesco Valla wrote:
+> >>> Enable additional devices on the i.MX93 FRDM board:
+> >>>   - CAN port and associated transceiver
+> >>>   - Bluetooth portion of the IW612 chipset
+> >>>   - WiFi SDIO port
+> >>>   - user buttons
+> >>>=20
+> >>> The WiFi portion of the on-board IW612 chipset is still not supported
+> >>> upstream, but since SDIO is a discoverable bus it will be probed once=
+ it
+> >>> is.
+> >>>=20
+> >>> Signed-off-by: Francesco Valla <francesco@valla.it>
+> >>> ---
+> >=20
+> > [...]
+> >=20
+> >> Hi Francesco,
+> >>=20
+> >> Do you ever tried bluetooth feature? The bluetooth failed to scan with
+> >> 'device-wakeup-gpios' property.
+> >>=20
+> >> Regards,
+> >> Joseph
+> >=20
+> > Yes, Bluetooth was tested using bluetoothctl, I just briefly re-tested =
+it
+> > with latest master branch (7.1.0-rc6).
+> >=20
+> > Can you clarify what you mean with "The bluetooth failed to scan
+> > with 'device-wakeup-gpios' property."?
+>=20
+> Hi Francesco,
+>=20
+> If 'device-wakeup-gpios' property is set. The bluetoothctl can work, but
+> errors will show up if try to scan the bluetooth devices.
+>=20
+> [bluetoothctl]> scan on
+> SetDiscoveryFilter success
+> Failed to start discovery: org.bluez.Error.InProgress
+> hci0 class of device changed: 0x000000
+> hci0 new_settings: bondable ssp br/edr le secure-conn cis-central
+> cis-peripheral iso-broadcaster sync-receiver ll-privacy past-sender
+> past-receiver [CHG] Controller 20:BA:36:5C:B0:D8 Class: 0x00000000 (0)
+> [CHG] Controller 20:BA:36:5C:B0:D8 Powered: no
+> [CHG] Controller 20:BA:36:5C:B0:D8 Discovering: no
+> [CHG] Controller 20:BA:36:5C:B0:D8 PowerState: on
+> [bluetoothctl]> discoverable on
+> Failed to set discoverable on: org.bluez.Error.Failed
+>=20
+> After remove the 'device-wakeup-gpios' node. The bluetooth can work
+> normally.
 
-Thanks for seeing this through!
+This is not my experience:
 
-I've pushed this now, minus the Intel patches which they can merge
-through their own tree. The AMD tree required a pretty trivial
-conflict resolution which seems to work OK here.
+[bluetoothctl]> scan on
+SetDiscoveryFilter success
+hci0 type 7 discovering on
+Discovery started
+[CHG] Controller B8:F4:4F:AA:9D:1C Discovering: yes
+[NEW] Device C4:DE:E2:52:B9:96 BWT Perla BLue 16L 0025-003A
 
-Cheers,
-Daniel
+[bluetoothctl]> discoverable on
+hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn c=
+is-
+central cis-peripheral iso-broadcaster sync-receiver ll-privacy past-sender=
+=20
+past-receiver=20
+[CHG] Controller B8:F4:4F:AA:9D:1C Connectable: yes
+hci0 new_settings: powered connectable discoverable bondable ssp br/edr le=
+=20
+secure-conn cis-central cis-peripheral iso-broadcaster sync-receiver ll-
+privacy past-sender past-receiver=20
+Changing discoverable on succeeded
+[CHG] Controller B8:F4:4F:AA:9D:1C Discoverable: yes
+
+
+I also enabled the driver debug prints (through #define DEBUG) and can conf=
+irm
+that the GPIO is being driven:
+
+root@imx93-11x11-frdm:~# dmesg|grep h2c
+[   13.524321] hci0: Set Wakeup Method response: status=3D0, h2c_wakeupmode=
+=3D4
+[   15.586748] hci0: Set h2c_ps_gpio: high
+[   28.459963] hci0: Set h2c_ps_gpio: low
+[   32.034623] hci0: Set h2c_ps_gpio: high
+
+Maybe we have a different board revision? Do you know if there is a way I c=
+an
+read mine?
+
+
+Regards,
+=46rancesco
+
+
+
+
 
