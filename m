@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C2FCD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1855CCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35brFKLgI4jP8jMGIASVe52ze60YIKvpJeWjQTiQRpk=; b=nI4Pu64UZUJLZbC3eaJ56GRUZj
-	YIRzvR7QJqpBnamnbtt+2kqHzHUHVMeaijpobUEUUmEDB8vyab3zAOH4ilHRZVl+ELy3x/sqC7UgX
-	VqqG+vwZStzF3WaOgAQ+hImy7JBOUM1NvTtok/fjwo2Hcmrva5dmcR4V+h4+W4h73f5rPOFytZ2oG
-	s8NfZ6ae7KKV7HAz3rtmxHE3oz+8dWqyS0JqQvrcBRKFhPwH/q78Z8gPzrrH+Xz+LOXUNMZm6fEmH
-	HjvewNFL41/WzVddUN+Ylg4MtBq0f47b10VnXRO0N5rbjVB4JRzfVMyp/VpvGFdZk/mIaKlq6eUme
-	WS9Ecyew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f7CoPC71NMmToN6IqHyZ2J7Av/IeasabCIzNKilALHc=; b=RgVhqgSY55JG/p5WfMTT3Q0f8Q
+	w1jcXEVNSW+FdMMsG6YnDMpbrKLlc2/j974G2Dk+D8em9tb52sNw3EENd+v9xCBWFqnMiwn8UmBe7
+	oiw0dc0n1SVXz/WyKTMaNBJafocn7z4cJU5K/7RufamIgbL29QdFXVIoCW9wu2hCMslTlxcnHhvy3
+	iHk4A7JbNHtTt0oyjTt3g5Rp99UqxoaOgCZ6zTvP8gazprP5Vi9X0Ze85mVGh/bruyqyqn4N7hpLx
+	NMrgSghc6VOmScHfnr8CYNmMR6Dy/c6Bbeh2T/eHHrrZlLGymlhtd9SHEmPfUAUBxtrj1FTfC7UkS
+	8acvjBHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXH6v-00000007X7F-250E;
-	Wed, 10 Jun 2026 11:28:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wXH79-00000007XBP-2Tr5;
+	Wed, 10 Jun 2026 11:28:55 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXH6u-00000007X6z-0L9R
+	id 1wXH77-00000007XAD-2piy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 11:28:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7954E44559;
-	Wed, 10 Jun 2026 11:28:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E441F00893;
-	Wed, 10 Jun 2026 11:28:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781090919;
-	bh=35brFKLgI4jP8jMGIASVe52ze60YIKvpJeWjQTiQRpk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=X3qZkJvoEvq9epIvVKXWq9CBcTuqjKAQjN2jjD1wzBWGG6vNi7YzvjNkyrwXonTtm
-	 WMz0GYrzVCgfZlTG1kAIzCrfrnTYaUjT23pMm0R07qN6rWfS999GkUC4B4v7+o7E17
-	 nepCYgGtE3X2ycKzFnoiTkTf00qXNUevr5onJTL+6WTrXujwJvV+SnpgieYTRtjYOp
-	 7Nrqw2yM/8cDqgtxjQRpk7O/Lcrnf0aP/K8MkqTL6aYVuwii/qopMuzWl7H1+Xe3oG
-	 8ycqTD2OoKZLYKb/tsmIOCrC5f6jtqpoli2nHwnvH4nI6TlMGr1Ke9ddyqHo3IxUbe
-	 1lIQmXzIt4SVQ==
-Date: Wed, 10 Jun 2026 12:28:33 +0100
-From: Will Deacon <will@kernel.org>
-To: Shanker Donthineni <sdonthineni@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Wed, 10 Jun 2026 11:28:54 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-36d630c0e35so7168390a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 04:28:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781090932; x=1781695732; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=f7CoPC71NMmToN6IqHyZ2J7Av/IeasabCIzNKilALHc=;
+        b=XBrFzYj1MbgSwshxgR1svBSZdpaupov9D+jIL0rGoJQob1xfLVTRAnSaknvKTMGaFt
+         jhXh3B6loh0l1ckR7rJBeT5FBaW145DE+xwIkgdQn7izuY7N+PClkDB2gduZz9kCgJ8L
+         23uGpH7psVNnebbc0JrBSxtBh9KSqdLomVz28Ps6PLQE7f+7vG3fXRxEiS1JeDhMC2H+
+         2x1dcm/mmnwkyGt7iUw5LSvVTtgqDW/5r/PtSD2BYtt3HjIq9Rm9s71NbzkHw3Jg/dFs
+         fiCxZMr16xqSbksOQyLxufcHJVuaHg2bhGfwMNRXMfLGEadrvu8jeuNQrmlC6r5xkbjY
+         xmkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781090932; x=1781695732;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f7CoPC71NMmToN6IqHyZ2J7Av/IeasabCIzNKilALHc=;
+        b=OC0GctpZl4ocAIyjUnQu/Dh899CTmJaQvsqivZl0bbb86nxiF7oFKMZZAY8ZeoF5dF
+         UptArc/xhAUkwLUTdzTRVDuHUETcS9uFDYYRHFaEGqYIREJTYLzQ3R4Ze8CwECeMOUEP
+         GSBMVa63E8dDvl9MCbfONextJ/rKXo6r5VCvVAqqJ3KMjZfQi1pDsr4KzoPi7ifTabMc
+         W0syNnuUzRGXtXjG4dLdAz0926iwKRmvrTe9y9OXWdomcDPH0LgHAt02rhkhiC7Ertio
+         IXiu+s1MPtQojtqdG7HZJzSgkAN4dlTWi9E/DrZAOgeyrV8Tk/mhyZAbxdAu1bkP9o1W
+         nrdw==
+X-Forwarded-Encrypted: i=1; AFNElJ8P0+W1LKUb/aiElDZ7X7T7M8vJdAanqeBJRrJOEqaRQfXdVoK9NP9jGc5saUmc1mAj4ih9bIX5sM2A1htBuprL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEpg7Rks/FNVoDKT9uPPNR43t5QeyZazNxttZovpBspeYnWWwe
+	cXvarQr8iXYFL2x3lbTtjHXkGziQqgvVWJtkRCaIlB95LC0p2vJF43mO9vAXR2hqe6U=
+X-Gm-Gg: Acq92OHAcpIQVFo+edG4u4yg0SdthpQkW3MlPWz9meMKmonmAu8dUE1XJlTsIcv4ldW
+	nRZBTlES7omLDivVMYEsT4xSZQvFMzi0fdZYpPVq7tMhPtHBNvZ9LsZ89/rG6+BtL2wA+sowdHt
+	rQIYI8Bvg50trxwxv9OFWK6sQ90SI3kJv+OAJogCrNfFq9ytpSjGu7wA50cEQqx6dw4vRTYRRVA
+	4PyeNArjcS3KJ2XkzV/DnGJvE0Avk0diTbf5Tq40+PBW4FIPfPLueo+lGdTHt+EjPPKToHHUbkU
+	6c2N/o843olArFMIPAvhVIBdkUItK7KpBxha9iEd0c93+unGlZ4gLbk3dWSG4s99Y4lb9ZKDHaJ
+	J3HZ4oBCj6bvVuL/phmFVnvbNJmcxp45NCi/ai5tyiFTR/HxW6wqyf4+44TqyFhCbV/JxdmHlUj
+	HDs13+oEzWUplhV7DkCgmRHpSqHL1bSBq5w8mAKYhiv1uk5eRebHQJmw==
+X-Received: by 2002:a17:90b:2741:b0:366:10f1:3d86 with SMTP id 98e67ed59e1d1-370f0b55ebbmr27067763a91.22.1781090932289;
+        Wed, 10 Jun 2026 04:28:52 -0700 (PDT)
+Received: from hc-pb-01.realtek.com ([123.51.179.67])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-376460ee14fsm2027651a91.1.2026.06.10.04.28.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Jun 2026 04:28:51 -0700 (PDT)
+From: Jason Li <jason.lee651024@gmail.com>
+X-Google-Original-From: Jason Li <jason.li@cortina-access.com>
+To: jason.li@cortina-access.com,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	linux-serial@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
-	Jason Sequeira <jsequeira@nvidia.com>, jgg@nvidia.com
-Subject: Re: [PATCH v2] arm64: errata: Workaround NVIDIA Olympus device
- store/load ordering erratum
-Message-ID: <ailKYTOX23EMnJsK@willie-the-truck>
-References: <20260605144551.2004391-1-sdonthineni@nvidia.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] tty: serial: Add Cortina-Access UART driver and platform support
+Date: Wed, 10 Jun 2026 19:28:17 +0800
+Message-Id: <20260610112821.3030099-1-jason.li@cortina-access.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260605144551.2004391-1-sdonthineni@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_042853_717770_B921A9AA 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,70 +106,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Jason G]
+Patch 1 adds the DT binding schema for the UART controller and the
+top-level ARM board binding document for the Cortina-Access SoC family,
+along with the vendor prefix.
 
-On Fri, Jun 05, 2026 at 09:45:51AM -0500, Shanker Donthineni wrote:
-> On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
-> observed by a peripheral before an older, non-overlapping Device-nGnR*
-> store to the same peripheral. This breaks the program-order guarantee
-> that software expects for Device-nGnR* accesses and can leave a
-> peripheral in an incorrect state, as a load is observed before an
-> earlier store takes effect.
-> 
-> The erratum can occur only when all of the following apply:
-> 
->   - A PE executes a Device-nGnR* store followed by a younger
->     Device-nGnR* load.
->   - The store is not a store-release.
->   - The accesses target the same peripheral and do not overlap in bytes.
->   - There is at most one intervening Device-nGnR* store in program
->     order, and there are no intervening Device-nGnR* loads.
->   - There is no DSB, and no DMB that orders loads, between the store and
->     the load.
->   - Specific micro-architectural and timing conditions occur.
-> 
-> Two ways to restore ordering: insert a barrier (any DSB, or a DMB that
-> orders loads) between the store and the load, or make the store a
-> store-release. A load-acquire on the load side would not help, because
-> acquire semantics do not prevent a load from being observed ahead of an
-> older store; only the store side (release or a barrier) closes the
-> window.
+Patch 2 introduces the serial driver (serial_cortina-access.c).  The
+UART IP has a simple FIFO-based design with a single interrupt line.
+The driver uses uart_port_tx() for TX, handles earlycon initialisation
+when the bootloader leaves the UART disabled, and provides a TX FIFO
+kick-start in start_tx() to work around edge-triggered interrupt
+behaviour.  Clock frequency is obtained exclusively via the clk
+framework.
 
-I think you can drop the paragraph above. A store-release isn't enough
-to order against a later load in the architecture either, so we're
-clearly in micro-architecture territory and I don't think you need to
-describe mechanisms that don't work here.
+Patch 3 adds the device tree sources for the CA8289 SoC and its
+engineering board, covering the minimal hardware description needed to
+boot a kernel with an INITRD rootfs.
 
-> Promote the raw MMIO store helpers (__raw_writeb/w/l/q) from plain str*
-> to stlr* (Store-Release), which removes the "store is not a
-> store-release" condition for every device write the kernel issues.
-> Because writel() and writel_relaxed() are both built on __raw_writel()
-> in asm-generic/io.h, patching the raw variants covers both the
-> non-relaxed and relaxed APIs without touching the higher layers. Note
-> that writel()'s own barrier sits before the store, so it does not order
-> the store against a subsequent readl(); the store-release promotion is
-> what provides that ordering.
+Tested on CA8289 engineering board; console and earlycon both verified
+at 115200 baud.
 
-Sashiko points out that you're missing __const_memcpy_toio_aligned32().
+Any feedback or comments are highly appreciated.
 
-> Like ARM64_ERRATUM_832075 on the load side, the change is gated on a new
-> ARM64_WORKAROUND_DEVICE_STORE_RELEASE capability and only activated on
-> parts that match MIDR_NVIDIA_OLYMPUS, so unaffected CPUs continue to use
-> the plain str* sequence.
-> 
-> Note: stlr* only supports base-register addressing, so the raw accessors
-> can no longer use the offset addressing introduced by commit d044d6ba6f02
-> ("arm64: io: permit offset addressing"). The str* and stlr* alternates
-> share a single inline-asm operand and the sequence is selected at boot,
-> so the operand form is fixed at compile time; unaffected CPUs keep using
-> str* but also revert to base-register addressing. This keeps the store
-> side as simple as the existing load-side patching (load-acquire) and
-> avoids adding complexity to the device write path; retaining offset
-> addressing only for str* would otherwise require a runtime branch on
-> every write.
+Jason Li (3):
+  dt-bindings: serial: Add binding for Cortina-Access UART
+  tty: serial: Add UART driver for Cortina-Access platform
+  arm64: dts: cortina-access: Add DTS for CA8289 SoC and Venus board
 
-I seem to remember Jason caring about that, possibly because some CPUs
-are very picky about write-combining?
+ .../bindings/arm/cortina-access.yaml          |  29 +
+ .../serial/cortina-access,serial.yaml         |  46 ++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |  14 +
+ arch/arm64/Kconfig.platforms                  |  10 +
+ arch/arm64/boot/dts/Makefile                  |   1 +
+ arch/arm64/boot/dts/cortina-access/Makefile   |   2 +
+ .../dts/cortina-access/ca8289-engboard.dts    |  31 +
+ .../boot/dts/cortina-access/ca8289-soc.dtsi   | 118 +++
+ drivers/tty/serial/Kconfig                    |  21 +
+ drivers/tty/serial/Makefile                   |   1 +
+ drivers/tty/serial/serial_cortina-access.c    | 755 ++++++++++++++++++
+ 12 files changed, 1030 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/cortina-access.yaml
+ create mode 100644 Documentation/devicetree/bindings/serial/cortina-access,serial.yaml
+ create mode 100644 arch/arm64/boot/dts/cortina-access/Makefile
+ create mode 100644 arch/arm64/boot/dts/cortina-access/ca8289-engboard.dts
+ create mode 100644 arch/arm64/boot/dts/cortina-access/ca8289-soc.dtsi
+ create mode 100644 drivers/tty/serial/serial_cortina-access.c
 
-Will
+-- 
+2.39.5
+
 
