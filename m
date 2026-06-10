@@ -4,50 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD29CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 22:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BF5CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 22:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=epk83XHTGPqCs40eb3YUi50QD9q370QPRDNXcn99T0k=; b=i4YVXzU+kMhmanEJMiOtqlLrod
-	+SZBGQdPRDznygyRMObkrV8wHUsKgKWsZSEltlF4Retqilr/9MTmyUP0PXwxJeBkaIs0008xSBuM3
-	pE1PuE6R97dh/IAu1fw3IqXYdlL4OtXK0bUQHc4yy60CNowVJw1wFUoPwH0tTm5OBaP+NACQBufa9
-	+yCM1jiTl2t0sTGWEU/b/t3j/SpiGao0XgmTMkQrWar5P1pngkXWBDqU4C+c469UYKkxghTXtqJ6X
-	OMtW2C+YjAz0HNRKFLfSxKTfO0suSCue3+TFwSENYjpiM+Lut0p1UJKTvPpSPWmjFRAvIVzNX6J/c
-	7Bz0g3Bg==;
+	bh=62bFE+9EiC4Wl6sR/gNVDtGRVBnRqEmz0YnELUX+5Xs=; b=I8+aaPzhRNtC1xKxWBSZZgg/o6
+	lQwiHexaFqnN1c8OHCyeBRxD9+nc9aFdS1Z5PC1ySrWon0u8mn/Fg+xmlUAq+qO88Wb9XTPoOLRLe
+	E0OQ9vJZylPcDtCZ2X5fDuMB35pP2zfcHMOsGmVCAsbLzK4AYKw22nLHbWGp4rvdPR9MoB8qMrbsc
+	lv99265FdxJ0GPz3kg1MxrLGMR2g1HKuT1r1gNSR3ajh7sQhi8nErdob9DLX/gxCfNJPhPNqVXxLJ
+	8ddaiDgXcLLy2rNQDt4BXuWRL9hh6yNYDO0n8i8EFOGIp753QeBXtqxrXv4Nz8vhV8sMdAHcBziE1
+	wpVFSvgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXRjo-00000008QVA-38F2;
-	Wed, 10 Jun 2026 22:49:32 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXRjl-00000008QUp-3nom;
-	Wed, 10 Jun 2026 22:49:29 +0000
-Message-ID: <30ecb791-a9dd-4146-8d8c-b77f1fb31dde@infradead.org>
-Date: Wed, 10 Jun 2026 15:49:29 -0700
+	id 1wXRdu-00000008QA4-0YqD;
+	Wed, 10 Jun 2026 22:43:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXRdt-00000008Q9o-0LtZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Jun 2026 22:43:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 412154463E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 22:43:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C3DA1F00A03
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 22:43:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781131404;
+	bh=62bFE+9EiC4Wl6sR/gNVDtGRVBnRqEmz0YnELUX+5Xs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=GCDhfGUXvvVNHLXhr3frkjO1Rp4OtsKp0qM3R31fePjb//IULavexvDmNUUwA04Ub
+	 Dzlzh2pzRTGy59f+l+FcFl6Yb7JHo1erepIH9ag8J/kku0Cip94/n/lnMR10AXod+E
+	 Eo9yh0/1Iz8nn2Z2avr7KPAgjzoa5BEPnlspQTzlg3rKjx1wz7yacqY5QAT1hJvXmc
+	 p+h4mmaqYQXlAywwxh+PM6aAWHmctdeOpMdFSOJmYCYFWVtcq+mLZQz8SbOiIU5i+B
+	 W6h3yZfiZGrVAGQ4KxdyXBJ5+NYJjpIS11ozMi8kHTJQg+Iz/vEkAJtdxm8C+VNjjZ
+	 1YzD783Gy0FgA==
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-68f36e1663cso13150023a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 15:43:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+eMMrIBCWy8TkcuseAe+Xl+K3Nd1Do7Xuw6CQ5OXi7VFEJ4KM5gIn8fmKDLwcTTUdzUBSvldP0N2n4GttgyeCf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxH/3nJGy1LhljSHayyG0xU9z+MkW0J7ycKD2iNQIfaPt+vZG+C
+	lyN9GJ10YCcQxgrh/cXuechseCKNHqRENJzunKhY+OJi/utXRwHXMBJucWlCk510XIT7VzyrFf7
+	ADnVsP5I3cG0+CU1UBJsZ7MT/IL2t5A==
+X-Received: by 2002:a17:907:c28c:b0:bd0:df77:98bb with SMTP id
+ a640c23a62f3a-bf3702817fbmr1479114866b.9.1781131402612; Wed, 10 Jun 2026
+ 15:43:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] tty: serial: Add UART driver for Cortina-Access
- platform
-To: Jason Li <jason.lee651024@gmail.com>, jason.li@cortina-access.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260610112821.3030099-1-jason.li@cortina-access.com>
- <20260610112821.3030099-4-jason.li@cortina-access.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260610112821.3030099-4-jason.li@cortina-access.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260609151212.29469-1-ansuelsmth@gmail.com> <20260609151212.29469-9-ansuelsmth@gmail.com>
+In-Reply-To: <20260609151212.29469-9-ansuelsmth@gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 10 Jun 2026 17:43:11 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJdBxsbUK+n9h17K9SC7ojcPxemeijJhUGQt9HuB82OYg@mail.gmail.com>
+X-Gm-Features: AVVi8CfnalHGFSDJtFBoMIJ88H-i-Yw1YCOHz7GBxBm4GdczRrsSV4xJzXraBNE
+Message-ID: <CAL_JsqJdBxsbUK+n9h17K9SC7ojcPxemeijJhUGQt9HuB82OYg@mail.gmail.com>
+Subject: Re: [PATCH net-next v6 08/12] of: property: fw_devlink: Add support
+ for "pcs-handle"
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Saravana Kannan <saravanak@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,44 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 9, 2026 at 10:13=E2=80=AFAM Christian Marangi <ansuelsmth@gmail=
+.com> wrote:
+>
+> Add support for parsing PCS binding so that fw_devlink can
+> enforce the dependency with Ethernet port.
+>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/of/property.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/of/property.c b/drivers/of/property.c
+> index 136946f8b746..e6584a2f705d 100644
+> --- a/drivers/of/property.c
+> +++ b/drivers/of/property.c
+> @@ -1392,6 +1392,7 @@ DEFINE_SIMPLE_PROP(access_controllers, "access-cont=
+rollers", "#access-controller
+>  DEFINE_SIMPLE_PROP(pses, "pses", "#pse-cells")
+>  DEFINE_SIMPLE_PROP(power_supplies, "power-supplies", NULL)
+>  DEFINE_SIMPLE_PROP(mmc_pwrseq, "mmc-pwrseq", NULL)
+> +DEFINE_SIMPLE_PROP(pcs_handle, "pcs-handle", "#pcs-cells")
 
+There is no such common property "#pcs-cells".
 
-On 6/10/26 4:28 AM, Jason Li wrote:
-> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> index cf7dba473b20..99a1c9308395 100644
-> --- a/drivers/tty/serial/Kconfig
-> +++ b/drivers/tty/serial/Kconfig
-> @@ -1592,6 +1592,27 @@ config SERIAL_NUVOTON_MA35D1_CONSOLE
->  	  but you can alter that using a kernel command line option such as
->  	  "console=ttyNVTx".
->  
-> +config SERIAL_CORTINA_ACCESS
-> +	tristate "Cortina-Access serial port support"
-> +	depends on OF
-> +	select SERIAL_CORE
-> +	help
-> +	  This driver is for the Cortina-Access SoC UART, present in the
-> +	  CA8289 (Venus) and related CAXXXX family of SoCs. If you have a
-> +	  machine based on the Cortina-Access SoC and wish to use the serial
-> +	  port, say 'Y' here. Otherwise, say 'N'.
-
-It could also be 'm' since the kconfig symbol is tristate.
-
-> +
-> +config SERIAL_CORTINA_ACCESS_CONSOLE
-> +	bool "Console on Cortina-Access serial port"
-> +	depends on SERIAL_CORTINA_ACCESS=y
-> +	select SERIAL_CORE_CONSOLE
-> +	select SERIAL_EARLYCON
-> +	help
-> +	  Say 'Y' here if you wish to use the Cortina-Access UART as the system
-> +	  console (the device which receives all kernel messages and warnings
-> +	  and which allows logins in single user mode).
-> +	  /dev/ttyS* is the default device node.
-> +
->  endmenu
-
--- 
-~Randy
-
+>  DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
+>  DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
+>
+> @@ -1548,6 +1549,7 @@ static const struct supplier_bindings of_supplier_b=
+indings[] =3D {
+>         { .parse_prop =3D parse_interrupts, },
+>         { .parse_prop =3D parse_interrupt_map, },
+>         { .parse_prop =3D parse_access_controllers, },
+> +       { .parse_prop =3D parse_pcs_handle, },
+>         { .parse_prop =3D parse_regulators, },
+>         { .parse_prop =3D parse_gpio, },
+>         { .parse_prop =3D parse_gpios, },
+> --
+> 2.53.0
+>
 
