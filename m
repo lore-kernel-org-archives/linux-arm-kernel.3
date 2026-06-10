@@ -4,96 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757BDCD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EFACD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWnTRg+mjczQPC1dW7dIXNyJPlDFUHTGB3Kh2mwFLDE=; b=J/YyRlqkKWxEdUhJNcUMKsUO8i
-	Zf1iSlBhxSzbSCGjIjZK0XlB1aomA7zksSgIdW1itE0o/P9uQydNQjvVtFU3OZL0a/FlbJ468JUeh
-	yGlvDXD5inPdNCH6TKeBi9ZQjKnnAV3wJC2zQP8FCPSFsp3NT5AMtLJhGkHVF+amvQBz7uRIdquXI
-	PxFfzMjyW0O9/vkaHqWXBELFAOYXbhmcvEF6Mb0E3BsKRNHI5E/3t1ISbnfkEDLe6lY5/L8iEvqfc
-	Cl1dEou5hyslaHYc7pwK0O8Abt4xVlHhe6GTYPXPD15pDOhTxeclyiYixaSDykKQttGPXnyb5197y
-	rJpVkmPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SOabA/3AB5cbALyplfdHC+l9wVe0Z001/kxGArW7Pf4=; b=1xPeZEXMeW5ESZZIdRQYDNQxDb
+	iLkzsIvbWLoTpReX4ioM8u0BVzl8yU6c4/8jRv3LVEpQ8/yFidJ7+A4fQy++uTGug1pKHA2/sVxCK
+	NzeRb1xs+TPdFjhWGeUBiv37XkvjwFRzfLyUJW/I9iA7lfW3bJPnyQen0DmnfNoaGnRP+GWsPOTw9
+	p/5YnivFVErcleBVISz/D+B1AlTuo7BSgcjyIwOtZ7JiCvZSoxSd+19SBeNQ2sO4fCKdenGiEOtvc
+	B61UKP5OgWeTf/Dkfaf1lVsyzM8wntPHoAzGL74nCL7N8GUojXbeszws9p8bkhHMrNnMa0gukNMnJ
+	lr5IyDrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXGuW-00000007VJo-3m6w;
-	Wed, 10 Jun 2026 11:15:52 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXGuU-00000007VIx-2u0t
+	id 1wXGx1-00000007Vro-02Ww;
+	Wed, 10 Jun 2026 11:18:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXGwy-00000007VrN-3ReM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 11:15:51 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2bf20f6be6bso52290405ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 04:15:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781090149; x=1781694949; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KWnTRg+mjczQPC1dW7dIXNyJPlDFUHTGB3Kh2mwFLDE=;
-        b=WBXTtnsASWX1aeay/1vuwqDXTtasYgAP3ussoR7bbGJ92GyJdq3slg7b0xrehub8Di
-         xwjC8YcoG2bi0Nc1HpDTd3xZCVP5dmszu1wWy6fU2SUk2OAo4jpM4xGImseD0MZj9sau
-         G5Q8DMI3IHgWP7UNH5msCsLmO0a9xN3GSUg6FROCchw1UbDj6PAB4OB5KRe0apFCGYSn
-         G6zWm80r4J6svvO23OvWfMBMWHQll71TYkLuVw8JZxRtJJOTzWRaj1751TuHfa1dszEs
-         hJcxzNYb/cL89HcHG0ZxuobiSflT6dC+OQ5XIzN2nyzvZII7d0X7h2qD5wrZPA2XbxSE
-         fGpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781090149; x=1781694949;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KWnTRg+mjczQPC1dW7dIXNyJPlDFUHTGB3Kh2mwFLDE=;
-        b=RFyrTutJgBbdfPGJ39bdzxX/7y5wFrclvQ1lO/NvbqmvB2s5fIjTHkPGnBH7/gqD+b
-         gJVL6yZAKYHgvHFmdmk2//672TQxxexYbcMMnK5Tc/faO+z/G5HDZvDghZw5LDP/+WdN
-         U4Vfz3mJXNPNkhpDIefnq9/mUK8riYBxAe6nfJIbOf70bSp2+otE9VRiBr5XvYHRZ2Rt
-         HYiychhEFnu9HJrv2y6PczDjAsu9YHMjSAvIC3qlyJ7DlQxWuqUR8d6bDpiFFDhn3aJt
-         LSQgv8PuIxltFtrtCB1E/zHaxD9ItTpfdNtiCVyQHNyRhUznowlx1b2aQFVV+hwdjDWF
-         AtiQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+WhudzA3sV2ohQpTFdPD2E9FGp+juZzfS9atKcx5lkgwlXZ3paVnAegacWohC6u9GE4bRfdXJCFFdezcri6zPE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzioT14mvAh0wTkZ3b/bt9sb6iRH8Wazdm7DYIqnFVsps5CriCQ
-	RtUenZ25lmLXLgdBGwtOiwFWZpanHgKgv57eBqmgnj4kUsGSBjpc9zKY
-X-Gm-Gg: Acq92OHViFRh8IAgSS+X+IAKlA4QDRK6dO5tkGTeHvuW3hbSrbxTbylkRU4yGlZTSGq
-	mxZb9QzW/+m6bdtIAZEgNRLwuy8yxsvWCBpGewVIo89vyRann4xnaC/n69EMLrkDfAWQiIH+fUy
-	I8gSlX9CjPFArWDE/pgJ8WLD1mYFUYbxXh9+bc0UqSn8YkExEC+u6fR0W7JlP2jCS1zyaUbAAcF
-	ogumGY7GViNdwyo8j6S5pFQHTmws/Mpyz/VbGw/4ubBUunx+Ilnet4rh5itu9vsUAhzu5ORu2g3
-	RMi/YN7cPAe1Bw6pQ8oAG+3uuMLFryvkexVJsN3X+mPZXdEtfDmSHGDIAY11zwo9N2z5prqxTUU
-	4kYjEBqEJ/AWnn0DkmiDqmbMO5PWtpCW7QOR5SHeCpD5UicrRKFqwFLabEk0duBOvSGg8fd+k9W
-	05Db9tX75mR8GiNKyJKyC/v5uLYUCaVkwgjBNzRo7zyCkJC18XCAh7o6BiakyuXg==
-X-Received: by 2002:a17:902:e848:b0:2c0:b6c7:2273 with SMTP id d9443c01a7336-2c1e79e29ebmr292674635ad.3.1781090149023;
-        Wed, 10 Jun 2026 04:15:49 -0700 (PDT)
-Received: from [192.168.1.116] ([223.122.38.120])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16609e234sm251459075ad.53.2026.06.10.04.15.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Jun 2026 04:15:48 -0700 (PDT)
-Message-ID: <4bef16f2-ad9d-4417-ae12-484ffd7a87a9@gmail.com>
-Date: Wed, 10 Jun 2026 19:15:45 +0800
+	Wed, 10 Jun 2026 11:18:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 185DA2574;
+	Wed, 10 Jun 2026 04:18:17 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 262AA3FD88;
+	Wed, 10 Jun 2026 04:18:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781090301; bh=AzG4LvHEextF6DXdNd0eKaKqq3FmpNFo5UAqM/SdSFE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fT3yf83Zy8Vkni+513U1IbyE2eD1a4dVhI6H5GXA/oPmEEkPJh5q2rXudN9QPJE2A
+	 F9l1QSbVoyDQxVZ/j7HzDpM7YCDvvwRkFD1SR9AVzl1IZXTeZQmqQ4SwVAvcAyCNeD
+	 IOChS/nCzHaCUdrlAENH2EfJXHrS8DKpgE1EgIUk=
+Date: Wed, 10 Jun 2026 12:18:09 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Leonardo Bras <leo.bras@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Gavin Shan <gshan@redhat.com>
+Subject: Re: [PATCH 1/2] KVM: arm64: Replace memslot_is_logging() with
+ kvm_slot_dirty_track_enabled()
+Message-ID: <qjktov4btc6zv2ctldh4j5wvolruxhv744wwvgrnbkkpsjth25@6s7il6rt2ypf>
+References: <20260605153248.2412064-1-weilin.chang@arm.com>
+ <20260605153248.2412064-2-weilin.chang@arm.com>
+ <aibmALTEbc7gzSZj@devkitleo>
+ <aig_xcTZKzux0OaS@devkitleo>
+ <aiky6H02ArbFpwGZ@raptor>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] nvme-apple: Only limit admin queue tag space when
- with Linear SQ is present
-To: Christoph Hellwig <hch@lst.de>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Sagi Grimberg <sagi@grimberg.me>,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
- <20260606-prevent-tag-collision-t8015-v1-1-93ccf4eca550@gmail.com>
- <20260610051146.GA559@lst.de>
-Content-Language: en-US
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <20260610051146.GA559@lst.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aiky6H02ArbFpwGZ@raptor>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_041550_752892_0365B986 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20260610_041824_957360_B21883BA 
+X-CRM114-Status: GOOD (  62.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,36 +77,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 10, 2026 at 10:48:24AM +0100, Alexandru Elisei wrote:
+> Hi Leo,
+> 
+> Just FYI, write faults on read-only memslots are handled as MMIO accesses in
+> kvm_handle_guest_abort() (gfn_to_hva_memslot_prot() sets @writable to false).
 
-Christoph Hellwig 於 2026/6/10 下午1:11 寫道:
-> On Sat, Jun 06, 2026 at 09:25:25PM +0800, Nick Chan wrote:
->> Apple NVMe controllers require tags of pending commands to not be shared
->> across admin and IO queues. However, on Apple A11 without linear SQ, it is
->> not possible for either queue to skip over some tags and must go from 0 to
->> the configured maximum before wrapping around.
->>
->> As a result, in order to prevent tag collision, dynamic tag reservation
->> while a command is in-flight becomes necessary. In this context, there is
->> no reason to limit the admin queue's tag space, as it is not helpful in
->> preventing tag collision.
-> I'm not really into these Apple specific, but what does
-> "dynamic tag reservation" mean here?
+Thanks! I also missed this...
 
-This version is based on an incorrect premise (v2 is correct and already applied)
-so feel free to stop reading.
+With this it looks like the behavior of the condition at the third callsite
+will be the same regardless of using memslot_is_logging() or
+kvm_slot_dirty_track_enabled().
 
-In this version, the incorrect premise is that it was not possible for either queue
-to skip over tags and must go from 0 to the configured the maximum. 
+For the second, s2vi->map_writable can only be true if the memslot is not RO.
+So no behavior changes there, in terms of the extra RO check in
+memslot_is_logging().
 
-Under this premise, the only way to prevent collision is to set a bitfield indicating
-which tags are in use when submitting a command ("dynamic tag reservation").
-If a tag is already found to be used when submitting a command, return
-BLK_STS_RESOURCE so the caller retries later.
+Thanks,
+Wei-Lin Chang
 
-Best regards,
-Nick Chan
-
-
-
->
+> 
+> Thanks,
+> Alex
+> 
+> On Tue, Jun 09, 2026 at 05:31:01PM +0100, Leonardo Bras wrote:
+> > On Mon, Jun 08, 2026 at 04:55:45PM +0100, Leonardo Bras wrote:
+> > > Hi Wei Lin,
+> > > 
+> > > On Fri, Jun 05, 2026 at 04:32:47PM +0100, Wei-Lin Chang wrote:
+> > > > When checking whether a memslot has dirty logging enabled, the
+> > > > KVM_MEM_LOG_DIRTY_PAGES flag is the source of truth. Previously we were
+> > > > using memslot_is_logging() which only tests dirty bitmap and did not
+> > > > consider dirty ring. This was not detected because
+> > > > KVM_CAP_DIRTY_LOG_RING_WITH_BITMAP was introduced together with KVM
+> > > > arm64 dirty ring, and users need to enable it to ensure dirty
+> > > > information is not lost for the case of VGIC LPI/ITS table changes.
+> > > > 
+> > > > Fix this by using kvm_slot_dirty_track_enabled() instead which checks
+> > > > KVM_MEM_LOG_DIRTY_PAGES.
+> > > > 
+> > > > Note that memslot_is_logging() also treats a memslot as not logging if
+> > > > KVM_MEM_READONLY is set, hence a memslot with both dirty logging and
+> > > > read only would be seen as not logging for memslot_is_logging(), but
+> > > > logging for kvm_slot_dirty_track_enabled(). This allows a read only
+> > > > mapping of size > PAGE_SIZE to be built when memslot_is_logging() is
+> > > > used, leading to a better read performance compared to
+> > > > kvm_slot_dirty_track_enabled(). However memslots that have both
+> > > > KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY set do not really make
+> > > > sense as dirty logging is essentially nop for a read only memslot, so
+> > > > this shouldn't affect real workloads much.
+> > > 
+> > > 
+> > > It worries me a bit that we are ignoring the KVM_MEM_READONLY flag... 
+> > > I have not yet gone through the whole s2_mmu code but IIUC we can have 
+> > > scenarios on which a memslot can be read-only and have dirty-logging 
+> > > enabled. 
+> > 
+> > 
+> > > If a memslot is not faulted yet, IIUC it is marked as read-only 
+> > > (so it can be mapped on write fault), and we can have dirty-logging 
+> > > enabled for it as well (as the VMM has no idea). 
+> > > 
+> > 
+> > Ignore above bit, I confused memslot with block/page entry.
+> > 
+> > Looking a bit more, my viewpoint is that:
+> > - Due to dirty_ring, checking memslot.dirty_bitmap should be done only to 
+> >   detect the existence of a dirty_bitmap, not the migration process.
+> > - This changes how detection works, in regardas to read-only blocks:
+> >   memslot_is_logging() -> Checks dirty-bitmap + read-only memslot
+> >   kvm_slot_dirty_track_enabled()  -> Checks only memslot flag
+> > - As a simpler change, we could have:
+> > 
+> > ~~~
+> > -   return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
+> > +   return kvm_slot_dirty_track_enabled(memslot) && !(memslot->flags & KVM_MEM_READONLY);
+> > ~~~
+> > 
+> > Both are cheking memslot->flags, so it will be probably optimized by the 
+> > compiler as:
+> > 
+> > ~~~
+> > return memslot->flags & 3 == 1
+> > ~~~
+> > 
+> > My main worry was that in the curent patch we are changing the behavior 
+> > on skipping read-only memslots. So going through the users, we can see:
+> > 
+> > > > 
+> > > > Fixes: 9cb1096f8590 ("KVM: arm64: Enable ring-based dirty memory tracking")
+> > > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > > > ---
+> > > > It took me a long investigation to acquire the context needed to
+> > > > understand this change, however the reason for this problem not being
+> > > > detected is an educated guess. Please let me know if this is wrong or
+> > > > if there are other issues, thanks!
+> > > > 
+> > > >  arch/arm64/kvm/mmu.c | 11 +++--------
+> > > >  1 file changed, 3 insertions(+), 8 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > > > index 4da9281312eb..06c46124d3e7 100644
+> > > > --- a/arch/arm64/kvm/mmu.c
+> > > > +++ b/arch/arm64/kvm/mmu.c
+> > > > @@ -161,11 +161,6 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
+> > > >  	return ret;
+> > > >  }
+> > > >  
+> > > > -static bool memslot_is_logging(struct kvm_memory_slot *memslot)
+> > > > -{
+> > > > -	return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
+> > > > -}
+> > > > -
+> > > >  /**
+> > > >   * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
+> > > >   * @kvm:	pointer to kvm structure.
+> > > > @@ -1748,7 +1743,7 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+> > > >  {
+> > > >  	short vma_shift;
+> > > >  
+> > > > -	if (memslot_is_logging(s2fd->memslot)) {
+> > > > +	if (kvm_slot_dirty_track_enabled(s2fd->memslot)) {
+> > > >  		s2vi->max_map_size = PAGE_SIZE;
+> > > >  		vma_shift = PAGE_SHIFT;
+> > > >  	} else {
+> > 
+> > On the case dirty_track is enabled in a read-only slot, it will resolve to 
+> > a smaller vma_size. The fault granule will be smaller here. This could be 
+> > bad for performance, so maybe we could add a check for read-only block 
+> > here:
+> > 
+> > ~~~
+> > -   if (memslot_is_logging(s2fd->memslot)) {
+> > +   if (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
+> > +       !memslot_is_readonly(s2fd->memslot) {
+> > ~~~
+> > 
+> > 
+> > > > @@ -1953,7 +1948,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+> > > >  	*prot = KVM_PGTABLE_PROT_R;
+> > > >  
+> > > >  	if (s2vi->map_writable && (s2vi->device ||
+> > > > -				   !memslot_is_logging(s2fd->memslot) ||
+> > > > +				   !kvm_slot_dirty_track_enabled(s2fd->memslot) ||
+> > > >  				   kvm_is_write_fault(s2fd->vcpu)))
+> > > >  		*prot |= KVM_PGTABLE_PROT_W;
+> > > >
+> > 
+> > 
+> > On the same scenario (dirty_track enabled on readonly memslot):
+> > This one should be safe, as kvm_is_write_fault() will check if the memslot 
+> > is readonly and return false in this case. But then, it will have to 
+> > actually call kvm_is_write_fault(), as the previous version would not even 
+> > call it in that scenario.
+> > 
+> > Not sure how would that impact perforformance, though.
+> > 
+> > > > @@ -2084,7 +2079,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+> > > >  	 * and a write fault needs to collapse a block entry into a table.
+> > > >  	 */
+> > > >  	memcache = get_mmu_memcache(s2fd->vcpu);
+> > > > -	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
+> > > > +	if (!perm_fault || (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
+> > > >  			    kvm_is_write_fault(s2fd->vcpu))) {
+> > > >  		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+> > > >  		if (ret)
+> > 
+> > Same thing, if memslot is tracking and is readonly, topup_*() would be 
+> > called with the new patch, but not with the old behavior. 
+> > 
+> > All of that depends on how the VMM uses dirty_tracking: does it enable for 
+> > all memory, or only for memory that is writable?
+> > 
+> > I could not find anything that would prevent user from enabling 
+> > dirty_tracking on read-only memslots, so we can either ignore this 
+> > scenario, apply those patches and let those users carry the extra overhead, 
+> > or do an extra test to make sure it's doing the same thing as before.
+> > 
+> > Thanks!
+> > Leo
+> > 
 
