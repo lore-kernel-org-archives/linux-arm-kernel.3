@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70586CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A37CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FxxrfMGS0zaiu+w3muh1AaxqaJx6GaJWf2ySi/7JstM=; b=R7Jtw+ko0E+bCa9eQtxjUyUpYW
-	OADoxyOs+o83sHxf0gyUWYKr2MGWBLI9hLZUcmbpoUsJDXskwIQ7QEQzz6qWX2hafoZ4LCm4xUelR
-	ajFDXZas1MfEUUizpgxQUfi6IsM+Pc3WFHpEw7PyqIJhO4i1/1JAswfQh9OwiNTJYpou9AaaMQ8xx
-	1gjeKm5+tzu8GcccGqH2f4l6Am11dGemXYNDNDS5ZeHs4If0id3087H6461WzCvlrLHRuH5NiEl08
-	TV3aJbmVkv0kQdOxGy413DIMZnbccaEWqJYcJK9h3dXbWaCmzHfWnsXdypkC4f251m5ODFuPPO2JC
-	sbb/mq7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lu/fZdREY7ttqtIzdNp8SN+zPF0bZxfyPg3A43SGXXo=; b=rFKnpyHlJbsUnhkpK8gV5YFXTE
+	TwsXytM7A50HVXArF9Pk+JMTlCZFY1hXMbzOZZR7YaRLbuwtrsJ5QpuNUonLIIB2OrZ37noQjRSm+
+	gfUywqbUcqznqfo3nj8JZ/wPAaTKJe6K+F2XC3ISfzvKKLDpsQpbnGoodQ2OHUgoyU+ov5w3qeZmS
+	ea87h6BQNl2fX4cM1DuLthbKhTiif68KGsFI4MHVwx4bV6+xwas66+HYZMKk15SjAt2he1Ym7kXTc
+	lS/bX3uXw7RpT2Masd0hfW2Dwed/VK8VROv6PBkBR4eorC7cmMkJPY8o/SGXHAWdhPpJhDWfQ7prf
+	nYyC95vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7Ci-00000006ZZR-1KNz;
-	Wed, 10 Jun 2026 00:54:00 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7Ce-00000006ZUs-24ft
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 00:53:57 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-36d97955899so5805497a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 17:53:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781052835; x=1781657635; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=FxxrfMGS0zaiu+w3muh1AaxqaJx6GaJWf2ySi/7JstM=;
-        b=jx/RFQzLYjht7siktvOSazNDJf1Ci/DGXhTfNdBqf2qn9g3hVmxAzN0RULJ+aHs2Jq
-         ph/XFmbXaPlt0iXQieVj6PfuoRYwVF9obXNNKRJ81mBwo1APawa+xJPwAVxQT+BEmdS0
-         0aUwuwFQhd7LVoxUPS0sXxBLLsl5AdbwEilsAa7ara22HW1suX+smyl845D/bN+FOgcM
-         sRGOo97Nb9RXZSB3GQ/GpcbqQ0PtfAdXs1PFqdH1iL9RnfxGCmrZr+0q6DR1WljKwZNv
-         oHo0l84K5fuCM9P9LYgwZTutXaIe+N+WU1co4Z708282XvodmlG/OyMIZqL3bl5dpTTG
-         dtdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781052835; x=1781657635;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FxxrfMGS0zaiu+w3muh1AaxqaJx6GaJWf2ySi/7JstM=;
-        b=JoecJlfEXA2gFRr3gXTMu+IyBL+/MHJPn0bjKE5/0qlP/3dftl4pFbuIlPrzSVzGHO
-         qZEMrvomoL8JrPSw8Bc8xNSBxF5KJ7wWRyOWmT2pBOW/mtZIyWcxwRxNdELNdLUXWMKP
-         fbMAHLIHd0lL0zpByFK86WyuF982IAiH/IMZzrOJoZIcdUl/V5z3LOg4qh41pCGAcZ1p
-         z/52HaPq5r6hVKtkIwkwWZ6MC031av1ZTMx3egbZcwPCnSQtmyecoQ5Mb9RjAF1KU4nb
-         jfx8yOyPA101x3bcx/VTgQMbhHM1zgiz0eBUiSOvDWchr/a4e3Zceievgd1Liwzp9Ewy
-         sKsg==
-X-Forwarded-Encrypted: i=1; AFNElJ8csdmNKC1k+8gLS82GOE9CaMFDN8FRr03bvxGGcd31lXf3OI0skrwdNILCp5vJXjQlY+WHcCzps7lYe18a/LJq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzBhbzgfQPK6WMW7mCDZzCGEmPVhlRDp5mSqCfcXDH+V8NTps8
-	pzE7/OSaBa35zQWWMGSc8VNopxEdZ30lq0+tkAdebaaniCWOTADB8yrx8yR8NkQLGRnKO3NNhl/
-	efdNiyA==
-X-Received: from pjbfv16.prod.google.com ([2002:a17:90b:e90:b0:36b:7407:9b72])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:50cf:b0:35e:d015:d675
- with SMTP id 98e67ed59e1d1-3751f843387mr6325275a91.7.1781052834478; Tue, 09
- Jun 2026 17:53:54 -0700 (PDT)
-Date: Tue,  9 Jun 2026 17:53:30 -0700
-In-Reply-To: <20260610005338.2967132-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20260610005338.2967132-1-seanjc@google.com>
-X-Mailer: git-send-email 2.54.0.1099.g489fc7bff1-goog
-Message-ID: <20260610005338.2967132-11-seanjc@google.com>
-Subject: [PATCH v6 10/18] KVM: selftests: Add option to set empty routing
- between IRQs in eventfd IRQ test
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
-Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
-	Josh Hilke <jrhilke@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1wX7jq-00000006d5a-0w59;
+	Wed, 10 Jun 2026 01:28:14 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wX7jk-00000006d4F-3KVM;
+	Wed, 10 Jun 2026 01:28:12 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app1 (Coremail) with SMTP id TAJkCgCXLHGAvShqtJMlAA--.63571S2;
+	Wed, 10 Jun 2026 09:27:32 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	horms@kernel.org,
+	lee@kernel.org,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v8 0/6] net: stmmac: eic7700: add eth1 variant support and update delay bindings
+Date: Wed, 10 Jun 2026 09:27:26 +0800
+Message-ID: <20260610012727.848-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TAJkCgCXLHGAvShqtJMlAA--.63571S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3tFy8KFWkZryDAw4xJr4kCrg_yoWDKrWkpF
+	W5Wrn8GFsxJFyxAan7J3W093WFqan3GF1j9r1rJr1DXws0ka4qqrWS9F45ZFyDurZ7ZryY
+	vF45tF4qka4j9FJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26r
+	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7M4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42
+	xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWU
+	GwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI4
+	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRKXdjDUUUU
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_175356_726954_D2FC7EBC 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20260609_182809_001502_6976ECF3 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,100 +98,270 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Matlack <dmatlack@google.com>
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-Extend the eventfd IRQ test with an '-e' flag to set empty GSI routing
-between interrupts.  Clobbering the GSI routing table verifies that KVM
-correctly handles CPUx => NULL => CPUy transitions, not just CPUx => CPUy
-transitions, and verifies that KVM can "rebuild" an entire routing setup.
+v7 -> v8:
+  - eth0-related fixes were moved into separate series [1], [2]:
+    - All eth0-related fixes have been removed from this series to avoid mixing
+      MAC variants and RX timing logic in a single review context.
+    - Reference:
+      [1]https://lore.kernel.org/lkml/20260602014528.2076-1-lizhi2@eswincomputing.com/
+      [2]https://lore.kernel.org/lkml/20260518021919.404-1-lizhi2@eswincomputing.com/
 
-Signed-off-by: David Matlack <dmatlack@google.com>
-Co-developed-by: Josh Hilke <jrhilke@google.com>
-Signed-off-by: Josh Hilke <jrhilke@google.com>
-[sean: '-e' for "empty" instead of '-c' for "clear", massage changelog]
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/irq_test.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
+  - Update cover letter and overall series scope description:
+    - Replace previous wording "EIC7700 eth1 RX sampling timing fix"
+      with a more accurate description:
+        - Add eth1 MAC variant support.
+        - Update RGMII delay binding model.
+    - This reflects the structural nature of the series rather than a pure
+      bug fix.
 
-diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
-index 9e2287490262..2ad9efd9abc7 100644
---- a/tools/testing/selftests/kvm/irq_test.c
-+++ b/tools/testing/selftests/kvm/irq_test.c
-@@ -109,6 +109,13 @@ static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
- 	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing.header);
- }
- 
-+static void kvm_set_empty_gsi_routing(struct kvm_vm *vm)
-+{
-+	struct kvm_irq_routing routing = {};
-+
-+	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing);
-+}
-+
- static const char *probe_iommu_type(void)
- {
- 	int io_fd;
-@@ -127,11 +134,12 @@ static const char *probe_iommu_type(void)
- 
- static void help(const char *name)
- {
--	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-h] [-t iommu_type]\n", name);
-+	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-e] [-h] [-t iommu_type]\n", name);
- 	printf("\n");
- 	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
- 	printf("-a	Affine the device's host IRQ to a random physical CPU\n");
- 	printf("-d	Use a VFIO device to send MSI-X interrupts instead of manually signaling the eventfd\n");
-+	printf("-e	Set empty GSI routing in-between some interrupts\n");
- 	printf("-t	Override the IOMMU type to use (vfio_type1_iommu or iommufd)\n");
- 	printf("\n");
- 	exit(KSFT_FAIL);
-@@ -158,6 +166,7 @@ int main(int argc, char **argv)
- 	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
- 	struct vfio_pci_device *device = NULL;
- 	int nr_irqs = 1000, nr_vcpus = 1;
-+	bool set_empty_routing = false;
- 	const char *device_bdf = NULL;
- 	const char *iommu_type = NULL;
- 	int i, j, c, msix, eventfd;
-@@ -165,7 +174,7 @@ int main(int argc, char **argv)
- 	struct kvm_vm *vm;
- 	int irq, irq_cpu;
- 
--	while ((c = getopt(argc, argv, "ad:ht:")) != -1) {
-+	while ((c = getopt(argc, argv, "ad:eht:")) != -1) {
- 		switch (c) {
- 		case 'a':
- 			irq_affinity = true;
-@@ -173,6 +182,9 @@ int main(int argc, char **argv)
- 		case 'd':
- 			device_bdf = optarg;
- 			break;
-+		case 'e':
-+			set_empty_routing = true;
-+			break;
- 		case 't':
- 			iommu_type = optarg;
- 			break;
-@@ -222,9 +234,13 @@ int main(int argc, char **argv)
- 	}
- 
- 	for (i = 0; i < nr_irqs; i++) {
-+		const bool do_set_empty_routing = set_empty_routing && (i & BIT(3));
- 		struct kvm_vcpu *vcpu = vcpus[i % nr_vcpus];
- 		struct timespec start;
- 
-+		if (do_set_empty_routing)
-+			kvm_set_empty_gsi_routing(vm);
-+
- 		kvm_route_msi(vm, gsi, vcpu, vector);
- 
- 		if (irq_affinity) {
+  -  Split DT bindings changes into two patches:
+    - patch1:
+        - Relax RGMII internal delay constraints.
+        - Change rx/tx internal delay from enum-based model to range-based
+          model.
+        - Mark delay properties as optional.
+    - patch2:
+        - Introduce EIC7700 eth1 MAC variant compatible string
+          "eswin,eic7700-qos-eth-clk-inversion".
+        - Model silicon-specific RX clock inversion requirement via SoC
+          variant instead of board-level properties.
+
+    - Due to this restructuring:
+        - Patch structure and commit messages have changed significantly
+          compared to v7.
+        - The previously received Acked-by from Conor Dooley is not
+          carried forward because the binding patches were substantially
+          reworked and split.
+
+  - Split driver changes into two patches. No functional changes to eth1
+    compared to v7:
+    - patch 3:
+        - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+        - Remove mandatory DT property requirement in probe path.
+        - Allow zero-delay default when properties are absent.
+    - patch 4:
+        - Add support for eth1 MAC variant using compatible-specific
+          match data.
+        - Introduce RX clock inversion handling for eth1 at runtime.
+        - Apply speed-dependent configuration via fix_mac_speed()
+          callback.
+
+  - Note:
+    - These patches (5/6 and 6/6) are included only to facilitate review
+      of the overall Ethernet integration across bindings, driver, and
+      device tree.
+      A cleaned-up, upstream-ready DTS series will be submitted separately
+      once all dependencies and final hardware integration are completed.
+
+  - Link to v7:
+    https://lore.kernel.org/lkml/20260427072353.1114-1-lizhi2@eswincomputing.com/
+
+v6 -> v7:
+  - Address checkpatch.pl --strict warnings for DTS changes:
+    - Split DT binding documentation and DTS board description into separate patches
+    - Fix DTS style issues reported by checkpatch:
+      - Reduce line length where applicable
+      - Add required description for rgmii-rxid
+
+  - DTS changes in this series are split into:
+    - Patch 3/4: syscon binding update (documentation / reference only)
+    - Patch 4/4: board DTS changes (architecture overview only)
+
+    These patches (3/4 and 4/4) are provided to facilitate review of the overall
+    Ethernet integration across binding, driver, and device tree, and are not
+    intended as final upstream submission in their current form.
+
+    A cleaned-up, upstream-ready DTS series will be submitted separately once
+    all dependencies and final hardware integration are completed.
+
+  - Note:
+    - Clock-related bindings referenced in earlier revisions are now already merged
+      into net-next, so dtbs_check warnings related to clock are no longer present
+      and are not relevant to this revision.
+
+  - No functional changes in the stmmac driver or binding semantics in this revision.
+
+  - Link to v6:
+    https://lore.kernel.org/lkml/20260423085501.760-1-lizhi2@eswincomputing.com/
+
+v5 -> v6:
+  - Update DTS/DTSI descriptions to fix invalid phandle references reported by DTC:
+    - Add missing GMAC provider nodes required for proper hardware description:
+      - HSP power domain: GMAC nodes moved under this domain to reflect
+        hardware power hierarchy.
+      - Clock nodes: added to provide clk phandles referenced by GMAC.
+      - Reset nodes: added to provide reset phandles referenced by GMAC.
+      - Pinctrl nodes: defines pinctrl settings for GMAC signals
+        (pinctrl_gpio106, pinctrl_gpio111).
+    - Move GMAC nodes under the correct HSP power domain.
+    - Ensure DTS builds without dtc errors and all phandle references
+      (clk/reset/pinctrl/power-domain) are valid.
+    - This update does not change runtime behavior; it only improves DTS
+      consistency and resolves issues reported by dtc.
+
+  - Note:
+    - The patch 3/3 for DTS changes in this series provide an overview of the GMAC
+      integration and its dependencies, as discussed previously:
+      https://lore.kernel.org/lkml/64bf6b40-b947-4ffa-8d48-4d6341931327@lunn.ch/
+
+    - It is **not intended for upstream inclusion** in its current form,
+      and is provided solely for architecture overview and integration
+      context.
+
+    - A fully cleaned and upstream-ready DTS series will be submitted
+      separately once all related components (pinctrl, clock, power-domain,
+      etc.) are finalized.
+
+  - dtbs_check has been run on top of net-next for reference purposes.
+    Remaining warnings are expected due to missing EIC7700 clock bindings[1]
+    in net-next and do not reflect issues in the DTS design itself.
+
+  - One remaining warning:
+    - eswin,eic7700-clock
+
+  - The clock binding has already been applied to upstream and is present
+    in mainline, but not yet available in net-next.
+
+  - The syscon binding is extended in this series to include the
+    eswin,eic7700-syscfg compatible.
+
+  - Any further refinement of the syscfg binding will be handled in
+    separate patches if needed.
+
+  - Dependencies:
+    - [1]EIC7700 clock binding:
+      https://lore.kernel.org/lkml/20260303080637.2100-1-dongxuyang@eswincomputing.com/
+      (already applied to upstream)
+
+  - Link to v5:
+    https://lore.kernel.org/lkml/20260324073017.376-1-lizhi2@eswincomputing.com/
+
+v4 -> v5:
+  - eswin,eic7700-eth.yaml:
+    - Add Acked-by from Conor Dooley
+    - No functional changes
+
+  - Update dwmac-eic7700.c:
+    - Disable clocks on the error path to fix a clock leak in
+      eic7700_dwmac_init() when regmap_set_bits() fails
+      (reported by Simon Horman <horms@kernel.org>)
+
+  - Link to v4:
+    https://lore.kernel.org/lkml/20260313075234.1567-1-lizhi2@eswincomputing.com/
+
+v3 -> v4:
+  - Update eswin,eic7700-eth.yaml:
+    - Improve commit message in dt-bindings patch to clarify the
+      hardware difference of the eth1 MAC and why a new compatible
+      string is required.
+    - Move the newly added eswin,hsp-sp-csr item to the end of the list
+      to avoid inserting entries in the middle of the binding schema.
+    - Simplify the compatible schema by replacing the previous oneOf
+      construct with an enum.
+
+  - Update dwmac-eic7700.c:
+    - Fix build issues.
+    - Adjust code to match the updated binding definition.
+
+  - Update DTS/DTSI descriptions:
+    - Move SoC-level descriptions to the .dtsi file.
+    - Keep board-specific configuration in the .dts file.
+
+  - Link to v3:
+    https://lore.kernel.org/lkml/20260303061525.846-1-lizhi2@eswincomputing.com/
+
+v2 -> v3:
+  - Update eswin,eic7700-eth.yaml:
+    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
+      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
+      field (127 * 20 ps).
+    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
+      step size.
+    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+      A well-designed board should not require internal delay tuning.
+    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
+      example to avoid encouraging blind copy into board DTs.
+
+  - Update dwmac-eic7700.c:
+    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
+      DT properties.
+    - Apply delay configuration only when properties are present.
+    - Keep TX/RX delay registers cleared by default to ensure a
+      deterministic state when no delay is specified.
+
+  - Describe Ethernet configuration for the HiFive Premier P550 board:
+    - Add GMAC controller nodes for the HiFive Premier P550 board
+      to describe the on-board Ethernet configuration.
+
+      The Ethernet controller depends on clock, reset, pinctrl
+      and HSP subsystem providers which are currently under
+      upstream review. These dependent nodes will be submitted
+      separately once the corresponding drivers are merged.
+
+      Due to these missing dependencies, dt-binding-check may
+      report warnings or failures for this series.
+
+  - No functional changes to RX clock inversion logic.
+
+  - Link to v2:
+    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
+
+  - This series is based on the EIC7700 clock support series:
+    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
+    The clock series is currently under review.
+
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Drop the vendor-specific properties eswin,rx-clk-invert and
+      eswin,tx-clk-invert.
+    - Introduce a distinct compatible string
+      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
+      require internal RGMII clock inversion.
+      This models the SoC-specific hardware difference directly via the
+      compatible string and avoids per-board configuration properties.
+    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
+      minimum/maximum to reflect the actual delay range (0-2400 ps)
+    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
+      description. The HSP CSR block is described in Chapter 10
+      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+  - Update dwmac-eic7700.c:
+    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
+      properties.
+    - Select RX clock inversion based on the new
+      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
+      match data to apply the required configuration for affected MAC
+      instances (eth1).
+
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
+
+Zhi Li (6):
+  dt-bindings: ethernet: eswin: relax internal delay model to
+    range-based constraints
+  dt-bindings: ethernet: eswin: add EIC7700 eth1 RX clock inversion
+    variant
+  net: stmmac: eic7700: make RGMII delay properties optional
+  net: stmmac: eic7700: add support for eth1 clock inversion variant
+  dt-bindings: mfd: syscon: add ESWIN EIC7700 compatible
+  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
+    controller
+
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../bindings/net/eswin,eic7700-eth.yaml       |  74 ++++--
+ .../dts/eswin/eic7700-hifive-premier-p550.dts | 240 ++++++++++++++++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        | 105 ++++++++
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 113 ++++++++-
+ 5 files changed, 507 insertions(+), 27 deletions(-)
+
 -- 
-2.54.0.1099.g489fc7bff1-goog
+2.25.1
 
 
