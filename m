@@ -4,90 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C04CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 05:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1042BCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 05:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yQdOheEUqRpM4ZgP7ld+n/Ny0a30r9dAAihdKcjT1Qk=; b=vlLDF/6qOsvVn1jRiAOojBL/zt
-	kXKdU/o8+b2vWDhDxy8sooKPwY9NLXFCU7b7+kIUsKFt/explPJVhJ76hTwm+wqtY9gQigLhouRzO
-	WYbHKMQxlwiQaofc/41YbcufYv4U3RuOdAqJBVUVcfYV5DrotBmzVE/j9oUGm3hlcqAXtq5VS8Jsa
-	ZboZFjhLGurtN4OII/iUAwjbJzVerH44TBykp8XoCbZ3qfOS48WhOkVNOtIWuckqSLkhgDCDzXRie
-	SqQbzCFiEA58lLQkf0BTTFUouBK7rCuJMjbzgaLi3RYGWPmNF6vIw/ciSg1L7TIRTlCn8mYPBR6l+
-	dh8wf9UQ==;
+	bh=jioEM8sc/Fzgkrp0vJeZMT1J+0xGB47NBaMa9VdZzjE=; b=XEY0ETz4cJsJ9eKqFatRIRrazY
+	TB294ih/F6omWLWN9lngMgo7nEOrzCyj/+f1qMGq/SqZF2rxnwOhJ+PgKGsH2lDTajJHvR2DuH9zj
+	lFFGR5nvXoDw44mq2oJLKKSa2Cq74mc7IPl6EehwrKH54nqEoD3UylvTISBrQ5v+L/a8ztUzkWcWq
+	k4uR8osoMbo8aiD0L/3Fc6RTZkopKG+TePNuLwm+OUIyJ06AuvRrgH8J4Gy8y6uVf6mumkbwVV6Zw
+	BVUkvRLvCcPBh9rGUX5tGfXR4kqLk9ISUNiEg8VlhmniI6d/Uxh0HWLpabofH8dUIRJg2nPAyz5yO
+	QIOU7Frg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXBXE-00000006pIe-1flq;
-	Wed, 10 Jun 2026 05:31:28 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1wXBZ6-00000006pSI-33lo;
+	Wed, 10 Jun 2026 05:33:24 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXBXC-00000006pIC-0LpA
+	id 1wXBZ3-00000006pRP-42rp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 05:31:27 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2c0c3543590so42668515ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 22:31:25 -0700 (PDT)
+	Wed, 10 Jun 2026 05:33:23 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c0c20f0c0aso48832175ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 22:33:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781069485; x=1781674285; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781069601; x=1781674401; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yQdOheEUqRpM4ZgP7ld+n/Ny0a30r9dAAihdKcjT1Qk=;
-        b=mYKuJX/esGxq5/J2xJAaiEo0EP3Skkrxx5Ry6pIIJIvOT/otmGu+K5QQuG2vZ33oEs
-         38TqEcg1YIqmpNAmfJXDqjusPfCzV7bRxOHmfJBczTCzgjaDRSqq1ZSfBIP3Y9WnovWL
-         9oRsGH3q8BV2Aqh+R2LPvaW0TkqRpap/xyflAXAkHcsNxeqafFMJxLkggcbNBZOCCBrP
-         icDcMwyXx1GJBPmm2asPR2i7VreB6xf7zFV5tRjTaar2NVHKBbHGAcbOMeEVXq+wCH4O
-         mbLnSuRb+RzokF5ca1EjXct2l6wDfG2Yw843dWOFCmqgWaslgWH/pUgD5MmsLBSLODN2
-         QXWA==
+        bh=jioEM8sc/Fzgkrp0vJeZMT1J+0xGB47NBaMa9VdZzjE=;
+        b=kX+Smj7YpU0CU4VfTmDQ2EPi2OZLwUM/6pb+bKf/yjB1qt6VkMFOfUrWkgZUbQeQPk
+         bx3EWAHTt+ggp8HXT9P7lmQWp+5OayhHeoGuZTfCP5GE58SAeiLrRx5Qb9XunYCN6wmT
+         wN5hLC1X/CfXny2W2Kys37sUVtLjzNlKtMdtMp1iCm0REav22nrTSir4LB7dV7CosM9A
+         kZljVaNflGe06NpvZxBCVKfrM7oo2TWy8Ew39d3a6Py3Cd1dQUfaIy/iD6uebpv/siM7
+         Hjb1/saVGkZ/QaClWGllfYoiy4CmRIavIIle/MN+zdBnd0PgC+u885ESHom5V78fwCXM
+         LP7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781069485; x=1781674285;
+        d=1e100.net; s=20251104; t=1781069601; x=1781674401;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yQdOheEUqRpM4ZgP7ld+n/Ny0a30r9dAAihdKcjT1Qk=;
-        b=KhK5R2p/pgNexkF7aI2Y5cX6n91BzHxrOKP3esHr9aIhEh76VaWONEBbDizxYd+A87
-         R4DN1Du+RP97Vd8jIXfYtTjaOdX5oEvttRGolsyVtrG7VHi5sbhJ1D9lmum0x07gaD8C
-         SibepB22IyVPJX53pVd3l57sYqOaXwYnhKCKeabHS5CM5g+O02Bko0dIwVFn3cUlGrT9
-         9+bhhF77fHsBl+16kMsVYabwg7r3yQiuUv6Kicodkf3xMrGxRPAi/SsMg3OfcHD9Ytqw
-         dBZDNhxjsoWLJgtNkwMmBXGq94yv+wKb92f2O3CbMmi6Z5hSrFss1M+utHFbrgDtQVz9
-         B4hw==
-X-Forwarded-Encrypted: i=1; AFNElJ8fwj62lmObKonpYS0+CCYBpONCXIKB95spLcgPkDKt8tyYV6WAFV35mbaQ9y5meVGjjiJHkBIRORJXOMLLmcw0@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywrf0Y0ruh7eaQmIVFApHEaLfE2pRiX7seEZYlbOdYa1x/4uSAk
-	xgTDcHAhYKORbOuy81to6XG8VeYLChoiWp1iBDCuRCBGyc2aQsvmog0G
-X-Gm-Gg: Acq92OFGwto47BOYHAuFYOpCcAUZ9Vj58gekZ+j4peuyVaCJb2ZWgcDiMY74sXmQ2lm
-	fQOLODOjBAqJFxDQmmcMu/QNMng68azlelfTmJjcFOwTrmqPScGPAaiKCszI/dtGhBffqX2N2HH
-	Z0iXeLn186yfn2JAIAZtLcZk1s9yWA2kq8VcL+1Pg6ZmCeft5PZSVspCS48Yf4PBt6i72T1aetY
-	Y3ul9RZ6P+A1sEj4L5To53+NUIfwplV5CkGXRfcp8IU/j5ZLdZyHSkgnz6HaQjRSDLZrFlAJMpY
-	Qw5Em7pFNtwMgaDkRRDFLLsHxWyoLxeR0JJqzgP+9HvyTS0bmTrl9GDhICvJR6adVSMT0ZNjIOe
-	dHEsnj/1vAFN9+OQQsDpoE17G2G5GoAWvaZwAZK0GgdF89aHVLHNobcG7egELoPYF68gKos5CBy
-	BYc7gIYbph06f3YlHqeS9Iu8c+1cBICIYNm4aMbp9TDYyfH0NKGiKqN8lunipyd8ffKiTEDMKqv
-	nz639KPRMSitFLIZC12y2BhjIgWRYgUyKrZsUHsH/DikcOw7mWsDQ==
-X-Received: by 2002:a17:903:13ce:b0:2c0:c0fa:1659 with SMTP id d9443c01a7336-2c1e8207360mr303183845ad.33.1781069484906;
-        Tue, 09 Jun 2026 22:31:24 -0700 (PDT)
+        bh=jioEM8sc/Fzgkrp0vJeZMT1J+0xGB47NBaMa9VdZzjE=;
+        b=kC9SGHKAkPhMkIU0LVPYIce7Pnd+mwWiU5+hNr3eiZI/izqUIMV2fwCG4pdol1kcha
+         OVa2RST+qdkaI0HclC5ryZEmU6EIFC689S+Uf0J+78LEdA2Mkrc0TULCUivAM+ACGzNB
+         yKSKMojul0hsLV7nhK8/YPYellmW/Ak+rZM01VS7uF8yx0kXWRtVTspp10Oh2Nn+4jGV
+         dgeu9H46PnPKWOSjoaRS23Wtue2cGmrJZW7LQgUmoQF281kYiDue+6Z94FTBtbtpQXIK
+         dbITmBPt8bgijnhC65/hCYaHX/KwZ9O50L+pAN/IaV+dOKamNUzRQc0hi1YWYJWT2YV6
+         tfHA==
+X-Forwarded-Encrypted: i=1; AFNElJ+BufrHjiqWNSjyrt/mmbiICru7JI80Bj3J2D/HlkX/DGo7/IPnpWEZiab9gRT46zUtFR1zQzMGk/1+0vVWkxDa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrXAwBqwN6yE9wA2UroAAQJ53RPpBchGv37UkQplIJQ5CNgKrQ
+	zqJDTJ6eYMVQh6rxTzIqOLbgYE8dkEA4W9MQD5iZeUfg8ww6JUJY+Ha/EbWlQoQr
+X-Gm-Gg: Acq92OFaE12lRTOWE8LtA4XCfB5k5qFEQcizMEi7RBLjVH3M6tNoJI+w23UWV5ECOIQ
+	H2dOrVam9HlspkrUdpLkvGaF4q8+o+mhO63i+ISUEcwFF9TVclb9rK3Srkw5wTOfUsIUYoxDWrN
+	KZaYeXRdcah+CeG/xZdg/PyXq1x6whlXzOaydPBysq5iYYKNpG3yNpVN+mQd26K8mVEFPHqXQUT
+	lttyHwqm1ENsiY7vXPHxLgygZS16kwbNHT8gcfHJ8fjXF8t0ildYfsmULxRf9HC7yww9FuT1lq0
+	MYFjrwkIxdWM/MWe4GsJ7HBq4qssKAC+dr2EL7uj4IWH2icDW5EpAwS/UteTae7UrQw77g6+DZF
+	e98ZdUQgezGFM7aUeYzRjv4vbC9EEeFBRXA29oLjCbtnT6PxZ25TEFh5oNokcwuqbgzD83G6Rs0
+	bYyT9XfcYDA9HqyRp7RxSaPTSdkaqYlMu7xK7SoizBsYwDpIUo+VAL5vuI3D+K1cJjTVDyLRHFi
+	cqavvErQyBOdXofrDHBuOt3bXIB9x0nKLg7cZKjn7iJEyVSR9RKsQ==
+X-Received: by 2002:a17:902:fc84:b0:2c2:50c7:58ab with SMTP id d9443c01a7336-2c250c75a8emr165133125ad.23.1781069601045;
+        Tue, 09 Jun 2026 22:33:21 -0700 (PDT)
 Received: from localhost.localdomain (n49-176-80-106.mas22.nsw.optusnet.com.au. [49.176.80.106])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c24edc8acasm107916975ad.45.2026.06.09.22.31.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f8bc5asm242862735ad.27.2026.06.09.22.33.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 22:31:24 -0700 (PDT)
+        Tue, 09 Jun 2026 22:33:20 -0700 (PDT)
 From: Weigang He <geoffreyhe2@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Martin Kaiser <martin@kaiser.cx>,
-	imx@lists.linux.dev,
+To: Daniel Palmer <daniel@thingy.jp>
+Cc: Romain Perier <romain.perier@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Weigang He <geoffreyhe2@gmail.com>
-Subject: [PATCH] ARM: imx: avic: fix device_node refcount leaks in mxc_init_irq()
-Date: Wed, 10 Jun 2026 15:31:15 +1000
-Message-ID: <20260610053115.2263570-1-geoffreyhe2@gmail.com>
+Subject: [PATCH 0/2] ARM: mstar: fix two device_node refcount leaks in mstarv7.c
+Date: Wed, 10 Jun 2026 15:33:10 +1000
+Message-ID: <20260610053312.2267307-1-geoffreyhe2@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_223126_127500_87FF2651 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260609_223322_021604_A022FD0B 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,58 +100,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mxc_init_irq() obtains two device_node references via
-of_find_compatible_node() and never releases either one:
+mstarv7.c leaks the device_node reference taken by
+of_find_compatible_node() in two __init paths: mstarv7_boot_secondary()
+(the "mstar,smpctrl" node) and mstarv7_init() (the "mstar,l3bridge"
+node). of_iomap() does not take ownership of the node, so each is a
+one-shot device_node refcount leak per boot.
 
-  - The "fsl,imx25-ccm" node (looked up to map the CCM low-power
-    interrupt mask registers on i.MX25) is stored in np, used by
-    of_iomap(), and then the same np variable is overwritten by the
-    second of_find_compatible_node() call without an of_node_put().
-    On i.MX25 this leaks the node reference on every boot.
+The two leaks were introduced by different commits, so they are split
+into one patch each. Both drop the reference right after of_iomap().
 
-  - The "fsl,avic" node is passed via of_fwnode_handle(np) to
-    irq_domain_create_legacy(), which takes its own reference on the
-    fwnode through fwnode_handle_get(), so the caller's reference is
-    not transferred. np is then leaked at function return.
+Found by static analysis tool CodeQL. The series is build-tested only
+(arm, multi_v7_defconfig + CONFIG_ARCH_MSTARV7); I have no mstar
+hardware, so runtime testing would be appreciated.
 
-Both lookups predate the switch to irq_domain_create_*(); the missing
-puts have been there since the code was introduced.
+Weigang He (2):
+  ARM: mstar: fix device_node refcount leak in mstarv7_boot_secondary()
+  ARM: mstar: fix device_node refcount leak in mstarv7_init()
 
-Drop each reference once the value derived from it is no longer needed:
-after of_iomap() has mapped the CCM registers, and after
-irq_domain_create_legacy() has taken its own fwnode reference.
-of_node_put() is NULL-safe, so platforms without these nodes are
-unaffected.
-
-Found by static analysis tool CodeQL.
-
-Fixes: 544496ab5cbd ("ARM: imx: move irq_domain_add_legacy call into avic driver")
-Fixes: 9b454d16e57d ("ARM: imx: avic: set low-power interrupt mask for imx25")
-Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
----
- arch/arm/mach-imx/avic.c | 2 ++
+ arch/arm/mach-mstar/mstarv7.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/mach-imx/avic.c b/arch/arm/mach-imx/avic.c
-index 3067c06b4b8eb..6873a50bbe2c0 100644
---- a/arch/arm/mach-imx/avic.c
-+++ b/arch/arm/mach-imx/avic.c
-@@ -173,6 +173,7 @@ static void __init mxc_init_irq(void __iomem *irqbase)
- 
- 	np = of_find_compatible_node(NULL, NULL, "fsl,imx25-ccm");
- 	mx25_ccm_base = of_iomap(np, 0);
-+	of_node_put(np);
- 
- 	if (mx25_ccm_base) {
- 		/*
-@@ -203,6 +204,7 @@ static void __init mxc_init_irq(void __iomem *irqbase)
- 	np = of_find_compatible_node(NULL, NULL, "fsl,avic");
- 	domain = irq_domain_create_legacy(of_fwnode_handle(np), AVIC_NUM_IRQS, irq_base, 0,
- 					  &irq_domain_simple_ops, NULL);
-+	of_node_put(np);
- 	WARN_ON(!domain);
- 
- 	for (i = 0; i < AVIC_NUM_IRQS / 32; i++, irq_base += 32)
 
 base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
 -- 
