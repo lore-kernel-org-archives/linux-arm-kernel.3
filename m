@@ -4,74 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA15BCD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E46CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Whfl4QLl7rlDdWuJnD1FYGrTxAzK/P2e2aQDPSeDeSQ=; b=40FfdyommFm+MxpYR2UhYT4a4N
-	3M/ckDfudAG9Tx/wrpH7z+7J58xwrhpEHxpY4YrCn8fTAt1/ubXb/NcwIUkUbeQqTLQJmjBEqT7j4
-	Z4JiLxcvgeaufVZfl4h8XEcV3XkwiV7XV/jt4A4qP6JKBI30m7ZVQaKRsVog3CE6zHKu6YMyK0UUI
-	IMqsC/3ayB8/ljnyaT2qe2ZTIiamb2dNbBMcy212mRIHMwfC6304HRwP3c5LH4fRxPV6SB1DwblIY
-	pBhtjavsjagRuqrkBUxtKBSvs86TsNYcaPvXDH3M9FfZB0WwgLRlbK10nMVn9UW2g2NnfOME+d0rd
-	vK19QX/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gsqgT1L8GlUvjVEyoVN0CjEjCJ7lWM1KEW8o6L6f69k=; b=x/obztStgWWMIUuyOE+KetRbB8
+	xJ5aojrl4yPIhQai7zGHp96a+bIeTKoifV/xAtVkS0djXO4oCOBvw5RZbS7j4KyMORBqTkcdLiviz
+	n0DAEuhfs5d3q8PDujUwv62mgdS3ZdTIhQsFSD6LvjN4Ks1OXKrZAv5RxK8DGuu4/dlciX9c2X18E
+	T8ZN4Wjebn6I7pzIcQlrKNylrDXxmWdHhNHLt6cE2Dqh0ZUFjXwfLYb7clATZeizRXJMUvcaTD2lD
+	w9jKzgg+vD6LlvW+KzWbjDla0QHDyCpVz6MKlmxHF5igwQM/TAJ897cMWE/pUlpp9gSNOeAh99PQm
+	t5XfyUHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEHH-000000074aQ-41Tj;
-	Wed, 10 Jun 2026 08:27:11 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wXELM-000000074oI-231Z;
+	Wed, 10 Jun 2026 08:31:24 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEHE-000000074ZP-2uMT
+	id 1wXELJ-000000074nw-43Kk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 08:27:11 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 86151C5146A;
-	Wed, 10 Jun 2026 08:27:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8A7325FFC9;
-	Wed, 10 Jun 2026 08:27:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81A4F106B9056;
-	Wed, 10 Jun 2026 10:26:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781080022; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Whfl4QLl7rlDdWuJnD1FYGrTxAzK/P2e2aQDPSeDeSQ=;
-	b=1JqGYNOOL1Pl5I9EUrbk8Gh6N8JpYRafqUk235S6QQUxecR7HLECmGB54SN7PPv4uNYCcf
-	0N503XbHO4hBTdwsh/tzzj5j7oLUxc8Wlt5VT0aBcomUHRwC44BrID/CP2VW4ZlcrIR/l7
-	wPrerAVivv5Dta96h0JcuCaS69Uul6GoEWqp+ilBENCM90FKwZ187AmYNy7K0Z5VNUKIFO
-	KSaURLkQpn7Ml/WV93S/y4viL5xCmFxdk1GYve8IGrdpBGpgUdF5oGnAx1oB1X3ictlFE8
-	Ft7rQMA58/2cDT0y4WGvLyyQ8k5f3inDbfI6/9BvuK72Nzrb5G9RbANHO60Ibw==
-Message-ID: <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
-Date: Wed, 10 Jun 2026 10:26:50 +0200
+	Wed, 10 Jun 2026 08:31:23 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65A7H8DC3134026;
+	Wed, 10 Jun 2026 08:31:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=gsqgT1L8GlUvjVEyoVN0CjEjCJ7lWM
+	1KEW8o6L6f69k=; b=CADMmn9g3GIiN84a6Wh3GVeT862MGYxi1wAl/pL5VqxIr5
+	ekPFQeV/aGKkwOfEKlDTqalwScuyyoKyhK5nzaRsFKVdMYL1XM/okdEFn6jo2GZa
+	a6rv52VNpOdMbxlIAg6Lep5X8BaX//houA96+t3us9hoJUf5i6yoV/zKXQCfLtfd
+	W9908ij74VGNG1bo0DH/4lyFXOv0AqI/4re7neiNXVFJi830ubiNkI9d5v6z4tcs
+	Pdor0IyAIr1YtJtWA0yV2GaHnrn2mX6j5Aqw6yW0oHQaLMhmcLhvC/I0HDh253b6
+	yFBtv4WxR4SlzqcyGSpioijl5ITm6PsGdeLuZduw==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4emb95g7d3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 10 Jun 2026 08:31:03 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 65A8Jb3P028350;
+	Wed, 10 Jun 2026 08:31:02 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4emwvq60ut-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 10 Jun 2026 08:31:02 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 65A8Uu7e42860894
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 10 Jun 2026 08:30:56 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 105AC20043;
+	Wed, 10 Jun 2026 08:30:56 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id AA92020040;
+	Wed, 10 Jun 2026 08:30:55 +0000 (GMT)
+Received: from osiris (unknown [9.224.76.185])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 10 Jun 2026 08:30:55 +0000 (GMT)
+Date: Wed, 10 Jun 2026 10:30:54 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Janosch Frank <frankja@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v1 13/26] s390: Introduce read/write ARM sysreg
+ instructions
+Message-ID: <20260610083054.151573-A-seiden@linux.ibm.com>
+References: <20260529155601.2927240-1-seiden@linux.ibm.com>
+ <20260529155601.2927240-14-seiden@linux.ibm.com>
+ <2d73aca5-1858-4a7a-a304-0971e4789dc1@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII delay
- properties optional
-To: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
- pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
- weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
- <20260610012937.911-1-lizhi2@eswincomputing.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260610012937.911-1-lizhi2@eswincomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2d73aca5-1858-4a7a-a304-0971e4789dc1@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=N4UZ0W9B c=1 sm=1 tr=0 ts=6a2920c7 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
+ a=RB1mEpRu8beSFINCoVEA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: rkH4BTGK461Si0Q9cLKjWcrqdRB9jrQ0
+X-Proofpoint-GUID: rkH4BTGK461Si0Q9cLKjWcrqdRB9jrQ0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEwMDA3NSBTYWx0ZWRfX759nmtSYBCtK
+ OKztLB4YBBvkqAJiVWHa0lvNpubxRsfOlLx2KUZJaV23kUwR22A69MRJel9dxDfzuT38zTEwKeW
+ IJIunCCS4RCeF6Tnww6DQX1HJSCU3c8ls4FyaHMlRFBAm/hWqKpgnHGwXznPkvNLZtzr8kd5tgu
+ F1xPqwrF6ykDULEZB+ujCSIXu2m35kJf1t3wgi0fKJrr9e8/IYJ0LYWtUG+WPOApsDbvDp6th8x
+ ZoYhmfTSp+lh/HnM1J5ZYrI3li0/HsyvgWYedEy4h9N1+WklI0E/nxKhag14KXBbKQKpLgXLPRo
+ Qr7jDL46fR9iCaI21z1nlQ/f4rr7y0QOjSBeYn0jvDpfwLNCD2QRxuy8juDc6DntVYmWMPog94I
+ t/jAu+6eeW55eeAy7UYOZ+QjSBUFoeYsFd+NuAE6hW0/KM1i1VCgn5p1M5AUk6e+y5GhYqMLZmn
+ VUSZ9F5NmINukCX1KGQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-10_02,2026-06-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 spamscore=0 clxscore=1015 lowpriorityscore=0
+ phishscore=0 impostorscore=0 adultscore=0 priorityscore=1501 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606100075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_012708_904629_FE10653B 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260610_013122_015198_4CF5C118 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,63 +139,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 6/10/26 03:29, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
-> 
-> Make rx-internal-delay-ps and tx-internal-delay-ps optional in the
-> EIC7700 DWMAC driver.
-> 
-> The driver previously required both properties to be present and would
-> fail probe when they were missing. This restricts valid hardware
-> configurations where RGMII timing is instead provided by the PHY or
-> board design.
-> 
-> Update the driver to treat missing delay properties as zero delay,
-> allowing systems without explicit MAC-side delay tuning to operate
-> correctly.
-> 
-> This aligns the driver behavior with the updated device tree binding
-> and provides a safe default configuration when MAC-side delay
-> programming is not required.
-> 
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c | 6 ------
->  1 file changed, 6 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> index 4ac979d874d6..ec99b597aeaf 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> @@ -165,9 +165,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
->  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
->  		dwc_priv->eth_clk_dly_param |=
->  				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-> -	} else {
-> -		return dev_err_probe(&pdev->dev, -EINVAL,
-> -			"missing required property rx-internal-delay-ps\n");
->  	}
->  
->  	/* Read tx-internal-delay-ps and update tx_clk delay */
-> @@ -187,9 +184,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
->  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
->  		dwc_priv->eth_clk_dly_param |=
->  				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-> -	} else {
-> -		return dev_err_probe(&pdev->dev, -EINVAL,
-> -			"missing required property tx-internal-delay-ps\n");
->  	}
-
-I think then you need to handle RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID,
-by using default delays for these (usually around 2ns), as here all delays
-will be set to 0, regardless of the RGMII mode in use.
+On Tue, Jun 09, 2026 at 05:04:10PM +0200, Janosch Frank wrote:
+> On 5/29/26 17:55, Steffen Eiden wrote:
+> > Introduce Extract Arm System Register and Store Arm System Register to
+> > enable s390 hosts to read and write system registers for arm64 guests.
+> > The new instructions use the new RIE_H instruction format. Add assembler
+> > macros to create instructions in RIE_H format manually. Add Support for
+> > disassembling the new instructions.
+> > 
+> > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+> > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > ---
+> >   arch/s390/include/asm/sae-asm.h | 48 +++++++++++++++++++++++++++
+> >   arch/s390/include/asm/sae.h     | 58 +++++++++++++++++++++++++++++++++
+> >   arch/s390/kernel/dis.c          |  1 +
+> >   arch/s390/tools/opcodes.txt     |  2 ++
+> >   4 files changed, 109 insertions(+)
+> >   create mode 100644 arch/s390/include/asm/sae-asm.h
+> > 
 
 
-Maxime
+...
 
->  
->  	dwc_priv->eic7700_hsp_regmap =
+> > diff --git a/arch/s390/include/asm/sae.h b/arch/s390/include/asm/sae.h
+> > index fe010a1a7729..1d9a16b91b23 100644
+> > --- a/arch/s390/include/asm/sae.h
+> > +++ b/arch/s390/include/asm/sae.h
+> > @@ -4,6 +4,7 @@
+> >   #include "linux/linkage.h"
+> >   #include <linux/types.h>
+> > +#include <asm/sae-asm.h>
+> >   /* defined in arch/s390/kernel/entry.S */
+> >   asmlinkage int __sae64a(phys_addr_t sae_block_phys);
+> > @@ -12,6 +13,12 @@ asmlinkage int __sae64a(phys_addr_t sae_block_phys);
+> >   #include <linux/io.h>
+> >   #include <asm/kvm_host_arm64_types.h>
+> > +asm(".include \"asm/sae-asm.h\"\n");
+> > +
+> > +#define _SAE_ASR_REG_SHIFT	5
+> > +#define SASR_FLAG_INITIALIZED  0x8
+> > +#define EASR_FLAG_SA           0x8
+> 
+> s/SA/SAVE_AREA/ or SAVEAREA
+> 
+> I think both might fit.
 
+yes, might be a good idea.
+
+> 
+> > +
+> >   /**
+> >    * __sae64a() - Start Arm Execution
+> >    */
+> > @@ -20,6 +27,57 @@ static inline void sae64a(struct kvm_sae_block *sae_block)
+> >   	__sae64a(virt_to_phys(sae_block));
+> >   }
+> > +/**
+> > + * sasr() - Set Arm System Register
+> > + * @arm_reg: ARM system register identifier; compile-time constant
+> > + * @val: Value to set
+> > + * @save_area: Pointer to SAE save area
+> > + * @flags: Operation flags; compile-time constant
+> > + *
+> > + * Sets an ARM system register value.
+> > + */
+> > +static __always_inline void sasr(unsigned int arm_reg, u64 val,
+> > +				 struct kvm_sae_save_area *save_area,
+> > +				 u64 flags)
+> 
+> m4 is 4 bits in length, any reason why we use a u64 here?
+> Same for easr.
+> 
+
+No real reason beside my preference of using u64 by default.
+
+Do you want me to change it to u8?
+
+	Steffen
 
