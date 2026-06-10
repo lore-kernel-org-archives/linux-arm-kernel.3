@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99383CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 03:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D31CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 03:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BiWkDM88UkeI5kHrEACZ77BOW2Ed9Qe85NMLR9Ta3Bg=; b=MarQL+JVnro5XoU3HKFkHyOb+f
-	RQL65CoEBIhizxlzHAGjYS9AicjJ0sCvgoN5BiHxRS5sjd1R6pWn8t3GgYXXeshe8UigGmERr67Ua
-	n9W/FRI2feBPM5U3crhJ1qj3KT5sQj3Do5WFVE4x6ZF0kHcHeL8UtRi370erze1OYvHKsa5S7w8gs
-	xdnkoomx0slAiCk3tUvbwyUlRFpzuGazUADCbBzw7vp7WIEWLZFljpHeyyt7Anof+kPVdY+HiH6g4
-	MAzL7CkdC/rzMuUVkXWSUJ5Z+qj7uKQwTmG8l1x4cmH6zWNC5Hp0OgaetCXS1wdE1PeRn0DlAtlZN
-	Fm3dMMUg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1pvrAV4dyUrKpFMxdZjbVhL17Fdp6anuNMYv9Z5PvqM=; b=GekUAQjsUqml9Hy1a1jbOpX86z
+	74YyUe2dKWV7wwZGGXgSqkqueK43gPtuZGc1aOgfyJzemOl7Fu5SxTa5eVjAElfoLV39Ya4iTkcpm
+	pPtn8R70IUCFMudGdG+PCSSWXEyMsyK/eDzmzkVfaJe+IFYYxWPdILkm9gXOBqKCV/jj3bAzU3rxk
+	iwP9HnqCgmcD1s8kX5znNLdyUcEm1/npSgAjWaTiqKhD3CgGOm/tHOh60y4gimgwSHz9X4/zkI+y1
+	0PP6qbJyL2SqKRrxL2bj4W/UsG5Rai2ndAV9tzf4TfCaJp8WpfRwELHo/Xq5TRaMy5/zC4dDHarLM
+	c9KHYLHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX9Ij-00000006j2R-1BPf;
-	Wed, 10 Jun 2026 03:08:21 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1wX9RV-00000006jUs-0bcx;
+	Wed, 10 Jun 2026 03:17:25 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX9Ih-00000006j24-0bVD
+	id 1wX9RT-00000006jUN-0RKz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 03:08:20 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c8584e80bd9so2412225a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 20:08:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781060898; x=1781665698; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BiWkDM88UkeI5kHrEACZ77BOW2Ed9Qe85NMLR9Ta3Bg=;
-        b=EihUtHuiiVbG48hWR4nb+Z8SgDPN9fJk3RXIsfFSchjnVb1p3SXR8XGjmW0AzCVlM7
-         R4iwBHlw8QkaHZmrqoMdUSRoRfUYaSgEWaxhFbEyDboMtAhS+LHoFWMb1xGHQXR0RvA5
-         axuGdm25zbcF/PEo7JC685iDLzrFWB9ObvLYLRbwr5tXql2e0kf6mpFr9gFN1NecucRp
-         n6Kys15fwO/TgC3NQst36qJayU6N0M2FbJAg9woScrLZviETOV48zMKqZi7JW8lj03EI
-         aGbNkFjuYlk7tme5TBlJ+4OGA4Sml2QrB0ngrCeX/ocdm9Y5IBHEwbMd+2jgBFGraj4e
-         rACw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781060898; x=1781665698;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BiWkDM88UkeI5kHrEACZ77BOW2Ed9Qe85NMLR9Ta3Bg=;
-        b=jgVYibtA/HhxGSpK5O8jZTlx/i6D8dDdp9cvAzi+szmHUk7o6qGZg9JEbx6C+f2VxY
-         5d0J7zkrUVW4pEeuHia79JGvJ8bkbPw1mPrnbDwtp5Jxu94BfFkM4UxgmlUgtdUuN0WM
-         zNaeJnIdd8fWfopVt97x3qD8oVPw8lZC6GfpSyDZHr+ZtcfR0FkBsNJ7Z7Oj1ZK7oLmh
-         CMJVeoPrkYPka0PRyJ/CLXTWRraUMTVh0hxHrBs1di/E+PG/LXyvikOMtY6NmmvdcZtF
-         tEydcyyKypbE2DHSqGJDSDDjXSpAsB64KENkjEhEji8OedvlNqx0x20RqW7J+uj/m3/8
-         rI2g==
-X-Forwarded-Encrypted: i=1; AFNElJ/jTSkIrvULUCIdCRYoCj3E1CHolQUt453dG5WQM5/sm8IeWAComiqEm5CQfxw9zAW9oCunB4153CR+uc9MObrc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmrsX+qC9/sex8WzEP859ytsiHQNO/NFS3KcvdfF5WdI9wuUdZ
-	uCLwOUpZeFFyu/u+7ligDiBOzYB22eeznyfCEOIR7X0RDfh5El9PC/hR
-X-Gm-Gg: Acq92OF2l4WC3Bh5FQ4rb6FXeYZsAAuplgjdGnE4NFZRVfh/ehPloB155OAJZo6SngW
-	zlenWqcTeNv7j+pxSVvhmebs+gAl1MuctRp2Tx6Pxcw0zIIIea5cTKaxqTVUVxPr4ipKImQ2Gq+
-	Gd2A1Lh6y0EJdUEzAUTuFi0eheZII+EpBl7zJ+lU8BiahqgWNgLjp4wMwBd3DcZMrEL5VKqq7Xs
-	tqxuUSaoinw7tauShJDEGkXPYretDTg1mqvo9KMHVXT4+5wBg75M1Jk52+XcedG7aZlehEXPFFB
-	pltx0za/MI756U2FSObb77zaO/k+UtazE2RLMwcVNDGpaqQTP8LoUyrOQhzRZ/hcu8hRy4+vtfv
-	GvhZaOmCq+5CYz91WCO3yIdzfO0I9Tp6Y7U/oXZjm+L4y7svQ7LJ7egWQggIZkyscgYFL1d7IG+
-	8ydFt6mmNKqxzoZ8IBN4KMfxe8gQ7nkUVnpRaTBe1hJirlyfzps+JsicwbjYAlp1Mu57vnQMfPY
-	ycofK05gJbzIaGnW7Bg2mqK4hnj0VujS/FBSSgeDe4sk1uumrY6mw==
-X-Received: by 2002:a05:6a20:d0a1:b0:3b4:8818:fd34 with SMTP id adf61e73a8af0-3b4ccf8e5e1mr28706510637.25.1781060897591;
-        Tue, 09 Jun 2026 20:08:17 -0700 (PDT)
-Received: from localhost.localdomain (n49-176-80-106.mas22.nsw.optusnet.com.au. [49.176.80.106])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85deeb2bdesm19679386a12.0.2026.06.09.20.08.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Jun 2026 20:08:17 -0700 (PDT)
-From: geoffrey <geoffreyhe2@gmail.com>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Jonathan Hunter <jonathanh@nvidia.com>,
-	Stephen Warren <swarren@nvidia.com>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Weigang He <geoffreyhe2@gmail.com>
-Subject: [PATCH] firmware: trusted_foundations: fix device_node refcount leak in of_register_trusted_foundations()
-Date: Wed, 10 Jun 2026 13:08:00 +1000
-Message-ID: <20260610030800.2100685-1-geoffreyhe2@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 10 Jun 2026 03:17:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781061443; x=1812597443;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=0EEZiPOgIhJKF7ggkB4ySQ088W91sUeLQCXaineGcS8=;
+  b=nC7WrJUqv0qRuV7H3bqXBBHJaOaNdZeHaOhOd34J+gvXMsoXuUy0GOHh
+   EZIW/Og+Fob3Mx6M3Qd4NP2RHpmwHKeHkQu706ifqViPg4W97puHocxO+
+   y+SF+f6OF3JmdTQJ5nrDbinrmNdVH0Lv+WSglsbc6tGmSL4cwm0Jh7VXZ
+   KhWRB8vHM6TjtDrS/vB2nwnIMfaIR/gY5Vgf5vr9JMulfRxJ4+33+T+Na
+   lrEQ5qWxeEevJQxIOsNUSLXHtHmWYnfMctlLjBzn63So5qlxbBvV+DE6+
+   dlbrEoTa03JyHvnqJG0o95s/Jfe29sCOnVoKcS98YkjeQUZg0MyKijebc
+   Q==;
+X-CSE-ConnectionGUID: qXWrvRX8Q/uri8LRyy6I0w==
+X-CSE-MsgGUID: 7JgqyrbcSYGcmGfIMNzKpQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11812"; a="69379169"
+X-IronPort-AV: E=Sophos;i="6.24,197,1774335600"; 
+   d="scan'208";a="69379169"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 20:17:20 -0700
+X-CSE-ConnectionGUID: nrt6CnzBQhSMVAAkpuxs4A==
+X-CSE-MsgGUID: qfKH81A3QUSFwkYW5xaSsw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,197,1774335600"; 
+   d="scan'208";a="246067137"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 20:17:17 -0700
+Message-ID: <b2119f23-190b-4dcc-bc63-9554f0f8383a@linux.intel.com>
+Date: Wed, 10 Jun 2026 11:16:10 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/4] iommufd: Set upper bounds on cache invalidation
+ entry_num and entry_len
+To: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
+ Jason Gunthorpe <jgg@nvidia.com>, Kevin Tian <kevin.tian@intel.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+ Shuah Khan <shuah@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+ Kees Cook <kees@kernel.org>, Yi Liu <yi.l.liu@intel.com>,
+ Eric Auger <eric.auger@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <cover.1780521606.git.nicolinc@nvidia.com>
+ <447fa93663f7526eb361719e83fa8b649464483d.1780521606.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <447fa93663f7526eb361719e83fa8b649464483d.1780521606.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_200819_210470_24E3B6DD 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260609_201723_206097_B9877989 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,54 +92,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Weigang He <geoffreyhe2@gmail.com>
+On 6/4/26 05:26, Nicolin Chen wrote:
+> iommufd_hwpt_invalidate() takes a user-controlled entry_num and entry_len,
+> each bounded only by U32_MAX. An entry_len beyond the kernel's struct size
+> makes the copy helper verify the extra bytes are zero, scanning that excess
+> in one uninterruptible pass; a multi-gigabyte value over zeroed user memory
+> trips the soft-lockup watchdog.
+> 
+> A large entry_num is the other half, driving the backend invalidation loop
+> with no reschedule. The VT-d nested handler, for one, copies each entry and
+> flushes caches per iteration, pinning the CPU on a non-preemptible kernel.
+> 
+> Cap both in the ioctl. entry_len is held under PAGE_SIZE, above any request
+> struct, and entry_num under 1 << 19, the order of a hardware invalidation
+> queue and well beyond any real batch, bounding the per-call loop length.
+> 
+> Fixes: 8c6eabae3807 ("iommufd: Add IOMMU_HWPT_INVALIDATE")
+> Cc:stable@vger.kernel.org
+> Assisted-by:Claude:claude-opus-4-8
+> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/iommufd/hw_pagetable.c | 11 ++++++++++-
+>   1 file changed, 10 insertions(+), 1 deletion(-)
 
-of_register_trusted_foundations() obtains a reference to the
-"tlm,trusted-foundations" device node via of_find_compatible_node(),
-which returns the node with its refcount incremented, but the
-reference is never dropped. The function has four exits:
-
-  - early return when the node is absent          (no reference taken)
-  - panic on a missing "tlm,version-major"        (leaks one reference)
-  - panic on a missing "tlm,version-minor"        (leaks one reference)
-  - normal return after register_trusted_foundations()  (leaks one ref)
-
-On a normal Tegra boot using Trusted Foundations the node is found and
-the function returns normally, leaking one device_node reference for
-the lifetime of the system.
-
-Annotate the node with the __free(device_node) cleanup attribute so the
-reference is released automatically on every exit path.
-
-Found by static analysis tool CodeQL.
-
-Fixes: d9a1beaa10e8 ("ARM: add basic support for Trusted Foundations")
-Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
----
- drivers/firmware/trusted_foundations.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/firmware/trusted_foundations.c b/drivers/firmware/trusted_foundations.c
-index 1389fa9418a7b..43a2a417528f4 100644
---- a/drivers/firmware/trusted_foundations.c
-+++ b/drivers/firmware/trusted_foundations.c
-@@ -159,11 +159,11 @@ void register_trusted_foundations(struct trusted_foundations_platform_data *pd)
- 
- void of_register_trusted_foundations(void)
- {
--	struct device_node *node;
-+	struct device_node *node __free(device_node) =
-+		of_find_compatible_node(NULL, NULL, "tlm,trusted-foundations");
- 	struct trusted_foundations_platform_data pdata;
- 	int err;
- 
--	node = of_find_compatible_node(NULL, NULL, "tlm,trusted-foundations");
- 	if (!node)
- 		return;
- 
-
-base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
--- 
-2.43.0
-
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
