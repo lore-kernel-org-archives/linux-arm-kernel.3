@@ -4,70 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24672CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 07:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FA3CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 07:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yVn4qwgMjrPkAleC73oRCX8Q22/zQZPdCGnjlPSiigU=; b=slighf9PFGmh4O
-	IyZnYfbFhsPVNDjFJ7RUaEa3eP0dhR4dAZetKKsJgfzaCDBA+89RCnPGuQiPSzZ6+Tzc0yi0+TrMX
-	VbOMO0MslYL9UjTIY3AeV2DKFR9kEwcBbZ7eU3B1XSpPb1A9ojDXzH2/Dmg+ZHZn0/x8CIhkIAwqv
-	s7Bd1XdCXi6DPRvWkMq1Ub72DLst1+HxmIenS1kB4rJSJVUZ/G30DCO4tnHi0j0BRxVKqT+Bmrzpa
-	VkUT0Zy5lvfDsFsrryRXNGm6s9aXA/jkzvUCdiQ6K+sx+Q/O92xvaVGvSNOAu9Sfw2YN2PKjFCRBP
-	rqn9ZVr75LZMBeCSjULQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U87trIBCXO8yxxh0/rTn6JanJPxoOkQOOLq/C3vChSE=; b=s1qWzSIH9Triw/nkFC4NbxBPOO
+	wvSTXcY4QcPGxzvXi4+fZCSZaY0CM5zg84DOMp2L6w8Wpk+PLMCgVFoJmMdVJdCMgwZEA1K83/USd
+	lCrSgh8dmLGsYe6s3iOXCZHd1IQ7fgIaoZRSL4CyORLyyWVdxOlingKtIXVcRupNYQa+rTSAfOF8T
+	oOdoE1FdlilGzlV/8cDumOmjrNdA5BR4PCWNsAI7k74Ye+V0TstOYer7yxOaJQFTp42AnnTGv0snS
+	DJbNwmZhZbHjzY6tjseFPtG6sLZnaw068cN/Vgw8+vRqnpmQTZo9LPwdy3xaix3TWF5fI3S3d2QU6
+	mHJQgKDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDjf-00000006yyE-2LS3;
-	Wed, 10 Jun 2026 07:52:27 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wXDmV-00000006zWf-0uLQ;
+	Wed, 10 Jun 2026 07:55:23 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDjb-00000006ywk-2WUw
+	id 1wXDmS-00000006zW5-2oSf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 07:52:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=yVn4qwgMjrPkAleC73oRCX8Q22/zQZPdCGnjlPSiigU=;
-	b=ukJNKBbDTadA46loMmO9Y/SM25+i1LZZ193Hb9zzEn7QoZoVRWrJv89YoA2pnK+++ZRydEKW/
-	Uy9BpycOIoIfmSfnSAMT/2e+AkQcdw0ZpNhwBAEee7sYgZxSPUEQZDEwpGAuolP946gerUoaMKa
-	NpjIq3bnVCHFLXLLANCeElA=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gZyTj3Mj1z12LCq;
-	Wed, 10 Jun 2026 15:44:25 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 367B8203B1;
-	Wed, 10 Jun 2026 15:52:17 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 10 Jun
- 2026 15:52:15 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <punit.agrawal@oss.qualcomm.com>,
-	<ruanjinjie@huawei.com>, <mrigendra.chaubey@gmail.com>,
-	<suzuki.poulose@arm.com>, <chenl311@chinatelecom.cn>,
-	<fengchengwen@huawei.com>, <maz@kernel.org>, <timothy.hayes@arm.com>,
-	<lpieralisi@kernel.org>, <arnd@arndb.de>, <gshan@redhat.com>,
-	<jic23@kernel.org>, <dietmar.eggemann@arm.com>, <sudeep.holla@kernel.org>,
-	<pierre.gondois@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 0/2] arm64: acpi: Fix NULL kobject warning in cpuhp_smt_enable()
-Date: Wed, 10 Jun 2026 15:52:00 +0800
-Message-ID: <20260610075202.3597031-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 10 Jun 2026 07:55:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HVBV2qcAd/QUMAoLAnqVTjihdP3lAGHg5fb8Xs7n9SnxZBqO6h0oHlSTEWqUwsBG3Mv3dER45ATn/oYuWWoeNGZq6q1zlaJuNG7iB2kY/ONYkFyZtzMBH/CA+RQJIT2/fYvC02uOf6kdZXZiv6kN0aeLCxi8fvkqqA1NJ74LkbP2vPMyRUh2bf/N7qXG2DR8UK6VHWEKT8Cj1ti+Vt/Xwwy34ifg3RaS1qghgUfvPxADLYQr71S2bj1WBgCyZGYgbdh5UXhx/UasLpFvNhUEy/TQaUblm+VrDMMwUZwVIrHPX8nr5NOsBo7MJqGlP+9kjg4Z8deV2l7eyFSSfBsXxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=U87trIBCXO8yxxh0/rTn6JanJPxoOkQOOLq/C3vChSE=;
+ b=rZjrxnYjbjfR8CiCAl9wd3caXsAKakjPDrc9WPOj5wLyjlP9nZ6pWsaUzxc/3Ifx5K0/jZQxYVLuuQVj6xCqU4UBYmF1CC7kLwQSB5e7b4IhtDG750ul/PfmRtRlDzR7hnbHUWRM+UfFYYLSTX/hqjp+39+sFK1rubgHaEKbzEMxaZB5NZmBZEPebNDEtdc1tbY9K4FPbwpcKKU/jgeocjXfKZkkZfCjm3ZCdYgzy1DLjm83TnVZS9UGTzv/CyyoebxZ0VpGcrhmS7Db0x5Pg/QnllKElA+KboGxnG0KyakX9Vzu+eltjjthKHUaL9oxXLzpCf77zLYwHFFBGrjgKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=U87trIBCXO8yxxh0/rTn6JanJPxoOkQOOLq/C3vChSE=;
+ b=QfM5p9DdcsHN0XicGgmzdExPUO37yuuTCK5E6boeF9km9qllJYbSBuWhIDmoK2Sbd5BvJF2tAxV2h5oz0hh/QgAScXOC9HTd7thBNcr7Lz8hNdVOY4hOEWjO6m7mCLxjmMM+jJM7WgpkpCncvBcaM2qzwQ+s6vdpFnqeLHEztSXTAJybz2dI1/SZpIsG+Bw1Djp95nw9n1ofyYmXleke+U8glJVz+XPdJSGCLmM4Q4vK8RqUKDrLXocWjzARwnMCcguPd4ZKTsOANkrCmxYkHbKJEr45CHfkUeGDL2NAq8FzQ08BXOwDMKzX5CfR6LyHn6EmTdjiNxUAv2M8HNtTYg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
+ by PR3PR04MB7322.eurprd04.prod.outlook.com (2603:10a6:102:8e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Wed, 10 Jun
+ 2026 07:55:15 +0000
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.21.0113.011; Wed, 10 Jun 2026
+ 07:55:15 +0000
+Date: Wed, 10 Jun 2026 15:56:46 +0800
+From: Liu Ying <victor.liu@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Marco Felsch <m.felsch@pengutronix.de>
+Subject: Re: [PATCH v2 1/3] dt-bindings: soc: imx: fsl,imx93-media-blk-ctrl:
+ Allow LVDS Display Bridge child node
+Message-ID: <aikYviBO1d560jdr@raspi>
+References: <20260608-imx93-ldb-v2-0-1b1fe621bfda@nxp.com>
+ <20260608-imx93-ldb-v2-1-1b1fe621bfda@nxp.com>
+ <20260610-large-just-lynx-d8cb7f@quoll>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260610-large-just-lynx-d8cb7f@quoll>
+X-ClientProxiedBy: SI2P153CA0021.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::20) To AS1PR04MB9287.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4dd::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|PR3PR04MB7322:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0fd7b830-f6c9-4e9f-40a1-08dec6c59b98
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|19092799006|5023799004|11063799006|4143699003|18002099003|22082099003|56012099006|3023799007;
+X-Microsoft-Antispam-Message-Info: PsctZP1Kt8VbKADmPB/KeQ3pnCxmRvC1bI57hviHDlfZ0ra8CIrWrnDWRE0TQ7o/gRRiSLNV7dxaWuw8tZKtgLYsGXBwV+T4Cw/e3cQzA2Jq27tj4XI2f0B7v9d+rdopZ3tPrYhx5ql3PSxQmCgosPtCDAtYnC46M0UMIHaOR+nssgZHpJbuaySkB3U8Ig2j9iIVt7zi8I3CI8GUFGTFWXZNIP1Ik4fHXP4M7DVgzfHFT2auPWg2fqClO/LwuMGQA2HbcAhXaD88/pi8DhmndO91n8YPjoo75lKSKZ2isAhI+7KeMKL8hYI04redwSVF2FFI/C/2OwLSx9YJcus/msQ6D+hvXR8iwgzvIvywajKmEad7jXI+hqUGugXnQ4AT+hcRUGRFvsJRCLUNcevKn317Aq0OYVyTjgkw8fXwV7tC2TONZZCSAix1tgzOtWFxwc67LnVN0JJWRY3bahrh3p+oxso4ldgK0uxYQUozedDqFwgZeg5jWAg8cyJtpjulCpYm6J6pPKP7Iyh3+oNyq55VgHTD0lcR6E7CNwSTKMMa9SFs/RRVMgM3Tw5Bix4T6pfZG2dny+qvkmOJoOucpidEAH+i+T2A/zmAj1mJ6j7rRjmQ70IxoCfhTr/ezl5PAIUAnFznNZyc/yFFeJRHUTy+bYSwlLgaczo8SZQIt7FIyYO+nG7xEhwPWC2fix0XY/3ZBCMCTIrznJbh5IxMdg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(19092799006)(5023799004)(11063799006)(4143699003)(18002099003)(22082099003)(56012099006)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XABCo4PEExA5IkSSVbPHOVzjyKWzGH2Dsy1J3CbKCr4ba9D+oyv1Jx//u1Ko?=
+ =?us-ascii?Q?LM8h4Ep5SGuLhc+8CzlkL0eS2Q2XFVw1Ur5qZ2b+WAxg6hkWXRo7O0f2Z9Wk?=
+ =?us-ascii?Q?AduoBnSTx5tqML5dNm7O8hrckdeAmLpFUekwHiy7S21y2wIObuNy3sUFrHWl?=
+ =?us-ascii?Q?JwZsS+mo5nYOz2Jo5MRkD6dsGBrmamMrnwSHFSttdZ08WYnsbZ8GRGSmLeX5?=
+ =?us-ascii?Q?l5nZkuUOTU3/Jb+c951AOF7LhSB44hRC25A5nNh/tmRvwi5/AHu+AWhJ32PB?=
+ =?us-ascii?Q?uD+rzKMkQbimG68T2/qLmWFjjWQ83u2msaPmdLBwbEEfLwdyj5W+Df7EYvDB?=
+ =?us-ascii?Q?oeZBEwZr2Z77+kqV8KvKtqmDfSIylt+7UjX6USzW0SOTXDPy0jc68BZp2pdD?=
+ =?us-ascii?Q?kqib7LxbiLXTdoHIRc/UeJoMADntgM6DoWkyvW7zvfVXt7gsmGgs0HXkF/dp?=
+ =?us-ascii?Q?VUo0jhJ7b3MX1ioruzCnrdfgCMtgZ6Fl8ymrvi86t0sak6SZSprLVWPeE44h?=
+ =?us-ascii?Q?zRFCKprYhYIwAbBUgGoIAhvbkMsZcmasIwkkml/V9cWD108TRLIt0XoK0keO?=
+ =?us-ascii?Q?YCJEPevg7U8r0S3JDkRWbxjm4/EqrY5uBYUInSUZXvbd04q/o0Idetf2hlok?=
+ =?us-ascii?Q?nSa9JOw9MF5yjEl9djqsn4i1r02TIqAIUgeI7bi4gozIjPA/Umx5g1HKx7FW?=
+ =?us-ascii?Q?tY76nERv142tYsGv7CtM7lHJYCKY0K78+zzC1NSZvyvkhLxgCyiKOiiF4uLu?=
+ =?us-ascii?Q?qJA9Pyvs/DUrA6yDNIctuh4Z3wMJtlY4M51aBzj3mSGBR8RUBZ3agkwXIs7i?=
+ =?us-ascii?Q?45IFBh98TmNTPfl31siIIeq2bDhczfLEorbEQFvTTDVm01Z+lXmdPi93vvle?=
+ =?us-ascii?Q?kzVF80k2ToLHmEU9c3CnPR6A9YzxFwZ7nUt1dCtsYSEZGdX1e7Ji529Z7ROC?=
+ =?us-ascii?Q?P2QheMlgxQtgsMr2BXG2pihl7JOJ7tL0oDYHkMFwFB7O95isQyjQUTz7pLhw?=
+ =?us-ascii?Q?PA5eIM98Ppjh4ufwTppMo9E4mx1Aa8FD4jTGXd1sdx++IckqkOtI0n4uk7ND?=
+ =?us-ascii?Q?jq1lzZO9yEJHEpKhhaoM99KJn4kVKc6aFPnvWHsSy3EGuRQy9RV+ORTBRyzA?=
+ =?us-ascii?Q?x8VMYysn5yOMz2qTFmRsn7tWGI5cYCjTYwnIry4kaTiljkkQjJOvZSscyoeU?=
+ =?us-ascii?Q?pMjWiq96djj9/+/2aNhXQBb9+6kkd2P2Dx2RVH+8avR/0yE+b+YJG4aZittW?=
+ =?us-ascii?Q?leXgYavT+MhPqubGazz4vz6+PvCQFytUgCP/tY3cY4PHoDWgsfyvXMEoU8/Y?=
+ =?us-ascii?Q?CBzDU1WTAU4xpqkrEq5afdOfYTIrroKum4eILOC2YR6QW+a/7zjiZ04CGma0?=
+ =?us-ascii?Q?le4NZHL4b9kvG5PLTUxB7ImVpEis+2/ArF9cC93drTezZ91RD3sBxfHMAuEq?=
+ =?us-ascii?Q?6mV79Sci0mBXfPWZR+Oi1gk5kpmbUXLqJmnXDw7O8oSqGpVpfyd6JrhQOKd8?=
+ =?us-ascii?Q?QK3uPMc9zICiKFYTrlgTRTYROvghkElnVajJ9dedrAepQB470CA9bodwGOBY?=
+ =?us-ascii?Q?IdmzIf8q1iWvHgJWcMaSjO8YKIaIvxRXeY+UTFhnQezYdTJCdU+dOVqxy/T7?=
+ =?us-ascii?Q?D4OfyHXZqecsJRH4VwSk1sPGQPZbg1R7FUuP3d3Yo0zbDklR5hvOxTE2uBSo?=
+ =?us-ascii?Q?lqwL5cskORgel4zwmT2QvKo3MfR/kpDat1754wD+gJc3uprv9VU31h5Clsja?=
+ =?us-ascii?Q?+JAPm+2Ctg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fd7b830-f6c9-4e9f-40a1-08dec6c59b98
+X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 07:55:15.7825
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vCt9G97ijCXduiaW+07v0P3ps3Nux210JyUC2eA5sxieBtCAII8ImjGQeYCZX7sms8pyaj2ZcGLz5Si5xtTmCA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7322
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_005224_161629_E2BA3240 
-X-CRM114-Status: UNSURE (   5.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260610_005520_730783_612F56A2 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,24 +143,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix NULL kobject warning in cpuhp_smt_enable().
+On Wed, Jun 10, 2026 at 09:46:39AM +0200, Krzysztof Kozlowski wrote:
+> On Mon, Jun 08, 2026 at 05:04:22PM +0800, Liu Ying wrote:
+> > i.MX93 SoC mediamix blk-ctrl contains one LDB_CTRL register and one LVDS
+> > register which control video output through a LVDS interface.  Allow the
+> > LVDS Display Bridge(LDB) child node and add the child node to example.
+> > 
+> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> > ---
+> >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 39 ++++++++++++++++++++++
+> >  1 file changed, 39 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> > index d828c2e82965..124f5c206ee3 100644
+> > --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> > +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> > @@ -26,6 +26,12 @@ properties:
+> >    reg:
+> >      maxItems: 1
+> >  
+> > +  '#address-cells':
+> > +    const: 1
+> > +
+> > +  '#size-cells':
+> > +    const: 1
+> > +
+> >    '#power-domain-cells':
+> >      const: 1
+> >  
+> > @@ -92,6 +98,11 @@ properties:
+> >        - compatible
+> >        - ports
+> >  
+> > +  bridge@20:
+> 
+> You have dpi-bridge, so this should not be different. You should not mix
+> addressable and non-addressable nodes and NXP decided recently in
+> 3feaa4342637eef673243dd38ccb32e8dc8efd5a that everything will be
+> non-addressable.
+> 
+> Writing bindings ask explicitly to post bindings, so if you decide to do
+> half-baked solutions it's on you. Half baked solutions are not allowing
+> to bypass standard rules.
 
-Change in v4:
-- Fix hot-unplug tearing as Sashiko AI code review pointed out
-  by forcing unregistration.
-- Update the arm64 hotplug doc.
-- Update the commit message.
+Mixing addressable and non-addressable nodes is allowed according to recent
+discussion[1].
 
-Jinjie Ruan (2):
-  arm64: smp: Fix hot-unplug tearing by forcing unregistration
-  cpu/hotplug: Fix NULL kobject warning in cpuhp_smt_enable()
+[1] https://lore.kernel.org/all/n6akxiayi3g6gxcqhreb4iaohmeokoalnqup6h5r2fwdt4zijt@u2wyps55ayqm/
 
- Documentation/arch/arm64/cpu-hotplug.rst | 28 ++++++++++++++----------
- arch/arm64/kernel/acpi.c                 |  2 ++
- arch/arm64/kernel/smp.c                  | 28 ++++++++++++------------
- 3 files changed, 32 insertions(+), 26 deletions(-)
+> 
+> Best regards,
+> Krzysztof
+> 
 
 -- 
-2.34.1
-
+Regards,
+Liu Ying
 
