@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF6CCD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 14:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00329CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 14:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ae7xGKF35LGRe3XRAiICyW70MllodJyXNdWK6hRbyzI=; b=U5JO12sWmzly4yL7PxB/zGWCCa
-	A+OD9pLtxNQ/yBcTm0VT1iUXmxX7DryCruK3QKIsNRgqWN0zuD+Zbgx4OmIMwY8f6prP1YZszHoKJ
-	nYshizIqhzG32KUI0AA3pc58Glwq7fYn70zBbbsqgU/CO54//8niRTYEsVPDoVoEaSHLYcbXH+oWX
-	QTqzfI/zcrCmqLkhVdPe2JbSSDTNqvZTvNBVRiKnDPC77g/a3wZlwOgKZQlz5eQJ4ujdpK6Pt0jOm
-	YhT7xlCfCNPl/X5HZts8KTTnXgevV8GHKp2h5tf/hwzEA9EDnsBELuh7sSOtHwBE9HLXQMHFmTY0G
-	QEu0PJSA==;
+	bh=BOdRsI3dh1r1RTkPWipqC7m7hbkGhe4gBlN5PQj4Ibg=; b=2aGXgbFnFUt34GhRYZvOzKEber
+	6D+dLNQWaK0x5oWZmiMJlEf1OJx7z0Qn0se9McOXMUM4GQv4geqciCydaTFQsZO5wvYXUH5eYyDkz
+	ElwENgzUuIXjjloacqSnXlen67ay80pRz2uGT6HJWbRv2ccfYlTj7uLfKph7B0lacUibCiNKBl80I
+	067ATGhJvGqhIfMpJVc4U6kQz93N6vr5t8jRI5mOXY2ASNSgVHVpcmjEUitQLnIjCxsKzAzwnOCzE
+	xsOg4m9OQOq+gZwllf8O2/xcKPVpt2HEgK9dDDBne4dqHZ9bAdjptYu6W2QdhWRUHEHYxDBNgPhzX
+	jY5AGPKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXK0j-00000007ulI-0xyx;
-	Wed, 10 Jun 2026 14:34:29 +0000
+	id 1wXK0p-00000007uyS-443F;
+	Wed, 10 Jun 2026 14:34:35 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXK0f-00000007ubt-2DWa;
-	Wed, 10 Jun 2026 14:34:27 +0000
+	id 1wXK0j-00000007uib-47sj;
+	Wed, 10 Jun 2026 14:34:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781102063;
-	bh=j49J58EqEV6Y9ekhrT3Mjdk241vknJSMgsKk1uaJyeQ=;
+	s=mail; t=1781102067;
+	bh=buWzY0LM2eBzVDux6FwBX3Iv5Uvnb04/g09QnKbCclg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nMW5H755UhsCJOlISN5Sdg7rAvn5OVlb+fN1m/JfVMUWoXuCjqvYhY4UFex+nzu1Z
-	 3pDtxjDI+XkcugysRY5F/wN4dgzmXLZxCSj0LUNgOJ4iur9ILcaa8fCZsJEyktvsho
-	 LPk2IzMjRmZ/cBh0+Mg+XF8Tt+CYsdpZaJci4eZHyAFo+zOVbGMuAXKH7ioCPcQJiA
-	 83WEbr1M7GE2fWjDmxIgA1uJcmXwXzvT2tXO+XHrMqclauEGlELY0g6d5U0tFmLxsC
-	 NJ7c+N9pUZqNHfbIu/0iVSUeZBVBhquPbkLGcdrsjt+KvcwsN4KP52O6Ua5Ql6XuEr
-	 YN1bwmXAYQ2wg==
+	b=KT1t72BXfj58snpFIw5YXgBpFC2bpxE+moW/BmKWtzJ6XZc+ZolVxCWLP7OYiAOXJ
+	 +/Q8wXqCW4a4bROEJP+CqgSbsPquhTVm7038tDPxTfKIhQRINaV1Sw8yTr2mLgFexc
+	 4MPO2jN0wzqGNfsjtplSPsXiW2W25/9J6cYyZIeEAq9Z+jIw7eZovd+i64OMdYLr97
+	 OewOvLVHLhC7oOhYoldlkS9ELzFRwhBxy6fx7Kj0EY5+htLioBAQxlAhEah5SsL/Xe
+	 xXvSs1iRpYoRAMutPaaTUrsWuCR9zU0MchoPBNgSpufHqAykD7SXeUgHgV1wZwDuQ5
+	 1L3CgcqVdKOMQ==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4A08017E1104;
-	Wed, 10 Jun 2026 16:34:21 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E5E3F17E11FB;
+	Wed, 10 Jun 2026 16:34:25 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Wed, 10 Jun 2026 10:33:36 -0400
-Subject: [PATCH v2 6/9] media: Trace the stateless controls when set in
- v4l2-ctrls-core.c
+Date: Wed, 10 Jun 2026 10:33:38 -0400
+Subject: [PATCH v2 8/9] media: Add HW run/done trace events
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260610-v4l2-add-ftrace-v2-6-9756edf72ac1@collabora.com>
+Message-Id: <20260610-v4l2-add-ftrace-v2-8-9756edf72ac1@collabora.com>
 References: <20260610-v4l2-add-ftrace-v2-0-9756edf72ac1@collabora.com>
 In-Reply-To: <20260610-v4l2-add-ftrace-v2-0-9756edf72ac1@collabora.com>
 To: Daniel Almeida <daniel.almeida@collabora.com>, 
@@ -67,8 +66,8 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_073425_947683_BBAE7E1B 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20260610_073430_259928_4CAE2426 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,327 +82,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Also remove the trace from visl as the generic v4l2-requests traces can
-now be used instead.
+The events can be fired by drivers when the hardware is run and when it
+is done.
+That can be used by userspace tracers to see HW performance and usage.
 
-It allows all stateless drivers to inherit traceability, with just a small
-overhead when disabled in userspace.
+The hw_done event allows setting the number of clock cycles the HW needed
+to do the work, to help tools evaluate performances.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/media/test-drivers/visl/visl-dec.c |  74 -------------------
- drivers/media/v4l2-core/v4l2-ctrls-api.c   |  10 +++
- drivers/media/v4l2-core/v4l2-ctrls-core.c  | 114 +++++++++++++++++++++++++++++
- include/media/v4l2-ctrls.h                 |  15 ++++
- 4 files changed, 139 insertions(+), 74 deletions(-)
+ drivers/media/v4l2-core/v4l2-trace.c |  3 +++
+ include/trace/events/v4l2.h          | 40 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 43 insertions(+)
 
-diff --git a/drivers/media/test-drivers/visl/visl-dec.c b/drivers/media/test-drivers/visl/visl-dec.c
-index 2a065a6249ad..9517830fb3e8 100644
---- a/drivers/media/test-drivers/visl/visl-dec.c
-+++ b/drivers/media/test-drivers/visl/visl-dec.c
-@@ -12,7 +12,6 @@
- #include <linux/workqueue.h>
- #include <media/v4l2-mem2mem.h>
- #include <media/tpg/v4l2-tpg.h>
--#include <trace/events/v4l2_controls.h>
+diff --git a/drivers/media/v4l2-core/v4l2-trace.c b/drivers/media/v4l2-core/v4l2-trace.c
+index 183d5ecb49c5..59cf6f8807ac 100644
+--- a/drivers/media/v4l2-core/v4l2-trace.c
++++ b/drivers/media/v4l2-core/v4l2-trace.c
+@@ -12,6 +12,9 @@ EXPORT_TRACEPOINT_SYMBOL_GPL(vb2_v4l2_buf_queue);
+ EXPORT_TRACEPOINT_SYMBOL_GPL(vb2_v4l2_dqbuf);
+ EXPORT_TRACEPOINT_SYMBOL_GPL(vb2_v4l2_qbuf);
  
- #define LAST_BUF_IDX (V4L2_AV1_REF_LAST_FRAME - V4L2_AV1_REF_LAST_FRAME)
- #define LAST2_BUF_IDX (V4L2_AV1_REF_LAST2_FRAME - V4L2_AV1_REF_LAST_FRAME)
-@@ -486,78 +485,6 @@ static void visl_tpg_fill(struct visl_ctx *ctx, struct visl_run *run)
- 	}
- }
++EXPORT_TRACEPOINT_SYMBOL_GPL(v4l2_hw_run);
++EXPORT_TRACEPOINT_SYMBOL_GPL(v4l2_hw_done);
++
+ /* Export AV1 controls */
+ EXPORT_TRACEPOINT_SYMBOL_GPL(v4l2_ctrl_av1_sequence);
+ EXPORT_TRACEPOINT_SYMBOL_GPL(v4l2_ctrl_av1_frame);
+diff --git a/include/trace/events/v4l2.h b/include/trace/events/v4l2.h
+index e5b80aeecc30..6f1bbb085cb0 100644
+--- a/include/trace/events/v4l2.h
++++ b/include/trace/events/v4l2.h
+@@ -299,6 +299,46 @@ DEFINE_EVENT(v4l2_stream_class, v4l2_streamoff,
+ 	TP_ARGS(tgid, fd)
+ );
  
--static void visl_trace_ctrls(struct visl_ctx *ctx, struct visl_run *run)
--{
--	int i;
--	struct v4l2_fh *fh = &ctx->fh;
--
--	switch (ctx->current_codec) {
--	default:
--	case VISL_CODEC_NONE:
--		break;
--	case VISL_CODEC_FWHT:
--		trace_v4l2_ctrl_fwht_params(fh->tgid, fh->fd, run->fwht.params);
--		break;
--	case VISL_CODEC_MPEG2:
--		trace_v4l2_ctrl_mpeg2_sequence(fh->tgid, fh->fd, run->mpeg2.seq);
--		trace_v4l2_ctrl_mpeg2_picture(fh->tgid, fh->fd, run->mpeg2.pic);
--		trace_v4l2_ctrl_mpeg2_quantisation(fh->tgid, fh->fd, run->mpeg2.quant);
--		break;
--	case VISL_CODEC_VP8:
--		trace_v4l2_ctrl_vp8_frame(fh->tgid, fh->fd, run->vp8.frame);
--		trace_v4l2_ctrl_vp8_entropy(fh->tgid, fh->fd, run->vp8.frame);
--		break;
--	case VISL_CODEC_VP9:
--		trace_v4l2_ctrl_vp9_frame(fh->tgid, fh->fd, run->vp9.frame);
--		trace_v4l2_ctrl_vp9_compressed_hdr(fh->tgid, fh->fd, run->vp9.probs);
--		trace_v4l2_ctrl_vp9_compressed_coeff(fh->tgid, fh->fd, run->vp9.probs);
--		trace_v4l2_vp9_mv_probs(fh->tgid, fh->fd, &run->vp9.probs->mv);
--		break;
--	case VISL_CODEC_H264:
--		trace_v4l2_ctrl_h264_sps(fh->tgid, fh->fd, run->h264.sps);
--		trace_v4l2_ctrl_h264_pps(fh->tgid, fh->fd, run->h264.pps);
--		trace_v4l2_ctrl_h264_scaling_matrix(fh->tgid, fh->fd, run->h264.sm);
--		trace_v4l2_ctrl_h264_slice_params(fh->tgid, fh->fd, run->h264.spram);
--
--		for (i = 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
--			trace_v4l2_h264_ref_pic_list0(fh->tgid, fh->fd,
--						      &run->h264.spram->ref_pic_list0[i], i);
--		for (i = 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
--			trace_v4l2_h264_ref_pic_list1(fh->tgid, fh->fd,
--						      &run->h264.spram->ref_pic_list1[i], i);
--
--		trace_v4l2_ctrl_h264_decode_params(fh->tgid, fh->fd, run->h264.dpram);
--
--		for (i = 0; i < ARRAY_SIZE(run->h264.dpram->dpb); i++)
--			trace_v4l2_h264_dpb_entry(fh->tgid, fh->fd, &run->h264.dpram->dpb[i], i);
--
--		trace_v4l2_ctrl_h264_pred_weights(fh->tgid, fh->fd, run->h264.pwht);
--		break;
--	case VISL_CODEC_HEVC:
--		trace_v4l2_ctrl_hevc_sps(fh->tgid, fh->fd, run->hevc.sps);
--		trace_v4l2_ctrl_hevc_pps(fh->tgid, fh->fd, run->hevc.pps);
--		trace_v4l2_ctrl_hevc_slice_params(fh->tgid, fh->fd, run->hevc.spram);
--		trace_v4l2_ctrl_hevc_scaling_matrix(fh->tgid, fh->fd, run->hevc.sm);
--		trace_v4l2_ctrl_hevc_decode_params(fh->tgid, fh->fd, run->hevc.dpram);
--
--		for (i = 0; i < ARRAY_SIZE(run->hevc.dpram->dpb); i++)
--			trace_v4l2_hevc_dpb_entry(fh->tgid, fh->fd, &run->hevc.dpram->dpb[i]);
--
--
--		trace_v4l2_hevc_pred_weight_table(fh->tgid, fh->fd,
--						  &run->hevc.spram->pred_weight_table);
--		trace_v4l2_ctrl_hevc_ext_sps_lt_rps(fh->tgid, fh->fd, run->hevc.rps_lt);
--		trace_v4l2_ctrl_hevc_ext_sps_st_rps(fh->tgid, fh->fd, run->hevc.rps_st);
--		break;
--	case VISL_CODEC_AV1:
--		trace_v4l2_ctrl_av1_sequence(fh->tgid, fh->fd, run->av1.seq);
--		trace_v4l2_ctrl_av1_frame(fh->tgid, fh->fd, run->av1.frame);
--		trace_v4l2_ctrl_av1_film_grain(fh->tgid, fh->fd, run->av1.grain);
--		trace_v4l2_ctrl_av1_tile_group_entry(fh->tgid, fh->fd, run->av1.tge);
--		break;
--	}
--}
--
- void visl_device_run(void *priv)
- {
- 	struct visl_ctx *ctx = priv;
-@@ -634,7 +561,6 @@ void visl_device_run(void *priv)
- 		      run.dst->sequence, run.dst->vb2_buf.timestamp);
- 
- 	visl_tpg_fill(ctx, &run);
--	visl_trace_ctrls(ctx, &run);
- 
- 	if (bitstream_trace_frame_start > -1 &&
- 	    run.dst->sequence >= bitstream_trace_frame_start &&
-diff --git a/drivers/media/v4l2-core/v4l2-ctrls-api.c b/drivers/media/v4l2-core/v4l2-ctrls-api.c
-index 93d8d4012d0f..c44578828b21 100644
---- a/drivers/media/v4l2-core/v4l2-ctrls-api.c
-+++ b/drivers/media/v4l2-core/v4l2-ctrls-api.c
-@@ -523,6 +523,12 @@ int v4l2_g_ext_ctrls(struct v4l2_ctrl_handler *hdl, struct video_device *vdev,
- }
- EXPORT_SYMBOL(v4l2_g_ext_ctrls);
- 
-+static void trace_ext_ctrl(struct v4l2_fh *fh, const struct v4l2_ctrl *ctrl)
-+{
-+	if (ctrl->type_ops->trace)
-+		ctrl->type_ops->trace(fh, ctrl, ctrl->p_cur);
-+}
 +
- /* Validate a new control */
- static int validate_new(const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr p_new)
- {
-@@ -711,6 +717,10 @@ int try_set_ext_ctrls_common(struct v4l2_fh *fh,
- 				idx = helpers[idx].next;
- 			} while (!ret && idx);
- 		}
-+
-+		if (set)
-+			trace_ext_ctrl(fh, master);
-+
- 		v4l2_ctrl_unlock(master);
- 	}
- 
-diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
-index 6b375720e395..d8a8dc7896c5 100644
---- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
-+++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
-@@ -10,8 +10,11 @@
- #include <linux/slab.h>
- #include <media/v4l2-ctrls.h>
- #include <media/v4l2-event.h>
-+#include <media/v4l2-fh.h>
- #include <media/v4l2-fwnode.h>
- 
-+#include <trace/events/v4l2_controls.h>
-+
- #include "v4l2-ctrls-priv.h"
- 
- static const union v4l2_ctrl_ptr ptr_null;
-@@ -1462,12 +1465,123 @@ int v4l2_ctrl_type_op_validate(const struct v4l2_ctrl *ctrl,
- }
- EXPORT_SYMBOL(v4l2_ctrl_type_op_validate);
- 
-+void v4l2_ctrl_type_op_trace(const struct v4l2_fh *fh,
-+				    const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr)
-+{
-+	int i = 0;
-+
-+	switch ((u32)ctrl->type) {
-+	case V4L2_CTRL_TYPE_FWHT_PARAMS:
-+		trace_v4l2_ctrl_fwht_params(fh->tgid, fh->fd, ptr.p_fwht_params);
-+		break;
-+	case V4L2_CTRL_TYPE_MPEG2_SEQUENCE:
-+		trace_v4l2_ctrl_mpeg2_sequence(fh->tgid, fh->fd, ptr.p_mpeg2_sequence);
-+		break;
-+	case V4L2_CTRL_TYPE_MPEG2_PICTURE:
-+		trace_v4l2_ctrl_mpeg2_picture(fh->tgid, fh->fd, ptr.p_mpeg2_picture);
-+		break;
-+	case V4L2_CTRL_TYPE_MPEG2_QUANTISATION:
-+		trace_v4l2_ctrl_mpeg2_quantisation(fh->tgid, fh->fd, ptr.p_mpeg2_quantisation);
-+		break;
-+	case V4L2_CTRL_TYPE_VP8_FRAME:
-+		trace_v4l2_ctrl_vp8_frame(fh->tgid, fh->fd, ptr.p_vp8_frame);
-+		trace_v4l2_ctrl_vp8_entropy(fh->tgid, fh->fd, ptr.p_vp8_frame);
-+		break;
-+	case V4L2_CTRL_TYPE_VP9_FRAME:
-+		trace_v4l2_ctrl_vp9_frame(fh->tgid, fh->fd, ptr.p_vp9_frame);
-+		break;
-+	case V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR:
-+		trace_v4l2_ctrl_vp9_compressed_hdr(fh->tgid, fh->fd,
-+						   ptr.p_vp9_compressed_hdr_probs);
-+		trace_v4l2_ctrl_vp9_compressed_coeff(fh->tgid, fh->fd,
-+						     ptr.p_vp9_compressed_hdr_probs);
-+		trace_v4l2_vp9_mv_probs(fh->tgid, fh->fd, &ptr.p_vp9_compressed_hdr_probs->mv);
-+		break;
-+	case V4L2_CTRL_TYPE_H264_SPS:
-+		trace_v4l2_ctrl_h264_sps(fh->tgid, fh->fd, ptr.p_h264_sps);
-+		break;
-+	case V4L2_CTRL_TYPE_H264_PPS:
-+		trace_v4l2_ctrl_h264_pps(fh->tgid, fh->fd, ptr.p_h264_pps);
-+		break;
-+	case V4L2_CTRL_TYPE_H264_SCALING_MATRIX:
-+		trace_v4l2_ctrl_h264_scaling_matrix(fh->tgid, fh->fd, ptr.p_h264_scaling_matrix);
-+		break;
-+	case V4L2_CTRL_TYPE_H264_SLICE_PARAMS:
-+	{
-+		struct v4l2_ctrl_h264_slice_params *sp = ptr.p_h264_slice_params;
-+
-+		trace_v4l2_ctrl_h264_slice_params(fh->tgid, fh->fd, sp);
-+
-+		for (i = 0; i < ARRAY_SIZE(sp->ref_pic_list0); i++)
-+			trace_v4l2_h264_ref_pic_list0(fh->tgid, fh->fd, &sp->ref_pic_list0[i], i);
-+		for (i = 0; i < ARRAY_SIZE(sp->ref_pic_list1); i++)
-+			trace_v4l2_h264_ref_pic_list1(fh->tgid, fh->fd, &sp->ref_pic_list1[i], i);
-+
-+		break;
-+	}
-+	case V4L2_CTRL_TYPE_H264_DECODE_PARAMS:
-+	{
-+		struct v4l2_ctrl_h264_decode_params *dp = ptr.p_h264_decode_params;
-+
-+		trace_v4l2_ctrl_h264_decode_params(fh->tgid, fh->fd, dp);
-+
-+		for (i = 0; i < ARRAY_SIZE(dp->dpb); i++)
-+			trace_v4l2_h264_dpb_entry(fh->tgid, fh->fd, &dp->dpb[i], i);
-+
-+		break;
-+	}
-+	case V4L2_CTRL_TYPE_H264_PRED_WEIGHTS:
-+		trace_v4l2_ctrl_h264_pred_weights(fh->tgid, fh->fd, ptr.p_h264_pred_weights);
-+		break;
-+	case V4L2_CTRL_TYPE_HEVC_SPS:
-+		trace_v4l2_ctrl_hevc_sps(fh->tgid, fh->fd, ptr.p_hevc_sps);
-+		break;
-+	case V4L2_CTRL_TYPE_HEVC_PPS:
-+		trace_v4l2_ctrl_hevc_pps(fh->tgid, fh->fd, ptr.p_hevc_pps);
-+		break;
-+	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
-+		trace_v4l2_ctrl_hevc_slice_params(fh->tgid, fh->fd, ptr.p_hevc_slice_params);
-+		trace_v4l2_hevc_pred_weight_table(fh->tgid, fh->fd,
-+						  &ptr.p_hevc_slice_params->pred_weight_table);
-+		break;
-+	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
-+		trace_v4l2_ctrl_hevc_scaling_matrix(fh->tgid, fh->fd, ptr.p_hevc_scaling_matrix);
-+		break;
-+	case V4L2_CTRL_TYPE_HEVC_DECODE_PARAMS:
-+	{
-+		struct v4l2_ctrl_hevc_decode_params *dp = ptr.p_hevc_decode_params;
-+
-+		trace_v4l2_ctrl_hevc_decode_params(fh->tgid, fh->fd, dp);
-+
-+		for (i = 0; i < ARRAY_SIZE(dp->dpb); i++)
-+			trace_v4l2_hevc_dpb_entry(fh->tgid, fh->fd, &dp->dpb[i]);
-+
-+		break;
-+	}
-+	case V4L2_CTRL_TYPE_AV1_SEQUENCE:
-+		trace_v4l2_ctrl_av1_sequence(fh->tgid, fh->fd, ptr.p_av1_sequence);
-+		break;
-+	case V4L2_CTRL_TYPE_AV1_FRAME:
-+		trace_v4l2_ctrl_av1_frame(fh->tgid, fh->fd, ptr.p_av1_frame);
-+		break;
-+	case V4L2_CTRL_TYPE_AV1_FILM_GRAIN:
-+		trace_v4l2_ctrl_av1_film_grain(fh->tgid, fh->fd, ptr.p_av1_film_grain);
-+		break;
-+	case V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY:
-+		trace_v4l2_ctrl_av1_tile_group_entry(fh->tgid, fh->fd, ptr.p_av1_tile_group_entry);
-+		break;
-+	}
-+
-+}
-+EXPORT_SYMBOL(v4l2_ctrl_type_op_trace);
-+
- static const struct v4l2_ctrl_type_ops std_type_ops = {
- 	.equal = v4l2_ctrl_type_op_equal,
- 	.init = v4l2_ctrl_type_op_init,
- 	.minimum = v4l2_ctrl_type_op_minimum,
- 	.maximum = v4l2_ctrl_type_op_maximum,
- 	.log = v4l2_ctrl_type_op_log,
-+	.trace = v4l2_ctrl_type_op_trace,
- 	.validate = v4l2_ctrl_type_op_validate,
- };
- 
-diff --git a/include/media/v4l2-ctrls.h b/include/media/v4l2-ctrls.h
-index a2b4c96a9a6f..57c4bb999b7b 100644
---- a/include/media/v4l2-ctrls.h
-+++ b/include/media/v4l2-ctrls.h
-@@ -140,6 +140,7 @@ struct v4l2_ctrl_ops {
-  * @minimum: set the value to the minimum value of the control.
-  * @maximum: set the value to the maximum value of the control.
-  * @log: log the value.
-+ * @trace: trace the value of the control with Ftrace.
-  * @validate: validate the value for ctrl->new_elems array elements.
-  *	Return 0 on success and a negative value otherwise.
-  */
-@@ -153,6 +154,8 @@ struct v4l2_ctrl_type_ops {
- 	void (*maximum)(const struct v4l2_ctrl *ctrl, u32 idx,
- 			union v4l2_ctrl_ptr ptr);
- 	void (*log)(const struct v4l2_ctrl *ctrl);
-+	void (*trace)(const struct v4l2_fh *fh,
-+		      const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr);
- 	int (*validate)(const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr);
- };
- 
-@@ -1627,6 +1630,18 @@ void v4l2_ctrl_type_op_init(const struct v4l2_ctrl *ctrl, u32 from_idx,
-  */
- void v4l2_ctrl_type_op_log(const struct v4l2_ctrl *ctrl);
- 
-+/**
-+ * v4l2_ctrl_type_op_trace - Default v4l2_ctrl_type_ops trace callback.
++/* Events for hardware run/done.
 + *
-+ * @fh: The v4l2_fh of the current context.
-+ * @ctrl: The v4l2_ctrl pointer.
-+ * @ptr: The v4l2 control value.
++ * These events will be fired respectively when the hardware is run (v4l2_hw_run) and done
++ * (v4l2_hw_done).
++ * As for other events, tgid and fd are used to identify the process that opened the video device.
 + *
-+ * Return: void
++ * The v4l2_hw_done event also includes the number of hardware cycles taken by the hardware to
++ * process the command.
 + */
-+void v4l2_ctrl_type_op_trace(const struct v4l2_fh *fh,
-+			     const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr);
++DEFINE_EVENT(v4l2_stream_class, v4l2_hw_run,
++	TP_PROTO(u32 tgid, u32 fd),
++	TP_ARGS(tgid, fd)
++);
 +
- /**
-  * v4l2_ctrl_type_op_validate - Default v4l2_ctrl_type_ops validate callback.
-  *
++DECLARE_EVENT_CLASS(v4l2_hw_done_class,
++	TP_PROTO(u32 tgid, u32 fd, u32 hw_cycles),
++	TP_ARGS(tgid, fd, hw_cycles),
++
++	TP_STRUCT__entry(
++		__field(u32, tgid)
++		__field(u32, fd)
++		__field(u32, hw_cycles)
++	),
++
++	TP_fast_assign(
++		__entry->tgid = tgid;
++		__entry->fd = fd;
++		__entry->hw_cycles = hw_cycles;
++	),
++
++	TP_printk("tgid = %u, fd = %u, hw_cycles = %u",
++		  __entry->tgid, __entry->fd, __entry->hw_cycles)
++);
++
++DEFINE_EVENT(v4l2_hw_done_class, v4l2_hw_done,
++	TP_PROTO(u32 tgid, u32 fd, u32 hw_cycles),
++	TP_ARGS(tgid, fd, hw_cycles)
++);
++
+ #endif /* if !defined(_TRACE_V4L2_H) || defined(TRACE_HEADER_MULTI_READ) */
+ 
+ /* This part must be outside protection */
 
 -- 
 2.54.0
