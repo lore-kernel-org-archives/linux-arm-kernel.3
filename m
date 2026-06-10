@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35426CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 20:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04ECFCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 20:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=; b=CakG9jQNXWGtdDWu/QXxsvElv/
-	ylJO/R3pvnwgWGSLAVN9S3d336FflSE8F3t1ELI45TFxkG0hMv/CO03yf9EAmy0U7a4RdmutOlmpg
-	NvSK5lTmdeyhHYYw5eZ7G8AkCPhS4mkfcLy2Ibsu0wGZ8AJWWu/kz1LODNa+xXlOE2+dLnos7CMyb
-	ND0JdmqxO9tXH+S1dOj0GYLIKPAD5m3B/6GNbQuRqHXnnL8SCZjyYvQWqTa26VdK4THbuwk2KhFUu
-	BRrOYpauX6mmO53ZUTXuzW+v7KzIPwuDbEKdXMgrgvH/sOw8L+BP2PiYSFEcol+eTpUedNGNlzerG
-	/layfEHQ==;
+	bh=mqVoCiMOeXwzd334lL+Kbbn+xeppyD+CHd7jRk3nty8=; b=ZCJ83ibtI6HdkTm5OLvHgQsg04
+	0ZXUNB+dr5DY8K8yH2aIgZ2vivtUkkJxJ1KwO7eyro1q7jqV3WNJooyF0ZRvnFvmm7ARw9oBQe38F
+	ZffOfY6GAADoK2Gdn72LcVvJoMLthwMwO+clw2wo/c0BySV9rl3eeGN/3ikW6sIarHHWsKMuRLTVK
+	mVl6uj55YxB0AlY55JhK6XDqcRha24u7+uJoQnGalvVlQNgWLAucTcvMvwhfMvBvVkOTagyFr2RQr
+	+Vwel+62sWF4g9frVbvBkimcQ1Z5CNCl6GIRbRTW7rpJAY99UDbmXinDDIPu1nvmmPHzkk3gjs4th
+	+9JCRcEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXPdu-00000008Ka3-1TUY;
-	Wed, 10 Jun 2026 20:35:18 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wXPe0-00000008Kf4-3IEO;
+	Wed, 10 Jun 2026 20:35:24 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXPdq-00000008KXs-1Gzw
+	id 1wXPdt-00000008KYt-0Lzc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 20:35:15 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-490a76757e5so48267335e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 13:35:13 -0700 (PDT)
+	Wed, 10 Jun 2026 20:35:18 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490bb83a3f6so59040335e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 13:35:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781123712; x=1781728512; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1781123715; x=1781728515; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
-        b=LdNi9XYqqU3K8MYQYvUlQgYKsftjmSDTDdPU/zGte07cNU6WF4xjC1Lpl5hhNeZmld
-         zoXOUJg0iPFlKP6Sgp+HWNiaydtmwBmW5BfXiEw5grF4Tumi47NNuI3h+qhiEynQRwZX
-         /FWBLqF+CLL7nmN88RWKuQlsVEAKTOC71LSxFGNJROKnChztRUKFiUY83qzNSTVt3LLu
-         x3mNZ5syc7yOXs946w75hNZqqrIoHgMp1Fc6Ay4YdJH6j7MQV8yZixQ2RdvU1mglEU7L
-         AtqxbKtHjkNYkB5zNnByrclwbZQZwkNL3/jpDDhncXxRhDL/itHHnuRCfwxXSfYtsNzU
-         VS1Q==
+        bh=mqVoCiMOeXwzd334lL+Kbbn+xeppyD+CHd7jRk3nty8=;
+        b=USfwG0CHNrhHg7rBgWrj3XNzQoQIEob+gyOkL+MYcyjpXmjWdz25RhnGFkPGBGF5hy
+         xGFQD4n4OHZv7fdsBwmf+J4Z3dqNaj2f5FDf2rPLPIZHAjpY2Zf6KpQ8Vr/WGTtNJbif
+         77mSqybTo7zqE3SwvaBfhTL/WWWX//s2ng3FQd2rnirsEBY+VEKiOg9Rh8Kdka4bcelN
+         dra5o6iJUU4Pg6ike8ZOvQ5x3hGiYj531DqsQxdKrsvSwx9TN66K/i2paQzzAG8wt8TS
+         R/dMjg0sFobg3EmIu1CJvJ0wnUQEhynFZco0ZwngtY/hEg7DNnBh+jEDTBI/4+9BdTcu
+         U9fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781123712; x=1781728512;
+        d=1e100.net; s=20251104; t=1781123715; x=1781728515;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
-        b=dmUn6WU1NEv8hfKg+V9d24nsfBmxGtimA7zaaXFHxLMbY7BkJEZ+vOLBCZ6o8UxWKU
-         IlC4dWTf866ppoosUBykXXrZhNzJhd/NVuLQFpxz7pK+3wmhTwyayFfE0pwogvIFKDI6
-         2sGV0UDlkq457rxmn60f23Zvhbzwpg5Ase4AhmzoK2Dv4e/FmiO7eZyGnnrHxNCmYUtJ
-         xt252Z9PbnRXD5RlEf/K29jDZfyfn9KhemLK9V8ZaGMG1aQgof0kcEbAMNQl72PS7vMr
-         +t83cO6g3+hVF4jw4WL48XFWADezAha86+JwW8dKQYgPxfqGFgrgrjq5aNQ4Fg0VsQKJ
-         MrXA==
-X-Forwarded-Encrypted: i=1; AFNElJ87kwdeIoJGBLyRpFm+eH/bFLF0q7aNukkpf7wPoy1M3oU7A9ua30SC94tWPKmhZmTB03ekJMxWzXwo/eRqLIH3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAgjqVfXasT0PemBveOkYj6jKeQGdpHhkIm6xC8qUeo8sDieqA
-	by+gGVQuoDsyYlTTGxhzEUdgDAXezpkWbuVFUiHDpDA5DJhtnrlmtzixH1QBO5kYOSg=
-X-Gm-Gg: Acq92OF6Nv1aMJ1x9rzFjpkv0qgusRPB+3c0iJERT0tUWe0lODSnOVBQr6axjhBYcBx
-	7WptVsgczawbzgJz6InegS/fGrGgZA6IyIbgEeUWeqJ8RzL/QW1N6VWkEtLqzKCSMyEE5hAjvdi
-	U4yxM8n9wwv90EytadJspnWkuQzaW47MJ4G9fmi6ZpRHHbu9CkznuT8UlgVQTBX2TmoQyzfNzsi
-	dEG5CBt0rGumRwAdoEgscQTytfCvI5fYCQ4L8LtrHy/aJ1i6WFXpGk/jXA/qIGpu/5SN5zbouOZ
-	pYLg5NuGR7+xY3sroeMUY/cvjU0DRfIrn37U0qh9YOqTcyhTChPRYNj3baOJj9rzGFZJqdjciwn
-	31DSKyxEdN6w1Ztpv4kh5LoxOy38LZ1JV1iX4wqL22tinYWC0MFx6d0jUTUszDi7iQHA65Yue/8
-	VU4OrO24sIhtHZVX8UUivRyYW8UL19HkFLJS3zdWK13w==
-X-Received: by 2002:a05:600c:628c:b0:48f:e26a:1744 with SMTP id 5b1f17b1804b1-490c25a87f5mr431093845e9.9.1781123712367;
-        Wed, 10 Jun 2026 13:35:12 -0700 (PDT)
+        bh=mqVoCiMOeXwzd334lL+Kbbn+xeppyD+CHd7jRk3nty8=;
+        b=FKAzkI/z91CUhdJXby5WXT2/hrHH87Xjb8vy4v7vjTvNC1ELGPeNjePy2kR5u3vStr
+         roT1t/uOiqX6izXcaDWu6qnV5LlidKBR6/orR5Er1gd9iD3KVHQ3c2PeZ5s5GbfNIsnG
+         //isGv+qyDvNXtbLf+EMy6JLV8I+dsJliyJQVUprCUVDFEBNt3vVM50/c7CIIsQZ/qMS
+         BFZmfOKL+Z0m0hDYUBl3+Jjww7yISYS2wcvK8zZhFVQZvny00Garz+IfwhkbsjCWidUT
+         6LfKj56k8B/Cjt6YMVMn8sO6O4F32OS/kWUdpdQmjstyr1CwyVb1s9nqyOndkNRyakVO
+         tJWg==
+X-Forwarded-Encrypted: i=1; AFNElJ8YGnf4YwwPkqas4PsyXi4CvWkeCjGqxIuMOyYqSt8bgPD/mHZ4RG2JgjY9I62GO1JiFtl7laxk4i+JIK+UoXv3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlcKRijQJysZthjdsS9Jpavf8eVFZ+yaiOT5cNtICEY38LOlus
+	WNsfvoEsEb3Vbac5vKEg7VF7+d00h9Z6O2PM/C+bKuAz7Y/1CgEUahOL2WGA3pZKgeA=
+X-Gm-Gg: Acq92OGh9LgRgJiH6GXtRNK6s8sN7fgUJ3sm8HdV7CaM9ncdcyMoLU/FM/1Qe23Epl/
+	rNxgiWYtue6FVVcqUaLCLCyMer05cr1o+TJbBgm0kxH5qm9A1JKOD8dYGSaKKpfqtGQFfrAASuN
+	LYbY5D/kNeRYlQhFZsQ+Z7PLprJiKH9eRh3idLFX7rBi2/fw6FocvlVDZ1qbePsXILwF921mPeN
+	N6W/KDhdYBUBhG/EGgUhokAnwKWSgsCLRNWqdfb+SIZ2xFsifOU/tZZx+MlpShP5MIP3PRBTbDI
+	3VS4dUfDH1ZATgfPHn8GeKUxrItjQnrFl0ToCp6vpyq84C+8H1GfV619U6z/qDalcV8fq0ya/+k
+	xrwMytaevuKG3Az5TyRayX+gIBmg8gpEe82y3Xe4KOvChXWYEYCN4BPtlmXLa6yzHb3j1Zw9BVQ
+	ES1hVQZ+ez3PrONqWk827TXQASX8ugQdL79YOTyuJ1qg==
+X-Received: by 2002:a05:600c:3e0f:b0:490:ce99:d2ee with SMTP id 5b1f17b1804b1-490d72058b7mr116681095e9.15.1781123714768;
+        Wed, 10 Jun 2026 13:35:14 -0700 (PDT)
 Received: from [192.168.0.2] ([2a07:7e81:7daa:0:202:c9ff:fe53:eda4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490dc4715e4sm62390975e9.0.2026.06.10.13.35.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490dc4715e4sm62390975e9.0.2026.06.10.13.35.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 13:35:11 -0700 (PDT)
+        Wed, 10 Jun 2026 13:35:14 -0700 (PDT)
 From: Angelo Dureghello <adureghello@baylibre.com>
 X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Date: Wed, 10 Jun 2026 22:35:07 +0200
-Subject: [PATCH v5 02/10] m68k: mcf5441x: add clock for DAC channel 1
+Date: Wed, 10 Jun 2026 22:35:09 +0200
+Subject: [PATCH v5 04/10] m68k: mcf5441x: add CCM registers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260610-wip-stmark2-dac-v5-2-b76b83366d5c@baylibre.com>
+Message-Id: <20260610-wip-stmark2-dac-v5-4-b76b83366d5c@baylibre.com>
 References: <20260610-wip-stmark2-dac-v5-0-b76b83366d5c@baylibre.com>
 In-Reply-To: <20260610-wip-stmark2-dac-v5-0-b76b83366d5c@baylibre.com>
 To: Greg Ungerer <gerg@linux-m68k.org>, 
@@ -92,8 +92,9 @@ Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org,
  Angelo Dureghello <adureghello@baylibre.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_133514_361879_C84E45FE 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20260610_133517_170549_971D7563 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,41 +111,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Angelo Dureghello <adureghello@baylibre.com>
 
-Add missing clock for mcf5441x DAC channel 1.
+Add CCM module register offsets.
 
 Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
 ---
- arch/m68k/coldfire/m5441x.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/m68k/include/asm/m5441xsim.h | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
-index 613b0275d9d8..5b5e09ecf487 100644
---- a/arch/m68k/coldfire/m5441x.c
-+++ b/arch/m68k/coldfire/m5441x.c
-@@ -44,6 +44,7 @@ DEFINE_CLK(0, "mcfpit.3", 35, MCF_BUSCLK);
- DEFINE_CLK(0, "mcfeport.0", 36, MCF_CLK);
- DEFINE_CLK(0, "mcfadc.0", 37, MCF_CLK);
- DEFINE_CLK(0, "mcfdac.0", 38, MCF_CLK);
-+DEFINE_CLK(0, "mcfdac.1", 39, MCF_CLK);
- DEFINE_CLK(0, "mcfrtc.0", 42, MCF_CLK);
- DEFINE_CLK(0, "mcfsim.0", 43, MCF_CLK);
- DEFINE_CLK(0, "mcfusb-otg.0", 44, MCF_CLK);
-@@ -106,6 +107,7 @@ static struct clk_lookup m5411x_clk_lookup[] = {
- 	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
- 	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
- 	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
-+	CLKDEV_INIT("mcfdac.1", NULL, &__clk_0_39),
- 	CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
- 	CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
- 	CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
-@@ -176,6 +178,7 @@ static struct clk * const disable_clks[] __initconst = {
- 	&__clk_0_35, /* pit.3 */
- 	&__clk_0_37, /* adc */
- 	&__clk_0_38, /* dac.0 */
-+	&__clk_0_39, /* dac.1 */
- 	&__clk_0_44, /* usb otg */
- 	&__clk_0_45, /* usb host */
- 	&__clk_0_47, /* ssi.0 */
+diff --git a/arch/m68k/include/asm/m5441xsim.h b/arch/m68k/include/asm/m5441xsim.h
+index f5acc962bb95..9ce2cbb05316 100644
+--- a/arch/m68k/include/asm/m5441xsim.h
++++ b/arch/m68k/include/asm/m5441xsim.h
+@@ -125,6 +125,26 @@
+ #define MCFPM_PPMHR1		0xfc040038
+ #define MCFPM_PPMLR1		0xfc04003c
+ #define MCFPM_LPCR		0xec090007
++
++/*
++ * Chip Configuration Module (CCM).
++ */
++#define MCF_CCM_CCR		0xec090004
++#define MCF_CCM_RCON		0xec090008
++#define MCF_CCM_CIR		0xec09000a
++#define MCF_CCM_MISCCR		0xec09000e
++#define MCF_CCM_CDRH		0xec090010
++#define MCF_CCM_CDRL		0xec090012
++#define MCF_CCM_UOCSR		0xec090014
++#define MCF_CCM_UHCSR		0xec090016
++#define MCF_CCM_MISCCR3		0xec090018
++#define MCF_CCM_MISCCR2		0xec09001a
++#define MCF_CCM_ADCTSR		0xec09001c
++#define MCF_CCM_DACTSR		0xec09001e
++#define MCF_CCM_SBFSR		0xec090020
++#define MCF_CCM_SBFCR		0xec090022
++#define MCF_CCM_FNACR		0xec090024
++
+ /*
+  *  UART module.
+  */
 
 -- 
 2.54.0
