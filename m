@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0389BCD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 13:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF23ACD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 13:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuYHe/CNiuZeBGy3PDq0TYt7SKGdMlrug+s3F+qMfDc=; b=TEW5xWvlL3JpZf+P+1HB9FmvjZ
-	BblgDr1H8FzXP8LGGC8X494z6BQNX0IF/aNB7jYF10F3ewT6hNAFVbI4NvhQ4WBYNQ7Gi0qEUzsw+
-	u6XtedMTlSNFwv5FC1sK3CZxHBufWWLgfnUFC3rkFGHMteDe7E+z4lG5ac8Y5OjxPN+Sc9Ja5MTme
-	ZZH3lV1mdOho12Y9HYJQ0OeXf/PpmkoOrwygl/roBlu+hyfkvR27FMZe3ozvG7SMMusPaqM2pDrYb
-	bzCeCM49xXUF9CRj3RtAdlwjGrpYHdvqcSfzLOxSlimCFaGeN1YH6ffAQra8DTQWo0TXZB9Crbgv/
-	CSEBU2ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BGHkQNIcnO67qdZeWXWc4L3zaP3PkHtDlFiASvmwoyg=; b=xWB4sOYzFGcUb3QPkYf8e+ho/h
+	uVc/Dgc5ImEGC1GXie8co+wwakmXZ7YUf2OPJOcKqhZ/m41xzaat48CKd75zf0wyczqzqnSjvtPJy
+	aY5XBfcrvLKYDDHUgQCPkBsy6PiDc5bo+0I1nHVibNY38/CGvAn08pIFv0NNJ09ArjlhflS+ZGgWQ
+	J+B1AiYrEFLp8FujFx6oKp4ggelrWG59DunM2SvhcVUQ8KZ7LvprcSImIcrHUkPtWMiHhEQ0xck76
+	u2pMIRtCQKGpjOLOwqfC3WJEL8WFuz91+lgRVGzZ/JiiHYEznqWiYpyQPzhyQAR5YQC7CY6Tn+5Ct
+	L+KxZhrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXIuz-00000007lnJ-19kx;
-	Wed, 10 Jun 2026 13:24:29 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wXIw1-00000007m0M-2AgN;
+	Wed, 10 Jun 2026 13:25:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXIuv-00000007lmC-3pfx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 13:24:28 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 887DA4E42E01;
-	Wed, 10 Jun 2026 13:24:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 50B7D5FFC9;
-	Wed, 10 Jun 2026 13:24:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E75DD106B9316;
-	Wed, 10 Jun 2026 15:24:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781097858; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=HuYHe/CNiuZeBGy3PDq0TYt7SKGdMlrug+s3F+qMfDc=;
-	b=0nTSHjKzxPXZBVWqZua8Og2r0GBdYG6BhajQL/lmUmUjp58ymKJerN5mf+51bhppUBAFpY
-	2BdrrSrR6oj/8HPUvEVUYM9+Igt3YQ0+W4RUxJiGqcpKeZgp+B2Ij22lTxLyYpvBorGBF0
-	artzSGZunjeHxpZ1oq6SwUrGWy20wnyzhS7eLtiI6E0j/GjIOCshPOSek6WV2wj5MSkLsq
-	Op6ANk/axXjMD8NpmlRuUzEbZ/aEcwUL6/1J5Q722QMpLQFC0TGVKDVV6gMlAr5BmgmM/7
-	vjy1lMVcayXJp8rcKTyQ4BgHJRaQd09JL94n9Vu0DvEiTaUpsSoXsX94yXqNxg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 10 Jun 2026 15:24:10 +0200
-Message-Id: <DJ5EHSOPNQZH.22I96C6QXN9KJ@bootlin.com>
-Subject: Re: [PATCH 18/37] drm/bridge: samsung-dsim: remove the panel_bridge
- on host_detach
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
- "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-18-45e2bdb3dfb4@bootlin.com>
- <20260608-nano-kangaroo-of-piety-b5ab3d@houat>
-In-Reply-To: <20260608-nano-kangaroo-of-piety-b5ab3d@houat>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_062426_232635_B353F96D 
-X-CRM114-Status: GOOD (  28.84  )
+	id 1wXIw0-00000007lzu-0u3m;
+	Wed, 10 Jun 2026 13:25:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC7814406F;
+	Wed, 10 Jun 2026 13:25:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4039B1F00893;
+	Wed, 10 Jun 2026 13:25:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781097931;
+	bh=BGHkQNIcnO67qdZeWXWc4L3zaP3PkHtDlFiASvmwoyg=;
+	h=From:Date:Subject:To:Cc;
+	b=NESv/YSMug2guyTsmzMnuCCgaUFCkr0wAxYOPF+X1JObiDY4BXiB6Yyeujo8fUF9A
+	 9n6eE+JDQf0SUbiIqUoOm+IQPPPe8dEy+WhMTr6vVv+bVbwlQ06hb4d+ieZ9o+Ajg4
+	 TAyejcYp5cFMkhncjyk12SQzBV+/bTYcyQ9xjZm0PUxQXvl1WbmRDVGIE+/xl2vgyi
+	 9OkAqW0oEWsWRd19ktJIZwcwk7ell69E3SNYcZD6c2hazWQpWT+cQ77N8A9rdIMLZk
+	 0bE0AjbQ4nhRjBA8nICiqpfVIZLLZ81AvPYgJUJaBEnw5IOmnhNxjMgRS9KyOlqXIM
+	 7ADpHfcoZ10/w==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 10 Jun 2026 15:25:13 +0200
+Subject: [PATCH net-next v2] net: airoha: simplify WAN device check in
+ airoha_dev_init()
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260610-airoha-eth-simplify-dev-init-v2-1-8f244e69b0d4@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQqDMBBFryKz7pRotbWueo/iQuLEDLWJTEJQx
+ Ls3eILyV48H7+8QSJgCdMUOQokDe5ehuhSg7eAmQh4zQ6Wqu8rDgcXbASlaDPxdZjYbjpSQHUd
+ sxuamH1orVRPkxCJkeD3zb3AU0dEaoc/GcohetvM3laf/7yKVWKJRrWmpVnnP14fE0Xz1MkF/H
+ McPMGzOmtMAAAA=
+X-Change-ID: 20260606-airoha-eth-simplify-dev-init-5d53c7cc004e
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,143 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jun 8, 2026 at 1:53 PM CEST, Maxime Ripard wrote:
-> On Tue, May 19, 2026 at 12:37:35PM +0200, Luca Ceresoli wrote:
->> In preparation for DRM bridge hot-plugging, we need to handle the dynami=
-c
->> lifetime of the following bridge in case the samsung-dsim is always pres=
-ent
->> and the following bridge (next_bridge) is hot-unplugged.
->>
->> Based on the 'if (!IS_ERR(panel))' check in samsung_dsim_host_attach(), =
-the
->> next_bridge could be A) a panel bridge created by this driver via
->> devm_drm_panel_bridge_add() or B) a pre-existing bridge obtained via
->> of_drm_find_and_get_bridge().
->>
->> For case B) we need to put that reference when the next_bridge is remove=
-d,
->> which is already handled by calling drm_bridge_clear_and_put() in
->> samsung_dsim_host_detach() and in the samsung_dsim_host_attach() error
->> management code.
->>
->> In case A) we additionally have to remove the panel bridge. Currently it=
- is
->> created by devm_drm_panel_bridge_add(), which adds two devm actions with
->> the refcounted panel bridge:
->>
->>  - drm_bridge_put_void() via devm_drm_bridge_alloc() on panel->dev
->>  - devm_drm_panel_bridge_release() via devm_drm_panel_bridge_add_typed()
->>    on the consumer device (samsung-dsim)
->>
->> The first action is OK: being tied to panel->dev it will happen when the
->> panel is unplugged.
->>
->> The second action is bound to the consumer device, so the devm semantics=
- is
->> not useful here when introducing hotplug. Indeed we need to drop the
->> next_bridge in samsung_dsim_host_detach() anyway, before the driver .rem=
-ove
->> function, in order to support {add, {attach, detach} x N, remove} hotplu=
-g
->> event sequences.
->>
->> Thus move to the non-devm drm_panel_bridge_add() along with the matching
->> drm_panel_bridge_remove(), so the lifetime of the panel-bridge is tied t=
-o
->> the host_attach/host_detach cycle and not the whole samsung-dsim device
->> lifetime.
->>
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->>
->> ---
->>
->> In a previous discussion with Maxime he mentioned a plan to make every
->> drm_panel always have a wrapping bridge. With that done, all the code
->> handling the panel and adding the panel_bridge would become useless here
->> (and in many other places) and could be entirely removed. This patch is =
-a
->> temporary solution until that happens. The best pointer I could find to
->> that discussion is [0], but there might be more recent material I could =
-not
->> find at the moment.
->>
->> [0] https://lore.kernel.org/lkml/20250218-faithful-white-magpie-da9ac9@h=
-ouat/
->> ---
->>  drivers/gpu/drm/bridge/samsung-dsim.c | 17 ++++++++++++++---
->>  include/drm/bridge/samsung-dsim.h     |  2 ++
->>  2 files changed, 16 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bri=
-dge/samsung-dsim.c
->> index 5b799619e07e..2af287221e22 100644
->> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
->> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
->> @@ -1951,14 +1951,16 @@ static int samsung_dsim_host_attach(struct mipi_=
-dsi_host *host,
->>  	if (!remote)
->>  		return -ENODEV;
->>
->> +	dsi->panel_bridge_added =3D false;
->>  	panel =3D of_drm_find_panel(remote);
->>  	if (!IS_ERR(panel)) {
->> -		next_bridge =3D devm_drm_panel_bridge_add(dev, panel);
->> +		next_bridge =3D drm_panel_bridge_add(panel);
->>  		if (IS_ERR(next_bridge)) {
->>  			ret =3D PTR_ERR(next_bridge);
->>  			next_bridge =3D NULL; // Inhibit the cleanup action on an ERR_PTR
->>  		} else {
->>  			drm_bridge_get(next_bridge);
->> +			dsi->panel_bridge_added =3D true;
->>  		}
->>  	} else {
->>  		next_bridge =3D of_drm_find_and_get_bridge(remote);
->> @@ -1989,7 +1991,7 @@ static int samsung_dsim_host_attach(struct mipi_ds=
-i_host *host,
->>  	if (!(device->mode_flags & MIPI_DSI_MODE_VIDEO)) {
->>  		ret =3D samsung_dsim_register_te_irq(dsi, &device->dev);
->>  		if (ret)
->> -			goto err_remove_bridge;
->> +			goto err_remove_panel_bridge;
->>  	}
->>
->>  	// The next bridge can be used by host_ops->attach
->> @@ -2011,8 +2013,12 @@ static int samsung_dsim_host_attach(struct mipi_d=
-si_host *host,
->>  	drm_bridge_clear_and_put(&dsi->bridge.next_bridge);
->>  	if (!(device->mode_flags & MIPI_DSI_MODE_VIDEO))
->>  		samsung_dsim_unregister_te_irq(dsi);
->> -err_remove_bridge:
->> +err_remove_panel_bridge:
->>  	drm_bridge_remove(&dsi->bridge);
->> +	if (dsi->panel_bridge_added) {
->> +		drm_panel_bridge_remove(next_bridge);
->> +		dsi->panel_bridge_added =3D false;
->> +	}
->
-> This is a pretty big abstraction leak. We don't want to have that in
-> everything driver. The removal path should be the same for both cases,
-> and it's not something the driver should take care of.
+airoha_register_gdm_devices() iterates eth->ports[] in order, so GDM2's
+netdev is always registered before GDM3/GDM4. This means the explicit
+check for eth->ports[1] && eth->ports[1]->devs[0] is a redundant
+special-case of what airoha_get_wan_gdm_dev() already covers, since
+GDM2 is always marked as WAN during its own ndo_init.
+Remove the redundant check and rely solely on airoha_get_wan_gdm_dev()
+which handles both the GDM2-present and GDM2-absent cases.
 
-Yes. The comment after the '---' separator was meant to discuss this
-concern:
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v2:
+- Rebase on top of net-next.
+- Link to v1: https://lore.kernel.org/r/20260606-airoha-eth-simplify-dev-init-v1-1-f08f8e404049@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
 
-> In a previous discussion with Maxime he mentioned a plan to make every
-> drm_panel always have a wrapping bridge. With that done, all the code
-> handling the panel and adding the panel_bridge would become useless here
-> (and in many other places) and could be entirely removed. This patch is a
-> temporary solution until that happens. The best pointer I could find to
-> that discussion is [0], but there might be more recent material I could n=
-ot
-> find at the moment.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 5a8e84fa9918..b333a7b309c2 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -2004,18 +2004,10 @@ static int airoha_dev_init(struct net_device *netdev)
+ 
+ 	switch (port->id) {
+ 	case AIROHA_GDM3_IDX:
+-	case AIROHA_GDM4_IDX: {
+-		struct airoha_eth *eth = dev->eth;
+-
+-		/* GDM2 supports a single net_device */
+-		if (eth->ports[1] && eth->ports[1]->devs[0])
+-			break;
+-
+-		if (airoha_get_wan_gdm_dev(eth))
++	case AIROHA_GDM4_IDX:
++		if (airoha_get_wan_gdm_dev(dev->eth))
+ 			break;
+-
+ 		fallthrough;
+-	}
+ 	case AIROHA_GDM2_IDX:
+ 		/* GDM2 is always used as wan */
+ 		dev->flags |= AIROHA_PRIV_F_WAN;
 
-Do you have any update about that plan?
+---
+base-commit: 5855479abc796c3b5d7b2f2ca147d68fc56cae1f
+change-id: 20260606-airoha-eth-simplify-dev-init-5d53c7cc004e
 
-Luca
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
