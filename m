@@ -4,112 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0B5CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 06:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B122CD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 06:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sf27jUZrV/4ePYlo+ltQi/cb6ikm1nezgKuVcZuPbNE=; b=cTz75nkmGJ7iM9MtvOq1OwJ5oX
-	CBQxoSWNDK6HwSg+sJh5zJ+KoBVOQTWELvq2K3SUE9wxCfpfLS9o2bAEl2a6ywbMa9MSvcLpDCyPb
-	KHpCZnxksABh6AS8FJqE8/rwOpEQ1UC0ttRO22k/AzySGMoYD1tJrHS3ChC+8EQ69EzHXRQ0h+veI
-	sT4jKxT3AeK0UJmlWDMS1GCdMLkq6MF+5d39r7bvzW7bClTjQOOCQg+UwsSJsXwxW/TvJhHc7QJ8g
-	j7ELVuSpBdpjlCEZcxlo7IGqB8pD1P97mISWza0cJwVBqeEzRujrJETgsP30QvFLgPxlw1qy84S4b
-	dhvOwfWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EQXq7y4VDRCnCs7aTyPe3mddFLkda83JZJ2Nuluqp8U=; b=cPqTDzV7WYkYerv1yv7TVpqPy7
+	ybj6EG+E8bMCgCofQigQbtWmUi2GNZsD/oAKnBuwYBrte32QRfAeG0HojjsGQVF30G/E3aQkaX7al
+	KpwxdHQfrSNr2A0uvjfIYYBX8gmwgJ2Pq6JRvi31ErUIozH3TiJT+yWq9gmi+fdbIfo2XSCCOjW8k
+	UyYd21UWpIRc6b3Iski3AmaMNfVhy08VOjPMM7PFTeOKtiIF5X6KUn95uv+Rjnp95kvWgD+BsybS5
+	9C12NC0Arh4Iqyovl6+P/vI2B/4T7OhdfsaNNKRX3HmbPHY+5ujmZqWKGvyQ+zjuj9YCPakgSJ8Et
+	6t6Uh3eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXC5A-00000006r0N-3KVb;
-	Wed, 10 Jun 2026 06:06:32 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wXCFj-00000006rlG-3pOC;
+	Wed, 10 Jun 2026 06:17:27 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXC55-00000006qyr-1wN4
+	id 1wXCFg-00000006rk8-3n3t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 06:06:31 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-68852b58d87so11672576a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 23:06:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781071585; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Y+/hDsUsWh2nymcicFk/j1AeSM9Nwu/8WinUChETVq3VOH8vAGO0V0ErvfxVz3gRul
-         oUAXhVnsoWhhQIUpze/VZaeAItOFLGx0SiaVNMz+Q0eE6LKwo7SwArUOJxwDqbe/CFNm
-         Hgp+Ou72HsMHbGwEp43qm6/2ICvJ7ESUEFNmWPxCBz1m95peF/bX6Xmw+n/WGZ78Ieqf
-         oA+uSD5VkgX/fMG8v8RpEi9z6uziLOvZRQCpx8ajLn5o+Nr2opdnAHVX5/sJ8VJlg33t
-         57l/7H8SQuM0N9bJzhPjo/cHxbv+MrgZL+LXLpQgnrYJhP5S/dd34gIMzH4ouC1QntfV
-         oPtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Sf27jUZrV/4ePYlo+ltQi/cb6ikm1nezgKuVcZuPbNE=;
-        fh=PzqCgWqdg7iNLbC01ZYUV1k0ug0ML8eaJe6JSCyqaUY=;
-        b=AAADrJSvqzGw9BCFCkrot4EvNLflN4cStUgXSljDj9fnVZAgStvhrxCiwmJdIX+Hij
-         Q9bcRhgPex2GvuWyWRXV7OszDpsWtmAFd8LXcNLR9hjaab4Wu9uyr2iGngnJK552rakJ
-         RRliieCSETFrO9qzaP6Pa4iLByY7ImMK7s4AubLcXtzwBwA/6Kty3/09KKlv1uxtuyc0
-         bNJHFzPHKbHum5NiSUev71T4yWEVQ+BlNRD5x0sgE4e2HHcfu3o/oeg0HqhV//Ycp03h
-         XwEv1DAguP9DD55lY2gWcpKVk/y3Z0HscyDrb2ruRfgXpClCilYIILZ2+eDlnAX5ST10
-         FPwA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781071585; x=1781676385; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Sf27jUZrV/4ePYlo+ltQi/cb6ikm1nezgKuVcZuPbNE=;
-        b=fNZ6BshYUa1fSu2TuwM4Dw/9nBZHWUrsJvFkQNuATVbSvv3fFvpt+13HQmE7Gv2xAs
-         oMia0EAvhl0I/KFOxAobzLfM4qImykIoc446UzMCeBHx9f01S1Yv0vkwGshmjIcVrh5i
-         co7yW6janorPDEOWN7qCKiPRqXFE2GrQO+S0PSIH2kjuf1NAjozPCUa9UV06N9kSg8kD
-         sLurv7brR+wfGbIeUOI6O/w9cVK7L9Y6KOv5tkh7Vc1cZuIhwzmfr4WdhvENazs0FRV9
-         MJ5o/oCDpaaXOBeROb+TpqEER4/myqlrssqYWljjGaqTTvUmw5LuuTGbl2H92mSp8dcV
-         AZPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781071585; x=1781676385;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Sf27jUZrV/4ePYlo+ltQi/cb6ikm1nezgKuVcZuPbNE=;
-        b=k7fmJb6q65XPaAPu0PtT0hmp/PMmGzPwfjtU2yDk4D72biJewRO+7715z1o0cxCN0X
-         4LchGYVabC/Nj5YJjHqlLZ9dTe+nHeNmH4Tz59NE3c8U/Q6qnKaUJQiLGLiWSWjxZOO/
-         SNuUm+g8IC9fMWnm8HE+iGemEQPwnioA5fFLzmQi3T7qwV+XHcuj70jKDr8Qq7VMm5Bh
-         nTqsiWfIiJOmpqk1YIMigLRYtV+PtVYTcJrdWypZ+98gRVng8mjOZgRmtCjUR+yOyUv5
-         tJmMZZXVJqREPvg1dhnVEHNdGfg815k8NlNaS7t+sUoj8uQI/o3YByuRkAHDKplEHnF1
-         FHMQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8CIOt4vlSaGyvVpY5oGC0piT7gJA1CqGiKsJvSnCLKUAlcUuVKqKyq7B32KMuWPXD1V2cQNL4gmcUaJC+ektl8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxdn+ZzLbVv9+E+5knjoW2W3Jcij57sFN9J7gYdIlapwcIlGMoA
-	RV4Rh4/TjOrN7drFTKWeXvkaNrFeLVqhCzuRkxgYm9MJN+A+hqpX+pgbQvLaGYHyvOW2HBi7g73
-	y1M2rUsJVTjtYPqIh30U7SjfOPiU/zM8=
-X-Gm-Gg: Acq92OE9MBzUN85Q/QiAiMUEoZCWe3Df6ppUkBqCQbush/pffUdM3md0NW6+anPHnHf
-	/RJ9HkWg4s3nCSHndw72wDR9C+I6yalloLQYtlplwUzb9uNEoGOblVC9Vegyd3J+vnPaLBg0vux
-	JYpYdrxPKgGLFwpRmAyxSzhq7ClE6jmDkq5MiOTEDGd1q8QsyCG31C9RqaNspbpZQelI2XYGspp
-	RprF+E3baA6PQVjoPjviruDoA8f74cXwA7j9SS0NGutrxT3hV4HG7GfdxugsWEgo3HGB+BukA4x
-	U717il8GB4a9EExJV7ZH+d9jA7IAgjQyHI30B2AALZp9zdl0Ird6ek85RQn6G6qXLXEPHC1mPVz
-	GuYyXk/MJFS4mcbN8YvHBbIfvBfOtt86LuCKkby2BAsa5AUiLpP0d7UvIWo0E8ZiqDkzgMcrpwp
-	dahjk=
-X-Received: by 2002:a05:6402:5216:b0:687:1c98:a19a with SMTP id
- 4fb4d7f45d1cf-68fa4f3d294mr12615404a12.13.1781071585304; Tue, 09 Jun 2026
- 23:06:25 -0700 (PDT)
+	Wed, 10 Jun 2026 06:17:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MLV7+EUeGKdcUEj/l2bSqBXbcfrXYLrsDi9wwVYkKOSvH0G+QXOOocU9WXpg8qXYxWm/SRNdeKZczvKQPprUgSSQIrnmLMQxa24UWtQP9tMnBCC9lj+deIMxnvhaLl0fxADN3XOHqy7rfQH5Z945rpducHVrHX51379o4let+/CnO+2bGwKmFiuvkNHADLAeUIGi/zUNBhrgzOePuCUQuS/WKYWV933rNEBB8k9+Lam032CrqUx9pDiOKJW425syWS1FZO8lSOdOJe9CUSYqP3F5H4SW3bg1VKOX7Kn1vvEHumLQ9CInw1YaosZuOcqK7O57sSB1yFuOCQaHxtJNnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EQXq7y4VDRCnCs7aTyPe3mddFLkda83JZJ2Nuluqp8U=;
+ b=mTbyAgeOYZ33EqIvAJwGJBjxWrYITJOWwOn9WKwEsZFZj145BvypG3r5l845LVwq7uT8etcCsu1w34rx6zIKxbOq3rmmPl0NSS9U20MFck/Cje5qwpQZSE4kq2+YDUO/Im4H/6nvQ2zxvjgE1KbJxIO2RuIAZxtTkQa1VUotSTUfgLT4XOttrMNb4YI7GwI1Qb795owCoeg1wtkW3FY148OatSwGSdhAQ4kV1AkUPVR9f2+tDQ93Hl1k+Eq1ZELMo4VeFQ7QaKmrXkNldv6Q3WwqEP3+mw8cidUIClZ1+IUDzKhnA/qitjKy3Fnr+H+H12alIR3M8Md1ch/JJUsx3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI3PR02CA0005.apcprd02.prod.outlook.com (2603:1096:4:295::7) by
+ PUZPR06MB6006.apcprd06.prod.outlook.com (2603:1096:301:11e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.11; Wed, 10 Jun
+ 2026 06:17:17 +0000
+Received: from OSA0EPF000000CA.apcprd02.prod.outlook.com
+ (2603:1096:4:295:cafe::6e) by SI3PR02CA0005.outlook.office365.com
+ (2603:1096:4:295::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Wed,
+ 10 Jun 2026 06:17:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CA.mail.protection.outlook.com (10.167.240.56) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 06:17:16 +0000
+Received: from cix (unknown [172.18.64.61])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AACAE40A53A1;
+	Wed, 10 Jun 2026 14:17:15 +0800 (CST)
+From: joakim.zhang@cixtech.com
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	bmasney@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	gary.yang@cixtech.com
+Cc: cix-kernel-upstream@cixtech.com,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joakim Zhang <joakim.zhang@cixtech.com>
+Subject: [PATCH v3 5/5] arm64: dts: cix: sky1: add audss system control
+Date: Wed, 10 Jun 2026 14:17:12 +0800
+Message-ID: <20260610061712.3203984-6-joakim.zhang@cixtech.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260610061712.3203984-1-joakim.zhang@cixtech.com>
+References: <20260610061712.3203984-1-joakim.zhang@cixtech.com>
 MIME-Version: 1.0
-References: <20260609223717.41670-1-rosenp@gmail.com> <20260609223717.41670-2-rosenp@gmail.com>
- <aii6RX0321fJV99W@SMW015318>
-In-Reply-To: <aii6RX0321fJV99W@SMW015318>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Tue, 9 Jun 2026 23:06:13 -0700
-X-Gm-Features: AVVi8CdoKJGr2CY6Ts2b1YU7fzVQIRGuXCKSNkOV6YDrgIls9cvowFQd_CqCISg
-Message-ID: <CAKxU2N_KcPHAAd=JO6CQuJMqs3PsQd9HBtdW=KbLGOKbfB4H1Q@mail.gmail.com>
-Subject: Re: [PATCHv2 1/4] serial: mxs-auart: fix cast type for of_device_get_match_data
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: linux-serial@vger.kernel.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>, 
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CA:EE_|PUZPR06MB6006:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 700e391e-ce50-417a-e680-08dec6b7eb9e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|1800799024|7416014|376014|36860700016|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: PTwH/YNG0OQhIrNYTOKllvJW+9DcZyrKn/OIfctido/QBd9dDHPzkbS4uEKaJewulcbkFnmkxS7cXd2n8aqBHo5A3sTIcYEzZtI4jQYEw0LicWP2ade0D+C+0//jS8Gjp2qMhiXP9YINDky6+Xr/UZgxFD5DETFvOPI8UA/3PRo/T1VYbgZqmsbKjW4skhrKE7uHk0S12+3X3BWzKYhYcvzqFpJNTg+eA2vCipCBpYeDllOCX01v1OBzryXuP3mc3kbKHfJsNOnciboO0YKomJO4wRAdhNcWYgRvICqt0SWKMO0UykYkF1kIe3KVpMS66Ch2Xbgt6vja6SAnGMCI4XQ/PMsaeGFcGh17p2mI96u98EgPz9zBWYW+GO76RAu6Sy16ldiLY545k4tpyGjpllVUINnzC1ONbeQnuCL8SFrGVFV7uuwrcCm0Hh4s5q46tbhbB8mj2sblqmPLIvTxsPfZCRAwl06sRTG5bAMGWX1RAhXwXKHjAttLJ4zIukvJB42+4cTTfD5g72UD5TcsMbA/gTA5zHvHoQcUocdiDYTj+8oIfE8EbvHQ0MwUi1fWm8Qm5n0PNS8/Xc5B3vyPOXY/saYv6+ev7FqGD3KDbj6EFZETgr1HMgylQeIJawdqQIl8eoNKctr2++8aEe3jfsQW0A1QxbQYIHJ98CIMxZmUa87tp+dte/xAnfuUtRjocQCYqYL4FA1cQKdR83sW0Gn6XehH5/8U48YlaznFce8=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(7416014)(376014)(36860700016)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: HtcNEXBvjeTqu+iSKgmDNGLUoyk2FpUfFvdJ46dznRxvU5MSLXHf13uUcs4YWGcWgnFYRVnzto5CsXZ9cEGX0HkxB6cb8hQulWsbnMPlE137THAj7OuJC3Vz7t4vlPXgi1R9KJjIqif6E5hYHnnTx7v4v4aiDta8q9b+1buKJJXnDWO8AtJvNJCen5v30GbdsUA7IkjulLz6SBYRMNXASWSAhEr4Anvl5NC5MKFKHsnGSLWUdGU7V7cu0fkCXznPTqaDoA6kO/9gaZYdRlrMKgLad1xILC7w3xoLcmJsmpNRx0XyidSSeetAoubjI0oiX6n5R8Qlyc+Oa2rspcnHmp5s1dZLbwKd8adJhzj/N33qCT9RwDQQZOLOYZsNvezNbGvIiIsejkq/q6uHOYohrOr2ZZd2NlQezSjWTj/55MBo7CLjmBAilMeBmtwCfdXB
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 06:17:16.5441
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 700e391e-ce50-417a-e680-08dec6b7eb9e
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CA.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB6006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_230627_521249_B90707D0 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20260609_231724_946586_A7796BA1 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,57 +124,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 9, 2026 at 6:13=E2=80=AFPM Frank Li <Frank.li@oss.nxp.com> wrot=
-e:
->
-> On Tue, Jun 09, 2026 at 03:37:14PM -0700, Rosen Penev wrote:
-> > of_device_get_match_data returns const void*. Cast to unsigned long to
-> > avoid implicit integer truncation warnings. All the data parameters are
-> > correct anyway.
->
-> It is not worth to fix it by this ways. cast void * to int/long is not go=
-od
-> at all.
-It's just a compilation fix. The same solution is used in many other places=
-.
->
-> struct drvdata
-> {
->         enum mxs_auart_type type;
-> }
->
-> static const struct drvata chip_imx28;
->
-> &chip_imx28 as drv data.
-That's a lot of work just to avoid a cast.
->
-> Frank
-> >
-> > Assisted-by: opencode:big-pickle
-> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > ---
-> >  drivers/tty/serial/mxs-auart.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-au=
-art.c
-> > index 697318dbb146..de97c0f74e7d 100644
-> > --- a/drivers/tty/serial/mxs-auart.c
-> > +++ b/drivers/tty/serial/mxs-auart.c
-> > @@ -1598,7 +1598,7 @@ static int mxs_auart_probe(struct platform_device=
- *pdev)
-> >               return -EINVAL;
-> >       }
-> >
-> > -     s->devtype =3D (enum mxs_auart_type)of_device_get_match_data(&pde=
-v->dev);
-> > +     s->devtype =3D (unsigned long)of_device_get_match_data(&pdev->dev=
-);
-> >
-> >       ret =3D mxs_get_clks(s, pdev);
-> >       if (ret)
-> > --
-> > 2.54.0
-> >
-> >
+From: Joakim Zhang <joakim.zhang@cixtech.com>
+
+Add audss system control device node, which would provides
+clocks and resets for devices in audss domain.
+
+Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+---
+ arch/arm64/boot/dts/cix/sky1.dtsi | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index bb5cfb1f2113..368a1d85c93d 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -6,6 +6,10 @@
+ 
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/cix,sky1.h>
++#include <dt-bindings/clock/cix,sky1-audss.h>
++#include <dt-bindings/reset/cix,sky1-system-control.h>
++#include <dt-bindings/reset/cix,sky1-s5-system-control.h>
++#include <dt-bindings/reset/cix,sky1-audss-system-control.h>
+ #include "sky1-power.h"
+ 
+ / {
+@@ -488,6 +492,26 @@ mbox_pm2ap: mailbox@65a0080 {
+ 			cix,mbox-dir = "rx";
+ 		};
+ 
++		audss_cru: system-controller@7110000 {
++			compatible = "cix,sky1-audss-system-control", "simple-mfd", "syscon";
++			reg = <0x0 0x07110000 0x0 0x10000>;
++			#reset-cells = <1>;
++			status = "okay";
++
++			audss_clk: clock-controller {
++				compatible = "cix,sky1-audss-clock";
++				power-domains = <&smc_devpd SKY1_PD_AUDIO>;
++				resets = <&s5_syscon SKY1_AUDIO_HIFI5_NOC_RESET_N>;
++				clocks = <&scmi_clk CLK_TREE_AUDIO_CLK0>,
++					 <&scmi_clk CLK_TREE_AUDIO_CLK2>,
++					 <&scmi_clk CLK_TREE_AUDIO_CLK4>,
++					 <&scmi_clk CLK_TREE_AUDIO_CLK5>;
++				clock-names = "x8k", "x11k", "sys", "48m";
++				#clock-cells = <1>;
++				status = "okay";
++			};
++		};
++
+ 		mbox_sfh2ap: mailbox@8090000 {
+ 			compatible = "cix,sky1-mbox";
+ 			reg = <0x0 0x08090000 0x0 0x10000>;
+-- 
+2.50.1
+
 
