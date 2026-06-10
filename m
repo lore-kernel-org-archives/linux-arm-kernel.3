@@ -4,62 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0952CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757BDCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=huOArweXhGZIE9bNjo12S1RadYYw8h6SUyOuwXeK+9c=; b=PqB88BhJGur+BdFYZ1BLg8o1AO
-	Qv+BLxIbwihL1KdNTIQWWJWh7G2yCSiP/uyxNfENn5EbzjGzxbMdIzQS1340HjhJqVaXdvOqU4FIU
-	nCk5UqLX/4uLkWQ+4YMnrUBqN6HpCO1fWXhD/DG4T92z2bqkerzJl65dqttL0G0cHFHzFqtpfZlaj
-	kDY5y4dCGuiHEFohI9e4HlPbBn2al9d/AKE2laCFYgrHuEwkeWA2F53dkp8g+LMEr+uQJVRx2yg6b
-	AqVY4rATu26ihenZVkTukAw8w6o9LccePRoEb5DfGUj7VAnFDnLiGQcGWLz+2UYoQhrMPylY09ti3
-	tVUv8xNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KWnTRg+mjczQPC1dW7dIXNyJPlDFUHTGB3Kh2mwFLDE=; b=J/YyRlqkKWxEdUhJNcUMKsUO8i
+	Zf1iSlBhxSzbSCGjIjZK0XlB1aomA7zksSgIdW1itE0o/P9uQydNQjvVtFU3OZL0a/FlbJ468JUeh
+	yGlvDXD5inPdNCH6TKeBi9ZQjKnnAV3wJC2zQP8FCPSFsp3NT5AMtLJhGkHVF+amvQBz7uRIdquXI
+	PxFfzMjyW0O9/vkaHqWXBELFAOYXbhmcvEF6Mb0E3BsKRNHI5E/3t1ISbnfkEDLe6lY5/L8iEvqfc
+	Cl1dEou5hyslaHYc7pwK0O8Abt4xVlHhe6GTYPXPD15pDOhTxeclyiYixaSDykKQttGPXnyb5197y
+	rJpVkmPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXGtw-00000007VFI-2oOs;
-	Wed, 10 Jun 2026 11:15:16 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wXGuW-00000007VJo-3m6w;
+	Wed, 10 Jun 2026 11:15:52 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXGtt-00000007VEc-3v7R
+	id 1wXGuU-00000007VIx-2u0t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 11:15:15 +0000
+	Wed, 10 Jun 2026 11:15:51 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2bf20f6be6bso52290405ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 04:15:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1781090103;
-	bh=huOArweXhGZIE9bNjo12S1RadYYw8h6SUyOuwXeK+9c=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GS2dT7kyT+8KmH/uyXKZYYMSKcKjdLp2WjzBp+OrvXxhLfoSk+nuo0AGiKUXPSDKb
-	 ogljH0Z4KhiNg7c7//rN+PxEOaiAIUZnbZxnVQP2BZZ/hOrAcScGbIcA2OyIcG5uY2
-	 3JnXl7nYmOqmNSAY1UTpRdm19/pUHGiCNV4+w37ya5KjAhNGojedO02bv8PDIsuXU0
-	 BAA32Z1hDNlouzgEN4WhBpEZ3IYemBluFlO6V8epIeaz5adY+2b13NdYQ2E3WRPl7f
-	 8Ef+ffTcSoG8ronceSCvim4zaXtgkEws3EqrEZs+tdeo7BOrbvVqMdpHZuajVSSbaq
-	 IJOpOzwdXc3Fg==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id E6E3760A19;
-	Wed, 10 Jun 2026 19:15:02 +0800 (AWST)
-Message-ID: <3d56889c004fc2d11b76ace6033c7ccfb8a37d03.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v5 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Kyle Hsieh <kylehsieh1995@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Wed, 10 Jun 2026 20:45:02 +0930
-In-Reply-To: <20260608-ventura2_initial_dts-v5-2-37ee5bcf58b6@gmail.com>
-References: <20260608-ventura2_initial_dts-v5-0-37ee5bcf58b6@gmail.com>
-	 <20260608-ventura2_initial_dts-v5-2-37ee5bcf58b6@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=gmail.com; s=20251104; t=1781090149; x=1781694949; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KWnTRg+mjczQPC1dW7dIXNyJPlDFUHTGB3Kh2mwFLDE=;
+        b=WBXTtnsASWX1aeay/1vuwqDXTtasYgAP3ussoR7bbGJ92GyJdq3slg7b0xrehub8Di
+         xwjC8YcoG2bi0Nc1HpDTd3xZCVP5dmszu1wWy6fU2SUk2OAo4jpM4xGImseD0MZj9sau
+         G5Q8DMI3IHgWP7UNH5msCsLmO0a9xN3GSUg6FROCchw1UbDj6PAB4OB5KRe0apFCGYSn
+         G6zWm80r4J6svvO23OvWfMBMWHQll71TYkLuVw8JZxRtJJOTzWRaj1751TuHfa1dszEs
+         hJcxzNYb/cL89HcHG0ZxuobiSflT6dC+OQ5XIzN2nyzvZII7d0X7h2qD5wrZPA2XbxSE
+         fGpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781090149; x=1781694949;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KWnTRg+mjczQPC1dW7dIXNyJPlDFUHTGB3Kh2mwFLDE=;
+        b=RFyrTutJgBbdfPGJ39bdzxX/7y5wFrclvQ1lO/NvbqmvB2s5fIjTHkPGnBH7/gqD+b
+         gJVL6yZAKYHgvHFmdmk2//672TQxxexYbcMMnK5Tc/faO+z/G5HDZvDghZw5LDP/+WdN
+         U4Vfz3mJXNPNkhpDIefnq9/mUK8riYBxAe6nfJIbOf70bSp2+otE9VRiBr5XvYHRZ2Rt
+         HYiychhEFnu9HJrv2y6PczDjAsu9YHMjSAvIC3qlyJ7DlQxWuqUR8d6bDpiFFDhn3aJt
+         LSQgv8PuIxltFtrtCB1E/zHaxD9ItTpfdNtiCVyQHNyRhUznowlx1b2aQFVV+hwdjDWF
+         AtiQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+WhudzA3sV2ohQpTFdPD2E9FGp+juZzfS9atKcx5lkgwlXZ3paVnAegacWohC6u9GE4bRfdXJCFFdezcri6zPE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzioT14mvAh0wTkZ3b/bt9sb6iRH8Wazdm7DYIqnFVsps5CriCQ
+	RtUenZ25lmLXLgdBGwtOiwFWZpanHgKgv57eBqmgnj4kUsGSBjpc9zKY
+X-Gm-Gg: Acq92OHViFRh8IAgSS+X+IAKlA4QDRK6dO5tkGTeHvuW3hbSrbxTbylkRU4yGlZTSGq
+	mxZb9QzW/+m6bdtIAZEgNRLwuy8yxsvWCBpGewVIo89vyRann4xnaC/n69EMLrkDfAWQiIH+fUy
+	I8gSlX9CjPFArWDE/pgJ8WLD1mYFUYbxXh9+bc0UqSn8YkExEC+u6fR0W7JlP2jCS1zyaUbAAcF
+	ogumGY7GViNdwyo8j6S5pFQHTmws/Mpyz/VbGw/4ubBUunx+Ilnet4rh5itu9vsUAhzu5ORu2g3
+	RMi/YN7cPAe1Bw6pQ8oAG+3uuMLFryvkexVJsN3X+mPZXdEtfDmSHGDIAY11zwo9N2z5prqxTUU
+	4kYjEBqEJ/AWnn0DkmiDqmbMO5PWtpCW7QOR5SHeCpD5UicrRKFqwFLabEk0duBOvSGg8fd+k9W
+	05Db9tX75mR8GiNKyJKyC/v5uLYUCaVkwgjBNzRo7zyCkJC18XCAh7o6BiakyuXg==
+X-Received: by 2002:a17:902:e848:b0:2c0:b6c7:2273 with SMTP id d9443c01a7336-2c1e79e29ebmr292674635ad.3.1781090149023;
+        Wed, 10 Jun 2026 04:15:49 -0700 (PDT)
+Received: from [192.168.1.116] ([223.122.38.120])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16609e234sm251459075ad.53.2026.06.10.04.15.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Jun 2026 04:15:48 -0700 (PDT)
+Message-ID: <4bef16f2-ad9d-4417-ae12-484ffd7a87a9@gmail.com>
+Date: Wed, 10 Jun 2026 19:15:45 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] nvme-apple: Only limit admin queue tag space when
+ with Linear SQ is present
+To: Christoph Hellwig <hch@lst.de>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Sagi Grimberg <sagi@grimberg.me>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260606-prevent-tag-collision-t8015-v1-0-93ccf4eca550@gmail.com>
+ <20260606-prevent-tag-collision-t8015-v1-1-93ccf4eca550@gmail.com>
+ <20260610051146.GA559@lst.de>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20260610051146.GA559@lst.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_041514_190483_3CF6DF6B 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260610_041550_752892_0365B986 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,267 +108,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kyle,
 
-On Mon, 2026-06-08 at 10:42 +0800, Kyle Hsieh wrote:
-> Add linux device tree entry related to the Meta(Facebook) rmc-node.
+Christoph Hellwig 於 2026/6/10 下午1:11 寫道:
+> On Sat, Jun 06, 2026 at 09:25:25PM +0800, Nick Chan wrote:
+>> Apple NVMe controllers require tags of pending commands to not be shared
+>> across admin and IO queues. However, on Apple A11 without linear SQ, it is
+>> not possible for either queue to skip over some tags and must go from 0 to
+>> the configured maximum before wrapping around.
+>>
+>> As a result, in order to prevent tag collision, dynamic tag reservation
+>> while a command is in-flight becomes necessary. In this context, there is
+>> no reason to limit the admin queue's tag space, as it is not helpful in
+>> preventing tag collision.
+> I'm not really into these Apple specific, but what does
+> "dynamic tag reservation" mean here?
 
-This is redundant as it is evident from the patch itself. Can you
-please remove it?
+This version is based on an incorrect premise (v2 is correct and already applied)
+so feel free to stop reading.
 
-> The system use an AT2600 BMC.
-> This node is named "ventura2".
+In this version, the incorrect premise is that it was not possible for either queue
+to skip over tags and must go from 0 to the configured the maximum. 
 
-Can you provide some more detail about the platform in the commit
-message? What's it's purpose? Can you describe some interesting
-features or details about its design?
+Under this premise, the only way to prevent collision is to set a bitfield indicating
+which tags are in use when submitting a command ("dynamic tag reservation").
+If a tag is already found to be used when submitting a command, return
+BLK_STS_RESOURCE so the caller retries later.
 
->=20
-> Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../dts/aspeed/aspeed-bmc-facebook-ventura2.dts=C2=A0=C2=A0=C2=A0 |=
- 2888 ++++++++++++++++++++
-> =C2=A02 files changed, 2889 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
-/Makefile
-> index 9adf9278dc94..6b96997629d4 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> =C2=A0	aspeed-bmc-facebook-minipack.dtb \
-> =C2=A0	aspeed-bmc-facebook-santabarbara.dtb \
-> =C2=A0	aspeed-bmc-facebook-tiogapass.dtb \
-> +	aspeed-bmc-facebook-ventura2.dtb \
-> =C2=A0	aspeed-bmc-facebook-wedge40.dtb \
-> =C2=A0	aspeed-bmc-facebook-wedge100.dtb \
-> =C2=A0	aspeed-bmc-facebook-wedge400-data64.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts b/=
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> new file mode 100644
-> index 000000000000..9bf7d6e52e40
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> @@ -0,0 +1,2888 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (c) 2023 Facebook Inc.
-> +/dts-v1/;
-> +
-> +#include "aspeed-g6.dtsi"
-> +#include <dt-bindings/i2c/i2c.h>
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
-> +
-> +/ {
-> +	model =3D "Facebook Ventura2 RMC";
-> +	compatible =3D "facebook,ventura2-rmc", "aspeed,ast2600";
->=20
+Best regards,
+Nick Chan
 
-...
 
-> +};
-> +
 
-...
-
-> +&gpio1 {
-> +	gpio-line-names =3D
-> +	/*18A0-18A7*/	"","","","","","","","",
-> +	/*18B0-18B7*/	"","","","",
-> +			"FM_BOARD_BMC_REV_ID0","FM_BOARD_BMC_REV_ID1",
-> +			"FM_BOARD_BMC_REV_ID2","",
-> +	/*18C0-18C7*/	"SPI_BMC_BIOS_ROM_IRQ0_R_N","","","","","","","",
-> +	/*18D0-18D7*/	"","","","","","","","",
-> +	/*18E0-18E3*/	"FM_BMC_PROT_LS_EN","AC_PWR_BMC_BTN_R_N","","";
-> +};
-> +
-> +&i2c0 {
-> +	status =3D "okay";
-> +
-> +	i2c-mux@77 {
-> +		compatible =3D "nxp,pca9548";
-> +		reg =3D <0x77>;
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +		i2c-mux-idle-disconnect;
-> +
-> +		i2c0mux0ch0: i2c@0 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <0>;
-> +		};
-> +
-> +		i2c0mux0ch1: i2c@1 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <1>;
-> +		};
-> +
-> +		i2c0mux0ch2: i2c@2 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <2>;
-> +		};
-> +
-> +		i2c0mux0ch3: i2c@3 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <3>;
-> +			status =3D "okay";
-> +		};
-> +
-> +		i2c0mux0ch4: i2c@4 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <4>;
-> +			status =3D "okay";
-> +		};
-> +
-> +		i2c0mux0ch5: i2c@5 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <5>;
-> +			status =3D "okay";
-> +
-> +			eeprom@56 {
-> +				compatible =3D "atmel,24c128";
-> +				reg =3D <0x56>;
-> +			};
-> +		};
-> +
-> +		i2c0mux0ch6: i2c@6 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <6>;
-> +
-> +			eeprom@56 {
-> +				compatible =3D "atmel,24c128";
-> +				reg =3D <0x56>;
-> +			};
-> +
-> +			fan_io_expander0: gpio@20 {
-> +				compatible =3D "nxp,pca9555";
-> +				reg =3D <0x20>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +			};
-> +
-> +			fan_io_expander1: gpio@21 {
-> +				compatible =3D "nxp,pca9555";
-> +				reg =3D <0x21>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +			};
-> +
-> +			adc@1d {
-> +				compatible =3D "ti,adc128d818";
-> +				reg =3D <0x1d>;
-> +				ti,mode =3D /bits/ 8 <1>;
-> +			};
-> +
-> +			adc@35 {
-> +				compatible =3D "maxim,max11617";
-> +				reg =3D <0x35>;
-> +			};
-> +		};
-> +
-> +		i2c0mux0ch7: i2c@7 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			reg =3D <7>;
-> +
-> +			fanctl0: fan-controller@20 {
-> +				compatible =3D "maxim,max31790";
-> +				reg =3D <0x20>;
-> +				#address-cells =3D <1>;
-> +				#size-cells =3D <0>;
-> +				channel@2 {
-
-Can you make sure that you consistently use a blank line to separate
-child nodes from each other and from properties in their parent?
-
-Please fix throughout.
-
-> +					reg =3D <2>;
-> +					sensor-type =3D "TACH";
-> +				};
-> +				channel@5 {
-> +					reg =3D <5>;
-> +					sensor-type =3D "TACH";
-> +				};
-> +			};
-> +
-> +			fanctl1: fan-controller@23 {
-> +				compatible =3D "nuvoton,nct7363";
-> +				reg =3D <0x23>;
-> +				#pwm-cells =3D <2>;
-> +
-> +				fan-9 {
-> +					pwms =3D <&fanctl1 0 20000>;
-> +					tach-ch =3D /bits/ 8 <0x09>;
-> +				};
-> +
-> +				fan-11 {
-> +					pwms =3D <&fanctl1 0 20000>;
-> +					tach-ch =3D /bits/ 8 <0x0B>;
-> +				};
-> +
-> +				fan-10 {
-> +					pwms =3D <&fanctl1 4 20000>;
-> +					tach-ch =3D /bits/ 8 <0x0A>;
-> +				};
-> +
-> +				fan-13 {
-> +					pwms =3D <&fanctl1 4 20000>;
-> +					tach-ch =3D /bits/ 8 <0x0D>;
-> +				};
-> +
-> +				fan-15 {
-> +					pwms =3D <&fanctl1 6 20000>;
-> +					tach-ch =3D /bits/ 8 <0x0F>;
-> +				};
-> +
-> +				fan-1 {
-
-Can you please sort the fan nodes in ascending order?
-
-> +					pwms =3D <&fanctl1 6 20000>;
-> +					tach-ch =3D /bits/ 8 <0x01>;
-> +				};
-> +
-> +				fan-0 {
-> +					pwms =3D <&fanctl1 10 20000>;
-> +					tach-ch =3D /bits/ 8 <0x00>;
-> +				};
-> +
-> +				fan-3 {
-> +					pwms =3D <&fanctl1 10 20000>;
-> +					tach-ch =3D /bits/ 8 <0x03>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
->=20
-
-...
-
-> +
-> +	// Marvell 88E6393X EEPROM
-
-Please try to be consistent with the comment style (prefer /* */).
-
-> +	eeprom@50 {
-> +		compatible =3D "atmel,24c64";
-> +		reg =3D <0x50>;
-> +	};
-> +
-> +	rtc@51 {
-> +		compatible =3D "nxp,pcf8563";
-> +		reg =3D <0x51>;
-> +	};
-> +};
-> +
+>
 
