@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5AACD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 19:57:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC81CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 20:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+ncxXkpeUVoW5cCZvmXWNkl1daZvq6cCZNyQN2QNi4=; b=YKVPZnOALm0nq6ecncUA+M2upD
-	JNFnOYeX0GOv0gwTc1zRzaXCU+huNaAp9uNnvDyB+ERey8luhybFFaWRmqALDc0ejavVQQ6joQ/Dj
-	oFN73tV11PFo/wLvEzFQ+JRV9sfJmm8I3hxDYFeg29nyp2+4BrxEhJ/HOWepP4SWt3iGTsn9msd45
-	coABRMgRD88SwvEAvK2ktqTK2jBNlOV0GXnL+OF8XbWujmhWk3jeourMnVHKLKfZ1+O/TuViCliyN
-	h043TDyVAk8Uz0JMCbrFRGsWhBxirUSNN4GWFUv6r3hODOc3ZUYr9RZrhe/o+hx7zboWadvjc7jqG
-	QSBo+SlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rp/hxgid7n//dL/Qnp0sMD8HWsEaacoEAPKYgb7Ql4M=; b=sYp764ppfUdKlWAuxyenIdgRri
+	h47JSum4ZPwiSdxV9BII1nT1+ibD7PnoYznT6TY+o8baV+DRnL819gOqO0C0cZkUmswFMOefnzTqR
+	8+NKCGkthAwZtgAmbN3wWjZWz7zgRlnBijx9C7zJ8fBAb9o3YCtPmDgBdunUXeRsrwCdKY/uqhhJQ
+	SORwUufb4FC10w6Oc0NyJb7X62F9AtnRAmZkzSFgP6qPuVzoYmnNJ8NUDodd+ry6BuoViya8iK5ZC
+	VHzbjuIsaWBZ3kYCqKJlTpawfXcKP1BUt6gx4oqd4r3OmtrD8Su3c7GK4LwyQG1T5iKYMD0LqUjn5
+	D1aLI4AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXP2x-00000008Ih8-3Jgq;
-	Wed, 10 Jun 2026 19:57:07 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXP2v-00000008IeG-03Wt;
-	Wed, 10 Jun 2026 19:57:06 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wXP2p-000000000IG-3tQu;
-	Wed, 10 Jun 2026 19:57:00 +0000
-Date: Wed, 10 Jun 2026 20:56:57 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next 8/8] net: dsa: mt7530: implement port_change_conduit
- op
-Message-ID: <91ae0f87a6ca2cce3d072dba548545e02347bf13.1781119435.git.daniel@makrotopia.org>
-References: <cover.1781119435.git.daniel@makrotopia.org>
+	id 1wXPR0-00000008Jzv-3q4R;
+	Wed, 10 Jun 2026 20:21:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXPQy-00000008JzC-0UWg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Jun 2026 20:21:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9161B35B9;
+	Wed, 10 Jun 2026 13:21:49 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EADFE3FB7F;
+	Wed, 10 Jun 2026 13:21:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781122914; bh=IoVLG3gZ7nVDc6fATHc768hV2/reoPfUmWuqYZJFMR0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=I9wQZDDaXOfFEQRmNA/fXCEhydkwELhfIluY/ZhClXDn1AqP34kmnSpYTNnMq1VzH
+	 w40XtsMg6ULcF69P84teX9O/NAmfJersWMtYFeCsNNKS04M1/LVXUEtJhUMoLdiIKu
+	 KjpPml2M4o3wGci9o6tz1pGpwrto2PAD8kFLilJ0=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 2/2] KVM: arm64: Make stage2_split_walker() skip unnecessary walks
+Date: Wed, 10 Jun 2026 21:21:09 +0100
+Message-ID: <20260610202112.2695205-4-leo.bras@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260610202112.2695205-2-leo.bras@arm.com>
+References: <20260610202112.2695205-2-leo.bras@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1781119435.git.daniel@makrotopia.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2355; i=leo.bras@arm.com; h=from:subject; bh=IoVLG3gZ7nVDc6fATHc768hV2/reoPfUmWuqYZJFMR0=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLI0j4sWfdpy2Pi+6GMZ5b6geZMdzXZJbWh0Dv0lc654b drOwnOtHaUsDGJcDLJiiiyyj+av4vk+JePIlR8LYOawMoEMYeDiFICJzOhmZFjP1HlrtkPg9wjB wtBVd9MY7zK27k79f4lVpXsuU9MPxcmMDHvljc7zNMjyH9p847jF75/NWYF6QQfS/I1sJ5z487j Ylg8A
+X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_125705_055796_B466C6D7 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260610_132156_263247_0E1887E5 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,62 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow changing the CPU port affinity of user ports at runtime via
-the IFLA_DSA_CONDUIT netlink attribute. This updates the port matrix
-to forward to the new CPU port instead of the old one.
+Currently, when splitting a hugepage, all it's child and sibling nodes
+will be walked, with the walker just returning earlier if there is nothing
+to do. This means all pagetable entries in the splitting range get a
+callback from the walker function, even if it was a level-3 entry.
 
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Optimize splitting by skipping all level-3 entries, as they are already the
+smallest block size and can't be split any further.
+(i.e. set flag KVM_PGTABLE_WALK_SKIP_LEVEL3)
+
+Optimization measured on two scenarios involving eager-splitting on a
+VM with 1 memslot of 64GB:
+- Scenario 1: No manual protect, whole memslot split at dirty-track enable
+  (KVM_SET_USER_MEMORY_REGION2 ioctl with KVM_MEM_LOG_DIRTY_PAGES)
+- Scenario 2: Manual protect, split happens during dirty-bit clean
+  (KVM_CLEAR_DIRTY_LOG ioctl), average for 2 iterations.
+
+Scenario 1, improvement on dirty-track enable for the memslot:
+- Memory was already split (4k pages):  -35.47% runtime
+- THP backed memory:                    -11.94% runtime
+- 64x1GB hugetlb memory:                -14.46% runtime
+
+Scenario 2, improvement on dirty-log clean for the memslot:
+- Memory was already split (4k pages):  -26.36% runtime
+- THP backed memory:                    -12.05% runtime
+- 64x1GB hugetlb memory:                -13.87% runtime
+
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 ---
- drivers/net/dsa/mt7530.c | 29 +++++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+ arch/arm64/kvm/hyp/pgtable.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index c96420c291d5..2f3e734b9f53 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -3206,6 +3206,34 @@ static int mt753x_set_mac_eee(struct dsa_switch *ds, int port,
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 48d88a290a53..70103934a04a 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1565,21 +1565,22 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	new = kvm_init_table_pte(childp, mm_ops);
+ 	stage2_make_pte(ctx, new);
  	return 0;
  }
  
-+static int
-+mt753x_port_change_conduit(struct dsa_switch *ds, int port,
-+			   struct net_device *conduit,
-+			   struct netlink_ext_ack *extack)
-+{
-+	struct dsa_port *new_cpu_dp = conduit->dsa_ptr;
-+	struct dsa_port *dp = dsa_to_port(ds, port);
-+	struct mt7530_priv *priv = ds->priv;
-+
-+	if (priv->id != ID_MT7531)
-+		return -EOPNOTSUPP;
-+
-+	mutex_lock(&priv->reg_mutex);
-+
-+	/* dp->cpu_dp still points to the old CPU port */
-+	priv->ports[port].pm &= ~PCR_MATRIX(BIT(dp->cpu_dp->index));
-+	priv->ports[port].pm |= PCR_MATRIX(BIT(new_cpu_dp->index));
-+	if (priv->ports[port].enable)
-+		regmap_update_bits(priv->regmap, MT7530_PCR_P(port),
-+				   PCR_MATRIX_MASK, priv->ports[port].pm);
-+
-+	mutex_unlock(&priv->reg_mutex);
-+
-+	mt7530_port_fast_age(ds, port);
-+
-+	return 0;
-+}
-+
- static void
- mt753x_conduit_state_change(struct dsa_switch *ds,
- 			    const struct net_device *conduit,
-@@ -3317,6 +3345,7 @@ static const struct dsa_switch_ops mt7530_switch_ops = {
- 	.setup			= mt753x_setup,
- 	.teardown		= mt753x_teardown,
- 	.preferred_default_local_cpu_port = mt753x_preferred_default_local_cpu_port,
-+	.port_change_conduit	= mt753x_port_change_conduit,
- 	.get_strings		= mt7530_get_strings,
- 	.get_ethtool_stats	= mt7530_get_ethtool_stats,
- 	.get_sset_count		= mt7530_get_sset_count,
+ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 			     struct kvm_mmu_memory_cache *mc)
+ {
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb	= stage2_split_walker,
+-		.flags	= KVM_PGTABLE_WALK_LEAF,
++		.flags	= KVM_PGTABLE_WALK_LEAF |
++			  KVM_PGTABLE_WALK_SKIP_LEVEL3,
+ 		.arg	= mc,
+ 	};
+ 	int ret;
+ 
+ 	ret = kvm_pgtable_walk(pgt, addr, size, &walker);
+ 	dsb(ishst);
+ 	return ret;
+ }
+ 
+ int __kvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
 -- 
 2.54.0
+
 
