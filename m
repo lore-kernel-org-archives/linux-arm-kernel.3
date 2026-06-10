@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFBDCD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 04:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48330CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 04:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIil3PPPNZBVFp0p+BoOF+dwvTw0E/3Hg89b1+W2I98=; b=CxLdErU3IRa4FU5MvkQ0NKs85T
-	vD6Ywe8L+z9MCgHISLINEqSSJq4LK5T4Z8npS+IWoPG/pu6A0bdrAxXmdARWlb+yVLcGiJOhTxePg
-	oLAKXwC7Abw5xvN+TgRI6lR5eUnAAoFfzIdmJG3+sVX9mwrURlhHfPl9R5bmb5UKkh2zpJi618IT1
-	AgPZyNGOUVk6FyXuSbT4QPMBKk9fc7YHhTJ6IWU6s5Llxb5t9StcjyRZCpvcO4rjca4nQ81h9AVeq
-	/rpEb/jisFITv2VzJMmxMqkzygtZ8N3WtH4ryq8EsdYsa4QoU59lY3bhktGNLuFqJb9GrP9a3kTtC
-	xcwgEipQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a6BcnN8rdSZBC0imBDjb7WvsMQmmgBw7lE2xxGdBFAc=; b=rvQy9YlLtclnJCjPnZYgOi13jC
+	13gAPgorD7QOoNAcUyUYsGJ0N5Kxxs/F46uSdGXsnljQps3z7ed+wEQTVUdrXeTYpd/T+qYO6JE0c
+	SkPocnxWxcXrqaHMRbFlvNYhEwdGLddoMaCsUPUVs/eO710JifCi0JZKMuJzpFWUM3/+4Me6Bw6kU
+	RmWqIAgVOMhZKxm1CDGiCigldlUAObY41SnqcRKbOzDjpKlUmb0Wggzg4nfzJE6jMW5ZnFlzrf8Dg
+	0gIy7Pl6rPqi/AfTiLgvPbE51Rpo30ZB6KvsQbkGV8bI2bVYGacCNZvgsnUfu8iGJbhZRtOchLShH
+	75fSB8lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWmJ-00000008fGw-1cyl;
-	Thu, 11 Jun 2026 04:12:27 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1wXXFa-00000008gWj-1IoE;
+	Thu, 11 Jun 2026 04:42:42 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWmF-00000008fG9-11fw
+	id 1wXXFU-00000008gWF-3mRL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 04:12:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1781151143; x=1812687143;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KtcPW09H3aB0abhJvvwgq761264cvkZ+OMuRh+NGI0o=;
-  b=lf+16E+bgL/FMyXGCDIR/FyQfEN98WAAH5nK2ZTrIyHSADAGuVxy7CfE
-   xnAIOhUJIj+R91sDdVvhJwygFCPRDMWVgsfmE0ZHYZtkGryVuX7UJt9H2
-   oBb4Fb4uC/gZ43oXHnWph0QQCfaLuxexTPsIFfV34gzgo9M3Q4TrM+Etp
-   SJ2P7D/SpN9VoGOlhZ5oA8e1ChsTw5YYpxxQ4Oy5oHMEExD6lxGYbdZR8
-   4vFRtmY6p3wJpf9GVvBih0K8zR9AkwXO9A+aMJNtrZhFDqmxwaeT3JFZR
-   czRCaIkEFmDqTuBBZ72NK0x5pE+fFAQejJAntH8rNZlPzemMjXs3unfB1
-   w==;
-X-CSE-ConnectionGUID: 1zNun6+yThaULrX1sm0tvA==
-X-CSE-MsgGUID: UBf//mEIREe8cb15IvSlqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11813"; a="229898360"
-X-IronPort-AV: E=Sophos;i="6.24,198,1774278000"; 
-   d="scan'208";a="229898360"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2026 13:12:19 +0900
-Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
+	Thu, 11 Jun 2026 04:42:41 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 48499C020C2
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 04:12:19 +0000 (UTC)
-Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id F074F1801FDD
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 04:12:18 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.3.32])
-	by az2nlsmom4.fujitsu.com (Postfix) with SMTP id 78A5020000B3;
-	Thu, 11 Jun 2026 04:12:15 +0000 (UTC)
-Date: Thu, 11 Jun 2026 13:12:12 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
-	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] virt: arm-cca-guest: use raw variant of
- smp_processor_id() in arm_cca_report_new()
-Message-ID: <aio1FN1aVaCDcRfT@FCCLS0092175.localdomain>
-References: <20260519101217.155740-1-enju.kohei@fujitsu.com>
- <ah638FZAyCSqtzMi@willie-the-truck>
- <41ab4dfb-b91c-46df-99a0-de36686c8fea@arm.com>
- <aiAUceqBREjwXk_V@willie-the-truck>
- <aigNbs89G4bCQdjY@FCCLS0092175.localdomain>
- <51a76d18-6db9-41f3-a1d4-60360088c442@arm.com>
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gbVPK5Fbvz9txK;
+	Thu, 11 Jun 2026 06:42:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781152949;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a6BcnN8rdSZBC0imBDjb7WvsMQmmgBw7lE2xxGdBFAc=;
+	b=HbNpwvp0Zj9yuH8o2oc0btr7NocD+4rpR36lGjssYY90zRMgEJRkepCWreP4M9Nf7FWw2G
+	E9HY7rp4S1MHTyX7QMMv4fee/ekSf8lduJvfBHyzesvL6A0l+8xzJosXYM3uEd5i/B7NCU
+	XmguDNfQaWWdZs542ORZ1bEfxqdHnEaIn+nV+xPx+WSbnnv1kOj/dQZ9e42m4tixPkbJYf
+	XCDZ2t31PxCmC6VKwmLLgG9MPT5QYc9OJeFntCCtD4Aif4NtXPkbD4xa0jiLpOWeWwgjAT
+	pYs0XO2gv848HpNsiV/Bhc9ssNxU0+H+ax/skEM2e6ZHgyZiJJuhS5Ekuv7d+A==
+Message-ID: <7fc8f50f-7f6d-4b45-b172-a83d97164b40@mailbox.org>
+Date: Wed, 10 Jun 2026 18:31:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <51a76d18-6db9-41f3-a1d4-60360088c442@arm.com>
+Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Piyush Patle <piyushpatle228@gmail.com>, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lucas Stach <l.stach@pengutronix.de>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Abel Vesa <abelvesa@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20260605121112.27866-1-piyushpatle228@gmail.com> <aiZzxhljfyYQ68Gl@raspi>
+ <9ece4e08-a77f-4410-ba16-a77b9bd0aace@mailbox.org> <aifOQtaAi_7F9hXt@raspi>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aifOQtaAi_7F9hXt@raspi>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 8a541f9777ff949760e
+X-MBO-RS-META: trp3ppsudps4pgwo9w4hhy1o1twon399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_211223_841249_48D23AC1 
-X-CRM114-Status: GOOD (  42.20  )
+X-CRM114-CacheID: sfid-20260610_214237_094081_D3DFC23E 
+X-CRM114-Status: GOOD (  33.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,96 +87,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/09 14:44, Suzuki K Poulose wrote:
-> On 09/06/2026 14:16, Kohei Enju wrote:
-> > On 06/03 12:48, Will Deacon wrote:
-> > > On Tue, Jun 02, 2026 at 04:48:43PM +0100, Suzuki K Poulose wrote:
-> > > > On 02/06/2026 12:01, Will Deacon wrote:
-> > > > > On Tue, May 19, 2026 at 07:12:08PM +0900, Kohei Enju wrote:
-> > > > > > With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
-> > > > > > debug_smp_processor_id(). This debug function complains when certain
-> > > > > > conditions that ensure CPU ID stability are not met, specifically when
-> > > > > > it's called from a preemptible context.
-> > > > > > 
-> > > > > > In arm_cca_report_new(), which runs in a preemptible context,
-> > > > > > smp_processor_id() triggers a splat [0] due to this.
-> > > > > > 
-> > > > > > However, the CPU ID obtained here is used as the target CPU for
-> > > > > > smp_call_function_single() to designate a specific CPU for subsequent
-> > > > > > operations, not to assert that the current thread will continue to
-> > > > > > execute on the same CPU. Therefore, snapshotting the CPU ID itself is
-> > > > > > correct, and thus there's no actual harm except for the splat.
-> > > > > > 
-> > > > > > Use raw_smp_processor_id() instead, to directly retrieve the current CPU
-> > > > > > ID without the debug checks, avoiding the unnecessary warning message
-> > > > > > while preserving the correct functional behavior.
-> > > > > 
-> > > > > That's pretty disgusting imo so I'd like to see some more justification
-> > > > > for this approach.
-> > > > > 
-> > > > > > Note that while migrate_disable() would pin the task to the current CPU,
-> > > > > > this path should not block CPU hotplug events. Therefore, we snapshot
-> > > > > > the current CPU ID and accept that smp_call_function_single() may fail
-> > > > > > if the CPU goes offline.
-> > > > > 
-> > > > > Why shouldn't it block CPU hotplug events? What happens if the CPU goes
-> > > > > offline and comes back online again during the loop of continue calls?
-> > > > 
-> > > > It need not. It can continue the calls. The RMM keeps track of the internal
-> > > > progress in the "REC" object for this "VCPU". Hotplug ON/OFF
-> > > > doesn't change the REC object in CCA Guest. So, a REC can come back and
-> > > > execute it. But the Linux could fail the operation if the CPU isn't
-> > > > available for fetching the report, after we do a RSI_ATTEST_TOKEN_INIT.
-> > > 
-> > > I couldn't really shake that out of the RMM spec tbh:
-> > > RSI_ATTESTATION_TOKEN_CONTINUE is allowed to return RSI_ERROR_UNKNOWN
-> > > and I couldn't find anything about hotplug.
-> 
-> Like I said, we are dealing with Virtual CPUs (RECs here) and the only
-> condition that the RMM enforces is the _CONTINUE calls are issued on the
-> same VCPU (REC). Hotplug doesn't change the REC (as a REC cannot be
-> modified or added once the Realm is ACTIVE).
-> 
-> > > 
-> > > But my main point, really, is why are we not using migrate_disable()
-> > > here? I can't see the justification.
-> 
-> There is no reason, why we couldn't use this. TBH, I wasn't aware of the
-> helper ;-) at the time this was initially designed and we didn't want to
-> block CPU hotplug. We could always request a new report, it is not like
-> aborting a report generation has any side effects.
-> 
-> > 
-> > Hi Will,
-> > Sorry for the late reply.
-> > 
-> > I agree that using migrate_disable() makes this path simpler and
-> > clearer.
-> > 
-> > I've reviewed the discussion where the original commit was introduced:
-> >      https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
-> > but I couldn't find a strong reason why we shouldn't block CPU hotplug
-> > or use migrate_disable(), even though I can see the current design was
-> > intentional.
-> > 
-> > So I'm happy to rework the patch to use migrate_disable() and remove
-> > the smp_call_function_single() calls if there are no objections.
-> 
-> I am fine with removing with migrate_disable() approach.
+On 6/9/26 10:26 AM, Liu Ying wrote:
 
-Hi Suzuki,
+Hello Liu,
 
-Thank you for your clarification, and explanation in this discussion.
-I'll work on v3 soon.
+>>>> I brought this series up on the i.MX95 15x15 FRDM (IT6263 LVDS-to-HDMI on
+>>>> LVDS ch1). It mostly works, but I ran into a few issues around DI routing,
+>>>> LVDS format handling, and DC enable sequencing which needed rework before
+>>>> HDMI would come up reliably on the board.
+>>>>
+>>>> I don't see a v2 of the series and things seem to have been quiet since
+>>>> November. Are you planning to post an updated version?
+>>>
+>>> My plan was to enable prefetch engine support[1] for i.MX8QXP display
+>>> controller and add device tree for a whole i.MX8QXP LVDS display pipeline,
+>>> before adding i.MX95 display controller support.
+>>>
+>>> Unfortunately, it seems that Marek is not a big fan of [1]
+>>
+>> I am fine with [1] as long as it can be isolated and does not affect every
+>> SoC that might reuse this driver, which I think it can be done.
+> 
+> How can it be isolated?
 
+if (compatible("mx8q"))
+   something->prefetch_op = somefunction;
+
+And then wherever is prefetch used, do
+
+if (something->prefetch_op)
+   something->prefetch_op()
+
+Or something along those lines ?
+
+>>> and I'm busy
+>>> with downstream development so the plan doesn't move forward well.  I still
+>>> think [1] makes sense(maybe I need to rebase it on latest drm-misc-next),
+>>> so I'd like to see review comments on [1] and hopefully people think that
+>>> the overall idea of [1] is ok.
+>>
+>> My only concern is, to keep it isolated to MX8Q, so this driver can be
+>> reused by MX95.
+>>
+>>>> I've accumulated a fair amount of rework while getting this running on the
+>>>> FRDM. If you're not planning a v2, I can clean things up and send one based
+>>>> on the current series.
+>>>
+>>> I still think that i.MX95 display controller driver should be in a separate
+>>> driver, rather than sharing the same driver with i.MX8QXP display controller
+>>> like this patch series does, because the two display controllers are quite
+>>> different as I mentioned in comments on this patch series and in discussion
+>>> in [1].  Also, the common part between the two display controllers should
+>>> be extracted to a common helper library as I mentioned there too.
+>> Are they really? It seems this series adds support for the MX95 DC without
+>> that many changes, so are the DCs really that different ? It seems the MX95
+>> DC is simply a reuse/evolution of the MX8Q DC blocks, so duplicating the
+>> code seems like the wrong direction, it will only lead to disparate sets of
+>> bugs in two drivers, which isn't desired.
 > 
-> Cheers
-> Suzuki
+> I pointed out a lot of H/W differences between the two display controllers
+> during the discussions for this patch series and my i.MX8QXP prefetch engine
+> patch series[1].  Please take a look at [1], which clearly shows that the
+> prefetch engine would considerably impact CRTC/plane atomic callback
+> implementations.
+
+Is the prefetch engine actually grown into the CRTC/DE or not ? I 
+suspect it is separate and instead part of the built-in DMA, right ?
+
+> Display controller internal blocks would also impact
+> the implementations, e.g., DomainBlend block in i.MX95 display controller
+> doesn't present in i.MX8QXP display controller.  It makes sense to use
+> separate drivers for the two display controllers instead of adding 'if/else'
+> checks to a single driver's atomic callbacks or introducing two pairs of
+> atomic callbacks to that single driver.  I mentioned before, the code to
+> simply add a DRM driver(struct drm_driver) is fairly limited.
+
+Can't we simply have two sets of ops (one for mx8q and one for mx95) for 
+those ops which are too complicated to implement as a single op with 
+if/else statements ?
+
+> I also mentioned before that separate drivers make them easier to maintain:
+> we don't have to test both i.MX8QXP and i.MX95 if only one display controller
+> specific code is changed.
+
+The downside is lack of code reuse, which leads to disparate sets of 
+bugs in these two drivers and code duplication. And it seems to me, that 
+large parts of the MX8Q and MX95 DC are effectively identical.
+
+>> (I might not fully understand what you have in mind with the helper library
+>> though?)
 > 
-> > 
-> > > 
-> > > Will
-> > > 
-> 
-> 
+> I said this could be something like imx-ldb-helper.c and plus perhaps some
+> callbacks like fg->dc_fg_cfg_videomode().
+Do you perceive that the DC driver cannot be parametrized easily enough 
+that it has to be turned into a library like that ? When I look at this 
+patchset, esp. the first half which updates the various blocks, it does 
+not seem to me that way.
 
