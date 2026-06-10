@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AC2CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 20:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87375CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 20:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDZFA/XJVv1lEwaX7z09NSQIhGALV+zbSDqdbk5QFJI=; b=vHz/d5G68Ebbh9XEsXReaNFTcD
-	TKFycFsi9ydZjg7WezhevQZStOL5WLAVDrrwapxwItWZRDfhJcOA/XpiAXoBO4QklfZ+r1klxWWHi
-	j6hM0TpnDKD0I3F8X4spp4x0OL8GF5BvxsVOQAGmolfZJhyiyAOo52AZM7l/YINaYKw/Hh6jh2meJ
-	Lf79F33IDmJTs1WI7MyJDCuXLqG3ALHqBTYCSBlEUKwKM67dndVEGw37/145jAYRy+5B1+VMlqLeo
-	w4vR21+BrTvDqw6TT4goenpa5SEDuxKqua8zdZP4Ftx0n4ngyspXLbN9mlE58fHgYgn++YZKsT/EI
-	ZPbfrOaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fPQv+5yRqlHBWuJh7BjHXUUTIvRIHX8soYyjmJhtuhs=; b=TJ2YLnxL/aiOyeBf9ZZ7/bq3UX
+	iVXkcnVb+OawCQfwCJJtDff6OJn2pfrh4sFEmb7K7u3R+RIegxDS7hLoKdLB47uEW680afD2UtNw6
+	44BgdiPkNjJtW7gaaRmPuPX7R0lycxww242ailWbDIUP5Fmapkt59pyQmLy7HEITmcM0UtIpWbcyD
+	gAm1R+OiIi2LiQjNHUtsi7kzvjKbfGFBPhez6vZfB1TaXww/DiXOlxFLC8l9uDqcOGRmR8pP9PpJz
+	eTaR22ks3SLnxNpuFLB5YIAfVVVu3K+edh5J9J3bpCidwjWizRlmuSDMvhFu7iIZzGleXXBEiXMXw
+	ejdIheIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXPt8-00000008Lx2-2eod;
-	Wed, 10 Jun 2026 20:51:02 +0000
-Received: from gentwo.org ([62.72.0.81])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXPt5-00000008LwT-3BQA
+	id 1wXPQw-00000008Jyf-37Yb;
+	Wed, 10 Jun 2026 20:21:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXPQt-00000008Jxk-36iF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 20:51:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1781124657;
-	bh=aDZFA/XJVv1lEwaX7z09NSQIhGALV+zbSDqdbk5QFJI=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=BbILurq3uIm5Z1u/a6gcvWGeyx77v5p/mGcvCb9aKV9oZb1uFtP2b39dEw6Z3+3Sd
-	 AO7P3v0h0eE3mpFFmiu+n9jbTNCrMt7ho3tH46FVTOXxI0MjolIaSof6k1e/6CZEzs
-	 z2qDc3wNCxE9K3AIvOVniABqXhn0UyJQvo1P0Jwk=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id EA901402E4; Wed, 10 Jun 2026 13:50:57 -0700 (PDT)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id E54CA4028A;
-	Wed, 10 Jun 2026 13:50:57 -0700 (PDT)
-Date: Wed, 10 Jun 2026 13:50:57 -0700 (PDT)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-cc: catalin.marinas@arm.com, will@kernel.org, 
-    Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [v8 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-In-Reply-To: <20260609214205.1260279-1-yang@os.amperecomputing.com>
-Message-ID: <3e28d896-a99f-4bfd-75cd-b77ab09f043a@gentwo.org>
-References: <20260609214205.1260279-1-yang@os.amperecomputing.com>
+	Wed, 10 Jun 2026 20:21:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE665201B;
+	Wed, 10 Jun 2026 13:21:43 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4BE723FB7F;
+	Wed, 10 Jun 2026 13:21:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781122908; bh=ERzphoGFlfsnQX/z/pHW9rsKUGoz2XFTjRwpnLKWgsw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=vYHFnVxpf8WOs7yJo6tinH+R+HuLLxCdXavmmnL6ix0VlOsXsxv3muNlro7nJjl54
+	 9CHyCQYP8ds9bu1F9z6lnVtzSCtecF7COd2UaGQZQxIG6Dg+jNKhekBFcL0pIbpJAM
+	 LQz9qvg1Za4EILjqNMteTsDm3KgrpfD24lPhAmVs=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] Optimize S2 page splitting
+Date: Wed, 10 Jun 2026 21:21:07 +0100
+Message-ID: <20260610202112.2695205-2-leo.bras@arm.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3772; i=leo.bras@arm.com; h=from:subject; bh=ERzphoGFlfsnQX/z/pHW9rsKUGoz2XFTjRwpnLKWgsw=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLI0j4vKuvdMXPvjnLB/oYVIXofY01yDlblBu/PFU895r WLa8be2o5SFQYyLQVZMkUX20fxVPN+nZBy58mMBzBxWJpAhDFycAjCRenNGhv8TdstP1/Jpsmst Nl555s7p+w2dMfmCBhGWYXFcAo5LfBj+Z0sXR+eyi15hes160GPaikTR5rczQuK3eT6ob1wTvmg PAwA=
+X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_135059_829593_759777E0 
-X-CRM114-Status: UNSURE (   4.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260610_132151_879166_0AB280D1 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,6 +79,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+While playing with dirty-bit tracking, I decided to take a look on how page
+splitting works. Found out all entries are walked, even though we can infer,
+for instance that:
+- If a level-3 entry is walked, it means the parent level-2 entry is split
+- If a split just succeeded in an table entry, it means all children nodes
+  are already split
 
-Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+This patches' idea is to introduce new walking flags to skip pagetable 
+levels 0-3. 
+
+The idea of skipping child nodes was also tested, but it was marginally 
+slower than just skipping levels, so it was discarted. 
+
+Optimization measured on two scenarios involving eager-splitting on a
+VM with 1 memslot of 64GB:
+- Scenario 1: No manual protect, whole memslot split at dirty-track enable
+  (KVM_SET_USER_MEMORY_REGION2 ioctl with KVM_MEM_LOG_DIRTY_PAGES)
+  - Split happens only once, whole region
+  - Evalutes improved batch performance of splitting
+- Scenario 2: Manual protect, split happens during every dirty-bit clean
+  (KVM_CLEAR_DIRTY_LOG ioctl), average for 2 iterations.
+  - Split called multiple times, for smaller 64-page sections.
+  - Evaluate improved performance for multiple calls
+
+Scenario 1, improvement on dirty-track enable ioctl for the memslot:
+- Memory was already split (4k pages):  -35.47% runtime (stdev 5.63%)
+- THP backed memory:                    -11.94% runtime (stdev 2.55%)
+- 64x1GB hugetlb memory:                -14.46% runtime (stdev 2.68%)
+
+Scenario 2, improvement on dirty-log clean ioctl for the memslot:
+- Memory was already split (4k pages):  -26.36% runtime (stdev 3.32%)
+- THP backed memory:                    -12.05% runtime (stdev 0.37%)
+- 64x1GB hugetlb memory:                -13.87% runtime (stdev 0.86%)
+
+For collecting above numbers, the following script was ran in both vanilla 
+and patched kernels, with kernel parameter 'default_hugepagesz=1G', on an 
+AmpereOne with 256GB RAM.
+
+--- dirty_test.sh
+#!/bin/bash
+filename=$(uname -r |cut -d'-' -f 4-)
+
+run_test(){
+  uname -a
+  cat /proc/cmdline
+
+  #prepare
+  sudo bash -c 'echo 64 > /proc/sys/vm/nr_hugepages'
+
+  ./dirty_log_perf_test -g -b 64G
+  ./dirty_log_perf_test -g -b 64G -s anonymous_thp
+  ./dirty_log_perf_test -g -b 64G -s shared_hugetlb
+
+  ./dirty_log_perf_test -b 64G
+  ./dirty_log_perf_test -b 64G -s anonymous_thp
+  ./dirty_log_perf_test -b 64G -s shared_hugetlb
+}
+
+run_test 2>&1 | tee ${filename}
+---
+
+Above dirty_log_perf_test command is the standard kvm selftest found in the 
+kernel tree. It tested the following guest modes:
+Testing guest mode: PA-bits:48,  VA-bits:48,  4K pages
+Testing guest mode: PA-bits:48,  VA-bits:48, 16K pages
+Testing guest mode: PA-bits:48,  VA-bits:48, 64K pages
+Testing guest mode: PA-bits:40,  VA-bits:48,  4K pages
+Testing guest mode: PA-bits:40,  VA-bits:48, 16K pages
+Testing guest mode: PA-bits:40,  VA-bits:48, 64K pages
+
+Performance numbers from above modes were used to calculate average and 
+stdev showed in the optimization results.
+
+Changes since v1:
+- Changed approach from return value to walk flags (Will Deacon)
+- Discarted skip_child approach (Oliver Upton)
+- Measured in real hardware, and from userspace perspective (Marc Zyngier)
+- Better explanation of what and how numbers were collected
+v1 Link: https://lore.kernel.org/all/20260515195904.2466381-1-leo.bras@arm.com/
+
+Thanks!
+Leo
+
+Leonardo Bras (2):
+  KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
+  KVM: arm64: Make stage2_split_walker() skip unnecessary walks
+
+ arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
+ arch/arm64/kvm/hyp/pgtable.c         | 18 ++++++++++++++++--
+ 2 files changed, 29 insertions(+), 2 deletions(-)
+
+
+base-commit: acb7500801e98639f6d8c2d796ed9f64cba83d3a
+-- 
+2.54.0
+
+
 
