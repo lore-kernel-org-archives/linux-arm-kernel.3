@@ -4,129 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A5BCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 12:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7ED3CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 12:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r94BeHOce8DTr81Gl+BgbzS46aKR8WB4LOn0YG+AOtQ=; b=P9SYwYsLStWqW09ZiJBxfPIO11
-	K5qtNpHJ/oVNPZvVsabtfgTNXSLUbMmweqWbPtpUjuWaFmkh9pKDW/7qc2q221brYvVdwdxJZWBU1
-	JH/DEMgpBvJk+vOnwAJSQomHiyvg0Mi+y0jaLbU2gsE9ydfR9G8WtNRwYitpQsChaeKnOt3bhZX2R
-	vlQmqnNNKqdqNu6zNRKTelesAw7zfQ3Vwn5a6ULjTE0+OfnoJw0PAbCD2TrDSAWupgFcRpZJsrcln
-	tAUiQtlcfilAUxzHntNBRpXJZ1/gcjxnfYp2mp1hRJFp8lrjiTiN1gHNq9WFogzFuryfej19gJqWy
-	/5VcQ7Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mjr0EJXcf5fpGgfCYEE8UvjJrrggHpGu76Ud0Wa9ei4=; b=ouus11X7H4zqVCpW3r8l0bXUSX
+	9MxdjLGADidQ7X/tYQ2yUaaPH9pxTubQyRj5lJALPbTWm21mZ3FSXfgYPssJ0OLjf6fbeZVgtOHxY
+	RQGoe2cSGZ1jbYNwSy2uhJfNE33sqaAOHLtbHjEkvzjpFfdFx8NzT57RExf5KJ1NRuVLubFGp+zfq
+	1vNxMyC+x/zyRJbWUkT2CgznSWiCvabVcGLUwzUXDI8TCSg4xNmmNuiWedKH8m10RGGXa93pQ0Ysp
+	PGMjv7SwxDJ8FipgeGlAd9telAY9RgucFrI1Ue8Fg3slAfJMDCyYw4LOs3pB/rIjWePD0GKNeIcQK
+	aQEs5WOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXINv-00000007fdA-3erV;
-	Wed, 10 Jun 2026 12:50:19 +0000
-Received: from mail-centralusazon11011007.outbound.protection.outlook.com ([52.101.62.7] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wXIP6-00000007fsK-0ddp;
+	Wed, 10 Jun 2026 12:51:32 +0000
+Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXINt-00000007fcP-3oHs
+	id 1wXIP3-00000007frX-1PJh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 12:50:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZwcYrhW46+xA+n062VQYWIl77oCQfPKS+ts7LWr0IwNY7jbiH9EbdlDKzs7zUyWsRTYU9t/GQszx++lhNs1lZo3xe93MUMWR3bzr7rmVL6iLt6fq3m9tGwDl9PmTpQOgTLzX03hQukfsuMDByRzu6b2jSzE2piEAEkTh4x0PwFA0rO2yc9PWLDdCZMS5O/aCpj6UngCEKjJy7+AXfFz0tZBMblLODCnf5cWIauKrLyij0YBeq9ej3NLBB8DMxR+2FNa2P5CftSyHC2PZtxLu0CZh2Q5Cx/E2yFoYxjPB/Dn0byzc1NzhQPw39JgbVsWVOjEDOBkplM0P/dbTziA3EQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r94BeHOce8DTr81Gl+BgbzS46aKR8WB4LOn0YG+AOtQ=;
- b=PBqte2Z4yMCKrapPxHLd0g/UxZN7gfBcw10GGP7YG8Ksi4V9eQz/p3x94Sx99PUEYX0PI+39CixJ2Rz5F4jZBSDthtftBo4zO85H+UM6R5oc+trEYY4QNOG1a4zh9KTlmUEJCnxYgRy+P6PqW8/DWCoKFwwF9+tq4zUZzYiDfF09JW60A+gohKoAV23uy/PRJIu8MNTSYEcW9OnXp0Fvz+/VBznfpmWBIq/O1ps36GqjsPfB791HXT8ZwT+SxJdYXry+ViiajKNwWqSYr5y/pRyzYHEWvrHf1psOnKYPTq0dNsRvWSU/Ag4incea0p/xV+9ZNXM4psqlnvIId0zmIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r94BeHOce8DTr81Gl+BgbzS46aKR8WB4LOn0YG+AOtQ=;
- b=AV63dc3CcOfmZeDrO71PXcppVWymCe/xuyIBmZHbYEnHYTCcllN8H3TRa66YNDCjqSLfJUMVpONmtGioI7wbLtuGNPKKXDQDH4jy1z0XP9fb48h2fkJEM0WTD2h3ahUhRXZvmJO+cVCwoCAcHucoEnD3ktVPBT91HoAfFsMhixuDZACWNXUjrmgrnE9aP/EzM4ciz1U/s0wdhSKSnfWzq4tFE7HqSPJUavex3OVXarw2c2DSzlqrba5CJtI7VuC41OxiHv/SSrRdGXzqGAmq6ky66uaI4TTAyARAqUbQqxb+GDmPLFVbTMeJTxsMFILugayg5mLpvvDKEjfQ+IvQfQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DS2PR12MB9776.namprd12.prod.outlook.com (2603:10b6:8:2bd::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
- 2026 12:50:11 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0113.011; Wed, 10 Jun 2026
- 12:50:11 +0000
-Date: Wed, 10 Jun 2026 09:50:10 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Shanker Donthineni <sdonthineni@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
-	Jason Sequeira <jsequeira@nvidia.com>
-Subject: Re: [PATCH v2] arm64: errata: Workaround NVIDIA Olympus device
- store/load ordering erratum
-Message-ID: <20260610125010.GS1962447@nvidia.com>
-References: <20260605144551.2004391-1-sdonthineni@nvidia.com>
- <ailKYTOX23EMnJsK@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ailKYTOX23EMnJsK@willie-the-truck>
-X-ClientProxiedBy: MN0PR03CA0006.namprd03.prod.outlook.com
- (2603:10b6:208:52f::26) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Wed, 10 Jun 2026 12:51:31 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id BCC4EEC01CD;
+	Wed, 10 Jun 2026 08:51:27 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Wed, 10 Jun 2026 08:51:27 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1781095887;
+	 x=1781182287; bh=mjr0EJXcf5fpGgfCYEE8UvjJrrggHpGu76Ud0Wa9ei4=; b=
+	ADPwV7eHz6fcYGs1wkZRZgweMUvKqsmngMjiSNqaZXk/FDt21VXVYY5VV//lOYu4
+	UI1mbMcpqQse9raUQESn5x2VUDPQCs4vVkY9UEVJwvG6qyXfQa5c9lyOsl7E4KNj
+	2ZXiusVS7wiK363155BegUeAwNT07tHtMa16TY9UN1Ak0zFVKDo7Ni4oVHMkUw4D
+	X3i4strVI1Kf4z1ZwoOI9NG8GuhWVWJDnNo9clR9yiCsXwv5+uYBLm1MbbrfeE0R
+	bNqAgZU44GFYoDhnkxYN6GpUT3LPxUzgiWwTOU8eIDKzBswiNtxKnmH0UqQCPieh
+	1rGbnMH555gJRca1Zk+XkQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781095887; x=
+	1781182287; bh=mjr0EJXcf5fpGgfCYEE8UvjJrrggHpGu76Ud0Wa9ei4=; b=Y
+	qRIe0dJnvQV6D5AetFv0/TrA3U7HLrvWqT/o9+lVmTartR0GX3ACempMpDgEUcMC
+	NcQJWkpKjWmsNE5f1AqSO3MMA1U8A5R46OfOizhDFbWI1LrfyHPS2Mqs38JmPx5Y
+	n33bS2wIIY8bk3WovAx6T0a7qWSuWscKSqzi/FzayRi8nPtf/IJ6CMZ0+Vs6jm/C
+	3vUK51u2qKAMrIXSsZfOyeKSW7P2kEpWv+K8oPi7nAxygWE3BwbHOOxt+XtP+Gog
+	LHuBiGEzZxQ97eEn9BhqXroQwOcGBgm2+frypKHNkThAT3iQIsGGe2GqEIXclIX3
+	zVxucZN8TI8DRf3DUB18g==
+X-ME-Sender: <xms:z10paitPqf4MmvqIubo_izMLuxIyyJVTm2mFLfVzto3M5hTydAoB0A>
+    <xme:z10paiQraqyfGBTg1-fkRTuc251kworeTC6pHoH8_qYDatRIPo3pQWaRaeDEdy4LV
+    2nRKpW3T1qIDsNlzlX5oBvo5gSD2y-73IPkdGZqBjwK3lfUIINOHsD5>
+X-ME-Proxy-Cause: dmFkZTFq2iEO/MoPXTyaGp2UdguHzuRFH2Rks31lOqsP0RqRUR3u8kgw8zQwlT32SuhXKX
+    VOzT4qS110I3PiAJfbGsC9Hs/n6uakep8NfM7cDrSEnJ5iQgwtE0NqPozXC7Z+TcFp8x7V
+    ah+4bCjpGWvJ4fz1G9SbSfqX1FPjoevYum9vTUc8JN57iX++KTe+Jj0gl9FmfprpVSDMka
+    9z605UgXHTfp7m5Jym/yMiXsoO7/NS0WRfDGh/QH3fPkNEI7RHOzx550wQfIudOKz5S/2q
+    fgb2vDXKnoltEgiNb5fgO6uFes249Zpgea0YVuf6WpItibhpVTakJPnsxSBRPpQ4nlV+s0
+    ZX6IiP6c69+Rc5XigSTeEjGqXD+Uvf9Vg18nc1W2/0kFUstARkdv/bK8YzTXBSRgx00UgF
+    C6d3AAmQrorzZc2Mr1PrdX1+SNV+s/l0rOg5n+xlR/q/3h84Lsjj2h7YbxtvkmTVGdBVHa
+    21lUEl+65l7T4npJo3AZeIDHQSS6J4H4WnhWqRbKXOtTf82Tj4N9i5uSSCNILUg2DdfiFp
+    l2GZTq3yzKhNrkqU3VkdSXwa8zDC4AGRF/YRCVF7msGg0TzQyHYdGGF1hx+o9xutwe6toi
+    QbljgEgTqe2HFkSE3mj19I10YzVAj6sr5OQWIFVXQNOTEC8x4BYkUPlB2ctA
+X-ME-Proxy: <xmx:z10parpNaF_Y5P9htIjVC6i2-Ibu7yW7P0bNV4ZO_A2bxBnHWM21SQ>
+    <xmx:z10paq17NnmaZmNAV-JaoC3oAJSZFrumz5_YlFHdqzY_44I_dFLGEQ>
+    <xmx:z10parmeNriMYSYMJBgDlBjyPUi9I5T_E1r1HcLiHDTcJrKAhTaAyg>
+    <xmx:z10pauYJhuCnsCU7dHU8LiOdMGeuKsWl0Q5oYHdakY8aFDkjjh7jWg>
+    <xmx:z10pakZo0q-H-mXHY8HYckiwxy5SyGqeoxCwiZ3P_m_mu9_hMydleO3D>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 43BD3182007E; Wed, 10 Jun 2026 08:51:27 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS2PR12MB9776:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3adc22e7-50f9-4189-b8c5-08dec6eecf24
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|18002099003|22082099003|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: vJ3jkc6BNcKHSrGmet7pAfdBI+ZUiSDGoaDqGYE7eXyqFMH3aKJq7GQ/cZGPVZnQAI1/y51R3JpZFwfFxstRPONmmdiKUqUpRbnQB2gRe2FohUzKRqZ9Ba2dgaW3wctW06+EZ7kvrqPkk/p2GVknqQV00NQMcmEMAF+au6aU5bAD4a3HWjOfFlMa99CxDCXH9QKW46zCjBUkJOgH0+hsS7Bvnsa9MGEpQV6LtAhYVzXvQTNPU0i40c1AE9mYgLthbdfZPXz/xGUz3KUfitYujLFkp557K28NN89LZUwnh5ambGDVpLTiFM53jF/aB4C+DaJd3/vwta6RJFnfhAbCn21jw6SZIhiEZ89XP7ufGO+NSwtgj2z8mxgf+BpstfwtKvygcWVv8C50l5ZhctWmchHQ9sFq6b9wzVksvLPUMz4oUNlMCYEqyLigld3KcBdxiKfNU9j80b+Tubm5gVdG6gmE5JRRxUBGSDVy3WhvYaPqqfH2JQjKsihkax8LpF0NQcmJGIDD283MOG9UjN/A7HgprQuW7/X4NHLfk2VEop1afNsLSdZhkiwy+AS0rPDS32DmuCm9X6EUmtRoIV+70lQX9avI6T3BvaIXU6bJO8+LpsYUDJMfamg3Aiy4Hc2/EiQJPEtW417hxDG3IVmooYmkrR1birbqmK1Mt9EIzxorNkqTjpRfRQIRt5Fdhsip
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tAZJE/hBFb7jm43hJb1Yo/KGbL5BZ/QnWXxWERsridEMuAwpq0zcGQuy4pQf?=
- =?us-ascii?Q?dkTtir9BvnrBvI/FdGeEgI10Ap9YpqxpNk/dC058eR2m8iDvMLHZs4xv/i3r?=
- =?us-ascii?Q?V3bGjA2NNPT3DIsNM14NO1kMmcXd9goQyBq/0IySNI/c+B9tUrUrqzYpmZqJ?=
- =?us-ascii?Q?pY9Sul2xCgv8EheuxENbrmUT7HelU0OKQB13fzK5JrF0nbsu14CoUPGQO2JD?=
- =?us-ascii?Q?xTswn3NaOjBggO77KrECWB1oSDistoS4YZ/oDsCqiYad0Pxkx65hrCck2zuI?=
- =?us-ascii?Q?ucSKWnWDJCZt+JEIwtqmLCfeopKOgk3vBsryygza2T2sU/QD7rwaUUO+uUqp?=
- =?us-ascii?Q?wmTDInvhVs8CIF+ByZoHgbWEyz+2hqyJVx21xFA+s7lsecPKI6I18+7eyRks?=
- =?us-ascii?Q?tcMP4moKN/gcP7s8ztnhEbgoCQjB0NJXZWk4H6LIlYY4HeqNIDx5LC0DMvkp?=
- =?us-ascii?Q?aJtWfWMirNS8+8CZyqH3joByyv40djupkg5jTH9/nmdglfpJYbxznEvHq7j7?=
- =?us-ascii?Q?M3NbXtyQHEZi0WWdXLk7+O7ykBqGVd28+qmy/oDkOpJEByvPCXa9EvTemhat?=
- =?us-ascii?Q?pxYPBI7kzDqnI27jTXgn+SYfoi8NdZ2LJUvSEhqmBYCXhItslAFX0ZefK9mH?=
- =?us-ascii?Q?QVyaiPdn5v3KRvLHvK6glBZZ2NgQ9EYg4MR91gMsmbfF1CYOxS//bAJXJJwh?=
- =?us-ascii?Q?ULEcR32JuIsSHk6BQPeEDQbfZMnxl6wWIx6Iju5OKXMjGT3ezqnThEV/e3a7?=
- =?us-ascii?Q?lKz8OBV7s46lcVsX8U4PVT5azbzk1/+tGr7aU4nldYsBT1upn3urxBOOLfAY?=
- =?us-ascii?Q?q7X2RIwVYUxyoq5Y0lBhM1glpVliukruzjiIw8JMv81bkA7Ej+GWOW5wV4T+?=
- =?us-ascii?Q?K+91VJx2vDB/nfl83o0FlF3HblDfDakjg+bsv/3NdS0Tupj549cxcPaxVsmj?=
- =?us-ascii?Q?V47NhGbXmVT1om6eVi1R/AOfhuq/+e766NxBvT7IMS8iUPWeQws3+ofH0y4M?=
- =?us-ascii?Q?PtRuqWpZpWXoZ8++xDiiDhMyXBFaMvzKTIP3ynedaMcyt09e7vxNa5tz5RtZ?=
- =?us-ascii?Q?fdjgJ8/VQD/GB4fZMqKXPKGv+igjUIRNlLBSYD90i5e88yNXuNRjye2ANFY3?=
- =?us-ascii?Q?p/draOXpFhUaAwQs+eU/ewX3u6sHhnu+kPTB2kVVDBRY5mkLle4Ilb2xKbuz?=
- =?us-ascii?Q?/+5cbKtQzlrXIZSCLsrgOD3qxbVjN1dAATpQqATv7VFR3Aip7L9sQO8MtO3u?=
- =?us-ascii?Q?cg7Gqldvysznx9ZVLsFzn909jZOPbaHEFLC/0U4HfBpCWs/GEfAy6Xxfd5d4?=
- =?us-ascii?Q?lFV8debU/pr8BJDmSND7uqqhj48kTZoAXrEMheF6tB1kK4FIoB4EonScN6xG?=
- =?us-ascii?Q?R+TXOV0ZL+gCl9EGQORbaszxVmHJizdTMvkuzBUGr07T84Xb3Y+kbrks0sMy?=
- =?us-ascii?Q?1i74MpRHeam95qwffCfk5w69BPpyF9Z3CbN63+6lrNF9fhTBHRJT0KUjo+8J?=
- =?us-ascii?Q?M+zsPEt0U05VIMigf3Y/phPJGeangKmL3O2HM9u4vqIf73mti2BoE8Z5/aEC?=
- =?us-ascii?Q?kWSix8WjM4CrN0jH//XshWDH0/54Y9VeeZK+ORxgPx23KXswFi3nleUt7+no?=
- =?us-ascii?Q?8FndL8P1wjF1E/PYNjjdBmKIPkDH9wToRLdsfV8+x1mck/00uVC7GM+wU0/9?=
- =?us-ascii?Q?f5Ajkltv8cltADy15U9Gb3UMkCO4Nyjt0IEGyu61IDUcnYUa?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3adc22e7-50f9-4189-b8c5-08dec6eecf24
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 12:50:11.5637
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eOPV/EBi/3mSp08ZA8zy6gP0stWJntdrEZhwCg0rwY4OrDG9wWz2cQB21BP5C+Pp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9776
+X-ThreadId: APCtYiT4KAZo
+Date: Wed, 10 Jun 2026 14:50:46 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jason Li" <jason.lee651024@gmail.com>, jason.li@cortina-access.com,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Jiri Slaby" <jirislaby@kernel.org>
+Cc: "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <7dcc8386-a0e0-4c79-a9f7-f63188bb997e@app.fastmail.com>
+In-Reply-To: <20260610112821.3030099-2-jason.li@cortina-access.com>
+References: <20260610112821.3030099-1-jason.li@cortina-access.com>
+ <20260610112821.3030099-2-jason.li@cortina-access.com>
+Subject: Re: [PATCH 0/3] tty: serial: Add Cortina-Access UART driver and platform
+ support
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_055017_948540_D4F4C175 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20260610_055129_450552_9DD32AC5 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,28 +116,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 12:28:33PM +0100, Will Deacon wrote:
-> > Note: stlr* only supports base-register addressing, so the raw accessors
-> > can no longer use the offset addressing introduced by commit d044d6ba6f02
-> > ("arm64: io: permit offset addressing"). The str* and stlr* alternates
-> > share a single inline-asm operand and the sequence is selected at boot,
-> > so the operand form is fixed at compile time; unaffected CPUs keep using
-> > str* but also revert to base-register addressing. This keeps the store
-> > side as simple as the existing load-side patching (load-acquire) and
-> > avoids adding complexity to the device write path; retaining offset
-> > addressing only for str* would otherwise require a runtime branch on
-> > every write.
-> 
-> I seem to remember Jason caring about that, possibly because some CPUs
-> are very picky about write-combining?
+On Wed, Jun 10, 2026, at 13:28, Jason Li wrote:
+> This series adds Linux kernel support for the UART controller integrated
+> in Cortina-Access SoCs, with CA8289 (Venus) as the first supported device.
 
-I think it was more a fall out of the work there, after looking at the
-assembly this minor edit to the constraint made a nice codegen
-impact. It is certainly a shame to loose it for this bug.
+Hi Jason,
 
-If we care about write combining we can't have a branch anyhow, but
-that is most important for the specific memcpy operations (which will
-need a branch)
+Thanks a lot for your submission!
 
-Jason
+I'm glad to see Cortina Access is getting back to upstreaming
+this support, I see that you first tries this in 2021 but
+didn't get very far at the time. The last submission was v4,
+so it would make sense to cound this one as v5 and continue
+with v6 next time.
+
+You have already received a number of comments, so I'll skip
+looking at the details for the moment and let you work through
+them.
+
+Regarding how to split up the patch series between uart and
+soc, I think sending them together during the review phase
+as you do here makes sense, but as they are loosely coupled,
+I think we will likely merge them separately. For simplicity,
+I would then just put the MAINTAINERS entry and the bindings
+for the vendor and board into the series for the soc tree.
+
+It would also help me if you could add some more context about
+the SoC into the patch description for the patch that adds
+the arm64 platform, in particular:
+
+ - is this the only one you are planning to upstream at this
+   point, or do you already have plans for other SoCs in this
+   family?
+
+ - do you expect to see full support for actual end-user
+   products using these chips?
+
+ - is there any shared lineage with the cortina-systems
+   (storlink/storm, now marvell) gemini 32-bit chips that we
+   already support, or with any of the Realtek SoCs that
+   are also being upstreamed now?
+
+       Arnd
 
