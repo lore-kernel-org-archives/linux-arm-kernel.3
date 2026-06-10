@@ -4,132 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99DACCD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15B9CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDa7ieLMsEZy31V7ybEBZIBDb/xygBhp5IOusMei+GM=; b=elxHxS0NM3dJ/g/iAYP6PdMjWN
-	D5Z1/WCiLc4fkibkGoCXDdRt9HVQ5k4lEwo7ax4pBMYxlpffKznCA+nXKzdVLtOqWSFu0MjviByjz
-	1VMxEOGSj/6OSr1YDZSStEbVQ6+hzVwa+VE92OCt3B7ABiQbh/A/sti8sVePDuhPnAn7SLmb/H8UY
-	3sI7h2c7NBSezho39U4DC4P30O0FwTzxf9gcNKf6LIcywKBXycBDzCPAabThXNJ/XV7mdurYTFDqE
-	eYheFb7Pb0UIuzmiFMpYh8TT30pc9sSXqzH+RCKs8MgE+yd/TmfQxfIG+Cq2wJ+JTUQ4UBopvS1U8
-	YkpEj0EQ==;
+	bh=Y4jgcYAAflMnUINIsIj8y+YCHO2jVOfAFlt5LrZDdIY=; b=lVLwP5CzCv2pxLZRl+UBJjYSdP
+	35NjM7dkpJ9cWdkJg0CXovYZWUHg0EwVOrrmRQQA3Cvx0C68/39xwa2eKWjMIq4rrsnyHKM90wjxA
+	hdU4Q3UNhWrjr1I6eHLUKW4uMvBGX6U99X+RBnIYkKgBb5qSTSNF6b+drja6xpYsuQPIMavg65w8/
+	5tRaoWltlqd4c3Q3i6rNtLmTDvOrJmzkXmnJztLIZX0hcZQn480mHx8CEJnBQVug7kpvBo4q6nWhq
+	V2VCqIGonv/djBl6w0oqVQLiimnv902u0XiWH2ueWShCpClsJ0eDbsKl7pADVUuSNzvkiUm6VFvHl
+	qgrleWBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7ge-00000006cjz-29VE;
-	Wed, 10 Jun 2026 01:24:56 +0000
-Received: from mail-northeuropeazon11010050.outbound.protection.outlook.com ([52.101.84.50] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wX7Ch-00000006ZXo-2i6k;
+	Wed, 10 Jun 2026 00:53:59 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7gc-00000006cjT-1QsG
+	id 1wX7CY-00000006ZQV-2zX1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 01:24:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YSeSTePIk4MvMnQ2M1z6NUgGW9qnN8ZwRGeATQWbRxM73JvSKA37yBxl16l4HAe0MHbY8c+QUFgaOXve7ppoIY3EB6Yz3vhbKZgYE/MXFryD5OjuVenTwUvP/ptQ32NIIRuLxvnv+DTr6nj1+BB+5na1p1uQtzP2dh0bYQXea/YC7IbiX1ILAw5Nl9LdSJx5uekP9XJn3bJFYfPEFVM1ZU6Js/FKjdK7W+ycqZgNe60IqhmP8tWXjpzeyyu9DdmmgmXInB7brV03TYdN6V4rVPQyHZoWbM3NRgiFi0FCQ+Upxq1uaEhMBE1VZleWRQXWl3JAWqZWr5t61K48dgLxZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uDa7ieLMsEZy31V7ybEBZIBDb/xygBhp5IOusMei+GM=;
- b=tcHsCns5QjExP1Z8jBRpfy6x0GJZJJIVDVGI/9a2ikKjMYy+Hi/d4sDzW1nl+l4s4rpbsSr0VmigZhuhLoTEGcWrL1XQd76y/7mQJc2+Z9xzjyHDFhUacWxsB9xAcXEehAOOHR82tX8JYvPzHYaZeWepDUZ5STYpXqw8K1VQlHSWzvsTWBU4B7u8MZ7u+w1xQ6RfVq2oIofdvOUbZptfMPcdLNea6Bish/Betqe3+bBUqm00Apf5U6m7ysZUFVJXhY0G6QZxk7zaAcl1qSkv2dyL7W0nhOnVErRrm/ColzydyiqQJuezZhElcxjqilWgIg8UhbB4fmphK5d56qRtag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uDa7ieLMsEZy31V7ybEBZIBDb/xygBhp5IOusMei+GM=;
- b=fL3XzGYKpuir//WREasxWcvdhJctBex4h8fYZQnTDHvr/mPuYjFkwRFGYgoTBXKgGqGuSZIMHzhtMY937pTwhoK3G7G2fMs2CjAkdkQluw5J+sOBXetAkHRmDDACT9VgsiVQIsk6l14XV8h+bj0llFKRWDVRhySLQ/BYBKc3BSpj/oXn7QhwXokG161wjPbVFZ3rWWVCrDelfYfyTrVyKF+gi2tvVt42FwGlT4KCbj/Kh43kyLLkDHdbkOjT55/tXiUKzV7RXnKcJLC9MArD5ik7VgIX6VYjdQvud7GR6Qy7yM7nR8JbijUWjBlhKXLFIzhPCzh2JXls36TvONTb5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB11574.eurprd04.prod.outlook.com (2603:10a6:800:302::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.11; Wed, 10 Jun
- 2026 01:24:48 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Wed, 10 Jun 2026
- 01:24:48 +0000
-Date: Tue, 9 Jun 2026 20:24:38 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-serial@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCHv2 2/4] serial: mxs-auart: rework clock handling in
- mxs_get_clks and probe
-Message-ID: <aii81hmY28Nw8YJ0@SMW015318>
-References: <20260609223717.41670-1-rosenp@gmail.com>
- <20260609223717.41670-3-rosenp@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609223717.41670-3-rosenp@gmail.com>
-X-ClientProxiedBy: PH0PR07CA0118.namprd07.prod.outlook.com
- (2603:10b6:510:4::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11574:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d60a7a0-a029-424f-ebb4-08dec68f0faa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|19092799006|1800799024|4143699003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: j0nJIkr0VTenpTwtlA2c+jexEf7LFcim47GMVvpBxbqSDoegPrmdZQdEodh8hKg+u//gkouSQgO+wzVEEGJ4mBYITj154taHWYWbNoUkWEjtIwdidnsZ2xER9V3LYr4kMF/23Oy8+y+W/AjjRKRy7H8IfmKNEoy3s/DW+j3Kdqp14s8g9/NA+F2jWQBubHSr2oSRUdQ5Zvot/yuGeMdMEJc2EIfLePi8GyrNEAJje6r7Qa+K/A7dalnti0Uwood+gYactWBZ2VLhjzbaZ/8lO52wAovt7qhxtO6CSY4dsPAxw17B2MAg9D/WUkoGyNl7wxTAiJ9pQ6qpK67D0DOeQo/J3zqKuF21i7+4ZlKNDkFrSXYVgkp6MVb/Lt1CObd34XBZjDFPOerq9IwYspk+vFsXwNheKuHv75klqzc1V3gdgPSN5P9VyCKMmBRVOSynnE/gvFxNOfiDf00vrx1hIhYSQuusJX9xQbNS+e9rQwIO+78zYu2SYrgQNtAaAVGZ3Kkwr/dbHJzYjgtbIPDsB+OCjmgrZ14nttB2CPRS6fN6dGxiHzoCb3HaAEXsMj+kJ25VEDv2KGyX8BV1WEOXnqmdfl7DmSkAdKUy/zgGuaFH+DBtn0ptYQP/F++xmsmcsC9OWMRNtg2AQ5r7pJbkuktlfsCgw4bOsfTr9zVIMTPtsKQ+nqzZ5dinI/A2fU7a
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(19092799006)(1800799024)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MXTvK5p6kR0IKkI/TGYnwrtU4+gyHfIrT8hE27HuoZH0Qkv/h2F5RxvyfGcI?=
- =?us-ascii?Q?jwrv1x3Z9WAxdcvqDBRFsCDbypFSP+j7VyiJXL9ZyHYEHTbriaqSQzJNcwT8?=
- =?us-ascii?Q?wSZI+hZzYztzIBfPoXJm4LN+Z6ng/2pZfDFU0iDv6Go7IP9BbG3EIBmIrDbg?=
- =?us-ascii?Q?FD4A7JbeCV4rdHGCUohU/FbgU/eTrff9eMjG6zxsMGuWKnLH3N2+IDsoQOST?=
- =?us-ascii?Q?EbJoYLX8PRX39u6YBCJYxwKKNU965w9VgGHW49t0MWCidEFWQLyw7CUwtdYf?=
- =?us-ascii?Q?Rrf4eoBKn69OypkXB7BoTtCW0oL2eD7M4QIbBvBT6c+flO9p1QEmh2hnsOiG?=
- =?us-ascii?Q?4SmI0jOAfTh/kZ/bTd8hRfj/MIuLOEU9b8vs5AyyLSuKjg+Mp28t/y1R6Oza?=
- =?us-ascii?Q?jpS423uAMrM4lf7Ej9oYkEDO2tLf00TAaUCpKk2fG9YbArIaWUGzADeni58C?=
- =?us-ascii?Q?qAQ6GXujuTsWy8R5TKf2h5JvDd5hz3ROyEnOjP4vtASHig6jc9HwHPZ1GWTB?=
- =?us-ascii?Q?AoyAxeKG4Ghj/LzBMt7acHaY6iiKzcJkdPFlzwunyc/y7RcryyXJFc4aQENz?=
- =?us-ascii?Q?mAtHRN3DEr4d9PqvziI+EZShv+1ubS0LT1VYrgPEpFDHtAmfJANBix3Aiud4?=
- =?us-ascii?Q?LyPYGgLEN1WrNTJQEhUEPV2eVl0CTI+bXv5eFGKkNAYMx4trNBk/b1dS+fNt?=
- =?us-ascii?Q?GDtL/GmM3tZX2V8Qt9dMpthcBzLBa6pOg6jiqxZHmfOCMi++XHgOe+nosk1g?=
- =?us-ascii?Q?TnHHgD/KXhVOX+4iU4J47+nldD5i1rSZJURWRQop2/uSBC1OByH0mAuyZiCI?=
- =?us-ascii?Q?64usim0l3vQtCaofJ24a0V+1I7pgRl+Wu3IXyHUNJc4VbKsxxzwxOCExccsc?=
- =?us-ascii?Q?2tkR6c6Xc13VAh/b3buDRzQr0KpPRi/4/KCvtte9w1CS9MGmhYQp6y9JRka1?=
- =?us-ascii?Q?9XfC7jzxSUzZ0/DHteePla25NkYo3S8VMiajh56OjBxBYblDI0+0BRVrYJ9O?=
- =?us-ascii?Q?he+JyViYBNhHTneOD9c2Umtf1x95vlCCaTVJ1LI6c39zGewCax9zCe++y6gb?=
- =?us-ascii?Q?6GZYgQrY/xpsy43Xn6UrB+iGR+tVt7occNJhurtyQXcgG0N+fvxPZRYlWksh?=
- =?us-ascii?Q?v6b2BJfF4bRMfVQY9Zb/8uyz0JsFYQuRZMG+BloRzJdV/VBq+i2FwrfYdzFm?=
- =?us-ascii?Q?nnBTCsLOZTiVsSoz9725m0NPdaLN4PnENn2VLjDxzeoX7gQt3ctxHkXKmlJe?=
- =?us-ascii?Q?ZlUo56NNx5Mcz4bbIOn2SAxpSPJ21wDErm6/AisZwALbz5w9olijGGh6Q3gz?=
- =?us-ascii?Q?BrsP9VpLYk71sKS7M4Xc5K8rO/vzHXz4rgObRqcWu5Q7stCiG4eGEaUKm4Gj?=
- =?us-ascii?Q?vywtY2qyoXkvryENCdQYIMJSaus8/jwUOKMWJC7Skc9UnqLyFqWLTYkUnomV?=
- =?us-ascii?Q?oyNEAwyynsI6ank5Bud9HRUhn1HY2BDiudKMSprueati0zfjzlm03OEQFxf/?=
- =?us-ascii?Q?q0uc49StycUBwXcuHucAJ0UOrtXEnkx7JIRUtusGawUifrClzjovQtXOVrCo?=
- =?us-ascii?Q?W4hMEnCHh+epaPGqnaN6B9xWzrH655W8nWSLpamukmT7EXULzEZtYaZh0X5V?=
- =?us-ascii?Q?6IXbFrxWpwprik30Bu/Gp43mvrFyGwQYFmj6z0VaaZAUjiHAKAhPbjytX6Hu?=
- =?us-ascii?Q?2qRjJWsBVjtnGXbMsJLxkqVyYhMaCXdKr/9CkKObMTtWRVZu5ngildF8ybT4?=
- =?us-ascii?Q?21Hgi2Crjtqin7ziR3ZweGXHCM5ZR4FtJHFw2BM1Z6RNCQ2nhc7K?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d60a7a0-a029-424f-ebb4-08dec68f0faa
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 01:24:48.1674
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AkZAPddfL6ulvNg/o/JP9DP3HYyC9Brfe8E4O8H4wuCFUvwKMctpI72kcl8/P2mXBwJWFm2ZIYSErPDPOvDTZqxWQB6rS5wLxsMk3DYD1XzkV1C1GKrFgYdW3pMwYESz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11574
+	Wed, 10 Jun 2026 00:53:52 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-842308adb3bso8155660b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 17:53:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781052828; x=1781657628; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y4jgcYAAflMnUINIsIj8y+YCHO2jVOfAFlt5LrZDdIY=;
+        b=GnuIYgT/bypl+UWSviZUBv19F7xoxXhFhwjVjQ/2JwpyQNLGLmqu2uU6H5xZ5AgSq4
+         a/H1XJpFJhpNKLEDn59PgHHylSVnGU8sTb0/AFMvYhypAIJG/INhTOx9kqKl5WoNwR8j
+         YA8/TEaFhcX4ePlS5xXVq9HfsJXkWdyGtl8D1KAddMk2iokfr+xNOoz2r+9Zks10E5pI
+         vvjoh60NAXfJfaNYJDzx8kTcIJaI0GePjyh2cbEISlDxRiIFO3j0m/O7eW9y9t4e/IxX
+         lQatpgH5U/logFWfk+b23SRSosrIuv+ek9dQnM6jHTgPaTo4eRpLgzg3qTyr38t5Dp88
+         8DeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781052828; x=1781657628;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y4jgcYAAflMnUINIsIj8y+YCHO2jVOfAFlt5LrZDdIY=;
+        b=SkychJ9684IXGzVhb2RItLYtvN4PsEnA/aBryD51jd/93WnGOLR8ovXKtbzQvHvdh0
+         jQ3xUqlT4t0Ftp6bEEnFYm1iAMhba7/zA1vbzgwl5oJBU8WT+nFKL/6+s8+STSCt94EO
+         4z6k2OhLPQSEnzr5RI2rBLkMr6Abx1eNiIwAwHMMpuKOXYGAJdAMR/L6A0GBX3D1XArW
+         q8UOGSpd5pLctN2YYw01VY/D4iO54+vNghFYzABR5/Z9cXGSSlWn66oOecBO5QaoxSlK
+         cfIT1aEbSZ1vaZA92HzOn3sXc7s0YTAoOpJ3ITQ7xkcxEon0UIagEyBLm58uStIoJi+G
+         bIBw==
+X-Forwarded-Encrypted: i=1; AFNElJ+upbOQX1be0H9mPykD/PuZNwN0IUHg7hUlpWzVr4V/tzVpBQ+b4UMrD/5OhrjcuqzM60yp4AqwDbEfEgxasFgC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEyotajImP4hlUC4UuMX1G+zMiXju+NoVoqV66O14DSVfZmCki
+	t1/TmhBivqBnRMqjzUCkOvIgz/TMdJXILmb2xrnhB73FDTrAFGU0P7NZDzQ5vvLV2yoALQaqAii
+	CB1WbiQ==
+X-Received: from pfnd21.prod.google.com ([2002:aa7:8155:0:b0:842:5989:fb63])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:9286:b0:842:4023:42c9
+ with SMTP id d2e1a72fcca58-842b0fc08c5mr23541407b3a.41.1781052828129; Tue, 09
+ Jun 2026 17:53:48 -0700 (PDT)
+Date: Tue,  9 Jun 2026 17:53:25 -0700
+In-Reply-To: <20260610005338.2967132-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20260610005338.2967132-1-seanjc@google.com>
+X-Mailer: git-send-email 2.54.0.1099.g489fc7bff1-goog
+Message-ID: <20260610005338.2967132-6-seanjc@google.com>
+Subject: [PATCH v6 05/18] KVM: selftests: Add an irqfd send+receive (and later
+ IRQ bypass) test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
+	Josh Hilke <jrhilke@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_182454_442168_AA24D3AB 
-X-CRM114-Status: GOOD (  24.75  )
+X-CRM114-CacheID: sfid-20260609_175350_771666_68AB55C2 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,139 +91,226 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 03:37:15PM -0700, Rosen Penev wrote:
-> Use devm_clk_get_enabled for the AHB clock so its enable/disable
-> lifetime is managed by the driver model. Move the mod clock
-> (clk) prepare_enable out of mxs_get_clks and into probe so that
-> clk_set_rate is called while the clock is still disabled, avoiding
-> CLK_SET_RATE_GATE failures. Clean up the error labels accordingly.
->
-> Assisted-by: opencode:big-pickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/tty/serial/mxs-auart.c | 47 ++++++++++++----------------------
->  1 file changed, 17 insertions(+), 30 deletions(-)
->
-> diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-> index de97c0f74e7d..aa59a48bfad7 100644
-> --- a/drivers/tty/serial/mxs-auart.c
-> +++ b/drivers/tty/serial/mxs-auart.c
-> @@ -1470,34 +1470,22 @@ static int mxs_get_clks(struct mxs_auart_port *s,
->  		return PTR_ERR(s->clk);
->  	}
->
-> -	s->clk_ahb = devm_clk_get(s->dev, "ahb");
-> +	s->clk_ahb = devm_clk_get_enabled(s->dev, "ahb");
->  	if (IS_ERR(s->clk_ahb)) {
->  		dev_err(s->dev, "Failed to get \"ahb\" clk\n");
->  		return PTR_ERR(s->clk_ahb);
->  	}
->
-> -	err = clk_prepare_enable(s->clk_ahb);
-> -	if (err) {
-> -		dev_err(s->dev, "Failed to enable ahb_clk!\n");
-> -		return err;
-> -	}
-> -
-> +	/*
-> +	 * Set mod clock rate while it is still disabled so
-> +	 * CLK_SET_RATE_GATE does not cause clk_set_rate to fail.
-> +	 * The mod clock will be enabled in mxs_auart_startup()
-> +	 * and in probe after mxs_get_clks returns.
-> +	 */
->  	err = clk_set_rate(s->clk, clk_get_rate(s->clk_ahb));
-> -	if (err) {
-> +	if (err)
->  		dev_err(s->dev, "Failed to set rate!\n");
-> -		goto disable_clk_ahb;
-> -	}
->
-> -	err = clk_prepare_enable(s->clk);
-> -	if (err) {
-> -		dev_err(s->dev, "Failed to enable clk!\n");
-> -		goto disable_clk_ahb;
-> -	}
-> -
-> -	return 0;
-> -
-> -disable_clk_ahb:
-> -	clk_disable_unprepare(s->clk_ahb);
+From: David Matlack <dmatlack@google.com>
 
-if I understand correct, after apply patch,
+Add a new test, irq_test to verify that KVM correctly delivers interrupts
+to a running vCPU, when triggered via an eventfd bound to a KVM GSI using
+KVM's irqfd mechanism.
 
-	if (err)
-		dev_err(s->dev, ...)
+This test is intentionally simple, for now.  Support for sending interrupts
+via VFIO devices, for IRQ bypass, and for other features will be added in
+the near future.
 
-	return err;
+Add the test in common code, even though it currently will only build and
+run on x86, as the concept and the bulk of the host-side code isn't
+specific to x86.
 
+Suggested-by: Sean Christopherson <seanjc@google.com>
+Link: https://lore.kernel.org/kvm/20250404193923.1413163-68-seanjc@google.com
+Signed-off-by: David Matlack <dmatlack@google.com>
+Co-developed-by: Josh Hilke <jrhilke@google.com>
+Signed-off-by: Josh Hilke <jrhilke@google.com>
+[sean: use while() and TEST_ASSERT() instead of if-statement => TEST_FAIL()]
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/Makefile.kvm |   1 +
+ tools/testing/selftests/kvm/irq_test.c   | 170 +++++++++++++++++++++++
+ 2 files changed, 171 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/irq_test.c
 
-Perfer method is
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 14316358fd9f..1339228cbf53 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -156,6 +156,7 @@ TEST_GEN_PROGS_x86 += coalesced_io_test
+ TEST_GEN_PROGS_x86 += dirty_log_perf_test
+ TEST_GEN_PROGS_x86 += guest_memfd_test
+ TEST_GEN_PROGS_x86 += hardware_disable_test
++TEST_GEN_PROGS_x86 += irq_test
+ TEST_GEN_PROGS_x86 += mmu_stress_test
+ TEST_GEN_PROGS_x86 += rseq_test
+ TEST_GEN_PROGS_x86 += steal_time
+diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
+new file mode 100644
+index 000000000000..9f8895b89821
+--- /dev/null
++++ b/tools/testing/selftests/kvm/irq_test.c
+@@ -0,0 +1,170 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "kvm_util.h"
++#include "test_util.h"
++#include "apic.h"
++#include "processor.h"
++
++#include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <pthread.h>
++#include <sys/eventfd.h>
++
++static u64 timeout_ns = 2ULL * 1000 * 1000 * 1000;
++static bool guest_ready_for_irqs[KVM_MAX_VCPUS];
++static bool guest_received_irq[KVM_MAX_VCPUS];
++static bool done;
++
++#define GUEST_RECEIVED_IRQ(__vcpu)	\
++	SYNC_FROM_GUEST_AND_READ((__vcpu)->vm, guest_received_irq[(__vcpu)->id])
++
++static u32 guest_get_vcpu_id(void)
++{
++	return x2apic_read_reg(APIC_ID);
++}
++
++static void guest_irq_handler(struct ex_regs *regs)
++{
++	WRITE_ONCE(guest_received_irq[guest_get_vcpu_id()], true);
++
++	x2apic_write_reg(APIC_EOI, 0);
++}
++
++static void guest_code(void)
++{
++	x2apic_enable();
++
++	sti_nop();
++
++	WRITE_ONCE(guest_ready_for_irqs[guest_get_vcpu_id()], true);
++
++	while (!READ_ONCE(done))
++		cpu_relax();
++
++	GUEST_DONE();
++}
++
++static void *vcpu_thread_main(void *arg)
++{
++	struct kvm_vcpu *vcpu = arg;
++	struct ucall uc;
++
++	vcpu_run(vcpu);
++	TEST_ASSERT_EQ(UCALL_DONE, get_ucall(vcpu, &uc));
++
++	return NULL;
++}
++
++static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
++			  u8 vector)
++{
++	struct {
++		struct kvm_irq_routing header;
++		struct kvm_irq_routing_entry entry;
++	} routing = {
++		.header.nr = 1,
++		.entry = {
++			.gsi = gsi,
++			.type = KVM_IRQ_ROUTING_MSI,
++			.u.msi.address_lo = 0xFEE00000 | (vcpu->id << 12),
++			.u.msi.data = vector,
++		},
++	};
++
++	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing.header);
++}
++
++static void help(const char *name)
++{
++	printf("Usage: %s [-h]\n", name);
++	printf("\n");
++	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
++	printf("\n");
++	exit(KSFT_FAIL);
++}
++
++int main(int argc, char **argv)
++{
++	/*
++	 * Pick a random vector and a random GSI to use for device IRQ.
++	 *
++	 * Pick an IRQ vector in range [32, UINT8_MAX]. Min value is 32 because
++	 * Linux/x86 reserves vectors 0-31 for exceptions and architecture
++	 * defined NMIs and interrupts.
++	 *
++	 * Pick a GSI in range [24, KVM_MAX_IRQ_ROUTES - 1]. The min value is 24
++	 * because KVM reserves GSIs 0-15 for legacy ISA IRQs and 16-23 only go
++	 * to the IOAPIC. The max is KVM_MAX_IRQ_ROUTES - 1, because
++	 * KVM_MAX_IRQ_ROUTES is exclusive.
++	 */
++	u32 gsi = kvm_random_u64_in_range(&kvm_rng, 24, KVM_MAX_IRQ_ROUTES - 1);
++	u8 vector = kvm_random_u64_in_range(&kvm_rng, 32, UINT8_MAX);
++
++	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
++	pthread_t vcpu_threads[KVM_MAX_VCPUS];
++	int nr_irqs = 1000, nr_vcpus = 1;
++	int i, j, c, eventfd;
++	struct kvm_vm *vm;
++
++	while ((c = getopt(argc, argv, "h")) != -1) {
++		switch (c) {
++		case 'h':
++		default:
++			help(argv[0]);
++		}
++	}
++
++	TEST_REQUIRE(kvm_arch_has_default_irqchip());
++
++	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
++	vm_install_exception_handler(vm, vector, guest_irq_handler);
++
++	eventfd = kvm_new_eventfd();
++
++	pr_info("Injecting interrupts for GSI %d (guest vector 0x%x) %d times\n",
++		gsi, vector, nr_irqs);
++
++	kvm_assign_irqfd(vm, gsi, eventfd);
++
++	for (i = 0; i < nr_vcpus; i++)
++		pthread_create(&vcpu_threads[i], NULL, vcpu_thread_main, vcpus[i]);
++
++	for (i = 0; i < nr_vcpus; i++) {
++		struct kvm_vcpu *vcpu = vcpus[i];
++
++		while (!SYNC_FROM_GUEST_AND_READ(vm, guest_ready_for_irqs[vcpu->id]))
++			continue;
++	}
++
++	for (i = 0; i < nr_irqs; i++) {
++		struct kvm_vcpu *vcpu = vcpus[i % nr_vcpus];
++		struct timespec start;
++
++		kvm_route_msi(vm, gsi, vcpu, vector);
++
++		for (j = 0; j < nr_vcpus; j++)
++			TEST_ASSERT(!GUEST_RECEIVED_IRQ(vcpus[j]),
++				    "IRQ flag for vCPU %d not clear prior to test",
++				    vcpus[j]->id);
++
++		eventfd_write(eventfd, 1);
++
++		clock_gettime(CLOCK_MONOTONIC, &start);
++		while (!GUEST_RECEIVED_IRQ(vcpu) &&
++		       timespec_to_ns(timespec_elapsed(start)) <= timeout_ns)
++			cpu_relax();
++
++		TEST_ASSERT(GUEST_RECEIVED_IRQ(vcpu),
++			    "vCPU %d timed out waiting for IRQ (vector 0x%x) from GSI %d\n",
++			    vcpu->id, vector, gsi);
++
++		WRITE_AND_SYNC_TO_GUEST(vm, guest_received_irq[vcpu->id], false);
++	}
++
++	WRITE_AND_SYNC_TO_GUEST(vm, done, true);
++
++	for (i = 0; i < nr_vcpus; i++)
++		pthread_join(vcpu_threads[i], NULL);
++
++	return 0;
++}
+-- 
+2.54.0.1099.g489fc7bff1-goog
 
-	if (err)
-		return dev_err_probe(s->dev, err, ...);
-
-	return 0;
-
-Frank
-
->  	return err;
->  }
->
-> @@ -1604,17 +1592,21 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->
-> +	ret = clk_prepare_enable(s->clk);
-> +	if (ret)
-> +		return ret;
-> +
->  	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->  	if (!r) {
->  		ret = -ENXIO;
-> -		goto out_disable_clks;
-> +		goto out_disable_clk;
->  	}
->
->  	s->port.mapbase = r->start;
->  	s->port.membase = ioremap(r->start, resource_size(r));
->  	if (!s->port.membase) {
->  		ret = -ENOMEM;
-> -		goto out_disable_clks;
-> +		goto out_disable_clk;
->  	}
->  	s->port.ops = &mxs_auart_ops;
->  	s->port.iotype = UPIO_MEM;
-> @@ -1681,11 +1673,8 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  out_iounmap:
->  	iounmap(s->port.membase);
->
-> -out_disable_clks:
-> -	if (is_asm9260_auart(s)) {
-> -		clk_disable_unprepare(s->clk);
-> -		clk_disable_unprepare(s->clk_ahb);
-> -	}
-> +out_disable_clk:
-> +	clk_disable_unprepare(s->clk);
->  	return ret;
->  }
->
-> @@ -1697,10 +1686,8 @@ static void mxs_auart_remove(struct platform_device *pdev)
->  	auart_port[pdev->id] = NULL;
->  	mxs_auart_free_gpio_irq(s);
->  	iounmap(s->port.membase);
-> -	if (is_asm9260_auart(s)) {
-> +	if (is_asm9260_auart(s))
->  		clk_disable_unprepare(s->clk);
-> -		clk_disable_unprepare(s->clk_ahb);
-> -	}
->  }
->
->  static struct platform_driver mxs_auart_driver = {
-> --
-> 2.54.0
->
->
 
