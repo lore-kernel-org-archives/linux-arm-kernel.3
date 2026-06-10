@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B96FCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E269CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i8yD0V3JpTBBCPvBkTEEQc4c3oKXbaRtxhAPfIJqxXo=; b=zpSq7j/9s+qTChidDGiksU0NiK
-	Hn/mU9WWOJiLunXuR3pZpOhnjzU5aMRKgcHSut05e/v9QKrYhZ/JEX2Wy6SjlJ0s1yY6pJKEOVBVI
-	GPFw31G9LJTOjHZXx33uEqliQAsdlI5zCXh1Gawd2c2v/VgdvzVK/ApJGjm0FXKDmdnDr+bPMK8Ne
-	uoHSDmhabPghiYgwlvnH+8GNbqNzgYz+W1uETBUk48kZs96J/h8St3YZD5avXecd9Y0KIcDM6EEKt
-	h11iQ4PxWny4Y9sVU3eSsKRQj2dyXJB87K+BUdjYHz+ETC7uvWLOcAhDGBqs2bb5JUUFtMrmLi8jI
-	+1ABp8JQ==;
+	bh=XujJTqPif96ZcsPOUAZQ6B5C/J5OqNB1kq3+Ep+LgvM=; b=1k3oaCawb0QB4neRJaIHqrgtBu
+	yzrf5MKEAmqeLIZcCb9/E9+gC3CI+xdyKbOi8/5LS3KVd4xuDTOFiFOWcIEepSm/uvRV/lw0cHQcA
+	2MJ0aTkZzbfW7FwmvJvtv3TYFl78r7zSHZw2aDi1mKQw8gjr6Yl51bsAcpON4gHhnQ8qIwpXz9G5Y
+	B/d33Cs7wXG8g46J0hvXljqM61CkFKalwS2UbRsIu9nukMm65TnaOalE1DWTLZEFgi22G7E4ohuM7
+	ZlrX4GXHl34mcQP8XfYkspenJdrkGny9TEPYV4Nx/zmvXSBFnvFDTo8QgqEJLH/X0wLzgRwFxgSTl
+	VG7bDo5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXG3n-00000007NSD-1yfF;
-	Wed, 10 Jun 2026 10:21:23 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wXG3q-00000007NXK-3HOI;
+	Wed, 10 Jun 2026 10:21:26 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXG3k-00000007NNm-0YZW
+	id 1wXG3o-00000007NSt-0xkA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 10:21:21 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-36ba706ab46so4466063a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 03:21:19 -0700 (PDT)
+	Wed, 10 Jun 2026 10:21:25 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2bf22d29dabso43946845ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 03:21:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781086879; x=1781691679; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781086883; x=1781691683; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=i8yD0V3JpTBBCPvBkTEEQc4c3oKXbaRtxhAPfIJqxXo=;
-        b=T+xZu7dx77LbSVkY5mezXCoEQI8t6JyZIQS5fwHHeqRaKJ0xkLXrb1ZcQhYBh6UIVC
-         pieG466KlPCWUaXC9CHLiWbWfeDqBcUJQBfow2Tb681WiuMYZHK5NIznTpO8EaH/miQu
-         qwSWEbSZffX1CZG4nrIZKqNjNgFrTBosaZziQvck+i7JQaq579/HNZ6x5RZmaD44zJds
-         TaZlXRJ+rC34/xwr59kKcnxj8e4k6NPVvbmC1pSFn5rGQUqdmlrL56iZO5vFR1T6t7A+
-         KTBdqTialsaiUxWOAs3dUWrVOlID2rxI48LX3tXYLuRjGB7u2tKlT1wtlxDqMDFLwyq4
-         yWhg==
+        bh=XujJTqPif96ZcsPOUAZQ6B5C/J5OqNB1kq3+Ep+LgvM=;
+        b=AAwQ2j1V09BIzyfpxHIujdqY3R4saPrJSlIeEaDrQ1D/LsQ+6SJHGAW/mZmAkObYaz
+         pxB8CoNDHwAnjCHANZmYQdQtW7WB5IfSyGyYVW7lKpolo0C9mhrEqrV+n4oW4dWK1t+A
+         8bFh0uTlNetWLJYo+DAEAITs9zVbnCh4Nd+nsiEdfa/0YODLOoEkg1IgoZnOminhI8YN
+         AJzUueGC88FxpjgB2e2SWv1C4WwkjhLMjJqzneD/WwtwtXwkGCmakWrIQZqywaYUGsAX
+         YD+9QyUzTJHlfZpXX4AEq8yHkL/dgBHwVNrn/hr2/P1MLbkrAW816c8+oKggC8ufPdNa
+         ynQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781086879; x=1781691679;
+        d=1e100.net; s=20251104; t=1781086883; x=1781691683;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=i8yD0V3JpTBBCPvBkTEEQc4c3oKXbaRtxhAPfIJqxXo=;
-        b=nRGn+mjKOnpkRMKe3m+2BqxJQ2RdDN2TfaAlnrEZhy9HfEmXVUF+uv7yXHk9kQeOiE
-         vXQ50vgZ5CS+5dT3fRuHOIJ/l3+3jPVy4obZxUu7PvPZRYQ6/0Cjx4qi0HMyQf3mu0I5
-         fkv2NL5rHrtbD2EwIz7kwPEElOcJISq6GrQXEYVUAAX2kPMl2BoiT0517X9xQKgbn+Cq
-         NDhq7GC3aOQIXCFmF/eJpeLoC73so36Qtf/skG00t9mT21zEzKcD+Hd+4zS/Cn/PsgT1
-         9NKMnlg3pj0hnJqaXCE3O/UzxmgAv9jRH5KkULmTC8vw48KTMilAwn+/rDlslimgn4On
-         uJQg==
-X-Forwarded-Encrypted: i=1; AFNElJ+BYtWJ5KOOKHXPpvJM78tLmeXNk3yAwG67ADt8WNvbg/qo8P0GcOBpCK56Uk4wLR/WJPytPb0Oy2ZBCT58cKFp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTAvSERykbksbIGahEUbMQ0Voz4YV0WIjzj7TxnJPAaYe71VQ3
-	Iy3ZfMo0XDVGj6nsxJabGv5G4+8zo4Arp6Pv/y+022HscE546KvSCmlQ
-X-Gm-Gg: Acq92OEbceV4+ZEyWHjNFcIyQ5vGI5af1hkpmXHfQJia/xxtAgxhvB+G42UVBhWl/Gj
-	tDLbwHDmweEtBnVqwgmdEAWRppjt8DVab67HF2EtNrcbAuvg4U02UAJNsFguFMjalyex6AVwKDf
-	eUeNkv7UiRsSOy3ghIinWVszoI2pgjzgfYrRyZqlEy8XdOuE+MAEioZQ4AAahODM7oSVzDZn+Pm
-	QVZjTstqffj/RBZ8PQamT9a7sV0nHOb8Gl23BcH4HYPDBsvAL/msHutFTiY3AvnvviLsMHxHs1s
-	FZvzbkNrIjKg2zm40yfpBklcOVNDp4n+5j3aBlmkq22L1Leg4RfvfPtB7AiPpYIrKFUXaSNZ+cn
-	wEBxoOnNHKVTeO3Ea/ltV2pe+m8Y3Scn3Z95S188ZpgKiaNzj84Rw29YEksUDtXsDWla1Z8ymR4
-	XlftSzxoxihsi+x3kdwyyG7+f8sqTKxldNA8w2cZ2i51C1D3im1c/1iL4jOytfVLz2jQUz
-X-Received: by 2002:a17:902:da4b:b0:2c1:f262:494d with SMTP id d9443c01a7336-2c1f2624a70mr252269075ad.19.1781086879138;
-        Wed, 10 Jun 2026 03:21:19 -0700 (PDT)
+        bh=XujJTqPif96ZcsPOUAZQ6B5C/J5OqNB1kq3+Ep+LgvM=;
+        b=JJ2eMbluP5ppkB0a4Wx4WzPNAUAfErDkSawKcs4+8WLtvjebJUBtJ38yQNlpVxFVwn
+         vhhYQTwi2YhpGwrt4XvZqmfJy9+JQrnGfOJRfcrenJQWfoKsO2dCwSyyUEgh8gqhI0NZ
+         ZpR52qQsDfCYWByGlQFNg/S11Qh4bRIVVLCjRyhLd4RqLFCdUtfod5zZhfE8sEII+Eu4
+         mQLKTw6/Z2F0YW7LL2YvFo8kURub7c2F1GCrzLRhiMUZxWKaSpDCIAaMzDrVsaVL/nr4
+         nR677K1MU5W++Goicc3LXF0rjNtE8smXwge6WOPKg2Jee5S+Vg7x/i4mJ6Z0YmX1HSlG
+         TBJg==
+X-Forwarded-Encrypted: i=1; AFNElJ8P7pC2zfl7sEs/q2iYVTVtFVtA5dFBJzB2xnsyq8XVuE5QHgudXjw2KcdlluGybNZOYFVgXnkkiB22yCJJ+hba@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbyoL3HuLalEgBGYRTwsiRDBHkVrbRDO50uUXLmtc0wutRXoXE
+	YHM9ymOEjRe1QRgPsnkilLxihcYdFsqpx6OlYEQZAsL4Co+nTyqG3o8D
+X-Gm-Gg: Acq92OHlq5GANSpHaqzEonsptBqYH6HVD80RSK/Ze41B93iNUAUSMTHAj5x92Uf1jCx
+	/wItlRqPqQPvq4lx/qhS2l17RGsK3Gtrxz0phARxhL8SVBFBd1QcGMygfUF6seKkwc6e8BF2oGq
+	aycTf9EveyH9tVCUmuEeF6S2Uhj8unOGHUngqcFCuNApGQyF+kflkdFGPUalM61GeNrHRff/ki7
+	obl29E0zYBIW/2whPreu/qGVJNtYDxA68lwZMbYVxjjjCxDepxUfg8zyd7goE3QoQXQAFvuSI6e
+	OkZgeS9WD3KN6W8ukaGDyKBx41ksyegvPpU9Tgy0b7xBOl1/7T7JEI+rH2mOg0gMQ+kmUIT3n7R
+	pt1QqDp+2Mc4aKq/5s4Vl+gNL00FWb24tPhkXkgw0/sFl5hJvl5osoMFyNN3HVLapSdOZRFdimf
+	V9SjKWxgl+5W5uPDxQkGFR4jlC+ZLNceGjypWHhXhqd/ciBFneaaTxBJcf15mR53oBgYdt
+X-Received: by 2002:a17:902:ef50:b0:2bf:23c3:34ba with SMTP id d9443c01a7336-2c2a1c99a9bmr82532235ad.28.1781086883340;
+        Wed, 10 Jun 2026 03:21:23 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f96b3fsm250133875ad.29.2026.06.10.03.21.15
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f96b3fsm250133875ad.29.2026.06.10.03.21.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 03:21:18 -0700 (PDT)
+        Wed, 10 Jun 2026 03:21:23 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>
@@ -84,17 +84,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 09/10] ASoC: mediatek: mt8195: mt8365-dai-adda: Use guard() for spin locks
-Date: Wed, 10 Jun 2026 17:20:20 +0700
-Message-ID: <20260610102021.83273-10-phucduc.bui@gmail.com>
+Subject: [PATCH 10/10] ASoC: mediatek: mt8195: mt8365-dai-i2s: Use guard() for spin locks
+Date: Wed, 10 Jun 2026 17:20:21 +0700
+Message-ID: <20260610102021.83273-11-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260610102021.83273-1-phucduc.bui@gmail.com>
 References: <20260610102021.83273-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_032120_195885_DE6D5793 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260610_032124_275054_71400927 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,53 +116,39 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/mediatek/mt8365/mt8365-dai-adda.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+ sound/soc/mediatek/mt8365/mt8365-dai-i2s.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/sound/soc/mediatek/mt8365/mt8365-dai-adda.c b/sound/soc/mediatek/mt8365/mt8365-dai-adda.c
-index a04c24bbfcff..d8eda9e17eb8 100644
---- a/sound/soc/mediatek/mt8365/mt8365-dai-adda.c
-+++ b/sound/soc/mediatek/mt8365/mt8365-dai-adda.c
-@@ -63,10 +63,9 @@ static int mt8365_dai_set_adda_in(struct mtk_base_afe *afe, unsigned int rate)
- 
- int mt8365_dai_enable_adda_on(struct mtk_base_afe *afe)
+diff --git a/sound/soc/mediatek/mt8365/mt8365-dai-i2s.c b/sound/soc/mediatek/mt8365/mt8365-dai-i2s.c
+index cb9beb172ed5..a058973662b3 100644
+--- a/sound/soc/mediatek/mt8365/mt8365-dai-i2s.c
++++ b/sound/soc/mediatek/mt8365/mt8365-dai-i2s.c
+@@ -463,7 +463,6 @@ static int mt8365_afe_set_2nd_i2s_asrc_enable(struct mtk_base_afe *afe,
+ void mt8365_afe_set_i2s_out_enable(struct mtk_base_afe *afe, bool enable)
  {
+ 	int i;
 -	unsigned long flags;
  	struct mt8365_afe_private *afe_priv = afe->platform_priv;
+ 	struct mtk_afe_i2s_priv *i2s_data = NULL;
+ 
+@@ -475,7 +474,7 @@ void mt8365_afe_set_i2s_out_enable(struct mtk_base_afe *afe, bool enable)
+ 	if (!i2s_data)
+ 		return;
  
 -	spin_lock_irqsave(&afe_priv->afe_ctrl_lock, flags);
 +	guard(spinlock_irqsave)(&afe_priv->afe_ctrl_lock);
  
- 	adda_afe_on_ref_cnt++;
- 	if (adda_afe_on_ref_cnt == 1)
-@@ -74,17 +73,14 @@ int mt8365_dai_enable_adda_on(struct mtk_base_afe *afe)
- 				   AFE_ADDA_UL_DL_ADDA_AFE_ON,
- 				   AFE_ADDA_UL_DL_ADDA_AFE_ON);
- 
--	spin_unlock_irqrestore(&afe_priv->afe_ctrl_lock, flags);
--
- 	return 0;
- }
- 
- int mt8365_dai_disable_adda_on(struct mtk_base_afe *afe)
- {
--	unsigned long flags;
- 	struct mt8365_afe_private *afe_priv = afe->platform_priv;
- 
--	spin_lock_irqsave(&afe_priv->afe_ctrl_lock, flags);
-+	guard(spinlock_irqsave)(&afe_priv->afe_ctrl_lock);
- 
- 	adda_afe_on_ref_cnt--;
- 	if (adda_afe_on_ref_cnt == 0)
-@@ -96,8 +92,6 @@ int mt8365_dai_disable_adda_on(struct mtk_base_afe *afe)
- 		dev_warn(afe->dev, "Abnormal adda_on ref count. Force it to 0\n");
+ 	if (enable) {
+ 		i2s_data->i2s_out_on_ref_cnt++;
+@@ -490,8 +489,6 @@ void mt8365_afe_set_i2s_out_enable(struct mtk_base_afe *afe, bool enable)
+ 		else if (i2s_data->i2s_out_on_ref_cnt < 0)
+ 			i2s_data->i2s_out_on_ref_cnt = 0;
  	}
- 
--	spin_unlock_irqrestore(&afe_priv->afe_ctrl_lock, flags);
 -
- 	return 0;
+-	spin_unlock_irqrestore(&afe_priv->afe_ctrl_lock, flags);
  }
  
+ static void mt8365_dai_set_enable(struct mtk_base_afe *afe,
 -- 
 2.43.0
 
