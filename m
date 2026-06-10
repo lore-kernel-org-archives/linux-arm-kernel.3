@@ -4,58 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B484CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70080CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2kQl0RMH+DVl5+4IWjmbbYUz3MmQufbS8K9K5o79YJY=; b=gvic11YbVbPLU2jISB4gtm1dE5
-	hejhA3b59cHHGAvlt2/T/ONOP1YloJnJ3g6B92WGpvd2zjUUR+WxVk8Zu4YdNqfEZ3jQVDz6FziGz
-	VI7DLklHJccoUO/CIQbYWsWvwRZkWlFSATNX9OePBtt7lEk3ze8mTcwMJNJWNLSRyMx7vIwu/l/ya
-	YxiflBPm3ngrXomUpVvuXNXnVlsZJ6/MY5wDNVmDgW4wE+bWahN26e/xHjQwMmtDI7FZ9tXc9JDcH
-	HEhQWhto1P0aPWg/ycRJW+/cx9v1Go8FKUCtCQhPMk9ohCzveKCsSHKZPLuzogWQJNQSl37QYa1YS
-	lZAb3TJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JvYeu3iulw4CHHdVVhj7LxyktHCmlqzWt38QZvtjWDM=; b=KytjFQhhRwfX9h8DiirwxlIYYt
+	wnRln/6nygXhx0DeQw1QhbTxZK/I97TlYZ/xupr2Lt7HephvuR1S18Z/p4TT3M7rHs1E2shAA2Bjr
+	yNOJByalbcu+JWC1Ybqeqor38Dqk6cy/LhzoiRUr1LvT0qEIZaGMFxTMyFM5NHJZWOf715udQoIEf
+	cJJYKHSVjjkz6rdrUMSPBYh1BvnWL8rZua3YmIvCmCaQ0GgQ/Vllx8dzhcVmtvra6cTdIuB5B96tW
+	pyf4/iDA0ZVDutPhwCnCDOffb1HkIJfD6ejqfLsK8k7MKzsbm4ngSSWa56MTNqrv5Vj7xLb+b3bAy
+	/rNvqgxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXFja-00000007KRG-2L2T;
-	Wed, 10 Jun 2026 10:00:30 +0000
-Received: from mail-m83217.xmail.ntesmail.com ([156.224.83.217])
+	id 1wXFmS-00000007L5s-1lcb;
+	Wed, 10 Jun 2026 10:03:28 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXFjU-00000007KL4-2KJQ;
-	Wed, 10 Jun 2026 10:00:28 +0000
-Received: from Vostro-3710.. (unknown [113.80.141.92])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 41d5b4a7e;
-	Wed, 10 Jun 2026 18:00:18 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v2 2/2] arm64: dts: rockchip: Add HINLINK H28K
-Date: Wed, 10 Jun 2026 18:00:06 +0800
-Message-Id: <20260610100006.366963-3-amadeus@jmu.edu.cn>
+	id 1wXFmP-00000007L5X-1dnf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Jun 2026 10:03:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b2+B9zPWLZh1ZAidjKHE89rgXvyu+Uol8+1X/i20rkiCvWZf9ej7dBUEM1u6WoGvAo7dsP5tpH/fnvulduL0zy27ppGkUJ6B804uqinAwb7yPjr4P56XlMtuRutWLi6HDgXsP9vaMDCniCL4tY0MkHOpeQ0FawNJ5huCy8glZv/CSLuRHRFH/a4EeNHG9ibFR4OZBQMGq/K7YOucNNzrkz3RV8uogbgKfBDVTx5VBO2anI0z3ot8Cyv9rRVn2n62T6AKneVRiKLPuQE/eprzD94n8GHNJ/lksOdThkBoBSF3lhpeIyU+l3fT4ev4F+l0txZ7gg7vQughbWJB1iaenQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JvYeu3iulw4CHHdVVhj7LxyktHCmlqzWt38QZvtjWDM=;
+ b=MhI3Ivcm1fLqd2HQapKMFNdP7J0L21vE+TbXEBE9nKxul+04TioOFDIxMGHqHpoam2NiD9GiDejRgW9NMKBHlO0n64xWrtkI21yBREqeCsAhCg1OMXRHeo5ZoFhxzFr2RgSuEF2Ckh6lHAtzzDVZvdEVlXdiUs1xZDwVNQPE9kEnXhAu0XBX0Ivd32hyipaZ4L0iN8BjmvLsflodF2gjDQrdXfkm61miyPhUL+o6Uzc5CLprYG2seQHdI7Rgyyk3kVgL1c3/LENsmuZwjZ3rQcbRcH0muHtvPASC3mmFbZmYhqwBTZ7VGOFIluLTbSoRQr4KsWSHYhU4ZKQP9ohZ8Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JvYeu3iulw4CHHdVVhj7LxyktHCmlqzWt38QZvtjWDM=;
+ b=G7VZuGfmTiSQsSL3W8HfLoTDOFUU8YOb+ovvAX2duJnrfIy+DrFL6xWJsLFLEbZ6Pdhf9hqOFMzluonH1MZB3LXbF/OdNCwcW7h0rLHIf9+NeC1OzlhGRDnSFxmgK0KTfQ15KILrKIlXkNYrmz19WRf7dSoeiL9daBwi1ePmksc=
+Received: from SJ0PR13CA0171.namprd13.prod.outlook.com (2603:10b6:a03:2c7::26)
+ by DM3PR10MB7925.namprd10.prod.outlook.com (2603:10b6:0:46::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.11; Wed, 10 Jun
+ 2026 10:03:18 +0000
+Received: from BY1PEPF0001AE16.namprd04.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::a1) by SJ0PR13CA0171.outlook.office365.com
+ (2603:10b6:a03:2c7::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.10 via Frontend Transport; Wed,
+ 10 Jun 2026 10:03:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BY1PEPF0001AE16.mail.protection.outlook.com (10.167.242.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 10:03:17 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 10 Jun
+ 2026 05:03:17 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 10 Jun
+ 2026 05:03:16 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 10 Jun 2026 05:03:16 -0500
+Received: from a0507033-hp.dhcp.ti.com (a0507033-hp.dhcp.ti.com [10.24.68.129])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65AA2u8x3620198;
+	Wed, 10 Jun 2026 05:03:12 -0500
+From: Aksh Garg <a-garg7@ti.com>
+To: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<mani@kernel.org>, <kwilczynski@kernel.org>, <bhelgaas@google.com>,
+	<corbet@lwn.net>, <kishon@kernel.org>, <skhan@linuxfoundation.org>,
+	<lukas@wunner.de>, <cassel@kernel.org>, <alistair@alistair23.me>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<s-vadapalli@ti.com>, <danishanwar@ti.com>, <srk@ti.com>, <a-garg7@ti.com>
+Subject: [PATCH v5 3/4] PCI: endpoint: Add support for DOE initialization and setup in EPC core
+Date: Wed, 10 Jun 2026 15:32:55 +0530
+Message-ID: <20260610100256.1889111-4-a-garg7@ti.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260610100006.366963-1-amadeus@jmu.edu.cn>
-References: <20260610100006.366963-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260610100256.1889111-1-a-garg7@ti.com>
+References: <20260610100256.1889111-1-a-garg7@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9eb0f9c1f003a2kunmd062ac7916b4ed
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSkxLVkMZHR1MThlJH0lLSlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKSkhVQ0tVSk9KVUJJWVdZFhoPEhUdFFlBWU9LSFVKS0hLSk
-	xLVUpLS1VLWQY+
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE16:EE_|DM3PR10MB7925:EE_
+X-MS-Office365-Filtering-Correlation-Id: 92242449-ef82-4f32-ab88-08dec6d77e91
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|1800799024|23010399003|82310400026|921020|56012099006|5023799004|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: BShPVud06RN+og8hwF0l0j0EoH8bhshbyxGQDtFwbtp72e/sKflfWaEaPn48/b6hUTgpjExrj7pE0xmou2e4CGovB1s6qZUXeShTtmzQi6mBNySUPtZXjLkw5K6oj4zn2pZZUdvXQjXj5pvjIviLlqIKzFnUpG6VoM9DS0bzDy91ueTF3UQA5l7xZ/3t5I1zRj+pLiRvc0qJRrmW/12/o6303NMspRWH+hm1ZCSWaTZP08s1+hZOquOKdJHrQGvKSdsq532Bo7sLhyA0v4pAHIhbPjM/kQvSnoTN8FfFD0HNNwzTsJnnSBPe4BZIkJlFbkP6W6yGZ/P29W0Z1oR1KcEWz2ksvt95udgv6PWzJY5yPd6jLE32jUEp+XCfbnoBwMJWzrlWscHKZyvwX4/ii3km/pofWDc3mpzuJrOKmnNUzjfes6xurIK3sqoqyxYrcaTpIWV7ggrh50NAxCu1b8EfqPWwfdbvkR6jV8ogwIwIz4+3JFHXHL0OGO+oxJFy7/yr2RpxSTDI2daUkXEFb6/Tp+XzQUGewAgO772McS2tXMyboynNLIj+TRoViaA2PrS8E3BaEzyQMNp5USij7Ehtmy+VqX5y1/G1Tk2Rcrmj5xS9EkS7NQu24JVl/H46SDID4zec3KJM5i8s+U++oLwx3DI8cPW8GfDFNpxIbWviOnv+Nk7iOgPvngQ2+phs0sdbSdgGCP7IHhMNV1um3HKBXKP9F42FzYCj9eA7ktQ4sCJiT3APA6nc8ZWfecNTWs5NhwSddWeK4yHCcr/3dw6lDUervxlrdoTDJgRS6Wg=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(1800799024)(23010399003)(82310400026)(921020)(56012099006)(5023799004)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bdx11cOq0OIYQhQs2EXRsLpJCZiye3xnBpfoXkhk+oMcmQFpBftpc2meb+mv00/pW8vq5o626UCceTESUPIdwbD03tzCeNO52yPTMu7LpUrpxKMJA9XwLEsOGhvqXrSIgAwggccXmXsLssNJvIfSN6P2N6juZvQ8o0UaU75q0iLxGD6qcP2J45Wsv9bZDMY/feI1DQFae3jrhvEN3lAviZHOdW77y1cXQX6envfECHVgjnSAH3YJAhaY7vMPT8FN212fA8B4+45OxXtKS+qhfKnq5hQ5rAKNPdQiaUzPOvHtPDS5f8Me9/n714GqbYQTMsJTNzJv4vzO0Rmoi2dhWxC3H+BgBPh4ohZKZlQDyEEuRnHH8xivoLRcwBddxgyXEkLJ+nTlxwuHs6RF4frDVySNLjk8GZTvq2mKyDyrumiRyEbSIInXDH29bvwUkfD9
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 10:03:17.5593
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92242449-ef82-4f32-ab88-08dec6d77e91
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE16.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR10MB7925
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_030024_888168_5C73B6FB 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20260610_030325_612205_F2AD3D60 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,359 +132,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HINLINK H28K (LinkStar H28K) is a SBC with the
-Rockchip RK3528 SoC. It has the following features:
+Add pci_epc_init_capabilities() in EPC core driver to initialize and
+setup the capabilities supported by the EPC driver. This calls
+pci_epc_doe_setup() to setup the DOE framework for an endpoint controller,
+which discovers the DOE capabilities (extended capability ID 0x2E), and
+registers each discovered DOE mailbox for all the functions in the
+endpoint controller.
 
-- 1x USB 2.0
-- 8/32GB eMMC
-- 1/2/4GB LPDDR4
-- MicroSD card slot
-- 1x 1GbE RTL8111H Ethernet
-- 1x 1GbE RTL8211F Ethernet
+Add pci_epc_deinit_capabilities() in EPC core driver for cleanup of the
+resources used by the capabilities of the EPC driver. This calls
+pci_ep_doe_destroy() to destroy all DOE mailboxes and free associated
+resources.
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Aksh Garg <a-garg7@ti.com>
 ---
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3528-hinlink-h28k.dts | 318 ++++++++++++++++++
- 2 files changed, 319 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 761d82b4f4f2..a68d07296c9f 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -92,6 +92,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-hinlink-h28k.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts b/arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts
-new file mode 100644
-index 000000000000..0ec50e9156eb
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts
-@@ -0,0 +1,318 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+Changes from v4 to v5:
+- Addressed the review comments by Sashiko
+
+Changes from v3 to v4:
+- Call DOE setup and destroy APIs directly within the EPC core, instead of
+  relying on the EPC drivers to call them individually. EPC drivers do not
+  need to explicitly handle DOE setup, rather the EPC core manages this
+  transparently. (Suggested by Manivannan Sadhasivam).
+- Removed pci_epc_doe_destroy() API, which was just calling pci_ep_doe_destroy().
+  Instead, called pci_ep_doe_destroy() directly during cleanup.
+- Called pci_ep_doe_init() before the "!epc->ops->find_ext_capability" check,
+  because if doe-capable=1 and find_ext_capability() op is undefined, this
+  would not initialize the epc->doe_mbs xarray. However during cleanup, the
+  check "!epc->ops->find_ext_capability" would be unnecessary, and it will
+  try to destroy the epc->doe_mbs xarray even when it was not initialized.
+
+Changes from v2 to v3:
+- Rebased on 7.1-rc1.
+
+Changes since v1:
+- New patch added to v2 (not present in v1)
+
+v4: https://lore.kernel.org/all/20260522052434.802034-4-a-garg7@ti.com/
+v3: https://lore.kernel.org/all/20260427051725.223704-4-a-garg7@ti.com/
+v2: https://lore.kernel.org/all/20260401073022.215805-4-a-garg7@ti.com/
+
+This patch is introduced based on the feedback provided by Manivannan
+Sadhasivam at [1].
+
+[1]: https://lore.kernel.org/all/p57x6jleaim5w7t2k3v7tioujnaxuovfpj5euop5ogefvw23se@y5fw3che5p5d/
+
+
+ drivers/pci/endpoint/pci-epc-core.c | 104 ++++++++++++++++++++++++++++
+ include/linux/pci-epc.h             |   6 ++
+ 2 files changed, 110 insertions(+)
+
+diff --git a/drivers/pci/endpoint/pci-epc-core.c b/drivers/pci/endpoint/pci-epc-core.c
+index 6c3c58185fc5..e48f40eeed29 100644
+--- a/drivers/pci/endpoint/pci-epc-core.c
++++ b/drivers/pci/endpoint/pci-epc-core.c
+@@ -14,6 +14,8 @@
+ #include <linux/pci-epf.h>
+ #include <linux/pci-ep-cfs.h>
+ 
++#include "../pci.h"
 +
-+/dts-v1/;
+ static const struct class pci_epc_class = {
+ 	.name = "pci_epc",
+ };
+@@ -842,6 +844,81 @@ void pci_epc_linkdown(struct pci_epc *epc)
+ }
+ EXPORT_SYMBOL_GPL(pci_epc_linkdown);
+ 
++/**
++ * pci_epc_doe_setup() - Discover and setup DOE mailboxes for all functions
++ * @epc: the EPC device on which DOE mailboxes has to be setup
++ *
++ * Discover DOE (Data Object Exchange) capabilities for all physical functions
++ * in the endpoint controller and register DOE mailboxes.
++ *
++ * Returns: 0 on success, -errno on failure
++ */
++static int pci_epc_doe_setup(struct pci_epc *epc)
++{
++	u8 func_no, vfunc_no = 0;
++	u16 cap_offset;
++	int ret;
 +
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "rk3528.dtsi"
++	if (!epc->ops || !epc->ops->find_ext_capability)
++		return -EINVAL;
 +
-+/ {
-+	model = "HINLINK H28K";
-+	compatible = "hinlink,h28k", "rockchip,rk3528";
++	/* Discover DOE capabilities for all functions */
++	for (func_no = 0; func_no < epc->max_functions; func_no++) {
++		mutex_lock(&epc->lock);
++		cap_offset = epc->ops->find_ext_capability(epc, func_no,
++							   vfunc_no, 0,
++							   PCI_EXT_CAP_ID_DOE);
++		mutex_unlock(&epc->lock);
 +
-+	aliases {
-+		ethernet0 = &gmac1;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		serial0 = &uart0;
-+	};
++		while (cap_offset) {
++			/* Register this DOE mailbox */
++			ret = pci_ep_doe_add_mailbox(epc, func_no, cap_offset);
++			if (ret) {
++				dev_warn(&epc->dev,
++					 "[pf%d:offset %x] failed to add DOE mailbox\n",
++					 func_no, cap_offset);
++			}
 +
-+	chosen {
-+		stdout-path = "serial0:1500000n8";
-+	};
++			mutex_lock(&epc->lock);
++			cap_offset = epc->ops->find_ext_capability(epc, func_no,
++								   vfunc_no, cap_offset,
++								   PCI_EXT_CAP_ID_DOE);
++			mutex_unlock(&epc->lock);
++		}
++	}
 +
-+	keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
++	dev_dbg(&epc->dev, "DOE mailboxes setup complete\n");
++	return 0;
++}
 +
-+		button-boot {
-+			label = "BOOT";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
++/**
++ * pci_epc_init_capabilities() - Initialize EPC capabilities
++ * @epc: the EPC device whose capabilities need to be initialized
++ *
++ * Invoke to initialize capabilities supported by the EPC device.
++ */
++static void pci_epc_init_capabilities(struct pci_epc *epc)
++{
++	const struct pci_epc_features *epc_features;
++	int ret;
 +
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&lan_led>, <&wan_led>, <&work_led>;
++	epc_features = pci_epc_get_features(epc, 0, 0);
++	if (!epc_features)
++		return;
 +
-+		led-0 {
-+			color = <LED_COLOR_ID_AMBER>;
-+			function = LED_FUNCTION_LAN;
-+			gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "netdev";
-+		};
++	if (IS_ENABLED(CONFIG_PCI_ENDPOINT_DOE) && epc_features->doe_capable) {
++		ret = pci_ep_doe_init(epc);
++		if (ret) {
++			dev_warn(&epc->dev, "DOE initialization failed: %d\n", ret);
++			return;
++		}
 +
-+		led-1 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_WAN;
-+			gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "netdev";
-+		};
++		ret = pci_epc_doe_setup(epc);
++		if (ret)
++			dev_warn(&epc->dev, "DOE setup failed: %d\n", ret);
++	}
++}
 +
-+		led-2 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio4 RK_PB7 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "default-on";
-+		};
-+	};
+ /**
+  * pci_epc_init_notify() - Notify the EPF device that EPC device initialization
+  *                         is completed.
+@@ -857,6 +934,9 @@ void pci_epc_init_notify(struct pci_epc *epc)
+ 	if (IS_ERR_OR_NULL(epc))
+ 		return;
+ 
++	if (!epc->init_complete)
++		pci_epc_init_capabilities(epc);
 +
-+	vdd_0v9: regulator-0v9-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
+ 	mutex_lock(&epc->list_lock);
+ 	list_for_each_entry(epf, &epc->pci_epf, list) {
+ 		mutex_lock(&epf->lock);
+@@ -890,6 +970,27 @@ void pci_epc_notify_pending_init(struct pci_epc *epc, struct pci_epf *epf)
+ }
+ EXPORT_SYMBOL_GPL(pci_epc_notify_pending_init);
+ 
++/**
++ * pci_epc_deinit_capabilities() - Cleanup EPC capabilities
++ * @epc: the EPC device whose capabilities need to be cleaned up
++ *
++ * Invoke to cleanup capabilities supported by the EPC device,
++ * and free the associated resources.
++ */
++static void pci_epc_deinit_capabilities(struct pci_epc *epc)
++{
++	const struct pci_epc_features *epc_features;
 +
-+	vcc_ddr: regulator-1v1-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
++	epc_features = pci_epc_get_features(epc, 0, 0);
++	if (!epc_features)
++		return;
 +
-+	vcc_1v8: regulator-1v8-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
++	if (IS_ENABLED(CONFIG_PCI_ENDPOINT_DOE) && epc_features->doe_capable) {
++		pci_ep_doe_destroy(epc);
++		dev_dbg(&epc->dev, "DOE mailboxes destroyed\n");
++	}
++}
 +
-+	vcc_3v3: regulator-3v3-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
+ /**
+  * pci_epc_deinit_notify() - Notify the EPF device about EPC deinitialization
+  * @epc: the EPC device whose deinitialization is completed
+@@ -903,6 +1004,9 @@ void pci_epc_deinit_notify(struct pci_epc *epc)
+ 	if (IS_ERR_OR_NULL(epc))
+ 		return;
+ 
++	if (epc->init_complete)
++		pci_epc_deinit_capabilities(epc);
 +
-+	vcc3v3_sd: regulator-3v3-vcc-sd {
-+		compatible = "regulator-fixed";
-+		gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_pwren_l>;
-+		regulator-name = "vcc3v3_sd";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc5v0_sys: regulator-5v0-vcc-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_arm: regulator-vdd-arm {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_arm";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <746000>;
-+		regulator-max-microvolt = <1201000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_logic";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <705000>;
-+		regulator-max-microvolt = <1006000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+};
-+
-+&combphy {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy>;
-+	phy-mode = "rgmii-id";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rgmii_miim>,
-+		    <&rgmii_tx_bus2>,
-+		    <&rgmii_rx_bus2>,
-+		    <&rgmii_rgmii_clk>,
-+		    <&rgmii_rgmii_bus>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac1_rstn_l>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pcie {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rtl8111hs_isolateb_l>;
-+	reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	gmac {
-+		gmac1_rstn_l: gmac1-rstn-l {
-+			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		lan_led: lan-led {
-+			rockchip,pins = <4 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		wan_led: wan-led {
-+			rockchip,pins = <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		work_led: work-led {
-+			rockchip,pins = <4 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		rtl8111hs_isolateb_l: rtl8111hs-isolateb-l {
-+			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	sdmmc {
-+		sdmmc_pwren_l: sdmmc-pwren-l {
-+			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm1m0_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m0_pins>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	non-removable;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0m0_xfer>;
-+	status = "okay";
-+};
-+
-+&usb2phy {
-+	status = "okay";
-+};
-+
-+&usb2phy_host {
-+	phy-supply = <&vcc5v0_sys>;
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
+ 	mutex_lock(&epc->list_lock);
+ 	list_for_each_entry(epf, &epc->pci_epf, list) {
+ 		mutex_lock(&epf->lock);
+diff --git a/include/linux/pci-epc.h b/include/linux/pci-epc.h
+index dd26294c8175..11474e337db3 100644
+--- a/include/linux/pci-epc.h
++++ b/include/linux/pci-epc.h
+@@ -84,6 +84,8 @@ struct pci_epc_map {
+  * @start: ops to start the PCI link
+  * @stop: ops to stop the PCI link
+  * @get_features: ops to get the features supported by the EPC
++ * @find_ext_capability: ops to find extended capability offset for a function
++ *			 in endpoint controller
+  * @owner: the module owner containing the ops
+  */
+ struct pci_epc_ops {
+@@ -115,6 +117,8 @@ struct pci_epc_ops {
+ 	void	(*stop)(struct pci_epc *epc);
+ 	const struct pci_epc_features* (*get_features)(struct pci_epc *epc,
+ 						       u8 func_no, u8 vfunc_no);
++	u16	(*find_ext_capability)(struct pci_epc *epc, u8 func_no,
++				       u8 vfunc_no, u16 start, u8 cap);
+ 	struct module *owner;
+ };
+ 
+@@ -270,6 +274,7 @@ struct pci_epc_bar_desc {
+  * @msi_capable: indicate if the endpoint function has MSI capability
+  * @msix_capable: indicate if the endpoint function has MSI-X capability
+  * @intx_capable: indicate if the endpoint can raise INTx interrupts
++ * @doe_capable: indicate if the endpoint function has DOE capability
+  * @bar: array specifying the hardware description for each BAR
+  * @align: alignment size required for BAR buffer allocation
+  */
+@@ -280,6 +285,7 @@ struct pci_epc_features {
+ 	unsigned int	msi_capable : 1;
+ 	unsigned int	msix_capable : 1;
+ 	unsigned int	intx_capable : 1;
++	unsigned int	doe_capable : 1;
+ 	struct	pci_epc_bar_desc bar[PCI_STD_NUM_BARS];
+ 	size_t	align;
+ };
 -- 
 2.34.1
 
