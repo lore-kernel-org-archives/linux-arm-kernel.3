@@ -4,100 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0C5CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C304CCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9fLXZ+HAybUA/N6IRMYmSl/iEezzjma4TkH6ONidf0=; b=4oBXv6XcIboExFHXc2r3YKMKmq
-	6RD7H00WYVKRBzVUIWyof0Qa/BcaQuEVfIwUNbGANpIilaaW/lC0UoEmElHgYNJPeNxanYiDZ5Ib9
-	SHqFAXQVw2zgNJPM+PGJ2ZLgXbeHYXkVD/KmOpuesHWCYj82xlbT6SSJTQnsA2rBeRLyV2Wco/ECf
-	WfWMBMpGPGwNfMGi3a1cZgCcFh2ZSrxKMtDyu7eiXzop34odJaBowMewbFTMi8671b6SCff2kGkkx
-	OkjDX5GMLZeamJ5BLw76atW+1LgUZuN50V33yTB4ECWaE9rPw8KiJWvcj/Gi5ntoi4qA0/TlpaS6X
-	1L9tBt+g==;
+	bh=GIu5mk7+fDzBkFE8LUyyxyRKu1YjSQcW0/cQDtsXGSI=; b=MLsp3ORYPbXE4aAKeSR0aBAGL1
+	MOw3j1vjYsz/etTQH2E5FFlB7Gv8KQ0KSkRAVRgTtX5pgNeRdJfvLw1gIfQ/s7NAdIoA3Mo6RTsVk
+	pWiWfF+V01xxmmi8aSC/jcLIpWyjGvXD6sj855zh9A+zk7Sh47ef3OSZVlCV2uTk9/G+D4VWCQBOL
+	T79Ue7z0fz7dv3icxVnXi/dTMkxn0qabQUQYBYVHFBG9qC7vmDAkvFRRtadcCSErDqCEwUwHQZRip
+	hdRujAKn96yygs8u+J4Bo2KW++ukRJKihm9fRKcoMD3x8DLQT5GOLuMqJ0fJw5VvrdtzQbZhjCQ7z
+	cYFVF+KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEZ0-000000077LX-3f1t;
-	Wed, 10 Jun 2026 08:45:30 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1wXEa2-000000077U6-06HU;
+	Wed, 10 Jun 2026 08:46:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEYy-000000077L4-2EdC
+	id 1wXEa0-000000077Tf-4BT0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 08:45:30 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-1382533d428so352358c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 01:45:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781081127; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CSMcwQS7D7KQipdbmpmjuBCMDqCoLzgt+x6VMNhcltNShEcQzXfntW8zhZFI2/y0WM
-         sWAqXL8MLEq3HoZhl3n8rHQQDvxpMwWLQsnhHL+sETDk2/ZsfsPvsJfH0Sg30UqSpR/B
-         SZQkX8tlrY0tTKgp324hy4O+OnOzyD3+cyTsjPl928N3yqF8B2jV2g1QsQRJ5gaGebfL
-         jPcwbDtc3uHapSL1WAxPBhivvVfmdbZihC7zJ1Sv3Z0I5dcjn8unK5tnlhaWnmtvE0cq
-         OdXSOotNJbvCZyUktL3FTSZKrANlmf4/FLdsoH0sh0KwI7yT/6i6RPKTVwc8mr6oyKl/
-         hUQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=C9fLXZ+HAybUA/N6IRMYmSl/iEezzjma4TkH6ONidf0=;
-        fh=YxgWgcrZTVINkncVPLN1IvnWnw2bWzWls75Rx4mbdcs=;
-        b=hoxf37KxhA5mwO9RqNrVXSJOTtguO+VBSHRayUJTJCoJxEYC3RZO+WdsS3koUsBbaJ
-         EWX0cqVK34CKoKqvN3/tA2fNt9JXkUJ2E4U2gDCXo6TB+m5SjTEGNeZZ+kIeSoEFfEPw
-         mw5AwXnzTZ5/sDeziloOvgjG7a5zG23P+PSf8dnNB/2zdVa3LTpzkRGragjwnST+T2CP
-         3isRjjT+DKaxQzw7PWAEv1nYcIZj1aC4UK2CSUKRCxvemIt6eECCLWVd9l9g0f487y6L
-         9p6jNIwrAuHhRG/fmc6J7YGTNC8QFifNrHZ8iYKv+La64SoDkXMFGQyhPA80UmPDeERS
-         gdPw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thingy.jp; s=google; t=1781081127; x=1781685927; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=C9fLXZ+HAybUA/N6IRMYmSl/iEezzjma4TkH6ONidf0=;
-        b=ahAlN2yjuny0gGrUoZ/AymimPts0zr3FW6UjYUrrusGeZM+qNRaJ7yLpozmzRwBi9N
-         ondmdX3tUC+90m/ubtifIzmY+uFlXj9gxyXO9XxLL5uxXbKS0C+jQcBdk8CMDT5+l6dH
-         cm4HcjiKSbcGGCVfAdvcQO5rLXgbkAFTs0BVg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781081127; x=1781685927;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C9fLXZ+HAybUA/N6IRMYmSl/iEezzjma4TkH6ONidf0=;
-        b=rcpL2IKyyanTGT8mgGV8NScF8nYf2zhYmVK+/bbW6eAgPiqWmIWfLg8GYyooYP/wFJ
-         RkmLRLr5qYRDh5QbfFuFIXcU3MbmAsEb76G4JvNq2LJ7nxfSKbZpmED2H53fvzdX7+lx
-         b50GvpwCUJ5v3C/QOoC9BiMPgVIdn+Wg8pqB9XhfP8fDrrir7qxRFPkdxS7rUmNW+F+l
-         ywP9gSJRrCdwMJgD0abXw/o1OqtmtClcbd2a1khI7iI2nRkrwuR7+Z6+Y/GBfvvet9KY
-         cTLhf6goq9X1yct/7pL9n09wshR/e/dwyBdb+7f+efHlkewzwNMj8sBi8Toa/ZyMk2WS
-         DvVA==
-X-Forwarded-Encrypted: i=1; AFNElJ8QtKVRgLgSGOStZCGg+VDY7/M5M7A7rYA1LkNWOIZ/T9Bo2ADpNb4XODGrEAuyDo3kae43dt2XAT99X8cAtdMY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKlNAQFkLrvXYVowA7EtIlWTEfVIJGCv68fQs3VDQ/gNl/FF8g
-	/+W2r3EKabx2cD64htBgzkXrJyeuh5rtyfFJbUwtc0/vBkRuymUv40kQmaPA5QGPu3szOZGNkET
-	UhygCHKMtaJpdEwb59LEXdkpm/lR5EiHmqqhptJhMhbfTGA3FEm1J
-X-Gm-Gg: Acq92OEISpZQF9BYnrFAh2u1/r6910WYceVmDBvAUZxkdBQ5/3VUBL4omGhKA/8sZ+9
-	GIiJ1BOWVMVfaP4iLc7i60su2IUGlUJvK2J0jfxqOmkHRt2ROQv+pMyFK7XX/x4jQ4nDpvCNXuM
-	pp7G1ouyWNLb/h6xNeNME2hhDVcLgT6jBA6H1AyAfkyp3nF+Kk4xCqR1y48MMKTY4/p7MiXNSPF
-	/k89kdmreUYXpID507fQnwnppJdZ/tOrQWzM3h8wgnK2JqekytxCgpg5efzSpd+HyEZeGbd/JFt
-	aX8lm+YFvtgBwbzARrtvFc4mE1vpPUYhbADDzbQwuADcbkbF2SLVAtvp6Bfc
-X-Received: by 2002:a05:7022:ef18:b0:137:6781:7dd7 with SMTP id
- a92af1059eb24-1380670b7aamr12636468c88.20.1781081126753; Wed, 10 Jun 2026
- 01:45:26 -0700 (PDT)
+	Wed, 10 Jun 2026 08:46:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 47E4A6001A;
+	Wed, 10 Jun 2026 08:46:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 954211F00893;
+	Wed, 10 Jun 2026 08:46:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781081191;
+	bh=GIu5mk7+fDzBkFE8LUyyxyRKu1YjSQcW0/cQDtsXGSI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=gqceO5WtU+8o4iRLg+54E8X01VwOX/Pcl7CIT39DQ0pqmrHHo/vBxeK7jsaOAcCaS
+	 YBgcKllYIQj1HWF/hPyROXVFlBBcsVf7biqD1SoLBFLlOCDPz2cSZKwrkPq2JjJeON
+	 Ktk7ZoQL/je6Tm7V0x4WHLl6FPfnSFgfRLowvXIjL0V6x/Z73L5zTuiKuUCUObt8VJ
+	 vIsqW9AMwRWNEkg0dDhmgKSYTJ0+WlZY+fHkDiYP/mNT/IAr5DJi+PSaHxr1QXu7ax
+	 U6yoqsWAiXT9wxpMsRUn8xlVD4N61bGUJO8A/UMw01rLgt/SDu1HpcZ4IbOjfgm+V1
+	 vidQTXP2nKKgg==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Petr Tesarik <ptesarik@suse.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v6 06/20] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+In-Reply-To: <20260609144836.4ecea34e@mordecai>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <20260604083959.1265923-7-aneesh.kumar@kernel.org>
+ <20260609144836.4ecea34e@mordecai>
+Date: Wed, 10 Jun 2026 14:16:17 +0530
+Message-ID: <yq5acxxyzsti.fsf@kernel.org>
 MIME-Version: 1.0
-References: <20260610053312.2267307-1-geoffreyhe2@gmail.com>
-In-Reply-To: <20260610053312.2267307-1-geoffreyhe2@gmail.com>
-From: Daniel Palmer <daniel@thingy.jp>
-Date: Wed, 10 Jun 2026 17:45:15 +0900
-X-Gm-Features: AVVi8Cey_buC_IQedEW4cK_QTFPRYPSiRQYTe2eqMHRQJL8DOXfXOTc1lTLD76U
-Message-ID: <CAFr9PXkEH6k=i7Pb237s6DEz9Xi8ipGg3itvonMqOyG9VGQjoA@mail.gmail.com>
-Subject: Re: [PATCH 0/2] ARM: mstar: fix two device_node refcount leaks in mstarv7.c
-To: Weigang He <geoffreyhe2@gmail.com>
-Cc: Romain Perier <romain.perier@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_014528_794547_0A3D2072 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,21 +96,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Weigang,
+Petr Tesarik <ptesarik@suse.com> writes:
 
-On Wed, 10 Jun 2026 at 14:33, Weigang He <geoffreyhe2@gmail.com> wrote:
-> Found by static analysis tool CodeQL. The series is build-tested only
-> (arm, multi_v7_defconfig + CONFIG_ARCH_MSTARV7); I have no mstar
-> hardware, so runtime testing would be appreciated.
+> On Thu,  4 Jun 2026 14:09:45 +0530
+> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+>
 
-I can build and boot test this but as far as I'm aware this is non-issue?
-I have one device running this code stuck under a desk that has an
-uptime over 3+ years now I think.
+...
 
-I guess maybe merge them just to stop another person from sending
-another version of this?
+>>  /*
+>>   * If memory encryption is supported, phys_to_dma will set the memory encryption
+>>   * bit in the DMA address, and dma_to_phys will clear it.
+>> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+>> index 29187cec90d8..4dcbf3931be1 100644
+>> --- a/include/linux/swiotlb.h
+>> +++ b/include/linux/swiotlb.h
+>> @@ -81,6 +81,7 @@ struct io_tlb_pool {
+>>  	struct list_head node;
+>>  	struct rcu_head rcu;
+>>  	bool transient;
+>> +	bool unencrypted;
+>
+> IIUC this is a copy of the unencrypted member in the corresponding
+> struct io_tlb_mem. In other words, if pools are allocated dynamically,
+> all pools must have the same encryption state, correct?
+>
 
-Cheers,
+That is correct. The reason we have the unencrypted member in struct
+io_tlb_pool is that we need it in swiotlb_dyn_free().
 
-Daniel
+When freeing memory from an unencrypted pool, we need to convert the
+memory back to private/encrypted
+
+>
+>>  #endif
+>>  };
+>>  
+>> @@ -111,6 +112,7 @@ struct io_tlb_mem {
+>>  	struct dentry *debugfs;
+>>  	bool force_bounce;
+>>  	bool for_alloc;
+>> +	bool unencrypted;
+>>  #ifdef CONFIG_SWIOTLB_DYNAMIC
+>>  	bool can_grow;
+>>  	u64 phys_limit;
+>> @@ -282,7 +284,8 @@ static inline void swiotlb_sync_single_for_cpu(struct device *dev,
+>>  extern void swiotlb_print_info(void);
+
+....
+
+>> @@ -604,30 +621,26 @@ static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes, u64 phys_limit)
+>>   * @dev:	Device for which a memory pool is allocated.
+>>   * @bytes:	Size of the buffer.
+>>   * @phys_limit:	Maximum allowed physical address of the buffer.
+>> + * @attrs:	DMA attributes for the allocation.
+>>   * @gfp:	GFP flags for the allocation.
+>>   *
+>>   * Return: Allocated pages, or %NULL on allocation failure.
+>>   */
+>>  static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+>> -		u64 phys_limit, gfp_t gfp)
+>> +		u64 phys_limit, unsigned long attrs, gfp_t gfp)
+>
+> If my assumption above is correct, then I prefer to add a struct
+> io_tlb_mem *mem parameter here and calculate the allocation attributes
+> inside this function, so you don't have to repeat it in the callers.
+>
+
+Will switch to that. That is, we will use struct io_tlb_mem->unencrypted
+to determine the pool attribute instead of using unsigned long attrs
+
+>
+>>  {
+>>  	struct page *page;
+>> -	unsigned long attrs = 0;
+>>  
+>>  	/*
+>>  	 * Allocate from the atomic pools if memory is encrypted and
+>>  	 * the allocation is atomic, because decrypting may block.
+>>  	 */
+>> -	if (!gfpflags_allow_blocking(gfp) && dev && force_dma_unencrypted(dev)) {
+>> +	if (!gfpflags_allow_blocking(gfp) && (attrs & DMA_ATTR_CC_SHARED)) {
+>
+> You're removing the check that dev is non-NULL. This is fine, because
+> the only call with dev == NULL is from swiotlb_dyn_alloc(), and that one
+> uses GFP_KERNEL (i.e. allows blocking). However, if this is an intended
+> optimization, I'd rather have it in a separate commit, with this
+> explanation why it's OK to do it.
+>
+> The rest of the patch looks good to me.
+>
+
+I'll add that back.
+
+-aneesh
 
