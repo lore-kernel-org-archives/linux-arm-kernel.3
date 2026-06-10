@@ -4,135 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B68CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 07:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1DCCD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 07:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DY+bMTsJPvRdeLNZlPUw8yrZkHGH9AZG9Z/j/zVCCFI=; b=3CEyhZn3P7v1Hd5WIAOLx8bE+b
-	YGmesMVPl2qDSnNVzRuPgQnYdcdtywPIaF3UD3lNKaHpWWkXNsJv93Oi8xrUmyANFhNFxo6GFyq1O
-	OJUopyZnqrk+PWLTA2Ugr3ocP3pNYdbQs0+Mw/Ant9LIMwlvqc5onXU3Pr8pW+0gfIZiCNXQslkyO
-	hfgjtckFjd9aeWn9YNwokoXwcuEEa3FCYzWtNcySPsGtxdGLgo+N2tUxyDmKPSlVPmtlNZFKMBvri
-	VnbEF/dSY7iHuAXCTmtqBVBuLZfsooFAiYAi/tx3feP4bYMB0rqLQJ6R/eGqRDBZ6hzdSSQMM5LU2
-	PMi6HbnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kpBvpmCe4WH0pO0hg0uZk2zeEEhtNXDrMWMFRarIwIg=; b=e5Ls/R/zZx4nsL7EjI4ILs/2MW
+	Vro1xld87W2ZqA9J8RzGg/fP1oSsXh3+FJQUHLWTJQ8MCbjdbxKFlEXsNEFfrh2ajtG1ibAH/4CXh
+	fGL2zmxWzyyOxybMm0ve2LZx6vn65+9jvywWtUchdZoq6PRYKWMDEkQ3CC2Nuv/7t+BxHe+Rzccqa
+	mt3wpGHv8c/42/adsDzxooRJy1fLTI03IRij1Rh1wEylvq/BKmso88p8Ul2RVu4al8ijmIX05Q7h1
+	JKuea7nSwE6f7+WSlVf6yv2sr+GoE3vQLWVUv50Kg8ZCzrOGK6qG2S7B1QbmTjM5WO9ceZnjodVju
+	uuzmHsBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDXR-00000006y3I-2SaP;
-	Wed, 10 Jun 2026 07:39:49 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wXDbq-00000006yND-1xqj;
+	Wed, 10 Jun 2026 07:44:22 +0000
+Received: from mail-koreacentralazon11023120.outbound.protection.outlook.com ([40.107.44.120] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDXO-00000006y2d-0JDq
+	id 1wXDbn-00000006yMf-2pGV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 07:39:48 +0000
+	Wed, 10 Jun 2026 07:44:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mnyApUMktiH6TY/SU9Syh1SmUBPmRnq/pFrvxly46+KOJHpZQdEQy1O9E2XJvB/QH7oBWzYLT9qkXCBGsVyLN0VwXTH/khTnT0Z7F+BD2rEo71Wk/UXpUc/QkH7JxLpdRTQMLTbAVl/PkOIpmYP+ZMqR2fAZaYQg3nkHb1xZnZIPWylFAb8JYECYThSdZUXvRBJdS8Ho4i7ZVT6l3cfOGoUAIqxtlLipTikgLsYNbGpqnyq90lgE8aPUGwWt9ZFcsQ6Vj4mt5+8o0v215n+SmpaG4jmyaK80tH8Ur/VQVMWYMJdkil9uQWADvoEiXSOieIIWdoaA7ChWuwmXWBzPeQ==
+ b=DM9rzgkrQWX9msKUehw1c1er16GIxnLo5a5pJfU74pDlAHvLQjnDuMqf4mcM+YePOA4eZ0naxlZRZFyu+LomV8KSJEHmkqIpLhfojDOFDjGyEp5vfNpAO/XjAM6GAUmImuSBUfHe5ZHpSmriMVjh2nITh2xBQyPNSwdNUcVm4dEK642Bsr9/qbVo00MrzA39f5wkh8iWhDczOptsaRsB9ks985qh3rX/0N7EX/dbBUd67al7pe6ob4RG7E4WmZKf5CkpEpXQNj/NxabaYlurOd2B6OHn3h+/1ntjKIGPt0zZTLjHKt6FSphRHCIPnYrRhHG4BGKBQ+cxZBywVWRwzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DY+bMTsJPvRdeLNZlPUw8yrZkHGH9AZG9Z/j/zVCCFI=;
- b=xYT2AiMxx59sBArB84vuaAz7HkqresDNpmec2nSeRhBRE5+4HBpPACT5zS5lfP4RRRH9J7m1pkQ/mtf6ln8z6uflAMAccd4uLurQ3tHbR5LBnsZH/GVcWDr/fNkauaz8IFmy2MAjeq9sgsAKe+6WXFSeaGmCC38/KJReiMasugzyXnQu2HMbEUsa7uFamrdzgmWXWhT2xF+9bnRDXQKfips/mhjn7WgXCRce1LZpmJpnpvZmsOiDVsKdRBXyOHMZsn1c1JWGA+74xCN3j44KRn4xdim+WnuZVOa4/XrhFSZ9vXtbLofPJi4RcBDlmfmeiabS+fZxt5+c1LSkvB5Ttw==
+ bh=kpBvpmCe4WH0pO0hg0uZk2zeEEhtNXDrMWMFRarIwIg=;
+ b=mPwGsxT6Dj+R+bbdG0ZmrkXfNFJZY30egaalWlNojCBfNzfpk23eNzdQdsmGvXs9liHM1EqNnMOVY6ziJxVsGEvUKt6JPp2eEKFMlYl1tSmeaTEjaVtji0YRbEl0Jaex++0Nw1xrmDVk+fQCILU3AcLENkVO63az6W/S+j4ZaDEL3K7aqW5gVX62T/Cr6193ZoQRv6UVY7RVcMli/SC30QiowT1jBBOHG2Y8BXlWUz1cz2Y2kLp0zLGP98foVL5sem/mpHd6eJL59YWTORZNBpIaHqu7iwmWjPCDIdMsM64N1Lwxvvfx5c+xVF0M0GyqlQs9yChMctu5R6uOWnllIw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DY+bMTsJPvRdeLNZlPUw8yrZkHGH9AZG9Z/j/zVCCFI=;
- b=Dh7dXDab1ZivSlSGzdeHus3LpRi9HbG463aZENAxCoffK4o+jJ0LcEWHDjIh7sZTmPXJmp1lv6yXgcaZLaDbzo5dA8VOvJbhwnkP/ByVDgSql/4dTQUGi8sbjbRWMbhvmtBdKHM/usp80XUKYNBcgqARRWo10O6HW6LoBhhg6Fw=
-Received: from BL1PR13CA0159.namprd13.prod.outlook.com (2603:10b6:208:2bd::14)
- by IA0PR10MB6698.namprd10.prod.outlook.com (2603:10b6:208:442::6) with
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TY4PR01CA0066.jpnprd01.prod.outlook.com (2603:1096:405:370::7)
+ by TYSPR06MB6442.apcprd06.prod.outlook.com (2603:1096:400:483::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Wed, 10 Jun
- 2026 07:39:38 +0000
-Received: from MN1PEPF0000F0E2.namprd04.prod.outlook.com
- (2603:10b6:208:2bd:cafe::7d) by BL1PR13CA0159.outlook.office365.com
- (2603:10b6:208:2bd::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.10 via Frontend Transport; Wed,
- 10 Jun 2026 07:39:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- MN1PEPF0000F0E2.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.11; Wed, 10 Jun
+ 2026 07:44:01 +0000
+Received: from TY2PEPF0000AB87.apcprd03.prod.outlook.com
+ (2603:1096:405:370:cafe::50) by TY4PR01CA0066.outlook.office365.com
+ (2603:1096:405:370::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Wed,
+ 10 Jun 2026 07:44:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB87.mail.protection.outlook.com (10.167.253.6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 07:39:38 +0000
-Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 10 Jun
- 2026 02:39:37 -0500
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 10 Jun
- 2026 02:39:37 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 10 Jun 2026 02:39:37 -0500
-Received: from [172.24.233.249] (ula0502350.dhcp.ti.com [172.24.233.249])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65A7dToR3389577;
-	Wed, 10 Jun 2026 02:39:30 -0500
-Message-ID: <3acbd99f-c58e-48b2-89a3-0e77bdbb8427@ti.com>
-Date: Wed, 10 Jun 2026 13:09:29 +0530
+ 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 07:44:00 +0000
+Received: from gary-System-Product-Name (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 1456F408426D;
+	Wed, 10 Jun 2026 15:43:59 +0800 (CST)
+Date: Wed, 10 Jun 2026 15:42:25 +0800
+From: Gary Yang <gary.yang@cixtech.com>
+To: Yunseong Kim <yunseong.kim@est.tech>
+Cc: Peter Chen <peter.chen@cixtech.com>,
+	Fugang Duan <fugang.duan@cixtech.com>,
+	Guomin Chen <Guomin.Chen@cixtech.com>,
+	Hans Zhang <hans.zhang@cixtech.com>,
+	Joakim Zhang <joakim.zhang@cixtech.com>,
+	Jerry Zhu <jerry.zhu@cixtech.com>,
+	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>,
+	<devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Yunseong Kim <ysk@kzalloc.com>,
+	Yunseong Kim <yunseong.kim@ericsson.com>
+Subject: Re: [Question] Enabling CoreSight TRBE in firmware on CIX Orion O6
+Message-ID: <aikVYZDMYuPscIKR@gary-System-Product-Name>
+References: <5d1bdf6d-ed77-4de9-b788-cf04a98d054d@est.tech>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 04/11] arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F
- memory region size
-To: Markus Schneider-Pargmann <msp@baylibre.com>, Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <nick.desaulniers+lkml@gmail.com>, Bill Wendling
-	<morbo@google.com>, Justin Stitt <justinstitt@google.com>, Judith Mendez
-	<jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>, Andrew Davis <afd@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>, Bryan Brattlof <bb@ti.com>, "Jai
- Luthra" <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>,
-	Beleswar Padhi <b-padhi@ti.com>, Francesco Dolcini
-	<francesco.dolcini@toradex.com>, Stefano Radaelli
-	<stefano.radaelli21@gmail.com>
-CC: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
-	Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>,
-	Akashdeep Kaur <a-kaur@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<llvm@lists.linux.dev>, Hari Nagalla <hnagalla@ti.com>
-References: <20260609-topic-am62a-ioddr-dt-v6-19-v6-0-16afba97fbe0@baylibre.com>
- <20260609-topic-am62a-ioddr-dt-v6-19-v6-4-16afba97fbe0@baylibre.com>
- <DJ56KCZMDJ35.3CKN0VT59QRJV@baylibre.com>
-Content-Language: en-US
-From: Paresh Bhagat <p-bhagat@ti.com>
-In-Reply-To: <DJ56KCZMDJ35.3CKN0VT59QRJV@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <5d1bdf6d-ed77-4de9-b788-cf04a98d054d@est.tech>
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E2:EE_|IA0PR10MB6698:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95809cf9-b8e5-4fba-8d02-08dec6c36d2d
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB87:EE_|TYSPR06MB6442:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0ac86d5c-7be2-4531-6189-08dec6c4093e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|36860700016|82310400026|1800799024|921020|56012099006|3023799007|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: p9Un8w7QvPka4VIiOWO2umypIA1PY2zq9F4+p25wm7Sj6vpXtpSR2fGW/DzKrkV7eLwYqJvctKJ4pVK8mJSIXKR1osca9o4ryqHMQGmjBceUhMUu7KjWGzd3P8DtJqffNn56rDA6i3E4cip1F0zqdbsmEHQd2Bhx5JtUrd30P341fHWr2s32ur3zNMNnt32IeZ2o6UcG5hh3SKpOxTIVZbM8kyiw37S7uP8gPH8B1AisyPfwsWt3nx3CR0nIz/rZs3WeX78h63xbX6odDwgJekafA6eE8YsgKZvYjJN3Mm7tTJpDwO5T6B9c8Hg3DtFPXfJkcF+tYUdPIzPWn0dQ8tV+nAE+t5PZLIMj7X2pGfWRm2arJUkq8oisNsIBCkbt/MFWcHhYICjq0iVSlLW8EzJHsMv3W1EqInFydqsDEYFBkoaRVWNQ6nI2wqptjd2jczlqtks60eJtMVJdrCU6lOu322Tk31wlEuE7S+zDx4C3uHLxtQgCfHHYDOkWmYVufSB3lpJcGwhn49taNaOMOH4WQRktKQPCAjrbAkvC/d+tNUpt2rZy0rHM/RQueGQOpLZP8SkiF5ikDddqWHjCGPTmnN3TBdwl4gdbIjmkEZOVSDklSCqPw43gw8d6Cdrxy3FS56R3daZ2EwwzYy5tAG8AAaPBO0t0EH9TkkjX34S/qpPHig9CPi+YtJ4tzZ6GNbogCukIApHU9fEro2ShhomglN0NrmX2PHONtyDo4FZK81IQh2iIebIEcZlwT5ktZeFIdqzoldm19oUXTbxppIXJ4ah3EnPvrCMSZwGEMtM=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(36860700016)(82310400026)(1800799024)(921020)(56012099006)(3023799007)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|1800799024|82310400026|6133799003|56012099006|3023799007|5023799004|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: nESZ/GtQbSQp7ajgWyJfnuC/+xiOIakjlAKr/gJwdf4DkGm2kWL1XvJns0k837ocBnRlBRTbgyw8NVMQwGFsWd4v/YWa3Gv3phOBJidRdoMOywS8s6FVV0wKa7GX4QgawbyP2/i/Z1ZuGRZn4FH2PGwZoktcugoXG1ycYU52JXrZXVmfXo1ax9qHMit1ghU3h5rx4k7UhwokBLgvte/aum32LGAHt08LmYtnX8cuVCr752oSLyrPqptHfliWTRfkTLBFuQ10I/AF9FnG7/DOTU/DZ/nJ8hiuim4g+YyoxCVm1SRtQ1nMFUWYYocWHzolSflY94d8amCqN59AZ1Lubtdrgt4UoLb4a19vxdiAf+BpZ/HnBF2xaCvB9obAHnlJPhsuUelF/wQ6KgM7dJmAy4Q0CsaTc4UjjpDmSshF+g/glco3YfeUURkAE2snJaXyrlF7mbs512n5J8ehpCeVPO6TJ15txkNqP0ePaIrgHSdhF3Xai2P3hqOu8RDMAPVDqtIIOxvJHjfYkIgEJOpcx7ibmNqPefieTXrYm5gq1lXHZTzYj4ZoHFf9/inr/PpEhD/LPqnedvZCvc1cOrSeJ+0Q4kM7t4JaZPJXe6bL4mufwX0VIQlduguhHSFhzoyNXEuo2/TdztWpR6vo8L40pFyFQINILnID/vcoDxQgAbncZrgnA5riZBcecZTlWSGkQdWgtdZHtuVCjbnNmeHVSGoDEevuR6RV1IfUMY4uJBY=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(1800799024)(82310400026)(6133799003)(56012099006)(3023799007)(5023799004)(22082099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jcURR8DrkW/esunIrACY6PVSEpvA0Lwqq9M7oluQBkHjC/8i+8D6EDrx17KYMF0sDeozU6HrfVrnyMmvFHEgg0CZFQ8iT08bRe2QX1VZJLKrZoXT5pZEifxmG2tbqckbo2b7ix3+hOZpeINUz4AyhzQ6zRqwnPTS8bH2p/fsyzGn9buPjd2vhxc6d1qnqIN8BC9lx7cIYj48SZL1j/DK74PK2/jmDQH3PUb9qA2MxJnMxgTYH3+SgAjG1ROi3Ll1vf9t5DsOo20GI+klSg737WEdrHT55FVuCRk2P8xNRq1Nrc6Wk3AxlHU8SuEIBJeiJFptSEYAHm94KHa3kZtBlBNG/kfYS1onrMv/SeSpH0nCzayuLwDCi6uG+f/eeVuC9Df5VUuZzFXs+S0tk9YxX7JnfLji4kBPzVVOyhY3ZIO9laReDLbQr7N75K0yQ9qm
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 07:39:38.4718
+X-MS-Exchange-AntiSpam-MessageData-0: zLYEWrerBjdpQGlPBQ8vxo+bxEn13P45tiTrcIB6V7tPL2ut+f5+V10TD332/bS2UOv2a3c8haFKFMs8V0GoRqRuBCGsuMYyjr/fjrVuGowZb/BSgoRAH/8NcBXTJ4dmL189xZ89fsM1n9bLsMAfIkgD98iKDMDM1aqquiVwTR28WfchJyKl39CLQ0jyUcvqTwUIN18o/T/oWehvr+a3j/XNLSNCdgWhkDcqYm4NnZmWqwaD9vNv+LBtW+aKJVNDB9LIQ4BMeTOOBVDgrcs31PYQzsrb4Pjy9i4bQa5SRAez93uzA9GKQRhRr0SzXsn991Kx6ZT1vLnVe1TzH3GyEhda0AvxOtl7W9q9wvg2KW0V0b2uyvPcFrkyVva1FJy1lNffA7cksfWzS6DIPV+maYo7QPtpCRHRv9LFyo0vi5UMYmvQzMVhCgx6oC1bF2oL
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 07:44:00.1241
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95809cf9-b8e5-4fba-8d02-08dec6c36d2d
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E2.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ac86d5c-7be2-4531-6189-08dec6c4093e
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB87.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB6698
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6442
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_003946_215379_2FBF0490 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20260610_004419_740554_51EA93E1 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,65 +121,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+On 2026-06-09 10:40, Yunseong Kim wrote:
 
-Thanks for the patch
+> [Some people who received this message don't often get email from yunseong.kim@est.tech. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> EXTERNAL EMAIL
+> 
+> CAUTION: Suspicious Email from unusual domain.
+> 
+> Hi CIX team,
+> 
+> I'm working on vock (https://github.com/yskzalloc/vock), a tool that maps
+> userspace programs to the exact kernel code they exercise using hardware
+> trace. On arm64, this relies on CoreSight ETM (--mode hw, for non-kcov
+> enabled kernel) to collect kernel coverage without requiring CONFIG_KCOV.
+> Without firmware enabling TRBE or exposing TMC/ETR, I cannot verify or test
+> the arm64 CoreSight code path on the Orion O6 at all.
+> 
+> I've been testing on a CIX Orion O6 board running Debian sid latest generic kernel
+> and found that CoreSight trace is not functional due to firmware-level restrictions.
+> 
+> Test environment running Debian sid arm64 kernel:
+> 
+>   Board:    CIX Orion O6
+>   Kernel:   Debian arm64 generic (7.1+unreleased-arm64, CONFIG_CORESIGHT=m)
+>   CPU:      Cortex-A520 (0xd81) + Cortex-A720 (0xd80), 12 cores
+>   Firmware: UEFI/ACPI (no device tree)
+> 
+> What works:
+> 
+>   - coresight_etm4x module loads successfully
+>   - cs_etm PMU appears at /sys/bus/event_source/devices/cs_etm (type=12)
+>   - nr_addr_filters = 8
+> 
+>   $ lsmod | grep coresight
+>   coresight_etm4x       118784  0
+>   coresight             110592  1 coresight_etm4x
+> 
+>   $ ls /sys/bus/event_source/devices/cs_etm/type
+>   12
+> 
+> What fails:
+> 
+>   1. No CoreSight bus devices are registered:
+> 
+>      $ ls /sys/bus/coresight/devices/
+>      (empty)
+> 
+>   2. perf AUX mmap fails (no trace sink available):
+> 
+>      $ perf record -e cs_etm// -- ls
+>      intel_pt: aux mmap: Cannot allocate memory
+> 
+>   3. TRBE module loads but registers no devices (firmware blocks access):
+> 
+>      $ sudo modprobe coresight-trbe
+>      $ ls /sys/bus/coresight/devices/
+>      (empty)
+> 
+>   4. dmesg shows only configuration manager, no ETM/TRBE device probes:
+> 
+>      [ 4479.881313] cs_system_cfg: CoreSight Configuration manager initialised
+> 
+>   5. DSDT has no CoreSight ACPI devices (no ARMHC500/ARMHC501/ARMHC97C HIDs)
+> 
+> Root cause:
+> 
+>   The Cortex-A520 and Cortex-A720 cores support both ETM and TRBE in
+>   hardware, but the firmware (TF-A/EL3) does not enable OS-level access:
+> 
+>   - TRBE: MDCR_EL3.NSTBE is likely not set, preventing non-secure
+>     trace buffer access
+>   - TMC/ETR: No MMIO-mapped trace sinks are described in the ACPI DSDT
+>   - Self-hosted trace: MDCR_EL3.NSTB / CPTR_EL3.TTA may not be configured
+> 
+> 
+> Can you check enabling CoreSight trace support in the Orion O6 firmware by either:
+> 
+>   (1) (Preferred) Enable TRBE access from non-secure EL1/EL2:
+>      - Set MDCR_EL3.NSTBE = 1 in TF-A
+>      - This allows the per-CPU Trace Buffer Extension to work as a sink
+>        without any additional MMIO hardware
+> 
+>   (2) Or expose the full CoreSight topology in ACPI:
+>      - Add ARMHC97C (TMC-ETR) device with MMIO base address
+>      - Add ARMHC502 (funnel) devices if applicable
+>      - Reference: ARM DEN0067 (CoreSight Architecture ACPI bindings)
+> 
+> (1) is simpler and doesn't require ACPI table changes, it's a single register
+> bit in the secure firmware.
+> 
 
-On 10/06/26 12:41, Markus Schneider-Pargmann wrote:
-> Hi,
->
-> On Tue Jun 9, 2026 at 8:56 PM CEST, Markus Schneider-Pargmann (TI) wrote:
->> The wkup_r5fss0_core0_memory_region was reserved with only
->> 0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
-> This and the var-som patch incorrectly mention the reserved size to be
-> 0x0f00000 in the commit message while it should say 0x01e00000. I will
-> fix the commit message with the next version.
->
-> Best
-> Markus
->
->> AM62P defines the DM code/data DDR footprint differently:
->>
->>      /* DDR for DM R5F code/data [ size 27 MiB + 396 KB ] */
->>      DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B63000
->>
->> which results in an end at 0x9e608000. For this memory region which
->> starts at 0x9c900000 this means a length of:
->>
->>      0x9e608000 - 0x9c900000 = 0x1d08000
->>
->> Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62px-sk/wkup-r5fss0-0_freertos/ti-arm-clang/linker.cmd
->> Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
->> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+Thank you for your interest in the Radxa O6 board and for the detailed report 
+on the CoreSight trace support.
 
+The firmware (TF-A) for the Radxa O6 is provided and maintained by Radxa. We 
+will forward your request to the Radxa firmware team and ask them to evaluate 
+enabling TRBE access from non-secure EL1/EL2 (i.e. setting MDCR_EL3.NSTBE = 1 
+in TF-A), as you suggested.
 
-I was investigating a similar issue on AM62D and implemented a slightly 
-different solution based on internal discussions (although still under 
-review)
-https://lore.kernel.org/all/20260609181006.460401-1-p-bhagat@ti.com/
+We will notify you via email once there is a firmware update available.
 
-Would be great to get your feedback on this.
-
-
-Thanks
-Paresh
-
-
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
->> index 7ee894d59113aa727d41b7ecd6b2bc7e12760823..8a5ff5c457579c7b1be7157d235fd4b4e5c6af11 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
->> @@ -170,7 +170,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
->>   
->>   		wkup_r5fss0_core0_memory_region: memory@9c900000 {
->>   			compatible = "shared-dma-pool";
->> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
->> +			reg = <0x00 0x9c900000 0x00 0x01d08000>;
->>   			no-map;
->>   		};
->>   	};
+Best Regards
+Gary
+> 
+> Thank you!
+> 
+> Best regards
 
