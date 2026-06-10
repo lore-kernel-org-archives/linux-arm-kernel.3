@@ -4,110 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BD5CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4465CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7b4ApobW2X7gdPTAJ+UsvzJRtVC/VUSqidar8NBwVwo=; b=GS6XiARDP+JlIur55LxUlVO7tr
-	qCv8Syrt/phnMzycuUzXhKJg0iQOZI0Xk/5xF5Qir3q00E0+GniFxR5uiggiifGe+3+OnH8AzHRe1
-	mGcuJyi1Nzia733Gfrjl3uv5LZe962AIMedZfKYxMbz4msVq17qIACLbBstV94wVHpH3pjs8OXSLg
-	kgRJn7JQdmrTFsOZdQCtAjrfb75PL2EccEkV0CW8L/KnXTJKD+2tasA1W20Hn+dvd0GOFmpv2r8G6
-	WW25Yc38QyUehKQ6RKX50yVJV8L1BBJL6tSmO1kU7uLkI1bs2NTLrBS6RpxLZck0e2xZtCmcsBZv8
-	3vtDIU1g==;
+	bh=FRsKkRuXXrcRjbvRngvMO9bdz13WA7D5wKB/6fXyEG0=; b=44xQuNRKaNesWp+K6SYv5n2p8H
+	gmzh9JPiq0zB2wVAC4U36vN1lLEfayBJGZOlZfid1teeXZ4DlNFZvpGKMF4Jw0eOmGIJ5AZdvo0fV
+	QlofrIw6SXV4182liRW+UOG2nC5vQxNO0GPzmCynuI0DCSQq/eFMqjOzmfWoa6yz3RxzlGN4ZPWAf
+	fD770WBUXSAsBuzr1C56m5yqLZQtXtcL//DG0Di5RQ0OGVZRo3n2zagZo6Ygxeo2Dc7PDujhda895
+	FcT0Dhh89oWeTAyxJphVRafuAdCpYLW1cCY4H0cbXqE9bD/oMGr+6emP5ghhBgSD+QwFgEuHkHr18
+	06W/XNSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEOD-0000000754Z-46ck;
-	Wed, 10 Jun 2026 08:34:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wXEV4-000000075Pv-069Z;
+	Wed, 10 Jun 2026 08:41:26 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEOC-0000000754L-1fIW
+	id 1wXEV2-000000075OL-0mw8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 08:34:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0803442A81;
-	Wed, 10 Jun 2026 08:34:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CA051F00893;
-	Wed, 10 Jun 2026 08:34:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781080459;
-	bh=7b4ApobW2X7gdPTAJ+UsvzJRtVC/VUSqidar8NBwVwo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XKs2DyM9w4U2ZXFNcHaI/BvoFoxigaJGJXImtU7r+4g5d/NcLVupqjfnmPLKL5ieU
-	 SGt2xdc6nQobo+dfqBloXUJVUBP/JmlMzx/MItAt3FWB0Pg6dp0OfgiVc03/Q7/ASf
-	 HzdZ5rZ03vz6nPxgeCGEtW/hZyt7NtfLIm/ao9yX5rJ6jvoVJEVD3WzpPy6tZIavPo
-	 xbyjiRx4CJQl8OKzKkqGHKX0NdqMLVWHGkg6iRdkw7gVtiY5Dw2ek/fRrlL60ZPsfO
-	 BggZdfXu2VQsaGBaSQA52vVt/NtHNvot8iK6dP3c9U95zmYJBb253wPPW6RURUvQdu
-	 tz9PdCMyDtNGQ==
-Message-ID: <cb33c088-00b2-43fc-abc8-b3a925604e70@kernel.org>
-Date: Wed, 10 Jun 2026 10:34:13 +0200
+	Wed, 10 Jun 2026 08:41:25 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2bf2247e38eso67366385ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 01:41:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1781080883; x=1781685683; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FRsKkRuXXrcRjbvRngvMO9bdz13WA7D5wKB/6fXyEG0=;
+        b=KYkI7wddP4W7WZJtOWxZhqIWll6+QeZvz4CagO3rZ3bEka8h7VTEfkCo+Br50h0zMl
+         NsLe6ZJkn7BRsdab9LqC0STaybu06ckREytldqbk7kl1Kls66oJv1ytXeXSgfsRoAAyP
+         ehtKTKpu4aZrTNu23tHkBvDmbPMdS0ThZOZG0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781080883; x=1781685683;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=FRsKkRuXXrcRjbvRngvMO9bdz13WA7D5wKB/6fXyEG0=;
+        b=mOqd9E450AWdKyDQTJegpnkgFnYTl1miDpBvfZAtmyR2GQaXaJfJyR67uatH+BoaKN
+         al6+6Tyj99p1RBDjdIru+de9AhBWRkCCapu2Prhtba2JNwq2f3eESdXmpD+b57s92BCh
+         96lq1TiaM884wX9UUQx8bJy+/g3THi5lmc3moo4nz2wJuDtxPY2Au0ipURzCCgfYS56X
+         YGsJmS/FGlp8dQruxaeT+sd8rBXmzg7KtFQ2qvr5dnYZnk5ncUzbGTLhQiOLnng55PuB
+         q+JzAkeF6+Mogovi6NXO9HEb6Ud1UE42Bx6ysuxjeriUXYdjshowvPwZ3Ku8GbNYe6nN
+         XFaw==
+X-Forwarded-Encrypted: i=1; AFNElJ8mpNZg2mqHoAriOtISc734G2NXQp0+HQHoOdGwWGTP6KulKQL6/gXsIi4+Zp9sMBbepCUKT7S0Gb82LbzuSdKv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDbxMmmleGjnkWeVDRPUYdbltiy7AAN2EZCL5EtZPdLIQw4Jsf
+	YNcFLyT4LL+hNszjzcePyzF81tkzIpquWuyemteeVF5VqEAJRbZB0obdxlTE29EMBA==
+X-Gm-Gg: Acq92OFAO9Lw4KUk7kKLwoHaAWIz5YxWAOXPbm0xWuEc5Qm3E/aSAxYx6SDojEqt8DE
+	SaU350FjJ5WkuvAoSA4paWFn9m9gkpFD4iyzveRlm6rW5LfN5itSXA92iYPWHBASiSY9PXylOnz
+	reSFRFK3ErgXF1cTPzBqQfMiFWrfiqWRLsfZG/v0OTBm2CAzJzI8N5m7dz7BULtUbktSji4v2+i
+	u2wQg3q3JRh1pIlxZR4wK/P0ud1A4povu3HPX0LEDzidIyRt4LNk9c+0EVr2sAlJY7v/JgQB7+H
+	N3ruYEEmYHvX0f2OqwW6ZsOgx/x1YUxgfIP2TF7F+9w7WavNrqhTOMbNtbq5VEfol2wuxSQcpZp
+	7FejOeN6Ds+QbTqQ2TcCHUdS0sJBJJI20YPt9M/0CrLhSH0kmm0rSoBEL2DcW0XV0h5crCRiO9t
+	OHBz42l6oho1y1YLvKRNadrxi0xtF/yOizRzSrX9xg3aD+46Q6f4qoybJ/e367+zfJtK8kMC8yK
+	CgfevNwQnV1bnX8XQ==
+X-Received: by 2002:a17:903:3b8b:b0:2bf:114b:924 with SMTP id d9443c01a7336-2c1e85ca6b6mr285765545ad.34.1781080883374;
+        Wed, 10 Jun 2026 01:41:23 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:3870:6325:16c:d35c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f890b2sm239223725ad.26.2026.06.10.01.41.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Jun 2026 01:41:23 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Alan Stern <stern@rowland.harvard.edu>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>
+Subject: [PATCH v2 01/16] device property: Add fwnode_graph_get_port_by_id()
+Date: Wed, 10 Jun 2026 16:40:35 +0800
+Message-ID: <20260610084053.2059858-2-wenst@chromium.org>
+X-Mailer: git-send-email 2.54.0.1099.g489fc7bff1-goog
+In-Reply-To: <20260610084053.2059858-1-wenst@chromium.org>
+References: <20260610084053.2059858-1-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: soc: imx: fsl,imx93-media-blk-ctrl:
- Allow LVDS Display Bridge child node
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Marco Felsch <m.felsch@pengutronix.de>
-References: <20260608-imx93-ldb-v2-0-1b1fe621bfda@nxp.com>
- <20260608-imx93-ldb-v2-1-1b1fe621bfda@nxp.com>
- <20260610-large-just-lynx-d8cb7f@quoll> <aikYviBO1d560jdr@raspi>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <aikYviBO1d560jdr@raspi>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_014124_234106_AD77FA8D 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,57 +117,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2026 09:56, Liu Ying wrote:
-> On Wed, Jun 10, 2026 at 09:46:39AM +0200, Krzysztof Kozlowski wrote:
->> On Mon, Jun 08, 2026 at 05:04:22PM +0800, Liu Ying wrote:
->>> i.MX93 SoC mediamix blk-ctrl contains one LDB_CTRL register and one LVDS
->>> register which control video output through a LVDS interface.  Allow the
->>> LVDS Display Bridge(LDB) child node and add the child node to example.
->>>
->>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
->>> ---
->>>  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 39 ++++++++++++++++++++++
->>>  1 file changed, 39 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
->>> index d828c2e82965..124f5c206ee3 100644
->>> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
->>> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
->>> @@ -26,6 +26,12 @@ properties:
->>>    reg:
->>>      maxItems: 1
->>>  
->>> +  '#address-cells':
->>> +    const: 1
->>> +
->>> +  '#size-cells':
->>> +    const: 1
->>> +
->>>    '#power-domain-cells':
->>>      const: 1
->>>  
->>> @@ -92,6 +98,11 @@ properties:
->>>        - compatible
->>>        - ports
->>>  
->>> +  bridge@20:
->>
->> You have dpi-bridge, so this should not be different. You should not mix
->> addressable and non-addressable nodes and NXP decided recently in
->> 3feaa4342637eef673243dd38ccb32e8dc8efd5a that everything will be
->> non-addressable.
->>
->> Writing bindings ask explicitly to post bindings, so if you decide to do
->> half-baked solutions it's on you. Half baked solutions are not allowing
->> to bypass standard rules.
-> 
-> Mixing addressable and non-addressable nodes is allowed according to recent
-> discussion[1].
-> 
-> [1] https://lore.kernel.org/all/n6akxiayi3g6gxcqhreb4iaohmeokoalnqup6h5r2fwdt4zijt@u2wyps55ayqm/
+In some cases the driver needs a reference to the port firmware node.
+Once such case is the upcoming USB power sequencing integration. The
+USB hub port is tied to the corresponding port firmware node if it
+exists.
 
-And it is explained in commit msg in... where exactly?
+Provide a helper for this.
 
-Best regards,
-Krzysztof
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/base/property.c  | 22 ++++++++++++++++++++++
+ include/linux/property.h |  1 +
+ 2 files changed, 23 insertions(+)
+
+diff --git a/drivers/base/property.c b/drivers/base/property.c
+index 9387bb83eb54..a2afd854a604 100644
+--- a/drivers/base/property.c
++++ b/drivers/base/property.c
+@@ -1346,6 +1346,28 @@ int fwnode_graph_parse_endpoint(const struct fwnode_handle *fwnode,
+ }
+ EXPORT_SYMBOL(fwnode_graph_parse_endpoint);
+ 
++/**
++ * fwnode_graph_get_port_by_id - get the port matching a given id
++ * @fwnode: parent fwnode_handle containing the graph
++ * @id: id of the port
++ *
++ * Return: A 'port' firmware node pointer with refcount incremented.
++ *
++ * The caller is responsible for calling fwnode_handle_put() on the returned
++ * fwnode pointer.
++ */
++struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id)
++{
++	struct fwnode_handle *ep;
++
++	ep = fwnode_graph_get_endpoint_by_id(fwnode, id, 0, FWNODE_GRAPH_ENDPOINT_NEXT);
++	if (!ep)
++		return NULL;
++
++	return fwnode_get_next_parent(ep);
++}
++EXPORT_SYMBOL_GPL(fwnode_graph_get_port_by_id);
++
+ const void *device_get_match_data(const struct device *dev)
+ {
+ 	return fwnode_call_ptr_op(dev_fwnode(dev), device_get_match_data, dev);
+diff --git a/include/linux/property.h b/include/linux/property.h
+index e30ef23a9af3..11f3b54c7de0 100644
+--- a/include/linux/property.h
++++ b/include/linux/property.h
+@@ -499,6 +499,7 @@ int fwnode_get_phy_mode(const struct fwnode_handle *fwnode);
+ 
+ void __iomem *fwnode_iomap(struct fwnode_handle *fwnode, int index);
+ 
++struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id);
+ struct fwnode_handle *fwnode_graph_get_next_endpoint(
+ 	const struct fwnode_handle *fwnode, struct fwnode_handle *prev);
+ struct fwnode_handle *
+-- 
+2.54.0.1099.g489fc7bff1-goog
+
 
