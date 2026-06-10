@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0726ECD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 12:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBC8CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 12:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKd0rR0vYdw7TNYYE0+R6v5uU/CkiKwhomGx2lqxDSE=; b=wrxBqlO4KTU9Dn36csHU9fqllT
-	E7g/o/rlJzAAYoHlhBi92QaIlvwpBu0VBlaqeutzTkMYroyLHQ7IwDw9SQfEgtrUNj5XR877zQtuU
-	UovERsXAPtxIgG6WRtTmBjNK0AT8to1tV8w5XoOUSPHMygAmYgr8M5wWp0+nJ0gDOSU6W1wEAByns
-	FcEHDzXVzwtf6zZN7GjDvKF8Yeu4bVgx2Mc6be2cRyigPkOpT3qZ6r8pZSexcUTc0wIXppKphslCe
-	IvT1nsgMdlEF+0yz5IQ0Wt/FhHGEacWMjsrwTit6xUdeHCPFVyszd4zrHjpac6aBKClywIrouSfTk
-	AJZaHI3A==;
+	bh=azyBFXRis6dP0BPR2dlcgvxJnAOONu2IfcqBRv2/uQs=; b=hqfN48xdC7smL0C3rTwRaUY8C3
+	GqX4dPx8wYtO+chvZWVRwf2pMimxeQlGeMgWh5E8N8tXsho3DAPJjRJEnBJNg9AfHQPEtt/K2ClIw
+	c15W2KgPOYP4qQZCHpIFiFXWPtm1SncL6wxAvl7J1nmxxlvWwm4y7cOMIRsIbufZPsyIuTlC+SQg9
+	MJBh3Z41W/K3THGkf6ctJwwyWodoBrBHKfE5SQaQciOVDT2Ku3r53lRulA40taO8Hci8Ece+yCL3Y
+	VDNQW/rxxPLhba0HSEpMwffiyOKEd58RFP1o8K0rCiAkHFB7y1MkaKCz4ihPCz3wqp/XKOwaDhU4s
+	G34WVEYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXIBV-00000007eUm-414r;
-	Wed, 10 Jun 2026 12:37:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXIBU-00000007eUg-3f75
+	id 1wXID4-00000007ecM-0wQi;
+	Wed, 10 Jun 2026 12:39:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXID1-00000007ec1-2LGH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 12:37:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 452084199D;
-	Wed, 10 Jun 2026 12:37:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F6C51F00893;
-	Wed, 10 Jun 2026 12:37:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781095048;
-	bh=eKd0rR0vYdw7TNYYE0+R6v5uU/CkiKwhomGx2lqxDSE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hWKqrVRwze2Xz+0rY8JQIX0p2Yox6UtVDfHF0lZwyPLxCGK94vGqaM6gA5HGNXiJ4
-	 QTnbzaYmJcJGKE3YNCbejqJZVjWNLSCRbTQa1xYW8Nf231TVH82wxpWzGbkiSnVWNT
-	 zkHQ9GdhUcdCNn5RzuoZ3l2GSp7gEq0lV0NPaK0Bhzgrn8/v77z/P2euPRkYgMaOhJ
-	 2JazSTZq/ulXrTSjT1mrQoj9MXNct7F494dxeCyjzZ1kZ/a0Mli8umzDmdtydrY12z
-	 ENHXQyWdMe6T/WUg0mHeDUOEEuV7ldm1NkBFMrUkdwBv2/G7EgMLbQefpVr2nQUrOP
-	 7PHcVchNPKA/Q==
-Date: Wed, 10 Jun 2026 13:37:22 +0100
-From: Will Deacon <will@kernel.org>
-To: Mathias Stearn <mathias@mongodb.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>, ckennelly@google.com,
-	dvyukov@google.com, linux-kernel@vger.kernel.org,
-	mathieu.desnoyers@efficios.com
-Subject: Re: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
-Message-ID: <ailagpgcDGVoXgm0@willie-the-truck>
-References: <20260508142023.3268622-1-mark.rutland@arm.com>
- <54ffcf73-dfc5-417c-b9d5-6dee551f8d39@huawei.com>
- <CAHnCjA1dGNH07YkWupg1THAmBhW=o4C+uhHbbcRX4edMj2rmEg@mail.gmail.com>
+	Wed, 10 Jun 2026 12:39:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73596353E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 05:38:55 -0700 (PDT)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DE57E3FDE2
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 05:38:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781095140; bh=HrSqzNTnR4WRNRS8bUmISNB9c7Wek/Bkm+ZmnpD9ACI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UoUdrkuCZKW8VTd5YagldYt5tdT2V/atjQFvWStXb1LC76tabeWixRVLV4ClrFY4l
+	 ycmC1MFrMlVJ81CanxvsDTJO9TM8uPQ6ouIIMUMwSz0xwvM+IvwPtpW3P6OYiraCBU
+	 R/SIGduM+3YOTKIiBF4kki8CNMG3WDiEkUHl2gec=
+Date: Wed, 10 Jun 2026 13:38:55 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Weigang He <geoffreyhe2@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] bus: vexpress-config: fix device_node refcount leak in
+ vexpress_syscfg_probe()
+Message-ID: <aila35cYkBES4rbu@e142607>
+References: <20260610033054.2117363-1-geoffreyhe2@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHnCjA1dGNH07YkWupg1THAmBhW=o4C+uhHbbcRX4edMj2rmEg@mail.gmail.com>
+In-Reply-To: <20260610033054.2117363-1-geoffreyhe2@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_053903_777820_4E641DDA 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +72,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 02:04:23PM +0200, Mathias Stearn wrote:
-> Did the arm64-specific fix to rseq not get backportted to 7.0? We just
-> ran our test suite against 7.0.10 which has the other rseq fixes and
-> everything was fine on x86_64, but arm64 was frequently segfaulting.
+On Wed, Jun 10, 2026 at 01:30:54PM +1000, Weigang He wrote:
+> vexpress_syscfg_probe() iterates the "arm,vexpress,config-bus"
+> compatible nodes and, for each one, takes a reference to the bridge
+> phandle via of_parse_phandle():
 > 
-> I had an AI agent look into this and it reported:
-> """
-> The fix (commits b9eac6a9d93c, 82f572449cfe, 99428157dcf3,
-> 411c1cf43039) first appeared in v7.1-rc1 and will be included in
-> v7.1.0.
+> 	bridge_np = of_parse_phandle(node, "arm,vexpress,config-bridge", 0);
 > 
-> The three commits backported to linux-7.0.y:
-> - 663121edad54 — "rseq: Revert to historical performance killing behaviour"
-> - d242126fd21a — "rseq: Implement read only ABI enforcement for
-> optimized RSEQ V2 mode"
-> - fb742945d61a — "rseq: Reenable performance optimizations conditionally"
+> bridge_np is only compared against pdev->dev.parent->of_node and is
+> never released - neither on the "continue" path when it does not match,
+> nor on the path that calls of_platform_populate() and falls through to
+> the next loop iteration. Each matching iteration leaks one device_node
+> reference; the leak repeats on every probe (driver bind/unbind, module
+> reload, or EPROBE_DEFER retry).
 > 
-> The arm64-specific fix (411c1cf43039 "arm64/entry: Fix arm64-specific
-> rseq brokenness") was not backported to any stable branch — it will
-> only appear in v7.1.0.
-> """
+> This is a regression of commit 557e37c05f28 ("bus: vexpress-config: add
+> missing of_node_put after calling of_parse_phandle"), which fixed the
+> equivalent leak in the predecessor function vexpress_config_populate().
+> Commit a5a38765ac79 ("bus: vexpress-config: simplify config bus
+> probing") removed that function and inlined the loop into the probe
+> routine, but did not carry over the of_node_put().
 > 
-> Is it possible to get 411c1cf43039 backported to 7.0 or was it omitted
-> intentionally?
+> Use the __free(device_node) cleanup attribute on bridge_np so the
+> reference is released automatically at the end of each loop iteration.
+> 
+> Found by static analysis tool CodeQL.
+> 
+> Fixes: a5a38765ac79 ("bus: vexpress-config: simplify config bus probing")
+> Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
 
-You can send a backport to the stable maintainers:
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
-https://docs.kernel.org/process/stable-kernel-rules.html#procedure-for-submitting-patches-to-the-stable-tree
+Thanks for the fix!
 
-(see option 3)
+Best regards,
+Liviu
 
-Will
+> ---
+>  drivers/bus/vexpress-config.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/bus/vexpress-config.c b/drivers/bus/vexpress-config.c
+> index 64ee920721ee7..cc247483d3823 100644
+> --- a/drivers/bus/vexpress-config.c
+> +++ b/drivers/bus/vexpress-config.c
+> @@ -390,9 +390,9 @@ static int vexpress_syscfg_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	for_each_compatible_node(node, NULL, "arm,vexpress,config-bus") {
+> -		struct device_node *bridge_np;
+> +		struct device_node *bridge_np __free(device_node) =
+> +			of_parse_phandle(node, "arm,vexpress,config-bridge", 0);
+>  
+> -		bridge_np = of_parse_phandle(node, "arm,vexpress,config-bridge", 0);
+>  		if (bridge_np != pdev->dev.parent->of_node)
+>  			continue;
+>  
+> 
+> base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
+> -- 
+> 2.43.0
+> 
+
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
