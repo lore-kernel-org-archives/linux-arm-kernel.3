@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D74ACD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C2FCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I8s7T14guVVA1hYC7S3XxdGklNY+6gEtX0/TBeS8rl0=; b=CtV5ferltoL2cIDBEJ5Z5b4442
-	Ms+Xcq4gptMX/ftoTfbDBoO0uCXEh6GAUBck9K/dHjmeM1mOTfD335wg+DI6yyiyGo/qthnr5elIo
-	htMmUB9uWDb+6G09ZES5B6s1SMFpzjLITFtJCxhWY3MRyn9GNsPK9ToNP7HbC8PcizSDGLclVo9T0
-	Q4k+aJmWqTPQZ4Y1ZAI7wyBH4KgdqfqkrmUzXLxozMIoLI+LSkYIKXeuQHe4nGO14/uA4ykGb6OLt
-	7VdCeGPoNPidTrXCcCtPAvAfenXq/zEH35iqi/tbKjyBv3m3teUr32TfshstsVN7RVixQnV9aKtp/
-	go2HBXUQ==;
+	bh=35brFKLgI4jP8jMGIASVe52ze60YIKvpJeWjQTiQRpk=; b=nI4Pu64UZUJLZbC3eaJ56GRUZj
+	YIRzvR7QJqpBnamnbtt+2kqHzHUHVMeaijpobUEUUmEDB8vyab3zAOH4ilHRZVl+ELy3x/sqC7UgX
+	VqqG+vwZStzF3WaOgAQ+hImy7JBOUM1NvTtok/fjwo2Hcmrva5dmcR4V+h4+W4h73f5rPOFytZ2oG
+	s8NfZ6ae7KKV7HAz3rtmxHE3oz+8dWqyS0JqQvrcBRKFhPwH/q78Z8gPzrrH+Xz+LOXUNMZm6fEmH
+	HjvewNFL41/WzVddUN+Ylg4MtBq0f47b10VnXRO0N5rbjVB4JRzfVMyp/VpvGFdZk/mIaKlq6eUme
+	WS9Ecyew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXH6U-00000007X2B-1cvL;
-	Wed, 10 Jun 2026 11:28:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXH6S-00000007X1j-1nWs
+	id 1wXH6v-00000007X7F-250E;
+	Wed, 10 Jun 2026 11:28:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXH6u-00000007X6z-0L9R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 11:28:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD046339;
-	Wed, 10 Jun 2026 04:28:03 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99CC83FD88;
-	Wed, 10 Jun 2026 04:28:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781090888; bh=yV2n5HYiQ06aTJOFX3gt+GSH9PHTvaCFQIZLG+04Zyg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Wt4DnpbGPuLCIezGfm1cPxXbkPy5cWIVdsEz+JqBySZEBJ8OhhtgSzJGEvJwG3wlY
-	 hgSqb4Knew2ijMzZLd2nXGFZTRM6aZMSnm9pBARA8DQlIoox4Y8M1qDTiPQTBhtVDV
-	 NJYWvvjOyagzdzrX+djSh+d1dPMKuvMAlR/M38ms=
-Date: Wed, 10 Jun 2026 12:28:00 +0100
-From: Mark Rutland <mark.rutland@arm.com>
+	Wed, 10 Jun 2026 11:28:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7954E44559;
+	Wed, 10 Jun 2026 11:28:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E441F00893;
+	Wed, 10 Jun 2026 11:28:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781090919;
+	bh=35brFKLgI4jP8jMGIASVe52ze60YIKvpJeWjQTiQRpk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=X3qZkJvoEvq9epIvVKXWq9CBcTuqjKAQjN2jjD1wzBWGG6vNi7YzvjNkyrwXonTtm
+	 WMz0GYrzVCgfZlTG1kAIzCrfrnTYaUjT23pMm0R07qN6rWfS999GkUC4B4v7+o7E17
+	 nepCYgGtE3X2ycKzFnoiTkTf00qXNUevr5onJTL+6WTrXujwJvV+SnpgieYTRtjYOp
+	 7Nrqw2yM/8cDqgtxjQRpk7O/Lcrnf0aP/K8MkqTL6aYVuwii/qopMuzWl7H1+Xe3oG
+	 8ycqTD2OoKZLYKb/tsmIOCrC5f6jtqpoli2nHwnvH4nI6TlMGr1Ke9ddyqHo3IxUbe
+	 1lIQmXzIt4SVQ==
+Date: Wed, 10 Jun 2026 12:28:33 +0100
+From: Will Deacon <will@kernel.org>
 To: Shanker Donthineni <sdonthineni@nvidia.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	Vikram Sethi <vsethi@nvidia.com>,
-	Jason Sequeira <jsequeira@nvidia.com>,
-	Alok Mooley <amooley@nvidia.com>, Rich Wiley <rwiley@nvidia.com>
-Subject: Re: [PATCH v1] arm64: errata: Mitigate TLBI errata on NVIDIA Olympus
- CPU
-Message-ID: <ailKQJQuDSsHijYc@J2N7QTR9R3.cambridge.arm.com>
-References: <20260609234044.3945938-1-sdonthineni@nvidia.com>
- <aik1owW9Rz8B7rEz@J2N7QTR9R3>
+	linux-arm-kernel@lists.infradead.org,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
+	Jason Sequeira <jsequeira@nvidia.com>, jgg@nvidia.com
+Subject: Re: [PATCH v2] arm64: errata: Workaround NVIDIA Olympus device
+ store/load ordering erratum
+Message-ID: <ailKYTOX23EMnJsK@willie-the-truck>
+References: <20260605144551.2004391-1-sdonthineni@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aik1owW9Rz8B7rEz@J2N7QTR9R3>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_042812_594061_942AA64D 
-X-CRM114-Status: GOOD (  10.71  )
+In-Reply-To: <20260605144551.2004391-1-sdonthineni@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,23 +73,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 11:00:03AM +0100, Mark Rutland wrote:
-> On Tue, Jun 09, 2026 at 06:40:44PM -0500, Shanker Donthineni wrote:
-> I have one minor comment below, but that's more for Catalin/Will, and
-> doesn't require a respin.
+[+Jason G]
 
-[...]
-
-> As this is getting increasingly long, maybe it's worth reducing this to
-> "Various" in the title, i.e.
+On Fri, Jun 05, 2026 at 09:45:51AM -0500, Shanker Donthineni wrote:
+> On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
+> observed by a peripheral before an older, non-overlapping Device-nGnR*
+> store to the same peripheral. This breaks the program-order guarantee
+> that software expects for Device-nGnR* accesses and can leave a
+> peripheral in an incorrect state, as a load is observed before an
+> earlier store takes effect.
 > 
-> 	bool "Cortex-*/Neoverse: Completion of affected memory accesses might not be guaranteed by completion of a TLBI"
+> The erratum can occur only when all of the following apply:
+> 
+>   - A PE executes a Device-nGnR* store followed by a younger
+>     Device-nGnR* load.
+>   - The store is not a store-release.
+>   - The accesses target the same peripheral and do not overlap in bytes.
+>   - There is at most one intervening Device-nGnR* store in program
+>     order, and there are no intervening Device-nGnR* loads.
+>   - There is no DSB, and no DMB that orders loads, between the store and
+>     the load.
+>   - Specific micro-architectural and timing conditions occur.
+> 
+> Two ways to restore ordering: insert a barrier (any DSB, or a DMB that
+> orders loads) between the store and the load, or make the store a
+> store-release. A load-acquire on the load side would not help, because
+> acquire semantics do not prevent a load from being observed ahead of an
+> older store; only the store side (release or a barrier) closes the
+> window.
 
-Sorry, I messed that up when copy-editing. That should have been:
+I think you can drop the paragraph above. A store-release isn't enough
+to order against a later load in the architecture either, so we're
+clearly in micro-architecture territory and I don't think you need to
+describe mechanisms that don't work here.
 
-	bool "Various: Completion of affected memory accesses might not be guaranteed by completion of a TLBI"
+> Promote the raw MMIO store helpers (__raw_writeb/w/l/q) from plain str*
+> to stlr* (Store-Release), which removes the "store is not a
+> store-release" condition for every device write the kernel issues.
+> Because writel() and writel_relaxed() are both built on __raw_writel()
+> in asm-generic/io.h, patching the raw variants covers both the
+> non-relaxed and relaxed APIs without touching the higher layers. Note
+> that writel()'s own barrier sits before the store, so it does not order
+> the store against a subsequent readl(); the store-release promotion is
+> what provides that ordering.
 
-As above, that doesn't need a respin.
+Sashiko points out that you're missing __const_memcpy_toio_aligned32().
 
-Mark.
+> Like ARM64_ERRATUM_832075 on the load side, the change is gated on a new
+> ARM64_WORKAROUND_DEVICE_STORE_RELEASE capability and only activated on
+> parts that match MIDR_NVIDIA_OLYMPUS, so unaffected CPUs continue to use
+> the plain str* sequence.
+> 
+> Note: stlr* only supports base-register addressing, so the raw accessors
+> can no longer use the offset addressing introduced by commit d044d6ba6f02
+> ("arm64: io: permit offset addressing"). The str* and stlr* alternates
+> share a single inline-asm operand and the sequence is selected at boot,
+> so the operand form is fixed at compile time; unaffected CPUs keep using
+> str* but also revert to base-register addressing. This keeps the store
+> side as simple as the existing load-side patching (load-acquire) and
+> avoids adding complexity to the device write path; retaining offset
+> addressing only for str* would otherwise require a runtime branch on
+> every write.
+
+I seem to remember Jason caring about that, possibly because some CPUs
+are very picky about write-combining?
+
+Will
 
