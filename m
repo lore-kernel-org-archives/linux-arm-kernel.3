@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40FFCD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 15:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01092CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 16:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r0fbYdJqHtTSIHhmoDAMwdZHFKDBPRiwW6epuGXJ1X8=; b=X2RGRfJOzwcfETUJ+6fKwuGWRy
-	zVWeIWzDYB7xCoihk67VJAedrp776c3n9n3vBuHcJfuZVrcFj+hlAG3uqwoMUUh45cyCv17lpD3rG
-	Hw3UthHRAUKTPoGLJevof1gFT7E9CAqfXroW8cMBZmGfpP1XHRKwPm3nC4suQhALtGnew4ebKSrgf
-	VKLdMmVSvIhksJ+YAT0a5mBcG+T3bmDITZa4fe2QuX/JSTsct1MdHph0ExnooTaU0NltGlI5EV7Ne
-	4egaGrT6ERdx+WI2qhG54lG0GFbau8YATvxtiBg1QEmkmQ4qLzsWm8AUXxJMc4/cidP87eiOcd2A3
-	sgTqchMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EYEEupVe94DV+IqIi8IHEJttbhlW/BsT5p7oUDeyBhY=; b=N0g+1CHAostZAx1/9N3LqejnrH
+	gGg/lY0sTArrxT1DvZ5VSTWYgZXP2+qjup3aCxfNMH/KHQBIOiteJIciUYMQFCjDXjJggTZeOxC1U
+	wtYMDBGoy8DjyLqFnF944HDVyAXR8lF9/9g9OzSeW8jA5SZIIghjj5B78cWhMhbCZqFKWar3ZZjzl
+	RWeEKGyZ+zN8WRSHHFA9UWbEG/FA+A3xwDPnsFc4tRA/5gQjgDLNIjzYkZSdCKp2QQIWMYm4dmLFj
+	9wUI9xjoUNi+F8IIHzadR2cGAxlANe9ZEMumu3qsG4U6nVTh+MFe7nOQJ+TUw9TOzAUC+T38tZi5E
+	enMeEyvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXLDz-0000000846h-2V6y;
-	Wed, 10 Jun 2026 15:52:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wXLLy-000000084kf-2mCV;
+	Wed, 10 Jun 2026 16:00:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXLDw-0000000845q-2a0e
+	id 1wXLLx-000000084kX-2nJW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 15:52:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1781106730;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=r0fbYdJqHtTSIHhmoDAMwdZHFKDBPRiwW6epuGXJ1X8=;
-	b=I713pS+UxPUbmURqPD4+6Y9prYQOnCS+KHufPbbmJH/T93VT0xV/xQTKNd7dbUp8SkJ59P
-	+aOuwPyl3FNMaHCzKrzcEXdUR1qc/PNbzWb+fnNKxZFjP/I5xm3OlvhTcfUX2CLYTq4grW
-	CrgBFZ+B+2eYfb/4Lhgq1gw/+GUaPmk=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-446-BFbLEm6yPuGCb_pak8GkWQ-1; Wed,
- 10 Jun 2026 11:52:08 -0400
-X-MC-Unique: BFbLEm6yPuGCb_pak8GkWQ-1
-X-Mimecast-MFC-AGG-ID: BFbLEm6yPuGCb_pak8GkWQ_1781106727
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 29E351977028;
-	Wed, 10 Jun 2026 15:52:07 +0000 (UTC)
-Received: from [172.20.112.57] (unknown [10.30.45.106])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0CB27180028B;
-	Wed, 10 Jun 2026 15:52:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.1.0-rc7,
- upstream-arm-next, 596d152b)
-Date: Wed, 10 Jun 2026 15:52:05 -0000
-To: catalin.marinas@arm.com, will@kernel.org, yoyang@redhat.com,
- linux-arm-kernel@lists.infradead.org
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <87908.126061011520800455@us-mta-446.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: NYemCJj1lJpZ-iSKqCtvSXG5oH6HRyhR7JgL32QU10A_1781106727
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_085212_727887_5C389481 
-X-CRM114-Status: UNSURE (   6.96  )
-X-CRM114-Notice: Please train this message.
+	Wed, 10 Jun 2026 16:00:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B5695601E6;
+	Wed, 10 Jun 2026 16:00:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 486011F00893;
+	Wed, 10 Jun 2026 16:00:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781107228;
+	bh=EYEEupVe94DV+IqIi8IHEJttbhlW/BsT5p7oUDeyBhY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YKUK7BoJneJM6kmvy5qtLqR7tj/86PtzNViIDoweet8dhWYD0ALSsf7t2f5NCO5k9
+	 NRnBPZHneYFOd/NVO1868BkG9RNnlrZNh1FoB74lDzNz5PdOimh1RgrbChiXWSYfp3
+	 iRSe/Io78Emt03Y5flZv+LLjEItJfGx3tbfiIM2Pw2DswAyfsktduyq1Ovx4taSPcT
+	 geDUkE6qvxRHWI2g/ERzClnQL6u9A0yQifRW/0v+bCiKxV3EekdoiLDpWzddSppem7
+	 /aHd0aZvVE7Matv9ZMOpUjBDjNkYM6/ucbQYct+HcmgYWtreYsYX9/HeYvTPpFgj0V
+	 B4CqCZIVtraNA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wXLLt-0000000BQFf-3QJT;
+	Wed, 10 Jun 2026 16:00:25 +0000
+Date: Wed, 10 Jun 2026 17:00:25 +0100
+Message-ID: <865x3qtmg6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Sascha.Bischoff@arm.com,
+	jic23@kernel.org,
+	timothy.hayes@arm.com,
+	andre.przywara@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours before migrating it
+In-Reply-To: <ailsCnyoS82r_QRz@v4bel>
+References: <aiHnI1mu6SGQrgnz@v4bel>
+	<aiJmBfXAxcytfGha@kernel.org>
+	<87ecila0w3.wl-maz@kernel.org>
+	<aiKMNIUMv9GQiIbD@kernel.org>
+	<ailsCnyoS82r_QRz@v4bel>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: imv4bel@gmail.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com, jic23@kernel.org, timothy.hayes@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +95,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Wed, 10 Jun 2026 14:52:10 +0100,
+Hyunwoo Kim <imv4bel@gmail.com> wrote:
+> 
+> On Fri, Jun 05, 2026 at 01:43:32AM -0700, Oliver Upton wrote:
+> > On Fri, Jun 05, 2026 at 08:42:52AM +0100, Marc Zyngier wrote:
+> > > On Fri, 05 Jun 2026 07:00:37 +0100,
+> > > Oliver Upton <oupton@kernel.org> wrote:
+> > > > 
+> > > > On Fri, Jun 05, 2026 at 05:59:15AM +0900, Hyunwoo Kim wrote:
+> > > > > vgic_prune_ap_list() drops both ap_list_lock and irq_lock while migrating
+> > > > > an interrupt to another vCPU. After reacquiring the locks it only checks
+> > > > > that the affinity is unchanged (target_vcpu == vgic_target_oracle(irq))
+> > > > > before moving the interrupt, which assumes that an interrupt whose affinity
+> > > > > is preserved is still queued on this vCPU's ap_list.
+> > > > > 
+> > > > > That assumption no longer holds if the interrupt is taken off the ap_list
+> > > > > while the locks are dropped. vgic_flush_pending_lpis() removes the
+> > > > > interrupt from the list and sets irq->vcpu to NULL, but leaves
+> > > > > enabled/pending/target_vcpu untouched. As the interrupt is still enabled
+> > > > > and pending, vgic_target_oracle() returns the same target_vcpu, so the
+> > > > > affinity check passes and list_del() is run a second time on an entry that
+> > > > > has already been removed.
+> > > > > 
+> > > > > Also check that the interrupt is still assigned to this vCPU
+> > > > > (irq->vcpu == vcpu) before moving it.
+> > > > > 
+> > > > > Fixes: 0919e84c0fc1 ("KVM: arm/arm64: vgic-new: Add IRQ sync/flush framework")
+> > > > > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> > > > 
+> > > > Looking at this and the other VGIC patch you sent (which should've been
+> > > > a combined series), are you trying to deal with a vCPU writing to
+> > > > another vCPU's redistributor? I.e. vCPU B setting GICR_CTLR.EnableLPIs=0
+> > > > behind the back of vCPU A?
+> > > > 
+> > > > That is extremely relevant information as the off-the-cuff reaction is
+> > > > that no race exists. But since the GIC architecture is awesome and
+> > > > allows for this sort of insanity, it obviously does....
+> > > > 
+> > > > Anyway, for LPIs resident on a particular RD, there's zero expectation
+> > > > that the pending state is preserved when EnableLPIs=0. So I'd rather
+> > > > vgic_flush_pending_lpis() just invalidate the pending state.
+> > > 
+> > > Just clearing the pending state introduces a potential problem as we
+> > > now have an interrupt that is neither active nor pending on the AP
+> > > list. It is not impossible to solve (we now have similar behaviours
+> > > with SPI deactivation from another vcpu), but that requires posting a
+> > > KVM_REQ_VGIC_PROCESS_UPDATE to the target vcpu.
+> > 
+> > Right, I was suggesting that in addition to deleting the LPI from the AP
+> > list we actually invalidate the pending state so that someone sitting on
+> > a pointer to a to-be-freed LPI sees vgic_target_oracle() returning
+> > NULL
+> > 
+> > > > Beyond that, I see two other fixes for lifetime issues around the
+> > > > vgic_irq in the middle of migration. I'd like to see explicit RCU
+> > > > protection around the release && reacquire of the ap_list_lock rather
+> > > > than depending on the precondition that IRQs are disabled.
+> > > 
+> > > I'm not sure I follow. Are you suggesting turning the AP list into an
+> > > RCU protected list?
+> > 
+> > No, sorry, I should expand a little.
+> > 
+> > We store a reference on the vgic_irq struct in the AP list, which is
+> > stable so long as the ap_list_lock is held. It should be possible for
+> > the refcount to drop to 0 between releasing the ap_list_lock and
+> > reacquiring it.
+> > 
+> > So either vgic_prune_ap_list() takes an additional reference on the
+> > vgic_irq before dropping the ap_list_lock or rely on RCU to protect
+> > vgic_irq structs observed with a non-zero refcount.
+> 
+> What are your thoughts on this approach?
+> 
+> 
+> Best regards,
+> Hyunwoo Kim
+> 
+> ---
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 933983bb2005..7fb871c3ccd8 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -523,7 +523,7 @@ static void __kvm_vgic_vcpu_destroy(struct kvm_vcpu *vcpu)
+>  	 * Retire all pending LPIs on this vcpu anyway as we're
+>  	 * going to destroy it.
+>  	 */
+> -	vgic_flush_pending_lpis(vcpu);
+> +	vgic_flush_pending_lpis(vcpu, true);
+> 
+>  	INIT_LIST_HEAD(&vgic_cpu->ap_list_head);
+>  	kfree(vgic_cpu->private_irqs);
+> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> index 5913a20d8301..f85d63f17af0 100644
+> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> @@ -303,7 +303,7 @@ static void vgic_mmio_write_v3r_ctlr(struct kvm_vcpu *vcpu,
+>  		if (ctlr != GICR_CTLR_ENABLE_LPIS)
+>  			return;
+> 
+> -		vgic_flush_pending_lpis(vcpu);
+> +		vgic_flush_pending_lpis(vcpu, false);
+>  		vgic_its_invalidate_all_caches(vcpu->kvm);
+>  		atomic_set_release(&vgic_cpu->ctlr, 0);
+>  	} else {
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index 1e9fe8764584..09629a38fc0a 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -192,7 +192,7 @@ static void vgic_release_deleted_lpis(struct kvm *kvm)
+>  	xa_unlock_irqrestore(&dist->lpi_xa, flags);
+>  }
+> 
+> -void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
+> +void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu, bool destroy)
+>  {
+>  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+>  	struct vgic_irq *irq, *tmp;
+> @@ -204,6 +204,13 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
+>  	list_for_each_entry_safe(irq, tmp, &vgic_cpu->ap_list_head, ap_list) {
+>  		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
+>  			raw_spin_lock(&irq->irq_lock);
+> +			/* Leave interrupts pending a migration for prune. */
+> +			if (!destroy && irq->vcpu != vgic_target_oracle(irq)) {
+> +				raw_spin_unlock(&irq->irq_lock);
+> +				continue;
+> +			}
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
+It's rather unclear to me what the semantics of this are.
 
+If vcpu-a decides to nuke the LPIs of vcpu-b and the LPI had in the
+meantime been migrated to vcpu-c, but obviously not observed by vcpu-c
+yet as the LPI is still on vcpu-b's AP-list, then I don't see the
+point in keeping this state.
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+Am I missing something obvious?
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2591239284
+> +			/* Pending state is not preserved across EnableLPIs=0. */
+> +			irq->pending_latch = false;
 
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        xfstests - btrfs
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2591239284_aarch64_kernel_kcidb_tool_21441185_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL generic/301
+That part I agree with.
 
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
+>  			list_del(&irq->ap_list);
+>  			irq->vcpu = NULL;
+>  			raw_spin_unlock(&irq->irq_lock);
+> @@ -797,6 +804,9 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+> 
+>  		/* This interrupt looks like it has to be migrated. */
+> 
+> +		/* Keep the interrupt alive while the locks are dropped. */
+> +		vgic_get_irq_ref(irq);
+> +
+>  		raw_spin_unlock(&irq->irq_lock);
+>  		raw_spin_unlock(&vgic_cpu->ap_list_lock);
+> 
+> @@ -839,6 +849,8 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+>  		raw_spin_unlock(&vcpuB->arch.vgic_cpu.ap_list_lock);
+>  		raw_spin_unlock(&vcpuA->arch.vgic_cpu.ap_list_lock);
+> 
+> +		deleted_lpis |= vgic_put_irq_norelease(vcpu->kvm, irq);
+> +
+>  		if (target_vcpu_needs_kick) {
+>  			kvm_make_request(KVM_REQ_IRQ_PENDING, target_vcpu);
+>  			kvm_vcpu_kick(target_vcpu);
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index 9d941241c8a2..c1ac24ede899 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -341,7 +341,7 @@ void vgic_v3_put(struct kvm_vcpu *vcpu);
+>  bool vgic_has_its(struct kvm *kvm);
+>  int kvm_vgic_register_its_device(void);
+>  void vgic_enable_lpis(struct kvm_vcpu *vcpu);
+> -void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu);
+> +void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu, bool destroy);
+>  int vgic_its_inject_msi(struct kvm *kvm, struct kvm_msi *msi);
+>  int vgic_v3_has_attr_regs(struct kvm_device *dev, struct kvm_device_attr *attr);
+>  int vgic_v3_dist_uaccess(struct kvm_vcpu *vcpu, bool is_write,
+> 
 
+I reckon this would work just as well with just the pending state
+being removed in vgic_flush_pending_lpis(), and the reference holding
+hack in gvgic_prune_ap_list().
 
+Thanks,
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+	M.
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+-- 
+Without deviation from the norm, progress is not possible.
 
