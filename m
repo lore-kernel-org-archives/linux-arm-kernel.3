@@ -4,53 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA9FCD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 09:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91E5CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 09:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ax7KqD/uy4eSTXY3C6QoBf9qnVWl+cbh3e+fFi2XyFk=; b=ChEr4A1akJxT5qEkCvsdDtx73e
-	h8WYlfOXb9BGWkOVrV0nHL+AqqP4D1DjtZ0TmN3XTKT8nzV0RRtRC1FRcb1vyq0v92EX5Jyii9eRj
-	DNWwFv2UUplZ7BpLB1NANKzcrigZaMbIG1W5Y4extvJiJsKtDr/bMjgP4bWpBzgJ7zfubK7d+hTRl
-	+gFRn4qv+oCnSdY7pxaIamB9orWK66+SQBvfw9hLxpcJcfT0EAlFtxHk0HzSAE+LhPxdwE2cA46oc
-	/P1M5Zosb7VmAhg9NrDQN2vMgDwVgSQXjsISh6uVxdZxDcYru4eKNVFC8cmfMETEjn5j0ZhzwJTeX
-	xaXL3KRQ==;
+	bh=ripWKqYYwAe2nYSVROD0ok8PbsD68Br3Dx76SG6xRkI=; b=N/Q8HkTMVwzt9A+QvkV9+IY+ah
+	ePjYKf3I8np5C/J3k92cpEOBfY29EnuDf7uHHRDbWDESXLWTobiog1DdKX0SC3fDZKzPhK1FU6sdH
+	J2SvlIBMR8Eua+YHrquuttaBhDrIBBA8+QGXKapFdK5e4hVkkGrKfifmi3tik1MwvbXFuDSbvyuQF
+	g8/ybMDOoz84OxKpGiGw3pP8ZISt00ZbqMH1tAsDSXvMBwHBYMWnvziKDCfK1Yh+eAcb9VzYA4wJw
+	aKQUYO4yQSV9Cls6SS5Gk/9iD4r2lDZp74JwYLGz3wQXnEjkjsnEUux8X9Fhx74dk+MdhrqzNhV06
+	qYVMZHjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXFSG-00000007IX1-3hKK;
-	Wed, 10 Jun 2026 09:42:36 +0000
-Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXFSE-00000007IWS-3U1s
+	id 1wXFYD-00000007Iu6-33k3;
+	Wed, 10 Jun 2026 09:48:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXFYA-00000007It9-3Jxj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 09:42:36 +0000
-Received: from ipservice-092-209-184-216.092.209.pools.vodafone-ip.de ([92.209.184.216] helo=nb282.user.codasip.com)
-	by akranes.kaiser.cx with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <martin@kaiser.cx>)
-	id 1wXFS7-00000002FrG-018Q;
-	Wed, 10 Jun 2026 11:42:27 +0200
-Date: Wed, 10 Jun 2026 11:42:27 +0200
-From: Martin Kaiser <martin@kaiser.cx>
-To: Weigang He <geoffreyhe2@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: imx: avic: fix device_node refcount leaks in
- mxc_init_irq()
-Message-ID: <aikxg5xtXWccXPO8@nb282.user.codasip.com>
-References: <20260610053115.2263570-1-geoffreyhe2@gmail.com>
+	Wed, 10 Jun 2026 09:48:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 267FD25E3;
+	Wed, 10 Jun 2026 02:48:34 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0CAE3FDE2;
+	Wed, 10 Jun 2026 02:48:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781084918; bh=bKMnroQcC2Hfu9qsLNxwjcjL3EacwAKFmsUpwkjvg5M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z9DJueCuL6IEvivbvxx12Xq5fTQFGyvg7RrtkQU0RxbadH2nRzdpwzfgLTJ0DEfpA
+	 BKoKtibCH8fDIiraFcHyQlxRlkHR2JLY6lU2TNBprtBbkHo7ghhGxEpQdulgA7fm7g
+	 wFkD7Y1gHnjQuSZm2fx6yMExALo5ebqplucJ+X10=
+Date: Wed, 10 Jun 2026 10:48:24 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Gavin Shan <gshan@redhat.com>
+Subject: Re: [PATCH 1/2] KVM: arm64: Replace memslot_is_logging() with
+ kvm_slot_dirty_track_enabled()
+Message-ID: <aiky6H02ArbFpwGZ@raptor>
+References: <20260605153248.2412064-1-weilin.chang@arm.com>
+ <20260605153248.2412064-2-weilin.chang@arm.com>
+ <aibmALTEbc7gzSZj@devkitleo>
+ <aig_xcTZKzux0OaS@devkitleo>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260610053115.2263570-1-geoffreyhe2@gmail.com>
+In-Reply-To: <aig_xcTZKzux0OaS@devkitleo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_024234_886658_6A953204 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20260610_024843_063755_180BC39D 
+X-CRM114-Status: GOOD (  56.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,69 +79,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Leo,
 
-Thus wrote Weigang He (geoffreyhe2@gmail.com):
-
-> mxc_init_irq() obtains two device_node references via
-> of_find_compatible_node() and never releases either one:
-
->   - The "fsl,imx25-ccm" node (looked up to map the CCM low-power
->     interrupt mask registers on i.MX25) is stored in np, used by
->     of_iomap(), and then the same np variable is overwritten by the
->     second of_find_compatible_node() call without an of_node_put().
->     On i.MX25 this leaks the node reference on every boot.
-
->   - The "fsl,avic" node is passed via of_fwnode_handle(np) to
->     irq_domain_create_legacy(), which takes its own reference on the
->     fwnode through fwnode_handle_get(), so the caller's reference is
->     not transferred. np is then leaked at function return.
-
-> Both lookups predate the switch to irq_domain_create_*(); the missing
-> puts have been there since the code was introduced.
-
-> Drop each reference once the value derived from it is no longer needed:
-> after of_iomap() has mapped the CCM registers, and after
-> irq_domain_create_legacy() has taken its own fwnode reference.
-> of_node_put() is NULL-safe, so platforms without these nodes are
-> unaffected.
-
-> Found by static analysis tool CodeQL.
-
-> Fixes: 544496ab5cbd ("ARM: imx: move irq_domain_add_legacy call into avic driver")
-> Fixes: 9b454d16e57d ("ARM: imx: avic: set low-power interrupt mask for imx25")
-> Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
-> ---
->  arch/arm/mach-imx/avic.c | 2 ++
->  1 file changed, 2 insertions(+)
-
-> diff --git a/arch/arm/mach-imx/avic.c b/arch/arm/mach-imx/avic.c
-> index 3067c06b4b8eb..6873a50bbe2c0 100644
-> --- a/arch/arm/mach-imx/avic.c
-> +++ b/arch/arm/mach-imx/avic.c
-> @@ -173,6 +173,7 @@ static void __init mxc_init_irq(void __iomem *irqbase)
-
->  	np = of_find_compatible_node(NULL, NULL, "fsl,imx25-ccm");
->  	mx25_ccm_base = of_iomap(np, 0);
-> +	of_node_put(np);
-
->  	if (mx25_ccm_base) {
->  		/*
-> @@ -203,6 +204,7 @@ static void __init mxc_init_irq(void __iomem *irqbase)
->  	np = of_find_compatible_node(NULL, NULL, "fsl,avic");
->  	domain = irq_domain_create_legacy(of_fwnode_handle(np), AVIC_NUM_IRQS, irq_base, 0,
->  					  &irq_domain_simple_ops, NULL);
-> +	of_node_put(np);
->  	WARN_ON(!domain);
-
->  	for (i = 0; i < AVIC_NUM_IRQS / 32; i++, irq_base += 32)
-
-> base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
-> -- 
-> 2.43.0
-
-Reviewed-by: Martin Kaiser <martin@kaiser.cx>
+Just FYI, write faults on read-only memslots are handled as MMIO accesses in
+kvm_handle_guest_abort() (gfn_to_hva_memslot_prot() sets @writable to false).
 
 Thanks,
-Martin
+Alex
+
+On Tue, Jun 09, 2026 at 05:31:01PM +0100, Leonardo Bras wrote:
+> On Mon, Jun 08, 2026 at 04:55:45PM +0100, Leonardo Bras wrote:
+> > Hi Wei Lin,
+> > 
+> > On Fri, Jun 05, 2026 at 04:32:47PM +0100, Wei-Lin Chang wrote:
+> > > When checking whether a memslot has dirty logging enabled, the
+> > > KVM_MEM_LOG_DIRTY_PAGES flag is the source of truth. Previously we were
+> > > using memslot_is_logging() which only tests dirty bitmap and did not
+> > > consider dirty ring. This was not detected because
+> > > KVM_CAP_DIRTY_LOG_RING_WITH_BITMAP was introduced together with KVM
+> > > arm64 dirty ring, and users need to enable it to ensure dirty
+> > > information is not lost for the case of VGIC LPI/ITS table changes.
+> > > 
+> > > Fix this by using kvm_slot_dirty_track_enabled() instead which checks
+> > > KVM_MEM_LOG_DIRTY_PAGES.
+> > > 
+> > > Note that memslot_is_logging() also treats a memslot as not logging if
+> > > KVM_MEM_READONLY is set, hence a memslot with both dirty logging and
+> > > read only would be seen as not logging for memslot_is_logging(), but
+> > > logging for kvm_slot_dirty_track_enabled(). This allows a read only
+> > > mapping of size > PAGE_SIZE to be built when memslot_is_logging() is
+> > > used, leading to a better read performance compared to
+> > > kvm_slot_dirty_track_enabled(). However memslots that have both
+> > > KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY set do not really make
+> > > sense as dirty logging is essentially nop for a read only memslot, so
+> > > this shouldn't affect real workloads much.
+> > 
+> > 
+> > It worries me a bit that we are ignoring the KVM_MEM_READONLY flag... 
+> > I have not yet gone through the whole s2_mmu code but IIUC we can have 
+> > scenarios on which a memslot can be read-only and have dirty-logging 
+> > enabled. 
+> 
+> 
+> > If a memslot is not faulted yet, IIUC it is marked as read-only 
+> > (so it can be mapped on write fault), and we can have dirty-logging 
+> > enabled for it as well (as the VMM has no idea). 
+> > 
+> 
+> Ignore above bit, I confused memslot with block/page entry.
+> 
+> Looking a bit more, my viewpoint is that:
+> - Due to dirty_ring, checking memslot.dirty_bitmap should be done only to 
+>   detect the existence of a dirty_bitmap, not the migration process.
+> - This changes how detection works, in regardas to read-only blocks:
+>   memslot_is_logging() -> Checks dirty-bitmap + read-only memslot
+>   kvm_slot_dirty_track_enabled()  -> Checks only memslot flag
+> - As a simpler change, we could have:
+> 
+> ~~~
+> -   return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
+> +   return kvm_slot_dirty_track_enabled(memslot) && !(memslot->flags & KVM_MEM_READONLY);
+> ~~~
+> 
+> Both are cheking memslot->flags, so it will be probably optimized by the 
+> compiler as:
+> 
+> ~~~
+> return memslot->flags & 3 == 1
+> ~~~
+> 
+> My main worry was that in the curent patch we are changing the behavior 
+> on skipping read-only memslots. So going through the users, we can see:
+> 
+> > > 
+> > > Fixes: 9cb1096f8590 ("KVM: arm64: Enable ring-based dirty memory tracking")
+> > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > > ---
+> > > It took me a long investigation to acquire the context needed to
+> > > understand this change, however the reason for this problem not being
+> > > detected is an educated guess. Please let me know if this is wrong or
+> > > if there are other issues, thanks!
+> > > 
+> > >  arch/arm64/kvm/mmu.c | 11 +++--------
+> > >  1 file changed, 3 insertions(+), 8 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > > index 4da9281312eb..06c46124d3e7 100644
+> > > --- a/arch/arm64/kvm/mmu.c
+> > > +++ b/arch/arm64/kvm/mmu.c
+> > > @@ -161,11 +161,6 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
+> > >  	return ret;
+> > >  }
+> > >  
+> > > -static bool memslot_is_logging(struct kvm_memory_slot *memslot)
+> > > -{
+> > > -	return memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
+> > > -}
+> > > -
+> > >  /**
+> > >   * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
+> > >   * @kvm:	pointer to kvm structure.
+> > > @@ -1748,7 +1743,7 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+> > >  {
+> > >  	short vma_shift;
+> > >  
+> > > -	if (memslot_is_logging(s2fd->memslot)) {
+> > > +	if (kvm_slot_dirty_track_enabled(s2fd->memslot)) {
+> > >  		s2vi->max_map_size = PAGE_SIZE;
+> > >  		vma_shift = PAGE_SHIFT;
+> > >  	} else {
+> 
+> On the case dirty_track is enabled in a read-only slot, it will resolve to 
+> a smaller vma_size. The fault granule will be smaller here. This could be 
+> bad for performance, so maybe we could add a check for read-only block 
+> here:
+> 
+> ~~~
+> -   if (memslot_is_logging(s2fd->memslot)) {
+> +   if (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
+> +       !memslot_is_readonly(s2fd->memslot) {
+> ~~~
+> 
+> 
+> > > @@ -1953,7 +1948,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+> > >  	*prot = KVM_PGTABLE_PROT_R;
+> > >  
+> > >  	if (s2vi->map_writable && (s2vi->device ||
+> > > -				   !memslot_is_logging(s2fd->memslot) ||
+> > > +				   !kvm_slot_dirty_track_enabled(s2fd->memslot) ||
+> > >  				   kvm_is_write_fault(s2fd->vcpu)))
+> > >  		*prot |= KVM_PGTABLE_PROT_W;
+> > >
+> 
+> 
+> On the same scenario (dirty_track enabled on readonly memslot):
+> This one should be safe, as kvm_is_write_fault() will check if the memslot 
+> is readonly and return false in this case. But then, it will have to 
+> actually call kvm_is_write_fault(), as the previous version would not even 
+> call it in that scenario.
+> 
+> Not sure how would that impact perforformance, though.
+> 
+> > > @@ -2084,7 +2079,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+> > >  	 * and a write fault needs to collapse a block entry into a table.
+> > >  	 */
+> > >  	memcache = get_mmu_memcache(s2fd->vcpu);
+> > > -	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
+> > > +	if (!perm_fault || (kvm_slot_dirty_track_enabled(s2fd->memslot) &&
+> > >  			    kvm_is_write_fault(s2fd->vcpu))) {
+> > >  		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+> > >  		if (ret)
+> 
+> Same thing, if memslot is tracking and is readonly, topup_*() would be 
+> called with the new patch, but not with the old behavior. 
+> 
+> All of that depends on how the VMM uses dirty_tracking: does it enable for 
+> all memory, or only for memory that is writable?
+> 
+> I could not find anything that would prevent user from enabling 
+> dirty_tracking on read-only memslots, so we can either ignore this 
+> scenario, apply those patches and let those users carry the extra overhead, 
+> or do an extra test to make sure it's doing the same thing as before.
+> 
+> Thanks!
+> Leo
+> 
 
