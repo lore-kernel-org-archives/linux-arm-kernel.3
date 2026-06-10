@@ -4,159 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64430CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831D3CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVPq+6JkcreslYPvbFLt1vFStJtpeN3cu1CStIhk9yM=; b=w6Ry1LG+9upWXSqKBroWwBQZlj
-	wCDg4leYbVI06SN347pc+UftE4kkzADsX+C0EREPkhxWi+bL8MCFOPgzCVy70ITDou9tk4yIwRjlO
-	m8PwtwIYqbJALLtGZXYBpobp0+/YAFPp3TnSwLuQM0abGltqo9QfKCkJcUlB0eupfSxMa8KVDTNiy
-	TrYljLVAyzCPnLId5uqfjb6M9LBvDPkDvmou1R4z6tm+FoBv6TD6SAiBH2kP47EBp7P1ApftmmSDi
-	6bK0egJ67pU6qCj7KFyj+JG8TsuR9gccfC35zTAvq8czegiTkpnlY5/fnMZYnxOc4/U+AJX54yrAw
-	9c3r/h9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=69R1izJHdq6eU+4kabS2mn4P5ih6+n31cQPINhDIjLU=; b=DHb6+o8cMC0LvWa4H0JIQvQaIe
+	tVnbAeBmvwVYePi2eAIbc9PVOeq5gFyDuUHYo1qlPLMWGqBSt5yNgSqScLwKZJwisqo5TsDXY7q8I
+	n/S39lfSaH+zKiI/uAl1Lb+twFbo3+10lPxKxL/WY6To2LtWhF9WRAw61hjdhdsZm3/2HxUQalHiM
+	zLa9pJEcBLP95l/HnUhK7QqDt1dOXL/NeFGhA1QhGkqD8/xv48Io3gdRdiXWMaQJ8uquzCa1Fnicn
+	aQ6blTt9wTUG2jsWK51f5qLb4lRl3lrEqLwvbX49wTrJPoWZoVxGRLeTScuO9lU2t8qDonXTFMUvF
+	PeEyBUnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEgJ-000000078ir-2vEQ;
-	Wed, 10 Jun 2026 08:53:03 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wXEgm-0000000790w-3iiH;
+	Wed, 10 Jun 2026 08:53:32 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEgG-000000078f5-1iHv
+	id 1wXEgl-000000078za-1F40
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 08:53:01 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65A7i2tc3151943
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 08:53:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QVPq+6JkcreslYPvbFLt1vFStJtpeN3cu1CStIhk9yM=; b=I5zLGlEhNhmMArLo
-	xScB9BRdbFxzmPwZiu6nYT4n9EKy8qkBiIl7X2tqvmDQdasx1daFB1a2WsbqIBaz
-	E9W6LoJgrWghQoN0uqjzfAKCqSMKGzsh96zMLtNOnOKrmBmjbVv6ry1KjpTVqb+7
-	gN8PuVsmcKXrb8LuULVDj0+qB00zK/YJBQMgpmbAlTSytWkf4el4/K1bA2Fmo9Kk
-	EXlgZry4ktwTcf4HGpVQcyjBVcG9y7XwO1+ziuYVxA8jen0TECqSjG6AWpM+40RJ
-	1ZOZmLNLyHPUqgWQNM5xaMQ/mhRmWi/1F/biFcmJMsFDeNlmqwuWQMvqeSlCgRja
-	4ExBbQ==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epwneskv7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 08:52:59 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2c0c32f4b1bso67320645ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 01:52:59 -0700 (PDT)
+	Wed, 10 Jun 2026 08:53:32 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-befee9e5ef7so778059866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 01:53:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781081579; x=1781686379; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QVPq+6JkcreslYPvbFLt1vFStJtpeN3cu1CStIhk9yM=;
-        b=BIcHDUZwPOZk5j8mRRJDznXPm1/nkRD5/ourqSrUwQOrXFgKaOnQci8jGRpo76pQFD
-         l6gs2SZGgKUZf8PEsJk6eRdPy9xVpHWFhOaf7uUsJc/kaDe2swb3mV92M/2qgygWVGRh
-         bZ1bipKLsum6ytHhBNgiE2blFeP16x57/IBigy6Sgv2u8lU8NSMRpGC4bhMFf9KKJRqL
-         CTvIUeIy0rbKRgyOZYsProCXXO5HpcS7LIMhr+X7huvbVPTkJJJIWz/1u44fId4JPqpT
-         acVrVRVxmITcO6MWCi2gT1IkQzM6AxAlmKIf/e69uaKTD1rikDQCf9sYca7vXipUt/pM
-         d/qw==
+        d=google.com; s=20251104; t=1781081609; x=1781686409; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=69R1izJHdq6eU+4kabS2mn4P5ih6+n31cQPINhDIjLU=;
+        b=jfrCvwMPg7OXU45ISI8DKgzLX4NSoux54eedlkAgnGVbMKPjTFdMfjJOMh0xFHrmDj
+         +ijYQJpVxyGfZEqRUtmnvWpKCNNwMQwY70RnDEK/K3esz1HEEulMCRkTveLm/DcxKaL0
+         RxXAMtQAYrAw7sP0dbFzvSf7AH0jA0uj5+kd79CSiVz2KrmSkgB8PoOWHS/4Pt5bFUBg
+         f3Au8w/6+k5H2hEXEGC1gJyFR5ruJSwcPBwFNyHR9hmRCISGiIcs531Nh5UBI06OhvGi
+         iNjl57Bpmg+TDu2KzRAJQpiDqqA1yF7gP20+b0RxWD19cm5vmJStLe1RKR7FC7qU8xnQ
+         5hfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781081579; x=1781686379;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=QVPq+6JkcreslYPvbFLt1vFStJtpeN3cu1CStIhk9yM=;
-        b=Ige63X1NzJQj6SFTOJYWFTe0fYq2k/a2mLfFMPu6k9/jhWgsl9us1Skgt/7yUtyJpc
-         1uVwKGrxPhVCvuIk68gRTijvi6QIuvjLNSm0U6onhzktwcsueKBpmbQG8CesLMmVVOTG
-         bI/S4neXng0TzH2P5eSBw/3JRXwA1KfPxyoaZfKeBwEU1eHcEFrn0gDLMGJJGaFyo07Y
-         Fq+D5N1+On4VYaDKagvt5dk+8hBKmGHGIBAw3sBU671PvQeVnx84QHHUKQHs3oS56uGP
-         YngYnvPgMzHHxFgveQm+ohMDc4twovGKzwNpWEhVi0Y6NgfVlImFHtJTC57vfYqG2dkE
-         ObpA==
-X-Forwarded-Encrypted: i=1; AFNElJ/gPC8Dr6snC/ssOdo2HUxYK20J5oNJCggcoRqitkjRkg8xNFvDrgBoQs0E2iHTc/sKxiiMMfY0IZpFG/Zxatgu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxse266eMLI5zF5wg20yYCdPwn0ecGOnjU6kS5v096RM3dSJ0ym
-	s0t4QCabDdfVH/IqCvd7JZBoBgBa7INecpJm96wwIkN2cF7wOHwfbMbTCak0RlbcOmmT75VwQbT
-	eoMFxQ+4B51mUWKRLT4LlTmSb4+HhasAMkWGdR2KlKerJT1eFgP1RI0e3JENJB8rosdS6usL+in
-	P4Zg==
-X-Gm-Gg: Acq92OFRslXJ/Ev2BqSPFvL5PUblJudoBaBDTcnaf4l77eCLWqfNdT8RMe1c00U7Uyw
-	9WD7hd4yXWLZDxY76yoxkTcF4kwiMVwR+AY+hP6DTYNOirStMBIZmVFi/7ITAFC/VMLmzgfaH7X
-	/Qg75ftnNzg4XkyTqdHevouemgR+vxa8GB6jaXpVQNrVQEW4GcH3xP+PcPAc7AyWWQQOVzaNjKI
-	Fq4d9vx4jWGviib8BJyIyA0wJuVuUrS3WDjD+iOK4l4Fgxnu1UrWMjmwV/9/ZSqkTzYw/L/C7va
-	0H1PbhJpyHlOlPnTbdtCPyYc3TY3Vn1DLIn6PMaxAUYk6W5aTVoeDmDXDpbsqIus9KTLPk+jovq
-	KhnZl5xTosYiHSyIeHrP/UJWggzcSgg6rEfZcKkR11OyCO5z9NxFlyUDVP2KELwJaByQGMJ8e6r
-	EJTQMOtqh6IV6nF0SEOZk+/dD3vLjXfskUz3F8HUS9lPBD6KQKsW7T0JsAOnY=
-X-Received: by 2002:a17:903:41d2:b0:2c2:1982:5270 with SMTP id d9443c01a7336-2c219825471mr224351735ad.21.1781081579147;
-        Wed, 10 Jun 2026 01:52:59 -0700 (PDT)
-X-Received: by 2002:a17:903:41d2:b0:2c2:1982:5270 with SMTP id d9443c01a7336-2c219825471mr224351445ad.21.1781081578690;
-        Wed, 10 Jun 2026 01:52:58 -0700 (PDT)
-Received: from hu-ppapaniy-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c24edc8acasm114618175ad.45.2026.06.10.01.52.51
+        d=1e100.net; s=20251104; t=1781081609; x=1781686409;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=69R1izJHdq6eU+4kabS2mn4P5ih6+n31cQPINhDIjLU=;
+        b=hlWU4m/Fg9TpnQLY+UAZnVjCsvirHVkf+rFaEQ5JnmJmefg8j2UgTwGrAdri5lhjE9
+         0V52yPxtMIBoj2kmGV1JoGU4IoFsWK73IDmROYaNOgx7GXNAdGQiSWp3r9lYvgirAIAP
+         Kqh+KKo33IKTmLkEg80BMoryLBwM8JwCQK1j9UHBcbkBPzRA0oqzhgsoeRdIpAFaIPxB
+         ENxlKO3AC0JpQKKR+ZibnV4Yd7kC/YFPrOTwZEZ++QqepHHagqdTemSebxyChzKPbNwz
+         ndL5wCUHz2kyJNckiGzbWUxorYsP5NOiUyWkBa41U9LAKgQKpCxmuzy9JbaCOwWeMWtw
+         Lvzw==
+X-Forwarded-Encrypted: i=1; AFNElJ8QOnY2eK6Kknu1+29iZx350UUe/5poUTUSa+QmxOxexdS/of4xg9/WLYNbx4KiNx2F4FJdcrTc9AYRJ3IM6teY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzovC3wC19Nh/XBZP9nHP6EPxU0JmeSTnNk9GcTI9XXUaM++VbK
+	FXNOKTcJ7txoiz6mRSLTuP2dJqupCF+BuJ10udSQTVuhWhW2akyycJVJ0v70gcHHFQ==
+X-Gm-Gg: Acq92OE80i4IZpp4V6rSDObP5D5cfWz5ETGL7gyAr0p5rD2U218tF1PhjHJEK9gpUfb
+	9Pa3QHFbDp48wFP1E6Um1DszMG5/okKBwWOjWlvP9rF+MTL1WPxKsUsyqPZR2G+oLPsb5EE66Bl
+	oyJT1BPUv7Sjqsjgdt35h7D+A0CgYD0sQIUVDAT8MFKmM7HEk5Z1+Q7WbtDySqLobVgxGv1W37r
+	lFYh1WvZvod6wxKTF+7ABowgZ48/QLUK92dtsWt+4Uc+D55gEiQe3a5ziYkGrzNFxWRXTcBWBBE
+	+MVwHIFmv24lfNoQdLK7Nf+ACoMS1XUohVBMFmMneopmimY2QlqxhI85fdwHVqmFLwuZZCD7WMT
+	BJv5tRT0WP1rMlHEoa5JkVmpmVGlgp/4MKssQ/Xp3swMtTcPHs3jBD574OgFvoHHEWOX116r5fZ
+	BdsoZD6WpJ/Asq0wtJgP8hDOAsxEfSg3J3UwI8Lk2tuB/gKP9cyODWGetFkoo/6oFOsF7Ut6G5+
+	5YUkmXzDlsM/CnK
+X-Received: by 2002:a17:906:4fcd:b0:bec:436f:1857 with SMTP id a640c23a62f3a-bf3702817e4mr1205610366b.7.1781081608995;
+        Wed, 10 Jun 2026 01:53:28 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bf0553040a7sm1153912066b.50.2026.06.10.01.53.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 01:52:58 -0700 (PDT)
-From: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
-Date: Wed, 10 Jun 2026 14:21:36 +0530
-Subject: [PATCH RFC v7 9/9] arm64: dts: qcom: hamoa: Enable
- LLCC/DDR/DDR_QOS DVFS
+        Wed, 10 Jun 2026 01:53:28 -0700 (PDT)
+Date: Wed, 10 Jun 2026 09:53:24 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
+	will@kernel.org, joey.gouly@arm.com, korneld@google.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	mrigendra.chaubey@gmail.com, perlarsen@google.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v2 2/7] KVM: arm64: Support
+ FFA_NOTIFICATION_BITMAP_DESTROY in host handler
+Message-ID: <aikmBBHEUfolXrHC@google.com>
+References: <20260608165549.1479409-1-sebastianene@google.com>
+ <20260608165549.1479409-3-sebastianene@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260610-rfc_v7_scmi_memlat-v7-9-f3f68c608f25@oss.qualcomm.com>
-References: <20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com>
-In-Reply-To: <20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
-        MyungJoo Ham <myungjoo.ham@samsung.com>,
-        Kyungmin Park <kyungmin.park@samsung.com>,
-        Chanwoo Choi <cw00.choi@samsung.com>,
-        Dmitry Osipenko <digetx@gmail.com>,
-        Thierry Reding <thierry.reding@kernel.org>,
-        Jonathan Hunter <jonathanh@nvidia.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>,
-        Rajendra Nayak <rajendra.nayak@oss.qualcomm.com>,
-        Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-tegra@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781081505; l=1003;
- i=pragnesh.papaniya@oss.qualcomm.com; s=20260120; h=from:subject:message-id;
- bh=pXpBJ2FMnY6lmbenFJPBDk6Hui+mpMlqsnwiYYUFJmo=;
- b=uT4AQ8s4GwpWbVI++rigQjrmSyRqAQMCzp8wBbLKhIUF3mfkUffjvFW1pE/JgbPI1qyccp7MQ
- 4sSndpiP+qnBIfJzgN8ufxlztds4HuRMkws/Lip7QRcUDuuys14yYEs
-X-Developer-Key: i=pragnesh.papaniya@oss.qualcomm.com; a=ed25519;
- pk=09P9nFmZLXJ9+4Jx10ZK5rIW0Fmk79A/DLErm6aVA0c=
-X-Proofpoint-GUID: Wx4wFsU52t8XpTMGYImtq3ZJyDwqKnl3
-X-Authority-Analysis: v=2.4 cv=ebYNubEH c=1 sm=1 tr=0 ts=6a2925eb cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=8E_iI_7X9U7aA52Mj5gA:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: Wx4wFsU52t8XpTMGYImtq3ZJyDwqKnl3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEwMDA4MyBTYWx0ZWRfX/7Gg9/b8RvxZ
- ZV4SSBBqe1k+NEWdwnIClbZdvZz5lNPirxQP525At0BI3z2ZVwAYMpXRWOVQdFmU8WJHmZsLUii
- c4+v/p6xuW/k5VMUhXCFLvocgjc4jzAYNX8Q+FPOpULZ/USMCJmAIiwD83ZMKGTC5cLu7wnPjxT
- yy997F1dTqM7RQkcy+rNUnifQOUmJzlokHX2QugPKQ3zC4l8giChoSjN8liJOlrBRDCdRsrNJ43
- SNYdDvLUhDhm7foDlLPSUxVFR/c28nChSHjUYQPqvE+wfIrLcRqlBNP0vgbuYNluZm7yUu3fKBZ
- 81GTn7O7uO+ETXDwYGvyo7qGAy5rSYSDqkavQWLvIlpMDQWwd7uqc3XdGDY9VoZTk91JjC9/Wuw
- O6gryPkrx2XIxdggaaPDSceyQHE/6OvjqSisL4YpNUc6ox+UBJvZU0KbK5Wm/yKNoFUk/GkcTbU
- N1FmoqUdmNvX/tYAd5w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-10_02,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 spamscore=0 bulkscore=0 clxscore=1015
- suspectscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2606100083
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260608165549.1479409-3-sebastianene@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_015300_478790_6D0BAC03 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260610_015331_348453_4A2A4682 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,38 +104,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+On Mon, Jun 08, 2026 at 04:55:44PM +0000, Sebastian Ene wrote:
+> Allow FF-A notification bitmap destruction messages to be forwarded to
+> Trustzone from the host.
+> 
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 24 +++++++++++++++++++++++-
+>  1 file changed, 23 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index c20d45191085..91e89d889c44 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -688,7 +688,6 @@ static bool ffa_call_supported(u64 func_id)
+>  	case FFA_MEM_DONATE:
+>  	case FFA_MEM_RETRIEVE_REQ:
+>         /* Optional notification interfaces added in FF-A 1.1 */
+> -	case FFA_NOTIFICATION_BITMAP_DESTROY:
+>  	case FFA_NOTIFICATION_BIND:
+>  	case FFA_NOTIFICATION_UNBIND:
+>  	case FFA_NOTIFICATION_SET:
+> @@ -893,6 +892,26 @@ static void do_ffa_notif_bitmap_create(struct arm_smccc_1_2_regs *res,
+>  	arm_smccc_1_2_smc(args, res);
+>  }
+>  
+> +static void do_ffa_notif_bitmap_destroy(struct arm_smccc_1_2_regs *res,
+> +					struct kvm_cpu_context *ctxt)
+> +{
+> +	DECLARE_REG(u32, vmid, ctxt, 1);
+> +	struct arm_smccc_1_2_regs *args;
+> +
+> +	if (ffa_check_unused_args_sbz(ctxt, 2)) {
+> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
+> +		return;
+> +	}
+> +
+> +	if (vmid != HOST_FFA_ID) {
+> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
+> +		return;
+> +	}
+> +
+> +	args = (void *)&ctxt->regs.regs[0];
+> +	arm_smccc_1_2_smc(args, res);
+> +}
 
-On Qualcomm Hamoa SoCs, the memlat governor and the mechanism for
-controlling the LLCC and DDR/DDR_QOS frequencies run on the CPU Control
-Processor (CPUCP) and are exposed via the QCOM SCMI Generic Extension
-protocol. Add the SCMI vendor protocol node required for the QCOM
-SCMI Generic Extension protocol to probe get functional bus dvfs
-on Hamoa/Purwa SoCs.
+Sounds exactly like do_ffa_notif_bitmap_create. Could we use a single one
+"do_ffa_notif_bitmap" ? 
 
-Signed-off-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
-Signed-off-by: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/hamoa.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/qcom/hamoa.dtsi b/arch/arm64/boot/dts/qcom/hamoa.dtsi
-index 4ba751a65142..abd3e4bb9372 100644
---- a/arch/arm64/boot/dts/qcom/hamoa.dtsi
-+++ b/arch/arm64/boot/dts/qcom/hamoa.dtsi
-@@ -338,6 +338,10 @@ scmi_dvfs: protocol@13 {
- 				reg = <0x13>;
- 				#power-domain-cells = <1>;
- 			};
-+
-+			scmi_vendor: protocol@80 {
-+				reg = <0x80>;
-+			};
- 		};
- 	};
- 
-
--- 
-2.34.1
-
+> +
+>  bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+>  {
+>  	struct arm_smccc_1_2_regs res;
+> @@ -954,6 +973,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+>  	case FFA_NOTIFICATION_BITMAP_CREATE:
+>  		do_ffa_notif_bitmap_create(&res, host_ctxt);
+>  		goto out_handled;
+> +	case FFA_NOTIFICATION_BITMAP_DESTROY:
+> +		do_ffa_notif_bitmap_destroy(&res, host_ctxt);
+> +		goto out_handled;
+>  	}
+>  
+>  	if (ffa_call_supported(func_id))
+> -- 
+> 2.54.0.1064.gd145956f57-goog
+> 
 
