@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3426CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 16:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C02DFCD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 17:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bVyyrVts4pyEF2ndHUxmpv1aAAxrSJxcFaTJx8fYUog=; b=aVJk6kKKJvUqDIu81DevwyWQnJ
-	ex7qqKamDYUSFkv/uRKf5UcEmL2kCMFvsHR1orlFUhRXHlmwbipup+kRw8Abs76NfPrexnHXCatXP
-	Z+pw/FD1ZbtVv3vHOFvQFINqgf3+qjPxwOiyDl63n92rkor0ziCPbTTIDSlhwteKtzvWcTJtsKmQj
-	ja9xZKweaW9ksd1NyhA39DFlKFS9xcxxxiJPTRQRMfRUa8ZNT3NTDfrj+r4+IBf/RlBG5Xwr0kEeq
-	JhENQyKWWpypTCmjg+9HT4vy6pFWt/XHfP6WByKPEDBEUU15fJkHMAlFOdp7uYixXJXDIr2hnnLm7
-	BV020R0Q==;
+	bh=J93QDWWtLOTX1wvAB+lhHDAb2H6FMZC29/IawhQbAQA=; b=cXzn8FklAmK8+F6J9WaANDQob5
+	NbvwIyDbOo45ETq0UsT2WJY1o6UpYn+/54rev+rFvpuB4NuWQOjcRtIKnNm/jwk5iZzLFZ6QViN4r
+	3McFcCbfE5dRjpseWGlX/Vy5l+eMmtOs8oS9jY4oAIz+V93W2cglx67A3x/uIfIFRq1TXkMX4U1+a
+	KQzLBy8AxHwyqjyzzR7yPmJWIC9BJZX2W9UTHJ++K9JWhFkv/+wc1u+X+Uu09tNViYYHvNuELC5rY
+	dC1X4YSj+cDwiCQNoVQtoLSU/jdO5le/ykSFGpEymFcABWR3iuSl2loDv/2vEuqYIFGYDc1/mtxbv
+	Ow/Ln47w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXMGn-00000008ASw-2Paq;
-	Wed, 10 Jun 2026 16:59:13 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wXMLV-00000008Ali-0Mrv;
+	Wed, 10 Jun 2026 17:04:05 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXMGj-00000008ASB-3HZx
+	id 1wXMLS-00000008AlL-2mUl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 16:59:12 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4908b92904fso80528855e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 09:59:09 -0700 (PDT)
+	Wed, 10 Jun 2026 17:04:03 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-304cf518c9dso8740762eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 10:04:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781110748; x=1781715548; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bVyyrVts4pyEF2ndHUxmpv1aAAxrSJxcFaTJx8fYUog=;
-        b=d5iclKvNK0VertjL+SyV0SUsyQtyfzBCQ7uNs0f+IbvgAncQoahc883HG1XkNoBTJ3
-         80REkQ/uavx22JVhJHQhKuqWme50IY2E6RlyyBB1THocvUOHsW/wDLTMCv0GJsgQiE+K
-         Hyotdrejf8Ru/zbdV1BMsOen2gMkqmGtCnwYaMkkidzX5zdtObtPANP4mbkpZc5dG861
-         FzoRcxDd7dAVqnawXF31dGuM83X6rnN/9jmIntdCwhruI5MX7Aw2Hwgf3py7pxkjRM9L
-         TvRlvAaeV+QVNIXrtGBKzsenioYZzhUK7G5DhMaQsdhIpn8Usy+EsIrQPX/zNVJrG8Ej
-         sPFA==
+        d=gmail.com; s=20251104; t=1781111041; x=1781715841; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=J93QDWWtLOTX1wvAB+lhHDAb2H6FMZC29/IawhQbAQA=;
+        b=Y9DSfu8HTZ4kGwk7/GUc/Scsu8R9eYUplBRG4s+NSuZeN5iFneL0QPlmgeze0N3xHt
+         uNZmolJalJOZa3qLSvSOq/N95gwm46ghyhNlZXUA38arJltCt4DDmDSrFPzHhecy0mUJ
+         7vb22tu3BzU6h+pfwu35FJ0iBoSFvZE9vk+KYvJzyvZJIpParE4uakTf4P8tTgVH2ojf
+         BGj6TJK5Xuzz9GcyarvpSqNh+/BlWHLImzUywHGjnZhMvnUh/U45LOjE114XIre2ZLF8
+         a/dzf670Cxy+5UtLCuTsJ438KnsEK4JrKpFkhP/TqQYUzVfAiNrE5ZvAW/K3MeDVkeoD
+         mA9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781110748; x=1781715548;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bVyyrVts4pyEF2ndHUxmpv1aAAxrSJxcFaTJx8fYUog=;
-        b=HtY1tI+Pij8cc0/p15PMgqVDh4QVsT1QP/2JwFbh6Xyj2uhchgW2tsPd7iZ1Zb2IPB
-         Trjky75gy5mJqupHy4gPHNp4Du8Kt9u48XiYO08nB8xZuyrSUoqiRn5J1bS9F6lZLpJt
-         plKxEiaE3YDDikJRK2DgKUpCYoPsjSdz1s+Fyq4Q8T2uUDFRrWl/0APG6qx815mdn8CD
-         r1Iy4RIBE+O7vsWFDfnLwtTldeiabTf/DR1IzaNF7H8NkAWtfqhSMts9cHro+H4wdImn
-         D1nSoqHA2uur0Ddrq8dfyZGdZSHsqlyV6L1VPoQEA/X7d5qqf1Y+ZSxJiurJZFY2eBCo
-         tTpg==
-X-Forwarded-Encrypted: i=1; AFNElJ/ZOaKNM0kXuNkAAQX8KPRBXy29Rke2H0LF/WYdNvZ3eRxHYk1B+sFkRQKkzPyTD1CpFqgWcAVFT6Chq7/c+C+w@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXvvEnvZDDm5A2+VD6Duz6yl6duYP+/IVQjf8wl/xCvmowWqeT
-	Z7G1AIXvHKVz7S4mqgA9SyrrpGVjHbgkydEfGWz/vRuRhvi1uJkP+W261Qs1W9S8kks=
-X-Gm-Gg: Acq92OF6FInqKNszkQAUu+qRR8DKte5bslBT1Umawg/4+p+Tt3brU9giUjEd4wyZ9zM
-	pJEkj3T5GcbuYnttQpJGMwY8RIQmbhiTX1/SSDt3Pq8RLRha+38BaY3gWW4/Q0ATQKdfE561qOs
-	g2oP5Ywtg9XOHhG/VOZR+5hcNabzZABQ3upCJQq6L6MSviiRcoImRiR12Oa0bUbfWfhMa1V8nI7
-	7UKO/iBrGgd0rQwUxekA+rk2nx4CaMsSNWYjyg6sD6NPN9MLyB1meU+Y6+jA10wailBobJ6YHNU
-	36rC9XCdjZCXn9S3iTbo6PjNP5IWLpug6Zrm8d/2nwg4FBLnKvjuwkY/paX+PZd9/MtUID7bTc7
-	1PDIn8JQq4YRiM6d9acPoJ+4e6sDfxVLtkPybhllBcg2kEPwmMUyXNcEocQwm/+xLju++XxAesr
-	NASU9NOFqLaXbWeDg263cf06CBt61pIhEOao3p9Xwd8NTzxSXIv18iFIm9s6R7+RrLKxjkeQnr2
-	d2OzK6hB1b8nnv90eTTwECXcg==
-X-Received: by 2002:a05:600c:674f:b0:490:6e11:c303 with SMTP id 5b1f17b1804b1-490c25ed266mr430620245e9.13.1781110747684;
-        Wed, 10 Jun 2026 09:59:07 -0700 (PDT)
-Received: from localhost (p200300f65f47db046aec8c3a4b621e71.dip0.t-ipconnect.de. [2003:f6:5f47:db04:6aec:8c3a:4b62:1e71])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4601f344762sm78016031f8f.23.2026.06.10.09.59.05
+        d=1e100.net; s=20251104; t=1781111041; x=1781715841;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=J93QDWWtLOTX1wvAB+lhHDAb2H6FMZC29/IawhQbAQA=;
+        b=LgnnLYfbOFoGB+70huagQmM46P7kSKyW/L0FtgI/NVe/qOTkOaXxwL+NvSGW1jjWoG
+         RQbYDWcGLe2c32B+IBO8gY40cFBcM3AomMXRT4hGyRIsf6q0Tjry8l2f6mzsbaDn7jgm
+         5Jhghwh3+pTmMh61OxGWEFsIJVwcFebFwgpy2gV4e+/laNZCHRNe0ySU5J1frGJh3cff
+         PPS3YxnxIbZDqq7izEhyi4lq8bsjOyLlkJaSpuAIT9l+0P/t1y+t/PpwUz23bT1h5uHT
+         dEr/VOo/Oyy5Ji4Yj4IGi/F7GNqwgLl/DNqRsjTBgtiQjDiuvpSGX5QzbMBwTzPixPw6
+         WpkA==
+X-Forwarded-Encrypted: i=1; AFNElJ/0JUETifuodBhSrV83ZdVEpTlOhDF7Y+5muGGgwBL4WnLhYDBzQ25rrO79puA1LCTV7iRwE/s8TqlP8UmpwOr+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6kKjpTYH+xkYtTXTCnW6A6oQlo+8E1cC47neqhAZiithx6e5G
+	TP9DUtoy0KZ9tz5b43oAwLIDTZ3YdG1N2L/R/6vJqHsq7GgxVEfBojlp
+X-Gm-Gg: Acq92OHYo2t5DEeU71Bxcb+U9K+LlDuxo6ENrSizniJkGItd1d+e6FYZpW1WPSnIqQM
+	4QqV61VA18L5MVp8ryL8rYYyW/phSvoQAd5sza3Zr3z9diuNdQ3af34xvrU4a7Z4yybpZ2ErOP6
+	vAximkTYhSUXWkAh41k/NXJppb1NgURq9rPKwAEIJRVvYqfd9zLcDMMaohCcc9K+YfS6wP95Sy0
+	ZN3aJkJvkv5lzfNdjNQCWAK/8R21MLhC3A+q9Dcc/Wh/HGdD/UFMPCjgGAtE2fZ0g3b1U9D9uUM
+	Ls85VwOy//p/4/fgFdHORAocRZr+uB6ai01rlNN5jHiC1onxGR05VpHz+UvbZ2G1UVvafUvwEl+
+	x3j/SlD1NomdK9UPOWLUPkLqb5Y20imUnr2Fz2/Vom2MVJzJz6gX8SOT4fXddPIp5LYsC+Pxzml
+	R0jhqNwfcp2N7K0jHbDtnnFHEirvyCoG7x07r+qqjrmRtbzQDDIq4Uj7+6XbIllnjREhsxInH32
+	wo=
+X-Received: by 2002:a05:7300:7313:b0:2be:7fc2:fc38 with SMTP id 5a478bee46e88-3077ae89f68mr16554448eec.5.1781111040802;
+        Wed, 10 Jun 2026 10:04:00 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:ae0e:e075:91c8:6570])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30791f9da69sm18610159eec.31.2026.06.10.10.03.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 09:59:06 -0700 (PDT)
-Date: Wed, 10 Jun 2026 18:59:04 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, Marcel Holtmann <marcel@holtmann.org>, 
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Bluetooth: hci_bcm4377: Use named initializers for
- pci_device_id array
-Message-ID: <aimXkX4FC4JVxt6q@monoceros>
-References: <20260504160940.2168650-2-u.kleine-koenig@baylibre.com>
+        Wed, 10 Jun 2026 10:04:00 -0700 (PDT)
+Date: Wed, 10 Jun 2026 10:03:56 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, 
+	linux-input@vger.kernel.org, linux-serial@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Russell King <rmk+kernel@armlinux.org.uk>, 
+	Linus Walleij <linusw@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Steven Rostedt <rostedt@goodmis.org>, 
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH] ARM: footbridge: convert to sparse IRQs
+Message-ID: <aimYkTdIAoye5sEG@google.com>
+References: <20260510052107.555825-1-enelsonmoore@gmail.com>
+ <aibz3auoiq4CFa9l@google.com>
+ <86765df4-0d2d-435e-85d8-b9bd4f3ea85d@app.fastmail.com>
+ <CADkSEUhh1NdOMTHVsErhqzyCpDGFA-FkNFaWp94e9LnB3njxqw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3msjhzytjrmzyqmh"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260504160940.2168650-2-u.kleine-koenig@baylibre.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADkSEUhh1NdOMTHVsErhqzyCpDGFA-FkNFaWp94e9LnB3njxqw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_095909_848760_E5CD04D1 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20260610_100402_725424_24260ADD 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,68 +109,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 08, 2026 at 10:13:50AM -0700, Ethan Nelson-Moore wrote:
+> Hi, Arnd,
+> 
+> On Mon, Jun 8, 2026 at 10:11 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> > I think this is correct, as footbridge is the only one that selects
+> > CONFIG_ARCH_MIGHT_HAVE_PC_SERIO and defines I8042_KBD_IRQ on arm.
+> 
+> I came to the same conclusion.
 
---3msjhzytjrmzyqmh
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] Bluetooth: hci_bcm4377: Use named initializers for
- pci_device_id array
-MIME-Version: 1.0
+I see. In this case:
 
-On Mon, May 04, 2026 at 06:09:40PM +0200, Uwe Kleine-K=F6nig (The Capable H=
-ub) wrote:
-> Initializing a struct using list initializers is hard to read, compared
-> to that using named initializers is more ideomatic. Convert the macro
-> used to assign values in the driver's pci_device_id array accordingly.
->=20
-> This change doesn't introduce any changes to the compiled array on an
-> x86 and an arm64 build.
->=20
-> Signed-off-by: Uwe Kleine-K=F6nig (The Capable Hub) <u.kleine-koenig@bayl=
-ibre.com>
-> ---
-> Hello,
->=20
-> this is a preparing change for making struct pci_device_id::driver_data an
-> anonymous union (similar to
-> https://lore.kernel.org/all/cover.1776579304.git.u.kleine-koenig@baylibre=
-=2Ecom/).
-> This requires named initializers for .driver_data. But even without that
-> this is a nice cleanup making the macro better readable.
->=20
-> Gcc is happy with simplifying the assignment further using
-> PCI_VDEVICE(BROADCOM, BCM ## id ## _DEVICE_ID), but this is a bit fishy
-> because PCI_VDEVICE also assigns .class and .class_mask (using list
-> initializers), so I didn't convert that.
+Acked-by: Dmitry Torokhov <dmitry.torokhov@gmail.com> # for input
 
-In the meantime I learned that doing that would break W=3D1 builds, so it
-was a good choice to not go that path.
+Thanks.
 
-> Once all pci_device_id use
-> named initializers, the two zeros can be dropped from PCI_VDEVICE and
-> this entry simplified accordingly.
-
-Is this patch still on someone's radar? Ideally for application in time
-for 7.2-rc1?
-
-Best regards
-Uwe
-
---3msjhzytjrmzyqmh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmopl9QACgkQj4D7WH0S
-/k4iqggAj3aeMF621GTGpJEHIqnNARfBAqngiHflYRiIhmKykwRxpBFaMIbsMmcs
-qaS9NHLpxehcieZKUsjtuHpxJ6kc8//qqgRhfwcBdzpgoWz+eFyjxaIXavQ1z87b
-k8YJJ6J5VNFnXKiZT4pBl1W7c3eWF+kCoq8UYyNHvI/cE1CCAd7qR5gprTFiZHkS
-xH+/9H//w9KQEGL8tDXY2q2s0QSwThwPnABCbIl2gzwsnU/MhM73oQW+DhH1WaRy
-rfclH5p/FfkqtITu8CqaDd2hAxtn3KVvBCbQRNHYk6nGHQnxWMnl9fOCSVMu+3HT
-mPViuT/eGfETuUtngl9g2o6whmonPw==
-=hiX3
------END PGP SIGNATURE-----
-
---3msjhzytjrmzyqmh--
+-- 
+Dmitry
 
