@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D16CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 21:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8896ECD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 21:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wcd9+cR2Lw/1NK825QM1reyVrOzsO3D1IfFbzXKQDk=; b=2NFDPB3lcW9U/iOrnVyYlcqggf
-	IA8L+iWNIeKoBAl1i1ITPD+Kw29ALRfo1XtuDNxTsFryNftSSyVFc/YXYs6med7jAdefp3EPS0Q1A
-	X9ZYDyZuPSBWiumCOFeBw2Tp2eh0nqcZXK+qkqaPdEghApngGGwa1efF2yNsV6gDI564aVygD7SfI
-	GFqtKTxxrzxMy39Y9Y74fVKkjs/Hs1T4pYodMKtJMdjQtvYDq2iobN91wZ69cc+OXR/7sGymca4kB
-	PqJePO8eh/4iR2e3ZDK9AWRNuC08V9yxYR98ON/H1GgNPPnEXW9JZSY/7J6wgGDROHGToHMvhbGz/
-	5/80X0QQ==;
+	bh=HdSvP4OsE7eHoTjId0UaG2CyxblqVBvzSM5Fo0qLTpA=; b=nynoUaSEtTaE2HZeZreKvh44Ee
+	QxYIRJCGYAKHRKqycLa3qsh/oikzh/mk6IfUxmNwh8n0JqqnmcHLdYWXVZAWb02qsVpWRlF/U31ot
+	ZfMBdgnmMcMLOBKb57y1jQLd0A277ikwMpELKryEbLPTj9KKhaxQMy/Uh/75ubuBJ71GDUnjfQv3D
+	Sf1M+X9CuFl/h4VwxHZSuytZUdZtwryfz924AOR9umOU+hefcbKm0oJbCD+j9NPwDUQWpmKOLeCKK
+	OoBb3n3WYNroECq1s7eBzKuYHwYpyyGaJa1N1tZMEPv1u0VIhPjFYtyP8GvcYLUgTnXtC0LtP1kaX
+	rkvFraQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXQUh-00000008NWC-0ggf;
+	id 1wXQUh-00000008NWb-1Acd;
 	Wed, 10 Jun 2026 21:29:51 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXQUZ-00000008NPl-0ScR
+	id 1wXQUZ-00000008NQL-3keh
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 10 Jun 2026 21:29:46 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490b3637b90so62522005e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 14:29:42 -0700 (PDT)
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490b7866869so79025035e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 14:29:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781126981; x=1781731781; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1781126982; x=1781731782; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1wcd9+cR2Lw/1NK825QM1reyVrOzsO3D1IfFbzXKQDk=;
-        b=liprM0wyVq82uptKhteFWtMXD4stXLynj+3XapamCTjSfT/Nq/L7x8OY0Edgr2rfZx
-         kSD0TTj1LInS4y0Cc3Ui4vubGZ8+awwQO+K5AwTXNhLeIBuXNwbWB41VlFsP59eat/9r
-         PU8fBSTc3niFWEH40VuxhSxUfTeFo/uslQeUyAWZR0sX2Lsjt4s6hXPltF336O8wJFdL
-         iQVa6k6eMCa7G1aNQxfpyXWqnB10BPl1V9t2HqAA5SRSLrNnA6YTUElAlyTN4Zoi9xr1
-         PlqAtnIQS7oxcbTEFLSwUqvXTo9Noba6MltyoLwgUziUz6E+RQfuv8FWYBV747u/p30/
-         f4/w==
+        bh=HdSvP4OsE7eHoTjId0UaG2CyxblqVBvzSM5Fo0qLTpA=;
+        b=WEJRbpBXcuu8ikS9w4KCtU4kDlSRpZtzIjO+oHXVDIuSZyZbj/spauZGgUOyrdCkJP
+         crZRcX1c2YlzwXl0UF4TuroFmugP4IbYGvTlwET9baijelkNKkjKi7aex6gbJXX0ZJ6H
+         Cqf7K5lhfUS9cHsE+54oIMoVcVpDATsrzNknn5iGtYwL8qj3HPFmxtNB5uXuLefMKc/L
+         Cc96vZQPG/E1cT8FyZ+6KaBC1Qu2aQod3/aHNkmXamrdQqgF7jgsthvCumgXazkXaqMV
+         z48ZRl0bmFvSMDM45pbNT9qgPnfYusL26lEluCbKWvBqHJCiDtsxnmsXhNGSDV+OUn7A
+         OauA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781126981; x=1781731781;
+        d=1e100.net; s=20251104; t=1781126982; x=1781731782;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=1wcd9+cR2Lw/1NK825QM1reyVrOzsO3D1IfFbzXKQDk=;
-        b=FIFIXiJ8/uh6SDQKXXheHjRUjFeELhBsyXapZV6aOb2iNDjlPUdKt3PF3QEGuUy9yO
-         Ip71gmFUsH9JY22dmOt7EoJV+X5U40c7axcjqDLtJprTcfdnTCnT+cM4N6zg0GuxnGoN
-         XcFHbcVvds6lrcnFx0VUvjSPxd8/Bbq0ElvqtTR1EbWhwIErqmpGDG7HLHzUWHjj4d8m
-         q+wvYiPhkyi49DGURhIc4IdV0YuccBTgfAk30CYXO7wXKpdSblpOCYDjeuNfAb2e+7OH
-         DGKSGMU/9cUCLvqaHswLGD9MeFcCTGGa6JCa8CHBQJruY18s3ntQzmahDMGxWUeKeWzS
-         8z1Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+N8EIFHN3UQWQzCg8Q60hu0Xx46pLXG+U7ldU4NE8GHjlBhEar9nC4jZcoOulINZC3/vrwpTNgBWW4WF+wQs3e@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPuDAkj6mK9J1ai/PoNdeKX0lQ/lvGqtCRqde8v8zmsVev1Gxz
-	cCK9eGeD5n/dfGerTMHwNYOYtxip67o1LKgrJh50FyJZlaluT3/RmWinOmTjquOTuf0mHSzam4C
-	ASAF6F3Y=
-X-Gm-Gg: Acq92OFkTdnnaiWxSCNfCMgktYAXP11MT0Zv5jynRx6f92Wftqu1FJ8Okrdp5FAJScv
-	6LJFCPgD+piw09MFI4wiP3HDUy05J0qSx7TmIXqYAL81ZnNjJwJfTWcZ0PFEBIx30Iiwf6vVkYL
-	krXGkY1xBP21tSUKJ4auHUza9lAtSLdSKMCwLMm56muj0SfiOg3reHqvuCYvBTmdWJn2VHdhZ2H
-	+ohA+iKhWFptD4zYLsA7PkOB+wkocCgr3kuzZLvgYjj/KlwHEkxvDBAoA1BBFr8+/k93hmUIIHS
-	rxV2v548z2VhNPghBBJvV0sLT14ghrtjg0I31q2+a3deDamxj3yFWLZAPOldTYSkD8xAyW4Vj3p
-	g+bTwm/JWqj3LC3/GLnksykHTR92X1K55GxoFJvWRnnXhINzzvy1aItJG4MTvGpGFomzreEBp3x
-	PDrldDPSvOhPfpskSOP5jq67E/QjaAPNpNmtM4jU/JRA==
-X-Received: by 2002:a05:600c:1f83:b0:490:b724:5085 with SMTP id 5b1f17b1804b1-490c2621a5cmr438401955e9.33.1781126981257;
-        Wed, 10 Jun 2026 14:29:41 -0700 (PDT)
+        bh=HdSvP4OsE7eHoTjId0UaG2CyxblqVBvzSM5Fo0qLTpA=;
+        b=p//01W78H8/yMNXkdAtEvpOoxB/ixZ9GpG4KM9M4X6k9Fe02jLaOfIab6V+MTfjAzQ
+         QqmQlEyaFPlwf56H/kc8mRIDLqfKGVJJXhVoLkj4/n1lP3ilr+xRBGUX2hCxWFT9AgyH
+         WyrRkulX4qDTjr2rfpjJF9S2+QgN5tc5qY/4SrZa8+wqhSIkPT61E/omY6DQ+IKt8gbh
+         RcRnYguQwTheUpyO2/JV3KJTkO8i1tAOPI9F+UnhaYwLtfjg2H0VQ3Jaz20h3jkrjhwp
+         uVTSlgOTT7TXie5FKTZmZ8RgfPBgrHS066s3RRCkpv/vg2ZwZZqtRJI51vVdINIHJyjA
+         6uJw==
+X-Forwarded-Encrypted: i=1; AFNElJ8N//MgcQqP+swLltr56W0y+Czn7mcx/fqohD99HpTM3ME+FGkY1sVqOKmHt7qP6x0ksGfDWgHKP2K4dhVIMFE7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKuUrkELl4yryeyLn+OB00D0uib3z8nuyfZf+z/vbkx06ygWti
+	aoz/De7wnrqHOwRpiYJPFxPhA6J4RFFsjrVXmBI2j6PFph6iC2/hem8LSliQofCLvh6h2e3bwuZ
+	EIyWPBqo=
+X-Gm-Gg: Acq92OHBbRQ6K1N+WFwQCZQpx/yP5mbDPnZOFuEW8HA9cn1ElY6PKbyoBt9YoYa2ppT
+	sU3YwaqZyj3jWWbTydNMgWHP7ed0GNk60c2ouqduFztmXGMJhMWtKr85Vs1QqSp/t0SvDcbXJ1s
+	CLQ9VUtLw/Pw64rXN0rxLjS3PJKucqFQ/gSdA3vfi0MnzNA32em+aJJPRz8ZMJ03fScpiCgGvWF
+	oc6yuzRIokY0TCL57XrdciAMTqdj0TitymjaKdndYY2O5FiDR2kihQIMbVVDt3o0eWhGv6Uf3wR
+	P3+7N8kd1uXy86v2g0awL5sPzZWg96eKbrBTON97hd0mzazizRe7Bts8HRHvO9AodtsoEva4paZ
+	sGCoVpOxGxUfw0XThVSiRyp1ENA0x10F38zSChqwJY1edMjwIGa5sjsd198qu9ag0tMXsW9tbsi
+	uJsGWOb9KcfOFOLpcwiOQEZQYzQs072LV7yV9/VidvTQ==
+X-Received: by 2002:a05:600d:6446:10b0:490:bccf:2bd6 with SMTP id 5b1f17b1804b1-490e2e29494mr5787235e9.15.1781126982292;
+        Wed, 10 Jun 2026 14:29:42 -0700 (PDT)
 Received: from [127.0.1.1] ([151.61.238.34])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e4228768sm970965e9.0.2026.06.10.14.29.40
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e4228768sm970965e9.0.2026.06.10.14.29.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 14:29:40 -0700 (PDT)
+        Wed, 10 Jun 2026 14:29:42 -0700 (PDT)
 From: Valerio Setti <vsetti@baylibre.com>
-Date: Wed, 10 Jun 2026 23:29:27 +0200
-Subject: [PATCH v2 3/4] ASoC: meson: aiu: introduce I2S output formatter
+Date: Wed, 10 Jun 2026 23:29:28 +0200
+Subject: [PATCH v2 4/4] ASoC: meson: aiu: use aiu-formatter-i2s to format
+ I2S output data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260610-reshape-aiu-as-axg-v2-3-cac3663a8b51@baylibre.com>
+Message-Id: <20260610-reshape-aiu-as-axg-v2-4-cac3663a8b51@baylibre.com>
 References: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
 In-Reply-To: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
 To: Jerome Brunet <jbrunet@baylibre.com>, 
@@ -89,17 +90,17 @@ Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  Valerio Setti <vsetti@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4373; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=1AVgdXapivwMhAZ343GX8lNmX+kCIj8zw6th//wHOqE=;
- b=owGbwMvMwCF2z3ty7kUrRgbG02pJDFma1x1ePSnd+f7CXK14q9JTSbxRaod51PSMRfyvXwktf
- vji6EvfjlIWBjEOBlkxRRaW6fd+F5SqPTROOFkAM4eVCWQIAxenAExkxkKG/zF6VifmBpzlkO6s
- 8ijzNUq1Tgrem7vTZ5OM5hGJ6LVZjAx/eP/+0Hc0Lo466hPUnpKyXyPg0Nf83a2c1Z+uHf3/+tx
- xfgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7991; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=/h2Td7mUr6sv6XUhWr9Xcq7WvMFZwzP575T2baPy/Ds=;
+ b=owGbwMvMwCF2z3ty7kUrRgbG02pJDFma1x2COF5w1rWmPDvsyMu7KsxGbZuhj/f+yfwLelrq7
+ h1c9EW/o5SFQYyDQVZMkYVl+r3fBaVqD40TThbAzGFlAhnCwMUpABNpiWZkOLL1F/sOzeA12y7O
+ z9z7PX6yvM9SM9bah3v5/Trsz2qfKGP4yfj1WP1cjlLvYotjP4/t5ZmXwx95fHka1zPrNy1bWA4
+ ZMAMA
 X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
  fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_142943_182058_4E32B467 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20260610_142944_051641_C05BF56E 
+X-CRM114-Status: GOOD (  23.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,150 +115,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce aiu-formatter-i2s, a gx_formatter implementation for the AIU I2S
-playback path. This is going to replace data formatting tasks that are
-currently being implemented in aiu-encoder-i2s.
-
-This should ideally follow the same design pattern used on the AXG
-platform (see axg-tdmout), where basically the widget/formatter corresponds
-to a single audio component. This is not possible in the GX platform though
-because all the features are currently implemented in the AIU audio
-component and changing that would require backward incompatible
-device-tree changes.
-
-Therefore aiu-formatter-i2s is kept very simple and
-it only implements the bare minimum functionalities to provide I2S
-playback formatting. It's not a standalone component though because this
-is still belongs to AIU.
+Create a new DAPM widget for "I2S formatter" and place it on the path
+between FIFO and output DAI interface. Remove I2S output formatting code
+from aiu-encoder-i2s since it's now implemented from aiu-formatter-i2s.
 
 Signed-off-by: Valerio Setti <vsetti@baylibre.com>
 ---
- sound/soc/meson/Makefile            |   1 +
- sound/soc/meson/aiu-formatter-i2s.c | 104 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 105 insertions(+)
+ sound/soc/meson/aiu-encoder-i2s.c | 78 ++++++++++-----------------------------
+ sound/soc/meson/aiu.c             | 32 ++++++++++++++--
+ sound/soc/meson/aiu.h             |  1 +
+ 3 files changed, 48 insertions(+), 63 deletions(-)
 
-diff --git a/sound/soc/meson/Makefile b/sound/soc/meson/Makefile
-index 146ec81526ba091a174a113ce3d8412ddbbfd9dd..f9ec0ebb01f048728b8f85fd8e58fb90df990470 100644
---- a/sound/soc/meson/Makefile
-+++ b/sound/soc/meson/Makefile
-@@ -5,6 +5,7 @@ snd-soc-meson-aiu-y += aiu-acodec-ctrl.o
- snd-soc-meson-aiu-y += aiu-codec-ctrl.o
- snd-soc-meson-aiu-y += aiu-encoder-i2s.o
- snd-soc-meson-aiu-y += gx-formatter.o
-+snd-soc-meson-aiu-y += aiu-formatter-i2s.o
- snd-soc-meson-aiu-y += aiu-encoder-spdif.o
- snd-soc-meson-aiu-y += aiu-fifo.o
- snd-soc-meson-aiu-y += aiu-fifo-i2s.o
-diff --git a/sound/soc/meson/aiu-formatter-i2s.c b/sound/soc/meson/aiu-formatter-i2s.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..b4604734fe88da2acd6e5c2f9f59e8ecb0a017a5
---- /dev/null
-+++ b/sound/soc/meson/aiu-formatter-i2s.c
-@@ -0,0 +1,104 @@
-+// SPDX-License-Identifier: GPL-2.0
-+//
-+// Copyright (c) 2026 BayLibre, SAS.
-+// Author: Valerio Setti <vsetti@baylibre.com>
+diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
+index f50b03824ad280afabb31eecc20ccb855defa11e..83b579e98f1c75ce03fea1c6ff4e99b2fedebe0c 100644
+--- a/sound/soc/meson/aiu-encoder-i2s.c
++++ b/sound/soc/meson/aiu-encoder-i2s.c
+@@ -13,13 +13,8 @@
+ #include "gx-formatter.h"
+ #include "gx-interface.h"
+ 
+-#define AIU_I2S_SOURCE_DESC_MODE_8CH	BIT(0)
+-#define AIU_I2S_SOURCE_DESC_MODE_24BIT	BIT(5)
+-#define AIU_I2S_SOURCE_DESC_MODE_32BIT	BIT(9)
+ #define AIU_I2S_SOURCE_DESC_MODE_SPLIT	BIT(11)
+-#define AIU_RST_SOFT_I2S_FAST		BIT(0)
+ 
+-#define AIU_I2S_DAC_CFG_MSB_FIRST	BIT(2)
+ #define AIU_CLK_CTRL_I2S_DIV_EN		BIT(0)
+ #define AIU_CLK_CTRL_I2S_DIV		GENMASK(3, 2)
+ #define AIU_CLK_CTRL_AOCLK_INVERT	BIT(6)
+@@ -37,49 +32,6 @@ static void aiu_encoder_i2s_divider_enable(struct snd_soc_component *component,
+ 				      enable ? AIU_CLK_CTRL_I2S_DIV_EN : 0);
+ }
+ 
+-static int aiu_encoder_i2s_setup_desc(struct snd_soc_component *component,
+-				      struct snd_pcm_hw_params *params)
+-{
+-	/* Always operate in split (classic interleaved) mode */
+-	unsigned int desc = AIU_I2S_SOURCE_DESC_MODE_SPLIT;
+-
+-	/* Reset required to update the pipeline */
+-	snd_soc_component_write(component, AIU_RST_SOFT, AIU_RST_SOFT_I2S_FAST);
+-	snd_soc_component_read(component, AIU_I2S_SYNC);
+-
+-	switch (params_physical_width(params)) {
+-	case 16: /* Nothing to do */
+-		break;
+-
+-	case 32:
+-		desc |= (AIU_I2S_SOURCE_DESC_MODE_24BIT |
+-			 AIU_I2S_SOURCE_DESC_MODE_32BIT);
+-		break;
+-
+-	default:
+-		return -EINVAL;
+-	}
+-
+-	switch (params_channels(params)) {
+-	case 2: /* Nothing to do */
+-		break;
+-	case 8:
+-		desc |= AIU_I2S_SOURCE_DESC_MODE_8CH;
+-		break;
+-	default:
+-		return -EINVAL;
+-	}
+-
+-	snd_soc_component_update_bits(component, AIU_I2S_SOURCE_DESC,
+-				      AIU_I2S_SOURCE_DESC_MODE_8CH |
+-				      AIU_I2S_SOURCE_DESC_MODE_24BIT |
+-				      AIU_I2S_SOURCE_DESC_MODE_32BIT |
+-				      AIU_I2S_SOURCE_DESC_MODE_SPLIT,
+-				      desc);
+-
+-	return 0;
+-}
+-
+ static int aiu_encoder_i2s_set_legacy_div(struct snd_soc_component *component,
+ 					  struct snd_pcm_hw_params *params,
+ 					  unsigned int bs)
+@@ -173,11 +125,6 @@ static int aiu_encoder_i2s_set_clocks(struct snd_soc_component *component,
+ 	if ((fs % 64) || (fs == 0))
+ 		return -EINVAL;
+ 
+-	/* Send data MSB first */
+-	snd_soc_component_update_bits(component, AIU_I2S_DAC_CFG,
+-				      AIU_I2S_DAC_CFG_MSB_FIRST,
+-				      AIU_I2S_DAC_CFG_MSB_FIRST);
+-
+ 	/* Set bclk to lrlck ratio */
+ 	snd_soc_component_update_bits(component, AIU_CODEC_DAC_LRCLK_CTRL,
+ 				      AIU_CODEC_DAC_LRCLK_CTRL_DIV,
+@@ -223,12 +170,6 @@ static int aiu_encoder_i2s_hw_params(struct snd_pcm_substream *substream,
+ 		}
+ 	}
+ 
+-	ret = aiu_encoder_i2s_setup_desc(component, params);
+-	if (ret) {
+-		dev_err(dai->dev, "setting i2s desc failed: %d\n", ret);
+-		return ret;
+-	}
+-
+ 	ret = aiu_encoder_i2s_set_clocks(component, params);
+ 	if (ret) {
+ 		dev_err(dai->dev, "setting i2s clocks failed: %d\n", ret);
+@@ -411,6 +352,25 @@ static int aiu_encoder_i2s_startup(struct snd_pcm_substream *substream,
+ 		return ret;
+ 	}
+ 
++	/*
++	 * We're always operating in split mode for the playback stream.
++	 *
++	 * This setting arguably belong to the 'aiu-formatter', but it's kept
++	 * here for backward compatibility reason. At reset the I2S encoder
++	 * operates in normal mode which would only support 8ch, but by default
++	 * only 2ch are enabled. If a playback stream is started without
++	 * changing to split mode, then the I2S encoder doesn't consume audio
++	 * samples and the playback fails.
++	 * Moving this to 'aiu-formatter' would cause the split mode to be set
++	 * only when the formatter is enabled, which doesn't happen at boot as
++	 * the default value for "HDMI CTRL SRC" is "DISABLED".
++	 */
++	ret = snd_soc_component_update_bits(dai->component, AIU_I2S_SOURCE_DESC,
++					    AIU_I2S_SOURCE_DESC_MODE_SPLIT,
++					    AIU_I2S_SOURCE_DESC_MODE_SPLIT);
++	if (ret < 0)
++		dev_err(dai->dev, "failed to update AIU_I2S_SOURCE_DESC: %d", ret);
 +
-+#include <sound/pcm_params.h>
-+#include <sound/soc.h>
-+#include <sound/soc-dai.h>
+ 	return 0;
+ }
+ 
+diff --git a/sound/soc/meson/aiu.c b/sound/soc/meson/aiu.c
+index f2890111c1d2cfa2213bf01849957a796744b9ae..64ace4d25d92cbe137066359a839e1b11bf140f8 100644
+--- a/sound/soc/meson/aiu.c
++++ b/sound/soc/meson/aiu.c
+@@ -29,13 +29,22 @@ static SOC_ENUM_SINGLE_DECL(aiu_spdif_encode_sel_enum, AIU_I2S_MISC,
+ static const struct snd_kcontrol_new aiu_spdif_encode_mux =
+ 	SOC_DAPM_ENUM("SPDIF Buffer Src", aiu_spdif_encode_sel_enum);
+ 
+-static const struct snd_soc_dapm_widget aiu_cpu_dapm_widgets[] = {
+-	SND_SOC_DAPM_MUX("SPDIF SRC SEL", SND_SOC_NOPM, 0, 0,
+-			 &aiu_spdif_encode_mux),
++#define AIU_WIDGET_SPDIF_SRC_SEL	0
++#define AIU_WIDGET_I2S_FORMATTER	1
 +
-+#include "aiu.h"
-+#include "gx-formatter.h"
-+
-+#define AIU_I2S_SOURCE_DESC_MODE_8CH	BIT(0)
-+#define AIU_I2S_SOURCE_DESC_MODE_24BIT	BIT(5)
-+#define AIU_I2S_SOURCE_DESC_MODE_32BIT	BIT(9)
-+#define AIU_RST_SOFT_I2S_FAST		BIT(0)
-+
-+#define AIU_I2S_DAC_CFG_MSB_FIRST	BIT(2)
-+
-+static struct snd_soc_dai *
-+aiu_formatter_i2s_get_be(struct snd_soc_dapm_widget *w)
-+{
-+	struct snd_soc_dapm_path *p;
-+	struct snd_soc_dai *be;
-+
-+	snd_soc_dapm_widget_for_each_sink_path(w, p) {
-+		if (!p->connect)
-+			continue;
-+
-+		if (p->sink->id == snd_soc_dapm_dai_in)
-+			return (struct snd_soc_dai *)p->sink->priv;
-+
-+		be = aiu_formatter_i2s_get_be(p->sink);
-+		if (be)
-+			return be;
-+	}
-+
-+	return NULL;
-+}
-+
-+static struct gx_stream *
-+aiu_formatter_i2s_get_stream(struct snd_soc_dapm_widget *w)
-+{
-+	struct snd_soc_dai *be = aiu_formatter_i2s_get_be(w);
-+
-+	if (!be)
-+		return NULL;
-+
-+	return snd_soc_dai_dma_data_get_playback(be);
-+}
-+
-+static int aiu_formatter_i2s_prepare(struct regmap *map,
-+				 const struct gx_formatter_hw *quirks,
-+				 struct gx_stream *ts)
-+{
-+	/* Always operate in split (classic interleaved) mode */
-+	unsigned int desc = 0;
-+	unsigned int tmp;
-+
-+	/* Reset required to update the pipeline */
-+	regmap_write(map, AIU_RST_SOFT, AIU_RST_SOFT_I2S_FAST);
-+	regmap_read(map, AIU_I2S_SYNC, &tmp);
-+
-+	switch (ts->physical_width) {
-+	case 16: /* Nothing to do */
-+		break;
-+
-+	case 32:
-+		desc |= (AIU_I2S_SOURCE_DESC_MODE_24BIT |
-+			 AIU_I2S_SOURCE_DESC_MODE_32BIT);
-+		break;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	switch (ts->channels) {
-+	case 2: /* Nothing to do */
-+		break;
-+	case 8:
-+		desc |= AIU_I2S_SOURCE_DESC_MODE_8CH;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	regmap_update_bits(map, AIU_I2S_SOURCE_DESC,
-+				AIU_I2S_SOURCE_DESC_MODE_8CH |
-+				AIU_I2S_SOURCE_DESC_MODE_24BIT |
-+				AIU_I2S_SOURCE_DESC_MODE_32BIT,
-+				desc);
-+
-+	/* Send data MSB first */
-+	regmap_update_bits(map, AIU_I2S_DAC_CFG,
-+				AIU_I2S_DAC_CFG_MSB_FIRST,
-+				AIU_I2S_DAC_CFG_MSB_FIRST);
-+
-+	return 0;
-+}
-+
-+const struct gx_formatter_ops aiu_formatter_i2s_ops = {
-+	.get_stream	= aiu_formatter_i2s_get_stream,
-+	.prepare	= aiu_formatter_i2s_prepare,
++static struct snd_soc_dapm_widget aiu_cpu_dapm_widgets[] = {
++	[AIU_WIDGET_SPDIF_SRC_SEL] =
++		SND_SOC_DAPM_MUX("SPDIF SRC SEL", SND_SOC_NOPM, 0, 0,
++				 &aiu_spdif_encode_mux),
++	[AIU_WIDGET_I2S_FORMATTER] =
++		SND_SOC_DAPM_PGA_E("I2S Formatter", SND_SOC_NOPM, 0, 0, NULL, 0,
++				   gx_formatter_event,
++				   (SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
+ };
+ 
+ static const struct snd_soc_dapm_route aiu_cpu_dapm_routes[] = {
+-	{ "I2S Encoder Playback", NULL, "I2S FIFO Playback" },
++	{ "I2S Formatter", NULL, "I2S FIFO Playback" },
++	{ "I2S Encoder Playback", NULL, "I2S Formatter" },
+ 	{ "SPDIF SRC SEL", "SPDIF", "SPDIF FIFO Playback" },
+ 	{ "SPDIF SRC SEL", "I2S", "I2S FIFO Playback" },
+ 	{ "SPDIF Encoder Playback", NULL, "SPDIF SRC SEL" },
+@@ -172,6 +181,11 @@ static const struct regmap_config aiu_regmap_cfg = {
+ 	.max_register	= 0x2ac,
+ };
+ 
++const struct gx_formatter_driver aiu_formatter_i2s_drv = {
++	.regmap_cfg	= &aiu_regmap_cfg,
++	.ops		= &aiu_formatter_i2s_ops,
 +};
++
+ static int aiu_clk_bulk_get(struct device *dev,
+ 			    const char * const *ids,
+ 			    unsigned int num,
+@@ -282,6 +296,14 @@ static int aiu_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	/* Allocate the aiu-formatter into its widget */
++	ret = gx_formatter_create(dev, &aiu_cpu_dapm_widgets[AIU_WIDGET_I2S_FORMATTER],
++				  &aiu_formatter_i2s_drv, map);
++	if (ret) {
++		dev_err(dev, "Failed to allocate aiu formatter\n");
++		goto err;
++	}
++
+ 	/* Register the cpu component of the aiu */
+ 	ret = snd_soc_register_component(dev, &aiu_cpu_component,
+ 					 aiu_cpu_dai_drv,
+@@ -310,12 +332,14 @@ static int aiu_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ err:
++	gx_formatter_free(&aiu_cpu_dapm_widgets[AIU_WIDGET_I2S_FORMATTER]);
+ 	snd_soc_unregister_component(dev);
+ 	return ret;
+ }
+ 
+ static void aiu_remove(struct platform_device *pdev)
+ {
++	gx_formatter_free(&aiu_cpu_dapm_widgets[AIU_WIDGET_I2S_FORMATTER]);
+ 	snd_soc_unregister_component(&pdev->dev);
+ }
+ 
+diff --git a/sound/soc/meson/aiu.h b/sound/soc/meson/aiu.h
+index 68310de0bdf7a97d8de2ff306c159248ee9b0ede..7d0b98c1f351b3c526ca06c43a4c04ee5f4b6dfa 100644
+--- a/sound/soc/meson/aiu.h
++++ b/sound/soc/meson/aiu.h
+@@ -61,6 +61,7 @@ extern const struct snd_soc_dai_ops aiu_fifo_i2s_dai_ops;
+ extern const struct snd_soc_dai_ops aiu_fifo_spdif_dai_ops;
+ extern const struct snd_soc_dai_ops aiu_encoder_i2s_dai_ops;
+ extern const struct snd_soc_dai_ops aiu_encoder_spdif_dai_ops;
++extern const struct gx_formatter_ops aiu_formatter_i2s_ops;
+ 
+ #define AIU_IEC958_BPF			0x000
+ #define AIU_958_MISC			0x010
 
 -- 
 2.39.5
