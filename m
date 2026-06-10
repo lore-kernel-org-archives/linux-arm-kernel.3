@@ -4,92 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C37CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F442CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KH9HBFAT2zLlk/opAZRTDflY9ZFPRgbKC+rh40Fhyqo=; b=WRg1Se0faITJ13PVmJQnkOXQEO
-	daoHR6QXdaxOF48XFrzMzfzAc1zJ36RViz6I7jDMqSIfRmGa+nsz4RlcusHRzXIKr5bOAZbR5hZkW
-	4SDnpWTNH2XYGUMtaM8kI7SbJmwO4HASCLX4Wf3qcN19GVNFbKbUSH/KLv1GZzAyQANZrSaI8wsMf
-	Ji2EdFwidujUKk4WUrsUSEbZBdufLvCV334tctvIVpRK+q41DfB5V228uSn1HGKVZhAJm6KmiIfvK
-	g+pTWAb8MKhAdEIBFET+6wHYJNyJ7udcLnmi5FU/rWUs8jfIoOQ4PFeJQyt0NShjzng/apYL57Gpz
-	lgHAy83A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wCn3IyooSA3jsjMlZ6/+PXYCW2Jy/3rcegUc0UFBpRc=; b=ASApF5fNw2eYWT3ElFeLSA8xov
+	XDf7VuP7H9ye5BsDQnqH+wvfgGXzwHVVa2+FTE+OhtlFKM8fN8BArja3ZO5ayRsnosShkuK4cM0aS
+	7lVQdFinlCw03pHk3UFRcjYk5JqglzjdmlXjY5OKGa2S2ch7Wmyp5yaDcDiMwS458Gr+b8KF2h1db
+	hq+adkB07mXkQBiRgwn1u3t/leoUInV3caNyvKXKwtARsp7vyXWT0JS1/5qzsGfwt3KllolzQwwp+
+	MlpyExcRe7P8uZSOEkLsl1VR4iIKCFqAxFD/7WYmo/ft+t1LxTE2VD4+vrq0z48TNOfscZj7i/ztB
+	AY4E8IwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7oE-00000006e5H-0teZ;
-	Wed, 10 Jun 2026 01:32:46 +0000
-Received: from mail.eswincomputing.com ([123.124.195.78])
+	id 1wX7oY-00000006eDs-1pOW;
+	Wed, 10 Jun 2026 01:33:06 +0000
+Received: from mail-westeuropeazon11010042.outbound.protection.outlook.com ([52.101.69.42] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7o6-00000006e20-1dmR;
-	Wed, 10 Jun 2026 01:32:41 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app1 (Coremail) with SMTP id TAJkCgA32XKnvihqQJQlAA--.2890S2;
-	Wed, 10 Jun 2026 09:32:25 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	horms@kernel.org,
-	lee@kernel.org,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net-next v8 6/6] riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet controller
-Date: Wed, 10 Jun 2026 09:32:23 +0800
-Message-ID: <20260610013223.972-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
-In-Reply-To: <20260610012727.848-1-lizhi2@eswincomputing.com>
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
+	id 1wX7oV-00000006eBB-3pWJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Jun 2026 01:33:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=flEc+4o8iot0ZKSjioFd43kRjV4/YujOgnjPdqlUvxGKcy9t4tM1cAX21tx7txJxfZhfIsgSaFHPsqBPuN/sePvJ1YSBI77+JMLc2bP5AVI/pjidpKNxH5JtUjqEt+SHQlRWjO1ewkXF/kZBweSMXBi3Xl0Dy0YkNrLybBIgzTPzM4oSRitpagIPNELFTBBCQXOdpkjCkRmxYYDFpiIuwHV9wVJlo6sevb0Lco6eVdUmQjAHb+oSu3ajVDIUJuaOtHhOg8b+SUypp669sOasUQyCHWoWGRkav+54vfCVK01ZRZcMUj2uCOgn00F8WAZqX55W//cZq0IxA/mSFW3CQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wCn3IyooSA3jsjMlZ6/+PXYCW2Jy/3rcegUc0UFBpRc=;
+ b=IJBhXQ+KUBFUJiRTSELX7NlOr5/CHsw7LiCo7LUFjpq0QqpflkY0mPS7MA/Pqoll8jm1/V7TDFujaI9rEpLtVYWzmUUYoHTuHJY8DQNdGO30F1uTDn8NkH3AAHVzytDVE/UO5B95AHFDsWE9OCA/R9zcKiBPpMlKhRbzCHhDShvOCLRIHuugQVSDN9Xxl8KOkbpG0+BKk1vFm1vuPJbckLdu0a1MKiwaBWhselIHPPrwVeV55sz4KT5lTJAT8eAZpoQgA4diU05a7PYUi1KV5S/PdV2ucACFr4MI/gOOd+AckgIy6GJ3iLLNwqwe8hgrR9cpTsIKuh4sOvgVi3sobQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wCn3IyooSA3jsjMlZ6/+PXYCW2Jy/3rcegUc0UFBpRc=;
+ b=Sc0OCvBpks7Nim4iTdR6nxpNYkjW/R8VbjioNdhlarNmNCvyQX2E0jR7cTC6SXgz8yLclkE3jRIzsJnYONs9Z9GAlykg1/IuRBB5rvw1QEIdb1mJuRtsULlH0QUrLbGI77r+6CdJ2RVYD8OPMWcn9Vp7uZ186MbbXVAXpIiGj5ySw4Az/+xoNnrYoEXfueQ3gjDAlkL4NorCzFX0nTGJNlUTWyDACDQC9Nm1KM2K95jnotmGKp2ItjaBHzVe8ncx04wvkTpZqrI7BYL1C2iVxIj+TwyPu9Vd5F56pOmmXGeVDqKtjv5/93HvNbWU2KQ0NWkoGAHshBCHgFqIIPH6Rg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB10564.eurprd04.prod.outlook.com (2603:10a6:150:215::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
+ 2026 01:32:52 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Wed, 10 Jun 2026
+ 01:32:52 +0000
+Date: Tue, 9 Jun 2026 20:32:43 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-serial@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCHv2 4/4] serial: mxs-auart: fix IRQ registration ordering
+ and manage console clock
+Message-ID: <aii-uz01bYGETJC8@SMW015318>
+References: <20260609223717.41670-1-rosenp@gmail.com>
+ <20260609223717.41670-5-rosenp@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260609223717.41670-5-rosenp@gmail.com>
+X-ClientProxiedBy: SA9PR13CA0144.namprd13.prod.outlook.com
+ (2603:10b6:806:27::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TAJkCgA32XKnvihqQJQlAA--.2890S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3JF45GryxJr1fXr1DGFWkXrb_yoW3Kr4kpa
-	13urWfJr4kZFWSvw4jvF40kFZrGan7KFykCrnrtFy8Jw1v9FnYk34jqFy5XF1DZrW5Xw13
-	XFnrJ34IyF1Iy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4U
-	JVW0owA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4U
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRQ6p9UUUUU=
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10564:EE_
+X-MS-Office365-Filtering-Correlation-Id: 207819da-c0db-4c32-7eb5-08dec6903083
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|19092799006|18002099003|22082099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: vIdqDQbULFHRAUeIP8MnvrHEQLO8HWQR86xDPMat7HO4pcrT6zlWU4HbxOoc4rOcSV0S/+YTovUF2t6MeMspoXZ+HNx/viATlChYDNjY62+ruy2BW7NGeMrprtDvfwYipj6eQFeQwVVzh3ugcmwf9G0LWke0lcCugaAuG3TgllKIgG/fhsNeU1OG8EClGdvxJmK9kJLXRPzT+IdT5ljS/NybedhBf6DVqRSEc+iWHiOQOA5TONfe4p+9oQ4OEvmJztBWJ3bp5BhmaHrcnkMPc/HIAOnfA7mrYDaTT6zOFtsUWBXCQ9ExfWwXAj9Gs6JiAAV89CmtXusZ+fQyUa5Pdt5r4UGewiRaT9feYh1s3Ui8no3KIFlq2s61aHstWdU87KxOpr4X3p8+TKGrbtytk0drW6Zm88X+eEnTgI6sLC1NfL69inYF9c3VZ7Fjw7ycn1N7UTOdQegaVF4GLXstt9LTzsi6TWapO6bFgcm9OEBpa/YfZlXOCPyQrM/WTd4UfD4/rD6+49hJx4yCLIYCYdjsfm7Tky45t6WY8KnSGSuPtNVyMR9IjqQz9JHM8An7qWVOxrqWqpXnxp2dQme1KYUjc4FOaAfroS6yGVw5ukod0UZVxi/LPedOsBU+H848/dKfHmwQz5LZ5A4BZY/+3I3H6sdnkm6PGjJUgeVUBf3B8fO6EtZoCmbmAmkK5Li2
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(19092799006)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ko+tMLV8StCsFlF0DWlOZwMitYdSTLtoUkX9TT5i5eh/rbDnaCFjV6F5I31m?=
+ =?us-ascii?Q?3wq29icWI68bqZ3l9PAyg5FwDyF0W2vTJPWEpH8r7yHOSOusWZdDydqTBCGV?=
+ =?us-ascii?Q?flOupAmZVlqOnkuqttyNC1Z2hwwNb4+3iS0xWZ9VkouNi2WzaomR4lf5sYof?=
+ =?us-ascii?Q?pyDMZWOg4w4p+4gLZvcDmukLvVf90LFE2R6TJnts+Paz6TBnzRhhqruODI+1?=
+ =?us-ascii?Q?dLUJkscNKbLk4U0xkuJ5jBiYYrTtl8OZRcxrWtMkcnPwHJR7YwN3jRUv44xh?=
+ =?us-ascii?Q?2g3xxdLVDJc+oKNFjmAuwmnDj0YipcEkn8lHfdjd6wfcMWxp/pFcYCxYm1ua?=
+ =?us-ascii?Q?mPsZhp8RW/uCFUwYurmvJ9gGAmguRMxI4Up3hYvUbc+H2RuC2KUnrPb5ICyQ?=
+ =?us-ascii?Q?yUTBUmJon3a68v77jSTfwrxVs7x5YZW28YPR27OfFKmw+mUqYL2btzL73N/P?=
+ =?us-ascii?Q?XRFoKANMybtpqyYLE9/dtzoLOxweg0cjw4JWiUyvCKmf4s2qW+5tf8dFpbHe?=
+ =?us-ascii?Q?xFEIlVFmCe4KxxURi4x3+HeGwFxxSFnbF22rhkZP8OH8pLuSaJoxC8OHw4PG?=
+ =?us-ascii?Q?IrPFEWR/tSFVlDfPo0pFc+jC2WKGBK71RN71dt48gMQ4WsY1z6clxDwtl24p?=
+ =?us-ascii?Q?xNlQkHi7Fy7egiLBQ0/BXTfUf+d+lSFRGryA9Ol4A3ASquQUcbFps/svkcBe?=
+ =?us-ascii?Q?I2dct31e/VY064zsXNXyIlGHJWTvyYFKzyzKZaMNBBpHk6LSLfLY3z1/jE2O?=
+ =?us-ascii?Q?MqNnROqJZAj/ZthrAHNrqh9qx+WEU2RS0MtpOIX5SVAzF7+0raEHkdTPx3rQ?=
+ =?us-ascii?Q?/gFa0bKL1dS3t4LA0J5tVZa2Kn884b9AD4cuzMGxwmHF/GCckHAMUqgaeGT3?=
+ =?us-ascii?Q?dTurDNkCFwuJWcz2oz2PByG4O8UZgcGMQfufDdFQtKN57NTTSvpYeEBPC8m5?=
+ =?us-ascii?Q?1EXYAJqMHQvjsKgr26lms63vIq6UeW382ZIoperEyZcM/gsXa/X0nkK3iSpJ?=
+ =?us-ascii?Q?UipffGhPs7tpbdemJziv05C9WDprRtKtYs3ZDaKWGkRGfwSPq3UxSK9GmPlX?=
+ =?us-ascii?Q?LxfkxVjy7YFUk/rVKtZ5nGSi49yqPsbU0rfSQlt9DgwNfauviU7Hb9o/v2Bn?=
+ =?us-ascii?Q?vu2rVmbEThcRq5vOQenYlDt7dkm+672H9HRyuT6ed/s0SSGdpUtRvF8T8NNb?=
+ =?us-ascii?Q?ros39spovbKydOkGYWYC+ZHIsWL1xHwd8sYiOJYHnXECjdn2fXAOBw37NpVB?=
+ =?us-ascii?Q?wdCRKTYy1YgQUFkoWND6DuXMcwI4QfdbSVhNS0NjR/9WCRuMh6lO1Pg/Rr3b?=
+ =?us-ascii?Q?toLHddj6rGutqyWQPNy2/EtqyMWSg9kDIMyetxL2OcpkyOGXpKSlggogPtZ3?=
+ =?us-ascii?Q?w6jZ7Y5JPTePbNrguqshc2ZLJwkYlhjSnprwC7Ju3DeJ5OgWrK8TfS4qWXN/?=
+ =?us-ascii?Q?CidzCPKPdD4Oc7beF1FSLvlaG29fcyoqbkyAT650bn0ROYxq2J0vuhGGV2od?=
+ =?us-ascii?Q?7cCl0lDLTXGExJTEdt5rAPDIWLWof4qyLrxohhXb5fRd2X53so0XwG2c6t1R?=
+ =?us-ascii?Q?lmqH3VoJ7Suviwn7syz1pX63oVDazeBwGVo3g1dmo6MHYpC1H5fS7d45wCIb?=
+ =?us-ascii?Q?On8vFrd5gJu7dHsHG3Rkueb+goUWn8XjhFxXSilJzL95dyBsOih7Ah03fKEy?=
+ =?us-ascii?Q?PBjYzgFfvBJ/mqPLxNnhGy61t7HzgrpW6TubEdchJNj+LH8Lh46TMqy2aHtt?=
+ =?us-ascii?Q?oXCBJ8tna4CP0yAMWJgsTQ7Bb5lJMB+47l1gJeOl8RtgPAIDuLLW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 207819da-c0db-4c32-7eb5-08dec6903083
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 01:32:52.6915
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LQ5/c7Ny/yOlwkZkHQuo3zx2eIPeSds/8mJQ1x/Yb3nR6b7RA7T+2fqjsU+iXmJ7m7PGAZvjLBGPNVIXhTqvOcYTLPh2UuoDEcO/qG52ywyvKqCHryLQ+fGQt6XLgeIW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10564
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_183238_800513_AF5CA2B1 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260609_183303_966874_7AF59B0E 
+X-CRM114-Status: GOOD (  29.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,410 +144,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
+On Tue, Jun 09, 2026 at 03:37:17PM -0700, Rosen Penev wrote:
+> Move the main UART IRQ registration after uart_add_one_port so that
+> s->port.state and s->port.lock are initialized before the interrupt
+> handler can run. Mask all UART interrupts before adding the port to
+> prevent spurious IRQs left by the bootloader.
 
-Enable the on-board Gigabit Ethernet controller on the
-HiFive Premier P550 development board.
+Please use seperate patch to this problem only.
 
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
----
- .../dts/eswin/eic7700-hifive-premier-p550.dts | 240 ++++++++++++++++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 105 ++++++++
- 2 files changed, 345 insertions(+)
+Frank
 
-diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-index 131ed1fc6b2e..edd91b04e251 100644
---- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-+++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-@@ -13,11 +13,251 @@ / {
- 
- 	aliases {
- 		serial0 = &uart0;
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 	};
- 
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-+
-+	vcc_1v8: vcc1v8 {
-+		 compatible = "regulator-fixed";
-+		 regulator-name = "vcc1v8";
-+		 regulator-always-on;
-+		 regulator-boot-on;
-+		 regulator-min-microvolt = <1800000>;
-+		 regulator-max-microvolt = <1800000>;
-+	 };
-+};
-+
-+&xtal24m {
-+	clock-frequency = <24000000>;
-+	clock-output-names = "xtal24m";
-+};
-+
-+&pinctrl {
-+	status = "okay";
-+	vrgmii-supply = <&vcc_1v8>;
-+
-+	pinctrl_gpio0: gpio0-grp {
-+		gpio0-pins {
-+			pins = "gpio0";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio5: gpio5-grp {
-+		gpio5-pins {
-+			pins = "gpio5";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio11: gpio11-grp {
-+		gpio11-pins {
-+			pins = "gpio11";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio14: gpio14-grp {
-+		gpio14-pins {
-+			pins = "mode_set1";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio15: gpio15-grp {
-+		gpio15-pins {
-+			pins = "mode_set2";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio28: gpio28-grp {
-+		gpio28-pins {
-+			pins = "gpio28";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio43: gpio43-grp {
-+		gpio43-pins {
-+			pins = "usb1_pwren";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio71: gpio71-grp {
-+		gpio71-pins {
-+			pins = "mipi_csi0_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio74: gpio74-grp {
-+		gpio74-pins {
-+			pins = "mipi_csi1_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio76: gpio76-grp {
-+		gpio76-pins {
-+			pins = "mipi_csi2_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio77: gpio77-grp {
-+		gpio77-pins {
-+			pins = "mipi_csi2_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio79: gpio79-grp {
-+		gpio79-pins {
-+			pins = "mipi_csi3_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio80: gpio80-grp {
-+		gpio80-pins {
-+			pins = "mipi_csi3_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio82: gpio82-grp {
-+		gpio82-pins {
-+			pins = "mipi_csi4_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio84: gpio84-grp {
-+		gpio84-pins {
-+			pins = "mipi_csi4_mclk";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio85: gpio85-grp {
-+		gpio85-pins {
-+			pins = "mipi_csi5_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio94: gpio94-grp {
-+		gpio94-pins {
-+			pins = "s_mode";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio106: gpio106-grp {
-+		gpio106-pins {
-+			pins = "gpio106";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio111: gpio111-grp {
-+		gpio111-pins {
-+			pins = "gpio111";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+};
-+
-+&gmac0 {
-+	phy-handle = <&gmac0_phy0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio106>;
-+	rx-internal-delay-ps = <20>;
-+	tx-internal-delay-ps = <100>;
-+	status = "okay";
-+};
-+
-+&gmac0_mdio {
-+	gmac0_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 10 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
-+};
-+
-+&gmac1 {
-+	phy-handle = <&gmac1_phy0>;
-+	/*
-+	 * The MAC silicon unconditionally introduces an ~2 ns TX clock-to-data
-+	 * skew (MAC-side TX internal delay). The PHY provides the standard
-+	 * ~2 ns RX internal delay. The driver additionally inverts the RX
-+	 * clock at 1000 Mb/s to correct a silicon RX sampling timing issue.
-+	 * phy-mode is "rgmii-id": TX delay from the MAC silicon, RX delay
-+	 * from the PHY.
-+	 */
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio111>;
-+	rx-internal-delay-ps = <200>;
-+	tx-internal-delay-ps = <2200>;
-+	status = "okay";
-+};
-+
-+&gmac1_mdio {
-+	gmac1_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 15 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
- };
- 
- &uart0 {
-diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-index c3ed93008bca..c77bc8b1b7bc 100644
---- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-+++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -5,6 +5,9 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/reset/eswin,eic7700-reset.h>
-+
- / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
-@@ -202,6 +205,11 @@ pmu {
- 				<0x00000000 0x0000000f 0xfffffffc 0x000000ff 0x00000078>;
- 	};
- 
-+	xtal24m: oscillator {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
-@@ -245,6 +253,85 @@ plic: interrupt-controller@c000000 {
- 			#interrupt-cells = <1>;
- 		};
- 
-+		hsp_power_domain: bus@50400000 {
-+			compatible = "simple-pm-bus";
-+			ranges;
-+			clocks = <&clk 171>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+
-+			hsp_sp_csr: hsp-sp-top-csr@50440000 {
-+				compatible = "eswin,eic7700-syscfg", "syscon";
-+				reg = <0x0 0x50440000 0x0 0x2000>;
-+			};
-+
-+			gmac0: ethernet@50400000 {
-+				compatible = "eswin,eic7700-qos-eth",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50400000 0x0 0x10000>;
-+				interrupts = <61>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 193>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH0_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac0>;
-+				status = "disabled";
-+
-+				gmac0_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac0: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+
-+			gmac1: ethernet@50410000 {
-+				compatible = "eswin,eic7700-qos-eth-clk-inversion",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50410000 0x0 0x10000>;
-+				interrupts = <70>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 194>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH1_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x200 0x208 0x218 0x214 0x21c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac1>;
-+				status = "disabled";
-+
-+				gmac1_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac1: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+		};
-+
- 		uart0: serial@50900000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x50900000 0x0 0x10000>;
-@@ -341,5 +428,23 @@ gpioD: gpio-port@3 {
- 				#gpio-cells = <2>;
- 			};
- 		};
-+
-+		pinctrl: pinctrl@51600080 {
-+			compatible = "eswin,eic7700-pinctrl";
-+			reg = <0x0 0x51600080 0x0 0x1fff80>;
-+		};
-+
-+		clk: clock-controller@51828000 {
-+			compatible = "eswin,eic7700-clock";
-+			reg = <0x0 0x51828000 0x0 0x300>;
-+			clocks = <&xtal24m>;
-+			#clock-cells = <1>;
-+		};
-+
-+		reset: reset-controller@51828300 {
-+			compatible = "eswin,eic7700-reset";
-+			reg = <0x0 0x51828300 0x0 0x200>;
-+			#reset-cells = <1>;
-+		};
- 	};
- };
--- 
-2.25.1
-
+>
+> After probe succeeds, disable the module clock for non-console ports
+> since startup will re-enable it on port open. For console ports, keep
+> the clock prepared so auart_console_write() can safely call
+> clk_enable() from atomic context.
+>
+> Guard the IRQ handler and get_mctrl with clk_enable/clk_disable since
+> GPIO IRQs and serial-core status queries can fire while the clock is
+> disabled for non-console ports.
+>
+> In remove, disable the clock for console ports to balance the enable
+> done in probe, preventing a clock leak on unbind.
+>
+> Assisted-by: opencode:big-pickle
+> ---
+>  drivers/tty/serial/mxs-auart.c | 49 +++++++++++++++++++++++++++-------
+>  1 file changed, 39 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
+> index 4499e3206e85..e2b656638ab3 100644
+> --- a/drivers/tty/serial/mxs-auart.c
+> +++ b/drivers/tty/serial/mxs-auart.c
+> @@ -738,9 +738,13 @@ static u32 mxs_auart_modem_status(struct mxs_auart_port *s, u32 mctrl)
+>  static u32 mxs_auart_get_mctrl(struct uart_port *u)
+>  {
+>  	struct mxs_auart_port *s = to_auart_port(u);
+> -	u32 stat = mxs_read(s, REG_STAT);
+> +	u32 stat;
+>  	u32 mctrl = 0;
+>
+> +	clk_enable(s->clk);
+> +	stat = mxs_read(s, REG_STAT);
+> +	clk_disable(s->clk);
+> +
+>  	if (stat & AUART_STAT_CTS)
+>  		mctrl |= TIOCM_CTS;
+>
+> @@ -1079,6 +1083,7 @@ static irqreturn_t mxs_auart_irq_handle(int irq, void *context)
+>  	struct mxs_auart_port *s = context;
+>  	u32 mctrl_temp = s->mctrl_prev;
+>
+> +	clk_enable(s->clk);
+>  	uart_port_lock(&s->port);
+>
+>  	stat = mxs_read(s, REG_STAT);
+> @@ -1118,6 +1123,7 @@ static irqreturn_t mxs_auart_irq_handle(int irq, void *context)
+>  	}
+>
+>  	uart_port_unlock(&s->port);
+> +	clk_disable(s->clk);
+>
+>  	return IRQ_HANDLED;
+>  }
+> @@ -1603,10 +1609,6 @@ static int mxs_auart_probe(struct platform_device *pdev)
+>  	}
+>
+>  	s->port.irq = irq;
+> -	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
+> -			       dev_name(&pdev->dev), s);
+> -	if (ret)
+> -		goto out_disable_clk;
+>
+>  	platform_set_drvdata(pdev, s);
+>
+> @@ -1627,9 +1629,28 @@ static int mxs_auart_probe(struct platform_device *pdev)
+>
+>  	mxs_auart_reset_deassert(s);
+>
+> +	/* Mask all UART interrupts to prevent spurious IRQs from bootloader */
+> +	mxs_write(0, s, REG_INTR);
+> +
+>  	ret = uart_add_one_port(&auart_driver, &s->port);
+> -	if (ret)
+> -		goto out_free_qpio_irq;
+> +	if (ret) {
+> +		auart_port[s->port.line] = NULL;
+> +		goto out_disable_clk;
+> +	}
+> +
+> +	/*
+> +	 * Request the main IRQ after uart_add_one_port so that
+> +	 * s->port.state and s->port.lock are initialized before
+> +	 * the handler can run in response to a bootloader-left
+> +	 * interrupt.
+> +	 */
+> +	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
+> +			       dev_name(&pdev->dev), s);
+> +	if (ret) {
+> +		uart_remove_one_port(&auart_driver, &s->port);
+> +		auart_port[s->port.line] = NULL;
+> +		goto out_disable_clk;
+> +	}
+>
+>  	/* ASM9260 don't have version reg */
+>  	if (is_asm9260_auart(s)) {
+> @@ -1641,10 +1662,16 @@ static int mxs_auart_probe(struct platform_device *pdev)
+>  			 (version >> 16) & 0xff, version & 0xffff);
+>  	}
+>
+> -	return 0;
+> +	/*
+> +	 * Disable clock -- startup will re-enable when the port is opened.
+> +	 * For the console port the clock must stay prepared so that
+> +	 * auart_console_write() can safely call clk_enable() from
+> +	 * atomic context.
+> +	 */
+> +	if (!uart_console(&s->port))
+> +		clk_disable_unprepare(s->clk);
+>
+> -out_free_qpio_irq:
+> -	auart_port[s->port.line] = NULL;
+> +	return 0;
+>
+>  out_disable_clk:
+>  	clk_disable_unprepare(s->clk);
+> @@ -1657,6 +1684,8 @@ static void mxs_auart_remove(struct platform_device *pdev)
+>
+>  	uart_remove_one_port(&auart_driver, &s->port);
+>  	auart_port[s->port.line] = NULL;
+> +	if (uart_console(&s->port))
+> +		clk_disable_unprepare(s->clk);
+>  }
+>
+>  static struct platform_driver mxs_auart_driver = {
+> --
+> 2.54.0
+>
+>
 
