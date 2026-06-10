@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473F8CD98C8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3905CD8CB2
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 07:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8alqY4R5hutRsfyBo2HXDGln7eQlwJBz+LYE97EJFwA=; b=cfgxS3xpSeUcOSVKAFc5YftoTa
-	cBo1OwfyXA21fDyg5WaPJToiCA48NjqpwAiPiNkTwmfgl4TvvYHuCSx11v/BFK70dD61NAWFyH00P
-	TOKwmV9vidK71D90wcq44KxMnurZOXiNjNIHb3WMIzbbGN75b0D1j7npoWgIxIo1O7EXi1NYRQJ/i
-	MAdVSaWeWLHO8F4m1VD0tZgm8LczelsuPCnT9Am+Lb8bz7mzNZxT3GDcs8xFbiDs0BYUxMBiZbyG9
-	B07NSBYF0jmBC/Mw+UOZ74TY1hd1gyhZzY+InNLygmIObrZ/NOSHc9rq9agXGzSDm3dpPfdacnrmF
-	EeuZS0Pg==;
+	bh=EQXq7y4VDRCnCs7aTyPe3mddFLkda83JZJ2Nuluqp8U=; b=28wA5h67UUUYpkqhtibsU1pzho
+	xomn74VPuXeZWZWoo+b2qnDue57zVyGOLlO24zJKHHCTwC4fVsqwdHFkFpsshs/Z9XoIKOXIhm540
+	XRfCY54GPyQmID9DlTi+J6txQ9KRQFabH0+IfZerkULNoYdJj9dM5bA7Hsor7se2CP0+FVIXvucVB
+	2hWyEIS2FGessk8a67y9X49kSFI7ClYWZ51l8v07CANg1KebEdxV2ZlNHDJTqZNjqiRsNGyEWpaCb
+	ByS0wZNJL+ffMseXvLrc5RPR+EUF19eEwXyDe3dPJmnBeBXchSPwmmkR0e7sqRTdCMo0tkHvXsqeR
+	1/UZrcNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDoA-00000006zmu-3ozT;
-	Wed, 10 Jun 2026 07:57:06 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wXDoH-00000006zs5-115n;
+	Wed, 10 Jun 2026 07:57:13 +0000
+Received: from mail-koreacentralazon11023121.outbound.protection.outlook.com ([40.107.44.121] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDo8-00000006zkB-0HJr
+	id 1wXDoE-00000006zoW-1BB0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 07:57:05 +0000
+	Wed, 10 Jun 2026 07:57:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t/DaBzLh1YKi4SpZNCHh3AsYayLw/oVpR8OOlDvlxnxfa0xtYIOd0tl1hc+L/KHqdDKAGU3vkew9rdKCm0Q7OvG3HsEYZq56rlnrH8XHFa6eU5J/P5V9V1Law0ncxygF3nb5cKfDD4Lj5zkTcoNhtMgIMGDzAPZ6fAvXBIpTyyWg3r+YSERp8EjpEDYdkZCrLf6G6Z8fsLCGV+bZpv8u7M+NcZtiBoVVdtoEq0X3+wG9kvvnsYDCANn0pP3kWeVPPbu7S4pf+uoAyNGacoKyPUzJ2tZuyEZhiRcIvXIV1/sjLzA1DQZBCRZs1yJrL3tBrWHh1xNPqCHXvyykSyUE0g==
+ b=aDqa4/wAhTk8L+ro79jHuJ6/AdOFUpxmXUuOzLX+U6zXS2L0+gLxKU9VXtAuCLUFqweHl/G04rsMRI85PeBpZaG3UyG/Ykog9tMa1WMFPnfX2u/sjDJppEUCKkmgChyV/zF2EzzMl60MK6/w5aLheH2BRuWotfmcNvpi36P+E7BaudldFHL6NT7rO98eCLfRwhUJRkTuQ+u7SkdHAXsMVY3liXiSD4mcwn0iytkUj/vPQkWRv63LUvAU7VevO58+bMhhjXS6pQhB0wFS4b6wbdC/zD1bh9myGX76nAaQwNwmztGthnELMeuvENrUcXEOj9NjK0TuBNNP9Qy1zuUifw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8alqY4R5hutRsfyBo2HXDGln7eQlwJBz+LYE97EJFwA=;
- b=MwZqGi16SmfWljbuMjhX/CwcijI05ROnG7AR53JnfztDQx4gV/cuDanUTBiI9r7fyKLnXeqtL/xo2jxnCX44sEtNnT6ypX6gr4rMSFWYjJ6LUBu7EOpPXNgvCV03ffzYQUOmUOFuPelK6f/wsEJBDtRn7QXCDtqUX+Bq70VKEwZdafjC2BMxB9LcwuIidUSDZBfiprexQr34R0zGee6xC1erNNNhwNbGNbgBme+Y7bx7W+DHRrh0ndd5vxLnGD3WVm2mf12MSmRJnp2yrEHmMk7Ihv27y4Q/Id2+q0pNRV/ZfEhTl2RJ7rM3PSn8Gyl+fF5fJOUUZx3BOiaegHbzvw==
+ bh=EQXq7y4VDRCnCs7aTyPe3mddFLkda83JZJ2Nuluqp8U=;
+ b=CeBcv5gx3l/ysV6lNAs5WkxCSUWKKPgSjnTZEA0430i8XqW6E8uEqoWyFvSBAjzyjEewn4g7Mf1//irDJXVknktpd8tRfQmqq9OZaF49LLIWfVmNy88XQB7McZUNO1JOqI9yxLaEEGKIuacSBpCAUNFlNtwNyOQqAEKq6o1QPd3r6i81YiDPwCJ51h9zjZl4oW/t2UP5vecfgkmNZZnqu3YE2mJ9mwY6i/vyzR0r6CeN9y+E0fpEJrrkZMsLVg0noS51GoL9ykdiIRJUtC2ejXyh9D/9x8Cbc8duXwUJ47bnKJko50KosDkUIcHZXF7AwSP6RZ0PakIoHPWNW/uDww==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI2PR02CA0034.apcprd02.prod.outlook.com (2603:1096:4:195::9) by
- SI3PR06MB8756.apcprd06.prod.outlook.com (2603:1096:4:2a7::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.11; Wed, 10 Jun 2026 07:56:50 +0000
-Received: from SG2PEPF000B66D0.apcprd03.prod.outlook.com
- (2603:1096:4:195:cafe::73) by SI2PR02CA0034.outlook.office365.com
- (2603:1096:4:195::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.10 via Frontend Transport; Wed,
- 10 Jun 2026 07:56:50 +0000
+Received: from SG2P153CA0025.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::12) by
+ SE3PR06MB8666.apcprd06.prod.outlook.com (2603:1096:101:330::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
+ 2026 07:56:51 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:c7:cafe::b) by SG2P153CA0025.outlook.office365.com
+ (2603:1096:4:c7::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.3 via Frontend Transport; Wed, 10
+ Jun 2026 07:56:51 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -54,11 +55,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66D0.mail.protection.outlook.com (10.167.240.26) with Microsoft
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 07:56:49 +0000
+ 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 07:56:48 +0000
 Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 786E94084278;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id E58D34084279;
 	Wed, 10 Jun 2026 15:56:47 +0800 (CST)
 From: joakim.zhang@cixtech.com
 To: mturquette@baylibre.com,
@@ -75,9 +76,9 @@ Cc: cix-kernel-upstream@cixtech.com,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Joakim Zhang <joakim.zhang@cixtech.com>
-Subject: [PATCH v3 2/5] reset: cix: add audss support to sky1 reset driver
-Date: Wed, 10 Jun 2026 15:56:42 +0800
-Message-ID: <20260610075645.3581145-3-joakim.zhang@cixtech.com>
+Subject: [PATCH v3 5/5] arm64: dts: cix: sky1: add audss system control
+Date: Wed, 10 Jun 2026 15:56:45 +0800
+Message-ID: <20260610075645.3581145-6-joakim.zhang@cixtech.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260610075645.3581145-1-joakim.zhang@cixtech.com>
 References: <20260610075645.3581145-1-joakim.zhang@cixtech.com>
@@ -85,29 +86,30 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66D0:EE_|SI3PR06MB8756:EE_
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SE3PR06MB8666:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: b5cee643-934c-4654-982b-08dec6c5d3bd
+X-MS-Office365-Filtering-Correlation-Id: 91c4dacf-e811-4bcf-bb20-08dec6c5d427
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|82310400026|376014|7416014|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: PkEQM8aPAcnl6toIu9R1lG4mts5+iCC1gFZydTl04fmb4Is58kNuQMjqq+NC4rCp6cq4HjGOrZo+Sx9aUA5RdsnsN3qXPVPx1737mNcbSFytfitJBV7eYRUfChozit5rvaAqybc/2vdPkzcx4gkRGyy3YddEb8/4zHhPsb7Ontgjmo4hZHo9lnk1AVPTsukptBmNXNGcbb3phJ5nied5VEH9FUs1iNQY358DE3jjttJLcE2geb/p/SFb0pV30PVmZqPPbXLR1feYLTyXQqm4QJTF+2kFVGj0YYWGQmBY4e9++SSZXYzdMRQuIjHdmfiE2F/2T+e4VO4gOF3XPfGYkjVVjgk+MV8MuVgf/pJZgPiaDcp+3IX8eVqxuUlytDXu24QIpPtTaTaI3p2c0sS7eP7aPLR33qk/jcPg0prtsfvyttBnoPtlTfMb121sqtplp2ONp9+YXKydsXBC2N9LNS2ImgjLWFLUksBlMklhYhe9dsBQqbtuKlJLVvLT7HzjJyslYb3Bv5UJwjpIhbI9Y72HZuKOrq6QWJvOfsjgCDjESl4ok2KEdyMZMD5/T5fbZu6xqzjETtKtbmz4DwBq9JcgaZofOrt41JVlvIqXf2qAzpWS3Rj0lr7JUTsV/qhereh4RWflAVxd0RFlokHk9X2C9BZPKQK/G5OV/NzM7Rozv/Gnjon2NVVRssr07kkDZRn05oDDh51liUL7J0B2nPdRrCLbq6f4UK3Nri9Nl14=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(82310400026)(376014)(7416014)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|7416014|376014|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: vkNjsul07cBF1weehXO0+vWQbgwA/omBHkB4760pztZuPVw0Oy5vrs7O2TzaW4MDd3P5F2xh+LRLAYXF/A3b93GhG514lNB0IGGJ+kDGUIVSVVtstk1fjaq9UYnnZrn+yXrAYHlBNZrx/k9D+pxMwKiQbrQq5hBujaaqPOF5tz1D9uFEiDCrEhHMEj3M4MhKbNp0OhikplwLdiF17Meprx8PKC9M3deF0AQasGFwGxLDyhRqTPvpe23JWR8z7rxaaj6MYxauG8LzvcUTUaYETLaCqJTzKaXiugJ1BYJSA5ai8KkD0G3Vjus1KZeUftobTsbQVUI8aV8DqLEm93ntX8YNzlSIuQhwc/l6LBw0dqfa9q7X4fA3eCIs/7znH++Q5YID9L0l1V1EOUAAT1pYzSdnztE+tMPCE2LBpaKEtlrkJHWIbN+gF3dEBUkQ2pLnjDITJtRfj8J+216pwdwmMDcVRjkpMArn9yJW5z2lUA0Mjs4WIuDJVtqvcufai8klMh9+MD2UM9K4H9AHXuGXTljqMN5owUoJatsY+X2BTx6npRQD2SBWzV0pDK73RIl/GGalwAcr3aPtNAfT5qJoMzLye77kQ3I9446OE7t7BaGUT22r8EKtjTIPWVvLIO4bfY178hfcBvCA/SnATS0iLSWwX3WwD2BTDaf3HKbVCZv2VipsrdXttmylCgbyy/A/i1pKV1N6IvP/Hd8wdy5qHytHwxDitWbl3oKIqq8OUAs=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SnZDxQ4OuPPzGR4omzRDFtI7Tbf3P62w5/c0Lc7hcpeb7mw3rjTA2AYhk4/IVAGUU4mzfq+LgdW9g1RV5SkondkG+W+zyyEYjAUCGoCS2A1ZmlCVfe7+rJIy5BlZa3hIL0nDD1933Ssm+9vYVa7LOCGEy/3/QQA7d1aTGbVCPYkqysp58I7dyEFg839a46LwuXx1+X6kmpYdK2w/0mDwmOsc2ZGkS7Z2l9SHofbneAaMt7NjvkPcyArB7M8eByO7nnFSU35BV0AX/Dsm+V5cR7TkaPGWob5xyGczxEzn54O+nB7TrefTfPrSMgGdBJL1fvFSghhWVKYBT+KlzUJg5uwuntHg6MhKE9bdC1XPUoe6Yipxu0oAH05Sc0fJfqZvyCq1C1PgwXcFZAQ4WyxM9yiNCHlp8ghtaQ+QJ/Im64BzE08dPTqG92VwawZJC05k
+X-MS-Exchange-AntiSpam-MessageData-0: bQk0RbH19bSzPj42aRbWh00zZ6YTcnX6Ff3dpLDkcSAP4BJevfMQGmkm0yboHFjXK4P78oz0NonCk5jn+evrZfvhrhy/8Q/o9SMda5r0SX6CxwBx4108AQOBcQEGUZRQn7k29H8Ib4jv2TSwil19WwvPPkGVxcFMxzgigAk79HsvwtHyQaNnlmlpjWnrqnujisYeXoyqWjEShBzg6scBNRtRgnFAtRxfdAUzE+Ju+xt2RgVGVM6S+pF6334nvV1r0lVYwld9QtMsds+qVyGLOgGwK1isU50wtE9uv6vw6E87XxNmYv60H54wzuk07hhPfWN5o2YFtVob+DqHqGu7tuDR8ee8m8AVORl/U4eiN8ZEUkPVGMvAwoRiQfhPxuISj223SL22vHyEn+L2eBIbTo5rbGo6SA8xye0Pn6ny+Ew+gyofb/DBJcfCKa2tBrzF
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 07:56:49.4641
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 07:56:48.9439
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5cee643-934c-4654-982b-08dec6c5d3bd
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91c4dacf-e811-4bcf-bb20-08dec6c5d427
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66D0.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI3PR06MB8756
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB8666
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_005704_108726_F04ADCBD 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20260610_005710_314001_C43B3DC5 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,87 +126,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-Extend the Sky1 reset controller driver for the AUDSS CRU syscon. The
-AUDSS block provides sixteen active-low software reset bits in one
-register for audio subsystem peripherals.
-
-Add a device tree match for cix,sky1-audss-system-control and the
-corresponding reset signal table in reset-sky1.c, reusing the existing
-regmap-based reset ops used by the FCH and S5 system control variants.
+Add audss system control device node, which would provides
+clocks and resets for devices in audss domain.
 
 Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
 ---
- drivers/reset/reset-sky1.c | 36 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 34 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/cix/sky1.dtsi | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/drivers/reset/reset-sky1.c b/drivers/reset/reset-sky1.c
-index 78e80a533c39..88100c631cee 100644
---- a/drivers/reset/reset-sky1.c
-+++ b/drivers/reset/reset-sky1.c
-@@ -16,6 +16,7 @@
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index bb5cfb1f2113..368a1d85c93d 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -6,6 +6,10 @@
  
- #include <dt-bindings/reset/cix,sky1-system-control.h>
- #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/cix,sky1.h>
++#include <dt-bindings/clock/cix,sky1-audss.h>
++#include <dt-bindings/reset/cix,sky1-system-control.h>
++#include <dt-bindings/reset/cix,sky1-s5-system-control.h>
 +#include <dt-bindings/reset/cix,sky1-audss-system-control.h>
+ #include "sky1-power.h"
  
- #define SKY1_RESET_SLEEP_MIN_US		50
- #define SKY1_RESET_SLEEP_MAX_US		100
-@@ -258,6 +259,34 @@ static const struct sky1_src_variant variant_sky1_fch = {
- 	.signals_num = ARRAY_SIZE(sky1_src_fch_signals),
- };
+ / {
+@@ -488,6 +492,26 @@ mbox_pm2ap: mailbox@65a0080 {
+ 			cix,mbox-dir = "rx";
+ 		};
  
-+enum {
-+	AUDSS_SW_RST = 0x78,
-+};
++		audss_cru: system-controller@7110000 {
++			compatible = "cix,sky1-audss-system-control", "simple-mfd", "syscon";
++			reg = <0x0 0x07110000 0x0 0x10000>;
++			#reset-cells = <1>;
++			status = "okay";
 +
-+static const struct sky1_src_signal sky1_audss_signals[] = {
-+	[AUDSS_I2S0_SW_RST]   = { AUDSS_SW_RST, BIT(0) },
-+	[AUDSS_I2S1_SW_RST]   = { AUDSS_SW_RST, BIT(1) },
-+	[AUDSS_I2S2_SW_RST]   = { AUDSS_SW_RST, BIT(2) },
-+	[AUDSS_I2S3_SW_RST]   = { AUDSS_SW_RST, BIT(3) },
-+	[AUDSS_I2S4_SW_RST]   = { AUDSS_SW_RST, BIT(4) },
-+	[AUDSS_I2S5_SW_RST]   = { AUDSS_SW_RST, BIT(5) },
-+	[AUDSS_I2S6_SW_RST]   = { AUDSS_SW_RST, BIT(6) },
-+	[AUDSS_I2S7_SW_RST]   = { AUDSS_SW_RST, BIT(7) },
-+	[AUDSS_I2S8_SW_RST]   = { AUDSS_SW_RST, BIT(8) },
-+	[AUDSS_I2S9_SW_RST]   = { AUDSS_SW_RST, BIT(9) },
-+	[AUDSS_WDT_SW_RST]    = { AUDSS_SW_RST, BIT(10) },
-+	[AUDSS_TIMER_SW_RST]  = { AUDSS_SW_RST, BIT(11) },
-+	[AUDSS_MB0_SW_RST]    = { AUDSS_SW_RST, BIT(12) },
-+	[AUDSS_MB1_SW_RST]    = { AUDSS_SW_RST, BIT(13) },
-+	[AUDSS_HDA_SW_RST]    = { AUDSS_SW_RST, BIT(14) },
-+	[AUDSS_DMAC_SW_RST]   = { AUDSS_SW_RST, BIT(15) },
-+};
++			audss_clk: clock-controller {
++				compatible = "cix,sky1-audss-clock";
++				power-domains = <&smc_devpd SKY1_PD_AUDIO>;
++				resets = <&s5_syscon SKY1_AUDIO_HIFI5_NOC_RESET_N>;
++				clocks = <&scmi_clk CLK_TREE_AUDIO_CLK0>,
++					 <&scmi_clk CLK_TREE_AUDIO_CLK2>,
++					 <&scmi_clk CLK_TREE_AUDIO_CLK4>,
++					 <&scmi_clk CLK_TREE_AUDIO_CLK5>;
++				clock-names = "x8k", "x11k", "sys", "48m";
++				#clock-cells = <1>;
++				status = "okay";
++			};
++		};
 +
-+static const struct sky1_src_variant variant_sky1_audss = {
-+	.signals = sky1_audss_signals,
-+	.signals_num = ARRAY_SIZE(sky1_audss_signals),
-+};
-+
- static struct sky1_src *to_sky1_src(struct reset_controller_dev *rcdev)
- {
- 	return container_of(rcdev, struct sky1_src, rcdev);
-@@ -329,6 +358,8 @@ static int sky1_reset_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	variant = of_device_get_match_data(dev);
-+	if (!variant)
-+		return -ENODEV;
- 
- 	sky1src->regmap = device_node_to_regmap(dev->of_node);
- 	if (IS_ERR(sky1src->regmap)) {
-@@ -347,8 +378,9 @@ static int sky1_reset_probe(struct platform_device *pdev)
- }
- 
- static const struct of_device_id sky1_sysreg_of_match[] = {
--	{ .compatible = "cix,sky1-system-control", .data = &variant_sky1_fch},
--	{ .compatible = "cix,sky1-s5-system-control", .data = &variant_sky1},
-+	{ .compatible = "cix,sky1-system-control", .data = &variant_sky1_fch },
-+	{ .compatible = "cix,sky1-s5-system-control", .data = &variant_sky1 },
-+	{ .compatible = "cix,sky1-audss-system-control", .data = &variant_sky1_audss },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, sky1_sysreg_of_match);
+ 		mbox_sfh2ap: mailbox@8090000 {
+ 			compatible = "cix,sky1-mbox";
+ 			reg = <0x0 0x08090000 0x0 0x10000>;
 -- 
 2.50.1
 
