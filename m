@@ -4,140 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08015CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 13:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA43CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 13:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2mw98UDti+w23bYsqEoXHV6+vUXcKMaT+r/hqgm+CvE=; b=Qj4Myi4m6uEjbyox+6zqp7FK84
-	skji3Wr+rv9U/4Uq13ABdJqRLLoXnVSZss8XbJUQRMfP9ZzGiHusQtlQwnMOsNKH7yszhNhsekEvO
-	RIQDXoQbMsDzH30s7hQa2d0bb1gL6C+U2w58ptRMshGGOqXOhSnRDj57xhuzHsTjKCsLTf2lgmZ1u
-	Q2IYmZOrS35kpMLiM5QhvoOhfozkxRQhCwCg40IR/7vhTRaBXS234Pj6ZrW733h0nH4d1dZangn3o
-	gmy61wLiI+GKA5SNiL8zv2hRlkSdC3/zV8PGjoFLgh4KUHRT7rwVz6pnASZrSMteTCmF4HQz6YEzt
-	eUYW2PDg==;
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=drt5aU1vv5EZi/WvJghB2txl0pHsyFWDzdivobp2RP4=; b=nwVtEVakqqTGBZWKiWFwOJ5/iU
+	tx42nn+pqKOHYAQ8u15YBzJqcnDTaQ2Xj7ozaDVnP5G0SIHVW63vo9LjtDBc2HY78tjKW95Q7f/KM
+	gihvC15pQVcGU8A50wM3tuUckDT58iXLUwg8s0cThzPBs5whoqL22OBKqPMRq3dls7fdEbRbfALcM
+	rTbo4AsvMVL97v82LPP2yYTmdGzXNtSv1oryoheJiysECjqhpiXOttKfjYhKl89jk303IjlBSnW+m
+	0v6eKIuTIbdJTW7BLojx5c+cEWCD0FZgUKMusOXjs34Gb2N51OUwgTsA16XDOpHe0+LKBvMEXAl2C
+	pNNVt6EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXIrU-00000007kfg-0kPS;
-	Wed, 10 Jun 2026 13:20:52 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wXIs6-00000007kn7-1YYu;
+	Wed, 10 Jun 2026 13:21:30 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXIrS-00000007kf8-0j1K
+	id 1wXIs3-00000007km0-3rhO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 13:20:51 +0000
+	Wed, 10 Jun 2026 13:21:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gyMUHL0TFcIFQynk30bOQjtn9cxIl6Rv+vntX84r+7C625TCYbxKQpghae/z58+1fVhtHOAyXJzcTIVtaCoYtaQk+IRRc/Z9vSuJsRyKa7J3L5Pq07JBMxRuJFJcgnYhynJ8YQJk/7j5/nQNTZh3LlQsymhW7D7LmTkfk8oo7K4GztH7od7kcKQdhPwhVx2ZXZ/myqZhqM8WVg/XupFUJXaarZoC2WXhv9X/OfJyC8oYUsAiLK/cciArLjU3XNVGTTlxdK4zmuEBreyV2wylLLtTIgNqYUHj1luLm+aV7tM14ygFIDfXNtBw1QSSE5xh4ank9UzGxAAw5clg4BQaVA==
+ b=bO46S3pnFHSE1fbhxFaYlhxU+un0oG065XBG5F5um0CP5rQ4vs95SeC4ubgc4GgnoE5CIb7gPMwjkFApAk7RaKsTZV42b+AAGuoH9ztT21pwCiIO6xaXrtQFrp50qY0evQgNJIN1MLEgDEh1fxY0Udta4ewj4FkdcGbc/8fsTLqMpYHkihfqiiClJFZBX/Dv9F3ymXo90OENJHNpN7MogX2uceMsFXYCzCaToAiymnyPfFWDPrG0yamM/U1b9H5dPVw6hVCP17DNA/Ova2p1Or8sx7nwia+jAPhoUDsdD1f4zrI0+LVQGdN58ikfnuuuBq5Iv70t84BZ2MTzH7iHZg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2mw98UDti+w23bYsqEoXHV6+vUXcKMaT+r/hqgm+CvE=;
- b=QCM/suTfjCgTFjaGp/zozt+fUOTom/AquZVLGoa14hiXUQiJPYk3MjCPa7AlkJWuftsHRBe72u2BRX9ow5skzDVWSQQavxbfbDzqlIVdyh+TWTBiNDNq26fhsWcx8mnHqN4NSYB0DrTFUJiTTA54+G9TA+tgk7JNNaZeZQb6iGFgurwjSklCvjaI6D/mrv4Jfc6FG8P1Nxv3FKKzskmAYT8Z7UEgFjeR7GJ0hNFQRAbEe5PEGdk2ZTo/vBH+a6mZrmDUqrEKWG/puEoKrdBinMPHQHKe2Spuzive5TzWfxfEaUf+J59nBz1pIFDHvhbEP0rrnLDfPK+HVg52RThFGQ==
+ bh=drt5aU1vv5EZi/WvJghB2txl0pHsyFWDzdivobp2RP4=;
+ b=Y4Km71P398gl+i0cM5H/hnibPnmXEIIJD46zNz4zP3kGr2kbgyEZsjjPIDma1FvzEApBapGIvulaEK9Z5nlo4YoM4GEvfSmsbcEvnCjEd+cLCDLFie1LNZSwhiNPzlYO4Tv0CrnemAr2mAqRFspLjniNlNnLA3k/N0Z2m0+GcUbmrOCdosSWlYcT5VCuKbN80G2eRXVw8xlmtJ3i6KFdc4IV1hxqO5gqnlLNREin+yzoCE+wj7xb7Hfw2G+A6oaAEBezwhdRv+UX9N1d2W9I7uB/C2kU+73Ww4weYvwiFCOYMuVdb3F5Kn6bAqVgtVF7ETlfUR6Q0zhiMmSSThSjWw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2mw98UDti+w23bYsqEoXHV6+vUXcKMaT+r/hqgm+CvE=;
- b=Zsq6I8mRZv15CXs+J5jl12R5LcU0RAZZ5sFCu8qIom4c8Gcc9aq2qjQceEwW1xzERcvHwgWkS9+LN5CYzdNPP+baX7qJBstxXwY8knlpdYrrFiWBxD8fUWJ6TLsVNQPGetEBo8z3n/IE/93bZBAzMHg1XMw3CkRqqr+393Z14RFnedgmL0APX64bIbSk8jwpNPfXFoxFbALa/z5ihmLQVFN6+12e7JIjGuRxtBh1givLsNjVYjH6aFjXiReNTay0MRVW3xggg/cz9yjzl5u3vS7FqbNr6gajJ39GkZGxb+97/uGoXKsd3krDuf4U7JN5EuclXZ4xyAbPvdnrCUIaJQ==
+ bh=drt5aU1vv5EZi/WvJghB2txl0pHsyFWDzdivobp2RP4=;
+ b=dig01HTyWuUG3si7j1JAnI0QyGT6HxmE0iLDQopcfV6W4mwPggvUKQKSO1hbE33eVewQtlldxdSati7lXOVJnQ4Iogysq7BxdR9hXG3hjNWkG1tzcu2Wvztyie/rq2pqj6xJ++jp2/fF8Tt/AFBI8OJWJFdOhuX/n6H0KmRdue//CFF+RrqrHAgy4t1mDJx7ItNmXp/YlM5XRae8JlvpJ/eZcw7tFQNzrOm9173JXxLS28VYtI93TB/d67S3p6tNwRzi+Ai9XVD1eiivJ+EpXCynm6UTxhcOp5J/X2cZeZXNEiz1KKbTtnlNZNRaCla+y87Wn0nmu3q5RC7/XoyZEg==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA1PR12MB6089.namprd12.prod.outlook.com (2603:10b6:208:3ef::9)
- by BL1PR12MB5778.namprd12.prod.outlook.com (2603:10b6:208:391::22) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
+ by PAXPR04MB9121.eurprd04.prod.outlook.com (2603:10a6:102:22b::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 10 Jun 2026
- 13:20:44 +0000
-Received: from IA1PR12MB6089.namprd12.prod.outlook.com
- ([fe80::abd0:32b3:6f57:1d3c]) by IA1PR12MB6089.namprd12.prod.outlook.com
- ([fe80::abd0:32b3:6f57:1d3c%3]) with mapi id 15.21.0092.011; Wed, 10 Jun 2026
- 13:20:44 +0000
-Message-ID: <223c49ee-528c-4750-9885-fd8e0247151e@nvidia.com>
-Date: Wed, 10 Jun 2026 08:20:28 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: errata: Workaround NVIDIA Olympus device
- store/load ordering erratum
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org,
- Vladimir Murzin <vladimir.murzin@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
- Jason Sequeira <jsequeira@nvidia.com>, jgg@nvidia.com
-References: <20260605144551.2004391-1-sdonthineni@nvidia.com>
- <ailKYTOX23EMnJsK@willie-the-truck>
-Content-Language: en-US
-From: Shanker Donthineni <sdonthineni@nvidia.com>
-In-Reply-To: <ailKYTOX23EMnJsK@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
+ 2026 13:21:18 +0000
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.21.0113.011; Wed, 10 Jun 2026
+ 13:21:18 +0000
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>,
+	Lee Jones <lee@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>
+Cc: Alberto Ruiz <aruizrui@redhat.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	devicetree@vger.kernel.org,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Vincent Guittot <vincent.guittot@linaro.org>
+Subject: [PATCH v11 0/6] gpio: siul2-s32g2: add initial GPIO driver
+Date: Wed, 10 Jun 2026 15:21:10 +0200
+Message-Id: <20260610132116.1998140-1-khristineandreea.barbulescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: DM6PR07CA0075.namprd07.prod.outlook.com
- (2603:10b6:5:337::8) To IA1PR12MB6089.namprd12.prod.outlook.com
- (2603:10b6:208:3ef::9)
+X-ClientProxiedBy: AS4P190CA0041.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d1::15) To AM9PR04MB8179.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3b5::20)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR12MB6089:EE_|BL1PR12MB5778:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f33852c-c1f4-424b-13d9-08dec6f3139c
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PAXPR04MB9121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 860f4ac0-0630-45f7-504b-08dec6f327aa
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|56012099006|11063799006|4143699003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: yr77mem8kLNL63bU5Iv1vheGL7H/32BYe5ID+RYDS9lIYqj3OGQE3apmlOPOlnRzYgDl39l0S1norHyzRFjdvsG73YQt8slVj7Z4DP1bYRasC/SjwY1NpQQAfKJmzc4dhrxbCSjupd1GOxsLvi27NVzKC9G1bySVn6Y2So61S+tSy2bKlcd5hcv4T9GMSv6HAnKdW+RjiBfOlbVMznMVN4VwdIOeTWQ2k8mHQb8yJWWAEUz4U7Ib+fWGeVvouJBFhjANWX8YToRzs+D2U1syBe8OkvshIz5QSNx6yhbo7WZrlttQiivrVE0fZe4NuAZb31h7d76fI4xEPhdzkAD5CsUpxSQTvtTu2NSq6J17wDb3cgE0oRs57lvpXZe3VTEkdtNvaE6rWk4cmb0rkK9/KYxGjvHT6ZBavj1/S6S6ikR34nG4z0hYEOzAWN6Eb9rWoWoNDWmWsBrGXQyRcBkZR8z0POH3398iBcMqxW7gs3t3lz8TIh2awDQRHeIht6YrPMIqVjaEKQKyuRTIzngfGmgLGibnlaKGsw4aw8rDZznRywIzpz9KNwx2z1dI0EwU5z/IQ6fIEdCCCZNaGvkKldTER8Hwjwfo/g/npXQRoZr7Dn06p2Qq4Kwz8mHWsjs5IZFeqAzLzBECb4pISIRg1R4UISSBUs8ZN/OwJXyg0Ohq93I3hQmT7aJcQNRPgCRP
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB6089.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|7416014|376014|921020|56012099006|3023799007|11063799006|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: mMn/PXVuvFPgTiGO/Jjmfp9eL9gx2PFqnZrmjRw7hiQtlSnC/qxHzNxb+wWwE2CQIynSviqyzDpa2kpVXhzj79JJnOdciGadNsmpg5Ux7YJHIPHp78ETKthuAYawS4yZWcn0/k6GbvSkgke9TYYep1JnJjRn/3Cos+JkHidFCkhvJzkrwra0i6KuHELdbQNk15Azt/SDJbz67eqpR+1oAUbF8r1HOXg9HYnXSCLllj7ap/RuuIp2qqp4p1/XoZ554CkutODdKcK3iIcIeOae7X57dJIG0whCrTrIHOvjB6y6if5vITcnYRd+S83PuepODyKOt6dzLQ7U0Z6LnJ3aIo6t/BnzxcQEAGx2s0hJNxh0XAKWMJKOt7B/Y/66Nl/gZhzKbaFfed6mdWXtSpPkAwsX4cwO/aEqEVRhAYfFv09Q5eZeHr3U+PHqQG6cwtkgKYKuW0WeYyq8CQ+1/oWKSaA+A6IKg9rHCIU367aVtJcgPhb/ZEVaTphiP/eKEVTbVBLQrUdLevxJY/ETJPXGBHbEE5897IfAcOuTGvFc3bXI+aQTRpC7TRY755oZj/hWtEGfmIh4bkF4uu2o4LCHkPx0cxjCE+Ixqfp9Mpq8MPfxJiBFPe4acqqrN+ypX7gRtT+8YB0O/WHcRDhFsacOFJz2gxsrljCOQuIyP/e3+92L2cH8Zhwfrstn/Ny2b4sEqXlwi8uN41RjgM334XN+5Jbrt0eeg56gQ3FLqZBSJJo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(7416014)(376014)(921020)(56012099006)(3023799007)(11063799006)(6133799003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHhXSU5jQ2dzanhhV3oxcXA4Z1AwSjRKdTVZK0wwNGE1cDN3cU8zTmtIZHIv?=
- =?utf-8?B?VVh6TExZbEJNaG0yRlB4Wkl5dFFKeTJEQlRDNWhqMlkrSU9HUXArUFRQY0w1?=
- =?utf-8?B?WExjREZkZGQ0Z0dmM2NROThQY1FadVJjZ1MyUCs3T1dvdjF3VEpndmtIbWhM?=
- =?utf-8?B?NWRnWjBjQmhyWExsTHNTcnNrZWFTRGRYTjZXTWxJcmczZ01BRUNHWmRWNWNi?=
- =?utf-8?B?Y080UXRUZEZYMHF2dTZuMm5GQi91c0owVVgyREtLM0p0QnlTMDU3Mm85OTJP?=
- =?utf-8?B?R1lUeE5QRkRRb0ZBSnJCMm1sK0NsMWw4amhzYmJKcHRQb1RWaWtYRUJIZHlS?=
- =?utf-8?B?MnZEVnVwWDRRYzE4dGJHdGFUL3pta2RYVDd3YXN0ZlJWUVRyOUJ5T284akxm?=
- =?utf-8?B?SWZrd1A4Z1ZFRXZrelFyMGw0QUtMSTBOT2dKSGNrcFAyR2lXZWtXVXNJR01q?=
- =?utf-8?B?MU0za3ErWXRRRFVWSC9TLzN6S210RnZLNzk5czBrU3FZblViWkVoUnBJNE02?=
- =?utf-8?B?aktXaDk3ekMvdHVtUVQwYU5ROVBFcENVSm9aVFREY1BKMVAwRFkxd0hvU0Vj?=
- =?utf-8?B?V1N5SG9PaTI4T1NzRGlaR2hvMkJiWkRPZTExRG83UTVKOGlmeTd6SDZBNlhO?=
- =?utf-8?B?MHpIVWlsS0htS2tNQnJUakovZG5RRS9qR0Q4RnlyY1dNMnRtblpnTmhKQkhV?=
- =?utf-8?B?OVVNMG9qSkpYc2F6VjZKc2p5SmNRU0xDRHA3RjVhREswa2lqM0FvTkE1ZFZj?=
- =?utf-8?B?OWlyd3M2SVJMSldFY2piMEdCMHgxMjZBcDRIOWI2cnlqcUtqZjdmcUl2UjBZ?=
- =?utf-8?B?a3d6UnlxbkVsVy8za1JnSVRDb2drUWh3ODd4TjRMTUgzc3RSZ1RzaEtWMTlO?=
- =?utf-8?B?K1ZGOUljRnBnbXNMd0dCUitac0JZa3J2RXZ4S0lBQWEvWDVOTjhNS1AyLzFz?=
- =?utf-8?B?TE45cFFBWVpmTVlNeW8xSGhqT1Y2QVhnNVB4b3h3RlF5Z2FlS01zZm55QVBP?=
- =?utf-8?B?UFlZVEdnWjRCaUVpR2lpVUI2T1pIQ3h1RGkraUNaMnlhSXZic09BaTVPMnZs?=
- =?utf-8?B?cjhUcm9MNEhYRktVQnFqam1ocjBwd0ZtMjhOVWpQYzV1bHVINUdMREtXcStQ?=
- =?utf-8?B?azV0VjdzZ2FxSE50cHZZZXJsUkVCenFjSlc0SjJWMmM2MG9MbnRlL3FxMlBG?=
- =?utf-8?B?N1BtdlhQSXNPT3RHZEZmZEFXVWh5YlNvMVphYTVtWVQvZkJzUnFuZHRETmJ6?=
- =?utf-8?B?RDk2c0o0KzNxVHdWWkg5RHFlbXowUElkWTVuTFZDdjZaSENQaUsvMzc0bklH?=
- =?utf-8?B?cTZ6d3A5bk1GeHJwbWtDNWRUZVNMcVlIY1Q2VFd6SjFUaGY0ZFJCckxFMlZC?=
- =?utf-8?B?ZjRXVUNVaHZnYXViV2IwN3NiZDQxR2pGd0ZzRFhmQVVmbFViWUR6N1BMRHlI?=
- =?utf-8?B?bEJCT1FhT0E2UGZCd3dwZENNZlUxOVRIeCtEZ3lHZDcvMWoydFYzZEorR3Qx?=
- =?utf-8?B?NFZ0UngvN05WY2tCWTRmRG5IQVJINUFBS0hEd3czSk1ha2RFejkzNmRrUFZB?=
- =?utf-8?B?YVpqVjRUS2ZHQ1o4ZE1aTmRQK3RHRTFkeGFqSjZoVEJiS1RORGVUREN6NGUy?=
- =?utf-8?B?RCtzVzdhT25YbDB5R29kSjNDQllmZWJJWEJ2aldBMTRpckJJUTlFU1JtWlZx?=
- =?utf-8?B?RUlENnZMbWtKSEpWZU9VWWV1YlkzcDA4Q09Ud0djZ21QdXNkZGVOTDhLWi9v?=
- =?utf-8?B?ZjhmVFUxTExOWm1McGF5Y09YYlJKS2R2ODRtOGttTTRIZ2ZYOFJqblMyZW1y?=
- =?utf-8?B?YVd6ZFdUbU00QVh0L0EwL3RBck5rUHpMUElMRmR5bzFwU0lPZ1BzZmEvWUZo?=
- =?utf-8?B?WDBJL3hlT2ErWmJGbzB6N0Q1YitvRmE2Wk9wTWNhcWRtTWRPOUdpUjVtSDYx?=
- =?utf-8?B?Q05meVFNN01Ia0R2TENQVEhRMzROVGNodEZCbVhXQ3A2MndTRmZKdS94VWZt?=
- =?utf-8?B?WEVDbm8vekY4TmFRQzREd2wzTlR2UkFrNHFDYUhuZDBpWjAxUUMwcGRqTUpy?=
- =?utf-8?B?eGVwMW1XdXFxK205bzA3ZEw5SlFkOXEreVdFb0s0UUdJc3BBNWtxN2kyU0g2?=
- =?utf-8?B?NkpJU0NVamwvYmo3TXpoRjd0NWc0RGRPWVlxY1ZVS3hIUHdnT00zZFg2YW5v?=
- =?utf-8?B?dENmRnVFRFM0NGtPM0RzQkc3a2N6bzNJM0U5WkxhSVV4VXJ2NytnYWNadmN6?=
- =?utf-8?B?ZERqcHlNT1lOazloYmZGQW9UUDNzZ2dKeFlZZkJzSDhXQnRIdlFDM0dyajY0?=
- =?utf-8?B?S2NlaWxqVktJS25RekNudUsydmVyelhmM3hreHZxNkw1Y0NuOGhuQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f33852c-c1f4-424b-13d9-08dec6f3139c
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB6089.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WU44b0ZiY0lpdlRVTmpyMHBPQ3ppNjBUdEpDQTREM1NDTzdmc2hKWkJXeGJa?=
+ =?utf-8?B?YTJPdmxYZDFHSDhaL0RJL0pJWUpxMk5uV0djMWhkVk5FS3lFYng5QUpjRXNM?=
+ =?utf-8?B?eDJ2Y0s0VWs0QW5DWml3a0Q0QjYvV2M0bVhCZktVSHBydlU4QjFKWFl4bU5j?=
+ =?utf-8?B?MDJ1ckVpTmM5NlYvbEFiMDFoTlUyUkNXSm1PNWZOd0pWUXVWNTQvRHJoNUhm?=
+ =?utf-8?B?VU5kd3hGQ0hSdUtvMTdnWFZvZUR0SjFHZ0Fsb3RsSlJpeFdzbHhCT1F2TTE3?=
+ =?utf-8?B?QWhTVHR4RnVCZ2RNZzNvR2lNcVdxdnhaQkMvV0FqZ05qOTdmcnZXaWhmbzJy?=
+ =?utf-8?B?M05IOXd2K1N5RXNhZGVUK1NMN2NIaVU0MWgvRWR1dFozODRDZDlwRnZBTExC?=
+ =?utf-8?B?ZnFjai9GbW8ralYzUWUzc1JoVERseE8vaXJNdStweExwdXJMeUF3c1hRUHBy?=
+ =?utf-8?B?R09QTWhVbVZKQTJ3TmVtdS9QcU0yY1ZDajA2ZER2RVJFUVpKODd1REpqL0Vk?=
+ =?utf-8?B?UHkzZEpoeWhKRks0RDdhQkorbERvQmZ2YXRDbE5wQzdPcWJwN0UvMUZ2a3Fy?=
+ =?utf-8?B?eU0rV2t4WndUVFBXRUFwTGtqOTdRVHA2MUZ6bDUwVEh1Q1c2RGsvWEZOREIw?=
+ =?utf-8?B?Z0ZLbUtKWGRJdExadzdBVS85UVo5eXBuRzlqNFNLV1Y0ZXJFNVc5TU0yczVj?=
+ =?utf-8?B?SGo5UVdXZGpZeDI4TEtlM2MxSUNHVWdWNGhRRm82dkVxbllRR0xNa1NONGN2?=
+ =?utf-8?B?MnJIMzVKMlllbDlGa3kvVEhseGFVeVhGc3J1MnhteUUvYmpHQ3BsVTI5V3Qy?=
+ =?utf-8?B?a2QzYTVLNG4rOTVmREtuaGFvVkcvcWR5SlR2MVZrSkYvYTB3dTlIT2NQck1t?=
+ =?utf-8?B?LytHbUorMVlIWnMrOWZyOGpjWGF4akVKUDBjR3hpQWgrUmpCOG5pd2RMbDJK?=
+ =?utf-8?B?SENKdmJBSDFBcEdEYlF5QlBFbTBvVldhN1VsMTRVSmlzaktDUXM1dWdyaEVv?=
+ =?utf-8?B?TlA3Y0Ixa2MwN08yQlcwN0NhZXlEUCt2UFhSMjVieGRRRzBOWjRqN2pHem5x?=
+ =?utf-8?B?elRwR3orbURFRjJCYndUODZBSU1LUWp3UVg5VDlEOU82SWc2VUdybUdlc1Bw?=
+ =?utf-8?B?dmhwclMxQmhhTEczVUpiSW00Sy9VNzVLbVVWOFNxakZmck1oaE1aSitHKzJi?=
+ =?utf-8?B?ejNjdnUyT2JwWGo1N056cnhuV2pndFFRVDd6ZFp1MjR4Wm9kWEJvS2RIYlA5?=
+ =?utf-8?B?RnhtKzlpcExPNHl1bElYcnJ0MEptaVBrTHZXWXRoV1dKeEZlK2huWmdYblUr?=
+ =?utf-8?B?dm9VRkppbDYzYTEvTHhmd3l2eWdTeEpGWHo4eU5kR0htSVFkRVhRNnh0M3k0?=
+ =?utf-8?B?YlRhU1NMV3Y0L1llQ1BDUEVySEFDdEhwQXBnU2JoejJYV2M1WlZEY09jNC9M?=
+ =?utf-8?B?WmFVVmk0aHlzV3JkZVBidzZaNFVKNXJLY2lNeUxicHVvY0w0dFgyZldlVSt0?=
+ =?utf-8?B?RHdkeXVHbCt4Sm41ckw1ZXcvTEtRU0xRYUh6MExEMmFPTzliYkRXYnFYQW5l?=
+ =?utf-8?B?UkkrNzJlOFAxek8xY1FJUUQvTEdmSHd6UTlacWJ4Yjg4VEhQaUQxWkQyejBj?=
+ =?utf-8?B?SGUrc2lVaWY3OFEwaVhtTldXYjRicVlCR05sbHVucDN6Q1RkcUNvT0NtSXVo?=
+ =?utf-8?B?YStjTkdQWUt1Qy93TjNHS3B4dzZGVVh6aGRiM2VUdFl0YVlZUno1VHhza3Va?=
+ =?utf-8?B?Qzl6bjg1NGI1ZWxaUjZLV2lOQm1ZYWNnZ2JLMmVFNy9QQXRXVXRndXliS0kz?=
+ =?utf-8?B?Tmd5U29PZmJ3YlZ1SDFnYkJZWDZBN2JUa3hGTmE1RzUyTmhmbzRWSzVZR3Zn?=
+ =?utf-8?B?UW0vemFEdEZvdHl1aUIydm9ySUFoZWhvZFF6UDBZQkJnOUZwYlhySXErS2xP?=
+ =?utf-8?B?Zjg1djZYUiswNGQ4MGxqaXhhbFBiVXBKVU9DN0RWNjVqVU1CNGdyMVgxSCtq?=
+ =?utf-8?B?OW1mYS94b1cwTWRNVzN2L28ycGpOOTNQMDdFblRMa2hSektHZXd0S2swZnR6?=
+ =?utf-8?B?bmdYWkc2a0Nhdm9kV1E1Qk13eEhMelFBc3M1R1Y4YTB4TVJ1dk92dTh1WTdK?=
+ =?utf-8?B?ODlualpvaXhNRGpCMUt4aUJScGNuREZ6QTBPY3BidG82YUhjYkZ5SHZxYlJQ?=
+ =?utf-8?B?R0w1R0Ziby9BQ01ROFMwRzN6ZTkvam5XMkRXdVFYVVZ6NDRJYkZFTVFqTW9v?=
+ =?utf-8?B?U0kyMWZuVy82bnNWNzV0Uml1VHV4NVBYUjZIRHBXWGVNOER2Ri9rRmxjWExQ?=
+ =?utf-8?B?aHFQL2EyNGlJbExMVDVMV3VETjF3ZE9CTjRkVnhWRkErMHlEU0Vkdm5zbCtH?=
+ =?utf-8?Q?J42R5r6/7o9YmpR/F0UEvOCx+/AdDZREnSKYs?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 860f4ac0-0630-45f7-504b-08dec6f327aa
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 13:20:44.2922
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 13:21:17.9794
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WcMBVnoglsY7PbpHLA7M1eN8NstLCETbcxKn364WfVRuS56VYCXHkHriPLTRncxccBrKW4dz4kFEKykwbi1l2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5778
+X-MS-Exchange-CrossTenant-UserPrincipalName: 035BmBm3mNGCjqLMlnibY/c4KMTRW3idJD6+eeRlZ5rBoizxt3LHiIDBGy1jjOTTxAF7FjYpBq9cz44mRMEt1fjhvvpyDIpSKGr8eCdb8Meaye311hGvY0iVufmpfcJw
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_062050_235235_EDDF3202 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20260610_062128_139460_E588EE31 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,65 +174,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+This patch series adds support for basic GPIO
+operations using gpio-regmap.
 
-On 6/10/2026 6:28 AM, Will Deacon wrote:
-> External email: Use caution opening links or attachments
->
->
-> [+Jason G]
->
-> On Fri, Jun 05, 2026 at 09:45:51AM -0500, Shanker Donthineni wrote:
->> On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
->> observed by a peripheral before an older, non-overlapping Device-nGnR*
->> store to the same peripheral. This breaks the program-order guarantee
->> that software expects for Device-nGnR* accesses and can leave a
->> peripheral in an incorrect state, as a load is observed before an
->> earlier store takes effect.
->>
->> The erratum can occur only when all of the following apply:
->>
->>    - A PE executes a Device-nGnR* store followed by a younger
->>      Device-nGnR* load.
->>    - The store is not a store-release.
->>    - The accesses target the same peripheral and do not overlap in bytes.
->>    - There is at most one intervening Device-nGnR* store in program
->>      order, and there are no intervening Device-nGnR* loads.
->>    - There is no DSB, and no DMB that orders loads, between the store and
->>      the load.
->>    - Specific micro-architectural and timing conditions occur.
->>
->> Two ways to restore ordering: insert a barrier (any DSB, or a DMB that
->> orders loads) between the store and the load, or make the store a
->> store-release. A load-acquire on the load side would not help, because
->> acquire semantics do not prevent a load from being observed ahead of an
->> older store; only the store side (release or a barrier) closes the
->> window.
-> I think you can drop the paragraph above. A store-release isn't enough
-> to order against a later load in the architecture either, so we're
-> clearly in micro-architecture territory and I don't think you need to
-> describe mechanisms that don't work here.
->
->> Promote the raw MMIO store helpers (__raw_writeb/w/l/q) from plain str*
->> to stlr* (Store-Release), which removes the "store is not a
->> store-release" condition for every device write the kernel issues.
->> Because writel() and writel_relaxed() are both built on __raw_writel()
->> in asm-generic/io.h, patching the raw variants covers both the
->> non-relaxed and relaxed APIs without touching the higher layers. Note
->> that writel()'s own barrier sits before the store, so it does not order
->> the store against a subsequent readl(); the store-release promotion is
->> what provides that ordering.
+There are two SIUL2 hardware modules: SIUL2_0 and SIUL2_1.
+However, this driver exports both as a single GPIO driver.
+This is because the interrupt registers are located only
+in SIUL2_1, even for GPIOs that are part of SIUL2_0.
 
-Based on the existing code comments and after reviewing this path again,
-__const_memcpy_toio_aligned32() and __const_memcpy_toio_aligned64()
-appear to be intended for WC regions. Since the erratum is scoped to
-Device-nGnR* accesses, and WC mappings are Normal-NC on arm64, I don’t
-think the STLR workaround should apply to these helpers by default.
+There are two gaps in the GPIO ranges:
+- 102-111(inclusive) are invalid
+- 123-143(inclusive) are invalid
 
-Applying it there would also break the contiguous STR grouping that
-this path relies on for write combining.
+Writing and reading GPIO values is done via the PGPDO/PGPDI
+registers(Parallel GPIO Pad Data Output/Input) which are
+16 bit registers, each bit corresponding to a GPIO.
 
--Shanker
+Note that the PGPDO order is similar to a big-endian grouping
+of two registers:
+PGPDO1, PGPDO0, PGPDO3, PGPDO2, PGPDO5, PGPDO4, gap, PGPDO6.
 
+v11 -> v10:
+- add GPIOLIB as explicit Kconfig dependency
+- mark regmap config as fast_io to avoid mutex overhead
+- propagate regmap errors in debug show callback and
+  suspend/resume paths instead of silently discarding them
+- introduce a per-range sparse flag to handle SIUL2 instances
+  with a non-linear PGPD layout
+- dt-bindings: drop redundant minItems from legacy oneOf branch,
+  add gpio-controller: false and related properties to prevent
+  GPIO/IRQ properties without the required reg entries and
+  drop maxItems from the GPIO+IRQ branch
+
+v10 -> v9:
+- implement GPIO via gpio-regmap backed by a regmap for
+PGPDO/PGPDI register translation
+- remove the successful probe message from the driver
+- switch back to a single compatible string for both the
+legacy and extended binding layout
+- update binding: GPIO/IRQ properties required only
+when extended reg layout is used
+- remove unnecessary return value checks for MMIO
+regmap operations
+- replace kernel-doc style comments with regular comments
+- solve relevant sashiko.dev findings
+- rework GPIO request handling to preserve pinctrl ownership
+- use __free(kfree) and no_free_ptr() in GPIO request path cleanup
+
+v9 -> v8
+- remove the SIUL2 syscon child nodes from the
+device tree and DT bindings
+- remove syscon child handling from the MFD
+and pinctrl drivers
+- remove the MFD driver and use a single monolithic
+pinctrl/gpio/irqchip driver
+- add a new compatible for the pinctrl+gpio binding
+while keeping the previous compatible for the legacy
+pinctrl-only binding
+- update bindings to include the PGPDO/PGPDI and
+IRQ register regions in the DT node for the
+pinctrl/gpio/irq binding
+- add IRQ-related entries in the bindings to
+document the intended hierarchy; IRQ support
+itself will be added in a future patch series
+- update DT nodes to match the new hierarchy and
+compatible scheme
+- fix dtb warnings
+- reorder commits: bug fixes, API changes, DT bindings,
+driver implementation, DTS changes
+- split commits further to separate minor
+style-only adjustments
+
+v8 -> v7
+- remove all ': true' lines from properties in dt bindings
+- remove NVMEM MFD cell from SIUL2 in dtsi
+- remove NVMEM driver and configs
+- expose SoC information via syscon cells SIUL2_0
+and SIUL2_1 in MFD driver
+- add SIUL2_0 and SIUL2_1 syscon nodes in dtsi
+- add patternProperties for "^siul2_[0-1]$" for syscon nodes
+- update example to include syscon cells with proper format
+- remove `reg` property from pinctrl node in dt binding
+- update Kconfig help text to reflect new syscon structure
+instead of NVMEM for SoC information
+- squash deprecated SIUL2 pinctrl binding with new MFD binding
+- dropped "nxp,s32g3-siul2" from MFD driver match table
+- fixed commit messages
+- fixed dtb warnings
+
+v7 -> v6
+- fixed MAINTAINERS wrong file path
+- add unevaluatedProperties, change siul2 node name, remove
+  jtag_pins label in the device tree schema
+- change compatible definition in schema
+- change node name in dtsi
+- mentioned binding deprecation in commit messages
+- split mfd cell conversion commit in two: one for the
+  previous refactoring, one for the mfd cell conversion
+- removed Acked-by: Linus Walleij from commit:
+  "pinctrl: s32: convert the driver into an mfd cell"
+  because of changes to that commit
+- deprecate the nxp,s32g2-siul2-pinctrl binding
+- add NVMEM MFD cell for SIUL2
+- made the GPIO driver not export invalid pins
+  (there are some gaps 102-111, 123-143)
+- removed the need for gpio-reserved-ranges
+- force initialized pinctrl_desc->num_custom_params to 0
+
+v6 -> v5
+- removed description for reg in the dt-bindings and added
+  maxItems
+- dropped label for example in the dt-bindings
+- simplified the example in the dt-bindings
+- changed dt-bindings filename to nxp,s32g2-siul2.yaml
+- changed title in the dt-bindings
+- dropped minItmes from gpio-ranges/gpio-reserved-ranges
+  and added maxItems to gpio-reserved-ranges
+- added required block for -grp[0-9]$ nodes
+- switch to using "" as quotes
+- kernel test robot: fixed frame sizes, added description
+  for reg_name, fixed typo in gpio_configs_lock, removed
+  uninitialized ret variable usage
+- ordered includes in nxp-siul2.c, switched to dev-err-probe
+  added a mention that other commits will add nvmem functionality
+  to the mfd driver
+- switched spin_lock_irqsave to scoped_guard statement
+- switched dev_err to dev_err_probe in pinctrl-s32cc in places
+  reached during the probing part
+
+v5 -> v4
+- fixed di_div error
+- fixed dt-bindings error
+- added Co-developed-by tags
+- added new MFD driver nxp-siul2.c
+- made the old pinctrl driver an MFD cell
+- added the GPIO driver in the existing SIUL2 pinctrl one
+- Switch from "devm_pinctrl_register" to
+  "devm_pinctrl_register_and_init"
+
+v4 -> v3
+- removed useless parentheses
+- added S32G3 fallback compatible
+- fixed comment alignment
+- fixed dt-bindings license
+- fixed modpost: "__udivdi3"
+- moved MAINTAINERS entry to have the new GPIO driver
+  together with other files related to S32G
+
+v3 -> v2
+- fix dt-bindings schema id
+- add maxItems to gpio-ranges
+- removed gpio label from dt-bindings example
+- added changelog for the MAINTAINERS commit and
+  added separate entry for the SIUL2 GPIO driver
+- added guard(raw_spinlock_irqsave) in
+  'siul2_gpio_set_direction'
+- updated the description for
+  'devm_platform_get_and_ioremap_resource_byname'
+
+v2 -> v1
+dt-bindings:
+- changed filename to match compatible
+- fixed commit messages
+- removed dt-bindings unnecessary properties descriptions
+- added minItems for the interrupts property
+driver:
+- added depends on ARCH_S32 || COMPILE_TEST to Kconfig
+- added select REGMAP_MMIO to Kconfig
+- remove unnecessary include
+- add of_node_put after `siul2_get_gpio_pinspec`
+- removed inline from function definitions
+- removed match data and moved the previous platdata
+  definition to the top of the file to be visible
+- replace bitmap_set/clear with __clear_bit/set_bit
+  and devm_bitmap_zalloc with devm_kzalloc
+- switched to gpiochip_generic_request/free/config
+- fixed dev_err format for size_t reported by
+  kernel test robot
+- add platform_get_and_ioremap_resource_byname wrapper
+
+Andrei Stefanescu (2):
+  pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
+  pinctrl: s32cc: implement GPIO functionality
+
+Khristine Andreea Barbulescu (4):
+  pinctrl: s32cc: add/fix some comments
+  pinctrl: s32cc: remove inline specifiers
+  dt-bindings: pinctrl: s32g2-siul2: describe GPIO and EIRQ resources
+  arm64: dts: s32g: describe GPIO and EIRQ resources in SIUL2 pinctrl
+    node
+
+ .../pinctrl/nxp,s32g2-siul2-pinctrl.yaml      |  90 ++-
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      |  23 +-
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      |  23 +-
+ drivers/pinctrl/nxp/Kconfig                   |   3 +-
+ drivers/pinctrl/nxp/pinctrl-s32.h             |  35 +-
+ drivers/pinctrl/nxp/pinctrl-s32cc.c           | 756 ++++++++++++++++--
+ drivers/pinctrl/nxp/pinctrl-s32g2.c           |  47 +-
+ 7 files changed, 877 insertions(+), 100 deletions(-)
+
+-- 
+2.34.1
 
 
