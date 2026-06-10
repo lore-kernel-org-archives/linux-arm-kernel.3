@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C15CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 00:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F4BCD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 00:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kpEtiFrBEIM+OcxmfyVtuRseNKwhQK6Li7jNDIkmsk4=; b=TxRQbiMUVTZCy23X8BfE+vCI18
-	/UqYRdIZpClIrETsljyBJe2HjFA+JyJABk0KZ/OHjEjFO9i4kzf+wl2jT6x3OE6BFlFxOvaZP3rgm
-	3KVzvHgNnCByy568aBNx/CJhQlFtMwJoXT0QtOl+4AOfFP3SKnhJwp5F6v9NZp8sJXLi1yw/KquPO
-	AdmUPM5puLTWvxNb5jq7kVmFUBqr2UYhw64X4GxFWl0QcED5NqgUj7HG+dixxf/QRFPsAna1spJQa
-	mLU4L2Rq89g7GP34acnVgHJKsZMySE0FIDxPegcIVeDC3tjclQwIw/vXUVWibxo3ZarvrehhOFj25
-	s54REN0A==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y1TucbwZakz+ZMuXVmGF7Hp8H0rVEyqjgeUeSgCarI8=; b=qYdZhm5vl07AoeISUnLKFkubx+
+	XEU/oot1i8FUxgaCu3/0o3zPMIzdgPIrM1sPErpxKZojSQndR7D4Gtaimh0kHgTe4nxaGiKRjgiHN
+	uJb2Z+0MaXiefwc7kBjI+E5r0RzOKxuVAzhJz5sMLb7/ntTdrmZPgCLcOMxFTrCOae0GeWCb+0fl/
+	SDu/TcQi5QAQZfwyJLilrLI0iqmMzBWdl5IJen7modjxy6DVKkFhN2TxYdBu+fU9QX7QoFSN/iIje
+	m4pf7VXXpsqggg1ybHXG28/JwIj2t9dw2VOETKMOUYPMzVx9BHruG6wUA7RL18pU/xrDvJDW50QSO
+	reGv5CCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX6dm-00000006YNW-0SL4;
-	Wed, 10 Jun 2026 00:17:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wX6xy-00000006Yrl-2vyI;
+	Wed, 10 Jun 2026 00:38:46 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX6dk-00000006YNO-3iKj
+	id 1wX6xv-00000006Yr5-1uxc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 00:17:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE7296024D;
-	Wed, 10 Jun 2026 00:17:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D3991F00893;
-	Wed, 10 Jun 2026 00:17:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781050671;
-	bh=kpEtiFrBEIM+OcxmfyVtuRseNKwhQK6Li7jNDIkmsk4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=mFtZ89aWwYePdEMSZCIYhqOArs44ygPvWB3tdzkh33PvIxn5Aam8KArGCmpQYJplW
-	 HK3TYSwyj6Nqzpz/JWe2UWE4n65n/MThJmxsCGFn4Yz8au7hPcaTj5q/6TXHd4101o
-	 xtp2nGMRpzqEkkB6785g2Knv4wZz4PI7L0g88up0xmcdA3tyuf6b8Z2OdmlDBftHej
-	 U3vxKyg1ajRId2ejVTWRY1/M5g8qcFPR+VjCrSmvBzcLDnh7IrGg/qE9DVqo9XzqHo
-	 oRcFiGsy7O/BUyLdAvV6rl8HGAJq6LNbG6QisoQu4CsYbBc8blhbCBtlkPtHxkrNrR
-	 wY3sVt13NilkA==
-Date: Tue, 9 Jun 2026 17:17:50 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: muhammad.nazim.amirul.nazle.asmade@altera.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
- maxime.chevallier@bootlin.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: ethtool: mm: Increase FPE verification retry count
-Message-ID: <20260609171750.7c5709ac@kernel.org>
-In-Reply-To: <20260605025631.2872-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260605025631.2872-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+	Wed, 10 Jun 2026 00:38:45 +0000
+X-UUID: b7febb9a646411f1aa26b74ffac11d73-20260610
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:b210929b-8dda-49ef-9b3f-b051acd1e692,IP:0,U
+	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:0a9ddcc8ccc6b2f673e7b23b3bf7751d,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
+	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b7febb9a646411f1aa26b74ffac11d73-20260610
+X-User: lijun01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lijun01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 19332144; Wed, 10 Jun 2026 08:38:37 +0800
+From: Li Jun <lijun01@kylinos.cn>
+To: lijun01@kylinos.cn,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	peng.fan@nxp.com,
+	shawnguo@kernel.org,
+	krzysztof.kozlowski@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] firmware: imx: sm-misc: Add NULL check for kmalloc in syslog_show
+Date: Wed, 10 Jun 2026 08:38:14 +0800
+Message-Id: <20260610003814.75493-1-lijun01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_173843_846257_3E4BB310 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,16 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  4 Jun 2026 19:56:31 -0700
-muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> The current FPE verification retry count is set to 3. However,
-> the IEEE 802.3br standard does not specify a fixed value for this.
-> A retry count of 3 may be insufficient when the remote device is
-> slow to respond during link-up. Increase the retry count to 20 to
-> improve robustness.
+Add a proper NULL check for the kmalloc() return value in syslog_show().
+If memory allocation fails, syslog would be NULL and passing it to
+misc_syslog() could lead to a NULL pointer dereference.
 
-You need to CC the author / expert on this code, please repost
-with the CC fixed.
+Fixes: 80a4062e8821 ("firmware: imx: sm-misc: Dump syslog info")
+Signed-off-by: Li Jun <lijun01@kylinos.cn>
+---
+ drivers/firmware/imx/sm-misc.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
+index ac9af824c2d4..fb8d7bdb5b08 100644
+--- a/drivers/firmware/imx/sm-misc.c
++++ b/drivers/firmware/imx/sm-misc.c
+@@ -79,6 +79,9 @@ static int syslog_show(struct seq_file *file, void *priv)
+ 	u16 size = SZ_4K / 4;
+ 	int ret;
+ 
++	if (!syslog)
++		return -ENOMEM;
++
+ 	if (!ph)
+ 		return -ENODEV;
+ 
 -- 
-pw-bot: cr
+2.25.1
+
 
