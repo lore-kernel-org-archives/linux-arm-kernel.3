@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B832CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8F0CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KzcKfN/o2MeODUvVqRl2cwiGf5DJAZJN2X6vhvr6p0k=; b=R1//ezR3WiHW+EkTJn6X3PCx5E
-	Uu4RFD27BzW35I3cPgxrxNh1I0krNOzR8vnh9hbCVv+t4PLs3p+RroNCqG7XDz+7o3jTxCxS2hDI9
-	drklYJwP7JL7MTadzriNwSw8QMPMNoUAvwDAryXw0leHFOCO/KtPCagN0yLoarl0KpM6oWDidDt8B
-	bJ6cLANR6TdMQ6nv1iThayZnkdhnE/65CBIQR4XJY5SlnljnqCXzMproBCCPwVTA5JL3Rg+p2i5nR
-	AUw6TC32NPrGDFTLbELkQqDh9G33OypE/c93dgOm97R+ltRm/X1igRLDiIV0F2b89jc+i0Slco6Zl
-	Gw8agqiA==;
+	bh=x06EGkAQraU+3g7/QufOyAMDQPgvhh3FNld33Xss7GI=; b=YDd45uvMTVmcaBwFh609JtdHXv
+	eOvLApUMEABdEFN2QIyqrXjDx1afZsEPrZGP4ikoxpkfqEM3Z/IHYlknSP7hdpyToqTmgh4cIJ1Ot
+	H+q1TVM4pGmiObcwOg+lZgSdPsX4tYFL9GBa3PnxVIqVsznUWJJrqv3ciztNp6n8S+bAF2ljhWjMr
+	Pp7orvTskV8SAClsl1j/d3ttQO0qTm00i0tj3GTBgODbB4jpJfhGuGmkjKNfY2PTqpRB1NeTt+6a1
+	FNZI1pa6ZAGxYjLbUhAalI2KiqwRaNZkTn8MpoY0l+8sCjXUhxgL/m92eeMbjBp7HVlmULiQ9g6wm
+	Wgq7sBNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXHLa-00000007Ymk-1yMr;
-	Wed, 10 Jun 2026 11:43:50 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wXHNY-00000007Yzz-3jUG;
+	Wed, 10 Jun 2026 11:45:52 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXHLX-00000007Ym9-3GbF;
-	Wed, 10 Jun 2026 11:43:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1781091768; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=gzlZb4bSFV52eLdMUMh9PyeGOrd9EAvWXGBw2jHcFBez9EqYAjtGB/rBytbYZIUK6a12QL1SlCxeqoIPXF+WzqlsBu4n/yAbJwi+RR3V7M43DIuKsOYChbJdSZvXFNf59VpSiTkU1K1NG9Qnao5wVDw+LS7peRgWb4eELJ9H3pw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1781091768; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=KzcKfN/o2MeODUvVqRl2cwiGf5DJAZJN2X6vhvr6p0k=; 
-	b=dJ1XCpFp3xrtGi+Xng/mVdtES2/WZzNzmFiiNSAVW0WLpjerZ5mPw4hJmgDxaiCDx2oY1WcDhdhgiDSBwTe+WCe6yc8iMLFSTotK51j39yI5I+WTHP8RqpoOw9PtS+AKiFxdXij/Cb/hasI2G+Nm6IpwGas9uD6xF7iz9dG0lZI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781091768;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=KzcKfN/o2MeODUvVqRl2cwiGf5DJAZJN2X6vhvr6p0k=;
-	b=jyo/yFGOjDLNt4JhkO14FnSIQsSy+FTdAqSukJAOK58KWAD816pk2Arn9Z7jNWXm
-	WdMv4NJl+kvtBgFV37FFKH7qdVcXN7tUe3ggtGdVIHrpwK/bUoTr4UnAzKE2nvbl0G4
-	jX7HgyRw1kEauHhxa6WUd4d+hzfrSqQKD9xSKqgk=
-Received: by mx.zohomail.com with SMTPS id 1781091766388431.86406877104446;
-	Wed, 10 Jun 2026 04:42:46 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Daniel Stone <daniel@fooishbar.org>,
- Jani Nikula <jani.nikula@linux.intel.com>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-doc@vger.kernel.org, wayland-devel@lists.freedesktop.org
-Subject: Re: [PATCH v17 21/28] drm/tests: bridge: Add KUnit tests for bridge chain
- format selection
-Date: Wed, 10 Jun 2026 13:42:35 +0200
-Message-ID: <gnicb4WkT1S4aQIC2G_naw@collabora.com>
-In-Reply-To: <04ff70850213ae0f75486b1a27a7edb6fb4e71c3@intel.com>
-References: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
- <20260609-color-format-v17-21-35739b5782cc@collabora.com>
- <04ff70850213ae0f75486b1a27a7edb6fb4e71c3@intel.com>
-MIME-Version: 1.0
+	id 1wXHNW-00000007Yz2-01rO
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Jun 2026 11:45:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1781091947;
+	bh=x06EGkAQraU+3g7/QufOyAMDQPgvhh3FNld33Xss7GI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=SBng9vAFXA745uxhIHrClOk55WICJFXkW6PO4pR5skEcxvS9cTQinyWUKmpDweK5F
+	 oUlxG+kXGqnQmGCADLDvvGpDc/7F4hxQrXiiOw7I2DbBa3+fl0UzCvW/yfRmATF8ID
+	 +c0PR9l/fX6KBatMXetfTiYrIwHAVN3mF+KhlnjrlSf06kqs9XEbkFSmFVHgS5mFOP
+	 vnpVN6+Dg0Qvhn8EB23kB721IjbXdazhQ2rrTqU/SsWhRcfJQINd2Lvqd0kYhD5PRx
+	 bHR5mi6vyvIaP1Eikb4SlBm9/x++dN5Ej8V7hYk7rv2ifV1cv3JeYBcM3rfuacYerA
+	 jy4z2R72fzf3Q==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8EF8760A14;
+	Wed, 10 Jun 2026 19:45:46 +0800 (AWST)
+Message-ID: <9f2caf9887177bad39525a6713325c252ad47dcb.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] usb: gadget: aspeed_udc: check endpoint DMA allocation
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ruoyu Wang <ruoyuw560@gmail.com>, Neal Liu <neal_liu@aspeedtech.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Joel Stanley <joel@jms.id.au>, linux-aspeed@lists.ozlabs.org, 
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 10 Jun 2026 21:15:46 +0930
+In-Reply-To: <20260608081948.3-1-ruoyuw560@gmail.com>
+References: <20260608081948.3-1-ruoyuw560@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_044347_894639_90F118A1 
-X-CRM114-Status: GOOD (  25.91  )
+X-CRM114-CacheID: sfid-20260610_044550_263532_B90ACE44 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,137 +72,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 10 June 2026 12:32:29 Central European Summer Time Jani Nikul=
-a wrote:
-> On Tue, 09 Jun 2026, Nicolas Frattaroli <nicolas.frattaroli@collabora.com=
-> wrote:
-> > diff --git a/drivers/gpu/drm/tests/drm_bridge_test.c b/drivers/gpu/drm/=
-tests/drm_bridge_test.c
-> > index 64b665580a88..92f142ca6695 100644
-> > --- a/drivers/gpu/drm/tests/drm_bridge_test.c
-> > +++ b/drivers/gpu/drm/tests/drm_bridge_test.c
-> > @@ -2,15 +2,23 @@
-> >  /*
-> >   * Kunit test for drm_bridge functions
-> >   */
-> > +#include <linux/cleanup.h>
-> > +#include <linux/media-bus-format.h>
-> > +
-> >  #include <drm/drm_atomic_state_helper.h>
-> > +#include <drm/drm_atomic_uapi.h>
-> >  #include <drm/drm_bridge.h>
-> >  #include <drm/drm_bridge_connector.h>
-> >  #include <drm/drm_bridge_helper.h>
-> > +#include <drm/drm_edid.h>
-> >  #include <drm/drm_kunit_helpers.h>
-> > +#include <drm/drm_managed.h>
-> > =20
-> >  #include <kunit/device.h>
-> >  #include <kunit/test.h>
-> > =20
-> > +#include "drm_kunit_edid.h"
+On Mon, 2026-06-08 at 16:19 +0800, Ruoyu Wang wrote:
+> ast_udc_probe() allocates a coherent DMA buffer used as the backing store
+> for endpoint buffers. ast_udc_init_ep() derives per-endpoint buffer
+> pointers from udc->ep0_buf, so a failed allocation is dereferenced during
+> probe.
 >=20
-> So here's the problem with adding *any* arrays into headers: every
-> compilation unit that includes them duplicates all the arrays. It's only
-> really okay for single use.
+> Check the allocation before endpoint setup. The existing probe error path
+> called ast_udc_remove(), which unregisters the gadget unconditionally and
+> is not safe before usb_add_gadget_udc() succeeds. Add a local cleanup
+> helper for probe failures so pre-registration failures only unwind the
+> resources that were actually initialized.
 >=20
-> And, in this case, most of the included arrays are unused, leading to
-> build failures:
+> This was found by a local static analysis checker for unchecked allocator
+> returns while scanning Linux 6.16. The change was checked by applying it
+> to current mainline and by running checkpatch. I do not have access to
+> Aspeed UDC hardware, so no runtime testing was performed.
 >=20
->   CC [M]  drivers/gpu/drm/tests/drm_bridge_test.o
-> In file included from ../drivers/gpu/drm/tests/drm_bridge_test.c:21:
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:958:28: error: =E2=80=98test_ed=
-id_hdmi_4k_rgb_yuv420_dc_max_340mhz=E2=80=99 defined but not used [-Werror=
-=3Dunused-const-variable=3D]
->   958 | static const unsigned char test_edid_hdmi_4k_rgb_yuv420_dc_max_34=
-0mhz[] =3D {
->       |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~~
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:726:28: error: =E2=80=98test_ed=
-id_hdmi_1080p_rgb_yuv_dc_max_340mhz=E2=80=99 defined but not used [-Werror=
-=3Dunused-const-variable=3D]
->   726 | static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_34=
-0mhz[] =3D {
->       |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~~
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:612:28: error: =E2=80=98test_ed=
-id_hdmi_1080p_rgb_yuv_dc_max_200mhz=E2=80=99 defined but not used [-Werror=
-=3Dunused-const-variable=3D]
->   612 | static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_20=
-0mhz[] =3D {
->       |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~~
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:498:28: error: =E2=80=98test_ed=
-id_hdmi_1080p_rgb_max_340mhz=E2=80=99 defined but not used [-Werror=3Dunuse=
-d-const-variable=3D]
->   498 | static const unsigned char test_edid_hdmi_1080p_rgb_max_340mhz[] =
-=3D {
->       |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:390:28: error: =E2=80=98test_ed=
-id_hdmi_1080p_rgb_max_200mhz_hdr=E2=80=99 defined but not used [-Werror=3Du=
-nused-const-variable=3D]
->   390 | static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz_hd=
-r[] =3D {
->       |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:271:28: error: =E2=80=98test_ed=
-id_hdmi_1080p_rgb_max_200mhz=E2=80=99 defined but not used [-Werror=3Dunuse=
-d-const-variable=3D]
->   271 | static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz[] =
-=3D {
->       |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:163:28: error: =E2=80=98test_ed=
-id_hdmi_1080p_rgb_max_100mhz=E2=80=99 defined but not used [-Werror=3Dunuse=
-d-const-variable=3D]
->   163 | static const unsigned char test_edid_hdmi_1080p_rgb_max_100mhz[] =
-=3D {
->       |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> ../drivers/gpu/drm/tests/drm_kunit_edid.h:57:28: error: =E2=80=98test_edi=
-d_dvi_1080p=E2=80=99 defined but not used [-Werror=3Dunused-const-variable=
-=3D]
->    57 | static const unsigned char test_edid_dvi_1080p[] =3D {
->       |                            ^~~~~~~~~~~~~~~~~~~
-> cc1: all warnings being treated as errors
+> Fixes: 055276c13205 ("usb: gadget: add Aspeed ast2600 udc driver")
+> Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+> ---
+> Note: a 2022 patch attempted to add only a NULL check for this
+> allocation:
+> https://lore.kernel.org/all/20221213025120.23149-1-jiasheng@iscas.ac.cn/
 >=20
-> This breaks the build for me, I don't know how it didn't for any of you.
-
-It broke the build for me in the past[1], but then I couldn't repro
-it anymore when challenged on my fix[2].
-
+> This version also fixes the probe unwind path so the clock is disabled
+> on allocation failure and usb_del_gadget_udc() is not called before the
+> gadget has been registered.
 >=20
-> Reverting these two fixes it:
->=20
-> ce1d0139adac ("drm/tests: bridge: Add test for HDMI output bus formats he=
-lper")
-> 082fbc179c01 ("drm/tests: bridge: Add KUnit tests for bridge chain format=
- selection")
->=20
-> I think the proper fix would be to move the arrays into a .c file, and
-> only have declarations in the headers. But that needs to happen real
-> soon or the commits need to be reverted.
+> diff --git a/drivers/usb/gadget/udc/aspeed_udc.c b/drivers/usb/gadget/udc=
+/aspeed_udc.c
+> index 7fc6696b7..809a7d5b7 100644
+> --- a/drivers/usb/gadget/udc/aspeed_udc.c
+> +++ b/drivers/usb/gadget/udc/aspeed_udc.c
+> @@ -1434,11 +1434,34 @@ static void ast_udc_init_hw(struct ast_udc_dev *u=
+dc)
+> =C2=A0	ast_udc_write(udc, 0, AST_UDC_EP0_CTRL);
+> =C2=A0}
+> =C2=A0
+> +static void ast_udc_cleanup(struct platform_device *pdev)
+> +{
+> +	struct ast_udc_dev *udc =3D platform_get_drvdata(pdev);
+> +	unsigned long flags;
+> +	u32 ctrl;
+> +
+> +	spin_lock_irqsave(&udc->lock, flags);
+> +
+> +	/* Disable upstream port connection */
+> +	ctrl =3D ast_udc_read(udc, AST_UDC_FUNC_CTRL) & ~USB_UPSTREAM_EN;
+> +	ast_udc_write(udc, ctrl, AST_UDC_FUNC_CTRL);
+> +
+> +	clk_disable_unprepare(udc->clk);
+> +
+> +	spin_unlock_irqrestore(&udc->lock, flags);
+> +
+> +	if (udc->ep0_buf)
+> +		dma_free_coherent(&pdev->dev,
+> +				=C2=A0 AST_UDC_EP_DMA_SIZE * AST_UDC_NUM_ENDPOINTS,
+> +				=C2=A0 udc->ep0_buf,
+> +				=C2=A0 udc->ep0_buf_dma);
+> +
+> +	udc->ep0_buf =3D NULL;
+> +}
+> +
+> =C2=A0static void ast_udc_remove(struct platform_device *pdev)
+> =C2=A0{
+> =C2=A0	struct ast_udc_dev *udc =3D platform_get_drvdata(pdev);
+> -	unsigned long flags;
+> -	u32 ctrl;
+> =C2=A0
+> =C2=A0	usb_del_gadget_udc(&udc->gadget);
+> =C2=A0	if (udc->driver) {
+> @@ -1453,23 +1476,7 @@ static void ast_udc_remove(struct platform_device =
+*pdev)
+> =C2=A0		return;
+> =C2=A0	}
+> =C2=A0
+> -	spin_lock_irqsave(&udc->lock, flags);
+> -
+> -	/* Disable upstream port connection */
+> -	ctrl =3D ast_udc_read(udc, AST_UDC_FUNC_CTRL) & ~USB_UPSTREAM_EN;
+> -	ast_udc_write(udc, ctrl, AST_UDC_FUNC_CTRL);
+> -
+> -	clk_disable_unprepare(udc->clk);
+> -
+> -	spin_unlock_irqrestore(&udc->lock, flags);
+> -
+> -	if (udc->ep0_buf)
+> -		dma_free_coherent(&pdev->dev,
+> -				=C2=A0 AST_UDC_EP_DMA_SIZE * AST_UDC_NUM_ENDPOINTS,
+> -				=C2=A0 udc->ep0_buf,
+> -				=C2=A0 udc->ep0_buf_dma);
+> -
+> -	udc->ep0_buf =3D NULL;
+> +	ast_udc_cleanup(pdev);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static int ast_udc_probe(struct platform_device *pdev)
+> @@ -1523,6 +1530,10 @@ static int ast_udc_probe(struct platform_device *p=
+dev)
+> =C2=A0					=C2=A0 AST_UDC_EP_DMA_SIZE *
+> =C2=A0					=C2=A0 AST_UDC_NUM_ENDPOINTS,
+> =C2=A0					=C2=A0 &udc->ep0_buf_dma, GFP_KERNEL);
+> +	if (!udc->ep0_buf) {
+> +		rc =3D -ENOMEM;
+> +		goto err_disable_clk;
+> +	}
+> =C2=A0
+> =C2=A0	udc->gadget.speed =3D USB_SPEED_UNKNOWN;
+> =C2=A0	udc->gadget.max_speed =3D USB_SPEED_HIGH;
+> @@ -1553,20 +1564,20 @@ static int ast_udc_probe(struct platform_device *=
+pdev)
+> =C2=A0	udc->irq =3D platform_get_irq(pdev, 0);
+> =C2=A0	if (udc->irq < 0) {
+> =C2=A0		rc =3D udc->irq;
+> -		goto err;
+> +		goto err_cleanup;
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	rc =3D devm_request_irq(&pdev->dev, udc->irq, ast_udc_isr, 0,
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 KBUILD_MODNAME, udc);
+> =C2=A0	if (rc) {
+> =C2=A0		dev_err(&pdev->dev, "Failed to request interrupt\n");
+> -		goto err;
+> +		goto err_cleanup;
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	rc =3D usb_add_gadget_udc(&pdev->dev, &udc->gadget);
+> =C2=A0	if (rc) {
+> =C2=A0		dev_err(&pdev->dev, "Failed to add gadget udc\n");
+> -		goto err;
+> +		goto err_cleanup;
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	dev_info(&pdev->dev, "Initialized udc in USB%s mode\n",
+> @@ -1574,9 +1585,14 @@ static int ast_udc_probe(struct platform_device *p=
+dev)
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0
+> +err_disable_clk:
+> +	clk_disable_unprepare(udc->clk);
+> +	goto err;
+> +err_cleanup:
+> +	ast_udc_cleanup(pdev);
+> +	goto err;
+> =C2=A0err:
 
-If you don't want __maybe_unused, then sure, I'll move them into a new
-=2Ec file. Though I think the two are roughly equivalent in that I don't
-think anyone is really trying to minimise the size of their KUnit
-binaries.
+That last goto is unnecessary.
 
-I'll send a patch to move them to a .c
+However, I find it unsettling that in a patch fixing resource handling
+we add a mildly convoluted cleanup path, with portions jumping over
+each other in this way.
 
-[1]: https://lore.kernel.org/dri-devel/20260121-color-format-v7-20-ef790dae=
-780c@collabora.com/
-[2]: https://lore.kernel.org/dri-devel/20260210-didactic-okapi-of-modernism=
-=2Dff00d9@houat/
+The err_disable_clk label is only used once, and itself jumps down to
+the err label. This is the case because beyond its goto we free udc-
+>ep0_buf in ast_udc_cleanup(). I think it would make more sense to move
+the call to clk_disable_unprepare() into the conditional body of the
+allocation failure test, then change its goto label to 'err'. That way
+the above hunk becomes:
 
-Kind regards,
-Nicolas Frattaroli
+   +err_cleanup:
+   +    ast_udc_cleanup(pdev);
+    err:
+        ...
 
->=20
-> BR,
-> Jani.
->=20
->=20
->=20
+Which seems a bit more natural.
 
+Andrew
 
-
-
+> =C2=A0	dev_err(&pdev->dev, "Failed to udc probe, rc:0x%x\n", rc);
+> -	ast_udc_remove(pdev);
+> =C2=A0
+> =C2=A0	return rc;
+> =C2=A0}
 
