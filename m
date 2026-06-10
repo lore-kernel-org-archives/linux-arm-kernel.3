@@ -4,67 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7F6CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 14:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A4BCD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 14:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=byX1TMsTMcqZpntllWo67o7uN1TgSsfIijpcakg/qXo=; b=U0Ew5qES/EpM3gH/xByRKM7CrS
-	JqEIxt5U/dlrag188XAmh3+khhaVSBSqjJBGbXV/ZacVen+wq34UwVsQKVTwsKqh4jhPUMDEUOfHk
-	dkKGRUcBL8wAul/pS6gSTnTiMmK8AIhTiU+z1ZZTvD1UMoFFaHqX2T5EhKCa9aO0Eg+3OlhUAefhw
-	9q3IhaXzCpPJPIFdqfzG9vf8T++bbxz4HI+Sikg/yTE5MhUYdLOKQmPoFeu1c9V7P0f4T40fC057A
-	0lX5saAmSO4OSbA8enr+DrGIDsr9J+tz4Wukoi/lBJe4YaJLMvlLA0Lo0ZkAtdx7DzWGLGf9964it
-	zURq3GvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fIqCE6mIY0/CBMbtErt3OlL2eYJgNS5KhY7QzO9qeg8=; b=BwQsBkYd6xzHEauv+Zz9y+F9D1
+	fJj+jA3lm6x9Yr8KzGLtCIHhtSP5QpIOR/HQUzHQ+Rf1/Jni6v3tUwxKn/mCA00SKO/SQcZ+NlSNF
+	hnbOBtvCvHsXo/a0kI9uLSwvgQcYG+w4rQL/QDQ0usTE+egZdVNxmgItVpo3kFDiyGWtj8PXskDKP
+	tJEd+8Pl4MrETnUKbt8pbPjeZrqvC9s6huVyhs97njFrYggdTsjt3I+FJJCZ/9GM6TRwdDMqeTRp3
+	E3mytf3e/Edx0OxmMSIj6TZj5v9EaUMSHLHix+Wr7yftBHYdxMO1z7BQg2a3gzfgMN6ZvQ+uE6uJR
+	nVPio0dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXKEj-00000007xEd-0vWR;
-	Wed, 10 Jun 2026 14:48:57 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wXKLF-00000007xnJ-3WEl;
+	Wed, 10 Jun 2026 14:55:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXKEf-00000007xDg-1qhi
+	id 1wXKLE-00000007xn7-3hPB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 14:48:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=byX1TMsTMcqZpntllWo67o7uN1TgSsfIijpcakg/qXo=; b=tqihnZXU2rwiODhgNij7AhC5P3
-	7/Jxwsx1PZVw0TpLOGQAM7kBp/dE7Ia0H28N9YHsuYAoA2HyMcLAiTcGWywSfwrwqwdkGDMPh9IHQ
-	wx26a9DgIWP80335gpR7KMbGUG8FqT6Uo9fNIiX4GZ1E/+fohP+ggiMgMZz3Jqt32b3mHVDnbr6e8
-	mzVn+PisywHYQ4rlAMX0OAnUFnsoJJH+T3oM+xR7FloIK+TWXognDRnflK88/F7V6AhRGNaPjaWAv
-	UEww1h7ZuiEQHX6Y8WNexzi8PreFvTM17LOaXQm16MW3JuNZJ5PIj/bPZCEINoY7CHgVtjgBHlGZf
-	VCqv4AwQ==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wXKEW-009GNH-2X;
-	Wed, 10 Jun 2026 14:48:45 +0000
-Date: Wed, 10 Jun 2026 07:48:39 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Pratyush Anand <panand@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	clm@meta.com, leo.bras@arm.com, kernel-team@meta.com
-Subject: Re: [PATCH] arm64/hw_breakpoint: reject unaligned watchpoints that
- would truncate BAS
-Message-ID: <ail38x6jVAAU84AI@gmail.com>
-References: <20260430-arm64_bas-v1-1-c6ab2b15aec0@debian.org>
- <ahmohv6vQGxY-asL@willie-the-truck>
- <aiaqbmQSksKB6dTZ@gmail.com>
- <ailY2UgqiQNYxoZG@willie-the-truck>
+	Wed, 10 Jun 2026 14:55:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F1657600AA;
+	Wed, 10 Jun 2026 14:55:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E33641F00893;
+	Wed, 10 Jun 2026 14:55:37 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"Paul J . Murphy" <paul.j.murphy@intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH resend] arm64: dts: intel: keembay: Always use decimal interrupts
+Date: Wed, 10 Jun 2026 16:55:34 +0200
+Message-ID: <abff7cc5aa2e66524a90523e07e11a42bd3e9e58.1781103222.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ailY2UgqiQNYxoZG@willie-the-truck>
-X-Debian-User: leitao
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_074853_485064_CCDBE50A 
-X-CRM114-Status: GOOD (  23.20  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,98 +60,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 01:30:17PM +0100, Will Deacon wrote:
-> On Mon, Jun 08, 2026 at 05:14:22AM -0700, Breno Leitao wrote:
-> > On Fri, May 29, 2026 at 03:53:58PM +0100, Will Deacon wrote:
+Replace the sole hexadecimal interrupt number by a decimal number, for
+consistency with all other interrupt numbers.
 
-> > > and it looks like the aarch64_align_watchpoint() function does try to
-> > > spill into multiple watchpoints, so perhaps your patch is ok. I'd
-> > > appreciate your opinion, though.
-> > 
-> > It won't, for two independent reasons.
-> 
-> Sorry, not sure I understand you here when you say "it won't". GDB won't
-> spill or something else?
-> 
-> > The new -EINVAL is unreachable from GDB; only a raw perf_event_open() passing
-> > an unaligned base with an oversized bp_len hits it, which is the bug.
-> 
-> Why isn't it reachable via hw_break_set() => {ptrace_hbp_set_addr(),
-> ptrace_hbp_set_ctrl()} ?
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ arch/arm64/boot/dts/intel/keembay-soc.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Sorry. What I should have said is: GDB handles that -EINVAL. From
-gdb/nat/aarch64-linux-hw-point.c:
-
-
- void
- aarch64_linux_set_debug_regs (struct aarch64_debug_reg_state *state,
-                   int tid, int watchpoint)
- {
-   int i, count;
-   struct iovec iov;
-   struct user_hwdebug_state regs;
-   const CORE_ADDR *addr;
-   const unsigned int *ctrl;
+diff --git a/arch/arm64/boot/dts/intel/keembay-soc.dtsi b/arch/arm64/boot/dts/intel/keembay-soc.dtsi
+index ae00e9e54e82cbb9..b6323ebe7a5f46bd 100644
+--- a/arch/arm64/boot/dts/intel/keembay-soc.dtsi
++++ b/arch/arm64/boot/dts/intel/keembay-soc.dtsi
+@@ -71,7 +71,7 @@ timer {
  
-   memset (&regs, 0, sizeof (regs));
-   iov.iov_base = &regs;
-   count = watchpoint ? aarch64_num_wp_regs : aarch64_num_bp_regs;
-   addr = watchpoint ? state->dr_addr_wp : state->dr_addr_bp;
-   ctrl = watchpoint ? state->dr_ctrl_wp : state->dr_ctrl_bp;
-   if (count == 0)
-     return;
-   iov.iov_len = (offsetof (struct user_hwdebug_state, dbg_regs)
-          + count * sizeof (regs.dbg_regs[0]));
+ 	pmu {
+ 		compatible = "arm,cortex-a53-pmu";
+-		interrupts = <GIC_PPI 0x7 IRQ_TYPE_LEVEL_HIGH>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
  
-   for (i = 0; i < count; i++)
-     {
-       regs.dbg_regs[i].addr = addr[i];
-       regs.dbg_regs[i].ctrl = ctrl[i];
-     }
- 
-   if (ptrace (PTRACE_SETREGSET, tid,
-           watchpoint ? NT_ARM_HW_WATCH : NT_ARM_HW_BREAK,
-           (void *) &iov))
-     {
-       /* Handle Linux kernels with the PR external/20207 bug.  */
-       if (watchpoint && errno == EINVAL
-       && kernel_supports_any_contiguous_range)
-     {
-       kernel_supports_any_contiguous_range = false;
-       aarch64_downgrade_regs (state);
-       aarch64_linux_set_debug_regs (state, tid, watchpoint);
-       return;
-     }
-       error (_("Unexpected error setting hardware debug registers"));
-     }
- }
-
-From: https://fossies.org/linux/gdb/gdb/nat/aarch64-linux-hw-point.c
-
-aarch64_downgrade_regs() rounds the BAS up to the nearest legacy
-0x01/0x03/0x0f/0xff mask and aligns the base down with
-align_down(..., AARCH64_HWP_ALIGNMENT)
-
-The retry then succeeds. So a ptrace NT_ARM_HW_WATCH with an unaligned
-base and an oversized BAS will, after this patch, go:
-
-   set -> -EINVAL -> downgrade -> set -> ok
-> > GDB in fact downgrades on the current kernel independently of this patch, so
-> > behaviour is unchanged for it.
-> 
-> That sounds like a bug?
-
-On an unpatched kernel GDB does NOT downgrade for the exact case this patch
-fixes, precisely because the kernel returns 0 (with a truncated BAS) instead of
--EINVAL.
-
-So the real behaviour delta this patch introduces for GDB is:
-
-  - Before: unaligned-base + oversized-len watchpoint silently watches
-    fewer bytes than requested. GDB never notices; user sees missed
-    events.
-  - After:  same request returns -EINVAL, GDB's existing PR-20207
-    fallback engages, watchpoint is reinstalled with a legacy mask, and every
-    requested byte is covered (possibly with a few extra).
+ 	soc {
+-- 
+2.43.0
 
 
