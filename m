@@ -4,132 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF040CD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70586CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOxT/l00+P1Rsb7jyFMaY52l9emjYbX5sD+Cp+rdKx8=; b=vZ2uIHBXVbdlJml6X2JHVAjYPV
-	CJWvjtVQXBjTDumJGVCjIqqqsmtZFJsEXcTo/Lu/4xKbB7NiO9kwWT9NWXS72k3E6B3zvmJN6Sr5b
-	FQDkyXlPR6BQvMqqixST4R1JuFZWcpSetmSIZnXqKUlnmMnN3bJ9VULjb+OlwO9FcN8csvQ1absyg
-	8vzqmXGmYSLSrXl7fbSZv0A3lqI+2ZxIjqtyKqz54VM5zpXzScUIZmeAu8wYpQINaES87BldpICAO
-	UfjGOUgUH/SIFCqB+3sGGeVrTT5/JzldzJE9Iki38qRM+9oJhB8wscvWpY6vT+ZkCVqeCzE53rVhn
-	dUhLPQmg==;
+	bh=FxxrfMGS0zaiu+w3muh1AaxqaJx6GaJWf2ySi/7JstM=; b=R7Jtw+ko0E+bCa9eQtxjUyUpYW
+	OADoxyOs+o83sHxf0gyUWYKr2MGWBLI9hLZUcmbpoUsJDXskwIQ7QEQzz6qWX2hafoZ4LCm4xUelR
+	ajFDXZas1MfEUUizpgxQUfi6IsM+Pc3WFHpEw7PyqIJhO4i1/1JAswfQh9OwiNTJYpou9AaaMQ8xx
+	1gjeKm5+tzu8GcccGqH2f4l6Am11dGemXYNDNDS5ZeHs4If0id3087H6461WzCvlrLHRuH5NiEl08
+	TV3aJbmVkv0kQdOxGy413DIMZnbccaEWqJYcJK9h3dXbWaCmzHfWnsXdypkC4f251m5ODFuPPO2JC
+	sbb/mq7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7iP-00000006cvg-3Rq1;
-	Wed, 10 Jun 2026 01:26:45 +0000
-Received: from mail-westeuropeazon11010036.outbound.protection.outlook.com ([52.101.69.36] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wX7Ci-00000006ZZR-1KNz;
+	Wed, 10 Jun 2026 00:54:00 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7iN-00000006cvE-2LEz
+	id 1wX7Ce-00000006ZUs-24ft
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 01:26:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j/VT9zXrWuX/IBs798tE4vt2de57RYSQgl9S0YY6Z+Bfvtar+xcJ1ZgwZpLA/bismKFpF8e40TtJIb1DlXFOCIdlDJwy+CNeFkJ6/6lSxCR5wvt/Eakj2njz1cQ4GPXQLZum/9wlcIgnJAQyy7ii3A3LSw0kTjEl92Mz3oibUxI5OjKArQh40qF4cN2PFGvCNbfr6mFDWcvMQ0wf/faS+jUhXS3lItxMGl8G/7B+F9Hv2P94ogw7/p1xxBTnwF1TnHccXA8LKa6h7WJTQGSDseWwBZas/7kh1t37VHl33X5i4/R48DuuJce0UQ4OhRQaDh4JhqtY/J0NuresHbGFng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NOxT/l00+P1Rsb7jyFMaY52l9emjYbX5sD+Cp+rdKx8=;
- b=y1yOtfb3H72NCok6D2jl5aU5vgBBEZbOfwqgvfb7fzX5enpsNZGKq2YCQCn50anty3vkMu7/uI81VuFcwdosepUFVrTa9TnLMK3L3l7Yb672Co2AyTVbZ8za6o2q9ZXbbGtDHaFEhv+1KK0pP/l7wBZfS7Ve7bEZz96qEIlglgIleJbwXdlMXX/5zZ2B3oIU+D4v9Qg20ipX1V2P96TT3+T+dn17uEebKRK8vu+8xJvaAXf1em0MANCIOniM5q3FNd2Im7laVU3g4jlOMo5JP7DNZXCn/58e+GUd1f6ZnmjmT6TveMZXV0iJcysTev15So9cecxne02LhTHErRKe0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NOxT/l00+P1Rsb7jyFMaY52l9emjYbX5sD+Cp+rdKx8=;
- b=LhSM4J73iJAdBTMCf0/coEbXeKnKlrau9ewm8y6GxRXwyyqJaSKfM9EVmFxiwxZNGZQVHbnmHlY9fDiqLxxSdzZS9/sJ5GkOcUU/iFE8vZ3k93MMz0mzzOJ3ypyAgVCgsIsLOblTdZWeUMd8k13tPD46rC0ADfj7kdqmVE/E+D4wYMFQ7JAOg4B03FxLVfzDZFRIpy8R956V+6h8rQhQtn2LLTsElMe5jPCgwH7YXif6HcM08R7WsVUulrNRnoBDhJKugt2zkHStYjXCgVZM1teSCvBrDZb0q1O9Ovr20Kf1tKMWXEgfTpSwsCnrL1VcFQHUKpM214hsbp1scevVPw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB11574.eurprd04.prod.outlook.com (2603:10a6:800:302::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.11; Wed, 10 Jun
- 2026 01:26:39 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Wed, 10 Jun 2026
- 01:26:39 +0000
-Date: Tue, 9 Jun 2026 20:26:30 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-serial@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCHv2 3/4] serial: mxs-auart: use devm resources for iomem
- and GPIO IRQs
-Message-ID: <aii9Ro3pPeaHjNU1@SMW015318>
-References: <20260609223717.41670-1-rosenp@gmail.com>
- <20260609223717.41670-4-rosenp@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609223717.41670-4-rosenp@gmail.com>
-X-ClientProxiedBy: SA1P222CA0177.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c4::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11574:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39b4f0f2-02b1-4a74-1afe-08dec68f51c4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|19092799006|1800799024|4143699003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: rj1Dr19WsdcwqEf5mZlqfv1r8e9ubF8RyugcMQyUT2F2Jk82NIJZfG04Yse6Z7GnyPO4tZ1T/vRP9eQ4mH2j87AERd1U1iZvx6zjKXakmetAmSj4yIJaTA0mPy1xn5Y6BCtvLKF6wpXT+1wYHlYbdaOb9cHDGcnteFEiMb8+YXh9VNznmb0E1PE6nM2VHwhImwHCCFLiiz/EhNaLCC1XJ5K7IIc2QxwnLnUkpgOHhZkxs496YwxceusX+w4GJhvtFxIA2plki8/Z5d7cwhvjyo1zfYoeKyGU/mqGO+Yevit26bMbOdT0aXFe1INxscYVtM/XIfyaXwddIRf+Xz+Oog/Z896FvygPixLweGrk5axBcwyIIGZGIAVb8RiqerUUNCyYMf6pZsN+Chp8MyMV9DEXMh76NQgRM5bunAjoStv44Url/KMZh/k+b1hl4hWsZBq5X8ciGMNaSrei4jqeZ+oCtIKv6S4+oTLg9b8Myx6r4itAmV17fe7gC1AYx6oS0i6d9WuLwuGwbMzImMIxpASlDQjmP/rgBSnunh5WPV2kfGwcoDPfaq2X0f1c3wOHpfHxDz/8u1Ejxv5O8TuNRXn23cj+JNNQQKEAOCv4tFxNJeXegHy9jjtF9lxPZf0OO3IkIPFa5jaiWPeOvo+tYokybnUrFXgxU8qOuPvQQFWYz+pMyD50W9tyl0OWCCZu
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(19092799006)(1800799024)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ETYgLA1rlpESlFy+MS80ZROw8LBCwbkbdOlV8IFAdjlOyZ7CgHLdjEbIvzTh?=
- =?us-ascii?Q?Q+fEFvQtpZuCllhHp8sGhoGxVKK91kAVHzDP2tmzy6f4QY5FENdYS1a+H3zT?=
- =?us-ascii?Q?UZsHCitHUXeML3FB3dAQeJc+RuKR22Ua2m497Wf/k15NNTauDFWvG7Vg5PHq?=
- =?us-ascii?Q?tOz9GmBBJ8Kdz3dTofq37/MDfiByV7r8E9fxp6Q5dYSPEIXy3U2v3TC9JcfG?=
- =?us-ascii?Q?zTVvqcZYkycIWw+gsQ89HYm/hGlZX1zoyTUGaHPq7Ph0C1kLo98l5+8AhjN5?=
- =?us-ascii?Q?F53+XrFOob/QTTUk4QILC6y21RE+EVSTqL6TW8iNwIuWidtMw1QK6okzdrhM?=
- =?us-ascii?Q?pLrv3KmjIUe+es5dvFywUjBvivROjeD5b3ORMpdXDjKp0ea52xvhKPIzN7Cv?=
- =?us-ascii?Q?YOvVoG/Pz4hT944OWl9VJsaLg1+UOF3VjXt4hJ+KqNz3G9m37YEdM77xrH2z?=
- =?us-ascii?Q?QE06Df871bdGKaK2rBx+ATzcCE16SYsKTWORrnJoWXyTbyhPd/dZ5/plyVXf?=
- =?us-ascii?Q?8xIvqmKcrJELgSFM09OqBp6kCLdvtNFmOvmxDjZ0/1m1H3O7gteCu0rHaitI?=
- =?us-ascii?Q?q2n652M9s6uK9MnM46nEqOsAcC9mn4zj9u+z09nyTgvjr3FYNhRBmXhlRbfJ?=
- =?us-ascii?Q?wbQu05SMxj/NzFzKdVGWRG8JiYmY8TSYwfIDjDfqtIQiC3WJfd2TqZXLOl4C?=
- =?us-ascii?Q?kHDWkgCh9WGyvjW+75PD4ZoS96DyRtOS0/Dmx6NZIxN4BaH/fDBEnwnCSRI3?=
- =?us-ascii?Q?7dPHhyo3RXntkBdFFxTGZFM7I3VSibYk0XFCRvyKPkq6+dyPnavXECTNPWE2?=
- =?us-ascii?Q?o1IxZa0RH0Mozwb5EAvQAYXtjRMdtp0Q2q9JolXSiKeJSqA5LpN8C9A6oPqe?=
- =?us-ascii?Q?d1j1PRMPJ9+dJtea4sQ+KbchaUlaU37m/g74jQ0QznKq2TyOmFqQ2aex0+zw?=
- =?us-ascii?Q?I3TI1uahxb9kdcCI9M3Yucmgfqn8I2t7hJO331Cum72GK7aNvZSviwOZL7f6?=
- =?us-ascii?Q?hsXEtgOS4BeX90FtxJkhwt8XmNH+E7uM1lu/UvsoHvGZ1AE4idWPyR7G0Al2?=
- =?us-ascii?Q?joTfMCesM/0QGnl9K4StDQSaAU3ByI0HHpQB0bDN8FgwRg1rIGxgQX12szUz?=
- =?us-ascii?Q?QdPISbGOgxHIvLlNKm2BqNJtQrLZm0TazHWW3GtbzyNon1NAZCC5JPROVM4X?=
- =?us-ascii?Q?Iy7y16Bl/5K4ZUSpJoTDna1CDwGXL0q4IAQn/Gh0Iuf7/m9wv58NUhVgFEiB?=
- =?us-ascii?Q?dONvPEtSShK9WIUsYFBYW1ULVMJ0WF8k5n+ZK2Woowh1wOpFEMc3JdT4t+HK?=
- =?us-ascii?Q?ZdKRYa0sdlMYY15aM3nDKBxgwB5jYxt6K1Z9LcJMluhIKN/gB9xN7bUFaWIr?=
- =?us-ascii?Q?5b5kpGiQarFx+7umb7ebBWmIdJsvUqsQg5aE3/B+DnIyPsuBpk35iqnZEkkE?=
- =?us-ascii?Q?+2jYu8/zkrUohMlFlkKvCB8L8+O1yi+2f29SE2NgE5s4awuxLhmz2BKlXv/W?=
- =?us-ascii?Q?+kYaSeq5frUdeRAP7h4YofVKv64NBUU2i6c6A9HQeyQ/QwUeCCXIXO7gZlre?=
- =?us-ascii?Q?Apn5ylbLv1hrqhgsdrKMRu4kYpt2haMrHno13X1O6JDXV927m7/LtQRMu+UP?=
- =?us-ascii?Q?oAA9ZanjdC/2lXrKemrR2gXLyp7Xjz49m1gkpBX5epu/5euCuyyOpXx1p66N?=
- =?us-ascii?Q?T8t/ARDbB+B67hE+wMuiiibIw/Lmytmo2gbMnchwq/GkDVcVZoy4FXXg1ZYG?=
- =?us-ascii?Q?xst63TCp1+a/+9gL97viGGtWW0ItQ/YW4xUd0Hq7pP854VGnLKzY?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39b4f0f2-02b1-4a74-1afe-08dec68f51c4
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 01:26:39.0294
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XEjNHVmeJFLoOjhxDH5lUubFSQwvxhG8+rPyobQA8m97mx1naHokNYLHX6MMysz336Fqsi8LNYuuTHCkQQZ82b6QmAkDWW0TdYTsEmWXz1uLqVnjgdRSj5hEIYBToYLz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11574
+	Wed, 10 Jun 2026 00:53:57 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-36d97955899so5805497a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 17:53:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781052835; x=1781657635; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=FxxrfMGS0zaiu+w3muh1AaxqaJx6GaJWf2ySi/7JstM=;
+        b=jx/RFQzLYjht7siktvOSazNDJf1Ci/DGXhTfNdBqf2qn9g3hVmxAzN0RULJ+aHs2Jq
+         ph/XFmbXaPlt0iXQieVj6PfuoRYwVF9obXNNKRJ81mBwo1APawa+xJPwAVxQT+BEmdS0
+         0aUwuwFQhd7LVoxUPS0sXxBLLsl5AdbwEilsAa7ara22HW1suX+smyl845D/bN+FOgcM
+         sRGOo97Nb9RXZSB3GQ/GpcbqQ0PtfAdXs1PFqdH1iL9RnfxGCmrZr+0q6DR1WljKwZNv
+         oHo0l84K5fuCM9P9LYgwZTutXaIe+N+WU1co4Z708282XvodmlG/OyMIZqL3bl5dpTTG
+         dtdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781052835; x=1781657635;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FxxrfMGS0zaiu+w3muh1AaxqaJx6GaJWf2ySi/7JstM=;
+        b=JoecJlfEXA2gFRr3gXTMu+IyBL+/MHJPn0bjKE5/0qlP/3dftl4pFbuIlPrzSVzGHO
+         qZEMrvomoL8JrPSw8Bc8xNSBxF5KJ7wWRyOWmT2pBOW/mtZIyWcxwRxNdELNdLUXWMKP
+         fbMAHLIHd0lL0zpByFK86WyuF982IAiH/IMZzrOJoZIcdUl/V5z3LOg4qh41pCGAcZ1p
+         z/52HaPq5r6hVKtkIwkwWZ6MC031av1ZTMx3egbZcwPCnSQtmyecoQ5Mb9RjAF1KU4nb
+         jfx8yOyPA101x3bcx/VTgQMbhHM1zgiz0eBUiSOvDWchr/a4e3Zceievgd1Liwzp9Ewy
+         sKsg==
+X-Forwarded-Encrypted: i=1; AFNElJ8csdmNKC1k+8gLS82GOE9CaMFDN8FRr03bvxGGcd31lXf3OI0skrwdNILCp5vJXjQlY+WHcCzps7lYe18a/LJq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzBhbzgfQPK6WMW7mCDZzCGEmPVhlRDp5mSqCfcXDH+V8NTps8
+	pzE7/OSaBa35zQWWMGSc8VNopxEdZ30lq0+tkAdebaaniCWOTADB8yrx8yR8NkQLGRnKO3NNhl/
+	efdNiyA==
+X-Received: from pjbfv16.prod.google.com ([2002:a17:90b:e90:b0:36b:7407:9b72])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:50cf:b0:35e:d015:d675
+ with SMTP id 98e67ed59e1d1-3751f843387mr6325275a91.7.1781052834478; Tue, 09
+ Jun 2026 17:53:54 -0700 (PDT)
+Date: Tue,  9 Jun 2026 17:53:30 -0700
+In-Reply-To: <20260610005338.2967132-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20260610005338.2967132-1-seanjc@google.com>
+X-Mailer: git-send-email 2.54.0.1099.g489fc7bff1-goog
+Message-ID: <20260610005338.2967132-11-seanjc@google.com>
+Subject: [PATCH v6 10/18] KVM: selftests: Add option to set empty routing
+ between IRQs in eventfd IRQ test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
+	Josh Hilke <jrhilke@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_182643_599366_C3CCFF51 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20260609_175356_726954_D2FC7EBC 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,154 +91,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 03:37:16PM -0700, Rosen Penev wrote:
-> Replace platform_get_resource + ioremap with
-> devm_platform_get_and_ioremap_resource and convert GPIO IRQ
-> request_irq/free_irq to devm_request_irq. This eliminates the
-> mxs_auart_free_gpio_irq function and its call sites, and the
-> out_iounmap error label. Simplify the remove function accordingly.
+From: David Matlack <dmatlack@google.com>
 
-as my said before, all function need add ()
+Extend the eventfd IRQ test with an '-e' flag to set empty GSI routing
+between interrupts.  Clobbering the GSI routing table verifies that KVM
+correctly handles CPUx => NULL => CPUy transitions, not just CPUx => CPUy
+transitions, and verifies that KVM can "rebuild" an entire routing setup.
 
-Frank
->
-> Assisted-by: opencode:big-pickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/tty/serial/mxs-auart.c | 53 +++++++---------------------------
->  1 file changed, 11 insertions(+), 42 deletions(-)
->
-> diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-> index aa59a48bfad7..4499e3206e85 100644
-> --- a/drivers/tty/serial/mxs-auart.c
-> +++ b/drivers/tty/serial/mxs-auart.c
-> @@ -1517,15 +1517,6 @@ static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
->  	return 0;
->  }
->
-> -static void mxs_auart_free_gpio_irq(struct mxs_auart_port *s)
-> -{
-> -	enum mctrl_gpio_idx i;
-> -
-> -	for (i = 0; i < UART_GPIO_MAX; i++)
-> -		if (s->gpio_irq[i] >= 0)
-> -			free_irq(s->gpio_irq[i], s);
-> -}
-> -
->  static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
->  {
->  	int *irq = s->gpio_irq;
-> @@ -1537,21 +1528,13 @@ static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
->  			continue;
->
->  		irq_set_status_flags(irq[i], IRQ_NOAUTOEN);
-> -		err = request_irq(irq[i], mxs_auart_irq_handle,
-> -				IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
-> +		err = devm_request_irq(s->dev, irq[i], mxs_auart_irq_handle,
-> +				       IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
->  		if (err)
->  			dev_err(s->dev, "%s - Can't get %d irq\n",
->  				__func__, irq[i]);
->  	}
->
-> -	/*
-> -	 * If something went wrong, rollback.
-> -	 * Be careful: i may be unsigned.
-> -	 */
-> -	while (err && (i-- > 0))
-> -		if (irq[i] >= 0)
-> -			free_irq(irq[i], s);
-> -
->  	return err;
->  }
->
-> @@ -1596,18 +1579,12 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->
-> -	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -	if (!r) {
-> -		ret = -ENXIO;
-> +	s->port.membase = devm_platform_get_and_ioremap_resource(pdev, 0, &r);
-> +	if (IS_ERR(s->port.membase)) {
-> +		ret = PTR_ERR(s->port.membase);
->  		goto out_disable_clk;
->  	}
-> -
->  	s->port.mapbase = r->start;
-> -	s->port.membase = ioremap(r->start, resource_size(r));
-> -	if (!s->port.membase) {
-> -		ret = -ENOMEM;
-> -		goto out_disable_clk;
-> -	}
->  	s->port.ops = &mxs_auart_ops;
->  	s->port.iotype = UPIO_MEM;
->  	s->port.fifosize = MXS_AUART_FIFO_SIZE;
-> @@ -1622,21 +1599,21 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	irq = platform_get_irq(pdev, 0);
->  	if (irq < 0) {
->  		ret = irq;
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->  	}
->
->  	s->port.irq = irq;
->  	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
->  			       dev_name(&pdev->dev), s);
->  	if (ret)
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->
->  	platform_set_drvdata(pdev, s);
->
->  	ret = mxs_auart_init_gpios(s, &pdev->dev);
->  	if (ret) {
->  		dev_err(&pdev->dev, "Failed to initialize GPIOs.\n");
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->  	}
->
->  	/*
-> @@ -1644,7 +1621,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	 */
->  	ret = mxs_auart_request_gpio_irq(s);
->  	if (ret)
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->
->  	auart_port[s->port.line] = s;
->
-> @@ -1667,11 +1644,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	return 0;
->
->  out_free_qpio_irq:
-> -	mxs_auart_free_gpio_irq(s);
-> -	auart_port[pdev->id] = NULL;
-> -
-> -out_iounmap:
-> -	iounmap(s->port.membase);
-> +	auart_port[s->port.line] = NULL;
->
->  out_disable_clk:
->  	clk_disable_unprepare(s->clk);
-> @@ -1683,11 +1656,7 @@ static void mxs_auart_remove(struct platform_device *pdev)
->  	struct mxs_auart_port *s = platform_get_drvdata(pdev);
->
->  	uart_remove_one_port(&auart_driver, &s->port);
-> -	auart_port[pdev->id] = NULL;
-> -	mxs_auart_free_gpio_irq(s);
-> -	iounmap(s->port.membase);
-> -	if (is_asm9260_auart(s))
-> -		clk_disable_unprepare(s->clk);
-> +	auart_port[s->port.line] = NULL;
->  }
->
->  static struct platform_driver mxs_auart_driver = {
-> --
-> 2.54.0
->
->
+Signed-off-by: David Matlack <dmatlack@google.com>
+Co-developed-by: Josh Hilke <jrhilke@google.com>
+Signed-off-by: Josh Hilke <jrhilke@google.com>
+[sean: '-e' for "empty" instead of '-c' for "clear", massage changelog]
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/irq_test.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
+index 9e2287490262..2ad9efd9abc7 100644
+--- a/tools/testing/selftests/kvm/irq_test.c
++++ b/tools/testing/selftests/kvm/irq_test.c
+@@ -109,6 +109,13 @@ static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
+ 	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing.header);
+ }
+ 
++static void kvm_set_empty_gsi_routing(struct kvm_vm *vm)
++{
++	struct kvm_irq_routing routing = {};
++
++	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing);
++}
++
+ static const char *probe_iommu_type(void)
+ {
+ 	int io_fd;
+@@ -127,11 +134,12 @@ static const char *probe_iommu_type(void)
+ 
+ static void help(const char *name)
+ {
+-	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-h] [-t iommu_type]\n", name);
++	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-e] [-h] [-t iommu_type]\n", name);
+ 	printf("\n");
+ 	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
+ 	printf("-a	Affine the device's host IRQ to a random physical CPU\n");
+ 	printf("-d	Use a VFIO device to send MSI-X interrupts instead of manually signaling the eventfd\n");
++	printf("-e	Set empty GSI routing in-between some interrupts\n");
+ 	printf("-t	Override the IOMMU type to use (vfio_type1_iommu or iommufd)\n");
+ 	printf("\n");
+ 	exit(KSFT_FAIL);
+@@ -158,6 +166,7 @@ int main(int argc, char **argv)
+ 	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
+ 	struct vfio_pci_device *device = NULL;
+ 	int nr_irqs = 1000, nr_vcpus = 1;
++	bool set_empty_routing = false;
+ 	const char *device_bdf = NULL;
+ 	const char *iommu_type = NULL;
+ 	int i, j, c, msix, eventfd;
+@@ -165,7 +174,7 @@ int main(int argc, char **argv)
+ 	struct kvm_vm *vm;
+ 	int irq, irq_cpu;
+ 
+-	while ((c = getopt(argc, argv, "ad:ht:")) != -1) {
++	while ((c = getopt(argc, argv, "ad:eht:")) != -1) {
+ 		switch (c) {
+ 		case 'a':
+ 			irq_affinity = true;
+@@ -173,6 +182,9 @@ int main(int argc, char **argv)
+ 		case 'd':
+ 			device_bdf = optarg;
+ 			break;
++		case 'e':
++			set_empty_routing = true;
++			break;
+ 		case 't':
+ 			iommu_type = optarg;
+ 			break;
+@@ -222,9 +234,13 @@ int main(int argc, char **argv)
+ 	}
+ 
+ 	for (i = 0; i < nr_irqs; i++) {
++		const bool do_set_empty_routing = set_empty_routing && (i & BIT(3));
+ 		struct kvm_vcpu *vcpu = vcpus[i % nr_vcpus];
+ 		struct timespec start;
+ 
++		if (do_set_empty_routing)
++			kvm_set_empty_gsi_routing(vm);
++
+ 		kvm_route_msi(vm, gsi, vcpu, vector);
+ 
+ 		if (irq_affinity) {
+-- 
+2.54.0.1099.g489fc7bff1-goog
+
 
