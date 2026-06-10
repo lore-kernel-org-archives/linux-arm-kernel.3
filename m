@@ -4,109 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC95CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7343ACD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 11:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLldHqYnHDJ/Sxb43zTTXtbCMHCxqKTDybarls4FI9g=; b=KhGfT1GE9abBNxg4qjzxjY8Hq7
-	DeXYQTIsSB2f5t8FfwreFd0p/cNOnImk7j7Msbea5PwemUyrWjXOyA60c5XdQWgdj3OFi/2ITBYPZ
-	UYEF24bAetJHbJFlhdq2agi6WXnYNAcK1wurb74WDrH1O1n7znW7SStwk3+yNS/op67icJ5BTqSxC
-	nr34c6qIld4GjTkB33wrOQ0bxkOM6XXrWCV3ueGSwMbw2+40zLcEKorao/yvxz7VU3xa45L3xKg3d
-	LSnWKFkcISxTsOdAKghNxptGpCYDzBpMdJOd6YyJJTPlHzsU0IioVJMstXi0nGWPLSbY85Un20+1L
-	IuqdaNNg==;
+	bh=Qbr4ROVH+jnt4tP/9mv5QAbtw8gA7hNTlWAUzPbg2+k=; b=Pc8geyhcGrNwhBYKd8n/vKGRU/
+	Qw2U24FAxUPLGl/LV0KoZ3x9GkmFHuL5I8qaACccx7dE9CFvSPL9FLa1x6b36uMvDuzY04gSUQaXS
+	aQniko/MsiGiAAKeflFi8gG+Z4jTlbJygGUrgHOwf6E1FmRV/4EKpCElf8iBoD7RbGTLVwILxTAHs
+	xDKCDfdYEhQimGD4iKiV50BG89ovV/v5DqwuFZl/u3LnTXXHqqMlGr8gwqPAEegUT8A2FQOiybCN1
+	YnaP7d2kmfnA0r98EZ4smMcSKfcSs+MHyXaCoKjwCzLIEJOH9D33PriRZ1QSWDxmcmxoMU9gYgdAL
+	+z80msbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXHSk-00000007ZSz-3eo1;
-	Wed, 10 Jun 2026 11:51:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wXHTa-00000007ZZw-03iF;
+	Wed, 10 Jun 2026 11:52:06 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXHSk-00000007ZSp-0ZJ3
+	id 1wXHTW-00000007ZZL-37HW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 11:51:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8308A401BC;
-	Wed, 10 Jun 2026 11:51:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 476291F00893;
-	Wed, 10 Jun 2026 11:51:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781092273;
-	bh=hLldHqYnHDJ/Sxb43zTTXtbCMHCxqKTDybarls4FI9g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=j7aDL0nQDHlwBxofrOHuKwZjtWZF+D82pH9FpHyWEIumCgAx3lvKEzZQswwCP7KdR
-	 VAA+ebhfOePCF93ESJxPcPJfOP+JXWpajxVMLQWHbhMryRagjFNfoICa4+FADcg0H8
-	 4qBsMRj3kTjuseTiHw/bn0ym/yeGmB3a6aP28KLG32x/9uXE7k7DOJHaqSDg4YYiEN
-	 gz7mBNYGZiy2tifaTZ5EZluR4xgyAK8GZocj/JgGi9oyCZUKk5W325psUBIgb7/zAO
-	 ovqcnWcqBX6shntuvZaw8jzQURSRL38oLb76MR1puXVWxd1kLxM6kqlphBfwlym3NF
-	 7/by23NGMNVrQ==
-Message-ID: <021d5cb7-51bf-4221-8b58-0e8a777cb97c@kernel.org>
-Date: Wed, 10 Jun 2026 13:51:08 +0200
+	Wed, 10 Jun 2026 11:52:04 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 49E0D1D000B5;
+	Wed, 10 Jun 2026 07:52:01 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Wed, 10 Jun 2026 07:52:01 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1781092321;
+	 x=1781178721; bh=Qbr4ROVH+jnt4tP/9mv5QAbtw8gA7hNTlWAUzPbg2+k=; b=
+	I60ba5Cj6DsveHCsg/ZOr3eoF7690GZ07OPp5jm+Q0NqcKgTHSH4NIAUBk5mYG/T
+	hYTZN1dheeg4nLnu1qtrJZXzvrQDHZh/Xz7DNU/pD9jgkoadydvbOfN5/6Y7fcPd
+	vAsiMQexpiwUckMaLgY735DBTkWPYXCKyexJU3q8VdBQvBPwMFZ47SHCiKRY/4ih
+	K/xNubhkbPntZw/l7XZ/LVrKWhRbpaM/Bn+iKYmbqu8SzPAwNv8oD8uTj/ru/pZI
+	t+zMTvaN0RzkBvgDMQldXh3AkAJDsR0OuaWodENz3ZgOJy5nh17WMniM5HqxBsCI
+	WZcxrxaKK8tFVIQmc3ZAkA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781092321; x=
+	1781178721; bh=Qbr4ROVH+jnt4tP/9mv5QAbtw8gA7hNTlWAUzPbg2+k=; b=I
+	EV9VM43ZgrzUZCqQy6trvY2y8OoI7rzF8ItGKLO61WL/EiAJQsQolyNZHwBFfSld
+	sCSDADJNgTHPO1997s42D9fWljm0Up5+kEwksei6hUyUGDnTP6C/rp1TaXC745C3
+	HT4Caqh0F+yoBIECFBwbx0ToxZEdKQlCZKiam2lWZYa4CTtRog2f3Tur5l98IfLN
+	n22JliFjGKL2rwx4dQAWpuWrOikmAnLfawV741HBBr5g6hakh7qQ2KtbN2FK1aoO
+	bs+Gfjy2gsl6GagQvaXzWG2bp95itV1P8nJq/Xs24f64M5XKTceiganvgQiJ2PAB
+	fP+m63VUruopen9qC1pjg==
+X-ME-Sender: <xms:4E8pasbG_oJaJw5Y4HuM8Gp2euFrxLfd338BoFiIwooPOLG88fIg8A>
+    <xme:4E8paiNaJ3uHurcYPSlQXLwJLipVgXeuJ2IfQOg0Fqx4zTkcaS7hzx-RnObGkhUI6
+    HxAT7-4Ll_2QmiC6QDhYj_lR8JijsgBZjRkT2ELGYhP5NFqrVnQgO8>
+X-ME-Proxy-Cause: dmFkZTGZIwo5KtSHdxfT+Ae64Z6rtdz5qTlNjl7FQnd+4W9H0YALvvQkZ+IixgJZNGBa7Y
+    LYgKbfPl/W+rX4T4g5+CUd9983g0PTGHzmRYNdIffjWinfRKw+TFC+/fmnApz7o99xadEr
+    olm9xmZCxrTzsWTgfRYgb/R85ICIg8/4BoCVDYEe+y45mqLDyip8pilF21897oM81wqBl8
+    znBuzSMuTTauEqbGX6ZyCcZFnxdsHw//6xumk9LkhqjFnGtZWUlu5s4TnNziskFcCjR2Dw
+    65hcN3f4aRMLnEBQQVlczGDJRhQYNLdCQ5y11+APEnGoNI9NVs3f4rJ4Wth3u7fQ2eBXhq
+    8RwSu1fVarIVtvGfxpJFQvTRBi8FxNiH+DfTdFVJK2iw3ZVVbFAy2HwguRmjTgBwSK7IZP
+    R8OoPv0mLf1+3s9zEy28uxB6CDDp9ongYg8ajQz7UTA/bGCgQ2bwrg9TxH8iGVcxwQhg33
+    CzSPFt9U/KYMaQPuOLiQVGvVt+OeV2EYD38x2B0xRdl11uZJ2ucsgbP0Hk2z+VEvW+qWSO
+    osKYbJHsCjFZaRR/f++UmrcLnDtAb8zhGSj46Vj1jLxjBjzQtQPMgoJes1F1ae47v+0l12
+    c/kbDxeT1sHpapI8GHAc2PfQLvI5DqufxT2zH0zjwAZkyzwpHT0Ex8q2bYUg
+X-ME-Proxy: <xmx:4E8parIa9ie_4XSYMC-TNZK2FYY7niU1j1VDSedgsD0sfS0g4Zj_9g>
+    <xmx:4E8pahsqkUpjWaZ_zE3jeZa_mhPp9DAtdyZc4JB9naRX1t-Zfg_-eA>
+    <xmx:4E8panUEpe1X_i6_itQoVeCAXtEW38--Sfl3kNrbbeoI-qbBL-Wbng>
+    <xmx:4E8paki5rBB0Ev3HeAHDsiCiYZfMWqbeDgxb3BIJda7cFkC7r97OWQ>
+    <xmx:4U8paqJp29TUkKDJo2AJn1sfrfLUU6CgT7eA5h7tlfM_d5gojBmxvM_v>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id CFE54182007E; Wed, 10 Jun 2026 07:52:00 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: serial: Add binding for Cortina-Access
- UART
-To: Jason Li <jason.lee651024@gmail.com>, jason.li@cortina-access.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+X-ThreadId: AveuuW7LIw6B
+Date: Wed, 10 Jun 2026 13:51:40 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Josua Mayer" <josua@solid-run.com>, "Frank Li" <Frank.Li@nxp.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
-References: <20260610112821.3030099-1-jason.li@cortina-access.com>
- <20260610112821.3030099-3-jason.li@cortina-access.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260610112821.3030099-3-jason.li@cortina-access.com>
-Content-Type: text/plain; charset=UTF-8
+Message-Id: <fc58ffaa-c910-4bf5-9a37-20e9aeab466b@app.fastmail.com>
+In-Reply-To: <20260610-lx2160-pcie-fix-ranges-32bit-v1-1-98086fc5fb6b@solid-run.com>
+References: <20260610-lx2160-pcie-fix-ranges-32bit-v1-1-98086fc5fb6b@solid-run.com>
+Subject: Re: [PATCH] arm64: dts: lx2160a-rev2: avoid 32-bit pcie window system ram
+ overlap
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_045203_375315_2D0A5713 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +111,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2026 13:28, Jason Li wrote:
-> +
-> +allOf:
-> +  - $ref: serial.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: cortina-access,serial
+On Wed, Jun 10, 2026, at 13:45, Josua Mayer wrote:
+> A 3GB non-prefetchable PCIe bus window can overlap with inbound DMA
+> addresses for low system RAM, so DMA transactions may be routed to a BAR
+> on the same host bridge instead of memory.
+>
+> Change the 32-bit non-prefetchable PCIe window back from 3GB to 1GB on all
+> controllers, avoiding that overlap while keeping the added 64-bit
+> prefetchable region.
+>
+> This partially reverts commit 9ed301397090 ("arm64: dts: lx2160a-rev2:
+> extend 32-bit and add 64-bit pci regions").
+>
+> Fixes: 9ed301397090 ("arm64: dts: lx2160a-rev2: extend 32-bit and add 
+> 64-bit pci regions")
+> Reported-by: Arnd Bergmann <arnd@arndb.de>
+> Closes: 
+> https://lore.kernel.org/r/9e6326f6-dad1-4169-a63c-e62ee5b341f2@app.fastmail.com
+> Signed-off-by: Josua Mayer <josua@solid-run.com>
 
-Aren't writing bindings very clear about that? Please, take your time to
-read through the docs, so we will not need to repeat basic guidance. It
-is documented there on purpose.
+Looks good to me, thanks for the fix!
 
-
-Best regards,
-Krzysztof
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
