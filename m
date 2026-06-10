@@ -4,91 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3F2CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 21:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F4D8CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 21:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ig2OVt3TBv7ddvTUNvfJSFZLo8RWweuoGZlGh1vDWos=; b=zUrXvRtO7yFyBBWFPfQ/k99WXJ
-	KJ1VBmErx1D4LEKpIZqdgMiKuue/xzT9TqpqkV7EFLjUMsFA65Mrjgj/gPqa1FWvC9l48oXk5yY4N
-	HQS//lnexwl+hUQhP1F4XdChDb89AHM5wBxURm+diqSb9fVMtnESh5admt0f4q6Qst2Cbi5e70lp7
-	lp6/z+7q2OXqbeG7AWqf1+MleV+2JaEBL2VNjrnIdrwf3e6h9hgn1PeDU5UNzgzKgD5Tc5kKkl/Gs
-	3wIV8U5OdwUmJa8i1WeHzF7sr4pe9rcWV/zmt6Y23RqpUULUDaobAt/eUNjd/5AwWn2C9pgdrRbHK
-	vSkkYIXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SJRp2wrffSdTEzc2A0jyXhx0rgIi195AdOSsXPwcqzg=; b=PRlgHyFWx7SVoj
+	Tq7ZXoA+e7egSL4kRaD9RJbudjHnqltsMSv6qb2rrmk1UvJ6KV5UKNxm8pq01IRmdVtRiwfJI1Gqe
+	NUOMwxCbCZJhR/mCLuMl1F6Sxx6No5XMr2Sf411eh2+oXxFYmyGhYUA02giyfk8Dwx2QFCLB1o9nM
+	840RVqJk1XsJLyKxp4SqVpt5n9NUVOqnPi24VIk/YTT2d3XZxgwUI3tip2pH3/4TPCrCnpPB1hKXX
+	hqrAYqa4gBUltdVamZLJk9zBhyAe5kgRyL1ID5b1+gT60sl7bizFIorA7JnMqkbuf44krYZ8PGf/t
+	sIuz1aYspHD3t/QOTwxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXQAQ-00000008Mwe-1LXO;
-	Wed, 10 Jun 2026 21:08:54 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wXQUZ-00000008NQx-47Sx;
+	Wed, 10 Jun 2026 21:29:43 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXQAN-00000008MwI-11PE
+	id 1wXQUW-00000008NOj-2kEf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 21:08:53 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-45eecb8bf67so5482541f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 14:08:50 -0700 (PDT)
+	Wed, 10 Jun 2026 21:29:42 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490aebf33e9so41243225e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 14:29:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781125729; x=1781730529; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ig2OVt3TBv7ddvTUNvfJSFZLo8RWweuoGZlGh1vDWos=;
-        b=jApY5gdhZ34OcJ0xziGGiux7XNCKLORQpN8HhDkBhLkLiHj5eTMOiddS/1Pi8CN0YT
-         KV/3Rdl/Ngy+WzUwf8hgemP/A5cILkAZlU/wizVqwrWasCXtNsuJ5K08AK98sO68w3YU
-         aBT9a786Qgq2C6abPcZDMixjTJln8m26r7itMBf0xsOZtEfpju4S9k9FJ2mjIhREno3q
-         kHb+blsa/yrhhCjSeg0N3v+3BdhKmFNLcJve8xwx0qPujfB2TTLjjK8Kgp3vIGbwIGRd
-         pgWOBpqSzGSliV8e0eUzFzJzbhfmalV6douhyI468OWMap2Po4jm5teHwoQz4v1OWwWd
-         VigA==
+        d=baylibre.com; s=google; t=1781126978; x=1781731778; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SJRp2wrffSdTEzc2A0jyXhx0rgIi195AdOSsXPwcqzg=;
+        b=awyjCcAY2yptaDMHLXtQHhRN87bekhDxk1HaO2P4uoFGUXhVPLjcCAo6lrKfdn0JPY
+         mqbbLG90dM9zXn1VDjPKu+ePQ+RxPprNLBn8WTsujXZuIa2bXJIkQItPyiSq2zWinUKF
+         obi5s9lUiiQADtxG8P/MibJ6a0BUs8eZHTPYKhY6A8hxzD7qXfpWCt/bMwoA1OCq8Pij
+         UZz8ouotwcemcP+kX/rJFcVGJQ99f6mA1suGx4nRIblc3e/gnX9tMzWp96tRBGPpolxc
+         SIh7Quc2W2gooSwZGIOiMsqXL54cw0oSnkycKsm4KrePKJ/2OFh0cvArJEJjr7yCoB6R
+         YLRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781125729; x=1781730529;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ig2OVt3TBv7ddvTUNvfJSFZLo8RWweuoGZlGh1vDWos=;
-        b=UikCIstMeKdNkMikjilv/uPHk6fK4NiZeeRD72oMtLRcDM2CXI5V+BJoD/k/g0kjyi
-         LwNNV0UfXfpA5KvOjP2iiR6YGvKv+jMdUdDdzDSp3hbJMhTnLyfQF78tjSqBfuqqFWLj
-         LplCGv6nZs0fQn6gXrETc4v989kNbEra0lQDW/8MrG7E1BRyAjoMM9G8lnDrnBZAhJTi
-         rrjeBXOwthQ6lUaIEoWmGx8S4m4aj6Oh//kDILsR0qb3vpGBbMeZY3G0WG6WfmRX8ItB
-         fFL/16hZ3RjJbN1yZGym07DCOokFnUEZ30Y9VsCB6A5OQkPz4iljX8lsAqN9lh56F84o
-         cBeg==
-X-Forwarded-Encrypted: i=1; AFNElJ9AbwXxkLtJ/+dJAW2QfeKWGnrTcBl35mEZU/DFwCBwvZJYYo+4vepvuOxaBlm7vihaS2AUmrrTQ24AqNBeMii0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYxQltmsXNDrwe19LP5d0qjdPaiFVJ7TiqRgYZFsm1Q7UFPdZn
-	pRJLoc7xp7Ra6pyHDYvdoT1seREx0awP9Ahyc7X3ElnXadxBA1DJryQBPE3vgGo0vWs=
-X-Gm-Gg: Acq92OF/2avBu9c/OlQRtrfGU9vQzRu2u/3g4PryDL/gxhpLaYvatinwD7F/4YeSp9f
-	dAIKK/OfxBSKTYdg2yD46SFxpQgeDbAi39Frc68MSj+2bhQVZuUufHET3NXirXR5rMmLOjXCChl
-	WnVYi0rSLP8fATOUz742gJM+VhDFgkxJrYIYQXDKwSS2MBF87PG5Fsx2NYcPU7M6uzPuSlwxQ+r
-	RvVaE8nRUIzZXdboXfDN+EIbqg7YBSmFXHoZg1TgZGImIyt2X9/xtv36pHTmUli0wTotLnPIkpq
-	Jy1ytAlu8FmLmfD5NoQgW7yCL3NdHkWBxHgm2XxDztRDH9q2CDkyJSwCFH6jOJPewWqSiQjZ3XT
-	xL/G+qbuAjkLk/cyrF5f81Ii/rJMxRXSYCinrZBP7hIgPm15i+JV3VakYpATDAcMM/vYMOclKzH
-	/xoMr9Cx2pBcRNJTZNj2F+X63El5DofaKzjjGg0D0=
-X-Received: by 2002:a05:600d:640f:10b0:490:b7e6:bd1d with SMTP id 5b1f17b1804b1-490c25e30a2mr298781385e9.16.1781125729131;
-        Wed, 10 Jun 2026 14:08:49 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:559d:eec2:887f:c200])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-46028a6dce6sm67341274f8f.30.2026.06.10.14.08.47
+        d=1e100.net; s=20251104; t=1781126978; x=1781731778;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SJRp2wrffSdTEzc2A0jyXhx0rgIi195AdOSsXPwcqzg=;
+        b=FBEQU0w4xCyH5ex6ZVAZQYR43GH9xxWrIpvnU5Xp7okIsnRdPJwWpJS8r/bmSEPa7M
+         DmahYdhua2h1OInJ+g9TOaSFobFvVV66AGdST+DOPDYAChWocEhhUtq+dSV1mHVWIg0H
+         3sRUr4wpXxyjIWsz/HVaAjkCcJc4s2d2Mcznhc7eUsJWNlAv8Jjib2Z3mIssOisbpTGr
+         +St1a+IMa+c4m1pxVzD0Gxw+cqLAr99NToShaBBHNY5/0Zzk7Z42CeUgU53i15o1V4+O
+         K2hKysf1aajW9eShq3qadNVgeNZHhzbuT/2oVZN+FEMk7hphPMNV18lHWWC0pWqjgx9g
+         cQ4Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+evsdQAKvyc7XcYirC3rwcUexStwXuxn7D/pPuPhlb2MFqGfmg/s0R7GdDAucQqyhRG/nNyUGOPhTMm2cr+t9D@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywc1UnL5b9BU5av/d/vAvrddY10VIPIrWlQbOfkRy0KUkv+iZEa
+	uYbjQ5ucBBsrBFJq3a11Av8BqjF9IQ7EhLPpvPp+Pe8nYIyrE6Zvr4JzXix7ca+c4iBkqSBAiEq
+	dyXPLCvI=
+X-Gm-Gg: Acq92OHlJksZbYZRqLtH20zSCd+6wGFXT2IaoiWzMsaTQB2jhFFeaKgOoIcPhznYBOj
+	3lUIvTN/jx1VzSMRjGmb+PrjGYFtVkZ13Aac395VM8Hx0t0WL0ZB2y6RNyTVfiDql34XgHnr5/1
+	awj6dHJqpKjRB6k5nhSSX7bJZHd9OQx0+Gxtyn32EmVUc1/TA2OW4Ab0JXLrgNC5nv7wI4Eq0dE
+	5vDfK4DkpOtfaF3kEGVg2O9IvMEsJfDEZOpGA7I4ZBdltVrC63hPdmLPwcsld6uw1q4v56CFc4z
+	yU8R27XztqcLqWz26u/0VYIyukrdYMuyGC08uK0GcRMdYgKoBnVJwZW7lKuB70PaxYpdRCyHtzH
+	P0VMDohvIaR92wgrQ3NdmAY9+fHErETUuEyLy1VxwUkYsrfcoB65ZDdhQ4tQ3zOD6LyMN9fa+QG
+	xP/+AnNygS343zqZACcyBbMdlzt5xRtm4=
+X-Received: by 2002:a05:600c:1d27:b0:48f:d5b8:5b07 with SMTP id 5b1f17b1804b1-490c25e10f9mr448608335e9.20.1781126978195;
+        Wed, 10 Jun 2026 14:29:38 -0700 (PDT)
+Received: from [127.0.1.1] ([151.61.238.34])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e4228768sm970965e9.0.2026.06.10.14.29.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 14:08:47 -0700 (PDT)
-Date: Wed, 10 Jun 2026 23:08:45 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, Marcel Holtmann <marcel@holtmann.org>, 
-	Markus Schneider-Pargmann <msp@baylibre.com>, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Bluetooth: hci_bcm4377: Use named initializers for
- pci_device_id array
-Message-ID: <ainSCcYroJUIAuwr@monoceros>
-References: <20260504160940.2168650-2-u.kleine-koenig@baylibre.com>
- <aimXkX4FC4JVxt6q@monoceros>
- <CABBYNZKuOdtxa8ksEZM1FyjYJCQ22H6NzaX31t6LcZuvn0LMNg@mail.gmail.com>
+        Wed, 10 Jun 2026 14:29:37 -0700 (PDT)
+From: Valerio Setti <vsetti@baylibre.com>
+Subject: [PATCH v2 0/4] ASoC: meson: aiu: align I2S design to the AXG one
+Date: Wed, 10 Jun 2026 23:29:24 +0200
+Message-Id: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xqdkuhrraxjetghb"
-Content-Disposition: inline
-In-Reply-To: <CABBYNZKuOdtxa8ksEZM1FyjYJCQ22H6NzaX31t6LcZuvn0LMNg@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADTXKWoC/32NQQ6CMBBFr0Jm7ZiWUlFW3sOwGMoAkyglrRII4
+ e5WDuDyveS/v0HkIByhyjYIPEsUPybITxm4gcaeUdrEkKv8oqy2GDgONDGSfJAi0tKjbsndlCk
+ dtQbScArcyXJEH3XiQeLbh/X4mPXP/s3NGhVa0xS2LK9F15l7Q+tTmsBn519Q7/v+BX8wK5a3A
+ AAA
+X-Change-ID: 20260515-reshape-aiu-as-axg-1dac9037cad3
+To: Jerome Brunet <jbrunet@baylibre.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ Valerio Setti <vsetti@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2673; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=gUzrcXWFBRd4+87BftZYwKJ52jua2o2zGHf5pOVqNd8=;
+ b=owGbwMvMwCF2z3ty7kUrRgbG02pJDFma1x2MVZdFz6h6XLD0jbTR6jPFnzWS+jw9IgWcEp6WL
+ l88Pdmto5SFQYyDQVZMkYVl+r3fBaVqD40TThbAzGFlAhnCwMUpABO5u57hf5FU44xSJwaJaYv0
+ X+yelXb9at+csHUfI3V+Bpjcm9w6dRkjw7d5wre+ss0TW1H5qWXGWtMXOafTJ7z8xrZEUe9mnEr
+ rZkYA
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_140851_305167_B3B011BB 
-X-CRM114-Status: GOOD (  27.09  )
+X-CRM114-CacheID: sfid-20260610_142940_729593_C2B49C25 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,86 +116,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The goal of this series is to reshape Amlogic GX's AIU implementation for
+I2S to let it follow the same design as in AXG's TDM. Keeping the same
+design allows for unifying the two platform implementations in the future
+and it also allows for an easy addition of I2S input.
 
---xqdkuhrraxjetghb
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] Bluetooth: hci_bcm4377: Use named initializers for
- pci_device_id array
-MIME-Version: 1.0
+The first commit introduces gx-formatter as the basic block which takes
+care of properly formatting audio data. Formatters are DAPM widgets
+(c.f. axg-tdm-formatter in AXG) which are dynamically attached/detached
+to the streams when the latters starts/stop, respectively.
+aiu-formatter-i2s is introduced as formatter implementation for the i2s
+output.
 
-Hello,
+By the end aiu-encoder-i2s will only need to handle interface clocks and
+enforce interface wide rate symmetry (c.f axg-tdm-interface on the AXG
+platform). Right now rate symmetry is not relevant because only i2s output
+is supported, but it will become useful when following patch series will
+introduce the i2s input part.
 
-On Wed, Jun 10, 2026 at 01:13:44PM -0400, Luiz Augusto von Dentz wrote:
-> On Wed, Jun 10, 2026 at 12:59=E2=80=AFPM Uwe Kleine-K=C3=B6nig (The Capab=
-le Hub)
-> <u.kleine-koenig@baylibre.com> wrote:
-> >
-> > On Mon, May 04, 2026 at 06:09:40PM +0200, Uwe Kleine-K=C3=B6nig (The Ca=
-pable Hub) wrote:
-> > > Initializing a struct using list initializers is hard to read, compar=
-ed
-> > > to that using named initializers is more ideomatic. Convert the macro
-> > > used to assign values in the driver's pci_device_id array accordingly.
-> > >
-> > > This change doesn't introduce any changes to the compiled array on an
-> > > x86 and an arm64 build.
-> > >
-> > > Signed-off-by: Uwe Kleine-K=C3=B6nig (The Capable Hub) <u.kleine-koen=
-ig@baylibre.com>
-> > > ---
-> > > Hello,
-> > >
-> > > this is a preparing change for making struct pci_device_id::driver_da=
-ta an
-> > > anonymous union (similar to
-> > > https://lore.kernel.org/all/cover.1776579304.git.u.kleine-koenig@bayl=
-ibre.com/).
-> > > This requires named initializers for .driver_data. But even without t=
-hat
-> > > this is a nice cleanup making the macro better readable.
-> > >
-> > > Gcc is happy with simplifying the assignment further using
-> > > PCI_VDEVICE(BROADCOM, BCM ## id ## _DEVICE_ID), but this is a bit fis=
-hy
-> > > because PCI_VDEVICE also assigns .class and .class_mask (using list
-> > > initializers), so I didn't convert that.
-> >
-> > In the meantime I learned that doing that would break W=3D1 builds, so =
-it
-> > was a good choice to not go that path.
-> >
-> > > Once all pci_device_id use
-> > > named initializers, the two zeros can be dropped from PCI_VDEVICE and
-> > > this entry simplified accordingly.
-> >
-> > Is this patch still on someone's radar? Ideally for application in time
-> > for 7.2-rc1?
->=20
-> It is no longer in patchwork so if you really want to get in please resen=
-d.
+This series was tested on an OdroidC2 board (Amlogic S905 SOC) both with
+HDMI output and with NXP SGTL5000 codec connected to the I2S pins.
+This series was also verified using "pcm-test" test tool and all tests
+are passing.
 
-Instead I unarchived the patch, so it appears in the patch list again. I
-hope this is easier for everyone (it is for me).
+Changes in v2:
+- Fixed most of the weaknesses found by Sashiko review tool [1].
+- Resolved testing failures with "pcm-test" as reported by Mark Brown
+  (thanks for the heads up!). I left a comment in
+  "aiu_encoder_i2s_startup" to explain the fix.
 
-Best regards
-Uwe
+Link to v1: https://lore.kernel.org/r/20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com
 
---xqdkuhrraxjetghb
-Content-Type: application/pgp-signature; name="signature.asc"
+[1]: https://sashiko.dev/#/patchset/20260515-reshape-aiu-as-axg-v1-0-53b457784ff3%40baylibre.com
 
------BEGIN PGP SIGNATURE-----
+Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+---
+Valerio Setti (4):
+      ASoC: meson: gx: add gx-formatter and gx-interface
+      ASoC: meson: aiu-encoder-i2s: prepare for multiple streams
+      ASoC: meson: aiu: introduce I2S output formatter
+      ASoC: meson: aiu: use aiu-formatter-i2s to format I2S output data
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmop0loACgkQj4D7WH0S
-/k5XeQgAoTcuZnjClD8CBiVzulCVvCVSkCfgQKHapo9L6hikgCrhNsvTOvHMFU6S
-XDZ2dot5rGjM/KAYI0h8FHaXTdH36OKmbjykaiP+DIFuHS7VkpWcSc2EM7hAvZha
-uGcJCF4xyc5CyNPElG/wDPHJdL2fJPJkKUjMeDiFSnU5qRg4spodg9e2dD03Hrap
-0D0yH2F9jcYbHNC851gjYuJ3NvrJEHijOc8vg1Ylw8+9LsQDrt76yI2uffzB8/6n
-/CFEgnnByMZObzRw6oaxYc9jXkjK+e7oiquz56xyx0c3SqFOlMrBPo3Zj2G9LIRM
-UFLkgNRU51FxahnG5mJuKv98enwHMw==
-=zDmy
------END PGP SIGNATURE-----
+ sound/soc/meson/Makefile            |   2 +
+ sound/soc/meson/aiu-encoder-i2s.c   | 281 +++++++++++++++++++++++++----------
+ sound/soc/meson/aiu-formatter-i2s.c | 104 +++++++++++++
+ sound/soc/meson/aiu.c               |  32 +++-
+ sound/soc/meson/aiu.h               |   4 +
+ sound/soc/meson/gx-formatter.c      | 282 ++++++++++++++++++++++++++++++++++++
+ sound/soc/meson/gx-formatter.h      |  56 +++++++
+ sound/soc/meson/gx-interface.h      |  48 ++++++
+ 8 files changed, 731 insertions(+), 78 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260515-reshape-aiu-as-axg-1dac9037cad3
 
---xqdkuhrraxjetghb--
+Best regards,
+-- 
+Valerio Setti <vsetti@baylibre.com>
+
 
