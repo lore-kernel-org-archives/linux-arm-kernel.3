@@ -4,127 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E46CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BD5CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gsqgT1L8GlUvjVEyoVN0CjEjCJ7lWM1KEW8o6L6f69k=; b=x/obztStgWWMIUuyOE+KetRbB8
-	xJ5aojrl4yPIhQai7zGHp96a+bIeTKoifV/xAtVkS0djXO4oCOBvw5RZbS7j4KyMORBqTkcdLiviz
-	n0DAEuhfs5d3q8PDujUwv62mgdS3ZdTIhQsFSD6LvjN4Ks1OXKrZAv5RxK8DGuu4/dlciX9c2X18E
-	T8ZN4Wjebn6I7pzIcQlrKNylrDXxmWdHhNHLt6cE2Dqh0ZUFjXwfLYb7clATZeizRXJMUvcaTD2lD
-	w9jKzgg+vD6LlvW+KzWbjDla0QHDyCpVz6MKlmxHF5igwQM/TAJ897cMWE/pUlpp9gSNOeAh99PQm
-	t5XfyUHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7b4ApobW2X7gdPTAJ+UsvzJRtVC/VUSqidar8NBwVwo=; b=GS6XiARDP+JlIur55LxUlVO7tr
+	qCv8Syrt/phnMzycuUzXhKJg0iQOZI0Xk/5xF5Qir3q00E0+GniFxR5uiggiifGe+3+OnH8AzHRe1
+	mGcuJyi1Nzia733Gfrjl3uv5LZe962AIMedZfKYxMbz4msVq17qIACLbBstV94wVHpH3pjs8OXSLg
+	kgRJn7JQdmrTFsOZdQCtAjrfb75PL2EccEkV0CW8L/KnXTJKD+2tasA1W20Hn+dvd0GOFmpv2r8G6
+	WW25Yc38QyUehKQ6RKX50yVJV8L1BBJL6tSmO1kU7uLkI1bs2NTLrBS6RpxLZck0e2xZtCmcsBZv8
+	3vtDIU1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXELM-000000074oI-231Z;
-	Wed, 10 Jun 2026 08:31:24 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wXEOD-0000000754Z-46ck;
+	Wed, 10 Jun 2026 08:34:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXELJ-000000074nw-43Kk
+	id 1wXEOC-0000000754L-1fIW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 08:31:23 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65A7H8DC3134026;
-	Wed, 10 Jun 2026 08:31:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=gsqgT1L8GlUvjVEyoVN0CjEjCJ7lWM
-	1KEW8o6L6f69k=; b=CADMmn9g3GIiN84a6Wh3GVeT862MGYxi1wAl/pL5VqxIr5
-	ekPFQeV/aGKkwOfEKlDTqalwScuyyoKyhK5nzaRsFKVdMYL1XM/okdEFn6jo2GZa
-	a6rv52VNpOdMbxlIAg6Lep5X8BaX//houA96+t3us9hoJUf5i6yoV/zKXQCfLtfd
-	W9908ij74VGNG1bo0DH/4lyFXOv0AqI/4re7neiNXVFJi830ubiNkI9d5v6z4tcs
-	Pdor0IyAIr1YtJtWA0yV2GaHnrn2mX6j5Aqw6yW0oHQaLMhmcLhvC/I0HDh253b6
-	yFBtv4WxR4SlzqcyGSpioijl5ITm6PsGdeLuZduw==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4emb95g7d3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Jun 2026 08:31:03 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 65A8Jb3P028350;
-	Wed, 10 Jun 2026 08:31:02 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4emwvq60ut-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Jun 2026 08:31:02 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 65A8Uu7e42860894
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 10 Jun 2026 08:30:56 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 105AC20043;
-	Wed, 10 Jun 2026 08:30:56 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AA92020040;
-	Wed, 10 Jun 2026 08:30:55 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 10 Jun 2026 08:30:55 +0000 (GMT)
-Date: Wed, 10 Jun 2026 10:30:54 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Janosch Frank <frankja@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v1 13/26] s390: Introduce read/write ARM sysreg
- instructions
-Message-ID: <20260610083054.151573-A-seiden@linux.ibm.com>
-References: <20260529155601.2927240-1-seiden@linux.ibm.com>
- <20260529155601.2927240-14-seiden@linux.ibm.com>
- <2d73aca5-1858-4a7a-a304-0971e4789dc1@linux.ibm.com>
+	Wed, 10 Jun 2026 08:34:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0803442A81;
+	Wed, 10 Jun 2026 08:34:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CA051F00893;
+	Wed, 10 Jun 2026 08:34:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781080459;
+	bh=7b4ApobW2X7gdPTAJ+UsvzJRtVC/VUSqidar8NBwVwo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XKs2DyM9w4U2ZXFNcHaI/BvoFoxigaJGJXImtU7r+4g5d/NcLVupqjfnmPLKL5ieU
+	 SGt2xdc6nQobo+dfqBloXUJVUBP/JmlMzx/MItAt3FWB0Pg6dp0OfgiVc03/Q7/ASf
+	 HzdZ5rZ03vz6nPxgeCGEtW/hZyt7NtfLIm/ao9yX5rJ6jvoVJEVD3WzpPy6tZIavPo
+	 xbyjiRx4CJQl8OKzKkqGHKX0NdqMLVWHGkg6iRdkw7gVtiY5Dw2ek/fRrlL60ZPsfO
+	 BggZdfXu2VQsaGBaSQA52vVt/NtHNvot8iK6dP3c9U95zmYJBb253wPPW6RURUvQdu
+	 tz9PdCMyDtNGQ==
+Message-ID: <cb33c088-00b2-43fc-abc8-b3a925604e70@kernel.org>
+Date: Wed, 10 Jun 2026 10:34:13 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2d73aca5-1858-4a7a-a304-0971e4789dc1@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=N4UZ0W9B c=1 sm=1 tr=0 ts=6a2920c7 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=RB1mEpRu8beSFINCoVEA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: rkH4BTGK461Si0Q9cLKjWcrqdRB9jrQ0
-X-Proofpoint-GUID: rkH4BTGK461Si0Q9cLKjWcrqdRB9jrQ0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEwMDA3NSBTYWx0ZWRfX759nmtSYBCtK
- OKztLB4YBBvkqAJiVWHa0lvNpubxRsfOlLx2KUZJaV23kUwR22A69MRJel9dxDfzuT38zTEwKeW
- IJIunCCS4RCeF6Tnww6DQX1HJSCU3c8ls4FyaHMlRFBAm/hWqKpgnHGwXznPkvNLZtzr8kd5tgu
- F1xPqwrF6ykDULEZB+ujCSIXu2m35kJf1t3wgi0fKJrr9e8/IYJ0LYWtUG+WPOApsDbvDp6th8x
- ZoYhmfTSp+lh/HnM1J5ZYrI3li0/HsyvgWYedEy4h9N1+WklI0E/nxKhag14KXBbKQKpLgXLPRo
- Qr7jDL46fR9iCaI21z1nlQ/f4rr7y0QOjSBeYn0jvDpfwLNCD2QRxuy8juDc6DntVYmWMPog94I
- t/jAu+6eeW55eeAy7UYOZ+QjSBUFoeYsFd+NuAE6hW0/KM1i1VCgn5p1M5AUk6e+y5GhYqMLZmn
- VUSZ9F5NmINukCX1KGQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-10_02,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 spamscore=0 clxscore=1015 lowpriorityscore=0
- phishscore=0 impostorscore=0 adultscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606100075
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_013122_015198_4CF5C118 
-X-CRM114-Status: GOOD (  26.40  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: soc: imx: fsl,imx93-media-blk-ctrl:
+ Allow LVDS Display Bridge child node
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Marco Felsch <m.felsch@pengutronix.de>
+References: <20260608-imx93-ldb-v2-0-1b1fe621bfda@nxp.com>
+ <20260608-imx93-ldb-v2-1-1b1fe621bfda@nxp.com>
+ <20260610-large-just-lynx-d8cb7f@quoll> <aikYviBO1d560jdr@raspi>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <aikYviBO1d560jdr@raspi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,82 +122,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 05:04:10PM +0200, Janosch Frank wrote:
-> On 5/29/26 17:55, Steffen Eiden wrote:
-> > Introduce Extract Arm System Register and Store Arm System Register to
-> > enable s390 hosts to read and write system registers for arm64 guests.
-> > The new instructions use the new RIE_H instruction format. Add assembler
-> > macros to create instructions in RIE_H format manually. Add Support for
-> > disassembling the new instructions.
-> > 
-> > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> > ---
-> >   arch/s390/include/asm/sae-asm.h | 48 +++++++++++++++++++++++++++
-> >   arch/s390/include/asm/sae.h     | 58 +++++++++++++++++++++++++++++++++
-> >   arch/s390/kernel/dis.c          |  1 +
-> >   arch/s390/tools/opcodes.txt     |  2 ++
-> >   4 files changed, 109 insertions(+)
-> >   create mode 100644 arch/s390/include/asm/sae-asm.h
-> > 
-
-
-...
-
-> > diff --git a/arch/s390/include/asm/sae.h b/arch/s390/include/asm/sae.h
-> > index fe010a1a7729..1d9a16b91b23 100644
-> > --- a/arch/s390/include/asm/sae.h
-> > +++ b/arch/s390/include/asm/sae.h
-> > @@ -4,6 +4,7 @@
-> >   #include "linux/linkage.h"
-> >   #include <linux/types.h>
-> > +#include <asm/sae-asm.h>
-> >   /* defined in arch/s390/kernel/entry.S */
-> >   asmlinkage int __sae64a(phys_addr_t sae_block_phys);
-> > @@ -12,6 +13,12 @@ asmlinkage int __sae64a(phys_addr_t sae_block_phys);
-> >   #include <linux/io.h>
-> >   #include <asm/kvm_host_arm64_types.h>
-> > +asm(".include \"asm/sae-asm.h\"\n");
-> > +
-> > +#define _SAE_ASR_REG_SHIFT	5
-> > +#define SASR_FLAG_INITIALIZED  0x8
-> > +#define EASR_FLAG_SA           0x8
+On 10/06/2026 09:56, Liu Ying wrote:
+> On Wed, Jun 10, 2026 at 09:46:39AM +0200, Krzysztof Kozlowski wrote:
+>> On Mon, Jun 08, 2026 at 05:04:22PM +0800, Liu Ying wrote:
+>>> i.MX93 SoC mediamix blk-ctrl contains one LDB_CTRL register and one LVDS
+>>> register which control video output through a LVDS interface.  Allow the
+>>> LVDS Display Bridge(LDB) child node and add the child node to example.
+>>>
+>>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>>> ---
+>>>  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 39 ++++++++++++++++++++++
+>>>  1 file changed, 39 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+>>> index d828c2e82965..124f5c206ee3 100644
+>>> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+>>> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+>>> @@ -26,6 +26,12 @@ properties:
+>>>    reg:
+>>>      maxItems: 1
+>>>  
+>>> +  '#address-cells':
+>>> +    const: 1
+>>> +
+>>> +  '#size-cells':
+>>> +    const: 1
+>>> +
+>>>    '#power-domain-cells':
+>>>      const: 1
+>>>  
+>>> @@ -92,6 +98,11 @@ properties:
+>>>        - compatible
+>>>        - ports
+>>>  
+>>> +  bridge@20:
+>>
+>> You have dpi-bridge, so this should not be different. You should not mix
+>> addressable and non-addressable nodes and NXP decided recently in
+>> 3feaa4342637eef673243dd38ccb32e8dc8efd5a that everything will be
+>> non-addressable.
+>>
+>> Writing bindings ask explicitly to post bindings, so if you decide to do
+>> half-baked solutions it's on you. Half baked solutions are not allowing
+>> to bypass standard rules.
 > 
-> s/SA/SAVE_AREA/ or SAVEAREA
+> Mixing addressable and non-addressable nodes is allowed according to recent
+> discussion[1].
 > 
-> I think both might fit.
+> [1] https://lore.kernel.org/all/n6akxiayi3g6gxcqhreb4iaohmeokoalnqup6h5r2fwdt4zijt@u2wyps55ayqm/
 
-yes, might be a good idea.
+And it is explained in commit msg in... where exactly?
 
-> 
-> > +
-> >   /**
-> >    * __sae64a() - Start Arm Execution
-> >    */
-> > @@ -20,6 +27,57 @@ static inline void sae64a(struct kvm_sae_block *sae_block)
-> >   	__sae64a(virt_to_phys(sae_block));
-> >   }
-> > +/**
-> > + * sasr() - Set Arm System Register
-> > + * @arm_reg: ARM system register identifier; compile-time constant
-> > + * @val: Value to set
-> > + * @save_area: Pointer to SAE save area
-> > + * @flags: Operation flags; compile-time constant
-> > + *
-> > + * Sets an ARM system register value.
-> > + */
-> > +static __always_inline void sasr(unsigned int arm_reg, u64 val,
-> > +				 struct kvm_sae_save_area *save_area,
-> > +				 u64 flags)
-> 
-> m4 is 4 bits in length, any reason why we use a u64 here?
-> Same for easr.
-> 
-
-No real reason beside my preference of using u64 by default.
-
-Do you want me to change it to u8?
-
-	Steffen
+Best regards,
+Krzysztof
 
