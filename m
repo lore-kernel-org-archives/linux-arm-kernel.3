@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED2CCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F0FFCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ccE2EB2fnzyeaAU6yY7eDAKmvbXrjVPbtb4CUqU9a2E=; b=QkWT8h1RoVycQr/GwA48+rydxt
-	jXDa/3UvQ9c5AHqK6Y3FMIaCO/sGe8cKHPqFTtiJ0dx0uCSZmXtEnHdZCatj0r4jLa8wWKjufHcdV
-	6lKuJ1wDFUfl7d5qdmeunUzbBbIGW8z0L25qq9pDni24YXWfkzPjddmCAp+vfu+n5I4HDAEGf06Rx
-	SZnWCt4kEQ2/mZ61GfNtcJS6Hb/VK/ftPjg5PrCBIeqXMzUicr6mramWxtGOIRpcoknFs2Qx1HCE3
-	7PzCEictRc4YFwFvpHbTHtYbiGEwq29groQ/+n5kOg2G7OaHw6oj7IwiitsWehXhYTTJZ0GFA4EPx
-	REMhubxw==;
+	bh=gzlwDK3twYbxesixMQo95pQtXYCM6WeotcCerlbK7ps=; b=hzoLMA5x2GCze16IA1djIle0dJ
+	WaacCVW8SNWdZPXedc84omxQu6CYETTdgQx245R3dgahaGqCQnorrrx+sA1YKIl3UJ2hyCTjWs+Xw
+	VvYYqHLW2wAXomssE3wOQSnN2zuVzk9C3NUL0nDhLwQIhQcG2Lbt4nso5q+wBOHiy1CqCL36b9AqR
+	dgsmI+/ikSi0MuvnpFloAv5M0EzVZFjYfLEWx8QmwV2zoZ/DXh2sLSFk+0T4WBsOOaDULhbf7WTfk
+	eo2F1sYC1wMu688bIbjtI7sO5X6+ePWOeEGZ2rSscRvdgU8wiGdIBhLKnU98LHzFkKP6nMqD2PrRi
+	BvrNKXfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXG3H-00000007MrM-1i4a;
-	Wed, 10 Jun 2026 10:20:51 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wXG3K-00000007Mv9-3N3u;
+	Wed, 10 Jun 2026 10:20:54 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXG3E-00000007Moj-169l
+	id 1wXG3I-00000007MsX-1hZG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 10:20:50 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2c168baac83so31070955ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 03:20:48 -0700 (PDT)
+	Wed, 10 Jun 2026 10:20:54 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c0c35980fdso66057475ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 03:20:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781086847; x=1781691647; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781086852; x=1781691652; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ccE2EB2fnzyeaAU6yY7eDAKmvbXrjVPbtb4CUqU9a2E=;
-        b=q/ARTPa8nsw94gy79M3OJDe/Z5bqM1F0vq3a2Bi0BZL4qHp2vZFxdKneZneHYRZFEW
-         W8UDNHvnWVzmvlgl1WEITWSfZObHB+/Md85AuTd7g0DFD9PTuMY3wb4C3g6YZy70NKh1
-         rnZR6Pnrucx/WDJ02g6cshpQ8uHTFrnNSVoGJGmV/I4v8ti6wEamboOyuF7XiZG9BjRv
-         cUlVb9ZUs13k+lAz2vuRZAkjDVP44ho3hPlPxOmn5DX/47gTuN5JTt0yi/Bty4CmBB3N
-         MJpeoX4D23k+9QFeH9IdEiVE0uxpGF6S37MWb7ajK93bKDewlncn+pngO0GOnxfv2TLG
-         Voqg==
+        bh=gzlwDK3twYbxesixMQo95pQtXYCM6WeotcCerlbK7ps=;
+        b=aHLNtRLzQUGbPG6sHIILz29e8MIVVuoF4iLrdPhvj7GDtCuCKAaI95MB0riAHUV3xc
+         FM9Fj6P+MzfQGoU94SyDUKCj517070dmo3F6EhUBLdWFHwvY/ufkQxQJohNQKU3xAztC
+         XI0i6GSQ25cbxSis8D0g7X/DFXIW5VPatYZSx4pGwBL7Edg0tkDZNFJdXYKvRfWx3DKg
+         Z4dgt6BIUi5stSO92HKjJ5Dm47oz5WX+rCz2cYC+yoXGnyok9ZCwUo1sdRprFKHJ34Us
+         Lte0YVe4Lh6Nz8A/+EGgE92ag9kePdaujI0Lgvca98T2zMnYqwLxXlVHmiE4CEGQY6/Y
+         5VBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781086847; x=1781691647;
+        d=1e100.net; s=20251104; t=1781086852; x=1781691652;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ccE2EB2fnzyeaAU6yY7eDAKmvbXrjVPbtb4CUqU9a2E=;
-        b=I/HZ0Ugs+xFVzAHp/ObHlrPTEld8Ma1sJZzppD/05KI52FxFhXbC00rV2Z4v6uFa8n
-         PFUcOHXJkpmwskwhKn3I1ZRqzrPD2VmvIgjzvdHjNCEbR3TGf0yls8dHewFSnlfT1OQS
-         a+8EABihH/D8CrXMgrZ0BV3qbwVk/AMFO5HYtZq1JnXzdUwB/uMD/rW1kl7DymjyaIRN
-         yJIbyLbP94si90sYulOAq6pMpCi9BSlBnXG26eoOkuG4RqRnMGvX3vxTcG1kit8Wmgwr
-         aMirUx3LB2BRdEmqFBZ7tD/ZGpUT69ml6pe+FlWXzT3cYKBhaNFh+fCDkUkBhIt5eTZX
-         ExZw==
-X-Forwarded-Encrypted: i=1; AFNElJ858ulC+xj64/WJnTbcrCg15ru+bmtgpQil67q9HjApCbF+B9qXQ/x7unTo7iWNx8iMnmKllnCCedQtsp9RWgFH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4uplp2AVPnUDyQ7C0W8zrAvJf0VCHWfULJyya2dMNE9pHzWw2
-	urV/37jRXRqF3UeW0PbBOiNioHgxU+CmspMv7hrnfD/e1A3zT1NIij+4
-X-Gm-Gg: Acq92OFwS8gray6JAtmvtbM+oll7WoDGV7378mGLIuu2+m/96HZEioNd4fbthu9TFVH
-	RbdMiD7kUWQQMr7xxjjb0ETC5+NKK/HBwLe+J2N0VR+uNNxg3CFEWsRQ9WYNzl00z+HaTQyrNed
-	QiqgOhRfnLSkk45eEHQUmGBtsDPfVhBEQqvyLVNoItbaxJ8SGAKMmjwR8Hf0BpiFGjRswdfPbMc
-	FcJX/te29ZoQGqclRde9Ef7re0PG8+WSBy2sJbt2xwTJMSwPxsVxfTH032estb8urHEHCQdHA4j
-	IJQ95CdsHPaWkagq22izo5uCeD0ZXGrgBfbQFkWiRHRJsOwi+D8bR/S5KiIXKlQz50V295Ado+e
-	hxo0pYDuPdGetCukflSHaZBwAiazAQDrO3ZoAqHgQdBlUWRmN8pzKYDj2bnGrRbjKt+fzRnTQy6
-	oOqjysSuLdAwP7xwvo9KB9YxLEHScR6qrFL+IacgalDM+ohAQD3PShdOH0bTygYwj+SVRE
-X-Received: by 2002:a17:903:b0b:b0:2b4:6080:d4d0 with SMTP id d9443c01a7336-2c1e80ec3b7mr273180005ad.22.1781086847357;
-        Wed, 10 Jun 2026 03:20:47 -0700 (PDT)
+        bh=gzlwDK3twYbxesixMQo95pQtXYCM6WeotcCerlbK7ps=;
+        b=dUnqXHZwJHQ/GU21Ik8dB1WeQs8zo3gN5oR5YmuIb6APertLdxnBG94t6GjYnTr99P
+         luB4QN92ekph8U/flWBdkRutLTixS+BgEXbIO7OjnZHXuDn/p7y55gfbyqXoWsI7FC1I
+         0bFEvZNaLMTQtQPwGeld5oyPD8KtNe4Z5O8rQ7x/TSimaBF4rvhfXLRyIkgaRrK4ad8B
+         x+kaneO6nvyKjDfTNGsIxMEMqOo0eNit213845QljJFZDuZBIOxJCtV2SMOqjWr19Qd6
+         uWN1V3tox7XzH14W3DEfnK2GviNWHREwGVfehBu4iWoOzZuSYEppv+W7YgOdC/bICqTM
+         a+Uw==
+X-Forwarded-Encrypted: i=1; AFNElJ9cwM/9lkMfELqbltUbeTVG++PTI07HxgkMOClaQHVZka+i0fptYblcamLx5VByQXfm6lmlKHDjtnIyAudaH/FR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0T7j+cUW6SCSXTj+sj05N1QphuJtB5fPprZFPTPQJ97tHrJtX
+	/Z12iKem0fXP61JMEiytOBhMGvFSpk0AcHRJKipRRRaWEIm6DW/JJ3O3
+X-Gm-Gg: Acq92OG/lJWAiqpxWE4+r+GDWWlpc244OurzQvfXHWfrg1gT+TNSXeKVTzf2UPXkQhI
+	ZXUFVFNnmXvnxWNwnXauDyUY0CIM4RcSsNDuHBfkFdZh8uEt5ybnIwlW7eUxH7us3ZlLGvq/NbH
+	z/eLZyOgOlAbGDxWwGTRN3JQYC4dUTiGPACPLlTdNNW4M4nxl+nxORnhOBqWpR18Wy44Zq54sRf
+	NuYlrMYJ7kHn1et3b8F+6SD7x6JLiKKpknqRkF7DmY9V/2xm6xVbDfEP/QYH4lsIACu0hxnvVoV
+	s9sjTi6CnRltCJMtFAstLHWTkxqYDbfDl5ZXg3SPUd7r8XHhDLX1Hm6fLKC9CstzDJu+EneVmJX
+	vMpaotxbx29xRQcLWtiCHeQnAGcFs4OaUMgSio0crrdZoYtwIHjbXXjvaRABux9JpZOpDgtmXKv
+	9gO7Y0ZYb75EoZ780qePP2H0aUabh+4hMyUTJCmZAEjrD75hxX6Mgf8EfiwEyXxACAkFrW
+X-Received: by 2002:a17:903:2411:b0:2bf:379b:53f4 with SMTP id d9443c01a7336-2c1e849511fmr304782305ad.19.1781086851765;
+        Wed, 10 Jun 2026 03:20:51 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f96b3fsm250133875ad.29.2026.06.10.03.20.43
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f96b3fsm250133875ad.29.2026.06.10.03.20.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 03:20:46 -0700 (PDT)
+        Wed, 10 Jun 2026 03:20:51 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>
@@ -84,17 +84,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 02/10] ASoC: mediatek: common: mtk-btcvsd: Use guard() for spin locks
-Date: Wed, 10 Jun 2026 17:20:13 +0700
-Message-ID: <20260610102021.83273-3-phucduc.bui@gmail.com>
+Subject: [PATCH 03/10] ASoC: mediatek: mt8186: mt8186-afe-gpio: Use guard() for mutex locks
+Date: Wed, 10 Jun 2026 17:20:14 +0700
+Message-ID: <20260610102021.83273-4-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260610102021.83273-1-phucduc.bui@gmail.com>
 References: <20260610102021.83273-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_032048_315552_09A9DC06 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20260610_032052_476567_6BBFD875 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,225 +111,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Clean up the code using guard() for spin locks.
+Clean up the code using guard() for mutex locks.
 Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/mediatek/common/mtk-btcvsd.c | 81 +++++++++++---------------
- 1 file changed, 35 insertions(+), 46 deletions(-)
+ sound/soc/mediatek/mt8186/mt8186-afe-gpio.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
 
-diff --git a/sound/soc/mediatek/common/mtk-btcvsd.c b/sound/soc/mediatek/common/mtk-btcvsd.c
-index 5e7e85b4c98a..85cfc602dfd3 100644
---- a/sound/soc/mediatek/common/mtk-btcvsd.c
-+++ b/sound/soc/mediatek/common/mtk-btcvsd.c
-@@ -319,7 +319,6 @@ static int btcvsd_tx_clean_buffer(struct mtk_btcvsd_snd *bt)
- {
- 	unsigned int i;
- 	unsigned int num_valid_addr;
--	unsigned long flags;
- 	enum BT_SCO_BAND band = bt->band;
+diff --git a/sound/soc/mediatek/mt8186/mt8186-afe-gpio.c b/sound/soc/mediatek/mt8186/mt8186-afe-gpio.c
+index 9e86e7079718..aced8e7e920c 100644
+--- a/sound/soc/mediatek/mt8186/mt8186-afe-gpio.c
++++ b/sound/soc/mediatek/mt8186/mt8186-afe-gpio.c
+@@ -201,7 +201,7 @@ int mt8186_afe_gpio_request(struct device *dev, bool enable,
+ 	enum mt8186_afe_gpio sel;
+ 	int ret = -EINVAL;
  
- 	/* prepare encoded mute data */
-@@ -330,7 +329,7 @@ static int btcvsd_tx_clean_buffer(struct mtk_btcvsd_snd *bt)
- 		       table_msbc_silence, SCO_PACKET_180);
+-	mutex_lock(&gpio_request_mutex);
++	guard(mutex)(&gpio_request_mutex);
  
- 	/* write mute data to bt tx sram buffer */
--	spin_lock_irqsave(&bt->tx_lock, flags);
-+	guard(spinlock_irqsave)(&bt->tx_lock);
- 	num_valid_addr = bt->tx->buffer_info.num_valid_addr;
- 
- 	dev_info(bt->dev, "%s(), band %d, num_valid_addr %u\n",
-@@ -349,7 +348,6 @@ static int btcvsd_tx_clean_buffer(struct mtk_btcvsd_snd *bt)
- 					     bt->tx->buffer_info.packet_length,
- 					     bt->tx->buffer_info.packet_num);
- 	}
--	spin_unlock_irqrestore(&bt->tx_lock, flags);
- 
- 	return 0;
- }
-@@ -365,7 +363,6 @@ static int mtk_btcvsd_read_from_bt(struct mtk_btcvsd_snd *bt,
- 	int pv;
- 	u8 *src;
- 	unsigned int packet_buf_ofs;
--	unsigned long flags;
- 	unsigned long connsys_addr_rx, ap_addr_rx;
- 
- 	connsys_addr_rx = *bt->bt_reg_pkt_r;
-@@ -385,7 +382,7 @@ static int mtk_btcvsd_read_from_bt(struct mtk_btcvsd_snd *bt,
- 				     bt->rx->temp_packet_buf, packet_length,
- 				     packet_num);
- 
--	spin_lock_irqsave(&bt->rx_lock, flags);
-+	guard(spinlock_irqsave)(&bt->rx_lock);
- 	for (i = 0; i < blk_size; i++) {
- 		packet_buf_ofs = (bt->rx->packet_w & SCO_RX_PACKET_MASK) *
- 				 bt->rx->packet_size;
-@@ -403,7 +400,7 @@ static int mtk_btcvsd_read_from_bt(struct mtk_btcvsd_snd *bt,
- 		       SCO_CVSD_PACKET_VALID_SIZE);
- 		bt->rx->packet_w++;
- 	}
--	spin_unlock_irqrestore(&bt->rx_lock, flags);
-+
- 	return 0;
- }
- 
-@@ -414,7 +411,6 @@ static int mtk_btcvsd_write_to_bt(struct mtk_btcvsd_snd *bt,
- 				  unsigned int blk_size)
- {
- 	unsigned int i;
--	unsigned long flags;
- 	u8 *dst;
- 	unsigned long connsys_addr_tx, ap_addr_tx;
- 	bool new_ap_addr_tx = true;
-@@ -430,17 +426,17 @@ static int mtk_btcvsd_write_to_bt(struct mtk_btcvsd_snd *bt,
- 		return -EIO;
+ 	switch (dai) {
+ 	case MT8186_DAI_ADDA:
+@@ -209,7 +209,7 @@ int mt8186_afe_gpio_request(struct device *dev, bool enable,
+ 			ret = mt8186_afe_gpio_adda_ul(dev, enable);
+ 		else
+ 			ret = mt8186_afe_gpio_adda_dl(dev, enable);
+-		goto unlock;
++		return ret;
+ 	case MT8186_DAI_I2S_0:
+ 		sel = enable ? MT8186_AFE_GPIO_I2S0_ON : MT8186_AFE_GPIO_I2S0_OFF;
+ 		break;
+@@ -230,13 +230,8 @@ int mt8186_afe_gpio_request(struct device *dev, bool enable,
+ 		break;
+ 	default:
+ 		dev_dbg(dev, "%s(), invalid dai %d\n", __func__, dai);
+-		goto unlock;
++		return ret;
  	}
  
--	spin_lock_irqsave(&bt->tx_lock, flags);
--	for (i = 0; i < blk_size; i++) {
--		memcpy(bt->tx->temp_packet_buf + (bt->tx->packet_size * i),
--		       (bt->tx_packet_buf +
--			(bt->tx->packet_r % SCO_TX_PACKER_BUF_NUM) *
--			bt->tx->packet_size),
--		       bt->tx->packet_size);
-+	scoped_guard(spinlock_irqsave, &bt->tx_lock) {
-+		for (i = 0; i < blk_size; i++) {
-+			memcpy(bt->tx->temp_packet_buf + (bt->tx->packet_size * i),
-+			       (bt->tx_packet_buf +
-+				(bt->tx->packet_r % SCO_TX_PACKER_BUF_NUM) *
-+				bt->tx->packet_size),
-+			       bt->tx->packet_size);
- 
--		bt->tx->packet_r++;
-+			bt->tx->packet_r++;
-+		}
- 	}
--	spin_unlock_irqrestore(&bt->tx_lock, flags);
- 
- 	dst = (u8 *)ap_addr_tx;
- 
-@@ -462,11 +458,11 @@ static int mtk_btcvsd_write_to_bt(struct mtk_btcvsd_snd *bt,
- 	if (new_ap_addr_tx) {
- 		unsigned int next_idx;
- 
--		spin_lock_irqsave(&bt->tx_lock, flags);
--		bt->tx->buffer_info.num_valid_addr++;
--		next_idx = bt->tx->buffer_info.num_valid_addr - 1;
--		bt->tx->buffer_info.bt_sram_addr[next_idx] = ap_addr_tx;
--		spin_unlock_irqrestore(&bt->tx_lock, flags);
-+		scoped_guard(spinlock_irqsave, &bt->tx_lock) {
-+			bt->tx->buffer_info.num_valid_addr++;
-+			next_idx = bt->tx->buffer_info.num_valid_addr - 1;
-+			bt->tx->buffer_info.bt_sram_addr[next_idx] = ap_addr_tx;
-+		}
- 		dev_info(bt->dev, "%s(), new ap_addr_tx = 0x%lx, num_valid_addr %d\n",
- 			 __func__, ap_addr_tx,
- 			 bt->tx->buffer_info.num_valid_addr);
-@@ -701,17 +697,16 @@ static ssize_t mtk_btcvsd_snd_read(struct mtk_btcvsd_snd *bt,
- {
- 	ssize_t read_size = 0, read_count = 0, cur_read_idx, cont;
- 	unsigned long avail;
--	unsigned long flags;
- 	unsigned int packet_size = bt->rx->packet_size;
- 
- 	while (count) {
--		spin_lock_irqsave(&bt->rx_lock, flags);
--		/* available data in RX packet buffer */
--		avail = (bt->rx->packet_w - bt->rx->packet_r) * packet_size;
-+		scoped_guard(spinlock_irqsave, &bt->rx_lock) {
-+			/* available data in RX packet buffer */
-+			avail = (bt->rx->packet_w - bt->rx->packet_r) * packet_size;
- 
--		cur_read_idx = (bt->rx->packet_r & SCO_RX_PACKET_MASK) *
--			       packet_size;
--		spin_unlock_irqrestore(&bt->rx_lock, flags);
-+			cur_read_idx = (bt->rx->packet_r & SCO_RX_PACKET_MASK) *
-+				       packet_size;
-+		}
- 
- 		if (!avail) {
- 			int ret = wait_for_bt_irq(bt, bt->rx);
-@@ -749,9 +744,8 @@ static ssize_t mtk_btcvsd_snd_read(struct mtk_btcvsd_snd *bt,
- 			return -EFAULT;
- 		}
- 
--		spin_lock_irqsave(&bt->rx_lock, flags);
--		bt->rx->packet_r += read_size / packet_size;
--		spin_unlock_irqrestore(&bt->rx_lock, flags);
-+		scoped_guard(spinlock_irqsave, &bt->rx_lock)
-+			bt->rx->packet_r += read_size / packet_size;
- 
- 		read_count += read_size;
- 		count -= read_size;
-@@ -778,7 +772,6 @@ static ssize_t mtk_btcvsd_snd_write(struct mtk_btcvsd_snd *bt,
- 				    size_t count)
- {
- 	int written_size = count, avail, cur_write_idx, write_size, cont;
--	unsigned long flags;
- 	unsigned int packet_size = bt->tx->packet_size;
- 
- 	/*
-@@ -794,14 +787,14 @@ static ssize_t mtk_btcvsd_snd_write(struct mtk_btcvsd_snd *bt,
- 	bt->tx->buf_data_equivalent_time *= 1000;
- 
- 	while (count) {
--		spin_lock_irqsave(&bt->tx_lock, flags);
--		/* free space of TX packet buffer */
--		avail = bt->tx->buf_size -
--			(bt->tx->packet_w - bt->tx->packet_r) * packet_size;
-+		scoped_guard(spinlock_irqsave, &bt->tx_lock) {
-+			/* free space of TX packet buffer */
-+			avail = bt->tx->buf_size -
-+				(bt->tx->packet_w - bt->tx->packet_r) * packet_size;
- 
--		cur_write_idx = (bt->tx->packet_w % SCO_TX_PACKER_BUF_NUM) *
--				packet_size;
--		spin_unlock_irqrestore(&bt->tx_lock, flags);
-+			cur_write_idx = (bt->tx->packet_w % SCO_TX_PACKER_BUF_NUM) *
-+					packet_size;
-+		}
- 
- 		if (!avail) {
- 			int ret = wait_for_bt_irq(bt, bt->tx);
-@@ -838,9 +831,8 @@ static ssize_t mtk_btcvsd_snd_write(struct mtk_btcvsd_snd *bt,
- 			return -EFAULT;
- 		}
- 
--		spin_lock_irqsave(&bt->tx_lock, flags);
--		bt->tx->packet_w += write_size / packet_size;
--		spin_unlock_irqrestore(&bt->tx_lock, flags);
-+		scoped_guard(spinlock_irqsave, &bt->tx_lock)
-+			bt->tx->packet_w += write_size / packet_size;
- 		count -= write_size;
- 	}
- 
-@@ -985,7 +977,6 @@ static snd_pcm_uframes_t mtk_pcm_btcvsd_pointer(
- 	int hw_packet_ptr;
- 	int packet_diff;
- 	spinlock_t *lock;	/* spinlock for bt stream control */
--	unsigned long flags;
- 
- 	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
- 		lock = &bt->tx_lock;
-@@ -995,7 +986,7 @@ static snd_pcm_uframes_t mtk_pcm_btcvsd_pointer(
- 		bt_stream = bt->rx;
- 	}
- 
--	spin_lock_irqsave(lock, flags);
-+	guard(spinlock_irqsave)(lock);
- 	hw_packet_ptr = substream->stream == SNDRV_PCM_STREAM_PLAYBACK ?
- 			bt->tx->packet_r : bt->rx->packet_w;
- 
-@@ -1018,8 +1009,6 @@ static snd_pcm_uframes_t mtk_pcm_btcvsd_pointer(
- 
- 	bt_stream->prev_frame = frame;
- 
--	spin_unlock_irqrestore(lock, flags);
+-	ret = mt8186_afe_gpio_select(dev, sel);
 -
- 	return frame;
+-unlock:
+-	mutex_unlock(&gpio_request_mutex);
+-
+-	return ret;
++	return mt8186_afe_gpio_select(dev, sel);
  }
- 
 -- 
 2.43.0
 
