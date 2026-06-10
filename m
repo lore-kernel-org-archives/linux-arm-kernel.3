@@ -4,97 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97679CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5BFCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rpd99AIfen8rWG+UPKOfHkTFca1MdKE/O0Nq5tdqzEM=; b=Patj3nJqLBfw2z8PoYj4cUutfh
-	X/CRxfjp0ACTCheeyy3RfzDHgFMXRboymPXh3VESzYCiROR8i0MCP07MnXtmrQY6GRhyxsxxObMVN
-	+gI+MbyYfKWBhanhdSypdvXGsusmOeXUanhhL3bJh9vgY/yQ9q6Ehtp74VqDQjcPFLOYj7Ke1dV2X
-	ziWPzkJo9CTlBPun5eTJEWaL9ut6DEBulGpKvzNwgNkR0/Cpthj35ppzSlX/ivMteE1PxMOsfM0xp
-	fhgv1pX6I80QmNF/Aq715JbBayJ2OdNZU44RyV7KHaBZjbWQwo1Yq29vYOI3cudcRKZ8iepLdocD4
-	sdjX4kjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8wc0TGAZfFcMg57JEhtrgTCQQGKbWaZ7qbDTB68hXZg=; b=ChdJyAFFPbBrWmMagoKfzKBL2K
+	iJGS3/IzpoXju7KV/IKjOdDWgaQgXWFxnN8d8IlTg57FPLqFnHx/Wf/mKWEp8CtPflH1s2yOMZ2ZI
+	ZqTqYek0Ouojgnkz0B5xeR1y1GFSQBFMvSACt81/FHJbx852XDcYmxSFNEFN5rfUToOSAPyfwD0Tg
+	RF15E104TWGCr/0HwVKKgSog2IBAItp1SdDuw1OZOurBic5T845a0BZPrWkSf3KecYFnerdE7w3Xa
+	aWL6pX6WYKI2CCggh28yuFn/2blGOCMejLMQj+7H3h9rFaTH3mVYdKcBBVLmz5i08/SMJm10Insk1
+	7EiA8xxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXGEp-00000007Oyt-3jr4;
-	Wed, 10 Jun 2026 10:32:47 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1wXGMz-00000007Pqa-3sUB;
+	Wed, 10 Jun 2026 10:41:13 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXGEn-00000007OyM-0knj;
-	Wed, 10 Jun 2026 10:32:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781087565; x=1812623565;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version:content-transfer-encoding;
-  bh=4QR48FPX6NW6pWd+A0RB2168FFt8Kbmy8OacTeDGsas=;
-  b=d2Sl/xuCjggBt/MFuBegjAfDfwMICbKitjxK53xm9FUe+ABEVfobWE+L
-   npnf4MCxWciKfzOcxu28OB7lcPau/l9eFkTZ3Wu8MoAUikdTdlLJwXk7b
-   I1yvF1uiQaPQwBFl6j5ghX6Ag/9/x8sWVi0xzvvvAA4+4DkGRdiA0fZW5
-   YlqRVuU4Za1vy1GAyhCidgIpBcRRKaXe+XkiIrvcGzgUiQ0bKwBhlt8c1
-   b74MiEcB6Kfw2wqbSZKjhMZdXGpv5m1lGgh9uGQ/2L1ABQ+u8GnM4LYQW
-   KGI11GD+bbCTVKTtRAuc2aBRi2sHkWi5Nx6/A0EzspsOXpCgHlO5I4KtR
-   w==;
-X-CSE-ConnectionGUID: XZGkcOCNQR+RPSZ5PAHTuw==
-X-CSE-MsgGUID: +KCtw5L0QgCvn/PbeiX1cA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11812"; a="85721112"
-X-IronPort-AV: E=Sophos;i="6.24,197,1774335600"; 
-   d="scan'208";a="85721112"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jun 2026 03:32:43 -0700
-X-CSE-ConnectionGUID: 7vHeeByYR6mbP2vHMrx5EQ==
-X-CSE-MsgGUID: HeuP8FBRTDSW4l3PyZ1Pfw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,197,1774335600"; 
-   d="scan'208";a="250415777"
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.3])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jun 2026 03:32:32 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Harry Wentland
- <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira
- <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, Christian
- =?utf-8?Q?K=C3=B6nig?= <christian.koenig@amd.com>, David Airlie
- <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang
- <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan
- <andy.yan@rock-chips.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas
- Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Daniel Stone
- <daniel@fooishbar.org>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-doc@vger.kernel.org, wayland-devel@lists.freedesktop.org, Nicolas
- Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v17 21/28] drm/tests: bridge: Add KUnit tests for bridge
- chain format selection
-In-Reply-To: <20260609-color-format-v17-21-35739b5782cc@collabora.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260609-color-format-v17-0-35739b5782cc@collabora.com>
- <20260609-color-format-v17-21-35739b5782cc@collabora.com>
-Date: Wed, 10 Jun 2026 13:32:29 +0300
-Message-ID: <04ff70850213ae0f75486b1a27a7edb6fb4e71c3@intel.com>
+	id 1wXGMv-00000007PmG-3uKg;
+	Wed, 10 Jun 2026 10:41:12 +0000
+X-UUID: dba6f7f264b811f1a87c2323a98e90a4-20260610
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:3b1a046f-eb37-4043-88f2-86cbc81a131f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:47d0b6fa-39ea-4a28-8a25-78d1d9de3b28,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
+	l,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:
+	0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: dba6f7f264b811f1a87c2323a98e90a4-20260610
+Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef22.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1086978236; Wed, 10 Jun 2026 18:40:54 +0800
+X-UUID: d9a80e1464b811f1943831befd1aa4bc-20260610
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:512d2daa-ebba-4f6f-b96d-9ddcd7d70b51,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:a2ad9c30-7784-4a77-a538-47ed6151d81b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
+	l,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:
+	0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d9a80e1464b811f1943831befd1aa4bc-20260610
+Received: from sdbmbx12.tpe.compalcomm.com [(10.113.2.136)] by sdmg11.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES256-SHA 256/256)
+	with ESMTP id 1671670175; Wed, 10 Jun 2026 18:40:51 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX12.tpe.compalcomm.com (10.113.2.136) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA) id 15.2.2562.29;
+ Wed, 10 Jun 2026 18:40:50 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69%11]) with mapi id
+ 15.02.2562.029; Wed, 10 Jun 2026 18:40:50 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: "Jagielski, Jedrzej" <jedrzej.jagielski@intel.com>, Loic Poulain
+	<loic.poulain@oss.qualcomm.com>, Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
+	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	"wojackbb@gmail.com" <wojackbb@gmail.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: RE: [PATCH 01/11] net: wwan: t9xx: Add PCIe core
+Thread-Topic: [PATCH 01/11] net: wwan: t9xx: Add PCIe core
+Thread-Index: AQHc8bhcdmgibeQV+0mP7OG8OB0FzrY3k7/n
+Date: Wed, 10 Jun 2026 10:40:49 +0000
+Message-ID: <e61a0079bd34483d9c7e8f7ab2eabbdd@compal.com>
+References: <20260529-t9xx_driver_v1-v1-0-bdbfe2c01e57@compal.com>
+ <20260529-t9xx_driver_v1-v1-1-bdbfe2c01e57@compal.com>,<PH0PR11MB5902127C590230B9FE50F78AF0152@PH0PR11MB5902.namprd11.prod.outlook.com>
+In-Reply-To: <PH0PR11MB5902127C590230B9FE50F78AF0152@PH0PR11MB5902.namprd11.prod.outlook.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-29998.006
+x-tm-as-result: No-10--35.506200-8.000000
+x-tmase-matchedrid: 48uEfNr0eYIuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZgOe
+	+RYG/aOVMleF7vJIPgrSbqGL9tBhQIgwREucKN12Jw66cQh/R5cZ8/pDtedih9THFoOVTUKPV/j
+	iEQEirk341TouVyz12EO/61ANu+MmojFeM1oohOn9IVvj4uwqLKrS6L9vFmxJZa2JNgcOiFesgL
+	PpvoHoy6HOpBjIHWi50C+gQJtqPNH6wSlgATpxEwx+Jtro8Arbfq7xWexVq1wkxtQqXREtZO7+w
+	THUWclzCU+V2K2yEHStn8g1xaZpmOX6IOJSaFeq5enkh7Jrzn6dVbkPpTjx91hj3rL5vKL9IXHO
+	M2cG4ibmHeR7UfhKyh6YMyhTYhY9lrz/HEUyDNSeKdOylUhP2afaLeRmLMOx510322JqPPEV++j
+	bayV7gzqjgrvKc77TkYA4rVOEqAyIiUsncKJScFIqxe4Du3755lobMer6/dE3vJH2ZioNrYNPey
+	Qu0gZXN7R3IlqWz4HU1FKl/T6FwtjOd5pUIofYT+vZ3ApQRae7CI/jbH/kmbeM96vhzuX7ieW6e
+	cAvrZCG30f9k3JCJM0LI8dm6ZL9cRyh6V9KDHIRLjqoJJt/9frDHrB5YKTLXFAIRSIiEKJxg7sv
+	MtapLiJsZ0L4JGotOvT30G5nOJt+3BndfXUhXQ==
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--35.506200-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-29998.006
+x-tm-snts-smtp: C081672BF3EBF1B43CB1D23C900413BAB4C7AAC62C6472C4995A75A6828A57932000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_033245_278100_49F09A6D 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20260610_034110_324719_0B6A4055 
+X-CRM114-Status: GOOD (  31.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,112 +139,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026, Nicolas Frattaroli <nicolas.frattaroli@collabora.com> =
-wrote:
-> diff --git a/drivers/gpu/drm/tests/drm_bridge_test.c b/drivers/gpu/drm/te=
-sts/drm_bridge_test.c
-> index 64b665580a88..92f142ca6695 100644
-> --- a/drivers/gpu/drm/tests/drm_bridge_test.c
-> +++ b/drivers/gpu/drm/tests/drm_bridge_test.c
-> @@ -2,15 +2,23 @@
->  /*
->   * Kunit test for drm_bridge functions
->   */
-> +#include <linux/cleanup.h>
-> +#include <linux/media-bus-format.h>
-> +
->  #include <drm/drm_atomic_state_helper.h>
-> +#include <drm/drm_atomic_uapi.h>
->  #include <drm/drm_bridge.h>
->  #include <drm/drm_bridge_connector.h>
->  #include <drm/drm_bridge_helper.h>
-> +#include <drm/drm_edid.h>
->  #include <drm/drm_kunit_helpers.h>
-> +#include <drm/drm_managed.h>
->=20=20
->  #include <kunit/device.h>
->  #include <kunit/test.h>
->=20=20
-> +#include "drm_kunit_edid.h"
-
-So here's the problem with adding *any* arrays into headers: every
-compilation unit that includes them duplicates all the arrays. It's only
-really okay for single use.
-
-And, in this case, most of the included arrays are unused, leading to
-build failures:
-
-  CC [M]  drivers/gpu/drm/tests/drm_bridge_test.o
-In file included from ../drivers/gpu/drm/tests/drm_bridge_test.c:21:
-../drivers/gpu/drm/tests/drm_kunit_edid.h:958:28: error: =E2=80=98test_edid=
-_hdmi_4k_rgb_yuv420_dc_max_340mhz=E2=80=99 defined but not used [-Werror=3D=
-unused-const-variable=3D]
-  958 | static const unsigned char test_edid_hdmi_4k_rgb_yuv420_dc_max_340m=
-hz[] =3D {
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~
-../drivers/gpu/drm/tests/drm_kunit_edid.h:726:28: error: =E2=80=98test_edid=
-_hdmi_1080p_rgb_yuv_dc_max_340mhz=E2=80=99 defined but not used [-Werror=3D=
-unused-const-variable=3D]
-  726 | static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340m=
-hz[] =3D {
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~
-../drivers/gpu/drm/tests/drm_kunit_edid.h:612:28: error: =E2=80=98test_edid=
-_hdmi_1080p_rgb_yuv_dc_max_200mhz=E2=80=99 defined but not used [-Werror=3D=
-unused-const-variable=3D]
-  612 | static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_200m=
-hz[] =3D {
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~
-../drivers/gpu/drm/tests/drm_kunit_edid.h:498:28: error: =E2=80=98test_edid=
-_hdmi_1080p_rgb_max_340mhz=E2=80=99 defined but not used [-Werror=3Dunused-=
-const-variable=3D]
-  498 | static const unsigned char test_edid_hdmi_1080p_rgb_max_340mhz[] =
-=3D {
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/gpu/drm/tests/drm_kunit_edid.h:390:28: error: =E2=80=98test_edid=
-_hdmi_1080p_rgb_max_200mhz_hdr=E2=80=99 defined but not used [-Werror=3Dunu=
-sed-const-variable=3D]
-  390 | static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz_hdr[=
-] =3D {
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/gpu/drm/tests/drm_kunit_edid.h:271:28: error: =E2=80=98test_edid=
-_hdmi_1080p_rgb_max_200mhz=E2=80=99 defined but not used [-Werror=3Dunused-=
-const-variable=3D]
-  271 | static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz[] =
-=3D {
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/gpu/drm/tests/drm_kunit_edid.h:163:28: error: =E2=80=98test_edid=
-_hdmi_1080p_rgb_max_100mhz=E2=80=99 defined but not used [-Werror=3Dunused-=
-const-variable=3D]
-  163 | static const unsigned char test_edid_hdmi_1080p_rgb_max_100mhz[] =
-=3D {
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/gpu/drm/tests/drm_kunit_edid.h:57:28: error: =E2=80=98test_edid_=
-dvi_1080p=E2=80=99 defined but not used [-Werror=3Dunused-const-variable=3D]
-   57 | static const unsigned char test_edid_dvi_1080p[] =3D {
-      |                            ^~~~~~~~~~~~~~~~~~~
-cc1: all warnings being treated as errors
-
-This breaks the build for me, I don't know how it didn't for any of you.
-
-Reverting these two fixes it:
-
-ce1d0139adac ("drm/tests: bridge: Add test for HDMI output bus formats help=
-er")
-082fbc179c01 ("drm/tests: bridge: Add KUnit tests for bridge chain format s=
-election")
-
-I think the proper fix would be to move the arrays into a .c file, and
-only have declarations in the headers. But that needs to happen real
-soon or the commits need to be reverted.
-
-
-BR,
-Jani.
-
-
---=20
-Jani Nikula, Intel
+SGkgSmFnaWVsc2tpLA0KDQpUaGFuayB5b3UgZm9yIHRoZSBkZXRhaWxlZCByZXZpZXcuIEJlbG93
+IGFyZSB0aGUgY2hhbmdlcyBhbmQgcmVzcG9uc2VzDQpmb3IgdjIuDQoNCj4gPiArI2RlZmluZSBC
+QVJfTlVNNg0KPg0KPiBwbGVhc2UgYWRkIGRyaXZlciBwcmVmaXgNCg0KUmVuYW1lZCB0byBNVEtf
+UENJX0JBUl9OVU0gYXQgdjIuDQoNCj4gPiArI2RlZmluZSBTRVRfSFdfQklUUyhkZXN0LCBjaHMs
+IG1oY2NpZiwgZGV2KVwNCj4gPiArKHtcDQo+ID4gK2lmICgoY2hzKSAmIChkZXYpKQ0KPg0KPiB3
+aGF0IGlmIGFueSBvZiB0aGVzZSBpcyBlcXVhbCB0byAwPw0KPiBqdXN0IHNraXAgZG8gbm90IGxv
+ZyBhbnl0aGluZz8NCg0KVGhpcyBtYWNybyBjb252ZXJ0cyBTVyBldmVudCBiaXRzIHRvIEhXIGNo
+YW5uZWwgYml0cy4gVGhlIGNhbGxlcnMNCmFsd2F5cyBwYXNzIHZhbGlkIG5vbi16ZXJvIHZhbHVl
+cyBmb3IgY2hzIGFuZCBkZXYuIEV2ZW4gaWYgZWl0aGVyDQppcyB6ZXJvLCB0aGUgYml0d2lzZSBB
+TkQgcHJvZHVjZXMgemVybywgc28gZGVzdCByZW1haW5zIHVuY2hhbmdlZA0KYW5kIHdyaXRpbmcg
+emVybyB0byB0aGUgaGFyZHdhcmUgd2lsbCBub3QgdHJpZ2dlciBhbnkgZXZlbnQuIFRoaXMgaXMN
+CmEgc2FmZSBuby1vcCBhbmQgZG9lcyBub3Qgd2FycmFudCBhIHdhcm5pbmcgb3IgZXJyb3IgbG9n
+Lg0KDQo+ID4gK3UzMiBtdGtfcGNpX21hY19yZWFkMzIoc3RydWN0IG10a19wY2lfcHJpdiAqcHJp
+diwgdTY0IGFkZHIpDQo+ID4gK3sNCj4gPiArcmV0dXJuIGlvcmVhZDMyKHByaXYtPm1hY19yZWdf
+YmFzZSArIGFkZHIpOw0KPiA+ICt9DQo+ID4gLi4uDQo+DQo+IHdvdWxkIGJlIGxvdmVseSB0byBo
+YXZlIGtkb2Mgb2YgdGhlIG5vbi1zdGF0aWMgZnVuY3Rpb25zIGZyb20gdGhlIHNlcmllcw0KDQpD
+b252ZXJ0ZWQgdGhlIGZvdXIgTU1JTyB3cmFwcGVyIGZ1bmN0aW9ucyAobXRrX3BjaV9tYWNfcmVh
+ZDMyLA0KbXRrX3BjaV9tYWNfd3JpdGUzMiwgbXRrX3BjaV9yZWFkMzIsIG10a19wY2lfd3JpdGUz
+MikgdG8gc3RhdGljDQppbmxpbmUgaW4gdGhlIGhlYWRlci4gVGhlc2UgYXJlIHRyaXZpYWwgb25l
+LWxpbmUgd3JhcHBlcnMgYXJvdW5kDQppb3JlYWQzMi9pb3dyaXRlMzIgYW5kIGRvIG5vdCB3YXJy
+YW50IHNlcGFyYXRlIGZ1bmN0aW9uIGRlZmluaXRpb25zLg0KVGhpcyBhbHNvIHJlZHVjZXMgdGhl
+IG92ZXJhbGwgbGluZSBjb3VudC4NCg0KRm9yIHRoZSByZW1haW5pbmcgbm9uLXN0YXRpYyBmdW5j
+dGlvbnMsIGtlcm5lbC1kb2MgY29tbWVudHMgaGF2ZSBiZWVuDQphZGRlZCBpbiB2Mi4NCg0KPiA+
+ICtzaXplX2wgPSBGSUVMRF9HRVQoR0VOTUFTS19VTEwoMzEsIDApLCBjZmctPnNpemUpOw0KPiA+
+ICtzaXplX2ggPSBGSUVMRF9HRVQoR0VOTUFTS19VTEwoNjMsIDMyKSwgY2ZnLT5zaXplKTsNCj4g
+PiArcG9zID0gZmZzKHNpemVfbCk7DQo+ID4gK2lmIChwb3MpIHsNCj4gPiArYXRyX3NpemUgPSBw
+b3MgLSAyOw0KPiA+ICt9IGVsc2Ugew0KPiA+ICtwb3MgPSBmZnMoc2l6ZV9oKTsNCj4gPiArYXRy
+X3NpemUgPSBwb3MgKyAzMDsNCj4NCj4gaSBiZWxpZXZlIGJldHRlciB3b3VsZCBiZSB0byBoYXZl
+IHNvbWUgZGVmaW5lcyBpbnN0ZWFkIG9mIG1hZ2ljDQoNClJlcGxhY2VkIG1hZ2ljIG51bWJlcnMg
+aW4gbXRrX3BjaV9zZXR1cF9hdHIoKSB3aXRoIG5hbWVkIGRlZmluZXM6DQpBVFJfU0laRV9MTzMy
+X01BU0ssIEFUUl9TSVpFX0hJMzJfTUFTSywgQVRSX1NJWkVfQklBU19GUk9NX0xPMzIsDQpBVFJf
+QUREUl9BTElHTl9NQVNLLCBBVFJfRU4sIEFUUl9QQVJBTV9PRkZTRVQuDQoNCj4gPiArfQ0KPg0K
+PiBwbGVhc2UgcHV0IHNvbWUgYnJlYWtzIHRvIGhhdmUgdGhlIGNvZGUgbG9naWNhbGx5IHNlcGFy
+YXRlZA0KDQpBZGRlZCBibGFuayBsaW5lcyB0byBzZXBhcmF0ZSBsb2dpY2FsIGJsb2NrcyBpbiBt
+dGtfcGNpX3NldHVwX2F0cigpLg0KDQo+ID4gKy8qIFNSQ19BRERSX0ggKi8NCj4gPiArYWRkciA9
+IFJFR19BVFJfUENJRV9XSU4wX1QwX1NSQ19BRERSX01TQiArIG9mZnNldDsNCj4gPiArLi4uDQo+
+ID4gKy8qIFNSQ19BRERSX0wgKi8NCj4gPiArYWRkciA9IFJFR19BVFJfUENJRV9XSU4wX1QwX1NS
+Q19BRERSX0xTQiArIG9mZnNldDsNCj4gPiArLi4uDQo+ID4gKy8qIFRSU0xfQUREUl9IICovDQo+
+ID4gKy4uLg0KPiA+ICsvKiBUUlNMX0FERFJfTCAqLw0KPg0KPiBjb21tZW50cyBzZWVtIHRvIGJl
+IHJlZHVuZGFudCBpbW87IGNsZWFyZXIgd291bGQgYmUgdG8gaGF2ZSBqdXN0IG5ld2xpbmUNCj4g
+aW5zdGVhZA0KDQpSZXBsYWNlZCByZWR1bmRhbnQgaW5saW5lIGNvbW1lbnRzIHdpdGggYmxhbmsg
+bGluZSBzZXBhcmF0b3JzLg0KDQo+ID4gKy8qIFRSU0xfUEFSQU0gKi8NCj4gPiArYWRkciA9IFJF
+R19BVFJfUENJRV9XSU4wX1QwX1RSU0xfUEFSQU0gKyBvZmZzZXQ7DQo+ID4gK3ZhbCA9IChjZmct
+PnRyc2xfcGFyYW0gPDwgMTYpIHwgY2ZnLT50cnNsX2lkOw0KPg0KPiBhZ2FpbiBhIGxvdCBvZiBt
+YWdpYyBoZXJlDQoNClJlcGxhY2VkIHdpdGggQVRSX1BBUkFNX09GRlNFVCBkZWZpbmUuDQoNCj4g
+PiAraW50IG5yID0gMDsNCj4NCj4gd2hhdCdzIHRoZSBwb2ludCBvZiB6ZXJvaW5pdGluZyBpZiB0
+aGUgdmFsdWUgaXMgYXNzaWduZWQgYXQNCj4gdGhlIG5leHQgbGluZT8NCg0KUmVtb3ZlZCB0aGUg
+emVybyBpbml0aWFsaXphdGlvbiBhbmQgc2ltcGxpZmllZCB0aGUgZnVuY3Rpb24uIEFsc28NCmFk
+ZGVkIGEgZ3VhcmQgZm9yIGlycV9jbnQgPT0gMCBhbmQgaXJxX2lkIDwgMC4NCg0KPiA+ICtuciA9
+IGlycV9pZCAlIHByaXYtPmlycV9jbnQ7DQo+DQo+IGFyZSB3ZSBzdXJlIGlycV9jbnQgd29uJ3Qg
+YmUgZXF1YWwgdG8gMCBpbiBhbnkgc2NlbmFyaW8/DQoNCkFkZGVkIGEgIXByaXYtPmlycV9jbnQg
+Z3VhcmQgdGhhdCByZXR1cm5zIC1FSU5WQUwgYmVmb3JlIHRoZSBtb2R1bG8NCm9wZXJhdGlvbi4g
+QWxzbyBhZGRlZCBhbiBpcnFfaWQgPCAwIGNoZWNrIGZvciBjb21wbGV0ZW5lc3MuDQoNCj4gPiAr
+aWYgKHVubGlrZWx5KGlycV9pZCA8IDAgfHwgaXJxX2lkID49IE1US19JUlFfQ05UX01BWCkpDQo+
+ID4gK3JldHVybiAtRUlOVkFMOw0KPg0KPiBpcyBpdCBhbnlob3cgYmVuZWZpY2lhbCB0byBwdXQg
+dW5saWtlbHkgaGVyZSBhbmQgaW4gY2FzZSBvZiBvdGhlcg0KPiBhcHBlYXJhbmNlcyB3aXRoaW4g
+dGhlIHNlcmllcz8NCg0KUmVtb3ZlZCB1bmxpa2VseSgpIGZyb20gdGhlIElSUSBwYXJhbWV0ZXIg
+dmFsaWRhdGlvbiBjaGVja3MgaW4NCm10a19wY2lfZ2V0X2lycV9pZCgpLCBtdGtfcGNpX3JlZ2lz
+dGVyX2lycSgpLA0KbXRrX3BjaV91bnJlZ2lzdGVyX2lycSgpLCBtdGtfcGNpX21hc2tfaXJxKCks
+DQptdGtfcGNpX3VubWFza19pcnEoKSwgYW5kIG10a19wY2lfY2xlYXJfaXJxKCkuIFRoZXNlIGFy
+ZSBub3QNCmhvdCBwYXRocyBhbmQgdGhlIGJyYW5jaCBoaW50IHByb3ZpZGVzIG5vIG1lYXN1cmFi
+bGUgYmVuZWZpdCBoZXJlLg0KDQo+ID4gK2lmICh1bmxpa2VseSgoaXJxX2lkIDwgMCB8fCBpcnFf
+aWQgPj0gTVRLX0lSUV9DTlRfTUFYKSB8fCBwcml2LT5pcnFfdHlwZSAhPSBQQ0lfSVJRX01TSVgp
+KSB7DQo+DQo+IHNhbWUgaGVyZQ0KDQpTYW1lIGFzIGFib3ZlLCByZW1vdmVkIHVubGlrZWx5KCku
+DQoNCj4gPiArdm9pZCBtdGtfcGNpX21hc2tfZXh0X2V2dChzdHJ1Y3QgbXRrX21kX2RldiAqbWRl
+diwgdTMyIGNocykNCj4gPiArew0KPiA+ICtzdHJ1Y3QgbXRrX3BjaV9wcml2ICpwcml2ID0gbWRl
+di0+aHdfcHJpdjsNCj4gPiArdTMyIGh3X2JpdHM7DQo+ID4gKw0KPiA+ICtod19iaXRzID0gbXRr
+X3BjaV9leHRfZDJoX2V2dF9od19iaXRzKGNocyk7DQo+DQo+IG9uZSBvZiB0aGVzZSBpcyBpbml0
+ZWQgYXQgZGVjbGFyYXRpb24sIDJuZCBvbmUgaXNudA0KPiBwbGVhc2Ugc3RheSBjb25zaXN0YW50
+LCBAaHdfYml0cyBjYW4gYmUgaW5pdGVkIGFzIHdlbGwNCg0KRml4ZWQuIGh3X2JpdHMgaXMgbm93
+IGluaXRpYWxpemVkIGF0IGRlY2xhcmF0aW9uIGluDQptdGtfcGNpX21hc2tfZXh0X2V2dCgpLCBt
+dGtfcGNpX3VubWFza19leHRfZXZ0KCksIGFuZA0KbXRrX3BjaV9jbGVhcl9leHRfZXZ0KCkuDQoN
+Cj4gPiAraW50IG10a19wY2lfc2VuZF9leHRfZXZ0KHN0cnVjdCBtdGtfbWRfZGV2ICptZGV2LCB1
+MzIgY2gpDQo+ID4gK3sNCj4gPiArc3RydWN0IG10a19wY2lfcHJpdiAqcHJpdiA9IG1kZXYtPmh3
+X3ByaXY7DQo+ID4gK3UzMiByY19iYXNlOw0KPiA+ICt1MzIgaHdfYml0czsNCj4NCj4gbWlzc2lu
+ZyBrZG9jIGhlcmUgYW5kIHRoZXJlDQoNCkFkZGVkIGtlcm5lbC1kb2MgY29tbWVudHMgdG8gYWxs
+IG5vbi1zdGF0aWMgZnVuY3Rpb25zIGluIHYyLg0KDQo+IHBsZWFzZSBzcXVhc2ggdmFyaWFibGVz
+IG9mIHRoZSBzYW1lIHR5cGUgaW50byBzaW5nbGUgbGluZQ0KDQpNZXJnZWQgcmNfYmFzZSBhbmQg
+aHdfYml0cyBpbnRvIGEgc2luZ2xlIGRlY2xhcmF0aW9uIGxpbmUuDQoNCj4gPiArI2Vsc2UNCj4N
+Cj4gI2Vsc2UgLyogIUNPTkZJR19BQ1BJICovDQoNCkFkZGVkIGNvbW1lbnRzIHRvICNlbHNlIGFu
+ZCAjZW5kaWYgcHJlcHJvY2Vzc29yIGRpcmVjdGl2ZXMuDQoNCj4gPiArI2VuZGlmDQo+DQo+ICNl
+bmRpZiAvKiBDT05GSUdfQUNQSSAqLw0KDQpEb25lLg0KDQo+ID4gK21zbGVlcCg1MDApOw0KPg0K
+PiBwbGVhc2UgZG9udCB1c2UgbWFnaWMgbnVtYmVyDQo+IGFsc28gd2hlcmUgdGhpcyB2YWx1ZSBo
+YXMgYmVlbiBkZXJpdmVkIGZyb20/DQoNClJlcGxhY2VkIHdpdGggTVRLX1BMRFJfUE9XRVJfT0ZG
+X0RFTEFZX01TIGRlZmluZS4gVGhpcyA1MDBtcyBkZWxheQ0KaXMgdGhlIG1pbmltdW0gdGltZSBy
+ZXF1aXJlZCBieSB0aGUgTWVkaWFUZWsgbW9kZW0gaGFyZHdhcmUgdG8NCmNvbXBsZXRlIHRoZSBw
+b3dlci1vZmYgc2VxdWVuY2UgYmVmb3JlIHJlLWluaXRpYWxpemF0aW9uIGNhbiBiZWdpbi4NCg0K
+PiA+ICthY3BpX29zX2ZyZWUoYnVmZmVyLnBvaW50ZXIpOw0KPg0KPiBwbGVhZSBhZGQgc29tZSBu
+ZXdsaW5lcw0KDQpBZGRlZCBuZXdsaW5lcyBpbiBtdGtfcGNpX3BsZHIoKSBmb3IgYmV0dGVyIHJl
+YWRhYmlsaXR5Lg0KDQo+ID4gK2RlZmF1bHQ6DQo+ID4gK2JyZWFrOw0KPiA+ICt9DQo+ID4gKw0K
+PiA+ICtyZXR1cm4gLUVJTlZBTDsNCj4NCj4gcGxlYXNlIHB1dCByZXR1cm4gaW50byBkZWZhdWx0
+IGxhYmVsDQoNCk1vdmVkIHJldHVybiAtRUlOVkFMIGludG8gdGhlIGRlZmF1bHQgY2FzZSBsYWJl
+bC4NCg0KPiA+ICtzdHJ1Y3QgbXRrX3BjaV9wcml2ICpwcml2ID0gY29udGFpbmVyX29mKHdvcmss
+IHN0cnVjdCBtdGtfcGNpX3ByaXYsIG1oY2NpZl93b3JrKTsNCj4NCj4gaXNuJ3QgdGhpcyBsaW5l
+ID4gODAgY2hhcnM/DQoNCldyYXBwZWQgdGhlIGNvbnRhaW5lcl9vZiBsaW5lIHRvIHN0YXkgd2l0
+aGluIDgwIGNvbHVtbnMuDQoNCj4gPiArZGV2X2VycigobWRldiktPmRldiwgIkZhaWxlZCB0byBn
+ZXQgbWhjY2lmX2lycV9pZC4gcmV0PSVkXG4iLCByZXQpOw0KPiA+ICtnb3RvIGVycjsNCj4NCj4g
+d2h5IGNhbm5vdCBqdXN0IHJldHVybiByZXQ/DQoNClNpbXBsaWZpZWQgbXRrX21oY2NpZl9pbml0
+KCkgdG8gcmV0dXJuIGRpcmVjdGx5IGluc3RlYWQgb2YgdXNpbmcNCmEgZ290byBsYWJlbC4NCg0K
+PiA+ICtkZXZfZXJyKChtZGV2KS0+ZGV2LCAiRmFpbGVkIHRvIHJlZ2lzdGVyIG1oY2NpZl9pcnEg
+Y2FsbGJhY2tcbiIpOw0KPiA+ICtnb3RvIGVycjsNCj4NCj4gaXQncyByZWR1bmRhbnQNCg0KUmVt
+b3ZlZCB0aGUgcmVkdW5kYW50IGdvdG8uIFRoZSBmdW5jdGlvbiBub3cgcmV0dXJucyBkaXJlY3Rs
+eS4NCg0KPiA+ICtkbyB7DQo+ID4gK2lycV9pZCA9IGZscyhpcnFfc3RhdGUpIC0gMTsNCj4NCj4g
+YXJlIHdlIHN1cmUgaXJxX3N0YXRlIGNhbm5vdCBiZSAwPw0KDQpUaGUgY2FsbGVyIG10a19wY2lf
+aXJxX21zaXgoKSBhbHJlYWR5IGNoZWNrcyAhaXJxX3N0YXRlIGFuZCByZXR1cm5zDQpJUlFfTk9O
+RSBiZWZvcmUgcmVhY2hpbmcgbXRrX3BjaV9pcnFfaGFuZGxlcigpLiBTbyBpcnFfc3RhdGUgaXMN
+Cmd1YXJhbnRlZWQgdG8gYmUgbm9uLXplcm8gd2hlbiB0aGUgaGFuZGxlciBpcyBpbnZva2VkLg0K
+DQo+ID4gK2lmIChtdGtfcGNpX2xpbmtfY2hlY2sobWRldikpIHsNCj4gPiArcGNpX3NhdmVfc3Rh
+dGUocGRldik7DQo+ID4gK30gZWxzZSB7DQo+ID4gK3JldCA9IC1FRkFVTFQ7DQo+ID4gK2dvdG8g
+Y2xlYXJfbWFzdGVyOw0KPg0KPiAjZGVmaW5lRUZBVUxUMTQvKiBCYWQgYWRkcmVzcyAqLw0KPiBk
+b2VzIGl0IHN1aXQgaGVyZT8NCg0KQ2hhbmdlZCB0aGUgZXJyb3IgY29kZSBmcm9tIC1FRkFVTFQg
+dG8gLUVOT0xJTkssIHdoaWNoIGJldHRlcg0KZGVzY3JpYmVzIGEgUENJZSBsaW5rIGZhaWx1cmUu
+DQoNCj4gPiArbWRldiA9IGRldm1fa3phbGxvYyhkZXYsIHNpemVvZigqbWRldiksIEdGUF9LRVJO
+RUwpOw0KPiA+ICtpZiAoIW1kZXYpIHsNCj4gPiArcmV0ID0gLUVOT01FTTsNCj4gPiArZ290byBv
+dXQ7DQo+DQo+IGFzIGZvciB0aGUgcmVzdCBvZiB0aGUgbGFiZWxzIHBsZWFzZSBuYW1lIHdoYXQg
+aXMgZG9uZQ0KPiBlZyBsb2dfZXJyDQoNClJlbmFtZWQgZ290byBsYWJlbCAib3V0IiB0byAibG9n
+X2VyciIuDQoNCj4gcGxlYXNlIGFsc28gdGFrZSBhIGxvb2sgb24gc2FzaGlrbyBub3RlcywgdGhl
+cmUgaXMgc29tZSBudW1iZXIgb2YgdGhlbQ0KDQpBZGRyZXNzZWQuIFRoZSBpdGVtcyBmcm9tIHNh
+c2hpa28ncyByZXZpZXcgaGF2ZSBiZWVuIGluY29ycG9yYXRlZA0KaW50byB0aGlzIHJldmlzaW9u
+Lg0KDQpUaGFua3MuDQoNCkphY2sgV3UNCg0KDQo9PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09DQpUaGlzIG1lc3NhZ2UgbWF5IGNvbnRhaW4gaW5mb3JtYXRpb24g
+d2hpY2ggaXMgcHJpdmF0ZSwgcHJpdmlsZWdlZCBvciBjb25maWRlbnRpYWwgb2YgQ29tcGFsIEVs
+ZWN0cm9uaWNzLCBJbmMuIElmIHlvdSBhcmUgbm90IHRoZSBpbnRlbmRlZCByZWNpcGllbnQgb2Yg
+dGhpcyBtZXNzYWdlLCBwbGVhc2Ugbm90aWZ5IHRoZSBzZW5kZXIgYW5kIGRlc3Ryb3kvZGVsZXRl
+IHRoZSBtZXNzYWdlLiBBbnkgcmV2aWV3LCByZXRyYW5zbWlzc2lvbiwgZGlzc2VtaW5hdGlvbiBv
+ciBvdGhlciB1c2Ugb2YsIG9yIHRha2luZyBvZiBhbnkgYWN0aW9uIGluIHJlbGlhbmNlIHVwb24g
+dGhpcyBpbmZvcm1hdGlvbiwgYnkgcGVyc29ucyBvciBlbnRpdGllcyBvdGhlciB0aGFuIHRoZSBp
+bnRlbmRlZCByZWNpcGllbnQgaXMgcHJvaGliaXRlZC4NCj09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT0NCg==
 
