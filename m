@@ -4,132 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F442CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93F7CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 02:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCn3IyooSA3jsjMlZ6/+PXYCW2Jy/3rcegUc0UFBpRc=; b=ASApF5fNw2eYWT3ElFeLSA8xov
-	XDf7VuP7H9ye5BsDQnqH+wvfgGXzwHVVa2+FTE+OhtlFKM8fN8BArja3ZO5ayRsnosShkuK4cM0aS
-	7lVQdFinlCw03pHk3UFRcjYk5JqglzjdmlXjY5OKGa2S2ch7Wmyp5yaDcDiMwS458Gr+b8KF2h1db
-	hq+adkB07mXkQBiRgwn1u3t/leoUInV3caNyvKXKwtARsp7vyXWT0JS1/5qzsGfwt3KllolzQwwp+
-	MlpyExcRe7P8uZSOEkLsl1VR4iIKCFqAxFD/7WYmo/ft+t1LxTE2VD4+vrq0z48TNOfscZj7i/ztB
-	AY4E8IwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sUscgkaVB9GhkTyYmcNNOPyIpn4q5HzwEqwgoYRL1cI=; b=jJrPXkcUsBVQcpVq4e6BoRrmwa
+	/U3BSQbnV1aYC7+tp+TVu8mf1HibenU/0v7GQciBjEnqmmPpeIgLTt8Pkvc4DlZ7oqHw/gV2CtUOo
+	KTp/IBEtQ+YrL3KMfvwaGtCeBjf1UiWvppGztXUU1txsT/Q653d6kVMAsFj16bp8cxu/gaVy1TLYZ
+	/3cWIjOcM0MwiylnK3mF+MxThJlgAM7cjocFd2Zi3SSR0slXFwSxc3HAWUBAkkj6LXp88lVBKGKrz
+	bOxMOq3I6JxqGMdo4eNszZH3LzbglkjEhQ5G5eBc6PpEW5MVTC6MwPzyLLe/UzcgtBhAEWKwipQEt
+	cjDtSaqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7oY-00000006eDs-1pOW;
-	Wed, 10 Jun 2026 01:33:06 +0000
-Received: from mail-westeuropeazon11010042.outbound.protection.outlook.com ([52.101.69.42] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wX8Tl-00000006gq7-1WhG;
+	Wed, 10 Jun 2026 02:15:41 +0000
+Received: from out-171.mta1.migadu.com ([95.215.58.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7oV-00000006eBB-3pWJ
+	id 1wX8Th-00000006gpM-3TIQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 01:33:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=flEc+4o8iot0ZKSjioFd43kRjV4/YujOgnjPdqlUvxGKcy9t4tM1cAX21tx7txJxfZhfIsgSaFHPsqBPuN/sePvJ1YSBI77+JMLc2bP5AVI/pjidpKNxH5JtUjqEt+SHQlRWjO1ewkXF/kZBweSMXBi3Xl0Dy0YkNrLybBIgzTPzM4oSRitpagIPNELFTBBCQXOdpkjCkRmxYYDFpiIuwHV9wVJlo6sevb0Lco6eVdUmQjAHb+oSu3ajVDIUJuaOtHhOg8b+SUypp669sOasUQyCHWoWGRkav+54vfCVK01ZRZcMUj2uCOgn00F8WAZqX55W//cZq0IxA/mSFW3CQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wCn3IyooSA3jsjMlZ6/+PXYCW2Jy/3rcegUc0UFBpRc=;
- b=IJBhXQ+KUBFUJiRTSELX7NlOr5/CHsw7LiCo7LUFjpq0QqpflkY0mPS7MA/Pqoll8jm1/V7TDFujaI9rEpLtVYWzmUUYoHTuHJY8DQNdGO30F1uTDn8NkH3AAHVzytDVE/UO5B95AHFDsWE9OCA/R9zcKiBPpMlKhRbzCHhDShvOCLRIHuugQVSDN9Xxl8KOkbpG0+BKk1vFm1vuPJbckLdu0a1MKiwaBWhselIHPPrwVeV55sz4KT5lTJAT8eAZpoQgA4diU05a7PYUi1KV5S/PdV2ucACFr4MI/gOOd+AckgIy6GJ3iLLNwqwe8hgrR9cpTsIKuh4sOvgVi3sobQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wCn3IyooSA3jsjMlZ6/+PXYCW2Jy/3rcegUc0UFBpRc=;
- b=Sc0OCvBpks7Nim4iTdR6nxpNYkjW/R8VbjioNdhlarNmNCvyQX2E0jR7cTC6SXgz8yLclkE3jRIzsJnYONs9Z9GAlykg1/IuRBB5rvw1QEIdb1mJuRtsULlH0QUrLbGI77r+6CdJ2RVYD8OPMWcn9Vp7uZ186MbbXVAXpIiGj5ySw4Az/+xoNnrYoEXfueQ3gjDAlkL4NorCzFX0nTGJNlUTWyDACDQC9Nm1KM2K95jnotmGKp2ItjaBHzVe8ncx04wvkTpZqrI7BYL1C2iVxIj+TwyPu9Vd5F56pOmmXGeVDqKtjv5/93HvNbWU2KQ0NWkoGAHshBCHgFqIIPH6Rg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB10564.eurprd04.prod.outlook.com (2603:10a6:150:215::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
- 2026 01:32:52 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Wed, 10 Jun 2026
- 01:32:52 +0000
-Date: Tue, 9 Jun 2026 20:32:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-serial@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCHv2 4/4] serial: mxs-auart: fix IRQ registration ordering
- and manage console clock
-Message-ID: <aii-uz01bYGETJC8@SMW015318>
-References: <20260609223717.41670-1-rosenp@gmail.com>
- <20260609223717.41670-5-rosenp@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609223717.41670-5-rosenp@gmail.com>
-X-ClientProxiedBy: SA9PR13CA0144.namprd13.prod.outlook.com
- (2603:10b6:806:27::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 10 Jun 2026 02:15:39 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1781057722;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sUscgkaVB9GhkTyYmcNNOPyIpn4q5HzwEqwgoYRL1cI=;
+	b=D6ijSBnPu590JadANQn6yWI4D34v3+8oS/4hsrM+AztYMR9ELQesm+n+bMbpuT5UnnPVdP
+	3Sm7CUM7F7pRDF+SZFmKWng6A/cUb4qDR+aUBv6agV1CvTEsE1Q0M3wyCDU3CXHWnk0aUn
+	MwSKL8vK12126gyL1mz8G54ZZJd+g4c=
+From: Lance Yang <lance.yang@linux.dev>
+To: akpm@linux-foundation.org
+Cc: xueyuan.chen21@gmail.com,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	luto@kernel.org,
+	peterz@infradead.org,
+	hpa@zytor.com,
+	david@kernel.org,
+	ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	npache@redhat.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	lance.yang@linux.dev,
+	yang@os.amperecomputing.com,
+	jannh@google.com,
+	dave.hansen@intel.com
+Subject: Re: [RFC PATCH v2 1/3] mm/huge_memory: make persistent huge zero folio read-only
+Date: Wed, 10 Jun 2026 10:15:07 +0800
+Message-Id: <20260610021508.46000-1-lance.yang@linux.dev>
+In-Reply-To: <20260609124549.aff7e774603c4af188009408@linux-foundation.org>
+References: <20260609124549.aff7e774603c4af188009408@linux-foundation.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10564:EE_
-X-MS-Office365-Filtering-Correlation-Id: 207819da-c0db-4c32-7eb5-08dec6903083
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|19092799006|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: vIdqDQbULFHRAUeIP8MnvrHEQLO8HWQR86xDPMat7HO4pcrT6zlWU4HbxOoc4rOcSV0S/+YTovUF2t6MeMspoXZ+HNx/viATlChYDNjY62+ruy2BW7NGeMrprtDvfwYipj6eQFeQwVVzh3ugcmwf9G0LWke0lcCugaAuG3TgllKIgG/fhsNeU1OG8EClGdvxJmK9kJLXRPzT+IdT5ljS/NybedhBf6DVqRSEc+iWHiOQOA5TONfe4p+9oQ4OEvmJztBWJ3bp5BhmaHrcnkMPc/HIAOnfA7mrYDaTT6zOFtsUWBXCQ9ExfWwXAj9Gs6JiAAV89CmtXusZ+fQyUa5Pdt5r4UGewiRaT9feYh1s3Ui8no3KIFlq2s61aHstWdU87KxOpr4X3p8+TKGrbtytk0drW6Zm88X+eEnTgI6sLC1NfL69inYF9c3VZ7Fjw7ycn1N7UTOdQegaVF4GLXstt9LTzsi6TWapO6bFgcm9OEBpa/YfZlXOCPyQrM/WTd4UfD4/rD6+49hJx4yCLIYCYdjsfm7Tky45t6WY8KnSGSuPtNVyMR9IjqQz9JHM8An7qWVOxrqWqpXnxp2dQme1KYUjc4FOaAfroS6yGVw5ukod0UZVxi/LPedOsBU+H848/dKfHmwQz5LZ5A4BZY/+3I3H6sdnkm6PGjJUgeVUBf3B8fO6EtZoCmbmAmkK5Li2
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(19092799006)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ko+tMLV8StCsFlF0DWlOZwMitYdSTLtoUkX9TT5i5eh/rbDnaCFjV6F5I31m?=
- =?us-ascii?Q?3wq29icWI68bqZ3l9PAyg5FwDyF0W2vTJPWEpH8r7yHOSOusWZdDydqTBCGV?=
- =?us-ascii?Q?flOupAmZVlqOnkuqttyNC1Z2hwwNb4+3iS0xWZ9VkouNi2WzaomR4lf5sYof?=
- =?us-ascii?Q?pyDMZWOg4w4p+4gLZvcDmukLvVf90LFE2R6TJnts+Paz6TBnzRhhqruODI+1?=
- =?us-ascii?Q?dLUJkscNKbLk4U0xkuJ5jBiYYrTtl8OZRcxrWtMkcnPwHJR7YwN3jRUv44xh?=
- =?us-ascii?Q?2g3xxdLVDJc+oKNFjmAuwmnDj0YipcEkn8lHfdjd6wfcMWxp/pFcYCxYm1ua?=
- =?us-ascii?Q?mPsZhp8RW/uCFUwYurmvJ9gGAmguRMxI4Up3hYvUbc+H2RuC2KUnrPb5ICyQ?=
- =?us-ascii?Q?yUTBUmJon3a68v77jSTfwrxVs7x5YZW28YPR27OfFKmw+mUqYL2btzL73N/P?=
- =?us-ascii?Q?XRFoKANMybtpqyYLE9/dtzoLOxweg0cjw4JWiUyvCKmf4s2qW+5tf8dFpbHe?=
- =?us-ascii?Q?xFEIlVFmCe4KxxURi4x3+HeGwFxxSFnbF22rhkZP8OH8pLuSaJoxC8OHw4PG?=
- =?us-ascii?Q?IrPFEWR/tSFVlDfPo0pFc+jC2WKGBK71RN71dt48gMQ4WsY1z6clxDwtl24p?=
- =?us-ascii?Q?xNlQkHi7Fy7egiLBQ0/BXTfUf+d+lSFRGryA9Ol4A3ASquQUcbFps/svkcBe?=
- =?us-ascii?Q?I2dct31e/VY064zsXNXyIlGHJWTvyYFKzyzKZaMNBBpHk6LSLfLY3z1/jE2O?=
- =?us-ascii?Q?MqNnROqJZAj/ZthrAHNrqh9qx+WEU2RS0MtpOIX5SVAzF7+0raEHkdTPx3rQ?=
- =?us-ascii?Q?/gFa0bKL1dS3t4LA0J5tVZa2Kn884b9AD4cuzMGxwmHF/GCckHAMUqgaeGT3?=
- =?us-ascii?Q?dTurDNkCFwuJWcz2oz2PByG4O8UZgcGMQfufDdFQtKN57NTTSvpYeEBPC8m5?=
- =?us-ascii?Q?1EXYAJqMHQvjsKgr26lms63vIq6UeW382ZIoperEyZcM/gsXa/X0nkK3iSpJ?=
- =?us-ascii?Q?UipffGhPs7tpbdemJziv05C9WDprRtKtYs3ZDaKWGkRGfwSPq3UxSK9GmPlX?=
- =?us-ascii?Q?LxfkxVjy7YFUk/rVKtZ5nGSi49yqPsbU0rfSQlt9DgwNfauviU7Hb9o/v2Bn?=
- =?us-ascii?Q?vu2rVmbEThcRq5vOQenYlDt7dkm+672H9HRyuT6ed/s0SSGdpUtRvF8T8NNb?=
- =?us-ascii?Q?ros39spovbKydOkGYWYC+ZHIsWL1xHwd8sYiOJYHnXECjdn2fXAOBw37NpVB?=
- =?us-ascii?Q?wdCRKTYy1YgQUFkoWND6DuXMcwI4QfdbSVhNS0NjR/9WCRuMh6lO1Pg/Rr3b?=
- =?us-ascii?Q?toLHddj6rGutqyWQPNy2/EtqyMWSg9kDIMyetxL2OcpkyOGXpKSlggogPtZ3?=
- =?us-ascii?Q?w6jZ7Y5JPTePbNrguqshc2ZLJwkYlhjSnprwC7Ju3DeJ5OgWrK8TfS4qWXN/?=
- =?us-ascii?Q?CidzCPKPdD4Oc7beF1FSLvlaG29fcyoqbkyAT650bn0ROYxq2J0vuhGGV2od?=
- =?us-ascii?Q?7cCl0lDLTXGExJTEdt5rAPDIWLWof4qyLrxohhXb5fRd2X53so0XwG2c6t1R?=
- =?us-ascii?Q?lmqH3VoJ7Suviwn7syz1pX63oVDazeBwGVo3g1dmo6MHYpC1H5fS7d45wCIb?=
- =?us-ascii?Q?On8vFrd5gJu7dHsHG3Rkueb+goUWn8XjhFxXSilJzL95dyBsOih7Ah03fKEy?=
- =?us-ascii?Q?PBjYzgFfvBJ/mqPLxNnhGy61t7HzgrpW6TubEdchJNj+LH8Lh46TMqy2aHtt?=
- =?us-ascii?Q?oXCBJ8tna4CP0yAMWJgsTQ7Bb5lJMB+47l1gJeOl8RtgPAIDuLLW?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 207819da-c0db-4c32-7eb5-08dec6903083
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 01:32:52.6915
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LQ5/c7Ny/yOlwkZkHQuo3zx2eIPeSds/8mJQ1x/Yb3nR6b7RA7T+2fqjsU+iXmJ7m7PGAZvjLBGPNVIXhTqvOcYTLPh2UuoDEcO/qG52ywyvKqCHryLQ+fGQt6XLgeIW
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10564
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_183303_966874_7AF59B0E 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20260609_191538_022215_A2CF3908 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,142 +97,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 03:37:17PM -0700, Rosen Penev wrote:
-> Move the main UART IRQ registration after uart_add_one_port so that
-> s->port.state and s->port.lock are initialized before the interrupt
-> handler can run. Mask all UART interrupts before adding the port to
-> prevent spurious IRQs left by the bootloader.
 
-Please use seperate patch to this problem only.
+On Tue, Jun 09, 2026 at 12:45:49PM -0700, Andrew Morton wrote:
+>On Tue,  9 Jun 2026 22:37:59 +0800 Xueyuan Chen <xueyuan.chen21@gmail.com> wrote:
+>
+>> The huge zero folio is shared globally, and its contents should never
+>> change after initialization. As Jann Horn pointed out[1], the kernel has
+>> had bugs, including security bugs, where read-only pages were later written
+>> to. If the persistent huge zero folio is read-only in the direct map, such
+>> writes fault instead of silently corrupting the shared zero contents.
+>> 
+>> Add arch_make_pages_readonly() so mm code can request read-only direct-map
+>> protection for a page range. Direct-map protection is
+>> architecture-specific, so the generic weak implementation does nothing.
+>> 
+>> This was inspired by Jann Horn's read-only zero page work[1] and follow-up
+>> discussion[2] with Yang Shi.
+>> 
+>> [1] https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/
+>> [2] https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/
+>> 
+>> ...
+>>
+>> --- a/mm/huge_memory.c
+>> +++ b/mm/huge_memory.c
+>> @@ -308,6 +308,11 @@ static unsigned long shrink_huge_zero_folio_scan(struct shrinker *shrink,
+>>  	return 0;
+>>  }
+>>  
+>> +bool __weak arch_make_pages_readonly(struct page *page, int nr_pages)
+>> +{
+>> +	return false;
+>> +}
+>> +
+>>  static struct shrinker *huge_zero_folio_shrinker;
+>>  
+>>  #ifdef CONFIG_SYSFS
+>> @@ -982,8 +987,14 @@ static int __init thp_shrinker_init(void)
+>>  		 * that get_huge_zero_folio() will most likely not fail as
+>>  		 * thp_shrinker_init() is invoked early on during boot.
+>>  		 */
+>> -		if (!get_huge_zero_folio())
+>> +		if (!get_huge_zero_folio()) {
+>>  			pr_warn("Allocating persistent huge zero folio failed\n");
+>> +			return 0;
+>> +		}
+>> +
+>> +		arch_make_pages_readonly(folio_page(huge_zero_folio, 0),
+>> +					HPAGE_PMD_NR);
+>
+>Can it simply pass the folio?
 
-Frank
+Right, this came from the RFC v1 discussion[1]. David preferred a page-
+range helper for possible future non-folio callers, not something folio-
+only.
 
->
-> After probe succeeds, disable the module clock for non-console ports
-> since startup will re-enable it on port open. For console ports, keep
-> the clock prepared so auart_console_write() can safely call
-> clk_enable() from atomic context.
->
-> Guard the IRQ handler and get_mctrl with clk_enable/clk_disable since
-> GPIO IRQs and serial-core status queries can fire while the clock is
-> disabled for non-console ports.
->
-> In remove, disable the clock for console ports to balance the enable
-> done in probe, preventing a clock leak on unbind.
->
-> Assisted-by: opencode:big-pickle
-> ---
->  drivers/tty/serial/mxs-auart.c | 49 +++++++++++++++++++++++++++-------
->  1 file changed, 39 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-> index 4499e3206e85..e2b656638ab3 100644
-> --- a/drivers/tty/serial/mxs-auart.c
-> +++ b/drivers/tty/serial/mxs-auart.c
-> @@ -738,9 +738,13 @@ static u32 mxs_auart_modem_status(struct mxs_auart_port *s, u32 mctrl)
->  static u32 mxs_auart_get_mctrl(struct uart_port *u)
->  {
->  	struct mxs_auart_port *s = to_auart_port(u);
-> -	u32 stat = mxs_read(s, REG_STAT);
-> +	u32 stat;
->  	u32 mctrl = 0;
->
-> +	clk_enable(s->clk);
-> +	stat = mxs_read(s, REG_STAT);
-> +	clk_disable(s->clk);
-> +
->  	if (stat & AUART_STAT_CTS)
->  		mctrl |= TIOCM_CTS;
->
-> @@ -1079,6 +1083,7 @@ static irqreturn_t mxs_auart_irq_handle(int irq, void *context)
->  	struct mxs_auart_port *s = context;
->  	u32 mctrl_temp = s->mctrl_prev;
->
-> +	clk_enable(s->clk);
->  	uart_port_lock(&s->port);
->
->  	stat = mxs_read(s, REG_STAT);
-> @@ -1118,6 +1123,7 @@ static irqreturn_t mxs_auart_irq_handle(int irq, void *context)
->  	}
->
->  	uart_port_unlock(&s->port);
-> +	clk_disable(s->clk);
->
->  	return IRQ_HANDLED;
->  }
-> @@ -1603,10 +1609,6 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	}
->
->  	s->port.irq = irq;
-> -	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
-> -			       dev_name(&pdev->dev), s);
-> -	if (ret)
-> -		goto out_disable_clk;
->
->  	platform_set_drvdata(pdev, s);
->
-> @@ -1627,9 +1629,28 @@ static int mxs_auart_probe(struct platform_device *pdev)
->
->  	mxs_auart_reset_deassert(s);
->
-> +	/* Mask all UART interrupts to prevent spurious IRQs from bootloader */
-> +	mxs_write(0, s, REG_INTR);
-> +
->  	ret = uart_add_one_port(&auart_driver, &s->port);
-> -	if (ret)
-> -		goto out_free_qpio_irq;
-> +	if (ret) {
-> +		auart_port[s->port.line] = NULL;
-> +		goto out_disable_clk;
-> +	}
-> +
-> +	/*
-> +	 * Request the main IRQ after uart_add_one_port so that
-> +	 * s->port.state and s->port.lock are initialized before
-> +	 * the handler can run in response to a bootloader-left
-> +	 * interrupt.
-> +	 */
-> +	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
-> +			       dev_name(&pdev->dev), s);
-> +	if (ret) {
-> +		uart_remove_one_port(&auart_driver, &s->port);
-> +		auart_port[s->port.line] = NULL;
-> +		goto out_disable_clk;
-> +	}
->
->  	/* ASM9260 don't have version reg */
->  	if (is_asm9260_auart(s)) {
-> @@ -1641,10 +1662,16 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  			 (version >> 16) & 0xff, version & 0xffff);
->  	}
->
-> -	return 0;
-> +	/*
-> +	 * Disable clock -- startup will re-enable when the port is opened.
-> +	 * For the console port the clock must stay prepared so that
-> +	 * auart_console_write() can safely call clk_enable() from
-> +	 * atomic context.
-> +	 */
-> +	if (!uart_console(&s->port))
-> +		clk_disable_unprepare(s->clk);
->
-> -out_free_qpio_irq:
-> -	auart_port[s->port.line] = NULL;
-> +	return 0;
->
->  out_disable_clk:
->  	clk_disable_unprepare(s->clk);
-> @@ -1657,6 +1684,8 @@ static void mxs_auart_remove(struct platform_device *pdev)
->
->  	uart_remove_one_port(&auart_driver, &s->port);
->  	auart_port[s->port.line] = NULL;
-> +	if (uart_console(&s->port))
-> +		clk_disable_unprepare(s->clk);
->  }
->
->  static struct platform_driver mxs_auart_driver = {
-> --
-> 2.54.0
->
->
+Of course, we could also add a folio wrapper on top of that if needed :)
+
+[1] https://lore.kernel.org/linux-mm/929875a2-9e94-4dbc-9c98-b342ccc3f4e2@kernel.org/
+
+Thanks, Lance
 
