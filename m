@@ -4,76 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B125CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 14:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3D8CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 14:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIoAahAV4CuoU8RbqIQS/+Rbt/OxgplfKmIf4NRFcyo=; b=0f1yI+5w3ainwCZ1OI+aXutRMx
-	gnBwDbwBtXutLiS7FT7NagUatq83LMxcriI+sQJDKofHxjijU6h2HSJWL8MO70SaMNAyU/LoHujoz
-	0Zkal2J3MFeq/Xod8iozeOv17mJ/OL6e4W+Da5BWpB8QW1vIaN9rSfnauoSyVAcqyx+wIaF55n6tj
-	3n9636JcgDG/HpMu+ms+Rc8DXjIIUPQBOMsIjMkc9bD8gpXcvJcRG1C+8rjIPso5jJ7ioIkP91UKJ
-	gGAplgaW6ChSrZGmt5h0SO6MC4LGmtRv0g4WmqXlR2A+Bslo6LyLJSKzkQ2ikcJgi20RQHIV8/q+U
-	YDil9cmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=31C6sRFZWwuc7BOXs5GwmqgDJ6wjYceVyR7N+wjZ9M0=; b=jUvT8YU53I5c+j9WmbcRu2i6sm
+	TR34W4gJFgTYLRGUVNR72Cr2XaWsnKoGbgB/1fDYA1pWrUuYHQfsS6XLleTwHSuvYYeicwxSP2IWt
+	QccwbxRPwUc279c9bYnsUQSlGT3FRnZ3q6v6mykEQ7zA4nJykNcyqr/SOccaQxVNDTQo7F1TawjpT
+	HYX8o5IRk2lzXDvf2L4hsouOJU5VMaCcnfFCyO6rqm2CzcqaLj8JcNrIbwwirYcZgq1qKrxKPOQz7
+	ll3Urn90ga5H9YTxVAliJZY1xT4JRdi2LjxqkZa2GYsFRLRp+v2SY7a+QvHmqleN7IFSpemmZ8tgS
+	5vh4gSKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXJv8-00000007sgh-0Tuu;
-	Wed, 10 Jun 2026 14:28:42 +0000
-Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
+	id 1wXJvm-00000007tOU-1jQZ;
+	Wed, 10 Jun 2026 14:29:22 +0000
+Received: from mail-northeuropeazon11010050.outbound.protection.outlook.com ([52.101.84.50] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXJv5-00000007sc9-3Ini
+	id 1wXJvk-00000007tKR-2aSE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 14:28:41 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1781101707;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KIoAahAV4CuoU8RbqIQS/+Rbt/OxgplfKmIf4NRFcyo=;
-	b=VhFcql5DYudJf2O1tHGaMXlSFbta4Hk/KSAZdvHEIwHdxAevssxXYmt1DQFTU2wg59pr/Z
-	Jxh4OBD23Smk9eRs5uoR+Ysku8D1mqYpwZdQnU6IiH4tPqCDOwU8YfyBTWm4TWlHvJNIZr
-	Nc+AXrTI011Jg4KyWK8V+kIc+InaporAeG2xb5FBCDO9eHm7UV0w/1/Za+FaNTKF/3wtwN
-	3G2FYV3RqMj7tKuBU2TMA8gpfATvlp1ScRWi9g4BtOn7NfLUudpryRB8CrrojBwhwGhTqR
-	7hUOW6IaelyYgrpdLchs+sqF226D35NbMxGeKWnN8yT0aPNVH1QO2SSR1Ta9Ag==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 10 Jun 2026 16:28:17 +0200
-Message-Id: <DJ5FUW50YM2N.6ZTY4WK27ZP5@cknow-tech.com>
-To: "Midgy Balon" <midgy971@gmail.com>, "Diederik de Haas"
- <diederik@cknow-tech.com>
-Cc: "Chaoyi Chen" <chaoyi.chen@rock-chips.com>, <tomeu@tomeuvizoso.net>,
- <ogabbay@kernel.org>, <heiko@sntech.de>, <robh@kernel.org>,
- <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joro@8bytes.org>,
- <will@kernel.org>, <robin.murphy@arm.com>,
- <dri-devel@lists.freedesktop.org>, <linux-rockchip@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, "Simon Xue"
- <xxm@rock-chips.com>, "Finley Xiao" <finley.xiao@rock-chips.com>, "Jonas
- Karlman" <jonas@kwiboo.se>
-Subject: Re: [RFC PATCH v3 0/9] accel: rocket: Add RK3568 NPU support
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-References: <20260604135255.62682-1-midgy971@gmail.com>
- <3d99569e-9c3a-49d1-93fb-1335382523e9@rock-chips.com>
- <CA+GS1Y1s78PwN63X2YJoS8VEGp7CpTERo_K65yKs00U4VRAw4Q@mail.gmail.com>
- <e5058919-9485-4de5-8eea-331ebfc2987c@rock-chips.com>
- <CA+GS1Y3ysdWZ3qCq3ip_Pbw+v4LxHZd95aBo=jwB+orYaMBBNw@mail.gmail.com>
- <CA+GS1Y0kAM_XGLQuKPTphif2HcQg18ZXhd8RHHr2xPOEMCDvXA@mail.gmail.com>
- <bcedaff0-abf8-4585-a0ea-057062cd0411@rock-chips.com>
- <CA+GS1Y2-hRqpGgsknh+oOX+-uZ3DZtdekdP9viTP6a40zhhUhg@mail.gmail.com>
- <b05f7154-e85f-4207-80ae-f080282ba780@rock-chips.com>
- <DJ5A9XL183RZ.20J3ASQ3EWUZ6@cknow-tech.com>
- <CA+GS1Y1xAq-9eMyMmoVE6NG9KLG7XRxgPoSr5RkW=6fT5D820g@mail.gmail.com>
-In-Reply-To: <CA+GS1Y1xAq-9eMyMmoVE6NG9KLG7XRxgPoSr5RkW=6fT5D820g@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 10 Jun 2026 14:29:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TEq+m+hbzC6UXVEGWAhsOd9+j3B4H0pV68lR5A+tVJmxuTI3ScD4YrxaNVujUE0HBQIG6eRKg4zygDiw20FvOtHAWHDW63d3WIyALmC87X3gGJDiD3oKIruixyHC9k8Jx4iBbl/lg2qDXxjvg3fa4Uyu5mJBU1MscMvkkHw2MiFiz68eAqw5D5wEfdjx7AJUNNy0Ub/7RVp9LfVtxQqxaVc6/QbQbndkfH2VNwPxZKXBhkolzll0bSvYTefhTmpb0SZ074SuKcpr820S0qEMkpuwv5nF1u4/Zzjd+7DmHIcJH+iR2SoB5wg7SmfrNlbDVOZR7FavNIsSgEKlFX1x9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=31C6sRFZWwuc7BOXs5GwmqgDJ6wjYceVyR7N+wjZ9M0=;
+ b=W8ufyZlG1aZnHvIhVYtVuwT12xlYEi3laSAJ1rsYjDY8dd7vseTH4YeyfomtBkpAaRZ6Zzv/22p13tqev40HYn8Ko7W9cn2BAiJmP3ZHBCS4Yx+/w/xzIM/Nkrj7K5WiJimF1o2pVWbNRYMzbNnRcfRjHLnYDxTBYkfSAjGjDjV2s42eVRiOV+0vbpiw4esM6XGVnZw6JEFJ5XhQmdrvcQBd9dqwDrkNMMXCNK7S4uEzzHOd0wuXh5zUvR9NpFCM18R0lFx/Qi+hSSNunCqXPR2aGCnUj6njh7Ht6iP3WOCTDS3RPNRQsbIoYF/npmFwEtsTQ15SjHcBhgbHSuPGNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=31C6sRFZWwuc7BOXs5GwmqgDJ6wjYceVyR7N+wjZ9M0=;
+ b=bGgXCQ/ZmayCQrQZtiNXP6gE48ApL8ffc4MDCfo09/ptQsH4USLAkvrTp+gA16NTE6d9LF6pEXIALFT68t31RqXBld57Fz7QdWuKU4Bb4PGa5bf6ZEkVHRIFNvp9NZbRYKJb/qIYiyRAw4G0Cu2czYqxm77Gin7MzB6PpAaLFxlXDTl4K+Jcpah59i/lu7wT/iCHf+9brB+qx+Z7WVff6DGFrg/umszNmefa6PDDj00uSVH0PoyvBGf0YkC21K96yDwihSufhL0F1xvS5k4woB6VFDwDKjEEsO2h4pRe3cN7G5AXqbUGHJ6leuzb0wN3MsQTWg96bjyoWUQCSyEPBQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
+ 2026 14:29:14 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.011; Wed, 10 Jun 2026
+ 14:29:13 +0000
+Date: Wed, 10 Jun 2026 09:29:04 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@oss.nxp.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
+ optional "memory-region-names"
+Message-ID: <ail0sH1UhnQBPRkr@SMW015318>
+References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
+ <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
+ <aihB5rVLsVqzg6cb@p14s>
+ <aihIIwt_9T7yYxP3@SMW015318>
+ <CANLsYkxw6rbWNom8rNfKurKAXKpihqV1LTd51D5YXG4oFP6-wg@mail.gmail.com>
+ <20260610-accomplished-antique-mink-cf0ead@quoll>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260610-accomplished-antique-mink-cf0ead@quoll>
+X-ClientProxiedBy: SN7P220CA0012.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:806:123::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS4PR04MB9621:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48a23904-0674-46c6-a18a-08dec6fca4dd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|23010399003|376014|5023799004|56012099006|11063799006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Y8XZrOxZu4iUql5QEqWFJXn5I6KHRHcqCJVOnFJGqbTVTBdB/SalDdyf8XLKhzSlaVM8LkfwQ0unvFRJR2geZhDkXY3+gES0KJAt+AssmSRNjR8CJq0uGPGsZ8xPrzlStyhosDGhgaHarF80z8/ZclDG5TIf5AIUxN+2lV2PxzrjDLGgs1w5hr0E2nHlVXABeo1hzVuU8TSEVlg03c+b3xPXHfZA08Pdhzdczq22ZLbo1anvBhI6bzHKHTsuzTP14IUq1mzR2MffE5YEk+lrVq1WZnHsbEmeXgRPuBbRmWv9Y5YU6kKRsNHEXSTfaM5Xpvtc+TSQojgby3VNcpF3kpky25UQH0c/xFlrUF0O/+3zjvoZM2UDEoreGwmPZJTvXcjfpB7Qvr2JZXxruNIFtQE/4DNC1ZIVGKFxUy0p6+GPsyUNsq3NS/hbIh/DRGQxTQAOPjDwRha66wG0roVSH3O1QAFOfO+pgA30OZ2vk8l/wmZaP9uaxMVNeH8w4GicE71jz9OHnlL5pGp0i+LahMyDu6GdeLxs7hGABVfXtoPkDTABLxqHqanMsE/fI+BrSO75q1aIcXuyS1/N3EnC23xPLhf86nPOd3VpFM3+OAjbMkElqptmjucpvJp/FEc8RSv+P+FZdSvYBnZfPcGZeV2ZBRZo3xg1hkiN94hOXRkGvbOERVtRePoXQIV/2iwc
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(23010399003)(376014)(5023799004)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?21q7yQ07OFdhNWc9NrYFgCThPHBkoU6KL2TtntnPY8Yg7aGeoM+br3vKVYec?=
+ =?us-ascii?Q?+nmG7QRM+cgJASiSPgPeqrMk0VpDDOBZy/d8wNT6EO98A0b5nXbuZ42x7s5R?=
+ =?us-ascii?Q?+qSHo1ByB/mQDpw+pF8PiRzqFOJ9/oX67b85ibKvtqXatTMeX3F0djaFVSVz?=
+ =?us-ascii?Q?NsftHpEXREpS0HWkftrzequ+pcglBq0GdeGXy23DQqUXzogY4cvwBidmCLe9?=
+ =?us-ascii?Q?8NDSg6dOpoUbvu9TzK64DdLfHgCLHjUyMY5bA1XuO/xJcHlTZ1Tj6RE2zqLk?=
+ =?us-ascii?Q?Y8Ca3pV7QbHmOY4ZlDFVyUOsnGwj0iXKhnk1P6ECS51zOmpveuqvPtbqd8/x?=
+ =?us-ascii?Q?QD5E9RwZh/II+yQUBTcZT+Q8PcV5D4Vd1ix7+NOQQEljGy9Gqv0/F3EPRJUk?=
+ =?us-ascii?Q?P0mS0qLymViz3UDT6nOBjrbxCfvdDeADxO+6Omocq0yv03ouf45KW8oGl9qx?=
+ =?us-ascii?Q?IG77JKym0nz3fXXSG1IeSx8cumgv3xtA0E+ksy5z0pGT5p+dNCl08FoEhv9n?=
+ =?us-ascii?Q?owOu6+kK6zqOWDKrtvprmN7b3RposCvIPGLf4cj3EbEXRLA2vrIzjL/YSy2A?=
+ =?us-ascii?Q?CFrBvKWRm8ix1MqAROExs82ZtxDeptaFLp9q33wYSEH28WCMd/w9WZNhnIP5?=
+ =?us-ascii?Q?iDnCQzxtHOdNJ8xV7SdHtTMYvxpDG1eQfPVrXkUxp7RnYT1VNVmW/1hk2Ac7?=
+ =?us-ascii?Q?AtlNdIEY3W3eh4HgbPuk8I4yRzEEJmUnCWKyuegFS+oz09UqzA/HKg+kkvak?=
+ =?us-ascii?Q?Tm4isWUS7xBWPsEI/xNIJ2fsrH87NTYusUiACzwZZi6jFpc2rvlg6feSVEtD?=
+ =?us-ascii?Q?0kmPSYPbNCo130kLXgdCY2tMrwnK1UQ/XihttI46AF4a7RYThjZtOGOfAUOu?=
+ =?us-ascii?Q?9X/Lvv6h05y4oGV3vTYtZCNGZYF2mmej8YpvXiIjiouw06O0aq8FnhxGP4zI?=
+ =?us-ascii?Q?mp0ShEeqx6JAf5qUbbfb04aKgTOZ3jCWRUVSuCVKq8VswPF82v9uN25vqoN/?=
+ =?us-ascii?Q?0mWkGxSMsmbA1YvZ6n4DB7Zji37087qea2S21q26TlLdQcMnqAe+CLBaE7Oe?=
+ =?us-ascii?Q?75EB12ZMGjOKGWGjvFBL8G7I9yGdC9ydJ18lZtZgjMix1iIZqq22BY9e3EBS?=
+ =?us-ascii?Q?8qyDcF0PDCpK7JohDKQlQIoGvTKdnlvZu0mKQFy9JRVKKwPfa/UlLdjFNKjn?=
+ =?us-ascii?Q?o9pY9CzflDsif1ujnpGtzzMbtgRKZ+RPlTdrIzw6iAupsKh2G2Ntunkw6R8N?=
+ =?us-ascii?Q?H5Dpm9E3KNT+TVNeidxuH7gPvU4Pg1ytZzu0PWVmQsN04BXEym84yQ94ctNR?=
+ =?us-ascii?Q?TKO1I0end5CqvJFbDT/p4WEasMzc8r5AAcg8mg33nVw3ErtoO4yTlWyKsIrk?=
+ =?us-ascii?Q?nnXrebpcXxla6PYOCQMPjYdqzia64UIzrr4tmpFI1ZMj52JRUM4uLhqFx7qB?=
+ =?us-ascii?Q?83jRd8P5KJSS5PAtLHw3tZueIdJS6kgUvz5XnzdcENAPn3tb4E98bidQTKZd?=
+ =?us-ascii?Q?EKVef/XDIU0FhOBOLwpFZm/GC2S7c+htzNf7vg+g9LBPPSX2gTqGMhY26lrx?=
+ =?us-ascii?Q?MYL8jJqSOeN8mSwTQDXFoRpU8lZCQ7ZwJXnjgQroa/Mtrlm6IikYZ37q7X8L?=
+ =?us-ascii?Q?ndYKnwmRbS1Xx+ixIu5Ae/MazChNu1aTAY9KlhFz+qFAf03aRhtvJDVY9ViM?=
+ =?us-ascii?Q?QXBrMQHy3zkpnSEmNllO3o3iZW326PDgiAnat6kbI+RjVmBVWDBW3m8Df2xj?=
+ =?us-ascii?Q?gpB7TzvAUr1+GAvuM/Nm01xljfL1S/RtjPgqzBNLcb6aZjXwpGfp?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48a23904-0674-46c6-a18a-08dec6fca4dd
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 14:29:13.6936
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cTMCyuUB5bG6JU4QVv+XuHw0WRuIg2UCZxusqTVyIO34Jnrmz2tuW7M/UmnxgsmLpQaWbbXg7ZZMNkoHXQzacS0ySb+Ood4wmyKkEdmP1mNV/7N83OCt7JcZ7v8vSACW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9621
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_072840_119028_392ADD39 
-X-CRM114-Status: GOOD (  49.67  )
+X-CRM114-CacheID: sfid-20260610_072920_688121_71C5A2AE 
+X-CRM114-Status: GOOD (  28.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,235 +152,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jun 10, 2026 at 3:36 PM CEST, Midgy Balon wrote:
-> Hello Chaoyi & Diederik,
+On Wed, Jun 10, 2026 at 09:39:25AM +0200, Krzysztof Kozlowski wrote:
+> On Tue, Jun 09, 2026 at 11:33:03AM -0600, Mathieu Poirier wrote:
+> > On Tue, 9 Jun 2026 at 11:06, Frank Li <Frank.li@oss.nxp.com> wrote:
+> > >
+> > > On Tue, Jun 09, 2026 at 10:40:06AM -0600, Mathieu Poirier wrote:
+> > > > [You don't often get email from mathieu.poirier@linaro.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> > > >
+> > > > On Fri, Jun 05, 2026 at 04:36:18AM -0700, Laurentiu Mihalcea wrote:
+> > > > > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> > > > >
+> > > > > The names of the carveout regions are derived using the names of the
+> > > > > reserved memory devicetree nodes, which are referenced using the
+> > > > > "memory-region" property. This adds a restriction on the names of said
+> > > > > devicetree nodes, often bearing specific names such as: "vdevbuffer",
+> > > > > "vdev0vring0", "rsc-table", etc... This goes against the devicetree
+> > > > > specification's recommendation, which states that the devicetree node
+> > > > > names should be generic.
+> > > >
+> > > > I don't see what is so restrictive in using the node name of the reserved-memory
+> > > > regions.  Function of_reserved_mem_region_to_resource() is already doing all the
+> > > > parsing, packaging everything in a neat and easy to use "struct resource".  What
+> > > > will you gain with this new "memory-region-names" that can't be done with the
+> > > > current solution?
+> > >
+> > > DT Binding check can't find such wrong if node name is not what expected.
+> > > Binding can't restrict memory's node name because there ware not specific
+> > > compatible string for it.
+> > >
+> >
+> > But what "wrong" could that be, and what kind of restriction are you
+> > hoping to enforce?  What specific problem are you hoping to solve?
+> >
+> > I'll wait to see what the DT people think about this - I personally
+> > don't see the value in it.
 >
-> I compared the RK3568 and RK3588 NPU power-domain + DTS as you
-> suggested, and it lines up
-> exactly with what you described.
->
-> The difference is the `need_regulator` capability. RK3588's NPU domain is
-> `DOMAIN_RK3588("npu", =E2=80=A6, false, true)` =E2=80=94 the trailing `tr=
-ue` is
-> `regulator`/`need_regulator`.
-> The mainline RK3568 macro `DOMAIN_RK3568(name, pwr, req, wakeup)` has
-> no regulator parameter at
-> all, so `RK3568_PD_NPU` can't be marked need_regulator. My v4 adds
-> that: a regulator-capable
-> RK3568 NPU domain (need_regulator =3D true) plus `domain-supply =3D
-> <&vdd_npu>` on the NPU node =E2=80=94
-> i.e. the same shape as RK3588.
->
-> And the fix you referenced (Frank Zhang's "pmdomain: rockchip: Fix init g=
-enpd as
-> GENPD_STATE_ON before regulator ready", plus "quiet regulator error on
-> -EPROBE_DEFER") is
-> already in my base (v7.1-rc6), so the `if (need_regulator)
-> rockchip_pd_power(pd, false)`
-> default-off path is in effect. That's what resolves the actual problem
-> for me: with rocket
-> built as a module (the normal config), need_regulator on the NPU
-> domain, and those pmdomain
-> patches in place, the board boots cleanly and NPU jobs run with no RCU
-> stall / no deadlock. My
-> earlier hang was an artifact of a self-contained rocket=3Dy image
-> probing in the initcalls before
-> the I2C regulator core was up =E2=80=94 as a module it loads ~6.8 s in, w=
-ell
-> after, so it's gone.
->
-> I also went back and checked the `fw_devlink=3Dpermissive` question
-> myself =E2=80=94 and good news, it
-> turns out it is NOT needed. I rebooted the exact same kernel with
-> permissive removed from the
-> cmdline (strict fw_devlink, the default), and the board boots cleanly,
-> the NPU probes
-> (`rocket fde40000.npu: Rockchip NPU core 0 version: 0`), and NPU jobs
-> submit and run five times
-> in a row with no deadlock and no RCU stall. So strict fw_devlink
-> resolves the NPU/PMIC ordering
-> fine via deferred probe.
->
-> The one remaining thing is cosmetic: at power-domain-controller probe
-> (~2.94 s) I still get,
-> in BOTH modes (with or without permissive):
->
->   rockchip-pm-domain =E2=80=A6: Failed to create device link (0x180) with
-> supplier 0-0020 =E2=80=A6power-domain@6
->
-> i.e. genpd can't form the link to the rk809 (the I2C PMIC supplying
-> vdd_npu) because the PMIC
-> isn't registered yet at that point. It's non-fatal =E2=80=94 the domain
-> defaults off (Frank's patch),
-> the rail comes up via the regulator core, the NPU probes a few seconds
-> later, and all jobs run.
->
-> One question: on RK3588 with need_regulator, do you also see that
-> "Failed to create device
-> link =E2=80=A6 supplier <pmic>" line at pmdomain probe, or does it order
-> cleanly? If RK3588 is clean,
-> is there a DTS detail (e.g. the regulator's bus/probe order) I should
-> mirror on RK3568 to make
-> the link form in time =E2=80=94 or is this line just expected/harmless an=
-d
-> best left as-is?
+> I see no point in this commit, but maybe because the commit msg is just
+> misleading. It mixes node names with names for phandles which are two
+> separate things.
 
-[    2.110935] rockchip-pm-domain fd8d8000.power-management:power-controlle=
-r: Failed to create device link (0x180) with supplier 2-0042 for /power-man=
-agement@fd8d8000/power-controller/power-domain@8
-[    2.557459] sdhci-dwcmshc fe2e0000.mmc: Can't reduce the clock below 52M=
-Hz in HS200/HS400 mode
-[    2.647174] rockchip-pm-domain fd8d8000.power-management:power-controlle=
-r: Failed to create device link (0x180) with supplier 2-0042 for /power-man=
-agement@fd8d8000/power-controller/power-domain@8
-[    2.945089] rockchip-pm-domain fd8d8000.power-management:power-controlle=
-r: Failed to create device link (0x180) with supplier spi2.0 for /power-man=
-agement@fd8d8000/power-controller/power-domain@12
+For example:
 
-8 =3D NPU; 12 =3D GPU
+rsc_table: rsc-table@90000000
+{	ret  = <0x90000000>;
+	no-map;
+}
 
-on both nanopc-t6-lts and nanopc-t6-plus (both RK3588).
-And on a 6.18 dmesg output I have for Rock 5B, I see the ~ same, but then
-it's 1-0042 instead of 2-0042.=20
+m4 {
+	...
+	memory-region = <&rsc_table>;
+}
 
-I don't know if it's bad or harmless, but it is consistent.
+If you change node name "rsc-table" to "memory", driver will failure
+because it parse node name "rsc-table", which phandle point to. but no
+binding to restrict node name to "rsc-table". So rsc-table became hidden
+ABI.
 
-HTH,
-  Diederik
+if use memory-region-names, we can restrict memory-region-name to
+"rsc-table" earsily.
 
-> @Diederik =E2=80=94 thanks; the DCDC_REG2 change and Jonas's USB-suspend
-> series look like generally
-> useful RK356x robustness fixes, though for this specific NPU
-> device-link the need_regulator +
-> Frank's pmdomain patches seem to be the relevant piece. I'll keep them
-> in mind for suspend.
+Frank
+
 >
-> The convolution-output / compute-completion issue is still separate
-> and open (@Finley =E2=80=94 that's
-> the PVTPLL/NoC one); the power-domain side is in good shape for v4.
+> Plus this change actually makes nothing - no names are restricted to any
+> meaningful values!
 >
-> Thanks y'all for your help :)
+> Best regards,
+> Krzysztof
 >
-> Kind regards,
-> Midgy
->
-> Le mer. 10 juin 2026 =C3=A0 12:05, Diederik de Haas
-> <diederik@cknow-tech.com> a =C3=A9crit :
->>
->> Hi,
->>
->> On Wed Jun 10, 2026 at 3:14 AM CEST, Chaoyi Chen wrote:
->> > Hi Midgy,
->> >
->> > On 6/9/2026 7:11 PM, Midgy Balon wrote:
->> >> Hello Chaoyi,
->> >>
->> >> You were right - building rocket as a module fixes it. Thanks for the=
- pointer.
->> >>
->> >> I rebuilt with CONFIG_DRM_ACCEL_ROCKET=3Dm (everything else the same:
->> >> need_regulator on
->> >> the RK3568 NPU power domain via a DOMAIN_M_R variant, domain-supply =
-=3D
->> >> <&vdd_npu>, and the
->> >> regulator-always-on workaround dropped). The board now boots cleanly
->> >> and, more importantly,
->> >> an NPU job submit no longer hangs: I ran the test workload five times
->> >> with no RCU stall and
->> >> no freeze.
->> >>
->> >> So with rocket=3Dm the need_regulator approach works on RK3568, and I=
-'ll
->> >> keep it for v4
->> >> (domain-supply + need_regulator, instead of marking vdd_npu
->> >> always-on). rocket=3Dm is the
->> >> normal configuration anyway; my earlier hang came from building it =
-=3Dy
->> >> in a self-contained
->> >> image, so it probed in the initcalls (around 2 s) and the genpd ->
->> >> I2C-PMIC regulator
->> >> transition ran before the system was ready. As a module it loads from
->> >> udev much later
->> >> (~6.8 s here), after the I2C controller and regulator core are fully =
-up.
->> >>
->> >> On your question of when the device-link error is printed - it is at
->> >> power-domain
->> >> controller probe, not at the rocket probe:
->> >>
->> >>   [    2.700618] vdd_npu: Bringing 500000uV into 825000-825000uV
->> >>   [    2.749637] rockchip-pm-domain fdd90000.power-management:power-c=
-ontroller:
->> >>                  Failed to create device link (0x180) with supplier 0=
--0020 for
->> >>                  /power-management@fdd90000/power-controller/power-do=
-main@6
->> >>   [    2.945955] platform fde40000.npu: Adding to iommu group 3
->> >>   ...
->> >>   [    6.840374] rocket: loading out-of-tree module taints kernel.
->> >>   [    6.877647] [drm] Initialized rocket 0.0.0 for rknn on minor 0
->> >>   [    6.879950] rocket fde40000.npu: Rockchip NPU core 0 version: 0
->> >>
->> >> So the device-link to the rk809 PMIC (0-0020) fails to form at ~2.75
->> >> s, well before rocket
->> >> loads at ~6.8 s. It is non-fatal here - the vdd_npu rail is brought u=
-p
->> >> by the regulator core
->> >> and all jobs run - and there is no "failed to get ack on domain npu"
->> >> NoC warning this boot
->> >> (the always-on kernel had one). The complete boot log is attached.
->> >>
->> >> Two notes / one question:
->> >> - This boot used fw_devlink=3Dpermissive on the command line. Is the
->> >> "Failed to create device
->> >>   link ... supplier 0-0020" at pmdomain probe expected/benign, or is
->> >> there a clean way to make
->> >>   it order correctly (so it also works without permissive, and a =3Dy
->> >> build wouldn't deadlock in
->> >>   the initcalls)?
->> >
->> > We encountered the same issue on the RK3588 NPU before. And it was
->> > resolved with the following patch at that time.
->> >
->> > https://lore.kernel.org/all/20251216055247.13150-1-rmxpzlb@gmail.com/
->> >
->> > Please compare the differences in NPU pmdomain and DTS configuration
->> > between the RK3568 and RK3588.
->>
->> About a month ago on #linux-rockchip we were discussing PM 'stuff':
->> https://libera.catirclogs.org/linux-rockchip/2026-05-15#39939137;
->> which references this paste
->> https://paste.sr.ht/~diederik/89d9f84e22474e837b55286d213b67f03859ce2e
->> I've since removed the DCDC_REG2 for PineTab2 and the 'fix' should likel=
-y
->> be extended to cover all RK3566/RK3568 devices though.
->>
->> It's what I made at the time hoping to fix a suspend/resume issue when
->> trying upstream TF-A. It didn't fix the issue at the time, but may still
->> be useful/needed and I think it's what Chaoyi hinted at.
->>
->> Just yesterday, Jonas posted this patch which may be useful/needed too:
->> https://lore.kernel.org/linux-rockchip/20260609154124.445182-1-jonas@kwi=
-boo.se/
->>
->> HTH,
->>   Diederik
->>
->> >> - (The convolution output is still uniform zero-point / the job times
->> >> out - that is the
->> >>   separate NPU compute-completion issue, unrelated to the power-domai=
-n
->> >> work. Finley, that is
->> >>   the one I flagged earlier re PVTPLL/NoC.)
->> >>
->> >> Kind regards,
->> >> Midgy
->> >>
->>
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
-
 
