@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BF4CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E47CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 08:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MBVvbqlw+1NOFx2/e/goeBGUj7Yh97eXwaqTR4dNxy8=; b=G7+REq93t10EO4celMf1tmLmz0
-	8cxj3cqdfxb0nGqm3Npj96+zG+l9ZFkaZyqAN6o9WzRmGS0AHwX6ZqztiIXBENXUkqfAreS1oCM5a
-	MhPPDJhowsEup8UebX9rW2D0QauP4YDnMHSEIYnSvWZTTabCcqm3U59rh3yq0/41TyaHmU0teszOg
-	d5QDScwYVaDHsZbkgv5+7NGCTX5JE4MoiIz5mQ+44EaxkntNqjkLyg9eCndBuY5z8jQ2vmH9zKzpm
-	/b52MDFIktxICyVcHs/3cIF7qU3ngMrj+P6JWQmS7FDxOGuIK3L5teFmL0Qz65hJz1djwps9rqUsF
-	XzbpcnFA==;
+	bh=Y0iynm1FGGwaEZbCphFRzeTZeB6sDyUBvZZjPoxKx0w=; b=VQm3na6jqIDbvfucJaeMcKu/nt
+	/ut7Dm+jos7UCyz0+JZW+bucEQDMwGpqquEM6IHluTEVX2BS63EhMbyggPvkOMmsMUSggKJO/VYTX
+	XFBgG4uwxl8UlcmcKr5CYn04qysD5UFa4gypJvnlxwHV3sReP+cGWM9FY19GAaZPT2yivQoaHrLt6
+	EB3lRt7X0byVaJjUf/G5qQK4gkYtDIFdFSb3mDDHJoONhvMug4lRYFHY2slUggRm4bP68vHus7Ih9
+	mMjTX3XiEjGReFDnZrGDYDDcsHS90hz3yJcvzaPGgsovgLuB11mpAUv3Yzj3Kqgbm3wzKimS0FvTK
+	EyhKo26Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEfz-000000078QP-0rfn;
-	Wed, 10 Jun 2026 08:52:43 +0000
+	id 1wXEg2-000000078UH-2SiJ;
+	Wed, 10 Jun 2026 08:52:46 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEfn-000000078K9-3r9S
+	id 1wXEfv-000000078NH-0fWd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 08:52:41 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65A7j2O4947971
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 08:52:31 GMT
+	Wed, 10 Jun 2026 08:52:44 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65A7iRSR867243
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 08:52:38 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MBVvbqlw+1NOFx2/e/goeBGUj7Yh97eXwaqTR4dNxy8=; b=HE5y9W2nDO3tuHbH
-	jq/cMrHyhdghrYiGW8i9yilPHf/YHs1MjNi3rEqmXjqEn1YzAwazfG8fezKQCEKs
-	OFveIOZeGBG21A+I7NfnrlwJvKUehJTFf/dxFJOT769ym4CoFnJl3Wo8L8eIi8uK
-	jCtrKwLWnePuP3ivIiuxA9JFlMldURb+aoAWehuSy//kD8sIBtjcWoLZPtCJWEPx
-	Ym9G6EnKHGjxZI7jG3LiceDNtrZ4/fL375qCHFIJVIiyxFw44EQPaEPf2MHnoYYe
-	BVWo1yIblsLrrkBgE7hslCe0xxNnutwGXEy2Qpu84xfW0MlhqMwlSYS5rnwVC6xS
-	dTim1A==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epwnnsm1j-1
+	Y0iynm1FGGwaEZbCphFRzeTZeB6sDyUBvZZjPoxKx0w=; b=TxrWFFvFkcs/YfxV
+	/0pe4JLFXoZxkei0Ua3E1sW25CT+OKE+bbqD3kT8X50EYCSXCx7/ChseUa+BB93T
+	NTk2XWguoKVhQpPLrRFepx2/w64a+WXVHZDppjzpFADT+1J5kuYpeLQMSi/mJAlf
+	LrUDrX+vmdoPRL6y2S0ukEDOYRplJWXoNF+w4SNdQTD0Z5k43tjdr8+JwxWMq6ss
+	kufLPHRWN3IfsAjW+LadA2zveZs/2QGcCCZOOpRJipY4on6Lht+8a7KlFLLP0wFt
+	bXZ0R+1IJxL99Up0ygwb3Zq7pNN1Wz71d9LwZtfp/fZUpPO4t13sVmTZ8h+2M4OR
+	N+pZyQ==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eq0kd907y-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 08:52:30 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2c0532a6588so61059275ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 01:52:30 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 08:52:38 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2c0c272e532so66548455ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 01:52:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781081550; x=1781686350; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1781081557; x=1781686357; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MBVvbqlw+1NOFx2/e/goeBGUj7Yh97eXwaqTR4dNxy8=;
-        b=GqHEqJTkejiiJoq46X3dtPsD7vV6SV7YaNoQ4YTf3u+V2nuiwGcP3q2mtE+u1goIVp
-         OvQNE31l7Ch0jt/ZCxDT7bw0HLwpcVa1L288g6xlEW6m0j9pkw8FxeaKY3NFWlqm10qn
-         ojlYTXohQPLNreRpT4mWiF089ATcmxjBxnsUo+RJfVFZmbZ8gYMtJlgx+HnOczQaWnA9
-         Tk/Pah8s2e0Wgkd+NLinyniqQG/7EJHAr8teeHNB3bQQrt4xF2nwWHguk+emidvkcoBq
-         sLWyECbLhErrhvtORppo0T6AawiA3+x7Q4FKJ54AWs8Ih2+J2XkUP5B8vagRg2OYrS5X
-         FyVw==
+        bh=Y0iynm1FGGwaEZbCphFRzeTZeB6sDyUBvZZjPoxKx0w=;
+        b=YtydLx9F88HGCmfvBc0uyagP0+jqpIvRsVQRY8S2Sy0lScNQBumLZi+LcyFQ/FwHgt
+         mKmLUVxsqDHQ/wBwsK7ZRZPu6+HDQm3o0Hbj4GCtEht+mxGVyqmENbBVy+a+SBjhcFzy
+         X6j641D3UPTRQBUZXLqtcyx4RMLXQ9pT3yvwHrDc/rRiyl24+4x0cvwgmCUhmH49lJZd
+         1Eh5+qjPtvZ4sJ2O0CE/g8rGWVzfrkpOzJb11PHpGblmYqpmY271XwieYbGh7/4wi2Ma
+         kV95OROCBPsUFyGEqp/d04+hIlXA8eOMaSZ1MBr/m+mP/Owfp8qX+1ASHOYnohBKiStM
+         C2pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781081550; x=1781686350;
+        d=1e100.net; s=20251104; t=1781081557; x=1781686357;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=MBVvbqlw+1NOFx2/e/goeBGUj7Yh97eXwaqTR4dNxy8=;
-        b=Ql7wn/HIe3ft6+TAApgEJSLxldpTJZMJEBugmzo76zt4z52ZAQHNBtcf1XjhhUV4Nu
-         z3IlwVcOs8vYCiGIK8zKPq21ex4d1eB4jsMYmnnGctncnp+wg+iHO9NqYyBMjq8F8oi8
-         rdJVmi+HU2fX+N5ubq8ZV1qGwBBG0qsdGrHL6lB0eio7vv+ePu/cwkOp8BJ7eXfu/+Ur
-         m4q6c8HN+c1gAtVkBSz629ZNQcU77cCNuJMLV+vs+SyHlTFyo9ZXIr2G+gESaE0rFXl2
-         cNL8OOTfEJLqODCZrl900IYXrhbZaqRwgGbukyhcWC2wjxQ/z45zCGBngHhKPgr3HX2t
-         RIfA==
-X-Forwarded-Encrypted: i=1; AFNElJ//kPiIPRJ7NCz1DrvqbLK/1ANBnADAIgfj69au3jK8pJ7nEJAL7TgQa3i9UcjVltdE3Iz77fD8p7x/VLtpU+Qo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhaBK+2WM4aWh3nAkgFz0keQCjGCsbbx9HJssBFwu0FTJLMFHg
-	aY6JSZ8GEEbcZAkMo7V27ophw/xLed9YwVSMUp/Df4wg/7mFVr5lJ4ljhbp7Ce/4I/lVcJfK3hX
-	Voi6YiNLAam3spsNdYHACh2CTMlHyG2/QXXFpAX2Vk6caV3IDHgjIibqxjdB77QO8cBqX0siy0i
-	9ZQA==
-X-Gm-Gg: Acq92OGI8QBSOr8vDnzhii2giJTKRRNyQ98sStHrwpuETk9Zljf6xw2iaVc787glH4z
-	XOLm2pp2hvBNutxYquLKrmo75nCshO7MjkARfNpanuVjpBSnITRipiCcxEXSKDNXVmCKyPhNAt5
-	0o0SZKOJQYRxB9bZvysjXRknrIqqO64gQV1hCgKXUugPIB6eBs5EHPLr7HBSLesDHKTfIuDrT9q
-	Z7c5prAqn4FGIfQhgBAsA1ykSifqJMNieeJElh3EErgLsZC/Se+yfgJ8RBEtgWBBjU7/NB6v77J
-	++qVhRIhDjwZpH9YzveFMiUPGzP+Cw206xWYWOVnMCBFm8NSJhqA10fmmi3dFz/OJfh0ZtIDDOs
-	EjcZwsb2+mA2t7vLY4KHYNs3JQuc1hY90QyxmuCLFsL9h6l2m7qQmQSgkQU0pr6Y0aNmsjOk6yN
-	EN4XMtUkAgIW/3Ae8N2P8baAMslB1DwaDgZdAb0oYJ91d3DSxGRA4cvzN3sVY=
-X-Received: by 2002:a17:903:fa7:b0:2c0:dd75:e824 with SMTP id d9443c01a7336-2c1e80f98cfmr263574155ad.4.1781081549598;
-        Wed, 10 Jun 2026 01:52:29 -0700 (PDT)
-X-Received: by 2002:a17:903:fa7:b0:2c0:dd75:e824 with SMTP id d9443c01a7336-2c1e80f98cfmr263573845ad.4.1781081549156;
-        Wed, 10 Jun 2026 01:52:29 -0700 (PDT)
+        bh=Y0iynm1FGGwaEZbCphFRzeTZeB6sDyUBvZZjPoxKx0w=;
+        b=g5av7ImflcCBLn9SZnCUh8wV279qCwjcBn6G6Be/qODmCGm3+BJbNG1fX3l6Cpi8c8
+         PEelosQyZsRHmLEsEl7qNxbgAhKiCOj9TV+BgZZzMNNp9qPO/4BMlmU8x8ooUBHrh9NG
+         ZCgPPqnF+6JOhKla6rPbT8vg1hdRF+Nzatz6KKeW9Pc+es0BmHb+E/VDhR0flf0dmvGy
+         nV5d66MYj9X2SVs09UxQunD9mMoU4U2BPyRSq4NQvujcZLcS8CNTCuNOn8t/YuDGSlFS
+         qqYhyXCVb4VxSblkfrWp4yLjLV8FwRfgDbt0ut9fov/GW8b1RZz9uMvnzOTyH9ewDfGs
+         uiZQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+23hcYlD9SlW3ErkrefCvoR81AyXc9y27SUjNZGLxnDADx4uuPLe59Mx1mYAU0kBOir2KiEJn3HgCkapKjaH+o@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCjgu9M2nSVcFAygVj4uJgPtgJeXOjVccHiPZbw/rf/5p5Bc9K
+	as3F0XizYz2tiVcyRNqirIAGFvXUVM/DDrIWkSxLmcPjwTxAi1aWMW8Cx0bZdXpoT2OFqYD6nyD
+	Ob7mGYmDdA+jf06H01wL02PqZkkha11uUuiVJe8hqt8Hd2ZCZ2i7gVkLfRjP/LGKUfmnJnx1Tss
+	545g==
+X-Gm-Gg: Acq92OGGsN/6LJGO0TCbbLlO5IYZ+0HjvfccktkNI8D2kGUjVmFPFRP6BNp7U1Xv94J
+	14wkS3zj3awNWk4Xu4TjrEw6pvM9pqBmczMUnpJrTGJq9mfPAM+qUa54tjWo5sar7FPffZC2NMa
+	Zd0E0hEWfgsF5Ccx5x0U3+CcgkMikjzNp1ZVxur40YrCb1LWyBcHuW/JC3ZreTX+wQH5boqel5I
+	sqTCFMDOCnUiAjAJLhbc1xa9VFKQ1zohAwhZsdKv4KydvGTECGXAm9++LgpO8GB+vOZ2mVfsdTh
+	KVaZTC0B+cx5XUL9dt4pQhuGc9zt8hJ8Ch0ak7tLabK/Fago10S8lLJhm0Kmt5QVwpbl6s/wqXB
+	ju7wGszjRi619ge5bTZaHgMumw5jsWZQr4H9FR9BhtoSsL1jEN62fONoyv1gLH/l461GDZ3gFDK
+	2k6IDFv5jRX6x5/qSdzbRAR4LjfssTm4cd2qImVGM0896F/aPTJyjkPSEbA1Y=
+X-Received: by 2002:a17:902:fc48:b0:2bf:23ad:8595 with SMTP id d9443c01a7336-2c1e78e4f0emr297477785ad.4.1781081556864;
+        Wed, 10 Jun 2026 01:52:36 -0700 (PDT)
+X-Received: by 2002:a17:902:fc48:b0:2bf:23ad:8595 with SMTP id d9443c01a7336-2c1e78e4f0emr297477305ad.4.1781081556405;
+        Wed, 10 Jun 2026 01:52:36 -0700 (PDT)
 Received: from hu-ppapaniy-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c24edc8acasm114618175ad.45.2026.06.10.01.52.22
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c24edc8acasm114618175ad.45.2026.06.10.01.52.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 01:52:28 -0700 (PDT)
+        Wed, 10 Jun 2026 01:52:36 -0700 (PDT)
 From: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
-Date: Wed, 10 Jun 2026 14:21:32 +0530
-Subject: [PATCH RFC v7 5/9] PM / devfreq: Add new track_remote flag for
- governors
+Date: Wed, 10 Jun 2026 14:21:33 +0530
+Subject: [PATCH RFC v7 6/9] PM / devfreq: Add a governor for tracking
+ remote device frequencies
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260610-rfc_v7_scmi_memlat-v7-5-f3f68c608f25@oss.qualcomm.com>
+Message-Id: <20260610-rfc_v7_scmi_memlat-v7-6-f3f68c608f25@oss.qualcomm.com>
 References: <20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com>
 In-Reply-To: <20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
@@ -122,40 +122,40 @@ Cc: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>,
         devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
         linux-tegra@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781081505; l=3562;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781081505; l=4893;
  i=pragnesh.papaniya@oss.qualcomm.com; s=20260120; h=from:subject:message-id;
- bh=i8JmP8t0IIDx2YuhJ586pU9J0+L8gn09QqoMvPwEzvk=;
- b=SjTlP3ljJexiSuNiz3k1DP81x2Nsjn02FN9iDLP4o7nw/yM9wDBLOmgzsNAF1zQPVffbuYZwV
- fiaFkBpgVjuBwr4NTgxGOi3wvNISInadO5xNeaHkiIXZp5iXDIa9ywS
+ bh=xZowMXSIo/yjYoix7dfxNcBQFvLyEboivbRIq1BkEFU=;
+ b=XGGVsmcuQqsb7xxvF7kkpvKNz7arqGm5Q77SCmhmuZWxjWFRBwfyljemBijVv02n419Asznfo
+ ce5/XapDYe0BqR8iEbYjxr25/B4xeON8mbI0zhXc5GM+c20jwuEccS4
 X-Developer-Key: i=pragnesh.papaniya@oss.qualcomm.com; a=ed25519;
  pk=09P9nFmZLXJ9+4Jx10ZK5rIW0Fmk79A/DLErm6aVA0c=
-X-Proofpoint-GUID: dGiZqJJBM4GqPQ8fL15GTeUJjHUJzSOM
-X-Proofpoint-ORIG-GUID: dGiZqJJBM4GqPQ8fL15GTeUJjHUJzSOM
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEwMDA4MyBTYWx0ZWRfX5qhamweYhbdI
- I5ci1Te+HV3k02y6KqSsmqD7+AHHnilCWBmr+AsF37O9YB1SncYLBS8aDapPKHC0ZXK26enrMef
- YjnO+Vr2S9YQXnDbgOQBtmJnXajA0p6T3QZBfFVoSWZFZjNEoxMPQbdhCSsDw4DYvcDdiffL6Mr
- H7ZduKdA7Z/+gi8h+BddxGqgdMQWlBUMfI7++GXidBeIdHprChmvd0NdjC+AUt/+giF3cKcwOSh
- cnroLBNZbhm6IU7L/AE+XU7FezfTf9mgDd7YbUKiBEgU2vBvtjU7Qe9Z4fIaTbyG2EGtLyZBl0v
- pHS+iss7AswpdveXlPOU9883ExOk9ieYVuKUuOkMsq2QaAvRiBMs81yU67R70YYtdODv5sN2Gu9
- Y9+032viPxT7QNVJ2fmDZhZrgzZvgzQGUSre5ytGNspcgnt8Pci6g6sOWPhPGgdV0bNfZIdxFGe
- ZXHbGzByAaTmguI+7sg==
-X-Authority-Analysis: v=2.4 cv=epLvCIpX c=1 sm=1 tr=0 ts=6a2925ce cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Authority-Analysis: v=2.4 cv=TeamcxQh c=1 sm=1 tr=0 ts=6a2925d6 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=EUspDBNiAAAA:8 a=_Sn8c3TY04LLovrI2V0A:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=DkxomDJNIKAFLi0tgcIA:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-GUID: a5eoYvoy9aQ8rBNjLhWFl4ZNMRPUGv7s
+X-Proofpoint-ORIG-GUID: a5eoYvoy9aQ8rBNjLhWFl4ZNMRPUGv7s
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEwMDA4MyBTYWx0ZWRfXxFXlBlsA2uN4
+ buyIAfznX9ROyuqk29ltkw7uYmtBy/k3r0D6NcM9+W+ZQPrzIeNUEQImMG62Wvb6HZUcSkCdxTi
+ g5TfM3SS/QFh1K33xDiiS0uhijQlFjnpVccq2VTT6dBJk8A9AH+jXITGVWUivvn96c7X646H3Nb
+ cIEj7s5bhcSTUh6rHQC2bZS+QmGcl7uKx6JsJDhO/hqPjH5BbPCcmJaJFiISSOVANqIsrj4i/Jx
+ 5uPq1Q+TO5PncEhUa0IMPjABDZjcEs6SdPQcOXr9fsDoX3B8u7H6SiscKAwspVcbsP8dBKgi5M+
+ OTZpoiUWdUVXO6HqvRijmGmeo09SHvaZpvg1D8mjyRT0XBh0xpzozK6uuXZNy84FzfIIBDnTJ9o
+ cDjSQ+GeS81FEDp3mZvlfdo/gtzhY0yp4CUuOg7Rgwinpu5kl7wRxbpAKWhhCACuZyjukFnGmOF
+ yOKQgP/VetWt9u5/jig==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-10_02,2026-06-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 bulkscore=0 suspectscore=0 malwarescore=0
- priorityscore=1501 phishscore=0 adultscore=0 lowpriorityscore=0 spamscore=0
+ lowpriorityscore=0 suspectscore=0 malwarescore=0 phishscore=0 spamscore=0
+ impostorscore=0 clxscore=1015 priorityscore=1501 bulkscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606100083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_015232_086129_827B8ADD 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20260610_015239_326777_AF93AD0D 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,85 +172,150 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
 
-Some devfreq governors need to track frequency changes performed on remote
-devices rather than driving the frequency updates themselves. In such
-cases, the device's frequency is already updated by an external entity and
-devfreq only needs to keep its transition statistics and notifier
-subscribers in sync.
+On SoCs where the governor and the mechanism to control the frequency
+for devices like caches is hosted on the System Control Processor
+(SCP), there exists a need to track the frequency changes in a
+reliable way and provide ways to tweak parameters on the remote
+governor.
 
-Add a new DEVFREQ_GOV_FLAG_TRACK_REMOTE governor flag. When set,
-devfreq_set_target() skips the profile->target() update sequence but still
-emits the DEVFREQ_PRECHANGE/DEVFREQ_POSTCHANGE notification pair and the
-devfreq_frequency trace event, so transition-notifier subscribers (passive
-governor, devfreq cooling, etc.) and tracing observe the remote frequency
-change exactly as they would on the normal path, and the transition
-statistics are refreshed.
+Add a new "remote" devfreq governor that uses the track_remote
+flag to expose the remote device's frequency to userspace via
+trans_stat. The governor deliberately does not advertise the
+DEVFREQ_GOV_ATTR_TARGET_FREQ attribute since the kernel cannot
+set the frequency on a remote-managed device; reads of the
+target_freq sysfs node therefore return -EINVAL.
 
 Signed-off-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
 Signed-off-by: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
 ---
- drivers/devfreq/devfreq.c        | 21 +++++++++++++++++++++
- include/linux/devfreq-governor.h |  5 +++++
- 2 files changed, 26 insertions(+)
+ drivers/devfreq/Kconfig           |  8 +++++
+ drivers/devfreq/Makefile          |  1 +
+ drivers/devfreq/governor_remote.c | 73 +++++++++++++++++++++++++++++++++++++++
+ include/linux/devfreq.h           |  1 +
+ 4 files changed, 83 insertions(+)
 
-diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-index 2f27a239e34a..71c6ced9e4e1 100644
---- a/drivers/devfreq/devfreq.c
-+++ b/drivers/devfreq/devfreq.c
-@@ -348,6 +348,26 @@ static int devfreq_set_target(struct devfreq *devfreq, unsigned long new_freq,
- 	unsigned long cur_freq;
- 	int err = 0;
+diff --git a/drivers/devfreq/Kconfig b/drivers/devfreq/Kconfig
+index c999c4a1e567..2caa87554914 100644
+--- a/drivers/devfreq/Kconfig
++++ b/drivers/devfreq/Kconfig
+@@ -56,6 +56,14 @@ config DEVFREQ_GOV_POWERSAVE
+ 	  the DEVFREQ framework returns the lowest frequency available
+ 	  at any time.
  
-+	/*
-+	 * When a remote agent (e.g. firmware) owns the frequency, skip the
-+	 * local profile->target() call. Still emit the PRECHANGE/POSTCHANGE
-+	 * pair and the trace event so that transition-notifier subscribers
-+	 * (passive governor, devfreq cooling, etc.) and tracing observe the
-+	 * frequency change exactly as they would on the normal path.
-+	 */
-+	if (devfreq->governor &&
-+	    IS_SUPPORTED_FLAG(devfreq->governor->flags, TRACK_REMOTE)) {
-+		freqs.old = devfreq->previous_freq;
-+		freqs.new = new_freq;
-+		devfreq_notify_transition(devfreq, &freqs, DEVFREQ_PRECHANGE);
++config DEVFREQ_GOV_REMOTE
++	tristate "Remote"
++	help
++	  A simple governor to track the frequency of devices whose
++	  dvfs control lies outside the kernel. This governor acts
++	  as an observer and provides for ways to track frequency and
++	  set/get information related to the remote dvfs device.
 +
-+		if (trace_devfreq_frequency_enabled() && new_freq != freqs.old)
-+			trace_devfreq_frequency(devfreq, new_freq, freqs.old);
+ config DEVFREQ_GOV_USERSPACE
+ 	tristate "Userspace"
+ 	help
+diff --git a/drivers/devfreq/Makefile b/drivers/devfreq/Makefile
+index 404179d79a9d..cde57c8cda76 100644
+--- a/drivers/devfreq/Makefile
++++ b/drivers/devfreq/Makefile
+@@ -4,6 +4,7 @@ obj-$(CONFIG_PM_DEVFREQ_EVENT)	+= devfreq-event.o
+ obj-$(CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND)	+= governor_simpleondemand.o
+ obj-$(CONFIG_DEVFREQ_GOV_PERFORMANCE)	+= governor_performance.o
+ obj-$(CONFIG_DEVFREQ_GOV_POWERSAVE)	+= governor_powersave.o
++obj-$(CONFIG_DEVFREQ_GOV_REMOTE)	+= governor_remote.o
+ obj-$(CONFIG_DEVFREQ_GOV_USERSPACE)	+= governor_userspace.o
+ obj-$(CONFIG_DEVFREQ_GOV_PASSIVE)	+= governor_passive.o
+ 
+diff --git a/drivers/devfreq/governor_remote.c b/drivers/devfreq/governor_remote.c
+new file mode 100644
+index 000000000000..df3819757e56
+--- /dev/null
++++ b/drivers/devfreq/governor_remote.c
+@@ -0,0 +1,73 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
 +
-+		devfreq_notify_transition(devfreq, &freqs, DEVFREQ_POSTCHANGE);
-+		goto update_status;
++#include <linux/errno.h>
++#include <linux/module.h>
++#include <linux/devfreq.h>
++#include <linux/devfreq-governor.h>
++
++static int devfreq_remote_track_func(struct devfreq *devfreq, unsigned long *freq)
++{
++	if (!devfreq->profile->get_cur_freq)
++		return -ENXIO;
++
++	return devfreq->profile->get_cur_freq(devfreq->dev.parent, freq);
++}
++
++static int devfreq_remote_track_handler(struct devfreq *devfreq, unsigned int event, void *data)
++{
++	switch (event) {
++	case DEVFREQ_GOV_START:
++		devfreq_monitor_start(devfreq);
++		break;
++
++	case DEVFREQ_GOV_STOP:
++		devfreq_monitor_stop(devfreq);
++		break;
++
++	case DEVFREQ_GOV_UPDATE_INTERVAL:
++		devfreq_update_interval(devfreq, (unsigned int *)data);
++		break;
++
++	case DEVFREQ_GOV_SUSPEND:
++		devfreq_monitor_suspend(devfreq);
++		break;
++
++	case DEVFREQ_GOV_RESUME:
++		devfreq_monitor_resume(devfreq);
++		break;
 +	}
 +
- 	if (devfreq->profile->get_cur_freq)
- 		devfreq->profile->get_cur_freq(devfreq->dev.parent, &cur_freq);
- 	else
-@@ -375,6 +395,7 @@ static int devfreq_set_target(struct devfreq *devfreq, unsigned long new_freq,
- 	freqs.new = new_freq;
- 	devfreq_notify_transition(devfreq, &freqs, DEVFREQ_POSTCHANGE);
++	return 0;
++}
++
++static struct devfreq_governor devfreq_remote_track = {
++	.name = DEVFREQ_GOV_REMOTE,
++	.attrs = DEVFREQ_GOV_ATTR_POLLING_INTERVAL
++		| DEVFREQ_GOV_ATTR_TIMER,
++	.flags = DEVFREQ_GOV_FLAG_IMMUTABLE
++		| DEVFREQ_GOV_FLAG_TRACK_REMOTE,
++	.get_target_freq = devfreq_remote_track_func,
++	.event_handler = devfreq_remote_track_handler,
++};
++
++static int __init devfreq_remote_track_init(void)
++{
++	return devfreq_add_governor(&devfreq_remote_track);
++}
++subsys_initcall(devfreq_remote_track_init);
++
++static void __exit devfreq_remote_track_exit(void)
++{
++	int ret;
++
++	ret = devfreq_remove_governor(&devfreq_remote_track);
++	if (ret)
++		pr_err("%s: failed to remove governor %d\n", __func__, ret);
++}
++module_exit(devfreq_remote_track_exit);
++
++MODULE_DESCRIPTION("DEVFREQ Remote Tracking governor");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/devfreq.h b/include/linux/devfreq.h
+index dc1075dc3446..4d50cf230950 100644
+--- a/include/linux/devfreq.h
++++ b/include/linux/devfreq.h
+@@ -21,6 +21,7 @@
+ #define DEVFREQ_GOV_POWERSAVE		"powersave"
+ #define DEVFREQ_GOV_USERSPACE		"userspace"
+ #define DEVFREQ_GOV_PASSIVE		"passive"
++#define DEVFREQ_GOV_REMOTE		"remote"
  
-+update_status:
- 	if (devfreq_update_status(devfreq, new_freq))
- 		dev_warn(&devfreq->dev,
- 			 "Couldn't update frequency transition information.\n");
-diff --git a/include/linux/devfreq-governor.h b/include/linux/devfreq-governor.h
-index 2853f571dfdf..e4f7b6cb07bc 100644
---- a/include/linux/devfreq-governor.h
-+++ b/include/linux/devfreq-governor.h
-@@ -33,9 +33,14 @@
-  *   : This governor is never changeable to other governors.
-  * - DEVFREQ_GOV_FLAG_IRQ_DRIVEN
-  *   : The devfreq won't schedule the work for this governor.
-+ * - DEVFREQ_GOV_FLAG_TRACK_REMOTE
-+ *   : The governor only tracks frequency changes performed by a remote
-+ *     agent (e.g. firmware); devfreq skips the local profile->target()
-+ *     call and just keeps its statistics and notifiers in sync.
-  */
- #define DEVFREQ_GOV_FLAG_IMMUTABLE			BIT(0)
- #define DEVFREQ_GOV_FLAG_IRQ_DRIVEN			BIT(1)
-+#define DEVFREQ_GOV_FLAG_TRACK_REMOTE			BIT(2)
- 
- /*
-  * Definition of governor attribute flags except for common sysfs attributes
+ /* DEVFREQ notifier interface */
+ #define DEVFREQ_TRANSITION_NOTIFIER	(0)
 
 -- 
 2.34.1
