@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD3BCD98C8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 07:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99149CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 07:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a11WD13BGYgOuihN7nsHLdVz6hOp98LdWU1LuUqAo1s=; b=dYX1iuV+AKg1oBel5hDsT6y0Dk
-	vxR5pa5jvqXilhyjh59DQ2FKmui/1smnl6F1M/cej3lbelfZk0yxZvodqWj/+OFODMzG+0DowLoTc
-	OKlVLULUyEZvDz5CKyJwjcpQOfxmtPgJZk73vB1Ull3TETTxiq+xNgOM975LlOS8euujYD1V2P7Bb
-	fx1up4lqzu/UCJKt08Tzviv+KL5vt2Zaxy86PAJy2UBAvE4BIytpv+E3+VXQtRHNcIs/w0faQh2Gn
-	6KV+Wm62wenFUmO0stnQt99VKQBR31Bb5DMOgCfIK5eX1ZQC1FXKErWBX+I4R4UOEqE4V6uSbbo2z
-	bJIPwkcA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HUARxUqCIeXyLfxaAPJer0YoGGjh4X3VIjARsohoWC0=; b=rwPWOegkvE4LmDh5l6AbaPrMxv
+	ooqVNeAOgv4lv5c0t+bqB0pwywTWyqQuJBSOc9VPttLOmr9srkKgPKcdS69AnGRM6vm63XTvE/jDH
+	pUivpdezN+kSRJtkto6npn8LIjKjNgDObnNWB3bhtHvcI9Maa92Csp780yMczJX/k6NwW5kpXhcgB
+	g8pj4E6iHHnyqFI/kfY0zEc0nOaLW7RxbhZsTguuEVnIICeihtnMrfQRUBQ09tEPPgX65lI6lpYsL
+	dC2swWXoxf+xQnRjCEpapeRdVMjk+xjqsjMdHbfvp/i9A1CF0o8GcoPn/RCTtHWwk8YekBkH0KKYD
+	HnQ8W2qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDoA-00000006zmd-3Oha;
-	Wed, 10 Jun 2026 07:57:06 +0000
-Received: from mail-japaneastazon11023138.outbound.protection.outlook.com ([52.101.127.138] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wXDoE-00000006zpL-05ki;
+	Wed, 10 Jun 2026 07:57:10 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXDo7-00000006zk4-3UBB
+	id 1wXDoC-00000006zmb-062B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 07:57:04 +0000
+	Wed, 10 Jun 2026 07:57:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VJUJ96PgnmWLbqncgB0gU7h9a7EmW3ew3JYoKnno22XfF0psTOUjHmULnVe24Y6AitZARlTXlQ324p+ABfIFnB6mBuRn16zwc8yJBoMm4Kg5O1XxC55e9NOWoAZUXv+AUd7deNbQU3bcv7J0T2qWlnddL2owG7HM8vwMEYih/FSLwTpoO3k6ZonBKN7ADjMUqVcadSzyW0dgZVOZgCZHSGE4Ap/o27AKC8rjqs1OtUFi30ruTUfriWgg1ozJ8AgmbZdzwqJzQaE01fqM7zL4XmUZt6vaIInFnr8MQ4BOJ9saXgr+uiUOWbBo0DtB1zl5oV7hlxhPyLkX6g4MOqejCg==
+ b=ESDeAVOiLh/VkH0Gvsvw03tFvzvUDkSVD7a15jrC4HvXSdz2tU0HqGXMV4gwYceHgnbpFVcdGFMtTno5+HB5HsVXSlCysVl1aAsNcaIPj6scsLe7Ruv5y6svKNS1uEUgMCyvSHniH7BeUxj9c1ZVllTkSeG4SOjfA7iyHY8sTVXDlRKY8JvU21+6AdlbhEVVEycuE+DMj6dg83rjfxCiA6hiPSuAYB0Umq5oOZ+pQngEbna+c0PK31bLuIjFFU3Y4Dh651ItyqbIIfQivAswlFzZYgrQHiPzSOSlyzjJQIK+NkxpxyITWOMFSQmiaWzKsAw7rvT8b/ni1ir3PglcvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a11WD13BGYgOuihN7nsHLdVz6hOp98LdWU1LuUqAo1s=;
- b=KtITK6rlRMV9Y0gx8VzNycbtFb0eV4eKtruWxR1qleiDQW0uZ5COF7U9kmVt46FXq9vxi3YB6yks9lAxWsMhpEfzvjBnXAPrxlpcOYAX30yYM4x1qessNrSZZ4iw0lirygigq85UlbS91zNZaxKiIIeGfyE/PHMwXNkeeltm7kL+lnZawlHfAPFKeVtXhSuGQ8EDYjVzswUL3rbZ/vemAzZJgI3ECbhmNHF4eX2mafhRf8lfPPAc8igAWxA5Mueeo0Ua+p/0JN9WTopO2e2A15QDUPudvVJevtjcZxwzT/u3i/3R0O3I/vkbDdIGxhaBlPcf1rJFe9sKk1DbPB9GTQ==
+ bh=HUARxUqCIeXyLfxaAPJer0YoGGjh4X3VIjARsohoWC0=;
+ b=igyF3kYRPjc19hPS5iijQCAYoCEGGldsbGhVFH/g8zwWcWcwbcOrEBrHFqb8jckpIMbK+VBGy+8CZa6fBscKazCyC+ZeutP3EIn3ExQFQKhzZBwCW9/UdaEdiOG3DXVmTjx75wrR38iOLP+h+WfeLAgyzFihS0WCZGrYVgyxkXTmaWm1fTp0IZnRcR3BPdr90EueqgXARLZKd3J+fk+8yHO4jeDqj8owCVPYBgs6clEb19SDkL7dpgfPsawYoZoqkgMfpRkeCdbNY7S3vVhgnDCYJr9AHa0vaAC6OGJ7EN9ufrp3zZFqBq6EiCWa81/viQHpTYGx8luKM/I1cMi7Xw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from PS2PR03CA0018.apcprd03.prod.outlook.com (2603:1096:300:5b::30)
- by SEYPR06MB8245.apcprd06.prod.outlook.com (2603:1096:101:2f5::11) with
+Received: from OS3P286CA0031.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:1f4::10)
+ by SE3PR06MB8381.apcprd06.prod.outlook.com (2603:1096:101:32c::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
  2026 07:56:49 +0000
-Received: from TY2PEPF0000AB8A.apcprd03.prod.outlook.com
- (2603:1096:300:5b:cafe::56) by PS2PR03CA0018.outlook.office365.com
- (2603:1096:300:5b::30) with Microsoft SMTP Server (version=TLS1_3,
+Received: from OSA0EPF000000CD.apcprd02.prod.outlook.com
+ (2603:1096:604:1f4:cafe::71) by OS3P286CA0031.outlook.office365.com
+ (2603:1096:604:1f4::10) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Wed,
  10 Jun 2026 07:56:49 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
@@ -55,11 +55,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB8A.mail.protection.outlook.com (10.167.253.8) with Microsoft
+ OSA0EPF000000CD.mail.protection.outlook.com (10.167.240.59) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 07:56:48 +0000
 Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 304A04084274;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 530C94084275;
 	Wed, 10 Jun 2026 15:56:47 +0800 (CST)
 From: joakim.zhang@cixtech.com
 To: mturquette@baylibre.com,
@@ -76,37 +76,39 @@ Cc: cix-kernel-upstream@cixtech.com,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Joakim Zhang <joakim.zhang@cixtech.com>
-Subject: [PATCH v3 0/5] Add Cix Sky1 AUDSS clock and reset support
-Date: Wed, 10 Jun 2026 15:56:40 +0800
-Message-ID: <20260610075645.3581145-1-joakim.zhang@cixtech.com>
+Subject: [PATCH v3 1/5] dt-bindings: soc: cix,sky1-system-control: add audss system control
+Date: Wed, 10 Jun 2026 15:56:41 +0800
+Message-ID: <20260610075645.3581145-2-joakim.zhang@cixtech.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260610075645.3581145-1-joakim.zhang@cixtech.com>
+References: <20260610075645.3581145-1-joakim.zhang@cixtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB8A:EE_|SEYPR06MB8245:EE_
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CD:EE_|SE3PR06MB8381:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 13c39f69-dff0-4b72-da14-08dec6c5d374
+X-MS-Office365-Filtering-Correlation-Id: 232578c7-28c8-4b64-18f1-08dec6c5d39b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|1800799024|376014|7416014|36860700016|6133799003|18002099003|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: Fp4gUT8jkgD+TMGrnlg5vjLxZ2oLtAMFfEqPTRDA2EfheNq9rS2nP9TqB90DTzFXW7GKAz0eJgBSPs3cHWwl5HAKH+nATwiS5GB61ZfZ7NvimRk+SAgMDBlfDAkm5jihbhA37cqElIBHVGCxEW4gws6o3Xx13CFkArIKtDCaoxpL9k6fbb8+wnTMAhRCtO3OKqK2DZPzjY+FozVquUobblRVtgSJvXAsAH/hHmsEMnfpnnhO+OaM8/KbVOf5G8sNM0VIXI5UnGezUGpTIWzOrsZdMsNHlhuDf/OLt7XSzfpUEZfpIy4Nv1HhPJuuQefexU6ab6wfmlj/N5+ZRqSr2tIbgINpzWKyfm+p0L/CGNj7lNvZlzB2te1xW+nBIr0KLopJFAZQyfiKabs5bPIUHZsotWgk33708BcNmT925bEOaNPEuGnaj2smcKb7gOPDyQE7fxSa9C3tq/R1otEgEkCupo4wvIrUTZ4lnIakrgFx1DYBZAqXtSRYnYeanvea2JRiY1rCTFTzIPYDdpbMOBHFdbwDZ/0muwmNtR/ZUBY7JcDY6aUIt7f82laPi4V8Qlhj9wK5fHgxS+kLwkNeu3iJW4hSn813oEmHOiRZrZIS6l1UMyONYo3TmCn1x8SEeTGaKPX7CUUE6sfNGsbf+WEykodhadaLV8/LVdJlEf4CNRqdJufEuEMlTFgXxrcFi6Hpi5Od27jqYTKiid87tG2+5F/ph6j503U/tLgxpbU=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(376014)(7416014)(36860700016)(6133799003)(18002099003)(3023799007)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|82310400026|36860700016|6133799003|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 3/LJcGRKdSUq3zDXa6rtDK8LSu9D5PvbIZmpJuwx4Rq6pKGAQneBBZT6AXFhIlJcqQ/tkVJiN6lAA7d6vTr4EuvDptUqyzjQSJjevrcHkvKEyjmNzpSdCwHGtAp367tztilquVpMC/3FH3TtEdy13LQXqs2qg9GI0Aa4O+9QgiZhNO0SfaxAA6/Otff6mFeWPFUqu0aaRG/gm5PZYmQj2IvbLevHWLkbMhfYGDka6Xyke/uOyzxczmfaX7ytPh9GpPb9evJP3g662FkXW9tipYXiNCEiwtbt6YR4ZPZRLgE8SXx4nLgerqCvUe43fJbZc0k5pvOmoPDj6JGR6UK61bZnM1gbMK/Ne4GrPycUMfLpFhVNY8h0yN1PFNDL2iDJzgSzkwM3zjzeSrn9z+5DPwLUP/b8P1lPQ0YmjJDdHfvONauBLkl2+kj8cZhONcSXHZaAujzpLoPP4XeS/9W44Jk+A/vZg5DqaeE+JALWANeuYBpnr0hsEtko9J9lzHfkKpw2zfcsrS3b50M4lxFf3OWDtpF7eA2YzKqv4LrdN5YNMDmYZNvtkqMZxlx/tGrAwajMWCF5e6MEOEEEWLaldMWo++X34UePUDB0edYsNFsRSHSK2piasAbHv5qF6mHoW54k0J6AFnlb5MfzfP9kCQggrb9d3qlu99Tg2nGB1QcVhtjhkR4qT6HpqxczXjLtwx58CF1prfeYJFbpYPZyfrrQyg7VOH/5n4GhJkZQdgI=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(82310400026)(36860700016)(6133799003)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: b9I7TS8cddWVBvfxxI+EG3Ew8fI/y4aJAEi9Fud82fehB0Joe/vbdqq2Y5/ybgOjew9TuaYsy2wd1XbZPdhvHKnyiZKNd9rHCE39TLiIYiLvAWKRDR2S+3g3TbVaiJMCpnOTB+6fPQBTSMRUMNcJ198Qz6nonYO37s17jgqIUoiCwAsJ/63EFhs0cPxavmKtN5U72BijzDqVZRgUqn0zIfW7ysplgRDK7cngAW58TiecrzZkBdzkVN3Ew+Dr0HiC4VAp7NZelVJvh00UJIw2IyQYFe8gpR/bjTyn7pElknd4Z2Mw6CdbQxofxTIMAeoh+4W92HupKSsCGk/hrLbcv29Ar1Dce57duUzKXKwquzYOWsOXo92944ZytcVbQ8rk/cEVuT7hM7s5KwDQv5R5jLJcGYZlVUWE9monOKwzA3EwL8VPtB0l9xf79hLWPU6M
+X-MS-Exchange-AntiSpam-MessageData-0: YHQbOqJYHUD4Ww+Lqlt01sMdun2hEyHJbcnHsL/bFyBGyjeC6mA93UdlK1/ZYjFegUuVIV9omPl2aMSuBhg7FDFIisY3L4nKJWXN2TyT8KdK3DoAIqdn+msiwTrl/cM6tbW2yzurS9Sdsdba6iTneJ0MRhDwrHejjZWRXz8wNVeO1Njxqblv9D11J6Eb84tr2PXimMtsAsMQcbNc9IujuiZVXBJRQFpEt2Voo7Ux7Y0uRbKRg40/Prdj1uIdMBFD1yrUDMdiJ12E7V9eYCanYitLKQwfZL+tLsg1EtemedTJ4Bo0NRRB7NtgLIOOJ1ooBxrBAE0K8TcWTdKRwaaHFLDe2vmmuL0CNj2Sa6zRYv3b++CJQ53j0VDB4NVRYUrWTWbZAqd5bgazTVWeYEwfvhgIFheogWdZCPXvJMFvng8+fsygIgsNzscqGQ1LU2Y0
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 07:56:48.8354
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 07:56:48.8482
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 13c39f69-dff0-4b72-da14-08dec6c5d374
+X-MS-Exchange-CrossTenant-Network-Message-Id: 232578c7-28c8-4b64-18f1-08dec6c5d39b
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB8A.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CD.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB8245
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB8381
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_005703_882399_64C13BBB 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260610_005708_069354_E9B45041 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,101 +125,129 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-This patch set adds the clock and reset support for AUDSS. The AUDSS groups
-audio-related peripherals (HDA, I2S, DSP, DMA, mailboxes, watchdog, timer, etc.)
-behind a single Clock and Reset Unit (CRU) register block.
+The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related clock, reset
+and control registers in a dedicated CRU block. Software reset lines are
+exposed on the syscon parent via #reset-cells, following the same model
+as the existing Sky1 FCH and S5 system control bindings.
 
-Clock and reset changes normally belong to separate subsystems and would
-ideally be submitted as independent series. They are combined here because the
-AUDSS DT bindings cross-reference each other: the system-control binding
-describes the clock child node, the clock binding documents reset lines exposed
-on the parent syscon, and the DTS example wires both together. Keeping clock
-and reset in one series gives reviewers the full picture when evaluating the
-binding layout, dependencies, and integration.
+Add the cix,sky1-audss-system-control compatible to
+cix,sky1-system-control.yaml for the MFD/syscon parent node, and define
+AUDSS software reset indices in
+include/dt-bindings/reset/cix,sky1-audss-system-control.h for I2S, HDA,
+DMAC, mailbox, watchdog and timer blocks.
 
-Patches apply in the following order:
-
-  1. Reset support
-     - dt-bindings: soc: cix,sky1-system-control: add audss system control
-     - reset: cix: add audss support to sky1 reset driver
-
-  2. Clock support
-     - dt-bindings: clock: cix,sky1-audss-clock: add audss clock controller
-     - clk: cix: add sky1 audss clock controller
-
-  3. Device tree
-     - arm64: dts: cix: sky1: add audss system control
-
-The reset and clock parts have each been build-tested and checked with
-dt_binding_check independently. If reviewers prefer separate series for the
-reset and clock maintainers, I can split and resubmit after this round of
-review once the overall design is agreed on.
-
+Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
 ---
-ChangeLogs:
-v2->v3:
-  * clk part:
-    * devm_reset_control_get()->devm_reset_control_get_exclusive()
-    * assert noc reset from suspend
-    * clock parents changes from 6 to 4, and rename the clock names,
-      explain more about this: confirm with our designer, In fact,
-      there are 6 clock sources going into the audio subsystem. audio_clk1
-      and audio_clk3 are redundant in design and are not actually needed
-      in practice, so they are not shown here.
-    * refine clocks and clock-names property
-    * add detailed description of clocks
-    * drop parent node from clk binding
-    * drop define AUDSS_MAX_CLKS
-  * reset part:
-    * rename reset signal macro, remove _N 
-    * drop SKY1_AUDSS_SW_RESET_NUM
-    * switching to compatible-style of defining subnodes in parent schema
-
-v1->v2:
-  * remove audss_rst device node since it doesn't has resource, and
-    move to reset-sky1.c driver.
-  * remove hda related which would be sent after this patch set accepted
-  * soc componnet is okay by default from dtsi
-  * fix for audss clk driver:
-    * remove "comment "Clock options for Cixtech audss:""
-    * add select MFD_SYSCON
-    * move lock and clk_data into struct sky1_audss_clks_priv
-    * const char *name -> const char * const * name
-    * remove CLK_GET_RATE_NOCACHE
-    * divicer -> divider
-    * Reverse Christmas tree order
-    * return reg ? 1 : 0; -> return !!reg;
-    * return ERR_CAST(hw); -> return hw;
-    * of_device_get_match_data(dev) -> device_get_match_data()
-    * add lock from runtime_suspend/resume
-  * loop to more mailing lists
-
-Joakim Zhang (5):
-  dt-bindings: soc: cix,sky1-system-control: add audss system control
-  reset: cix: add audss support to sky1 reset driver
-  dt-bindings: clock: cix,sky1-audss-clock: add audss clock controller
-  clk: cix: add sky1 audss clock controller
-  arm64: dts: cix: sky1: add audss system control
-
- .../bindings/clock/cix,sky1-audss-clock.yaml  |   80 ++
- .../soc/cix/cix,sky1-system-control.yaml      |   47 +-
- arch/arm64/boot/dts/cix/sky1.dtsi             |   24 +
- drivers/clk/Kconfig                           |    1 +
- drivers/clk/Makefile                          |    1 +
- drivers/clk/cix/Kconfig                       |   16 +
- drivers/clk/cix/Makefile                      |    3 +
- drivers/clk/cix/clk-sky1-audss.c              | 1175 +++++++++++++++++
- drivers/reset/reset-sky1.c                    |   36 +-
- include/dt-bindings/clock/cix,sky1-audss.h    |   60 +
- .../reset/cix,sky1-audss-system-control.h     |   25 +
- 11 files changed, 1461 insertions(+), 7 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/cix,sky1-audss-clock.yaml
- create mode 100644 drivers/clk/cix/Kconfig
- create mode 100644 drivers/clk/cix/Makefile
- create mode 100644 drivers/clk/cix/clk-sky1-audss.c
- create mode 100644 include/dt-bindings/clock/cix,sky1-audss.h
+ .../soc/cix/cix,sky1-system-control.yaml      | 52 +++++++++++++++++--
+ .../reset/cix,sky1-audss-system-control.h     | 25 +++++++++
+ 2 files changed, 72 insertions(+), 5 deletions(-)
  create mode 100644 include/dt-bindings/reset/cix,sky1-audss-system-control.h
 
+diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+index a01a515222c6..61d26a69fd44 100644
+--- a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
++++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+@@ -15,11 +15,16 @@ description:
+ 
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - cix,sky1-system-control
+-          - cix,sky1-s5-system-control
+-      - const: syscon
++    oneOf:
++      - items:
++          - enum:
++              - cix,sky1-system-control
++              - cix,sky1-s5-system-control
++          - const: syscon
++      - items:
++          - const: cix,sky1-audss-system-control
++          - const: simple-mfd
++          - const: syscon
+ 
+   reg:
+     maxItems: 1
+@@ -27,6 +32,28 @@ properties:
+   '#reset-cells':
+     const: 1
+ 
++  clock-controller:
++    type: object
++    properties:
++      compatible:
++        const: cix,sky1-audss-clock
++    required:
++      - compatible
++    additionalProperties: true
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: cix,sky1-audss-system-control
++    then:
++      required:
++        - clock-controller
++    else:
++      properties:
++        clock-controller: false
++
+ required:
+   - compatible
+   - reg
+@@ -40,3 +67,18 @@ examples:
+       reg = <0x4160000 0x100>;
+       #reset-cells = <1>;
+     };
++  - |
++    audss_syscon: system-controller@7110000 {
++        compatible = "cix,sky1-audss-system-control", "simple-mfd", "syscon";
++        reg = <0x7110000 0x10000>;
++        #reset-cells = <1>;
++
++        clock-controller {
++            compatible = "cix,sky1-audss-clock";
++            power-domains = <&smc_devpd 0>;
++            #clock-cells = <1>;
++            clocks = <&scmi_clk 0>, <&scmi_clk 2>, <&scmi_clk 4>, <&scmi_clk 5>;
++            clock-names = "x8k", "x11k", "sys", "48m";
++            resets = <&s5_syscon 31>;
++        };
++    };
+diff --git a/include/dt-bindings/reset/cix,sky1-audss-system-control.h b/include/dt-bindings/reset/cix,sky1-audss-system-control.h
+new file mode 100644
+index 000000000000..aabdce60b094
+--- /dev/null
++++ b/include/dt-bindings/reset/cix,sky1-audss-system-control.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
++/*
++ * Copyright 2026 Cix Technology Group Co., Ltd.
++ */
++#ifndef DT_BINDING_RESET_CIX_SKY1_AUDSS_SYSTEM_CONTROL_H
++#define DT_BINDING_RESET_CIX_SKY1_AUDSS_SYSTEM_CONTROL_H
++
++#define AUDSS_I2S0_SW_RST	0
++#define AUDSS_I2S1_SW_RST	1
++#define AUDSS_I2S2_SW_RST	2
++#define AUDSS_I2S3_SW_RST	3
++#define AUDSS_I2S4_SW_RST	4
++#define AUDSS_I2S5_SW_RST	5
++#define AUDSS_I2S6_SW_RST	6
++#define AUDSS_I2S7_SW_RST	7
++#define AUDSS_I2S8_SW_RST	8
++#define AUDSS_I2S9_SW_RST	9
++#define AUDSS_WDT_SW_RST	10
++#define AUDSS_TIMER_SW_RST	11
++#define AUDSS_MB0_SW_RST	12
++#define AUDSS_MB1_SW_RST	13
++#define AUDSS_HDA_SW_RST	14
++#define AUDSS_DMAC_SW_RST	15
++
++#endif
 -- 
 2.50.1
 
