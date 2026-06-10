@@ -4,120 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010C0CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784A0CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 10:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nFESc/ROTnMfaSPz06S9eltmuIq5/PF9tu+Kh4WpQGQ=; b=j5ThTSvPedf+0j/aZp6IDnJCiu
-	I55HNugzXkiwIvec44vi/Ztp7tT+RST/UteezKmvcuRANX4+919aP7e+szgb55yEuXKUBytH76P/E
-	JrkOQze+yrWI9trGLUHq+T6qa1jZ0d8a8z2zYgxuRR4HJQing02YAy+SJLB4PngL7Og5zbwa1ZGon
-	28A9zJMtZrt+/NIfqnFhzPpq1qs0AIKQ8AXw/47XR+wZhNViNIs5yCM0/4cR/liDpqPvXFD87YKBY
-	gcZxKNI5YPd1pLJ4i8AOQTT6utmaOwtZEA60iGBtzs+w+mUulq34OSmlQVfhpxgwaZTpsN+ghrqa/
-	ISDv+50g==;
+	bh=YXhOcqMPHO+S5QqlHxh7fMeK781ZP72bMnS5EH8zaug=; b=vnMo5U1F5/jjYKKrqdkEuuxszj
+	9CoXEnfgsZAT8xK8dKJoRHbWd0GcTFCHgMuQfavcNRbuW9G63tIoe3n7etNU07meOFACNygZCxYAA
+	YbuczViZAWsrZxDk6MR4KoEsmKMJU/zniSVUEsYg7kdSrrev6Y9b/YXkcKLVurKChbTRor8PiH3pE
+	LjzFO2WTV1LRAKGfSMoY4sgte1ATQ5Qi2Pnl/Hg7A9AW1RoU9h/qJgQVknJK0jj6DsSM71qK5+rGj
+	t7Z+EotlavRejTgpXlNsZx//kCTAUQHAYzM5G38tyGJZuYv3RGxzXMv7N1CMSoUTcAzqJxp/96sNY
+	fJOq9QnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXFmw-00000007LIq-0kx0;
-	Wed, 10 Jun 2026 10:03:58 +0000
-Received: from mail-westcentralusazon11013009.outbound.protection.outlook.com ([40.93.201.9] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wXFp3-00000007Ld9-2abK;
+	Wed, 10 Jun 2026 10:06:09 +0000
+Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXFmt-00000007LHX-2InG
+	id 1wXFp1-00000007Lbo-0pVD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 10:03:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EPkX4vpiwfzQUCd3FDl8y0KCjc8xyo/mTkeM1+SxxhSvkQmYauoNkXYr9mX2NP40aforAtjhxcZVi+laDB9rmRqY6miz+QXnJF3S5ZHvPZF/BV/JiMKGyujQ3dUVXEGXIafZ8xNvOk6LEhQGKYeeKHwAGdUJh7Xs4M3IqdWZHInTxaR2dZp2OE1ngY2U0iU0gZO98LJ5HTIvy5ugwOQSuPS+alyESnNXcdTd+IPAM+9rMqC8s1Wv5lZDsonRPo6Y3H4qUO99RZgzxLakKByvgWuZTOL9OnmwrODiZU9ZITNEyEKcPEE4f1zb8wSKcRzBgR1VkR+HdKDzPgnd86upaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nFESc/ROTnMfaSPz06S9eltmuIq5/PF9tu+Kh4WpQGQ=;
- b=xglUM7lNviUb1lR707qvLBdQPW4C9EDfZtATi50x1t7Z6OlralErYzPlMGiDTu2ivs8ErDBgJRRjU92aaSsiHhCs9o8/kaq6gz0z+8h9XHNtKjFXyv3Z7WEfnxtCX8EVrko+sIP8P4xjNug2SgBJySeKAVSQL5198BypXDsQPwjmmR+sqtRPSeZH5tcIKLDzVg4XKVNgK1O5R6K5R5DRkkIMMGnLm7mbfxeJGUKoFbx2TdL4KX+tzmBtSCKHeblQqN6tgt5t6QqYF6jwN1XnlJ5BIxPtcw0SXxC8wm49N76MakuH4t1Y7VICmo1ljf4ZQ2xN+OgJA9MO+2HTEMZ1Tw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nFESc/ROTnMfaSPz06S9eltmuIq5/PF9tu+Kh4WpQGQ=;
- b=BoH8+zumfVeDCKCuWN9rNYvKo3ubkF+MS+3bEzYDYzn4Ox+06KHVsWbJyTUnQNBDLPbs8wCk2vUITLD5kE27rXg/vUpYpH/LZZbQ1l1H4lfpsq0LT7JPm7zU858jxQh+EOYoiFwwyssYuQwlr7DJOvK9F2bcuFtogTSGSg7Xv0o=
-Received: from CH2PR16CA0004.namprd16.prod.outlook.com (2603:10b6:610:50::14)
- by CH3PR10MB7353.namprd10.prod.outlook.com (2603:10b6:610:12c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Wed, 10 Jun
- 2026 10:03:49 +0000
-Received: from CH1PEPF0000AD7B.namprd04.prod.outlook.com
- (2603:10b6:610:50:cafe::2e) by CH2PR16CA0004.outlook.office365.com
- (2603:10b6:610:50::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Wed,
- 10 Jun 2026 10:03:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CH1PEPF0000AD7B.mail.protection.outlook.com (10.167.244.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 10:03:48 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 10 Jun
- 2026 05:03:21 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 10 Jun
- 2026 05:03:21 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 10 Jun 2026 05:03:21 -0500
-Received: from a0507033-hp.dhcp.ti.com (a0507033-hp.dhcp.ti.com [10.24.68.129])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65AA2u903620198;
-	Wed, 10 Jun 2026 05:03:17 -0500
-From: Aksh Garg <a-garg7@ti.com>
-To: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<mani@kernel.org>, <kwilczynski@kernel.org>, <bhelgaas@google.com>,
-	<corbet@lwn.net>, <kishon@kernel.org>, <skhan@linuxfoundation.org>,
-	<lukas@wunner.de>, <cassel@kernel.org>, <alistair@alistair23.me>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<s-vadapalli@ti.com>, <danishanwar@ti.com>, <srk@ti.com>, <a-garg7@ti.com>
-Subject: [PATCH v5 4/4] Documentation: PCI: Add documentation for DOE endpoint support
-Date: Wed, 10 Jun 2026 15:32:56 +0530
-Message-ID: <20260610100256.1889111-5-a-garg7@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260610100256.1889111-1-a-garg7@ti.com>
-References: <20260610100256.1889111-1-a-garg7@ti.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7B:EE_|CH3PR10MB7353:EE_
-X-MS-Office365-Filtering-Correlation-Id: d444c0cf-e6a9-45f4-6d0e-08dec6d790b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|36860700016|82310400026|1800799024|921020|56012099006|3023799007|5023799004|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: KofdHXW2r7X13LbL7IY4ee5AJW/tMyCXbMT+Tb6BxL21ZlJ4+vsx/gDHAYV3aiX16o+fdA7oCTYhlyx6w3VV9iM4Wl+gFPB8xHPcE/JdOI5k3T3gA+yUK1R34w1rcQbNzsV3k597+nvSIUau2pEqYpe70Ov72AC1mdD4XyaNDySvibdVfkcU2+9PysJqE9/HiZigEycSsAyBG6pHpnHuagnDQgLF+KjBpPsehUWrgSYcdF/cNaP+V/slEjF99d+g71K/EOIN+murwZNFI015lEG57kbFPtg4+VHKbABKjSDFYif7XTg3dpcK8rDHXuGoviw8VyC6vufQn7FBPL6wqXStXVMYwNmnr7MxqOKtQlLk+K0q1I5pUwthK05AGFCIDmEXWlMAsD5E9pUOCGdHUJQol9UBHEC1EHwNc9Yno0MIYvwTH+wu+8dXkJ96z0SO0c397p8bZRukUt7UFh7kt4Zy1DJl4c0aIH4hLPOt7Tl3tGbzvG/T1N9rworX9XG709TpHJ4trg1W03qd9mzCRVwxq3mFjctJEsf0x+Mm6WxxRFYvrdf2Ho9F9NBF0jKa7E7XYEJsVMxSmWglYZbgYXZn/G1zaWc/eNJSf6ZeRdtFcaGS+B/tvuI0UwvzzFDCxhOFMYUZAC+aSYypqM7KAIEYfH33KMEcc/OEp+2YqG/mtMGKQCGHyA+DcXIgsSClhQyI8go9k2EYWrEfgfJBu6l1OlpRi3phaL7aSO0q20R6QzujBLhNbeunlIZ35Dzrwq8gEbJu4azZ8xMecyqbTfx7tTyqj9AraZB35o26x30=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(36860700016)(82310400026)(1800799024)(921020)(56012099006)(3023799007)(5023799004)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: n+SIrGmLkffpAkLFJFJQ9mBKWCRqVJU/rqYprjDukqGGPiS7DzVbrS67FHZNJHKCAd6LO5Ra0AKN23CgZexiJk9mkBOLnOvfDJntkjCDWYgxRK13GAWv1f2mtuD88BLJtlcIy+q4QYeT3D6Ravk8s9GjLdctHQjhqCFZ3q+GVVzygSk3edCeA3viEoGBjVTSrcjOkQQZKIX/2AEvOXUi6uJ1VM55cLiCfDMCjlX1S7EOzhUt3eWTzN0Ifq81jKLSYv76QjXxFsxqxbp7nja3fjVCtjpKBZuugJpGpCaczwIkgUieEtK4kcYWDJJfo025hLvuNnhN9Cz3b62cm7Q5qu4DtZmHC+cyWeN2bOfejxT9177Gyk+jz4f0NUoJ/66IVFVVuwBThHzuAphpPUiJL5t4zITBEyVm+wKeQUCHiOsvlCy/tILw6KHsYxa79eyO
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 10:03:48.0402
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d444c0cf-e6a9-45f4-6d0e-08dec6d790b6
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7B.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7353
+	Wed, 10 Jun 2026 10:06:08 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1781085953;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YXhOcqMPHO+S5QqlHxh7fMeK781ZP72bMnS5EH8zaug=;
+	b=X3cX35ljKdPrn8ghjGraHP1nRfUjKOzodTDZBQC8Bodbl4K5BZ3SeQCEUQYnIQHXomWMv2
+	GDYsnnYDG6qC9nxUOC6skm9sE/n1P6wkH55bWQZjwRr28gq4kBZemajTf/2mM0CPe52B5u
+	4IASRmUHKLwqpGKX38uLjYe3EMrnhDqZppAtJmbn8Ed7cp/1gIkFPaAccACARsT97Bxzcs
+	HPydH1A3PBbFf0pU8obu+92IEPA+vLo2RX0wsIfwwIjfCjhrfZQFDAtSiiSsMaiiVXOyM+
+	irD1BK2deVH2yC9tmxTdbTJXa+lrr3N7jnjiUNuYuTEjOYBkP69T0tsjKXcRaA==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 10 Jun 2026 12:05:49 +0200
+Message-Id: <DJ5A9XL183RZ.20J3ASQ3EWUZ6@cknow-tech.com>
+Cc: <tomeu@tomeuvizoso.net>, <ogabbay@kernel.org>, <heiko@sntech.de>,
+ <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-rockchip@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, "Simon Xue"
+ <xxm@rock-chips.com>, "Finley Xiao" <finley.xiao@rock-chips.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>
+Subject: Re: [RFC PATCH v3 0/9] accel: rocket: Add RK3568 NPU support
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Chaoyi Chen" <chaoyi.chen@rock-chips.com>, "Midgy Balon"
+ <midgy971@gmail.com>
+References: <20260604135255.62682-1-midgy971@gmail.com>
+ <3d99569e-9c3a-49d1-93fb-1335382523e9@rock-chips.com>
+ <CA+GS1Y1s78PwN63X2YJoS8VEGp7CpTERo_K65yKs00U4VRAw4Q@mail.gmail.com>
+ <e5058919-9485-4de5-8eea-331ebfc2987c@rock-chips.com>
+ <CA+GS1Y3ysdWZ3qCq3ip_Pbw+v4LxHZd95aBo=jwB+orYaMBBNw@mail.gmail.com>
+ <CA+GS1Y0kAM_XGLQuKPTphif2HcQg18ZXhd8RHHr2xPOEMCDvXA@mail.gmail.com>
+ <bcedaff0-abf8-4585-a0ea-057062cd0411@rock-chips.com>
+ <CA+GS1Y2-hRqpGgsknh+oOX+-uZ3DZtdekdP9viTP6a40zhhUhg@mail.gmail.com>
+ <b05f7154-e85f-4207-80ae-f080282ba780@rock-chips.com>
+In-Reply-To: <b05f7154-e85f-4207-80ae-f080282ba780@rock-chips.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_030355_645874_2B80A6D8 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20260610_030607_515598_146D3297 
+X-CRM114-Status: GOOD (  25.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,400 +85,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the architecture and implementation details for the Data Object
-Exchange (DOE) framework for PCIe Endpoint devices.
+Hi,
 
-Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Aksh Garg <a-garg7@ti.com>
----
+On Wed Jun 10, 2026 at 3:14 AM CEST, Chaoyi Chen wrote:
+> Hi Midgy,
+>
+> On 6/9/2026 7:11 PM, Midgy Balon wrote:
+>> Hello Chaoyi,
+>>=20
+>> You were right - building rocket as a module fixes it. Thanks for the po=
+inter.
+>>=20
+>> I rebuilt with CONFIG_DRM_ACCEL_ROCKET=3Dm (everything else the same:
+>> need_regulator on
+>> the RK3568 NPU power domain via a DOMAIN_M_R variant, domain-supply =3D
+>> <&vdd_npu>, and the
+>> regulator-always-on workaround dropped). The board now boots cleanly
+>> and, more importantly,
+>> an NPU job submit no longer hangs: I ran the test workload five times
+>> with no RCU stall and
+>> no freeze.
+>>=20
+>> So with rocket=3Dm the need_regulator approach works on RK3568, and I'll
+>> keep it for v4
+>> (domain-supply + need_regulator, instead of marking vdd_npu
+>> always-on). rocket=3Dm is the
+>> normal configuration anyway; my earlier hang came from building it =3Dy
+>> in a self-contained
+>> image, so it probed in the initcalls (around 2 s) and the genpd ->
+>> I2C-PMIC regulator
+>> transition ran before the system was ready. As a module it loads from
+>> udev much later
+>> (~6.8 s here), after the I2C controller and regulator core are fully up.
+>>=20
+>> On your question of when the device-link error is printed - it is at
+>> power-domain
+>> controller probe, not at the rocket probe:
+>>=20
+>>   [    2.700618] vdd_npu: Bringing 500000uV into 825000-825000uV
+>>   [    2.749637] rockchip-pm-domain fdd90000.power-management:power-cont=
+roller:
+>>                  Failed to create device link (0x180) with supplier 0-00=
+20 for
+>>                  /power-management@fdd90000/power-controller/power-domai=
+n@6
+>>   [    2.945955] platform fde40000.npu: Adding to iommu group 3
+>>   ...
+>>   [    6.840374] rocket: loading out-of-tree module taints kernel.
+>>   [    6.877647] [drm] Initialized rocket 0.0.0 for rknn on minor 0
+>>   [    6.879950] rocket fde40000.npu: Rockchip NPU core 0 version: 0
+>>=20
+>> So the device-link to the rk809 PMIC (0-0020) fails to form at ~2.75
+>> s, well before rocket
+>> loads at ~6.8 s. It is non-fatal here - the vdd_npu rail is brought up
+>> by the regulator core
+>> and all jobs run - and there is no "failed to get ack on domain npu"
+>> NoC warning this boot
+>> (the always-on kernel had one). The complete boot log is attached.
+>>=20
+>> Two notes / one question:
+>> - This boot used fw_devlink=3Dpermissive on the command line. Is the
+>> "Failed to create device
+>>   link ... supplier 0-0020" at pmdomain probe expected/benign, or is
+>> there a clean way to make
+>>   it order correctly (so it also works without permissive, and a =3Dy
+>> build wouldn't deadlock in
+>>   the initcalls)?
+>
+> We encountered the same issue on the RK3588 NPU before. And it was
+> resolved with the following patch at that time.
+>
+> https://lore.kernel.org/all/20251216055247.13150-1-rmxpzlb@gmail.com/
+>
+> Please compare the differences in NPU pmdomain and DTS configuration
+> between the RK3568 and RK3588.
 
-Changes from v4 to v5:
-- Updated the DOE Abort handling setion.
+About a month ago on #linux-rockchip we were discussing PM 'stuff':
+https://libera.catirclogs.org/linux-rockchip/2026-05-15#39939137;
+which references this paste
+https://paste.sr.ht/~diederik/89d9f84e22474e837b55286d213b67f03859ce2e
+I've since removed the DCDC_REG2 for PineTab2 and the 'fix' should likely
+be extended to cover all RK3566/RK3568 devices though.
 
-Changes from v3 to v4:
-- Updated the maximum size of the DOE object from 256KB to 1MB,
-  as per PCIe spec.
-- Updated the DOE setup and cleanup sections.
+It's what I made at the time hoping to fix a suspend/resume issue when
+trying upstream TF-A. It didn't fix the issue at the time, but may still
+be useful/needed and I think it's what Chaoyi hinted at.
 
-Changes from v2 to v3:
-- Rebased on 7.1-rc1.
+Just yesterday, Jonas posted this patch which may be useful/needed too:
+https://lore.kernel.org/linux-rockchip/20260609154124.445182-1-jonas@kwiboo=
+.se/
 
-Changes since v1:
-- Squashed the patches [1] and [2], and moved the documentation file
-  to Documentation/PCI/endpoint/pci-endpoint-doe.rst to match the existing
-  naming scheme, as suggested by Niklas Cassel
-- Updated the documentation as per the design and implementaion changes
-  made to previous patches in this series:
-  * Updated for static protocol array instead of dynamic registration
-  * Documented asynchronous callback model
-  * Updated request/response flow with new callback signature
-  * Updated memory ownership: DOE core frees request, driver frees response
-  * Updated initialization and cleanup sections for new APIs
+HTH,
+  Diederik
 
-v4: https://lore.kernel.org/all/20260522052434.802034-5-a-garg7@ti.com/
-v3: https://lore.kernel.org/all/20260427051725.223704-5-a-garg7@ti.com/
-v2: https://lore.kernel.org/all/20260401073022.215805-5-a-garg7@ti.com/
-v1: [1] https://lore.kernel.org/all/20260213123603.420941-2-a-garg7@ti.com/
-    [2] https://lore.kernel.org/all/20260213123603.420941-5-a-garg7@ti.com/
-
- Documentation/PCI/endpoint/index.rst          |   1 +
- .../PCI/endpoint/pci-endpoint-doe.rst         | 333 ++++++++++++++++++
- 2 files changed, 334 insertions(+)
- create mode 100644 Documentation/PCI/endpoint/pci-endpoint-doe.rst
-
-diff --git a/Documentation/PCI/endpoint/index.rst b/Documentation/PCI/endpoint/index.rst
-index dd1f62e731c9..7c03d5abd2ef 100644
---- a/Documentation/PCI/endpoint/index.rst
-+++ b/Documentation/PCI/endpoint/index.rst
-@@ -9,6 +9,7 @@ PCI Endpoint Framework
- 
-    pci-endpoint
-    pci-endpoint-cfs
-+   pci-endpoint-doe
-    pci-test-function
-    pci-test-howto
-    pci-ntb-function
-diff --git a/Documentation/PCI/endpoint/pci-endpoint-doe.rst b/Documentation/PCI/endpoint/pci-endpoint-doe.rst
-new file mode 100644
-index 000000000000..679844e36493
---- /dev/null
-+++ b/Documentation/PCI/endpoint/pci-endpoint-doe.rst
-@@ -0,0 +1,333 @@
-+.. SPDX-License-Identifier: GPL-2.0-only OR MIT
-+
-+.. include:: <isonum.txt>
-+
-+=============================================
-+Data Object Exchange (DOE) for PCIe Endpoint
-+=============================================
-+
-+:Copyright: |copy| 2026 Texas Instruments Incorporated
-+:Author: Aksh Garg <a-garg7@ti.com>
-+:Co-Author: Siddharth Vadapalli <s-vadapalli@ti.com>
-+
-+Overview
-+========
-+
-+DOE (Data Object Exchange) is a standard PCIe extended capability feature
-+introduced in the Data Object Exchange (DOE) ECN for PCIe r5.0. It is an optional
-+mechanism for system firmware/software running on root complex (host) to perform
-+:ref:`data object <data-object-term>` exchanges with an endpoint function. Each
-+data object is uniquely identified by the Vendor ID of the vendor publishing the
-+data object definition and a Data Object Type value assigned by that vendor.
-+
-+Think of DOE as a sophisticated mailbox system built into PCIe. The root complex
-+can send structured requests to the endpoint device through DOE mailboxes, and
-+the endpoint device responds with appropriate data. DOE mailboxes are implemented
-+as PCIe Extended Capabilities in endpoint devices, allowing multiple mailboxes
-+per function, each potentially supporting different data object protocols.
-+
-+The DOE support for root complex devices has already been implemented in
-+``drivers/pci/doe.c``.
-+
-+How DOE Works
-+=============
-+
-+The DOE mailbox operates through a simple request-response model:
-+
-+1. **Host sends request**: The root complex writes a data object (vendor ID, type,
-+   and payload) to the DOE write mailbox register (one DWORD at a time) of the
-+   endpoint function's config space and sets the GO bit in the DOE Control register
-+   to indicate that a request is ready for processing.
-+2. **Endpoint processes**: The endpoint function reads the request from DOE write
-+   mailbox register, sets the BUSY bit in the DOE Status register, identifies the
-+   protocol of the data object, and executes the appropriate handler.
-+3. **Endpoint responds**: The endpoint function writes the response data object to the
-+   DOE read mailbox register (one DWORD at a time), and sets the READY bit in the DOE
-+   Status register to indicate that the response is ready. If an error occurs during
-+   request processing (such as unsupported protocol or handler failure), the endpoint
-+   sets the ERROR bit in the DOE Status register instead of the READY bit.
-+4. **Host reads response**: The root complex retrieves the response data from the DOE read
-+   mailbox register once the READY bit is set in the DOE Status register, and then writes
-+   any value to this register to indicate a successful read. If the ERROR bit was set,
-+   the root complex discards the response and performs error handling as needed.
-+
-+Each mailbox operates independently and can handle one transaction at a time. The
-+DOE specification supports data objects of size up to 1MB (2\ :sup:`18` dwords).
-+
-+For complete DOE capability details, refer to `PCI Express Base Specification Revision 7.0,
-+Section 6.30 - Data Object Exchange (DOE)`.
-+
-+Key Terminologies
-+=================
-+
-+.. _data-object-term:
-+
-+**Data Object**
-+  A structured, vendor-defined, or standard-defined message exchanged between
-+  root complex and endpoint function via DOE capability registers in configuration
-+  space of the function.
-+
-+**Mailbox**
-+  A DOE capability on the endpoint device, where each physical function can have
-+  multiple mailboxes.
-+
-+**Protocol**
-+  A specific type of DOE communication data object identified by a Vendor ID and Type.
-+
-+**Handler**
-+  A function that processes DOE requests of a specific protocol and generates responses.
-+
-+Architecture of DOE Implementation for Endpoint
-+===============================================
-+
-+.. code-block:: text
-+
-+       +------------------+
-+       |                  |
-+       |   Root Complex   |
-+       |                  |
-+       +--------^---------+
-+                |
-+                | Config space access
-+                |   over PCIe link
-+                |
-+     +----------v-----------+
-+     |                      |
-+     |    PCIe Controller   |
-+     |      as Endpoint     |
-+     |                      |
-+     |  +-----------------+ |
-+     |  |   DOE Mailbox   | |
-+     |  +-------^---------+ |
-+     +----------|-----------+
-+    +-----------|---------------------------------------------------------------+
-+    |           |                                       +--------------------+  |
-+    | +---------v--------+           Allocate           |  +--------------+  |  |
-+    | |                  |-------------------------------->|   Request    |  |  |
-+    | |   EP Controller  |                            +--->|    Buffer    |  |  |
-+    | |      Driver      |             Free           | |  +--------------+  |  |
-+    | |                  |--------------------------+ | |                    |  |
-+    | +--------^---------+                          | | |                    |  |
-+    |          |                                    | | |                    |  |
-+    |          |                                    | | |                    |  |
-+    |          | pci_ep_doe_process_request()       | | |                    |  |
-+    |          |                                    | | |                    |  |
-+    | +--------v---------+             Free         | | |                    |  |
-+    | |                  |----------------------------+ |         DDR        |  |
-+    | |    DOE EP Core   |<----+                    |   |                    |  |
-+    | |  (pci-ep-doe.c)  |     |     Discovery      |   |                    |  |
-+    | |                  |-----+  Protocol Handler  |   |                    |  |
-+    | +--------^---------+                          |   |                    |  |
-+    |          |                                    |   |                    |  |
-+    |          | protocol_handler()                 |   |                    |  |
-+    |          |                                    |   |                    |  |
-+    | +--------v---------+                          |   |                    |  |
-+    | |                  |                          |   |  +--------------+  |  |
-+    | | Protocol Handler |                          +----->|   Response   |  |  |
-+    | |      Module      |-------------------------------->|    Buffer    |  |  |
-+    | | (CMA/SPDM/Other) |           Allocate           |  +--------------+  |  |
-+    | |                  |                              |                    |  |
-+    | +------------------+                              |                    |  |
-+    |                                                   +--------------------+  |
-+    +---------------------------------------------------------------------------+
-+
-+Initialization and Cleanup
-+--------------------------
-+
-+**Framework Initialization and DOE Setup**
-+
-+The EPC core automatically initializes and sets up DOE mailboxes through the
-+``pci_epc_init_capabilities()`` internal function, which is invoked during
-+``pci_epc_init_notify()`` when the controller driver calls this API.
-+Controller drivers do not need to explicitly handle DOE initialization,
-+rather the EPC core manages this transparently.
-+
-+DOE initialization only occurs when the EPC driver reports DOE capability
-+through the ``doe_capable`` flag in its ``pci_epc_features``.
-+
-+This internal function performs the following steps:
-+
-+1. Calls ``pci_ep_doe_init(epc)`` to initialize the xarray data structure
-+   (a resizable array data structure defined in linux) named ``doe_mbs`` that
-+   stores metadata of DOE mailboxes for the controller in ``struct pci_epc``.
-+2. Calls ``pci_epc_doe_setup(epc)`` to discover all DOE capabilities in the
-+   endpoint function's configuration space for each function. For each
-+   discovered DOE capability, calls ``pci_ep_doe_add_mailbox(epc, func_no,
-+   cap_offset)`` to register the mailbox.
-+
-+Each DOE mailbox structure created by ``pci_ep_doe_add_mailbox()`` gets an
-+ordered workqueue allocated for processing DOE requests sequentially for that
-+mailbox, enabling concurrent request handling across different mailboxes. Each
-+mailbox is uniquely identified by the combination of physical function number
-+and capability offset for that controller.
-+
-+**Cleanup**
-+
-+The EPC core automatically cleans up DOE mailboxes through the
-+``pci_epc_deinit_capabilities()`` internal function, which is invoked during
-+``pci_epc_deinit_notify()`` when the controller driver calls this API.
-+Controller drivers do not need to explicitly handle DOE cleanup, rather
-+the EPC core manages this transparently.
-+
-+DOE cleanup only occurs when the EPC device reported DOE capability
-+through the ``doe_capable`` flag in its ``pci_epc_features``.
-+
-+This internal function calls ``pci_ep_doe_destroy(epc)``, which destroys all
-+registered mailboxes, cancels any pending tasks, flushes and destroys the
-+workqueues, and frees all memory allocated to the mailboxes.
-+
-+Protocol Handler Support
-+------------------------
-+
-+Protocol implementations (such as CMA, SPDM, or vendor-specific protocols) are
-+supported through a static array of protocol handlers.
-+
-+When a new DOE protocol library is introduced, its handler function is added to
-+the static ``pci_doe_protocols`` array in ``drivers/pci/endpoint/pci-ep-doe.c``.
-+The discovery protocol (VID = 0x0001 (PCI-SIG vendor ID), Type = 0x00 (discovery
-+protocol)) is included in this static array and handled internally by the
-+DOE EP core.
-+
-+Request Handling
-+----------------
-+
-+The complete flow of a DOE request from the root complex to the response:
-+
-+**Step 1: Root Complex → EP Controller Driver**
-+
-+The root complex writes a DOE request (Vendor ID, Type, and Payload) to the
-+DOE write mailbox register in the endpoint function's configuration space and sets
-+the GO bit in the DOE Control register, indicating that the request is ready for
-+processing.
-+
-+**Step 2: EP Controller Driver → DOE EP Core**
-+
-+The controller driver reads the request header to determine the data object
-+length. Based on this length field, it allocates a request buffer in memory
-+(DDR) of the appropriate size. The driver then reads the complete request
-+payload from the DOE write mailbox register and converts the data from
-+little-endian format (the format followed in the PCIe transactions over the
-+link) to CPU-native format using ``le32_to_cpu()``. The driver defines a
-+completion callback function with signature ``void (*complete)(struct pci_epc *epc,
-+u8 func_no, u16 cap_offset, int status, u16 vendor, u8 type, void *response_pl,
-+size_t response_pl_sz)`` to be invoked when the request processing completes.
-+The driver then calls ``pci_ep_doe_process_request(epc, func_no, cap_offset,
-+vendor, type, request, request_sz, complete)`` to hand off the request to the
-+DOE EP core. This function returns immediately after queuing the work
-+(without blocking), and the driver sets the BUSY bit in the DOE Status register.
-+
-+**Step 3: DOE EP Core Processing**
-+
-+The DOE EP core creates a task structure and submits it to the mailbox's ordered
-+workqueue. This ensures that requests for each mailbox are processed
-+sequentially, one at a time, as required by the DOE specification. It looks up
-+the protocol handler based on the Vendor ID and Type from the request header,
-+and executes the handler function.
-+
-+**Step 4: Protocol Handler Execution**
-+
-+The workqueue executes the task by calling the registered protocol handler:
-+``handler(request, request_sz, &response, &response_sz)``. The handler processes
-+the request, allocates a response buffer in memory (DDR), builds the response
-+data, and returns the response pointer and size. For the discovery protocol,
-+the DOE EP core handles this directly without invoking an external handler.
-+
-+**Step 5: DOE EP Core → EP Controller Driver**
-+
-+After the protocol handler completes, the DOE EP core frees the request buffer,
-+and invokes the completion callback provided by the controller driver asynchronously.
-+The callback receives the struct pci_epc, function number, capability offset (to
-+identify the mailbox), status code indicating the result of request processing,
-+vendor ID and type of the data object, the response buffer, and its size.
-+
-+**Step 6: EP Controller Driver → Root Complex**
-+
-+The controller driver converts the response from CPU-native format to
-+little-endian format using ``cpu_to_le32()``, writes the response to DOE read
-+mailbox register, and sets the READY bit in the DOE Status register. The root
-+complex then reads the response from the read mailbox register. Finally, the controller
-+driver frees the response buffer (which the handler allocated).
-+
-+Asynchronous Request Processing
-+-------------------------------
-+
-+The DOE-EP framework implements asynchronous request processing because an
-+endpoint function can have multiple instances of DOE mailboxes, and requests may
-+be interleaved across these mailboxes. Request processing of one mailbox should
-+not result in blocking request processing of other mailboxes. Hence, requests
-+on each mailbox need to be handled in parallel for optimization.
-+
-+For the EP controller driver to handle requests on multiple mailboxes in
-+parallel, ``pci_ep_doe_process_request()`` must be asynchronous. The function
-+returns immediately after submitting the request to the mailbox's workqueue,
-+without waiting for the request to complete. A completion callback provided by
-+the controller driver is invoked asynchronously when request processing
-+finishes. This asynchronous design enables concurrent processing of requests
-+across different mailboxes.
-+
-+Abort Handling
-+--------------
-+
-+The DOE specification allows the root complex to abort ongoing DOE operations
-+by setting the ABORT bit in the DOE Control register.
-+
-+**Trigger**
-+
-+When the root complex sets the ABORT bit, the EP controller driver detects this
-+condition (typically in an interrupt handler or register polling routine). The
-+action taken depends on the timing of the abort:
-+
-+- **ABORT before request transfer**: If the ABORT bit is set before the root complex
-+  transfers the request to the mailbox registers, the controller driver should not
-+  call ``pci_ep_doe_abort()`` API.
-+
-+- **ABORT during request transfer**: If the ABORT bit is set while the root complex
-+  is still transferring the request to the mailbox registers, the controller driver
-+  should discard the request, and should not call ``pci_ep_doe_abort()`` and
-+  ``pci_ep_doe_process_request()`` APIs in the respective IRQ handlers.
-+
-+- **ABORT after request submission**: If the ABORT bit is set after the request
-+  has been fully received and submitted to the DOE EP core via
-+  ``pci_ep_doe_process_request()``, the controller driver must call
-+  ``pci_ep_doe_abort(epc, func_no, cap_offset)`` for the affected mailbox to
-+  perform abort sequence in the DOE EP core.
-+
-+**Abort Sequence**
-+
-+The abort function sets the CANCEL flag on the mailbox to prevent queued requests
-+from starting. Instead of waiting for the workqueue to flush, it returns immediately.
-+
-+The CANCEL flag gets cleared after invoking the completion callback, allowing the
-+mailbox to accept new requests.
-+
-+Queued requests that have not started execution will be aborted with an error
-+status. The currently executing request will complete normally, and the controller
-+will reject the response if it arrives after the abort sequence has been triggered.
-+
-+.. note::
-+   Independent of when the ABORT bit is triggered, the controller driver must
-+   clear the ERROR, BUSY, and READY bits in the DOE Status register after
-+   completing the abort operation to reset the mailbox to an idle state.
-+
-+Error Handling
-+--------------
-+
-+Errors can occur during DOE request processing for various reasons, such as
-+unsupported protocols, handler failures, or memory allocation failures.
-+
-+**Error Detection**
-+
-+When an error occurs during DOE request processing, the DOE EP core propagates this error
-+back to the controller driver either through the ``pci_ep_doe_process_request()`` return value,
-+or the status code passed to the completion callback.
-+
-+**Error Response**
-+
-+When the controller driver receives an error code, it sets the ERROR bit in the DOE Status
-+register instead of writing a response to the read mailbox register, and frees the buffers.
-+
-+API Reference
-+=============
-+
-+.. kernel-doc:: drivers/pci/endpoint/pci-ep-doe.c
-+   :export:
--- 
-2.34.1
+>> - (The convolution output is still uniform zero-point / the job times
+>> out - that is the
+>>   separate NPU compute-completion issue, unrelated to the power-domain
+>> work. Finley, that is
+>>   the one I flagged earlier re PVTPLL/NoC.)
+>>=20
+>> Kind regards,
+>> Midgy
+>>=20
 
 
