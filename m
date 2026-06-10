@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F212CD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7675FCD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 01:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xT9TRXqNVQ4NrOZ7G30C+sE2EpbR+Jn/B+pjkgNcIuw=; b=C9G0k6jaaPrzvKkDoMX9lomoJ/
-	bugl7qmhxPCHKH1hD4nNVj7kczvg9ZBER52gRwhinMDp3cjqnMFrBGsLvfKwM9ByCF2ieRnqzvuRQ
-	cwH4nHHZfCVi6FjgODle2tDvxD9ZpNuuIrWZhNcAS9xoRiyKkoDpUgTakcWMb+Tl4WHkoD40BDWZL
-	BM1PO1kkrXQirM+YNEM88AAW9gg40MKr6fVZj35fFVoRbmlkjqR4x4Yo37AEssSTjU6OeaROgLslR
-	yFIgfcm5UTByhuVinkmRPzUKt1vWY/LOhLCHnEO20pxssRpBMq7x8tqQuHRhBnIi8SgzYBvFGOYD9
-	3ivlj9ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pUH4vpTTcuqb8I5puK3jULXEG1NkGmpFTMLsVnbq6C8=; b=HzRCqHpww3BJ8w
+	7/k4UDRWF7JARePFowQn+Enf9Efy5rP/wADnSNAI4Ep74NmtN6bUGCQ9jEGkhRNbX0jx1pDwZ8VGI
+	MrVmGSJLqPunjZ9vIDYG8VnDVorz8Xf4ZKEz9GDVtKh7Kt8IqhN07kypXIl18wrmfVb4Yvknu1Hyf
+	TC0CBviKibv8Anzn9HysZkLc4n22Z/E4z+YMyBElbf9jLvtRHNTuNQ5QuT6ZL4qnPn1D/7CvT6VjL
+	TlMHR4EfWqdVhugLE6C+nhfhieuOYH4jsROzE0qbvzNa1wbiWmCpof12ZdhT1Su9utFBljAkIibKH
+	Li/sMbDIlK05hijhfkHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7WM-00000006bo3-40Kg;
-	Wed, 10 Jun 2026 01:14:18 +0000
-Received: from mail-m60224.netease.com ([210.79.60.224])
+	id 1wX7cg-00000006cMk-2vO6;
+	Wed, 10 Jun 2026 01:20:50 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7WJ-00000006bmJ-1IzI;
-	Wed, 10 Jun 2026 01:14:17 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 41bfeee6e;
-	Wed, 10 Jun 2026 09:14:04 +0800 (GMT+08:00)
-Message-ID: <b05f7154-e85f-4207-80ae-f080282ba780@rock-chips.com>
-Date: Wed, 10 Jun 2026 09:14:02 +0800
+	id 1wX7ce-00000006cMB-0VB0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Jun 2026 01:20:49 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c86214eead7so1429767a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Jun 2026 18:20:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781054447; x=1781659247; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pUH4vpTTcuqb8I5puK3jULXEG1NkGmpFTMLsVnbq6C8=;
+        b=N8OfQOATx/vTmF7TTrhZLx4BY2Pwizhs/o1xWb3TCIOnMPTie0AJhwt9fvU7Ej2COP
+         53azKtFdK/+rikpsJfAd6pvm6vIT4xN4dmPQKmVpWIeLXBckNeQZ6AxeZpZh6FfWvdGK
+         EPOo1dujdtr0BFprnU9Gci0W4HNTCGVEA/f/3NeuOndDMoInldn4GzraLJZstzJ8oLGq
+         3JtK/lOh0OWTzSxUrHSNEBnrdLhovkYMj1hc3tc4owIW0pTKAClbwKbKFfurX2Gh3+Cv
+         xc5jcATLQGDDjax3WHlhE044z/rGkknYwm/FTv/Y80zEUpJVV2AE/H3F5jU3o9Hv32ES
+         HGcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781054447; x=1781659247;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pUH4vpTTcuqb8I5puK3jULXEG1NkGmpFTMLsVnbq6C8=;
+        b=o+5VKl7JeB/wTrue78hr0cRa651hBebQ+2DSdU7bVW/915dxKRtwhuUlE/j2EadX2G
+         4RjBnUvqaIn3OuuXU2QiYik/0btAMP9D86JWDQZRJNkSFltUZaDIIYr/TWcvBfSh6d0U
+         I4A1LkzaBHxNRJNYgDv2E4YcDvg21w8OCHavtNRQ2GRMZFRb3xoNTJDEO14hJo64OeYT
+         v0CGXBKwosQUWz1xTzKz+6dhTyP3nOOVAnKLpaZuh6lcbsIrIoYgfEmCcPWAfU4pUC46
+         m1twig7Y/H9ysR3WSol3fVHfw+1lsy640F1nzG6cm519hbsJc4cVm3LB+Xlh/VJ7NXRa
+         QvFg==
+X-Forwarded-Encrypted: i=1; AFNElJ+ylSOa0q50P4M2IIbBuM5CpInsK5ho0Pwz1ji/wXSUtI4GYW1+PIoN8vTwWYsAIcvDUHJitvuayLATe2NKVOsI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAJybRqGYxXB4Xvr6ZsE7wKPpG7jphTS5zje/ncETyaURpB7Mo
+	Q0LpVTu5wogfWvR6L2+JHn6FeM/Bs8T44NVN3VgouQ7AjSQ+Kg6tH5DS
+X-Gm-Gg: Acq92OHmHk4Tz6ZEPDJhKAA+llXkOYsFrrWabc+VTUkrNfBxcVVcU42XezEdpfoD4Ae
+	WAXN0V02E1dlXh9iXSsvb8hqoQxT57oDLtw1m0GeHOmJgjeB9n+/AWw7l6REv5m+4s3fPaQdIGA
+	Qind2yZdPVaeFsIQcYV/bZ8QiuR03ntaiQiQ23HflP5OBQVRazibPXd2GK/GAJ765UvTfSGMiDR
+	GVSVV2AVWZqOm4LWssCsKeOgP9HqU5sQD84M75ShKpbt4XQHSx84kJz0CEQfDSkaeA2MdCjTA62
+	d3FP7cCSP6vioZ4pRONRaKtYh2rxtKDFafE+q4E8iNabSc3b9rRQ61VDWpEndKFNtw+ue1TXj2p
+	5YIhCPZBH/bpdqjLgTZ6zl1ErkQA0gfnyq+gCCR4msp70sSd4/jgef3QhiHy1geiO/HUnwzWz8p
+	B7ZQfjJkWJtXydGwyTVWB25aow85WC4kWutohAHa+RB0kyVOKo2H1hsNM9idFPdNRKl3hZymoAV
+	g==
+X-Received: by 2002:a05:6a20:244c:b0:3b3:6db1:5986 with SMTP id adf61e73a8af0-3b4d3d5e346mr19126727637.30.1781054446615;
+        Tue, 09 Jun 2026 18:20:46 -0700 (PDT)
+Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df0b2ddbsm18858370a12.24.2026.06.09.18.20.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 18:20:45 -0700 (PDT)
+From: Kyle Hsieh <kylehsieh1995@gmail.com>
+Subject: [PATCH v6 0/2] Add Meta(Facebook) ventura2 BMC(AST2600)
+Date: Wed, 10 Jun 2026 09:22:21 +0800
+Message-Id: <20260610-ventura2_initial_dts-v6-0-375d8e9d7ebf@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 0/9] accel: rocket: Add RK3568 NPU support
-To: Midgy Balon <midgy971@gmail.com>
-Cc: tomeu@tomeuvizoso.net, ogabbay@kernel.org, heiko@sntech.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joro@8bytes.org,
- will@kernel.org, robin.murphy@arm.com, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, Simon Xue <xxm@rock-chips.com>,
- Finley Xiao <finley.xiao@rock-chips.com>
-References: <20260604135255.62682-1-midgy971@gmail.com>
- <3d99569e-9c3a-49d1-93fb-1335382523e9@rock-chips.com>
- <CA+GS1Y1s78PwN63X2YJoS8VEGp7CpTERo_K65yKs00U4VRAw4Q@mail.gmail.com>
- <e5058919-9485-4de5-8eea-331ebfc2987c@rock-chips.com>
- <CA+GS1Y3ysdWZ3qCq3ip_Pbw+v4LxHZd95aBo=jwB+orYaMBBNw@mail.gmail.com>
- <CA+GS1Y0kAM_XGLQuKPTphif2HcQg18ZXhd8RHHr2xPOEMCDvXA@mail.gmail.com>
- <bcedaff0-abf8-4585-a0ea-057062cd0411@rock-chips.com>
- <CA+GS1Y2-hRqpGgsknh+oOX+-uZ3DZtdekdP9viTP6a40zhhUhg@mail.gmail.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <CA+GS1Y2-hRqpGgsknh+oOX+-uZ3DZtdekdP9viTP6a40zhhUhg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9eaf17f7ca03a7kunm086ddc0f265e19
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTkIaVhgaT0JNSExLGhoeQlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=JMc/acb2P5/j0WDgBoNYDEgabsrTG6UUouYskrbbIrI3+e1FIjV+cY3SVNG0i6tQBYa65TADufI1IrcgOpVVxNrpxG7VhU9HVuUDORdfhEobuPvJC/wPn9SI+ziLIe3dHBTZ3H2EfowPzM3i1R4/7UXBr2WSPouPPyabXZj+Hlc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=xT9TRXqNVQ4NrOZ7G30C+sE2EpbR+Jn/B+pjkgNcIuw=;
-	h=date:mime-version:subject:message-id:from;
+X-B4-Tracking: v=1; b=H4sIAE28KGoC/4XOwWoDIRCA4VcJnmvRUcfdnvoeJQRdNRlIdotup
+ CXsu9cESkLK0uM/MN/MhZWYKRb2trmwHCsVmsYW+LJhw8GN+8gptGYgwEgA4DWO8zk72NFIM7n
+ jLsyF96L3CqwNiIa11c8cE33d2I9t6wOVecrftytVXqf/gFVywWUSKBEH2zn1vj85Or4O04ldw
+ QqPiF5BoCFJ9so7E7SwfxD1i6CQUq0gqiEQfAoOnfHaPiP6jujVT3RDOoFeiOi0kvoZMXcERbe
+ CmIYoG6PxQzKdx0dkWZYfJ2EQ1swBAAA=
+X-Change-ID: 20251222-ventura2_initial_dts-909b3277d665
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Kyle Hsieh <kylehsieh1995@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3264;
+ i=kylehsieh1995@gmail.com; h=from:subject:message-id;
+ bh=8Jq4+7GVcOBKAyUmh61mLdl1eJHUvEKS8qVvLj4xWJU=;
+ b=owEBbQGS/pANAwAKAaWDQrcJVsSBAcsmYgBqKLxQz5qAfvzO4jxu9b6YJUKWGKm/aRg5aCp8u
+ B24zB0LZ3iJATMEAAEKAB0WIQTJHsaNZOdY+THGqJelg0K3CVbEgQUCaii8UAAKCRClg0K3CVbE
+ gXYOCADIiQLAI8zfQcQ9SBWy51b1ync2ztOKHBSaZME7sVhPCmByKYs8LY3CDzTSVlLjgf4+07P
+ 0dejRle1qw/DTXvsWMNy1XKmjAK8RxF6OvS7xY8nKJpefUv25ljPLNhIxo/tbDBMlC1Lgk3eoyV
+ 9+TL/dpe1mYVCLQ+gSy7tav9nxr9lorGts1jZ7fQHN5l/qDIwQlO9+LyEVTE5y7TYdR2c5gDLg0
+ mlyfNzrGq71+yok6pbaJUrvLxoOiioP9NoXCLhlsXx1bxR0ftMQUTmotM7p0+04DPevQ1D4c3gn
+ AiJGC9aObJLixyOcBY1unRxYKQzQDGNaFD5VZF0Nf3sGsQ0h
+X-Developer-Key: i=kylehsieh1995@gmail.com; a=openpgp;
+ fpr=C91EC68D64E758F931C6A897A58342B70956C481
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_181415_922783_9122EFAC 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20260609_182048_168133_CBCC9052 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,85 +119,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Midgy,
+Summary:
+Add linux device tree entry related to Meta(Facebook) ventura2.
+specific devices connected to BMC(AST2600) SoC.
 
-On 6/9/2026 7:11 PM, Midgy Balon wrote:
-> Hello Chaoyi,
-> 
-> You were right - building rocket as a module fixes it. Thanks for the pointer.
-> 
-> I rebuilt with CONFIG_DRM_ACCEL_ROCKET=m (everything else the same:
-> need_regulator on
-> the RK3568 NPU power domain via a DOMAIN_M_R variant, domain-supply =
-> <&vdd_npu>, and the
-> regulator-always-on workaround dropped). The board now boots cleanly
-> and, more importantly,
-> an NPU job submit no longer hangs: I ran the test workload five times
-> with no RCU stall and
-> no freeze.
-> 
-> So with rocket=m the need_regulator approach works on RK3568, and I'll
-> keep it for v4
-> (domain-supply + need_regulator, instead of marking vdd_npu
-> always-on). rocket=m is the
-> normal configuration anyway; my earlier hang came from building it =y
-> in a self-contained
-> image, so it probed in the initcalls (around 2 s) and the genpd ->
-> I2C-PMIC regulator
-> transition ran before the system was ready. As a module it loads from
-> udev much later
-> (~6.8 s here), after the I2C controller and regulator core are fully up.
-> 
-> On your question of when the device-link error is printed - it is at
-> power-domain
-> controller probe, not at the rocket probe:
-> 
->   [    2.700618] vdd_npu: Bringing 500000uV into 825000-825000uV
->   [    2.749637] rockchip-pm-domain fdd90000.power-management:power-controller:
->                  Failed to create device link (0x180) with supplier 0-0020 for
->                  /power-management@fdd90000/power-controller/power-domain@6
->   [    2.945955] platform fde40000.npu: Adding to iommu group 3
->   ...
->   [    6.840374] rocket: loading out-of-tree module taints kernel.
->   [    6.877647] [drm] Initialized rocket 0.0.0 for rknn on minor 0
->   [    6.879950] rocket fde40000.npu: Rockchip NPU core 0 version: 0
-> 
-> So the device-link to the rk809 PMIC (0-0020) fails to form at ~2.75
-> s, well before rocket
-> loads at ~6.8 s. It is non-fatal here - the vdd_npu rail is brought up
-> by the regulator core
-> and all jobs run - and there is no "failed to get ack on domain npu"
-> NoC warning this boot
-> (the always-on kernel had one). The complete boot log is attached.
-> 
-> Two notes / one question:
-> - This boot used fw_devlink=permissive on the command line. Is the
-> "Failed to create device
->   link ... supplier 0-0020" at pmdomain probe expected/benign, or is
-> there a clean way to make
->   it order correctly (so it also works without permissive, and a =y
-> build wouldn't deadlock in
->   the initcalls)?
+Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
+---
+Changes in v6:
+- Addressed automated feedback from Sashiko bot:
+  * Clarified comments that io_expander0 and io_expander8 physically share the same interrupt line (Wired-OR) by hardware design.
+  * Removed leading zeros from unit addresses in DAC nodes (dac@c, dac@e, dac@f).
+  * Removed unused properties from the adc@48 node.
+- Link to v5: https://lore.kernel.org/r/20260608-ventura2_initial_dts-v5-0-37ee5bcf58b6@gmail.com
 
-We encountered the same issue on the RK3588 NPU before. And it was
-resolved with the following patch at that time.
+Changes in v5:
+- Addressed review comments:
+  * Added comments explaining the necessity of 'legacy_' prefixes (hardware label collision), pre-allocated I2C aliases (future expansions), and the 'ledd1' naming convention (schematic alignment).
+  * Removed the empty `&mdio0` node to comply with upstream networking subsystem guidelines.
+  * Removed the redundant `&peci0` node.
+  * Sorted `&kcs3` and `&lpc_ctrl` nodes in strict alphabetical order.
+- Hardware/DT alignment updates:
+  * Removed unpopulated sensors (adi,adt7461, infineon,tda38640, ti,ina230, ti,ina238) to accurately reflect the current board population.
+  * Added the secondary flash node (flash@1 labeled "e810") under the &spi2 bus.
+- Link to v4: https://lore.kernel.org/r/20260424-ventura2_initial_dts-v4-0-806b00ea4314@gmail.com
 
-https://lore.kernel.org/all/20251216055247.13150-1-rmxpzlb@gmail.com/
+Changes in v4:
+- Fixed capitalization: "ventura2" -> "Ventura2".
+- Reordered I2C child nodes in ascending order of unit addresses.
+- Enable PECI, LPC control, and KCS3 interfaces for host communication.
+- Configure MCTP controller on I2C4 and enable MCTP support for specific mux channels.
+- Add Infineon TDA38640 and TI INA230 power monitor nodes.
+- GPIO and Pinmux cleanup for PVT:
+    - Aligned gpio-line-names as requested.
+    - Remove unused or non-existent GPIO line names to align with Ventura2 PVT.
+    - Update specific GPIO pins to empty strings where signals were removed or consolidated.
+- Adjust SGPIOM frequency to 200kHz and update signal line names.
+- Enable UART3 and add serial2 alias.
+- Link to v3: https://lore.kernel.org/r/20260113-ventura2_initial_dts-v3-0-2dbfda6a5b47@gmail.com
 
-Please compare the differences in NPU pmdomain and DTS configuration
-between the RK3568 and RK3588.
+Changes in v3:
+- Add annotation for marvel 88e6393x
+- Modify the gpio-line-name
+- Modify the node order alphabetically
+- Modify dt-bindings document for rmc instead of bmc
+- Move the gpio-line-names to original node
+- Link to v2: https://lore.kernel.org/r/20251224-ventura2_initial_dts-v2-0-f193ba5d4073@gmail.com
 
-> - (The convolution output is still uniform zero-point / the job times
-> out - that is the
->   separate NPU compute-completion issue, unrelated to the power-domain
-> work. Finley, that is
->   the one I flagged earlier re PVTPLL/NoC.)
-> 
-> Kind regards,
-> Midgy
-> 
+Changes in v2:
+- Remove unused mdio
+- Link to v1: https://lore.kernel.org/r/20251222-ventura2_initial_dts-v1-0-1f06166c78a3@gmail.com
 
+---
+Kyle Hsieh (2):
+      dt-bindings: arm: aspeed: add Meta ventura2 board
+      ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
+ arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+ .../dts/aspeed/aspeed-bmc-facebook-ventura2.dts    | 2891 ++++++++++++++++++++
+ 3 files changed, 2893 insertions(+)
+---
+base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+change-id: 20251222-ventura2_initial_dts-909b3277d665
+
+Best regards,
 -- 
-Best, 
-Chaoyi
+Kyle Hsieh <kylehsieh1995@gmail.com>
+
 
