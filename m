@@ -4,110 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9C9CD8C90
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 17:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC1CCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 17:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/3Dk4DGAHT5kVdHZq2KMBq8jvYUI1MA69Ze3j0Sxuwo=; b=fybC8ZCzk2Z3HV0EfY4XVk6+cS
-	fb2WZ4MtB67HqO2VFPEi77BzTl/D5Q+xfZDCH6mcK/V1GR+26uJ+GPAyd7HSQzI3Hra2RB/rtW5Iw
-	KDAE8iVfxzAvQBWZfJHF/36hHNplqxyr/pBzbdfEP7Uw0iSMKo5/Z3z1Of5Ym+0to7YxK6VDwOGim
-	pdgMY45Dh3I/upbHoEWq13wRtlUhgCmx5ByR9T4JCZCXoRsoU8TuQE0iBbvP1htaAH32Ms3SYMHWR
-	Tnu2wq/spDsgdXsCljYoLj+iLp1t0jC1XqPn7ZGZiFVcBfu1DzG2O2Pq3ETyvXAHSnFfjzyQB7HVR
-	wvhcvD/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UnDtFKdEvW/DP/U/HdjN3QuQRr7tgJb5Z32jZ2PKP1A=; b=bvTvfz9JH4UXgC
+	W2ss7img3bAnxoF0by7Nz2RHvDWoN2nnX2UNCiVrekF0Ep3aHkaQPljDrrCnGM4E7N+qryChrKdd5
+	PtLZdBwFtkR5zLMJ+gZEQ6wmnHbBRIOjNgOg4OQQNUAtQwDcKkUkTO/p2fSB1KNU2jdbLaUat5oM1
+	8KYCm0MU/30sDK5so5q9/U9yBx3jMEHzNCXghozCX7VfDGYH5sOQuFOSYjXweUvpsdQf28ONimBWJ
+	UF5hmuXWk9khp/ITLmpjTu/bqfwGai9YCbFA4RLLYwc/C76AsAaSGzdfXkHD6yPbwcrOX5gTI+Y6v
+	l6O0KlsLwI0BiEmPNvOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXMUn-00000008B8E-3xCD;
-	Wed, 10 Jun 2026 17:13:41 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1wXN7M-00000008Cwj-3uuq;
+	Wed, 10 Jun 2026 17:53:32 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXMUl-00000008B7k-1EuI
+	id 1wXN7K-00000008Cvj-2xOG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 17:13:40 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-51765331535so25041cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 10:13:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781111617; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HFET1fX4PvY2HiI4Fnj4DKR/a/oatndRVqJ2bReRXssziV1xRy0B2VTSHM1GbMT1b1
-         oVQRYY2E3g2ZM3OqVPS9IrjUGwX1w6qWOVpC0HTiptskdpPCOO2YHRipXf+0KWp6r2kQ
-         HMMFlCCLnmkqzV0XrZh6fvr6vvevrNUaXPMzvkZWCYtln2iYw0AmzWfjJFd74sN2uVbj
-         +ltPPRsN/VCh46kfYZFtanwtJC4/c5ifsyx6gkcyIeBnpUdiIdFV8/gZ+xropvK0ToGx
-         ZJFwVvWerWkoN/G0Fx7+gcmosP6a3V7OxA4jClTuPjfodVdcwO63k2CWjy3Hj8hlHk02
-         8FXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/3Dk4DGAHT5kVdHZq2KMBq8jvYUI1MA69Ze3j0Sxuwo=;
-        fh=ubdP3pYgusd+X5wCh3qmfZFlHLwWvCyyS3Do7qo1VBA=;
-        b=lad9EggoD9Dnks8lldQZn+cs+oap92z2tbiMx6p1rRmiuRmNLlzFG4q6xouh0pYYNo
-         Z13CmIEawlPJEwf1XfzlIHYK+TrcZX5WY39/f+/keDuuoLv1KOxZ716eEN7e4QJJY+z7
-         J7cj5LyDy24KyObHXs7PJYkFcP+ErSokQQahLiJPCtkJSzJtVxIRtGuoQkz+3Cf1CAA7
-         iUT4Srvpu4r2byZs91u+VqYK97ajDPQd6ppTOl8/j8AGHzEjHeJWWmdNoEKrnP4KUteR
-         95j/ML8NHJ3ULYkFbfaYGl9A9YWaOZxw5SAkL/Hc+Cue8EGdh73uANnFDs7WqjHvjQDk
-         LZ5Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 10 Jun 2026 17:53:32 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490b613a17bso69531725e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 10:53:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781111617; x=1781716417; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/3Dk4DGAHT5kVdHZq2KMBq8jvYUI1MA69Ze3j0Sxuwo=;
-        b=Du4zRLAXPe9u88BgGktSTkvrMnbmsoVErpyxciyMG/AVyaMDusixbf/cfTmL+LPus5
-         2h/C7KSrdcTpBOCxJIFHgE5/z4gyHDwqhG4HinVawQywxNr+7Tk7Z60paKiOuFw6bJFM
-         R6FXUjbxGCGvtmQRx8+/12J9vyvY+oh6pKXrpaMgl7msD7oI/SCOt2pPHnQ5t1cw6AbO
-         8fBjRKMHcn0otp47Xn8l/92y8HE7qyiyjoHB4xQHIZ0ovyi0t/s3foJ/OHwMQz60/wIV
-         wZ5dkglkVSvWJdQHKHNIbkU/sh5ottMQLf8k7j/vrj61VKHjshzd4ZukT4yHA8YTFtg/
-         lsEA==
+        d=linaro.org; s=google; t=1781114008; x=1781718808; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UnDtFKdEvW/DP/U/HdjN3QuQRr7tgJb5Z32jZ2PKP1A=;
+        b=PZSRes9I4WH6Vdrgg3zVrvRtxchZAbl0P0PAoETgzD3SAWaDuYZepCgqjQ1NcpxljF
+         /1VVK9nTezkw0Fl1OyZ4CXwCDGDAcLASV08I8E+dxjWng9K6SRcCy2mW12eNGEOYuuXG
+         liBSQthOVo9vSwOHR4OZh/AGrlY2H2Z4R1u6mscZuhb/fyuYiL/OiSr0mvTiRbjfnUaO
+         SAU4vmYUSn53F0vgAT/05UjXj3yBL6o9Ra/lCz81c/iWk/ulK25UXpcFTNR7T4Sv6cJv
+         I5dDzJrRhn/jYt20jwyUlU3ay6/e+6WNNqcIxEawoX0jeXjYPiZIorxUMPEQydv26HvK
+         W8Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781111617; x=1781716417;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/3Dk4DGAHT5kVdHZq2KMBq8jvYUI1MA69Ze3j0Sxuwo=;
-        b=tDs+7lwUNjekD/9qzEthjW1dPbOZetvLdt8Rtfj+4xj6cd5WdXxaOALTJHc4Z6rdvZ
-         GUWy4WvjAzXCNqMNLiHLFJHV4pXKiixDiVhM+dUge65TnXUL/16e6Obl7Fb5Jlgy6BV5
-         2jGnLdFVwRVm6QXeNYZKBgsEx5MCzpTQYbhVP96ho5I+WXiBHjlQx6Cckqk4Mp0IhEzD
-         Ajcu83lR/I1jIDOTLwnb/qogijyUe5T+VguyUAjNTL5XUbah7Wna7gWDvv4fD0+/qxhF
-         xhQJPIXAoqba2T0//4fDwFlkoE4TvpOIXvUpaT9B2diebmmMpBmV71nv8Y6/BtkXDqLR
-         PsFw==
-X-Forwarded-Encrypted: i=1; AFNElJ92woU5yTjCw7wyLvMrHP8ibrYpcvkvWsLR7q75YPIZ2Fgae27aPr7uR2lp278SyCgrARQ+/OMvPJn8Eg3hpwj+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYZ1B5xHMzdlc8s6ndJuakin8a5Hy5SH/CNGIIAaKsi6C/cmrU
-	ulVE7fkQLoW8zm0WqqiRpihuR0E+Sr4LIpZNhWPENWP8r0NoiGxsOTcF0cv+BS3Qq+CR8GvXZ66
-	O0vXn9RoBBcU97WYFGcKseFgFKQkeCjonizim33xk
-X-Gm-Gg: Acq92OGRboLnENveBVuxgAfMgt9Ih9tOYzGw2Th7x6q0xg+ZHXgPjwBFacCeDafS19L
-	s3flJMdop/ZkUfZl5vg6/viE52sZxls3nbMdSw6oWXpy/G4p6fBZvpZqaFC7ArODVdAwuXoRUdc
-	nmeC6GmNc+tbIBYSMgcD8VyQAxX67E3m19iEKXgIELz8DFMNxVbWWTmPht+8u3IXQrm8CxB7JAg
-	7CyGzYz2+QodAQjxASBeIzbHuCn+XlEz4dmKGvgj/kCDBNYHVbGqCOsEd3V0fDfil02+o/Nhvs2
-	ZGSE3Q7vvWcAgis=
-X-Received: by 2002:a05:622a:5089:b0:510:fa1:73c5 with SMTP id
- d75a77b69052e-517e9657a18mr1278231cf.16.1781111616126; Wed, 10 Jun 2026
- 10:13:36 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1781114008; x=1781718808;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UnDtFKdEvW/DP/U/HdjN3QuQRr7tgJb5Z32jZ2PKP1A=;
+        b=qkDq4irs+fe5q/9ov6gCVA3evWelTmxfe7V95H2EdhE7wk5Nn3pHISPbUsLUrHSMjE
+         wamQXS4XVnbCcu0MJ75IDYhOonYJNwnrx7Rg3ch9FXvln9zvC4TyPuOdgQvOGt0nrRMx
+         +8Tjgmc1u+Rkxes7QV6ZFNlPYdRXQeW0jpmkcmWbF2np668FIpctjx40kGcq15MhD6h3
+         vipgrUcaWhuoke5uPSGF+YPg4UtZ7l032uSu6VciLV+2RQ/pqRJ22xE5FIr2eJvaOQnS
+         Opog12s4MmxG7fgGeJS9TUM1EtuLD4/18vliezdxox7FUW8iAeI9IkXy1iW4HzZt6PEO
+         gAcw==
+X-Gm-Message-State: AOJu0YwDLGXs7g0KaX7Le7ECNFWt0taEerfKzPBcAA/2Ov/wlyXLvSys
+	x2F2kLqPsBigYP1QkUfRcddSpKuYog5BPCBVC7QsidtRy+0oVUQM4WZS+T5ubpt7jUc8RPU81wk
+	L8d89gBA=
+X-Gm-Gg: Acq92OFi3ksos6FEhB9ieRjxUvJPCg8rgYsq2RcMNOaXR8KhkK9aZ7fbN1XAWEpPaGV
+	6BIM6zmr1Kh7FFkkljThKG0vkpSpDUe6r7cdlv/ygt8g/sSKlqzh9KfbbbmZu5fHrzBqiPHcpAn
+	AxDga8jNdyxAaHzBElwc2ugRtekp5xCavkjVEgwrg9b4mxmTAZo2m5+LzZ+1x+3svpdeAtIvFdY
+	JvBFNu+zHGleq1ljDpf7k7unGhg36IVYRxk0UCqbkuo/7pnxrZOPUD7RDjMxMAzpZ6ws2rhOvYU
+	oAfWiBsm8Zl0PlYzZGrVewMJJ5xtTH88HgBHJT1D3dKDxgViqKaO3oYwW5JAvNVoGHP6GGSeEey
+	ELK0ujytbyI74ppyBwpF6B4syzpyLw+1uQ5VKlXds1R2kexTZiyeSj8+SDPDt0lRn37t5cJsQc8
+	iyaXm7hQmvbjW1pEYm6WzUaRhCv3FLLMxM0HQWQ3WSUP6zEQ==
+X-Received: by 2002:a05:600c:a51:b0:490:b189:212d with SMTP id 5b1f17b1804b1-490d724314cmr106934435e9.33.1781114008509;
+        Wed, 10 Jun 2026 10:53:28 -0700 (PDT)
+Received: from [127.0.0.2] ([2a02:2454:ff23:4410:f160:c480:bee:c914])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2e4004sm73553248f8f.9.2026.06.10.10.53.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Jun 2026 10:53:28 -0700 (PDT)
+From: Stephan Gerhold <stephan.gerhold@linaro.org>
+Subject: [PATCH 0/2] clocksource/drivers/arm_arch_timer_mmio: Restore
+ support for early init
+Date: Wed, 10 Jun 2026 19:53:09 +0200
+Message-Id: <20260610-arm-arch-timer-mmio-early-v1-0-ac17218ec8b4@linaro.org>
 MIME-Version: 1.0
-References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-12-praan@google.com>
- <CAE2F3rCPgnFU=d5At1zrOLhsuVEbsweogOHGz9gDddRx73zRtw@mail.gmail.com>
- <aiEawEFsnG-LIahW@google.com> <CAE2F3rAWZ4Ac23D8eyAHfmaVVkHv8pz45+_dpMO1M4D7+RVCoA@mail.gmail.com>
- <aifsSxEXX64J1Etq@google.com> <CAE2F3rAGLH7si2S4aYhSUWyL-zZL7B_uo+WLE4zKY9SqKVi8zQ@mail.gmail.com>
- <aihzgtczL99fM-1c@google.com>
-In-Reply-To: <aihzgtczL99fM-1c@google.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Wed, 10 Jun 2026 10:13:25 -0700
-X-Gm-Features: AVVi8CewAZMr6roH_IQPlZnUww9uTnzxF93M2QjoTnsJlUETs84PkeRXRhhkFzU
-Message-ID: <CAE2F3rC1PkiwgJB4M-9qpRx2Tpu9d_5YZ_De_=Sv-aby=X3RRA@mail.gmail.com>
-Subject: Re: [PATCH v8 11/12] iommu/arm-smmu-v3: Invoke pm_runtime before hw access
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIWkKWoC/yXMwQ6CMBCE4Vche3aTAoLWVzEcahlljQWzBaIhv
+ DtFD3P4DvMvFKGCSJdsIcUsUYY+IT9k5DvXP8DSJlNhitrUxrLTkOY7HiVAOQQZGE5fX25hT3l
+ V2fKMI6X/W3GXz699bf6O0+0JP+5BWtcN5Er7EX0AAAA=
+X-Change-ID: 20260609-arm-arch-timer-mmio-early-de97155938e4
+To: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, Jack Matthews <jack@jackmatthe.ws>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_101339_372303_A1B046F2 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20260610_105330_776405_035B49C4 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,41 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 9, 2026 at 1:11=E2=80=AFPM Pranjal Shrivastava <praan@google.co=
-m> wrote:
->
-> On Tue, Jun 09, 2026 at 11:34:42AM -0700, Daniel Mentz wrote:
-> > On Tue, Jun 9, 2026 at 3:34=E2=80=AFAM Pranjal Shrivastava <praan@googl=
-e.com> wrote:
-> > > > I'm not sure if I have a good suggestion here. Have you considered =
-the
-> > > > following: Do not call arm_smmu_handle_gerror() from
-> > > > arm_smmu_runtime_suspend(). Instead, call disable_irq() at the end =
-of
-> > > > the suspend handler (and enable_irq() at the beginning of the resum=
-e
-> > > > handler)?
-> > >
-> > > I thought about using disable_irq(), but I think doing it at the
-> > > hardware level (IRQ_CTRL) is better.
-> > >
-> > > By disabling in IRQ_CTRL and keeping the manual arm_smmu_handle_gerro=
-r()
-> > > call at the end of suspend, we ensure that we don't lose any gerror i=
-nfo
-> > > We catch and handle any errors that occurred during the drain/quiesce
-> > > phase right before the power-down.
-> >
-> > I think the beauty of disable_irq() is that it synchronizes any
-> > potentially running hard IRQ handler, which helps avoid races.
->
-> Alright, I guess we could:
->
-> 1. SMMUEN=3D0
-> 2. IRQ_CTRL.gerror=3D0
+Jack reported a regression for some single-core Qualcomm platforms (e.g.
+MDM9625, MDM9607) that no longer boot because no timers can be found during
+early boot [1]. These platforms rely on an obscure timer setup where the
+global Arm MMIO timer (arm,armv7-timer-mem) is used as the only available
+timer for the CPU. This setup used to work fine until commit 0f67b56d84b4
+("clocksource/drivers/arm_arch_timer_mmio: Switch over to standalone
+driver") when the early timer initialization using TIMER_OF_DECLARE() was
+removed when moving to the standalone MMIO driver.
 
-Should we call arm_smmu_disable_irqs() here?
+There doesn't seem to be any other usable CPU timer on those platforms, so
+this series restores the early timer support using TIMER_OF_DECLARE()
+inside the new standalone arm_arch_timer_mmio driver. This is pretty ugly,
+but I could not think of a better solution so far. I tried to keep the
+ugliness for the two probe paths as limited as possible. :-)
 
-> 3. disable_irq();
-> 4. handle_gerror(); at the end of suspend
+If someone has a better idea how to solve this, I would be happy to try it.
+
+[1]: https://lore.kernel.org/r/46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws/
+
+Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
+---
+Stephan Gerhold (2):
+      clocksource/drivers/arm_arch_timer_mmio: Refactor for early init
+      clocksource/drivers/arm_arch_timer_mmio: Restore support for early init
+
+ drivers/clocksource/arm_arch_timer_mmio.c | 180 ++++++++++++++++++++----------
+ 1 file changed, 123 insertions(+), 57 deletions(-)
+---
+base-commit: 49e02880ec0a8c378e811bc9d85da188d7c6204c
+change-id: 20260609-arm-arch-timer-mmio-early-de97155938e4
+
+Best regards,
+--  
+Stephan Gerhold <stephan.gerhold@linaro.org>
+
 
