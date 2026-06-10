@@ -4,101 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D37CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 22:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD29CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 22:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h0Dmle5MeuP1yPXjVcDAVWMlS5lDrlFusVKexEqhKFY=; b=pjtAW29UVPvSn3tp0fI5sig4gA
-	m0vnWZplz2VAZI5oOaOWKcpTyBMHGv7m+eq3ToAelNnfgOpsf3EQgKhSga+Gg+xeMnKR2mBuK+R9r
-	hdZjCK+SCyG38XPA/zUIrZOl5TggwKJTKukT6mNJTJT7BJWB6MBcHYFKi4JYitm9hy+OWXAaJ8LNb
-	CMJmG+qsstw38SfkzQkK6z38fPnZ33s0VRNRLWyzSR3f0Rkt8KQIKaqZmjxNNwhkZVNA8kuFDWt08
-	eTfnKtu2J1qQBOeDZwFLeSI3QzEHBuUDpGFhQ8FsjyoPCmMeJVFGBcmlvfu4xvSeF13B4JSWSWM3I
-	KnmRtr1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=epk83XHTGPqCs40eb3YUi50QD9q370QPRDNXcn99T0k=; b=i4YVXzU+kMhmanEJMiOtqlLrod
+	+SZBGQdPRDznygyRMObkrV8wHUsKgKWsZSEltlF4Retqilr/9MTmyUP0PXwxJeBkaIs0008xSBuM3
+	pE1PuE6R97dh/IAu1fw3IqXYdlL4OtXK0bUQHc4yy60CNowVJw1wFUoPwH0tTm5OBaP+NACQBufa9
+	+yCM1jiTl2t0sTGWEU/b/t3j/SpiGao0XgmTMkQrWar5P1pngkXWBDqU4C+c469UYKkxghTXtqJ6X
+	OMtW2C+YjAz0HNRKFLfSxKTfO0suSCue3+TFwSENYjpiM+Lut0p1UJKTvPpSPWmjFRAvIVzNX6J/c
+	7Bz0g3Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXQzK-00000008PAa-0vP1;
-	Wed, 10 Jun 2026 22:01:30 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXQzI-00000008PAD-2DC4
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 22:01:29 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c27fc587ebso17908225ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 15:01:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781128887; cv=none;
-        d=google.com; s=arc-20240605;
-        b=GmEaqmeQ1TVIkELq0CrrwKSYxPo+Bh9ozO4d3OcsmZMFaiINVoA6lYqv0/MXpT+rdI
-         WhRZT8r5wnYrjHYwdZKuAc99MZNHNpnygUxqOuKzdBZ/1Fq7wLpnst/QEdJVnfPGt5Zf
-         qRp6OVeLOkwnuJViX5hopwNP+cycXlDEd0JS3rKN7eQIMPacl0nLCHwdlfoUf4Atr6CY
-         ekkVNFQrmpAcFWYUG1Dg0uWPp7LECXMPcOUJjpT8f80DaoJvDsl1T1WHC9KtkfbsOmvw
-         +ABVE8X3CMfbJqNPZ1SmXpDtnR30VNhqUVlNpo0/V1BDR83YdzmLGF91QPAiGRh5bu7E
-         NNAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=h0Dmle5MeuP1yPXjVcDAVWMlS5lDrlFusVKexEqhKFY=;
-        fh=QzOlI8oj7rwiWKVAbSHyz8dN8aTCowMfXFQ/XP0LmU0=;
-        b=Nz6AE/XOeg0dFCQvqsLetjPAKJfphj2rCVZ0xETetFNojWhcJzK9PIN1EElnuVdDhZ
-         Mx+Eje+Q+1liUri/9bke7t0ZHEVJyCSw9Uz/SMLPXcm9ShRZjv99fk4Jls0x+H4leBwb
-         Q8TZIQ3NmB5oEXOXOe93+fewPWNmZQOU3s1kKe0cQDoMTxUK/PwaXUudoQaZN2hPsq0K
-         vOzR9mjIHYMBiWFSIUEqhxFH4RY6uNe0pPrRiD/se3SS2CqtIG78BBGLvcFqN6y8QdGE
-         cpYQICvwyymYDdHoy/RVJlT4XvQh8B/810UNUnAQR15joRJRo3S10BQ/GSeOsZRpMQZH
-         E9dg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781128887; x=1781733687; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=h0Dmle5MeuP1yPXjVcDAVWMlS5lDrlFusVKexEqhKFY=;
-        b=B8VGpRioaYJZJF2qzdnOdEZuHjwB+N62XaFRRx1/j+VJ3LlsOvHl9jNHbTKhuasxKm
-         AoyTMxzJNpY97f1myVeWNy6T4P9l0qgi5nsz6+HCAxFVqrG3jMNaEzyVtWSm5kVgpVfg
-         YQBBRyHUmWgXpIiQtfWwrgxH4PTwq46gfSbvgDQp4vAvKbRo4BD4jXqPsC7g8JWYdBQV
-         nepdACHr7xw6nSPZuKwicVbt1EfGGKbVBXLZpkGrl+4rm+ZSaUChV5bfEoaQ3O3f9vwR
-         9hA8IcyUYgy2KKdZuSmSrtrh9Nu+iQYYrlvz7VyfwoPIq+fRfc6pX7zjyIXvwvUB/QqV
-         Vo3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781128887; x=1781733687;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=h0Dmle5MeuP1yPXjVcDAVWMlS5lDrlFusVKexEqhKFY=;
-        b=rVVpzb/ODbSbZwt2VZM83/GOvrD909cQFes0faAOPup1swBkHM0ZsJLchZnBt7HtWX
-         phCaOpccaoYMPKbFKoUM5Tu6KfSs71tQoUVYngzCHybAL8T6evKepi9LlrpPAm8GtqT5
-         eqGwchbbiMV7YVgTD2o90xj2WPOv4P+qsvpMt6Z+BmUR08NK7yNig+RKw+DrN1YMwHIN
-         1BMgSdv4KLJEcnKK2AEMrTeHmNHPSNTFY40lCS/l1zfukLFl0uhoqmbgLDeZnds/olUs
-         +rN5UayLY9rRA+fKN8Jdsq+u+o4vW/7eNTyMQMOtULkVokWEjN+eERXlceRNcao+/ufu
-         3YqA==
-X-Forwarded-Encrypted: i=1; AFNElJ8oRPn3bd09zplo0ir1sloInPA8et9iSqVVWDL+1OujIc/1rlNDOFGpb2SHHJ3xN3YdcUjo0uZpgP0IMeRp3xQR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQATB3Qi2HSpII8KnJOEeKJSkQf87R9TBUGvndTPmlXCtoD7k5
-	Kh/M/3mR43nZErxqsi+eWwquxdpBbwQVaYYNo1IKT0J83cXIhm8vJO9EJ+tWDl8RWenUqG24mf6
-	al/vSU/156tGPHJsos5JsWJowG9SyqCQ=
-X-Gm-Gg: Acq92OFKBDu/yHKoKwuVqDzrQnVEktjj66jE5dIFze1exjl35vewljP6kQv5v4vHbyU
-	Sd+jsgnGlIZSvjQ71fF4w2f+JO09QXrTfrKzBzWjshjMk1Nql5JoZqeSwSJO+T9V+N7S9oh6EiO
-	uaBVONXN62ciVmq01qizmFA2U20WDT9oiMw1EYZ1Gf2NNB7WMKwBBIQQY4v8ecCdlN45PVc/xvf
-	Ze5QsvqPqFcoLGAOMCa5sF3Jl60wWinTU4wurAqriru4UCytoCfPyggCB5/SYBAp6/I16mQWnye
-	yveY2JkSlXaYExg=
-X-Received: by 2002:a17:903:138a:b0:2c0:a9b3:bdc6 with SMTP id
- d9443c01a7336-2c1e80f9214mr284349325ad.30.1781128887315; Wed, 10 Jun 2026
- 15:01:27 -0700 (PDT)
+	id 1wXRjo-00000008QVA-38F2;
+	Wed, 10 Jun 2026 22:49:32 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXRjl-00000008QUp-3nom;
+	Wed, 10 Jun 2026 22:49:29 +0000
+Message-ID: <30ecb791-a9dd-4146-8d8c-b77f1fb31dde@infradead.org>
+Date: Wed, 10 Jun 2026 15:49:29 -0700
 MIME-Version: 1.0
-From: Enzo <enzo.adriano.code@gmail.com>
-Date: Wed, 10 Jun 2026 18:01:15 -0400
-X-Gm-Features: AVVi8CfxAHDyBqNO0Ys_rdLGOZmuKmThiL3y1SJyB19d0A7iTcl0mFxuFzIXLu0
-Message-ID: <CAHWUu5EzER1mEmMpOeMgQN_ynW0my-TM2UGt808mjEe4dY-vkg@mail.gmail.com>
-Subject: sunxi-mmc: A733 IDMAC stuck in descriptor rea
-To: Ulf Hansson <ulfh@kernel.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-mmc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_150128_598158_201B47F3 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] tty: serial: Add UART driver for Cortina-Access
+ platform
+To: Jason Li <jason.lee651024@gmail.com>, jason.li@cortina-access.com,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, linux-serial@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260610112821.3030099-1-jason.li@cortina-access.com>
+ <20260610112821.3030099-4-jason.li@cortina-access.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260610112821.3030099-4-jason.li@cortina-access.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +62,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On A733/SUN60IW2, SDMMC0 works with PIO reads but normal IDMAC does not
-fetch the first descriptor.
 
-This is on a Radxa Cubie A7S, testing Linux v7.1-rc6-gabc8d07b0a63.
+On 6/10/26 4:28 AM, Jason Li wrote:
+> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+> index cf7dba473b20..99a1c9308395 100644
+> --- a/drivers/tty/serial/Kconfig
+> +++ b/drivers/tty/serial/Kconfig
+> @@ -1592,6 +1592,27 @@ config SERIAL_NUVOTON_MA35D1_CONSOLE
+>  	  but you can alter that using a kernel command line option such as
+>  	  "console=ttyNVTx".
+>  
+> +config SERIAL_CORTINA_ACCESS
+> +	tristate "Cortina-Access serial port support"
+> +	depends on OF
+> +	select SERIAL_CORE
+> +	help
+> +	  This driver is for the Cortina-Access SoC UART, present in the
+> +	  CA8289 (Venus) and related CAXXXX family of SoCs. If you have a
+> +	  machine based on the Cortina-Access SoC and wish to use the serial
+> +	  port, say 'Y' here. Otherwise, say 'N'.
 
-The failing transfer is a single 8-block CMD18.  After starting IDMAC:
+It could also be 'm' since the kconfig symbol is tristate.
 
-    IDST = 0x00004000
-    CHDA = DLBA
-    CBDA = 0
-    CBCR = 0x400
-    BBCR = 0
-    descriptor OWN is still set
+> +
+> +config SERIAL_CORTINA_ACCESS_CONSOLE
+> +	bool "Console on Cortina-Access serial port"
+> +	depends on SERIAL_CORTINA_ACCESS=y
+> +	select SERIAL_CORE_CONSOLE
+> +	select SERIAL_EARLYCON
+> +	help
+> +	  Say 'Y' here if you wish to use the Cortina-Access UART as the system
+> +	  console (the device which receives all kernel messages and warnings
+> +	  and which allows logins in single user mode).
+> +	  /dev/ttyS* is the default device node.
+> +
+>  endmenu
 
-The descriptor memory is unchanged after syncing for CPU, so this looks
-like the controller never reads descriptor word 0.
+-- 
+~Randy
 
-I have already checked the obvious descriptor/DMA cases: 4K descriptor
-size, shifted descriptor/data addresses, descriptor memory below 4G,
-coherent vs streaming descriptors, and the normal-IDMAC 64-bit DMA mask
-used by the vendor tree.
-
-Is there an A733-specific clock/reset, MBUS/NSI, firewall, or firmware
-handoff bit needed before SDMMC0 IDMAC can access memory?
-
-I can send the full boot log and instrumented dmesg if useful.
-
-Thanks for your time,
-
-Enzo Adriano
-enzo.adriano.code@gmail.com
 
