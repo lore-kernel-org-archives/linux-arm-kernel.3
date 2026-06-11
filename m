@@ -4,61 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6782FCD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D3BCD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UdnqG6HuOV9OtKkF5ww4O5HMNFK+JDqxC6oYIJO1qR8=; b=2L8Yl67GZI8hClbeHrJo4iOqtl
-	/GGPRNOM3/YAMzFIov7a8MTfTx32x715H5OKlA2brPDROJ8rYRibOL4lNiWUnG5CDNJgLiuJFs2X5
-	yVMAxfIuts+hC3/5YkzcTcrCwfE5dpfff3oWCqUfdBRCAwx45dTew/jGMUf+0/SmsAX2qV5DxKHmp
-	F6Z/fQlbjV+XPvlfMi9E0cr8x7hhPJpyqjUMYYzrCfpyys98L5ZK+l/25owjEmK9yzCI4up0XrS9t
-	P3AWfFpheNQrjfOJsOBr1iwF8LaOvkGtdzj4UV4CoX2ZZmAlYx4poO228IW9zOryEcdjmIVd7hqUd
-	F/6914nQ==;
+	bh=9+SCy6sdDa2GKaANRDUnqJL/3XOcl4afiM9hCEv6wsw=; b=zjdAxsvimNYwvQFJ71CJ+zK8Vm
+	7gKM9if2dy8AI7ghJ1SxOX2ti2+F6NT6XWwO4Vm7sECFWDYlhDfdTCvBes2e8ghIcGDuaD0TdGtm+
+	5ejB41kbDTJ1572hrqjh2eXE33SnGm7QblZoiCMCF4vSrNq2unz0UDVOgGuBkaRBOK8pKSLGYYyMm
+	uPZihcFDmCu87gzWZV/kUSQpYNRWZGZVcTfQzTE/sOLtd0jKMhYvIuFAgX0If3A4WcwoCz/ZFnH5G
+	CKu5NIW90rw7aTGw7Ky7liMlJKgXQTcYzAD4gxnqQ2tOKQ6OL09d/emaTioAqOB5k1lHZl+nOXa99
+	610qgX+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXa1c-00000008tDN-0fJR;
-	Thu, 11 Jun 2026 07:40:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wXa1x-00000008tGm-1H4U;
+	Thu, 11 Jun 2026 07:40:49 +0000
+Received: from mail-northeuropeazon11012044.outbound.protection.outlook.com ([52.101.66.44] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXa1a-00000008tCw-3gOY
+	id 1wXa1u-00000008tFp-3peu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 07:40:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00C5E60052;
-	Thu, 11 Jun 2026 07:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BA871F00893;
-	Thu, 11 Jun 2026 07:40:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781163625;
-	bh=UdnqG6HuOV9OtKkF5ww4O5HMNFK+JDqxC6oYIJO1qR8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Pf5jT1qWShYnBKo7WlrpSjwNa0q6F3mWdYLMT30kYYaP72XCVK29bzLIBBySlxlql
-	 8ItQlvep2nIykpVJryzcBXZyb51YPXOc5ITEKeB1BELHHKURLmSH7t0Vx+72QocsVj
-	 D3mXwcAzH5Ojx06ZePiiIyM9H03JCnjo1ZQAPvun2sE76dP+p4u2oeE8QmaDwRZWU9
-	 6/x0hyxH6iXyFkiPOqMkRlpxw2tKZIAZE8gVriYNm7jo84x6oIX+5hqRuebk1GmeoU
-	 0sQMycH516IoEmHKtykK4CX+WR412dUwuV4k/u/5Ih+UCG69gl2WL6wk/JdL++x8WI
-	 QJuuu7EW82qmw==
-Date: Thu, 11 Jun 2026 09:40:23 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: joakim.zhang@cixtech.com
-Cc: mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
-	gary.yang@cixtech.com, cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: soc: cix,sky1-system-control: add
- audss system control
-Message-ID: <20260611-gorgeous-macho-cricket-f1b78c@quoll>
-References: <20260610075645.3581145-1-joakim.zhang@cixtech.com>
- <20260610075645.3581145-2-joakim.zhang@cixtech.com>
+	Thu, 11 Jun 2026 07:40:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nrX46ju/wJmg8JMBX+fPl9ZMTFA8ipGjj3xeA+RJ1j/qnndAuNX/9bwVLqr0BUGxQZLee8TngSeKJMFkFoQYb03i7dLn4YxRuNTV6kK35W9hDAny9lqcb04WSD1TL+pzvSIfqwukFAKASlBpwlYkxE96eAZ78M64Gn/D1YQqdgOiEkTwcYzn4ZM5zYi6R7ZH4ZM7b1OAFj0WahICSo0uD+Qt8q6kiazBDUrqL0kWOI9bkI0vmHSH/SWTRNMFe8ScYsUV/6q0Iz4pDAayKU0DZA8App/F5Kivj9LCJog91Na+zA+S74DiIJbUjzWj5VQvdR6bt45pzJ9UYLH9L0lfmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9+SCy6sdDa2GKaANRDUnqJL/3XOcl4afiM9hCEv6wsw=;
+ b=lFPgboleoLNcmH+GSlAyFPksKDJ+MDtLxkr3uzth0Y6qNjA3NjvaamhA+rOr+ihYwyWDB3+MuIhqlBjgVdzEJex2KFwtjR9iBxwjjw/8s3wBdKvHlUxrsDUOOSyALs1BEdKGbIPz41EYAnCSs4flGR1faI06DgtNui5EeH2jUHK/VMZ3cQcHYQwrVhoc60f5TwPVsVkXLToeAtSwBlXIa4rbO/rJfrV+wcHodtN4K+WTzPSZkHwYSFzsqiRDPyF73hSEROVsxJYrdMBqjMpW+bVsf6BElbVSCGQ/r4Mbe3AFE6lf4eNva4mX2qy6fCDtgUfUNBJi+thauVTCnpRcig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9+SCy6sdDa2GKaANRDUnqJL/3XOcl4afiM9hCEv6wsw=;
+ b=PvwKTwPCy9KNGckI7OH3rufyAVaxMstPzZ4VeI3LO+HOXwP1zN/P43vvpDpItNTgDgTH4Ul/DgtcqagbTdhfiCT4TSyd+kL8qr8iwcCstm0UtN8tNBwcy6d2ZinShAeeIyHe6U0uAw/nJyZVxYPXFRZ8EwFbK89efxvMZ1jyhfcgUdvWrVfX9GHcKuMl09V2+kJ7Yf5Ei2ul8ESexnLh85ovI+cP4LolzmVM4mWoYBCLsY6XbppBHxz5UbCYF4qiy1E7BFJeinuIgQwk99n/1zKGLCqRArOAq3yF1uzMolT9XLYWZv+qBtIt1zwvq90W9MrxybmKCwQ5D2sKDIKiKg==
+Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
+ (2603:10a6:800:317::15) by DU4PR04MB10981.eurprd04.prod.outlook.com
+ (2603:10a6:10:58d::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.18; Thu, 11 Jun
+ 2026 07:40:43 +0000
+Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
+ ([fe80::3e42:1e5:5955:d68a]) by VI0PR04MB12008.eurprd04.prod.outlook.com
+ ([fe80::3e42:1e5:5955:d68a%4]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
+ 07:40:43 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, Frank Li <frank.li@nxp.com>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
+	<mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Sherry Sun <sherry.sun@nxp.com>
+Subject: RE: [PATCH V2 1/2] PCI: host-generic: Simplify return value handling
+ in pci_host_common_parse_port(s)
+Thread-Topic: [PATCH V2 1/2] PCI: host-generic: Simplify return value handling
+ in pci_host_common_parse_port(s)
+Thread-Index: AQHc7BMOloflpNUHQEGIgUZmtHyR6LY5Er1g
+Date: Thu, 11 Jun 2026 07:40:43 +0000
+Message-ID: <VI0PR04MB12008455D815DE3506169595D8C1B2@VI0PR04MB12008.eurprd04.prod.outlook.com>
+References: <20260525065443.2338629-1-sherry.sun@oss.nxp.com>
+ <20260525065443.2338629-2-sherry.sun@oss.nxp.com>
+In-Reply-To: <20260525065443.2338629-2-sherry.sun@oss.nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12008:EE_|DU4PR04MB10981:EE_
+x-ms-office365-filtering-correlation-id: 33fab03a-72f9-40f2-d658-08dec78cbe62
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|23010399003|38070700021|6133799003|18002099003|22082099003|921020|56012099006|4143699003|11063799006;
+x-microsoft-antispam-message-info: hDPVYkaEiyrKAyztxV/pmoQsHqBk860ZLN0SSn42DtnVwf2HAM/tJ1ifB+FNrNuOX4wTPgLKXGoQF7ngXPI16irUmoMC5c31Va2NKJEYJKRiwQPsZ7odBiUcpy7swocwwrCS/GKM6o2prkzWRbaxN5ZvpCHxeSEHfYg3D+N5ks3Ryh/IfkcYshYePTJwyEvfkTqAWOktYsOWhDZQHiOwfFktFLpXJbG6LDKlIx1fGqhA8wW+kl5AsuhcglA0QpkLuYHKxePPNCSIM65ZOYY67p3WB0iw/84IOZtUkmvyztpz9c4s+44zpSWyFyd9McaTdygzA3c23Odjoj/KjscBVg3s4pFbTyX2D5I8ZJzomF4vGB7eaZT5ixC8SQHDEJio/eP04gRsGrV3cxwHKv8Yvi2zl5zufWz3YF7FkYQyx+YsIUU2UB4b7YbCwb1uyIEIEjSEwBMrjY1Fsak2dHsSzlhW/cG4Z+/xHUyO/WJNSWA1Dj1JeSgI7RlcXf2dcPTTEoz4Ea7LALbx52a6dLMvRAPZ/KzWrWdQdD2Zw5LJpTH5swDC45Df7cDd7m5MBJ+VLRgPpjR5WuLfZXMKfoPSKM6uBoCmKh2Sskyo+AQnJtw3889XjXkYexTh/zVpVyYQpvNWBZQGDzUdzUiw3ejxdvQuxmOj3G7Grn2gy43lyh3wX5HS90idR966LZ9+dTi32W9jTRC8XD7lG55VJSF+l8BAncLGIJJNpIWfnQFylEvgbbLdsHneo8rnmGRQ4cRJQpNhbdVkSLTC+66+mMCWUw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12008.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(23010399003)(38070700021)(6133799003)(18002099003)(22082099003)(921020)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?jDEZUhjW/S6A6uW19N7XLnVk+UPH9K0gEDMxZni39HPk2RQp44X7m0/bCVtD?=
+ =?us-ascii?Q?0WvntV55o/IOJFPUA+0oCyB9cGdRR9G7pyYhLca/doK0FBZQIQUrLw/2ILWI?=
+ =?us-ascii?Q?0piFcSzfaYgC5cXuLhIJJBRSpa3HJP+3fnAccvH4hXO60Jqp5I3z/NSrm9aw?=
+ =?us-ascii?Q?84Gjs6wkAv21J8Rm/5VUXXbZrgVhzYXWMEJVJEdmbPMjRLTbv9/cFP5bae1N?=
+ =?us-ascii?Q?hqzaTCswrhs7ecUEzxoNUxLQynYs5WsX5DESnuJ/+TYNQrgQpy/kDhhsEyvW?=
+ =?us-ascii?Q?UEZrS8XV3Kc0uN6qW3Gq/nVygESH05Ih7ymTBuAaM+8VGzvrzv5LBx8hLKd9?=
+ =?us-ascii?Q?TPumhDUStTMY/leOKqeUleXko1jFMI59USLjIkFz3vFR09/Dsc+3Dl6e3/HL?=
+ =?us-ascii?Q?wkbIDRhenWGoV/RK5eNu7yHQnzsdTNzcZeSzC9LIvt8+4P1chQfJIS5K19RR?=
+ =?us-ascii?Q?skYw7FaQoiEOqXSOhJSB9rAT3kI/EVZVM3+gz99/U0RHkMxqVy0Euswr5sv8?=
+ =?us-ascii?Q?4HAERalGsAC6Yij6aa/af9BLpJlRYZ8S9MIe0gouxF0dbNnCNDmEMXuOoX0B?=
+ =?us-ascii?Q?BfX5eXEU7Y7rpB4X98VrLkqgb/6yUxigiuynp44tyVxUH8zo+6fNOu6jaraU?=
+ =?us-ascii?Q?qSdOy65xLUmSetrkOM8mI+6Yc2iOsYPdcwLUwO8p/QUTjTIOQH3qtUhch9WC?=
+ =?us-ascii?Q?mtiFdDHygPigQusOudIdWg+DLbOIrh5jaEn4hdIgAKBy+/D19DRl1l9DxWFw?=
+ =?us-ascii?Q?19zGksuvA/2WKfaNRJZxSxpUk7FqZM8cgKNcSKtrrtpmU+u0CcCs7G3H90N6?=
+ =?us-ascii?Q?IjgjZLKplL4TUs1Deoxm8BvVNrfmmq8JyCOYumIlTAIZ9SK0GOKu2vV8dew0?=
+ =?us-ascii?Q?fx0KQiwuAyDAiAA7tXPBVginnCDhJHsnERVytZR9dojMV25G9nJfChflzfiC?=
+ =?us-ascii?Q?B8s7id2RC97mqSs3Zv+jBFMRDsS83rcwUNcKkC7wSHYh3k5GO4YVWuZ29hz9?=
+ =?us-ascii?Q?+IVn4NB8ZT7xGKKjUVONQHY+0nAxriWhPqASuyX4bCSikal5OcyJEm2/d2CX?=
+ =?us-ascii?Q?1DpMQwtEbYsQi+UU+insD0fBXShut/fdBbnhto1WWx/aXfhHUsJyygMTYRdv?=
+ =?us-ascii?Q?aMPhtTv3g0Vei0p2ZRZhRrtRnayn3yxFmoUS0s6xP4zHRekmW8rRX9010Hsd?=
+ =?us-ascii?Q?fyU1wNdi0dKJNeiLk/ylyHPvzOA6/f+2or16DA4VzCkQ5uBUaa8zvWURuMpS?=
+ =?us-ascii?Q?l5ZC3d917jjIm7SUSq9a1qcIdAFvNG0a8UXReMkTXyEUXHput7/eKjRN7/IH?=
+ =?us-ascii?Q?iMAXj29bCiSDofK2E5lyGfFOm+cDsWWQus+iI4J7qGO00Oze/z33Be63Hh3m?=
+ =?us-ascii?Q?3svWitOcAm4vxpqFk9bsz0sQNK/IHx7uFlh4XOYS69C7TKpAz7bTWr6zk/Zc?=
+ =?us-ascii?Q?RAx3TlXbbt/fnmquMCtvJbkxF8gLK7kALPXRhRhsDTqAo/wysI0wvfIWcK4p?=
+ =?us-ascii?Q?H4Gat43TUPTDHkQDvAP+7OYOWbQ26ZipyMcDaYcyTXARMUU5EIrvw80UoXa8?=
+ =?us-ascii?Q?ERbKa5gIOGILW2h8XcVddgOepNhVA8tqAACrZlyfdLfPTdCo3TiSF4BOf3aV?=
+ =?us-ascii?Q?5Ra49/hxnGVDCpFlFkKBJydadxtf7W+N2aAX++b3bDhbRqan1Xlr9m2Pk6ER?=
+ =?us-ascii?Q?+6v2ZEjX5P/KhFgjVSIpHj6fZtrqF44S2oE665eFsoU6X9S3?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260610075645.3581145-2-joakim.zhang@cixtech.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12008.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33fab03a-72f9-40f2-d658-08dec78cbe62
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Jun 2026 07:40:43.6289
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ecSlLWo7oWJ46/vg7IxHJOzgQf17Xx+2Mswtjfq8XHmbEeIfUR/lalhc3WZyIwIDk1QY9EFu278bbxnWCLIpgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10981
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260611_004046_979347_E450C055 
+X-CRM114-Status: GOOD (  26.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,113 +148,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 03:56:41PM +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
-> 
-> The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related clock, reset
-> and control registers in a dedicated CRU block. Software reset lines are
-> exposed on the syscon parent via #reset-cells, following the same model
-> as the existing Sky1 FCH and S5 system control bindings.
-> 
-> Add the cix,sky1-audss-system-control compatible to
-> cix,sky1-system-control.yaml for the MFD/syscon parent node, and define
-> AUDSS software reset indices in
-> include/dt-bindings/reset/cix,sky1-audss-system-control.h for I2S, HDA,
-> DMAC, mailbox, watchdog and timer blocks.
+> -----Original Message-----
+> From: Sherry Sun (OSS) <sherry.sun@oss.nxp.com>
+> Sent: Monday, May 25, 2026 2:55 PM
+> To: Hongxing Zhu <hongxing.zhu@nxp.com>; l.stach@pengutronix.de; Frank Li
+> <frank.li@nxp.com>; bhelgaas@google.com; lpieralisi@kernel.org;
+> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
+> s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> will@kernel.org
+> Cc: imx@lists.linux.dev; linux-pci@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Sherry Sun
+> <sherry.sun@nxp.com>
+> Subject: [PATCH V2 1/2] PCI: host-generic: Simplify return value handling=
+ in
+> pci_host_common_parse_port(s)
+>=20
+> From: Sherry Sun <sherry.sun@nxp.com>
+>=20
+> The pci_host_common_parse_port() shouldn't check the RC-level binding.
+> That's a policy decision that belongs to the caller, not this common help=
+er.
+>=20
+> Simplify pci_host_common_parse_port() to only parse properties from the R=
+oot
+> Port (and its children) without checking the RC node. Also change
+> pci_host_common_parse_ports() to return 0 when no ports are found, since =
+it is
+> not an error.
+>=20
+> So now both functions won't return failure for "property not found" or "p=
+ort not
+> found", they purely return 0 on success and a negative error code on real=
+ failures.
+>=20
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-All this is pretty pointless - you explained the binding, which answers
-nothing why you did it that way. Instead you must explain the hardware
-design.
+Best Regards
+Richard Zhu
 
-> 
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
 > ---
->  .../soc/cix/cix,sky1-system-control.yaml      | 52 +++++++++++++++++--
->  .../reset/cix,sky1-audss-system-control.h     | 25 +++++++++
->  2 files changed, 72 insertions(+), 5 deletions(-)
->  create mode 100644 include/dt-bindings/reset/cix,sky1-audss-system-control.h
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
-> index a01a515222c6..61d26a69fd44 100644
-> --- a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
-> +++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
-> @@ -15,11 +15,16 @@ description:
->  
->  properties:
->    compatible:
-> -    items:
-> -      - enum:
-> -          - cix,sky1-system-control
-> -          - cix,sky1-s5-system-control
-> -      - const: syscon
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - cix,sky1-system-control
-> +              - cix,sky1-s5-system-control
-> +          - const: syscon
-> +      - items:
-> +          - const: cix,sky1-audss-system-control
-> +          - const: simple-mfd
-
-Just so you are aware - this means children do not depend on the parent
-for operation. You will not be able to fix it later, if it turns out
-that children do depend...
-
-> +          - const: syscon
->  
->    reg:
->      maxItems: 1
-> @@ -27,6 +32,28 @@ properties:
->    '#reset-cells':
->      const: 1
->  
-> +  clock-controller:
-> +    type: object
-> +    properties:
-> +      compatible:
-> +        const: cix,sky1-audss-clock
-> +    required:
-> +      - compatible
-> +    additionalProperties: true
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: cix,sky1-audss-system-control
-> +    then:
-> +      required:
-> +        - clock-controller
-> +    else:
-> +      properties:
-> +        clock-controller: false
-> +
->  required:
->    - compatible
->    - reg
-> @@ -40,3 +67,18 @@ examples:
->        reg = <0x4160000 0x100>;
->        #reset-cells = <1>;
->      };
-> +  - |
-> +    audss_syscon: system-controller@7110000 {
-> +        compatible = "cix,sky1-audss-system-control", "simple-mfd", "syscon";
-> +        reg = <0x7110000 0x10000>;
-> +        #reset-cells = <1>;
-> +
-> +        clock-controller {
-> +            compatible = "cix,sky1-audss-clock";
-> +            power-domains = <&smc_devpd 0>;
-
-My questions from v2 from the other patch are still valid - why audss
-system clock controller is outside of the power domain? Why the audss
-reset is outside, but audss clock not?
-
-This does not feel like correct hardware representation.
-
-Best regards,
-Krzysztof
+>  drivers/pci/controller/pci-host-common.c | 29 ++++--------------------
+>  1 file changed, 5 insertions(+), 24 deletions(-)
+>=20
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/contr=
+oller/pci-
+> host-common.c
+> index 2ce6f4b66133..c93de5a10758 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -108,8 +108,7 @@ static int pci_host_common_parse_perst(struct device
+> *dev,
+>   * dependencies and the driver may fail to operate if required resources
+>   * are missing.
+>   *
+> - * Return: 0 on success, -ENODEV if PERST# found in RC node (legacy bind=
+ing
+> - * should be used), Other negative error codes on failure.
+> + * Return: 0 on success, negative error codes on failure.
+>   */
+>  static int pci_host_common_parse_port(struct device *dev,
+>  				      struct pci_host_bridge *bridge, @@ -128,22
+> +127,6 @@ static int pci_host_common_parse_port(struct device *dev,
+>  	if (ret)
+>  		return ret;
+>=20
+> -	/*
+> -	 * 1. PERST# found in RP or its child nodes - list is not empty,
+> -	 *    continue
+> -	 *
+> -	 * 2. PERST# not found in RP/children, but found in RC node -
+> -	 *    return -ENODEV to fallback legacy binding
+> -	 *
+> -	 * 3. PERST# not found anywhere - list is empty, continue (optional
+> -	 *    PERST#)
+> -	 */
+> -	if (list_empty(&port->perst)) {
+> -		if (of_property_present(dev->of_node, "reset-gpios") ||
+> -		    of_property_present(dev->of_node, "reset-gpio"))
+> -			return -ENODEV;
+> -	}
+> -
+>  	INIT_LIST_HEAD(&port->list);
+>  	list_add_tail(&port->list, &bridge->ports);
+>=20
+> @@ -158,13 +141,11 @@ static int pci_host_common_parse_port(struct device
+> *dev,
+>   * Iterate through child nodes of the host bridge and parse Root Port
+>   * properties (currently only reset GPIOs).
+>   *
+> - * Return: 0 on success, -ENODEV if no ports found or PERST# found in RC
+> - * node (legacy binding should be used), Other negative error codes on
+> - * failure.
+> + * Return: 0 on success, negative error codes on failure.
+>   */
+>  int pci_host_common_parse_ports(struct device *dev, struct pci_host_brid=
+ge
+> *bridge)  {
+> -	int ret =3D -ENODEV;
+> +	int ret =3D 0;
+>=20
+>  	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
+>  		if (!of_node_is_type(of_port, "pci")) @@ -174,8 +155,8 @@ int
+> pci_host_common_parse_ports(struct device *dev, struct pci_host_bridge *b=
+rid
+>  			goto err_cleanup;
+>  	}
+>=20
+> -	if (ret)
+> -		return ret;
+> +	if (list_empty(&bridge->ports))
+> +		return 0;
+>=20
+>  	return devm_add_action_or_reset(dev, pci_host_common_delete_ports,
+>  					&bridge->ports);
+> --
+> 2.37.1
 
 
