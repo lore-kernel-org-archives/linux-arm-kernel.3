@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF0E7CD98C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 03:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E555BCD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 03:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+4cm9QbNYmcZl/MXjwCiNY3TdxompycqRGjEnRpi0s=; b=bFOdu1Yv4xnNHOFbyEV4wAcWft
-	8ETxZnzPI8kNn/05KnLEpufovym1RT9G44ifRyqY9UAgZvXd4ptM2/h7Xy9TFV+ArzAHILynyrEG1
-	iy/Kf3G2dW3eUmY5hGgZpvwi62E1sOx76q1aMljsRMsmWo6VEvtIi8mUqHLTvIhAwWyIqrFNRLmhM
-	3WvoJEaVI22AUsV1l12ID25fZanx/Xsr1D01md1QGYKl/s/W1wx77ngRry+xKSGt9PO52VpEuAJGj
-	rQuQAsDFwmcdzY6zbuT3rSqSza+ZaJjqPy8/DRs2s8M+EhObn7XSkL2MRcMuh87A85MuOhtP38sN9
-	YlnlzvnQ==;
+	bh=JnZoQBUpFkHjuMRCFUnZLcjmhUm98D04lIrK4n/JyBE=; b=Pe3LcrIcNygZ5cAqrfl8RfR02l
+	22tIMtSY2rixy33YsuckB90fkoCUT/HSCXL0ciFm1z1UCQ03QPxxldKCzT+mvuNKNt6whMFwA255h
+	6pagF08GnyBR+Bm+eHcuLp1oUbJy+3U5sLwo2XNwThW9biwLXOD+ALQZ1mw6Wa4R+ojs2vm2ADlDq
+	E2HA4PWqibj8PbJ6ngea4trPI69+n4ZlgIKpdZMKyd4dHpTKlKNKZwOdpf7QBxxRDqwiclu08GkBd
+	LZbEp1YW4MCqjPIsQeLp+E866hB2LcTtMFwQdobE6mrnUOAJoDXQmo7xmrZqAyuAAEKLSZX4WF2m8
+	AFVfm+uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWGN-00000008cn5-1xhV;
+	id 1wXWGN-00000008cnT-2TfQ;
 	Thu, 11 Jun 2026 03:39:27 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWGH-00000008ciw-1NZl
+	id 1wXWGI-00000008cke-1339
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 03:39:22 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-84232e83ca9so3190072b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 20:39:21 -0700 (PDT)
+	Thu, 11 Jun 2026 03:39:23 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-842288702fbso3151998b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 20:39:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781149160; x=1781753960; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781149162; x=1781753962; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=w+4cm9QbNYmcZl/MXjwCiNY3TdxompycqRGjEnRpi0s=;
-        b=sYK2A/BWIxai1CFgnINTTM6sAzYdSZ6Vp2FhvRKsYRLRp7dtvDJKJZUNbxtlCoAv/5
-         XJXDwYLUxtiKFqsmXPbAMssNhuOS+WXA7OUQdqOGGkFhV5xVbwR9uEsuycezU4FFqxbR
-         JXi6yx8tc73/CLdu3v0hZheDxO1NgukaWU9H7CW2IduPIBNwLqSeULkToc58aBHC3mtK
-         9/GGh5C4xnb6Avzwir82J1r9yFJSr2diwbo4Wc+BWPPpdS4BZeYqolPaEl7nrk9McpNv
-         HM8wz76GIMICCDfJMie+lob34LxRaOQrTwGE9wKbwa/V0Mzn1bnR8HdxBp8WezgDUrUS
-         qWLg==
+        bh=JnZoQBUpFkHjuMRCFUnZLcjmhUm98D04lIrK4n/JyBE=;
+        b=G7575rqNSG0MjBhorD4xGLKxt9XBtx4AXBy1mT1FqZrM6uU2HkFeaBcrHhc353C1Bo
+         ikC/VJAj0B8ZhvrfHlL5LShQ+JunaRZMLifbK02TpeEYujMKWnI2FZ6H+PbsJZK2CLmW
+         6AIQx/pfireL9iYRDXV07jyNG5i4Vb83Gj/bRSq4HY5r/GQUYvkE7TWtHdN81HlrXbPW
+         UsTDcd9+CqlYcCJ+YBgPcZ50C+5ifYXdw+EA6Xml759gDULBGz8l/CL9NZbCDlCHwioU
+         kiOGIgD6l9UD5EZOvHK2/jhp6PT9CGpGGpG0wsvEAAvsLu9ThhNBE3Sc/8rq+FGIF/qQ
+         PMbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781149160; x=1781753960;
+        d=1e100.net; s=20251104; t=1781149162; x=1781753962;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=w+4cm9QbNYmcZl/MXjwCiNY3TdxompycqRGjEnRpi0s=;
-        b=lyYgwO1elqU2dl+xxyUwIb4u7uU9r/r0Vea9hPzLIz/+9m/TsE7jiueKtQ++YFsoPR
-         Busa5irk0hyEu9Bmy202ABZTETwBykFI24BNniUh1m0MJwWVcf1I+ojLQqPsRRmqsF3v
-         R2cmNEjo2ysPExWDnqcamyqTiaIQgkQJ5Y3TqcoKeP4nwSNDlWfm8BxyvrVapRZ6ZEHP
-         jHgmZlixzk72M491Rkv8Wq2tvkUUdaW3IMaQPP99/VOjJ6577QKjGGZEPuxcxK23FKI4
-         eea4BXTHM8qjqGmc99LW8Tu2gzipSusO2jWY5zzm1C0/lLu27fhTGhUAwTBzwBeSESiM
-         fFHQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+S+e823m0cj63bzyht1zJptkLAq7tqzouh8vbr247OqZWl6kChgejZJcFUaIu0lcl43tKwraXO4Qd0kxEe1bwa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBd6MGZWLld+GWFS7eQAmi1jPv8JsJ1NWO66BTg7iwZrg1QlF0
-	txcNadvEXyDRD3jv/BkdXJ3Lx54qxG0RyAjjm06EfgtNETvl3VAWfIJI
-X-Gm-Gg: Acq92OHLRMqdK5g7UOlkN4R0Z6VRtWYqx9ERwyLsSXpJq1lAhwl7ymG1IskFl1YLD9V
-	x621B9PRSyFbCQnf8O8QiijVhmyyH7Nd0nBwFPutsz7t8Etdil37+rxqHdkiFtQACkU/7Ofrj5D
-	zRwLzfHp4FJszjuc68w1Qmu5Je0j3DrfrAj2457rOiaewvENM9GNBZ0izg7nbK2ZAXV3WLLxKw0
-	Ze9/YhmjlPqYaTLhWjFbUFpfQoz0BdURACo3F8fldPqYUaDbMNQ2zxFbX30m7MDicQ5wDh64P+0
-	MM7+nQ1NcVEn5O91Z7eYr3alc3S8IozsJ1zRDVKTpjmS9SsnYYAHVo2kHGxzBbFv3glWqdYbMjp
-	nWdhqbm3PGq6Utt5n3AGlp8KPhIuPHfp1nLSWJElodObKTeOqKDagnoe5xR7vvlZkF7y091tFxC
-	2taY/+iAnXp8ZinUtkpaPKO+xyydwwOELJLH9XKIusg5lJwoojwDoOcS9O/KvT/3hcNgB+4R3j2
-	aCO0EsCwt6DdMQkCs/NJ4+D3vORpF4dFIeizTvVP4UdZg==
-X-Received: by 2002:a05:6a00:194a:b0:842:5ea5:5ff8 with SMTP id d2e1a72fcca58-84336bc62c8mr967189b3a.42.1781149160353;
-        Wed, 10 Jun 2026 20:39:20 -0700 (PDT)
+        bh=JnZoQBUpFkHjuMRCFUnZLcjmhUm98D04lIrK4n/JyBE=;
+        b=OX1qfYD7xP/BVL692QPP4jd6Vkl7ytGHyZwUZ1xE8eoAamjbO91KHNmhv62RNR8kkc
+         houYXXrxBZQ0DfP/2ZIGDoEJ6m/dQzyCfft+W/8/FWBu5S5dVDRs+69yM/F73vPH/8WW
+         MnTBwYcKBFkZIWS1toQVS7JI0JDh9+dTpvhPKzRop8UKFP1kDcQmbmrXnF7AuEFvD6oM
+         /RfbJLaaHF4EtbAMQNZQmQvD3feyBnFmKrtH7JGXWZFNhBT5d/jpJqdhtJJQGaEG6oP5
+         lXK28w3avy8yVgikRfhgsWnZGx8g4defEHjqh7gphbQixMT+3WSgUsUIWtwHfjHd13DZ
+         6cNA==
+X-Forwarded-Encrypted: i=1; AFNElJ9X/ukhj6GrGgBWtqSMXjEjg0Bzts63YXENUBcf+0Cku5goNzi86nmcQLdqDbiaYxHW1xSjkFq8hIjM6yTh/wYp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAHd7BZ4ux4sE40o5arkWAHhJW89E1REt8afI9Ak+AU8Na0X4k
+	/lol3TNYf0nKW6PVGophAZQvXFU1Zcj24Mz2iy+Qby8vxEFaCfSDUXMP
+X-Gm-Gg: Acq92OFiX518DNFrm7LQegG4sspFPsa7uhCdkxbslzF6DNQUZBWOfZy9IBhr0LI+lJS
+	X40TOCTrvNJdwucsz96EFQ+fOQBSy1HoPyDpj2y8GrAheLHjNFBxZ/yiTdKMKiqf7ZDCtJW3TUy
+	Vb016i+A7rGrnRt0LgNVMr6pFDe6FRFckKEk4b1VxfxWr2n8m/82QUHJwrWMEHVZINyVqc2o7np
+	OYVWK3Qvixf0g8OpTqfihJCpEmrKBG+GaVR+iOkV5dC6w3efXeQhJU80RxUFQNjhS8edNyxXfG1
+	ERNIe4GCdWjW/Vv1dJwHD239spLRShRTUJKwGe33THe5orR6JpYKOr94dj23znLMym5njks5wsD
+	2Ltvus1vNxJxZ5zPXFo1oaOzWAk93G1Cv0joWTtEXdW4MLFZIc+aP18kq1SPiIk1+cE4bIOJ8OI
+	7cplMY1qkixc8XfAd4Jmu9WIGIt4l/aSeCrXJlPWSDHyJxnf+c3aAn1qEzevO0Z3vCVo6kUFmBL
+	x7pAb40CtyM7ZHTeiTf0DfwMMg8dB9Fi+uZ+X6zCGATlw==
+X-Received: by 2002:a05:6a00:1705:b0:82c:6f07:299f with SMTP id d2e1a72fcca58-843367cc762mr976724b3a.14.1781149161619;
+        Wed, 10 Jun 2026 20:39:21 -0700 (PDT)
 Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84337bb47eesm334548b3a.13.2026.06.10.20.39.19
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84337bb47eesm334548b3a.13.2026.06.10.20.39.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 20:39:19 -0700 (PDT)
+        Wed, 10 Jun 2026 20:39:21 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-serial@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -81,17 +81,18 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
 	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
-Subject: [PATCHv3 5/6] serial: mxs-auart: clamp RX DMA count to buffer size
-Date: Wed, 10 Jun 2026 20:38:55 -0700
-Message-ID: <20260611033856.6476-6-rosenp@gmail.com>
+Subject: [PATCHv3 6/6] serial: mxs-auart: terminate DMA before releasing channels in exit
+Date: Wed, 10 Jun 2026 20:38:56 -0700
+Message-ID: <20260611033856.6476-7-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260611033856.6476-1-rosenp@gmail.com>
 References: <20260611033856.6476-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_203921_387002_E35F8630 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260610_203922_294039_A3CFED72 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In dma_rx_callback(), the RX count from the hardware status register
-(AUART_STAT_RXCOUNT_MASK = 0xffff) is passed directly to
-tty_insert_flip_string() without any bounds check. Since rx_dma_buf
-is allocated with UART_XMIT_SIZE (4096 bytes), a hardware fault or
-compromised peripheral reporting a count larger than 4096 would cause
-an out-of-bounds read, potentially leaking kernel memory.
+mxs_auart_dma_exit_channel() calls dma_release_channel() and then
+kfree() on the DMA buffers without first terminating any in-flight
+transfers. If an asynchronous DMA transfer completes after the buffers
+have been freed, the callback will access freed memory.
 
-Clamp the count to UART_XMIT_SIZE before use.
+Call dmaengine_terminate_sync() on each channel before releasing it
+to safely abort pending transfers.
 
 Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/tty/serial/mxs-auart.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/tty/serial/mxs-auart.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-index e2b656638ab3..fe48a372d022 100644
+index fe48a372d022..ec2c60dd0f52 100644
 --- a/drivers/tty/serial/mxs-auart.c
 +++ b/drivers/tty/serial/mxs-auart.c
-@@ -823,7 +823,7 @@ static void dma_rx_callback(void *arg)
- 	stat &= ~(AUART_STAT_OERR | AUART_STAT_BERR |
- 			AUART_STAT_PERR | AUART_STAT_FERR);
- 
--	count = stat & AUART_STAT_RXCOUNT_MASK;
-+	count = min_t(u32, stat & AUART_STAT_RXCOUNT_MASK, UART_XMIT_SIZE);
- 	tty_insert_flip_string(port, s->rx_dma_buf, count);
- 
- 	mxs_write(stat, s, REG_STAT);
+@@ -872,10 +872,12 @@ static int mxs_auart_dma_prep_rx(struct mxs_auart_port *s)
+ static void mxs_auart_dma_exit_channel(struct mxs_auart_port *s)
+ {
+ 	if (s->tx_dma_chan) {
++		dmaengine_terminate_sync(s->tx_dma_chan);
+ 		dma_release_channel(s->tx_dma_chan);
+ 		s->tx_dma_chan = NULL;
+ 	}
+ 	if (s->rx_dma_chan) {
++		dmaengine_terminate_sync(s->rx_dma_chan);
+ 		dma_release_channel(s->rx_dma_chan);
+ 		s->rx_dma_chan = NULL;
+ 	}
 -- 
 2.54.0
 
