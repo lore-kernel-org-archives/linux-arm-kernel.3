@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36BC8CD98D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEACCD98D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHqd0h3qcMnAOjNL0t962nVJJFMwgYm9I1V3/vm5gEc=; b=lajYi9C1lHSGPJi1iV6LyeXJKf
-	whr2XGvEvZyLEhR7oUVqBduV90wdiE1iqIhlueHeLgeCE3s5+xYkattw3bVjWCgdYVyEVYItTYHJn
-	FNg1SxD/x/1hT8sN0Mdb4rLE48gQXP67wLCKHu5EGs1SHnabUJ6gv8YqrJMGM9MeP48lOvnzvek1q
-	vq4YIGKhZTZAQYS+DKrrJPSa+MOxH+E7/GgLh/zR1Ac6Na6Wn590cLQXLyCfyDKhUpJn1/Nf/9AEU
-	LkjiQUV2AT4aabTMtsWuMVin9al82pg/4E/ZHbA7UWQ22IUFJtuN0y643/F9+aiZy4W07tCNMFTkh
-	0ue7XPUQ==;
+	bh=r3FKYYrhif8JUnAwWwHqDPbknBug/QaLHGOFZe7wWgo=; b=ZhAXYeT3MC2pb57k4yIzq21RYE
+	mdlRJfrZBtWA5Wj49L3vU3fYMXPSSKLUUTVVEajKoxttEmC/8xkjElhxXw0a8KvgRs8lfHJ395YDb
+	3V5ws4Lk8p5Qv+Org3jk4Z9dXJPoBOW9c2omrZT+URB+6YgJvqJpWBwKc9ZQ6Un8tA5zBWEJy9EVJ
+	iIKBqW5KAbJSAzKBg+TuFqYB3tyg9zP0yqdvvE7Zq2zxiH0yQUIPDEX5toocBvyHHCjRttVKfquVV
+	1+oz2ComxBhbQdvee0OSCE22Zj8ESVgCYyX5tNvpMza2CRAmGzxOwsineonwk4NoYivtgWsjp48oe
+	IkwVB6HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXeZ7-00000009OeA-2tlx;
-	Thu, 11 Jun 2026 12:31:21 +0000
+	id 1wXeZA-00000009Oi4-1k6J;
+	Thu, 11 Jun 2026 12:31:24 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXeZ1-00000009OYN-2rqr;
-	Thu, 11 Jun 2026 12:31:17 +0000
+	id 1wXeZ2-00000009OYp-3XSi;
+	Thu, 11 Jun 2026 12:31:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781181073;
-	bh=2tt+VZGzka6Tx7DHWe8Il4tCKJPxHDkNXupOV2T4rBo=;
+	s=mail; t=1781181074;
+	bh=I6P0U6OHTtnB8FfYJJpUJ6PKc2Lq26ZkTlgLMzYJ7cc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aR6Fp32/5yZ1O/WpDzEfVpmyuKXqyLuY/VYvg5htIynFWhwDYD5zNzhSCbmrGCZ3Y
-	 WuUhZVkSujR2MJauS5yDZByJf23PEJoa80LqvCVHsrZ3TU3bG0IoOLign4X8EMHkNK
-	 Vj7nX19sMrh64B15f/Ki6Xup/2pzCxRi2BpF4Ris5k3mEgyX6vnfShkILLEUSZg2gy
-	 6OTkG/nmaHBzOTm99c4mDESFCO2pBM4pktDaVu+dWHr222I7pEmK6H5cyk7MlTPSAd
-	 LW7ADokhHKhriWkMokqKDXNbz0yTzFOY9rbRFUSlceAR94xmtuE/pZ7LT6ZhyEPoGr
-	 S3wlToFl/d+gw==
+	b=jcRDrarVzl1wvPNuLYuMNtZK+YyfwWZKsW5AAQQfXAhxygMmmQObFAcIT1gPuovK6
+	 u/MII7U/k1JU2iIPQT7K771D8FmW1g+elLzN+kZx+rUOl3n+tPNBETeADa0hS7Pil+
+	 iPl8oIgnBEvZymWpEq/p1fhLucDcZXUnsNHMMUW1odEHI5If605RLkjpABn3E14kAj
+	 nVAr0aBvdjeBBV2BShmJgI7LPQgt/02n4uRTqWAwmPdwd5pVmoLV4zEh8gXRkP9Af1
+	 tHW9JkHY3KJHJTQCiSMVtHLzItn6tqjdfr1r/8JP6445Gx2r1lx3YCepwC80RyISom
+	 NK2N9jd3j4pyA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2DA5B17E0920;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F0F2D17E093F;
 	Thu, 11 Jun 2026 14:31:13 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 11 Jun 2026 15:31:05 +0300
-Subject: [PATCH v3 3/6] phy: rockchip: samsung-hdptx: Drop TMDS rate setup
- workaround
+Date: Thu, 11 Jun 2026 15:31:06 +0300
+Subject: [PATCH v3 4/6] phy: rockchip: samsung-hdptx: Drop
+ restrict_rate_change handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260611-hdptx-clk-fixes-v3-3-67b1b0c00e16@collabora.com>
+Message-Id: <20260611-hdptx-clk-fixes-v3-4-67b1b0c00e16@collabora.com>
 References: <20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com>
 In-Reply-To: <20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -64,8 +64,8 @@ Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
  Simon Wright <simon@symple.nz>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_053115_867803_0DAF96AD 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20260611_053117_032952_E7AD8D51 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit ba9c2fe18c17 ("drm/rockchip: dw_hdmi_qp: Switch to
-phy_configure()") the TMDS rate setup doesn't rely anymore on the
-unconventional usage of the bus width, instead it is managed exclusively
-through the HDMI PHY configuration API.
+Since commit 6efbd0f46dd8 ("phy: rockchip: samsung-hdptx: Restrict
+altering TMDS char rate via CCF"), adjusting the rate via the Common
+Clock Framework API has been disallowed.
 
-Drop the now obsolete workaround to retrieve the TMDS character rate via
-phy_get_bus_width() during power_on().
+To avoid breaking existing users until switching to the PHY config API,
+it introduced a temporary exception to the rule, controlled via the
+'restrict_rate_change' flag.
 
-While at it, get rid of the extra call to rk_hdptx_phy_consumer_put() by
-moving the statement at the end of the function.
+As the API transition completed, remove the now deprecated exception
+logic.
 
 Tested-by: Thomas Niederprüm <dubito@online.de>
 Tested-by: Simon Wright <simon@symple.nz>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 27 +++++------------------
- 1 file changed, 6 insertions(+), 21 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 42 +++++------------------
+ 1 file changed, 8 insertions(+), 34 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 5295d5f6f287..92c77e58518c 100644
+index 92c77e58518c..529dd2d5d9bd 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1660,22 +1660,6 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
- 	enum phy_mode mode = phy_get_mode(phy);
- 	int ret, lane;
+@@ -414,7 +414,6 @@ struct rk_hdptx_phy {
+ 	/* clk provider */
+ 	struct clk_hw hw;
+ 	bool pll_config_dirty;
+-	bool restrict_rate_change;
  
--	if (mode != PHY_MODE_DP) {
--		if (!hdptx->hdmi_cfg.rate && hdptx->hdmi_cfg.mode != PHY_HDMI_MODE_FRL) {
--			/*
--			 * FIXME: Temporary workaround to setup TMDS char rate
--			 * from the RK DW HDMI QP bridge driver.
--			 * Will be removed as soon the switch to the HDMI PHY
--			 * configuration API has been completed on both ends.
--			 */
--			hdptx->hdmi_cfg.rate = phy_get_bus_width(hdptx->phy) & 0xfffffff;
--			hdptx->hdmi_cfg.rate *= 100;
--		}
--
--		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
--			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
+ 	atomic_t usage_count;
+ 
+@@ -2074,7 +2073,6 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+ 		if (ret) {
+ 			dev_err(hdptx->dev, "invalid hdmi params for phy configure\n");
+ 		} else {
+-			hdptx->restrict_rate_change = true;
+ 			hdptx->pll_config_dirty = true;
+ 
+ 			dev_dbg(hdptx->dev, "%s %s rate=%llu bpc=%u\n", __func__,
+@@ -2301,41 +2299,17 @@ static int rk_hdptx_phy_clk_determine_rate(struct clk_hw *hw,
+ 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
+ 
+ 	/*
+-	 * Invalidate current clock rate to ensure rk_hdptx_phy_clk_set_rate()
+-	 * will be invoked to commit PLL configuration.
++	 * For uncommitted PLL configuration, invalidate the current clock rate
++	 * to ensure rk_hdptx_phy_clk_set_rate() will be always invoked.
++	 * Otherwise, restrict the rate according to the PHY link setup.
+ 	 */
+-	if (hdptx->pll_config_dirty) {
++	if (hdptx->pll_config_dirty)
+ 		req->rate = 0;
+-		return 0;
 -	}
 -
- 	ret = rk_hdptx_phy_consumer_get(hdptx);
- 	if (ret)
- 		return ret;
-@@ -1701,9 +1685,10 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
- 		rk_hdptx_dp_pll_init(hdptx);
- 
- 		ret = rk_hdptx_dp_aux_init(hdptx);
--		if (ret)
--			rk_hdptx_phy_consumer_put(hdptx, true);
- 	} else {
-+		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
-+			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
-+
- 		if (hdptx->pll_config_dirty)
- 			ret = rk_hdptx_pll_cmn_config(hdptx);
- 
-@@ -1716,11 +1701,11 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
- 			else
- 				ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
- 		}
+-	if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL) {
++	else if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
+ 		req->rate = hdptx->hdmi_cfg.rate;
+-		return 0;
+-	}
+-
+-	/*
+-	 * FIXME: Temporarily allow altering TMDS char rate via CCF.
+-	 * To be dropped as soon as the RK DW HDMI QP bridge driver
+-	 * switches to make use of phy_configure().
+-	 */
+-	if (!hdptx->restrict_rate_change && req->rate != hdptx->hdmi_cfg.rate) {
+-		struct phy_configure_opts_hdmi hdmi = {
+-			.tmds_char_rate = req->rate,
+-		};
+-
+-		int ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &hdmi, &hdptx->hdmi_cfg);
 -
 -		if (ret)
--			rk_hdptx_phy_consumer_put(hdptx, true);
- 	}
+-			return ret;
+-	}
+-
+-	/*
+-	 * The TMDS char rate shall be adjusted via phy_configure() only,
+-	 * hence ensure rk_hdptx_phy_clk_set_rate() won't be invoked with
+-	 * a different rate argument.
+-	 */
+-	req->rate = DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.rate * 8, hdptx->hdmi_cfg.bpc);
++	else
++		req->rate = DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.rate * 8,
++						  hdptx->hdmi_cfg.bpc);
  
-+	if (ret)
-+		rk_hdptx_phy_consumer_put(hdptx, true);
-+
- 	return ret;
+ 	return 0;
  }
- 
 
 -- 
 2.54.0
