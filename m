@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853E6CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 18:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81901CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 18:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oO3jQl4pixT+7MgLwujXtPytjpQKVuTvDggIfHZ8xaQ=; b=OOhIxtdBwSmLkUAbKyNAVceugx
-	M9JDdyawqN4qutkVxzGOjQluQc18jlHnEXwVefmboLbZk9wp+MrIbEuo6dSGIXxxbfUMbW2uMh4BJ
-	rEuxNAj7nGkp/9R92K3OR3FR3/SgM+ntkDFUFQkapULcnTkq+Y+P0lzr4KKLAOqaQK7f3h/DtEaf/
-	HI3IM7qZVEGRpTVKyXhpnLaYZmhaawlNvbysjsE9TvUm/EYUhmsouJVBHAWvhnMiL4nub7WLTn5VN
-	wCu1tHzqsQDiR7busaz7uJcADPSQp5/Y1N5x0KN54gfYRcM+12hRLmOX3vD9gMcf4NBglhnEV8tbO
-	/DGXXe8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Dkv0Y88H+SR6ILk9sT/YTT+0skYukMCzceYVycVftns=; b=q287bDgVCOYu2eLp2iqQgxwaQe
+	xOVBPB41XY9r4wkUhTSIVnhNZbUStLLmzLXNhwZyXVdPFAee9GF7UDdc9sY3SswpNUe+ApTPab3rV
+	yEmAOCQ2RvOQJSJrvNFdqi9nqjDbNrM7mhpqOfR/YDzRCXsLdWa8iW1PzmSWWoWQja/dJ4bBuw9/Q
+	HmtMNa7lwURsRjDgSB8vOkLN/R8BDLLBa3y1gh3SiztRWByBTsZQnwb8U10kLMX7ZbqFdhYszW1sl
+	M5IkoAOz3BwM5XH3eOQ7GMXD+Jaoc79Dex6wx5zFXvmWUFuDps50A+8bfDvucDwrP3zR+2bFH7dDj
+	IZYUIzCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXjtr-00000009sNt-1muc;
-	Thu, 11 Jun 2026 18:13:07 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wXkHH-00000009tFp-3xB3;
+	Thu, 11 Jun 2026 18:37:19 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXjtp-00000009sMS-1sbQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 18:13:06 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1wXjtM-0003nV-U3; Thu, 11 Jun 2026 20:12:36 +0200
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1wXjtM-002Fqw-17;
-	Thu, 11 Jun 2026 20:12:36 +0200
-Received: from [::1] (helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1wXjtM-00000003Ffp-13AL;
-	Thu, 11 Jun 2026 20:12:36 +0200
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Thu, 11 Jun 2026 20:12:35 +0200
-Subject: [PATCH 3/3] ARM: dts: stm32: fairytux2: change stdout-path baud
- rate from 9600 to 115200
+	id 1wXkHF-00000009tEx-39HQ;
+	Thu, 11 Jun 2026 18:37:19 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gbrwN2g2kz9tWv;
+	Thu, 11 Jun 2026 20:37:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781203028;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Dkv0Y88H+SR6ILk9sT/YTT+0skYukMCzceYVycVftns=;
+	b=dDcc08x0dcrKswHlCVxuROso1L8H2qo5xxLwb2GdvV2xY4AFA5F9RTOimgpKn5pxzpRufh
+	tuzqlDg4A/rMg7HKbaHXE3Vn8IMzlSkyObAvpKbFCrjOXigEghkfPqHyz21cbPm/v+RB2l
+	lKbNlYW77r7imN2qll75tefdhZS8Z9cFOW+c5+P8mS+wPK4d4VwSyRmVXFe92peAB8WLng
+	A5/8uiQVtk2fibFWyO1c3OU9AeUBbNZgE1rYZdsN/u0W8kE0k69/i6qInDr/o2vEse8Kkc
+	7lH0fpN/C1Hu12dfoxky+PSj7B3F9OEOn08lRas9tdnimqiR3kdSw4VZBudakg==
+From: Manuel Ebner <manuelebner@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781203022;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Dkv0Y88H+SR6ILk9sT/YTT+0skYukMCzceYVycVftns=;
+	b=yHxSM7TAtkgtiG7evw5aBg+nfR1e5mMA5TA7y6XTlvnRHkWVkwOgn7nzTTVwgiJfxrlSPw
+	Fq6b2wdI56NyVbncWKl66lO/iR9AszePqYiGiIJS1Lnjbk/DbXPERUSPgNsiAwW8Xv8gBr
+	9sJTd5vM8OCzoTh48DBrJTg+X4eYfzigRIXzj5phRIFhp3mxRKM/hXHh9qnPi3MkMWml1z
+	9AbAxExj8Rl6A86dy7oZMZIJIUm83Z4Y6TQoBFXIF9dNdlS3J1vNIZLdCAFK8O2yqXcnEj
+	+bODCeBRbhc1fQWZrgL1UmtZcarxtrM5WqAJEGAWdVgLtWZN++53G17Pw0dPfw==
+To: Vineet Gupta <vgupta@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	linux-snps-arc@lists.infradead.org (open list:SYNOPSYS ARC ARCHITECTURE),
+	linux-doc@vger.kernel.org (open list:DOCUMENTATION),
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linuxppc-dev@lists.ozlabs.org (open list:LINUX FOR POWERPC (32-BIT AND 64-BIT))
+Cc: Manuel Ebner <manuelebner@mailbox.org>
+Subject: [PATCH] Documentation: arch: fix brackets
+Date: Thu, 11 Jun 2026 20:35:20 +0200
+Message-ID: <20260611183525.153058-2-manuelebner@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-lxa-stdout-path-baudrate-v1-3-59b60a5069ff@pengutronix.de>
-References: <20260611-lxa-stdout-path-baudrate-v1-0-59b60a5069ff@pengutronix.de>
-In-Reply-To: <20260611-lxa-stdout-path-baudrate-v1-0-59b60a5069ff@pengutronix.de>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>, 
- Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Alexandre Torgue <alexandre.torgue@st.com>, devicetree@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@pengutronix.de, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.15.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: f6zk6t8i7udhsfuxo6bwkb9axkpyzqtj
+X-MBO-RS-ID: 29289ebd505fa1394bb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_111305_494291_F7A16255 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260611_113718_023012_97B38B32 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +99,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default baud rate when none is specified is up to the DT consumer.
+Add missing and remove needless parentheses, brackets and curly braces.
 
-In the case of the Linux STM32 serial driver, it defaults to 9600 baud,
-which differs from the 115200 baud that this board's barebox bootloader
-configured.
-
-This went unnoticed, because barebox automatically fixes up a console=
-command-line option that looks like this on the LXA boards:
-
-  console=ttySTM0,115200n8
-
-This had precedence over the 9600 fallback baud rate.
-
-But when EFI booting a kernel via GRUB, we run into this issue, because
-the barebox-provided command-line is disregarded by GRUB.
-
-Fix this by explicitly setting the baud rate to the correct 115200.
-
-Fixes: 8c6d469f5249 ("ARM: dts: stm32: lxa-fairytux2: add Linux Automation GmbH FairyTux 2")
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Signed-off-by: Manuel Ebner <manuelebner@mailbox.org>
 ---
- arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/arch/arc/arc.rst                 |  2 +-
+ .../arm/samsung/clksrc-change-registers.awk    |  2 +-
+ Documentation/arch/arm/vlocks.rst              |  4 ++--
+ .../arch/arm64/memory-tagging-extension.rst    |  2 +-
+ Documentation/arch/powerpc/vas-api.rst         |  2 +-
+ Documentation/arch/sparc/oradax/dax-hv-api.txt | 18 +++++++++---------
+ Documentation/arch/sparc/oradax/oracle-dax.rst |  3 ++-
+ 7 files changed, 17 insertions(+), 16 deletions(-)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi b/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
-index 7d3a6a3b5d09..d30b626a18c2 100644
---- a/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
-@@ -28,7 +28,7 @@ aliases {
- 	};
+diff --git a/Documentation/arch/arc/arc.rst b/Documentation/arch/arc/arc.rst
+index 6c4d978f3f4e..553851f43be7 100644
+--- a/Documentation/arch/arc/arc.rst
++++ b/Documentation/arch/arc/arc.rst
+@@ -36,7 +36,7 @@ Important note on ARC processors configurability
  
- 	chosen {
--		stdout-path = &uart4;
-+		stdout-path = "serial0:115200n8";
- 	};
+ ARC processors are highly configurable and several configurable options
+ are supported in Linux. Some options are transparent to software
+-(i.e cache geometries, some can be detected at runtime and configured
++(i.e cache geometries), some can be detected at runtime and configured
+ and used accordingly, while some need to be explicitly selected or configured
+ in the kernel's configuration utility (AKA "make menuconfig").
  
- 	backlight: backlight {
-
+diff --git a/Documentation/arch/arm/samsung/clksrc-change-registers.awk b/Documentation/arch/arm/samsung/clksrc-change-registers.awk
+index 7be1b8aa7cd9..48464397088c 100755
+--- a/Documentation/arch/arm/samsung/clksrc-change-registers.awk
++++ b/Documentation/arch/arm/samsung/clksrc-change-registers.awk
+@@ -163,4 +163,4 @@ BEGIN {
+     }
+ }
+ 
+-// && ! /clksrc_clk.*=.*{/ { print $0 }
++// && ! /clksrc_clk.*=.*{/ { print $0 }}
+diff --git a/Documentation/arch/arm/vlocks.rst b/Documentation/arch/arm/vlocks.rst
+index 737aa8661a21..b0ac33263086 100644
+--- a/Documentation/arch/arm/vlocks.rst
++++ b/Documentation/arch/arm/vlocks.rst
+@@ -102,10 +102,10 @@ Features and limitations
+ 	if (I_won) {
+ 		/* we won the town election, let's go for the state */
+ 		my_state = states[(this_cpu >> 8) & 0xf];
+-		I_won = vlock_lock(my_state, this_cpu & 0xf));
++		I_won = vlock_lock(my_state, this_cpu & 0xf);
+ 		if (I_won) {
+ 			/* and so on */
+-			I_won = vlock_lock(the_whole_country, this_cpu & 0xf];
++			I_won = vlock_lock(the_whole_country, this_cpu & 0xf);
+ 			if (I_won) {
+ 				/* ... */
+ 			}
+diff --git a/Documentation/arch/arm64/memory-tagging-extension.rst b/Documentation/arch/arm64/memory-tagging-extension.rst
+index 679725030731..e6fe428f0e2a 100644
+--- a/Documentation/arch/arm64/memory-tagging-extension.rst
++++ b/Documentation/arch/arm64/memory-tagging-extension.rst
+@@ -222,7 +222,7 @@ programs should not retry in case of a non-zero system call return.
+ address ABI control and MTE configuration of a process as per the
+ ``prctl()`` options described in
+ Documentation/arch/arm64/tagged-address-abi.rst and above. The corresponding
+-``regset`` is 1 element of 8 bytes (``sizeof(long))``).
++``regset`` is 1 element of 8 bytes (``sizeof(long)``).
+ 
+ Core dump support
+ -----------------
+diff --git a/Documentation/arch/powerpc/vas-api.rst b/Documentation/arch/powerpc/vas-api.rst
+index a9625a2fa0c6..1d0d055356e3 100644
+--- a/Documentation/arch/powerpc/vas-api.rst
++++ b/Documentation/arch/powerpc/vas-api.rst
+@@ -293,7 +293,7 @@ Simple example
+ 				//Format CRB request with compression or
+ 				//uncompression
+ 				// Refer tests for vas_copy/vas_paste
+-				vas_copy((&crb, 0, 1);
++				vas_copy(&crb, 0, 1);
+ 				vas_paste(addr, 0, 1);
+ 				// Poll on csb.flags with timeout
+ 				// csb address is listed in CRB
+diff --git a/Documentation/arch/sparc/oradax/dax-hv-api.txt b/Documentation/arch/sparc/oradax/dax-hv-api.txt
+index ef1a4c2bf08b..ef6088aeaa66 100644
+--- a/Documentation/arch/sparc/oradax/dax-hv-api.txt
++++ b/Documentation/arch/sparc/oradax/dax-hv-api.txt
+@@ -457,7 +457,7 @@ bits set, and terminate at a CCB that has the Conditional bit set, but not the P
+ Offset   Size   Field Description
+                 Bits         Field Description
+                 [15:14]      Secondary Input Element Size (see Section 36.2.1.1.4,
+-                             “Secondary Input Element Size”
++                             “Secondary Input Element Size”)
+                 [13:10]      Output Format (see Section 36.2.1.1.6, “Output Format”)
+                 [9]          Padding Direction selector: A value of 1 causes padding bytes
+                              to be added to the left side of output elements. A value of 0
+@@ -656,7 +656,7 @@ Offset         Size            Field Description
+                                [18:16]      Secondary Input Starting Offset (see Section 36.2.1.1.5, “Input
+                                             Element Offsets”)
+                                [15:14]      Secondary Input Element Size (see Section 36.2.1.1.4,
+-                                            “Secondary Input Element Size”
++                                            “Secondary Input Element Size”)
+                                [13:10]      Output Format (see Section 36.2.1.1.6, “Output Format”)
+                                [9:5]        Operand size for first scan criteria value. In a scan value
+                                             operation, this is one of two potential exact match values.
+@@ -793,13 +793,13 @@ Offset   Size   Field Description
+                 [18:16]      Secondary Input Starting Offset (see Section 36.2.1.1.5, “Input
+                              Element Offsets”)
+                 [15:14]      Secondary Input Element Size (see Section 36.2.1.1.4,
+-                             “Secondary Input Element Size”
++                             “Secondary Input Element Size”)
+                 [13:10]      Output Format (see Section 36.2.1.1.6, “Output Format”)
+                 [9]          Reserved
+                 [8:0]        Test value used for comparison against the most significant bits
+                              in the input values, when using 2 or 3 byte input elements.
+-8        8      Completion (same fields as Section 36.2.1.2, “Extract command”
+-16       8      Primary Input (same fields as Section 36.2.1.2, “Extract command”
++8        8      Completion (same fields as Section 36.2.1.2, “Extract command)”
++16       8      Primary Input (same fields as Section 36.2.1.2, “Extract command”)
+ 24       8      Data Access Control (same fields as Section 36.2.1.2, “Extract command”,
+                 except Primary Input Length Format may not use the 0x0 value)
+ 32       8      Secondary Input, if used by Primary Input Format. Same fields as Primary
+@@ -880,7 +880,7 @@ Offset   Size   Field Description
+                                        [18:16]     Secondary Input Starting Offset (see Section 36.2.1.1.5, “Input
+                                                    Element Offsets”)
+                                        [15:14]     Secondary Input Element Size (see Section 36.2.1.1.4,
+-                                                   “Secondary Input Element Size”
++                                                   “Secondary Input Element Size”)
+ 
+ 
+                                                       524
+@@ -895,8 +895,8 @@ Offset   Size   Field Description
+                                                     causes padding bytes to be added to the right side of output
+                                                     elements.
+                                        [8:0]        Reserved
+-        8              8               Completion (same fields as Section 36.2.1.2, “Extract command”
+-        16             8               Primary Input (same fields as Section 36.2.1.2, “Extract command”
++        8              8               Completion (same fields as Section 36.2.1.2, “Extract command”)
++        16             8               Primary Input (same fields as Section 36.2.1.2, “Extract command”)
+         24             8               Data Access Control (same fields as Section 36.2.1.2, “Extract command”)
+         32             8               Secondary Bit Vector Input. Same fields as Primary Input.
+         40             8               Reserved
+@@ -949,7 +949,7 @@ Offset   Size   Field Description
+                                    [31]        If set, this CCB functions as a Sync command. If clear, this
+                                                CCB functions as a No-op command.
+                                    [30:0]      Reserved
+-       8             8             Completion (same fields as Section 36.2.1.2, “Extract command”
++       8             8             Completion (same fields as Section 36.2.1.2, “Extract command”)
+        16            46            Reserved
+ 
+ 36.2.2. CCB Completion Area
+diff --git a/Documentation/arch/sparc/oradax/oracle-dax.rst b/Documentation/arch/sparc/oradax/oracle-dax.rst
+index d1e14d572918..67867ea7be40 100644
+--- a/Documentation/arch/sparc/oradax/oracle-dax.rst
++++ b/Documentation/arch/sparc/oradax/oracle-dax.rst
+@@ -438,7 +438,8 @@ that in user land::
+ The output bitmap is ready for consumption immediately after the
+ completion status indicates success.
+ 
+-Excer[t from UltraSPARC Virtual Machine Specification
++Excer?t from UltraSPARC Virtual Machine Specification
++i guess this is wrong, but i don't know what's correct
+ =====================================================
+ 
+  .. include:: dax-hv-api.txt
 -- 
-2.47.3
+2.54.0
 
 
