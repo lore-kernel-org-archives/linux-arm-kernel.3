@@ -4,99 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48927CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCA7CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:22:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xKVTpr4aNyZx4lSh79VinADzKQEIbf4Ts/2xtaUoVwc=; b=v9x6WVwkzMbUenhGT6FjORbVhR
-	SFmFf8hWtO9/rlr9ugDXazCCd/ZGUQ8bsUVJ7WGTGu2rQIy3ZEJnJ06PWAW3lAmrVW8QpqidAYb9b
-	4wTqBTYlrvfeuia1kIU/F4DqI9TBYAE3mlfKJyttLKrdRASCImevXkdFJWMnRKX2+FZWPmbyybNTl
-	UjLkrNBKX5EkqsTdUoM4si0ZOu4qatnb8A0ZmcnIKPGq4u4mvzl9/ihblZ+NvYVuAu2Egbztuip1X
-	m+6Rr0+bOnF0zCK41pXN3kO1fl/NqmmAyRFv+avoRjMHZPhqYUaV5+klFhNfLVKCSaq8OCQZy6iy7
-	3NsC2Iiw==;
+	bh=uG/oiGe08GlbvOXLBMnHpg/vQFnYJfTe59/7gdd1dCo=; b=2ajygCE9P1iIZq2vTQzO8jkjEc
+	rxqs31fqffYTLwJ5s91pyEVKKXWqMnnvOaTdY8FkqrPIxIAhGfo2GK4M5zfu7paHQ8vFuUDbsRFy0
+	E432ChuBAeKElBucBWjJT2wpJKhfk0SnskIPy0taWlw6Giw/sh9UqmLh5QOAN8AKiZauXlLJurqP7
+	nIzL1AS1QdKxbWoIoexbmnoMDjCdAW/nzyziAqpbYmk9SJ1fvk9I5hsitlq4Uq8hSAQCx2SlC0m8X
+	q4hDuCCXm3AcXtNgVb5MI+3y09tnoDS3r3CaTgkJZ8go6uKrN1G77Sr6ueU8uiTTCkEoWsLbZyr9g
+	AiQ/O+sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXeLf-00000009NTW-2Vjg;
-	Thu, 11 Jun 2026 12:17:27 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1wXeQ3-00000009NiF-0MXL;
+	Thu, 11 Jun 2026 12:21:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXeLc-00000009NSj-1lLc
+	id 1wXeQ1-00000009Ni7-2aRA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 12:17:26 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-36b9ec98144so6600938a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 05:17:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781180243; x=1781785043; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xKVTpr4aNyZx4lSh79VinADzKQEIbf4Ts/2xtaUoVwc=;
-        b=Zq34GC3lPuXpWZlSum/dtsS65wH+rx6G7sodqUq8AMQ6LhyTgot8TvZP+IHth5ZdQG
-         ZtyMdWF5yPHmpXQ4jlDyTjE5ivnLT4Otn4PV3CKd7l1LM5mlrX8xUAbpvULLMZF4KGVD
-         fjRFzVNc7vA3NO261tzCPw4EZUApTYEi0k5d03yxw8zbQ7rb/+0Gc2lEvP1X6HndsCwc
-         0ZHpKJpBp4X2FgzpSnBqF9WyIP853uj/J4ASaCWNniX9hereSB7YBes47rwkzU8YXsLh
-         47s/BfJqZCAfCxmjeT2NCVecA2nSmxJalSus1Slppv+aEYDr/AZ8zwRnvDc5cJ/zDxEt
-         Iwnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781180243; x=1781785043;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xKVTpr4aNyZx4lSh79VinADzKQEIbf4Ts/2xtaUoVwc=;
-        b=cbIlN2ypOExxVlL5to9jKdgL6FAzrdCK61Lqse2g3ghGdaQDA5h4doiS03fWLFepHd
-         45xd+HKI3463jzGyEv6EeFWmBji7CsSaU94CVaEMdpLwEqVomqvy7E8VJN8tnPeYOC2d
-         Rxr9aApGojCS1Nq+7WDPOroetodMygt6mNKeLFKrvWTQnihKPugTXXHd4fRNTMcWGPo7
-         G8dsacaJPa+K1OHxm7M9U/D8vbQAhjqS5gHuvJ85BfWdYbV9DpRcicUKlrfdoeMXLYea
-         w51H5+9usHHrTfKibsITH/XVHJWzBAiK2wJ464YX/SetUKYAB0JJ4AxePFkfTSeGmiNx
-         rrPg==
-X-Forwarded-Encrypted: i=1; AFNElJ8AdVDjDSDIlvmGyndLifzNeoiNHUt3qylKI2SQ+/dmNZbwQ6o/2MHCfUHgk2fgpuQInp4t699ckwf+XJg2TBeM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzIhSUHD4AZ4cLaE/A9PONFOVnZtJ81L3WgP3heyUlrPpwyJc3
-	UMAg+y91X3D8zxl4o+TWI9YHkCV7jv37BGDbyDplg3tH7jEFOZm+Gyul
-X-Gm-Gg: Acq92OHTkbY6Bobr8FrWrS1WO91RVNkp20asiKU8ZHo3mW1SgO6U2fAoG5s6PqQM1n9
-	tM3wMXR7znxsN+F4U9upGreRRY9WOkZEREW4ukJC+AeIfG0CcFz+nemedqFNdtTRs1DKwwNdQ5p
-	RbsTiurdQm9WrB0w1nqQfawzFsATYTW/aqUIl2b+aerlwA0PlKutJ5DaEquUpo9O3EIMsLN+qxF
-	S3IZ/UyD7bsK3kjNLUqoUWZHX3zLgJ/HnTZete1pkTrdHbYbr6InO6krgI1L1bJgxUUUCEoVzF0
-	zMhnLx/YzdaCKR4O37F/q3ETlmMhkufhqUMnLQwmDngB8cE6ojWcnZUvefR6LcqJC5SNsnab29k
-	ZzjqWMk0Rm231/YrfZP67a4CSlprCtOuuDoBzvNvLn9oSwg7Mw+9ZFPWIVCGNI2s/YpGNp2zKuz
-	qdpjpLQwLBx+NO/sH3s1PKyURmy3kRBoPe7IiUvv0DanL6DkcOrWRf
-X-Received: by 2002:a17:90b:5607:b0:35e:d015:d675 with SMTP id 98e67ed59e1d1-3779d7a1208mr3111460a91.7.1781180242867;
-        Thu, 11 Jun 2026 05:17:22 -0700 (PDT)
-Received: from [192.168.89.2] ([27.232.220.71])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3775558f317sm2486069a91.9.2026.06.11.05.17.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Jun 2026 05:17:22 -0700 (PDT)
-Message-ID: <bfc283bc-a5db-4e96-a447-e8e79cc97d34@gmail.com>
-Date: Thu, 11 Jun 2026 21:17:18 +0900
+	Thu, 11 Jun 2026 12:21:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9DEF26001A;
+	Thu, 11 Jun 2026 12:21:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AD611F00893;
+	Thu, 11 Jun 2026 12:21:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781180516;
+	bh=uG/oiGe08GlbvOXLBMnHpg/vQFnYJfTe59/7gdd1dCo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=fbpkLaAUNB5lDGQL5XNJOaEhHZC8SrUA6FP+YYfXO1mF0LhjRwfV80QyGDS7dypXs
+	 VTvtMO9Pxww8G7urP/7Bxty6xRBLgkmY6Pg6LBD6ZFblw3+O62YaQdLK4Dm+j+sEmY
+	 NriZAlA0t3jmY17Y6yFOS94bJAn5yM+1tKyUdKIEyqQxtiay4BkYuq+C43jkohmB1L
+	 adSMXsevafXL+VS8tfCPDR/n8pxUMRCQgnX9JCqGlo/IJhI4S4SJ+jk2UztjSM9M7C
+	 DNAOQ9wuzIZXfsmi5GBGAdtOWxZNmY0Wn6UdyYS3KUtOXbBfDT1vIjtnrpTul2NqPy
+	 iE3LRC6MNYDKw==
+Message-ID: <d943a03e-bf28-4086-8907-5a24665fb2f5@kernel.org>
+Date: Thu, 11 Jun 2026 14:21:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] crypto: inside-secure: add EIP93 ESP packet backend
-To: Simon Horman <horms@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
- Antoine Tenart <atenart@kernel.org>, Herbert Xu
- <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>,
- Steffen Klassert <steffen.klassert@secunet.com>,
- linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20260523121522.3023992-1-hurryman2212@gmail.com>
- <20260523121522.3023992-3-hurryman2212@gmail.com>
- <20260527100824.GJ2256768@horms.kernel.org>
+Subject: Re: [RFC PATCH v2 1/3] mm/huge_memory: make persistent huge zero
+ folio read-only
+To: Lance Yang <lance.yang@linux.dev>
+Cc: akpm@linux-foundation.org, xueyuan.chen21@gmail.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+ luto@kernel.org, peterz@infradead.org, hpa@zytor.com, ljs@kernel.org,
+ liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+ npache@redhat.com, ryan.roberts@arm.com, dev.jain@arm.com,
+ baohua@kernel.org, yang@os.amperecomputing.com, jannh@google.com,
+ dave.hansen@intel.com
+References: <8c36a91d-288f-4ffb-b2ec-41e3ef789d72@kernel.org>
+ <20260611115817.59353-1-lance.yang@linux.dev>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: Jihong Min <hurryman2212@gmail.com>
-In-Reply-To: <20260527100824.GJ2256768@horms.kernel.org>
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260611115817.59353-1-lance.yang@linux.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_051724_471066_1CDED86F 
-X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,106 +124,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/27/26 19:08, Simon Horman wrote:
-> On Sat, May 23, 2026 at 09:15:21PM +0900, Jihong Min wrote:
->> Expose an EIP93 packet-mode IPsec backend for netdev drivers that need
->> ESP encapsulation and decapsulation offload without advertising EIP93
->> itself as a netdev.
+On 6/11/26 13:58, Lance Yang wrote:
+> 
+> On Thu, Jun 11, 2026 at 01:28:58PM +0200, David Hildenbrand (Arm) wrote:
+>> On 6/10/26 04:15, Lance Yang wrote:
+>>>
+>>>
+>>> Right, this came from the RFC v1 discussion[1]. David preferred a page-
+>>> range helper for possible future non-folio callers, not something folio-
+>>> only.
+>>>
+>>> Of course, we could also add a folio wrapper on top of that if needed :)
 >>
->> Add provider selection, capability reporting, SA lifecycle management,
->> IPsec request completion, and provider fault notification around the
->> existing EIP93 descriptor path.
->>
->> Assisted-by: Codex:gpt-5.5
->> Signed-off-by: Jihong Min <hurryman2212@gmail.com>
+>> Best to document that as part of the patch description: we don't really expect
+>> to have a lot of read-only folios in the near future (zero page is rather
+>> special; maybe it won't even be a folio in the future).
 > 
-> ...
+> Ah, good to know, thanks. Will spell that out in RFC v3.
 > 
->> diff --git a/drivers/crypto/inside-secure/eip93/eip93-ipsec.c b/drivers/crypto/inside-secure/eip93/eip93-ipsec.c
+> Maybe something like this?
 > 
-> ...
-> 
->> +static void eip93_ipsec_abort_requests(struct eip93_ipsec *ipsec, int err)
->> +{
->> +	struct eip93_ipsec_sa *sa;
->> +
->> +	while (true) {
->> +		bool found = false;
->> +
->> +		spin_lock_bh(&ipsec->lock);
->> +		list_for_each_entry(sa, &ipsec->sa_list, node) {
->> +			spin_lock(&sa->lock);
->> +			if (sa->aborting) {
->> +				spin_unlock(&sa->lock);
->> +				continue;
->> +			}
->> +
->> +			sa->aborting = true;
->> +			found = refcount_inc_not_zero(&sa->refcnt);
->> +			spin_unlock(&sa->lock);
->> +			if (found)
->> +				break;
->> +		}
->> +		spin_unlock_bh(&ipsec->lock);
->> +		if (!found)
->> +			return;
->> +
->> +		eip93_ipsec_abort_sa(sa, err);
->> +		eip93_ipsec_sa_put(sa);
-> 
-> sa is the iterator for the list_for_each_entry loop.
-> However, here it is used outside of that context.
-> 
-> 	"If list_for_each_entry, etc complete a traversal of the list, the
-> 	iterator variable ends up pointing to an address at an offset from
-> 	the list head, and not a meaningful structure.  Thus this value
-> 	should not be used after the end of the iterator.
-> 
-> 	https://www.spinics.net/lists/linux-kernel-janitors/msg11994.html
-> 
-> Flagged by Coccinelle.
-> 
+> The huge zero page is pretty special case, and maybe it won't even be a
+> folio in the future. Since read-only folios are unlikely to become a
+> common thing, a page-range helper is the cleaner fit.
 
-Hi Simon,
+Right. And if read-only folios in FSes become a real thing, we can always add
+infrastructure for that.
 
-Thanks for the feedback, and sorry for noticing this mail so late.
+-- 
+Cheers,
 
-Your point is correct. The `list_for_each_entry()` iterator should not
-be used outside the loop like that. If I continued with this series, I
-would fix it by keeping a separate selected SA pointer before dropping
-the lock.
-
-At this point, though, I think the right thing is to withdraw this
-EIP93/Airoha series.
-
-The reason is that many Airoha SoCs also have a higher-performance IP
-block called SOE (Secure Offload Engine). I recently wrote and tested a
-driver for that block, and I am currently carrying it here: [kernel: add
-bonding LAG XFRM offload infrastructure and Airoha
-support](https://github.com/hurryman2212/OpenW1700k-test/commit/fbfe8f919f836bb62b3849f803865a4d9b8dc76f).
-With the EIP93 path I could get around 1 Gbps, while the SOE path can
-reach about 5 Gbps in my current setup. Because of that, integrating
-this EIP93 ESP packet path directly into `airoha_eth` is no longer the
-most useful direction for Airoha Ethernet.
-
-That said, SOE exists only on some Airoha SoCs. EIP93 can still be
-useful on other platforms as a look-aside ESP packet offloader, but I
-think that needs a cleaner infrastructure than this series had. The
-look-aside offloader should be able to live as a separate module, not be
-tied directly to one specific netdev driver, while still allowing
-compatible netdevs to attach it into the XFRM path. I think that needs a
-more general infrastructure extension, so I would rather revisit the
-EIP93 work later on top of that kind of model.
-
-
-Sincerely,
-Jihong Min
-
->> +	}
->> +}
-> 
-> ...
-
+David
 
