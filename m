@@ -4,126 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B65CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06145CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Hv9r+0DBIdLpsuTjNepGhf1KDFz5dqPIJTxo4LFXEeo=; b=M24KOMWSwqbPBD5RDPU33j3cU5
-	K1CnvRgsK4GsjwkpXaBnFg4l7jLBPfMeFr/+vHALL9i3572ph6+ljXHsmlkiCsDE6FYduBHMpHKkK
-	ml8Wn+32IRYVa+JId6FW5IBhx3VX8vI395zU6ox5YIG+Do/Y1rvUClroBQHT8L18lhF2ICU8CgliK
-	JjKUPyqBbj3UEJjXxApOsSG3MxHZi51pdAldzLbxuu2+4vjzp2rNC/Khkp4oR5/JozoClhLwRyEqy
-	RhL4diqNu9iMN5unN1vq5/tHyz5Uii9SznFwa51XTOWSiasRPnmIpeUxkyG1I3Q5ctdp0qWizz/Qh
-	QBq0oWqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/thunkLeopaYafPmT4qV+uCMcr9F7pMqaCW03mL8e5Y=; b=E+sxVMahIZu/yw
+	xdrHu/YT2fv87RnFBKzOkP6+rvNpcz0NPg/APTGV/W+zE6xHmMwq/FAH2nkBMO7SVRunwPnvOSJ8Y
+	ubMMsznS0qU9gW2npfa/L7U1DTiH4Ki4PbFhfFsKL9/56LVmMyn4iF4hpKDuIohWfMyXL0Zm8PknF
+	HwlsJ8/mXfDjVwAVCy4IyxD4hi/kv4zD5bnarA5qG7MCtLbheUuGG66K8qV7xSN0enC63cpT/8n0C
+	M6QGVvVRmkiwsILCFZji0mdDtDctvJVmOyC78B+KfIWS/r1Bs5TTBYcA8CROV4SSxzoB9JueyqlHv
+	KqDctMAD5i29rPtlYGSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgio-00000009bxf-1fw2;
-	Thu, 11 Jun 2026 14:49:30 +0000
-Received: from mail-swedencentralazon11013053.outbound.protection.outlook.com ([52.101.83.53] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgim-00000009bxJ-243s
+	id 1wXgkT-00000009c7J-3Oh7;
+	Thu, 11 Jun 2026 14:51:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXgkO-00000009c6K-49Do
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 14:49:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nKTItno0AlDgXQ8uiNSaemlH6rIcDekeUXjFNmigZCm5ObeudYhaccodPtFHPHMkkyC2JngOMjZmbIJx7XQ1avnMowue5X9Q8cUGTtagKDZNmiN9q6xipp4pUgoh7PFgwW9tGZT8FnMYT/j993uevoDtc+ZUp4sBjxhex1Sg4kgtegxXjUwyh66hvRhezDv8v0E+vaszLL8/Ym0LwhfUxgJDPNEDXFiUyx4mvnFsHOcrFEeOUmHOT9Kp6brUTP8A0OdqbY3YtwcAlOVy/sbzbMn6IeE/+Yl0FB9BITc4z3b+eXMtLnNdCtgGypMu29lAMVQPh8JmJlU1jTN2sz0vsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hv9r+0DBIdLpsuTjNepGhf1KDFz5dqPIJTxo4LFXEeo=;
- b=nmd75BFYLXwpa2b3iD0U56Hfu9IDuhhqqNjwhswJ1GsGa5ryhpIP4x9l7/nU2k2O/alPOoosMXeoqL8MEvZAfMiqmbuaGvgx8hHzAmalu5aExHbzfniCS2vDmzfqTqtz6hvlsd6mp/vtiZwu3T5hZB+YuooIkU/neeDHtlNGRKRuAsXj2tERi4QRr4I1opRIM5ewc1wn+aRmCk6/8G6JFJx5yKaBnE63P3cxKRjVDvdxjzhxVFOsqZDyGN8CzBHdTUYrEPYN7e1jCKPr2SV18wspRC1yL2rGBQ0gpPin4k/uG6zrqVo1qZ+w2XyW+OuoEoH6ZEm1O9UykRW7YjbdqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hv9r+0DBIdLpsuTjNepGhf1KDFz5dqPIJTxo4LFXEeo=;
- b=TxxCgGaYR/l2BMQG/VSMs8TFkfoHnKmkGKP5mR6O9khfYoT3hd5YL2AYBmQ9YdvCfZs10WmD4H1bILHfLJL8YFaBdXlZhPkl2EH5Sf3XSRV70omyL4cH4iiP7h5OMkWpBbbfeAFTAnlBb7lZaXpqOfJBR9GgU/aGN5YThgd/IOY+cVje8xWmMbb8CoR/PwJX+v9q6nK7AZAGMhH2JIdTWv3FF+l81EWqPUvCN67ZuY6r3396rXcTNhMakRBO7xyt2Kq8F/k4LucxyGJpGnxwh11Bp3nQ/4nSATlRv4m5U7YFhAr6xt45uBeln5vh/MQrqQewNa9to8r62rK8w72c/g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMBPR04MB12568.eurprd04.prod.outlook.com (2603:10a6:20b:77b::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Thu, 11 Jun
- 2026 14:49:20 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
- 14:49:19 +0000
-From: Frank.Li@oss.nxp.com
-To: soc@kernel.org,
-	arm@kernel.org
-Cc: Frank.Li@nxp.com,
-	kernel@pengutronix.de,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] i.MX binding (display/lvds-codec) for 7.2
-Date: Thu, 11 Jun 2026 10:49:10 -0400
-Message-ID: <20260611144912.3860262-1-Frank.Li@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH0PR07CA0054.namprd07.prod.outlook.com
- (2603:10b6:510:e::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 11 Jun 2026 14:51:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 120471CDD;
+	Thu, 11 Jun 2026 07:51:02 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 29C4C3FBB1;
+	Thu, 11 Jun 2026 07:51:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781189466; bh=yCDPT+r13347330OEMQ74qxQB7TvSZnnVREtSLFRwiI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Y6XdEUaeqJ1E/cTzwEs7hJ6ied+NkIuUgzrIho8cpP2JhsNvdgpSUmR5BeP+IIUyy
+	 sTU/ceGlVzdGXs3pncjd1M6JezRimnMCnnX27brdLkVD6pZEqiZVf7pDSdoIytlblC
+	 6Lax9QQhkPDXGYqw9UmD+jvs25tvyK2tekP5X84g=
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v8 0/8] perf cs-etm: Support thread stack and callchain
+Date: Thu, 11 Jun 2026 15:50:46 +0100
+Message-Id: <20260611-b4-arm_cs_callchain_support_v1-v8-0-737948584fea@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMBPR04MB12568:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4da53ec1-f779-46d5-605c-08dec7c89e55
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|19092799006|1800799024|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: 99Xo1BeYR6wfTRwD93VlBlXX9Ci/uA3MbGnew5bIjoF7q+rc9Zmv/uRIlOUaUnFCqrwP643AuHD/d4uqktd+A+Ok8iRssVTKyVKnFq85qnzj6Z1zP63fnvYwM2ZzYb9GvfOTfvnN/+vN6o4AO1yt4p3+lO03O1NrgHr/skm/hxARXhESDVD8tVHtJC7gazMyY5BpAlx+3F2j70pTwgM8GmclcuAx6rp9uqxtjuwL2hyxcvJHmrQGlSjmS0qjfgdZiFLeib7SGNFq0KnXDxBqd3324XX6nibWESLIRuZxVm9HYzfMVRrde7FuKcAwdIfMTnPLQPTNkKHgOWDlRIdjhDHOYn5kOKwy31wchhfWZN1N9khTNSgQ/hGMDKraWnrll47RaHLH+t43WgYKvBQn97tcij+3eLl3N/uOlY814RqEuzLlv/eOTJiH/yHwkxpDGBkY0v04IleqWytXt30dieeuuFJraGM8Cvu4Gjw7YDB8E0kv3L29AMfTuuWNfTMSqJ/fVPkz/TOKVQl+SYj0tFqNkZ6usU92g3x2d9kUhW+jgEPoYzsUWXDRyNo5OPKEqu/YMiyLwZ2GgOOhAvidEusWsJHmwQlYOLkv5XfN8iw5bG1j9H7R46hYBCU4S6idR3zsJvpht1aLqy6Rr418QdYWobcPv2sE6hzEcSjI7f7FbSilgiqN96YS0217xbF2
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(19092799006)(1800799024)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tiu188CL1gs6WnV2oieyb43eiAPS7OPVKlPCUbVUBcdn0WlS1pkZuxtvZoCs?=
- =?us-ascii?Q?2n2qknj+TYcGChkxFoOUtkNGbdkX1U9a4PO4Lgy6nirNPGatVEs3UslC/9Ik?=
- =?us-ascii?Q?vpwksObDy68lA8isqS2LN8nrh66Ona9k5cbgLkgGVK4ZaarJWIDWH9eT8Sz6?=
- =?us-ascii?Q?X2eQEfvJAmtViyo4R7CAK/y82UpxviZBp4vmHs3JaoI0IsMSeub9/knv9120?=
- =?us-ascii?Q?yo+ozEeprRn5rsTXZ2RlT56mM5CZHmlnf4vVdQybhP6HrlbILEsTf3pSHhce?=
- =?us-ascii?Q?n6pcY635/rmwn25AXxOQttOI39GtOekWZICHRU+DeMn0V32r/47l8LpQi6NE?=
- =?us-ascii?Q?4NXaDS8OLX5f7Z/szA5mE19EQd05rW7O9aTiA5xUQanwQIJFa0v4qvb+/iZk?=
- =?us-ascii?Q?yBGTLviM8UQaB3gMdPVcu6nEHUykx/FOnnD5VulE/3gRiaQVUU6MNp6xkGDc?=
- =?us-ascii?Q?d00rbTaLL0wZZbxZ2npOTtSXgeiu4zOyUD6hlm3HiCOiOXGsPRogSnAHDn+9?=
- =?us-ascii?Q?sMK5p9yCsqsz7xaH/IRW910E6sZcUEa4bOIEmV3HX3koYA4dWTwwSmUJeLzW?=
- =?us-ascii?Q?velmn6Qhqt7y4PDb8gt6zSNdAADfGnfiEkM9qYfS1rXnJpuFgBNW6oms4UR5?=
- =?us-ascii?Q?qNa9G01XfvW1Jwp/OkeDZI2ZL6nIoNKszRyoNBNS+iZZDeM9evXxjbU4p+Gc?=
- =?us-ascii?Q?KB1aljVR4ty66uFP48HUHxql7Hn3YC8ElfRniZFcXw0WhPpe03e/90Fvgkem?=
- =?us-ascii?Q?uC4DzfwQlF4b5Jn2mYIY0zN8xURkZIlCBbc1j7XPMBXpPNJcFYfAO5SxDSzJ?=
- =?us-ascii?Q?6qDAE1nIzXIguuQymLt78VMCiaK494MRCRmep0wodMKgADtZP0i0C1N7wP/S?=
- =?us-ascii?Q?wrGdirZMl8q/r8DTg69wTAFKZG+S+9NHkbqVo8iXz1WyGO8uK9250RuFc5Of?=
- =?us-ascii?Q?FNyzK83Z+3ceC72IQ1xz7b9bNfVD0Ts/xKbyNMBLV1BXrzntJpTJM1kAZiwg?=
- =?us-ascii?Q?O4Inx+tPSgyAuXfKX5kbZow6Os3BZNYXC/PxNGKjaEtiA4rjpcxh2bAV/Zxe?=
- =?us-ascii?Q?GvdNfo5fC7TtGVPXQvH2eAB548Qmz4nE/6p7Yh+yRI9fX3Zc286KM3skZfDi?=
- =?us-ascii?Q?oN2eJQ3GpfNFeVbF0Q48sYXItrnYqBotv/x+5Rz7KYfapJRu2HHb9qLDfcSw?=
- =?us-ascii?Q?8R/PFMOXt0oZ6nIZoaDak6j5Ad5ki40sK7XTyMeTViJ0dPKVzBsevdwn+KRv?=
- =?us-ascii?Q?O1kDfkycCRG+/NDX6xa/ofpMwA+j0HkKZ3a2/yahIYqSRiPsJic5xQyB5oxt?=
- =?us-ascii?Q?Am8d5AnZ5dXGsxJcuw4g7G3Lk7p7WgMiiWi8jSOBPPNLnxPb2l+LvGg7KLed?=
- =?us-ascii?Q?6CpSg4jPLi7OchVXs90QnocHuRGCbzeSV7sjSyiZi9sfVp+KKbBhSVFtE8hM?=
- =?us-ascii?Q?uK4kQcSc/5H4tIQ/9TIPkO6MawftS+iHNSAMXVbPnkmYF4E2wxM5iwDnBgSd?=
- =?us-ascii?Q?Vh8o9OC0EP9FWAe9pHNJ8dw3I+M4LUAOnWpZCMBfnONXutN/i2Eb8huJxBGU?=
- =?us-ascii?Q?iTGuLQIC14xmrowOuMeRen1YOtmHnFuOs54m/RWLoi4qtt/SHIw1zvPwOTY2?=
- =?us-ascii?Q?yHrZstDwyz0BTa129xC7fGr6KcRDUh+l2D9A/qXBjgvRas228FgetP6U1iGj?=
- =?us-ascii?Q?r1ZNet1vU/mM5TO0314hb/O2QS3HnG5fSdQ0AEk6EWTr8plzGFXWudpE12zI?=
- =?us-ascii?Q?SKnD/+/IFgT+kSFZnhoKPx1kBhLOHuHTLHxNRk7hZiBiLAEFgmwH?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4da53ec1-f779-46d5-605c-08dec7c89e55
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 14:49:19.8886
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2V2zuKTWHuMZ37EL4SRdyJl3+ku6K0UFX3Q7BptdvCrLFpRdSNMPH8JDl7nJoSCT8MhApU0IewGC93E6+ukI1sftFdD9nle5vTFqDlR36gYVGjfb3MW26fmeyEH2vbCF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12568
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEbLKmoC/4XO0QqDIBQG4FcJr+dQV5q72nuMIXbSJbQMbbIRv
+ fssGF12+R9+vv/MKJrgTETXYkbBJBedH3KoTwWCTg9Pg12bM2KEcVIxipsS6/BSEBXovs8dN6j
+ 4HkcfJpUoZsC0IILKBgBlZAzGus82cH/k3Lk4+fDd9hJfr3+aH9GJY4KttKW01QVk295y+wz+h
+ VY4iR3j9PDPJDJGGy0EgZozbXZsWZYfkQUEhxcBAAA=
+X-Change-ID: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
+ Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
+Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
+ linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
+ Leo Yan <leo.yan@linux.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781189463; l=7320;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=yCDPT+r13347330OEMQ74qxQB7TvSZnnVREtSLFRwiI=;
+ b=W7kGRiOgrTBqaD/1BHEqcJvqPSjYjMRaeB7zsS/fwu7VZNcA6V6JyXoJ7r0FpmDzRjJgXtms3
+ 4hI4CmqbhGJAR+hFeHwe4DbH984mRzbhBW6hdisDxdL6Gp3wN93ED5q
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_074928_535273_636105F2 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260611_075109_124741_55D9EA91 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,34 +88,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank.Li@nxp.com
+This series adds thread-stack and synthesized callchain support for Arm
+CoreSight, which comes from older series [1] but heavily rewritten.
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+CS ETM previously kept last-branch state in a per-trace-queue buffer.
+That effectively makes the state per CPU, while the call/return history
+belongs to a thread. This series moves branch tracking to the common
+thread-stack code.
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+The series records CoreSight branches with thread_stack__event(), uses
+thread_stack__br_sample() for last branch entries, flushes thread stacks
+after decoder resets.
 
-are available in the Git repository at:
+A decoder reset between AUX trace buffers is treated as a global trace
+discontinuity, so all thread stacks are flushed, so avoids carrying
+stale call/return history across a trace discontinuity.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-binding-7.2
+One limitation remains for instructions emulated by the kernel. In that
+case the exception return address may not match the return address
+stored in the thread stack, because after exception return can be one
+instruction ahead. The stack can still recover when a later return
+matches an upper caller. Given emulated instructions are not the common
+target for performance callchain analysis. Supporting this would require
+extending the common thread-stack path to accept both the real target
+address and an adjusted address for stack matching, so this series
+leaves that extra complexity out.
 
-for you to fetch changes up to 88c0120853e96b66d57eff33e06409f49457eec5:
+The series has been tested on Orion6 board:
 
-  dt-bindings: display/lvds-codec: add ti,sn65lvds93 (2026-06-11 10:40:09 -0400)
+  perf test 136 -vvv
+  136: CoreSight synthesized callchain:
+  --- start ---
+  test child forked, pid 3539
+  ---- end(0) ----
+  136: CoreSight synthesized callchain			: Ok
 
+  perf script --itrace=g16i10il64
 
-DTS already picked by me. But display maintainer never pick binding patch
-and ping twice by Hugo Villeneuve. So I pick it and go through soc tree
-to avoid DTB_CHECK warnings.
+  callchain_test   17468 [005] 1031003.229943:         10 instructions:
+              aaaac32507c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
 
-----------------------------------------------------------------
-i.MX DT Binding for 7.2
+  callchain_test   17468 [005] 1031003.229943:         10 instructions:
+              aaaac3250774 do_svc+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
 
-- Add compatible string for TI SN65LVDS93.
+  callchain_test   17468 [005] 1031003.229944:         10 instructions:
+          ffff800080010c20 vectors+0x420 ([kernel.kallsyms])
+              aaaac3250784 do_svc+0x1c (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
 
-----------------------------------------------------------------
-Hugo Villeneuve (1):
-      dt-bindings: display/lvds-codec: add ti,sn65lvds93
+Note, the test fails on Juno board which is caused by many discontinuity
+packets (mainly caused by NO_SYNC elem). This is likely caused by the
+FIFO overflow on the path.
 
- Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml | 1 +
- 1 file changed, 1 insertion(+)
+[1] https://lore.kernel.org/linux-arm-kernel/20200220052701.7754-1-leo.yan@linaro.org/
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+Changes in v8:
+- Updated test_arm_coresight_disasm.sh to pass "--itrace=b" and updated
+  examples in arm-cs-trace-disasm.py (James).
+- Removed static annotation in callchain workload and renamed functions
+  with prefix "callchain_" to reduce naming conflict (James).
+- For callchain test pre-condition check, removed the aarch64 check and
+  added the root permission check (James).
+- Resolved the shellcheck errors (James).
+- Link to v7: https://lore.kernel.org/r/20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com
+
+Changes in v7:
+- Rebased on the latest perf-tools-next.
+- Used struct_size() for allocation callchain struct (James).
+- Added a helper cs_etm__packet_has_taken_branch() (James).
+- Minor improvements for the callchain test (used record-ctl FIFO and
+  reworked the validation callstack push / pop).
+- Link to v6: https://lore.kernel.org/r/20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com
+
+Changes in v6:
+- Heavily rewrote the patches since restarted the work after 6 years.
+- Changed to use the common thread-stack for branch stack and callchain
+  management.
+- Added a callchain test.
+- Link to v5: https://lore.kernel.org/linux-arm-kernel/20200220052701.7754-1-leo.yan@linaro.org/
+
+Changes in v5:
+- Addressed Mike's suggestion for performance improvement for function
+  cs_etm__instr_addr() for quick calculation for non T32;
+- Removed the patch 'perf cs-etm: Synchronize instruction sample with
+  the thread stack' (Mike);
+- Fixed the issue for exception is taken for branch target address
+  accessing, for the branch sample and stack thread handling, the
+  related patches are 01, 02, 07;
+- Fixed the stack thread handling for instruction emulation and single
+  step with patches 08, 09.
+- Link to v4: https://lore.kernel.org/linux-arm-kernel/20200203020716.31832-1-leo.yan@linaro.org/
+
+Changes in v4:
+- Split out separate patch set for instruction samples fixing.
+- Rebased on latest perf/core branch.
+- Link to v3: https://lore.kernel.org/linux-arm-kernel/20191005091614.11635-1-leo.yan@linaro.org/
+
+---
+Leo Yan (8):
+      perf cs-etm: Filter synthesized branch samples
+      perf cs-etm: Decode ETE exception packets
+      perf cs-etm: Refactor instruction size handling
+      perf cs-etm: Use thread-stack for last branch entries
+      perf cs-etm: Flush thread stacks after decoder reset
+      perf cs-etm: Support call indentation
+      perf cs-etm: Synthesize callchains for instruction samples
+      perf test: Add Arm CoreSight callchain test
+
+ tools/perf/Documentation/perf-test.txt             |   6 +-
+ tools/perf/scripts/python/arm-cs-trace-disasm.py   |   9 +-
+ tools/perf/tests/builtin-test.c                    |   1 +
+ tools/perf/tests/shell/coresight/callchain.sh      | 172 ++++++++++
+ .../shell/coresight/test_arm_coresight_disasm.sh   |   4 +-
+ tools/perf/tests/tests.h                           |   1 +
+ tools/perf/tests/workloads/Build                   |   2 +
+ tools/perf/tests/workloads/callchain.c             |  33 ++
+ tools/perf/util/cs-etm.c                           | 351 ++++++++++++---------
+ 9 files changed, 430 insertions(+), 149 deletions(-)
+---
+base-commit: 7336514f41e75d44782fee7e0990d4195a3d3161
+change-id: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
