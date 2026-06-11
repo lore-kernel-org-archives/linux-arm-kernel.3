@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5CACD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:55:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82D7CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/z2DCk4dynGP3EOhfGPH5RufQFwqe2sDUjasxzmGDhc=; b=T6lirRNHS0AyO6BH74KrB6BdOd
-	xF8TeAcBbQLHWMkkbX/xeSquxcpgT+JR8lmNrTqU8W3o+VBzfRaNM/xKE8uRx88fmW3aqqtgin91u
-	xuCSK3r6tiOED9VruBlQQbJEeiO0yOxDn6F3us07G10IYoKWEmUHZf/o+FWZCg5L9FEuPzdIPEX1B
-	V6vLZc6KCg154Whj5QhKZAv4ys8EfoX/r2hpCeJ8OGKRWPE2gh8HGCGKgBBgCjbOspgN3hyXTIuD8
-	iv+YBduAK3cvhdf5yxmdo5q/MUv5gCDFDBFvSDpBdQ2upk+QuuFMZ+HS3PKbh1bK9IcRoC8Vd+ZZ5
-	S9t6Xv+A==;
+	bh=gcHCZxJjnd2NbJe+vF8vVoiVeFGscr8raKdpJQPi65M=; b=UGIJ7kCR2HYaASL9cEdTYxbZl9
+	V5fKCSdk/o4pUWsb4VP+1Sy/c0ep0NDDIjh6ZhR+0PMwXcG7wN4m0DSe/cq/psqhbs0L1wGdp7UU/
+	fLzV9CG0wEwA7rk2dHHMQe+lPGP2D380ZPNL8gRe7ZGw8EnfJVBsr+tIY5r0aHGsIDZ7Y+tOwGIpj
+	uFIMVZVXf/afUYV4Il3jr0iMWVXXvPTcESjNP9PfVFjyel5CrAJLShOJB9OCEaDOCqrBwrWkp5Ju4
+	tQwX64CbYTcwP9Jxbd+3i77zv6cfUe1Jvp4EvFgRbMcBeurir+/SUYosuyzN0jFjPFZ0hYFzW3d9c
+	o/6MHu+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXc7k-00000009B6a-1HWG;
-	Thu, 11 Jun 2026 09:54:56 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wXcEH-00000009BSw-09UH;
+	Thu, 11 Jun 2026 10:01:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXc7g-00000009B5C-3jkA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 09:54:55 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490b4a8e28bso65336455e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 02:54:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781171691; x=1781776491; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/z2DCk4dynGP3EOhfGPH5RufQFwqe2sDUjasxzmGDhc=;
-        b=oYNMuxK70xijrEOXdfo1++OuK7hB8n1QC79UFTu11fYltC7vbjRrdxUQMAptyoWJHL
-         dtLV9sZNjT5jbZmH+1BTAVa6pno2W3EbMymVT5f22t8rQH4f0ealRKQyAG4ncly50blE
-         bir+Kz3x+shpdlnA9tTxrPsQKrLwDTHP3tj6+Pb7OoaI5EPVLddDgktcQw+sGNtxxyju
-         5u/ai4OKd8SKGCV2WL46YNHF5NL4WHunt8exK6fOB6WVKmFZxni0N3STi9AXyH3fLgLS
-         +cY1aLgnQohevDmAdoIAVABFKHt1QpzRuOm6StJdxU6gDjpBjDEQywM1VEU7ETLMP0hB
-         yUsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781171691; x=1781776491;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/z2DCk4dynGP3EOhfGPH5RufQFwqe2sDUjasxzmGDhc=;
-        b=U51TsXZWG1oazHkC5PgNY/B/RiMFFw1sFVf+ZDRwhxUYT7wI64jL9KJengz9r9u7Uc
-         hhZpEQQ8BdLxYSieATNFkqW4/wkCbAtyKyvpevs9IzBemS4cdHJ12W/4WeUUjr1ke4GD
-         RtuUuXxNs+O7ikvisq1KfOWevpUYyKJTfo0MgQPNFx3cdJN6ohEO55bUe56sjpJcTllE
-         5TxE0+7B/LpqgG+iFb5DkFYKOZtTdC4g29MCj1m8lHgExO3RPRBdKhkkJKSA5n5E982W
-         BkV7yZwMXZVnCkQy3rRfnB3iCQjltrt6VB67oluT6fydI9mP780jV+QjLlOX9EIXvyt1
-         S+rw==
-X-Forwarded-Encrypted: i=1; AFNElJ8kiLipgc1w1Ej64VQ/zUyOCRg9oLvXEP1B9PWhwPoGVgVqT7NGtDdj5w3E4auOpufjzNvIx+VhAgJtdQ1Hi2r2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIWhQZRuskkXGxz4lo/iJS064o/c0IJTErqrbAMlc+5OXYPeGr
-	NajFw0YhPxPQDxyNTxmXubY+XgNrfaAfjMzEiv8FuHcf77yb3HONuHIlGMgAheorY3S4ZIAvd0a
-	7AmZx2Rw=
-X-Gm-Gg: Acq92OFEfEUI0p/gTbzwgZKjnb/1veqfj2AVt3OkdQb9lqS2HHTpo9KQJp9hFOc7ISo
-	RKDLJZ5lAauGej79jO2GA1Jurmp3ZBowN7SjZ1FbnRhn00iZ1WZxHWcNQ7JNvi4TOSiYQRtSDEd
-	b31MCBI3a2xznQu8nrzVh9zy8HhjcYe7zZmoCNHWtBmIU8ILwO9H+qqHduSDI2sswDLW1dC8myp
-	ToAppE75k9dR/JessqqpF1oC+OslXJk/kLwr8r09iSh1ZfJOMTKbbzHSccd6yWhO0DH8xiHZrsO
-	1XTI0g281Y27g72IheGESw0sqSSIemUdUp04o9Y/VgDXw9UW2BlqgXl59YkFwbxowpkHs0W6s1M
-	kKlBcXTWlWzdivWOzBWHwnLxWmWTt7yRkbUHTQY4cZDCf+ppKpnXb8fsoZ5I/CKXQA3yYAdfNm5
-	jGHjqC5PV4+Aq3VVKbwG0o0zR+mjmSan4061AMYYJifCPQcw==
-X-Received: by 2002:a05:600c:c0d5:b0:490:44eb:c1e5 with SMTP id 5b1f17b1804b1-490e5624838mr23357035e9.31.1781171690745;
-        Thu, 11 Jun 2026 02:54:50 -0700 (PDT)
-Received: from linaro.org ([2a02:2454:ff23:4410:7bb1:6476:9114:cf39])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e52ac9aasm36942655e9.4.2026.06.11.02.54.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 02:54:50 -0700 (PDT)
-Date: Thu, 11 Jun 2026 11:54:46 +0200
-From: Stephan Gerhold <stephan.gerhold@linaro.org>
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/3] remoteproc: abort subdev stop sequence on first
- failure
-Message-ID: <aiqF5mh1PvWpH3L5@linaro.org>
-References: <20260611094851.dkg63rqztsv2pre7@hu-mojha-hyd.qualcomm.com>
+	id 1wXcEF-00000009BSI-1sZK;
+	Thu, 11 Jun 2026 10:01:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A1A4043AB4;
+	Thu, 11 Jun 2026 10:01:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 018351F00898;
+	Thu, 11 Jun 2026 10:01:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781172098;
+	bh=gcHCZxJjnd2NbJe+vF8vVoiVeFGscr8raKdpJQPi65M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UjRz1M0qJTomOYzXKVoiKZpGS9MtDg+JTdxRbI7OSGggZlawjkxiPNaYgSRLH9uej
+	 /EFORBduBvm/tIxZxbEy3VZQYyB3qYYlFWBdq2p6EtO7SGNMJjNZ0eynsrFSR/RAi5
+	 FaMbcNHuRd3MbNISJrWYTKOF8RjqXFmuTO6spgu+irR0vZS2jztReOCY8Xlkxl19z8
+	 mlbKVN61TdcveB4j+yZH7xFaZ4NiY5X8TsJov6woaEbutqkSYb+Wq9qGSEklL6PAcw
+	 AkuYVDx0uoB0l+PXarBoe9ivvReSp32ee3NRfXsE50ny/42Xb2A+Aau+SJo3UdCVqj
+	 snTxA7cyw+eZQ==
+Date: Thu, 11 Jun 2026 12:01:36 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Brown Huang <brown.huang@airoha.com>,
+	Leto Liu <Leto.Liu@airoha.com>
+Subject: Re: [PATCH net] net: airoha: Add retry mechanism to
+ airoha_qdma_set_trtcm_param()
+Message-ID: <aiqHgJ6FiAMu5gmF@lore-desk>
+References: <20260608-airoha_qdma_set_trtcm_param-retry-fix-v1-1-f07704f0d8c5@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EQw5C5lY17IuMX0g"
 Content-Disposition: inline
-In-Reply-To: <20260611094851.dkg63rqztsv2pre7@hu-mojha-hyd.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_025452_947684_4D17158B 
-X-CRM114-Status: GOOD (  24.76  )
+In-Reply-To: <20260608-airoha_qdma_set_trtcm_param-retry-fix-v1-1-f07704f0d8c5@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +74,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 03:18:51PM +0530, Mukesh Ojha wrote:
-> On Tue, Jun 09, 2026 at 01:43:17PM +0200, Stephan Gerhold wrote:
-> > On Tue, Jun 09, 2026 at 03:52:52PM +0530, Mukesh Ojha wrote:
-> > > If a subdevice fails to stop, it indicates broken communication with the
-> > > DSP. Continuing to stop further subdevices against an unresponsive
-> > > remote processor could close rpmsg devices that could remove the memory
-> > > mapping from HLOS and in case if remote processor touches those memory
-> > > can result in SMMU fault.
-> > > 
-> > > Change rproc_stop_subdevices() to return int and abort on the first
-> > > failing subdev. Propagate the error through rproc_stop() and
-> > > __rproc_detach() so callers are aware the teardown did not complete
-> > > cleanly.
-> > > 
-> > > Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-> > 
-> > But what would callers do about this? If you abort the teardown sequence
-> > half-way through you now have an inconsistent half-stopped state that
-> > neither a new call to stop() nor a new call to start() could recover
-> > from. That doesn't sound much better than the SMMU fault. Or am I
-> > missing something here?
-> 
-> SMMU fault result in device crash while other is non-functional remote
-> processor. From Linux side, we do not know the state of remote processor
-> when the timeout happens..cleaning the subdevices can result in the
-> debug data being lost for hung remote processor.
-> 
 
-Ok, but how do we go from here? Do we expect that the system would have
-some userspace monitoring daemon that would collect the debug data and
-then reboot the device to make the remoteproc work again?
+--EQw5C5lY17IuMX0g
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-With these changes, I don't see how you would start the remoteproc again
-without fully rebooting the board. Calling start()/stop() on the
-subdevices again would lead to crashes because some of them are in
-started state and some of them are in stopped state and we don't even
-know which one is in which state.
+> From: Brown Huang <brown.huang@airoha.com>
+>=20
+> CPU accesses QDMA via the bus. When multiple modules are using the bus
+> simultaneously, CPU access to QDMA may encounter bus timeouts and fails,
+> resulting in QDMA configuration failures and potentially causing packet
+> transmission issues. In order to mitigate the issue, introduce a retry
+> mechanism to airoha_qdma_set_trtcm_param routine in order to ensure the
+> configuration is correctly applied to the hardware.
+>=20
+> Fixes: ef1ca9271313b ("net: airoha: Add sched HTB offload support")
+> Signed-off-by: Brown Huang <brown.huang@airoha.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 21 +++++++++++++++------
+>  1 file changed, 15 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index eab6a98d62b9..aaf7d8c8ccd3 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2493,14 +2493,23 @@ static int airoha_qdma_set_trtcm_param(struct air=
+oha_qdma *qdma, int channel,
+>  		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
+>  		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
+>  		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
+> +	int i;
+> =20
+> -	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> -	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
+> +	for (i =3D 0; i < 100; i++) {
+> +		u32 data;
+> =20
+> -	return read_poll_timeout(airoha_qdma_rr, val,
+> -				 val & TRTCM_PARAM_RW_DONE_MASK,
+> -				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
+> -				 qdma, REG_TRTCM_CFG_PARAM(addr));
+> +		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> +		wmb();
+> +		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
+> +		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
+> +						mode, &data, NULL))
+> +			continue;
+> +
+> +		if (data =3D=3D val)
+> +			break;
+> +	}
+> +
+> +	return i =3D=3D 100 ? -EBUSY : 0;
+>  }
+> =20
+>  static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int ch=
+annel,
+>=20
+> ---
+> base-commit: 4aacf509e537a711fa71bca9f234e5eb6968850e
+> change-id: 20260605-airoha_qdma_set_trtcm_param-retry-fix-a9d2956b9b2f
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
 
-Thanks,
-Stephan
+I think the issue reported by sashiko in [0] is valid and it needs to be
+addressed in v2, but since I am not the original author of the patch, I will
+let Brown or Leto comment on it.
+
+Regards,
+Lorenzo
+
+[0] https://sashiko.dev/#/patchset/20260608-airoha_qdma_set_trtcm_param-ret=
+ry-fix-v1-1-f07704f0d8c5%40kernel.org
+
+>=20
+
+--EQw5C5lY17IuMX0g
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiqHgAAKCRA6cBh0uS2t
+rF+rAQC5+Y/anvlgMyJQaTiGnt7sLIX58e6BVmfSU1Wj1RY8EgEAsHsD6b/QSjTQ
+w5el1GDLGvLDhPi7PhOKD4bBFqIUjgA=
+=HrEl
+-----END PGP SIGNATURE-----
+
+--EQw5C5lY17IuMX0g--
 
