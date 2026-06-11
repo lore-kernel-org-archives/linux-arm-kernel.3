@@ -4,96 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46392CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A06CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uSlBi62DRLhtbWpbozky+npCQI+7r3jm0jNsMTz2JG8=; b=XMEq5Ax341MuDEoW6ZzSRh4TJ2
-	L2TduESXg4S+FAYV36TaeR1O4UA1wGok58hIn3j1ZKIe7iW1tbUe4mS5R1QpUc8s11U3paGgT77aZ
-	qtZ+PXZn1HVaEaasNvwlQx3jT5ztdWDi6OhUQh/AcxG1qJEUZunKDrVOm0LlGJyVqEAiy4jr2d0rS
-	WveYRzapiG1OVjMTBCV9P8pG6ZseYPYrKSVBn98SYHND/YtddEjsFpMd2SeB4kMPcIIYRoS6ilZAg
-	aiMhEr4jEGLPjYefiqHv9qvKGdnAbxVGz8pb7cffkXG2p/sCrMjC6gfIQol0dqBbN6bfr5z/gQ3qe
-	lTvnJt8Q==;
+	bh=LuQMB79RbDDOwLhgW9lqQxbGn2D38BHbwMssyvZW/xw=; b=mnEjGEiqsUyNKfEYrqiNtLs5rR
+	TW2URgPr6hUrAlXrOEOiA59AmFck5DIwuY2O9gt7DLJhUHEnckGoE7yrcwg1E8LypJU8snKxgfA2a
+	3GWndQCARLNymgDd4p2TTZKbCoJvSK8A4XjlaBaomLdf1wmaSOi+Ww4TQZTQQgPIX+Jhu6fR2kG/k
+	QWOWNnlseTXy4hv4K2Zuq1LXVE4kpAv0kvGatKX9mHCrFGrJEhVYlKTnRchQIjMlL/VFQ4s3ngmlj
+	+KWF6tzX+VbFcuXniFjjWr6w6x2M/swPotX2HDwNS2RQLM37mlvmEoXN0V4JMbcWmkP5SBMW29bnP
+	VmKLJaKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfj6-00000009Y9v-2PlC;
-	Thu, 11 Jun 2026 13:45:44 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1wXfkS-00000009YMQ-3DnL;
+	Thu, 11 Jun 2026 13:47:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfj2-00000009Y9O-12Jp
+	id 1wXfkR-00000009YM8-0yVo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:45:43 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 4FA3B7A00E0;
-	Thu, 11 Jun 2026 09:45:39 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Thu, 11 Jun 2026 09:45:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1781185539;
-	 x=1781271939; bh=uSlBi62DRLhtbWpbozky+npCQI+7r3jm0jNsMTz2JG8=; b=
-	JSr4cfGmrHhJLg9IlliPuBxanoSFSCra6aV8fO9gfAG0wPJvqKq0Eez4NnaTWcf4
-	d6jlzhj6afzvpEtWcljENgkXxGb6qW+7lS6jXm2xBWuCICNFiPRSopw2sGGt11Fk
-	i37YzzTAroOnkQ3B8ZFydSjolyGyudwEh2e8op7Cc1a/oI+7M28OxhymwXxfQoMC
-	QxkdKeuhEjMigtnA5hvkB2L03iP1RW02vyRwVmarP4BRt6ZdBRUfNKBOTgfeYmlr
-	kaw62m5pkVTLDyE2BLYcx/MpxyeIqPziBiJXBjMquqL0i9Xzw9uxfR/ctGSVH1oZ
-	vp9YTIKEvMsUP47QjbFkMQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781185539; x=
-	1781271939; bh=uSlBi62DRLhtbWpbozky+npCQI+7r3jm0jNsMTz2JG8=; b=A
-	0qy5V+XgxPigtlNruvE0nN/LNaqh8Ml6TFEdUtBFWXj/mVA4xbzf0TbsEc8xezog
-	FyMFnJO6UGQo0usgM89K1L8N6cJm47PFP7tfwD4hcs63N0KdQap2rQNlG0ZcN45p
-	J8qlfv1hWSahVGjI7Yg8zBuflPSVBK7YyfQU/Yoflq8A508Gs4zpkENGO+tKml/6
-	Gv/ycxu88NA6mQ/1plOPNnUHYqtoih17KEiOvmx41wCUdq5XvMOU+YAccQRa4lKn
-	Yalp1tG7Ds6KVDJTJIbYQh+5eODSEKWXhnFAruVqWHBvEyUJbDGac40sS6WfE60E
-	SlvAEIfe2Nw9cu/8rYRgQ==
-X-ME-Sender: <xms:AbwqavHd45SO2KLVjhT1kwMVfKTS-Q2i9vvscQocY1rEYKBu0fI67w>
-    <xme:AbwqanLZJpKaGZhBcoUYDoQ4cKNv6UMof9YeYzSWWP4JPMk3MqXuOh-5zw8RwnAWu
-    e-eeNXRzwOo4SYsruq8SdHEPbmvwp7mucINssJsYdk3CX0b2QkOs313>
-X-ME-Proxy-Cause: dmFkZTGfu7NDfkRH3y24s4d4VazmqpPJmqhXz2XhxBopq5M4jlwRDwG6u8+9WGoh/C1xe7
-    BRUDqVnAz7cWydFlYUlRI2kdc2SRaIo0UXOnlBHeAqS/hqqt7EfTUImmm/vAliqHRon2qQ
-    Lo4+r+nvbe9tOvcnI0hW3ydk8ifRwxOiY794yrHBBMMjtkNnrGZk3fX5f2C1C32oXqRyWl
-    3DWgFHrPV7DGtOB5Dvfqlxh+PQjskE+gOaSCPwwkrqjQgPpOYUZhQsh3s60WWFPdVm4kor
-    P0TIf3mjkKysod9ng8Q6iwrRwq3EClxw+SZilzMcubnqBhcMFjTPN2KiyQ68qvvmfj6uAc
-    xsB8m481785bALhzD9trhKNwgv2EN+WQkV0cs9InAi7Tze7WWRNFOH30yDT0OsrGoNVf7t
-    51Ok7zPKMPb3+s69HC9XvqWGCJmTf3+pxl79HBKUZ1ubihZVBjoaJdsZsAGWV5SUlddtP0
-    EuinbZXvMd9i4Et+cxM8m5TGZw506lWUmdLs27jXdMcqr3w2dF+k59g3bO2OjLXsAiosuo
-    aVJZHQH04ZYox5o/id5g5oNe3fyD/apP8bONuAFS3Is+jJfyvLKzVMKS71OlpqU5ZFr1la
-    WUi2fm8XMshwNIMkH7aRMoiZj3UD4vCL1DXhCHUvLLo2vhkvm9VKQ6THUpOA
-X-ME-Proxy: <xmx:AbwqavSh1Rx3xpuHa0Gs2qCQuPxN1ZU1SZU12omKe7GRGpUBLvkB5A>
-    <xmx:AbwqapuGYx8ztaQjfF9Q4JMHNCcae9Ko9xNbFqc3ML5zJLylHfQQgQ>
-    <xmx:AbwqagbabJ8cJUOxCUZmCiTt_bNC112VUTPvEIons5IuTy5rkUoMSQ>
-    <xmx:AbwqavF5M9a2CWHUkdQ84CUMlOokr3_PbyvKuDQAGfmPG_Elu8_AHQ>
-    <xmx:A7wqak1o8jFkLwCjEGkW0AedBxh0bu6dbCgfg9Zlkr3Huu3Y5OiTUxh7>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id ED615182008A; Thu, 11 Jun 2026 09:45:36 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 11 Jun 2026 13:47:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 620986001A;
+	Thu, 11 Jun 2026 13:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CDD31F00893;
+	Thu, 11 Jun 2026 13:47:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781185626;
+	bh=LuQMB79RbDDOwLhgW9lqQxbGn2D38BHbwMssyvZW/xw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Y/bn+hnqn1DELC5TA1uf7Uljt05HLXwE7yiLOtxH2HstVe/7RtnpiZqIFYpF0/eFc
+	 SHG/0vbJGhLm/WCVxZsNlzOwdg/B2DNipaAwRLkC/XkDt1pY56KWqt+7u95hw3qe3N
+	 p6R9vQxLDTkAN7kQ6UziiGSa4dPm8kF1xZ8vh51tqpSBYT5YpzRnMo4oPmTM5M1rkK
+	 iQRsN7FK4UPmXdICRIWzQG2V91V5SIbAcFhTzev+Z9GKq7QdaAOjEJIFM7g22AJ74l
+	 qKmBptqyXmuc/ydde4yobS3xpQLmaFAlJjxAKEnbmq2KoOk3XhMXD7lnA2r5xoYOTl
+	 AJTW1ujGi6QQw==
+Message-ID: <562096a5-6601-42ae-9d88-90a72ee075fc@kernel.org>
+Date: Thu, 11 Jun 2026 15:47:00 +0200
 MIME-Version: 1.0
-X-ThreadId: AbO0-6eGr7Ag
-Date: Thu, 11 Jun 2026 15:44:55 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "gordon.ge" <gordon.ge@bst.ai>, soc@lists.linux.dev
-Cc: "yangzh0906@thundersoft.com" <yangzh0906@thundersoft.com>,
- linux-arm-kernel@lists.infradead.org, bst-upstream <bst-upstream@bstai.top>
-Message-Id: <c7aa4a27-d523-4c83-8a5b-d2e7998d7e97@app.fastmail.com>
-In-Reply-To: <20260611.111859-gordon.ge@bst.ai>
-References: <20260611.111859-gordon.ge@bst.ai>
-Subject: Re: [GIT PULL]arm64: BST C1200 eMMC DTS for v7.2
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
+ optional "memory-region-names"
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Peng Fan <peng.fan@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Daniel Baluta <daniel.baluta@oss.nxp.com>,
+ Francesco Dolcini <francesco@dolcini.it>, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
+ <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
+ <aihB5rVLsVqzg6cb@p14s> <aihIIwt_9T7yYxP3@SMW015318>
+ <CANLsYkxw6rbWNom8rNfKurKAXKpihqV1LTd51D5YXG4oFP6-wg@mail.gmail.com>
+ <20260610-accomplished-antique-mink-cf0ead@quoll>
+ <ail0sH1UhnQBPRkr@SMW015318>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <ail0sH1UhnQBPRkr@SMW015318>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_064540_344373_2D56F94C 
-X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +127,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026, at 05:21, gordon.ge@bst.ai wrote:
->
-> Thank you for the review.
-> I have fixed the two issues you mentioned and updated the pull request.
+On 10/06/2026 16:29, Frank Li wrote:
+> For example:
+> 
+> rsc_table: rsc-table@90000000
+> {	ret  = <0x90000000>;
+> 	no-map;
+> }
+> 
+> m4 {
+> 	...
+> 	memory-region = <&rsc_table>;
+> }
+> 
+> If you change node name "rsc-table" to "memory", driver will failure
+> because it parse node name "rsc-table", which phandle point to. but no
+> binding to restrict node name to "rsc-table". So rsc-table became hidden
+> ABI.
 
-Hi Gordon,
+Then you need to fix the driver to not parse the node names. Node names
+are not supposed to be ABI.
 
-unfortunately, I'm still seeing new problems here:
-
-- you use a git@github.com url, which I can't pull from. Please
-  add an 'insteadOf' rule to your .gitconfig that rewrites this
-  to an https:// style address (or edit the text manually)
-
-- https://patchwork.kernel.org/project/linux-soc/list/ does not
-  actually show the contents of your pull requests. This is
-  probably not caused by something you did, but it may be
-  related to the URL problem.
-
-- The commit you have contains
-
-  Author: Gordon Ge <gordon.ge@bst.ai>
-  Commit: Gordon Ge <gordon.ge@bst.ai>
-  Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
-  Acked-by: Gordon Ge <gordon.ge@bst.ai>
-
-  which is not correct. If you commit the patch, your own
-  Signed-off-by needs to be included, see
-  https://www.kernel.org/pub/software/scm/git/docs/SubmittingPatches.html
-
-  If Albert was the original author, you should also reflect
-  that by using 'git commit --author="Albert Yang <yangzh0906@thundersoft.com>"'
-
-Since we are getting very close to the merge window, I can't
-guarantee that the patches make it in, but please resend
-anyway. It may be easier to send these as individual
-patches instead of pull requests, but that is up to you.
-
-       Arnd
+Best regards,
+Krzysztof
 
