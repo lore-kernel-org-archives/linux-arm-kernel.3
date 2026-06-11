@@ -4,132 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A416CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 02:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA3BBCD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 03:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lV1aAtPyXCcnP+P6XkpiCKHOZt6IpgeaVy/0s1tJef0=; b=fI4oZXASFuNUtM9hhwjrMaMZRq
-	vJf9Pdlem3hPTyX4UbphPxnKLCmVJn3EjUJsnfUfVDMkzHe3doHci0/TrxG9m44UCdisQs4sL5L76
-	uQDKK9Y6elGzxxySgyL0RDmuIVH5Ik15ST4UZNlgoBcVz4/hBBuPAOo4f/HwCCqc0AZBVOO9i2o24
-	QlN/5U5ypNdj6N1bLCy/3VqQzKg3eMcgV0m3eirxtpZ10PLjs5WhgyuZXw3CNyXwtui9K15goClir
-	gp3woKf91h36cH7b/tiT8NMqzbLgvbMLOBdi65mKJMdMveRo+ZyRvIBN20OPqDlCjpFPJMWRZ535V
-	ejblKIAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZYAsuub7tjh5DE2NtRU43cs+1enZX+YMETetqa3OJBs=; b=2kqLZ8SIbVW3XGKzFDXlJXFs6A
+	DD76qqGB3pAEjtkalmjMHoOjsxxYG4bO3ANsB08QeL/LdVGRYpCp/JEntHzUC5w9iZYsjtH5Jwo1Z
+	W9IAkkF65nhtsT8dLZpaBpQWVmng3BjZWRGDjJkBk1/bzjHoqk5wj1YR9dvKNrv1Ha6mL67kTEIsg
+	QQ20lqEdPhQ1Bg8CUg20clos8omwqVhbF1RBmDGDKJXPkPSEZB3b76AFWx6BJNeHE+Cd9NLJx5E3y
+	k5MpB6NzXRyH4Ojj9nZYIks/OoMZ4GgGcWiVgzfaAmxXfoc5f/N3ys+M3s087ppLVsDnjeMNHVNnS
+	kXIcGGsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXVXX-00000008agE-3ZiN;
-	Thu, 11 Jun 2026 02:53:07 +0000
-Received: from mail-westus3azon11010046.outbound.protection.outlook.com ([52.101.201.46] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wXVnV-00000008bOd-1k24;
+	Thu, 11 Jun 2026 03:09:37 +0000
+Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXVXV-00000008aff-0PvH
+	id 1wXVnS-00000008bNb-2Grt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 02:53:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hw1Ye/DNHcbNStjX9p7PiCrQE4GvJDW7QOU96W6liLYI9Ug8LatSU6fed/bKUnuiqp7n7mk/Yd/HLW+/+xgl0hDnlA25wMx5fmXqUitnj6H3NAGL5VBj0VESSJEq8DdsutnP1nwYBNfeu/65JRAYEr0dYFiAPVdlHR/QZqtQGeKG1sRYXzrzJUCIeESZ3bND3xvcK/do+nYtvb71y71oE8yE+oHJq/mKEnkWMo+ygfm/m1vY65u7HQG70JO5J63F5l/yEZLbbbNMT3haniiAMUL7AvL25C8sS9SvSl8XW7LVab5CwYG2ASUqykwRkBEC78IIlqObA+8EeGmCpgthcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lV1aAtPyXCcnP+P6XkpiCKHOZt6IpgeaVy/0s1tJef0=;
- b=FOJJo642y9uZNn4U5nwhb5RlJ1wfXkAtcR0o7eM/Mj2/TH8JAYfz1hk5noJRx7MAmP9riOUzfN+ghS1/0gqrf0EUet4cn0JGGZf3W+E4IgOFA5PX7MQHFBKcd1meqlZ51dehhaPQCcLEnZC5hz8JU8Q/W+WillVc94NOncjn0a50c83l1FPp/QpFvsHNRzRcz2OJj70rvzZPKkjvDswVNwlbrbPVW2xWYi1VN4KXUqecexNdvBMmsGCnSiduqfN4Z7IRaUKmYTo2eVBqPT7oJca9kTtewezC2Sb32swPb4d7aQhCtCW7qD12i300Nn7GI130rQ99axEuAs6/BrYM/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lV1aAtPyXCcnP+P6XkpiCKHOZt6IpgeaVy/0s1tJef0=;
- b=1NbTHbB5Fot0jY1vBNELVsBXOTcszsyFdk8yxXa3H0pI9MoysfmrB1hKYY9OYUhNavUMYF2FcPZR5TodvNve6yWh/Kbsu1+74q03TIRfCp8kruVEFNZbu4EppT3wDygA1Kt1xcp6sM5Xq/GvbwtAeGaDJ8W4AYdc7yu9eQbTx/A=
-Received: from DS7PR12MB9549.namprd12.prod.outlook.com (2603:10b6:8:24e::7) by
- SN7PR12MB8602.namprd12.prod.outlook.com (2603:10b6:806:26d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.17; Thu, 11 Jun
- 2026 02:52:56 +0000
-Received: from DS7PR12MB9549.namprd12.prod.outlook.com
- ([fe80::bace:1330:9ab2:acc6]) by DS7PR12MB9549.namprd12.prod.outlook.com
- ([fe80::bace:1330:9ab2:acc6%6]) with mapi id 15.21.0092.011; Thu, 11 Jun 2026
- 02:52:56 +0000
-From: "Jain, Harsh (AECG-SSW)" <h.jain@amd.com>
-To: Eric Biggers <ebiggers@kernel.org>, "linux-crypto@vger.kernel.org"
-	<linux-crypto@vger.kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Botcha,
- Mounika" <Mounika.Botcha@amd.com>, Olivia Mackall <olivia@selenic.com>,
-	"Simek, Michal" <michal.simek@amd.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Savitala, Sarat Chand"
-	<sarat.chand.savitala@amd.com>, "Dhanawade, Mohan" <mohan.dhanawade@amd.com>
-Subject: RE: [PATCH 0/4] Xilinx TRNG fix and simplification
-Thread-Topic: [PATCH 0/4] Xilinx TRNG fix and simplification
-Thread-Index: AQHc8TLoUsF1hl40KkacAzPG2NSr+7Y4t2RA
-Date: Thu, 11 Jun 2026 02:52:56 +0000
-Message-ID: <DS7PR12MB9549D4679D5011B6B25FEA0C971B2@DS7PR12MB9549.namprd12.prod.outlook.com>
-References: <20260531191738.55843-1-ebiggers@kernel.org>
-In-Reply-To: <20260531191738.55843-1-ebiggers@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Enabled=True;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SetDate=2026-06-11T02:49:17.0000000Z;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Name=AMD
- General
- v26;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_ContentBits=3;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS7PR12MB9549:EE_|SN7PR12MB8602:EE_
-x-ms-office365-filtering-correlation-id: b3d3e020-7b35-4fda-2ebc-08dec7648a35
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|38070700021|18002099003|22082099003|56012099006|11063799006;
-x-microsoft-antispam-message-info: du1buuNCfRO2ehXdeAb5XCzlarjXh3yEnpWC4o9CQ9Cixk3yXeOroKpDOmWk1ROLMMB97VVgUBgMx6wBA4HWNugqYsd1krgpYbNQNu7GYbb5JUuD8AXds9vwK1D44j6kh8gTF6bUv0HQ8t3DiuOrMHyntjKiW4DTpJ200i4tLwg8MMgiLB5hgngLaE4oYYxbXNs7QH20wt4lxa69m94RMOWcKktE2jD86BptGWCPm/HYSKk9LcV/sOxSVyL+NLVmuoPUdk3L75fcetqArLKLD6fyBDSkUjstkfmZrL/i4QVlNinIRZAbg+8+6F/Wd5pDiGbldLGWthlBmXT0H/MB3bYALQvtOgk5/QDyPLtYMaZx0pE+yuwLWI0b9XYSkOwOyxdqGaIJYdKvXDKAM3g3+nMGZ2c4/ea44XzxWLrFVI2fGIf9MpQ+C3XTMOVjsZzl/tt5mjpQs5vlNDPhxuLbsWH7aPNS4QRD26V4sOtko9cf8OKMsUDjYXS+tZNwcYEnqbIH1TxUCSEUxZ9QK7kEkEhg0y7VpOGrI/cT4zRHvvesx62C47WBB9SATwKHnMFZoSMyQMlx3a/Au9GfOoD3Qkd+kDvUoY/Z8qf2SNVihVlivD09r1kFa+gW7IO/0qVg4/id4aROGthyF12T/e79D2r4apTSJdVvUaFSwPAebDgV4h0vietWJj2DtmdFNkKPkStE/v/kN9WWMop6t4KLLxPsMh/fexqvvO2zM+6kM7AtRoZ8/YhlMz7Cm076oLi6
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9549.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(38070700021)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?iwN+npcK58zEOleWerCO9BRZ67GRRYv+Pr/WNrOItUsWr+BmhC7Q55Uz/Pk1?=
- =?us-ascii?Q?CU4sifzIJ917sJAwL7/ZuKOkIkUb+wjDLTM0/z3Ph1lIZz6lKI1Oq+H1My+3?=
- =?us-ascii?Q?LJTOz5xbQnexHIp0H4OtUXAKOcnG/DwUy2aCfS0vZynsKHTcViSTKPBJSPpX?=
- =?us-ascii?Q?nyUSP5oA0Pu0IHtPAlaEYrEM+4YbuOkhk8IffwIdI4jk5ESV/ALUg7dygarG?=
- =?us-ascii?Q?hdvN/Z9j81MSTiUPQYs4pQPS94Kq/vMIfvpXyNw3FPxSuiVqg3/evyWisEYK?=
- =?us-ascii?Q?/xubg6ivnPZKzW86LOQiCDsL7A90HKBC1q/OnpPAZu3ya0JgFIXzF1EM+XiA?=
- =?us-ascii?Q?SxASvZK+JyfhG6P6wf7sjAeNhSvbx9QPqoSiuP1WJmBs+Mx7vbxjk6xF8FwO?=
- =?us-ascii?Q?mSR1gxnwkjbxFPAelvpCMDp5nzJ3/OlfHRpjCzxASS1J/xHo8FuiG4viiaNO?=
- =?us-ascii?Q?tm5KaCBZSmwJN7DMuxVG6InbFAo+TBUp5T/FrWEG+8Z5k/2RQzMCuSeCSKkO?=
- =?us-ascii?Q?b+QWP4kcUh+QXtBmr3VeEGvbgPOktgJIXp9lSF09ip/vtiwwgD4kiI98PqzS?=
- =?us-ascii?Q?pxPBbNj1LoreJpCPpa2KMHKCMzH+/owZ0RDZWRiH2psdKdlAhQbGZCO1LlWW?=
- =?us-ascii?Q?JuwtUSQkXZ1Ns/DWvwTUA5J7SbmU2x+CwptiE/J9I2qejX3TVsuyO4CGSyt2?=
- =?us-ascii?Q?DwaZYai6MpNr7BPyyDb3/xRPF2U366kGZTDb54FR3V7dP/kwFndIYaMlVKGr?=
- =?us-ascii?Q?e+CjuFJu2CpH6tEUVI1tjwXqK6mDnLC7anZ+tCJ/sUr1kpXdxGGr2kfmzAxh?=
- =?us-ascii?Q?Z5g/7oojRtNiHMrwwVxjJi/ZupwtYzksCbBmjbrNJrxIpNoo53J4BdfVa/W6?=
- =?us-ascii?Q?YzXr9syNWahEkE51T9arlLPswwst6NVErpYJtUcfUU6V1SXZ3Q6OHFqB8DLg?=
- =?us-ascii?Q?7zxZZivVvk73WvTJLKVf0MU4kQw+i30td26VLNI0u5oNOrNGRcX837dfgBw9?=
- =?us-ascii?Q?xPgZTGavxuxPN7XmPR+htIAF56TjrV3hX39+tw44vVhm0Jn5d9bqRUf9zDDU?=
- =?us-ascii?Q?WN1OhnzBRdVKIjsuDsF5KCKu0KV+60j2gc2iroglXOdFWRk9AT27KYD+9Pq+?=
- =?us-ascii?Q?ka/URnX0RvN9pJl5NdqWB3Gi+9FNBdj5jms1VVFqlrEh0/E+/g64q2p+NVPA?=
- =?us-ascii?Q?QyFxOeQx81Nz3m3DixEr/dIn2cW4ipbI2eMQN1gAQ1hkGsvCu9lEI4xa2Kjj?=
- =?us-ascii?Q?EXivC8WnXjHjFr3zXRu7bKuzEO85Yg4KMlLO69yvvSXren+iqnrntVVqbKAA?=
- =?us-ascii?Q?VX2T7kwTHuXv8mgmMnbCBoG+xAM/ztqXcriskZGBvtECV7yW3cnfdAiN98CO?=
- =?us-ascii?Q?+h8WMJ8gp/Ni6nxJf7cNW6WDEOXeBWWVWbzVykd5cJrqX1bidujQxdX/kgY5?=
- =?us-ascii?Q?uRShPMHu3pw0rbMm5sx3pd0W8PWOpaFgjpsDNpGyFPDtF+/KZTw3ZY584K+V?=
- =?us-ascii?Q?N+wU4JqrRPkNv+v3MWqCnxkZWYQ5BAKaXWViA9eEMpqSLDzIFavCggsgXiZv?=
- =?us-ascii?Q?zvJVBDWCs0neLhRIlSiTfz/XozRWzij6bHSqOuepVcqE/cFCIcWRhnjBZeWi?=
- =?us-ascii?Q?smMIbxmojqzTVz7mNZtoEACvbGx8jEOm1NbQ47yR54VVwtsCQhgBuIayv1Hh?=
- =?us-ascii?Q?WhUXSwxx6/1r0GLCAoncueT/AlFgCGEn7shX8f9GnOeLL1lf?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 11 Jun 2026 03:09:35 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-36d6bb38b44so4876990a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 20:09:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781147373; x=1781752173; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ZYAsuub7tjh5DE2NtRU43cs+1enZX+YMETetqa3OJBs=;
+        b=CN3ugqcSnzjErmYuD7UMMdn/4szOektWAI3+I+JFZjAicb5wL90Qkx1ts6iSuGjT1H
+         of6tsvUzqb2Tn5IaryPEG/O8NheoPuLfDi0anQ1/8Vpg/dGvGgzZwN6yqmzyFb8xG+U1
+         kvyePheT1ISYLGeuOem1u8fDMRfQx/8ZSPMlXqIrVBZ9p0fpcr8fxVvMxbKTJfveq40C
+         qcCvvdoWK5gmXED/ANwrH/3NncaRrQJn589xHuGlILwfgvto5p3XpuhKTFb8y8+rfA+/
+         RKzGEvaKpFsQxD6muBXF5UYwcOyFV5YzidPEQsOdUdCjGaMTPXvFKp+5WLh2hAdupJUT
+         iseA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781147373; x=1781752173;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZYAsuub7tjh5DE2NtRU43cs+1enZX+YMETetqa3OJBs=;
+        b=eP1EA2AZYiL78IxjyFFKEkkhMPLFlRNuVTd9LV/pWgENuspW6XPFGB/f1rcaLiqs66
+         cl3x0l46jekZ5mMhv+5caw3VhxPiVH62x3j+z24DMEjE2RuANpq2DDLqB3xA9Vhz6auA
+         WA9tM2b5mBi/3lJpYFQwpJ+Qj0SRzIwau2bdUn7MRFGhF6HuXVLOZZa60/Xwvu8/d8QG
+         eVFBXO+88rI1Q28dvjBooCvLGsa283y/7it9NAHghLmHu1EItDDtdDYsyl9OsJ859YdO
+         H0h4pwa3VoGZGd5ah3Wg1w75SNMGcHUyEYj9zms0u8ViZHXv3pWRS2WMh2IRrop2KLMN
+         fIUQ==
+X-Gm-Message-State: AOJu0YzDr7Xed6DpdGRFGCNtRMdAE4dPjiiYb888Vmt4FA1IH7uN/kLI
+	eMQxVBPxTJpkR2Ok6F3k4XZy1Y+7cX8sjG2E/cv2JhHF0E44JKp30pCVG8OZ8Nijw8bThQ==
+X-Gm-Gg: Acq92OE8rxuEK/U5elLuqg8SqEf8h3qzENtlRGrwaBY9rcKPK82iu093jL2+/qVaeOA
+	F2AJ3UpQI5CtbxMKUegBiwfank3OKKr7J1JtaM22ynYqjNEVnpTQepH3+nIH8nzSJVqdvVXFZbe
+	Hqx442BBV5G6chSIaAsEHseiTqH6LqwE480xGC5nGYu8Q9SL4HGbv+RrIsieetseNaBSXW7Jp0O
+	qJicVMIQ8QgLsknhRg++lRM5F0yQ4rnPXevSwv6SNjILFL9Qr6rlw1msRvEWPkc2ulufYEVqNQi
+	SNrPYV9aJ27FYOJdrAO/JAFI7K84ODJbWeubh1U9FF6dt5NEckcP7vp9zitb09zFocbUrID4/zO
+	mEdIB18TcVepqcQdVAZbX5p/xce/3r71tD+SFxMLPUhYMqxpQVCOKQfBPLtOrNxsjVjJ09H7LBj
+	fRoh3BI+BjardIaBzv/Xi9Hr45vVEQGKCAZgy6otpQzA==
+X-Received: by 2002:a17:90b:570e:b0:36d:df4f:ab2 with SMTP id 98e67ed59e1d1-377a75cc2b7mr1151650a91.13.1781147373379;
+        Wed, 10 Jun 2026 20:09:33 -0700 (PDT)
+Received: from [10.125.112.20] ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c86585b5356sm107409a12.14.2026.06.10.20.09.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Jun 2026 20:09:32 -0700 (PDT)
+Message-ID: <a3993db0-6975-455d-9674-4fd7cfcf80fc@gmail.com>
+Date: Thu, 11 Jun 2026 11:09:22 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9549.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3d3e020-7b35-4fda-2ebc-08dec7648a35
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Jun 2026 02:52:56.2534
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: btIYMoMd9zPP0xrriejz8lk40jzVuxDM4W6yWtOMdgpGtEZyjaank4WLbg6rviXb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8602
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/11] kdump: reduce vmcore size and capture time
+From: Wandun <chenwandun1@gmail.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org,
+ iommu@lists.linux.dev, zhaomeijing@lixiang.com, Rob Herring
+ <robh@kernel.org>, saravanak@kernel.org, bhe@redhat.com, rppt@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ chenhuacai@kernel.org, kernel@xen0n.name
+Cc: catalin.marinas@arm.com, will@kernel.org, alex@ghiti.fr,
+ akpm@linux-foundation.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ ruirui.yang@linux.dev, m.szyprowski@samsung.com, robin.murphy@arm.com
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <7ed207fa-4c86-426a-8570-495902ce04c3@gmail.com>
+Content-Language: en-US
+In-Reply-To: <7ed207fa-4c86-426a-8570-495902ce04c3@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_195305_141859_C5E718AA 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260610_200934_619298_078C9E5D 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,63 +107,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AMD General
 
-Acked-by: Harsh Jain <h.jain@amd.com>
 
-> -----Original Message-----
-> From: Eric Biggers <ebiggers@kernel.org>
-> Sent: Monday, June 1, 2026 12:48 AM
-> To: linux-crypto@vger.kernel.org; Herbert Xu <herbert@gondor.apana.org.au=
->
-> Cc: linux-kernel@vger.kernel.org; Botcha, Mounika <Mounika.Botcha@amd.com=
->;
-> Jain, Harsh (AECG-SSW) <h.jain@amd.com>; Olivia Mackall
-> <olivia@selenic.com>; Simek, Michal <michal.simek@amd.com>; linux-arm-
-> kernel@lists.infradead.org; Eric Biggers <ebiggers@kernel.org>
-> Subject: [PATCH 0/4] Xilinx TRNG fix and simplification
->
->
->
-> This series fixes and greatly simplifies the Xilinx TRNG driver by:
->
-> - Removing the gratuitous crypto_rng interface, leaving just hwrng which
->   is the one that actually matters.
->
-> - Replacing the really complicated AES based entropy extraction
->   algorithm with a much simpler one.
->
-> Note that this mirrors similar changes in other drivers.
->
-> Eric Biggers (4):
->   crypto: xilinx-trng - Remove crypto_rng interface
->   crypto: xilinx-trng - Fix return value of xtrng_hwrng_trng_read()
->   crypto: xilinx-trng - Replace crypto_drbg_ctr_df() with HMAC-SHA512
->   hwrng: xilinx - Move xilinx-rng into drivers/char/hw_random/
->
->  MAINTAINERS                                   |   2 +-
->  arch/arm64/configs/defconfig                  |   2 +-
->  crypto/Kconfig                                |   5 -
->  crypto/Makefile                               |   2 -
->  crypto/df_sp80090a.c                          | 222 ------------------
->  drivers/char/hw_random/Kconfig                |  11 +
->  drivers/char/hw_random/Makefile               |   1 +
->  .../xilinx =3D> char/hw_random}/xilinx-trng.c   | 134 ++---------
->  drivers/crypto/Kconfig                        |  13 -
->  drivers/crypto/xilinx/Makefile                |   1 -
->  include/crypto/df_sp80090a.h                  |  53 -----
->  11 files changed, 37 insertions(+), 409 deletions(-)
->  delete mode 100644 crypto/df_sp80090a.c
->  rename drivers/{crypto/xilinx =3D> char/hw_random}/xilinx-trng.c (75%)
->  delete mode 100644 include/crypto/df_sp80090a.h
->
->
-> base-commit: 5624ea54f3ba5c83d2e5503411a31a8be0278c1e
-> prerequisite-patch-id: 07e982b663ac3f8312ca524f6b91b5b38661df5e
-> prerequisite-patch-id: 72064361a8f36e015ab0b7e1fa4d364b40d90506
-> prerequisite-patch-id: 8978b8e0db7f47935e5f6f0aff14a97f55d3073c
-> prerequisite-patch-id: 6aa0e3e93a008279d71e535a3d0cf48643f55e19
-> --
-> 2.54.0
+On 6/11/26 10:09, Wandun wrote:
+> 
+> 
+> On 5/27/26 11:29, Wandun Chen wrote:
+>> From: Wandun Chen <chenwandun@lixiang.com>
+>>
+>> On SoCs that carve out large firmware-owned reserved memory (GPU
+>> firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
+>> those carveouts as part of system RAM even though their contents are
+>> firmware state that is not useful for kernel crash analysis.
+>>
+>> This series introduces an opt-in 'dumpable' flag [1] on struct
+>> reserved_mem and uses it to filter the elfcorehdr PT_LOAD ranges on
+>> DT-based architectures (arm64, riscv, loongarch). By default reserved
+>> regions are treated as non-dumpable; CMA regions are explicitly opted
+>> in because their pages are returned to the buddy allocator and may
+>> carry key crash-analysis data.
+>>
+>> The series is organized as follows:
+>> Patches 1-3: Pre-existing fixes and a small prep change.
+>> Patches 4-5: Restructure to allow appending /memreserve/ entries.
+>> Patches 6-7: Add a dumpable flag and append /memreserve/ entries.
+>> Patch 8: Add generic kdump helpers.
+>> Patches 9-11: Wire the helpers into arm64, riscv and loongarch kdump
+>>                elfcorehdr preparation.
+> Hi,
+> 
+> Gentle ping on this series.
+> 
+> Status summary:
+> -patch 03: respun separately per Rob's suggestion, picked up for 7.2
+> -patch 06: Acked-by: Marek Szyprowski -patch 09: Acked-by: Will Deacon
+> The remaining patches (01, 02, 04, 05, 07, 08, 10, 11) are still
+> awaiting review. your feedback would be greately appreciated. I know we
+> are at the end of 7.1 -rc cycle, I don't want to rush this series, just
+> collecting more feedback, and will send next version based on 7.2-rc1.
+> If spliting the series into smaller logical group would make review
+> easier, please let me know. Best regards, Wandun
+
+Apologies for the formatting issue in my previous email.
+Here is the properly formatted version.
+
+Gentle ping on this series.
+
+Status summary:
+- patch 03: respun separately per Rob's suggestion, picked up for 7.2
+- patch 06: Acked-by: Marek Szyprowski
+- patch 09: Acked-by: Will Deacon
+
+The remaining patches (01, 02, 04, 05, 07, 08, 10, 11) are still
+awaiting review. Your feedback would be greatly appreciated.
+
+I know we are at the end of 7.1-rc cycle, I don't want to rush this
+series, just collecting more feedback, and will send next version based
+on 7.2-rc1.
+
+If splitting the series into smaller logical groups would make review
+easier, please let me know.
+
+Best regards,
+Wandun
+
+
+>>
+>> v2 --> v3:
+>> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.[2]
+>> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+>> 3. Add some prepare patches.
+>>
+>> v1 --> v2:
+>> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>>     feedback [1], v2 drop that property and exclude reserve memory
+>>     by default.
+>> 2. Split some prepared patches from the original patches.
+>> 3. Address coding-style comments on patch 5 from Rob.
+>>
+>> [1] https://lore.kernel.org/lkml/20260506144542.GA2072596-
+>> robh@kernel.org/
+>> [2] https://sashiko.dev/#/patchset/20260520091844.592753-1-
+>> chenwandun%40lixiang.com?part=4
+>>
+>> Wandun Chen (11):
+>>    of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
+>>    kexec/crash: provide crash_exclude_mem_range() stub when
+>>      CONFIG_CRASH_DUMP=n
+>>    of: reserved_mem: avoid post-init UAF when alloc_reserved_mem_array()
+>>      fails
+>>    of: reserved_mem: zero total_reserved_mem_cnt if no valid
+>>      /reserved-memory entry
+>>    of: reserved_mem: split alloc_reserved_mem_array() from
+>>      fdt_scan_reserved_mem_late()
+>>    of: reserved_mem: add dumpable flag to opt-in vmcore
+>>    of: reserved_mem: save /memreserve/ entries into the reserved_mem
+>>      array
+>>    of: reserved_mem: add kdump helpers to exclude non-dumpable regions
+>>    arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
+>>    riscv: kdump: exclude non-dumpable reserved memory regions from vmcore
+>>    loongarch: kdump: exclude non-dumpable reserved memory regions from
+>>      vmcore
+>>
+>>   arch/arm64/kernel/machine_kexec_file.c     |   6 ++
+>>   arch/loongarch/kernel/machine_kexec_file.c |   6 ++
+>>   arch/riscv/kernel/machine_kexec_file.c     |   4 +
+>>   drivers/of/fdt.c                           |  11 +-
+>>   drivers/of/of_private.h                    |   3 +
+>>   drivers/of/of_reserved_mem.c               | 117 +++++++++++++++++++--
+>>   include/linux/crash_core.h                 |   6 ++
+>>   include/linux/of_reserved_mem.h            |  15 +++
+>>   kernel/dma/contiguous.c                    |   1 +
+>>   9 files changed, 157 insertions(+), 12 deletions(-)
+>>
+> 
 
 
