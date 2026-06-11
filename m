@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98CCCCD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 23:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14A3CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 00:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8taPUMkZmBuuh6ROfvirO2CTHxf0EYoLMY7xlzu/I08=; b=JZFJQZLxWoGagnV+2E700Ub2G9
-	nJ+z/u3EKXZCESnjG/j9B8xK74aXrRZkzxXfq6pCOFc7THBC8TBP1hg7R4ZW+o75p9Gfsg38bWUuw
-	clSPihm7Kwgl5cCTzWaJtzMqOeImWvAXlZdNerw356Z3JnSj3SOTF0mVzSJl77VZdHFLArk4nOkQ2
-	Q0boyPnmy0lLwinBJEsI10geufOQQhCY/GIWi6dXZRrY7s3HtFpgqKMJaMD8K1yRhr2BUF3SftEeO
-	fd6u5y7IPEHDA+EhiJEt7sVZvDFWHYHcc99zr8pnYYzaK4ol/UYqH1cREfOUw5obpn7gfO4fVL96H
-	kDhBmzyA==;
+	bh=wyDtIwtvF041sYkQ4i3vJeqerIci+8sHT/aTtsYneJc=; b=TDkOoKHIStzOdELOng+SFPdeLe
+	oaiwZbz74pQzSxsvM4V5J/5TbWfpUbIpTVtcH/h0+Mqy3rVJqMbppYfJWFnYighqSCw4qKL49KJxO
+	CT+921eRb258dgDLdTKRAfUNHBSZWI6LaYcNQBYRxxspuELLoyOw+eOiHoiKbOLpDC7emWwmFj/Zv
+	rZR+AUNX6Ff9SrAd6s0MQtn8jDPonP6/jp4+zYUTpdP2VOnWsIN3qUH2TL8Hl++IE8Riyoy/d9ONd
+	t/Tk2QnYwa//vgqUiRuITYLc/lKBbMU/2tuahKJQOqsJH2gBoofwwR0XZHsgxw6MMKDJ7KdkzyRCD
+	ITYgeg7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXpHz-0000000ACza-49LT;
-	Thu, 11 Jun 2026 23:58:23 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wXoEO-0000000A9Je-3Ivs;
+	Thu, 11 Jun 2026 22:50:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXpHx-0000000ACz8-2Zih;
-	Thu, 11 Jun 2026 23:58:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781222299;
-	bh=ypszbHyzB39x79bcGaB6iFn+Y2ljrD/Div0NqvLkCCw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=UQIZwuINbbo1Gsuv/8GDU95NlR1SVDlU/WBPSgbAkgafvPSpVxq/rUa5sGRctCvHR
-	 AvQUY9nUEE40TN3oREpbavfacRDXhf1WEOrFZfxkudAAd95M+7tKF2M2RsncYYlFX3
-	 WXi6J19/BO4tphd+y0pjwCN+S3EJ4jCl8EyT7Y2QeWi6faQhez/5SJGetgFhcC3DEm
-	 zws31jK420nNdX1HsO0DUpOqFyycHFlacnGtwTO0QNzXMDwccr640I2+qYVBc5bH43
-	 bHhdg1irQvFXGL7m43avpv+dVxjOlk7kLcOfNjaN2tQ93WzIVYWdQG7d+J6OR4eBp/
-	 57e5DlKRHRUFg==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8BD2517E0416;
-	Fri, 12 Jun 2026 01:58:18 +0200 (CEST)
-Message-ID: <25f0a87d-0607-49eb-b297-b45c11b4df1b@collabora.com>
-Date: Fri, 12 Jun 2026 02:58:18 +0300
+	id 1wXoEN-0000000A9JU-0spr;
+	Thu, 11 Jun 2026 22:50:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D47D60213;
+	Thu, 11 Jun 2026 22:50:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6E2B1F000E9;
+	Thu, 11 Jun 2026 22:50:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781218233;
+	bh=wyDtIwtvF041sYkQ4i3vJeqerIci+8sHT/aTtsYneJc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=QztO8TxN7V82vPhm9Wqhx+LEs9/4ZId9uXRA2/MQHI4/hNWI5GxkctGkhfPA8eypf
+	 7aYy8KxwQ8i7+52wEnwCd20nCET5DG+ouzh6141VN9P/05tZ7cazzQNpibiDBnFXxh
+	 n3OsURb71UfO4/jS5R1Ee935CLNF2qFObJUzl0Yb3RmUEVfY0ElyuNgQhqXRC0HiuW
+	 bLO/LwoSpDz6a0YwpvmKmnuc4UtF/R4BUVbhhbcdSbJvVW8OIYLjywQjKk8AH98nfy
+	 YYgk56zcf2GqxngZ1l/c6n31HimdtkgDqao7S3Z0uSQeZPHdbl9MDEukgmRc7rsiV7
+	 odUIGTktEDSOA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 569183930FB3;
+	Thu, 11 Jun 2026 22:50:32 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
- transition cleanups
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
- Algea Cao <algea.cao@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, =?UTF-8?Q?Thomas_Niederpr=C3=BCm?=
- <dubito@online.de>, Simon Wright <simon@symple.nz>
-References: <20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_165821_829323_48973CA8 
-X-CRM114-Status: GOOD (  14.30  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: airoha: move get_sport() callback at the
+ beginning of airoha_enable_gdm2_loopback()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178121823088.394849.13885828285639251256.git-patchwork-notify@kernel.org>
+Date: Thu, 11 Jun 2026 22:50:30 +0000
+References: <20260608-airoha_enable_gdm2_loopback-minor-change-v1-1-1787a0f42b31@kernel.org>
+In-Reply-To: <20260608-airoha_enable_gdm2_loopback-minor-change-v1-1-1787a0f42b31@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +72,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hello:
 
-On 6/11/26 3:31 PM, Cristian Ciocaltea wrote:
-> This series provides a set of bug fixes and cleanups for the Rockchip
-> Samsung HDPTX PHY driver.
-> 
-> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
-> calculation and synchronization issues.  Specifically, it fixes edge
-> cases where the PHY PLL is pre-programmed by an external component (like
-> a bootloader) or when changing the color depth (bpc) while keeping the
-> modeline constant.  Because the Common Clock Framework .set_rate()
-> callback might not be invoked if the pixel clock remains unchanged, this
-> previously led to out-of-sync states between CCF and the actual HDMI PHY
-> configuration.
-> 
-> The second part focuses on code cleanups and modernizing the register
-> access.  Now that dw_hdmi_qp driver has fully switched to using
-> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
-> and the restrict_rate_change flag logic.  Finally, it refactors the
-> driver to consistently use standard bitfield macros.
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
-> Changes in v3:
-> - Replaced div_u64() with DIV_ROUND_CLOSEST_ULL() in Patch 1 (Sashiko)
-> - Fixed theoretical usage_count unbalanced issue in Patch 2 (Sashiko)
-> - Rebased series onto latest phy/next
-> - Link to v2: https://patch.msgid.link/20260511-hdptx-clk-fixes-v2-0-664e41379cab@collabora.com
-Please use v4 as I added two more patches to address latest findings from Sashiko:
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-https://lore.kernel.org/all/20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com/
+On Mon, 08 Jun 2026 23:24:15 +0200 you wrote:
+> Move the get_sport() callback invocation at the beginning of
+> airoha_enable_gdm2_loopback() routine in order to avoid leaving the
+> hardware in a partially configured state if get_sport() fails.
+> Previously, get_sport() was called after GDM2 forwarding, loopback,
+> channel, length, VIP and IFC registers had already been programmed.
+> A failure at that point would return an error leaving GDM2 with
+> loopback enabled but WAN port, PPE CPU port and flow control mappings
+> not configured.
+> Performing the get_sport() lookup before any register write guarantees
+> the routine either completes the full configuration sequence or exits
+> with no side effects on the hardware.
+> 
+> [...]
 
-Thanks,
-Cristian
+Here is the summary with links:
+  - [net-next] net: airoha: move get_sport() callback at the beginning of airoha_enable_gdm2_loopback()
+    https://git.kernel.org/netdev/net-next/c/aeb62be4d3b1
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
