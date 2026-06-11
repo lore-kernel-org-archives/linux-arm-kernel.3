@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC85CD98D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A302ACD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MM4IzyO+eWOvrObkBryV1SJkpNjSAy/uixVexrLrKSw=; b=AXhxziHzbyXLtqLGAcensVXFJc
-	sCx5spzdfQkzVyQHcc6j9Vk+6wxFK0MD9K3yRXemyDrw8hlrDc8DwkITY95hrnyo6/q1kezYLQJtd
-	acF4pisHmQJhBozhKdfpV9bbZtlV4P65Xt2xI3DQXzFENdiNJehjHc4Mjis4jvuKxKAU9J/5dTelK
-	OYwv/mKYPdwUfYlIs+MEUAcUhtkLQ2B5uLtPa68E4DbW8Kw1MtQfHoFDS8JjZ/BYaWgCkPW+b74D3
-	qX2TMv/X6mtKz6WgI/L/rh1INLWwWGXurlrqJpEiZtk5aG7JvsRbuV1XQCzlnIrclX/A+Iao05Wxb
-	1UnLHXTw==;
+	bh=EhIoXwrJ2v4T9qgQOtSO8HKyAdS+dLCWcN2Z/1SrKhs=; b=TFNybpKRcRwiYhPLSLuGiouM/y
+	O70xN066Tvq0P0mMeIz7Bd6FRdAPA7+qQLbJ8035O59ylENmfrtnIZ6S9XjA32mZYctBLlGU3RWLW
+	iJywCTdR9sBV31crrwf5v9/m3pvfXWdrQTZgP5l0Ln6qfLAAHxj+k7692qsotT/Q3tTJoRrdMlUkP
+	GJnAEg0F59otPTFF0G17AfMfSCR8OXGmfqC+FV94ZrdzCEg4xq+QlpjKu0TuzA2f97tL8lmi7jC9D
+	2UEwyt+QX1P3fgm02+fYA9lR3Ghb/OZloNxbwMkdlaKlrKBN+Wd4R9ivKQlYuWpoC6jVwBYVrT29T
+	4q57eHIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaHz-00000008vVX-04GE;
-	Thu, 11 Jun 2026 07:57:23 +0000
+	id 1wXaI4-00000008vaW-1Ssm;
+	Thu, 11 Jun 2026 07:57:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaHu-00000008vTR-2d75
+	id 1wXaI0-00000008vWv-01ge
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 07:57:19 +0000
+	Thu, 11 Jun 2026 07:57:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FA6F1E5E;
-	Thu, 11 Jun 2026 00:57:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A27EE1EA6;
+	Thu, 11 Jun 2026 00:57:18 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E5D33FD88;
-	Thu, 11 Jun 2026 00:57:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80D9F3FD88;
+	Thu, 11 Jun 2026 00:57:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781164637; bh=U4Vjt6Y/5QlDO6U416YjeMisAuaa8t5ty3UmEv1GOXs=;
+	t=1781164643; bh=EsjXc42366tfvkg9x9YBDMdaool8cFnnoAYZpBNa4Do=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FKQWl50tNxYhdWTa8VUoY97ZUkmYy4jSvb4wfg9yuWGYmAVBNqtHLvRUosmPmrC5S
-	 zkeKZI1AAJBwf3S95HUSZPSKPSzgtyQKo9HXEd5GDqUJ9HcwpvvFG+qoaWX+mQZKOd
-	 8+nblX6wMfGypfcXjfwwjK0DltHGTBmsaU66kZPQ=
+	b=n7usd4Bjd/IEavzi24LxXwG3knYVF33llR9wICiGPZZHa1ctMRAONp/NSE+kUaNFO
+	 E+pt6+EDOZuY/ZRc/hDudmTR099myEVr9Wrs7ggSYjH0u76YPVFuGLK+KVNZZkbd/6
+	 foAQzgciTkx0UG+hXE7bcoJLrl9+jJVvIP9GAe2I=
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 11 Jun 2026 08:56:55 +0100
-Subject: [PATCH v7 1/8] perf cs-etm: Filter synthesized branch samples
+Date: Thu, 11 Jun 2026 08:56:57 +0100
+Subject: [PATCH v7 3/8] perf cs-etm: Refactor instruction size handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-b4-arm_cs_callchain_support_v1-v7-1-1ba770c862ae@arm.com>
+Message-Id: <20260611-b4-arm_cs_callchain_support_v1-v7-3-1ba770c862ae@arm.com>
 References: <20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com>
 In-Reply-To: <20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -61,16 +61,16 @@ Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
  linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
  Leo Yan <leo.yan@linux.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781164631; l=6689;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781164631; l=2953;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=+EOtrNNEJIkZEdc03dc+/AgbQ4RpRT1XtXfwdaR9d2g=;
- b=sQ+vX57i7sH7dDM9V97pmkIHw+So3HkZrYZZguTj37NKSQZN7TIc2dSEJQ7aRg1mOfDGOUWcD
- z3sxsvWaw4RC4ZOzmk3cCadaUG/p8N4qRLA6YusYH7DRLLKm0nYHEc3
+ bh=KqrInmMKKXWFoDKKGlA3eO1CNnTbpsc10BaPC7smJeI=;
+ b=14XmNesXLD+fy7OxoVw/1gEHQJsSWqdhOatlKRp1S/aLDc8oC0pUNDHtx2KNnnCwUS7pBWFSN
+ +Sn4VbfwC0ODY+UCa6+MgKlYd2XiBbTY0FuZvdL9Yx9wknubIY9HYMh
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_005718_749648_7DAA2039 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20260611_005724_164863_27FD4B28 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,96 +87,90 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Leo Yan <leo.yan@linaro.org>
 
-The itrace 'c' and 'r' options request synthesized branch events for
-calls and returns only. For perf script the default itrace options are
-"--itrace=ce", so CS ETM should emit call branches and error events by
-default.
+This patch introduces a new function cs_etm__instr_size() to calculate
+the instruction size based on ISA type and instruction address.
 
-CS ETM currently synthesizes a branch sample for every decoded taken
-branch whenever branch synthesis is enabled. This produces redundant
-jump and conditional branch samples.
+Given the trace data can be MB and most likely that will be A64/A32 on
+a lot of platforms, cs_etm__instr_addr() keeps a single ISA type check
+for A64/A32 and executes an optimized calculation (addr + offset * 4).
 
-Add a branch filter derived from the itrace calls and returns options.
-When neither option is set, keep the existing behavior and synthesize all
-branch samples. When calls or returns are requested, emit only branch
-samples whose flags match the selected branch type, while preserving trace
-begin/end markers.
-
-Before:
-
-  perf script -F,+flags
-
-  callchain_test    6114 [005] 331519.825214:          1 branches:   tr strt jmp                           0 [unknown] ([unknown]) => ffff8000803a3a68 perf_report_aux_output_id+0x50 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3a74 perf_report_aux_output_id+0x5c ([kernel.kallsyms]) => ffff8000817f4d88 memset+0x0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jmp                    ffff8000817f4d8c memset+0x4 ([kernel.kallsyms]) => ffff8000817f4c00 __pi_memset_generic+0x0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4c1c __pi_memset_generic+0x1c ([kernel.kallsyms]) => ffff8000817f4c44 __pi_memset_generic+0x44 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4c4c __pi_memset_generic+0x4c ([kernel.kallsyms]) => ffff8000817f4c5c __pi_memset_generic+0x5c ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4c5c __pi_memset_generic+0x5c ([kernel.kallsyms]) => ffff8000817f4cf0 __pi_memset_generic+0xf0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d30 __pi_memset_generic+0x130 ([kernel.kallsyms]) => ffff8000817f4d68 __pi_memset_generic+0x168 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d78 __pi_memset_generic+0x178 ([kernel.kallsyms]) => ffff8000817f4d6c __pi_memset_generic+0x16c ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d78 __pi_memset_generic+0x178 ([kernel.kallsyms]) => ffff8000817f4d6c __pi_memset_generic+0x16c ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d78 __pi_memset_generic+0x178 ([kernel.kallsyms]) => ffff8000817f4d6c __pi_memset_generic+0x16c ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   return                 ffff8000817f4d84 __pi_memset_generic+0x184 ([kernel.kallsyms]) => ffff8000803a3a78 perf_report_aux_output_id+0x60 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000803a3a98 perf_report_aux_output_id+0x80 ([kernel.kallsyms]) => ffff8000803a3b04 perf_report_aux_output_id+0xec ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3b1c perf_report_aux_output_id+0x104 ([kernel.kallsyms]) => ffff8000803a38f8 __perf_event_header__init_id+0x0 ([kernel.kallsyms])
-
-After:
-
-  callchain_test    6114 [005] 331519.825214:          1 branches:   tr strt jmp                           0 [unknown] ([unknown]) => ffff8000803a3a68 perf_report_aux_output_id+0x50 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3a74 perf_report_aux_output_id+0x5c ([kernel.kallsyms]) => ffff8000817f4d88 memset+0x0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3b1c perf_report_aux_output_id+0x104 ([kernel.kallsyms]) => ffff8000803a38f8 __perf_event_header__init_id+0x0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a39c0 __perf_event_header__init_id+0xc8 ([kernel.kallsyms]) => ffff800080105258 __task_pid_nr_ns+0x0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff80008010528c __task_pid_nr_ns+0x34 ([kernel.kallsyms]) => ffff8000801d5610 __rcu_read_lock+0x0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000801052b0 __task_pid_nr_ns+0x58 ([kernel.kallsyms]) => ffff800080192078 lock_acquire+0x0 ([kernel.kallsyms])
-  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000801923f4 lock_acquire+0x37c ([kernel.kallsyms]) => ffff8000801d6da0 rcu_is_watching+0x0 ([kernel.kallsyms])
-
-Fixes: b12235b113cf ("perf tools: Add mechanic to synthesise CoreSight trace packets")
 Signed-off-by: Leo Yan <leo.yan@linaro.org>
+Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ tools/perf/util/cs-etm.c | 43 ++++++++++++++++++++++---------------------
+ 1 file changed, 22 insertions(+), 21 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 5e92359f51a7cb87a26866ae71466fcce809d551..c2b0f98ceee7671d0e98cfe5673c6f4ec19707a5 100644
+index b4d598ccabbd2551affdc8feed5c63bac4fee98d..4127120459418389ca7aabb9a49dead2b50e7533 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -70,6 +70,7 @@ struct cs_etm_auxtrace {
- 	int num_cpu;
- 	u64 latest_kernel_timestamp;
- 	u32 auxtrace_type;
-+	u32 branches_filter;
- 	u64 branches_sample_type;
- 	u64 branches_id;
- 	u64 instructions_sample_type;
-@@ -1681,6 +1682,10 @@ static int cs_etm__synth_branch_sample(struct cs_etm_queue *etmq,
- 	} dummy_bs;
- 	u64 ip;
+@@ -1366,6 +1366,18 @@ static inline int cs_etm__t32_instr_size(struct cs_etm_queue *etmq,
+ 	return ((instrBytes[1] & 0xF8) >= 0xE8) ? 4 : 2;
+ }
  
-+	if (etm->branches_filter &&
-+		!(etm->branches_filter & tidq->prev_packet->flags))
-+		return 0;
++static inline int cs_etm__instr_size(struct cs_etm_queue *etmq,
++				     struct cs_etm_traceid_queue *tidq,
++				     struct cs_etm_packet *packet,
++				     u64 addr)
++{
++	if (packet->isa == CS_ETM_ISA_T32)
++		return cs_etm__t32_instr_size(etmq, tidq, packet, addr);
 +
- 	ip = cs_etm__last_executed_instr(tidq->prev_packet);
++	/* Otherwise, 4-byte instruction size for A32/A64 */
++	return 4;
++}
++
+ static inline u64 cs_etm__first_executed_instr(struct cs_etm_packet *packet)
+ {
+ 	/*
+@@ -1394,19 +1406,17 @@ static inline u64 cs_etm__instr_addr(struct cs_etm_queue *etmq,
+ 				     struct cs_etm_packet *packet,
+ 				     u64 offset)
+ {
+-	if (packet->isa == CS_ETM_ISA_T32) {
+-		u64 addr = packet->start_addr;
++	u64 addr = packet->start_addr;
  
- 	event->sample.header.type = PERF_RECORD_SAMPLE;
-@@ -3517,6 +3522,16 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 		etm->synth_opts.callchain = false;
+-		while (offset) {
+-			addr += cs_etm__t32_instr_size(etmq, tidq, packet,
+-						       addr);
+-			offset--;
+-		}
+-		return addr;
+-	}
++	/* 4-byte instruction size for A32/A64 */
++	if (packet->isa == CS_ETM_ISA_A64 || packet->isa == CS_ETM_ISA_A32)
++		return addr + offset * 4;
+ 
+-	/* Assume a 4 byte instruction size (A32/A64) */
+-	return packet->start_addr + offset * 4;
++	while (offset) {
++		addr += cs_etm__instr_size(etmq, tidq, packet, addr);
++		offset--;
++	}
++	return addr;
+ }
+ 
+ static void cs_etm__update_last_branch_rb(struct cs_etm_queue *etmq,
+@@ -1576,16 +1586,7 @@ static void cs_etm__copy_insn(struct cs_etm_queue *etmq,
+ 		return;
  	}
  
-+	if (etm->synth_opts.calls)
-+		etm->branches_filter |= PERF_IP_FLAG_CALL |
-+					PERF_IP_FLAG_TRACE_BEGIN |
-+					PERF_IP_FLAG_TRACE_END;
-+
-+	if (etm->synth_opts.returns)
-+		etm->branches_filter |= PERF_IP_FLAG_RETURN |
-+					PERF_IP_FLAG_TRACE_BEGIN |
-+					PERF_IP_FLAG_TRACE_END;
-+
- 	etm->session = session;
+-	/*
+-	 * T32 instruction size might be 32-bit or 16-bit, decide by calling
+-	 * cs_etm__t32_instr_size().
+-	 */
+-	if (packet->isa == CS_ETM_ISA_T32)
+-		sample->insn_len = cs_etm__t32_instr_size(etmq, tidq, packet,
+-							  sample->ip);
+-	/* Otherwise, A64 and A32 instruction size are always 32-bit. */
+-	else
+-		sample->insn_len = 4;
++	sample->insn_len = cs_etm__instr_size(etmq, tidq, packet, sample->ip);
  
- 	etm->num_cpu = num_cpu;
+ 	cs_etm__frontend_mem_access(etmq, tidq, packet, sample->ip,
+ 				    sample->insn_len, (void *)sample->insn);
 
 -- 
 2.34.1
