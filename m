@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F302CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 06:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F0ECD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 06:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lC8ycInTVWa80ivQlmiFJsfkdHS3LZShZCSRnJHPAlA=; b=BJqHSke79+4yrXTn948RmZj6dL
-	+3z91NZJqw3ygZ0BS3V/T2eoorWMXqPWa5CgkylD2KtrZoQUu50/gQjy5vxAKXSpbOkEd/S9Z2Ur9
-	DuQqFCl6u+RWnvNbGOnDe5lAJ7yuWQ80DzfEyPhRh/qFr2hSmEXTGnbG62nDpqg7+8dYyZBwVIJ4t
-	KGsLhVprCfon/LdMTlaLZS8QfFMoDLvg+fAi7ldqtCHXB3q0HEHpQc+L0XSouEsYMvVPoj/WYGuOR
-	qGjHWKZCCujVEBebCAMlKVDciC8zI4YywAxlR7k6otL4VogoE4mcUUDBkoh02WtR42KB8paavCTDj
-	wf9d1Z9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d/3KW645kadoWYBkkkiV3R/cBByrtaM6iiRuO1ZY31c=; b=BcfSNaOYJ+Y2p1KJkWdEZC/1iA
+	gQS4u9hDusAD6oSvE6TLcFgFw+gLg4OwQ/e1iqP8ZlMwbdhVS7lJefnVUHPW/yfF1B4buxONeBzGd
+	zdSvHrtzMueU7PffO81a8R/FQ1eEoKuMZBU8RDcQn8/4XDWDw6NFGZ6w8R2hYpKHdSJk5lXYOW8JA
+	RS0V7taKWzXPZg3qTeaC1U+L033J3PZhd45HGJyjDqC2dfc3NYK92sxLjJhOd/rehX0n+X0w60k2F
+	u86t1YwmjctvYxOD/4NVY9Wy7Azx3N/qBSWZR77wNhe//uhw3fSes7yIxf4OwJwnBDF/WbYUl85yZ
+	SNbOAVDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZEQ-00000008pU4-0zIK;
-	Thu, 11 Jun 2026 06:49:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wXZF5-00000008pal-24bA;
+	Thu, 11 Jun 2026 06:50:19 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZEO-00000008pTv-3QSs
+	id 1wXZF2-00000008pZm-3RlW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 06:49:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA789600AA;
-	Thu, 11 Jun 2026 06:49:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DA841F00893;
-	Thu, 11 Jun 2026 06:49:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781160575;
-	bh=lC8ycInTVWa80ivQlmiFJsfkdHS3LZShZCSRnJHPAlA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z6SKi/fiaA2C2wYajoTbWuUo44PjNAOAJTiPHw824PI9E6pXkIHtOqCt7sirQQmdh
-	 6n2RHUP8v0VHzxMFhjmcUXxCXeLWeg3HED/QenMFuJBVdQUZEmSXodSDhbXbjJxaA9
-	 Oz3cxcXVtSYJD5EIR1nsweD9YH1JlSEorvZD0QiXHnUcKyDTiTrvx7r9P8CL1n/d9z
-	 MSWLmlCyFlV1zXBx07Rf1aI652Yke4Gu3EhZ78CfM9cotPK/qjynEoF2P+k3bULQTF
-	 7gqOsaS30CxIboAq+j7qM8/f+sqKLryS1gk8iaSLLOGohIllpuC+sVZo/9nvdTSKEj
-	 xOhsMuJp8cUQA==
-Date: Thu, 11 Jun 2026 09:49:22 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Lance Yang <lance.yang@linux.dev>
-Cc: dave.hansen@intel.com, xueyuan.chen21@gmail.com,
-	akpm@linux-foundation.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
-	hpa@zytor.com, david@kernel.org, ljs@kernel.org, liam@infradead.org,
-	vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
-	ziy@nvidia.com, baolin.wang@linux.alibaba.com, npache@redhat.com,
-	ryan.roberts@arm.com, dev.jain@arm.com, baohua@kernel.org,
-	yang@os.amperecomputing.com, jannh@google.com
-Subject: Re: [RFC PATCH v2 1/3] mm/huge_memory: make persistent huge zero
- folio read-only
-Message-ID: <aipacpSZrO1DKooO@kernel.org>
-References: <930d9121-9176-4a7b-a2d7-8224f94000d3@intel.com>
- <20260610032022.23361-1-lance.yang@linux.dev>
+	Thu, 11 Jun 2026 06:50:18 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 11 Jun
+ 2026 14:50:09 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 11 Jun 2026 14:50:09 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Date: Thu, 11 Jun 2026 14:50:08 +0800
+Subject: [PATCH] arm64: dts: aspeed: Fix duplicate pinctrl labels and
+ address scheme
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260610032022.23361-1-lance.yang@linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260611-dtsi_fix-v1-1-ef2b7cd86d6d@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIAKBaKmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDM0ND3ZSS4sz4tMwKXQNLyyRDw0RjI8MkUyWg8oKiVKAw2Kjo2NpaAKY
+ AXaBaAAAA
+X-Change-ID: 20260611-dtsi_fix-099b11a321b5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, Arnd Bergmann <arnd@arndb.de>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Ryan Chen
+	<ryan_chen@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781160609; l=5765;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=8U6jz7rXtYL1MwCZPqGDf5fZs+4y+xyGRhjMMf47rOU=;
+ b=O9wmMN7nZjWZ4LiaBz1UQB8K5FQiwQQye3VsCY92aIsBDGfBlwhNQ68rdmVUnuq1MT8XhoL1R
+ byIXjsGNhUgDIjxeCHG6e77/P2X8uyQom931Pc1kK32Q0cXBpJexTUJ
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_235016_879876_6BC23F83 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,89 +77,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Fix duplicate pinctrl_tach{0-15} and pinctrl_n{cts,dcd,dsr,ri}5 labels
+in aspeed-g7-soc1-pinctrl.dtsi.
 
-On Wed, Jun 10, 2026 at 11:20:22AM +0800, Lance Yang wrote:
-> Hi Dave,
-> 
-> Thanks for taking the time to review.
-> 
-> On Tue, Jun 09, 2026 at 12:33:36PM -0700, Dave Hansen wrote:
-> >On 6/9/26 07:37, Xueyuan Chen wrote:
-> >> +bool __weak arch_make_pages_readonly(struct page *page, int nr_pages)
-> >> +{
-> >> +	return false;
-> >> +}
-> >
-> >This is a rather wonky function. It's going to cause all kinds of fun if
-> >it is used like this:
-> >
-> >	arch_make_pages_readonly(syscall_table, 1);
-> 
-> Ouch, yeah, it is ...
+Drop the cpu-index from secondary/tertiary container nodes: reduce the
+"#address-cells" from 2 to 1 and update ssp_nvic/tsp_nvic unit-address
+and reg accordingly. Also remove URL comments from the DTS.
 
-We already have set_direct_map* APIs, why don't you add a new one there?
-set_direct_map_ro() for example.
+Suggested-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+Fixes: e77bb5dc5759 ("arm64: dts: aspeed: Add initial AST27xx SoC device tree")
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+This series contains follow-up fixes for the AST27xx DTS support that
+was merged into linux-next (e77bb5dc5759).
+
+Two issues were identified after merge by Andrew Jeffery during review
+of the pending v11 series:
+
+1. Duplicate pinctrl state labels in aspeed-g7-soc1-pinctrl.dtsi caused
+   dtc to abort with fatal label-redefinition errors.
+
+2. The synthetic container nodes (secondary, tertiary) for sub-processor
+   interrupt controllers used a 2-cell address scheme to encode a
+   <cpu-index reg-base> tuple.  Since the cpu-index adds no value for
+   nodes that are purely phandle anchors, Andrew requested we drop it
+   and use the bare register address instead.
+---
+ arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi      |  14 ++-
+ .../boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi    | 102 ---------------------
+ 2 files changed, 6 insertions(+), 110 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
+index ef283d95649a..58193c3c3696 100644
+--- a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
++++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
+@@ -84,32 +84,30 @@ l2: l2-cache0 {
+ 	};
  
-> >It's also kinda weird to have it return a bool, and not check that bool
-> >at the single call site. Some things come to mind:
-> >
-> >1. This function needs commenting. It needs to say what it does, when
-> >   architectures should override it and what their implementations
-> >   should look like. It needs to be clear that this can't be used for
-> >   anything really important. What should architectures do with alias
-> >   mappings? Are they allowed to touch non-direct map aliases? Are they
-> >   required to?
-> 
-> Agreed. Needs a real comment ...
-> 
-> Just meant as a best-effort direct/linear-map permission chang, nothing
-> stronger than that. I should spell out what happens, or does not happen,
-> to non-direct-map aliases, if anything, and make clear callers cannot
-> treat this as a hard guarantee :D
-
-It's not only about highmem, anything that changes the direct map might
-fail to allocate memory when splitting larger mappings.
+ 	secondary {
+-		#address-cells = <2>;
+-		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/of/address.c?h=v6.16#n491 */
++		#address-cells = <1>;
+ 		#size-cells = <0>;
+-		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/of/address.c?h=v6.16#n430 */
  
-> >2. The return type needs to be reconsidered. Is 'bool' even acceptable?
-> >   Should it just be 'void' if callers can't do anything when it fails?
-> 
-> Maybe ignoring it is OK now, but someone may need the return value later?
-> 
-> >3. What should the naming be? "readonly" vs "ro". Should it have a
-> >   "maybe" since it's kinda optional?
-> 
-> Fair point. "make" may be overstating it a bit ...
-> 
-> With a return value, arch_try_make_pages_readonly() sounds about right
-> to me. If we end up with void and pure best-effort semantics, maybe
-> arch_maybe_make_pages_readonly() fits better :)
-
-Realistically, I wouldn't expect 32-bit configs to enable
-PERSISTENT_HUGE_ZERO_FOLIO or even THP, so naming this function to reflect
-32-bit behaviour seems odd going forward.
+-		ssp_nvic: interrupt-controller@1,e000e100 {
++		ssp_nvic: interrupt-controller@e000e100 {
+ 			compatible = "arm,v7m-nvic";
+ 			#interrupt-cells = <2>;
+ 			#address-cells = <0>;
+ 			interrupt-controller;
+-			reg = <1 0xe000e100>;
++			reg = <0xe000e100>;
+ 			arm,num-irq-priority-bits = <3>;
+ 			status = "disabled";
+ 		};
+ 	};
  
-> >4. Should this new API be folio or page-based in the first place?
-> 
-> For page vs folio, I was mostly following David's RFC v1 suggestion.
-> 
-> Current caller is a folio, sure, but the page-range helper leaves room
-> for non-folio users later. Happy to add a simple folio wrapper if that
-> reads better ;)
-> 
-> >5. Is mm/huge_memory.c the right place to define a generic mm function,
-> >   even a stub?
-> 
-> Ah, you're right! My bad, wrong place for a generic stub. Will move it
-> out for RFC v3.
-
-We have include/linux/set_memory.h for such function declarations and their
-stubs.
+ 	tertiary {
+-		#address-cells = <2>;
++		#address-cells = <1>;
+ 		#size-cells = <0>;
  
-> Thanks, Lance
-> 
+-		tsp_nvic: interrupt-controller@2,e000e100 {
++		tsp_nvic: interrupt-controller@e000e100 {
+ 			compatible = "arm,v7m-nvic";
+ 			#interrupt-cells = <2>;
+ 			#address-cells = <0>;
+ 			interrupt-controller;
+-			reg = <2 0xe000e100>;
++			reg = <0xe000e100>;
+ 			arm,num-irq-priority-bits = <3>;
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
+index 72d93323593d..6edf14617b09 100644
+--- a/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
+@@ -496,87 +496,6 @@ pinctrl_hvi3c15_default: hvi3c15-default-state {
+ 		function = "I3C15";
+ 		groups = "HVI3C15";
+ 	};
+-
+-	pinctrl_tach0_default: tach0-default-state {
+-		function = "TACH0";
+-		groups = "TACH0";
+-	};
+-
+-	pinctrl_tach1_default: tach1-default-state {
+-		function = "TACH1";
+-		groups = "TACH1";
+-	};
+-
+-	pinctrl_tach2_default: tach2-default-state {
+-		function = "TACH2";
+-		groups = "TACH2";
+-	};
+-
+-	pinctrl_tach3_default: tach3-default-state {
+-		function = "TACH3";
+-		groups = "TACH3";
+-	};
+-
+-	pinctrl_tach4_default: tach4-default-state {
+-		function = "TACH4";
+-		groups = "TACH4";
+-	};
+-
+-	pinctrl_tach5_default: tach5-default-state {
+-		function = "TACH5";
+-		groups = "TACH5";
+-	};
+-
+-	pinctrl_tach6_default: tach6-default-state {
+-		function = "TACH6";
+-		groups = "TACH6";
+-	};
+-
+-	pinctrl_tach7_default: tach7-default-state {
+-		function = "TACH7";
+-		groups = "TACH7";
+-	};
+-
+-	pinctrl_tach8_default: tach8-default-state {
+-		function = "TACH8";
+-		groups = "TACH8";
+-	};
+-
+-	pinctrl_tach9_default: tach9-default-state {
+-		function = "TACH9";
+-		groups = "TACH9";
+-	};
+-
+-	pinctrl_tach10_default: tach10-default-state {
+-		function = "TACH10";
+-		groups = "TACH10";
+-	};
+-
+-	pinctrl_tach11_default: tach11-default-state {
+-		function = "TACH11";
+-		groups = "TACH11";
+-	};
+-
+-	pinctrl_tach12_default: tach12-default-state {
+-		function = "TACH12";
+-		groups = "TACH12";
+-	};
+-
+-	pinctrl_tach13_default: tach13-default-state {
+-		function = "TACH13";
+-		groups = "TACH13";
+-	};
+-
+-	pinctrl_tach14_default: tach14-default-state {
+-		function = "TACH14";
+-		groups = "TACH14";
+-	};
+-
+-	pinctrl_tach15_default: tach15-default-state {
+-		function = "TACH15";
+-		groups = "TACH15";
+-	};
+-
+ 	pinctrl_thru0_default: thru0-default-state {
+ 		function = "THRU0";
+ 		groups = "THRU0";
+@@ -940,27 +859,6 @@ pinctrl_uart3_default: uart3-default-state {
+ 		function = "UART3";
+ 		groups = "UART3";
+ 	};
+-
+-	pinctrl_ncts5_default: ncts5-default-state {
+-		function = "NCTS5";
+-		groups = "NCTS5";
+-	};
+-
+-	pinctrl_ndcd5_default: ndcd5-default-state {
+-		function = "NDCD5";
+-		groups = "NDCD5";
+-	};
+-
+-	pinctrl_ndsr5_default: ndsr5-default-state {
+-		function = "NDSR5";
+-		groups = "NDSR5";
+-	};
+-
+-	pinctrl_nri5_default: nri5-default-state {
+-		function = "NRI5";
+-		groups = "NRI5";
+-	};
+-
+ 	pinctrl_ndtr5_default: ndtr5-default-state {
+ 		function = "NDTR5";
+ 		groups = "NDTR5";
 
+---
+base-commit: abe651837cb394f76d738a7a747322fca3bf17ba
+change-id: 20260611-dtsi_fix-099b11a321b5
+
+Best regards,
 -- 
-Sincerely yours,
-Mike.
+Ryan Chen <ryan_chen@aspeedtech.com>
+
 
