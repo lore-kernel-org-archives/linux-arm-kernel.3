@@ -4,94 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49364CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 02:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 118A2CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 02:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rrKKxjQkCCq7BO+0b9GvAXj1oVgaGXMfePrho45byEA=; b=xW5rhT9rBkmZnuEvn2Rjk37ZPg
-	/YLyEjIUQt+IlaWB/yh/9q+aj+xBL3Y5xZp8AnbOhDskHb6vdjtt/uuld76pq4pW0Pees3JV0rQbK
-	YitG3y63YWkXCf4jKxA3Mv9wBERQICpRMKbohlAG2N/zkx8f+gv2JdpkgHk0+XRvaOTENg2PHUDIt
-	pH4Z5trT7y/y/ihGyYYYOk0JQykZ8NwJ78hIPpkXfEDH1yQ6yFu03yj5u1+S0SFNjq+l+upcXE31g
-	EhHjaxb18lqBx/3zcTZ2MTBrVnTE65S+CxBdVo2aLWh7qrwnExt9yb3TVmpy0cE/oJ7WxsG/FiiWI
-	+bylVGIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t59YXBABqSKBTMbqxRZxz5wbLxg/l87Z+6hLvH9B5NA=; b=CC+QU3zidi9oLPpOPqoLbKwIj4
+	nDyHtELJKjriJ/7AeUUsmAVErs/M8E1PXSxiIxcXOTnB2iX1uLGMDOWBhUL6VSRIg3r52rvBeWq9F
+	DMj06KZEIJ1VTBGeMQcF1ICIOWsdOKDRYul5ePoldW3HGlEOCbU8jHii/ya8WUc9tNi7mX00pN1AM
+	0UeVikmFT5VTvU9XmK6j8hcogSKVj4cnG2xajyPfCJy2eTZZavP9hsYdKfm3VILidRBcu6YDJvMEH
+	6CD6pne6te5sUwdDR+ICCfT5S54/NcD7wFqQ3PjEonPkvlPIxGClckRrbTCjG1hwlf94u/jp+ursm
+	vME+B4IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXUrh-00000008YA0-17fP;
-	Thu, 11 Jun 2026 02:09:53 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1wXUtl-00000008YWX-3KnZ;
+	Thu, 11 Jun 2026 02:12:01 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXUre-00000008Y96-2DnE
+	id 1wXUtj-00000008YVN-1BSr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 02:09:52 +0000
-Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-2c31212104cso145605ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 19:09:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781143789; x=1781748589; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=rrKKxjQkCCq7BO+0b9GvAXj1oVgaGXMfePrho45byEA=;
-        b=CVgEsQyn8p3i+wQXvcwzqsMJCig1u3MK4JEwYNHK7OSqGpG276McCNVZN1osSUpNPD
-         k2EniKOnF4c/JT5zYQKI4oIuu2Cclz78zxLo/qLwj49Hodq3KoThsgGrhGXdD9qQBHRa
-         nYtUulLPid3jsO37bnArjwXtKuY/my9KiKQbboHXxXCFySr5O2iaV8rjxeXq7gY4bfgc
-         SFfLhZdJUxMra/fkIJRPDK/KaQ3tIUsMWjvjfFRpStu7VQPr/hBp0vxVcykpKg5OeEiP
-         L/QgXZBeYdWYYfA9+OLL/7WUcTlY2onPJeisrXQVEHBcoov2vZoWIp5iddq2fsAlKwx1
-         xbsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781143789; x=1781748589;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rrKKxjQkCCq7BO+0b9GvAXj1oVgaGXMfePrho45byEA=;
-        b=R2lSvqkWC23UFriw7fQrQ/dop8DsJpdtkY9jwBjjtAjeaQCWyMm000cR/vN/6u6fSm
-         N6nY6KIcaBrX2Qe3npXhVXylNkO4RqvVPkkl1dVToEZXE9bTDspGpSmAoHAQGWz8wbM/
-         tHkXnFzTOdqYg1i4/NVzFO6wu8aI0SCZepRPiZGBEnSUq7KdA+PD2jiVxDNzIhv+Jyap
-         sDnk3Cc5ocB4aSW3VohpGqRBk5dsSwtetT63GJltYnAg/Kkt7Kn2XI/qy8qNkEphpeS4
-         rmJXBC/budRQXBVQtIU1MgSmGiRuxk9WiYC6vAoUEJRE7yKDSKBUxow77tgdPQuvZIGh
-         j/8w==
-X-Gm-Message-State: AOJu0YyEdvIxKiGHCBOXrJboXnidKWCKmrycPzfyHxBCcf1ixng6wLHg
-	jGAVGVJFD1YB8bF3z+gXoGDNGVUMncsWzSNSsMU3w2NSE67pzjzYnd03lH8eYROvcPqNjA==
-X-Gm-Gg: Acq92OHtoMvnVz/EgGPJjmFJXkyJzSKeahsDBLN0205RZq7xqKkj4cFXCYVxc+rOcZ6
-	PFgNF9Zy0jLef9PPYFeSZglLPu9UywB9WY0hZ+Rl49avXdQV7j0Rzct8YDY1QTAomH+hzxOCHQg
-	9JdgsEyackTChW27RgWCY3IVsGRMAzOerHFtDgJVPieKPhnsd7m68UGWLmc5Gt1Lir5A5Yno2vg
-	cmpkX//K1Tuxt1xqIm2CgIG5GIKVHmj/0A15lroerVNgMV6oUya3WntNH4Wba2s9YNI2n4s0x9K
-	RU4DwSRipL8p+yemx8AFiN3Dq1swyGw5zutljflUsAYVId8JqzsJVAByh92RDX3ucPbpOevYed2
-	UsN5S0QVsauk2ipnYfIfxEytL5RMqaST0dojmji3/gz9JkKE5GQVFonjeKRppoIe1kE1XughsMc
-	qfKdBnl7JtI/iMYMH/IZ3JmN2Y4lxViftt2y+DYZD5Kg==
-X-Received: by 2002:a17:903:acd:b0:2c1:f29a:b554 with SMTP id d9443c01a7336-2c2f21a11f5mr7037195ad.21.1781143789049;
-        Wed, 10 Jun 2026 19:09:49 -0700 (PDT)
-Received: from [10.125.112.20] ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164fa404fsm256644005ad.37.2026.06.10.19.09.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Jun 2026 19:09:48 -0700 (PDT)
-Message-ID: <7ed207fa-4c86-426a-8570-495902ce04c3@gmail.com>
-Date: Thu, 11 Jun 2026 10:09:37 +0800
+	Thu, 11 Jun 2026 02:12:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lRzqhMdXTlNdg/jf9Y6o7RKsqudxHeCleZU3tKLuMZpyhtmFBdNgX2FvGA/PiSya7nBJF/z50u6uXRMtw9mH4mKeQuS+LvJduh9kK9dvMHudgfI/uuK4g8AqgY2Bc9wfAFgBtZ2zahcLjsxbplNLfxceu5kxVUMhCOCex2Cimb40kb71ZTQWGHl/JNtpsXD3T7rQyQa+sf5oJxmTnEyoAzhhO1KYyBiXqnME8bLZODDjo6f2KlSkNHO3aWCNGWnK0+Tdm4uMOw2DrB7g8KG/gaPrm92njuE7djuQMpMuMSLCA+L7wqHlTj41gqPTngQjXraaHrJJSr2sql8N4gR92w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t59YXBABqSKBTMbqxRZxz5wbLxg/l87Z+6hLvH9B5NA=;
+ b=LDUlFg2HJEpKbTC+SPIUlKoHQR70Wehs3ronqkVB6/2mz+XIiMGAgD3BvQwW/yKzIo8qvKfghbdNzzfBteA981ywhd2Dq3d+62N4ZRvZvIcjihc/hBGXh9T8DmvJ3ue0yfz/aW8qSPhX+LBKsPtAVdXzxkHhGnVz+Aw84l/Rhs5bu19v5b/EgZ1JY/RZQvjHaeodA0FpvckZbWJCBBd2fCATed6if3NlMiTFYv5mG6VpLQ3QoPFA3X9YNBnGIX3nsxpGEHNwpy8Yg3Qe8Vrqo3hKLY5EkKxROiNEtAIcc264/PsVjLEMzEav/OV+r7ciFu368UoRwtgcEJ1rf9XEAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t59YXBABqSKBTMbqxRZxz5wbLxg/l87Z+6hLvH9B5NA=;
+ b=rEi6Um/iZQIhqtB0Giq5SRmgv0mZgd4sKBg0+uOILDj1o8MQO7b/8hSLIDjIoXIeWBxZpEMCvupFP0WRmU37SagNaa/w1tGIBh/KyxWtS1Y3DB91PNHjQpaDzwTrIAnFBAtWhcZzIv8nvqnm54gthJ++x77LhJVmPXScNceLuSzEOQXPRRqAQFZaNkQ8Xm16GMiGdZvk4L5Yxjij31tvASwfxbP0ogHU7PvQCAsJLE0nbeLNOMtqy9ZmnRw5yxsik+VcSovlLm/fRGyClvzDW7ZNmTd6dvrKRGxJH+jTC8G014RZey7NwQwuGSDUsM49+CYfmfmrCXBjy+V6akBBsg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
+ by GV1PR04MB10824.eurprd04.prod.outlook.com (2603:10a6:150:20c::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Thu, 11 Jun
+ 2026 02:11:52 +0000
+Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
+ ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
+ ([fe80::a9a5:cf83:dbe8:1f74%3]) with mapi id 15.21.0113.011; Thu, 11 Jun 2026
+ 02:11:52 +0000
+From: wei.fang@oss.nxp.com
+To: claudiu.manoil@nxp.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	chleroy@kernel.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	linux@armlinux.org.uk
+Cc: wei.fang@nxp.com,
+	imx@lists.linux.dev,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v5 net-next 0/9] net: dsa: netc: add bridge mode support
+Date: Thu, 11 Jun 2026 10:14:49 +0800
+Message-Id: <20260611021458.2629145-1-wei.fang@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA5PR01CA0031.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:178::16) To VE1PR04MB7216.eurprd04.prod.outlook.com
+ (2603:10a6:800:1b0::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/11] kdump: reduce vmcore size and capture time
-From: Wandun <chenwandun1@gmail.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org,
- iommu@lists.linux.dev, zhaomeijing@lixiang.com, Rob Herring
- <robh@kernel.org>, saravanak@kernel.org, bhe@redhat.com, rppt@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- chenhuacai@kernel.org, kernel@xen0n.name
-Cc: catalin.marinas@arm.com, will@kernel.org, alex@ghiti.fr,
- akpm@linux-foundation.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- ruirui.yang@linux.dev, m.szyprowski@samsung.com, robin.murphy@arm.com
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20260527032917.3385849-1-chenwandun1@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|GV1PR04MB10824:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59879543-159c-4188-3429-08dec75ecd0b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|7416014|19092799006|18002099003|921020|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: uLBOj7OiDCCxq3EZbFLDg23aSiq0c6q3Voy5MxqS34BKHXHWWNx5h4FUzzvRiXBmU14tMzD5j/nGKWBpJf8NY9vDk0JPXMwPXMuWss4VFFX9JhpSlOvaH7uv5664VlUScpWPMFR6ZhfqzxHSRn4IVm3dHVA1a/2dFKATbs1nodiY6DlZiB7zKJCv7S1GTb3thEqxwuABq/7QlSWDCPWgBKCur5nsqanJdP5YCapqZzNh18Emn0lHLmMT3RxD6ohmuTIcKDUXXKdx3/75bZzsMIjUZM3PKeZldUlaCpz0Ccz5pOj44oZNNPkfLvN0ouVWeijBF+WUkbyQmwSPBpAiJBHFe91xkvHZ32fI+QaKC0nhU8uXWeqjrYXznyLoGbSGR8RSa1STaFjUUiJEc6JvAlWMUZiObYB6P+cZ2YOukYQpqUguGlxXDBhjEh7u89QH+m2Ppk35aK3Cg0uKendlsad1mad6YwgApntuFhzT873nHsqvqsSLcffvAlDACAAJyzqBRbiwng9ibL2T2n/7dB8yjWP9iOngeS5DjnI1EXCYTAOhXobgZarbfdfXoikswiFj/KVhlNZ1Q124UXcNcPzWBpwKiJAOPQ1o2Wddmg+cj2eFWJhTwj6/+bM1Chtb1U3v6LIFCJpDZNY4rcjDCtAZyaakMe6V+zRJft1UCjoB8f3JFkeGW1L1iGWTnfuFH8PqopBBtL90/urmVPq8OsSEQ+EiGwESnVqNDS66hhPN1qa+54Xjnq00n2xwA1kQ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(7416014)(19092799006)(18002099003)(921020)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Qg8uStTqe6lxItYQRDBmWoLotNsqd5dSQrsBmx6XQ3bsqytBdNIYxfRxlIWx?=
+ =?us-ascii?Q?/cIOAncIKx4YOVBWL8/uHyp1sIv7zw4UNZBhqs54eJ2QZ061p2GHBKTF2PmT?=
+ =?us-ascii?Q?9VzIxpAkwy42rS80Rb4jhrshW/zO5Y6S0oB3vy19sqdmjknqV1RZ7yvHEBH1?=
+ =?us-ascii?Q?nqTskSNyuWh83YRhOU4SGfz2DoabmiazAy8GTgaeJ4s0bzOb63b7RXol30v3?=
+ =?us-ascii?Q?vaQ4CdTR8TLtTtXLjfaV5glK4XW8dubVyQA1TjB2X+PYmzygVgR9Xdpt58MO?=
+ =?us-ascii?Q?bGAB3MD29nULkQ3mhnws8w3p996Foj7+PEHG61rK1vJRRM/G6L5A3IO5KZdo?=
+ =?us-ascii?Q?GtglDdDcbpHb+SE9jbOA7KgnzFbaI7TF5r7ncDGuIA2JuZ8pjYUemJ3E48K0?=
+ =?us-ascii?Q?frOnI2EmLRl0O0eSppaN9mFrBZ6AZM3KJ6BwmBNyEST9DAaz0pE1Ky/fW0uy?=
+ =?us-ascii?Q?A8Lg9CCwnF/6E6A/KYamsWqPPk1i0U+IpccphQGzpVcon0Lyu5+mwAeTlPjx?=
+ =?us-ascii?Q?quSkzlMJsOzgjbk3mM3lni3thHoIzC707uZdgZ3XnEPOLpktvqqGY+YncvBG?=
+ =?us-ascii?Q?VHcsDEMvIDdk3kM64biSeR8ypfSSHPdVm5k8TJrdnGSRqFNqInDBPy6UmqlD?=
+ =?us-ascii?Q?qC/C81uTMQ5E7XKw/P9yXt8ChafkNvAgy3cHADLMtGsWpxtMZl3iLn5vh1sX?=
+ =?us-ascii?Q?Emg8/wFTImmkX2Wt4JfJLUd51Yb/E3+Td15g8/1FAmv3xBPPIbFdLrCFBjXg?=
+ =?us-ascii?Q?2/JFFnOI/ZqvZE0qN6r48k59C78lcOEmW+oEfV1zBbvl6BF5UIcIUq5Xog3t?=
+ =?us-ascii?Q?NyxfvuQskQrxOu8L1ng/xIYtyZ+7Qef74s0rAsq4YrLULROww1K4zdn3p726?=
+ =?us-ascii?Q?ZQ34kI0wVv3fBQ7OYb6b2D+AfI5D9lz4RrGHbwTujTTTRsPMUORbG48IN/qQ?=
+ =?us-ascii?Q?M8Qq5uubhAzY0oQTnpDQBmH7ChreFivf8hmhYUpoGwRSCKLzJII27z13v5AB?=
+ =?us-ascii?Q?oEx3wU06xnpoB2PXz8j3wfbDE3S9AuKj1WGaj3ia3km+ZuN21SzoX9rRdhLK?=
+ =?us-ascii?Q?vg+cYfWMyqx0j2BmOts8dMW/qOHsg4QZJaCVS1mmNb7kJa0nr9g+Dc++APYH?=
+ =?us-ascii?Q?DvfG4tgoYjKdrOXPgXPRPDxcKJUUAjjH8as+VtAThvcG0xu68gQnJjwG47l6?=
+ =?us-ascii?Q?HJhd1sg9I9WvHHZ+bBLbGl2l+TF2Uno/39J3aVdYPcB42YOF5zdA99ZAV9ET?=
+ =?us-ascii?Q?H5vQA4nIDXw4IllKjzqWtrumT6kHxsgTrnescdIg1iC/qGe++YeVMEf+1po+?=
+ =?us-ascii?Q?na9RwnI+WD4t6693pM8EvmOvphVAQBhUIpmXvXygufYMBt4dBrWeH/+eXNEc?=
+ =?us-ascii?Q?IIESjQ01FQvpuhOg67zFqtqNT5axzWoNVq7gw/6GuZhQaWGZnHj+RIDQIMlU?=
+ =?us-ascii?Q?Htlasbr4z1jhe7cc5Uvn9DIG9WMUVaD+es3F30OgXefgimJOsnUrIFHwBnU4?=
+ =?us-ascii?Q?dnxvwgikpwl/bzUa+KvuUJYDjFjM+PuBZgIRnF2DX9Q8hlBWNP141dRvwS02?=
+ =?us-ascii?Q?CGYHkqtFPGhAjEbr3qMtwQpxBa0hyKfIfElKuP7ua1bziN1XzZtmiqzWb9Xt?=
+ =?us-ascii?Q?nrJtQQywtuIPoKpOlbAMvECtZfEsnI4HI+T8uGWlaarMa386AxYdmhYYqE/5?=
+ =?us-ascii?Q?feVj+gV6aasYDdSbsprl6qL+EYrDdRgeMKlIiH3VoAlCBRnFVDvbNqkZFHIU?=
+ =?us-ascii?Q?iaDW8XjhiZiPnxZKixm2ot6dCEc66ZGrg/9Mx72qRExEX/36nmea?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59879543-159c-4188-3429-08dec75ecd0b
+X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 02:11:52.2246
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Lf1LOva8qyJywprDfZqdCEc/Ve+jkKwc+8Fs+TLFBN5Eb3oT77xdyI9dueSPdunsNQrprc4OZHYFpaJu5RvzKPAfVK9ul3GZvfF2Dr22ibMyuWC7bj9gSZ1aXv5sVclI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_190950_577126_EEC72A58 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20260610_191159_322031_53514578 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,88 +150,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Wei Fang <wei.fang@nxp.com>
 
+This series adds bridge mode support to the NETC DSA switch driver,
+covering both VLAN-aware and VLAN-unaware operation.
 
-On 5/27/26 11:29, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
->
-> On SoCs that carve out large firmware-owned reserved memory (GPU
-> firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
-> those carveouts as part of system RAM even though their contents are
-> firmware state that is not useful for kernel crash analysis.
->
-> This series introduces an opt-in 'dumpable' flag [1] on struct
-> reserved_mem and uses it to filter the elfcorehdr PT_LOAD ranges on
-> DT-based architectures (arm64, riscv, loongarch). By default reserved
-> regions are treated as non-dumpable; CMA regions are explicitly opted
-> in because their pages are returned to the buddy allocator and may
-> carry key crash-analysis data.
->
-> The series is organized as follows:
-> Patches 1-3: Pre-existing fixes and a small prep change.
-> Patches 4-5: Restructure to allow appending /memreserve/ entries.
-> Patches 6-7: Add a dumpable flag and append /memreserve/ entries.
-> Patch 8: Add generic kdump helpers.
-> Patches 9-11: Wire the helpers into arm64, riscv and loongarch kdump
->                elfcorehdr preparation.
-Hi,
+The NETC switch manages forwarding through a set of hardware tables
+accessed via NTMP: the FDB table (FDBT), VLAN filter table (VFT), egress
+treatment table (ETT), and egress count table (ECT). The series extends
+the NTMP layer with the operations required for bridging, then builds the
+DSA bridge callbacks on top.
 
-Gentle ping on this series.
+Since all switch ports share the VFT, so only one VLAN-aware bridge is
+supported.
 
-Status summary:
--patch 03: respun separately per Rob's suggestion, picked up for 7.2
--patch 06: Acked-by: Marek Szyprowski -patch 09: Acked-by: Will Deacon 
-The remaining patches (01, 02, 04, 05, 07, 08, 10, 11) are still 
-awaiting review. your feedback would be greately appreciated. I know we 
-are at the end of 7.1 -rc cycle, I don't want to rush this series, just 
-collecting more feedback, and will send next version based on 7.2-rc1. 
-If spliting the series into smaller logical group would make review 
-easier, please let me know. Best regards, Wandun
->
-> v2 --> v3:
-> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.[2]
-> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
-> 3. Add some prepare patches.
->
-> v1 --> v2:
-> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
->     feedback [1], v2 drop that property and exclude reserve memory
->     by default.
-> 2. Split some prepared patches from the original patches.
-> 3. Address coding-style comments on patch 5 from Rob.
->
-> [1] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
-> [2] https://sashiko.dev/#/patchset/20260520091844.592753-1-chenwandun%40lixiang.com?part=4
->
-> Wandun Chen (11):
->    of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
->    kexec/crash: provide crash_exclude_mem_range() stub when
->      CONFIG_CRASH_DUMP=n
->    of: reserved_mem: avoid post-init UAF when alloc_reserved_mem_array()
->      fails
->    of: reserved_mem: zero total_reserved_mem_cnt if no valid
->      /reserved-memory entry
->    of: reserved_mem: split alloc_reserved_mem_array() from
->      fdt_scan_reserved_mem_late()
->    of: reserved_mem: add dumpable flag to opt-in vmcore
->    of: reserved_mem: save /memreserve/ entries into the reserved_mem
->      array
->    of: reserved_mem: add kdump helpers to exclude non-dumpable regions
->    arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
->    riscv: kdump: exclude non-dumpable reserved memory regions from vmcore
->    loongarch: kdump: exclude non-dumpable reserved memory regions from
->      vmcore
->
->   arch/arm64/kernel/machine_kexec_file.c     |   6 ++
->   arch/loongarch/kernel/machine_kexec_file.c |   6 ++
->   arch/riscv/kernel/machine_kexec_file.c     |   4 +
->   drivers/of/fdt.c                           |  11 +-
->   drivers/of/of_private.h                    |   3 +
->   drivers/of/of_reserved_mem.c               | 117 +++++++++++++++++++--
->   include/linux/crash_core.h                 |   6 ++
->   include/linux/of_reserved_mem.h            |  15 +++
->   kernel/dma/contiguous.c                    |   1 +
->   9 files changed, 157 insertions(+), 12 deletions(-)
->
+FDB aging is managed in software. A periodic delayed work sweeps the
+table using the hardware activity element mechanism, with a default aging
+time of 300 seconds matching the IEEE 802.1Q standard. Per-port entries
+are also flushed immediately on bridge leave and link-down events.
+
+---
+v5:
+1. Use __set_bit()/__clear_bit() instead of set_bit()/clear_bit() in
+   ntmp_lookup_free_eid()/ntmp_clear_eid_bitmap()
+2. Correct the ect_eid check in netc_delete_vlan_egress_rule()
+v4 link: https://lore.kernel.org/imx/20260609032955.2066089-1-wei.fang@oss.nxp.com/
+v3 link: https://lore.kernel.org/imx/20260605014808.686024-1-wei.fang@oss.nxp.com/
+v2 link: https://lore.kernel.org/imx/20260602072313.3162120-1-wei.fang@oss.nxp.com/
+v1 link: https://lore.kernel.org/imx/20260527100217.794987-1-wei.fang@oss.nxp.com/
+---
+
+Wei Fang (9):
+  net: enetc: add interfaces to manage dynamic FDB entries
+  net: enetc: add "Update" and "Delete" operations to VLAN filter table
+  net: enetc: add interfaces to manage egress treatment table
+  net: enetc: add "Update" operation to the egress count table
+  net: dsa: netc: initialize the group bitmap of ETT and ECT
+  net: enetc: add helpers to set/clear table bitmap
+  net: dsa: netc: add VLAN filter table and egress treatment management
+  net: dsa: netc: add bridge mode support
+  net: dsa: netc: implement dynamic FDB entry ageing
+
+ drivers/net/dsa/netc/netc_main.c              | 965 +++++++++++++++++-
+ drivers/net/dsa/netc/netc_switch.h            |  33 +
+ drivers/net/dsa/netc/netc_switch_hw.h         |   6 +
+ drivers/net/ethernet/freescale/enetc/ntmp.c   | 440 +++++++-
+ .../ethernet/freescale/enetc/ntmp_private.h   |  18 +-
+ include/linux/fsl/ntmp.h                      |  55 +
+ 6 files changed, 1495 insertions(+), 22 deletions(-)
+
+-- 
+2.34.1
 
 
