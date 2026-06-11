@@ -4,59 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3894BCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48905CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbv+KRaNAVLTmYg1Zr76xVCZJ54DiXiMKuxdaUODFno=; b=09x4snVVl+jqo1gShlwJ00/Xeq
-	FfjIzf0N7cLs5PXXkOJz7fFsflsJ6kAJMjxO/lYJqj559b+RZRmuAO8ZTAPm2jhhOecJJIbo5aAfs
-	qjzTvLzv1oG/6WdDzQsYD6hsq/JPQrKAqDl/EyIUYeTET2CB2rHUB4FFh/MU8VTE3S03q8pq2rL5b
-	LO7IM1MTI5KqY5yIC42PKKc+zb+bVyCaBmyVqQxYSoJ3nI6YTkb2offHRSOSHM0/0+Sf224xq0+p1
-	tGw1FlOAk5pi8YL0FJYAxqqLh4uuLvpRGXR6GhjBbFjlgGkEUbOR2RFoH3NEKULEuOtYRmzzfBd3L
-	kxRqaG/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eA7yRXvTEh8fNrCRO00h2bUBzADrGeYwcxZYdic1EgQ=; b=VZ929a3gSBGjEwPPX7LycXj/fT
+	h7Nu1L0Sv9gwTHmOQ8qkHmt/aj+e6Yz5nb6O+wXO5dPDIcFQ7ok1Nwd+AA0eMY2tNkeNHBQflR6ZA
+	84W++ANi5h9BGuXtrRNV9kN5oGrTZYCs0xFwtahVoezDy+x3AWlq5zwb9TqGddmYQ8pcEb6sRCvuV
+	TT6L0PkhRXnKbPt4DrejDqrH3VeNaNRFIQWyytCrNnGPMYK4mTlg16mpeSG0EF3C9x1sXy9YiQZuh
+	BBbdK8GQOrYJP+ffy2ZmTm2yeLOHwp6St7oTvrzNSw2MaIYoP4ex9a7IYgZ6ptG6A7zYng19N/klD
+	pnNLsPGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXiuB-00000009o80-47RY;
-	Thu, 11 Jun 2026 17:09:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wXizB-00000009oMX-28XG;
+	Thu, 11 Jun 2026 17:14:33 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXiuB-00000009o7u-0wTa
+	id 1wXiz9-00000009oLr-1J4o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 17:09:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF42D441A7;
-	Thu, 11 Jun 2026 17:09:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA28A1F00899;
-	Thu, 11 Jun 2026 17:09:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781197762;
-	bh=pbv+KRaNAVLTmYg1Zr76xVCZJ54DiXiMKuxdaUODFno=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RwHgmY7RZKkTYnwJzPsc39Z0T0OUPdI0CCdTnbRxtBCRHelzNApUCvYFx8T4FNfi/
-	 MEVbR0615nCdY5EzdaXeyYJ2aPDWRF3SOTJYhJzZqhUctMbVk9a83cF1Wgm3jid0dJ
-	 SbmimKIKSmFObOgKAtGbXKygAPK1c0N2X6aCTeUeAGTw6cqr3hoE0Rdav5fNEmzD8h
-	 RefjMUDydpfsRVWfcc80ALmILKXqjNWwUQLnN8OgXaq+fJADghabGmQglOBLxdx7XE
-	 y9mxo4rEb4ZXf+CPmCXXvwLt0f50Ldoz2thQXIIp7ZygzLTtegTZj7PPPKb/ebXDi3
-	 T/XsEYt3JBN6w==
-Message-ID: <33448148-3ac4-48d2-8119-4f9b765430f8@kernel.org>
-Date: Thu, 11 Jun 2026 19:09:18 +0200
+	Thu, 11 Jun 2026 17:14:32 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-7dd3f176f84so1105117b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 10:14:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781198069; cv=none;
+        d=google.com; s=arc-20240605;
+        b=J+bfJvdKMKhx7ZxrK0+w9swuhQXfiDMPqA8e/2dqSOmUffQbd42c8ZT8Mton/Su10d
+         ebwedvjEtmAt2dzOUVl4qi1Q2ce/7GdyU2ktO55EULAIs6tMonNg279y4mrqAMibdt+H
+         06K/CHZirJwoRRDeMWL27ROA64tyV5E5OhKaWMaQjVGV4EApj3aYeZEmL0QiWCp1dvKf
+         R4f418uToGuivDlV4QoQDNLupeKbIyCOOrmT6jrq6iOmjOdU8S6R/MWL2axsmGp6+mOk
+         r9Pk1et8Qn3F5EpFOg1MoMHDPTcQkV/r8cYBgc1E1xxXxLxdcyMh7XPI37Uf11rJ3VQI
+         ya3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=eA7yRXvTEh8fNrCRO00h2bUBzADrGeYwcxZYdic1EgQ=;
+        fh=Y/AmneD1FEqikSeppcnoQgoyA0IrS3PC+QR2kV0trWg=;
+        b=gqZZtjb7m0snHwMHQthIODJ5Dzd0gj5/L3MM1PfNS/JQXHSn2SyyIy3jqLAk8OAwQj
+         sFAuNbuf2qNURRB/x4A1pLSNtQEalxVu3V4sFsf4MqfG6LzKW0e2PU7RswzwDfQPZVzQ
+         UPvLPeYRUQ6rbZsvbCsePdSURcDLZVRUBzhwCKNMOAW5NxPC9gYrGpTM/CB0vEf1oSsi
+         zxScVWG22XzvDYeuc01H/dOSBRRD1mZu5+sG+cePerESR+X+r6dtE0Z/UfirhCvsHevN
+         sP+4ePpykNiSw1dpYiIPYd8jrFG7sMsEjWsR608rOzvbPRieMW4q2PrjUy/Tja9HCtnq
+         Lm1g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1781198069; x=1781802869; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=eA7yRXvTEh8fNrCRO00h2bUBzADrGeYwcxZYdic1EgQ=;
+        b=NaomlR6+8nI1SKftRqzo+Ky8iHS9ojyiRINjFIBPu3dnLQuBjFbjoODXR9Tk/4oxeP
+         /r4EjwBvETOt6aIF3sl3nT9gMOj3vJwrFuB4aWQB0bNgiQAxuoRPTNR9ZMNKSqndEfWb
+         B4Oi83MBgEOlv+pEnlctWUWotYoNXZyHlCNRVC/ScH+sDitTchRr012NoxrBVLxjB4Nt
+         4gGqGXKy2goPrIL1qfl3DE0P23sveEwGkf3a/mkUl6ZjpBZ+benEQCpi83RzSmYD7BJl
+         wgDELd5wqLyn3cGtwTtJ0XtEQ7Xg7v6nUe5wu+ZvpcTovlFZx8aCH+VrgQW+a28UZgXi
+         btAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781198069; x=1781802869;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eA7yRXvTEh8fNrCRO00h2bUBzADrGeYwcxZYdic1EgQ=;
+        b=inuF8UwE/HizJLqMBxIqjqujx8wDViHqwjAkzYopZO6kwYLhKfadYaM7qUUoeGwBMX
+         E3iNOVpYnQADTGa2+NT6nSdVAq4xE7JBQ8U4GjyF1jkb84I/3x2gNgFnf2eY9PKuyYFY
+         IAEmt786p9VHgwnctDUlM5EU6GnaT6tj24+t/IpMILTAtMoQaXhKeE12FqDm0LIW51+W
+         lCwlhzQu7V9sVFIUtzm9d/8MS7xfq7PJ+8RSqyPGKG4B96A3YazzCozNUWTmnE2KSNk9
+         iPPyelV1seT5Ea67ZlIqWqnOjAs5IT/4qHIMkL+jmjbxU1kRqFPeX51bysf2H8BIfzn6
+         4C3A==
+X-Forwarded-Encrypted: i=1; AFNElJ95OPOewNn/pwUIHCQgvCNDSB3sUDDCu6mDe9tndaO/Ts3I/zxqgtiVjPEPNnqYurwvFm3UewpYlPoF4K0IWfgn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnB8fMIS6AnVD6EBLJTix25qJ3PykBFXm3FDZsC5iRavq30JUl
+	nl3DK1DqHW/YUVl/MkpuHm6oGOzUxz2tJcR0EGL+fofdgE9v2PwvbGDbTqpsVqY27JET9HDx5pu
+	8X5cslVGyN9h000ENIcEjCFNyi3U2ROp03bWz05wHFQ==
+X-Gm-Gg: Acq92OHDYuJkW+kcMGaI07Nu5KQQ38TNs6nhF3loGI/NgpqcuASPFtkwFAUMrg3nGVB
+	s6YeIIj5a4UAZFyvE0yGh7qDA9HbepMnUBCy4k4zfeWve5RFaKRIJkpBaUR4V9JfuVl+Icv1Vop
+	l6hGL/A1MpU/lGXhBnIdT9eTmfFJcbElpeDgAnU6BXE2JeVFC3fJyCnGFzaWUbAsLO68fWi2dmb
+	Y/Fb5VI4JYKqsxXD1Nmg48wFWgGuS5GRehmptFRCYKJr8rWP6X/koYaPYnc7OJz9GmHnavKJPhE
+	Y0xbYtKOrBHdcQ5I3xl9ivBIZQwcQa0v4WyU47nkwkAe3MG2J8e7zNWMl/aHAggJQny9QvOoX0W
+	yBKfmkb5xx42cNYvP8ZcKODUDrR5Iwfp3O68=
+X-Received: by 2002:a05:690c:660f:b0:7cf:f14e:bf5a with SMTP id
+ 00721157ae682-7f655cd3b81mr39665227b3.20.1781198069266; Thu, 11 Jun 2026
+ 10:14:29 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] power: supply: macsmc: Support macOS 27 SMC firmware
-To: Sasha Finkelstein <k@chaosmail.tech>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Sebastian Reichel <sre@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260611-gate-power-v1-1-8a62721086c7@chaosmail.tech>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260611-gate-power-v1-1-8a62721086c7@chaosmail.tech>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com> <20260602-dw-hdmi-qp-scramb-v7-24-445eb54ee1ed@collabora.com>
+In-Reply-To: <20260602-dw-hdmi-qp-scramb-v7-24-445eb54ee1ed@collabora.com>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Thu, 11 Jun 2026 18:14:11 +0100
+X-Gm-Features: AVVi8CeUnQ0ZG_IBJrTt3afcxP7ht6E9ev0RCneHeSMnT7NSdu-xpfFzb1oLr80
+Message-ID: <CAPY8ntDw9CSZgMzdDenHdv8ZN8Ho5JAhu1h8FXUiqLfxcVCWLQ@mail.gmail.com>
+Subject: Re: [PATCH v7 24/30] drm/vc4: hdmi: Use common TMDS char rate constants
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260611_101431_432376_AEA8C5BB 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,40 +126,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11.06.26 18:49, Sasha Finkelstein wrote:
-> The SMC firmware included in macOS 27 changed the size of BCF0 key from
-> 4 to 1 bytes. This key is used for indicating that battery state is
-> critically low.
-> 
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+On Mon, 1 Jun 2026 at 23:45, Cristian Ciocaltea
+<cristian.ciocaltea@collabora.com> wrote:
+>
+> Replace HDMI_14_MAX_TMDS_CLK defined locally with
+> HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ provided by linux/hdmi.h.  Note this
+> incorrectly referenced HDMI 1.4, as the 340 MHz maximum TMDS character
+> rate was actually introduced in HDMI 1.3.
+>
+> Similarly, use HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ instead of the 600000000
+> magic number.
+>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+
+Reviewed-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+
 > ---
->   drivers/power/supply/macsmc-power.c | 34 +++++++++++++++++++++++++++++++---
->   1 file changed, 31 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
-> index 33ca07460f3a..650dc8740f71 100644
-> --- a/drivers/power/supply/macsmc-power.c
-> +++ b/drivers/power/supply/macsmc-power.c
-> @@ -86,6 +86,7 @@ struct macsmc_power {
->   	bool has_ch0i; /* Force discharge (Older firmware) */
->   	bool has_ch0c; /* Inhibit charge (Older firmware) */
->   	bool has_chte; /* Inhibit charge (Modern firmware) */
-> +	bool bcf0_1byte; /* Battery critical */
-
-The comment is a bit misleading, maybe "Battery critical key is 1 
-instead of 4 bytes" or "Battery critical key is 1 byte (Modern 
-firmware)" instead?
-
-With that changed:
-
-Reviewed-by: Sven Peter <sven@kernel.org>
-
-
-
-Best,
-
-
-Sven
-
-
 
