@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFF2CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6039CD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+FFE+v8pjG8V8ZEkH8xrTv66o/LVgGczlqFM2nCs+0Y=; b=txeT9IjfE+9NWCJ7gsukJHzgvP
-	G1mEWnpPNZP0FbjKbHe4+Ymh7gwAbSQZyfy50lql5tR1a/P6gk5Gt+NKE/Y2NVhFeqMDTbkFk2eJ1
-	FW4q3QhYARnFVP5qX4Upulj5n3xcgl1cOffH+CshPga9W/Ojxhu27ndFuC+NtAaPGF7ti6DAcE32T
-	xoG2ieUwzmeQwkzxgqeYZEzjXBGaU3hAKzq3cEqvyrpptyjKJUWNUb6tU9pGodC5+fv0GbVVIJKjR
-	H8yCJmMq9OfU/0PdBXdepPpxuyKnD324lHCEMipTut5W80zKhX08FVv7bf3uiiDr1XshfI+aPB5ef
-	SJz0cuRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8zH+WauEJRnn29mFkuxDi5zkNVPgEDldOxkiXAzSEtw=; b=S6mtOjK3evzv0O4tCYPYO2g+bP
+	mM8lvP1X+oA4aNpN8T6AVu3znBjwNAoTWrmLFeaslS2lnh3wvtCZXsH0z27HnqttuuiBOAjbVBDNW
+	ulW7XE9z0bRNtpduT7zJJ5CmQxsACN2G9bXUxfA3PklBjeu67HCY0BKYW/8RS+EsllaUrQgTwBstY
+	Rsuw23YSkCWoTQhRKHniHbHqT+DPuTf/ZbqROK00R5gsq3fGkW67nkKiXD04Qfo9cbxTSQ/Tx+Mi+
+	j5juZWX7UJODZxCuGv2goYYtEwk19PBoeh040BnC4ObI52hCjJ/3uKgstgpJO/ut7CeJTTNPcH/zm
+	uh0tO2Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgyh-00000009eat-39Nh;
-	Thu, 11 Jun 2026 15:05:55 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1wXgz2-00000009egJ-44TY;
+	Thu, 11 Jun 2026 15:06:17 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgyd-00000009eaB-25cc
+	id 1wXgyy-00000009ef3-2VqY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 15:05:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781190351; x=1812726351;
-  h=date:from:to:cc:subject:message-id;
-  bh=ZqPgqmHxlWsIdFVY+5GXCa6p8KPYXR/X6hCM4MbPtr0=;
-  b=bWq133A4qqzc+FVDdVU7SrIGV5fn+juwMd8c/QuA+97X+BOKO8jxBM5A
-   c9fIQmZlHP9MJhPVhkA9fI4cggUqhqdYgPYujwmVUymuxHVK13gs6zId4
-   UwvnvHr4dXrNy3ovCfIKqbgF5WvqCRArWcV+LXGESbs7Gr7an+BazfGyz
-   CFbVHjPuC2o1H7wa6Pf/yqiBjBKv1L69t7VXtrZ6vOEr0lPx6+kqr83+h
-   TYMCcTNIN92B8mKd+uPypeSwSH5IdJogvSZdTHd8bK1t/wZlqdl06tiTL
-   kTQ+QV4IRR42bYyhvrkgy0y7fRrJL/cyQ+nn9GI3YmDO1+FTsoO4uz+mF
-   Q==;
-X-CSE-ConnectionGUID: KEfP7hChRyKFcbj8OHxhUg==
-X-CSE-MsgGUID: aP1Xd/zCRkm6WRgfosDKQA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11813"; a="99581512"
-X-IronPort-AV: E=Sophos;i="6.24,199,1774335600"; 
-   d="scan'208";a="99581512"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2026 08:05:50 -0700
-X-CSE-ConnectionGUID: f+FHBYCjT4SCdKKqZNW1Zg==
-X-CSE-MsgGUID: m9EQ3fveT6qjB8Tc0NQr0Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,199,1774335600"; 
-   d="scan'208";a="246542985"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 11 Jun 2026 08:05:49 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wXgyY-00000000NHu-0CHg;
-	Thu, 11 Jun 2026 15:05:46 +0000
-Date: Thu, 11 Jun 2026 23:05:17 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- aecab2dd6155e7cf367c517848030c2bbdd8a769
-Message-ID: <202606112309.s7fFJxF9-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 11 Jun 2026 15:06:15 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-68ced97b6eeso11059710a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 08:06:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1781190371; x=1781795171; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8zH+WauEJRnn29mFkuxDi5zkNVPgEDldOxkiXAzSEtw=;
+        b=d7fv5v80vd53iWcHJznCXj2T2uJCIUg4noL8DBEEGkl/aaqBB6si/mqDtZ5JwZ+t1v
+         sxnSQbEJe0I//m9IqtTDeOHy8Vy3q5XI8eU3wBclvgnKOFkwmgVL6jz3p7G/jPTZJStm
+         YrJAWW2hz1BA55vbmhDd3aV5hkOZ060wN9v0/X0mfRlpiV+wJSQTs1RA7vwbaPsFtauq
+         zsv1dWEcMCDU268unipidYXxDxvpQP7728+a4tG63zNOevPodhLKPuksMcO+UJgCzZQz
+         VR/GMOMCaA9w5Ggk8g5kRdPwIjCNvbl2sDxnXVUCaBNgSq8NBqqNT2fzW0Svx5ItyRuR
+         tGSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781190371; x=1781795171;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8zH+WauEJRnn29mFkuxDi5zkNVPgEDldOxkiXAzSEtw=;
+        b=fUmkyJH0fPMDPLxsshPm1se/GS7MNFM+eqt5Lj24b2wZVKDCZ3JBtnAo+WZwb/Q10U
+         g/WUuNGenKTmEEAaN/HV2jqAELodIMP8N15Sp4betN91tZ8YRYVDqecpfUvzu0+FqMys
+         niXoQ3ta66+jxQKrYhY6xcB/+r2J/gAI0tj7y87/JJ9Pqt2+eHIptOIGncX7kz56zM5Q
+         ZOi2MVgYi//n3m99nJDkpQQ4ggG5OcoNpw3MW5KkM9Qs7r7o/O5SOKcBIWlWcJLjREIY
+         1UJVFBgHudZDhWegT6uAytRRxeKUHkW3FBSVMUdY/DnXHR8P0fsuPqmsMY4ST/ecjxmR
+         w2tQ==
+X-Gm-Message-State: AOJu0Yz50d/TmZFZ7AiXbcsNLYOrhsvxbAKs6BQKSuSVgw5+77djvs7E
+	ocPwHgWhWb/upjXe00jdp7n59AKhwDpKgzB2rQEtt9cJnjyDhAZtNS82aNAdd24V5kPkXPnYb6z
+	Sb4oE9yg=
+X-Gm-Gg: Acq92OEswqLrm0dPnJyj/WP/jSTuI8cqDD7Az4iFV4to2DKvuADccAEiqTmcd4cMl0+
+	kj8Bu8DqyfOkYT4AE3MvkDXhL2W8pXSaluaIBwn8/W6j/SjbUcMXCpEdSMG7fCpn2P8TVb1E6EO
+	GB6lk7mdXTCs3dSnwp5uXss5jrrbqOAUQY1UKmVhMBn9aH5zDeUGaaDBfn1k+TEThoJKEaf+XeS
+	QzR+I51YBz/t55hgEtAaxP3PHNW8uWDmfk7FR8GMojqgZo+7sqnLsSHPaUBilZwWjqf1Mk11Q3Y
+	gnYyf9eUt8A/LwyvP/n6VsLxDNUMnjXZHoalRLyLueywyqJXbmVjUVAmeLBUnyHj7t8ihStM67X
+	C1gYanms25dJwK3lwIlCaFO+KyBXE0qBqbbs99P/2ZcYYPG0XQTZDHSt+78XeszraG/uHwXlT1p
+	ebk668Bp6XrbBcLxCor292LdgrcL5E1tLPJwWlKn0=
+X-Received: by 2002:a17:907:1c96:b0:bfb:b43a:b084 with SMTP id a640c23a62f3a-bfc889277a2mr158861866b.40.1781190370479;
+        Thu, 11 Jun 2026 08:06:10 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfcb5abe4a9sm78991466b.46.2026.06.11.08.06.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Jun 2026 08:06:08 -0700 (PDT)
+Message-ID: <e0a1133e-dc95-47c4-bcc3-c1c2248dae54@linaro.org>
+Date: Thu, 11 Jun 2026 16:06:06 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 8/8] perf test: Add Arm CoreSight callchain test
+To: Leo Yan <leo.yan@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
+ linux-perf-users@vger.kernel.org, Arnaldo Carvalho de Melo
+ <acme@kernel.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Namhyung Kim
+ <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>,
+ Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260611-b4-arm_cs_callchain_support_v1-v8-0-737948584fea@arm.com>
+ <20260611-b4-arm_cs_callchain_support_v1-v8-8-737948584fea@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260611-b4-arm_cs_callchain_support_v1-v8-8-737948584fea@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_080551_598568_B0C2282E 
-X-CRM114-Status: UNSURE (   5.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260611_080614_121827_6F5C5AA8 
+X-CRM114-Status: GOOD (  30.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,278 +110,326 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: aecab2dd6155e7cf367c517848030c2bbdd8a769  Merge tag 'imx-dt64-7.2-part2' of git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux into soc/dt
 
-elapsed time: 799m
 
-configs tested: 258
-configs skipped: 4
+On 11/06/2026 3:50 pm, Leo Yan wrote:
+> Add a CoreSight shell test for synthesized callchains.
+> 
+> The test uses the new callchain workload to generate trace and decodes
+> it with synthesis callchain. It then verifies that the instruction
+> samples show the expected callchain push and pop.
+> 
+> Use control FIFOs so tracing starts only around the workload, which
+> keeps the trace data small. The test is limited to with the cs_etm
+> event available and root permission.
+> 
+> After:
+> 
+>    perf test 138 -vvv
+>    138: CoreSight synthesized callchain:
+>    ---- start ----
+>    test child forked, pid 35581
+>    Callchain flow matched:
+>      l1=4642868 l2=4642880 l3=4642895 l4=4642919 l5=4670494 l6=4670500 l7=4670520
+>    ---- end(0) ----
+>    138: CoreSight synthesized callchain                                                                           : Ok
+> 
+> Assisted-by: Codex:GPT-5.5
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-tested configs:
-alpha                             allnoconfig    gcc-16.1.0
-alpha                            allyesconfig    gcc-16.1.0
-alpha                               defconfig    gcc-16.1.0
-arc                              allmodconfig    clang-23
-arc                              allmodconfig    gcc-16.1.0
-arc                               allnoconfig    gcc-16.1.0
-arc                              allyesconfig    clang-23
-arc                                 defconfig    gcc-16.1.0
-arc                            randconfig-001    gcc-14.3.0
-arc                   randconfig-001-20260611    gcc-14.3.0
-arc                            randconfig-002    gcc-14.3.0
-arc                   randconfig-002-20260611    gcc-14.3.0
-arm                               allnoconfig    clang-23
-arm                               allnoconfig    gcc-16.1.0
-arm                              allyesconfig    clang-23
-arm                              allyesconfig    gcc-16.1.0
-arm                                 defconfig    gcc-16.1.0
-arm                           omap1_defconfig    gcc-16.1.0
-arm                          pxa910_defconfig    gcc-16.1.0
-arm                            randconfig-001    gcc-14.3.0
-arm                   randconfig-001-20260611    gcc-14.3.0
-arm                            randconfig-002    gcc-14.3.0
-arm                   randconfig-002-20260611    gcc-14.3.0
-arm                            randconfig-003    gcc-14.3.0
-arm                   randconfig-003-20260611    gcc-14.3.0
-arm                            randconfig-004    gcc-14.3.0
-arm                   randconfig-004-20260611    gcc-14.3.0
-arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-16.1.0
-arm64                               defconfig    gcc-16.1.0
-arm64                 randconfig-001-20260611    gcc-14.3.0
-arm64                 randconfig-002-20260611    gcc-14.3.0
-arm64                 randconfig-003-20260611    gcc-14.3.0
-arm64                 randconfig-004-20260611    gcc-14.3.0
-csky                             allmodconfig    gcc-16.1.0
-csky                              allnoconfig    gcc-16.1.0
-csky                                defconfig    gcc-16.1.0
-csky                  randconfig-001-20260611    gcc-14.3.0
-csky                  randconfig-002-20260611    gcc-14.3.0
-hexagon                          allmodconfig    clang-23
-hexagon                          allmodconfig    gcc-16.1.0
-hexagon                           allnoconfig    clang-23
-hexagon                           allnoconfig    gcc-16.1.0
-hexagon                             defconfig    gcc-16.1.0
-hexagon               randconfig-001-20260611    clang-16
-hexagon               randconfig-001-20260611    clang-17
-hexagon               randconfig-002-20260611    clang-16
-hexagon               randconfig-002-20260611    clang-17
-i386                             allmodconfig    clang-22
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386                              allnoconfig    gcc-16.1.0
-i386                             allyesconfig    clang-22
-i386                             allyesconfig    gcc-14
-i386                 buildonly-randconfig-001    clang-22
-i386        buildonly-randconfig-001-20260611    clang-22
-i386                 buildonly-randconfig-002    clang-22
-i386        buildonly-randconfig-002-20260611    clang-22
-i386                 buildonly-randconfig-003    clang-22
-i386        buildonly-randconfig-003-20260611    clang-22
-i386                 buildonly-randconfig-004    clang-22
-i386        buildonly-randconfig-004-20260611    clang-22
-i386                 buildonly-randconfig-005    clang-22
-i386        buildonly-randconfig-005-20260611    clang-22
-i386                 buildonly-randconfig-006    clang-22
-i386        buildonly-randconfig-006-20260611    clang-22
-i386                                defconfig    gcc-16.1.0
-i386                           randconfig-001    gcc-14
-i386                  randconfig-001-20260611    gcc-14
-i386                           randconfig-002    gcc-14
-i386                  randconfig-002-20260611    gcc-14
-i386                           randconfig-003    gcc-14
-i386                  randconfig-003-20260611    gcc-14
-i386                           randconfig-004    gcc-14
-i386                  randconfig-004-20260611    gcc-14
-i386                           randconfig-005    gcc-14
-i386                  randconfig-005-20260611    gcc-14
-i386                           randconfig-006    gcc-14
-i386                  randconfig-006-20260611    gcc-14
-i386                           randconfig-007    gcc-14
-i386                  randconfig-007-20260611    gcc-14
-i386                  randconfig-011-20260611    gcc-14
-i386                  randconfig-012-20260611    gcc-14
-i386                  randconfig-013-20260611    gcc-14
-i386                  randconfig-014-20260611    gcc-14
-i386                  randconfig-015-20260611    gcc-14
-i386                  randconfig-016-20260611    gcc-14
-i386                  randconfig-017-20260611    gcc-14
-loongarch                        allmodconfig    clang-23
-loongarch                         allnoconfig    clang-20
-loongarch                         allnoconfig    gcc-16.1.0
-loongarch                           defconfig    clang-23
-loongarch             randconfig-001-20260611    clang-16
-loongarch             randconfig-001-20260611    clang-17
-loongarch             randconfig-002-20260611    clang-16
-loongarch             randconfig-002-20260611    clang-17
-m68k                             allmodconfig    gcc-16.1.0
-m68k                              allnoconfig    gcc-16.1.0
-m68k                             allyesconfig    clang-23
-m68k                             allyesconfig    gcc-16.1.0
-m68k                                defconfig    clang-23
-microblaze                        allnoconfig    gcc-16.1.0
-microblaze                       allyesconfig    gcc-16.1.0
-microblaze                          defconfig    clang-23
-mips                             allmodconfig    gcc-16.1.0
-mips                              allnoconfig    gcc-16.1.0
-mips                             allyesconfig    gcc-16.1.0
-nios2                            allmodconfig    clang-20
-nios2                             allnoconfig    clang-23
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    clang-23
-nios2                 randconfig-001-20260611    clang-16
-nios2                 randconfig-001-20260611    clang-17
-nios2                 randconfig-002-20260611    clang-16
-nios2                 randconfig-002-20260611    clang-17
-openrisc                         allmodconfig    clang-20
-openrisc                         allmodconfig    gcc-16.1.0
-openrisc                          allnoconfig    clang-23
-openrisc                          allnoconfig    gcc-16.1.0
-openrisc                            defconfig    gcc-16.1.0
-parisc                           allmodconfig    gcc-16.1.0
-parisc                            allnoconfig    clang-23
-parisc                            allnoconfig    gcc-16.1.0
-parisc                           allyesconfig    clang-17
-parisc                           allyesconfig    gcc-16.1.0
-parisc                              defconfig    gcc-16.1.0
-parisc                randconfig-001-20260611    gcc-13.4.0
-parisc                randconfig-002-20260611    gcc-13.4.0
-parisc64                            defconfig    clang-23
-powerpc                     akebono_defconfig    clang-23
-powerpc                          allmodconfig    gcc-16.1.0
-powerpc                           allnoconfig    clang-23
-powerpc                           allnoconfig    gcc-16.1.0
-powerpc               randconfig-001-20260611    gcc-13.4.0
-powerpc               randconfig-002-20260611    gcc-13.4.0
-powerpc                     tqm8540_defconfig    gcc-16.1.0
-powerpc64             randconfig-001-20260611    gcc-13.4.0
-powerpc64             randconfig-002-20260611    gcc-13.4.0
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-23
-riscv                             allnoconfig    gcc-16.1.0
-riscv                            allyesconfig    clang-23
-riscv                               defconfig    gcc-16.1.0
-riscv                          randconfig-001    gcc-12.5.0
-riscv                 randconfig-001-20260611    gcc-12.5.0
-riscv                          randconfig-002    gcc-12.5.0
-riscv                 randconfig-002-20260611    gcc-12.5.0
-s390                             allmodconfig    clang-17
-s390                             allmodconfig    clang-23
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-16.1.0
-s390                                defconfig    gcc-16.1.0
-s390                           randconfig-001    gcc-12.5.0
-s390                  randconfig-001-20260611    gcc-12.5.0
-s390                           randconfig-002    gcc-12.5.0
-s390                  randconfig-002-20260611    gcc-12.5.0
-sh                               allmodconfig    gcc-16.1.0
-sh                                allnoconfig    clang-23
-sh                                allnoconfig    gcc-16.1.0
-sh                               allyesconfig    clang-17
-sh                               allyesconfig    gcc-16.1.0
-sh                                  defconfig    gcc-14
-sh                             randconfig-001    gcc-12.5.0
-sh                    randconfig-001-20260611    gcc-12.5.0
-sh                             randconfig-002    gcc-12.5.0
-sh                    randconfig-002-20260611    gcc-12.5.0
-sparc                             allnoconfig    clang-23
-sparc                             allnoconfig    gcc-16.1.0
-sparc                               defconfig    gcc-16.1.0
-sparc                 randconfig-001-20260611    gcc-15.2.0
-sparc                 randconfig-002-20260611    gcc-15.2.0
-sparc64                          allmodconfig    clang-20
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260611    gcc-15.2.0
-sparc64               randconfig-002-20260611    gcc-15.2.0
-um                               allmodconfig    clang-17
-um                               allmodconfig    clang-23
-um                                allnoconfig    clang-16
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-14
-um                               allyesconfig    gcc-16.1.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260611    gcc-15.2.0
-um                    randconfig-002-20260611    gcc-15.2.0
-um                           x86_64_defconfig    gcc-14
-x86_64                           allmodconfig    clang-22
-x86_64                            allnoconfig    clang-22
-x86_64                            allnoconfig    clang-23
-x86_64                           allyesconfig    clang-22
-x86_64               buildonly-randconfig-001    gcc-14
-x86_64      buildonly-randconfig-001-20260611    gcc-14
-x86_64               buildonly-randconfig-002    gcc-14
-x86_64      buildonly-randconfig-002-20260611    gcc-14
-x86_64               buildonly-randconfig-003    gcc-14
-x86_64      buildonly-randconfig-003-20260611    gcc-14
-x86_64               buildonly-randconfig-004    gcc-14
-x86_64      buildonly-randconfig-004-20260611    gcc-14
-x86_64               buildonly-randconfig-005    gcc-14
-x86_64      buildonly-randconfig-005-20260611    gcc-14
-x86_64               buildonly-randconfig-006    gcc-14
-x86_64      buildonly-randconfig-006-20260611    gcc-14
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-22
-x86_64                         randconfig-001    clang-22
-x86_64                randconfig-001-20260611    clang-22
-x86_64                randconfig-001-20260611    gcc-14
-x86_64                         randconfig-002    clang-22
-x86_64                randconfig-002-20260611    clang-22
-x86_64                randconfig-002-20260611    gcc-14
-x86_64                         randconfig-003    clang-22
-x86_64                randconfig-003-20260611    clang-22
-x86_64                randconfig-003-20260611    gcc-14
-x86_64                         randconfig-004    clang-22
-x86_64                randconfig-004-20260611    clang-22
-x86_64                randconfig-004-20260611    gcc-14
-x86_64                         randconfig-005    clang-22
-x86_64                randconfig-005-20260611    clang-22
-x86_64                randconfig-005-20260611    gcc-14
-x86_64                         randconfig-006    clang-22
-x86_64                randconfig-006-20260611    clang-22
-x86_64                randconfig-006-20260611    gcc-14
-x86_64                         randconfig-011    clang-22
-x86_64                randconfig-011-20260611    clang-22
-x86_64                randconfig-011-20260611    gcc-14
-x86_64                         randconfig-012    clang-22
-x86_64                randconfig-012-20260611    clang-22
-x86_64                randconfig-012-20260611    gcc-14
-x86_64                         randconfig-013    clang-22
-x86_64                randconfig-013-20260611    clang-22
-x86_64                randconfig-013-20260611    gcc-14
-x86_64                         randconfig-014    clang-22
-x86_64                randconfig-014-20260611    clang-22
-x86_64                randconfig-014-20260611    gcc-14
-x86_64                         randconfig-015    clang-22
-x86_64                randconfig-015-20260611    clang-22
-x86_64                randconfig-015-20260611    gcc-14
-x86_64                         randconfig-016    clang-22
-x86_64                randconfig-016-20260611    clang-22
-x86_64                randconfig-016-20260611    gcc-14
-x86_64                randconfig-071-20260611    clang-22
-x86_64                randconfig-072-20260611    clang-22
-x86_64                randconfig-073-20260611    clang-22
-x86_64                randconfig-074-20260611    clang-22
-x86_64                randconfig-075-20260611    clang-22
-x86_64                randconfig-076-20260611    clang-22
-x86_64                               rhel-9.4    clang-22
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-22
-x86_64                    rhel-9.4-kselftests    clang-22
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-22
-xtensa                            allnoconfig    clang-23
-xtensa                            allnoconfig    gcc-16.1.0
-xtensa                           allyesconfig    clang-20
-xtensa                randconfig-001-20260611    gcc-15.2.0
-xtensa                randconfig-002-20260611    gcc-15.2.0
+> ---
+>   tools/perf/Documentation/perf-test.txt        |   6 +-
+>   tools/perf/tests/builtin-test.c               |   1 +
+>   tools/perf/tests/shell/coresight/callchain.sh | 172 ++++++++++++++++++++++++++
+>   tools/perf/tests/tests.h                      |   1 +
+>   tools/perf/tests/workloads/Build              |   2 +
+>   tools/perf/tests/workloads/callchain.c        |  33 +++++
+>   6 files changed, 213 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/perf/Documentation/perf-test.txt b/tools/perf/Documentation/perf-test.txt
+> index 81c8525f594680d814f80e6f88bcce8d867bb350..859df74e62efc4b1e80da13ae8e053356f68ae54 100644
+> --- a/tools/perf/Documentation/perf-test.txt
+> +++ b/tools/perf/Documentation/perf-test.txt
+> @@ -57,7 +57,8 @@ OPTIONS
+>   --workload=::
+>   	Run a built-in workload, to list them use '--list-workloads', current
+>   	ones include: noploop, thloop, leafloop, sqrtloop, brstack, datasym,
+> -	context_switch_loop, deterministic, named_threads and landlock.
+> +	context_switch_loop, deterministic, named_threads, landlock and
+> +	callchain.
+>   
+>   	Used with the shell script regression tests.
+>   
+> @@ -69,7 +70,8 @@ OPTIONS
+>   	'named_threads' accepts the number of threads and the number of loops to
+>   	do in each thread.
+>   
+> -	The datasym, landlock and deterministic workloads don't accept any.
+> +	The datasym, landlock, deterministic and callchain workloads don't accept
+> +	any.
+>   
+>   --list-workloads::
+>   	List the available workloads to use with -w/--workload.
+> diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
+> index afc06cec49546d29d86b94840c7021c5bf5c88e3..8994488cc206863ba77f7e7e5803e62f18e151ba 100644
+> --- a/tools/perf/tests/builtin-test.c
+> +++ b/tools/perf/tests/builtin-test.c
+> @@ -166,6 +166,7 @@ static struct test_workload *workloads[] = {
+>   	&workload__jitdump,
+>   	&workload__context_switch_loop,
+>   	&workload__deterministic,
+> +	&workload__callchain,
+>   
+>   #ifdef HAVE_RUST_SUPPORT
+>   	&workload__code_with_type,
+> diff --git a/tools/perf/tests/shell/coresight/callchain.sh b/tools/perf/tests/shell/coresight/callchain.sh
+> new file mode 100755
+> index 0000000000000000000000000000000000000000..13cca7dc11184002e3ddc058c0d0ffa1c458c483
+> --- /dev/null
+> +++ b/tools/perf/tests/shell/coresight/callchain.sh
+> @@ -0,0 +1,172 @@
+> +#!/bin/bash
+> +# CoreSight synthesized callchain (exclusive)
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +glb_err=1
+> +
+> +if ! tmpdir=$(mktemp -d /tmp/perf-cs-callchain-test.XXXXXX); then
+> +	echo "mktemp failed"
+> +	exit 1
+> +fi
+> +
+> +cleanup_files()
+> +{
+> +	rm -rf "$tmpdir"
+> +}
+> +
+> +trap cleanup_files EXIT
+> +trap 'cleanup_files; exit $glb_err' TERM INT
+> +
+> +skip_if_system_is_not_ready()
+> +{
+> +	perf list | grep -Pzq 'cs_etm//' || {
+> +		echo "[Skip] cs_etm event is not available" >&2
+> +		return 2
+> +	}
+> +
+> +	# Requires root for trace in kernel
+> +	[ "$(id -u)" = 0 ] || {
+> +		echo "[Skip] No root permission" >&2
+> +		return 2
+> +	}
+> +
+> +	return 0
+> +}
+> +
+> +record_trace()
+> +{
+> +	local data=$1
+> +	local script=$2
+> +
+> +	local cf="$tmpdir/ctl"
+> +	local af="$tmpdir/ack"
+> +
+> +	mkfifo "$cf" "$af"
+> +
+> +	perf record -o "$data" -e cs_etm// --per-thread -D -1 --control fifo:"$cf","$af" -- \
+> +		perf test --record-ctl fifo:"$cf","$af" -w callchain >/dev/null 2>&1 &&
+> +
+> +	# It is safe to use 'i3i' with a three-instruction interval, since the
+> +	# workload is compiled with -O0.
+> +	perf script --itrace=g16i3il64 -i "$data" > "$script"
+> +}
+> +
+> +callchain_regex_1()
+> +{
+> +	printf '%s' \
+> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
+> +}
+> +
+> +callchain_regex_2()
+> +{
+> +	printf '%s' \
+> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain_do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
+> +}
+> +
+> +callchain_regex_3()
+> +{
+> +	printf '%s' \
+> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
+> +'[[:space:]]+[[:xdigit:]]+ syscall(@plt)?\+0x[[:xdigit:]]+ \(.*\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain_do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
+> +}
+> +
+> +callchain_regex_4()
+> +{
+> +	printf '%s' \
+> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
+> +'[[:space:]]+[[:xdigit:]]+ .*\+0x[[:xdigit:]]+ \(\[kernel\.kallsyms\]\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ syscall(@plt)?\+0x[[:xdigit:]]+ \(.*\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain_do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
+> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
+> +}
+> +
+> +find_after_line()
+> +{
+> +	local regex="$1"
+> +	local file="$2"
+> +	local start="$3"
+> +	local offset
+> +	local line
+> +
+> +	# Search in byte offset
+> +	offset=$(
+> +		tail -n +"$start" "$file" |
+> +		grep -Pzob -m1 "$regex" |
+> +		tr '\0' '\n' |
+> +		sed -n 's/^\([0-9][0-9]*\):.*/\1/p;q'
+> +	)
+> +
+> +	if [ -z "$offset" ]; then
+> +		echo "Failed to match regex after line $start" >&2
+> +		echo "Regex:" >&2
+> +		printf '%s\n' "$regex" >&2
+> +		echo "Context from line $start:" >&2
+> +		sed -n "${start},$((start + 100))p" "$file" >&2
+> +		return 1
+> +	fi
+> +
+> +	# Convert from offset to line
+> +	line=$(
+> +		tail -n +"$start" "$file" |
+> +		head -c "$offset" |
+> +		wc -l
+> +	)
+> +
+> +	echo "$((start + line))"
+> +}
+> +
+> +check_callchain_flow()
+> +{
+> +	local file="$1"
+> +	local l1 l2 l3 l4 l5 l6 l7
+> +
+> +	# Callchain push
+> +	l1=$(find_after_line "$(callchain_regex_1)" "$file" 1) || return 1
+> +	l2=$(find_after_line "$(callchain_regex_2)" "$file" "$((l1 + 1))") || return 1
+> +	l3=$(find_after_line "$(callchain_regex_3)" "$file" "$((l2 + 1))") || return 1
+> +	l4=$(find_after_line "$(callchain_regex_4)" "$file" "$((l3 + 1))") || return 1
+> +
+> +	# Callchain pop
+> +	l5=$(find_after_line "$(callchain_regex_3)" "$file" "$((l4 + 1))") || return 1
+> +	l6=$(find_after_line "$(callchain_regex_2)" "$file" "$((l5 + 1))") || return 1
+> +	l7=$(find_after_line "$(callchain_regex_1)" "$file" "$((l6 + 1))") || return 1
+> +
+> +	echo "Callchain flow matched:"
+> +	echo "  l1=$l1 l2=$l2 l3=$l3 l4=$l4 l5=$l5 l6=$l6 l7=$l7"
+> +
+> +	return 0
+> +}
+> +
+> +run_test()
+> +{
+> +	local data=$tmpdir/perf.data
+> +	local script=$tmpdir/perf.script
+> +
+> +	if ! record_trace "$data" "$script"; then
+> +		echo "perf record/script failed"
+> +		return
+> +	fi
+> +
+> +	check_callchain_flow "$script" || return
+> +
+> +	glb_err=0
+> +}
+> +
+> +skip_if_system_is_not_ready || exit 2
+> +
+> +run_test
+> +
+> +exit $glb_err
+> diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
+> index 7cedf05be544ad79a99e86d30dfa4f7b01ca0837..cee9e6b62dcc838c864bbe76efe3b638ed75b134 100644
+> --- a/tools/perf/tests/tests.h
+> +++ b/tools/perf/tests/tests.h
+> @@ -248,6 +248,7 @@ DECLARE_WORKLOAD(inlineloop);
+>   DECLARE_WORKLOAD(jitdump);
+>   DECLARE_WORKLOAD(context_switch_loop);
+>   DECLARE_WORKLOAD(deterministic);
+> +DECLARE_WORKLOAD(callchain);
+>   
+>   #ifdef HAVE_RUST_SUPPORT
+>   DECLARE_WORKLOAD(code_with_type);
+> diff --git a/tools/perf/tests/workloads/Build b/tools/perf/tests/workloads/Build
+> index 75b377934a0e62b9ac1fec245520ea0978ac957e..dfdf9a2720b22f67a3d7b53d0ed14e0654059c8f 100644
+> --- a/tools/perf/tests/workloads/Build
+> +++ b/tools/perf/tests/workloads/Build
+> @@ -13,6 +13,7 @@ perf-test-y += inlineloop.o
+>   perf-test-y += jitdump.o
+>   perf-test-y += context_switch_loop.o
+>   perf-test-y += deterministic.o
+> +perf-test-y += callchain.o
+>   
+>   ifeq ($(CONFIG_RUST_SUPPORT),y)
+>       perf-test-y += code_with_type.o
+> @@ -26,3 +27,4 @@ CFLAGS_datasym.o          = -g -O0 -fno-inline -U_FORTIFY_SOURCE
+>   CFLAGS_traploop.o         = -g -O0 -fno-inline -U_FORTIFY_SOURCE
+>   CFLAGS_inlineloop.o       = -g -O2
+>   CFLAGS_deterministic.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
+> +CFLAGS_callchain.o        = -g -O0 -fno-inline -U_FORTIFY_SOURCE
+> diff --git a/tools/perf/tests/workloads/callchain.c b/tools/perf/tests/workloads/callchain.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..3951423d8115e9efb49af8ba2586001fc6f02761
+> --- /dev/null
+> +++ b/tools/perf/tests/workloads/callchain.c
+> @@ -0,0 +1,33 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <linux/compiler.h>
+> +#include <sys/syscall.h>
+> +#include <unistd.h>
+> +#include "../tests.h"
+> +
+> +/*
+> + * Mark as noinline to establish the call chain, and avoid the static
+> + * annotation to prevent LTO from renaming the functions.
+> + */
+> +noinline void callchain_do_syscall(void);
+> +noinline void callchain_foo(void);
+> +noinline int callchain(int argc, const char **argv);
+> +
+> +noinline void callchain_do_syscall(void)
+> +{
+> +	syscall(SYS_getpid);
+> +}
+> +
+> +noinline void callchain_foo(void)
+> +{
+> +	callchain_do_syscall();
+> +}
+> +
+> +noinline int callchain(int argc __maybe_unused,
+> +		       const char **argv __maybe_unused)
+> +{
+> +	callchain_foo();
+> +
+> +	return 0;
+> +}
+> +
+> +DEFINE_WORKLOAD(callchain);
+> 
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
