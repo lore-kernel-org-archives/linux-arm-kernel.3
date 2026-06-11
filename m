@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F139CCD98D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 23:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B825CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 23:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ai/dsjsbMDn9xf1xDqcbf0dI3NodUjCaB2ZxfBx+6DE=; b=vEGNc0Of3nRDVZ2c95SNJfCsNz
-	1l2YwUzMRBxZvzGSN4Qh8dDqiI3o1wuNSBNyMFc2YGAo74Hq+sO+5q+rcujSLrHkukzASL5l8bzE0
-	cTXd7eOGJRqjBWWH7Rwho0D7aJo6P0znm96YOdG/N0xSe0rvUeXPEmcS1zFGKmXTKPpGUC9WweDXd
-	vyDxqE3XmKjKp7EpLxFuP8NiDZvQw4r3HgOavq98qv/gOwCosY5qmPeMR6GrRpGuCLcA4LNC4SvIA
-	8VdSXY8JzFYytwpm2gxIdT+hke2L0fECMlPNiWSxdw4nxlLL4/UE4SpvY03iyfQwf/VfutKybwTgo
-	d58ZMPYw==;
+	bh=O8gZkgiDTIH7c2XQP75zrwmG5x+3MemItK06BKv1VbU=; b=qaFN0D3VmtYdiI3xePaXdDD7wI
+	a3jc1Qfm9zqvMRjehJm3LSDvdjjw0AjxB3yx+IuBksIAmkRPC4+C3gDB6EQdI8xjJYYronYEFVUfQ
+	4beNPMtlV8wBwZ3tiS3kGOqarkOqlGe4gUQi7SVOgiFlDGuubriRPkPPBZ4jD+DFde7tzffYbI/w+
+	9w0QNGgOdJ8K8Brl1FE7hYt04e7hYfM6BItvcC/wDecsfyBdGXC6puoWS8TXLU09wC3HZgT0PErYX
+	C8MyeJ4Pac92H/z1uF3KggUfvaFOs8+REhe6rpxJcxuFnT4xMUVZgQbXhiQv6UbEtQJ8rty2EG0cy
+	F2mxps/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXp60-0000000ABUG-3VFF;
-	Thu, 11 Jun 2026 23:46:00 +0000
+	id 1wXp62-0000000ABWX-0N1E;
+	Thu, 11 Jun 2026 23:46:02 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXp5o-0000000ABKH-2guo;
-	Thu, 11 Jun 2026 23:45:50 +0000
+	id 1wXp5q-0000000ABKy-0nUa;
+	Thu, 11 Jun 2026 23:45:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781221545;
-	bh=mMmN5c98AYlSbEtpnRmRYuYBWUBFkWC7EXBgNfEYdGA=;
+	s=mail; t=1781221547;
+	bh=NJ5RFLXjnsliSEtUl5fK/HkHNb39TECm4kx0OPW7JYg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IKb/8iW0KR4HQAdWnwDM0XtSBzPAQyTMVXYiZ4jSEci4zymshCVCkjv7w9prf9neO
-	 gC+rl80PFEkpMqkZ5XqYgM72nfWbOJbZ7e0Qp/hhmMlTiAWuGbDskeTanG3RAm2lXh
-	 iyJVqkNse3LiLpPXmTDKOI8bZp6zlDbdMT/hzaMYAPQ8Q/vFnzlhN9ujgjyPdE/E9x
-	 2Z4eXHDGaP4souQZ29b8IlMJ95mD8lL/r19Z4O8BY55PU385HybmW9UG4AXdj8fmmu
-	 rEiUk4MyKxHHwIl/BTP/bmg88dqHEsKbzu/Y+89K6XrxaeviJ585SwZO52wOlF/wx6
-	 guUAvn0PIHrEQ==
+	b=MJZQ+PkrKzlNA+5B7A/dEgl6YlseOQOKzf18vpQ6ycpd8k51H0cMAtZa/SU7iXG91
+	 bsBqW+UNfMKfTUELDLtGZwXT9kQp9JHD0yAwGnLfOo0MduSqpbvryUnf4G5lTepNa5
+	 r3XJ0NYrtXzLlv7KzZk2RJ8/ShK9K9+LX/oJggq9v9xzYh/5qiTZoVA3oPMjUIiCZ+
+	 Yp4KxwrTON4r/0RRixiU2YOqQ0tjDgo0nNlXy9Zt+cdxysqy69V6RDmr+/fS9SsI5n
+	 7SArujprQ/WaiT0nPGFstKiKmRc0faKnUigv+TkuDmAEa2VKFsbc+Lo4aHDdSg/SQW
+	 JIavNTGTaoMGA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 917F117E0A49;
-	Fri, 12 Jun 2026 01:45:45 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 23C7417E0C54;
+	Fri, 12 Jun 2026 01:45:47 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 12 Jun 2026 02:45:22 +0300
-Subject: [PATCH v4 3/8] phy: rockchip: samsung-hdptx: Fix rate
- recalculation for 3.2GHz FRL
+Date: Fri, 12 Jun 2026 02:45:24 +0300
+Subject: [PATCH v4 5/8] phy: rockchip: samsung-hdptx: Drop TMDS rate setup
+ workaround
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-hdptx-clk-fixes-v4-3-ce5e1d456cda@collabora.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260612-hdptx-clk-fixes-v4-5-ce5e1d456cda@collabora.com>
 References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
 In-Reply-To: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -59,11 +59,13 @@ To: Vinod Koul <vkoul@kernel.org>,
  Dmitry Baryshkov <lumag@kernel.org>
 Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Niederpr=C3=BCm?= <dubito@online.de>, 
+ Simon Wright <simon@symple.nz>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_164548_832762_FC2D77DE 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260611_164550_383838_16CDE74E 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +80,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk_hdptx_phy_clk_calc_rate_from_pll_cfg() is currently unable to handle
-cascade mode for the 3.2GHz FRL operating mode, as it relies solely on
-LCPLL_LCVCO_MODE_EN_MASK to determinate the rate from the
-rk_hdptx_frl_lcpll_cfg array.  Since there is no entry for this
-particular rate, the function returns 0.
+Since commit ba9c2fe18c17 ("drm/rockchip: dw_hdmi_qp: Switch to
+phy_configure()") the TMDS rate setup doesn't rely anymore on the
+unconventional usage of the bus width, instead it is managed exclusively
+through the HDMI PHY configuration API.
 
-This is the only rate which requires LC_REF_CLK_SEL to be set in
-GRF_HDPTX_CON0, hence extend the FRL matching accordingly.
+Drop the now obsolete workaround to retrieve the TMDS character rate via
+phy_get_bus_width() during power_on().
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com?part=1
-Fixes: de5dba833118 ("phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support")
+While at it, get rid of the extra call to rk_hdptx_phy_consumer_put() by
+moving the statement at the end of the function.
+
+Tested-by: Thomas Niederprüm <dubito@online.de>
+Tested-by: Simon Wright <simon@symple.nz>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 33 ++++++++++++++++-------
- 1 file changed, 24 insertions(+), 9 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 27 +++++------------------
+ 1 file changed, 6 insertions(+), 21 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 8c044381b83a..b210c1a88b25 100644
+index 25bd821cd039..35997087d61c 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -2206,16 +2206,31 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
- 			return 0;
- 		lcpll_hw.sdc_n = (val & LCPLL_SDC_N_MASK) >> 1;
+@@ -1660,22 +1660,6 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+ 	enum phy_mode mode = phy_get_mode(phy);
+ 	int ret, lane;
  
--		for (i = 0; i < ARRAY_SIZE(rk_hdptx_frl_lcpll_cfg); i++) {
--			const struct lcpll_config *cfg = &rk_hdptx_frl_lcpll_cfg[i];
-+		ret = regmap_read(hdptx->grf, GRF_HDPTX_CON0, &val);
-+		if (ret)
-+			return 0;
+-	if (mode != PHY_MODE_DP) {
+-		if (!hdptx->hdmi_cfg.rate && hdptx->hdmi_cfg.mode != PHY_HDMI_MODE_FRL) {
+-			/*
+-			 * FIXME: Temporary workaround to setup TMDS char rate
+-			 * from the RK DW HDMI QP bridge driver.
+-			 * Will be removed as soon the switch to the HDMI PHY
+-			 * configuration API has been completed on both ends.
+-			 */
+-			hdptx->hdmi_cfg.rate = phy_get_bus_width(hdptx->phy) & 0xfffffff;
+-			hdptx->hdmi_cfg.rate *= 100;
+-		}
+-
+-		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
+-			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
+-	}
+-
+ 	ret = rk_hdptx_phy_consumer_get(hdptx);
+ 	if (ret)
+ 		return ret;
+@@ -1701,9 +1685,10 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+ 		rk_hdptx_dp_pll_init(hdptx);
  
--			if (cfg->pms_mdiv == lcpll_hw.pms_mdiv &&
--			    cfg->pms_sdiv == lcpll_hw.pms_sdiv &&
--			    cfg->sdm_num_sign == lcpll_hw.sdm_num_sign &&
--			    cfg->sdm_num == lcpll_hw.sdm_num &&
--			    cfg->sdm_deno == lcpll_hw.sdm_deno &&
--			    cfg->sdc_n == lcpll_hw.sdc_n)
--				return cfg->rate;
-+		if (val & LC_REF_CLK_SEL) {
-+			if (lcpll_hw.pms_mdiv == 0x6b &&
-+			    lcpll_hw.sdm_num_sign == 0x01 &&
-+			    lcpll_hw.sdm_num == 0x02 &&
-+			    lcpll_hw.sdm_deno == 0x09 &&
-+			    lcpll_hw.sdc_n == FIELD_GET(LCPLL_SDC_N_MASK, 0x02))
-+				return FRL_8G4L_RATE;
-+		} else {
-+			const struct lcpll_config *cfg;
+ 		ret = rk_hdptx_dp_aux_init(hdptx);
+-		if (ret)
+-			rk_hdptx_phy_consumer_put(hdptx, true);
+ 	} else {
++		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
++			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
 +
-+			for (i = 0; i < ARRAY_SIZE(rk_hdptx_frl_lcpll_cfg); i++) {
-+				cfg = &rk_hdptx_frl_lcpll_cfg[i];
-+
-+				if (cfg->pms_mdiv == lcpll_hw.pms_mdiv &&
-+				    cfg->pms_sdiv == lcpll_hw.pms_sdiv &&
-+				    cfg->sdm_num_sign == lcpll_hw.sdm_num_sign &&
-+				    cfg->sdm_num == lcpll_hw.sdm_num &&
-+				    cfg->sdm_deno == lcpll_hw.sdm_deno &&
-+				    cfg->sdc_n == lcpll_hw.sdc_n)
-+					return cfg->rate;
-+			}
+ 		if (hdptx->pll_config_dirty)
+ 			ret = rk_hdptx_pll_cmn_config(hdptx);
+ 
+@@ -1716,11 +1701,11 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+ 			else
+ 				ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
  		}
+-
+-		if (ret)
+-			rk_hdptx_phy_consumer_put(hdptx, true);
+ 	}
  
- 		dev_dbg(hdptx->dev, "%s no FRL match found\n", __func__);
++	if (ret)
++		rk_hdptx_phy_consumer_put(hdptx, true);
++
+ 	return ret;
+ }
+ 
 
 -- 
 2.54.0
