@@ -4,139 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13C0CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6782FCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:40:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7CQHC0MbxFBmHg37FSCWCdA81IJ9dxNyYEm4tKxmq0k=; b=zLgO4ttGX/zCDIjlN9dRPMeQ8W
-	hXHTInetkWDi1CcLnVC7YhRYPWeoCV0wsiCJmYBl7/x8AVYEmNPSuRtqIusnN3Tx7UUOYbjGQ/eJi
-	709dbNX3u/aUpt5x3yVIl0ScL0mt9ansHkNx6HKucYmhjO+PndYOr9Br26Ng7FZ8ekquGwROeBD7p
-	V+TO0uxpRUbztN3hpNgd0EmfCmf52UZOB/i0cUDoorV6ek1PJ+peyqbqF4AbEfgZALH9RR0AOHlHa
-	MlnVo1QG3+joynTFPzQjn6tSSLso9A8PKZf/C3S6eNH/YHq9G3Lx3mpsddFh7ktbAGEpBmEJ5mJPf
-	LopY+J8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UdnqG6HuOV9OtKkF5ww4O5HMNFK+JDqxC6oYIJO1qR8=; b=2L8Yl67GZI8hClbeHrJo4iOqtl
+	/GGPRNOM3/YAMzFIov7a8MTfTx32x715H5OKlA2brPDROJ8rYRibOL4lNiWUnG5CDNJgLiuJFs2X5
+	yVMAxfIuts+hC3/5YkzcTcrCwfE5dpfff3oWCqUfdBRCAwx45dTew/jGMUf+0/SmsAX2qV5DxKHmp
+	F6Z/fQlbjV+XPvlfMi9E0cr8x7hhPJpyqjUMYYzrCfpyys98L5ZK+l/25owjEmK9yzCI4up0XrS9t
+	P3AWfFpheNQrjfOJsOBr1iwF8LaOvkGtdzj4UV4CoX2ZZmAlYx4poO228IW9zOryEcdjmIVd7hqUd
+	F/6914nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZip-00000008s0M-2awA;
-	Thu, 11 Jun 2026 07:21:03 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wXa1c-00000008tDN-0fJR;
+	Thu, 11 Jun 2026 07:40:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZin-00000008rzz-0X1X
+	id 1wXa1a-00000008tCw-3gOY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 07:21:02 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65B5GJ6w3843682
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 07:20:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7CQHC0MbxFBmHg37FSCWCdA81IJ9dxNyYEm4tKxmq0k=; b=dWEHLAydlOKZPGH4
-	R75aAd2/WsfaXS0KPXcpfxr1DGF4+ycrKWm7jBscvhPnNK4ExYN++Df4JdgEssLX
-	diuuVV6eeLQCsX+eNPQQxarbcR84yl0RSgKtBM5MDCtLL580PUOS1bQH7RGrMXXK
-	KlncibcaRByBFpbA2LT9ozR57hHdWzlR0TZH79dbSsrV65VEI5MiuTfho6xX6LKr
-	iJMEjFM2jlkRgSvkARWErYw29zHYnrFRigtzLl1v/ReGg0uiepjcDP7+wQXDkA8u
-	Y3nQQr0QatLyVo2V7lEWShv4Q4lv5ggkQdbqMoJoNCd/cAqFc6/lPAx94HyMbE8x
-	tZ4FpA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eqe7025ha-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 07:20:59 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2c2d65d9773so10223015ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 00:20:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781162459; x=1781767259; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7CQHC0MbxFBmHg37FSCWCdA81IJ9dxNyYEm4tKxmq0k=;
-        b=PqtBlpS3u6NgQ85n3f28LHDkGNCofVZkgpfCDuGQcmQLbzudxJifhKpws7vMLWbI3d
-         DBm2UY0j88kwiZC4RkSuJHrjS48gbsMZFm59PpjvjdyvI1LWt+4PqySEqli16CRYkmuz
-         R+fleipQKBl7wcoIJEoB+RpcRLIJjBZLa+1XrVtGTbWA2mwpnXqlteFph+N7Dy/Cz+Eb
-         xJAwWAYA46f2EAViuy/ZACnhsSWob9FQDySA8Y+zbNhsjGqt8i0gXVCF+XgmPKQ8JWeA
-         okK5EyOnQPQocJGiVsU5Uxa6Y5Qufn4CAYcSs6Hld2y93IM4OV5y/X0oJ3se/qLcxQkh
-         wHQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781162459; x=1781767259;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7CQHC0MbxFBmHg37FSCWCdA81IJ9dxNyYEm4tKxmq0k=;
-        b=SCgVFun8emElrzOp5Ab2Co65dCTa3I1LX2N56inWWlqqXMsqMPGRUR3gOtfcGoo+KJ
-         SFgFoGfF/1l8p+eqp9iKWhNEMm3FACVOzW/nsrL49nQamFVXoHSAi5QVAhvi72qkbf8O
-         iL3OE7n+FBP4KSXS1iadLUyKljflhxU3ivcZWLjBtcyojwMHlP3FTvn9aHQ3O8K3eBd0
-         pCx5eu4Xqaexl5jrF2UeFOjWuqs6jnkdbPQ9/psOC81r0xgQAnznGfxnSlOX72iiteBq
-         dRslnXwy6dA9cnVQQxxpbw/0bg2NLTwhjgDoMpdspA76IVawpFPfoCHrfC5HdqRikisb
-         NKqA==
-X-Forwarded-Encrypted: i=1; AFNElJ/Uw+RJ7Gh5SdHDYJ3UQofhwbc+P7pExpxqtHYGwlMKyIgDITq+qCOGk3hmbp0j1OplHSKViZQk0zdfUcE4p6Hz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjKSfiaIpSGhJq01MxLNBr4ySG4mR7D1a+dH9diuFu0Pd14Vg/
-	aKY6ZYnEmgobA5FieTNDytcEIhPXMf+CsXQFgZtO/KpthnlYLcptXZ4iLH0RGbS9/1ahL7/vDh1
-	zCuuVvOA+hgcrrOMOuVyN1ZiAHofQ/eP8rRWh+cG3msncVfUnxh2+KaNocKOvtZ0YqyGidbgMIV
-	e0Mw==
-X-Gm-Gg: Acq92OHG/JEDDOj+oIVTimBUxcM0RG+j09ZUi65RaWooSq01quDaANsDdHsMrplTBQZ
-	ZtTi7oymMQgMey3b56/VQlCCQyw/03EQymx1n7tHOhwI3fyzEv4fkn1DS+cmIzVqbLBqQbSsukp
-	rZfv11x67PXyEtJo0cIBumIFbMFbj1oI5xHXjtW7sNNUHVnI+po1n+a5KT4RK88jx14S8jxQusY
-	kdpdohmsdPs0FxTzuhx0VUTwR3zc4oRIgR/MpXLXFXdjMHtMhsQZbXOS61gB0dGGKArfQOO8G6C
-	+vTYXYQJHrMS13oQgzEavXXm60ysQKiokn8xuPPShk2JQ7GBZX7xD4mkgzt7p3VD4o7RV6r7sim
-	bgXWmCNUHgeYrmj0/loB8cwLzi6I9zpI=
-X-Received: by 2002:a17:903:4b46:b0:2c1:6259:cda8 with SMTP id d9443c01a7336-2c2f22a9f06mr19126325ad.25.1781162458582;
-        Thu, 11 Jun 2026 00:20:58 -0700 (PDT)
-X-Received: by 2002:a17:903:4b46:b0:2c1:6259:cda8 with SMTP id d9443c01a7336-2c2f22a9f06mr19125995ad.25.1781162458087;
-        Thu, 11 Jun 2026 00:20:58 -0700 (PDT)
-Received: from [192.168.1.11] ([120.56.195.233])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c24edc8ad7sm145922405ad.42.2026.06.11.00.20.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 00:20:57 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
-To: linux-pci@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>, linusw@kernel.org,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260526044016.1025613-1-rosenp@gmail.com>
-References: <20260526044016.1025613-1-rosenp@gmail.com>
-Subject: Re: [PATCHv2] PCI: mvebu: Use fixed-width interrupt masks
-Message-Id: <178116245413.8388.17772545908959484770.b4-ty@kernel.org>
-Date: Thu, 11 Jun 2026 12:50:54 +0530
+	Thu, 11 Jun 2026 07:40:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 00C5E60052;
+	Thu, 11 Jun 2026 07:40:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BA871F00893;
+	Thu, 11 Jun 2026 07:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781163625;
+	bh=UdnqG6HuOV9OtKkF5ww4O5HMNFK+JDqxC6oYIJO1qR8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Pf5jT1qWShYnBKo7WlrpSjwNa0q6F3mWdYLMT30kYYaP72XCVK29bzLIBBySlxlql
+	 8ItQlvep2nIykpVJryzcBXZyb51YPXOc5ITEKeB1BELHHKURLmSH7t0Vx+72QocsVj
+	 D3mXwcAzH5Ojx06ZePiiIyM9H03JCnjo1ZQAPvun2sE76dP+p4u2oeE8QmaDwRZWU9
+	 6/x0hyxH6iXyFkiPOqMkRlpxw2tKZIAZE8gVriYNm7jo84x6oIX+5hqRuebk1GmeoU
+	 0sQMycH516IoEmHKtykK4CX+WR412dUwuV4k/u/5Ih+UCG69gl2WL6wk/JdL++x8WI
+	 QJuuu7EW82qmw==
+Date: Thu, 11 Jun 2026 09:40:23 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: joakim.zhang@cixtech.com
+Cc: mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
+	gary.yang@cixtech.com, cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] dt-bindings: soc: cix,sky1-system-control: add
+ audss system control
+Message-ID: <20260611-gorgeous-macho-cricket-f1b78c@quoll>
+References: <20260610075645.3581145-1-joakim.zhang@cixtech.com>
+ <20260610075645.3581145-2-joakim.zhang@cixtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Proofpoint-GUID: J_UjVSwHDVQ4CF5McUx_Rqzx-oXZdULL
-X-Authority-Analysis: v=2.4 cv=B9eJFutM c=1 sm=1 tr=0 ts=6a2a61db cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=n8UK4BQKCdfH/t0JQ2luxA==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=SiPLVwNLmWBdlGvAHpkA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjExMDA3MSBTYWx0ZWRfX+VefGx3vCm+i
- 3oQEBfIjZPFc3cOc5uju3E3OJCSZI24IJYtj+XQpbmTtERrWe4XhNOnfXymQd/5abQ/fNymnZOI
- 1B/fANAauhDle0QqsZzhlmkeG/KBXrSpxKJBweXzxTlGmOtlfHBXI+nywhFcMdpY0cWR/GIU5YN
- 8C6CKFCEDFn3l50qMr2KImNpbjlQ/Uu52eypWStZ90ikfHiqmohL7ieOVjG0ZmNI7jaf8NMK0EC
- 4KNXO6WS8jF4yYqmtCpDMJAuxLmBdpmxmEIOEmb/jSig4CblZ81kLBHBOGRh3QTCcJw7wHt9DYM
- 5T6ovOGd1JCMUyVOcaD4q7i6txTCQMnZiS3IS3wQUutZrCZE51VgVgWTjO6LZ5/4dGbXUXzFhZV
- 6zCN3EMkVPH+h44sxxVw/YjwaQzcnzfow38h6jb01GqX91YtWwIrIN5Qa/3nlcSeQ27BeWK+eDk
- 0qLNgJDMiwBWpNBovWA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjExMDA3MSBTYWx0ZWRfX4DF017dwDO+e
- jA3/AUMIHnZJgGMbv5Q+1ouZZ9vGKvj3YbqTGyuWgZDgeb+9AOtLmqhFavZWc629NV7N7gyF5jQ
- Y0jLCduU3t1jjtEUqTlccX2PNysNC0M=
-X-Proofpoint-ORIG-GUID: J_UjVSwHDVQ4CF5McUx_Rqzx-oXZdULL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-11_01,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 impostorscore=0 malwarescore=0 spamscore=0 bulkscore=0
- phishscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606110071
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_002101_804245_DAD2E390 
-X-CRM114-Status: GOOD (  10.20  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260610075645.3581145-2-joakim.zhang@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,28 +73,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 25 May 2026 21:40:16 -0700, Rosen Penev wrote:
-> Use u32-typed BIT and GENMASK helpers for PCIe interrupt register
-> masks.  This keeps inverted masks in the same width as the registers
-> and avoids truncation warnings on 64-bit compile-test builds.
+On Wed, Jun 10, 2026 at 03:56:41PM +0800, joakim.zhang@cixtech.com wrote:
+> From: Joakim Zhang <joakim.zhang@cixtech.com>
 > 
-> Fixes this and similar warnings:
+> The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related clock, reset
+> and control registers in a dedicated CRU block. Software reset lines are
+> exposed on the syscon parent via #reset-cells, following the same model
+> as the existing Sky1 FCH and S5 system control bindings.
 > 
-> drivers/pci/controller/pci-mvebu.c:316:21: error: implicit conversion from
-> 'unsigned long' to 'u32' (aka 'unsigned int') changes value from
-> 18446744069414584320 to 0 [-Werror,-Wconstant-conversion]
->   316 |         mvebu_writel(port, ~PCIE_INT_ALL_MASK, PCIE_INT_UNMASK_OFF);
+> Add the cix,sky1-audss-system-control compatible to
+> cix,sky1-system-control.yaml for the MFD/syscon parent node, and define
+> AUDSS software reset indices in
+> include/dt-bindings/reset/cix,sky1-audss-system-control.h for I2S, HDA,
+> DMAC, mailbox, watchdog and timer blocks.
+
+All this is pretty pointless - you explained the binding, which answers
+nothing why you did it that way. Instead you must explain the hardware
+design.
+
 > 
-> [...]
+> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+> ---
+>  .../soc/cix/cix,sky1-system-control.yaml      | 52 +++++++++++++++++--
+>  .../reset/cix,sky1-audss-system-control.h     | 25 +++++++++
+>  2 files changed, 72 insertions(+), 5 deletions(-)
+>  create mode 100644 include/dt-bindings/reset/cix,sky1-audss-system-control.h
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+> index a01a515222c6..61d26a69fd44 100644
+> --- a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+> +++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+> @@ -15,11 +15,16 @@ description:
+>  
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - cix,sky1-system-control
+> -          - cix,sky1-s5-system-control
+> -      - const: syscon
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - cix,sky1-system-control
+> +              - cix,sky1-s5-system-control
+> +          - const: syscon
+> +      - items:
+> +          - const: cix,sky1-audss-system-control
+> +          - const: simple-mfd
 
-Applied, thanks!
+Just so you are aware - this means children do not depend on the parent
+for operation. You will not be able to fix it later, if it turns out
+that children do depend...
 
-[1/1] PCI: mvebu: Use fixed-width interrupt masks
-      commit: c525508c1854e72b080b49e6ff7074913dc1905d
+> +          - const: syscon
+>  
+>    reg:
+>      maxItems: 1
+> @@ -27,6 +32,28 @@ properties:
+>    '#reset-cells':
+>      const: 1
+>  
+> +  clock-controller:
+> +    type: object
+> +    properties:
+> +      compatible:
+> +        const: cix,sky1-audss-clock
+> +    required:
+> +      - compatible
+> +    additionalProperties: true
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: cix,sky1-audss-system-control
+> +    then:
+> +      required:
+> +        - clock-controller
+> +    else:
+> +      properties:
+> +        clock-controller: false
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -40,3 +67,18 @@ examples:
+>        reg = <0x4160000 0x100>;
+>        #reset-cells = <1>;
+>      };
+> +  - |
+> +    audss_syscon: system-controller@7110000 {
+> +        compatible = "cix,sky1-audss-system-control", "simple-mfd", "syscon";
+> +        reg = <0x7110000 0x10000>;
+> +        #reset-cells = <1>;
+> +
+> +        clock-controller {
+> +            compatible = "cix,sky1-audss-clock";
+> +            power-domains = <&smc_devpd 0>;
+
+My questions from v2 from the other patch are still valid - why audss
+system clock controller is outside of the power domain? Why the audss
+reset is outside, but audss clock not?
+
+This does not feel like correct hardware representation.
 
 Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
+Krzysztof
 
 
