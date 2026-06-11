@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746BFCD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B298CD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Fzo6siJddZi8BRfNQCavodLcs3h/RY3sLkykEjWC5ao=; b=1bd9qhcSJNx47GIjhCXaJ9HA/n
-	Ybmnz/BH0Q/wGrMpjbHQfPqOD64eUvX52Fqff+/arb5YuCoifDfCO4TZbiptWs1uGSRpPoLAkL07i
-	kssbbko2VFQeTN0UgqBsf70AWW8kWF5SdDRUaIuY2z//gVRgh0XMYto+NHb4Vm82gS0dX25N4XX96
-	0YsNXHrNFajqsqGlYYLOsZD3WY3Shz0DeggryyW3h7Ocnd1pQ67FyMByGRXhGOBFAGZE3NvmGGGQ4
-	SqxmQ5J4nNMjFftvSIvZh+e1rwB9DQHf3TjuxRKVf7JS0VL/7GRF/Aywj+0GWyZApmWiF1FPEQEI3
-	/LM/ok8w==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UAc1xAuqrqBbaNGTCiUioRckoU10tWBV0WzMjQokYxU=; b=PR2jWrh6LZNDQECqS85C0tvU/v
+	yScW9wy9iPGSjtvxNHWaMDdjJwyekGSOw0YSdBvcU3um9m/W3Vi9/QhDQ8jN6ep4rZrG7uXjP989r
+	4SuqV8ygvuzHHxm5CS7XIfN3fVU9aUq2soAda6mF0ge1PA6HgpLxn5v64jho6lFP2Wik2lvTvs2C6
+	ZZ8qOc8zwNRl+d8SFO6+sUcfrA06Zb8cZjqwm1Jfr9WDs/uvLhc3VZy6Ab3/c1DwiJvtRVHKPLe0Q
+	bp8Y5slOP7nTT3rC34Nqr09unv9rSOCgWyOAZeN65CsccbMEfuSF6CaVaeiMf7Cyw55dO81ae/sqr
+	/Qm9dqsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXc3p-00000009AM3-3j2L;
+	id 1wXc3p-00000009AML-47KU;
 	Thu, 11 Jun 2026 09:50:53 +0000
-Received: from mail-northcentralusazon11012025.outbound.protection.outlook.com ([40.107.200.25] helo=CH5PR02CU005.outbound.protection.outlook.com)
+Received: from mail-eastusazon11011030.outbound.protection.outlook.com ([52.101.52.30] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXc3j-00000009AK4-3Uu9
+	id 1wXc3n-00000009AL9-0pWu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 09:50:49 +0000
+	Thu, 11 Jun 2026 09:50:52 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iEDyXIzzdC38rk8RYFhLfNXF5stK3Hmgc/6VdNEOfzZxs1fk7ZwLuO1YlS2q7MZAqdczav0826H/WFbSF21mOc8aDhz73ieYy3lUjelKFHSJDnTiIv3TfK/Cy0Eb+14z1nfJm+zvjTGdABocOJvg23+Hi6lhLVo3/xCtxzK5ZxziL+oRCOoXByDz9MPwJnO9qxlNt4z85DOWMgZLRGGA9fVxd4qD8v2NW2aRWNJlvLYfteDzsilBoj4JB5a1xTeqYv7AXMZxLs1QXftH6X6tpovBo1rWmStrGW+xJxLhgUDuZ3j3CHjEmUpXr/HA8Q/43NygC/vrWvMiPeupryqppg==
+ b=Xr0YeN4JlUgdFJrf2w3/aKqypgyH/Xh0qstXQHD/mIxVjNJBg0TirOTW0dROiEwOHin19iJ0REnuzpAfLJbaJ8XSLKeQWB2aSOz6Q0T0DdCup5wzb+dJK3D1a/IJBvCZVcSxFM846+fMU5w8tyBIoh7xxQQJpshvupYEF1dHdQfFLodFj4+n1/dPho7bD1YkG7bOcKjnrZC5HAa9gMpR3hB5XNT8wOOccc8wEJjTQrfB3PjDo1mWW0fgi29eH+L/v6fQ22FC3IgksF3U/u/MDIiwv/1Zf0LuRR2OQGkjJb0zwcjnAwCcHmKXMSCje4tcvefbf8BeZpTh7WA7xwEIZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Fzo6siJddZi8BRfNQCavodLcs3h/RY3sLkykEjWC5ao=;
- b=MYIRifUQJ7se0ehY5nJC7HboHa4WzJWMS34217ol8skm77j+ub8mk37Y79KIpTUHYfrdz4qf1hVuW8Mz9yECwtMhoCRG4CzilGJnt+mZLMR9IQ7LsItkGvWftiv66JGNfdY719n9Hj3O9TbBYOoluoQyIpgZg65fjG9+bGmI64AVNJPwrtYSsIwRADlnEL6acXdp8ninjcxw2LDsbhoc6o8lwHhZ8xodQVBVPXk1NrBPDyKfZB32j4j/eGnEzC8UMp9D61wnfDTNAVA9NkN4D6VdJqrdtpwqfYOoZoCiYTP7YshLvZORXNCwH7Hz5A/w05apa3Yyp5xiEz54SmGbjA==
+ bh=UAc1xAuqrqBbaNGTCiUioRckoU10tWBV0WzMjQokYxU=;
+ b=NZIKU3mghruES33sQTK9Rh/PBviqK4N3jhbQI5bqKhdwTw12fqVsnRNaDP2eLJMMQDVKr2ivsPpp5ssy6XptpBjL1qj9P9iX1tgJXeAzEZYEOey8EfClzKr4tnt3Id+aD19bT0cu4YwFW7snnO5/rdSHxhxLBNCF3vStKfCdxu+dro0Ni4KLQvmYPqSI380O+unqtqqc8x0twkF5JD7tRk//oDyY2/fn1UYGF1gPckt1VGK12bHNIAbWhoBO4xb9yr9KmTXXRMJkzKZW4UveUKOyKE69Tsz8nmfHKr2bmh4qeKNJOLW37dpIc8kZIZS711GKRsy79AcfBnZFIHznJw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=davemloft.net smtp.mailfrom=ti.com;
+ 198.47.23.194) smtp.rcpttodomain=davemloft.net smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Fzo6siJddZi8BRfNQCavodLcs3h/RY3sLkykEjWC5ao=;
- b=Q+wTZcICB/r65tAgYa+oIOrCEb+ABAIRzOGP3luLQV+1qvfxD2KOKAldjBdw8l9FfVZnCZcqPa7djXB7ETAQFPsM43vezLt6vq102QqJ8QFiOe/+geL6v81T+WT7wjDA9b49O+mYzFiPhh/aKxDE1f+5YvpOGXJl6DhLTxBH/pg=
-Received: from CYZPR02CA0022.namprd02.prod.outlook.com (2603:10b6:930:a1::10)
- by IA1PR10MB6781.namprd10.prod.outlook.com (2603:10b6:208:42b::9) with
+ bh=UAc1xAuqrqBbaNGTCiUioRckoU10tWBV0WzMjQokYxU=;
+ b=IvxR/5ZcDxYYJWtVirZehZpeTBtPVq+7mAMTNr/91DoTvb45vMXcIqmQN4GtDiKYIOauBX1XYEH5l2hpo/at4ZVrwmBOAEPcLwY5WiJKyqQx7Z9TR6+BU6f6Khw2lT6O0ijNNo5br2GEXXmcs+N3CHOET0J9IqoPMvs5agCAJZ8=
+Received: from BN9PR03CA0987.namprd03.prod.outlook.com (2603:10b6:408:109::32)
+ by CH3PR10MB6884.namprd10.prod.outlook.com (2603:10b6:610:145::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.18; Thu, 11 Jun
- 2026 09:50:41 +0000
-Received: from CY4PEPF0000E9CD.namprd03.prod.outlook.com
- (2603:10b6:930:a1:cafe::2d) by CYZPR02CA0022.outlook.office365.com
- (2603:10b6:930:a1::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.14 via Frontend Transport; Thu,
- 11 Jun 2026 09:50:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Thu, 11 Jun
+ 2026 09:50:45 +0000
+Received: from BN1PEPF00004681.namprd03.prod.outlook.com
+ (2603:10b6:408:109:cafe::17) by BN9PR03CA0987.outlook.office365.com
+ (2603:10b6:408:109::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Thu,
+ 11 Jun 2026 09:50:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CY4PEPF0000E9CD.mail.protection.outlook.com (10.167.241.132) with Microsoft
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN1PEPF00004681.mail.protection.outlook.com (10.167.243.87) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Thu, 11 Jun 2026 09:50:40 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.113.7 via Frontend Transport; Thu, 11 Jun 2026 09:50:44 +0000
+Received: from DLEE209.ent.ti.com (157.170.170.98) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 11 Jun
- 2026 04:50:39 -0500
-Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 04:50:44 -0500
+Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 11 Jun
- 2026 04:50:39 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 04:50:44 -0500
+Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 11 Jun 2026 04:50:39 -0500
+ Transport; Thu, 11 Jun 2026 04:50:44 -0500
 Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65B9od0v1626218;
-	Thu, 11 Jun 2026 04:50:39 -0500
+	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65B9oir9091847;
+	Thu, 11 Jun 2026 04:50:44 -0500
 Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 65B9ob1G014455;
-	Thu, 11 Jun 2026 04:50:37 -0500
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 65B9ogTL014470;
+	Thu, 11 Jun 2026 04:50:43 -0500
 From: MD Danish Anwar <danishanwar@ti.com>
 To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
 	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
@@ -93,41 +93,41 @@ To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
 	<liuhangbin@gmail.com>, Fernando Fernandez Mancera <fmancera@suse.de>, Jan
  Vaclav <jvaclav@redhat.com>
 CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	"Felix Maurer" <fmaurer@redhat.com>, Luka Gejak <luka.gejak@linux.dev>
-Subject: [PATCH net-next v4 0/3] Add standard stats for HSR/PRP
-Date: Thu, 11 Jun 2026 15:20:32 +0530
-Message-ID: <20260611095035.852370-1-danishanwar@ti.com>
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH net-next v4 2/3] net: ti: icssg: Add static_assert to guard stat array counts
+Date: Thu, 11 Jun 2026 15:20:34 +0530
+Message-ID: <20260611095035.852370-3-danishanwar@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260611095035.852370-1-danishanwar@ti.com>
+References: <20260611095035.852370-1-danishanwar@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9CD:EE_|IA1PR10MB6781:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95f8cc43-1b7b-4448-9b9a-08dec79ee5c3
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004681:EE_|CH3PR10MB6884:EE_
+X-MS-Office365-Filtering-Correlation-Id: 07d075ca-1a8e-43f7-b11a-08dec79ee861
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|7416014|376014|36860700016|56012099006|18002099003|6133799003|921020;
-X-Microsoft-Antispam-Message-Info: E5cbvSOWTn0086juRvqjrfZjMgtpzkF9sKig1PhJIQXxU2FYG08vrydAopu5FfGHbfXC2NJfD3avF+DpM0TvuAOBSnNAFhff7mcvsca8a5hkkSL3HnJh5fv1PnCqmid6Aq4b2vJdn/O1zAqBUDh+EoRP3raqA/CVOwKa5BoSAJKNbLMLAFBt5o/4Hh5teemk8FqDNI5pW42wOsmLWssdZDhXIm+bXWSaSBPmXMYHftrVSuxVlhkf9+JdiezsKIZ97B9+3oFDvjnrw9zBiTqfXy1o98CmeYT7FjXPQKyahEcXU5eRI9S8fyiQOd70khcbYxP47/XLVu/w/74xP+CGat2Jg33lWxPC8CYhKlZ8ose6RyWCscFr0W7hXk7nX2+uMAx8OWO6nmEex+jaOHt+/KQCdy4e0a53zpPays9nsBajP7YdGDyW7ydSJVjQxKyXa+MKrT7aKPDnklS9DIIq5MOMnrC4InDI7yiDtkIGTSRcdK2G435ZWm3UZZtv1pNIZdtjbP1lXxGecFe+TbB6o/ACMGqBRUwha2ZqhHznryh/LpC/lXmA5nw15l6ZH9wb6022H6LzxWWb7XAyqLLJHdgMFNpyHhIimx/obGXXYB+m7eTiyrGe3JeKENrBlEuiWLQAimiv4nZh0SyL6L7SGvDWaGLhUaV7fDtCLk9l74M9aoiHZ9Nb+07vYyC5SYMVOgpf4rPJjSw5xEqiM+oG6x0oEd79DCTyiWJMv+ze8qPv/Y5rwWpD58zj7NXYEvfkGbIj67LK3O+iHwNv75u2Dw==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(7416014)(376014)(36860700016)(56012099006)(18002099003)(6133799003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|23010399003|82310400026|921020|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 2OLlC1Fj+bFbLIrPdqQd314tDPCKhaW1KQkm2VwYeqHu89hQAxKVUkJFFNbXSAxmSb6do0w86KMvF4pUZ92DiYBKVPf/qnGgoRNXQAT4oh1cSaI9cQxENDlmdaKhMoGnrv4ZBNyIHeMNhQOJTuI8OXUikafQPQhYD5vN1BAyGKD9OwErWw8DuoWF43887Ww1/VLGzXlDwUhSycYNY1/zNXlotXsPi9I62JXPXY1sadnA6kugPQX6RHbSbt3lsdOcgvvWdKpGkJ7HRv8dd2wZcsnQE63GKd7R34OiLsnTvODrcv1iMkrMRL0eg5aRPN7vuStoBCnd/zAy91XB6ZvlYKqoxr3VgNGWOfh3c9c/lsNQhqaGfA+dwBO5d7UdDJ59XJfn1hnrEKQbWZm7sVENCHy6M58uSZFBzqC8rncO4vKzwWC1dvJipMW8tx08T03Sojz3hRxSRhIiYLK5xzIozC8ijsjtpj4nHwasWGHrqTwH9SVjBXLa1MgN2qpX2RGVUegVlo8fcboTbIUsN5V/CzyQm1/5ZL5dcs4vD9jxejDCu/U6e0aaLXo2GsvK6Bo6JLnfI2CAXNdZAwg4yVz5IkGPaQuSiBe73Xtfi73Yf0UhHn1bxc8CbRsYGH8CKBaIs7ZE6p7JaPaHl5T/X7HcJ+FoaEyG9fWRcSQz9AyeFr3irwhfWv8o0xbj/9tsDgaXXLYYscUyXoxoQu+tOJcDOFeRAEDy52bgjOaJ7mq/oDpzwni8UZr7UXG4GzC3twpaY2Jyg18+jjYDTvVQp0avJw==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(23010399003)(82310400026)(921020)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: j/7hI56omp8kftHaozcQnoZaYb2PdGcCE02AGLSvvEsPhulumYU13M4gp/NvTyOLCzkhzlWTshMoEvFTa+Ez+p+L6O6Ymbhr8h4eO6SvJ+Z5i1FDZ9/U1mC2ApRWAg6SBVU2SuKPcy2OK5QqfniksMyne2OUeAJXm78bnLHfPGmaC0w+ryR+eH3XYYSTLyFSHh8vSYOt+ToOOi+pV5d9LxlEVAGlyInG/+QDCdEKMeYjKWWReO/a2Y6+7IhF9pzt35Vk9r5IHrxu8oIAMc49aeqbQzxazh8oVNzgeVppqUKoO+vfJ/TsKgeqF6vyCC4+IHTLvuZ5vrzux1yPhKQy/lcPKsP06pufuaWVmhITGxRRoxcyIxVyxXFY2txe7RwFBLxbkeGTdz44J2P75L224HVvx3W9Xyy3Ge1EMPjQLSGmpyaiUvo4l69KwZLXKgBt
+X-MS-Exchange-AntiSpam-MessageData-0: 6Imi1F9GrBG8amyXBkC8lStWxBMyvCZGLXt2TX7WJLrh8nuP3QITBeus8uqi6TbtjPoqujdkjgJPWby9Ldu64y9YTsQMNANkblWkrhns/LUXONb2CCaAjrPmsWmkTsr5QsSgs36+XrwFNkVQZeUeEeFc7GRwoU7LMEueJI0gjBRl2lHwCDvOTBrGqskfHisuh4Ys1zQ1q2KEklyvhwoeKC4d5nB0ISk5rd7XOQw2jKMXq365r8/OssIJ8IbHQIeUZ8ADJhccaA3BR+THOSCi34eULsEe4zngD5V8Mm+b4U/+wg+ocMzpLKqsR+GER4f1z8FDxRYVC8u04RQtArtivP9olod3HWo939QEx5c5/2T/smV7meFQguvX8T4pFwXMBmmZ5dUVUl7UNKTTnUF00tGdQ4sr+0h7SwEkpeauQ5LM8iSEuIfF0c02JlZM7M5Y
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 09:50:40.5814
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 09:50:44.9429
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95f8cc43-1b7b-4448-9b9a-08dec79ee5c3
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07d075ca-1a8e-43f7-b11a-08dec79ee861
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9CD.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004681.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6781
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB6884
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_025047_918549_E5D6EC31 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260611_025051_240182_8B95A0FC 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,50 +142,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add standard stats for HSR / PRP. This series was initially adding HSR/PRP
-related stats for ICSSG driver. Based on maintainers' comments on v2 I am
-now adding support to dump standard stats for HSR/PRP.
+Place static_assert() immediately after each of icssg_all_miig_stats[]
+and icssg_all_pa_stats[] in icssg_stats.h to verify at build time that
+ICSSG_NUM_MIIG_STATS and ICSSG_NUM_PA_STATS stay in sync with the
+actual array sizes. This turns a silent miscount into a build error
+should either the constant or the array be updated independently.
 
-The drivers which support offload can populate these standard stats.
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_stats.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-This series only implements offloaded stats. For software-only interfaces
-Felix Maurer had said he will do it later [1]
-
-v3 - v4:
-*) Address AI review comments on Patch 1/3 and Patch 3/3. AI review comments
-on patch 2/3 were not relevant to this series.
-
-v3 https://lore.kernel.org/all/20260608100930.210149-1-danishanwar@ti.com/
-v2 https://lore.kernel.org/all/20260514075605.850674-1-danishanwar@ti.com/
-[1] https://lore.kernel.org/all/ag87pBZfOyccPZTc@thinkpad/
-
-Cc: Jakub Kicinski <kuba@kernel.org>
-Cc: Felix Maurer <fmaurer@redhat.com>
-Cc: Luka Gejak <luka.gejak@linux.dev>
-
-MD Danish Anwar (3):
-  net: hsr: Add standard LRE stats via RTM_GETSTATS /
-    IFLA_STATS_LINK_XSTATS
-  net: ti: icssg: Add static_assert to guard stat array counts
-  net: ti: icssg: Add HSR offload statistics support
-
- .../ethernet/ti/icssg_prueth.rst              |  19 +++
- drivers/net/ethernet/ti/icssg/icssg_common.c  |   7 +-
- drivers/net/ethernet/ti/icssg/icssg_ethtool.c |  10 +-
- drivers/net/ethernet/ti/icssg/icssg_prueth.c  |  92 +++++++++++++
- drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  10 +-
- drivers/net/ethernet/ti/icssg/icssg_stats.c   |   6 +-
- drivers/net/ethernet/ti/icssg/icssg_stats.h   |  89 +++++++-----
- .../net/ethernet/ti/icssg/icssg_switch_map.h  |  10 ++
- include/linux/if_hsr.h                        |  48 +++++++
- include/uapi/linux/hsr_netlink.h              |  56 ++++++++
- include/uapi/linux/if_link.h                  |   2 +
- net/hsr/hsr_netlink.c                         | 130 ++++++++++++++++--
- tools/include/uapi/linux/if_link.h            |   2 +
- 13 files changed, 427 insertions(+), 54 deletions(-)
-
-
-base-commit: 0068940907d33217ae01217f84910a5cde606c17
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
+index 5ec0b38e0c67d..6f4400d8a0f61 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
+@@ -155,6 +155,8 @@ static const struct icssg_miig_stats icssg_all_miig_stats[] = {
+ 	ICSSG_MIIG_STATS(tx_bytes, true),
+ };
+ 
++static_assert(ARRAY_SIZE(icssg_all_miig_stats) == ICSSG_NUM_MIIG_STATS);
++
+ #define ICSSG_PA_STATS(field)	\
+ {				\
+ 	#field,			\
+@@ -201,4 +203,6 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
+ 	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_EXP_OVERFLOW),
+ };
+ 
++static_assert(ARRAY_SIZE(icssg_all_pa_stats) == ICSSG_NUM_PA_STATS);
++
+ #endif /* __NET_TI_ICSSG_STATS_H */
 -- 
 2.34.1
 
