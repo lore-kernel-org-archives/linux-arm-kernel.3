@@ -4,142 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC9DCD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F264CD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i7IqFC9ihtjEneC4EZoLoeTj7S+sFsnYLBXtu2KQza4=; b=4Iag1dQREm7W64B2UmMRB+J0Pc
-	PubM053+OKNIWw/7go+bSMNMYIpsBAXbvkYWF/7CbUBQvc/wuN7AgRpjmfTfUseDxH/wTcmCyenNR
-	9NnoF78dMcMfYUfWc/8+5cmXDVUZRqR52u8cCUYzFJB6vEWiETg80zVCnY3wzjAtR1ykIaiI4urBC
-	0FvPhs85M5xIClym0zj65goosra8GKoldldbnns6wTPpBCp1uRvsUnRSZhD0HJrXHyfK42gx1IGlZ
-	+yAZ4g18Jn34K1LZx4k/MeyxCb/bfVedK+XVF/LmwD8CMpptt1JRdIIZuPJL8dhmsspzC7MPJhGst
-	A++YIcMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0o9VuT/lUhj5kehhZ7ULH4yOrc6OyF+CLGJrjrndiNc=; b=CchMnmbXiqoCDAbudIo+pztQdy
+	8r652SoCO9Mt5s9hQloFxz/xFdjZtjRl5S6iuCi5O1IBrBz+T5t1tp69waAX//X8s0qZp9UFZgM8v
+	JyfWCGqyb09Y/zDWubJAt0UWAIbCH24V78D9FVRowyO4OkgcIDVMOKIWpEi/mTm9mlrjWAIbEuvA5
+	ReM3En6/7ZJU2zO4v900CGMxiEpNtyoU/w3mSi6oNh4t3tQyH9EmIs7tgd049j+k4T1t/82tw+WPb
+	+kPQIRe5JKjj7+0Mf7poeUCzZuGTE3WBOYdy+56M6itogUTMlOT4NHHtKMpA9uFW9Xu+JEaXtn3yX
+	RJC7JZPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgKZ-00000009aCm-36Qy;
-	Thu, 11 Jun 2026 14:24:27 +0000
-Received: from mail-northeuropeazon11010016.outbound.protection.outlook.com ([52.101.84.16] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wXf53-00000009U0s-256Y;
+	Thu, 11 Jun 2026 13:04:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgKX-00000009aC9-0YDv
+	id 1wXf52-00000009U0d-2C5h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 14:24:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mMeg+76vJJ80KDwFCIqDW6oFxLaIwJnB1dtrG81eEeLoZalzUBIQIuAvFbUlZU+HgYDceuX7ANINAF8WUEqc2Xp/0T1yshXl7hEB1gYsPJ6AKyYjkNi+DJAqaTVZgKc43gGXMpR3dH47qmDLz/nFyWT+nZyj/T7Rdwrqj01MB5JBmZR8NrXN6Nad/CDqCgQzo0ZOK94JYGm8LHgTt4VoHqmuRwi71ak+GTbVnNIMZbE7x/zJGofAT1von4DbDVwbqUVFNwe2ITy94vOKad1lwmBqYqBDKEmb21WB4rEfZMwRIigp1Hs6XdI62lG8lxfGYjW8RslBYTLfh7I2mnLtnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i7IqFC9ihtjEneC4EZoLoeTj7S+sFsnYLBXtu2KQza4=;
- b=QnJYxrxshiq6QxtpI/MKFRpaQ+g5E5ZokNvEnwTK5bNYcfeGK6wJ+8jMUVFTAylZ+l37Tt/RI04jLqUO2b9Jv0fZ/y0/RbhkGpe4q2LWLSOZJ7vfeWcDaZBwtOeCnlXiXQm3ybLNzIiVaFUw9ajAJW90ICd3cQAk3JGRuyr496t13EwaA9Ik24hgrwmBv3Otwi0zPbOi2qXoiUaSdKJAwRRa6ExjegA4QHs259H9P7WWsx3T+5A5yAkpnkkR0M+HFReF7tdws0fBgYRSzSFhRdmXq4L58AbG7i1c4WJF9+7PN/IZ0lAPxaXJDm29RGRWF4s3FRcXSkJFMP658iMNug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i7IqFC9ihtjEneC4EZoLoeTj7S+sFsnYLBXtu2KQza4=;
- b=WN6+B1lPBZwgsZKo7Mv5neK7CCWM1TOKBpwWcYAGK/UIGFtmp8uJwadW7l/SW7Edh4IjbFaMenVggqz37+lUQqEBqpSjq8U4PH+Gog+e1vufq/D+7BwuU1/NQpzmdJwOF7irEKqzVsu3vuQUifjnCURXG4wDNYEW23ACLGi4g7rhx9rly41cuG0k81SLp5IuCvuhbGmNp0WmpMDTpS8jUf+0xr2s2ZjTa14NhLSXNsqjFhOOSoOQLjnftL3/5PtauuztIfjhaNvp3CoWPFyuLI9TCcINpyKirLCtVBsmqf1jiTVzOf5mxzsYvEiZkYvV/w95ZP6ULay4AIHJs1s7Ag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB11878.eurprd04.prod.outlook.com (2603:10a6:20b:6fb::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Thu, 11 Jun
- 2026 14:24:19 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
- 14:24:19 +0000
-Date: Thu, 11 Jun 2026 10:24:09 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
- optional "memory-region-names"
-Message-ID: <airFCYTIPiOUG3DJ@lizhi-Precision-Tower-5810>
-References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
- <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
- <aihB5rVLsVqzg6cb@p14s>
- <aihIIwt_9T7yYxP3@SMW015318>
- <CANLsYkxw6rbWNom8rNfKurKAXKpihqV1LTd51D5YXG4oFP6-wg@mail.gmail.com>
- <20260610-accomplished-antique-mink-cf0ead@quoll>
- <ail0sH1UhnQBPRkr@SMW015318>
- <562096a5-6601-42ae-9d88-90a72ee075fc@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <562096a5-6601-42ae-9d88-90a72ee075fc@kernel.org>
-X-ClientProxiedBy: PH8PR02CA0050.namprd02.prod.outlook.com
- (2603:10b6:510:2da::19) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 11 Jun 2026 13:04:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A11F4406E;
+	Thu, 11 Jun 2026 13:04:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 195281F00893;
+	Thu, 11 Jun 2026 13:04:16 +0000 (UTC)
+Message-ID: <9da8a414-4fef-40b0-928d-ce356c77ce7e@linux-m68k.org>
+Date: Thu, 11 Jun 2026 23:04:14 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB11878:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ef94f4c-671e-4d0d-bf1a-08dec7c51fa1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|23010399003|18002099003|22082099003|5023799004|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: rNeFHRijJB9jzmRUMx+Rau6k6LlEm++G4xFFYk6kU7YkRt3Q2Vhv4Sht5tYujYcOqLBMRWXwritFjyV0LqPivDBvLSj020KVE2EAb5W83OYLBo1MjNk7DAHe6HX0hNmNpOlkDTCvcuWRyOEOcvqAPG2hER2X3PRvJm6ffZY7ymjI1Rs7ce7BHrd3+i7z6WT6ZqjRVnBwSjul78tljjbPiCy0ns1qRQs5xu10Uol9FR+D6MfCCYlobjviGcl42KGS032wbSaJTHPJiQghuTB/lIwJbUi32HXIYEcaOxYcYGbNeSFPkycX/0weRMpaht5C5NcQQ11YRK8Cf70hUL8JP6kJ79lMe8RUHdxPFjBiTU/FryVM97Q7Qci5k8LM0GkU4kbYTETVe0ezNUr8+ca5Vpp1tqIH5JZ0gKj+SiuwyQyA7KQhSgw9AW+8dzE08sVrbvmzO7AY2UwoRNcatLt7QZGVXm1LJOK54THxq04ksOgUsnkvlysoHft8yk7UZAXrhsvoLDUTWk4jczMimOdDEGIaocEtH8aWi1NvSti630uo3LjzGTLxPm2CThSGTIc6EvPBEVmug3NdbgnVp6DsLNQJxPrJscSjUZlIE9wBAEs9KFGCGePxTBQcfGp7dxAfhfFlMe6BCVaimkXzqrnatKZfdJl5B8Q+nzuIC6fmouqjn4z7+Vaf82UqgikGyUUr
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(23010399003)(18002099003)(22082099003)(5023799004)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Uto3eMpZQ6uXaG0Sj6TJh8aIwRU6K7O6LkHJZhTVZULy3xCqVPmYfc8dwu9o?=
- =?us-ascii?Q?F+AX6yW99OwlF84EKPKAzlSlCkuadgZncYqQneP0WlxD4Ff0HqDfUvjTpjkz?=
- =?us-ascii?Q?4ozfZE+bYhP6Ut0ZeiOg8zh5l8a6/b27pY+rySlaSn77EZN9msMZjSzjH41U?=
- =?us-ascii?Q?MCPAWwHFc27rXc63uW5geJLqBw3Jijh5Rzqj65Q/EX/rEycOo68JCiD+JEE9?=
- =?us-ascii?Q?rroMRFUzFIY9bkTeSP1xKvEKMzDMMxmtSDKde/OgiX3j2g1feei81tGy63PF?=
- =?us-ascii?Q?Y+gs3StLL+yZa1fW32v1ZaxhtEQtd2Wk1mZfmqZXB0KWofbPCzVIooNfXJyO?=
- =?us-ascii?Q?nkTNUXS3fX1GHVTDM9gNrZeeRaT8YZye3Mf72K2kj3FlWKu7/+ENyXBclniU?=
- =?us-ascii?Q?UJCksIMRMWpMiyai2SagDyd7uPHtGv/fNqCQ0dUfp9VIF1BaiohKyFq6YHUE?=
- =?us-ascii?Q?oMbYC9MJOWkOjQ3mIIpYAEBZGLoPZcbly+0gJHKz3PPTxUhHTBUaKqEK+/+r?=
- =?us-ascii?Q?JPmYjqz1X2UPnfWSxgQ/0EnpL36X3oIigVKXvuSr/ozNSu1Bm5Hu6Ps3jD9q?=
- =?us-ascii?Q?o1X4qAcmSYIFJyL3ewrWiNqg5V/xpmF1XiF0ByMCbJvc7vUXntYmL7XAm6Zf?=
- =?us-ascii?Q?hE6X6WhtzvfE1LYDWE9XWn4WBPzbEJFHYOABytoMXgGK3ls3yampj1lrGpkC?=
- =?us-ascii?Q?j8OOPSPpzo5FVOLCBP97Pvh+34qdL7Ix6HPWfTeuFsd/toM8w9WX7YP5KTiM?=
- =?us-ascii?Q?R3yjEz5H1ReW07wdbTrgTJKGHRDrMNpkxkfwCoAeEe3DAM0c7lyuqYJE146S?=
- =?us-ascii?Q?5mOERKX21cKjBO/qhGtXLIVDrsxno7w9fmggyWh0UHB/elvGcW4+lPpvOl/Q?=
- =?us-ascii?Q?kykLIKE6Snj7zwct6+yBJzEQWvctfqYiP+MqQ/MSSPAnZSB3IL2BN/jwYfQZ?=
- =?us-ascii?Q?vpTt/KJ+U+mMoC388wEQFV2D1CcL2fqx+SzBifDEDN2S9D0Ia6pAjYvHH+RP?=
- =?us-ascii?Q?NT2Lns7/KSyEnAYAhuuX/2SYGXN42w9SKqNr7MQMYQLlgI60I4Nh+Q/lNpWA?=
- =?us-ascii?Q?KkedqGQwHRPrHJ/noDS7243eEprooKsQSx+YFuvtyoP+zz2bAffWssczZ1BR?=
- =?us-ascii?Q?TpWaxUSCc2k65uT9c3eRqEnqV0BbsyPhvVvg546Z9n10n1Ufn+DhyZdt0ZkM?=
- =?us-ascii?Q?9AyVNihfrYu2PLduG8v+DVWipT8TYmGZP1tjK5rb42UFGDYMrP9BBrKlS1h0?=
- =?us-ascii?Q?Z8yxk1/B0OLokCJ6zKJUF2//VgpPqPTlUpb1ocXEuNPxlwkRP3/zdwWV+eXj?=
- =?us-ascii?Q?oCubxNIoIgJHkfGPw8mUZRq0+1j711OC6xMBD1ggF4pIoOfiviIpWlhxpRpW?=
- =?us-ascii?Q?pUOrZHwZmHl9RqNF3gL7bdmyHs3ZJ3zFApgF8s6l9hGz01Bx0NydWaHWeKpd?=
- =?us-ascii?Q?fPzo83isbLft/S5Kr4v2Nz5qK/bzm3FlcqlpFvOdgg63lHWe3IxXRdnQS1IP?=
- =?us-ascii?Q?6BPexVj3zhNxmWYSqhYlMRzHONuSXIP381z0YfJU7Mk0piz6dWDn/oGsLtz0?=
- =?us-ascii?Q?QQ/Il9e4Jur8TL+dTSRVI7Xdjr5tUd/vFqV6JHKCa6pdVZIJbqRMuZSth58k?=
- =?us-ascii?Q?MWhDhA8QCPGA/OYPDooSewGj1sq8hyCGrqDpeUlNOdpYJpx1Hun4L7Hbx5WL?=
- =?us-ascii?Q?dNeWDxkElAjQu9j7JNPEY5Rc5/4sks9eeQyTO4nQeL+UxyJzR/opzynt88fO?=
- =?us-ascii?Q?prRPxBoo0Zu3ikZTqB217s6vNg8fm/tCkGgZU6YP+8vLPn1rLn/b?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ef94f4c-671e-4d0d-bf1a-08dec7c51fa1
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 14:24:18.9172
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NfsncWlML7vi/P081A4xH7B9ztrAYEeR4KhaqqNaB37CZwu4EHBBZYCBf+Omldgckmr3GXY8n6GnhD0Vqi/wOjBEHhs0VPsI+1FkwXgo96Fa4d8Xq+9vOeb8Fn3dHDe0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11878
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_072425_184077_AF5887EC 
-X-CRM114-Status: GOOD (  14.67  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/10] add mcf54415 DAC driver
+To: Angelo Dureghello <adureghello@baylibre.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>,
+ Arnd Bergmann <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>
+Cc: linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+References: <20260610-wip-stmark2-dac-v5-0-b76b83366d5c@baylibre.com>
+Content-Language: en-US
+From: Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <20260610-wip-stmark2-dac-v5-0-b76b83366d5c@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,38 +67,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 03:47:00PM +0200, Krzysztof Kozlowski wrote:
-> On 10/06/2026 16:29, Frank Li wrote:
-> > For example:
-> >
-> > rsc_table: rsc-table@90000000
-> > {	ret  = <0x90000000>;
-> > 	no-map;
-> > }
-> >
-> > m4 {
-> > 	...
-> > 	memory-region = <&rsc_table>;
-> > }
-> >
-> > If you change node name "rsc-table" to "memory", driver will failure
-> > because it parse node name "rsc-table", which phandle point to. but no
-> > binding to restrict node name to "rsc-table". So rsc-table became hidden
-> > ABI.
->
-> Then you need to fix the driver to not parse the node names. Node names
-> are not supposed to be ABI.
+Hi Angelo,
 
-Yes, that is this patch set's purpose. Just need below steps to do smooth
-migration.
-1. allow memory-region-name as options for binding
-2. update driver to parse memory-region-names
-3. update all dts to add memory-region-names
-4. remove old Node name code and change binding to force memory-region-names
+On 11/6/26 06:35, Angelo Dureghello wrote:
+> This patchset adds a minimalistic DAC driver for the NXP mcf54415/6/7/8
+> builtin DACs.
+> 
+> Currently the driver enables the raw write only. Feature as dma, sync, or
+> format are not supoprted for this version.
+> 
+> Additional options suppoerted by the DAC module will be added to the driver
+> later on, as needed.
+> 
+> The same patchset prepares the m68k/coldfire architecture to support
+> the driver.
+> 
+> Below some basic tests done on stmark2 mcf54415-based board, voltage check
+> on DAC0 and DAC1:
+> 
+> ~ # cd /sys/bus/iio/devices/iio:device0/
+> /sys/bus/iio/devices/iio:device0 # ls
+> name               out_voltage_scale  uevent
+> out_voltage_raw    subsystem
+> /sys/bus/iio/devices/iio:device0 # cat name
+> mcf54415
+> /sys/bus/iio/devices/iio:device0 # echo 4095 > out_voltage_raw
+> /sys/bus/iio/devices/iio:device0 # echo 2048 > out_voltage_raw
+> /sys/bus/iio/devices/iio:device0 # echo 4096 > out_voltage_raw
+> sh: write error: Invalid argument
+> /sys/bus/iio/devices/iio:device0 # cat out_voltage_raw
+> 2048
+> /sys/bus/iio/devices/iio:device0 #
+> 
+> Same behavior for /sys/bus/iio/devices/iio:device1.
+> 
+> Generated a sine wave by shell script, sine shape is good.
+> 
+> is actually in progress:
+> 
+> Note: this patchset depends on mew mcf_read/mcf_write implementation that
+> Link: https://lore.kernel.org/linux-m68k/209d0653-6386-4b64-9e15-e358f84453ab@app.fastmail.com/T/#t
+> Link: https://lore.kernel.org/linux-m68k/20260506142644.3234270-2-gerg@kernel.org/
+> ---
+> Changes in v5:
+> - keeping changelog in each single patch, where any
+> - Link to v4: https://patch.msgid.link/20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com
+> 
+> Changes in v4:
+> - keeping changelog in each single patch, where any
+> - Link to v3: https://patch.msgid.link/20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com
+> 
+> Changes in v3:
+> - keeping changelog in each single patch, where any
+> - Link to v2: https://patch.msgid.link/20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com
+> 
+> Changes in v2:
+> - keeping changelog in each single patch, where any
+> - Link to v1: https://patch.msgid.link/20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com
+> 
+> To: Greg Ungerer <gerg@linux-m68k.org>
+> To: Geert Uytterhoeven <geert@linux-m68k.org>
+> To: Steven King <sfking@fdwdc.com>
+> To: Arnd Bergmann <arnd@arndb.de>
+> To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> To: Jonathan Cameron <jic23@kernel.org>
+> To: David Lechner <dlechner@baylibre.com>
+> To: Nuno Sá <nuno.sa@analog.com>
+> To: Andy Shevchenko <andy@kernel.org>
+> Cc: Greg Ungerer <gerg@uclinux.org>
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-iio@vger.kernel.org
+> 
+> ---
+> Angelo Dureghello (10):
+>        m68k: mcf5441x: fix clocks numbering
+>        m68k: mcf5441x: add clock for DAC channel 1
+>        m68k: add DAC modules base addresses
+>        m68k: mcf5441x: add CCM registers
+>        m68k: mcf5441x: add CCR MISCCR2 bitfields
+>        m68k: stmark2: use ioport.h macros for resources
+>        m68k: stmark2: add mcf5441x DAC platform devices
+>        m68k: stmark2: enable DACs outputs
+>        iio: dac: add mcf54415 DAC
+>        m68k: defconfig: update stmark2 defconfig
+> 
+>   arch/m68k/coldfire/m5441x.c         |  21 ++--
+>   arch/m68k/coldfire/stmark2.c        |  47 +++++---
+>   arch/m68k/configs/stmark2_defconfig |   2 +
+>   arch/m68k/include/asm/m5441xsim.h   |  42 +++++++
+>   drivers/iio/dac/Kconfig             |  11 ++
+>   drivers/iio/dac/Makefile            |   1 +
+>   drivers/iio/dac/mcf54415_dac.c      | 216 ++++++++++++++++++++++++++++++++++++
+>   7 files changed, 316 insertions(+), 24 deletions(-)
+> ---
+> base-commit: dcf93520157c17ddfb1f43b66fcdda27714ff1dd
+> change-id: 20260430-wip-stmark2-dac-7060f49dd94f
 
-Frank
+I am happy with patches 1 through 8, I think they are ready.
+I have pushed them into the for-next branch of the m68knommu git tree.
 
->
-> Best regards,
-> Krzysztof
+When the driver proper (patch 9) ends in up in mainline then I will
+push the defconfig update (patch 10).
+
+Thanks
+Greg
+
+
 
