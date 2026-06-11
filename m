@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 076E3CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33988CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCg9Hqm7ayU+yntIQKSbwUsJtNtLPR+veL4deSHIddk=; b=J4HSArwdWbRYUsb8hJ9OlgRmBw
-	XAKwR8IHE+BC1Ey9SuBwuospHtQnAS4fWwYNTguBtbTmw1lCVcmM3OLSZMCBhX/N0hN0RpKeG1u6b
-	9R4zk4pzhXGXj4Q5/JYQRbXDpF4PixdR6tVDVlzRGMcItemUHB3txymMAvnKft4E1T/cbRzYugtYu
-	mucdCKZu+dJcQFH0/sUipx1lPsb2g3Ms33t/i5rcA6RypOZTAOLC3vQuKjg/TzSp8UeenNfH2cSWy
-	kAb8Dio0vq2cThI4o/uT1Zc5T1jv9Dk6q1HrhEpr3lE4rxhphVcTwvMCPfss36ianX73s9LFt8Ej/
-	Z8d6iUEA==;
+	bh=GKHh+i98qXgSxoXMtEh8DwSS3JvwNP6esO4z1NwS6xM=; b=Ob4yrBkoAcO1O1Mc/Ru9FaCRN7
+	dUK1pxoIW71086EVoI2xjH8FZxIvUfwLVeJ7fhSOiYAkzIQJMZCI3IFlC+2slXM8GHSjsZLtOGuzQ
+	aT8HIJdGPkb9g6580xsg0ibWdeyp+Tqd/3qljw7s69kbwZdDhpQdb8AxocJjfDLeMKZJMtGINFEkF
+	aj/DH3cAh6v7k7FZQkPpX6qlSdL1MVT9M+x6y6a7USycehUVf3RTkdYsu+VS9FdVu1/3DtW22pfn2
+	F6+6IGfnVsaQogNTD4nOufkqAlvuwXQ1GgCpUwbtp1809OxeMOq7xTfHN3bTpJUY1ridWaAGtRAAV
+	H5HRDtPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXjIF-00000009piy-2y4g;
-	Thu, 11 Jun 2026 17:34:15 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wXjIW-00000009pnE-42sf;
+	Thu, 11 Jun 2026 17:34:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXjIC-00000009pib-1DTB;
-	Thu, 11 Jun 2026 17:34:13 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 53E8E497;
-	Thu, 11 Jun 2026 19:33:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1781199219;
-	bh=PUdP8+dV2ponyYfNZPXosiifb82vhoKU5HMO0eoPZIM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cq+ZsmyvgN8N+mcOrcuTo2MSn6umEMkc/ctQYdSqE5BeH6MFisezVk9WyefBAGlJJ
-	 isIFZcUzftU8awr9owIJrBT4fcx8S5CbxgDRgvva6/hNO68Ygym6oVtyWjfbmR+nO7
-	 WC2HBkarqTgjcZvoWR7Pp1FwzKdpQZWpTpPM6BqE=
-Date: Thu, 11 Jun 2026 20:34:07 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Eugen Hristev <ehristev@kernel.org>
-Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
-	Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] media: bcm2835-unicam: Fix log status runtime access
-Message-ID: <20260611173407.GA1910728@killaraus.ideasonboard.com>
-References: <20260611-bcmpipm-v3-1-c609dacb029f@kernel.org>
- <20260611080348.GC1758601@killaraus.ideasonboard.com>
- <3b142d52-53d1-4942-bb45-1cb9645c164b@kernel.org>
+	id 1wXjIV-00000009pmh-2r8j
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 17:34:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BE8B9600AA;
+	Thu, 11 Jun 2026 17:34:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80CB41F00893;
+	Thu, 11 Jun 2026 17:34:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781199270;
+	bh=GKHh+i98qXgSxoXMtEh8DwSS3JvwNP6esO4z1NwS6xM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WBGOLwOPKlQV6+sE9zz8JwaW+U6eQ41T1PaK4+OBs710o7wY/sz3qlenlWQgkh8dD
+	 aCG+5Kp5ivhAeQ7yiguw217xqOzRHMDMbqF1DNHt8Zhenu5WIo5TXnzSCX2VMCGSm8
+	 gU/MCaNbgGqO2nKYO1UKqbZA4u0O7n/TAC9A7WNkhIXNqmNblPqP4FiFNILC5nAes/
+	 w56jKalmnmKxLWh9UsPQZCAZqUkMZJb7LP1/DMRhGCZQt4tWlV0yvT4qdApvYO64dE
+	 ugtkv//iFm0fFAYCSCwndkfW/oMXDCwuDpX/SGvNHRV2dB1Imij6q8gqc+Nflu66J0
+	 eiKiohCDZcmUQ==
+Date: Thu, 11 Jun 2026 18:34:26 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Subject: Re: [PATCH v3 1/2] dt-bindings: spi: nuvoton,ma35d1-qspi: Add
+ Nuvoton MA35D1 QSPI
+Message-ID: <20260611-decoy-glamorous-81903a5fd1f9@spud>
+References: <20260611091246.2070485-1-cwweng.linux@gmail.com>
+ <20260611091246.2070485-2-cwweng.linux@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y2HC3MSDBPXqvEKI"
 Content-Disposition: inline
-In-Reply-To: <3b142d52-53d1-4942-bb45-1cb9645c164b@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_103412_474777_DD18A12B 
-X-CRM114-Status: GOOD (  26.79  )
+In-Reply-To: <20260611091246.2070485-2-cwweng.linux@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +73,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 08:18:10PM +0300, Eugen Hristev wrote:
-> On 6/11/26 11:03, Laurent Pinchart wrote:
-> > On Thu, Jun 11, 2026 at 08:29:55AM +0300, Eugen Hristev wrote:
-> >> When requesting log status, the block might be powered off, but registers
-> >> are being read.
-> >> Avoid reading the registers if the device is not resumed, thus also avoid
-> >> powering up the device just for log status.
-> >>
-> >> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-> >> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
-> >> ---
-> >> Changes in v3:
-> >> - Changed to check return value of pm_runtime_get_if_active() and only call
-> >>   pm_runtime_put() if the device is active.
-> >> - Link to v2: https://patch.msgid.link/20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org
-> >>
-> >> Changes in v2:
-> >> - changed to use pm_runtime_get_if_active()
-> >> - add corresponding put()
-> >> - Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
-> >>
-> >> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-> >> To: Mauro Carvalho Chehab <mchehab@kernel.org>
-> >> To: Florian Fainelli <florian.fainelli@broadcom.com>
-> >> To: Ray Jui <rjui@broadcom.com>
-> >> To: Scott Branden <sbranden@broadcom.com>
-> >> To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-> >> To: Sakari Ailus <sakari.ailus@linux.intel.com>
-> >> To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> >> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> >> To: Hans Verkuil <hverkuil@kernel.org>
-> >> To: Naushir Patuck <naush@raspberrypi.com>
-> >> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> >> Cc: linux-media@vger.kernel.org
-> >> Cc: linux-rpi-kernel@lists.infradead.org
-> >> Cc: linux-arm-kernel@lists.infradead.org
-> >> Cc: linux-kernel@vger.kernel.org
-> >> ---
-> >>  drivers/media/platform/broadcom/bcm2835-unicam.c | 12 ++++++++++++
-> >>  1 file changed, 12 insertions(+)
-> >>
-> >> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> >> index 8d28ba0b59a3..96b51e29bba4 100644
-> >> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> >> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> >> @@ -2043,6 +2043,7 @@ static int unicam_log_status(struct file *file, void *fh)
-> >>  	struct unicam_node *node = video_drvdata(file);
-> >>  	struct unicam_device *unicam = node->dev;
-> >>  	u32 reg;
-> >> +	int pm_active;
-> >>  
-> >>  	/* status for sub devices */
-> >>  	v4l2_device_call_all(&unicam->v4l2_dev, 0, core, log_status);
-> >> @@ -2052,6 +2053,14 @@ static int unicam_log_status(struct file *file, void *fh)
-> >>  		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
-> >>  	dev_info(unicam->dev, "V4L2 format:         %08x\n",
-> >>  		 node->fmt.fmt.pix.pixelformat);
-> >> +
-> >> +	pm_active = pm_runtime_get_if_active(unicam->dev);
-> >> +	if (!pm_active) {
-> >> +		dev_info(unicam->dev,
-> >> +			 "Live data N/A due to device inactive\n");
-> >> +		return 0;
-> >> +	}
-> >> +
-> >>  	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
-> >>  	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
-> >>  		 unicam_get_field(reg, UNICAM_PUM_MASK),
-> >> @@ -2065,6 +2074,9 @@ static int unicam_log_status(struct file *file, void *fh)
-> >>  	dev_info(unicam->dev, "Write pointer:       %08x\n",
-> >>  		 unicam_reg_read(unicam, UNICAM_IBWP));
-> >>  
-> >> +	if (pm_active == 1)
-> >> +		pm_runtime_put(unicam->dev);
-> > 
-> > As far as I understand, the discussion on v2 concluded there was no need
-> > to test pm_active here. Did I miss anything ?
-> 
-> Sorry, I saw the message from Sakari and he was pretty confident on the
-> right way, he even mentioned that all sensors should be fixed, and has
-> not come up with a follow up since.
-> If v2 is the right way, please disregard this v3
 
-Let's see what Sakari has to say :-)
+--y2HC3MSDBPXqvEKI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> >> +
-> >>  	return 0;
-> >>  }
-> >>  
-> >>
-> >> ---
-> >> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-> >> change-id: 20260521-bcmpipm-6c578e73239c
+On Thu, Jun 11, 2026 at 05:12:45PM +0800, Chi-Wen Weng wrote:
+> From: Chi-Wen Weng <cwweng@nuvoton.com>
+>=20
+> Add a devicetree binding for the Quad SPI controller found in
+> Nuvoton MA35D1 SoCs.
+>=20
+> The controller supports SPI memory devices such as SPI NOR and SPI NAND
+> flashes. It has one register range, one clock input and one reset line,
+> and supports up to two chip selects.
+>=20
+> Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+> ---
+>  .../bindings/spi/nuvoton,ma35d1-qspi.yaml     | 62 +++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/spi/nuvoton,ma35d1-=
+qspi.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.ya=
+ml b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
+> new file mode 100644
+> index 000000000000..d3b36e612eb0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
+> @@ -0,0 +1,62 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/spi/nuvoton,ma35d1-qspi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Nuvoton MA35D1 Quad SPI Controller
+> +
+> +maintainers:
+> +  - Chi-Wen Weng <cwweng@nuvoton.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/spi/spi-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: nuvoton,ma35d1-qspi
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  num-cs:
+> +    maximum: 2
 
--- 
-Regards,
+Missing a default of 2, unless you make the property required.
+FWIW, your driver doesn't appear to read this value.
 
-Laurent Pinchart
+pw-bot: changes-requested
+
+Cheers,
+Conor.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - resets
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
+> +    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
+> +
+> +    soc {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        spi@40680000 {
+> +            compatible =3D "nuvoton,ma35d1-qspi";
+> +            reg =3D <0 0x40680000 0 0x100>;
+> +            interrupts =3D <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> +            clocks =3D <&clk QSPI0_GATE>;
+> +            resets =3D <&sys MA35D1_RESET_QSPI0>;
+> +            #address-cells =3D <1>;
+> +            #size-cells =3D <0>;
+> +        };
+> +    };
+> +
+> --=20
+> 2.25.1
+>=20
+
+--y2HC3MSDBPXqvEKI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCairxogAKCRB4tDGHoIJi
+0t3XAP9qcUqAyCExrvNM+WH+fRqlgDWYgVPPEhDhcx5b6gpGFAEA8y09z/Esd2jw
+HHAZ8eWuMulndEiQ+EbaDJydemUtwA4=
+=JpZM
+-----END PGP SIGNATURE-----
+
+--y2HC3MSDBPXqvEKI--
 
