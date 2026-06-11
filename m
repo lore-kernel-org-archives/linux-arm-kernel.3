@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BA7CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86A4CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zd41XiatIhmkg77GVQHRQLalQhR4rQLqWbEQKAVQlyk=; b=g0fGHPQKU3rRL94SNQBeR6q0M7
-	OJItClIrC4o+SyNlEaIJDBikROT7wwS3jdWWd6J4w4SQtfv0Q4yACMqD+wQ3wCQR8ZFsAGR7hFMVc
-	lor4vgTldSypBqni8U2Y/Or7hpnSdnkdtfnYTHC/kRMinFwiQXTxz1htp7bYBRPd3QASM5kwDcPEp
-	WIthQeCodSsRK9KM4I7ruxs/6bDjddmyxzmFSl0si4cW0K/ldrVTLTJPR3lh47EdpzTmcVwuo1dK1
-	6C2NGZpT+70Ha6caoHtsz9WgIgq4byDJaPzNmSKkV/iUqg4CpbJjgaASq5DTa7g9Vfk5L54ESMkez
-	VP6T4dTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8YUgGB7unUfuXaH5pfE121ZOgCzzrH9HhF5tOcGI554=; b=iNM9VkIdT4h5nr22nmtmN1sMgh
+	LSqz84ODbyxtf5nKHIJUKIJZznc5kF6AhcnMBRrNfERxKTMXfCxxrpvxocTgnxBSlnr2YHqcqJWKE
+	ekKlIfGB7wiYqwrVs+aiEAVCAtbGXsTaJ4XL0MHZ6JsCaklcyHjFlKwNpEhLmSg6K5R60T/KnauMc
+	m5KZvRnvQFq0aIaQQwjitRcINpJKWOKjB6kxVwtcRU8bir+m/kKMSAAwjGs66d4JYkd4wZTPRy6yn
+	xCEkh8FchaF4MPwCEkSpK69F4VdBaaUK0F/qFbjfvdk0PFnSvhvd+U0AAYPGKJzfBO49teCbZx/Ck
+	I7TtJfHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlcA-00000009zIT-219Z;
-	Thu, 11 Jun 2026 20:02:58 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1wXmIs-0000000A3xc-2a4O;
+	Thu, 11 Jun 2026 20:47:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlc7-00000009zHe-2pzF
+	id 1wXmIr-0000000A3xW-2XBe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 20:02:57 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-69e8aa31e9fso138111eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 13:02:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781208174; x=1781812974; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Zd41XiatIhmkg77GVQHRQLalQhR4rQLqWbEQKAVQlyk=;
-        b=FFvCDmk2kIpoKOObsrcMRhXiU9zX+iW1u9bX5AbZavFFl00e/GkPhfWneb2/54vyuI
-         +oJagIlRFXfVYd3WGbGYGdFhL8IwqkIGuLJFFuRyUileN+DHd4jZkpkkWGv7ao4fiUbF
-         knvOMY/BGXhCmdbJpc3+lwX6k1AI0upmC6bNMcn36ARrcUzauvkD5+sFCNvEgFLZ0aG0
-         JfsWt8OBiI4RkJMByDE2zBWgjZHfM9rc64T/WRwhNUcopIFLkxUkdGFDq57JwL4mpvZQ
-         MzzEylDO5cT5+ZObqjtVTMfcY/sqeAmYtI9+LSuFXBSCqq0q0EXqa6EF+UXeSLTDFa1A
-         4boA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781208174; x=1781812974;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Zd41XiatIhmkg77GVQHRQLalQhR4rQLqWbEQKAVQlyk=;
-        b=l3uyvVJS8cuOwmcj922vLEFtj5a5tV6FdHIWvAuIDqdlbTVOwAIvc0tmSv4w2Hrzto
-         11JalEB3Yp+2jhn7Kss7JnChpZHpTXyHg/oK+tNRwQ4ZP0fvAxONOpKqWJUs6uakLLxi
-         ymPqqxW7pXVFF2tO34YziulhcCA4icMOTR210MF9iaeSK3wA5nX8OGH8/M/AmAMh5v54
-         khn4cjYqQhrsK7R6L7MLZ3FHoAGyoLv8herXAGmNZac8Zis61P4NMY86/jiLKLTIniiF
-         N61CAkIZ9EOQf/bL3gq7yrLgbF9f639lInJNT1vIIihzm5ZDAGMbjT2NsFCX49qAbVgs
-         JchA==
-X-Forwarded-Encrypted: i=1; AFNElJ+yRvHgp0OJJO4kFepJZLMz6jrSzgV6fwp8uu0OFCXV++FSOepCAoOpu8Vihx0ai8NNt891xZgaGx1RzatuDr20@lists.infradead.org
-X-Gm-Message-State: AOJu0Yykx8epbvyJe00eHQdztjKYVO8XADvC3mY7OF1ooHYfclcOEEO7
-	Vj3+oBQwZvwRIJIvk0TnSrAFLTUZ2bMXnzZJT5Tb2OUs2ESiblGEQ0Z1
-X-Gm-Gg: Acq92OFXZoiQP45Z9UTdcqra9BvDHniyh21L+FYJ/7/Za0UlKOSORqLL3raPsLG7F6J
-	NGzNO43Niea2QLqt01Wxiyp3ku+XnkpzubA8sDXBBxlxrEW6OuEkHmIrSecEEdic3/KK27WVjR4
-	tuirSZfJS1HbZm25nKUYlrWYqNDGvzSoYc6C2jl5u1I71uJZDlHWQnzjYqgbiyMipT+Sl/nQwdc
-	IxTGk3+NF8JV7IKkU9vCuAfBU2Y8klCLCBT9VMdGitRmwYpA5iSe5xoeMDFF1oz4dyIPqVdRLzw
-	PBVulwjvUpOYg8XaTr8d4W93FUTUsTRwluR1CNj+Ffk63U4MD6220uk+Umsr6Hbue1fYnbj62cx
-	4YbrJbcB9m7scvXO7huhYK3eqtDc2hXajZSCLo04K23DPJELToFrCWunkRlLlqlb06S/qa5xKDH
-	e8LGTyTS9f
-X-Received: by 2002:a05:6820:4b96:b0:69d:e5f6:cef5 with SMTP id 006d021491bc7-69ecb060dcemr2957697eaf.55.1781208173971;
-        Thu, 11 Jun 2026 13:02:53 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:f09::dead:c001])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8d30105fd9csm3244376d6.10.2026.06.11.13.02.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 13:02:53 -0700 (PDT)
-Date: Thu, 11 Jun 2026 17:02:42 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Shawn Lin <shawn.lin@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>
-Cc: linux-rockchip@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geraldo Nascimento <geraldogabriel@gmail.com>
-Subject: [PATCH v6 0/3] PCI: rockchip: 5.0 GT/s speed discouraged by Rockchip
-Message-ID: <cover.1781207474.git.geraldogabriel@gmail.com>
+	Thu, 11 Jun 2026 20:47:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7082E60210;
+	Thu, 11 Jun 2026 20:47:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E216E1F00A3A;
+	Thu, 11 Jun 2026 20:47:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781210824;
+	bh=8YUgGB7unUfuXaH5pfE121ZOgCzzrH9HhF5tOcGI554=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EQCnh2FCvEu1io2MpQW3qyrOqoiUSUjMnJfNKoZ8lIPcGe9MTiL0FTk8rFl+/fHqW
+	 GdN0/DVHIaFEf+cdJzNxt7riig00q+HHX21wZ6pn2wDTxbhLUs10yH82aYCqHL9sTl
+	 QUencz6XOI2GALaBOpNWB3WImqzD3VZ7015Ok5i3mSJxWQPc2hBkWggQhAVAg82eT+
+	 qaJAsQPmu52hJUn6kUMdJssCJNfjFl6frJ0+53waVp+Y0Xv/dh3boBwRtUcg+MTObG
+	 lp3hETH5mq1QSBNXAPZOM9eiIdTIwQ9J93ZoPB6/qJWBi4MQhMzZ9uyz5FdUMjVa5D
+	 hLZifhzblF8aQ==
+Date: Thu, 11 Jun 2026 13:47:02 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Mounika Botcha <mounika.botcha@amd.com>,
+	Harsh Jain <h.jain@amd.com>, Olivia Mackall <olivia@selenic.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/4] Xilinx TRNG fix and simplification
+Message-ID: <20260611204702.GB1747@quark>
+References: <20260531191738.55843-1-ebiggers@kernel.org>
+ <aip2l1pwMY4UDBdA@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_130255_711765_C991A6C0 
-X-CRM114-Status: GOOD (  10.43  )
+In-Reply-To: <aip2l1pwMY4UDBdA@gondor.apana.org.au>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +72,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dragan Simic already had warned me of potential issues with 5.0 GT/s
-speed operation in Rockchip PCIe. However, in recent interactions
-with Shawn Lin from Rockchip it came to my attention there's grave
-danger in the unknown errata regarding 5.0 GT/s operational speed
-of their PCIe core, including data loss.
+On Thu, Jun 11, 2026 at 04:49:27PM +0800, Herbert Xu wrote:
+> On Sun, May 31, 2026 at 12:17:34PM -0700, Eric Biggers wrote:
+> > This series fixes and greatly simplifies the Xilinx TRNG driver by:
+> > 
+> > - Removing the gratuitous crypto_rng interface, leaving just hwrng which
+> >   is the one that actually matters.
+> > 
+> > - Replacing the really complicated AES based entropy extraction
+> >   algorithm with a much simpler one.
+> > 
+> > Note that this mirrors similar changes in other drivers.
+> > 
+> > Eric Biggers (4):
+> >   crypto: xilinx-trng - Remove crypto_rng interface
+> >   crypto: xilinx-trng - Fix return value of xtrng_hwrng_trng_read()
+> >   crypto: xilinx-trng - Replace crypto_drbg_ctr_df() with HMAC-SHA512
+> >   hwrng: xilinx - Move xilinx-rng into drivers/char/hw_random/
+> > 
+> >  MAINTAINERS                                   |   2 +-
+> >  arch/arm64/configs/defconfig                  |   2 +-
+> >  crypto/Kconfig                                |   5 -
+> >  crypto/Makefile                               |   2 -
+> >  crypto/df_sp80090a.c                          | 222 ------------------
+> >  drivers/char/hw_random/Kconfig                |  11 +
+> >  drivers/char/hw_random/Makefile               |   1 +
+> >  .../xilinx => char/hw_random}/xilinx-trng.c   | 134 ++---------
+> >  drivers/crypto/Kconfig                        |  13 -
+> >  drivers/crypto/xilinx/Makefile                |   1 -
+> >  include/crypto/df_sp80090a.h                  |  53 -----
+> >  11 files changed, 37 insertions(+), 409 deletions(-)
+> >  delete mode 100644 crypto/df_sp80090a.c
+> >  rename drivers/{crypto/xilinx => char/hw_random}/xilinx-trng.c (75%)
+> >  delete mode 100644 include/crypto/df_sp80090a.h
+> > 
+> > 
+> > base-commit: 5624ea54f3ba5c83d2e5503411a31a8be0278c1e
+> > prerequisite-patch-id: 07e982b663ac3f8312ca524f6b91b5b38661df5e
+> > prerequisite-patch-id: 72064361a8f36e015ab0b7e1fa4d364b40d90506
+> > prerequisite-patch-id: 8978b8e0db7f47935e5f6f0aff14a97f55d3073c
+> > prerequisite-patch-id: 6aa0e3e93a008279d71e535a3d0cf48643f55e19
+> > -- 
+> > 2.54.0
+> 
+> All applied.  Thanks.
 
-Drop all code related to 5.0 GT/s operational speed from this driver.
+Can you re-add the following to "hwrng: xilinx - Move xilinx-rng into
+drivers/char/hw_random/"?  It seems you applied this before the qcom-rng
+series, then dropped the drivers/char/hw_random/Makefile change rather
+than resolve it.
 
-Endpoint Mode driver was not tested.
-
----
-Changes in v6:
-- Squashed patches 3 & 4 together as suggested by Mani
-- More formal warning message as suggested by Dragan
-- Set the 2.5 GT/s bit regardless of if link-speed is set to 2
-- Link to v5: https://lore.kernel.org/all/cover.1772239598.git.geraldogabriel@gmail.com/T/
-
-Changes in v5:
-- Changed commit order to not break builds and adjusted copy pasted
-  commit message. (thanks Charalampos!)
-- Reintroduced behavior to force 2.5 GT/s in case there's something
-  non-default in the DT. (thanks Dragan!)
-- Link to v4: https://lore.kernel.org/linux-rockchip/cover.1772169998.git.geraldogabriel@gmail.com/T/
-
-Changes in v4:
-- Incorporate suggestion by Bjorn and refined by Dragan to drop the
-  "catastrophic" code
-- Link to v3: https://lore.kernel.org/linux-rockchip/cover.1772057799.git.geraldogabriel@gmail.com/T/
-
-Changes in v3:
-- Clarify warning message even though Rockchip won't disclose details
-- Drop DT changes as they were applied as subset by Heiko
-- Link to v2: https://lore.kernel.org/all/cover.1763415705.git.geraldogabriel@gmail.com/T/
-
-Changes in v2:
-- hard limit to 2.5 GT/s, not just warn
-- add Reported-by: and Reviewed-by: Dragan Simic
-- remove redundant declaration of max-link-speed from helios64 dts
-- fix Link: of helios64 patch
-- simplify RC mode comment
-- Link to v1: https://lore.kernel.org/all/aRhR79u5BPtRRFw3@geday/T/
-
----
-
-Geraldo Nascimento (3):
-  PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
-  PCI: rockchip-host: do not attempt 5.0 GT/s retraining
-  PCI: rockchip: drive at 2.5 GT/s, error other speeds
-
- drivers/pci/controller/pcie-rockchip-ep.c   | 13 -------------
- drivers/pci/controller/pcie-rockchip-host.c | 20 --------------------
- drivers/pci/controller/pcie-rockchip.c      | 16 +++++++++-------
- drivers/pci/controller/pcie-rockchip.h      |  3 ---
- 4 files changed, 9 insertions(+), 43 deletions(-)
-
--- 
-2.54.0
+diff --git a/drivers/char/hw_random/Makefile b/drivers/char/hw_random/Makefile
+index 3e655d6e116b..95b5adb49560 100644
+--- a/drivers/char/hw_random/Makefile
++++ b/drivers/char/hw_random/Makefile
+@@ -51,5 +51,6 @@ obj-$(CONFIG_HW_RANDOM_XIPHERA) += xiphera-trng.o
+ obj-$(CONFIG_HW_RANDOM_ARM_SMCCC_TRNG) += arm_smccc_trng.o
+ obj-$(CONFIG_HW_RANDOM_CN10K) += cn10k-rng.o
+ obj-$(CONFIG_HW_RANDOM_POLARFIRE_SOC) += mpfs-rng.o
+ obj-$(CONFIG_HW_RANDOM_ROCKCHIP) += rockchip-rng.o
+ obj-$(CONFIG_HW_RANDOM_JH7110) += jh7110-trng.o
++obj-$(CONFIG_HW_RANDOM_XILINX) += xilinx-trng.o
 
 
