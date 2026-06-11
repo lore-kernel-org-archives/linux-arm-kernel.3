@@ -4,95 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72E3CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFD7CD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T7qWssdHiLBFsSt8dH4a2h+fzHkfZe1zSV2zWUbUyiA=; b=aYcAXVq1h3x5TXgD+GLpYWuUjz
-	0CCbDP70aWUVFdfbeJAk3yQKYpi1ryIQcT0U+3z+CNMdBXYoAokAP96pF8UmADfqGlvFlCnMUiBrL
-	tgEQK0bWk+OUCMZRrCKC6J5FQ0oVeMm2DxL75umNt+p2gZMrcIGpvWJlebuKWsOyJUPZ/IBUUlikY
-	Ab2O0p13pPDWKDewqawlnKWyo3LU325sKWG/Ojh9MoPbK1F7eoJv1sKSsylMS+u1vZFtrHQk8gb5e
-	PVsy7WBAFWT5bB3lGBozrnypkCUUKvnOXcoc+6hyfJX5Odbz407eHbb114m9BD0pz1w5VTJSbxrg6
-	lSehn2xg==;
+	bh=RmZrjg0Q3ZVv2NrQ57o9v2/owjwm0nO+Z9ZCILQ1szE=; b=Cw+muDqJaBoUtR1m3B75JXJ0P0
+	HlM7zdD60gP+4sInHflEu20fAT04S3P9lKTEZPO6754xIoPyJthlbVEWUwXez7aRpjx2FjuOfP3V9
+	iObEcJ+YhBBdD0JJQIK7/kMdoPNoDYu5BCsexi5pkSuRRVykhjiUFg0kpZ2vnpPwX6Wb7XiqRxDAX
+	eekbKQhvrDn4GmKRxK1BbOmlgbXJIRbtUV+Nvw6PFo6ozBugwuzB/aeWfn8jyYS/JmYkCUQP2Gyur
+	xbQm2Ch3ENdJFFP9URoNcft+HdxyD+i2uC4EVhd0HnVNLLb9QV5g2DAP2n8zD+pW3mPKtqezloFRk
+	R0UT81iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcy7-00000009FWH-2V5J;
-	Thu, 11 Jun 2026 10:49:03 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wXd1g-00000009FpV-11Ir;
+	Thu, 11 Jun 2026 10:52:44 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcy5-00000009FVR-3vbY
+	id 1wXd1d-00000009FoW-3SYy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 10:49:03 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490ae94a89eso66562075e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 03:49:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781174940; x=1781779740; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=T7qWssdHiLBFsSt8dH4a2h+fzHkfZe1zSV2zWUbUyiA=;
-        b=WlfA2s49sHxt5+VeAbKcuC0eFE0itSHajbKrDaUv6d3UvAwkMQxXf7HxSBj/bA0RF1
-         3tt/C9hA8Ejmd/jN20wdfkrFD/L616Nib9KW/z5U/XudU/wP3fU+p5zcEYnytOXPm3eg
-         nGXXSwBMgvlRC7VqWwnXGN5phwWWNyqipmSP2eSeKhjStinb4K73A2g7ZvXQjY95UswG
-         vdwuZrjB2CoqG3zyFd3M453HJO/n3uMM9j/ofy2gBAY64QKG6NGSVETXjd/QvfSU2u0p
-         ulndIAv9cSvfnfXEg6n9EL8Ll46uoC9rNFLiAFo7DfpdV+VdvalC4QrApf+8iL8zE4in
-         T7IA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781174940; x=1781779740;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T7qWssdHiLBFsSt8dH4a2h+fzHkfZe1zSV2zWUbUyiA=;
-        b=Ai9nysUMeMblUGZw7lbQxp5OFJKJfaShlmiYmep2/99uujlXJBwdPNmCrG4Cs9KTqH
-         CH/ga63R/dNKPDYaj1KSrCsyjjEWBmvHP/dr8FPTnrvY6Y+BidlM3iViVYjlUX4LqBcm
-         0ex6+7HjsxhOr8+FNv0JziHc2w/0/R8B4Arv8bxN3SxN7s2GNvWu6iTRwD110GUn6ga2
-         w+5Aos3loJ1tv5X7gFsKlc2w0e1hoP2/JYkvkvs51u1aoIKyeeufI+j43KSfmbEADxu3
-         fkeNeyR2Pl0bkwo8pVmb8dbNShf62Pe2SrqueSGEZBE5jm63TLUdYaPgCjufL4iYlQVk
-         BI4A==
-X-Forwarded-Encrypted: i=1; AFNElJ+KXw5Bqps2BeAwE/3SwaRKzxYj1Jc12S2zT88Qa1LO8eZF6TxmdcwnA2my6xpgrXZ0H/KkJM80C3PvGgX48IGl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrUQFlrv5rOGkxfIpPxabVToQS6DzZdTK9ENAlq35T/zCDwKJR
-	3ht7luPK1ffbVfWmcg39SL74EfAku+eYJe7v2OSz/NCVndfZuBoHapIG
-X-Gm-Gg: Acq92OG58YWhnl7d6AeFgmcOH1TZtpCYfqABIzqN5tBnSmXTZ266HOpI6nnLXYXKyvJ
-	jl8S3BbKfRej1UitfpMR7RG2j2xivTV+5sZcN8K5OSFjlnUm/llb/cq7gkFozXqPCP/tO/EjPoQ
-	ritn5PNLjoZN4RYbIRShkCoqYnZ5cn9ti6VkrFXCpnLFWEVIUr/GnrJNHz2s00fOXqjYTWFE3yf
-	ZTpSwDQuE+etjIxhUFTcvviPu+Me2c9x/M2DKD1Z+VvPU/IAZvTrEbI4PT0XTG68y92ckVZuiBx
-	PFik47VpaRuoJLA2a6ikDq2IHlJpDDrVtwBtIubuzq+hUxOSs1M1EeaX2nxxvv5yngMjp9hnvTW
-	Nbjb3wkrr0UAqNap7KyD7hFtfQyYDQ3RzxIYXcLlpy4ItUrisOcDGzZ+pJVc6V91dQ9JJl/Grfx
-	SlNIBrurkRjdKtnrIQKNZkEYOmrzQIdobQ6byGh5Kyr9/S6T2amCqdIBYg4H7kqv7wC7Sul3g+n
-	bx8grxhsJ4URA==
-X-Received: by 2002:a05:600c:c054:b0:490:4b89:5362 with SMTP id 5b1f17b1804b1-490e56146admr18108955e9.24.1781174939589;
-        Thu, 11 Jun 2026 03:48:59 -0700 (PDT)
-Received: from localhost.localdomain ([90.173.102.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e2c7ead0sm62775155e9.3.2026.06.11.03.48.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 03:48:59 -0700 (PDT)
-From: =?UTF-8?q?Guillermo=20Rodr=C3=ADguez?= <guille.rodriguez@gmail.com>
-To: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"M'boumba Cedric Madianga" <cedric.madianga@gmail.com>,
-	Wolfram Sang <wsa@kernel.org>
-Cc: =?UTF-8?q?Guillermo=20Rodr=C3=ADguez?= <guille.rodriguez@gmail.com>,
-	Pierre-Yves MORDRET <pierre-yves.mordret@st.com>,
-	linux-i2c@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Thu, 11 Jun 2026 10:52:43 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1781175157;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=RmZrjg0Q3ZVv2NrQ57o9v2/owjwm0nO+Z9ZCILQ1szE=;
+	b=a4fhU6URE5X9iJd0IpRNzX4jDyp2hwMqr/P4H5KJz1gYz9UxnwiAMr1T0LOT7WHIb2h29o
+	ZcuZmudL+2qQVjP/2aL9umjpF5rdHnyig8KFTp21KwzAe703q2JNKKx1hNpOnpaYjK8nda
+	xI4/6UGH6L1wSAfpDqCpgr9JVEgUJJo=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Thorsten Blum <thorsten.blum@linux.dev>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: stm32f7: truncate clock period instead of rounding it
-Date: Thu, 11 Jun 2026 12:48:56 +0200
-Message-Id: <20260611104857.242153-1-guille.rodriguez@gmail.com>
-X-Mailer: git-send-email 2.25.1
+Subject: [PATCH] crypto: atmel-ecc - drop unused curve id from atmel_ecdh_ctx
+Date: Thu, 11 Jun 2026 12:52:01 +0200
+Message-ID: <20260611105159.460794-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1356; i=thorsten.blum@linux.dev; h=from:subject; bh=Qu6LcM2KvLfw0lQYIuHm/kgXovCbBsOqYibtk8bQ6UA=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFlak/0vVYav2rf+/sz3bSv0dRK94oLytI+KX/ad+zdMf HJYUFlYRykLgxgXg6yYIsuDWT9m+JbWVG4yidgJM4eVCWQIAxenAExkyyFGhkWd050XLVnS0PPq yP6T0/58kVkjcE9T+9elM6f+L5jEqKTJyLBnUz4/m47Fi6rb/j/ll62Z4xOUf9qqs/hI7sa79ar Rk7kB
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_034901_998118_04D243A7 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260611_035242_069555_1583D358 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,59 +72,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32f7_i2c_compute_timing() derives the I2C clock source period
-(i2cclk) with DIV_ROUND_CLOSEST, which may round it up. When the
-period is overestimated, all timings computed from it (SCLDEL,
-SDADEL, SCLL, SCLH) come out shorter on the wire than calculated,
-and the resulting bus rate can exceed the requested speed, violating
-the I2C specification minimums for tLOW and tHIGH.
+->curve_id is only set once, but never used - remove it.
 
-For example, with a 104.45 MHz clock source (e.g. PCLK1, the
-reset-default I2C clock source on STM32MP1), i2cclk is rounded from
-9.574 ns up to 10 ns. Requesting a 400 kHz fast mode bus with
-72/27 ns rise/fall times and no analog/digital filters then produces
-an actual bus rate of 415.6 kHz with tLOW = 1254 ns, violating both
-the 400 kHz maximum rate and the 1300 ns tLOW minimum of the
-specification.
-
-Truncate the period instead, so that it can only be underestimated.
-The error then falls on the safe side: the programmed timings come
-out slightly longer than computed and the bus runs marginally below
-the target rate (375.3 kHz in the example above) while meeting the
-specification.
-
-i2cbus is left rounded-to-closest: it is only used as the target of
-the clk_error comparison and is never multiplied into the programmed
-timings, so nearest rounding remains accurate there.
-
-Fixes: aeb068c57214 ("i2c: i2c-stm32f7: add driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guillermo Rodríguez <guille.rodriguez@gmail.com>
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 ---
- drivers/i2c/busses/i2c-stm32f7.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/crypto/atmel-ecc.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
-index 53d9df70ebe4..6439620d6bed 100644
---- a/drivers/i2c/busses/i2c-stm32f7.c
-+++ b/drivers/i2c/busses/i2c-stm32f7.c
-@@ -464,8 +464,13 @@ static int stm32f7_i2c_compute_timing(struct stm32f7_i2c_dev *i2c_dev,
- {
- 	struct stm32f7_i2c_spec *specs;
- 	u32 p_prev = STM32F7_PRESC_MAX;
--	u32 i2cclk = DIV_ROUND_CLOSEST(NSEC_PER_SEC,
--				       setup->clock_src);
-+	/*
-+	 * Truncate instead of rounding to closest: if the clock period is
-+	 * overestimated, the computed SCL timings will come out shorter on
-+	 * the wire, which can push the bus above the target rate and below
-+	 * the spec's tLOW/tHIGH minimums.
-+	 */
-+	u32 i2cclk = NSEC_PER_SEC / setup->clock_src;
- 	u32 i2cbus = DIV_ROUND_CLOSEST(NSEC_PER_SEC,
- 				       setup->speed_freq);
- 	u32 clk_error_prev = i2cbus;
--- 
-2.25.1
-
+diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+index 9da9dd6585df..93f219558c2f 100644
+--- a/drivers/crypto/atmel-ecc.c
++++ b/drivers/crypto/atmel-ecc.c
+@@ -33,7 +33,6 @@ static struct atmel_ecc_driver_data driver_data;
+  * @public_key : generated when calling set_secret(). It's the responsibility
+  *               of the user to not call set_secret() while
+  *               generate_public_key() or compute_shared_secret() are in flight.
+- * @curve_id   : elliptic curve id
+  * @do_fallback: true when the device doesn't support the curve or when the user
+  *               wants to use its own private key.
+  */
+@@ -41,7 +40,6 @@ struct atmel_ecdh_ctx {
+ 	struct i2c_client *client;
+ 	struct crypto_kpp *fallback;
+ 	const u8 *public_key;
+-	unsigned int curve_id;
+ 	bool do_fallback;
+ };
+ 
+@@ -250,7 +248,6 @@ static int atmel_ecdh_init_tfm(struct crypto_kpp *tfm)
+ 	struct crypto_kpp *fallback;
+ 	struct atmel_ecdh_ctx *ctx = kpp_tfm_ctx(tfm);
+ 
+-	ctx->curve_id = ECC_CURVE_NIST_P256;
+ 	ctx->client = atmel_ecc_i2c_client_alloc();
+ 	if (IS_ERR(ctx->client)) {
+ 		pr_err("tfm - i2c_client binding failed\n");
 
