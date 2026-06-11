@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A81CD98D6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1501ECD98D5
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Vp9ej7slQue/aNRKaS0NajKMIkHAqH4RdtwsSI+9iY=; b=SypzfJTykLWQXzQnURPXDUTqD2
-	R91T6H6AZBHeks8oE6+pXCehPjVK5f9taMp/0DPrk41IKlvm1q2b0ymWHKFfAI+3xasY8NA1AM0ux
-	Mnc6TsqEjk5vWo93Bak8BdGqtLvOS7G3W/9ZLdYM1eY+JtCpJ9Zhhqq5ucgiUECOMJ0PO+4DA0OlE
-	aO3dtlKR1enifuYyet7ENO33pk0T2ROR/0UmKqbayqs/18WHVVQmEPnUOUQxWrHhpYjgxIWG8lZ1I
-	5b6zF/Yu2LqdWPwBu/KAV+gJL18LJfU0UbkC1ds6E5bJ6VfJ0li5QMVTOvT2wHjNfOvH4uhiFolCf
-	GSVZHztw==;
+	bh=q2VTHNM7yf9eBbbMl6UrCOh8hTyt++vrX7POjxez12Q=; b=rlzN/z551D3DisSEhUNhkojNcP
+	ABAzSZseWIsuz20o6Dy5Ab3C2p6T2xksf5VLXMqSnCodbaCEkjbYq9sBxE1WiFnt0aEGgc1nA8k8O
+	9QkhJlqSL/Bfhd4sIyjVY63RRQJf6IeTMXCEv4nMIwdC7jEzRKmfPsPap4GxSrdQDBUfq9qsVDiX8
+	lrP6CkK1dz8qpIF2QqRczVmLDeSvm4Skz9ok/riIP0yH5Xmbuwgn3/5OxFI+awP9ibE9W6+r9m3tj
+	2sKT0XRX+UAhbW7KfvhkzXkzhKs8v7Bs27g9uCB93VGGgmQ1HxqGd4vsIU5lUnR73/KaNrMrSgUKH
+	SxX7qRvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaFR-00000008uVN-3V9O;
+	id 1wXaFR-00000008uVB-33cl;
 	Thu, 11 Jun 2026 07:54:45 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaFP-00000008uTX-2whx;
+	id 1wXaFP-00000008uTW-2uW9;
 	Thu, 11 Jun 2026 07:54:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 898764321B;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AAF543EB0;
 	Thu, 11 Jun 2026 07:54:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 66AA7C2BCB8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5F342C2BCB9;
 	Thu, 11 Jun 2026 07:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1781164481;
-	bh=Lk019Dztwyn/9Xt9I2lihcTIhugfoZ5LXTUNTOSl0XA=;
+	bh=AAkROPjG9vjEI1vREPfQS1ERhGg3Q+Sad8i4hhcHFtA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=bIdFMKrVFIKOJofERwD8lXccS52amM1URc1hQvin3+H0tKQrzGtJb3sDKFtGx+aL7
-	 smxmXjlkuVYiEGpj1SAIGr4NfiAZQerIaVC2AqyIMoB9XnTGO3629HAR8vuGibBjP0
-	 w48xMaxrG9HwyODOkSXjE8tGXavK0qH1MUahOusG+YiHCb6j7O0q7tQC6b7aChnlh0
-	 LKT8tB8IE6hXWbyvffqSsd9YjJbNi/UcYsPk/8ZY1vjAcXj58LozrT02oSfutQRKqf
-	 N4K304b6du+SHK13JJTxXGlQjKDng2Pmn5OU1b4Zr5wx1KlnfPiDeERI4eyf2uey3c
-	 i9+oIW70r0bmA==
+	b=BdaXJyHCSSTXYQ3BmE8gSJTdA8lKaXawkriFhvOq0+DPsTuGkMagQkNgFeYRz6XYo
+	 YS9v+gxVmQXnH7YyVVWUH3g2lSq/amPz+qmrKsLPGIA6GHsXLl0+K0VZGBZ2j0dqfJ
+	 iXvs6KUhcIl1LkqR4AWbRmPfOBTByGZuvEartknrQYfEqUa2bwArIpitVZHP2sU+4q
+	 DP0K2/iNHhA/GJHJ7oF1ONEVI+ucZgtf9bF6gLcMJTHUMBm00M33sN0Q/Ga6ctrbun
+	 ORpmUGeudWt6zALi66eMz4Z6SfiQyFY9kO4nvxAGDsdQf/wdBo15vq2RD6dskBuj0S
+	 Z4cwKiLLHoh4g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 50589CD98D4;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4366CCD98C7;
 	Thu, 11 Jun 2026 07:54:41 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 11 Jun 2026 07:54:34 +0000
-Subject: [PATCH RFC 2/2] pinctrl: meson: amlogic-a4: support gpiod_to_irq
+Date: Thu, 11 Jun 2026 07:54:33 +0000
+Subject: [PATCH RFC 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add gpio
+ irq property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-gpio-to-irq-v1-2-12201716f23f@amlogic.com>
+Message-Id: <20260611-gpio-to-irq-v1-1-12201716f23f@amlogic.com>
 References: <20260611-gpio-to-irq-v1-0-12201716f23f@amlogic.com>
 In-Reply-To: <20260611-gpio-to-irq-v1-0-12201716f23f@amlogic.com>
 To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -64,11 +65,11 @@ Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781164479; l=3292;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781164479; l=1026;
  i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=wam4L3P2h/0NFdexAcbLeoEfUZ98TPeWasBAMHYVyak=;
- b=s65JzHoxnO5BzjEeGLbrqC0khJxXlE8BIifX49u9Y9PHSK4mRgDOh3fPDe/XP0mhHRyCgy3Zp
- 5sEiMS4ywQNDGuHS8ziMDdXaacMr3Y7C2Mf8kNx3YDj5wdiSytG5hhT
+ bh=f2QomikSfT1qCooaMl1RhIsTgkvu22kj3kqZBPEonnA=;
+ b=kaz9R4lN17UNqFjm0N1XpjPESjtpT6n3pIrJdL7Z+WLfsXg1x0aUsq1/0YcSbykV67lX+yyIy
+ lAZ/lmz9+MMA+WvF4oAY7e1cekHyQr9DKu+yJwM0Z0cZHT/CeyO+rRL
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
@@ -91,121 +92,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Add the to_irq() callback implementation so that
-gpiod_to_irq() can map GPIO lines to IRQs correctly.
+Add the hw-irq property for each GPIO bank and enable interrupt-parent
+for pinctrl so that gpiod_to_irq() can translate GPIO lines to IRQs.
 
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 54 ++++++++++++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+ Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-index 5ae0c19d007d..663681887f35 100644
---- a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-+++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-@@ -10,6 +10,7 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/of_irq.h>
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-@@ -97,6 +98,8 @@ struct aml_gpio_bank {
- 	struct regmap			*reg_gpio;
- 	struct regmap			*reg_ds;
- 	const struct multi_mux		*p_mux;
-+	struct device_node		*of_irq;
-+	u32				irq_start;
- };
+diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+index b69db1b95345..65ec9121300e 100644
+--- a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+@@ -37,6 +37,8 @@ properties:
  
- struct aml_pinctrl {
-@@ -836,6 +839,32 @@ static int aml_pctl_parse_functions(struct device_node *np,
- 	return 0;
- }
+   ranges: true
  
-+static struct device_node *aml_get_of_irq(struct device_node *np)
-+{
-+	struct device_node *of_irq;
++  interrupt-parent: true
 +
-+	of_irq = of_irq_find_parent(np);
-+	if (of_irq && of_device_is_compatible(of_irq, "amlogic,meson-gpio-intc")) {
-+		of_node_put(of_irq);
-+		return of_irq;
-+	}
-+
-+	if (of_irq)
-+		of_node_put(of_irq);
-+
-+	return NULL;
-+}
-+
-+static u32 aml_bank_irq(struct device_node *np)
-+{
-+	u32 hw_irq;
-+
-+	if (of_property_read_u32(np, "hw-irq", &hw_irq))
-+		return U32_MAX;
-+
-+	return hw_irq;
-+}
-+
- static u32 aml_bank_pins(struct device_node *np)
- {
- 	struct of_phandle_args of_args;
-@@ -1003,6 +1032,27 @@ static int aml_gpio_get(struct gpio_chip *chip, unsigned int gpio)
- 	return !!(val & BIT(bit));
- }
+ patternProperties:
+   "^gpio@[0-9a-f]+$":
+     type: object
+@@ -65,6 +67,9 @@ patternProperties:
+       gpio-ranges:
+         maxItems: 1
  
-+static int aml_gpio_to_irq(struct gpio_chip *chip, unsigned int gpio)
-+{
-+	struct aml_gpio_bank *bank = gpiochip_get_data(chip);
-+	struct irq_fwspec fwspec;
-+	int hwirq;
++      hw-irq:
++        $ref: /schemas/types.yaml#/definitions/uint32
 +
-+	if (bank->irq_start == U32_MAX)
-+		return -EINVAL;
-+	if (!bank->of_irq)
-+		return -EINVAL;
-+
-+	hwirq = gpio + bank->irq_start;
-+
-+	fwspec.fwnode = of_fwnode_handle(bank->of_irq);
-+	fwspec.param_count = 2;
-+	fwspec.param[0] = hwirq;
-+	fwspec.param[1] = IRQ_TYPE_NONE;
-+
-+	return irq_create_fwspec_mapping(&fwspec);
-+}
-+
- static const struct gpio_chip aml_gpio_template = {
- 	.request		= gpiochip_generic_request,
- 	.free			= gpiochip_generic_free,
-@@ -1012,6 +1062,7 @@ static const struct gpio_chip aml_gpio_template = {
- 	.direction_input	= aml_gpio_direction_input,
- 	.direction_output	= aml_gpio_direction_output,
- 	.get_direction		= aml_gpio_get_direction,
-+	.to_irq			= aml_gpio_to_irq,
- 	.can_sleep		= true,
- };
- 
-@@ -1079,6 +1130,7 @@ static int aml_gpiolib_register_bank(struct aml_pinctrl *info,
- 		bank->reg_ds = bank->reg_gpio;
- 	}
- 
-+	bank->irq_start = aml_bank_irq(np);
- 	bank->gpio_chip = aml_gpio_template;
- 	bank->gpio_chip.base = -1;
- 	bank->gpio_chip.ngpio = aml_bank_pins(np);
-@@ -1154,6 +1206,8 @@ static int aml_pctl_probe_dt(struct platform_device *pdev,
- 				pdesc->name = pin_names[j];
- 				pdesc++;
- 			}
-+
-+			info->banks[bank].of_irq = aml_get_of_irq(np);
- 			bank++;
- 		} else {
- 			ret = aml_pctl_parse_functions(child, info,
+     required:
+       - reg
+       - reg-names
 
 -- 
 2.52.0
