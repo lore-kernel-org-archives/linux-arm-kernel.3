@@ -4,146 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E581ECD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663D1CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xsHObREKbSdD+QU63I499ixe+MAp/Ig/XpnZqBETjO0=; b=Ot2GFCXNWUYHUYQcQqcnNwHeHn
-	11vhZQxDVR9Vc8aPRzajoVkZTprapUv3j/Gz4sMaqbAiWDUkmSzYWkzDPSVJU1DArrM93q6mFFBRr
-	nPQAjcf6LX0V8dxw2aMxk131BGvPQVvXy4kbBnG44wcKZ34/x3/6RpG6iaasjZmXxQg7kctF46a0t
-	pal3RIOsBRGdGRfmNwelFrXzMuYPRRnVaBArxxX3VId6YDUTe4wjvv4j9HfN9N671xxs12GV6Pg29
-	VXxWaVe5YcnsQnpVPyuMMZp3ocHajDvM5tekRCUVm833XPyGlHSpiWpoOLZuHnIO4XFBlbdRNjgR8
-	jBiT64lg==;
+	bh=x+dYadGWFOqd7KcSHu8BnbgElb2TEi7r9IQjzygBJ3c=; b=THib1FRhd6hC4tVptAbSGzPeUy
+	02op0IQZzi8EXKKi6usHhApFY/Gze0HZg72rF7oL2O8qA2RbXdGjRz6huAcjRXg52FuOG6J/8KqAO
+	TSdXWwIlVn734DHITkccmsDN6rp9tCwN42V4OQe6i5BY3zmahioTRmzHflpc71tAcZoXCFoF9gb6v
+	iaPzX4RLrZw4l+7NILAHCX1b/HodAJqT+qFa2YXDoYZ84PCdZpgQeuQYVgVCg2o6wPPcY1hBakk1F
+	thxLfPIIxqOHcapLGuSRo6+xzF6dLp/nUbYbOWY0nI5VeW6Z7rmYThlZEsZ9sIL1+2HRLgKFRMew5
+	0kqefdTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlsD-0000000A2Mz-2UDh;
-	Thu, 11 Jun 2026 20:19:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wXlsH-0000000A2OD-2rK5;
+	Thu, 11 Jun 2026 20:19:37 +0000
+Received: from mail-westus3azon11020104.outbound.protection.outlook.com ([52.101.201.104] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlsB-0000000A2MU-2W5I
+	id 1wXlsD-0000000A2Mm-3ML3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 20:19:32 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65BJ3O9R1389253
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 20:19:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=xsHObREKbSdD+QU63I499i
-	xe+MAp/Ig/XpnZqBETjO0=; b=BeHWUk6nMly+ArnGiv5yR0XoL5qDVISJ2LohnU
-	3SWuptIr1ybJRqcUIZ5VbVM74jhT0MUdjXWrt1iOKYs8nKVXQ30O+2OMyKvkt6Qf
-	BsatV9aaA9Io1R60grJ53X25Kv7GbqPQvQhzlM5ivWoXuBrhrXmQIzf1LWEF013y
-	mUcNQ3TQkSDk1r1t1VA8OLdwgBavOM6k52zAdX2vyB6NaiDlin1qzPPsQsPlTfkt
-	PHL7X4QizfKxwWGU2z4hccWkXCRHRepzaGIsbCU7N9vjdjkg1Zh5IUf2gKTEhr2Z
-	8Gx5lakHdG7nXB0ILB7IGfFk+V355UppxooUh5o5rdLHPH7w==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4er1658tf3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 20:19:30 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-304c652be4eso953981eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 13:19:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781209169; x=1781813969; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xsHObREKbSdD+QU63I499ixe+MAp/Ig/XpnZqBETjO0=;
-        b=eKte/TJ+lhK0jLt8DRLdkU2/3NuEHY7RcamXcN4b3fxOnsVwxAPRQRctaDuZQROVjj
-         ZdZ+doHEDFWnZKcGtOTFH4/IK4zHjn3VIkxXEXhUO+TbPMYd64E1dn5rK535vC8q8+n6
-         M9bCNfs3lmu/NubemWLZXGGcab2V5WRzdvHzl1z/DB8B+1nHjVmcvY1EQXFCwYrZdw+R
-         k9MgJggFuze7KUSlEXZBWwRB+hE8xD7ix+F91rTjhDcGsj1vjS90DzbQ8yqhDw8rUDg2
-         AOI6kvnGFojUsOvaeD6Efm9LWMCnONTCR1R7PvNaK8+vXlzfwB5XVcyryUJy7Sf9CyDm
-         4Miw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781209169; x=1781813969;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xsHObREKbSdD+QU63I499ixe+MAp/Ig/XpnZqBETjO0=;
-        b=DhoRwLOFmoVBfI9L69DXb0g3bZ4xt2SzDEvqkU8i8/YPc3sJUgp7GMOvNVMZO2gonQ
-         0S5C4LurbLLqRz3XlVa66yrJ4Q4r8HLyEgfeQicwSgk29BeHVaV3hdZCSUTNNyzico3/
-         51cpTm9hj5Qg3RfR50tkOZvjkeF1AGWuRBmEKATWp4rep2P/ngffIZ8F+ChROTeV39hW
-         zj241Nq+ojI2IiCHfi8Z21AGCSjgNbaOMtVh+ETl4/cltggi+dYbpnIHiWT6pQ/eEnN2
-         dBNANxa7doh1Nf7P8615pxkWvdJAaluQ4RpRhYNftjGEniQlYtBKBRMsDumqeW+v4Uz0
-         RQlw==
-X-Gm-Message-State: AOJu0YxkSbW7bGaTXWe9QvTPn/n+oO6HsD9sFMrz6SxzZDj0peXVyzqN
-	ynMbjH8M3Gw1LzLrMXD+aiSv2g5ZrZlCZoBbSIKazAQbgXvTLGxLk7RIJ40EPcDxHT1hJmtLJux
-	MNMq1HErhNZ6QV8WBtQHWlCfyGS+kDGQdDW/Vk7q9hfbE0K6SSDUJMHonK/o4Xmwk3jWwg5uDOv
-	KtHM+cbnnrJA==
-X-Gm-Gg: Acq92OHUV7wIn6rlL94uMotqaIhGldhejTTke9xDDO2PKf20SP6SN0CsdAK5Y89lkdM
-	knjeaITiOnVC9VBEseK8BxBRj2zoP/3msrxKI3vE5BxFRjiGH6PzHgX16qVhixREI0/dBTPPe+3
-	IMaMA/gtQcd0hnm40X795dDJTLxPuc7zecJAF0C124u7jtCK99xRTATsBm5dts2eT3X48qb+Ksx
-	4PmntwEQNPZCPhM5w2zDJzgR8gUrVwpYYzeSlAq9uMPlXYZO3DbevOUMNzAGMHiNIfhFTYA2UoO
-	2ET1DV3U6Snj5ioaLg9UdBII7+bjso+2FVtCsDEC+p1+1vTnQJZf0NI65Z7gykKvlyDPo8w3zDG
-	4ePmiOt9+3J5BoJqdPSHu4tvoOTuYkONChEm135C2+sLVI0J+26nuAN5jABLtBnye9zy8Oh22CF
-	kJObkGcttFBsWS
-X-Received: by 2002:a05:7022:684:b0:138:e4:c4b5 with SMTP id a92af1059eb24-1384b41db5cmr168612c88.17.1781209169463;
-        Thu, 11 Jun 2026 13:19:29 -0700 (PDT)
-X-Received: by 2002:a05:7022:684:b0:138:e4:c4b5 with SMTP id a92af1059eb24-1384b41db5cmr168584c88.17.1781209168884;
-        Thu, 11 Jun 2026 13:19:28 -0700 (PDT)
-Received: from hu-uchalich-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384302569dsm2658204c88.10.2026.06.11.13.19.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 13:19:28 -0700 (PDT)
-From: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
-Date: Thu, 11 Jun 2026 13:19:17 -0700
-Subject: [PATCH] firmware: arm_ffa: Fix NULL dereference in
- ffa_partition_info_get()
+	Thu, 11 Jun 2026 20:19:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zzl1Du/UuTn5uFs7bdldWhmdrMVe222XUAJy7kQLpgEsx0jBBF0o+T3iPDcycnHwdQwUhwYa4tWoE7e2WgM4Z9RuVYIuIoVg6K4w1mwhq/GesQYzkNmgjdYF2clAvfvHCAcDxchtiLqzbxY5MNLAdgdE+afozwvmx4Vh6HAxmsBQiqfl5tRkQZQq8YOL5Ob10im2BRQRG5Ocb+7oEotAZVRP2h55nqO5eKYb4/vRcGhfdbrjvdfevBe7fGwpRZS7nqikChgtxirwbnP/tMpORBhiLzzoO7tYeet5cms8Ap1f6WzwYLXID2mr2lUkcw8WjZ9AB0HMSJIyJT2yfICH1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x+dYadGWFOqd7KcSHu8BnbgElb2TEi7r9IQjzygBJ3c=;
+ b=h5gt6+fIxCujh+qRZH04Bd4W5xcTxbFSnWTxndM7gse4EBLU1QVJvZXeLcRK3QIYlH/R8TMAXycWjT90U8TRYdEQ33NoYMRHTT760dRcQSaGQdZBgbCnmdxEA8DcNNG96Ag/ralv/kNaFvi3GgyNixSYASCkoZIyMlVNRMOFfKttwELWeILkM605/exeOmCaJLgfAp0u2s46qI1YJKe0jy0g0TR1cMAIbmiqVK9BUHMgo7LxUS8/7rzyJuL59n/AifHr1AXZxWBeF3hDXFnW5oaimoL0vTzi0lHuuNmFUVN/GM91WdaUQPBVk45+wSK62QE+QGMewP52h8w6ektXXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=arndb.de smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x+dYadGWFOqd7KcSHu8BnbgElb2TEi7r9IQjzygBJ3c=;
+ b=DpXgQBbxhQfM/L0QLNFNRZp7X955c6DTn45G6CspeaezzKvJ0qpnb8wW9ty9TJZzF3rLzMnaGOYuMvEWEBh5xSBzOgpGYvJiRrhzpUW4y6tb1m5uxMLq76SDy2qWO0jSS18GPMwi10J3dYClkSKdHtl0zzOz5FgnJqeTUnWeE2ezrCosUrPAea+6lkb/zuTVZdVtyfSpF0Wxdw5926mHq/oMqu4PLXOOcS4TYBiPMzxTcVQDzRle4aS4ea6CDD3yDUwzuz1DIsWDr1jHN0+SFTPgNXe/Ap8ctBKRaq95ctgbUPMB2sLVkTz3bO1Rszos2w5W60QlMxgFR77BbDrllA==
+Received: from SN7PR04CA0219.namprd04.prod.outlook.com (2603:10b6:806:127::14)
+ by PH8PR18MB5333.namprd18.prod.outlook.com (2603:10b6:510:239::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Thu, 11 Jun
+ 2026 20:19:22 +0000
+Received: from SN1PEPF000397AE.namprd05.prod.outlook.com
+ (2603:10b6:806:127:cafe::9b) by SN7PR04CA0219.outlook.office365.com
+ (2603:10b6:806:127::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.13 via Frontend Transport; Thu,
+ 11 Jun 2026 20:19:22 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ SN1PEPF000397AE.mail.protection.outlook.com (10.167.248.52) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.7
+ via Frontend Transport; Thu, 11 Jun 2026 20:19:22 +0000
+Received: from sw-build-jenkins04.axiadord (unknown [10.4.1.35])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 6FC234186B51;
+	Thu, 11 Jun 2026 13:16:48 -0700 (PDT)
+From: Karthikeyan Mitran <kmitran@axiado.com>
+Date: Thu, 11 Jun 2026 13:19:14 -0700
+Subject: [PATCH RESEND v6] MAINTAINERS: Add Axiado reviewer and Maintainers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260611-ffa_partition_nullptr_fix-v1-1-ec2b7ef7e130@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAEQYK2oC/yWMUQrCMBAFr1L220BMZQteRSQkddOulBg2qQild
- 3e1n/N4MxtUEqYK124DoTdXfmWF86mDcQ55IsMPZXDWoUV7MSkFX4I0bvr0eV2W0sQn/hjE1A8
- xOuxtBPWLkM7/9u1+cF3jk8b2C8K+fwEThrsxfQAAAA==
-X-Change-ID: 20260604-ffa_partition_nullptr_fix-66f37bb2630b
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-        Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, kernel@oss.qualcomm.com,
-        Trilok Soni <trilok.soni@oss.qualcomm.com>,
-        Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
-        Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781209168; l=1739;
- i=unnathi.chalicheemala@oss.qualcomm.com; s=20240202;
- h=from:subject:message-id; bh=ZOe2EDXU3HvsveItcr3dovmSWgaERH0mLdAj1V10jA8=;
- b=CZMhPQ3XeMogd808DQ+L5MTnTajxIAoKl+ZCFcUm46ejXXYUO9Pe3NeRdx4uXtIv77FJ67O9k
- awkaH8lBTMSCmpe46Wc9bROjAghTcsxdOBOi3kGJU8aODjwdv3Wiz0v
-X-Developer-Key: i=unnathi.chalicheemala@oss.qualcomm.com; a=ed25519;
- pk=8n+IFmsCDcEIg91sUP/julv9kf7kmyIKT2sR+1yFd4A=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjExMDIwNCBTYWx0ZWRfX2dXNZKAxUdJR
- f1eeaqdUwzrIAjbJ8HwePPkim/EKhbWJC1al132me+qtodZrVL7k7kx6F2xOr4gmsv+bt7RHVJI
- E2JnOzl9EV74dkx8suFBwuB65qkX+Qb84vQ9uQEqYS907SHZYpY4soTcKeQC6bMaoDoWxhbI1Pc
- pUNycLDMJaZXMUwjyldGzJPK05G4XfTh4n16RsyYun2oSYe39lb+JQEv7IsTMDU7KA+X9da4P6v
- a/TIk/5a3yGTrVSnhM/Qq7umE++0LZqGMQVLyBmRffaX5cpcOgMaU2N2ub5Y2SfT/hxJYT5slz4
- bRymzOf7sb0b3TVO+KD+qC1ZfPRwqbY+GbiFOdtJ2w5OdUGdojQ5MSa3OtcySH49OqO4TcV+WHM
- RExj04/d+QR9orJmuMF7ney6fmMfwy/8tMH0XO2cfHCFwiO0JBE58gzPZKc+XBqr9WL0eDkUXd5
- UrC1EXvgJ+rjBPItwaw==
-X-Authority-Analysis: v=2.4 cv=LNpWhpW9 c=1 sm=1 tr=0 ts=6a2b1852 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=DNyTkGw6iCim7eFMS8gA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-ORIG-GUID: dlVLerYS1tQdm1j2ShS80BC2MIaniVWq
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjExMDIwNCBTYWx0ZWRfXyRGKGvw/MjnK
- fKHmF0x3xHwExyze9Srf8UI/x2t/w0jdipf2rKrghvOd+xxwbwIlHO88vfyS2ooWd8r4XzgfFY3
- widDad6c6E8IushySu9hIT8ohwVJu+I=
-X-Proofpoint-GUID: dlVLerYS1tQdm1j2ShS80BC2MIaniVWq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-11_04,2026-06-11_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 adultscore=0 priorityscore=1501 phishscore=0
- clxscore=1011 spamscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606110204
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260611-maintainers-addition-and-axiado-ax3000_dtsi-update-v6-1-00bdcddc0c29@axiado.com>
+To: Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, Tzu-Hao Wei <twei@axiado.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Drew Fustini <fustini@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Harshit Shah <hshah@axiado.com>, Karthikeyan Mitran <kmitran@axiado.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2077; i=kmitran@axiado.com;
+ h=from:subject:message-id; bh=fdns1mTxFg3dZbGt8+Km5Ro989C6XVxx5Foxq9uBn0U=;
+ b=owEBbQKS/ZANAwAKAfykr3bAxbrPAcsmYgBqKxhJEmj99aKo+jOFGs3ITInsmV5hYbY3Gsw7B
+ KP7n9nL64+JAjMEAAEKAB0WIQQykBiJeI5kfMQLrdj8pK92wMW6zwUCaisYSQAKCRD8pK92wMW6
+ z+vvD/9kNiMnYpBwWxdtv5cKOzAtl0Smdb+5c4bNeosm2n1EUYWzNfDpZpX0MYDa4u7vodlcThP
+ SO0o1WRMiyCfG8IB+XOUvLXauMdeVmhPOoj+BPegfN8yENTMsq7Gc9LbmKSBMPLA0id/BZ47YVL
+ /LcFXnReytlIjMmHqHV9s1vF1azLd7hfp86aLsuclCgBbvwcPl08l/HjVqP9Xpo8qg3Og8T2Shq
+ qul+KD3gv6YBBSYRJAWHKbhjveSP+zlVeb1E2+4NVQinT4w9m8cBQPJ9EBAi5GSB/Or/Ko4uoe0
+ EcLp85auzl2pLaGoh2BVxr4OOJux+EMKzfga7CjdnDR7pRrvhNvkoznlHMSOPqBuz1gGqYNNZna
+ /XsNKA7HtM38Cjbp2O5sw+/MFaa62o7D5qPnxgU14sZQue2aSuYEZ+gd8DxOdY9Z8vyOlsfyw5X
+ dsjQM0r+2qkFLS/wXAOTScgppur6IhyzJvXXl33JG692Iu8bJ6PfJP/u1oUrNiLhtcUEoE4NwTA
+ zGPcOxJmSmYGmYl3oGWBziVVzfNL0DEJk/YrrayyOuVhDWMWF3JGGO4t4P8KVZRqN5OlNVHoNR1
+ y5T2mpW6YxPvMiAwn9mjhi9sp4OrfYpsCKIXyAx/nZ5YGgDt9iDpKHWJWL+gTz8VPaNgnl3mHX3
+ mG3K6UZe0g5BCoA==
+X-Developer-Key: i=kmitran@axiado.com; a=openpgp;
+ fpr=32901889788E647CC40BADD8FCA4AF76C0C5BACF
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397AE:EE_|PH8PR18MB5333:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf14e84f-1ea7-427e-6fcf-08dec7f6b9d3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|376014|82310400026|1800799024|56012099006|13003099007|18002099003;
+X-Microsoft-Antispam-Message-Info: VRc/KoqcopDE74pMp+0gNnDIrKTDO++wt28OYTVCSXe6jTHxlZ8tMxY1yTLFzStWidVzWgXeF7pqZBj9K8V8tx2DA4OTBl78ht+1WASsqbyZPXcek3qeL+p0B1GaCocwgDvDr7KjPJqV9wA1sP510IH3hRoBAYuk8iodStFmio5a1SPeWeE6mDCGROS4HXCx0dQT3Ivkkn79FXNOYxYqIx/UE+cbST2/nejv6o040pSJKG1AMSRIJDr69/vlze/uVSbdqvs833kM80moKHurB2HMVATcGdHuLO2GUsDZYEWxo8fQ0+87HBi6c3OIOrX51NosIdoVnBs3w8HYbwaBVz2bh6kbUJeR2j0QvEjFukLD56q/ny+ivnpjFhh9/22eKNhqzr0hwaYae7lzObhcIlXtYVN2vcxXKBXdoV14LM1aNse3AfD0KeqXMI1kWJJ0zxs7zctjLRdItIcn3VHUD2NaJuPYpDmnb+7To+nlkZx6bszlBszUNxbp0z+BXCZYwe5v6POaRj5UfFYhPNtN2YqtFJtSf61id64ukUZZUhMz5wiNjy1D3LWPGJgpfaxVx3TX7cB5NsX0QdpnvZ4TSZw+mOqE2wY3Vz55H1X6Cce3xPCAgiZIa/iRQl5hnpdSVDqK15zZorzvzWnh/NdNZ7ASuSbRmWY/j5JZDGeeJ7kTApZxowNZ7wKxlmc4W9e98PPJfzy9l4+C0PwfexIKf/yh4e4r2Qid067ju8+kkoc=
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(376014)(82310400026)(1800799024)(56012099006)(13003099007)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: y22zHhANwJ4aSblmJ38Q1akBH3uP81TPjg0In2xzc7ZC/cyrLJI/J8bnBf3zrFbU3dhNpc48yU9WPRzKd/u38caTLYgNowmSePnTOKKpL5ge0OC28oxQ/ny+pOmaa4lZIiDIbEhFw0sp/dL2K15PbwtzFk6KNklE3kezkIooiD/t+7D5PlwRLr6WHPVbA+5jvmbfX+ufcp+k4MimOSWXN0VvbIMQB1alXvWy9sKqaWbrISlZh4PgWRw8Z+bwbBcyCugoFXyACPTHpcvNio23tMPxADDBreQDhzwfDhcxel5SicH64nm8M17Irl2oBsCApLS0GeY0qGK4PbNhn/7peGzDeoHqaz6GymIFVgBSAI7uqkAaC5oUYc6S4t2aWNws4lq51uRFplastY8jBe6JuTqkrsS0i2PjKUQn116UVYamcTfzJ8ZAH0nI7lXAa8er
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 20:19:22.5429
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf14e84f-1ea7-427e-6fcf-08dec7f6b9d3
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397AE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR18MB5333
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_131931_644122_DAC4DF80 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20260611_131933_855996_2FAF9ED8 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,50 +137,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ffa_partition_info_get() passes uuid_str directly to uuid_parse()
-without a NULL check. When a caller passes NULL (or an empty string),
-uuid_parse() → __uuid_parse() → uuid_is_valid() dereferences the
-pointer, causing a kernel panic:
+From: Prasad Bolisetty <pbolisetty@axiado.com>
 
-Unable to handle kernel NULL pointer dereference at virtual address
-0000000000000040
-pc : uuid_parse+0x40/0xac
-lr : ffa_partition_info_get+0x1c/0x94 [arm_ffa]
+Adding 3 new maintainers Prasad,Tzu-Hao, and Karthikeyan
+Removed previous maintainer as the previous maintainer moved from project
 
-Per the FF-A spec, the all-zeros UUID is the defined wildcard that
-instructs the SPMC to return information for all partitions. Map NULL
-and empty string to uuid_null rather than crashing in uuid_parse(),
-preserving the intended "return all partitions" semantics for callers
-that pass NULL.
-
-Fixes: d0c0bce83122 ("firmware: arm_ffa: Setup in-kernel users of FFA partitions")
-Signed-off-by: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
+Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
+Acked-by: Harshit Shah <hshah@axiado.com>
+Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+Signed-off-by: Karthikeyan Mitran <kmitran@axiado.com>
 ---
- drivers/firmware/arm_ffa/driver.c | 4 +++-
+----
+This patch removes a Axiado SoC maintainer and adds 3 more.
+
+A maintainer has moved on from the project, so we are adding three new maintainers (Prasad, Tzu-Hao, and Karthikeyan). also commit message amended to have the same.
+
+Patch 1: Removed one and added 3 new maintainers
+
+Changes since v5:
+- Removed review mail-list R:Axiado Reviewers <linux-maintainer@axiado.com>
+- Link to v5: https://lore.kernel.org/r/20260326-maintainers-addition-and-axiado-ax3000_dtsi-update-v5-1-648dfe9bff29@axiado.com
+
+Changes in v4:
+- Updated commit message to clarify maintainer removal and additions
+- v4: https://lore.kernel.org/linux-devicetree/20260302-maintainers-addition-and-axiado-ax3000_dtsi-update-v4-0-84a5c9df6689@axiado.com/
+
+Changes in v3:
+- Updated commit message
+- v3: https://lore.kernel.org/linux-devicetree/20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-0-a3b095989823@axiado.com/
+---
+
+---
+ MAINTAINERS | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index b9f17fda7243..dd500fb81b79 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -1129,7 +1129,9 @@ static int ffa_partition_info_get(const char *uuid_str,
- 	uuid_t uuid;
- 	struct ffa_partition_info *pbuf;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 55af015174a5..b1349bd178cf 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2605,7 +2605,9 @@ F:	arch/arm/mach-aspeed/
+ N:	aspeed
  
--	if (uuid_parse(uuid_str, &uuid)) {
-+	if (!uuid_str || uuid_str[0] == '\0') {
-+		uuid = uuid_null;
-+	} else if (uuid_parse(uuid_str, &uuid)) {
- 		pr_err("invalid uuid (%s)\n", uuid_str);
- 		return -ENODEV;
- 	}
+ ARM/AXIADO ARCHITECTURE
+-M:	Harshit Shah <hshah@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++M:	Tzu-Hao Wei <twei@axiado.com>
++M:	Karthikeyan Mitran <kmitran@axiado.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/arm/axiado.yaml
 
 ---
-base-commit: ba3e43a9e601636f5edb54e259a74f96ca3b8fd8
-change-id: 20260604-ffa_partition_nullptr_fix-66f37bb2630b
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-2f37e16b9053
 
 Best regards,
---  
-Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
+-- 
+Karthikeyan Mitran <kmitran@axiado.com>
 
 
