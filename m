@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96B6CD98D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 19:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E214CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 19:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ez46oJItG7/uh7Nu/qQE6kqBb6TfUQX4ZJdzBlffT/8=; b=K6hhIdYGo0SlYZdzexvb5c+Qam
-	RVesPDC2IGEZw8rNqxaZaph4gh46Yw+sZ08b4BxVYkLjNF2TZXP5GcVW+6ZrNA1iMQVIJS42eRQpT
-	jZY7O86cRBbKgsj13Kp+B+w7iJLOmHx8//9VRZl7QvI9VW788h9roM6an+ousoELEm/ACFAVsQef1
-	DOY59x2jKvlzkswJbIYi1Y9vIsGabf/Kmy30qh2YpzMoLjFa+aL6OyhXvg0xxTB/JCRV+hlbIi9zU
-	RhdTwlQRwKABpygil57uOQnH64UJ2MACX+0IwXaEzI2irJ18ARaygsXCsySbKwmt5XbT8XGPDae0b
-	Esgezatg==;
+	bh=whGa75IbpHw8TmVGKr0kEe5dfQC4HtD5P5gDQJtmmAU=; b=ha0rHvETzDBD+T/m/4fFZn/lL3
+	SHbv+LmhIaVPTRzoug+pdFQcmJf/UtdvcBg9mGTC8Ub85oJF9BCUIGRo1mrlGN2L7Z9KL25gyOtUL
+	bzLh5sKy9CsneCart47l5cl/q80bY9su54ebcFsbC4tv1uLwEnUGiuSYhLQS2ECQyJxR3I+Rygwqh
+	PVD0dBkVUxqQf50PTBD/XMamK9SZGjxx7zFUjVHat1sV+t2XswSSqnZamz6HnAFCIcNLXwSqL2CSj
+	I6xnVzGwOueHpPAlLu7WWtEJQqPytl+I7Di+v7N8YfpqksL+xhrTks3njzOriVYXWO5bfs4fTFBP+
+	enlKzdQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlGY-00000009xKA-0nUY;
-	Thu, 11 Jun 2026 19:40:38 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wXlGb-00000009xMN-1VvJ;
+	Thu, 11 Jun 2026 19:40:41 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlGS-00000009xCR-3Bk1;
-	Thu, 11 Jun 2026 19:40:33 +0000
+	id 1wXlGU-00000009xEn-1jQZ;
+	Thu, 11 Jun 2026 19:40:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tnGanyWX2d6/vCQimiQqQkqpE4RhHLLLsRGJj3lELkvVP2+M/sGrk7RKM+oqimENERELjHpMpFYboZJmtfvPXLUG3O7o+HahX+VU5FL2gw2/65Go79Mdk2XAqA7BTcNKFrUvl6c6AAZn7ebgnYSEWFXKGzv9OUUgVLfSFXVdfsYrtrYKu3lCjcnIi70MC1d+dqskEf4CFlybdA2qjDPzy1JZnH3mWvk2CVE6Z/i8wuC6PFjWYdLuGR9AVl7tIRKuPniYc0OabBTYjt+7kRySakpZcOE34tpFhdk7WIy0BkVqwEV3/Qwh/pLkRlHldUFIluqnnQDsy28RSEqF9XkpBg==
+ b=ETofhTKfzFXaeGO7sr0MnMf83pTn6k+m/nADpgKNiAmjRMKRhc/Usoi/jSmDAc9Gu7ljOc3GKjilPwY+vMDQo2o9XuTOXwB+Hi262NN38AbEEyNG94g9zGnATude1IBb3o3aHWKiqEVDjN7jtu2AiQAVNTD1E0AvsgDWdfFs1D+aSehU1DPHyhgBhZ00kxd4ifeCJQkINGnGLxGqvHVS+qvvzTtzTENVQGzj7pGUAB3+Ah5X3X5YY/k9u/GL9s3rQ+jOkj6UDHO9zvA74xYtnmve6sRvEpJothcdpz2XVXgpTZvHUSSUxRPQukMJbVOMMp/84eAmpQIkiTEba5rPsg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ez46oJItG7/uh7Nu/qQE6kqBb6TfUQX4ZJdzBlffT/8=;
- b=MHuom13m4FtuJxtZBLk1VAkUKjv2+OZKGluyAM6A7N4mYROwU/H6OxzXsEMVG+BpRfWzSaSUVvYC2+Ntw7TXAD6NbrVZVfmjW6dP9iLSgvF/60clyJDxMpRY8EotKJvJDp0NqIqzCxbGpf9eW7jwdG9S38yEMJVEHAJE08Hd2JQteSdakFAYx4oilqHnhfAsyuFfQLHBpWuEf12hpJ/G8VxB7Zcz4elwuwvdXCKJKcTZAGp0a1l8lcfRFxbC7NhFAAnGm00mtkjQGjnpaqtsXQtMb98HK54sagKhqarUGekMoGkBnEBp5Q1Em5h86eT0dpnALG98DMQzVFAf+Bha2A==
+ bh=whGa75IbpHw8TmVGKr0kEe5dfQC4HtD5P5gDQJtmmAU=;
+ b=a5QX1VErYHriFv+FSKbLwZvJY2oi8MDoYSGixEiPJi/7RUe2XCEEqHA2h6rZ683DvmcgcNmRVNtEBwvuqoVH1F0rgmv0LlNCrXd+I7SlMucvDoa4klUfVb/+Y1IY5jU9pbJGxkKzIFMJdAbiCIxM4tLbl6n7wGT/Bfpz3AvgoTeU5jox9bA/KcrN6ZsRhMVb5wAB3yF+Rs9TLXN4ksd7Qf8xChG8nRmpiV8mzxsf9FjJdghpO/uxmt82zI3jYUtVSLxQh6LbsWnIVaA/yYXUZOLi1VVn4OAI3btzuwA8MRwoFrkUXJn6kiCiSe0FUz7jH444xJqWoRY/V+c5NwN92Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ez46oJItG7/uh7Nu/qQE6kqBb6TfUQX4ZJdzBlffT/8=;
- b=jEs2L3WNP+t6Y+IaqmNAZ8I34sGm1+/uK0WgdmYktw/z72noOLC54eXBzduFa2Ool9Sv3Ugu5j/PeOOy4vO5fKAIpAf4Dt94/QSuA3d7lWtRDUoRGT9AyuvA9ggTh0rOXnwTPnycgoBovgkmcigl45Dj0k6zvHOcqcMcJ4xELlXGOtzAxR0Jq5MAootR4ig+7mP8OsLZMyroXm3WL0gV0kGcTqFDBTH89YGQmLDDNMne/g/gZEWWlWB33cuKQ2zQmHTb+y0uLw3pKexO2860EPNyOUfCiWkRNszV5NF70Z12XBu4O8jsd5SH6lxmvZSGnUBAr8s07amMvWUl5Wg5Aw==
+ bh=whGa75IbpHw8TmVGKr0kEe5dfQC4HtD5P5gDQJtmmAU=;
+ b=UmWq4MYx63T3lF1fZcEtOq+G9iQndl6PT1oEBnITPVrAWIyTc3JIomFcrkqD0f6SgjdF4WEGab18r24FJY/1oajMvTWuilJUOUmbMZJEoTJUxurgsDP8hNEwuCBT3Imn/GL4UdDD3msrt4hVi80bmXRlrbzFQ6UPoZleod9LIjPVxk9CPGaQ7yYkPXolbJdgEoZUT3XGsdlZ+GXWefo1oXZuB5XXRJUHSHQtAk2atRy6y6Ymz1k7yH+o2I3ZQt9XRWCw/6OQRjpWnNQDi+7m3jSglYSJU8cWpMs054uVolk0aDhpRacPe+UltQqzkXsR9CPz8zJWPtNrVleAb+/fdw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
  by GVXPR04MB11017.eurprd04.prod.outlook.com (2603:10a6:150:21c::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.18; Thu, 11 Jun
- 2026 19:40:24 +0000
+ 2026 19:40:21 +0000
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023%5]) with mapi id 15.21.0113.011; Thu, 11 Jun 2026
- 19:40:24 +0000
+ 19:40:21 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-phy@lists.infradead.org
 Cc: devicetree@vger.kernel.org,
@@ -65,71 +65,71 @@ Cc: devicetree@vger.kernel.org,
 	Shawn Guo <shawnguo@kernel.org>,
 	Frank Li <Frank.Li@nxp.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 phy-next 4/8] soc: fsl: guts: make it easier to determine on which SoC we are running
-Date: Thu, 11 Jun 2026 22:39:36 +0300
-Message-Id: <20260611193940.44416-5-vladimir.oltean@nxp.com>
+Subject: [PATCH v1 phy-next 2/8] soc: fsl: guts: add a global structure to hold state
+Date: Thu, 11 Jun 2026 22:39:34 +0300
+Message-Id: <20260611193940.44416-3-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260611193940.44416-1-vladimir.oltean@nxp.com>
 References: <20260611193940.44416-1-vladimir.oltean@nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: AM0PR02CA0123.eurprd02.prod.outlook.com
- (2603:10a6:20b:28c::20) To AM0PR04MB6900.eurprd04.prod.outlook.com
+X-ClientProxiedBy: AM0PR02CA0129.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28c::26) To AM0PR04MB6900.eurprd04.prod.outlook.com
  (2603:10a6:208:17d::10)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|GVXPR04MB11017:EE_
-X-MS-Office365-Filtering-Correlation-Id: 724e1652-ae0c-4907-3bfb-08dec7f1482f
+X-MS-Office365-Filtering-Correlation-Id: 9ed5e05a-2c91-4ae5-ed09-08dec7f14657
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|19092799006|366016|7416014|23010399003|1800799024|18002099003|22082099003|11063799006|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: Y92U7ybJgNFDldGL/WmcUn/3f1XLfuZGxo4CiUY3xxAuELBjjdlI2QMIDf+N73i6BHx4UwrdzAcEFNF4vQ9mvT09CwVjrzivMpBRQNIpxSAgV5lTQXezzNOnB363UADlmCyoy21Fm8O0Lf6eIvTaEgU6urUi8sAmtrVQ7ocyemu99MB+vE2gUEl4wKYJaYbD01881anONqcVtFHhVU1ST266q66qFPxZVzdIBoYawOEaFZoc8/jp27uRbvvPBd811UVFiFr0czAaA0Ae/+MCDSMmwfl6yQigmxxo77wzBWvWD00Bz3sb7cuDT9WriNWiaCVRFRElHo6Ormrz77tm8LpA4qKUdb+phdgem+4oGnlw9AdRfxmjdAYEyxG1y1GXrGCO4EddTtgb3AT2iIwTU93S4mJ/Bg/ve0LqonJQo2n5T+pydixzqQXaYVXQmK6daPY13MhGccmW1mrLU7EY+rIZZKG/MaQ1A3A+YpxQbYHc8jHEYgpybznLxhRQOWzsixqdwgFtioyKmQqji4Jv2Qz9VrKq2z/nEY46DBRp+yKcemTLtrlzpfGqs9/g4lklPyOwWdEir8jwWLpWK2KfMTjvLuB5m5JbWLwFQGBcrwjvw8h0iRWb1Qtr0oi4h32k8F1O/zTGXn+rkjewYf6qHP6gCv/0eGOiNTdg6NTl673CW73LvcbBvD5orcjDxcy3
+X-Microsoft-Antispam-Message-Info: 78ch9LNb/zwHL5xzu1bI0xsg5+P+h6ivZHRaXjzX/pTW3WS/K5iDGOOk6L/VJTETslz0C9qxjmFVHLVPrRGMqH4+GAcwIK2F+7sGQTdIfX2vp+cN+kXGQUhQDlKMgmfbwmZ7o2fZ/s9dM/Q+wmXdMeYJslWVf9qxSYaKnMf3GsZ/SazRmhJB7mdZ09fTfOuZyIYA+Ma7Jla59PI1I33gPZJH+vn5Oxv6GwmuWy2QwW0b5+fbChysV5qUECHvot9IvRuA/yilhlW0O/crQOLwFLWcc92GpD/SM0s6YonBfutE5Pz3NQfOUKaoVlauXvRCVsHSPTa4F0gfs5jcWljiVhdFDfG+noP63HJB2kkC1n7zO4ttswbxwiOfPt0ZpOyaaadQ9p+ToOBM6aY/vZ2kVEHtKtrXzyUvw7UUhiA5qy8K61EJtUrOJxPsul/drX1UPb6XtRvH5nQM15svyxUxxFUMg2ikV/ICQszg9SV942VhbHzOPasDhOYAgogbyO3USr9l37D2NVP3VTHCBjzoTnOEw4G1f/fsSkdK3RjKxxRMZO5Q4brcpZ+dqCBN3FG03cAawCqPiySU72qPrps9tU05WDWSIMLe8RZIKN6cGTBgxgi1M4FFUoQAIe+Rkv2Yt3bA72HhP/d4iXm2/ngSopx2Tzzf0mKza+++eO9VjdBLHY8aXIc2MxepqjJh9TKE
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(19092799006)(366016)(7416014)(23010399003)(1800799024)(18002099003)(22082099003)(11063799006)(56012099006)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RyyPMry2KdtkTqo2i4vsdvIQ08bubaYvcGqN/We8wiRN+qhhlFV583LthSZ+?=
- =?us-ascii?Q?HKF7uvd2NKYDpAF0Gz9qDSiqcMpkIVU6SuUxOCkOfai/IxEtkVKoSnntMPWh?=
- =?us-ascii?Q?CDDLEAQxUl9SXuIc+Azq7QDWbdmp0u8w1mX9PeyfAv3hKpDaSXgjhyRUuhjg?=
- =?us-ascii?Q?DY7cokbcjPgN9bfS5f2Q4qaDfQuVpr+gXUibwq+jmfyFQ9gIP7Tny0/B1ea3?=
- =?us-ascii?Q?MpX0Hhxx9cyF85WftA1eXHhsPxYTlriQhe9Lk5JlWnpnionOIYBiuihupBgm?=
- =?us-ascii?Q?90GFfWBzvwh50vpyyenfTyNTDES5uA9dX5F1Wyx1Kr15iUMe648wqyfVV8yW?=
- =?us-ascii?Q?ElXiWI1AcGOdNgUOaNtiMLG18u9NPeyfj0B4ITVp+TDalAHsRvNE1TOAJwxS?=
- =?us-ascii?Q?Fg55NnJAY2PClCAm4Uoc0P3Hd1QpHXaZR6lYISGyJvxwzPUTrWqYOIE4Wlhd?=
- =?us-ascii?Q?NGkNa6ZJha0CPLLfh6hreQHxSCpV9TX+2WCuFBBnJAfkDtQK8EMaoN+Yf5co?=
- =?us-ascii?Q?UpyqL2t1mkAC0Qej5MIaZ3tZDCixsUd31Vrr+hEDrGppwdojUY3nZI9j5JV8?=
- =?us-ascii?Q?ex2ne6D7aIM3pWcajOzCHjUMLC31/Er2FyQutSTnUUsw7Ft7/ieawCp+Uz34?=
- =?us-ascii?Q?1J+Q63q+Cr+8cC/T7qW77Fy22uHo0ymfRgdagxNBqwdIS05Fc4O1mO1jEa1I?=
- =?us-ascii?Q?mVVc8jHwcTSVLsZEeVxWRBIRX4emkuHBxoB7S/cnP/aP/doljw9+VpGDXdoj?=
- =?us-ascii?Q?NDReOuoahXoNFc6qk888HQASKQf0B2aRODJnIuR8/tRS8M02UdbpA184qwGx?=
- =?us-ascii?Q?0bONZdEYrl7lz8Oj7W5mR8pjlhnMQ2svBC+qTADTkjuC/k6UKqIraaVAgNJ9?=
- =?us-ascii?Q?8AnKiU39GC63EbunhEN6Dm+E1R+Del2NK9Q1ZyhOdWmBLzB5IcgXPMUaxoaD?=
- =?us-ascii?Q?O9wht9cPV879R6MSXi+RrlzAYHljfo3B9jShfQ2RuGKv3G4rlusKr5ab9F7J?=
- =?us-ascii?Q?S9j4SEl/xYFdY+4YYikWBkR8dnHSXZYGxLxdg01EQ5Yk4fkbffMVXATsjHiO?=
- =?us-ascii?Q?/VrCWx+DsGreFRFjBvC714GVwCD7gvKWbZKB3NMaC96uHGsrij91kB2bIpeO?=
- =?us-ascii?Q?emG4XpMHBla8hRmXZDNv2DI73x3ztBeRySHLiKRSUhr8nrAdKL/c5QrsBtLb?=
- =?us-ascii?Q?Ot1mr5G1RQIny06zjcwrnwEcDFFlkYYWnYHu/RaECs7s1Qhtwgyi/wlumZ7s?=
- =?us-ascii?Q?NiYepcHhFSKcgPOV+6GXCo63oJx+DEOmBtaQ6rchT761T0fuhTjzvSnlyVVy?=
- =?us-ascii?Q?ov/3tg3HBOG1gvufu4QETyWgPXcHdxBKbeHNQuZlI9EoFjOjmHDVizXOYwAL?=
- =?us-ascii?Q?bUDREyRmKR4lr3rLrHuh23+6OBJ04avgpn4avuaLU3tRXpfbBSfZpcqDmO4m?=
- =?us-ascii?Q?qn8lTDWPhiYGDDjmIlGKhz+c/eIeGPYTLGH+lpdihGNqsFKfgisjTJAUUCMx?=
- =?us-ascii?Q?5TalHupOJRcE/I2MbyffhU9QTmmHMK01AG1F4OukrRF8GOdDmNbTnay27tjo?=
- =?us-ascii?Q?hyE1kOs1mVI+oMH3dHgDUiOtw74sYIoX6tupfzZPtleeYRVDPjBzfMyg2dEt?=
- =?us-ascii?Q?2UNvSK+pD7DJoU8hCFjBf0hsaIH2kzb/c2SUlIvcCIjnnB+hssdPxo4wW8fN?=
- =?us-ascii?Q?rTweBvvaWtksCNFnQPW8orP9xxkltz+oL1aViTV5uah81HdfoNJjQq7q71HZ?=
- =?us-ascii?Q?fnWqSruwdx5lt9QIOG1AQm4tACL+ivcNAwRdGCr6eMSJJhg5bZja?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VHpUJBONhdRgpmlhBKw6T456JGfLlQpVtiLaJvWjyulfwFyKC1ixLoSp/tYe?=
+ =?us-ascii?Q?REKBVdZQY1AwA096Y65PuOYMsrvO9wjda4/DyfErT9yk/DnrtOkdyI9puBnY?=
+ =?us-ascii?Q?wnXlaGmmYv8R+quBPJiqfA9NK/DXKrhvCfCBBmrdTjHIoubm0+YAukqi32gW?=
+ =?us-ascii?Q?1Oah+HFVfEBueZeazGHIJtgC8075reHAbp3XEcor2Oww9ghLiV3F9hn57clN?=
+ =?us-ascii?Q?kQoPtzMgSXS47n1ytkvhxY8X1OuCMQinIPBe5U/frG1q1PZ94/N2k6lKI+uL?=
+ =?us-ascii?Q?3/GA00XFM/B7DB92qGB67qy0JBler9EGNZxlQ0CHC1sRGM4jMulSk25mrCj1?=
+ =?us-ascii?Q?ng8ZefyM72MIcEOiD4Tbbz64gs2tOWUxiDWAV4F+FfLLI81K21WUCakNbfu0?=
+ =?us-ascii?Q?VB2D0I+3C+yHU87/ddK7cLet+3doVag6zKrBMsVwhVilCyzW4HAO/Mu5SGuX?=
+ =?us-ascii?Q?dl5mVYkjiACHVyUSwSMUuB3J0Mxhr1+9dimWwpu6e+8iK2MenepNsXRCC3Tq?=
+ =?us-ascii?Q?0xwtkD2ExrYjCHsAtwqDA3Bo4Qb50GFxjo26y260LNJgxbCYByHIHLrRJKd5?=
+ =?us-ascii?Q?iZ82YuRL+Rbb7YlEej8VI/Pw0D+4/W8zCaKB11UkcwPS+ikxV9M1dyFCd5lf?=
+ =?us-ascii?Q?tTsxmT4LIQiZr351TyRV3FPOi585wEasz2ldghqRmZC66uED2g6HEBziFEI4?=
+ =?us-ascii?Q?hJWPPDQXhvQMKoSr8kwbp/uwFW4aQaxFnY7ukqtDCJ958hX4B0tpu6WFzzD9?=
+ =?us-ascii?Q?NB56dDV6x2mVW9sdgaL4lH/OCqem/lX6mgvEd4vLew0iqvLfgInNZsBp7L1S?=
+ =?us-ascii?Q?j7+XwknHTsj+VF2VpqMJ6tmF/mGWUT5/UGvMg1XAPKlr/1MITRg01tv3bObt?=
+ =?us-ascii?Q?6q/zEUoSU+8G42G8fVk8HtBPdgCp7jkM8Qv1nWjpIgTJI20tPRpcmKfI0/2y?=
+ =?us-ascii?Q?XrenkyprVWvVXvTkdA1sPEIBGXtc7aAp/guRx3Gb7k5TSlIn+PqSqUNuZYOo?=
+ =?us-ascii?Q?ZwxRUW+SpElMhSX4xCbmiSDQOK0dcIhSeOqcCAXBDQlOc0sXFarWnznDK5y2?=
+ =?us-ascii?Q?/HTHYc4uRyqfToFFDVSMlwjVx9Uy+21R3/aH8yQtxiRpWTEOtE+Ub6TgW8OA?=
+ =?us-ascii?Q?WcrBhSCpkc2m2EVI7+DpFvJQRKyQ+dtGk9ZIVjMDXzEo9T1muZ/VRAJhOapZ?=
+ =?us-ascii?Q?wwFMcGanIBNbyneVUNrimz1TyZNMBtUXRh/33Guz6MMkxvM42acf34vJz6Ne?=
+ =?us-ascii?Q?wzu6q0ZcuOCdPAqQgsu67IXq8y6ue2OS8DQhmGABVr3e567C4yHM7RkMzHur?=
+ =?us-ascii?Q?nMGzYEcniozjbLOTYq6myTxNH/0srkYRT5w4MGZqgdFAbjI19iWsz7jLj52n?=
+ =?us-ascii?Q?hVOrKV8iRLua4U/R/97MrATzMkUT4lSy7TDLQdMBIh0JtPymuUo3EfK/k8HF?=
+ =?us-ascii?Q?XsPfOiswUGkaCy5GWwjOcfv498UGsDbgyAMm6ML1V0tE+l+aD9Ub6B4vfU0Y?=
+ =?us-ascii?Q?u9rYKGSoYcHO7DA/gboq1BoatuqAVL2NBkrIAwcSPpBN9PWxh9t0kAzcOwIh?=
+ =?us-ascii?Q?WHbUkkC0SWWjlCuUYxwvkIauMAmZYtCNWW5baNb4ztEX2hBQCTEaumaXBnYU?=
+ =?us-ascii?Q?g4kIXBvegaBqdW98IV/LvLbWDPZRBiW05NFw+aWu42woZmdUjmzdAN1JzQNf?=
+ =?us-ascii?Q?6MiiKpwWETKg4BhpdgsYB160/7gHQuxBqJVq9nuKEBiodrXFHINxxvgwUfwn?=
+ =?us-ascii?Q?1+XbIGj3eQhMu9fOPqgJ+72sB2L5AMJ2zOdRI1OVpxMXn4IgD4O9?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 724e1652-ae0c-4907-3bfb-08dec7f1482f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ed5e05a-2c91-4ae5-ed09-08dec7f14657
 X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 19:40:24.6779
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 19:40:21.5427
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pLAZwqAncJsFeL1MwQVjYFMLz9W5wNqTDBBujOOIRZ7l+PlSx3JwfABwqyqDXqFt/TU79oyi/N1CBP1seu96DA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: IQLjCBLRnuQNQa1tuA2JT0ktutfr5S0FVzCGWdGBpQrj2xb/5TAXY8Rk3Z7lI/xQjJ+M/rg21RtMVa556ZByiA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_124032_812501_8A33AA05 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20260611_124034_459930_F96D9BA6 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,201 +146,79 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ioana Ciornei <ioana.ciornei@nxp.com>
 
-The guts driver will need to easily determine on which SoC it's running
-when it will need to perform RCW override at runtime. The guts driver
-knows this already because fsl_guts_init() reads the QorIQ/Layerscape
-architectural System Version Register (SVR), but it doesn't save this
-for later lookups.
-
-Add a new qoriq_die enum to be used as an index in the fsl_soc_die
-array. A new fsl_soc_die_match_one() function is also added so that we
-can directly determine if the SVR is a match with a specific die.
-The SVR value read from the DCFG CCSR is also kept in the global soc
-structure so that it can be accessed when needed.
+Add the fsl_soc_guts structure in order to pass information like base
+addresses, endianness etc between the init time and the runtime
+operations (RCW override) which will get added in future patches.
+There is no point in mapping and unmapping the DCFG CCSR space every
+time we need to make a read, just map it once and keep its reference in
+this new global struture.
 
 Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
- drivers/soc/fsl/guts.c | 47 ++++++++++++++++++++++++++++++++++++------
- 1 file changed, 41 insertions(+), 6 deletions(-)
+ drivers/soc/fsl/guts.c | 22 +++++++++++++---------
+ 1 file changed, 13 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/soc/fsl/guts.c b/drivers/soc/fsl/guts.c
-index dc1a42cd9544..1494b545bbb4 100644
+index f87ee47c1503..a0a52a5603a5 100644
 --- a/drivers/soc/fsl/guts.c
 +++ b/drivers/soc/fsl/guts.c
-@@ -27,6 +27,23 @@ struct fsl_soc_data {
- 	u32 uid_offset;
+@@ -106,6 +106,11 @@ static const struct fsl_soc_die_attr fsl_soc_die[] = {
+ 	{ },
  };
  
-+enum qoriq_die {
-+	DIE_T4240,
-+	DIE_T1040,
-+	DIE_T2080,
-+	DIE_T1024,
-+	DIE_LS1043A,
-+	DIE_LS2080A,
-+	DIE_LS1088A,
-+	DIE_LS1012A,
-+	DIE_LS1046A,
-+	DIE_LS2088A,
-+	DIE_LS1021A,
-+	DIE_LX2160A,
-+	DIE_LS1028A,
-+	DIE_MAX,
-+};
-+
- /* SoC die attribute definition for QorIQ platform */
- static const struct fsl_soc_die_attr fsl_soc_die[] = {
- 	/*
-@@ -34,21 +51,25 @@ static const struct fsl_soc_die_attr fsl_soc_die[] = {
- 	 */
- 
- 	/* Die: T4240, SoC: T4240/T4160/T4080 */
-+	[DIE_T4240] =
- 	{ .die		= "T4240",
- 	  .svr		= 0x82400000,
- 	  .mask		= 0xfff00000,
- 	},
- 	/* Die: T1040, SoC: T1040/T1020/T1042/T1022 */
-+	[DIE_T1040] =
- 	{ .die		= "T1040",
- 	  .svr		= 0x85200000,
- 	  .mask		= 0xfff00000,
- 	},
- 	/* Die: T2080, SoC: T2080/T2081 */
-+	[DIE_T2080] =
- 	{ .die		= "T2080",
- 	  .svr		= 0x85300000,
- 	  .mask		= 0xfff00000,
- 	},
- 	/* Die: T1024, SoC: T1024/T1014/T1023/T1013 */
-+	[DIE_T1024] =
- 	{ .die		= "T1024",
- 	  .svr		= 0x85400000,
- 	  .mask		= 0xfff00000,
-@@ -59,46 +80,55 @@ static const struct fsl_soc_die_attr fsl_soc_die[] = {
- 	 */
- 
- 	/* Die: LS1043A, SoC: LS1043A/LS1023A */
-+	[DIE_LS1043A] =
- 	{ .die		= "LS1043A",
- 	  .svr		= 0x87920000,
- 	  .mask		= 0xffff0000,
- 	},
- 	/* Die: LS2080A, SoC: LS2080A/LS2040A/LS2085A */
-+	[DIE_LS2080A] =
- 	{ .die		= "LS2080A",
- 	  .svr		= 0x87010000,
- 	  .mask		= 0xff3f0000,
- 	},
- 	/* Die: LS1088A, SoC: LS1088A/LS1048A/LS1084A/LS1044A */
-+	[DIE_LS1088A] =
- 	{ .die		= "LS1088A",
- 	  .svr		= 0x87030000,
- 	  .mask		= 0xff3f0000,
- 	},
- 	/* Die: LS1012A, SoC: LS1012A */
-+	[DIE_LS1012A] =
- 	{ .die		= "LS1012A",
- 	  .svr		= 0x87040000,
- 	  .mask		= 0xffff0000,
- 	},
- 	/* Die: LS1046A, SoC: LS1046A/LS1026A */
-+	[DIE_LS1046A] =
- 	{ .die		= "LS1046A",
- 	  .svr		= 0x87070000,
- 	  .mask		= 0xffff0000,
- 	},
- 	/* Die: LS2088A, SoC: LS2088A/LS2048A/LS2084A/LS2044A */
-+	[DIE_LS2088A] =
- 	{ .die		= "LS2088A",
- 	  .svr		= 0x87090000,
- 	  .mask		= 0xff3f0000,
- 	},
- 	/* Die: LS1021A, SoC: LS1021A/LS1020A/LS1022A */
-+	[DIE_LS1021A] =
- 	{ .die		= "LS1021A",
- 	  .svr		= 0x87000000,
- 	  .mask		= 0xfff70000,
- 	},
- 	/* Die: LX2160A, SoC: LX2160A/LX2120A/LX2080A */
-+	[DIE_LX2160A] =
- 	{ .die          = "LX2160A",
- 	  .svr          = 0x87360000,
- 	  .mask         = 0xff3f0000,
- 	},
- 	/* Die: LS1028A, SoC: LS1028A */
-+	[DIE_LS1028A] =
- 	{ .die          = "LS1028A",
- 	  .svr          = 0x870b0000,
- 	  .mask         = 0xff3f0000,
-@@ -109,6 +139,7 @@ static const struct fsl_soc_die_attr fsl_soc_die[] = {
- static struct fsl_soc_guts {
- 	struct ccsr_guts __iomem *dcfg_ccsr;
- 	bool little_endian;
-+	u32 svr;
- } soc;
- 
- static unsigned int fsl_guts_read(const void __iomem *reg)
-@@ -119,11 +150,16 @@ static unsigned int fsl_guts_read(const void __iomem *reg)
- 	return ioread32be(reg);
- }
- 
-+static bool fsl_soc_die_match_one(u32 svr, const struct fsl_soc_die_attr *match)
-+{
-+	return match->svr == (svr & match->mask);
-+}
++static struct fsl_soc_guts {
++	struct ccsr_guts __iomem *dcfg_ccsr;
++	bool little_endian;
++} soc;
 +
  static const struct fsl_soc_die_attr *fsl_soc_die_match(
  	u32 svr, const struct fsl_soc_die_attr *matches)
  {
- 	while (matches->svr) {
--		if (matches->svr == (svr & matches->mask))
-+		if (fsl_soc_die_match_one(svr, matches))
- 			return matches;
- 		matches++;
- 	}
-@@ -202,7 +238,6 @@ static int __init fsl_guts_init(void)
+@@ -187,9 +192,7 @@ static int __init fsl_guts_init(void)
+ 	const struct fsl_soc_die_attr *soc_die;
+ 	const struct fsl_soc_data *soc_data;
  	const struct of_device_id *match;
+-	struct ccsr_guts __iomem *regs;
  	struct device_node *np;
+-	bool little_endian;
  	u64 soc_uid = 0;
--	u32 svr;
+ 	u32 svr;
  	int ret;
+@@ -199,18 +202,17 @@ static int __init fsl_guts_init(void)
+ 		return 0;
+ 	soc_data = match->data;
  
- 	np = of_find_matching_node_and_match(NULL, fsl_guts_of_match, &match);
-@@ -217,7 +252,7 @@ static int __init fsl_guts_init(void)
+-	regs = of_iomap(np, DCFG_CCSR);
+-	if (!regs) {
++	soc.dcfg_ccsr = of_iomap(np, DCFG_CCSR);
++	if (!soc.dcfg_ccsr) {
+ 		of_node_put(np);
+ 		return -ENOMEM;
  	}
  
- 	soc.little_endian = of_property_read_bool(np, "little-endian");
--	svr = fsl_guts_read(&soc.dcfg_ccsr->svr);
-+	soc.svr = fsl_guts_read(&soc.dcfg_ccsr->svr);
+-	little_endian = of_property_read_bool(np, "little-endian");
+-	if (little_endian)
+-		svr = ioread32(&regs->svr);
++	soc.little_endian = of_property_read_bool(np, "little-endian");
++	if (soc.little_endian)
++		svr = ioread32(&soc.dcfg_ccsr->svr);
+ 	else
+-		svr = ioread32be(&regs->svr);
+-	iounmap(regs);
++		svr = ioread32be(&soc.dcfg_ccsr->svr);
  	of_node_put(np);
  
  	/* Register soc device */
-@@ -229,7 +264,7 @@ static int __init fsl_guts_init(void)
- 	if (ret)
- 		of_machine_read_compatible(&soc_dev_attr->machine, 0);
+@@ -263,6 +265,8 @@ static int __init fsl_guts_init(void)
  
--	soc_die = fsl_soc_die_match(svr, fsl_soc_die);
-+	soc_die = fsl_soc_die_match(soc.svr, fsl_soc_die);
- 	if (soc_die) {
- 		soc_dev_attr->family = kasprintf(GFP_KERNEL, "QorIQ %s",
- 						 soc_die->die);
-@@ -239,12 +274,12 @@ static int __init fsl_guts_init(void)
- 	if (!soc_dev_attr->family)
- 		goto err_nomem;
- 
--	soc_dev_attr->soc_id = kasprintf(GFP_KERNEL, "svr:0x%08x", svr);
-+	soc_dev_attr->soc_id = kasprintf(GFP_KERNEL, "svr:0x%08x", soc.svr);
- 	if (!soc_dev_attr->soc_id)
- 		goto err_nomem;
- 
- 	soc_dev_attr->revision = kasprintf(GFP_KERNEL, "%d.%d",
--					   (svr >>  4) & 0xf, svr & 0xf);
-+					   (soc.svr >>  4) & 0xf, soc.svr & 0xf);
- 	if (!soc_dev_attr->revision)
- 		goto err_nomem;
- 
+ err_nomem:
+ 	ret = -ENOMEM;
++
++	iounmap(soc.dcfg_ccsr);
+ err:
+ 	kfree(soc_dev_attr->family);
+ 	kfree(soc_dev_attr->soc_id);
 -- 
 2.34.1
 
