@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64828CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD7CCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0/yDYWn6kRk5UjSWpdp2H/2Ws7hO3+Bb9GjBgGzUmKY=; b=WO+wyIe87JeFgzgVOmz3nLl7OC
-	e8nObaIU3DzeO/TYM4XZk4W3M1jeI6jh79NbPqgMkzRbtjX0HJrPuNV6ZZRaooFc+p47rdDV66lSD
-	oMIUqop7fyQ5c2D8YyuO4JObHJhCprSIvzmoFxqPxB+ewcu2vnyw6N7RHEg0UAHnNp50NkmunIY0a
-	99mLeb0UnAYvREkcWvRIsWIiTOjRYVBvyfQ8fqE0BJ21sFWTyuhyxdde6fSq/ulsDY2d1zm40dI4L
-	sEWNJ+oWo/D3aY+jMW3Ge0QKsMhOsRw+htcZ2nSCaPc7BHHV6ZKU6y6nWG5bbiuLGabsbJ8jEA/u6
-	d8Nz8+8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tm5i8T8VZHAsFgDZmgdDx63OEi2Pnzx5WTlvbhLyDEY=; b=cG6QloGbJzAfPAQaOdp6EgRJc/
+	k5H10anH9UwAlmru6evQduixEYq3MTms2DscpoPO2Kw90zW6ipWSWA15ky8o/SxTm+ptU5Ipt/m6G
+	HfyIgJ+JkJ3sXUITsfoIjPDq9i1clDMPuh93Gq3gQyh3Rd8FSHdZkSsN4FKG3zyOIvfEG04UolNHO
+	3+rZD7TqgJMe6vrmNI5G/gIlWrxCjE6mG1McrO7Nnp/61Kq0YpdLOCf25ZgpJ4NNo2mvpzYoB0GTX
+	6TEwzftb4OvPqxxeNkrC4V3bb957R4PQLELxdAbuyqz//KPP2WZ+shkBklLJR9Nxxzp2o/nMetVSy
+	RULIGicg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfrW-00000009Yjz-2PVK;
-	Thu, 11 Jun 2026 13:54:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wXftg-00000009Z0t-449w;
+	Thu, 11 Jun 2026 13:56:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfrV-00000009YjP-0euW
+	id 1wXftg-00000009Z0n-2HCc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:54:25 +0000
+	Thu, 11 Jun 2026 13:56:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F8EC400C9;
-	Thu, 11 Jun 2026 13:54:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EECD1F00893;
-	Thu, 11 Jun 2026 13:54:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B7C33600AA;
+	Thu, 11 Jun 2026 13:56:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 789761F00893;
+	Thu, 11 Jun 2026 13:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781186064;
-	bh=0/yDYWn6kRk5UjSWpdp2H/2Ws7hO3+Bb9GjBgGzUmKY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hbAiHOE8s4N0loBWBlVzb81+kh/Io/vffUDNZncKw1qJB36wk4ftcg9x7b9mbtDuu
-	 BADDAvwHMREeyLz3owgo5vL7Hv4a2DyOV2hebvt7aYxGkscZi5bLHC/7rKxRo05z3E
-	 or3pfXC5xBwSIy+dzZMhyWcxN2TE7EGzyupU/BKBEiaILXHqiUG0Gd5fiCFdKPBSR8
-	 jWiczkESG8IBY1vCfwpSL2W8BRV4oJmGXC8kafaWuWas94wUYpFa6W5XASHtGU8Eei
-	 wQexs2ziQNLb3XF+I5922Z8yzGnvnsFf3xUDJCKiEo+3Si49yD78Md7DWbfR13BeiR
-	 Uotb3FtiNAOSw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wXfrS-0000000Bmwp-1O3w;
-	Thu, 11 Jun 2026 13:54:22 +0000
-Date: Thu, 11 Jun 2026 14:57:42 +0100
-Message-ID: <87qzmd89ih.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Jack Matthews <jack@jackmatthe.ws>
-Subject: Re: [PATCH 0/2] clocksource/drivers/arm_arch_timer_mmio: Restore support for early init
-In-Reply-To: <aip2Pnmi-LJPKwW7@linaro.org>
-References: <20260610-arm-arch-timer-mmio-early-v1-0-ac17218ec8b4@linaro.org>
-	<87se6t8q3s.wl-maz@kernel.org>
-	<aip2Pnmi-LJPKwW7@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: stephan.gerhold@linaro.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, sudeep.holla@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, jack@jackmatthe.ws
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1781186199;
+	bh=Tm5i8T8VZHAsFgDZmgdDx63OEi2Pnzx5WTlvbhLyDEY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=NwftpBK5CQsrefCUB/T7Xk7OemkFlvqXsHpPq927dHUF7OJ0nwVGSlO9Gy8oeGDoj
+	 SaLxy8dEs/2skmWCirbLljexcSYRhqfr0IppnxanbAc2wXh7m4mpa1iUXJGjX7vaXU
+	 NjIbYIBD9W2bGxRdp+F2Ae2Y/Wn3Hh5xtftUGKrRcoiI9vGwHjNrkGV6Ymi9WZut8Z
+	 0dhBKq0Ws0g6bXU0yuCLWoiQm3nO0XpmSAAydBKihgiq2bXHLEtDBgeT7AKcTqR+OG
+	 I7z+wzMwZyV0EH+P3OW/fjBUGVAwdi50d7xJJQGP0N2B1CyjtTGbSlSd+2wBTrUzlF
+	 sAv/TuyPpayjw==
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260327113006.3135663-1-andre.przywara@arm.com>
+References: <20260327113006.3135663-1-andre.przywara@arm.com>
+Subject: Re: (subset) [PATCH v2 0/3] pinctrl: sunxi: a523: fix GPIO IRQ
+ operation
+Message-Id: <178118619718.1357770.10179454069567879597.b4-ty@kernel.org>
+Date: Thu, 11 Jun 2026 21:56:37 +0800
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,102 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Jun 2026 09:47:58 +0100,
-Stephan Gerhold <stephan.gerhold@linaro.org> wrote:
+On Fri, 27 Mar 2026 11:30:03 +0000, Andre Przywara wrote:
+> this is the minimal fix version for the GPIO IRQ operation on the
+> Allwinner A523/A527/T527 SoCs. SD card detection is broken as a result,
+> which is a major annoyance. Those patches here fix that problem, and
+> should go into v7.0 still, if possible.
+> I dropped the more involved fixes from v1, the risk for regressions is
+> now very low:
+> - The quirk flag is just dropped from the A523, not the other SoCs. I
+>   confirmed this again with an experiment, for both the primary and
+>   secondary pincontroller. This avoids fixing the workaround code for
+>   now, which is more involved, but for now unneeded.
+> - The DT patch just adds the missing interrupt. The IRQ association was
+>   always wrong and never worked, so this can't make it possibly worse.
+> Together those two patches (plus the required binding change) fix the
+> problem, I would appreciate if this could be taken ASAP, into v7.0 still.
+> The generic pinctrl code is now untouched, which makes this also much
+> easier to backport, and drops the dependencies on other v7.0-rc fixes.
 > 
-> On Thu, Jun 11, 2026 at 08:59:19AM +0100, Marc Zyngier wrote:
-> > On Wed, 10 Jun 2026 18:53:09 +0100,
-> > Stephan Gerhold <stephan.gerhold@linaro.org> wrote:
-> > > 
-> > > Jack reported a regression for some single-core Qualcomm platforms (e.g.
-> > > MDM9625, MDM9607) that no longer boot because no timers can be found during
-> > > early boot [1].
-> > 
-> > Again, this is *not* a regression. These machines were *never*
-> > supported upstream.
-> > 
-> 
-> Sorry, I'll reword this next time. MDM9607 does have all required
-> drivers and compatibles upstream already and is just missing the actual
-> DT so it does feel somewhat supported to me, but I'm fine treating this
-> as a feature extension without stable backporting etc.
+> [...]
 
-"Supported" has a different definition for me. Cortex-A5 without the
-A9-style TWD was so far never seen in the wild. The Generic MMIO timer
-was introduced way after Cortex-A5 shipped, and was designed to work
-with the CPU timers, making this QCOM contraption a franken-hack.
+Applied to sunxi/dt-for-7.2 in sunxi, thanks!
 
-So calling this supported is very much pushing the boundaries of what
-was supposed to be put together.
+[3/3] arm64: dts: allwinner: a523: Add missing GPIO interrupt
+      https://git.kernel.org/sunxi/linux/c/6b81aa0c8a4f
 
->
-> > > These platforms rely on an obscure timer setup where the
-> > > global Arm MMIO timer (arm,armv7-timer-mem) is used as the only available
-> > > timer for the CPU. This setup used to work fine until commit 0f67b56d84b4
-> > > ("clocksource/drivers/arm_arch_timer_mmio: Switch over to standalone
-> > > driver") when the early timer initialization using TIMER_OF_DECLARE() was
-> > > removed when moving to the standalone MMIO driver.
-> > > 
-> > > There doesn't seem to be any other usable CPU timer on those platforms, so
-> > > this series restores the early timer support using TIMER_OF_DECLARE()
-> > > inside the new standalone arm_arch_timer_mmio driver. This is pretty ugly,
-> > > but I could not think of a better solution so far. I tried to keep the
-> > > ugliness for the two probe paths as limited as possible. :-)
-> > > 
-> > > If someone has a better idea how to solve this, I would be happy to try it.
-> > 
-> > I would suggest finding out what is the latest point in the init
-> > sequence where the timer can be probed without preventing boot.
-> > 
-> 
-> It doesn't get far without having any timer:
-> 
-> [    0.000000] timer_probe: no matching timers found
-> [    0.000000] entering initcall level: console
-> [    0.000000] calling  con_init+0x0/0x354 @ 0
-> [    0.000000] Console: colour dummy device 80x30
-> [    0.000000] initcall con_init+0x0/0x354 returned 0 after 0 usecs
-> [    0.000000] sched_clock: 32 bits at 300 Hz, resolution 3333333ns, wraps every 7158278824300949ns
-> [    0.000000] Calibrating delay loop... 
-> <board hangs>
->
-
-This is nothing that "lpj=[some value]" on the command line can't help
-getting past.
-
-> If you look at start_kernel() in init/main.c it's basically time_init()
-> that would normally probe the TIMER_OF_DECLARE() timers and
-> calibrate_delay() that needs some timer to finish. There is also
-> random_init() that comes directly after time_init(), which already wants
-> to have access to timestamp counters. I don't see any other suitable
-> place to hook into. :-/
-
-None of that should be a problem. I can boot a hacked arm64 kernel
-without any timer all the way to the point where it is waiting for a
-tick to enter the scheduler and run userspace. There's no reason why
-32bit can't do something similar. Heck, 32bit doesn't even have a
-standard timer to rely on, so that's very much possible to do.
-
-Can you at least give it a try?
-
-> 
-> I also don't see any other timer we could use, at least for MDM9625.
-> It's a single-core Cortex-A5 and the downstream kernel defines only the
-> arm,armv7-timer-mem, which seems to be used for everything... (The
-> situation for MDM9607 is a bit different, but not any less messy,
-> unfortunately.)
-
-MDM9607 appears to be a Cortex-A7, so it *definitely* has all the
-bells and whistles that we need. The DT I found doesn't make describe
-the timer, but it is absolutely part of the CPU.
-
-As for the A5, if we can't get this machine to use the driver as is
-without butchering it and going 15 years back in time, then I'd rather
-hack together a minimal driver that only this contraption will make
-use of, and be done with it.
-
-	M.
-
+Best regards,
 -- 
-Jazz isn't dead. It just smells funny.
+Chen-Yu Tsai <wens@kernel.org>
+
 
