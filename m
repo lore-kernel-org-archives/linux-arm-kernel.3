@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74013CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 03:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247D6CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 04:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dvArjssJv1aA68PZSfjaB7vXXTDuvf8OWO4ZxWOv0qI=; b=f0mQT+MQCOTWlrGTUjxnX2MYwg
-	1m2Ug+eiJECebj8CCVffd/Nuz+OVkLcWh0XbNjlF3bdDWILgZZ/N01aC08Gcecy0Re2kYRxphoAxU
-	33KVlz/NmUvGxp+j3FnbwAb1CVQWRKLN5WvVqOXS5UTHmMS1924Sa4iPt6zrfZvCziRu4X6x6wThX
-	nqTdJCtE0QCGZFH9LCFX80g5veKF40MD22NDbdYcDKKGAJNHduhEmzVeyei8T4NXOV1iZnRPTzqLP
-	OZ/3qr3lwIuB0ipcGAEh6hdaTW0vCU/WT7OPZC5+7IF3veJ5YQeCgrDEqanembuy6Ew2WhBrlHvWl
-	uzhHll1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fs2D/dmY6qG5eFk5keXxNf0HlHzBHntwLDPmYvPj8xA=; b=hNO7e+U8zg0elFGiJGKvh6KhOc
+	9hzMUMCW/mLDnOCNvIi5E5Eo/E1Omvawsst75sXTXHWtIKozOxZHUklmmnuJ02O7i+RSiJSUJbzKZ
+	r7kAtok5diASctQFxnL8R4c91s3ac0l+KWBy5Osgl62tqHsr7cfFxHE9jWJ6GZW5KZ57i7OmLh+kQ
+	czghAXIZRSPOkpUV+Cso/HLyRVsSej/k/Cxa8F0TEih/vhtuC1hVydMQFz3IAZtf9UjuXkNecvYlT
+	3Bzr9AUUnY1r6JnBegumXrmBsVfYaJBQl1dt3XQtWsZ9iP4njYjBZ0H8Fp2Aii7YZv4NtOEk1DU7D
+	1XwoQRtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWWn-00000008eBM-1pMO;
-	Thu, 11 Jun 2026 03:56:25 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wXWgk-00000008eoY-392f;
+	Thu, 11 Jun 2026 04:06:43 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWWl-00000008eAy-1GSy;
-	Thu, 11 Jun 2026 03:56:24 +0000
-Received: from localhost.localdomain (unknown [117.182.75.76])
-	by APP-05 (Coremail) with SMTP id zQCowACnAdXcMSpqxrALEw--.28779S2;
-	Thu, 11 Jun 2026 11:56:14 +0800 (CST)
-From: WenTao Liang <vulab@iscas.ac.cn>
-To: alexandre.belloni@bootlin.com,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	p.zabel@pengutronix.de
-Cc: jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	ben.dooks@codethink.co.uk,
-	linux-rtc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	WenTao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] rtc: meson: fix refcount leak in meson_rtc_get_bus
-Date: Thu, 11 Jun 2026 11:56:05 +0800
-Message-ID: <20260611035605.59906-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1wXWgi-00000008eoC-12TM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 04:06:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1781150794;
+	bh=fs2D/dmY6qG5eFk5keXxNf0HlHzBHntwLDPmYvPj8xA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=h5T9HOKS7M9O1foYkec/z47r6o6cIhERYKZtRFocOM6fumMx01P4miGrprmiV2Qb/
+	 xhYspqxpGkBpqRCPopb7HhMu4MoxDRO4y3TArJgafrGawwxg+r+LvQPhzS1uoiWgUo
+	 sixF/Ww0INydYwfA+rSm828vbrRIhZHOiBhU3GPI0wjQOfQPOTCdXIvjtKUYB4E5Eb
+	 JhwiYxvKlrOSHe3FohbDfZxBVPbnO7Hg6aLR1FA2IeWqPVFWRZYSej4ODOlKQvnw2e
+	 MW8fX+uej6ProOA7Lpn1bTkRQ5oLrU/patSOT7Mz340qjQpfLF8TOn3uHsorLbKMUJ
+	 MkuYWc7diWwZA==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id CB59160A0C;
+	Thu, 11 Jun 2026 12:06:32 +0800 (AWST)
+Message-ID: <5543c67f4eb6a206e524c6a590e13bbb1756b0df.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v3 0/9] ARM: dts: aspeed: anacapa: restructure
+ devicetree for development-phase
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: u8813345@gmail.com, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	colin.huang2@amd.com, Carl Lee <carl.lee@amd.com>, Rex Fu
+ <rex.fu.amd@gmail.com>,  Andy Chung <Andy.Chung@amd.com>, Peter Shen
+ <peter.shen@amd.com>
+Date: Thu, 11 Jun 2026 13:36:32 +0930
+In-Reply-To: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
+References: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACnAdXcMSpqxrALEw--.28779S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ar43JFWxWw1rJw17Zw1kKrg_yoW8Gryfpr
-	43KFy7tryDtr4fJanrGw4ruFW3ZFnIqFWUGrsFyw1S9w1fJa1UJry2kF4rJayUWr1kG3y5
-	XFsrGF1F9F1DKF7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
-	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
-	sGvfC2KfnxnUUI43ZEXa7sRi_HU3UUUUU==
-X-Originating-IP: [117.182.75.76]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwkPA2op-r7IegABsy
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_205623_716252_EB1B663A 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20260610_210640_503555_69E18672 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +76,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In meson_rtc_get_bus(), reset_control_reset() is called to trigger
-a hardware reset when the serial bus is not ready. The function may
-retry up to three times, but neither the successful nor the failure
-path calls reset_control_rearm() to balance the reference count,
-leaking the triggered_count on shared reset controls.
+Hi Colin,
 
-Fix this by adding reset_control_rearm() after reset_control_reset()
-on both the error return path and the success path within the retry
-loop, ensuring the reset control can be re-triggered on subsequent
-bus acquisition attempts.
+On Tue, 2026-06-02 at 21:24 +0800, Colin Huang via B4 Relay wrote:
 
-Cc: stable@vger.kernel.org
-Fixes: d8fe6009aa3e ("rtc: support for the Amlogic Meson RTC")
-Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
----
- drivers/rtc/rtc-meson.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/rtc/rtc-meson.c b/drivers/rtc/rtc-meson.c
-index 21eceb9e2e13..729384dceb12 100644
---- a/drivers/rtc/rtc-meson.c
-+++ b/drivers/rtc/rtc-meson.c
-@@ -146,8 +146,12 @@ static int meson_rtc_get_bus(struct meson_rtc *rtc)
- 		dev_warn(rtc->dev, "failed to get bus, resetting RTC\n");
- 
- 		ret = reset_control_reset(rtc->reset);
--		if (ret)
-+		if (ret) {
-+			reset_control_rearm(rtc->reset);
- 			return ret;
-+		}
-+
-+		reset_control_rearm(rtc->reset);
- 	}
- 
- 	dev_err(rtc->dev, "bus is not ready\n");
--- 
-2.50.1 (Apple Git-155)
+...
+
+>=20
+> Colin Huang (5):
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: anacapa: add EVT1 device=
+tree and point wrapper to it
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: anacapa: add EVT2 device=
+tree inheriting EVT1
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: anacapa: add DVT devicet=
+ree inheriting EVT2
+
+So my concern with these three are that none of the EVT1, EVT2 or DVT
+devicetrees correspond with the current Anacapa devicetree. All of them
+have variations on the configured GPIOs. Some GPIO lines are renamed
+while others are added.
+
+Adding them is (eventually) fine, but I'd rather not do that while
+we're shuffling the devicetree sources around.
+
+Renaming them to accommodate changes in the one devicetree is what
+we're trying to escape here, so having renames hide in the rest of the
+shuffling is definitely problematic.
+
+For example:
+
+   -""                    =20
+   +"L_FNIC_FLT"     =20
+    "FM_CPU0_SYS_RESET_N"
+   -""                                                                     =
+                                                                           =
+           =20
+   +"L_BNIC0_FLT"
+    "CPU0_KBRST_N"
+   -""
+   +"L_BNIC1_FLT"
+    "FM_CPU0_PROCHOT_trigger_N"
+   -""
+   +"L_BNIC2_FLT"
+    "FM_CLR_CMOS_R_P0"
+   -""
+   +"L_BNIC3_FLT"
+    "Force_I3C_SEL"
+   -""
+   +"L_RTM_SW_FLT"
+    "SYSTEM_Force_Run_AC_Cycle"
+    ""
+    ""
+   @@ -20,55 +20,57 @@
+    "FM_SCM_JTAG_MUX_SEL"
+    "Channel2_leakage_Manifold1"
+    "FM_BRIDGE_JTAG_MUX_SEL"
+   -"Channel3_leakage"
+   +"Channel5_leakage_present_EAM1"
+
+I've pasted a script below that helps compare the various dts files.
+You can use it to generate the reference from the current aspeed-bmc-
+facebook-anacapa.dts, then generate the comparison files from the newly
+introduced dts files.
+
+To reiterate, I expect the shuffling of the dts files to result in at
+least one of the variants producing the same devicetree as the current
+aspeed-bmc-facebook-anacapa.dts.
+
+Andrew
+
+   #!/usr/bin/bash
+  =20
+   set -x
+  =20
+   : ${ANACAPA_VARIANT:=3D""}
+   : ${ANACAPA_REFERENCE:=3D"arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-=
+anacapa.dtb.rt.dts.tmp"}
+  =20
+   if [ -z "$ANACAPA_REFERENCE" ] || ! [ -e "$ANACAPA_REFERENCE" ]
+   then
+     gcc -E -Wp,-MMD,arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa.=
+dtb.d.pre.tmp -nostdinc -I ../scripts/dtc/include-prefixes -undef -D__DTS__=
+ -x assembler-with-cpp -o arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-ana=
+capa.dtb.dts.tmp ../arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dt=
+s ; ./scripts/dtc/dtc -o arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anaca=
+pa.dtb -b 0 -i../arch/arm/boot/dts/aspeed/ -i../scripts/dtc/include-prefixe=
+s -Wno-unique_unit_address -Wno-unit_address_vs_reg -Wno-avoid_unnecessary_=
+addr_size -Wno-alias_paths -Wno-interrupt_map -Wno-simple_bus_reg   -d arch=
+/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa.dtb.d.dtc.tmp arch/arm/bo=
+ot/dts/aspeed/.aspeed-bmc-facebook-anacapa.dtb.dts.tmp ; cat arch/arm/boot/=
+dts/aspeed/.aspeed-bmc-facebook-anacapa.dtb.d.pre.tmp arch/arm/boot/dts/asp=
+eed/.aspeed-bmc-facebook-anacapa.dtb.d.dtc.tmp > arch/arm/boot/dts/aspeed/.=
+aspeed-bmc-facebook-anacapa.dtb.d
+     dtc -I dts -O dts -o arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-ana=
+capa.dtb.rt.dts.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa.d=
+tb.dts.tmp
+     ANACAPA_REFERENCE=3Darch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anac=
+apa.dtb.rt.dts.tmp
+   fi
+  =20
+   if [ -n "$ANACAPA_VARIANT" ]
+   then
+     gcc -E -Wp,-MMD,arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa-=
+${ANACAPA_VARIANT}.dtb.d.pre.tmp -nostdinc -I ../scripts/dtc/include-prefix=
+es -undef -D__DTS__ -x assembler-with-cpp -o arch/arm/boot/dts/aspeed/.aspe=
+ed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dtb.dts.tmp ../arch/arm/boot/dts=
+/aspeed/aspeed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dts ; ./scripts/dtc/=
+dtc -o arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-${ANACAPA_VARIA=
+NT}.dtb -b 0 -i../arch/arm/boot/dts/aspeed/ -i../scripts/dtc/include-prefix=
+es -Wno-unique_unit_address -Wno-unit_address_vs_reg -Wno-avoid_unnecessary=
+_addr_size -Wno-alias_paths -Wno-interrupt_map -Wno-simple_bus_reg   -d arc=
+h/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dtb.d=
+.dtc.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa-${ANACAPA_VA=
+RIANT}.dtb.dts.tmp ; cat arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anac=
+apa-${ANACAPA_VARIANT}.dtb.d.pre.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc-f=
+acebook-anacapa-${ANACAPA_VARIANT}.dtb.d.dtc.tmp > arch/arm/boot/dts/aspeed=
+/.aspeed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dtb.d
+     dtc -I dts -O dts -o arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-ana=
+capa-${ANACAPA_VARIANT}.dtb.rt.dts.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc=
+-facebook-anacapa-${ANACAPA_VARIANT}.dtb.dts.tmp
+     diff -u "$ANACAPA_REFERENCE" arch/arm/boot/dts/aspeed/.aspeed-bmc-face=
+book-anacapa-${ANACAPA_VARIANT}.dtb.rt.dts.tmp | tee ${ANACAPA_VARIANT}-{re=
+move,add}
+     grep '^-[^-]' ${ANACAPA_VARIANT}-remove | grep gpio-line-names | sed -=
+E 's/.+gpio-line-names =3D //' | tr ',' '\n' | sed -E 's/^ //' | sponge ${A=
+NACAPA_VARIANT}-remove
+     grep '^[+][^+]' ${ANACAPA_VARIANT}-add | grep gpio-line-names | sed -E=
+ 's/.+gpio-line-names =3D //' | tr ',' '\n' | sed -E 's/^ //' | sponge ${AN=
+ACAPA_VARIANT}-add
+     diff -u ${ANACAPA_VARIANT}-{remove,add}
+   fi
 
 
