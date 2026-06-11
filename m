@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C38E7CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA1DCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bPlb+6rZmikGcOppKsC4AOYHoDgI1XwOxhNVxtmjtdM=; b=iGsWwFR2zXAM5h5oDIvwgyWJZB
-	uWD1R/lzWCqGVjKLp7Nb3nvRdA4dBARsblwDUz+5IMQ/ZJH2rmPISNXMUH6n1/eElB6efbul15RGB
-	kG8qaK14UfUbs3T0pR524iOs5YCiio2xcT7fCTHK0bXZkQTkBl0VRDDp8IBrAL/dvnj5MMPuIU9ll
-	A0Ujp8o62dyXEQGBjgJuYoKVAr721l9/3cn99kTDyfwe3eJq8M5yKrxZzG8bnD8nrKt2oiWfxIZpP
-	mtnZGAYWCukvgPMmP+kpuEbxzj6V/nlNh/Dx83eaX+0Ouc4QBaBH4JElYPHTn2fnbZM8ZQxl2PS2x
-	uB7au+Mg==;
+	bh=OdLaVCwOyuDeurYpZqPZMIvDONKwz5Fq6cM3k7eHo0g=; b=O2g1SU5zWCTYp9Zn3HDEeAGelG
+	opph2x8WhQbjaFSNAb+owmgWx0+5t2OAdi6XpqoJ/3cSK51h2j8zNDWrPidcD2FEHIVJBW2ZLIVUT
+	g5KHmUC4/CYeuQhEBoSxSFhRRxHlGvDGIR1T9tcvj17IeZw3GEps3/Xt3Jej75UC6SolGwUCoDbAY
+	JI5LFe0eWXCF/wAUHFeoj3sxGciRMuSV6CNPAkR4fKcp/E+8/NH2f5laDC7iOHEWKPUv8iWCJVgRr
+	aXQg6d6jVzYCEe2CRqyPx4iGe1FevxRuKiPNi2fTnWS+i1Eu08oF8X3+FEjEaci2D1cNBUR7s5zjz
+	J5LgwYWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXjYH-00000009r2P-1ESs;
-	Thu, 11 Jun 2026 17:50:49 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1wXjfW-00000009raL-0IEo;
+	Thu, 11 Jun 2026 17:58:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXjYE-00000009r1Y-0Nlk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 17:50:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1781200242; bh=6VonIUSnB2VX1hIS+0y7GFggDcso+/e+QgzgxZQdekI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NyCJUJMMMMgu+bCOZWx+k5Q6w2XLDVed45aLKpwCON2G86TG8r3qqdrIxEcFS4COY
-	 9zdA6o1Q5FhbA73U2wgHmnogP7XuVNI84DUkMqtNyauW0AuOOjt5+kUVjbTT4Zn1xb
-	 2IJN6Ie8msCwDlwcI8cRZhrD/sGrugqjTsbvGo4sG6ZqDYLBMipnZrYO/ZTedOMOH+
-	 vjq9NXwUBUrPHH+pPLGzK8aS42/+ApvTJPgEOqyEfzTWMttOIJakI91rCtYlonbJQm
-	 J/BAxoobEzNyWc4IBbvp40+9JyyrhKFFcbREvzkVsc2ToMllAzFMGEf4wWKMuOO5Xl
-	 nDe1hLY3zTEsg==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 52C2D390154;
-	Thu, 11 Jun 2026 17:50:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1781200242; bh=6VonIUSnB2VX1hIS+0y7GFggDcso+/e+QgzgxZQdekI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NyCJUJMMMMgu+bCOZWx+k5Q6w2XLDVed45aLKpwCON2G86TG8r3qqdrIxEcFS4COY
-	 9zdA6o1Q5FhbA73U2wgHmnogP7XuVNI84DUkMqtNyauW0AuOOjt5+kUVjbTT4Zn1xb
-	 2IJN6Ie8msCwDlwcI8cRZhrD/sGrugqjTsbvGo4sG6ZqDYLBMipnZrYO/ZTedOMOH+
-	 vjq9NXwUBUrPHH+pPLGzK8aS42/+ApvTJPgEOqyEfzTWMttOIJakI91rCtYlonbJQm
-	 J/BAxoobEzNyWc4IBbvp40+9JyyrhKFFcbREvzkVsc2ToMllAzFMGEf4wWKMuOO5Xl
-	 nDe1hLY3zTEsg==
-Message-ID: <809d2a3c-4189-4cc6-b340-097608b48c83@mleia.com>
-Date: Thu, 11 Jun 2026 20:50:40 +0300
+	id 1wXjfV-00000009raB-26xk;
+	Thu, 11 Jun 2026 17:58:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 608E56014B;
+	Thu, 11 Jun 2026 17:58:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152371F00893;
+	Thu, 11 Jun 2026 17:58:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781200696;
+	bh=OdLaVCwOyuDeurYpZqPZMIvDONKwz5Fq6cM3k7eHo0g=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=CcCJR+XJbXwmLbSgCj/9hq5qcM3YNulSkEAB7KTAmHZh4eob+8FKSSQjslgYaVidZ
+	 +v3oWOQgqY8wQBW4MHTNYNHihiyQ5JOT5guRVXc1tToOjwDQKL2MOIvD7wuUxHcbGH
+	 43tZ65rTsZurQWz2Qtq+Wuvmn46SwEQt3VgLC3gZ6Q/7LJOjmVeY1z4hxQFskuWOBC
+	 r1PoR6o70WrRVjQokFrts9MfVU3FR8mXHPywqam5CUs10fAa9NLOE9LzSGnHDyRsiW
+	 GewR9mt1ETVDeGPDPGd/a8ri0GsBQOdszE1DBKN7ByaqCBAw4wCywf0vt9Im91e+PA
+	 wulZ+2o6HJjrA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939413930F87;
+	Thu, 11 Jun 2026 17:58:14 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: iio: adc: KASAN wild-memory-access in complete() on early IRQ
-To: Maxwell Doose <m32285159@gmail.com>, Jaeyoung Chung <jjy600901@snu.ac.kr>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>,
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Sangyun Kim <sangyun.kim@snu.ac.kr>,
- Kyungwook Boo <bookyungwook@gmail.com>
-References: <20260610115700.774689-1-jjy600901@snu.ac.kr>
- <CAKqfh0GVDpfP=TJZPQ2UYkUj=pe1KGn4j1zqbaz_19xawekdnw@mail.gmail.com>
-From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <CAKqfh0GVDpfP=TJZPQ2UYkUj=pe1KGn4j1zqbaz_19xawekdnw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20260611_175042_357202_3E31A7DA 
-X-CRM114-Status: GOOD (  11.53  )
-ln: failed to access 'reaver_cache/texts/20260611_175042_357202_3E31A7DA': No such file or directory
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_175042_357202_3E31A7DA 
-X-CRM114-Status: GOOD (  12.57  )
+Subject: Re: [PATCH] Bluetooth: btmtksdio: fix infinite loop in
+ btmtksdio_txrx_work()
+From: patchwork-bot+bluetooth@kernel.org
+Message-Id: <178120069313.286318.5639664453006485239.git-patchwork-notify@kernel.org>
+Date: Thu, 11 Jun 2026 17:58:13 +0000
+References: <20260609121329.1262170-1-senozhatsky@chromium.org>
+In-Reply-To: <20260609121329.1262170-1-senozhatsky@chromium.org>
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com, mark-yw.chen@mediatek.com,
+ sean.wang@mediatek.com, tfiga@chromium.org, linux-bluetooth@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, stable@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/26 19:07, Maxwell Doose wrote:
-> On Wed, Jun 10, 2026 at 7:04 AM Jaeyoung Chung <jjy600901@snu.ac.kr> wrote:
->>
->> Hi,
->>
->> lpc32xx_adc_probe() in drivers/iio/adc/lpc32xx_adc.c and
->> spear_adc_probe() in drivers/iio/adc/spear_adc.c register their
->> interrupt handler with devm_request_irq() before they initialize
->> st->completion with init_completion(). If an interrupt arrives after
->> devm_request_irq() and before init_completion(), the handler calls
->> complete() on an uninitialized completion, causing a kernel panic.
->>
->> The probe path, in lpc32xx_adc_probe():
->>
->>      iodev = devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzalloc-zeroed */
->>      ...
->>      retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
->>                                LPC32XXAD_NAME, st);           /* register handler */
->>      ...
->>      init_completion(&st->completion);                       /* initialize completion */
->>
->> spear_adc_probe() has the same ordering: devm_request_irq() for
->> spear_adc_isr() before init_completion(&st->completion).
->>
->> Both interrupt handlers, lpc32xx_adc_isr() and spear_adc_isr(), call
->> complete():
->>
->>      complete(&st->completion);
->>
->> If the device raises an interrupt before init_completion() runs,
->> complete() acquires the uninitialized wait.lock and walks the zeroed
->> task_list in swake_up_locked(). The zeroed task_list makes list_empty()
->> return false, so swake_up_locked() dereferences a NULL list entry,
->> triggering a KASAN wild-memory-access.
->>
->> Suggested fix: move init_completion(&st->completion) above
->> devm_request_irq(), so the completion is valid before the handler can run.
->>
->> Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
->> Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
->>
-> 
-> Thanks for reporting this; I can start working on a fix shortly
-> (assuming nobody else is already working on it).
-> 
+Hello:
 
-The analysis and the proposed fix are correct, please go ahead, thank you
-in advance.
+This patch was applied to bluetooth/bluetooth-next.git (master)
+by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
+On Tue,  9 Jun 2026 21:10:06 +0900 you wrote:
+> Every once in a while we see a hung btmtksdio_flush() task:
+> 
+>  INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
+>  __cancel_work_timer+0x3f4/0x460
+>  cancel_work_sync+0x1c/0x2c
+>  btmtksdio_flush+0x2c/0x40
+>  hci_dev_open_sync+0x10c4/0x2190
+>  [..]
+> 
+> [...]
+
+Here is the summary with links:
+  - Bluetooth: btmtksdio: fix infinite loop in btmtksdio_txrx_work()
+    https://git.kernel.org/bluetooth/bluetooth-next/c/a4263306d01d
+
+You are awesome, thank you!
 -- 
-Best wishes,
-Vladimir
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
