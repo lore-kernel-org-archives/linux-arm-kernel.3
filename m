@@ -4,93 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3FECD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B95D9CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/Oe3DW38b9AqfeR+BNHeTcKWnxDeKkYt2PnJ5PXJTI=; b=TBoJ29NPCYgDcgNqY8dMGy5ffo
-	8Rs9baEoO5wR/m2fHYX0Bpb8sVR6GF4oQzPw84onv602WoRAAiLnqYkXCCmK7qVBSo+5mtG+22ZGw
-	d+IDnIolexXVSVlWIjEXCzOIMWCSyhi1mkSIdoYPffCtZoG8s63MTk/Xk0wgt+8hM338eP2tKAwBn
-	8PhJoHxVROP5j4pRbm8Cr+G6HLHaJHsQWVJRZytrv39zyijrd0rWVZyOp3Vu1k7ZcYc6DH9zKpKl0
-	P4oauazEXnZE5pZV5DI+jK78Ry6/q1GR1ne3XOZyIQPYDoucZQ+wwCs9bBzspJg/T1x3xFSfqL+CP
-	HoZYVcJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ov574hmILB3pdxYdVww1k57wi7RZAzJuxmEZc5khEpc=; b=Vf/7n4psXXKvaMP5/cW6RsrTAh
+	hoSne5dY0FCJI8G9frkG3ZGiyUc4kZqq8oUwdyFCZlVTLRv12gJ1T0co4uCQcH9JRpv7LjgArmhN9
+	XMxif9f733QHMJ3wpMjIcpmONP+Nf2PSi2wTv3paTqx2JG52UXgsPsX2TQJpDCjQBT3IWx1pR/I9C
+	BcBc2qLcVxF8BJPYsUCnW6+k2cMyx8pBg/Y0akG/QeizOHOucuk+U84ZycUzOibpj+dfX2IgRrHgi
+	/SsepbeAtOIthhgaCsJV20SRsmo46wg+sprdpMdW11iC1QSyKqYUsXLcKYNspsOzcIgtSt5Bh3J+y
+	W8WT+hQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXbk8-00000009812-1VRB;
-	Thu, 11 Jun 2026 09:30:32 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1wXboy-000000098Ip-46dB;
+	Thu, 11 Jun 2026 09:35:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXbk5-00000009804-1Xvs
+	id 1wXbov-000000098IV-2rhW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 09:30:30 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-68d22476e88so9737a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 02:30:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781170227; x=1781775027; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=n/Oe3DW38b9AqfeR+BNHeTcKWnxDeKkYt2PnJ5PXJTI=;
-        b=bn5NdEbOAWAkKHT+FoTeEJ3IS+NXAhjDB5seK+YQjsok064IC58TvCYklFmWs/R9Jt
-         vYfDnSmwh9GvoSjoVbguSJ4oqxPBpX1Tv+XhcL64LDv5/qfplM1zbqBvQIs/FTKRmMlv
-         oz0avX8N2Ng3YhqN3X3IloCLPSHMMRoR5LVtPnuJnBGixg8G7SeWEHc1f2ndPVID8/yU
-         McwHX2dRs47+gaESTDCEWI1Gjkb2OgVpr0S3Sjf3JAL+tkVf0bWSsGIHHyxGgQBQpN4p
-         9cstsGovGjCisCWxHhWgb7dLI+vYj3dKtatIFR5TEvKOPUnSep8CeoBg/5AG0/Rs//6K
-         1HLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781170227; x=1781775027;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n/Oe3DW38b9AqfeR+BNHeTcKWnxDeKkYt2PnJ5PXJTI=;
-        b=WHBu2UjdEv3IFRSE1Ckq8FB2S67YHkswMI2fQG3kUPM1cI9zY9mzNlHxFc7MGaieUj
-         BL3mNH+RbtHVLZg6Ugzio4HjUyYoSyi6SyMmDnicmfm8lXpQp/2Qgra+H0J21+jnEOTE
-         zsxfoS4MXk1WYsxst6ggKV4DqaTBnBeWyUcZtTf/0lI2gPaT2TTa0hlAmoFN/nsuh3H5
-         GUycmXPO0rLEaGufIkwU8P5x25v5/zh9fnNAg0deAwRvidZiGeEYzaB1IU2Iq23iMqW5
-         tTwW9W1Hyte2lu/ggvXvcs/oIy0USZ845460EyWI58P/qLtk42PZ/SohBnrN3TPc3haZ
-         wnnw==
-X-Forwarded-Encrypted: i=1; AFNElJ+4cXoHXpjOd7Sr3JiJk+VxkhKcy4tOov9OOfJzBicF0j0y4woEEGf3PHyJ7PYMhMAcCz8lp0pzzQ7QYMbNqztW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yze1ENnshVo5CXpOFTixXUVG5G0G/+DWU1/fPSemqKHIMWFPHM4
-	ouRLRAnaKGewTNVFqwGRH1ohq3jb9A5Exj789cp8VUaI4yTtVUV39SOaQDK91EIzew==
-X-Gm-Gg: Acq92OE2rBYZs4WpIiKLLbZpnmR9Kf9GVQVU3aHEfUAa6VHKHa8b7FH0S1hegUqIRJs
-	j7yGVL+tt+VxMKpB6EU4ks7ZQxb9w2hlqY5/jEFJDY+xSemmOx/ZADT+AuhzoEaqTnw9LgcZouK
-	qX450uO9EKMD+9n92J5ms562ZZnjg/cR4FivG3FrtURZPxznONsX6q4oZBvQK1bzGKAdMeAetS2
-	vlOpogR2NZSG3jN6qRrFYxSKDUx/yPgLr1DY3SkrzLaUEpXDeG9LCbC/4jAbPJJIXUlq9ExuzIG
-	xeNekXBWagF/yuNiidoNHC+rmqCttD9PFap+Arod7y8pVOGe4mCP8k0w0ZMz2cX66W9tke5+FRz
-	oxp3TUC5LILDiwAcsCJnfNAPQO5A2qlrSLLYtDdOHspQBk3zfCUpzJWTBQFJuWLBwqLZAFE+nLE
-	/Vl5k+mXJunGUxd53u3VrvR5RTHcOV9VCmgo5AzQO4eA0NLz2kIPtejYGfXi7kBEA7g48m+Mc7a
-	FHAVsS8
-X-Received: by 2002:aa7:ca54:0:b0:693:17e4:c6b0 with SMTP id 4fb4d7f45d1cf-69317e4c895mr18477a12.9.1781170227170;
-        Thu, 11 Jun 2026 02:30:27 -0700 (PDT)
-Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-68e64c2f34asm11046002a12.4.2026.06.11.02.30.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 02:30:25 -0700 (PDT)
-Date: Thu, 11 Jun 2026 09:30:21 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
-	will@kernel.org, joey.gouly@arm.com, korneld@google.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, android-kvm@google.com,
-	mrigendra.chaubey@gmail.com, perlarsen@google.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com
-Subject: Re: [PATCH v2 3/7] KVM: arm64: Support FFA_NOTIFICATION_BIND in host
- handler
-Message-ID: <aiqALaxb_1r9lbZE@google.com>
-References: <20260608165549.1479409-1-sebastianene@google.com>
- <20260608165549.1479409-4-sebastianene@google.com>
- <aikobxnyWj_G2iPT@google.com>
+	Thu, 11 Jun 2026 09:35:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C77846001D
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:35:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76F501F00893
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:35:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781170528;
+	bh=Ov574hmILB3pdxYdVww1k57wi7RZAzJuxmEZc5khEpc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=A1/pVACiTZRAyvqSvqEomemy4em1jq1mn10xf+YddyDmO+LQsyXzcnpO+6OdkAUdi
+	 yt34E2hgTuHynVkbQ+G7v+YhIYRTHl0CedAwB54FM/vhiIG2jKUJde3lnJAjtuutTM
+	 nbOC+ZA9BDBl9yKwb6CLfM/2miWpqts62qkiO5uoMkBFw5qMVp+gNi9r4ypV7ZdXXy
+	 utPeojc90hX3TyUAtfygwQFWHYpvCz7deOF+NgKmVqcR3EJtoPqp+B54tJBAAkZYgF
+	 poIqSVcChK12wjfXWVIP8xYLTHrHTRdakNyGwz6XbRWEH9G1GPXNksQKqmu5S1kjSx
+	 kOI/cBXt1aO1g==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3965eab14cfso59318161fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 02:35:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9UV8BFMshy0wxhz0cPaxClm6dR2eDwmuLpcqVq4knE9CleGa84RQhEtOqkf9KCqcfwE1cMgpYljmMlZdwFhlQt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMu2a0W481LxzD8u4gDxyIb0BOiW4eNIaZBY6j7qcZZA5sHr1G
+	KSrcmrhKmIVH9Yoeqrfu3h0EUwkbxICGlIcsSqDtKBRj0a1EyjJU5Wj55aImrBYJKd/7R0tVbbx
+	ZmsLwllrZu5zverhaVvrVEapBN7sB6ELUQcKKx+1bIw==
+X-Received: by 2002:a05:651c:248:b0:395:6085:a15f with SMTP id
+ 38308e7fff4ca-3991a037f82mr5814191fa.9.1781170527256; Thu, 11 Jun 2026
+ 02:35:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aikobxnyWj_G2iPT@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_023029_443397_116EEC3C 
-X-CRM114-Status: GOOD (  28.64  )
+References: <20260610084053.2059858-1-wenst@chromium.org> <20260610084053.2059858-6-wenst@chromium.org>
+ <ailxrP-_9_NL8qnN@ashevche-desk.local> <CAMRc=MdiwQM6yk8FXcc+RisVP2iqWKWzVsn2-Yy6dyJXt-1X=Q@mail.gmail.com>
+ <aipz2zMFcdnZYTxS@ashevche-desk.local>
+In-Reply-To: <aipz2zMFcdnZYTxS@ashevche-desk.local>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Thu, 11 Jun 2026 11:35:13 +0200
+X-Gmail-Original-Message-ID: <CAMRc=MdRN7YitmMX8PknbzLh+MdsWm+dDg0MLtCVYOorqNobTw@mail.gmail.com>
+X-Gm-Features: AVVi8CfSg10E0UvFAW373K-Jcv4BNuLaPDP9X_vJcmiaG1CmuHb8KO5g7-SqyaM
+Message-ID: <CAMRc=MdRN7YitmMX8PknbzLh+MdsWm+dDg0MLtCVYOorqNobTw@mail.gmail.com>
+Subject: Re: [PATCH v2 05/16] usb: hub: Associate port@ fwnode with USB port device
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Chen-Yu Tsai <wenst@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,105 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 10:03:43AM +0100, Vincent Donnefort wrote:
-> On Mon, Jun 08, 2026 at 04:55:45PM +0000, Sebastian Ene wrote:
-> > Verify the arguments of the FF-A notification bind call and forward the
-> > message to Trustzone.
-> > 
-> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 32 +++++++++++++++++++++++++++++++-
-> >  1 file changed, 31 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > index 91e89d889c44..eedb01955a45 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > @@ -42,6 +42,8 @@
-> >   */
-> >  #define HOST_FFA_ID	0
-> >  
-> > +#define FFA_NOTIF_SENDER_ENDP_MASK	GENMASK(31, 16)
-> 
-> Could we move the MASK definitions form arm_ffa to include/linux/arm_ffa.h?
-> 
+On Thu, Jun 11, 2026 at 10:37=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Thu, Jun 11, 2026 at 04:20:58AM -0400, Bartosz Golaszewski wrote:
+> > On Wed, 10 Jun 2026 16:16:12 +0200, Andy Shevchenko
+> > <andriy.shevchenko@linux.intel.com> said:
+> > > On Wed, Jun 10, 2026 at 04:40:39PM +0800, Chen-Yu Tsai wrote:
+> > >> When a USB hub port is connected to a connector in a firmware node
+> > >> graph, the port itself has a node in the graph.
+> > >>
+> > >> Associate the port's firmware node with the USB port's device,
+> > >> usb_port::dev. This is used in later changes for the M.2 slot power
+> > >> sequencing provider to match against the requesting port.
+> > >
+> > > Okay, would this affect ACPI-based systems? if so, how?
+> > > Can you elaborate on that, please?
+> >
+> > Is it possible that there's an ACPI device node associated with the por=
+t like
+> > on some DT systems? I don't think so and there should be no impact IMO =
+but I
+> > also don't know enough about ACPI.
+>
+> The API is agnostic. There is a possibility to have software nodes associ=
+ated
+> with the port. I think the best is to be sure that ACPI-aware people who =
+are
+> experts in USB will check this (Heikki?).
+>
 
-I wanted to keep it here since it is not used anywhere else other than
-this file.
+Even if there is a software node - it shouldn't really matter. It will
+just be assigned to the port device.
 
-> > +
-> >  /*
-> >   * A buffer to hold the maximum descriptor size we can see from the host,
-> >   * which is required when the SPMD returns a fragmented FFA_MEM_RETRIEVE_RESP
-> > @@ -688,7 +690,6 @@ static bool ffa_call_supported(u64 func_id)
-> >  	case FFA_MEM_DONATE:
-> >  	case FFA_MEM_RETRIEVE_REQ:
-> >         /* Optional notification interfaces added in FF-A 1.1 */
-> > -	case FFA_NOTIFICATION_BIND:
-> >  	case FFA_NOTIFICATION_UNBIND:
-> >  	case FFA_NOTIFICATION_SET:
-> >  	case FFA_NOTIFICATION_GET:
-> > @@ -912,6 +913,32 @@ static void do_ffa_notif_bitmap_destroy(struct arm_smccc_1_2_regs *res,
-> >  	arm_smccc_1_2_smc(args, res);
-> >  }
-> >  
-> > +static void do_ffa_notif_bind(struct arm_smccc_1_2_regs *res,
-> > +			      struct kvm_cpu_context *ctxt)
-> > +{
-> > +	DECLARE_REG(u32, endp_id, ctxt, 1);
-> > +	DECLARE_REG(u32, flags, ctxt, 2);
-> > +	struct arm_smccc_1_2_regs *args;
-> > +
-> > +	if (ffa_check_unused_args_sbz(ctxt, 5)) {
-> > +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +		return;
-> > +	}
-> > +
-> > +	if (FIELD_GET(FFA_NOTIF_SENDER_ENDP_MASK, endp_id) != HOST_FFA_ID) {
-> > +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +		return;
-> > +	}
-> > +
-> > +	if (flags & GENMASK(31, 1)) {
-> > +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +		return;
-> > +	}
-> 
-> 	if (flags > 1) ?
-> 
+Bart
 
-sure, I can replace it with this.
-
-> > +
-> > +	args = (void *)&ctxt->regs.regs[0];
-> > +	arm_smccc_1_2_smc(args, res);
-> 
-> And of course just like all the other functions, it should use
-> the hyp_ prefix.
-> 
-
-Added this.
-
-> > +}
-> > +
-> >  bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
-> >  {
-> >  	struct arm_smccc_1_2_regs res;
-> > @@ -976,6 +1003,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
-> >  	case FFA_NOTIFICATION_BITMAP_DESTROY:
-> >  		do_ffa_notif_bitmap_destroy(&res, host_ctxt);
-> >  		goto out_handled;
-> > +	case FFA_NOTIFICATION_BIND:
-> > +		do_ffa_notif_bind(&res, host_ctxt);
-> > +		goto out_handled;
-> >  	}
-> >  
-> >  	if (ffa_call_supported(func_id))
-> > -- 
-> > 2.54.0.1064.gd145956f57-goog
-> > 
-
-
-Thanks,
-Sebastian
+> Also note Sashiko complain on reference count leakage.
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+>
 
