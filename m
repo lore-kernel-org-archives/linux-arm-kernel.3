@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23985CD98C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 05:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AD6CD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 05:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DfAXXx1CJ6TSjqeW+mrfldmHh9X0zU0bdX8mXNm+FG0=; b=MjEh2F1B5Ehu0QiWDxihrMgmNp
-	9Q2Q7AAT2ASA4xtfQ3LL07xqq8fdfAfG1f/381st589gKz6GoVFXV9H7UXE+46cdUUWKXlLOVUai+
-	oREEimW3seWXKS/XY+Gazq82rA/C3LTaNpDyQWWV9l4uYubBJqJdINrWv774sBk/zVvR4l4NArxvs
-	iP7Gin9gozir8d/CLSv6VZgJrVtNJ8pBlG/LU1tK1khgaSyT4mG4k/UtU7evMlCFUyB7N5C5iWMob
-	5XgkiZIh9OFMlmo5m0p6LjQ26L+/ggUuGVLF9OhVKtY8mtYB053hCOBVUD9FP0RoxY16P5ftTGjuj
-	eNLOT15A==;
+	bh=wU9QahE17CHcvOem5UsKxBBxUuQVPCMM9FqgoNv0fUs=; b=VkqLGVcWD4kSJtRCQjAIa13h8q
+	0/epqBsxWzDjS1E6WKs4kkaaenaqa/9ZdaOLAY36WVIckOxI/NKVhch8wsIScbXRZQn7AXtmbh3ix
+	1ETL3Ql7JtQxkkA+xZjifEPpaz6XZWD2wDdo4h7oWZxWxzM6WKCzytJi2NKT7pBF2JPd1+o7J/P0E
+	FgOf7rK1G9at/iG07oDw9XTJ1wzaGHEbglq5tmfXc6ksRxXD3bhF9yARZHEmduvJ9e7Kxb8XtywF3
+	BKisWOV/FOPs4+GaDvpZ2SWmZa/VHGnVDVmAjslhPZ+z+/ny5Apx3VQ+jPIHGhkyFV/kvErVoix99
+	XfQMEEQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXYK1-00000008lNA-2nLu;
-	Thu, 11 Jun 2026 05:51:21 +0000
+	id 1wXYK7-00000008lO1-3Ge7;
+	Thu, 11 Jun 2026 05:51:27 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXYJz-00000008lMu-2ySN
+	id 1wXYK6-00000008lNr-2Rqh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 05:51:19 +0000
+	Thu, 11 Jun 2026 05:51:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC3E5418DD;
-	Thu, 11 Jun 2026 05:51:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 620D91F00893;
-	Thu, 11 Jun 2026 05:51:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C5CE4039D;
+	Thu, 11 Jun 2026 05:51:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33AE61F0089A;
+	Thu, 11 Jun 2026 05:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781157078;
-	bh=DfAXXx1CJ6TSjqeW+mrfldmHh9X0zU0bdX8mXNm+FG0=;
+	s=k20260515; t=1781157086;
+	bh=wU9QahE17CHcvOem5UsKxBBxUuQVPCMM9FqgoNv0fUs=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=TvoNd8jxPrFVrI2JGUDycYfwOPfr6PlMZSRBoAqNUDx1sQIfP63vVTszEqZiQORlt
-	 UR4zOSK1VG9t4aASu1bH6yXYQfXEINJyHICHrE3UXXrkTjG9FAdKX7FHHa3+mYsYcW
-	 xluOuxNuE4VjTGK6JyhuBXLDRH7pLIs0BynE5Ag7aEYo3PrrmukhruT0VazRVLvgy3
-	 D+5M55gy8SRQ+eJ4je8bR747BHFOkWTwzn/QjN34o/tG+7D5D5uQcmmmJn++3Zd4Sr
-	 qI7ddCHHqzXJ9bE+3M7rpl2xBbq3wIWP0RtHlzMOjVregzUxE0koBX9afi1GCnZdkI
-	 IAvmdt0YB9flw==
+	b=ltendcq+AAz8Kp/fDbsuB6K+OqKdl/kL2fMiTeZchbhNIhi8K6spbNhLwcnfHj+Gd
+	 kxtiVtmL3YdkKr3dwsVJqJgoWQez95r6u8PymmfpHYkxniT/nmwlwf+feqDFXeDsqB
+	 aCoW4wrYb+WmUfRIQcw3GeIYHLKw0eRXH2Lp68T++tsDOZSk1ho22cr62N+lYgBySL
+	 l44GV9AlHGrn7+T1xASigUXew50l8EX9/F0Jj8cPUnIrSu6Zk4s/d+eeRsBPAY5Jrz
+	 g1Zlv2lCGQOypJkhiLSb7kPCkAfkepx0GYqIvyHuGEWX5MesX0mc18xLJlgTDzZ2Hk
+	 V5Ef0FcvGOpjg==
 From: Vinod Koul <vkoul@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- Peng Fan <peng.fan@nxp.com>, Ye Li <ye.li@nxp.com>, 
- Joy Zou <joy.zou@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-In-Reply-To: <20260211-b4-imx95-v2x-v4-0-10852754b267@nxp.com>
-References: <20260211-b4-imx95-v2x-v4-0-10852754b267@nxp.com>
-Subject: Re: (subset) [PATCH v4 0/3] Reserve eDMA channels 0-1 for V2X
-Message-Id: <178115707400.468137.2385832019756326414.b4-ty@kernel.org>
-Date: Thu, 11 Jun 2026 11:21:14 +0530
+To: okaya@kernel.org, Hungyu Lin <dennylin0707@gmail.com>
+Cc: Frank.Li@kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-arm-msm@vger.kernel.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260607163119.78717-1-dennylin0707@gmail.com>
+References: <20260607163119.78717-1-dennylin0707@gmail.com>
+Subject: Re: [PATCH] dmaengine: qcom: hidma: use sysfs_emit() in sysfs show
+ callbacks
+Message-Id: <178115708382.468137.8784208588482548501.b4-ty@kernel.org>
+Date: Thu, 11 Jun 2026 11:21:23 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -77,14 +72,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 11 Feb 2026 17:28:23 +0800, Joy Zou wrote:
+On Sun, 07 Jun 2026 16:31:19 +0000, Hungyu Lin wrote:
+> Replace sprintf() and strlen() patterns in sysfs show callbacks
+> with sysfs_emit().
+> 
+> sysfs_emit() is the preferred helper for formatting sysfs output
+> and simplifies the implementation.
 > 
 > 
+> [...]
 
 Applied, thanks!
 
-[1/3] dt-bindings: dma: fsl-edma: add dma-channel-mask property description
-      commit: 75b28d74f90c79e788e0e86caf0173fc0b2e92aa
+[1/1] dmaengine: qcom: hidma: use sysfs_emit() in sysfs show callbacks
+      commit: 26f926b44dbfc035d5ba0ccfc4387a40aa9947c1
 
 Best regards,
 -- 
