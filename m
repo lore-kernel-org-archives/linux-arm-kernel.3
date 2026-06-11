@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69FE8CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 22:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C15CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 22:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EaqxrR/sV3bOU1Rowx551pwQAzOjjox3enBFC+z/Nc=; b=reUpuHlDlbfteEZNUiR2IzRLXc
-	LscoMpTMQQQSf+0Ah7c+XsIQmE7WWlMMZh+79XbC1H5oT6dAqmXgBsgsPZ0eBfwRXZTVBeymWWlw2
-	3aW8bkjbdeRWv1OkDNFkG2Vq/Fd9jIY9Xljuml+Dan6kftCnLm/vbRHaCIMhR9U5YSrQZZkjwxpOu
-	WsjyBnfdOMYmjyg0A7SL2bUMT/sM8fS0NRw6feYZgzePlcrY1Cf1yefcqm8ZRnRmYCxDw7YsCTM2h
-	TeiT5VrdvvbsXERWiNPzPKjjHYusLQZzRwUB1ELw/FSI3z+hjMQNh84qQwVJZEgqU1EvXXKmjlG56
-	MGsG84FQ==;
+	bh=f3oMmrVXWyC5Wzc2sMvrJFI2Fzlu9pNGMbkNW/R6LDg=; b=mqsLL7NmyWzupYR/PP5/YDP+cY
+	LBX3YMnASQDXXnO8Oq647qo3YOL4RcaL4sLzMdP+dS1RjTOe8YtN0Ltd9sCcZ3/ROeMVMzPU1P+M8
+	O8mKDrDns9vqmSEbARsayFEPCjIfrEhR0eAm0mz3BablguRj/xKQ/OHzCR+XNxii39h+k+3GYSmFq
+	8/CPonY6CTHwKu0LQaj9nWMrT3xv0EMRyC5GJuyRN3Zv/r0YmoUdJrIUchcLnaxzbWXh2B+Ds8icQ
+	eK9rCOVcLyOCmZHNO9EQDYFDCF2R+TWyLq3IIo3Hp9PCxzQKn1hAV4VgCMaW6sIIO5seB3vPiK/j9
+	P1dACpjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYADC-0000000BeeV-07aT;
-	Fri, 12 Jun 2026 22:18:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wYADZ-0000000BekL-0bVI;
+	Fri, 12 Jun 2026 22:19:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYADA-0000000Bedk-3Spj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 22:18:48 +0000
+	id 1wYADX-0000000Bejj-21HI;
+	Fri, 12 Jun 2026 22:19:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E08243B79;
-	Fri, 12 Jun 2026 22:18:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03BC71F000E9;
-	Fri, 12 Jun 2026 22:18:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6534D60008;
+	Fri, 12 Jun 2026 22:19:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E57F1F000E9;
+	Fri, 12 Jun 2026 22:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781302728;
-	bh=+EaqxrR/sV3bOU1Rowx551pwQAzOjjox3enBFC+z/Nc=;
+	s=k20260515; t=1781302750;
+	bh=f3oMmrVXWyC5Wzc2sMvrJFI2Fzlu9pNGMbkNW/R6LDg=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=MCcjGVU5k6xblfjlm0hOAQ0LxniK+ioRseQAbGr0sTWq5Lvyq/kScY4vYXkb/bfHt
-	 whIPFKbPmP/Ai80uaaYsLEKZdkge2EV9bFQJ8FpSqRvTekmxqA2m4ENfJ45lDWb23x
-	 JRoKEzD8PwT3Gi7LFaSUE3fz9rV7bdQPQh8T50fB+l9V4vBBBVOZgZTotMERGRI2j+
-	 J/RNWyA2lumXc+UcKfnTHysZq0b5GRmfgSBSt73C0Kqcl+lcjT3N2TQ99nImUGUNVm
-	 X4iMalO4cRwCX3tnuh50dZRQ0NYuJVlja1KFyzwDKG4daTUmWSEXpYwa0KIMhdlG+8
-	 YIrtwz6f2NHEA==
+	b=GfSNY6tCmURPFfTsAasGL0KULYw37NvIrwenNSXCO/zHges2r36rBXCobJI29tX4l
+	 U0tU5umwOrMPHeEhXR/dd84LBvkF9k2aW+KlvfMTLVX93yDeX9jy3+JtYqxS2DXEbK
+	 navC49qjtLL3G+AjcpbjT8wL3TwFovpAPGjzXjf2K1jAKdrm+7EreeYK9KKK/DbCyv
+	 G/oysRjWCRWKv5G4eH47bYr7gwpDcLJnYYb12KJr+A9u1eMG3rSni3Q6dmO9LkaUZO
+	 WtEExJKjv2H1O0OstT40Sf7pUMp/DySKlMo23Z8uKSqsHNrQJ1/mJ6KcgpP/yaM0cC
+	 2HdGNa3v4ttOg==
 From: Mark Brown <broonie@kernel.org>
-To: Srinivas Kandagatla <srini@kernel.org>, Takashi Iwai <tiwai@suse.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Herve Codina <herve.codina@bootlin.com>, 
- Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, 
- Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, notify@kernel.org
-In-Reply-To: <20260608-asoc-of-node-scoped-cleanup-v1-0-9e3ac518dc2e@gmail.com>
-References: <20260608-asoc-of-node-scoped-cleanup-v1-0-9e3ac518dc2e@gmail.com>
-Subject: Re: [PATCH 0/3] ASoC: use scoped OF node handling in manual
- cleanup paths
-Message-Id: <178127725305.48375.17603847447471691265.b4-ty@b4>
-Date: Fri, 12 Jun 2026 16:14:13 +0100
+To: Matthias Brugger <matthias.bgg@gmail.com>, phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org
+In-Reply-To: <20260610102021.83273-1-phucduc.bui@gmail.com>
+References: <20260610102021.83273-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 00/10] ASoC: mediatek: Use guard() for mutex & spin
+ locks
+Message-Id: <178120798545.484538.11565286739109588330.b4-ty@b4>
+Date: Thu, 11 Jun 2026 20:59:45 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1663; i=broonie@kernel.org;
- h=from:subject:message-id; bh=6NdJ1oXu8X+yrUyYOh3BVEt16gq7UD6K3TfA3IfrptY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqLIXBRNPXenH0pNh+GaHTYt582SCRLiGDStmcX
- CIiqu8x+JmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaiyFwQAKCRAk1otyXVSH
- 0KzSB/9EIxR68YF4xkDdQc5qt3LLq490icnYLlz3hS/NZYEltakjL8njExuQ3zcTJBfIUrJCoZe
- V1ON3uZ3j1Ea91FUKsiBqIRNWpfU9cOfYwKdezXVTXFbrtH8oYaas6j/H0fm3C3KFDrcx6OV62E
- veBD3U/6ovNL+EL/marF53J8tw5ujOw6s6ht+U6oO7M/aQqxpT59X0xh0pYOSN8xvvbEC0RIO14
- nE1lO2wTJVHs2UYC1pLy0fuJyexr2jtykNji0JTzLDnobKjHMfIwxzCmM7fiCMq9aeTTzznCM7k
- IlTzJifQ4K3OWu56FdA49audNwYAbb6FUZGz2hV7qyC9/1jV
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2577; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=s6eAXdoqlUtuLTZth4AInopuSR9AS4C4NIHo4pAOH0g=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqLIXY3qY4bPRZzGt04t1+88KFfah/WK8pl1Dii
+ yKqa5Bte0aJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaiyF2AAKCRAk1otyXVSH
+ 0KzRB/9/lmKAq9WvQTjtXr2vcfs/RpkjmcKxB1gkRm+rO78MqATIRHFdBOlzCezkeK9Dmo+S2Ay
+ 4ZIDE/MC2+d4ssKrXbyMz1rekMFO+njYDoU43qtDjrDDavijOkMhKkKo0pydBQw7x7L+0eR4+2u
+ Bez+M4/iIcpOhN4YtmBOicPNspZ6q0HTToJOEOMIqfklZ1amGHSR5SRpZaPB0CxIuYGo7ENsbzd
+ BUFnaoRCq90RJXIb27JQNQHUS4Rb/+2tjlAMEQJ0wYhW9nOhsazyJhuK1z8WD+JVMNCvooK4Y6S
+ lBBqwLu4fLlE3XNIbXDyVc6bSglIbyHdOL9VABtfuxeeXKRe
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,15 +85,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 08 Jun 2026 10:39:10 -0300, Cássio Gabriel wrote:
-> ASoC: use scoped OF node handling in manual cleanup paths
+On Wed, 10 Jun 2026 17:20:11 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mediatek: Use guard() for mutex & spin locks
 > 
-> Some ASoC drivers still manually release child OF nodes
-> when leaving child-node iteration loops early.
+> From: bui duc phuc <phucduc.bui@gmail.com>
 > 
-> Convert these focused cases to scoped OF node cleanup
-> so early returns and normal loop exits keep the same node
-> lifetime handling without explicit of_node_put() calls.
+> Hi all,
+> 
+> This series converts mutex and spinlock handling in Mediatek ASoC drivers
+> to use guard() helpers.
 > 
 > [...]
 
@@ -107,12 +103,26 @@ Applied to
 
 Thanks!
 
-[1/3] ASoC: qcom: common: use scoped OF node handling
-      https://git.kernel.org/broonie/sound/c/22aed576add0
-[2/3] ASoC: fsl: fsl_qmc_audio: use scoped child node loop
-      https://git.kernel.org/broonie/sound/c/065df02692f0
-[3/3] ASoC: bcm: cygnus: use scoped child node loop
-      https://git.kernel.org/broonie/sound/c/9741aad24432
+[01/10] ASoC: mediatek: common: mtk-afe-fe-dai: Use guard() for mutex locks
+        https://git.kernel.org/broonie/sound/c/9475859429e4
+[02/10] ASoC: mediatek: common: mtk-btcvsd: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/c69724b714c5
+[03/10] ASoC: mediatek: mt8186: mt8186-afe-gpio: Use guard() for mutex locks
+        https://git.kernel.org/broonie/sound/c/1e9f4587c873
+[04/10] ASoC: mediatek: mt8188: mt8188-afe-clk: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/cc29c31e87fc
+[05/10] ASoC: mediatek: mt8192: mt8192-afe-gpio: Use guard() for mutex locks
+        https://git.kernel.org/broonie/sound/c/14edf39daefb
+[06/10] ASoC: mediatek: mt8195: mt8195-afe-clk: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/a9f8d09ab109
+[07/10] ASoC: mediatek: mt8195: mt8195-dai-etdm: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/a57e39c7ff03
+[08/10] ASoC: mediatek: mt8195: mt8365-afe-clk: Use guard() for mutex & spin locks
+        https://git.kernel.org/broonie/sound/c/befae7299ab4
+[09/10] ASoC: mediatek: mt8195: mt8365-dai-adda: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/754c2fbf8bbc
+[10/10] ASoC: mediatek: mt8195: mt8365-dai-i2s: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/62bde3771c3b
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
