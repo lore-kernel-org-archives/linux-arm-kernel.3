@@ -4,115 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E03CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 08:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BEBCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 08:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U2OBOTy5WdJP86DpM6CZPHp6nysNdiL1hSn03GVCNGQ=; b=LyI2mcjuApOM17Zt3IB+em/nUe
-	6L+N8cXLxO9codcdzjYx7UH21Fs0wh32qzJVz/hIpwvkbgJmz1p05O9a6Xe/wEgA4RGLJgK3CA4yH
-	zmruMUdFRPfpatzRvbTNL9c804od23NJqu/9XxA7M+49GDvLGJi7sOHo6822GXHhgnQgHMsgR8aut
-	crKGBlAXcm7hu1rqC8J5mH0CXH71jpnFOEhBTixdkaUUKfaefwEGA3kJ/jfMY31lRmgGTGP6uS0pg
-	yI4PRX0RaHk7V0XLxLv4BRymtXPvjUwDzFaFYNG18XwLtRc8+fQ0+nIVjiGzXICbeyb1z6SjQ8OKP
-	mhBkjAOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2IIKlhb3svN4EPd89ooG0cnVxCK3GU+JlZ80wFVg5BE=; b=0ykR9Sy/bv8JFkiRCDrNKlCIHl
+	2mDWkGSyNDjaeoSbNQg/4dh8KGEswbBTT7oSAZxgccrQR4wMGwum5yPa2/MjBn13SbQ3cMLnvPTs9
+	tq9a7KO48jc0LoIu6SrdWX1sTFB9H+QS3a2EpztL1cuxardIeYs+MEptPI7Oo2uMof6I61oxcErBR
+	RWOe5puPwWya9Vv0zMsVPO9h88JHEDJ5Eq5jLa153oX8Q6L+nZSAWk5uIs33f44Bt/ICJ1st9czs1
+	8de0bo/5Ocq5L9XoMcpx3z9MgLWjdY7umxGp51gcwmuIE/dMsSbUC5gA6Eni66b0KjEOpVMWH+3Pg
+	/2vT9KCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXb0J-000000092FI-0wn7;
-	Thu, 11 Jun 2026 08:43:11 +0000
-Received: from mail-centralusazon11011043.outbound.protection.outlook.com ([52.101.62.43] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wXb3V-000000092c4-3mNh;
+	Thu, 11 Jun 2026 08:46:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXb0F-000000092CI-0X6N
+	id 1wXb3U-000000092bw-32Te
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 08:43:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kNhCpuqFZz4pjmhVq3IJjb1GOKoCVUkDJk1Y71eN1kYGY5nITOU3vod1zwgiQ5Codo/UmO5wNterZpYbu0icz08TKlVZE0C6EFldvDrE/oX47T9MQWmB2ECaSCgLfGlHsVOivPm5mSohJvdVZO+aHoGq61NgKx3/JkwHhYf7UED8F52MaDLIlKFPtfYzaZeUXcUhZH7cL35q+6XZYu601DlCcMprnkLyRv7Eqq86q1jDS2uHxI0FdW2gEEUvJFQ2bBetTS60ylR/6afd2Kga27w74e7ICwplfoHrdo3GG09tSclpDiunU/GSpVTAWISzfDOCWDU0bNhe2wgM9SMxkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U2OBOTy5WdJP86DpM6CZPHp6nysNdiL1hSn03GVCNGQ=;
- b=K3wiuaJQ2DIVHtsLyfX4BCH7CRuT9ugKeDhW+cctaaLsdApi5CRkjolxH9gq1vph8CCDkj3j+dV3qlle0bV6E66bSMICEbhWzj4OYP8rYCPqgX1RoBMIkahLTsZ1KyXwQVKLoXvona32kHBihlpyXFvmo6G+jv2Av3P3l3NwNaIQvHPjex59T8nG270I868UGppZmGb17QMBgc3xgB8Coz9O/VlntlG1x9HdYfdLX+dRQ1WVD+oN89PYOpb9NTzj+JNM+LPTr7/JGVN/TvcoVM+//kD4lN1eBL7Z/kKbiSJDzFobxugj4ckheUk2CqfhJbvqlPHLeGQUTrRmynrPPw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U2OBOTy5WdJP86DpM6CZPHp6nysNdiL1hSn03GVCNGQ=;
- b=So9dy1ba8sr+8xpoGuOmMDqPKiQV7CO7tactoCRuL+i/kO45l2VM6NZ8rUBP5qymyA6apFG4W0lQgDe2iSKhuIHobMkTSeXWVyF0w8gPUJhX8cCPMy9l8p/5sMzJY+644LqhDDphFlW9B0zIvc4XsEbgVjlAGz0Imv4Bf8PXan5oXTxLD58SXz5VE74AyKtHop+UJd9+pt8sv5uSOdF/pSwZ9jpgpnh1OICQEH+nmC7JDKR/rkFievjyqtvrILGrLqA69xDrjZ7hfPOiV69V4JglI9D5orqzh0pLURD/h9WWtAhAm+RfrIJHhAWcKOcp1HGUMtaOZaE/FDaCgX+14A==
-Received: from PH0P220CA0003.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:d3::12)
- by LV8PR12MB9231.namprd12.prod.outlook.com (2603:10b6:408:192::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.11; Thu, 11 Jun
- 2026 08:42:58 +0000
-Received: from SN1PEPF0002BA4F.namprd03.prod.outlook.com
- (2603:10b6:510:d3:cafe::ad) by PH0P220CA0003.outlook.office365.com
- (2603:10b6:510:d3::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Thu,
- 11 Jun 2026 08:42:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SN1PEPF0002BA4F.mail.protection.outlook.com (10.167.242.72) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Thu, 11 Jun 2026 08:42:57 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 11 Jun
- 2026 01:42:39 -0700
-Received: from NV-2Y5XW94.nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 11 Jun
- 2026 01:42:37 -0700
-From: Shameer Kolothum <skolothumtho@nvidia.com>
-To: <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <nicolinc@nvidia.com>, <jgg@ziepe.ca>, <joro@8bytes.org>,
-	<will@kernel.org>, <robin.murphy@arm.com>, <nathanc@nvidia.com>,
-	<mochs@nvidia.com>, <skolothumtho@nvidia.com>
-Subject: [PATCH v2 2/2] iommu/tegra241-cmdqv: Fix CMD_SYNC use-after-free on teardown
-Date: Thu, 11 Jun 2026 09:42:05 +0100
-Message-ID: <20260611084205.686559-3-skolothumtho@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260611084205.686559-1-skolothumtho@nvidia.com>
-References: <20260611084205.686559-1-skolothumtho@nvidia.com>
+	Thu, 11 Jun 2026 08:46:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BE5D36001D;
+	Thu, 11 Jun 2026 08:46:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4AC41F00893;
+	Thu, 11 Jun 2026 08:46:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781167587;
+	bh=2IIKlhb3svN4EPd89ooG0cnVxCK3GU+JlZ80wFVg5BE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=nFQEdgRHCPlaDppgNORMWkZO4wA854yfVwzCTMLEFdNqjtJ7ksYrCCAthGYjPQiGp
+	 rpX+y/d8juuDwYat3Rij5nuou/Hbl11diPdFieep+eOn2PNZ2g1rHbJVjnGcKpikwD
+	 WyEIv1xUzV0tMHKYIyjEc/T6zO8Z5tSi5tfLRUwMiOhHfXxGl8zQCEh+UFeXkoxh76
+	 XNjctmygrPSqtLV9asIrsf0LWuquijaxdu9zAnPg3drK5DTTasjx2Ec4H3OC0bBbQE
+	 O0u0wfmfYHMdgxILcA5T3LIglS18amCXgz5SlG5vc25S7WTzNfMw7JEEl6OJpin3ko
+	 64l/KQLzvkx0Q==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org, ukleinek@kernel.org, robh@kernel.org, 
+ krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com, 
+ alexandre.torgue@foss.st.com, linusw@kernel.org, 
+ Manish Baing <manishbaing2789@gmail.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20260523173251.72540-2-manishbaing2789@gmail.com>
+References: <20260523173251.72540-2-manishbaing2789@gmail.com>
+Subject: Re: (subset) [PATCH v4 1/2] dt-bindings: mfd: st,stmpe: Add
+ missing properties for PWM subnode
+Message-Id: <178116758438.933112.378885249487702601.b4-ty@b4>
+Date: Thu, 11 Jun 2026 09:46:24 +0100
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.231.37]
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4F:EE_|LV8PR12MB9231:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1cf23f5-1109-4877-baff-08dec7956ffd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|376014|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: p6ZPi2bxejFbXyFmW0Oj5rb4cmM19/2nl/EiUJk42EJh2IzSAnUt1+WGN+EgATbI+TXQ19hoYZotGAwx7vaPuV2MNZu8lrq5p/eojlAEKUVUNYcgFsGgzvUH02lKyD9oeQdrSrqpG2P7eH9XwbB2lQQMDq7ubaZigY1CAWjSosMz9GzAOlo6o63FpXJfs0poviyeaF7YnGWIHwPJvS8sYojFu/lDCB1FAMQgi6PvmnDQ9QEvsbUsyr1iEde+Rqwcd9XCl4pT4/6G/1X20Y8uOWluq6F0UrrGTHz++mDcDKWvc0sbvyWay/TYczQ4Wf4v1X80gaxrT8n24HVE+s0kB7h6GBjfmDbUGPcFhGz9EB/Fx1vhbNYrXQ+jA/0xdhO8xeEr1p5SdLXSL+I1iH7r53my2Sj292bTULEjYLLe/TivwdRSRJkGEJ1J+Etm4dB9K7SrEkw23ha4qQ60ld6EPkrAGL1UXL89e5UDPO2DASrtovD2oT17rRDcCLWxJuWn2CZReUsL2jDzUWja1wANg+K3lsiVmFtqBwRRMvRt1LxjpYfpfIzVUV6XMcBaIuvdIqpBvJ9+hpMb7EL0JEjX6tmg7XVWY+NHrvZ0bQwc20HYwgd8kqIudjpwYvFlMFdI4QCARZhDqGhI+saOxZM9w18O72qdab6QGetWEhoes31wF6N2tNirM4EzqoWie//HHdLx7QBDstSG2cVsNTHUw9AfzHuLVONPNBezryhU2ys=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(376014)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6SHwr+B1JYc/34BEilgEfO44vmpeeb6lUssuzpWWZX6FUHDs3GiQDRCQ4zFzC+gedbK+hyCO/HkJyEZMy8XfchzMl45T8mPnba2z14CT3DDnsCTNPtcGBGCihaY92+2En5p/7YGLvN66fUrJBELB4ReGFgj2tzrv70YS2NrdqEfcnb8lRQt6BE9sRqYQ0PEgvvJzkVwhZXzkHwuZNJz0uM4zC2fqHBsA/HfTwOCv/m8IEv9lrlMGA6pyJ3vdhwzumq8aPkIPxuAZx9YH/gwgI8Hkf/ibv/BcO4aidfKbeXzohUQgLJBiOGms64BJSkfD8tlHJUheGghr4UmC5mKFyXBHoUMRK/1HSB9D+5qhLYe4sJo92RfdV3lrGbZXk/S1Tj4zjnCgEvd7nkFN0TUlcSUgG4CHlwu4D1gXZGgoWNzkjz8QtB4w4WPgg2H5frDN
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 08:42:57.4758
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1cf23f5-1109-4877-baff-08dec7956ffd
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4F.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9231
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_014307_168713_7C534B8C 
-X-CRM114-Status: GOOD (  17.13  )
+X-Mailer: b4 0.16-dev-ad80c
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,131 +75,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_smmu_impl_remove() is registered as a devres action in
-arm_smmu_impl_probe(), before arm_smmu_init_queues() allocates
-smmu->cmdq.q.base. On a devres unwind, whether a failed probe or an
-unbind, the queue is freed first and arm_smmu_impl_remove() then runs
-tegra241_cmdqv_remove_vintf(), whose VINTF deinit issues a CMD_SYNC on
-the freed memory.
+On Sat, 23 May 2026 17:32:50 +0000, Manish Baing wrote:
+> The st,stmpe-pwm binding is already covered by the MFD schema in
+> Documentation/devicetree/bindings/mfd/st,stmpe.yaml. However, the
+> PWM subnode was missing a 'required' properties block. This allowed
+> Device Tree nodes to pass validation even if the 'compatible'
+> string was omitted. This omission could lead to probe failures
+> at runtime.
+> 
+> [...]
 
-Observed during testing with a QEMU hack that makes the VCMDQ fail to
-enable, so the impl reset fails and probe aborts into the devres unwind:
+Applied, thanks!
 
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: failed to enable, STATUS=0x00000000
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: GERRORN=0x0, GERROR=0x4, CONS=0x0
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: uncleared error detected, resetting
- arm-smmu-v3 arm-smmu-v3.0.auto: failed to reset impl
- arm-smmu-v3 arm-smmu-v3.0.auto: probe with driver arm-smmu-v3 failed with error -110
- Unable to handle kernel paging request at virtual address ffff8000891e0098
- ...
- Internal error: Oops: 0000000096000047 [#1] SMP
- ...
- Call trace:
-  arm_smmu_cmdq_issue_cmdlist+0x320/0x6fc (P)
-  tegra241_vcmdq_hw_deinit+0x98/0x168
-  tegra241_vintf_hw_deinit+0x5c/0x1b0
-  tegra241_cmdqv_remove_vintf+0x34/0xec
-  tegra241_cmdqv_remove+0x40/0x9c
-  arm_smmu_impl_remove+0x20/0x30
-  devm_action_release+0x14/0x20
-  devres_release_all+0xa8/0x110
-  device_unbind_cleanup+0x18/0x84
-  really_probe+0x1f0/0x29c
+[1/2] dt-bindings: mfd: st,stmpe: Add missing properties for PWM subnode
+      commit: b07f7904e0523170856876e4412be852377d492a
 
-Drop the VINTF deinit from tegra241_cmdqv_remove_vintf() so the unwind no
-longer touches the freed queue. Quiesce the VINTFs earlier instead. Add a
-device_disable() impl op and run it from arm_smmu_disable_action() while
-the CMDQ is still up. That handles a live unbind. A failed reset is already
-handled because tegra241_vintf_hw_init() deinits the VINTF on its own error
-path. tegra241_cmdqv_remove_vintf() is also used by the iommufd viommu
-destroy path, so quiesce there too.
-
-Fixes: 4dc0d12474f9 ("iommu/tegra241-cmdqv: Add user-space use support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Shameer Kolothum <skolothumtho@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h    |  1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c    |  6 +++++-
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 15 +++++++++++++--
- 3 files changed, 19 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index ef42df4753ec..690055aa63c7 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -804,6 +804,7 @@ struct arm_smmu_strtab_cfg {
- 
- struct arm_smmu_impl_ops {
- 	int (*device_reset)(struct arm_smmu_device *smmu);
-+	void (*device_disable)(struct arm_smmu_device *smmu);
- 	void (*device_remove)(struct arm_smmu_device *smmu);
- 	int (*init_structures)(struct arm_smmu_device *smmu);
- 	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 00261e77e7bc..3d531af7e16c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4800,7 +4800,11 @@ static int arm_smmu_device_disable(struct arm_smmu_device *smmu)
- 
- static void arm_smmu_disable_action(void *data)
- {
--	arm_smmu_device_disable(data);
-+	struct arm_smmu_device *smmu = data;
-+
-+	if (smmu->impl_ops && smmu->impl_ops->device_disable)
-+		smmu->impl_ops->device_disable(smmu);
-+	arm_smmu_device_disable(smmu);
- }
- 
- static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index 83f6e9f6c51d..c7af7658a4ea 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -761,8 +761,6 @@ static void tegra241_cmdqv_remove_vintf(struct tegra241_cmdqv *cmdqv, u16 idx)
- 	struct tegra241_vintf *vintf = cmdqv->vintfs[idx];
- 	u16 lidx;
- 
--	tegra241_vintf_hw_deinit(vintf);
--
- 	/* Remove LVCMDQ resources */
- 	for (lidx = 0; lidx < vintf->cmdqv->num_lvcmdqs_per_vintf; lidx++)
- 		if (vintf->lvcmdqs[lidx])
-@@ -779,6 +777,17 @@ static void tegra241_cmdqv_remove_vintf(struct tegra241_cmdqv *cmdqv, u16 idx)
- 	}
- }
- 
-+static void tegra241_cmdqv_hw_disable(struct arm_smmu_device *smmu)
-+{
-+	struct tegra241_cmdqv *cmdqv =
-+		container_of(smmu, struct tegra241_cmdqv, smmu);
-+	u16 idx;
-+
-+	for (idx = 0; idx < cmdqv->num_vintfs; idx++)
-+		if (cmdqv->vintfs[idx])
-+			tegra241_vintf_hw_deinit(cmdqv->vintfs[idx]);
-+}
-+
- static void tegra241_cmdqv_remove(struct arm_smmu_device *smmu)
- {
- 	struct tegra241_cmdqv *cmdqv =
-@@ -844,6 +853,7 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
- 	/* For in-kernel use */
- 	.get_secondary_cmdq = tegra241_cmdqv_get_cmdq,
- 	.device_reset = tegra241_cmdqv_hw_reset,
-+	.device_disable = tegra241_cmdqv_hw_disable,
- 	.device_remove = tegra241_cmdqv_remove,
- 	/* For user-space use */
- 	.hw_info = tegra241_cmdqv_hw_info,
-@@ -1152,6 +1162,7 @@ static void tegra241_cmdqv_destroy_vintf_user(struct iommufd_viommu *viommu)
- 	if (vintf->mmap_offset)
- 		iommufd_viommu_destroy_mmap(&vintf->vsmmu.core,
- 					    vintf->mmap_offset);
-+	tegra241_vintf_hw_deinit(vintf);
- 	tegra241_cmdqv_remove_vintf(vintf->cmdqv, vintf->idx);
- }
- 
--- 
-2.43.0
+--
+Lee Jones [李琼斯]
 
 
