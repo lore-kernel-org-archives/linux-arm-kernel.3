@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651FACD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFF2CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDRJOUSxfNGFQoBrsDJcmWJf50RsYbuzi43rA4XFrIo=; b=Z9BBc9Aa+q5R3RHTU6DMLvrtXx
-	TeivDOBMGcEA1mvFiMB9DjJ39MPXV27BPWLVMTlehbCer40p5ret5VanPAnIRmbf3MxAZhQYNn7LU
-	AS1Djge7nTSXE7gCYGex0UrRmBMhZ5MXMLtrcALMGEaRaq0mSNRVC2nN7Hkr5WK+T5gmnkEUMhm92
-	L3VU/EVA+XVop5RnL4u/YTIo7iEDTrAT7svzxMlp+rVsCIgXvqMj7xUT13WhOlbsSM6H2Sk8AsE9H
-	0U44RpZgqR5lUiH2z7BtwQnf0AXw+HdYRncH44L5RMeOPSCub8QDKyhLmOtdzl5+VcwDBiepyvbFO
-	if0FUomQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+FFE+v8pjG8V8ZEkH8xrTv66o/LVgGczlqFM2nCs+0Y=; b=txeT9IjfE+9NWCJ7gsukJHzgvP
+	G1mEWnpPNZP0FbjKbHe4+Ymh7gwAbSQZyfy50lql5tR1a/P6gk5Gt+NKE/Y2NVhFeqMDTbkFk2eJ1
+	FW4q3QhYARnFVP5qX4Upulj5n3xcgl1cOffH+CshPga9W/Ojxhu27ndFuC+NtAaPGF7ti6DAcE32T
+	xoG2ieUwzmeQwkzxgqeYZEzjXBGaU3hAKzq3cEqvyrpptyjKJUWNUb6tU9pGodC5+fv0GbVVIJKjR
+	H8yCJmMq9OfU/0PdBXdepPpxuyKnD324lHCEMipTut5W80zKhX08FVv7bf3uiiDr1XshfI+aPB5ef
+	SJz0cuRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgxc-00000009eQy-1qih;
-	Thu, 11 Jun 2026 15:04:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wXgyh-00000009eat-39Nh;
+	Thu, 11 Jun 2026 15:05:55 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgxb-00000009eQo-22nM;
-	Thu, 11 Jun 2026 15:04:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F6DB601DF;
-	Thu, 11 Jun 2026 15:04:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAC561F00893;
-	Thu, 11 Jun 2026 15:04:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781190286;
-	bh=PDRJOUSxfNGFQoBrsDJcmWJf50RsYbuzi43rA4XFrIo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WGljIyaIWsNrku9MCKteXhzgj4r/Jw22YTE77zA4Fg8Lq2hlV+MhHqP89hqwuNLhO
-	 IgHO5OythtyY457InhI1McQOndgj305mr9HA4Z/AjzsvPQDAs28A0pPoxUAJ1yf+tw
-	 fkQHiztW6EQLbqtICHPaLF+j+O6go1z0VfkwMatLKTwW3ELKg1EeoBDE1PZBM3f2k6
-	 qBF6J9W5MBKNLa5NyajsId0nBhwsj5UL+ERCL5gXaa6S6ejZPjp/lDkq2EjpfntrGd
-	 7HDY6sJGFJG9MeCGin77juZqdFrb9sStYI0v034S/Yfw58o+Yi4iF5DonBRuqz9zb5
-	 HVjyvgKNhum4w==
-Date: Thu, 11 Jun 2026 17:04:44 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v4 2/2] net: airoha: defer GDM3/GDM4 WAN mode
- and GDM2 loopback to QoS offload
-Message-ID: <airOjLlxSrA40B-F@lore-desk>
-References: <20260610-airoha-ethtool-priv_flags-v4-0-60e89cf28fea@kernel.org>
- <20260610-airoha-ethtool-priv_flags-v4-2-60e89cf28fea@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3W6r5hbEJpuvgYEO"
-Content-Disposition: inline
-In-Reply-To: <20260610-airoha-ethtool-priv_flags-v4-2-60e89cf28fea@kernel.org>
+	id 1wXgyd-00000009eaB-25cc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 15:05:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781190351; x=1812726351;
+  h=date:from:to:cc:subject:message-id;
+  bh=ZqPgqmHxlWsIdFVY+5GXCa6p8KPYXR/X6hCM4MbPtr0=;
+  b=bWq133A4qqzc+FVDdVU7SrIGV5fn+juwMd8c/QuA+97X+BOKO8jxBM5A
+   c9fIQmZlHP9MJhPVhkA9fI4cggUqhqdYgPYujwmVUymuxHVK13gs6zId4
+   UwvnvHr4dXrNy3ovCfIKqbgF5WvqCRArWcV+LXGESbs7Gr7an+BazfGyz
+   CFbVHjPuC2o1H7wa6Pf/yqiBjBKv1L69t7VXtrZ6vOEr0lPx6+kqr83+h
+   TYMCcTNIN92B8mKd+uPypeSwSH5IdJogvSZdTHd8bK1t/wZlqdl06tiTL
+   kTQ+QV4IRR42bYyhvrkgy0y7fRrJL/cyQ+nn9GI3YmDO1+FTsoO4uz+mF
+   Q==;
+X-CSE-ConnectionGUID: KEfP7hChRyKFcbj8OHxhUg==
+X-CSE-MsgGUID: aP1Xd/zCRkm6WRgfosDKQA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11813"; a="99581512"
+X-IronPort-AV: E=Sophos;i="6.24,199,1774335600"; 
+   d="scan'208";a="99581512"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2026 08:05:50 -0700
+X-CSE-ConnectionGUID: f+FHBYCjT4SCdKKqZNW1Zg==
+X-CSE-MsgGUID: m9EQ3fveT6qjB8Tc0NQr0Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,199,1774335600"; 
+   d="scan'208";a="246542985"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 11 Jun 2026 08:05:49 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wXgyY-00000000NHu-0CHg;
+	Thu, 11 Jun 2026 15:05:46 +0000
+Date: Thu, 11 Jun 2026 23:05:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ aecab2dd6155e7cf367c517848030c2bbdd8a769
+Message-ID: <202606112309.s7fFJxF9-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260611_080551_598568_B0C2282E 
+X-CRM114-Status: UNSURE (   5.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,407 +83,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: aecab2dd6155e7cf367c517848030c2bbdd8a769  Merge tag 'imx-dt64-7.2-part2' of git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux into soc/dt
 
---3W6r5hbEJpuvgYEO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+elapsed time: 799m
 
-> GDM3 and GDM4 ports require GDM2 loopback to be enabled for hardware
-> QoS offload to function. Without it, HTB and ETS offload on these ports
-> do not work.
-> Previously, GDM3/GDM4 ports were automatically configured as WAN with
-> GDM2 loopback enabled during ndo_init(). Add the capability to configure
-> GDM3/GDM4 as WAN/LAN on demand when QoS offload is created or destroyed.
-> Hook airoha_enable_qos_for_gdm34() into TC_HTB_CREATE so that requesting
-> HTB offload on a GDM3/GDM4 LAN port switches it to WAN mode and enables
-> GDM2 loopback, with proper rollback on failure. Hook the counterpart
-> airoha_disable_qos_for_gdm34() into TC_HTB_DESTROY to restore LAN mode
-> when the offloaded qdisc is torn down.
-> Since airoha_dev_set_qdma() can now be called on a running device to
-> migrate between QDMA blocks, make dev->qdma an RCU pointer so the TX
-> path can safely dereference it without holding RTNL.
-> Hold flow_offload_mutex in airoha_dev_set_qdma() around the QDMA pointer
-> update and __airoha_ppe_set_cpu_port() call, serializing against
-> concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER offload path.
-> Introduce airoha_qdma_deref() helper that wraps rcu_dereference_protected=
-()
-> with a lockdep condition accepting either rtnl_lock or flow_offload_mutex,
-> and use it across all control-path dereferences of the RCU-protected
-> dev->qdma pointer.
-> Add airoha_disable_gdm2_loopback() to disable GDM2 hw loopback.
->=20
-> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+configs tested: 258
+configs skipped: 4
 
-Please find my comments about the following sashiko's report:
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260610-airoha-ethtool=
--priv_flags-v4-0-60e89cf28fea%40kernel.org
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c  | 220 ++++++++++++++++++++++++=
-++----
->  drivers/net/ethernet/airoha/airoha_eth.h  |  24 +++-
->  drivers/net/ethernet/airoha/airoha_ppe.c  |  18 ++-
->  drivers/net/ethernet/airoha/airoha_regs.h |   1 +
->  4 files changed, 231 insertions(+), 32 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index aeac66df5f3b..10232470a333 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+tested configs:
+alpha                             allnoconfig    gcc-16.1.0
+alpha                            allyesconfig    gcc-16.1.0
+alpha                               defconfig    gcc-16.1.0
+arc                              allmodconfig    clang-23
+arc                              allmodconfig    gcc-16.1.0
+arc                               allnoconfig    gcc-16.1.0
+arc                              allyesconfig    clang-23
+arc                                 defconfig    gcc-16.1.0
+arc                            randconfig-001    gcc-14.3.0
+arc                   randconfig-001-20260611    gcc-14.3.0
+arc                            randconfig-002    gcc-14.3.0
+arc                   randconfig-002-20260611    gcc-14.3.0
+arm                               allnoconfig    clang-23
+arm                               allnoconfig    gcc-16.1.0
+arm                              allyesconfig    clang-23
+arm                              allyesconfig    gcc-16.1.0
+arm                                 defconfig    gcc-16.1.0
+arm                           omap1_defconfig    gcc-16.1.0
+arm                          pxa910_defconfig    gcc-16.1.0
+arm                            randconfig-001    gcc-14.3.0
+arm                   randconfig-001-20260611    gcc-14.3.0
+arm                            randconfig-002    gcc-14.3.0
+arm                   randconfig-002-20260611    gcc-14.3.0
+arm                            randconfig-003    gcc-14.3.0
+arm                   randconfig-003-20260611    gcc-14.3.0
+arm                            randconfig-004    gcc-14.3.0
+arm                   randconfig-004-20260611    gcc-14.3.0
+arm64                            allmodconfig    clang-23
+arm64                             allnoconfig    gcc-16.1.0
+arm64                               defconfig    gcc-16.1.0
+arm64                 randconfig-001-20260611    gcc-14.3.0
+arm64                 randconfig-002-20260611    gcc-14.3.0
+arm64                 randconfig-003-20260611    gcc-14.3.0
+arm64                 randconfig-004-20260611    gcc-14.3.0
+csky                             allmodconfig    gcc-16.1.0
+csky                              allnoconfig    gcc-16.1.0
+csky                                defconfig    gcc-16.1.0
+csky                  randconfig-001-20260611    gcc-14.3.0
+csky                  randconfig-002-20260611    gcc-14.3.0
+hexagon                          allmodconfig    clang-23
+hexagon                          allmodconfig    gcc-16.1.0
+hexagon                           allnoconfig    clang-23
+hexagon                           allnoconfig    gcc-16.1.0
+hexagon                             defconfig    gcc-16.1.0
+hexagon               randconfig-001-20260611    clang-16
+hexagon               randconfig-001-20260611    clang-17
+hexagon               randconfig-002-20260611    clang-16
+hexagon               randconfig-002-20260611    clang-17
+i386                             allmodconfig    clang-22
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-14
+i386                              allnoconfig    gcc-16.1.0
+i386                             allyesconfig    clang-22
+i386                             allyesconfig    gcc-14
+i386                 buildonly-randconfig-001    clang-22
+i386        buildonly-randconfig-001-20260611    clang-22
+i386                 buildonly-randconfig-002    clang-22
+i386        buildonly-randconfig-002-20260611    clang-22
+i386                 buildonly-randconfig-003    clang-22
+i386        buildonly-randconfig-003-20260611    clang-22
+i386                 buildonly-randconfig-004    clang-22
+i386        buildonly-randconfig-004-20260611    clang-22
+i386                 buildonly-randconfig-005    clang-22
+i386        buildonly-randconfig-005-20260611    clang-22
+i386                 buildonly-randconfig-006    clang-22
+i386        buildonly-randconfig-006-20260611    clang-22
+i386                                defconfig    gcc-16.1.0
+i386                           randconfig-001    gcc-14
+i386                  randconfig-001-20260611    gcc-14
+i386                           randconfig-002    gcc-14
+i386                  randconfig-002-20260611    gcc-14
+i386                           randconfig-003    gcc-14
+i386                  randconfig-003-20260611    gcc-14
+i386                           randconfig-004    gcc-14
+i386                  randconfig-004-20260611    gcc-14
+i386                           randconfig-005    gcc-14
+i386                  randconfig-005-20260611    gcc-14
+i386                           randconfig-006    gcc-14
+i386                  randconfig-006-20260611    gcc-14
+i386                           randconfig-007    gcc-14
+i386                  randconfig-007-20260611    gcc-14
+i386                  randconfig-011-20260611    gcc-14
+i386                  randconfig-012-20260611    gcc-14
+i386                  randconfig-013-20260611    gcc-14
+i386                  randconfig-014-20260611    gcc-14
+i386                  randconfig-015-20260611    gcc-14
+i386                  randconfig-016-20260611    gcc-14
+i386                  randconfig-017-20260611    gcc-14
+loongarch                        allmodconfig    clang-23
+loongarch                         allnoconfig    clang-20
+loongarch                         allnoconfig    gcc-16.1.0
+loongarch                           defconfig    clang-23
+loongarch             randconfig-001-20260611    clang-16
+loongarch             randconfig-001-20260611    clang-17
+loongarch             randconfig-002-20260611    clang-16
+loongarch             randconfig-002-20260611    clang-17
+m68k                             allmodconfig    gcc-16.1.0
+m68k                              allnoconfig    gcc-16.1.0
+m68k                             allyesconfig    clang-23
+m68k                             allyesconfig    gcc-16.1.0
+m68k                                defconfig    clang-23
+microblaze                        allnoconfig    gcc-16.1.0
+microblaze                       allyesconfig    gcc-16.1.0
+microblaze                          defconfig    clang-23
+mips                             allmodconfig    gcc-16.1.0
+mips                              allnoconfig    gcc-16.1.0
+mips                             allyesconfig    gcc-16.1.0
+nios2                            allmodconfig    clang-20
+nios2                             allnoconfig    clang-23
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    clang-23
+nios2                 randconfig-001-20260611    clang-16
+nios2                 randconfig-001-20260611    clang-17
+nios2                 randconfig-002-20260611    clang-16
+nios2                 randconfig-002-20260611    clang-17
+openrisc                         allmodconfig    clang-20
+openrisc                         allmodconfig    gcc-16.1.0
+openrisc                          allnoconfig    clang-23
+openrisc                          allnoconfig    gcc-16.1.0
+openrisc                            defconfig    gcc-16.1.0
+parisc                           allmodconfig    gcc-16.1.0
+parisc                            allnoconfig    clang-23
+parisc                            allnoconfig    gcc-16.1.0
+parisc                           allyesconfig    clang-17
+parisc                           allyesconfig    gcc-16.1.0
+parisc                              defconfig    gcc-16.1.0
+parisc                randconfig-001-20260611    gcc-13.4.0
+parisc                randconfig-002-20260611    gcc-13.4.0
+parisc64                            defconfig    clang-23
+powerpc                     akebono_defconfig    clang-23
+powerpc                          allmodconfig    gcc-16.1.0
+powerpc                           allnoconfig    clang-23
+powerpc                           allnoconfig    gcc-16.1.0
+powerpc               randconfig-001-20260611    gcc-13.4.0
+powerpc               randconfig-002-20260611    gcc-13.4.0
+powerpc                     tqm8540_defconfig    gcc-16.1.0
+powerpc64             randconfig-001-20260611    gcc-13.4.0
+powerpc64             randconfig-002-20260611    gcc-13.4.0
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    clang-23
+riscv                             allnoconfig    gcc-16.1.0
+riscv                            allyesconfig    clang-23
+riscv                               defconfig    gcc-16.1.0
+riscv                          randconfig-001    gcc-12.5.0
+riscv                 randconfig-001-20260611    gcc-12.5.0
+riscv                          randconfig-002    gcc-12.5.0
+riscv                 randconfig-002-20260611    gcc-12.5.0
+s390                             allmodconfig    clang-17
+s390                             allmodconfig    clang-23
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-16.1.0
+s390                                defconfig    gcc-16.1.0
+s390                           randconfig-001    gcc-12.5.0
+s390                  randconfig-001-20260611    gcc-12.5.0
+s390                           randconfig-002    gcc-12.5.0
+s390                  randconfig-002-20260611    gcc-12.5.0
+sh                               allmodconfig    gcc-16.1.0
+sh                                allnoconfig    clang-23
+sh                                allnoconfig    gcc-16.1.0
+sh                               allyesconfig    clang-17
+sh                               allyesconfig    gcc-16.1.0
+sh                                  defconfig    gcc-14
+sh                             randconfig-001    gcc-12.5.0
+sh                    randconfig-001-20260611    gcc-12.5.0
+sh                             randconfig-002    gcc-12.5.0
+sh                    randconfig-002-20260611    gcc-12.5.0
+sparc                             allnoconfig    clang-23
+sparc                             allnoconfig    gcc-16.1.0
+sparc                               defconfig    gcc-16.1.0
+sparc                 randconfig-001-20260611    gcc-15.2.0
+sparc                 randconfig-002-20260611    gcc-15.2.0
+sparc64                          allmodconfig    clang-20
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20260611    gcc-15.2.0
+sparc64               randconfig-002-20260611    gcc-15.2.0
+um                               allmodconfig    clang-17
+um                               allmodconfig    clang-23
+um                                allnoconfig    clang-16
+um                                allnoconfig    clang-23
+um                               allyesconfig    gcc-14
+um                               allyesconfig    gcc-16.1.0
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260611    gcc-15.2.0
+um                    randconfig-002-20260611    gcc-15.2.0
+um                           x86_64_defconfig    gcc-14
+x86_64                           allmodconfig    clang-22
+x86_64                            allnoconfig    clang-22
+x86_64                            allnoconfig    clang-23
+x86_64                           allyesconfig    clang-22
+x86_64               buildonly-randconfig-001    gcc-14
+x86_64      buildonly-randconfig-001-20260611    gcc-14
+x86_64               buildonly-randconfig-002    gcc-14
+x86_64      buildonly-randconfig-002-20260611    gcc-14
+x86_64               buildonly-randconfig-003    gcc-14
+x86_64      buildonly-randconfig-003-20260611    gcc-14
+x86_64               buildonly-randconfig-004    gcc-14
+x86_64      buildonly-randconfig-004-20260611    gcc-14
+x86_64               buildonly-randconfig-005    gcc-14
+x86_64      buildonly-randconfig-005-20260611    gcc-14
+x86_64               buildonly-randconfig-006    gcc-14
+x86_64      buildonly-randconfig-006-20260611    gcc-14
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-22
+x86_64                         randconfig-001    clang-22
+x86_64                randconfig-001-20260611    clang-22
+x86_64                randconfig-001-20260611    gcc-14
+x86_64                         randconfig-002    clang-22
+x86_64                randconfig-002-20260611    clang-22
+x86_64                randconfig-002-20260611    gcc-14
+x86_64                         randconfig-003    clang-22
+x86_64                randconfig-003-20260611    clang-22
+x86_64                randconfig-003-20260611    gcc-14
+x86_64                         randconfig-004    clang-22
+x86_64                randconfig-004-20260611    clang-22
+x86_64                randconfig-004-20260611    gcc-14
+x86_64                         randconfig-005    clang-22
+x86_64                randconfig-005-20260611    clang-22
+x86_64                randconfig-005-20260611    gcc-14
+x86_64                         randconfig-006    clang-22
+x86_64                randconfig-006-20260611    clang-22
+x86_64                randconfig-006-20260611    gcc-14
+x86_64                         randconfig-011    clang-22
+x86_64                randconfig-011-20260611    clang-22
+x86_64                randconfig-011-20260611    gcc-14
+x86_64                         randconfig-012    clang-22
+x86_64                randconfig-012-20260611    clang-22
+x86_64                randconfig-012-20260611    gcc-14
+x86_64                         randconfig-013    clang-22
+x86_64                randconfig-013-20260611    clang-22
+x86_64                randconfig-013-20260611    gcc-14
+x86_64                         randconfig-014    clang-22
+x86_64                randconfig-014-20260611    clang-22
+x86_64                randconfig-014-20260611    gcc-14
+x86_64                         randconfig-015    clang-22
+x86_64                randconfig-015-20260611    clang-22
+x86_64                randconfig-015-20260611    gcc-14
+x86_64                         randconfig-016    clang-22
+x86_64                randconfig-016-20260611    clang-22
+x86_64                randconfig-016-20260611    gcc-14
+x86_64                randconfig-071-20260611    clang-22
+x86_64                randconfig-072-20260611    clang-22
+x86_64                randconfig-073-20260611    clang-22
+x86_64                randconfig-074-20260611    clang-22
+x86_64                randconfig-075-20260611    clang-22
+x86_64                randconfig-076-20260611    clang-22
+x86_64                               rhel-9.4    clang-22
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-22
+x86_64                    rhel-9.4-kselftests    clang-22
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-22
+xtensa                            allnoconfig    clang-23
+xtensa                            allnoconfig    gcc-16.1.0
+xtensa                           allyesconfig    clang-20
+xtensa                randconfig-001-20260611    gcc-15.2.0
+xtensa                randconfig-002-20260611    gcc-15.2.0
 
-[...]
-
-> +static int airoha_disable_gdm2_loopback(struct airoha_gdm_dev *dev)
-> +{
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	struct airoha_eth *eth =3D dev->eth;
-> +	int i, src_port;
-> +	u32 pse_port;
-> +
-> +	src_port =3D eth->soc->ops.get_sport(dev->port, dev->nbq);
-> +	if (src_port < 0)
-> +		return src_port;
-> +
-> +	airoha_fe_clear(eth,
-> +			REG_SP_DFT_CPORT(src_port >> fls(SP_CPORT_DFT_MASK)),
-> +			SP_CPORT_MASK(src_port & SP_CPORT_DFT_MASK));
-> +
-> +	airoha_fe_set(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
-> +		      GDM_STRIP_CRC_MASK);
-> +	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
-> +				    FE_PSE_PORT_DROP);
-> +	airoha_fe_clear(eth, REG_GDM_LPBK_CFG(AIROHA_GDM2_IDX),
-> +			LPBK_CHAN_MASK | LPBK_MODE_MASK | LPBK_EN_MASK);
-> +	pse_port =3D airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
-> +						 : FE_PSE_PORT_PPE1;
-> +	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
-> +				    pse_port);
-> +
-> +	airoha_fe_rmw(eth, REG_FE_WAN_PORT, WAN0_MASK,
-> +		      FIELD_PREP(WAN0_MASK, AIROHA_GDM2_IDX));
-> +
-> +	for (i =3D 0; i < eth->soc->num_ppe; i++)
-> +		airoha_ppe_clear_cpu_port(dev, i, AIROHA_GDM2_IDX);
-> +
-> +	/* Enable VIP and IFC for GDM2 */
-> +	airoha_fe_set(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
-> +	airoha_fe_set(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
-> +
-> +	if (port->id =3D=3D AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
-> +		u32 mask =3D FC_ID_OF_SRC_PORT_MASK(dev->nbq);
-> +
-> +		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6, mask,
-> +			      FC_MAP6_DEF_VALUE & mask);
-> +	}
-> +
-> +	return 0;
-> +}
-
-- Does this disable counterpart fully undo what airoha_enable_gdm2_loopback=
-() does?=20
-  I think the current implementation is correct since:
-  - 0xffffffff is already the default value for REG_GDM_TXCHN_EN()
-  - 0xffff is already the default value for REG_GDM_RXCHN_EN()
-  - REG_GDM_LEN_CFG() will be modified by another patch (not in the series).
-  - WAN1_MASK/WAN1_EN_MASK default value is 0 and the driver does not confi=
-gure WAN1.
-  - if the device is configured properly get_sport() callback can't fail.
-
-> +
->  static struct airoha_gdm_dev *
->  airoha_get_wan_gdm_dev(struct airoha_eth *eth)
->  {
-> @@ -2005,15 +2055,36 @@ airoha_get_wan_gdm_dev(struct airoha_eth *eth)
->  static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
->  {
->  	struct net_device *netdev =3D netdev_from_priv(dev);
-> +	struct airoha_qdma *cur_qdma, *qdma;
->  	struct airoha_eth *eth =3D dev->eth;
->  	int ppe_id;
-
-[...]
-
->  }
-> @@ -3027,6 +3112,89 @@ static int airoha_tc_htb_delete_leaf_queue(struct =
-net_device *netdev,
->  	return 0;
->  }
-> =20
-> +static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
-> +				       struct netlink_ext_ack *extack)
-> +{
-> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	struct airoha_eth *eth =3D dev->eth;
-> +	int err;
-> +
-> +	if (port->id !=3D AIROHA_GDM3_IDX &&
-> +	    port->id !=3D AIROHA_GDM4_IDX) {
-> +		/* HW QoS is always supported by GDM1 and GDM2 */
-> +		return 0;
-> +	}
-> +
-> +	if (!airoha_is_lan_gdm_dev(dev)) /* Already enabled */
-> +		return 0;
-> +
-
-- Is there a behavioural regression for GDM3/GDM4 devices that were
-  auto-configured as WAN at ndo_init() time?
-  I do not think there is any behavioural regression since in the current
-  codebase it is not possible modify WAN/LAN configuration at runtime.
-  Moreover, using tc APIs to set WAN/LAN configuration as suggested by
-  Andrew, in order to configure a second device as WAN (or to set the
-  current one as LAN), requires to move the current WAN device to LAN
-  destroying the associated Qdisc.
-
-> +	/* Verify the WAN device is not already configured */
-> +	if (airoha_get_wan_gdm_dev(eth)) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "WAN device already configured");
-> +		return -EBUSY;
-> +	}
-
-- The commit message says flow_offload_mutex was added to "serialize against
-  concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER offload path".
-  I think this is a bug and I will address the issue on the next revision.
-
-> +
-> +	dev->flags |=3D AIROHA_PRIV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +	err =3D airoha_enable_gdm2_loopback(dev);
-> +	if (err)
-> +		goto error_disable_wan;
-> +
-> +	err =3D airoha_set_macaddr(dev, netdev->dev_addr);
-> +	if (err)
-> +		goto error_disable_loopback;
-> +
-> +	if (netif_running(netdev)) {
-> +		u32 pse_port;
-> +
-> +		pse_port =3D airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
-> +							 : FE_PSE_PORT_PPE1;
-> +		airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id),
-> +					    pse_port);
-> +	}
-> +
-> +	return 0;
-> +
-> +error_disable_loopback:
-> +	/* Restore previous LAN configuration */
-> +	airoha_disable_gdm2_loopback(dev);
-> +error_disable_wan:
-> +	dev->flags &=3D ~AIROHA_PRIV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +
-> +	return err;
-> +}
-
-- Is the rollback symmetric on the airoha_enable_gdm2_loopback() failure
-  path?  airoha_enable_gdm2_loopback() performs many register writes
-  before its only failure check (eth->soc->ops.get_sport()):
-  - This has been already addressed in
-    https://lore.kernel.org/netdev/20260608-airoha_enable_gdm2_loopback-min=
-or-change-v1-1-1787a0f42b31@kernel.org/
-
-> +
-> +static void airoha_disable_qos_for_gdm34(struct net_device *netdev)
-> +{
-> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	int err;
-> +
-> +	if (port->id !=3D AIROHA_GDM3_IDX &&
-> +	    port->id !=3D AIROHA_GDM4_IDX) {
-> +		return;
-> +	}
-> +
-> +	if (airoha_is_lan_gdm_dev(dev)) /* Already disabled */
-> +		return;
-> +
-> +	err =3D airoha_disable_gdm2_loopback(dev);
-> +	if (err)
-> +		netdev_warn(netdev,
-> +			    "failed disabling GDM2 loopback: %d\n", err);
-> +
-> +	dev->flags &=3D ~AIROHA_PRIV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +	airoha_set_macaddr(dev, netdev->dev_addr);
-> +	if (netif_running(netdev))
-> +		airoha_set_gdm_port_fwd_cfg(dev->eth,
-> +					    REG_GDM_FWD_CFG(port->id),
-> +					    FE_PSE_PORT_PPE1);
-> +}
-> +
->  static int airoha_tc_htb_destroy(struct net_device *netdev)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> @@ -3035,6 +3203,8 @@ static int airoha_tc_htb_destroy(struct net_device =
-*netdev)
->  	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
->  		airoha_tc_remove_htb_queue(netdev, q);
-> =20
-> +	airoha_disable_qos_for_gdm34(netdev);
-> +
->  	return 0;
->  }
-> =20
-> @@ -3059,7 +3229,7 @@ static int airoha_tc_setup_qdisc_htb(struct net_dev=
-ice *dev,
->  {
->  	switch (opt->command) {
->  	case TC_HTB_CREATE:
-> -		break;
-> +		return airoha_enable_qos_for_gdm34(dev, opt->extack);
-
-- Should ETS installed directly on a GDM3/GDM4 LAN-configured device also
-  enable the loopback, or should that case be rejected with an extack
-  message so the behaviour matches the description in the commit message?
-  - ETS can't be used as ROOT Qdisc.
-
-Regards,
-Lorenzo
-
->  	case TC_HTB_DESTROY:
->  		return airoha_tc_htb_destroy(dev);
->  	case TC_HTB_NODE_MODIFY:
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 8f42973f9cf5..8795af0010b6 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -543,8 +543,8 @@ enum airoha_priv_flags {
->  };
-> =20
->  struct airoha_gdm_dev {
-> +	struct airoha_qdma __rcu *qdma;
->  	struct airoha_gdm_port *port;
-> -	struct airoha_qdma *qdma;
->  	struct airoha_eth *eth;
-> =20
->  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-> @@ -676,7 +676,27 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
->  bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
->  			     struct airoha_gdm_dev *dev);
-> =20
-> -void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port);
-> +extern struct mutex flow_offload_mutex;
-> +
-> +static inline struct airoha_qdma *
-> +airoha_qdma_deref(struct airoha_gdm_dev *dev)
-> +{
-> +	return rcu_dereference_protected(dev->qdma,
-> +					 lockdep_rtnl_is_held() ||
-> +					 lockdep_is_held(&flow_offload_mutex));
-> +}
-> +
-> +void __airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
- fport);
-> +void airoha_ppe_clear_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
- fport);
-> +
-> +static inline void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev,
-> +					   u8 ppe_id, u8 fport)
-> +{
-> +	mutex_lock(&flow_offload_mutex);
-> +	__airoha_ppe_set_cpu_port(dev, ppe_id, fport);
-> +	mutex_unlock(&flow_offload_mutex);
-> +}
-> +
->  bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
->  void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *sk=
-b,
->  			  u16 hash, bool rx_wlan);
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index 91bcc55a6ac6..0ee0dd385645 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -15,7 +15,7 @@
->  #include "airoha_regs.h"
->  #include "airoha_eth.h"
-> =20
-> -static DEFINE_MUTEX(flow_offload_mutex);
-> +DEFINE_MUTEX(flow_offload_mutex);
->  static DEFINE_SPINLOCK(ppe_lock);
-> =20
->  static const struct rhashtable_params airoha_flow_table_params =3D {
-> @@ -84,10 +84,10 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe=
- *ppe)
->  			     AIROHA_FOE_IB1_BIND_TIMESTAMP);
->  }
-> =20
-> -void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port)
-> +void __airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
- fport)
->  {
-> -	struct airoha_qdma *qdma =3D dev->qdma;
-> -	struct airoha_eth *eth =3D qdma->eth;
-> +	struct airoha_qdma *qdma =3D airoha_qdma_deref(dev);
-> +	struct airoha_eth *eth =3D dev->eth;
->  	u8 qdma_id =3D qdma - &eth->qdma[0];
->  	u32 fe_cpu_port;
-> =20
-> @@ -97,6 +97,14 @@ void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *de=
-v, u8 ppe_id, u8 fport)
->  		      __field_prep(DFT_CPORT_MASK(fport), fe_cpu_port));
->  }
-> =20
-> +void airoha_ppe_clear_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
- fport)
-> +{
-> +	mutex_lock(&flow_offload_mutex);
-> +	airoha_fe_clear(dev->eth, REG_PPE_DFT_CPORT(ppe_id, fport),
-> +			DFT_CPORT_MASK(fport));
-> +	mutex_unlock(&flow_offload_mutex);
-> +}
-> +
->  static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
->  {
->  	u32 sram_ppe_num_data_entries =3D PPE_SRAM_NUM_ENTRIES, sram_num_entrie=
-s;
-> @@ -195,7 +203,7 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
->  			ppe_id =3D !airoha_is_lan_gdm_dev(dev) &&
->  				 airoha_ppe_is_enabled(eth, 1);
->  			fport =3D airoha_get_fe_port(dev);
-> -			airoha_ppe_set_cpu_port(dev, ppe_id, fport);
-> +			__airoha_ppe_set_cpu_port(dev, ppe_id, fport);
->  		}
->  	}
->  }
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
-rnet/airoha/airoha_regs.h
-> index 436f3c8779c1..4e17dfbcf2b8 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -376,6 +376,7 @@
-> =20
->  #define REG_SRC_PORT_FC_MAP6		0x2298
->  #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
-> +#define FC_MAP6_DEF_VALUE		0x1b1a1918
-> =20
->  #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
-> =20
->=20
-> --=20
-> 2.54.0
->=20
-
---3W6r5hbEJpuvgYEO
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCairOiwAKCRA6cBh0uS2t
-rCaFAQCSsssJ/9cDud9EdCPVkevjlyVvfflqVljh48ezEuiwGQEA4t/5n7S2ihzS
-6WsKS7mr2ZCyWrkozd+lrgR1witfRwo=
-=zL3Q
------END PGP SIGNATURE-----
-
---3W6r5hbEJpuvgYEO--
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
