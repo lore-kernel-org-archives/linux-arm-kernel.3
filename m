@@ -4,130 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257EACD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5B2CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bl+Pp8mK4RH21F1N6maJfnV/4juvSeWi3Db0Hxk8ir4=; b=hJJiR1RYS2+sWmccTyfq5A5OwV
-	yCEeMJCo/vFAhf2z2nFPwzBIDF+KOIE+KnLlSL3pK+z6tbN4fdzLOAwizU7z8/ZgeDAyyrLxsqGgM
-	Q45ggE6U5+itHq5OKyyJdNkF72B8XqtXxwiFHIQM8oitNQZ/aBT1Vrsmx4k9ZSr73ldLftN7VUYsf
-	Dg5vTON0K80Tg3JzHaC6EecpsESLDcg1qL970lSlRcOBoW/wBaWvXXGcXijIgQqU8frz8sRM3mFwc
-	GM5sQ1mMcrTv4Oza3Oygt/ZgSRuRQqc+aALP8omfwuU6fCQh+n3M2iUKa9WHDE2+kT9wptfQUZggy
-	UduUM6fg==;
+	bh=JG9GkbmZWeHeIenYh+zVZ413zV3V+oqy0gR1VcVBX1A=; b=p0M1h6VsTRwDvHuQzyowM4gbRl
+	pt+fkRXhIYlGh3uGD8xGBUz7sBrikdnvgMcfKe5LnUclCKMeViE2g0+d5LqFDBupUVfaD5I5hegQ1
+	LcROQFKhqc7nULJw+3y9VckTTPjHN4Sw6vAY2O32xS6JcqrCjGVNyR05fVzX35BFOG9Rk5yL3Qt28
+	U4b7yDXyOf0mNEz8xBBBmS/QjWjc7LpIH2XpPCT+nEWVFaomak3JKy9mExrMFjzneh6P+GR+jE5gl
+	IJJbPcTbVo0n+OJiJ7cD7J50jR2T5TNTk5PqkJhBIGpRDxiJvi+pSDjeRdi3djHCcPm4IUYpnfedL
+	uu6MSF1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXc46-00000009AUK-1HK8;
-	Thu, 11 Jun 2026 09:51:10 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wXc5D-00000009Amx-3075;
+	Thu, 11 Jun 2026 09:52:19 +0000
+Received: from mail-westus2azon11010030.outbound.protection.outlook.com ([52.101.46.30] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXc43-00000009ASU-3ncI
+	id 1wXc5A-00000009Alu-2eQZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 09:51:09 +0000
+	Thu, 11 Jun 2026 09:52:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kIR4hi2pixOZqSbyacA9TyNV8wlJwBj+6CpEIG6Ow+s+O8IbH8t3sFC/ATsKfrUorEiOSjEAM1+BzuQz5bcQJeZwDaAwfyD7d6DxhCHSkkhdaS14pHaCtghDHDAvXNigkLe0BJeBicImrVo7asdPBD4gRMMpARdBM65uWwme4j4hGGoiJ8/QQxCzh5qHkex1NgoHUT0DCWEofHaypaNl5+yFbx5jPn5X/z3VOLM2958cMdupk/5V2EnTZqBUEYLnZoxwWrjNeAE6xqV+0Nb+HA4574UUjYZSstlpoh+KJ35gg1jOfk/9v8bv+pomzksi3OaZ6IeEBO1lf0N3Dzd5kQ==
+ b=MvZxCl9cJ8A+Xa0S1aVYO0ZONrYXnNMreweqJeDRq/YWGSmzrAu9bSahmZjhFq2Evr4fMziECwKHchYumabLX1vQemnJL2Q04xMFEidYTfMfyvlH6I8tgtpeDJ9a7cqBcNl6mSu6Kj1drbXeFkXGnq7v1DlxWe0McsRsc+UV4NAfV/Cdxx66OWuhiDlA4pSjjWJ3J00GY5HbSnAzpFpt25HrS1Ez/xxVr3n+0UvIYll71GymR+6oviJS1PaX/ImJWBi1pfwsMX8N+cI9KKaeOs1vgm3QewOivlqgz/LRvyi/0k9vERRvJkj/M5HWMmcHYmCODys92SgUYAqATlnRHg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Bl+Pp8mK4RH21F1N6maJfnV/4juvSeWi3Db0Hxk8ir4=;
- b=Ep/qwMDGaXrW7d+9NAtfH65ITnkVdUM15YaIFwRwrS9pWNffrHP1u5VNtvcnZCMyjroRTuhp7VbhiQRwV7R3pLj1vGh2aQEi9Snz8zYhkmPpg5vBS3CUJWelSWZ2q7Y4qOrL03naDofESW2bwGBBmxLymU65SH1y5io8j2XYjymZe3IhnHQX7GUBha9XMHkWFgFf6uXHEe6TOGIvIlwsi3sHMGmC9Xn7IrHSTFYz79DTr0y+kOhj4nCTey+EVy1fOy279n62F/iRZ8q6mOns5YMln3FkJG83YOwn0TF6t/d4hrR9DM5Gb1jsssCSEujkvCwF7lF4q47Iow1lAU7ibA==
+ bh=JG9GkbmZWeHeIenYh+zVZ413zV3V+oqy0gR1VcVBX1A=;
+ b=oqxVCj48Wr5dmxTYrqZg1cfml3zenW1qPuoZsQHnSwtiq/vqC7jzLERAsx+JcS+8yNIMC2d93+iqwopBm+JXrPbOrdTmuajme2Z4k7WlNvT+NYbw9riB8WziE6tk4ol17+I6Ckq4xlmlJ4zVvX+VDL+2hwO5ethFJ4y2+J+gY89IJnkOJP1cIRaEZaXk+cp9YggRwgxPZvWcaPqePgnY5i3R7Oby8Z5pQYtfdqXhOhGr6vrpwqkx960pRMrQzKm2bZjets04GOubTsrE501/B07F/+wniaZlVfQrjHdRZWrnAFME7zkZUJbgJ7hlN6aS3J1gn/Q/Og5I0ouER2dlaQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=davemloft.net smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
+ 198.47.23.194) smtp.rcpttodomain=linux.dev smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bl+Pp8mK4RH21F1N6maJfnV/4juvSeWi3Db0Hxk8ir4=;
- b=nYe8M3iYks7fC+ys+QJUFJ2pR9DIKnJTN3xoKpHx7HcqQJxsyzd5USsNtpqqrMITxxbM9KSkJDk5YgMcJ3MPidyJnFMNODFer3GmGnk38rG3o6EFcH+O+RGUE3fe8ws1hWA9SRzY23XkfanPPw648jI6HaCOXZvzbY6kF0ZGJYU=
-Received: from BY3PR10CA0007.namprd10.prod.outlook.com (2603:10b6:a03:255::12)
- by CO1PR10MB4786.namprd10.prod.outlook.com (2603:10b6:303:6d::20) with
+ bh=JG9GkbmZWeHeIenYh+zVZ413zV3V+oqy0gR1VcVBX1A=;
+ b=xYV1EY0DBC/ZaA0jLntmUn2q6IKn5H+fgYGPZCS359iiQa+Z0vXx9PdRWunm0QIGLv7+IgiIODXhaEljv3jlT54iDliUOzrRyfociIAlR6eHmH+z3/HMj+DCUnRPq2Tn18ggiH5/6GSY+9Saug9iNgRM/xR3EycgONTgF9llmRo=
+Received: from BN9PR03CA0437.namprd03.prod.outlook.com (2603:10b6:408:113::22)
+ by DS0PR10MB6079.namprd10.prod.outlook.com (2603:10b6:8:c9::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.11; Thu, 11 Jun
- 2026 09:50:56 +0000
-Received: from BY1PEPF0001AE19.namprd04.prod.outlook.com
- (2603:10b6:a03:255:cafe::78) by BY3PR10CA0007.outlook.office365.com
- (2603:10b6:a03:255::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.14 via Frontend Transport; Thu,
- 11 Jun 2026 09:50:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Thu, 11 Jun
+ 2026 09:52:08 +0000
+Received: from BN1PEPF00004686.namprd03.prod.outlook.com
+ (2603:10b6:408:113:cafe::1c) by BN9PR03CA0437.outlook.office365.com
+ (2603:10b6:408:113::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Thu,
+ 11 Jun 2026 09:52:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BY1PEPF0001AE19.mail.protection.outlook.com (10.167.242.101) with Microsoft
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN1PEPF00004686.mail.protection.outlook.com (10.167.243.91) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Thu, 11 Jun 2026 09:50:55 +0000
-Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.113.7 via Frontend Transport; Thu, 11 Jun 2026 09:52:08 +0000
+Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 11 Jun
- 2026 04:50:51 -0500
-Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 04:52:07 -0500
+Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 11 Jun
- 2026 04:50:46 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DLEE207.ent.ti.com
+ 2026 04:52:03 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
  (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 11 Jun 2026 04:50:46 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65B9okHO3362394;
-	Thu, 11 Jun 2026 04:50:46 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 65B9ojou014477;
-	Thu, 11 Jun 2026 04:50:46 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, MD Danish Anwar
-	<danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Meghana Malladi <m-malladi@ti.com>, Jacob Keller
-	<jacob.e.keller@intel.com>, David Carlier <devnexen@gmail.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
-	"Markus Elfring" <elfring@users.sourceforge.net>, Hangbin Liu
-	<liuhangbin@gmail.com>, Fernando Fernandez Mancera <fmancera@suse.de>, Jan
- Vaclav <jvaclav@redhat.com>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH net-next v4 3/3] net: ti: icssg: Add HSR offload statistics support
-Date: Thu, 11 Jun 2026 15:20:35 +0530
-Message-ID: <20260611095035.852370-4-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260611095035.852370-1-danishanwar@ti.com>
-References: <20260611095035.852370-1-danishanwar@ti.com>
+ Transport; Thu, 11 Jun 2026 04:52:03 -0500
+Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65B9puqs1627783;
+	Thu, 11 Jun 2026 04:51:57 -0500
+Message-ID: <6367ffa0-5faf-4deb-8a4b-18b53ef53c56@ti.com>
+Date: Thu, 11 Jun 2026 15:21:56 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 0/3] Add standard stats for HSR/PRP
+To: Simon Horman <horms@kernel.org>
+CC: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+	<skhan@linuxfoundation.org>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, Jacob Keller <jacob.e.keller@intel.com>, "Meghana
+ Malladi" <m-malladi@ti.com>, David Carlier <devnexen@gmail.com>, "Vadim
+ Fedorenko" <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
+	Himanshu Mittal <h-mittal1@ti.com>, Hangbin Liu <liuhangbin@gmail.com>,
+	Markus Elfring <elfring@users.sourceforge.net>, Fernando Fernandez Mancera
+	<fmancera@suse.de>, Jan Vaclav <jvaclav@redhat.com>,
+	<netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	"Felix Maurer" <fmaurer@redhat.com>, Luka Gejak <luka.gejak@linux.dev>
+References: <20260608100930.210149-1-danishanwar@ti.com>
+ <20260610184737.GO3920875@horms.kernel.org>
+Content-Language: en-US
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <20260610184737.GO3920875@horms.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE19:EE_|CO1PR10MB4786:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4d2c79c3-cc63-4181-fdf0-08dec79eeecb
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004686:EE_|DS0PR10MB6079:EE_
+X-MS-Office365-Filtering-Correlation-Id: 197ada4a-04d3-4bd7-7eed-08dec79f1a0b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|36860700016|376014|7416014|921020|22082099003|18002099003|3023799007|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: FWMrAvpeVigBke49UEGsARz2941Ye7VyeNOfNRgDfNiSrnqaLRJJmlc2i36wReShpIiq2g18QnSuGv5MLqU2r+eFIw6msDvtotWPo1W+1r4JnVi8y26FXsJdkCBc6OJCBqxCPsK1zkLTnW98Y0FwPQ3Pu/mQ8Llj5EWeo0pnrzOJd9MZU5r+gbJPV9wAwB9pAM16ZDN+QoV0yYYMPWJQwedca4AFjk38wSWd0NYCe1+ykBSowK9PQvSS0ajNZ61mgIiJ1gBU4W1FpgrGy01ptxcZliDAv/j+58nrV5Prs1cAcpn+9HojgXiV+imHBwA5VeuWNxJkWs7sJEZdG+jIKJ8grGDDnfJRyzX/IEEnbJdbrj6bS1meKr7GrV8TGv9sLPWFa2S8FKTtDEB8LLGD+poWiiafdOHElT0ldKOJ6czAOiyfcHKV0eHd148ECDw7FqHdD17S+8kZiz56UXFGT+z6A5X7QrDmNVEYJ5ZTjr2pLOaZZilG5l/pncY/HCpdwnKYEepTlQWe5aYpenPIPDRIWsfURrcEY7Cf+RmvBornSPNf0yyt7ZuBDCyKwUZxwxoPhsV3h3xgrHJSvGCABI9LJeunZFycHvOGPLMwbIVvlyCyv7YDRGj5bvZen9fOlxFk3tWY1UUCrAFGkquNV2/Iz7n6BUBK5Ad5H3ShjQYmUqc3lSNF6ygDRjCP3UWnY/IbJi55WdCLvqAKL78JaIfzY4maxR1Tc5elOSw4BCAZWrsoEHv9D2777xJ9px6wBwcvqfjQW1iDbrMiP7P0UQ==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(36860700016)(376014)(7416014)(921020)(22082099003)(18002099003)(3023799007)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|376014|1800799024|23010399003|82310400026|4143699003|56012099006|5023799004|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: xCx0xotw808SdLy7DgzzQJJcweyZh2tuN1htQTIw6vBGVQBZq3Oe9Ve7l3lXiqxbXhVIl1LU8jCMVTmxH1k7hfHOU/b3q1qQN7lFtRiR+uiBGozYZoQE7SecOSjLJZXVBc0aBVghTLHA6ej/CkYbYd6AIJOXLMTUbm1E4lxK4OUzk6AJVi5kUI5xuci2WOtW+8w8sYLvheNUamhqGHiH9bNkj7cnzZ7JePvJ0Ao0DAXNuvCWLLPtuJwsMZseBMHLVdhp2VanAf0CjK4aPtD8M+A2KMw+SLcXpGv3BRZ2bHwUHpxofGq5hFNT3Wzp9+Vd0mZVRBLQ2ONWQHfO9sydcszIGIHwNY2zkiBloluXGLmBBqLKkHsVRLQxV5UkcHUUu7AON0N6+8eCePuP5dFKtL3jbHfRTH8cJfaGAad1BJYmzpZ6r3UVifGvLSvYIWEROGAlyCcbw28IAsyfdEFmeRS2gP3aK8AY+feQUK4WVgFjNVDIsm86BXPILHxDlqNQZOhoUGCm15z2csqCY+ufLzbJ1vAeDdy7DYYdbuKcN1vW3o83TAyMFCd/ZWXIXmXhrP7YJR+5iMdYdntR5WwqcFqkSu+dqm6ueiRfJ9IF68GCGfAu+6p0BqnfsrPtNdpiizhIbdiUycGOGu1WMyLyF96kvDiyKIy+VTiXCsI5lcnEkSeGlttXbDjJ88FU51MS
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(376014)(1800799024)(23010399003)(82310400026)(4143699003)(56012099006)(5023799004)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Tix5f/eusq0GRNli969vUP9FMImYX4gNmGCZr3HCqz+90aeCF3XnZgc7IqA/pJMi35oO3VP3S8smWY3h6LkkXz52+fYY+BdaZJ2Ee7lrUMykofa186AXq5ACvlizVVg8Qle6ye64bRFawKaXixuOH4u9QEjsDSUbUObQDUewiaceAgyrSrfbqvtQ993FgjX5baw2imt66mwBIsQ5blGypcChjxJBIr8IE3Ijs3W9lvHKodeAQ5HGUQ4YfqYm/f1HjMdepXjWxaWQCheLQRYNSn/U+hPA3D2fH0V5yKFgqFyAalgq6NtHdpkr+bKW1XaqBSwVDKBjnNlK6fl0IXGntzQ1uUr+RDwK0GjJURJLktQYdc09SrHD6kOXsGhQ2xT/eApXT3cMkekc7mOvD0HKaR8CPMjqs1kQlpB5d9g/Wy73gnPsG/s/6wrFMiQDx2ZR
+X-MS-Exchange-AntiSpam-MessageData-0: 4DiNlO7ygQZDrVs8Qo58TcdL2FHUhfrHAVlpfUprD/4ma3RS9OB8OaTAZz0QbtjmbEFPBjuBvd6aHg7TgxmaB7gx+65uhMApFdMCWpiXeu+I6jhqfqCN1QJRa9yg4z9WjJc0cVW4ysVpVL/DRfP1D5lkpUuyHzdoFdib12qzf9gZBjA4lWBvdQgo+nQXrZy+p9wbzRT6ud2i4jVe/fa8mHF+VYWuC5DrFiUhWl7nwSBPOSccRpq3CIbab4F3iEhTzsKOmd883glCg2MX0t3fB9Wtc0IE604uNLFQVhAV5FW0Q/3J8TqmQzZo6yw6/MUc+7GzcJHdExJ5ITJFkrDHwyE3mXoVBjhiyzfhn5JFhGp8dmTNTXHMNvVDqS4/Cmrh5+/RKtr2X9R9IJWdwkMk1f3yqNMvSwaOy1BHQJGzILet7ty/z28PJTzq9Jyolkw+
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 09:50:55.6918
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 09:52:08.2605
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d2c79c3-cc63-4181-fdf0-08dec79eeecb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 197ada4a-04d3-4bd7-7eed-08dec79f1a0b
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE19.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004686.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4786
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_025108_007640_1B558550 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260611_025216_677643_EDF79056 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,440 +142,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for exposing ICSSG HSR statistics through two interfaces:
-ethtool and the standard RTM_GETSTATS / IFLA_STATS_LINK_XSTATS path.
+Hi Simon,
 
-Add a standard_stats flag to struct icssg_pa_stats and extend
-icssg_all_pa_stats[] with 10 new entries:
+On 11/06/26 12:17 am, Simon Horman wrote:
+> On Mon, Jun 08, 2026 at 03:39:27PM +0530, MD Danish Anwar wrote:
+>> Add standard stats for HSR / PRP. This series was initially adding HSR/PRP
+>> related stats for ICSSG driver. Based on maintainers' comments on v2 I am
+>> now adding support to dump standard stats for HSR/PRP.
+>>
+>> The drivers which support offload can populate these standard stats.
+>>
+>> This series only implements offloaded stats. For software-only interfaces
+>> Felix Maurer had said he will do it later [1]
+>>
+>> v2 https://lore.kernel.org/all/20260514075605.850674-1-danishanwar@ti.com/
+>> [1] https://lore.kernel.org/all/ag87pBZfOyccPZTc@thinkpad/
+>>
+>> Cc: Jakub Kicinski <kuba@kernel.org>
+>> Cc: Felix Maurer <fmaurer@redhat.com>
+>> Cc: Luka Gejak <luka.gejak@linux.dev>
+> 
+> Hi MD,
+> 
+> There is AI-generated review of this patch-set available on both
+> https://sashiko.dev and https://netdev-ai.bots.linux.dev/sashiko/
+> I would appreciate it if you could look over that with a view
+> to addressing any issues that directly affect this patch-set.
 
-  Firmware-specific HSR counters (standard_stats=false, ethtool only):
-  - FW_HSR_FWD_CHECK_FAIL_DROP
-  - FW_HSR_HE_CHECK_FAIL_DROP
-  - FW_HSR_SKIP_HOST_DUP_DISCARD
+I did look at the AI-generated reviews. The review on Patch 1/3 and 3/3
+seems like a real issue to me which I have fixed. The reviews on patch
+2/2 is not related to the series.
 
-  IEC 62439-3 LRE counters (standard_stats=true, excluded from ethtool):
-  - FW_LRE_CNT_UNIQUE_RX, FW_LRE_CNT_DUPLICATE_RX, FW_LRE_CNT_MULTIPLE_RX
-  - FW_LRE_CNT_RX, FW_LRE_CNT_TX, FW_LRE_CNT_OWN_RX
-  - FW_LRE_CNT_ERRWRONGLAN
+I have posted v4 with this fix
+https://lore.kernel.org/all/20260611095035.852370-1-danishanwar@ti.com/
 
-The ethtool get_strings/get_ethtool_stats callbacks skip entries with
-standard_stats=true so they do not appear as ethtool counters.
-ICSSG_NUM_PA_STANDARD_STATS is introduced and accounted for in
-ICSSG_NUM_ETHTOOL_STATS so the sset count stays accurate.
-ICSSG_NUM_PA_STATS is updated from 32 to 42.
-
-Implement ndo_has_offload_stats() and ndo_get_offload_stats() in
-emac_netdev_ops to expose the IEC 62439-3 LRE counters via the HSR
-stack's RTM_GETSTATS / IFLA_STATS_LINK_XSTATS interface. The HSR stack
-calls these NDOs on slave A; the callback reads PA stat registers for
-both ports (MAC0 = port A, MAC1 = port B) from the shared prueth
-instance and fills struct hsr_lre_stats. Port C counters are not
-available in ICSSG hardware and remain at ~0ULL.
-
-Export emac_update_hardware_stats() and emac_get_stat_by_name() as
-GPL symbols so they can be called from icssg_prueth.c. Also change
-emac_get_stat_by_name() return type from int to u64 and make it return
-~0ULL on an unknown stat name instead of -EINVAL, consistent with the
-hsr_lre_stats sentinel convention.
-
-Add FW_HSR_FWD_CHECK_FAIL_DROP and FW_HSR_HE_CHECK_FAIL_DROP to the
-rx_dropped sum in ndo_get_stats64, as these represent frames discarded
-by the HSR forwarding logic.
-
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
- .../ethernet/ti/icssg_prueth.rst              | 19 ++++
- drivers/net/ethernet/ti/icssg/icssg_common.c  |  7 +-
- drivers/net/ethernet/ti/icssg/icssg_ethtool.c | 10 +-
- drivers/net/ethernet/ti/icssg/icssg_prueth.c  | 92 +++++++++++++++++++
- drivers/net/ethernet/ti/icssg/icssg_prueth.h  | 10 +-
- drivers/net/ethernet/ti/icssg/icssg_stats.c   |  6 +-
- drivers/net/ethernet/ti/icssg/icssg_stats.h   | 85 +++++++++--------
- .../net/ethernet/ti/icssg/icssg_switch_map.h  | 10 ++
- 8 files changed, 193 insertions(+), 46 deletions(-)
-
-diff --git a/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst b/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst
-index da21ddf431bbc..faa1fc18a6737 100644
---- a/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst
-+++ b/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst
-@@ -54,3 +54,22 @@ These statistics are as follows,
-  - ``FW_HOST_TX_PKT_CNT``: Number of valid packets copied by RTU0 to Tx queues
-  - ``FW_HOST_EGRESS_Q_PRE_OVERFLOW``: Host Egress Q (Pre-emptible) Overflow Counter
-  - ``FW_HOST_EGRESS_Q_EXP_OVERFLOW``: Host Egress Q (Pre-emptible) Overflow Counter
-+ - ``FW_HSR_FWD_CHECK_FAIL_DROP``: Packets dropped on the HSR forwarding path due to failed checks
-+ - ``FW_HSR_HE_CHECK_FAIL_DROP``: Packets dropped on the host egress path due to failed checks
-+ - ``FW_HSR_SKIP_HOST_DUP_DISCARD``: Frames for which the host duplicate discard check was skipped
-+
-+HSR/LRE Standard Statistics
-+============================
-+
-+When the ICSSG operates in HSR offload mode the driver exposes the IEC 62439-3
-+LRE counters through the standard netlink stats interface.
-+
-+The following per-port (port A and port B) LRE counters are reported:
-+
-+ - ``lreCntTx``: Number of HSR/PRP tagged frames sent
-+ - ``lreCntRx``: Number of HSR/PRP tagged frames received
-+ - ``lreCntUnique``: Number of frames received with no duplicate detected
-+ - ``lreCntDuplicate``: Number of frames received for which exactly one duplicate was detected
-+ - ``lreCntMultiple``: Number of frames received for which more than one duplicate was detected
-+ - ``lreCntOwnRx``: Number of HSR/PRP tagged frames received whose source MAC matches the node's own address
-+ - ``lreCntErrWrongLan``: Number of frames received with a wrong LAN identifier (PRP only)
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index a28a608f9bf4b..1fcb031949535 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -1643,7 +1643,12 @@ void icssg_ndo_get_stats64(struct net_device *ndev,
- 			    emac_get_stat_by_name(emac, "FW_INF_DROP_TAGGED") +
- 			    emac_get_stat_by_name(emac, "FW_INF_DROP_PRIOTAGGED") +
- 			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTAG") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTMEMBER");
-+			    emac_get_stat_by_name(emac,
-+						  "FW_INF_DROP_NOTMEMBER") +
-+			    emac_get_stat_by_name(emac,
-+						  "FW_HSR_FWD_CHECK_FAIL_DROP") +
-+			    emac_get_stat_by_name(emac,
-+						  "FW_HSR_HE_CHECK_FAIL_DROP");
- 	stats->tx_errors  = ndev->stats.tx_errors;
- 	stats->tx_dropped = ndev->stats.tx_dropped +
- 			    emac_get_stat_by_name(emac, "FW_RTU_PKT_DROP") +
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-index b715af21d23ac..7a99c99aab1e8 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-@@ -74,7 +74,9 @@ static int emac_get_sset_count(struct net_device *ndev, int stringset)
- 		if (emac->prueth->pa_stats)
- 			return ICSSG_NUM_ETHTOOL_STATS;
- 		else
--			return ICSSG_NUM_ETHTOOL_STATS - ICSSG_NUM_PA_STATS;
-+			return ICSSG_NUM_ETHTOOL_STATS -
-+			       (ICSSG_NUM_PA_STATS -
-+				ICSSG_NUM_PA_STANDARD_STATS);
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -93,7 +95,8 @@ static void emac_get_strings(struct net_device *ndev, u32 stringset, u8 *data)
- 				ethtool_puts(&p, icssg_all_miig_stats[i].name);
- 		if (emac->prueth->pa_stats)
- 			for (i = 0; i < ARRAY_SIZE(icssg_all_pa_stats); i++)
--				ethtool_puts(&p, icssg_all_pa_stats[i].name);
-+				if (!icssg_all_pa_stats[i].standard_stats)
-+					ethtool_puts(&p, icssg_all_pa_stats[i].name);
- 		break;
- 	default:
- 		break;
-@@ -114,7 +117,8 @@ static void emac_get_ethtool_stats(struct net_device *ndev,
- 
- 	if (emac->prueth->pa_stats)
- 		for (i = 0; i < ARRAY_SIZE(icssg_all_pa_stats); i++)
--			*(data++) = emac->pa_stats[i];
-+			if (!icssg_all_pa_stats[i].standard_stats)
-+				*(data++) = emac->pa_stats[i];
- }
- 
- static int emac_get_ts_info(struct net_device *ndev,
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 591be5c8056b4..6df5bb2582928 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -14,6 +14,7 @@
- #include <linux/etherdevice.h>
- #include <linux/genalloc.h>
- #include <linux/if_hsr.h>
-+#include <linux/if_link.h>
- #include <linux/if_vlan.h>
- #include <linux/interrupt.h>
- #include <linux/io-64-nonatomic-hi-lo.h>
-@@ -1633,6 +1634,95 @@ int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags)
- 	return 0;
- }
- 
-+/**
-+ * prueth_ndo_get_offload_stats - Fill standard LRE counters from ICSSG.
-+ * @attr_id: Stats attribute ID; only IFLA_OFFLOAD_XSTATS_LRE_STATS is handled.
-+ * @dev:     Slave net_device (port A) whose offload stats are requested.
-+ * @sp:      Output pointer; cast to struct hsr_lre_stats *.
-+ *
-+ * Called by the HSR stack via ndo_get_offload_stats on the slave A device.
-+ * Fetches the per-port PA stat register snapshots for port A and port B,
-+ * and fills the IEC-62439-3 per-port LRE counters.  Port C (interlink)
-+ * counters are not available in ICSSG hardware and remain at ~0ULL.
-+ *
-+ * Return: 0 on success, -EOPNOTSUPP if the device does not support
-+ *         HSR offload statistics for the requested attribute.
-+ */
-+static int prueth_ndo_get_offload_stats(int attr_id,
-+					const struct net_device *dev,
-+					void *sp)
-+{
-+	struct prueth_emac *emac = netdev_priv(dev);
-+	struct prueth *prueth = emac->prueth;
-+	struct hsr_lre_stats *stats = sp;
-+	struct prueth_emac *emac0;
-+	struct prueth_emac *emac1;
-+
-+	if (attr_id != IFLA_OFFLOAD_XSTATS_LRE_STATS)
-+		return -EOPNOTSUPP;
-+
-+	if (!prueth->is_hsr_offload_mode)
-+		return -EOPNOTSUPP;
-+
-+	/* Current emac is SlaveA. Other emac is SlaveB */
-+	emac0 = emac;
-+	emac1 = prueth->emac[1 - prueth_emac_slice(emac)];
-+
-+	if (!prueth->pa_stats)
-+		return -EOPNOTSUPP;
-+
-+	/* Initialise all fields to ~0ULL ("unsupported"); only port A and B
-+	 * counters are filled — port C and aggregate counters are not
-+	 * available in ICSSG hardware.
-+	 */
-+	memset(stats, 0xff, sizeof(*stats));
-+
-+	emac_update_hardware_stats(emac0);
-+	stats->cnt_tx_a =
-+		emac_get_stat_by_name(emac0, "FW_LRE_CNT_TX");
-+	stats->cnt_rx_a =
-+		emac_get_stat_by_name(emac0, "FW_LRE_CNT_RX");
-+	stats->cnt_unique_a =
-+		emac_get_stat_by_name(emac0, "FW_LRE_CNT_UNIQUE_RX");
-+	stats->cnt_duplicate_a =
-+		emac_get_stat_by_name(emac0, "FW_LRE_CNT_DUPLICATE_RX");
-+	stats->cnt_multi_a =
-+		emac_get_stat_by_name(emac0, "FW_LRE_CNT_MULTIPLE_RX");
-+	stats->cnt_own_rx_a =
-+		emac_get_stat_by_name(emac0, "FW_LRE_CNT_OWN_RX");
-+	/* lreCntErrWrongLan is PRP only */
-+	stats->cnt_err_wrong_lan_a =
-+		emac_get_stat_by_name(emac0, "FW_LRE_CNT_ERRWRONGLAN");
-+
-+	emac_update_hardware_stats(emac1);
-+	stats->cnt_tx_b =
-+		emac_get_stat_by_name(emac1, "FW_LRE_CNT_TX");
-+	stats->cnt_rx_b =
-+		emac_get_stat_by_name(emac1, "FW_LRE_CNT_RX");
-+	stats->cnt_unique_b =
-+		emac_get_stat_by_name(emac1, "FW_LRE_CNT_UNIQUE_RX");
-+	stats->cnt_duplicate_b =
-+		emac_get_stat_by_name(emac1, "FW_LRE_CNT_DUPLICATE_RX");
-+	stats->cnt_multi_b =
-+		emac_get_stat_by_name(emac1, "FW_LRE_CNT_MULTIPLE_RX");
-+	stats->cnt_own_rx_b =
-+		emac_get_stat_by_name(emac1, "FW_LRE_CNT_OWN_RX");
-+	stats->cnt_err_wrong_lan_b =
-+		emac_get_stat_by_name(emac1, "FW_LRE_CNT_ERRWRONGLAN");
-+
-+	return 0;
-+}
-+
-+static bool prueth_ndo_has_offload_stats(const struct net_device *dev,
-+					 int attr_id)
-+{
-+	struct prueth_emac *emac = netdev_priv(dev);
-+	struct prueth *prueth = emac->prueth;
-+
-+	return attr_id == IFLA_OFFLOAD_XSTATS_LRE_STATS &&
-+	       prueth->is_hsr_offload_mode && prueth->pa_stats;
-+}
-+
- static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_open = emac_ndo_open,
- 	.ndo_stop = emac_ndo_stop,
-@@ -1652,6 +1742,8 @@ static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_hwtstamp_get = icssg_ndo_get_ts_config,
- 	.ndo_hwtstamp_set = icssg_ndo_set_ts_config,
- 	.ndo_xsk_wakeup = prueth_xsk_wakeup,
-+	.ndo_has_offload_stats = prueth_ndo_has_offload_stats,
-+	.ndo_get_offload_stats = prueth_ndo_get_offload_stats,
- };
- 
- static int prueth_netdev_init(struct prueth *prueth,
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index df93d15c5b786..d6c221e897924 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -57,12 +57,14 @@
- 
- #define ICSSG_MAX_RFLOWS	8	/* per slice */
- 
--#define ICSSG_NUM_PA_STATS	32
-+#define ICSSG_NUM_PA_STATS	42
- #define ICSSG_NUM_MIIG_STATS	60
- /* Number of ICSSG related stats */
- #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
--#define ICSSG_NUM_STANDARD_STATS 31
--#define ICSSG_NUM_ETHTOOL_STATS (ICSSG_NUM_STATS - ICSSG_NUM_STANDARD_STATS)
-+#define ICSSG_NUM_STANDARD_STATS	31
-+#define ICSSG_NUM_PA_STANDARD_STATS	7
-+#define ICSSG_NUM_ETHTOOL_STATS (ICSSG_NUM_STATS - ICSSG_NUM_STANDARD_STATS - \
-+				 ICSSG_NUM_PA_STANDARD_STATS)
- 
- #define IEP_DEFAULT_CYCLE_TIME_NS	1000000	/* 1 ms */
- 
-@@ -458,7 +460,7 @@ int emac_fdb_flow_id_updated(struct prueth_emac *emac);
- 
- void icssg_stats_work_handler(struct work_struct *work);
- void emac_update_hardware_stats(struct prueth_emac *emac);
--int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name);
-+u64 emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name);
- 
- /* Common functions */
- void prueth_cleanup_rx_chns(struct prueth_emac *emac,
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-index 7159baa0155cf..9950d0ba899fa 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-@@ -62,6 +62,7 @@ void emac_update_hardware_stats(struct prueth_emac *emac)
- 
- 	spin_unlock(&prueth->stats_lock);
- }
-+EXPORT_SYMBOL_GPL(emac_update_hardware_stats);
- 
- void icssg_stats_work_handler(struct work_struct *work)
- {
-@@ -74,7 +75,7 @@ void icssg_stats_work_handler(struct work_struct *work)
- }
- EXPORT_SYMBOL_GPL(icssg_stats_work_handler);
- 
--int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
-+u64 emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
- {
- 	int i;
- 
-@@ -91,5 +92,6 @@ int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
- 	}
- 
- 	netdev_err(emac->ndev, "Invalid stats %s\n", stat_name);
--	return -EINVAL;
-+	return ~0ULL;
- }
-+EXPORT_SYMBOL_GPL(emac_get_stat_by_name);
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-index 6f4400d8a0f61..373debfb815cc 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-@@ -157,50 +157,63 @@ static const struct icssg_miig_stats icssg_all_miig_stats[] = {
- 
- static_assert(ARRAY_SIZE(icssg_all_miig_stats) == ICSSG_NUM_MIIG_STATS);
- 
--#define ICSSG_PA_STATS(field)	\
--{				\
--	#field,			\
--	field,			\
-+#define ICSSG_PA_STATS(field, stats_type)	\
-+{						\
-+	#field,					\
-+	field,					\
-+	stats_type				\
- }
- 
- struct icssg_pa_stats {
- 	char name[ETH_GSTRING_LEN];
- 	u32 offset;
-+	bool standard_stats;
- };
- 
- static const struct icssg_pa_stats icssg_all_pa_stats[] = {
--	ICSSG_PA_STATS(FW_RTU_PKT_DROP),
--	ICSSG_PA_STATS(FW_Q0_OVERFLOW),
--	ICSSG_PA_STATS(FW_Q1_OVERFLOW),
--	ICSSG_PA_STATS(FW_Q2_OVERFLOW),
--	ICSSG_PA_STATS(FW_Q3_OVERFLOW),
--	ICSSG_PA_STATS(FW_Q4_OVERFLOW),
--	ICSSG_PA_STATS(FW_Q5_OVERFLOW),
--	ICSSG_PA_STATS(FW_Q6_OVERFLOW),
--	ICSSG_PA_STATS(FW_Q7_OVERFLOW),
--	ICSSG_PA_STATS(FW_DROPPED_PKT),
--	ICSSG_PA_STATS(FW_RX_ERROR),
--	ICSSG_PA_STATS(FW_RX_DS_INVALID),
--	ICSSG_PA_STATS(FW_TX_DROPPED_PACKET),
--	ICSSG_PA_STATS(FW_TX_TS_DROPPED_PACKET),
--	ICSSG_PA_STATS(FW_INF_PORT_DISABLED),
--	ICSSG_PA_STATS(FW_INF_SAV),
--	ICSSG_PA_STATS(FW_INF_SA_DL),
--	ICSSG_PA_STATS(FW_INF_PORT_BLOCKED),
--	ICSSG_PA_STATS(FW_INF_DROP_TAGGED),
--	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
--	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
--	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
--	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
--	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
--	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
--	ICSSG_PA_STATS(FW_RX_EXP_FRAG_Q_DROP),
--	ICSSG_PA_STATS(FW_RX_FIFO_OVERRUN),
--	ICSSG_PA_STATS(FW_CUT_THR_PKT),
--	ICSSG_PA_STATS(FW_HOST_RX_PKT_CNT),
--	ICSSG_PA_STATS(FW_HOST_TX_PKT_CNT),
--	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_PRE_OVERFLOW),
--	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_EXP_OVERFLOW),
-+	/* Firmware-specific stats: exposed via ethtool -S only */
-+	ICSSG_PA_STATS(FW_RTU_PKT_DROP, false),
-+	ICSSG_PA_STATS(FW_Q0_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_Q1_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_Q2_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_Q3_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_Q4_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_Q5_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_Q6_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_Q7_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_DROPPED_PKT, false),
-+	ICSSG_PA_STATS(FW_RX_ERROR, false),
-+	ICSSG_PA_STATS(FW_RX_DS_INVALID, false),
-+	ICSSG_PA_STATS(FW_TX_DROPPED_PACKET, false),
-+	ICSSG_PA_STATS(FW_TX_TS_DROPPED_PACKET, false),
-+	ICSSG_PA_STATS(FW_INF_PORT_DISABLED, false),
-+	ICSSG_PA_STATS(FW_INF_SAV, false),
-+	ICSSG_PA_STATS(FW_INF_SA_DL, false),
-+	ICSSG_PA_STATS(FW_INF_PORT_BLOCKED, false),
-+	ICSSG_PA_STATS(FW_INF_DROP_TAGGED, false),
-+	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED, false),
-+	ICSSG_PA_STATS(FW_INF_DROP_NOTAG, false),
-+	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER, false),
-+	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR, false),
-+	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF, false),
-+	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF, false),
-+	ICSSG_PA_STATS(FW_RX_EXP_FRAG_Q_DROP, false),
-+	ICSSG_PA_STATS(FW_RX_FIFO_OVERRUN, false),
-+	ICSSG_PA_STATS(FW_CUT_THR_PKT, false),
-+	ICSSG_PA_STATS(FW_HOST_RX_PKT_CNT, false),
-+	ICSSG_PA_STATS(FW_HOST_TX_PKT_CNT, false),
-+	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_PRE_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_EXP_OVERFLOW, false),
-+	ICSSG_PA_STATS(FW_HSR_FWD_CHECK_FAIL_DROP, false),
-+	ICSSG_PA_STATS(FW_HSR_HE_CHECK_FAIL_DROP, false),
-+	ICSSG_PA_STATS(FW_HSR_SKIP_HOST_DUP_DISCARD, false),
-+	ICSSG_PA_STATS(FW_LRE_CNT_UNIQUE_RX, true),
-+	ICSSG_PA_STATS(FW_LRE_CNT_DUPLICATE_RX, true),
-+	ICSSG_PA_STATS(FW_LRE_CNT_MULTIPLE_RX, true),
-+	ICSSG_PA_STATS(FW_LRE_CNT_RX, true),
-+	ICSSG_PA_STATS(FW_LRE_CNT_TX, true),
-+	ICSSG_PA_STATS(FW_LRE_CNT_OWN_RX, true),
-+	ICSSG_PA_STATS(FW_LRE_CNT_ERRWRONGLAN, true),
- };
- 
- static_assert(ARRAY_SIZE(icssg_all_pa_stats) == ICSSG_NUM_PA_STATS);
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-index 7e053b8af3ece..556facb33e0ce 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-@@ -266,5 +266,15 @@
- #define FW_HOST_TX_PKT_CNT		0x0250
- #define FW_HOST_EGRESS_Q_PRE_OVERFLOW	0x0258
- #define FW_HOST_EGRESS_Q_EXP_OVERFLOW	0x0260
-+#define FW_HSR_FWD_CHECK_FAIL_DROP		0x0500
-+#define FW_HSR_HE_CHECK_FAIL_DROP		0x0508
-+#define FW_HSR_SKIP_HOST_DUP_DISCARD		0x0510
-+#define FW_LRE_CNT_UNIQUE_RX			0x0518
-+#define FW_LRE_CNT_DUPLICATE_RX			0x0520
-+#define FW_LRE_CNT_MULTIPLE_RX			0x0528
-+#define FW_LRE_CNT_RX				0x0530
-+#define FW_LRE_CNT_TX				0x0538
-+#define FW_LRE_CNT_OWN_RX			0x0540
-+#define FW_LRE_CNT_ERRWRONGLAN			0x0548
- 
- #endif /* __NET_TI_ICSSG_SWITCH_MAP_H  */
 -- 
-2.34.1
+Thanks and Regards,
+Danish
 
 
