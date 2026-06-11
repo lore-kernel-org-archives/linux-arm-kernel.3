@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D03DCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 19:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4128CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9a0SMkSfHUNTNvr1ftlH6X3IHP1fEtjtfsq2G98gVcc=; b=YP13iNp27P9bHi6um3H8ll7pwc
-	itMWoIeqkNyTOKXME/j3TAQbUnGrK55q93NwWhI/wC9/Ay/Wu+qEGTF/hlVStkZFyRolwfY1HFEI9
-	UpcOtxe83ubOYTsbWQolVOvib7UvgafHl/bLYnV7jP5SyhmVGudmz7ClRC2rsGnbnoha3biGg6nti
-	YNhAskoblwu21BCXwqsr4pFAcgxFMWg6GuF0dilWmtw0AZXuaUoyhi8TE9TnAQmnx0QKYORZ2nc4a
-	7lgATfoko0lBKBHuoptiaAQlmF+qpH28629k8S5mQym1R7Z9iy6KRrTwHTEybaAvlK7fQkykYV7C5
-	BeLGhUBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qLMumJf1RKl2eLxtJE2mfNPELwqfdC4TqjLEXDZKRSI=; b=CEU2sVXiPnkeZ2WaRilw4KeX2h
+	vVo4wVGv+2RL0GVrG+F/jNQV7hrPvDmyK2WzD6cQNQ/R1BQ7Y0E3/XwjNRo+fwQ/qOQpLjUftgQ8Y
+	OBIq53xCHdszTt2jbVK+3LYgEQLi7gfOpSTOXksqE+Ffsw+Zlesje/0u5dOhDpXxezv/LGel0fAB+
+	8XBr6/JVGPyNCRIc4cEaszsqKcezjPu8TMzGDHG8Q0vIATGjjSnJSR0RsynOuYjOepYdvsjGhM0PW
+	2SOHAA6xorqbyhkYCVursBYfv2FF6hyVCLAYqdB9AiN7Z9S0zSMRAy1mPMucGVF8IEkw4CFbsUXk9
+	iry3KkQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlKu-00000009yJm-3y96;
-	Thu, 11 Jun 2026 19:45:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wXlcZ-00000009zOo-32r1;
+	Thu, 11 Jun 2026 20:03:23 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlKu-00000009yJC-1Qj5
+	id 1wXlcV-00000009zNa-2xyV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 19:45:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA6B8402BC;
-	Thu, 11 Jun 2026 19:45:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E021F00A3A;
-	Thu, 11 Jun 2026 19:45:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781207107;
-	bh=9a0SMkSfHUNTNvr1ftlH6X3IHP1fEtjtfsq2G98gVcc=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=HEyMdzOkqvfYpdlVynMSxr60vo4FtJqKv3cSjacdLoM/WKd37tPY+oTwRh3hABg+X
-	 4DmE2knYx10skQt6hgabMskl1FFWuhGhXtXhe0XpML805CEDFjlTDlYJTgKjy+Ba+3
-	 ptLUN150tgNW3RD0GKZg3b1+k1FaG/YBe9xN8tBh2DRkbJlLA93sE8cGd8XgoLlZ1n
-	 Te+JiScXWSvzF6r2F+wsxw4yYzn3TmSg94UG31v/K/BvWxO/pMWCVPa9QO8jEWrq5s
-	 ABqcYAieOm2il05MXtWFIXJHivOW+ueS8uHSKDno5a8Vky8qHtWqSgUv1U+uwd33PH
-	 b4TGY7eQGdssA==
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 8C559F40074;
-	Thu, 11 Jun 2026 15:45:06 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Thu, 11 Jun 2026 15:45:06 -0400
-X-ME-Sender: <xms:QhArauT_XORPZQJTyWXJvXazZXH64vikBYAouHNqg-2OH8PdFvftxA>
-    <xme:QhArapUrYxtM4EblKHzdWDE1w5Nylxwo_nmHMv4Kyd0EK0vhOmy4JUpH-f5BtE9z2
-    Raqedl3oybuOn0nPGpdvW-KR5LMKYBu6q4QRv9U_2abVlUJhplw6AY>
-X-ME-Received: <xmr:QhAralb0Djr-tMHKM44b994W0tIJcW4Q2tN3oJ2Q3tzj1CPuKBaXqc06GdQnXhKDaZYmlEkoBQodxhPuFusap9WTmLL4GpFMIxM>
-X-ME-Proxy-Cause: dmFkZTECBux9In0mEU9Au6vS4FNBdtvHVz/tllZbDvTycM4hXMN9CVUaaBaCIVRt5YM1oS
-    pRew6NN2qH7ImIJ5Wb05SRFSk28NsXHOGrQTXw84upkzwXl8CqB3ZOKoq/Kx9cYEBglm3w
-    BbUrrCmtibzG/Lx9h6QKU0SY91myEPjYwF9xOXA7L2M8c+A59qHqD/VaYg+bvy8mWSqNwc
-    M9emOR+vkWFrDAHaeV7jLY+9Z0vsQzJqqJnefUlVZ2XbNnwgio9TDclRg9cfrKK1ar8zbK
-    0azGtHOtYqhsYc9srmJpQgjAXz4tobNTKCMblCkWoA7Ye7nUaKCFAT9dvTNawqfOfcgMgT
-    n0V966t/vWGGs0Lw7BKLMmGaDbXz4sEHLKOjib7OFPEDmo29EYffc74FjTof71EuKBFlM1
-    3qa82npD24vYiH+tSg8rhBa04MOYPN0pH5KWOZ9Fu693nge6qPlclv5t2CWbNqFOnnsuUZ
-    1pFHwtaXsDF0VZg+NRNLLIwSc/obV4amq0eCVQhkJGkZAjFSPXxxRqZqDyec7Ndp3yTuL5
-    xV+TOTby38nfp2jMCZDDlxlcPedmx73PC8Uvzo4eaw/uRilHRHkJj+facaynr95wgTtnQc
-    M49FkNzeqzcQrl/FO0i1o2lEwRP0FPFFhSOMReF+CY92OjXsr91GvzOUBlUw
-X-ME-Proxy: <xmx:QhAraq6KsdoZP4NoRjDNugptzew59m2Tqgi9wlXeqnFVeUpgShLPpQ>
-    <xmx:QhAraux7lNJ9YgaLEhAZbiX0C5wVPqRiRiM0so5mjM1wxdhb3A6_fw>
-    <xmx:QhArajoXhceO78AVFbxtGlIIgfSpqsQhXkNaG94z16Td0ExOaBD6fw>
-    <xmx:QhArao09AAxXtStCUZkADFiJ5PxwdAgFG4hxAYgqz8mjHzvv-H33pQ>
-    <xmx:QhArakBhm5NrsWWOFm5QXhFRdiqW4XJiTyP71TrtfsIGSAxHarIfgQuJ>
-Feedback-ID: i67ae4b3e:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 11 Jun 2026 15:45:04 -0400 (EDT)
-Date: Thu, 11 Jun 2026 12:45:01 -0700
-From: "Dan Williams (nvidia)" <djbw@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, 
- linux-coco@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Greg KH <gregkh@linuxfoundation.org>, 
- Jeremy Linton <jeremy.linton@arm.com>, 
- Jonathan Cameron <jic23@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Sudeep Holla <sudeep.holla@arm.com>, 
- Will Deacon <will@kernel.org>, 
- Steven Price <steven.price@arm.com>, 
- Suzuki K Poulose <Suzuki.Poulose@arm.com>, 
- Andre Przywara <andre.przywara@arm.com>
-Message-ID: <6a2b103d77596_344af1000@djbw-dev.notmuch>
-In-Reply-To: <20260611130429.295516-7-aneesh.kumar@kernel.org>
-References: <20260611130429.295516-1-aneesh.kumar@kernel.org>
- <20260611130429.295516-7-aneesh.kumar@kernel.org>
-Subject: Re: [PATCH v7 6/6] coco: guest: arm64: Replace dummy CCA device with
- sysfs ABI
-Mime-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+	Thu, 11 Jun 2026 20:03:22 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-517dc520840so1445991cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 13:03:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781208198; x=1781812998; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qLMumJf1RKl2eLxtJE2mfNPELwqfdC4TqjLEXDZKRSI=;
+        b=mOyZDGgYYdMtyo+g+rrePSGvNPK7nUhPWlwqEb9Onk6MG6XDNR0iy2+JZ2ivVTxhWL
+         W7T1rNtxkTr2kkO1y04oftzgRRude3eGUTLNegrnZi+whikVERGD81uVo+KHIksgOON8
+         a6nFB8+635R2iFMKgS5AJ4gXPen7WikwFljigkKpm8WX7fq2KmsddQ7R5uqlN4JkZtUu
+         9OqdqXjKSkWDD1rgTIXfTjRkN+gpZqATYUpTYSmJWtKtXOUuMuXeneD124ZOO34dN+W5
+         fBq2mOB0GdCilpOs1kcojJfVUaitnpfuSLmjA0/y2oM0ApuixncjZQH6qHp6liOwMMYY
+         tzEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781208198; x=1781812998;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qLMumJf1RKl2eLxtJE2mfNPELwqfdC4TqjLEXDZKRSI=;
+        b=RYmfuiJs7GezIvEOh66q9TKVZ4kxDSP+A4SCuGpWFszKmMrPlH/hE6Se/KrPXQkGqD
+         ibDi0bWKp6HvUWkcecpyVwkv50AbVH5GlRe5V2N4bO9ccU68Ik5ZLH/C/2z6aXVUdxha
+         TNvfmPKT2KJSJQ+E0Rs90O0AsjT41wv7D8qZQtALZhKcEDO6LxPF5UaDrVJxmVYfkT4K
+         NLmuWbLMtQGCaEmEVWheECViYqaEpiL+WjDc7DYupypr14kJ+r5rVzLvpXM3B+lgJye6
+         P7dT7fM2ucDo6lE1EbIwBaV5QpTcLLC6LmTnA3I58DDkJIAtEFULWaGfxcVkOLAXvmYh
+         oXtA==
+X-Forwarded-Encrypted: i=1; AFNElJ+t5vzmb/KkYBVsMHQjl7PZAEEkCGm5Xg12zdMg+rntyVUQy5hvHkY1yPq7BM4b8yG00jdqXbwGMLYSymt/ftVG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlPUH4fDRDBzOVoTd+6gFgKxvbAQM3uYL15J+JdPm4EaNl62VS
+	CRilg3kWkKMvxW4/KJCvxkCtl9Y4Us/hRUZQf7EAP8PgWfgi98dvtW4F
+X-Gm-Gg: Acq92OGdx/VMezMy6dENxLVpfC6scLlkZes/0Ne3oG9LZrbIkNQiK4Eb8agwMHzRJdT
+	ZqzIvAXY6GNkrRjbLsDVsHbOpIIsGzOZkl8VOATip4Nr30+KLKyrjdmeYWFTYM0SVAXYZAwSqwC
+	udYY6NSlzbH9/Uq1DDxlJ/LChDVP7fWm/r6dIk6gENoY4y+sDg+Gz1imzeF9MUigsqrSV6Wu0yu
+	/F3wYkN4NVBgc4lPkpKEMNb1T3F+3vfxDHJzUAhm0UlpbN8sL6s9ltHdQVsumdPHALX1ZWVGSxn
+	vZrUwrsEMxOLGYufHBrQJRfikyEfiK5KLCZBUFAB/JhJug65KoaPP9Fw7EgXB1gk2oE0d8CA8rW
+	+KjKFD/INsTWg7nn2fdQahaSpui1lFTjH8VL/Ip6p1J6S61ytacnEt29/yLCgG0l0nByYP8Cgu/
+	FqdL6IsSIO
+X-Received: by 2002:ad4:4ee6:0:b0:8cc:f135:529e with SMTP id 6a1803df08f44-8d1dc1a0cebmr77291506d6.34.1781208198118;
+        Thu, 11 Jun 2026 13:03:18 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:f09::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8d301b2a79asm3229516d6.13.2026.06.11.13.03.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Jun 2026 13:03:17 -0700 (PDT)
+Date: Thu, 11 Jun 2026 17:03:11 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geraldo Nascimento <geraldogabriel@gmail.com>
+Subject: [PATCH v6 1/3] PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
+Message-ID: <76c828d29b0f05df0970b3a862ee1af8c96faf17.1781207474.git.geraldogabriel@gmail.com>
+References: <cover.1781207474.git.geraldogabriel@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1781207474.git.geraldogabriel@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260611_130319_756874_D38F0C01 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,36 +103,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Aneesh Kumar K.V (Arm) wrote:
-> The SMCCC firmware driver now creates the arm-smccc platform device and
-> instantiates the CCA RSI auxiliary devices once the RSI ABI is discovered.
-> The arm64-specific arm-cca-dev platform device stub is therefore no longer
-> needed.
-> 
-> However, userspace has used the arm-cca-dev platform device to detect Arm
-> CCA Realm guests [1]. Removing it without a replacement would break that
-> detection and would also leave userspace depending on kernel device-model
-> details.
-> 
-> Add /sys/firmware/cca/realm_guest as a stable, architecture-provided ABI
-> for detecting whether the kernel is running as an Arm CCA Realm guest. The
-> file returns 1 in Realm world and 0 otherwise, similar to the existing s390
-> /sys/firmware/uv/prot_virt_guest interface for protected virtualization
-> guests.
-> 
-> Remove the dummy arm-cca-dev registration now that userspace has a
-> dedicated CCA Realm guest indicator, and document the new ABI in
-> Documentation/ABI/testing/sysfs-firmware-cca.
+Drop the 5.0 GT/s Link Speed retraining code block from Rockchip PCIe
+EP driver. The reason is that Shawn Lin from Rockchip has reiterated
+that there may be danger of "catastrophic failure" in using their PCIe
+with 5.0 GT/s speeds.
 
-I would have expected an attribute in /sys/class/tsm/tsmX to be the
-common protected guest indicator. Then, if you need to distinguish the
-architecture that registered that tsm it would be in the name of the
-parent device for the tsm class device. 
+While Rockchip has done so informally without issuing a proper errata,
+and the particulars are thus unknown, this may cause data loss or
+worse.
 
-That also gives you the property that a uevent has signalled the arrival
-of tsm guest services. Otherwise, userspace still needs some custom
-device-model details to know when it can start issuing tsm requests.
+This change is corroborated by RK3399 official datasheet [1], which
+states maximum link speed for this platform is 2.5 GT/s.
 
-Is auxilliary device arrival too late in the flow for what systemd
-needs?
+[1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
+
+Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
+Cc: stable@vger.kernel.org
+Reported-by: Dragan Simic <dsimic@manjaro.org>
+Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
+Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+---
+ drivers/pci/controller/pcie-rockchip-ep.c | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+diff --git a/drivers/pci/controller/pcie-rockchip-ep.c b/drivers/pci/controller/pcie-rockchip-ep.c
+index 799461335762e..9ebc227a1ef84 100644
+--- a/drivers/pci/controller/pcie-rockchip-ep.c
++++ b/drivers/pci/controller/pcie-rockchip-ep.c
+@@ -553,19 +553,6 @@ static void rockchip_pcie_ep_link_training(struct work_struct *work)
+ 	if (ret)
+ 		goto again;
+ 
+-	/*
+-	 * Check the current speed: if gen2 speed was requested and we are not
+-	 * at gen2 speed yet, retrain again for gen2.
+-	 */
+-	val = rockchip_pcie_read(rockchip, PCIE_CORE_CTRL);
+-	if (!PCIE_LINK_IS_GEN2(val) && rockchip->link_gen == 2) {
+-		/* Enable retrain for gen2 */
+-		rockchip_pcie_ep_retrain_link(rockchip);
+-		readl_poll_timeout(rockchip->apb_base + PCIE_CORE_CTRL,
+-				   val, PCIE_LINK_IS_GEN2(val), 50,
+-				   LINK_TRAIN_TIMEOUT);
+-	}
+-
+ 	/* Check again that the link is up */
+ 	if (!rockchip_pcie_ep_link_up(rockchip))
+ 		goto again;
+-- 
+2.54.0
+
 
