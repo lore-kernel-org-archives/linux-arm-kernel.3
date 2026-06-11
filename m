@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D42CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 18:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F596CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 18:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qRtbCsR0snrc4ZRT7ffxk7qmv5fRPo5gJPF6TrEgdgg=; b=nD0XB3nM7XFJdpunRVoFIruG3l
-	irAwvs29K2DJJXJUP+GM7Kuuez4yDWgnHsNLRanppRJBRd5J97Z5yKVYFUTJutWEfSOnV3/TuNtY0
-	zp7t9vPZbDCkXg432R3k2kyaGXAshcGST0HTVt8YFLR36gxorAm8ZCFB/ou3ukGbMLaqGX0wUgBRd
-	foXqhzICBzPS7nwrFsSUutil424ZpOYLxvtj2YiG12abicf3Vp/VmvSlydpMOF+vq/b60O629G3UP
-	TNnsP/WeefOsADo3e7UBUheX2YSYkzKz4Dn6LjgzsL8r1ESA9dX5pjFU/PXG7QOke9i70vZChOZL0
-	Ig50c4GQ==;
+	bh=eVzOoLNEuPfZZT/bNo/rgtUOyCTzQansB3UIDE8kQC0=; b=Vbb3TXaiLOZOpJ9jOU1KNyAmJ7
+	9FxQFixajv4IFWptgAPjtX7sAzjebGmnNo4qlu/24mWFxoU7bUZ7K97/9nbveci6xsyyie0hnBO83
+	xXlCn1yLAAXL3PKYUo0K8T0UT90kRTzDgaevwdjigcssljkDN3DsrAsDRhCfuQVXVId1lSRFCBvnz
+	jfv+i+r77TUHHgUt304h6WuBqjiIMieNXJwFYVpVX+o8ovkDYKbWbjXWsIhph7BupeP98cMxQHYvm
+	55je+rJPg5SQra84+uyXs0uV/4WWCPpvYaWtZSIGqPpiaG4skionPBVI8rWIIlJjE0oACoMoqriK7
+	AWy84w0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXkHU-00000009tKo-2EUp;
-	Thu, 11 Jun 2026 18:37:32 +0000
+	id 1wXkHa-00000009tOW-329K;
+	Thu, 11 Jun 2026 18:37:38 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXkHR-00000009tJZ-3QME
+	id 1wXkHX-00000009tMh-3pqL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 18:37:31 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65BIS3GA1449459
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 18:37:29 GMT
+	Thu, 11 Jun 2026 18:37:37 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65BISXf61302638
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 18:37:35 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qRtbCsR0snrc4ZRT7ffxk7qmv5fRPo5gJPF6TrEgdgg=; b=myaG+0QdAH82aYHA
-	T5bzdiBz1N4/ZDU9K56o31TCPDJW2W2jDAyu14JVpgUhN47kE2/SBmuWvcfQ0++c
-	Qy2VFuWc44xxX82ZYWraTV/silo5ycrPtjoGXzf+V+MhArRjVA3+dyc/K1uv2ZBn
-	80pjbr8Im4NMVrgWQysarliG8Ss462jGwj61LHgm3Am4lFgqZSioS96vd5ZvrYPf
-	lgTZYlVkI/0PaUMCJgGhLYFQAhi+VCUSjwofLEtJJAU6fHkq8zGXwBRQsmvSJFgX
-	5lJgNrNTcjOZWucIA862/rGuDHVCq/Vr2rCYrRi/4OzioIMx109+gvLiBjI9U+T1
-	cKiHug==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4er29ur1n0-1
+	eVzOoLNEuPfZZT/bNo/rgtUOyCTzQansB3UIDE8kQC0=; b=F5iuHgXgf1aSnynX
+	P0axqcV/oPzWvCV+xrFy8Yb39DCbQeQiEeyihNrwxlea301CnoMJ2l2boBAlm9Tq
+	7XeMKgdqY4Dy/UAmDLJhMy+zADavzOwUjaqoesTGJJZYXUbmdowcGLgh9iLa5n2E
+	/zaLl7u9Z/MlXSGq/hPEvbdjR/vdkNj57Or1TgRCEjeM2nFsuTUEzhaIpvgN7Qkr
+	+MIIn0DDoL86GpPgH0mA9wXl+TdHQCeghEovmNqJGgJB+h7QdfbVXeEJyrAXut/h
+	ZNoRplB4M//3aShd7eOuoBxHBm7GuD1Lj5VUuqiPsDblWBqF8gvjVMYPlBp6unki
+	hRqDpA==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eqe6ud4bd-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 18:37:28 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8428384f31fso134511b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 11:37:28 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 18:37:34 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c860544c077so119090a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 11:37:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781203047; x=1781807847; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1781203054; x=1781807854; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qRtbCsR0snrc4ZRT7ffxk7qmv5fRPo5gJPF6TrEgdgg=;
-        b=DYwlynNRwWcl2zcWEowi522AXes7Ok8ncZkoU/Ax/1+Hr2iLei8Rx7SlKII7o97/FZ
-         vE8duYOAp+F3YaVSUAtedh6vxlw8n7YPI0tROsKOIhapWyGXR0CoI/IT00i7AV8r1qqM
-         05zmxl9+WtSk5/zYdvTn+i0f9FDZlZtPTNET9zzdb8jvt9N+4cwmiAQoXEWbFTqpc85h
-         Qf6yC/nlarbNoNT3t8fJ8rBEN9tndBE0nS5u9IjM1zAehZwGeADxm0KeU3Ezc4y5S1YG
-         oLMQiW9KcAeKRmZq36QyR2cku4fL2DdntZrAJq08a3404w4BoO3Mh7RSgXnee1qBm6mf
-         yPyw==
+        bh=eVzOoLNEuPfZZT/bNo/rgtUOyCTzQansB3UIDE8kQC0=;
+        b=Dftrnp11uVimBgCpgDSDwrrpTtykpeSNi55SFPIUtMlRaSnhFVWBIQlXjZ+Z9wU4pF
+         p6+PNKKNhka1+E358T5H8hAQTKrfASX0T8PvOfcgo2WPv0ybiX/t0XWA6AwRiHmNYQOt
+         uNkVh52FEkE4+7v9P4H3VOaMcirKpdaU+ky02yfDXyB+/aPgBCE5jzUDtvzSLQhW7vqM
+         Hq+2P+rNz61UgRpY95q4Crv+neQK1wN4fefBiEsF29kvunCMDIXmcBY5exQdEYYSd1IE
+         4QWGeZIl3YVykgsH1HfuFAsqBjEmKv0/yprfaw6iS4htqSG85njEWSDjXZBP0rvaxbcW
+         9HFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781203047; x=1781807847;
+        d=1e100.net; s=20251104; t=1781203054; x=1781807854;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=qRtbCsR0snrc4ZRT7ffxk7qmv5fRPo5gJPF6TrEgdgg=;
-        b=P6UNDehdgFgIUdAvl6bTo5Zx03SQcvvAyVQSMhf9ZZ3W6QMOAecmj+z32xmayBCt/N
-         gcERaSz3UJ/C4I4res7QAgpBRFfCdvHWIgVB8esGY20itISNac6ux7+s7MFrOb1aRmoe
-         /4oXLbnlX6N1BU7wVDmds6+54RUWq8mflPkWs6u+/PCliUOpWtaa9FZ3A2fI1jDL7bXh
-         i9mb28HsUQfJ1fTQVPOcYt37+ghP8DXzefnEciiKK6rhDIxnRgks6NVfAngfEfnWhAMZ
-         0n1luDhRbOzSM+JrddW+Oj5hQC0kR/4OcBmKAWmSSavoDCHmlDo98rt3osjM5bv8T/DQ
-         Y7tw==
-X-Forwarded-Encrypted: i=1; AFNElJ+i+7rkBhETpukDPExLDe8yGsOH5lGJ00GnaVUzqcV/7nVo5n7cpgq88BYuoO+t6aD/4avHiRRds/DgQQxBjZhB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXy+eVs4upTO90jYCYj7joY1GgHimTnx7rKF78E/LLCxrBpDPL
-	j7qRbyfqtmoK4upEGa5KsuGYDPEbgDkQ8kIErwo1uwGuLPVh+Yo/9AghPuRZDrGoHnoNBLn3WYs
-	cLF2ORp6xyLTZdCqrtIys6pM6HSKALRwtJCcrFY/TtFGhwE+WFYgj1pJ44xIfAVMwMU+a1W6Eai
-	VDVQ==
-X-Gm-Gg: Acq92OGJxhLaWIPMrQ/F2IoRhXjdSAzLvt8U73ZBin5DlefWrtgnrcfpICEQhklPLnH
-	2O+7BsJJmiENl8Yzh4bs5FLSLkqPJ4h0UDtIBuHRn5wLTvmUXoSaous7bsv6UDgqQlXQMc8qznm
-	MR7QEpDfT9ajMsnoe9DRacLH+QOtZGkEhrkzaRCuPtLDBXusRC2kFLrqKJ+khO0mGSJBgi1emam
-	woE69GTFowORRiCWp2sjiAk6nQY/zGKGaCzW5RrtwmZKQR4D1s6G8UmkoZxeWEErQioM9de0wZX
-	8YWSL7N1V7SKhDfKxv/ii1cTXkmmDs5VZD18p3iIcXTBKKw/VyNPxO9OglYDdQtjT4YM+3Oo0Ow
-	/2wQuYPHtjo1VpWb3/K/5dMASqx6zlVb5MEA+Azla3DcT0DHAsC8=
-X-Received: by 2002:a05:6a00:12d2:b0:841:89a4:5f86 with SMTP id d2e1a72fcca58-84337076084mr4736765b3a.21.1781203047502;
-        Thu, 11 Jun 2026 11:37:27 -0700 (PDT)
-X-Received: by 2002:a05:6a00:12d2:b0:841:89a4:5f86 with SMTP id d2e1a72fcca58-84337076084mr4736731b3a.21.1781203046852;
-        Thu, 11 Jun 2026 11:37:26 -0700 (PDT)
+        bh=eVzOoLNEuPfZZT/bNo/rgtUOyCTzQansB3UIDE8kQC0=;
+        b=tCj7+xHuAtUOOXOnKU3K5R6yCIl7zUvNQYmGkKQYG9IFZ0ZsLxpdemosPMVFdcUmki
+         ckme02D9ju3YUVs+zvurmzFpazcp46fW7WMGgDS83GuVg5Txpkq8ELz5JqVE9nxn0rQD
+         MewcWqnxYt+8JxR10FPD4au5i+7FsLDXwK8mVMKVy11tCwCdg0LB1fvzB1BsghN8qd10
+         VhvkYrj0zuuBNBWNEuptGL9tHxsEP8O40RB80ncB3xeWO5tYP6oHT77erKowz7Mlrd/O
+         S5A8hyc60WLlwHeWfLndabTdW42D6SLF2XEnqZ74qc22Jf4m3tcQbFxU2PYaMXKHaNu/
+         OSQw==
+X-Forwarded-Encrypted: i=1; AFNElJ9KKXcfWdFZayVV57jY2ixe9Ebuvz9JfPLKTNMZrdRKJNDQqpU7jtlFTCWGYda1rn5ZhVvDOclN5EvBLx56PuvW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU2jyEa5pNlpdSC3YSOXV6zbsMT4P5+ybBWIHa6PBf32duiXgZ
+	OJBMaA/yDExw5xgCt7enma4oIq5WbhjTb6OvEX+nq7OVKAJtN/DIGBdmAZuDibxBzDwUOu1RMvW
+	C/6CzF5vq64kZtVqMNAwC8w5renoYz+8OlLOTQ0F6jrFhoB648In9wP/7Yi4oZawcLOa7ewzXwF
+	tlmQ==
+X-Gm-Gg: Acq92OGoLvjokEypIrRm+N+mU+5FaGUu3GVKXh3jrbWFDH64I4LdQd177OIlywd8mJg
+	ZfXujy+NwZDvEo8zYWppHBFekFuGYQ6akb3sMCCa3G9iSgkWDQFCq3r/g473VR1nhvRyLqi9a9L
+	SmjryJL9ONudrIJeKV0L8q3O6/BUd/TBBDlH0GfPwBhM2mSH3fAJZdqy65l0Acna/zk9h+hDUfF
+	gfIltoG9Ab/yZbUzez9M6ZUWV8M9T0Hmzbm3nn0fingI8u3aqashM+yvzTJDpyouKff4CRRwACz
+	ZWCzh8n9vd83MmSbhlKUQKrL9qo0PTg4IcnhLGplxgIdE07lmWMGZalQXeEz06VyQOZptFJMU24
+	oYSguPQUsTAmvH2vgEr4eDMClKi3jYpsCe47nNgMjwbEP88Brc4k=
+X-Received: by 2002:a05:6a00:4487:b0:82f:9407:d167 with SMTP id d2e1a72fcca58-84336e079d6mr4799941b3a.38.1781203053915;
+        Thu, 11 Jun 2026 11:37:33 -0700 (PDT)
+X-Received: by 2002:a05:6a00:4487:b0:82f:9407:d167 with SMTP id d2e1a72fcca58-84336e079d6mr4799886b3a.38.1781203053392;
+        Thu, 11 Jun 2026 11:37:33 -0700 (PDT)
 Received: from hu-mohdayaa-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84337bbbfacsm2555666b3a.20.2026.06.11.11.37.20
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84337bbbfacsm2555666b3a.20.2026.06.11.11.37.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 11:37:26 -0700 (PDT)
+        Thu, 11 Jun 2026 11:37:33 -0700 (PDT)
 From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Date: Fri, 12 Jun 2026 00:06:58 +0530
-Subject: [PATCH RFC 2/9] net: stmmac: qcom-ethqos: convert
- ethqos_rgmii_macro_init() to void
+Date: Fri, 12 Jun 2026 00:06:59 +0530
+Subject: [PATCH RFC 3/9] net: stmmac: qcom-ethqos: fix RGMII_ID mode to use
+ DLL bypass
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-shikra_ethernet-v1-2-f0f4a1d19929@oss.qualcomm.com>
+Message-Id: <20260612-shikra_ethernet-v1-3-f0f4a1d19929@oss.qualcomm.com>
 References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
 In-Reply-To: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -117,43 +117,44 @@ Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781203027; l=1852;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781203027; l=4799;
  i=mohd.anwar@oss.qualcomm.com; s=20250907; h=from:subject:message-id;
- bh=5Xufs5yzw1meBpR74gkzyGtdf0gQ2cokHnunZolJSUI=;
- b=+3Ngf+LV00R14UIA4JhwZPvyrrFmhJx5fnVfVR/0VJFRrLoTMWjRw63LOhmMfCcRp1SypJ3B3
- GPEOoANmNeuDfd0CuXaKLK5vO4xXckMQdUVk/n+kSbWk0jfFTEb6Ddr
+ bh=GtqYv8yTeq4PzlXpWMuFX96v7sPl9ApaMmizTH0wFJ0=;
+ b=A+o89b25yP5p1Mg5UsjerNAHlaA07dc6XakrqeXi467eWa0RjVcP6DjQXPcaF1Q9iH4lXirnO
+ FRUuZjNj+8eDbM88yMdkC3X/Cmd6n8mAbCu9bcJ0Qil2xlIc6WbjsXV
 X-Developer-Key: i=mohd.anwar@oss.qualcomm.com; a=ed25519;
  pk=7JNY72mz7r6hQstsamPYlUbLhQ5+W64pY4LgfSh9DJU=
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjExMDE4NSBTYWx0ZWRfX0ggcqAAler4W
- oVfcktxqeoFri7Awhpx8eqElJemub7UtnbLMxbi++uEbWcPrA6ybdOMlHjCy0LoV/uR9eO1FM3Q
- tk9e4pNzt4wpmu7W0lsZQlAx0wOM8bQ=
-X-Proofpoint-GUID: YsSzpKAtERp_WScP4qXO_TZVaxScTcZC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjExMDE4NSBTYWx0ZWRfX/VS8UYl0xbmf
- 9pMFZATavhxKQpHSkmO0BI28gMFghjfL8zTbTGejgZdGNYsUs6uLMvRCD3RQjXy21GAFtD93kft
- VUwnZ7WRKf9C9fQlj1jrXagtu72MpHwyLs8gWJX4ZQXnSYc89sKs9Vin65XETYUuCaekI7ANICl
- DEeVkqX4ZArmgrB8XIZUqntKjf2j4sJ0LfF80ebh5WOsKNfZscsUsucRO94UdegRGUh/S7vuTY/
- sVG6Ar8d6rzz0LwYaIMzcyOnvfilbTTk4fsGVg1aJuKAjeJYy7Rkp+3TQz5bQe3PQQ6NMrgNxoL
- QhzctvSlj6l6y5tFu0mzWU75/SYzfn55PBPCbuRhSdQg0oyqFujdTfLQKzjQxyNCxfXNEqb95q4
- 807EqQj59aTl0UfV2Mox2xdoL2REbQ6HFGJJpl0ddYqOO0QpjYe5Sdg2iHMzGXMIwyXnReh2tWw
- dF1tSyptHes7mF4qBIA==
-X-Authority-Analysis: v=2.4 cv=DppmPm/+ c=1 sm=1 tr=0 ts=6a2b0068 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjExMDE4NSBTYWx0ZWRfX7RnrxmnQMlpQ
+ z1oHBNvJH+BFSdzxYCnSHK15pC5+f6bojF1HXrmYpn1ql6xHC8yn77lbOPV/EBr4aAm6+d9bNSL
+ UVvFtHuZJuC+luJm8zQLtbKTkc2/hzo=
+X-Authority-Analysis: v=2.4 cv=atOCzyZV c=1 sm=1 tr=0 ts=6a2b006e cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=K6GgjFCvg-rKmMkbl2QA:9 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-ORIG-GUID: YsSzpKAtERp_WScP4qXO_TZVaxScTcZC
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=vSCEUKm3QqZMBpSZvnQA:9 a=QEXdDO2ut3YA:10
+ a=x9snwWr2DeNwDh03kgHS:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjExMDE4NSBTYWx0ZWRfX+oVyAeH+QA4M
+ dxaq1cqGzNfwHlHW/X5YrP++xP/3ihF9fI7MiuxT5gJa5ZF9paij0XVWeD0cSBZaQWxZ9yNyER6
+ +y3BCVWjr5/G4dQjhTZ0W0gCvTcr7JdbwqakAPwLn6ivwxpV3FtuVURhs+N/ZuCMmu4WUb70CKj
+ rWVgHPj3GenyydnFOSFo/CDfy7gQQrR3BC/rw9TygOBSJ05rrElGfnusx5wgYhrc1z+1pSjNC7n
+ CWc5XoqgVnvT00aWlw1bGFJoxwaIz8k89zTb7eYht/QL0OE61lxJUTjC0CURJ7twEeyipImWrwR
+ o316WJKnw+9/dt4e6DJ43yoMZVpkK7LlZNtdNhAYYz3x2UyiFEz+7lrpXzxIdBYce+Zi5D6zvUv
+ yvCR9DtJI2iTFwDpz4x0bLUWGIB+VXG+BQ2zjb5OTFF0M2NHnEgu3yA3kT3vDSeX9FrdEckjLWP
+ xG7fO9WiasuzZ4WXktA==
+X-Proofpoint-GUID: s6jbpm-nJP8Rwm8FmiohksTWk0DWGD-n
+X-Proofpoint-ORIG-GUID: s6jbpm-nJP8Rwm8FmiohksTWk0DWGD-n
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-11_04,2026-06-11_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
- malwarescore=0 spamscore=0 clxscore=1015 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606110185
+ adultscore=0 impostorscore=0 bulkscore=0 clxscore=1015 spamscore=0
+ malwarescore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606040000
+ definitions=main-2606110185
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_113729_992674_18E03477 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260611_113736_079825_9024019E 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,51 +169,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The return value is never checked by its sole caller and the speed
-validation duplicates a check higher up the call stack.  Convert to
-void and remove the dead code.
+When "rgmii-id" is selected the PHY supplies both TX and RX delays, so
+the MAC must not add its own.  The driver currently falls through to the
+generic DLL initialisation path which programs it to add a delay.
+
+Power down the DLL and set DDR bypass mode for RGMII_ID, then program
+the IO_MACRO via a new ethqos_rgmii_id_macro_init() helper.  Also fix
+ethqos_set_clk_tx_rate() to not double the clock rate in bypass mode at
+100M/10M, and remove RGMII_ID from the phase-shift suppression in
+ethqos_rgmii_macro_init() since RGMII_ID no longer reaches that path.
 
 Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 10 +---------
- 1 file changed, 1 insertion(+), 9 deletions(-)
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 65 +++++++++++++++++++++-
+ 1 file changed, 62 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index ac7d6d3e205a1ab5b391def879d6f1033a0961b6..44270c25d874f72e7f971757fec659d36468c315 100644
+index 44270c25d874f72e7f971757fec659d36468c315..bec08f1eb8cb41484ba3c91c77393e163e7fd071 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -371,9 +371,8 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
- 	return 0;
+@@ -67,6 +67,9 @@
+ /* SDC4_STATUS bits */
+ #define SDC4_STATUS_DLL_LOCK			BIT(7)
+ 
++/* SDCC_USR_CTL bits */
++#define SDCC_USR_CTL_DDR_BYPASS			BIT(30)
++
+ /* RGMII_IO_MACRO_CONFIG2 fields */
+ #define RGMII_CONFIG2_RSVD_CONFIG15		GENMASK(31, 17)
+ #define RGMII_CONFIG2_RGMII_CLK_SEL_CFG		BIT(16)
+@@ -183,7 +186,15 @@ static int ethqos_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
+ 	if (rate < 0)
+ 		return rate;
+ 
+-	return clk_set_rate(ethqos->link_clk, rate * 2);
++	/* Clock Rate Requirements:
++	 * MAC added delay: 250/50/5 Mhz for 1G/100M/10M
++	 * No MAC delay (DLL bypass): 250/25/2.5 Mhz for 1G/100M/10M
++	 */
++	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII ||
++	    speed == SPEED_1000)
++		rate *= 2;
++
++	return clk_set_rate(ethqos->link_clk, rate);
  }
  
--static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
-+static void ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
- {
--	struct device *dev = &ethqos->pdev->dev;
- 	unsigned int prg_rclk_dly, loopback;
- 	unsigned int phase_shift;
+ static void
+@@ -405,8 +416,7 @@ static void ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 		      RGMII_IO_MACRO_CONFIG2);
  
-@@ -384,11 +383,6 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
- 	/* Select RGMII, write 0 to interface select */
- 	rgmii_clrmask(ethqos, RGMII_CONFIG_INTF_SEL, RGMII_IO_MACRO_CONFIG);
- 
--	if (speed != SPEED_1000 && speed != SPEED_100 && speed != SPEED_10) {
--		dev_err(dev, "Invalid speed %d\n", speed);
--		return -EINVAL;
--	}
--
- 	rgmii_setmask(ethqos, RGMII_CONFIG_DDR_MODE, RGMII_IO_MACRO_CONFIG);
- 
- 	if (speed == SPEED_1000) {
-@@ -479,8 +473,6 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
- 
- 	rgmii_updatel(ethqos, RGMII_CONFIG_LOOPBACK_EN, loopback,
+ 	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
+-	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
+-	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
++	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
+ 		phase_shift = 0;
+ 	else
+ 		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
+@@ -475,6 +485,40 @@ static void ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
  		      RGMII_IO_MACRO_CONFIG);
--
--	return 0;
  }
  
++static void ethqos_rgmii_id_macro_init(struct qcom_ethqos *ethqos, int speed)
++{
++	rgmii_clrmask(ethqos, RGMII_CONFIG2_TX_TO_RX_LOOPBACK_EN,
++		      RGMII_IO_MACRO_CONFIG2);
++
++	if (speed == SPEED_1000)
++		rgmii_setmask(ethqos, RGMII_CONFIG_DDR_MODE, RGMII_IO_MACRO_CONFIG);
++	else
++		rgmii_clrmask(ethqos, RGMII_CONFIG_DDR_MODE, RGMII_IO_MACRO_CONFIG);
++	rgmii_setmask(ethqos, RGMII_CONFIG_BYPASS_TX_ID_EN, RGMII_IO_MACRO_CONFIG);
++	rgmii_clrmask(ethqos, RGMII_CONFIG_POS_NEG_DATA_SEL, RGMII_IO_MACRO_CONFIG);
++	rgmii_clrmask(ethqos, RGMII_CONFIG_PROG_SWAP, RGMII_IO_MACRO_CONFIG);
++
++	if (ethqos->has_emac_ge_3)
++		rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
++			      RGMII_IO_MACRO_CONFIG2);
++	else
++		rgmii_setmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
++			      RGMII_IO_MACRO_CONFIG2);
++
++	rgmii_clrmask(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
++		      RGMII_IO_MACRO_CONFIG2);
++
++	if (speed == SPEED_1000)
++		rgmii_clrmask(ethqos, RGMII_CONFIG2_RSVD_CONFIG15, RGMII_IO_MACRO_CONFIG2);
++	else
++		rgmii_setmask(ethqos, RGMII_CONFIG2_RSVD_CONFIG15, RGMII_IO_MACRO_CONFIG2);
++
++	if (!ethqos->rgmii_config_loopback_en)
++		rgmii_clrmask(ethqos, RGMII_CONFIG_LOOPBACK_EN, RGMII_IO_MACRO_CONFIG);
++
++	rgmii_setmask(ethqos, RGMII_CONFIG2_RX_PROG_SWAP, RGMII_IO_MACRO_CONFIG2);
++}
++
  static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
+ 				       phy_interface_t interface, int speed,
+ 				       unsigned int mode)
+@@ -493,6 +537,21 @@ static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
+ 
+ 	ethqos_set_func_clk_en(ethqos);
+ 
++	/* For rgmii-id mode, the PHY should add the required delays.
++	 * Therefore, power down the DLL and program it in bypass mode.
++	 * Program the IO_MACRO as per the settings recommended by the
++	 * programming guide for bypass mode. This will ensure that the
++	 * MAC core doesn't add any additional delays.
++	 */
++	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID) {
++		rgmii_setmask(ethqos, SDCC_DLL_CONFIG_PDN, SDCC_HC_REG_DLL_CONFIG);
++		rgmii_setmask(ethqos, SDCC_USR_CTL_DDR_BYPASS, SDCC_USR_CTL);
++
++		ethqos_rgmii_id_macro_init(ethqos, speed);
++
++		return;
++	}
++
+ 	/* Initialize the DLL first */
+ 
+ 	/* Set DLL_RST */
 
 -- 
 2.34.1
