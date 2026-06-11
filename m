@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89396CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE4DCD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4vHcowkqCE4VZWttkfK+kkAktqxX6bYUw0jhWBmsg4=; b=4WolQ+hBSmfrNijwAILUlcyzfZ
-	fqjC4lpvP5xa7d0uzruVfzbFtHS+JoU8SPOUKauIbYr76e0zHf5NHmo0J1sSAKm1NCTmy9GLKVL/k
-	hyN/rYXgfVimKas0nxE9a2SbCD5u11b3i5HWxnWf9dbddAvP8/zlK6+bf7dcjXNmr1NlNHqaKHwAI
-	dngzQor451VxVkBjRdZRlS1XZ0buamyWbVXzpIN0/+ry6RPDDeIidK6n09paZ3O0LkoVMW71ogG0d
-	rMFAA/bg7z23GAQaRHtW0ACCBJdwRbtRl1WN0Zi7XvsMPk3+b0hP/aEQdIre5sqna3vAgppm9oR1V
-	hFedvnXA==;
+	bh=sX+gVdKxQAFtgOnc3Ye54B2febFesWu+jtpodVkLRc4=; b=R4/bbq7OI/Dj3VnBexcGZf3vbe
+	Gn03y3yAIT5/iEv4JGOh5njmfCAoIQ3kgm7biCNVxFo4vZEaxjQJPbhHi9zIfCebgzf30HQCTyPzD
+	i2314EBS3OUmyZIaSWEHjCCfg60jOwMIeoq7k+9qmE8KrVT7Qr7DcO/jjSGbz24pHv/xl2chz7DFm
+	3K8R8bxiuIHzDFXfgsyvEIqi7qDHjICcUF7ucJgM+ZEzNeUWEmE1I+vaZFvVDdT2JOiBNjYBbeLJn
+	cRtiIITrMr9qNfeLCsmdY6BYy0OG2IT+EO3D2u1XSHYAVLyIXsOOuv26tjrE4IMMEcBH3Yciry+tD
+	60Ygz7SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXhT1-00000009hEB-17Ft;
-	Thu, 11 Jun 2026 15:37:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXhSy-00000009hDi-43Mc
+	id 1wXhgE-00000009iEQ-4C7I;
+	Thu, 11 Jun 2026 15:50:55 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXhgC-00000009iDz-1iS5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 15:37:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E168E25E2;
-	Thu, 11 Jun 2026 08:37:06 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB8003FB90;
-	Thu, 11 Jun 2026 08:37:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781192231; bh=rC/rAaBXV2GWXrpXt20/IdeSrbUuel7YWt1xLJbAR2o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JkqlpOPyTjeEMsaxUcBoGInfqHsuGFDsvG8vDkGT1ee11I71JtUQ3UvnNV0ISoC+H
-	 Rc8PzN3Zg2Ge2S7IKXzS0BI84YEb3c2ZcJOSWo72cNJsNBorxaEnMZ9ba2pp33jWXr
-	 LFLsmA4JBlYyziVBRP5k7zzDqRnofVtuBczSf1ww=
-Date: Thu, 11 Jun 2026 16:37:07 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: sk@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mike Rapoport <rppt@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	cl@gentwo.org, Sayali Kulkarni <sskulkarni@amperecomputing.com>
-Subject: Re: [PATCH 2/2] arm64: tlbflush: Reset active_cpu on ASID rollover
-Message-ID: <airWIxSd_a5kR65-@arm.com>
-References: <20260609213615.2788698-1-sk@gentwo.org>
- <20260609213615.2788698-3-sk@gentwo.org>
+	Thu, 11 Jun 2026 15:50:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=sX+gVdKxQAFtgOnc3Ye54B2febFesWu+jtpodVkLRc4=; b=InqXw1qTMWyJj3LqY2qNa30o8u
+	HN+5Xj4LNlPzK7VjqtJe1SYjEcsEMoYe9HfJQsphZFd2dnG9juPdMv/B+s5JGclqspjY7Qh3Usc8W
+	XYh4hKdEG5DesM/KEGnJa0by+rgFEJdZPpclV0q0F0NadoA7mwY4SmNH+LEf3fYzAOD0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wXhfo-007BME-Ba; Thu, 11 Jun 2026 17:50:28 +0200
+Date: Thu, 11 Jun 2026 17:50:28 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Roger Quadros <rogerq@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Meghana Malladi <m-malladi@ti.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	David Carlier <devnexen@gmail.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Kevin Hao <haokexin@gmail.com>,
+	Markus Elfring <elfring@users.sourceforge.net>,
+	Hangbin Liu <liuhangbin@gmail.com>,
+	Fernando Fernandez Mancera <fmancera@suse.de>,
+	Jan Vaclav <jvaclav@redhat.com>, netdev@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Felix Maurer <fmaurer@redhat.com>,
+	Luka Gejak <luka.gejak@linux.dev>
+Subject: Re: [PATCH net-next v4 0/3] Add standard stats for HSR/PRP
+Message-ID: <e8965004-f286-4589-a834-309ccaa1d575@lunn.ch>
+References: <20260611095035.852370-1-danishanwar@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260609213615.2788698-3-sk@gentwo.org>
+In-Reply-To: <20260611095035.852370-1-danishanwar@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_083713_055970_503D598F 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20260611_085052_451262_8145BC53 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 02:34:33PM -0700, sk@gentwo.org wrote:
-> From: Sayali Kulkarni <sskulkarni@amperecomputing.com>
+On Thu, Jun 11, 2026 at 03:20:32PM +0530, MD Danish Anwar wrote:
+> Add standard stats for HSR / PRP. This series was initially adding HSR/PRP
+> related stats for ICSSG driver. Based on maintainers' comments on v2 I am
+> now adding support to dump standard stats for HSR/PRP.
 > 
-> Once active_cpu flips to ACTIVE_CPU_MULTIPLE, it never resets, even if
-> the process settles back to one CPU. Reset it to ACTIVE_CPU_NONE when
-> a new ASID is assigned after rollover, since flush_context() already
-> issued a global TLB flush at that point meaning no stale TLB entries
-> exist on any CPU.
+> The drivers which support offload can populate these standard stats.
 > 
-> This gives processes a fresh chance at the local-only flush fast path
-> after each ASID generation rollover.
+> This series only implements offloaded stats. For software-only interfaces
+> Felix Maurer had said he will do it later [1]
 
-flush_context() does not invalidate any TLBs, just marks the in a bitmap
-which CPUs need to flush, locally, on the next context switch.
+That is ideally the wrong way around. Offloading it used to accelerate
+what Linux can already do in software. Statistics should be part of
+this, you first define software statistics, and then get the hardware
+to report those.
 
-Check Sashiko's comments, it has some good points (you can ignore the
-comments on the first patch as we no longer rely on DVM for SVA.
+So please get the software statistics merged first.
 
-https://sashiko.dev/#/patchset/20260609213615.2788698-1-sk@gentwo.org
-
-> Signed-off-by: Sayali Kulkarni <sskulkarni@amperecomputing.com>
-> ---
->  arch/arm64/mm/context.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-> index f34ed78393e0..0c92cc8fb4cd 100644
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -250,6 +250,7 @@ void check_and_switch_context(struct mm_struct *mm)
->  	if (!asid_gen_match(asid)) {
->  		asid = new_context(mm);
->  		atomic64_set(&mm->context.id, asid);
-> +		WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
->  	}
-
-This breaks the case where you have another thread of the current
-process running on a different CPU. new_context(mm) will reuse the
-current ASID, just bump the generation, so setting active_cpu to
-ACTIVE_CPU_NONE is incorrect.
-
-A better place for this would be in new_context() after the "set_asid"
-label.
-
->  	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
-> @@ -321,6 +322,7 @@ unsigned long arm64_mm_context_get(struct mm_struct *mm)
->  		 */
->  		asid = new_context(mm);
->  		atomic64_set(&mm->context.id, asid);
-> +		WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
->  	}
-
-And it would cover this path as well (not that this function is used
-currently).
-
--- 
-Catalin
+   Andrew
 
