@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C1CCD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 08:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252F4CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 08:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+GZxQR0zVGYyc7t6dGL8c2RABIohdt9U+GPG+DCKw4=; b=s5eKW8Cl9JqZypMExlyypEPqAE
-	cEUOokGZoszuv5sZ2IAtnuhFURND+sbtw7ae/NmfpZG3WCNDos8r+a6qIpw6y863S9/83MaXjLa3I
-	AvS2LUJSd9qjb4hnqo2hk0N+JcopmUTQHtQmguMlt4rIUsC0X67149LsG3QCs8SP6juwc7rTd3XIy
-	XlBin5yVJrVNEq5Wu70roXZ9hY1zHFGLc7Fe7PASOup7Mdrw2o91e16Mi6xorBdxbTGGKJqmiIDRR
-	G/GUGbKfZucUUgMEKzVV0DyCtdJUGP3/ik631417Q25qoBMungF/W+UOjB5+NJz7mLaLChULIUvgF
-	Rt5HSZyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BM5P5c0M/96P75EgWvyd8Kadj1Lm1e9d5367kbU4Bxc=; b=ueMrLcdpNGp1pjD/T9WRzxIrex
+	r8swPIW0VfjhR6TRrEbQjljIv4+JL1u3Tsyvz/FNqp+fwufy/oDaVbh2F2oMd4hNI2pv7y5V5rzOi
+	MQwg03ZBkTKfDD94m0pCmjbT0IL+IxuCaTXatCh/LTs7/UHrBy6s0J4yPGKJQ4ubFoGwDEkqora+9
+	Ni0YVBaVilb0omgmVjX5qnpjPIQY8OrVTnvljvUya53kxqooJZVUPjTd0EkNwNsO7ziZ6RbUJddpt
+	GD1OunuzcpTrdwHAWNx7by9BNWxPe/jCHRnVZWNDeg+xDqCwCoSTISy3vTaeSl6/ad3L7tWTJ0iKD
+	k0A6z+tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXama-000000090t7-19hU;
-	Thu, 11 Jun 2026 08:29:00 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wXasi-000000091WE-0sks;
+	Thu, 11 Jun 2026 08:35:20 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXamX-000000090sJ-1TGj
+	id 1wXasf-000000091Vn-2N5Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 08:28:59 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-45eeea039ebso4129369f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 01:28:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781166535; x=1781771335; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q+GZxQR0zVGYyc7t6dGL8c2RABIohdt9U+GPG+DCKw4=;
-        b=Y1Xv+SaJ+nHtHpAVwu9s3AlGb4ludH3gsHZ3LMJzBja8qJGs+m8vXUdR1OZ6+3Pt9e
-         7smCMcxXU6gSGNypibXl1yB1jGVswJMSYNIN+aCm/qYjWB1G0jHym/rRxWIiOcQEC4VI
-         QpOCYUu4qoVGAbrmMHVx+X8oLDFcnIV/SZoZK69LHoh7aFQHY3llc1Ii2rhj8yWyBThA
-         AKrPRkDI1oAvZ53QgVuY+rFZ/VSMtk+XMTTyLiasdiWPStAmcveyCfbFLswlWHMjxBit
-         A4FsoIpuvM4scYXYt/HOJrRgcaqb0Fm1P+MH4BgjqSdYCGicOchRsmvyJc6zn0pP1CXw
-         xbHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781166535; x=1781771335;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=q+GZxQR0zVGYyc7t6dGL8c2RABIohdt9U+GPG+DCKw4=;
-        b=S5RiUb0iGiLpk6haNJuS43Jm28D4Z2G0VviqAbhqSu99aDw22pR3fkLpPZxwxnj1Xl
-         kMackpyv8oc5YSxS0dGT5t4sCgIsyZ2cQGLMsKBmmElwdp+9/sDqyguqFZWq1x+6Q6dW
-         hDOqCrHa9tDVmjP9elsnIwYPQHXN52qDbESslvi9PMSPrIs4wXYMRy8tg6vkgq3ZlCZU
-         ToGL6Z3V5OmBHXoQc5zZ5tF9QlMZC5tOACohmcMZrRdumo+5881W+0t+iYN+850eJQdF
-         c0xLxhG2PPakvsEdDGE7oQCkVpuUKUkfvA4gxmohNczE3+tM/8wv/9VMPKxeSLYR4TnE
-         MgXg==
-X-Forwarded-Encrypted: i=1; AFNElJ8ENHuSzsPGOalhFK2d4ezf1WUytp6HWq9plwAJVsMEDyy/2G1Zecb8M/y8uMSgQ2JP0Tep0YQeB2Etj6Vd5Zz8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxNZVdD14GGdkPm6eC1se7S5MjHb0cIuO/yl+8EJ4UFjTAImbn
-	Ng7C9Qi6a0SS4MKnFtkFlv9ovbx3GRDstyl515cgdFXxLDsajO+btSDyypishvsDYiM=
-X-Gm-Gg: Acq92OHYN30SKgcHlcikKSXqdkuOQP7Bk82cTB6NENhaoL18lRUj2w9MjkBxtKgzGYh
-	y30L01HS8sHJIjqWXspfV5cN5xvi/b0Hj0MO7gvcyDYFNhOKojVSn4htxTGZTpyZl08dJBPnyws
-	CR4x7w7fqVeIZ7GW5Ez6Kh4q+T8tSNQV6MgAQFUlBIMdzueFIhtfcnwo9qabLGhrGWf5L8gZd1+
-	XmpQPGj2ySkK2EvNoNYRiGAaL5zuUm3320p0TUGMVGy9PFSnIWKRzrEd8OOzsrw0sFCNY1fwqio
-	w2aHvbcFZYo5uN0mShonKFv+th127gLJQnlxkZdMrDqWpRO+N31x3HoaXaElFYmWs+kktuaqFB3
-	e30evHQWcmryZoav3B91JYHTgGLDD28OVkTOJHGul/2P/vRvIGa0oS7p0k2JtDHrJyfi6mxNXVo
-	jVndsKjJ/xijMeHaGy+yTgn4awGU9+cRIL
-X-Received: by 2002:a05:600d:8450:10b0:48e:6db3:ff2e with SMTP id 5b1f17b1804b1-490e55dd891mr14395135e9.15.1781166535248;
-        Thu, 11 Jun 2026 01:28:55 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:1d1b:88ba:5161:3581])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4601f35133csm75931032f8f.25.2026.06.11.01.28.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 01:28:54 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Valerio Setti <vsetti@baylibre.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
-  Jaroslav Kysela <perex@perex.cz>,  Takashi Iwai <tiwai@suse.com>,  Neil
- Armstrong <neil.armstrong@linaro.org>,  Kevin Hilman
- <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  linux-kernel@vger.kernel.org,
-  linux-sound@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v2 0/4] ASoC: meson: aiu: align I2S design to the AXG one
-In-Reply-To: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
-	(Valerio Setti's message of "Wed, 10 Jun 2026 23:29:24 +0200")
-References: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Thu, 11 Jun 2026 10:28:53 +0200
-Message-ID: <1jcxxxeb0a.fsf@starbuckisacylon.baylibre.com>
+	Thu, 11 Jun 2026 08:35:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1781166912; x=1781771712; i=markus.elfring@web.de;
+	bh=BM5P5c0M/96P75EgWvyd8Kadj1Lm1e9d5367kbU4Bxc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=HxZyBtfY+9eVrygruY0g1qKBKlajKU0lPB2RjCRohJ59aESutmKjG7eZ3XZkm6+2
+	 vkih0TMys4y6CoOllcaGK5aQij1o4nV4K9c1WGWM2t2JloEmdbd5UdYMC+tEiSBgr
+	 hsXb8KcLyVwQBZJrlxjaDf1YZVVnLYLM+ycfuYDTVvWhrTqtTzjt2No0kqXPmrnpE
+	 ktoHk7o7CvKrNarnpJ3i80K8W3jWvRq7ywNGunds+kY5jL2lRW4FozE+IoOtmupYy
+	 e9F6ZODC6Djc5FACMMguJyVIIuUWmj6+Igsa/nfUv40uvknobC1zdqX+WlDf73W4n
+	 Gh0k6xMG3svtKBqIQg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MLijs-1wp7jM3VBo-00OyV0; Thu, 11
+ Jun 2026 10:35:12 +0200
+Message-ID: <545ffb86-55f5-46b2-83ca-285cd8d540d7@web.de>
+Date: Thu, 11 Jun 2026 10:34:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] firmware: arm_scmi: Use common error handling code in
+ __scmi_device_create()
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:QeOQ0w58tevLe+xFDxBMk4vsOY+ebJLEDNT/3sNnKeFbfyuOLZj
+ MQQ4o1+ql9KvSS2roHdVSOzeaNkJP3cyFX+yt9xiSa+9v2cU3r2VzLL/QVq6ruwufGVXFld
+ 9lVarQg6CGULLrGHIRkSsgVsI1VFOd4IdFaoebUu+QxidDdYnk7D0jVw++kmQQJUBgLj9vO
+ VFOf0F2vhMC0CCn3lqDfQ==
+UI-OutboundReport: notjunk:1;M01:P0:gdcUorziIYQ=;6YQMbpsxWChylJNGqMEYRCXMM1g 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 9RfpyoUPwfCAf8vz2A=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_012857_432600_7BFB0A73 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20260611_013517_987661_D7888E36 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,73 +82,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mer. 10 juin 2026 at 23:29, Valerio Setti <vsetti@baylibre.com> wrote:
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Thu, 11 Jun 2026 10:27:45 +0200
 
-> The goal of this series is to reshape Amlogic GX's AIU implementation for
-> I2S to let it follow the same design as in AXG's TDM. Keeping the same
-> design allows for unifying the two platform implementations in the future
-> and it also allows for an easy addition of I2S input.
->
-> The first commit introduces gx-formatter as the basic block which takes
-> care of properly formatting audio data. Formatters are DAPM widgets
-> (c.f. axg-tdm-formatter in AXG) which are dynamically attached/detached
-> to the streams when the latters starts/stop, respectively.
-> aiu-formatter-i2s is introduced as formatter implementation for the i2s
-> output.
->
-> By the end aiu-encoder-i2s will only need to handle interface clocks and
-> enforce interface wide rate symmetry (c.f axg-tdm-interface on the AXG
-> platform). Right now rate symmetry is not relevant because only i2s output
-> is supported, but it will become useful when following patch series will
-> introduce the i2s input part.
->
-> This series was tested on an OdroidC2 board (Amlogic S905 SOC) both with
-> HDMI output and with NXP SGTL5000 codec connected to the I2S pins.
-> This series was also verified using "pcm-test" test tool and all tests
-> are passing.
->
-> Changes in v2:
-> - Fixed most of the weaknesses found by Sashiko review tool [1].
-> - Resolved testing failures with "pcm-test" as reported by Mark Brown
->   (thanks for the heads up!). I left a comment in
->   "aiu_encoder_i2s_startup" to explain the fix.
->
-> Link to v1: https://lore.kernel.org/r/20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com
->
-> [1]: https://sashiko.dev/#/patchset/20260515-reshape-aiu-as-axg-v1-0-53b457784ff3%40baylibre.com
->
-> Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+Use an additional label so that a bit of exception handling can be better
+reused at the end of an if branch.
 
-Nice work. Thanks for taking the time to understand the existing drivers
-and build upon them !
+This issue was detected by using the Coccinelle software.
 
-Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/firmware/arm_scmi/bus.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-Feel free to add yourself as maintainer of the Amlogic audio drivers, if
-you fancy doing so ;)
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/b=
+us.c
+index 793be9eabaed..8c20ed1a8243 100644
+=2D-- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -450,14 +450,13 @@ __scmi_device_create(struct device_node *np, struct =
+device *parent,
+ 		return NULL;
+=20
+ 	scmi_dev->name =3D kstrdup_const(name ?: "unknown", GFP_KERNEL);
+-	if (!scmi_dev->name) {
+-		kfree(scmi_dev);
+-		return NULL;
+-	}
++	if (!scmi_dev->name)
++		goto free_scmi_dev;
+=20
+ 	id =3D ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
+ 	if (id < 0) {
+ 		kfree_const(scmi_dev->name);
++free_scmi_dev:
+ 		kfree(scmi_dev);
+ 		return NULL;
+ 	}
+=2D-=20
+2.54.0
 
-> ---
-> Valerio Setti (4):
->       ASoC: meson: gx: add gx-formatter and gx-interface
->       ASoC: meson: aiu-encoder-i2s: prepare for multiple streams
->       ASoC: meson: aiu: introduce I2S output formatter
->       ASoC: meson: aiu: use aiu-formatter-i2s to format I2S output data
->
->  sound/soc/meson/Makefile            |   2 +
->  sound/soc/meson/aiu-encoder-i2s.c   | 281 +++++++++++++++++++++++++----------
->  sound/soc/meson/aiu-formatter-i2s.c | 104 +++++++++++++
->  sound/soc/meson/aiu.c               |  32 +++-
->  sound/soc/meson/aiu.h               |   4 +
->  sound/soc/meson/gx-formatter.c      | 282 ++++++++++++++++++++++++++++++++++++
->  sound/soc/meson/gx-formatter.h      |  56 +++++++
->  sound/soc/meson/gx-interface.h      |  48 ++++++
->  8 files changed, 731 insertions(+), 78 deletions(-)
-> ---
-> base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-> change-id: 20260515-reshape-aiu-as-axg-1dac9037cad3
->
-> Best regards,
-
--- 
-Jerome
 
