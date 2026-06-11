@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F0ECD98C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 06:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B486CD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 06:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d/3KW645kadoWYBkkkiV3R/cBByrtaM6iiRuO1ZY31c=; b=BcfSNaOYJ+Y2p1KJkWdEZC/1iA
-	gQS4u9hDusAD6oSvE6TLcFgFw+gLg4OwQ/e1iqP8ZlMwbdhVS7lJefnVUHPW/yfF1B4buxONeBzGd
-	zdSvHrtzMueU7PffO81a8R/FQ1eEoKuMZBU8RDcQn8/4XDWDw6NFGZ6w8R2hYpKHdSJk5lXYOW8JA
-	RS0V7taKWzXPZg3qTeaC1U+L033J3PZhd45HGJyjDqC2dfc3NYK92sxLjJhOd/rehX0n+X0w60k2F
-	u86t1YwmjctvYxOD/4NVY9Wy7Azx3N/qBSWZR77wNhe//uhw3fSes7yIxf4OwJwnBDF/WbYUl85yZ
-	SNbOAVDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1Uq0BRqmbq18//RGzp9MNbSv0I/ZSh0cbswuoceC+fk=; b=bAnYfsGHYS8yWBvXjUcaNbh7f5
+	gQObfdNzLjidcfHJrRKQL+RDx6pUnZUlOzCfZiSF+KExa+yi3k/m6TdQpeA3/f0F/qoV2N9nxrsru
+	ay5PLCenvL5Nh5E51SwRV0YmtCYof7hIWCaXDYgFGWBf7aBUlr0IEbRfxl7tiTv16F39lcmVw1UOC
+	YcwAMx7LEOT+mPrSM1ubLFJ3+vd2ETyyO75xB/how9yONYLwSpScUqn4+bVvCKkFOLhxn81Hkd7+g
+	W2/S4hHXw9bOU2K+7hN2k4Xv7UWre2fimkPHnev4qQ8kAhCufm3fheVfZXafNleMN9lbBvlW/1cz9
+	1Qe0U+tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZF5-00000008pal-24bA;
-	Thu, 11 Jun 2026 06:50:19 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+	id 1wXZG1-00000008pi9-2k9x;
+	Thu, 11 Jun 2026 06:51:17 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZF2-00000008pZm-3RlW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 06:50:18 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 11 Jun
- 2026 14:50:09 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 11 Jun 2026 14:50:09 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Thu, 11 Jun 2026 14:50:08 +0800
-Subject: [PATCH] arm64: dts: aspeed: Fix duplicate pinctrl labels and
- address scheme
+	id 1wXZFy-00000008phK-3hUU;
+	Thu, 11 Jun 2026 06:51:16 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 09B5C3F6CB;
+	Thu, 11 Jun 2026 06:51:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoseli.org; s=gm1;
+	t=1781160667;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1Uq0BRqmbq18//RGzp9MNbSv0I/ZSh0cbswuoceC+fk=;
+	b=ROm1fvS1dHwc7yD4AhVaXyPqF8H23bEv52OsVLFlWpAnTdroJyZ/AR5cDcp3tXSmx/etUI
+	/r4YkrgJ3PnHaVWx0XouQUXbDWCqVADcamcFp4qW4rB3N0WNINgWDAowOkNQHIaf+C6b20
+	svwB1OZ4bYDTR89ReA1Fpd8mgw160N9zRAF3XOi9D7DZ91fONLV8iPoPiMuZzb9ZLoMnJI
+	LafDsgkxZPqtomuEK5Hujcgv109F3GGUMoKrk1cOyrwf247Fq8AzepmH1ZA52zFEhIwLbh
+	++9x/8NFYg/1FhqQJyLYWgTTMUiZpvnAIh4PSsdFGch3L4qjN1tRQYC0w8heKA==
+Message-ID: <b549ea8a-76cc-4a7a-bab6-710fddeaeebd@yoseli.org>
+Date: Thu, 11 Jun 2026 08:51:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260611-dtsi_fix-v1-1-ef2b7cd86d6d@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAKBaKmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDM0ND3ZSS4sz4tMwKXQNLyyRDw0RjI8MkUyWg8oKiVKAw2Kjo2NpaAKY
- AXaBaAAAA
-X-Change-ID: 20260611-dtsi_fix-099b11a321b5
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Arnd Bergmann <arnd@arndb.de>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Ryan Chen
-	<ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781160609; l=5765;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=8U6jz7rXtYL1MwCZPqGDf5fZs+4y+xyGRhjMMf47rOU=;
- b=O9wmMN7nZjWZ4LiaBz1UQB8K5FQiwQQye3VsCY92aIsBDGfBlwhNQ68rdmVUnuq1MT8XhoL1R
- byIXjsGNhUgDIjxeCHG6e77/P2X8uyQom931Pc1kK32Q0cXBpJexTUJ
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: bcm2835-unicam: Fix querycap multiple caps
+To: Eugen Hristev <ehristev@kernel.org>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Naushir Patuck <naush@raspberrypi.com>
+Cc: Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260611-bcmpiqcap-v1-1-10cf7fb438df@kernel.org>
+Content-Language: fr-FR, en-US, en-GB
+From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+In-Reply-To: <20260611-bcmpiqcap-v1-1-10cf7fb438df@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: jeanmichel.hautbois@yoseli.org
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: dmFkZTGn5wHXK1VYWY8unJ7pC8r27C+e1eBVncIQmL0NGz/4mZdGeqBFX705gEgXmLdXnHC3S5ttEVNfp1gfXfdH4eM347xOyJxbMqD6/89/wGoOWtQXxgpoOr2bJi9qN7bswAN4ojWPsuHqmVilsUSXkSJYPlAoLAp/KvbQbYSxC/KGzEGXWPeyABXvD8566W41PUhvVFXJXmAK8xgaHbUfzA0DFyr5rpRdI1iepTMloTOJmg1D7a08DWMhpzSAkNAPdOyYWKnfS0i+tMhJbarTV1OSb1d2bqCqGckxzlbmmAjtG7sFY2z+eZbTmQqS8+3qRL6Fl+fENvyV/cwMC8n3csvgT3HytwqnxbopGsnv6VTX/zp3Ewdw4QCxJRXICsp9CjdnLoi9MKKVAmn6QeN/ETrfQCzXxSPzHB/zW6fisNEDqxiR9r+zVSTawf5oLn3NlzQCXVTQT+liHkGdf0r8BChAwvyDNm5lO6YTJtlHWp1mEXJkxbYVn1SgWAkoHGVGhVz83bI+HnQwobb0JrD43Wvg65m2eqxw754BNMNNW+Rnmc3gJENfTC84ZFsk43LmaDGJ2bzEt0fR507TVAeb/GzY27R4G6UQ6YjPdIfZ1PeLhz/zBZo8HPKlNk4N/e2yayPAQT6Cv4ze3mhLveD74+kun+EaKqXuDaCtoQQpbSADtw
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_235016_879876_6BC23F83 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260610_235115_128836_4FC9A415 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,206 +86,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix duplicate pinctrl_tach{0-15} and pinctrl_n{cts,dcd,dsr,ri}5 labels
-in aspeed-g7-soc1-pinctrl.dtsi.
+Hi Eugen,
 
-Drop the cpu-index from secondary/tertiary container nodes: reduce the
-"#address-cells" from 2 to 1 and update ssp_nvic/tsp_nvic unit-address
-and reg accordingly. Also remove URL comments from the DTS.
+Thank you for the patch.
 
-Suggested-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-Fixes: e77bb5dc5759 ("arm64: dts: aspeed: Add initial AST27xx SoC device tree")
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
-This series contains follow-up fixes for the AST27xx DTS support that
-was merged into linux-next (e77bb5dc5759).
+Two issues with this one, I'm afraid.
 
-Two issues were identified after merge by Andrew Jeffery during review
-of the pending v11 series:
+Le 11/06/2026 à 08:09, Eugen Hristev a écrit :
+> The unicam exposes two video nodes, one for image, another for metadata.
+> Querycap should return the right caps for the respective node, not both.
+> 
+> video0:
+> 
+> Capabilities     : 0xa4200001
+>          Video Capture
+>          I/O MC
+>          Streaming
+>          Extended Pix Format
+>          Device Capabilities
+> Device Caps      : 0x24200001
+>          Video Capture
+>          I/O MC
+>          Streaming
+>          Extended Pix Format
+> 
+> video1:
+> 
+> Capabilities     : 0xa4a00000
+>          Metadata Capture
+>          I/O MC
+>          Streaming
+>          Extended Pix Format
+>          Device Capabilities
+> Device Caps      : 0x24a00000
+>          Metadata Capture
+>          I/O MC
+>          Streaming
+>          Extended Pix Format
+> 
+> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
+> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+> ---
+>   drivers/media/platform/broadcom/bcm2835-unicam.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> index 8d28ba0b59a3..4bf36ce80047 100644
+> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> @@ -1833,7 +1833,10 @@ static int unicam_querycap(struct file *file, void *priv,
+>   	strscpy(cap->driver, UNICAM_MODULE_NAME, sizeof(cap->driver));
+>   	strscpy(cap->card, UNICAM_MODULE_NAME, sizeof(cap->card));
+>   
+> -	cap->capabilities |= V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_META_CAPTURE;
+> +	if (is_image_node(node))
 
-1. Duplicate pinctrl state labels in aspeed-g7-soc1-pinctrl.dtsi caused
-   dtc to abort with fatal label-redefinition errors.
+First, it does not compile, as node is not declared here.
+'struct unicam_node *node = video_drvdata(file);' would be needed.
 
-2. The synthetic container nodes (secondary, tertiary) for sub-processor
-   interrupt controllers used a 2-cell address scheme to encode a
-   <cpu-index reg-base> tuple.  Since the cpu-index adds no value for
-   nodes that are purely phandle anchors, Andrew requested we drop it
-   and use the bare register address instead.
----
- arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi      |  14 ++-
- .../boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi    | 102 ---------------------
- 2 files changed, 6 insertions(+), 110 deletions(-)
+> +		cap->capabilities |= V4L2_CAP_VIDEO_CAPTURE;
+> +	else
+> +		cap->capabilities |= V4L2_CAP_META_CAPTURE;
+>   
+>   	return 0;
+>   }
+> 
 
-diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-index ef283d95649a..58193c3c3696 100644
---- a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-+++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-@@ -84,32 +84,30 @@ l2: l2-cache0 {
- 	};
- 
- 	secondary {
--		#address-cells = <2>;
--		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/of/address.c?h=v6.16#n491 */
-+		#address-cells = <1>;
- 		#size-cells = <0>;
--		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/of/address.c?h=v6.16#n430 */
- 
--		ssp_nvic: interrupt-controller@1,e000e100 {
-+		ssp_nvic: interrupt-controller@e000e100 {
- 			compatible = "arm,v7m-nvic";
- 			#interrupt-cells = <2>;
- 			#address-cells = <0>;
- 			interrupt-controller;
--			reg = <1 0xe000e100>;
-+			reg = <0xe000e100>;
- 			arm,num-irq-priority-bits = <3>;
- 			status = "disabled";
- 		};
- 	};
- 
- 	tertiary {
--		#address-cells = <2>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		tsp_nvic: interrupt-controller@2,e000e100 {
-+		tsp_nvic: interrupt-controller@e000e100 {
- 			compatible = "arm,v7m-nvic";
- 			#interrupt-cells = <2>;
- 			#address-cells = <0>;
- 			interrupt-controller;
--			reg = <2 0xe000e100>;
-+			reg = <0xe000e100>;
- 			arm,num-irq-priority-bits = <3>;
- 			status = "disabled";
- 		};
-diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
-index 72d93323593d..6edf14617b09 100644
---- a/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
-@@ -496,87 +496,6 @@ pinctrl_hvi3c15_default: hvi3c15-default-state {
- 		function = "I3C15";
- 		groups = "HVI3C15";
- 	};
--
--	pinctrl_tach0_default: tach0-default-state {
--		function = "TACH0";
--		groups = "TACH0";
--	};
--
--	pinctrl_tach1_default: tach1-default-state {
--		function = "TACH1";
--		groups = "TACH1";
--	};
--
--	pinctrl_tach2_default: tach2-default-state {
--		function = "TACH2";
--		groups = "TACH2";
--	};
--
--	pinctrl_tach3_default: tach3-default-state {
--		function = "TACH3";
--		groups = "TACH3";
--	};
--
--	pinctrl_tach4_default: tach4-default-state {
--		function = "TACH4";
--		groups = "TACH4";
--	};
--
--	pinctrl_tach5_default: tach5-default-state {
--		function = "TACH5";
--		groups = "TACH5";
--	};
--
--	pinctrl_tach6_default: tach6-default-state {
--		function = "TACH6";
--		groups = "TACH6";
--	};
--
--	pinctrl_tach7_default: tach7-default-state {
--		function = "TACH7";
--		groups = "TACH7";
--	};
--
--	pinctrl_tach8_default: tach8-default-state {
--		function = "TACH8";
--		groups = "TACH8";
--	};
--
--	pinctrl_tach9_default: tach9-default-state {
--		function = "TACH9";
--		groups = "TACH9";
--	};
--
--	pinctrl_tach10_default: tach10-default-state {
--		function = "TACH10";
--		groups = "TACH10";
--	};
--
--	pinctrl_tach11_default: tach11-default-state {
--		function = "TACH11";
--		groups = "TACH11";
--	};
--
--	pinctrl_tach12_default: tach12-default-state {
--		function = "TACH12";
--		groups = "TACH12";
--	};
--
--	pinctrl_tach13_default: tach13-default-state {
--		function = "TACH13";
--		groups = "TACH13";
--	};
--
--	pinctrl_tach14_default: tach14-default-state {
--		function = "TACH14";
--		groups = "TACH14";
--	};
--
--	pinctrl_tach15_default: tach15-default-state {
--		function = "TACH15";
--		groups = "TACH15";
--	};
--
- 	pinctrl_thru0_default: thru0-default-state {
- 		function = "THRU0";
- 		groups = "THRU0";
-@@ -940,27 +859,6 @@ pinctrl_uart3_default: uart3-default-state {
- 		function = "UART3";
- 		groups = "UART3";
- 	};
--
--	pinctrl_ncts5_default: ncts5-default-state {
--		function = "NCTS5";
--		groups = "NCTS5";
--	};
--
--	pinctrl_ndcd5_default: ndcd5-default-state {
--		function = "NDCD5";
--		groups = "NDCD5";
--	};
--
--	pinctrl_ndsr5_default: ndsr5-default-state {
--		function = "NDSR5";
--		groups = "NDSR5";
--	};
--
--	pinctrl_nri5_default: nri5-default-state {
--		function = "NRI5";
--		groups = "NRI5";
--	};
--
- 	pinctrl_ndtr5_default: ndtr5-default-state {
- 		function = "NDTR5";
- 		groups = "NDTR5";
+Second, and more important,  I don't think the current behaviour is a bug.
+Documentation/userspace-api/media/v4l/vidioc-querycap.rst states about 
+the 'capabilities' field:
 
----
-base-commit: abe651837cb394f76d738a7a747322fca3bf17ba
-change-id: 20260611-dtsi_fix-099b11a321b5
+"The capabilities field should contain a union of all capabilities 
+available around the several V4L2 devices exported to userspace.
+For all those devices the capabilities field returns the same set of 
+capabilities."
 
-Best regards,
--- 
-Ryan Chen <ryan_chen@aspeedtech.com>
+Per-node differentiation is the job of 'device_caps', which unicam
+already sets correctly when registering each video device (your
+v4l2-ctl output shows the Device Caps are already right).
+
+So this looks like working as intended to me, and the patch should be
+dropped.
+
+Thanks,
+JM
+
+> ---
+> base-commit: a87737435cfa134f9cdcc696ba3080759d04cf72
+> change-id: 20260611-bcmpiqcap-f893a9ea2da9
+> 
+> Best regards,
+> --
+> Eugen Hristev <ehristev@kernel.org>
+> 
 
 
