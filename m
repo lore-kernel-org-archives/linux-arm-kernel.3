@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3468CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 11:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C23CD98D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 11:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=8vJeVAj/z4tf6ALczbGi0hk+xhcfHPNc5wF724wvVsk=; b=k+WHF9EGDA+iX2oH0EKizQEBd6
-	r/CL0EQ9rpe2wLcDYScRz28pT7SurUu8pIiGJOeWdAW5FFnByS9UI5J2PKEAY51xtrtolIZt6eb5n
-	6YuH1bVKWM6isG9Q+2fDJEtPIlV9kaEnHGf0lpvfcF9RYSdLLUvZHB7BD+BQqrP0OIVVxum3qE7fG
-	/yII8K5agOU8m4H517cvQYrIOuDsqVi2a25p3jmHrnrVI7nwu2QCcII0Ln7te7bt8va7iD6aVp36C
-	L+f9d8mgDDAfEQSVUWG7oKI8n1ZTWfkwUhOIzEvOHDxaqfAWXo/RvNzl4ajLOlUCmwaQgXjDJP4p3
-	4TAe+aFw==;
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aiWNA2XcQ9MIGpb5iKT0AZ6heJ1aLAPFSuWzw5lWfBY=; b=l8J6y+5hFpOlvdT/TqsmTdrk8g
+	ThGVgSsIr2SGA39XPBRU+TFUSbP5/glT+E3nudlnIyLpr3XLm57gVYHWhT/hbDuKNXR9Bcz4eIGjs
+	U4wKkVTv5vOw8suKu1f0bb0j+abhQb54WxY7lWA/V3yNds70NdhEBIj2apaiSU64BC54lT0UVz0S0
+	4OSdIgaAyA6CnIjR/5Vor5VfPHtFijlEYjT4WNoMmrAUfLER2kNDZQcnyB4blz2gCnnOvUQLgyBfb
+	mHbQHuSYv0irnaVnuNcqdXTMIDfP7kYLY/dD5x4uRKYhZn9fR26kMM3c53x4DxhEo994BtsGA3znS
+	ksAzAHjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXdfr-00000009Jlf-0kYn;
-	Thu, 11 Jun 2026 11:34:15 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wXdft-00000009JmY-1jIN;
+	Thu, 11 Jun 2026 11:34:17 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXdfm-00000009JkU-3EW5
+	id 1wXdfn-00000009JkW-05hx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 11:34:13 +0000
+	Thu, 11 Jun 2026 11:34:16 +0000
 Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260611113403euoutp017bb4ad10875ba9c3d6a8f223c21b725f~4A6FNWPkO1537915379euoutp01I
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 11:34:03 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260611113403euoutp017bb4ad10875ba9c3d6a8f223c21b725f~4A6FNWPkO1537915379euoutp01I
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260611113405euoutp026f074061358877a17423ef67ee7afcf1~4A6GSzd_k1176311763euoutp02U
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 11:34:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260611113405euoutp026f074061358877a17423ef67ee7afcf1~4A6GSzd_k1176311763euoutp02U
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1781177643;
-	bh=8vJeVAj/z4tf6ALczbGi0hk+xhcfHPNc5wF724wvVsk=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=MNdv0umzypzsIVXa6OLGXAv2/YPAT1p++ZX2Q3ucV5HTcI7TS69Sug/e/jA218Y1T
-	 1QkNCbRWz3C6k/AQASY6oWtIB0GFX0TAijBDDKNrJTHeTRTMUVI+M9rvKu4USu9kMT
-	 iZDd68kQaJn1EsCr62hFOOMFtYRkHs8NIvkKJDvI=
+	s=mail20170921; t=1781177645;
+	bh=aiWNA2XcQ9MIGpb5iKT0AZ6heJ1aLAPFSuWzw5lWfBY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hs1iC8+bqurdiMo/Cnpg9tlui3TVPRRe6dzepPnEcM8ZoHBcadWG/UAvWTFmWQsDT
+	 bQqV48UI6it831kNnUvYDFHPHTozVPlq6J6sTrUYE4hIDtQoUW+i+xSeZVXhxxfXNo
+	 LhNKjrCluhxgVIGWul3JGIvj+VmXre32GFSxsRsM=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260611113403eucas1p1f4b61896c875f1f6833d6ca136472af8~4A6E3YY0z0769007690eucas1p15;
-	Thu, 11 Jun 2026 11:34:03 +0000 (GMT)
+	20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923~4A6F-FrlA0882108821eucas1p1u;
+	Thu, 11 Jun 2026 11:34:04 +0000 (GMT)
 Received: from AMDC4843.eu.corp.samsungelectronics.net (unknown
 	[106.120.77.61]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260611113402eusmtip20128068a5cba2e17cd8baa05654eb531~4A6EOyVCm3265632656eusmtip28;
-	Thu, 11 Jun 2026 11:34:02 +0000 (GMT)
+	20260611113403eusmtip20658597299be23109b0b32fcf53ad27d~4A6E9bI9t0415604156eusmtip2B;
+	Thu, 11 Jun 2026 11:34:03 +0000 (GMT)
 From: Jakub Raczynski <j.raczynski@samsung.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
 	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
 	alexandre.torgue@foss.st.com, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, k.domagalski@samsung.com,
-	k.tegowski@samsung.com, Jakub Raczynski <j.raczynski@samsung.com>
-Subject: [PATCH net 0/2] net/stmmac: Fixes for maximum TX/RX queues to use
- by driver
-Date: Thu, 11 Jun 2026 13:33:56 +0200
-Message-Id: <20260611113358.3379518-1-j.raczynski@samsung.com>
+	k.tegowski@samsung.com, Jakub Raczynski <j.raczynski@samsung.com>, Chang-Sub
+	Lee <cs0617.lee@samsung.com>
+Subject: [PATCH net 1/2] net/stmmac: Apply TBS config only to used queues
+Date: Thu, 11 Jun 2026 13:33:57 +0200
+Message-Id: <20260611113358.3379518-2-j.raczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260611113358.3379518-1-j.raczynski@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260611113403eucas1p1f4b61896c875f1f6833d6ca136472af8
+X-CMS-MailID: 20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260611113403eucas1p1f4b61896c875f1f6833d6ca136472af8
+X-RootMTR: 20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923
 X-EPHeader: CA
-X-CMS-RootMailID: 20260611113403eucas1p1f4b61896c875f1f6833d6ca136472af8
-References: <CGME20260611113403eucas1p1f4b61896c875f1f6833d6ca136472af8@eucas1p1.samsung.com>
+X-CMS-RootMailID: 20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923
+References: <20260611113358.3379518-1-j.raczynski@samsung.com>
+	<CGME20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_043412_080015_423D6F03 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260611_043412_078653_EBB4E3BB 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When contributing other changes preparing functions for new XGMAC hardware
-https://lore.kernel.org/netdev/20260601162537.553512-1-j.raczynski@samsung.com/
-there have been reports by Sashiko AI review about pre-existing issues
-in the code. These problems are non-insignificant and are 'net' material fixes,
-rather than net-next features.
-One issue in this patchset was reported by Sashiko AI, while other
-technically part of new patchset, but is reasonable related fix.
-All of issues are wrong DTS configuration, but kernel needs to handle it.
+While opening stmmac driver, there is enabling of TBS (Time-Based Scheduling)
+option in dma config. Currently this is executed for all possible TX queues via
+MTL_MAX_TX_QUEUES macro, but actual number of queues used might differ.
+While setting this is generally harmless, since memory for MTL_MAX_TX_QUEUES
+is allocated, it is incorrect, because it prepares config for unused queues.
 
-Jakub Raczynski (2):
-  net/stmmac: Apply TBS config only to used queues
-  net/stmmac: Apply MTL_MAX queue limit if config missing
+Change this to apply tbs config only to tx_queues_to_use.
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c     | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 8 ++++----
- 2 files changed, 5 insertions(+), 5 deletions(-)
+Fixes: 4896bb7c0b31a ("net: stmmac: do not clear TBS enable bit on link up/down")
+Co-developed-by: Chang-Sub Lee <cs0617.lee@samsung.com>
+Signed-off-by: Chang-Sub Lee <cs0617.lee@samsung.com>
+Signed-off-by: Jakub Raczynski <j.raczynski@samsung.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3591755ea30b..5917bf47c7de 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4140,7 +4140,7 @@ static int __stmmac_open(struct net_device *dev,
+ 	u8 chan;
+ 	int ret;
+ 
+-	for (int i = 0; i < MTL_MAX_TX_QUEUES; i++)
++	for (int i = 0; i < priv->plat->tx_queues_to_use; i++)
+ 		if (priv->dma_conf.tx_queue[i].tbs & STMMAC_TBS_EN)
+ 			dma_conf->tx_queue[i].tbs = priv->dma_conf.tx_queue[i].tbs;
+ 	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
 -- 
 2.34.1
 
