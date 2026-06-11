@@ -4,113 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C78CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E280CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=As/pP/Wl9lgSZeirNEJQtG+sKd/tXccaEi6RDRuHzhA=; b=k+gY4Napc+4xiK8bLm2DshDfwX
-	sPt9aiMumXZ3DhSrGee4wHD+4m7mByAhu78ep+HI7a5A44vZCHRBqcWuGI4JXzf0H/572X4Hhmi0Y
-	xNmfFcJtqF3ggyUYRtyuwKSZycHQOU74TXHs+g2SGpj8pFs/NKp6w9SlRcqvy+7LHTmJHZz1lyHgh
-	nxLfHswxAc0bp6u9yv6sF3vrEtP/VWl4AckSrNMrd/Hx6gWhvkvZg7x0MKy1j56WrSkDn8orjqupz
-	/DcgaFx0AaEBoHkIvCPM1a2q7Id37q6qnPY/qBUveUMoUOH8+ryViyBKmJzkAEVm7cj/btSVbbAtz
-	N901tTvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=vzZhenHbPwepLaH1jkQZbPxGq+tZ5ZGXbuy3+e6Nifc=; b=FxeDajRrvH+NFI
+	/33wkLpEYgHnAGeeVSVOSgbC0ZGZP1lVMy5yxixXZIxp+W7AH5Haw5e+0ytVD81YomDoefcBuzQyt
+	doizJU4Rv4/kMaRC1XRrr1rn3hfQLnH1phVn0Z5nYJaVXR7krVMtvBNB6MGEkLAMb5Cfx7M329taD
+	HWned3VVei0cAzyPZU2PH1uK/ROMToH60jsFfkP4yzXWUYWCOSDhPPEs+Q+GHA/dBA47BJc3r+WQs
+	uych/bny9Yfvj/w4Gwv6RwSr3bjwFkRbrjnxmmzcPdGvs72b4g54P4lTnzFkW1G8kF2eBprj5eaHl
+	qGTiDAOl8FvB98880Dag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXi2v-00000009k0G-49ws;
-	Thu, 11 Jun 2026 16:14:21 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1wXi5c-00000009kHS-2H5r;
+	Thu, 11 Jun 2026 16:17:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXi2t-00000009jzJ-083T
+	id 1wXi5c-00000009kHH-0jNL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 16:14:20 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-68bac6e24fdso18916a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:14:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781194457; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bHn+hUh730EZUr4Wfno4+TgoG7fvxPxi5AIuHMbUwJfFYVNV+8EuQWtcMZeEi5RSP6
-         IUZwqEfJJpsiUl8VLxHG1K2J67REOo6py5H2bnIrOPLz8SZu2zIYEKQG9wkvMcnac08J
-         SLRRw81oabjvfYJsCNy6ANWY7ZLNBXzkRH/9XnNBkRnTuc0Y5YrSKNVlwVFGP6H6aP/Q
-         txIZWVnSXcWgbE7chJfRFLo/FI5K296YKTCndcqweW0JOUprXkJ6bAyCvYKTfgDMx+qm
-         ck7PsLkZq2qHKaKuzE8xj36hNiQgl3mV9e2n9oXFPoaQV+Llq++ND+jplWfOcwSfWiTo
-         8gEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=As/pP/Wl9lgSZeirNEJQtG+sKd/tXccaEi6RDRuHzhA=;
-        fh=pNg42xRjXJ2nozx86lIjmAnwzRZLoRUrFvp+r4KjLr8=;
-        b=GIyOUxGTsKOZeGITDV3t5eG2hDtDIES51g7fPoJI2IhVxkyOtS/xT1U32PHIb0RrrO
-         t4M62D7HNKdEO5lmtHWaKqF1OLAI8F+lWIWGoPMPSSP7AzDAbZQgJv69n/9R4AxvKunP
-         DUbClDqri3urQUm6P9GoLCWEG8qcIiYFPskrZ/0SJfsMquKucAcASS+s3FC2ipqNGucD
-         ixkj+oZRB5jgBaueJONLYu9m9xSivzm8aXCgSFq+y89fsELeG/krRqVPAw8ctOfyveEC
-         aXhT+t1eSjy7KBMToaKN+lLytPl8D2l/xWTdH2QyISzGVCufmDmUArzBBPUlhuCoTMdk
-         eQnA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781194457; x=1781799257; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=As/pP/Wl9lgSZeirNEJQtG+sKd/tXccaEi6RDRuHzhA=;
-        b=jlJQnBrkoNWUMMB8lbKgO4/sWvJwRk9nFp+u5ye7fHkCw3GuibOT6pv+M/SUvZSFSo
-         ziHsDAkZMuQHwDa/zuZrFDDEukAnxzdTY6VsrVtajiVTBoBXGcYj6C9utMGgcR01i4lA
-         7qz9xS4M4q8T68aU0o0XtbFO4O8+0sB57XmM8RlD4BQ87mi9Z2PZCSr7T/6eWBeZNth7
-         ixMuj9sLu7BDKm7KRTf/MsXFyqkvi6UGfYiEMMMbaz9u71POpjdjOmhQUq0qWyToDycS
-         qMHc/4lni59axPykvTqb9Mle8N31pIoYidDRlpCF1wNXDtOy/AXI0wNrCpBAj+pLDI25
-         9gjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781194457; x=1781799257;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=As/pP/Wl9lgSZeirNEJQtG+sKd/tXccaEi6RDRuHzhA=;
-        b=GciCD9WVUuILLpWdrdVzmv+myOVyaVXbQE14guiLQSiiTwt6a9+HDrlp1/NL9RlXzF
-         QmiijTffTs2pUgY8IX1rOYucO0yQZJ3D7ImWAb9eN3z7Jnpm+x3gsIfelk2lliuvWJ/1
-         PJ2bxOP65afL99J4oOQHojkonwKRhb2TM2nTo/9dLqzJUxekTVYHbDXv0W49uqZM+mxl
-         DOIg8HhOAZibai5b3LAsW0UylqikwGa6F5K9Z1/ax5Sd93idSU7yJtzzmWC3uoVEhdp9
-         tqsOugApT/CXEr+4MkM0b63YBuAi2Z23UKKjz4/m9T/n3KkZ4DKND/LYb39x1R3vQper
-         49/A==
-X-Forwarded-Encrypted: i=1; AFNElJ8paVhUPpIJhHRtAibsmNd0g60YV/TF4KYocS4FenIpg+RvZaYunwSZ0fCyreEGz7rvf0aHJVcz2kgqvCDMl70W@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/RW30Gk5qkupTrm8nAFAm7h9Mpi16oAyV7tzT80g+BE2MWAi5
-	XUm1pefzqzsc5jh+PfWCiIU0FJEYtPO+Shb0N6hegNTq1WDQsjkb5VK8s1C8/IhEeMKLQh4pmnh
-	ciar6ouLJW/xLBxHo5xpBQBkllZyKq+E=
-X-Gm-Gg: Acq92OHS8e+N/Ta19F+fvmsfsFRxnyMd4Iy6RQ48CvGAe45tA9T81uT8EakS3Vsd+ye
-	I7am+3VrNPAumjcCDRXBGSB5ld225OV5rvy/Wy/9HEtXl1Apq6sUgaXfrF3cbK4KBoTnZYUTriZ
-	nrabht8q1hknSCNAVJKxHsPmucmnpdYrjNaOA9Q6zeODrhW6HC6JStbfJOjjDF+sqyeJf1KcpyN
-	L6iqSSXPhlObsxkppICa0pkLR5G5O87vXlRNQkvUDpQPwdy1YXlMw2wEQDgVAzDo8bXbG6g/5w8
-	6cA5wxQcoPCsUC21t7lX8wCtxhaqVesTjS29fckQoC9BYlLYr6i6vfWAU92jSm8/gAwdgbdW16y
-	Ztrv28/X4QQLMh+OEMXjCA3yfbrQ0QrTiUFXFaDvin5E1Uw9j9CnygsNIbRpZ9/vg/xpF121vS0
-	F4VwA=
-X-Received: by 2002:a17:907:7ba7:b0:bef:1e83:8228 with SMTP id
- a640c23a62f3a-bfc87c0f243mr220203466b.39.1781194456320; Thu, 11 Jun 2026
- 09:14:16 -0700 (PDT)
+	Thu, 11 Jun 2026 16:17:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C410601DF;
+	Thu, 11 Jun 2026 16:17:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21BCE1F00893;
+	Thu, 11 Jun 2026 16:17:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781194627;
+	bh=vzZhenHbPwepLaH1jkQZbPxGq+tZ5ZGXbuy3+e6Nifc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=OVWTFu/TSFSg3ELJDdAbFWDbM3Hi3TSeZBAet0Vz8UDsfS2ektb+YAEPPbmblPwgl
+	 DaP6LK0Jv5gePb7DFx5uE/iMovoFan/dVPOtRNqvPnWnb4hckPobwj3ThuIBecXtYx
+	 bNnuTlAH4OOh9zIN6Ialc5WjVVg7BJL0Jn8lSGXGEHXpP1OERyuyzKIgr7iC390ULw
+	 WRe1d5T+9TM0no5xmVJ6ZUr1Ca7M9yIrZJYdK3i9oz31MF3AHvm9rPEZ0XEfDMR6Rr
+	 E+0SA/LOnuK7tXPVC7zNwXlNElGaWfL6wuK84JCGkOO3Iko/rt05q8ToLPQMx0vO4g
+	 f/f1k/l3o+f6g==
+Date: Thu, 11 Jun 2026 11:17:05 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-pci@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, linusw@kernel.org,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"moderated list:PCI DRIVER FOR MVEBU (Marvell Armada 370 and Ar...),linusw@kernel.org" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCHv2] PCI: mvebu: Use fixed-width interrupt masks
+Message-ID: <20260611161705.GA486072@bhelgaas>
 MIME-Version: 1.0
-References: <20260611-mt6323-nvmem-v1-0-b5e1b9ce51f2@protonmail.com> <20260611-mt6323-nvmem-v1-2-b5e1b9ce51f2@protonmail.com>
-In-Reply-To: <20260611-mt6323-nvmem-v1-2-b5e1b9ce51f2@protonmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Thu, 11 Jun 2026 19:13:38 +0300
-X-Gm-Features: AVVi8Ces8T60xoHtEoplh69CdNS4vvYPyDhO6krvEnoKRWh_ilPPLEaS_PgToaY
-Message-ID: <CAHp75Ve-+-xaWoktFO_qG1Xkyzh7D9JsBFw_qH9zcUXWhk_qNQ@mail.gmail.com>
-Subject: Re: [PATCH 2/4] nvmem: add mt6323 PMIC EFUSE driver
-To: rva333@protonmail.com
-Cc: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, Andy Shevchenko <andy@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_091419_096388_0D5ACEC0 
-X-CRM114-Status: GOOD (  14.95  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260526044016.1025613-1-rosenp@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,51 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 1:21=E2=80=AFPM Roman Vivchar via B4 Relay
-<devnull+rva333.protonmail.com@kernel.org> wrote:
->
-> Add support for the EFUSE controller found in the Mediatek MT6323 PMIC.
-> The MT6323 EFUSE stores 24 bytes of hardware-related data, such as
-> thermal sensor calibration values.
+On Mon, May 25, 2026 at 09:40:16PM -0700, Rosen Penev wrote:
+> Use u32-typed BIT and GENMASK helpers for PCIe interrupt register
+> masks.  This keeps inverted masks in the same width as the registers
+> and avoids truncation warnings on 64-bit compile-test builds.
+> 
+> Fixes this and similar warnings:
+> 
+> drivers/pci/controller/pci-mvebu.c:316:21: error: implicit conversion from
+> 'unsigned long' to 'u32' (aka 'unsigned int') changes value from
+> 18446744069414584320 to 0 [-Werror,-Wconstant-conversion]
+>   316 |         mvebu_writel(port, ~PCIE_INT_ALL_MASK, PCIE_INT_UNMASK_OFF);
+> 
+> Assisted-by: Codex:GPT-5.5
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  v2: remove sys_to_pcie change
+>  drivers/pci/controller/pci-mvebu.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
+> index e568528bad85..f5a3f7370552 100644
+> --- a/drivers/pci/controller/pci-mvebu.c
+> +++ b/drivers/pci/controller/pci-mvebu.c
+> @@ -57,9 +57,9 @@
+>  #define PCIE_CONF_DATA_OFF	0x18fc
+>  #define PCIE_INT_CAUSE_OFF	0x1900
+>  #define PCIE_INT_UNMASK_OFF	0x1910
+> -#define  PCIE_INT_INTX(i)		BIT(24+i)
+> -#define  PCIE_INT_PM_PME		BIT(28)
+> -#define  PCIE_INT_ALL_MASK		GENMASK(31, 0)
+> +#define  PCIE_INT_INTX(i)		BIT_U32(24 + (i))
+> +#define  PCIE_INT_PM_PME		BIT_U32(28)
+> +#define  PCIE_INT_ALL_MASK		GENMASK_U32(31, 0)
 
-Reviewed-by: Andy Shevchenko <andy@kernel.org>
-
-...
-
-> +static int mt6323_efuse_read(void *context, unsigned int offset, void *v=
-al,
-> +                            size_t bytes)
-> +{
-> +       struct regmap *map =3D context;
-> +       u32 tmp;
-> +       u16 *buf =3D val;
-> +       int ret;
-
-Perhaps reversed xmas tree order? And it's actually better to see
-assignments first.
-
-> +       /*
-> +        * A manual loop using regmap_read is required because PWRAP is n=
-ot
-> +        * a continuous MMIO space, but rather a FSM that doesn't impleme=
-nt the
-> +        * necessary read callback for the regmap_read_raw and regmap_rea=
-d_bulk
-> +        * functions.
-> +        */
-> +       for (size_t i =3D 0; i < bytes; i +=3D sizeof(*buf)) {
-> +               ret =3D regmap_read(map, MT6323_EFUSE_DOUT_BASE + offset =
-+ i, &tmp);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               *buf++ =3D tmp;
-> +       }
-> +
-> +       return 0;
-> +}
-
---=20
-With Best Regards,
-Andy Shevchenko
+This looks like something that could be an issue in dozens of drivers.
+Is it?  If so, I'd prefer to fix them all at once in a single patch
+instead of a slow trickle.
 
