@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE0ACD98C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 05:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE58CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 05:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PqVcGbH9wWwEBo3NBKFoaBwVVqPvH9y9tROxN8Pio5I=; b=mBhT/YQdlrmeFCKtnXS4RHhEi+
-	0/zGv7bV7cadJ68nZgjP0n4osfaeS2U2FTHVGg12GaTj+ALXCpyc+mX56DQvvDzTt82wzsf73TxQe
-	cfJ5vjmdUYvZrNsx39IHLV+vrkQiL8ntfeD4wYcyfjkIlNppHszyE5nOCERnYqhJrxZQz/C4yEHGA
-	CnFqZ9YAJRhpPyfkWRSLS2w6h5EnD+DDHpCa/m8I/Y2/1Amgvpwu2ZW5/C7+ql6QRyK4Jd2f9EuWB
-	0mBDOVM8LawtB4RIK7S6Nw0jPAjnmceVmNVg/Ay5lW6ZV5CaFk7fbalD3biOH1UNL0ToLiR/0PKfk
-	SFOSXffg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VlUmGwE0ILPgOg+KpZs1mxPqeBRs9I2PikBa8crC90o=; b=cIPknG1Xx2EsOEBfCN5hgP3kLh
+	+y38Tcy979Qo0v4lUE/T1+GIgE4ren2bTbG1/UTNbWjsRs+cIBJMesVvLaaxqUXxDHK6+mGoRDyVT
+	Mc3Lnzmfq6o6AifSc2T5nfYrcnUvZLTgrdepyDpdFg1wLTGMt689nPZE8ROWayguAccx0G1Kf+Hcz
+	qTlVK1S8cBjGl4h7IWoqKlm4oW6ryEpq8K3R6erG35T8PAimU4CuGvSOPdbaZOfUvyrA2vY1z9iXi
+	tnwCd8Kere5ArllcYNaHgv7UyTOcN54mmcXEsXAMqV2wTOj3FuwJbmXeNY/iNZPGV5IT/5eGYYk0Z
+	GhTir5VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXXzQ-00000008jh5-1zxI;
-	Thu, 11 Jun 2026 05:30:04 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1wXXzV-00000008jii-2sYc;
+	Thu, 11 Jun 2026 05:30:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXXzN-00000008jgF-18CP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 05:30:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=PqVcGbH9wWwEBo3NBKFoaBwVVqPvH9y9tROxN8Pio5I=; 
-	b=PyzZkSqHrvTn30hmR8guFbfKcTKXfDP+a0nVvEOHmDLxPERAex/PvuqZe4MWZ1UNYfUDQLsonCN
-	D6DKVr94xRJ1P1qrTePhfIalkyD2zeqL+2e2BP+AXVHqS5Hia1twuE+LQgfIP7waqNLwJQHEHSHg0
-	QIYobKVv1Sl03U+w8ykUY59AOOPYWEwElgp/N1d8QSTTKfdXuaSDwcWnKR4VecVR7m2d8ur2GuAXH
-	p2bo9zAIiKCUmMnj4Ii6M/bfvgOBm3wj43UsNm7T/4Va0bYYvsgK9cl/eHGuLAYfLa1ylrjobpCng
-	DqD1HQE3974XCplmWUyukPPL7YKWGy1XQgmg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1wXXzE-00000004UDH-3vYu;
-	Thu, 11 Jun 2026 13:29:54 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 11 Jun 2026 13:29:52 +0800
-Date: Thu, 11 Jun 2026 13:29:52 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: atmel-ecc - remove stale comments in
- atmel_ecc_remove
-Message-ID: <aipH0NgL4Gbe7Oz1@gondor.apana.org.au>
-References: <20260602165247.977197-3-thorsten.blum@linux.dev>
+	id 1wXXzS-00000008jhd-2gD4;
+	Thu, 11 Jun 2026 05:30:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 739D96020A;
+	Thu, 11 Jun 2026 05:30:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A87711F00899;
+	Thu, 11 Jun 2026 05:29:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781155805;
+	bh=VlUmGwE0ILPgOg+KpZs1mxPqeBRs9I2PikBa8crC90o=;
+	h=From:Date:Subject:To:Cc;
+	b=a97rLwiSf/wopPh1XUAO3MQnqZCbyeIzz8OVwoND7Lc8TZ5X10f15Uo3QHpxuT51u
+	 s9U2ngqpgeoHDKUK002wtev5CqIq+4nSyH3+9DEHicAuDpfpDY65zKy8EbeVOnarnM
+	 N3keGgZZFd0VIBOyhxiVi58AEwER/T2GB/yh41r0b4XC69hra8gdTB1T4G66GOW7ZS
+	 LVaAHlR3Frl2vHbgZGlDi0rSdwaV2L8kiV7NofRmTlFT+L/cMYbNiTM0MMsWPkEQdu
+	 MEXUJR8F4iYCzV5SnN3wC/uqDSNb5/Jk2VM2RlLzFUtrPDJHpDPr820OJTtmxzFICo
+	 3oDGQAMaXsWwg==
+From: Eugen Hristev <ehristev@kernel.org>
+Date: Thu, 11 Jun 2026 08:29:55 +0300
+Subject: [PATCH v3] media: bcm2835-unicam: Fix log status runtime access
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260602165247.977197-3-thorsten.blum@linux.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_223001_336164_7FBFA914 
-X-CRM114-Status: GOOD (  23.22  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260611-bcmpipm-v3-1-c609dacb029f@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANJHKmoC/2WNyw6CMBQFf4V0bU0fUgor/8O4aMsFqvJIi42G8
+ O+2uFDjcpIzcxbkwVnwqMoW5CBYb8chAt9lyHRqaAHbOjJihAmSM4q16Sc79ViYvJBQcMZLg+J
+ 6ctDYx1Y6nd/s7/oCZk56WnTWz6N7bleBpt1/NVBMMQetpKylJIf8eAU3wG0/uhalbGDfIvuIL
+ IqK10oIo03ZkB9xXdcXx/qyHuoAAAA=
+X-Change-ID: 20260521-bcmpipm-6c578e73239c
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3216; i=ehristev@kernel.org;
+ h=from:subject:message-id; bh=zPyDYXa6zGSFKayiHQHtfIPXQU2y4Rco+w2TGKlmhLs=;
+ b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLK03K92NnL93fC/x8y3t8BrT+aUBxzszr8cWucYfPzqv
+ K/Q58mkjlIWBjEuBlkxRZZqk3+1wv073E+6WqrAzGFlAhnCwMUpABO5nMHIsG7zoq2HxM0zDzxq
+ eKjwSfnkpg3LNY/+L9yamZKwPdl7cQPDf3fVv0zP/h/9+bh7xaVJ18yDHLv8p6Ts7lH8duqSnVQ
+ pLx8A
+X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
+ fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 06:52:49PM +0200, Thorsten Blum wrote:
-> atmel_ecc_remove() no longer returns -EBUSY since commit 7df7563b16aa
-> ("crypto: atmel-ecc - Remove duplicated error reporting in .remove()")
-> and is a void function since commit ed5c2f5fd10d ("i2c: Make remove
-> callback return void").
-> 
-> Remove and update the outdated comments.
-> 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
->  drivers/crypto/atmel-ecc.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> index 9c380351d2f9..e6068dc0a0c1 100644
-> --- a/drivers/crypto/atmel-ecc.c
-> +++ b/drivers/crypto/atmel-ecc.c
-> @@ -347,13 +347,11 @@ static void atmel_ecc_remove(struct i2c_client *client)
->  {
->  	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
->  
-> -	/* Return EBUSY if i2c client already allocated. */
->  	if (atomic_read(&i2c_priv->tfm_count)) {
->  		/*
->  		 * After we return here, the memory backing the device is freed.
-> -		 * That happens no matter what the return value of this function
-> -		 * is because in the Linux device model there is no error
-> -		 * handling for unbinding a driver.
-> +		 * That happens because in the Linux device model there is no
-> +		 * error handling for unbinding a driver.
->  		 * If there is still some action pending, it probably involves
->  		 * accessing the freed memory.
->  		 */
+When requesting log status, the block might be powered off, but registers
+are being read.
+Avoid reading the registers if the device is not resumed, thus also avoid
+powering up the device just for log status.
 
-Please fix this properly rather than fiddling with the comments.
+Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
+Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+---
+Changes in v3:
+- Changed to check return value of pm_runtime_get_if_active() and only call
+  pm_runtime_put() if the device is active.
+- Link to v2: https://patch.msgid.link/20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org
 
-Drivers should always fail gracefully if the hardware disappears.
+Changes in v2:
+- changed to use pm_runtime_get_if_active()
+- add corresponding put()
+- Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
 
-Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+To: Ray Jui <rjui@broadcom.com>
+To: Scott Branden <sbranden@broadcom.com>
+To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Hans Verkuil <hverkuil@kernel.org>
+To: Naushir Patuck <naush@raspberrypi.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: linux-media@vger.kernel.org
+Cc: linux-rpi-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/media/platform/broadcom/bcm2835-unicam.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+index 8d28ba0b59a3..96b51e29bba4 100644
+--- a/drivers/media/platform/broadcom/bcm2835-unicam.c
++++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+@@ -2043,6 +2043,7 @@ static int unicam_log_status(struct file *file, void *fh)
+ 	struct unicam_node *node = video_drvdata(file);
+ 	struct unicam_device *unicam = node->dev;
+ 	u32 reg;
++	int pm_active;
+ 
+ 	/* status for sub devices */
+ 	v4l2_device_call_all(&unicam->v4l2_dev, 0, core, log_status);
+@@ -2052,6 +2053,14 @@ static int unicam_log_status(struct file *file, void *fh)
+ 		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
+ 	dev_info(unicam->dev, "V4L2 format:         %08x\n",
+ 		 node->fmt.fmt.pix.pixelformat);
++
++	pm_active = pm_runtime_get_if_active(unicam->dev);
++	if (!pm_active) {
++		dev_info(unicam->dev,
++			 "Live data N/A due to device inactive\n");
++		return 0;
++	}
++
+ 	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
+ 	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
+ 		 unicam_get_field(reg, UNICAM_PUM_MASK),
+@@ -2065,6 +2074,9 @@ static int unicam_log_status(struct file *file, void *fh)
+ 	dev_info(unicam->dev, "Write pointer:       %08x\n",
+ 		 unicam_reg_read(unicam, UNICAM_IBWP));
+ 
++	if (pm_active == 1)
++		pm_runtime_put(unicam->dev);
++
+ 	return 0;
+ }
+ 
+
+---
+base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+change-id: 20260521-bcmpipm-6c578e73239c
+
+Best regards,
+--  
+Eugen Hristev <ehristev@kernel.org>
+
 
