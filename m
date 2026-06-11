@@ -4,157 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FBCCD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 18:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D934FCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 18:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+qgmHOGmRapWq0OUXXvIAYW2o7E/H8TFKc0cwHnGMM=; b=hl251c/Yhz5Xsd13kJcW+5RyG0
-	00eOLX6cuxxRCTHf+l/KLIWviH5/Zlyy2fE2wLJwFM47WLy1o8mFnC1sGrsBiUq5ojgTe8164GXpJ
-	7o+JI4ua7GK2sjhP1wVRtDZs5fR4GOWUR2zBYnT7gRWreaJNHCFG7XJCA0Pf3Kz4Os+aXOnDb9Wh3
-	rKMmwGCGJo/B/LOn/phIndpEOyFR4U8Rw4Q/B4Xt1fncjlrYmK3zu5xHaqBcs2HDxvXvQ6Yh4D2lc
-	OMxsv4ozWfEFCmyfDZ7Pt46OUKxZgkA5/Y6rp+OApmXhMeCLkjY3zkVNNv6n/3nAJyoiWImdFIIGv
-	a1uPho1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S2pImc4D8sTpFiweu+no+tpdSqPLHxJwNSYKQhfepgU=; b=YKHu2gbwgfRcW70LsZC+pdpmpy
+	NsBt16bKMmIaBpwa+fEpAzMCZxacnT2m/JM1RzopXI1AQmWCLnn0stkjWuKJjLenHxfd9ZhTQKM6Q
+	w9DYgCKVPuKqLErUNyA9NEK55p4N7ByilYqURcrzyLFaMke64t5iKWfuo9qmdM5Qq+PXMoSgJ4Ucz
+	sLxxUhJF6gyOaUFlzgIREk5iDGbIw+KL1HXunG5jhmz3rVjBN6p2xznDUCnsi2RF812kTNDkv5N6K
+	fTUejJ/hL4Jzt0dZFiD4wX0XeuMV8fCS+WtabrI+RogG0b0DOntjQFi8nVLBcdoa/xk5UAru+HYWA
+	SAe2fJwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXkIC-00000009tpa-2wu3;
-	Thu, 11 Jun 2026 18:38:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wXkbJ-00000009vBO-0H1p;
+	Thu, 11 Jun 2026 18:58:01 +0000
+Received: from mail-westus2azon11012002.outbound.protection.outlook.com ([52.101.48.2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXkIA-00000009tmx-2816
+	id 1wXkbG-00000009vAc-2Vgd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 18:38:15 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65BISW0j1302553
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 18:38:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	w+qgmHOGmRapWq0OUXXvIAYW2o7E/H8TFKc0cwHnGMM=; b=oRWz4di9ND6hN99G
-	G3yEcSDwzj8xLcMa0+clj4YI8Gk7xkDWKM0Mk89+CbSb6nQs5u/pDSRyQPAAPQFK
-	X3daIoEpaJmwI/nTcVjWiAx9+wVF4mTUQ3CxNjoI1VKJZGwnmljsdfnvGqBPyhlF
-	523w/ifj/+K2hYwTAhlGy0HOoy9xNof8zOS2Q+GbpADle0GAMLtREemKNx9zORzP
-	NjzDahAeP7oJ7g2kZ4pnrSw9vJROU3o0pOchDvYQ5MgujXC+rCIOvIpe7nt/X3Sk
-	Mr3IkhrRp3ck958jOz/jHD90Yrc2NsvNnXyM5jdFBYE3LDf4vGqksG0fWaIzsZBK
-	r+N2Xg==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eqe6ud4ff-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 18:38:13 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-84247fed609so109883b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 11:38:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781203092; x=1781807892; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=w+qgmHOGmRapWq0OUXXvIAYW2o7E/H8TFKc0cwHnGMM=;
-        b=bOzw73LGSI1E4gChrSr7fOk++jl3tC2f2C3G1RLG+oianzpRfbl5CNbRsKhtnl5Ogz
-         ulV4fMcJr6lyS7VUQrLldjD+CidFmK46lElAuUPG8jU9UlQ8rvTf1GJmPYOKd0cACBlz
-         Wew16FoH3153qQwUDkYIJydGogsOeeNLXHSdMkZHqk8bHqN6TEv3rKcwoo0vSXmeA7ko
-         N7YWfYP3RNJXYBTYyV9SavFBaFMg3Rnl2cg3rDKb2nfmphXYBX+zH80qbCJuglkPWmUI
-         L4ztiM8h+QBJy72xvloC6M9nvg8EENC9WhgGlGC7r1RaWa+yNDGloGh+s7LM0RfLy1Kp
-         mGkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781203092; x=1781807892;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=w+qgmHOGmRapWq0OUXXvIAYW2o7E/H8TFKc0cwHnGMM=;
-        b=YZIhKLleFiNOMUvbS5TIHrWnpdLhAnah4PPgf+GRDnz/zvNbLCijqod14cwGIq96zX
-         Fd7uuknbS4Ojn/dJOZ7PhCBj1Ce3EXQx1XkQAJPmLtrz1EiaivbKXhT7gjh/7uKv+TyZ
-         AqE+m3+Kb54VybJRFKaP5ARTZrRH/0Y0iqKbWxm0wVfBcu6dXceZ1heiEmtWbPYCL5+1
-         yM8lEpJX0GZZZKHUvu0x4hnKb87h5UJ0iy9dObJYT+kwLrDVc/vx4Y7cqUk2suZvSSw2
-         q2eQQFRgBBw7aeZIDga65ja6LSOpWahhZSfK3rHB8HGuiUcEPFfdHoRtNlQXt89+pfJi
-         Rvdw==
-X-Forwarded-Encrypted: i=1; AFNElJ9qd/cJqr6gx12XxSgjn1seXlH0SVnRFlUL5vs7TvXihCe5UlysoQxTTFaDoMFExcWVPpQKFl4L14JKt8VONWdN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC9NnSQV/t9xXeXihoQpoe21uagrfDl20QjKvb/jmWtNb74b9O
-	XG30MPxcfClvYbuJMVEqidSg0I+JZ2ArTtHMnv049jVeQh8kbWIIERY+7fUuwQGBnSzIEyjs8ea
-	L1fd3ozV78zPmujqQ+yfW/8Eb46+FRdjFs3eNE7MJ8TF8WMtjdtwQMA1GRXP/fTQ5GAfp6Jmt14
-	Hvjg==
-X-Gm-Gg: Acq92OH+GWGL8KZudrlGx5GPdJrKzQHifIfjpdOHcHRtmQg33CfLmIh3uCLBg1/CoLA
-	z+VF+puhRnKPXHUlE1xUUGU9WR34RF6C4sCYtiMjfbuqZBWNJo0Rt4+3NGk1YCpsDyBMjAA829I
-	KvczCg1wt6gJoU/n2H3NYFbt3y93nUTUOFDtyAJ/F9dKrNRNpNeozv21G7M7rm8jMR5ivt7YEcA
-	5zflzFoQpo+Wwfn7/DlwG5hyxB10dg2j0WqzjOTdU7FOKuWTFZC0I5fTWe/ZQuIoVRhbraxGi3P
-	7WjCqeXqYaewU4PTHjlBb4HmFbOKol6wpuztdA4j6PNH433zuHRXf/YYY9+tjwdYEYTqefYFGOp
-	3EK//ALdyth9X4c8wFgnzMblng/SBmIziBItFNUEr44pExvzPdhI=
-X-Received: by 2002:a05:6a00:2d9f:b0:842:6e9f:9dc with SMTP id d2e1a72fcca58-84336a9eda9mr4743097b3a.34.1781203092254;
-        Thu, 11 Jun 2026 11:38:12 -0700 (PDT)
-X-Received: by 2002:a05:6a00:2d9f:b0:842:6e9f:9dc with SMTP id d2e1a72fcca58-84336a9eda9mr4743069b3a.34.1781203091712;
-        Thu, 11 Jun 2026 11:38:11 -0700 (PDT)
-Received: from hu-mohdayaa-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84337bbbfacsm2555666b3a.20.2026.06.11.11.38.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 11:38:11 -0700 (PDT)
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Date: Fri, 12 Jun 2026 00:07:05 +0530
-Subject: [PATCH RFC 9/9] arm64: dts: qcom: shikra-iqs-evk: Enable both
- ethernet ports
+	Thu, 11 Jun 2026 18:58:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=APpshNWehy36kvBjtUIkXUH1WsvDLKQ+JpWqsqg7nJoS5rz9EK1a7E4R3IFZPtzG9jdFSGIGdcCSuAwPMu/cXif/j26KeJx8g7i0FAUN2p0JM7NbrpOQFNFJd80yHRGJa3dGPv6mhz2qSGN3r6vrMbB9A/mHdKMkKL0IvV9iEHlt8R9JOtuo0nUU0ga6Qo6X22W30/W+g0qdCP6Me9QLxS4qEpGQivXdjJkK4kATDKqtl0tWuJczr49zbHOchFdYwnQqHx/+jnCZYVHlAZpKcnqvyeOxN2OKobEDUZAPr0jiCOIAC6EXd2giuAfWRkN/7idL7rOQ/k8OYLQKD4CJKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=S2pImc4D8sTpFiweu+no+tpdSqPLHxJwNSYKQhfepgU=;
+ b=tkWcUBxXefGX8xVuNgsp5zK/OH/Pq2nSqdEcP1h2x7+f0DBuDm8f69A3aXD8Ii6Nf6TXglT6XrD7EE08JthNVqUPZFg3XPtT/P+PnWc2KH/KZUiYiVknxeFsvjf6WJjT6pV8AT0R/R1hct1Rd8dd+XKKG89PVJMJA9zhJuXNYDAntBramh2RqLpt5KJwZ29Wi0HW0d3yxD8ZsjNvuzBnGCiT+J6nOOXhhX1C1MSc86wQnVpPXEiYaP1WvWX+aZ129oXKn4WiwVzBJO4KfRPsX57CKsLP/vzT2XjXlwXwDXzGymN5XmsxPe+B7ozPtzxeYQZxruDowKMZyRo81d4NPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=siemens.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=S2pImc4D8sTpFiweu+no+tpdSqPLHxJwNSYKQhfepgU=;
+ b=m1l2ljv5rFf90oPITgMtGMJLh6d/u0MMi1mfPaJ3eRUfjQ3fvmOpE4mljLbQpiQQbzfibvYMP1rfMxS3WnMMx12SsK3W/kvlPx12QG7Vi6SYxRIs3jM8XJ3aI9p3MQdpbUboDAleVLgRpim8xEk/zzEDt1ovMAU2T2mtvfO+SX4=
+Received: from BN9PR03CA0249.namprd03.prod.outlook.com (2603:10b6:408:ff::14)
+ by IA3PR10MB8274.namprd10.prod.outlook.com (2603:10b6:208:570::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Thu, 11 Jun
+ 2026 18:57:50 +0000
+Received: from BN2PEPF000055DB.namprd21.prod.outlook.com
+ (2603:10b6:408:ff:cafe::58) by BN9PR03CA0249.outlook.office365.com
+ (2603:10b6:408:ff::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.11 via Frontend Transport; Thu,
+ 11 Jun 2026 18:57:50 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN2PEPF000055DB.mail.protection.outlook.com (10.167.245.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.1 via Frontend Transport; Thu, 11 Jun 2026 18:57:50 +0000
+Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 11 Jun
+ 2026 13:57:49 -0500
+Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 11 Jun
+ 2026 13:57:49 -0500
+Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 11 Jun 2026 13:57:49 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65BIvnNR652932;
+	Thu, 11 Jun 2026 13:57:49 -0500
+Received: from localhost (ti.dhcp.ti.com [172.24.231.93])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 65BIvmdx013169;
+	Thu, 11 Jun 2026 13:57:48 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: <diogo.ivo@siemens.com>, <haokexin@gmail.com>,
+	<vadim.fedorenko@linux.dev>, <devnexen@gmail.com>, <horms@kernel.org>,
+	<jacob.e.keller@intel.com>, <m-malladi@ti.com>, <sdf@fomichev.me>,
+	<john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
+	<ast@kernel.org>, <pabeni@redhat.com>, <kuba@kernel.org>,
+	<edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net 0/4] ICSSG XDP zero copy bug fixes
+Date: Fri, 12 Jun 2026 00:27:40 +0530
+Message-ID: <20260611185744.2498070-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-shikra_ethernet-v1-9-f0f4a1d19929@oss.qualcomm.com>
-References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
-In-Reply-To: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781203027; l=6213;
- i=mohd.anwar@oss.qualcomm.com; s=20250907; h=from:subject:message-id;
- bh=myQOn368a4bEJkBKFi/AB/zdqSpCAE0Tjjhf3d8zs78=;
- b=6L7bDPM92n1GA/dkSKoqtFmo6gyQYaMeE5heucZ91kgX9VpAsVQwHgdprUw4av+2T6FNB/nz9
- +AyD4snXWCBAXT+Z8d1k+pmY4pSmAWMuwqYKYRYboWPIa4RtjbLydzp
-X-Developer-Key: i=mohd.anwar@oss.qualcomm.com; a=ed25519;
- pk=7JNY72mz7r6hQstsamPYlUbLhQ5+W64pY4LgfSh9DJU=
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjExMDE4NSBTYWx0ZWRfX8ow4h6cRzZyB
- Gp1HvcLl448KcdECiIkrbdOg+/dBImlAsa1KwmlxUBJMUQ0vLbo3lDQTiQUUa0FxijEV2QHs83c
- /hRbwG1CcmOcI6t35J4BMM9Z7SxTSRU=
-X-Authority-Analysis: v=2.4 cv=atOCzyZV c=1 sm=1 tr=0 ts=6a2b0095 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=8zPImXEJHl8ypWhI0nAA:9 a=QEXdDO2ut3YA:10
- a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjExMDE4NSBTYWx0ZWRfXxxhCdyvO6rCe
- H5grT0rIA4UNlAU5FVmHshKorp2Rpbsj7HUCaauoQKyq086UVYAR00Y90m4KwglEeDUAPweqWbK
- Gojr/uP3mSAE37XIpQGIZEVmh6NyqPWkCDYyqLDBzpdZeH5ofSn9Vo8wLR7WfMv25lQE1dOxm4U
- FiFfW/mklUp83xPmQkdLK7K+TVxhql10abQjwMnAk5aJHx+h+KIck4OfwZoT4TtV+pIeGSiMT/t
- eX0t2usy4feOBL9xS1EI6gJO7/0YcMEwWRPS4/ELhZFjLYumbw4WUFmJFH9cPbeqZPQ/Vv115bF
- ugJb0k01n5QrmLyZ6oVPYmmVI9axJY0KPzfHv1voIlzwHt3W6OnYSE/eV3F8H3e24AW9gxotlC+
- +EmARSjU4ghfnAHhdOHTt67KQyyAIe0ZzCMEfdppX7wEFjW2BQ45VMB5jbWGz3eV2bTDast7637
- 735BBW/0kyQ54SrmrWw==
-X-Proofpoint-GUID: fE1kbySdRHW_KfmrP7Z3b_t22uHhyGFa
-X-Proofpoint-ORIG-GUID: fE1kbySdRHW_KfmrP7Z3b_t22uHhyGFa
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-11_04,2026-06-11_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 bulkscore=0 clxscore=1015 spamscore=0
- malwarescore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606040000
- definitions=main-2606110185
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000055DB:EE_|IA3PR10MB8274:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6fdc76e4-b203-4059-7dc6-08dec7eb55c6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|1800799024|7416014|376014|82310400026|921020|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: WSvrIKKzhH0BfOXTmNFvbpverDdQbQ75WUq2jaNkbg0Lr/guk6gTI0ifOlmEiRZ7QWGbBymwDbaagtSWg+Iz8kax0Gbh+HUylz33phhOTGg1apWqeHG7AE1KA8TU6OmlZplO5yQIViGjePiAT76y0qUbr+HMUwJ2DUzMq7cARg/xmSEVk59Mj5S+OZMP3ulwH9rZEUBaDkmIY5Dwn/PRYi904dJqjEczjJGT6xmXVwmKOr0AfUvzqW5OIrsdXHum5k9ql4n3l9UZ47aFzNimcNST9e/lJ7rbgKCQtYhOAnxHQnbGrQvKKrMpC5yLQ4x7UgHIIagX8irf3ZtJYtXakIVgasimYRZpp9L6tBeXPmQn7AQeUueOf+wDsEtmu9HUUQUtVfjWx1OkSpiH29e9pF6VxWDr1nKIuT7hJrHlMrmG8MLBvqYLTbK5ApvrYWRSuaV7o6C1if/63TLb9mSgFGD6vYlDdbP5OD6MhndIUidJ1jF8SKf6IzZI/42GN135/6yaKZjalJVvrTnJv/+AmMOyTkCH25tt/Sq580Ilrsik7/yr54wVNdLRVjBnYQ3ft0KMHlnHdn4Uj0P2SsIXDBKgQoHdSayLgI1bpXFHSnxDS4MQBaUZse8btQ+hSacfjsm5s2tolyBPvbPZgvchGrF9CjwSiYw3ZdsOn9LWU93z2aDhY9XE+5Et91zShN/OnWEV7zeGk+iNA4AnceM3Me4Z0qfkI31ZrHqweSM5d8RuF3zKAtLkdIEeCb2wI9oz9Ssvj0RtyPpe6B34s0flwg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(1800799024)(7416014)(376014)(82310400026)(921020)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: m7TkflagbNFePcQ/V/IelM9RuqpBxKd5SdmRbAvIGm/qV6LqbqOpbvW9XZ8+J36htVq4XT363KE8F9p3teiAnkb6OLADRdrHg+QFyZZHuvCGiZ2GdvnOLtPK9JA0GA/Iz5Nr0w2qxJV8PFU8y8J5AvTWWvRFjPCGHPqzK3w6a3gnxqIxLpupBoqqephK8d1sB8j4T6Pm7HK8YQUfPqcnkFxBweFDMLlzANDCsHYmfCS/34CyYdWbtOe4TUAVY+BhYvLPK5yCGJ0Z4XQOGOXxRZkC83G2EadncJf7srozn7gWNG4qXd0ujdjqQnvxW52qPXkLCAy51FhKDMWtOeOs7l+7uqj1E/fz9r6IojGS+RoyB6z3f8EwUrZc4UZ135+KtvlDjmxADewgDt8XJEGawPe5T+ANKF7DX6s+MPApx5FflIUZab+3EoTwY3rRYQ/T
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 18:57:50.2370
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6fdc76e4-b203-4059-7dc6-08dec7eb55c6
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DB.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8274
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_113814_678678_C0BD3954 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260611_115758_746438_FA3006F1 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,277 +138,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable both Gigabit Ethernet controllers.  Each port has a dedicated
-PHY with a gpio-hog to assert the power-enable GPIO at boot,
-pin-control for the RGMII and MDIO bus, and MTL queue configuration.
+This patch series fixes bugs introduced while adding xdp
+zero copy support in the icssg driver.
 
-Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts | 235 ++++++++++++++++++++++++++++
- 1 file changed, 235 insertions(+)
+Patch 1/4: Fix wakeup handling for Rx when available CPPI
+descriptor is zero
+Patch 2,3/4: Fix destination tag in CPPI descriptor to enable
+proper Tx xmit for HSR offload mode with XDP and zero copy
+Patch 4/4: Fix Tx copy wakeup handling for XDP zero copy
 
-diff --git a/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts b/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
-index fd691d53a0fa8179111b921bf3bacc08884b84fb..d69b63dbc8e44f1bcec064564236ea23673bfa1f 100644
---- a/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
-@@ -7,6 +7,7 @@
- 
- #include "shikra-iqs-som.dtsi"
- #include "shikra-evk.dtsi"
-+#include <dt-bindings/net/ti-dp83867.h>
- 
- / {
- 	model = "Qualcomm Technologies, Inc. Shikra IQS EVK";
-@@ -68,6 +69,178 @@ vreg_pmu_ch1: ldo4 {
- 	};
- };
- 
-+&ethernet0 {
-+	status = "okay";
-+	phy-handle = <&ethphy0>;
-+	phy-mode = "rgmii-id";
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&ethernet0_defaults>;
-+
-+	snps,mtl-rx-config = <&emac0_mtl_rx_setup>;
-+	snps,mtl-tx-config = <&emac0_mtl_tx_setup>;
-+
-+	mdio {
-+		compatible = "snps,dwmac-mdio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@7 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <7>;
-+			reset-gpios = <&tlmm 135 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <50000>;
-+			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+		};
-+	};
-+
-+	emac0_mtl_rx_setup: rx-queues-config {
-+		snps,rx-queues-to-use = <4>;
-+		snps,rx-sched-sp;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x0>;
-+			snps,route-up;
-+			snps,priority = <0x1>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x1>;
-+			snps,route-ptp;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x2>;
-+			snps,route-avcp;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x3>;
-+			snps,priority = <0xc>;
-+		};
-+	};
-+
-+	emac0_mtl_tx_setup: tx-queues-config {
-+		snps,tx-queues-to-use = <4>;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+	};
-+};
-+
-+&ethernet1 {
-+	status = "okay";
-+	phy-handle = <&ethphy1>;
-+	phy-mode = "rgmii-id";
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&ethernet1_defaults>;
-+
-+	snps,mtl-rx-config = <&emac1_mtl_rx_setup>;
-+	snps,mtl-tx-config = <&emac1_mtl_tx_setup>;
-+
-+	mdio {
-+		compatible = "snps,dwmac-mdio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy1: ethernet-phy@7 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <7>;
-+			reset-gpios = <&tlmm 151 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <50000>;
-+			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+		};
-+	};
-+
-+	emac1_mtl_rx_setup: rx-queues-config {
-+		snps,rx-queues-to-use = <4>;
-+		snps,rx-sched-sp;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x0>;
-+			snps,route-up;
-+			snps,priority = <0x1>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x1>;
-+			snps,route-ptp;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x2>;
-+			snps,route-avcp;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x3>;
-+			snps,priority = <0xc>;
-+		};
-+	};
-+
-+	emac1_mtl_tx_setup: tx-queues-config {
-+		snps,tx-queues-to-use = <4>;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+	};
-+};
-+
- &remoteproc_cdsp {
- 	firmware-name = "qcom/shikra/cdsp.mbn";
- 
-@@ -103,6 +276,68 @@ &sdhc_1 {
- 	status = "okay";
- };
- 
-+&tlmm {
-+	ethernet0_defaults: ethernet0-defaults-state {
-+		rgmii-rx-pins {
-+			pins = "gpio121", "gpio122", "gpio123",
-+			       "gpio124", "gpio125", "gpio126";
-+			function = "rgmii";
-+			bias-disable;
-+			drive-strength = <16>;
-+		};
-+		rgmii-tx-pins {
-+			pins = "gpio127", "gpio128", "gpio129",
-+			       "gpio130", "gpio131", "gpio132";
-+			function = "rgmii";
-+			bias-pull-up;
-+			drive-strength = <16>;
-+		};
-+		rgmii-mdio-pins {
-+			pins = "gpio133", "gpio134";
-+			function = "rgmii";
-+			bias-pull-up;
-+			drive-strength = <16>;
-+		};
-+	};
-+
-+	ethernet1_defaults: ethernet1-defaults-state {
-+		rgmii-rx-pins {
-+			pins = "gpio137", "gpio138", "gpio139",
-+			       "gpio140", "gpio141", "gpio142";
-+			function = "rgmii";
-+			bias-disable;
-+			drive-strength = <16>;
-+		};
-+		rgmii-tx-pins {
-+			pins = "gpio143", "gpio144", "gpio145",
-+			       "gpio146", "gpio147", "gpio148";
-+			function = "rgmii";
-+			bias-pull-up;
-+			drive-strength = <16>;
-+		};
-+		rgmii-mdio-pins {
-+			pins = "gpio149", "gpio150";
-+			function = "rgmii";
-+			bias-pull-up;
-+			drive-strength = <16>;
-+		};
-+	};
-+
-+	emac0_phy_en_hog: emac0-phy-en-hog {
-+		gpio-hog;
-+		gpios = <66 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "emac0-phy-en";
-+	};
-+
-+	emac1_phy_en_hog: emac1-phy-en-hog {
-+		gpio-hog;
-+		gpios = <53 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "emac1-phy-en";
-+	};
-+};
-+
- &uart8 {
- 	status = "okay";
- 
+Meghana Malladi (4):
+  net: ti: icssg-prueth: Fix AF_XDP fill ring alloc and wakeup condition
+  net: ti: icssg: Use undirected TX tag for native XDP in HSR offload
+    mode
+  net: ti: icssg: Use undirected TX tag for XDP zero copy in HSR offload
+    mode
+  net: ti: icssg: Fix XSK zero copy TX during application wakeup
 
+ drivers/net/ethernet/ti/icssg/icssg_common.c | 62 +++++++++++++-------
+ 1 file changed, 41 insertions(+), 21 deletions(-)
+
+
+base-commit: 29899ec61ac6fcc9d46f5f8d0b72117d9a676c2e
+prerequisite-patch-id: ad8d47ed85a33f742a58e9f48e060303908493ba
 -- 
-2.34.1
+2.43.0
 
 
