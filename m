@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA01CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8513CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pKDVwyUq0CfLwiBc7EZM23dtINCGheBjdXmyBg9xwrI=; b=iuwJVq23oZ2rTQ5NYuLqMrD5GB
-	JCjTPkvA9JFBN5LWWGTo6dkg2o7IR0xUndLu/bMlg7ZM+mjPdRCgy1nZcDxP8zKdJdLZQVQf+YmQF
-	FsFUIzbe5UESUjN/Tu1ama7ETmJsxwntGo97+6BRjoa10LU2Bu2ZSO72Ib01Gbg9WT+HaxoGCiyon
-	1QWX3wTpwvFSWEVhziBc6n/5olvvbpY8EyN1mnnecEnQrsJEAP5/5psYYjC2NUnlReCWDBJj/4+pX
-	nLx556VDC/3+aw9ukxM92VV5kvz1NCeRNAVkleXiPbn6bWpFjsQjED95DeqFT1u9xpCKIQATDMUBM
-	iLohPFjw==;
+	bh=ef0nR/F/3mauVtjPQKNzv0MDN5cCbO2Pdn8BUSaOyxI=; b=37/sDrqVw8OPmQLQsbMHYxvB9S
+	/v4yMyoJgBZAFRlUQBJG5ZRlMYdmXDPRNJRgN3+1Dk3S0FrV8B9AVMAsefxIIgTq4A6lzf8SsHTIt
+	7gmCQU41xsR250zVQ7lZh0PHI3OkvNiDUsQGP9xsl75tqeUX6LUn9tW/1cvgcKVdCdOBZtdzgsQNH
+	CtWcy7/+Xa1wtZYDyWgOzVTlwwB2iiz/WQ+jt4gsx9HFB1fTJE8Mxet4zxMf1AMK504cslwk+0++W
+	Q5BmfhuhbfIj7MS6Jm8Ohb9lGhRzpWB0vMAYiEYumcwRAxh2isaX+EGcY3KtPClSvJ53JBVpfh+y+
+	5tzPankg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXiJd-00000009lOh-2HXV;
-	Thu, 11 Jun 2026 16:31:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wXiPj-00000009m2M-1in4;
+	Thu, 11 Jun 2026 16:37:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXiJd-00000009lOL-0EQ9;
-	Thu, 11 Jun 2026 16:31:37 +0000
+	id 1wXiPi-00000009m2D-3fI2;
+	Thu, 11 Jun 2026 16:37:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6B5F435F9;
-	Thu, 11 Jun 2026 16:31:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A8C1F00893;
-	Thu, 11 Jun 2026 16:31:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F03240294;
+	Thu, 11 Jun 2026 16:37:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 070CD1F00893;
+	Thu, 11 Jun 2026 16:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781195496;
-	bh=pKDVwyUq0CfLwiBc7EZM23dtINCGheBjdXmyBg9xwrI=;
+	s=k20260515; t=1781195874;
+	bh=ef0nR/F/3mauVtjPQKNzv0MDN5cCbO2Pdn8BUSaOyxI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M0uumjh+p4nAPbpKbVRwo/kjRcGl6JijzEhlgl6Mwhp3IiRN66lcTt3GBOXTOrsVF
-	 hcRKTVsUGRL30UM52xA9Qg3vCHlG9esMsVmLx+gisSsnAPsjFXCvT36gwcEJNdNggp
-	 fDBzqELKVi/CZHRuNSkuC9hkspueepE7bg+zenJ49qg9Mp4ReazlAjSd9Ct/JykU1R
-	 RCeI8lJVoi0ipH6dhfPj+3Qxtd07P/mUo4vst/GqlPeoXdj67aH2Y4oC7P7te3g1D1
-	 GXHgVRZFkeamw7Glci8gEdJ6s7ifGatjWqb/dGKg02V/s64VfmCPA4rCVT0FNwIid0
-	 pI9gPR8JR+xLg==
-Date: Thu, 11 Jun 2026 11:31:35 -0500
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Lee Jones <lee@kernel.org>,
+	b=okaG9bdiR0+20Z2ZlUm2AZfM/nYhVULe6RDzWHnaRvEBHroTojrpfwlptOET66ZiA
+	 LHiZgcVYzwnzyRk7IENhOSxWu8MFc6lvQeqxwcqqq/VVgOEKSOzw5AEsBzgNt13C3X
+	 QyVc7Ru+IsBM7hgT1nA7hTZT19XrWi9VYnbH/vAFXguoHRl+Zd4s+yy3BwyPd4RnKb
+	 OTjF+LleVIyGNWhC+5Xg5iyP/YkPGPpr36JlFVI5NP0lfNw+UF9oAkTMj6+6LGcT1+
+	 ObsNTmr8+Q5r5sXFbOSMuj9eR5x8NImDfijzM6x7FzU8jmoqZHoGG7Xr7/NOKUXMTz
+	 jnHBSoHogBd3A==
+Date: Thu, 11 Jun 2026 17:37:48 +0100
+From: Lee Jones <lee@kernel.org>
+To: rva333@protonmail.com
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] dt-bindings: mfd: syscon: Drop custom select for
- older dtschema
-Message-ID: <20260611163135.GA2913196-robh@kernel.org>
-References: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
- <20260608-n-dt-bindings-simple-bus-syscon-v3-2-4eba9ec1212a@oss.qualcomm.com>
- <20260609-vertical-antarctic-e18a7ec91685@spud>
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH 3/4] mfd: mt6397-core: add mt6323 AUXADC support
+Message-ID: <20260611163748.GB1212816@google.com>
+References: <20260602-mt6323-adc-v1-0-68ec737508ee@protonmail.com>
+ <20260602-mt6323-adc-v1-3-68ec737508ee@protonmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260609-vertical-antarctic-e18a7ec91685@spud>
+In-Reply-To: <20260602-mt6323-adc-v1-3-68ec737508ee@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 05:28:21PM +0100, Conor Dooley wrote:
-> On Mon, Jun 08, 2026 at 10:44:25PM +0200, Krzysztof Kozlowski wrote:
-> > Older dtschema <2024.02 required custom select to avoid applying this
-> > binding to anything having "syscon" compatible.  That's not the case
-> > anymore and this additional select has two headaches:
-> > 
-> > 1. Duplicates all the compatibles listed in the schema.
-> > 
-> > 2. Is error-prone, because it requires contributor to add the compatible
-> >    in two places, otherwise the schema will be silently ignored.
-> >    The select list already misses mentioning compatibles:
-> >    mediatek,mt8365-infracfg-nao and renesas,r9a08g046-lvds-cmn (with the
-> >    latter being reverted for different reasons).
-> > 
-> > This requires bumping minimum dtschema requirement to v2024.04, which
-> > feels old enough to be a safe requirement.
+Interesting.  Has this been considered?
+
+/* Sashiko Automation: Issues Found (1 Findings) */
+
+On Tue, 02 Jun 2026, Roman Vivchar via B4 Relay wrote:
+
+> From: Roman Vivchar <rva333@protonmail.com>
 > 
-> I agree, seems reasonable enough given it's a jump from 2023.09 and not
-> some large jump.
-> The diff is nice too!
-> I assume Rob will be taking it, but just in case..
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> The mt6323 PMIC includes an AUXADC. Register the AUXADC in the mt6323
+> devices array to allow the corresponding driver to probe using compatible
+> string.
+> 
+> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  drivers/mfd/mt6397-core.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
+> index 3e58d0764c7e..013b0857fb54 100644
+> --- a/drivers/mfd/mt6397-core.c
+> +++ b/drivers/mfd/mt6397-core.c
+> @@ -125,6 +125,9 @@ static const struct resource mt6323_pwrc_resources[] = {
+>  
+>  static const struct mfd_cell mt6323_devs[] = {
+>  	{
+> +		.name = "mt6323-auxadc",
+> +		.of_compatible = "mediatek,mt6323-auxadc",
 
-I expect Lee to take this. I suspect syscon.yaml has other conflicting 
-changes.
+[Severity: High]
+Does adding this compatible string expose an unhandled edge case in the
+auxadc driver?
 
-Rob
+If this device is instantiated directly from a Device Tree without an MFD
+parent (e.g., at the DT root), dev->parent could be the platform bus
+(which has a NULL parent) or NULL itself.
+
+Looking at mt6323_auxadc_probe() in drivers/iio/adc/mt6323-auxadc.c:
+
+    regmap = dev_get_regmap(dev->parent->parent, NULL);
+
+Could blindly dereferencing dev->parent->parent here, or passing a NULL
+device to dev_get_regmap() (which calls devres_find()), result in a
+kernel oops if probed as a root node?
+
+
+> +	}, {
+>  		.name = "mt6323-rtc",
+>  		.num_resources = ARRAY_SIZE(mt6323_rtc_resources),
+>  		.resources = mt6323_rtc_resources,
+> 
+> -- 
+> 2.54.0
+> 
+> 
+
+-- 
+Lee Jones
 
