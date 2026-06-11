@@ -4,129 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D0DCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BA7CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5UTtwM5OuIc7Acz3fKbkPp75x2lDE2VtbXtcDcY8J4=; b=3GY5l4QnJKfrQVHFpvvvkRPN/A
-	xui5pQ8UKZod++jZ9+PxhAD5NSdGQFULD3abuJqk2uwhUGWDplcc1b/jLAvmVYreg/HCSLK0Asbsy
-	b+xVBRSt1haNHqM66pksAjMcYvmwn58XRUMFGXx+698sdlnlLn3OEdoPBzFcMevOHMOQ6+TOxpxj/
-	9MaJoOQLccR8eyu9UxFZvNjLsEe46TQcyHQjLnzsH98eH+kn0lXNMSAi1Tf3q8Nx8+Yjtus9IghOz
-	4VqxJjxQLQVAQnQOyJVRKiBN0t899WPogP4vSQ4zuxm3xJm5jTIAVspd7aI3aRudCogpTG8KxdkG/
-	xtjvCsCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zd41XiatIhmkg77GVQHRQLalQhR4rQLqWbEQKAVQlyk=; b=g0fGHPQKU3rRL94SNQBeR6q0M7
+	OJItClIrC4o+SyNlEaIJDBikROT7wwS3jdWWd6J4w4SQtfv0Q4yACMqD+wQ3wCQR8ZFsAGR7hFMVc
+	lor4vgTldSypBqni8U2Y/Or7hpnSdnkdtfnYTHC/kRMinFwiQXTxz1htp7bYBRPd3QASM5kwDcPEp
+	WIthQeCodSsRK9KM4I7ruxs/6bDjddmyxzmFSl0si4cW0K/ldrVTLTJPR3lh47EdpzTmcVwuo1dK1
+	6C2NGZpT+70Ha6caoHtsz9WgIgq4byDJaPzNmSKkV/iUqg4CpbJjgaASq5DTa7g9Vfk5L54ESMkez
+	VP6T4dTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXm8t-0000000A3a4-1vUX;
-	Thu, 11 Jun 2026 20:36:47 +0000
-Received: from mail-norwayeastazon11013037.outbound.protection.outlook.com ([40.107.159.37] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wXlcA-00000009zIT-219Z;
+	Thu, 11 Jun 2026 20:02:58 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXm8q-0000000A3ZC-2kXt
+	id 1wXlc7-00000009zHe-2pzF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 20:36:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TP3hk0s5N7PleKi5blDHE+mzQ7u/VO8XPZGCpuN072BTv5x9OAeIeHdw93Ca8edfkQ+8560Dhv3r/PMLqaVjyvgOcVvn4ZK8Mv5enOnppFvbMOSrTE/SYccX9PGQfol+TfSbEGatlMmMLxlGiC0k4r4AN6Rd0IuYUxF73GJqlrR/Javp8v9vFvkbaisaxcvuuCfJQxcbJ0Z3IBuOsIrkFMBDAWKPSoHihm/I8BgCI6ov5sxN+cLmuh02ezBQJCEjBoyl7DbFK0RrsKpaqzNGVV37Zlzow5NU+UyfVql685GrlquUFuwJYIM96TlIFcEu4xvZuwsEqFDQCz76pMCQ7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/5UTtwM5OuIc7Acz3fKbkPp75x2lDE2VtbXtcDcY8J4=;
- b=BgjyFP7LZE6+fPhquMIRoXaPhTXn0gLkiehwbwWO59JfzZqz1UPcITp/u3Bq4GqRa+Ts0lM1r0F2hvnZjlFCxE4+vtF2kFvO2Z04FxUsTHbF11B6rShAy2/nRA4hPt1tA4bL0qXNVzM7C5trBTHz+RfZR0wklQkw6D6Vy5WrJAE/ce0/kRkjaz1Ryq10tkRtSyngOKQKKINv3MZoTY3RxRfLrJiIjZtLaXoYJ4oY2RNhppMO/amr+zU1oWUiK+8fL03oeEOoJFvfmHY57Wc/eYy3RkcdLkn8kdyoT83GC9YS63v6o251t2LZKEB/FFGx9c9yuq/selvf02xcZFo8IQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/5UTtwM5OuIc7Acz3fKbkPp75x2lDE2VtbXtcDcY8J4=;
- b=ji5pRgwz/ucW9ZDann5RkPn9dVreWWQaLGnqgA8sXnrgKMVJr1RECLp+RpKpt0D2xyanZhvtPJ4K3GBXiWcBlw7p8OlFy0UQJ3sRzldeMWc3RZGOruPr8/okESQTPgHI220tXgLf6u0YoTwpljc3zfys5qwoLqHQLq4VtQunP8ZZMmgaYvqeqySAA2zhaHT6BhFZpHcOdaSIHqLdGIVdb0gWXUawfdrYOejB4goiM9/psZ6xkvfF3dmU7ky8Z3TkLkQF+hMSlmnLsfbNHu7fHTQm7vS9shKKrfI4DJHZatyEVP8sehYhpRyuQIvWwXdEuff58zs0Ut3ND5AyL/gKVQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB9PR04MB8463.eurprd04.prod.outlook.com (2603:10a6:10:2c0::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Thu, 11 Jun
- 2026 20:36:40 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
- 20:36:39 +0000
-Date: Thu, 11 Jun 2026 16:36:30 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Aksh Garg <a-garg7@ti.com>
-Cc: linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, mani@kernel.org,
-	kwilczynski@kernel.org, bhelgaas@google.com, corbet@lwn.net,
-	kishon@kernel.org, skhan@linuxfoundation.org, lukas@wunner.de,
-	cassel@kernel.org, alistair@alistair23.me,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	s-vadapalli@ti.com, danishanwar@ti.com, srk@ti.com
-Subject: Re: [PATCH v5 1/4] PCI/DOE: Move common definitions to the header
- file
-Message-ID: <aiscTnplWtucrFfJ@lizhi-Precision-Tower-5810>
-References: <20260610100256.1889111-1-a-garg7@ti.com>
- <20260610100256.1889111-2-a-garg7@ti.com>
+	Thu, 11 Jun 2026 20:02:57 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-69e8aa31e9fso138111eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 13:02:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781208174; x=1781812974; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Zd41XiatIhmkg77GVQHRQLalQhR4rQLqWbEQKAVQlyk=;
+        b=FFvCDmk2kIpoKOObsrcMRhXiU9zX+iW1u9bX5AbZavFFl00e/GkPhfWneb2/54vyuI
+         +oJagIlRFXfVYd3WGbGYGdFhL8IwqkIGuLJFFuRyUileN+DHd4jZkpkkWGv7ao4fiUbF
+         knvOMY/BGXhCmdbJpc3+lwX6k1AI0upmC6bNMcn36ARrcUzauvkD5+sFCNvEgFLZ0aG0
+         JfsWt8OBiI4RkJMByDE2zBWgjZHfM9rc64T/WRwhNUcopIFLkxUkdGFDq57JwL4mpvZQ
+         MzzEylDO5cT5+ZObqjtVTMfcY/sqeAmYtI9+LSuFXBSCqq0q0EXqa6EF+UXeSLTDFa1A
+         4boA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781208174; x=1781812974;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Zd41XiatIhmkg77GVQHRQLalQhR4rQLqWbEQKAVQlyk=;
+        b=l3uyvVJS8cuOwmcj922vLEFtj5a5tV6FdHIWvAuIDqdlbTVOwAIvc0tmSv4w2Hrzto
+         11JalEB3Yp+2jhn7Kss7JnChpZHpTXyHg/oK+tNRwQ4ZP0fvAxONOpKqWJUs6uakLLxi
+         ymPqqxW7pXVFF2tO34YziulhcCA4icMOTR210MF9iaeSK3wA5nX8OGH8/M/AmAMh5v54
+         khn4cjYqQhrsK7R6L7MLZ3FHoAGyoLv8herXAGmNZac8Zis61P4NMY86/jiLKLTIniiF
+         N61CAkIZ9EOQf/bL3gq7yrLgbF9f639lInJNT1vIIihzm5ZDAGMbjT2NsFCX49qAbVgs
+         JchA==
+X-Forwarded-Encrypted: i=1; AFNElJ+yRvHgp0OJJO4kFepJZLMz6jrSzgV6fwp8uu0OFCXV++FSOepCAoOpu8Vihx0ai8NNt891xZgaGx1RzatuDr20@lists.infradead.org
+X-Gm-Message-State: AOJu0Yykx8epbvyJe00eHQdztjKYVO8XADvC3mY7OF1ooHYfclcOEEO7
+	Vj3+oBQwZvwRIJIvk0TnSrAFLTUZ2bMXnzZJT5Tb2OUs2ESiblGEQ0Z1
+X-Gm-Gg: Acq92OFXZoiQP45Z9UTdcqra9BvDHniyh21L+FYJ/7/Za0UlKOSORqLL3raPsLG7F6J
+	NGzNO43Niea2QLqt01Wxiyp3ku+XnkpzubA8sDXBBxlxrEW6OuEkHmIrSecEEdic3/KK27WVjR4
+	tuirSZfJS1HbZm25nKUYlrWYqNDGvzSoYc6C2jl5u1I71uJZDlHWQnzjYqgbiyMipT+Sl/nQwdc
+	IxTGk3+NF8JV7IKkU9vCuAfBU2Y8klCLCBT9VMdGitRmwYpA5iSe5xoeMDFF1oz4dyIPqVdRLzw
+	PBVulwjvUpOYg8XaTr8d4W93FUTUsTRwluR1CNj+Ffk63U4MD6220uk+Umsr6Hbue1fYnbj62cx
+	4YbrJbcB9m7scvXO7huhYK3eqtDc2hXajZSCLo04K23DPJELToFrCWunkRlLlqlb06S/qa5xKDH
+	e8LGTyTS9f
+X-Received: by 2002:a05:6820:4b96:b0:69d:e5f6:cef5 with SMTP id 006d021491bc7-69ecb060dcemr2957697eaf.55.1781208173971;
+        Thu, 11 Jun 2026 13:02:53 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:f09::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8d30105fd9csm3244376d6.10.2026.06.11.13.02.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Jun 2026 13:02:53 -0700 (PDT)
+Date: Thu, 11 Jun 2026 17:02:42 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geraldo Nascimento <geraldogabriel@gmail.com>
+Subject: [PATCH v6 0/3] PCI: rockchip: 5.0 GT/s speed discouraged by Rockchip
+Message-ID: <cover.1781207474.git.geraldogabriel@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260610100256.1889111-2-a-garg7@ti.com>
-X-ClientProxiedBy: PH8P221CA0030.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:2d8::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB8463:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3a201b7-991d-4f00-ba6c-08dec7f923a5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|23010399003|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: KujxZY7Io+5juasi6PXc15yL0uBBMhIhQq0u84aapeglF2y1qzRVTLoixDBx8OsIb6vbZNByAQXADlxJojVfb6UBVyQuMLRxZUiDPf7ta0zBXEwlkrJiyM0ctmGLKXL3rzVJ44Rzm1HqTPtOoac2RbUCGm8naKEzKztyxryFG8RypCjkqa2z9o0jcPQPb9KYA3k/Gh3tnIhwWkuNGmIyGuUmuz1/4vvevkoDhnIwWgoHZBx72rhr7+tOZ5UPHo/phFg5k8Qj6MqMrrQJ1LPCd9ta9TR7i52KTSL7ULlHrIY+MR7kBOLlMon/oOz0V1moXi3oWEBNGletg/Ry/oL07Xvzxt/1HremMyOZlmnxPUV8hfhq6ucbUJJW+uYExTXb1kr9xUGvuQM1mPY0OayFPqPpIMmvXTyu5rnbW6TjLa38Att3kVVht3p2sRa+tEtvpfjxZA6RBneVzZzA3c/y5a//KpoiXWeN+6QwaX9pXg2UevS1n9ppQHBBn7vE6MuDJpybTjjpfPTvSCaAW+bKfzQDjgKlWEy8tUL0VZsKlstSwcpQJIxBh1VK8YCsyXCJXsiqvo9zJuiWb92gSWYHBrksNgQ3OGP2JW+R+KM/f81ZdN+oB+ehq6Nqe1cWjcab0wP6TLmKlcmAY37mmHrItjGcQUx9KizbrWAB0uHqQ1JFB2mQiISgae2QU+eP2rIUn6dc3MjvGynyW+J4RHAmKw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dZ3JFFTncjc5fJnEe2ZjD584obUxj2mdm2JxbqNcnbfc+1uadK6/7wtX0L2W?=
- =?us-ascii?Q?QmZv40spLSDNF2rs8I1I6O2QDGkqCN2aTY/YP5pS8LQQCXKRytDeVNB5ja9+?=
- =?us-ascii?Q?GmHpQjweeQXzw2l6flii02ODr6EPwe02g5wfUo/GQujKF7oZtrHxznfow6sN?=
- =?us-ascii?Q?f8dXTpOClXj7WsBRS4/LZCPXT7mHewNN02GD8IZkw1Gfo5w3eJDoxf2osfAs?=
- =?us-ascii?Q?kUYjFsnIz769CCKEXYXfCSvLJiRFsNGgnYLyXaWHznyqYuP8eOCJYAg3wXwT?=
- =?us-ascii?Q?Ux1WdCIq2v/5VbUQ3hLQ08FTVLOREQluY9SmYZVic6+H76eldtoDzlFnMKR+?=
- =?us-ascii?Q?mEtNm7508k6euxr2FVkAbi021SrQwqRvHoh+Dd5tyL0evlD3k4K2f30a7ZT/?=
- =?us-ascii?Q?mdw52OJvs68Qbnb+lX6VyVWgplkf7KcHGLrOFVU7CbcF/PkD9iwr3cIkJ6Ui?=
- =?us-ascii?Q?PgZLJTK2S9S1ORHZIDS3F7IbEs2ZQ4yLgVmKkCpUVDuzyYTAm75gsdITgx0l?=
- =?us-ascii?Q?AxOqw7E2tYg7AgvVxLnR2prid/wEVJZ7IELyB/vUyuom0TGIozMGqH6IhpdS?=
- =?us-ascii?Q?5Q3lA0Y6CT0k+DY4ILOzffUzfrXUEhKR5A0lqh6MYkN3JVisQcoPH6sgWEK/?=
- =?us-ascii?Q?9MoDCZkg7HQEB4CPjiHojHrZOVXNiO8zsmqvjwQpWnfFTmTibO1b1Prn7qOe?=
- =?us-ascii?Q?3Wz52aos91uM6Yr5pQQKHftlcF4wzXgA8tN8uK2jtHRtuKNA22G6N4ditUuv?=
- =?us-ascii?Q?oo9lqZvk80ED4HZuDt8n+Jt2vf4gj4RzTL0IWoLv2uw90jT3+3BWc+t+NQNS?=
- =?us-ascii?Q?qFv1Ow8o+K/pBzq8NvUqTcm6UHdBQKqVk3TB2rxHIDbvjYsKizxpXb+48yM2?=
- =?us-ascii?Q?QCFsO8V66hHztcFEKbYFtOi7HN+DTB9RS/kI6CRSw7SH4syEMR4UXhg01FXi?=
- =?us-ascii?Q?TS9qa+nKHOkHwzisVeRfCSU9hO2Pd/RQ0JphVVt07HpQKIwHQCEZE4KL4PeJ?=
- =?us-ascii?Q?phz25iUDod4/uHfbGsqtzeS+k3RFQki6Vu+x0tIJe00vY7a839JLMK/e0iV3?=
- =?us-ascii?Q?ScNMHIgzsFv3TNiCTOwEyW3P1SMdz/3sZnxuVYrXJKTrfFdVPQLmfc1v4qow?=
- =?us-ascii?Q?TBoKs+kE6z/Mmly3MxD8z9CrR8LOhFMGh+XPD+YFQ2CGz7TJoA0Yo6QXUI/a?=
- =?us-ascii?Q?OwGnyREh6gbDcaQugNIO0L65uNkdtS5uwHsYgtdzmPJSGSWsGCZg5sgvbmBY?=
- =?us-ascii?Q?frcG2sSN0WdPC7z28y/Hh9Xd0HsAgqc6JcTgq/S10pTL+kU7to5SFQbZ+pDg?=
- =?us-ascii?Q?FlACyY5zE7fP0BtCCaNHAsg8SWZxPOkks1KvEmd1BL0tDOdesjQKy0q1xvHm?=
- =?us-ascii?Q?wKNhZLqAOKMmDyGdwx9qGHvuteb/LOE1RURrG2vkwzDztkxHfaD+9bsK9dse?=
- =?us-ascii?Q?B5AOUjhZaWEwsa07GY+BTVFMn6re4YMA+W/shuveiMiJW0yGxqoSlV87RgN2?=
- =?us-ascii?Q?OXi/QYTVZTPRzybKXluzh6YtjObYYgCcygKIzKYkuSLHuNdS0ZgBa647Jzqf?=
- =?us-ascii?Q?habFN3XOjSL6wioFi+8gtLC0raioukE0rNLvgyU7VAxugLiyu1/EvvVKoLpT?=
- =?us-ascii?Q?fjDdgEGtWLWMp8UHvN1qmpaFkg5kmuKSTAPd8uIfI0+MAiHWuYxMbVi9zN0x?=
- =?us-ascii?Q?c9wlMgPkcnAEBQESuzuUq816sMNdGDxo4ImWqU9Q54+ZpxIrqe2ayWYA/Kno?=
- =?us-ascii?Q?qctOj3O8QTGNYXgxxgXZgTWuwy1LVMDI0Plg481Cy6dcgUoJane9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3a201b7-991d-4f00-ba6c-08dec7f923a5
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 20:36:39.5369
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Cgz7vSQZtEqMtmNdIPYLpdqR12OHGN7qLgZBS7rxOcpS1yc62O6oIl2cBSQXHmYoitPjWIf30HLmZX8uhkZQWIdDk3FbfNZE+iZZ5ZjUyLZx5n1puletGFTamU8LmwWY
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8463
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_133644_701166_0B016C91 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20260611_130255_711765_C991A6C0 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,115 +101,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 03:32:53PM +0530, Aksh Garg wrote:
-> Move common macros and structures from drivers/pci/doe.c to
-> drivers/pci/pci.h to allow reuse across root complex and
-> endpoint DOE implementations.
->
-> PCI_DOE_MAX_LENGTH macro can be used outside the PCI core as well,
-> hence move the macro to include/linux/pci-doe.h.
->
-> These changes prepare the groundwork for the DOE endpoint implementation
-> that will reuse these common definitions.
->
-> Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Aksh Garg <a-garg7@ti.com>
-> ---
+Dragan Simic already had warned me of potential issues with 5.0 GT/s
+speed operation in Rockchip PCIe. However, in recent interactions
+with Shawn Lin from Rockchip it came to my attention there's grave
+danger in the unknown errata regarding 5.0 GT/s operational speed
+of their PCIe core, including data loss.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Drop all code related to 5.0 GT/s operational speed from this driver.
 
->
-> Changes from v4 to v5:
-> - None.
->
-> Changes from v3 to v4:
-> - None.
->
-> Changes from v2 to v3:
-> - Rebased on 7.1-rc1.
->
-> Changes since v1:
-> - Moved the common macros that need not be visible outside the PCI core
->   to drivers/pci/pci.h instead to include/linux/pci-doe.h as suggested
->   by Lukas Wunner
-> - Removed the redundant empty inlines guarded with CONFIG_PCI_DOE in
->   include/linux/pci-doe.h.
->
-> v4: https://lore.kernel.org/all/20260522052434.802034-2-a-garg7@ti.com/
-> v3: https://lore.kernel.org/all/20260427051725.223704-2-a-garg7@ti.com/
-> v2: https://lore.kernel.org/all/20260401073022.215805-2-a-garg7@ti.com/
-> v1: https://lore.kernel.org/all/20260213123603.420941-3-a-garg7@ti.com/
->
->  drivers/pci/doe.c       | 11 -----------
->  drivers/pci/pci.h       |  9 +++++++++
->  include/linux/pci-doe.h |  3 +++
->  3 files changed, 12 insertions(+), 11 deletions(-)
->
-> diff --git a/drivers/pci/doe.c b/drivers/pci/doe.c
-> index 7b41da4ec11a..e8d9e95644b3 100644
-> --- a/drivers/pci/doe.c
-> +++ b/drivers/pci/doe.c
-> @@ -28,12 +28,6 @@
->  #define PCI_DOE_TIMEOUT HZ
->  #define PCI_DOE_POLL_INTERVAL	(PCI_DOE_TIMEOUT / 128)
->
-> -#define PCI_DOE_FLAG_CANCEL	0
-> -#define PCI_DOE_FLAG_DEAD	1
-> -
-> -/* Max data object length is 2^18 dwords */
-> -#define PCI_DOE_MAX_LENGTH	(1 << 18)
-> -
->  /**
->   * struct pci_doe_mb - State for a single DOE mailbox
->   *
-> @@ -63,11 +57,6 @@ struct pci_doe_mb {
->  #endif
->  };
->
-> -struct pci_doe_feature {
-> -	u16 vid;
-> -	u8 type;
-> -};
-> -
->  /**
->   * struct pci_doe_task - represents a single query/response
->   *
-> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> index 4a14f88e543a..5844deee2b5f 100644
-> --- a/drivers/pci/pci.h
-> +++ b/drivers/pci/pci.h
-> @@ -683,6 +683,15 @@ struct pci_sriov {
->  	bool		drivers_autoprobe; /* Auto probing of VFs by driver */
->  };
->
-> +/* DOE Mailbox state flags */
-> +#define PCI_DOE_FLAG_CANCEL	0
-> +#define PCI_DOE_FLAG_DEAD	1
-> +
-> +struct pci_doe_feature {
-> +	u16 vid;
-> +	u8 type;
-> +};
-> +
->  #ifdef CONFIG_PCI_DOE
->  void pci_doe_init(struct pci_dev *pdev);
->  void pci_doe_destroy(struct pci_dev *pdev);
-> diff --git a/include/linux/pci-doe.h b/include/linux/pci-doe.h
-> index bd4346a7c4e7..abb9b7ae8029 100644
-> --- a/include/linux/pci-doe.h
-> +++ b/include/linux/pci-doe.h
-> @@ -19,6 +19,9 @@ struct pci_doe_mb;
->  #define PCI_DOE_FEATURE_CMA 1
->  #define PCI_DOE_FEATURE_SSESSION 2
->
-> +/* Max data object length is 2^18 dwords */
-> +#define PCI_DOE_MAX_LENGTH		(1 << 18)
-> +
->  struct pci_doe_mb *pci_find_doe_mailbox(struct pci_dev *pdev, u16 vendor,
->  					u8 type);
->
-> --
-> 2.34.1
->
+Endpoint Mode driver was not tested.
+
+---
+Changes in v6:
+- Squashed patches 3 & 4 together as suggested by Mani
+- More formal warning message as suggested by Dragan
+- Set the 2.5 GT/s bit regardless of if link-speed is set to 2
+- Link to v5: https://lore.kernel.org/all/cover.1772239598.git.geraldogabriel@gmail.com/T/
+
+Changes in v5:
+- Changed commit order to not break builds and adjusted copy pasted
+  commit message. (thanks Charalampos!)
+- Reintroduced behavior to force 2.5 GT/s in case there's something
+  non-default in the DT. (thanks Dragan!)
+- Link to v4: https://lore.kernel.org/linux-rockchip/cover.1772169998.git.geraldogabriel@gmail.com/T/
+
+Changes in v4:
+- Incorporate suggestion by Bjorn and refined by Dragan to drop the
+  "catastrophic" code
+- Link to v3: https://lore.kernel.org/linux-rockchip/cover.1772057799.git.geraldogabriel@gmail.com/T/
+
+Changes in v3:
+- Clarify warning message even though Rockchip won't disclose details
+- Drop DT changes as they were applied as subset by Heiko
+- Link to v2: https://lore.kernel.org/all/cover.1763415705.git.geraldogabriel@gmail.com/T/
+
+Changes in v2:
+- hard limit to 2.5 GT/s, not just warn
+- add Reported-by: and Reviewed-by: Dragan Simic
+- remove redundant declaration of max-link-speed from helios64 dts
+- fix Link: of helios64 patch
+- simplify RC mode comment
+- Link to v1: https://lore.kernel.org/all/aRhR79u5BPtRRFw3@geday/T/
+
+---
+
+Geraldo Nascimento (3):
+  PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
+  PCI: rockchip-host: do not attempt 5.0 GT/s retraining
+  PCI: rockchip: drive at 2.5 GT/s, error other speeds
+
+ drivers/pci/controller/pcie-rockchip-ep.c   | 13 -------------
+ drivers/pci/controller/pcie-rockchip-host.c | 20 --------------------
+ drivers/pci/controller/pcie-rockchip.c      | 16 +++++++++-------
+ drivers/pci/controller/pcie-rockchip.h      |  3 ---
+ 4 files changed, 9 insertions(+), 43 deletions(-)
+
+-- 
+2.54.0
+
 
