@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247D6CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 04:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9DE3CD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 04:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fs2D/dmY6qG5eFk5keXxNf0HlHzBHntwLDPmYvPj8xA=; b=hNO7e+U8zg0elFGiJGKvh6KhOc
-	9hzMUMCW/mLDnOCNvIi5E5Eo/E1Omvawsst75sXTXHWtIKozOxZHUklmmnuJ02O7i+RSiJSUJbzKZ
-	r7kAtok5diASctQFxnL8R4c91s3ac0l+KWBy5Osgl62tqHsr7cfFxHE9jWJ6GZW5KZ57i7OmLh+kQ
-	czghAXIZRSPOkpUV+Cso/HLyRVsSej/k/Cxa8F0TEih/vhtuC1hVydMQFz3IAZtf9UjuXkNecvYlT
-	3Bzr9AUUnY1r6JnBegumXrmBsVfYaJBQl1dt3XQtWsZ9iP4njYjBZ0H8Fp2Aii7YZv4NtOEk1DU7D
-	1XwoQRtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4mhnWDDxjM/RESZCI3jx40tanGqS+UOFdvF02IHkq1I=; b=iOggeCrV7Qi4QAsdv1WFJsFdVM
+	UqUS3OdnCw1NwII7cYX5d6NpeS7hhrHgvEQsBAFZx+5Jkf1WDTHlyOVl2BAsDmt7Giz1ZJtn7s+X1
+	hyPpDkegVvfMOLLQK+TVmPfjMJym6X2+ZIE27yovNDpIgJM1oIW5icAExm+dFRxJcYu7GI6aWZ1jM
+	OXMnvuikoSq1M+5EMBJFuReFdf1mG8w69eLKSxAUgLMk7N8Io35bNxgkQbDmMYSGVtjNAi6e3H+LG
+	bpvqBVATClS3ywb7awRwxiiFYuYSCW+XGRbzRRMEfj0nGEX4r7SKFkoX63yY9RvSM9h2/9T1FfA1R
+	m95gAhjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWgk-00000008eoY-392f;
-	Thu, 11 Jun 2026 04:06:43 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wXWgs-00000008epo-2F5p;
+	Thu, 11 Jun 2026 04:06:50 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWgi-00000008eoC-12TM
+	id 1wXWgp-00000008eo9-1tAY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 04:06:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1781150794;
-	bh=fs2D/dmY6qG5eFk5keXxNf0HlHzBHntwLDPmYvPj8xA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=h5T9HOKS7M9O1foYkec/z47r6o6cIhERYKZtRFocOM6fumMx01P4miGrprmiV2Qb/
-	 xhYspqxpGkBpqRCPopb7HhMu4MoxDRO4y3TArJgafrGawwxg+r+LvQPhzS1uoiWgUo
-	 sixF/Ww0INydYwfA+rSm828vbrRIhZHOiBhU3GPI0wjQOfQPOTCdXIvjtKUYB4E5Eb
-	 JhwiYxvKlrOSHe3FohbDfZxBVPbnO7Hg6aLR1FA2IeWqPVFWRZYSej4ODOlKQvnw2e
-	 MW8fX+uej6ProOA7Lpn1bTkRQ5oLrU/patSOT7Mz340qjQpfLF8TOn3uHsorLbKMUJ
-	 MkuYWc7diWwZA==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id CB59160A0C;
-	Thu, 11 Jun 2026 12:06:32 +0800 (AWST)
-Message-ID: <5543c67f4eb6a206e524c6a590e13bbb1756b0df.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 0/9] ARM: dts: aspeed: anacapa: restructure
- devicetree for development-phase
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: u8813345@gmail.com, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	colin.huang2@amd.com, Carl Lee <carl.lee@amd.com>, Rex Fu
- <rex.fu.amd@gmail.com>,  Andy Chung <Andy.Chung@amd.com>, Peter Shen
- <peter.shen@amd.com>
-Date: Thu, 11 Jun 2026 13:36:32 +0930
-In-Reply-To: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
-References: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 11 Jun 2026 04:06:49 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gbTb46rZQzKHMZD
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:05:52 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 1F0AB4058C
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:06:31 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP2 (Coremail) with SMTP id Syh0CgBn3oNFNCpqRKCDBQ--.52639S2;
+	Thu, 11 Jun 2026 12:06:30 +0800 (CST)
+Message-ID: <1bc99f2d-3d79-4680-ba67-bafc6ebf0a48@huaweicloud.com>
+Date: Thu, 11 Jun 2026 12:06:29 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: ftrace: prepare ftrace_modify_call() for use
+ without CALL_OPS
+Content-Language: en-US
+To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
+ bpf@vger.kernel.org, Florent Revest <revest@chromium.org>,
+ Puranjay Mohan <puranjay@kernel.org>
+References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+ <20260609-arm64-ftrace-direct-calls-v1-1-4a46f266697f@linux.dev>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <20260609-arm64-ftrace-direct-calls-v1-1-4a46f266697f@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: Syh0CgBn3oNFNCpqRKCDBQ--.52639S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF18Cw4ftFWUKF1UZFy8uFg_yoW8Zw4Upr
+	WSk3Z8KrWUuF4vkayIg3W3WrWqkw40yry3KFWDW34Y9rn0vrWrKrsxC3ZrGrWDK3s7WFW7
+	ZF1xZry5AF1DZa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	s2-5UUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_210640_503555_69E18672 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260610_210647_876392_FD026260 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,136 +95,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colin,
-
-On Tue, 2026-06-02 at 21:24 +0800, Colin Huang via B4 Relay wrote:
-
-
-...
-
->=20
-> Colin Huang (5):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: anacapa: add EVT1 device=
-tree and point wrapper to it
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: anacapa: add EVT2 device=
-tree inheriting EVT1
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: anacapa: add DVT devicet=
-ree inheriting EVT2
-
-So my concern with these three are that none of the EVT1, EVT2 or DVT
-devicetrees correspond with the current Anacapa devicetree. All of them
-have variations on the configured GPIOs. Some GPIO lines are renamed
-while others are added.
-
-Adding them is (eventually) fine, but I'd rather not do that while
-we're shuffling the devicetree sources around.
-
-Renaming them to accommodate changes in the one devicetree is what
-we're trying to escape here, so having renames hide in the rest of the
-shuffling is definitely problematic.
-
-For example:
-
-   -""                    =20
-   +"L_FNIC_FLT"     =20
-    "FM_CPU0_SYS_RESET_N"
-   -""                                                                     =
-                                                                           =
-           =20
-   +"L_BNIC0_FLT"
-    "CPU0_KBRST_N"
-   -""
-   +"L_BNIC1_FLT"
-    "FM_CPU0_PROCHOT_trigger_N"
-   -""
-   +"L_BNIC2_FLT"
-    "FM_CLR_CMOS_R_P0"
-   -""
-   +"L_BNIC3_FLT"
-    "Force_I3C_SEL"
-   -""
-   +"L_RTM_SW_FLT"
-    "SYSTEM_Force_Run_AC_Cycle"
-    ""
-    ""
-   @@ -20,55 +20,57 @@
-    "FM_SCM_JTAG_MUX_SEL"
-    "Channel2_leakage_Manifold1"
-    "FM_BRIDGE_JTAG_MUX_SEL"
-   -"Channel3_leakage"
-   +"Channel5_leakage_present_EAM1"
-
-I've pasted a script below that helps compare the various dts files.
-You can use it to generate the reference from the current aspeed-bmc-
-facebook-anacapa.dts, then generate the comparison files from the newly
-introduced dts files.
-
-To reiterate, I expect the shuffling of the dts files to result in at
-least one of the variants producing the same devicetree as the current
-aspeed-bmc-facebook-anacapa.dts.
-
-Andrew
-
-   #!/usr/bin/bash
-  =20
-   set -x
-  =20
-   : ${ANACAPA_VARIANT:=3D""}
-   : ${ANACAPA_REFERENCE:=3D"arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-=
-anacapa.dtb.rt.dts.tmp"}
-  =20
-   if [ -z "$ANACAPA_REFERENCE" ] || ! [ -e "$ANACAPA_REFERENCE" ]
-   then
-     gcc -E -Wp,-MMD,arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa.=
-dtb.d.pre.tmp -nostdinc -I ../scripts/dtc/include-prefixes -undef -D__DTS__=
- -x assembler-with-cpp -o arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-ana=
-capa.dtb.dts.tmp ../arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dt=
-s ; ./scripts/dtc/dtc -o arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anaca=
-pa.dtb -b 0 -i../arch/arm/boot/dts/aspeed/ -i../scripts/dtc/include-prefixe=
-s -Wno-unique_unit_address -Wno-unit_address_vs_reg -Wno-avoid_unnecessary_=
-addr_size -Wno-alias_paths -Wno-interrupt_map -Wno-simple_bus_reg   -d arch=
-/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa.dtb.d.dtc.tmp arch/arm/bo=
-ot/dts/aspeed/.aspeed-bmc-facebook-anacapa.dtb.dts.tmp ; cat arch/arm/boot/=
-dts/aspeed/.aspeed-bmc-facebook-anacapa.dtb.d.pre.tmp arch/arm/boot/dts/asp=
-eed/.aspeed-bmc-facebook-anacapa.dtb.d.dtc.tmp > arch/arm/boot/dts/aspeed/.=
-aspeed-bmc-facebook-anacapa.dtb.d
-     dtc -I dts -O dts -o arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-ana=
-capa.dtb.rt.dts.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa.d=
-tb.dts.tmp
-     ANACAPA_REFERENCE=3Darch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anac=
-apa.dtb.rt.dts.tmp
-   fi
-  =20
-   if [ -n "$ANACAPA_VARIANT" ]
-   then
-     gcc -E -Wp,-MMD,arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa-=
-${ANACAPA_VARIANT}.dtb.d.pre.tmp -nostdinc -I ../scripts/dtc/include-prefix=
-es -undef -D__DTS__ -x assembler-with-cpp -o arch/arm/boot/dts/aspeed/.aspe=
-ed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dtb.dts.tmp ../arch/arm/boot/dts=
-/aspeed/aspeed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dts ; ./scripts/dtc/=
-dtc -o arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-${ANACAPA_VARIA=
-NT}.dtb -b 0 -i../arch/arm/boot/dts/aspeed/ -i../scripts/dtc/include-prefix=
-es -Wno-unique_unit_address -Wno-unit_address_vs_reg -Wno-avoid_unnecessary=
-_addr_size -Wno-alias_paths -Wno-interrupt_map -Wno-simple_bus_reg   -d arc=
-h/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dtb.d=
-.dtc.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anacapa-${ANACAPA_VA=
-RIANT}.dtb.dts.tmp ; cat arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-anac=
-apa-${ANACAPA_VARIANT}.dtb.d.pre.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc-f=
-acebook-anacapa-${ANACAPA_VARIANT}.dtb.d.dtc.tmp > arch/arm/boot/dts/aspeed=
-/.aspeed-bmc-facebook-anacapa-${ANACAPA_VARIANT}.dtb.d
-     dtc -I dts -O dts -o arch/arm/boot/dts/aspeed/.aspeed-bmc-facebook-ana=
-capa-${ANACAPA_VARIANT}.dtb.rt.dts.tmp arch/arm/boot/dts/aspeed/.aspeed-bmc=
--facebook-anacapa-${ANACAPA_VARIANT}.dtb.dts.tmp
-     diff -u "$ANACAPA_REFERENCE" arch/arm/boot/dts/aspeed/.aspeed-bmc-face=
-book-anacapa-${ANACAPA_VARIANT}.dtb.rt.dts.tmp | tee ${ANACAPA_VARIANT}-{re=
-move,add}
-     grep '^-[^-]' ${ANACAPA_VARIANT}-remove | grep gpio-line-names | sed -=
-E 's/.+gpio-line-names =3D //' | tr ',' '\n' | sed -E 's/^ //' | sponge ${A=
-NACAPA_VARIANT}-remove
-     grep '^[+][^+]' ${ANACAPA_VARIANT}-add | grep gpio-line-names | sed -E=
- 's/.+gpio-line-names =3D //' | tr ',' '\n' | sed -E 's/^ //' | sponge ${AN=
-ACAPA_VARIANT}-add
-     diff -u ${ANACAPA_VARIANT}-{remove,add}
-   fi
+On 6/9/2026 1:19 PM, Jose Fernandez (Anthropic) wrote:
+> ftrace_modify_call() is guarded by CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> and calls ftrace_rec_set_ops(rec, arm64_rec_get_ops(rec)) directly,
+> which only exists when CALL_OPS is enabled.
+> 
+> Generic ftrace also needs ftrace_modify_call() when
+> CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS is enabled, to retarget a
+> callsite between two non-FTRACE_ADDR destinations, as happens when a
+> direct trampoline is modified. The next patch allows DIRECT_CALLS without
+> CALL_OPS, so widen the guard to cover both configurations and switch
+> the body to the ftrace_rec_update_ops() wrapper, which already has a
+> stub for the !CALL_OPS case. ftrace_make_call() already uses the same
+> wrapper today.
+> 
+> No functional change: with CALL_OPS enabled, ftrace_rec_update_ops()
+> expands to the exact call this replaces.
+> 
+> Assisted-by: Claude:unspecified
+> Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+> ---
+>   arch/arm64/kernel/ftrace.c | 5 +++--
+>   1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+> index 5a1554a441628..e1a3c0b3a0514 100644
+> --- a/arch/arm64/kernel/ftrace.c
+> +++ b/arch/arm64/kernel/ftrace.c
+> @@ -409,7 +409,8 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+>   	return ftrace_modify_code(pc, old, new, true);
+>   }
+>   
+> -#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> +#if defined(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS) || \
+> +	defined(CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS)
+>   int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+>   		       unsigned long addr)
+>   {
+> @@ -417,7 +418,7 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+>   	u32 old, new;
+>   	int ret;
+>   
+> -	ret = ftrace_rec_set_ops(rec, arm64_rec_get_ops(rec));
+> +	ret = ftrace_rec_update_ops(rec);
+>   	if (ret)
+>   		return ret;
+>   
+>
+Acked-by: Xu Kuohai <xukuohai@huawei.com>
 
 
