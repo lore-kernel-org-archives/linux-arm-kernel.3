@@ -4,67 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED9FCD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5C4CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kqSBhQffJ4XjBQNmalicrZzmEAmD9JKGrOfj52XOgM=; b=hEsS7eixw9cYi+/mAzDiv7nVkI
-	/JypgveZXvTEJNASdzlUcibztiGDA9KZDBVHQKN6FlXPIaiY/CzrWKREdKerVJ+KFG/C787cw7wwv
-	3AqDLKxxxB9qAg+LYXze93J212We7KzJwQ5o02JQ1787+c9G/YnqIHosdleqsKk3xvDiDVkr7fmMT
-	dxBuU1IWw6teSLeAkHXDNUBSvv2MI5aQJWeg53wUOgcA7waKQwMIhs0QAKwJqjFTqyoANyp84pwKr
-	FIaEUH9EoenaMv/vARhC8EzKWZ84A+9EA2GR++4yAdhEkyxSjj74vXpd4WAfrAcF+LNNmI0Keg1Gb
-	BC4opcJw==;
+	bh=qXXzo4vROWpZwVJN1pIQILOm2VIbpgsaN8smw0A/DuA=; b=Fsk+0HdR4oAvFYqVh4b5+0nO/w
+	nHljNMigX1xFpYPeRn3lsMo8X6/mz7rcTYcAJAPo6dno/zETU0S+heW+dDC/f8FzCWx2Pv1PJ5/SP
+	X9GO6xRNxWHhom8T+BPVqo+l4jBMTZ0h/YOtHrTfLC6hy20T7SfH40uDrH3Tgbm3iZQ0UfBH8do3t
+	Hfk3p6Ggic/WifNtaGmFEPSBJQWrDqKn3BzpcEjZ7HFNNkGwufBfsObnB0FL0+6JkcCNdshb0mO9D
+	rUOuWwOlBaAiiSsiyNNYahdnLg/L1NwkmaTN6KqUDVqoAc9ggW/UOiQvNpf09tj5xjAuep+kRIQNX
+	wPQWgZ1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXhtk-00000009jRG-37cL;
-	Thu, 11 Jun 2026 16:04:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXhth-00000009jQP-3KcK
+	id 1wXhwP-00000009jZX-0Lpz;
+	Thu, 11 Jun 2026 16:07:37 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXhwM-00000009jZ9-3hY0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 16:04:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F2241476;
-	Thu, 11 Jun 2026 09:04:43 -0700 (PDT)
-Received: from [192.168.1.148] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2EE83FBB1;
-	Thu, 11 Jun 2026 09:04:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781193887; bh=6xYaxGkqvTZyvLlDsKba/9ML96k7MD4vHd7KxNuiUJ4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vpTSepwZXYsFn0TTMY0RWfCQZiVD41iOwclFwgAqlOYlcE4ASxS8WFUO/TshVDJmo
-	 KaAjCZPU6SPZU74Ekp0pbGhvIGF+poAtUg1oEfiumvIoui0ZyAEU5fLdxUtakpP3y8
-	 lsPDDwVznhYL63DoJyp8KtiIOSXvo5wE9ocXv0/U=
-Message-ID: <b009e840-6b79-415c-a3da-705ea569af38@arm.com>
-Date: Thu, 11 Jun 2026 17:04:44 +0100
+	Thu, 11 Jun 2026 16:07:36 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-7e2fd65f968so78834267b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:07:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781194053; cv=none;
+        d=google.com; s=arc-20240605;
+        b=F/EaUfNgXhr6ZAmWRgx+Bl20Ztlj2MPBR5SnRthQBESmh0LPSi/+gkOBJPiEA+Y4Z3
+         yE53NbWCWYIQM8PIvDGojOtEAiAEC8C6ydLMMyGHSDo/NhDPUFyUd8uxkRBYL/04qLKw
+         wjanL5aZxN3OgpkAxUbK4+MrcTZi0vPX987/sv2VrDinPt7sYL1dzfe5SCqxlN7YDv1K
+         iyNkpq4zVbdW26MnCTvjpF63OYfQPsFao0dDlk91LyGQaOqDFKBjIkgS0XW5ML0OvHmW
+         qjeVWUn7GdA9YNjH9F9MwqNPhRTFXQ8TJ5wb289cAdskJ1hkc28o5g9sutOsZF2DwafT
+         ve8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qXXzo4vROWpZwVJN1pIQILOm2VIbpgsaN8smw0A/DuA=;
+        fh=lwau0umqn609a91l/gVc9SjyJ49NtoUDK5cL+Q9cBRE=;
+        b=SHRgKElXtwJRopj0wwrWIdq0vbdvpA9hzz9ShClP+hhp5olPklDHe00FBF7nLI2p/v
+         1FesplreYo31RJOlv9h3D2rbmwOhJG7zo6Zi9zESMexgVbvSrHZJhi6FgH2imVmuBVl4
+         N2fVCDuvsiJkQVLOvtLoklvvPdROlC2VsvhgZVsb8H+nG1lPAlHmyRcgNsD7/IFgMhgD
+         Hgn1h6AqH4ANTHxi8bbzf+gjYmLVGlJkYlXmDBmsyNYd4hNl0U+ML74KAKF96sE+PSyd
+         /b3mYJBL7KXkfLS2cUFBNklgyBeDc/SN6NHRmBo+SWr0uKW5dXGkTFYsQRJJHgEIt2/n
+         YgLw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781194053; x=1781798853; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qXXzo4vROWpZwVJN1pIQILOm2VIbpgsaN8smw0A/DuA=;
+        b=Ep6CG7eaeoiZPEMszhISlo3hXHNOhKLiQ4kTwBEibJ1NscwLwJ3RWRwfZHERfYlDit
+         EeQyI68WMO2ptSlk43CWRb/X8I/sNA605jmHk/kvHwiIwKfCZDaP65YyiT4be/n8QMoT
+         bETr2rQFQtJY3n5IO94OnrtK+/DHbgHxLujqffBcjwjDkbi+5Rq509gcKBR+nwabWJl3
+         iHnUCF00SxSK6odMayX3ImzHsPmGukyi4mPk1eX08BIopeui0I3DTzeSI6mb1kdzhmsO
+         zDzXVjVkalr8e8uayDfYHM5XWcv5Hn3su1xptOV5uHty8d8D3zJJpOnFeqdIaa0ZQ0ve
+         TaTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781194053; x=1781798853;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qXXzo4vROWpZwVJN1pIQILOm2VIbpgsaN8smw0A/DuA=;
+        b=ofkAPPdjsX67w1siuhceHq9Y0kz5s6Q1XlRsIYkL81tP6sBBNr8U/flTuy56ZkcpF3
+         n8chIO1fDLjPAA6/p2DRj0kPNlfaXK5OHTdhbHv044B5Babhrv9XIS8xuyUP872/FHgj
+         HNuxeCjrOxrGR8KGckXWLGovvIxJISaBBqLxUhbkHPPz7I0LFXq30YzoylS3yRLc58CE
+         bCeNrw+NdJPdp+vV4aamIg/Wj+X1a/MVJZkX4iBPCBnU37EfIrLQQXAVB9zM8UJgJiRe
+         HVn0XeO5/otuboiKBx5ANs4XkW+oy6dt9x2f7/A6vAG/R3iw10XJgNx0z12C5CV35aSQ
+         Ht+Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8hcyP/EHgErES3HiS/VccNqoecQuw3r4YrpnkLZDmHw+7PXCNUScJu1sCs760PsbbP6n/krF0PZK7T3nLHoSNV@lists.infradead.org
+X-Gm-Message-State: AOJu0YysiZ8LdBevTRL+57IOw8EnrFruh0CynE7kdsz0Ozbuxe96r1VT
+	vrzBmopw2y0BXfXF3Mf1yXNQV7bG8l8lKvb2xMVao5DDuy6AuBftIehVSfjx8L2EFRevUpRhJ+g
+	NozkatwWTvntvqRqPio005qRGPapIVk0=
+X-Gm-Gg: Acq92OEam07sqpxrcIzN6Io+tt52I0mP89JhCSDDSbwkxO7sjX843OFesnQuMTQoLCo
+	pAn1j77q9ix9UlUS2p1jymGmg85U/dEGeKdCLmjMZgPV5MO3qtcecmYxT0hZwbaCt14E5N+HLac
+	Lt5udv1YJXYHTHK1HFCziAYXuQ3AyZj/cWAfJIoPRHwr/ARxDg9aYMpb/iOCbPfscqw9uY4bhcZ
+	xHoS91fosNnw09m+HjJmghmITLelmMs9sUkKZahRN4pykH75k1eYcK4FS4UgX5qdqn7bHVv2SGQ
+	tR3d
+X-Received: by 2002:a05:690c:4c09:b0:7f5:69b8:4287 with SMTP id
+ 00721157ae682-7f6553f7899mr38398427b3.9.1781194053316; Thu, 11 Jun 2026
+ 09:07:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/6] firmware: smccc: Move RSI definitions to
- include/linux
-Content-Language: en-GB
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
- Andre Przywara <andre.przywara@arm.com>
-References: <20260611130429.295516-1-aneesh.kumar@kernel.org>
- <20260611130429.295516-4-aneesh.kumar@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260611130429.295516-4-aneesh.kumar@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260610115700.774689-1-jjy600901@snu.ac.kr>
+In-Reply-To: <20260610115700.774689-1-jjy600901@snu.ac.kr>
+From: Maxwell Doose <m32285159@gmail.com>
+Date: Thu, 11 Jun 2026 11:07:21 -0500
+X-Gm-Features: AVVi8CeHf7uwhPM76_RfCblG7fJdBhGq4QR16eMi2j2amXBgrgzWYA0X7OPgM7k
+Message-ID: <CAKqfh0GVDpfP=TJZPQ2UYkUj=pe1KGn4j1zqbaz_19xawekdnw@mail.gmail.com>
+Subject: Re: iio: adc: KASAN wild-memory-access in complete() on early IRQ
+To: Jaeyoung Chung <jjy600901@snu.ac.kr>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>, 
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, linux-iio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Sangyun Kim <sangyun.kim@snu.ac.kr>, Kyungwook Boo <bookyungwook@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_090449_935517_4696DF52 
-X-CRM114-Status: GOOD (  33.26  )
+X-CRM114-CacheID: sfid-20260611_090734_945660_E663E092 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,260 +120,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2026 14:04, Aneesh Kumar K.V (Arm) wrote:
-> The RSI SMCCC function IDs describe a firmware ABI and are not arm64
-> architecture specific definitions. Follow-up changes need to use them from
-> non-arch code, including drivers/firmware/smccc and the Arm CCA guest
-> driver.
-> 
-> Move the RSI SMCCC definitions from arch/arm64/include/asm/ to
-> include/linux/ so they can be shared with the driver code. This also
-> keeps the firmware interface outside architecture code, as requested [1].
+On Wed, Jun 10, 2026 at 7:04=E2=80=AFAM Jaeyoung Chung <jjy600901@snu.ac.kr=
+> wrote:
+>
+> Hi,
+>
+> lpc32xx_adc_probe() in drivers/iio/adc/lpc32xx_adc.c and
+> spear_adc_probe() in drivers/iio/adc/spear_adc.c register their
+> interrupt handler with devm_request_irq() before they initialize
+> st->completion with init_completion(). If an interrupt arrives after
+> devm_request_irq() and before init_completion(), the handler calls
+> complete() on an uninitialized completion, causing a kernel panic.
+>
+> The probe path, in lpc32xx_adc_probe():
+>
+>     iodev =3D devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzall=
+oc-zeroed */
+>     ...
+>     retval =3D devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
+>                               LPC32XXAD_NAME, st);           /* register =
+handler */
+>     ...
+>     init_completion(&st->completion);                       /* initialize=
+ completion */
+>
+> spear_adc_probe() has the same ordering: devm_request_irq() for
+> spear_adc_isr() before init_completion(&st->completion).
+>
+> Both interrupt handlers, lpc32xx_adc_isr() and spear_adc_isr(), call
+> complete():
+>
+>     complete(&st->completion);
+>
+> If the device raises an interrupt before init_completion() runs,
+> complete() acquires the uninitialized wait.lock and walks the zeroed
+> task_list in swake_up_locked(). The zeroed task_list makes list_empty()
+> return false, so swake_up_locked() dereferences a NULL list entry,
+> triggering a KASAN wild-memory-access.
+>
+> Suggested fix: move init_completion(&st->completion) above
+> devm_request_irq(), so the completion is valid before the handler can run=
+.
+>
+> Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
+> Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
+>
 
-Please could we also mention about moving the "wrappers" only used by
-drivers accordingly ?
-
-> 
-> [1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->   arch/arm64/include/asm/rsi_cmds.h             | 74 +---------------
->   .../virt/coco/arm-cca-guest/arm-cca-guest.c   |  2 +
->   drivers/virt/coco/arm-cca-guest/rsi.h         | 84 +++++++++++++++++++
->   .../linux/arm-smccc-rsi.h                     |  6 +-
->   4 files changed, 90 insertions(+), 76 deletions(-)
->   create mode 100644 drivers/virt/coco/arm-cca-guest/rsi.h
->   rename arch/arm64/include/asm/rsi_smc.h => include/linux/arm-smccc-rsi.h (98%)
-> 
-> diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
-> index 2c8763876dfb..633123a4e5d5 100644
-> --- a/arch/arm64/include/asm/rsi_cmds.h
-> +++ b/arch/arm64/include/asm/rsi_cmds.h
-> @@ -8,10 +8,9 @@
->   
->   #include <linux/arm-smccc.h>
->   #include <linux/string.h>
-> +#include <linux/arm-smccc-rsi.h>
-
-super minor nit: Please keep them in the alphabetical order.
-
-With that:
-
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-Suzuki
+Thanks for reporting this; I can start working on a fix shortly
+(assuming nobody else is already working on it).
 
 
->   #include <asm/memory.h>
->   
-> -#include <asm/rsi_smc.h>
-> -
->   #define RSI_GRANULE_SHIFT		12
->   #define RSI_GRANULE_SIZE		(_AC(1, UL) << RSI_GRANULE_SHIFT)
->   
-> @@ -88,75 +87,4 @@ static inline long rsi_set_addr_range_state(phys_addr_t start,
->   	return res.a0;
->   }
->   
-> -/**
-> - * rsi_attestation_token_init - Initialise the operation to retrieve an
-> - * attestation token.
-> - *
-> - * @challenge:	The challenge data to be used in the attestation token
-> - *		generation.
-> - * @size:	Size of the challenge data in bytes.
-> - *
-> - * Initialises the attestation token generation and returns an upper bound
-> - * on the attestation token size that can be used to allocate an adequate
-> - * buffer. The caller is expected to subsequently call
-> - * rsi_attestation_token_continue() to retrieve the attestation token data on
-> - * the same CPU.
-> - *
-> - * Returns:
-> - *  On success, returns the upper limit of the attestation report size.
-> - *  Otherwise, -EINVAL
-> - */
-> -static inline long
-> -rsi_attestation_token_init(const u8 *challenge, unsigned long size)
-> -{
-> -	struct arm_smccc_1_2_regs regs = { 0 };
-> -
-> -	/* The challenge must be at least 32bytes and at most 64bytes */
-> -	if (!challenge || size < 32 || size > 64)
-> -		return -EINVAL;
-> -
-> -	regs.a0 = SMC_RSI_ATTESTATION_TOKEN_INIT;
-> -	memcpy(&regs.a1, challenge, size);
-> -	arm_smccc_1_2_smc(&regs, &regs);
-> -
-> -	if (regs.a0 == RSI_SUCCESS)
-> -		return regs.a1;
-> -
-> -	return -EINVAL;
-> -}
-> -
-> -/**
-> - * rsi_attestation_token_continue - Continue the operation to retrieve an
-> - * attestation token.
-> - *
-> - * @granule: {I}PA of the Granule to which the token will be written.
-> - * @offset:  Offset within Granule to start of buffer in bytes.
-> - * @size:    The size of the buffer.
-> - * @len:     The number of bytes written to the buffer.
-> - *
-> - * Retrieves up to a RSI_GRANULE_SIZE worth of token data per call. The caller
-> - * is expected to call rsi_attestation_token_init() before calling this
-> - * function to retrieve the attestation token.
-> - *
-> - * Return:
-> - * * %RSI_SUCCESS     - Attestation token retrieved successfully.
-> - * * %RSI_INCOMPLETE  - Token generation is not complete.
-> - * * %RSI_ERROR_INPUT - A parameter was not valid.
-> - * * %RSI_ERROR_STATE - Attestation not in progress.
-> - */
-> -static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
-> -							   unsigned long offset,
-> -							   unsigned long size,
-> -							   unsigned long *len)
-> -{
-> -	struct arm_smccc_res res;
-> -
-> -	arm_smccc_1_1_invoke(SMC_RSI_ATTESTATION_TOKEN_CONTINUE,
-> -			     granule, offset, size, 0, &res);
-> -
-> -	if (len)
-> -		*len = res.a1;
-> -	return res.a0;
-> -}
-> -
->   #endif /* __ASM_RSI_CMDS_H */
-> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> index 66d00b6ceb78..8b6854e7a188 100644
-> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> @@ -14,6 +14,8 @@
->   
->   #include <asm/rsi.h>
->   
-> +#include "rsi.h"
-> +
->   /**
->    * struct arm_cca_token_info - a descriptor for the token buffer.
->    * @challenge:		Pointer to the challenge data
-> diff --git a/drivers/virt/coco/arm-cca-guest/rsi.h b/drivers/virt/coco/arm-cca-guest/rsi.h
-> new file mode 100644
-> index 000000000000..f7303f4bce17
-> --- /dev/null
-> +++ b/drivers/virt/coco/arm-cca-guest/rsi.h
-> @@ -0,0 +1,84 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2026 ARM Ltd.
-> + */
-> +
-> +#ifndef _VIRT_COCO_RSI_H_
-> +#define _VIRT_COCO_RSI_H_
-> +
-> +#include <linux/arm-smccc-rsi.h>
-> +
-> +/**
-> + * rsi_attestation_token_init - Initialise the operation to retrieve an
-> + * attestation token.
-> + *
-> + * @challenge:	The challenge data to be used in the attestation token
-> + *		generation.
-> + * @size:	Size of the challenge data in bytes.
-> + *
-> + * Initialises the attestation token generation and returns an upper bound
-> + * on the attestation token size that can be used to allocate an adequate
-> + * buffer. The caller is expected to subsequently call
-> + * rsi_attestation_token_continue() to retrieve the attestation token data on
-> + * the same CPU.
-> + *
-> + * Returns:
-> + *  On success, returns the upper limit of the attestation report size.
-> + *  Otherwise, -EINVAL
-> + */
-> +static inline long
-> +rsi_attestation_token_init(const u8 *challenge, unsigned long size)
-> +{
-> +	struct arm_smccc_1_2_regs regs = { 0 };
-> +
-> +	/* The challenge must be at least 32bytes and at most 64bytes */
-> +	if (!challenge || size < 32 || size > 64)
-> +		return -EINVAL;
-> +
-> +	regs.a0 = SMC_RSI_ATTESTATION_TOKEN_INIT;
-> +	memcpy(&regs.a1, challenge, size);
-> +	arm_smccc_1_2_smc(&regs, &regs);
-> +
-> +	if (regs.a0 == RSI_SUCCESS)
-> +		return regs.a1;
-> +
-> +	return -EINVAL;
-> +}
-> +
-> +/**
-> + * rsi_attestation_token_continue - Continue the operation to retrieve an
-> + * attestation token.
-> + *
-> + * @granule: {I}PA of the Granule to which the token will be written.
-> + * @offset:  Offset within Granule to start of buffer in bytes.
-> + * @size:    The size of the buffer.
-> + * @len:     The number of bytes written to the buffer.
-> + *
-> + * Retrieves up to a RSI_GRANULE_SIZE worth of token data per call. The caller
-> + * is expected to call rsi_attestation_token_init() before calling this
-> + * function to retrieve the attestation token.
-> + *
-> + * Return:
-> + * * %RSI_SUCCESS     - Attestation token retrieved successfully.
-> + * * %RSI_INCOMPLETE  - Token generation is not complete.
-> + * * %RSI_ERROR_INPUT - A parameter was not valid.
-> + * * %RSI_ERROR_STATE - Attestation not in progress.
-> + */
-> +static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
-> +							   unsigned long offset,
-> +							   unsigned long size,
-> +							   unsigned long *len)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RSI_ATTESTATION_TOKEN_CONTINUE,
-> +			     granule, offset, size, 0, &res);
-> +
-> +	if (len)
-> +		*len = res.a1;
-> +	return res.a0;
-> +}
-> +
-> +
-> +
-> +#endif
-> diff --git a/arch/arm64/include/asm/rsi_smc.h b/include/linux/arm-smccc-rsi.h
-> similarity index 98%
-> rename from arch/arm64/include/asm/rsi_smc.h
-> rename to include/linux/arm-smccc-rsi.h
-> index e19253f96c94..fddb77986f70 100644
-> --- a/arch/arm64/include/asm/rsi_smc.h
-> +++ b/include/linux/arm-smccc-rsi.h
-> @@ -3,8 +3,8 @@
->    * Copyright (C) 2023 ARM Ltd.
->    */
->   
-> -#ifndef __ASM_RSI_SMC_H_
-> -#define __ASM_RSI_SMC_H_
-> +#ifndef __LINUX_ARM_SMCCC_RSI_H_
-> +#define __LINUX_ARM_SMCCC_RSI_H_
->   
->   #include <linux/arm-smccc.h>
->   
-> @@ -190,4 +190,4 @@ struct realm_config {
->    */
->   #define SMC_RSI_HOST_CALL			SMC_RSI_FID(0x199)
->   
-> -#endif /* __ASM_RSI_SMC_H_ */
-> +#endif /* __LINUX_ARM_SMCCC_RSI_H_ */
-
+--
+best regards,
+max
 
