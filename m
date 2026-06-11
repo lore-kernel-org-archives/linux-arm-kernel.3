@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75017CD8CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 06:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5E2CD8CB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 06:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QMwju+bF00fDRWgD6aFjamUkfyRvkUx8XZMI5aZiZ14=; b=a5R6ydOjzJiElqRIdfDXVN4AP5
-	L5AJOqgTvLA7fnE/FM7Eemnj7oj8BzlFUsvKYHYuSuvYiMqUOGD2Kw29KTI+sB8RoG4JlRZEbZpuJ
-	dYk9QqUF9vRhXXq4u/EpBXI+fOpC60pL1/oZk5eeKgp/eTnnomNo+x/mQi8HLoFpc//o09hYIj2sI
-	motxWvS1aZqzYwfPw7IJDBoOhQNOtiQxel9GA9Gjhh+R/Su9k1HE59b3LQlvGiFAxNb1oIXGoJkKU
-	p64OCH83qVeWATsmum4E2KqpxMNIp9e23K6eJ75J28jR6R0WKnBLgs6xJ2uO79yA6bEEHz5779uL/
-	Rq94IDxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D1pm1QgD/dXjIHVXNpMU0Nrkwm99aWIpMPtr64kDXpc=; b=JlNBh+uHuK0i3C4DDESdMh4VWF
+	ygm1q4JZS0N+1vZvAlBgC95s8/zG2Wqsxm7I59LcFe/Ey1RGvD9uIm3cNPyaxShzjh4wCE13KAU/5
+	nGcFo2ch3wnTdHrxve1mTME4RVRotvAqVMQFNoAbNQ3twiYcSaptFyPl6/VCEygfOgEvFbMIQj9tn
+	QzZCA/mKRr+6zS5imoZOy0q2tDHkXWky+HrAgaV1WA3SA9uiQQVFvj9b7Xy1I9FoBwNaiZuoVhdCr
+	B6HpPXJMUmwvD3U9qiJJCHuuogQPXcV03K0g8enVUf2cl4zb1j3OI6TAF/wt/4Rf8f9a5MJ/PKSvm
+	LRp3erXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXYcB-00000008meU-2CUS;
-	Thu, 11 Jun 2026 06:10:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wXZ23-00000008oWR-0W6I;
+	Thu, 11 Jun 2026 06:36:51 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXYcA-00000008meC-2BMF;
-	Thu, 11 Jun 2026 06:10:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A552160208;
-	Thu, 11 Jun 2026 06:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29B3D1F00893;
-	Thu, 11 Jun 2026 06:09:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781158205;
-	bh=QMwju+bF00fDRWgD6aFjamUkfyRvkUx8XZMI5aZiZ14=;
-	h=From:Date:Subject:To:Cc;
-	b=Cq4TRXsJNrWHvMYJo5W7d1NrCYcnm28ETJ1Z1i6euJUPMcVxTTi469wALxVqBI+JQ
-	 Xa9jp8kC6PtfqIcIKs0hGGn5HauYqi+2aDTaA0cpLzs79siGdr3MmBERskBCw0zOQ1
-	 CBGqcnyuHTkutUaM35s/O9jNyrYpLCkMtGmGRGqLTXfVLezrOBEOyWWhRVbBfBILi2
-	 7Sl8h9ynBKCXylM3JE2GRRUR6ON8PeHJ/fBAjn73nu+lt83pZGa4cxHp/4WvOpRe2M
-	 vYBU1Vefa/CFXXtHq8QhRrIThH638nSfQtZpafJmoVlGbSRiMSNAmmE0d6VbLseaFJ
-	 yiev1y0YEVTZg==
-From: Eugen Hristev <ehristev@kernel.org>
-Date: Thu, 11 Jun 2026 09:09:51 +0300
-Subject: [PATCH] media: bcm2835-unicam: Fix querycap multiple caps
+	id 1wXZ20-00000008oW0-14Ls
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 06:36:50 +0000
+X-UUID: e4893022655f11f1aa26b74ffac11d73-20260611
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:dd46af78-ef48-42df-b0aa-f7aa64b8b7cc,IP:0,U
+	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:01b8394cc7936b409385b5ef72af8116,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
+	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e4893022655f11f1aa26b74ffac11d73-20260611
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1353217616; Thu, 11 Jun 2026 14:36:35 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org,
+	arnd@arndb.de
+Cc: dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>
+Subject: [PATCH] dmaengine: sun6i-dma: Fix use-after-free in error handling paths
+Date: Thu, 11 Jun 2026 14:36:31 +0800
+Message-Id: <20260611063631.96566-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-bcmpiqcap-v1-1-10cf7fb438df@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAC5RKmoC/yXM0QpAMBSA4VfRubayKZlXkYuzOTgKsyEl7264/
- OrvvyCQZwpQJRd4OjjwMkfINAE74NyT4DYaVKaKrJBSGDs5Xi060ZU6R02oWtQQe+ep4/N71c3
- vsJuR7PYO4L4fqiXti20AAAA=
-X-Change-ID: 20260611-bcmpiqcap-f893a9ea2da9
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>, 
- Naushir Patuck <naush@raspberrypi.com>
-Cc: Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1843; i=ehristev@kernel.org;
- h=from:subject:message-id; bh=ElaN3MA+r7gbV2oGehvuhfujvcI0kDw9G1DVXIYDWoM=;
- b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLK0As2FhAxepPjJRsg4WGn1X9vGH7rok6+nTc3+2paE9
- fv//H7VUcrCIMbFICumyFJt8q9WuH+H+0lXSxWYOaxMIEMYuDgFYCILZjL84dNWXXt8ywfNiQk/
- wqfpCNfss+LtKnt1+2CdocGO/zslfjEyrFco5av/VRmnuORq+a0ZLb8F3Tc+6+hSPMDEy7RIlle
- ZDQA=
-X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
- fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_233648_632270_7F216248 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,66 +84,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The unicam exposes two video nodes, one for image, another for metadata.
-Querycap should return the right caps for the respective node, not both.
+In error handling paths, the for loop frees v_lli in the loop body,
+then accesses v_lli->v_lli_next and v_lli->p_lli_next in the
+increment expression, which is use-after-free.
 
-video0:
+Fix by saving both the next virtual and physical pointers before
+freeing the current node.
 
-Capabilities     : 0xa4200001
-        Video Capture
-        I/O MC
-        Streaming
-        Extended Pix Format
-        Device Capabilities
-Device Caps      : 0x24200001
-        Video Capture
-        I/O MC
-        Streaming
-        Extended Pix Format
-
-video1:
-
-Capabilities     : 0xa4a00000
-        Metadata Capture
-        I/O MC
-        Streaming
-        Extended Pix Format
-        Device Capabilities
-Device Caps      : 0x24a00000
-        Metadata Capture
-        I/O MC
-        Streaming
-        Extended Pix Format
-
-Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+Fixes: 555859308723 ("dmaengine: Add driver for Allwinner sun6i DMA")
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
 ---
- drivers/media/platform/broadcom/bcm2835-unicam.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/dma/sun6i-dma.c | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-index 8d28ba0b59a3..4bf36ce80047 100644
---- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-+++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-@@ -1833,7 +1833,10 @@ static int unicam_querycap(struct file *file, void *priv,
- 	strscpy(cap->driver, UNICAM_MODULE_NAME, sizeof(cap->driver));
- 	strscpy(cap->card, UNICAM_MODULE_NAME, sizeof(cap->card));
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index a9a254dbf8cb..eb9c4ae87ac8 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -788,9 +788,15 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
+ 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
  
--	cap->capabilities |= V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_META_CAPTURE;
-+	if (is_image_node(node))
-+		cap->capabilities |= V4L2_CAP_VIDEO_CAPTURE;
-+	else
-+		cap->capabilities |= V4L2_CAP_META_CAPTURE;
- 
- 	return 0;
+ err_lli_free:
+-	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
+-	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
++	p_lli = txd->p_lli;
++	v_lli = txd->v_lli;
++	while (v_lli) {
++		struct sun6i_dma_lli *next_v_lli = v_lli->v_lli_next;
++		dma_addr_t next_p_lli = v_lli->p_lli_next;
+ 		dma_pool_free(sdev->pool, v_lli, p_lli);
++		v_lli = next_v_lli;
++		p_lli = next_p_lli;
++	}
+ 	kfree(txd);
+ 	return NULL;
  }
-
----
-base-commit: a87737435cfa134f9cdcc696ba3080759d04cf72
-change-id: 20260611-bcmpiqcap-f893a9ea2da9
-
-Best regards,
---  
-Eugen Hristev <ehristev@kernel.org>
+@@ -869,9 +875,15 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
+ 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
+ 
+ err_lli_free:
+-	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
+-	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
++	p_lli = txd->p_lli;
++	v_lli = txd->v_lli;
++	while (v_lli) {
++		struct sun6i_dma_lli *next_v_lli = v_lli->v_lli_next;
++		dma_addr_t next_p_lli = v_lli->p_lli_next;
+ 		dma_pool_free(sdev->pool, v_lli, p_lli);
++		v_lli = next_v_lli;
++		p_lli = next_p_lli;
++	}
+ 	kfree(txd);
+ 	return NULL;
+ }
+-- 
+2.25.1
 
 
