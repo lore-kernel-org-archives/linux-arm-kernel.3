@@ -4,127 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7014CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C34CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kp0V96hQHO0Vi6EebPNh77DUKMaBtTyx0jyQfV8ieCY=; b=bYJeeCKWrdkTfgrPmlG3DwLI1T
-	0HzsAZoVCULciAq1qYjLNfWnefd6oPSpXlStJJpqdgAvl2wjypJbAEWwYhUiBujVCSJAvVhF/LBhK
-	pg4cp8L+WdIRzrvM/S4YCHgp9TOIVGcm08/9+czpuicRHRZZbYrCsBi3QBMnlrQ7C9tnM5beodbhF
-	nyAHLqFQPWPT8BjwXe9/SE/z0Gj263YUeGgpUItvk5K76oTt6u2y4o5bsYfiUdogRCVRJXnEhi52R
-	TZOrvca8dfpSw+0r8s6/w4cN7NfQf+qSaipWDnWZZn9v3GTSI2mGTzl/JOnx2BhgJQ+TeG6GyVtma
-	FwoqjmKw==;
+	bh=Ro9VRaxqnpZjOWZQhcQkBrJNsT8ppT8UuCTCvAy/sWM=; b=PMb1SUeUfXSbmeoalIYvuoF4k7
+	Ij+B71ZnroziOeF0UNIYgfRCq5JsE+J6aVVILy2zSrNkUFwzGS7TMShbKOlBTmr1NzGvc5SthUJcZ
+	e8itlWXeRj9w2mO+H+zxLp6N2njXxKe0YUf0Uw2rl8ctSKXg6qY5MuXaXraedg2801LYbktOtPR+9
+	BrF84H68J+ghIO6WMZHiRxC3vuDky9s1R8SxrjjKhOYobFIiRK6Q62NjIlMLhZ3Ufxx+2r7gwLtPw
+	gxT3mSX/xL5p61HaUUiLjpsUeRaeqpzARxYvxdQ62D/9aYPhQJcbhq8s/I0ltF1E1KF7xAEMVXMnB
+	mCur3t+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXmJJ-0000000A40V-2yq8;
-	Thu, 11 Jun 2026 20:47:33 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wXmQU-0000000A4M9-2xLo;
+	Thu, 11 Jun 2026 20:54:58 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXmJG-0000000A3zi-3Xuo
+	id 1wXmQR-0000000A4Lm-3zXI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 20:47:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pUM35Pwh36iRIrjxQ6hqzwBUWWYPpmgvefoQOBC7HabOHq2DDmwS3LsgVYuTdyieb2f03HBzznSf5UhiGQgyOLm9xdcbPbpf9cyocGQ1c779g3flS9QwTOJBihnpiG9mUeIFArG4b0jXn/TsEm24iflWj5o0Hjj+Ms/x5xXDmRAWCG8EFXZFKlUv7pG36MbBBOZrpIYXHNINyt7GL4lkPrZNuZs4A043K6FTvX+Ri6BvVMrEeOpNyGGCwq7jUymh/lOvzqkSJmTQUKqEJJCg1h/spLDcOQ30a8VeVMPbIHCrqR0mhxpRlvVKVIa5RZj5U0SoQkuYZ5CtaCG/ClcAAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kp0V96hQHO0Vi6EebPNh77DUKMaBtTyx0jyQfV8ieCY=;
- b=phRVnClxZlgmVEreYwslKEMOP50dqZ/No5ROIq70+X8LSsC0KE+HlyOXoqBv0DM9E7kujzgbqJgzZd7yG9DcQWAC4VT8XxC3HKB7paZ4VhwQoDFXGP0Dwx8bqZYbrENHrb539RUKfei8OgQBhds4W7tFrqEtLCVBHoKMUBUF2smTxYM+E9JCpN3XwpO/nfpP72IIYsQIZOlD6FvGedqcJ2ilzuE8R/+Il2vSBmZB6oj9lgdhXOpcNEo5RLzoFumUE8aXE8mQwaFTme4F1WdqK99pPqADb0REY1eIKSHY7VI1zqrqKNEh2oLS7LDDwWqB5UI5fW8lbTv9ZVOmFGWiaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kp0V96hQHO0Vi6EebPNh77DUKMaBtTyx0jyQfV8ieCY=;
- b=J6ZICj1c+jk6ovcrpBB+bAq3GSCPXAR/a0ise4JfCVX3XIsobtRQVAT7dDYtvlEIMUPm8pIAYJe7kE3UOY4o2qvq+YgAprZeQUuqCjQmX6gvC4a6Bqg8hKpmCFHDyEgpq3mY/k3P+uKMu7kN+jQRIxSiKWhK2eS8feERZCyrdIoK1nncsGcsqZedahJ43NH/EnlGEjcfGwP/WBMMN+EWMvIFyqBCUHTUyefDSu2RtRTmnvmvKEB1Lw8g9Wy9xxaTiM7r6jCk8KX+0ocnJA0BUrQtcvwRCFKVFslXs1/HawA2a0M7TBR/sLqew+BB4U6OkLLvN2yolNcXTp1Lpyav+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB8PR04MB6796.eurprd04.prod.outlook.com (2603:10a6:10:11e::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Thu, 11 Jun
- 2026 20:47:25 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
- 20:47:25 +0000
-Date: Thu, 11 Jun 2026 16:47:18 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Aksh Garg <a-garg7@ti.com>
-Cc: linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, mani@kernel.org,
-	kwilczynski@kernel.org, bhelgaas@google.com, corbet@lwn.net,
-	kishon@kernel.org, skhan@linuxfoundation.org, lukas@wunner.de,
-	cassel@kernel.org, alistair@alistair23.me,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	s-vadapalli@ti.com, danishanwar@ti.com, srk@ti.com
-Subject: Re: [PATCH v5 0/4] PCI: Add DOE support for endpoint
-Message-ID: <aise1tIyTj4WLU89@lizhi-Precision-Tower-5810>
-References: <20260610100256.1889111-1-a-garg7@ti.com>
+	Thu, 11 Jun 2026 20:54:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Ro9VRaxqnpZjOWZQhcQkBrJNsT8ppT8UuCTCvAy/sWM=; b=eHXrEETynmdVcNLwvS4Q/JmBwG
+	g1YFwlYFYsA3u5PWqOCMnGzPttqs6Iz4KgJR5Sjv4SN8mPAS1HbgSLv7geiEyQSYp0ES8BFBaskgd
+	PoLMh6BZE4dkrZUQ1ZwRv11+FKknYk/B55dVmSnvVxuE8zpITgPAR6E83AxFzGIDZvPk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wXmQ9-007EUi-JR; Thu, 11 Jun 2026 22:54:37 +0200
+Date: Thu, 11 Jun 2026 22:54:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>, linux-arm-msm@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 3/9] net: stmmac: qcom-ethqos: fix RGMII_ID mode to
+ use DLL bypass
+Message-ID: <42355330-c22a-4fce-98ab-dc22b321ff16@lunn.ch>
+References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
+ <20260612-shikra_ethernet-v1-3-f0f4a1d19929@oss.qualcomm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260610100256.1889111-1-a-garg7@ti.com>
-X-ClientProxiedBy: SA1P222CA0176.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c4::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB6796:EE_
-X-MS-Office365-Filtering-Correlation-Id: 237a1f7e-3cf4-461b-d55e-08dec7faa4d3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|19092799006|6133799003|18002099003|22082099003|11063799006|56012099006|5023799004;
-X-Microsoft-Antispam-Message-Info: G/CR8Zfrn9UJEOR9xkT0sOTJVen0nxxT299+lvbtgnNB0U4BRDsgmQhLbxJ2ftERA1XhLStPpLvpxRBLO2GsPDOqO4UvWG33rkVgvV1rKM4aIR6veTe4kl7dUVWWe7+P+XxQ8QwfMZnIfGJKbEJdSoUGbglRHq6+EdYm2HTxvaIoKkNsOlOp/pe4a7sc1GwvTqTUQg/X4ItoXoqYPH/zzV1DAe7LwsdQVUlZ4fa6kRzz43lc32pVRGoR6yn42oc5b4uyWaec7Eut4wCO4ay+48IH8mBzn90yE2J4JkmPRfFHYd7Vr/XHsZ0wUV94RNryYrM/mzp3Ze0rM5+31umhDI74LC3O8QxNvdanQ6QvuBCZaMLPcTn0xcA3SQVsyL5NwJHv8FcUtN64KhurgEP/CQxbRWnD8QweQ6IQOrmaL0hQWn4kJ/QbK+gKn7b9qTjX3dgqH1zwL4aNFL1G7XrGld/yEjlK49/OnST7+gJPYmos1VTZVEK7GtbVA5FLdMKqk7kGGVu+anhXuVonJTXslRdEQTvw1+lvysc15mswmzafxtSm0zsmqVGkl/7ALdLs7NIWe+zq8329OMyuiSfhyzIjBh5D1l0+ASqfv60JEHvtR1eXgW8y3UlFqABR2pkg19TjhRF/r6ToQddI+Yi/LnJJMcPGKfAi+5BljEoC9QoJbiiJQAUXUQIW0y5rQ2dEOrzeEbekcLwpV8//6Zgmbw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(19092799006)(6133799003)(18002099003)(22082099003)(11063799006)(56012099006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?h8SGX/prKXwgyELifkCcbf+WSK1n+yvXBDQ0JZXwTk2nD9d982lXnOMvjDNH?=
- =?us-ascii?Q?+JQ4jvFkpXmsi+KyGglduBdaP1bKAv3mtD7VNR/hcf8j3K4uTa3F7jPCeuNX?=
- =?us-ascii?Q?yOlLysrmIq1OTNZtn1KmYtHv4Ejr4EnWX/w+aVnIc7+YdrCAFaDLz3SkQ447?=
- =?us-ascii?Q?At9k4go3C/jTtilOKUQnB3XaewsNmZmw4cv1KwwE6tbtE6Z6xses3OAjelIf?=
- =?us-ascii?Q?7r8AwcZ5e1WIhqhYO/ecbOnHLal9G5WRlUdK1WpgVNqrYIf6LvFAXz9gsEMn?=
- =?us-ascii?Q?fDmUT4UatM2rrFCPTc8yif6LAPbmpB5e1UdZq1TrlHLU64MKJ9sdHJptrVmp?=
- =?us-ascii?Q?lGr6j59U3x/3wOH5RKtABDUHhlRE2+rVyybu5a1qcgqvoXrqP2GLnNjB5k+F?=
- =?us-ascii?Q?eZOCJUDgc6GiRHkgVYu68dl/DOTicGpndA1fT/exSDXkjcKzX1tDJx9ASH3Y?=
- =?us-ascii?Q?kJVqTIhntunmV71xxi5Z8E7Vwcs0aNl3M8bIM3aV8QyUpRv/4/gDiuYRkOlo?=
- =?us-ascii?Q?bOpP7wEEVajx7iJOkX6uFDnlwEkXb4OpW4+3YxESKx4YKhlHmZURkdCf8EUJ?=
- =?us-ascii?Q?HeCLC74AxCfZJNbkFd2wz06rDUbwdQS54B5FwD92Lp8+R8XSc1Mgp5cZ4AyP?=
- =?us-ascii?Q?Qd3QtAa4i1MJKO+Jelh5WIaRVDzOVHm0wDBNj03Ll0DmGn/HBPH4DLYbgtHq?=
- =?us-ascii?Q?NVnx5RIAsiHo9M9lcdnVq685l9ZJ6vmLyfR0HwZhvHoSanNJT9Iy7nxw4rYu?=
- =?us-ascii?Q?m5r3mzadyYPdSyaA11d5RmnHI91+DR69zdD4VkTi3rdjLNYpEhtPHPB6bDil?=
- =?us-ascii?Q?EuokuOl56P5CclDNxzs46NExYF6Kk8N7Etmf4ccRvta0ss5BEKxj8S7AvY/O?=
- =?us-ascii?Q?Q6Bdyn9VsE6UZIZaNJ2poLvUUOdRI+sQF8m3OHvdx7W1IIiovayyJ0qT+yK5?=
- =?us-ascii?Q?k4ipfiMYbxcLNZDyjpKx2UA6Y7vfKdUvmkZVcVgIW0ihiw2a2D9vGVsdpOX5?=
- =?us-ascii?Q?Z3+xj9YkWTwBXd65OhlBR+u9ukRstjMzvLWQiOqsWOX23zXJetM0rmKmJ9ZB?=
- =?us-ascii?Q?D2f6S8dGyTzAsWXr0GSzIfwwRoqTToW0xzELQwponScJqiIBojjr0PExa5Lz?=
- =?us-ascii?Q?EzT/sutn86xBhz44R5NxmZUa0VXzcLAyyBMhIfyxD+DKISHOOe3r6MEtKOIL?=
- =?us-ascii?Q?we0nFfahTeMYLKpj0HdpldoytNU/xotxEiv+vPfus0fZ7SdfDUcl/+P4d5RM?=
- =?us-ascii?Q?mVP5r9fvH1qMM3NTh4jSTmKQfZwOWlnJHxcl7BfY74G3SGbGODjUvqL/opYU?=
- =?us-ascii?Q?YlzLYkO4vzi0+jQC7y5upw4v/a0HZzl0clH5ljZ6RLPKqrnTMYXbjY0mt/tc?=
- =?us-ascii?Q?mMhWseqvMRTtwYWCUmJyxfd+4u/2hW0QHFYSrAKX9xqq4rphQYFvhRXNit0/?=
- =?us-ascii?Q?IA5Lw5t65VxoU5N7Lwg0EY41Mh4gl7IMvTnc+6bhS6XIM0zjsgIbmPXRWji7?=
- =?us-ascii?Q?OcA/9r4BehxeSwsVWBKyk1x7XtTYUZmoxm6M+WRIobKuIhEYP4WxkAVD8mdn?=
- =?us-ascii?Q?D4BGmoQ6dLNhqpmAuDFxaGjELwEuAgFI/Zm4F16tq7uXKRXqED0LUrGx3oPv?=
- =?us-ascii?Q?0IHjhXAwR1gM+C8+4kCxdE2ehXgJZ0WlQFLH98cf+c1kckBWMm0XF9jJwWri?=
- =?us-ascii?Q?Ba/4E39BYCD84BltjZQy2xZyxYDsvlU2KkLRSc3yvQAZZi2FNOyYoYabO1ag?=
- =?us-ascii?Q?y4NOkljRKQnju0eGinFcgSqLWZIQFO4geenx5yhP1zBWbieWlCw9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 237a1f7e-3cf4-461b-d55e-08dec7faa4d3
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 20:47:25.7166
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2ljzym62vfXqDVm18irSrRhKtuyKUcGQg69mQxBGLZfahT2TiwSuNf0gPXGfr6EHOxm55h+3XZaF3MpCn1XljjRsjZeYCGQsgNm8Zat5q1XXTswoiDRVCkCvW/lz8PBc
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6796
+In-Reply-To: <20260612-shikra_ethernet-v1-3-f0f4a1d19929@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_134731_038111_680E3B6A 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20260611_135455_990502_753A0497 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,216 +84,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 03:32:52PM +0530, Aksh Garg wrote:
-> This patch series introduces the framework for supporting the Data
-> Object Exchange (DOE) feature for PCIe endpoint devices. Please refer
-> to the documentation added in patch 4 for details on the feature and
-> implementation architecture.
->
-> The implementation provides a common framework for all PCIe endpoint
-> controllers, not specific to any particular SoC vendor.
->
+On Fri, Jun 12, 2026 at 12:06:59AM +0530, Mohd Ayaan Anwar wrote:
+> When "rgmii-id" is selected the PHY supplies both TX and RX delays, so
+> the MAC must not add its own.  The driver currently falls through to the
+> generic DLL initialisation path which programs it to add a delay.
+> 
+> Power down the DLL and set DDR bypass mode for RGMII_ID, then program
+> the IO_MACRO via a new ethqos_rgmii_id_macro_init() helper.  Also fix
+> ethqos_set_clk_tx_rate() to not double the clock rate in bypass mode at
+> 100M/10M, and remove RGMII_ID from the phase-shift suppression in
+> ethqos_rgmii_macro_init() since RGMII_ID no longer reaches that path.
 
-General question, does DOE generate irq when received msg for HOST? I have
-not related irq handle code.
+I'm curious how this works at the moment? Do no boards make use of
+RGMII ID? Are all current boards broken?
 
-Any program to test it? such as pci_endpoint_test, need at least one real
-user to use it.
-
-Frank
-
-> The changes since v1 are documented in the respective patch descriptions.
->
-> v4: https://lore.kernel.org/all/20260522052434.802034-1-a-garg7@ti.com/
-> v3: https://lore.kernel.org/all/20260427051725.223704-1-a-garg7@ti.com/
-> v2: https://lore.kernel.org/all/20260401073022.215805-1-a-garg7@ti.com/
-> v1 (RFC): https://lore.kernel.org/all/20260213123603.420941-1-a-garg7@ti.com/
->
-> Below is a code demonstration showing the integration of DOE-EP APIs with
-> EPC drivers.
->
-> Note: The provided code is just to show how an EPC driver is expected to
->       utilize the pci_ep_doe_process_request() and pci_ep_doe_abort() APIs,
->       and might not cover all the corner cases. The below implementation
->       also expects the EPC hardware to have some memory buffer to store the
->       data from(for) write_mailbox(read_mailbox) DOE capability registers.
->
-> ============================================================================
->
-> /* ========== DOE Completion Callback (invoked by DOE-EP core) ========== */
->
-> static void doe_completion_cb(struct pci_epc *epc, u8 func_no, u16 cap_offset,
-> 			       int status, u16 vendor, u8 type,
-> 			       void *response_pl, size_t response_pl_sz)
-> {
-> 	struct epc_driver *drv = epc_get_drvdata(epc);
-> 	u32 *response = (u32 *)response_pl;
-> 	u32 header1, header2;
-> 	int payload_dw, i;
->
-> 	if (readl(drv->base + PF_DOE_CTRL_REG(func_no, cap_offset)) & DOE_CTRL_ABORT) {
-> 		/* Aborted: do not send response */
-> 		goto free;
-> 	}
->
-> 	if (status < 0) {
-> 		/* Error: set ERROR bit in DOE Status register */
-> 		writel(1 << DOE_STATUS_ERROR,
-> 		       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
-> 		goto free;
-> 	}
->
-> 	/* Success: write DOE headers first, then response to the read memory */
->
-> 	/* Header 1: Vendor ID (bits 15:0) | Type (bits 23:16) */
-> 	header1 = (type << 16) | vendor;
-> 	writel(header1, drv->base + PF_DOE_RD_MEMORY_WR_REG(func_no, cap_offset));
->
-> 	/* Header 2: Length in DW (including 2 DW of headers + payload) */
-> 	payload_dw = DIV_ROUND_UP(response_pl_sz, sizeof(u32));
-> 	header2 = 2 + payload_dw;  /* 2 header DWs + payload */
-> 	writel(header2, drv->base + PF_DOE_RD_MEMORY_WR_REG(func_no, cap_offset));
->
-> 	/* Set READY bit to signal response ready */
-> 	writel(1 << DOE_STATUS_READY,
-> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->
-> 	/* Write response payload DWORDs to Read memory */
-> 	for (i = 0; i < payload_dw; i++)
-> 		writel(response[i],
-> 		       drv->base + PF_DOE_RD_MEMORY_WR_REG(func_no, cap_offset));
->
-> 	/* Wait for the memory to empty before clearing the READY bit */
-> 	while (!RD_MEMORY_EMPTY()) {/* wait */}
->
-> 	writel(0 << DOE_STATUS_READY,
-> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->
-> free:
-> 	/* unset BUSY bit */
-> 	writel(0 << DOE_STATUS_BUSY,
-> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->
-> 	kfree(response_pl);
-> }
->
-> /* ========== DOE Interrupt Handler (triggered on GO bit from root complex) ========== */
->
-> static irqreturn_t doe_interrupt_handler(int irq, void *priv)
-> {
-> 	struct epc_driver *drv = priv;
-> 	u16 cap_offset = extract_cap_offset_from_irq(irq);
-> 	u8 func_no = extract_func_from_irq(irq);
-> 	u32 header1, header2, length_dw, *request;
-> 	u16 vendor;
-> 	u8 type;
-> 	int i, ret;
->
-> 	/* Read first header DWORD: Vendor ID (bits 15:0) | Type (bits 23:16) */
-> 	header1 = readl(drv->base + PF_DOE_WR_MEMORY_RD_REG(func_no, cap_offset));
-> 	vendor = header1 & 0xFFFF;
-> 	type = (header1 >> 16) & 0xFF;
->
-> 	/* Read second header DWORD: Length in DW (includes 2 DW of headers) */
-> 	header2 = readl(drv->base + PF_DOE_WR_MEMORY_RD_REG(func_no, cap_offset));
-> 	length_dw = header2 & 0x3FFFF;  /* Bits 17:0 */
->
-> 	if (!length_dw)
-> 		length_dw = PCI_DOE_MAX_LENGTH;
->
-> 	length_dw -= 2;  /* Subtract 2 DW of headers to get payload length */
-> 	/* Allocate buffer for complete request (headers + payload) */
-> 	request = kzalloc(length_dw * sizeof(u32), GFP_ATOMIC);
-> 	if (!request) {
-> 		writel(1 << DOE_STATUS_ERROR,
-> 		       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
-> 		return IRQ_HANDLED;
-> 	}
->
-> 	/* Read remaining payload DWORDs from Write memory */
-> 	for (i = 0; i < length_dw; i++) {
-> 		while (WR_MEMORY_EMPTY()) { /* wait */ }
-> 		request[i] = readl(drv->base + PF_DOE_WR_MEMORY_RD_REG(func_no, cap_offset));
-> 	}
->
-> 	mutex_lock(&lock);
-> 	/* Check the ABORT bit, if set then return */
-> 	if (readl(drv->base + PF_DOE_CTRL_REG(func_no, cap_offset)) & DOE_CTRL_ABORT) {
-> 		kfree(request);
-> 		mutex_unlock(&lock);
-> 		return IRQ_HANDLED;
-> 	}
->
-> 	/* Set BUSY bit */
-> 	writel(1 << DOE_STATUS_BUSY,
-> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
-> 	mutex_unlock(&lock);
->
-> 	/* Hand off to DOE-EP core for asynchronous processing */
-> 	ret = pci_ep_doe_process_request(drv->epc, func_no, cap_offset,
-> 					 vendor, type, (void *)request,
-> 					 length_dw * sizeof(u32),
-> 					 doe_completion_cb);
-> 	if (ret) {
-> 		writel(1 << DOE_STATUS_ERROR,
-> 		       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
-> 		kfree(request);
-> 	}
->
-> 	return IRQ_HANDLED;
-> }
->
-> /* ========== Abort Handler (triggered on ABORT bit from root complex) ========== */
->
-> static irqreturn_t doe_abort_handler(int irq, void *priv)
-> {
-> 	struct epc_driver *drv = priv;
-> 	u16 cap_offset = extract_cap_offset_from_irq(irq);
-> 	u8 func_no = extract_func_from_irq(irq);
->
-> 	mutex_lock(&lock);
->
-> 	/* call abort API only if BUSY bit set (pci_ep_doe_process_request() called) */
-> 	if (readl(drv->base + PF_DOE_STATUS_REG(func_no, cap_offset)) & DOE_STATUS_BUSY)
-> 		pci_ep_doe_abort(drv->epc, func_no, cap_offset);
->
-> 	mutex_unlock(&lock);
->
-> 	/* Discard Write memory contents */
-> 	writel(DOE_WR_MEMORY_CTRL_DISCARD,
-> 	       drv->base + PF_DOE_WR_MEMORY_CTRL_REG(func_no, cap_offset));
->
-> 	/* Clear status bits */
-> 	writel((0 << DOE_STATUS_ERROR) | (0 << DOE_STATUS_READY),
-> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->
-> 	return IRQ_HANDLED;
-> }
->
-> ====================================================================================
->
-> Aksh Garg (4):
->   PCI/DOE: Move common definitions to the header file
->   PCI: endpoint: Add DOE mailbox support for endpoint functions
->   PCI: endpoint: Add support for DOE initialization and setup in EPC
->     core
->   Documentation: PCI: Add documentation for DOE endpoint support
->
->  Documentation/PCI/endpoint/index.rst          |   1 +
->  .../PCI/endpoint/pci-endpoint-doe.rst         | 333 ++++++++++
->  drivers/pci/doe.c                             |  11 -
->  drivers/pci/endpoint/Kconfig                  |  14 +
->  drivers/pci/endpoint/Makefile                 |   1 +
->  drivers/pci/endpoint/pci-ep-doe.c             | 594 ++++++++++++++++++
->  drivers/pci/endpoint/pci-epc-core.c           | 104 +++
->  drivers/pci/pci.h                             |  48 ++
->  include/linux/pci-doe.h                       |   8 +
->  include/linux/pci-epc.h                       |   9 +
->  10 files changed, 1112 insertions(+), 11 deletions(-)
->  create mode 100644 Documentation/PCI/endpoint/pci-endpoint-doe.rst
->  create mode 100644 drivers/pci/endpoint/pci-ep-doe.c
->
-> --
-> 2.34.1
->
+      Andrew
 
