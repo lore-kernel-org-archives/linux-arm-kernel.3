@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F351CD98DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BBECD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iynYsqAWPYBt/5P7GC7zl3iJdGh7tClGBLeJktRmcfg=; b=swMVTmK/SCoQk/dxPYxBNhMCNf
-	lfoHW3IpLEd6Cx8W0EWCDWQwDZNkZ7MJIAFGEBJcucFuLgKv6sUnBpTG4sHlA5LSsbX1NfmlwxlOV
-	AXF7jj5ZPs7W3g+hGJdawcK44aYKGGN6b9YWibYQkXSqEtz+IQBuunvvG3rNRniqNcvdV7H1QscSp
-	lyXQtvWGC/oAYtRP1hsV6nrVZ/dL8qzBY5TdgfRfLwPihwVN36+TN/TBnCG1rZBxYrO3sg1UL6GQD
-	/s3Z6XIp2pDU6seHmiGZx2WPhYPtJBcoQBF6lBF9cWLBv61y/BIYlLd5xPSAKIXolqG4HXp3euXPI
-	DTKj6ydg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=crmNupD7hZaxlPv3WiFM5BGDGkQfFm+0iK/KcjZ0EVc=; b=qdkH1O/msAAAUcXu/xzNHifb56
+	edvjyLyg8jkP3ArO7IT0i+b/JrK3N6F2Kw2T/IJIzJjC0PvORnbgtYEEUblKYmxmFhvcQVt/n5Hsp
+	iGBzAzEiOdCc1336ZeWYP61cgTcHY7k2MZesGYowslg/wlPjcdU979NMT1F2bXUokiY9I9vG8GOP9
+	001pJ9gqJ/PBflzVpO5F6Wlcd30xwHWmXQLTHt2ZFo2hycJkFYN8VvPNFwJqLZcHjwHSAxj0Js70C
+	hroz4y5vTO1rfpRWpv8c8vWMLUulUI91wZCQWeCTl4AVJzsYGz14vS5DsC7NfNEF0AHfXypro6p+v
+	ypJ6lKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcsa-00000009F9S-2lQf;
-	Thu, 11 Jun 2026 10:43:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wXcxL-00000009FQq-1rvP;
+	Thu, 11 Jun 2026 10:48:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcsZ-00000009F9J-0oW9;
-	Thu, 11 Jun 2026 10:43:19 +0000
+	id 1wXcxJ-00000009FQk-3REg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 10:48:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30C476021C;
-	Thu, 11 Jun 2026 10:43:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AA4F1F00898;
-	Thu, 11 Jun 2026 10:43:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A87E44195;
+	Thu, 11 Jun 2026 10:48:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04FB01F00893;
+	Thu, 11 Jun 2026 10:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781174597;
-	bh=iynYsqAWPYBt/5P7GC7zl3iJdGh7tClGBLeJktRmcfg=;
-	h=From:Date:Subject:To:Cc;
-	b=E3GhGxmieirNvQz/1Y0hd4Ys/YaQHNzQJbhks0MsXlEtbASm1Bi8BbhXIBFsf3JjU
-	 t+myz68DoT08xPcBaoTjnc/qOS8qNdZ+AHekCXJ+MNCcRHSNOLrl68jndNUeIbSK33
-	 rOROwkMRYHysf+DofftQ3EKbUOFQnPv7lf1azTZwURjfr5Af2IPqVJEm/DxoOFJYod
-	 K+eKnhilP3mw6RIqY79y363z+dni8JPtAY2lXADlAZrcQbVEFDV7XWHJV+YAg0YSJl
-	 CJJ9K9Iphg0giFLLQiH/hF0m58gpnsYFmeiX82f3O5KlieD7scy18pSJSIeD/iojZh
-	 CD5cTFfgv7bBQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 11 Jun 2026 12:43:00 +0200
-Subject: [PATCH net-next] net: airoha: better handle MIBs for GDM ports
- with multiple devs attached
+	s=k20260515; t=1781174893;
+	bh=crmNupD7hZaxlPv3WiFM5BGDGkQfFm+0iK/KcjZ0EVc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=gp8xOUoJw7DR55PdOTHPoduThWtKOCaI4yUYsuybdRvLig8x4hic9KEcJFBkqLYy3
+	 eTqqGarae18Vwav/snfztbmDhU+Cxr5i6UTyDs6R0xuYfQbUwVBsV7IX1xxdAxXAf2
+	 mfLjqBhyZz4AwS5Stq/9XCHGyHYfsDf5rVGsjrGGASuzlBm4BDyswgtZasxxYty/l7
+	 tFq7XC72F/SS63YJqo7dvJb2GPSkHvpCAVa8f9w91cKaQ4ekZ/NfQ83hkuS2TxXhA+
+	 OYFqceyOb0vPJsGcu8i/mz0xDWEZZUJNxgMq3CQmV0kf7BUGpFwqmrDN4lN1o6OB2A
+	 MFl2vU6TPSBlQ==
+Date: Thu, 11 Jun 2026 11:48:00 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Angelo Dureghello <adureghello@baylibre.com>
+Cc: Greg Ungerer <gerg@linux-m68k.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, Arnd Bergmann
+ <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+ linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian
+ Masney <bmasney@redhat.com>
+Subject: Re: [PATCH v5 09/10] iio: dac: add mcf54415 DAC
+Message-ID: <20260611114800.009d9797@jic23-huawei>
+In-Reply-To: <20260610-wip-stmark2-dac-v5-9-b76b83366d5c@baylibre.com>
+References: <20260610-wip-stmark2-dac-v5-0-b76b83366d5c@baylibre.com>
+	<20260610-wip-stmark2-dac-v5-9-b76b83366d5c@baylibre.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-airoha-eth-multi-serdes-stats-v1-1-42442ae42064@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MMQrDMAwF0KsEzRXEHjz0KqWDsX5qQeIUSy2Bk
- LvXdHzLO8nQFUb36aSOr5rubSDcJio1txdYZZjiHNOcQuCsfa+Z4ZW3z+rKIxAYm2c3liVKCal
- EkUTjeHcsevz/BzU4NxxOz+v6AfidzPR5AAAA
-X-Change-ID: 20260611-airoha-eth-multi-serdes-stats-df2dc16c2dd6
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Christian Marangi <ansuelsmth@gmail.com>
-X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,425 +79,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the context of a GDM port that can have multiple net_devices attached
-(GDM3 and GDM4), the HW counters (MIBs) are global for the GDM port.
-This cause duplicated stats reported to the kernel for the related
-net_device.
-The SoC supports a split MIB feature where each counter is tracked based
-on the relevant HW channel (NBQ) to account for this scenario and
-provide a way to select the related counter on accessing the MIB
-registers.
-Enable this feature for GDM3 and GDM4 and configure the relevant HW
-channel before updating the HW stats to report correct HW counter to the
-kernel for the related interface.
-Move the stats struct from port to dev since HW counter are now specific
-to the network device instead of the GDM port. Refactor
-airoha_update_hw_stats() to take airoha_eth and airoha_gdm_port
-parameters since the function operates on the entire port.
+On Wed, 10 Jun 2026 22:35:14 +0200
+Angelo Dureghello <adureghello@baylibre.com> wrote:
 
-Co-developed-by: Christian Marangi <ansuelsmth@gmail.com>
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 191 +++++++++++++++++--------------
- drivers/net/ethernet/airoha/airoha_eth.h |   7 +-
- 2 files changed, 112 insertions(+), 86 deletions(-)
+> From: Angelo Dureghello <adureghello@baylibre.com>
+> 
+> Add basic version of mcf54415 DAC driver. DAC is embedded in the SoC and
+> DAC configuration registers are mapped in the internal IO address space.
+> 
+> The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
+> analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
+> consists of a conversion unit, an output amplifier, and the associated
+> digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
+> are respectively 0 and 0xfff, left untouched in this initial version.
+> 
+> This initial version of the driver is minimalistic, "output raw" only, to
+> be extended in the future. DMA and external sync are disabled, default mode
+> is high speed, default format is right-justified 12-bit on 16-bit word.
+> 
+> Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
+I'm lazy so didn't check earlier versions but assume the two bits
+of feedback from Sashiko are false positives:
+https://sashiko.dev/#/patchset/20260610-wip-stmark2-dac-v5-0-b76b83366d5c%40baylibre.com
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 5a8e84fa9918..7676ec9b3129 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -556,6 +556,14 @@ static int airoha_fe_init(struct airoha_eth *eth)
- 	airoha_fe_set(eth, REG_GDM_FWD_CFG(AIROHA_GDM3_IDX), GDM_PAD_EN_MASK);
- 	airoha_fe_set(eth, REG_GDM_FWD_CFG(AIROHA_GDM4_IDX), GDM_PAD_EN_MASK);
- 
-+	/* Enable split for MIB counters for GDM3 and GDM4 */
-+	airoha_fe_set(eth, REG_FE_GDM_MIB_CFG(AIROHA_GDM3_IDX),
-+		      FE_GDM_TX_MIB_SPLIT_EN_MASK |
-+		      FE_GDM_RX_MIB_SPLIT_EN_MASK);
-+	airoha_fe_set(eth, REG_FE_GDM_MIB_CFG(AIROHA_GDM4_IDX),
-+		      FE_GDM_TX_MIB_SPLIT_EN_MASK |
-+		      FE_GDM_RX_MIB_SPLIT_EN_MASK);
-+
- 	airoha_fe_crsn_qsel_init(eth);
- 
- 	airoha_fe_clear(eth, REG_FE_CPORT_CFG, FE_CPORT_QUEUE_XFC_MASK);
-@@ -1626,149 +1634,169 @@ static void airoha_qdma_stop_napi(struct airoha_qdma *qdma)
- 	}
- }
- 
--static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
-+static void airoha_dev_get_hw_stats(struct airoha_gdm_dev *dev)
- {
- 	struct airoha_gdm_port *port = dev->port;
- 	struct airoha_eth *eth = dev->eth;
- 	u32 val, i = 0;
- 
--	spin_lock(&port->stats.lock);
--	u64_stats_update_begin(&port->stats.syncp);
-+	/* Read relevant MIB for GDM with multiple port attached */
-+	if (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)
-+		airoha_fe_rmw(eth, REG_FE_GDM_MIB_CFG(port->id),
-+			      FE_TX_MIB_ID_MASK | FE_RX_MIB_ID_MASK,
-+			      FIELD_PREP(FE_TX_MIB_ID_MASK, dev->nbq) |
-+			      FIELD_PREP(FE_RX_MIB_ID_MASK, dev->nbq));
-+
-+	u64_stats_update_begin(&dev->stats.syncp);
- 
- 	/* TX */
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_H(port->id));
--	port->stats.tx_ok_pkts += ((u64)val << 32);
-+	dev->stats.tx_ok_pkts += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
--	port->stats.tx_ok_pkts += val;
-+	dev->stats.tx_ok_pkts += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_H(port->id));
--	port->stats.tx_ok_bytes += ((u64)val << 32);
-+	dev->stats.tx_ok_bytes += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_L(port->id));
--	port->stats.tx_ok_bytes += val;
-+	dev->stats.tx_ok_bytes += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_DROP_CNT(port->id));
--	port->stats.tx_drops += val;
-+	dev->stats.tx_drops += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_BC_CNT(port->id));
--	port->stats.tx_broadcast += val;
-+	dev->stats.tx_broadcast += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_MC_CNT(port->id));
--	port->stats.tx_multicast += val;
-+	dev->stats.tx_multicast += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_RUNT_CNT(port->id));
--	port->stats.tx_len[i] += val;
-+	dev->stats.tx_len[i] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_H(port->id));
--	port->stats.tx_len[i] += ((u64)val << 32);
-+	dev->stats.tx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_L(port->id));
--	port->stats.tx_len[i++] += val;
-+	dev->stats.tx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_H(port->id));
--	port->stats.tx_len[i] += ((u64)val << 32);
-+	dev->stats.tx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_L(port->id));
--	port->stats.tx_len[i++] += val;
-+	dev->stats.tx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_H(port->id));
--	port->stats.tx_len[i] += ((u64)val << 32);
-+	dev->stats.tx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_L(port->id));
--	port->stats.tx_len[i++] += val;
-+	dev->stats.tx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_H(port->id));
--	port->stats.tx_len[i] += ((u64)val << 32);
-+	dev->stats.tx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_L(port->id));
--	port->stats.tx_len[i++] += val;
-+	dev->stats.tx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_H(port->id));
--	port->stats.tx_len[i] += ((u64)val << 32);
-+	dev->stats.tx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_L(port->id));
--	port->stats.tx_len[i++] += val;
-+	dev->stats.tx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_H(port->id));
--	port->stats.tx_len[i] += ((u64)val << 32);
-+	dev->stats.tx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_L(port->id));
--	port->stats.tx_len[i++] += val;
-+	dev->stats.tx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_LONG_CNT(port->id));
--	port->stats.tx_len[i++] += val;
-+	dev->stats.tx_len[i++] += val;
- 
- 	/* RX */
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_H(port->id));
--	port->stats.rx_ok_pkts += ((u64)val << 32);
-+	dev->stats.rx_ok_pkts += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_L(port->id));
--	port->stats.rx_ok_pkts += val;
-+	dev->stats.rx_ok_pkts += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_H(port->id));
--	port->stats.rx_ok_bytes += ((u64)val << 32);
-+	dev->stats.rx_ok_bytes += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_L(port->id));
--	port->stats.rx_ok_bytes += val;
-+	dev->stats.rx_ok_bytes += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_DROP_CNT(port->id));
--	port->stats.rx_drops += val;
-+	dev->stats.rx_drops += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_BC_CNT(port->id));
--	port->stats.rx_broadcast += val;
-+	dev->stats.rx_broadcast += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_MC_CNT(port->id));
--	port->stats.rx_multicast += val;
-+	dev->stats.rx_multicast += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ERROR_DROP_CNT(port->id));
--	port->stats.rx_errors += val;
-+	dev->stats.rx_errors += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_CRC_ERR_CNT(port->id));
--	port->stats.rx_crc_error += val;
-+	dev->stats.rx_crc_error += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_OVERFLOW_DROP_CNT(port->id));
--	port->stats.rx_over_errors += val;
-+	dev->stats.rx_over_errors += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_FRAG_CNT(port->id));
--	port->stats.rx_fragment += val;
-+	dev->stats.rx_fragment += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_JABBER_CNT(port->id));
--	port->stats.rx_jabber += val;
-+	dev->stats.rx_jabber += val;
- 
- 	i = 0;
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_RUNT_CNT(port->id));
--	port->stats.rx_len[i] += val;
-+	dev->stats.rx_len[i] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_H(port->id));
--	port->stats.rx_len[i] += ((u64)val << 32);
-+	dev->stats.rx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_L(port->id));
--	port->stats.rx_len[i++] += val;
-+	dev->stats.rx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_H(port->id));
--	port->stats.rx_len[i] += ((u64)val << 32);
-+	dev->stats.rx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_L(port->id));
--	port->stats.rx_len[i++] += val;
-+	dev->stats.rx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_H(port->id));
--	port->stats.rx_len[i] += ((u64)val << 32);
-+	dev->stats.rx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_L(port->id));
--	port->stats.rx_len[i++] += val;
-+	dev->stats.rx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_H(port->id));
--	port->stats.rx_len[i] += ((u64)val << 32);
-+	dev->stats.rx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_L(port->id));
--	port->stats.rx_len[i++] += val;
-+	dev->stats.rx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_H(port->id));
--	port->stats.rx_len[i] += ((u64)val << 32);
-+	dev->stats.rx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_L(port->id));
--	port->stats.rx_len[i++] += val;
-+	dev->stats.rx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_H(port->id));
--	port->stats.rx_len[i] += ((u64)val << 32);
-+	dev->stats.rx_len[i] += ((u64)val << 32);
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_L(port->id));
--	port->stats.rx_len[i++] += val;
-+	dev->stats.rx_len[i++] += val;
- 
- 	val = airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_LONG_CNT(port->id));
--	port->stats.rx_len[i++] += val;
-+	dev->stats.rx_len[i++] += val;
-+
-+	u64_stats_update_end(&dev->stats.syncp);
-+}
- 
--	/* reset mib counters */
--	airoha_fe_set(eth, REG_FE_GDM_MIB_CLEAR(port->id),
-+static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
-+{
-+	struct airoha_gdm_port *port = dev->port;
-+	int i;
-+
-+	spin_lock(&port->stats_lock);
-+
-+	for (i = 0; i < ARRAY_SIZE(port->devs); i++) {
-+		if (port->devs[i])
-+			airoha_dev_get_hw_stats(port->devs[i]);
-+	}
-+
-+	/* Reset MIB counters */
-+	airoha_fe_set(dev->eth, REG_FE_GDM_MIB_CLEAR(port->id),
- 		      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
- 
--	u64_stats_update_end(&port->stats.syncp);
--	spin_unlock(&port->stats.lock);
-+	spin_unlock(&port->stats_lock);
- }
- 
- static int airoha_dev_open(struct net_device *netdev)
-@@ -2043,23 +2071,22 @@ static void airoha_dev_get_stats64(struct net_device *netdev,
- 				   struct rtnl_link_stats64 *storage)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
--	struct airoha_gdm_port *port = dev->port;
- 	unsigned int start;
- 
- 	airoha_update_hw_stats(dev);
- 	do {
--		start = u64_stats_fetch_begin(&port->stats.syncp);
--		storage->rx_packets = port->stats.rx_ok_pkts;
--		storage->tx_packets = port->stats.tx_ok_pkts;
--		storage->rx_bytes = port->stats.rx_ok_bytes;
--		storage->tx_bytes = port->stats.tx_ok_bytes;
--		storage->multicast = port->stats.rx_multicast;
--		storage->rx_errors = port->stats.rx_errors;
--		storage->rx_dropped = port->stats.rx_drops;
--		storage->tx_dropped = port->stats.tx_drops;
--		storage->rx_crc_errors = port->stats.rx_crc_error;
--		storage->rx_over_errors = port->stats.rx_over_errors;
--	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-+		start = u64_stats_fetch_begin(&dev->stats.syncp);
-+		storage->rx_packets = dev->stats.rx_ok_pkts;
-+		storage->tx_packets = dev->stats.tx_ok_pkts;
-+		storage->rx_bytes = dev->stats.rx_ok_bytes;
-+		storage->tx_bytes = dev->stats.tx_ok_bytes;
-+		storage->multicast = dev->stats.rx_multicast;
-+		storage->rx_errors = dev->stats.rx_errors;
-+		storage->rx_dropped = dev->stats.rx_drops;
-+		storage->tx_dropped = dev->stats.tx_drops;
-+		storage->rx_crc_errors = dev->stats.rx_crc_error;
-+		storage->rx_over_errors = dev->stats.rx_over_errors;
-+	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
- }
- 
- static int airoha_dev_change_mtu(struct net_device *netdev, int mtu)
-@@ -2310,20 +2337,19 @@ static void airoha_ethtool_get_mac_stats(struct net_device *netdev,
- 					 struct ethtool_eth_mac_stats *stats)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
--	struct airoha_gdm_port *port = dev->port;
- 	unsigned int start;
- 
- 	airoha_update_hw_stats(dev);
- 	do {
--		start = u64_stats_fetch_begin(&port->stats.syncp);
--		stats->FramesTransmittedOK = port->stats.tx_ok_pkts;
--		stats->OctetsTransmittedOK = port->stats.tx_ok_bytes;
--		stats->MulticastFramesXmittedOK = port->stats.tx_multicast;
--		stats->BroadcastFramesXmittedOK = port->stats.tx_broadcast;
--		stats->FramesReceivedOK = port->stats.rx_ok_pkts;
--		stats->OctetsReceivedOK = port->stats.rx_ok_bytes;
--		stats->BroadcastFramesReceivedOK = port->stats.rx_broadcast;
--	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-+		start = u64_stats_fetch_begin(&dev->stats.syncp);
-+		stats->FramesTransmittedOK = dev->stats.tx_ok_pkts;
-+		stats->OctetsTransmittedOK = dev->stats.tx_ok_bytes;
-+		stats->MulticastFramesXmittedOK = dev->stats.tx_multicast;
-+		stats->BroadcastFramesXmittedOK = dev->stats.tx_broadcast;
-+		stats->FramesReceivedOK = dev->stats.rx_ok_pkts;
-+		stats->OctetsReceivedOK = dev->stats.rx_ok_bytes;
-+		stats->BroadcastFramesReceivedOK = dev->stats.rx_broadcast;
-+	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
- }
- 
- static const struct ethtool_rmon_hist_range airoha_ethtool_rmon_ranges[] = {
-@@ -2343,8 +2369,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *netdev,
- 			      const struct ethtool_rmon_hist_range **ranges)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
--	struct airoha_gdm_port *port = dev->port;
--	struct airoha_hw_stats *hw_stats = &port->stats;
-+	struct airoha_hw_stats *hw_stats = &dev->stats;
- 	unsigned int start;
- 
- 	BUILD_BUG_ON(ARRAY_SIZE(airoha_ethtool_rmon_ranges) !=
-@@ -2357,7 +2382,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *netdev,
- 	do {
- 		int i;
- 
--		start = u64_stats_fetch_begin(&port->stats.syncp);
-+		start = u64_stats_fetch_begin(&dev->stats.syncp);
- 		stats->fragments = hw_stats->rx_fragment;
- 		stats->jabbers = hw_stats->rx_jabber;
- 		for (i = 0; i < ARRAY_SIZE(airoha_ethtool_rmon_ranges) - 1;
-@@ -2365,7 +2390,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *netdev,
- 			stats->hist[i] = hw_stats->rx_len[i];
- 			stats->hist_tx[i] = hw_stats->tx_len[i];
- 		}
--	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-+	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
- }
- 
- static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
-@@ -3205,6 +3230,7 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
- 
- 	netdev->dev.of_node = of_node_get(np);
- 	dev = netdev_priv(netdev);
-+	u64_stats_init(&dev->stats.syncp);
- 	dev->port = port;
- 	dev->eth = eth;
- 	dev->nbq = nbq;
-@@ -3244,9 +3270,8 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	if (!port)
- 		return -ENOMEM;
- 
--	u64_stats_init(&port->stats.syncp);
--	spin_lock_init(&port->stats.lock);
- 	port->id = id;
-+	spin_lock_init(&port->stats_lock);
- 	eth->ports[p] = port;
- 
- 	err = airoha_metadata_dst_alloc(port);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 8f42973f9cf5..46b1c31939de 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -215,8 +215,6 @@ struct airoha_tx_irq_queue {
- };
- 
- struct airoha_hw_stats {
--	/* protect concurrent hw_stats accesses */
--	spinlock_t lock;
- 	struct u64_stats_sync syncp;
- 
- 	/* get_stats64 */
-@@ -554,6 +552,8 @@ struct airoha_gdm_dev {
- 
- 	u32 flags;
- 	int nbq;
-+
-+	struct airoha_hw_stats stats;
- };
- 
- struct airoha_gdm_port {
-@@ -561,7 +561,8 @@ struct airoha_gdm_port {
- 	int id;
- 	int users;
- 
--	struct airoha_hw_stats stats;
-+	/* protect concurrent hw_stats accesses */
-+	spinlock_t stats_lock;
- 
- 	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
- };
+The one about clock underflow if resume fails, and then devm cleanup happens later
+is a bit nasty.
 
----
-base-commit: c8459ee2fef502d6ef6c063751c33d9ac7943eab
-change-id: 20260611-airoha-eth-multi-serdes-stats-df2dc16c2dd6
+I did a bit of digging and maybe it is better to just leave the clock on?
+The status dev.power.is_suspended is set to false whether or not resume succeeded
+and I believe a following suspend will not take into account that resume failed.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+I'm not set up to poke the combinations but it might be worth trying that.
++CC common clk people who may immediately know what the right answer is.
+
+Otherwise just a few minor style comments inline.
+
+Thanks,
+
+Jonathan
+
+> ---
+> Changes in v2:
+> - remove tests from commit message, moved to patch 0
+> - remove additional blank lines
+> - remove dead code and unused definitions
+> - use regmap
+> - add limit check on raw write
+> - non functional style fixes
+> - add COMPILE_TEST to Kconfig
+> Changes in v3:
+> - add comments where needed
+> - code style changes
+> - remove unneeded variables
+> - use regmap_set_bits where possible
+> - remove macro not needed to define a single channel
+> - set up regmap to big_endian accesses for next patches that will come,
+>   that will adjust ColdFire readx/writex as standard LE (links in 0/x).
+> - add return value check on regmap calls
+> - sashiko: remove unneeded .io_port from regmap init.
+> - sashiko: add select REGMAP_MMIO in Kconfig
+> Changes in v4:
+> - remove unused includes
+> - sashiko: return "ret" as regmap_read ret value in case of error
+> - sashiko: using u32 as regmap_read value
+> - use local variable in mcf54415_dac_init() for better readability
+> - sashiko: check mcf54415_dac_init return value also in resume()
+> Changes in v5:
+> - commit syntax fixes
+> - minor code style fixes
+> - use include <linux/type.h>
+> - removed unneeded cast
+> - disable clock in case of DAC init error
+> - use unsigned int for regmap_read and GENMASK for masking 12 bits
+> - add id table to match "mcfdac" platform device name
+> ---
+>  drivers/iio/dac/Kconfig        |  11 +++
+>  drivers/iio/dac/Makefile       |   1 +
+>  drivers/iio/dac/mcf54415_dac.c | 216 +++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 228 insertions(+)
+> 
+> diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
+> index cd4870b65415..b1a578076188 100644
+> --- a/drivers/iio/dac/Kconfig
+> +++ b/drivers/iio/dac/Kconfig
+> @@ -516,6 +516,17 @@ config MAX5821
+>  	  Say yes here to build support for Maxim MAX5821
+>  	  10 bits DAC.
+>  
+> +config MCF54415_DAC
+> +	tristate "NXP MCF54415 DAC driver"
+> +	depends on M5441x || COMPILE_TEST
+> +	select REGMAP_MMIO
+> +	help
+> +	  Say yes here to build support for NXP MCF54415
+> +	  12bit DAC.
+
+Rewrap this.
+
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called mcf54415_dac.
+> +
+> diff --git a/drivers/iio/dac/mcf54415_dac.c b/drivers/iio/dac/mcf54415_dac.c
+> new file mode 100644
+> index 000000000000..f223aa80aabf
+> --- /dev/null
+> +++ b/drivers/iio/dac/mcf54415_dac.c
+
+> +
+> +static int mcf54415_dac_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct iio_dev *indio_dev;
+> +	struct mcf54415_dac *info;
+> +	void __iomem *regs;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	info = iio_priv(indio_dev);
+> +
+> +	regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(regs))
+> +		return dev_err_probe(dev, PTR_ERR(regs), "failed to get io regs\n");
+> +
+> +	info->map = devm_regmap_init_mmio(dev, regs, &mcf54415_dac_regmap_config);
+> +	if (IS_ERR(info->map))
+> +		return PTR_ERR(info->map);
+> +
+> +	info->clk = devm_clk_get_enabled(dev, "dac");
+> +	if (IS_ERR(info->clk))
+> +		return dev_err_probe(dev, PTR_ERR(info->clk), "failed getting clock\n");
+> +
+> +	platform_set_drvdata(pdev, indio_dev);
+> +
+> +	indio_dev->name = "mcf54415";
+> +	indio_dev->info = &mcf54415_dac_iio_info;
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->channels = &mcf54415_dac_iio_channel;
+> +	indio_dev->num_channels = 1;
+> +
+> +	ret = mcf54415_dac_init(info);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_add_action_or_reset(dev, mcf54415_dac_exit, info);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return devm_iio_device_register(dev, indio_dev);
+> +}
+> +
+> +static int mcf54415_dac_suspend(struct device *dev)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(dev_get_drvdata(dev));
+> +
+> +	mcf54415_dac_exit(info);
+> +	clk_disable_unprepare(info->clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mcf54415_dac_resume(struct device *dev)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(dev_get_drvdata(dev));
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(info->clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = mcf54415_dac_init(info);
+> +	if (ret) {
+> +		dev_err(dev, "could not resume device\n");
+> +		clk_disable_unprepare(info->clk);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static DEFINE_SIMPLE_DEV_PM_OPS(mcf54415_dac_pm_ops,
+> +				mcf54415_dac_suspend, mcf54415_dac_resume);
+> +
+> +static const struct platform_device_id mcf54415_dac_ids[] = {
+> +	{ .name = "mcfdac", .driver_data = 0 },
+
+Don't set .driver_data if you aren't using it.  Given very strong
+preference for always using a pointer for that (rather than a numeric
+value) this line will change if you ever add support for more devices
+anyway, so no value in having that there now.
+
+> +	{ }, /* sentinel */
+	{ }
+
+No comma and I don't see value in the sentinel marking given that is
+fairly obvious.
+
+> +};
+> +
+No blank line here.  Intent is to keep the macro and the function closely
+coupled.
+
+> +MODULE_DEVICE_TABLE(platform, mcf54415_dac_ids);
+
 
 
