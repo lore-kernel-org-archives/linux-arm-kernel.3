@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6BACD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0B5CD98D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owBBxTmvRRiYJTmyDYOVDNQMmnMPZCmfdiOT84fn6U0=; b=ctRF/0/g83xXhLZHoO8rcH7QWB
-	s3IrF1EsC/tcpTeIH9T6n531SSwxlVArefr8/lg3Qgwqz9hPE8rTwvmnBYMPvf2PAEfg/Qwa9/k2G
-	sAgD0q1WrXIBFfLU5CrMu2sZW+IWW6OgY3TZ/QmAPQ1hkEIf7ErtJ9mM33kbt/XYqjA16bom1zL9+
-	EfVW/9Z1Upe6AJ9TWt9MtGa85SDkUnkkZvE0ngSyjRE0l1RKBnCEdHeveKzwOh7WvKACjoNsZj+Mf
-	sYIkZEDtooBdrv7gcUzBt74FIujLTo+T+0WWiySZgD8SjNLI7OP+shSjp95wS8CLogec2JHGh1xzs
-	ZSOkLM8Q==;
+	bh=2P4PmcnHeSIbmz3J0AKO+3ABrN1m7BkMBBGbKGlWimI=; b=RtbEUwtbEpzwZmdEgDBb7pnc3O
+	xNTd72RuKeMxPPzdZpC6b4/dConGqeIN5lH1YBfO9g2pdANUWJ6s0vNVhwQuFKNrCQ3NtOepuqDBW
+	u428ylFbm/fuBP1aoLvp/VUF2lEoF/rHy6umpeNHLMPBb8CbAZ+JaCgBvXz+TO5L6Z9RHSKYnDBpt
+	5pH6v+Q+hp18vlueGdgfrvnl4bNbp759bWgk4XDsCyZGi8qzenx9BI9BjWXz2N7BhEjvOs4YOQxZX
+	r+LUrKU8NASlTbOgGEmE4t2YhcUAvM4ewHaHuWOLbwqIB2kgorikEavK3PGRCsmgthdqoFFwF12sA
+	/JVws2FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXeg2-00000009Q7X-0gkR;
-	Thu, 11 Jun 2026 12:38:30 +0000
+	id 1wXei3-00000009QQz-2B6m;
+	Thu, 11 Jun 2026 12:40:35 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXeg1-00000009Q74-1B5H
+	id 1wXei2-00000009QQl-05Vt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 12:38:29 +0000
+	Thu, 11 Jun 2026 12:40:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0137A442F8
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:38:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D845F1F00899
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:38:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD8CC43A9F
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:40:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FDF41F00898
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781181508;
-	bh=owBBxTmvRRiYJTmyDYOVDNQMmnMPZCmfdiOT84fn6U0=;
+	s=k20260515; t=1781181633;
+	bh=2P4PmcnHeSIbmz3J0AKO+3ABrN1m7BkMBBGbKGlWimI=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=m+dxvwGWzjjQwmYa86A3fsbavh6gY0P5a+NiirLIlKuB3wRTfwWtOGo+O6why7gtA
-	 /2XbvbffiR7JQFZz4sFB7iXO0kqu4OwpBnxNlxgCBG4VFZnvDFUwv0mSYsyf30YFlw
-	 TrVYoWwsfrPepwbAPT2Z/1Pvi8gbxgpzTgFYqT858L7zjjcFP6cbi909gZZ+4T0JnR
-	 gewij0mYXn8bsneyhFy40+tPM8NSgb1KapENhzRghJ0YYnmuKpbrAs0QvO9E6tNcdJ
-	 FOkVszmfwZfzIpeZ+xyVWrCCG+Bpiuq1jzvOfTQBoOS1OWzxqfgDMhqPQ5KafAPpos
-	 6oR23JVVa4qNQ==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-39666aac20cso59381911fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 05:38:28 -0700 (PDT)
-X-Gm-Message-State: AOJu0YzTDHb3+GT0RcYDFh++UF2LYEkU4hX6Hwwiok//7Iavn1Lht7In
-	WFQJab+v/bZAAE5XZ0wSPF70VPumogsTQ1ifKNpoyx/1YfAR0qP/tppSOnYxptzbXg2B9WRCGjY
-	bij6np0dED/vlEO0F3V9Zx4fahNd2/+Q=
-X-Received: by 2002:a05:6512:250e:b0:5aa:8822:b875 with SMTP id
- 2adb3069b0e04-5ad27fba618mr914171e87.47.1781181507622; Thu, 11 Jun 2026
- 05:38:27 -0700 (PDT)
+	b=LgQlvCWzASZTDlq0M7janNNq4Rs04qI0YUVTvm7Pdf217QxM67HdfmkOPdgsI9GKe
+	 pmQHAtyP8EbJxZP7OxnPk0Jtwb/2YZgVcAXoucTJZxfsRLwytLYqOYVut/GyXyFliR
+	 ijAOJK7JZmFPRK3TdLPcUIwALIzlsX6ejpg5qBCtuXSKbiFBo2O+sg7ahouw3f41pO
+	 58kz5LC91v2Ow94piAcNf7ZSRarXBzzSN/EP2U1zn4nmTDBaoy0V5naZ0bNkb+bfHm
+	 g7UegBC1dtidkYnX1o1RFivL49JeOJBKvlFvSVevzxo1K/9rztcSgaoZC5cG8RE4DU
+	 MVGdyiwzIbijQ==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5aa68d9d4a3so8996697e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 05:40:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+rW8kJBnVwoN0J/4HaL47Tdp06gVQCNc9YPwjnK692UExA2B/z3eSGR+mZt7Ht48v/Kz4Ye0vPnWsdo5UV5f4x@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoML7qBYz+IaWs7dMJ0VbJBGSspglRLIbg8XPWsanILQEnAutQ
+	4ul8Syvh50R2lGf03cxgJaHRbCdJ0sBOeDBsjL8G8WfSJgE2xEqLB4v1Lqx96MjernuGPHw8V5L
+	j/UqQPPm9CxXXPLYckV671scVUBFkRf8=
+X-Received: by 2002:a05:6512:118a:b0:5ad:229e:3860 with SMTP id
+ 2adb3069b0e04-5ad27aaf3c0mr778501e87.3.1781181632448; Thu, 11 Jun 2026
+ 05:40:32 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260611004700.395759-1-enelsonmoore@gmail.com>
-In-Reply-To: <20260611004700.395759-1-enelsonmoore@gmail.com>
+References: <20260611-pinctrl-nolock-v1-1-aca022d4d60f@amlogic.com>
+In-Reply-To: <20260611-pinctrl-nolock-v1-1-aca022d4d60f@amlogic.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 11 Jun 2026 14:38:14 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnD2EU=YfABb1ySRtgeOPVzQKH3iMjZtj2AsW+RK8M6mQ@mail.gmail.com>
-X-Gm-Features: AVVi8CeWaQRs6OD0fjTRubeNODMGoLh-fwJtQ_OHVuMnQkm2SN7cEndQbFdkJbc
-Message-ID: <CAD++jLnD2EU=YfABb1ySRtgeOPVzQKH3iMjZtj2AsW+RK8M6mQ@mail.gmail.com>
-Subject: Re: [PATCH] ARM: remove references to removed CONFIG_CPU_ARM92x_CPU_IDLE
- options
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Nathan Chancellor <nathan@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>
+Date: Thu, 11 Jun 2026 14:40:19 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmdCCYTKv+J09pS=49c4y19stBYmBgytc2SG_MM4D=ABg@mail.gmail.com>
+X-Gm-Features: AVVi8CcK6vKj7M9lrxTHVvJAMkxnXvUH3E59BGUGT9lSHYyOacydnWB2IyiXFRI
+Message-ID: <CAD++jLmdCCYTKv+J09pS=49c4y19stBYmBgytc2SG_MM4D=ABg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: meson: amlogic-a4: use nolock get range
+To: xianwei.zhao@amlogic.com
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -80,21 +82,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 2:47=E2=80=AFAM Ethan Nelson-Moore
-<enelsonmoore@gmail.com> wrote:
+On Thu, Jun 11, 2026 at 9:10=E2=80=AFAM Xianwei Zhao via B4 Relay
+<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
 
-> Several assembly files in arch/arm/mm contain comments referring to
-> CONFIG_CPU_ARM92x_CPU_IDLE options, which have not existed in the kernel
-> since 2.4.21. Remove them.
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 >
-> Discovered while searching for CONFIG_* symbols referenced in code but
-> not defined in any Kconfig file.
+> Use pinctrl_find_gpio_range_from_pin_nolock() instead of
+> pinctrl_find_gpio_range_from_pin() when configuring a pin or
+> setting a GPIO value.
 >
-> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+> This avoids taking the lock and allows the code to be safely
+> called from interrupt context.
+>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-
-Please put this patch into Russell's patch tracker.
+Patch applied!
 
 Yours,
 Linus Walleij
