@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE08CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27808CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgeOpkSfMDItkl6QmJDN0zsC/B+yghI25RibBXORonY=; b=CGJHfuj8Y3v9XpkT3Oya5Ugf/v
-	0X4hWb/1qenFjOx7FfJ27DLqT5pIwJOSjwhc0Cq3fvdyGls2EYc8iGQikGKy4xlwfkQfgYC6ReHUt
-	4UNwzPvGJ2HU7HykQzBJoINX0In/AOmjzcsnJ2lEqEKSh2wu4DSjfEml36+4HjKLbStLfgBnuNkhU
-	HD1avNsHVLZ434B56IOVeEhBKP7YYzpFwceIEgNPB06yC7scdGfBtzhNBXTvArwguQNEAQ2fo8GfO
-	Db1QkQSyc4bZTQgnlYA9PgvosWD/zxVkpnW+MD+X45ju8fG0nRzzfjRANWzQeDWJBOCpWL4b7rTZr
-	EYKJeJgg==;
+	bh=EhIoXwrJ2v4T9qgQOtSO8HKyAdS+dLCWcN2Z/1SrKhs=; b=L1QIs3D2+elX5jmELD3h4zuLrk
+	JmmZqWHRkjGs5GeMEZOwzpb7INB21bYkzCnz3L3ssgigOlHW/fQBgCEBMQZdMc61g65sn7uxffi1S
+	r890Ey70qxE6bdAF3398bcDXQn6/gqGPgq6iF75M3foJz5hnT84XuP+fRKcODCxHcSNWFrHTfpc38
+	qc71ORwBsXNLm227o7PdkkPYtfRFomvR9C/gLo7zm3xOcTjEDvQamz8ut3rCstZyQ6cdcrqkVpKja
+	7f3t2hZ8o5IAXdp9w+y8dboXwyWdB4WhSOWfhHCzsNW5Nle6fwhSfiNVzAfSusFjXTK3GupNP5eTr
+	e4/LxdWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgkZ-00000009c9e-04m0;
-	Thu, 11 Jun 2026 14:51:19 +0000
+	id 1wXgkc-00000009cBm-0rdL;
+	Thu, 11 Jun 2026 14:51:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgkU-00000009c7N-0qRA
+	id 1wXgkW-00000009c8P-1uMU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 14:51:15 +0000
+	Thu, 11 Jun 2026 14:51:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D52A92576;
-	Thu, 11 Jun 2026 07:51:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CAD802576;
+	Thu, 11 Jun 2026 07:51:10 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1EBC63FBB1;
-	Thu, 11 Jun 2026 07:51:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC7943FBB1;
+	Thu, 11 Jun 2026 07:51:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781189472; bh=7vX85SCMTjYcpvokZvj/T+O8xSn23+Z4QL/pSBdhFU8=;
+	t=1781189475; bh=EsjXc42366tfvkg9x9YBDMdaool8cFnnoAYZpBNa4Do=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=vogYu0bPqDIJWCdzOp7R/UsbQGnKgfnLgGsQE2yviIkfotKVYRXd3/Wy59529dQs/
-	 fbIlZu9NrThAzuK2PSehNq8XLN6IpekYbns774cGXbxIXW10qq3yCuhf69OvPrH02/
-	 rFfUEffP68rO17WINMwaJ5BBM6RfhK4m90X32S3A=
+	b=GGcuc6SPqGqHJ3N6Q6IGLlZDjcUgZr1FbtPLTRygss4Gma8/3pqFMvpQOKgvC5trv
+	 Hs8/Oe6BQb1GMJ+Nq18q8crCS4Dm5+oOh5PUznSe6U3dPkaxfyzyN+awuGwZfed21W
+	 RFmPho0LqZM4bQ64fJyp2MqqC5GJ7zejoVKaqDJM=
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 11 Jun 2026 15:50:48 +0100
-Subject: [PATCH v8 2/8] perf cs-etm: Decode ETE exception packets
+Date: Thu, 11 Jun 2026 15:50:49 +0100
+Subject: [PATCH v8 3/8] perf cs-etm: Refactor instruction size handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-b4-arm_cs_callchain_support_v1-v8-2-737948584fea@arm.com>
+Message-Id: <20260611-b4-arm_cs_callchain_support_v1-v8-3-737948584fea@arm.com>
 References: <20260611-b4-arm_cs_callchain_support_v1-v8-0-737948584fea@arm.com>
 In-Reply-To: <20260611-b4-arm_cs_callchain_support_v1-v8-0-737948584fea@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -58,18 +58,19 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
  Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
  Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
 Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+ linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
+ Leo Yan <leo.yan@linux.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781189463; l=2006;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781189463; l=2953;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=7vX85SCMTjYcpvokZvj/T+O8xSn23+Z4QL/pSBdhFU8=;
- b=4VhTNCr/G1RG+K6ReNVwVNYl0KprUdgEMHTYnHC9cjM/NMJoEr7NqOALl3KgqvX4T7d7pnVSf
- 3Zakjz/MIGiD3yoIH4F7BPQTZLD3D8Djgf1fLCZJC3lvpv4Nbg0qe0i
+ bh=KqrInmMKKXWFoDKKGlA3eO1CNnTbpsc10BaPC7smJeI=;
+ b=m7iQ3l60uXd+b9hdrKBSJRQO9rKf3xCNdykKSdAwRPrUiLmdAcFy+VU18idxeJrEPC8I0J9aa
+ DAdwaptzJo0CmllIUkjes5p/iIG7duWvzf15i347O4iQBshQ11qxRvM
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_075114_312590_6D53A2F8 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260611_075116_581095_A3778CC9 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +85,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ETE shares the same packet format as ETMv4, but exception decoding
-handled ETMv4 packets only. As a result, ETE exception packets were
-not classified.
+From: Leo Yan <leo.yan@linaro.org>
 
-Recognize the ETE magic for exception number decoding.
+This patch introduces a new function cs_etm__instr_size() to calculate
+the instruction size based on ISA type and instruction address.
 
+Given the trace data can be MB and most likely that will be A64/A32 on
+a lot of platforms, cs_etm__instr_addr() keeps a single ISA type check
+for A64/A32 and executes an optimized calculation (addr + offset * 4).
+
+Signed-off-by: Leo Yan <leo.yan@linaro.org>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ tools/perf/util/cs-etm.c | 43 ++++++++++++++++++++++---------------------
+ 1 file changed, 22 insertions(+), 21 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index c2b0f98ceee7671d0e98cfe5673c6f4ec19707a5..b4d598ccabbd2551affdc8feed5c63bac4fee98d 100644
+index b4d598ccabbd2551affdc8feed5c63bac4fee98d..4127120459418389ca7aabb9a49dead2b50e7533 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -2176,7 +2176,7 @@ static bool cs_etm__is_syscall(struct cs_etm_queue *etmq,
- 	 * HVC cases; need to check if it's SVC instruction based on
- 	 * packet address.
- 	 */
--	if (magic == __perf_cs_etmv4_magic) {
-+	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic) {
- 		if (packet->exception_number == CS_ETMV4_EXC_CALL &&
- 		    cs_etm__is_svc_instr(etmq, tidq, prev_packet,
- 					 prev_packet->end_addr))
-@@ -2199,7 +2199,7 @@ static bool cs_etm__is_async_exception(struct cs_etm_traceid_queue *tidq,
- 		    packet->exception_number == CS_ETMV3_EXC_FIQ)
- 			return true;
+@@ -1366,6 +1366,18 @@ static inline int cs_etm__t32_instr_size(struct cs_etm_queue *etmq,
+ 	return ((instrBytes[1] & 0xF8) >= 0xE8) ? 4 : 2;
+ }
  
--	if (magic == __perf_cs_etmv4_magic)
-+	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic)
- 		if (packet->exception_number == CS_ETMV4_EXC_RESET ||
- 		    packet->exception_number == CS_ETMV4_EXC_DEBUG_HALT ||
- 		    packet->exception_number == CS_ETMV4_EXC_SYSTEM_ERROR ||
-@@ -2229,7 +2229,7 @@ static bool cs_etm__is_sync_exception(struct cs_etm_queue *etmq,
- 		    packet->exception_number == CS_ETMV3_EXC_GENERIC)
- 			return true;
++static inline int cs_etm__instr_size(struct cs_etm_queue *etmq,
++				     struct cs_etm_traceid_queue *tidq,
++				     struct cs_etm_packet *packet,
++				     u64 addr)
++{
++	if (packet->isa == CS_ETM_ISA_T32)
++		return cs_etm__t32_instr_size(etmq, tidq, packet, addr);
++
++	/* Otherwise, 4-byte instruction size for A32/A64 */
++	return 4;
++}
++
+ static inline u64 cs_etm__first_executed_instr(struct cs_etm_packet *packet)
+ {
+ 	/*
+@@ -1394,19 +1406,17 @@ static inline u64 cs_etm__instr_addr(struct cs_etm_queue *etmq,
+ 				     struct cs_etm_packet *packet,
+ 				     u64 offset)
+ {
+-	if (packet->isa == CS_ETM_ISA_T32) {
+-		u64 addr = packet->start_addr;
++	u64 addr = packet->start_addr;
  
--	if (magic == __perf_cs_etmv4_magic) {
-+	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic) {
- 		if (packet->exception_number == CS_ETMV4_EXC_TRAP ||
- 		    packet->exception_number == CS_ETMV4_EXC_ALIGNMENT ||
- 		    packet->exception_number == CS_ETMV4_EXC_INST_FAULT ||
+-		while (offset) {
+-			addr += cs_etm__t32_instr_size(etmq, tidq, packet,
+-						       addr);
+-			offset--;
+-		}
+-		return addr;
+-	}
++	/* 4-byte instruction size for A32/A64 */
++	if (packet->isa == CS_ETM_ISA_A64 || packet->isa == CS_ETM_ISA_A32)
++		return addr + offset * 4;
+ 
+-	/* Assume a 4 byte instruction size (A32/A64) */
+-	return packet->start_addr + offset * 4;
++	while (offset) {
++		addr += cs_etm__instr_size(etmq, tidq, packet, addr);
++		offset--;
++	}
++	return addr;
+ }
+ 
+ static void cs_etm__update_last_branch_rb(struct cs_etm_queue *etmq,
+@@ -1576,16 +1586,7 @@ static void cs_etm__copy_insn(struct cs_etm_queue *etmq,
+ 		return;
+ 	}
+ 
+-	/*
+-	 * T32 instruction size might be 32-bit or 16-bit, decide by calling
+-	 * cs_etm__t32_instr_size().
+-	 */
+-	if (packet->isa == CS_ETM_ISA_T32)
+-		sample->insn_len = cs_etm__t32_instr_size(etmq, tidq, packet,
+-							  sample->ip);
+-	/* Otherwise, A64 and A32 instruction size are always 32-bit. */
+-	else
+-		sample->insn_len = 4;
++	sample->insn_len = cs_etm__instr_size(etmq, tidq, packet, sample->ip);
+ 
+ 	cs_etm__frontend_mem_access(etmq, tidq, packet, sample->ip,
+ 				    sample->insn_len, (void *)sample->insn);
 
 -- 
 2.34.1
