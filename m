@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF8CCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Jun 2026 23:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85407CD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 00:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J/HJPNa4Oa5DLM5df/yKw+CscA/qZXvMF0PIQU0JPWg=; b=tuh8xyPUMGUS9WQxlkx5ln6mUx
-	1x5K9aZOXFqOXD6qr7/KNq7litUWOLl7I3GXbdD1Cv8iFmoUUccLRVnpqx12lIJHAW7d+81unfBxX
-	VNhFKqGxghl5PPwRJp7b0256Yi/KmuenB6L/gnXO04kY1HGfdsAQMfpdVYjQLaTIY59Qib9wJG/9i
-	HWT1eHVe0OMixZW/YY9x+8Jtxt6skqvA9nUNAq4zL6rQ2/2hJ0wHniWAmvK3jRxpNwcJr32IxrpPn
-	ZsH5pbg0lDjZKGtrtIu6vrhQ/9teqPxI8FRe8sTiomDzXBcBOYSf2FTi/tjRqB8huNPWTtSBxzicT
-	dMxm3/WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9uZbnvCSonpXGXR9vVuWodMYLgOTp+M2HsRiZcKEBSQ=; b=HWOmb0BgH13yZrKJSaOtnAGxaX
+	inO5/P4ZGkuDwNxiikISs5C+mXCEqYMUQdd90uCeSI87njfTHTf1ZeffWNFX5iV+kWSH87m5l9TXk
+	mxKIAs/LmIZ5VodI05HaUlmQp6+qR7l5wnaI2BF9MixDAKWQ9ZY1LX8fz9MpANJuuJXw9wjwHl8Sq
+	Vpsbzm4sB/PXb2h19USG8kvX8+GwxTA24ImeoZdLr0ZIjlciSYvz7iSql9QVtA050SmabuQe25hwj
+	Bf9hOI2ivbDOfeSLWJJl8quoU6Tx273GqIHFicd/hswJXA/uCWXZs1u18CDTYNFUfSUACxz5Tv2eo
+	jn+foyqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXSTk-00000008T0V-2uEg;
-	Wed, 10 Jun 2026 23:37:00 +0000
+	id 1wXTYH-00000008V8V-2QHq;
+	Thu, 11 Jun 2026 00:45:45 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXSTj-00000008T0M-2VSR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Jun 2026 23:36:59 +0000
+	id 1wXTYG-00000008V7y-0AH9;
+	Thu, 11 Jun 2026 00:45:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B432A417F7;
-	Wed, 10 Jun 2026 23:36:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B633F1F00893;
-	Wed, 10 Jun 2026 23:36:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BAD640ADC;
+	Thu, 11 Jun 2026 00:45:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805811F00893;
+	Thu, 11 Jun 2026 00:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781134618;
-	bh=J/HJPNa4Oa5DLM5df/yKw+CscA/qZXvMF0PIQU0JPWg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V9olKbpjJXSmWwsrWI9yU7LD3jo8E4jJVQIa7SKztF8hn+yzrWQ2uIE3jjnxrF7/l
-	 w9390+npwpd2GKOVjZe43fglD+CB1VDU7AQznNphuEFHvHXd1lmkX2J6QiPgcMb63a
-	 qznCw+fNa81Z1e1sPGInUlG2XFjpVFqmUAlcZp4eIPPTU2fHdDGd8yxk+7jiOnnecc
-	 iGmcAWoOvcTDAq9sQq4nxwOMfaagFyrFMADeuCfVTizmmUT6gqLLMqPmAWPtmpqqc5
-	 q8ylHsS5PGpOomB8gXS9boORsd2PGZP1X1SjwcPMgDopAd/2W8Jr2lvPrGbdYWl8L0
-	 eBO7poY2Twvyg==
-Date: Wed, 10 Jun 2026 16:36:47 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
-	bpf@vger.kernel.org, Florent Revest <revest@chromium.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huawei.com>
-Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
-Message-ID: <20260610233647.GB3099686@ax162>
-References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+	s=k20260515; t=1781138743;
+	bh=9uZbnvCSonpXGXR9vVuWodMYLgOTp+M2HsRiZcKEBSQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=kvnQoi7XFldjN2BdBn0zt4ODPTH0Rziyc+P/OqBnV5fubj/PIn/MW96wZ1XZ+33iq
+	 UJABwOpTLlgPcAux0C319hfvOJEhVks0l+CoOxSRnfhEIIoipa8ABb7DGQ3lHDrk5X
+	 52wsqSD1JeyRcRk5WRFB5HIrvYCkkd0Xk87q5ph5KCuduNCe8NwvKsRvxZQtShLl0t
+	 mX8yXPS1yZhl/bCm7Q5SfpEAUY1YBBNBDKTN7gEMXQYo3tNrvult/UVwwCfNgmxPqh
+	 W13hzPkgteSo2H25Q8iZ2oSmRqbdJ/1/4AyyTIkujL7MfmMoUfpO/YADyWSoySokOu
+	 vCgvknRSsOrXw==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sasha Levin <sashal@kernel.org>,
+	Alexey Panov <apanov@astralinux.ru>,
+	Mark Brown <broonie@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Neil Armstrong <narmstrong@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Dongliang Mu <mudongliangabcd@gmail.com>,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	lvc-project@linuxtesting.org,
+	Felix Gu <ustc.gu@gmail.com>,
+	Johan Hovold <johan@kernel.org>
+Subject: Re: [PATCH 5.10] spi: meson-spicc: Fix double-put in remove path
+Date: Wed, 10 Jun 2026 20:45:24 -0400
+Message-ID: <20260610-stable-reply-0008@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260610161129.7612-1-apanov@astralinux.ru>
+References: <20260610161129.7612-1-apanov@astralinux.ru>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,20 +82,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jose,
+On Tue, Jun 10, 2026 at 07:11:29PM +0300, Alexey Panov wrote:
+> [PATCH 5.10] spi: meson-spicc: Fix double-put in remove path
 
-On Tue, Jun 09, 2026 at 05:19:25AM +0000, Jose Fernandez (Anthropic) wrote:
-> Jose Fernandez (Anthropic) (2):
->       arm64: ftrace: prepare ftrace_modify_call() for use without CALL_OPS
->       arm64: ftrace: allow DIRECT_CALLS without CALL_OPS
+Queued for 5.10, thanks.
 
-Thanks, I applied these two changes on -next and it looks like it
-resolves the issue I originally noticed with systemd's restrict-fs
-program not working on both of my arm64 machines.
-
-Tested-by: Nathan Chancellor <nathan@kernel.org>
-
--- 
-Cheers,
-Nathan
+--
+Thanks,
+Sasha
 
