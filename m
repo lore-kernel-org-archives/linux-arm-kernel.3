@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B844CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325CBCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
 	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0wyflRGzl20RCEe+VjdyZF4sSVExnxs7YpSWyT2xMI0=; b=JW2XgAYWu31zmqKjJKB8P5HuNo
-	SGL1tCRboMI3lIuihNSuMr9KrEMfcaFvkC4mP1TLFxEUJozpzxeDmmvkS6ZaL2v9j3cr1lu78Fmpq
-	cdppaJbcbtpmKg+dHTxz+yC8xinaenU/u3Ne+pWMBWGE2yEprbH6xrSn+475V8HE+wM458DCnEC0d
-	LAdFSw/8xHux6iXLXFtUueMt+tdFnkhiAS6EpXt+MuFTjjiL9IdBQZjUce6kOwYtMW6DCtIfw8nhL
-	sp9pffo5Rw+RDdQM8Aq41dAnNym4fNLWzRmESlHnzsvpugcvnObIhxhNl20Zpz4mtt3Q5o8pa8EcD
-	PVmzMZCw==;
+	bh=XfzQDEt1pCJotSzJosKxmaJLh3FzpNGs30nqV1AQIaw=; b=GCOmi3vbS1w95vlscd9yNsh2+x
+	o9Or8z0KgPejENThrsj3mIXVJspEtMuX250m/xeuJuHToBMmJdjBRuF1r2lnSUUS7AlPuxOKaG8dY
+	uApWxxVTQXLDaeJDKaGh+wkG9r3PN4UKWRZ3AreDX9q+yUHHVwdo7X6QaUYLS3rmHHgCY0XDi0UVi
+	p1YpKNWI9RLnjd4njlkzEa4qt+LhRsKSmNn1nW/ClosgGX3zr68kh08OC20FmOTeYZqQLSZsmDgLk
+	ixUJ8WdeYqIhjM3bYnZK+aKI0N4A5sFMmgw2r9FvFoZbZeICdJ6xtNV8J1h9E4vSONyExGHS6TqbS
+	Jpij2BLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf2j-00000009SWF-1Vq2;
-	Thu, 11 Jun 2026 13:01:57 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1wXf2q-00000009ScA-2rMD;
+	Thu, 11 Jun 2026 13:02:04 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf2g-00000009ST1-312K
+	id 1wXf2h-00000009STd-3KcN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:01:55 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-68bd951b4bfso8389287a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 06:01:53 -0700 (PDT)
+	Thu, 11 Jun 2026 13:01:56 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490ae016853so15635625e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 06:01:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781182912; x=1781787712; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781182913; x=1781787713; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:from:subject:message-id:references
          :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0wyflRGzl20RCEe+VjdyZF4sSVExnxs7YpSWyT2xMI0=;
-        b=RrJ3m+WHUBzOwj8oiI5rMlSYGzfQ25KZfM+07GK8wfDs28sItWXX9Dq2AK9ma+RcqS
-         Ee/9RDHp/FkT8MwaI/4cfzgBjoOa50aNXxE97Q7UZuERWiJG4+2FHtOcbjzO6CVDGcVd
-         M4Gvgtx1JibNvbieLM0Ux8LRZxW1+Tooqj5ZAogPnuUZefFM00eeAdKnsOCi25xZHwR6
-         NGKEuZynmhmttg8FnRdmiYCumHkGJM2N8gGGQD/QYaTCuDXMRnewxeMDuIx7FetoHAE/
-         l6bIIN5gDBsPHDqkjxlCBpRJsVJVpZn+hVDB8p9Khv9DHmv+T30Er7+Av/F4kwKPmPpm
-         mJjA==
+        bh=XfzQDEt1pCJotSzJosKxmaJLh3FzpNGs30nqV1AQIaw=;
+        b=tm7po8RJexy3J8PE9pONLD2B06EZOsaWhSm2vQIU5Slgs5s0x+8Z7PclBqvExJVZFW
+         QeVa/5Tq+8j2Vco1vSOsJRMkYEUK7NnbLozuAxWTrLEvf5CFCp0m0KLGpjauq9krpDmv
+         c7Kjt2eIEwMDDjXyaLOLSTQ+VHj0OiVXnvAaa41q6fXkwNzIDUoBevQvB80cAyZhZKZd
+         gG4Kp4TQiwX7qxxqyUp6Cfn8+zexoMRNR4rbfyjtpsOGZCwTfI2/mxCClkNwgXzHDfwX
+         z9BaUN6mEc+tW7c05+jfIPBMJTwIxjZ0A79c3FVDrxvO8yZfRF6RQ9FqOTZGKBIDCMen
+         mOvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781182912; x=1781787712;
+        d=1e100.net; s=20251104; t=1781182913; x=1781787713;
         h=content-transfer-encoding:cc:to:from:subject:message-id:references
          :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=0wyflRGzl20RCEe+VjdyZF4sSVExnxs7YpSWyT2xMI0=;
-        b=D5hgD8Luup7HzPWTIYCviwEHc6D1W5vVowsCp1p8xwCuzEUNElO/wb0WVd+dk1PCeo
-         NrZaqqKQbhpPIx1d07d+qlZltDxY6IXMkODf6sfMNWfU5jNp0ZYlBsJlyQxwCAVPuDV5
-         ARPpmRT1SSoq9fqCUhlb91H55NCTDWoSPslwTygZHtBfn9wsqeNUowkFkRM8j9b+0zvh
-         a1GuSHAVq1Lj2iHtJH9Ljlm0vl7gHc95G/f4oF7dVd90G38fcpxs0q6W7yNrFGg4FyAR
-         cTRIJsw1S5kn2LxwX/7uEE5V2sS/rSb/b6eaKsRnmZcmjLnmwFPnJjQJ9WLbcZ58ehZ8
-         qqxQ==
-X-Gm-Message-State: AOJu0YzJXPtrX/hUfT2RgCiAXUX/yoOLY2fWquqRVUvt3P4oGotIfsya
-	Q5YH8jZqTU4be0IndbtSCq9GmNBetqSUeZ6WLJxLEB2PFpa8HVsou0vICp8A+Ewih67CG1gCcVg
-	5FHpRZ2GITSw9lj2AeQclWVjfJ6fcxNwIyBacjDQnZmo3y0Kzm45QYqV6NEoRD7dkvL7b8WwOny
-	HMwMTIpFea2mndTJXffVoK9N8egi4CD1UGtmYwWseJpjOdkankb6U3TQF4QWc/
-X-Received: from edrs20.prod.google.com ([2002:aa7:c554:0:b0:67d:8c66:91])
- (user=abarnas job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:4307:b0:691:b5aa:5a5c
- with SMTP id 4fb4d7f45d1cf-6930e2d10d3mr1376617a12.20.1781182911975; Thu, 11
- Jun 2026 06:01:51 -0700 (PDT)
-Date: Thu, 11 Jun 2026 13:01:41 +0000
+        bh=XfzQDEt1pCJotSzJosKxmaJLh3FzpNGs30nqV1AQIaw=;
+        b=LyEEf/VNPZHaUD7jqA/OtP6IpgOAYE4TLnfbjegDESaff98Y11OuR7uolKxhzfJwTf
+         p4upyVJNcUFF3VhqSSSv6YaeWNgz77X5uoRRAh6ot+rs3xDlOMVxbOtcAM608mYFdXZD
+         c0fZ2+shuCFFUUu+ZCbRV8nElpDIE+v/W55/UyJzL88nNCNBMSjXvVwJKpeAXk3RTVxf
+         1ZHhxIWoswE4B05l29Y2uQTCNm/1YrXX7yyH64ac/xUkCPRYAoS7nCaSuNgnaEKXGXPj
+         DLturP3orpEz6HPDMwBUCI3zmDcXcaHm9+d1p6snyKYTOs3ABS88rsFEWVvX3hde9dOt
+         Wx6Q==
+X-Gm-Message-State: AOJu0Ywq8z4MX91n73/oIt6MOgbPUV0VMSi3k9T+FdPUszmhFdFuRJY7
+	nZpvlnaZuYNfHGcO0OtnlH5WzDxQ9WBBaUmNhQD6ZMrYdMxDb88xw1sInkV1ejkiiJQbNJ+bdYe
+	h6CW0NyC6gzRESHG6fVSaNyDRD8j6or4OKhVXA7Srag3f2StKBgBIjbBNNUQEDiOAeiJflp+NPH
+	ZTOKtqZeyeF5xQVsTuid53Wv956Y16jJEXE1enKQSSjM7fjBkxDk+EH6MiazO7
+X-Received: from wmbev16.prod.google.com ([2002:a05:600c:8010:b0:490:48f7:e94])
+ (user=abarnas job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:e547:20b0:490:b58b:a8ca
+ with SMTP id 5b1f17b1804b1-490e5639e96mr25676555e9.27.1781182913390; Thu, 11
+ Jun 2026 06:01:53 -0700 (PDT)
+Date: Thu, 11 Jun 2026 13:01:42 +0000
 In-Reply-To: <20260611130144.1385343-1-abarnas@google.com>
 Mime-Version: 1.0
 References: <20260611130144.1385343-1-abarnas@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260611130144.1385343-4-abarnas@google.com>
-Subject: [RFC PATCH 3/6] arm64: mm: fix restoring linear map permissions on
- execmem cache clean
+Message-ID: <20260611130144.1385343-5-abarnas@google.com>
+Subject: [RFC PATCH 4/6] arm64: mm: add helper to fill execmem with trapping instructions
 From: "=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-mm@kvack.org, "=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>, 
@@ -79,8 +78,9 @@ Cc: linux-mm@kvack.org, "=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_060154_779545_FE13224C 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260611_060155_838047_188F7EE7 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,59 +95,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Strip the read-only attribute from the selected memory range when
-restoring the linear map after an execmem cache clean.
+Implement the architecture-specific execmem_fill_trapping_insns() helper
+to poison executable memory regions.
 
-An execmem cache clean is performed when a cache block becomes empty
-after unloading a module. When making the memory valid again, the linear
-memory alias must also have its read-only attribute cleared.
-
-Without this change, the linear memory alias remains read-only even
-after the execmem cache block itself is freed, which prevents subsequent
-allocations from writing to that memory.
+When CONFIG_ARCH_HAS_EXECMEM_ROX is enabled, the execmem subsystem
+requires a way to fill unused or freed executable memory with
+architecture-specific trapping instructions. This implementation fills
+the specified region with AARCH64_BREAK_FAULT instructions and flushes
+the icache to ensure the traps are immediately visible to execution.
 
 Signed-off-by: Adrian Barna=C5=9B <abarnas@google.com>
 ---
- arch/arm64/mm/pageattr.c | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+ arch/arm64/mm/init.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 88720bbba892..eaefdf90b0d5 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -239,6 +239,13 @@ int set_memory_x(unsigned long addr, int numpages)
- 					__pgprot(PTE_PXN));
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index c673a9a839dd..71aa745e0bef 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -408,6 +408,20 @@ void dump_mem_limit(void)
  }
 =20
-+static int set_memory_default(unsigned long addr, int numpages)
+ #ifdef CONFIG_EXECMEM
++
++#ifdef CONFIG_ARCH_HAS_EXECMEM_ROX
++void execmem_fill_trapping_insns(void *ptr, size_t size)
 +{
-+	return __change_memory_common(addr, PAGE_SIZE * numpages,
-+				      __pgprot(PTE_VALID),
-+				      __pgprot(PTE_RDONLY));
++	int nr_inst =3D size / AARCH64_INSN_SIZE;
++	__le32 *updptr =3D ptr;
++
++	for (int i =3D 0; i < nr_inst; i++)
++		updptr[i] =3D cpu_to_le32(AARCH64_BREAK_FAULT);
++
++	flush_icache_range((unsigned long)ptr, (unsigned long)ptr + size);
 +}
++#endif
 +
- int set_memory_valid(unsigned long addr, int numpages, int enable)
- {
- 	if (enable)
-@@ -362,7 +369,15 @@ int set_direct_map_valid_noflush(struct page *page, un=
-signed nr, bool valid)
- 	if (!can_set_direct_map())
- 		return 0;
+ static u64 module_direct_base __ro_after_init =3D 0;
+ static u64 module_plt_base __ro_after_init =3D 0;
 =20
--	return set_memory_valid(addr, nr, valid);
-+	/*
-+	 * Execmem cache uses this function to reset permissions on linear mappin=
-g
-+	 * when freeing unused cache block. On x86 it makes memory RW which is
-+	 * desirable. On ARM64 set_memory_valid() just change valid bit which
-+	 * leave direct mapping read-only so use set_memory_default instead.
-+	 */
-+
-+	return valid ? set_memory_default(addr, nr) :
-+		       set_memory_valid(addr, nr, false);
- }
-=20
- #ifdef CONFIG_DEBUG_PAGEALLOC
 --=20
 2.54.0.1136.gdb2ca164c4-goog
 
