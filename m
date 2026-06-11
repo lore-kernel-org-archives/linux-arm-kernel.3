@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FCCCD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 076E3CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 17:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KdWDhxFqpyK1ExaLMvzw0M+RE0xOM5zE+5Ap11B9AYI=; b=yLQE2DbUMXn/9WldH/4AS4pRNb
-	l0GwsdTuU5rYYVwSp5TZYuPwXBhdmfTKAr7UQ86yQTso8B3oqQZsCI+3dURKyd1XwViDvHOcd4Ejp
-	4PIAic4v6oL+lYxYEbrUaIqo8SG3JLe14YFgkND3I9kKGzyXCpt6XCKGaPVw/dfbczHRR8fWtUtGD
-	s4CvLggzVlzN6IjJcG3SnWs9Oz5OIsYw+yiGgg4uOknLUvZU65dWn/+TcFyrVJMLEYINf4myQl8DG
-	pt5TZQj7QtML/0SN76uKdrMxVVZ79hH22BlYqMSvxOQSb2shnJuPMJFNG+yr5Ro/TqFnXZRGGGdaz
-	Oano3gpw==;
+	bh=LCg9Hqm7ayU+yntIQKSbwUsJtNtLPR+veL4deSHIddk=; b=J4HSArwdWbRYUsb8hJ9OlgRmBw
+	XAKwR8IHE+BC1Ey9SuBwuospHtQnAS4fWwYNTguBtbTmw1lCVcmM3OLSZMCBhX/N0hN0RpKeG1u6b
+	9R4zk4pzhXGXj4Q5/JYQRbXDpF4PixdR6tVDVlzRGMcItemUHB3txymMAvnKft4E1T/cbRzYugtYu
+	mucdCKZu+dJcQFH0/sUipx1lPsb2g3Ms33t/i5rcA6RypOZTAOLC3vQuKjg/TzSp8UeenNfH2cSWy
+	kAb8Dio0vq2cThI4o/uT1Zc5T1jv9Dk6q1HrhEpr3lE4rxhphVcTwvMCPfss36ianX73s9LFt8Ej/
+	Z8d6iUEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXj6n-00000009pGS-2XrY;
-	Thu, 11 Jun 2026 17:22:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wXjIF-00000009piy-2y4g;
+	Thu, 11 Jun 2026 17:34:15 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXj6l-00000009pFy-2XTb;
-	Thu, 11 Jun 2026 17:22:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3AC6601DF;
-	Thu, 11 Jun 2026 17:22:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E9351F00893;
-	Thu, 11 Jun 2026 17:22:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781198542;
-	bh=KdWDhxFqpyK1ExaLMvzw0M+RE0xOM5zE+5Ap11B9AYI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aQG9tRUlJP0O+Sd1fT0nlt7WRopgp33SXyAE4qF3jz3ZTjUjfZeejs/nBQM5g+QR0
-	 LXG0TitQNUIZXakKtCp2BTi08j8WexRYvM6omta+DVAk4WLkYU5imHgkuhhVmCDnzg
-	 LC4QWKB7GWXxfwhmCwf+MsQ/0i5KVsERKciUTHj0EY2BHCHoH711MMcpfWzegs1cPX
-	 N0JjRTnmhZtcKJyPdtQmUklA1b6aq/oXr5mhWaNcLVXXBgkc9wJGjykRw9Qh/EbwhB
-	 Xwyy2ziCIUeQDWT+pSLwW3ssf9lKptBLCi7mXkENNk8VP5HAa9MWWInsVYg+RG3z8t
-	 s/j0OBmMxXnRg==
-Date: Thu, 11 Jun 2026 18:22:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: rva333@protonmail.com
-Cc: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH 1/4] dt-bindings: mfd: mediatek: mt6397: add mt6323 PMIC
- EFUSE
-Message-ID: <20260611-density-hamper-2b89bac89312@spud>
-References: <20260611-mt6323-nvmem-v1-0-b5e1b9ce51f2@protonmail.com>
- <20260611-mt6323-nvmem-v1-1-b5e1b9ce51f2@protonmail.com>
+	id 1wXjIC-00000009pib-1DTB;
+	Thu, 11 Jun 2026 17:34:13 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 53E8E497;
+	Thu, 11 Jun 2026 19:33:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1781199219;
+	bh=PUdP8+dV2ponyYfNZPXosiifb82vhoKU5HMO0eoPZIM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cq+ZsmyvgN8N+mcOrcuTo2MSn6umEMkc/ctQYdSqE5BeH6MFisezVk9WyefBAGlJJ
+	 isIFZcUzftU8awr9owIJrBT4fcx8S5CbxgDRgvva6/hNO68Ygym6oVtyWjfbmR+nO7
+	 WC2HBkarqTgjcZvoWR7Pp1FwzKdpQZWpTpPM6BqE=
+Date: Thu, 11 Jun 2026 20:34:07 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Eugen Hristev <ehristev@kernel.org>
+Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
+	Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] media: bcm2835-unicam: Fix log status runtime access
+Message-ID: <20260611173407.GA1910728@killaraus.ideasonboard.com>
+References: <20260611-bcmpipm-v3-1-c609dacb029f@kernel.org>
+ <20260611080348.GC1758601@killaraus.ideasonboard.com>
+ <3b142d52-53d1-4942-bb45-1cb9645c164b@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8jlD8HCh7FfdJwQ5"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260611-mt6323-nvmem-v1-1-b5e1b9ce51f2@protonmail.com>
+In-Reply-To: <3b142d52-53d1-4942-bb45-1cb9645c164b@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260611_103412_474777_DD18A12B 
+X-CRM114-Status: GOOD (  26.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,24 +77,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jun 11, 2026 at 08:18:10PM +0300, Eugen Hristev wrote:
+> On 6/11/26 11:03, Laurent Pinchart wrote:
+> > On Thu, Jun 11, 2026 at 08:29:55AM +0300, Eugen Hristev wrote:
+> >> When requesting log status, the block might be powered off, but registers
+> >> are being read.
+> >> Avoid reading the registers if the device is not resumed, thus also avoid
+> >> powering up the device just for log status.
+> >>
+> >> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
+> >> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+> >> ---
+> >> Changes in v3:
+> >> - Changed to check return value of pm_runtime_get_if_active() and only call
+> >>   pm_runtime_put() if the device is active.
+> >> - Link to v2: https://patch.msgid.link/20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org
+> >>
+> >> Changes in v2:
+> >> - changed to use pm_runtime_get_if_active()
+> >> - add corresponding put()
+> >> - Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
+> >>
+> >> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+> >> To: Mauro Carvalho Chehab <mchehab@kernel.org>
+> >> To: Florian Fainelli <florian.fainelli@broadcom.com>
+> >> To: Ray Jui <rjui@broadcom.com>
+> >> To: Scott Branden <sbranden@broadcom.com>
+> >> To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+> >> To: Sakari Ailus <sakari.ailus@linux.intel.com>
+> >> To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+> >> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> >> To: Hans Verkuil <hverkuil@kernel.org>
+> >> To: Naushir Patuck <naush@raspberrypi.com>
+> >> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> >> Cc: linux-media@vger.kernel.org
+> >> Cc: linux-rpi-kernel@lists.infradead.org
+> >> Cc: linux-arm-kernel@lists.infradead.org
+> >> Cc: linux-kernel@vger.kernel.org
+> >> ---
+> >>  drivers/media/platform/broadcom/bcm2835-unicam.c | 12 ++++++++++++
+> >>  1 file changed, 12 insertions(+)
+> >>
+> >> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> >> index 8d28ba0b59a3..96b51e29bba4 100644
+> >> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> >> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> >> @@ -2043,6 +2043,7 @@ static int unicam_log_status(struct file *file, void *fh)
+> >>  	struct unicam_node *node = video_drvdata(file);
+> >>  	struct unicam_device *unicam = node->dev;
+> >>  	u32 reg;
+> >> +	int pm_active;
+> >>  
+> >>  	/* status for sub devices */
+> >>  	v4l2_device_call_all(&unicam->v4l2_dev, 0, core, log_status);
+> >> @@ -2052,6 +2053,14 @@ static int unicam_log_status(struct file *file, void *fh)
+> >>  		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
+> >>  	dev_info(unicam->dev, "V4L2 format:         %08x\n",
+> >>  		 node->fmt.fmt.pix.pixelformat);
+> >> +
+> >> +	pm_active = pm_runtime_get_if_active(unicam->dev);
+> >> +	if (!pm_active) {
+> >> +		dev_info(unicam->dev,
+> >> +			 "Live data N/A due to device inactive\n");
+> >> +		return 0;
+> >> +	}
+> >> +
+> >>  	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
+> >>  	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
+> >>  		 unicam_get_field(reg, UNICAM_PUM_MASK),
+> >> @@ -2065,6 +2074,9 @@ static int unicam_log_status(struct file *file, void *fh)
+> >>  	dev_info(unicam->dev, "Write pointer:       %08x\n",
+> >>  		 unicam_reg_read(unicam, UNICAM_IBWP));
+> >>  
+> >> +	if (pm_active == 1)
+> >> +		pm_runtime_put(unicam->dev);
+> > 
+> > As far as I understand, the discussion on v2 concluded there was no need
+> > to test pm_active here. Did I miss anything ?
+> 
+> Sorry, I saw the message from Sakari and he was pretty confident on the
+> right way, he even mentioned that all sensors should be fixed, and has
+> not come up with a follow up since.
+> If v2 is the right way, please disregard this v3
 
---8jlD8HCh7FfdJwQ5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Let's see what Sakari has to say :-)
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+> >> +
+> >>  	return 0;
+> >>  }
+> >>  
+> >>
+> >> ---
+> >> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+> >> change-id: 20260521-bcmpipm-6c578e73239c
 
---8jlD8HCh7FfdJwQ5
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+Regards,
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCairuyAAKCRB4tDGHoIJi
-0mk7AP9Mb5T4kei+ZQb9DUhcF53VPvmUwgHWElm07FdeB+BdKQD/Q2pgevrbI0it
-++Mc/nhVwa+UmM4gJxL5PlSgYKXFDQs=
-=bEoR
------END PGP SIGNATURE-----
-
---8jlD8HCh7FfdJwQ5--
+Laurent Pinchart
 
