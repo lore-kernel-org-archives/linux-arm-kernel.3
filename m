@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28088CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ABBDCD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9S9SdGtbm1JyTfljX6WLjQs95rf1oKktzDq3rIIBuu0=; b=zUITvHv6hRb+yLMMDbRbeDon4Q
-	MbFR85oiz3aZTppaB2ypTMdeUQZJOOvNqE6C7M1jL178sIFI9EL66j1jmr2+R8vcgvrCBdCDgSKTF
-	J+LhrD8m0mmotzmGwWiYlrntXHmyJR+b3ZhX14Huf8RvS+O775U4j+iYnWxTV7JJWvWKURmUe2tzo
-	A1K739W9eGcnJPgEE76m3HUv+E9YqD+ZcfNyEd5Kuk3X66rR7MJ+UphpmmFVFHUHAFFAiORMDIeDa
-	Rl0G7QqkjlTbA5RQymOlYedFb4rIykvcKMMz5gtqUsgpHl7E7qspxWSRhM0IXj1PllR9cPOWpMqBP
-	TwxH4T4Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gu55FwRBT152Nih3ja11oNDgaQEq1L4WQl/WzeRJgRk=; b=z0C69aYysD49ntf1UmcrWQDAPr
+	f0WMX+iLMwOsdKu87asxWmUCKctfn5KZbGd5swwyOD82jiVR5fITklpyXK9KkvLk8QlFBb2vMO25K
+	xKTGdIiUhDQVKRXEMtaaw6BXIyIUmrooJsm4Tb1TMT/0QkwwzZnNc/plEfOr6tuvbaQbW0/nLG8vy
+	OL7+uT+yA40FxUDI/tZoAHwhkplM5tVbxS98DEUUKa0RvrOvc5TVZGhRosG+N1gwMA8Kh2gjb3vTx
+	KREfB3A5UC6y1nIAC6zoRcWuQteRMK98r7u47GZ4wnmGop5u8kQHXXdyd0iPfYLWcmPQWyZz3bGwf
+	+YS3YBFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXest-00000009RWS-1Vxq;
-	Thu, 11 Jun 2026 12:51:47 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1wXf0C-00000009SCF-18dW;
+	Thu, 11 Jun 2026 12:59:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXesq-00000009RVF-3o4I
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 12:51:46 +0000
-Message-ID: <1a547b9b-dd6a-40fb-8669-3bb307eb05e2@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1781182291;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9S9SdGtbm1JyTfljX6WLjQs95rf1oKktzDq3rIIBuu0=;
-	b=eesZ0NDn4arZq1eS4Me+sKBxmY7/1zh2Xohy+gcqQwOvoaQoEOYaxTNVbuV3UrqYxOYMgS
-	+wiEuiiDOgD4QpWz/uuqRw3jEL3Lso9r4Qc9VpX9LdZmf0E7EYh7LcKERuNt/hVveKmu5R
-	QXn3GY34ZpXtYuPfbBLNl5hnkucIye0=
-Date: Thu, 11 Jun 2026 20:50:04 +0800
+	id 1wXf0A-00000009SBy-3r9r;
+	Thu, 11 Jun 2026 12:59:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 03FC6600AF;
+	Thu, 11 Jun 2026 12:59:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7EE1F00893;
+	Thu, 11 Jun 2026 12:59:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781182757;
+	bh=Gu55FwRBT152Nih3ja11oNDgaQEq1L4WQl/WzeRJgRk=;
+	h=From:To:Cc:Subject:Date;
+	b=JCkvv6G0GQs9N16tnlg8iVWHuKokUZ2kB9waYD10z4w4Vs5Tsl8ei5Qu8eDAwJ+5q
+	 Nld17nsFeB8Qg8rTAi6yXlXqtjym/YzA3UzPpqTmm/oQWX5L+CLRPy9W92xC5MPVcP
+	 1ZNKS5/gQqZeEJnozokANXtPGE9XtOZOjeqqK05T9NrIHJvrdRP84gzWnai9ne2ugF
+	 SqMtUpNdBe051f8XgI+1LyvHamJr1PG9ZtbDar0CNv86cILFALmeGSZd4tsrXXOaih
+	 pr6BLYbLpRIge9Y8Dw0vJg/tixiUoxAJudzDTpp7nIVqudsOek8cGSPEvSXnVj6qAE
+	 pFqRBF3WTRvhg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Rex Lu <rex.lu@mediatek.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: fix airoha_npu dependency tracking
+Date: Thu, 11 Jun 2026 14:58:55 +0200
+Message-Id: <20260611125912.3387021-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Subject: Re: [RFC PATCH v2 1/3] mm/huge_memory: make persistent huge zero
- folio read-only
-Content-Language: en-US
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: akpm@linux-foundation.org, xueyuan.chen21@gmail.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
- luto@kernel.org, peterz@infradead.org, hpa@zytor.com, ljs@kernel.org,
- liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, surenb@google.com,
- mhocko@suse.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
- npache@redhat.com, ryan.roberts@arm.com, dev.jain@arm.com,
- baohua@kernel.org, yang@os.amperecomputing.com, jannh@google.com,
- dave.hansen@intel.com
-References: <8c36a91d-288f-4ffb-b2ec-41e3ef789d72@kernel.org>
- <20260611115817.59353-1-lance.yang@linux.dev>
- <d943a03e-bf28-4086-8907-5a24665fb2f5@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <d943a03e-bf28-4086-8907-5a24665fb2f5@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_055145_099275_D537BA59 
-X-CRM114-Status: GOOD (  11.10  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +75,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
+There is a new build failure with MT7996E=m MT76_CORE=y and NET_AIROHA_NPU=m:
 
-On 2026/6/11 20:21, David Hildenbrand (Arm) wrote:
-> On 6/11/26 13:58, Lance Yang wrote:
->>
->> On Thu, Jun 11, 2026 at 01:28:58PM +0200, David Hildenbrand (Arm) wrote:
->>> On 6/10/26 04:15, Lance Yang wrote:
->>>>
->>>>
->>>> Right, this came from the RFC v1 discussion[1]. David preferred a page-
->>>> range helper for possible future non-folio callers, not something folio-
->>>> only.
->>>>
->>>> Of course, we could also add a folio wrapper on top of that if needed :)
->>>
->>> Best to document that as part of the patch description: we don't really expect
->>> to have a lot of read-only folios in the near future (zero page is rather
->>> special; maybe it won't even be a folio in the future).
->>
->> Ah, good to know, thanks. Will spell that out in RFC v3.
->>
->> Maybe something like this?
->>
->> The huge zero page is pretty special case, and maybe it won't even be a
->> folio in the future. Since read-only folios are unlikely to become a
->> common thing, a page-range helper is the cleaner fit.
-> 
-> Right. And if read-only folios in FSes become a real thing, we can always add
-> infrastructure for that.
+ld.lld: error: undefined symbol: airoha_npu_get
+ld.lld: error: undefined symbol: airoha_npu_put
+>>> referenced by npu.c
+>>>               drivers/net/wireless/mediatek/mt76/npu.o:(mt76_npu_init) in archive vmlinux.a
 
-Got it, that draws the line nicely :P
+Fix this by reworking the dependency for the MT7996_NPU to only
+allow enabling that when mt76_core can link against the npu driver.
+
+To make sure this gets caught more easily in the future when additional
+mt76 variants need the same dependency, also turn CONFIG_MT76_NPU into
+a tristate symbol that has the same dependency.
+
+Fixes: 7fb554b1b623 ("wifi: mt76: Introduce the NPU generic layer")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/net/wireless/mediatek/mt76/Kconfig        | 4 ++--
+ drivers/net/wireless/mediatek/mt76/Makefile       | 6 +++++-
+ drivers/net/wireless/mediatek/mt76/mt76.h         | 2 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/Kconfig | 2 +-
+ 4 files changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/Kconfig b/drivers/net/wireless/mediatek/mt76/Kconfig
+index 502303622a53..d941e67a222d 100644
+--- a/drivers/net/wireless/mediatek/mt76/Kconfig
++++ b/drivers/net/wireless/mediatek/mt76/Kconfig
+@@ -38,8 +38,8 @@ config MT792x_USB
+ 	select MT76_USB
+ 
+ config MT76_NPU
+-	bool
+-	depends on MT76_CORE
++	tristate
++	depends on NET_AIROHA_NPU=y || MT76=NET_AIROHA_NPU
+ 
+ source "drivers/net/wireless/mediatek/mt76/mt76x0/Kconfig"
+ source "drivers/net/wireless/mediatek/mt76/mt76x2/Kconfig"
+diff --git a/drivers/net/wireless/mediatek/mt76/Makefile b/drivers/net/wireless/mediatek/mt76/Makefile
+index 1d42adfe8030..cacdd2b13d05 100644
+--- a/drivers/net/wireless/mediatek/mt76/Makefile
++++ b/drivers/net/wireless/mediatek/mt76/Makefile
+@@ -12,7 +12,11 @@ mt76-y := \
+ 	mmio.o util.o trace.o dma.o mac80211.o debugfs.o eeprom.o \
+ 	tx.o agg-rx.o mcu.o wed.o scan.o channel.o
+ 
+-mt76-$(CONFIG_MT76_NPU) += npu.o
++ifdef CONFIG_MT76_NPU
++# CONFIG_MT76_NPU is tristate to simplify dependency tracking,
++# but it behaves as a bool symbol here.
++mt76-y += npu.o
++endif
+ mt76-$(CONFIG_PCI) += pci.o
+ mt76-$(CONFIG_NL80211_TESTMODE) += testmode.o
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index 07955555f84d..60bd155cc7d5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -1647,7 +1647,7 @@ int mt76_testmode_dump(struct ieee80211_hw *hw, struct sk_buff *skb,
+ int mt76_testmode_set_state(struct mt76_phy *phy, enum mt76_testmode_state state);
+ int mt76_testmode_alloc_skb(struct mt76_phy *phy, u32 len);
+ 
+-#ifdef CONFIG_MT76_NPU
++#if IS_ENABLED(CONFIG_MT76_NPU)
+ void mt76_npu_check_ppe(struct mt76_dev *dev, struct sk_buff *skb,
+ 			u32 info);
+ int mt76_npu_dma_add_buf(struct mt76_phy *phy, struct mt76_queue *q,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
+index 5503d03bf62c..5742bce12fbb 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
+@@ -16,6 +16,6 @@ config MT7996E
+ config MT7996_NPU
+ 	bool "MT7996 (PCIe) NPU support"
+ 	depends on MT7996E
+-	depends on NET_AIROHA_NPU=y || MT7996E=NET_AIROHA_NPU
++	depends on NET_AIROHA_NPU=y || MT76_CORE=NET_AIROHA_NPU
+ 	select MT76_NPU
+ 	default n
+-- 
+2.39.5
+
 
