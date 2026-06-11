@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E0CCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE749CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B1t0eMpqsT9YaBJXmjRvQgx584lO6Eznqq7E3RTSQxs=; b=DeI1vcKK8hNdYLw51wFJPhuLOM
-	cKMQQ+QYLfEVxb01VKh1M7Tug6uAtPBAI+oVATIjsTK/w7+zvYK+zHRwWSyFFn6WXU5ihxf0824h6
-	IyOKW59AnkO25Bix/nxPtpxdOOrSjbsy2fyQal6xlOJ2zNCrfKKI0cefbOnsHzTuFmD03NsTJkJ2A
-	dRQUXN9HYU8JQpKWKSlX9Mt5r4OgLaKuZczttn6vx0CeGbvA3UCDrEcXq5QKJxEsiqrf/RlV/TVuW
-	pqZFhLYwmgQa7RQJfwygDu/vUovsTaHIUxOgvZerOULEaK2ZUN/J7RS+wkAlAtH04hU3uJUgovCMn
-	+e3xcT2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hizbOWzAp2GvHnkKmoXoB4flLKn0ZG1pSO3As3FJvhg=; b=i7j1NJahzPEkIAWdwueRkMXtHj
+	FS9Wgs6uf3D/QE7jODPPoqMWoxR6veEAo2vhWuq54FyUcpb6yE6CrxEL0jydjNLApnxn8GD+M0Lgq
+	oejWFcg08sl/fo60LrfTWyBlsiD8tJjpiJeWvQRU60YV+SR5oH2ZDfuQY68vboJlX3DA6v8aA/p+R
+	fkTiHJPIps7GMHy3qsMA3dn/Yle5W4l+Pyvh0BHu0tSR0XFcHukoG0n/jbeqUdTbWXLCFPZPLOUP+
+	ctZAsGMwJ+UFb7NJUsLURaSiskAUNKra6/GOnUQYVhfel/bFPFrvjQYNNM3KSgNQX6HdyIjn5xyMb
+	LIyqm07Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXbS5-000000096Dg-3o4k;
-	Thu, 11 Jun 2026 09:11:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wXbTh-000000096W7-0fNU;
+	Thu, 11 Jun 2026 09:13:33 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXbS4-000000096Cu-2LK6
+	id 1wXbTe-000000096VC-1oFL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 09:11:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC6C6600AB
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:11:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E6821F008A2
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:11:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781169111;
-	bh=B1t0eMpqsT9YaBJXmjRvQgx584lO6Eznqq7E3RTSQxs=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=bSUSCOOlUoqkjxfDipdP4ZN06c+kGoam+HOQDbIvwgi3CyDkonEwORRznXaYiPTg3
-	 LYiVzvjqTLedwOJohBXfEpJGHs0daYzk4JuF/vsucz8NGce0N4CCtgT+b0VuWlIVF2
-	 Nm5xBnbizAA8pmP9frj9IdPeljD4n7wwJruC5jnaHkJ/YXmiMxC2u6kXjQIbT4TKwq
-	 k/tCiNYYQLbiHyx0O5zC1cDUbv2OJF9a6wrVlbTHgu8Wb+ZYP7Kf1b8YjmSXXg9oHm
-	 9O+RhqNu2KRj0vB3DiSTCkVshTiw2TU9x4iLP0mHiJn/4iTPM5PrRTjO8Yz5wzvIpi
-	 RlGk03VX6ULGA==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39666f49929so67478581fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 02:11:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8R3py6TZ6CxePyYoCBFz1y1Iy9gwEaGYKo7GXAQWwusppAvzu/DpIJL4KnfJaV49mcMkNwzHwmiscec9iw2UCl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZ65KiXX+dEs47gPEnn4nBiAZD6WtQHK2glrQGKzTXPqZsED5K
-	olXVkcnzzb89RRGk9SIodqgq3KcHDDhhoOiNWPZ79rxkxvBirhMUIV8+nUoBX9wFKdn+5X2iQAC
-	gYtIl9kkD8pMnjvR3AuL0Sxh7ZH9MqF5DioW9ueVObA==
-X-Received: by 2002:a05:651c:1545:b0:396:7fa2:e095 with SMTP id
- 38308e7fff4ca-39919f96cbbmr4986331fa.6.1781169110130; Thu, 11 Jun 2026
- 02:11:50 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 11 Jun 2026 05:11:46 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 11 Jun 2026 05:11:46 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260610084053.2059858-8-wenst@chromium.org>
+	Thu, 11 Jun 2026 09:13:31 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8423f52af13so5387847b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 02:13:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781169209; x=1781774009; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hizbOWzAp2GvHnkKmoXoB4flLKn0ZG1pSO3As3FJvhg=;
+        b=cPQlU3uUQsM0Epxr6LugMsb4aeAmsYHsEZmd+1xSnlXV6+0XrhYEj2ROGQ2soeshe6
+         pfqNOt3yBJPRIeiO+/SnbIbwyasEHgphC/dQiJmxOaKqi/raqUGmAI6Ahdlwio0cb8IT
+         G3aWTg9onsbWPfLo/XvH+AUtmb8iP4h5KJgPPbq2uAHxc+U4vsfFL7/ten4FsaYi5bWR
+         W/l1purygoSUO9qUcan8ZioEl0qHJeyYK/rwSmly3+yJc1TSa2z8AtZ5Z0pVjNtKcPMU
+         z1JVscTvFLuhVN+ZtJ+Z7eWDiWHeoMtkI9n62aIb99Ut8s2iLnxLziMG1o4/narTnfxI
+         HJyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781169209; x=1781774009;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hizbOWzAp2GvHnkKmoXoB4flLKn0ZG1pSO3As3FJvhg=;
+        b=gHItWKYGxpKTCbevHB7tNFDs3Chxf68svWAoQTxXtIwc2iutY0YNhDG5h7lbJxkJV6
+         bESkKPiS1EIedOQOPG4b1zaNFaB0F0pAlJ1dIaONtSlw6lAdeInA16N6HLqkvJFghAxo
+         o6OwftIMzzrz5eYyKZMEL7ZLmX6DEuX1DzF7We+72IiBfzp0YqkS6EjrgVsKVbNrww2S
+         JklAF1Nc1kL5lZVwgz2e3k1LiYcWIV8jc8M9tzNmqL2+P8gORIkUHg9uVuTizgTRAURz
+         Wq6Eo6STZR8Gc8ns9gGe+yDjynxE+kKvSwXyypGczP81LN8HkuIQoErNaIey9WP5hUrt
+         teeQ==
+X-Gm-Message-State: AOJu0YzuxdMQu7hiLcTxiRFKb0fYtfG6JDRjr0TVQUIGV8ufidRrBfDe
+	bsYERnVJKcY/xESXvhAdyFqgJrxeerKsUSSj10KXR/X+wjFlmsvnXp1k
+X-Gm-Gg: Acq92OE2DU10SeUjXuOlxiWVfXaoy2bxwc6GOtg3g41/IrIUPD7qMOYcJ1FMKb7an1H
+	dO03MgVxKdY691LhZ0hCawAGW4eU0+vgmQfOX3mntgPvX292Je7ie+CozH55DII5u2zfX9PCxES
+	DhBwjWgyizymSVLjbgziurLR3NvlBksszm8tyVSm5WRJGm+6lh52V5wYGwnY0OsC6SiwwbGAu1Z
+	EZz9NGZjWXGKJ+nSpS9b6eXNDiHph24PKDZu9/AoGqstZv8Pa13Kw7NHi0vZ2IzhJ8n+R07Pzs8
+	78Gy6x8tGQH672bh3eicvbEst3B5QTaB5Ci+7XHNGPpGHqigwX6yGVIbU+isB6eyTaBHau92hbx
+	BzNjNZX4LQ08DDArVq6wVcLpC067P6IWw1R8FuC3HOeotuhbXWHlhqvJAcgMImh7RLrslXFTmRu
+	Z62nbIeE1h5LRrsWrVZHKUfgK+NBCTighdOV/9oNBySJkqxfGWtRjAUQG/x7xo/mZloqmKNJL2V
+	UppLLlzIF/sPkYJMDEujJ+p
+X-Received: by 2002:a05:6a00:4512:b0:82c:b808:4c59 with SMTP id d2e1a72fcca58-84336bde6aamr2276246b3a.46.1781169208999;
+        Thu, 11 Jun 2026 02:13:28 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84338319d4esm1417446b3a.51.2026.06.11.02.13.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Jun 2026 02:13:28 -0700 (PDT)
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+To: broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com,
+	cwweng.linux@gmail.com
+Subject: [PATCH v3 0/2] spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI controller
+Date: Thu, 11 Jun 2026 17:12:44 +0800
+Message-Id: <20260611091246.2070485-1-cwweng.linux@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260610084053.2059858-1-wenst@chromium.org> <20260610084053.2059858-8-wenst@chromium.org>
-Date: Thu, 11 Jun 2026 05:11:46 -0400
-X-Gmail-Original-Message-ID: <CAMRc=Mc3DqGb2MsvM4tjcqFuRraAO+EftO1UrtNFvR5dMRXmVA@mail.gmail.com>
-X-Gm-Features: AVVi8Cf4NRlpEgfQOjedOZVIy3kDaaZ8Xbtl_Xw4Hfg6m7nAFQEWNEvJmcMEnDE
-Message-ID: <CAMRc=Mc3DqGb2MsvM4tjcqFuRraAO+EftO1UrtNFvR5dMRXmVA@mail.gmail.com>
-Subject: Re: [PATCH v2 07/16] usb: hub: Power on connected M.2 E-key connectors
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260611_021330_494402_7009F6FC 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,50 +102,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Jun 2026 10:40:41 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
-> The new M.2 E-key connector can have a USB connection. For the USB device
-> on this connector to work, its power must be enabled and the W_DISABLE2#
-> signal deasserted. The connector driver handles this and provides a
-> toggle over the power sequencing API.
->
-> This feature currently only supports a directly connected (no mux in
-> between) M.2 E-key connector. Existing USB connector types are not
-> covered. The USB A connector was recently added to the onboard devices
-> driver. USB B connectors have historically been managed by the USB
-> gadget or dual-role device controller drivers. USB C connectors are
-> handled by TCPM drivers.
->
-> The power sequencing API does not know whether a power sequence provider
-> is not needed or not available yet, so we only request it for connectors
-> that we know need it, which at this time is just the E-key connector.
->
-> On the USB side, the port firmware node (if present) is tied to the
-> usb_port device. This device is used to acquire the power sequencing
-> descriptor. This allows the provider to tell the different ports on one
-> hub apart.
->
-> This feature is not implemented in the onboard USB devices driver. The
-> power sequencing API expects the consumer device to make the request,
-> but there is no device node to instantiate a platform device to tie
-> the driver to. The connector is not a child node of the USB host or
-> hub, and the graph connection is from a USB port to the connector.
-> And the connector itself already has a driver.
->
-> Power sequencing is not directly enabled in the connector driver as
-> that would completely decouple the timing of it from the USB subsystem.
-> It would not be possible for the USB subsystem to toggle the power
-> for a power cycle or to disable the port.
->
-> This change depends on another change to make the power sequencing
-> framework bool instead of tristate. The USB core and hub driver are
-> bool, so if the power sequencing framework is built as a module, the
-> kernel will fail to link.
->
+From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-That bit needs to go away I suppose?
+Add devicetree binding and SPI controller driver support for the
+Nuvoton MA35D1 Quad SPI controller.
 
-I see Andy has some suggestions but in general I like this approach much better
-than adding the pwrseq_get_index() function. Thanks!
+The MA35D1 QSPI controller supports SPI memory devices such as SPI NOR
+and SPI NAND flashes in single, dual and quad I/O modes. This initial
+driver implements a conservative PIO-based transfer path and spi-mem
+operation support.
 
-Bartosz
+Changes in v3:
+- Fixed DCO mismatch by using a consistent author and Signed-off-by
+  address.
+- Added spi_controller_mem_caps and set per_op_freq for spi-mem
+  operations.
+- Added SPI_CS_HIGH to controller mode_bits.
+- Added a short delay after requesting FIFO reset before polling reset
+  completion.
+- Documented that the MA35D1 QSPI controller pushes one RX FIFO entry for
+  each TX word in single, dual-output and quad-output modes, so TX-only
+  transfers intentionally drain and discard RX data.
+- Added missing linux/delay.h include for udelay().
+- Cleaned up unused register bit definitions.
+
+Changes in v2:
+- Updated patch subject lines to match SPI subsystem style.
+- Added commit message to the dt-bindings patch.
+- Added ARCH_MA35 || COMPILE_TEST dependency to Kconfig.
+- Expanded Kconfig help text.
+- Converted the driver file header to // comments.
+- Added reset control handling to the driver.
+- Added resets property to the binding.
+- Added num-cs constraint to the binding.
+- Dropped the flash child node from the binding example.
+- Used op->max_freq for spi-mem operations.
+- Split low-level CS register handling from the SPI core .set_cs()
+  callback.
+- Handled SPI_CS_HIGH explicitly for the spi-mem direct CS path.
+- Fixed spi-mem opcode transfer to use a u8 buffer.
+- Limited spi-mem command opcode length to one byte.
+- Forced spi-mem operations to 8-bit word size.
+- Avoided driving bidirectional data pins during dummy cycles.
+- Drained RX FIFO during TX-only transfers.
+- Rejected invalid chip-select numbers instead of mapping them to SS1.
+- Rejected unsupported dual/quad full-duplex generic SPI transfers.
+- Fixed checkpatch style issues.
+
+Chi-Wen Weng (2):
+  dt-bindings: spi: nuvoton,ma35d1-qspi: Add Nuvoton MA35D1 QSPI
+  spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI controller support
+
+ .../bindings/spi/nuvoton,ma35d1-qspi.yaml     |  62 ++
+ drivers/spi/Kconfig                           |  10 +
+ drivers/spi/Makefile                          |   1 +
+ drivers/spi/spi-ma35d1-qspi.c                 | 633 ++++++++++++++++++
+ 4 files changed, 706 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
+ create mode 100644 drivers/spi/spi-ma35d1-qspi.c
+
+-- 
+2.25.1
+
 
