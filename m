@@ -4,62 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E06CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BECCCD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 14:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcSPlA8NYAz0RMlfSwLuumch5wjn/0xJTm+wN8dYgFU=; b=ELKXx8i2qTjaLAqLuGNF/l87Vn
-	TnUTyunUAKql0rpYYvvJ3O2piXxhvI52zLi+u6pr4DOZ+1CgqVDAxLLeyFtOdsJqfKiXpFHDosMae
-	bfEzFRE9B4eq23xWhcQPvD7KrXkUOKZ8q24a8f+QZyG/lGw8VTfgEkfxwISrh0LKZraG9Ql+6Wfoo
-	oEQ2AtrbC1wRHnQ+aR+IDZeZNts/Ml3Z99prTKdlvFwEBW7PVH+qV5wxoA+kdAkPZZPndN5DyEIs/
-	+ZjE1A/Nz5LXhqkTYd8UVF4mke4ua6DfcwR46Pb1f/NvM102vs+RZORiohyC/5kZN2JCVIs4pr1u5
-	LeKIJxYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Gg1VFZw1PfNh4krZ8ijzOr00e/Be3YOHjhAkrCMPeE=; b=W0lI+BHAB/ais1QuRAAP7UXgWJ
+	/d7sK/2s+9qF0C/n3NTbP53L6FHiP43ZkUIHdSquMEwLVc91E6ScmfSqZp1l4P0s9sVqTDju0X+G7
+	OBvbymKWbehjBDT0QnIz1jffj/St9fYIfyHBNJ9RPsNcarkV30r8yZiqPw815gMV2GylsdTAZtokF
+	8rlI+3iLEzOKp28GstKCtOWaj9rOfDiyXKrX+4CSmNBrP1g5hCFPu/NixMdczHhLE86lEeh15RHEt
+	Hy8pk5wSRHu/ey0o11Q2uuMgsfbuqrfLzL1QBKn+AwuwjRabBCH154asoaYT/pdR5MBvWInw0w5vh
+	Bavp5Bbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgkv-00000009cTV-1EgK;
-	Thu, 11 Jun 2026 14:51:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXgkn-00000009cKe-42EO
+	id 1wXgma-00000009dAM-2KHZ;
+	Thu, 11 Jun 2026 14:53:24 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXgmY-00000009d9R-1BS8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 14:51:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EFDC2661;
-	Thu, 11 Jun 2026 07:51:27 -0700 (PDT)
-Received: from [192.168.1.148] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF1053FD88;
-	Thu, 11 Jun 2026 07:51:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781189491; bh=A7fU4LmkiZqHlzam0PtixzHFSmv7SqvsxdhZrNJlTiI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uYAF7xOscmn2ISAlk4HMx7PU3T2t6cyEa6MW5v4v6BLCAxal9zT14FF18YsmwEP/i
-	 acyCo9+YYSAF+GEt6IkbPLOy/s5yXfqlG3+RikAQ+zY5tUzlkon7Mqjm4E+1JFHt+x
-	 HC/88TKJSFTiC8KN8/HRnbnXZOnjL5JaMKX0o9dE=
-Message-ID: <ef15fbdc-e48b-446c-9d5c-ff8d648d0f2c@arm.com>
-Date: Thu, 11 Jun 2026 15:51:28 +0100
+	Thu, 11 Jun 2026 14:53:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AzWKfspVxZ7iUChrdqmTKCXjUXVS9dokwOTP/VKeL28gZWcCi3/x9eWU4NpGTDGvWXr6mc35G0Dpznz/D42AAJLfjADJZpMXfjq47ZCo6+4hs+jnmEY7MZspfHSx5/X0WAee5qkxNybu7dXZSDN7vPMpaMg4+pdm+NDZijSr1EF5yyhw0RfBaP9J47AgXMoCJS61SRAaYTKSPFPRjSNe53erVdkx2X+RVt6kZbxxfVra7knC6DpNB7f+6Ll6mlDLbcZIQZdSfHffx4yFLnedu5nhgUpebB48fiF4uGjjh1rIDjiCupbaeY03p7ulGq67XP7zw31NHf2SVYIS+2VFEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+Gg1VFZw1PfNh4krZ8ijzOr00e/Be3YOHjhAkrCMPeE=;
+ b=KS2j8FBT10JB+drns1uBEftnXrLDrrqFCm1N/zc4YWPR1oAnwwLPvxvta3Sqrz6FnD2H+zijIlRaEcFbZuJXzjIyJiWbOpW79+cwbwmTe2yuWns4r8Aq9fqGyPPAITNhxcJ6dTHOpFtPRshIvh/IE5Qn91UAixtHTlZ/ER9SWOU//qrDhLRD4bztNs7AQGtPRFDqPDKR8FxosqVg2Ph669RZPD6/LPgYNfohtdTgDJ+6ZeQ/ZLapRf8Bcuvc0tUwsPe0BoSXJL0+Y9/XOAG401iKsQeAHRycgkwSInaemISIMz8KvZrbpKSHB05r6hoIciK9dv9FO07Ws5rgTccYHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+Gg1VFZw1PfNh4krZ8ijzOr00e/Be3YOHjhAkrCMPeE=;
+ b=ZSgG3RKC/hWtS4H/McfkJ022Nph+HoRtJrYj67U3An/z58JH7Oma3pwG4A1WetYrDk4OoRCKlTyHI1fiaj6Y/n7dlZwsaMXsF2DDBkiYFjuRANDMUqhbqrTVGSE4e1X+K3P1A3SIW94ZYuhAZB5ksoNTFVQh+vZ8+8daR2gxhM/97zI+L/22LlojNebmeLhvLbFUF32Oi7/QFPVvKmR9AWRq/GIWylz/r6hSTfjpI0090KzrzcS7NqBHmWq5InR4wWt3+XtLAJzqCS/Ta140YuVe6PbynEsj39kMfzt7bL0SJaL7BrLRdVqAOZHqTdvCCmPpjA5pbRGJYiAkY2btrg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI2PR04MB10763.eurprd04.prod.outlook.com (2603:10a6:800:27c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.17; Thu, 11 Jun
+ 2026 14:53:15 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
+ 14:53:14 +0000
+Date: Thu, 11 Jun 2026 10:53:06 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: imx8mp-frdm: Add missing HDMI DDC pinctrl
+Message-ID: <airL0l3pgGRaPFVt@lizhi-Precision-Tower-5810>
+References: <20260611-imx8mp-frdm-hdmi-ddc-v1-1-b4e4c9bb0729@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260611-imx8mp-frdm-hdmi-ddc-v1-1-b4e4c9bb0729@pengutronix.de>
+X-ClientProxiedBy: SA9P223CA0013.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:806:26::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 0/4] arm64: realm: Support for probing RSI earlier
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- will@kernel.org, ardb@kernel.org, lpieralisi@kernel.org,
- mark.rutland@arm.com, steven.price@arm.com, aneesh.kumar@kernel.org,
- sudeep.holla@arm.com, robh@kernel.org, maz@kernel.org
-References: <20260505155742.623287-1-suzuki.poulose@arm.com>
- <ahhoD3HbKMo_vP8K@arm.com> <470678cb-b8b0-4b09-bf32-97fb037ed849@arm.com>
- <aiqYlCpuq3TongP8@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aiqYlCpuq3TongP8@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10763:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95f5ae58-c24a-4b73-aa6c-08dec7c92a42
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|19092799006|18002099003|22082099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: O++BhAkfRWTSJfTDFnCupXs9RYMY8gG48yRQqIMadezR0zxwb5YvOJkId2LwJS9RQsXo8LR2jvsEi3QYymLTuET0nhMt2kvdcRSSE6imBgkUmAS+qXpQQ+wug17RkIWGal0VFpqF8FMJsWtiJyQi9VnW/PljovvJLSSbkHPHeCRUtridAOiYSB2YBQDA7gT/AQHRH///GRtDJyUE+mnSkWirhepsegvRYjx2RaVMsa/+27UrG5bwSy+ZIR2Yv8ku50eb+5yeWXEkGw8bbbyMmFgboSjotT7uPS+t8/bWxUyMim6x1T8xGkq2hvuJmLINVfP9cyVJk2duFnH5/bsE+Dl+BAJf9gOnyytXQRtfjMGc5ats8hha8O7+TI66Y0l/d5G41bzuN0qUF4os7EwEGpkV1NYAu2wvinX+4jL6SmzyVENvSe7Aheoq/oqvovEM441V6IU96MleZovNd3+JOap6U9JU/MKot/qt3kah6Q5rdGBNQi/e9bpUJdgvcBAVPSPPXHtR1XNA3sE0PiIdctFTr0IAP3SGXwAxVEn8ehLhMhx6o1MQDImczBRXr23q3KcuRVWIaoss23u2Gjtf/hGOoWNOjgqkJuAKU/n/X69Hyez3aqDz3pXWgpj7UQQOhKzvIqm5WjBhMWOJ2jjQy6vRZR1eiw5rhvUBiDuXaf/YCHWWrsy1AhruzGETuZhC
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(19092799006)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ms60Qp8KbrCM4YD4CHG6IjxqKdCs9m0TJgY9O+fVECvNgqZ0OCrsBdoqt4/i?=
+ =?us-ascii?Q?yVv4OEVa+tP3IzTzy5gPIGcb1OQtgA5UJ1TWds1Nld/ZbvKGTOYNbc6wk3W1?=
+ =?us-ascii?Q?slVKeML1bZU5+FLLFquQUpuqZd7z3DrUdi7A75iuhpMcSaTORGsprQH/TDWU?=
+ =?us-ascii?Q?mGnBjG+oKo8lMciBVXgRg09J9wnFYUuFtTqlQapx3kE7NbZ4z4bHMdyZ60bu?=
+ =?us-ascii?Q?5EdVr/g1uBYr5TpGoATm9XjoCIRjNnZXR+sRGlpYfc02Ln+Ba38knfEfasiY?=
+ =?us-ascii?Q?O00BvyUQFpjkNVl1dLi8Qfd0cYcywbbt4etkaHHz1WBQwH/tp0S75K1moRAY?=
+ =?us-ascii?Q?LeNzPeC+LGvEtrXGzc37VmhHnj/6ERqCs+vQ428loGVvIw2Yj5zpjhTOga8f?=
+ =?us-ascii?Q?KKW6K1xHiFlDGKrOsY8H7JdEAeSOMHbwdrICf+AoSNn5aTD1XdjcV19tMxcu?=
+ =?us-ascii?Q?T0M+RXF2/DA/Rt8qEbl/ipVan4ttNacq2WUP1PatdKFk41+s0IRmYpPPPFgy?=
+ =?us-ascii?Q?plC9JPDyx0bAeudN+yrX7gcZaQhLzf6PHSg1a3R5a+KqsvlhBVE1djThCMlo?=
+ =?us-ascii?Q?ajAZDlH2e5ncjvSVGFqTWGZ0Hd3KaELhsJrVu0v4yQR37oUAA1OmHC3jb7ny?=
+ =?us-ascii?Q?UOKclUNtAUF3daNdz/HCrINyBUcy3ACy/pZ6VxjYeNXAcI6JWpEz74eh9GkM?=
+ =?us-ascii?Q?ZjDdHCVGLBVMkOjRKT8BR+0TIp+tKJ9Q0hA+P+CTSQWL6PcQR/znzTsVCbYh?=
+ =?us-ascii?Q?OR31cmDumn5EtarcOuTyigJg8WG7di+lVwFic/nGMyP5hOBinRt9lsd+gTTp?=
+ =?us-ascii?Q?AT97qRBdp3ikE7YfSFbkm/IWtQpvA/0frtaw4ormUlYdfJhx3GwHJYX2eo/Y?=
+ =?us-ascii?Q?lonp2Xxx4vBf0RVMH4fmlR2CZtmBrfomWTJbZwgq6NeYPZ/3znqDu5jX/KmV?=
+ =?us-ascii?Q?n4ZqkwvHcxGjhr0FvoOBoce98KWxzKl3oBvp5SAehMIHOh2EkKidjr/WD4UM?=
+ =?us-ascii?Q?UkcnA9TL5PZ3aiY6Bq6kSIsgknLo/IYWZjvAxBkqFnbD1dqYshnr8z4Qq20W?=
+ =?us-ascii?Q?9nqO2AS129f+0mTblEtdb2GQp/ZRIGjEsf+v+HGmUG1Z1+2eqDFGHLXv1xCB?=
+ =?us-ascii?Q?3BzGKU8aEenfgpKsB0X6igd48hl/OUA72lGA/P0t9Vqz8cfeHP3FydfWBOgv?=
+ =?us-ascii?Q?SfXdVo0QLxM6L6UM1HtYYDCiHqfwC+ICLiPuvHFd8DhmbcqyhEOLrZmy/wee?=
+ =?us-ascii?Q?vB+OyYkEHAGsEoRzKKsahZPN6UUxc3YTxMFev31sbnpwGdg16/ZKwinwweDU?=
+ =?us-ascii?Q?fTyeOWVezoB0G6tgFd4latpl7g6fZ6D9oXuS7lSRQa9w+/jGU9TAmC23aJLO?=
+ =?us-ascii?Q?DoWmdty95j4YBNsJVIfEe9zCpLxHSObF3744bq1c+8jEtv6g3a5eQIQfV3p+?=
+ =?us-ascii?Q?pdpAXWrBJlcVvk3wfR8by83dc/l+v07outjPXGXBvSc9aOnhxVUea5NaPmyx?=
+ =?us-ascii?Q?ALo/M3xPdq/wBjpPTcYFVfBr5sdK2ihn6kVXQ3nRx52GZl4404GhJSe7D3kT?=
+ =?us-ascii?Q?xLs4uZpzWFYvsP+eRbR+C3hUMXwb9M/uHpmRnk1CeRGgyWXILpumRAmdJiDX?=
+ =?us-ascii?Q?O4+a8zb9NdJHPf7idbeaUZccjY2+V5e9BeiEY/0Vzql7NPqen2nFXVXRkyq3?=
+ =?us-ascii?Q?xKqDuVVXTbcd5HfFdxKhVGaZt6toleTXy0XD/9OLMGDJD/zqLKz5yEEqQ4Dj?=
+ =?us-ascii?Q?dmKW9D8JnTx1uh7pwn/zkzC3NTeLsVY=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95f5ae58-c24a-4b73-aa6c-08dec7c92a42
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 14:53:14.7535
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uBP68Len2JVkZSTDjhCFj0wjVqTDMsqeVnjBbz8bChT4/dFOgIb4NBPLf+km9VjowNhAAvQD6jQwiHcor634tMJrtnOZ65WWAN0fJT2ZGPgPJOWl6ORKXzURDf4EeQ0c
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10763
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_075134_107702_ED20DD9B 
-X-CRM114-Status: GOOD (  29.32  )
+X-CRM114-CacheID: sfid-20260611_075322_322994_C2F850B0 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,99 +140,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2026 12:14, Catalin Marinas wrote:
-> On Fri, May 29, 2026 at 01:27:01PM +0100, Suzuki K Poulose wrote:
->> On 28/05/2026 17:06, Catalin Marinas wrote:
->>> On Tue, May 05, 2026 at 04:57:38PM +0100, Suzuki K Poulose wrote:
->>>> This is an updated series, addressing the review comments from AI agent on
->>>> the version 1 [0] of the series, (some of which were documented as short comings).
->>>> See below for the changes.
->>>>
->>>> The Realm Guest linux support is broken without rodata=full (fortunately default
->>>> for arm64), as we detect the RSI support after we have created the Linear map
->>>> with Block/Contiguous mappings. If the boot CPU doesn't support BBML2_NOABORT
->>>> (there are CPUs out there with FEAT_RME and no - useable - BBML2_NOABORT)
->>>> we are then not able to split the page tables down to PTE level if the system
->>>> as such doesn't support BBML2.
->>>>
->>>> See the following link for the discussion.
->>>>
->>>> https://lore.kernel.org/all/20260330161705.3349825-2-ryan.roberts@arm.com/
->>>>
->>>> The available options are :
->>>>    1. Start with PTE level mappings at paging_init() and then "FOLD" the page tables
->>>>       to Block/Cont mappings after we have the full picture available. Looking at the
->>>>       future (with BBML3), this might mean "additional work" for most of the systems
->>>>       at boot. But not bad as splitting them ?
->>>>    2. Hold the secondary CPUs in busy loop with MMU disabled and split the mappings
->>>>       by the boot CPU with MMU off (if Boot CPU can't support BBML2). This is tricky
->>>>       with the page allocations required to add the page-tables.
->>>>    3. Move the detection of Realm support earlier to make a better decision for
->>>>       paging_init(), with an added bonus of earlycon support for Realms without
->>>>       the user having to work out the "top bit" for the Realm.
->>>>
->>>> This series is an attempt to implement (3) (without the earlycon support). We try
->>>> to probe the PSCI conduit early from the DT/ACPI. DT is not flattened at this time.
-> [...]
->>> Could we instead add a more informative message in arm64_rsi_init() if
->>> !force_pte_mappings() && !cpu_supports_bbml2_noabort() (before
->>> is_realm_world() becomes true)? Well, it may not print anything if the
->>> early console is not set up yet.
->>
->> That is true, but with some expertise you may be able to enable earlycon
->> and may be we could get some new mechanism for "earlycon"  for Realms.
->>
->> The other way to look at is:
->>
->> When the system doesn't support BBML2 Abort:
->>
->> Creating block/Cont mappings to start with and then splitting it to PTE
->> is quite difficult as we :
->> 1. Need to allocate pages for leaf level tables
->> 2. Hold the other CPUs in tight loop
-> 
-> Agree, that's not easily possible at runtime.
-> 
->> Instead, creating the block/CONT levels from a fully "page level"
->> mappings are easier, as we can:
->>
->> 1. Can easily fold the tables to Block mapping with reclaiming the leaf
->> level pagetables.
->>
->> 2. Avoid the secondary CPUs dance, as they all support BBML2_NOABORT.
->>
->> This shouldn't be that bad as the opposite ?
-> 
-> I don't think it solves our problem. Aren't we concerned with the
-> rodata=off && !BBML2_NOABORT && is_realm_world() case? I don't think
-> your second point stands.
-> 
-> Currently we have:
-> 
-> rodata=full && BBML2_NOABORT => block mappings irrespective of realms
-> 
-> rodata=off && BBML2_NOABORT  => block mappings first, can be split later
-> 				if is_realm_world()
-> 
-> rodata=off && !BBML2_NOABORT => block mappings first, serious problem if
-> 				is_realm_world()
-> 
-> It's the last case we need to fix. Starting with page mappings does
-> avoid the in-realm failure but the !is_realm_world() case folding to
-> block mappings still requires proper BBM.
+On Thu, Jun 11, 2026 at 10:18:59AM +0200, Philipp Zabel wrote:
+> Configure HDMI DDC SCL/SDA pins to support reading EDID.
+>
+> Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+> ---
 
-I see, the case I was missing is : !is_realm_world() and !BBML2_NO_ABORT
-and we want Block mapping if rodata=off. Yes, in this case we need the 
-secondaries on hold, with proper BBM on the boot CPU too. Again, it is
-easier to "collapsing the tables to Block" than the reverse.
+Fix tags here?
 
-Suzuki
+Frank
 
-
-
-
-
-
-> 
-
+>  arch/arm64/boot/dts/freescale/imx8mp-frdm.dts | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
+> index 5fb9714215bf..f43330d1ff8b 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
+> @@ -562,6 +562,8 @@ MX8MP_IOMUXC_SAI1_RXD0__GPIO4_IO02		0x10
+>
+>  	pinctrl_hdmi: hdmigrp {
+>  		fsl,pins = <
+> +			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL	0x1c2
+> +			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA	0x1c2
+>  			MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC		0x10
+>  		>;
+>  	};
+>
+> ---
+> base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
+> change-id: 20260609-imx8mp-frdm-hdmi-ddc-715a3cd5a9ff
+>
+> Best regards,
+> --
+> Philipp Zabel <p.zabel@pengutronix.de>
+>
+>
 
