@@ -4,78 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE86CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D0DCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 20:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48dMyjQ55OBL9t3gch6Exy+GQ5bsHT83sSrbN3jJOoA=; b=fcYCWnbjo/yhwpHFSprNB1N8OC
-	JN+lTWXY0zCJiYCv6zBSre02whamoHAiDLN8307Fw0bxZV63COTZdU7P7GsO6d5Q2rFLDWtEspRoF
-	5eGv2eNtRA5bhTZDphbskOfONEm8w2jODqQfsxBsA+DgBPeuGd01otd3A3zaopmKd5mxRyMlzSy44
-	tejqaWNxRyge9NTRjhGTqWsVtcUyE8oUTT4JH4yUf0DhoAwQDaW53qMuhNwSIaE1PVg1QZLtX2PPz
-	FzRfx10HRVg7pEZrxVhmun04jzq7X2T5BQXK1yor5QlMFQl5B+L6zT3RjxpSSIgcFqlV9NeBmNagh
-	DKBzbHLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/5UTtwM5OuIc7Acz3fKbkPp75x2lDE2VtbXtcDcY8J4=; b=3GY5l4QnJKfrQVHFpvvvkRPN/A
+	xui5pQ8UKZod++jZ9+PxhAD5NSdGQFULD3abuJqk2uwhUGWDplcc1b/jLAvmVYreg/HCSLK0Asbsy
+	b+xVBRSt1haNHqM66pksAjMcYvmwn58XRUMFGXx+698sdlnlLn3OEdoPBzFcMevOHMOQ6+TOxpxj/
+	9MaJoOQLccR8eyu9UxFZvNjLsEe46TQcyHQjLnzsH98eH+kn0lXNMSAi1Tf3q8Nx8+Yjtus9IghOz
+	4VqxJjxQLQVAQnQOyJVRKiBN0t899WPogP4vSQ4zuxm3xJm5jTIAVspd7aI3aRudCogpTG8KxdkG/
+	xtjvCsCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXm5q-0000000A3Lt-34iG;
-	Thu, 11 Jun 2026 20:33:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wXm8t-0000000A3a4-1vUX;
+	Thu, 11 Jun 2026 20:36:47 +0000
+Received: from mail-norwayeastazon11013037.outbound.protection.outlook.com ([40.107.159.37] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXm5p-0000000A3Ln-2gB8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 11 Jun 2026 20:33:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=48dMyjQ55OBL9t3gch6Exy+GQ5bsHT83sSrbN3jJOoA=; b=OzDDv2X5z4gd3vHGIbe1udkU1C
-	Lk3Gep1tKzneCbGMbgetlgFI4gcu4xAEW7K9oJFlOpMa3EUvERBhCQ+3WLxnMoTWUO6wj3/+HBuOJ
-	+lgKX+6KWsQIqcN3cZQZqiVglxlkiBOTtQrz8eo01tSIrrB/CDHh+gznZqglHKegkJdUhzt34eYkn
-	OC9h8xwr+YkH2NYxaSvCfl1RsHEhhgElUwfXmXuGfypdPwtnTgb22OC9iv5CDAAbe+/vwo6EkWhYP
-	1Mpfc5eBTRwaE+xlza1tFJxlxd6+/JNtKE91mc7gVo70Jvmz4HrlHPrtJ5hHSh9h7mA8w63tRDfuq
-	p1NqyBfw==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wXm5k-00000005f3d-3uOY
+	id 1wXm8q-0000000A3ZC-2kXt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 20:33:35 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1wXm5Y-0004Tb-Hd; Thu, 11 Jun 2026 22:33:20 +0200
-Message-ID: <b4fd25b6-52e3-4b5e-8440-69545bce43e8@pengutronix.de>
-Date: Thu, 11 Jun 2026 22:33:18 +0200
+	Thu, 11 Jun 2026 20:36:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TP3hk0s5N7PleKi5blDHE+mzQ7u/VO8XPZGCpuN072BTv5x9OAeIeHdw93Ca8edfkQ+8560Dhv3r/PMLqaVjyvgOcVvn4ZK8Mv5enOnppFvbMOSrTE/SYccX9PGQfol+TfSbEGatlMmMLxlGiC0k4r4AN6Rd0IuYUxF73GJqlrR/Javp8v9vFvkbaisaxcvuuCfJQxcbJ0Z3IBuOsIrkFMBDAWKPSoHihm/I8BgCI6ov5sxN+cLmuh02ezBQJCEjBoyl7DbFK0RrsKpaqzNGVV37Zlzow5NU+UyfVql685GrlquUFuwJYIM96TlIFcEu4xvZuwsEqFDQCz76pMCQ7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/5UTtwM5OuIc7Acz3fKbkPp75x2lDE2VtbXtcDcY8J4=;
+ b=BgjyFP7LZE6+fPhquMIRoXaPhTXn0gLkiehwbwWO59JfzZqz1UPcITp/u3Bq4GqRa+Ts0lM1r0F2hvnZjlFCxE4+vtF2kFvO2Z04FxUsTHbF11B6rShAy2/nRA4hPt1tA4bL0qXNVzM7C5trBTHz+RfZR0wklQkw6D6Vy5WrJAE/ce0/kRkjaz1Ryq10tkRtSyngOKQKKINv3MZoTY3RxRfLrJiIjZtLaXoYJ4oY2RNhppMO/amr+zU1oWUiK+8fL03oeEOoJFvfmHY57Wc/eYy3RkcdLkn8kdyoT83GC9YS63v6o251t2LZKEB/FFGx9c9yuq/selvf02xcZFo8IQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/5UTtwM5OuIc7Acz3fKbkPp75x2lDE2VtbXtcDcY8J4=;
+ b=ji5pRgwz/ucW9ZDann5RkPn9dVreWWQaLGnqgA8sXnrgKMVJr1RECLp+RpKpt0D2xyanZhvtPJ4K3GBXiWcBlw7p8OlFy0UQJ3sRzldeMWc3RZGOruPr8/okESQTPgHI220tXgLf6u0YoTwpljc3zfys5qwoLqHQLq4VtQunP8ZZMmgaYvqeqySAA2zhaHT6BhFZpHcOdaSIHqLdGIVdb0gWXUawfdrYOejB4goiM9/psZ6xkvfF3dmU7ky8Z3TkLkQF+hMSlmnLsfbNHu7fHTQm7vS9shKKrfI4DJHZatyEVP8sehYhpRyuQIvWwXdEuff58zs0Ut3ND5AyL/gKVQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DB9PR04MB8463.eurprd04.prod.outlook.com (2603:10a6:10:2c0::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Thu, 11 Jun
+ 2026 20:36:40 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
+ 20:36:39 +0000
+Date: Thu, 11 Jun 2026 16:36:30 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, mani@kernel.org,
+	kwilczynski@kernel.org, bhelgaas@google.com, corbet@lwn.net,
+	kishon@kernel.org, skhan@linuxfoundation.org, lukas@wunner.de,
+	cassel@kernel.org, alistair@alistair23.me,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	s-vadapalli@ti.com, danishanwar@ti.com, srk@ti.com
+Subject: Re: [PATCH v5 1/4] PCI/DOE: Move common definitions to the header
+ file
+Message-ID: <aiscTnplWtucrFfJ@lizhi-Precision-Tower-5810>
+References: <20260610100256.1889111-1-a-garg7@ti.com>
+ <20260610100256.1889111-2-a-garg7@ti.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260610100256.1889111-2-a-garg7@ti.com>
+X-ClientProxiedBy: PH8P221CA0030.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] ARM: dts: stm32: lxa: change stdout-path baud rate
- from 9600 to 115200
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Leonard_G=C3=B6hrs?=
- <l.goehrs@pengutronix.de>, Marc Kleine-Budde <mkl@pengutronix.de>,
- Alexandre Torgue <alexandre.torgue@st.com>, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@pengutronix.de
-References: <20260611-lxa-stdout-path-baudrate-v1-0-59b60a5069ff@pengutronix.de>
- <20260611204341.147f1afb@pumpkin>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20260611204341.147f1afb@pumpkin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB8463:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3a201b7-991d-4f00-ba6c-08dec7f923a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|23010399003|18002099003|22082099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: KujxZY7Io+5juasi6PXc15yL0uBBMhIhQq0u84aapeglF2y1qzRVTLoixDBx8OsIb6vbZNByAQXADlxJojVfb6UBVyQuMLRxZUiDPf7ta0zBXEwlkrJiyM0ctmGLKXL3rzVJ44Rzm1HqTPtOoac2RbUCGm8naKEzKztyxryFG8RypCjkqa2z9o0jcPQPb9KYA3k/Gh3tnIhwWkuNGmIyGuUmuz1/4vvevkoDhnIwWgoHZBx72rhr7+tOZ5UPHo/phFg5k8Qj6MqMrrQJ1LPCd9ta9TR7i52KTSL7ULlHrIY+MR7kBOLlMon/oOz0V1moXi3oWEBNGletg/Ry/oL07Xvzxt/1HremMyOZlmnxPUV8hfhq6ucbUJJW+uYExTXb1kr9xUGvuQM1mPY0OayFPqPpIMmvXTyu5rnbW6TjLa38Att3kVVht3p2sRa+tEtvpfjxZA6RBneVzZzA3c/y5a//KpoiXWeN+6QwaX9pXg2UevS1n9ppQHBBn7vE6MuDJpybTjjpfPTvSCaAW+bKfzQDjgKlWEy8tUL0VZsKlstSwcpQJIxBh1VK8YCsyXCJXsiqvo9zJuiWb92gSWYHBrksNgQ3OGP2JW+R+KM/f81ZdN+oB+ehq6Nqe1cWjcab0wP6TLmKlcmAY37mmHrItjGcQUx9KizbrWAB0uHqQ1JFB2mQiISgae2QU+eP2rIUn6dc3MjvGynyW+J4RHAmKw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dZ3JFFTncjc5fJnEe2ZjD584obUxj2mdm2JxbqNcnbfc+1uadK6/7wtX0L2W?=
+ =?us-ascii?Q?QmZv40spLSDNF2rs8I1I6O2QDGkqCN2aTY/YP5pS8LQQCXKRytDeVNB5ja9+?=
+ =?us-ascii?Q?GmHpQjweeQXzw2l6flii02ODr6EPwe02g5wfUo/GQujKF7oZtrHxznfow6sN?=
+ =?us-ascii?Q?f8dXTpOClXj7WsBRS4/LZCPXT7mHewNN02GD8IZkw1Gfo5w3eJDoxf2osfAs?=
+ =?us-ascii?Q?kUYjFsnIz769CCKEXYXfCSvLJiRFsNGgnYLyXaWHznyqYuP8eOCJYAg3wXwT?=
+ =?us-ascii?Q?Ux1WdCIq2v/5VbUQ3hLQ08FTVLOREQluY9SmYZVic6+H76eldtoDzlFnMKR+?=
+ =?us-ascii?Q?mEtNm7508k6euxr2FVkAbi021SrQwqRvHoh+Dd5tyL0evlD3k4K2f30a7ZT/?=
+ =?us-ascii?Q?mdw52OJvs68Qbnb+lX6VyVWgplkf7KcHGLrOFVU7CbcF/PkD9iwr3cIkJ6Ui?=
+ =?us-ascii?Q?PgZLJTK2S9S1ORHZIDS3F7IbEs2ZQ4yLgVmKkCpUVDuzyYTAm75gsdITgx0l?=
+ =?us-ascii?Q?AxOqw7E2tYg7AgvVxLnR2prid/wEVJZ7IELyB/vUyuom0TGIozMGqH6IhpdS?=
+ =?us-ascii?Q?5Q3lA0Y6CT0k+DY4ILOzffUzfrXUEhKR5A0lqh6MYkN3JVisQcoPH6sgWEK/?=
+ =?us-ascii?Q?9MoDCZkg7HQEB4CPjiHojHrZOVXNiO8zsmqvjwQpWnfFTmTibO1b1Prn7qOe?=
+ =?us-ascii?Q?3Wz52aos91uM6Yr5pQQKHftlcF4wzXgA8tN8uK2jtHRtuKNA22G6N4ditUuv?=
+ =?us-ascii?Q?oo9lqZvk80ED4HZuDt8n+Jt2vf4gj4RzTL0IWoLv2uw90jT3+3BWc+t+NQNS?=
+ =?us-ascii?Q?qFv1Ow8o+K/pBzq8NvUqTcm6UHdBQKqVk3TB2rxHIDbvjYsKizxpXb+48yM2?=
+ =?us-ascii?Q?QCFsO8V66hHztcFEKbYFtOi7HN+DTB9RS/kI6CRSw7SH4syEMR4UXhg01FXi?=
+ =?us-ascii?Q?TS9qa+nKHOkHwzisVeRfCSU9hO2Pd/RQ0JphVVt07HpQKIwHQCEZE4KL4PeJ?=
+ =?us-ascii?Q?phz25iUDod4/uHfbGsqtzeS+k3RFQki6Vu+x0tIJe00vY7a839JLMK/e0iV3?=
+ =?us-ascii?Q?ScNMHIgzsFv3TNiCTOwEyW3P1SMdz/3sZnxuVYrXJKTrfFdVPQLmfc1v4qow?=
+ =?us-ascii?Q?TBoKs+kE6z/Mmly3MxD8z9CrR8LOhFMGh+XPD+YFQ2CGz7TJoA0Yo6QXUI/a?=
+ =?us-ascii?Q?OwGnyREh6gbDcaQugNIO0L65uNkdtS5uwHsYgtdzmPJSGSWsGCZg5sgvbmBY?=
+ =?us-ascii?Q?frcG2sSN0WdPC7z28y/Hh9Xd0HsAgqc6JcTgq/S10pTL+kU7to5SFQbZ+pDg?=
+ =?us-ascii?Q?FlACyY5zE7fP0BtCCaNHAsg8SWZxPOkks1KvEmd1BL0tDOdesjQKy0q1xvHm?=
+ =?us-ascii?Q?wKNhZLqAOKMmDyGdwx9qGHvuteb/LOE1RURrG2vkwzDztkxHfaD+9bsK9dse?=
+ =?us-ascii?Q?B5AOUjhZaWEwsa07GY+BTVFMn6re4YMA+W/shuveiMiJW0yGxqoSlV87RgN2?=
+ =?us-ascii?Q?OXi/QYTVZTPRzybKXluzh6YtjObYYgCcygKIzKYkuSLHuNdS0ZgBa647Jzqf?=
+ =?us-ascii?Q?habFN3XOjSL6wioFi+8gtLC0raioukE0rNLvgyU7VAxugLiyu1/EvvVKoLpT?=
+ =?us-ascii?Q?fjDdgEGtWLWMp8UHvN1qmpaFkg5kmuKSTAPd8uIfI0+MAiHWuYxMbVi9zN0x?=
+ =?us-ascii?Q?c9wlMgPkcnAEBQESuzuUq816sMNdGDxo4ImWqU9Q54+ZpxIrqe2ayWYA/Kno?=
+ =?us-ascii?Q?qctOj3O8QTGNYXgxxgXZgTWuwy1LVMDI0Plg481Cy6dcgUoJane9?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3a201b7-991d-4f00-ba6c-08dec7f923a5
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 20:36:39.5369
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Cgz7vSQZtEqMtmNdIPYLpdqR12OHGN7qLgZBS7rxOcpS1yc62O6oIl2cBSQXHmYoitPjWIf30HLmZX8uhkZQWIdDk3FbfNZE+iZZ5ZjUyLZx5n1puletGFTamU8LmwWY
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8463
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_213333_548395_B03EC3B1 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20260611_133644_701166_0B016C91 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,73 +141,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+On Wed, Jun 10, 2026 at 03:32:53PM +0530, Aksh Garg wrote:
+> Move common macros and structures from drivers/pci/doe.c to
+> drivers/pci/pci.h to allow reuse across root complex and
+> endpoint DOE implementations.
+>
+> PCI_DOE_MAX_LENGTH macro can be used outside the PCI core as well,
+> hence move the macro to include/linux/pci-doe.h.
+>
+> These changes prepare the groundwork for the DOE endpoint implementation
+> that will reuse these common definitions.
+>
+> Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+> ---
 
-On 6/11/26 21:43, David Laight wrote:
-> On Thu, 11 Jun 2026 20:12:32 +0200
-> Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
-> 
->> The LXA boards are the only STM32 boards that set stdout-path = &uart*
->> instead of explicitly specifying a baud rate.
->>
->> This would mean the default of 9600 is used, but it goes unnoticed when
->> booting normally as barebox fixes up a console= line that includes a
->> baud rate.
->>
->> When EFI booting GRUB however, GRUB will not pass along the console=
->> line and thus the board ends up with a 9600 baud Linux console,
->> confusing users.
-> 
-> Is it possible to determine the current baud rate (by reading the hardware
-> register) and default to that value.
-> Then if grub has initialised the uart the kernel will use the same
-> baud rate.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-I think so, yes. In addition to the register divider configuration, one
-would need the input clock rate as well, but that's not a problem.
-
-Do you know if any drivers already do this?
-
-Nevertheless, I would like the LXA device trees changed, even if only
-to align them with all other existing STM32 device trees.
-
-Cheers,
-Ahmad
-
-
-> 
-> 	David
-> 
->>
->> This series fixes this. As the device trees were added at different
->> times, they are fixed each in a separate commit with its own Fixes: tag.
->>
->> ---
->> Ahmad Fatoum (3):
->>       ARM: dts: stm32: lxa-mc1: change stdout-path baud rate from 9600 to 115200
->>       ARM: dts: stm32: lxa-tac: change stdout-path baud rate from 9600 to 115200
->>       ARM: dts: stm32: fairytux2: change stdout-path baud rate from 9600 to 115200
->>
->>  arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi | 2 +-
->>  arch/arm/boot/dts/st/stm32mp157c-lxa-mc1.dts        | 2 +-
->>  arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi       | 2 +-
->>  3 files changed, 3 insertions(+), 3 deletions(-)
->> ---
->> base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
->> change-id: 20260611-lxa-stdout-path-baudrate-7cf454cdae07
->>
->> Best regards,
->> --  
->> Ahmad Fatoum <a.fatoum@pengutronix.de>
->>
->>
-> 
-> 
-
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+>
+> Changes from v4 to v5:
+> - None.
+>
+> Changes from v3 to v4:
+> - None.
+>
+> Changes from v2 to v3:
+> - Rebased on 7.1-rc1.
+>
+> Changes since v1:
+> - Moved the common macros that need not be visible outside the PCI core
+>   to drivers/pci/pci.h instead to include/linux/pci-doe.h as suggested
+>   by Lukas Wunner
+> - Removed the redundant empty inlines guarded with CONFIG_PCI_DOE in
+>   include/linux/pci-doe.h.
+>
+> v4: https://lore.kernel.org/all/20260522052434.802034-2-a-garg7@ti.com/
+> v3: https://lore.kernel.org/all/20260427051725.223704-2-a-garg7@ti.com/
+> v2: https://lore.kernel.org/all/20260401073022.215805-2-a-garg7@ti.com/
+> v1: https://lore.kernel.org/all/20260213123603.420941-3-a-garg7@ti.com/
+>
+>  drivers/pci/doe.c       | 11 -----------
+>  drivers/pci/pci.h       |  9 +++++++++
+>  include/linux/pci-doe.h |  3 +++
+>  3 files changed, 12 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/pci/doe.c b/drivers/pci/doe.c
+> index 7b41da4ec11a..e8d9e95644b3 100644
+> --- a/drivers/pci/doe.c
+> +++ b/drivers/pci/doe.c
+> @@ -28,12 +28,6 @@
+>  #define PCI_DOE_TIMEOUT HZ
+>  #define PCI_DOE_POLL_INTERVAL	(PCI_DOE_TIMEOUT / 128)
+>
+> -#define PCI_DOE_FLAG_CANCEL	0
+> -#define PCI_DOE_FLAG_DEAD	1
+> -
+> -/* Max data object length is 2^18 dwords */
+> -#define PCI_DOE_MAX_LENGTH	(1 << 18)
+> -
+>  /**
+>   * struct pci_doe_mb - State for a single DOE mailbox
+>   *
+> @@ -63,11 +57,6 @@ struct pci_doe_mb {
+>  #endif
+>  };
+>
+> -struct pci_doe_feature {
+> -	u16 vid;
+> -	u8 type;
+> -};
+> -
+>  /**
+>   * struct pci_doe_task - represents a single query/response
+>   *
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 4a14f88e543a..5844deee2b5f 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -683,6 +683,15 @@ struct pci_sriov {
+>  	bool		drivers_autoprobe; /* Auto probing of VFs by driver */
+>  };
+>
+> +/* DOE Mailbox state flags */
+> +#define PCI_DOE_FLAG_CANCEL	0
+> +#define PCI_DOE_FLAG_DEAD	1
+> +
+> +struct pci_doe_feature {
+> +	u16 vid;
+> +	u8 type;
+> +};
+> +
+>  #ifdef CONFIG_PCI_DOE
+>  void pci_doe_init(struct pci_dev *pdev);
+>  void pci_doe_destroy(struct pci_dev *pdev);
+> diff --git a/include/linux/pci-doe.h b/include/linux/pci-doe.h
+> index bd4346a7c4e7..abb9b7ae8029 100644
+> --- a/include/linux/pci-doe.h
+> +++ b/include/linux/pci-doe.h
+> @@ -19,6 +19,9 @@ struct pci_doe_mb;
+>  #define PCI_DOE_FEATURE_CMA 1
+>  #define PCI_DOE_FEATURE_SSESSION 2
+>
+> +/* Max data object length is 2^18 dwords */
+> +#define PCI_DOE_MAX_LENGTH		(1 << 18)
+> +
+>  struct pci_doe_mb *pci_find_doe_mailbox(struct pci_dev *pdev, u16 vendor,
+>  					u8 type);
+>
+> --
+> 2.34.1
+>
 
