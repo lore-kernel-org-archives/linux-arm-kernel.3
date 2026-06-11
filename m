@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8513CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB31DCD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ef0nR/F/3mauVtjPQKNzv0MDN5cCbO2Pdn8BUSaOyxI=; b=37/sDrqVw8OPmQLQsbMHYxvB9S
-	/v4yMyoJgBZAFRlUQBJG5ZRlMYdmXDPRNJRgN3+1Dk3S0FrV8B9AVMAsefxIIgTq4A6lzf8SsHTIt
-	7gmCQU41xsR250zVQ7lZh0PHI3OkvNiDUsQGP9xsl75tqeUX6LUn9tW/1cvgcKVdCdOBZtdzgsQNH
-	CtWcy7/+Xa1wtZYDyWgOzVTlwwB2iiz/WQ+jt4gsx9HFB1fTJE8Mxet4zxMf1AMK504cslwk+0++W
-	Q5BmfhuhbfIj7MS6Jm8Ohb9lGhRzpWB0vMAYiEYumcwRAxh2isaX+EGcY3KtPClSvJ53JBVpfh+y+
-	5tzPankg==;
+	bh=ROq1lVBMd1TqONzV7EX6xzWPckJNHZDfKK4kRsAGgBI=; b=eoGuwPzXOiDuU7pVA70HhtfGwz
+	WsGpDCb9WtIki7H18oJxnokSNHDvrEPDsOs19UBs/WJm4rFbid4q+52qy60A0KDGVZWPwymcoLh4d
+	IEgwS4N7WZSmgXbVlshkVbLaOBsA+W9x+vpd47Y/17DVioCPrIJQ+6wwDyKSNYTb6SJIOUDMFQyEa
+	UXwsGM/06PO6HIk2zttpCZhjSKUHXMp3UDZ42BTV6RQpeogO98N3ExlQi5zoJlzVt+K0RcBwfXzVm
+	uvhyFMvoViLCaQeEWYakMeVNuEtktcKpuFTGpyy7/TzE8B6ls/eDIzaf4R+z32kwHN9SAQFAgYkRu
+	/mh6X9Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXiPj-00000009m2M-1in4;
-	Thu, 11 Jun 2026 16:37:55 +0000
+	id 1wXiSj-00000009mES-3jZw;
+	Thu, 11 Jun 2026 16:41:01 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXiPi-00000009m2D-3fI2;
-	Thu, 11 Jun 2026 16:37:54 +0000
+	id 1wXiSi-00000009mEF-3nOM;
+	Thu, 11 Jun 2026 16:41:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F03240294;
-	Thu, 11 Jun 2026 16:37:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 070CD1F00893;
-	Thu, 11 Jun 2026 16:37:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9401E41A2A;
+	Thu, 11 Jun 2026 16:41:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E1751F00893;
+	Thu, 11 Jun 2026 16:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781195874;
-	bh=ef0nR/F/3mauVtjPQKNzv0MDN5cCbO2Pdn8BUSaOyxI=;
+	s=k20260515; t=1781196060;
+	bh=ROq1lVBMd1TqONzV7EX6xzWPckJNHZDfKK4kRsAGgBI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=okaG9bdiR0+20Z2ZlUm2AZfM/nYhVULe6RDzWHnaRvEBHroTojrpfwlptOET66ZiA
-	 LHiZgcVYzwnzyRk7IENhOSxWu8MFc6lvQeqxwcqqq/VVgOEKSOzw5AEsBzgNt13C3X
-	 QyVc7Ru+IsBM7hgT1nA7hTZT19XrWi9VYnbH/vAFXguoHRl+Zd4s+yy3BwyPd4RnKb
-	 OTjF+LleVIyGNWhC+5Xg5iyP/YkPGPpr36JlFVI5NP0lfNw+UF9oAkTMj6+6LGcT1+
-	 ObsNTmr8+Q5r5sXFbOSMuj9eR5x8NImDfijzM6x7FzU8jmoqZHoGG7Xr7/NOKUXMTz
-	 jnHBSoHogBd3A==
-Date: Thu, 11 Jun 2026 17:37:48 +0100
+	b=LTddcBoqhv69JIcjLqCLxBIqk0Kqk1N+R8peoTL4iTpk/w++Ql8NnYhm5sWe/j13Q
+	 81rQdd6CPmTs44Zhx8QH3YVsUceuLG+dH1k2hWldbVedYVvkx6l9rWnR8EAUztozss
+	 CBj8YNebMmqJ2CTUZ1H7mhCo0OXFvo7vJrPAmZ/MlMqJQy0rEvWRhq4TZSONp9MJFG
+	 EkSY2qWF8hp4TtzwFRqg01fhUfuD1L/SjdOJBXnLBq2lrbMbeoEPOHJ9Gy5nS1Ms//
+	 2t3zI1d/ovKnKXdnaKcmcvVXhsSNVNaJ9zZ/XY6Fh5Gp3Lui0h0L8QhRT9a4g5PYIc
+	 2hCObYE2CVUBA==
+Date: Thu, 11 Jun 2026 17:40:53 +0100
 From: Lee Jones <lee@kernel.org>
-To: rva333@protonmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+To: linux-kernel-dev@aliel.fr
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH 3/4] mfd: mt6397-core: add mt6323 AUXADC support
-Message-ID: <20260611163748.GB1212816@google.com>
-References: <20260602-mt6323-adc-v1-0-68ec737508ee@protonmail.com>
- <20260602-mt6323-adc-v1-3-68ec737508ee@protonmail.com>
+	Andi Shyti <andi.shyti@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Beniamino Galvani <b.galvani@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v7 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
+Message-ID: <20260611164053.GC1212816@google.com>
+References: <20260603-add-mcu-fan-khadas-vim4-v7-0-594ba8a965d8@aliel.fr>
+ <20260603-add-mcu-fan-khadas-vim4-v7-4-594ba8a965d8@aliel.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260602-mt6323-adc-v1-3-68ec737508ee@protonmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260603-add-mcu-fan-khadas-vim4-v7-4-594ba8a965d8@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +84,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Interesting.  Has this been considered?
+/* Sashiko Automation: Reviewed (0 Findings) */
 
-/* Sashiko Automation: Issues Found (1 Findings) */
+On Wed, 03 Jun 2026, Ronald Claveau via B4 Relay wrote:
 
-On Tue, 02 Jun 2026, Roman Vivchar via B4 Relay wrote:
-
-> From: Roman Vivchar <rva333@protonmail.com>
+> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > 
-> The mt6323 PMIC includes an AUXADC. Register the AUXADC in the mt6323
-> devices array to allow the corresponding driver to probe using compatible
-> string.
+> Refactor probe() to use per-variant values
+> instead of hardcoded globals.
 > 
-> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> Add dedicated regmap configuration for the VIM4 MCU,
+> with its own volatile/writeable registers.
+> 
+> Add the fan control register
+> (0–100 levels vs 0–3 for previous supported boards).
+> 
+> Add a new compatible string "khadas,vim4-mcu".
+> 
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > ---
->  drivers/mfd/mt6397-core.c | 3 +++
->  1 file changed, 3 insertions(+)
+>  drivers/mfd/khadas-mcu.c | 115 ++++++++++++++++++++++++++++++++++++++++-------
+>  1 file changed, 99 insertions(+), 16 deletions(-)
 > 
-> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-> index 3e58d0764c7e..013b0857fb54 100644
-> --- a/drivers/mfd/mt6397-core.c
-> +++ b/drivers/mfd/mt6397-core.c
-> @@ -125,6 +125,9 @@ static const struct resource mt6323_pwrc_resources[] = {
+> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+> index ba981a7886921..1bf260729d73b 100644
+> --- a/drivers/mfd/khadas-mcu.c
+> +++ b/drivers/mfd/khadas-mcu.c
+> @@ -75,47 +75,129 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+>  	.cache_type	= REGCACHE_MAPLE,
+>  };
 >  
->  static const struct mfd_cell mt6323_devs[] = {
->  	{
-> +		.name = "mt6323-auxadc",
-> +		.of_compatible = "mediatek,mt6323-auxadc",
+> -static struct mfd_cell khadas_mcu_fan_cells[] = {
+> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+> +	.max_level	= 3, /* Fan speed: 0 = off, 1 = low, 2 = medium, 3 = high */
 
-[Severity: High]
-Does adding this compatible string expose an unhandled edge case in the
-auxadc driver?
+Instead of this comment, you could always just define the value(s)?
 
-If this device is instantiated directly from a Device Tree without an MFD
-parent (e.g., at the DT root), dev->parent could be the platform bus
-(which has a NULL parent) or NULL itself.
+> +};
+> +
+> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
+>  	/* VIM1/2 Rev13+ and VIM3 only */
+> -	{ .name = "khadas-mcu-fan-ctrl", },
+> +	{
+> +		.name = "khadas-mcu-fan-ctrl",
+> +		.platform_data = &khadas_mcu_fan_pdata,
+> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
 
-Looking at mt6323_auxadc_probe() in drivers/iio/adc/mt6323-auxadc.c:
+No need to attempt to align the '=' like this, please.
 
-    regmap = dev_get_regmap(dev->parent->parent, NULL);
+> +	},
+>  };
+>  
+> -static struct mfd_cell khadas_mcu_cells[] = {
+> +static const struct mfd_cell khadas_mcu_cells[] = {
+>  	{ .name = "khadas-mcu-user-mem", },
+>  };
+>  
+> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
+> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
+> +	case KHADAS_MCU_WOL_INIT_START_REG:
+> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
+> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
+> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
+> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
+> +		return true;
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +
+> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_VERSION_0_REG:
+> +	case KHADAS_MCU_VERSION_1_REG:
+> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
+> +		return false;
+> +	default:
+> +		return true;
+> +	}
+> +}
+> +
+> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
+> +	.reg_bits	= 8,
+> +	.reg_stride	= 1,
+> +	.val_bits	= 8,
+> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
+> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
+> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
+> +	.cache_type	= REGCACHE_MAPLE,
+> +};
+> +
+> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
+> +	.max_level	= 0x64,
+> +};
+> +
+> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
+> +	{
+> +		.name		= "khadas-mcu-fan-ctrl",
+> +		.platform_data	= &khadas_vim4_fan_pdata,
+> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
+> +	},
+> +};
+> +
+>  static int khadas_mcu_probe(struct i2c_client *client)
+>  {
+> +	const struct mfd_cell *cells, *fan_cells;
+> +	const struct regmap_config *regmap_cfg;
+>  	struct device *dev = &client->dev;
+> +	int ncells, nfan_cells, ret;
+>  	struct khadas_mcu *ddata;
+> -	int ret;
+>  
+>  	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
+>  	if (!ddata)
+>  		return -ENOMEM;
+>  
+> +	switch ((uintptr_t)i2c_get_match_data(client)) {
+> +	case KHADAS_MCU_GENERIC:
+> +		regmap_cfg	= &khadas_mcu_regmap_config;
+> +		cells		= khadas_mcu_cells;
+> +		ncells		= ARRAY_SIZE(khadas_mcu_cells);
+> +		fan_cells	= khadas_mcu_fan_cells;
+> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells);
+> +		break;
+> +	case KHADAS_MCU_VIM4:
+> +		regmap_cfg	= &khadas_mcu_vim4_regmap_config;
+> +		cells		= NULL;
+> +		ncells		= 0;
+> +		fan_cells	= khadas_mcu_vim4_cells;
+> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells);
 
-Could blindly dereferencing dev->parent->parent here, or passing a NULL
-device to dev_get_regmap() (which calls devres_find()), result in a
-kernel oops if probed as a root node?
+I'm not as offended by this as I thought I would be!
 
-
-> +	}, {
->  		.name = "mt6323-rtc",
->  		.num_resources = ARRAY_SIZE(mt6323_rtc_resources),
->  		.resources = mt6323_rtc_resources,
+> +		break;
+> +	default:
+> +		return -ENODEV;
+> +	}
+> +
+>  	i2c_set_clientdata(client, ddata);
+>  
+>  	ddata->dev = dev;
+>  
+> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
+> +	ddata->regmap = devm_regmap_init_i2c(client, regmap_cfg);
+>  	if (IS_ERR(ddata->regmap)) {
+>  		ret = PTR_ERR(ddata->regmap);
+> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+> -		return ret;
+> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
+>  	}
+>  
+> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -				   khadas_mcu_cells,
+> -				   ARRAY_SIZE(khadas_mcu_cells),
+> -				   NULL, 0, NULL);
+> -	if (ret)
+> -		return ret;
+> +	if (cells && ncells) {
+> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> +					   cells,
+> +					   ncells,
+> +					   NULL, 0, NULL);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	if (of_property_present(dev->of_node, "#cooling-cells"))
+>  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -					    khadas_mcu_fan_cells,
+> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
+> +					    fan_cells,
+> +					    nfan_cells,
+>  					    NULL, 0, NULL);
+>  
+>  	return 0;
+> @@ -123,7 +205,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>  
+>  #ifdef CONFIG_OF
+>  static const struct of_device_id khadas_mcu_of_match[] = {
+> -	{ .compatible = "khadas,mcu", },
+> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
+> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
+>  	{},
+>  };
+>  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
 > 
 > -- 
-> 2.54.0
+> 2.49.0
 > 
 > 
 
