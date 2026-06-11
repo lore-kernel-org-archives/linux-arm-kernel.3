@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C4BCD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D808ACD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OuTYoMzmADbLZx5mBuWf/jeTSzrUAeENzv6Lo4hWe+o=; b=PM7k2/yOGt4CRMPFYO5mVOJooZ
-	rNn1eh+GgdYwN5iLPXIbttgI6FHKVOo6vl4FW6PBBIFuK2XDrnmeortljSdu93Fn3cp+gGholgZ6P
-	s1YprpbiXSzMg3AHwcQyG6MON0z3tch+1l7TeZolRrjwJzM3H2rrWggsaZph474f9kc69vzv/adO4
-	u51ZGvQPyJiEo46awEue7SPTrV9uClbl7w7L26kMYSktfkyJH7KIbXTmzcPJv3KLMoGAQiK5UIJat
-	2jGa1wpdGmNmBPCt9Qgms+HGOWCf8syEX8achMYvI4WxMWlxwJaJrbq85oiB0dr7miF2vZJF1bhsE
-	mi1dtPXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G1fmYR7Bw48yeIaqSnYNhWjdDWiabR6zZde3Hlfn/5k=; b=BwcgWLlDA0Dsx8gl+ii+8XLfFr
+	dCWjCycapc3X2VJbnA17xqsoZVJJPq6Av3iLFrcXtfVOhBlmZRKNbfR1KWFPGZOXQYkJ46BZoP0/G
+	/2yRsMlSOGOqntVQkUwmfc1E57PNIOgu7mzt77kSf4QoJlGGIv8Bahakik0A9rrblShViST7MyPR3
+	2v4vF5G7VyKe5faf/KJwJilIShdvJzaBM/LmkObcow4tXpXe+EmoVPfy4M78DAnWcuD+tSclUvyqY
+	C1x6zVvqlZyhugThwvHSj/yXzasyQws5/fsysBGd7/e1C5bJlGZ6HzSThTCnOUUcjK+sVoCJH7yc6
+	SrhYSVkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfab-00000009Ww2-0Qvg;
-	Thu, 11 Jun 2026 13:36:57 +0000
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
+	id 1wXfcF-00000009X95-1VUu;
+	Thu, 11 Jun 2026 13:38:39 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfaY-00000009WrO-1ZZs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:36:55 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1781184976;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OuTYoMzmADbLZx5mBuWf/jeTSzrUAeENzv6Lo4hWe+o=;
-	b=tgx5l7fEPJqyKE3EtrMYdNW6Sxds47dKnfzuGanOOuaqz+09uI8JEBtA4tqIpP4uCgwPLq
-	7UDlQm+/7kJqyHYp327Oly+uc3y7A61cb5UVnK8c+xrAVpSRXfNCpi3jez/PyI9YufDup1
-	hGu21L2FRpVnZ8eH8wkwbY3pXq9n9/0=
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 11 Jun 2026 13:36:12 +0000
-Message-Id: <DJ69DK9H09I6.O3GUDBXQS1QF@linux.dev>
-Cc: <linux-mm@kvack.org>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, "Ryan Roberts" <ryan.roberts@arm.com>, "David
- Hildenbrand" <david@kernel.org>, "Mike Rapoport (Microsoft)"
- <rppt@kernel.org>, "Ard Biesheuvel" <ardb@kernel.org>, "Christoph Lameter"
- <cl@gentwo.org>, "Yang Shi" <yang@os.amperecomputing.com>, "Brendan
- Jackman" <jackmanb@google.com>, <owner-linux-mm@kvack.org>
-Subject: Re: [RFC PATCH 1/6] arm64: mm: explicitly declare module and ftrace
- execmem regions
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Brendan Jackman" <brendan.jackman@linux.dev>
-To: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- <linux-arm-kernel@lists.infradead.org>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-2-abarnas@google.com>
-In-Reply-To: <20260611130144.1385343-2-abarnas@google.com>
-X-Migadu-Flow: FLOW_OUT
+	id 1wXfcC-00000009X84-0Lqp;
+	Thu, 11 Jun 2026 13:38:38 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=G1fmYR7Bw48yeIaqSnYNhWjdDWiabR6zZde3Hlfn/5k=;
+	b=iklZi2sn8UCwgbkC4ASYVWIbolWj7O22qO43+Gm/ir9CNoD3G05AAqzZS/GlgroWTloOILTbC
+	DsZSs3LcCfqRT+soo7oWNIEBqcMjbT429CZ4MHaWH/AM/wkq3hticvYcshk29YMTQDjyDNGxHN9
+	GGT2qdBpBmdqIS/iDK9swMM=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gbk6c6CKjzLlVV;
+	Thu, 11 Jun 2026 21:30:32 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6D09740562;
+	Thu, 11 Jun 2026 21:38:27 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 11 Jun
+ 2026 21:38:25 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.fr>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <peterz@infradead.org>,
+	<kees@kernel.org>, <nathan@kernel.org>, <linusw@kernel.org>,
+	<ojeda@kernel.org>, <ruanjinjie@huawei.com>, <david.kaplan@amd.com>,
+	<lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>, <maz@kernel.org>,
+	<timothy.hayes@arm.com>, <lpieralisi@kernel.org>, <thuth@redhat.com>,
+	<oupton@kernel.org>, <yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>,
+	<broonie@kernel.org>, <kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<tabba@google.com>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
+	<anshuman.khandual@arm.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH RFC 1/3] cpu/hotplug: Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+Date: Thu, 11 Jun 2026 21:38:07 +0800
+Message-ID: <20260611133809.3854977-2-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_063654_560946_3A986D36 
-X-CRM114-Status: UNSURE (   7.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260611_063836_477284_57771224 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +87,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Jun 11, 2026 at 1:01 PM UTC, =3D?UTF-8?q?Adrian=3D20Barna=3DC5=3D9B?=
-=3D wrote:
-> Replace the reliance on the EXECMEM_DEFAULT fallback by explicitly defini=
-ng
-> the execution memory (execmem) regions for MODULE_TEXT, MODULE_DATA, and
-> FTRACE in execmem_arch_setup().
+During parallel CPU bringup, x86 requires primary SMT threads to boot
+first to avoid siblings stopping during microcode updates. This constraint
+is architecture-specific and unnecessary for other platforms
+like arm64.
 
-Please can you explain in the commit message _why_ you do this. This way
-reviewers don't have to make a mental note and come back later after
-reading the rest of the patchset. And once it's commited, it will save
-readers from having to chase down the contextual commits to figure out
-what's going on.
+Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to decouple this constraint.
+Platforms requiring this temporal order (e.g., x86) can select it
+in Kconfig. Other architectures (e.g., arm64) can leave it unselected
+to entirely bypass the SMT branch via the preprocessor.
+
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/Kconfig       | 4 ++++
+ arch/mips/Kconfig  | 1 +
+ arch/riscv/Kconfig | 1 +
+ arch/x86/Kconfig   | 1 +
+ kernel/cpu.c       | 6 +++++-
+ 5 files changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/arch/Kconfig b/arch/Kconfig
+index e86880045158..0365d2df2659 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
+ 	bool
+ 	select HOTPLUG_SPLIT_STARTUP
+ 
++config PARALLEL_SMT_PRIMARY_FIRST
++	bool
++	depends on HOTPLUG_PARALLEL
++
+ config GENERIC_IRQ_ENTRY
+ 	bool
+ 
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 4364f3dba688..84e11ac0cf71 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -642,6 +642,7 @@ config EYEQ
+ 	select MIPS_CPU_SCACHE
+ 	select MIPS_GIC
+ 	select MIPS_L1_CACHE_SHIFT_7
++	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+ 	select PCI_DRIVERS_GENERIC
+ 	select SMP_UP if SMP
+ 	select SWAP_IO_SPACE
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d235396c4514..0cc49aecc841 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -210,6 +210,7 @@ config RISCV
+ 	select OF
+ 	select OF_EARLY_FLATTREE
+ 	select OF_IRQ
++	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+ 	select PCI_DOMAINS_GENERIC if PCI
+ 	select PCI_ECAM if (ACPI && PCI)
+ 	select PCI_MSI if PCI
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index f3f7cb01d69d..3ad4115ad051 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -314,6 +314,7 @@ config X86
+ 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+ 	select NEED_SG_DMA_LENGTH
+ 	select NUMA_MEMBLKS			if NUMA
++	select PARALLEL_SMT_PRIMARY_FIRST	if HOTPLUG_PARALLEL
+ 	select PCI_DOMAINS			if PCI
+ 	select PCI_LOCKLESS_CONFIG		if PCI
+ 	select PERF_EVENTS
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index bc4f7a9ba64e..7ef8cdf4d239 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -1792,6 +1792,7 @@ static int __init parallel_bringup_parse_param(char *arg)
+ }
+ early_param("cpuhp.parallel", parallel_bringup_parse_param);
+ 
++#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+ #ifdef CONFIG_HOTPLUG_SMT
+ static inline bool cpuhp_smt_aware(void)
+ {
+@@ -1811,7 +1812,8 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
+ {
+ 	return cpu_none_mask;
+ }
+-#endif
++#endif /* CONFIG_HOTPLUG_SMT */
++#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
+ 
+ bool __weak arch_cpuhp_init_parallel_bringup(void)
+ {
+@@ -1837,6 +1839,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
+ 	if (!__cpuhp_parallel_bringup)
+ 		return false;
+ 
++#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+ 	if (cpuhp_smt_aware()) {
+ 		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
+ 		static struct cpumask tmp_mask __initdata;
+@@ -1857,6 +1860,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
+ 		cpumask_andnot(&tmp_mask, mask, pmask);
+ 		mask = &tmp_mask;
+ 	}
++#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
+ 
+ 	/* Bring the not-yet started CPUs up */
+ 	cpuhp_bringup_mask(mask, ncpus, CPUHP_BP_KICK_AP);
+-- 
+2.34.1
+
 
