@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F6ECD98C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 02:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61906CD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 02:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:
-	To:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3qYa5R94cy8jsn60vin6HxUHURIN1ojFOm03PplfBQ4=; b=RoY29T2tBd1aYVIR4hG2qGLKIC
-	12uOZJMqwrObotPP4oe0BHP9n9zY43zLBmumEa8oIDX9IL/FoxAQfSqKPqHGgcbzFcDsbQg1qcKQN
-	eobXWQdZpSKUAdbgPS4edxeQqab+NAXfMGnyBjkmsNuZHCNVZjHOqVQ03gELS/Lm6beE5daAUj4BQ
-	X9ZBOFUf/MfUyYKnieS5Wqe663ikv525gHzijnZCYzwGt1FiTb3qWs4qrsxpG2OH4/o4R3c/UK6hI
-	IxjwEv2IjQHwsiangaxPh1OlsJ+PIhXttx84vwydxqNEvacHkUPrDXQ/uafJBzfvEl3nu0uLBNZjh
-	RZnoNV2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jC17BLRupxjFh4QurP21wywIDB1dwNBEJxTReffswGw=; b=5D7y/8eepHHZV5JBClIEdmyz25
+	B2k0xfaEeE7RO44WLC2MAh1IPDpeAWEI3/j02OZmXvaecPjg0AiO2ladrvvLucaPwj31qMPLa0t2l
+	wzXmNnhfnR92ELX0BZrfxhMb6EKSLouOFGUCdPslpxg+0daRFDfWS7DUU2l5h1uTPneFN65Rd+P1u
+	zQKYGcmw84nO5FlHgfsuhGC+39HyDtMI7EasRZaySeu1Yclt0DyLEFiL+VtmvsdHV9TPtlISyi0Rs
+	ae71gJwJb3sBf0oroLaCaVMjy8Pgaq6S1tr6pWocPdZ03NyFaoHxcJCSZZUU7J7hIrvmruMJo8+oX
+	E8NZykdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXVBT-00000008Zrz-3bHM;
-	Thu, 11 Jun 2026 02:30:19 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1wXVVW-00000008aQr-1k0b;
+	Thu, 11 Jun 2026 02:51:02 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXVBQ-00000008Zrc-2ytQ
+	id 1wXVVS-00000008aQ3-3AJD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 02:30:18 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-304ddfcf72cso7975584eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 19:30:15 -0700 (PDT)
+	Thu, 11 Jun 2026 02:51:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci.org; s=google; t=1781145015; x=1781749815; darn=lists.infradead.org;
-        h=message-id:date:reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3qYa5R94cy8jsn60vin6HxUHURIN1ojFOm03PplfBQ4=;
-        b=M/dX1OnYFnFJfD6AzR4BBpBhj1vBEzxxNaqpMImglV+Wn7kRrpEAUmC/uJuR1a3zbn
-         cfmKPe1wfljGr+cvto+7eF+TDeciB+NAawpE/Ytk7IueC8BX++KumKYR1QHmTMXGLKFL
-         JM8kh+axtcbBOgetL0xES08e9IWbP2CU1haBQU8fy37hpbIOtRmfwLxOEgs2eZ1fGFBu
-         BwR6ggKZpi7L9cZkcRciZqrPIJxFCPqku4naWlvNVqjQZ5upyfPC+GSkTIsi2js/OrY1
-         gsKc0YN+GYLilJ6SXvtfbkPi2vrY/xk4THxziCkzxnA+dJ+BCdYqQ6bxvK5zRPAepVfT
-         Kgbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781145015; x=1781749815;
-        h=message-id:date:reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3qYa5R94cy8jsn60vin6HxUHURIN1ojFOm03PplfBQ4=;
-        b=mE5CvpJQml5vOCIMR+6kPA2B8vl0wksRIJdfBQUHUx/E4gWXwSMSOhKw/K71+8dbSj
-         be4jzrthkhco1W7Cjz7wTuNiFy4MKmzZ17HGwqAtzGMZ2/GeBf94Dujurbfp1koxK1pU
-         eecK5J7uexrrXCz2r2xFtt7jn9pnCo5BNrSRe1QA7lKo5N0MLSWTWDGV8BOvT7cp2gr8
-         lN5w3Wrf2hs2bgAEMEMe6eOxELbaIiHYqtH/IllZt9xxskbBHFdNdL0uMpLU/g8gW8t/
-         BTIfjb2AFYzd/YVvDlaC/KZbau18dRghymLX4FPhiB0XA8PMa+kM7Elj+KlTu1cFUUGH
-         YkDg==
-X-Forwarded-Encrypted: i=1; AFNElJ8bN8sM592A11gtP0D7sWW8T7z0JBGMEBRNs6rPFtMBI3tGCl89VzEviGX/OyMphYHhDR/rJ6RsWiZYzqVe+VCM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwomdMwWyOaABbE9FsqvoiP4vXgnd1e/YXpPs9KXSD2dn7heabQ
-	r0XlVPclqxng0BAJ0AgbjdKoEydGJJxzgOYTdeHyz4+71RwAgUcBF32AMQqpqqhwFbU=
-X-Gm-Gg: Acq92OFANq5EwVRNHSQUDVYyqAqpaoI3Kegh8EWKT7fYk5B4QJpxQ03901QJsNBEXEC
-	HBcT47o6qk+HJ/nuVICcaas+LYe8/JAM9hwNd7VFoPX4K05qLAIUJPrlMgWE0sN55ebI3IiwTqg
-	NO1P44F4vcKfEwX/JbQGB9GDRI1i26ri578iCyf7VzDeveFNLiclOIacxU7xMUAAmi7wFOHZ7OW
-	kjGphUbydeezbCwyxfnfaQvc3/M88m+6lovVYNDn6U31Qj5WMi3gG9jNHH0iC8T+vNEw63A9ySS
-	SGUGfvgoo1mlElRpzEhNsriqROybL87mR0IArN2Yd/wmIBBg0ZEAlsqDKuYa1b7IJ8rghjMk/j9
-	cxkE9ObtHXch+QQPJVmnq3108HYUL1fhmGTViAHpvz9qgbTsWl115pxskzBBzWs4hGrPT4x1U8K
-	ekdx3RuTDa6MrEeGbqMiDHwicg4lM=
-X-Received: by 2002:a05:693c:20cb:20b0:304:cefc:5fe3 with SMTP id 5a478bee46e88-30804a0efdfmr407991eec.18.1781145010143;
-        Wed, 10 Jun 2026 19:30:10 -0700 (PDT)
-Received: from 330cfa3079ca ([20.38.40.137])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30806e8a9f3sm304605eec.18.2026.06.10.19.30.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 19:30:09 -0700 (PDT)
-Content-Type: text/plain; charset="utf-8"
+	d=codeconstruct.com.au; s=2022a; t=1781146253;
+	bh=jC17BLRupxjFh4QurP21wywIDB1dwNBEJxTReffswGw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=SYVLyqrQiN1Offva8UPZ/gcqnw2zJNMdKsotwp/JLCuPsS3QbUUTWLgd3VSMGSx4r
+	 5lNrAFl0iQ3VyHQIhNRslyvUoQegK1YJJyYIAmSLlcH7SQ295Iurh6pvD2LRT0tS+2
+	 Vy7YqlcusxaPBLVl7Qr8IDkViYYromvKsx1lbSv2soYjuVT2VMp/P5xdFe3MAkHBbc
+	 TQxiaY/7wvy1R/wqtie29/p7FPHVYpvL0c+u/zRts/P49RXY/SZGPdtIdqtW8GiU10
+	 r9MpCEybw18qEdiOALgdqtormaeygxfVlaMpcKEFkh2Rx077FgY1Q7uEdgLXbpMoCc
+	 GaFVW+6bDAG4A==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 6573D60A0C;
+	Thu, 11 Jun 2026 10:50:51 +0800 (AWST)
+Message-ID: <64f8d88bf4cd72d8120baaa304dfe34bb66cbe0b.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v5] soc: aspeed: lpc-snoop: Fix usercopy overflow in
+ snoop_file_read
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Karthikeyan KS <karthiproffesional@gmail.com>
+Cc: joel@jms.id.au, andrew@aj.id.au, Kees Cook <kees@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	stable@vger.kernel.org
+Date: Thu, 11 Jun 2026 12:20:50 +0930
+In-Reply-To: <20260610172310.163321-1-karthiproffesional@gmail.com>
+References: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
+	 <20260610172310.163321-1-karthiproffesional@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: [STATUS] arm64/for-kernelci -
- 596d152bc5e34b870b32ba3c6d6a766d563ebda0
-From: KernelCI bot <bot@kernelci.org>
-To: kernelci-results@groups.io
-Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Thu, 11 Jun 2026 02:30:09 -0000
-Message-ID: <178114500912.13182.11973824553700920983@330cfa3079ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_193017_071064_F5E83B60 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260610_195059_032791_1F9E7821 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,58 +71,231 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kernelci@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Karthikeyan,
 
+On Wed, 2026-06-10 at 17:23 +0000, Karthikeyan KS wrote:
+> put_fifo_with_discard() acts as both producer and consumer on the kfifo:
+> it calls kfifo_skip() (advances out) and kfifo_put() (advances in) from
+> the IRQ handler without synchronizing with snoop_file_read(), which also
+> consumes via kfifo_to_user(). On SMP systems this concurrent access can
+> leave (in - out) larger than the ring buffer, so __kfifo_to_user()'s clam=
+p
+> to (in - out) is ineffective and kfifo_copy_to_user() can attempt a
+> copy_to_user() past the kmalloc-2k backing store:
+>=20
+> =C2=A0 usercopy: Kernel memory exposure attempt detected from SLUB object
+> =C2=A0 'kmalloc-2k' (offset 0, size 2049)!
+> =C2=A0 kernel BUG at mm/usercopy.c!
+> =C2=A0 Call trace:
+> =C2=A0=C2=A0 usercopy_abort
+> =C2=A0=C2=A0 __check_heap_object
+> =C2=A0=C2=A0 __check_object_size
+> =C2=A0=C2=A0 kfifo_copy_to_user
+> =C2=A0=C2=A0 __kfifo_to_user
+> =C2=A0=C2=A0 snoop_file_read
+> =C2=A0=C2=A0 vfs_read
+>=20
+> Serialize kfifo access with a per-channel spinlock. The reader drains
+> into a bounce buffer under the lock with kfifo_out_spinlocked() and then
+> copies to userspace after dropping it, since copy_to_user() may sleep on
+> a page fault.
+>=20
+> Fixes: 3772e5da4454 ("drivers/misc: Aspeed LPC snoop output using misc ch=
+ardev")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Karthikeyan KS <karthiproffesional@gmail.com>
+> ---
+> Andrew,
+>=20
+> Thanks for the review.
+>=20
+> Changes since v4:
+> - Use __free(kfree) for automatic cleanup
+> - Allocate clamped count instead of full SNOOP_FIFO_SIZE
+> - Use kfifo_out_spinlocked() in snoop_file_read
+> - Use scoped_guard(spinlock) in put_fifo_with_discard
+>=20
+> =C2=A0drivers/soc/aspeed/aspeed-lpc-snoop.c | 25 +++++++++++++++++++-----=
+-
+> =C2=A01 file changed, 19 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/a=
+speed-lpc-snoop.c
+> index b03310c0830d..c9c87a794228 100644
+> --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> @@ -11,6 +11,7 @@
+> =C2=A0 */
+> =C2=A0
+> =C2=A0#include <linux/bitops.h>
+> +#include <linux/cleanup.h>
+> =C2=A0#include <linux/clk.h>
+> =C2=A0#include <linux/dev_printk.h>
+> =C2=A0#include <linux/interrupt.h>
+> @@ -74,6 +75,7 @@ struct aspeed_lpc_snoop_channel_cfg {
+> =C2=A0struct aspeed_lpc_snoop_channel {
+> =C2=A0	const struct aspeed_lpc_snoop_channel_cfg *cfg;
+> =C2=A0	bool enabled;
+> +	spinlock_t		lock;=C2=A0=C2=A0=C2=A0 /* serialises @fifo: irq producer v=
+s reader */
 
+I'd prefer we avoid trailing comments, which it seems you've added this
+time around. Since you did that ...
 
+> =C2=A0	struct kfifo		fifo;
 
-Hello,
+... in this specific case we can improve on the comment, with:
 
-Status summary for arm64/for-kernelci
+   struct kfifo fifo __guarded_by(&lock);
 
-Dashboard:
-https://d.kernelci.org/c/arm64/for-kernelci/596d152bc5e34b870b32ba3c6d6a766d563ebda0/
+More details here:
 
-giturl: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-branch: for-kernelci
-commit hash: 596d152bc5e34b870b32ba3c6d6a766d563ebda0
-origin: maestro
-test start time: 2026-06-10 12:20:56.217000+00:00
+   https://docs.kernel.org/dev-tools/context-analysis.html
 
-Builds:	    8 ✅    0 ❌    0 ⚠️
-Boots: 	   35 ✅    0 ❌    1 ⚠️
-Tests: 	 8876 ✅    0 ❌   90 ⚠️
+Adding a change along these lines currently produces:
 
-### POSSIBLE REGRESSIONS
+   ../drivers/soc/aspeed/aspeed-lpc-snoop.c:164:32: warning: reading variab=
+le 'fifo' requires holding spinlock '&aspeed_lpc_snoop_channel::lock' [-Wth=
+read-safety-analysis]
+     164 |         if (!kfifo_initialized(&chan->fifo))
+         |                                       ^
 
-  No possible regressions observed.
+I ended up applying this on top of your patch:
 
+   diff --git a/drivers/soc/aspeed/Makefile b/drivers/soc/aspeed/Makefile
+   index b35d74592964..9cba7be8c395 100644
+   --- a/drivers/soc/aspeed/Makefile
+   +++ b/drivers/soc/aspeed/Makefile
+   @@ -4,3 +4,5 @@ obj-$(CONFIG_ASPEED_LPC_SNOOP)          +=3D aspeed-lpc-=
+snoop.o
+    obj-$(CONFIG_ASPEED_UART_ROUTING)      +=3D aspeed-uart-routing.o
+    obj-$(CONFIG_ASPEED_P2A_CTRL)          +=3D aspeed-p2a-ctrl.o
+    obj-$(CONFIG_ASPEED_SOCINFO)           +=3D aspeed-socinfo.o
+   +
+   +CONTEXT_ANALYSIS_aspeed-lpc-snoop.o    :=3D y
+   diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/=
+aspeed-lpc-snoop.c
+   index 9165a543a250..7fa1a345acac 100644
+   --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
+   +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+   @@ -75,8 +75,8 @@ struct aspeed_lpc_snoop_channel_cfg {
+    struct aspeed_lpc_snoop_channel {
+           const struct aspeed_lpc_snoop_channel_cfg *cfg;
+           bool enabled;
+   -       spinlock_t              lock;    /* serialises @fifo: irq produc=
+er vs reader */
+   -       struct kfifo            fifo;
+   +       spinlock_t              lock;
+   +       struct kfifo            fifo __guarded_by(&lock);
+           wait_queue_head_t       wq;
+           struct miscdevice       miscdev;
+    };
+   @@ -161,9 +161,9 @@ static const struct file_operations snoop_fops =3D {
+    /* Save a byte to a FIFO and discard the oldest byte if FIFO is full */
+    static void put_fifo_with_discard(struct aspeed_lpc_snoop_channel *chan=
+, u8 val)
+    {
+   -       if (!kfifo_initialized(&chan->fifo))
+   -               return;
+           scoped_guard(spinlock, &chan->lock) {
+   +               if (!kfifo_initialized(&chan->fifo))
+   +                       return;
+                   if (kfifo_is_full(&chan->fifo))
+                           kfifo_skip(&chan->fifo);
+                   kfifo_put(&chan->fifo, val);
+   @@ -240,7 +240,6 @@ static int aspeed_lpc_enable_snoop(struct device *de=
+v,
+                   return -EBUSY;
+   =20
+           init_waitqueue_head(&channel->wq);
+   -       spin_lock_init(&channel->lock);
+   =20
+           channel->cfg =3D cfg;
+           channel->miscdev.minor =3D MISC_DYNAMIC_MINOR;
+   @@ -252,9 +251,11 @@ static int aspeed_lpc_enable_snoop(struct device *d=
+ev,
+           if (!channel->miscdev.name)
+                   return -ENOMEM;
+   =20
+   -       rc =3D kfifo_alloc(&channel->fifo, SNOOP_FIFO_SIZE, GFP_KERNEL);
+   -       if (rc)
+   -               return rc;
+   +       scoped_guard(spinlock_init, &channel->lock) {
+   +               rc =3D kfifo_alloc(&channel->fifo, SNOOP_FIFO_SIZE, GFP_=
+KERNEL);
+   +               if (rc)
+   +                       return rc;
+   +       }
+   =20
+           rc =3D misc_register(&channel->miscdev);
+           if (rc)
+  =20
+I prefer that we add the annotation as the compiler analysis provides
+some comfort in contrast to the comment.
 
-### FIXED REGRESSIONS
+Otherwise, the rest of the fix seems okay to me.
 
-  No fixed regressions observed.
+Andrew
 
-
-### UNSTABLE TESTS
-    
-Hardware: bcm2711-rpi-4-b
-  > Config: defconfig+lab-setup+kselftest
-    - Architecture/compiler: arm64/gcc-14
-      - boot
-      last run: https://d.kernelci.org/test/maestro:6a29618edabb8c619d43f8f0
-      history:  > ⚠️  > ⚠️  > ✅  > ✅  > ✅  
-            
-
-
-Sent every day if there were changes in the past 24 hours.
-Legend: ✅ PASS   ❌ FAIL  ⚠️ INCONCLUSIVE
-
---
-This is an experimental report format. Please send feedback in!
-Talk to us at kernelci@lists.linux.dev
-
-Made with love by the KernelCI team - https://kernelci.org
+> =C2=A0	wait_queue_head_t	wq;
+> =C2=A0	struct miscdevice	miscdev;
+> @@ -114,6 +116,7 @@ static ssize_t snoop_file_read(struct file *file, cha=
+r __user *buffer,
+> =C2=A0				size_t count, loff_t *ppos)
+> =C2=A0{
+> =C2=A0	struct aspeed_lpc_snoop_channel *chan =3D snoop_file_to_chan(file)=
+;
+> +	u8 *buf __free(kfree) =3D NULL;
+> =C2=A0	unsigned int copied;
+> =C2=A0	int ret =3D 0;
+> =C2=A0
+> @@ -125,9 +128,16 @@ static ssize_t snoop_file_read(struct file *file, ch=
+ar __user *buffer,
+> =C2=A0		if (ret =3D=3D -ERESTARTSYS)
+> =C2=A0			return -EINTR;
+> =C2=A0	}
+> -	ret =3D kfifo_to_user(&chan->fifo, buffer, count, &copied);
+> -	if (ret)
+> -		return ret;
+> +
+> +	count =3D min_t(size_t, count, SNOOP_FIFO_SIZE);
+> +
+> +	buf =3D kmalloc(count, GFP_KERNEL);
+> +	if (!buf)
+> +		return -ENOMEM;
+> +
+> +	copied =3D kfifo_out_spinlocked(&chan->fifo, buf, count, &chan->lock);
+> +	if (copied && copy_to_user(buffer, buf, copied))
+> +		return -EFAULT;
+> =C2=A0
+> =C2=A0	return copied;
+> =C2=A0}
+> @@ -153,9 +163,11 @@ static void put_fifo_with_discard(struct aspeed_lpc_=
+snoop_channel *chan, u8 val)
+> =C2=A0{
+> =C2=A0	if (!kfifo_initialized(&chan->fifo))
+> =C2=A0		return;
+> -	if (kfifo_is_full(&chan->fifo))
+> -		kfifo_skip(&chan->fifo);
+> -	kfifo_put(&chan->fifo, val);
+> +	scoped_guard(spinlock, &chan->lock) {
+> +		if (kfifo_is_full(&chan->fifo))
+> +			kfifo_skip(&chan->fifo);
+> +		kfifo_put(&chan->fifo, val);
+> +	}
+> =C2=A0	wake_up_interruptible(&chan->wq);
+> =C2=A0}
+> =C2=A0
+> @@ -228,6 +240,7 @@ static int aspeed_lpc_enable_snoop(struct device *dev=
+,
+> =C2=A0		return -EBUSY;
+> =C2=A0
+> =C2=A0	init_waitqueue_head(&channel->wq);
+> +	spin_lock_init(&channel->lock);
+> =C2=A0
+> =C2=A0	channel->cfg =3D cfg;
+> =C2=A0	channel->miscdev.minor =3D MISC_DYNAMIC_MINOR;
 
