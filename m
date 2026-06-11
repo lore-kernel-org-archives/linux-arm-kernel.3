@@ -4,131 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A7DCD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651FACD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+5Ei4L82qa2gdzcG0s53OaCG6M2rn5rAml1REFQf7z0=; b=PAwerZnwMFn5dZy21283zoFh/t
-	WB7jg9ZU+6VXoD18S/T3rDkw3ZXocpMCO0DjaeulA/DAk1gmEviVToprTC9OD/Ym4T3N4XzY5FRiM
-	FpaEdvL7tlk+ir23XHKEJgZxYnrO2fM0FFoAtf6qe9wp84rGe/s24Ke5bG9FqFkbkUnYBXIXRceeM
-	BOQgPVkiSgBETXtSQGcB3m+I2Ew+dPS8hibQxCQi6q7cXmMd7YK9KYtnq1clrhncYgsBR++I68HUm
-	Gm/4ihcz8UxPics737qfXXwlU1TQOW/LucY39bkzkI/g0qGNXz/ZKkKS9VZPB94wpkTpdDny8uSMv
-	p74WvRkg==;
+	bh=PDRJOUSxfNGFQoBrsDJcmWJf50RsYbuzi43rA4XFrIo=; b=Z9BBc9Aa+q5R3RHTU6DMLvrtXx
+	TeivDOBMGcEA1mvFiMB9DjJ39MPXV27BPWLVMTlehbCer40p5ret5VanPAnIRmbf3MxAZhQYNn7LU
+	AS1Djge7nTSXE7gCYGex0UrRmBMhZ5MXMLtrcALMGEaRaq0mSNRVC2nN7Hkr5WK+T5gmnkEUMhm92
+	L3VU/EVA+XVop5RnL4u/YTIo7iEDTrAT7svzxMlp+rVsCIgXvqMj7xUT13WhOlbsSM6H2Sk8AsE9H
+	0U44RpZgqR5lUiH2z7BtwQnf0AXw+HdYRncH44L5RMeOPSCub8QDKyhLmOtdzl5+VcwDBiepyvbFO
+	if0FUomQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXguJ-00000009e6B-3xyu;
-	Thu, 11 Jun 2026 15:01:23 +0000
-Received: from mail-francecentralazon11013055.outbound.protection.outlook.com ([40.107.162.55] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wXgxc-00000009eQy-1qih;
+	Thu, 11 Jun 2026 15:04:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXguH-00000009e5f-2Kuk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 15:01:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ozoRv8C1cHrRzOEwHOkO38+7KoEUh+cukmLHlO8ek/trM7LW/gR5H6mYNXEPUeCOEXmpfDIkDXkmZeWd/FN5hCEBo14SjbQ76Uu3s+hbF3EHjQ2Zl9DtbNQJk1SNkxpXTYFDIdiGzaxTb62UBaCgcguxPSJEUEQBJ5pgdcf6zTs4neM41fSAGc3vAgzXol2ehr1Sjr/QjmROhwyP3rdyvoge4BQ6pSBMK+AetCAK/F3J72KzplylopHudofR2vZDBOY8kkfvZabJOut1NOjw89rQg0qeC50dNJbdAiZxhzErhjUaqFgkpO8XHWw8l968StOE/3jnCewQ1KmvwyP+Qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+5Ei4L82qa2gdzcG0s53OaCG6M2rn5rAml1REFQf7z0=;
- b=Gb7CtgyjwmFtKaWGpph/4aNXoV5h8qcK5iclpeB0lxq6WyRdgAB6oVVmkvXncdyNbwhPy6zI0ig9dkevf/1FkzGjAdMRUFVNE3TECBYVAbaAHrHZWuSMqC1+6Chvv43e8Bt2d47sZVjmiED9MZo60ibiQzVkcLyEr6Xiwp7gQegmQkJBE8j2dXzWEs0/4+N6iyPoKaLBwnLn4Y0VMb4ff71DnMECfItdkr08h6zehZRZ2/XFMEImAtg5OzYj9di3tHesFNslN+uuBlNFRwAyEW8vO+0q3GhPhT2Jgty0PV2fUJNC3grOCfZif5zi7xkG+qW7NtrGjmq2a2EQdbdofQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+5Ei4L82qa2gdzcG0s53OaCG6M2rn5rAml1REFQf7z0=;
- b=a9kMdLAaIxjx0ekuIh6bBV6lXt38HZ+ZNzPIGOjG/Cl7smBgq4ygzLEKqNt259y7CaEnNvveuj5uaiCqlbbn3ql48jBuDHaAW49ybL9yhorKfVFi6jAFJnFqZenj3dls+2vAQeY2CMQnT2omPtHWm3DivGr5Q84CQAzzYDnoEDVgvFA5C1JNeBsy830oB3vOgHB9SFrTtggzfw8zMmGbHEwLDXTEc0chOq2OuE7vBClfPSHwFyczbEq343gHhm5a4wF3YCoIy6TrcQjzGzh1OlZQwg2rZw4qwaVvRbsq4LXArgBUhN7MGnNJGj2z4ATUJrn/AUNqrP3HipbRBoPTGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBAPR04MB7253.eurprd04.prod.outlook.com (2603:10a6:10:1a2::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Thu, 11 Jun
- 2026 15:01:15 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.016; Thu, 11 Jun 2026
- 15:01:15 +0000
-Date: Thu, 11 Jun 2026 11:01:06 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Ye Li <ye.li@nxp.com>, Joy Zou <joy.zou@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-Subject: Re: (subset) [PATCH v4 0/3] Reserve eDMA channels 0-1 for V2X
-Message-ID: <airNsr7rUpdhiCHt@lizhi-Precision-Tower-5810>
-References: <20260211-b4-imx95-v2x-v4-0-10852754b267@nxp.com>
- <178111844864.1088466.7414551932762014103.b4-ty@b4>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <178111844864.1088466.7414551932762014103.b4-ty@b4>
-X-ClientProxiedBy: PH7P221CA0038.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wXgxb-00000009eQo-22nM;
+	Thu, 11 Jun 2026 15:04:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F6DB601DF;
+	Thu, 11 Jun 2026 15:04:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAC561F00893;
+	Thu, 11 Jun 2026 15:04:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781190286;
+	bh=PDRJOUSxfNGFQoBrsDJcmWJf50RsYbuzi43rA4XFrIo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WGljIyaIWsNrku9MCKteXhzgj4r/Jw22YTE77zA4Fg8Lq2hlV+MhHqP89hqwuNLhO
+	 IgHO5OythtyY457InhI1McQOndgj305mr9HA4Z/AjzsvPQDAs28A0pPoxUAJ1yf+tw
+	 fkQHiztW6EQLbqtICHPaLF+j+O6go1z0VfkwMatLKTwW3ELKg1EeoBDE1PZBM3f2k6
+	 qBF6J9W5MBKNLa5NyajsId0nBhwsj5UL+ERCL5gXaa6S6ejZPjp/lDkq2EjpfntrGd
+	 7HDY6sJGFJG9MeCGin77juZqdFrb9sStYI0v034S/Yfw58o+Yi4iF5DonBRuqz9zb5
+	 HVjyvgKNhum4w==
+Date: Thu, 11 Jun 2026 17:04:44 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v4 2/2] net: airoha: defer GDM3/GDM4 WAN mode
+ and GDM2 loopback to QoS offload
+Message-ID: <airOjLlxSrA40B-F@lore-desk>
+References: <20260610-airoha-ethtool-priv_flags-v4-0-60e89cf28fea@kernel.org>
+ <20260610-airoha-ethtool-priv_flags-v4-2-60e89cf28fea@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBAPR04MB7253:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f7d9a40-d6ea-4284-dc66-08dec7ca48d7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|22082099003|18002099003|921020|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: +TH7saxZpckki1uHgw6V6iKSOswyFTzclZuREfTZLeEuXDxBu/8jdqFptBFuVAo/pGvM66j4KAgqcQDJ7Z7GlG54mk9B5pzcYuGavqU/kfilsNOHk62Sdxb5qzHTWwmjF7OzI5H1spwSSe8kbMuuY71ZgoYTmJg5GJsivb/PlHr6D7OsEDUjjcsJEFQGqPkgfWvMf1DUXdwsm8LIEAvN9ZyJ1VoDJbyssEUI6jvA2DvaYAhJk19+flzJ8eupET1kor/HyECLw/FFdn8S9gH8bIw8jnwL7ft3MTboTV4Cv4+EvQgGSvbyNh+496V+bu4jpK7LNFkZRbkiA51MwUJBg+St4zcNqum1t8jI0TaH8JEaPmaXGq92Y63Cvj5Gni6xmlHXmostXOtlD8vo5iWmTadaQ8Wl0ATxSwuN/8jvJC6he58Pe34EEX3qiEq4r/BBH1pCfbBES5xew+JtiD+l5o+o+tWnvgwUcknTSOBtWyHMQBr8UXbY6bH9j1NDuT71d/ag+SSQf1TQoIkANzyMaWp+Xpm1HAYj9fDjttSuFxoNvq3ZtQtUcpDp4vx93iZCR/1QZn1tO86mSkfu3QLj0fV76x0E3kqPNZtq0mZWV5EHfFHASzzE5lMMeVz1jBbNbRkogGb1IwEg+x4y8NTk8RY6G7QJE9ieeKmRrIYvnY5g9is4d5q9WQ5haWAAeo3rLT3xtoAdeYRJ1rJL0JIN7QXmsYL/l19DfL8AWbX/eR4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(22082099003)(18002099003)(921020)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QHtD3ifLL2RtLr1a2YOhO+lB3rW4nLhy4HNzGq0RKRWk7DfrgqU0h8GyxJgb?=
- =?us-ascii?Q?BIkGDrLkNCHxCWN+F6FstF9N3TZ5dYVW5NZBaK0vp8Pe5Sr+A5AJH51sCV2B?=
- =?us-ascii?Q?Ebmcmd5Z+NnIx/MYUxOi92WORjB+DhSQVUHcRqQKDM3twKc/i4xFKKbcK/LW?=
- =?us-ascii?Q?rTke/3wwNAjXQObxzirKh2PziXC/MkbNQeonJf63ivdyo0AIyGi5BnU/UI9w?=
- =?us-ascii?Q?l+7tcOPdJephbcc0z3O/MqgVCHNmSy5icXs5t7Z8USAeKpcur0QymsqbzFSI?=
- =?us-ascii?Q?pJihWEg9sE4VCPsIBnS8qXQrKQHD4Gcd78GA9UVOaUTOD5gWvblPdBGm2NLX?=
- =?us-ascii?Q?9FGHO2tnSkqSwJoqO8KJZLSaGXhZ/FcvdC+6vVv4yVRGOPEUlGxdMYgZeYKn?=
- =?us-ascii?Q?I/xzATm7WTdhtpASBAa1lKuxKgx0LEQTl+rj0ZSRzXrOTx6wWDt+cFlwawVJ?=
- =?us-ascii?Q?N7gu1ThcQzmJfHrZ7ZJJrm2BC3B6PeczIhHiLv/CohHRH0dZGygjy0LLoZzu?=
- =?us-ascii?Q?yM7chm/wlIqrvsUx1aIRYMjguyO53HjnUUByS1rU/0We7DkfTUANsjA/X2fK?=
- =?us-ascii?Q?B5lc1oapK2GlteYGhXl8TXMlAOnImjJO32Vbz5YXpYvo1H9pEB5VQLVVxxXQ?=
- =?us-ascii?Q?Pp1+CbXGCKxaKBuQ2/ZR+aPo8ZtRsQ6Jh/bbh8rwjAzv9TtUTKuo3DlJhK4P?=
- =?us-ascii?Q?dTh5FOPp7UY+sSoG+ED/P2JuUjMOZNZzhv5Ebgt+J+cIkK5awJfTP+lLF1qM?=
- =?us-ascii?Q?AAU3weaOuJDI9F/zTrFCEexTqqMJbk045H+suJoOj2Ojuaxh6C2EfvvCR0Sd?=
- =?us-ascii?Q?utZX1O3lBXgReOaaWEWEBrzwLAfX7lpLAkg8W6MrT6QqMYJR7xe0r+Ssz+ci?=
- =?us-ascii?Q?HkqAnjAXgSiXDIDKbI3kZQB62+FUYCkNaYGIwWBe7TtbkOWMuh3rUh7B9nu2?=
- =?us-ascii?Q?PqgSDx9wmrTmPI9NcqxpEp0e+TXFUHMIjxnuN9o4T9cUP1ei6J9uTFeziQ/f?=
- =?us-ascii?Q?HU829pKckusGMPuAp+CbyrYEjQKEjfLtbW2CnZQvKq6PLvNCjEyS6Pjs+HHv?=
- =?us-ascii?Q?4Q//QQa5r7fr30vBgPTzneEjpgFPDblE3l31Xc417KPXce0Z5naR1K+YaTqb?=
- =?us-ascii?Q?UVh3aJoy+M79gHbKnh0BBgG0iOZg5SBKDg+Bt4bdrfiKxtLGIivDAxVh6tJA?=
- =?us-ascii?Q?60AThd7Iqg+EY1p6Zl+9hrbBBbhunZa4wqKSTW6loUeptDowk6Z+NT77/Ie5?=
- =?us-ascii?Q?VyI98F8jdlYLKMioBmXtzA0XWgxhCjwspA64pka5ASL5zsF7OgQvlTJnV1B+?=
- =?us-ascii?Q?2ah/LzPRNXFRBcncxfB884/VCJgqPItYK3n5jFyZJpyDlyj+ehiZU1dL5Mlp?=
- =?us-ascii?Q?WAw4D8LIxVarAYuCyeWzk6RE1ikINuedFUW5qFsJiZe3DCH4or+hgROYYBJp?=
- =?us-ascii?Q?GWxUCjMeDqvfr4ZWbBxkLfZ5XhQJ5hmXvzJSfy90+hpR/Re5u+T9pOG93dMl?=
- =?us-ascii?Q?lFIMZ0hc6SA2zJUqMKIzceUMw+/4rfzTvJgop1U5BKjEkp5wsgPbj/L5VTBo?=
- =?us-ascii?Q?CaX9ROSp1DLIVd/hRx/g8waYZQc8o5pU3MiFKurBS9FFbhFPUklyzrh1se6A?=
- =?us-ascii?Q?AQlt7vxpeqWQIxR9M/NGtK4PqKLi5hfR951N1uaFwt0lo/9NdJCj9VG5wZyn?=
- =?us-ascii?Q?S/S+F5Gnmf4CAZC22cuDWfPf4/KvPxLoSnEcVwOALNtW3K8z+4GK0nwGg95k?=
- =?us-ascii?Q?Dx2VEwjs9jr2jpLB4jtQHak0ml6kL67sk/P32Hx91hzKBmHFz1wB?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f7d9a40-d6ea-4284-dc66-08dec7ca48d7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 15:01:15.4409
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: w8s1SeRjVoFbj2SwaPKkdk7GeOQZfNqdMCpNdF089PVhjItHBWInzJZ2GeEli7BbF+1X6BuhkEqrfahcBx417tdJas/T+XM4nKYstop/mKaNaa+vOSnU2t6mA+xQeUWL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7253
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_080121_595888_C7C5EC07 
-X-CRM114-Status: GOOD (  11.22  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3W6r5hbEJpuvgYEO"
+Content-Disposition: inline
+In-Reply-To: <20260610-airoha-ethtool-priv_flags-v4-2-60e89cf28fea@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,28 +74,407 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 03:08:29PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
->
->
-> On Wed, 11 Feb 2026 17:28:23 +0800, Joy Zou wrote:
->
->
-> Applied, thanks!
->
-> [1/3] dt-bindings: dma: fsl-edma: add dma-channel-mask property description
->       commit: edc448e785891cca747e21c6595e050d3d3fa434
->
-> Vnod have not picked it for the long time. I picked it to make reflect the
-> correct settings for i.mx
 
-I saw vnod pick it, drop it from my side.
+--3W6r5hbEJpuvgYEO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Frank
+> GDM3 and GDM4 ports require GDM2 loopback to be enabled for hardware
+> QoS offload to function. Without it, HTB and ETS offload on these ports
+> do not work.
+> Previously, GDM3/GDM4 ports were automatically configured as WAN with
+> GDM2 loopback enabled during ndo_init(). Add the capability to configure
+> GDM3/GDM4 as WAN/LAN on demand when QoS offload is created or destroyed.
+> Hook airoha_enable_qos_for_gdm34() into TC_HTB_CREATE so that requesting
+> HTB offload on a GDM3/GDM4 LAN port switches it to WAN mode and enables
+> GDM2 loopback, with proper rollback on failure. Hook the counterpart
+> airoha_disable_qos_for_gdm34() into TC_HTB_DESTROY to restore LAN mode
+> when the offloaded qdisc is torn down.
+> Since airoha_dev_set_qdma() can now be called on a running device to
+> migrate between QDMA blocks, make dev->qdma an RCU pointer so the TX
+> path can safely dereference it without holding RTNL.
+> Hold flow_offload_mutex in airoha_dev_set_qdma() around the QDMA pointer
+> update and __airoha_ppe_set_cpu_port() call, serializing against
+> concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER offload path.
+> Introduce airoha_qdma_deref() helper that wraps rcu_dereference_protected=
+()
+> with a lockdep condition accepting either rtnl_lock or flow_offload_mutex,
+> and use it across all control-path dereferences of the RCU-protected
+> dev->qdma pointer.
+> Add airoha_disable_gdm2_loopback() to disable GDM2 hw loopback.
+>=20
+> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
->
-> Best regards,
-> --
-> Frank Li <Frank.Li@nxp.com>
->
+Please find my comments about the following sashiko's report:
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260610-airoha-ethtool=
+-priv_flags-v4-0-60e89cf28fea%40kernel.org
+
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c  | 220 ++++++++++++++++++++++++=
+++----
+>  drivers/net/ethernet/airoha/airoha_eth.h  |  24 +++-
+>  drivers/net/ethernet/airoha/airoha_ppe.c  |  18 ++-
+>  drivers/net/ethernet/airoha/airoha_regs.h |   1 +
+>  4 files changed, 231 insertions(+), 32 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index aeac66df5f3b..10232470a333 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+
+[...]
+
+> +static int airoha_disable_gdm2_loopback(struct airoha_gdm_dev *dev)
+> +{
+> +	struct airoha_gdm_port *port =3D dev->port;
+> +	struct airoha_eth *eth =3D dev->eth;
+> +	int i, src_port;
+> +	u32 pse_port;
+> +
+> +	src_port =3D eth->soc->ops.get_sport(dev->port, dev->nbq);
+> +	if (src_port < 0)
+> +		return src_port;
+> +
+> +	airoha_fe_clear(eth,
+> +			REG_SP_DFT_CPORT(src_port >> fls(SP_CPORT_DFT_MASK)),
+> +			SP_CPORT_MASK(src_port & SP_CPORT_DFT_MASK));
+> +
+> +	airoha_fe_set(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
+> +		      GDM_STRIP_CRC_MASK);
+> +	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
+> +				    FE_PSE_PORT_DROP);
+> +	airoha_fe_clear(eth, REG_GDM_LPBK_CFG(AIROHA_GDM2_IDX),
+> +			LPBK_CHAN_MASK | LPBK_MODE_MASK | LPBK_EN_MASK);
+> +	pse_port =3D airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
+> +						 : FE_PSE_PORT_PPE1;
+> +	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
+> +				    pse_port);
+> +
+> +	airoha_fe_rmw(eth, REG_FE_WAN_PORT, WAN0_MASK,
+> +		      FIELD_PREP(WAN0_MASK, AIROHA_GDM2_IDX));
+> +
+> +	for (i =3D 0; i < eth->soc->num_ppe; i++)
+> +		airoha_ppe_clear_cpu_port(dev, i, AIROHA_GDM2_IDX);
+> +
+> +	/* Enable VIP and IFC for GDM2 */
+> +	airoha_fe_set(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
+> +	airoha_fe_set(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
+> +
+> +	if (port->id =3D=3D AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
+> +		u32 mask =3D FC_ID_OF_SRC_PORT_MASK(dev->nbq);
+> +
+> +		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6, mask,
+> +			      FC_MAP6_DEF_VALUE & mask);
+> +	}
+> +
+> +	return 0;
+> +}
+
+- Does this disable counterpart fully undo what airoha_enable_gdm2_loopback=
+() does?=20
+  I think the current implementation is correct since:
+  - 0xffffffff is already the default value for REG_GDM_TXCHN_EN()
+  - 0xffff is already the default value for REG_GDM_RXCHN_EN()
+  - REG_GDM_LEN_CFG() will be modified by another patch (not in the series).
+  - WAN1_MASK/WAN1_EN_MASK default value is 0 and the driver does not confi=
+gure WAN1.
+  - if the device is configured properly get_sport() callback can't fail.
+
+> +
+>  static struct airoha_gdm_dev *
+>  airoha_get_wan_gdm_dev(struct airoha_eth *eth)
+>  {
+> @@ -2005,15 +2055,36 @@ airoha_get_wan_gdm_dev(struct airoha_eth *eth)
+>  static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
+>  {
+>  	struct net_device *netdev =3D netdev_from_priv(dev);
+> +	struct airoha_qdma *cur_qdma, *qdma;
+>  	struct airoha_eth *eth =3D dev->eth;
+>  	int ppe_id;
+
+[...]
+
+>  }
+> @@ -3027,6 +3112,89 @@ static int airoha_tc_htb_delete_leaf_queue(struct =
+net_device *netdev,
+>  	return 0;
+>  }
+> =20
+> +static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
+> +				       struct netlink_ext_ack *extack)
+> +{
+> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> +	struct airoha_gdm_port *port =3D dev->port;
+> +	struct airoha_eth *eth =3D dev->eth;
+> +	int err;
+> +
+> +	if (port->id !=3D AIROHA_GDM3_IDX &&
+> +	    port->id !=3D AIROHA_GDM4_IDX) {
+> +		/* HW QoS is always supported by GDM1 and GDM2 */
+> +		return 0;
+> +	}
+> +
+> +	if (!airoha_is_lan_gdm_dev(dev)) /* Already enabled */
+> +		return 0;
+> +
+
+- Is there a behavioural regression for GDM3/GDM4 devices that were
+  auto-configured as WAN at ndo_init() time?
+  I do not think there is any behavioural regression since in the current
+  codebase it is not possible modify WAN/LAN configuration at runtime.
+  Moreover, using tc APIs to set WAN/LAN configuration as suggested by
+  Andrew, in order to configure a second device as WAN (or to set the
+  current one as LAN), requires to move the current WAN device to LAN
+  destroying the associated Qdisc.
+
+> +	/* Verify the WAN device is not already configured */
+> +	if (airoha_get_wan_gdm_dev(eth)) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "WAN device already configured");
+> +		return -EBUSY;
+> +	}
+
+- The commit message says flow_offload_mutex was added to "serialize against
+  concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER offload path".
+  I think this is a bug and I will address the issue on the next revision.
+
+> +
+> +	dev->flags |=3D AIROHA_PRIV_F_WAN;
+> +	airoha_dev_set_qdma(dev);
+> +	err =3D airoha_enable_gdm2_loopback(dev);
+> +	if (err)
+> +		goto error_disable_wan;
+> +
+> +	err =3D airoha_set_macaddr(dev, netdev->dev_addr);
+> +	if (err)
+> +		goto error_disable_loopback;
+> +
+> +	if (netif_running(netdev)) {
+> +		u32 pse_port;
+> +
+> +		pse_port =3D airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
+> +							 : FE_PSE_PORT_PPE1;
+> +		airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id),
+> +					    pse_port);
+> +	}
+> +
+> +	return 0;
+> +
+> +error_disable_loopback:
+> +	/* Restore previous LAN configuration */
+> +	airoha_disable_gdm2_loopback(dev);
+> +error_disable_wan:
+> +	dev->flags &=3D ~AIROHA_PRIV_F_WAN;
+> +	airoha_dev_set_qdma(dev);
+> +
+> +	return err;
+> +}
+
+- Is the rollback symmetric on the airoha_enable_gdm2_loopback() failure
+  path?  airoha_enable_gdm2_loopback() performs many register writes
+  before its only failure check (eth->soc->ops.get_sport()):
+  - This has been already addressed in
+    https://lore.kernel.org/netdev/20260608-airoha_enable_gdm2_loopback-min=
+or-change-v1-1-1787a0f42b31@kernel.org/
+
+> +
+> +static void airoha_disable_qos_for_gdm34(struct net_device *netdev)
+> +{
+> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> +	struct airoha_gdm_port *port =3D dev->port;
+> +	int err;
+> +
+> +	if (port->id !=3D AIROHA_GDM3_IDX &&
+> +	    port->id !=3D AIROHA_GDM4_IDX) {
+> +		return;
+> +	}
+> +
+> +	if (airoha_is_lan_gdm_dev(dev)) /* Already disabled */
+> +		return;
+> +
+> +	err =3D airoha_disable_gdm2_loopback(dev);
+> +	if (err)
+> +		netdev_warn(netdev,
+> +			    "failed disabling GDM2 loopback: %d\n", err);
+> +
+> +	dev->flags &=3D ~AIROHA_PRIV_F_WAN;
+> +	airoha_dev_set_qdma(dev);
+> +	airoha_set_macaddr(dev, netdev->dev_addr);
+> +	if (netif_running(netdev))
+> +		airoha_set_gdm_port_fwd_cfg(dev->eth,
+> +					    REG_GDM_FWD_CFG(port->id),
+> +					    FE_PSE_PORT_PPE1);
+> +}
+> +
+>  static int airoha_tc_htb_destroy(struct net_device *netdev)
+>  {
+>  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> @@ -3035,6 +3203,8 @@ static int airoha_tc_htb_destroy(struct net_device =
+*netdev)
+>  	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
+>  		airoha_tc_remove_htb_queue(netdev, q);
+> =20
+> +	airoha_disable_qos_for_gdm34(netdev);
+> +
+>  	return 0;
+>  }
+> =20
+> @@ -3059,7 +3229,7 @@ static int airoha_tc_setup_qdisc_htb(struct net_dev=
+ice *dev,
+>  {
+>  	switch (opt->command) {
+>  	case TC_HTB_CREATE:
+> -		break;
+> +		return airoha_enable_qos_for_gdm34(dev, opt->extack);
+
+- Should ETS installed directly on a GDM3/GDM4 LAN-configured device also
+  enable the loopback, or should that case be rejected with an extack
+  message so the behaviour matches the description in the commit message?
+  - ETS can't be used as ROOT Qdisc.
+
+Regards,
+Lorenzo
+
+>  	case TC_HTB_DESTROY:
+>  		return airoha_tc_htb_destroy(dev);
+>  	case TC_HTB_NODE_MODIFY:
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index 8f42973f9cf5..8795af0010b6 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -543,8 +543,8 @@ enum airoha_priv_flags {
+>  };
+> =20
+>  struct airoha_gdm_dev {
+> +	struct airoha_qdma __rcu *qdma;
+>  	struct airoha_gdm_port *port;
+> -	struct airoha_qdma *qdma;
+>  	struct airoha_eth *eth;
+> =20
+>  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+> @@ -676,7 +676,27 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
+>  bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+>  			     struct airoha_gdm_dev *dev);
+> =20
+> -void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
+port);
+> +extern struct mutex flow_offload_mutex;
+> +
+> +static inline struct airoha_qdma *
+> +airoha_qdma_deref(struct airoha_gdm_dev *dev)
+> +{
+> +	return rcu_dereference_protected(dev->qdma,
+> +					 lockdep_rtnl_is_held() ||
+> +					 lockdep_is_held(&flow_offload_mutex));
+> +}
+> +
+> +void __airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
+ fport);
+> +void airoha_ppe_clear_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
+ fport);
+> +
+> +static inline void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev,
+> +					   u8 ppe_id, u8 fport)
+> +{
+> +	mutex_lock(&flow_offload_mutex);
+> +	__airoha_ppe_set_cpu_port(dev, ppe_id, fport);
+> +	mutex_unlock(&flow_offload_mutex);
+> +}
+> +
+>  bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
+>  void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *sk=
+b,
+>  			  u16 hash, bool rx_wlan);
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
+net/airoha/airoha_ppe.c
+> index 91bcc55a6ac6..0ee0dd385645 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -15,7 +15,7 @@
+>  #include "airoha_regs.h"
+>  #include "airoha_eth.h"
+> =20
+> -static DEFINE_MUTEX(flow_offload_mutex);
+> +DEFINE_MUTEX(flow_offload_mutex);
+>  static DEFINE_SPINLOCK(ppe_lock);
+> =20
+>  static const struct rhashtable_params airoha_flow_table_params =3D {
+> @@ -84,10 +84,10 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe=
+ *ppe)
+>  			     AIROHA_FOE_IB1_BIND_TIMESTAMP);
+>  }
+> =20
+> -void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
+port)
+> +void __airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
+ fport)
+>  {
+> -	struct airoha_qdma *qdma =3D dev->qdma;
+> -	struct airoha_eth *eth =3D qdma->eth;
+> +	struct airoha_qdma *qdma =3D airoha_qdma_deref(dev);
+> +	struct airoha_eth *eth =3D dev->eth;
+>  	u8 qdma_id =3D qdma - &eth->qdma[0];
+>  	u32 fe_cpu_port;
+> =20
+> @@ -97,6 +97,14 @@ void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *de=
+v, u8 ppe_id, u8 fport)
+>  		      __field_prep(DFT_CPORT_MASK(fport), fe_cpu_port));
+>  }
+> =20
+> +void airoha_ppe_clear_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8=
+ fport)
+> +{
+> +	mutex_lock(&flow_offload_mutex);
+> +	airoha_fe_clear(dev->eth, REG_PPE_DFT_CPORT(ppe_id, fport),
+> +			DFT_CPORT_MASK(fport));
+> +	mutex_unlock(&flow_offload_mutex);
+> +}
+> +
+>  static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+>  {
+>  	u32 sram_ppe_num_data_entries =3D PPE_SRAM_NUM_ENTRIES, sram_num_entrie=
+s;
+> @@ -195,7 +203,7 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+>  			ppe_id =3D !airoha_is_lan_gdm_dev(dev) &&
+>  				 airoha_ppe_is_enabled(eth, 1);
+>  			fport =3D airoha_get_fe_port(dev);
+> -			airoha_ppe_set_cpu_port(dev, ppe_id, fport);
+> +			__airoha_ppe_set_cpu_port(dev, ppe_id, fport);
+>  		}
+>  	}
+>  }
+> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
+rnet/airoha/airoha_regs.h
+> index 436f3c8779c1..4e17dfbcf2b8 100644
+> --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> @@ -376,6 +376,7 @@
+> =20
+>  #define REG_SRC_PORT_FC_MAP6		0x2298
+>  #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
+> +#define FC_MAP6_DEF_VALUE		0x1b1a1918
+> =20
+>  #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
+> =20
+>=20
+> --=20
+> 2.54.0
+>=20
+
+--3W6r5hbEJpuvgYEO
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCairOiwAKCRA6cBh0uS2t
+rCaFAQCSsssJ/9cDud9EdCPVkevjlyVvfflqVljh48ezEuiwGQEA4t/5n7S2ihzS
+6WsKS7mr2ZCyWrkozd+lrgR1witfRwo=
+=zL3Q
+-----END PGP SIGNATURE-----
+
+--3W6r5hbEJpuvgYEO--
 
