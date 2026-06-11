@@ -4,74 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C23CD98D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 11:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B309CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 11:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aiWNA2XcQ9MIGpb5iKT0AZ6heJ1aLAPFSuWzw5lWfBY=; b=l8J6y+5hFpOlvdT/TqsmTdrk8g
-	ThGVgSsIr2SGA39XPBRU+TFUSbP5/glT+E3nudlnIyLpr3XLm57gVYHWhT/hbDuKNXR9Bcz4eIGjs
-	U4wKkVTv5vOw8suKu1f0bb0j+abhQb54WxY7lWA/V3yNds70NdhEBIj2apaiSU64BC54lT0UVz0S0
-	4OSdIgaAyA6CnIjR/5Vor5VfPHtFijlEYjT4WNoMmrAUfLER2kNDZQcnyB4blz2gCnnOvUQLgyBfb
-	mHbQHuSYv0irnaVnuNcqdXTMIDfP7kYLY/dD5x4uRKYhZn9fR26kMM3c53x4DxhEo994BtsGA3znS
-	ksAzAHjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4CsqKJTBvj+SobIiLXzFxApwnBR8BVsF1yARBI6K1lw=; b=XZnjCon+Db0jI+VZ8Owu/IMA6U
+	+ieRKkdGHW6z1/zghB7TLwopqg33YylOniYKx01VodStIaY++7KVdoORPOZGJex6hxsObekegOfVh
+	yyIpLqu9xL6tZJk2Q+fZ/KFKTd59Lml/2FJl2UidhX9/lkR0+zAk9X0gqMHtl4iTMN6PmqM0asTdo
+	/SIb4yRSijW/7ix5dwwg8B/UB173KqCbemb8O31JyNjclF72u+UvdWY2zkOI4bKrSgcnVQR5P+8Pf
+	416+YFY576Wql4D5iSz/XDW70Km1lva6PF/X1SVqF4I0dlyMG8rmfzZp8L+HSsXzaVSwcj++tJD0u
+	cVAenxhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXdft-00000009JmY-1jIN;
-	Thu, 11 Jun 2026 11:34:17 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1wXdjF-00000009K7s-3wfW;
+	Thu, 11 Jun 2026 11:37:45 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXdfn-00000009JkW-05hx
+	id 1wXdjC-00000009K7C-3mPZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 11:34:16 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260611113405euoutp026f074061358877a17423ef67ee7afcf1~4A6GSzd_k1176311763euoutp02U
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 11:34:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260611113405euoutp026f074061358877a17423ef67ee7afcf1~4A6GSzd_k1176311763euoutp02U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1781177645;
-	bh=aiWNA2XcQ9MIGpb5iKT0AZ6heJ1aLAPFSuWzw5lWfBY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hs1iC8+bqurdiMo/Cnpg9tlui3TVPRRe6dzepPnEcM8ZoHBcadWG/UAvWTFmWQsDT
-	 bQqV48UI6it831kNnUvYDFHPHTozVPlq6J6sTrUYE4hIDtQoUW+i+xSeZVXhxxfXNo
-	 LhNKjrCluhxgVIGWul3JGIvj+VmXre32GFSxsRsM=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923~4A6F-FrlA0882108821eucas1p1u;
-	Thu, 11 Jun 2026 11:34:04 +0000 (GMT)
-Received: from AMDC4843.eu.corp.samsungelectronics.net (unknown
-	[106.120.77.61]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260611113403eusmtip20658597299be23109b0b32fcf53ad27d~4A6E9bI9t0415604156eusmtip2B;
-	Thu, 11 Jun 2026 11:34:03 +0000 (GMT)
-From: Jakub Raczynski <j.raczynski@samsung.com>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, k.domagalski@samsung.com,
-	k.tegowski@samsung.com, Jakub Raczynski <j.raczynski@samsung.com>, Chang-Sub
-	Lee <cs0617.lee@samsung.com>
-Subject: [PATCH net 1/2] net/stmmac: Apply TBS config only to used queues
-Date: Thu, 11 Jun 2026 13:33:57 +0200
-Message-Id: <20260611113358.3379518-2-j.raczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260611113358.3379518-1-j.raczynski@samsung.com>
+	Thu, 11 Jun 2026 11:37:44 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-8ce3876a50cso80032036d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 04:37:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1781177862; x=1781782662; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4CsqKJTBvj+SobIiLXzFxApwnBR8BVsF1yARBI6K1lw=;
+        b=bns4+nym/eMevjCOJwdzW6twgnUFgpwucjkDepzLbe0W4gobyjdGAwmOqYAOhFxtrM
+         KAKUXG/W0vmtwC1+EjIQgR8tKs6vF7pGgBUTG363sOZaXcpdXz6tJJqwdwMO9gqPPKU9
+         2kf9wfxpu+Ppm1zgKuUBAn0+7HiIzYciZ4Kd07dyfUmaN/51lklSM0I08LSjgDUdwUaA
+         b/kL9eJNhx7lHD5neL0PWQUq8+IhfvIDDSgYU36vIxOaVJnWjBBXSTR11IFhMbV3X3OD
+         KGkpOY9tw7phUEArCuP9wP3Vp0fkudWjnwMP/lG/t3Ag4vuQu0Xb79sq8oJpfpMGIsuJ
+         S3OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781177862; x=1781782662;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4CsqKJTBvj+SobIiLXzFxApwnBR8BVsF1yARBI6K1lw=;
+        b=cBtgPRqJcVtO+TfP1EkfQMDtNOaRteND5KgPgJ5nHGoJV4rsBiLLmGyrwSraA+yVZk
+         8yyrDYTtVOeSMet7nuBlzlYYFp6Rv1FZERG2YH+1tbPCAZO02C9SqiOiLYvN5K4XOws+
+         DirMnXh6jpYnPSM4rNnbLousRCmcKnLN94BZZ24kzCRRGYJTWuiDrvkxhYocwq8rTXX1
+         nvLrWw/vFv6IAAOvXEaMMEZe7KCUvz55M3l9brSeOMZd5stGD8Ja9ySC8kirzYpx+hio
+         Bf55tOUEHxVq8vD3/v3rCU13ctAurrWi+CiWknKlvvLvOy6uRCWlhBVZYn05DAIUxgjv
+         eajQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/LUveaDAW1s2nRfPHRAF5/vlvkxDHK47KhWjdexAgvp5YVkACAPLsc8QU4A6dSMGW5QHAZQMxK3hlS5tEScxvg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLHaZ6J8lqjDGvUIvGdsRN+Q9DVk1g5Wm1vB4OQ4SPV7SdcDbk
+	/y0XqaYXyIy/RqUyEFkgeKgS+kNw0Ciq8P3qej4y4I4CcDca9kB6mXt4qftBwVdDHok=
+X-Gm-Gg: Acq92OHzVCvLWg9V4EHvB8l7up7/rUdO8oBEqt//6MfPHVQmnf6dUBNHi2NrdNepeYE
+	xyU6lo6m4ECasr3OwcxcTDyNR5e6JWwsEi3S/gsXLEWOYtiiPWqP3TTIJJ+4xrIHMPbRNDOR3/Y
+	d076Rz7PLEpKx3fk6eUFow0fCzDRFG/BPpNKdBMLl/R3xYYfpKBu6IRp4hTcvBK+dnAEKGycd2P
+	ZIiMsc8zXGPJNseGVF61WyitHgcq7/eUHMpU8QliDF/XeoRxQfAWJ4mZvCr7+8sK0oHF/H7YMfZ
+	i/UVJ1EDRLo/oq840u75EqapDgmSSZ1rwPtxery653mLrubprgdAZjVGSl6nA88eD/ZLUFjRrN6
+	3o0bmrJ6NXVubaY1hPCuJtyMQB6lqc7OqqcWJwCdul60bamB/qd4A+vXxogquSYR3Ogzx82M3CG
+	hzhQHJofBBwzvF1vseOPlac1DzIYk685kxAegjkZT/Nad5f0OJrB5qPkcOSoyWhcytODt5fMi0b
+	RfMpfIXWEDGS+qj
+X-Received: by 2002:a05:6214:410b:b0:8ce:b2e9:a4c1 with SMTP id 6a1803df08f44-8d1d8cfbdc0mr38674016d6.14.1781177861623;
+        Thu, 11 Jun 2026 04:37:41 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8d1e838f586sm15478786d6.20.2026.06.11.04.37.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Jun 2026 04:37:40 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wXdjA-00000005ezW-0ftx;
+	Thu, 11 Jun 2026 08:37:40 -0300
+Date: Thu, 11 Jun 2026 08:37:40 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v6 04/20] dma-pool: track decrypted atomic pools and
+ select them via attrs
+Message-ID: <20260611113740.GB1066031@ziepe.ca>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <20260604083959.1265923-5-aneesh.kumar@kernel.org>
+ <20260609143242.GK2764304@ziepe.ca>
+ <yq5aa4t1myw4.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923
-X-EPHeader: CA
-X-CMS-RootMailID: 20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923
-References: <20260611113358.3379518-1-j.raczynski@samsung.com>
-	<CGME20260611113404eucas1p1ae62c08edaca2d98535c39c59faea923@eucas1p1.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5aa4t1myw4.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_043412_078653_EBB4E3BB 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20260611_043742_950487_1C141D49 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,36 +129,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While opening stmmac driver, there is enabling of TBS (Time-Based Scheduling)
-option in dma config. Currently this is executed for all possible TX queues via
-MTL_MAX_TX_QUEUES macro, but actual number of queues used might differ.
-While setting this is generally harmless, since memory for MTL_MAX_TX_QUEUES
-is allocated, it is incorrect, because it prepares config for unused queues.
+On Thu, Jun 11, 2026 at 10:55:47AM +0530, Aneesh Kumar K.V wrote:
+> Jason Gunthorpe <jgg@ziepe.ca> writes:
+> 
+> > The sashiko note does look legit though:
+> >
+> > 	if (IS_ENABLED(CONFIG_DMA_DIRECT_REMAP) &&
+> > 	    !gfpflags_allow_blocking(gfp) && !coherent) {
+> > 		page = dma_alloc_from_pool(dev, PAGE_ALIGN(size), &cpu_addr,
+> > 					   gfp, attrs, NULL);
+> > 		if (!page)
+> > 			return NULL;
+> >
+> > I don't see anything doing the force_dma_unencrypted test along this
+> > callchain..
+> >
+> > I guess it should be done one step up in dma_alloc_attrs() instead of
+> > in dma_direct_alloc()?
+> >
+> 
+> I think we should do something similar to what dma_map_phys() does here,
+> considering that we only support DMA direct with DMA_ATTR_CC_SHARED/DMA_ATTR_ALLOC_CC_SHARED.
 
-Change this to apply tbs config only to tx_queues_to_use.
+Yeah, I think that's the right idea for now..
 
-Fixes: 4896bb7c0b31a ("net: stmmac: do not clear TBS enable bit on link up/down")
-Co-developed-by: Chang-Sub Lee <cs0617.lee@samsung.com>
-Signed-off-by: Chang-Sub Lee <cs0617.lee@samsung.com>
-Signed-off-by: Jakub Raczynski <j.raczynski@samsung.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> +	if (force_dma_unencrypted(dev))
+> +		attrs |= DMA_ATTR_ALLOC_CC_SHARED;
+> +
+> +	is_cc_shared = attrs & DMA_ATTR_CC_SHARED;
+> +
+>  	if (dma_alloc_direct(dev, ops) || arch_dma_alloc_direct(dev)) {
+>  		cpu_addr = dma_direct_alloc(dev, size, dma_handle, flag, attrs);
+> +	} else if (is_cc_shared) {
+> +		trace_dma_alloc(dev, NULL, 0, size, DMA_BIDIRECTIONAL, flag,
+> +				attrs);
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 3591755ea30b..5917bf47c7de 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4140,7 +4140,7 @@ static int __stmmac_open(struct net_device *dev,
- 	u8 chan;
- 	int ret;
- 
--	for (int i = 0; i < MTL_MAX_TX_QUEUES; i++)
-+	for (int i = 0; i < priv->plat->tx_queues_to_use; i++)
- 		if (priv->dma_conf.tx_queue[i].tbs & STMMAC_TBS_EN)
- 			dma_conf->tx_queue[i].tbs = priv->dma_conf.tx_queue[i].tbs;
- 	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
--- 
-2.34.1
+But it would be clearer to put the test in the iommu_ functions I
+think, since they are the ones that have the issue. We will need to
+fix it someday..
 
+I think we can ignore the op-> functions, arches cannot support CC and
+still use dma_map_ops..
+
+Jason
 
