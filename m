@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB884CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72BACD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWVuJawX0Ef6oR8wZ70yyOE0QWDgmpOY9opwtIfW/K0=; b=TEAZRl3mhXhk2qwU+yRd+jjLA7
-	KmzR4cPa3/eViLov7Zvd6ffANRZjNfq6jDRNvVObfuq0vdZT2qDhBZR/hMpfMcXLkRYrvjG8HDzLy
-	5UAgaTnmbFt7aqoyrXSim5leDvcShs5ZdN2bx0fVTcR+rZSk7U9BUXt4TIXfquataNl2uhA1voBJF
-	OGDDcycdjdFHKCbkcDPJpUyTHZNn862e+oKFpgApWeCQnUdNOAKrG+04hWS2rU+BBAz7toaAxDzPX
-	C/0NxiA1auI6bwj0glYBd66bVuCPGF1nUlLdtP1Smtt1MJbXvWrdaGlbpLEjHxQusiOagFUH0hIG3
-	G3bqttQw==;
+	bh=kw+jHKrbrWV8wVs0PlrJjGQfGV4UcoaITKOPStpobBc=; b=3ZO9G4GQ5EO4i9yNRocAAnEo3u
+	qdYVIxaw3hgznRAbWi7zUBLcllihkjyyd7++RqodTeeVdjOo37aoMwTDZXqTcxO/SJDVEEPN0G6m5
+	4doRBqpYrcNgbL9xun6/I5egXuATtKjAKEjGW15dNNQJriMTWTQQjC3TVxfgiduFoYNO8WQ3NCHu/
+	ao9J/GUYzGr6Vi1v7UiZTXRKUc8JC5kGuwBFvbDgtxVH46aNJFS58qvi7t7hmmxs1LLSmLfZZg8K+
+	MoGd3on6S/CQ5orq7r5lZTZGZbtk8IA89EwoIO5whNSfGRaQqM4bJJuMc48T2jUUN5HPNfYt2q7z9
+	K2dC0Obg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf3K-00000009T1h-1kvq;
-	Thu, 11 Jun 2026 13:02:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wXf3O-00000009T68-2C9w;
+	Thu, 11 Jun 2026 13:02:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf3J-00000009T07-2yCj
+	id 1wXf3N-00000009T4k-1JcZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:02:33 +0000
+	Thu, 11 Jun 2026 13:02:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C8E960103;
+	by sea.source.kernel.org (Postfix) with ESMTP id E5485407A1;
+	Thu, 11 Jun 2026 13:02:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54F951F00893;
 	Thu, 11 Jun 2026 13:02:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6086E1F00899;
-	Thu, 11 Jun 2026 13:02:29 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -50,9 +50,9 @@ Cc: arm-scmi@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC 2/9] firmware: arm_scmi: Advertize always-on power domains
-Date: Thu, 11 Jun 2026 15:02:06 +0200
-Message-ID: <1cbd6383dfef1eb397b52a4ff557f66b2064798d.1781171705.git.geert+renesas@glider.be>
+Subject: [PATCH/RFC 3/9] pmdomain: arm: scmi: Add always-on support
+Date: Thu, 11 Jun 2026 15:02:07 +0200
+Message-ID: <7a2539873a80840eb2ebce4479cbc83a1fbf5579.1781171705.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1781171705.git.geert+renesas@glider.be>
 References: <cover.1781171705.git.geert+renesas@glider.be>
@@ -72,53 +72,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A power domains indicates in its attribute flags if it supports setting
-its power state synchronously and/or asynchronously.  If none of them is
-supported, it must be an always-on power domain.
-
-Make this information available to SCMI protocol drivers, so they can
-make use of it.
+Extend the PM domain flags with the flags advertized by the SCMI core.
+For now this is limited to GENPD_FLAG_ALWAYS_ON.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/firmware/arm_scmi/power.c | 4 ++++
- include/linux/scmi_protocol.h     | 1 +
- 2 files changed, 5 insertions(+)
+Questions:
+  - Should the power_ops->state_get() call be skipped in case of an
+    always-on domain, and state just be force to
+    SCMI_POWER_STATE_GENERIC_ON instead?
+  - Should the power_ops->state_set() call be skipped in case of an
+    always-on domain? Or might this cause issues with some firmware
+    implementations?
+Skipping these calls may avoid adding quirk code later...
+---
+ drivers/pmdomain/arm/scmi_pm_domain.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/power.c b/drivers/firmware/arm_scmi/power.c
-index a00f7c298efb74f9..11ca8c9965110b5a 100644
---- a/drivers/firmware/arm_scmi/power.c
-+++ b/drivers/firmware/arm_scmi/power.c
-@@ -8,6 +8,7 @@
- #define pr_fmt(fmt) "SCMI Notifications POWER - " fmt
+diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
+index 965592e828741b11..8e67f971c707e121 100644
+--- a/drivers/pmdomain/arm/scmi_pm_domain.c
++++ b/drivers/pmdomain/arm/scmi_pm_domain.c
+@@ -104,7 +104,8 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+ 		scmi_pd->genpd.name = scmi_pd->name;
+ 		scmi_pd->genpd.power_off = scmi_pd_power_off;
+ 		scmi_pd->genpd.power_on = scmi_pd_power_on;
+-		scmi_pd->genpd.flags = GENPD_FLAG_ACTIVE_WAKEUP;
++		scmi_pd->genpd.flags = GENPD_FLAG_ACTIVE_WAKEUP |
++				       info->genpd_flags;
  
- #include <linux/module.h>
-+#include <linux/pm_domain.h>
- #include <linux/scmi_protocol.h>
- 
- #include "protocols.h"
-@@ -147,6 +148,9 @@ scmi_power_domain_attributes_get(const struct scmi_protocol_handle *ph,
- 					    SCMI_MAX_STR_SIZE);
- 	}
- 
-+	if (!ret && !dom_info->state_set_async && !dom_info->state_set_sync)
-+		dom_info->info.genpd_flags |= GENPD_FLAG_ALWAYS_ON;
-+
- 	return ret;
- }
- 
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 1c17515ba45d1fd4..1d55374bc8cdcc72 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -193,6 +193,7 @@ struct scmi_perf_proto_ops {
- 
- struct scmi_power_domain_info {
- 	char name[SCMI_MAX_STR_SIZE];
-+	unsigned int genpd_flags;
- };
- 
- /**
+ 		pm_genpd_init(&scmi_pd->genpd, NULL,
+ 			      state == SCMI_POWER_STATE_GENERIC_OFF);
 -- 
 2.43.0
 
