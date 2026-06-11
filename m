@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5433CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48927CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f/j69pXYfj34ZmqA6bJCKc0nePFg+h49mJ8/N7zh1iA=; b=r4FzlaTyeR9P7L+KETf+xNXbw2
-	59LCAtLTBxZZQzsXxLDhwU8n1x4tz4qE8ew7+j8oJ91C7OZoYJlGWr4BROhTEIdUSYYdIjbppoG0J
-	wevd3g2RpHNct6l5z9SPoFo30WMPy9UBC5gUZ5GX/cmJg3ux+HSQrBRMCtJgXTyqE1skOnyqFh7w/
-	B+NR5dUgccQRgX8mgrlLP5JtcYpAcQXq0n3O87gfebEqiZTOJSOr/AgnbhxcQF4H7GsbdtyZMU5y1
-	qGTwS1SjgSmgi1haMZ3V7R3dmHr4mhuHEXCNPkXX3hotjdq67Vt0Gzw7/4WTxZTINAzbv441D2ELU
-	l07qo0Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xKVTpr4aNyZx4lSh79VinADzKQEIbf4Ts/2xtaUoVwc=; b=v9x6WVwkzMbUenhGT6FjORbVhR
+	SFmFf8hWtO9/rlr9ugDXazCCd/ZGUQ8bsUVJ7WGTGu2rQIy3ZEJnJ06PWAW3lAmrVW8QpqidAYb9b
+	4wTqBTYlrvfeuia1kIU/F4DqI9TBYAE3mlfKJyttLKrdRASCImevXkdFJWMnRKX2+FZWPmbyybNTl
+	UjLkrNBKX5EkqsTdUoM4si0ZOu4qatnb8A0ZmcnIKPGq4u4mvzl9/ihblZ+NvYVuAu2Egbztuip1X
+	m+6Rr0+bOnF0zCK41pXN3kO1fl/NqmmAyRFv+avoRjMHZPhqYUaV5+klFhNfLVKCSaq8OCQZy6iy7
+	3NsC2Iiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXe8y-00000009Mao-0Cpl;
-	Thu, 11 Jun 2026 12:04:20 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1wXeLf-00000009NTW-2Vjg;
+	Thu, 11 Jun 2026 12:17:27 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXe8u-00000009MZf-3sHD
+	id 1wXeLc-00000009NSj-1lLc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 12:04:18 +0000
-Date: Thu, 11 Jun 2026 20:03:53 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1781179452;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=f/j69pXYfj34ZmqA6bJCKc0nePFg+h49mJ8/N7zh1iA=;
-	b=C7VD/ntPHBl4YIG9Watr5T2GZLCvEmAzup5tfdjNbozip65PyigVCCrPseQbQKMgC2+M7G
-	fYJkNSWFsX/dRktAsP7CNtY62sQ3fk1oEHQwJa+H4KpymFRmYbGmZ4jTCJo6jBN0nw2upe
-	Z54mPkCYOx99N+izHFLdL+L2Fx6cijE=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Baoquan He <baoquan.he@linux.dev>
-To: Wandun <chenwandun1@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
-	Rob Herring <robh@kernel.org>, saravanak@kernel.org, bhe@redhat.com,
-	rppt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, chenhuacai@kernel.org, kernel@xen0n.name,
-	catalin.marinas@arm.com, will@kernel.org, alex@ghiti.fr,
-	akpm@linux-foundation.org, pasha.tatashin@soleen.com,
-	pratyush@kernel.org, ruirui.yang@linux.dev,
-	m.szyprowski@samsung.com, robin.murphy@arm.com
-Subject: Re: [PATCH v3 00/11] kdump: reduce vmcore size and capture time
-Message-ID: <aiqkKe1gXPZ5LZ7t@MiWiFi-R3L-srv>
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <7ed207fa-4c86-426a-8570-495902ce04c3@gmail.com>
- <a3993db0-6975-455d-9674-4fd7cfcf80fc@gmail.com>
+	Thu, 11 Jun 2026 12:17:26 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-36b9ec98144so6600938a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 05:17:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781180243; x=1781785043; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xKVTpr4aNyZx4lSh79VinADzKQEIbf4Ts/2xtaUoVwc=;
+        b=Zq34GC3lPuXpWZlSum/dtsS65wH+rx6G7sodqUq8AMQ6LhyTgot8TvZP+IHth5ZdQG
+         ZtyMdWF5yPHmpXQ4jlDyTjE5ivnLT4Otn4PV3CKd7l1LM5mlrX8xUAbpvULLMZF4KGVD
+         fjRFzVNc7vA3NO261tzCPw4EZUApTYEi0k5d03yxw8zbQ7rb/+0Gc2lEvP1X6HndsCwc
+         0ZHpKJpBp4X2FgzpSnBqF9WyIP853uj/J4ASaCWNniX9hereSB7YBes47rwkzU8YXsLh
+         47s/BfJqZCAfCxmjeT2NCVecA2nSmxJalSus1Slppv+aEYDr/AZ8zwRnvDc5cJ/zDxEt
+         Iwnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781180243; x=1781785043;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xKVTpr4aNyZx4lSh79VinADzKQEIbf4Ts/2xtaUoVwc=;
+        b=cbIlN2ypOExxVlL5to9jKdgL6FAzrdCK61Lqse2g3ghGdaQDA5h4doiS03fWLFepHd
+         45xd+HKI3463jzGyEv6EeFWmBji7CsSaU94CVaEMdpLwEqVomqvy7E8VJN8tnPeYOC2d
+         Rxr9aApGojCS1Nq+7WDPOroetodMygt6mNKeLFKrvWTQnihKPugTXXHd4fRNTMcWGPo7
+         G8dsacaJPa+K1OHxm7M9U/D8vbQAhjqS5gHuvJ85BfWdYbV9DpRcicUKlrfdoeMXLYea
+         w51H5+9usHHrTfKibsITH/XVHJWzBAiK2wJ464YX/SetUKYAB0JJ4AxePFkfTSeGmiNx
+         rrPg==
+X-Forwarded-Encrypted: i=1; AFNElJ8AdVDjDSDIlvmGyndLifzNeoiNHUt3qylKI2SQ+/dmNZbwQ6o/2MHCfUHgk2fgpuQInp4t699ckwf+XJg2TBeM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzIhSUHD4AZ4cLaE/A9PONFOVnZtJ81L3WgP3heyUlrPpwyJc3
+	UMAg+y91X3D8zxl4o+TWI9YHkCV7jv37BGDbyDplg3tH7jEFOZm+Gyul
+X-Gm-Gg: Acq92OHTkbY6Bobr8FrWrS1WO91RVNkp20asiKU8ZHo3mW1SgO6U2fAoG5s6PqQM1n9
+	tM3wMXR7znxsN+F4U9upGreRRY9WOkZEREW4ukJC+AeIfG0CcFz+nemedqFNdtTRs1DKwwNdQ5p
+	RbsTiurdQm9WrB0w1nqQfawzFsATYTW/aqUIl2b+aerlwA0PlKutJ5DaEquUpo9O3EIMsLN+qxF
+	S3IZ/UyD7bsK3kjNLUqoUWZHX3zLgJ/HnTZete1pkTrdHbYbr6InO6krgI1L1bJgxUUUCEoVzF0
+	zMhnLx/YzdaCKR4O37F/q3ETlmMhkufhqUMnLQwmDngB8cE6ojWcnZUvefR6LcqJC5SNsnab29k
+	ZzjqWMk0Rm231/YrfZP67a4CSlprCtOuuDoBzvNvLn9oSwg7Mw+9ZFPWIVCGNI2s/YpGNp2zKuz
+	qdpjpLQwLBx+NO/sH3s1PKyURmy3kRBoPe7IiUvv0DanL6DkcOrWRf
+X-Received: by 2002:a17:90b:5607:b0:35e:d015:d675 with SMTP id 98e67ed59e1d1-3779d7a1208mr3111460a91.7.1781180242867;
+        Thu, 11 Jun 2026 05:17:22 -0700 (PDT)
+Received: from [192.168.89.2] ([27.232.220.71])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3775558f317sm2486069a91.9.2026.06.11.05.17.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Jun 2026 05:17:22 -0700 (PDT)
+Message-ID: <bfc283bc-a5db-4e96-a447-e8e79cc97d34@gmail.com>
+Date: Thu, 11 Jun 2026 21:17:18 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <a3993db0-6975-455d-9674-4fd7cfcf80fc@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] crypto: inside-secure: add EIP93 ESP packet backend
+To: Simon Horman <horms@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+ Antoine Tenart <atenart@kernel.org>, Herbert Xu
+ <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>,
+ Steffen Klassert <steffen.klassert@secunet.com>,
+ linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
+References: <20260523121522.3023992-1-hurryman2212@gmail.com>
+ <20260523121522.3023992-3-hurryman2212@gmail.com>
+ <20260527100824.GJ2256768@horms.kernel.org>
+Content-Language: en-US
+From: Jihong Min <hurryman2212@gmail.com>
+In-Reply-To: <20260527100824.GJ2256768@horms.kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_050417_115819_09BBCFE5 
-X-CRM114-Status: GOOD (  32.75  )
+X-CRM114-CacheID: sfid-20260611_051724_471066_1CDED86F 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,126 +111,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/26 at 11:09am, Wandun wrote:
-> 
-> 
-> On 6/11/26 10:09, Wandun wrote:
-> > 
-> > 
-> > On 5/27/26 11:29, Wandun Chen wrote:
-> >> From: Wandun Chen <chenwandun@lixiang.com>
-> >>
-> >> On SoCs that carve out large firmware-owned reserved memory (GPU
-> >> firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
-> >> those carveouts as part of system RAM even though their contents are
-> >> firmware state that is not useful for kernel crash analysis.
-> >>
-> >> This series introduces an opt-in 'dumpable' flag [1] on struct
-> >> reserved_mem and uses it to filter the elfcorehdr PT_LOAD ranges on
-> >> DT-based architectures (arm64, riscv, loongarch). By default reserved
-> >> regions are treated as non-dumpable; CMA regions are explicitly opted
-> >> in because their pages are returned to the buddy allocator and may
-> >> carry key crash-analysis data.
-> >>
-> >> The series is organized as follows:
-> >> Patches 1-3: Pre-existing fixes and a small prep change.
-> >> Patches 4-5: Restructure to allow appending /memreserve/ entries.
-> >> Patches 6-7: Add a dumpable flag and append /memreserve/ entries.
-> >> Patch 8: Add generic kdump helpers.
-> >> Patches 9-11: Wire the helpers into arm64, riscv and loongarch kdump
-> >>                elfcorehdr preparation.
-> > Hi,
-> > 
-> > Gentle ping on this series.
-> > 
-> > Status summary:
-> > -patch 03: respun separately per Rob's suggestion, picked up for 7.2
-> > -patch 06: Acked-by: Marek Szyprowski -patch 09: Acked-by: Will Deacon
-> > The remaining patches (01, 02, 04, 05, 07, 08, 10, 11) are still
-> > awaiting review. your feedback would be greately appreciated. I know we
-> > are at the end of 7.1 -rc cycle, I don't want to rush this series, just
-> > collecting more feedback, and will send next version based on 7.2-rc1.
-> > If spliting the series into smaller logical group would make review
-> > easier, please let me know. Best regards, Wandun
-> 
-> Apologies for the formatting issue in my previous email.
-> Here is the properly formatted version.
-> 
-> Gentle ping on this series.
 
-Thanks for the effort, the overral looks good to me at 1st glance. I will
-check if there's concern on generic part. And meanwhile, I am wondering
-if there's any chance x86 or other ARCH-es w/o OF/FDT can also choose to
-not dump some areas, e.g GPU stolen memory. Surely, that's another story.
 
+On 5/27/26 19:08, Simon Horman wrote:
+> On Sat, May 23, 2026 at 09:15:21PM +0900, Jihong Min wrote:
+>> Expose an EIP93 packet-mode IPsec backend for netdev drivers that need
+>> ESP encapsulation and decapsulation offload without advertising EIP93
+>> itself as a netdev.
+>>
+>> Add provider selection, capability reporting, SA lifecycle management,
+>> IPsec request completion, and provider fault notification around the
+>> existing EIP93 descriptor path.
+>>
+>> Assisted-by: Codex:gpt-5.5
+>> Signed-off-by: Jihong Min <hurryman2212@gmail.com>
 > 
-> Status summary:
-> - patch 03: respun separately per Rob's suggestion, picked up for 7.2
-> - patch 06: Acked-by: Marek Szyprowski
-> - patch 09: Acked-by: Will Deacon
+> ...
 > 
-> The remaining patches (01, 02, 04, 05, 07, 08, 10, 11) are still
-> awaiting review. Your feedback would be greatly appreciated.
+>> diff --git a/drivers/crypto/inside-secure/eip93/eip93-ipsec.c b/drivers/crypto/inside-secure/eip93/eip93-ipsec.c
 > 
-> I know we are at the end of 7.1-rc cycle, I don't want to rush this
-> series, just collecting more feedback, and will send next version based
-> on 7.2-rc1.
+> ...
 > 
-> If splitting the series into smaller logical groups would make review
-> easier, please let me know.
+>> +static void eip93_ipsec_abort_requests(struct eip93_ipsec *ipsec, int err)
+>> +{
+>> +	struct eip93_ipsec_sa *sa;
+>> +
+>> +	while (true) {
+>> +		bool found = false;
+>> +
+>> +		spin_lock_bh(&ipsec->lock);
+>> +		list_for_each_entry(sa, &ipsec->sa_list, node) {
+>> +			spin_lock(&sa->lock);
+>> +			if (sa->aborting) {
+>> +				spin_unlock(&sa->lock);
+>> +				continue;
+>> +			}
+>> +
+>> +			sa->aborting = true;
+>> +			found = refcount_inc_not_zero(&sa->refcnt);
+>> +			spin_unlock(&sa->lock);
+>> +			if (found)
+>> +				break;
+>> +		}
+>> +		spin_unlock_bh(&ipsec->lock);
+>> +		if (!found)
+>> +			return;
+>> +
+>> +		eip93_ipsec_abort_sa(sa, err);
+>> +		eip93_ipsec_sa_put(sa);
 > 
-> Best regards,
-> Wandun
+> sa is the iterator for the list_for_each_entry loop.
+> However, here it is used outside of that context.
 > 
+> 	"If list_for_each_entry, etc complete a traversal of the list, the
+> 	iterator variable ends up pointing to an address at an offset from
+> 	the list head, and not a meaningful structure.  Thus this value
+> 	should not be used after the end of the iterator.
 > 
-> >>
-> >> v2 --> v3:
-> >> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.[2]
-> >> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
-> >> 3. Add some prepare patches.
-> >>
-> >> v1 --> v2:
-> >> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
-> >>     feedback [1], v2 drop that property and exclude reserve memory
-> >>     by default.
-> >> 2. Split some prepared patches from the original patches.
-> >> 3. Address coding-style comments on patch 5 from Rob.
-> >>
-> >> [1] https://lore.kernel.org/lkml/20260506144542.GA2072596-
-> >> robh@kernel.org/
-> >> [2] https://sashiko.dev/#/patchset/20260520091844.592753-1-
-> >> chenwandun%40lixiang.com?part=4
-> >>
-> >> Wandun Chen (11):
-> >>    of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
-> >>    kexec/crash: provide crash_exclude_mem_range() stub when
-> >>      CONFIG_CRASH_DUMP=n
-> >>    of: reserved_mem: avoid post-init UAF when alloc_reserved_mem_array()
-> >>      fails
-> >>    of: reserved_mem: zero total_reserved_mem_cnt if no valid
-> >>      /reserved-memory entry
-> >>    of: reserved_mem: split alloc_reserved_mem_array() from
-> >>      fdt_scan_reserved_mem_late()
-> >>    of: reserved_mem: add dumpable flag to opt-in vmcore
-> >>    of: reserved_mem: save /memreserve/ entries into the reserved_mem
-> >>      array
-> >>    of: reserved_mem: add kdump helpers to exclude non-dumpable regions
-> >>    arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
-> >>    riscv: kdump: exclude non-dumpable reserved memory regions from vmcore
-> >>    loongarch: kdump: exclude non-dumpable reserved memory regions from
-> >>      vmcore
-> >>
-> >>   arch/arm64/kernel/machine_kexec_file.c     |   6 ++
-> >>   arch/loongarch/kernel/machine_kexec_file.c |   6 ++
-> >>   arch/riscv/kernel/machine_kexec_file.c     |   4 +
-> >>   drivers/of/fdt.c                           |  11 +-
-> >>   drivers/of/of_private.h                    |   3 +
-> >>   drivers/of/of_reserved_mem.c               | 117 +++++++++++++++++++--
-> >>   include/linux/crash_core.h                 |   6 ++
-> >>   include/linux/of_reserved_mem.h            |  15 +++
-> >>   kernel/dma/contiguous.c                    |   1 +
-> >>   9 files changed, 157 insertions(+), 12 deletions(-)
-> >>
-> > 
+> 	https://www.spinics.net/lists/linux-kernel-janitors/msg11994.html
 > 
+> Flagged by Coccinelle.
+> 
+
+Hi Simon,
+
+Thanks for the feedback, and sorry for noticing this mail so late.
+
+Your point is correct. The `list_for_each_entry()` iterator should not
+be used outside the loop like that. If I continued with this series, I
+would fix it by keeping a separate selected SA pointer before dropping
+the lock.
+
+At this point, though, I think the right thing is to withdraw this
+EIP93/Airoha series.
+
+The reason is that many Airoha SoCs also have a higher-performance IP
+block called SOE (Secure Offload Engine). I recently wrote and tested a
+driver for that block, and I am currently carrying it here: [kernel: add
+bonding LAG XFRM offload infrastructure and Airoha
+support](https://github.com/hurryman2212/OpenW1700k-test/commit/fbfe8f919f836bb62b3849f803865a4d9b8dc76f).
+With the EIP93 path I could get around 1 Gbps, while the SOE path can
+reach about 5 Gbps in my current setup. Because of that, integrating
+this EIP93 ESP packet path directly into `airoha_eth` is no longer the
+most useful direction for Airoha Ethernet.
+
+That said, SOE exists only on some Airoha SoCs. EIP93 can still be
+useful on other platforms as a look-aside ESP packet offloader, but I
+think that needs a cleaner infrastructure than this series had. The
+look-aside offloader should be able to live as a separate module, not be
+tied directly to one specific netdev driver, while still allowing
+compatible netdevs to attach it into the XFRM path. I think that needs a
+more general infrastructure extension, so I would rather revisit the
+EIP93 work later on top of that kind of model.
+
+
+Sincerely,
+Jihong Min
+
+>> +	}
+>> +}
+> 
+> ...
+
 
