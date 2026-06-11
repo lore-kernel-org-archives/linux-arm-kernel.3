@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B67CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 00:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F6CCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 01:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+K1gXhNARScleVAWtD5eQGG7lD45mQaIeuprMz+B128=; b=aYIbkkrSSjZrtBhP22WxJozn8T
-	+1AZv1xP+D3bOtsqxryxnaS7kCcw4wU+FVq89LO+x/KCYbPe9mvbMATksxLLRSGvJE2zvNj8+sgxY
-	ltby81j5D6UBvWwrzhkUvHXlufmc565rWh92VZ0uLk5A6qkmjGLOjH6vjQOG8rvoTLYcCY6jxAt4k
-	n5h0idGtYNIPOVStJJssNk58uYAY8CawS0r9qLYu83bMtXnzRadar7Z0XZrmdpodzmPU9gUGbrtvf
-	59MOo3SXDqi3F4CaJmz0hWabRmxlTVHkexDWLb1WjJT+xD83imDd4he3tDQVGypbTIbAq11NTMwfm
-	J/a8Ae6g==;
+	bh=1aX965CQukLCI1Qo1GktUQYfgY2SwoR7uedgK0lphqw=; b=DwN9NtCGUqNJwepg4Bz+oJM1R8
+	jy6pLz9YoewlXUoqA4Ylnt6Kqj+k8AR5ZLB35gqtNGd65KN8n9INP6iKUdDlX6E8ancE1bLsdv/CD
+	VkiKHOItg7W/q4/6Z85jmuhJM79mCSXdm1PpMRdRCT6uNpAhfaNun0JeDn6XNUyczPG4A/wse5dg/
+	C00wTHEoVUgmXDwM2yAwqJMxDSGYkWWsshmCxXqNNJqeYIaeI3lUiW+vfY+iuK1uIQjiawJAwc5tj
+	CwZIUrs8xsyTdzvUftjDqzmWVBi/5IghYrvKnJPYKSMKekyU+rKmkspS3Is2uxtZAxc3cjDjyZshj
+	Eaq+sCdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXTZi-00000008VN0-3UWL;
-	Thu, 11 Jun 2026 00:47:14 +0000
-Received: from mail-dl1-x1244.google.com ([2607:f8b0:4864:20::1244])
+	id 1wXTmV-00000008VtS-3gEP;
+	Thu, 11 Jun 2026 01:00:27 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXTZg-00000008VMZ-2Z7s
+	id 1wXTmR-00000008Vt2-44AZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 00:47:13 +0000
-Received: by mail-dl1-x1244.google.com with SMTP id a92af1059eb24-13817614cd3so3361895c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Jun 2026 17:47:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781138832; x=1781743632; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+K1gXhNARScleVAWtD5eQGG7lD45mQaIeuprMz+B128=;
-        b=HvlJoAdWX+nZzWGXFr69jM0hSHzVIpILself8z2CLsMQS5x0BNY13BfvKoVmzD+HjE
-         NOPNm6arhHw6IEFDzpEHECrWezC+l3P07KTD7CW9V9TOI7YwXR3F5XstS5j83VZvxL46
-         7ChA9nzQt2AxuDcP54NTfxwpwGHcuHW1p/8hDriildzWYfIbw6OHFshMm0u+HSlxm24H
-         uTzE6roJU5Jx4gKRf1zx4M2YXPc2TKBMjpCQioSwejhwFlX9TrnvRd8BMTq1XoaStU1z
-         8VHQp1JD/Czin30BkBR0Lm5H9tIkDeTkV60ChVqxVJFwhCnPF+rGqflU/Of5dG1hZXzP
-         kLfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781138832; x=1781743632;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+K1gXhNARScleVAWtD5eQGG7lD45mQaIeuprMz+B128=;
-        b=YttMyqFPiXA1oN0aI3rS7eB573Qf29240Oelh0e6s7i4eCLdMIVlRu9iDiVVM+7bRg
-         NYzbU58qqvdYFx6p7Gc7BX3EXMQoioqcEYrWhEuxQCl78TKhyA9216fnDnTWJrhWSMFv
-         f/p3rOg4s0vcbq5FOiJf937prFQRa8O1ZrGkmLhm/x6b0z4uLsCwJkrvu+k7FylEHKKK
-         e0BTKmksf1BcOJxAT+DrpbHU9mLpZ7w0JrnKWolxFXSrAJD1bz0+NIbxx43zAR0pdp1A
-         cgvknioqHBbpz0ltjNnOP9E9BdZziA058AXuo6bO8M+KHNc6sv8EHNd3HAJbWZ5Hip9P
-         VlIg==
-X-Gm-Message-State: AOJu0Yy++WPg87/AJWpGIb27/uWyfuB167kgw6bD8Ww1rWBdhCOKHzL3
-	5fhf7SvGYoJqF2QQ2umIwlfMxjWWlxLnbssHyUl9+lr3j96U1LjIEYnX/xYzBhfx
-X-Gm-Gg: Acq92OGadwYYWvv24T4uEeFn2VP6fNCqzYo7scUFOmZQ4xXHiTUq1u0bxqo886rOgUA
-	k+v3XXNSRK9Mbyau6Amyhn9gl2GtuFLA8bbeKSP/wPBDUtvs7n/8T6CM5obO1j6SnT84r/hcaYy
-	hedX8JHEwsly8y/heqwwvkvYOMcQG3FZSqsu/N8asKvvOTlgUTWzLTh6uTaATaCLNqRKEeollTE
-	BNCujWoGliDoAO1fOXFeSTq6kJW9V86dDhmwwAikPP04r7ZHvVT8tJ/PkC8T/7q4L41JfcPZguy
-	ekDjLBcmCL7yW/XJqS9WOiT+iArfkkEWMqwrVnwXjK9sLd9l9/csGiJQXQg95Bg6BuDh1B0jpPK
-	gDzCjmCoAdOS/SKF4rwuZzk2XcNUfN5YoLtpH1slETiwr1Rf6cRdfFHAC9qJ2vfzGfM7fVOr0P8
-	nZSgxOUWYyfpyFSTg4BVpAZr6HPKZVBrqlGrfmmoPlF3xQ+lSPVqQY9yNjtfLsu7XGqrInXxLBJ
-	5W4/kYUCh2T25Wj3rtWuIJFXuJ+q/6SZ/5lxC7C8Lrzk1JAmVrpIqLAWzeC5Yvw5Xl7s8/Cc2SA
-	7i2HwWCpYrEN4avq3st+Zr2wNNL8
-X-Received: by 2002:a05:7022:ff49:b0:138:104:439b with SMTP id a92af1059eb24-138422e437emr325019c88.19.1781138831410;
-        Wed, 10 Jun 2026 17:47:11 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384303a312sm207549c88.12.2026.06.10.17.47.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 17:47:10 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Nathan Chancellor <nathan@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>
-Subject: [PATCH] ARM: remove references to removed CONFIG_CPU_ARM92x_CPU_IDLE options
-Date: Wed, 10 Jun 2026 17:46:52 -0700
-Message-ID: <20260611004700.395759-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 11 Jun 2026 01:00:25 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gbPSz00VRz9vNd;
+	Thu, 11 Jun 2026 03:00:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781139619;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1aX965CQukLCI1Qo1GktUQYfgY2SwoR7uedgK0lphqw=;
+	b=PjjQcqlNBL/NM4aa4Qnqov9PNKb2hAYKOq4vrwCrkzrdIOag4K9EbMKxNGlsZBFMfbx7z6
+	2mHxFK79hhBp0Uo1N7VTsUhPt+Pb4qiX2PkMg6MSD/cZB09ATS/KBv/A1Lex47hoBU2L+R
+	Du8m5/43WdPJgR55HWn/1/ogCOfaCkwD13gWBZ5vdVCkkuqSwA06I2Z2/9DvtCL1dPaBp1
+	LfqKCXoU/0CoRWYWBBBgVC3tjO1sKrrmVZDPl2yz2t4rClViVFFoL2Uc8dyYPJ/JKWQrhm
+	FZ3AtiGqoCtn4cU3XxHSaA29geHSqO+P7qIYgm96C5GvvFqFVMMYkaHu/uvD7Q==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=tyGggic0;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781139617;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1aX965CQukLCI1Qo1GktUQYfgY2SwoR7uedgK0lphqw=;
+	b=tyGggic0YnscO44Vj+ppbuM0zhnC3fz5NVGdsymk0TSpHVL710q93YGYBYTY3/EChkKwLi
+	0QlGu+g5tatVuoP0TyJv5ajScj+6S8yjyUvQhjDkFVBoby/dLFrSYlO+EEkEdHGoUt4YCR
+	/cebDBWASBXS7OjC+TwmVmD4dSiqw19AQttRxlbvYnTYxTlGlr2An4PzHH4yG31rE4THmW
+	CULd0db219ZCwmOeN3YIQDPVIEMEO7LXulsVnAIGvttV5UdSC61hBbo67TOvhZTsRrGatN
+	CKyW963cn8dAzemPkxcPBlu2mRubR978XFLvwAav5qZyBeBsIX+7AmpUyoI9lg==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+	Rob Herring <robh@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 1/3] arm64: dts: renesas: r8a77965-salvator-x: Enable GPU support
+Date: Thu, 11 Jun 2026 02:57:29 +0200
+Message-ID: <20260611005952.146825-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: 5umjyam7fxaw386rcihnthbewtayxad7
+X-MBO-RS-ID: 07aa668f81783f80a0d
+X-Rspamd-Queue-Id: 4gbPSz00VRz9vNd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_174712_682942_A3B23608 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260610_180024_176625_3224F8FB 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,74 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several assembly files in arch/arm/mm contain comments referring to
-CONFIG_CPU_ARM92x_CPU_IDLE options, which have not existed in the kernel
-since 2.4.21. Remove them.
+Enable GPU on Salvator-X with R-Car M3-N.
 
-Discovered while searching for CONFIG_* symbols referenced in code but
-not defined in any Kconfig file.
-
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
- arch/arm/mm/proc-arm920.S | 2 --
- arch/arm/mm/proc-arm922.S | 2 --
- arch/arm/mm/proc-arm925.S | 2 --
- arch/arm/mm/proc-arm926.S | 2 --
- 4 files changed, 8 deletions(-)
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Frank Binns <frank.binns@imgtec.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Matt Coster <matt.coster@imgtec.com>
+Cc: Maxime Ripard <mripard@kernel.org>
+Cc: "Niklas Söderlund" <niklas.soderlund@ragnatech.se>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a77965-salvator-x.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm/mm/proc-arm920.S b/arch/arm/mm/proc-arm920.S
-index 4727f4b5b6e8..0326067c6c75 100644
---- a/arch/arm/mm/proc-arm920.S
-+++ b/arch/arm/mm/proc-arm920.S
-@@ -8,8 +8,6 @@
-  *
-  * These are the low level assembler for performing cache and TLB
-  * functions on the arm920.
-- *
-- *  CONFIG_CPU_ARM920_CPU_IDLE -> nohlt
-  */
- #include <linux/linkage.h>
- #include <linux/init.h>
-diff --git a/arch/arm/mm/proc-arm922.S b/arch/arm/mm/proc-arm922.S
-index 5a4a3f4f2683..3fe6fdf0d325 100644
---- a/arch/arm/mm/proc-arm922.S
-+++ b/arch/arm/mm/proc-arm922.S
-@@ -9,8 +9,6 @@
-  *
-  * These are the low level assembler for performing cache and TLB
-  * functions on the arm922.
-- *
-- *  CONFIG_CPU_ARM922_CPU_IDLE -> nohlt
-  */
- #include <linux/linkage.h>
- #include <linux/init.h>
-diff --git a/arch/arm/mm/proc-arm925.S b/arch/arm/mm/proc-arm925.S
-index 1c4830afe1d3..2d15467e4a08 100644
---- a/arch/arm/mm/proc-arm925.S
-+++ b/arch/arm/mm/proc-arm925.S
-@@ -15,8 +15,6 @@
-  * These are the low level assembler for performing cache and TLB
-  * functions on the arm925.
-  *
-- *  CONFIG_CPU_ARM925_CPU_IDLE -> nohlt
-- *
-  * Some additional notes based on deciphering the TI TRM on OMAP-5910:
-  *
-  * NOTE1: The TI925T Configuration Register bit "D-cache clean and flush
-diff --git a/arch/arm/mm/proc-arm926.S b/arch/arm/mm/proc-arm926.S
-index a09cc3e02efd..d94aa8199452 100644
---- a/arch/arm/mm/proc-arm926.S
-+++ b/arch/arm/mm/proc-arm926.S
-@@ -8,8 +8,6 @@
-  *
-  * These are the low level assembler for performing cache and TLB
-  * functions on the arm926.
-- *
-- *  CONFIG_CPU_ARM926_CPU_IDLE -> nohlt
-  */
- #include <linux/linkage.h>
- #include <linux/init.h>
+diff --git a/arch/arm64/boot/dts/renesas/r8a77965-salvator-x.dts b/arch/arm64/boot/dts/renesas/r8a77965-salvator-x.dts
+index f84c64ed4df7b..af8cfdccd2103 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77965-salvator-x.dts
++++ b/arch/arm64/boot/dts/renesas/r8a77965-salvator-x.dts
+@@ -30,3 +30,7 @@ &du {
+ 	clock-names = "du.0", "du.1", "du.3",
+ 		      "dclkin.0", "dclkin.1", "dclkin.3";
+ };
++
++&gpu {
++	status = "okay";
++};
 -- 
-2.43.0
+2.53.0
 
 
