@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6CECD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A73FCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 07:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pL8Cp7/Zn/4iNsXPUHWtHiA40FIKPngoOlwy9yXd/A4=; b=pU/rEsf34LfhVdNbk0iDMGobit
-	hSJZEdjA7kGbjHfc30THpMagRRaqRKm+92TiOGVTdP/1y/t6/IAw5eyVka5ohGF/RWsdLthIBrsJk
-	6lqfgCS8ukahOzxb3UlxsL4dDqRlOtO8MGEXUONP5PVcw4LVIWdS1beHK7XYF2KdWRvW7YMmIZxpi
-	89S5GrZxMLPpsZk1ArWPli0ukbxJ0QSiYEI7aK6dwdStlptml2D43JwIdkjD7w6g/CYZ4P8d2czhU
-	I6xSJJtFC6IPTYnWdn2aUwGRQH7hJyamCe3lhOLNyk3FuFtKaK6aY7vuUMAcoBx5uynmIfD7QzJk2
-	FD2O2I1A==;
+	bh=ig4syKTx3Ws98om+51Od593NdCE5/MEPc6IaPhp1gw0=; b=DDvAgsj8TsTdPeHZ2XMUIOr6d4
+	I6PtLF77Yq9hpNQ2OPo7jgFsTJcLPVJ6OYJx1P8iz9NpNv85sFqKO5t5oIALsLyT6KF3lp1coUko9
+	nIcT/mo147X4HF/XGgt4/jTKuZhIFx0gg5N/3lOvpEn+ttJWpSP/w2A1e+hXsqwxBOjUjmiGzC0kO
+	gk9hEYSXRdzxnhlJCD7s9YEyMR9bSP3RG0QpJQGSb6gBH3ZZ8HlzsIt0pudqNhQFHtednePPZwaxN
+	t5t8b1sp9tdhgGqqp3RZp5UEktr6xhJkDryHKbGSvzqFAa4sFZGxn/34MeoGmw/ir+XhKG5lpGNu8
+	8Qq0GmSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaIA-00000008vfW-2mY5;
-	Thu, 11 Jun 2026 07:57:34 +0000
+	id 1wXaIC-00000008vh8-3EMe;
+	Thu, 11 Jun 2026 07:57:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaI6-00000008vby-0wQE
+	id 1wXaI9-00000008veV-0MGw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 07:57:31 +0000
+	Thu, 11 Jun 2026 07:57:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A59941E4D;
-	Thu, 11 Jun 2026 00:57:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDD871E4D;
+	Thu, 11 Jun 2026 00:57:27 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F7773FD88;
-	Thu, 11 Jun 2026 00:57:26 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9DA3B3FD88;
+	Thu, 11 Jun 2026 00:57:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781164649; bh=K9XwVhFCJHiYVvXag6p9m+VswzyNDNL7GJxTZTjt/kM=;
+	t=1781164652; bh=rXdON+eEX4hoxMDuHEotvA3XBakBNlFIdt+45YGdUcU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=rSH3tAanGJjQHPLwk1n/5eRgl15c7+3mCKqnklfpwRQzUKvKCG2efLfhdwppA4aTF
-	 fvPHAvu9WBRashsxS2vdC9/+J5+3CHvhBr5E37iki5iq+UY/6WQ2hT/jSewFSV9BA7
-	 KWEv1IY1oXWdf+JAB0DMi55t86io6JKOEQagPDPw=
+	b=JLHXRdt9yNzdAi//k4JNHv08QESoan+KNuh5+XtTL714m1aC/9rLLSPexO2HZVprk
+	 q17PWX3B+Jlp+T9ZqKUMyOd3E+4QHi86bGnXiY+Br10SZRsiuTPhKHjOsn7GVldtjw
+	 y00sAVNr2nyisppn3cO2vpDnXNZ8/wsL5v2KLidU=
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 11 Jun 2026 08:56:59 +0100
-Subject: [PATCH v7 5/8] perf cs-etm: Flush thread stacks after decoder
- reset
+Date: Thu, 11 Jun 2026 08:57:00 +0100
+Subject: [PATCH v7 6/8] perf cs-etm: Support call indentation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-b4-arm_cs_callchain_support_v1-v7-5-1ba770c862ae@arm.com>
+Message-Id: <20260611-b4-arm_cs_callchain_support_v1-v7-6-1ba770c862ae@arm.com>
 References: <20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com>
 In-Reply-To: <20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -59,18 +58,19 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
  Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
  Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
 Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+ linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
+ Leo Yan <leo.yan@linux.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781164631; l=2300;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781164631; l=7042;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=K9XwVhFCJHiYVvXag6p9m+VswzyNDNL7GJxTZTjt/kM=;
- b=0yg1JBmAQT7swM7yhElcXxRe5nx0ViHMz/D+rTOFPNmcH8LzoT9N9krxzX9BkP5R97+je3Mfg
- Ips4ayHZytOD+ZNmRuBOwUIFwMLvSHboyXmNkPlFagEUOhJnis4C2t8
+ bh=Vqa8M1S4rQss5VeND2OYbA7xrF7lC3ElLbGwA9vME1k=;
+ b=8h6HD6rjg4/3RrsbPkl/1a5tNifBaG1XehjmOCtO03KYwGMm7kYJIEGnL9bAzt8O6Ht4On9MA
+ ZIDrtkunpuZBJssyXyejLoALgTO5sOBcnS0L8668DejX7tC6BvrXuGs
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_005730_363574_27DE6FCA 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260611_005733_219247_E060523F 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,77 +85,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Perf resets the CoreSight decoder when moving to a new AUX trace buffer,
-this causes trace discontinunity globally.
+From: Leo Yan <leo.yan@linaro.org>
 
-For callchain synthesis, keeping thread-stack state after decoder reset
-can leave stale call/return history attached to threads that are decoded
-later, producing incorrect synthesized callchains.
+The perf script callindent is derived from call stack in thread context,
+CS ETM ignores the requirement for callindent without pushing and poping
+call stack.
 
-Flush all host thread stacks after a decoder reset. When virtualization
-is present, flush the guest thread stacks as well.
+Enable thread-stack when either itrace thread-stack support or last branch
+entries are requested, allocate the branch stack storage accordingly, and
+feed taken branches to thread_stack__event() whenever thread-stack state
+is needed.
 
+When callindent is requested, pass callstack=true to thread_stack__event()
+so the common thread-stack code maintains call depth for branch samples.
+
+Before:
+
+  perf script -F +callindent
+
+  callchain_test    6543 [002]          1 branches: main                                 ffff93252258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
+  callchain_test    6543 [002]          1 branches: foo                                  aaaad6b607c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: print                                aaaad6b607ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: do_svc                               aaaad6b60794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: vectors                              aaaad6b60780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: el0t_64_sync_handler             ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches: el0_svc                          ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches: lockdep_hardirqs_off             ffff800081828794 el0_svc+0x24 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches: __this_cpu_preempt_check         ffff80008182b348 lockdep_hardirqs_off+0xf0 ([kernel.kallsyms])
+
+After:
+
+  callchain_test    6543 [002]          1 branches:                 main                                                 ffff93252258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
+  callchain_test    6543 [002]          1 branches:                     foo                                              aaaad6b607c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                         print                                        aaaad6b607ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                             do_svc                                   aaaad6b60794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                                 vectors                              aaaad6b60780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                                     el0t_64_sync_handler         ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches:                                         el0_svc                  ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches:                                             lockdep_hardirqs_off ffff800081828794 el0_svc+0x24 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches:                                                 __this_cpu_preempt_check                         ffff80008182b348 lockdep_hardirqs_off+0xf0 ([kernel.kallsyms])
+
+Signed-off-by: Leo Yan <leo.yan@linaro.org>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 37 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+ tools/perf/util/cs-etm.c | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 8798bf0471faf3b1813780b45c588263ff6b4416..7069b4990e6107fdece3cc5451142714f1d627ef 100644
+index 7069b4990e6107fdece3cc5451142714f1d627ef..830618763d8b1bdcc015c492d7b2354d862566ca 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -1997,6 +1997,37 @@ static int cs_etm__end_block(struct cs_etm_queue *etmq,
+@@ -66,6 +66,8 @@ struct cs_etm_auxtrace {
+ 	bool snapshot_mode;
+ 	bool data_queued;
+ 	bool has_virtual_ts; /* Virtual/Kernel timestamps in the trace. */
++	bool use_thread_stack;
++	bool use_callchain;
  
- 	return 0;
- }
-+
-+static int cs_etm__flush_stack_cb(struct thread *thread,
-+				  void *data __maybe_unused)
-+{
-+	thread_stack__flush(thread);
-+	return 0;
-+}
-+
-+static void cs_etm__flush_machine_stack(struct cs_etm_queue *etmq, pid_t pid)
-+{
-+	struct machine *machine;
-+
-+	machine = machines__find(&etmq->etm->session->machines, pid);
-+	if (machine)
-+		machine__for_each_thread(machine, cs_etm__flush_stack_cb, NULL);
-+}
-+
-+static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
-+{
-+	enum cs_etm_pid_fmt pid_fmt = cs_etm__get_pid_fmt(etmq);
-+
-+	if (!etmq->etm->synth_opts.last_branch)
-+		return;
-+
-+	cs_etm__flush_machine_stack(etmq, HOST_KERNEL_ID);
-+
-+	/* Clear the guest stack if virtualization is supported */
-+	if (pid_fmt == CS_ETM_PIDFMT_CTXTID2)
-+		cs_etm__flush_machine_stack(etmq, DEFAULT_GUEST_KERNEL_ID);
-+}
-+
- /*
-  * cs_etm__get_data_block: Fetch a block from the auxtrace_buffer queue
-  *			   if need be.
-@@ -2019,6 +2050,12 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
- 		ret = cs_etm_decoder__reset(etmq->decoder);
- 		if (ret)
- 			return ret;
-+
-+		/*
-+		 * Since the decoder is reset, this causes a global trace
-+		 * discontinuity. Flush all thread stacks.
-+		 */
-+		cs_etm__flush_all_stack(etmq);
+ 	int num_cpu;
+ 	u64 latest_kernel_timestamp;
+@@ -635,7 +637,7 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
+ 	if (!tidq->prev_packet)
+ 		goto out_free;
+ 
+-	if (etm->synth_opts.last_branch) {
++	if (etm->use_thread_stack) {
+ 		size_t sz = sizeof(struct branch_stack);
+ 
+ 		sz += etm->synth_opts.last_branch_sz *
+@@ -1545,7 +1547,7 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
+ 	if (!cs_etm__packet_has_taken_branch(tidq->prev_packet))
+ 		return;
+ 
+-	if (etmq->etm->synth_opts.last_branch) {
++	if (etmq->etm->use_thread_stack) {
+ 		from = cs_etm__last_executed_instr(tidq->prev_packet);
+ 		to = cs_etm__first_executed_instr(tidq->packet);
+ 
+@@ -1554,7 +1556,8 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
+ 		/* Enable callchain so thread stack entry can be allocated */
+ 		thread_stack__event(tidq->frontend_thread, tidq->prev_packet->cpu,
+ 				    tidq->prev_packet->flags, from, to, size,
+-				    etmq->buffer->buffer_nr + 1, false,
++				    etmq->buffer->buffer_nr + 1,
++				    etmq->etm->use_callchain,
+ 				    tidq->br_stack_sz, 0);
+ 	} else {
+ 		thread_stack__set_trace_nr(tidq->frontend_thread,
+@@ -1955,7 +1958,7 @@ static int cs_etm__flush(struct cs_etm_queue *etmq,
+ 	cs_etm__packet_swap(etm, tidq);
+ 
+ 	/* Reset last branches after flush the trace */
+-	if (etm->synth_opts.last_branch)
++	if (etm->use_thread_stack)
+ 		thread_stack__flush(tidq->frontend_thread);
+ 
+ 	return err;
+@@ -2018,7 +2021,7 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
+ {
+ 	enum cs_etm_pid_fmt pid_fmt = cs_etm__get_pid_fmt(etmq);
+ 
+-	if (!etmq->etm->synth_opts.last_branch)
++	if (!etmq->etm->use_thread_stack)
+ 		return;
+ 
+ 	cs_etm__flush_machine_stack(etmq, HOST_KERNEL_ID);
+@@ -3491,6 +3494,7 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		itrace_synth_opts__set_default(&etm->synth_opts,
+ 				session->itrace_synth_opts->default_no_sample);
+ 		etm->synth_opts.callchain = false;
++		etm->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
  	}
  
- 	return etmq->buf_len;
+ 	if (etm->synth_opts.calls)
+@@ -3552,6 +3556,12 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		etm->tc.cap_user_time_zero = tc->cap_user_time_zero;
+ 		etm->tc.cap_user_time_short = tc->cap_user_time_short;
+ 	}
++
++	etm->use_thread_stack = etm->synth_opts.thread_stack ||
++				etm->synth_opts.last_branch;
++
++	etm->use_callchain = etm->synth_opts.thread_stack;
++
+ 	err = cs_etm__synth_events(etm, session);
+ 	if (err)
+ 		goto err_free_queues;
 
 -- 
 2.34.1
