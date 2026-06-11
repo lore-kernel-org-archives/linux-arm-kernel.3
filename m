@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0ED7CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B20E1CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 15:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67zy/OO6GQWRBTDkMhIuirY1PwgjkWuKrq96K18/+fE=; b=qODTz32UXihuNSE/DL8YrPvVVD
-	yji9OqHXrLTW4Z5VgIAbyyMyw0sTm7YJ0huWPWXjbk/vRXUBxIvehqHV+VKBcbGyXZTwDQPRAvgK7
-	ZLR6Qcw4/UpUjP2B8PdRwFh6TGZohtk/+jMwbqqCwvpNAH36FZDknSkeReHGpWjTzGuxvgI1EVhnG
-	+GVZRovKAFTzFkncZZj42ZpS+9OOPJUynEpc7rSbPmhliBWRBt22VyaR+qVZysoxjhKrM4lVhma9A
-	Kiun8+xx8q/edJ5t1l7BRVKHzFjTIFuuL0UOUguiF1Gca+/VfOcp0E+P/Kjg97R/95lQCXLkGvCUv
-	YmKDPXXA==;
+	bh=mhFLm71X92FL118QA8FEpaxBUkL83s1nkTgYywytZos=; b=nKMvenjrHzuTc6gy6hhQe2h7hr
+	3VsGGDAcC0luZ5gbwJbU5yYBlIpK6eN0s926VuOfKRPZ7RwGuKA1XthgK865hsoObzVMSlst5U/G8
+	qJ5Q79Wjs3VGw73C/IHECfnSqBKorSRM6HokX1we8N3elVYmJ5ew0IbODhh2D9xmQfZOAOd1BmQfU
+	zboj/p2+Thqj6yCOVKeJlZD2l3jjeV+7c9bqDmPVCEUUbXKId/WT6ooqfWXGSuzbZ8OM5kqIWRVly
+	nxDqDkfdleJIg0F8J6XcTgj0vn0DUazeLmbS3XOnb3BvDwYV/K/a2yQblZu8xN/ccL1eUodIYNK2k
+	+i1965sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXhEI-00000009flq-262v;
-	Thu, 11 Jun 2026 15:22:02 +0000
+	id 1wXhHy-00000009g3Z-0Gow;
+	Thu, 11 Jun 2026 15:25:50 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXhEH-00000009flL-2HqR;
-	Thu, 11 Jun 2026 15:22:01 +0000
+	id 1wXhHw-00000009g3L-3EgK;
+	Thu, 11 Jun 2026 15:25:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF4F0601E1;
-	Thu, 11 Jun 2026 15:22:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA8AB1F00893;
-	Thu, 11 Jun 2026 15:21:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 02FB16001A;
+	Thu, 11 Jun 2026 15:25:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31B8A1F00893;
+	Thu, 11 Jun 2026 15:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781191320;
-	bh=67zy/OO6GQWRBTDkMhIuirY1PwgjkWuKrq96K18/+fE=;
+	s=k20260515; t=1781191547;
+	bh=mhFLm71X92FL118QA8FEpaxBUkL83s1nkTgYywytZos=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PnTtkqfEnRlAe9XW0BRr+WBX5P3w7ZUqQt3abKlffNJe2YiJL1KVRI04aV24lDwdz
-	 C4HuHGlIGRjT/oWunnlUSxa1IJFIBwVrH6C9s3YofRcSGZ3lf8lfCDmMku6Fbsa5oU
-	 LdVmDwYP50OAlUjXlvwKUjKMJqYn9wtPxUsviCUyfRtmWB9hTiVSAXC6LcJP9QFU1z
-	 tCZNClSubswZhsJfG19qYVnR+7CRmtwZYS+K+MJb7ZYJXRkSR+mIz/riD7+9+bOH3j
-	 gGRHAXcciQx+WE2/WUGJh2HCNvQaHaN7uOJ63eGAWuNEUc5NgESszEL2CtsfSoSXzF
-	 99VyWTVdMyACw==
-Date: Thu, 11 Jun 2026 17:21:58 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v4 1/2] net: airoha: refactor QDMA start/stop
- into reusable helpers
-Message-ID: <airSlpMoBvcuRcK5@lore-desk>
-References: <20260610-airoha-ethtool-priv_flags-v4-0-60e89cf28fea@kernel.org>
- <20260610-airoha-ethtool-priv_flags-v4-1-60e89cf28fea@kernel.org>
+	b=FVoJktWRB4BpBFjzq6/mujqQLGVtrI0ZHlTxMtXCKnFo7w+N16/OHcMSQ8zDW2Num
+	 RubUYyYFUfjqwbPXbo18frl4f/oatqGS6kKjSAE9CkmJcyuqkJyo2YOYgn5PwRYIeS
+	 N1XGVvmMcSPFtKTok2tzjnCHRx95MGJuZnclqYYgHL5JqiXaqac1MAeXSx/wB4hzdg
+	 2QQsFlVNxOqPfuKMeyVTGWpi2q/zZ0abw/pP4zd1fKakWuEggGKJBlq8ZjG6TNviWw
+	 r6RgDGhQzvu0Omf5nGXOzNXiVO1WiVTUODo7WuC+p1Gn+9CygSg06gcNICkMGZvTqp
+	 pRDEpI+v9gJtQ==
+Date: Thu, 11 Jun 2026 17:25:45 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 05/30] drm/display: hdmi_state_helper: Add ctx-aware
+ hotplug helper for SCDC sync
+Message-ID: <20260611-refined-idealistic-sunfish-3df3a4@houat>
+References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
+ <20260602-dw-hdmi-qp-scramb-v7-5-445eb54ee1ed@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xTiMez6xNLZ7OD9M"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="gjbiabifu3smofwv"
 Content-Disposition: inline
-In-Reply-To: <20260610-airoha-ethtool-priv_flags-v4-1-60e89cf28fea@kernel.org>
+In-Reply-To: <20260602-dw-hdmi-qp-scramb-v7-5-445eb54ee1ed@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,130 +81,174 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---xTiMez6xNLZ7OD9M
-Content-Type: text/plain; charset=us-ascii
+--gjbiabifu3smofwv
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 05/30] drm/display: hdmi_state_helper: Add ctx-aware
+ hotplug helper for SCDC sync
+MIME-Version: 1.0
 
-> Factor out airoha_qdma_start() and airoha_qdma_stop() from
-> airoha_dev_open() and airoha_dev_stop(). These helpers will be reused
-> by the QDMA hot-migration logic introduced in the next patch to
-> dynamically switch GDM3/GDM4 ports between LAN and WAN QDMA blocks.
-> Add a DMA engine busy poll in airoha_qdma_stop() to wait for in-flight
-> DMA transfers to complete before cleaning up TX queues.
+On Tue, Jun 02, 2026 at 01:44:05AM +0300, Cristian Ciocaltea wrote:
+> Introduce drm_atomic_helper_connector_hdmi_hotplug_ctx(), a variant of
+> drm_atomic_helper_connector_hdmi_hotplug() that accepts a
+> drm_modeset_acquire_ctx.
 >=20
-> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> This enables SCDC status synchronization on hotplug events, which
+> requires lock acquisition context for performing the CRTC reset
+> triggered by drm_scdc_sync_status().
+>=20
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 53 ++++++++++++++++++++++----=
-------
->  1 file changed, 36 insertions(+), 17 deletions(-)
-
-Both of the issues reportd by sashiko here are not introduced by this patch
-https://sashiko.dev/#/patchset/20260610-airoha-ethtool-priv_flags-v4-0-60e8=
-9cf28fea%40kernel.org
-
-Regards,
-Lorenzo
-
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 40 +++++++++++++++++++=
++-----
+>  include/drm/display/drm_hdmi_state_helper.h     |  4 +++
+>  2 files changed, 37 insertions(+), 7 deletions(-)
 >=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 5a8e84fa9918..aeac66df5f3b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -1771,6 +1771,40 @@ static void airoha_update_hw_stats(struct airoha_g=
-dm_dev *dev)
->  	spin_unlock(&port->stats.lock);
->  }
+> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
+u/drm/display/drm_hdmi_state_helper.c
+> index a331ebdd65af..a96d81cbf94f 100644
+> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> @@ -12,6 +12,7 @@
+>  #include <drm/display/drm_hdmi_cec_helper.h>
+>  #include <drm/display/drm_hdmi_helper.h>
+>  #include <drm/display/drm_hdmi_state_helper.h>
+> +#include <drm/display/drm_scdc_helper.h>
 > =20
-> +static void airoha_qdma_start(struct airoha_qdma *qdma)
-> +{
-> +	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
-> +			GLOBAL_CFG_TX_DMA_EN_MASK |
-> +			GLOBAL_CFG_RX_DMA_EN_MASK);
-> +	atomic_inc(&qdma->users);
-> +}
-> +
-> +static void airoha_qdma_stop(struct airoha_qdma *qdma)
-> +{
-> +	u32 status;
-> +
-> +	if (!atomic_dec_and_test(&qdma->users))
-> +		return;
-> +
-> +	airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-> +			  GLOBAL_CFG_TX_DMA_EN_MASK |
-> +			  GLOBAL_CFG_RX_DMA_EN_MASK);
-> +
-> +	if (read_poll_timeout(airoha_qdma_rr, status,
-> +			      !(status & (GLOBAL_CFG_TX_DMA_BUSY_MASK |
-> +					  GLOBAL_CFG_RX_DMA_BUSY_MASK)),
-> +			      USEC_PER_MSEC, 50 * USEC_PER_MSEC, true,
-> +			      qdma, REG_QDMA_GLOBAL_CFG))
-> +		dev_warn(qdma->eth->dev, "QDMA DMA engine busy timeout\n");
-> +
-> +	for (int i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
-> +		if (!qdma->q_tx[i].ndesc)
-> +			continue;
-> +
-> +		airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
-> +	}
-> +}
-> +
->  static int airoha_dev_open(struct net_device *netdev)
+>  /**
+>   * DOC: hdmi helpers
+> @@ -1150,18 +1151,20 @@ drm_atomic_helper_connector_hdmi_clear_audio_info=
+frame(struct drm_connector *con
+>  }
+>  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
+> =20
+> -static void
+> +static int
+>  drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
+> -					enum drm_connector_status status)
+> +					enum drm_connector_status status,
+> +					struct drm_modeset_acquire_ctx *ctx)
 >  {
->  	int err, len =3D ETH_HLEN + netdev->mtu + ETH_FCS_LEN;
-> @@ -1806,10 +1840,7 @@ static int airoha_dev_open(struct net_device *netd=
-ev)
+>  	const struct drm_edid *drm_edid;
+> +	int ret =3D 0;
+> =20
+>  	if (status =3D=3D connector_status_disconnected) {
+> -		// TODO: also handle scramber, HDMI sink disconnected.
+> +		ret =3D drm_scdc_sync_status(connector, false, ctx);
+>  		drm_connector_hdmi_audio_plugged_notify(connector, false);
+>  		drm_edid_connector_update(connector, NULL);
+>  		drm_connector_cec_phys_addr_invalidate(connector);
+> -		return;
+> +		return ret;
 >  	}
->  	port->users++;
 > =20
-> -	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
-> -			GLOBAL_CFG_TX_DMA_EN_MASK |
-> -			GLOBAL_CFG_RX_DMA_EN_MASK);
-> -	atomic_inc(&qdma->users);
-> +	airoha_qdma_start(qdma);
+>  	if (connector->hdmi.funcs->read_edid)
+> @@ -1174,10 +1177,12 @@ drm_atomic_helper_connector_hdmi_update(struct dr=
+m_connector *connector,
+>  	drm_edid_free(drm_edid);
 > =20
->  	if (!airoha_is_lan_gdm_dev(dev) &&
->  	    airoha_ppe_is_enabled(qdma->eth, 1))
-> @@ -1862,19 +1893,7 @@ static int airoha_dev_stop(struct net_device *netd=
-ev)
->  		airoha_set_gdm_port_fwd_cfg(qdma->eth,
->  					    REG_GDM_FWD_CFG(port->id),
->  					    FE_PSE_PORT_DROP);
-> -
-> -	if (atomic_dec_and_test(&qdma->users)) {
-> -		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-> -				  GLOBAL_CFG_TX_DMA_EN_MASK |
-> -				  GLOBAL_CFG_RX_DMA_EN_MASK);
-> -
-> -		for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
-> -			if (!qdma->q_tx[i].ndesc)
-> -				continue;
-> -
-> -			airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
-> -		}
-> -	}
-> +	airoha_qdma_stop(qdma);
-> =20
->  	return 0;
+>  	if (status =3D=3D connector_status_connected) {
+> -		// TODO: also handle scramber, HDMI sink is now connected.
+> +		ret =3D drm_scdc_sync_status(connector, true, ctx);
+>  		drm_connector_hdmi_audio_plugged_notify(connector, true);
+>  		drm_connector_cec_phys_addr_set(connector);
+>  	}
+> +
+> +	return ret;
 >  }
->=20
-> --=20
-> 2.54.0
->=20
+> =20
+>  /**
+> @@ -1191,10 +1196,31 @@ drm_atomic_helper_connector_hdmi_update(struct dr=
+m_connector *connector,
+>  void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *conn=
+ector,
+>  					      enum drm_connector_status status)
+>  {
+> -	drm_atomic_helper_connector_hdmi_update(connector, status);
+> +	drm_atomic_helper_connector_hdmi_update(connector, status, NULL);
+>  }
+>  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
+> =20
+> +/**
+> + * drm_atomic_helper_connector_hdmi_hotplug_ctx - Handle the hotplug eve=
+nt for the HDMI connector
+> + * @connector: A pointer to the HDMI connector
+> + * @status: Connection status
+> + * @ctx: Lock acquisition context to be used for resetting CRTC
+> + *
+> + * This function should be called as a part of the .detect() / .detect_c=
+tx()
+> + * callbacks for all status changes.
+> + *
+> + * Returns:
+> + * Zero on success, error code on failure.
+> + * If @ctx is set, it might also return -EDEADLK.
+> + */
+> +int drm_atomic_helper_connector_hdmi_hotplug_ctx(struct drm_connector *c=
+onnector,
+> +						 enum drm_connector_status status,
+> +						 struct drm_modeset_acquire_ctx *ctx)
+> +{
+> +	return drm_atomic_helper_connector_hdmi_update(connector, status, ctx);
+> +}
+> +EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug_ctx);
+> +
+>  /**
+>   * drm_atomic_helper_connector_hdmi_force - HDMI Connector implementatio=
+n of the force callback
+>   * @connector: A pointer to the HDMI connector
+> @@ -1206,6 +1232,6 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotp=
+lug);
+>   */
+>  void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connec=
+tor)
+>  {
+> -	drm_atomic_helper_connector_hdmi_update(connector, connector->status);
+> +	drm_atomic_helper_connector_hdmi_update(connector, connector->status, N=
+ULL);
+>  }
+>  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_force);
+> diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/di=
+splay/drm_hdmi_state_helper.h
+> index 13375bd0f4ae..75fedd4a3ba8 100644
+> --- a/include/drm/display/drm_hdmi_state_helper.h
+> +++ b/include/drm/display/drm_hdmi_state_helper.h
+> @@ -7,6 +7,7 @@ struct drm_atomic_commit;
+>  struct drm_connector;
+>  struct drm_connector_state;
+>  struct drm_display_mode;
+> +struct drm_modeset_acquire_ctx;
+>  struct hdmi_audio_infoframe;
+> =20
+>  enum drm_connector_status;
+> @@ -24,6 +25,9 @@ int drm_atomic_helper_connector_hdmi_update_infoframes(=
+struct drm_connector *con
+>  						       struct drm_atomic_commit *state);
+>  void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *conn=
+ector,
+>  					      enum drm_connector_status status);
+> +int drm_atomic_helper_connector_hdmi_hotplug_ctx(struct drm_connector *c=
+onnector,
+> +						 enum drm_connector_status status,
+> +						 struct drm_modeset_acquire_ctx *ctx);
 
---xTiMez6xNLZ7OD9M
-Content-Type: application/pgp-signature; name=signature.asc
+There's not a lot of users, so I'd prefer if we were just changing the
+prototype of drm_atomic_helper_connector_hdmi_hotplug()
+
+Maxime
+
+--gjbiabifu3smofwv
+Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCairSlgAKCRA6cBh0uS2t
-rBpSAPsERGWK1pGGToiFzIeR/RD8joMzAOFuAtARjMUbn3z89AEAv5JGguQL7ZxO
-DrBnleDOjUsudpd92AZkknnf0TunDQg=
-=4QHw
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCairTagAKCRAnX84Zoj2+
+dsYXAX9HanpXkiMI5tOPJUZC7je0MQw3xTc6fBIEQJvGlvqrcMcKcMe8FoWPDcgx
+94KD2aoBgOPv4oXQWtkqDBZedZI5wKgHmkMBRWVz/5E+nvZwPFbJ+olpEqBo4c3w
+IAVzRl2XUg==
+=tkXr
 -----END PGP SIGNATURE-----
 
---xTiMez6xNLZ7OD9M--
+--gjbiabifu3smofwv--
 
