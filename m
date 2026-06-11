@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51CCCD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F0FCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RVp3bryiEwMVR9Bz4t9wj5CzsTTsZiHsrQL/9DA6uVk=; b=5F9vcSCzWqYr4NP25CjTlGQ+Ys
-	LdxHcLiS0IHJdldGPBYR/EHZKwTBkpPaRypB5CTaZCMzuQAD17PIOmlXNcc2QCwQAn6n85nyWDqp5
-	RMpXYl5vwh5YfFap9vvSXOdgLcEkycRQmv1sQPzyn1J4jcdLRj9Qnlm237gMaAntJu6B4ZOp16jrL
-	xX842S3c395bf8ovAqsLypkReBhucR4J2Zhnv1WV9uO7Hell6+i9m8LZETQqrUrycg8hJx8Ng7OUB
-	fGdqVuB1rN/n6jOFFxJiLn5gL7fVa1No6W0qU1AtMFBKOyYif41hjFUA/klAxY48bR7is/AFx4DWa
-	8FEU/ZYQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2O+YpFdrat6Z+OWdtzL/T/F6ubPYSmkO7DCAVXANdMw=; b=GhDlBNPr8/QcUCUUROVJNwxiuz
+	5ivgP61PnXCo3Qo30P74mFCuslKxn7M840tDQI4wHOWJWkZmCelZr4CW1FDAonWrwY8vE7RM81I1k
+	HndNHoSvjk3ynSiD2WfqHpxMD9N2c8QvIcm3IpLhu4t5PCIg4UinbUOdTmujPyHbhhMvqhfWnqO47
+	9bpUOBXl+3/tTdrLeWJuS0Oe6uo7fWKNB/3Jsz/d+xZU5tO/jZQqpE6cAPVIWkSUoEEDCDCE6/GRh
+	knxiInTMAScB2kWRIagMtDRSSSYRmXS4YW0UfCl8NsxPG9DL9nfwe5vTGc+hkW57RJ9ugfy5qQpAd
+	3kKEblDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcFA-00000009Bf4-1NTY;
-	Thu, 11 Jun 2026 10:02:36 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1wXcLv-00000009Bym-18Ab;
+	Thu, 11 Jun 2026 10:09:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcF7-00000009BeO-2nEr
+	id 1wXcLt-00000009Byf-30iu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 10:02:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1781172150; x=1781776950; i=markus.elfring@web.de;
-	bh=RVp3bryiEwMVR9Bz4t9wj5CzsTTsZiHsrQL/9DA6uVk=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Qy6+O7VjCAIks2rGWFFV8PrXIiAGqlvBVGXllxTHCfsI+AItYTuOP8dMX3hufI4X
-	 GTEP0XH/DG+m7Nik5jhNEs7T4z4ZVOACdnrOoq+1bin4+t4S8vBSRtXrY7dE0Nee6
-	 OxbMC5LNYww0SIpTjd0zXycAiPNCodlMCLuJD4u5TFR9ZeeIcOweEEBE3GXZir2Lu
-	 DYo1FpDpscGk4a5abnCHIa71aqGwyB76ZAXGIc1AUAABtLZoIJumtCXpv8GAzOw3G
-	 xxmnU2L11JIrsSaw1hTWIrXzXDPNDiyS+bKqnMkfPRzCnvBwpVyia5HvrQlSyMKMw
-	 hAKkwUceDLS6zhQ2TA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MKuOP-1woShn0kAf-00Tbct; Thu, 11
- Jun 2026 12:02:30 +0200
-Message-ID: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
-Date: Thu, 11 Jun 2026 12:02:27 +0200
+	Thu, 11 Jun 2026 10:09:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 286ED4378C;
+	Thu, 11 Jun 2026 10:09:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 755EA1F00893;
+	Thu, 11 Jun 2026 10:09:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781172573;
+	bh=2O+YpFdrat6Z+OWdtzL/T/F6ubPYSmkO7DCAVXANdMw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HbVv/1BPi5cphjIYqcqt9CSgxy4GLILFmzXk5gM8lhFpVSdu9eZT/MEJvD0i/iOny
+	 PkQiOwDN54P9nu0KjiQwY8TdlMTFsbp2JX4ZSUR9ziGSnRYWDqRUrCsyZu2cwJw830
+	 7vkzX+iigaMJ+NFT90uMnM4f5heCoDQEho6pwhR/uIH4rxQwRe0nj91+hvcgv+nfeb
+	 pl+X05JQmPCTgdlxGq/xJJ3n+6Tn3Z9XJq3zTPEl7GoFo+9jjKSQbiba0sjJi15WA5
+	 xkyUHS8go8JuY2iOGwSDPYOcfAIZZg4nzBEl2KG4nljwfsTBQwb0zSbrz1N2ZkuWbm
+	 HCRDOUq9aVXow==
+Date: Thu, 11 Jun 2026 11:09:23 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty
+ <pbolisetty@axiado.com>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] iio: adc: add Axiado SARADC driver
+Message-ID: <20260611110923.2f55d280@jic23-huawei>
+In-Reply-To: <20260611-axiado-ax3000-ax3005-saradc-v2-2-913c9de7c64c@axiado.com>
+References: <20260611-axiado-ax3000-ax3005-saradc-v2-0-913c9de7c64c@axiado.com>
+	<20260611-axiado-ax3000-ax3005-saradc-v2-2-913c9de7c64c@axiado.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- Christophe Leroy <chleroy@kernel.org>, Roy Pledge <Roy.Pledge@nxp.com>
-Content-Language: en-GB, de-DE
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] soc: fsl: dpio: Use common error handling code in two
- functions
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:fuDLab4raeHeNjF0RATfEmeR7VH3vJWK57SXK1kirrMtbYFEjOI
- LvJyGwUY0TGbWwOfvK64Mzy0+eCJKPYm3/UwZwzvBqKT+KziDhhvCLRyP8AKG6HvJy06675
- qL2gxcpH/R4HaWQ5TnS2XH7BXRfqd8UbR6oVJNk2Ntk3DQTDR85RKGZlcSmkOx666FGsury
- QuQlQx/nDXBIRSPLOtVIA==
-UI-OutboundReport: notjunk:1;M01:P0:BQ93aTbI3z4=;BYb50u7xgDv79aFopJVKLCOua+v 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 aMamHMDEvs9p7dkKm7lLrpT73joh8ruJIXP/QG+
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_030234_062360_F58A6390 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +75,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Thu, 11 Jun 2026 11:56:18 +0200
+On Thu, 11 Jun 2026 02:37:44 -0700
+Petar Stepanovic <pstepanovic@axiado.com> wrote:
 
-Use additional labels so that a bit of exception handling can be better
-reused at the end of two function implementations.
+> Add support for the SARADC controller found on Axiado AX3000 and
+> AX3005 SoCs.
+> 
+> The driver supports single-shot voltage reads through the IIO
+> subsystem. The number of available input channels is selected from
+> the SoC match data, allowing AX3000 and AX3005 variants to use the
+> same driver.
+> 
+> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 
-This issue was detected by using the Coccinelle software.
+Hi Petar,
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
- drivers/soc/fsl/dpio/dpio-service.c | 30 ++++++++++++++---------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
+Looking good. There are a few formatting things that I think need a little
+more polish though.  Given IIO is closed for this cycle, there is lots
+of time so if you can clean those up for v3 (rather than me tweaking whilst
+applying), that would be great.  Obviously give it a few days on list first
+as others may take a look!
 
-diff --git a/drivers/soc/fsl/dpio/dpio-service.c b/drivers/soc/fsl/dpio/dp=
-io-service.c
-index 317ca50b0c2b..025d9fb5660d 100644
-=2D-- a/drivers/soc/fsl/dpio/dpio-service.c
-+++ b/drivers/soc/fsl/dpio/dpio-service.c
-@@ -140,10 +140,8 @@ struct dpaa2_io *dpaa2_io_create(const struct dpaa2_i=
-o_desc *desc,
- 		return NULL;
-=20
- 	/* check if CPU is out of range (-1 means any cpu) */
--	if (desc->cpu !=3D DPAA2_IO_ANY_CPU && desc->cpu >=3D num_possible_cpus(=
-)) {
--		kfree(obj);
--		return NULL;
--	}
-+	if (desc->cpu !=3D DPAA2_IO_ANY_CPU && desc->cpu >=3D num_possible_cpus(=
-))
-+		goto free_obj;
-=20
- 	obj->dpio_desc =3D *desc;
- 	obj->swp_desc.cena_bar =3D obj->dpio_desc.regs_cena;
-@@ -158,11 +156,8 @@ struct dpaa2_io *dpaa2_io_create(const struct dpaa2_i=
-o_desc *desc,
- 	qman_256_cycles_per_ns =3D 256000 / (obj->swp_desc.qman_clk / 1000000);
- 	obj->swp_desc.qman_256_cycles_per_ns =3D qman_256_cycles_per_ns;
- 	obj->swp =3D qbman_swp_init(&obj->swp_desc);
--
--	if (!obj->swp) {
--		kfree(obj);
--		return NULL;
--	}
-+	if (!obj->swp)
-+		goto free_obj;
-=20
- 	INIT_LIST_HEAD(&obj->node);
- 	spin_lock_init(&obj->lock_mgmt_cmd);
-@@ -192,6 +187,10 @@ struct dpaa2_io *dpaa2_io_create(const struct dpaa2_i=
-o_desc *desc,
- 	obj->frames =3D 0;
-=20
- 	return obj;
-+
-+free_obj:
-+	kfree(obj);
-+	return NULL;
- }
-=20
- /**
-@@ -665,10 +664,8 @@ struct dpaa2_io_store *dpaa2_io_store_create(unsigned=
- int max_frames,
- 	ret->max =3D max_frames;
- 	size =3D max_frames * sizeof(struct dpaa2_dq) + 64;
- 	ret->alloced_addr =3D kzalloc(size, GFP_KERNEL);
--	if (!ret->alloced_addr) {
--		kfree(ret);
--		return NULL;
--	}
-+	if (!ret->alloced_addr)
-+		goto free_ret;
-=20
- 	ret->vaddr =3D PTR_ALIGN(ret->alloced_addr, 64);
- 	ret->paddr =3D dma_map_single(dev, ret->vaddr,
-@@ -676,14 +673,17 @@ struct dpaa2_io_store *dpaa2_io_store_create(unsigne=
-d int max_frames,
- 				    DMA_FROM_DEVICE);
- 	if (dma_mapping_error(dev, ret->paddr)) {
- 		kfree(ret->alloced_addr);
--		kfree(ret);
--		return NULL;
-+		goto free_ret;
- 	}
-=20
- 	ret->idx =3D 0;
- 	ret->dev =3D dev;
-=20
- 	return ret;
-+
-+free_ret:
-+	kfree(ret);
-+	return NULL;
- }
- EXPORT_SYMBOL_GPL(dpaa2_io_store_create);
-=20
-=2D-=20
-2.54.0
+Jonathan
+
+> diff --git a/drivers/iio/adc/axiado_saradc.c b/drivers/iio/adc/axiado_saradc.c
+> new file mode 100644
+> index 000000000000..d2f4071c932c
+> --- /dev/null
+> +++ b/drivers/iio/adc/axiado_saradc.c
+
+> +/* Register offsets */
+> +#define AX_SARADC_GLOBAL_CTRL_REG 0x0004
+> +#define AX_SARADC_MANUAL_CTRL_REG 0x0008
+> +#define AX_SARADC_DOUT_REG 0x001C
+> +
+> +/* GLOBAL_CTRL register fields */
+> +#define AX_SARADC_GLOBAL_CTRL_CH_EN_MASK	GENMASK(31, 16)
+> +#define AX_SARADC_GLOBAL_CTRL_SAMPLE_MASK	GENMASK(6, 5)
+> +#define AX_SARADC_GLOBAL_CTRL_MODE_MASK		GENMASK(4, 3)
+> +#define AX_SARADC_GLOBAL_CTRL_PD		BIT(2)
+> +#define AX_SARADC_GLOBAL_CTRL_ENABLE		BIT(0)
+> +
+> +/* GLOBAL_CTRL register values */
+> +#define AX_SARADC_GLOBAL_CTRL_SAMPLE_16		\
+> +	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_SAMPLE_MASK, 0)
+> +
+> +#define AX_SARADC_GLOBAL_CTRL_MODE_MANUAL	\
+> +	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_MODE_MASK, 1)
+> +
+> +/* MANUAL_CTRL register fields */
+> +#define AX_SARADC_MANUAL_CTRL_ENABLE           BIT(0)
+> +#define AX_SARADC_MANUAL_CTRL_CH_SEL_MASK      GENMASK(4, 1)
+> +
+> +#define AX_SARADC_MANUAL_CTRL_EN(ch)           \
+> +	(AX_SARADC_MANUAL_CTRL_ENABLE |          \
+
+Why tabs to place the \ above and spaces here?  I don't mind
+that much which you use, but aim for consistency.
+
+> +	 FIELD_PREP(AX_SARADC_MANUAL_CTRL_CH_SEL_MASK, ch))
+> +
+> +#define AX_RESOLUTION_BITS 10
+> +#define AX_SARADC_CONV_CYCLES 13
+> +#define AX_SARADC_CONV_DELAY_MARGIN_US 10
+> +
+> +struct axiado_saradc {
+> +	void __iomem *regs;
+> +	struct clk *clk;
+> +	unsigned long clk_rate;
+> +	int vref_uV;
+> +	struct mutex lock; /* Serializes ADC conversions. */
+> +};
+> +
+> +static int axiado_saradc_conversion(struct axiado_saradc *info,
+> +				    struct iio_chan_spec const *chan, int *val)
+> +{
+> +	unsigned long usecs;
+> +
+> +	guard(mutex)(&info->lock);
+> +
+> +	/* Select the channel to be used and trigger conversion */
+> +	writel(AX_SARADC_MANUAL_CTRL_EN(chan->channel),
+> +	       info->regs + AX_SARADC_MANUAL_CTRL_REG);
+> +
+> +	/* Hardware requires 13 conversion cycles at clk_rate */
+> +	usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * USEC_PER_SEC,
+> +			     info->clk_rate);
+> +	fsleep(usecs + AX_SARADC_CONV_DELAY_MARGIN_US);
+> +
+> +	*val = readl(info->regs + AX_SARADC_DOUT_REG) &
+> +	       GENMASK(AX_RESOLUTION_BITS - 1, 0);
+Align as:
+	*val = readl(info->regs + AX_SARADC_DOUT_REG) &
+		     GENMASK(AX_RESOLUTION_BITS - 1, 0);
+
+Check for any other instances of not aligning after the (.
+I may well have missed some!
+
+> +
+> +	/* Stop manual conversion */
+> +	writel(0, info->regs + AX_SARADC_MANUAL_CTRL_REG);
+> +
+> +	return 0;
+> +}
+
+
+> +static void axiado_saradc_disable(void *data)
+> +{
+> +	struct axiado_saradc *info = data;
+> +
+> +	writel(AX_SARADC_GLOBAL_CTRL_PD,
+> +	       info->regs + AX_SARADC_GLOBAL_CTRL_REG);
+
+See below. If you change that one to be on one line, then this one should
+probably be so as well for consistency.
+
+> +}
+> +
+> +static int axiado_saradc_probe(struct platform_device *pdev)
+> +{
+> +	const struct axiado_saradc_soc_data *soc_data;
+> +	struct device *dev = &pdev->dev;
+> +	struct axiado_saradc *info;
+> +	struct iio_dev *indio_dev;
+> +	u32 regval;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	info = iio_priv(indio_dev);
+> +
+> +	info->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(info->regs))
+> +		return PTR_ERR(info->regs);
+> +
+> +	info->clk = devm_clk_get_enabled(dev, NULL);
+> +	if (IS_ERR(info->clk))
+> +		return PTR_ERR(info->clk);
+> +
+> +	info->clk_rate = clk_get_rate(info->clk);
+> +	if (!info->clk_rate)
+> +		return dev_err_probe(dev, -EINVAL, "invalid clock rate\n");
+> +
+> +	info->vref_uV = devm_regulator_get_enable_read_voltage(dev, "vref");
+> +	if (info->vref_uV < 0)
+> +		return dev_err_probe(dev, info->vref_uV,
+> +				     "failed to get vref voltage\n");
+Really minor but I'd prefer the 'side effect free' route of:
+
+	ret = devm_regulator_get_enable_read_voltage(dev, "vref");
+	if (ret < 0)
+		return dev_err_probe(dev, ret, "failed to get vref voltage\n");
+	info->vref_uv = ret;
+
+Obviously makes not real difference as on failure we free info anyway,
+so not worth a new version for just this.
+
+> +
+> +	soc_data = device_get_match_data(dev);
+> +	if (!soc_data)
+> +		return dev_err_probe(dev, -EINVAL, "failed to get match data\n");
+> +
+> +	ret = devm_mutex_init(dev, &info->lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	regval = FIELD_PREP(AX_SARADC_GLOBAL_CTRL_CH_EN_MASK,
+> +			 GENMASK(soc_data->num_channels - 1, 0)) |
+
+For readability that G should be under the a of the line above so it's
+obvious this line starts with a parameter of FIELD_PREP.
+
+The particular form of indentation you have here with an effective 8 spaces
+after the start of the function call seems to be something I'm commenting
+on a lot at the moment. Is some tool defaulting to that?
+
+
+> +	      AX_SARADC_GLOBAL_CTRL_SAMPLE_16 |
+> +	      AX_SARADC_GLOBAL_CTRL_MODE_MANUAL |
+> +	      AX_SARADC_GLOBAL_CTRL_ENABLE;
+> +
+> +	writel(AX_SARADC_GLOBAL_CTRL_PD,
+> +		  info->regs + AX_SARADC_GLOBAL_CTRL_REG);
+
+Ok. No idea where that indent came from as it is not 8 spaces or
+a whole number of tabs. Should be.
+
+	writel(AX_SARADC_GLOBAL_CTRL_PD,
+	       info->regs + AX_SARADC_GLOBAL_CTRL_REG);
+
+Or I'm fine with it being just a little over 80 chars on one line.
+
+	writel(AX_SARADC_GLOBAL_CTRL_PD, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
+
+> +	writel(regval, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
+> +
+> +	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, info);
+> +	if (ret)
+> +		return ret;
+> +
+> +	indio_dev->name = soc_data->name;
+> +	indio_dev->info = &axiado_saradc_iio_info;
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->channels = axiado_saradc_iio_channels;
+> +	indio_dev->num_channels = soc_data->num_channels;
+> +
+> +	return devm_iio_device_register(dev, indio_dev);
+> +}
+
+> +static struct platform_driver axiado_saradc_driver = {
+> +	.driver = {
+> +		.name =  "axiado-saradc",
+> +		.of_match_table = axiado_saradc_match,
+> +	},
+> +	.probe = axiado_saradc_probe,
+> +};
+> +
+
+Trivial but convention common adopted which I like is no blank line
+here. Keeps the macro tightly coupled with the structure.
+If nothing major comes up I'll tweak this whilst applying.
+
+> +module_platform_driver(axiado_saradc_driver);
+> +
+> +MODULE_AUTHOR("AXIADO CORPORATION");
+> +MODULE_DESCRIPTION("AXIADO SARADC driver");
+> +MODULE_LICENSE("GPL");
+> 
 
 
