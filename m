@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B825CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 23:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 994ACCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 23:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O8gZkgiDTIH7c2XQP75zrwmG5x+3MemItK06BKv1VbU=; b=qaFN0D3VmtYdiI3xePaXdDD7wI
-	a3jc1Qfm9zqvMRjehJm3LSDvdjjw0AjxB3yx+IuBksIAmkRPC4+C3gDB6EQdI8xjJYYronYEFVUfQ
-	4beNPMtlV8wBwZ3tiS3kGOqarkOqlGe4gUQi7SVOgiFlDGuubriRPkPPBZ4jD+DFde7tzffYbI/w+
-	9w0QNGgOdJ8K8Brl1FE7hYt04e7hYfM6BItvcC/wDecsfyBdGXC6puoWS8TXLU09wC3HZgT0PErYX
-	C8MyeJ4Pac92H/z1uF3KggUfvaFOs8+REhe6rpxJcxuFnT4xMUVZgQbXhiQv6UbEtQJ8rty2EG0cy
-	F2mxps/A==;
+	bh=OyqE90H/NkLMQwvYkIzStNIazVNeuq6brmW6Kdp0qA8=; b=UyuXy8csUy9YtYagJ5Y3us3fI3
+	o2tw4dT3lq1A0j1IDVgLMvdxxrHd0Fh2VBfkKGBFNaja27vl06U5qWNRNGTvU8G/c0j6r64kS42n/
+	C7h8MO0KwS3NR8gX0BOfda2tj10FDK0GWSc5fuALOGpqAdLply42TsE0Dt6xW0NnEouLrd65/GllM
+	m4ew0bIYNAl3359t1sxqIzJEHxxNM1RJYvwkjjnnjlsm0HQS10PiBguzHALl9al7lmBoGGxOYw7AJ
+	09X0OKshN3e/UhEGNc9qlxEZd1LFnZhLgymy/UciyGFCgFV6RBSkdrfQ2ESqj5BWA5w46+UHPvgsE
+	iQuQbluA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXp62-0000000ABWX-0N1E;
-	Thu, 11 Jun 2026 23:46:02 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wXp63-0000000ABa7-2CeI;
+	Thu, 11 Jun 2026 23:46:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXp5q-0000000ABKy-0nUa;
-	Thu, 11 Jun 2026 23:45:51 +0000
+	id 1wXp5r-0000000ABMO-3SFz;
+	Thu, 11 Jun 2026 23:45:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781221547;
-	bh=NJ5RFLXjnsliSEtUl5fK/HkHNb39TECm4kx0OPW7JYg=;
+	s=mail; t=1781221549;
+	bh=Xooo68kIzlIgtz0cNlXkI0FPt9/wx2SM5+aEf+SKZ34=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MJZQ+PkrKzlNA+5B7A/dEgl6YlseOQOKzf18vpQ6ycpd8k51H0cMAtZa/SU7iXG91
-	 bsBqW+UNfMKfTUELDLtGZwXT9kQp9JHD0yAwGnLfOo0MduSqpbvryUnf4G5lTepNa5
-	 r3XJ0NYrtXzLlv7KzZk2RJ8/ShK9K9+LX/oJggq9v9xzYh/5qiTZoVA3oPMjUIiCZ+
-	 Yp4KxwrTON4r/0RRixiU2YOqQ0tjDgo0nNlXy9Zt+cdxysqy69V6RDmr+/fS9SsI5n
-	 7SArujprQ/WaiT0nPGFstKiKmRc0faKnUigv+TkuDmAEa2VKFsbc+Lo4aHDdSg/SQW
-	 JIavNTGTaoMGA==
+	b=XE+MCopbCYgidp+ClevpN3vnBLnyj/4mvOiT0drTwXCK8bAfL6UwuvDELH4EkpVK+
+	 eA/Zl0KRWQ5rwvKHvsQpgXXWsWpiwcEa8v3pYKCcUKZQf8UNAEGDQ1Ddklr09vmCCB
+	 5cVCAp9sH+KD5TBV6Q9X8u+Ppu04RH8/H6/b3KayCA7T1Mp2jgAWUDwI8K87sGLdTF
+	 MHzsc3pWBfrawnoZuluLH/XbHCsqmpQR6Vk31imLibiA5LZg7OF07/qeGnzJJcXBm5
+	 KtrcDyOj6nSCd/1LjkGUtIjZkwHak+YfsBvYJZxNEyjEowI0HsvnzjD5Jo8YjtAMYf
+	 eD+COIkDxcB8w==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 23C7417E0C54;
-	Fri, 12 Jun 2026 01:45:47 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7ED4617E0CF3;
+	Fri, 12 Jun 2026 01:45:49 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 12 Jun 2026 02:45:24 +0300
-Subject: [PATCH v4 5/8] phy: rockchip: samsung-hdptx: Drop TMDS rate setup
- workaround
+Date: Fri, 12 Jun 2026 02:45:27 +0300
+Subject: [PATCH v4 8/8] phy: rockchip: samsung-hdptx: Consistently use
+ bitfield macros
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260612-hdptx-clk-fixes-v4-5-ce5e1d456cda@collabora.com>
+Message-Id: <20260612-hdptx-clk-fixes-v4-8-ce5e1d456cda@collabora.com>
 References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
 In-Reply-To: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -64,8 +64,9 @@ Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
  Simon Wright <simon@symple.nz>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_164550_383838_16CDE74E 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260611_164552_024656_92A5634F 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +81,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit ba9c2fe18c17 ("drm/rockchip: dw_hdmi_qp: Switch to
-phy_configure()") the TMDS rate setup doesn't rely anymore on the
-unconventional usage of the bus width, instead it is managed exclusively
-through the HDMI PHY configuration API.
-
-Drop the now obsolete workaround to retrieve the TMDS character rate via
-phy_get_bus_width() during power_on().
-
-While at it, get rid of the extra call to rk_hdptx_phy_consumer_put() by
-moving the statement at the end of the function.
+Make the code more robust and improve readability by using the available
+bitfield macros (e.g. FIELD_PREP, FIELD_GET) whenever possible, instead
+of open coding the related bit operations.
 
 Tested-by: Thomas Niederprüm <dubito@online.de>
 Tested-by: Simon Wright <simon@symple.nz>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 27 +++++------------------
- 1 file changed, 6 insertions(+), 21 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 30 +++++++++++++++--------
+ 1 file changed, 20 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 25bd821cd039..35997087d61c 100644
+index 88b48f5f946d..d8646f24e05e 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1660,22 +1660,6 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
- 	enum phy_mode mode = phy_get_mode(phy);
- 	int ret, lane;
+@@ -53,6 +53,12 @@
+ /* CMN_REG(001e) */
+ #define LCPLL_PI_EN_MASK		BIT(5)
+ #define LCPLL_100M_CLK_EN_MASK		BIT(0)
++/* CMN_REG(0022) */
++#define ANA_LCPLL_PMS_PDIV_MASK		GENMASK(7, 4)
++#define ANA_LCPLL_PMS_REFDIV_MASK	GENMASK(3, 0)
++/* CMN_REG(0023) */
++#define LCPLL_PMS_SDIV_RBR_MASK		GENMASK(7, 4)
++#define LCPLL_PMS_SDIV_HBR_MASK		GENMASK(3, 0)
+ /* CMN_REG(0025) */
+ #define LCPLL_PMS_IQDIV_RSTN_MASK	BIT(4)
+ /* CMN_REG(0028) */
+@@ -1157,9 +1163,11 @@ static int rk_hdptx_frl_lcpll_cmn_config(struct rk_hdptx_phy *hdptx)
+ 	regmap_write(hdptx->regmap, CMN_REG(0020), cfg->pms_mdiv);
+ 	regmap_write(hdptx->regmap, CMN_REG(0021), cfg->pms_mdiv_afc);
+ 	regmap_write(hdptx->regmap, CMN_REG(0022),
+-		     (cfg->pms_pdiv << 4) | cfg->pms_refdiv);
++		     FIELD_PREP(ANA_LCPLL_PMS_PDIV_MASK, cfg->pms_pdiv) |
++		     FIELD_PREP(ANA_LCPLL_PMS_REFDIV_MASK, cfg->pms_refdiv));
+ 	regmap_write(hdptx->regmap, CMN_REG(0023),
+-		     (cfg->pms_sdiv << 4) | cfg->pms_sdiv);
++		     FIELD_PREP(LCPLL_PMS_SDIV_RBR_MASK, cfg->pms_sdiv) |
++		     FIELD_PREP(LCPLL_PMS_SDIV_HBR_MASK, cfg->pms_sdiv));
+ 	regmap_write(hdptx->regmap, CMN_REG(002a), cfg->sdm_deno);
+ 	regmap_write(hdptx->regmap, CMN_REG(002b), cfg->sdm_num_sign);
+ 	regmap_write(hdptx->regmap, CMN_REG(002c), cfg->sdm_num);
+@@ -1229,8 +1237,10 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ 	regmap_write(hdptx->regmap, CMN_REG(0051), cfg->pms_mdiv);
+ 	regmap_write(hdptx->regmap, CMN_REG(0055), cfg->pms_mdiv_afc);
+ 	regmap_write(hdptx->regmap, CMN_REG(0059),
+-		     (cfg->pms_pdiv << 4) | cfg->pms_refdiv);
+-	regmap_write(hdptx->regmap, CMN_REG(005a), cfg->pms_sdiv << 4);
++		     FIELD_PREP(ANA_ROPLL_PMS_PDIV_MASK, cfg->pms_pdiv) |
++		     FIELD_PREP(ANA_ROPLL_PMS_REFDIV_MASK, cfg->pms_refdiv));
++	regmap_write(hdptx->regmap, CMN_REG(005a),
++		     FIELD_PREP(ROPLL_PMS_SDIV_RBR_MASK, cfg->pms_sdiv));
  
--	if (mode != PHY_MODE_DP) {
--		if (!hdptx->hdmi_cfg.rate && hdptx->hdmi_cfg.mode != PHY_HDMI_MODE_FRL) {
--			/*
--			 * FIXME: Temporary workaround to setup TMDS char rate
--			 * from the RK DW HDMI QP bridge driver.
--			 * Will be removed as soon the switch to the HDMI PHY
--			 * configuration API has been completed on both ends.
--			 */
--			hdptx->hdmi_cfg.rate = phy_get_bus_width(hdptx->phy) & 0xfffffff;
--			hdptx->hdmi_cfg.rate *= 100;
--		}
--
--		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
--			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
--	}
--
- 	ret = rk_hdptx_phy_consumer_get(hdptx);
+ 	regmap_update_bits(hdptx->regmap, CMN_REG(005e), ROPLL_SDM_EN_MASK,
+ 			   FIELD_PREP(ROPLL_SDM_EN_MASK, cfg->sdm_en));
+@@ -2177,7 +2187,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 		ret = regmap_read(hdptx->regmap, CMN_REG(0023), &val);
+ 		if (ret)
+ 			return 0;
+-		lcpll_hw.pms_sdiv = val & 0xf;
++		lcpll_hw.pms_sdiv = FIELD_GET(LCPLL_PMS_SDIV_HBR_MASK, val);
+ 
+ 		ret = regmap_read(hdptx->regmap, CMN_REG(002B), &val);
+ 		if (ret)
+@@ -2197,7 +2207,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 		ret = regmap_read(hdptx->regmap, CMN_REG(002D), &val);
+ 		if (ret)
+ 			return 0;
+-		lcpll_hw.sdc_n = (val & LCPLL_SDC_N_MASK) >> 1;
++		lcpll_hw.sdc_n = FIELD_GET(LCPLL_SDC_N_MASK, val);
+ 
+ 		ret = regmap_read(hdptx->grf, GRF_HDPTX_CON0, &val);
+ 		if (ret)
+@@ -2238,12 +2248,12 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(005E), &val);
  	if (ret)
- 		return ret;
-@@ -1701,9 +1685,10 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
- 		rk_hdptx_dp_pll_init(hdptx);
+ 		return 0;
+-	ropll_hw.sdm_en = val & ROPLL_SDM_EN_MASK;
++	ropll_hw.sdm_en = FIELD_GET(ROPLL_SDM_EN_MASK, val);
  
- 		ret = rk_hdptx_dp_aux_init(hdptx);
--		if (ret)
--			rk_hdptx_phy_consumer_put(hdptx, true);
- 	} else {
-+		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
-+			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
-+
- 		if (hdptx->pll_config_dirty)
- 			ret = rk_hdptx_pll_cmn_config(hdptx);
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(0064), &val);
+ 	if (ret)
+ 		return 0;
+-	ropll_hw.sdm_num_sign = val & ROPLL_SDM_NUM_SIGN_RBR_MASK;
++	ropll_hw.sdm_num_sign = FIELD_GET(ROPLL_SDM_NUM_SIGN_RBR_MASK, val);
  
-@@ -1716,11 +1701,11 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
- 			else
- 				ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
- 		}
--
--		if (ret)
--			rk_hdptx_phy_consumer_put(hdptx, true);
- 	}
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(0065), &val);
+ 	if (ret)
+@@ -2258,7 +2268,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(0069), &val);
+ 	if (ret)
+ 		return 0;
+-	ropll_hw.sdc_n = (val & ROPLL_SDC_N_RBR_MASK) + 3;
++	ropll_hw.sdc_n = FIELD_GET(ROPLL_SDC_N_RBR_MASK, val) + 3;
  
-+	if (ret)
-+		rk_hdptx_phy_consumer_put(hdptx, true);
-+
- 	return ret;
- }
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(006c), &val);
+ 	if (ret)
+@@ -2273,7 +2283,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(0086), &val);
+ 	if (ret)
+ 		return 0;
+-	ropll_hw.pms_sdiv = ((val & PLL_PCG_POSTDIV_SEL_MASK) >> 4) + 1;
++	ropll_hw.pms_sdiv = FIELD_GET(PLL_PCG_POSTDIV_SEL_MASK, val) + 1;
+ 	bpc = (FIELD_GET(PLL_PCG_CLK_SEL_MASK, val) << 1) + 8;
  
+ 	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
 
 -- 
 2.54.0
