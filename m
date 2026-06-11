@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48330CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 04:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BA9CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 04:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6BcnN8rdSZBC0imBDjb7WvsMQmmgBw7lE2xxGdBFAc=; b=rvQy9YlLtclnJCjPnZYgOi13jC
-	13gAPgorD7QOoNAcUyUYsGJ0N5Kxxs/F46uSdGXsnljQps3z7ed+wEQTVUdrXeTYpd/T+qYO6JE0c
-	SkPocnxWxcXrqaHMRbFlvNYhEwdGLddoMaCsUPUVs/eO710JifCi0JZKMuJzpFWUM3/+4Me6Bw6kU
-	RmWqIAgVOMhZKxm1CDGiCigldlUAObY41SnqcRKbOzDjpKlUmb0Wggzg4nfzJE6jMW5ZnFlzrf8Dg
-	0gIy7Pl6rPqi/AfTiLgvPbE51Rpo30ZB6KvsQbkGV8bI2bVYGacCNZvgsnUfu8iGJbhZRtOchLShH
-	75fSB8lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wBiy+4NJTiyF3LHnq3yC4vQA0dZTq2HR/NSC6xodkWE=; b=QuDL5SFjipPSUrK3cIYp4zeDN1
+	9gU/94/jTGv59oBaHRmYtQ1EeihoRBZ95SxZjh4iCMldkgLUeiDlN8zfytE0tHRdodS0kUpq3XXZz
+	QHVeIFT76j7+x9zIZ3qwQ3FpS8T1X7eDmnY3KuE/ZONk4i4uYnWn3L0A9NbNkT0MufqHzyxjFyeQo
+	PCM3RnlkJ3uN4BUSUg3jC9Lbj437zJmhaHf7x1odgjS+gPawki1cX+aHVs5/v9RMw5BjGwJy9h5dF
+	E1iGHzyLwRYBBynbkb4ge6nzMNLgSmTe17qnjQsNo54hQ1xbuWyXdKaM7yQHJf0c31q+GCa23Wc7s
+	g0e+lRxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXXFa-00000008gWj-1IoE;
-	Thu, 11 Jun 2026 04:42:42 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1wXXOi-00000008h3j-0wWu;
+	Thu, 11 Jun 2026 04:52:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXXFU-00000008gWF-3mRL
+	id 1wXXOg-00000008h3Z-1KAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 04:42:41 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gbVPK5Fbvz9txK;
-	Thu, 11 Jun 2026 06:42:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781152949;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=a6BcnN8rdSZBC0imBDjb7WvsMQmmgBw7lE2xxGdBFAc=;
-	b=HbNpwvp0Zj9yuH8o2oc0btr7NocD+4rpR36lGjssYY90zRMgEJRkepCWreP4M9Nf7FWw2G
-	E9HY7rp4S1MHTyX7QMMv4fee/ekSf8lduJvfBHyzesvL6A0l+8xzJosXYM3uEd5i/B7NCU
-	XmguDNfQaWWdZs542ORZ1bEfxqdHnEaIn+nV+xPx+WSbnnv1kOj/dQZ9e42m4tixPkbJYf
-	XCDZ2t31PxCmC6VKwmLLgG9MPT5QYc9OJeFntCCtD4Aif4NtXPkbD4xa0jiLpOWeWwgjAT
-	pYs0XO2gv848HpNsiV/Bhc9ssNxU0+H+ax/skEM2e6ZHgyZiJJuhS5Ekuv7d+A==
-Message-ID: <7fc8f50f-7f6d-4b45-b172-a83d97164b40@mailbox.org>
-Date: Wed, 10 Jun 2026 18:31:02 +0200
+	Thu, 11 Jun 2026 04:52:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 30C8960208;
+	Thu, 11 Jun 2026 04:52:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E7F91F00893;
+	Thu, 11 Jun 2026 04:51:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781153524;
+	bh=wBiy+4NJTiyF3LHnq3yC4vQA0dZTq2HR/NSC6xodkWE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=Ts3BC0lkCTucNM5739E2sZWz64sGR4ecSh89snHNUabM8DL3qL/i5Kq+0zSdhZxPE
+	 3IZAI7m2ZKxzRkXYvD0cOOn1kHucsWMKFDN2YQCOWL2HCAGBQJRJYdYgdhuXgQDoB0
+	 xS76QAA6BADLXCd8Uk9rx8RDBZWdltgbcZD/G/g9NCSJg3YPNIf09a1hOZb5YsaWNW
+	 cTHImEPPmMXXBur/QKqsc2TV1/RXePiFHwN1KlK7PzRnOpzDixMzwOgpz7B2Xc9BNt
+	 b2S6KKPd/v/Y8W+d40YF35LmJhBqAvMdRQd3T+uCEhgOq+dTseOnBJ3ptzf22P8UiP
+	 EzBsszicXXFaA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v6 04/20] dma-pool: track decrypted atomic pools and
+ select them via attrs
+In-Reply-To: <20260610164153.GQ2764304@ziepe.ca>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <20260604083959.1265923-5-aneesh.kumar@kernel.org>
+ <20260609143242.GK2764304@ziepe.ca> <yq5afr2uzum9.fsf@kernel.org>
+ <20260610164153.GQ2764304@ziepe.ca>
+Date: Thu, 11 Jun 2026 10:21:50 +0530
+Message-ID: <yq5acxxxn0gp.fsf@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Piyush Patle <piyushpatle228@gmail.com>, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lucas Stach <l.stach@pengutronix.de>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, Abel Vesa <abelvesa@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20260605121112.27866-1-piyushpatle228@gmail.com> <aiZzxhljfyYQ68Gl@raspi>
- <9ece4e08-a77f-4410-ba16-a77b9bd0aace@mailbox.org> <aifOQtaAi_7F9hXt@raspi>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aifOQtaAi_7F9hXt@raspi>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 8a541f9777ff949760e
-X-MBO-RS-META: trp3ppsudps4pgwo9w4hhy1o1twon399
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_214237_094081_D3DFC23E 
-X-CRM114-Status: GOOD (  33.85  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,100 +97,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/9/26 10:26 AM, Liu Ying wrote:
+Jason Gunthorpe <jgg@ziepe.ca> writes:
 
-Hello Liu,
+> On Wed, Jun 10, 2026 at 01:37:26PM +0530, Aneesh Kumar K.V wrote:
+>> Jason Gunthorpe <jgg@ziepe.ca> writes:
+>> 
+>> > On Thu, Jun 04, 2026 at 02:09:43PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> >>  struct page *dma_alloc_from_pool(struct device *dev, size_t size,
+>> >> -		void **cpu_addr, gfp_t gfp,
+>> >> +		void **cpu_addr, gfp_t gfp, unsigned long attrs,
+>> >>  		bool (*phys_addr_ok)(struct device *, phys_addr_t, size_t))
+>> >>  {
+>> >> -	struct gen_pool *pool = NULL;
+>> >> +	struct dma_gen_pool *dma_pool = NULL;
+>> >>  	struct page *page;
+>> >>  	bool pool_found = false;
+>> >>  
+>> >> -	while ((pool = dma_guess_pool(pool, gfp))) {
+>> >> +	while ((dma_pool = dma_guess_pool(dma_pool, gfp))) {
+>> >> +
+>> >> +		if (dma_pool->unencrypted != !!(attrs & DMA_ATTR_CC_SHARED))
+>> >> +			continue;
+>> >
+>> > I don't think you should be overloading DMA_ATTR_CC_SHARED like this.
+>> >
+>> > 	/*
+>> > 	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
+>> > 	 * attribute. The direct allocator uses it internally after it has
+>> > 	 * decided that the backing pages must be shared/decrypted, so the
+>> > 	 * rest of the allocation path can consistently select DMA addresses,
+>> > 	 * choose compatible pools and restore encryption on free.
+>> > 	 */
+>> > 	if (attrs & DMA_ATTR_CC_SHARED)
+>> > 		return NULL;
+>> >
+>> > 	if (force_dma_unencrypted(dev)) {
+>> > 		attrs |= DMA_ATTR_CC_SHARED;
+>> > 		mark_mem_decrypt = true;
+>> > 	}
+>> >
+>> > It is fine to have a bit inside the attrs that is only used by the
+>> > internal logic, but it needs to have a clearer name
+>> > __DMA_ATTR_REQUIRE_CC_SHARED perhaps.
+>> >
+>> 
+>> Are you suggesting adding another attribute in addition to
+>> DMA_ATTR_CC_SHARED?
+>> 
+>> Is the idea that __DMA_ATTR_REQUIRE_CC_SHARED would be used in the
+>> allocation path to request a CC_SHARED allocation, while
+>> DMA_ATTR_CC_SHARED would be used in the mapping path to describe the
+>> attribute of the address?
+>
+> Yeah, it is a thought at least
+>
+> Maybe a comment is good enough.
+>
+> I just find it hard to follow when we have this dual usage. Like the
+> code above for dma_pool->unencrypted is completely wrong if it is an
+> "attribute of an address". Easy to cut & paste that into the wrong
+> context.
+>
+> Especially if you move things up higher.. having the alloc set both
+> CC_SHARED and REQUIRE_CC_SHARED or maybe ALLOC_CC_SHARED would make it
+> clearer that the alloc code lives under that callchain
+>
+> Jason
+>
 
->>>> I brought this series up on the i.MX95 15x15 FRDM (IT6263 LVDS-to-HDMI on
->>>> LVDS ch1). It mostly works, but I ran into a few issues around DI routing,
->>>> LVDS format handling, and DC enable sequencing which needed rework before
->>>> HDMI would come up reliably on the board.
->>>>
->>>> I don't see a v2 of the series and things seem to have been quiet since
->>>> November. Are you planning to post an updated version?
->>>
->>> My plan was to enable prefetch engine support[1] for i.MX8QXP display
->>> controller and add device tree for a whole i.MX8QXP LVDS display pipeline,
->>> before adding i.MX95 display controller support.
->>>
->>> Unfortunately, it seems that Marek is not a big fan of [1]
->>
->> I am fine with [1] as long as it can be isolated and does not affect every
->> SoC that might reuse this driver, which I think it can be done.
-> 
-> How can it be isolated?
+If we are adding DMA_ATTR_ALLOC_SHARED, should we also allow
+dma_alloc_attrs() to take that attribute value?
 
-if (compatible("mx8q"))
-   something->prefetch_op = somefunction;
+Does this look okay? 
+(Note: Parts of the documentation text were updated using Codex.)
 
-And then wherever is prefetch used, do
-
-if (something->prefetch_op)
-   something->prefetch_op()
-
-Or something along those lines ?
-
->>> and I'm busy
->>> with downstream development so the plan doesn't move forward well.  I still
->>> think [1] makes sense(maybe I need to rebase it on latest drm-misc-next),
->>> so I'd like to see review comments on [1] and hopefully people think that
->>> the overall idea of [1] is ok.
->>
->> My only concern is, to keep it isolated to MX8Q, so this driver can be
->> reused by MX95.
->>
->>>> I've accumulated a fair amount of rework while getting this running on the
->>>> FRDM. If you're not planning a v2, I can clean things up and send one based
->>>> on the current series.
->>>
->>> I still think that i.MX95 display controller driver should be in a separate
->>> driver, rather than sharing the same driver with i.MX8QXP display controller
->>> like this patch series does, because the two display controllers are quite
->>> different as I mentioned in comments on this patch series and in discussion
->>> in [1].  Also, the common part between the two display controllers should
->>> be extracted to a common helper library as I mentioned there too.
->> Are they really? It seems this series adds support for the MX95 DC without
->> that many changes, so are the DCs really that different ? It seems the MX95
->> DC is simply a reuse/evolution of the MX8Q DC blocks, so duplicating the
->> code seems like the wrong direction, it will only lead to disparate sets of
->> bugs in two drivers, which isn't desired.
-> 
-> I pointed out a lot of H/W differences between the two display controllers
-> during the discussions for this patch series and my i.MX8QXP prefetch engine
-> patch series[1].  Please take a look at [1], which clearly shows that the
-> prefetch engine would considerably impact CRTC/plane atomic callback
-> implementations.
-
-Is the prefetch engine actually grown into the CRTC/DE or not ? I 
-suspect it is separate and instead part of the built-in DMA, right ?
-
-> Display controller internal blocks would also impact
-> the implementations, e.g., DomainBlend block in i.MX95 display controller
-> doesn't present in i.MX8QXP display controller.  It makes sense to use
-> separate drivers for the two display controllers instead of adding 'if/else'
-> checks to a single driver's atomic callbacks or introducing two pairs of
-> atomic callbacks to that single driver.  I mentioned before, the code to
-> simply add a DRM driver(struct drm_driver) is fairly limited.
-
-Can't we simply have two sets of ops (one for mx8q and one for mx95) for 
-those ops which are too complicated to implement as a single op with 
-if/else statements ?
-
-> I also mentioned before that separate drivers make them easier to maintain:
-> we don't have to test both i.MX8QXP and i.MX95 if only one display controller
-> specific code is changed.
-
-The downside is lack of code reuse, which leads to disparate sets of 
-bugs in these two drivers and code duplication. And it seems to me, that 
-large parts of the MX8Q and MX95 DC are effectively identical.
-
->> (I might not fully understand what you have in mind with the helper library
->> though?)
-> 
-> I said this could be something like imx-ldb-helper.c and plus perhaps some
-> callbacks like fg->dc_fg_cfg_videomode().
-Do you perceive that the DC driver cannot be parametrized easily enough 
-that it has to be turned into a library like that ? When I look at this 
-patchset, esp. the first half which updates the various blocks, it does 
-not seem to me that way.
+modified   Documentation/core-api/dma-attributes.rst
+@@ -179,3 +179,32 @@ interface when building their uAPIs, when possible.
+ 
+ It must never be used in an in-kernel driver that only works with
+ kernel memory.
++
++DMA_ATTR_CC_SHARED
++------------------
++
++This attribute indicates that a DMA mapping is shared, or decrypted, for
++confidential computing guests. For normal system memory, the caller must
++already have marked the memory decrypted with set_memory_decrypted(). CPU
++PTEs for the mapping must use pgprot_decrypted(), and the same shared
++semantic may be passed to a vIOMMU when it sets up the IOPTE.
++
++This attribute describes an existing mapping. It does not allocate shared
++backing pages and must not be passed to dma_alloc_attrs(). For MMIO, use
++this together with DMA_ATTR_MMIO to indicate shared MMIO. Unless
++DMA_ATTR_MMIO is provided, the mapping requires a struct page.
++
++DMA_ATTR_ALLOC_CC_SHARED
++------------------------
++
++This attribute indicates that a dma_alloc_attrs() allocation must use
++shared, or decrypted, backing pages for confidential computing guests.
++Allocation paths use this request when they select shared DMA pools,
++decrypt newly allocated pages or restore encryption on free.
++
++DMA_ATTR_ALLOC_CC_SHARED differs from DMA_ATTR_CC_SHARED in that it
++requests shared backing memory from the allocation path. DMA_ATTR_CC_SHARED
++describes an already-shared mapping and requires the caller to have
++prepared normal system memory before mapping it. Callers that need shared
++memory from dma_alloc_attrs() should request DMA_ATTR_ALLOC_CC_SHARED
++instead of DMA_ATTR_CC_SHARED.
+modified   include/linux/dma-mapping.h
+@@ -103,6 +103,13 @@
+  */
+ #define DMA_ATTR_CC_SHARED	(1UL << 13)
+ 
++/*
++ * DMA_ATTR_ALLOC_CC_SHARED: Allocates DMA memory as shared (decrypted) for
++ * confidential computing guests. Unlike DMA_ATTR_CC_SHARED, this attribute
++ * is used by dma_alloc_attrs() paths that create shared backing pages;
++ * DMA_ATTR_CC_SHARED describes an already-shared mapping.
++ */
++#define DMA_ATTR_ALLOC_CC_SHARED	(1UL << 14)
+ /*
+  * A dma_addr_t can hold any valid DMA or bus address for the platform.  It can
+  * be given to a device to use as a DMA source or target.  It is specific to a
 
