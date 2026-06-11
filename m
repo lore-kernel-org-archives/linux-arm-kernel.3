@@ -4,97 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86384CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E0CCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 09:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TemVgYrN3v0a2/ATuSaJzKVDM6WJr0lztDtX3dOOHeo=; b=saHdSypokp+ZSLqvMx5McjZF5+
-	Lg8cNP9pxW/xx6bAd1o3tym81b7wWXOZWrmk2K1Rp8cTk72Ijay19FkF9CJJfY0KQTb42oUiOlLJj
-	cbMr6HF8xUedwPQ/1vgUyQPDNgXr7bK99v+Mng+6pOMXh++4tVlbxaj1cOmL/lY7Anp+h1uGW7IJ/
-	KfPVxrgNbjkaAeMjCYACy0LzlGJ5ShyQYl5D/ScikFx5oepCR18jAy7FXUPPF6S9p4d85jioZHzZe
-	yL/UurOe1tZO44wsUvwGn8FMIRjKtmTu+upoVZOQHoTx14fz5eL5415Ar5dMiBN9Bc1OU/sx7ZQnT
-	nBdiB6KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B1t0eMpqsT9YaBJXmjRvQgx584lO6Eznqq7E3RTSQxs=; b=DeI1vcKK8hNdYLw51wFJPhuLOM
+	cKMQQ+QYLfEVxb01VKh1M7Tug6uAtPBAI+oVATIjsTK/w7+zvYK+zHRwWSyFFn6WXU5ihxf0824h6
+	IyOKW59AnkO25Bix/nxPtpxdOOrSjbsy2fyQal6xlOJ2zNCrfKKI0cefbOnsHzTuFmD03NsTJkJ2A
+	dRQUXN9HYU8JQpKWKSlX9Mt5r4OgLaKuZczttn6vx0CeGbvA3UCDrEcXq5QKJxEsiqrf/RlV/TVuW
+	pqZFhLYwmgQa7RQJfwygDu/vUovsTaHIUxOgvZerOULEaK2ZUN/J7RS+wkAlAtH04hU3uJUgovCMn
+	+e3xcT2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXbRw-000000096B7-37pz;
-	Thu, 11 Jun 2026 09:11:44 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1wXbS5-000000096Dg-3o4k;
+	Thu, 11 Jun 2026 09:11:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXbRt-000000096AQ-1V3T
+	id 1wXbS4-000000096Cu-2LK6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 09:11:42 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-bec450b950dso1145407166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 02:11:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781169099; x=1781773899; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TemVgYrN3v0a2/ATuSaJzKVDM6WJr0lztDtX3dOOHeo=;
-        b=Q+6PtWYIOhV86sQI0xUxXtnMJZ/iBT6mpuhkDsj33lDWP8cfcMxoCn53rPC46QC2L1
-         h2RWdq/JGz2SR7hPMX+zbYOChNNTuB3emogv/hOQwjy7uKEMkWdjmOhiF3oIfQ/sd873
-         yB9+V6tIWq3rXIrWTljXGGBUV24cTIZjJ8i1gR3tttZ2A2silFyV9yFF0jGT2iZNc4in
-         3PBdUhtjwb4e+Y8MN3pFNqwyzXiHqqqgfWIL8ZuuoM3s2dJ0QbuQuKtm7q3MLtAFYyol
-         pcZF4w7BPc57h8vxmopSXl2uM3M5k8ePJex1k75pOD0FBIxWD+1+kZH5XeBnte9UpIbg
-         LQoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781169099; x=1781773899;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TemVgYrN3v0a2/ATuSaJzKVDM6WJr0lztDtX3dOOHeo=;
-        b=Q5IG0Yu+CL8JkRpftkzOxWYfL+STY7EjAtvoFxkQwE2F1Wrrch+8PdnT2pYnjmAXnf
-         kSu3pXimg7TZVE1ZTpU1d3GPtFFSkdfhKkE3WX/Xrx2Rwn8wbeFU0yz4ErsOtp/NEYAS
-         Us2Vz/H1cq22WbylVqKR8yUfE0XPpn87lOJMhwacsHV1PtJINImZC47hC+lkmVD8LGWj
-         85v5JVuZdi/RSJO1kjwPOA7C1oM4HrgNDA77aWXBmQ5OjnIeRbXJUzU8Rk0l1I/XytTa
-         dNkmFui8vQ8is0a3ShdIQE+OJTF2N0lIKS/SR564DBIjM4ivvFF2jth7oecN5Qzsx8vr
-         ol3g==
-X-Gm-Message-State: AOJu0YxCwBs7IclmY//xhUbI4RXMQ/sIxR6iMo0fS4Q58J0JWqCdTqBB
-	bpaAcek8AOStjLSPUmbc/I49WIo6ge8U+jsYzWn35cbfKIr9vSF9M9prsOQcDwCjmMo=
-X-Gm-Gg: Acq92OFAs8kyfFpa520LekoQdxxVzsLe1RyPhhkhHDOfMN1gZge5mTY9fKJ95gpt3bO
-	UOLQchagEpBJoNdq0HsnZRvZHAMpPM7aMdn+p7ON4AUVF0XOwTcCEZReptzUO8HQ/qE5CucfM7s
-	AI/R4IjsO5LZ59RzLt6KxXvS/DdT+kWFm/7BaUH3eGpCshdGVWrUFSdQ+7DtoeBET185VBK0rTJ
-	t3Fv8v2AGVG51FQLawRF3A0vVrMai+3OaMksTHdsYLI0b6p9oUyXhSayMmhww9PQ/+MDHY7Jp/Q
-	APjvGk/9UG/FhyZ/golGh/E+yllZruQjWskyrjfOikFUbTs+1KT6QaGxXVMQUm2naqVkYPFaYoe
-	MOY0i4y6cvrwUQnH4Dw+pgVloiRuqB0Hr1oRsNAmHHMMddO0uHMlqmCgFMZY9a8259OpSShDUDr
-	7RS/9KanoqEBZc1zR+YvYdXlWHqmt2MW6bP9UXkFU=
-X-Received: by 2002:a17:907:2d24:b0:be2:7f13:8e33 with SMTP id a640c23a62f3a-bfc87ef676fmr89235566b.45.1781169099271;
-        Thu, 11 Jun 2026 02:11:39 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfcb53c3461sm36589966b.41.2026.06.11.02.11.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Jun 2026 02:11:38 -0700 (PDT)
-Message-ID: <c6f6766b-ef3f-4260-9569-620d351027ff@linaro.org>
-Date: Thu, 11 Jun 2026 10:11:37 +0100
+	Thu, 11 Jun 2026 09:11:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CC6C6600AB
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:11:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E6821F008A2
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 09:11:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781169111;
+	bh=B1t0eMpqsT9YaBJXmjRvQgx584lO6Eznqq7E3RTSQxs=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=bSUSCOOlUoqkjxfDipdP4ZN06c+kGoam+HOQDbIvwgi3CyDkonEwORRznXaYiPTg3
+	 LYiVzvjqTLedwOJohBXfEpJGHs0daYzk4JuF/vsucz8NGce0N4CCtgT+b0VuWlIVF2
+	 Nm5xBnbizAA8pmP9frj9IdPeljD4n7wwJruC5jnaHkJ/YXmiMxC2u6kXjQIbT4TKwq
+	 k/tCiNYYQLbiHyx0O5zC1cDUbv2OJF9a6wrVlbTHgu8Wb+ZYP7Kf1b8YjmSXXg9oHm
+	 9O+RhqNu2KRj0vB3DiSTCkVshTiw2TU9x4iLP0mHiJn/4iTPM5PrRTjO8Yz5wzvIpi
+	 RlGk03VX6ULGA==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39666f49929so67478581fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 02:11:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8R3py6TZ6CxePyYoCBFz1y1Iy9gwEaGYKo7GXAQWwusppAvzu/DpIJL4KnfJaV49mcMkNwzHwmiscec9iw2UCl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ65KiXX+dEs47gPEnn4nBiAZD6WtQHK2glrQGKzTXPqZsED5K
+	olXVkcnzzb89RRGk9SIodqgq3KcHDDhhoOiNWPZ79rxkxvBirhMUIV8+nUoBX9wFKdn+5X2iQAC
+	gYtIl9kkD8pMnjvR3AuL0Sxh7ZH9MqF5DioW9ueVObA==
+X-Received: by 2002:a05:651c:1545:b0:396:7fa2:e095 with SMTP id
+ 38308e7fff4ca-39919f96cbbmr4986331fa.6.1781169110130; Thu, 11 Jun 2026
+ 02:11:50 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 11 Jun 2026 05:11:46 -0400
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 11 Jun 2026 05:11:46 -0400
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260610084053.2059858-8-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 8/8] perf test: Add Arm CoreSight callchain test
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, Arnaldo Carvalho de Melo
- <acme@kernel.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Namhyung Kim
- <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>,
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com>
- <20260611-b4-arm_cs_callchain_support_v1-v7-8-1ba770c862ae@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260611-b4-arm_cs_callchain_support_v1-v7-8-1ba770c862ae@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_021141_474632_6878CFAE 
-X-CRM114-Status: GOOD (  35.47  )
+References: <20260610084053.2059858-1-wenst@chromium.org> <20260610084053.2059858-8-wenst@chromium.org>
+Date: Thu, 11 Jun 2026 05:11:46 -0400
+X-Gmail-Original-Message-ID: <CAMRc=Mc3DqGb2MsvM4tjcqFuRraAO+EftO1UrtNFvR5dMRXmVA@mail.gmail.com>
+X-Gm-Features: AVVi8Cf4NRlpEgfQOjedOZVIy3kDaaZ8Xbtl_Xw4Hfg6m7nAFQEWNEvJmcMEnDE
+Message-ID: <CAMRc=Mc3DqGb2MsvM4tjcqFuRraAO+EftO1UrtNFvR5dMRXmVA@mail.gmail.com>
+Subject: Re: [PATCH v2 07/16] usb: hub: Power on connected M.2 E-key connectors
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,342 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 10 Jun 2026 10:40:41 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
+> The new M.2 E-key connector can have a USB connection. For the USB device
+> on this connector to work, its power must be enabled and the W_DISABLE2#
+> signal deasserted. The connector driver handles this and provides a
+> toggle over the power sequencing API.
+>
+> This feature currently only supports a directly connected (no mux in
+> between) M.2 E-key connector. Existing USB connector types are not
+> covered. The USB A connector was recently added to the onboard devices
+> driver. USB B connectors have historically been managed by the USB
+> gadget or dual-role device controller drivers. USB C connectors are
+> handled by TCPM drivers.
+>
+> The power sequencing API does not know whether a power sequence provider
+> is not needed or not available yet, so we only request it for connectors
+> that we know need it, which at this time is just the E-key connector.
+>
+> On the USB side, the port firmware node (if present) is tied to the
+> usb_port device. This device is used to acquire the power sequencing
+> descriptor. This allows the provider to tell the different ports on one
+> hub apart.
+>
+> This feature is not implemented in the onboard USB devices driver. The
+> power sequencing API expects the consumer device to make the request,
+> but there is no device node to instantiate a platform device to tie
+> the driver to. The connector is not a child node of the USB host or
+> hub, and the graph connection is from a USB port to the connector.
+> And the connector itself already has a driver.
+>
+> Power sequencing is not directly enabled in the connector driver as
+> that would completely decouple the timing of it from the USB subsystem.
+> It would not be possible for the USB subsystem to toggle the power
+> for a power cycle or to disable the port.
+>
+> This change depends on another change to make the power sequencing
+> framework bool instead of tristate. The USB core and hub driver are
+> bool, so if the power sequencing framework is built as a module, the
+> kernel will fail to link.
+>
 
+That bit needs to go away I suppose?
 
-On 11/06/2026 8:57 am, Leo Yan wrote:
-> Add a CoreSight shell test for synthesized callchains.
-> 
-> The test uses the new callchain workload to generate trace and decodes
-> it with synthesis callchain. It then verifies that the instruction
-> samples show the expected callchain push and pop.
-> 
-> Use control FIFOs so tracing starts only around the workload, which
-> keeps the trace data small. The test is limited to arm64 systems with
-> the cs_etm event available.
-> 
-> After:
-> 
->    perf test 136 -vvv
->    136: CoreSight synthesized callchain:
->    --- start ---
->    test child forked, pid 3539
->    ---- end(0) ----
->    136: CoreSight synthesized callchain			: Ok
-> 
-> Assisted-by: Codex:GPT-5.5
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   tools/perf/Documentation/perf-test.txt        |   6 +-
->   tools/perf/tests/builtin-test.c               |   1 +
->   tools/perf/tests/shell/coresight/callchain.sh | 168 ++++++++++++++++++++++++++
->   tools/perf/tests/tests.h                      |   1 +
->   tools/perf/tests/workloads/Build              |   2 +
->   tools/perf/tests/workloads/callchain.c        |  24 ++++
+I see Andy has some suggestions but in general I like this approach much better
+than adding the pwrseq_get_index() function. Thanks!
 
-Maybe "syscall" is a better name? There's not any difference between 
-this one and others like the deterministic one I added with regards to 
-the callchain.
-
->   6 files changed, 200 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/perf/Documentation/perf-test.txt b/tools/perf/Documentation/perf-test.txt
-> index 81c8525f594680d814f80e6f88bcce8d867bb350..859df74e62efc4b1e80da13ae8e053356f68ae54 100644
-> --- a/tools/perf/Documentation/perf-test.txt
-> +++ b/tools/perf/Documentation/perf-test.txt
-> @@ -57,7 +57,8 @@ OPTIONS
->   --workload=::
->   	Run a built-in workload, to list them use '--list-workloads', current
->   	ones include: noploop, thloop, leafloop, sqrtloop, brstack, datasym,
-> -	context_switch_loop, deterministic, named_threads and landlock.
-> +	context_switch_loop, deterministic, named_threads, landlock and
-> +	callchain.
->   
->   	Used with the shell script regression tests.
->   
-> @@ -69,7 +70,8 @@ OPTIONS
->   	'named_threads' accepts the number of threads and the number of loops to
->   	do in each thread.
->   
-> -	The datasym, landlock and deterministic workloads don't accept any.
-> +	The datasym, landlock, deterministic and callchain workloads don't accept
-> +	any.
->   
->   --list-workloads::
->   	List the available workloads to use with -w/--workload.
-> diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-> index afc06cec49546d29d86b94840c7021c5bf5c88e3..8994488cc206863ba77f7e7e5803e62f18e151ba 100644
-> --- a/tools/perf/tests/builtin-test.c
-> +++ b/tools/perf/tests/builtin-test.c
-> @@ -166,6 +166,7 @@ static struct test_workload *workloads[] = {
->   	&workload__jitdump,
->   	&workload__context_switch_loop,
->   	&workload__deterministic,
-> +	&workload__callchain,
->   
->   #ifdef HAVE_RUST_SUPPORT
->   	&workload__code_with_type,
-> diff --git a/tools/perf/tests/shell/coresight/callchain.sh b/tools/perf/tests/shell/coresight/callchain.sh
-> new file mode 100755
-> index 0000000000000000000000000000000000000000..e9f907f60e3a4574f13a9c651d541c675f07a4ad
-> --- /dev/null
-> +++ b/tools/perf/tests/shell/coresight/callchain.sh
-> @@ -0,0 +1,168 @@
-> +#!/bin/bash
-> +# CoreSight synthesized callchain (exclusive)
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +glb_err=1
-> +
-> +if ! tmpdir=$(mktemp -d /tmp/perf-cs-callchain-test.XXXXXX); then
-> +	echo "mktemp failed"
-> +	exit 1
-> +fi
-> +
-> +cleanup_files()
-> +{
-> +	rm -rf "$tmpdir"
-> +}
-> +
-> +trap cleanup_files EXIT
-> +trap 'cleanup_files; exit $glb_err' TERM INT
-> +
-> +skip_if_system_is_not_ready()
-> +{
-> +	[ "$(uname -m)" = "aarch64" ] || {
-> +		echo "Skip: arm64 only test" >&2
-> +		return 2
-> +	}
-
-Minor nit, but for consistency with the other coresight tests we should 
-probably not check for arm64 and only check for cs_etm//.
-
-> +
-> +	perf list | grep -Pzq 'cs_etm//' || {
-> +		echo "Skip: cs_etm event is not available" >&2
-> +		return 2
-> +	}
-> +
-> +	return 0
-> +}
-> +
-> +record_trace()
-> +{
-> +	local data=$1
-> +	local script=$2
-> +
-> +	local cf="$tmpdir/ctl"
-> +	local af="$tmpdir/ack"
-> +
-> +	mkfifo "$cf" "$af"
-> +
-> +	perf record -o "$data" -e cs_etm// --per-thread -D -1 --control fifo:"$cf","$af" -- \
-> +		perf test --record-ctl fifo:"$cf","$af" -w callchain >/dev/null 2>&1 &&
-> +
-> +	# It is safe to use 'i3i' with a three-instruction interval, since the
-> +	# workload is compiled with -O0.
-> +	perf script --itrace=g16i3il64 -i "$data" > "$script"
-> +}
-> +
-> +callchain_regex_1()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +callchain_regex_2()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +callchain_regex_3()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ syscall(@plt)?\+0x[[:xdigit:]]+ \(.*\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +callchain_regex_4()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ .*\+0x[[:xdigit:]]+ \(\[kernel\.kallsyms\]\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ syscall(@plt)?\+0x[[:xdigit:]]+ \(.*\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +find_after_line()
-> +{
-> +	local regex="$1"
-> +	local file="$2"
-> +	local start="$3"
-> +	local offset
-> +	local line
-> +
-> +	# Search in byte offset
-> +	offset=$(
-> +		tail -n +"$start" "$file" |
-> +		grep -Pzob -m1 "$regex" |
-> +		tr '\0' '\n' |
-> +		sed -n 's/^\([0-9][0-9]*\):.*/\1/p;q'
-> +	)
-> +
-> +	if [ -z "$offset" ]; then
-> +		echo "Failed to match regex after line $start" >&2
-> +		echo "Regex:" >&2
-> +		printf '%s\n' "$regex" >&2
-> +		echo "Context from line $start:" >&2
-> +		sed -n "${start},$((start + 100))p" "$file" >&2
-> +		return 1
-> +	fi
-> +
-> +	# Conver from offset to line
-> +	line=$(
-> +		tail -n +"$start" "$file" |
-> +		head -c "$offset" |
-> +		wc -l
-> +	)
-> +
-> +	echo "$((start + line))"
-> +}
-> +
-> +check_callchain_flow()
-> +{
-> +	local file="$1"
-> +	local l1 l2 l3 l4 l5 l6 l7
-> +
-> +	# Callchain push
-> +	l1=$(find_after_line "$(callchain_regex_1)" "$file" 1) || return 1
-> +	l2=$(find_after_line "$(callchain_regex_2)" "$file" "$((l1 + 1))") || return 1
-> +	l3=$(find_after_line "$(callchain_regex_3)" "$file" "$((l2 + 1))") || return 1
-> +	l4=$(find_after_line "$(callchain_regex_4)" "$file" "$((l3 + 1))") || return 1
-> +
-> +	# Callchain pop
-> +	l5=$(find_after_line "$(callchain_regex_3)" "$file" "$((l4 + 1))") || return 1
-> +	l6=$(find_after_line "$(callchain_regex_2)" "$file" "$((l5 + 1))") || return 1
-> +	l7=$(find_after_line "$(callchain_regex_1)" "$file" "$((l6 + 1))") || return 1
-> +
-
-In tests/shell/coresight/callchain.sh line 144:
-	l7=$(find_after_line "$(callchain_regex_1)" "$file" "$((l6 + 1))") || 
-return 1
-         ^-- SC2034 (warning): l7 appears unused. Verify use (or export 
-if used externally).
-
-
-
-> +	return 0
-> +}
-> +
-> +run_test()
-> +{
-> +	local data=$tmpdir/perf.data
-> +	local script=$tmpdir/perf.script
-> +
-> +	if ! record_trace "$data" "$script"; then
-> +		echo "$name: perf record/script failed"
-
-In tests/shell/coresight/callchain.sh line 155:
-		echo "$name: perf record/script failed"
-                       ^---^ SC2154 (warning): name is referenced but 
-not assigned.
-
-
-> +		return
-> +	fi
-> +
-> +	check_callchain_flow "$script" || return
-> +
-> +	glb_err=0
-> +}
-> +
-> +skip_if_system_is_not_ready || exit 2
-> +
-> +run_test
-> +
-> +exit $glb_err
-> diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-> index 7cedf05be544ad79a99e86d30dfa4f7b01ca0837..cee9e6b62dcc838c864bbe76efe3b638ed75b134 100644
-> --- a/tools/perf/tests/tests.h
-> +++ b/tools/perf/tests/tests.h
-> @@ -248,6 +248,7 @@ DECLARE_WORKLOAD(inlineloop);
->   DECLARE_WORKLOAD(jitdump);
->   DECLARE_WORKLOAD(context_switch_loop);
->   DECLARE_WORKLOAD(deterministic);
-> +DECLARE_WORKLOAD(callchain);
->   
->   #ifdef HAVE_RUST_SUPPORT
->   DECLARE_WORKLOAD(code_with_type);
-> diff --git a/tools/perf/tests/workloads/Build b/tools/perf/tests/workloads/Build
-> index 75b377934a0e62b9ac1fec245520ea0978ac957e..dfdf9a2720b22f67a3d7b53d0ed14e0654059c8f 100644
-> --- a/tools/perf/tests/workloads/Build
-> +++ b/tools/perf/tests/workloads/Build
-> @@ -13,6 +13,7 @@ perf-test-y += inlineloop.o
->   perf-test-y += jitdump.o
->   perf-test-y += context_switch_loop.o
->   perf-test-y += deterministic.o
-> +perf-test-y += callchain.o
->   
->   ifeq ($(CONFIG_RUST_SUPPORT),y)
->       perf-test-y += code_with_type.o
-> @@ -26,3 +27,4 @@ CFLAGS_datasym.o          = -g -O0 -fno-inline -U_FORTIFY_SOURCE
->   CFLAGS_traploop.o         = -g -O0 -fno-inline -U_FORTIFY_SOURCE
->   CFLAGS_inlineloop.o       = -g -O2
->   CFLAGS_deterministic.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-> +CFLAGS_callchain.o        = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-> diff --git a/tools/perf/tests/workloads/callchain.c b/tools/perf/tests/workloads/callchain.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..a7eca77277496eec2f47d6f1a646552c298a533f
-> --- /dev/null
-> +++ b/tools/perf/tests/workloads/callchain.c
-> @@ -0,0 +1,24 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <linux/compiler.h>
-> +#include <sys/syscall.h>
-> +#include <unistd.h>
-> +#include "../tests.h"
-> +
-> +static void do_syscall(void)
-> +{
-> +	syscall(SYS_getpid);
-> +}
-> +
-> +static void foo(void)
-
-According to Sashiko on my other review, even with -O0 these symbols can 
-be renamed when built with LTO. As you are looking for matches on 
-function names, you should probably make them global and with unique 
-prefixes and leave a comment. At least I did that wherever I was 
-matching on a function name, and only used static for ones that weren't 
-matched. Would be a good habit to the pattern gets copy pasted to other 
-workloads and tests.
-
-> +{
-> +	do_syscall();
-> +}
-> +
-> +static int callchain(int argc __maybe_unused, const char **argv __maybe_unused)
-> +{
-> +	foo();
-> +
-> +	return 0;
-> +}
-> +
-> +DEFINE_WORKLOAD(callchain);
-> 
-
+Bartosz
 
