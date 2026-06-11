@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44E4CD98D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB884CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=483PdNicSigRzALmSgzGeTpWKhI3+Z71En6T7EqR2LI=; b=vEYEk0aJ6+l5zxYKA086xHCUNF
-	758nm1DLch5MX4gARbjznbpnFjvEl1H4kU1zK3Xka+QOiOIdJj4gTPKR810bdNRYqjHLQD4OjtbXX
-	z0hvj5qjfLdn1YUdfuNFlFU7cnmQw6O+8xKIWZ8HCQrOhX6MhfaiPU9O6yJ5nDtGOp8o48P08xoPT
-	vWO9XNtG2mvCaBovAnJloUpj1XLxH06qpZwHWb25qk+OnzCLkAw3vu0yIL/bTzXt63VRUc7NFOyaI
-	pkinJrQNTwMFiudN8Cgv0EK7hyS4Q5SaMLYtMDb6eGM6tbSuZ9/0XtjBOJAsO1adHXxyjnlDKu07j
-	7si8Sb8Q==;
+	bh=UWVuJawX0Ef6oR8wZ70yyOE0QWDgmpOY9opwtIfW/K0=; b=TEAZRl3mhXhk2qwU+yRd+jjLA7
+	KmzR4cPa3/eViLov7Zvd6ffANRZjNfq6jDRNvVObfuq0vdZT2qDhBZR/hMpfMcXLkRYrvjG8HDzLy
+	5UAgaTnmbFt7aqoyrXSim5leDvcShs5ZdN2bx0fVTcR+rZSk7U9BUXt4TIXfquataNl2uhA1voBJF
+	OGDDcycdjdFHKCbkcDPJpUyTHZNn862e+oKFpgApWeCQnUdNOAKrG+04hWS2rU+BBAz7toaAxDzPX
+	C/0NxiA1auI6bwj0glYBd66bVuCPGF1nUlLdtP1Smtt1MJbXvWrdaGlbpLEjHxQusiOagFUH0hIG3
+	G3bqttQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf3G-00000009Svz-0u4V;
-	Thu, 11 Jun 2026 13:02:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wXf3K-00000009T1h-1kvq;
+	Thu, 11 Jun 2026 13:02:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf3F-00000009Suf-2C8u
+	id 1wXf3J-00000009T07-2yCj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:02:29 +0000
+	Thu, 11 Jun 2026 13:02:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 09BE74026D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C8E960103;
+	Thu, 11 Jun 2026 13:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6086E1F00899;
 	Thu, 11 Jun 2026 13:02:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DF1D1F00898;
-	Thu, 11 Jun 2026 13:02:25 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -50,9 +50,9 @@ Cc: arm-scmi@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC 1/9] firmware: arm_scmi: Replace scmi_power_proto_ops.name_get() by .info_get()
-Date: Thu, 11 Jun 2026 15:02:05 +0200
-Message-ID: <4957c0d80d2d30ee21a0f6dd596015f57965340d.1781171705.git.geert+renesas@glider.be>
+Subject: [PATCH/RFC 2/9] firmware: arm_scmi: Advertize always-on power domains
+Date: Thu, 11 Jun 2026 15:02:06 +0200
+Message-ID: <1cbd6383dfef1eb397b52a4ff557f66b2064798d.1781171705.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1781171705.git.geert+renesas@glider.be>
 References: <cover.1781171705.git.geert+renesas@glider.be>
@@ -72,140 +72,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI power domain protocol operations structure does not provide a
-.info_get() method, unlike most other protocols.  Instead, it provides
-a .name_get() method.
+A power domains indicates in its attribute flags if it supports setting
+its power state synchronously and/or asynchronously.  If none of them is
+supported, it must be an always-on power domain.
 
-Replace the .name_get() method by the .info_get() method, to increase
-uniformity, and to prepare for returning more information.
+Make this information available to SCMI protocol drivers, so they can
+make use of it.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/firmware/arm_scmi/power.c     | 17 ++++++++---------
- drivers/pmdomain/arm/scmi_pm_domain.c |  9 ++++++++-
- include/linux/scmi_protocol.h         | 10 +++++++---
- 3 files changed, 23 insertions(+), 13 deletions(-)
+ drivers/firmware/arm_scmi/power.c | 4 ++++
+ include/linux/scmi_protocol.h     | 1 +
+ 2 files changed, 5 insertions(+)
 
 diff --git a/drivers/firmware/arm_scmi/power.c b/drivers/firmware/arm_scmi/power.c
-index 28ef63a4ecc2e1df..a00f7c298efb74f9 100644
+index a00f7c298efb74f9..11ca8c9965110b5a 100644
 --- a/drivers/firmware/arm_scmi/power.c
 +++ b/drivers/firmware/arm_scmi/power.c
-@@ -63,7 +63,7 @@ struct power_dom_info {
- 	bool state_set_sync;
- 	bool state_set_async;
- 	bool state_set_notify;
--	char name[SCMI_MAX_STR_SIZE];
-+	struct scmi_power_domain_info info;
- };
+@@ -8,6 +8,7 @@
+ #define pr_fmt(fmt) "SCMI Notifications POWER - " fmt
  
- struct scmi_power_info {
-@@ -132,7 +132,7 @@ scmi_power_domain_attributes_get(const struct scmi_protocol_handle *ph,
- 				SUPPORTS_STATE_SET_NOTIFY(flags);
- 		dom_info->state_set_async = SUPPORTS_STATE_SET_ASYNC(flags);
- 		dom_info->state_set_sync = SUPPORTS_STATE_SET_SYNC(flags);
--		strscpy(dom_info->name, attr->name, SCMI_SHORT_NAME_MAX_SIZE);
-+		strscpy(dom_info->info.name, attr->name, SCMI_SHORT_NAME_MAX_SIZE);
- 	}
- 	ph->xops->xfer_put(ph, t);
+ #include <linux/module.h>
++#include <linux/pm_domain.h>
+ #include <linux/scmi_protocol.h>
  
-@@ -143,7 +143,7 @@ scmi_power_domain_attributes_get(const struct scmi_protocol_handle *ph,
- 	if (!ret && PROTOCOL_REV_MAJOR(ph->version) >= 0x3 &&
- 	    SUPPORTS_EXTENDED_NAMES(flags)) {
- 		ph->hops->extended_name_get(ph, POWER_DOMAIN_NAME_GET,
--					    domain, NULL, dom_info->name,
-+					    domain, NULL, dom_info->info.name,
+ #include "protocols.h"
+@@ -147,6 +148,9 @@ scmi_power_domain_attributes_get(const struct scmi_protocol_handle *ph,
  					    SCMI_MAX_STR_SIZE);
  	}
  
-@@ -199,23 +199,22 @@ static int scmi_power_num_domains_get(const struct scmi_protocol_handle *ph)
- 	return pi->num_domains;
- }
- 
--static const char *
--scmi_power_name_get(const struct scmi_protocol_handle *ph,
--		    u32 domain)
-+static const struct scmi_power_domain_info *
-+scmi_power_info_get(const struct scmi_protocol_handle *ph, u32 domain)
- {
- 	struct scmi_power_info *pi = ph->get_priv(ph);
- 	struct power_dom_info *dom;
- 
- 	if (domain >= pi->num_domains)
--		return "unknown";
-+		return NULL;
- 
- 	dom = pi->dom_info + domain;
--	return dom->name;
-+	return &dom->info;
- }
- 
- static const struct scmi_power_proto_ops power_proto_ops = {
- 	.num_domains_get = scmi_power_num_domains_get,
--	.name_get = scmi_power_name_get,
-+	.info_get = scmi_power_info_get,
- 	.state_set = scmi_power_state_set,
- 	.state_get = scmi_power_state_get,
- };
-diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
-index 3d73aef21d2f9942..965592e828741b11 100644
---- a/drivers/pmdomain/arm/scmi_pm_domain.c
-+++ b/drivers/pmdomain/arm/scmi_pm_domain.c
-@@ -76,8 +76,15 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
- 		return -ENOMEM;
- 
- 	for (i = 0; i < num_domains; i++, scmi_pd++) {
-+		const struct scmi_power_domain_info *info;
- 		u32 state;
- 
-+		info = power_ops->info_get(ph, i);
-+		if (!info) {
-+			dev_warn(dev, "failed to get info for domain %d\n", i);
-+			continue;
-+		}
++	if (!ret && !dom_info->state_set_async && !dom_info->state_set_sync)
++		dom_info->info.genpd_flags |= GENPD_FLAG_ALWAYS_ON;
 +
- 		if (power_ops->state_get(ph, i, &state)) {
- 			dev_warn(dev, "failed to get state for domain %d\n", i);
- 			continue;
-@@ -93,7 +100,7 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+ 	return ret;
+ }
  
- 		scmi_pd->domain = i;
- 		scmi_pd->ph = ph;
--		scmi_pd->name = power_ops->name_get(ph, i);
-+		scmi_pd->name = info->name;
- 		scmi_pd->genpd.name = scmi_pd->name;
- 		scmi_pd->genpd.power_off = scmi_pd_power_off;
- 		scmi_pd->genpd.power_on = scmi_pd_power_on;
 diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 5ab73b1ab9aa4fa8..1c17515ba45d1fd4 100644
+index 1c17515ba45d1fd4..1d55374bc8cdcc72 100644
 --- a/include/linux/scmi_protocol.h
 +++ b/include/linux/scmi_protocol.h
-@@ -191,19 +191,23 @@ struct scmi_perf_proto_ops {
- 	enum scmi_power_scale (*power_scale_get)(const struct scmi_protocol_handle *ph);
+@@ -193,6 +193,7 @@ struct scmi_perf_proto_ops {
+ 
+ struct scmi_power_domain_info {
+ 	char name[SCMI_MAX_STR_SIZE];
++	unsigned int genpd_flags;
  };
  
-+struct scmi_power_domain_info {
-+	char name[SCMI_MAX_STR_SIZE];
-+};
-+
  /**
-  * struct scmi_power_proto_ops - represents the various operations provided
-  *	by SCMI Power Protocol
-  *
-  * @num_domains_get: get the count of power domains provided by SCMI
-- * @name_get: gets the name of a power domain
-+ * @info_get: gets the information of the specified power domain
-  * @state_set: sets the power state of a power domain
-  * @state_get: gets the power state of a power domain
-  */
- struct scmi_power_proto_ops {
- 	int (*num_domains_get)(const struct scmi_protocol_handle *ph);
--	const char *(*name_get)(const struct scmi_protocol_handle *ph,
--				u32 domain);
-+	const struct scmi_power_domain_info __must_check *(*info_get)
-+		(const struct scmi_protocol_handle *ph, u32 domain);
- #define SCMI_POWER_STATE_TYPE_SHIFT	30
- #define SCMI_POWER_STATE_ID_MASK	(BIT(28) - 1)
- #define SCMI_POWER_STATE_PARAM(type, id) \
 -- 
 2.43.0
 
