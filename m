@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954E2CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34FCFCD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q3gw9+FA/KmCUq8nsHFXr96ZApqwf6VhGG/m2+WDG88=; b=jQrXXh6hTLR9bT73iqZpGAbsRo
-	MX+KaJ/qxU6voKmuZ/dVfxIs3T8gz3QXt2FHuGFzP1bP0kMPJohn9W0py8NBhfYVfyngWDUVHuQDB
-	Fsnmh6UCf/22otADyBHHPWIieag9xUS0PzB4A3Z73yvomDC8t/UCVQZbGrn+Cgy/wBB/hBXoGaIkC
-	6pAre3c6mRs0xFwxjG/megWF/fyb5Tqbffwj3ZbkcYqEIF93nGJgKZXNVCXkd0iRWvTFzuTPQcpXA
-	5a0Qfm3Sm9Yetl8I5CcwGqD74XuQ8yUA3RbFZ+m99aSrBS96MbDQyVZPvznlUXxIMmW8x0NoWuTiL
-	NHcWcwxQ==;
+	bh=2DB9iKATiyvYk4hxQYhscWmchCYGPN8xroMo1JG8fAw=; b=n3req3S2vBDFmof6Af/wKGZM+H
+	Q6+BnZ+wX1P5dGvEwASb2338kajSXh2WIKFebAg532KyXZBGNqcbH4agoRqO6SBhYUH2wexh3ZZ8d
+	EMo/QCp3VtiA4zzstWotRFmE/RDnkWa2KsIitDgUoYOPCxFs7TX8rSXj+8HHOF3HdG+k9UJIUlKVQ
+	qSF0JtZgyqaC4zPG868ihEU2a4fKOohEvnqsDpt7Nkvm8PTGZEN4JLHFZCzX0w1aM3lam/7gEd/OL
+	72Ph31SDnJc2ncL71LpyKFGgAgnOhyBvloLRKxUMjSl9B34XAJOs6AWmpXMT/z245IlMk2iv2YapN
+	/71uHnfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfC5-00000009V4g-0RmY;
-	Thu, 11 Jun 2026 13:11:37 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wXfM5-00000009Vmi-1KE3;
+	Thu, 11 Jun 2026 13:21:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfC1-00000009V3y-0hjP;
-	Thu, 11 Jun 2026 13:11:35 +0000
-Received: from localhost.localdomain (unknown [117.182.75.76])
-	by APP-05 (Coremail) with SMTP id zQCowABnvhH7sypqjEwWEw--.24501S2;
-	Thu, 11 Jun 2026 21:11:25 +0800 (CST)
-From: WenTao Liang <vulab@iscas.ac.cn>
-To: Thinh.Nguyen@synopsys.com,
-	gregkh@linuxfoundation.org,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com
-Cc: jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	linux-usb@vger.kernel.org,
+	id 1wXfM4-00000009VmX-0Ggz
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 13:21:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B44643A12;
+	Thu, 11 Jun 2026 13:21:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7574F1F00893;
+	Thu, 11 Jun 2026 13:21:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781184115;
+	bh=2DB9iKATiyvYk4hxQYhscWmchCYGPN8xroMo1JG8fAw=;
+	h=From:To:Cc:Subject:Date;
+	b=X0jF4PlgxCc+tMNzB12Xb63SkD5MVtyucDU2/m4jQfotlfaqtiQci1UfdDw8Ekwki
+	 cxHHFu16ELRYkHb/EbrzMLnklfUXdBmL1DoJgAqxRe5FtiA9qGW5VxPFe91QIDKbU6
+	 1ICCC5HZu0cUWgnr5GI6BJVPs+PafdSdcoPiWSA8f/Vgz5kR9tW8NNCUjgHXppfW8u
+	 k/icw5dw289Q6p5UXmqlwYmi3ht2VhzLQJb+49aRjEJ7xxZWT8KZel49R+Djlsufwg
+	 qvLr1ngO4TKkpIRXRNlI2pqT0b1G4ANYntNPU3IFDsJX2Jng3pGV+VmnmaNJRqBuYo
+	 /cTwXhIr1X2Xw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	WenTao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] usb: dwc3: meson-g12a: fix refcount leak in dwc3_meson_g12a_resume()
-Date: Thu, 11 Jun 2026 21:11:21 +0800
-Message-ID: <20260611131121.81784-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: static_call: include asm/insns.h
+Date: Thu, 11 Jun 2026 15:21:44 +0200
+Message-Id: <20260611132149.40873-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABnvhH7sypqjEwWEw--.24501S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFW8KrWDtr45GF4DCFW7Jwb_yoW8Zry7pa
-	1Uu343AF18Ar4ftF4UAF45u3Z3A39FkFW5GFWIkwn3Zw1Syw45Xry7KFyrWFsYkFZ5tFyF
-	kr47W3WrZF4DGaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUQZ2fUUUUU=
-X-Originating-IP: [117.182.75.76]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwkPA2oqhtGFfAABst
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_061133_583006_3C3B973B 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If dwc3_meson_g12a_resume() succeeds in calling
-reset_control_reset(), an internal triggered_count reference is
-acquired. If any later step fails (usb_init, phy_init,
-phy_power_on, regulator_enable, or usb_post_init), the function
-returns the error without rearming the reset control. This leaks
-the reference and leaves the reset control in a triggered state,
-causing future reset_control_reset() calls to incorrectly return
-early as if already reset.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Add an error path that calls reset_control_rearm() to balance
-the reference before returning the error.
+I came a cross a missing declaration in a randconfig build:
 
-Cc: stable@vger.kernel.org
-Fixes: 5b0ba0caaf3a ("usb: dwc3: meson-g12a: refactor usb init")
-Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
+arch/arm64/kernel/static_call.c:16:5: error: call to undeclared function 'aarch64_insn_adrp_get_offset'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   16 |                   aarch64_insn_adrp_get_offset(le32_to_cpup(tramp + 4)) +
+      |                   ^
+
+Include the header that contains this definition explicitly,
+rather than relying on it to come indirectly through another
+header.
+
+Fixes: 54ac9ff8f119 ("arm64: Use static call trampolines when kCFI is enabled")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/usb/dwc3/dwc3-meson-g12a.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ arch/arm64/kernel/static_call.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/usb/dwc3/dwc3-meson-g12a.c b/drivers/usb/dwc3/dwc3-meson-g12a.c
-index 55e144ba8cfc..4d611c08e8a4 100644
---- a/drivers/usb/dwc3/dwc3-meson-g12a.c
-+++ b/drivers/usb/dwc3/dwc3-meson-g12a.c
-@@ -907,35 +907,39 @@ static int __maybe_unused dwc3_meson_g12a_resume(struct device *dev)
+diff --git a/arch/arm64/kernel/static_call.c b/arch/arm64/kernel/static_call.c
+index 8b3a19e10871..c126edced022 100644
+--- a/arch/arm64/kernel/static_call.c
++++ b/arch/arm64/kernel/static_call.c
+@@ -2,6 +2,7 @@
+ #include <linux/static_call.h>
+ #include <linux/memory.h>
+ #include <asm/text-patching.h>
++#include <asm/insn.h>
  
- 	ret = priv->drvdata->usb_init(priv);
- 	if (ret)
--		return ret;
-+		goto err_rearm;
- 
- 	/* Init PHYs */
- 	for (i = 0 ; i < PHY_COUNT ; ++i) {
- 		ret = phy_init(priv->phys[i]);
- 		if (ret)
--			return ret;
-+			goto err_rearm;
- 	}
- 
- 	/* Set PHY Power */
- 	for (i = 0 ; i < PHY_COUNT ; ++i) {
- 		ret = phy_power_on(priv->phys[i]);
- 		if (ret)
--			return ret;
-+			goto err_rearm;
- 	}
- 
- 	if (priv->vbus && priv->otg_phy_mode == PHY_MODE_USB_HOST) {
- 		ret = regulator_enable(priv->vbus);
- 		if (ret)
--			return ret;
-+			goto err_rearm;
- 	}
- 
- 	if (priv->drvdata->usb_post_init) {
- 		ret = priv->drvdata->usb_post_init(priv);
- 		if (ret)
--			return ret;
-+			goto err_rearm;
- 	}
- 
- 	return 0;
-+
-+err_rearm:
-+	reset_control_rearm(priv->reset);
-+	return ret;
- }
- 
- static const struct dev_pm_ops dwc3_meson_g12a_dev_pm_ops = {
+ void arch_static_call_transform(void *site, void *tramp, void *func, bool tail)
+ {
 -- 
-2.50.1 (Apple Git-155)
+2.39.5
 
 
