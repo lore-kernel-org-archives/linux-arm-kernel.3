@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E280CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 781DFCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 16:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=vzZhenHbPwepLaH1jkQZbPxGq+tZ5ZGXbuy3+e6Nifc=; b=FxeDajRrvH+NFI
-	/33wkLpEYgHnAGeeVSVOSgbC0ZGZP1lVMy5yxixXZIxp+W7AH5Haw5e+0ytVD81YomDoefcBuzQyt
-	doizJU4Rv4/kMaRC1XRrr1rn3hfQLnH1phVn0Z5nYJaVXR7krVMtvBNB6MGEkLAMb5Cfx7M329taD
-	HWned3VVei0cAzyPZU2PH1uK/ROMToH60jsFfkP4yzXWUYWCOSDhPPEs+Q+GHA/dBA47BJc3r+WQs
-	uych/bny9Yfvj/w4Gwv6RwSr3bjwFkRbrjnxmmzcPdGvs72b4g54P4lTnzFkW1G8kF2eBprj5eaHl
-	qGTiDAOl8FvB98880Dag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=esMWrLBQ2kLwc0esD2rBwWliAAyfi0GLNns5XwAS/C0=; b=QxFsIDJTLr8BLNndrG77iceYT3
+	X/J8ODyCL6uRaZsjf1HWDlm9SC4J7Fyy5Oz5z8nPowmC2xctRwbHKPzuCAcV6RDYj08XC38Z71DDY
+	KYgAehPOU293+jbYu5+lN0lRPptPSfJxzhdvIqzlycDUelrZXc5UBELWpoW1LGb0Kwtqy5bn75Dkz
+	S4QVt0/Vh7VFA3IDvOryEt21M1JqZGROOauwuUHONUwMOM1cRYBqHk+rIbJxrG90hIi9XCqHkXk08
+	+WbLAWSOjaV3xO/SIogjOIU8TaSF2T7h693hfsce7kw+429gd8Cg8IBsrGCOlAznLoFEywKJ1nJ1v
+	Fnm9ER9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXi5c-00000009kHS-2H5r;
-	Thu, 11 Jun 2026 16:17:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wXiBL-00000009krI-25Z7;
+	Thu, 11 Jun 2026 16:23:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXi5c-00000009kHH-0jNL
+	id 1wXiBJ-00000009kr6-3LO2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 16:17:08 +0000
+	Thu, 11 Jun 2026 16:23:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C410601DF;
-	Thu, 11 Jun 2026 16:17:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21BCE1F00893;
-	Thu, 11 Jun 2026 16:17:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C0F041E5F;
+	Thu, 11 Jun 2026 16:23:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F2501F00893;
+	Thu, 11 Jun 2026 16:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781194627;
-	bh=vzZhenHbPwepLaH1jkQZbPxGq+tZ5ZGXbuy3+e6Nifc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=OVWTFu/TSFSg3ELJDdAbFWDbM3Hi3TSeZBAet0Vz8UDsfS2ektb+YAEPPbmblPwgl
-	 DaP6LK0Jv5gePb7DFx5uE/iMovoFan/dVPOtRNqvPnWnb4hckPobwj3ThuIBecXtYx
-	 bNnuTlAH4OOh9zIN6Ialc5WjVVg7BJL0Jn8lSGXGEHXpP1OERyuyzKIgr7iC390ULw
-	 WRe1d5T+9TM0no5xmVJ6ZUr1Ca7M9yIrZJYdK3i9oz31MF3AHvm9rPEZ0XEfDMR6Rr
-	 E+0SA/LOnuK7tXPVC7zNwXlNElGaWfL6wuK84JCGkOO3Iko/rt05q8ToLPQMx0vO4g
-	 f/f1k/l3o+f6g==
-Date: Thu, 11 Jun 2026 11:17:05 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-pci@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, linusw@kernel.org,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"moderated list:PCI DRIVER FOR MVEBU (Marvell Armada 370 and Ar...),linusw@kernel.org" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCHv2] PCI: mvebu: Use fixed-width interrupt masks
-Message-ID: <20260611161705.GA486072@bhelgaas>
+	s=k20260515; t=1781194981;
+	bh=esMWrLBQ2kLwc0esD2rBwWliAAyfi0GLNns5XwAS/C0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=gSY6S5VIqgcXK+cyZKCJ2S+mn5vwvnvQxEmkOhBEQavO24PmXZ3P6lBOcrb59vv1e
+	 6vPH5EuDfhB3iPnIs1BLue2lac5EPyhXVBE1zLYgF5NAv4kiDmMIHQos2Wwhod9kOl
+	 RM1M+Qi/si4V/5T/W07bg5845iJ+pBsY99Tk9SgLjfCNAd+27kpgqT9i/LehK0UcAU
+	 aVnRn5KqplWo4GMP3ylC6QKodq6K5FLRdHd9MVuWF4JZe2Ll5rWdLR/K/tRFGxizum
+	 cHp6KtgvxsU9PBJmESZKJKpV3ieJ9z9e0r7xpm3K24DehiZak4QLLAaw4pyRHWwdN+
+	 SFZ39mvxpvgXA==
+Date: Thu, 11 Jun 2026 17:22:52 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Jaeyoung Chung <jjy600901@snu.ac.kr>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Vladimir Zapolskiy
+ <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Sangyun Kim <sangyun.kim@snu.ac.kr>,
+ Kyungwook Boo <bookyungwook@gmail.com>
+Subject: Re: iio: adc: KASAN wild-memory-access in complete() on early IRQ
+Message-ID: <20260611172252.02256652@jic23-huawei>
+In-Reply-To: <20260610115700.774689-1-jjy600901@snu.ac.kr>
+References: <20260610115700.774689-1-jjy600901@snu.ac.kr>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260526044016.1025613-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +73,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 09:40:16PM -0700, Rosen Penev wrote:
-> Use u32-typed BIT and GENMASK helpers for PCIe interrupt register
-> masks.  This keeps inverted masks in the same width as the registers
-> and avoids truncation warnings on 64-bit compile-test builds.
-> 
-> Fixes this and similar warnings:
-> 
-> drivers/pci/controller/pci-mvebu.c:316:21: error: implicit conversion from
-> 'unsigned long' to 'u32' (aka 'unsigned int') changes value from
-> 18446744069414584320 to 0 [-Werror,-Wconstant-conversion]
->   316 |         mvebu_writel(port, ~PCIE_INT_ALL_MASK, PCIE_INT_UNMASK_OFF);
-> 
-> Assisted-by: Codex:GPT-5.5
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  v2: remove sys_to_pcie change
->  drivers/pci/controller/pci-mvebu.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
-> index e568528bad85..f5a3f7370552 100644
-> --- a/drivers/pci/controller/pci-mvebu.c
-> +++ b/drivers/pci/controller/pci-mvebu.c
-> @@ -57,9 +57,9 @@
->  #define PCIE_CONF_DATA_OFF	0x18fc
->  #define PCIE_INT_CAUSE_OFF	0x1900
->  #define PCIE_INT_UNMASK_OFF	0x1910
-> -#define  PCIE_INT_INTX(i)		BIT(24+i)
-> -#define  PCIE_INT_PM_PME		BIT(28)
-> -#define  PCIE_INT_ALL_MASK		GENMASK(31, 0)
-> +#define  PCIE_INT_INTX(i)		BIT_U32(24 + (i))
-> +#define  PCIE_INT_PM_PME		BIT_U32(28)
-> +#define  PCIE_INT_ALL_MASK		GENMASK_U32(31, 0)
+On Wed, 10 Jun 2026 20:57:00 +0900
+Jaeyoung Chung <jjy600901@snu.ac.kr> wrote:
 
-This looks like something that could be an issue in dozens of drivers.
-Is it?  If so, I'd prefer to fix them all at once in a single patch
-instead of a slow trickle.
+> Hi,
+> 
+> lpc32xx_adc_probe() in drivers/iio/adc/lpc32xx_adc.c and
+> spear_adc_probe() in drivers/iio/adc/spear_adc.c register their
+> interrupt handler with devm_request_irq() before they initialize
+> st->completion with init_completion(). If an interrupt arrives after
+> devm_request_irq() and before init_completion(), the handler calls
+> complete() on an uninitialized completion, causing a kernel panic.
+> 
+> The probe path, in lpc32xx_adc_probe():
+> 
+>     iodev = devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzalloc-zeroed */
+>     ...
+>     retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
+>                               LPC32XXAD_NAME, st);           /* register handler */
+>     ...
+>     init_completion(&st->completion);                       /* initialize completion */
+> 
+> spear_adc_probe() has the same ordering: devm_request_irq() for
+> spear_adc_isr() before init_completion(&st->completion).
+> 
+> Both interrupt handlers, lpc32xx_adc_isr() and spear_adc_isr(), call
+> complete():
+> 
+>     complete(&st->completion);
+> 
+> If the device raises an interrupt before init_completion() runs,
+> complete() acquires the uninitialized wait.lock and walks the zeroed
+> task_list in swake_up_locked(). The zeroed task_list makes list_empty()
+> return false, so swake_up_locked() dereferences a NULL list entry,
+> triggering a KASAN wild-memory-access.
+> 
+> Suggested fix: move init_completion(&st->completion) above
+> devm_request_irq(), so the completion is valid before the handler can run.
+> 
+> Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
+> Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
+
+Hi I think the report is valid, but I'm curious to whether you ran these
+drivers given the hardware is pretty obscure!  If not how did KASAN detect
+anything (unless there is a static analysis version I'm not aware of)
+
+Given age of drivers and that this only occurs if a spurious IRQ turns
+up I'm not going to rush to fix this.  However, I'd certainly welcome
+patches.
+
+Thanks,
+
+Jonathan
+
+
+> 
+> Thanks,
+> Jaeyoung Chung
+
 
