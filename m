@@ -4,132 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2A2CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 19:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6174ACD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 19:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4MUnE4qFC4d+DmJlHjnQ2FdW7UYxcoYvMsyKRZt3AM=; b=2k/d6lUCZkUBQoRZuzVeaIf1wN
-	q26DSxQh2UWzKrWr8xGop7oocyOgfpHPs6Z8eyH7Wgumz2KuVk9e4BYhKxcyY7u2fEKhBM8n3ldkw
-	ZvApVP54/jcLHkGkH7dXfzF5PKfcF7IwKJvuWPaQRi9lIcDpSYq5JRd+y+HzAr8zh/8FcdVnkTX3Y
-	YDmPdtQdh2qa2tCFzIk/NGj8Evl0bkJ8pr2/L2IX9pQ3AG1s626usITJ4J5XvIejG+lf+swH3Uh9c
-	26SwN0g9EQ4R9R3VBEgoZTOnop54p9Qwj4Gwsz9WEchp5xhcQCXpm8NuvIzZiN8exOIzLkC8ZwpX0
-	BiOWPiIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rgKjrl2kBco33Z51Ec7gTlmK5v4gJb9LV8M2yodlQLk=; b=nM/4iOARCrPRgtqroMyd9i2s+n
+	RQiGhNtd9pvFo2PrxIXAMJnuiTnO/NVbbReisB0IzSL+ilNZOKp8Qy57p0QXX4OxkPeoUb0ggON7p
+	QwO6y/ymdo4p+73btkjOgO6weZy2g3zzgJEeJNF3Orwf1KDaw2vVttmBZfHgYmwNqeSSmI1f1PYrt
+	jjM3sQ7Y/3n3cOU79mO5WpDHeJbBNUSed+jYeUOO3/5EZotGbPRGzTGIRWAAd2uollLSXR5zVDVD6
+	JQj1HquNHk5GvCpRFsEzG5cwBFfnNKgztI74XLjkWIMeIe7LHDuO9iP9uFXHyd8IKBoUBEZ+soG+1
+	DOk1olMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlGe-00000009xR7-42pk;
-	Thu, 11 Jun 2026 19:40:44 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wXlHZ-00000009y0t-25wj;
+	Thu, 11 Jun 2026 19:41:41 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXlGX-00000009xEn-4AnG;
-	Thu, 11 Jun 2026 19:40:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e42C01NsGLtydoIA4uIZdWfDgrky8U1XKWkE5rPZdzVT3uoJJ+2pQwczn5Djv2Z2qV2QUAlJKTVg5fHXQNEVNRlIvFPDqqDAS+UOuULtfzj/t6QLzjsMUqtVmbsAWEfGOMHml9bBD54Odgc16aA0VbX2lvq68y3tAWKC4V5cmK6HDPsolwORsvfG1wpIeUPbVpL5Xp2r0QZ0juexzv7q1CAKvmhZo1cXGOfV12r2s5d17z4TBwi+Ckr45wqT+QkLw6Tow5LJfmG/dK4CW6WsncwXZflUvhvNsPWJDTdgDMHVwkfi3XLZcd+ur6fxVfNcCL5Kpo/t8IdMrpHDxrr9+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C4MUnE4qFC4d+DmJlHjnQ2FdW7UYxcoYvMsyKRZt3AM=;
- b=wqmKj4ehIMBQ9NuWRWMkqURXAB2MqbV6kh05x4+ia7FTlgMM8w+M8hYMDqIIQTlzOZcgAHNLgpsH7e6i5+hxuyjNRm8JmxU0q2Yw7U6FfmYsJm6GedCjmeVtM9pY5dJhE0LqfkkxUae9qw9bVFd0j+red/7yDQxw6Y+ZJIpbMn/wH4oLml6lHQ7Tdanu3gYRjUMM+BdPcOLiqweC2fcz2Txi1QpSORVvFRV9Id3Jfq4+jPJZq6Vx59fXyqx1GlgWjm4jLMq24/y6089Xp41MlymFmfDEszJKMLmNLmtg7cCRajP5jma9Q4nUY3HDlEfzznHo0JrQvFJpoQop26NHBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C4MUnE4qFC4d+DmJlHjnQ2FdW7UYxcoYvMsyKRZt3AM=;
- b=oEuJjLsf2Q04EDI8bXjObq0MspuS4/I/SF+qA58ZNOhQqxDiKLMEKl/U+4LrinpZtSmFnnYUq5ofCANsveYhNj/pzNLscmQybwug5rbTb2pUsPzuP8TwBew68lKl5my2KnIwra02Q03ElgBEd9/O5Na1hwPJ3xRohlXNpYgIXX6selw/OZyNzd02I7wqLmpUj0Vo/uULn0EM3E1efuD+5S5K6+Mfm/S7iBYwEzR0nWE/NQ8YUcLEbjuH1WDJafaDVbT0AOUbtVYWju2yYGmwlq81sAeHgrabmylL0P1acvoKH4im0ufcxDfaSpfIJKz7RzZ3cNQQX5yWVjKO4gbqIQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
- by GVXPR04MB11017.eurprd04.prod.outlook.com (2603:10a6:150:21c::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.18; Thu, 11 Jun
- 2026 19:40:33 +0000
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023%5]) with mapi id 15.21.0113.011; Thu, 11 Jun 2026
- 19:40:33 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: linux-phy@lists.infradead.org
-Cc: devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tanjeff Moos <tanjeff.moos@westermo.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 phy-next 8/8] phy: lynx-10g: use RCW override procedure for dynamic protocol change
-Date: Thu, 11 Jun 2026 22:39:40 +0300
-Message-Id: <20260611193940.44416-9-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260611193940.44416-1-vladimir.oltean@nxp.com>
-References: <20260611193940.44416-1-vladimir.oltean@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM8P191CA0014.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:21a::19) To AM0PR04MB6900.eurprd04.prod.outlook.com
- (2603:10a6:208:17d::10)
+	id 1wXlHX-00000009y00-2IQ8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 19:41:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781206900; x=1812742900;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9HYVqEkTBk+W9sTm/UsyiNOHZTc2Vs3uZL+vLA75+gk=;
+  b=k4n6ABrCqPRIAwrsV76bu4CWp8zUatoM5KM5xG6ZbK5/DMmO2LKtSsgb
+   gT3r04353VyOJ4WPCcM268mOnBp44LFnl7a3epBHk0/DMyhypiK7gOcje
+   YEq0y58vTJ2IlzauwdfbJ77IbKKuYQamSgZV5U3J6IJp50kdWXk5Yc8gT
+   vJ8Na46BZAHYJ5jfDSkBYbxKlWojqrSoeKvbE9VxQCzdfHn+e7E4bn4YO
+   qrL+Vz8voshBqvZByRmRP94WYViLTL+mKxQlzhMKCnTZgc8nSEfTYEfPG
+   VLOGirObUHK1hER92hBcxitZMU3HwP/3XE58LGYwzZTR1/6gREukFEYR6
+   w==;
+X-CSE-ConnectionGUID: rpwRm1XMTvGN4EkX8PSQ9g==
+X-CSE-MsgGUID: Y0ZDAhqpSkWxvF80hMZuDw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11813"; a="93520586"
+X-IronPort-AV: E=Sophos;i="6.24,199,1774335600"; 
+   d="scan'208";a="93520586"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2026 12:41:39 -0700
+X-CSE-ConnectionGUID: NZmom4I3TMqhdskBrcAdgg==
+X-CSE-MsgGUID: IFxkRuRCTBy47PiDh/soDw==
+X-ExtLoop1: 1
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.123])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2026 12:41:35 -0700
+Date: Thu, 11 Jun 2026 22:41:33 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>,
+	Prasad Bolisetty <pbolisetty@axiado.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] iio: adc: add Axiado SARADC driver
+Message-ID: <aisPbXOB6cofF4_r@ashevche-desk.local>
+References: <20260611-axiado-ax3000-ax3005-saradc-v2-0-913c9de7c64c@axiado.com>
+ <20260611-axiado-ax3000-ax3005-saradc-v2-2-913c9de7c64c@axiado.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|GVXPR04MB11017:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9711df4a-017d-436f-6409-08dec7f14d46
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|19092799006|366016|7416014|23010399003|1800799024|18002099003|6133799003|22082099003|11063799006|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: x8jXjepjHha+NsRfF9z4haP7OlDf2T9316ItCSeB1oTcc8ZnGxEGL9VfCZdMtOgyatVTYRdE4FDjBmfkDOK0+GbegIFzaOhc1qxbJpsuSBgtdcH+G33C4Z/YIp0NQyYlu6wmkiH6idCd9IEp74Nt1WDvjXsI7zSvkuHgy4PncA3t0KcKrG/fr2TngAp036yB0C5nXxUiVhUdqWrE78+i9BJ+vLwCDAC6jbYhWuXbsYjOHC0hMbl0Eixu5mmInP1UgWKAQ6MvuLd5wQ039bHflhT9ECvH1gCyXTtpjKmdKZu9Zhfyw748dwMvCoS9FtL4TiP3uV+/wEWSZ1Rr6aTTtNQjaZa3nbyp7mwciwIz2BZGnpo+FCRms1dlF9jdzrtaqw1CtDUV3dGLPwgqPZMU+iFRCQJ20N6MQFOZbxUN8syckXgd+wuhXpW0aLAmN2ZvB9jrNELjQbcbSELJ9KafgfXzptmrEZmpTXb9WnXaWhUgr0bzeVrVKl5eFJ50tjPnBNdY5o9mhdlsa0FyWS7jOvrbjsFKP+UMjcMMVL6ZC4Cas9Bq+Qkpm7uOVFZw0A5hXv//wq0odt8XkJVF/E5kn5wMfmOiMZYO0ES7GIkjLTBaMjsMGJV6Iq+N+/ZK/Luk9O0o0Pm/k1xdaapEl95Mp1SHULGZGtjikIDp+JojH+oAOs77Ob1vnUUBpUQ6wlImuc7NP/kSmq+SAYdZ+jgnRg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(19092799006)(366016)(7416014)(23010399003)(1800799024)(18002099003)(6133799003)(22082099003)(11063799006)(56012099006)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aY0kbN248GYvjlMwsIn4P1ZJRvhN+gGMxn1IFjDs0U4+arni2KKLN7RsXNYU?=
- =?us-ascii?Q?aV/H+Q6GFgP7oQ47xnEQfr0xJW0Now7C8EDqgOfBDe3A5JTfHu5G1ujkGyq5?=
- =?us-ascii?Q?owca3JY4IYUw8ZJWdXQwzEj8M5LWR7JXhnSeREUhZh9r/xTxQv9CYduAy0Y+?=
- =?us-ascii?Q?sgxf37wx2m3/GtwlZ/XzKnSpTO5EjR+apvheJCvZkdy/iULRp3SeM291pNfR?=
- =?us-ascii?Q?JfCuQh+f8MAk0gAEyK+h/8RZi59zKpr1JycisNqeiIHZqeIK02sKY8/y5tEl?=
- =?us-ascii?Q?sPB3v8q5Nx9TcUBFJ2iH78/uIDS19EMA/uTu0Tigc9XgYuGe74iOTv2kz3gU?=
- =?us-ascii?Q?V6NNGVXfMR2VFkZg7v03frQi5FzWmKOsFqq+4qOCfatmJt21cZz1o4mXafmq?=
- =?us-ascii?Q?2BZKA12YMQBlaypMpxgPD6WD8faZ5NOZ42OjCXs0cJV2YKxff9p+Enxger1F?=
- =?us-ascii?Q?gN9T290zdvqCRDHy7+7phgs3YbQsVlFcwN+SmWtxhk/Ysp4YqNARsiboCnxc?=
- =?us-ascii?Q?ogtDccNC/ZNWXduAV+Xz2C7YDLqS9ELHiHpKSYRdfMS38I6Rvd3DuovEhABR?=
- =?us-ascii?Q?JG4F8/eLlYQy3uoE6E3DNQOcG7ZByDvxE8DDwNmfLyhm2TpEHuxiOcLgYLst?=
- =?us-ascii?Q?1qbmSl2UaKawbbauug/4U3oYq0OpmXAakFjElSvnL4B579Rc4vzkdJPxL87o?=
- =?us-ascii?Q?hNRfoa2ns+IENvdO317CXbPzkDNaeiPjlEQMxH3KJ3dqAtHg/63BBIRzfRJa?=
- =?us-ascii?Q?6u5dw4c7/U5MoJROB2h3V8ziDbQ0nzFizQQQhovwEZ938nAuXTiFtLu6IBv/?=
- =?us-ascii?Q?hZ3yErSKO9olzCnoGVIIIeJkXmUsj47VIn1h65OfRwwY0y2WbzkUUo01328b?=
- =?us-ascii?Q?d8ANkbm8i7RWT7TonXAvdHCMuX3oHzu9yMQ/1+IfEefjwlZvAlAhjqTIW1b3?=
- =?us-ascii?Q?/mN6k69MqLZEp6KDfmkllashFKzqQtXVtvx62uGScoN7rQpQzdM6K7oiIBsR?=
- =?us-ascii?Q?vuBTXGP4ygGCqoWfLqVQOKOPp6jXEzGSt4LKEEBoq3QdxghXxL6kntdly08e?=
- =?us-ascii?Q?S0hdCqmZOyxQuu+0N/aXUBqaDLer41CO00zrIlGToQqA56psSygAkVRHKwGd?=
- =?us-ascii?Q?Qo8WX1IdYJFMDD+bD1pEcnzoOslTjJxoSQ0XfJ3OalOmH0ZsS1EX8KdQVuFm?=
- =?us-ascii?Q?99YOIPXwC+iZ6jGoONtbxgFfAokE9nfi26mUAWT9t9KJo2Opkybr5XyGKTKU?=
- =?us-ascii?Q?DsQ8UFm5FpZnO11oC/AXyCdvDS1139CXkctvAa3t6aWt57kFGoqO96OysVC8?=
- =?us-ascii?Q?Z1QAS+0T16hAOdx7gANzDRUJEiqLaFp78Q1/0/icanQ70tY2XrYqQ4GEv97M?=
- =?us-ascii?Q?hhp/kx7wO69qI/ScKK6IoABu2zS5iReNdKgqGJ34vQRK2zsP+u4hnw5/gjFM?=
- =?us-ascii?Q?lyu704Y48ZuCv/POx+6n+xp3pSVlKxTErTrFUyTWdcBMct7yWqqMacFUfSEJ?=
- =?us-ascii?Q?4BiMzDG4jC81uMDXORGC/U/SEd3jkCldReyFA0bI3v5fY1cY2JSptf81zN7E?=
- =?us-ascii?Q?Ag2/A9IM0TxYt7goFuWxuGfYSmIVJa5xR4y0u8PGsllB5Q2h/ZJG9SU1AJeA?=
- =?us-ascii?Q?T2o7XdhLLYHktCX/pjMgPocKDk0MnynNz4q4WNENBLWV8d5pVLFCkO51tl6B?=
- =?us-ascii?Q?wkNA1siLblyzOv85Z0Shj2EGAgXUzW8gh6ZvJantt837KemAs4jKkn2i2/kT?=
- =?us-ascii?Q?nwPuSWJCnxIYtFozmyXWIHxPi4R4hNVmFmUwSstpmr14DxetWSAo?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9711df4a-017d-436f-6409-08dec7f14d46
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2026 19:40:33.2116
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: H4BgKjDUeJFz67P2PaE2HP0XbKaoUIVAPTh15kwTRDBxV1/MO2aPskQ9ydFq2H9+OBCqGZNYYYMRGbZp+VAVdA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11017
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260611-axiado-ax3000-ax3005-saradc-v2-2-913c9de7c64c@axiado.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_124038_057843_250C2E77 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20260611_124139_629717_BA55E7A2 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,116 +92,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Up until this patch, the only protocol change supported was between
-1000Base-X/SGMII and 2500Base-X. The others require an RCW override
-procedure which was lacking.
+On Thu, Jun 11, 2026 at 02:37:44AM -0700, Petar Stepanovic wrote:
+> Add support for the SARADC controller found on Axiado AX3000 and
+> AX3005 SoCs.
+> 
+> The driver supports single-shot voltage reads through the IIO
+> subsystem. The number of available input channels is selected from
+> the SoC match data, allowing AX3000 and AX3005 variants to use the
+> same driver.
 
-Since now the guts driver provides the means of applying this procedure,
-make use of it and remove any comment which mentioned the limitation.
+Tried to not overlap Jonathan's review.
 
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
- drivers/phy/freescale/Kconfig            |  1 +
- drivers/phy/freescale/phy-fsl-lynx-10g.c | 24 +++++++++++++++---------
- 2 files changed, 16 insertions(+), 9 deletions(-)
+...
 
-diff --git a/drivers/phy/freescale/Kconfig b/drivers/phy/freescale/Kconfig
-index 5bf3864fbe64..d4e189fffbf8 100644
---- a/drivers/phy/freescale/Kconfig
-+++ b/drivers/phy/freescale/Kconfig
-@@ -58,6 +58,7 @@ config PHY_FSL_LYNX_10G
- 	tristate "Freescale Layerscape Lynx 10G SerDes PHY support"
- 	depends on OF
- 	depends on ARCH_LAYERSCAPE || COMPILE_TEST
-+	select FSL_GUTS
- 	select GENERIC_PHY
- 	select PHY_FSL_LYNX_CORE
- 	help
-diff --git a/drivers/phy/freescale/phy-fsl-lynx-10g.c b/drivers/phy/freescale/phy-fsl-lynx-10g.c
-index 38def160ef1a..5ece7889aed7 100644
---- a/drivers/phy/freescale/phy-fsl-lynx-10g.c
-+++ b/drivers/phy/freescale/phy-fsl-lynx-10g.c
-@@ -8,6 +8,7 @@
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/workqueue.h>
-+#include <linux/fsl/guts.h>
- 
- #include "phy-fsl-lynx-core.h"
- 
-@@ -446,6 +447,7 @@ static void lynx_10g_lane_read_configuration(struct lynx_lane *lane)
- 	}
- 
- 	lynx_10g_backup_pccr_val(lane);
-+	fsl_guts_lane_init(priv->info->index, lane->id, lane->mode);
- }
- 
- static int ls1028a_get_pccr(enum lynx_lane_mode lane_mode, int lane,
-@@ -1167,14 +1169,7 @@ static bool lynx_10g_lane_mode_needs_rcw_override(struct lynx_lane *lane,
- 
- 	/* Major protocol changes, which involve changing the PCS connection to
- 	 * the GMII MAC with the one to the XGMII MAC, require an RCW override
--	 * procedure to reconfigure an internal mux, as documented here:
--	 * https://lore.kernel.org/linux-phy/20230810102631.bvozjer3t67r67iy@skbuf/
--	 * This is SoC-specific, and not yet implemented in drivers/soc/fsl/guts.c.
--	 *
--	 * So the supported set of protocols depends on the initial lane mode.
--	 *
--	 * Minor protocol changes (SGMII <-> 1000Base-X <-> 2500Base-X or
--	 * 10GBase-R <-> USXGMII) are supported.
-+	 * procedure to reconfigure an internal mux.
- 	 */
- 	if ((lynx_lane_mode_uses_gmii_mac(curr) &&
- 	     lynx_lane_mode_uses_xgmii_mac(new)) ||
-@@ -1189,6 +1184,7 @@ static int lynx_10g_validate(struct phy *phy, enum phy_mode mode, int submode,
- 			     union phy_configure_opts *opts)
- {
- 	struct lynx_lane *lane = phy_get_drvdata(phy);
-+	struct lynx_priv *priv = lane->priv;
- 	enum lynx_lane_mode lane_mode;
- 	int err;
- 
-@@ -1197,7 +1193,8 @@ static int lynx_10g_validate(struct phy *phy, enum phy_mode mode, int submode,
- 		return err;
- 
- 	if (lynx_10g_lane_mode_needs_rcw_override(lane, lane_mode))
--		return -EINVAL;
-+		return fsl_guts_lane_validate(priv->info->index, lane->id,
-+					      lane_mode);
- 
- 	return 0;
- }
-@@ -1205,6 +1202,7 @@ static int lynx_10g_validate(struct phy *phy, enum phy_mode mode, int submode,
- static int lynx_10g_set_mode(struct phy *phy, enum phy_mode mode, int submode)
- {
- 	struct lynx_lane *lane = phy_get_drvdata(phy);
-+	struct lynx_priv *priv = lane->priv;
- 	bool powered_up = lane->powered_up;
- 	enum lynx_lane_mode lane_mode;
- 	int err;
-@@ -1225,6 +1223,13 @@ static int lynx_10g_set_mode(struct phy *phy, enum phy_mode mode, int submode)
- 	if (powered_up)
- 		lynx_10g_lane_halt(phy);
- 
-+	if (lynx_10g_lane_mode_needs_rcw_override(lane, lane_mode)) {
-+		err = fsl_guts_lane_set_mode(priv->info->index, lane->id,
-+					     lane_mode);
-+		if (err)
-+			goto out;
-+	}
-+
- 	err = lynx_10g_lane_disable_pcvt(lane, lane->mode);
- 	if (err)
- 		goto out;
-@@ -1314,6 +1319,7 @@ static struct platform_driver lynx_10g_driver = {
- };
- module_platform_driver(lynx_10g_driver);
- 
-+MODULE_IMPORT_NS("FSL_GUTS");
- MODULE_IMPORT_NS("PHY_FSL_LYNX");
- MODULE_AUTHOR("Ioana Ciornei <ioana.ciornei@nxp.com>");
- MODULE_AUTHOR("Vladimir Oltean <vladimir.oltean@nxp.com>");
+> +struct axiado_saradc {
+> +	void __iomem *regs;
+> +	struct clk *clk;
+> +	unsigned long clk_rate;
+> +	int vref_uV;
+> +	struct mutex lock; /* Serializes ADC conversions. */
+> +};
+
+Is `pahole` satisfied with the chosen layout?
+
+
+...
+
+> +static int axiado_saradc_read_raw(struct iio_dev *indio_dev,
+> +				  struct iio_chan_spec const *chan, int *val,
+> +				  int *val2, long mask)
+> +{
+> +	struct axiado_saradc *info = iio_priv(indio_dev);
+> +	int ret;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		ret = axiado_saradc_conversion(info, chan, val);
+> +		return ret ? ret : IIO_VAL_INT;
+
+Better to use plain if.
+
+		if (ret)
+			return ret;
+
+		return IIO_VAL_INT;
+
+> +	case IIO_CHAN_INFO_SCALE:
+> +		*val = info->vref_uV / 1000;
+
+1000 --> (MICRO / MILLI) ?
+(yes, with parentheses)
+
+> +		*val2 = AX_RESOLUTION_BITS;
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
