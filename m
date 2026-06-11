@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109F2CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 08:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01179CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 08:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=12+KTZ06Uqp94i6oJnEyBNhkHEeZqx0evy/I36BsGQE=; b=Te/1raOAWpqWdi+AKU9STwBqQZ
-	pFZSFBj+1NwhN4WURxZM2mmXiEMbuQnLEP+LS45BaO5L+DWULVbQ4fIQxwJcAzeLTmYvigSEfGGPH
-	oEmHdBlYEeGr0caKnJDSzorvZl/DBnfivM7qewhdcXkulxss1iI1fUbZaaFCltZIqg6N2QQcSL5UX
-	xt+SOkEZjs88lCAmpDTAjiWGLiDz1etnRMn1qaWZFJq8b7UZJhIp0nbIi6D5hWdLa1KmZq/TObfYw
-	xyfymWIFvg9H54xPX9Q7V3FkOxzJ7mpWDFPrg5ab5u/peGUmRO+vTkzF7LMuqqeF2n5/kci3HCpQ1
-	dTgv0iiQ==;
+	bh=OkjAi29oS1e/XV+4wQ963+R9PRYEa/yC5qynT6OoK0E=; b=JFeivfLN6ktvE2UX49amUv0zpm
+	W4es7EQAcmH0cEiDh5XXo0SsdPo73epHGO/MmCh6KBSv6ZojpFOSAhujRR8T789VWPPIBeoirfobr
+	LQMfKHzHRedePuBcGD+i23b8JD+lQDpfpPyocfBc7lOhxnw0eiw0GDxLGP0blw6ZtThxbuQGrKRl6
+	eFfqTjWrrAh1ywrcJqjh+EUfBiLQOyo9fLWRNlPsXuHFzRopvt/dcYt1gx5UE5FYGeUZHMk++HmQQ
+	ZBGangnSg+aL0X16ogkHK/9MSY8wcFoVZc0MRrczNW+kDxJlUbI9ONsykbHTYN4WKueWpdCQaKhh9
+	zFG0BQPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaOM-00000008xB4-1yoi;
-	Thu, 11 Jun 2026 08:03:58 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wXaTM-00000008xp5-30ap;
+	Thu, 11 Jun 2026 08:09:08 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXaOK-00000008x9y-08TW;
-	Thu, 11 Jun 2026 08:03:57 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8D10F2D9;
-	Thu, 11 Jun 2026 10:03:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1781165000;
-	bh=czql8aelND/+Ra5O5D9pob19dlWQzYGWJBLuF1qHytA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jtIWHwucyaOvLiW7gPAPynuYeKSsxb67jvZXAK8GhrMD4WAD/oQa+56HWWPGFeIR+
-	 dAbAAyQkWiluANP+Y7XKVU3i8nasU3LAwPwz47i6naxqIRT/N8ZW7gJvF8Btm3ohXV
-	 itK7O3LbSddiftYLq8nvIDNnhB6lf8AaxrUM+vQ4=
-Date: Thu, 11 Jun 2026 11:03:48 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Eugen Hristev <ehristev@kernel.org>
-Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
-	Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] media: bcm2835-unicam: Fix log status runtime access
-Message-ID: <20260611080348.GC1758601@killaraus.ideasonboard.com>
-References: <20260611-bcmpipm-v3-1-c609dacb029f@kernel.org>
+	id 1wXaTK-00000008xoA-0aca
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 08:09:07 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <pza@pengutronix.de>)
+	id 1wXaTA-0006jG-EY; Thu, 11 Jun 2026 10:08:56 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <pza@pengutronix.de>)
+	id 1wXaT9-002BK1-1o;
+	Thu, 11 Jun 2026 10:08:55 +0200
+Received: from pza by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <pza@pengutronix.de>)
+	id 1wXaT9-0000000EM0m-1rQQ;
+	Thu, 11 Jun 2026 10:08:55 +0200
+Date: Thu, 11 Jun 2026 10:08:55 +0200
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: WenTao Liang <vulab@iscas.ac.cn>
+Cc: alexandre.belloni@bootlin.com, neil.armstrong@linaro.org,
+	khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, ben.dooks@codethink.co.uk,
+	linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] rtc: meson: fix refcount leak in meson_rtc_get_bus
+Message-ID: <aiptFzFoLzQNMlxS@pengutronix.de>
+References: <20260611035605.59906-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260611-bcmpipm-v3-1-c609dacb029f@kernel.org>
+In-Reply-To: <20260611035605.59906-1-vulab@iscas.ac.cn>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: pza@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_010356_221515_2412B855 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20260611_010906_204391_7B9B2376 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,93 +82,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 08:29:55AM +0300, Eugen Hristev wrote:
-> When requesting log status, the block might be powered off, but registers
-> are being read.
-> Avoid reading the registers if the device is not resumed, thus also avoid
-> powering up the device just for log status.
-> 
-> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
-> ---
-> Changes in v3:
-> - Changed to check return value of pm_runtime_get_if_active() and only call
->   pm_runtime_put() if the device is active.
-> - Link to v2: https://patch.msgid.link/20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org
-> 
-> Changes in v2:
-> - changed to use pm_runtime_get_if_active()
-> - add corresponding put()
-> - Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
-> 
-> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-> To: Mauro Carvalho Chehab <mchehab@kernel.org>
-> To: Florian Fainelli <florian.fainelli@broadcom.com>
-> To: Ray Jui <rjui@broadcom.com>
-> To: Scott Branden <sbranden@broadcom.com>
-> To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-> To: Sakari Ailus <sakari.ailus@linux.intel.com>
-> To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> To: Hans Verkuil <hverkuil@kernel.org>
-> To: Naushir Patuck <naush@raspberrypi.com>
-> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Cc: linux-media@vger.kernel.org
-> Cc: linux-rpi-kernel@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  drivers/media/platform/broadcom/bcm2835-unicam.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> index 8d28ba0b59a3..96b51e29bba4 100644
-> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> @@ -2043,6 +2043,7 @@ static int unicam_log_status(struct file *file, void *fh)
->  	struct unicam_node *node = video_drvdata(file);
->  	struct unicam_device *unicam = node->dev;
->  	u32 reg;
-> +	int pm_active;
->  
->  	/* status for sub devices */
->  	v4l2_device_call_all(&unicam->v4l2_dev, 0, core, log_status);
-> @@ -2052,6 +2053,14 @@ static int unicam_log_status(struct file *file, void *fh)
->  		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
->  	dev_info(unicam->dev, "V4L2 format:         %08x\n",
->  		 node->fmt.fmt.pix.pixelformat);
-> +
-> +	pm_active = pm_runtime_get_if_active(unicam->dev);
-> +	if (!pm_active) {
-> +		dev_info(unicam->dev,
-> +			 "Live data N/A due to device inactive\n");
-> +		return 0;
-> +	}
-> +
->  	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
->  	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
->  		 unicam_get_field(reg, UNICAM_PUM_MASK),
-> @@ -2065,6 +2074,9 @@ static int unicam_log_status(struct file *file, void *fh)
->  	dev_info(unicam->dev, "Write pointer:       %08x\n",
->  		 unicam_reg_read(unicam, UNICAM_IBWP));
->  
-> +	if (pm_active == 1)
-> +		pm_runtime_put(unicam->dev);
+On Thu, Jun 11, 2026 at 11:56:05AM +0800, WenTao Liang wrote:
+> In meson_rtc_get_bus(), reset_control_reset() is called to trigger
+> a hardware reset when the serial bus is not ready. The function may
+> retry up to three times, but neither the successful nor the failure
+> path calls reset_control_rearm() to balance the reference count,
+> leaking the triggered_count on shared reset controls.
 
-As far as I understand, the discussion on v2 concluded there was no need
-to test pm_active here. Did I miss anything ?
+Wrong, this driver uses exclusive reset control, which does not do any
+refcounting. Arguably, it should request the reset control via
+devm_regulator_get_exclusive() instead of devm_regulator_get() to
+make this clear.
 
-> +
->  	return 0;
->  }
->  
-> 
-> ---
-> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-> change-id: 20260521-bcmpipm-6c578e73239c
+> Fix this by adding reset_control_rearm() after reset_control_reset()
+> on both the error return path and the success path within the retry
+> loop, ensuring the reset control can be re-triggered on subsequent
+> bus acquisition attempts.
 
--- 
-Regards,
+This doesn't fix anything, reset_control_rearm() does nothing and
+should not be used with exclusive reset controls.
 
-Laurent Pinchart
+regards
+Philipp
 
