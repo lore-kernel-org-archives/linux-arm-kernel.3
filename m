@@ -4,102 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13856CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B915CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=219KhmwH9vSJQBVzznt3qHsEccda/bfcCm5kTcULkl0=; b=Ed2KsvxD4yt39BjgOgCXg3iL83
-	4cZR+CLNf+0GKhlS9x7KS0vL5nEziR0xjxJF5ay+6DmOZMixbYyhZJoWOJsz9dsxMlI9HY/7ihdl1
-	BXMCPbNeXcn/kPt6pndn9CCiwAYA8d81RGAhMik8ENWyfKDG+qutUuycoUsl1qvsoRBywUtkWMW/Z
-	nVH8OhUXYpUCzB2Nhv3I19tWElk6xVAHmkqgdwEe6BbfkTzrFb41/YcmjCYwASzVixZWitM6F9Icp
-	1U/i6OSeeBkhOAtSmXSRDuoqzv8uvs/y5n9//oDlaj1Nb7OaZIyRffSFZp6MStvv/BRIdVQ66cNJV
-	v+oYXgxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6689/69B9guEnN6lKaNQc6LOcGsLEeqwwQs2y9xMkRY=; b=kNYeGEHgteJTrLJydZJy19SzrO
+	etIHS+J+d9AOM7Wn78FlhKxqm09g04xS+owN995981kHrrpwWU5Z/YJh0deAqL9Vp+UDv1kIESWpA
+	4XqCtpMEqR7MXiI1dPyrRPdSqxu0eXgKBH+Z9IpESX4T5nYtz+pzTeL0fp6Eu/uJZgPvw3GCuQxW9
+	tJ/NH3tV0TWdkEz+vNCIHMlw9Hyfns3tw0KQvagHxdJ8Rpbtq0EiDHQ3NvB+bxINJfXSqsFuFBcRt
+	A6H6mF4T3Fap00Qhtsqne0maDxDxvdNTR36sJ49jqfVU5CRrcGx2NuhTA5aHSyojfGKhwQMyOstXp
+	cN4mylMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfVO-00000009WLs-1C0m;
-	Thu, 11 Jun 2026 13:31:34 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1wXfY5-00000009Wcw-2l3o;
+	Thu, 11 Jun 2026 13:34:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfVJ-00000009WLL-0rdi
+	id 1wXfY4-00000009Wco-1U3k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:31:32 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id D31537A0126;
-	Thu, 11 Jun 2026 09:31:27 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Thu, 11 Jun 2026 09:31:28 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1781184687;
-	 x=1781271087; bh=219KhmwH9vSJQBVzznt3qHsEccda/bfcCm5kTcULkl0=; b=
-	PssYklmMgQd/NnegOykes7WiD+c+jK3rBjaDDaJP/DERwZGNjRRwtlcHp8N57RKr
-	vmIMcgBnRxvlvarv270mXZtqRCfGDw3b6hsmA+Wc7GnG5kp5Yc/hVywPw2IAy74e
-	lyXDf7kxzoyx80QgZQdm71OaC55kzXmzHTr52L2CB3Ps1HciFs95N5Vt0UcNN/TN
-	mcdy/5YCSfPQy68XCSBRN5HUIFlflTKxfHBVuo8sgnYCZ4w7HgyGHsCMK7LJuhCa
-	eUUOtI6IbzuOCnqnt6W2bUmphB2JSkR56/8ukmtzB4QaPhEhTtuNG5rslDUTv8Ak
-	zXZdXVsBHJGIXVhYkTyiLg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781184687; x=
-	1781271087; bh=219KhmwH9vSJQBVzznt3qHsEccda/bfcCm5kTcULkl0=; b=C
-	T1UiX+luP1/onOleAgWv7yjEiLS0siasnezAEza95WW4YPytNdDXaKBnz4qb9bVS
-	z7cinPN4gt2gQ51Pa6SBqMy6FCHcYdc+cAmwBeFvPRMI9qXgDVihCntsACGlnrT2
-	0kC9EyhlPU9DTZbI1v32V/CZ8Nl0Xr9tUh73bdp6XdwRAht+sV1FLkL3RgYCxRQ1
-	ri/Z4E4YZ4eSm66OhdmNpkp/GfggZgLSLQbIZvJQ92NA2CNeBHYDFAxgQ0vSBIZq
-	ck1GH1hZiciCZp53yrAgQ1LrtY7t+VtTmYhSS1kZbKGnrUG4ytByP2DLUT9YqWlz
-	fDyGUK+UunpkIUNwXj9tg==
-X-ME-Sender: <xms:r7gqag0bpm5ww4T4HVsdr1TbWgLE5SRfgGoIXQKRPTwZSA02XdPjRQ>
-    <xme:r7gqal4GkmrHtD36sCj56PA4-gdPtkdMGZKwoINR-AlD49Q8fTy6oCad9QBQMHNEB
-    5CC2Qr153-gE1JvnWc02wNPAYXdnJeIbc7vGw-Hzr7a_gS2ZDR1YiM>
-X-ME-Proxy-Cause: dmFkZTEYPqUH0OyBvMlLDpHJgbwSXLSQRB+fH/e8ybYbUTpYWToxjLYyQcEgHUbFh1Itst
-    k1oaJ0vZMj1Koa8RVRsUGgbbmsxoeIikzMQYu24GAbbg+bSzyIDj7KhlGyveNB+3XbBaf+
-    bGX1zT8pAOH5krjE28tdXN/MBAYm4hJ8X7oBRR/c7NJaWCwmcTWXFAN2Nq1zE2AhzTioVc
-    Fbe3kvg905wdMZSZn9Aa45i0Dd7qKvGzjnTUzqOme2F1QTxJEjX3AjhfDMc7g/KJRTeyfF
-    Jpewztda69LMKEvcDiqniX6hxoBhvTAnVmAqL0S4saJWPiA7ROKw6xK3lOo+lmS28t80FU
-    7wPr2i6w1USiY0fGZ3qEZ+ixFLgWOfxum225M09NG77ib+epuzVstK7xnAeNopFkRThc2b
-    RcNSt8wZiyrnTIjZrKmyvgOjX9NgodFH0qGHw2KTtM5IVbbEmZe7hW2Osdc3T88TcKvl+8
-    6Hvpk/fgQtUVdG24zGzhh6Bi10wtdpos5nhEKmuiLGJjWqOWupETIFuJfwGmCtreYCLuuK
-    HuTnjxnEzf7hbWiNQ507mvE0OxwbHhEw0lDU3yjXxp+vvsmobXQ11JdPdLrgTdnRR0qWzU
-    SsxUYZj6kjc6CfXUOfcPhK2V95EN+DJRDs2owabgnGC4RC3LSmMdM469yegg
-X-ME-Proxy: <xmx:r7gqalP7iWbxcYWIDa-10JIZ8EjTgLtM3dSkyrDor0fPdZYLGibJew>
-    <xmx:r7gqaooCwNmbhXeW4Bly6JjDjg_sgnqEnwXyz3DF9rlNhZnGAfV4zw>
-    <xmx:r7gqaifl9YMKpjlDQlmpnLXekeJFMCOccEnebvnSOc_r3ZOsTrLGgQ>
-    <xmx:r7gqamT71H8pbY9om7MsLzSMh_5aBUDLq-YG8i4QsFdlPMCIPc8SYw>
-    <xmx:r7gqar6kd_mA-GCgtKwWlBp_Zt8Tt-_Dnnrbum4Jj1rzq5ouW8d5TE9i>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4E2EF1820082; Thu, 11 Jun 2026 09:31:27 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 11 Jun 2026 13:34:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B41D74033E;
+	Thu, 11 Jun 2026 13:34:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 941681F00893;
+	Thu, 11 Jun 2026 13:34:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781184859;
+	bh=6689/69B9guEnN6lKaNQc6LOcGsLEeqwwQs2y9xMkRY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FH9zIwOlM3rulsEmtitgCVGpcJMCizKjJMC8SfwlTrf9z109JdVTcfGIx2pf5Uh5C
+	 V75kWs4R9bwupjCBZtEWpjb7DUEtA0+feRGxWz5Oj+J657z2AqOjkMuGPitIwTYkoy
+	 TgZItWRyW7UEHuitnoJTox+H8+jakS8lC8XZk2iAYI2KC5qGSq62ZQF6wKoNFSaLU7
+	 d4SvkM4QL4oT9kJikdpnxXUbkmi0+H9bMKZY2BNI95X0ty957Cg6y2TDqOrdR9lUoP
+	 /5SetZc4L3B1qaX5Y5xd7X6M+bS4ejZmH7kXgb+5A0S1xdjJIIELGq9nEMOpR8o5SU
+	 yUUd9RqabIwJQ==
+Date: Thu, 11 Jun 2026 14:34:14 +0100
+From: Will Deacon <will@kernel.org>
+To: Shanker Donthineni <sdonthineni@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
+	Jason Sequeira <jsequeira@nvidia.com>
+Subject: Re: [PATCH v3] arm64: errata: Workaround NVIDIA Olympus device
+ store/load ordering erratum
+Message-ID: <aiq5VigmtZq9GlAm@willie-the-truck>
+References: <20260610164822.4157248-1-sdonthineni@nvidia.com>
 MIME-Version: 1.0
-X-ThreadId: AUV8JOC_Zpjc
-Date: Thu, 11 Jun 2026 15:30:55 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Aleksander Jan Bajkowski" <olek2@wp.pl>,
- "Gregory Clement" <gregory.clement@bootlin.com>, arm <arm@kernel.org>,
- soc@kernel.org
-Cc: "Andrew Lunn" <andrew@lunn.ch>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <8de15abe-8352-41f2-85c6-bdb50eb18e9a@app.fastmail.com>
-In-Reply-To: <956403e3-d47f-498c-9f62-79d39c1cf5db@app.fastmail.com>
-References: <8733z1c8uj.fsf@BLaptop.bootlin.com>
- <bf8092a3-d037-44ee-8e08-8b2204e5cc95@app.fastmail.com>
- <4e690104-b42f-4a2b-ac52-5ebfc82f6853@wp.pl>
- <956403e3-d47f-498c-9f62-79d39c1cf5db@app.fastmail.com>
-Subject: Re: [GIT PULL] ARM: mvebu: dt64 for v7.2 (#1)
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_063129_681347_8BB69B7A 
-X-CRM114-Status: GOOD (  20.56  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260610164822.4157248-1-sdonthineni@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +74,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 9, 2026, at 21:29, Arnd Bergmann wrote:
-> On Tue, Jun 9, 2026, at 19:35, Aleksander Jan Bajkowski wrote:
->> On 09/06/2026 18:11, Arnd Bergmann wrote:
->>> I'm a bit surprised by this oneline change. Since you successfully tested
->>> this, I assume the change is correct, but I have two questions that
->>> I would like to have an answer for before I pull it.
->> By the way, the upstream safexcel driver works correctly only on 
->> coherent
->> platforms. On non-coherent platforms (MediaTek), the SHA-384 and SHA-512
->> selftests fail. Since the selftests pass on Armada's SoC, I assume I'm 
->> right.
->
-> It's not necessarily proof that this is correct, but it is quite likely.
->
-> After checking the datasheet some more and finding that this should
-> indeed be coherent everywhere, I remembered that even the old
-> 32-bit Armada 370 had a coherency manager. At the time, we used a hack
-> in  arch/arm/mach-mvebu/coherency.c to mark all device nodes as coherent,
-> since the original DTB did not contain the correct annotations.
->
-> I suspect that the Armada 37xx started out with a copy of the
-> old DT files and also never had the annotation, but then never
-> had the same hack because arch/arm64 does not have platform
-> specific code.
+On Wed, Jun 10, 2026 at 11:48:22AM -0500, Shanker Donthineni wrote:
+> On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
+> observed by a peripheral before an older, non-overlapping Device-nGnR*
+> store to the same peripheral. This breaks the program-order guarantee
+> that software expects for Device-nGnR* accesses and can leave a
+> peripheral in an incorrect state, as a load is observed before an
+> earlier store takes effect.
+> 
+> The erratum can occur only when all of the following apply:
+> 
+>   - A PE executes a Device-nGnR* store followed by a younger
+>     Device-nGnR* load.
+>   - The store is not a store-release.
+>   - The accesses target the same peripheral and do not overlap in bytes.
+>   - There is at most one intervening Device-nGnR* store in program
+>     order, and there are no intervening Device-nGnR* loads.
+>   - There is no DSB, and no DMB that orders loads, between the store and
+>     the load.
+>   - Specific micro-architectural and timing conditions occur.
+> 
+> Promote the raw MMIO store helpers (__raw_writeb/w/l/q) from plain str*
+> to stlr* (Store-Release), which removes the "store is not a
+> store-release" condition for every device write the kernel issues.
+> Because writel() and writel_relaxed() are both built on __raw_writel()
+> in asm-generic/io.h, patching the raw variants covers both the
+> non-relaxed and relaxed APIs without touching the higher layers. Note
+> that writel()'s own barrier sits before the store, so it does not order
+> the store against a subsequent readl(); the store-release promotion is
+> what provides that ordering.
+> 
+> Like ARM64_ERRATUM_832075 on the load side, the change is gated on a new
+> ARM64_WORKAROUND_DEVICE_STORE_RELEASE capability and only activated on
+> parts that match MIDR_NVIDIA_OLYMPUS, so unaffected CPUs continue to use
+> the plain str* sequence.
+> 
+> Note: stlr* only supports base-register addressing, so affected CPUs use
+> a base-register stlr* path. Unaffected CPUs keep the original
+> offset-addressed str* sequence introduced by commit d044d6ba6f02
+> ("arm64: io: permit offset addressing").
+> 
+> The __const_memcpy_toio_aligned32() and __const_memcpy_toio_aligned64()
+> helpers are left unchanged. These helpers are intended for
+> write-combining mappings, which are Normal-NC on arm64. Replacing their
+> contiguous str* groups would defeat the write-combining behavior used to
+> improve store performance.
+> 
+> Co-developed-by: Vikram Sethi <vsethi@nvidia.com>
+> Signed-off-by: Vikram Sethi <vsethi@nvidia.com>
+> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> ---
+> Changes since v2:
+>   - Reworked the raw MMIO write helpers so unaffected CPUs keep the
+>     existing offset-addressed STR sequence, while affected CPUs use the
+>     base-register STLR path.
+>   - Updated the commit message to match the code changes.
+>   - Rebased on top of the arm64 for-next/errata branch:
+>     https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/errata
+> 
+> Changes since v1:
+>   - Updated the commit message based on feedback from Vladimir Murzin.
+> 
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 23 ++++++++++++++++
+>  arch/arm64/include/asm/io.h                 | 30 +++++++++++++++++++++
+>  arch/arm64/kernel/cpu_errata.c              |  8 ++++++
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  5 files changed, 64 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index ad09bbb10da80..fc45125dc2f80 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -298,6 +298,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| NVIDIA         | Olympus core    | T410-OLY-1027   | NVIDIA_OLYMPUS_1027_ERRATUM |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | Olympus core    | T410-OLY-1029   | ARM64_ERRATUM_4118414       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index c65cef81be86a..d633eb70de1ac 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -564,6 +564,29 @@ config ARM64_ERRATUM_832075
+>  
+>  	  If unsure, say Y.
+>  
+> +config NVIDIA_OLYMPUS_1027_ERRATUM
+> +	bool "NVIDIA Olympus: device store/load ordering erratum"
+> +	default y
+> +	help
+> +	  This option adds an alternative code sequence to work around an
+> +	  NVIDIA Olympus core erratum where a Device-nGnR* store can be
+> +	  observed by a peripheral after a younger Device-nGnR* load to the
+> +	  same peripheral. This breaks the program order that drivers rely
+> +	  on for MMIO and can leave a device in an incorrect state.
+> +
+> +	  The workaround promotes the raw MMIO store helpers
+> +	  (__raw_writeb/w/l/q) to Store-Release (STLR), which restores the
+> +	  required ordering. Because writel() and writel_relaxed() are built
+> +	  on __raw_writel(), both are covered without changes to the higher
+> +	  layers.
+> +
+> +	  The fix is applied through the alternatives framework, so enabling
+> +	  this option does not by itself activate the workaround: it is
+> +	  patched in only when an affected CPU is detected, and is a no-op on
+> +	  unaffected CPUs.
+> +
+> +	  If unsure, say Y.
+> +
+>  config ARM64_ERRATUM_834220
+>  	bool "Cortex-A57: 834220: Stage 2 translation fault might be incorrectly reported in presence of a Stage 1 fault (rare)"
+>  	depends on KVM
+> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+> index 8cbd1e96fd50b..801223e754c90 100644
+> --- a/arch/arm64/include/asm/io.h
+> +++ b/arch/arm64/include/asm/io.h
+> @@ -22,10 +22,22 @@
+>  /*
+>   * Generic IO read/write.  These perform native-endian accesses.
+>   */
+> +static __always_inline bool arm64_needs_device_store_release(void)
+> +{
+> +	return alternative_has_cap_unlikely(
+> +				ARM64_WORKAROUND_DEVICE_STORE_RELEASE);
+> +}
+> +
+>  #define __raw_writeb __raw_writeb
+>  static __always_inline void __raw_writeb(u8 val, volatile void __iomem *addr)
+>  {
+>  	volatile u8 __iomem *ptr = addr;
+> +
+> +	if (arm64_needs_device_store_release()) {
+> +		asm volatile("stlrb %w0, [%1]" : : "rZ" (val), "r" (addr));
+> +		return;
+> +	}
+> +
+>  	asm volatile("strb %w0, %1" : : "rZ" (val), "Qo" (*ptr));
+>  }
 
-After investigating a little more, I think the correct fix here
-will be to mark all DMA masters in this SoC as dma-coherent.
-I thought there was a way to do this for an entire system,
-but I could not find that, so this likely has to be done
-for each DMA master separately.
+Use an 'else' clause instead of the early return? (similarly for the other
+changes).
 
-Not sure who still has the hardware and has time to
-test this properly. Given that the incorrect DT has
-existed for over 10 years now, I assume this is not
-urgent and I will skip the pull request for 7.2.
+I still reckon you should do something with the memcpy-to-io routines.
+A simple option could be to make dgh() a dmb on parts with the erratum?
+That at least moves the barrier out of the loop.
 
-     Arnd
+Will
 
