@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71771CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 23:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D63ECD98D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 23:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q90GA2GQmRWbP6GbJ6HxLOBIp536YnOavZnrFEkMvrs=; b=1C805RTs2VmhpNNXM7H38nEX8F
-	VLubRAf9x92L8DlEZK4aSEIc3+S3RPmfT7AdT7rm8F6bNS6+X8fYVIvdXHPbnDOgpJusR6CSm2X0y
-	Pj5vq9VUGt1f4IvEcqVKIBJPuCgGGSog54Qm/T4jx5BIzyPguK3cEF3G5xO+iUT8R6bfkLEagFb4o
-	7/rwFeLtS7Exg1i9HNCQmTy3W/4Uxu6Ri1907wTJeto/0ruAMN3zno/WF+Y+0IadI4XwxOyiBkyQT
-	lMWzPrxiuxHDSTLIAu7zslePQsD9iPyFEAnVtifem5sYn2AS6KXGK0Fp/2/yowk9evc2Rmlu5Da/e
-	H3Zd3QFQ==;
+	bh=AbsvwshOFA4ni9z4aItmQqYmWT4ZnPE17Dqh52vPQc0=; b=siX6oMj4UxnoEZn0Qol8DLfeER
+	YXwH+k0waCHAAscSE/KWt28M4pAsYKBNxqZDfpl4VCF8ntwgyJqih0iH/rtkkOFrBPCXLVyb93Eey
+	JlcvUOYlokpRqIRQN3DFIiNgJ7lIDNDX/kNVTi9hUnkcD7dAB+PnSbZ3rH+a7Q6JNLN2Z5Mc2MJtr
+	ijb2zLckXTB9D4aV0xp2BcPttY9KWEOBvlYvYbfpH4NLUmKNUaz4PlTCjz7TggLZffo9NhCEBiwQW
+	VjR8sBomIeBCRYIv1OBSsbYq1yQpjoZlMLY/GBnXmUDZAJa7bAYWY3xXoMB36Ot9rdgil1up2TJXq
+	6PJkH+Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXp5s-0000000ABOb-3HXE;
-	Thu, 11 Jun 2026 23:45:52 +0000
+	id 1wXp5v-0000000ABQL-1ZbQ;
+	Thu, 11 Jun 2026 23:45:55 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXp5n-0000000ABJs-3O7P;
+	id 1wXp5n-0000000ABJz-3OBx;
 	Thu, 11 Jun 2026 23:45:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1781221544;
-	bh=FLTlKYBwbpVpaUOCu6nlw+klwM1qmLmhO3wOq+k94VU=;
+	bh=O76zc6hZ3sZD7icHCi6nwGcYj5BUYZJBnFM55uK6B8A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=C4dijLUezV6a7U7+JuezvIAAjPmeDtPDexXNIOPazkG7eGfAKgOSmUUtrWNLOLor8
-	 LFhVVo0gTSpBIfq3WwMByx4+HhOf8Ckxgaas60TpDmxaD5HhovPGN6QS/sN4+D2UD2
-	 +kThvY1B23D2eHgy+QkcIJI2sda6mOlz3J1elyGr9Sv8OCx5lJ3jvFWxqfVPvAbBAY
-	 wkF4JZUqd9CBo2fm7EBagEAj3rkmPgaSsNPi+lNEnNLXpSb0lfLLnwvdh8VlyiMIYz
-	 8QsAIzwZHloaa12BBzCUf4G3zBmr9QqohDMcQg+anM3aiMIbI/HMb/yZzl3hy7B92P
-	 5eURoHoiSl/Gg==
+	b=F4Zsa8B6gj4fnEh0XECOhKkm0iTLDAxD3EQpdKNiv1XWA41CoUsLUYjHh2f9Z4ULb
+	 j+ys3NQ07mYjPPOfI/+mI6U3mCx1gEytulHEMkzpyN4oFzibwUbbnugHqnFcY7IOlA
+	 UGbcxMZLDYGSfyYK/1nm9gbo+XHTduFyXnpTJ2+B7WTV41l5IbVwr5N0i8wSbEqDd1
+	 RbHnazrKKELsdkiEtRJ3Ch6j3IXANAuCy/kP4LuVGHHLDrPSOaD+MNttyMV5QNJn74
+	 gdM0rMg+P59IsFnn3Jv9HR5mhIMbIZaoOayHFHVaDHE0c7Dyuc3nZxAVGUPYykwtpL
+	 a76ku9WT1+hiA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0322C17E091C;
-	Fri, 12 Jun 2026 01:45:43 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C20EA17E09A3;
+	Fri, 12 Jun 2026 01:45:44 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 12 Jun 2026 02:45:20 +0300
-Subject: [PATCH v4 1/8] phy: rockchip: samsung-hdptx: Fix rate
- recalculation for high bpc
+Date: Fri, 12 Jun 2026 02:45:21 +0300
+Subject: [PATCH v4 2/8] phy: rockchip: samsung-hdptx: Prevent
+ divide-by-zero when computing clk rate
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260612-hdptx-clk-fixes-v4-1-ce5e1d456cda@collabora.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260612-hdptx-clk-fixes-v4-2-ce5e1d456cda@collabora.com>
 References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
 In-Reply-To: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -59,13 +59,12 @@ To: Vinod Koul <vkoul@kernel.org>,
  Dmitry Baryshkov <lumag@kernel.org>
 Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?Thomas_Niederpr=C3=BCm?= <dubito@online.de>, 
- Simon Wright <simon@symple.nz>
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_164547_989412_B1AAE0B9 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20260611_164547_995608_CA85C5D6 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +79,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PHY PLL can be programmed by an external component, e.g. the
-bootloader, just before the recalc_rate() callback is invoked during
-devm_clk_hw_register() in the probe path.
+Calculating 'sdm' fraction in rk_hdptx_phy_clk_calc_rate_from_pll_cfg()
+could trigger a divide-by-zero, as it uses div_u64() with a denominator
+read directly from hardware: the values ropll_hw.sdm_deno,
+ropll_hw.sdc_deno, ropll_hw.sdc_n, and ropll_hw.sdc_num are populated
+from PLL registers which, in theory, could be left by the bootloader
+uninitialized/misconfigured.
 
-Therefore rk_hdptx_phy_clk_recalc_rate() finds the PLL enabled and
-attempts to compute the clock rate, while making use of the bpc value
-from the HDMI PHY configuration, which always defaults to 8 because
-phy_configure() was not run at that point.  As a consequence, the
-(re)calculated rate is incorrect when the actual bpc was higher than 8.
+Provide the necessary sanitization to avoid trusting the hardware state.
 
-Do not rely on any of the hdmi_cfg members when computing the clock rate
-and, instead, read the required input data (i.e. bpc), directly from the
-hardware registers.
-
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com?part=1
 Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
-Tested-by: Thomas Niederprüm <dubito@online.de>
-Tested-by: Simon Wright <simon@symple.nz>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 2d973bc37f07..710603afff86 100644
+index 710603afff86..8c044381b83a 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -2168,7 +2168,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
- 	struct lcpll_config lcpll_hw;
- 	struct ropll_config ropll_hw;
- 	u64 fout, sdm;
--	u32 mode, val;
-+	u32 mode, bpc, val;
- 	int ret, i;
- 
- 	ret = regmap_read(hdptx->regmap, CMN_REG(0008), &mode);
-@@ -2266,6 +2266,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
- 	if (ret)
- 		return 0;
- 	ropll_hw.pms_sdiv = ((val & PLL_PCG_POSTDIV_SEL_MASK) >> 4) + 1;
-+	bpc = (FIELD_GET(PLL_PCG_CLK_SEL_MASK, val) << 1) + 8;
+@@ -2270,10 +2270,15 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
  
  	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
  	if (ropll_hw.sdm_en) {
-@@ -2280,7 +2281,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
- 			fout = fout + sdm;
- 	}
++		val = 16U * ropll_hw.sdm_deno *
++		      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num);
++		if (!val) {
++			dev_dbg(hdptx->dev, "%s invalid ROPLL hw state\n", __func__);
++			return 0;
++		}
++
+ 		sdm = div_u64(PLL_REF_CLK * ropll_hw.sdc_deno *
+-			      ropll_hw.pms_mdiv * ropll_hw.sdm_num,
+-			      16 * ropll_hw.sdm_deno *
+-			      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num));
++			      ropll_hw.pms_mdiv * ropll_hw.sdm_num, val);
  
--	return div_u64(fout * 2, ropll_hw.pms_sdiv * 10);
-+	return DIV_ROUND_CLOSEST_ULL(fout * 2 * 8, ropll_hw.pms_sdiv * 10 * bpc);
- }
- 
- static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
-@@ -2288,19 +2289,13 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
- {
- 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
- 	u32 status;
--	u64 rate;
- 	int ret;
- 
- 	ret = regmap_read(hdptx->grf, GRF_HDPTX_CON0, &status);
- 	if (ret || !(status & HDPTX_I_PLL_EN))
- 		return 0;
- 
--	rate = rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
--
--	if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
--		return rate;
--
--	return DIV_ROUND_CLOSEST_ULL(rate * 8, hdptx->hdmi_cfg.bpc);
-+	return rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
- }
- 
- static int rk_hdptx_phy_clk_determine_rate(struct clk_hw *hw,
+ 		if (ropll_hw.sdm_num_sign)
+ 			fout = fout - sdm;
 
 -- 
 2.54.0
