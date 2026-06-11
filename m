@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0B5CD98D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5839ECD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 12:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2P4PmcnHeSIbmz3J0AKO+3ABrN1m7BkMBBGbKGlWimI=; b=RtbEUwtbEpzwZmdEgDBb7pnc3O
-	xNTd72RuKeMxPPzdZpC6b4/dConGqeIN5lH1YBfO9g2pdANUWJ6s0vNVhwQuFKNrCQ3NtOepuqDBW
-	u428ylFbm/fuBP1aoLvp/VUF2lEoF/rHy6umpeNHLMPBb8CbAZ+JaCgBvXz+TO5L6Z9RHSKYnDBpt
-	5pH6v+Q+hp18vlueGdgfrvnl4bNbp759bWgk4XDsCyZGi8qzenx9BI9BjWXz2N7BhEjvOs4YOQxZX
-	r+LUrKU8NASlTbOgGEmE4t2YhcUAvM4ewHaHuWOLbwqIB2kgorikEavK3PGRCsmgthdqoFFwF12sA
-	/JVws2FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kp9O7wzrL6h0rXcNXk1AY6eWMkCkBpieYXogJ1TapEg=; b=B6VllwYdoD8BX8KA6V0oyfISRQ
+	9Ux1V4/2qokB5usWEF65eXs1RzSHIb/rdrJBdURoPHHgCqX1D8AZKr9C7ClqHIzmnWu8sxL3T83ox
+	LvbQAWsqIJYnYsglvPYT49hLGsSnfXsmBWQ8pWwCMY+CZYhl8j0c/QDTXMiakq0bq6l9ITGXi/MP7
+	q/QIs8MQyGBkP6WNZzAAdYsbLgiwWoRRQ+P2ZGjfeDtYfApfiOiHT4eTBbszI4G4Q54tcCbqm9vwH
+	3nC7AnV22pKXwsMj52y3Hg1ZMhUEJrNzHZXS5Xnd9eVx+kZNlRDqglT0kzqhwBQG+NQ1RR/dxlugj
+	jkefw5Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXei3-00000009QQz-2B6m;
-	Thu, 11 Jun 2026 12:40:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXei2-00000009QQl-05Vt
+	id 1wXejm-00000009Qex-3ia0;
+	Thu, 11 Jun 2026 12:42:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wXejk-00000009QeM-21RA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 12:40:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD8CC43A9F
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FDF41F00898
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 12:40:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781181633;
-	bh=2P4PmcnHeSIbmz3J0AKO+3ABrN1m7BkMBBGbKGlWimI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=LgQlvCWzASZTDlq0M7janNNq4Rs04qI0YUVTvm7Pdf217QxM67HdfmkOPdgsI9GKe
-	 pmQHAtyP8EbJxZP7OxnPk0Jtwb/2YZgVcAXoucTJZxfsRLwytLYqOYVut/GyXyFliR
-	 ijAOJK7JZmFPRK3TdLPcUIwALIzlsX6ejpg5qBCtuXSKbiFBo2O+sg7ahouw3f41pO
-	 58kz5LC91v2Ow94piAcNf7ZSRarXBzzSN/EP2U1zn4nmTDBaoy0V5naZ0bNkb+bfHm
-	 g7UegBC1dtidkYnX1o1RFivL49JeOJBKvlFvSVevzxo1K/9rztcSgaoZC5cG8RE4DU
-	 MVGdyiwzIbijQ==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5aa68d9d4a3so8996697e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 05:40:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+rW8kJBnVwoN0J/4HaL47Tdp06gVQCNc9YPwjnK692UExA2B/z3eSGR+mZt7Ht48v/Kz4Ye0vPnWsdo5UV5f4x@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoML7qBYz+IaWs7dMJ0VbJBGSspglRLIbg8XPWsanILQEnAutQ
-	4ul8Syvh50R2lGf03cxgJaHRbCdJ0sBOeDBsjL8G8WfSJgE2xEqLB4v1Lqx96MjernuGPHw8V5L
-	j/UqQPPm9CxXXPLYckV671scVUBFkRf8=
-X-Received: by 2002:a05:6512:118a:b0:5ad:229e:3860 with SMTP id
- 2adb3069b0e04-5ad27aaf3c0mr778501e87.3.1781181632448; Thu, 11 Jun 2026
- 05:40:32 -0700 (PDT)
+	Thu, 11 Jun 2026 12:42:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0400C497;
+	Thu, 11 Jun 2026 05:42:12 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B70E3FD88;
+	Thu, 11 Jun 2026 05:42:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781181736; bh=MSudZ5zCzii3klUWWm5+I6Li1DcZAve7/o6hW7n+OBc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DOYVnOIZVOG54P+iZ8fsBoQ2cxMCONmAJLNk1I8SaIdNqPXPXDbVUcxqZzugyRg57
+	 rhMcfwNIOSoenHsMC4IXjirg3vrQb7kt8hIMkHrauLsJDwBvPUeV4m/9xI6KrnN4JU
+	 +MQ9VgNXKuTTmwMeEhCLBTXMr3SlDemCyB0AmzUQ=
+Date: Thu, 11 Jun 2026 13:42:14 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Al Grant <al.grant@arm.com>,
+	Paschalis Mpeis <paschalis.mpeis@arm.com>,
+	Amir Ayupov <aaupov@fb.com>
+Subject: Re: [PATCH v7 8/8] perf test: Add Arm CoreSight callchain test
+Message-ID: <20260611124214.GX101133@e132581.arm.com>
+References: <20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com>
+ <20260611-b4-arm_cs_callchain_support_v1-v7-8-1ba770c862ae@arm.com>
+ <c6f6766b-ef3f-4260-9569-620d351027ff@linaro.org>
 MIME-Version: 1.0
-References: <20260611-pinctrl-nolock-v1-1-aca022d4d60f@amlogic.com>
-In-Reply-To: <20260611-pinctrl-nolock-v1-1-aca022d4d60f@amlogic.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 11 Jun 2026 14:40:19 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmdCCYTKv+J09pS=49c4y19stBYmBgytc2SG_MM4D=ABg@mail.gmail.com>
-X-Gm-Features: AVVi8CcK6vKj7M9lrxTHVvJAMkxnXvUH3E59BGUGT9lSHYyOacydnWB2IyiXFRI
-Message-ID: <CAD++jLmdCCYTKv+J09pS=49c4y19stBYmBgytc2SG_MM4D=ABg@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: amlogic-a4: use nolock get range
-To: xianwei.zhao@amlogic.com
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c6f6766b-ef3f-4260-9569-620d351027ff@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260611_054220_563826_73917295 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 9:10=E2=80=AFAM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+On Thu, Jun 11, 2026 at 10:11:37AM +0100, James Clark wrote:
+> 
+> 
+> On 11/06/2026 8:57 am, Leo Yan wrote:
+> > Add a CoreSight shell test for synthesized callchains.
+> > 
+> > The test uses the new callchain workload to generate trace and decodes
+> > it with synthesis callchain. It then verifies that the instruction
+> > samples show the expected callchain push and pop.
+> > 
+> > Use control FIFOs so tracing starts only around the workload, which
+> > keeps the trace data small. The test is limited to arm64 systems with
+> > the cs_etm event available.
+> > 
+> > After:
+> > 
+> >    perf test 136 -vvv
+> >    136: CoreSight synthesized callchain:
+> >    --- start ---
+> >    test child forked, pid 3539
+> >    ---- end(0) ----
+> >    136: CoreSight synthesized callchain			: Ok
+> > 
+> > Assisted-by: Codex:GPT-5.5
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> > ---
+> >   tools/perf/Documentation/perf-test.txt        |   6 +-
+> >   tools/perf/tests/builtin-test.c               |   1 +
+> >   tools/perf/tests/shell/coresight/callchain.sh | 168 ++++++++++++++++++++++++++
+> >   tools/perf/tests/tests.h                      |   1 +
+> >   tools/perf/tests/workloads/Build              |   2 +
+> >   tools/perf/tests/workloads/callchain.c        |  24 ++++
+> 
+> Maybe "syscall" is a better name? There's not any difference between this
+> one and others like the deterministic one I added with regards to the
+> callchain.
 
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->
-> Use pinctrl_find_gpio_range_from_pin_nolock() instead of
-> pinctrl_find_gpio_range_from_pin() when configuring a pin or
-> setting a GPIO value.
->
-> This avoids taking the lock and allows the code to be safely
-> called from interrupt context.
->
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+The callchain workload has function calls in userspace and system call
+for the switch between userspace and kernel.
 
-Patch applied!
+Connecting to another comment for not static attribute to avoid LTO's
+function name tweaking, I will rename functions with prefix
+"callchain_", this can dismiss concern for naming conflict.
 
-Yours,
-Linus Walleij
+For above two reasons, I will keep the name.
+
+Thanks,
+Leo
 
