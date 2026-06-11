@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89792CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD12DCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 10:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2mkFUIdPCayplQv4lsi8R1GtFeEFlWwb8EHZgP/RV64=; b=XyFqwnH3qb5XpfdJN0Zi5B2+Ju
-	tbkKziSydZPMZPR2BlP3dOdrkEyHdnx8l13c/puLx5kslYdDICveZ8q5RbN0Jc/4/kxrpgElahuK7
-	glpjr5Kz6sTON7D94Ylz6TeO1cuapmsoj8L4PKBvte0ywizbIzC4uyOHzrtPJLZcBLpKyuMS9BV4V
-	52Lj+Ivm7WfabV0wWM14zXkSaoei60ziIK6kpp0GZX44c0V6iOo4+obN9OevB4npT0Pw6J7LsHii7
-	7u/J0pCq2YIghbcQTUG6PRB1C6UtQpKfcLrfgeFuGSYB3GFRzB4Z2uxcyXhU2BPRAicbAcANAisK5
-	9fK8kmZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzjtudXBoeDJMAmrpGr3WXAi/sP2pduwjgnBqvaHH8Y=; b=vomVXMfxR6whgXn0qIcaEfv/3r
+	+PtJfxQfDlfNt7f86ZHU6K6i8yD0aVNeDzAtV0zAF2CB8ORyaJjNbfB3iN10whrRmrpj8mum+/2l2
+	vZGJuBTMIP70sbbLol5dXe672y5Gpeeat6Xr4j8QgFg7VROocIr7YA/N64GgFufUXqJln/rDOGm8d
+	G9NMAQAFtJ6A2Ff8gWxfH3wk2xPYKIs3XLJEnjvyE8e7+ll81SZlto7mESTbDG41t9NoQv1dmHdmh
+	gD/041dh4t5tKHE+3pDuc9CELZXfekdGLqsQHsjPbSdedrE4a2O6ZZDaKa1/n/lVb3X9+mMJKnd7S
+	v1UDMD+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcXj-00000009DTA-2yGA;
-	Thu, 11 Jun 2026 10:21:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wXcd1-00000009EGd-1kRx;
+	Thu, 11 Jun 2026 10:27:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXcXZ-00000009DIj-2mPu;
-	Thu, 11 Jun 2026 10:21:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 95292600AA;
-	Thu, 11 Jun 2026 10:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 391BCC2BCC7;
-	Thu, 11 Jun 2026 10:21:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1781173296;
-	bh=6g2ccYzYXTOaDS/BYSugRku8m8jaURLjWfi6Ou6qRoM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=vOvGcmN6mqaXEq02r2x/RGxlclPKHG+kX3RnZGY/ZMmN0Mc20jAW0Wdya6eC58y2y
-	 kYg392m+34iQQlGewspLOV8jq/lCELllq1QVnY3GBERnNK+IwqmQOjEwx1FELdtND1
-	 3TpXwLRn52d9Kdx6eymUJdUR2jDo6/a1oqRY3fyI/hW9udOA/B/9LafzLtdNg7sXqc
-	 8WMjJMSPQJkJ95vTMRhNv72ntjJvsqZx8EiP54G5R7GqMcU0cC+3dlYSlbdILJ+EqU
-	 LVdePIQwawQboT+L7uUtbXDgeSNh5K/zVgPpp/XdeRF66yspisVbv74k2QhnpOBHq2
-	 eG/Gbl4tf2QLg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 264C7CD98D2;
-	Thu, 11 Jun 2026 10:21:36 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Thu, 11 Jun 2026 13:20:29 +0300
-Subject: [PATCH 1/4] dt-bindings: mfd: mediatek: mt6397: add mt6323 PMIC
- EFUSE
+	id 1wXcd0-00000009EGT-1az6;
+	Thu, 11 Jun 2026 10:27:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CCF7540D6E;
+	Thu, 11 Jun 2026 10:27:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A0361F00893;
+	Thu, 11 Jun 2026 10:27:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781173633;
+	bh=DzjtudXBoeDJMAmrpGr3WXAi/sP2pduwjgnBqvaHH8Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eWPvu2MyRHUhkqDgQ7mrXD7ZjH8z2e1yojjtPmMT8cHxnucb6N5T3oMp7u9xEoN18
+	 HBxqHLLmtDeiFHTOAWegGAsMc/K62I84EkY5Ki23cdjefDSo9EcTLtSrhfpfSzVDig
+	 JdHYzz1fbRz7CVAFAXeFHC1LsoErs8iSApKdN+s3F6LyT7hPLA+WAhoqnqZaSDwCIY
+	 g0MQk9+RPXm/ka5+RcjodUQbIWKHuomXjope1OOOuxV3Ql/bdpzx+pGAAWNZbNlERE
+	 jxFh8+XrlDL2o9+/2pXbprwH5zyPG4RORbJ8ATa/ODcyXBVWrZo0spSr0RubLgEj5P
+	 F2/sZjeHeqncw==
+Date: Thu, 11 Jun 2026 11:27:08 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: move get_sport() callback at the
+ beginning of airoha_enable_gdm2_loopback()
+Message-ID: <20260611102708.GQ3920875@horms.kernel.org>
+References: <20260608-airoha_enable_gdm2_loopback-minor-change-v1-1-1787a0f42b31@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260611-mt6323-nvmem-v1-1-b5e1b9ce51f2@protonmail.com>
-References: <20260611-mt6323-nvmem-v1-0-b5e1b9ce51f2@protonmail.com>
-In-Reply-To: <20260611-mt6323-nvmem-v1-0-b5e1b9ce51f2@protonmail.com>
-To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Srinivas Kandagatla <srini@kernel.org>, 
- Roman Vivchar <rva333@protonmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781173294; l=1528;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=Z+i5otfJXHcGSb/Mu1sxOt8XM4P2sXW7ssJy3Op5BOA=;
- b=gUhy/aA0enpF2VeL1vmKbLN5+5aZ3zuP73dUD/a/f91mu7DM4Fs8e/LpcnGOhwagXVx2aRZeA
- X9iv0Tj0NXFDRNngXQNm+ceQPH+VLbmGEVsPQGhjKDgkUYrURfsAO4K
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260608-airoha_enable_gdm2_loopback-minor-change-v1-1-1787a0f42b31@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,65 +69,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+On Mon, Jun 08, 2026 at 11:24:15PM +0200, Lorenzo Bianconi wrote:
+> Move the get_sport() callback invocation at the beginning of
+> airoha_enable_gdm2_loopback() routine in order to avoid leaving the
+> hardware in a partially configured state if get_sport() fails.
+> Previously, get_sport() was called after GDM2 forwarding, loopback,
+> channel, length, VIP and IFC registers had already been programmed.
+> A failure at that point would return an error leaving GDM2 with
+> loopback enabled but WAN port, PPE CPU port and flow control mappings
+> not configured.
+> Performing the get_sport() lookup before any register write guarantees
+> the routine either completes the full configuration sequence or exits
+> with no side effects on the hardware.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-The MediaTek mt6323 PMIC includes an EFUSE used for storing calibration
-data.
-
-Add the devicetree binding documentation for the MediaTek mt6323 EFUSE.
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
- .../devicetree/bindings/mfd/mediatek,mt6397.yaml    | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-index 05c121b0cb3d..beaa67bf0df2 100644
---- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-+++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-@@ -145,6 +145,23 @@ properties:
-     required:
-       - compatible
- 
-+  efuse:
-+    type: object
-+    unevaluatedProperties: false
-+    description:
-+      The efuse is responsible for storing calibration data, such as thermal
-+      sensor calibration.
-+
-+    properties:
-+      compatible:
-+        const: mediatek,mt6323-efuse
-+
-+      nvmem-layout:
-+        $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
-+
-+    required:
-+      - compatible
-+
-   leds:
-     type: object
-     additionalProperties: false
-@@ -243,6 +260,10 @@ examples:
-         interrupt-controller;
-         #interrupt-cells = <2>;
- 
-+        efuse {
-+          compatible = "mediatek,mt6323-efuse";
-+        };
-+
-         leds {
-             compatible = "mediatek,mt6323-led";
-             #address-cells = <1>;
-
--- 
-2.54.0
-
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 
