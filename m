@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A73ECD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDA8CD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 13:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/76CmUDQEitIdUNCPI3yjc7DENCkNGcDP+dkrSJRHhA=; b=gJa0qbDNbM1QFGgWKj5DACAQ6Q
-	0dSilKawL7ZtfKYankhVexPhhDoSuO+lqvGPFriwp6qQ4PlSgkERMxZ9KyvclwDMmTdj1eXGBzQ0q
-	6GS3qhi6l8H5jzDsx8V15c0l33EsWCyM10Ybu920bn8khBkozfVV71ixTaxBH3Daq+jyNqWizxVpw
-	i2hXiGn9Os//FE3ngDkkCjWfC9tHbg82zd/iB3kJnWHPXqHueplNn0w7P7Su2FbNuS8flUDta5hKz
-	pYCgMUbhAaUNg2o+f1Z87Jx3x41krhXoVYTU6F+CQ6OzLUNoLTh4K52Hco6wvDkcYoeqVh5hbja/x
-	hf8Fx4dg==;
+	bh=306eaqOacfVW+zMcivcIfnGM6iMNqXKgw1UBlY0rnKo=; b=OeLxdV4ilss8DpnoL01xIMheJR
+	kM6wovyPPcXz0hhkgovRGV69l9MKtH31e6ffVCKl+CV7Mep5rFGQJQa1hhYOhJVXpG+Ek66ggul6n
+	F+ojV+j0zb99Gu+lZjSoUKlAkcaYlppurugWeFjvL3iwbJyoEPvCf7jDDVSm8BOTgUoNDj84N4w4n
+	VW/fVVEdPykECrqM8W9SoC2sa+3TfttpUMehZpzYThszlbpWaj3jwW1Xyhxw8xaISKY6krY2Z4JPW
+	dcGR2U8OVhAjd1Js7frZ44R71lBngXkas6nRN0+2E1wCF3ryENCK66Sor/Z0nSQiBVt5yuP5m6jWA
+	4+h3eS4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf3W-00000009TFw-3Y6A;
-	Thu, 11 Jun 2026 13:02:47 +0000
+	id 1wXf3a-00000009TKF-1FxD;
+	Thu, 11 Jun 2026 13:02:50 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXf3V-00000009TER-2edk
+	id 1wXf3Z-00000009TJJ-2IKd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Jun 2026 13:02:45 +0000
+	Thu, 11 Jun 2026 13:02:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CBB4600AF;
+	by tor.source.kernel.org (Postfix) with ESMTP id F4035601E8;
+	Thu, 11 Jun 2026 13:02:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 344631F00893;
 	Thu, 11 Jun 2026 13:02:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40ADF1F00898;
-	Thu, 11 Jun 2026 13:02:41 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -50,9 +50,9 @@ Cc: arm-scmi@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC 5/9] clk: scmi: Add scmi_clk_is_pm_clk()
-Date: Thu, 11 Jun 2026 15:02:09 +0200
-Message-ID: <af9666e8fb841606b42d865d42adcaf472099ce1.1781171705.git.geert+renesas@glider.be>
+Subject: [PATCH/RFC 6/9] dt-bindings: firmware: arm,scmi: Document arm,clock-domain
+Date: Thu, 11 Jun 2026 15:02:10 +0200
+Message-ID: <bb65a93531125757f3c4beb47cd7891a1a7492d9.1781171706.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1781171705.git.geert+renesas@glider.be>
 References: <cover.1781171705.git.geert+renesas@glider.be>
@@ -72,66 +72,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a helper for querying if an SCMI clock can be used for
-power-management.
+Power management of on-SoC modules is typically handled through two
+methods: module power control and module clock gating.  The former is
+exposed as an SCMI power domain, the latter as an SCMI clock.
+
+Document the new arm,clock-domain property, to link the SCMI power domain
+provider to the clock domain provider that is responsible for module
+clock gating.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/clk/clk-scmi.c   |  9 +++++++++
- include/linux/clk/scmi.h | 17 +++++++++++++++++
- 2 files changed, 26 insertions(+)
- create mode 100644 include/linux/clk/scmi.h
+ Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index 7c562559ad8bb47f..20e6da1859290b75 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -7,6 +7,7 @@
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index d06cca9273c483c0..18e4da3884c4c12e 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -174,6 +174,13 @@ properties:
+       '#power-domain-cells':
+         const: 1
  
- #include <linux/bits.h>
- #include <linux/clk-provider.h>
-+#include <linux/clk/scmi.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/of.h>
-@@ -364,6 +365,14 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 	return ops;
- }
++      arm,clock-domain:
++        $ref: /schemas/types.yaml#/definitions/phandle
++        description:
++          When PM domain consumer devices are also part of a clock domain, this
++          property should be a reference to the SCMI clock protocol node for
++          the power management clocks in the clock domain.
++
+     required:
+       - '#power-domain-cells'
  
-+bool scmi_clk_is_pm_clk(struct clk *clk)
-+{
-+	struct clk_hw *hw = __clk_get_hw(clk);
-+
-+	return hw && to_scmi_clk(hw)->info->pm_clk;
-+}
-+EXPORT_SYMBOL_GPL(scmi_clk_is_pm_clk);
-+
- static int scmi_clocks_probe(struct scmi_device *sdev)
- {
- 	int idx, count, err;
-diff --git a/include/linux/clk/scmi.h b/include/linux/clk/scmi.h
-new file mode 100644
-index 0000000000000000..12c338598d09296f
---- /dev/null
-+++ b/include/linux/clk/scmi.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0+
-+ */
-+
-+#ifndef __LINUX_CLK_SCMI_H_
-+#define __LINUX_CLK_SCMI_H_
-+
-+#include <linux/types.h>
-+
-+struct clk;
-+
-+#if IS_ENABLED(CONFIG_COMMON_CLK_SCMI)
-+bool scmi_clk_is_pm_clk(struct clk *clk);
-+#else
-+static inline bool scmi_clk_is_pm_clk(struct clk *clk) { return false; }
-+#endif
-+
-+#endif /* __LINUX_CLK_SCMI_H_ */
 -- 
 2.43.0
 
