@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEADCD98C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 03:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43904CD98C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Jun 2026 03:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dvArjssJv1aA68PZSfjaB7vXXTDuvf8OWO4ZxWOv0qI=; b=nRz7TlyGy8hvZOBQkhKDKcZwPr
-	SnEfcCav3+i0R2XSxzpgyD7uhWlXFtGwcwk9zVwXAzmGt7MqElobJjazuUrb9sEKYeVTvtQ4JdWTv
-	Nu1iOKFsZuv6NsveNT5ko6C1LUL2UBGgOcEh19chyM+rpYs6araNYPREMM0bFstbFncbAUEf1/0X/
-	iYhO5Mn6QDSYMR8EtFRKv7fcB3bDYPVxi0tLjNzP3seIK2L1BBi8DiwtyqEqMQ8zA5sjJGIybYKp5
-	D6uYsEw1Q/WTDvyn2WYqNPOHPDmu/BySj0iP9oOraGhfVkyYZ3jQQVvuJCZ19RzlTrPEp7hdjx60z
-	gwB+4nsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z4pxYkTJFG5ZwHLzZDKYz0gIuL/SlRTVttv6cDMB0rk=; b=d/u6IzSxhJFNIYIaomt6U/NelT
+	ov3WCd9t6sVdTl3Po321rQQSu8+rToGh5xoXXMkOvJJ+SvKXjey+rukpqpeaEualiTY1fal53ruep
+	0iuS20tSgkBPgl94AIeWFBHm3brur7rLcReRTycJATcOwFxfgOvL+ZFJXFIi9v+8JGukRtRWZhwkk
+	UOmxwB/zXXlgCv4iakdRS5bHoYrgBubr5+YeddueWm8sutfpvoVgwmWBUm+sO0O9oLZL1Y6x4Mbl7
+	8zCTb2fbvkQGDdlvksUfzq1+apmPtmBHXrestPzs+JKCZD+vqU6bkjFCiY/nkyOXs2qxbO7New8AX
+	lLc1EqRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWI7-00000008dJW-3Rve;
-	Thu, 11 Jun 2026 03:41:15 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wXWOf-00000008dgh-2sGS;
+	Thu, 11 Jun 2026 03:48:01 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXWI3-00000008dJ6-2nh0;
-	Thu, 11 Jun 2026 03:41:14 +0000
-Received: from localhost.localdomain (unknown [117.182.75.76])
-	by APP-05 (Coremail) with SMTP id zQCowABHkcRFLipqY2YLEw--.20162S2;
-	Thu, 11 Jun 2026 11:40:56 +0800 (CST)
-From: WenTao Liang <vulab@iscas.ac.cn>
-To: alexandre.belloni@bootlin.com
-Cc: neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	p.zabel@pengutronix.de,
-	ben.dooks@codethink.co.uk,
-	linux-rtc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	WenTao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] rtc: meson: fix refcount leak in meson_rtc_get_bus
-Date: Thu, 11 Jun 2026 11:40:40 +0800
-Message-ID: <20260611034040.59682-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1wXWOd-00000008dfO-36wi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Jun 2026 03:48:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1781149627; bh=Z4pxYkTJFG5ZwHLzZDKYz0g
+	IuL/SlRTVttv6cDMB0rk=; b=FAud0RfbPy8KAWfNAh03l1eAQ+Y3tjy31zYTkmYLSPtRmX12kA
+	ZPA7xuy2EfYZW1H6O+doSYTD2N6q1g7Zpf87ROCXQEA4d3n4ywGclFc1ZzQL8946IK+fMjHmMt+
+	HNLeybiUZD4FVDOB5tYXeXnuKv3NHOdLRO3gWfs34Bh6n5NQEiD0JBR5mGXPvbrbkOKWfZHlplL
+	v7CFI2hwU/39q3hv753lUU+uNR9wMFULX3txywkP18KsoiIUQCpzcNLzTgberNZBfI8/TQDM8rf
+	5HnSI8kut5Br3qiL48V61G908Ff7k6hq3Tik76rBpiSgIQnd5pwsmlaX649a83dh6Fg==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1781149627; bh=Z4pxYkTJFG5ZwHLzZDKYz0g
+	IuL/SlRTVttv6cDMB0rk=; b=LUPx9KfnvGjLyeWsrXc4y9NPKk3T1yj8fkEyfN/Rqh6BhqZaaT
+	Wh/uIfJXELI8fESoIkKertjqDx0nU4dE00DQ==;
+From: Aelin Reidel <aelin@mainlining.org>
+Date: Thu, 11 Jun 2026 05:46:48 +0200
+Subject: [PATCH RESEND] nvmem: apple-spmi-nvmem: wrap regmap calls to
+ satisfy CFI
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABHkcRFLipqY2YLEw--.20162S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ar43JFWxWw1rJw17Zw1kKrg_yoW8Gryfpr
-	43KFy7tryDtr4fJanrGw4ruFW3ZFnIqFWUGrsFyw1S9w1fJa1UJry2kF4rJayUWr1kG3y5
-	XFsrGF1F9F1DKF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
-	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
-X-Originating-IP: [117.182.75.76]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRAPA2op-rvB+gAAso
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260611-apple-spmi-nvmem-cfi-v1-1-9dd90938ef4a@mainlining.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDM0ND3cSCgpxU3eKC3EzdvLLc1Fzd5LRMXTNz4xRToJI081QTJaDWgqL
+ UtMwKsLHRSkGuwa5+LkqxEPHi0qSs1OQSkJlKtbUAmvjB0oAAAAA=
+X-Change-ID: 20260611-apple-spmi-nvmem-cfi-673d5202f7e4
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Srinivas Kandagatla <srini@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>, Hector Martin <marcan@marcan.st>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Aelin Reidel <aelin@mainlining.org>, 
+ Clayton Craft <craftyguy@postmarketos.org>, stable@vger.kernel.org
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781149627; l=2799;
+ i=aelin@mainlining.org; s=20260503; h=from:subject:message-id;
+ bh=0uGCT1Kc2NxDdy8bTsOui18h4pRTL4+6YYZ70jx2g3w=;
+ b=1gdAEe0bFpeBdIolOAe2ZPjRNOrjlsjGo8imSin1FxB5ARqUSIFeTVKpEpJSNFuTL01etdWCh
+ rXrtod7tIFHDmeR6O9yu49zLOMQkiA9hi+ms5O3P+WS3SZsK085bCOK
+X-Developer-Key: i=aelin@mainlining.org; a=ed25519;
+ pk=JdivYHq/vT1Z1DpBeadmJbY/Fi5Ab9P/C35KYCOezfA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_204112_068629_F4E7D116 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260610_204759_938845_380A2CFA 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +82,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In meson_rtc_get_bus(), reset_control_reset() is called to trigger
-a hardware reset when the serial bus is not ready. The function may
-retry up to three times, but neither the successful nor the failure
-path calls reset_control_rearm() to balance the reference count,
-leaking the triggered_count on shared reset controls.
+The Apple SPMI NVMEM driver previously cast regmap_bulk_read/write to
+void * when assigning them to nvmem_config's reg_read/reg_write
+function pointers.
 
-Fix this by adding reset_control_rearm() after reset_control_reset()
-on both the error return path and the success path within the retry
-loop, ensuring the reset control can be re-triggered on subsequent
-bus acquisition attempts.
+This cast breaks the expected function signature of nvmem_reg_read_t
+and nvmem_reg_write_t. With CFI enabled, indirect calls through
+these pointers fail:
 
+  CFI failure at nvmem_reg_write+0x194/0x1e4 (target: regmap_bulk_write+0x0/0x2c8; expected type: 0x83a189c3)
+  ...
+  Call trace:
+   nvmem_reg_write+0x194/0x1e4 (P)
+   __nvmem_cell_entry_write+0x298/0x2e8
+   nvmem_cell_write+0x24/0x34
+   macsmc_reboot_probe+0x1dc/0x454 [macsmc_reboot]
+  ...
+
+Introduce thin wrapper functions with the correct nvmem function
+pointer types to satisfy the CFI checks.
+
+Fixes: fe91c24a551c ("nvmem: Add apple-spmi-nvmem driver")
+Signed-off-by: Aelin Reidel <aelin@mainlining.org>
+Reported-by: Clayton Craft <craftyguy@postmarketos.org>
+Tested-by: Clayton Craft <craftyguy@postmarketos.org>
+Reviewed-by: Sven Peter <sven@kernel.org>
 Cc: stable@vger.kernel.org
-Fixes: d8fe6009aa3e ("rtc: support for the Amlogic Meson RTC")
-Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
 ---
- drivers/rtc/rtc-meson.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Difference vs the original patch:
+- Updated my name and email
+- Picked up Sven's R-b
+- Link to original: https://lore.kernel.org/all/20251118-apple-spmi-nvmem-cfi-v1-1-75b9ced0a2c2@mainlining.org/
 
-diff --git a/drivers/rtc/rtc-meson.c b/drivers/rtc/rtc-meson.c
-index 21eceb9e2e13..729384dceb12 100644
---- a/drivers/rtc/rtc-meson.c
-+++ b/drivers/rtc/rtc-meson.c
-@@ -146,8 +146,12 @@ static int meson_rtc_get_bus(struct meson_rtc *rtc)
- 		dev_warn(rtc->dev, "failed to get bus, resetting RTC\n");
+It's been half a year, so I figured I'd gently poke for this to be
+applied.
+---
+ drivers/nvmem/apple-spmi-nvmem.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/nvmem/apple-spmi-nvmem.c b/drivers/nvmem/apple-spmi-nvmem.c
+index 88614005d5ce..7acb0c07d6ab 100644
+--- a/drivers/nvmem/apple-spmi-nvmem.c
++++ b/drivers/nvmem/apple-spmi-nvmem.c
+@@ -18,6 +18,22 @@ static const struct regmap_config apple_spmi_regmap_config = {
+ 	.max_register	= 0xffff,
+ };
  
- 		ret = reset_control_reset(rtc->reset);
--		if (ret)
-+		if (ret) {
-+			reset_control_rearm(rtc->reset);
- 			return ret;
-+		}
++static int apple_spmi_nvmem_read(void *priv, unsigned int offset, void *val,
++				 size_t bytes)
++{
++	struct regmap *map = priv;
 +
-+		reset_control_rearm(rtc->reset);
- 	}
++	return regmap_bulk_read(map, offset, val, bytes);
++}
++
++static int apple_spmi_nvmem_write(void *priv, unsigned int offset, void *val,
++				  size_t bytes)
++{
++	struct regmap *map = priv;
++
++	return regmap_bulk_write(map, offset, val, bytes);
++}
++
+ static int apple_spmi_nvmem_probe(struct spmi_device *sdev)
+ {
+ 	struct regmap *regmap;
+@@ -28,8 +44,8 @@ static int apple_spmi_nvmem_probe(struct spmi_device *sdev)
+ 		.word_size = 1,
+ 		.stride = 1,
+ 		.size = 0xffff,
+-		.reg_read = (void *)regmap_bulk_read,
+-		.reg_write = (void *)regmap_bulk_write,
++		.reg_read = apple_spmi_nvmem_read,
++		.reg_write = apple_spmi_nvmem_write,
+ 	};
  
- 	dev_err(rtc->dev, "bus is not ready\n");
--- 
-2.50.1 (Apple Git-155)
+ 	regmap = devm_regmap_init_spmi_ext(sdev, &apple_spmi_regmap_config);
 
+---
+base-commit: abe651837cb394f76d738a7a747322fca3bf17ba
+change-id: 20260611-apple-spmi-nvmem-cfi-673d5202f7e4
+
+Best regards,
+--  
+Aelin Reidel <aelin@mainlining.org>
 
