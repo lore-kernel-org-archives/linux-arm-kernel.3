@@ -4,90 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8CACD98D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27E9CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=91jJQ/Gtrh1QTH5DITrV0BopByv2JxpmmVDo9pMk7DA=; b=YvSMmQ+qkQD7HIxivbrPQCw/0w
-	u4pex9/kUrBvuIOhjrrD6z5TFkWGdDCFY5qVnrwOo2RoB35apU+bj0mLX2btexsHR5nRdcYZh9HmP
-	aMV+RuyqtUp3Ce2IMOmUnW/L4vocx+dwpMIGsJVVrtID1wrcUCgOAbNuVWBNpCLPqPiYsQHTKFLdT
-	0km+bWiWEi4XUP0SyS5Tv8lb8Zbp268rI8qN2KX/c7o2pMskudc2aBohDCbzLbttBIPbdEsviBI5T
-	ThlLuHZtnnKl79j/fW62wkInWw4xuPkTkPZACmL8PokMY0W5wRAEf8GAOs3h0sCqYO6iqPolK3ZvP
-	UGCStPjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=; b=cuKJsDF5q6uYFEcu9R4LOUd4YH
+	vq8Qd2wqMxluAgOeEPrTd4kTzAB14VyAgVm6UorIF9iPZJG8XqaGRSvY576UutxGcA4PMbnX0BguN
+	Uyvxae4I55aL47hyh+lzvMPofbe1ogPZxHUoIAN61FJxLYbgR5DYsraCZqqRI4T7bsfp8uHsCWryV
+	hBieVW3UWeiG0hT2CBX9R8kBC1ZJT+i729oyzuM4sNJacdsXEiBBLFEB8jCZqgLlDvnVzdculdxqc
+	+w4REqqv0j9rIrUg2ahnPdStqpT1eNYShCuSPHIgB4aR3OppJeoBUst1EXA6NOfuRdDK1aG2Pe4rR
+	fke5uPog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4eH-0000000BF4S-1dLy;
-	Fri, 12 Jun 2026 16:22:25 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wY4ez-0000000BGDO-3zDo;
+	Fri, 12 Jun 2026 16:23:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4dv-0000000BE87-3x2o;
-	Fri, 12 Jun 2026 16:22:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781281315;
-	bh=NWLKhlu7xwnvBRFz1F26eeJn9o21diKDxxeKqk95U+M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VLvvTIHeO91LMvkFOhzATT0X2j6cc5Iy3g/mqDqhfzUjJw2sQgh65Vn4HvoDwuy54
-	 fIlbVskluFIwaHxq3WV65FwZeZkJORqzt1eXdH8qk7wK0XwFuAlw0C5WsFL9AqbXFm
-	 YX7Wmmc7raeWiJXanbb14HcvvYpe+JSq/mSoBy40hOIeaAmWxR6rj//ecbn5OfilG0
-	 Nq3slY1NAX9OZ/EEiRB+xAYeF8FH2vaPB+CMgrTshN8diOq3gJIJTQItnZBWGiVpWG
-	 bDHRfFuBMGXqAC91q08Q5x5aPbgYDn+kFr9kZgLLiy/xSkFSjHY5AGwDJt+AOrNFEJ
-	 0+5fMl2DuPPUg==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFC4E17E1553;
-	Fri, 12 Jun 2026 18:21:54 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id DAE55480052; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 18:21:53 +0200
-Subject: [PATCH v5 15/18] phy: rockchip: usbdp: Factor out lane_mux_sel
- setup
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-rockchip-usbdp-cleanup-v5-15-efc83069869f@collabora.com>
-References: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
-In-Reply-To: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4580;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=NWLKhlu7xwnvBRFz1F26eeJn9o21diKDxxeKqk95U+M=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiE/sC5IMGU9hyJkPYCU3gLFlRMo9Q0bT
- SUF69ZOR3o6/YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
- O/qaGPIP/2PWovHwk2kt5Ad+V5dBLHfy04z3eiCwStJsid9fKFCGmXt6RICVqgO4k2zsGbqzBa1
- 9XX6kRIH3gw4tJCbl2CVvzD3HpSxSjlY1WSWgDkiy2dbmD5ZL8LGmnVVtKe4aTEvuskW/s62yea
- SY6fEjJlpuCGhgPP2hglwBIa8zWTG5kF4pD6jO6B6Lz0ghczpN3Xjyvt8MpQcMkCg6pDwvYbDaZ
- Eaif0F2aaSe6UNUfCmXNppYfQcQs1xnaoNeY2KcrjwF6h26jzU/Oh7LQT2YebEWo1cvkUpzVDcD
- eP3axyywX5V73cW4B+9vAuL+srM97OhEnnqTxwooevgM/Xgx134uEFxoxWHBhGL+aT832DWCyPD
- BNT/IxpMiZkcb1Xak43yA0yIk3MeGXHKbkbG2FSZQ0z1FCKu1eHU8mGJicZksi0crpL0ejqo2cX
- gP4r2SSeUydsDRzk9y1T5XTqOva5RhwjvBXUVvSgDGGmTJp61O955Ysl1VTHVSUz8D4P/N8nDyJ
- GhXoBWRJYsBf5QVdd0ZeFTdZyrQPZJfBbCZj+FnCnT+8HX/+D9S9snXsUM7yCSCDulWW/a6Co1o
- Sql4ywJr93WIN2qiSdXRX3T5viVVxKsAlscAjas4S/d6yupruyL4PUbXgicp6aqA/Syfrz4gVwu
- jFgg7Iu/ra6oh89dUMMsjNw==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+	id 1wY4ew-0000000BGB6-3fls
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 12 Jun 2026 16:23:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=; b=IxgadC3GC79DhYTaowZDm5GiwE
+	bqCIZS04rGly5lkeAwDU4KcQibg+lhXG70+Z94Wcnw4x2dgiE4YRBN6mXQLslJABtYmsgywxVV3Dj
+	k++rohtFqxmy2IsWrjqJrKD9D606+QsdEMzcGZZfYHafzzqPn1rqwcmqG6fvoV/l+10cLUhqfwBOZ
+	RlYK3H0X4I1Aurpz3KUaIBQkoOANSdACjbmg1QKwGSp2/eUhmWlW+67AY3mK2xnYnCq3UIIQAqYT2
+	YKQfHeCKLv5/w1gdVRCP7bUtKgeJlShwQAd52Y/Z/20IFpzW9zERR8K1cpiJxDtj5v0J+xmVL3Y2k
+	t5ZjVsdg==;
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wY4et-00000006dSB-1fPn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 16:23:05 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-138156c0492so4318398c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 09:23:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781281381; x=1781886181; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=;
+        b=p7C9wHDulWkriLGfHsiMDMw26M6CiFFPEJyYN9jYLHuCj5KWdoeD1kmnHSix/6mmLP
+         ExWqVxNg7oxxyBNJZTi/tnpxCt6XTv5xtLtEXg7K91x4UmkxMDrjEejqfkvoZeUPvHoT
+         iIiuztWYblIHPKLsHmOlKaBZ2rVu/CxRSwu0kZJo6/JlP1J/Ef5/YZXY5bfvokdoNhSG
+         c2xw02YCYmmuq2OaZ4rpkRdxOuSOlX5DiO9p01wSOF4G5b4gNP0ohUJsfzBI7r2mB9kz
+         T/KoUwpcC/vcTwp1DZeJnHG/s7+t5tzDU/ycY9Vp5wlZAIC2XAkUZCrqECKQVs0fGa98
+         EegA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781281381; x=1781886181;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=;
+        b=PR8CC8C8Cnu9Ij3PZ/h0sbJnw1EVTx9MX1va5Ouh8dICVGvorj5T/pJKwVtQRsWE1J
+         vr7ANxcncrt1bwCgDIl2qYmIfmR+dQZDpKxMUX3d13IcRxOfbVrhuW4oCQS8Hxypnj2E
+         aWSEDt6Ww/1xDrdOWft1q24CxtDC57vvLpeFSOGp3AYvkfwVMfCDtPOzSOvnnuub7YhP
+         LO8RIUo+QHxEkTdSkwsmWoCBwI0tZaIMRA5kdHWLktbRr07kkh4Lybc23rgPMIsX9lfE
+         nTXIKywVAmDPXMReSbfKzK7+6CsTiSqzjKHhyv8PCCF/MRu3UifQ5kmVsAfcmlL9GTPp
+         he7A==
+X-Forwarded-Encrypted: i=1; AFNElJ8w1CsQpgI54/JdHBPILuYvJ4cOgTGs6IZ0RreJbZlbJTQsMhZjJyDPhH6w9h97d+LNdpDHOjCFL7CSNM+dkRkX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/nCek+h8yGjX+xvBYvIvuXsldLDNPEHLOmBzaQaSGk8a9wA0W
+	eXdoOw2Lt/4kSV8T2+RDMtsbvO8qfSIqHTd+z1rVNf0VnCtnAk6AIWCosSRkBbfQMyyKyA==
+X-Received: from dlww16.prod.google.com ([2002:a05:7022:ea30:b0:137:e705:d114])
+ (user=xur job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:43a9:b0:138:507b:30fd
+ with SMTP id a92af1059eb24-138507b3401mr616605c88.6.1781281380261; Fri, 12
+ Jun 2026 09:23:00 -0700 (PDT)
+Date: Fri, 12 Jun 2026 09:22:57 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260612162257.896792-1-xur@google.com>
+Subject: [PATCH] net: correcting section tags for .init and .exit data/functions
+From: xur@google.com
+To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, David Ahern <dsahern@kernel.org>, 
+	Ido Schimmel <idosch@nvidia.com>, "=?UTF-8?q?Andreas=20F=C3=A4rber?=" <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, 
+	"=?UTF-8?q?Maciej=20=C5=BBenczykowski?=" <maze@google.com>, Yue Haibing <yuehaibing@huawei.com>, 
+	Jeff Layton <jlayton@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Fernando Fernandez Mancera <fmancera@suse.de>, Rong Xu <xur@google.com>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Sabrina Dubroca <sd@queasysnail.net>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-actions@lists.infradead.org, llvm@lists.linux.dev
+Cc: kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_092204_262822_96199EDD 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260612_172303_807152_ED030962 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,144 +113,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid describing the USB+DP lane_mux_sel logic twice by introducing
-a helper function to reduce code duplication.
+From: Rong Xu <xur@google.com>
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Fix modpost warnings that have surfaced during Clang's distributed ThinLTO
+builds.
+
+  WARNING: modpost: vmlinux: section mismatch in reference: tcp4_net_ops.llvm.4527429266264891517+0x8 (section: .data) -> tcp4_proc_init_net (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: udp4_net_ops.llvm.17425824324074326067+0x8 (section: .data) -> udp4_proc_init_net (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: ping_v4_net_ops.llvm.5641696707737373282+0x8 (section: .data) -> ping_v4_proc_init_net (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: if6_proc_net_ops.llvm.7870945277386035298+0x8 (section: .data) -> if6_proc_net_init (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: ipv6_addr_label_ops.llvm.5745897517271459135+0x8 (section: .data) -> ip6addrlbl_net_init (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: ndisc_net_ops.llvm.8806210167060761094+0x8 (section: .data) -> ndisc_net_init (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: raw6_net_ops.llvm.3743523335772203324+0x8 (section: .data) -> raw6_init_net (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: igmp6_net_ops.llvm.7071106350580158050+0x8 (section: .data) -> igmp6_net_init (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: tcpv6_net_ops.llvm.17505177970592326146+0x8 (section: .data) -> tcpv6_net_init (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: ip6_flowlabel_net_ops.llvm.6051723423336054316+0x8 (section: .data) -> ip6_flowlabel_proc_init (section: .init.text)
+  WARNING: modpost: vmlinux: section mismatch in reference: ipv6_proc_ops.llvm.7829948594772821810+0x8 (section: .data) -> ipv6_proc_init_net (section: .init.text)
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202606111233.kM8oo8Df-lkp@intel.com/
+Signed-off-by: Rong Xu <xur@google.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 81 +++++++++++++++----------------
- 1 file changed, 40 insertions(+), 41 deletions(-)
+ net/ipv4/ping.c          |  6 +++---
+ net/ipv4/tcp_ipv4.c      |  6 +++---
+ net/ipv4/udp.c           |  6 +++---
+ net/ipv6/addrconf.c      |  6 +++---
+ net/ipv6/addrlabel.c     |  6 +++---
+ net/ipv6/ip6_flowlabel.c |  6 +++---
+ net/ipv6/mcast.c         | 10 +++++-----
+ net/ipv6/ndisc.c         | 10 +++++-----
+ net/ipv6/proc.c          |  6 +++---
+ net/ipv6/raw.c           |  6 +++---
+ net/ipv6/tcp_ipv6.c      |  6 +++---
+ 11 files changed, 37 insertions(+), 37 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 89a08267611c..4ba8b6f0a954 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -584,6 +584,42 @@ static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)
- 	udphy->mode = mode;
+diff --git a/net/ipv4/ping.c b/net/ipv4/ping.c
+index d36f1e273fde..1dda6d661ad8 100644
+--- a/net/ipv4/ping.c
++++ b/net/ipv4/ping.c
+@@ -1144,17 +1144,17 @@ static void __net_exit ping_v4_proc_exit_net(struct net *net)
+ 	remove_proc_entry("icmp", net->proc_net);
  }
  
-+static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state)
-+{
-+	u8 mode;
-+
-+	switch (state) {
-+	case TYPEC_DP_STATE_C:
-+	case TYPEC_DP_STATE_E:
-+		udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
-+		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
-+		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
-+		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
-+		mode = UDPHY_MODE_DP;
-+		udphy->dp_lanes = 4;
-+		break;
-+
-+	case TYPEC_DP_STATE_D:
-+	default:
-+		if (udphy->flip) {
-+			udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
-+			udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
-+			udphy->lane_mux_sel[2] = PHY_LANE_MUX_USB;
-+			udphy->lane_mux_sel[3] = PHY_LANE_MUX_USB;
-+		} else {
-+			udphy->lane_mux_sel[0] = PHY_LANE_MUX_USB;
-+			udphy->lane_mux_sel[1] = PHY_LANE_MUX_USB;
-+			udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
-+			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
-+		}
-+		mode = UDPHY_MODE_DP_USB;
-+		udphy->dp_lanes = 2;
-+		break;
-+	}
-+
-+	rk_udphy_mode_set(udphy, mode);
-+}
-+
- static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+-static struct pernet_operations ping_v4_net_ops = {
++static struct pernet_operations ping_v4_net_ops __net_initdata = {
+ 	.init = ping_v4_proc_init_net,
+ 	.exit = ping_v4_proc_exit_net,
+ };
+ 
+-int __init ping_proc_init(void)
++int __net_init ping_proc_init(void)
  {
- 	if (udphy->flip) {
-@@ -591,10 +627,6 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
- 		udphy->dp_lane_sel[1] = 1;
- 		udphy->dp_lane_sel[2] = 3;
- 		udphy->dp_lane_sel[3] = 2;
--		udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
--		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
--		udphy->lane_mux_sel[2] = PHY_LANE_MUX_USB;
--		udphy->lane_mux_sel[3] = PHY_LANE_MUX_USB;
- 		udphy->dp_aux_dout_sel = PHY_AUX_DP_DATA_POL_INVERT;
- 		udphy->dp_aux_din_sel = PHY_AUX_DP_DATA_POL_INVERT;
- 		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 1);
-@@ -604,18 +636,14 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
- 		udphy->dp_lane_sel[1] = 3;
- 		udphy->dp_lane_sel[2] = 1;
- 		udphy->dp_lane_sel[3] = 0;
--		udphy->lane_mux_sel[0] = PHY_LANE_MUX_USB;
--		udphy->lane_mux_sel[1] = PHY_LANE_MUX_USB;
--		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
--		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
- 		udphy->dp_aux_dout_sel = PHY_AUX_DP_DATA_POL_NORMAL;
- 		udphy->dp_aux_din_sel = PHY_AUX_DP_DATA_POL_NORMAL;
- 		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
- 		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
- 	}
- 
--	rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB);
--	udphy->dp_lanes = 2;
-+	/* default to USB3 + DP as 4 lane USB is not supported */
-+	rk_udphy_set_typec_state(udphy, TYPEC_DP_STATE_D);
+ 	return register_pernet_subsys(&ping_v4_net_ops);
  }
  
- static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-@@ -1289,7 +1317,6 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
- 				  struct typec_mux_state *state)
+-void ping_proc_exit(void)
++void __net_exit ping_proc_exit(void)
  {
- 	struct rk_udphy *udphy = typec_mux_get_drvdata(mux);
--	u8 mode;
- 
- 	/*
- 	 * Ignore mux events not involving DP AltMode, because
-@@ -1301,38 +1328,10 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
- 
- 	mutex_lock(&udphy->mutex);
- 
--	switch (state->mode) {
--	case TYPEC_DP_STATE_C:
--	case TYPEC_DP_STATE_E:
--		udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
--		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
--		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
--		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
--		mode = UDPHY_MODE_DP;
--		udphy->dp_lanes = 4;
--		break;
--
--	case TYPEC_DP_STATE_D:
--	default:
--		if (udphy->flip) {
--			udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
--			udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
--			udphy->lane_mux_sel[2] = PHY_LANE_MUX_USB;
--			udphy->lane_mux_sel[3] = PHY_LANE_MUX_USB;
--		} else {
--			udphy->lane_mux_sel[0] = PHY_LANE_MUX_USB;
--			udphy->lane_mux_sel[1] = PHY_LANE_MUX_USB;
--			udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
--			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
--		}
--		mode = UDPHY_MODE_DP_USB;
--		udphy->dp_lanes = 2;
--		break;
--	}
--
--	rk_udphy_mode_set(udphy, mode);
-+	rk_udphy_set_typec_state(udphy, state->mode);
- 
- 	mutex_unlock(&udphy->mutex);
-+
- 	return 0;
+ 	unregister_pernet_subsys(&ping_v4_net_ops);
+ }
+diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+index fdc81150ff6c..9caca5879466 100644
+--- a/net/ipv4/tcp_ipv4.c
++++ b/net/ipv4/tcp_ipv4.c
+@@ -3317,17 +3317,17 @@ static void __net_exit tcp4_proc_exit_net(struct net *net)
+ 	remove_proc_entry("tcp", net->proc_net);
  }
  
+-static struct pernet_operations tcp4_net_ops = {
++static struct pernet_operations tcp4_net_ops __net_initdata = {
+ 	.init = tcp4_proc_init_net,
+ 	.exit = tcp4_proc_exit_net,
+ };
+ 
+-int __init tcp4_proc_init(void)
++int __net_init tcp4_proc_init(void)
+ {
+ 	return register_pernet_subsys(&tcp4_net_ops);
+ }
+ 
+-void tcp4_proc_exit(void)
++void __net_exit tcp4_proc_exit(void)
+ {
+ 	unregister_pernet_subsys(&tcp4_net_ops);
+ }
+diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
+index 70f6cbd4ef73..87f4cced2114 100644
+--- a/net/ipv4/udp.c
++++ b/net/ipv4/udp.c
+@@ -3600,17 +3600,17 @@ static void __net_exit udp4_proc_exit_net(struct net *net)
+ 	remove_proc_entry("udp", net->proc_net);
+ }
+ 
+-static struct pernet_operations udp4_net_ops = {
++static struct pernet_operations udp4_net_ops __net_initdata = {
+ 	.init = udp4_proc_init_net,
+ 	.exit = udp4_proc_exit_net,
+ };
+ 
+-int __init udp4_proc_init(void)
++int __net_init udp4_proc_init(void)
+ {
+ 	return register_pernet_subsys(&udp4_net_ops);
+ }
+ 
+-void udp4_proc_exit(void)
++void __net_exit udp4_proc_exit(void)
+ {
+ 	unregister_pernet_subsys(&udp4_net_ops);
+ }
+diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
+index c9e5d3e48ab9..73d9439bd408 100644
+--- a/net/ipv6/addrconf.c
++++ b/net/ipv6/addrconf.c
+@@ -4527,17 +4527,17 @@ static void __net_exit if6_proc_net_exit(struct net *net)
+ 	remove_proc_entry("if_inet6", net->proc_net);
+ }
+ 
+-static struct pernet_operations if6_proc_net_ops = {
++static struct pernet_operations if6_proc_net_ops __net_initdata = {
+ 	.init = if6_proc_net_init,
+ 	.exit = if6_proc_net_exit,
+ };
+ 
+-int __init if6_proc_init(void)
++int __net_init if6_proc_init(void)
+ {
+ 	return register_pernet_subsys(&if6_proc_net_ops);
+ }
+ 
+-void if6_proc_exit(void)
++void __net_exit if6_proc_exit(void)
+ {
+ 	unregister_pernet_subsys(&if6_proc_net_ops);
+ }
+diff --git a/net/ipv6/addrlabel.c b/net/ipv6/addrlabel.c
+index f4b2618446bd..50f6c1b1edaa 100644
+--- a/net/ipv6/addrlabel.c
++++ b/net/ipv6/addrlabel.c
+@@ -340,17 +340,17 @@ static void __net_exit ip6addrlbl_net_exit(struct net *net)
+ 	spin_unlock(&net->ipv6.ip6addrlbl_table.lock);
+ }
+ 
+-static struct pernet_operations ipv6_addr_label_ops = {
++static struct pernet_operations ipv6_addr_label_ops __net_initdata = {
+ 	.init = ip6addrlbl_net_init,
+ 	.exit = ip6addrlbl_net_exit,
+ };
+ 
+-int __init ipv6_addr_label_init(void)
++int __net_init ipv6_addr_label_init(void)
+ {
+ 	return register_pernet_subsys(&ipv6_addr_label_ops);
+ }
+ 
+-void ipv6_addr_label_cleanup(void)
++void __net_exit ipv6_addr_label_cleanup(void)
+ {
+ 	unregister_pernet_subsys(&ipv6_addr_label_ops);
+ }
+diff --git a/net/ipv6/ip6_flowlabel.c b/net/ipv6/ip6_flowlabel.c
+index b1ccdf0dc646..f6980c403c68 100644
+--- a/net/ipv6/ip6_flowlabel.c
++++ b/net/ipv6/ip6_flowlabel.c
+@@ -903,17 +903,17 @@ static void __net_exit ip6_flowlabel_net_exit(struct net *net)
+ 	ip6_flowlabel_proc_fini(net);
+ }
+ 
+-static struct pernet_operations ip6_flowlabel_net_ops = {
++static struct pernet_operations ip6_flowlabel_net_ops __net_initdata = {
+ 	.init = ip6_flowlabel_proc_init,
+ 	.exit = ip6_flowlabel_net_exit,
+ };
+ 
+-int ip6_flowlabel_init(void)
++int __net_init ip6_flowlabel_init(void)
+ {
+ 	return register_pernet_subsys(&ip6_flowlabel_net_ops);
+ }
+ 
+-void ip6_flowlabel_cleanup(void)
++void __net_exit ip6_flowlabel_cleanup(void)
+ {
+ 	static_key_deferred_flush(&ipv6_flowlabel_exclusive);
+ 	timer_delete(&ip6_fl_gc_timer);
+diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
+index d9b855d5191b..eef5bab1ee13 100644
+--- a/net/ipv6/mcast.c
++++ b/net/ipv6/mcast.c
+@@ -3209,12 +3209,12 @@ static void __net_exit igmp6_net_exit(struct net *net)
+ 	igmp6_proc_exit(net);
+ }
+ 
+-static struct pernet_operations igmp6_net_ops = {
++static struct pernet_operations igmp6_net_ops __net_initdata = {
+ 	.init = igmp6_net_init,
+ 	.exit = igmp6_net_exit,
+ };
+ 
+-int __init igmp6_init(void)
++int __net_init igmp6_init(void)
+ {
+ 	int err;
+ 
+@@ -3231,18 +3231,18 @@ int __init igmp6_init(void)
+ 	return err;
+ }
+ 
+-int __init igmp6_late_init(void)
++int __net_init igmp6_late_init(void)
+ {
+ 	return register_netdevice_notifier(&igmp6_netdev_notifier);
+ }
+ 
+-void igmp6_cleanup(void)
++void __net_exit igmp6_cleanup(void)
+ {
+ 	unregister_pernet_subsys(&igmp6_net_ops);
+ 	destroy_workqueue(mld_wq);
+ }
+ 
+-void igmp6_late_cleanup(void)
++void __net_exit igmp6_late_cleanup(void)
+ {
+ 	unregister_netdevice_notifier(&igmp6_netdev_notifier);
+ }
+diff --git a/net/ipv6/ndisc.c b/net/ipv6/ndisc.c
+index e7ad13c5bd26..3a83280db29d 100644
+--- a/net/ipv6/ndisc.c
++++ b/net/ipv6/ndisc.c
+@@ -1994,12 +1994,12 @@ static void __net_exit ndisc_net_exit(struct net *net)
+ 	inet_ctl_sock_destroy(net->ipv6.ndisc_sk);
+ }
+ 
+-static struct pernet_operations ndisc_net_ops = {
++static struct pernet_operations ndisc_net_ops __net_initdata = {
+ 	.init = ndisc_net_init,
+ 	.exit = ndisc_net_exit,
+ };
+ 
+-int __init ndisc_init(void)
++int __net_init ndisc_init(void)
+ {
+ 	int err;
+ 
+@@ -2027,17 +2027,17 @@ int __init ndisc_init(void)
+ #endif
+ }
+ 
+-int __init ndisc_late_init(void)
++int __net_init ndisc_late_init(void)
+ {
+ 	return register_netdevice_notifier(&ndisc_netdev_notifier);
+ }
+ 
+-void ndisc_late_cleanup(void)
++void __net_exit ndisc_late_cleanup(void)
+ {
+ 	unregister_netdevice_notifier(&ndisc_netdev_notifier);
+ }
+ 
+-void ndisc_cleanup(void)
++void __net_exit ndisc_cleanup(void)
+ {
+ #ifdef CONFIG_SYSCTL
+ 	neigh_sysctl_unregister(&nd_tbl.parms);
+diff --git a/net/ipv6/proc.c b/net/ipv6/proc.c
+index 813013ca4e75..c59bade608cd 100644
+--- a/net/ipv6/proc.c
++++ b/net/ipv6/proc.c
+@@ -298,17 +298,17 @@ static void __net_exit ipv6_proc_exit_net(struct net *net)
+ 	remove_proc_entry("snmp6", net->proc_net);
+ }
+ 
+-static struct pernet_operations ipv6_proc_ops = {
++static struct pernet_operations ipv6_proc_ops __net_initdata = {
+ 	.init = ipv6_proc_init_net,
+ 	.exit = ipv6_proc_exit_net,
+ };
+ 
+-int __init ipv6_misc_proc_init(void)
++int __net_init ipv6_misc_proc_init(void)
+ {
+ 	return register_pernet_subsys(&ipv6_proc_ops);
+ }
+ 
+-void ipv6_misc_proc_exit(void)
++void __net_exit ipv6_misc_proc_exit(void)
+ {
+ 	unregister_pernet_subsys(&ipv6_proc_ops);
+ }
+diff --git a/net/ipv6/raw.c b/net/ipv6/raw.c
+index 3cc58698cbbd..fe399675b8fc 100644
+--- a/net/ipv6/raw.c
++++ b/net/ipv6/raw.c
+@@ -1256,17 +1256,17 @@ static void __net_exit raw6_exit_net(struct net *net)
+ 	remove_proc_entry("raw6", net->proc_net);
+ }
+ 
+-static struct pernet_operations raw6_net_ops = {
++static struct pernet_operations raw6_net_ops __net_initdata = {
+ 	.init = raw6_init_net,
+ 	.exit = raw6_exit_net,
+ };
+ 
+-int __init raw6_proc_init(void)
++int __net_init raw6_proc_init(void)
+ {
+ 	return register_pernet_subsys(&raw6_net_ops);
+ }
+ 
+-void raw6_proc_exit(void)
++void __net_exit raw6_proc_exit(void)
+ {
+ 	unregister_pernet_subsys(&raw6_net_ops);
+ }
+diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
+index 36d75fb50a70..d0737f16076b 100644
+--- a/net/ipv6/tcp_ipv6.c
++++ b/net/ipv6/tcp_ipv6.c
+@@ -2335,12 +2335,12 @@ static void __net_exit tcpv6_net_exit(struct net *net)
+ 	inet_ctl_sock_destroy(net->ipv6.tcp_sk);
+ }
+ 
+-static struct pernet_operations tcpv6_net_ops = {
++static struct pernet_operations tcpv6_net_ops __net_initdata = {
+ 	.init	    = tcpv6_net_init,
+ 	.exit	    = tcpv6_net_exit,
+ };
+ 
+-int __init tcpv6_init(void)
++int __net_init tcpv6_init(void)
+ {
+ 	int ret;
+ 
+@@ -2378,7 +2378,7 @@ int __init tcpv6_init(void)
+ 	goto out;
+ }
+ 
+-void tcpv6_exit(void)
++void __net_exit tcpv6_exit(void)
+ {
+ 	unregister_pernet_subsys(&tcpv6_net_ops);
+ 	inet6_unregister_protosw(&tcpv6_protosw);
 
+base-commit: 2b414a95b8f7307d42173ba9e580d6d3e2bcbfce
 -- 
-2.53.0
+2.54.0.1136.gdb2ca164c4-goog
 
 
