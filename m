@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE603CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 12:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33302CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 12:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jR50a81IxiDBn56oWWFPyUlJDk//wHbnB3DYWlUT9x4=; b=tkGOgz6MqzXH4qi0jH8NbxsQz0
-	EMUvICrlCl69u3BodTzPFdHpWcPOdSP3wXC0KySFQHGfxSQgfgBtTO4kwiMPDgMvFPkKRMVzPjd6Z
-	ZRK+Y3MvCWlYu6fXmij2ACSf+w+ZYemyg6APLtjJWbHJiv1MIFuBE1FSu1JcJ3my4mIuZbAV+DrK1
-	FCL5Pl3W9z30W8Fihu1qfWULqfQrLk9UUsc3pzxTzP9eByrRBNt3D1rxpbDrnR9kFRDMB2wiM+s39
-	ebwUzperGTkAsmhX4+GcchkgOAaRD0wVHQpqz0pn9JPGyyHjsRx9f3lOcYav0WVl4aKQs+wRmbYLV
-	D8clHwwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7q2XrxfHI2F4jC37A/2Ev7F1/EsKe9OT+qstuGZnrow=; b=NequVfzbNMMT+DkpkB7qmj72TG
+	q0cgLu8DQAdjZKLDUmrkoMHzv4OMAN1ZaU9vNeV5wo7KorI17Er/f5ncbY1B61l5n+92TU8gFZtfm
+	DRkhd4iBUj4qlo8ApdCTFGDcE12dsMGjxpem8H896bPFUCNN+U7IvkxBnR2ba/dTMCfZZh2eQn9Tw
+	np8jZxp93tB1FcDffbf5rLLPmqRB9vdLE97HaPjn/Wu6QlyaZ54KsTHmiN3g2YrpsHJ7MdqiJ/fT6
+	fCdpP9eHkfZCzY97T8cOR7w3JxzOSYvssdWC/Vw3lFqEJVN4kfer+liSY+A6opLJKyyDHh2C4Ro1o
+	YLbUuTwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY0eg-0000000AquT-3JNv;
-	Fri, 12 Jun 2026 12:06:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wY0v7-0000000Arh5-3R4v;
+	Fri, 12 Jun 2026 12:23:33 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY0ef-0000000Aqu3-0HHZ;
-	Fri, 12 Jun 2026 12:06:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 252E5600AB;
-	Fri, 12 Jun 2026 12:06:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FB3D1F000E9;
-	Fri, 12 Jun 2026 12:06:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781265991;
-	bh=jR50a81IxiDBn56oWWFPyUlJDk//wHbnB3DYWlUT9x4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kMSkzSzWMeXL+OsB2eVrT0bTnlZbCubqG6qaotFF+XT8pDdgAl8WSLM7+t2LOo89z
-	 zPVoLtejnkGzduXs/OfewzZod/fU+tAOwXjuaz2MiKC3hGyO7RC+WkntXyXlNfN3fl
-	 ykLX0Ozk1e11viX7u0vwr01fIZimt/x8nbK4LKCMVbfNgtGhLZAXsWAl1pOP22ebja
-	 L194BJfYnSz1Lm0Q27SHehbwkutHe/Ml6HnmCW6bFsdluS1U7bF3KJvJhytn5VpZrP
-	 G4KqFKEY74W3fFOgIMxXhDuTgnhrzvppBRMzYEtQzNE43xgtkZFdXD1PbW896dEnK4
-	 TLpXWpUx8edNw==
-Date: Fri, 12 Jun 2026 14:06:29 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-Message-ID: <20260612-subtle-shapeless-rattlesnake-4b6af8@houat>
-References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
- <20260602-dw-hdmi-qp-scramb-v7-2-445eb54ee1ed@collabora.com>
+	id 1wY0v4-0000000ArgG-0E6c;
+	Fri, 12 Jun 2026 12:23:32 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EB711A1D1C;
+	Fri, 12 Jun 2026 14:23:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1781266999; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7q2XrxfHI2F4jC37A/2Ev7F1/EsKe9OT+qstuGZnrow=;
+	b=4whu0HbtqP7CAZkbptcPO+iuHD6llV2oz5jiUJPMJGp3yLDVWB3SFMfvRWkesTLCuuzMNG
+	/CVciNVYLYBlcA4IsEJHwo3TAYqZyC2jwc8NWQjn/TrJZLrj460vpyaodY7yyKJjXGWb1Y
+	wx18lJkaNft7PAJM/X8hAlBc/mq5KG0YSSAzuKfYYCShUIDzeO/izD/ZX5dtnHkQU6mELm
+	LijkAr2M+J9og+CAZRhFC0tf9Gt2fMyvlUbqIISqpnQIJawQLfORnKXKT+sYPAQfJpQkLL
+	cxJkoyxrz0/9fabgm3gpCDtix3jhMNF08SRYGr71e+aVt5DCvEMAFRK95/Kc5Q==
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="jvytzggqrwbv5ab3"
-Content-Disposition: inline
-In-Reply-To: <20260602-dw-hdmi-qp-scramb-v7-2-445eb54ee1ed@collabora.com>
+Date: Fri, 12 Jun 2026 14:23:14 +0200
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: netdev@vger.kernel.org, Theo Lebrun <theo.lebrun@bootlin.com>, Nicolas
+ Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, Lukasz Raczylo <lukasz@raczylo.com>,
+ Steffen Jaeckel <sjaeckel@suse.de>
+Subject: Re: [PATCH] net: macb: add TX stall timeout callback to recover from
+ lost TSTART write
+In-Reply-To: <771b8faeaee1fce4a84a5ba2661d60b35a65a6d5.1781253818.git.andrea.porta@suse.com>
+References: <771b8faeaee1fce4a84a5ba2661d60b35a65a6d5.1781253818.git.andrea.porta@suse.com>
+Message-ID: <dbc25b24865a1ad92555bc826bef4267@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_052330_883928_B7BA8063 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,200 +76,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrea
 
---jvytzggqrwbv5ab3
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-MIME-Version: 1.0
-
-On Tue, Jun 02, 2026 at 01:44:02AM +0300, Cristian Ciocaltea wrote:
-> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
->=20
-> - A scrambler_supported flag to indicate whether the source supports the
->   scrambling capability, in which case the newly introduced
->   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
->   are mandatory
-> - A scrambler_needed flag to be managed by the hdmi state helpers based
->   on the negotiated TMDS character rate and the source/sink scrambling
->   capabilities
-> - A scrambler_enabled flag to track whether scrambling is currently
->   active
-> - A delayed work item (scdc_work) with an associated callback (scdc_cb)
->   to monitor sink-side scrambling status and retry the setup if the sink
->   resets it
->=20
-> These are intended to be used by SCDC scrambling helpers to coordinate
-> scrambling setup and teardown between the source driver and the DRM
-> core.
->=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+On 12.6.2026 11:01, Andrea della Porta wrote:
+> From: Lukasz Raczylo <lukasz@raczylo.com>
+> 
+> The MACB found in the Raspberry Pi RP1 suffers from sporadic stalls on
+> the TX queue.
+> While the exact root cause is not yet fully understood, it is likely
+> related to a hardware issue where a TSTART write to the NCR register
+> is missed, preventing the transmission from being kicked off.
+> 
+> Implement a timeout callback to handle TX queue stalls, triggering the
+> existing restart mechanism to recover.
+> 
+> Link: 
+> https://lore.kernel.org/all/20260514215459.36109-1-lukasz@raczylo.com/
+> Fixes: dc110d1b23564 ("net: cadence: macb: Add support for Raspberry Pi 
+> RP1 ethernet controller")
+> Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
+> Co-developed-by: Steffen Jaeckel <sjaeckel@suse.de>
+> Signed-off-by: Steffen Jaeckel <sjaeckel@suse.de>
+> Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > ---
->  drivers/gpu/drm/drm_connector.c | 18 +++++++++
->  include/drm/drm_connector.h     | 81 +++++++++++++++++++++++++++++++++++=
-++++++
->  2 files changed, 99 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connec=
-tor.c
-> index a5d13b92b665..526dc2931b8a 100644
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -220,6 +220,19 @@ void drm_connector_free_work_fn(struct work_struct *=
-work)
+>  drivers/net/ethernet/cadence/macb_main.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c 
+> b/drivers/net/ethernet/cadence/macb_main.c
+> index a12aa21244e83..615da65d5d68d 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+> @@ -4522,6 +4522,16 @@ static int macb_setup_tc(struct net_device *dev, 
+> enum tc_setup_type type,
 >  	}
 >  }
-> =20
-> +static void drm_connector_hdmi_scdc_work(struct work_struct *work)
+> 
+> +static void macb_tx_timeout(struct net_device *dev, unsigned int q)
 > +{
-> +	struct drm_connector *connector;
-> +	struct drm_connector_hdmi *hdmi;
+> +	struct macb *bp = netdev_priv(dev);
 > +
-> +	hdmi =3D container_of(to_delayed_work(work), struct drm_connector_hdmi,
-> +			    scdc_work);
-> +	connector =3D container_of(hdmi, struct drm_connector, hdmi);
-> +
-> +	if (hdmi->scdc_cb)
-> +		hdmi->scdc_cb(connector);
+> +	if (net_ratelimit())
+
+Do we need the net_ratelimit() check (and message) here? AFAIU the 
+watchdog core already prints a message for every timeout.
+
+> +		netdev_err(dev, "TX stall detected, re-kicking TSTART\n");
+> +	dev->stats.tx_errors++;
+> +	macb_tx_restart(&bp->queues[q]);
 > +}
 > +
->  static int drm_connector_init_only(struct drm_device *dev,
->  				   struct drm_connector *connector,
->  				   const struct drm_connector_funcs *funcs,
-> @@ -285,6 +298,7 @@ static int drm_connector_init_only(struct drm_device =
-*dev,
->  	mutex_init(&connector->edid_override_mutex);
->  	mutex_init(&connector->hdmi.infoframes.lock);
->  	mutex_init(&connector->hdmi_audio.lock);
-> +	INIT_DELAYED_WORK(&connector->hdmi.scdc_work, drm_connector_hdmi_scdc_w=
-ork);
->  	connector->edid_blob_ptr =3D NULL;
->  	connector->epoch_counter =3D 0;
->  	connector->tile_blob_ptr =3D NULL;
-> @@ -606,6 +620,10 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
->  	    !hdmi_funcs->hdmi.write_infoframe)
->  		return -EINVAL;
-> =20
-> +	if (connector->hdmi.scrambler_supported &&
-> +	    (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable))
-> +		return -EINVAL;
-> +
->  	ret =3D drmm_connector_init(dev, connector, funcs, connector_type, ddc);
->  	if (ret)
->  		return ret;
-> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-> index 529755c2e862..f1c5c15a6cce 100644
-> --- a/include/drm/drm_connector.h
-> +++ b/include/drm/drm_connector.h
-> @@ -28,6 +28,7 @@
->  #include <linux/ctype.h>
->  #include <linux/hdmi.h>
->  #include <linux/notifier.h>
-> +#include <linux/workqueue.h>
->  #include <drm/drm_mode_object.h>
->  #include <drm/drm_util.h>
->  #include <drm/drm_property.h>
-> @@ -1057,6 +1058,19 @@ struct drm_connector_hdmi_state {
->  	 * @tmds_char_rate: TMDS Character Rate, in Hz.
->  	 */
->  	unsigned long long tmds_char_rate;
-> +
-> +	/**
-> +	 * @scrambler_needed: Whether HDMI 2.0 SCDC scrambling is required
-> +	 * for the negotiated mode/bpc/format.
-> +	 *
-> +	 * Computed by drm_atomic_helper_connector_hdmi_check() from
-> +	 * @tmds_char_rate and the source/sink scrambling capabilities.
-> +	 *
-> +	 * Per HDMI 2.0, scrambling is mandatory above 340 MHz TMDS
-> +	 * character rate. Optional scrambling at lower rates is
-> +	 * deliberately not requested by the helper.
-> +	 */
-> +	bool scrambler_needed;
+>  static const struct net_device_ops macb_netdev_ops = {
+>  	.ndo_open		= macb_open,
+>  	.ndo_stop		= macb_close,
+> @@ -4540,6 +4550,7 @@ static const struct net_device_ops 
+> macb_netdev_ops = {
+>  	.ndo_hwtstamp_set	= macb_hwtstamp_set,
+>  	.ndo_hwtstamp_get	= macb_hwtstamp_get,
+>  	.ndo_setup_tc		= macb_setup_tc,
+> +	.ndo_tx_timeout		= macb_tx_timeout,
+
+The commit message describes it as RP1 specific, but it gets applied to 
+all other variants?
+
 >  };
-> =20
->  /**
-> @@ -1358,6 +1372,36 @@ struct drm_connector_hdmi_funcs {
->  	 */
->  	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
-> =20
-> +	/**
-> +	 * @scrambler_enable:
-> +	 *
-> +	 * This callback is invoked through @drm_scdc_start_scrambling during
-> +	 * a commit to setup SCDC scrambling and high TMDS clock ratio on
-> +	 * source side.
-> +	 *
-> +	 * The @scrambler_enable callback is mandatory if HDMI 2.0 is to be
-> +	 * supported.
-> +	 *
-> +	 * Returns:
-> +	 * 0 on success, a negative error code otherwise
-> +	 */
-> +	int (*scrambler_enable)(struct drm_connector *connector);
-> +
-> +	/**
-> +	 * @scrambler_disable:
-> +	 *
-> +	 * This callback is invoked through @drm_scdc_stop_scrambling during
-> +	 * a commit to disable SCDC scrambling and high TMDS clock ratio on
-> +	 * source side.
-> +	 *
-> +	 * The @scrambler_disable callback is mandatory if HDMI 2.0 is to be
-> +	 * supported.
-> +	 *
-> +	 * Returns:
-> +	 * 0 on success, a negative error code otherwise
-> +	 */
-> +	int (*scrambler_disable)(struct drm_connector *connector);
-> +
->  	/**
->  	 * @avi:
->  	 *
-> @@ -1960,6 +2004,43 @@ struct drm_connector_hdmi {
->  	 */
->  	unsigned long supported_formats;
-> =20
-> +	/**
-> +	 * @scrambler_supported: Indicates whether the HDMI controller
-> +	 * (source) supports HDMI 2.0 SCDC scrambling.
-> +	 *
-> +	 * When true, @drm_connector_hdmi_funcs.scrambler_enable and
-> +	 * @drm_connector_hdmi_funcs.scrambler_disable are mandatory.
-> +	 * This is enforced by drmm_connector_hdmi_init().
-> +	 *
-> +	 * For HDMI bridge based drivers using drm_bridge_connector_init(),
-> +	 * this is propagated automatically from bridges that set the
-> +	 * DRM_BRIDGE_OP_HDMI_SCRAMBLER flag in their &drm_bridge->ops.
-> +	 * Other drivers must set this field on @connector->hdmi before calling
-> +	 * drmm_connector_hdmi_init().
-> +	 */
-> +	bool scrambler_supported;
-> +
-> +	/**
-> +	 * @scrambler_enabled: Tracks whether HDMI 2.0 scrambler is currently e=
-nabled.
-> +	 */
-> +	bool scrambler_enabled;
+> 
+>  /* Configure peripheral capabilities according to device tree
 
-This is already in the state. Why do you need to copy it over here, and
-if you do, you'll need a lock.
-
-Maxime
-
---jvytzggqrwbv5ab3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaiv2RQAKCRAnX84Zoj2+
-dpOzAX9fWVyZgzIa+Lwod4+RU9bVyTQIx/zbt9tFgexdmHs0vTf1n0ZU73nrvkpF
-RDnEJ6EBfAztXT42zpjOHCEXHtNxA/RtY+modkrjS8RhNEgWKZ1SifKU6JxOd1OF
-1sNJW47dJQ==
-=ViGe
------END PGP SIGNATURE-----
-
---jvytzggqrwbv5ab3--
+Thanks
+Nicolai
 
