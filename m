@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27E9CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A18CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=; b=cuKJsDF5q6uYFEcu9R4LOUd4YH
-	vq8Qd2wqMxluAgOeEPrTd4kTzAB14VyAgVm6UorIF9iPZJG8XqaGRSvY576UutxGcA4PMbnX0BguN
-	Uyvxae4I55aL47hyh+lzvMPofbe1ogPZxHUoIAN61FJxLYbgR5DYsraCZqqRI4T7bsfp8uHsCWryV
-	hBieVW3UWeiG0hT2CBX9R8kBC1ZJT+i729oyzuM4sNJacdsXEiBBLFEB8jCZqgLlDvnVzdculdxqc
-	+w4REqqv0j9rIrUg2ahnPdStqpT1eNYShCuSPHIgB4aR3OppJeoBUst1EXA6NOfuRdDK1aG2Pe4rR
-	fke5uPog==;
+	bh=M15/H5SXZ3Wzm+97G4xOFVhr5vUJMWE6LcDVgXk/KoI=; b=X1Ybri3Znn+j+kxFvlhebtPsMU
+	4BEW+TiPQORk4SC7Iu3jzQJbMMUMoA3Y1VIOLXJzSUTOztCHxfxTPdPaTg1MmJBB/AYTCitKnfOxs
+	yZjf8+6fyMbnX7cOgbXHtdmCX7RBSOSuYxxGxvVaBnnM1u02GfNePZDZz2orNpab2p6NPzwJv7shb
+	dW6KTulmnfmfNTEt1x0G3f2meR0HIIMVM1nQxm0ygopJSQlq/Jk0rESgZSNi92Hm3oic7cWQhKwBc
+	NpP9Gk6ggh3YTr5kQQgt282BZFBxdi+uWNsoS574uYfZbBM5V44+F1oEAbRraX/FLMHJlQRkpetUs
+	ixRNen8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4ez-0000000BGDO-3zDo;
-	Fri, 12 Jun 2026 16:23:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wY4g5-0000000BGR0-1iDQ;
+	Fri, 12 Jun 2026 16:24:17 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4ew-0000000BGB6-3fls
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 12 Jun 2026 16:23:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=; b=IxgadC3GC79DhYTaowZDm5GiwE
-	bqCIZS04rGly5lkeAwDU4KcQibg+lhXG70+Z94Wcnw4x2dgiE4YRBN6mXQLslJABtYmsgywxVV3Dj
-	k++rohtFqxmy2IsWrjqJrKD9D606+QsdEMzcGZZfYHafzzqPn1rqwcmqG6fvoV/l+10cLUhqfwBOZ
-	RlYK3H0X4I1Aurpz3KUaIBQkoOANSdACjbmg1QKwGSp2/eUhmWlW+67AY3mK2xnYnCq3UIIQAqYT2
-	YKQfHeCKLv5/w1gdVRCP7bUtKgeJlShwQAd52Y/Z/20IFpzW9zERR8K1cpiJxDtj5v0J+xmVL3Y2k
-	t5ZjVsdg==;
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wY4et-00000006dSB-1fPn
+	id 1wY4g3-0000000BGQB-0y97
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 16:23:05 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-138156c0492so4318398c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 09:23:02 -0700 (PDT)
+	Fri, 12 Jun 2026 16:24:17 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490a76757e5so9184305e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 09:24:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781281381; x=1781886181; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=;
-        b=p7C9wHDulWkriLGfHsiMDMw26M6CiFFPEJyYN9jYLHuCj5KWdoeD1kmnHSix/6mmLP
-         ExWqVxNg7oxxyBNJZTi/tnpxCt6XTv5xtLtEXg7K91x4UmkxMDrjEejqfkvoZeUPvHoT
-         iIiuztWYblIHPKLsHmOlKaBZ2rVu/CxRSwu0kZJo6/JlP1J/Ef5/YZXY5bfvokdoNhSG
-         c2xw02YCYmmuq2OaZ4rpkRdxOuSOlX5DiO9p01wSOF4G5b4gNP0ohUJsfzBI7r2mB9kz
-         T/KoUwpcC/vcTwp1DZeJnHG/s7+t5tzDU/ycY9Vp5wlZAIC2XAkUZCrqECKQVs0fGa98
-         EegA==
+        d=gmail.com; s=20251104; t=1781281453; x=1781886253; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=M15/H5SXZ3Wzm+97G4xOFVhr5vUJMWE6LcDVgXk/KoI=;
+        b=BUGFfmII26UYM+P47N5DXnTJsEfRfhyB2i4H23SGWmh0o3LpTU5r0jVSCfQdv3icyx
+         RxIKGSrHmRL59nsg1JBb3NjKtTKcJYHE4EIG8hXOJiv6h8hOoJYU4c3Bi/NohoTCxyAl
+         d+tJcWo1a3MpFqBydy0a/u76l8hKVpayKVxPf2qG5BeGx0n2SupAgK8MHRlzJhp6bn1q
+         1TAk7NB4Vl39W9tNUs3ACkFw/OnScz+coJXn0/eH088Fh9jT2ayCRl2syLuIEPOEoGSD
+         ees5JTTaySbMoyegf7aW0rBmcHBkIO/8UV9KH8YCVDnmaesilpDxtPIaow5J+DqZdw2k
+         G6cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781281381; x=1781886181;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jmyGTpqRWm3i/d6BFzXV54G7OiBKpqEwqVzt3Shrq+o=;
-        b=PR8CC8C8Cnu9Ij3PZ/h0sbJnw1EVTx9MX1va5Ouh8dICVGvorj5T/pJKwVtQRsWE1J
-         vr7ANxcncrt1bwCgDIl2qYmIfmR+dQZDpKxMUX3d13IcRxOfbVrhuW4oCQS8Hxypnj2E
-         aWSEDt6Ww/1xDrdOWft1q24CxtDC57vvLpeFSOGp3AYvkfwVMfCDtPOzSOvnnuub7YhP
-         LO8RIUo+QHxEkTdSkwsmWoCBwI0tZaIMRA5kdHWLktbRr07kkh4Lybc23rgPMIsX9lfE
-         nTXIKywVAmDPXMReSbfKzK7+6CsTiSqzjKHhyv8PCCF/MRu3UifQ5kmVsAfcmlL9GTPp
-         he7A==
-X-Forwarded-Encrypted: i=1; AFNElJ8w1CsQpgI54/JdHBPILuYvJ4cOgTGs6IZ0RreJbZlbJTQsMhZjJyDPhH6w9h97d+LNdpDHOjCFL7CSNM+dkRkX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/nCek+h8yGjX+xvBYvIvuXsldLDNPEHLOmBzaQaSGk8a9wA0W
-	eXdoOw2Lt/4kSV8T2+RDMtsbvO8qfSIqHTd+z1rVNf0VnCtnAk6AIWCosSRkBbfQMyyKyA==
-X-Received: from dlww16.prod.google.com ([2002:a05:7022:ea30:b0:137:e705:d114])
- (user=xur job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:43a9:b0:138:507b:30fd
- with SMTP id a92af1059eb24-138507b3401mr616605c88.6.1781281380261; Fri, 12
- Jun 2026 09:23:00 -0700 (PDT)
-Date: Fri, 12 Jun 2026 09:22:57 -0700
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260612162257.896792-1-xur@google.com>
-Subject: [PATCH] net: correcting section tags for .init and .exit data/functions
-From: xur@google.com
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, David Ahern <dsahern@kernel.org>, 
-	Ido Schimmel <idosch@nvidia.com>, "=?UTF-8?q?Andreas=20F=C3=A4rber?=" <afaerber@suse.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, 
-	"=?UTF-8?q?Maciej=20=C5=BBenczykowski?=" <maze@google.com>, Yue Haibing <yuehaibing@huawei.com>, 
-	Jeff Layton <jlayton@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Fernando Fernandez Mancera <fmancera@suse.de>, Rong Xu <xur@google.com>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Sabrina Dubroca <sd@queasysnail.net>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-actions@lists.infradead.org, llvm@lists.linux.dev
-Cc: kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1781281453; x=1781886253;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=M15/H5SXZ3Wzm+97G4xOFVhr5vUJMWE6LcDVgXk/KoI=;
+        b=pcAVEpZNjr1aExU9Rw1ZQhK4yO0zMN3wY9SMoDr60s6rGIk9I0J55AUecl1yNiSGhL
+         fmrRLAsEjrfloVm1MAm9/QvOenqj65r3EGjWDwkf2NAuLin0ASQNZKMVg2mJMXuO7V2Q
+         Q9y0aeGPnC7rBllACIsCXV1lGCHH8gxADbcmtSGWKh0bgJ9yBhmYxmPaHNJHNKmBgxQc
+         0bo32ovKtKdByg2wRRx5rd1y99BMrdo7I79trRqLuoO8dCZlWikTSKqZVUQFyAZVbZpr
+         3TYyRoxWKwohR1k5Ffh3Oj3GkPIZeYW8+uOv+1VqHv/R6qTczTm8ia/bduUAfy9KXyVm
+         cleA==
+X-Forwarded-Encrypted: i=1; AFNElJ+ikW6qTAe1VkjZboMTATAtPG5BtXgx3PvPvxaOfQHwWZHz3kPC+of3/qXYm7TNn5YGGi8m45s/jaJiHkzQMvOn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVMP46SL444ZQCGt1IwyZoRL91vrhD6v216x34WQIXf1OJDItP
+	hBDU6UHDJbgaRyMmXrVDif97tDsaBzuJQ+uBffcbPJ++ob2fqQ40CQ64
+X-Gm-Gg: Acq92OGw4R0YxL7qQ9z0FFN/8x5cafhN8mxz86Z31fgpItS8cPi885GbUz/v17ef/oz
+	zMCn4eI+YlhCvGPgaLZGCmtgZNWSIilkSy0FviPEI9HpYCbp1ZXIL8S55nsHYN2ISgIpP85z42f
+	qlg1tfM8DGQo2KPG9rBb1x0WWq97K1ZCzoigrmIl2YdAvO0YIYucRNRq5JZ9jOPNJm29S8OdCtU
+	CJiohopg9l/kg9DbtEdSZQElNdnlwtCaawDZ5fs/cOn6pobfjn4oe7pYNlV3WcLlZiQl3Lxc1LR
+	aEWdY5t4tJ5pVofGTBvy0mEfaT1Mob9q1IzaQj3xi+Aw5e1P1ggIQh9R32YxVW9qhSeMroup89W
+	PUEjTI+iAoGXSXl2Aue1fPOZp530M4uRUPC3mxl9f0MGB5Q97Nc4nPkycVpFJeSDPN4B/aGidwF
+	etuIWKBnCUChztyjMWuhiTpnRuEt505/j21YvqfAGUhtiwqPSiqNYn+f6v61dnSA==
+X-Received: by 2002:a05:600c:348b:b0:490:e5c1:b89e with SMTP id 5b1f17b1804b1-49220061e38mr2167415e9.10.1781281452911;
+        Fri, 12 Jun 2026 09:24:12 -0700 (PDT)
+Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.2.31])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea95c51dsm57620935e9.1.2026.06.12.09.24.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 12 Jun 2026 09:24:12 -0700 (PDT)
+From: Jack Thomson <jackabt.amazon@gmail.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	pbonzini@redhat.com
+Cc: joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	shuah@kernel.org,
+	corbet@lwn.net,
+	vladimir.murzin@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	isaku.yamahata@intel.com,
+	Jack Thomson <jackabt@amazon.com>
+Subject: [PATCH v5 0/5] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
+Date: Fri, 12 Jun 2026 17:23:48 +0100
+Message-ID: <20260612162354.73378-1-jackabt.amazon@gmail.com>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_172303_807152_ED030962 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260612_092415_297231_28723565 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,352 +112,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rong Xu <xur@google.com>
+From: Jack Thomson <jackabt@amazon.com>
 
-Fix modpost warnings that have surfaced during Clang's distributed ThinLTO
-builds.
+Hi,
 
-  WARNING: modpost: vmlinux: section mismatch in reference: tcp4_net_ops.llvm.4527429266264891517+0x8 (section: .data) -> tcp4_proc_init_net (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: udp4_net_ops.llvm.17425824324074326067+0x8 (section: .data) -> udp4_proc_init_net (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: ping_v4_net_ops.llvm.5641696707737373282+0x8 (section: .data) -> ping_v4_proc_init_net (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: if6_proc_net_ops.llvm.7870945277386035298+0x8 (section: .data) -> if6_proc_net_init (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: ipv6_addr_label_ops.llvm.5745897517271459135+0x8 (section: .data) -> ip6addrlbl_net_init (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: ndisc_net_ops.llvm.8806210167060761094+0x8 (section: .data) -> ndisc_net_init (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: raw6_net_ops.llvm.3743523335772203324+0x8 (section: .data) -> raw6_init_net (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: igmp6_net_ops.llvm.7071106350580158050+0x8 (section: .data) -> igmp6_net_init (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: tcpv6_net_ops.llvm.17505177970592326146+0x8 (section: .data) -> tcpv6_net_init (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: ip6_flowlabel_net_ops.llvm.6051723423336054316+0x8 (section: .data) -> ip6_flowlabel_proc_init (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: ipv6_proc_ops.llvm.7829948594772821810+0x8 (section: .data) -> ipv6_proc_init_net (section: .init.text)
+This series adds arm64 support for KVM_PRE_FAULT_MEMORY, which was added
+for x86 in [1]. The ioctl allows userspace to populate stage-2 mappings
+before running a vCPU, reducing the number of stage-2 faults taken in
+the run path. This is useful for post-copy migration, where stage-2
+fault latency shows up directly in memory-intensive workloads.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202606111233.kM8oo8Df-lkp@intel.com/
-Signed-off-by: Rong Xu <xur@google.com>
----
- net/ipv4/ping.c          |  6 +++---
- net/ipv4/tcp_ipv4.c      |  6 +++---
- net/ipv4/udp.c           |  6 +++---
- net/ipv6/addrconf.c      |  6 +++---
- net/ipv6/addrlabel.c     |  6 +++---
- net/ipv6/ip6_flowlabel.c |  6 +++---
- net/ipv6/mcast.c         | 10 +++++-----
- net/ipv6/ndisc.c         | 10 +++++-----
- net/ipv6/proc.c          |  6 +++---
- net/ipv6/raw.c           |  6 +++---
- net/ipv6/tcp_ipv6.c      |  6 +++---
- 11 files changed, 37 insertions(+), 37 deletions(-)
+On arm64, the GPA supplied to the ioctl is treated as an IPA in the
+userspace-owned VM's memslot address space. If the vCPU most recently
+ran a nested guest, KVM still targets the VM's canonical stage-2. It
+does not interpret the GPA as an L2 IPA, and does not try to populate
+the nested/shadow stage-2 selected by the vCPU's last run state.
 
-diff --git a/net/ipv4/ping.c b/net/ipv4/ping.c
-index d36f1e273fde..1dda6d661ad8 100644
---- a/net/ipv4/ping.c
-+++ b/net/ipv4/ping.c
-@@ -1144,17 +1144,17 @@ static void __net_exit ping_v4_proc_exit_net(struct net *net)
- 	remove_proc_entry("icmp", net->proc_net);
- }
- 
--static struct pernet_operations ping_v4_net_ops = {
-+static struct pernet_operations ping_v4_net_ops __net_initdata = {
- 	.init = ping_v4_proc_init_net,
- 	.exit = ping_v4_proc_exit_net,
- };
- 
--int __init ping_proc_init(void)
-+int __net_init ping_proc_init(void)
- {
- 	return register_pernet_subsys(&ping_v4_net_ops);
- }
- 
--void ping_proc_exit(void)
-+void __net_exit ping_proc_exit(void)
- {
- 	unregister_pernet_subsys(&ping_v4_net_ops);
- }
-diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-index fdc81150ff6c..9caca5879466 100644
---- a/net/ipv4/tcp_ipv4.c
-+++ b/net/ipv4/tcp_ipv4.c
-@@ -3317,17 +3317,17 @@ static void __net_exit tcp4_proc_exit_net(struct net *net)
- 	remove_proc_entry("tcp", net->proc_net);
- }
- 
--static struct pernet_operations tcp4_net_ops = {
-+static struct pernet_operations tcp4_net_ops __net_initdata = {
- 	.init = tcp4_proc_init_net,
- 	.exit = tcp4_proc_exit_net,
- };
- 
--int __init tcp4_proc_init(void)
-+int __net_init tcp4_proc_init(void)
- {
- 	return register_pernet_subsys(&tcp4_net_ops);
- }
- 
--void tcp4_proc_exit(void)
-+void __net_exit tcp4_proc_exit(void)
- {
- 	unregister_pernet_subsys(&tcp4_net_ops);
- }
-diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
-index 70f6cbd4ef73..87f4cced2114 100644
---- a/net/ipv4/udp.c
-+++ b/net/ipv4/udp.c
-@@ -3600,17 +3600,17 @@ static void __net_exit udp4_proc_exit_net(struct net *net)
- 	remove_proc_entry("udp", net->proc_net);
- }
- 
--static struct pernet_operations udp4_net_ops = {
-+static struct pernet_operations udp4_net_ops __net_initdata = {
- 	.init = udp4_proc_init_net,
- 	.exit = udp4_proc_exit_net,
- };
- 
--int __init udp4_proc_init(void)
-+int __net_init udp4_proc_init(void)
- {
- 	return register_pernet_subsys(&udp4_net_ops);
- }
- 
--void udp4_proc_exit(void)
-+void __net_exit udp4_proc_exit(void)
- {
- 	unregister_pernet_subsys(&udp4_net_ops);
- }
-diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
-index c9e5d3e48ab9..73d9439bd408 100644
---- a/net/ipv6/addrconf.c
-+++ b/net/ipv6/addrconf.c
-@@ -4527,17 +4527,17 @@ static void __net_exit if6_proc_net_exit(struct net *net)
- 	remove_proc_entry("if_inet6", net->proc_net);
- }
- 
--static struct pernet_operations if6_proc_net_ops = {
-+static struct pernet_operations if6_proc_net_ops __net_initdata = {
- 	.init = if6_proc_net_init,
- 	.exit = if6_proc_net_exit,
- };
- 
--int __init if6_proc_init(void)
-+int __net_init if6_proc_init(void)
- {
- 	return register_pernet_subsys(&if6_proc_net_ops);
- }
- 
--void if6_proc_exit(void)
-+void __net_exit if6_proc_exit(void)
- {
- 	unregister_pernet_subsys(&if6_proc_net_ops);
- }
-diff --git a/net/ipv6/addrlabel.c b/net/ipv6/addrlabel.c
-index f4b2618446bd..50f6c1b1edaa 100644
---- a/net/ipv6/addrlabel.c
-+++ b/net/ipv6/addrlabel.c
-@@ -340,17 +340,17 @@ static void __net_exit ip6addrlbl_net_exit(struct net *net)
- 	spin_unlock(&net->ipv6.ip6addrlbl_table.lock);
- }
- 
--static struct pernet_operations ipv6_addr_label_ops = {
-+static struct pernet_operations ipv6_addr_label_ops __net_initdata = {
- 	.init = ip6addrlbl_net_init,
- 	.exit = ip6addrlbl_net_exit,
- };
- 
--int __init ipv6_addr_label_init(void)
-+int __net_init ipv6_addr_label_init(void)
- {
- 	return register_pernet_subsys(&ipv6_addr_label_ops);
- }
- 
--void ipv6_addr_label_cleanup(void)
-+void __net_exit ipv6_addr_label_cleanup(void)
- {
- 	unregister_pernet_subsys(&ipv6_addr_label_ops);
- }
-diff --git a/net/ipv6/ip6_flowlabel.c b/net/ipv6/ip6_flowlabel.c
-index b1ccdf0dc646..f6980c403c68 100644
---- a/net/ipv6/ip6_flowlabel.c
-+++ b/net/ipv6/ip6_flowlabel.c
-@@ -903,17 +903,17 @@ static void __net_exit ip6_flowlabel_net_exit(struct net *net)
- 	ip6_flowlabel_proc_fini(net);
- }
- 
--static struct pernet_operations ip6_flowlabel_net_ops = {
-+static struct pernet_operations ip6_flowlabel_net_ops __net_initdata = {
- 	.init = ip6_flowlabel_proc_init,
- 	.exit = ip6_flowlabel_net_exit,
- };
- 
--int ip6_flowlabel_init(void)
-+int __net_init ip6_flowlabel_init(void)
- {
- 	return register_pernet_subsys(&ip6_flowlabel_net_ops);
- }
- 
--void ip6_flowlabel_cleanup(void)
-+void __net_exit ip6_flowlabel_cleanup(void)
- {
- 	static_key_deferred_flush(&ipv6_flowlabel_exclusive);
- 	timer_delete(&ip6_fl_gc_timer);
-diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
-index d9b855d5191b..eef5bab1ee13 100644
---- a/net/ipv6/mcast.c
-+++ b/net/ipv6/mcast.c
-@@ -3209,12 +3209,12 @@ static void __net_exit igmp6_net_exit(struct net *net)
- 	igmp6_proc_exit(net);
- }
- 
--static struct pernet_operations igmp6_net_ops = {
-+static struct pernet_operations igmp6_net_ops __net_initdata = {
- 	.init = igmp6_net_init,
- 	.exit = igmp6_net_exit,
- };
- 
--int __init igmp6_init(void)
-+int __net_init igmp6_init(void)
- {
- 	int err;
- 
-@@ -3231,18 +3231,18 @@ int __init igmp6_init(void)
- 	return err;
- }
- 
--int __init igmp6_late_init(void)
-+int __net_init igmp6_late_init(void)
- {
- 	return register_netdevice_notifier(&igmp6_netdev_notifier);
- }
- 
--void igmp6_cleanup(void)
-+void __net_exit igmp6_cleanup(void)
- {
- 	unregister_pernet_subsys(&igmp6_net_ops);
- 	destroy_workqueue(mld_wq);
- }
- 
--void igmp6_late_cleanup(void)
-+void __net_exit igmp6_late_cleanup(void)
- {
- 	unregister_netdevice_notifier(&igmp6_netdev_notifier);
- }
-diff --git a/net/ipv6/ndisc.c b/net/ipv6/ndisc.c
-index e7ad13c5bd26..3a83280db29d 100644
---- a/net/ipv6/ndisc.c
-+++ b/net/ipv6/ndisc.c
-@@ -1994,12 +1994,12 @@ static void __net_exit ndisc_net_exit(struct net *net)
- 	inet_ctl_sock_destroy(net->ipv6.ndisc_sk);
- }
- 
--static struct pernet_operations ndisc_net_ops = {
-+static struct pernet_operations ndisc_net_ops __net_initdata = {
- 	.init = ndisc_net_init,
- 	.exit = ndisc_net_exit,
- };
- 
--int __init ndisc_init(void)
-+int __net_init ndisc_init(void)
- {
- 	int err;
- 
-@@ -2027,17 +2027,17 @@ int __init ndisc_init(void)
- #endif
- }
- 
--int __init ndisc_late_init(void)
-+int __net_init ndisc_late_init(void)
- {
- 	return register_netdevice_notifier(&ndisc_netdev_notifier);
- }
- 
--void ndisc_late_cleanup(void)
-+void __net_exit ndisc_late_cleanup(void)
- {
- 	unregister_netdevice_notifier(&ndisc_netdev_notifier);
- }
- 
--void ndisc_cleanup(void)
-+void __net_exit ndisc_cleanup(void)
- {
- #ifdef CONFIG_SYSCTL
- 	neigh_sysctl_unregister(&nd_tbl.parms);
-diff --git a/net/ipv6/proc.c b/net/ipv6/proc.c
-index 813013ca4e75..c59bade608cd 100644
---- a/net/ipv6/proc.c
-+++ b/net/ipv6/proc.c
-@@ -298,17 +298,17 @@ static void __net_exit ipv6_proc_exit_net(struct net *net)
- 	remove_proc_entry("snmp6", net->proc_net);
- }
- 
--static struct pernet_operations ipv6_proc_ops = {
-+static struct pernet_operations ipv6_proc_ops __net_initdata = {
- 	.init = ipv6_proc_init_net,
- 	.exit = ipv6_proc_exit_net,
- };
- 
--int __init ipv6_misc_proc_init(void)
-+int __net_init ipv6_misc_proc_init(void)
- {
- 	return register_pernet_subsys(&ipv6_proc_ops);
- }
- 
--void ipv6_misc_proc_exit(void)
-+void __net_exit ipv6_misc_proc_exit(void)
- {
- 	unregister_pernet_subsys(&ipv6_proc_ops);
- }
-diff --git a/net/ipv6/raw.c b/net/ipv6/raw.c
-index 3cc58698cbbd..fe399675b8fc 100644
---- a/net/ipv6/raw.c
-+++ b/net/ipv6/raw.c
-@@ -1256,17 +1256,17 @@ static void __net_exit raw6_exit_net(struct net *net)
- 	remove_proc_entry("raw6", net->proc_net);
- }
- 
--static struct pernet_operations raw6_net_ops = {
-+static struct pernet_operations raw6_net_ops __net_initdata = {
- 	.init = raw6_init_net,
- 	.exit = raw6_exit_net,
- };
- 
--int __init raw6_proc_init(void)
-+int __net_init raw6_proc_init(void)
- {
- 	return register_pernet_subsys(&raw6_net_ops);
- }
- 
--void raw6_proc_exit(void)
-+void __net_exit raw6_proc_exit(void)
- {
- 	unregister_pernet_subsys(&raw6_net_ops);
- }
-diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
-index 36d75fb50a70..d0737f16076b 100644
---- a/net/ipv6/tcp_ipv6.c
-+++ b/net/ipv6/tcp_ipv6.c
-@@ -2335,12 +2335,12 @@ static void __net_exit tcpv6_net_exit(struct net *net)
- 	inet_ctl_sock_destroy(net->ipv6.tcp_sk);
- }
- 
--static struct pernet_operations tcpv6_net_ops = {
-+static struct pernet_operations tcpv6_net_ops __net_initdata = {
- 	.init	    = tcpv6_net_init,
- 	.exit	    = tcpv6_net_exit,
- };
- 
--int __init tcpv6_init(void)
-+int __net_init tcpv6_init(void)
- {
- 	int ret;
- 
-@@ -2378,7 +2378,7 @@ int __init tcpv6_init(void)
- 	goto out;
- }
- 
--void tcpv6_exit(void)
-+void __net_exit tcpv6_exit(void)
- {
- 	unregister_pernet_subsys(&tcpv6_net_ops);
- 	inet6_unregister_protosw(&tcpv6_protosw);
+The patches are:
 
-base-commit: 2b414a95b8f7307d42173ba9e580d6d3e2bcbfce
+ - Allow callers of kvm_pgtable_get_leaf() to pass walk flags, so the
+   prefault path can walk stage-2 under the MMU read lock.
+
+ - Add arm64 support for KVM_PRE_FAULT_MEMORY.
+
+ - Enable pre_fault_memory_test on arm64.
+
+ - Add a backing-source option to pre_fault_memory_test.
+
+ - Add a nested (NV) selftest that prefaults on a vCPU whose last-run
+   context is backed by a shadow stage-2 MMU with an empty nested
+   stage-2 root.
+
+The prefault flag and page_size output in the stage-2 fault descriptor
+remain in this series so the arm64 implementation can advance by the
+mapping granule installed by the fault path and report poison without
+queueing a SIGBUS.
+
+Tested with pre_fault_memory_test under an arm64 QEMU setup with
+anonymous, shmem, anonymous_thp, anonymous_hugetlb and shared_hugetlb
+backings, including 64K, 2M and 32M hugetlb pools, and with the new
+nv_pre_fault_memory_test on an NV-capable setup.
+
+=== Changes since v4 [2] ===
+
+ - Reworked nested virt semantics: arm64 now treats the ioctl GPA as the
+   VM/memslot IPA and always targets the canonical stage-2. It no longer
+   translates an L2 IPA through L1's stage-2.
+
+ - Documented the arm64 nested behavior in the KVM API text.
+
+ - Switch to the canonical stage-2 with the vCPU put/load helpers when
+   the vCPU last ran with a nested/shadow MMU, keeping VMID, VNCR and
+   shadow-MMU refcount state consistent.
+
+ - Split the kvm_pgtable_get_leaf() walk-flag plumbing into a prep patch
+   and walk existing mappings with KVM_PGTABLE_WALK_SHARED under the MMU
+   read lock.
+
+ - Tightened prefault fault handling: preserve fault info, set IL in the
+   synthetic ESR, handle existing mappings, return -EAGAIN for invalid
+   memslot races, and report -EHWPOISON without queueing SIGBUS.
+
+ - Avoid directly walking stage-2 page tables when pKVM is enabled.
+   Protected VMs remain unsupported via -EOPNOTSUPP.
+
+ - Preserve the selected selftest memory backing when recreating the
+   racing memslot.
+
+ - Add the nested (NV) prefault selftest, including an empty nested
+   stage-2 root to catch accidental L2-IPA interpretation.
+
+=== Changes since v3 [3] ===
+
+ - Return -EOPNOTSUPP for protected VMs.
+
+ - Reworked nested-vCPU handling to translate an L2 IPA through L1's
+   stage-2. This has been superseded by the canonical VM-IPA semantics
+   described above.
+
+ - Make page_size unsigned and keep local declarations ordered at the
+   top of kvm_arch_vcpu_pre_fault_memory().
+
+=== Changes since v2 [4] ===
+
+ - Update the synthetic fault info. Thanks Suzuki.
+
+ - Remove the selftest change for unaligned mmap allocations. Thanks
+   Sean.
+
+[1]: https://lore.kernel.org/kvm/20240710174031.312055-1-pbonzini@redhat.com/
+[2]: https://lore.kernel.org/linux-arm-kernel/20260113152643.18858-1-jackabt.amazon@gmail.com/
+[3]: https://lore.kernel.org/linux-arm-kernel/20251119154910.97716-1-jackabt.amazon@gmail.com/
+[4]: https://lore.kernel.org/linux-arm-kernel/20251013151502.6679-1-jackabt.amazon@gmail.com/
+
+Jack Thomson (5):
+  KVM: arm64: Pass walk flags to kvm_pgtable_get_leaf()
+  KVM: arm64: Add pre_fault_memory implementation
+  KVM: selftests: Enable pre_fault_memory_test for arm64
+  KVM: selftests: Add option for different backing in pre-fault tests
+  KVM: selftests: Add nested pre-fault test for arm64
+
+ Documentation/virt/kvm/api.rst                |  18 +-
+ arch/arm64/include/asm/kvm_pgtable.h          |   5 +-
+ arch/arm64/kvm/Kconfig                        |   1 +
+ arch/arm64/kvm/arm.c                          |   1 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  10 +-
+ arch/arm64/kvm/hyp/pgtable.c                  |   5 +-
+ arch/arm64/kvm/mmu.c                          | 164 +++++++++++++-
+ arch/arm64/kvm/nested.c                       |   2 +-
+ tools/testing/selftests/kvm/Makefile.kvm      |   2 +
+ .../kvm/arm64/nv_pre_fault_memory_test.c      | 200 ++++++++++++++++++
+ .../selftests/kvm/pre_fault_memory_test.c     | 150 ++++++++++---
+ 11 files changed, 513 insertions(+), 45 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
+
+
+base-commit: 98f826f3c500fda08d51fca434b7aefa6a2f7076
 -- 
-2.54.0.1136.gdb2ca164c4-goog
-
+2.43.0
 
