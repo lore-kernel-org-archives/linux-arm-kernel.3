@@ -4,62 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A793CD98D5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 06:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC031CD98D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 06:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FWJYhiXqUMaYD6VeHN0j6mrscoHhjJw3Gq3j4k/FXLw=; b=FQtU1WOGazk7gB1nT8GM3/tqQR
-	X//+xWGDI31hZlamaX1bN1lLZqfKx6/gedMj5CTeC1OUZufxjeeCT//Lsz5daTcC602ySqZywuVcb
-	PLgNTBnhoLqV8Bz4ZECGc01UPI/F5XKs6wcqDcNpBpG+61EoVhuFt5dXDAkqQ73dPMeIJqYupzEjU
-	WISsVwDVM3jcD3eJMXK0WA27OAcM7B7Vj13MU1WU+hsBowjXwZfCC4lIPaLZRBPmyosNwYrRtHjfD
-	1az52Slf1G2ZzfxUyTOoO/BqxyoWfWrKD52QIfygvp1THznEcrDP+wP1oAnBfG7TgifgWyCkPEyv9
-	bBbFzofg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID
+	:Subject:Cc:To:From:Content-Transfer-Encoding:Content-Type:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aUM1JKZgsiz4BTWpIEMqUtQNjD2PvyR1abZbR4aAuFU=; b=kmQoc/UfKo2A5qIDzH3EB8P/8l
+	gXeLtsa8wdbCa+gYiJZJ2FiewBiUFzn7N3/zQEQLFnuKGFm5/tHJ7Vk3LkTRXVWz+LgugWSkak5Ru
+	4DteyL2mE+bAi+qsTyW9ADZcp6JXbn/jSk3GRuCCpbq8YWI/iN8lTx5Q+wnu9Mr0QtH2zOh0Mu59e
+	ce76GCuSiJfvZS2txAQaKI0q9BaQPbJwCZ+Ekf7h5/fICqLSUtA+FD+Neteq9SeYbdnvoQrPRNImR
+	pHwZTUkeCbbwtilKU2sJmWEb8fZ6VhlilbZClP5LrDctajpieqzlrY9mjJRuJ9zgm9mx74kDXDWfk
+	C6t0Q8Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXvba-0000000APls-0wWs;
-	Fri, 12 Jun 2026 06:43:02 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wXvfT-0000000AQ1r-3907;
+	Fri, 12 Jun 2026 06:47:04 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXvbX-0000000APlJ-1IuY
+	id 1wXvfQ-0000000AQ1M-2Hbi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 06:43:01 +0000
+	Fri, 12 Jun 2026 06:47:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R/0zDTsQVGf0J8j0k6LLuOXhigiv+0ZIGg7c1d0Wquh1nbKABjezIIrNVL8oc5bsmnX8IuAe2QiCxII0EiSXLff8DxmOO5djB2MiICOTMSvRzQc29QefPdYLs9WOHQpKQSKK8Joc2uMO74AOhoq+ricW3ozEcU6lFJXfz6L0pBpxgLqCSM+Zv70bAZsiixF1p9A2DFzVRosXzgSHwllxbNkcQNK6HBW24axVizrd7PSAqJC2ua6bEqKwS0d830leN6maJYDiIcTc1rfNNZva49+IXFmfQJIOFruyUiNvwY5cRvOQ1Mck8rP+qhlEe4s4GhLeNqivtLMKkg7f8uubHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aUM1JKZgsiz4BTWpIEMqUtQNjD2PvyR1abZbR4aAuFU=;
+ b=H+Ck4XtYpouRD8or84WwnU8sL7GD5nqBxEEll1Um2blNS2dWt4mu8OgLOt/+51B4nVc4Au1GKVJakOr4gZLpoyqoCu93KW4vjwmjp7D8BESumaDuteXnKYiLQBtUFGJBek4kX6C26ONz2DS9yiFOYPCdOEuAXT+x/CIV1rh2iKHKSTqq4ezIza5C4s2obAfrPE208ZSvP2IWIy1d5SLG4vJxuSoiIf4TnA86idB96Zy+8gpRCxdCRlhsFytM6zOqEQAUD8NJRNb2Zb5weVB1oPSr9C/E9dYHN8xwaNtM9ds4DR0WghOvlrzjWVrMoJHyf2UxQnWcF1M9IGIKc/02kA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bst.ai; dmarc=pass action=none header.from=bst.ai; dkim=pass
+ header.d=bst.ai; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1781246569;
-	bh=FWJYhiXqUMaYD6VeHN0j6mrscoHhjJw3Gq3j4k/FXLw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=V7d4Q44PZOFAp2+7I7SwTT38ul/YbkTQd29va1hkNaH+zYcBobk7RogEOG2YbLVjl
-	 K4uDyb9qwqOkpcPju15Khs68B+MFbXitLbTpHJlZil1TZu0K2DEnOGhFTzpEWc3lzt
-	 eo3mS85M3neABGJ04Cqbbxs6rafta//qTCN2H8WCHcQv3ty+oyiSsinE4epJgdTRUV
-	 IuYGhuAPsHkWFRufboSGJ+F0wULuG9fYPOK3NBYJLX+rTLwCkkIffodn8voB7uRYts
-	 OXGeyQ7Fhgr5eiPEYgK9dopGq23+zCj1XGUOPLgWfUQnljeK2vTBJKZGAbOPK6T1fR
-	 kMhVRBbkiH8CA==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id E6A3C60931;
-	Fri, 12 Jun 2026 14:42:46 +0800 (AWST)
-Message-ID: <b226339bb2abe42ce23e90eadbc654b426131083.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] arm64: dts: aspeed: Fix duplicate pinctrl labels and
- address scheme
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>, Arnd Bergmann <arnd@arndb.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Fri, 12 Jun 2026 16:12:45 +0930
-In-Reply-To: <20260611-dtsi_fix-v1-1-ef2b7cd86d6d@aspeedtech.com>
-References: <20260611-dtsi_fix-v1-1-ef2b7cd86d6d@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+ d=blacksesame.onmicrosoft.com; s=selector2-blacksesame-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aUM1JKZgsiz4BTWpIEMqUtQNjD2PvyR1abZbR4aAuFU=;
+ b=qMRvh1GPVxk+4k2FDVAGJkWiOT92yWLd5EPOepPVgNLawI+Q72Lhyg4HHr66vQLqtQQ4wD7Y8heGK60zhAAgvNyNfGSwFg1TgvXGi3/hycuSelploeEaeT0Ff3adZ/bbwTCy3Gd8DGEM2b3s08gApXle/1M9Lg3ysEinwcAe+K4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bst.ai;
+Received: from CO6PR18MB4434.namprd18.prod.outlook.com (2603:10b6:5:35d::16)
+ by SAVPR18MB988338.namprd18.prod.outlook.com (2603:10b6:806:4e5::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.18; Fri, 12 Jun
+ 2026 06:46:55 +0000
+Received: from CO6PR18MB4434.namprd18.prod.outlook.com
+ ([fe80::66c:c77f:192a:f885]) by CO6PR18MB4434.namprd18.prod.outlook.com
+ ([fe80::66c:c77f:192a:f885%7]) with mapi id 15.21.0113.013; Fri, 12 Jun 2026
+ 06:46:55 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+From: gordon.ge@bst.ai
+To: soc@lists.linux.dev
+Cc: arnd@arndb.de,yangzh0906@thundersoft.com,linux-arm-kernel@lists.infradead.org,bst-upstream@bstai.top
+Subject: [GIT PULL]Add eMMC controller support to the BST C1200 device tree
+Message-ID: <178124681322.539730.7583821629980585000@bst.ai>
+Date: Fri, 12 Jun 2026 06:46:53 +0000
+X-ClientProxiedBy: TPYP295CA0025.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:a::15) To CO6PR18MB4434.namprd18.prod.outlook.com
+ (2603:10b6:5:35d::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR18MB4434:EE_|SAVPR18MB988338:EE_
+X-MS-Office365-Filtering-Correlation-Id: dac6c276-aa9d-4b4c-803e-08dec84e64b6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: DKX6s4Uc0lDBPVANUiJdEvritPVeG1NXX7fm4E9BOSx2evJknjCiYqYbCcYLWlvP/IQPXayuOl36r5gnmLd7rtQ+tIuY70ewS+j2dlEm71pIf82XFeHg5FzxwIJaekFFdQDGePuJzb7emOiIO0rohgxD2u0WsqqLxcl/6/ViKlMjyHrnKJBt5FzhMDxClLdPxoeTG0rZIEb9yKC8e5RYQTfMfboDY/w11j+Lsm31z/7wakxRkSnq6tPSC6UFyPVc0kBDR6HPgbeihzpD+LKAXmVX6agCFTk0XDoHAG/TdhiAcJba3uaQZmg1J+55gxlYu8pjoq3yiMBFSwv4v4fc+TVwRfnEfZgCof4gMS7S5beN9325Zod2yUmCQNoeOSxgU90xZ8BI9Fyxtk6PtlEZGpQm5kPkxQBdQtGNhRlSwcywva7kFS0qfMdOTeqMdJIa8xpjpnotEwQpvG3RqDmc4pnCo8erq9OPAF2wCgilPIs9c1fRVP/37CAgqv4Odcr+yo2GMDTCNKOGlbWAbqZvUGSKYiFHaUfgOlwD93/3dWfGyuHHasa9L2WkJANDP8nfAjh67msdnTM4xdyxwMAL8okAKkIll/7EDApUoMn7uGYVurefAUF3oAnnbupenw3ybyuc7dfm/UKz0yP1IJTgHZpvRZV6xzAI9sivJz5ACA7M89LVKLZcvBoFooWbczfcyENw+3xo7MpfluX83wnCFQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR18MB4434.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NzVybCtZSW5Fb3pKaHFpNEJDM05Femwvakk0TmZob2VZUFNTWCtoYW40cUlD?=
+ =?utf-8?B?Ny9WdzNKd2xEQXJ3WmduVzZUdjgvWk1LY3dnVXhvUHk3aUtPVTdidlc5cWRi?=
+ =?utf-8?B?NmF2YjVsc3FpZ0U0b0dZNHlNcnNVTGlMbTIrZVFQS1lkUTR1V0FiQzNIbVFD?=
+ =?utf-8?B?blF5b1hIWWREMCtOSm8xVVY2TlZHZU1VQjh5dU1kNHNoRnZRdU94N25ySWky?=
+ =?utf-8?B?VDByRStSZHBzaEFRTmpaZFEydE1zRkZ4SkhmUHN6a2IxYTkzQUVVY2ZML3lU?=
+ =?utf-8?B?RlBSMWwrd0oveFZOYTMwQU45M0N2L0FTcTIwWXY0NFhIOHBhOC9tRUF4dzlN?=
+ =?utf-8?B?bDdGb080UC9qcU50eWFqM3JMckV1cnI2OXBEK3BKR0h6MGV2UDRuZFRZMDFP?=
+ =?utf-8?B?dFg1TTc2Z1JEWHJBNklWdEc0dS9sb3J2emJJcldUZnNmVUVUQmdoaUtvUXg3?=
+ =?utf-8?B?WU03bjVNNzUzdkNLdk9aVmJYdm5jcGx0bGZDMkdrWTQ4YjlpeThYOExNbi9C?=
+ =?utf-8?B?TkJqZnZwNGJUcmJFOHZ3R3k3dkViQkVaZTNuQ2oxNmk3elhTOGNWOHJvSWY3?=
+ =?utf-8?B?TGhaS3BwTTZpQVRHMzROTmF3eHVHZmpqWVVtU09yMDdScExYOVQzV2drUXEw?=
+ =?utf-8?B?YndQQWNLeGYzOWUyeEw5eGEzZm0wWmxRWG9SMnVoaW9pL0hESGtmcEI1cmoy?=
+ =?utf-8?B?VW92d0JQSlBuK00xM2dzL1JEbUt2cUZldTV6UE5vV0kzRmxGak1KT1hlRGE1?=
+ =?utf-8?B?Y2hVenBBUDdXTVloemlMRHVsbHNvSkZSODBPcU90UVh0QlF6MzdSVm16L2Vh?=
+ =?utf-8?B?ZmEzN0VVNXA5VWZIUmFRcjNDb1M2SWY4RE81MWUzaUladkNqanNMcW5BWTdH?=
+ =?utf-8?B?aXlub1JhYmxOWjB4bWI4UWwwS2IvTHo5OC9QbUVUNjhrZElkQ3pJa1JhVHdJ?=
+ =?utf-8?B?eXk4M0lBZDVkY2twaXREKzJnVVhSZXNJOEVTMjk5VnFURmFVY0YxNXRHOVBC?=
+ =?utf-8?B?am1BODhHWUtremNWY0FFUUhwT0lndDNUV0RIakd5TVYycTFNVWNlNjhMYVhn?=
+ =?utf-8?B?TTB3eDE3MmorUitBV1VCZWZtMlg0NHZCYzFMOS9kNjdpc3B3TEgwTGZ2R3Vq?=
+ =?utf-8?B?UVFMMG1kNEZaYkxJZWVpTzhRK1JwVmZyNlUvcnM3R2Voa2FORUhub0FqYUtG?=
+ =?utf-8?B?VmlHUTQrMElzZVJ0bmhoMnpXdVorYzNvVDFZd3VLUkR0UmpFTHpOQ21TZnpr?=
+ =?utf-8?B?SElJbThmRnZabURKQW93S1lWTkZTZmc4TUh6MjdDZ3d1R0ExOXBrbFEzSnVJ?=
+ =?utf-8?B?aXk0NHoremNWeDZNb08wUlZLeDRMczh1bFRNV2N4ZDA1cGdlWks0RVdnOU1t?=
+ =?utf-8?B?KzhHR3hFQmlsVjhGL3JZYzQwUEUxV2VIVTFqaW1CNUVZazFEVVowYWxtaXBX?=
+ =?utf-8?B?OEFQYk9lUUo0T25hcldER2VKZ2lHcWRFS2M3YU50Q0djRWNaUHR3UE9QK1Fo?=
+ =?utf-8?B?bzRxZHgwaFVSKzMrUnM0bms1eEt2STc2R1hYWkc2NWt4SmdhQU91S3FUYlZi?=
+ =?utf-8?B?czBRcGlTaDMxVEZwcERRZkxuNjZHZzdlVHk1MFJRT0F4eUFmdTN0cjVBOXJZ?=
+ =?utf-8?B?T0VIdld0UzgwZm5uZWk1R01iM21QVThLTjZUVTdhVXM0Q1BiM1JHcVhON1V6?=
+ =?utf-8?B?b0F5SGc4THZ4OWZsak1MQnpuSFRuekdNS2JxMzlRbFVJMnRPT1lEOU5HTmRv?=
+ =?utf-8?B?cFZBRjJKZDBQVTliek1xU1dhME5TbytyYy8wa3FPYklsbjdkUWpGUWxLeUc4?=
+ =?utf-8?B?c00rZDZ6STdVVHN4UHpxR09sZHZyVUNUa2tWMGV5aXhPMVBUUXgrbmJRQ2xP?=
+ =?utf-8?B?Wmt6Yy9rOCtjSy9BVE1rSWRlaTFKbWp0RGNtdC9QWEJjdzVMK1hDTGpSdTM1?=
+ =?utf-8?B?OG1NZ0laaG1iOTRVQnY1M0NvZVc5TGcremVWc1lyMGVraGhIalhYWEtVcThv?=
+ =?utf-8?B?U3dWcWt4NTdJMFJ6RHhPR2RmTDZBdDl0SWZEbnlreE9YVFRnQ0dVcjViSTV0?=
+ =?utf-8?B?WmJ0dHVPQU1CRXlrclNJeUNkYkppWllFeXRlQ0pkdFNRYTlIYlQ2cDlUMERl?=
+ =?utf-8?B?MTZrSXAvdjRuaXZBcXM5ZG15bk4zZW8rMTdTZ2RTWEVqbTMxdzcwV2MxUHBl?=
+ =?utf-8?B?aUUvb2JtNm9lM0t4aWZoS2RqWk0rQnlEU2N4cnlhV1JMTEFXZjB0bnpnZEd3?=
+ =?utf-8?B?cFk5d2FLVE5Db0ZNaG5ZS1RSMjZDbFVIWStJQm55Mm0vckFMbDFJNHdMbmkz?=
+ =?utf-8?B?OCt4RkVrOFIyV29FdU05SzdjMFJpR0RVQmVhQ3gwMmpHQThxVVpaZz09?=
+X-OriginatorOrg: bst.ai
+X-MS-Exchange-CrossTenant-Network-Message-Id: dac6c276-aa9d-4b4c-803e-08dec84e64b6
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR18MB4434.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 06:46:55.6828
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 00dc1a43-b766-4686-8706-33adb3b74360
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MFa6l6vNhK1vxjFjDJ4CktaEU85K5IG8efM5yzqFUejPgqLbW7Zhb+SYD8TwLhzOPU+GkNwx3gpQqVcInp7Vkg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR18MB988338
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_234259_573805_D3050718 
-X-CRM114-Status: GOOD (  28.77  )
+X-CRM114-CacheID: sfid-20260611_234700_589907_144CD30C 
+X-CRM114-Status: UNSURE (   6.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,171 +142,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
-
-On Thu, 2026-06-11 at 14:50 +0800, Ryan Chen wrote:
-> Fix duplicate pinctrl_tach{0-15} and pinctrl_n{cts,dcd,dsr,ri}5 labels
-> in aspeed-g7-soc1-pinctrl.dtsi.
->=20
-> Drop the cpu-index from secondary/tertiary container nodes: reduce the
-> "#address-cells" from 2 to 1 and update ssp_nvic/tsp_nvic unit-address
-> and reg accordingly. Also remove URL comments from the DTS.
->=20
-> Suggested-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-> Fixes: e77bb5dc5759 ("arm64: dts: aspeed: Add initial AST27xx SoC device =
-tree")
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> ---
-> This series contains follow-up fixes for the AST27xx DTS support that
-> was merged into linux-next (e77bb5dc5759).
->=20
-> Two issues were identified after merge by Andrew Jeffery during review
-> of the pending v11 series:
-
-These were identified by the sashiko bot, not so much by me, as I
-hadn't got around to looking at the patches at the time. I did comment
-in the replies though:
-
-https://lore.kernel.org/all/20260609025708.ADBFE1F00893@smtp.kernel.org/
-
-Separately, the series at hand was v9, so any subsequent revision would
-have been v10, not v11. This isn't significant on its own, but it is
-another contribution to the collection of small errors that are
-accumulating at this point, which concerns me. Please take care.
-
->=20
-> 1. Duplicate pinctrl state labels in aspeed-g7-soc1-pinctrl.dtsi caused
-> =C2=A0=C2=A0 dtc to abort with fatal label-redefinition errors.
-
-However, it didn't. soc/dt @=C2=A0564edaca1486 ("Merge tag 'sunxi-dt-for-
-7.2-2' of https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux
-into soc/dt"), which includes the v9 patches at e77bb5dc5759 ("arm64:
-dts: aspeed: Add initial AST27xx SoC device tree"), builds without
-error.
-
-Why? Well, the report from sashiko appears misleading. Usually
-duplicate labels do cause an error, for example:
-
-   $ cat dle.dts
-   /dts-v1/;
-   / {
-           inner: test1 {
-                   prop-inner;
-           };
-           inner: test1 {
-                   prop-inner;
-           };
-   };
-   $ dtc -o /dev/null dle.dts
-   dle.dts:6.15-8.4: ERROR (duplicate_node_names): /test1: Duplicate node n=
-ame
-   ERROR: Input tree has errors, aborting (use -f to force output)
-  =20
-   $ cat dle-1.dts
-   /dts-v1/;
-   / { };
-   &{/} {
-           inner: test0 {
-                   prop-inner;
-           };
-           inner: test1 {
-                   prop-inner;
-           };
-   };
-   $ dtc -o /dev/null dle-1.dts
-   dle-1.dts:8.15-10.4: ERROR (duplicate_label): /test1: Duplicate label 'i=
-nner' on /test1 and /test0
-   ERROR: Input tree has errors, aborting (use -f to force output)
-
-However, a relatively minimal reproduction of the case at hand is:
-
-   $ cat dlu.dts
-   /dts-v1/;
-   / { };
-   &{/} {
-           inner: test1 {
-                   prop-inner;
-           };
-           inner: test1 {
-                   prop-inner;
-           };
-   };
-   $ dtc -o /dev/null dlu.dts
-   $
-
-This doesn't error out. I recommend not assuming reports from the bot
-are entirely accurate. Please test that its claims make sense before
-proceeding.
-
-While it's not good that there were duplicate nodes and labels, it is
-good that you've tidied them up.
-
-If there are modifications to the aspeed-g7-soc*-pinctrl.dtsi files in
-the future, I ask that you them sorted first so we can minimise the
-chance of falling into this trap again. The current order seems fairly
-haphazard and likely contributed to the oversight.
-
->=20
-> 2. The synthetic container nodes (secondary, tertiary) for sub-processor
-
-I'm not sure synthetic is the right word here. We're still describing
-the hardware, just components that have their own distinct address
-spaces.
-
-On a separate note, if you feel the need to make a list when describing
-the change (e.g. in the commit message or patch notes) it's usually an
-indicator that the change should be split into separate commits. Please
-keep this in mind for future changes.
-
-> =C2=A0=C2=A0 interrupt controllers used a 2-cell address scheme to encode=
- a
-> =C2=A0=C2=A0 <cpu-index reg-base> tuple.=C2=A0 Since the cpu-index adds n=
-o value for
-> =C2=A0=C2=A0 nodes that are purely phandle anchors, Andrew requested we d=
-rop it
-> =C2=A0=C2=A0 and use the bare register address instead.
-> ---
-> =C2=A0arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 14 ++-
-> =C2=A0.../boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi=C2=A0=C2=A0=C2=A0 |=
- 102 ---------------------
-> =C2=A02 files changed, 6 insertions(+), 110 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi b/arch/arm64/b=
-oot/dts/aspeed/aspeed-g7-a35.dtsi
-> index ef283d95649a..58193c3c3696 100644
-> --- a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-> +++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-> @@ -84,32 +84,30 @@ l2: l2-cache0 {
-> =C2=A0	};
-> =C2=A0
-> =C2=A0	secondary {
-> -		#address-cells =3D <2>;
-> -		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/drivers/of/address.c?h=3Dv6.16#n491=C2=A0*/
-> +		#address-cells =3D <1>;
-> =C2=A0		#size-cells =3D <0>;
-> -		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/drivers/of/address.c?h=3Dv6.16#n430=C2=A0*/
-> =C2=A0
-> -		ssp_nvic: interrupt-controller@1,e000e100 {
-> +		ssp_nvic: interrupt-controller@e000e100 {
-> =C2=A0			compatible =3D "arm,v7m-nvic";
-> =C2=A0			#interrupt-cells =3D <2>;
-> =C2=A0			#address-cells =3D <0>;
-> =C2=A0			interrupt-controller;
-> -			reg =3D <1 0xe000e100>;
-> +			reg =3D <0xe000e100>;
-
-Some other cleanups to consider are ensuring the property ordering
-conforms to the DTS coding style:
-
-   https://docs.kernel.org/devicetree/bindings/dts-coding-style.html#order-=
-of-properties-in-device-node
-
-The following grep is likely helpful:
-
-   git grep -C1 -F 'compatible =3D' arch/arm64/boot/dts/aspeed
-
-Andrew
+SGkgQXJuZCwgVGhhbmsgeW91IGZvciBwb2ludGluZyBvdXQgdGhlIG1pc3Rha2UuCgotLS0KClRo
+ZSBmb2xsb3dpbmcgY2hhbmdlcyBzaW5jZSBjb21taXQgMjU0ZjQ5NjM0ZWUxNmE3MzExNzRkMmFl
+MzRiYzUwYmQ1ZjQ1ZTczMToKCiAgTGludXggNy4xLXJjMSAoMjAyNi0wNC0yNiAxNDoxOTowMCAt
+MDcwMCkKCmFyZSBhdmFpbGFibGUgaW4gdGhlIEdpdCByZXBvc2l0b3J5IGF0OgoKICBodHRwczov
+L2dpdGh1Yi5jb20vQmxhY2tTZXNhbWUtU29DL2xpbnV4LmdpdCB0YWdzL2JzdC1hcm02NC1lbW1j
+LWRyaXZlci1kdHMtZm9yLXY3LjIKCmZvciB5b3UgdG8gZmV0Y2ggY2hhbmdlcyB1cCB0byA2MTkx
+YTYxZWM5ZDlkOGYxZDFkMWQ2YmZjYjZkMzAzYmU3NmMyODA0OgoKICBhcm02NDogZHRzOiBic3Q6
+IGVuYWJsZSBlTU1DIGNvbnRyb2xsZXIgaW4gQzEyMDAgKDIwMjYtMDYtMTIgMTQ6MTc6NDUgKzA4
+MDApCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tCmFybTY0OiBCU1QgQzEyMDAgZU1NQyBEVFMgZm9yIHY3LjIKCkJsYWNrIFNl
+c2FtZSBUZWNobm9sb2dpZXM6CgogRW5hYmxlIGVNTUMgY29udHJvbGxlciBvbiBCU1QgQzEyMDAg
+Q0RDVTEuMCBib2FyZDoKICAgIC0gQWRkIG1tYzAgbm9kZSBpbiBic3RjMTIwMC5kdHNpIChEV0NN
+U0hDIFNESENJIGNvbnRyb2xsZXIpCiAgICAtIEFkZCBmaXhlZCBjbG9jayBkZWZpbml0aW9uIGFu
+ZCByZXNlcnZlZCBTUkFNIGJvdW5jZSBidWZmZXIKICAgIC0gRW5hYmxlIG1tYzAgd2l0aCA4LWJp
+dCBidXMgb24gQ0RDVTEuMCBBREFTIDRDMkcgYm9hcmQKVGhlIE1NQyBkcml2ZXIgd2FzIG1lcmdl
+ZCB2aWEgbW1jLW5leHQgaW4gdjcuMS1yYzEuCnRoaXMgaXMgdGhlIHJlbWFpbmluZyBEVFMgcGll
+Y2UuCgpTaWduZWQtb2ZmLWJ5OiBHb3Jkb24gR2UgPGdvcmRvbi5nZUBic3QuYWk+CgotLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+CkFsYmVydCBZYW5nICgxKToKICAgICAgYXJtNjQ6IGR0czogYnN0OiBlbmFibGUgZU1NQyBjb250
+cm9sbGVyIGluIEMxMjAwCgogLi4uL2FybTY0L2Jvb3QvZHRzL2JzdC9ic3RjMTIwMC1jZGN1MS4w
+LWFkYXNfNGMyZy5kdHMgfCAxOSArKysrKysrKysrKysrKysrKysrCiBhcmNoL2FybTY0L2Jvb3Qv
+ZHRzL2JzdC9ic3RjMTIwMC5kdHNpICAgICAgICAgICAgICAgICB8IDE4ICsrKysrKysrKysrKysr
+KysrKwogMiBmaWxlcyBjaGFuZ2VkLCAzNyBpbnNlcnRpb25zKCspCg==
 
