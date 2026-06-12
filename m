@@ -4,64 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC36CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973A5CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JnSsKigRn5c+9jyMwus42zkZGVkrxMiJEJg8g85XgB8=; b=w0ir2Nq+LW8ZvfkJ5zas/ppdcL
-	ExQUAcvJERmacfV9vSaYi4JnFlnpi8hfYdG1+TNfcsMs24fn5Nr5FFNBXaHAmDQ2O3XpIOzOBp2Cg
-	8KY+7Hod2qboQhI3gMO/TFILY3c3OGzEG4uuU+WJd5DDb4FJPteYM8dvBzE1cjrimWeGhBM0vQOTw
-	naoLyCwWitZV2lQj6WlmagAaEBDcCZpNxe5/8loBb3F+VnrcBEmij9x/K1tiZuCJzfmJ2O68shIw4
-	s/2OGVIjCMHvEchhFFmUY0I9dBgYs0GoaJAaTnshRDGNkH/PRzTR5ffNb15ZDTTMXhy1l2AP7EjBa
-	qfVbSgrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GT5k7NNhpJZZ3Z4dV7FccQcGuRptRglhhV64m8hW5dM=; b=w2sUCliV6OY7Rd6v45IMSOh0Xq
+	8lxrtK/MQ5hLXnUT/5kDZaP0di21GmU2/0qmuVnJHJV65ikIE/D6qrrN6Pfw21ilv7xJrokOVHU67
+	aakFyUVi5qS5E/p42EPsmWSp5/qOpSrRJVc6E5HLZLWCLK0UVMAr+k0VetTgNDBh0otjvxDdmP2ta
+	UL0mJID+P9OlsUnp8KJBpr+G/qj/eaZ9LAcrIa7B9Q3uI9Ow91TQUfu7qM/ESWssYCWex9XPT7X4r
+	OaulV9WWV3eN6DoXAKAF9oQsJf8calHEMRYc7rlKiVW2gHiQoJa5k7X0HkNycIZIWXgQVNR1+C18X
+	rvXBK1Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxlZ-0000000AdNL-1TMs;
-	Fri, 12 Jun 2026 09:01:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wXxw0-0000000Ae1Y-37Bk;
+	Fri, 12 Jun 2026 09:12:16 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxlY-0000000AdNC-1hQ7
+	id 1wXxvx-0000000Ae07-2aj2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 09:01:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CDFFA43756;
-	Fri, 12 Jun 2026 09:01:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFC931F000E9;
-	Fri, 12 Jun 2026 09:01:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781254887;
-	bh=JnSsKigRn5c+9jyMwus42zkZGVkrxMiJEJg8g85XgB8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OzzIx0MxWjxzMrhfGvjizZFWDLyehvu+K58gQuyQ9+W96Q/GbX/fMeZUXOHV6dkRh
-	 tQbqn9WBQH7hpivayGb6t7MvJEq/DYJPLf/lWtwhLI/YCTi0nC+ZxCu4vPqNeP48qO
-	 RJtyYNfhLxGAVAbtAdmRpMc2BBaIvG26GBmaY2inKz/z0xsJM6yKPtztZZDEkswF+4
-	 PuUYnf29ksfLGnbW57TGzLsBtgBHNbwOctn4HMiwNPDjvXi9A513aUkF//seTabDzw
-	 K1o+S8NHFkOoxoPOYLWgKvbphdJQNj1jV76wvLKQuT9eWO7s8q/XMb89N26HgaGK/X
-	 vuHvevGTK/hDQ==
-Date: Fri, 12 Jun 2026 10:01:21 +0100
-From: Simon Horman <horms@kernel.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: elfring@users.sourceforge.net, haokexin@gmail.com,
-	vadim.fedorenko@linux.dev, devnexen@gmail.com,
-	jacob.e.keller@intel.com, arnd@arndb.de, basharath@couthit.com,
-	afd@ti.com, parvathi@couthit.com, vladimir.oltean@nxp.com,
-	rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
-	andrew+netdev@lunn.ch, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next v7 0/2] Add Frame Preemption MAC Merge support
- for ICSSG
-Message-ID: <20260612090121.GA625020@horms.kernel.org>
-References: <20260610052511.781752-1-m-malladi@ti.com>
+	Fri, 12 Jun 2026 09:12:14 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-7e8833c99fcso7755907b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 02:12:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781255532; cv=none;
+        d=google.com; s=arc-20240605;
+        b=L6m2bZZ/Lg5Gq4QY3XdbJBqeBP7EzdFchjDLOatAx4ahBS8UlPPP4JbX8OXeh0IoHt
+         y85vJoLhN39/uLfbANb5gqoVaw1rl78T/D1Ls7DPGvwWJdLidT89NSwr0LKH77luOSuG
+         NGZEIQqIoslhXf4zawYGDBpofQVhqBVOxijBrrq+Q23Rrq15HRAK9akinAQnUDKFlNPF
+         1o4gzHFVEc+n67VYwsL7SgElSdvH0nI7jfN/U+6ZkSXRX8GMNX9oqacgCXvNTRU/gi4o
+         /YGq1QPjBfm+mrvPH3mkK60DTsF2rVvdQJ1rBmC1ZL6jtpCDBHpNNv5w2BfR3i5aTUTC
+         RSXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GT5k7NNhpJZZ3Z4dV7FccQcGuRptRglhhV64m8hW5dM=;
+        fh=oMN2Zkglzzc3GMwHp+8xTWupQdC0whbBZAfdH9/Mvtc=;
+        b=cFml+8WsoE5qIdkFWEXZ4ysI0liKuq2reJ9ve7o6yG/B8UCC6CxLJpHZPckYfde9R0
+         hO/w/IRnyEH8/OJh8kDtWFC7X4mYUFAFBHd5cfy4ldudqi8pyv1BaTMCgQiztbq9z7kj
+         ghmWNSoAi3jL46I2HkifKDjrAm3WeaoGKuP6fTDjCuxAJC9DFDwawbMjzFycLytxQ+fQ
+         Hucf8t0ImR8T3CSvjZCcLOiYfaFtVGUzK7PhfWd11ADfMsjYdjisjh9QeBblrlDafUrs
+         ro/Zaz5B2RWTZY+5NomBxb9bqzWLlNLwuCsu3k7+vHmNv5bWINhBtBW6zsVL0UI0dj7a
+         h4Cg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1781255532; x=1781860332; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GT5k7NNhpJZZ3Z4dV7FccQcGuRptRglhhV64m8hW5dM=;
+        b=J6gots6bxF9OilbYTIHEFj0/xm6+hXVh4z/gBonxj0sYcsjQYpYvhxWptaYv8ao3uq
+         ibVMWkQzA7xXw04kRrL2JTGSJV4szK7CqUXYnsY5oRXqL6n3x3LIHfiMuUcebVDCI5kZ
+         KJGLfYygkSvhrfzvmC9jc0fS/FpW/JchkzFyY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781255532; x=1781860332;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GT5k7NNhpJZZ3Z4dV7FccQcGuRptRglhhV64m8hW5dM=;
+        b=lGTrW2sR7PsiXWaTptJA5KY+DX9/eJMYtbqvMVyg8zz+K5GniRnvNUAn7pf3aT9W9p
+         47LOSve8gBX5gp/bnEh+dihG8kquRQeCpqZo95STu1GzJwncivBAAmHbPdOq8JIEJ7sG
+         kM3QcBogFwEJt13yu+5Rv2eTtCEVknzpsOxF1zjMigvMeV/Xyt+rAYhzpReCeMPIAt/A
+         n2dtg5Doyn+JHNRYKAyJiDQatXwogyyCOCb2MjZg5+Ef2smaacZ/r1AMg9MrO4RulXGD
+         6N6HMrLFbgDq/sefpjoAdpfB0HQgQVhgQh+469YRVMd+Zv6x5La9LUzqg46fDjT8S4Yj
+         H36g==
+X-Forwarded-Encrypted: i=1; AFNElJ+JQSBKODhs4Ex/JMtZzt8KjnQ6lKwSGQAADaz5c/+p7aUTfUXR1IK06UT6nKY5sPD8MbULTVrnPENN4YDtFY/6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+wC1jBWJfi12qEySTZL/En10DU2GBjzKiMuVGln+kXX6jusEE
+	gbLkuCTXeXTedd+D38su3x7AdZ6MYcRFIAPbRcMDlSTLkLbmq7n5yueRq8IIpQBtmBA/sVyNw9h
+	3/Bsm3PYS2xg3vJigSnU52iFmlOFyIGxuFTXysDpU
+X-Gm-Gg: Acq92OEFk0k9TCoRvWwYWyvS/eY3ZudE4ExamNroxZsFToevhnUH2Y9A/jfUwnVZMq1
+	3fYp9xhZecPHmhvvUkDNQSsAi5iwGC5a68xpt06kJIOq6IiuYdX7l8y0J/njKv0os1z/1ggoq7b
+	5gdjtQq8Ce71KTBciBBlHLS/hBBtNtso+7u8ywNxdZGYPdqCd1Tdktyh6oO7yhcA8ct1OIKRsP+
+	keFxmis/wrC1stx3Q9J7p4Qbi1o0EZ28s5pZSMen0ZMu/OZ6zvo5wTOKcnOgMiix49BwkDgrNvX
+	2iP1+QZr
+X-Received: by 2002:a05:690c:f0a:b0:7ef:d039:a334 with SMTP id
+ 00721157ae682-7f7bcf0d73cmr16871217b3.22.1781255532401; Fri, 12 Jun 2026
+ 02:12:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260610052511.781752-1-m-malladi@ti.com>
+References: <20260610084053.2059858-1-wenst@chromium.org> <20260610084053.2059858-11-wenst@chromium.org>
+ <ail1sAxgh5Xtkj2y@ashevche-desk.local>
+In-Reply-To: <ail1sAxgh5Xtkj2y@ashevche-desk.local>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 12 Jun 2026 18:12:01 +0900
+X-Gm-Features: AVVi8Cc47lUt9lrnuGQ2TayhjSsjO0Ufug4-8BS--usEeOHUYmKa3VTCiJvbq60
+Message-ID: <CAGXv+5Fkp9R3i+WnCunbydJpn_rjxX5Cz9Cb=auS-cR1RE=R8g@mail.gmail.com>
+Subject: Re: [PATCH v2 10/16] power: sequencing: pcie-m2: support matching on
+ remote "port" node
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_021213_653502_131EE311 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +125,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 10:55:09AM +0530, Meghana Malladi wrote:
-> This patch series adds QoS support to the ICSSG PRUETH driver.
-> The first patch implements mqprio qdisc handling and TC offload hooks
-> so userspace can request TC mappings and queue counts.
-> 
-> It also integrates a driver-side mechanism to program the firmware
-> with the IET/FPE preemption mask and to kick the firmware verify state
-> machine when frame preemption is enabled. The second patch adds ethtool
-> perations for the MAC Merge (Frame Preemption) sublayer, exposing .get_mm,
-> .set_mm and .get_mm_stats so admins can view and change MAC Merge
-> parameters and retrieve preemption statistics.
-> 
-> v6: https://lore.kernel.org/all/20260525182700.3135858-1-m-malladi@ti.com/
-> 
-> MD Danish Anwar (2):
->   net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
->   net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
+On Wed, Jun 10, 2026 at 11:33=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Wed, Jun 10, 2026 at 04:40:44PM +0800, Chen-Yu Tsai wrote:
+> > A USB hub can have multiple ports, and this driver needs to
+> > differentiate which port is being matched to. The USB hub driver now
+> > associates the "port" node with the usb_port device, so here we can
+> > use the remote "port" node to check for a match. Then fall back to
+> > the remote device node for the other connection types.
+>
+> ...
+>
+> > +             if (remote_port && remote_port =3D=3D dev_of_node(dev))
+> > +                     return PWRSEQ_MATCH_OK;
+> >               if (remote && (remote =3D=3D dev_of_node(dev)))
+> >                       return PWRSEQ_MATCH_OK;
+>
+> We have device_match_of_node() IIRC the name of that API.
 
-Hi Meghana and MD,
-
-There is AI-generated review of this patch-set available on both
-https://sashiko.dev and https://netdev-ai.bots.linux.dev/sashiko/
-I would appreciate it if you could look over that with a view
-to addressing any issues that directly affect this patch-set.
-
-...
+Ack. Will also replace the existing instance.
 
