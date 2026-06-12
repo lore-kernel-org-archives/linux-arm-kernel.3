@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5876ACD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 10:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF11CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 10:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vWBjerCcdQYX1kqAzoQ1GBFmI7LAy21K3qYQTp/XVXQ=; b=S7Hq8crKA/wMuk
-	tjdftxnc1jDaRNeK24RoJ3zNlIMJ0hkqSvu6ozW2Q2NVNgUmCdgmzfXEQBvwbx+fB+/IaDfPechUY
-	w2MxYZGNnCb9E9OIUC5xfIqToyvS8lsKsp+uucqbhzwRFvNr0sNuRBR77RtzAuo8IbOrJAhyrvaUN
-	kILpjEoG0pPC4rgf0FLVMem/9mNGzI/q+5BNduxtxr7zu4LXIOqnaEohRAoT7Aj2RmFuo9we+QL7M
-	V9tUGkt8fPI+AxBBSAhx63SbVvfOxnsc6TcJEKUc4EalTBHxmpe9fpKCLLdPEtr0bIu0PYgJ2lSzc
-	QgCXsHCPmRrCs9SyzMjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IZiSEkCX6kKkdkS50nu71JK7uzuZuYnFd1L29ILY3Go=; b=BHUXUyU5cr2daLGKEFwvJqASGz
+	IFZgz0e24EW9TNhMYxEXE02Bl3My0ZyVvUZfGVMiNDP3X1o9FJcahS/DJT2va87BmoHXRBM9RhaFI
+	mmTenioO087z/G6AqVD1z91QE3j6G3GkYciRA5UUwJvjkUK0X7cdXqxrGvGgAwc2+CMB0GyzVG8rU
+	p0fF4JTancTByHodaBy5MfB7KTR+eUw6uux9IXJhepop8uA+b3TFxw0nizJkILO4UKln0zPvY96U8
+	TEuVySU4VCaIEoay+1e4zOtvnc3CMl75vnd9yG6cwTXoZZk2syIIu/wtywKfT1RITverE/qsA6+2z
+	iWNvDIVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXzWa-0000000Am1Z-0G7W;
-	Fri, 12 Jun 2026 10:54:08 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wXzXq-0000000Am9e-2Xw9;
+	Fri, 12 Jun 2026 10:55:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXzWX-0000000Am0q-05y2
+	id 1wXzXq-0000000Am9X-0jBl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 10:54:06 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2bf237e1433so9735325ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 03:54:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781261644; x=1781866444; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:subject:date:from
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=vWBjerCcdQYX1kqAzoQ1GBFmI7LAy21K3qYQTp/XVXQ=;
-        b=iPXTaEaaChKEVfyrlmrguFczOUGOcXv16ePV7YA6iDG8XO9xldpikAx+fQW5UaNucl
-         kKdwPwRXz9Sf4vjx29Tz1AKEBX0qRkbYRMVCX4SkQvKt608Swb+ZbTAR2G25o3ih/SuV
-         26xy/YF0dyB43qHlx56rLTr5MegIOy3EZ3WHucR/5G1jIH0mowVeeX2iHVPsAxiG6T+/
-         DrbagsQDzL2m5MlP1qmivC90jmC+HQ9wAGeQ3uOyEbZUNQ5vDeepMPSy23WXGL2l2PZz
-         NXLfeTsokrnErv5aLp8RSALrodBR1Lyix56RMqkH/1Si1iUa3qifsMBv1TRLUs4gWMqf
-         YwMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781261644; x=1781866444;
-        h=cc:to:content-transfer-encoding:mime-version:subject:date:from
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vWBjerCcdQYX1kqAzoQ1GBFmI7LAy21K3qYQTp/XVXQ=;
-        b=KO/AAEAgHdZUWD90lAyS1z77eNw2Kj/fqCaSB3Ip+bs9M6PQUigBYnxHX0KZgV9XHG
-         KFXyZ2IDtDji65xyD0dKOgG0lr3eTYQPtfjerw8VqmtJ5X/0z5dO3n4WXWljH7/EQP3G
-         6Y/iFQtrjWeD+P2avr5n0vomE64zAQhEpCiYfT+j//tl/NURnqheGFgirHdOPIQapdQ4
-         9SOASXjYRNDoIYYqLIqH3nElh1hIejnMukJdZ2rr2RbGdknBPf5ugdK43KlCZZpAwiuy
-         9qwBMSXe/R4njOpZDzzSCd5/BmnGHClHs8ePzi72KNDvwMqoPUMCXKdHYdGr+0osy0TY
-         tXuQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8es+psV4QqFJ7Oa1x7/OxiGrFiNdOIL+JbtmEc4nZ3fHeN2Q56DPX4hMxKMhUy/T9rJJwraPpPc3/M8Ti0rk1Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCVCvjiLrJ/21pYIGNPRTVdt7juocpZiwez6UU9OxwhjVupDvk
-	UOyDC2ypuK60QleUY+OtWh5/Uz33xlAmQQLWX7PNz+IQS0VnH0p4j4N5
-X-Gm-Gg: Acq92OGbhsftuy6/Y5+Tqg2MVLwyvFIX83eGWhAEgtrRUFGSuaJjgI0co0mQlR9d8NO
-	BgmKufJPGViW3yfGa/FAXOXhpH3Y5svBYqRW64KbWnsSQkD33Tj9I9INDxYPmt8tVDHQwj5/dxK
-	26JKvogERDRvt9WJ3f+uqBL/MMv7VdQ7QBVmkdZsnTQbNaLaGYRkD9MKLyo0SNkL6lUsugYR8UC
-	EfNz4JfVO2M4zbkl4rJ3ldeGZ/DaGpgIvkZOdxAVs/pNZ9iWuXU3LvtkVV++2p9r8nUsABulpyG
-	1VlPT1HP75K2hOcRrwvx1zrWNsv1H/qJvqcVm3rMrgLmbTPX16li8SzGDk1cqpCJoCqYplIdHmw
-	56ysRYwbcTXVt8jc0iskmOkdG2ogCQvnlCKYh4y0D9i3SYhLV1HaD2O/vuxLu57rTN2WEplGg6T
-	P+m97SaCFOrK7Ylns3Oz1gd+pxkh0=
-X-Received: by 2002:a17:903:1aad:b0:2c0:dd75:e834 with SMTP id d9443c01a7336-2c41050af58mr30846105ad.5.1781261643919;
-        Fri, 12 Jun 2026 03:54:03 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c432c8ce89sm17909875ad.57.2026.06.12.03.53.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 03:54:03 -0700 (PDT)
-Message-ID: <6a2be54b.ef98c1b2.3c3224.2ed8@mx.google.com>
-From: "Wayen.Yan" <win847@gmail.com>
-Date: Fri, 12 Jun 2026 07:09:56 +0800
-Subject: [PATCH v2] net: airoha: Fix debugfs new-tuple display for IPv4 ROUTE
- entries
+	Fri, 12 Jun 2026 10:55:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BD80543EE5;
+	Fri, 12 Jun 2026 10:55:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A78B1F000E9;
+	Fri, 12 Jun 2026 10:55:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781261724;
+	bh=IZiSEkCX6kKkdkS50nu71JK7uzuZuYnFd1L29ILY3Go=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nJs/iKnzz2mf4+YD03tIqjuzu3OUfrYeW4xhbk453t2LGeCZJGCndPIaxjvSNV199
+	 Q/PKZfKfif6tWQ8P6zJCx8MOwxtZZ+46h+B+9Lk/nV6Dp0N2SGtEt1dptcHi32qt1m
+	 03oruL4fN++UIzlBXqDL74lKmEjaCKuonuLb5yJDqzNa03s6IluXjCDfIvfeFAQ9Hg
+	 pxTTGGzHw/5JwmzsnhNstKB3GvjcWMZdVACgB+X/FC0Gz6AqFp2QvKeZy7r43Csecr
+	 Vdk/Myur0KeDyhbPUY2zbO50l6cBz87PldVBEOBYOAEGlj2ghIvts3wkkirKiWVND0
+	 fSC4FLIq/Hh5Q==
+Date: Fri, 12 Jun 2026 11:55:21 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, kernel@oss.qualcomm.com,
+	Trilok Soni <trilok.soni@oss.qualcomm.com>,
+	Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+Subject: Re: [PATCH] firmware: arm_ffa: Fix NULL dereference in
+ ffa_partition_info_get()
+Message-ID: <20260612-fat-energetic-hummingbird-8ddc62@sudeepholla>
+References: <20260611-ffa_partition_nullptr_fix-v1-1-ec2b7ef7e130@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_035405_068390_45ACC929 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260611-ffa_partition_nullptr_fix-v1-1-ec2b7ef7e130@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +74,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In airoha_ppe_debugfs_foe_show(), the second switch statement falls
-through from PPE_PKT_TYPE_IPV4_HNAPT/DSLITE to PPE_PKT_TYPE_IPV4_ROUTE,
-accessing hwe->ipv4.new_tuple for all three types. However, IPv4 ROUTE
-(3-tuple) entries do not contain a valid new_tuple — this field is only
-meaningful for NATted flows (HNAPT/DSLITE). For ROUTE entries, the
-memory at the new_tuple offset holds routing information, not NAT data,
-so displaying "new=" produces garbage output.
+On Thu, Jun 11, 2026 at 01:19:17PM -0700, Unnathi Chalicheemala wrote:
+> ffa_partition_info_get() passes uuid_str directly to uuid_parse()
+> without a NULL check. When a caller passes NULL (or an empty string),
+> uuid_parse() → __uuid_parse() → uuid_is_valid() dereferences the
+> pointer, causing a kernel panic:
+> 
+> Unable to handle kernel NULL pointer dereference at virtual address
+> 0000000000000040
+> pc : uuid_parse+0x40/0xac
+> lr : ffa_partition_info_get+0x1c/0x94 [arm_ffa]
+> 
 
-Display new_tuple only for HNAPT and DSLITE, and let IPV4_ROUTE fall
-through to the default case.
+The above is very valid issue and needs to be addressed.
 
-Fixes: 3fe15c640f38 ("net: airoha: Introduce PPE debugfs support")
-Link: https://lore.kernel.org/netdev/6a2b40ea.4dd82583.3a5c46.e5a2@mx.google.com/
-Signed-off-by: Wayen.Yan <win847@gmail.com>
-- Drop redundant PPE_PKT_TYPE_IPV4_ROUTE case, let it fall to default
-Changes in v2:
+> Per the FF-A spec, the all-zeros UUID is the defined wildcard that
+> instructs the SPMC to return information for all partitions. Map NULL
+> and empty string to uuid_null rather than crashing in uuid_parse(),
+> preserving the intended "return all partitions" semantics for callers
+> that pass NULL.
+> 
 
----
- drivers/net/ethernet/airoha/airoha_ppe_debugfs.c | 2 --
- 1 file changed, 2 deletions(-)
+Agreed on the spec part but not w.r.t the interface. Where is the driver
+using this call and why is it sending null or wants to extract all the
+partition information ?
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-index 0112c41..e46a985 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-@@ -121,8 +121,6 @@ static int airoha_ppe_debugfs_foe_show(struct seq_file *m, void *private,
- 		case PPE_PKT_TYPE_IPV4_DSLITE:
- 			src_port = &hwe->ipv4.new_tuple.src_port;
- 			dest_port = &hwe->ipv4.new_tuple.dest_port;
--			fallthrough;
--		case PPE_PKT_TYPE_IPV4_ROUTE:
- 			src_addr = &hwe->ipv4.new_tuple.src_ip;
- 			dest_addr = &hwe->ipv4.new_tuple.dest_ip;
- 			seq_puts(m, " new=");
+> Fixes: d0c0bce83122 ("firmware: arm_ffa: Setup in-kernel users of FFA partitions")
+> Signed-off-by: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
+> ---
+>  drivers/firmware/arm_ffa/driver.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> index b9f17fda7243..dd500fb81b79 100644
+> --- a/drivers/firmware/arm_ffa/driver.c
+> +++ b/drivers/firmware/arm_ffa/driver.c
+> @@ -1129,7 +1129,9 @@ static int ffa_partition_info_get(const char *uuid_str,
+>  	uuid_t uuid;
+>  	struct ffa_partition_info *pbuf;
+>  
+> -	if (uuid_parse(uuid_str, &uuid)) {
+> +	if (!uuid_str || uuid_str[0] == '\0') {
+> +		uuid = uuid_null;
+
+I object to make it uuid_null. Below check is enough to check NULL
+dereference.
+
+-       if (uuid_parse(uuid_str, &uuid)) {
++       if (!uuid_str || uuid_parse(uuid_str, &uuid)) {
+
+
+I don't think we need to service NULL as valid argument via this interface
+as the callee driver needs to pass its partition UUID here.
+
 -- 
-2.51.0
-
-
+Regards,
+Sudeep
 
