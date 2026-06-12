@@ -4,99 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DAD8CD98E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 18:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A529BCD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 18:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zq2Xis1dZt+JQv+hvqluMP2fEDYsl6YTZKz64gS2ZoM=; b=dIgemC77gUJCKfPjEgCUpcTW1Z
-	3gnD8A0iXDWXf1RDYHkLUtkMcTa2lQuEejILT8eY7k9JeHunuGXXIs1qx6Sfbv2cM4/9QfE6N1t+e
-	kUN0fMht08t8mQxBaW8AmN6PK93JxkodwnoM88U2Imx1w2LVbVbY9xrIOwOGbPGohyU2Efs17lxGS
-	Sa1znM9Bahpg0b7cT+RAPpmM5aJH7e+wO+3h5R6iuQ6CzN4cNLhGNhZPce64RjRWHhymfZRiOwF8f
-	gBo2cqts6GFUyFTqxksiTEK5rInUBVhXk9gSDxeLVjJnu+3/zQ5Z8l+Lc6b952dn7hjTM45VOr+dH
-	/YmHlnMg==;
+	bh=3lbKv8h1OH1ADmUMUE8z8BbJovTlCTwDxxzGP6n3a78=; b=vDqDXHP4n6m20tQKfJOTfyLnz+
+	xkigoTAKxv+ieZTPKcp9Zc2+jD4FNIqYwM3r+0vV+6mjACnAejF7eX6jyUuhshYQjdPK5y927RsXR
+	ujukRjEo5XtFOXWmPvFbyA5ov725Hk0rubaYmY3Tm0gMcST/JW7O3Y7wg5s571/1ibGoxnr5/6ZWi
+	e9W+9ExL8Haz0zTjcUR5SGS4wAERbF15tr5RVF79bPyJP9jGF+1I1X3YB/EpKym0nFivz1dUWDOBm
+	Ow4lfO644SEAYcZH0pKDukegCuXmqme1NVSJ/KC7+xUm9khta6i+EZrckC252xm5wH1al+gu8mGD9
+	SQ2/Hsow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bp-0000000BNQl-2nnb;
-	Fri, 12 Jun 2026 18:01:09 +0000
+	id 1wY6MN-0000000BOo7-3JXK;
+	Fri, 12 Jun 2026 18:12:03 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bh-0000000BNDd-0rOr;
-	Fri, 12 Jun 2026 18:01:04 +0000
+	id 1wY6MI-0000000BOnY-2WUY;
+	Fri, 12 Jun 2026 18:12:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781287253;
-	bh=dL3GvBpUWK60QI4BRVYXqTeextgd6JG8E3Id1W/JV98=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qCZY8qjQuDqp+h/kEMMGZnL/4b1hYab8tzWjNyW6N+GsTPBykrMigp/YQQsC4ZVop
-	 NZTPWpwIW5KJ1MSOUd0f8bo8RmThUyHQ3p2R9iHbcyknVP7jo/GgRrqu+HyfUmPmOb
-	 O87C/MNb1fDky+3QgSI3x7+BtbVICFBEvTSaG5kBx99U7CjJ1kaXJtdFx+5Ub4EbQc
-	 9yU4mH5AVxSDSKAsrszlQfnaJyZZXTutpCybmjFlB+0anCiQ2nzCNyqQ+xwSzsOcTE
-	 ggdnL30es6KAQfmj+FaRU/Poa+6uqX36+pzL9YAZlRdo8sZiE5fiCdFyYqrI8MumYj
-	 1Gof4xA8cinTQ==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	s=mail; t=1781287915;
+	bh=9amFDTwR7GN2d5HmIjTb2KMEcIdU6VQlVPoHEgeR47k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kOrGXNVVXCtrNPkdS3n0JvJeqSneer4vXUhP5fon9rJQRzTH65KCJBep4PdLMXug8
+	 sKQfIfMLMpG2zBDvWiX5coh1FKX0jvhcMm6HQd5QZ5EgwfET6LGNgju+GcOKFSJWbC
+	 inUqO/uthcL/bC8EoLLdip2MfNwzCJTPYJsbAaNuZiPLY7rm736SI8D5pJrUzbTkNY
+	 aMQydEeQ4FRF3HTkUC0belkzOP0paojUCw3Ey5loKDaugE3mn0BQeuOQCu0sY3RE9R
+	 W5+ay2iLosi/Mf8okzqwAZpaRIBvBXJklOlKJCn7cA/iKPzmL/jO82AVSXN7VLDxr+
+	 yC+9/xhEbFzNA==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1DB9317E0D9D;
-	Fri, 12 Jun 2026 20:00:53 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7F00B480030; Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 20:00:51 +0200
-Subject: [PATCH v3 05/10] drm/bridge: synopsys: dw-dp: Support software
- triggered OOB HPD
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D064417E040C;
+	Fri, 12 Jun 2026 20:11:54 +0200 (CEST)
+Message-ID: <7b19b243-ad6a-4d1f-b34e-684e8bfe500c@collabora.com>
+Date: Fri, 12 Jun 2026 21:11:54 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
+ <20260602-dw-hdmi-qp-scramb-v7-2-445eb54ee1ed@collabora.com>
+ <20260612-subtle-shapeless-rattlesnake-4b6af8@houat>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260612-subtle-shapeless-rattlesnake-4b6af8@houat>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-synopsys-dw-dp-improvements-v3-5-dc61e6352508@collabora.com>
-References: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
-In-Reply-To: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@gmail.com>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3782;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=dL3GvBpUWK60QI4BRVYXqTeextgd6JG8E3Id1W/JV98=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosSVT5yJsFm/XmeGt4/9u012HhK7UGTwSIo
- /6bOogz3cLLUIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLElUAAoJENju1/PI
- O/qauaUQAKTREDvPsMiDBcZFeiVnb7HHdePTjp4HUsgoCNjf05kXSIFKb4C6UwoTlSE4uu9U6h/
- IzGNpTCVUitn5ZBTMi+3bgDrXoPoP/7GDMo0nx+OAnKdfDX6u6DJTGRTSfV5RW03xvQo18QrKnx
- h+5kcdU/K2wBqgTnYcdviDINJNVtfuDpeSh/NCiSvmwuOPmc0fgVSwcJMBQdJBzjpHJ78RS1v6D
- KpwGubOUr6YXJVokqrRuOi5YQNoc39+v2LYDo04koEdrA+TlX8JByV9UaPnBdhV/MsTtvQ/k/iM
- uFz29OygLZkh4cFQVmQEt3HFxi1+odkVS6WlMh3Lp40EpxG16eevjbRn+oQvJJ0tUmyAkhgwbOR
- l/LEVjqCOsJVCsuwi3izaimqsNYXTD8WIVhzfDiWbr33ZAV0/nkr/F2mSIL4G3XJ/IeQbJP0b4J
- 2n53uyAi+qzzuD5qLLWOb2kUokc8XwQwFw+9v7pMGySBPhKAAVT8kjXx9Gi7MFms8a7wKnADR2O
- lUZcgHisDfvyqHz9vu5aBe/me2HhHeqN7Nqh4XDeHKkHD4EWzg6So/wCMjvJyQ+27bOWnWY/fGs
- jp+U9C4kJfQxKnZpnWFLAAp9hqois+9yfjiztvTiItCeQ+2Jb8s+wE3vLH7jMKra6BDV1ma+NDf
- HrYxqdz0z5Qnsdu+gDeEyVA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_110101_406917_DE0305FA 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20260612_111158_824409_EA017BA1 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,111 +90,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for USB-C DP AltMode out-of-band hotplug handling. The
-handling itself is implemented in the platform specific driver as the
-registers to force HPD state are not part of the Designware DisplayPort
-IP itself. Instead the platform integration might provide the necessary
-functionality to mux the HPD signal.
+Hi Maxime,
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 38 ++++++++++++++++++++++++++++++++-
- include/drm/bridge/dw_dp.h              |  3 +++
- 2 files changed, 40 insertions(+), 1 deletion(-)
+Thanks for taking the time to review this!
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 98cff435dfb8..7fa38145e35c 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1817,6 +1817,19 @@ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_b
- 	return &state->base;
- }
- 
-+static void dw_dp_bridge_oob_notify(struct drm_bridge *bridge,
-+				    struct drm_connector *connector,
-+				    enum drm_connector_status status)
-+{
-+	bool hpd_high = status != connector_status_disconnected;
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	if (dp->plat_data.hpd_sw_cfg)
-+		dp->plat_data.hpd_sw_cfg(dp->plat_data.data, hpd_high);
-+	else
-+		dev_err_once(dp->dev, "Missing platform handler for OOB HPD handling\n");
-+}
-+
- static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-@@ -1829,6 +1842,7 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.atomic_disable = dw_dp_bridge_atomic_disable,
- 	.detect = dw_dp_bridge_detect,
- 	.edid_read = dw_dp_bridge_edid_read,
-+	.oob_notify = dw_dp_bridge_oob_notify,
- };
- 
- static int dw_dp_link_retrain(struct dw_dp *dp)
-@@ -1965,6 +1979,19 @@ static void dw_dp_phy_exit(void *data)
- 	phy_exit(dp->phy);
- }
- 
-+static bool dw_dp_is_routed_to_usb_c(struct drm_encoder *encoder)
-+{
-+	struct drm_bridge *last_bridge __free(drm_bridge_put) = NULL;
-+	struct fwnode_handle *fwnode;
-+
-+	last_bridge = drm_bridge_chain_get_last_bridge(encoder);
-+	if (!last_bridge)
-+		return false;
-+
-+	fwnode = of_fwnode_handle(last_bridge->of_node);
-+	return fwnode_device_is_compatible(fwnode, "usb-c-connector");
-+}
-+
- struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
- 			 const struct dw_dp_plat_data *plat_data)
- {
-@@ -1980,7 +2007,9 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
- 
- 	dp->dev = dev;
- 	dp->pixel_mode = plat_data->pixel_mode;
--
-+	dp->plat_data.hpd_sw_sel = plat_data->hpd_sw_sel;
-+	dp->plat_data.hpd_sw_cfg = plat_data->hpd_sw_cfg;
-+	dp->plat_data.data = plat_data->data;
- 	dp->plat_data.max_link_rate = plat_data->max_link_rate;
- 	bridge = &dp->bridge;
- 	mutex_init(&dp->irq_lock);
-@@ -2078,6 +2107,13 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
- 		goto unregister_aux;
- 	}
- 
-+	if (dw_dp_is_routed_to_usb_c(encoder)) {
-+		dev_dbg(dev, "USB-C mode\n");
-+
-+		if (dp->plat_data.hpd_sw_sel)
-+			dp->plat_data.hpd_sw_sel(dp->plat_data.data, 1);
-+	}
-+
- 	dw_dp_init_hw(dp);
- 
- 	ret = phy_init(dp->phy);
-diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
-index 22105c3e8e4d..2127afa26b2c 100644
---- a/include/drm/bridge/dw_dp.h
-+++ b/include/drm/bridge/dw_dp.h
-@@ -20,6 +20,9 @@ enum {
- struct dw_dp_plat_data {
- 	u32 max_link_rate;
- 	u8 pixel_mode;
-+	void *data;
-+	void (*hpd_sw_sel)(void *data, bool hpd);
-+	void (*hpd_sw_cfg)(void *data, bool hpd);
- };
- 
- struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+On 6/12/26 3:06 PM, Maxime Ripard wrote:
+> On Tue, Jun 02, 2026 at 01:44:02AM +0300, Cristian Ciocaltea wrote:
+>> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
+>>
+>> - A scrambler_supported flag to indicate whether the source supports the
+>>   scrambling capability, in which case the newly introduced
+>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
+>>   are mandatory
+>> - A scrambler_needed flag to be managed by the hdmi state helpers based
+>>   on the negotiated TMDS character rate and the source/sink scrambling
+>>   capabilities
+>> - A scrambler_enabled flag to track whether scrambling is currently
+>>   active
+>> - A delayed work item (scdc_work) with an associated callback (scdc_cb)
+>>   to monitor sink-side scrambling status and retry the setup if the sink
+>>   resets it
+>>
+>> These are intended to be used by SCDC scrambling helpers to coordinate
+>> scrambling setup and teardown between the source driver and the DRM
+>> core.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/gpu/drm/drm_connector.c | 18 +++++++++
+>>  include/drm/drm_connector.h     | 81 +++++++++++++++++++++++++++++++++++++++++
+>>  2 files changed, 99 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+>> index a5d13b92b665..526dc2931b8a 100644
+>> --- a/drivers/gpu/drm/drm_connector.c
+>> +++ b/drivers/gpu/drm/drm_connector.c
+>> @@ -220,6 +220,19 @@ void drm_connector_free_work_fn(struct work_struct *work)
+>>  	}
+>>  }
+>>  
+>> +static void drm_connector_hdmi_scdc_work(struct work_struct *work)
+>> +{
+>> +	struct drm_connector *connector;
+>> +	struct drm_connector_hdmi *hdmi;
+>> +
+>> +	hdmi = container_of(to_delayed_work(work), struct drm_connector_hdmi,
+>> +			    scdc_work);
+>> +	connector = container_of(hdmi, struct drm_connector, hdmi);
+>> +
+>> +	if (hdmi->scdc_cb)
+>> +		hdmi->scdc_cb(connector);
+>> +}
+>> +
+>>  static int drm_connector_init_only(struct drm_device *dev,
+>>  				   struct drm_connector *connector,
+>>  				   const struct drm_connector_funcs *funcs,
+>> @@ -285,6 +298,7 @@ static int drm_connector_init_only(struct drm_device *dev,
+>>  	mutex_init(&connector->edid_override_mutex);
+>>  	mutex_init(&connector->hdmi.infoframes.lock);
+>>  	mutex_init(&connector->hdmi_audio.lock);
+>> +	INIT_DELAYED_WORK(&connector->hdmi.scdc_work, drm_connector_hdmi_scdc_work);
+>>  	connector->edid_blob_ptr = NULL;
+>>  	connector->epoch_counter = 0;
+>>  	connector->tile_blob_ptr = NULL;
+>> @@ -606,6 +620,10 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+>>  	    !hdmi_funcs->hdmi.write_infoframe)
+>>  		return -EINVAL;
+>>  
+>> +	if (connector->hdmi.scrambler_supported &&
+>> +	    (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable))
+>> +		return -EINVAL;
+>> +
+>>  	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
+>>  	if (ret)
+>>  		return ret;
+>> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+>> index 529755c2e862..f1c5c15a6cce 100644
+>> --- a/include/drm/drm_connector.h
+>> +++ b/include/drm/drm_connector.h
+>> @@ -28,6 +28,7 @@
+>>  #include <linux/ctype.h>
+>>  #include <linux/hdmi.h>
+>>  #include <linux/notifier.h>
+>> +#include <linux/workqueue.h>
+>>  #include <drm/drm_mode_object.h>
+>>  #include <drm/drm_util.h>
+>>  #include <drm/drm_property.h>
+>> @@ -1057,6 +1058,19 @@ struct drm_connector_hdmi_state {
+>>  	 * @tmds_char_rate: TMDS Character Rate, in Hz.
+>>  	 */
+>>  	unsigned long long tmds_char_rate;
+>> +
+>> +	/**
+>> +	 * @scrambler_needed: Whether HDMI 2.0 SCDC scrambling is required
+>> +	 * for the negotiated mode/bpc/format.
+>> +	 *
+>> +	 * Computed by drm_atomic_helper_connector_hdmi_check() from
+>> +	 * @tmds_char_rate and the source/sink scrambling capabilities.
+>> +	 *
+>> +	 * Per HDMI 2.0, scrambling is mandatory above 340 MHz TMDS
+>> +	 * character rate. Optional scrambling at lower rates is
+>> +	 * deliberately not requested by the helper.
+>> +	 */
+>> +	bool scrambler_needed;
+>>  };
+>>  
+>>  /**
+>> @@ -1358,6 +1372,36 @@ struct drm_connector_hdmi_funcs {
+>>  	 */
+>>  	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
+>>  
+>> +	/**
+>> +	 * @scrambler_enable:
+>> +	 *
+>> +	 * This callback is invoked through @drm_scdc_start_scrambling during
+>> +	 * a commit to setup SCDC scrambling and high TMDS clock ratio on
+>> +	 * source side.
+>> +	 *
+>> +	 * The @scrambler_enable callback is mandatory if HDMI 2.0 is to be
+>> +	 * supported.
+>> +	 *
+>> +	 * Returns:
+>> +	 * 0 on success, a negative error code otherwise
+>> +	 */
+>> +	int (*scrambler_enable)(struct drm_connector *connector);
+>> +
+>> +	/**
+>> +	 * @scrambler_disable:
+>> +	 *
+>> +	 * This callback is invoked through @drm_scdc_stop_scrambling during
+>> +	 * a commit to disable SCDC scrambling and high TMDS clock ratio on
+>> +	 * source side.
+>> +	 *
+>> +	 * The @scrambler_disable callback is mandatory if HDMI 2.0 is to be
+>> +	 * supported.
+>> +	 *
+>> +	 * Returns:
+>> +	 * 0 on success, a negative error code otherwise
+>> +	 */
+>> +	int (*scrambler_disable)(struct drm_connector *connector);
+>> +
+>>  	/**
+>>  	 * @avi:
+>>  	 *
+>> @@ -1960,6 +2004,43 @@ struct drm_connector_hdmi {
+>>  	 */
+>>  	unsigned long supported_formats;
+>>  
+>> +	/**
+>> +	 * @scrambler_supported: Indicates whether the HDMI controller
+>> +	 * (source) supports HDMI 2.0 SCDC scrambling.
+>> +	 *
+>> +	 * When true, @drm_connector_hdmi_funcs.scrambler_enable and
+>> +	 * @drm_connector_hdmi_funcs.scrambler_disable are mandatory.
+>> +	 * This is enforced by drmm_connector_hdmi_init().
+>> +	 *
+>> +	 * For HDMI bridge based drivers using drm_bridge_connector_init(),
+>> +	 * this is propagated automatically from bridges that set the
+>> +	 * DRM_BRIDGE_OP_HDMI_SCRAMBLER flag in their &drm_bridge->ops.
+>> +	 * Other drivers must set this field on @connector->hdmi before calling
+>> +	 * drmm_connector_hdmi_init().
+>> +	 */
+>> +	bool scrambler_supported;
+>> +
+>> +	/**
+>> +	 * @scrambler_enabled: Tracks whether HDMI 2.0 scrambler is currently enabled.
+>> +	 */
+>> +	bool scrambler_enabled;
+> 
+> This is already in the state. Why do you need to copy it over here, and
 
--- 
-2.53.0
+This was supposed to be used exclusively by drm_scdc_{start,stop}_scrambling()
+and drm_scdc_sync_status() helpers to control the work item and conditionally
+trigger CRTC resets.  However, it's now also set by vc4_hdmi_connector_init() to
+force disable the scrambler in the vc4_crtc_disable_at_boot() execution path.
 
+For this purpose, I think we should add a "force" argument to
+drm_scdc_stop_scrambling(), or maybe a dedicated helper?!
+
+> if you do, you'll need a lock.
+
+Currently it's managed via READ_ONCE()/WRITE_ONCE(). Do you think locking is
+really necessary?
+
+Regards,
+Cristian
 
