@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661D2CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 07:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40119CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 07:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M6dhvhvt0XbgvJ4MiXah8HcXTJRguTuta/3Cu0D1xfk=; b=HIfCq5aIQJ653qOI8zHPlSFxex
-	HDAtPk73Fw9MmgUCamqhAiGhVSxerGTZy5AB7LzZLOeCf6n5a24CD/5ZTx8v/6mdjzUMQlPtDHN8f
-	KVkC37gLhYvmDRuLW/LQU8abCZ7UTe0ZhDoyMrYe7A/K6SVRHNNFnZKNZFCsdNasUG3RMSld4f9yG
-	QgCFAw51a4LlCvoKYo4Cvim5iE2ImihImVcPXMap0nVLUMIWPMLYjf7hjSHaEEHnAgzXMXOwhLi+X
-	9isAna6xKlx6CrAom3qV1MzqVw4ltqB+xjX/ZI0pVI20hpg8x87gDaI0Y/MJ0rXm/6R/TyytkmAHL
-	NVOmVy3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WXtlwR+cKWGeAXn3H+Lf5Yv1kL7XUbUsrMYC6J2rcVc=; b=kGcCAiz/4kZC3m
+	VCY9xzrPKZdbNfSECArOqp8oGhYs82EY5okRp9jqgExhArGym/uGgL8AhWwBLq4g6pOjINPUw/wjl
+	+3o8/8X3e6XFiNUNbb14xEaNa8061rZOyqpAknM9nxgIxt9MCQwdG51Y/VF9G0JNxwLh17kYj5AAv
+	wHaQai+W7aLjJL1CV1LQrdjXQgZ+RDKiziJ1zMJpbzAtCQ1H2g5RFZS5XCGkUE2zmKieIZF7I/PDq
+	6MwEOLqPpj7RQmdjknJAliz0QPOt63pQDfDY7rFp29SIQzW2YsfizJWqCoM5MXzcPB0T7k5PfXhOO
+	G+LYtsd+IUGdOAOZAEZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXwNN-0000000ATfP-0nYD;
-	Fri, 12 Jun 2026 07:32:25 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wXwRg-0000000ATwW-2sIX;
+	Fri, 12 Jun 2026 07:36:52 +0000
+Received: from zebra.cherry.relay.mailchannels.net ([23.83.223.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXwNK-0000000ATem-07TX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 07:32:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1781249539;
-	bh=M6dhvhvt0XbgvJ4MiXah8HcXTJRguTuta/3Cu0D1xfk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=SB/fmF/UtpDABvxWo6CkMbOQiVJgrTCJ+PgUHfhT9n2Q6wdkGrGmoPR41KZYXVcmK
-	 5GleojLO+whw8ZTjaCgkn+t3/2tdalhZaqEoDZZLkzLYFoBv1B8+0w3mkF7DjIxF84
-	 4Djxk5Vm6hqpANJ1Z2ApD6AKiqk8/THeCsPJc3BTJAQDPu+sE/Y4wblmGap3TNvjlj
-	 oO2mIhH7qlMCz+jIKB//L+bxPABiE50Erw7flw+qqD9pjHEaExY2qSY6HEe/q5nER3
-	 3ZCpWszBKUH9wvaxqdNYD/paemGjIcsZZiQaZWRhFkJ6LD/C+YB7jVednY98G+MM84
-	 EuhRD1Ycjov+A==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 6FA2860931;
-	Fri, 12 Jun 2026 15:32:19 +0800 (AWST)
-Message-ID: <e865e2e71a39c86a8afb6af49d9ebcf6839a9a2a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 1/1] ARM: dts: aspeed: g6: Add AST2600 pwm tacho
- controller
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: =?ISO-8859-1?Q?Gr=E9goire?= Layet <gregoire.layet@9elements.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Fri, 12 Jun 2026 17:02:19 +0930
-In-Reply-To: <20260612072341.278591-1-gregoire.layet@9elements.com>
-References: <20260612072341.278591-1-gregoire.layet@9elements.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1wXwRe-0000000ATw0-1iR5;
+	Fri, 12 Jun 2026 07:36:51 +0000
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 19D7C7219BE;
+	Fri, 12 Jun 2026 07:36:42 +0000 (UTC)
+Received: from fr-int-smtpout19.hostinger.io (100-116-180-119.trex-nlb.outbound.svc.cluster.local [100.116.180.119])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 3CAC8721857;
+	Fri, 12 Jun 2026 07:36:39 +0000 (UTC)
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Arithmetic-Fearful: 63c5ece7276c157b_1781249802002_3456694983
+X-MC-Loop-Signature: 1781249802002:29651468
+X-MC-Ingress-Time: 1781249802001
+Received: from fr-int-smtpout19.hostinger.io (fr-int-smtpout19.hostinger.io
+ [148.222.54.35])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.116.180.119 (trex/7.1.5);
+	Fri, 12 Jun 2026 07:36:42 +0000
+Received: from [10.10.10.3] (unknown [46.1.111.82])
+	(Authenticated sender: chester.a.unal@arinc9.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4gcBCl1z9Fz1y7P;
+	Fri, 12 Jun 2026 07:36:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
+	s=hostingermail-a; t=1781249797;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WXtlwR+cKWGeAXn3H+Lf5Yv1kL7XUbUsrMYC6J2rcVc=;
+	b=ZeBrpYI6Dd/19gzwezL9s6dEWcEwXVPhMzaTBGzKwS8TIWcBSU3yoD7QKoZ3yBGWR+nrqg
+	eInFGcClna9n7prMx+FJ6b33Zm5w33wIlPL5Od2HPMHlfENdEtHhdA9Iub80OstE3yDSBX
+	UutJgFHpeovEWcFS5UQ4mqnuK9jPNPSPpEdvjU5Y+GVvL6WBRS/MGcW4H9eZ9dP/3zlI7J
+	Yt5+qrOfHH9GMLKCfCTXqVR5Zxn2FthdUHqQhQhB3CsF26zCWxvHk4CCa7ir13RtDoYNFY
+	lYAx1OuXCkt0u9l6a8Njq5H1YKm9zyPNNEijODSUqkXgsjGtusNAsoRm8S+awA==
+Message-ID: <02ad5de0-ea6a-4267-8686-72e3f98fce4e@arinc9.com>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 8/8] net: dsa: mt7530: implement
+ port_change_conduit op
+To: Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <cover.1781119435.git.daniel@makrotopia.org>
+ <91ae0f87a6ca2cce3d072dba548545e02347bf13.1781119435.git.daniel@makrotopia.org>
+Content-Language: en-GB
+From: "Chester A. Unal" <chester.a.unal@arinc9.com>
+In-Reply-To: <91ae0f87a6ca2cce3d072dba548545e02347bf13.1781119435.git.daniel@makrotopia.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Fri, 12 Jun 2026 07:36:35 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=Gq4Q+V1C c=1 sm=1 tr=0 ts=6a2bb705 a=EYFf6tZZuEx+mizzmxfcTQ==:117 a=EYFf6tZZuEx+mizzmxfcTQ==:17 a=IkcTkHD0fZMA:10 a=VT4XjZGOAAAA:8 a=GvHEsTVZAAAA:8 a=FvUSNmnTzPuJ0QD-RBkA:9 a=QEXdDO2ut3YA:10 a=6CpsfURP9XNmmWg3j1mJ:22 a=aajZ2D0djhd3YR65f-bR:22
+X-CM-Envelope: MS4xfPf9YvhCURV0HNIRHewhsgeJ9lEsWOVHOYoe2NIE2lxkmBW207FzjH+NqiB3byQJ0bAloPoh1NCmG2PgAFdt/QN7hkNG2SGyAMV4XomqSKlxpCttMUy5 s+QzPUrh17I0tW90nKrdo+RS3RYeD862Ks9jmvbyoaOY/jWi8O8vrClb6WmkCVwf1j9fnM2H1XmeyqkDfAG/6iAAON8+3kZAADIG92oUX9eOrEMe5AhBOp6f fOE1xNV66pSaBNW6YjWW9aFU9Bry5FQqphNAL2qC0aQz6DpUHP2AhI66bTwRSyQFTK1m+QJBCDCKZeNdzddGf8rQiFGiyomFmTKmTeSTMdqI9eKMvR9T2G+i 2Mu/cLS28ncEvQDD3vD5K3BS33LCxkOIPqw/XLG4d6mwXRZYtg9ibcZxDgXRuDkGSFtkwJ7h6FiPPRh78EXqnQFg74I+FJ53x30cX9m818PhBvRthI9W/Fyj urnwTraN9Cex6mcdm/Z4LjaJZgE4slbLiKBKFeqpJdcgQOrYK8taV2bqkOyBLNJh50N/iUSbucRzQmNv4XjdeFkRPh4uEVB/g46MCHu6c//OIis5e5indrdj dO1vybENR3J0C4iyL7jcmsyDD7d8kF8ajC9cUWQAXcAwUmFCPrdEa2+hOr+4GDKMGcRzXSb/X8bvu1BVjZpCXXio
+X-AuthUser: chester.a.unal@arinc9.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_003222_290284_58CC8EB6 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20260612_003650_560795_656F6EBF 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,46 +104,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gr=C3=A9goire,
+On 10/06/2026 20:56, Daniel Golle wrote:
+> Allow changing the CPU port affinity of user ports at runtime via
+> the IFLA_DSA_CONDUIT netlink attribute. This updates the port matrix
+> to forward to the new CPU port instead of the old one.
+> 
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 
-On Fri, 2026-06-12 at 07:23 +0000, Gr=C3=A9goire Layet wrote:
-> It use the existing ast2600-pwm-tach driver.
-> Placed according to bus adresses ordering.
->=20
-> Signed-off-by: Gr=C3=A9goire Layet <gregoire.layet@9elements.com>
+Fabulous!
+
+Acked-by: Chester A. Unal <chester.a.unal@arinc9.com>
+
 > ---
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 9 +++++++++
-> =C2=A01 file changed, 9 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/=
-aspeed/aspeed-g6.dtsi
-> index 189bc3bbb47c..818d486b94ac 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-> @@ -102,6 +102,15 @@ ahbc: bus@1e600000 {
-> =C2=A0			reg =3D <0x1e600000 0x100>;
-> =C2=A0		};
-> =C2=A0
-> +		pwm_tach: pwm-tach-controller@1e610000 {
-> +			compatible =3D "aspeed,ast2600-pwm-tach";
-> +			reg =3D <0x1e610000 0x100>;
-> +			clocks =3D <&syscon ASPEED_CLK_AHB>;
-> +			resets =3D <&syscon ASPEED_RESET_PWM>;
-> +			#pwm-cells =3D <3>;
-> +			status =3D "disabled";
-> +		};
+>   drivers/net/dsa/mt7530.c | 29 +++++++++++++++++++++++++++++
+>   1 file changed, 29 insertions(+)
+> 
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index c96420c291d5..2f3e734b9f53 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+> @@ -3206,6 +3206,34 @@ static int mt753x_set_mac_eee(struct dsa_switch *ds, int port,
+>   	return 0;
+>   }
+>   
+> +static int
+> +mt753x_port_change_conduit(struct dsa_switch *ds, int port,
+> +			   struct net_device *conduit,
+> +			   struct netlink_ext_ack *extack)
+> +{
+> +	struct dsa_port *new_cpu_dp = conduit->dsa_ptr;
+> +	struct dsa_port *dp = dsa_to_port(ds, port);
+> +	struct mt7530_priv *priv = ds->priv;
 > +
-> =C2=A0		fmc: spi@1e620000 {
-> =C2=A0			reg =3D <0x1e620000 0xc4>, <0x20000000 0x10000000>;
-> =C2=A0			#address-cells =3D <1>;
+> +	if (priv->id != ID_MT7531)
+> +		return -EOPNOTSUPP;
 
-Thanks for the patch, however:
+Why do we limit this to MT7531 only?
 
-https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git/commit/?h=3Da=
-speed/arm/dt&id=3D6cf976b2728f2494215c51c7339dd50b154125ce
-
-You can also find the commit in linux-next.git master and soc.git
-soc/dt, queued for v7.2.
-
-Andrew
+Chester A.
 
