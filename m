@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD4CCD4F2C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 08:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404ECCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 08:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IptzJvEOpEyqJC6Y0bSpFGE8b6UEQBNCojgAbIIeMHQ=; b=fdjNdgRx8GKE3HuoNE2m2nqrvN
-	QzpOmhF1mbBpt3akvnOpw1Nf4eAfx0VpWYg8SDtwgTHe+KmeQwY7FyFFTGr9IXT4rUNvW+BIWtlam
-	hd3Xjgsk0bhfH0e3HzvBgy8llz9cAZfbo+bZ1143ZqvfXqgqV9S0uOT4BfKOFHoRrH9yKB1L+VrBB
-	rTC6SpepSw6HBI9IdiQyDyysREZLqR3VBDk07sEDLaPpiJ3b6NiLgOq6F62pGtoPlrFCMQSlP9kGg
-	JrTSbNB9TA7Ys2bHelxe5irjO9vhYmr4qLyrb0JOIPsXnuXesJWrJpfecb93P/Jv1/CNSY+cDRn2B
-	JU4L55wg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ETzuSmY4AxCD7NaZlXpVC91d9g+bYgzEWeu45BfNrAw=; b=nCVQiVjWw5vk6I8G0S7t2jZ3St
+	ngq57ooajh7jvHMi/XdQna1kZG9s61JQoajUh3/EVsR8V16FK0ELGDRria8mx2U5itMPojhCRfv0Y
+	YtUUBOFbMqf7MbdrhyCdZ9IEQ5RS4HF9PZUQPb4afspi4o/XhFi/8kUG+hCOz6EtJ9ssO9sXk3Zse
+	PSDhvuvKqjyTvDiDPzbfaHbp31I4GKEoeERAa+Q9gEjCYN7koPAbyuG0HyixUdIMsni33r9RLjccd
+	6z0pHjQey21cO8n2xLwwlZYwufteaLyoqY6njSb3GdhB2fGXNs56xE7IPMJqvt1e3aFpnGvBMcR38
+	wRpMeXkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxVl-0000000AbvV-1Vt1;
-	Fri, 12 Jun 2026 08:45:09 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wXxZH-0000000AcGS-3Ajv;
+	Fri, 12 Jun 2026 08:48:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxVi-0000000AbtM-1xTt
+	id 1wXxZH-0000000AcGJ-0prl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 08:45:08 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=IptzJvEOpEyqJC6Y0bSpFGE8b6UEQBNCojgAbIIeMHQ=;
-	b=Qgwj5ABU+dlT8AcXkgaK1WsIsBFOajP+cutCE0DICt6giXo4fSeHnccWkhE8NWytiYyisImcv
-	tCPQlyxTN1INBzLUUAS4ZTT5bhmQlnyqen29n0S0wFs7lssNd+f29BKBghVd0xh2yBG/h4I88/n
-	SAboftgY10poy4mmhpBCUwA=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gcCYG37T8zRhQs;
-	Fri, 12 Jun 2026 16:36:50 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8DDF340363;
-	Fri, 12 Jun 2026 16:44:45 +0800 (CST)
-Received: from [10.174.179.37] (10.174.179.37) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 12 Jun 2026 16:44:44 +0800
-Message-ID: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
-Date: Fri, 12 Jun 2026 16:44:43 +0800
+	Fri, 12 Jun 2026 08:48:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 60E5D6001D;
+	Fri, 12 Jun 2026 08:48:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAC3E1F00A3A;
+	Fri, 12 Jun 2026 08:48:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781254126;
+	bh=ETzuSmY4AxCD7NaZlXpVC91d9g+bYgzEWeu45BfNrAw=;
+	h=From:To:Cc:Subject:Date;
+	b=lbOgfhSjB0KYpRn7xAseCv5yVhfc+KVFIYDxFDtVEPzG6uSvQX9qMXrsHGjKiU0Rs
+	 LmD5dEVtuehjMgEByzgSAMu85Op8YOU/I4/vz6VdN7FrlMhiAFfvd2WOzX7TehnqMW
+	 xjXt0pA+IrO9JNzIXAnTV1xSduOntTeU45ujkk6+t+G1AOVNSdZ3XkUw1jrZseYpEv
+	 mv5s5ZNTBHbAyo+81K3Q2+7AaNM9DK6n1w0P6tbe6f2el7EZQqj7l6ycEujmBwWQu3
+	 0RBPwyHAzpsxNjphxkADl48/0hucOgr9lW1+cY3U3eQSaXx+HHfOfGnOVhl5OC9L22
+	 L6wjl8qjp8D9g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wXxZD-0000000C47z-28xi;
+	Fri, 12 Jun 2026 08:48:43 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Fuad Tabba <tabba@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Jackie Liu <liuyun01@kylinos.cn>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <zenghui.yu@linux.dev>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] KVM/arm64 updates for 7.2
+Date: Fri, 12 Jun 2026 09:48:35 +0100
+Message-ID: <20260612084835.2992552-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v8 next 04/10] arm_mpam: Refactor rmid to reqPARTID/PMG
- mapping
-Content-Language: en-US
-To: James Morse <james.morse@arm.com>, <ben.horgan@arm.com>,
-	<Dave.Martin@arm.com>, <tan.shaopeng@jp.fujitsu.com>,
-	<reinette.chatre@intel.com>, <fenghuay@nvidia.com>, <tglx@kernel.org>,
-	<will@kernel.org>, <hpa@zytor.com>, <bp@alien8.de>, <babu.moger@amd.com>,
-	<dave.hansen@linux.intel.com>, <mingo@redhat.com>, <tony.luck@intel.com>,
-	<gshan@redhat.com>, <catalin.marinas@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <wangkefeng.wang@huawei.com>,
-	<sunnanyong@huawei.com>
-References: <20260413085405.1166412-1-zengheng4@huawei.com>
- <20260413085405.1166412-5-zengheng4@huawei.com>
- <2944b506-a462-42f8-95cf-404241fb27f0@arm.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <2944b506-a462-42f8-95cf-404241fb27f0@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.37]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemf100008.china.huawei.com (7.202.181.222)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_014507_137220_30B7F9DE 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, anshuman.khandual@arm.com, catalin.marinas@arm.com, eric.auger@redhat.com, tabba@google.com, imv4bel@gmail.com, liuyun01@kylinos.cn, joey.gouly@arm.com, mark.rutland@arm.com, oupton@kernel.org, sascha.bischoff@arm.com, vdonnefort@google.com, weilin.chang@arm.com, will@kernel.org, zenghui.yu@linux.dev, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,105 +94,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+Paolo,
 
->> @@ -478,6 +518,7 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
->>   		      enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
->>   {
->>   	struct mon_cfg cfg;
->> +	u32 reqpartid = rmid2reqpartid(rmid);
->>   
->>   	if (!mpam_is_enabled())
->>   		return -EINVAL;
->> @@ -493,8 +534,8 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
->>   	cfg = (struct mon_cfg) {
->>   		.mon = mon_idx,
->>   		.match_pmg = true,
->> -		.partid = closid,
->> -		.pmg = rmid,
->> +		.partid = (cdp_type == CDP_CODE) ? reqpartid + 1 : reqpartid,
->> +		.pmg = rmid2pmg(rmid),
-> 
-> Not using the CLOSID here breaks multiple control groups.
-> 
+This is a bit of an odd merge window on the KVM/arm64 front. There is
+absolutely no new feature in the pull request. It is purely fixes,
+because it is simply becoming too hard to review new stuff when so
+many AI-fuelled fixes hit the list. And even then, I've arbitrarily
+tagged the branch today, knowing that there is quite a backlog of
+fixes that I will send very shortly, probably before -rc1.
 
+So here it is: only fixes and very minor improvements, all over the
+place. Details in the tag below.
 
-After carefully reviewing your comments and Martin's patch series,
-I tried to understand why there is insistence that CLOSID information
-is necessary to support multiple control groups, but that is actually
-not the case.
+Please pull,
 
-Before proceeding, please allow me to refer to base_partid as CPARTID
-(control partition ID; I'm no longer borrowing the intPARTID concept
-here). The associated partids_per_closid all share the same control
-scheme.
+	M.
 
-The partids derived from partids_per_closid under a given CPARTID,
-I will call MPARTID (monitor partition ID; no longer borrowing the
-reqPARTID concept). These represent the PARTIDs used for different
-monitoring groups under the same control scheme.
+The following changes since commit 5200f5f493f79f14bbdc349e402a40dfb32f23c8:
 
+  Linux 7.1-rc4 (2026-05-17 13:59:58 -0700)
 
-I've summarized the ID translation schemes from James and Martin as
-follows:
+are available in the Git repository at:
 
-  +-------------------------------+------------------+
-  |            CLOSID       |{CDP}|       RMID       |
-  +-------------------------------+------------+-----+
-  |            MPARTID                         | PMG |
-  |      CPARTID(or MPARTID_hi)   : MPARTID_lo |     |
-  +--------------------------------------------+-----+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-7.2
 
-Where closid = cpartid (base_partid or mpartid_hi),
-       rmid   = mpartid_lo * pmg_num + pmg,
-with mpartid_lo in the range [0, partids_per_closid).
+for you to fetch changes up to 1ee27dacbe5dc4def481794d899d67b0d4570094:
 
-In this scheme, CLOSID and RMID are coupled together to form MPARTID,
-which represents the monitor group PARTID.
+  Merge branch kvm-arm64/nv-mmu-7.2 into kvmarm-master/next (2026-06-12 09:29:34 +0100)
 
+----------------------------------------------------------------
+KVM/arm64 updates for 7.2
 
-In current patchset design, decoupling CLOSID and RMID, letting them
-represent CPARTID and MPARTID respectively:
+* New features:
 
-  +---------------------------------------------+
-  |                    CLOSID             |{CDP}|
-  +---------------------------------------------+
-  |                    CPARTID                  |
-  +---------------------------------------------+
+  - None. Zilch. Nada. Que dalle.
 
-  +---------------------------------------------+
-  |                     RMID                    |
-  +---------------------------------------+-----+
-  |                   MPARTID             | PMG |
-  |  MPARTID_hi(or CPARTID)  : MPARTID_lo |     |
-  +---------------------------------------+-----+
+* Fixes and other improvements:
 
-Where closid  = cpartid (base_partid or mpartid_hi),
-       rmid    = mpartid * pmg_num + pmg,
-   and mpartid = mpartid_hi * partids_per_closid + mpartid_lo .
+  - Significant cleanup of the vgic-v5 PPI support which was merged in
+    7.1. This makes the code more maintainable, and squashes a couple
+    of bugs in the meantime.
 
-The design intent is to decouple CLOSID and RMID, rather than having
-RMID depend on CLOSID to derive MPARTID. This decoupling is essential
-for future dynamic allocation, because the relationship between MPARTID
-and CPARTID must rely on table lookup rather than linear mapping. If
-don't decouple in the static allocation design, we would need another
-refactor when considering dynamic allocation extensibility.
+  - Set of fixes for the handling of the MMU in an NV context,
+    particularly VNCR-triggered faults. S1POE support is fixed
+    as well.
 
-The control path uses CLOSID alone (CPARTID), and the monitor path uses
-RMID alone (the (MPARTID, PMG) pair). This definition also aligns
-closely with the native resctrl concepts: CLOSID (Class of Service ID,
-corresponding to CPARTID) and RMID (Resource Monitor ID, corresponding
-to the (MPARTID, PMG) pair).
+  - Large set of pKVM fixes, mostly addressing recurring issues
+    around hypervisor tracking of donated pages in obscure cases
+    where the donation could fail and leave things in a bizarre
+    state.
 
+  - Fixes for the so-called "lazy vgic init", which resulted in
+    sleeping operations in non-preemptible sections. This turned
+    out to be far more invasive than initially expected...
 
-In the end, the number of control groups is determined by the number of
-CPARTIDs. Both of these ID translation schemes support multiple control
-groups.
+  - Reduce the overhead of L1/L2 context switch by not touching
+    the FP registers.
 
-Please allow me to rework the patch series into v9 based on my current
-patches, incorporating your review feedback.
+  - Fix the way non-implemented page sizes are dealt with when
+    a guest insist on using them for S2 translation.
 
+  - The usual set of low-impact fixes and cleanups all over the map.
 
-Best Regards,
-Zeng Heng
+----------------------------------------------------------------
+Fuad Tabba (5):
+      KVM: arm64: Guard against NULL vcpu on VHE hyp panic path
+      KVM: arm64: Fix __deactivate_fgt macro parameter typo
+      KVM: arm64: Seed pkvm_ownership_selftest vcpu memcache
+      KVM: arm64: Pre-check vcpu memcache for host->guest share
+      KVM: arm64: Pre-check vcpu memcache for host->guest donate
+
+Hyunwoo Kim (2):
+      KVM: arm64: Clear __hyp_running_vcpu when flushing the pKVM hyp vCPU
+      KVM: arm64: Bound used_lrs when flushing the pKVM hyp vCPU
+
+Jackie Liu (1):
+      KVM: arm64: vgic-its: Make ABI commit helpers return void
+
+Marc Zyngier (29):
+      KVM: arm64: nv: Track L2 to L1 exception emulation
+      KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
+      KVM: arm64: timer: Repaint kvm_timer_{should,irq_can}_fire() to kvm_timer_{pending,enabled}()
+      KVM: arm64: Simplify userspace notification of interrupt state
+      KVM: arm64: timer: Kill the per-timer irq level cache
+      KVM: arm64: pmu: Kill the PMU interrupt level cache
+      KVM: arm64: vgic-v2: Force vgic init on injection outside the run loop
+      KVM: arm64: vgic-v2: Don't init the vgic on in-kernel interrupt injection
+      KVM: arm64: vgic-v5: Add for_each_visible_v5_ppi() iterator
+      KVM: arm64: vgic-v5: Move PPI caps into kvm_vgic_global_state
+      KVM: arm64: vgic-v5: Remove use of __assign_bit() with a constant
+      KVM: arm64: vgic-v5: Drop pointless ARM64_HAS_GICV5_CPUIF check
+      KVM: arm64: vgic: Constify struct irq_ops usage
+      KVM: arm64: vgic: Consolidate vgic_allocate_private_irqs_locked()
+      KVM: arm64: vgic-v5: Drop defensive checks from vgic_v5_ppi_queue_irq_unlock()
+      KVM: arm64: vgic: Rationalise per-CPU irq accessor
+      KVM: arm64: vgic-v5: Limit support to 64 PPIs
+      KVM: arm64: Key CPTR_EL2.E0POE propagation on FEAT_S1POE
+      KVM: arm64: Wire AT S1E1A in the system instruction handling table
+      arm64: cpufeature: Expose ID_AA64ISAR2_EL1.ATS1A to KVM
+      KVM: arm64: nv: Avoid dereferencing NULL VNCR pseudo-TLB
+      KVM: arm64: nv: Hold kvm->mmu_lock while initialising vcpu->arch.vncr_tlb
+      Merge branch kvm-arm64/no-lazy-vgic-init into kvmarm-master/next
+      Merge branch kvm-arm64/nv-fp-elision into kvmarm-master/next
+      Merge branch kvm-arm64/nv-granule-sizes into kvmarm-master/next
+      Merge branch kvm-arm64/pkvm-fixes-7.2 into kvmarm-master/next
+      Merge branch kvm-arm64/vgic-v5-PPI-fixes into kvmarm-master/next
+      Merge branch kvm-arm64/misc-7.2 into kvmarm-master/next
+      Merge branch kvm-arm64/nv-mmu-7.2 into kvmarm-master/next
+
+Oliver Upton (5):
+      KVM: arm64: Don't leak PFN when kvm_translate_vncr() races MMU notifier
+      KVM: arm64: nv: Fully update VNCR fixmap state in kvm_translate_vncr()
+      KVM: arm64: nv: Inject SEA TTW when desc update can't write to GPA
+      KVM: arm64: Restart instruction upon race in __kvm_at_s12()
+      KVM: arm64: nv: Restart stage-1 walk if stage-2 desc update fails
+
+Sascha Bischoff (9):
+      KVM: arm64: vgic-v5: Add missing trap handing for NV triage
+      KVM: arm64: vgic-v5: Atomically assign bits to PPI DVI bitmap
+      KVM: arm64: selftests: Add missing GIC CDEN to no-vgic-v5 selftest
+      KVM: arm64: selftests: Cleanup unused vars in GICv5 PPI selftest
+      KVM: arm64: selftests: Improve error handling for GICv5 PPI selftest
+      Documentation: KVM: Fix typos in VGICv5 documentation
+      Documentation: KVM: Clarify that PMU_V3_IRQ IntID requirements for GICv5
+      irqchip/gic-v5: Immediately exec priority drop following activate
+      KVM: arm64: Fix arch timer interrupts for GICv3-on-GICv5 guests
+
+Vincent Donnefort (4):
+      KVM: arm64: Reset page order in pKVM hyp_pool
+      KVM: arm64: Fix __pkvm_init_vm error path
+      KVM: arm64: Add fail-safe for refcounted pages in __pkvm_hyp_donate_host
+      KVM: arm64: Set a Linux errno on SMCCC error in kvm_call_hyp_nvhe()
+
+Wei-Lin Chang (5):
+      KVM: arm64: nv: Rename vtcr_to_walk_info() to setup_s2_walk()
+      KVM: arm64: Factor out TG0/1 decoding of VTCR and TCR
+      KVM: arm64: nv: Use literal granule size in TLBI range calculation
+      KVM: arm64: Fallback to a supported value for unsupported guest TGx
+      KVM: arm64: Fix block mapping validity check in stage-1 walker
+
+Will Deacon (1):
+      KVM: arm64: Don't populate TPIDR_EL2 in finalise_el2()
+
+Zenghui Yu (Huawei) (1):
+      KVM: arm64: Remove @arch from __load_stage2()
+
+tabba@google.com (4):
+      KVM: arm64: Flush HCR_EL2.VSE to deliver SErrors to pKVM guests
+      KVM: arm64: Free hyp-share tracking node when share hypercall fails
+      KVM: arm64: Avoid host/hyp share desync on unshare hypercall failure
+      KVM: arm64: Roll back partial shares on kvm_share_hyp() failure
+
+ Documentation/virt/kvm/devices/arm-vgic-v5.rst |   6 +-
+ Documentation/virt/kvm/devices/vcpu.rst        |   7 +-
+ arch/arm64/include/asm/kvm_host.h              |   8 +-
+ arch/arm64/include/asm/kvm_hyp.h               |   1 +
+ arch/arm64/include/asm/kvm_mmu.h               |   3 +-
+ arch/arm64/kernel/cpufeature.c                 |   1 +
+ arch/arm64/kernel/hyp-stub.S                   |   4 +-
+ arch/arm64/kvm/arch_timer.c                    | 137 +++++++--------
+ arch/arm64/kvm/arm.c                           |  41 +++--
+ arch/arm64/kvm/at.c                            | 146 +++++++++++----
+ arch/arm64/kvm/emulate-nested.c                |  12 ++
+ arch/arm64/kvm/fpsimd.c                        |  26 +++
+ arch/arm64/kvm/hyp/include/hyp/switch.h        |   2 +-
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h  |   3 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c             |  21 ++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c          |  37 ++--
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c           |  21 ++-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                 |   4 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c               |   2 +-
+ arch/arm64/kvm/hyp/nvhe/tlb.c                  |   4 +-
+ arch/arm64/kvm/hyp/vgic-v5-sr.c                |  82 ++-------
+ arch/arm64/kvm/hyp/vhe/switch.c                |   2 +-
+ arch/arm64/kvm/hyp/vhe/tlb.c                   |   4 +-
+ arch/arm64/kvm/mmu.c                           |  39 ++++-
+ arch/arm64/kvm/nested.c                        | 234 ++++++++++++++++---------
+ arch/arm64/kvm/pmu-emul.c                      |  31 +---
+ arch/arm64/kvm/sys_regs.c                      |  20 +--
+ arch/arm64/kvm/vgic/vgic-init.c                |  45 ++---
+ arch/arm64/kvm/vgic/vgic-irqfd.c               |   6 +
+ arch/arm64/kvm/vgic/vgic-its.c                 |  21 +--
+ arch/arm64/kvm/vgic/vgic-kvm-device.c          |   9 +-
+ arch/arm64/kvm/vgic/vgic-v5.c                  |  51 ++----
+ arch/arm64/kvm/vgic/vgic.c                     |  33 ++--
+ arch/arm64/kvm/vgic/vgic.h                     |   3 +
+ drivers/irqchip/irq-gic-v5.c                   |  13 +-
+ include/kvm/arm_arch_timer.h                   |   7 +-
+ include/kvm/arm_pmu.h                          |   5 +-
+ include/kvm/arm_vgic.h                         |  19 +-
+ tools/testing/selftests/kvm/arm64/no-vgic.c    |   1 +
+ tools/testing/selftests/kvm/arm64/vgic_v5.c    |  10 +-
+ 40 files changed, 651 insertions(+), 470 deletions(-)
 
