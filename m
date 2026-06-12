@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D138CD98DE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D6CCD98DC
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v4LrfwLqf6d7+dK8mrOixl8LhqMeAIVQDgtiWFxZqQg=; b=RJRXPxJSMQegar8hfREuBwmuB5
-	3+wMB5WqJEzS27KdnIv3AhPestKrD80hZmx3l6mYhVPN+Xrvr8gfE7pJq398oet1m/RsS/lLyHpJx
-	Sqt/5zdI0h+akjj8BfHRm58ejKbKtt6VMxqzP6A4ClWFJZtEkN5KrinzjfeHJToXFsuSZej0R8Fnh
-	JjRkL9Uw2RtFageGVJOJgOwD/ZFyXyFDpFoD5I0lGDk4vaBYmSUjoZBPjYe68yow1l5aHwLK/AsXL
-	CDTmSTSBrrbrMYSjBPKzE+tEmxfAsrTdfQwecpF3i8dLhZWofS9qg9h+QMGI4Pc8fZVx7tTnrB3Rn
-	rbtkty1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X7p2Kiie/VwPTVeZsZUYTTjk6TXHw3XumFkCp16/1eI=; b=uvQsfPSgVTaEUrI9XB7/Je81h9
+	eMHLdjGZnTPhV7YXVbwwYwHmykToMsGDrvGbxJg4iaE6tA/3RyA4MDDVGOFk3j/+R4eVvee3qhi5Q
+	R7ZyxMRBEApOIocB35/LfjLZ9UydBoSOHTxmHvN2bQzQCcOTakrZUrf4XYxBZvFQCdSvyrmBbQxwo
+	fzg8dabrDL5yhwhRf0JHSIZWBjxXDCbl1X0/4S19ggDd+ofQnVRZsjklEHeIAT7oBcVbfIaBMxLR9
+	nnDGR4ZJggkja6/ILPoklDlyrDdOp8MYqBFeMUFsjGh9z0aZm9j+3SLfBFMyjEWhXGkKigQ9kiyHE
+	+3/XYBCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4e5-0000000BEY0-2AeK;
-	Fri, 12 Jun 2026 16:22:13 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wY4e4-0000000BEW8-2Wov;
+	Fri, 12 Jun 2026 16:22:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4dt-0000000BE51-2eHj;
+	id 1wY4dw-0000000BE9r-1E95;
 	Fri, 12 Jun 2026 16:22:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781281314;
-	bh=YM8vhaVqe6VkIRnSmmclQMgLxDRedtbKmvS/ah+S/TU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=I9F7WffznuEW931ghv/SXP7ewXiC2swVf64zpbG4uPCzf8C2iXSnJXwUCjamIOhih
-	 1SQydnwo1vlrWqadYXUu/i3NZXq+dpiKraaydUouiPEj3Kj4s1uwxpBuaPhufjmBHA
-	 P09zapiPYqMGD1UCOMvXOC+Dxw7XScxazI3Qhy5J0VUQ+rLPyoehqJH8UeRI6wRjPA
-	 G6GKuwFDI4cWbCbM6A8XEtRdNyjo54c6a9O1nsYtaHDjyrVwo334jfAvXW5ScXB5V4
-	 gH8LSyfy3hgQQg2+mIzQae1HClAsHVOqh8n4rWsw3VyZe6IqCvIlkbMgh3cO96cxN3
-	 SNK87qHmFY4nA==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A9D1F17E14FB;
-	Fri, 12 Jun 2026 18:21:54 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id D957548004E; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 18:21:52 +0200
-Subject: [PATCH v5 14/18] phy: rockchip: usbdp: Re-init the PHY on
- orientation change
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8753360008;
+	Fri, 12 Jun 2026 16:22:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B1E1F00A3A;
+	Fri, 12 Jun 2026 16:22:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781281323;
+	bh=X7p2Kiie/VwPTVeZsZUYTTjk6TXHw3XumFkCp16/1eI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Z22YVM6WMIASp6bj1/Lj5CY65UT+3UNWrBON6qYWNpw0F0ROXkocPb7+mxyQK9JXv
+	 XPhj7R63As+LKNe48ExXO+TlZCvteRV2aCuTZJYYDOLZynJgw42IRVmzFln5mPS+B9
+	 W0aeKwkDtkcyMvTAMJ3T7pbJNaE6vqwB67v7GFkRfQ/p0PPxLYu0BNrTtrGo8LG3X6
+	 D1uFff4UvovL0WBLq7iZRvv12GLKLps4GmetJoUDJI0z9UwdMukaGnsxzZ7BLxz5ZP
+	 pmf8rKWC/hKZSQb/2iYXEwLi/86TiQqEpUcRqfSfI7L336oBRhWagti2L1hzgefXZy
+	 f667hOdnhLW7A==
+Date: Fri, 12 Jun 2026 11:22:02 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Roger Quadros <rogerq@kernel.org>, linux-omap@vger.kernel.org,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Tony Lindgren <tony@atomide.com>,
+	linux-rockchip@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, Shan-Chun Hung <schung@nuvoton.com>,
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: mfd: syscon: Disallow simple-bus
+ with syscon
+Message-ID: <178128132175.1153833.2573734544472661843.robh@kernel.org>
+References: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
+ <20260608-n-dt-bindings-simple-bus-syscon-v3-1-4eba9ec1212a@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-rockchip-usbdp-cleanup-v5-14-efc83069869f@collabora.com>
-References: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
-In-Reply-To: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1257;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=YM8vhaVqe6VkIRnSmmclQMgLxDRedtbKmvS/ah+S/TU=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiEo7Ra4KF/dow0Pb3iWgyuH7adBgpGWt
- bsOqntQGuV9FokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
- O/qasDkP/10XqYzkoOmM24a+Lo9njSyyFFlWEOPbGCZvIQ+kccv0e1DHmYmPUSpxKJL5W+1GBbO
- q7+eJF7V3dY9Nl9W1ERiHKE8gSvnrih04h2sBCec5CvF5Xm+Z//Kz5Tr4scb2t21XDnns8JqpOf
- Ebtr8uo3fbYart9CInQoSQetdvR+vanUoGmRIW2fOh1l6rpu8eFrvelMwuadz//5b0COQmeSaFv
- wpTcmkkP/YrxMN8gIC+PwATc/jgMmYJVgzlqnZPlY70YDrLN/19qojYdcUPq4REW8vchJ8uDQTJ
- d7oot8EMbf/zDQQ8bKPuy/+sxDpcz6mZTp2OLiLaz18K0Iz0Uz4lPdAfeao7qDEI4MH0B9gZlXk
- LaULx3HumSnuMs4HUuDtI48b5upQFJFL8tmZtvp6se/5DRQu+tvbtrgmyvOHvhUu+ByNRMf9swO
- upGqHcEggbobz0rUvrotl9sNFjIhcvBNd7cFsNeJ6VCFH7FsZvVOOEayiE+VwnaVhB7wyQUTuOb
- t3RTEhzyMyUWtBFQwqlAa/XNRxUP7T9XytUUWBXzXKvCqv0rC0XMxeTB2bRd7vB8Vd2izbmXY9e
- 7vx4Jx+TWG4lR2oWqjYKeIgfPbDpdGqBSDuN2ezAkNLsuSCnfpNI8H3+E3mPu9nN3Pb2ngHeukt
- m+b9dXsiHiBFSHujtA+QxmA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_092201_852372_46EE67A1 
-X-CRM114-Status: GOOD (  10.26  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260608-n-dt-bindings-simple-bus-syscon-v3-1-4eba9ec1212a@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +85,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changing the cable orientation reconfigures the lane muxing, which
-requires re-initializing the PHY. Without this DP functionality
-breaks, if the cable is re-plugged with swapped orientation.
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+On Mon, 08 Jun 2026 22:44:24 +0200, Krzysztof Kozlowski wrote:
+> "syscon" is a system controller with registers having their own
+> functions, thus not really a trivial MMIO simple bus.  "simple-bus" on
+> the other hand is just a bus on which multiple devices sit and the
+> "simple" means no functions are allowed here.
+> 
+> Combination of both "syscon" and "simple-bus" is abuse of DT for easier
+> instantiating of Linux device drivers so add a schema to disallow that.
+> 
+> Unfortunately there are a few old cases of that patterns, so add
+> exceptions:
+> 
+> 1. "cznic,turris1x-cpld" and "img,pistachio-cr-periph" are already used
+>    in upstream DTS.
+> 
+> 2. TI has several DTSI with a child of SCM device (e.g. "ti,am3-scm")
+>    using "syscon" and "simple-bus" but without a dedicated compatible
+>    documented anywhere.  Add new compatibles for such cases.
+> 
+> Additionally, add comments around code enforcing two or three
+> compatibles: it is similar safeguard detecting incorrect bindings.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
+> 
+> Changes in v3:
+> 1. s/ti,omap5-scm-conf/ti,omap5-sysc-padconf-global/ because it is more
+>    appropriate (specific)
+> 2. Add comments, why simple-mfd+syscon has dedicated if:then:
+> 
+> Changes in v2:
+> 1. Complete patch. I accidentally sent only part of it, built on top of
+>    internal WIP which I forgot to squash.
+>    I received Ack from Rob, but change is significant, so please kindly
+>    re-review.
+> ---
+>  .../devicetree/bindings/mfd/syscon-common.yaml     | 34 ++++++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+> 
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index a3b4e2e0f578..89a08267611c 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -622,6 +622,7 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 				 enum typec_orientation orien)
- {
- 	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
-+	bool flipped = orien == TYPEC_ORIENTATION_REVERSE;
- 
- 	mutex_lock(&udphy->mutex);
- 
-@@ -633,7 +634,10 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 		goto unlock_ret;
- 	}
- 
--	udphy->flip = orien == TYPEC_ORIENTATION_REVERSE;
-+	if (udphy->flip != flipped)
-+		udphy->phy_needs_reinit = true;
-+
-+	udphy->flip = flipped;
- 	rk_udphy_set_typec_default_mapping(udphy);
- 	rk_udphy_usb_bvalid_enable(udphy, true);
- 
-
--- 
-2.53.0
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
