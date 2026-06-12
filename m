@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5A1CD98D6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C73CD98CF
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDNKWU0RZvsi/JDFjSwhO7C8LZA24QzLRyL66bb8CrM=; b=gWi2DdiH3wl12++5dqedh99Wo5
-	5Lu3zG9IlPLP3J66nGjq+qmEmcAtyrMTqaKL+T3YvOv5rEFVNTu9kFqCg03RRVk5p7NV+tUm71gaf
-	5AwQfZgWde7VZJyo0XRFOYzGw6J8ljy1oGj7kIlY/T+l9sA+ZcxrmdYCbahgcLHQ/YWlftmblKMU9
-	EHLQfyjZKWFLPh7L2qWb8SxFV8VLQ9EQxPTY7DeywHoWH5ggs7z3AhYJdtjIdkjETHxta56y5Mk/r
-	kavTTeSv9YfG/VFp8iehlOeicRTnQCvwQnmhB3QHjeDRttYUxtgLp/NM0sx7tI/dt43z7ug/NzLwN
-	/7b6xK0A==;
+	bh=bnI6Y3JKtqPDtsca3ZY4Q5sp/nyTJbzCm31uGwYBiGs=; b=LVmMg23AB/YDXJXu/ujAIpnHm8
+	DJSf63lqG4VuoN3GixkT/qvMcsH4vUMDzHXiCb2Qe36G9qFwAFAA8/G6dy2O3HwJwIDlImS9aNwoO
+	GP/GLthiU4cw09DpXvZ1siNdJwnVEbzfTpuhFDcYJXuw6Z48UBhxV9YOAQEdkT+Z2YOATyj3WSHLB
+	5o3uUiyIIEiSJQLa3R/sN2s7CVeezZ7Io2hNcDljN0EXEF4USjA4Y8cLgHxqXX+BdHEfNgfWPceuG
+	4QwzOx8kt71KqGMXhzWXB1fnrVBwi6NIbQTolDcPe+UDcj0MIsR9cW+moEW7wjzbnMv+VZnc1QRIe
+	MFgy0YSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4e6-0000000BEaQ-1qp6;
-	Fri, 12 Jun 2026 16:22:14 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wY4e5-0000000BEYi-3AM6;
+	Fri, 12 Jun 2026 16:22:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4ds-0000000BE47-3IhI;
-	Fri, 12 Jun 2026 16:22:04 +0000
+	id 1wY4dt-0000000BE4E-0nK0;
+	Fri, 12 Jun 2026 16:22:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1781281314;
-	bh=fH5mubes2SOS68X9ZiYq/N2c6YI1cho4HC4nJ2SpDZg=;
+	bh=F+/X9KX/MbPYEGdlL8kpGC62tIqMCkZjsXpPGb1baWg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FdcWF9mkG+zbwzGr8GD0a60r230mnYCXXWjYLGQTdtCjsqDZK29RCC4ktqgcllX4U
-	 9ZmgTeFzSmMj841ZQy0ct7SP0Buyff/58l/HXp+/N2RNiVODgEaDg009GoxUjVwyQ2
-	 Nj87egWYHeTrneQjU1fdfp6qmHeKo9e5dC+Xcqd3RZdxZ3TIEcFI2sTuhzYHK9WbKY
-	 M6b7lEh1URXPjOZvYgITScZWfNzsTI1Qi6+vY09/7IQ7SD4909j89Fh5Yol63YP1st
-	 qyn0eXJWBVhHknk/qPv8bg/u+pjcIvxrWsdiKW9E+TqtCpNi19nHmgY9dRNa3edmP0
-	 G8swiHCtJRatg==
+	b=i96g/ISSTuqL3MuimLqFp7/mBfPeRH7mRxfckyteXIsi3AhvE7dqKBKbaHf0bnXFI
+	 VBEN+AtOWomS2S+BeUirHXka+5rsrKxG8gBZSh0BTXj6gtmvaqjzsvDGNUWuZRw4xX
+	 D/aHE/epBy0EPb61DPt5VQNHO7jQtJPUbVaMNO9fKUZV+TjcHmHj60a52Xk2SSfDe0
+	 qYQLwhQ31nhXocRhGstbQJcNSiiFb1/yRtm5YEcRUJvghNof6nw1qrxa4hO2sqRgey
+	 GT07Vlih3411T82v+Zqh7mR1kIq6NI54YZzmhPndy9nMclbXJKn8FMwpWkSRaQLrU7
+	 L3jnNLrpCuukw==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75C3617E0E6E;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F56917E0FAC;
 	Fri, 12 Jun 2026 18:21:54 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id CCDCE480031; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
+	id CE5B2480035; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 18:21:44 +0200
-Subject: [PATCH v5 06/18] phy: rockchip: usbdp: Add missing mode_change
- update
+Date: Fri, 12 Jun 2026 18:21:45 +0200
+Subject: [PATCH v5 07/18] phy: rockchip: usbdp: Support single-lane DP
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-rockchip-usbdp-cleanup-v5-6-efc83069869f@collabora.com>
+Message-Id: <20260612-rockchip-usbdp-cleanup-v5-7-efc83069869f@collabora.com>
 References: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
 In-Reply-To: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -68,26 +67,26 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  devicetree@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2006;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5209;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=fH5mubes2SOS68X9ZiYq/N2c6YI1cho4HC4nJ2SpDZg=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiFYALoVetLRBjtCjGI62MJSBAfqV5I0i
- AQqkyEZm4/T1YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
- O/qaHtsP+gJDT1+JUU/jL4rE3Eg3XUOAQ0v5G+dh2jwEZVNLhHWgY6Mo9UbCzGNCqNcg0HTbc/X
- 9L7CfZbhijBhRk7PqXliFw+Vwh4jTPhBTLbb/hOMRMVtMnyPNomflwvUHu2tCtWjx9o5F6nrIQi
- 7BNu67rXWV5RnNHFOOpzSPoKSxU1JUH6Uko5kYjjGj3QaZkUKWgggeqaOFYFjmoJm5Bqh+7NOGc
- 18LV/uQjEaS330jyUF0pFpdE37qMNGaazX71gnOH7s+w/abJUEyeO1ET+z8u4b1cXft2dwlb7YJ
- YNqqFief+NpjiseXdaHZk9lmB8Md4B/SU2PYv02jWpv5DnPska9i0CDJ/tZOw9KSlsiMYF1fEz9
- F1Os4ELa/7tCKMANzTq9Kbg4uuzowEAZ6kA0t+C9PWxJKo4nSo6ym2xNLprv2l6bLAgUx8A4wo/
- erHLf7OgHXvMr3RoE9Aeurv54mpBtmUdUBLG1YybkR2qviq2NQn1mBUYnJ+YmA/Pw+n7konOkeG
- M0sDXh1pQ2RK8eMVtj+hNw62TANBsJC0gRZo1KKojDHQlpZ25thCF7RAdLhhh4jmvMW9jsYfjER
- Fd0Zf2MAHsc0iilGBUSRDWjoy+f9kKlR1eF23WOoLMSaFJ+D7chrNNFg3nULXDtHAttOCnLptqF
- qS218jwCMjsGmyZOfvlEqog==
+ bh=b37g3sREdBGDY7tFDKeV5U/vMOZkhC2Y7QMIV7WXbE0=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiFvowPp8lllzlN8P6Tg8oraocs/BPB/v
+ 9nXRsbVC5yTh4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
+ O/qadVYQAIy4D4kHAKub9VCpzfLhrF0Z/z/uZP3b9yP0D0tfObpNdn/Mom5AUtEpmXFHAgsjlW7
+ +gmpbLGg5LFoOxLniMEv3tj5fRz4F0AjDHK1DFkNF8ir7oJkEDhbGoUFc4qQPQ+ivu5B2Jn4Rr+
+ 8N2hwAG6DALzrUY2ErNvfzfAALrl6F92s1mNjViL4XZsq6j/2ugzIViBE1jaRZN1TzhHxOxrT+w
+ 9jDqQE9A4kNJkfnVnOM24hZy/1nm/QvpcPd0csLpm5QaRNpPPDj8DKC/LXNztExibus7OuJsZxO
+ IpJqSQxzRKE66oJj/aCvXQIRoz6FRjFc2SXSBP2RdNOzJ4KBYWWSkGyD16elPuUfD6ohgVufl25
+ mwxK+Oglo5oVM6pKhyOwADA1dS8wnhlRDyn9sb8tZQ1gdmZU+sm2KgBlTOwbhx1Q/oVRMJl6Iaq
+ 5n67vRUgRbboJIi+veFr+Fs/2Npnf4/EcnO/N0JweW7+M4H6c41o1JRosG5rKYU0U9IAqwRQt3c
+ iR1ds6Gd8+uFhDSo+z8yABlkZEPSyGxG+DVcjOoTx5bHjVLjRn4Sr7svcdmUIl97id6ATnNDW9r
+ lVBss6yYeDuiHYr4SpzazCO5cVdgOBELnlbBER/WCiOKclqbzAGymCc7gfw/frVAHmbwwDacASf
+ RphAHfJgQ6anqBoTPl7wjeg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_092201_030990_6C6A9B94 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20260612_092201_427223_E8FA5169 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,60 +101,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk_udphy_set_typec_default_mapping() updates the available modes,
-but does not set the mode_change as required. This results in
-missing re-initialization and thus non-working DisplayPort.
+From: Zhang Yubing <yubing.zhang@rock-chips.com>
 
-Fix this issue by introducing a new helper to update the available
-modes.
+Implement support for using just a single DisplayPort line.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Zhang Yubing <yubing.zhang@rock-chips.com>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 61 +++++++++++++------------------
+ 1 file changed, 25 insertions(+), 36 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 97e53b933225..febc148a754e 100644
+index febc148a754e..bf8394174294 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -619,6 +619,15 @@ static void rk_udphy_dp_hpd_event_trigger(struct rk_udphy *udphy, bool hpd)
- 	rk_udphy_grfreg_write(udphy->vogrf, &cfg->vogrfcfg[udphy->id].hpd_trigger, hpd);
+@@ -193,6 +193,7 @@ struct rk_udphy {
+ 	int id;
+ 
+ 	bool dp_in_use;
++	int dp_lanes;
+ 
+ 	/* PHY const config */
+ 	const struct rk_udphy_cfg *cfgs;
+@@ -537,6 +538,13 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)
+  * <0 1>                  dpln0         dpln1       usbrx         usbtx
+  * <2 3>                  usbrx         usbtx       dpln0         dpln1
+  * ---------------------------------------------------------------------------
++ * if 1 lane for dp function, 2 lane for usb function, define rockchip,dp-lane-mux = <x>;
++ * sample as follow:
++ * ---------------------------------------------------------------------------
++ *                        B11-B10       A2-A3       A11-A10       B2-B3
++ * rockchip,dp-lane-mux   ln0(tx/rx)    ln1(tx)     ln2(tx/rx)    ln3(tx)
++ * <0>                    dpln0         \           usbrx         usbtx
++ * ---------------------------------------------------------------------------
+  */
+ 
+ static void rk_udphy_dplane_select(struct rk_udphy *udphy)
+@@ -544,18 +552,18 @@ static void rk_udphy_dplane_select(struct rk_udphy *udphy)
+ 	const struct rk_udphy_cfg *cfg = udphy->cfgs;
+ 	u32 value = 0;
+ 
+-	switch (udphy->mode) {
+-	case UDPHY_MODE_DP:
+-		value |= 2 << udphy->dp_lane_sel[2] * 2;
++	switch (udphy->dp_lanes) {
++	case 4:
+ 		value |= 3 << udphy->dp_lane_sel[3] * 2;
++		value |= 2 << udphy->dp_lane_sel[2] * 2;
+ 		fallthrough;
+ 
+-	case UDPHY_MODE_DP_USB:
+-		value |= 0 << udphy->dp_lane_sel[0] * 2;
++	case 2:
+ 		value |= 1 << udphy->dp_lane_sel[1] * 2;
+-		break;
++		fallthrough;
+ 
+-	case UDPHY_MODE_USB:
++	case 1:
++		value |= 0 << udphy->dp_lane_sel[0] * 2;
+ 		break;
+ 
+ 	default:
+@@ -568,28 +576,6 @@ static void rk_udphy_dplane_select(struct rk_udphy *udphy)
+ 		     FIELD_PREP(DP_AUX_DOUT_SEL, udphy->dp_aux_dout_sel) | value);
  }
  
-+static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)
-+{
-+	if (udphy->mode == mode)
-+		return;
-+
-+	udphy->mode_change = true;
-+	udphy->mode = mode;
-+}
-+
- static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+-static int rk_udphy_dplane_get(struct rk_udphy *udphy)
+-{
+-	int dp_lanes;
+-
+-	switch (udphy->mode) {
+-	case UDPHY_MODE_DP:
+-		dp_lanes = 4;
+-		break;
+-
+-	case UDPHY_MODE_DP_USB:
+-		dp_lanes = 2;
+-		break;
+-
+-	case UDPHY_MODE_USB:
+-	default:
+-		dp_lanes = 0;
+-		break;
+-	}
+-
+-	return dp_lanes;
+-}
+-
+ static void rk_udphy_dplane_enable(struct rk_udphy *udphy, int dp_lanes)
  {
- 	if (udphy->flip) {
-@@ -649,7 +658,7 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
- 		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
+ 	u32 val = 0;
+@@ -659,6 +645,7 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
  	}
  
--	udphy->mode = UDPHY_MODE_DP_USB;
-+	rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB);
+ 	rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB);
++	udphy->dp_lanes = 2;
  }
  
  static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-@@ -1385,10 +1394,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
- 			usleep_range(750, 800);
- 			rk_udphy_dp_hpd_event_trigger(udphy, true);
- 		} else if (data->status & DP_STATUS_HPD_STATE) {
--			if (udphy->mode != mode) {
--				udphy->mode = mode;
--				udphy->mode_change = true;
--			}
-+			rk_udphy_mode_set(udphy, mode);
- 			rk_udphy_dp_hpd_event_trigger(udphy, true);
- 		} else {
- 			rk_udphy_dp_hpd_event_trigger(udphy, false);
+@@ -897,7 +884,7 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
+ 		return 0;
+ 	}
+ 
+-	if (num_lanes != 2 && num_lanes != 4)
++	if (num_lanes != 1 && num_lanes != 2 && num_lanes != 4)
+ 		return dev_err_probe(udphy->dev, -EINVAL,
+ 				     "invalid number of lane mux\n");
+ 
+@@ -923,7 +910,8 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
+ 	}
+ 
+ 	udphy->mode = UDPHY_MODE_DP;
+-	if (num_lanes == 2) {
++	udphy->dp_lanes = num_lanes;
++	if (num_lanes == 1 || num_lanes == 2) {
+ 		udphy->mode |= UDPHY_MODE_USB;
+ 		udphy->flip = (udphy->lane_mux_sel[0] == PHY_LANE_MUX_DP);
+ 	}
+@@ -1074,18 +1062,17 @@ static int rk_udphy_dp_phy_exit(struct phy *phy)
+ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+ {
+ 	struct rk_udphy *udphy = phy_get_drvdata(phy);
+-	int ret, dp_lanes;
++	int ret;
+ 
+ 	mutex_lock(&udphy->mutex);
+ 
+-	dp_lanes = rk_udphy_dplane_get(udphy);
+-	phy_set_bus_width(phy, dp_lanes);
++	phy_set_bus_width(phy, udphy->dp_lanes);
+ 
+ 	ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
+ 	if (ret)
+ 		goto unlock;
+ 
+-	rk_udphy_dplane_enable(udphy, dp_lanes);
++	rk_udphy_dplane_enable(udphy, udphy->dp_lanes);
+ 
+ 	rk_udphy_dplane_select(udphy);
+ 
+@@ -1365,6 +1352,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
+ 		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
+ 		mode = UDPHY_MODE_DP;
++		udphy->dp_lanes = 4;
+ 		break;
+ 
+ 	case TYPEC_DP_STATE_D:
+@@ -1381,6 +1369,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
+ 		}
+ 		mode = UDPHY_MODE_DP_USB;
++		udphy->dp_lanes = 2;
+ 		break;
+ 	}
+ 
+@@ -1529,7 +1518,7 @@ static int rk_udphy_probe(struct platform_device *pdev)
+ 		ret = PTR_ERR(udphy->phy_dp);
+ 		return dev_err_probe(dev, ret, "failed to create DP phy\n");
+ 	}
+-	phy_set_bus_width(udphy->phy_dp, rk_udphy_dplane_get(udphy));
++	phy_set_bus_width(udphy->phy_dp, udphy->dp_lanes);
+ 	udphy->phy_dp->attrs.max_link_rate = 8100;
+ 	phy_set_drvdata(udphy->phy_dp, udphy);
+ 
 
 -- 
 2.53.0
