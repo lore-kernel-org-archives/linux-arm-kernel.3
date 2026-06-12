@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D723DCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BA7CD98D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/SGUs0YIEd66VF0qWd6efTVsGi0XgveZiOoh/RTgHw=; b=AKei7vhoW0ABl+Fc4b/IcVoYjQ
-	LDaRX6d9av7SUQwSNI8fmSncncldZHY1o7HbuFC/WRmMC4cM1zmFMTwHzC2kIWkW5bnEyCWTYnOZu
-	C9An7BBoit9S81cbmObw3oHdRqNlnXTTwjUxNrZJtGwxkMpV8O3uyZp4Hn91AvMy3Gsdm1BKfiTcL
-	THp5wncZMDKqTA28Dr6FC+Sl/YgTENVznaJtCVC6vST8phKLXNBENsRU6wB7/siDTbpJ8YGelNjBv
-	YRW7Zk3EZkp4okexpn6iYAAO/tXRHByfE7yiBfvnU3AJGcxiSRAONl0WiIEiaVz7+oeITxGsl3X1A
-	J/8Liesw==;
+	bh=pAP1NcwYrXBK5Nx3wa/X8hgk6oZXZVKocwwn82WV4NA=; b=OhFRwY1LGRpEnntXwO/xxDj8dU
+	W1gKEFKH5O+m34uPibNHEKk6wBoMXLwe2VMgwOazHQsGfA0nbNhjv/5029VnJFNczYG6Rjcb7b8Nl
+	ZUQbcbBPUfk3mOxTu8L5aNozasIt/nqOR+wcLkA6qfxU1eniz9QJAd2+C8zcz3hK5V/bjNEiJuPgV
+	O73h5MQI7omcXG/l4d+KqRKofmmeczeL7OkwKHprMAeZQ8RcD7UQiF1t1OLcCAB9wD0T9YuUD0ttW
+	i5PC/oijNxhS5xXs3mnsRXAUnLhWIqAGSDa9JuGoq8LM6Ade+GotipKyOxa7D9MaTnyER3aKyiwwZ
+	C37KDBAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyOq-0000000AgsE-2CE6;
-	Fri, 12 Jun 2026 09:42:04 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1wXyS9-0000000Ah2Y-3z20;
+	Fri, 12 Jun 2026 09:45:29 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyOn-0000000Agrt-0kqi
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 09:42:02 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 13D17EC0064;
-	Fri, 12 Jun 2026 05:41:58 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 12 Jun 2026 05:41:58 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1781257318;
-	 x=1781343718; bh=i/SGUs0YIEd66VF0qWd6efTVsGi0XgveZiOoh/RTgHw=; b=
-	D8dKg5fajuE3OL0JkbZbNuDlvTzK3k2/SSOqUTeN46HcOkwbX2uea6DrkqbPigc5
-	DnmTW+NVkTjVEOtAuNDBV30W/aGdRvTL+yDZDBs6wnF4x5vANJJW6MA9pxKEeXcG
-	PnS7mkIxWMunvC1qmz2tajAkFMbx1BSqsa34SaOAEMzz7LOBd00eY8vRv7C5HPv0
-	M/4G+9RuA+Mx2ui3P/OeH2frqJZYEfUO9ald0ZfgFYOeoaJsXnjd60HsRarERANk
-	/PG88QJaUp0fY2lazG/QmR/atQTEmZCiTcF7LKtyhNNWSdUJP9g4Kv12uXaYDG6Z
-	4TXLdyqf4yuM4OaoGTtHuA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781257318; x=
-	1781343718; bh=i/SGUs0YIEd66VF0qWd6efTVsGi0XgveZiOoh/RTgHw=; b=E
-	BMEYjKfnEP8rMDXG+OnyejCTZegA0X8TZ1+hSuenPePtlylK5z6qmzAgS3SEReI0
-	gvRahFO/RV+lgQhXfM5kzwKtxJbKEECaJBjCcJtJXFpsj7Wed52Xi2KwgcCdodP3
-	uKAxMz1KP80qMCyz5Lt9M/L92jx3XLfHYBnHH5bIRw6ryQqvzM0ExmN9/4SEKOyq
-	UI4Nc2liXduATAPihz63xu37md+6nAyxUR9EvkMXOM/DHRshRiATpPU0pciGEsuj
-	eMEO6SjQsotigpUNAFtd4RObbyyAWz0AZn3o4ZJk2p0aA8HyBIg2oXKFftZx1oxH
-	6YiMC70O3hpf7ds75nwJg==
-X-ME-Sender: <xms:ZdQral3Txnp_3JimMTsQwUPG-p2Y4AeM7fLWFnmN8Tv9iMsZmNQ7jQ>
-    <xme:ZdQram5g2ENuFmc5k_iNJajQmhQIVdoqgCi56fac6LiSeZ7ouIDInoAk28OLZT77h
-    PHPhhjSJdwmyHx28jivF_IxwHRIwvPymedlub3aaoq5L3DTjiujlPGH>
-X-ME-Proxy-Cause: dmFkZTEgOGkI4ef/CF24QtYWuT/qA10jYmWmTDetkenrgcnokgLI/1fIQX65pyUvZ6BqIF
-    oKAfkJNgTaftZi+RwmlzvUhIM7wxaAJxC0Hy72I31N0XOwabtUw9tNg8DnBTL2+1UlrsNy
-    8PXIVHl8E46TxotjHiKb7G/VQUBHqwZe+RcsEw4y1Bv1kVDYNE4PLKkB3aSY/F1OgAdu8v
-    1xf96B7Rmc3aeaL5ouKhVsigTyeA3Q6vbC3hHePAipDPme76TA4rKM55E0eoEDX4EQsJX5
-    79aIr1uzAzomOmVMv0FbvZCLSwgdxNYjKhaRCQNxhoXHlcMxIKqWERgg5XyMq9IKETVhsV
-    Yle1f60NkBMJVML+stKP8wOJnQLIKeQ4BPZg3AXwO6FelAZHVhLlSQ06mqEUeIzvoOysKz
-    9NLBorfV7y88B6MlRj90JtWCmo3DsoyYYLaJxn5X6RfKhtzYZxlSUVoCro5kyKYn6fo3ap
-    Rp0lZ5N6Cx+Dt7e5jz7v2W9Mym2gBnR1isHRdxGTCC12s3DJot8YsdcV5psh/bFvWRxkJR
-    wnxrk5x5ZksQfuh/OIwbq12bFqToGL6d8SGhpj8cB546XcpY106x75yXI8toT3yezQEdWO
-    6lfcR0g1GGptt5+xGN6GAwG8OqdVBN16YvKfhB7g4mNlCqdChPaVpHQh38GA
-X-ME-Proxy: <xmx:ZdQragX2QwQR8V3xWTpjKfUkq0QTKfTtjvu2Z-GoNQcFoKyKgu4ZeA>
-    <xmx:ZdQragk8TOPrA0pEPVQ6WRnxflCwXPxdPDIJC_xmNgLfdZ8n3tiX7A>
-    <xmx:ZdQramn2dO6dxAOsn5Towq7cXu06X0G9DzfmnqTg42xHDp0sNgt3CA>
-    <xmx:ZdQragYhrwb1gx-RPOZ0hbNPdxYFL-670bBm-wvWhEsRYAA-ZdSCFA>
-    <xmx:ZtQrakQYYh83HJpCgwDuIYjEPHBH2cpbM5MTwOcpGxDWDAio0DHZXVNm>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BB036182007E; Fri, 12 Jun 2026 05:41:57 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: Ap3K6gjQ-9OJ
-Date: Fri, 12 Jun 2026 11:41:18 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Maxime Ripard" <mripard@kernel.org>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linusw@kernel.org>, "Drew Fustini" <fustini@kernel.org>,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- "Andrew Davis" <afd@ti.com>
-Message-Id: <6a93097b-fc06-414d-a5f4-cf2dc98474d5@app.fastmail.com>
-In-Reply-To: <20260612-indigo-sparrow-of-action-d2bcbe@houat>
-References: <20260527084135.842736-1-mripard@kernel.org>
- <422d7885-67bf-485b-b2fc-f0604a2213db@app.fastmail.com>
- <20260612-indigo-sparrow-of-action-d2bcbe@houat>
-Subject: Re: [PATCH] ARM: multi_v7_defconfig: Enable dma-buf heaps
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+	id 1wXyS6-0000000Ah28-1XXf;
+	Fri, 12 Jun 2026 09:45:28 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id C58C01A38DC;
+	Fri, 12 Jun 2026 09:45:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 901FE60012;
+	Fri, 12 Jun 2026 09:45:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1E170106C8567;
+	Fri, 12 Jun 2026 11:45:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1781257520; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=pAP1NcwYrXBK5Nx3wa/X8hgk6oZXZVKocwwn82WV4NA=;
+	b=N3HmtAk35VsP1qgGAXQ1tHQqUkfLGYVvab9kzm6RjePDLDHVWsR+DE0xdfJ+P+QeAGdJHN
+	ONqTwA50Fo3O5vGfbO3TA/mxy4eEqokbwcDTF+bWoXcsDXs8GNOemORaydA0cNY8zbtpoc
+	6fazjWEcphMfwdq/KPYrvqSQ0lZTR3FO+UA+yJZfMSx19foIoEKI0ygjYzOpZJSfiurDTr
+	Kr9GYnlaWFtNx+Grr6pxCNGetbXPdaEPJx5y3rfhZijw+4kGHygU+vLl08ALjhwfJNHGRX
+	g0kb5TR0/LGkb1h6AS7rwKKX2vrDBmBmySVZh0AM2qKKPMOKGMkTlRuk8OjXcw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 12 Jun 2026 11:45:14 +0200
+Message-Id: <DJ6Z39C906LE.1F3XKDDM41UJ8@bootlin.com>
+Subject: Re: [PATCH] net: macb: add TX stall timeout callback to recover
+ from lost TSTART write
+Cc: "Lukasz Raczylo" <lukasz@raczylo.com>, "Steffen Jaeckel"
+ <sjaeckel@suse.de>
+To: "Andrea della Porta" <andrea.porta@suse.com>, <netdev@vger.kernel.org>,
+ "Nicolas Ferre" <nicolas.ferre@microchip.com>, "Claudiu Beznea"
+ <claudiu.beznea@tuxon.dev>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S
+ . Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>,
+ "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rpi-kernel@lists.infradead.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <771b8faeaee1fce4a84a5ba2661d60b35a65a6d5.1781253818.git.andrea.porta@suse.com>
+In-Reply-To: <771b8faeaee1fce4a84a5ba2661d60b35a65a6d5.1781253818.git.andrea.porta@suse.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_024201_533802_975D5844 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260612_024526_572145_156F0295 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,24 +81,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026, at 10:33, Maxime Ripard wrote:
-> On Wed, May 27, 2026 at 10:50:02AM +0200, Arnd Bergmann wrote:
->> On Wed, May 27, 2026, at 10:41, Maxime Ripard wrote:
->>
->> I'd like to wait until we have resolved the build regression
->> from the earlier patch[1][2]. I don't have a strong opinion on how
->> to resolve it, but at least for now Christoph is asking to have
->> your change reverted.
->
-> I believe it's now fixed, even though not through a revert, and is on
-> its way to Linus:
-> https://lore.kernel.org/dri-devel/c7a9dbb0-a5c8-4e67-904e-1a52b3de9bb4@linux.intel.com/
->
-> arch/arm doesn't select ARCH_HAS_MEM_ENCRYPT afaik, so this patch can be
-> applied as is I think?
+Hello Andrea,
 
-Yes, I've added it to the soc/defconfig branch already, though
-the automatic notification apparently did not trigger.
+On Fri Jun 12, 2026 at 11:01 AM CEST, Andrea della Porta wrote:
+> From: Lukasz Raczylo <lukasz@raczylo.com>
+>
+> The MACB found in the Raspberry Pi RP1 suffers from sporadic stalls on
+> the TX queue.
+> While the exact root cause is not yet fully understood, it is likely
+> related to a hardware issue where a TSTART write to the NCR register
+> is missed, preventing the transmission from being kicked off.
+>
+> Implement a timeout callback to handle TX queue stalls, triggering the
+> existing restart mechanism to recover.
+>
+> Link: https://lore.kernel.org/all/20260514215459.36109-1-lukasz@raczylo.c=
+om/
+> Fixes: dc110d1b23564 ("net: cadence: macb: Add support for Raspberry Pi R=
+P1 ethernet controller")
+> Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
+> Co-developed-by: Steffen Jaeckel <sjaeckel@suse.de>
+> Signed-off-by: Steffen Jaeckel <sjaeckel@suse.de>
+> Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+>  drivers/net/ethernet/cadence/macb_main.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+>
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ether=
+net/cadence/macb_main.c
+> index a12aa21244e83..615da65d5d68d 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+> @@ -4522,6 +4522,16 @@ static int macb_setup_tc(struct net_device *dev, e=
+num tc_setup_type type,
+>  	}
+>  }
+> =20
+> +static void macb_tx_timeout(struct net_device *dev, unsigned int q)
+> +{
+> +	struct macb *bp =3D netdev_priv(dev);
+> +
+> +	if (net_ratelimit())
+> +		netdev_err(dev, "TX stall detected, re-kicking TSTART\n");
 
-     Arnd
+Is this standard? It looks odd.
+
+> +	dev->stats.tx_errors++;
+
+I am surprised by this. `tx_errors` would ideally be one per packet that
+didn't get sent. Here we increment it once per queue that stalled.
+
+I have a series to address stats issue (and use netdev_stat_ops API).
+It is a follow-up to this:
+https://lore.kernel.org/netdev/20260428-macb-drop-tx-v2-0-647f5199d8df@boot=
+lin.com/
+
+Also this is per-device shared data and we access it without
+synchronisation.
+
+Let's drop this increment.
+
+> +	macb_tx_restart(&bp->queues[q]);
+> +}
+
+Regards,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
