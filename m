@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4B4CD4F2C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 08:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD4CCD4F2C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 08:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yy+2xQMR5McOLxiiEQRjJGzs375KERWHEJ+Tzp4rPHk=; b=HXZljJC84FMdk6x0odtH2ab4gM
-	rFb2bugFBIX635vItQpjlJpWb4NwUC2uMQuFZzVN527qwGYF80eZdsnBxJf+ezA1tqDW1OhbvH2u1
-	se1pHQ2HNu4CSFB5Ag3G+LhqgY1wto5qFw2xovoHXygkpAxx/neb39UzI5y4puNA/M58iJy+KYoyC
-	X+BzxWGuCoSDbN6yGAMPYO7cpLclzwna82+dVhjnvuH0bqTF06+beeRCO4SZz6p4g59xFZN8ZpwX9
-	FYe08l8Lc7XhaciaEi677vXkOjEIWtLmPxlALCXWiRay5NxHoYM8NgCEzVFoT2YOuRbCIdBIl5Skx
-	Ya8js1+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IptzJvEOpEyqJC6Y0bSpFGE8b6UEQBNCojgAbIIeMHQ=; b=fdjNdgRx8GKE3HuoNE2m2nqrvN
+	QzpOmhF1mbBpt3akvnOpw1Nf4eAfx0VpWYg8SDtwgTHe+KmeQwY7FyFFTGr9IXT4rUNvW+BIWtlam
+	hd3Xjgsk0bhfH0e3HzvBgy8llz9cAZfbo+bZ1143ZqvfXqgqV9S0uOT4BfKOFHoRrH9yKB1L+VrBB
+	rTC6SpepSw6HBI9IdiQyDyysREZLqR3VBDk07sEDLaPpiJ3b6NiLgOq6F62pGtoPlrFCMQSlP9kGg
+	JrTSbNB9TA7Ys2bHelxe5irjO9vhYmr4qLyrb0JOIPsXnuXesJWrJpfecb93P/Jv1/CNSY+cDRn2B
+	JU4L55wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxUw-0000000AbdO-0q6q;
-	Fri, 12 Jun 2026 08:44:18 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wXxVl-0000000AbvV-1Vt1;
+	Fri, 12 Jun 2026 08:45:09 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxUq-0000000AbaJ-3M2a
+	id 1wXxVi-0000000AbtM-1xTt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 08:44:14 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490b23c828aso34935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 01:44:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781253851; x=1781858651; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yy+2xQMR5McOLxiiEQRjJGzs375KERWHEJ+Tzp4rPHk=;
-        b=MDKvq6q6Y0dC43mBobJ/IWXO5ZuBrZlPczrDLTVpNT717I+FnjXGnKWtAX6mBTTPk6
-         V5W6lqdebOtTrg0j1byPKg5Ki2Hy8HqwgyeuEVIUbZBHoPDVMPYSGTAWXrvKBre4vBRD
-         ipwJ/jGikoPS8gXph8XM+Fjn0zSXl/+OWQw6raRD3p0WX6dmUeWsG/GhhqTTD/jniDvD
-         3vB8ArclsPOGRKhSz3sBqW4OGqSY1r4J2YptunA0B22S3T2DsumoJjIgGfiGqaCwwT58
-         xTfAt/e3Y6reXJs4Xkl9s2cmXa4KT3w2Z9zdw7Tq5B1A/5zNcYF3D5gLLmkCXfKAJ0oE
-         xoAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781253851; x=1781858651;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Yy+2xQMR5McOLxiiEQRjJGzs375KERWHEJ+Tzp4rPHk=;
-        b=lRs1qmGAKFIeLEX6bkEgU6VU2egiyQu7ENJgwpG18SEsDNp0NQiy7LRHPRaRi2Pj9L
-         Ki6uqTOoitb36c/LhKBceBUYxEN04NEFQ9DxHw6cgyVy8u++VCzlNSR8nVycBzAHB3oW
-         qRkgUhKeP9/V0GGEGv6NCBFRrudD4mahlgvlGcaInkPHMVRrJKPd9D/wd0rK+TkWNIMJ
-         ZR7+zG15kTDvjCL51zbc03GVJs/Mifdi+NAS9CooNJFd9PSMuWvKK7UEpRjK6XBVewqV
-         wXs90H8YJVxBpzAWiQS035BCJq9eZe8SKaAEum1HtSfSPScqBm0BzVmTN2Orqh8CYqKR
-         ttCQ==
-X-Gm-Message-State: AOJu0YwpipWU9IEoWW3/Vtuon0xkspA/nYWn+hKcdXuRF8vzxMAskDUy
-	y2PZmPkFFhsNv8MnCjmcZGe/fInRLo5pMlT+Detyza3HU1bOM7p+We4fGm5pmZT94A==
-X-Gm-Gg: Acq92OEipRJZXFbILE/Q5wgdv+iVzPhhsbxIi6/h7KJ1vf1AkvUGcEZbUmDrnd5xKVu
-	hZ8TII2XCE7vQ6i5iYvth8KB/trjFpnWC7l0jfQWhhYRC7HBcIrveNVkdJXFuCDM/yiUknleNsw
-	gVnXm8cAvwtDSfWtLyJ10PyfDD3V4U72zBo6GLhw5mldxI/EFlCGNpBauPldJqevUEHGYaRQorN
-	NSc3z3oWWZ4m2ovWDDrHIsA8mIRJ9pEDSfGNgacEmTHLChMJi3n35wu5vii6RZbovUxYBf4DSwq
-	NugELl2l2vVvY546qiooMIPUeCLGYpfJ/YKaGgIKe+vm2VjxmhEo49L2GeA6v6ZhM4A6v68xqjd
-	4u6WouTRMqZaHAoUe0J4D/ujDkmepObaAw7gpMpiE5ZRE2A5brlBzMdtqknMbA1s64RDFZMzZPZ
-	NYTSMXgZYKGj+wzFu0zKhJLPtC6gouhCg4MJfAq8oDQb9FKnsh4guQYqXax/+RkA==
-X-Received: by 2002:a05:600c:2297:b0:48a:5618:b4d4 with SMTP id 5b1f17b1804b1-490eabcf574mr489365e9.1.1781253850528;
-        Fri, 12 Jun 2026 01:44:10 -0700 (PDT)
-Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e2d09a85sm126214275e9.14.2026.06.12.01.44.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 01:44:09 -0700 (PDT)
-Date: Fri, 12 Jun 2026 08:44:06 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
-	rppt@kernel.org, maz@kernel.org
-Subject: Re: [PATCH 3/3] arm64/coco: Add pKVM as a CC platform
-Message-ID: <aivG1rEi3y4GN8kX@google.com>
-References: <20260603110522.3331819-1-smostafa@google.com>
- <20260603110522.3331819-4-smostafa@google.com>
- <yq5a1pemsmuj.fsf@kernel.org>
+	Fri, 12 Jun 2026 08:45:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=IptzJvEOpEyqJC6Y0bSpFGE8b6UEQBNCojgAbIIeMHQ=;
+	b=Qgwj5ABU+dlT8AcXkgaK1WsIsBFOajP+cutCE0DICt6giXo4fSeHnccWkhE8NWytiYyisImcv
+	tCPQlyxTN1INBzLUUAS4ZTT5bhmQlnyqen29n0S0wFs7lssNd+f29BKBghVd0xh2yBG/h4I88/n
+	SAboftgY10poy4mmhpBCUwA=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gcCYG37T8zRhQs;
+	Fri, 12 Jun 2026 16:36:50 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8DDF340363;
+	Fri, 12 Jun 2026 16:44:45 +0800 (CST)
+Received: from [10.174.179.37] (10.174.179.37) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Fri, 12 Jun 2026 16:44:44 +0800
+Message-ID: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
+Date: Fri, 12 Jun 2026 16:44:43 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5a1pemsmuj.fsf@kernel.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v8 next 04/10] arm_mpam: Refactor rmid to reqPARTID/PMG
+ mapping
+Content-Language: en-US
+To: James Morse <james.morse@arm.com>, <ben.horgan@arm.com>,
+	<Dave.Martin@arm.com>, <tan.shaopeng@jp.fujitsu.com>,
+	<reinette.chatre@intel.com>, <fenghuay@nvidia.com>, <tglx@kernel.org>,
+	<will@kernel.org>, <hpa@zytor.com>, <bp@alien8.de>, <babu.moger@amd.com>,
+	<dave.hansen@linux.intel.com>, <mingo@redhat.com>, <tony.luck@intel.com>,
+	<gshan@redhat.com>, <catalin.marinas@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <wangkefeng.wang@huawei.com>,
+	<sunnanyong@huawei.com>
+References: <20260413085405.1166412-1-zengheng4@huawei.com>
+ <20260413085405.1166412-5-zengheng4@huawei.com>
+ <2944b506-a462-42f8-95cf-404241fb27f0@arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <2944b506-a462-42f8-95cf-404241fb27f0@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.179.37]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_014412_861927_6C03E436 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20260612_014507_137220_30B7F9DE 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +89,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 02:29:00PM +0530, Aneesh Kumar K.V wrote:
-> Mostafa Saleh <smostafa@google.com> writes:
-> 
-> > pKVM does support memory encryption, expose that to the rest of
-> > the kernel through cc_platform_has()
-> >
-> > At the moment, all devices inside the guest are emulated which
-> > requires its memory to be shared back to the host (decrypted), so
-> > set force_dma_unencrypted() to always return true.
-> >
-> > Although, typically pKVM guests rely on restricted-dma-pools to
-> > bounce traffic, with this change, it is possible to solely rely on
-> > the default SWIOTLB for that (assuming the appropriate size is set
-> > from the command line)
-> >
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> > This change is critical for the ongoing refactoring of the DMA-API[1]
-> > that will break protected guests under pKVM with this patch. That is
-> > due to this rework will make the state of the SWIOTLB and restricted
-> > dma pools depends on the value returned by cc_platform_has()
-> >
-> > [1] https://lore.kernel.org/all/20260522042815.370873-1-aneesh.kumar@kernel.org/
-> > ---
-> >  arch/arm64/include/asm/hypervisor.h           | 13 +++++++++++++
-> >  arch/arm64/include/asm/mem_encrypt.h          |  3 ++-
-> >  arch/arm64/kernel/rsi.c                       | 12 ------------
-> >  arch/arm64/mm/init.c                          | 15 ++++++++++++++-
-> >  drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c |  3 +++
-> >  5 files changed, 32 insertions(+), 14 deletions(-)
-> >
-> > index d66291def0f4..26fe9c3f22e3 100644
-[...]
-> > --- a/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
-> > +++ b/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
-> > @@ -17,6 +17,7 @@
-> >  #include <asm/hypervisor.h>
-> >  
-> >  static size_t pkvm_granule;
-> > +DEFINE_STATIC_KEY_FALSE_RO(pkvm_guest);
-> >
-> 
-> Do we need EXPORT_SYMBOL on this? 
+Hi James,
 
-I was not sure about that, all users of this are in tree, I saw RME
-code have the EXPORT but did not know why?
-
-Thanks,
-Mostafa
-
+>> @@ -478,6 +518,7 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
+>>   		      enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
+>>   {
+>>   	struct mon_cfg cfg;
+>> +	u32 reqpartid = rmid2reqpartid(rmid);
+>>   
+>>   	if (!mpam_is_enabled())
+>>   		return -EINVAL;
+>> @@ -493,8 +534,8 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
+>>   	cfg = (struct mon_cfg) {
+>>   		.mon = mon_idx,
+>>   		.match_pmg = true,
+>> -		.partid = closid,
+>> -		.pmg = rmid,
+>> +		.partid = (cdp_type == CDP_CODE) ? reqpartid + 1 : reqpartid,
+>> +		.pmg = rmid2pmg(rmid),
 > 
+> Not using the CLOSID here breaks multiple control groups.
 > 
-> -aneesh
+
+
+After carefully reviewing your comments and Martin's patch series,
+I tried to understand why there is insistence that CLOSID information
+is necessary to support multiple control groups, but that is actually
+not the case.
+
+Before proceeding, please allow me to refer to base_partid as CPARTID
+(control partition ID; I'm no longer borrowing the intPARTID concept
+here). The associated partids_per_closid all share the same control
+scheme.
+
+The partids derived from partids_per_closid under a given CPARTID,
+I will call MPARTID (monitor partition ID; no longer borrowing the
+reqPARTID concept). These represent the PARTIDs used for different
+monitoring groups under the same control scheme.
+
+
+I've summarized the ID translation schemes from James and Martin as
+follows:
+
+  +-------------------------------+------------------+
+  |            CLOSID       |{CDP}|       RMID       |
+  +-------------------------------+------------+-----+
+  |            MPARTID                         | PMG |
+  |      CPARTID(or MPARTID_hi)   : MPARTID_lo |     |
+  +--------------------------------------------+-----+
+
+Where closid = cpartid (base_partid or mpartid_hi),
+       rmid   = mpartid_lo * pmg_num + pmg,
+with mpartid_lo in the range [0, partids_per_closid).
+
+In this scheme, CLOSID and RMID are coupled together to form MPARTID,
+which represents the monitor group PARTID.
+
+
+In current patchset design, decoupling CLOSID and RMID, letting them
+represent CPARTID and MPARTID respectively:
+
+  +---------------------------------------------+
+  |                    CLOSID             |{CDP}|
+  +---------------------------------------------+
+  |                    CPARTID                  |
+  +---------------------------------------------+
+
+  +---------------------------------------------+
+  |                     RMID                    |
+  +---------------------------------------+-----+
+  |                   MPARTID             | PMG |
+  |  MPARTID_hi(or CPARTID)  : MPARTID_lo |     |
+  +---------------------------------------+-----+
+
+Where closid  = cpartid (base_partid or mpartid_hi),
+       rmid    = mpartid * pmg_num + pmg,
+   and mpartid = mpartid_hi * partids_per_closid + mpartid_lo .
+
+The design intent is to decouple CLOSID and RMID, rather than having
+RMID depend on CLOSID to derive MPARTID. This decoupling is essential
+for future dynamic allocation, because the relationship between MPARTID
+and CPARTID must rely on table lookup rather than linear mapping. If
+don't decouple in the static allocation design, we would need another
+refactor when considering dynamic allocation extensibility.
+
+The control path uses CLOSID alone (CPARTID), and the monitor path uses
+RMID alone (the (MPARTID, PMG) pair). This definition also aligns
+closely with the native resctrl concepts: CLOSID (Class of Service ID,
+corresponding to CPARTID) and RMID (Resource Monitor ID, corresponding
+to the (MPARTID, PMG) pair).
+
+
+In the end, the number of control groups is determined by the number of
+CPARTIDs. Both of these ID translation schemes support multiple control
+groups.
+
+Please allow me to rework the patch series into v9 based on my current
+patches, incorporating your review feedback.
+
+
+Best Regards,
+Zeng Heng
 
