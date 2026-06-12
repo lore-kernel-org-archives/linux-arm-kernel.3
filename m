@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D6CCD98DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5A1CD98D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X7p2Kiie/VwPTVeZsZUYTTjk6TXHw3XumFkCp16/1eI=; b=uvQsfPSgVTaEUrI9XB7/Je81h9
-	eMHLdjGZnTPhV7YXVbwwYwHmykToMsGDrvGbxJg4iaE6tA/3RyA4MDDVGOFk3j/+R4eVvee3qhi5Q
-	R7ZyxMRBEApOIocB35/LfjLZ9UydBoSOHTxmHvN2bQzQCcOTakrZUrf4XYxBZvFQCdSvyrmBbQxwo
-	fzg8dabrDL5yhwhRf0JHSIZWBjxXDCbl1X0/4S19ggDd+ofQnVRZsjklEHeIAT7oBcVbfIaBMxLR9
-	nnDGR4ZJggkja6/ILPoklDlyrDdOp8MYqBFeMUFsjGh9z0aZm9j+3SLfBFMyjEWhXGkKigQ9kiyHE
-	+3/XYBCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PDNKWU0RZvsi/JDFjSwhO7C8LZA24QzLRyL66bb8CrM=; b=gWi2DdiH3wl12++5dqedh99Wo5
+	5Lu3zG9IlPLP3J66nGjq+qmEmcAtyrMTqaKL+T3YvOv5rEFVNTu9kFqCg03RRVk5p7NV+tUm71gaf
+	5AwQfZgWde7VZJyo0XRFOYzGw6J8ljy1oGj7kIlY/T+l9sA+ZcxrmdYCbahgcLHQ/YWlftmblKMU9
+	EHLQfyjZKWFLPh7L2qWb8SxFV8VLQ9EQxPTY7DeywHoWH5ggs7z3AhYJdtjIdkjETHxta56y5Mk/r
+	kavTTeSv9YfG/VFp8iehlOeicRTnQCvwQnmhB3QHjeDRttYUxtgLp/NM0sx7tI/dt43z7ug/NzLwN
+	/7b6xK0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4e4-0000000BEW8-2Wov;
-	Fri, 12 Jun 2026 16:22:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wY4e6-0000000BEaQ-1qp6;
+	Fri, 12 Jun 2026 16:22:14 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4dw-0000000BE9r-1E95;
+	id 1wY4ds-0000000BE47-3IhI;
 	Fri, 12 Jun 2026 16:22:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8753360008;
-	Fri, 12 Jun 2026 16:22:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B1E1F00A3A;
-	Fri, 12 Jun 2026 16:22:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781281323;
-	bh=X7p2Kiie/VwPTVeZsZUYTTjk6TXHw3XumFkCp16/1eI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z22YVM6WMIASp6bj1/Lj5CY65UT+3UNWrBON6qYWNpw0F0ROXkocPb7+mxyQK9JXv
-	 XPhj7R63As+LKNe48ExXO+TlZCvteRV2aCuTZJYYDOLZynJgw42IRVmzFln5mPS+B9
-	 W0aeKwkDtkcyMvTAMJ3T7pbJNaE6vqwB67v7GFkRfQ/p0PPxLYu0BNrTtrGo8LG3X6
-	 D1uFff4UvovL0WBLq7iZRvv12GLKLps4GmetJoUDJI0z9UwdMukaGnsxzZ7BLxz5ZP
-	 pmf8rKWC/hKZSQb/2iYXEwLi/86TiQqEpUcRqfSfI7L336oBRhWagti2L1hzgefXZy
-	 f667hOdnhLW7A==
-Date: Fri, 12 Jun 2026 11:22:02 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Roger Quadros <rogerq@kernel.org>, linux-omap@vger.kernel.org,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Tony Lindgren <tony@atomide.com>,
-	linux-rockchip@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org, Shan-Chun Hung <schung@nuvoton.com>,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: mfd: syscon: Disallow simple-bus
- with syscon
-Message-ID: <178128132175.1153833.2573734544472661843.robh@kernel.org>
-References: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
- <20260608-n-dt-bindings-simple-bus-syscon-v3-1-4eba9ec1212a@oss.qualcomm.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1781281314;
+	bh=fH5mubes2SOS68X9ZiYq/N2c6YI1cho4HC4nJ2SpDZg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=FdcWF9mkG+zbwzGr8GD0a60r230mnYCXXWjYLGQTdtCjsqDZK29RCC4ktqgcllX4U
+	 9ZmgTeFzSmMj841ZQy0ct7SP0Buyff/58l/HXp+/N2RNiVODgEaDg009GoxUjVwyQ2
+	 Nj87egWYHeTrneQjU1fdfp6qmHeKo9e5dC+Xcqd3RZdxZ3TIEcFI2sTuhzYHK9WbKY
+	 M6b7lEh1URXPjOZvYgITScZWfNzsTI1Qi6+vY09/7IQ7SD4909j89Fh5Yol63YP1st
+	 qyn0eXJWBVhHknk/qPv8bg/u+pjcIvxrWsdiKW9E+TqtCpNi19nHmgY9dRNa3edmP0
+	 G8swiHCtJRatg==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75C3617E0E6E;
+	Fri, 12 Jun 2026 18:21:54 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id CCDCE480031; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 12 Jun 2026 18:21:44 +0200
+Subject: [PATCH v5 06/18] phy: rockchip: usbdp: Add missing mode_change
+ update
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260608-n-dt-bindings-simple-bus-syscon-v3-1-4eba9ec1212a@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260612-rockchip-usbdp-cleanup-v5-6-efc83069869f@collabora.com>
+References: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
+In-Reply-To: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ devicetree@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2006;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=fH5mubes2SOS68X9ZiYq/N2c6YI1cho4HC4nJ2SpDZg=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiFYALoVetLRBjtCjGI62MJSBAfqV5I0i
+ AQqkyEZm4/T1YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
+ O/qaHtsP+gJDT1+JUU/jL4rE3Eg3XUOAQ0v5G+dh2jwEZVNLhHWgY6Mo9UbCzGNCqNcg0HTbc/X
+ 9L7CfZbhijBhRk7PqXliFw+Vwh4jTPhBTLbb/hOMRMVtMnyPNomflwvUHu2tCtWjx9o5F6nrIQi
+ 7BNu67rXWV5RnNHFOOpzSPoKSxU1JUH6Uko5kYjjGj3QaZkUKWgggeqaOFYFjmoJm5Bqh+7NOGc
+ 18LV/uQjEaS330jyUF0pFpdE37qMNGaazX71gnOH7s+w/abJUEyeO1ET+z8u4b1cXft2dwlb7YJ
+ YNqqFief+NpjiseXdaHZk9lmB8Md4B/SU2PYv02jWpv5DnPska9i0CDJ/tZOw9KSlsiMYF1fEz9
+ F1Os4ELa/7tCKMANzTq9Kbg4uuzowEAZ6kA0t+C9PWxJKo4nSo6ym2xNLprv2l6bLAgUx8A4wo/
+ erHLf7OgHXvMr3RoE9Aeurv54mpBtmUdUBLG1YybkR2qviq2NQn1mBUYnJ+YmA/Pw+n7konOkeG
+ M0sDXh1pQ2RK8eMVtj+hNw62TANBsJC0gRZo1KKojDHQlpZ25thCF7RAdLhhh4jmvMW9jsYfjER
+ Fd0Zf2MAHsc0iilGBUSRDWjoy+f9kKlR1eF23WOoLMSaFJ+D7chrNNFg3nULXDtHAttOCnLptqF
+ qS218jwCMjsGmyZOfvlEqog==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_092201_030990_6C6A9B94 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,48 +102,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+rk_udphy_set_typec_default_mapping() updates the available modes,
+but does not set the mode_change as required. This results in
+missing re-initialization and thus non-working DisplayPort.
 
-On Mon, 08 Jun 2026 22:44:24 +0200, Krzysztof Kozlowski wrote:
-> "syscon" is a system controller with registers having their own
-> functions, thus not really a trivial MMIO simple bus.  "simple-bus" on
-> the other hand is just a bus on which multiple devices sit and the
-> "simple" means no functions are allowed here.
-> 
-> Combination of both "syscon" and "simple-bus" is abuse of DT for easier
-> instantiating of Linux device drivers so add a schema to disallow that.
-> 
-> Unfortunately there are a few old cases of that patterns, so add
-> exceptions:
-> 
-> 1. "cznic,turris1x-cpld" and "img,pistachio-cr-periph" are already used
->    in upstream DTS.
-> 
-> 2. TI has several DTSI with a child of SCM device (e.g. "ti,am3-scm")
->    using "syscon" and "simple-bus" but without a dedicated compatible
->    documented anywhere.  Add new compatibles for such cases.
-> 
-> Additionally, add comments around code enforcing two or three
-> compatibles: it is similar safeguard detecting incorrect bindings.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-> ---
-> 
-> Changes in v3:
-> 1. s/ti,omap5-scm-conf/ti,omap5-sysc-padconf-global/ because it is more
->    appropriate (specific)
-> 2. Add comments, why simple-mfd+syscon has dedicated if:then:
-> 
-> Changes in v2:
-> 1. Complete patch. I accidentally sent only part of it, built on top of
->    internal WIP which I forgot to squash.
->    I received Ack from Rob, but change is significant, so please kindly
->    re-review.
-> ---
->  .../devicetree/bindings/mfd/syscon-common.yaml     | 34 ++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
-> 
+Fix this issue by introducing a new helper to update the available
+modes.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 97e53b933225..febc148a754e 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -619,6 +619,15 @@ static void rk_udphy_dp_hpd_event_trigger(struct rk_udphy *udphy, bool hpd)
+ 	rk_udphy_grfreg_write(udphy->vogrf, &cfg->vogrfcfg[udphy->id].hpd_trigger, hpd);
+ }
+ 
++static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)
++{
++	if (udphy->mode == mode)
++		return;
++
++	udphy->mode_change = true;
++	udphy->mode = mode;
++}
++
+ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+ {
+ 	if (udphy->flip) {
+@@ -649,7 +658,7 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+ 		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
+ 	}
+ 
+-	udphy->mode = UDPHY_MODE_DP_USB;
++	rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB);
+ }
+ 
+ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+@@ -1385,10 +1394,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 			usleep_range(750, 800);
+ 			rk_udphy_dp_hpd_event_trigger(udphy, true);
+ 		} else if (data->status & DP_STATUS_HPD_STATE) {
+-			if (udphy->mode != mode) {
+-				udphy->mode = mode;
+-				udphy->mode_change = true;
+-			}
++			rk_udphy_mode_set(udphy, mode);
+ 			rk_udphy_dp_hpd_event_trigger(udphy, true);
+ 		} else {
+ 			rk_udphy_dp_hpd_event_trigger(udphy, false);
+
+-- 
+2.53.0
 
 
