@@ -4,103 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E485ACD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A90BCD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ow6Lcgf/RFgv5jAm1y7NuVlWFYYd0/JrOjI+zfS6dAY=; b=MagfKSrYewe3txSglnZikV0Fqb
-	KAiM+nn/12rH9Ck3tuoB10BatQUgCbr13hfUzRl38fI227QU4FoWlk/lnU49CHLNHzubiKOYZhUPR
-	UEmZe3wHY60GU0tBoSk5sZdwhUfD2Yz50jdQPn7TmNJUHEn2yc8JauwXct3ipvGAHfbCvH45lEjZZ
-	OGGt6LwzJNUVpADAYpCoz064Gh53rcZCW8RhCwOzbDQ5zR2p9hYm082syS8G14oUdqNVd2FTZ0RKR
-	GCVz8/01MJBto2u8+dhiVxG9JCmHbXw5xN0sYrGAnn2DKCZ5k/5PkwnICV1jU7Kieg0tFBoO562Qu
-	oFI5l83Q==;
+	bh=X4Wco8480FO6PUbyM75XQ1Wh3P11pfctt7dutpCGgB4=; b=RNN/OFhKhvUL2br+X+Fu+/4MJx
+	1g7JWy0rBpkkdKnyMcTJOtXx4NBbiBcQpizZoigXsoMPfVWJAJzsjCoWkybO4QJ4fpb4aF4DbK/1P
+	aAZ6Dd4e7D0r17OoGrvQqJsW4azJlc2M2sHXMyrxnQ1cfHQ7gr6k+3ajKxsBEFTi+8IaaEkPNNui+
+	XtVkEG0MqJcxuJe3TBDuvppG6JNX+knbg0o+w6HfEA/QRq0gd0qtYBrzNfqkRwrfNxHSZAkr9vAJ0
+	RmDu3R4q2v70EsJrmZBMPoFvcO/ELFXZno+JiQGq+BzLSdMfaDbvClyHW5kuRjTV5Y8TV3FWBFuWF
+	AHgqnHEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4gI-0000000BGaa-1Rpe;
-	Fri, 12 Jun 2026 16:24:30 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wY4j8-0000000BHBC-3XWb;
+	Fri, 12 Jun 2026 16:27:26 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4g9-0000000BGSE-1ylQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 16:24:22 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4903d730b1fso14041725e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 09:24:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781281459; x=1781886259; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ow6Lcgf/RFgv5jAm1y7NuVlWFYYd0/JrOjI+zfS6dAY=;
-        b=JJ80jNnFBUy3tJ7b6whMLVyL7GnunQNC0dj8qD/3IGqI4485LwuZLGadj6fVdVo0Tb
-         EQL276qwlx6SW+Ya5mCf+1Ao0/IqmWJMm8eobCfD4mcWfTvyf5A40zjEimwjeb20HXST
-         98MrPqf6+KjUshaDN01vv2b/zIMBLEmqpTmb6gn0X++VpUn1GFj3LegAjAehRCzMHHav
-         FfyPdTADEb/ec+oryBCr8DO0R+h6Y9CakvqMLk7fQAN+U3QMLL12D/pvJ5Alm/nN/Aem
-         ew/t7q4ZqPXqBpM7LrhxT0AXI7sAjR0rKyNijfglUSJIxGk2kg/06MjvwzarBD5sr3tM
-         XtKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781281459; x=1781886259;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ow6Lcgf/RFgv5jAm1y7NuVlWFYYd0/JrOjI+zfS6dAY=;
-        b=Ux1OTTVJ3+UbBfB4AFh3oceU0hUiBw4bG64Hd/ZwGW8rWbJgZcfheVtrvUsz8m0Vaq
-         kkPkZxFkLjkDcQPgAIgJYhS6fSqY+3KKJfqiYdAx5aTSz1KH5TbCRL0awjj4t8a+TyBe
-         scR6yloaKhcjMmSHqeZKh8cykKZc0npa1L80+t1xl5q9Uk3qF9l4k+8+cy8XVUES5yNc
-         n4K8+eSln/pMx1J2BSB8suL/PDL4GGDaXOF6/bGldNdVWQ1qdpXwSvJQogWgl0cpBs/g
-         NERtRRrDa58RNH9ReynP1da7ykUZpuHVKDukWwtBsBDDX7ODe7WUL7MbaIPfBghwKBah
-         e+MA==
-X-Forwarded-Encrypted: i=1; AFNElJ+e5wCdNY2IAC/Fp/Ux8l+NZsg6XUCqknHMrolZS6QH5cepQAdNAMlPzwgx2dhfHFItDMoysS3PEOwAGDBQH3Fq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOQ574xD1AW+fyJfmZgN+DA/GicX+GqMc1AO1dX+iNaFLy3uOP
-	RpreMF+TZtsIuE5bRI9bKOdePAi24Sq58BpmN0SaTSnBXku1WnfEBCdh
-X-Gm-Gg: Acq92OGZANsfI32Gdaw8mo8r6/1+3Yv2Sf9OAfcI83WEJ5zgW7px0Q6KxnKmMlswbGT
-	CvakWp0ct0Jq4sZITaGc2YvjLsNz1KBQU5fwhUKf7i4KgtdgyU6c9vJsHzn9dYASWXuxXUv64vf
-	kS7XJsqdEOYgFdaaypAi3ugVTfp5GK0EqkjLa9l4eazKwnAN2mJxr/wiS8BaDuSOU8p+iraqArm
-	NW7eFXkLXP4+rsfPHDwHk1deaKfLjWp46b/FxArTF+2bmm4Rbdrx71uY0CN7j09twk8RjWSXK6t
-	gWAFAKI7kCLCxXnvamCZfPWqES3Os+nk1DPPbzVvTPCBKu0kMA6Cb9BxfHMBztdJusZjo2QeJru
-	+CtP0E90W586uScsDMVkTyL3/rtFEPMlzIzTGgSQ0dqlPO0veu2wR4BHmQ+kTSz0s5pcbykJKxV
-	XJaTt52L4seilgOuTugQ9MzkYu7n8grQrilkHORxihYk98QklPw/5Or+duQRgKxw==
-X-Received: by 2002:a05:600c:4e48:b0:490:e60b:6860 with SMTP id 5b1f17b1804b1-4922005e235mr2153615e9.7.1781281459529;
-        Fri, 12 Jun 2026 09:24:19 -0700 (PDT)
-Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.2.31])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea95c51dsm57620935e9.1.2026.06.12.09.24.18
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 12 Jun 2026 09:24:19 -0700 (PDT)
-From: Jack Thomson <jackabt.amazon@gmail.com>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	pbonzini@redhat.com
-Cc: joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	corbet@lwn.net,
-	vladimir.murzin@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	Jack Thomson <jackabt@amazon.com>
-Subject: [PATCH v5 5/5] KVM: selftests: Add nested pre-fault test for arm64
-Date: Fri, 12 Jun 2026 17:23:53 +0100
-Message-ID: <20260612162354.73378-6-jackabt.amazon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260612162354.73378-1-jackabt.amazon@gmail.com>
-References: <20260612162354.73378-1-jackabt.amazon@gmail.com>
+	id 1wY4j5-0000000BHA8-3QL1;
+	Fri, 12 Jun 2026 16:27:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1781281641;
+	bh=TQjWe30iP+QgilolloWUpNb5d8ldWowCS2RaAcWUC6Q=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=LAVrbEnkDUxIY8LKDEPOdJcBH13N9KBwlx296+UJiE38sgjszfrGbIhOOkJrJ48Z6
+	 E0zlRW5/vn5tNZ4h74AlaBrWQHpRvJc1LWMCCGaPAWus5pZHFvuKwR1fBovTOWjIxM
+	 bW6g1E+45a8JRrs3I9+cysmhv+Q3rNU8qkCdiyyPJLNV203LKAUS1lXa4sWk/EE2dx
+	 Mb+ZS/Muf5CoUae+HK/wR1TcAPxX7S8ckZVY3xCN/b2VHyx1sGDRX5UwkRn6N4TN6a
+	 +pEWLGKkdXyDoLFiXBM4J/mO45PxPs3WdD3EC7MRD2Kyh1xshFN/a5ExWScSLa9wmM
+	 iFQcV9tDUFpdA==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8E8FA17E35E3;
+	Fri, 12 Jun 2026 18:27:21 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id DC58B480055; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 12 Jun 2026 18:21:54 +0200
+Subject: [PATCH v5 16/18] phy: rockchip: usbdp: Use guard functions for
+ mutex
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260612-rockchip-usbdp-cleanup-v5-16-efc83069869f@collabora.com>
+References: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
+In-Reply-To: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ devicetree@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4395;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=TQjWe30iP+QgilolloWUpNb5d8ldWowCS2RaAcWUC6Q=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiHUqM5F6HZgkgIiIkSxb1K9vCxFpnySJ
+ bs9QpuH/0FAHIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
+ O/qaIx0QAIq8Snm6ApF/CEZ7HvZrboecmFwtvq8JUuUo88ZKVBPeiPE2yZj+7NzgWiTA2kcZVoH
+ ZwQbJf4DAPFneBj0whnbbVsObRF/GaAyb+1BMnY/kUwpZNKfw1aOpjJ5n5UoHCX+FMCIUd392lW
+ zsSy6NKEETH+eZpmoHWeBsy9EknwNIh9NpCNyf2oIQo3xkgBMyNw3yXDcFZt2AcmpwT1p7jT/RF
+ VuD0WahVD+TU+AYUOQjffFw4OZXDEULCLPza4pdfqa6GCybGCQltYmux5vzoTx5hmKbDUaI40Rk
+ 5eYwnsHDzdEnktSUVPHssFiHLRHaZPMWSoPlsse/109HFdWNj2E77gSDIJ5Mjtovw3+qlUwmVys
+ PTbffEL3jlfmSCXVjnfeM/yZyCW95+pUnnbgbqcfuAdiQBI16wTJezqq2oa0peK33We4SzCR95+
+ YHALvW7l4h235Z4pUgP0ETMaaZtRIUOgck5D8PjgGAJpiVj/QWqTh2S8GaEkcHE2s0Pf98S/bRG
+ PXvUj9XzJV9V1Ecmb2YkG/349btjmb7oRf29i2EJMSot2u+51X2EUqufIYlfuWxq5LdIiD3RMjm
+ 6ZgsIRD+gtNgRJtO0oA1qMJErPh5hwjn6zZHJ2gZJmVmQxi2hbIVeNFBnY02X0hjgKnRzZWdkX1
+ jOLtTfOjk9Qiq5TYbLsQmlQ==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_092421_570636_AAE2CF10 
-X-CRM114-Status: GOOD (  23.00  )
+X-CRM114-CacheID: sfid-20260612_092724_039775_131FC699 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,246 +102,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+Convert the driver to use guard functions for mutex handling as
+a small cleanup. There is a small functional change in the DP PHY
+power up function, which no longer sleeps if the internal powerup
+code returns an error. This is not a problem as the sleep is only
+relevant for successful power-up.
 
-Add an arm64 nested-virt selftest for KVM_PRE_FAULT_MEMORY. The guest
-enters vEL1 and exits to userspace with a nested/shadow stage-2 MMU as
-the vCPU's last-run context.
-
-Before prefaulting, userspace enables HCR_EL2.VM and points VTTBR_EL2 at
-an empty nested stage-2 root. A prefault implementation that incorrectly
-treats the userspace GPA as an L2 IPA will fail the ioctl; the correct
-path swaps to the canonical stage-2 and succeeds.
-
-Restore the original nested state before resuming the guest, then touch
-the prefaulted range to check that vEL1 still runs correctly.
-
-Signed-off-by: Jack Thomson <jackabt@amazon.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../kvm/arm64/nv_pre_fault_memory_test.c      | 200 ++++++++++++++++++
- 2 files changed, 201 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 51 ++++++++++++++-----------------
+ 1 file changed, 23 insertions(+), 28 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 4609d8f23e38..63d79245b47d 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -170,6 +170,7 @@ TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
- TEST_GEN_PROGS_arm64 += arm64/hello_el2
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
-+TEST_GEN_PROGS_arm64 += arm64/nv_pre_fault_memory_test
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
- TEST_GEN_PROGS_arm64 += arm64/page_fault_test
- TEST_GEN_PROGS_arm64 += arm64/psci_test
-diff --git a/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
-new file mode 100644
-index 000000000000..2bbd5540599c
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
-@@ -0,0 +1,200 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * nv_pre_fault_memory_test - Test KVM_PRE_FAULT_MEMORY on a vCPU whose
-+ * last-run context is nested.
-+ *
-+ * The guest starts at vEL2, mirrors its EL2 translation regime into the
-+ * real EL1 registers, drops HCR_EL2.TGE and ERETs to vEL1, then exits to
-+ * userspace from vEL1 so that the vCPU's last-run context selects a
-+ * shadow stage-2 MMU. Userspace then enables an empty nested stage-2
-+ * before prefaulting. Prefaulting must target the canonical stage-2,
-+ * regardless of the vCPU's nested state.
-+ */
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "test_util.h"
-+#include "ucall.h"
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 4ba8b6f0a954..f673c5481d24 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -10,6 +10,7 @@
+ #include <dt-bindings/phy/phy.h>
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/cleanup.h>
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/gpio.h>
+@@ -652,14 +653,15 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+ 	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
+ 	bool flipped = orien == TYPEC_ORIENTATION_REVERSE;
+ 
+-	mutex_lock(&udphy->mutex);
++	guard(mutex)(&udphy->mutex);
+ 
+ 	if (orien == TYPEC_ORIENTATION_NONE) {
+ 		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+ 		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+ 		/* unattached */
+ 		rk_udphy_usb_bvalid_enable(udphy, false);
+-		goto unlock_ret;
 +
-+#include <asm/sysreg.h>
-+#include <linux/sizes.h>
++		return 0;
+ 	}
+ 
+ 	if (udphy->flip != flipped)
+@@ -669,8 +671,6 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+ 	rk_udphy_set_typec_default_mapping(udphy);
+ 	rk_udphy_usb_bvalid_enable(udphy, true);
+ 
+-unlock_ret:
+-	mutex_unlock(&udphy->mutex);
+ 	return 0;
+ }
+ 
+@@ -1043,26 +1043,25 @@ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+ 	struct rk_udphy *udphy = phy_get_drvdata(phy);
+ 	int ret;
+ 
+-	mutex_lock(&udphy->mutex);
++	scoped_guard(mutex, &udphy->mutex) {
++		phy_set_bus_width(phy, udphy->dp_lanes);
+ 
+-	phy_set_bus_width(phy, udphy->dp_lanes);
+-
+-	ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
+-	if (ret)
+-		goto unlock;
++		ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
++		if (ret)
++			return ret;
+ 
+-	rk_udphy_dp_lane_enable(udphy, udphy->dp_lanes);
++		rk_udphy_dp_lane_enable(udphy, udphy->dp_lanes);
+ 
+-	rk_udphy_dp_lane_select(udphy);
++		rk_udphy_dp_lane_select(udphy);
++	}
+ 
+-unlock:
+-	mutex_unlock(&udphy->mutex);
+ 	/*
+ 	 * If data send by aux channel too fast after phy power on,
+ 	 * the aux may be not ready which will cause aux error. Adding
+ 	 * delay to avoid this issue.
+ 	 */
+ 	usleep_range(10000, 11000);
 +
-+#define TEST_MEM_SLOT		10
-+#define NESTED_S2_ROOT_SLOT	11
-+#define TEST_MEM_SIZE		SZ_2M
-+#define TEST_MEM_GPA		SZ_1G
-+#define NESTED_S2_ROOT_GPA	(TEST_MEM_GPA + TEST_MEM_SIZE)
+ 	return ret;
+ }
+ 
+@@ -1070,10 +1069,10 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
+ {
+ 	struct rk_udphy *udphy = phy_get_drvdata(phy);
+ 
+-	mutex_lock(&udphy->mutex);
++	guard(mutex)(&udphy->mutex);
 +
-+struct nested_s2_state {
-+	u64 hcr_el2;
-+	u64 vttbr_el2;
-+};
-+
-+static void guest_el1_code(void)
-+{
-+	u64 offset;
-+
-+	GUEST_ASSERT_EQ(get_current_el(), 1);
-+
-+	/* Exit to userspace with the vEL1 (nested) context live. */
-+	GUEST_SYNC(1);
-+
-+	/*
-+	 * Touch the prefaulted range. vstage-2 is disabled, so the shadow
-+	 * stage-2 is a 1:1 view of the canonical IPA space.
-+	 */
-+	for (offset = 0; offset < TEST_MEM_SIZE; offset += SZ_4K)
-+		READ_ONCE(*(u64 *)(TEST_MEM_GPA + offset));
-+
-+	GUEST_DONE();
-+}
-+
-+static void guest_code(void)
-+{
-+	u64 sp;
-+
-+	GUEST_ASSERT_EQ(get_current_el(), 2);
-+
-+	/*
-+	 * Mirror the EL2 translation regime into the real EL1 registers so
-+	 * that vEL1 runs on the test's stage-1 page tables. With E2H=1, the
-+	 * _EL1 accessors read the EL2 registers, and the _EL12 accessors
-+	 * write the real EL1 registers.
-+	 */
-+	write_sysreg_s(read_sysreg(sctlr_el1), SYS_SCTLR_EL12);
-+	write_sysreg_s(read_sysreg(tcr_el1), SYS_TCR_EL12);
-+	write_sysreg_s(read_sysreg(ttbr0_el1), SYS_TTBR0_EL12);
-+	write_sysreg_s(read_sysreg(mair_el1), SYS_MAIR_EL12);
-+	write_sysreg_s(read_sysreg(cpacr_el1), SYS_CPACR_EL12);
-+
-+	/* Run vEL1 on the same stack. */
-+	asm volatile("mov %0, sp" : "=r"(sp));
-+	write_sysreg(sp, sp_el1);
-+
-+	/*
-+	 * Drop TGE so that vEL1 is a nested context rather than host EL0.
-+	 * KVM backs it with a shadow stage-2 MMU even though vstage-2 is
-+	 * disabled (HCR_EL2.VM=0).
-+	 */
-+	write_sysreg(read_sysreg(hcr_el2) & ~HCR_EL2_TGE, hcr_el2);
-+	isb();
-+
-+	write_sysreg(PSR_MODE_EL1h | PSR_F_BIT | PSR_I_BIT | PSR_A_BIT |
-+		     PSR_D_BIT, spsr_el2);
-+	write_sysreg((u64)guest_el1_code, elr_el2);
-+	asm volatile("eret");
-+
-+	GUEST_ASSERT(false);
-+}
-+
-+static void pre_fault(struct kvm_vcpu *vcpu, u64 gpa, u64 size)
-+{
-+	struct kvm_pre_fault_memory range = {
-+		.gpa = gpa,
-+		.size = size,
-+	};
+ 	rk_udphy_dp_lane_enable(udphy, 0);
+ 	rk_udphy_power_off(udphy, UDPHY_MODE_DP);
+-	mutex_unlock(&udphy->mutex);
+ 
+ 	return 0;
+ }
+@@ -1275,19 +1274,18 @@ static const struct phy_ops rk_udphy_dp_phy_ops = {
+ static int rk_udphy_usb3_phy_init(struct phy *phy)
+ {
+ 	struct rk_udphy *udphy = phy_get_drvdata(phy);
+-	int ret = 0;
 +	int ret;
 +
-+	do {
-+		ret = __vcpu_ioctl(vcpu, KVM_PRE_FAULT_MEMORY, &range);
-+	} while (ret < 0 && errno == EINTR);
++	guard(mutex)(&udphy->mutex);
+ 
+-	mutex_lock(&udphy->mutex);
+ 	/* DP only or high-speed, disable U3 port */
+ 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
+ 		rk_udphy_u3_port_disable(udphy, true);
+-		goto unlock;
++		return 0;
+ 	}
+ 
+ 	ret = rk_udphy_power_on(udphy, UDPHY_MODE_USB);
+ 
+-unlock:
+-	mutex_unlock(&udphy->mutex);
+ 	return ret;
+ }
+ 
+@@ -1295,15 +1293,14 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+ {
+ 	struct rk_udphy *udphy = phy_get_drvdata(phy);
+ 
+-	mutex_lock(&udphy->mutex);
++	guard(mutex)(&udphy->mutex);
 +
-+	TEST_ASSERT(!ret, "KVM_PRE_FAULT_MEMORY failed, ret: %d errno: %d",
-+		    ret, errno);
-+	TEST_ASSERT_EQ(range.size, 0);
-+}
-+
-+static struct nested_s2_state enable_empty_nested_s2(struct kvm_vcpu *vcpu)
-+{
-+	struct nested_s2_state state = {
-+		.hcr_el2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2)),
-+		.vttbr_el2 = vcpu_get_reg(vcpu,
-+					   KVM_ARM64_SYS_REG(SYS_VTTBR_EL2)),
-+	};
-+
-+	TEST_ASSERT(!(state.hcr_el2 & HCR_EL2_TGE),
-+		    "vCPU should be in nested/vEL1 context");
-+
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
-+		     NESTED_S2_ROOT_GPA);
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-+		     state.hcr_el2 | HCR_EL2_VM);
-+
-+	return state;
-+}
-+
-+static void restore_nested_s2(struct kvm_vcpu *vcpu,
-+			      struct nested_s2_state *state)
-+{
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), state->hcr_el2);
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
-+		     state->vttbr_el2);
-+}
-+
-+int main(void)
-+{
-+	struct nested_s2_state s2;
-+	struct kvm_vcpu_init init;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	u64 npages;
-+
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
-+
-+	vm = vm_create(1);
-+
-+	kvm_get_default_vcpu_target(vm, &init);
-+	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-+	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+
-+	npages = TEST_MEM_SIZE / vm->page_size;
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, TEST_MEM_GPA,
-+				    TEST_MEM_SLOT, npages, 0);
-+	virt_map(vm, TEST_MEM_GPA, TEST_MEM_GPA, npages);
-+
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-+				    NESTED_S2_ROOT_GPA, NESTED_S2_ROOT_SLOT,
-+				    1, 0);
-+
-+	/* Run the guest until it has ERET'd from vEL2 to vEL1. */
-+	vcpu_run(vcpu);
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_SYNC:
-+		TEST_ASSERT_EQ(uc.args[1], 1);
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+		break;
-+	default:
-+		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-+	}
-+
-+	/*
-+	 * The vCPU's last-run context is vEL1, backed by a shadow stage-2
-+	 * MMU. Enable nested stage-2 with an empty root so that the ioctl
-+	 * fails if it tries to interpret the userspace GPA as an L2 IPA.
-+	 * Prefault in two halves so that the second ioctl exercises a
-+	 * repeated shadow-MMU attach and canonical stage-2 swap.
-+	 */
-+	s2 = enable_empty_nested_s2(vcpu);
-+	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE / 2);
-+	pre_fault(vcpu, TEST_MEM_GPA + TEST_MEM_SIZE / 2, TEST_MEM_SIZE / 2);
-+	restore_nested_s2(vcpu, &s2);
-+
-+	/* Resume at vEL1 and touch the prefaulted range. */
-+	vcpu_run(vcpu);
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_DONE:
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+		break;
-+	default:
-+		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-+	}
-+
-+	kvm_vm_free(vm);
-+	return 0;
-+}
+ 	/* DP only or high-speed */
+ 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs)
+-		goto unlock;
++		return 0;
+ 
+ 	rk_udphy_power_off(udphy, UDPHY_MODE_USB);
+ 
+-unlock:
+-	mutex_unlock(&udphy->mutex);
+ 	return 0;
+ }
+ 
+@@ -1326,12 +1323,10 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 	if (!state->alt || state->alt->svid != USB_TYPEC_DP_SID)
+ 		return 0;
+ 
+-	mutex_lock(&udphy->mutex);
++	guard(mutex)(&udphy->mutex);
+ 
+ 	rk_udphy_set_typec_state(udphy, state->mode);
+ 
+-	mutex_unlock(&udphy->mutex);
+-
+ 	return 0;
+ }
+ 
+
 -- 
-2.43.0
+2.53.0
 
 
