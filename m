@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4871CCD98D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EC8CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 10:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZhUEA2O/makZilFyWR6S+o4mEj16RKk0BJZID2UVvk=; b=lcvfd85s8+1IaYYDzwGKeZjCv0
-	wdcBo0ogIbBzxyyPYji0vjyXF0IN5MK05q4L5D9Ek3HIdUjSYGNXsRD3njoidnPJou8/pVhk5pvq3
-	5aM5JRK/5V6YkaZtN8ffwxcmBdyqDno1TLW7QP6AtCEuW3QsmFn8ha2jIMwKuxSNHN1kE2uWzsTe5
-	RRd9pnWFup8/yfrd9VcnabHzxlIa2zDfuk3QNNSBqbjRkTjapBOCTTqO4LFg1Ig8dG7wkEefcH1Xa
-	S9Eu6gDU3SZFG3eFEows8CFffliCNGv/OTtIYq1IDeLZmTY4/R/8JoIYcAAV/LD6Bb4vrb0xLJFsB
-	zdpoGwmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Yb2r1of5loNXUA3s7yCuTMFFTkpPo9aPBQ/B0F892Dg=; b=H4uQOxsWkzCBbSYiASVN1U8L08
+	NsQ2+I0qEGyrt2QvqntonTpLoi01u5tRQ0BFS/5cMCDZbdFFLj+96R3WAdGA7Kl0P/hRmgtGVQ3pg
+	Zi1UxknzMCF6oeWwD4jr7BZsdi54xBjWWVPrdxzlDw3h7sJsAHkHdvXwh1rLsiEUmfZeRSLxWLcDp
+	CT8GlMiWhRkWIohB+krGGCJibWqYsChXyf5ibSWwCnALOKS0GU4xSJcRm5GVueoOdvV6hJULKg0h2
+	0YM44SfpeDQjQkwLLcFuhEYHIbsjweFb9vviJLGAWcums8QtfolpqCFhmOr+/eJFqFt/lRQRrtunL
+	tVtOxETQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyeQ-0000000AiE3-1nh1;
-	Fri, 12 Jun 2026 09:58:10 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1wXyhs-0000000AinD-3ZHp;
+	Fri, 12 Jun 2026 10:01:44 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyeL-0000000AiBD-3U3b
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 09:58:07 +0000
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65C5FYEm273217;
-	Fri, 12 Jun 2026 02:58:00 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=VZhUEA2O/makZilFyWR6S+o4m
-	Ej16RKk0BJZID2UVvk=; b=CjQ3yilSwK5kAi4a6fXsSbT/s/3yPsMv2ShbpAkv0
-	fnDfOgeW2XTIMW2BLIyFdn6n628RcC/NFhLkKxg2YaQd5Ct/dnAHHPR88BhLQkmr
-	ZjXwqJLdNDXyUu3/l7VxF/MRSWpEr6jjwmjS1o1mfzk3naobeFMsbRYZFanEYlpQ
-	/hJT1gvf0pq6a7BTulYznFd+fXD3LVEPOX3bqYdLhua0F1o5jcWLc2WXFcQs7N6g
-	RELrDW299GITwQuSQB1SwTfRgNAcUJG2KYohityOTReMmwu55UZCSbKetx9iY+1S
-	k4K6ysxamYf83AEIW7Yet4LEGkuChpA6oCbRWE8cVoF+Q==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4eqe5r6s19-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 12 Jun 2026 02:58:00 -0700 (PDT)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Fri, 12 Jun 2026 02:57:58 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Fri, 12 Jun 2026 02:57:58 -0700
-Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id 998323F7040;
-	Fri, 12 Jun 2026 02:57:56 -0700 (PDT)
-From: Geetha sowjanya <gakula@marvell.com>
-To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
-        <gakula@marvell.com>
-Subject: [PATCH v2 3/3] dt-bindings: perf: marvell: add CN20K TAD PMU support
-Date: Fri, 12 Jun 2026 15:27:46 +0530
-Message-ID: <20260612095746.19679-4-gakula@marvell.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260612095746.19679-1-gakula@marvell.com>
-References: <20260612095746.19679-1-gakula@marvell.com>
+	id 1wXyhq-0000000Aimd-1uuM;
+	Fri, 12 Jun 2026 10:01:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1781258499;
+	bh=QWz/NnIpQ/tgJMgqCseSLhJn4QG66Z8YNoUhv7tJ5QM=;
+	h=From:Date:Subject:To:Cc:From;
+	b=Nxo8nx+spDC7UmghhkCZl8ZY3C7oc3KJfPG4xTDCYVKEYprVsqaXiObzNC+S+m15m
+	 SV8BzD3oyElpJQ6bA8p19cScZPEtlXZ/iG6j4Pi/n16IaYRrtwOoFCUE/c8/+XJDxk
+	 JRI9InulItPIEj8E7Plp7mSridItdSOaEXfYpeqWqMhyGOknBifxIXHOjIvtVA6SZ9
+	 38ewavdMix/Js4vQkXujL92F/dFEsYW3DQGnMWM1dnTcpKvnTb82zn4+Rr3iCDfXEM
+	 XoQ2hyilabflOyiyjI7i/7e6WE1XrySNxufaik7CuN44OK8pQt8Kfulj18E5Ji6z4M
+	 Thqsl4atsANxw==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AD7EB17E00FE;
+	Fri, 12 Jun 2026 12:01:39 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Fri, 12 Jun 2026 13:01:29 +0300
+Subject: [PATCH v2] MAINTAINERS: Track dw-hdmi-qp under Rockchip DRM
+ drivers
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfX79Tbtp8O1EPH
- /RTjvmPBrCemSS2BN1m2JnD+nxIXx+Iry3iADLUjuX/W+T6PfCMA88xy9u2EMx66n2AvJ+oz74x
- 0k4TOFKKKrLHQvi7bqOse+SO5mXZiaw=
-X-Authority-Analysis: v=2.4 cv=O6gJeh9W c=1 sm=1 tr=0 ts=6a2bd828 cx=c_pps
- a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
- a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=QXcCYyLzdtTjyudCfB6f:22 a=gEfo2CItAAAA:8 a=M5GUcnROAAAA:8
- a=AeVSjtvhjGoncaazplIA:9 a=sptkURWiP4Gy88Gu7hUp:22 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-GUID: nw9eWlCB1oYQ2K-mBnSTdd25psgSTRO0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfX8NuqNVdcdqKy
- zkULfZ3nA9WoZl6Odx1im34F5p+G/ladaH0SeYXmOGzm0bN9eiXzXqFjUulFVSq9Yjja0LM6bLT
- X2H46Rwme7HZi43PYq24gxd1joxE6kOP38IN5uc5VhOBnNMH7/xm38adMAEMm6KfcEAwnVfRS27
- Iu4Asa4mbUNTOBEzSBKVsv4rrwSqndpo0lThml65uhTCLSpgT6vdaaKcommgH4sB3cu3AfjLj9G
- gdKsDJWk9Go/91ikkeTq2bLdEg3ot/u1BrOFWRKyxFC+0HBmZlzv0nnjM1EQ03N+VIyUTvRTuUF
- A038uCZpJo/p4N1d/3nwpThX/hN8Xc53sMAXzPVnmosR7taWMMnoeGdzjLnbKKGN5gNaFnKLPde
- 82Xqf56fMVejuQLooNSGi6KeI7Us1z55en9ASYLdzbOdUuWeiML0ozcI7pC7R19rt+haUzKTxGo
- zTmYAULC/5VGQzP6wXA==
-X-Proofpoint-ORIG-GUID: nw9eWlCB1oYQ2K-mBnSTdd25psgSTRO0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-12_01,2026-06-11_01,2025-10-01_01
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260612-maintainers-rk-drm-upd-v2-1-3ff65fc41a93@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0Jm7ZhSoARX3sOwaMsgVaFkCkRDu
+ LsFD+DiL17y/38rBGJHAS7JCkyLC84PEeQpAdvp4U7omsgghVSiEAp77YYphjggP7HhHuexQZu
+ rrFVG5KWqII5Hpta9j+Nb/eMwmwfZaX/bG50Lk+fPYV7SvfdXsqSYYqvKIitNboysrta/Xtp41
+ mfre6i3bfsCbVAimNIAAAA=
+X-Change-ID: 20260506-maintainers-rk-drm-upd-c463f6b04769
+To: Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>, 
+ Andy Yan <andy.yan@rock-chips.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ kernel@collabora.com
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_025805_988205_C65FFCEC 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20260612_030142_662292_448EEE7A 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,74 +86,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marvell CN20K SoCs integrate a Performance Monitoring Unit (PMU)
-associated with the LLC Tag-and-Data (TAD) blocks. The PMU provides
-hardware counters to monitor cache traffic and performance events
-via a dedicated MMIO region.
+The DW HDMI QP TX library was developed for and is currently only used
+by Rockchip platforms.  Add it to the Rockchip DRM drivers section to
+ensure all relevant parties are kept in the loop on any changes.
 
-The CN20K LLC-TAD PMU is largely similar to CN10K, but differs in the
-layout of PFC/PRF register offsets relative to each TAD base. These
-offsets are derived from the compatible string in the driver and are
-not described through Devicetree properties.
+As its file paths fall outside the generic wildcard patterns defined in
+the ARM/Rockchip SoC support section, also add the
+linux-rockchip@lists.infradead.org mailing list to avoid any
+notification gaps.
 
-Because of this, using "marvell,cn10k-tad-pmu" as a fallback for CN20K
-would result in incorrect register programming. Therefore, add a
-separate compatible string:
-
-  "marvell,cn20k-tad-pmu"
-
-Update the binding to document CN20K alongside CN10K.
-
-Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+Acked-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml | 17 +++++++++++++++++--------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+Changes in v2:
+- Collected Acked-by from Andy
+- Removed the RFC prefix
+- Rebased onto next-20260611
+- Link to v1: https://patch.msgid.link/20260506-maintainers-rk-drm-upd-v1-1-f67537b4bb29@collabora.com
+---
+ MAINTAINERS | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-index 362142252667..d11121a1e2c9 100644
---- a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-+++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-@@ -4,23 +4,32 @@
- $id: http://devicetree.org/schemas/perf/marvell-cn10k-tad.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f1caa6e5198b..ac68fdd9879e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -8849,11 +8849,14 @@ M:	Sandy Huang <hjc@rock-chips.com>
+ M:	Heiko Stübner <heiko@sntech.de>
+ M:	Andy Yan <andy.yan@rock-chips.com>
+ L:	dri-devel@lists.freedesktop.org
++L:	linux-rockchip@lists.infradead.org
+ S:	Maintained
+ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+ F:	Documentation/devicetree/bindings/display/rockchip/
++F:	drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.*
+ F:	drivers/gpu/drm/ci/xfails/rockchip*
+ F:	drivers/gpu/drm/rockchip/
++F:	include/drm/bridge/dw_hdmi_qp.h
  
--title: Marvell CN10K LLC-TAD performance monitor
-+title: Marvell CN10K / CN20K LLC-TAD performance monitor
- 
- maintainers:
-   - Bhaskara Budiredla <bbudiredla@marvell.com>
-+  - Geetha sowjanya <gakula@marvell.com>
- 
- description: |
--  The Tag-and-Data units (TADs) maintain coherence and contain CN10K
--  shared on-chip last level cache (LLC). The tad pmu measures the
--  performance of last-level cache. Each tad pmu supports up to eight
--  counters.
-+  The Tag-and-Data units (TADs) maintain coherence and contain the
-+  shared on-chip last level cache (LLC) on Marvell CN10K and CN20K SoCs.
-+  The TAD PMU measures last-level cache performance. Each TAD PMU
-+  supports up to eight counters.
- 
--  The DT setup comprises of number of tad blocks, the sizes of pmu
--  regions, tad blocks and overall base address of the HW.
-+  The DT setup describes the number of TAD blocks, the sizes of PMU
-+  regions and TAD pages, and the overall MMIO base of the hardware.
-+
-+  marvell,cn20k-tad-pmu is not a compatible fallback for
-+  marvell,cn10k-tad-pmu (and vice versa): the driver selects different
-+  PFC/PRF MMIO offsets from the compatible string, and those offsets are
-+  not described by separate DT properties today.
- 
- properties:
-   compatible:
--    const: marvell,cn10k-tad-pmu
-+    items:
-+      - enum:
-+          - marvell,cn10k-tad-pmu
-+          - marvell,cn20k-tad-pmu
- 
-   reg:
-     maxItems: 1
--- 
-2.25.1
+ DRM DRIVERS FOR STI
+ M:	Alain Volmat <alain.volmat@foss.st.com>
+
+---
+base-commit: ec039126b7fac4e3af35ebccaa7c6f9b6875ba81
+change-id: 20260506-maintainers-rk-drm-upd-c463f6b04769
+
 
