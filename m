@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05599CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C812ECD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aEOgMIo61tN5cbwnLn9iRecU9xGHnAGtn6LC63IksYY=; b=z6K99orvZ1xQfyxVwiRPL5hiMf
-	4ssTqrGxE6rFcZcqyOZR/qbRLsNYCDARZ5aX4GlTscwjIXpqRTnFMBBLa+J/9sBZENw3/cWFmpwnz
-	0ciNBdNjamtWap/LWvIaZwARLu9wUinJsF22Sjm5J3/6bWFrxvMLp+TjW2PeUa3x/MhCQQFTEi9f+
-	JD4II5PlI9j5I5kwzvT+Fj+1b2pTPoFxdWD+/88V/lR0kpCbzDFWxDlnEFt86UrIgK23f2sk1YYck
-	xOC9eckaNwSOImxXodUfhszuZfw0eD+aMLRVilCok0LHm60Jzn4EqsGhkoSmgHq0rECsl2EcR2q7X
-	x6Fk3S1w==;
+	bh=HlOJEoz94FuxFi6Nw0eWYLZk82W0XKPPEF+zFyUMrwY=; b=BaB3toibCq1srBeO/Lxye4Vh8P
+	Cbu02pjDfe1bLmufDhh+jLrKz9hLhLXIKa1YXqw+p++7C5nLm3zHOejWkcK1Km+lZYV9xSUX/57xG
+	b7wrpAKRTXMQfbM4C3N8cu3QDn6IkCTSxdeJcqF9JPrQXLGpm1sE7RaC+2cuMwn0Bd90P5RsQfkhe
+	0vynYXZeUOMTDtfONFDSbvYBPt4ImmcREBLxiMSxxHhnBxIWqk06lbMBr9o7QgBt7yUaFVfWAd9Rg
+	fTwf5Tc3aNaJTttlZia1yyVchMgOD3NZxu3Qi+l5xkbWC+vxu5vdl2qOhZdEn4Z5+7WqWMsny7rB5
+	IRLzCi4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7Z8-0000000BSMj-3ema;
+	id 1wY7Z8-0000000BSMX-30lA;
 	Fri, 12 Jun 2026 19:29:18 +0000
-Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
+Received: from mail-oi1-x249.google.com ([2607:f8b0:4864:20::249])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7Z5-0000000BSK4-39FC
+	id 1wY7Z4-0000000BSJC-0S8P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 19:29:16 +0000
-Received: by mail-oi1-x24a.google.com with SMTP id 5614622812f47-486660d2abaso1645760b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 12:29:14 -0700 (PDT)
+	Fri, 12 Jun 2026 19:29:15 +0000
+Received: by mail-oi1-x249.google.com with SMTP id 5614622812f47-4863c8d459eso1285462b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 12:29:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781292554; x=1781897354; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781292552; x=1781897352; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aEOgMIo61tN5cbwnLn9iRecU9xGHnAGtn6LC63IksYY=;
-        b=MlXKF0qvwm+pDv2759EsttucuA7LhG5Xd0WH1R+uOa8NAT+s5PxlWgCEA1wVBdtAUY
-         CfkooNgl4uAXiQkDat9Csu4XOwOSvIOcrtGawBQJTSvik/0no+7m8mCOiztzZ6hTJHys
-         HtZl4ZbuttAvncpVRn3po6eY9oqU077paKWk/ghGVwvIWOp6T5kViN7A0oKcqnWjyBkZ
-         EOx0RcRIrvSQ4dr6PKnfCn9FDO5wIvCnLVRQJvN6spsGfX29LmrLBc+3KvaVAxtJWORW
-         ZmU1ymtE8xaQzy3B8Y55Hk71+PGaX4Jsw79xlZsypI4a3bWLnxTW7Y3fltY4d18LYi2l
-         IB0Q==
+        bh=HlOJEoz94FuxFi6Nw0eWYLZk82W0XKPPEF+zFyUMrwY=;
+        b=bJPrrDSeOUb7DywXsPr4XHQGG0UIpDUlHFdZJ7LZ2PvUPNTylgryHwMUXCpE+MIKU/
+         c8kjeHHO8WiQKEbZTZnmGO+MmbsCUAtJl6WCZ+YRpQ8a5M1I7ycj2/he8MOyFgLoBxSE
+         jS2BUzKEBzTZYfPA+3B8eWnar1lyetNyvIjsYC6jecDeMUEqBFJNDWOv5ek9rkjygcqG
+         fj36+AoU9HoR5LpbkLjIdqPnIo7pFS1z6Ntd5zJgvm7nwtlJGl3R71V/22WJEw/2cvGZ
+         c1/sSJLzC/62Fv4/I8jSW3Vla5jyhL4/DeG6/tPZNqx8P1CRmLZoDpUbt6YhIIkU4MaT
+         K0kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781292554; x=1781897354;
+        d=1e100.net; s=20251104; t=1781292552; x=1781897352;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aEOgMIo61tN5cbwnLn9iRecU9xGHnAGtn6LC63IksYY=;
-        b=BKgPcTmrbMlDu5w4EoANf3s9jxDFHiEvPrP+LzslJqGhlwaY8b3fV7v1DpiLlJIEgp
-         XYGZEHdtpUSUjnDA+WLS88Q6CRZw90GCd/L3axBMSq0XtczFLiuh8XlGIo63BK//HkfY
-         347I2Y6qA7geVLmdDDZjYpkeRR+wPHprCHyOF0s0YKNGX72iZIGQsi2IHfut7dPUCUHh
-         yXk5wRqB3HGjB5a95jmfpYIxpYecnJsIb8Oqw33yybeHugXfswvbjIWFjBFEUoV8WgrR
-         nWsqMYXN0rqE2sa1tVptSxDXHi7XFM4A6Lo2yIxdmxGnzIeHZZ5ykTzKnVpgQNaHIiF4
-         2/Pw==
-X-Forwarded-Encrypted: i=1; AFNElJ9S8FdEQ8qUceT55/sSnc116BqwYqEZgN4+PYKssLGRA20olaGL2CmdB2g0S+EX/WHjqrXBkakxP8Y/neiiRcfO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXIQAVKKf26Tnin1YVe5sZCmrWOQr7nEqBU0iNqaEYmW+vr2dG
-	JCCWHLF84z5qAtLny2lKXkiILQwjHOiTL54kExZnnGhqLBrrSd6PVBXiHJVTArGm0LhZzWHzUeL
-	0fpKay8NEXeVSrT32oQJJRTnsMQ==
-X-Received: from ilbeo3-n2.prod.google.com ([2002:a05:6e02:2903:20b0:502:1132:3da5])
+        bh=HlOJEoz94FuxFi6Nw0eWYLZk82W0XKPPEF+zFyUMrwY=;
+        b=fWzxy6nFViZp99b8EJcRJMkzarlDMnTNJ2KDTmmzvbVnSk+7bAsrhsRqdc4jvynxCX
+         KsxKW/omUSgtJM4hmnxiwqmLOxiGwq95TI/49VPzIVgh3wt33hMdaSBAhrRdqC1OAq8q
+         l2/TIvDMsvD5QLY5FuP6ivBIyBMa+VgMYspvl22AoFriCwGhugCcCc8A+guhFd+3+Dj8
+         G94mDFppcrZP2aoVLm0ey+EAlJioV4KvDqSMup7TDgueTBydKh2AZZ0kEYFo7HgILlW9
+         LoXTEX1E/KjNweGIVcuS0rY1/Rl1W8Ua3V6Zy0ySy4Boa24kIHhFdF0F9IwuhACQ9AqZ
+         ShnA==
+X-Forwarded-Encrypted: i=1; AFNElJ/PrHIJZkJLL4M5hAc5C3dAFPI5sgUPsU4mbx5tMbc48YhRWgj67iKK7WqZ+7+M1DtoLWLvxD98bhIdESgjEfn3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFgxGVUym6Ffq+Q5YXSr/eWSLqi2tdbA3M69KeNZvE3I0ZT8pQ
+	MOqNJ3NVH+kSxkWdkXvBWxzkTxMZr/RuW/S3/1Lr0YXmU+YhA05yd293UrRqkD+Bj1ndwJiUM1/
+	myjsy4du1TqdGBQF0eNtSJkCEsQ==
+X-Received: from ilb5-n2.prod.google.com ([2002:a05:6e02:5305:20b0:500:2417:f074])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6809:d2:20b0:487:4624:71c3 with SMTP id 5614622812f47-48746249e89mr25208b6e.5.1781292553983;
- Fri, 12 Jun 2026 12:29:13 -0700 (PDT)
-Date: Fri, 12 Jun 2026 19:28:52 +0000
+ 2002:a05:6808:1913:b0:486:45c7:34c5 with SMTP id 5614622812f47-487419e6d1emr682785b6e.17.1781292551319;
+ Fri, 12 Jun 2026 12:29:11 -0700 (PDT)
+Date: Fri, 12 Jun 2026 19:28:49 +0000
 In-Reply-To: <20260612192909.1153907-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20260612192909.1153907-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260612192909.1153907-5-coltonlewis@google.com>
-Subject: [PATCH 04/21] perf: arm_pmuv3: Generalize counter bitmasks
+Message-ID: <20260612192909.1153907-2-coltonlewis@google.com>
+Subject: [PATCH 01/21] arm64: cpufeature: Add cpucap for HPMN0
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org
 Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -81,8 +81,8 @@ Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.
 	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_122915_798140_6B9B3128 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260612_122914_150045_80E26A8C 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,89 +97,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OVSR bitmasks are valid for enable and interrupt registers as well as
-overflow registers. Generalize the names.
+Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
+counters reserved for the guest.
+
+This required changing HPMN0 to an UnsignedEnum in tools/sysreg
+because otherwise not all the appropriate macros are generated to add
+it to arm64_cpu_capabilities_arm64_features.
 
 Acked-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- drivers/perf/arm_pmuv3.c       |  4 ++--
- include/linux/perf/arm_pmuv3.h | 14 +++++++-------
- tools/include/perf/arm_pmuv3.h | 12 +++++++-----
- 3 files changed, 16 insertions(+), 14 deletions(-)
+ arch/arm64/kernel/cpufeature.c | 10 +++++++++-
+ arch/arm64/kvm/sys_regs.c      |  3 ++-
+ arch/arm64/tools/cpucaps       |  1 +
+ arch/arm64/tools/sysreg        |  6 +++---
+ 4 files changed, 15 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-index 8d3b832cd633a..1cceb1f614515 100644
---- a/drivers/perf/arm_pmuv3.c
-+++ b/drivers/perf/arm_pmuv3.c
-@@ -534,7 +534,7 @@ static void armv8pmu_pmcr_write(u64 val)
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6d53bb15cf7bb..096545a6e4043 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -77,7 +77,7 @@
+ #include <linux/percpu.h>
+ #include <linux/sched/isolation.h>
  
- static int armv8pmu_has_overflowed(u64 pmovsr)
- {
--	return !!(pmovsr & ARMV8_PMU_OVERFLOWED_MASK);
-+	return !!(pmovsr & ARMV8_PMU_CNT_MASK_ALL);
- }
+-#include <asm/arm_pmuv3.h>
++#include <linux/perf/arm_pmuv3.h>
+ #include <asm/cpu.h>
+ #include <asm/cpufeature.h>
+ #include <asm/cpu_ops.h>
+@@ -560,6 +560,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
+ };
  
- static int armv8pmu_counter_has_overflowed(u64 pmnc, int idx)
-@@ -770,7 +770,7 @@ static u64 armv8pmu_getreset_flags(void)
- 	value = read_pmovsclr();
+ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
+ 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
+@@ -2965,6 +2966,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
+ 	},
++	{
++		.desc = "HPMN0",
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.capability = ARM64_HAS_HPMN0,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
++	},
+ #ifdef CONFIG_ARM64_SME
+ 	{
+ 		.desc = "Scalable Matrix Extension",
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index fa5c93c7a1352..c52873a6f91ed 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3326,7 +3326,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 		    ID_AA64DFR0_EL1_DoubleLock_MASK |
+ 		    ID_AA64DFR0_EL1_WRPs_MASK |
+ 		    ID_AA64DFR0_EL1_PMUVer_MASK |
+-		    ID_AA64DFR0_EL1_DebugVer_MASK),
++		    ID_AA64DFR0_EL1_DebugVer_MASK |
++		    ID_AA64DFR0_EL1_HPMN0_MASK),
+ 	ID_SANITISED(ID_AA64DFR1_EL1),
+ 	ID_UNALLOCATED(5,2),
+ 	ID_UNALLOCATED(5,3),
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 811c2479e82d6..f8fb4a6395428 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -42,6 +42,7 @@ HAS_GIC_PRIO_MASKING
+ HAS_GIC_PRIO_RELAXED_SYNC
+ HAS_ICH_HCR_EL2_TDIR
+ HAS_HCR_NV1
++HAS_HPMN0
+ HAS_HCX
+ HAS_LDAPR
+ HAS_LPA2
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 6c3ff14e561e6..2d5cbc8ced114 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -1679,9 +1679,9 @@ EndEnum
+ EndSysreg
  
- 	/* Write to clear flags */
--	value &= ARMV8_PMU_OVERFLOWED_MASK;
-+	value &= ARMV8_PMU_CNT_MASK_ALL;
- 	write_pmovsclr(value);
- 
- 	return value;
-diff --git a/include/linux/perf/arm_pmuv3.h b/include/linux/perf/arm_pmuv3.h
-index d698efba28a27..fd2a34b4a64d1 100644
---- a/include/linux/perf/arm_pmuv3.h
-+++ b/include/linux/perf/arm_pmuv3.h
-@@ -224,14 +224,14 @@
- 				 ARMV8_PMU_PMCR_LC | ARMV8_PMU_PMCR_LP)
- 
- /*
-- * PMOVSR: counters overflow flag status reg
-+ * Counter bitmask layouts for overflow, enable, and interrupts
-  */
--#define ARMV8_PMU_OVSR_P		GENMASK(30, 0)
--#define ARMV8_PMU_OVSR_C		BIT(31)
--#define ARMV8_PMU_OVSR_F		BIT_ULL(32) /* arm64 only */
--/* Mask for writable bits is both P and C fields */
--#define ARMV8_PMU_OVERFLOWED_MASK	(ARMV8_PMU_OVSR_P | ARMV8_PMU_OVSR_C | \
--					ARMV8_PMU_OVSR_F)
-+#define ARMV8_PMU_CNT_MASK_P		GENMASK(30, 0)
-+#define ARMV8_PMU_CNT_MASK_C		BIT(31)
-+#define ARMV8_PMU_CNT_MASK_F		BIT_ULL(32) /* arm64 only */
-+#define ARMV8_PMU_CNT_MASK_ALL		(ARMV8_PMU_CNT_MASK_P | \
-+					 ARMV8_PMU_CNT_MASK_C | \
-+					 ARMV8_PMU_CNT_MASK_F)
- 
- /*
-  * PMXEVTYPER: Event selection reg
-diff --git a/tools/include/perf/arm_pmuv3.h b/tools/include/perf/arm_pmuv3.h
-index 1e397d55384ed..d045b0f3b93fe 100644
---- a/tools/include/perf/arm_pmuv3.h
-+++ b/tools/include/perf/arm_pmuv3.h
-@@ -226,12 +226,14 @@
- 				 ARMV8_PMU_PMCR_LC | ARMV8_PMU_PMCR_LP)
- 
- /*
-- * PMOVSR: counters overflow flag status reg
-+ * Counter bitmask layouts for overflow, enable, and interrupts
-  */
--#define ARMV8_PMU_OVSR_P		GENMASK(30, 0)
--#define ARMV8_PMU_OVSR_C		BIT(31)
--/* Mask for writable bits is both P and C fields */
--#define ARMV8_PMU_OVERFLOWED_MASK	(ARMV8_PMU_OVSR_P | ARMV8_PMU_OVSR_C)
-+#define ARMV8_PMU_CNT_MASK_P		GENMASK(30, 0)
-+#define ARMV8_PMU_CNT_MASK_C		BIT(31)
-+#define ARMV8_PMU_CNT_MASK_F		BIT_ULL(32) /* arm64 only */
-+#define ARMV8_PMU_CNT_MASK_ALL		(ARMV8_PMU_CNT_MASK_P | \
-+					 ARMV8_PMU_CNT_MASK_C | \
-+					 ARMV8_PMU_CNT_MASK_F)
- 
- /*
-  * PMXEVTYPER: Event selection reg
+ Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
+-Enum	63:60	HPMN0
+-	0b0000	UNPREDICTABLE
+-	0b0001	DEF
++UnsignedEnum	63:60	HPMN0
++	0b0000	NI
++	0b0001	IMP
+ EndEnum
+ UnsignedEnum	59:56	ExtTrcBuff
+ 	0b0000	NI
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
