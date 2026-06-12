@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5546CCD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1841FCD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RAbFIw0jamNPl6PD31GkbyejBwj+MRucx19vqfzlvg=; b=I39RSUZLMytSNUxcAVhw1uKfHl
-	/rXrW0F5Yz+7mZMOGZGSG9gpzIo2lK534GrMblgByquygI5GRuMuT1P+azFd5qP2g1AQs1N5fFcSP
-	oPq4133fNFhVZOpMsQBKJvt02VnEZm8/FAdyERRz0D1TuIa8rm25tpejtrg5O8DrnSP3S1LEihE3S
-	y4jV1WzNv5ZsR9IvE391h8EM+b7+D5qi/WJ5x5GR1UTDgf8nm+A1qShcsa5qtKFEmK1kkCCXw+LaP
-	QpwzRhat+nM1ZpXmZhcHqfryXPwowpZPWUxu8dkIbq/6lQLPGRQgLkOKMQI+jGm+Qij1wx2J+VYF2
-	Fa6C4xQw==;
+	bh=oj4OSBQnz0GA7HPixnt9F0Aom2fdEs5ktfnUHvQDLXM=; b=hL5aMyjdNbsRcUw84ohM7QkOLj
+	IUpVO808XYOt4fbEbCuBN99hw+InGQQHw+3slm0FX9u+BTE4VU7HlaZ/ZtEmouySRxFB2IUV08IlB
+	qcO8eSiXZY4fJw/eR0+/+zLephNX63dZ83X0T5Ef8yd5asP+/eSP3FA8C+NVpa+8Dfm0RZcEnN5Hq
+	ZDfCfaMwNVuxdDWIsiJIiAiMjnarRYA6nwWIU9jdrrcbooLtTGC9unP+Z3Gq28CevzomDfK4CpbTo
+	l5OpM3P8pVkH0ZBV8/F9uyEtUoYZd1gQFL1FdUDDhxKIxSPnFQPPdWTfIQhAYyY3sUofmhxF43C5O
+	qOkiSgVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY3Ra-0000000B7xt-1saY;
-	Fri, 12 Jun 2026 15:05:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wY3U8-0000000B87M-30EV;
+	Fri, 12 Jun 2026 15:07:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY3RY-0000000B7xn-2GJ5
+	id 1wY3U6-0000000B87D-2DOr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 15:05:12 +0000
+	Fri, 12 Jun 2026 15:07:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C913A40C21;
-	Fri, 12 Jun 2026 15:05:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72C8C1F000E9;
-	Fri, 12 Jun 2026 15:05:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB74860008;
+	Fri, 12 Jun 2026 15:07:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E7D01F000E9;
+	Fri, 12 Jun 2026 15:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781276711;
-	bh=9RAbFIw0jamNPl6PD31GkbyejBwj+MRucx19vqfzlvg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BV3KTv5DAe7pofu/YoU+7QCEDYAss1lut0QgGf+ZAw/YLG+VjpmDtd+ZNmOg4aXrp
-	 a8O4jgwr10lulxIMSmAu8QT3H/CREASd4ANPG2zE8sqdpMmQqerVn330n3jqfvJeHO
-	 Csz4PW9uwgaInmQgdJr0TvRr6wWBGGnh2Rmu+PrO0JQ9GSD5dpWMrx71luE8HxJ1TF
-	 MRuqUhd977WEf0QMV0/VksoJhILqD21C+qkSGjCnJ8iXYFReZxqSsGu9mZpmp7REnz
-	 dVdywULgKQ0homL2sVlf0B3M9jWEmLG3mFfdjHg1qyimse6FfdTye6/HCpq5VNZb/w
-	 ApMpj2vjiRfMQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 681511AC5ABF; Fri, 12 Jun 2026 16:05:06 +0100 (BST)
-Date: Fri, 12 Jun 2026 16:05:06 +0100
-From: Mark Brown <broonie@kernel.org>
-To: phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 11/11] ASoC: fsl: mpc5200_psc_ac97: Use guard() for mutex
- locks
-Message-ID: <aiwgIjVqa4PeGjRQ@sirena.co.uk>
-References: <20260612132639.78086-1-phucduc.bui@gmail.com>
- <20260612132639.78086-12-phucduc.bui@gmail.com>
+	s=k20260515; t=1781276869;
+	bh=oj4OSBQnz0GA7HPixnt9F0Aom2fdEs5ktfnUHvQDLXM=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=omkZbzHekNdZpuoApEYoUVzTwjapKbAMA0o5TIjJZrmKExMXJOYICab2C2FeR01zx
+	 tt62XIO3fJ0r+wJLprm6nhm5psF5O8tXI5uxb4D0ECTylNQqJD3bYHx1oad+JGXyfU
+	 pLde+K/DmBPVW14Fiax7+pOhEDYHwjSS/k9PBiRJn6MYFKI5OGhh2wOD0LUZS2YMb3
+	 ewDdAyJYLXarD2zcy9DY5fNOF3O53rp3IDu+8PKT8okNIv0K/MFr9pxmsR445k+Agn
+	 IwxcT7dKkMBX/WdesRXz+XcvIWKiSULbI7lLFMnTr6ELuS9YIiL0Eg90Ap4aU3H0Mb
+	 Ux4iQxyHhuPsw==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org, catalin.marinas@arm.com,
+	will@kernel.org, rppt@kernel.org, maz@kernel.org
+Subject: Re: [PATCH 3/3] arm64/coco: Add pKVM as a CC platform
+In-Reply-To: <aivG1rEi3y4GN8kX@google.com>
+References: <20260603110522.3331819-1-smostafa@google.com>
+ <20260603110522.3331819-4-smostafa@google.com>
+ <yq5a1pemsmuj.fsf@kernel.org> <aivG1rEi3y4GN8kX@google.com>
+Date: Fri, 12 Jun 2026 20:37:42 +0530
+Message-ID: <yq5av7bnlrup.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="78eYuAPeqMdiQgRf"
-Content-Disposition: inline
-In-Reply-To: <20260612132639.78086-12-phucduc.bui@gmail.com>
-X-Cookie: Nice guys get sick.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,33 +71,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Mostafa Saleh <smostafa@google.com> writes:
 
---78eYuAPeqMdiQgRf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> On Thu, Jun 04, 2026 at 02:29:00PM +0530, Aneesh Kumar K.V wrote:
+>> Mostafa Saleh <smostafa@google.com> writes:
+>> 
+>> > pKVM does support memory encryption, expose that to the rest of
+>> > the kernel through cc_platform_has()
+>> >
+>> > At the moment, all devices inside the guest are emulated which
+>> > requires its memory to be shared back to the host (decrypted), so
+>> > set force_dma_unencrypted() to always return true.
+>> >
+>> > Although, typically pKVM guests rely on restricted-dma-pools to
+>> > bounce traffic, with this change, it is possible to solely rely on
+>> > the default SWIOTLB for that (assuming the appropriate size is set
+>> > from the command line)
+>> >
+>> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+>> > ---
+>> > This change is critical for the ongoing refactoring of the DMA-API[1]
+>> > that will break protected guests under pKVM with this patch. That is
+>> > due to this rework will make the state of the SWIOTLB and restricted
+>> > dma pools depends on the value returned by cc_platform_has()
+>> >
+>> > [1] https://lore.kernel.org/all/20260522042815.370873-1-aneesh.kumar@kernel.org/
+>> > ---
+>> >  arch/arm64/include/asm/hypervisor.h           | 13 +++++++++++++
+>> >  arch/arm64/include/asm/mem_encrypt.h          |  3 ++-
+>> >  arch/arm64/kernel/rsi.c                       | 12 ------------
+>> >  arch/arm64/mm/init.c                          | 15 ++++++++++++++-
+>> >  drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c |  3 +++
+>> >  5 files changed, 32 insertions(+), 14 deletions(-)
+>> >
+>> > index d66291def0f4..26fe9c3f22e3 100644
+> [...]
+>> > --- a/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
+>> > +++ b/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
+>> > @@ -17,6 +17,7 @@
+>> >  #include <asm/hypervisor.h>
+>> >  
+>> >  static size_t pkvm_granule;
+>> > +DEFINE_STATIC_KEY_FALSE_RO(pkvm_guest);
+>> >
+>> 
+>> Do we need EXPORT_SYMBOL on this? 
+>
+> I was not sure about that, all users of this are in tree, I saw RME
+> code have the EXPORT but did not know why?
+>
 
-On Fri, Jun 12, 2026 at 08:26:39PM +0700, phucduc.bui@gmail.com wrote:
+arm-cca-guest is one example. I was assuming is_protected_kvm_guest()
+would be a helper that could get pulled into various code paths via
+force_dma_unencrypted().
 
-> -	dev_dbg(psc_dma->dev, "cold reset\n");
-> +	scoped_guard(mutex_lock, &psc_dma->mutex) {
-> +		dev_dbg(psc_dma->dev, "cold reset\n");
+If we have not found any build failures for now, we can probably avoid
+that change for now.
 
-mutex_lock not mutex?
-
---78eYuAPeqMdiQgRf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmosICEACgkQJNaLcl1U
-h9BWkwgAhUG/BmHjT9vHm05/5/nin4LjC8fo8dB0dxAhqUOforJ+jokmjumsPz9h
-2ZIsrszudxyiYPjue+UatceR/7Jjt3fAQSGKO5JeOPF+TWKW/O9LhpNPG0PFxoX3
-6JIvxheh6qUaQgcu6I2opGcWRkNsUogX0ms9EqaKqMqdl9GsXaB+DsebpRpT+ig6
-IesvG+gspxw6bxf0zQJ848CK2TDYnYC6pIeh1sfTTpOKXEq1cpiov+ub9GkmprH6
-huycDqa5UDHqqRmfSaERRr0JO/dKd6OxYG5rLGFBT9c/te3hhgLDZcqFh2Czp5er
-lBlS5G0zOAZKOmQW6E5Wxh3YgRh+0Q==
-=f0Pg
------END PGP SIGNATURE-----
-
---78eYuAPeqMdiQgRf--
+-aneesh
 
