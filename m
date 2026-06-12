@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DB4CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 13:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB29CD98D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 13:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MrjsT2w1j1qo9MwDPHviku0Dqn2a94LfN9cpJdJZDKs=; b=3xWQin3R3WD5NGR+jLhVOtVWn9
-	vPVLl0WaOzFOaYo5F7YNIWLmceI+Zcqz4WRvmpPSoAAXks1M/O5HUlFNppbMMOUKpnglpqOCFUTp3
-	QiTSEaE8zLc/UDpKJs1Q0t/VAQEN0qGeUmW9sHDSBTXW/Vkr+2nC50u/eOV/JqL2/vig3idf3blcp
-	V1+byVSHiUkIuYgQfLzSQeR6Vkx9xB9u9aPWg+Sq5ctw6dftThB9et4b+bWGwPObcVqwVQxImfBQ2
-	vv1z+caqb9KAcyV54a8jr4a+cTTBSa1w9cJfyD5Yzsn4XX6KplZK0tzxna54pKyZMehmEZjhwzx3Q
-	Nsjuyv0g==;
+	bh=taNgp4KGsZ3KiXZSZvUQMLkfqRwbGhzPbNLDn7Y5E3o=; b=aUXm/hRAGN4m0YY1qqiB0FBvq5
+	9MlQ8YPphE4TB0CausIvG2O1xhVK+X+k67GxvxdQMJ/lHGqQjBqUCOxiXdRkPmPzbmOUHznB3u93x
+	7Da8yOZdCIzpICnlvtzXh21Bryv9ulWZaXJjo8Iwi72VmRu3QisgZIm5+9RS7K45sGYSXbNsdBmcf
+	8i5ZlDAOAwKNBk65zJ0aHduS/ux/yRE+K9Tl2ASNwUo1s2pQl0OWGAioBvYO1lZLpLXpDpA8sZzDZ
+	ex48+jaHKtNt7YF1vVkX8be7cy/RBL+Vx1d4f9VbbJEu9nwQcUxYs37oPc8yb5dXzgWrc9ytFWUuB
+	3tdD1IEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY18d-0000000AsCW-1rVy;
-	Fri, 12 Jun 2026 12:37:31 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wY1ng-0000000Awfa-2ZOq;
+	Fri, 12 Jun 2026 13:19:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY18a-0000000AsBf-0r2W
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 12:37:29 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490be29c1c5so9777895e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 05:37:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1781267846; x=1781872646; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=MrjsT2w1j1qo9MwDPHviku0Dqn2a94LfN9cpJdJZDKs=;
-        b=IJJU8Giq9qFh/nkkEiDHM0UiHqbDRP6pV9ymGwte8wPk6yYwoigS/87Ps56/DUt3vU
-         PcOZXjQNSMVxNbjgQohCEX3Ocqk8TX0gk5o8rH9bDmebmHvP7Rp5yv9CwE0dv6u4wChJ
-         eLNZ1uS+iPoe+dfXoXBBVClnFnlRRtFP1oe0CEr5Fe5/wBnh3Gx/heIPi1bhOcIMu9rs
-         qpIwzLv2GjX6qaZO5ITMb6R+9s5eJqtFUIhxzHKAIiWBRiXvANaNDcLs8OwChryO6IOh
-         njkIussCCYs33qrTxcertESzIv03UdQs55Q/ejkjFVHOLdlsVC8R0oxo8u8tN2KikZ+F
-         f87A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781267846; x=1781872646;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MrjsT2w1j1qo9MwDPHviku0Dqn2a94LfN9cpJdJZDKs=;
-        b=DpNcMqgA3pHr0OzouxvV8VwUTquCL8voBnl+YIJEtWsT9gdiZH+B7iM1YJh+VXXyER
-         b3goXsvQ8/AfXLq8KDeMo/iYieQq+mF0bDhk7MvWRmnVCsil99q9PajmD0pVC2DCFyU6
-         lnPA37ucrKzYETB53GfkkOosgVAusejuDHtmMAiL1hWI/oZC5tnb3mnv83YL5QniPvJe
-         aj3/r8mBLDO/4CdQ1yDrVNlYmr6PuDW4zLV3yd2txNhY4LXaHtcW7G45IopYd1HA/IDN
-         Gz7ERsqZURXzF4yFKnsFDgPNSTe/R5TcjM+2wNx61fpmuXKMBQ03y/aE6ZUFfK3Tz910
-         oh5w==
-X-Forwarded-Encrypted: i=1; AFNElJ8IPK9zTZO9DyUMNZpm+MJ8BCpC/LYkinbmJUaELDJmQ1bVge6qHsCuUq5/+mpSZXyOgnUEhv6xUxkNX9PnyJuT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVgHunYblaP6BY9kWweccInXUPaHugoGsPBLOhP2PoakokIPiM
-	iNyXVFqrsenUIvKyauH0ncGPzrGdsqPtCJ5h9dcB7htZxMae2HnKPwbbohhJgU9l8K8=
-X-Gm-Gg: Acq92OHmj0kRGp8O/JDCVh2NP7etA/Yo4Q+8nmeR2xQeVvnxKuwpUYlq6Sa0ohHq4TC
-	VntIzss39ZkuqHVY6bBqJs2kYwHjeMB6joxQRH38wKxBwHQYzHJhAf+5U3sEOIGivKBXrVtVLcU
-	CMfH2TUZyblljVGN+ionGSGj4EnRZsLmasdm5uMLqIDqlziAAc2nEk+LviUYx4JcFDVKMDuymKM
-	AatfQ17KUo0LnmKozeBWylpHFkF6pJmOQN8Ew6Udm72Pbl5+2TQDDlDNiFdoRpjC872nsVO8dHZ
-	XWUUAr8Fp7x6/V993OIU6XdAFd/N1VtWSXDAt8mogoANdsbbDfc4NFCWyXQ98LdYsuoejoh7EwZ
-	EAukrW/j4j+eG8RxdhcaUkwBbcPxS8Tf9S19hqNUFgjSjlO8IwCEOoxIL7A+Cpexb1mx2FA43nN
-	vFp2eimwr6BTkUFWMCcfsG
-X-Received: by 2002:a05:600c:5296:b0:492:1e7f:d426 with SMTP id 5b1f17b1804b1-4921e7fd54bmr110925e9.2.1781267846081;
-        Fri, 12 Jun 2026 05:37:26 -0700 (PDT)
-Received: from localhost ([195.94.146.6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea843d63sm64794375e9.12.2026.06.12.05.37.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 05:37:25 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 12 Jun 2026 14:40:47 +0200
-To: =?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>, netdev@vger.kernel.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Lukasz Raczylo <lukasz@raczylo.com>,
-	Steffen Jaeckel <sjaeckel@suse.de>
-Subject: Re: [PATCH] net: macb: add TX stall timeout callback to recover from
- lost TSTART write
-Message-ID: <aiv-T7thh8wj2d7n@apocalypse>
-References: <771b8faeaee1fce4a84a5ba2661d60b35a65a6d5.1781253818.git.andrea.porta@suse.com>
- <DJ6Z39C906LE.1F3XKDDM41UJ8@bootlin.com>
+	id 1wY1ne-0000000AwfA-0wh0;
+	Fri, 12 Jun 2026 13:19:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 966A5403A2;
+	Fri, 12 Jun 2026 13:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8BDB1F000E9;
+	Fri, 12 Jun 2026 13:19:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781270393;
+	bh=taNgp4KGsZ3KiXZSZvUQMLkfqRwbGhzPbNLDn7Y5E3o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gRWaSvc697+zpk8A7FOUkBv+zrymR3irREfWIgwvAlNE/BxppA4V648OReKSQc8fp
+	 J3R3YL8sEiSOnsEdKj6XwmuaOpQ6ta9vePgHXJBEmqcwbxjJYiHwGZu6b9QyRWTGUC
+	 vAVXTrOmyt0akvDpkYpk4JJp9IhEemH2e4+/vwYU0vTWKnmj5OhS1YC5CLaruu+xqi
+	 VKQKaRtjZUBcKE3N7wD28JcsM0zWdZowDDK1fYjLLRInkQDGK9nhOeP3civb+CAn2H
+	 S3SAiAzenl7h12DoE1ntDoUH80lttvHmEVfh2ff4AtaQtsRn3yAm9VQTAenFSnxpoj
+	 IeWk2wxbZjcLg==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 2A3061AC58C5; Fri, 12 Jun 2026 14:19:40 +0100 (BST)
+Date: Fri, 12 Jun 2026 14:19:40 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Valerio Setti <vsetti@baylibre.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v2 2/4] ASoC: meson: aiu-encoder-i2s: prepare for
+ multiple streams
+Message-ID: <aiwHbBM8UAYRKnvO@sirena.co.uk>
+References: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
+ <20260610-reshape-aiu-as-axg-v2-2-cac3663a8b51@baylibre.com>
+ <1jik7pebk7.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DTWiBsS0PG7p6gAP"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DJ6Z39C906LE.1F3XKDDM41UJ8@bootlin.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_053728_271346_4BD832BD 
-X-CRM114-Status: GOOD (  27.06  )
+In-Reply-To: <1jik7pebk7.fsf@starbuckisacylon.baylibre.com>
+X-Cookie: Nice guys get sick.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,84 +81,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Theo,
 
-On 11:45 Fri 12 Jun     , Théo Lebrun wrote:
-> Hello Andrea,
-> 
-> On Fri Jun 12, 2026 at 11:01 AM CEST, Andrea della Porta wrote:
-> > From: Lukasz Raczylo <lukasz@raczylo.com>
-> >
-> > The MACB found in the Raspberry Pi RP1 suffers from sporadic stalls on
-> > the TX queue.
-> > While the exact root cause is not yet fully understood, it is likely
-> > related to a hardware issue where a TSTART write to the NCR register
-> > is missed, preventing the transmission from being kicked off.
-> >
-> > Implement a timeout callback to handle TX queue stalls, triggering the
-> > existing restart mechanism to recover.
-> >
-> > Link: https://lore.kernel.org/all/20260514215459.36109-1-lukasz@raczylo.com/
-> > Fixes: dc110d1b23564 ("net: cadence: macb: Add support for Raspberry Pi RP1 ethernet controller")
-> > Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
-> > Co-developed-by: Steffen Jaeckel <sjaeckel@suse.de>
-> > Signed-off-by: Steffen Jaeckel <sjaeckel@suse.de>
-> > Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >  drivers/net/ethernet/cadence/macb_main.c | 11 +++++++++++
-> >  1 file changed, 11 insertions(+)
-> >
-> > diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> > index a12aa21244e83..615da65d5d68d 100644
-> > --- a/drivers/net/ethernet/cadence/macb_main.c
-> > +++ b/drivers/net/ethernet/cadence/macb_main.c
-> > @@ -4522,6 +4522,16 @@ static int macb_setup_tc(struct net_device *dev, enum tc_setup_type type,
-> >  	}
-> >  }
-> >  
-> > +static void macb_tx_timeout(struct net_device *dev, unsigned int q)
-> > +{
-> > +	struct macb *bp = netdev_priv(dev);
-> > +
-> > +	if (net_ratelimit())
-> > +		netdev_err(dev, "TX stall detected, re-kicking TSTART\n");
-> 
-> Is this standard? It looks odd.
+--DTWiBsS0PG7p6gAP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I've found it used in other drivers, it's the closest I had found that
-limit the rate for net related output. As Nicolai suggested, on timeout
-a message is already printed by the core, so I will drop those two lines.
+On Thu, Jun 11, 2026 at 10:16:56AM +0200, Jerome Brunet wrote:
+> On mer. 10 juin 2026 at 23:29, Valerio Setti <vsetti@baylibre.com> wrote:
+>=20
+> > aiu-encoder-i2s is going to be the interface that handles both playback
+> > and capture, so this commit does all the required changes to prepare
+> > for that since so far it only handled playback:
+> > - probe/remove functions are added to allocate/free per stream data,
+> >   respectively.
 
-> 
-> > +	dev->stats.tx_errors++;
-> 
-> I am surprised by this. `tx_errors` would ideally be one per packet that
-> didn't get sent. Here we increment it once per queue that stalled.
-> 
-> I have a series to address stats issue (and use netdev_stat_ops API).
-> It is a follow-up to this:
-> https://lore.kernel.org/netdev/20260428-macb-drop-tx-v2-0-647f5199d8df@bootlin.com/
-> 
-> Also this is per-device shared data and we access it without
-> synchronisation.
-> 
-> Let's drop this increment.
+Please delete unneeded context from mails when replying.  Doing this
+makes it much easier to find your reply in the message, helping ensure
+it won't be missed by people scrolling through the irrelevant quoted
+material.
 
-Agreed.
+--DTWiBsS0PG7p6gAP
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks,
-Andrea
+-----BEGIN PGP SIGNATURE-----
 
-> 
-> > +	macb_tx_restart(&bp->queues[q]);
-> > +}
-> 
-> Regards,
-> 
-> --
-> Théo Lebrun, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
-> 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmosB2sACgkQJNaLcl1U
+h9BePAf/YY4oU9BYnoYM1az7OlkzIVHobdSBXPdAMqYYrlPj/WIZuTEDI1cdo/22
+hoqllO3JKTLGy44Zy5I1P7ijkgOEkx2mZeJ7AZYOgZPlIXPH6AKbscA/xYjzfYP4
+2CwyerLXM7UAy8RJv2Kimqj24HF6mzVVgYRbghHGqDWnLSGWj6BQLSlgaUYhwIcM
+xdrydiGGZz2vkC/HOmwFqpGSyk4XQAm3HFkW5OwsK3R6CmVSwcFxa2fhjcTw8CXc
+3gcvi70GBGQi8+9nMiAyGmnqxT4aONevk4cF8sVxLOxH1Gg0hwgMmsllFORiBdap
+sDGZbqCPoyuQ/1hjHLvs3sqbo32+3Q==
+=PhOT
+-----END PGP SIGNATURE-----
+
+--DTWiBsS0PG7p6gAP--
 
