@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17ACECD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 13:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD8ACD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 13:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPd03DCEhnxVnAon/lJc1dl4riij9fpdXdHb1nTxRzM=; b=tGi80kTP37AP/921xdUf0JWG9Z
-	MTThZxTKH38+12lZf58mgfRbAjckLyEzb1PLmKabEL2EJf8S9x5wKmyO/Jp90bGbaliV28DG6j4AT
-	ubBHRwGjSdGojNtzQHkpz+ecL9SRJhs9YQn2FVB8esJe7mFJ19VbtdJkRrCOjikvTUaap1cvml3qJ
-	7MwvnmOUElIFhmq5P2EpqFir8cCbUd/ladeFXjB+qdXM1RPakOBxmMKfYtzHTMbnrnQDobIc5gIB4
-	ImaqVfLw3EzuIQgwBxsVYw6WajC2bmxHLz3pb5253JxN5uC2+EbdK7TgiLILFQ/cmWFw1L2owczfn
-	nXxiGlPA==;
+	bh=9DbMPyfGQptbnn4NS0NgGBkAEXlR+GQ+W97O4Gk+1bE=; b=xl1WW62EEfYEUXnZIrdmpu88aA
+	btf1q73Me29WeoxmNXnIfC8h92G8WLgKIxLR9ABfU5h0Z43CYncbxhoUqK4Vxx+z+ikK6NYFYNGLk
+	Z4/6IUfIG+UBcmoBnQEI2l+WWK2Z7pKLCTZq37ZCTLL1S/lyzK4OEeY6pi+zCPO7BvbNffjDr8cy8
+	MqXEey7MvEPvjyiD/6HJNKhJIlBZc9cPq2JwiYuwCBvd7FVRICtTGtKfYuUb5RD9dd+mNeJXRg+/c
+	p/HCC0ZqmUkMbEbvUfBeTPeLDabkCb9B5DwqMmgqTfWvmO+6NQqqSv1DIPnExACU/vwU7jtt0YQyq
+	81VhZqDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2FR-0000000B0dH-04Ms;
-	Fri, 12 Jun 2026 13:48:37 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wY2Gk-0000000B0iE-0uwn;
+	Fri, 12 Jun 2026 13:49:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2FP-0000000B0ct-0bk8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 13:48:36 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490bd64ca95so67895e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 06:48:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781272112; x=1781876912; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LPd03DCEhnxVnAon/lJc1dl4riij9fpdXdHb1nTxRzM=;
-        b=UdniEA7tMelkDvJvF30f4NTV2xiVAe8jhl++o1DkNE57IXQ8j9sc0J8Hwk6Zo9TYJQ
-         qUdJEqAJ8vN4MPLcnQJOpy50JGk4UEOj0xV9Atxcfu20GMzFnvfY4LE5qIDFxjYh01WT
-         HTQikBwFQFvDJIkoRCgYvC5803WYNeRq0Z/WhxLS0+7HZHeDWuqtLDzTC+cfcn9Wcxof
-         6lVI288KTTr1kSttmlgUrXLE+QpZzjh0Gz9yvjVqTogwV9VmMriDcpJkMrAYIVjuF3cN
-         gsf0fS0CHccTB/s2kgYewI5RJoLbAgEqhvCwidTeW35LHTGotC8IkB5jp/r96lwdrnoT
-         dkmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781272112; x=1781876912;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LPd03DCEhnxVnAon/lJc1dl4riij9fpdXdHb1nTxRzM=;
-        b=XaHMgjOkA1kR5JdJ58nFJacC3aUdKHPjGKT46gK1eTSGGZpq3jr4IHyG88ypEX79Zz
-         837eZ6xbSf4wEY1MgE7OUVBi+7Su3FdaChW5iwGxNpgEsU7q3Acd+Ddm+2ohw5a2XLbF
-         rcsE3v9k5izYHDJZMLMw0WYKZjOai7FB0hyLk5Ghj9YIOzWBg/F+/4ZUZHbrZeQdCs73
-         Bunav9GZQcQshFyKkhOdi0fPPixwWxLR+L8smtjJBgRYCdhCiZjHHrB+CBFS+CQ9rkN2
-         js9MxJCZciB7IyT20LjcbI3Dm8fLXrzIA32YOYrj67IhYRKVSJ98BkKa3hXQouTVAZpT
-         Znqw==
-X-Forwarded-Encrypted: i=1; AFNElJ/I2Z3Y18xaCptsYGr1LvNsp/WDDwpf4cpyBZlpLt10phZsWFSqHL7GxGz5xaG4qPihFbd2LYU5eg8YumoANANF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjcQ/0iQtQR1nfVk7XzpuQVmQaNNgDyZEDM/aspuJD7HDADS7a
-	rYuDPzbOjDkS2IwI/ygHeRNIukfXDCEbjBKDtXcmqSxPvk42bDPiQJogdxZeflNMww==
-X-Gm-Gg: Acq92OG8Klf9lC3tHy7L3aTPhXZuKb4i5DN/zyTZes0dXS1jP2NWVgVJou0HRbTgqs8
-	4Tq6fTPiTw6zJ8lhfDbfowt7nKzG5TDxxQDTg0eaQxQSgRJOgu8zMOcNmjzwqzOdXtj0NyUl86O
-	k9eTgM8LevfS5ikK1biem7z4lVe9p8t9PjHDHu60mQDF1o9Qth77z1fBM5YGU+6E37LCPK5qjkN
-	cMAmXFWNenvnEYI0qUw8QEmzkymfdQ9oXv6ujxcDA6dHOoYe9lucwY6nZmWII0eN5r9eHEFuR+8
-	dLiyjXlDOmSw12Y/foxd7wnaPYMpvZqG8xKxaYb6nqhZZzTS8NR8IzWniZ+LyYxmNWLi0sLulT0
-	7kyv+YWO498tzP8Ni/xpoCplYFvBlWOJG4G5t1qfIGpDM/Mb6/Xa1Fkdxu4uXU/8/V/UhDVz+av
-	hNoBlC4zi3yL7At64RxJuPLYSbwkN0qRBC7ekQYFpef5shQwkJkNyDlu10UOMFXMkynd3GQQ==
-X-Received: by 2002:a05:600c:a149:b0:490:be1f:66bc with SMTP id 5b1f17b1804b1-490ea57d327mr1097535e9.4.1781272111887;
-        Fri, 12 Jun 2026 06:48:31 -0700 (PDT)
-Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e2d09a85sm146043915e9.14.2026.06.12.06.48.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 06:48:31 -0700 (PDT)
-Date: Fri, 12 Jun 2026 13:48:27 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, catalin.marinas@arm.com,
-	jens.wiklander@linaro.org, sumit.garg@kernel.org,
-	vdonnefort@google.com, sudeep.holla@kernel.org
-Subject: Re: [PATCH v6 3/6] firmware: arm_ffa: Fix Endpoint Memory Access
- Descriptor offset calculation
-Message-ID: <aiwOKyXN_68A54_0@google.com>
-References: <20260527150236.1978655-1-smostafa@google.com>
- <20260527150236.1978655-4-smostafa@google.com>
+	id 1wY2Gj-0000000B0i5-1oHO;
+	Fri, 12 Jun 2026 13:49:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DE45340A50;
+	Fri, 12 Jun 2026 13:49:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D331F000E9;
+	Fri, 12 Jun 2026 13:49:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781272196;
+	bh=9DbMPyfGQptbnn4NS0NgGBkAEXlR+GQ+W97O4Gk+1bE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ogEk2fdb51OCj+6rD0T12zRE8mTqTrPsoUKBtWJpxqCiNbLPrByO32mujD+njvIz5
+	 Lbn6maIM9jQuTD1QBWXM/upHjt7lL+SVecWgYD92AjGfSLSPhrvNmpG6aADTAko/Gq
+	 WEMm/iUKl8NYLEZuAROmB+DOYUOf/m5+5PltvwVOENvomkg9r3Q32xZ/85lC5zcMuJ
+	 wcbs+hm9tat4Hd3r9ZI9F+ZzYL0NMlpCqeqta55o21Z39Awj1jUn9LEcXRR30M3nwk
+	 RQ/tACXzIeqivFFEa07NBPZ5tim/lLRB7bcwPdc2vDybyLg41eyZvbaH/RCadMv5cO
+	 JPkVZxORFVJKg==
+Date: Fri, 12 Jun 2026 15:49:54 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>, Rex Lu <rex.lu@mediatek.com>,
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] wifi: mt76: fix airoha_npu dependency tracking
+Message-ID: <aiwOgoB6JeU7J3Ze@lore-desk>
+References: <20260611125912.3387021-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sS2E1xGPDq87P0hY"
 Content-Disposition: inline
-In-Reply-To: <20260527150236.1978655-4-smostafa@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_064835_229397_459BE7A8 
-X-CRM114-Status: GOOD (  22.19  )
+In-Reply-To: <20260611125912.3387021-1-arnd@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +75,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 03:02:33PM +0000, Mostafa Saleh wrote:
 
-Hi Mostafa,
+--sS2E1xGPDq87P0hY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> From: Sebastian Ene <sebastianene@google.com>
-> 
-> Use the descriptor's `ep_mem_offset` to calculate the start of the endpoint
-> memory access array and to comply with the FF-A spec instead of defaulting
-> to `sizeof(struct ffa_mem_region)`.
-> This requires moving `ffa_mem_region_additional_setup()` earlier in the setup
-> flow.
-> Also, add sanity checks to ensure the calculated descriptor offsets do not
-> exceed `max_fragsize`.
-> [@Mostafa Harden error checking]
-> 
-> Fixes: 113580530ee7 ("firmware: arm_ffa: Update memory descriptor to support v1.1 format")
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> From: Arnd Bergmann <arnd@arndb.de>
+>=20
+> There is a new build failure with MT7996E=3Dm MT76_CORE=3Dy and NET_AIROH=
+A_NPU=3Dm:
+>=20
+> ld.lld: error: undefined symbol: airoha_npu_get
+> ld.lld: error: undefined symbol: airoha_npu_put
+> >>> referenced by npu.c
+> >>>               drivers/net/wireless/mediatek/mt76/npu.o:(mt76_npu_init=
+) in archive vmlinux.a
+>=20
+> Fix this by reworking the dependency for the MT7996_NPU to only
+> allow enabling that when mt76_core can link against the npu driver.
+>=20
+> To make sure this gets caught more easily in the future when additional
+> mt76 variants need the same dependency, also turn CONFIG_MT76_NPU into
+> a tristate symbol that has the same dependency.
+>=20
+> Fixes: 7fb554b1b623 ("wifi: mt76: Introduce the NPU generic layer")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+
 > ---
->  drivers/firmware/arm_ffa/driver.c | 16 +++++++++++-----
->  include/linux/arm_ffa.h           |  2 +-
->  2 files changed, 12 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index 059e2aae7ca0..bed4bd48963f 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -703,19 +703,26 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
->  	struct ffa_composite_mem_region *composite;
->  	struct ffa_mem_region_addr_range *constituents;
->  	struct ffa_mem_region_attributes *ep_mem_access;
-> -	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg);
-> +	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg), ep_offset;
-> +	u32 emad_size = ffa_emad_size_get(drv_info->version);
->  
->  	mem_region->tag = args->tag;
->  	mem_region->flags = args->flags;
->  	mem_region->sender_id = drv_info->vm_id;
->  	mem_region->attributes = ffa_memory_attributes_get(func_id);
-> +
-> +	ffa_mem_region_additional_setup(drv_info->version, mem_region);
->  	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
->  					       drv_info->version);
-> +	if (composite_offset + sizeof(*composite) > max_fragsize)
-> +		return -ENXIO;
->  
->  	for (idx = 0; idx < args->nattrs; idx++) {
-> -		ep_mem_access = buffer +
-> -			ffa_mem_desc_offset(buffer, idx, drv_info->version);
-> -		memset(ep_mem_access, 0, ffa_emad_size_get(drv_info->version));
-> +		ep_offset = ffa_mem_desc_offset(buffer, idx, drv_info->version);
-> +		if (ep_offset + emad_size > max_fragsize)
-> +			return -ENXIO;
+>  drivers/net/wireless/mediatek/mt76/Kconfig        | 4 ++--
+>  drivers/net/wireless/mediatek/mt76/Makefile       | 6 +++++-
+>  drivers/net/wireless/mediatek/mt76/mt76.h         | 2 +-
+>  drivers/net/wireless/mediatek/mt76/mt7996/Kconfig | 2 +-
+>  4 files changed, 9 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/net/wireless/mediatek/mt76/Kconfig b/drivers/net/wir=
+eless/mediatek/mt76/Kconfig
+> index 502303622a53..d941e67a222d 100644
+> --- a/drivers/net/wireless/mediatek/mt76/Kconfig
+> +++ b/drivers/net/wireless/mediatek/mt76/Kconfig
+> @@ -38,8 +38,8 @@ config MT792x_USB
+>  	select MT76_USB
+> =20
+>  config MT76_NPU
+> -	bool
+> -	depends on MT76_CORE
+> +	tristate
+> +	depends on NET_AIROHA_NPU=3Dy || MT76=3DNET_AIROHA_NPU
+> =20
+>  source "drivers/net/wireless/mediatek/mt76/mt76x0/Kconfig"
+>  source "drivers/net/wireless/mediatek/mt76/mt76x2/Kconfig"
+> diff --git a/drivers/net/wireless/mediatek/mt76/Makefile b/drivers/net/wi=
+reless/mediatek/mt76/Makefile
+> index 1d42adfe8030..cacdd2b13d05 100644
+> --- a/drivers/net/wireless/mediatek/mt76/Makefile
+> +++ b/drivers/net/wireless/mediatek/mt76/Makefile
+> @@ -12,7 +12,11 @@ mt76-y :=3D \
+>  	mmio.o util.o trace.o dma.o mac80211.o debugfs.o eeprom.o \
+>  	tx.o agg-rx.o mcu.o wed.o scan.o channel.o
+> =20
+> -mt76-$(CONFIG_MT76_NPU) +=3D npu.o
+> +ifdef CONFIG_MT76_NPU
+> +# CONFIG_MT76_NPU is tristate to simplify dependency tracking,
+> +# but it behaves as a bool symbol here.
+> +mt76-y +=3D npu.o
+> +endif
+>  mt76-$(CONFIG_PCI) +=3D pci.o
+>  mt76-$(CONFIG_NL80211_TESTMODE) +=3D testmode.o
+> =20
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wire=
+less/mediatek/mt76/mt76.h
+> index 07955555f84d..60bd155cc7d5 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt76.h
+> +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+> @@ -1647,7 +1647,7 @@ int mt76_testmode_dump(struct ieee80211_hw *hw, str=
+uct sk_buff *skb,
+>  int mt76_testmode_set_state(struct mt76_phy *phy, enum mt76_testmode_sta=
+te state);
+>  int mt76_testmode_alloc_skb(struct mt76_phy *phy, u32 len);
+> =20
+> -#ifdef CONFIG_MT76_NPU
+> +#if IS_ENABLED(CONFIG_MT76_NPU)
+>  void mt76_npu_check_ppe(struct mt76_dev *dev, struct sk_buff *skb,
+>  			u32 info);
+>  int mt76_npu_dma_add_buf(struct mt76_phy *phy, struct mt76_queue *q,
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig b/drivers/=
+net/wireless/mediatek/mt76/mt7996/Kconfig
+> index 5503d03bf62c..5742bce12fbb 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
+> @@ -16,6 +16,6 @@ config MT7996E
+>  config MT7996_NPU
+>  	bool "MT7996 (PCIe) NPU support"
+>  	depends on MT7996E
+> -	depends on NET_AIROHA_NPU=3Dy || MT7996E=3DNET_AIROHA_NPU
+> +	depends on NET_AIROHA_NPU=3Dy || MT76_CORE=3DNET_AIROHA_NPU
+>  	select MT76_NPU
+>  	default n
+> --=20
+> 2.39.5
+>=20
 
-Looking between v3 (the version that I sent) and this version, you
-account correctly for the emad_size which depends on the FF-A version
-(thus the introduced call to ffa_emad_size_get()).
+--sS2E1xGPDq87P0hY
+Content-Type: application/pgp-signature; name=signature.asc
 
-I think the only remaining bit here is making sure that we don't
-overflow in `ep_offset + emad_size`.
+-----BEGIN PGP SIGNATURE-----
 
-> +		ep_mem_access = buffer + ep_offset;
-> +		memset(ep_mem_access, 0, emad_size);
->  		ep_mem_access->receiver = args->attrs[idx].receiver;
->  		ep_mem_access->attrs = args->attrs[idx].attrs;
->  		ep_mem_access->composite_off = composite_offset;
-> @@ -725,7 +732,6 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
->  	}
->  	mem_region->handle = 0;
->  	mem_region->ep_count = args->nattrs;
-> -	ffa_mem_region_additional_setup(drv_info->version, mem_region);
->  
->  	composite = buffer + composite_offset;
->  	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
-> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> index 81e603839c4a..62d67dae8b70 100644
-> --- a/include/linux/arm_ffa.h
-> +++ b/include/linux/arm_ffa.h
-> @@ -445,7 +445,7 @@ ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
->  	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(ffa_version))
->  		offset += offsetof(struct ffa_mem_region, ep_mem_offset);
->  	else
-> -		offset += sizeof(struct ffa_mem_region);
-> +		offset += buf->ep_mem_offset;
->  
->  	return offset;
->  }
-> -- 
-> 2.54.0.746.g67dd491aae-goog
->
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiwOggAKCRA6cBh0uS2t
+rOcGAP4vYhqXmOO6OnGyAZ+VgBxQr869XtZPMQvmGyA2x1t0HAEA0JOUwPG7oIMd
+pfgu4dsSeBoe8+sMbvkRs3cQDaHUVAQ=
+=dFd3
+-----END PGP SIGNATURE-----
 
-Thanks,
-Sebastian
+--sS2E1xGPDq87P0hY--
 
