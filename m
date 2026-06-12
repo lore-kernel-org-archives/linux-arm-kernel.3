@@ -4,123 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B48A2CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 07:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A98CD98D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 08:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCbgQ8ql4hpJlWkohGyE165C2sc1XuoKidrE/9rlKS8=; b=nC4BNRc2daX/PSuOfj8hXrKvZF
-	AjuJi7hzYNbEO6e35XmZRem81nDI71dRWpD4TCzpiCLcJQ/kncP6Nxn2e4bdV/FkpafI6TXVtReXs
-	Q6o3kst5G7zV8uNpfGpVtC+I9shEcVYEtp8HYG0G1zI4NO0QoPCs90TlHs0TKHYvurPz14AwEpkKp
-	bj93rjIy6cBgKEPtAzJijl8DR8WdggowXJ2i3+ijwIAT9QKZheaOfBuahb5Aq22PPxoVaqgJfJijR
-	F+LLQiRX6Emse79e5rruTVcIa0Lgr4l2SwYSDWOtUhGNtT2i9FREFydb+Vp0aGXae7e24SCm/jxtg
-	zNxmVF+A==;
+	bh=lGSXIXNGhXGoEinX4j2POzhiX7uHLTUs+2fOXh7YSMY=; b=4CMGuGXx9vFDfCNYJYZpv8pEiV
+	bHCGoKH7BIC2OpbUL/W8c1CL9bx9IIzRdTCkFZWsZ//8vtEP3g4B7sHtYplJEb/oBCM/n7GwBtUAO
+	jPrZ+Cy6zr0KIl16SgIprrRabvnFeC0HVtWcon+9My+zOBA8UJ1nzAPFhivXjNiNZ66KbCc4w86I2
+	fqap9BgNkZJJ1dRK6Dyl0GxbL9H4Z2CnR18yb07KyRqj585Qbxqc5toYB2puhZGlsSOb/bcQD1ZR8
+	uzA07+uVjUHIPI+49s2XcVbP868G1AZiWGEtQ4tbEFE7jGJIQPgA1zWpL6dzfNSv+P40VaWTGCa+i
+	AC2u36vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXwmv-0000000AWhf-0Rzl;
-	Fri, 12 Jun 2026 07:58:49 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wXwpX-0000000AX8e-3xiB;
+	Fri, 12 Jun 2026 08:01:31 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXwmt-0000000AWgj-0H9B
+	id 1wXwpU-0000000AX87-3QZB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 07:58:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TsTrx5mdrt513e1sf1uCR2DYxJaqc/8FjowsRSuv77pVSying80EwCMELOl5ewWSqfAStsq9vvgstF921egri+7ER3mtLQe/h6WT0b7bYu74R8L6Lvs6mqEQtzftVOCKr7940Tt/nijsX8t9xnr31HGjUdWs/cNVH42y8HMHr4zLZW1b3Qgp0Odbecu68gDAqt2AWtwFXrV8P5F/DjAuB2FvKvYwNRfhEvxYnXq4Jpaol4NZlhuS1UKVOtWMdky0xihMstg9kbv+tz8mrXLfqP+DM+bDYrGLUAbXXjAW6Mp8w/YOsAUGdTQMsYpLF4qMmdrmX6xZBm2U+VGN/KJwxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hCbgQ8ql4hpJlWkohGyE165C2sc1XuoKidrE/9rlKS8=;
- b=ZAeSda+rpVSeWaBMrdEYMhlNfN8qDT7sjfCtp+64FBn3FJS/clRae7Fgjrqr5kOnY8D9Oly/VzOcjJMWd2EUmFgYO+7cCqUydliiJXFsXlvyvQmFpuB01JwOS40Egby9M9OG8M9vnt6IVLiB+/k2NZdi74qdIk8qnb9jC7201ROOXiraJXs+PlXQ7MpiNh8bMnJ2NoQHanspXg1yrLjI1KlF/ulyQvNZdfZVTAgAis9X3SlNFYj+9CVBKxpsrcUBIFq/xJHw8sAfI1avxV4Ij3MAsSO5WW3/w5vpsJzR81J+QFp+13ss5+/PCku75ODsBlvpaPwMi2hX6Ev4fMsZdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hCbgQ8ql4hpJlWkohGyE165C2sc1XuoKidrE/9rlKS8=;
- b=tMvAWKyP6hsphTQQGx86sGh0SJYi+EIcO7qkg/QapFoObojYBIDauWrtkRcdxISfFkx9lGoBgF9h9jo2SeIYzQIP0mUZ6KS5kHlQImhTjok1DPIGKcz0m768pS0ForVvcZrbghjoHxbn82JgBGbFdHGhndMIbhrDHs9ebT4ovyQ=
-Received: from SJ0PR03CA0279.namprd03.prod.outlook.com (2603:10b6:a03:39e::14)
- by CO1PR10MB4657.namprd10.prod.outlook.com (2603:10b6:303:96::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Fri, 12 Jun
- 2026 07:58:42 +0000
-Received: from SJ5PEPF00000204.namprd05.prod.outlook.com
- (2603:10b6:a03:39e:cafe::70) by SJ0PR03CA0279.outlook.office365.com
- (2603:10b6:a03:39e::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.14 via Frontend Transport; Fri,
- 12 Jun 2026 07:58:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ5PEPF00000204.mail.protection.outlook.com (10.167.244.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Fri, 12 Jun 2026 07:58:41 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 12 Jun
- 2026 02:58:12 -0500
-Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 12 Jun
- 2026 02:58:12 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 12 Jun 2026 02:58:12 -0500
-Received: from [10.24.68.129] (a0507033-hp.dhcp.ti.com [10.24.68.129])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65C7w7lV3061767;
-	Fri, 12 Jun 2026 02:58:08 -0500
-Message-ID: <e8b28867-07a4-4061-864f-a3d362a041a2@ti.com>
-Date: Fri, 12 Jun 2026 13:28:06 +0530
+	Fri, 12 Jun 2026 08:01:29 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5aa68daa847so44869e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 01:01:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1781251287; x=1781856087; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lGSXIXNGhXGoEinX4j2POzhiX7uHLTUs+2fOXh7YSMY=;
+        b=Vxvc2PsJp2iVOoBdVE/MUeSM+vroBgx3O6ZNwCr8wgOeqhUBx/OZZVby9Av5nKLCFf
+         tRO9CIp3wsNg0V55mu7j22tBe7l6MTnmGsaiBuBMxI6kZ0WrGJ6Mtp/KkG3hR9CsblGY
+         MmSNLWtuZ9o5mI2ZJWiYsWnH1jSvtHJn0Usl3tmavJYBt5XkQuybdLGicaq16uRi8Vx9
+         1waw/jFJQJvBKxqZKzKFDyELvgkdGJ3XxOe7hD7GJawR64sTXWFZKqUOwQSEs3Xiz4P2
+         b+QiGDTuJ9ubsqJPCMW7jCduarSloWzWY7Zda0RDIPU9KHQyuxhoosFu6C90r6P2nEHG
+         HhTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781251287; x=1781856087;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lGSXIXNGhXGoEinX4j2POzhiX7uHLTUs+2fOXh7YSMY=;
+        b=FXe5GiXciI6IHz7JYfjhhbPVcaWYbU4QSLE8abgmTPofbW4IJkbNCSLSncaWEsR4eS
+         9SDeubmDTywLfnj+eofxWk/3F4jw2S4jHdaA5WCnP4/cJyIboDEyp4AF92VnIQjAMoAQ
+         CodbvyR0vIojLfxLN/PA4SDHTUwzo572EvmfVxIjdjh+CEzHfh/F9Qij04YEkO79h+Y0
+         Ot3oXueDjC4JMYM5nBhvI+5nt7t+qS39LMXO1fIzhEfLOV5Gftsu6EpXgooxOc45Ggxq
+         IiRyR2oIBqzgLkSfPFw1eRe7T7PhSRmsYyiFH0tkK6qipEMtbdhfdTAIi5EhS6tDaeU6
+         Ut5g==
+X-Forwarded-Encrypted: i=1; AFNElJ/nY/B9qpP/B3b+85nqzgS9CJzJfWLkxqeu9qod4cFHeP9UCLa82MrPsQLbfE9olChp4JlmmnzkrKuhDpxfCEoN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKfYmG06uPj39hRyd82RvvK1L5NRBX1+WUv60GqdsB7SuBK2C9
+	hZ9cD4RDX2kVF/RmKO15aU15uPCaPEzUAqCahyrLMZ41XuRXWSMkIQ2WmluZPc3Oodc=
+X-Gm-Gg: Acq92OHZrhvjlLAC5e1xrXxyGQrjrAolpg114EogN6a9Z/Xdb9uzBHF278fl8hLZ2/x
+	99pxVY/FFbDkhoRbR1HZv2W3xIUpLFlet3+rQNhV3z2MkOCPVTA7fueJhCReaJvoJTXBTVheqzo
+	+WzjJZRYbNu1LKdNlHe5buHf5WxjE4jO0h11Y61y5OlZsfamwAir37RAaDhlGE3da53uLzwdfwx
+	wiTAWusYbv4Yg+DKxn9zg3wUzV1bJQ5f6V4pUOMOqU7/CyxM3Qe37/11HzVrkvZeZC/3aPdkZvT
+	ShEk9clPLx9E1oa48ObzZTw6+/DUKY6YTJwhFlbNsu+RVa7aq1MYG56JWq0oNeclm3uUdFfmV/M
+	yLpxcRyUZftjvghnL4UfipRoXtIb855ma4YkvqeMiZUk5KD9xksc5FNHfcVlA1JAc4bahwvNwM3
+	1nJ6Ni7BcFxHshiKezW4ipxDT1MMYoOHsxGwcezEXZKgglXSRQ27rZvtzcfCExOW8NhyJBIuPI4
+	RqZEQ==
+X-Received: by 2002:ac2:4c55:0:b0:5aa:61ed:482c with SMTP id 2adb3069b0e04-5ad2db73743mr194365e87.6.1781251286462;
+        Fri, 12 Jun 2026 01:01:26 -0700 (PDT)
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5ad2e1b7a3fsm319389e87.82.2026.06.12.01.01.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Jun 2026 01:01:25 -0700 (PDT)
+Message-ID: <d4d75a39-3575-4bc7-9fa3-a6521619daca@linaro.org>
+Date: Fri, 12 Jun 2026 11:01:24 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/4] PCI: Add DOE support for endpoint
-To: Frank Li <Frank.li@oss.nxp.com>
-CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<mani@kernel.org>, <kwilczynski@kernel.org>, <bhelgaas@google.com>,
-	<corbet@lwn.net>, <kishon@kernel.org>, <skhan@linuxfoundation.org>,
-	<lukas@wunner.de>, <cassel@kernel.org>, <alistair@alistair23.me>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<s-vadapalli@ti.com>, <danishanwar@ti.com>, <srk@ti.com>
-References: <20260610100256.1889111-1-a-garg7@ti.com>
- <aise1tIyTj4WLU89@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Aksh Garg <a-garg7@ti.com>
-In-Reply-To: <aise1tIyTj4WLU89@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v2 4/7] arm64: dts: qcom: shikra: Add CCI definitions
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+ Bryan O'Donoghue <bod@kernel.org>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ Suresh Vankadara <quic_svankada@quicinc.com>,
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+References: <20260608-shikra-camss-review-v2-0-ca1936bf1219@oss.qualcomm.com>
+ <20260608-shikra-camss-review-v2-4-ca1936bf1219@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20260608-shikra-camss-review-v2-4-ca1936bf1219@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000204:EE_|CO1PR10MB4657:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb0e2ed4-769b-4e7e-2df6-08dec8586b1e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|23010399003|376014|7416014|22082099003|18002099003|6133799003|56012099006|5023799004|4143699003;
-X-Microsoft-Antispam-Message-Info: DqHbDaOadvV+II+wu9dGfyRZb0hNMDrYF/Jh8G5m34EPomDhWIn5UvrMRPDRri6NIZDdDciLNftp0R67P8Zr6Xmn2Qeyv7TFHTx2tsB+y6A+um2dTcA00IpDYJfAluCA+G9T3Z6T80uLNAMY+Wz477nkbhEf+BponcgUmcU79b3X6MVwlFOISTrL/Jk65UeZ+tjsIv49DgbMsMPSmwIwgru+xNzyCltFfk5RWJxxFhIA4TutxeWEnfkstw5h8IXBbVe+8bDepWwWM5f6y5yqUNuIrW6+DlZaTkVsACw/XJacoPGZrbryjJEfu5cg1qa5a8/NycoZLt+yPRTYokr0RZPSklCOxkkhSkU0eH/bo6eNvuckKAEbtioQXStpQp0Fvqa7xSK6XtnudXPf8vYbOL9Ercpr3nKPt20KlqLzKjxSQ1yrMj0hQrx/xnGUaBBCHqJoXh4e+zJXVCSdBBSkKph4h116ZFHoccqCdGYrb+7lLZnNdQwEM/Lc3NOyOwv2CcEmF1J580akNIqt8j1ufetO8SfYZCdiFkyTPDwmR87ruH0DX6M6fZ2oQAtXEgD6FIw1t57Ocr02Gjn2nGdg3Brxcr8kVHZnFGbIfYG1gDHOW8nmSP83Bhhe0L9f15EHSHZTiQ6IH6JaXPwJX9wfYo4YvwE0hJfKk4Eec6Kx3dMl2NsuQ4so/u93AMImg9Ikn9At14dHMkgjAwXe4h3AIiOLddqoe3gJuga6DtQI/rU=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(23010399003)(376014)(7416014)(22082099003)(18002099003)(6133799003)(56012099006)(5023799004)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +wF2u2NqiHAh2a6wXd+5gBc6xL06pQKx/sUe04YojLlOF/TiFQYJ8bJwclOqinhR/QBzDg//gTZ132NrLmz+7I58c/q3XlOR6BeQVZSwVdnXOZSGdYT8Pz36oeBObz64eyQhEqjDh6kVh81yFBrdWcgM2iQdImW1Llt4/U9bz74vLEUpYOw0LFVY8FxY23w/fjfR48qgE7SMDmD9SQeXmbQmtpt18vSOjoEr9j8rg+KeBqM9z7ohe/ovFZyH/vYi99ZRRi/YYJRt9M4YVHSuFzA4fnLiLMnnFpJGxhrfWIcICZjmpN3L4/S2nUP3gN4+L+moM+ctr4y2sc6NVlCNCOrXRV0ekwMcCCI4Kszv6Hhiv2lMnlbXVmtdec2DNpaP9N1W4YS6ebH50H11cui1prIVrUolelJ/OG8+MNBKYzzHtJAZiEELcMgZ690W2+1p
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 07:58:41.1656
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb0e2ed4-769b-4e7e-2df6-08dec8586b1e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000204.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4657
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_005847_176688_4D5AB8EC 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20260612_010128_892288_B7AA5ED4 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,240 +117,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/06/26 02:17, Frank Li wrote:
-> On Wed, Jun 10, 2026 at 03:32:52PM +0530, Aksh Garg wrote:
->> This patch series introduces the framework for supporting the Data
->> Object Exchange (DOE) feature for PCIe endpoint devices. Please refer
->> to the documentation added in patch 4 for details on the feature and
->> implementation architecture.
->>
->> The implementation provides a common framework for all PCIe endpoint
->> controllers, not specific to any particular SoC vendor.
->>
-
-Hi Frank,
-
+On 6/8/26 17:06, Nihal Kumar Gupta wrote:
+> Qualcomm Shikra SoC has one Camera Control Interface (CCI)
+> containing two I2C hosts.
 > 
-> General question, does DOE generate irq when received msg for HOST? I have
-> not related irq handle code.
+> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> ---
+>   arch/arm64/boot/dts/qcom/shikra.dtsi | 70 ++++++++++++++++++++++++++++++++++++
+>   1 file changed, 70 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
+> index b93ce4a92a998ea5d9d4268d2fd46030fafc4084..fed71131491ebf6e261bfcd14b5d4a2624837878 100644
+> --- a/arch/arm64/boot/dts/qcom/shikra.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
+> @@ -348,6 +348,38 @@ tlmm: pinctrl@500000 {
+>   			gpio-ranges = <&tlmm 0 0 165>;
+>   			wakeup-parent = <&mpm>;
+>   
+> +			cci_i2c0_default: cci-i2c0-default-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio36", "gpio37";
+> +				function = "cci_i2c0";
+> +				drive-strength = <2>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			cci_i2c0_sleep: cci-i2c0-sleep-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio36", "gpio37";
+> +				function = "cci_i2c0";
+> +				drive-strength = <2>;
+> +				bias-pull-down;
+> +			};
+> +
+> +			cci_i2c1_default: cci-i2c1-default-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio41", "gpio42";
+> +				function = "cci_i2c1";
+> +				drive-strength = <2>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			cci_i2c1_sleep: cci-i2c1-sleep-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio41", "gpio42";
+> +				function = "cci_i2c1";
+> +				drive-strength = <2>;
+> +				bias-pull-down;
+> +			};
+> +
+>   			qup_uart0_default: qup-uart0-default-state {
+>   				pins = "gpio0", "gpio1";
+>   				function = "qup0_se0";
+> @@ -701,6 +733,44 @@ port@1 {
+>   					reg = <1>;
+>   				};
+>   			};
+> +
+> +		};
+> +
+> +		cci: cci@5c1b000 {
+> +			compatible = "qcom,shikra-cci", "qcom,msm8996-cci";
+> +			reg = <0x0 0x05c1b000 0x0 0x1000>;
+> +
+> +			interrupts = <GIC_SPI 206 IRQ_TYPE_EDGE_RISING 0>;
+> +
+> +			clocks = <&gcc GCC_CAMSS_TOP_AHB_CLK>,
+> +				 <&gcc GCC_CAMSS_CCI_0_CLK>;
+> +			clock-names = "ahb",
+> +				      "cci";
+> +
+> +			power-domains = <&gcc GCC_CAMSS_TOP_GDSC>;
+> +
+> +			pinctrl-0 = <&cci_i2c0_default &cci_i2c1_default>;
+> +			pinctrl-1 = <&cci_i2c0_sleep &cci_i2c1_sleep>;
+> +			pinctrl-names = "default", "sleep";
+> +
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			status = "disabled";
+> +
+> +			cci_i2c0: i2c-bus@0 {
+> +				reg = <0>;
+> +				clock-frequency = <400000>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +
+> +			cci_i2c1: i2c-bus@1 {
+> +				reg = <1>;
+> +				clock-frequency = <400000>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+>   		};
+>   
+>   		qupv3_0: geniqup@4ac0000 {
 > 
 
-The EPC hardware is expected to raise IRQ when it receives DOE signals
-from the host. The example IRQ code handler have been provided below.
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
 
-When the response DOE is ready for the host, the signal_task_complete()
-in pci-ep-doe.c invokes completion callback function, through which the
-EPC driver handles to send the response back to the host using the DOE
-mailbox.
-
-> Any program to test it? such as pci_endpoint_test, need at least one real
-> user to use it.
-> 
-
-Currently there is no EPC driver upstream which support DOE yet.
-However, you can refer to the conversation at [1] where the plan to add
-user for this framework has been discussed.
-
-Regards,
-Aksh Garg
-
-> Frank
-> 
->> The changes since v1 are documented in the respective patch descriptions.
->>
->> v4: https://lore.kernel.org/all/20260522052434.802034-1-a-garg7@ti.com/
->> v3: https://lore.kernel.org/all/20260427051725.223704-1-a-garg7@ti.com/
->> v2: https://lore.kernel.org/all/20260401073022.215805-1-a-garg7@ti.com/
->> v1 (RFC): https://lore.kernel.org/all/20260213123603.420941-1-a-garg7@ti.com/
->>
->> Below is a code demonstration showing the integration of DOE-EP APIs with
->> EPC drivers.
->>
->> Note: The provided code is just to show how an EPC driver is expected to
->>        utilize the pci_ep_doe_process_request() and pci_ep_doe_abort() APIs,
->>        and might not cover all the corner cases. The below implementation
->>        also expects the EPC hardware to have some memory buffer to store the
->>        data from(for) write_mailbox(read_mailbox) DOE capability registers.
->>
->> ============================================================================
->>
->> /* ========== DOE Completion Callback (invoked by DOE-EP core) ========== */
->>
->> static void doe_completion_cb(struct pci_epc *epc, u8 func_no, u16 cap_offset,
->> 			       int status, u16 vendor, u8 type,
->> 			       void *response_pl, size_t response_pl_sz)
->> {
->> 	struct epc_driver *drv = epc_get_drvdata(epc);
->> 	u32 *response = (u32 *)response_pl;
->> 	u32 header1, header2;
->> 	int payload_dw, i;
->>
->> 	if (readl(drv->base + PF_DOE_CTRL_REG(func_no, cap_offset)) & DOE_CTRL_ABORT) {
->> 		/* Aborted: do not send response */
->> 		goto free;
->> 	}
->>
->> 	if (status < 0) {
->> 		/* Error: set ERROR bit in DOE Status register */
->> 		writel(1 << DOE_STATUS_ERROR,
->> 		       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->> 		goto free;
->> 	}
->>
->> 	/* Success: write DOE headers first, then response to the read memory */
->>
->> 	/* Header 1: Vendor ID (bits 15:0) | Type (bits 23:16) */
->> 	header1 = (type << 16) | vendor;
->> 	writel(header1, drv->base + PF_DOE_RD_MEMORY_WR_REG(func_no, cap_offset));
->>
->> 	/* Header 2: Length in DW (including 2 DW of headers + payload) */
->> 	payload_dw = DIV_ROUND_UP(response_pl_sz, sizeof(u32));
->> 	header2 = 2 + payload_dw;  /* 2 header DWs + payload */
->> 	writel(header2, drv->base + PF_DOE_RD_MEMORY_WR_REG(func_no, cap_offset));
->>
->> 	/* Set READY bit to signal response ready */
->> 	writel(1 << DOE_STATUS_READY,
->> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->>
->> 	/* Write response payload DWORDs to Read memory */
->> 	for (i = 0; i < payload_dw; i++)
->> 		writel(response[i],
->> 		       drv->base + PF_DOE_RD_MEMORY_WR_REG(func_no, cap_offset));
->>
->> 	/* Wait for the memory to empty before clearing the READY bit */
->> 	while (!RD_MEMORY_EMPTY()) {/* wait */}
->>
->> 	writel(0 << DOE_STATUS_READY,
->> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->>
->> free:
->> 	/* unset BUSY bit */
->> 	writel(0 << DOE_STATUS_BUSY,
->> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->>
->> 	kfree(response_pl);
->> }
->>
->> /* ========== DOE Interrupt Handler (triggered on GO bit from root complex) ========== */
->>
->> static irqreturn_t doe_interrupt_handler(int irq, void *priv)
->> {
->> 	struct epc_driver *drv = priv;
->> 	u16 cap_offset = extract_cap_offset_from_irq(irq);
->> 	u8 func_no = extract_func_from_irq(irq);
->> 	u32 header1, header2, length_dw, *request;
->> 	u16 vendor;
->> 	u8 type;
->> 	int i, ret;
->>
->> 	/* Read first header DWORD: Vendor ID (bits 15:0) | Type (bits 23:16) */
->> 	header1 = readl(drv->base + PF_DOE_WR_MEMORY_RD_REG(func_no, cap_offset));
->> 	vendor = header1 & 0xFFFF;
->> 	type = (header1 >> 16) & 0xFF;
->>
->> 	/* Read second header DWORD: Length in DW (includes 2 DW of headers) */
->> 	header2 = readl(drv->base + PF_DOE_WR_MEMORY_RD_REG(func_no, cap_offset));
->> 	length_dw = header2 & 0x3FFFF;  /* Bits 17:0 */
->>
->> 	if (!length_dw)
->> 		length_dw = PCI_DOE_MAX_LENGTH;
->>
->> 	length_dw -= 2;  /* Subtract 2 DW of headers to get payload length */
->> 	/* Allocate buffer for complete request (headers + payload) */
->> 	request = kzalloc(length_dw * sizeof(u32), GFP_ATOMIC);
->> 	if (!request) {
->> 		writel(1 << DOE_STATUS_ERROR,
->> 		       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->> 		return IRQ_HANDLED;
->> 	}
->>
->> 	/* Read remaining payload DWORDs from Write memory */
->> 	for (i = 0; i < length_dw; i++) {
->> 		while (WR_MEMORY_EMPTY()) { /* wait */ }
->> 		request[i] = readl(drv->base + PF_DOE_WR_MEMORY_RD_REG(func_no, cap_offset));
->> 	}
->>
->> 	mutex_lock(&lock);
->> 	/* Check the ABORT bit, if set then return */
->> 	if (readl(drv->base + PF_DOE_CTRL_REG(func_no, cap_offset)) & DOE_CTRL_ABORT) {
->> 		kfree(request);
->> 		mutex_unlock(&lock);
->> 		return IRQ_HANDLED;
->> 	}
->>
->> 	/* Set BUSY bit */
->> 	writel(1 << DOE_STATUS_BUSY,
->> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->> 	mutex_unlock(&lock);
->>
->> 	/* Hand off to DOE-EP core for asynchronous processing */
->> 	ret = pci_ep_doe_process_request(drv->epc, func_no, cap_offset,
->> 					 vendor, type, (void *)request,
->> 					 length_dw * sizeof(u32),
->> 					 doe_completion_cb);
->> 	if (ret) {
->> 		writel(1 << DOE_STATUS_ERROR,
->> 		       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->> 		kfree(request);
->> 	}
->>
->> 	return IRQ_HANDLED;
->> }
->>
->> /* ========== Abort Handler (triggered on ABORT bit from root complex) ========== */
->>
->> static irqreturn_t doe_abort_handler(int irq, void *priv)
->> {
->> 	struct epc_driver *drv = priv;
->> 	u16 cap_offset = extract_cap_offset_from_irq(irq);
->> 	u8 func_no = extract_func_from_irq(irq);
->>
->> 	mutex_lock(&lock);
->>
->> 	/* call abort API only if BUSY bit set (pci_ep_doe_process_request() called) */
->> 	if (readl(drv->base + PF_DOE_STATUS_REG(func_no, cap_offset)) & DOE_STATUS_BUSY)
->> 		pci_ep_doe_abort(drv->epc, func_no, cap_offset);
->>
->> 	mutex_unlock(&lock);
->>
->> 	/* Discard Write memory contents */
->> 	writel(DOE_WR_MEMORY_CTRL_DISCARD,
->> 	       drv->base + PF_DOE_WR_MEMORY_CTRL_REG(func_no, cap_offset));
->>
->> 	/* Clear status bits */
->> 	writel((0 << DOE_STATUS_ERROR) | (0 << DOE_STATUS_READY),
->> 	       drv->base + PF_DOE_STATUS_REG(func_no, cap_offset));
->>
->> 	return IRQ_HANDLED;
->> }
->>
->> ====================================================================================
->>
->> Aksh Garg (4):
->>    PCI/DOE: Move common definitions to the header file
->>    PCI: endpoint: Add DOE mailbox support for endpoint functions
->>    PCI: endpoint: Add support for DOE initialization and setup in EPC
->>      core
->>    Documentation: PCI: Add documentation for DOE endpoint support
->>
->>   Documentation/PCI/endpoint/index.rst          |   1 +
->>   .../PCI/endpoint/pci-endpoint-doe.rst         | 333 ++++++++++
->>   drivers/pci/doe.c                             |  11 -
->>   drivers/pci/endpoint/Kconfig                  |  14 +
->>   drivers/pci/endpoint/Makefile                 |   1 +
->>   drivers/pci/endpoint/pci-ep-doe.c             | 594 ++++++++++++++++++
->>   drivers/pci/endpoint/pci-epc-core.c           | 104 +++
->>   drivers/pci/pci.h                             |  48 ++
->>   include/linux/pci-doe.h                       |   8 +
->>   include/linux/pci-epc.h                       |   9 +
->>   10 files changed, 1112 insertions(+), 11 deletions(-)
->>   create mode 100644 Documentation/PCI/endpoint/pci-endpoint-doe.rst
->>   create mode 100644 drivers/pci/endpoint/pci-ep-doe.c
->>
->> --
->> 2.34.1
->>
-
+-- 
+Best wishes,
+Vladimir
 
