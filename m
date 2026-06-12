@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E573CD4F2C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6127CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oIzgiaW8kA7BHlQhT2riBmgi7l2E1GpUatRNhNPxmqI=; b=VnGgMQHGPKy9XZQ9PfbE11edam
-	cVRVNMReWTvAwxnq++O1CPAU3adL4kDVpYumvbwNDUbQF6mTh/MnRqOAztOMyZZTU+jPdy+1j4DIR
-	Vg1qSBdpnrbxQ+FCYiIW0zwCmzH2xxzACqBGlF2qAMbEAmbs8ShkSlFyu0g0m1Tese2ShxBNZTAcq
-	Rs4z2n3Yz+p8XgQ8/OLSEgb9HLsQHCWFGoknczsMiqtO38ilhlDao9EY4mmb95FavIG5S43tmD8tA
-	Lf9IjIHX1zSJycEk6ciG0i/YSQAcd8t4C/2Wi4cCTLru0AyswswHkAwKw2EEcW4WwyqROjqtOHCo6
-	6JAQfwig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bE6PdP3m7ALO0XKSTDsYTv4vI5wWUFBXfcNLMsSHkZg=; b=t/FyyDMzowRsHgX9zALldU5nk6
+	tTkVKV3p9ELNOOlgg4xCYBn+LdO91939S+VycqlKOQ27CjhtkEOwHP6pbZi2lJunrNk368nH/7vRD
+	tVRQnLsBvskhmyrfxxmsBDgXI4ZpI7lvpVKDF5NH0lYbseUn2ZRjnMffzTr/vBTxc9caSH7Z4Fne0
+	ITykfQi4Zufgh7q3xe2BBXsEaCVTekhpzWmM1f1N59MD8a2mCvJZywVcOuAeiycdbY7rlJ51Pc9dM
+	MTRaGg2N43mUsfN78gvZeYkHVuK1+R1OanlkEn1ayPE3ONGmtXIEDMMl/9d6waGE5MwXkeN+GzOul
+	Vgc5ucvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXy5g-0000000Af5D-0p8X;
-	Fri, 12 Jun 2026 09:22:16 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wXyFc-0000000Afj7-1M6Y;
+	Fri, 12 Jun 2026 09:32:32 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXy5c-0000000Af4a-4BzJ
+	id 1wXyFZ-0000000AfhM-0WNP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 09:22:14 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4600cbb06deso458711f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 02:22:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781256130; cv=none;
-        d=google.com; s=arc-20240605;
-        b=cBiuuaX8agFn6AeYepHLRQZYEltTaT9azvlhxge6WVBhtcY65stVriP0krqmoWX8OG
-         HAhO7IGdBTj6jk8/L8oMOmJ+3FwJx3ZAhMKuI1z6em8yC5t9s65eHOnQtUUzXuil4lRy
-         dM07dxr7tEKqn/uEkVCaBbYlqnMrm4mCRk8vCvcyff2HSu5A6OMkVMkdocdYwxNT6j5q
-         LYavss1XqjBTFWvCM81zRcWjyKXFwHGf4E9HseVDG8SJmoshcKfpl6LrYhETkW40MwTu
-         qhq4g7iu7nQqPAAfmtaAtPVqBLHwjcQOtZ9Kzrpjn8Sn+WWMCiKpbnUVH1jYTfg+1h/c
-         23fw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=oIzgiaW8kA7BHlQhT2riBmgi7l2E1GpUatRNhNPxmqI=;
-        fh=wKR/XiQcsg8JQZOKPI5+gksrYfJfyCJJvmoKorFPYgg=;
-        b=PJ8/3gHwHw51ma0+cDHQMDhxx3dvIq0NmAVM0/AWumulrfez3PKiDkEObT4d5rBtYG
-         ZtL41p+0E0iY9TPG5SUDKRntWHwpruhrA/tu+GJhu3Zmmxmb3UTxr8Kt1FKY+hbh25ZF
-         yocx9eGK9kvd6i8y+BvXH7JZfWaenC+m/s7NAolPg4pmIK73CvMTa3+JiwhQ086xvMzn
-         lGaliMvl9+UlO3gWPVrhH1Yj0owzU7CsWnPu9cv1u8OO0O8jUKjq35HWxOWOQuKDYums
-         W+WEV84ScOWAVmx7qPkOZgcFLODCeEJNfUj8LU7bPOnTlAAIVk4cmpTv7MB2MqLs0W32
-         MhfQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1781256130; x=1781860930; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oIzgiaW8kA7BHlQhT2riBmgi7l2E1GpUatRNhNPxmqI=;
-        b=RdtII3N0gUy+7bRW/NKv74hJ0lAbrYuEvJ3HF7QSFrfj86rOLagwTdfu+5A9s6mRa+
-         KzPzSfZQE4Tyn5KkUE/H36wKBI9WYPIlm+o3d4AB9jdPdB0+tqrpWHo3vz+tdNMimeaS
-         yJHddgVIqw2eF6S498VY+BWW00uaukTy5AhZVYKqA5pTgdzS/IMIDQBblVzobB8Ag10p
-         pMjJqoHk067rynGH1+0+N9u06xy0nAH0Mczfp6sFNRuCLsncfqdiTDxPv6DWWlDokqAW
-         P0wXxXSHAAyMBlmgda4qhai3/al1RlHoROu15OOcyNOFrqrhXORjARClsCqznnkP9wXo
-         U3XA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781256130; x=1781860930;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=oIzgiaW8kA7BHlQhT2riBmgi7l2E1GpUatRNhNPxmqI=;
-        b=k+/okV6r2h0sfrsWOhO45lVtLGh0YLry+9DKgyWCTTu6phIRHtsdKLG6GvWJIGsFMs
-         2Sz+oyVfAYhsxH1yBGBAqQFA/ZUcEltOEE/XwYASIryyhXdnGL6uk0Thpqa1So3/lYVU
-         yqTdYCh/XWPlJ4wYs4SqxTuxHq8ndnbAqEfWNT5LgdBgWtSx+1D66pjko+nepCayhZyr
-         UwSjhXtTpO9uEhnHOth77BvBqWJBNxh6H0GvKNRzB1iyA92ZUgQ0+nO5Lqsx+70uPSsQ
-         8huWOINzINYa019XKEC3PWQ1RaMkzGpEx02uhuKesRoTyFNUncrTd3vtaLSKxD4J6Zkf
-         icvA==
-X-Forwarded-Encrypted: i=1; AFNElJ/9kVBmb/enOP7JJep464OBfJ+9tFNPdTcBwZAxQ7eHFqxqSGbSu9tOUtB/fn2x+ggBVVCqmrirrQg8ENJr4lpc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeWxtyFMOS7EUimDxsdu1OxwHFQZrwxGvUExMhdSY/6bHYpKn1
-	C7PEw+R3zs/4jUDvVA9vxcdXIL1DoGuFtTrJ1WBlxZ++/RpP78jQyX6Xgik0diL5WHzB9RGmaWu
-	is94SoBZWw6TgQ6jtMQzC01tnlivXPEtV0D2UJmTU4g==
-X-Gm-Gg: Acq92OFbmBOQQhNYw7sVwZExq9ECqgf7AxIliKaYRY+uVGeXa9GReZw+TUHZtEfXHE7
-	rUdnbnN6vdzrQRM0P58CZt4iJ/x7FSU40NpwatspqZqrz6ZmTxfujfjZIUS46ymFBumXG+9EPiz
-	oNSd9CaphhmJc9wXp9bpFHD+0rJy/mN3wSIYqDaRh1h0Q7XQ1+6nIshquABIMS4k43aLYWO8o24
-	+K8wZXuc23wb4mRnkO3iVB8HbiacXsZWs2BO8FdXvv7SS+3PorJbhG83hGPI8k2dFf6U8uGa8+W
-	slW5RRQWFkdBCEB99ZNm4TL8T6aQ1wfKdupTJxoMKYd1BFixh8KBFSsP0o7vp5lU98ta
-X-Received: by 2002:a05:6000:2488:b0:460:21e7:330e with SMTP id
- ffacd0b85a97d-4606cb2a8f0mr2904399f8f.10.1781256130239; Fri, 12 Jun 2026
- 02:22:10 -0700 (PDT)
+	Fri, 12 Jun 2026 09:32:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=bE6PdP3m7ALO0XKSTDsYTv4vI5wWUFBXfcNLMsSHkZg=;
+	b=ykYrd2SaMAkz5+vN2z2fZqmqeZjfDpHu2Lda5SU4brh1zf1GRUZQk+A/PkIQbxYDeNo2SROXe
+	dJ5IMh5MjHlZXVg9wVWFOpRadzrY4s/M9atSTSolK14mfhn0mEg0T356ScJAPVhZ3nYYJyQtxf2
+	bNXJN/kqa7N8wnI3A9xvO8M=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gcDc265NvzpTLD;
+	Fri, 12 Jun 2026 17:24:18 +0800 (CST)
+Received: from whupemo500002.china.huawei.com (unknown [7.152.185.250])
+	by mail.maildlp.com (Postfix) with ESMTPS id 22B6D4056D;
+	Fri, 12 Jun 2026 17:32:13 +0800 (CST)
+Received: from localhost.huawei.com (10.90.31.46) by
+ whupemo500002.china.huawei.com (7.152.185.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 12 Jun 2026 17:32:11 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>, <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>, <wangzhou1@hisilicon.com>,
+	<wangyushan12@huawei.com>
+Subject: [PATCH v2 3/3] drivers/perf: hisi: Add new function for HiSilicon MN PMU driver
+Date: Fri, 12 Jun 2026 17:32:07 +0800
+Message-ID: <20260612093207.1242000-4-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260612093207.1242000-1-wangyushan12@huawei.com>
+References: <20260612093207.1242000-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
-References: <cover.1780929570.git.gregoire.layet@9elements.com>
- <af322e76d34ad504e0bdec470293a017b489cfd7.1780929570.git.gregoire.layet@9elements.com>
- <4839c31f666b612799a795bb47c884901fd2a903.camel@codeconstruct.com.au> <CAFi2wKYzUDY5Gis9GaHdqeYdv-orHB+gWfLXkJBgbxfbnRgorA@mail.gmail.com>
-In-Reply-To: <CAFi2wKYzUDY5Gis9GaHdqeYdv-orHB+gWfLXkJBgbxfbnRgorA@mail.gmail.com>
-From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
-Date: Fri, 12 Jun 2026 11:21:57 +0200
-X-Gm-Features: AVVi8CdF5t19WVOCmH1FEj_n0A_RJ0z1s8GXW9OuHAYckfZfTIh9iO3nGukhqk0
-Message-ID: <CAFi2wKanAH+ekKz3eVtdiz=pjEvmKwSh1XhE-Xo7p=CCiSWpEw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] soc: aspeed: add BMC-side PCIe BMC device driver
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: joel@jms.id.au, andrew@lunn.ch, jacky_chou@aspeedtech.com, 
-	yh_chung@aspeedtech.com, ninad@linux.ibm.com, linux-aspeed@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	anirudhsriniv@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ whupemo500002.china.huawei.com (7.152.185.250)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_022213_453868_AF64B92E 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20260612_023229_530021_AC7AB1BC 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,39 +79,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrew,
+From: Yifan Wu <wuyifan50@huawei.com>
 
-Anirudh Srinivasan and I have found that IPMI over KCS using the
-PCI worked with the stock ASPEED bmc driver (the bmc driver in the V1)
-but not with the trimmed-down version in the V2. I have apparently removed
-a bit too much from the V2 , but that's not what I want to focus on.
+MN (Miscellaneous Node) is a hybrid node in ARM CHI. The MN PMU driver
+using the HiSilicon uncore PMU framework.
 
-This brings back the question of where we should put the registers
-configuration,
-considering that two different functionalities depend on it.
+On HiSilicon HIP13 platform, cycle event is supported on MN PMU. The
+cycle event is exposed directly in driver and some variables shall be
+added suffix to distinguish the version.
 
-> It is also possible to put the SCU initialisation on the
-> 8250_aspeed_vuart driver
-> directly. This could be activated with a specific flag added to VUART nod=
-es
-> ('pcie2vuart' for example) on the DeviceTree.
+Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
+Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+---
+ drivers/perf/hisilicon/hisi_uncore_mn_pmu.c | 61 +++++++++++++++++++--
+ 1 file changed, 55 insertions(+), 6 deletions(-)
 
-Similarly to this idea, we could include have the necessary configuration i=
-n the
-'kcs_bmc_aspeed' driver. This could be activated using a similar flag
-,such as 'pci2lpc'
-or 'pci2kcs' directly. However, this would result in a lot of code
-duplication for most
-of the configuration.
+diff --git a/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c b/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
+index 4df4eebe243e..cdd5a1591408 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
+@@ -192,7 +192,7 @@ static const struct attribute_group hisi_mn_pmu_format_group = {
+ 	.attrs = hisi_mn_pmu_format_attr,
+ };
+ 
+-static struct attribute *hisi_mn_pmu_events_attr[] = {
++static struct attribute *hisi_mn_pmu_events_attr_v1[] = {
+ 	HISI_PMU_EVENT_ATTR(req_eobarrier_num,		0x00),
+ 	HISI_PMU_EVENT_ATTR(req_ecbarrier_num,		0x01),
+ 	HISI_PMU_EVENT_ATTR(req_dvmop_num,		0x02),
+@@ -219,14 +219,55 @@ static struct attribute *hisi_mn_pmu_events_attr[] = {
+ 	NULL
+ };
+ 
+-static const struct attribute_group hisi_mn_pmu_events_group = {
++static const struct attribute_group hisi_mn_pmu_events_group_v1 = {
+ 	.name = "events",
+-	.attrs = hisi_mn_pmu_events_attr,
++	.attrs = hisi_mn_pmu_events_attr_v1,
+ };
+ 
+-static const struct attribute_group *hisi_mn_pmu_attr_groups[] = {
++static const struct attribute_group *hisi_mn_pmu_attr_groups_v1[] = {
+ 	&hisi_mn_pmu_format_group,
+-	&hisi_mn_pmu_events_group,
++	&hisi_mn_pmu_events_group_v1,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
++	NULL
++};
++
++static struct attribute *hisi_mn_pmu_events_attr_v2[] = {
++	HISI_PMU_EVENT_ATTR(req_eobarrier_num,		0x00),
++	HISI_PMU_EVENT_ATTR(req_ecbarrier_num,		0x01),
++	HISI_PMU_EVENT_ATTR(req_dvmop_num,		0x02),
++	HISI_PMU_EVENT_ATTR(req_dvmsync_num,		0x03),
++	HISI_PMU_EVENT_ATTR(req_retry_num,		0x04),
++	HISI_PMU_EVENT_ATTR(req_writenosnp_num,		0x05),
++	HISI_PMU_EVENT_ATTR(req_readnosnp_num,		0x06),
++	HISI_PMU_EVENT_ATTR(snp_dvm_num,		0x07),
++	HISI_PMU_EVENT_ATTR(snp_dvmsync_num,		0x08),
++	HISI_PMU_EVENT_ATTR(l3t_req_dvm_num,		0x09),
++	HISI_PMU_EVENT_ATTR(l3t_req_dvmsync_num,	0x0A),
++	HISI_PMU_EVENT_ATTR(mn_req_dvm_num,		0x0B),
++	HISI_PMU_EVENT_ATTR(mn_req_dvmsync_num,		0x0C),
++	HISI_PMU_EVENT_ATTR(pa_req_dvm_num,		0x0D),
++	HISI_PMU_EVENT_ATTR(pa_req_dvmsync_num,		0x0E),
++	HISI_PMU_EVENT_ATTR(cycles,					0x0F),
++	HISI_PMU_EVENT_ATTR(snp_dvm_latency,		0x80),
++	HISI_PMU_EVENT_ATTR(snp_dvmsync_latency,	0x81),
++	HISI_PMU_EVENT_ATTR(l3t_req_dvm_latency,	0x82),
++	HISI_PMU_EVENT_ATTR(l3t_req_dvmsync_latency,	0x83),
++	HISI_PMU_EVENT_ATTR(mn_req_dvm_latency,		0x84),
++	HISI_PMU_EVENT_ATTR(mn_req_dvmsync_latency,	0x85),
++	HISI_PMU_EVENT_ATTR(pa_req_dvm_latency,		0x86),
++	HISI_PMU_EVENT_ATTR(pa_req_dvmsync_latency,	0x87),
++	NULL
++};
++
++static const struct attribute_group hisi_mn_pmu_events_group_v2 = {
++	.name = "events",
++	.attrs = hisi_mn_pmu_events_attr_v2,
++};
++
++static const struct attribute_group *hisi_mn_pmu_attr_groups_v2[] = {
++	&hisi_mn_pmu_format_group,
++	&hisi_mn_pmu_events_group_v2,
+ 	&hisi_pmu_cpumask_attr_group,
+ 	&hisi_pmu_identifier_group,
+ 	NULL
+@@ -351,7 +392,14 @@ static struct hisi_mn_pmu_regs hisi_mn_v1_pmu_regs = {
+ };
+ 
+ static const struct hisi_pmu_dev_info hisi_mn_v1 = {
+-	.attr_groups = hisi_mn_pmu_attr_groups,
++	.attr_groups = hisi_mn_pmu_attr_groups_v1,
++	.counter_bits = 48,
++	.check_event = HISI_MN_EVTYPE_MASK,
++	.private = &hisi_mn_v1_pmu_regs,
++};
++
++static const struct hisi_pmu_dev_info hisi_mn_v2 = {
++	.attr_groups = hisi_mn_pmu_attr_groups_v2,
+ 	.counter_bits = 48,
+ 	.check_event = HISI_MN_EVTYPE_MASK,
+ 	.private = &hisi_mn_v1_pmu_regs,
+@@ -359,6 +407,7 @@ static const struct hisi_pmu_dev_info hisi_mn_v1 = {
+ 
+ static const struct acpi_device_id hisi_mn_pmu_acpi_match[] = {
+ 	{ "HISI0222", (kernel_ulong_t) &hisi_mn_v1 },
++	{ "HISI0224", (kernel_ulong_t) &hisi_mn_v2 },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, hisi_mn_pmu_acpi_match);
+-- 
+2.33.0
 
-The issue for me is that, two drivers configuring the same registers
-is not a good idea.
-I don't know how to do this the proper way.
-
-I wanted to add this information because it could influence the move to a
-bmc_device driver that configures both VUART and KCS, over PCI.
-This would be similar to the V2 bmc driver, and I fix the KCS bug.
-
-Thanks,
-Gr=C3=A9goire
 
