@@ -4,117 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A2CCD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 01:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60FBCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 01:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPGVEufbrB/qEFzX77GPu/92Ova1BiUYa25cj4Hszqg=; b=IqQ+kK7l17ttkamf6Ic7G4yiEk
-	ye8co8UUQQUmTFBYOkhgS8RtZmttbKzK5nCo3560LZss5q8yndOEErfU7gFO330WqcD3zN4j/3xna
-	DTmuTKRyZH0jmVpWubuXHDqQKKDGWxb9NFmnnFzH4yCPORNcOJ1K/unAuWC34SVVu9meWAnY3C5Sm
-	W5VvgTCfrVF2Zd/bCEgJ0oQPoTW8kwreh6jQhsGvDb3nusCLdlsjbEfze6PzodNbUlyX3xnh+YEIw
-	QH7TbY21wprWwydif5aJH1qksJeEz3XCxpLVcrWiHtU3ng6cEtlr/1XQ1d2rIY1v6KbtzHEm0JDlt
-	z1hnY2Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cc3iMFUn//oP8yDxcu+EBcaVb7FwW2+8uzE8Fd2fpu8=; b=XtHaknvmY7cG7GpsYDWdDTcsrD
+	5tIEIFOFKgo7xLKPgJv4YCyl1zRxttTpalgir53wUK6r6RNCEZxu6CBH9SJjWhPYZCKTxTtsgOpSH
+	BDiNK3IojKEt1oU2LBuGNHgnLBLh3QbeKMmaACUtGOFaCqvR7pcvy5RtRKYG7eBu8kMnEuor7DsTc
+	YvtNP3cDZb6NB+i8NI0jMadSXMtUiwec8vYRSaZRB0YXF7eVvInsB5gbTtPSpA7vzzUhAB1WyYQKG
+	tS7W4T/KquxY8mkPrmtTCjNayrm9uk9nsuqfOTW7Z+gbNPKZz+6tqmt24I+dXRO2G8M4QVZe8yNSR
+	Y2AvDjBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXqV9-0000000AFQl-1IJt;
-	Fri, 12 Jun 2026 01:16:03 +0000
-Received: from mail-northcentralusazon11013027.outbound.protection.outlook.com ([40.107.201.27] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wXqX5-0000000AFaA-2VAI;
+	Fri, 12 Jun 2026 01:18:03 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXqV6-0000000AFQM-3lXT
+	id 1wXqX3-0000000AFZe-0VON
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 01:16:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hmG3ZThJysWQyXfb1+CqTLotfFN4HBds+gTRM/vvSpiyj7np2Z2K0Wga0Y/KkhqUbKYdOXPyWq2FJtnN7zpMhaBaYBtwBdz0UVXRHrUDXkzl/BH+OMliLHaKnK8Tn1UED49aIWIYGXRhJeDovBTz1AdIakLYXPJlbAff2lXZw9MSGr3gq5o1EDGffYg0UT0mq/TuNwhl4GPzO8GWG/CT9SYO2rlSHOn22dWTtwAGSheBeLjuH2jaEnua7lwZzna7pGerIRJpHc6I3m5iU68P2a2h0n+jnthqDroMOQTBuu4wW2eRsbb5pX9JQlXapo8h19cZcB+lObBL6a4yvtIEAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rPGVEufbrB/qEFzX77GPu/92Ova1BiUYa25cj4Hszqg=;
- b=E+/0cMolfEalUKZcdy5BrQJemSPQ4bnYkPJlfeX/4Nh9wB87d6Jp1w2LqlcNFKyH64sXT31s5h4+s/dus0XCIqp2oqbVfCAqwQesCAQM8JwXEI2w57MgQGWLoWwGELmmebcLWgGaTuDPGng7nF7vd85SP+ijTq4DfxaB8Fd1lOKQHGOzWLC9L86vZoNK9MmiUxe34DLAanlFwX+jRIApuFN49nYoA6C+M9inB6kntdcp0lvJxSqyvs7WFp7H1CCqwvcEDny+xqQYf7ar5WmX5nJFhn1RvvcGPTIx3W8WpSp+UkDHr/YUp+vqNOxDl63N1A1VnDr5KA9/vAxZqvfoVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rPGVEufbrB/qEFzX77GPu/92Ova1BiUYa25cj4Hszqg=;
- b=pVbvdoJu+KnGOf7KvtlmHCWCrRCw84rhzS2vffvPGqwHahbHb8glihbliVXvy1p7sO/61EQFUzG39iq0LitykCdiokDssFFY/KJr7VaRDByHIvDS1zh/Xj/HhHRYCXc7LpeYL9uK+EUNQSDjICbIMefMDwMHV5CyOOoOjcDJ0pe3k8tvWRr3kvuFrPPzpLCH1Lg5blLPJvS/OTiYlcu+xe8rXCQeZ35u17exlzHNn3SGD/ziRh/yyBdXy02mWQJtNzOUt9/mq12qWjd6UYVHLruZUowKE9s6Kidb38jNrEwCvq4hH+EIfmkZeBLML96SLTz6GsGZ9D2oWIITHkYu3w==
-Received: from DS7PR03CA0023.namprd03.prod.outlook.com (2603:10b6:5:3b8::28)
- by CY8PR12MB8216.namprd12.prod.outlook.com (2603:10b6:930:78::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.17; Fri, 12 Jun
- 2026 01:15:46 +0000
-Received: from CH3PEPF00000018.namprd21.prod.outlook.com
- (2603:10b6:5:3b8:cafe::3b) by DS7PR03CA0023.outlook.office365.com
- (2603:10b6:5:3b8::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.13 via Frontend Transport; Fri,
- 12 Jun 2026 01:15:46 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CH3PEPF00000018.mail.protection.outlook.com (10.167.244.123) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.139.1 via Frontend Transport; Fri, 12 Jun 2026 01:15:46 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 11 Jun
- 2026 18:15:27 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Thu, 11 Jun 2026 18:15:26 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 11 Jun 2026 18:15:25 -0700
-Date: Thu, 11 Jun 2026 18:15:25 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Shameer Kolothum <skolothumtho@nvidia.com>
-CC: <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <jgg@ziepe.ca>, <joro@8bytes.org>,
-	<will@kernel.org>, <robin.murphy@arm.com>, <nathanc@nvidia.com>,
-	<mochs@nvidia.com>
-Subject: Re: [PATCH v2 1/2] iommu/arm-smmu-v3: Manage teardown with devm
-Message-ID: <aitdrRk/3Y7TZdUm@nvidia.com>
-References: <20260611084205.686559-1-skolothumtho@nvidia.com>
- <20260611084205.686559-2-skolothumtho@nvidia.com>
+	Fri, 12 Jun 2026 01:18:02 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-39664fe2dd8so3339221fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 18:18:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781227079; cv=none;
+        d=google.com; s=arc-20240605;
+        b=IFSNR8l6WBRPvXwg5eWf5vDCQkwmOsHCjvqvJ0tN+HaZK3V752+hyNAxq8RGmVP02q
+         8cuJYahLKZoPJqoQVZ33CI20efqJOqoEnUTVp79GdqYS60G4M6i7v083Uaf361LRdHbd
+         hjUQv9K1nfYt5nM7TjWQcQdURvs98rv68i6nX3w2fGzlbtf/tShqoYZsdTNPzJ8SYIAd
+         o7qIQfeHqvsKI78FE4p1egd1Th4gzJvffwRlOW5ZuXu4eDbNenPOc2S+XlZkvuJtLCjy
+         YF1XCYZiT0qkEM61ydCvD8zgqEoSSDEml4FsSgJ8T0ENP21XucOdLHBd9DrEMiflihaC
+         f4dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cc3iMFUn//oP8yDxcu+EBcaVb7FwW2+8uzE8Fd2fpu8=;
+        fh=5y3jhPLL04r0sMYybWo4jgsDhm/R2a4wAs7MUHNbrS0=;
+        b=deHxcE0keHRvu600jKSAs6ja799OTrIGuljVGDyxSOfUECd8khKkxmm4p9b/IKsQwX
+         2UmDOj7MXX080/kvPQ9/+Doc55unsZvxfsEbXtJJyq8weSreHi5sCc8hiyBd1Di6qetu
+         A5Owvk1irbkZ76+tbY8uzEHbjWAjJGLXs4cUp7RUNAq8KT/uIqUv3cIr36r7G5mxpDlW
+         PpIZTm5EgqGw3YnKkB0lECHwyFAApc48WQQhV05NT+r8CDIg3wbqrwYp7Jij7RF/wwd+
+         UmtfYmx9HJeNVDDmcY7pDMLZV9wd8BI+ESLxQpDyRPrIHfD+FzbmQNzgFKopTYJYPEkM
+         QnPA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781227079; x=1781831879; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cc3iMFUn//oP8yDxcu+EBcaVb7FwW2+8uzE8Fd2fpu8=;
+        b=Z09jklos9gJ+90sVJMp3OZ3py0xYsGal86FvxLVk7D6jFeQkzzzO1+hiS4VnT8jn5/
+         4ybkWtQuwFdAYxm3QR95gmbgdMtbpntN+eCYzjswX55zeywgsencef3q9MOpez0ny2TQ
+         anE8oZBIJ6ZoGJ2gQyNtnid34yIsyY78LzB+BVKbIEpKw6C445lpG9tCsfljFNhO2H5q
+         hVl9hBHRblOOIywKUadnogyFay3R07K4ZJjCbypKLTa8CCjan7EEWTJg34pz9CzfDBTG
+         MPja8APPvyI8GvbktEWfXLyaYUQfjhtIGAI31gbRgg56zfFPFlFbM8j/QXDHunqepdsa
+         ezRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781227079; x=1781831879;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=cc3iMFUn//oP8yDxcu+EBcaVb7FwW2+8uzE8Fd2fpu8=;
+        b=fszfkkOLKja5JvdhetDY1JDlbue0uChBKdhHTymTL7d8S5EhxeNy2Uc4Y0jjpQBI6O
+         0g+Pob2JtY4LiLc5K4eoaiMjhYEy/6haXiqAmR0jrzi5dze8qIJ+07hiQeiVrdJc/Jmq
+         yAArQEUGL/+g3aZjBnuR4PQoQfRnLECuNBrCts1egmjhJD/JzJJeEOqdbHX1Ir03wC4T
+         q5U1crSsF7cMMhDtnFWuBWIqqUHmyo3sNbGLNFzXizKHhGPHbQrxg0MprA7/FNd4sXgB
+         43jr3aS1biM0s7kJC3A2KhgdyD6ErXmmf7nt+IFFsGpAvPTDmvXEYGvo8sPw6kK/A4cB
+         /cug==
+X-Forwarded-Encrypted: i=1; AFNElJ9VdvlFegfkn/Hkpn4AYBe2Jj8UMEZR7+QpV8CpC6GwUz/cmNbaQPAEcclX/Rd8IrKtRKLpcl4AEPXaCnwGwKZE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLecsruZiBlAFSI8jqI/DJMAA3tIVA6AnXnQQnCzusZ5ePj0Cw
+	Kt7cPudhr9YREIFQBOkZHPsg4+zfqwsPgMooakhNbQbBoKPg/bo5p+RXkunZqEpcNsGi+xTfmc8
+	4IOZ2iyp9HBptSwuU1tVuhg/RemRoRaQ=
+X-Gm-Gg: Acq92OGEMbI6E69wIsEXpY80aFfJrPxkNKwUAtlSwBtwBzLo1hBko03PXZ95WqitK+j
+	PC2HRkDCh2JgPA286O9deCY2tscAB5vTqyo6Buv/mlPFp/OwildVIG70nwYxbBrc5ywBLukNGlm
+	ADgvHfFqJYH4tcGnXdJAi6tMW0FJTl2Bmq8kYcrf3h12qeHXprFotw+yIVuj1hnG8Z4svhVEElk
+	ixEP0UgMhPE1SZKPPftIzXBkpD7wetGwoN41yQ7H9ymPaCeO7MtEUMxmvu8JrlZJhwRyQGamuJe
+	nRHlY0tZ
+X-Received: by 2002:a2e:a99a:0:b0:396:7927:2d14 with SMTP id
+ 38308e7fff4ca-3992afbd66dmr1406371fa.8.1781227078553; Thu, 11 Jun 2026
+ 18:17:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260611084205.686559-2-skolothumtho@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000018:EE_|CY8PR12MB8216:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4359258e-e2d8-4c50-0d0d-08dec82021a0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|82310400026|36860700016|1800799024|56012099006|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 1t7uXyy/WyqRUIsyoOMrMsNQCXfk9C/adqAst68i9LMmJ/QgfVG4gePmaPFmxKSzLP3mNdZ9aiPpdhzyIVzJbfzT2+u7N0bBpU+AVbXkhjZnHNnmk+vN0AqRp+gpUQJuSwzoGorPfjRLVDBqVJg3ezV7cutIFH7mQCByhlhG20Pg3EYl/2NVNKqGUJcKPbUmamVkZzxNaSaqt3xXfy3aYQbGqsTnCxKpN4huE7tg5w13xPIougpnknYl0Vq0PTnF2OcHFbr3Ao68WGNSHxRf0gGlICthQpNRAYE34vognj/ZCcWijhjtSSm4PAc3wuRra2pTZPXC0Na0iIYcV7hi0BfKHuKgYppvDnCTTlT9or0Tpnda3r1X91R+Dgo1eP2MBDIsY47jW6hR9f0+qCpiYHBqgvc4pxjdxYe4VayByhjAuW8m834uspZpavvYk+xg+bmEQIqTWaoDGCRt/qYnpdogBYc4LXMXQDyECYzZ2ytm7kd2cfMo8MTWQNPuLxYAAx2QiqUpaK8E13z6Ne/4i/I8poPkL4wykbFQ6YATURwSUobBbHMoKwCPAKRh/77oAa7IICaNeDvfptmjvBuQjWP7V/he/zxJ1SZFkLNkSuj9L/P2mfTbxsvVKdG5lDsrDvlot0ccYqxwVmlX6iO0qDjp/Wf6hbV7jRri2OAZYs8abh+L4uZXQqRA+PcIszMJqOKJKQJIj7rjlKMMO1WH/UugVRT2RAttcJdKQYK3s9k=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(82310400026)(36860700016)(1800799024)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: wdX/L+zx5YgaMONNPSSxgtNSuS8FCBd6wpVJpxoSQEhCMEP1WZsurLv2pYZQeofP0/2856Z2jjZPtwzB/QmK+RnY2qKFrKR5kXNOoVsf3/EZvIdWwF9A4P0BUOVvKNQmCtvzHg6p5FtzcV9WuOnVdcRlUppTbq774lt5IQZFIl+s0imM9FMsmg20vyXMz1A81YTT0B+P3UjxIKh1Ul9ZWAG4YeG18lyCyzYLYpvzHArh93xbqjRKFqCBMWEQXF6TLnXTMZEfkrgQuYy3z0GkQa4WcyWeDMVAVGwBh2ZIiRb+dghpNUPqqN4DBNZehgCbMmV5QWBMAyJXBsCl3u7N3D8WDEx0vFwF5k29mtXMfeAaDa28gWM0+95gf5Inuh/TQYuUYT5Rtl0Ix9fpuzK68Gh0LWHz29R4QEZNabWZTDxBWmbr8OTJnSMYF/6UIqyF
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 01:15:46.0327
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4359258e-e2d8-4c50-0d0d-08dec82021a0
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000018.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8216
+References: <20260611-ventura2_initial_dts-v7-0-a61d8902bc5f@gmail.com>
+ <20260611-ventura2_initial_dts-v7-2-a61d8902bc5f@gmail.com> <843dc0ff-a504-4237-b0f4-d92be07e2465@lunn.ch>
+In-Reply-To: <843dc0ff-a504-4237-b0f4-d92be07e2465@lunn.ch>
+From: Kyle Hsieh <kylehsieh1995@gmail.com>
+Date: Fri, 12 Jun 2026 09:19:28 +0800
+X-Gm-Features: AVVi8CftlH_ekg-tghtfw6NJS5VaORcKvffCfG_52e7muOzHwhtMeakE4Fesdbk
+Message-ID: <CAF7HswOi3fPMFppPoGmh0QELiPz4Po4cyWuDrEHLY2vNMyKE9g@mail.gmail.com>
+Subject: Re: [PATCH v7 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_181600_962970_1E246FCC 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260611_181801_176411_C25522C4 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,44 +120,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 09:42:04AM +0100, Shameer Kolothum wrote:
-> arm_smmu_device_remove() manually frees the IOPF queue, destroys the
-> vmid_map and disables the device, while the IRQs and queues are devm
-> managed. devm unwinds only after remove() returns, so the cleanup runs
-> in the wrong order. The IOPF queue is freed before the event-queue IRQ
-> whose handler uses it.
-> 
-> Manage all of it with devm so the unwind order is correct. Free the IOPF
-> queue and vmid_map via devm actions, and disable the device from one
-> registered after arm_smmu_device_reset().
-> 
-> This is also a prerequisite for fixing a Tegra241 CMDQV CMD_SYNC
-> use-after-free in the subsequent patch.
-> 
-> Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
-> Signed-off-by: Shameer Kolothum <skolothumtho@nvidia.com>
+On Thu, Jun 11, 2026 at 11:57=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote=
+:
+>
+> > +     /* Marvell 88E6393X EEPROM */
+> > +     eeprom@50 {
+> > +             compatible =3D "atmel,24c64";
+> > +             reg =3D <0x50>;
+> > +     };
+>
+> How is this on both a host I2C bus, and the switches I2C bus? Are you
+> using multi-master? Is there a GPIO to hold the switch in reset while
+> the host access the EEPROM?
+>
+>       Andrew
+Hi Andrew,
 
-Given that the PATCH-2 adds new code to arm_smmu_disable_action()
-which is introduced here, should this patch also cc stable tree?
+Thanks for taking a look at this.
 
-> +static void arm_smmu_free_iopf_action(void *data)
-> +{
-> +	iopf_queue_free(data);
-> +}
-> +
-> +static void arm_smmu_destroy_vmid_map(void *data)
-> +{
-> +	ida_destroy(data);
-> +}
-[...]
-> +static void arm_smmu_disable_action(void *data)
-> +{
-> +	arm_smmu_device_disable(data);
-> +}
+To answer your questions: No, we are not using multi-master.
+The EEPROM is physically isolated by a hardware I2C multiplexer.
+By default, the mux connects the EEPROM directly to the Marvell switch
+for its routine operation and configuration loading. The BMC's I2C bus is
+physically disconnected from the EEPROM during this time.
 
-Jason prefers casting.
+The BMC only gains access to this EEPROM for out-of-band firmware updates.
+When an update is required, the BMC or CPLD asserts a reset to the switch,
+toggles the I2C mux to route the EEPROM to the BMC, performs the flash,
+and then restores the original routing before releasing the switch from res=
+et.
 
-Otherwise,
+Therefore, there is no runtime concurrent access or multi-master scenario
+between the host and the switch.
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Would you recommend adding a comment in the device tree to clarify this
+hardware isolation, or is this explanation sufficient?
+
+Best regards,
+Kyle Hsieh
 
