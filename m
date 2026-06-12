@@ -4,120 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCCBCD98D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 01:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF0ACD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 01:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cVdKBnOcxJyOU9ghZ9neO31ST14zAyF4JJ3CLzvFiKM=; b=nvPSJ3UlcMDQhr
-	EfOyO4AsY3DQcFXPpH/pa4Q3FgqFyTMFmPHudV3endceilkd1BlK8f1RndVEBlYKrscsf/sS00Ip5
-	7bQ2eamLAcf3ogAKUoHyND4Feyq5PwAFtJANz8pPx7ArsqHs8HJVnkdrKN2e2Vd1+SrVW4KFj4B9y
-	uYjDYdK5u7I4oPv2Y59CFNRl+28e1Ikb2cMMsJD5YSTgCclmkrrlIn/Aw71CY5FavUcc9z8JYCq2P
-	HyFrltwKBkb+UYbQiay7O0LuZC2OTvluiq4HMiTwF51XBHf9xlfeSGnu2d/mx7H7wRmkcF5Fxytlk
-	oi5HIBlvtQ4kt+vinemA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TA4wUTFIIM6+AB46xHbsEe6D37XQ4D8dBfWRgbnv36s=; b=zPj5fO8y+UALktsR9Uc9zZLnuq
+	8CiV4VA1Jd4yOP/sFYSVDSjEJYEDHBrJ9Vw3Ky0mClFEb6FuQ/Y4u06DD5yeTFsafJ81UFkM8F11a
+	PHQxuUai4ViYZrLVB7h2+LltNdl4Y4mF/GNF3OLeP8d5WXShMencEViagtOO57StidosOLi+T0GQa
+	gcMrm4Mpas+tNG4BTIkH7z2MqfsmbMw6EjK3f+cjPL0AhtLyTjWRvZ/07C+9W0YCFDYkphX8sydmu
+	Xt69LUleAhO2CmgraddRq8vuQrvXYAzZ+7yGMhEuFrUeSLYdmFRwEcQbFyhIoyZ6vYzAQL9Kfr5VG
+	xkTGV4Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXqqj-0000000AG4o-0QHN;
-	Fri, 12 Jun 2026 01:38:21 +0000
-Received: from mail-northcentralusazon11023109.outbound.protection.outlook.com ([40.107.201.109] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wXqQc-0000000AF6g-2Rwl;
+	Fri, 12 Jun 2026 01:11:22 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXqqg-0000000AG3s-2xNQ
+	id 1wXqQZ-0000000AF68-2B2U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 01:38:20 +0000
+	Fri, 12 Jun 2026 01:11:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sY1x5ZyEzKZ7ak8X5A8+fYlva8Mz+dBtMzpYaH46unVYJCrx8DL3dGzPe76RBOvT45gntXayvYBK63yBHwAPKf063BhhF/EKTVBw2pusWm4TvQA3uO8rrgYCiDTz9lflrndfa1HGwxIcYNy/Xt0KmauhMCEvljm/HgJyKZvOv1hvjZnCNbA2i9vAk7JVJ/WB27NbtepQ+fPokOxYUe7nNuJHpUj1Q1sR2qJHN6BkFpSLkhrHDiPlmRSU/zwdeKkGP9iD1vAE30JRi5eYF5Bjyc/tUR6iJkiF0KtPA4AGnufwDF5gSvIunvmsmJseeDzcQ1PrqSyDrzFY7cGNf9OHgw==
+ b=Svlyw2QqVvf1iHYWGSWXR9l7/G/vwv0HmkSKqoTA2aim7ZoPsmK276QMDXXgP/xCCKBLsMWtsY193986KhSAQetf7qM35vDlKm17449b7chpzwzqWW5QYvrEu8TDfg4lkO9qQzg1q69wLOmh2XdAykjBJdsWGKL9kIVV2QmtC1nLXjTw1lB92kVPc1ShJVBud8J5o7nrEfKV3aEwMMA9zZIei8vDKCN6y+XISOa5RIvp8bAtjIijNypNwtGcqAb+JUl7eQOh6RsntSU78bagfUELD9qUlOQ3k7Z5IBKoDcwGGGJhzbFiq5v1mv4hgdwYcVUzPO77B4G4gdPsrOwBxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cVdKBnOcxJyOU9ghZ9neO31ST14zAyF4JJ3CLzvFiKM=;
- b=REBX3mDFI3CYWZs3ApjV+hy2r2bYcBmpfOZ3bdIjyAV1WQTuVaLp+ok0Ft1RTQ9zNHgSXFHdIcKIZ76BUq4wGKgvIU1C2UAq4fpdQXNadJKXJdCO1P/GKs5NlbPBLHBtVrEIzogz2sJDe5qUg2mDgc+W5k6CrjD9bMVxMSYREumbp/FyRGDlFWE1j18ZQtN5mP8a5PGSQtWmsPuB4dyNdmGYnWxGkFMOWOADztl/Y+ArxdrCHA3o8L4UkL5PkJ0zWBOp01dzih54/8uRnrM3CPKRyS+ZfT36cCpbpZ9yQxdg8l7WrEomQeiAze704f9QqPnAF8iaPzayDMBQM675TA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 64.62.143.114) smtp.rcpttodomain=amd.com smtp.mailfrom=axiado.com; dmarc=none
- action=none header.from=axiado.com; dkim=none (message not signed); arc=none
- (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
+ bh=TA4wUTFIIM6+AB46xHbsEe6D37XQ4D8dBfWRgbnv36s=;
+ b=kqESlG6CmnjaNahQ0l67J0y1Ikos7e9Qh4+1u3rFjXi/nGz+6syhqUEPfjXAQXnFbnfUUNTNwn8Pi/zKhv6pxn0dQyPkdGY6LwyyVcIRv+s4Ru0nzgvm60Yq/JwC1Q8UxTmWOkTmODH5RHzK535ZvwhfOi8jzVErZVvJeR+S0hIirthPfS4fgMaCok98xyH16U8fDt9EepQsjXpKEIwlng+c/znI+Z442vIxfKnn5ugoxc1BmBAiDe+wtYSWwLsbrf0jQ1ADXcnnoHycM7sAcu+M1khxMtPPnvW+2BQ6yrEYeXwzCmhdvRfzCMmLvanXHWyTgJ/KwA6LnAbETd0rPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cVdKBnOcxJyOU9ghZ9neO31ST14zAyF4JJ3CLzvFiKM=;
- b=PGRpYbNr28rxpSiXmwa+PryPi6wQzzC1lq88p5VHVy0UUvN/H/YNPIwkC2y38jkrfbV1QwjMRES1Jt2QRTZir3Dxl/MxjR8OX/BiNdm0f2x4ciBNXtIbmaawGs/jkclQcyTol9f7ihjHT67x6ibKZNAtmfq/4R3s1LjZYBQCQPDP3ytl0j5utDbHELonPqcj+6yHiCfVkCFRizyhuOZ7AAoO4yCuRakH66CxU/l867fSSvtYMEwimKJ2qaSVjklAsUghUfw1LEazt2WI8EETUbqnz2e0hnb5ZVfgFbEjcS0/lO1C8lgJkf4p/kub8F/u+AxvYN6EIluhxD0O2k8A5w==
-Received: from DM6PR08CA0047.namprd08.prod.outlook.com (2603:10b6:5:1e0::21)
- by SN7PR18MB3967.namprd18.prod.outlook.com (2603:10b6:806:107::24) with
+ bh=TA4wUTFIIM6+AB46xHbsEe6D37XQ4D8dBfWRgbnv36s=;
+ b=tH+l1E54Bvnx8ViEX0iKNFJd8yHWjYoOjHzPKRbAsjqIWxSb5Me3i/FHbg8j4dvgnxdJDOL6u7oRpW82doIyv5pRFws6SD7pLgFuUnPAJKKW3pigimwxR5HMYeUnGOG6/RpDIF6YaTLdZRtZMEtW2plPbAGrQ1g4ul7FxEBoPlINz0aryiLHDF7a506zqn/yIbH2mr7U8BGTRJli7gkU3ZH+ftquVIGPUF/0k5aTbK9LtfE26EcTVqW67+e8IXLRCjXd47nX5UO0JqoMTccTfoyaAHzF8HGmyg9gwFN6pvtaS6jkV4jjxDpuWYVvT7aw4xK75whxwtxkogq5qJXntg==
+Received: from BL1PR13CA0415.namprd13.prod.outlook.com (2603:10b6:208:2c2::30)
+ by CY5PR12MB6179.namprd12.prod.outlook.com (2603:10b6:930:24::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Fri, 12 Jun
- 2026 01:38:11 +0000
-Received: from CY4PEPF0000E9D6.namprd05.prod.outlook.com
- (2603:10b6:5:1e0:cafe::16) by DM6PR08CA0047.outlook.office365.com
- (2603:10b6:5:1e0::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.14 via Frontend Transport; Fri,
- 12 Jun 2026 01:38:10 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
- client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
-Received: from smtp.corp.axiado.com (64.62.143.114) by
- CY4PEPF0000E9D6.mail.protection.outlook.com (10.167.241.69) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.7
- via Frontend Transport; Fri, 12 Jun 2026 01:38:10 +0000
-Received: from [127.0.0.1] (unknown [10.4.1.181])
-	by smtp.corp.axiado.com (Postfix) with ESMTPS id D24814186B51;
-	Thu, 11 Jun 2026 18:35:35 -0700 (PDT)
-From: Swark Yang <syang@axiado.com>
-Subject: [PATCH RESEND v2 0/2] i2c: cadence: Add support for Axiado AX3000
-Date: Thu, 11 Jun 2026 18:37:28 -0700
-Message-Id: <20260611-axiado-ax3000-cadence-i2c-support-v2-0-cfdad0534afa@axiado.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Fri, 12 Jun
+ 2026 01:11:10 +0000
+Received: from BN2PEPF000055E1.namprd21.prod.outlook.com
+ (2603:10b6:208:2c2:cafe::b) by BL1PR13CA0415.outlook.office365.com
+ (2603:10b6:208:2c2::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.12 via Frontend Transport; Fri,
+ 12 Jun 2026 01:11:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF000055E1.mail.protection.outlook.com (10.167.245.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.1 via Frontend Transport; Fri, 12 Jun 2026 01:11:09 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 11 Jun
+ 2026 18:10:54 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 11 Jun
+ 2026 18:10:53 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 11 Jun 2026 18:10:52 -0700
+Date: Thu, 11 Jun 2026 18:10:51 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Shameer Kolothum <skolothumtho@nvidia.com>
+CC: <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <jgg@ziepe.ca>, <joro@8bytes.org>,
+	<will@kernel.org>, <robin.murphy@arm.com>, <nathanc@nvidia.com>,
+	<mochs@nvidia.com>
+Subject: Re: [PATCH v2 2/2] iommu/tegra241-cmdqv: Fix CMD_SYNC use-after-free
+ on teardown
+Message-ID: <aitcm2qzKGt1czEy@nvidia.com>
+References: <20260611084205.686559-1-skolothumtho@nvidia.com>
+ <20260611084205.686559-3-skolothumtho@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANhiK2oC/42Nuw6CMBSGX4Wc2ZrTAjY6OcjqoKNh6OUgHaSkR
- YIhvLtNfQGnP99/Lt8KkYKjCKdihUCzi84PCcSuANOr4UnM2cQgUByQc87U4pT1KUpEZEZZGkx
- aEobF9zj6MLG6JMO51BplBenPGKhzS3Y84Nbcm+sF2tT3Lk4+fLJ65nmaLTVWf1hmzpAdJVnRW
- YNa6vPvZm/8C9pt275w6SEh2wAAAA==
-X-Change-ID: 20260111-axiado-ax3000-cadence-i2c-support-53ec117bb074
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- openbmc@lists.ozlabs.org, Swark Yang <syang@axiado.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2194; i=syang@axiado.com;
- h=from:subject:message-id; bh=UyaRAQHRfmV9Z7uqh96J0m7ie9XoNQbFHtiQmWF92vI=;
- b=owGbwMvMwCHWlWK8+EozbyzjabUkhiztpM9yUtOTnFKKGzcmX9BavLqt+2n4RrvagOq11/p3W
- E6PrizpKGVhEONgkBVTZPmq8y3/ZK72vc69K0th5rAygQxh4OIUgInsPsjIcFaxd+erDP8Hs3/y
- 2IpM2WdgI/Dgbeh791+h7wxlW6UsVjMyTDKZZsO3+1sA84+wKR8EY/8xnEgIby1pUarkmx0bYLa
- OCwA=
-X-Developer-Key: i=syang@axiado.com; a=openpgp;
- fpr=F52CF66FC96D2BDE89BDA9758A6433A3D4830D5D
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260611084205.686559-3-skolothumtho@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D6:EE_|SN7PR18MB3967:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70029115-4439-4224-9c21-08dec82342b8
+X-MS-TrafficTypeDiagnostic: BN2PEPF000055E1:EE_|CY5PR12MB6179:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7b14315-8e6a-478a-3e53-08dec81f7d0e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|7416014|56012099006|3023799007|6133799003|18002099003;
-X-Microsoft-Antispam-Message-Info: 09IPJY+jLztvyTYE6THvGx/9TBOE7xD2IyyyrKyZSKz12Xl3vO3z9vIityQF0fL/7J6pQvdYVH773f5xeCJkwJXiE9gQZVV6DFziy4TPTYE+PEMcV9zAdyX+I2tt3Dgs9M0Fg4rgbl0pSnRgYJlYnc3XBcJhmt6gJ1/GmxXvmo2fkNF+1NYWdPgxVSx/t97dDTlfMz+yvwGGlKz6PLwnPtWi54JSUMmmlxhUvTuJ+Ic73xqkzjfrMiCKvczDkHmKjYQ16PMJrYDP5WYg7rgB1+2IqNqJ7LnKkecCZf9ifrE+ogCdkQ5JLWZdvbGpfVgYK/g0IcWbAU/v/A6y3NL3aqQM3jjvcZL5Ja+YHQpAdyiJ5zRnhHMuRXZK0aQiSItyem249J0jwl9DSTzzrkx9eVl1ftC/zGjczNJ7HE29xmpLjumdNGA4oVOU5YvIldKntncCkAQMwtUg9FysUuiD8Zp9DtpmGpgfaoUc7l+gVG29vPjnpgqOxOUzeT1VvXFh7MohMJ3A2GkKowZc9Alin/e+jXMDAD1hIrj3sh+lGPErgwptD1nH6sU41+yfQeYb02P3ePUwZjcfemoN6/eLnJf4tDaYRZNp4K98AeJIuV+qIXjNFyiYdcbbEfO8JF6Df6cJXVquUEeXCYVJj+4ddEhvMghDJqFUFRff2fOYyIhCeFFeu9ZvKYzul9fxCYRCY4S3JG7SOdvVFJLqdKlhYmNrdBJbS4+8uY1a9nJ6Vls=
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(7416014)(56012099006)(3023799007)(6133799003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|82310400026|1800799024|56012099006|11063799006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: OV780x1LeOHHXugfxCb3toPX3g/CfIDaB4K61NY/vjKZ3zO8SAB05tmi2y53NCYPtj6iSQIDO2q7Clyo45cdr8bcUeXpVRPmlESjFd5nYt7iBq5wrOfVAP3qIaYYL0+IJKa8zLbvWHTQlpA38pY/rVMmlFNVdMzRHO8Vml8v7xukyXrbiYIdcszra8PohgE9WL8t2QTWCtW34nxbwDtCSwBIIKy23GVVrUTIFn7dsIY2tshbOhHGsvH54dn3DaU5I9sDHPRjDUtZQymS3OY8vyx8tAATbBPIOEPmhzYu/tfW2izUBRaOzDBXSim5GnMk7D83fZFxJuv/E1shMBaQhyk5cj38/GofyrEYzcnxq41OL0IjFxHIA4CUQMEhitJxGI4avmgRtb3xY7fjf62XWAodSLCMattl73/xyhj9rAJpgHQaf0yd61qkLJLe0Ul3oiWTYCac8yoQqljbiALNpp4eQI3JiZXEKMQif2ixNDHVfZeTS5//b42NJ+hZg87ySMhgL/Li4CxTR4TpUi3P28bl/xIhmP3sqYFradYe/EGeQC6PzcNMfN5IWLbnWsVe0+enJVFluXi39MRbSCvcsHjboMKYmXHHXPPHlYgftBiwZRl2EB41M3/9qAs2S9cvO5yq+oBiEBziDlwwFhR97RvaJiybaR7sLbK20zcvOPovhpB0Dox1YsQX/E6lASbcgIhVJd+G+dsfU9OZoUPFXG64K6EaoGsNqZxLI0RfAPY=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(82310400026)(1800799024)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /2UOhvoBNQMdupPnJIpN0mjp3QL3K6Hrsywoj2azA/0O+6q9oNfEHKAaDzGfw4jYh+XXQsQirPE8lubNQrMDx+ATj/KWF+OY4wjSRQ8KZTXc+7LoZVr7ggnFd0ThqW1NIE6OqzB8R65QoJET+Z2rKsI4smPXau5+Z4QMjbS3nzcXB++5aeLsHzxtYu7P8sGto7GPgo8+XG0srKZLKhEx6+ht8apHxOayHDE/peBImpQ0Ar5Vh95Np9PDEUA8lV98iICTeFNWzSqK6w1lzb0GX57qgFqZwlF7USywBgswKYlPh5P5lmkOUSqMI8FuWDJqWT0/A0CYynSSVaaoRZc5NY+jmGqdTsvP3ExzNoG5u+2AvTKG3ptZrUIDJSeJoK9BDFWs2Vswcxad+NbwHBSo+zJy1/jQblkJcxgQ9JSILtJBqB2Gh7M3o6zZ853C2X0M
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 01:38:10.1058
+X-MS-Exchange-AntiSpam-MessageData-0: vSWqqLEys1YKWENSVQyN/DAHDVWuo6vh6vQV45c91zbfzOJTlYfymvMzjGLVARsweL7WsI1049qmjKcSbt2hPf4+I5yu2O6o0mb1kghYT44rZBETdxSPwbYkBNbnlYifxEtBUTxbhnjW5bcnpJeXfXBwR2yYAvUFpovgVPIm9Vddgy/pB2QYnp96q9/bOHTo1zto7XitmTRZzJus6z7T13gz4bz/uROypVgAwX4EvaEDy0A48DSfG2hbTOA+1s2Mh8vWAZVCFmBKpZOsYPnKmaFO23r/0qUGhgDej3+JZxS7voH8PIDBIG6H+Af9iXGFe+BRj5gfc8bpJJLFBVmn0xnficjGjUE5UszNNnG8tI0NwlDh69DnpFI6Q5qbUhHNkRkbyfzwJPYMMIWvBShn5/6eXGrmU8KG4OL18CzI9qoysp8Y1GPTMO5Ur3HJdd+L
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 01:11:09.8964
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70029115-4439-4224-9c21-08dec82342b8
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7b14315-8e6a-478a-3e53-08dec81f7d0e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055E1.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR18MB3967
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_183818_762672_C6522FA2 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20260611_181119_572721_13750D81 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,61 +130,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Cadence I2C controller
-integrated into the Axiado AX3000 SoC and enables SMBus Quick
-command functionality.
+On Thu, Jun 11, 2026 at 09:42:05AM +0100, Shameer Kolothum wrote:
+> arm_smmu_impl_remove() is registered as a devres action in
+> arm_smmu_impl_probe(), before arm_smmu_init_queues() allocates
+> smmu->cmdq.q.base. On a devres unwind, whether a failed probe or an
+> unbind, the queue is freed first and arm_smmu_impl_remove() then runs
+> tegra241_cmdqv_remove_vintf(), whose VINTF deinit issues a CMD_SYNC on
+> the freed memory.
+> 
+> Observed during testing with a QEMU hack that makes the VCMDQ fail to
+> enable, so the impl reset fails and probe aborts into the devres unwind:
+> 
+>  platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: failed to enable, STATUS=0x00000000
+>  platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: GERRORN=0x0, GERROR=0x4, CONS=0x0
+>  platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: uncleared error detected, resetting
+>  arm-smmu-v3 arm-smmu-v3.0.auto: failed to reset impl
+>  arm-smmu-v3 arm-smmu-v3.0.auto: probe with driver arm-smmu-v3 failed with error -110
+>  Unable to handle kernel paging request at virtual address ffff8000891e0098
+>  ...
+>  Internal error: Oops: 0000000096000047 [#1] SMP
+>  ...
+>  Call trace:
+>   arm_smmu_cmdq_issue_cmdlist+0x320/0x6fc (P)
+>   tegra241_vcmdq_hw_deinit+0x98/0x168
+>   tegra241_vintf_hw_deinit+0x5c/0x1b0
+>   tegra241_cmdqv_remove_vintf+0x34/0xec
+>   tegra241_cmdqv_remove+0x40/0x9c
+>   arm_smmu_impl_remove+0x20/0x30
+>   devm_action_release+0x14/0x20
+>   devres_release_all+0xa8/0x110
+>   device_unbind_cleanup+0x18/0x84
+>   really_probe+0x1f0/0x29c
+> 
+> Drop the VINTF deinit from tegra241_cmdqv_remove_vintf() so the unwind no
+> longer touches the freed queue. Quiesce the VINTFs earlier instead. Add a
+> device_disable() impl op and run it from arm_smmu_disable_action() while
+> the CMDQ is still up. That handles a live unbind. A failed reset is already
+> handled because tegra241_vintf_hw_init() deinits the VINTF on its own error
+> path. tegra241_cmdqv_remove_vintf() is also used by the iommufd viommu
+> destroy path, so quiesce there too.
+> 
+> Fixes: 4dc0d12474f9 ("iommu/tegra241-cmdqv: Add user-space use support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Shameer Kolothum <skolothumtho@nvidia.com>
 
-The Axiado AX3000 utilizes the Cadence I2C IP core (version r1p14).
-While it is largely compatible with the existing i2c-cadence
-driver logic, the AX3000 hardware specifically supports SMBus Quick
-commands. This feature is currently disabled by default in the
-i2c-cadence driver (masked out from I2C_FUNC_SMBUS_EMUL).
-
-To enable this functionality, this series introduces a new
-platform-specific quirk (CDNS_I2C_QUIRK_SMBUS_QUICK) and uses driver
-match data for the "axiado,ax3000-i2c" compatible string. This allows
-tools like 'i2cdetect' to properly scan the bus using quick write
-commands.
-
-The DT binding update follows the recommended fallback structure,
-referencing the 'cdns,i2c-r1p14' fallback to ensure compatibility with
-older kernels while allowing the new quirk to be enabled on AX3000.
-
-Changes in RESEND:
-- Resending as the original submission seems to have slipped through the cracks.
-- No code changes since the original submission.
-- Collected Conor Dooley's Acked-by for Patch 1.
-
-Patch breakdown:
-
-Patch 1: dt-bindings: i2c: cadence: Add Axiado AX3000
-Patch 2: i2c: cadence: Add support for Axiado AX3000
-
-These patches are expected to go via the I2C subsystem tree.
-
-Feedback is welcome.
-
-Signed-off-by: Swark Yang <syang@axiado.com>
----
-Changes in v2:
-- EDITME: describe what is new in this series revision.
-- EDITME: use bulletpoints and terse descriptions.
-- Link to v1: https://lore.kernel.org/r/20260504-axiado-ax3000-cadence-i2c-support-v1-0-97ed2fdc0b7b@axiado.com
-
----
-Swark Yang (2):
-      dt-bindings: i2c: cadence: Add Axiado AX3000
-      i2c: cadence: Add support for Axiado AX3000
-
- Documentation/devicetree/bindings/i2c/cdns,i2c-r1p10.yaml | 10 +++++++---
- drivers/i2c/busses/i2c-cadence.c                          | 10 ++++++++++
- 2 files changed, 17 insertions(+), 3 deletions(-)
----
-base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
-change-id: 20260111-axiado-ax3000-cadence-i2c-support-53ec117bb074
-
-Best regards,
--- 
-Swark Yang <syang@axiado.com>
-
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 
