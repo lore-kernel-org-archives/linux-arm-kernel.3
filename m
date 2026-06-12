@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33302CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 12:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91D3CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 12:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7q2XrxfHI2F4jC37A/2Ev7F1/EsKe9OT+qstuGZnrow=; b=NequVfzbNMMT+DkpkB7qmj72TG
-	q0cgLu8DQAdjZKLDUmrkoMHzv4OMAN1ZaU9vNeV5wo7KorI17Er/f5ncbY1B61l5n+92TU8gFZtfm
-	DRkhd4iBUj4qlo8ApdCTFGDcE12dsMGjxpem8H896bPFUCNN+U7IvkxBnR2ba/dTMCfZZh2eQn9Tw
-	np8jZxp93tB1FcDffbf5rLLPmqRB9vdLE97HaPjn/Wu6QlyaZ54KsTHmiN3g2YrpsHJ7MdqiJ/fT6
-	fCdpP9eHkfZCzY97T8cOR7w3JxzOSYvssdWC/Vw3lFqEJVN4kfer+liSY+A6opLJKyyDHh2C4Ro1o
-	YLbUuTwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MLaoj618ugGUnLY1sDpNI/JIio/w6trq+CPhGyjXJsQ=; b=hwHN3d7833liP4ErVAEgvfFzsG
+	+IXMJvHzysdaUSLUvg1KByWMmWk+BboeSQPu/Pf0YDMM3hv8A6pTFvws/hKNBPsWOdnQUCrri7B6W
+	F8abyCFpzPmWgPrF1W80imdOzpXw48QLHhYpvFVyeP+M/HHYXMaSyg/vHDqhBT2Pk0aPW7mArERaR
+	YaTsxnVccze3sqgdGYyxMflSut9rOIh6HYyQninvusd55ZOy9+4i9FQYrZVdDvlV2qMJBSzj4PQnV
+	vg+i0Phg1XtPHaTO3cHHOjuD6LPpL7ozotIS07zGBI/pQNEva5PElm/pDvjza3wjLR0ypkvedasan
+	XdyyceUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY0v7-0000000Arh5-3R4v;
-	Fri, 12 Jun 2026 12:23:33 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
+	id 1wY18r-0000000AsGK-3CGz;
+	Fri, 12 Jun 2026 12:37:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY0v4-0000000ArgG-0E6c;
-	Fri, 12 Jun 2026 12:23:32 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EB711A1D1C;
-	Fri, 12 Jun 2026 14:23:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1781266999; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=7q2XrxfHI2F4jC37A/2Ev7F1/EsKe9OT+qstuGZnrow=;
-	b=4whu0HbtqP7CAZkbptcPO+iuHD6llV2oz5jiUJPMJGp3yLDVWB3SFMfvRWkesTLCuuzMNG
-	/CVciNVYLYBlcA4IsEJHwo3TAYqZyC2jwc8NWQjn/TrJZLrj460vpyaodY7yyKJjXGWb1Y
-	wx18lJkaNft7PAJM/X8hAlBc/mq5KG0YSSAzuKfYYCShUIDzeO/izD/ZX5dtnHkQU6mELm
-	LijkAr2M+J9og+CAZRhFC0tf9Gt2fMyvlUbqIISqpnQIJawQLfORnKXKT+sYPAQfJpQkLL
-	cxJkoyxrz0/9fabgm3gpCDtix3jhMNF08SRYGr71e+aVt5DCvEMAFRK95/Kc5Q==
+	id 1wY18p-0000000AsFh-12qt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 12:37:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 439AB42E3C;
+	Fri, 12 Jun 2026 12:37:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6CEA1F00A3D;
+	Fri, 12 Jun 2026 12:37:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781267862;
+	bh=MLaoj618ugGUnLY1sDpNI/JIio/w6trq+CPhGyjXJsQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OhPFpNLCMu6p3UVIv+GrZxDel5NM2zrkmRC32ICYU5eowxNFB8RcZVGwyCSZRyLZM
+	 /uqWj9kwoBQEiVxC8Ip0zG/nN/arIoRZEw/bEpjw89sgxT8xBoKPhlr/jnYTKxsuq/
+	 lKeNMQbw56u7gyR+vkDEA00yjnEBCgpYTc5A+abyyiw64m8i596EIWBI2u2dVQyaV2
+	 cbWziNSzRsgaXBTOFTxv5HXBpT7DBAy7NCjsV3EiDlBmX/Q/04E5sjZvvZs5kasdBa
+	 bSk/H2PMIT26qFCFyW6ySdgODFgJRVVFjRBO5M81vhnJKz8KLVQilFGSUH7gO7NIeM
+	 +Lv0MC4rja6lQ==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id D74E81AC58C5; Fri, 12 Jun 2026 13:37:35 +0100 (BST)
+Date: Fri, 12 Jun 2026 13:37:35 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Sangyun Kim <sangyun.kim@snu.ac.kr>,
+	Kyungwook Boo <bookyungwook@gmail.com>, stable@vger.kernel.org,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Subject: Re: [PATCH] spi: uniphier: Fix completion initialization order
+ before devm_request_irq()
+Message-ID: <aiv9j5CInFE3twZX@sirena.co.uk>
+References: <20260611113137.139673-1-hayashi.kunihiko@socionext.com>
+ <airBmzYhnxuK_xdh@sirena.co.uk>
+ <cd454dac-868d-43b9-9b50-9ba9f3f370a9@socionext.com>
 MIME-Version: 1.0
-Date: Fri, 12 Jun 2026 14:23:14 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: netdev@vger.kernel.org, Theo Lebrun <theo.lebrun@bootlin.com>, Nicolas
- Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, Lukasz Raczylo <lukasz@raczylo.com>,
- Steffen Jaeckel <sjaeckel@suse.de>
-Subject: Re: [PATCH] net: macb: add TX stall timeout callback to recover from
- lost TSTART write
-In-Reply-To: <771b8faeaee1fce4a84a5ba2661d60b35a65a6d5.1781253818.git.andrea.porta@suse.com>
-References: <771b8faeaee1fce4a84a5ba2661d60b35a65a6d5.1781253818.git.andrea.porta@suse.com>
-Message-ID: <dbc25b24865a1ad92555bc826bef4267@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_052330_883928_B7BA8063 
-X-CRM114-Status: GOOD (  17.20  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y/POWcu9qVi0j0d+"
+Content-Disposition: inline
+In-Reply-To: <cd454dac-868d-43b9-9b50-9ba9f3f370a9@socionext.com>
+X-Cookie: Nice guys get sick.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,74 +77,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea
 
-On 12.6.2026 11:01, Andrea della Porta wrote:
-> From: Lukasz Raczylo <lukasz@raczylo.com>
-> 
-> The MACB found in the Raspberry Pi RP1 suffers from sporadic stalls on
-> the TX queue.
-> While the exact root cause is not yet fully understood, it is likely
-> related to a hardware issue where a TSTART write to the NCR register
-> is missed, preventing the transmission from being kicked off.
-> 
-> Implement a timeout callback to handle TX queue stalls, triggering the
-> existing restart mechanism to recover.
-> 
-> Link: 
-> https://lore.kernel.org/all/20260514215459.36109-1-lukasz@raczylo.com/
-> Fixes: dc110d1b23564 ("net: cadence: macb: Add support for Raspberry Pi 
-> RP1 ethernet controller")
-> Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
-> Co-developed-by: Steffen Jaeckel <sjaeckel@suse.de>
-> Signed-off-by: Steffen Jaeckel <sjaeckel@suse.de>
-> Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
->  drivers/net/ethernet/cadence/macb_main.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c 
-> b/drivers/net/ethernet/cadence/macb_main.c
-> index a12aa21244e83..615da65d5d68d 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -4522,6 +4522,16 @@ static int macb_setup_tc(struct net_device *dev, 
-> enum tc_setup_type type,
->  	}
->  }
-> 
-> +static void macb_tx_timeout(struct net_device *dev, unsigned int q)
-> +{
-> +	struct macb *bp = netdev_priv(dev);
-> +
-> +	if (net_ratelimit())
+--y/POWcu9qVi0j0d+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Do we need the net_ratelimit() check (and message) here? AFAIU the 
-watchdog core already prints a message for every timeout.
+On Fri, Jun 12, 2026 at 05:17:49PM +0900, Kunihiko Hayashi wrote:
+> On 2026/06/11 23:09, Mark Brown wrote:
 
-> +		netdev_err(dev, "TX stall detected, re-kicking TSTART\n");
-> +	dev->stats.tx_errors++;
-> +	macb_tx_restart(&bp->queues[q]);
-> +}
-> +
->  static const struct net_device_ops macb_netdev_ops = {
->  	.ndo_open		= macb_open,
->  	.ndo_stop		= macb_close,
-> @@ -4540,6 +4550,7 @@ static const struct net_device_ops 
-> macb_netdev_ops = {
->  	.ndo_hwtstamp_set	= macb_hwtstamp_set,
->  	.ndo_hwtstamp_get	= macb_hwtstamp_get,
->  	.ndo_setup_tc		= macb_setup_tc,
-> +	.ndo_tx_timeout		= macb_tx_timeout,
+> > This doesn't apply against current code, please check and resend.
 
-The commit message describes it as RP1 specific, but it gets applied to 
-all other variants?
+> That seems a bit strange. I applied this patch to v7.0 and linux-next successfully.
+> Which tree did you apply to and fail?
 
->  };
-> 
->  /* Configure peripheral capabilities according to device tree
+It applies to none of spi/for-7.1, spi/for-7.2 nor spi/for-next.
 
-Thanks
-Nicolai
+--y/POWcu9qVi0j0d+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmor/YoACgkQJNaLcl1U
+h9CSZAf+KZm3kSUqca9u97nHbQlwVjEXYEInZhJlUX0dECsMhLw97D1TU+Cj42+o
+z6NIQNWrzvpywu3pRAlOgVSoxaqiusjIx6gD0jAvdM/OaCAdEKJTEJD2qSfqn9h6
+++pfqfBtoM0Q+0yfEk/eVnaGFqBmk3977DpPNZkp+L8FkeLhQlKCajr+P5IFu1Bl
+ly1uWFl8LSQUw1WJ6TXd/kiC5PMZYAAiewnm3PucfTRIl/21oz80u6KgIF8FO4w/
+U9ryt6a1AMS+G1NiHPyI3QAipxLoolDVSq3Y4Gj01SBD9f7UMdWDeEq1XNT+1UPs
+i0M07bDkqvtIFZyEI4kraBfL5ynkwg==
+=P7CQ
+-----END PGP SIGNATURE-----
+
+--y/POWcu9qVi0j0d+--
 
