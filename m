@@ -4,93 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F104CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3031CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UwTEg4XBjlq2gqrpSaNYbmX8jrkzkowNm264wvHp61I=; b=jbUoJIQ8jjRi1CHpc5iolrdyLz
-	ruQ+VPZvyzuvlL06ma0vw4Z9axPJ6qmDRduCdi8iahqHe7qqFU27Tg6TmYhPsTrfLmEDRnkOucYEY
-	EPaAws8+VqHDb2qRezkXgTj9hc2LcStAdzXYxsJ1h+t1tATn26TNZxtyNzQwZ74dIw6AZH8zdhxd6
-	zpwWoYQhgBYyTfbr7UDI4PK9vmYxfAQPOZfw+CajqmME6gjFzEUd8Pn8OAUQ3/Wbjp7IcrgGBm08f
-	odoJc0HnEH5WF8etJV3M1yAUld0x+wGI0VzLPRs3kW4dMa7QAM5974UIe50YSft5SdB6BIoFRqWKw
-	/8Kw/Zcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j8JizqIbPHlIecuV91nZmZXGP9oW0pqG3tLusttFP/g=; b=37kCBO/evJ3QzFRPtlqC/eqx2i
+	l0JRVqeCGZzZWfo2P0HfGvcKfWP1NNeODornU0NCovmoKiyLDCA5TCaTFRFj03sEsAUSFvgAWAKfx
+	/5isA5ERBNA+ZJsymtqkXlAcIXvmkecGgfGRHYKz7dwS8RlPKFxtTK93STukFMK0H7jv9mOPXVW5N
+	o9jEy6c8enu5lK/Vz7ZoxlYhi4Ty9W8cuhUlcGkFclrLfDU55y0PS8F0KlgJVO3ksCGBdb5YIlA/e
+	4ry3R3PF2UcUV9ZieVEVFXntCGWZgSTMaP0hZUHR1NuKkSsC5z8iHurqkJUTpol9yqHdS/8Kf/Mvy
+	eHZkDNcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7EY-0000000BR46-1dBP;
-	Fri, 12 Jun 2026 19:08:02 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wY7II-0000000BRLe-4BRD;
+	Fri, 12 Jun 2026 19:11:55 +0000
+Received: from mail-centralusazon11010060.outbound.protection.outlook.com ([52.101.61.60] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7EV-0000000BR3k-0SDf
+	id 1wY7IH-0000000BRLI-1O0x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 19:08:00 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-36b9ec98144so1139766a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 12:07:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781291278; x=1781896078; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UwTEg4XBjlq2gqrpSaNYbmX8jrkzkowNm264wvHp61I=;
-        b=Asq+OspsaqpjJdf+5UH+Cs6Xmf1p+mk4WuXThVaw1ASJlSlbrTVvooE1nKzUv03OaV
-         f9Hnn8nKUHhgjmYWhUrmyBWvZFChlZnkDHk13TfvIcafMgLUs7p32ZZBy2s4RK+snwLJ
-         zxYL/sHyqYZUMEGUU3PwD8AX+zkybiFPietaL6Aj87UoBUrQymjShhvzqtq9a6qXL7/A
-         UrmUbVSY5K41FDpo28r85RA4pDhVhSXy57HgW+r+/uaFmEQtJYXPfLf1SUw2nYp8NCYu
-         IJcZoPWCVvbcYDr1sJ5ZW3eAu4/JNiaC/P5PTtUuQpTomIrWwzgZ6x73FyPadakyg1S3
-         fNCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781291278; x=1781896078;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=UwTEg4XBjlq2gqrpSaNYbmX8jrkzkowNm264wvHp61I=;
-        b=G9xdWZbk2uswmAtzBR8aZavXmDQKv20xrsd16Gbvwq6+X1Z/Po9hI6fSzXnMUdp1Z2
-         iiGvFGbPIjErTUJ5TE96sdVw8Hisxjcz5yWXr2kQ0UPqWE2ifjPkNobn2hFP12hB02tL
-         vABLAZ9I/9qnXoTki+GF59THaFTmMuBnL85vi7KI3h5Xwn0uwdwqBXwx230SinHYSfLd
-         LnKL1MjwuXzU8J/RHFWKlqmeFgAcSs++vEuKHo03z+xG9PmA8PEVA1ln5WRqlbnHDVeK
-         vBJi3mBcYMenSRQsydGV2zgUwWUJsUKeL4pMq8uVkynRZ3xd9Y+jv4kFMn2t+osjaoLb
-         v7Ag==
-X-Forwarded-Encrypted: i=1; AFNElJ9Eq7OW5LMtdzawX5hMeD5JSkezqB4M37C7vhl3V+nz93egy+/YnCGAA+G/JIuw8Ph7T4v5Tpcoe/8ZzdssZHjA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPepLLVXA/pNNNFwtbJFkKWwPKlJ4/nkFQ7H4VMiHDVULdOmQU
-	rOr2uqYIIOpewPHojYP+G+2ohJgwxt5yMIY+fGGgDOQMjQbVOegkVND2
-X-Gm-Gg: Acq92OGNL8pLBHVipBfjVnBZLIb8gbQ0tMYgU4ucf77fdNG5TU2VGo0VtXPfUPyHEVx
-	bDUJpCYyAaqCRMJ/extMItZdpXyX1Q+6gON3Ldh9OYXcoJ/o8vpAFe0Blb+zFRKTyfHtjb0hbiL
-	LXXASh0ujMQB3oNEJ1f/c6VV8ihiBk+YxPYe5AYBfKxJt3TSSpJgyN+W7Ha4fztZGEfLuFQHHy6
-	1N4onMJYof2ehzHFqjegNn5iLCldRSSerGDulhrM414CEMtdgT9GIOm5qasTJUvXMXXMk7pcpzg
-	ZsRH4T9EHboa7Y/uorvM6R+QWLtVKHKlOEbubPSrWqkvLmu0hklDeIojhqUYe+q+wHrnAecelDR
-	gYhkoUQfL5CVayK4p2mmHjh94l8xwcl5KJKMqb131iy25P7Mhl1s31rYuS92iPBtv2e0/zhjCEo
-	LAeDY5PL0IwyS+717qFLBYOJyQX0p76kpMEm9InL/WrbfIJFkVBFb0sA==
-X-Received: by 2002:a17:90b:28cd:b0:36a:95c:7613 with SMTP id 98e67ed59e1d1-37a0202ece8mr4596847a91.10.1781291277427;
-        Fri, 12 Jun 2026 12:07:57 -0700 (PDT)
-Received: from LAPTOP-97G9G880.localdomain ([106.206.15.12])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1eba8e9asm2748485a91.2.2026.06.12.12.07.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 12:07:56 -0700 (PDT)
-From: Karthikeyan KS <karthiproffesional@gmail.com>
-To: andrew@codeconstruct.com.au
-Cc: joel@jms.id.au,
-	andrew@aj.id.au,
-	Kees Cook <kees@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	Karthikeyan KS <karthiproffesional@gmail.com>
-Subject: [PATCH v6] soc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read
-Date: Fri, 12 Jun 2026 19:07:43 +0000
-Message-ID: <20260612190744.172638-1-karthiproffesional@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
-References: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
+	Fri, 12 Jun 2026 19:11:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lWkgdHDVRwL72Uya+woVioZpY8nF/yU11VQVa/iGd9q7x379TDneCFnVPrL65ywdNDzfe1IudE5uYfYhknsAAh7/iYqC/xl+3pyxU/KxIfc7c5zot6im1gJVQSOmmmlpgfgxrhu9irjw8OboOIfkMrnTZHCxNGcn3EX0f+GG/wNtSLtc2KfGXPWKupzpsC4vmX8OzvDuXK//0rpuc5yl9pNcIRJvOeUN2EMS3MiA9lCuLwWH9tnZVaxM+A9ieIK6llyQERJGJDL0HnZGVt2gkmQEz3ayHFNnrIXQgX01/pNDrtllgQM9aXtrCPekuk10jhkjtpOpaT8X1C/fIsi/ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j8JizqIbPHlIecuV91nZmZXGP9oW0pqG3tLusttFP/g=;
+ b=dqI+Cb+chRlvu2NMZtveQcfpYmZbUvcdzwAM5ISASyzEGLBkzmNScm+DdsR5h4EIryLmbfRbi9JQ747uP/BzrshjAOUjiG7W15XFi4eD2g+o5dEg2KdSYmvvTZs1SPQxqnEJIgmLangaHeie4qfTO5gnggyBTVlhU++UvQmz0QSDJrXm4zzp9mw0223KaLKRLrsYQH6rB6fsDWfnWqX0q2lA0kCt5IedLf3x/HeVaqw+jG6lnZvXWYOZpZMUDCuh8WMWhsoakEvo6bLD5yQLjB+Q3EJHxc9aDoOCeAd8ISliuKIrBQQndVJXVVI8G1+TqABCdGVkHlPBo2Ru5j7HCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j8JizqIbPHlIecuV91nZmZXGP9oW0pqG3tLusttFP/g=;
+ b=BjFXa9MLKyumQWxIz/dLUaImtr9kycynoarnny0Bua4sBrqEaVq+zjQPYGyalwAs4P+fijYiVZQ8HVOiKjgx7wOkpTOy+fO36mxeD5WUpTtY6qyZcXpD2wczOrGMjPeNyqbZH5S7N2ejXgiD0szepdIl4LAW1yoE7Q3w4PcRMfvWK6p4SZpWCDtjpVsr7OXpkBmE07MiEpRWXIr722xViWQM6qD7ePkEkBJvA0GPYyDXsvyUJLeed1lRM6wf43c1+UiUlYEJZR8UcbrfutERwemTvqc+vM2VRuGNkwUZx/Z/D4X0DoJvRUJyG2+2m4jrTX6UvbRvijonL4tD57XcBA==
+Received: from MN2PR16CA0066.namprd16.prod.outlook.com (2603:10b6:208:234::35)
+ by PH8PR12MB7445.namprd12.prod.outlook.com (2603:10b6:510:217::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Fri, 12 Jun
+ 2026 19:11:38 +0000
+Received: from BL02EPF00021F6F.namprd02.prod.outlook.com
+ (2603:10b6:208:234:cafe::25) by MN2PR16CA0066.outlook.office365.com
+ (2603:10b6:208:234::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.14 via Frontend Transport; Fri,
+ 12 Jun 2026 19:11:38 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ BL02EPF00021F6F.mail.protection.outlook.com (10.167.249.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Fri, 12 Jun 2026 19:11:38 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 12 Jun
+ 2026 12:11:19 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 12 Jun 2026 12:11:13 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 12 Jun 2026 12:11:12 -0700
+Date: Fri, 12 Jun 2026 12:11:10 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>, "Robin
+ Murphy" <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Shuah Khan
+	<shuah@kernel.org>, Pranjal Shrivastava <praan@google.com>, Kees Cook
+	<kees@kernel.org>, Yi Liu <yi.l.liu@intel.com>, Eric Auger
+	<eric.auger@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH v1 4/4] iommu/arm-smmu-v3: Process vIOMMU invalidations
+ in batches
+Message-ID: <aixZzvVWmAFEDQZI@nvidia.com>
+References: <cover.1780521606.git.nicolinc@nvidia.com>
+ <00748c5cbea95a938d032269001a598203b06bbc.1780521606.git.nicolinc@nvidia.com>
+ <20260612135409.GI1962447@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260612135409.GI1962447@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6F:EE_|PH8PR12MB7445:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19e48bcc-a773-4144-6578-08dec8b66df9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|23010399003|18002099003|22082099003|6133799003|5023799004|56012099006|11063799006|4143699003|3023799007;
+X-Microsoft-Antispam-Message-Info: JrxbLH5Dn1Uo8f34umaVZ5yFm4L9bzT9qjhMqGM9ez6MfatFcNrzsTzZWXiZLwet28fqSMjVkr70ArkVrdkupqtkRRkuhTCRIyd+dEIBjM85Y6F8C1E+nt+8HDWP3fiHX+NaqDOfDoqPblPHUD1Q4y8FgY2I0R+DLOu/h6Zw77IqH14M1CCRaEY3RPXthLLgHEWPIf88zgigK7rhsGVoj9OZhTLeoDU/hd+ZYWkJuHkms07mLLxYNI04LJxzSngLhxyxnOND6EZcbxxi7BFd1yoWlwS65NZyj4HMv58/Slmq1QF4NYnlvPqH8qS/XOOvdarUAGcBvA9cygvKtV1xJmuBrJ6jjQnnscCnFQRaQaUxGbwJZtzEBPKV28SOjKpVzusXsgfLbyVI9GeTPmQhyvXm1tRRxmpeCSNTUl+bB0AmtNIluZZZCtCrfum+qyS9s8k3eXUGj+b0SohZQiufHW0YoDZkUZ3ssevHkDHY+NkZixBtHZ+lA6rN3PQa5mQ0VSoOOPNzH2Ft2bdAvNC2RoBWAyPSpreYR8IRVPX9U1Aj4Jp7IJbEYPQ3UnQhXumYo9N6Q7os354ekwHO6hAh1zLoptmY3ObVVLAa7HxvJXyFTs2Z6n+pRLrKFpGHZRCXSXc9gYWlqMFIFbIqhpK8yClDzvO/5TbocXNWROfOQaM4hgubvy4EG3RZJXIpLolG0IdaytcFpO+7Msi5NijkNWHTT9gpf7RQw+gkTa5uk+o=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(23010399003)(18002099003)(22082099003)(6133799003)(5023799004)(56012099006)(11063799006)(4143699003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: tIV9YIc6h4Da6WRZ0WUGbB4Nj/tysvLVpBawvzVhvLF/DlESpCDNclrpLd2b2JaP4St/fTvRMDKtQcsWybMJjq+RrZM4koXkICupsTdRlkfvlb23vCqbPhTi8p7wsKvMo8RMJlmm/R1IBqIni/NN1r8ahOGxLII8zJuTuyy+5pQ8ywLBLhPNP5gRE8Ekr44FVt513An9lGZoxredjjItC81E2b/F2+V1W4U1Daspp6oZpo1NPAJwc4abdyEY/4+ueUJqbb8eOFq1OGh25Y8mx2L5AZOT/6/S67po6F4hvv2yX+AOEo2xcDwANPfMXjah3U+tpuuFdnCTBvwWKl+N1+/Dct9TZohGobn4MrKwA+9LNmX8bYZaWbRfVhFKos3nIMvSqDW5Dm2o4jsUjNCb8ZtXx1ABhcpBd9MQox9jHKu+0CENy0x8gEPoMwXmUwgk
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 19:11:38.5909
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19e48bcc-a773-4144-6578-08dec8b66df9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_120759_175820_B7BA85C7 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20260612_121153_377715_5E87E71B 
+X-CRM114-Status: GOOD (  26.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,157 +134,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-put_fifo_with_discard() acts as both producer and consumer on the kfifo:
-it calls kfifo_skip() (advances out) and kfifo_put() (advances in) from
-the IRQ handler without synchronizing with snoop_file_read(), which also
-consumes via kfifo_to_user(). On SMP systems this concurrent access can
-leave (in - out) larger than the ring buffer, so __kfifo_to_user()'s clamp
-to (in - out) is ineffective and kfifo_copy_to_user() can attempt a
-copy_to_user() past the kmalloc-2k backing store:
+On Fri, Jun 12, 2026 at 10:54:09AM -0300, Jason Gunthorpe wrote:
+> On Wed, Jun 03, 2026 at 02:26:56PM -0700, Nicolin Chen wrote:
+> > +int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
+> > +			       struct iommu_user_data_array *array)
+> > +{
+> > +	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
+> > +	u32 issued = 0;
+> > +	int ret = 0;
+> > +
+> > +	if (array->type != IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3) {
+> > +		array->entry_num = 0;
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	while (issued != array->entry_num) {
+> > +		/* Process and issue the command(s) in batch */
+> > +		ret = arm_vsmmu_cache_invalidate_batch(vsmmu, array, &issued);
+> > +		if (ret)
+> > +			break;
+> > +	}
+> > +
+> > +	array->entry_num = issued;
+> >  	return ret;
+> 
+> I think every driver will have this same problem, how about lifting
+> this loop to the core code?
 
-  usercopy: Kernel memory exposure attempt detected from SLUB object
-  'kmalloc-2k' (offset 0, size 2049)!
-  kernel BUG at mm/usercopy.c!
-  Call trace:
-   usercopy_abort
-   __check_heap_object
-   __check_object_size
-   kfifo_copy_to_user
-   __kfifo_to_user
-   snoop_file_read
-   vfs_read
+Sure. I think that makes things a bit cleaner. I'll try that. Then,
+this would become another iommufd series.
 
-Serialize kfifo access with a per-channel spinlock shared between the
-IRQ handler (producer) and the file reader (consumer).  Annotate @fifo
-with __guarded_by(&lock) and opt the driver into context analysis so the
-compiler enforces that all fifo access holds the lock.
+> Also not sure I like the validation flow, I think it will be easier to
+> understand for everything if either num is 0 and nothing was done with
+> an error code
+> 
+> Or num is non zero and no error code.
+> 
+> Like it doesn't make sense to fail immediately if zero pad is nonzero
+> in iommu_copy_struct_from_full_user_array() but then to try to
+> partially continue if arm_vsmmu_convert_user_cmd() finds illegal data
+> in the very same buffer. Be consistent, validate the user buffer, if
+> it is not valid fail immeidately. Then execute a fully valid user buffer.
 
-Fixes: 3772e5da4454 ("drivers/misc: Aspeed LPC snoop output using misc chardev")
-Signed-off-by: Karthikeyan KS <karthiproffesional@gmail.com>
----
- drivers/soc/aspeed/Makefile           |  1 +
- drivers/soc/aspeed/aspeed-lpc-snoop.c | 38 ++++++++++++++++++---------
- 2 files changed, 27 insertions(+), 12 deletions(-)
+I don't think fully validating the user buffer is correct..
 
-Andrew,
+VMM would have to know which command failed, to flag it in the CONS
+register, indicating: a) commands prior to the CONS are issued, and
+b) command pointed by the CONS is illegal.
 
-Thanks for the review.
+Then, guest kernel reads the CONS register to pinpoint this illegal
+command and swap it with a CMD_SYNC (__arm_smmu_cmdq_skip_err).
 
-Changes since v5:
-- Annotate @fifo with __guarded_by(&lock) instead of a comment
-- Move kfifo_initialized() check inside scoped_guard(spinlock, &chan->lock)
-  in put_fifo_with_discard()
-- Replace spin_lock_init() with scoped_guard(spinlock_init, &channel->lock)
-  around kfifo_alloc() in aspeed_lpc_enable_snoop()
-- Enable CONTEXT_ANALYSIS for this driver in drivers/soc/aspeed/Makefile
+E.g., if the 16th command in a 64-command array is illegal, kernel
+should issue the first 15 commands, returns -EIO; then, VMM should
+flag illegal at CONS pointing to the 16th command.
 
-Dropped Cc: stable — the fix uses cleanup.h/context-analysis idioms absent
-from LTS; I'll send adapted backports to stable@ once this is in mainline.
+The design in this patch is implemented in this way. And arguably,
+I think the nonzero-padding case is VMM violating the ABI, in which
+case the return code would be different than -EIO. And VMM should
+fix itself instead of flagging illegal in the CONS register.
 
-Tested on ast2600-evb (QEMU): clang-22 with CONFIG_WARN_CONTEXT_ANALYSIS=y
-shows no context-analysis warnings; PROVE_LOCKING, DEBUG_ATOMIC_SLEEP and
-HARDENED_USERCOPY show no splats. Overflow reproduced via a fault-injection
-module forcing the post-race (in - out) state (QEMU doesn't model the ARM
-ordering that triggers it in the field): unpatched panics, patched returns
-cleanly.
+Do you agree?
 
-Thanks,
-Karthikeyan
-
-diff --git a/drivers/soc/aspeed/Makefile b/drivers/soc/aspeed/Makefile
-index b35d74592964..b5188dcde37a 100644
---- a/drivers/soc/aspeed/Makefile
-+++ b/drivers/soc/aspeed/Makefile
-@@ -4,3 +4,4 @@ obj-$(CONFIG_ASPEED_LPC_SNOOP)		+= aspeed-lpc-snoop.o
- obj-$(CONFIG_ASPEED_UART_ROUTING)	+= aspeed-uart-routing.o
- obj-$(CONFIG_ASPEED_P2A_CTRL)		+= aspeed-p2a-ctrl.o
- obj-$(CONFIG_ASPEED_SOCINFO)		+= aspeed-socinfo.o
-+CONTEXT_ANALYSIS_aspeed-lpc-snoop.o	:= y
-diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-index b03310c0830d..7fa1a345acac 100644
---- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-+++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-@@ -11,6 +11,7 @@
-  */
- 
- #include <linux/bitops.h>
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/dev_printk.h>
- #include <linux/interrupt.h>
-@@ -74,7 +75,8 @@ struct aspeed_lpc_snoop_channel_cfg {
- struct aspeed_lpc_snoop_channel {
- 	const struct aspeed_lpc_snoop_channel_cfg *cfg;
- 	bool enabled;
--	struct kfifo		fifo;
-+	spinlock_t		lock;
-+	struct kfifo		fifo __guarded_by(&lock);
- 	wait_queue_head_t	wq;
- 	struct miscdevice	miscdev;
- };
-@@ -114,6 +116,7 @@ static ssize_t snoop_file_read(struct file *file, char __user *buffer,
- 				size_t count, loff_t *ppos)
- {
- 	struct aspeed_lpc_snoop_channel *chan = snoop_file_to_chan(file);
-+	u8 *buf __free(kfree) = NULL;
- 	unsigned int copied;
- 	int ret = 0;
- 
-@@ -125,9 +128,16 @@ static ssize_t snoop_file_read(struct file *file, char __user *buffer,
- 		if (ret == -ERESTARTSYS)
- 			return -EINTR;
- 	}
--	ret = kfifo_to_user(&chan->fifo, buffer, count, &copied);
--	if (ret)
--		return ret;
-+
-+	count = min_t(size_t, count, SNOOP_FIFO_SIZE);
-+
-+	buf = kmalloc(count, GFP_KERNEL);
-+	if (!buf)
-+		return -ENOMEM;
-+
-+	copied = kfifo_out_spinlocked(&chan->fifo, buf, count, &chan->lock);
-+	if (copied && copy_to_user(buffer, buf, copied))
-+		return -EFAULT;
- 
- 	return copied;
- }
-@@ -151,11 +161,13 @@ static const struct file_operations snoop_fops = {
- /* Save a byte to a FIFO and discard the oldest byte if FIFO is full */
- static void put_fifo_with_discard(struct aspeed_lpc_snoop_channel *chan, u8 val)
- {
--	if (!kfifo_initialized(&chan->fifo))
--		return;
--	if (kfifo_is_full(&chan->fifo))
--		kfifo_skip(&chan->fifo);
--	kfifo_put(&chan->fifo, val);
-+	scoped_guard(spinlock, &chan->lock) {
-+		if (!kfifo_initialized(&chan->fifo))
-+			return;
-+		if (kfifo_is_full(&chan->fifo))
-+			kfifo_skip(&chan->fifo);
-+		kfifo_put(&chan->fifo, val);
-+	}
- 	wake_up_interruptible(&chan->wq);
- }
- 
-@@ -239,9 +251,11 @@ static int aspeed_lpc_enable_snoop(struct device *dev,
- 	if (!channel->miscdev.name)
- 		return -ENOMEM;
- 
--	rc = kfifo_alloc(&channel->fifo, SNOOP_FIFO_SIZE, GFP_KERNEL);
--	if (rc)
--		return rc;
-+	scoped_guard(spinlock_init, &channel->lock) {
-+		rc = kfifo_alloc(&channel->fifo, SNOOP_FIFO_SIZE, GFP_KERNEL);
-+		if (rc)
-+			return rc;
-+	}
- 
- 	rc = misc_register(&channel->miscdev);
- 	if (rc)
---
-2.43.0
-
+Thanks
+Nicolin
 
