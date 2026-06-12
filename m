@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADBCCD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 11:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2A2CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 11:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yvmn6l+5BfgeLBfn+hR7JuBkqOLGnAHxhwDj3KZ2joo=; b=QD6lRdNf6irN16dCJ8jK5Akozo
-	6Z3Yjvxks0WwpCjCZ9wpWE8polLnRvsb25R2qhno/F6kTG1F5HsD4ugrvfAPdkjM5DmphDcukBwQP
-	qjbjwEQoEJwuuHAIxao5RJH5pgP786Mt2uA4yNTKSYwF8hLQ2ozb8cde7u3rnOmcw8d0lQ4M+UupF
-	/NHosby7EtH7FYER3hrZ5oAz22+fOi/dRLYunPfjlOKQoI4jsqY55zDQqBevnkxw8fgdK95v+It1W
-	7AW3XMAeTzRM6fDB41vbaW1kGrogs46SBJJtwPTDdykuZuNHfbrJ9yyAVzvLmYI4nDJDZHtftrLyu
-	5OSR5rwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R8Il8GoAEckBLosEZkgYWjig0PpFZNfPn2uShd+kuQw=; b=GM/oYIFCkLDOdtOqkt6B5qNzWd
+	se7zx5dRENUiBoD0lympaO2YnMZ7jTW+1t2Bo50OrsYOWxupL8lD9C8qK/2p6V67N4Wm7IM3T0Ikv
+	jwRLvrBQSxfmGv5vBLN5YODwogbwA9KUx8K7Z0h2Tf7PBHmWT2ncJ5ZWoAwxREyU5ujku6gv6wp9g
+	+u7OJqj9v4Y/ipmujG7HRkDbhkH2wE7SolEX5EyvdZAMosR3oq1QmtqNC4vVl4SKfwPvSaxe39z+1
+	FjM8uWY7ezqCKvtfr9ddOVQ3ObcR2XtYUZe0QsYXNKfNVLlnjn2ncU2UnaMTCwTQVcTPNKiV/8fOR
+	k1N5iU2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXzgo-0000000Amn5-2ZTe;
-	Fri, 12 Jun 2026 11:04:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wXzmG-0000000AnAm-2UEq;
+	Fri, 12 Jun 2026 11:10:20 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXzgm-0000000Amme-0rrB;
-	Fri, 12 Jun 2026 11:04:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61A9E6001D;
-	Fri, 12 Jun 2026 11:04:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E7931F000E9;
-	Fri, 12 Jun 2026 11:04:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781262279;
-	bh=yvmn6l+5BfgeLBfn+hR7JuBkqOLGnAHxhwDj3KZ2joo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZQc2zl1cfWGwAuhioyl2qL0r3TUFofpGr51Zk5trrnCIcTE/2B9U7PJRz4SzeTMUX
-	 0TLGXbsTY9zjPwAeMvKmWc8awRavghfshHZdV6hVte9VeTn1sXdm+TSy/8uakDskPa
-	 KSUgJZdU6TrBMh7rKpJRB5vVfnL9EGMyis8RSnepmbw6iEjtPRdaBd3QieZ7MPvd1J
-	 RWtp9yzYRzn17YvsSQBehTmENpiOHFJX3KKsiHUHJZSFth8g8gW9VN87GdL6biEfy8
-	 7LKrJ5wdxXN6Q6owAWVwwHXEen+EJskIXgg5A3P3hjucbc2YAldJ5vhQQUNtf+Ef3C
-	 tyuxkNW3bGZ7Q==
-Date: Fri, 12 Jun 2026 13:04:36 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Christian Marangi <ansuelsmth@gmail.com>
-Subject: Re: [PATCH net-next] net: airoha: better handle MIBs for GDM ports
- with multiple devs attached
-Message-ID: <aivnxEi-5XOl3s5s@lore-desk>
-References: <20260611-airoha-eth-multi-serdes-stats-v1-1-42442ae42064@kernel.org>
+	id 1wXzmD-0000000AnAD-3Hat
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 11:10:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1781262618; x=1812798618;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=9qubmuU7CLkrQdKYRxmeV83E7ctcbp//g8biYkjQtpM=;
+  b=FNmauhHawTLP62gvilJ+4YPJZMhzgW7svd1QHHb05SGE3BZNEOEZiGkM
+   OPOevDqSDd12hfOBa+QsEz3lh7WzNd0ioPo/UiHxozfMUR3jRgiB5lHWa
+   QcaSmYuAac/JzxUci/MbFwtaR7jtqhVVjeTu1d8DB5y2yXR1meb/YzKVg
+   4lDp0edqu4dwq/q+7QCiH1+JppHhp+no1eW0tlGT+KWzNfG15utDtPlf8
+   AWAYhvo/QstJeeodXZ9J2aJj4xmHRtyUcojkPMri4tpTbGUJgO5OKq9/x
+   FhP7k+gTxfU7YSpgIC2JqOFOEa97eU7zNhaq4JBEdnpAsIwR1tx8nX49e
+   A==;
+X-CSE-ConnectionGUID: SSNgpjzPTvaEuAxvxD1DHg==
+X-CSE-MsgGUID: cGFyRpvaTZqhKl59iSvtPw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11813"; a="243935541"
+X-IronPort-AV: E=Sophos;i="6.24,200,1774278000"; 
+   d="scan'208";a="243935541"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2026 20:10:13 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 6981025DFB
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 11:10:13 +0000 (UTC)
+Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 150E41C4DE98
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 11:10:13 +0000 (UTC)
+Received: from FCCLS0092175.flets-east.jp (unknown [10.9.54.178])
+	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTP id 817851000A62;
+	Fri, 12 Jun 2026 11:10:09 +0000 (UTC)
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Kohei Enju <enju.kohei@fujitsu.com>
+Subject: [PATCH v3] virt: arm-cca-guest: use migrate_disable() for attestation token requests
+Date: Fri, 12 Jun 2026 20:09:21 +0900
+Message-ID: <20260612111007.49434-1-enju.kohei@fujitsu.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="I8ORiQGe7MIiZoZD"
-Content-Disposition: inline
-In-Reply-To: <20260611-airoha-eth-multi-serdes-stats-v1-1-42442ae42064@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_041018_147406_D10C799E 
+X-CRM114-Status: GOOD (  30.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,268 +95,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The RSI attestation token init and continue calls must be issued from
+the same CPU. arm_cca_report_new() currently snapshots the CPU number
+and uses smp_call_function_single() to issue those calls on that CPU.
 
---I8ORiQGe7MIiZoZD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+With CONFIG_DEBUG_PREEMPT=y, the smp_processor_id() call used for the
+snapshot triggers a debug splat [0] because it runs in preemptible
+context. The snapshot does not pin the task to that CPU; it is only used
+to choose the target CPU for smp_call_function_single(), which can fail
+if that CPU is no longer available.
 
-> In the context of a GDM port that can have multiple net_devices attached
-> (GDM3 and GDM4), the HW counters (MIBs) are global for the GDM port.
-> This cause duplicated stats reported to the kernel for the related
-> net_device.
-> The SoC supports a split MIB feature where each counter is tracked based
-> on the relevant HW channel (NBQ) to account for this scenario and
-> provide a way to select the related counter on accessing the MIB
-> registers.
-> Enable this feature for GDM3 and GDM4 and configure the relevant HW
-> channel before updating the HW stats to report correct HW counter to the
-> kernel for the related interface.
-> Move the stats struct from port to dev since HW counter are now specific
-> to the network device instead of the GDM port. Refactor
-> airoha_update_hw_stats() to take airoha_eth and airoha_gdm_port
-> parameters since the function operates on the entire port.
->=20
-> Co-developed-by: Christian Marangi <ansuelsmth@gmail.com>
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Use migrate_disable() and issue the token init and continue operations
+directly, without the smp_call_function_single() callbacks. This keeps
+the token request sequence on the same CPU while preserving a sleepable
+context for the GFP_KERNEL allocations needed after the init call.
 
-commenting on sashiko's report:
-https://sashiko.dev/#/patchset/20260611-airoha-eth-multi-serdes-stats-v1-1-=
-42442ae42064%40kernel.org
+[0]
+ BUG: using smp_processor_id() in preemptible [00000000] code: cca-workload-at/264
+ caller is debug_smp_processor_id+0x20/0x30
+ CPU: 0 UID: 0 PID: 264 Comm: cca-workload-at Not tainted 7.1.0-rc1-00044-g55542ab273f2 #80 PREEMPT(lazy)
+ Hardware name: linux,dummy-virt (DT)
+ Call trace:
+  [...]
+  check_preemption_disabled+0xd8/0xf8
+  debug_smp_processor_id+0x20/0x30
+  arm_cca_report_new+0x48/0x278
+  tsm_report_read+0x154/0x1f8
+  tsm_report_outblob_read+0x20/0x38
+  configfs_bin_read_iter+0x118/0x208
+  vfs_read+0x220/0x318
+  [...]
 
-[...]
+Fixes: 7999edc484ca ("virt: arm-cca-guest: TSM_REPORT support for realms")
+Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+---
+Changes:
+v3:
+  - Switch to migrate_disable() and call RSI directly, removing
+    smp_call_function_single() (Will, Suzuki)
+  - Remove arm_cca_attestation_init() helper and unused fields from
+    arm_cca_token_info
+  - Drop Reviewed-by tags since the approach changed from v2
+v2: https://lore.kernel.org/linux-arm-kernel/20260519101217.155740-1-enju.kohei@fujitsu.com/
+  - Add comment about why this path doesn't use migrate_disable()
+v1: https://lore.kernel.org/linux-arm-kernel/20260518033157.1865498-1-enju.kohei@fujitsu.com/
+---
+ .../virt/coco/arm-cca-guest/arm-cca-guest.c   | 97 +++++++------------
+ 1 file changed, 36 insertions(+), 61 deletions(-)
 
-> =20
-> -	/* reset mib counters */
-> -	airoha_fe_set(eth, REG_FE_GDM_MIB_CLEAR(port->id),
-> +static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
-> +{
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	int i;
-> +
-> +	spin_lock(&port->stats_lock);
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(port->devs); i++) {
-> +		if (port->devs[i])
-> +			airoha_dev_get_hw_stats(port->devs[i]);
-> +	}
-> +
-> +	/* Reset MIB counters */
-> +	airoha_fe_set(dev->eth, REG_FE_GDM_MIB_CLEAR(port->id),
->  		      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
+diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+index 66d00b6ceb78..a38df08da6fa 100644
+--- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
++++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+@@ -16,54 +16,38 @@
+ 
+ /**
+  * struct arm_cca_token_info - a descriptor for the token buffer.
+- * @challenge:		Pointer to the challenge data
+- * @challenge_size:	Size of the challenge data
+  * @granule:		PA of the granule to which the token will be written
+  * @offset:		Offset within granule to start of buffer in bytes
+- * @result:		result of rsi_attestation_token_continue operation
+  */
+ struct arm_cca_token_info {
+-	void           *challenge;
+-	unsigned long   challenge_size;
+ 	phys_addr_t     granule;
+ 	unsigned long   offset;
+-	unsigned long   result;
+ };
+ 
+-static void arm_cca_attestation_init(void *param)
+-{
+-	struct arm_cca_token_info *info;
+-
+-	info = (struct arm_cca_token_info *)param;
+-
+-	info->result = rsi_attestation_token_init(info->challenge,
+-						  info->challenge_size);
+-}
+-
+ /**
+  * arm_cca_attestation_continue - Retrieve the attestation token data.
+  *
+- * @param: pointer to the arm_cca_token_info
++ * @info: pointer to the arm_cca_token_info
+  *
+  * Attestation token generation is a long running operation and therefore
+  * the token data may not be retrieved in a single call. Moreover, the
+  * token retrieval operation must be requested on the same CPU on which the
+  * attestation token generation was initialised.
+- * This helper function is therefore scheduled on the same CPU multiple
++ * This helper function must therefore be executed on the same CPU multiple
+  * times until the entire token data is retrieved.
+  */
+-static void arm_cca_attestation_continue(void *param)
++static unsigned long
++arm_cca_attestation_continue(struct arm_cca_token_info *info)
+ {
++	unsigned long ret;
+ 	unsigned long len;
+ 	unsigned long size;
+-	struct arm_cca_token_info *info;
+-
+-	info = (struct arm_cca_token_info *)param;
+ 
+ 	size = RSI_GRANULE_SIZE - info->offset;
+-	info->result = rsi_attestation_token_continue(info->granule,
+-						      info->offset, size, &len);
++	ret = rsi_attestation_token_continue(info->granule, info->offset, size,
++					     &len);
+ 	info->offset += len;
++	return ret;
+ }
+ 
+ /**
+@@ -74,8 +58,8 @@ static void arm_cca_attestation_continue(void *param)
+  *
+  * Initialise the attestation token generation using the challenge data
+  * passed in the TSM descriptor. Allocate memory for the attestation token
+- * and schedule calls to retrieve the attestation token on the same CPU
+- * on which the attestation token generation was initialised.
++ * and retrieve the attestation token on the same CPU on which the
++ * attestation token generation was initialised.
+  *
+  * The challenge data must be at least 32 bytes and no more than 64 bytes. If
+  * less than 64 bytes are provided it will be zero padded to 64 bytes.
+@@ -85,12 +69,11 @@ static void arm_cca_attestation_continue(void *param)
+  * * %-EINVAL  - A parameter was not valid.
+  * * %-ENOMEM  - Out of memory.
+  * * %-EFAULT  - Failed to get IPA for memory page(s).
+- * * A negative status code as returned by smp_call_function_single().
+  */
+ static int arm_cca_report_new(struct tsm_report *report, void *data)
+ {
+-	int ret;
+-	int cpu;
++	int ret = 0;
++	unsigned long rsi_result;
+ 	long max_size;
+ 	unsigned long token_size = 0;
+ 	struct arm_cca_token_info info;
+@@ -103,37 +86,33 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+ 
+ 	/*
+ 	 * The attestation token 'init' and 'continue' calls must be
+-	 * performed on the same CPU. smp_call_function_single() is used
+-	 * instead of simply calling get_cpu() because of the need to
+-	 * allocate outblob based on the returned value from the 'init'
+-	 * call and that cannot be done in an atomic context.
++	 * performed on the same CPU, so disable CPU migration around
++	 * those operations.
+ 	 */
+-	cpu = smp_processor_id();
++	migrate_disable();
+ 
+-	info.challenge = desc->inblob;
+-	info.challenge_size = desc->inblob_len;
+-
+-	ret = smp_call_function_single(cpu, arm_cca_attestation_init,
+-				       &info, true);
+-	if (ret)
+-		return ret;
+-	max_size = info.result;
+-
+-	if (max_size <= 0)
+-		return -EINVAL;
++	max_size = rsi_attestation_token_init(desc->inblob, desc->inblob_len);
++	if (max_size <= 0) {
++		ret = -EINVAL;
++		goto exit_migrate_enable;
++	}
+ 
+ 	/* Allocate outblob */
+ 	token = kvzalloc(max_size, GFP_KERNEL);
+-	if (!token)
+-		return -ENOMEM;
++	if (!token) {
++		ret = -ENOMEM;
++		goto exit_migrate_enable;
++	}
+ 
+ 	/*
+ 	 * Since the outblob may not be physically contiguous, use a page
+ 	 * to bounce the buffer from RMM.
+ 	 */
+ 	buf = alloc_pages_exact(RSI_GRANULE_SIZE, GFP_KERNEL);
+-	if (!buf)
+-		return -ENOMEM;
++	if (!buf) {
++		ret = -ENOMEM;
++		goto exit_migrate_enable;
++	}
+ 
+ 	/* Get the PA of the memory page(s) that were allocated */
+ 	info.granule = (unsigned long)virt_to_phys(buf);
+@@ -144,21 +123,15 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+ 		info.offset = 0;
+ 		do {
+ 			/*
+-			 * Schedule a call to retrieve a sub-granule chunk
+-			 * of data per loop iteration.
++			 * Retrieve a sub-granule chunk of data per loop
++			 * iteration.
+ 			 */
+-			ret = smp_call_function_single(cpu,
+-						       arm_cca_attestation_continue,
+-						       (void *)&info, true);
+-			if (ret != 0) {
+-				token_size = 0;
+-				goto exit_free_granule_page;
+-			}
+-		} while (info.result == RSI_INCOMPLETE &&
++			rsi_result = arm_cca_attestation_continue(&info);
++		} while (rsi_result == RSI_INCOMPLETE &&
+ 			 info.offset < RSI_GRANULE_SIZE);
+ 
+ 		/* Break out in case of failure */
+-		if (info.result != RSI_SUCCESS && info.result != RSI_INCOMPLETE) {
++		if (rsi_result != RSI_SUCCESS && rsi_result != RSI_INCOMPLETE) {
+ 			ret = -ENXIO;
+ 			token_size = 0;
+ 			goto exit_free_granule_page;
+@@ -173,12 +146,14 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+ 			break;
+ 		memcpy(&token[token_size], buf, info.offset);
+ 		token_size += info.offset;
+-	} while (info.result == RSI_INCOMPLETE);
++	} while (rsi_result == RSI_INCOMPLETE);
+ 
+ 	report->outblob = no_free_ptr(token);
+ exit_free_granule_page:
+ 	report->outblob_len = token_size;
+ 	free_pages_exact(buf, RSI_GRANULE_SIZE);
++exit_migrate_enable:
++	migrate_enable();
+ 	return ret;
+ }
+ 
+-- 
+2.43.0
 
--  Does clearing the MIB counters outside the device loop cause issues with=
- the
-   split MIB feature?
-   airoha_dev_get_hw_stats() modifies REG_FE_GDM_MIB_CFG to select the spec=
-ific
-   nbq channel. Since REG_FE_GDM_MIB_CLEAR is called after the loop, does i=
-t only
-   clear the hardware counters for the last selected nbq? If so, the unclea=
-red
-   counters for the other channels might accumulate in hardware, and adding=
- them
-   repeatedly to the software stats (e.g., dev->stats.tx_ok_pkts +=3D val) =
-could
-   result in exponential growth.
-   Alternatively, if REG_FE_GDM_MIB_CLEAR globally clears all nbq counters =
-for
-   the port, calling it here could drop packets that arrived for earlier de=
-vices
-   between their respective read operations and this clear.
-   - REG_FE_GDM_MIB_CLEAR is global and it clears all nbq counters for the =
-port.
-     There's a tiny window where packets arriving for dev[0] between its re=
-ad
-     and the global clear are lost, but that's microseconds of register rea=
-ds,
-     so I guess that's negligible.
-
-Regards,
-Lorenzo
-
-> =20
-> -	u64_stats_update_end(&port->stats.syncp);
-> -	spin_unlock(&port->stats.lock);
-> +	spin_unlock(&port->stats_lock);
->  }
-> =20
->  static int airoha_dev_open(struct net_device *netdev)
-> @@ -2043,23 +2071,22 @@ static void airoha_dev_get_stats64(struct net_dev=
-ice *netdev,
->  				   struct rtnl_link_stats64 *storage)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> -	struct airoha_gdm_port *port =3D dev->port;
->  	unsigned int start;
-> =20
->  	airoha_update_hw_stats(dev);
->  	do {
-> -		start =3D u64_stats_fetch_begin(&port->stats.syncp);
-> -		storage->rx_packets =3D port->stats.rx_ok_pkts;
-> -		storage->tx_packets =3D port->stats.tx_ok_pkts;
-> -		storage->rx_bytes =3D port->stats.rx_ok_bytes;
-> -		storage->tx_bytes =3D port->stats.tx_ok_bytes;
-> -		storage->multicast =3D port->stats.rx_multicast;
-> -		storage->rx_errors =3D port->stats.rx_errors;
-> -		storage->rx_dropped =3D port->stats.rx_drops;
-> -		storage->tx_dropped =3D port->stats.tx_drops;
-> -		storage->rx_crc_errors =3D port->stats.rx_crc_error;
-> -		storage->rx_over_errors =3D port->stats.rx_over_errors;
-> -	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-> +		start =3D u64_stats_fetch_begin(&dev->stats.syncp);
-> +		storage->rx_packets =3D dev->stats.rx_ok_pkts;
-> +		storage->tx_packets =3D dev->stats.tx_ok_pkts;
-> +		storage->rx_bytes =3D dev->stats.rx_ok_bytes;
-> +		storage->tx_bytes =3D dev->stats.tx_ok_bytes;
-> +		storage->multicast =3D dev->stats.rx_multicast;
-> +		storage->rx_errors =3D dev->stats.rx_errors;
-> +		storage->rx_dropped =3D dev->stats.rx_drops;
-> +		storage->tx_dropped =3D dev->stats.tx_drops;
-> +		storage->rx_crc_errors =3D dev->stats.rx_crc_error;
-> +		storage->rx_over_errors =3D dev->stats.rx_over_errors;
-> +	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
->  }
-> =20
->  static int airoha_dev_change_mtu(struct net_device *netdev, int mtu)
-> @@ -2310,20 +2337,19 @@ static void airoha_ethtool_get_mac_stats(struct n=
-et_device *netdev,
->  					 struct ethtool_eth_mac_stats *stats)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> -	struct airoha_gdm_port *port =3D dev->port;
->  	unsigned int start;
-> =20
->  	airoha_update_hw_stats(dev);
->  	do {
-> -		start =3D u64_stats_fetch_begin(&port->stats.syncp);
-> -		stats->FramesTransmittedOK =3D port->stats.tx_ok_pkts;
-> -		stats->OctetsTransmittedOK =3D port->stats.tx_ok_bytes;
-> -		stats->MulticastFramesXmittedOK =3D port->stats.tx_multicast;
-> -		stats->BroadcastFramesXmittedOK =3D port->stats.tx_broadcast;
-> -		stats->FramesReceivedOK =3D port->stats.rx_ok_pkts;
-> -		stats->OctetsReceivedOK =3D port->stats.rx_ok_bytes;
-> -		stats->BroadcastFramesReceivedOK =3D port->stats.rx_broadcast;
-> -	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-> +		start =3D u64_stats_fetch_begin(&dev->stats.syncp);
-> +		stats->FramesTransmittedOK =3D dev->stats.tx_ok_pkts;
-> +		stats->OctetsTransmittedOK =3D dev->stats.tx_ok_bytes;
-> +		stats->MulticastFramesXmittedOK =3D dev->stats.tx_multicast;
-> +		stats->BroadcastFramesXmittedOK =3D dev->stats.tx_broadcast;
-> +		stats->FramesReceivedOK =3D dev->stats.rx_ok_pkts;
-> +		stats->OctetsReceivedOK =3D dev->stats.rx_ok_bytes;
-> +		stats->BroadcastFramesReceivedOK =3D dev->stats.rx_broadcast;
-> +	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
->  }
-> =20
->  static const struct ethtool_rmon_hist_range airoha_ethtool_rmon_ranges[]=
- =3D {
-> @@ -2343,8 +2369,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *ne=
-tdev,
->  			      const struct ethtool_rmon_hist_range **ranges)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> -	struct airoha_gdm_port *port =3D dev->port;
-> -	struct airoha_hw_stats *hw_stats =3D &port->stats;
-> +	struct airoha_hw_stats *hw_stats =3D &dev->stats;
->  	unsigned int start;
-> =20
->  	BUILD_BUG_ON(ARRAY_SIZE(airoha_ethtool_rmon_ranges) !=3D
-> @@ -2357,7 +2382,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *ne=
-tdev,
->  	do {
->  		int i;
-> =20
-> -		start =3D u64_stats_fetch_begin(&port->stats.syncp);
-> +		start =3D u64_stats_fetch_begin(&dev->stats.syncp);
->  		stats->fragments =3D hw_stats->rx_fragment;
->  		stats->jabbers =3D hw_stats->rx_jabber;
->  		for (i =3D 0; i < ARRAY_SIZE(airoha_ethtool_rmon_ranges) - 1;
-> @@ -2365,7 +2390,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *ne=
-tdev,
->  			stats->hist[i] =3D hw_stats->rx_len[i];
->  			stats->hist_tx[i] =3D hw_stats->tx_len[i];
->  		}
-> -	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-> +	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
->  }
-> =20
->  static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
-> @@ -3205,6 +3230,7 @@ static int airoha_alloc_gdm_device(struct airoha_et=
-h *eth,
-> =20
->  	netdev->dev.of_node =3D of_node_get(np);
->  	dev =3D netdev_priv(netdev);
-> +	u64_stats_init(&dev->stats.syncp);
->  	dev->port =3D port;
->  	dev->eth =3D eth;
->  	dev->nbq =3D nbq;
-> @@ -3244,9 +3270,8 @@ static int airoha_alloc_gdm_port(struct airoha_eth =
-*eth,
->  	if (!port)
->  		return -ENOMEM;
-> =20
-> -	u64_stats_init(&port->stats.syncp);
-> -	spin_lock_init(&port->stats.lock);
->  	port->id =3D id;
-> +	spin_lock_init(&port->stats_lock);
->  	eth->ports[p] =3D port;
-> =20
->  	err =3D airoha_metadata_dst_alloc(port);
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 8f42973f9cf5..46b1c31939de 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -215,8 +215,6 @@ struct airoha_tx_irq_queue {
->  };
-> =20
->  struct airoha_hw_stats {
-> -	/* protect concurrent hw_stats accesses */
-> -	spinlock_t lock;
->  	struct u64_stats_sync syncp;
-> =20
->  	/* get_stats64 */
-> @@ -554,6 +552,8 @@ struct airoha_gdm_dev {
-> =20
->  	u32 flags;
->  	int nbq;
-> +
-> +	struct airoha_hw_stats stats;
->  };
-> =20
->  struct airoha_gdm_port {
-> @@ -561,7 +561,8 @@ struct airoha_gdm_port {
->  	int id;
->  	int users;
-> =20
-> -	struct airoha_hw_stats stats;
-> +	/* protect concurrent hw_stats accesses */
-> +	spinlock_t stats_lock;
-> =20
->  	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
->  };
->=20
-> ---
-> base-commit: c8459ee2fef502d6ef6c063751c33d9ac7943eab
-> change-id: 20260611-airoha-eth-multi-serdes-stats-df2dc16c2dd6
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-
---I8ORiQGe7MIiZoZD
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaivnxAAKCRA6cBh0uS2t
-rDDCAQCDSZtkkKAwKtExKS9kQ5EIq4izTOPt/msV8Da18y7ONQEAu9UNly6/ampk
-ljg0ePyUwVk/54EdjY8l1e7DTUZHYws=
-=sFY3
------END PGP SIGNATURE-----
-
---I8ORiQGe7MIiZoZD--
 
