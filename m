@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B63CD98DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CC3CD98DD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVFHxuaku3ZzfsFio1NduM8zq/i0jn84Pu2i1DJARd0=; b=iWcIZapzDJpG96KXC16VeLSMKj
-	9LnQF+37CSHOhVCDgGMkXvsj8XeniOC3dChCtjM/vHwzhQBHLA61Yfjg4DtHCWP/oiHU1SRAzhaDk
-	9kfhq3IAUK8lXxZSX5BvAi0DqqLnuDupqii/aF+mav2BTnce8tKT0+szRy2GlPdganEtdzED4yUoT
-	SQDVpiQdUh97YfoCjmSZaTY+K7ynNzongY8fHY/4f5srHhxgYDjPsIBpVVCwlPlPw/059t0VN3C78
-	YtkqZozPBA47E3TQiuwy3P4PkUWBy+9LUyjWqJ6fEJgv5ECPhQ0oedmTJIXxaGJGWT+8qgS1weo0r
-	CRUg3mQA==;
+	bh=0u2rhf2u+9BtP4X7BxzDJO2DJ1V1hUQCf9r3VcGxcNw=; b=qVLmhtkdll+FrcZdEdf3JZqeWy
+	fTgTA8bnTYfiP8SttnHSdTjjKamBPKHkoe4jWTubcWv3QnonjEN2AozYnbZchciGM4YfYNz9lmdgk
+	FjTXdg9/OvLLlYtbN9rFa53qsRZrDZbbSE8DeZclC96iV0ttSIw/u7jStNvglBdcJ5nOIN+YF4650
+	cD+fEnpvljuSEHKTPR5PJQR2FHvk5499hArp60zbNkXVm/gY7QVC8S7EyBcxLBz9pkkf+TN9tALVl
+	HC04tDpJ9WkZCHEpvYFU0I511fOrXUAeAUFV+kilyDI+iQRwjcW+4+82RqYkasMTimdWFmQw6UMsO
+	nE21shCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7ZL-0000000BSaK-3HuN;
-	Fri, 12 Jun 2026 19:29:31 +0000
-Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
+	id 1wY7ZN-0000000BSdi-0jKe;
+	Fri, 12 Jun 2026 19:29:33 +0000
+Received: from mail-oi1-x249.google.com ([2607:f8b0:4864:20::249])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7Z7-0000000BSKn-3Rsr
+	id 1wY7ZD-0000000BSRb-35UX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 19:29:18 +0000
-Received: by mail-oi1-x24a.google.com with SMTP id 5614622812f47-486d0cff483so3285508b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 12:29:16 -0700 (PDT)
+	Fri, 12 Jun 2026 19:29:24 +0000
+Received: by mail-oi1-x249.google.com with SMTP id 5614622812f47-4863abb79b0so3524899b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 12:29:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781292556; x=1781897356; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781292562; x=1781897362; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pVFHxuaku3ZzfsFio1NduM8zq/i0jn84Pu2i1DJARd0=;
-        b=FqjKyQ7iFh1u6EQor+Lb0dzXC/GN5ppg4RzYvLANq8+JKpAv27I07/tPhRlUeevg4W
-         Al3CBbyWX067pvISTo3SjWNEkeoV8TsJ/82wVZVnPGfIEOgZN8EKErd8D5GS7Lbg43xy
-         V9N9/ANuSZMrWI/G3+tbGtuqHQ1kt+MffkBd77gLxifTevzJaqfJOfOhZGr496YUWVfA
-         QCQyBjcmGU2Ix/SdMuUnCdGg7aix98ICC5UqulUOhHeVqF9uNzFEalvonZWhBqSSpy76
-         6qqmzA4q/39FtW7tmVj1jsSaUrBBFdYc8+wagn03O8mKCn8i9B1nryooxSj3bpCao87+
-         IHqw==
+        bh=0u2rhf2u+9BtP4X7BxzDJO2DJ1V1hUQCf9r3VcGxcNw=;
+        b=tqZrSYfdbpMsTPJjh6NumZnlFW/79irH0X0aVCNxoT2rBFNDK0rTerPsEbiZcVDEdv
+         y9nFJsvnixXW87Wb/8I36bicu4GDIW8jZNfLt2RAfwq3UyJsAxmBRFnD+QFXz6NLsGoh
+         bcJWHtyN3UiGt9y0H5dnI+jlg8ZDRxktnnK11TI6mO4+8kMSIMnlK9Vlhx7thisTHRfO
+         K581X174MyFqSge3U/SMyR0P/jLTO3z4OtW+ESCaEzXJQJ61te3zvgYzp0M1S7xwZ25b
+         KkMYstCz0K/Dh/hhCFMMMLdOhHMTUzjdTGCllV1AUXXyGYq28douLWbX2ZTJhGVYs/Gg
+         9v6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781292556; x=1781897356;
+        d=1e100.net; s=20251104; t=1781292562; x=1781897362;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pVFHxuaku3ZzfsFio1NduM8zq/i0jn84Pu2i1DJARd0=;
-        b=DVafcV1c10MWOb7rJt9FPlyBFYlX01qku5veSFMm3AKoHqt5Zl5SRTd8owjLY2ovrI
-         F+s9bwS19uGXfpCcZ4eXjKtNEqWVyOVqfIdM7TJOCEevcGhovRFy+qfyRKxLf1CWfm6E
-         VBB1uZhdvO7WmG8BmSO6p9TjgFfVFwLtEHowm0i6EN/YiXsiKmvauelSWuEDQJnlYTGG
-         dkyNgb3P2IO8vp9serkJRe+sDn284VxXUuKJbCLpoDclWv6UysT031WheoMWDb7e8PlE
-         fTCvPgysrfWqzOoWAIT6SFZNYii+XK+Dx9EXZZXAJR94ySTJhGN8eGZJ4FgSwmIqrcYu
-         9OmQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8RsEqA5tDfMvirf0Fl1KzORaZ1FGw3ZM0vTUHQebvSVN7BnTvFEhqrzvXcxk6FxUTjhQxjLjJsmKAS/byAE/hS@lists.infradead.org
-X-Gm-Message-State: AOJu0YznFANT4N9y2M87Mn8YgSdwpndZJKcZg6MFy8TQgoVNsNSnlO8W
-	xm4ukMXx9P0ctCfDNjerTSCcLXb6gobulH4AF0ee6/OHSN6v2NExWWcS7IikeOTUqvci9EksEa/
-	piNjpUcPuMy8Z2Ns0UH+G2A56JQ==
-X-Received: from ilnc8.prod.google.com ([2002:a92:dc88:0:b0:500:1d31:d513])
+        bh=0u2rhf2u+9BtP4X7BxzDJO2DJ1V1hUQCf9r3VcGxcNw=;
+        b=hyX1WmcifIfas3lf1R9LBt4pR8EfVF0P63cydh/4eK7i9bn0ZFr+6K+c0Epy0yvSfe
+         M87b+8q2UQnszCoMJG5vmGr7xBmrjOlgiIa+9Gls4EQUJ2gVUd1jfsDZFXBvnRIOfWd0
+         9nRxerdnKDkr9wKkVMaCQVjce4yO8/A/z64GqIhDDEf4bf5PoTcadNZpkBfBZi0bQ7Pe
+         xn3296iciWnQMF8IREZ3JrOYT0SkOVPzW9i99SbF4QAzbPdCdMXIvBPEbln9WT2CFDXv
+         cRYBcCHLXDSRl6MC+p7yrj7vK9FmIXvYBJOSw54cbJmDcT28z3Oxb37EuQ4fzatwBPUG
+         Zg3A==
+X-Forwarded-Encrypted: i=1; AFNElJ+PqZpD4IAcem4X33dc8fwONRa+tKNNJEMMcumTxA4j2Cj+SFH9V9FDAF3TjgUoWL33SzAqGqKBAS/JLfWGCDxU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwstdXVJcSQOfQ3pO86YAHB1kSCohtCPWQdAKuirElSlS+2A9Wu
+	zbksjdOjJYLJkXC/UBZcTxI0q2XGsWGGOBqSOAtaXShwwWDv6N4XnRfmK5Vrlz5OluE2uBWUHys
+	MLVFBHRWRfuYr67dz3/OTw4Qy6A==
+X-Received: from jabkc1.prod.google.com ([2002:a05:6638:a501:b0:5e2:942b:e3dd])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1250:b0:479:d779:3544 with SMTP id 5614622812f47-4872f2e1d0fmr2673319b6e.5.1781292555927;
- Fri, 12 Jun 2026 12:29:15 -0700 (PDT)
-Date: Fri, 12 Jun 2026 19:28:54 +0000
+ 2002:a05:6808:1a07:b0:485:6029:90e7 with SMTP id 5614622812f47-4872ddea116mr2184822b6e.10.1781292561509;
+ Fri, 12 Jun 2026 12:29:21 -0700 (PDT)
+Date: Fri, 12 Jun 2026 19:29:00 +0000
 In-Reply-To: <20260612192909.1153907-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20260612192909.1153907-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260612192909.1153907-7-coltonlewis@google.com>
-Subject: [PATCH 06/21] perf: arm_pmuv3: Allocate counter indices from high to low
+Message-ID: <20260612192909.1153907-13-coltonlewis@google.com>
+Subject: [PATCH 12/21] KVM: arm64: Enforce PMU event filter at vcpu_load()
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org
 Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -81,8 +81,8 @@ Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.
 	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_122917_867585_3AF3F39B 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260612_122923_787240_191AC78B 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,67 +97,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To minimize collisions between host and guest counters, allocate host
-counters from high to low. How the pivot HPMN is defined to partition the counters gives the guest the low index counters.
-
-Doing this with index math instead of defining a
-for_each_set_bit_reverse macro is safe because cntr_mask is always a
-dense range while the host is running.
+The KVM API for event filtering says that counters do not count when
+blocked by the event filter. To enforce that, the event filter must be
+rechecked on every load since it might have changed since the last
+time the guest wrote a value. If the event is filtered, exclude
+counting at all exception levels before writing the hardware.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- drivers/perf/arm_pmuv3.c | 25 ++++++++++++++++---------
- 1 file changed, 16 insertions(+), 9 deletions(-)
+ arch/arm64/kvm/pmu-direct.c | 52 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
 
-diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-index 17bb1cfdc271c..d7a49dc0b0be6 100644
---- a/drivers/perf/arm_pmuv3.c
-+++ b/drivers/perf/arm_pmuv3.c
-@@ -953,10 +953,12 @@ static int armv8pmu_get_single_idx(struct pmu_hw_events *cpuc,
- {
- 	int idx;
- 
--	for_each_set_bit(idx, cpu_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS) {
--		if (!test_and_set_bit(idx, cpuc->used_mask))
-+	for (idx = ARMV8_PMU_MAX_GENERAL_COUNTERS - 1; idx >= 0; idx--) {
-+		if (test_bit(idx, cpu_pmu->cntr_mask) &&
-+		    !test_and_set_bit(idx, cpuc->used_mask))
- 			return idx;
- 	}
-+
- 	return -EAGAIN;
+diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
+index 79022447cfb9a..49f1feb5d280c 100644
+--- a/arch/arm64/kvm/pmu-direct.c
++++ b/arch/arm64/kvm/pmu-direct.c
+@@ -131,6 +131,57 @@ u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
+ 	return 0;
  }
  
-@@ -969,17 +971,22 @@ static int armv8pmu_get_chain_idx(struct pmu_hw_events *cpuc,
- 	 * Chaining requires two consecutive event counters, where
- 	 * the lower idx must be even.
- 	 */
--	for_each_set_bit(idx, cpu_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS) {
-+	for (idx = ARMV8_PMU_MAX_GENERAL_COUNTERS - 1; idx >= 0; idx--) {
- 		if (!(idx & 0x1))
- 			continue;
--		if (!test_and_set_bit(idx, cpuc->used_mask)) {
--			/* Check if the preceding even counter is available */
--			if (!test_and_set_bit(idx - 1, cpuc->used_mask))
--				return idx;
--			/* Release the Odd counter */
--			clear_bit(idx, cpuc->used_mask);
++/**
++ * kvm_pmu_apply_event_filter()
++ * @vcpu: Pointer to vcpu struct
++ *
++ * To uphold the guarantee of the KVM PMU event filter, we must ensure
++ * no counter counts if the event is filtered. Accomplish this by
++ * filtering all exception levels if the event is filtered.
++ */
++static void kvm_pmu_apply_event_filter(struct kvm_vcpu *vcpu)
++{
++	struct arm_pmu *pmu = vcpu->kvm->arch.arm_pmu;
++	unsigned long guest_counters;
++	u64 evtyper_set = ARMV8_PMU_EXCLUDE_EL0 |
++		ARMV8_PMU_EXCLUDE_EL1;
++	u64 evtyper_clr = ARMV8_PMU_INCLUDE_EL2;
++	bool guest_include_el2;
++	u8 i;
++	u64 val;
++	u64 evsel;
 +
-+		if (test_bit(idx, cpu_pmu->cntr_mask) &&
-+		    test_bit(idx - 1, cpu_pmu->cntr_mask)) {
-+			if (!test_and_set_bit(idx, cpuc->used_mask)) {
-+				/* Check if the preceding even counter is available */
-+				if (!test_and_set_bit(idx - 1, cpuc->used_mask))
-+					return idx;
-+				/* Release the Odd counter */
-+				clear_bit(idx, cpuc->used_mask);
-+			}
- 		}
- 	}
++	if (!pmu)
++		return;
 +
- 	return -EAGAIN;
- }
++	guest_counters = kvm_pmu_guest_counter_mask(pmu);
++
++	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
++		if (i == ARMV8_PMU_CYCLE_IDX) {
++			val = __vcpu_sys_reg(vcpu, PMCCFILTR_EL0);
++			evsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES;
++		} else {
++			val = __vcpu_sys_reg(vcpu, PMEVTYPER0_EL0 + i);
++			evsel = val & kvm_pmu_event_mask(vcpu->kvm);
++		}
++
++		guest_include_el2 = (val & ARMV8_PMU_INCLUDE_EL2);
++		val &= ~evtyper_clr;
++
++		if (unlikely(is_hyp_ctxt(vcpu)) && guest_include_el2)
++			val &= ~ARMV8_PMU_EXCLUDE_EL1;
++
++		if (vcpu->kvm->arch.pmu_filter &&
++		    !test_bit(evsel, vcpu->kvm->arch.pmu_filter))
++			val |= evtyper_set;
++
++		if (i == ARMV8_PMU_CYCLE_IDX)
++			write_pmccfiltr(val);
++		else
++			write_pmevtypern(i, val);
++	}
++}
++
+ /**
+  * kvm_pmu_load() - Load untrapped PMU registers
+  * @vcpu: Pointer to struct kvm_vcpu
+@@ -158,6 +209,7 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu)
  
+ 	pmu = vcpu->kvm->arch.arm_pmu;
+ 	guest_counters = kvm_pmu_guest_counter_mask(pmu);
++	kvm_pmu_apply_event_filter(vcpu);
+ 
+ 	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
+ 		val = __vcpu_sys_reg(vcpu, PMEVCNTR0_EL0 + i);
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
