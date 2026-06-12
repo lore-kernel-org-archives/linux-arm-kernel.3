@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF687CD98D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2236ECD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+YkxKUKI+ttSACYhasK/qyZ52eMUZtHTMnbDNaJgTnY=; b=J/FLkfsNqg/6ThN4VJ98fclY9G
-	0nLSOUcgmJizRb3X+w7zl8ALJefh60v4A1yR433VI/0M57qMtDWIGHqA5Y0gvlEh7IQYeM48EUFo6
-	wiEFk1hP9FwsrhUiL24JIFbwPcyavuJVDjJW+8LVfah+KdpmFNDFKEoRJLgRBsCgH7yHhB7VOAyhz
-	+ojF+1wG2cIJzaUutzEE8v8JJPZcVeeu7G9wXn0WQDeQx0AlAoGrxUATOtZh83n7WLQNv2TxXYFqQ
-	At07iud4QYzJy3tCEnBUlrGuc/kqtEUshaF1n0uubGhQD2mofvjBHwl8jcjnIUPoyy/3NOnoV3cfe
-	rCMj//SA==;
+	bh=K8GskhQ/tvLBpCO/qOaEalED8OJB7l2RGKXoWhNyljw=; b=OxKJj6C9fE5Jul7X+HR7zotvTT
+	qpt7Ef054D6HIdPy9qO3k1TRm6+Wrd+b/fRAxVu8JwEgtGbVb2dBl5orTS5/mrnhWm07O0DAfSF+8
+	y6VsHZB6ZIomQauKpwYheC9ibf2sm325sXmJ2P2FYuUPuD1Op8weBH6jiRV+f90Hv8Sl0XHQ4Wf/4
+	5IzLYObQPybT47R/CJNfuNibVWwPd+fZ2ZzzPzkK/BKarpLOBgLGyCFUH17OKe1DMP1KgF0UrLgst
+	7Y1t8wp8/+j+nQJZ7WEwXKN18PFyzu2KKnYbQH5mRNyXrr4VrUjuLD3tC+nOxcbrLDbgJaFrXE5tj
+	Wa9PXGrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4kd-0000000BHWG-2eHL;
-	Fri, 12 Jun 2026 16:28:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wY4md-0000000BHlj-0AWV;
+	Fri, 12 Jun 2026 16:31:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4kc-0000000BHW7-231g;
-	Fri, 12 Jun 2026 16:28:58 +0000
+	id 1wY4mb-0000000BHlJ-1386;
+	Fri, 12 Jun 2026 16:31:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E674E600B0;
-	Fri, 12 Jun 2026 16:28:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 721D61F00A3A;
-	Fri, 12 Jun 2026 16:28:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DAC6D40537;
+	Fri, 12 Jun 2026 16:31:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FBD71F000E9;
+	Fri, 12 Jun 2026 16:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781281737;
-	bh=+YkxKUKI+ttSACYhasK/qyZ52eMUZtHTMnbDNaJgTnY=;
+	s=k20260515; t=1781281860;
+	bh=K8GskhQ/tvLBpCO/qOaEalED8OJB7l2RGKXoWhNyljw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eMyYsFKVUI/AjLu4yjm2YPH2WCOHHt0vmajj/lYGVjak2UUxMEoPXOfcSQd6EBfR9
-	 aOjYNII68yBM3a4I/TCiIw3bRZKAN+l6K6VvvUqD8aN53ypgvtHXwSyKJUGBj8P0S3
-	 r5Z21FsWp3P5LFTPi5nbgn4RFu1fKWS8vAqAPIT8fwAmc4Oljdi8XoSaJqg32wn65u
-	 pAfPPEonX3LBEnxBELdEb1nRhciHC6EM5SDFFzTqOLezeUD7OxvInbS7j/0U8jF45e
-	 mCHqUhc167JQC28Br+UXJfsFJpOyjYK2/yr1BZX5jRJAx8qDNiG89SIj0ROK6QV0oh
-	 2nIxjNmVpkwYA==
-Date: Fri, 12 Jun 2026 11:28:56 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: pritesh.patel@einfochips.com, linux-stm32@st-md-mailman.stormreply.com,
-	devicetree@vger.kernel.org, edumazet@google.com,
-	linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
-	pabeni@redhat.com, weishangjuan@eswincomputing.com,
-	linux-riscv@lists.infradead.org, ningyu@eswincomputing.com,
-	krzk+dt@kernel.org, pinkesh.vaghela@einfochips.com,
-	linux-kernel@vger.kernel.org, alex@ghiti.fr, andrew+netdev@lunn.ch,
-	alexandre.torgue@foss.st.com, kuba@kernel.org,
-	aou@eecs.berkeley.edu, horms@kernel.org, mcoquelin.stm32@gmail.com,
-	conor+dt@kernel.org, netdev@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk, palmer@dabbelt.com, lee@kernel.org,
-	maxime.chevallier@bootlin.com, linmin@eswincomputing.com,
-	davem@davemloft.net
-Subject: Re: [PATCH net-next v8 1/6] dt-bindings: ethernet: eswin: relax
- internal delay model to range-based constraints
-Message-ID: <178128173639.1162200.4235173600332300329.robh@kernel.org>
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
- <20260610012849.874-1-lizhi2@eswincomputing.com>
+	b=ok9UBUAkTb5z4y6JJ4ufptlYuIasM4NiKJSPinBtW7Yx9kvSDI/ceui6RKEDve6kc
+	 MF9P652NgwbizOshbZ2TclRbiDoHfPAOZjh/4tgTidEdW0OXjfEGj95JOdvU1wJN5n
+	 NK+C3VZSFPab7Ytc7eCtBayYrm3XMZtedjjOxqya1YgYrZeBcRCWsCtQSGpRDEx0Ga
+	 ZVthp80HmfrPqkJIE2fj0MWK4DCWBGOpJUuQggi4JH7ipQztt4REPNJuSST0pdBhqk
+	 F2HRFKgPGNRAc6yrwc55inLLecPbjWmPNY2sjcNWFdaomFRPQqPqUxfjrdpSAw1T00
+	 6g/AsGRSRHhXQ==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id B8A121AC5AC2; Fri, 12 Jun 2026 17:30:57 +0100 (BST)
+Date: Fri, 12 Jun 2026 17:30:57 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Alexey Charkov <alchark@flipper.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Liam Girdwood <lgirdwood@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 4/4] regulator: Add support for UGREEN NASync DH2300 MCU
+ SATA power gate
+Message-ID: <aiw0QYnaYHQpIwiq@sirena.co.uk>
+References: <20260612-dh2300-mcu-v1-0-ab8db1617bc0@flipper.net>
+ <20260612-dh2300-mcu-v1-4-ab8db1617bc0@flipper.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tE/94xOCtV2c14jP"
 Content-Disposition: inline
-In-Reply-To: <20260610012849.874-1-lizhi2@eswincomputing.com>
+In-Reply-To: <20260612-dh2300-mcu-v1-4-ab8db1617bc0@flipper.net>
+X-Cookie: Nice guys get sick.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +78,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 10 Jun 2026 09:28:49 +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
-> 
-> Relax internal delay constraints for EIC7700 Ethernet binding.
-> 
-> Replace fixed enumeration of rx-internal-delay-ps and tx-internal-delay-ps
-> with a range-based definition (0-2540 ps, 20 ps steps) to reflect actual
-> hardware capability.
-> 
-> Mark rx/tx internal delay properties as optional, as they are board-
-> specific tuning parameters rather than mandatory configuration.
-> 
-> Update the device tree example to align with the relaxed constraint model
-> and remove delay properties from the example to avoid implying they are
-> required.
-> 
-> No functional change to existing DT users.
-> 
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> ---
->  .../bindings/net/eswin,eic7700-eth.yaml       | 25 ++++++++++---------
->  1 file changed, 13 insertions(+), 12 deletions(-)
-> 
+--tE/94xOCtV2c14jP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+On Fri, Jun 12, 2026 at 07:34:17PM +0400, Alexey Charkov wrote:
 
+> +static int ugreen_dh2300_mcu_regulator_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct regulator_config config = { };
+> +	struct regulator_dev *rdev;
+> +	struct device_node *np;
+> +
+> +	np = of_get_child_by_name(dev->parent->of_node, "regulator");
+> +	if (!np)
+> +		return dev_err_probe(dev, -ENODEV,
+> +				     "missing regulator child node\n");
+
+You should just be able to configured this in the regulator_desc rather
+than describe it.
+
+> +	config.init_data = of_get_regulator_init_data(dev, np,
+> +						      &ugreen_dh2300_sata_desc);
+> +
+
+Similarly here, there should be no need for this open coding.
+
+--tE/94xOCtV2c14jP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmosNEAACgkQJNaLcl1U
+h9CG6gf9HwhOxx3ksCksFflAdrKweMiutBoX2cLErbvcRtSA1Zuu+it3ilU8JPCu
+LSdBkPkVH2KOlJaA6ioe5X/MOnnbHej4/QPEFEy2iL6vrcuFzuP4VoSGw3q6tOFK
+3jS/J5gWMXJHYlHpDuc4JdrFAg25gAeYfA0wJyxUxPa61u220L4xzuJS2nSnyF8y
+49HCO70Z6ks5Zn68hF5NL0bx6U4aDrdLROCKv0cHArzrXXuEQvgDC+B7wV+m9/Ea
+1PjtxyuMyb0+D2DByndFI0Iq9lpcVok/4jwNaToUCCLP1LpZN2VvsM+7DI5Nn8MQ
+aYqOVqnhUL6sUdE/Jf5G2Vozx6IJ1g==
+=j+Gg
+-----END PGP SIGNATURE-----
+
+--tE/94xOCtV2c14jP--
 
