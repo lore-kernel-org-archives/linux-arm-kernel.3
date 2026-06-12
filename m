@@ -4,113 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DBB1CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BF8CD4F2C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hhcCFioqMSZRCk/5HvD/sKp69EwBtqpgSp4Ql/r2CVc=; b=Y6stavWbLRu7ydHL+lmI5SbCpR
-	RvR0JrZqQqNi7XykT8TotkMjU0nDV7mS2Uy5IaT1cXYkOwHtBEmTfiNYjLEjMGqP+6nTeLgOOC0zH
-	Fbnj6N6+DZqp28KsCWJkBXp+nZFA5Pl2GJk4f/qSUmSiyQ5bm5/7XT5UXW4zrAhK158I30jenMRBb
-	7ztT4qw0r8p+fwvfQ2dgd8l9CWAcIiIgHpYt9mC3xP27gOQo0dYEgP8bjPQ3uSQ4xGIJjhk320xg3
-	pLJYnRopoTfTFHcrK0wWzf8LYfHomLRFPk3djfpUi3Bdat++2qI1v5OnQYv1MlAgAITVVj9ba0s7i
-	unjKQs4Q==;
+	bh=ncZwz3sNo308KUWItJhOltAt4oaQ+Dyfb6WfEv6tuTQ=; b=DgWFNvpYVHLsCRaabGOHZCoz7q
+	C+BRyteEdaIUeBAOwL3enbHxZRkRhTUB+m02KQ1Mgda7oUy+5MiG4VGGPlk5g1Gwv62xetVkTIp/8
+	NYoGrv5olhAs4GF+r7TD6Po7HHPwt/0JagFdMsra7PIvdar49wdHYgpXtQCapGexCToFZB1ZmgZRo
+	ErT1ywIiW3UIXgqIvkxneQ9T8S5PgcYAAHt5AveB2/IbxqwQDeOZmQFqaWRK8yezE6RFV8nlKP77G
+	mkYV6GOZBqad/mkn/cwb+6tDifWcwDIXaRumsN1ggRJ4FoHO9AqhQfPNZ6wilzot+Uyq2whRSqhU/
+	KH+nQh1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXy1Q-0000000Aeev-0CGS;
-	Fri, 12 Jun 2026 09:17:52 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1wXy3n-0000000Aeru-420b;
+	Fri, 12 Jun 2026 09:20:19 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXy1M-0000000Aedl-2VnT
+	id 1wXy3k-0000000Aeqz-0Qki
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 09:17:50 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-7e1c3f47d78so8231587b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 02:17:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781255867; cv=none;
-        d=google.com; s=arc-20240605;
-        b=l0SbOPXvDo22SWxUO/R5o7DCUBomRwWC/26zA1XlTkGtGkIBMRPdyHFKl/35+pog/6
-         aTUtpLcWcxukYztfpNWug36zmZP/9gRaoCWuM+xHBLlfDfEk4cEAYE8guFRz6NtfzwYr
-         //JcJdArXuJ35L7SewO/+6vTn+HMzeIYhzA7mcJ5ux+IdQsgtyhVF6GbbfkokB8dvI/p
-         2rtuyW5L8/VbKZDCRUzXGggpbqB+wBeSs/A56KFijXiTHsB+7CZopX/ChpBgQo3PJXyU
-         hTh+6Rax6u7TgEJyfH+t25o9/jxk4NotWiOqYqaO6JZF6YmD+6rg5y3lNGE+ARwiEDC0
-         3kaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hhcCFioqMSZRCk/5HvD/sKp69EwBtqpgSp4Ql/r2CVc=;
-        fh=z+b8holnlvEIOd3yncTXjv2H7vjhqQ0nOGeGWF+DT2A=;
-        b=PEXCZ4xMB+/awcH+5Kcks+ho7oSbdSlPrkW30fkQi/fIzYNCLg7I9tEXY1qRxi4uZH
-         YEIFyCeBG6TSa4Rg52Tdo/pIhWcSv4gRhBkwxDp47B1cmpJVxoPH3tXMG3lIMGF1P3lo
-         9uPbCPBfAB3XygSrldB8/EuBq/1WyGKSTWGeJysrl1EcgGai7Mj4w2zZRs/cX8RtuPw2
-         RK+GTv8KDFJQCXULLxeFMMAIkBFp9whMO2/ueik1yNmzIYmyVZdVQYO+g+uamiIl8YR3
-         0iJWkg70hSBfOKKXmCMVHNq5IPuRmRUrx1lrzEme3jhHawSMdUt+FM/jGk6P+yDTtzZ/
-         ZdfA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1781255867; x=1781860667; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hhcCFioqMSZRCk/5HvD/sKp69EwBtqpgSp4Ql/r2CVc=;
-        b=PmP/oXhtHrSfkT0f57kptGX7kFCbeW7QARvQQY4m0q5+Zog3wsolwqqUp9egT6ojue
-         dEYxiVjfsINQ1psyK1iKYiGLGy/JSDDCImFtFIGtFFCJ+lJG6WsiZMThRn9SvZH4OMZB
-         a/KSNg06outJgRm16vmZUx7F0sapFrYnhaeuU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781255867; x=1781860667;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hhcCFioqMSZRCk/5HvD/sKp69EwBtqpgSp4Ql/r2CVc=;
-        b=pDTgwAw3un06FKANkX6s2dBEQ9DH8yos4tvLen5M4RNcqx89sWcU4JHhzZhEOxZ7uJ
-         0YdrZURJTmfkXkbHbUylZ01e4AF/lnG2Ju5u5lTFV7xgxlf4isVtH17E6V7N6tgwDB6q
-         tIv+DoiNl5aCwaAg6HrSew5c/fPZitCynigYQhLyQWUr7URa8PZGDU0MNzPIdy5gob2u
-         egS7zNjT1tgQWNm3g/KDRe1MS1mmhCWdYs44lfhRj7eyCcVrcG9oCGRUkYcYpqGRrNna
-         3+0VarKMYm2sIgrKcqvPVrh/n0FcdBzqwlsdJh7QD4bdmzlAvvXdgDOpovnYj9BdiB5e
-         /bGg==
-X-Forwarded-Encrypted: i=1; AFNElJ94PJco5bUqFUBDUQC7Dsp2SOdBbIgHSkZ6x3C/wLBZhiuYBXSahwfEn/30HEL/3XKLvUF7EuisWNhMhuOUGL0g@lists.infradead.org
-X-Gm-Message-State: AOJu0YyX3+VHNaYQV+Ca85939hkJRv7RGE0HJtGPRXb3SK/LvVWOQMim
-	MbaROVSR+rGjUvCgWuEoVNMQKpeNO/sF7uCsce68ydBi/UgeUKPWmXH6i/AUvm3r4B78MnxcdYb
-	3WpNvGpD70ZSfumu5regFGxgCMcxc/SIIRnOi2RXu
-X-Gm-Gg: Acq92OGn6wx/qinsN4+bcHMjc96MkNSYWcO0nfeSp+/DPe6pz74LjJltmlDpa/aJv8A
-	qUpPNgaJt1GW48w04gv55FQDIlaAKft4R5Ornwpf8RnAN9JPCS8k9BbRKieAKdd3cSaSbio5Dry
-	LpyswlOz4AwZ2Cg2exQYBSie+Fuf36jOKgCxTr9VaN1JKyXxccFClZtdVMeTSBlc9MRAUPbvtQu
-	Npz/hl2FHG+0Pjyz+42qyxaizzvgxyXtuy20aUijiJfeJ54hvBZFdt9f3l/AMCV40B8LLMOpXGT
-	FwqiPdVk
-X-Received: by 2002:a05:690c:3a0:b0:7cf:af41:50b0 with SMTP id
- 00721157ae682-7f7b8d248damr20618557b3.36.1781255867482; Fri, 12 Jun 2026
- 02:17:47 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260610084053.2059858-1-wenst@chromium.org> <20260610084053.2059858-12-wenst@chromium.org>
- <ail2VcubjT7HNGUC@ashevche-desk.local>
-In-Reply-To: <ail2VcubjT7HNGUC@ashevche-desk.local>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 12 Jun 2026 18:17:35 +0900
-X-Gm-Features: AVVi8CeDuG6qw5zFxFcHgtnnMaKWsSajO4ZT4D-k-SPwtRIr1WJR_hE6bMB1VZI
-Message-ID: <CAGXv+5GNfWFinO1E=5X46xnBsQpY-_i45mq60eeQu=U3Z0MtDA@mail.gmail.com>
-Subject: Re: [PATCH v2 11/16] power: sequencing: pcie-m2: Add usb and sdio
- targets for E-key connector
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 12 Jun 2026 09:20:18 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 23BF14E42E58;
+	Fri, 12 Jun 2026 09:20:11 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E708560012;
+	Fri, 12 Jun 2026 09:20:10 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78C43106C8615;
+	Fri, 12 Jun 2026 11:19:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1781256009; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ncZwz3sNo308KUWItJhOltAt4oaQ+Dyfb6WfEv6tuTQ=;
+	b=NPUVXd/IqoKsy6s7A+fdPRQy6EEOpjPaH8ih3ujTyougrpDUztW7Anv/xDTuCzxcIY/9RD
+	imNRzYSlcydkukZ0CZtMQSJjh4uOKTT9VQwQ+p0uRTBmwDnthntHxlHl32ILPKKGwZkk3r
+	ETMuGlhnGDZZO/FZwNOc6o5+ckd2bOShZZE6IlcVO6d6tX+ExlAMFHwMYUQQs97g4ojmLi
+	Eysj++XJxX6NCM+sF4JDtVWGx2eUxr0jBqhuI4TektmgXGBmvOBt/ipTfE5qC6kdqTkWHL
+	FZUzNclbZSDOKLOZI+pgkKWxBXEYysKXgQTpCZfu222VDf81u81G8Gvwaapd3A==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 12 Jun 2026 11:19:58 +0200
+Message-Id: <DJ6YJX01138K.SRJQQJFBY73J@bootlin.com>
+Subject: Re: [PATCH bpf-next v2 8/8] selftests/bpf: add tests to validate
+ KASAN on JIT programs
+Cc: <ebpf@linuxfoundation.org>, <bastien.curutchet@bootlin.com>,
+ <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <martin.lau@kernel.org>,
+ <clm@meta.com>
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: <bot+bpf-ci@kernel.org>, <alexis.lothore@bootlin.com>, <ast@kernel.org>,
+ <daniel@iogearbox.net>, <andrii@kernel.org>, <martin.lau@linux.dev>,
+ <eddyz87@gmail.com>, <memxor@gmail.com>, <song@kernel.org>,
+ <yonghong.song@linux.dev>, <jolsa@kernel.org>, <john.fastabend@gmail.com>,
+ <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+ <dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
+ <shuah@kernel.org>, <mcoquelin.stm32@gmail.com>,
+ <alexandre.torgue@foss.st.com>, <ihor.solodrai@linux.dev>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260604-kasan-v2-8-c066e627fda8@bootlin.com>
+ <8642178be3be8efc7f19ac4a9aa37e699f2baa82cab200909b99997068c6ae7b@mail.kernel.org>
+In-Reply-To: <8642178be3be8efc7f19ac4a9aa37e699f2baa82cab200909b99997068c6ae7b@mail.kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_021748_670866_E5AC7F51 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20260612_022016_273582_36CBE0E1 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 11:36=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
->
-> On Wed, Jun 10, 2026 at 04:40:45PM +0800, Chen-Yu Tsai wrote:
-> > The M.2 E-key connector allows either PCIe or SDIO for WiFi and USB or
-> > UART for BT. Currently the driver only supports PCIe and UART.
-> >
-> > Add power sequencing targets for SDIO and USB. To avoid adding a
-> > complicated dependency tree, rename the existing power sequencing units
-> > "pcie" and "uart" to "wifi" and "bt". The existing target names are lef=
+On Thu Jun 4, 2026 at 11:45 PM CEST, bot+bpf-ci wrote:
+
+[...]
+
+> The Sashiko AI review on the RFC v1 8/8 posting raised a concern here tha=
 t
-> > untouched. The new "sdio" and "usb" targets just point to the renamed
-> > "wifi" and "bt" units.
+> does not seem to have been addressed in v2:
 >
-> Why can we do that? No breakage? Only internal names? No ABI affected?
-> Please, clarify all this in the commit message.
+>   https://lore.kernel.org/bpf/20260425065049.BEC63C2BCB0@smtp.kernel.org
+>
+> The original question was:
+>
+>   KASAN operates in single-shot mode by default. After the first subtest
+>   triggers a report, will subsequent reports be suppressed, causing the
+>   remaining subtests to fail? Also, since BPF CI runs with panic_on_warn=
+=3D1,
+>   will the first KASAN splat invoke check_panic_on_warn() and immediately
+>   panic the CI runner?
+>
+> KASAN runs in single-shot mode by default. mm/kasan/report.c suppresses
+> reports after the first one unless kasan_multi_shot is set.
+>
+> This loop runs roughly 50 subtests, and each one expects a fresh KASAN
+> report emitted via the JIT-inserted __asan_load/__asan_store calls that g=
+o
+> through kasan_report().
+>
+> Under default single-shot KASAN, would the subtests after the first one s=
+ee
+> no report and fail the positive assertions?
+>
+> Separately, BPF CI runs with panic_on_warn=3D1 (config.ppc64el still sets
+> panic_on_warn=3D1). Would the first KASAN splat reach check_panic_on_warn=
+()
+> and panic the runner?
+>
+> Nothing in v2 appears to enable kasan_multi_shot or guard against
+> panic_on_warn. Was this intended to be handled somewhere?
 
-Will do.
+Hoping to silence this one on the next revision: CI has been updated
+separately to enable kasan_multi_shot, and so all subtests in v2
+properly triggered the reports individually. The commit is lacking
+documentation about this need though.
 
-In short, the target names (which are not modified) are used by the
-consumer, while the unit names are internal only.
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-
-ChenYu
 
