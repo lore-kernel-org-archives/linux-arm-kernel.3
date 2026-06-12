@@ -4,95 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1978CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 02:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 639FECD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 02:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFrCUzIcqsP2jLLQtdKiK9uGtRC1I1ntV3IR+frNfUs=; b=JniqxbIolEoRyf4M4BiqCNIUQp
-	KZd1mCpioOLfut0Tlij+JU6+0NtXXQ2fs358Vg/dDR/yA0d4zp8tHzNbsfU65B9n6Hpshmlqsg1Xn
-	NNaZximHndcl8D/ub2JfyD0hwfmdSbWx2wOH02a1rpyYliCUBZdQc2Se9P8HU7WfD5UqdBlNhkK4s
-	FAqJx0Cxd5sxPOQMMwflMYjea3OgBHcrLl86/WyXbIbLvhC1+RArgD5+XGTTdiavdLYscZFySM/l0
-	qHoiwXayO4bOrXjxAr3fvqAjZGbc/v7yvoPMfVr6Esgz5fYUdzA3FMFRP+aA+QkRsHvS8w/r4vjL7
-	6bKd7kOQ==;
+	bh=k7TWkPnU2ZFv4c9L/lpJaAzpAHYUyg4vWnHX2LiMAfg=; b=Ucrh1RwXioungjUkJtQUu9aJHK
+	2vIRdvYKUBtZqE1NR9otGjQvgJzYRVyvGTeQrDRvc2+2nBZ/g3QIQBGljP01R+gf8g1Bjf6SQkKIr
+	TnJRR0BCgOHnzjLQTk8aGSwSQsSkTiOinmffDEyuycXnXtLDW3uclCoL+0aZnELx7f51Dy6A+KKxl
+	eazAzXJhvKY8WY40PWXdTORKdNA01NFBO5MBk4KFGwJzDEY/PNTv9wJurLinfPLJqI1Z8qfjYJAWV
+	by37UZOeNypWDq3yj+NZ1cdJ+YyPyaI0thNmdpuBwWPLmnBqIitYAjAldasSSHqnAyd1xJsoSpPQn
+	Hz1Me0BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXrXg-0000000AHwp-0uHH;
-	Fri, 12 Jun 2026 02:22:44 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wXrli-0000000AIEu-23et;
+	Fri, 12 Jun 2026 02:37:14 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXrXd-0000000AHwU-2jws
+	id 1wXrlf-0000000AIEB-230P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 02:22:42 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-36b9ec98144so439622a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 19:22:40 -0700 (PDT)
+	Fri, 12 Jun 2026 02:37:13 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-36b9033d230so325040a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 19:37:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781231830; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LIvrAcHi7m465XhLcryJUiv/roHSfBcdRQvpcIC2S5qAi9lMmikFJZ49rPm2R670yw
+         UNgzJBC05DckJnaSrB0lf2kijGP63JWkgXHJaAl5VwHbNwTFjHzPHjyIjE0raSHu1w9c
+         MtL2Oi3A5TOgsAin31C+FBAxyxLvT0j8/syfs9hYCXhskXKoFUjZLaPYHAstvKTNiOk7
+         f4I15gavUCWMeI+s+8/1R1nWNUSRjTofGd3IOd16vwnRhx9Qg9QSDKhcVvEUTS61um0C
+         F0xMMIwF3vksMkI2vqnulBPV2h2BQv7/PiCht4HOw0NudHOSfpAda5ve9uUg30Rkti5R
+         I6HQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=k7TWkPnU2ZFv4c9L/lpJaAzpAHYUyg4vWnHX2LiMAfg=;
+        fh=iBMFK6t3fOkmzr5j5dUTal4b8/2GU29tLeYHfUPhTQA=;
+        b=gdz8Q3Q2zyeGrfwEGpkrl/dg7AQx+YAHzkJXcr9qZT7LnmfnaLnSmLa/f9FXSueIFM
+         i7uc50HsWTgiQb6Qoeak+gOO/Jue6/bDyJfXSccY8nEKSvCuOVjX1q6aYSzo3E0Lq/Sk
+         WLixdBYuWVpvQ+JIm6S/3pqiQOnLOOdOZf7gxazQP46L3Joe/3/x6h6jaTPIS0pqOE2K
+         00+k1sNT/VD8g0CST8IOws0NV5JRk3zMcsw1k0xIfBTtP53wunE4swylKypSEXq4TZq9
+         UNS6T5Rfert+gqF1i1PpueDL8+czMfoShAASB6nNvSRXNZEe3YrzUim8ebFyPt1HJT/j
+         GeXg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781230960; x=1781835760; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aFrCUzIcqsP2jLLQtdKiK9uGtRC1I1ntV3IR+frNfUs=;
-        b=pD1Gjbp5ctokakYMxSMjTQwsYPLHqjDcTKB7u7zFX4P9plQ6IyRaq2LQBF+LFuJpXO
-         Lb7bVX8GqF6SJErr9co1DDqXx2zgY3Ys6PS+6aYcQwtmvZYnE8wxnTOAew1lZNJ4f63B
-         YIY+KUh9yz4oYCxcaIzerZ3LPWSD1erw0bUNP2siPfTg6Dd0c7/GiC1I533p932S2/J9
-         alxKAlWmSakICU/l6Fpa+ETczxETEWwZnb4QWL+PyCb14dShUN8IS/P18JFGzlVbuNOf
-         8yTd8xLDC3XqEj3weMa1PoxB4cqqjc3x5DKM65Xak0Juqv68qm0V8rLMZoHVosEMZyGF
-         8r6A==
+        d=gmail.com; s=20251104; t=1781231830; x=1781836630; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=k7TWkPnU2ZFv4c9L/lpJaAzpAHYUyg4vWnHX2LiMAfg=;
+        b=Df/Hswh+TXuLqrTyloYfEuQLGo+Mxkjn1KP9lXW7fdBMbgFuwPt6EdrI2bWyNLlQ1y
+         6O55Py1WRVdiFlMHTAKSIem8y6YuwA9QXyBTtcko5d6xrTxlrHr/iAeDjKRvkrmBhbgl
+         zaanfK+/hjuSUMgyI7KYT4juJx8nXA3ofiVHqmv1mkMPbpSZCtswbmXpgfXG40vt7R3z
+         i5SAsGu0Xo7pjkLOylgAUscwXPyAcViA8FGAfhBFfeQsz8GctIXnd9a7nzGwYn8iTYXz
+         dxlPWWCblx1kjjodzrKP+wZ1ntHP6NH8c5MiTaIVezq9/AuBVr64d1mRwbDq/eHVePc2
+         ObTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781230960; x=1781835760;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aFrCUzIcqsP2jLLQtdKiK9uGtRC1I1ntV3IR+frNfUs=;
-        b=Qk+0Hv1GBEgQSRiksF64maKb+8ZpH2QY88xqIwtsBaqGGSgAJnpCAYkd3sU+GzSuFi
-         1WnZEUO804t9jnlxWR9361vZWjjKzCL8ANNdmnzdlG+4n080vumV8OmZRD87B9svYFfx
-         wkkgPWfR/SGgsqvXKMLrlKU9F/6uAPtk5RzJqBXU3/aX3u1XDS7QWvBlHFzSKb2M2lBq
-         bVMHE96ysVUj6BEBfDxuT+AGfHsB4O+USL3Xjt7mVr4+RVEspXhB1cU0MJQgvQBcCYmy
-         gHOFLUBYQM6TZ8gjJpgOaQYewfZrDzAXvyfuS5rqSnKX4DuQhktP09SaSDOJJtiwO3qO
-         UN4Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+Rkoim5KwQIdxazfyJM+RaEmGQWtW/wqg41S/QuUHwMPeEGjbhsSiwgeGJ+WRnLzOTSz4wjyQWTJ4zt8JkJxd8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqFXhO67al7fQcoXJUGqE6kKCwiu6ncUipZyurjkkqJOLO+cDu
-	WC84vkNy6RinLpAJ9ZPGy0rDdwjwqoInb+lGYqfVQ5JJJR9GxdOBgiI3
-X-Gm-Gg: Acq92OESWkz0DfywJqGt+lsj2BmySmVTUWTOyEvkFbYkrfduGQd6R1D72VsU+ntF+Az
-	sG3CvQxqzV7Q7F4belOSoezshU9HtqGeRuWpShKfDNAcWUi88j4e+Z9Kvxa8PtwRBttNHxlrHfb
-	CO0jgNedm5Adv0wCZeXNNRA1D38CiLHz5EI75F+U4GlJj1Rq/YbGoXRg3w31I77VxsUHt8tEXF0
-	A436wi8zfoeYH1RGw8DJS9WkGM7w2kYR11ScLFAtkYyUFSS5gT/A5xujZmwcOkWlQdSDNZog1/G
-	KvCat2BorAM60iOFpGmQbVKLl+JWuuKkT/W2ErFAWFnS+L/NlqcfXCa3BMADdesYVcXh2Rq0ec0
-	btbVOwzNvtQVpXfSH94ljetdsb8ADdZbxyrjZTSh7gbu+xeScmGijZCdnPSMgI//jEzbZuJlnvZ
-	rbfCpoZjX9r9rBhFHB/WPrYt2Ire5B7CSFdLFiXAy5gEkp6f89yMei1g==
-X-Received: by 2002:a17:90b:5103:b0:36d:689a:cb27 with SMTP id 98e67ed59e1d1-37a0468ca6dmr979488a91.24.1781230959988;
-        Thu, 11 Jun 2026 19:22:39 -0700 (PDT)
-Received: from v4bel ([58.123.110.97])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1eba8e9asm313668a91.2.2026.06.11.19.22.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 19:22:39 -0700 (PDT)
-Date: Fri, 12 Jun 2026 11:22:35 +0900
-From: Hyunwoo Kim <imv4bel@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com,
-	jic23@kernel.org, timothy.hayes@arm.com, andre.przywara@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	imv4bel@gmail.com
-Subject: Re: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours
- before migrating it
-Message-ID: <aitta-IcWnRepEva@v4bel>
-References: <aiHnI1mu6SGQrgnz@v4bel>
- <aiJmBfXAxcytfGha@kernel.org>
- <87ecila0w3.wl-maz@kernel.org>
- <aiKMNIUMv9GQiIbD@kernel.org>
- <ailsCnyoS82r_QRz@v4bel>
- <865x3qtmg6.wl-maz@kernel.org>
+        d=1e100.net; s=20251104; t=1781231830; x=1781836630;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k7TWkPnU2ZFv4c9L/lpJaAzpAHYUyg4vWnHX2LiMAfg=;
+        b=IJHJQ29/W6t+WPRstW1cEy/IzSZiGxL6jJVBmoY9dWv7j7TJo/IcnTFxbWi95Pcqay
+         9v9rNKYZG/lnqJlwNyWPfcCJwqAJ8jUZFw6viliFeituOfFAHaFOeY5HtOElOOUmvtKW
+         emnVdlU0/9OdGgaNldZHhvuLCpUo+kQaE+lJj4qAX6XnaJZVM5iFnERtzerKIO5+3PuX
+         7pW7JdmMsB0SGIw8W/b7mrgWFBOLysLfVw9Ma/iTD6Nlgqq9Ul41KRypevElRk0cnrRf
+         KpZnRK/wt4m6qY3+79akPP2ODcrg19Y4pu5RyjmYoaXh8Yy9AuZEycgEtK5CcfAoGZdo
+         Bufw==
+X-Forwarded-Encrypted: i=1; AFNElJ/NsuGL4sZ/Ha/PsbrXTtj8E7FodDIQtbD6QDJnuFd2VAsOX4T+gj/wzCfPEsjy50oqJlotS5Upb9myEftoWey/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXfZ0ES6WPYWc9XmLICN9fN8LgcbtkIWeZCeHQkK9fAFY1Y7KT
+	j3KKuP/P73ROqDEocdwj1PcKleLtnmYF8CD6EByFgIgWdVlMknCYDKt4249po7sdyZTU27hZQfC
+	h+d+dkVA1q9pOX/dQf0QsDmbifLUjx1U=
+X-Gm-Gg: Acq92OFJjS/XePcLieikiMdSp5J1wwofVI3jtOQYxwHNcKb96kPOOGA80s2rLC6al1Y
+	EgTC5Tf2lbXRPhkY23C6vTlNBbyUM0mHaxwi7Y9bO0Tu7uelH4vxkftm7Y288beLPxw4ROKbeIs
+	vgAsY8w2SO7PnML080H4plwcDhFDiXVbsEpumYVhFd3772jCJRAPtmzNnq2EQKgIDG4/DRDSGXL
+	z8cgXS8xztRZykfLnBljPKKYfr6LZaz6za7dFvH/GaAbLVbMCvuMb8YofjS7jlviiJFvXbH3uEl
+	YiJkwnUXtwCVByZhZPixdHGzSofp2Md24HKVCQ==
+X-Received: by 2002:a17:90b:1dce:b0:369:7491:7b24 with SMTP id
+ 98e67ed59e1d1-379ed8e27d2mr1063022a91.6.1781231830513; Thu, 11 Jun 2026
+ 19:37:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <865x3qtmg6.wl-maz@kernel.org>
+References: <20260610102153.83367-1-phucduc.bui@gmail.com> <1j8q8mfte7.fsf@starbuckisacylon.baylibre.com>
+ <CAABR9nGC=f_hO7FX2RnRHLb5D2Tt9=qT_yv-Fv2y32AAoQy+sw@mail.gmail.com> <1jo6hhebus.fsf@starbuckisacylon.baylibre.com>
+In-Reply-To: <1jo6hhebus.fsf@starbuckisacylon.baylibre.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Fri, 12 Jun 2026 09:36:58 +0700
+X-Gm-Features: AVVi8CcLu5Ty5I6ab3mqIKLS740KgAX1K7YLQYr3jFBVdQ6AaZKqSuuk1kFJF9c
+Message-ID: <CAABR9nGQt0zsH2McjOFO91tS-CHsudzioxCkPvbkgmTyfKVo=Q@mail.gmail.com>
+Subject: Re: [PATCH] ASoC: meson: axg-tdm-formatter: Use guard() for mutex locks
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_192241_726635_3F3B91BF 
-X-CRM114-Status: GOOD (  61.29  )
+X-CRM114-CacheID: sfid-20260611_193711_556942_25C7E7E7 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,218 +119,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 05:00:25PM +0100, Marc Zyngier wrote:
-> On Wed, 10 Jun 2026 14:52:10 +0100,
-> Hyunwoo Kim <imv4bel@gmail.com> wrote:
-> > 
-> > On Fri, Jun 05, 2026 at 01:43:32AM -0700, Oliver Upton wrote:
-> > > On Fri, Jun 05, 2026 at 08:42:52AM +0100, Marc Zyngier wrote:
-> > > > On Fri, 05 Jun 2026 07:00:37 +0100,
-> > > > Oliver Upton <oupton@kernel.org> wrote:
-> > > > > 
-> > > > > On Fri, Jun 05, 2026 at 05:59:15AM +0900, Hyunwoo Kim wrote:
-> > > > > > vgic_prune_ap_list() drops both ap_list_lock and irq_lock while migrating
-> > > > > > an interrupt to another vCPU. After reacquiring the locks it only checks
-> > > > > > that the affinity is unchanged (target_vcpu == vgic_target_oracle(irq))
-> > > > > > before moving the interrupt, which assumes that an interrupt whose affinity
-> > > > > > is preserved is still queued on this vCPU's ap_list.
-> > > > > > 
-> > > > > > That assumption no longer holds if the interrupt is taken off the ap_list
-> > > > > > while the locks are dropped. vgic_flush_pending_lpis() removes the
-> > > > > > interrupt from the list and sets irq->vcpu to NULL, but leaves
-> > > > > > enabled/pending/target_vcpu untouched. As the interrupt is still enabled
-> > > > > > and pending, vgic_target_oracle() returns the same target_vcpu, so the
-> > > > > > affinity check passes and list_del() is run a second time on an entry that
-> > > > > > has already been removed.
-> > > > > > 
-> > > > > > Also check that the interrupt is still assigned to this vCPU
-> > > > > > (irq->vcpu == vcpu) before moving it.
-> > > > > > 
-> > > > > > Fixes: 0919e84c0fc1 ("KVM: arm/arm64: vgic-new: Add IRQ sync/flush framework")
-> > > > > > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
-> > > > > 
-> > > > > Looking at this and the other VGIC patch you sent (which should've been
-> > > > > a combined series), are you trying to deal with a vCPU writing to
-> > > > > another vCPU's redistributor? I.e. vCPU B setting GICR_CTLR.EnableLPIs=0
-> > > > > behind the back of vCPU A?
-> > > > > 
-> > > > > That is extremely relevant information as the off-the-cuff reaction is
-> > > > > that no race exists. But since the GIC architecture is awesome and
-> > > > > allows for this sort of insanity, it obviously does....
-> > > > > 
-> > > > > Anyway, for LPIs resident on a particular RD, there's zero expectation
-> > > > > that the pending state is preserved when EnableLPIs=0. So I'd rather
-> > > > > vgic_flush_pending_lpis() just invalidate the pending state.
-> > > > 
-> > > > Just clearing the pending state introduces a potential problem as we
-> > > > now have an interrupt that is neither active nor pending on the AP
-> > > > list. It is not impossible to solve (we now have similar behaviours
-> > > > with SPI deactivation from another vcpu), but that requires posting a
-> > > > KVM_REQ_VGIC_PROCESS_UPDATE to the target vcpu.
-> > > 
-> > > Right, I was suggesting that in addition to deleting the LPI from the AP
-> > > list we actually invalidate the pending state so that someone sitting on
-> > > a pointer to a to-be-freed LPI sees vgic_target_oracle() returning
-> > > NULL
-> > > 
-> > > > > Beyond that, I see two other fixes for lifetime issues around the
-> > > > > vgic_irq in the middle of migration. I'd like to see explicit RCU
-> > > > > protection around the release && reacquire of the ap_list_lock rather
-> > > > > than depending on the precondition that IRQs are disabled.
-> > > > 
-> > > > I'm not sure I follow. Are you suggesting turning the AP list into an
-> > > > RCU protected list?
-> > > 
-> > > No, sorry, I should expand a little.
-> > > 
-> > > We store a reference on the vgic_irq struct in the AP list, which is
-> > > stable so long as the ap_list_lock is held. It should be possible for
-> > > the refcount to drop to 0 between releasing the ap_list_lock and
-> > > reacquiring it.
-> > > 
-> > > So either vgic_prune_ap_list() takes an additional reference on the
-> > > vgic_irq before dropping the ap_list_lock or rely on RCU to protect
-> > > vgic_irq structs observed with a non-zero refcount.
-> > 
-> > What are your thoughts on this approach?
-> > 
-> > 
-> > Best regards,
-> > Hyunwoo Kim
-> > 
-> > ---
-> > 
-> > diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> > index 933983bb2005..7fb871c3ccd8 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-init.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> > @@ -523,7 +523,7 @@ static void __kvm_vgic_vcpu_destroy(struct kvm_vcpu *vcpu)
-> >  	 * Retire all pending LPIs on this vcpu anyway as we're
-> >  	 * going to destroy it.
-> >  	 */
-> > -	vgic_flush_pending_lpis(vcpu);
-> > +	vgic_flush_pending_lpis(vcpu, true);
-> > 
-> >  	INIT_LIST_HEAD(&vgic_cpu->ap_list_head);
-> >  	kfree(vgic_cpu->private_irqs);
-> > diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> > index 5913a20d8301..f85d63f17af0 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> > @@ -303,7 +303,7 @@ static void vgic_mmio_write_v3r_ctlr(struct kvm_vcpu *vcpu,
-> >  		if (ctlr != GICR_CTLR_ENABLE_LPIS)
-> >  			return;
-> > 
-> > -		vgic_flush_pending_lpis(vcpu);
-> > +		vgic_flush_pending_lpis(vcpu, false);
-> >  		vgic_its_invalidate_all_caches(vcpu->kvm);
-> >  		atomic_set_release(&vgic_cpu->ctlr, 0);
-> >  	} else {
-> > diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-> > index 1e9fe8764584..09629a38fc0a 100644
-> > --- a/arch/arm64/kvm/vgic/vgic.c
-> > +++ b/arch/arm64/kvm/vgic/vgic.c
-> > @@ -192,7 +192,7 @@ static void vgic_release_deleted_lpis(struct kvm *kvm)
-> >  	xa_unlock_irqrestore(&dist->lpi_xa, flags);
-> >  }
-> > 
-> > -void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
-> > +void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu, bool destroy)
-> >  {
-> >  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-> >  	struct vgic_irq *irq, *tmp;
-> > @@ -204,6 +204,13 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
-> >  	list_for_each_entry_safe(irq, tmp, &vgic_cpu->ap_list_head, ap_list) {
-> >  		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
-> >  			raw_spin_lock(&irq->irq_lock);
-> > +			/* Leave interrupts pending a migration for prune. */
-> > +			if (!destroy && irq->vcpu != vgic_target_oracle(irq)) {
-> > +				raw_spin_unlock(&irq->irq_lock);
-> > +				continue;
-> > +			}
-> 
-> It's rather unclear to me what the semantics of this are.
-> 
-> If vcpu-a decides to nuke the LPIs of vcpu-b and the LPI had in the
-> meantime been migrated to vcpu-c, but obviously not observed by vcpu-c
-> yet as the LPI is still on vcpu-b's AP-list, then I don't see the
-> point in keeping this state.
-> 
-> Am I missing something obvious?
+Hi Jerome,
 
-I looked a bit more into Oliver's review, the one suggesting that pending 
-be cleared only for resident LPIs while the ones being migrated are left 
-in place.
+Thank you for the review and for the Reviewed-by tag.
 
-What the leave preserves is the pending edge of a single LPI whose target 
-is already vcpu-c but which is still on vcpu-b's ap_list. This edge is 
-always lost when we just clear it, but for a device that fires again a 
-later INT reaches vcpu-c through the oracle, so it is mostly harmless. The 
-exception is a software LPI that never fires again(irq->hw == false): 
-that edge is then lost with no way to recover it, because 
-its_sync_lpi_pending_table only re-syncs the LPIs whose target_vcpu matches, 
-and the disable path does no pending writeback. I am not entirely sure about 
-this part, though.
+>
+> The code is not better or worse with the change but you went through the
+> trouble of doing so, if Mark is fine with it, let's have it
+>
+> Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+>
 
-Since this does not look like the common case, if it does not need to be 
-covered I will send v2 keeping only the pending clear and the ref hold in 
-vgic_prune_ap_list(). What do you think?
+Regarding the point about whether the change makes the code better or worse,
+I have sent an additional patch to address related cleanup in the same area:
 
-> 
-> > +			/* Pending state is not preserved across EnableLPIs=0. */
-> > +			irq->pending_latch = false;
-> 
-> That part I agree with.
-> 
-> >  			list_del(&irq->ap_list);
-> >  			irq->vcpu = NULL;
-> >  			raw_spin_unlock(&irq->irq_lock);
-> > @@ -797,6 +804,9 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
-> > 
-> >  		/* This interrupt looks like it has to be migrated. */
-> > 
-> > +		/* Keep the interrupt alive while the locks are dropped. */
-> > +		vgic_get_irq_ref(irq);
-> > +
-> >  		raw_spin_unlock(&irq->irq_lock);
-> >  		raw_spin_unlock(&vgic_cpu->ap_list_lock);
-> > 
-> > @@ -839,6 +849,8 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
-> >  		raw_spin_unlock(&vcpuB->arch.vgic_cpu.ap_list_lock);
-> >  		raw_spin_unlock(&vcpuA->arch.vgic_cpu.ap_list_lock);
-> > 
-> > +		deleted_lpis |= vgic_put_irq_norelease(vcpu->kvm, irq);
-> > +
-> >  		if (target_vcpu_needs_kick) {
-> >  			kvm_make_request(KVM_REQ_IRQ_PENDING, target_vcpu);
-> >  			kvm_vcpu_kick(target_vcpu);
-> > diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-> > index 9d941241c8a2..c1ac24ede899 100644
-> > --- a/arch/arm64/kvm/vgic/vgic.h
-> > +++ b/arch/arm64/kvm/vgic/vgic.h
-> > @@ -341,7 +341,7 @@ void vgic_v3_put(struct kvm_vcpu *vcpu);
-> >  bool vgic_has_its(struct kvm *kvm);
-> >  int kvm_vgic_register_its_device(void);
-> >  void vgic_enable_lpis(struct kvm_vcpu *vcpu);
-> > -void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu);
-> > +void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu, bool destroy);
-> >  int vgic_its_inject_msi(struct kvm *kvm, struct kvm_msi *msi);
-> >  int vgic_v3_has_attr_regs(struct kvm_device *dev, struct kvm_device_attr *attr);
-> >  int vgic_v3_dist_uaccess(struct kvm_vcpu *vcpu, bool is_write,
-> > 
-> 
-> I reckon this would work just as well with just the pending state
-> being removed in vgic_flush_pending_lpis(), and the reference holding
-> hack in gvgic_prune_ap_list().
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+https://lore.kernel.org/all/20260612020113.9557-1-phucduc.bui@gmail.com/
 
+Would appreciate your review on that as well.
+
+While looking into the Meson ASoC probe paths,
+I noticed a few consistency issues that seem to appear across multiple drivers:
+
+1. Mixed usage of dev_err_probe() and dev_err() in probe error paths.
+
+2. Inconsistent error message formatting: some messages start with lowercase
+   ("failed to init..."), while others start with uppercase ("Failed
+to register...").
+
+3. In aiu_probe(), error paths for IRQ retrieval do not provide
+additional context,
+    making it harder to identify which resource failed:
+
+   aiu->i2s.irq = platform_get_irq_byname(pdev, "i2s");
+   if (aiu->i2s.irq < 0)
+           return aiu->i2s.irq;
+
+   aiu->spdif.irq = platform_get_irq_byname(pdev, "spdif");
+   if (aiu->spdif.irq < 0)
+           return aiu->spdif.irq;
+
+4 ......
+
+Do you think addressing these issues would improve readability and
+maintainability of the Meson codebase over time?
+Or is it generally preferred to leave these kinds of consistency
+improvements untouched unless a functional bug is being fixed?
 
 Best regards,
-Hyunwoo Kim
+Phuc
 
