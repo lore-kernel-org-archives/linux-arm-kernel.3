@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E31CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 14:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E178ECD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 14:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8pFVODsK8nCijCDNDLMgxkikkdJrQAhHnV+T+5T5zWc=; b=R3uqE7fZmLV+Vam16Us32ffSg6
-	8djB67sAm5C62+wY7ESCl1Ucg/JpXhjp11Waq/VTO5j1Q9aQDABFOdOxbeTZdueQqSiPQwh2+Q3fo
-	PwmpkwLb17EF/gG+qok9t+wKQWUh7fGbRc/wWMMenoyo1KVEejlGpzeRBx8wHrgsWJo68GkKvXtdG
-	5m1C61tlp/2O2dKvqTIih3Jw7K3q7WJDwNBcQGAjD/aK5YmdYjvhQcNwQsFBUODGC+/0F0num8E6n
-	lnC3vcJg6R5/pt+dYUgyFJWlEnoUJ6lwpDr8WwXuBmtFhx9FgH0sf7RfH/6RiFcgSh5fY+OCZwkRA
-	1IxegbiQ==;
+	bh=qhPHLYbQyUfvef9/xCIIY8vt5USpJP7O50ve0Xr9Fco=; b=qLVHLEzmp+KHKBpTqPwKltZ1lb
+	ntUjrtpst2VnMdQmNz5Pt5J0N19la6FP6OrjwLznxtnPYaoEYuNmL61aj29cX4WTVg4nWU7J8Z7fs
+	274sNA0ARUN14tTfcrdm35/4MyBL+WeZkkrBpGLEwnQnY8BNRajqnW9pNeft7SS8VLPZpbepa3CLZ
+	ImRSL6VQGX0GsGOkFraD4m7Uxb5kdpc1qbmL1/P2cn/Fr7FPQ+ippqfJJ2LV8A6mqitsVUNu/Uf7a
+	5V7icCPCxQTr2B3L+zGHRW3lRge0wz68s+AsHOtDa2E0AlRP0alMubo4KR2+Ybbp7UD01WYXibD8Y
+	f03IbSlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY35z-0000000B65A-2rDG;
-	Fri, 12 Jun 2026 14:42:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wY3C5-0000000B6fZ-1spl;
+	Fri, 12 Jun 2026 14:49:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY35y-0000000B64Z-1QY7;
-	Fri, 12 Jun 2026 14:42:54 +0000
+	id 1wY3C4-0000000B6fM-1KI0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 14:49:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1FAF6008A;
-	Fri, 12 Jun 2026 14:42:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 500E61F00A3A;
-	Fri, 12 Jun 2026 14:42:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CC0260098;
+	Fri, 12 Jun 2026 14:49:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDC861F000E9;
+	Fri, 12 Jun 2026 14:49:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781275373;
-	bh=8pFVODsK8nCijCDNDLMgxkikkdJrQAhHnV+T+5T5zWc=;
+	s=k20260515; t=1781275751;
+	bh=qhPHLYbQyUfvef9/xCIIY8vt5USpJP7O50ve0Xr9Fco=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ym/KchFKUOtSqs03zw7p0bBmd751BWdKhFtBdtk19PaYskXhLxCiU2wKH8lvRvWHo
-	 gawVbS1RIGNl4PlNWJihz03okzNq9/cp6Ww5XKra5xbbcZYHNQxGCJ0q49orkQAj4O
-	 JuLqTbP3nCbWkFMcgWB1ax5EpO+Yvbszkg2J7nRwE6cp4YrWjLJE4Uw3zRwtSxj2zQ
-	 Mky2klprkntTIwKWcITUf5mHQeauSd798W7i3fnaExQYmYxPtva2ty6QfcfSaMh22m
-	 cuE8Pq1IJy/flcs5MBzQsONPlcb+IxnY5oTx1zADRCEiFV2M8MzGlLx8BMD5waisk/
-	 BKTkWBakHuGjw==
-Date: Fri, 12 Jun 2026 09:42:52 -0500
+	b=KqQ3m+jibMcuY8vurw+rG7VdytA6Y6cMHo3roJQ8ImJswxu7g5OQsf6U9DmgKL9Ok
+	 tMoVfnttQQhbTRLujJvFm4Z3bZ7gZzKPvuegSKFNGFlYLiavZptALOMGNFohVAJBsU
+	 S2cf3GfT9s6pAt3G7PxxKl9WEcH0ikXnznL9+1kH7Dm5xiZa7amZAbjMwEevZ45B4a
+	 vJr8GleYk5liMgzbxAkB3mPRM5aQevk6Yqrzi9aFtqJTDnvJHo9OtiT8zww01quWWU
+	 JZFWZqvYd6+3/nlD+3b8S1gml9lQE6KMYyGi9pVigyovlwi1JcYwRC3L4eQz6SwZW2
+	 qxF4lWtteSQaQ==
+Date: Fri, 12 Jun 2026 09:49:10 -0500
 From: Rob Herring <robh@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
-	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, saravanak@kernel.org,
-	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
-	robin.murphy@arm.com, quic_obabatun@quicinc.com
-Subject: Re: [PATCH v3 00/11] kdump: reduce vmcore size and capture time
-Message-ID: <20260612144252.GB974326-robh@kernel.org>
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, will@kernel.org,
+	xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
+	mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org,
+	bp@alien8.de, tony.luck@intel.com, guohanjun@huawei.com,
+	lenb@kernel.org, skhan@linuxfoundation.org,
+	vishal.l.verma@intel.com, rafael@kernel.org, corbet@lwn.net,
+	ira.weiny@intel.com, dave.jiang@intel.com, krzk+dt@kernel.org,
+	catalin.marinas@arm.com, alison.schofield@intel.com,
+	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	Michael.Zhao2@arm.com, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-cxl@vger.kernel.org,
+	Dmitry.Lamerov@arm.com, devicetree@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
+	acpica-devel@lists.linux.dev
+Subject: Re: [PATCH v5 09/10] dt-bindings: firmware: add arm,ras-cper
+Message-ID: <20260612144910.GA989816-robh@kernel.org>
+References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
+ <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-9-2e0500d42642@arm.com>
+ <20260529174407.7081ad0b@jic23-huawei>
+ <ceb19cb6-7083-44ad-a262-a8198f489257@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260527032917.3385849-1-chenwandun1@gmail.com>
+In-Reply-To: <ceb19cb6-7083-44ad-a262-a8198f489257@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +83,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 11:29:06AM +0800, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
+On Thu, Jun 11, 2026 at 03:22:21PM +0100, Ahmed Tiba wrote:
+> On 29/05/2026 17:44, Jonathan Cameron wrote:
+> > On Fri, 29 May 2026 10:50:49 +0100
+> > Ahmed Tiba<ahmed.tiba@arm.com> wrote:
+> > >   .../devicetree/bindings/firmware/arm,ras-cper.yaml | 54 ++++++++++++++++++++++
+> > >   MAINTAINERS                                        |  5 ++
+> > >   2 files changed, 59 insertions(+)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
+> > > new file mode 100644
+> > > index 000000000000..3d4de096093f
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
+> > > @@ -0,0 +1,54 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id:http://devicetree.org/schemas/firmware/arm,ras-cper.yaml#
+> > > +$schema:http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Arm RAS CPER provider
+> > > +
+> > > +maintainers:
+> > > +  - Ahmed Tiba<ahmed.tiba@arm.com>
+> > > +
+> > > +description:
+> > > +  Arm Reliability, Availability and Serviceability (RAS) firmware can expose
+> > > +  a firmware-first CPER error source directly via DeviceTree. Firmware
+> > > +  provides the CPER Generic Error Status block and notifies the OS through
+> > > +  an interrupt.
+> > I'd like some spec references in here if possible.
+> I can add a reference to the UEFI CPER specification for the Generic
+> Error Status record format.
 > 
-> On SoCs that carve out large firmware-owned reserved memory (GPU
-> firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
-> those carveouts as part of system RAM even though their contents are
-> firmware state that is not useful for kernel crash analysis.
-> 
-> This series introduces an opt-in 'dumpable' flag [1] on struct
-> reserved_mem and uses it to filter the elfcorehdr PT_LOAD ranges on
-> DT-based architectures (arm64, riscv, loongarch). By default reserved
-> regions are treated as non-dumpable; CMA regions are explicitly opted
-> in because their pages are returned to the buddy allocator and may
-> carry key crash-analysis data.
-> 
-> The series is organized as follows:
-> Patches 1-3: Pre-existing fixes and a small prep change.
-> Patches 4-5: Restructure to allow appending /memreserve/ entries.
-> Patches 6-7: Add a dumpable flag and append /memreserve/ entries.
-> Patch 8: Add generic kdump helpers.
-> Patches 9-11: Wire the helpers into arm64, riscv and loongarch kdump
->               elfcorehdr preparation.
-> 
-> v2 --> v3:
-> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.[2]
-> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
-> 3. Add some prepare patches.
-> 
-> v1 --> v2:
-> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
->    feedback [1], v2 drop that property and exclude reserve memory
->    by default.
-> 2. Split some prepared patches from the original patches.
-> 3. Address coding-style comments on patch 5 from Rob.
-> 
-> [1] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
-> [2] https://sashiko.dev/#/patchset/20260520091844.592753-1-chenwandun%40lixiang.com?part=4
-> 
-> Wandun Chen (11):
->   of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
+> For the firmware-first DT description itself I do not have a more specific
+> public reference to cite.
 
->   of: reserved_mem: zero total_reserved_mem_cnt if no valid
->     /reserved-memory entry
-
-I applied these 2 for 7.2.
+Is there a platform actually using this with DT (FVP doesn't really 
+count)?
 
 Rob
 
