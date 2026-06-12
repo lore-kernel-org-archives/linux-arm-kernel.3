@@ -4,87 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0541CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 04:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67706CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 04:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZFa8/Ls00h5FodOcZHo0TtLVopWVSoUHVq+MXAnFGp8=; b=Kdka+S2jLFz0/PmarHesUKBlXc
-	3t80O29LOc703EpfMhGmoHEAuf4mKpHZIf7AQPvKN2D5L/nT+iisRsVKlL0UPQYApDzcMUGYuNgWZ
-	mvuiBooxAtyLe/nGrWEfpnQINHPYdXtUl16o44UT6CB+M8RpGvRjWCIZqDTaCQZmLPr5Qz7dxqPTW
-	W/lqo1GR9MDivp0z0BR6bheUAD+EI/u6ZOccmLgxJxjWJg86BTTbK20uw+TSHYAV7XrDHwrDr4MKk
-	VIfvKo5Euweg65MW060iq7LSY9LWXBjfJLlX0FGmRxWT4DoXBxIloWWArE0lqKPYE4B1U7BUK5bAi
-	nU1GIGxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vvM7pahAjxlhrr61LEyDzqcCT+Fc1a/WkHWS05sPsSE=; b=BtG2THqR/ZGVT1
+	PpxQzq15otLIeYiKywiGaeE2T081R3bg4Xc0ucddcIhveMbMhFTrKX6azUlQgsLgEkcfquM1vrqgW
+	wstYfOXurYKz5pqMXksBcxnJzmMAjUkJUQJw4mq0GRsh/3OckC2B8iZSIRFw+qvVukqVv37Ki/qOW
+	gNX66RlCaAC2JMQrVzWD3oayS7uV0DPe6i/VM4ot7cniAQixm44YKLpKz/bs4et0/PqG4tmFar36W
+	0jEXDhQZ7UAg8s+sUGzHTFDdBRvpEr9xIJQbaZrwf9mpzQ1GgMTjCs76YHD5fYKX8FHhNFt9NAzOi
+	pacdgNlu7vSH+77AGsrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXtZQ-0000000ALV3-0i3p;
-	Fri, 12 Jun 2026 04:32:40 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1wXtaw-0000000ALc7-38DI;
+	Fri, 12 Jun 2026 04:34:14 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXtZM-0000000ALUe-1k8W;
-	Fri, 12 Jun 2026 04:32:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781238756; x=1812774756;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=khstqJkF3ATYBmmus/0LM5+7K5YtO6cGJKSvZ7jF6ac=;
-  b=aBDr/qeXkL6doU34jI5t73yBKQsuu+o91sFVUev7JBPSXqxD6BTwwhgN
-   AGwOUKxqpQ1jWGlWZif1+wIJndn8Cd7mk88MlLYL4ARv1kT9lEEGR27/q
-   gQWDzZ4qNT+SUmd6IUK2+JQCizJHVAXhtEYVZSykJRoa7iwyWEKj3hXBF
-   VCG06hU8DJSnuojJFtCNxPDaeN6FOYDi0ZosQAd+xwrWcGbeZJJWBIvVg
-   pVepmzqH+iThtBcd4+BPGoFB+XgwQtQd3mke4j7WSt4gZkIDHnr0HGNmY
-   RgWuEWoYFaUiThUWO6Eut5oTGKTh5OqvITDapWNqAPyK2NmDyznA2Vao5
-   A==;
-X-CSE-ConnectionGUID: SSyibF++TjeDuO1kxQFYGA==
-X-CSE-MsgGUID: Es61NfwJRU+V/F+GSbwF9w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11813"; a="82072627"
-X-IronPort-AV: E=Sophos;i="6.24,200,1774335600"; 
-   d="scan'208";a="82072627"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2026 21:32:34 -0700
-X-CSE-ConnectionGUID: SV4yh9qbThagVXMe3VqKzA==
-X-CSE-MsgGUID: j1RAI94jTU6xaVcXGCNT+A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,200,1774335600"; 
-   d="scan'208";a="245614402"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 11 Jun 2026 21:32:29 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wXtZC-00000000OJh-2H3e;
-	Fri, 12 Jun 2026 04:32:26 +0000
-Date: Fri, 12 Jun 2026 12:31:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: Eugen Hristev <ehristev@kernel.org>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
-	Naushir Patuck <naush@raspberrypi.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Eugen Hristev <ehristev@kernel.org>
-Subject: Re: [PATCH] media: bcm2835-unicam: Fix querycap multiple caps
-Message-ID: <202606121218.nV4fMXUr-lkp@intel.com>
-References: <20260611-bcmpiqcap-v1-1-10cf7fb438df@kernel.org>
+	id 1wXtat-0000000ALb6-3BkN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 04:34:14 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490ac10e337so3039115e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 21:34:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1781238849; x=1781843649; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vvM7pahAjxlhrr61LEyDzqcCT+Fc1a/WkHWS05sPsSE=;
+        b=yyKX0ON0C40KYw0HSMXvWO/LxlZt65Q8MIBeyar5Q4mjoTBFlu3LlMAiYUvp4gv4xL
+         Z4mT2f8zcBFWFvQlyvFkYzkXzHJxY6H9nDZa8m4L43BX6UOG6rWSBXeqxyfDtiXBopkX
+         v7NdRcMaoepzxFAlLwPOa1Lemld3Ri/rV8lu2DfXKu9OkJuGSZoUQm0hES5vo2OaBMGC
+         XuTKqCqpQZlTf1L+UEox+wPoadyi8OgOLhrhPVDKZagr2c5FaaIMZvrY6nHSq8Er6bs4
+         X5CXaCgRd0ub9lmP+e8wHDqqTTdQ39o17mr/F1GV4mDwcup3ZRTqRSNDYT4rmNlq3G4t
+         g5Lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781238849; x=1781843649;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vvM7pahAjxlhrr61LEyDzqcCT+Fc1a/WkHWS05sPsSE=;
+        b=SYlRaub3IPa27vh6S+9UssslB7jFAx7FP+DO5UxUhSV5sJ9r9tzWh4jQeVLaKQOpJ8
+         5OyF/ejcDpOEiIyBdBA/Y9mJfgdq9w5daX4Bj8nQFbVwtUBtnlXntHy6fC6T4Xn2SrCt
+         XD6tFx0IibdNT8CRpp+SCSgJzAQlkEzorEgNP8QvIwLPrjWq3I44iwrxs8xcDQJN+j89
+         7F9rfPvlIUyz7fXHaognDQHcHC+dbCPcDs40zWc1LKv4+atlPwVGxiPiSaqWk+63Qynn
+         LdvmGkcmt0LHlQ4cscyzfUu6Y/OXQ1CkcJSYT3Gj4vgH8ebmeM9di6KiiUhMWN4S6Fc/
+         oPpA==
+X-Forwarded-Encrypted: i=1; AFNElJ8QF5zHeok6OcZnDGN+l208Y7FfAIVbtLXeBoFGTp2mWXiqQkxLh+cl0SjuZoGPrj0SJY0Nx8XSRESTIN/GsEJ+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzst+SAgXm7QBD8ZiaCw+NfMKcCf899wVAhFKyFNkm3m0v/toUd
+	6PXOQPjog57frFIJc19FlXn/h4Wn9ZxjWLy5NTJ+ZTQX7OiZfVnE9X23rhUnKWS9WG8=
+X-Gm-Gg: Acq92OFeo9isYzATSH+5TKBy/ECeLmIu7CUltf1gUQqZoV14+elSOKWTpCW8nX54lKN
+	Tw3JrzmFqDDFTsSqndOCsr+oLLkyDq7guiQeUhW4NUbh8BTwjj3suA4+BzIAItPlwHjb3reR9jA
+	YqXEfrLzoJxKL63ViS9EW9mA6EcukmedbDPG/U3n+yXxkm7fMmBa7vBWIfP026CgTXjTSg5Embu
+	GgHBb6GuKnoXhfOX2lqTUPmvm/AMhFIKTJc2jhqN5g9FRXAKsy3jyxdR0bdg21kjuKHRIBg6g/h
+	QqnVfnSMj/8txqKYhMOI91KmuklOGuE+t4M0fSzJdPZTKz5+KSfO9F/wVhMxzA3UlhyR8kexpmy
+	unkx7aky5UuPCOTCSzNOyLP8Gpd3kyGQE0+/LGW7uHjvhA78JnOZmOWOpbxXSzwFQg7ERKcb/ij
+	HXKLdVX0/sfudjSlxRDaYfBfAK27/StKGUD9q8zmGh+MqFYk0Pw1BDPXi71NNq5NGZKu4vIYPPr
+	umTLezTpe2sCO+F
+X-Received: by 2002:a05:600c:83ca:b0:490:aef9:aa3b with SMTP id 5b1f17b1804b1-490ec523ef7mr8700565e9.32.1781238848787;
+        Thu, 11 Jun 2026 21:34:08 -0700 (PDT)
+Received: from [127.0.1.1] ([94.4.195.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea83da91sm36134865e9.10.2026.06.11.21.34.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Jun 2026 21:34:07 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Subject: [PATCH 0/2] ACPM cpufreq with fast_switch support, fast path xfer
+ in ACPM
+Date: Fri, 12 Jun 2026 05:34:00 +0100
+Message-Id: <20260612-acpm-fast-xfer-v1-0-1aa6cd2268ba@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260611-bcmpiqcap-v1-1-10cf7fb438df@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIADmMK2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDM0Mj3cTkglzdtMTiEt2KtNQiXQuzZJOUVHOLZCODJCWgpoKi1LTMCrC
+ B0bG1tQB8iyBQYAAAAA==
+X-Change-ID: 20260612-acpm-fast-xfer-86c4de78c20b
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-pm@vger.kernel.org, kernel-team@android.com, 
+ linux-kernel@vger.kernel.org, Alexey Klimov <alexey.klimov@linaro.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_213236_810026_B9259CED 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20260611_213411_846697_9BA045D9 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +110,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eugen,
+The series implements acpm_do_xfer_fast() that does as little
+as possible to make it usabe in atomic context to eventually
+use it in cpufreq path with ->fast_switch(). That's basically it.
+Cpufreq deals directly with ACPM dvfs instead of going through
+clk framework.
 
-kernel test robot noticed the following build errors:
+This series is Work-In-Progress / RFC.
+This is currently a working prototype, but I am sending it as an RFC to
+get feedback on the approach — specifically the ACPM fast path of sending
+messages. If ACPM part is no-go then cpufreq is not needed.
 
-[auto build test ERROR on a87737435cfa134f9cdcc696ba3080759d04cf72]
+Known TODO items:
+ -- rx/tx channels locks rework;
+ -- initial frequency fetching: Exynos850 firmware currently lacks a
+    clean get_rate, so the driver falls back to dump defaults until the
+    first freq transition.
+ -- potential mailbox channels re-implementation.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Eugen-Hristev/media-bcm2835-unicam-Fix-querycap-multiple-caps/20260611-141320
-base:   a87737435cfa134f9cdcc696ba3080759d04cf72
-patch link:    https://lore.kernel.org/r/20260611-bcmpiqcap-v1-1-10cf7fb438df%40kernel.org
-patch subject: [PATCH] media: bcm2835-unicam: Fix querycap multiple caps
-config: arc-allmodconfig (https://download.01.org/0day-ci/archive/20260612/202606121218.nV4fMXUr-lkp@intel.com/config)
-compiler: arc-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260612/202606121218.nV4fMXUr-lkp@intel.com/reproduce)
+Any thoughts, testing, or feedback on the architecture would be greatly
+appreciated.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202606121218.nV4fMXUr-lkp@intel.com/
+This was tested on Exynos850 with example of DT nodes described
+in [1] and [2].
 
-All errors (new ones prefixed by >>):
+Dependencies are different series that adds Exynos850 ACPM support:
+-- ACPM mailbox support for Exynos850:
+https://lore.kernel.org/linux-samsung-soc/20260429-exynos850-mbox-dts-v1-1-7f3ad27ed4f4@linaro.org/
+-- sram DT node:
+https://lore.kernel.org/linux-samsung-soc/20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org/
+-- ACPM support on Exynos850: 
+https://lore.kernel.org/linux-samsung-soc/20260513-exynos850-acpm-firmware-support-v1-0-3858d097e433@linaro.org/
 
-   drivers/media/platform/broadcom/bcm2835-unicam.c: In function 'unicam_querycap':
->> drivers/media/platform/broadcom/bcm2835-unicam.c:1836:27: error: 'node' undeclared (first use in this function)
-    1836 |         if (is_image_node(node))
-         |                           ^~~~
-   drivers/media/platform/broadcom/bcm2835-unicam.c:1836:27: note: each undeclared identifier is reported only once for each function it appears in
+(the above dependencies pull some other series as well)
 
+[1]:
 
-vim +/node +1836 drivers/media/platform/broadcom/bcm2835-unicam.c
+cpu0: cpu@0 {
+	device_type = "cpu";
+	compatible = "arm,cortex-a55";
+	reg = <0x0>;
+	clocks = <&acpm_ipc E850_CLK_ACPM_DVFS_CPUCL0>;
+	enable-method = "psci";
+	operating-points-v2 = <&cpucl0_opp_table>;
+	capacity-dmips-mhz = <250>;
+	dynamic-power-coefficient = <70>;
+};
 
-  1825	
-  1826	/* -----------------------------------------------------------------------------
-  1827	 *  V4L2 video device operations
-  1828	 */
-  1829	
-  1830	static int unicam_querycap(struct file *file, void *priv,
-  1831				   struct v4l2_capability *cap)
-  1832	{
-  1833		strscpy(cap->driver, UNICAM_MODULE_NAME, sizeof(cap->driver));
-  1834		strscpy(cap->card, UNICAM_MODULE_NAME, sizeof(cap->card));
-  1835	
-> 1836		if (is_image_node(node))
-  1837			cap->capabilities |= V4L2_CAP_VIDEO_CAPTURE;
-  1838		else
-  1839			cap->capabilities |= V4L2_CAP_META_CAPTURE;
-  1840	
-  1841		return 0;
-  1842	}
-  1843	
+[2]:
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+	cpucl0_opp_table: opp-table-0 {
+		compatible = "operating-points-v2";
+		opp-shared;
+
+		opp-130000000 {
+			opp-hz = /bits/ 64 <130000000>;
+			opp-microvolt = <625000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-182000000 {
+			opp-hz = /bits/ 64 <182000000>;
+			opp-microvolt = <625000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-247000000 {
+			opp-hz = /bits/ 64 <247000000>;
+			opp-microvolt = <625000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-351000000 {
+			opp-hz = /bits/ 64 <351000000>;
+			opp-microvolt = <625000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-442000000 {
+			opp-hz = /bits/ 64 <442000000>;
+			opp-microvolt = <625000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-546000000 {
+			opp-hz = /bits/ 64 <546000000>;
+			opp-microvolt = <625000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-650000000 {
+			opp-hz = /bits/ 64 <650000000>;
+			opp-microvolt = <625000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-806000000 {
+			opp-hz = /bits/ 64 <806000000>;
+			opp-microvolt = <656250>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-949000000 {
+			opp-hz = /bits/ 64 <949000000>;
+			opp-microvolt = <681250>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-1053000000 {
+			opp-hz = /bits/ 64 <1053000000>;
+			opp-microvolt = <706250>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-1157000000 {
+			opp-hz = /bits/ 64 <1157000000>;
+			opp-microvolt = <737500>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-1300000000 {
+			opp-hz = /bits/ 64 <1300000000>;
+			opp-microvolt = <781250>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-1456000000 {
+			opp-hz = /bits/ 64 <1456000000>;
+			opp-microvolt = <825000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-1586000000 {
+			opp-hz = /bits/ 64 <1586000000>;
+			opp-microvolt = <875000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-1742000000 {
+			opp-hz = /bits/ 64 <1742000000>;
+			opp-microvolt = <937500>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-1846000000 {
+			opp-hz = /bits/ 64 <1846000000>;
+			opp-microvolt = <981250>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-2002000000 {
+			opp-hz = /bits/ 64 <2002000000>;
+			opp-microvolt = <1050000>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-2106000000 {
+			opp-hz = /bits/ 64 <2106000000>;
+			opp-microvolt = <1106250>;
+			clock-latency-ns = <500000>;
+		};
+
+		opp-2210000000 {
+			opp-hz = /bits/ 64 <2210000000>;
+			opp-microvolt = <1181250>;
+			clock-latency-ns = <500000>;
+		};
+	};
+
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+Alexey Klimov (2):
+      firmware: samsung: acpm: add fire-and-forget xfer support
+      cpufreq: add ACPM-based CPU DVFS driver for Exynos SoCs
+
+ drivers/cpufreq/Kconfig.arm                        |   8 +
+ drivers/cpufreq/Makefile                           |   1 +
+ drivers/cpufreq/acpm-cpufreq.c                     | 195 +++++++++++++++++++++
+ drivers/cpufreq/cpufreq-dt-platdev.c               |   3 +
+ drivers/firmware/samsung/exynos-acpm-dvfs.c        |  14 ++
+ drivers/firmware/samsung/exynos-acpm-dvfs.h        |   3 +
+ drivers/firmware/samsung/exynos-acpm.c             | 142 +++++++++++++--
+ drivers/firmware/samsung/exynos-acpm.h             |   3 +
+ .../linux/firmware/samsung/exynos-acpm-protocol.h  |   2 +
+ 9 files changed, 361 insertions(+), 10 deletions(-)
+---
+base-commit: ec039126b7fac4e3af35ebccaa7c6f9b6875ba81
+change-id: 20260612-acpm-fast-xfer-86c4de78c20b
+
+Best regards,
+-- 
+Alexey Klimov <alexey.klimov@linaro.org>
+
 
