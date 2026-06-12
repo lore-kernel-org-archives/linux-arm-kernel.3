@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2378CCD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B23CD98DF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eLOF6fP/rRJNscoDrzMxzXOITjjOmIqhXSUh0KfqXwE=; b=V2NXLb8Mo9ip9nxVbisf3KSaCM
-	hED9E+/5l0wgi9JwE8tpI7dspoX+rW5VernteDsls2tCH65+jq4VG2eLQQzqpAHEGhjk/IQsYwKxy
-	6s1MKhpvvuOBNPXADYinGconzr0mMyl0kTa8UD5+mlPYU40QxBm8rN/n54gPAQsVeMbC6TLabn+MP
-	1vuVX/GA7qRXgfniO610SCl04B3nBB3OuOK7mwZl4YfJx94OpFsuvOlsm3yO4nZnBuQvOWboecW5Y
-	aDGhAdnn0/UvchykeOXrsLnqYyWHxPvNPqOj6PvMyLl4tOB5US4a3gOxcVfpwO//HlZVs+t04Pyfe
-	ueLyddJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4w968gKiyOBNAHZTShLflybxqTYDys1+weh8ssNtq4A=; b=BZLXRTgANRtfMDTRHaqgHHLP3n
+	vkBzJf16Dbh2Bqx/WPyWafFQc8yAiTQT/eEfsdAELBAeQMSLOaPuNtkU6qUF15syw+WdhxqXvwFVx
+	bXhZHLcquyX3HEX1E8Y4ndWhZW+Ep5fKVr2kVogldEFSGUybXsY/v1/j3VQpAj0YLnfDQu0M6sOmt
+	oY1hqmAwdeXyZmN07J0LLkAB1vO9mNOGcWXGeI2nFqb/c+ivdDYyWhkYR2j7ihny/BFAsXP28DnQZ
+	iCAbO9sGeAgT6zv4GqBthKDysPvNAxJmskNpxavVr8pKxjxa0rBZGiQTTAA6QCD27IR0dqsFUUowN
+	JpKEdqcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4QP-0000000BD6a-0U8X;
-	Fri, 12 Jun 2026 16:08:05 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wY4dq-0000000BE3n-3pWr;
+	Fri, 12 Jun 2026 16:21:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4QN-0000000BD65-0kVM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 16:08:04 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490bd64ca95so79375e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 09:08:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781280481; x=1781885281; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eLOF6fP/rRJNscoDrzMxzXOITjjOmIqhXSUh0KfqXwE=;
-        b=Sd+YNSF98gq+SwS+usU9i5QN2befTPu3tEXcmSPT7FBQTj3w/i5TXSGPdaTdfLCyJA
-         EsTuOybbyUVYl1XzWIBUmUnUVvqJrgjpagaRxPRq+iY2ULqcOtdbkGmELonp0xnQjcDe
-         Ebbk/Nxc5c7AWW5KQPHPJQYBmF8kS8IGyYI4ePlg3oyvJc7h2Ql/sYcwHSju6F+2IY+8
-         vwvudNZ6wSyBwKmozFdkjJD0bAbe23QvdI7sKlEdNLVGqDTlAU3k/xfS0LtmIeo3xPSa
-         g6IIFjiKQFSkIj1oMiEm9qdIAQ1j1yhf3OunRXVo4euoE/82tcQPUM85bbOrtEHtsqHl
-         0pzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781280481; x=1781885281;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eLOF6fP/rRJNscoDrzMxzXOITjjOmIqhXSUh0KfqXwE=;
-        b=bKqd+IJmkb+28vPq8E5wGpGNgH9Db5NdBVlCujlDwASEx3SADR0wyeyyr6sRUiyob3
-         a7c3FB2SJsKqHkfpT7lj6C6Pq0GG6q35Ln29rYF0PcDHvqpDOxPitVWeM+emTzf9fI8p
-         PiDWQNLQBZQ2x7z39ntuEQ+xWy1JvF7sITth6hCcbIANcClkOpgGkA31E6N7/0ewxDuh
-         cR8iWFRkq6UTEq+7cjAmMryGWwlbHosRP3dLg5VScm9DATLVazFf4+jj/r0pK6mrKdLK
-         LXU/TC7r9UI1Ba0dVLgXN1Eg4vIHO6CSIZXNL9ztFbOJ4eekTQxoTgLDjIOWUMTS/wU3
-         ISxg==
-X-Forwarded-Encrypted: i=1; AFNElJ9vbWQzZJXX/fjJPl7spj7+UahL7/rOHJjjptZygeWyTj/8nMVm0W4+kFOUOul5M3FMcySn/UAGGcelAFfK8Ee7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwWYpcf56RHgFHQlRyaAO+WCD6ERfj6gjvV+As33oaxnbFjX33
-	/tdyqp5ay3He3JLbE+Dgrx7nqSkpTCA6OHFIbB4ikVXgmAgaQHXHUoMlKTheJvunzw==
-X-Gm-Gg: Acq92OGonql3TY+o91ff+6j7hDTrGR6188vGfYDEmP+crzgP4ByRm0E3aJh5LbXjf8w
-	2jm2hsU1IAqKGWKQpWB42Ey8mFBb4Q+WK8UxLrhfNKiZm4IHLIjSWcm/LMc8tfKXmX6D50/my1b
-	XOciJ19CIBrH2BesHVnKKGdQhWtEMl4jqTqQy1Ae5OGCUZT74y6/VB2p/w61yAjL53vpNgIg+Mv
-	CATRKNCbaRe8iicDgUGRWgPUKG8kcMz9M1l5hoyrtFlZ97y0ISbpGnN7n2ZGDQd2UpUX3pWS2Fy
-	Tw/hoxA0oFpb024ABnEmQk63YWZHwr6+6eXjH9K+GHj8DMdGWtX2j16azbuqCIuj+5BYn8YO3dS
-	J28wpco0H8pyCKv/AztnlPYawWKTXUhvtOsFW8nRHfC7vlXAIos2vmxnzRDk5izKk1EjKeulEcF
-	OOh5b2ejasXymox5VaYZhYbfBRSxFNNBmgJ5R33HNMiMwAp3dABhcKUPWXyaVi4FioHgi3Lg==
-X-Received: by 2002:a05:600d:6445:20b0:490:c2b6:de6b with SMTP id 5b1f17b1804b1-490ea5da36fmr1068545e9.12.1781280481013;
-        Fri, 12 Jun 2026 09:08:01 -0700 (PDT)
-Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26f1cdsm7389953f8f.11.2026.06.12.09.08.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 09:08:00 -0700 (PDT)
-Date: Fri, 12 Jun 2026 16:07:56 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, catalin.marinas@arm.com,
-	jens.wiklander@linaro.org, sumit.garg@kernel.org,
-	vdonnefort@google.com, sudeep.holla@kernel.org
-Subject: Re: [PATCH v6 6/6] KVM: arm64: Ensure FFA ranges are page aligned
-Message-ID: <aiwu3EqWdviH5Rmo@google.com>
-References: <20260527150236.1978655-1-smostafa@google.com>
- <20260527150236.1978655-7-smostafa@google.com>
+	id 1wY4do-0000000BE2C-4Bn4;
+	Fri, 12 Jun 2026 16:21:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1781281314;
+	bh=rfJKx0EWFtaxAVuaGJpBkiaZlyPZVhF+CYaMhiH23eg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=avpTs/Qle+AwXKsK/mfvONvWLf9bhqHMJPpDiV2nNqJdn+CML7mWZpVSb4Dqwf6gs
+	 RZcA0l9XIHKhJTDZaJk1ahBe1MLYZ1wS3p7mexgliD24v35e6vyay85Pkf7NSow3gw
+	 cvmLUM/+/UcCNRmYUoOps5Lgu7+P1mRWmeMcdbo7B5bTCrLwYxcH+USu2k7zIvl0+B
+	 CTVwxRJUI6PW681IYGTpyVkxHZFqG52KMcuuP3FRi5bvBHR22M++E7XPmuahXAX8t2
+	 8p22fFseQk6IXDAkhnLxlJ+MgPQANGh/8NtCL8EuyAnq5mE5MkgQxosC+fYzvN6QIz
+	 qbMvul581r8nA==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 200F317E0C88;
+	Fri, 12 Jun 2026 18:21:54 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id C837548002C; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 12 Jun 2026 18:21:41 +0200
+Subject: [PATCH v5 03/18] phy: rockchip: usbdp: Keep clocks running on PHY
+ re-init
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260527150236.1978655-7-smostafa@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260612-rockchip-usbdp-cleanup-v5-3-efc83069869f@collabora.com>
+References: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
+In-Reply-To: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ devicetree@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1136;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=rfJKx0EWFtaxAVuaGJpBkiaZlyPZVhF+CYaMhiH23eg=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiHu+T2GMml0kCL0PLzICkmH6vqggWfZu
+ rD0IoFkvxlSzYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
+ O/qaCb8P/0XKum0ATMxSyPAg8XduReqSWlHffGAhFsb7Rtb9aHp2efmAZ3GsusZ9sxrZ4Mjhc4p
+ KPqlUvYc7AVwfafEE3DcqphBB/F8MDigc4YlsfzBhA9u11KPWSiQ0PQ8Cw5woAIpa+viqdHWxhA
+ SQqflKp10yO+0SN7DbFpZoMOE2eX27dkr6OX6DPaWHzXCGzMBA65fP2v+ZSrAVKF4yMPbFCSAU+
+ CKV4c+R1/339adxe1MnP8suOqplgrKg3lzK/rCoIrTMILJdVXd5Zzns26L3uztG7jK5XUopLmnx
+ zLDGWi4f7n35gjHHVOIcOiE87XHN2xTf/KW/yo7QT4JkZlo4LSTixJ5//2ha7YUhsohf67jJQ3G
+ pthAWak6O03CEp8nJW7/BC67515vtaZCJfwbsXqteTRwiHPvPpkyMTTjb4UkU04OIJZl6tTE26j
+ 98JlEfBcf4ZTFKzyNBRbcbbT2nd+hV9zb8Cfz6h2BBp29mdKlFe0uGdODbvij9I2bGWGdmlIB6M
+ SfwELspNObwQnfZn1q9GmntZTHIvhgjE1WazIMaz/yu75ucrs6cD3LEr/2mo5bQJjoAM6gpyF+D
+ 8QQ686P9YC/12e0dihD+0MQY46Nu0UKqr/GLMM+RzckaGcFgzPHfEuTEFdKGxsNl1jREzMmyuPb
+ xGD76Fguejf1bUsmTKvM5Mg==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_090803_255849_18FCFB17 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20260612_092157_207434_6A29BFB9 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,59 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 03:02:36PM +0000, Mostafa Saleh wrote:
+When a mode change is required rk_udphy_power_on() disables
+the clocks and then calls rk_udphy_setup(), which then enables
+all the clocks again before continuing with rk_udphy_init().
 
-Hi Mostafa,
+Considering that rk_udphy_init() does assert the reset lines,
+re-enabling the clocks is just delaying things. Avoid it by
+directly calling rk_udphy_init().
 
-> At the moment we only check that the size of the range is page
-> aligned, and truncate the address to the page boundary.
-> This make an assumption that TZ will do the same.
-> 
-> However, it might decide to use the extra offset of the neighbour
-> page at the end, which is valid under FFA if NS is using larger
-> page size.
-> 
-> Harden this check by also checking that the base address is aligned
-> and reject it otherwise.
-> 
-> Fixes: 436090001776 ("KVM: arm64: Handle FFA_MEM_SHARE calls from the host")
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index a12e01883314..daf0e328c847 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -352,7 +352,7 @@ static u32 __ffa_host_share_ranges(struct ffa_mem_region_addr_range *ranges,
->  		u64 sz = (u64)range->pg_cnt * FFA_PAGE_SIZE;
->  		u64 pfn = hyp_phys_to_pfn(range->address);
->  
-> -		if (!PAGE_ALIGNED(sz))
-> +		if (!PAGE_ALIGNED(sz | range->address))
->  			break;
->  
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-Should we do the pfn assignment after the check ?
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 744cc7c642f4..98562a888b42 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1012,8 +1012,7 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
+ 		if (udphy->mode == UDPHY_MODE_DP)
+ 			rk_udphy_u3_port_disable(udphy, true);
+ 
+-		rk_udphy_disable(udphy);
+-		ret = rk_udphy_setup(udphy);
++		ret = rk_udphy_init(udphy);
+ 		if (ret)
+ 			return ret;
+ 	}
 
->  		if (__pkvm_host_share_ffa(pfn, sz / PAGE_SIZE))
-> @@ -372,7 +372,7 @@ static u32 __ffa_host_unshare_ranges(struct ffa_mem_region_addr_range *ranges,
->  		u64 sz = (u64)range->pg_cnt * FFA_PAGE_SIZE;
->  		u64 pfn = hyp_phys_to_pfn(range->address);
->  
-> -		if (!PAGE_ALIGNED(sz))
-> +		if (!PAGE_ALIGNED(sz | range->address))
->  			break;
->  
+-- 
+2.53.0
 
-The same here
-
->  		if (__pkvm_host_unshare_ffa(pfn, sz / PAGE_SIZE))
-> -- 
-> 2.54.0.746.g67dd491aae-goog
-> 
-
-Thanks,
-Sebastian
 
