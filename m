@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F54BCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 14:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989B1CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 14:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmgN00liNfzrKUpHKe2uLP5CzE/i+fUpNTEzOPemRiU=; b=nl780QVTmWXhho0gkb0XcJ5ADb
-	VAM6pSRF3zJ3hvUvmZMSqrB/fKVvNLh3hSrqoYLotbVX6/qHomQjsXkfK1yR6w0NPBvOlzVI1l0XO
-	b4gdfmn7Qr5zhocHJdGkdiBLA7KyhZq2V9DNc/L0UadrTfXR+i+rAPzGe37Px7nEyauRs7st+QzwE
-	jpTtapqA/bmFDXNSvter3mktf62j18HBRq+E+tg4QZ6nCLRXNArUCqdgbumBrW+cxATToIuEvijJU
-	YhXBXng50lDwfA1uOzzyhOI3GN9mSp/43GU+/zgmTiFIUM9i+eMqWo1GaTEKkbxeGfMwnZ6/OI8F2
-	+mDAk/Jg==;
+	bh=U0u5FTqBTXNLLGdidnrnWIaCMVX09cl5M57gIDTlUfs=; b=C60C7ngmFhM7NBXkRi3vLglRu1
+	Nfl56Bm8019AhAes1gNh1uItyswcNcOl1Bv4PnArK/KeN5TbEpz/HJ2X98KvMjUbi9GrJruL9hCj1
+	djjXjLDwpYeT7BzRRv1WL4iPmnqj8XgLNbLrsvH479vf48rh17WeARv0IEB6+rtVRClvYEIQl9H3T
+	TApFsZdK9TDoeXeKYA6gbDU4dOvyr9rv6IKBhIii1pQQmIFFhnHKGPfTx9MbGoFnSdE9eGp4NdW33
+	henGbaPhIdJAE3NKUj8E2l9rqmqXmOwJx0xbXEN0hhRuP9xtHMTsAW4+4m2HQ01awIZ8Y6LX79nNA
+	lJVviq5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2kM-0000000B2qL-2Dwn;
-	Fri, 12 Jun 2026 14:20:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wY2mJ-0000000B34A-02Mw;
+	Fri, 12 Jun 2026 14:22:35 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2kL-0000000B2q9-2tIx;
-	Fri, 12 Jun 2026 14:20:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1805443FF8;
-	Fri, 12 Jun 2026 14:20:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71DAB1F000E9;
-	Fri, 12 Jun 2026 14:20:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781274033;
-	bh=XmgN00liNfzrKUpHKe2uLP5CzE/i+fUpNTEzOPemRiU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hUQhz6ZsUf1rnNlaOOTzZs1s1aUQjqcRvrNFvYustc9i9jZPQfH/rvHlVA7ShOkHN
-	 b1OmdAbfpJkownfKw4wc40eM3PZxVK/KvAqd42p+9WXWgYPUodzYBilBAnI4Hjx83N
-	 i08kAybxzSapZYxMoMgNl5gbIlJjETqcY9pwmGd5lafunkkSq9tL1Eq1q7Fal3MFz1
-	 sdCWVsXJtfzMpmyWzdgNBySOiKZyIbCkdhM5fudl8jcHLuJOD26UiQN4cPR7xcG5Mv
-	 z1vCAHH+m9RBLs8disqfxAcvMJXohKuus0+U6FphoTN3Ez96BMxbJuuJDgNKF7038s
-	 Om6psuizW7dhQ==
-Date: Fri, 12 Jun 2026 16:20:30 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Christian Marangi <ansuelsmth@gmail.com>
-Subject: Re: [PATCH net-next] net: airoha: better handle MIBs for GDM ports
- with multiple devs attached
-Message-ID: <aiwVrsDPAFReG-S0@lore-desk>
-References: <20260611-airoha-eth-multi-serdes-stats-v1-1-42442ae42064@kernel.org>
+	id 1wY2mG-0000000B33a-2iJ4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 14:22:33 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490bb5ad3bdso62745e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 07:22:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781274151; x=1781878951; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=U0u5FTqBTXNLLGdidnrnWIaCMVX09cl5M57gIDTlUfs=;
+        b=D07Zu3odYX5U0JRTTMUzYXBq4VICjwRaZF2TF8uBusANAZOpZHyfR1SWksfWJRFjJv
+         ydciTZMxc+jYURdl85u1IJpeF6WHUEizy9yGl7ViFstBSJZ4rVwNnbafaluSJnsicZCT
+         YYMWAbnJoYI8ugulO1JVU2c+NHDxLr6Evk9qh6/Y0370pp/h4tREwmFMKHKUO4t32sH1
+         j+TrGB9bsEx778yAyI1b1AlU1DQHY3QfNnpwlV1jve73v6QPpk/W2enknJmo2TQiOYrJ
+         xF3m0S5LXJ4/ZE8pRZG2Eo38gN7vADnSpVqoBJ3UUGnQ/VguHNSXGdyDL0cX0EgFoe2l
+         Buig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781274151; x=1781878951;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U0u5FTqBTXNLLGdidnrnWIaCMVX09cl5M57gIDTlUfs=;
+        b=N/sI+5TO/2b6CxYHlE0MN0r+xqIY0esqyx2II1hpr/+tdVXpoGScRANPHHzxT/wSAd
+         Yq3aMEAHLBmV3JTqcU3Smc+dNVbXWrwrlMKtssDupW1Q6teLotq6elE/6hLyC25EArCl
+         7cGQKXN3q9EhK2rRal/DaxMomp7Zzn3pFYz+jg4gtqBMoiKUq4uRWdFmloFIPeI+6hUw
+         gBAByrzQmBYYV3NbS3jWtmt/dTf+rUUdp3eBukUSIqo6jzvo5s+iiPn2H5f0d12f1Jz8
+         2guq1TeB+2nOUjm75n4wmKmfoVqqD1wlwkCvPZVrhEgN6HMiaxLWkhfKJ61SAXQP4wGa
+         RjGw==
+X-Forwarded-Encrypted: i=1; AFNElJ/vTSiRmR8B10zdEHqdLvixyP5tN9rJnEq9Fuzxkgfe94vLnwRgSasvZ6veC9L/QnO5eJqK1HTbQ794vkR61sry@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1/DfTCnFZ0GQNnbpT/5JmtAZhkKn1eQokNIiGMuQIC+7LDzxf
+	7hW6UskyCUbzi32oyIIOykGyxj5QsM66oxPP5XJ6IhOo21kDHk+iFu0675+IZvN3qA==
+X-Gm-Gg: Acq92OHJRkgjQ/PSKYP57q8F+auR1awpLFjcoLeD2brzJB+bFk22B05yDncmClg3G20
+	iEgrYVBxj/8AXxO/sencUkXkR1+9iR5DU1iU7+G59sVnz7YQTS5m+RAi9uLKv00syCgQsJY9ju0
+	ere5zDZkffqaMGgR7R4WtLYVOgLjsHww5/nJtW38w9eJV3rJBVmQ5oWLmlj9prhvbOvt8Q3cvGI
+	rsDPBx1A3AHG3VwHuFqKvPrjIrkpqUEBh/+5m6Psu2Wa3S/80viwomwq5it8ABesxEhT+1H+0vZ
+	h8J7zwL1JzS2LQh4rpX3nOJHryip7N21Bdd8Tq7Q62591LeCbqEHVAMo7K4wqyW70vT1IUb7HeD
+	6sFCuOntvOiPVfirSU+aJW237vZZooQHfo4k764Yuew5s32BnNU0zst20UOD34FFVlRP54ZfmBm
+	K9uak6WbMMjBM2nSvFiDIIO3MIBrY7QlvuZIPRTkqcRFWHzyf7EjRV/yeEM/U/tvEsd/1haQ==
+X-Received: by 2002:a05:600c:6b62:b0:485:1a54:9407 with SMTP id 5b1f17b1804b1-490ea5204ffmr1201925e9.0.1781274150414;
+        Fri, 12 Jun 2026 07:22:30 -0700 (PDT)
+Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea7db9c6sm71157125e9.8.2026.06.12.07.22.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Jun 2026 07:22:29 -0700 (PDT)
+Date: Fri, 12 Jun 2026 14:22:25 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, catalin.marinas@arm.com,
+	jens.wiklander@linaro.org, sumit.garg@kernel.org,
+	vdonnefort@google.com, sudeep.holla@kernel.org
+Subject: Re: [PATCH v6 4/6] KVM: arm64: Fix bounds checking in
+ do_ffa_mem_reclaim()
+Message-ID: <aiwWIRS-l-SS-wcK@google.com>
+References: <20260527150236.1978655-1-smostafa@google.com>
+ <20260527150236.1978655-5-smostafa@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FhukJ4AvDXwOD84H"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260611-airoha-eth-multi-serdes-stats-v1-1-42442ae42064@kernel.org>
+In-Reply-To: <20260527150236.1978655-5-smostafa@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_072232_711172_21674526 
+X-CRM114-Status: GOOD (  27.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,270 +103,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---FhukJ4AvDXwOD84H
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> In the context of a GDM port that can have multiple net_devices attached
-> (GDM3 and GDM4), the HW counters (MIBs) are global for the GDM port.
-> This cause duplicated stats reported to the kernel for the related
-> net_device.
-> The SoC supports a split MIB feature where each counter is tracked based
-> on the relevant HW channel (NBQ) to account for this scenario and
-> provide a way to select the related counter on accessing the MIB
-> registers.
-> Enable this feature for GDM3 and GDM4 and configure the relevant HW
-> channel before updating the HW stats to report correct HW counter to the
-> kernel for the related interface.
-> Move the stats struct from port to dev since HW counter are now specific
-> to the network device instead of the GDM port. Refactor
-> airoha_update_hw_stats() to take airoha_eth and airoha_gdm_port
-> parameters since the function operates on the entire port.
->=20
-> Co-developed-by: Christian Marangi <ansuelsmth@gmail.com>
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+On Wed, May 27, 2026 at 03:02:34PM +0000, Mostafa Saleh wrote:
+> Sashiko (locally) reports out of bound write possiblity if SPMD
+> returns an invalid data.
+> 
+> While SPMD is considered trusted, pKVM does some basic checks,
+> for offset to be less than or equal len.
+> 
+> However, that is incorrect as even if the offset is smaller than
+> len pKVM can still access out of bound memory in the next
+> ffa_host_unshare_ranges().
+> 
+> Split this check into 2:
+> 1- Check that the fixed portion of the descriptor fits.
+> 2- After getting reg, check the variable array size addr_range_cnt
+>    fits.
+> 
+> Also, drop the WARN_ONs as that will panic the kernel and in the
+> next checks there are no WARNs, so that makes it consistent.
+> 
+> Fixes: 0a9f15fd5674 ("KVM: arm64: pkvm: Add support for fragmented FF-A descriptors")
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
 > ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 191 +++++++++++++++++--------=
-------
->  drivers/net/ethernet/airoha/airoha_eth.h |   7 +-
->  2 files changed, 112 insertions(+), 86 deletions(-)
->=20
-
-[...]
-
-> -	airoha_fe_set(eth, REG_FE_GDM_MIB_CLEAR(port->id),
-> +static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
-> +{
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	int i;
-> +
-> +	spin_lock(&port->stats_lock);
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(port->devs); i++) {
-> +		if (port->devs[i])
-> +			airoha_dev_get_hw_stats(port->devs[i]);
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 1af722771178..b6cf9ad82e12 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -607,8 +607,8 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+>  	 * check that we end up with something that doesn't look _completely_
+>  	 * bogus.
+>  	 */
+> -	if (WARN_ON(offset > len ||
+> -		    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)) {
+> +	if (offset + CONSTITUENTS_OFFSET(0) > len ||
+> +	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+>  		ret = FFA_RET_ABORTED;
+>  		ffa_rx_release(res);
+>  		goto out_unlock;
+> @@ -641,6 +641,11 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+>  		goto out_unlock;
+>  
+>  	reg = (void *)buf + offset;
+> +	if (offset + CONSTITUENTS_OFFSET(reg->addr_range_cnt) > len) {
+> +		ret = FFA_RET_ABORTED;
+> +		goto out_unlock;
 > +	}
 > +
-> +	/* Reset MIB counters */
-> +	airoha_fe_set(dev->eth, REG_FE_GDM_MIB_CLEAR(port->id),
->  		      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
 
-commenting on sashiko's report:
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260611-airoha-eth-mul=
-ti-serdes-stats-v1-1-42442ae42064%40kernel.org
+I wonder if we should do this check first and then mem_reclaim, the rational being that if the check fails
+the page will be lost forever.
 
-- With split MIB enabled on GDM3/GDM4, airoha_dev_get_hw_stats() programs
-  REG_FE_GDM_MIB_CFG with the device's nbq before reading per-channel
-  counters, so the FE_TX_MIB_ID/FE_RX_MIB_ID selector clearly gates the
-  counter reads.
-  After the loop in airoha_update_hw_stats(), MIB_CFG retains the last
-  iterated device's nbq, and a single airoha_fe_set() is issued against
-  REG_FE_GDM_MIB_CLEAR. REG_FE_GDM_MIB_CLEAR exposes only RX/TX bits with no
-  separate per-channel selector.
-  If, as is typical of split-MIB designs, the clear honors the same
-  FE_TX_MIB_ID/FE_RX_MIB_ID selector used for reads, will only the last
-  iterated device's HW counters be cleared each cycle?
-  Since airoha_dev_get_hw_stats() accumulates with +=3D on each read, would
-  the un-cleared HW counters of the other devs keep being re-added to
-  dev->stats on every fetch, yielding inflated stats and eventual HW
-  counter overflow?
-  Would moving the MIB_CLEAR write inside the per-device loop, while that
-  device's nbq is still selected in MIB_CFG, address this if the clear is
-  indeed per-channel? Or can the datasheet confirm REG_FE_GDM_MIB_CLEAR is
-  strictly global and unaffected by split mode?
-  - This is the same report available in [0].
-    REG_FE_GDM_MIB_CLEAR is global and it clears all nbq counters for the p=
-ort.
-=20
-Regards,
-Lorenzo
+```
+	reg = (void *)buf + offset;                                                                                                                                                                            
+	if (offset + CONSTITUENTS_OFFSET(reg->addr_range_cnt) > len) {                                                                                                                                         
+		ret = FFA_RET_ABORTED;                                                                                                                                                                         
+		goto out_unlock;                                                                                                                                                                               
+	}
 
-[0] https://sashiko.dev/#/patchset/20260611-airoha-eth-multi-serdes-stats-v=
-1-1-42442ae42064%40kernel.org
-> =20
-> -	u64_stats_update_end(&port->stats.syncp);
-> -	spin_unlock(&port->stats.lock);
-> +	spin_unlock(&port->stats_lock);
->  }
-> =20
->  static int airoha_dev_open(struct net_device *netdev)
-> @@ -2043,23 +2071,22 @@ static void airoha_dev_get_stats64(struct net_dev=
-ice *netdev,
->  				   struct rtnl_link_stats64 *storage)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> -	struct airoha_gdm_port *port =3D dev->port;
->  	unsigned int start;
-> =20
->  	airoha_update_hw_stats(dev);
->  	do {
-> -		start =3D u64_stats_fetch_begin(&port->stats.syncp);
-> -		storage->rx_packets =3D port->stats.rx_ok_pkts;
-> -		storage->tx_packets =3D port->stats.tx_ok_pkts;
-> -		storage->rx_bytes =3D port->stats.rx_ok_bytes;
-> -		storage->tx_bytes =3D port->stats.tx_ok_bytes;
-> -		storage->multicast =3D port->stats.rx_multicast;
-> -		storage->rx_errors =3D port->stats.rx_errors;
-> -		storage->rx_dropped =3D port->stats.rx_drops;
-> -		storage->tx_dropped =3D port->stats.tx_drops;
-> -		storage->rx_crc_errors =3D port->stats.rx_crc_error;
-> -		storage->rx_over_errors =3D port->stats.rx_over_errors;
-> -	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-> +		start =3D u64_stats_fetch_begin(&dev->stats.syncp);
-> +		storage->rx_packets =3D dev->stats.rx_ok_pkts;
-> +		storage->tx_packets =3D dev->stats.tx_ok_pkts;
-> +		storage->rx_bytes =3D dev->stats.rx_ok_bytes;
-> +		storage->tx_bytes =3D dev->stats.tx_ok_bytes;
-> +		storage->multicast =3D dev->stats.rx_multicast;
-> +		storage->rx_errors =3D dev->stats.rx_errors;
-> +		storage->rx_dropped =3D dev->stats.rx_drops;
-> +		storage->tx_dropped =3D dev->stats.tx_drops;
-> +		storage->rx_crc_errors =3D dev->stats.rx_crc_error;
-> +		storage->rx_over_errors =3D dev->stats.rx_over_errors;
-> +	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
->  }
-> =20
->  static int airoha_dev_change_mtu(struct net_device *netdev, int mtu)
-> @@ -2310,20 +2337,19 @@ static void airoha_ethtool_get_mac_stats(struct n=
-et_device *netdev,
->  					 struct ethtool_eth_mac_stats *stats)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> -	struct airoha_gdm_port *port =3D dev->port;
->  	unsigned int start;
-> =20
->  	airoha_update_hw_stats(dev);
->  	do {
-> -		start =3D u64_stats_fetch_begin(&port->stats.syncp);
-> -		stats->FramesTransmittedOK =3D port->stats.tx_ok_pkts;
-> -		stats->OctetsTransmittedOK =3D port->stats.tx_ok_bytes;
-> -		stats->MulticastFramesXmittedOK =3D port->stats.tx_multicast;
-> -		stats->BroadcastFramesXmittedOK =3D port->stats.tx_broadcast;
-> -		stats->FramesReceivedOK =3D port->stats.rx_ok_pkts;
-> -		stats->OctetsReceivedOK =3D port->stats.rx_ok_bytes;
-> -		stats->BroadcastFramesReceivedOK =3D port->stats.rx_broadcast;
-> -	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-> +		start =3D u64_stats_fetch_begin(&dev->stats.syncp);
-> +		stats->FramesTransmittedOK =3D dev->stats.tx_ok_pkts;
-> +		stats->OctetsTransmittedOK =3D dev->stats.tx_ok_bytes;
-> +		stats->MulticastFramesXmittedOK =3D dev->stats.tx_multicast;
-> +		stats->BroadcastFramesXmittedOK =3D dev->stats.tx_broadcast;
-> +		stats->FramesReceivedOK =3D dev->stats.rx_ok_pkts;
-> +		stats->OctetsReceivedOK =3D dev->stats.rx_ok_bytes;
-> +		stats->BroadcastFramesReceivedOK =3D dev->stats.rx_broadcast;
-> +	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
->  }
-> =20
->  static const struct ethtool_rmon_hist_range airoha_ethtool_rmon_ranges[]=
- =3D {
-> @@ -2343,8 +2369,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *ne=
-tdev,
->  			      const struct ethtool_rmon_hist_range **ranges)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> -	struct airoha_gdm_port *port =3D dev->port;
-> -	struct airoha_hw_stats *hw_stats =3D &port->stats;
-> +	struct airoha_hw_stats *hw_stats =3D &dev->stats;
->  	unsigned int start;
-> =20
->  	BUILD_BUG_ON(ARRAY_SIZE(airoha_ethtool_rmon_ranges) !=3D
-> @@ -2357,7 +2382,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *ne=
-tdev,
->  	do {
->  		int i;
-> =20
-> -		start =3D u64_stats_fetch_begin(&port->stats.syncp);
-> +		start =3D u64_stats_fetch_begin(&dev->stats.syncp);
->  		stats->fragments =3D hw_stats->rx_fragment;
->  		stats->jabbers =3D hw_stats->rx_jabber;
->  		for (i =3D 0; i < ARRAY_SIZE(airoha_ethtool_rmon_ranges) - 1;
-> @@ -2365,7 +2390,7 @@ airoha_ethtool_get_rmon_stats(struct net_device *ne=
-tdev,
->  			stats->hist[i] =3D hw_stats->rx_len[i];
->  			stats->hist_tx[i] =3D hw_stats->tx_len[i];
->  		}
-> -	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
-> +	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
->  }
-> =20
->  static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
-> @@ -3205,6 +3230,7 @@ static int airoha_alloc_gdm_device(struct airoha_et=
-h *eth,
-> =20
->  	netdev->dev.of_node =3D of_node_get(np);
->  	dev =3D netdev_priv(netdev);
-> +	u64_stats_init(&dev->stats.syncp);
->  	dev->port =3D port;
->  	dev->eth =3D eth;
->  	dev->nbq =3D nbq;
-> @@ -3244,9 +3270,8 @@ static int airoha_alloc_gdm_port(struct airoha_eth =
-*eth,
->  	if (!port)
->  		return -ENOMEM;
-> =20
-> -	u64_stats_init(&port->stats.syncp);
-> -	spin_lock_init(&port->stats.lock);
->  	port->id =3D id;
-> +	spin_lock_init(&port->stats_lock);
->  	eth->ports[p] =3D port;
-> =20
->  	err =3D airoha_metadata_dst_alloc(port);
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 8f42973f9cf5..46b1c31939de 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -215,8 +215,6 @@ struct airoha_tx_irq_queue {
->  };
-> =20
->  struct airoha_hw_stats {
-> -	/* protect concurrent hw_stats accesses */
-> -	spinlock_t lock;
->  	struct u64_stats_sync syncp;
-> =20
->  	/* get_stats64 */
-> @@ -554,6 +552,8 @@ struct airoha_gdm_dev {
-> =20
->  	u32 flags;
->  	int nbq;
-> +
-> +	struct airoha_hw_stats stats;
->  };
-> =20
->  struct airoha_gdm_port {
-> @@ -561,7 +561,8 @@ struct airoha_gdm_port {
->  	int id;
->  	int users;
-> =20
-> -	struct airoha_hw_stats stats;
-> +	/* protect concurrent hw_stats accesses */
-> +	spinlock_t stats_lock;
-> =20
->  	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
->  };
->=20
-> ---
-> base-commit: c8459ee2fef502d6ef6c063751c33d9ac7943eab
-> change-id: 20260611-airoha-eth-multi-serdes-stats-df2dc16c2dd6
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
+	ffa_mem_reclaim(res, handle_lo, handle_hi, flags);                                                                                                                                                    
+	if (res->a0 != FFA_SUCCESS)                                                                                                                                                                           
+		goto out_unlock; 
+```                                                                                                                                                                                                      
 
---FhukJ4AvDXwOD84H
-Content-Type: application/pgp-signature; name=signature.asc
+>  	/* If the SPMD was happy, then we should be too. */
+>  	WARN_ON(ffa_host_unshare_ranges(reg->constituents,
+>  					reg->addr_range_cnt));
+> -- 
+> 2.54.0.746.g67dd491aae-goog
+>
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiwVrgAKCRA6cBh0uS2t
-rKu6AQDumrhIwrcMDWIY+GuFB+DEDI0uaQvW66P9ODgOIqtTSgEAxasot6+gXKVS
-hKz9TE6kMOdhzhV+o9R7MYzDFzg26AA=
-=Tgvv
------END PGP SIGNATURE-----
-
---FhukJ4AvDXwOD84H--
+Sebastian 
 
