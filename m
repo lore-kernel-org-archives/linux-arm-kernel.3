@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C199CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 06:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA52CD98D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 06:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3/A8TfYJZJXuz9sD68tmOmSoDXJZKG01yZuG4gQpAiw=; b=yJBdqmjBIrehZwTMsmIWs+yBwE
-	bt9n6loA3bNzqE+3Rwom4eB0pUZKSepPyrc/radU17kpw3vUC1Elw0Dwp+15G0eVWRjFSH6eVnuMd
-	BlqUcV9K2mZexiSoxKVW0RXWn9F9eu2jD5+UBQWGPysBAi5BW8XlsDXI6UhZ3B2ig7JpUWbw+IxXC
-	6dcglrUHxWTZe9h6DpAn1QaMXpAoYsoziZAiL5IPjPVJE1KRv8gFnYKoy5bhpKbiFmreqnMUBmNFv
-	w7XDr6U8PETW/xXy7tLIjYJO95saO6gVNXW8c+blseTfuU6NWNU4cXospAcjRfvE2kcwPwGWG/zcM
-	To2zuiAA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wz1k2GgxstbvUGr74v2KjphysWOu90GWRraqbzm662g=; b=gVfGJThy7C66szwKUBj6/SoTBa
+	84mhdD1yq0t6LJaDdtTzdnOq5AWVTjnTU34bWi88N3lTkf01y654+AVu3KsqqZgy0EWSDrROJeoDm
+	e8jkHMhfjJ83496Lj9ONXTkmU8nfbfCzE3T9WcXU34Qjuh5Ac4ZT0R/5kyF1P2jNEnTJb9wSEpVqP
+	1W0GG+LDA7/E01amtzOEnzx2hIOWMDrwx4mx5hHiVkQhbHBIv7NdQwn9dXCBrK9Yb4UjwVXUJcf9b
+	JAcGuaTPNytdMb2YAAIKJADhYEfhAsRUJwhzk9LeuowJm3+nQYyXna7+gFosDg7er2H2fMmIRRYwb
+	JJobvALg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXvrX-0000000AQvV-3vdx;
-	Fri, 12 Jun 2026 06:59:31 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wXvrc-0000000AQxY-0CET;
+	Fri, 12 Jun 2026 06:59:36 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXvrV-0000000AQuR-0NOT
+	id 1wXvrV-0000000AQuS-35W5
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 12 Jun 2026 06:59:30 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490b4d3d3e6so3969845e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 23:59:27 -0700 (PDT)
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-68d234118f2so514639a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 23:59:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781247566; x=1781852366; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=3/A8TfYJZJXuz9sD68tmOmSoDXJZKG01yZuG4gQpAiw=;
-        b=wYjABEtBaOsHwprHnEnjyxEszp7QyPBxhS8B2U39TiyzqLGgG7Wdlgqry2g0v7YlEX
-         eELyE5I9CNND3CEOtQmJRiO6seMkx2cAOiuGwls1GT6RDzvpLY/5aAU0hDxCULlNdYPY
-         aRZstg3LN0qQT3ov6IARjxQ1I+GBnKoTPBBGrZ/wOz6KciNE8bkWpq1BWeth3rpoQKGR
-         l+V1XRvZKFFaAS6Vo1LSfV2OIu2tGge91SLek2QCy6nz2AHX3zDQEyUH+8sbDBMsp01z
-         uuXtgBMZU42jHjP700/8RTzGD8/MOTBekqSyvn+rQm3MT7857doyJ1Toqy8vOjpIWcoW
-         Z/Og==
+        d=google.com; s=20251104; t=1781247567; x=1781852367; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wz1k2GgxstbvUGr74v2KjphysWOu90GWRraqbzm662g=;
+        b=X0vRhC7VNRnL5ib9yux59p9BwsgIalIBjsI7nAk5cCa5zN5ovtZ8dW/eVLT9V0ZnGQ
+         bMQk0cq7J+zBoIhGbJ2Mqnx+IrrNNGM42m8knfzK1OjJOSgU0afug/sqmPtYjO7DzEq/
+         8PKzLf6rLgDe5l/GUAG6QESRJOm++qUN02N8R/arXxHDE2HTE6448bmSUI8re/bQiq9b
+         xfM+pe4ldSl8ftSe+crkM3Cy8z4l4B2fn1IuAqyV4qPGTgbqIhdgBWepWjVtRasMxa0W
+         ViqrtJnQJMRnrfEQrKhYoX2Gy8+vjqvfjVKJUo1wv9YH/aZgXkj1ZlywVZgEn/V7nZh7
+         BG2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781247566; x=1781852366;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3/A8TfYJZJXuz9sD68tmOmSoDXJZKG01yZuG4gQpAiw=;
-        b=Mtl6et1X1bZ4O5SHZ47TXVUZ8PAFLEaCBdKa7oZkG2Pisun8Ekhtsp/Y2OLa9zkf7h
-         75xdvkDAteR4hvS6GXXCzAyAH63t1kJ3VC+VTLgu4l46qs0TFuEATNhK2KOrlfRcvmHB
-         LpmjTWSHeH8CtDoJp4R3VGuLw2mCFIXDNpS+TUOhJ5Zt32Zqu/w7SQEhvFOWmkPgLIvi
-         8BtaCUKFQ8svJ6JL/wN0S0b4KKdSGIgcKEX1mlg9XzRhr78nPNYo/QAp24iMk9tnX0Pd
-         XTXpVJxm1EwWc005C3PT+3JLd8UxjtOAXeOy7IG07io4wXhRbaAKEZQMIoWBtoNw/HE6
-         CE5w==
-X-Forwarded-Encrypted: i=1; AFNElJ9VPaknio7vg1zd/LXbpaFLChIiYtWIBk/2NFqFLuv+7zE89TPMNl2JF9+zOLns9BJZMT7+npGJlJtXdqwo8NyE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZCHdAzFpbUT4ai2J7fRh3PcOyv0LKe6N/7QtYePKny3oZNN15
-	e90Re4Quj4b4EOFRGoGzXvloFRWRFSJGwmWOtJYXDtwvvRRUf7uXN4Nkzgl1Jv5fuItJbL3CBZ8
-	CCA==
-X-Received: from wmbg25.prod.google.com ([2002:a05:600c:a419:b0:490:b2b0:c4aa])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600d:6447:10b0:490:e18f:d108
- with SMTP id 5b1f17b1804b1-490ec501b2cmr10440745e9.19.1781247566496; Thu, 11
- Jun 2026 23:59:26 -0700 (PDT)
-Date: Fri, 12 Jun 2026 07:59:14 +0100
+        d=1e100.net; s=20251104; t=1781247567; x=1781852367;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wz1k2GgxstbvUGr74v2KjphysWOu90GWRraqbzm662g=;
+        b=MQUKknUG6s+hXo5kAonjlKzMVPBr9DYT1AwIghHszKQdy1CxT12dfMaVVPT/oldGqp
+         3Rhg8fJCwmwlLnybCtVAs2qjPsOawRKs7twb7jvvHm9XiEaI9zQlXa1Maj7710OJOXJj
+         DsAueH5edfS7HRE66Bd8E+T2dhOeJkjSL4a6xlFk4B7UjCdffFAR/v2e7rkJ278DDtWi
+         MJHxR1lwvVL+eZajfeSJJZ63mF6VOqGS++VdtjBNGBPEFTEhVAuP/DiKnkYSiECvwFW/
+         i5t9E0eg0Ndpu+V6rkcfs7NOPE04J9yRwICg/67ONdRKktttEO3QjtG2EL2ih7yGVRhR
+         +jqQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/jq2ffpJm4f93KCaejy7Vu5voPo/DwT0g5L83kTxUs08rVstdgMD0liWPdu0o4rb1u35bL3+6B+zDUhT7ekQZm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXbeSGTOQXxoYpPJ+I3SN8MeiPkW+x81C+MoAGtv0Ljtz8hvUz
+	OhwHYNmy3htxKAKdMXfp8ipSKGuKqZCGvygIw3f+hRDh8XFPotkZve76IYeMM5OJ00bLEyrkKRA
+	7zg==
+X-Received: from edb8.prod.google.com ([2002:a05:6402:2388:b0:691:ad32:f754])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:3901:b0:68d:abcf:9593
+ with SMTP id 4fb4d7f45d1cf-69378a104a3mr557406a12.17.1781247567338; Thu, 11
+ Jun 2026 23:59:27 -0700 (PDT)
+Date: Fri, 12 Jun 2026 07:59:15 +0100
+In-Reply-To: <20260612065925.755562-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20260612065925.755562-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260612065925.755562-1-tabba@google.com>
-Subject: [PATCH v1 00/11] KVM: arm64: Rework pKVM vCPU state synchronisation
+Message-ID: <20260612065925.755562-2-tabba@google.com>
+Subject: [PATCH v1 01/11] KVM: arm64: Add scoped resource management (guard)
+ for hyp_spinlock
 From: tabba@google.com
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
 Cc: Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>, 
@@ -77,8 +80,8 @@ Cc: Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_235929_147014_8FD34A6F 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260611_235929_779194_0BAB994E 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,79 +96,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+The nVHE hypervisor manages hyp_spinlock_t locks by hand across error
+paths, where a missed unlock deadlocks the next CPU to take the lock.
+Wire hyp_spinlock_t into <linux/cleanup.h> via DEFINE_LOCK_GUARD_1 so
+callers can use guard(hyp_spinlock) and scoped_guard(hyp_spinlock),
+letting later patches replace the manual lock/unlock pairs.
 
-Building on Will's pKVM infrastructure series [1], this series reworks
-how pKVM moves vCPU state between the host and EL2, and stops copying a
-non-protected guest's state on every world switch.
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/hyp/include/nvhe/spinlock.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-EL2 gains proper primitives for the state it transfers: vCPU lookup
-helpers, and VGIC flush/sync that reduces how much host state EL2
-dereferences. The series also moves some preparatory code (such as sys
-reg access and PSCI helpers) to shared headers and HYP, and implements
-lazy copying of a non-protected guest's register state back to the host
-until the host actually needs it, instead of on every exit.
-
-This is the first of two series moving pKVM vCPU state management to
-EL2. The follow-up completes the job for protected VMs: state
-isolation, PSCI handling at EL2, and the resulting API behaviour.
-
-The series is structured as follows:
-
-  01-03:  Guard/scoped-resource support for hyp_spinlock and KVM locking
-          (Marc asked for this to land as a prequel to a series that uses it).
-  04-07:  Preparatory refactoring (MPIDR, sys reg access, vCPU reset, PSCI
-          helpers) to shared headers and HYP.
-  08:     Host and hypervisor vCPU lookup primitives.
-  09-10:  VGIC: reduce EL2's exposure to host state, add flush/sync primitives.
-  11:     Lazy state sync for non-protected guests.
-
-Based on v7.1-rc7.
-
-[1] https://lore.kernel.org/all/20260105154939.11041-1-will@kernel.org/
-
-Cheers,
-/fuad
-
-Fuad Tabba (8):
-  KVM: arm64: Add scoped resource management (guard) for hyp_spinlock
-  KVM: arm64: Use guard(hyp_spinlock) in pKVM hypervisor code
-  KVM: arm64: Use guard()/scoped_guard() in arm64 KVM EL1 code
-  KVM: arm64: Extract MPIDR computation into a shared header
-  KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
-  KVM: arm64: Factor out reusable vCPU reset helpers
-  KVM: arm64: Move PSCI helper functions to a shared header
-  KVM: arm64: Implement lazy vCPU state sync for non-protected guests
-
-Marc Zyngier (3):
-  KVM: arm64: Add host and hypervisor vCPU lookup primitives
-  KVM: arm64: Minimise EL2's exposure of host VGIC state during world
-    switch
-  KVM: arm64: Add primitives to flush/sync the VGIC state at EL2
-
- arch/arm64/include/asm/kvm_arm.h           |  12 +
- arch/arm64/include/asm/kvm_asm.h           |   1 +
- arch/arm64/include/asm/kvm_emulate.h       |  80 ++++++-
- arch/arm64/include/asm/kvm_host.h          |   2 +
- arch/arm64/kvm/arm.c                       |  21 +-
- arch/arm64/kvm/handle_exit.c               |  22 ++
- arch/arm64/kvm/hyp/include/nvhe/spinlock.h |   6 +
- arch/arm64/kvm/hyp/nvhe/ffa.c              | 154 +++++--------
- arch/arm64/kvm/hyp/nvhe/hyp-main.c         | 255 ++++++++++++++++++---
- arch/arm64/kvm/hyp/nvhe/mm.c               |  37 +--
- arch/arm64/kvm/hyp/nvhe/page_alloc.c       |  13 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c             |  86 +++----
- arch/arm64/kvm/mmu.c                       |  80 +++----
- arch/arm64/kvm/pkvm.c                      |  26 +--
- arch/arm64/kvm/psci.c                      |  47 +---
- arch/arm64/kvm/reset.c                     |  68 +-----
- arch/arm64/kvm/sys_regs.c                  |  14 +-
- arch/arm64/kvm/sys_regs.h                  |  19 ++
- include/kvm/arm_psci.h                     |  28 +++
- 19 files changed, 562 insertions(+), 409 deletions(-)
-
-
-base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+index 7c7ea8c55405..63ba826d8e3d 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+@@ -13,6 +13,8 @@
+ #ifndef __ARM64_KVM_NVHE_SPINLOCK_H__
+ #define __ARM64_KVM_NVHE_SPINLOCK_H__
+ 
++#include <linux/cleanup.h>
++
+ #include <asm/alternative.h>
+ #include <asm/lse.h>
+ #include <asm/rwonce.h>
+@@ -98,6 +100,10 @@ static inline void hyp_spin_unlock(hyp_spinlock_t *lock)
+ 	: "memory");
+ }
+ 
++DEFINE_LOCK_GUARD_1(hyp_spinlock, hyp_spinlock_t,
++		    hyp_spin_lock(_T->lock),
++		    hyp_spin_unlock(_T->lock))
++
+ static inline bool hyp_spin_is_locked(hyp_spinlock_t *lock)
+ {
+ 	hyp_spinlock_t lockval = READ_ONCE(*lock);
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
