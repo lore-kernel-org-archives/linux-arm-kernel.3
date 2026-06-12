@@ -4,98 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D36CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 13:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C023CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 14:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=; b=hcHoToA6WjrBQBW2XxawAenSJR
-	elJOvwwl9mMgqCMvsQQr3fIJAqua4uO+HhooQUboO6cN619oLBGvRRZbpiq0CcZ74MRKO+K2oVNEF
-	FWHhKWC4BXswnTq3OJvT2/J8Rm6E5SfuVXwui3OvTNhO7kFMXf66QBddJ3SH0jdDsFVAdBXuy8uBr
-	XZq84/f2EDuOZ1YIB3bas2Ifrcr53MQ99pMOYpIiBuhxss7O8VQjeyPbD5S6A3FWQCnZjq+nwabyf
-	H8qZNW+Yab0s7AgmyOdnzmmuWu4JitHqt+eFx6b2SuasIOM1LqiqL/ZeItT8C6WgTWWl/oXvU97a6
-	P1w0STeQ==;
+	bh=c/FmAs6vbDcwp7q5Sv1XH6dsatQVIdKLtjBr9BuZXg0=; b=spq6Q95MdBxmWtTG5KvNwjMT5W
+	q4yyXNvpyBZwcdoOaUaldO2XT7H1NZwWyJ8TvGvAQmSqaEBd5ZPcSAt/IHwZtnU15saexWOpwNxAJ
+	yffzIKvlk+jOK4JPqYrSfVuaYGLNW/I6+mEHctQHxLvWIORcn2fawnCilGebFzdhNWr677JMybB/e
+	Yb/e9ht6IMkS0j8WGn4pz1gohmJSRl+v54U2YTE6F638afdQz+A0ev2B91ZaG6mg3jA/rwRvvKdv3
+	2EMnKme33UfAkTJDb/770wHbdeOQeMFTUbr/EtcBZclRArPTV/KDzdppO3S6AgqgkM4CSkCcLu7Cj
+	IiQqr0nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2Ow-0000000B1VP-32T0;
-	Fri, 12 Jun 2026 13:58:26 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wY2cK-0000000B2J6-16Eg;
+	Fri, 12 Jun 2026 14:12:16 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2Oq-0000000B1QM-0FEt
+	id 1wY2cG-0000000B2Hq-4BKL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 13:58:21 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-45eecb8bf67so759014f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 06:58:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1781272698; x=1781877498; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
-        b=Kj1L2k9juY1ht1UX9pvLESe+h39dr/cNmNxjFwrvVfBwFHginPKokxtCteC3gg0V6H
-         ey5oZf8QENhigB9cdDzP7CKLWMDsYVdT3xV727tQQJ4Uiz9nR0JrWrTwk3zgZ2OKV2nh
-         h2RkL2WdmuOeklcsCwRwz7QQW3qbw0PCxQCQ/+JFA9fJgknbUFnPzE8bc75S3TWb7ED4
-         f+g4oJLH/pp/ebDaiU0InRJ27hxmPjwJjQTJM460nXK2dk3yHJhlkgA/NSeEFLrcauTh
-         c6aH0XK4gAjYBOLXMG6oI+kijWi7VM4p5UJP8sYh67QbfmB+boIKw56bak9GsZ+0Xcyf
-         JrRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781272698; x=1781877498;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
-        b=cBVRJ7eQy3OQD3Rw8XVvr1TZ7vqGd+B3wabLQv/T90W/ECq3NdJfBi3SiJJqVt4n5X
-         N3zZsOw04S9k9ljoxp5ZQHHK4hF+Cei4Fi6OYelpbOrrfW3lb/YvLW1dFZ/qx9p5EfRO
-         ivQh95ttPVxf28IMtMevYCrcA+w64EJjrUu3oq/LN5Gyq0DPbSXfderjKw6OAUrHDP5C
-         qZvRNjwoKR16Sgt0alCIOsH5Wg9iRGbo7oCnVuSKLVdU52apteNTN74yRrybm6KmEK6l
-         x+aQlCYXtW4O/5/VQDR5g/UHMKOBL56vzi1jwv8yNP31xeMdJIln+51iv1RtNGuOc+To
-         4sBA==
-X-Forwarded-Encrypted: i=1; AFNElJ9qZJT5IPbVBLrHeiimXanH6EGtMmg/eLyvEwhuNV1UGDt3IbkCAZ2yrWAKiLZzoMjBxwJ7Q5UO14K78eH0V39C@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrxxRGYDy/FP2EE4E7X+YdUuVo8fMsdeSEFLdP5aRztllObKB1
-	dlj+N0E9w/LIy89v2qGhEeUSFbI8b1v7LTUPpoA4uROQ0P9XYLJufjN3w6ouaOTibA8=
-X-Gm-Gg: Acq92OE4WuD9M5h7rd/Oh1zorm1ZXMXd86Mdixbr7hCtROReUJQ/xOgCrgIFQ/xhBRN
-	KKeWB1aFwyyJgwdB8t5jqOO8nqzZK0+M+JkjHMDirt+gY5MOZUzKM8Y/VygCh5KYFKjEY47SQEa
-	nxD59jbWPW7+VO7xMa46zwSJw0JYIwgAYnWF1NGh0NdD/P9s6RSvsNd99w4sMOsQWNpNrUniLb+
-	9ToloXOnGPRafn71eq6KpovQpn8/wbFLgbTtkTjX7AyKyL4syKTBlOIAjsSN/d2wDQOMssSL9/l
-	o6+1HoOp67C36br+zDxdLA63NubA8EmiyNop8fhJzuswpCDxyxN/cuq6kROMVkvL+6mMc+lWEhl
-	OlZ/plKz79u2sqO6DIQOEEp0+sOyzc77IJPdiFm/jStSSitEC3sef6EPZPHErdDT3QrJhg4iM/I
-	0+kpMywlBcaMo6zTTbJzLH
-X-Received: by 2002:a05:6000:1886:b0:460:1a52:8a13 with SMTP id ffacd0b85a97d-4606da0f65emr4345439f8f.0.1781272698170;
-        Fri, 12 Jun 2026 06:58:18 -0700 (PDT)
-Received: from localhost ([195.94.146.6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f2c5266sm6363550f8f.29.2026.06.12.06.58.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 06:58:17 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	mbrugger@suse.com
-Subject: [PATCH v5 3/3] arm64: dts: broadcom: rpi-5: Add RP1 PWM node
-Date: Fri, 12 Jun 2026 16:01:28 +0200
-Message-ID: <b08d1a25e6f3cd81162805adca878865ad112858.1780670224.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1780670224.git.andrea.porta@suse.com>
-References: <cover.1780670224.git.andrea.porta@suse.com>
+	Fri, 12 Jun 2026 14:12:15 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 08EC76E137;
+	Fri, 12 Jun 2026 13:46:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1781271983; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=c/FmAs6vbDcwp7q5Sv1XH6dsatQVIdKLtjBr9BuZXg0=;
+	b=mf9mLtBCR7JOIRxwuBb+hbK4//s6FoScuSYdg1aShETwjHr1zwyuKAd+nCg/8RSvxAuq78
+	urUv8o0A+mfQmE5wl1nluyqaCsW0d7t1TNNYpofdGHmFugQzdDDDTwutFJ8skTgI3TL20C
+	rgTwBDOBvr4mA8d1NE5eunEUj8PYZI4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1781271983;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=c/FmAs6vbDcwp7q5Sv1XH6dsatQVIdKLtjBr9BuZXg0=;
+	b=Q/MmAbnQN88XvRYp5pnye3I7l8v98aYnkhuYBf9RheyH5aImYKndL933PFHbA1Oaoyl6r2
+	V304vENaYJW7klDA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1781271983; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=c/FmAs6vbDcwp7q5Sv1XH6dsatQVIdKLtjBr9BuZXg0=;
+	b=mf9mLtBCR7JOIRxwuBb+hbK4//s6FoScuSYdg1aShETwjHr1zwyuKAd+nCg/8RSvxAuq78
+	urUv8o0A+mfQmE5wl1nluyqaCsW0d7t1TNNYpofdGHmFugQzdDDDTwutFJ8skTgI3TL20C
+	rgTwBDOBvr4mA8d1NE5eunEUj8PYZI4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1781271983;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=c/FmAs6vbDcwp7q5Sv1XH6dsatQVIdKLtjBr9BuZXg0=;
+	b=Q/MmAbnQN88XvRYp5pnye3I7l8v98aYnkhuYBf9RheyH5aImYKndL933PFHbA1Oaoyl6r2
+	V304vENaYJW7klDA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 63E66779A7;
+	Fri, 12 Jun 2026 13:46:22 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id G+T6Fq4NLGqzeAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 12 Jun 2026 13:46:22 +0000
+Message-ID: <c7866bc4-bf37-4f8c-ae64-2d1d3a23f1ef@suse.de>
+Date: Fri, 12 Jun 2026 15:46:21 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 01/30] drm/fb-helper: Remove unused local variable in
+ hotplug_event()
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
+ <20260602-dw-hdmi-qp-scramb-v7-1-445eb54ee1ed@collabora.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260602-dw-hdmi-qp-scramb-v7-1-445eb54ee1ed@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TAGGED_RCPT(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[24];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_TO(0.00)[collabora.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,intel.com,linaro.org,ideasonboard.com,kwiboo.se,bootlin.com,rock-chips.com,sntech.de,raspberrypi.com,igalia.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,suse.com:url,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_065820_117760_947FE3E7 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260612_071213_350062_2E2ED992 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,73 +174,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanimir Varbanov <svarbanov@suse.de>
 
-The RP1 chipset used on the Raspberry Pi 5 features an integrated
-PWM controller to drive the cooling fan.
 
-Add the corresponding DT node for this PWM controller.
+Am 02.06.26 um 00:44 schrieb Cristian Ciocaltea:
+> Remove the 'err' local variable in drm_fb_helper_hotplug_event() which
+> only stores a return value that is never used beyond the immediate
+> return statement.  This simplifies the code without behavior changes.
+>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 12 ++++++++++++
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi     |  9 +++++++++
- 2 files changed, 21 insertions(+)
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 0fc57e72632ed..748be8f1ee9e2 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -64,6 +64,12 @@ phy1: ethernet-phy@1 {
- };
- 
- &rp1_gpio {
-+	fan_pwm_default_state: fan-pwm-default-state {
-+		function = "pwm1";
-+		pins = "gpio45";
-+		bias-pull-down;
-+	};
-+
- 	usb_vbus_default_state: usb-vbus-default-state {
- 		function = "vbus1";
- 		groups = "vbus1";
-@@ -94,6 +100,12 @@ &rp1_i2c6 {
- 	pinctrl-names = "default";
- };
- 
-+&rp1_pwm1 {
-+	pinctrl-0 = <&fan_pwm_default_state>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
- &rp1_usb0 {
- 	pinctrl-0 = <&usb_vbus_default_state>;
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-index 16f5359395835..df4c2d09c8d34 100644
---- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-@@ -99,7 +99,16 @@ rp1_i2c6: i2c@40088000 {
- 		clocks = <&rp1_clocks RP1_CLK_SYS>;
- 		i2c-scl-rising-time-ns = <65>;
- 		i2c-scl-falling-time-ns = <100>;
-+		status = "disabled";
-+	};
- 
-+	rp1_pwm1: pwm@4009c000 {
-+		compatible = "raspberrypi,rp1-pwm";
-+		reg = <0x00 0x4009c000  0x0 0x100>;
-+		clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clock-rates = <50000000>;
-+		#pwm-cells = <3>;
- 		status = "disabled";
- 	};
- 
+But why is this patch hidden in this series? It has nothing to do with 
+HDMI support.
+
+> ---
+>   drivers/gpu/drm/drm_fb_helper.c | 11 +++--------
+>   1 file changed, 3 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/drm_fb_helper.c b/drivers/gpu/drm/drm_fb_helper.c
+> index 7b11a582f8ec..3316bb00a662 100644
+> --- a/drivers/gpu/drm/drm_fb_helper.c
+> +++ b/drivers/gpu/drm/drm_fb_helper.c
+> @@ -1744,21 +1744,17 @@ EXPORT_SYMBOL(drm_fb_helper_initial_config);
+>    */
+>   int drm_fb_helper_hotplug_event(struct drm_fb_helper *fb_helper)
+>   {
+> -	int err = 0;
+> -
+>   	if (!drm_fbdev_emulation || !fb_helper)
+>   		return 0;
+>   
+>   	mutex_lock(&fb_helper->lock);
+> -	if (fb_helper->deferred_setup) {
+> -		err = __drm_fb_helper_initial_config_and_unlock(fb_helper);
+> -		return err;
+> -	}
+> +	if (fb_helper->deferred_setup)
+> +		return __drm_fb_helper_initial_config_and_unlock(fb_helper);
+>   
+>   	if (!fb_helper->fb || !drm_master_internal_acquire(fb_helper->dev)) {
+>   		fb_helper->delayed_hotplug = true;
+>   		mutex_unlock(&fb_helper->lock);
+> -		return err;
+> +		return 0;
+>   	}
+>   
+>   	drm_master_internal_release(fb_helper->dev);
+> @@ -1802,4 +1798,3 @@ bool drm_fb_helper_gem_is_fb(const struct drm_fb_helper *fb_helper,
+>   	return gem == obj;
+>   }
+>   EXPORT_SYMBOL_GPL(drm_fb_helper_gem_is_fb);
+> -
+>
+
 -- 
-2.35.3
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
 
 
