@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A529BCD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 18:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A72CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 18:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3lbKv8h1OH1ADmUMUE8z8BbJovTlCTwDxxzGP6n3a78=; b=vDqDXHP4n6m20tQKfJOTfyLnz+
-	xkigoTAKxv+ieZTPKcp9Zc2+jD4FNIqYwM3r+0vV+6mjACnAejF7eX6jyUuhshYQjdPK5y927RsXR
-	ujukRjEo5XtFOXWmPvFbyA5ov725Hk0rubaYmY3Tm0gMcST/JW7O3Y7wg5s571/1ibGoxnr5/6ZWi
-	e9W+9ExL8Haz0zTjcUR5SGS4wAERbF15tr5RVF79bPyJP9jGF+1I1X3YB/EpKym0nFivz1dUWDOBm
-	Ow4lfO644SEAYcZH0pKDukegCuXmqme1NVSJ/KC7+xUm9khta6i+EZrckC252xm5wH1al+gu8mGD9
-	SQ2/Hsow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UsS4dqSrxqQyi+VfVrN7/Fkk7cMDG+DRbrc2q63ns0c=; b=JcIAxTSs0deJYwQ74oKBy8aja/
+	OjICTI1HFXhEw3Ry6Ov43EsOru+oqMqOeQJIUUj1+j9s/hiqZIuE0Gn3qJ0+qAbNIMoAw32qlTMfU
+	HzTgwuKDq4wIY5jzcyLUfoiBhpbfqkJw8dLbY8A9s/MAe6ZskThQRKvmWzUAh5+96HznSfsFnEMaD
+	c1OZO5RKS5lPPLtR3VN1fuwn2nXBXE1Jz8zftI0SveQL4vddyG8YZrzgofW+1rfNrTmOOP+R+Bvvy
+	rAJzcwQHvVVSLAeuPF6WLneU7J/4m5eepQ98magxcmXQSIRThJ6ianFrIySWexUU5W1k4WwrhQSYG
+	qYbMRt/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6MN-0000000BOo7-3JXK;
-	Fri, 12 Jun 2026 18:12:03 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wY6jo-0000000BPZi-3DhN;
+	Fri, 12 Jun 2026 18:36:16 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6MI-0000000BOnY-2WUY;
-	Fri, 12 Jun 2026 18:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781287915;
-	bh=9amFDTwR7GN2d5HmIjTb2KMEcIdU6VQlVPoHEgeR47k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kOrGXNVVXCtrNPkdS3n0JvJeqSneer4vXUhP5fon9rJQRzTH65KCJBep4PdLMXug8
-	 sKQfIfMLMpG2zBDvWiX5coh1FKX0jvhcMm6HQd5QZ5EgwfET6LGNgju+GcOKFSJWbC
-	 inUqO/uthcL/bC8EoLLdip2MfNwzCJTPYJsbAaNuZiPLY7rm736SI8D5pJrUzbTkNY
-	 aMQydEeQ4FRF3HTkUC0belkzOP0paojUCw3Ey5loKDaugE3mn0BQeuOQCu0sY3RE9R
-	 W5+ay2iLosi/Mf8okzqwAZpaRIBvBXJklOlKJCn7cA/iKPzmL/jO82AVSXN7VLDxr+
-	 yC+9/xhEbFzNA==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D064417E040C;
-	Fri, 12 Jun 2026 20:11:54 +0200 (CEST)
-Message-ID: <7b19b243-ad6a-4d1f-b34e-684e8bfe500c@collabora.com>
-Date: Fri, 12 Jun 2026 21:11:54 +0300
+	id 1wY6jl-0000000BPZG-0Q94
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 18:36:15 +0000
+Received: by chaosmail.tech (Postfix) id D91181C962C;
+	Fri, 12 Jun 2026 18:36:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1781289367;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=UsS4dqSrxqQyi+VfVrN7/Fkk7cMDG+DRbrc2q63ns0c=;
+	b=cLzecYpO3379MUQW5o4pE5ay4aiiwjREr51eLEUYK5B9Fjqj/B8pT253oF/WYXImOw608/
+	c/2u9eUo3N4l4n7ubKhjj2JaAuoVXFEOdtfo6lskWibWlFFuTB1Lu3K4LbgrTa1aWEbD/G
+	1RjTTtWduTKCFzYnhIBgh7oX8e0uaNk=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Fri, 12 Jun 2026 20:36:03 +0200
+Subject: [PATCH v2] power: supply: macsmc: Support macOS 27 SMC firmware
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
- <20260602-dw-hdmi-qp-scramb-v7-2-445eb54ee1ed@collabora.com>
- <20260612-subtle-shapeless-rattlesnake-4b6af8@houat>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260612-subtle-shapeless-rattlesnake-4b6af8@houat>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260612-gate-power-v2-1-de76cb9bb7ef@chaosmail.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22OQQ7CIBREr9L8tRhgAY0r72G6QPgt32hpAFHT9
+ O5C3bp8ycybWSFhJExw6laIWChRmCvIQwfWm3lCRq4ySC4VV0KwyWRkS3hhZHZ0WipnudMj1MI
+ ScaT3LrsMP07P6w1tboaW8JRyiJ99rYiW+ysuggnWGyW1FLxXVp/rl5Aehu7HjNbDsG3bF3Ss9
+ 4O7AAAA
+X-Change-ID: 20260611-gate-power-cfd726dc0d7f
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Sebastian Reichel <sre@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781289366; l=4184;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=4A/C+EOHO465w2u8xamdqNmkNqrHgUkGdvhtrLwE2lg=;
+ b=zoMPXpuIXjYSJqYFvYM9W4fKfd3tt2rqG5nEEW941D4Q6fM6tY3egLexCairjGf7a9qLa561Q
+ Av/sJno8GlRDap+GJsoD0s/1O+VMCwdXvjt3giaYCF88YDj7S4MQbQl
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_111158_824409_EA017BA1 
-X-CRM114-Status: GOOD (  27.11  )
+X-CRM114-CacheID: sfid-20260612_113613_639471_845DD9B3 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,189 +79,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+The SMC firmware included in macOS 27 changed the size of BCF0 key from
+4 to 1 bytes. This key is used for indicating that battery state is
+critically low.
 
-Thanks for taking the time to review this!
+Reviewed-by: Sven Peter <sven@kernel.org>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+Changes in v2:
+- Addressing review feedback
+- Link to v1: https://patch.msgid.link/20260611-gate-power-v1-1-8a62721086c7@chaosmail.tech
+---
+ drivers/power/supply/macsmc-power.c | 35 ++++++++++++++++++++++++++++++++---
+ 1 file changed, 32 insertions(+), 3 deletions(-)
 
-On 6/12/26 3:06 PM, Maxime Ripard wrote:
-> On Tue, Jun 02, 2026 at 01:44:02AM +0300, Cristian Ciocaltea wrote:
->> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
->>
->> - A scrambler_supported flag to indicate whether the source supports the
->>   scrambling capability, in which case the newly introduced
->>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
->>   are mandatory
->> - A scrambler_needed flag to be managed by the hdmi state helpers based
->>   on the negotiated TMDS character rate and the source/sink scrambling
->>   capabilities
->> - A scrambler_enabled flag to track whether scrambling is currently
->>   active
->> - A delayed work item (scdc_work) with an associated callback (scdc_cb)
->>   to monitor sink-side scrambling status and retry the setup if the sink
->>   resets it
->>
->> These are intended to be used by SCDC scrambling helpers to coordinate
->> scrambling setup and teardown between the source driver and the DRM
->> core.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/drm_connector.c | 18 +++++++++
->>  include/drm/drm_connector.h     | 81 +++++++++++++++++++++++++++++++++++++++++
->>  2 files changed, 99 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
->> index a5d13b92b665..526dc2931b8a 100644
->> --- a/drivers/gpu/drm/drm_connector.c
->> +++ b/drivers/gpu/drm/drm_connector.c
->> @@ -220,6 +220,19 @@ void drm_connector_free_work_fn(struct work_struct *work)
->>  	}
->>  }
->>  
->> +static void drm_connector_hdmi_scdc_work(struct work_struct *work)
->> +{
->> +	struct drm_connector *connector;
->> +	struct drm_connector_hdmi *hdmi;
->> +
->> +	hdmi = container_of(to_delayed_work(work), struct drm_connector_hdmi,
->> +			    scdc_work);
->> +	connector = container_of(hdmi, struct drm_connector, hdmi);
->> +
->> +	if (hdmi->scdc_cb)
->> +		hdmi->scdc_cb(connector);
->> +}
->> +
->>  static int drm_connector_init_only(struct drm_device *dev,
->>  				   struct drm_connector *connector,
->>  				   const struct drm_connector_funcs *funcs,
->> @@ -285,6 +298,7 @@ static int drm_connector_init_only(struct drm_device *dev,
->>  	mutex_init(&connector->edid_override_mutex);
->>  	mutex_init(&connector->hdmi.infoframes.lock);
->>  	mutex_init(&connector->hdmi_audio.lock);
->> +	INIT_DELAYED_WORK(&connector->hdmi.scdc_work, drm_connector_hdmi_scdc_work);
->>  	connector->edid_blob_ptr = NULL;
->>  	connector->epoch_counter = 0;
->>  	connector->tile_blob_ptr = NULL;
->> @@ -606,6 +620,10 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
->>  	    !hdmi_funcs->hdmi.write_infoframe)
->>  		return -EINVAL;
->>  
->> +	if (connector->hdmi.scrambler_supported &&
->> +	    (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable))
->> +		return -EINVAL;
->> +
->>  	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
->>  	if (ret)
->>  		return ret;
->> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
->> index 529755c2e862..f1c5c15a6cce 100644
->> --- a/include/drm/drm_connector.h
->> +++ b/include/drm/drm_connector.h
->> @@ -28,6 +28,7 @@
->>  #include <linux/ctype.h>
->>  #include <linux/hdmi.h>
->>  #include <linux/notifier.h>
->> +#include <linux/workqueue.h>
->>  #include <drm/drm_mode_object.h>
->>  #include <drm/drm_util.h>
->>  #include <drm/drm_property.h>
->> @@ -1057,6 +1058,19 @@ struct drm_connector_hdmi_state {
->>  	 * @tmds_char_rate: TMDS Character Rate, in Hz.
->>  	 */
->>  	unsigned long long tmds_char_rate;
->> +
->> +	/**
->> +	 * @scrambler_needed: Whether HDMI 2.0 SCDC scrambling is required
->> +	 * for the negotiated mode/bpc/format.
->> +	 *
->> +	 * Computed by drm_atomic_helper_connector_hdmi_check() from
->> +	 * @tmds_char_rate and the source/sink scrambling capabilities.
->> +	 *
->> +	 * Per HDMI 2.0, scrambling is mandatory above 340 MHz TMDS
->> +	 * character rate. Optional scrambling at lower rates is
->> +	 * deliberately not requested by the helper.
->> +	 */
->> +	bool scrambler_needed;
->>  };
->>  
->>  /**
->> @@ -1358,6 +1372,36 @@ struct drm_connector_hdmi_funcs {
->>  	 */
->>  	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
->>  
->> +	/**
->> +	 * @scrambler_enable:
->> +	 *
->> +	 * This callback is invoked through @drm_scdc_start_scrambling during
->> +	 * a commit to setup SCDC scrambling and high TMDS clock ratio on
->> +	 * source side.
->> +	 *
->> +	 * The @scrambler_enable callback is mandatory if HDMI 2.0 is to be
->> +	 * supported.
->> +	 *
->> +	 * Returns:
->> +	 * 0 on success, a negative error code otherwise
->> +	 */
->> +	int (*scrambler_enable)(struct drm_connector *connector);
->> +
->> +	/**
->> +	 * @scrambler_disable:
->> +	 *
->> +	 * This callback is invoked through @drm_scdc_stop_scrambling during
->> +	 * a commit to disable SCDC scrambling and high TMDS clock ratio on
->> +	 * source side.
->> +	 *
->> +	 * The @scrambler_disable callback is mandatory if HDMI 2.0 is to be
->> +	 * supported.
->> +	 *
->> +	 * Returns:
->> +	 * 0 on success, a negative error code otherwise
->> +	 */
->> +	int (*scrambler_disable)(struct drm_connector *connector);
->> +
->>  	/**
->>  	 * @avi:
->>  	 *
->> @@ -1960,6 +2004,43 @@ struct drm_connector_hdmi {
->>  	 */
->>  	unsigned long supported_formats;
->>  
->> +	/**
->> +	 * @scrambler_supported: Indicates whether the HDMI controller
->> +	 * (source) supports HDMI 2.0 SCDC scrambling.
->> +	 *
->> +	 * When true, @drm_connector_hdmi_funcs.scrambler_enable and
->> +	 * @drm_connector_hdmi_funcs.scrambler_disable are mandatory.
->> +	 * This is enforced by drmm_connector_hdmi_init().
->> +	 *
->> +	 * For HDMI bridge based drivers using drm_bridge_connector_init(),
->> +	 * this is propagated automatically from bridges that set the
->> +	 * DRM_BRIDGE_OP_HDMI_SCRAMBLER flag in their &drm_bridge->ops.
->> +	 * Other drivers must set this field on @connector->hdmi before calling
->> +	 * drmm_connector_hdmi_init().
->> +	 */
->> +	bool scrambler_supported;
->> +
->> +	/**
->> +	 * @scrambler_enabled: Tracks whether HDMI 2.0 scrambler is currently enabled.
->> +	 */
->> +	bool scrambler_enabled;
-> 
-> This is already in the state. Why do you need to copy it over here, and
+diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
+index 33ca07460f3a..747315e372bc 100644
+--- a/drivers/power/supply/macsmc-power.c
++++ b/drivers/power/supply/macsmc-power.c
+@@ -86,6 +86,7 @@ struct macsmc_power {
+ 	bool has_ch0i; /* Force discharge (Older firmware) */
+ 	bool has_ch0c; /* Inhibit charge (Older firmware) */
+ 	bool has_chte; /* Inhibit charge (Modern firmware) */
++	bool bcf0_1byte; /* Battery critical key is 1 byte (Modern firmware) */
+ 
+ 	u8 num_cells;
+ 	int nominal_voltage_mv;
+@@ -273,6 +274,19 @@ static int macsmc_battery_get_date(const char *s, int *out)
+ 	return 0;
+ }
+ 
++static int macsmc_battery_read_bcf0(struct macsmc_power *power, u32 *val)
++{
++	u8 tval = 0;
++	int ret;
++
++	if (!power->bcf0_1byte)
++		return apple_smc_read_u32(power->smc, SMC_KEY(BCF0), val);
++
++	ret = apple_smc_read_u8(power->smc, SMC_KEY(BCF0), &tval);
++	*val = tval;
++	return ret;
++}
++
+ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+ {
+ 	bool flag;
+@@ -280,7 +294,7 @@ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+ 	int ret;
+ 
+ 	/* Check for emergency shutdown condition */
+-	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val) >= 0 && val)
++	if (macsmc_battery_read_bcf0(power, &val) >= 0 && val)
+ 		return POWER_SUPPLY_CAPACITY_LEVEL_CRITICAL;
+ 
+ 	/* Check AC status for whether we could boot in this state */
+@@ -577,7 +591,7 @@ static void macsmc_power_critical_work(struct work_struct *wrk)
+ 	 * Check if SMC flagged the battery as empty.
+ 	 * We trigger a graceful shutdown to let the OS save data.
+ 	 */
+-	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &bcf0) == 0 && bcf0 != 0) {
++	if (macsmc_battery_read_bcf0(power, &bcf0) == 0 && bcf0 != 0) {
+ 		power->orderly_shutdown_triggered = true;
+ 		dev_crit(power->dev, "Battery critical (empty flag set). Triggering orderly shutdown.\n");
+ 		orderly_poweroff(true);
+@@ -616,6 +630,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+ 	struct power_supply_config psy_cfg = {};
++	struct apple_smc_key_info info;
+ 	struct macsmc_power *power;
+ 	bool has_battery = false;
+ 	bool has_ac_adapter = false;
+@@ -714,6 +729,20 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 		if (apple_smc_key_exists(smc, SMC_KEY(CH0I)))
+ 			power->has_ch0i = true;
+ 
++		ret = apple_smc_get_key_info(power->smc, SMC_KEY(BCF0), &info);
++		if (ret) {
++			dev_err(&pdev->dev, "Failed to determine BCF0 key size\n");
++			return ret;
++		}
++		if (info.size == 1)
++			power->bcf0_1byte = true;
++		else if (info.size == 4)
++			power->bcf0_1byte = false;
++		else {
++			dev_err(&pdev->dev, "Unexpected BCF0 key size %d\n", info.size);
++			return -EIO;
++		}
++
+ 		/* Reset "Optimised Battery Charging" flags to default state */
+ 		if (power->has_chte)
+ 			apple_smc_write_u32(smc, SMC_KEY(CHTE), 0);
+@@ -766,7 +795,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 		power->nominal_voltage_mv = MACSMC_NOMINAL_CELL_VOLTAGE_MV * power->num_cells;
+ 
+ 		/* Enable critical shutdown notifications by reading status once */
+-		apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val32);
++		macsmc_battery_read_bcf0(power, &val32);
+ 
+ 		psy_cfg.drv_data = power;
+ 		power->batt = devm_power_supply_register(dev, &power->batt_desc, &psy_cfg);
 
-This was supposed to be used exclusively by drm_scdc_{start,stop}_scrambling()
-and drm_scdc_sync_status() helpers to control the work item and conditionally
-trigger CRTC resets.  However, it's now also set by vc4_hdmi_connector_init() to
-force disable the scrambler in the vc4_crtc_disable_at_boot() execution path.
+---
+base-commit: 9716c086c8e8b141d35aa61f2e96a2e83de212a7
+change-id: 20260611-gate-power-cfd726dc0d7f
 
-For this purpose, I think we should add a "force" argument to
-drm_scdc_stop_scrambling(), or maybe a dedicated helper?!
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
 
-> if you do, you'll need a lock.
-
-Currently it's managed via READ_ONCE()/WRITE_ONCE(). Do you think locking is
-really necessary?
-
-Regards,
-Cristian
 
