@@ -4,67 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5610CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8F0CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+0GlFsvyTIfuouEBopxeMKJCoLYJ2b9k3kt0gJUk7s=; b=OI4xBIcfM0tKBGVniIE5P+2jlf
-	KRTQ6gBOq2Clm8xwZCdda4x48yJPvC/oQFJWOBwu9i/RBCHcYqtaS28iQ2Om6P7dW6IxagCPmdqbU
-	SL3fDANkds+xyrTIoyFUeE3fFgtFx2GSoIJyxnFvx/bl+RaDGrOalQ9T5GNeLn8MGd9qrPeK/iy0f
-	HbSDgKSMEgcXlevR/YCB1yT1f3haZY0RxSJAQ32kYxQtg5kMfSuFnWOj8bRuGaryKHNh25yMsG22H
-	/jk6YvMPuQPnZ6mflgFnk73DbBbsR1kgXbQTmgQszJLIH7nQHFc/IX7cxn2Jin0xVYVAnQNmX+e7U
-	u/CGjcRA==;
+	bh=R2b+Uo5p0fDLRThJUtNjOLm5Xg59jboN8Z8VwOeE4M0=; b=Mjuys/MrdGLCFNiBuHuwVZkYTZ
+	TpNBcqv9qemX5XQhOOy9At7xuUVOtTT5+lizlSL+AVSDozjEsl07O3MBkgbXxjSfyA4Z5XYLk7WvE
+	dBumwFDGTJKVjRp8T4KyxAT+UHIIScOmgpLxIYWulmx9+1K3s1yesEzFhicGU4gqJb6W+9XyD3/yf
+	O+ANpnpxfSshs9xtlPAh97lRVU+ze5IkYFnefDo1ZQyBZ5aswOmI2jzzUvZ9iS2d5HLr+nyXJ0UN/
+	qeZMUr1MLT9wUK/DWuXaZayC48ydcIlnrrlkRAzGoHY90CgUl+M4JG+z88k3tBeguAzLPBX7UDQ9A
+	/yzoJ9HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY43i-0000000BAqs-1cmh;
-	Fri, 12 Jun 2026 15:44:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wY44a-0000000BB0F-2xdp;
+	Fri, 12 Jun 2026 15:45:32 +0000
+Received: from mail-westus2azolkn19012049.outbound.protection.outlook.com ([52.103.10.49] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY43g-0000000BAqT-25HX;
-	Fri, 12 Jun 2026 15:44:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DEA4A60008;
-	Fri, 12 Jun 2026 15:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A41B31F000E9;
-	Fri, 12 Jun 2026 15:44:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781279075;
-	bh=S+0GlFsvyTIfuouEBopxeMKJCoLYJ2b9k3kt0gJUk7s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q8pBwT0BPFtm20O4KmeTbdD4ndiMr6vaHVXN0TGvVxkO7pycW0oXxmTb5IW5eaSwf
-	 a0N/5zOLH/jCGgkmv/Dj7skE44FtGILz9y9HIa1knnHKakBpEE0Xun8w21Pbe1Qsfk
-	 dArJ3a+F5m9F/OpB88UnqidL/qFr9OkbDdHAosTpOGtEhf4Dv7bxeMMuQrskkxSH9J
-	 8+6wAO34Mzyo3vmD7Ob+kJ+rc661ZLGKpTkGtR7AfxesnFfyGawuDUsR6l82EJJIP/
-	 vwI4dIQui961ieLSm5VHfy95uKQe+qcNRqclphMeu8wn95ARa8Ht4r/mOEZkRGflNq
-	 Cp5qe6riCbRXA==
-Date: Fri, 12 Jun 2026 16:44:30 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tanjeff Moos <tanjeff.moos@westermo.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Michael Walle <mwalle@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v1 phy-next 7/8] soc: fsl: guts: implement the RCW
- override procedure
-Message-ID: <20260612-twenty-diary-4aab5327f9c2@spud>
-References: <20260611193940.44416-1-vladimir.oltean@nxp.com>
- <20260611193940.44416-8-vladimir.oltean@nxp.com>
+	id 1wY44X-0000000BAzO-2GnI;
+	Fri, 12 Jun 2026 15:45:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gpsxd6HjMwop+KzeU73xFICMLGfZbjHqP8s7AbvrW3MApdEu+8LuEbRjqeZImBkBfjQzl++xM3JQO85qSm39aYyNxum8Nf96NhA1Bj1KjKCdb4sZkXVuGblGhMwwGQioYAbJ3Kp/rIQyXOOQNd1hlLIWjT4eHXpxHis1wkF39eonHZ2pxyY8pmcHTxtUG/y+nbsJ0dVKRV7eaLpQO5ZUKTcrGCVTwwj9WSE4azYJE+JJ304cnAdfqGmWHbIrHHuew1XuFlxkKlEVfh2ZSdY6gdF0xV4fuRqZD10cDFIDRQo5e9VO43OFYdF2XBqhIdIiKmw2xPO5l2dpBSiixO9WhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R2b+Uo5p0fDLRThJUtNjOLm5Xg59jboN8Z8VwOeE4M0=;
+ b=gGJIX8uj/qaEfnh2zFiPgoOuHK1LLkR799PRt2xrr1fieX8UzkSJzl/tS86e7XAmM+VZ7la6ebIR1xpiiQOdOL1v3pBMQ9b5EUHfE3cmTdlquirGGgcuxnpNFQzWz3FMyQIq2JE8D15ame9sf3Zj+oVSPhR3hFdPpX95TL3ruPL/wbSzcmzOBphkfJCNTcIwsT9peCnL+6hbRB19yMPQN1s0HfTUJpxhbroyHd/zCyrkQNf+TmTe14+4wFSJmMSe0CkS+1XeK3V7IyjxelxXN7SFN/x6W/qTAK8fOfpV+j7BHGF1PQlc+XTp9BiOP+DCvNHw6livvgSpyX8xYLwYuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R2b+Uo5p0fDLRThJUtNjOLm5Xg59jboN8Z8VwOeE4M0=;
+ b=n4CDgnwVxevcklPFZTvE3aaGxX+/dfPwUMCuy2jM/R9tjdqE/BQSp0gOZV9WoqJsWB58Osaf8ATB/R5N6jz3Exodx59BjwZawBPVa7FTtvS5wi4McIYB9evZDfnwAgIhFQ66XCEE4xAjWfFxOIBoF9gQkMOcTI2wOOaBjDF9xQfybEaVRpAPkztB0w8DKCyVv9EtmKPm3KSxLtd4bhG2oIuZ4FHebYU6OqViD1dFe9jup+gqbbpWwHsexUQLfzrJw3D4h0mID3wxd2ImpU0bQzFdhk8olXHTygrMhexM1bSirEA0CXGVV0Uwj3al+qTCk8OfDOBQckpCEDONMOEVuw==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by CO1PR02MB8649.namprd02.prod.outlook.com (2603:10b6:303:15c::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Fri, 12 Jun
+ 2026 15:45:19 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%3]) with mapi id 15.21.0113.013; Fri, 12 Jun 2026
+ 15:45:19 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>, "pjw@kernel.org"
+	<pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
+	<alex@ghiti.fr>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com"
+	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
+	<hpa@zytor.com>, "peterz@infradead.org" <peterz@infradead.org>,
+	"kees@kernel.org" <kees@kernel.org>, "nathan@kernel.org" <nathan@kernel.org>,
+	"linusw@kernel.org" <linusw@kernel.org>, "ojeda@kernel.org"
+	<ojeda@kernel.org>, "david.kaplan@amd.com" <david.kaplan@amd.com>,
+	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com"
+	<ryan.roberts@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"timothy.hayes@arm.com" <timothy.hayes@arm.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "thuth@redhat.com" <thuth@redhat.com>,
+	"oupton@kernel.org" <oupton@kernel.org>, "yeoreum.yun@arm.com"
+	<yeoreum.yun@arm.com>, "miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"broonie@kernel.org" <broonie@kernel.org>, "kevin.brodsky@arm.com"
+	<kevin.brodsky@arm.com>, "james.clark@linaro.org" <james.clark@linaro.org>,
+	"tabba@google.com" <tabba@google.com>, "mrigendra.chaubey@gmail.com"
+	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
+	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
+	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
+ CPUs
+Thread-Topic: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+Thread-Index: AQKOA8X39m4tY91Ji20k4ddnJ9pPpAKdHzDOtMQT7eA=
+Date: Fri, 12 Jun 2026 15:45:19 +0000
+Message-ID: <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-4-ruanjinjie@huawei.com>
+In-Reply-To: <20260611133809.3854977-4-ruanjinjie@huawei.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CO1PR02MB8649:EE_
+x-ms-office365-filtering-correlation-id: 7adf355c-50c9-4462-0a2b-08dec8999b4d
+x-microsoft-antispam: BCL:0;ARA:14566002|13091999003|31061999003|8060799015|8062599012|19101099003|15080799012|37011999003|19110799012|102099032|19061999003|40105399003|41105399003|52005399003|440099028|3412199025;
+x-microsoft-antispam-message-info: =?us-ascii?Q?K19KEHrYQNnWVCwQPbZ4LdJirckp4IQBTehP/3ugSLSDE44Nx+i0jcLYQflB?=
+ =?us-ascii?Q?2fqa/zdafdSxDXyL9HBp3sZBliisSI5Fmji0MJlV+DC/xu5wyYkwn+PsiO9K?=
+ =?us-ascii?Q?ig/5pQhpaL+UVLBy5MygbPUGVQWb1U0igg0hIY0DwwVzMWybBFmOX3GY2Q5j?=
+ =?us-ascii?Q?Ioef2LLBYzR3kcrM0O8RuCz7LYPlxf95Oqq6vOlSdYx1rXCr2gf+uRKY9eWS?=
+ =?us-ascii?Q?lyvrZaE6EY0RI6Ji+dIE4hXLXHN1qa5t0FSp35t7+F9SOijWV3+yK/W19y+D?=
+ =?us-ascii?Q?1YV7tppLOHeJoQlQdzr8XLGfF1H8MJZ3ddiXufeIb3uKVr8J78w7kTAfnP/U?=
+ =?us-ascii?Q?qAU7dnUfiQHxwyvXoUGqiGixiGantyG3YNX+Q4rl2BPg3awNn+GmipUmnqqi?=
+ =?us-ascii?Q?XHUvyblC0XgNINDkava4urDwI9yXhJ+8drDc+LD2/YF7GseZwQ6ik/UCGTt6?=
+ =?us-ascii?Q?8pJQW/E5RJz4Lv6+UZS8nNZPn1jWdpiobe0jvyNANGa1GhKj58rjkrEuPTfh?=
+ =?us-ascii?Q?Ji1PJLfGA8y0Rpylv6Pzbh59i1TUad3GvaVmizv0bQdFOjQs0H1yoID5hL3q?=
+ =?us-ascii?Q?61T2fc30QP4/DFcN6sPlWXoffuobz5kR/mwaXh8UXMQYvhllUR5yl6VZhQzK?=
+ =?us-ascii?Q?xNUg8mdBfe6SkdpJnBit9Xb2hksEVIEcR2fj9TFxinYLDAQURVNCMIamEpmO?=
+ =?us-ascii?Q?BiCQurixEoj7ocEM5JuQEREBG5rVTEPGxQ9sUQ291XozpzF3Z8p2VlGwngSl?=
+ =?us-ascii?Q?5ZmyQ6qfq+gCdbHz/SwzR1FkyfIHfIc3CIolU4LCyignia0UeYtSNQ99aUwI?=
+ =?us-ascii?Q?Y32Gi8LZ0mfJmamtkikfaH0Yvk7/CYIidFY5XtxntzVQQAv/BfuMNs+5nCYo?=
+ =?us-ascii?Q?7KaheERniknXrI5q3bTwEVeYRchIfWKHwxX7l4n3cJQZ19njuUG7JztdB/v8?=
+ =?us-ascii?Q?r/WCwX8YANguCLtCkvPec7cAvHZX+Uggt4G0746Cvl87qWAnEuQF9xDttD1K?=
+ =?us-ascii?Q?hn2O0NIxpNV+cAkaiizU89hG5auoGlx74EASgyjeRiH4sYssKmN4JkOtgprl?=
+ =?us-ascii?Q?o86dMyFG?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?7b1sCMq8eINmu+IzNKsJR4NjgSt2hLN+P5ikjsFpa6Er0ls5iU38Sc29BIt2?=
+ =?us-ascii?Q?50SMdHfKIpg0fv8f7FEALiqT+p2ZKmplErzgIOcoro+PBMOMZGVID0nr1scj?=
+ =?us-ascii?Q?EvnV0kEFrz8KjvoiBJkaNvG5pT2PTeLEKzNGFxG0aE7BTfWorfN6Bng5p8oG?=
+ =?us-ascii?Q?1GOphkAyoqLczY4GcdezGDtH5QdJB52Q9eyGmLjyfqRce8wMOcNZDzqNwGtb?=
+ =?us-ascii?Q?cf1DhezLJwketTRGSza3IxAP3RJEhl8encdolwddp+R2wZQpXKRGlKsqDRRV?=
+ =?us-ascii?Q?MwFNJXegzwXnM9pMAPg/+5gs7lbVaXpoKfQqe9h3jZMsNkDg/TQ6lKPM/uMs?=
+ =?us-ascii?Q?ozk1buy5Oi1k7DDVdQ6tPO4tgP5wTpQFLCRdpfRsNrzKeCGamv3ZfQdQN7y0?=
+ =?us-ascii?Q?V1OdpYJXAkrKrZI56hge1i8RkQUij+HDHQvdX9bxv/1kBA3b2yUVLSxXGppb?=
+ =?us-ascii?Q?OQtGDy8HT4SFLxOqUNvNtTPLgR82TjujoNukNelTMQw/li1a7/Df1ns7FUNg?=
+ =?us-ascii?Q?YYMHdOov3XU6XAL2qrlmJKA2dxnYG5hdb2VIGE1ZjSIStZJFYBTATR8hNWly?=
+ =?us-ascii?Q?GEEh1y0sZulg4msC0og5NPCPUZJW3QJ9H1nqCDvlQJDv1iRhMgzpN2F8EZuw?=
+ =?us-ascii?Q?JJhNLgm+NbZQLWHSqvS7vgLhk7q7CZt3HjMTR6drnLEZ1KvvJc4TR1X4Ah3C?=
+ =?us-ascii?Q?ErgkeWT8U/DMX/qv2JvT6yN/KvEdPxmtFwe/jWLwD+143totusFiF7bMi3ut?=
+ =?us-ascii?Q?330lr0DXt7X+JIciui+VGwOt95Sg1o6StJoqRqzKJtIDD5kuVidz8h4pHlhd?=
+ =?us-ascii?Q?V64OLgRB+XBqqpsU1xW4pya3WhyReOW35+/4PhX3eBpNPl4/yBDSfPxtoDAF?=
+ =?us-ascii?Q?/BeagbAwFiogc+NQAYhRQUJyufVsbugIC4wOgo4Yac9Cl/xHTYABE/X8Ctpu?=
+ =?us-ascii?Q?KjdKjx3STVrSW0imt3z5gRIB3ln9JyNIZA00qhtK0lhqUXs+a8RQ8s3tjYaY?=
+ =?us-ascii?Q?wu0sXpuZos3mDIkTaociL+3HJT8flrbe0rMbfLR44EHctHXaodAtx9B/N8YK?=
+ =?us-ascii?Q?Tt56sf7ms/cX6Z9VtCr74Y0M0PnGzDfdc4FwmsvtMH/jcPjzOh7nipl1rNr+?=
+ =?us-ascii?Q?T5byLQVqjANySOqBaEvIQhVpSOJCheKLSGeDUEeS00hxnC2gEWuVa3h3nZ7X?=
+ =?us-ascii?Q?tJG2kyceMV+Xq+sOzWiah9gL0BspRmxCW/I7kklSrEkKeyDJHMP+Etkq1t0y?=
+ =?us-ascii?Q?Yh3Q3pIW1pTYFg1PoTZYv20FMrF+aJx3LHlgshWY1oq0UwBbKKT7bKrvKZFJ?=
+ =?us-ascii?Q?SLWkS4TQkVOE6n8HbO1VsibwpWvpm5ha7c6MFEKKpO+Kzfh23pW+j3RaJuCP?=
+ =?us-ascii?Q?0IB4ocI=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+oYs0Ry07OA4ycIc"
-Content-Disposition: inline
-In-Reply-To: <20260611193940.44416-8-vladimir.oltean@nxp.com>
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7adf355c-50c9-4462-0a2b-08dec8999b4d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Jun 2026 15:45:19.3996
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR02MB8649
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_084529_613757_1845278E 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,499 +171,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:3=
+8 AM
+>=20
+> Support for parallel secondary CPU bringup is already utilized by x86,
+> MIPS, and RISC-V. This patch brings this capability to the arm64
+> architecture.
+>=20
+> Rework the global `secondary_data` accessed during early boot into
+> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
+> enabling the early boot code in head.S to resolve each secondary CPU's
+> logical ID concurrently.
+>=20
+> To fully enable HOTPLUG_PARALLEL, this patch implements:
+> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
+> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
+>=20
+> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
+>=20
+> |     test kernel	   | secondary CPUs boot time |
+> |  ---------------------   |	--------------------  |
+> |   Without this patch     |		155.672	      |
+> |   cpuhp.parallel=3D0	   |		62.897	      |
+> |   cpuhp.parallel=3D1	   |		166.703	      |
 
---+oYs0Ry07OA4ycIc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The last two rows seem mixed up. I would expect parallel=3D0 to
+result in a longer boot time.
 
-On Thu, Jun 11, 2026 at 10:39:39PM +0300, Vladimir Oltean wrote:
-> From: Ioana Ciornei <ioana.ciornei@nxp.com>
+Michael
+
 >=20
-> Add support for the RCW override procedure which enables runtime
-> reconfiguration of the protocol running on a SerDes lane. The procedure
-> is done through the DCFG DCSR space which now can be defined as the
-> second memory region of the guts DT node.
-> Support is added on the following SoCs: LS1046A, LS1088A, LS2088A.
->=20
-> The procedure is exported to the "client" driver - the Lynx10G SerDes
-> PHY driver - through the following functions:
-> - fsl_guts_lane_init() used to notify the initial / boot time lane mode
->   running on a SerDes lane.
-> - fsl_guts_lane_validate() used to validate that changing the protocol
->   on a specific lane is supported.
-> - fsl_guts_lane_set_mode() which can be used to request the RCW
->   procedure be executed for a specific lane.
->=20
-> Since the RCW override procedure is different depending on the SoC, the
-> private fsl_soc_data structure is updated with two new per SoC callbacks
-> (.serdes_get_rcw_override() and .serdes_init_rcwcr()) which get used
-> from the generic fsl_guts_lane_set_mode() function. These two callbacks
-> hide all the SoC specific register offsets, masks and values so that the
-> _set_mode() procedure is straightforward.
->=20
-> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 > ---
-> Cc: Conor Dooley <conor@kernel.org>
-> Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-
-Wrong CC list for this specific patch?
-
-ta,
-Conor.
-
-> ---
->  drivers/soc/fsl/guts.c   | 286 ++++++++++++++++++++++++++++++++++++++-
->  include/linux/fsl/guts.h |  20 ++-
->  2 files changed, 299 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/soc/fsl/guts.c b/drivers/soc/fsl/guts.c
-> index 9f2aff07a274..23ec5750080c 100644
-> --- a/drivers/soc/fsl/guts.c
-> +++ b/drivers/soc/fsl/guts.c
-> @@ -15,6 +15,30 @@
->  #include <linux/fsl/guts.h>
-> =20
->  #define DCFG_CCSR	0
-> +#define DCFG_DCSR	1
-> +
-> +#define MAX_NUM_LANES	8
-> +#define MAX_NUM_SERDES	2
-> +
-> +#define LS1088A_RCWSR29_SRDS_PRTCL_S1_LNn(lane)	\
-> +	GENMASK(19 + 4 * (3 - lane), 16 + 4 * (3 - lane))
-> +#define LS1088A_RCWSR30_SRDS_PRTCL_S2_LNn(lane)	\
-> +	GENMASK(3 + 4 * (3 - lane), 4 * (3 - lane))
-> +
-> +#define LS1046A_RCWSR5_SRDS_PRTCL_S1(lane)	\
-> +	GENMASK(19 + 4 * (lane), 16 + 4 * (lane))
-> +#define SRDS_PRTCL_NONE					0
-> +#define SRDS_PRTCL_XFI					1
-> +#define SRDS_PRTCL_2500BASEX				2
-> +#define SRDS_PRTCL_100BASEX_SGMII			3
-> +#define SRDS_PRTCL_QSGMII				4
-> +#define SRDS_PRTCL_PCIE					5
-> +
-> +#define LS2088A_RCWSR30_SRDS_CLK_EN_SEL_XGMII_S1	BIT(14)
-> +#define LS2088A_RCWSR30_SRDS_CLK_SEL_XGMII_Ln_S1(lane)	BIT(6 + (7 - (lan=
-e)))
-> +#define LS2088A_RCWSR30_SRDS_CLK_SEL_MSK		GENMASK(13, 6)
-> +#define SRDS_CLK_SEL_XGMII				1
-> +#define SRDS_CLK_SEL_GMII				0
-> =20
->  struct fsl_soc_die_attr {
->  	char	*die;
-> @@ -22,9 +46,19 @@ struct fsl_soc_die_attr {
->  	u32	mask;
->  };
-> =20
-> +struct fsl_soc_serdes_rcw_override {
-> +	int offset;
-> +	int mask;
-> +	int val;
-> +};
-> +
->  struct fsl_soc_data {
->  	const char *sfp_compat;
->  	u32 uid_offset;
-> +	int (*serdes_get_rcw_override)(int index, int lane,
-> +				       enum lynx_lane_mode lane_mode,
-> +				       struct fsl_soc_serdes_rcw_override *override);
-> +	void (*serdes_init_rcwcr)(int index);
->  };
-> =20
->  enum qoriq_die {
-> @@ -138,9 +172,13 @@ static const struct fsl_soc_die_attr fsl_soc_die[] =
-=3D {
-> =20
->  static struct fsl_soc_guts {
->  	struct ccsr_guts __iomem *dcfg_ccsr;
-> +	struct ccsr_guts __iomem *dcfg_dcsr;
->  	const struct fsl_soc_data *data;
->  	bool little_endian;
->  	u32 svr;
-> +	enum lynx_lane_mode lane_mode[MAX_NUM_SERDES][MAX_NUM_LANES];
-> +	bool rcwcr_init_done;
-> +	spinlock_t rcwcr_lock; /* serializes concurrent writes to the RCWCR */
->  } soc;
-> =20
->  static unsigned int fsl_guts_read(const void __iomem *reg)
-> @@ -151,6 +189,28 @@ static unsigned int fsl_guts_read(const void __iomem=
- *reg)
->  	return ioread32be(reg);
->  }
-> =20
-> +static void fsl_guts_write(void __iomem *reg, u32 val)
-> +{
-> +	if (soc.little_endian)
-> +		iowrite32(val, reg);
-> +	else
-> +		iowrite32be(val, reg);
-> +}
-> +
-> +/* Some fields of the Reset Configuration Word (RCW) can be overridden at
-> + * runtime by writing to the RCWCRn registers contained within the DCSR =
-space
-> + * of the Device Configuration (DCFG) block. The layout of the RCWCRn re=
-gisters
-> + * is identical with the read-only RCWSRn from the CCSR space.
-> + */
-> +static void fsl_guts_rmw(int offset, u32 val, u32 mask)
-> +{
-> +	u32 tmp =3D fsl_guts_read(&soc.dcfg_ccsr->rcwsr[offset]);
-> +
-> +	tmp &=3D ~mask;
-> +	tmp |=3D val;
-> +	fsl_guts_write(&soc.dcfg_dcsr->rcwcr[offset], tmp);
-> +}
-> +
->  static bool fsl_soc_die_match_one(u32 svr, const struct fsl_soc_die_attr=
- *match)
->  {
->  	return match->svr =3D=3D (svr & match->mask);
-> @@ -167,6 +227,97 @@ static const struct fsl_soc_die_attr *fsl_soc_die_ma=
-tch(
->  	return NULL;
->  }
-> =20
-> +static int
-> +fsl_guts_serdes_get_rcw_override(int serdes_idx, int lane,
-> +				 enum lynx_lane_mode lane_mode,
-> +				 struct fsl_soc_serdes_rcw_override *override)
-> +{
-> +	if ((!fsl_soc_die_match_one(soc.svr, &fsl_soc_die[DIE_LS1088A]) &&
-> +	     !fsl_soc_die_match_one(soc.svr, &fsl_soc_die[DIE_LS2088A]) &&
-> +	     !fsl_soc_die_match_one(soc.svr, &fsl_soc_die[DIE_LS1046A])) ||
-> +	    !soc.data || !soc.data->serdes_get_rcw_override) {
-> +		pr_debug("RCW override not implemented for SoC\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (!soc.dcfg_dcsr) {
-> +		pr_debug("Device tree does not define DCFG_DCSR region necessary for R=
-CW override\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return soc.data->serdes_get_rcw_override(serdes_idx, lane, lane_mode,
-> +						 override);
-> +}
-> +
-> +/**
-> + * fsl_guts_lane_init() - Notify guts module of SerDes lane configuration
-> + * @serdes_idx: zero-based SerDes block index
-> + * @lane: zero-based lane index within SerDes
-> + * @lane_mode: initial / boot time SerDes protocol for lane
-> + *
-> + * On the LS208xA SoC, the RCW override procedure needs to be aware of a=
-ll link
-> + * modes which are configured on a SerDes block.
-> + */
-> +void fsl_guts_lane_init(int serdes_idx, int lane, enum lynx_lane_mode la=
-ne_mode)
-> +{
-> +	soc.lane_mode[serdes_idx - 1][lane] =3D lane_mode;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(fsl_guts_lane_init, "FSL_GUTS");
-> +
-> +/**
-> + * fsl_guts_lane_validate() - Validate that SerDes protocol is implement=
-ed and
-> + *	supported on current SoC
-> + * @serdes_idx: zero-based SerDes block index
-> + * @lane: zero-based lane index within SerDes
-> + * @lane_mode: requested SerDes protocol
-> + *
-> + * Should be called before actually requesting the RCW override procedur=
-e to be
-> + * applied using %fsl_guts_lane_set_mode()
-> + *
-> + * Return: 0 if RCW override to protocol is possible, negative error oth=
-erwise
-> + */
-> +int fsl_guts_lane_validate(int serdes_idx, int lane, enum lynx_lane_mode=
- lane_mode)
-> +{
-> +	struct fsl_soc_serdes_rcw_override override;
-> +
-> +	return fsl_guts_serdes_get_rcw_override(serdes_idx, lane, lane_mode,
-> +						&override);
-> +}
-> +EXPORT_SYMBOL_NS_GPL(fsl_guts_lane_validate, "FSL_GUTS");
-> +
-> +/**
-> + * fsl_guts_lane_set_mode() - apply RCW override procedure for SerDes la=
-ne
-> + * @serdes_idx: zero-based SerDes block index
-> + * @lane: zero-based lane index within SerDes
-> + * @lane_mode: requested SerDes protocol
-> + *
-> + * Return: 0 on success, negative error otherwise
-> + */
-> +int fsl_guts_lane_set_mode(int serdes_idx, int lane, enum lynx_lane_mode=
- lane_mode)
-> +{
-> +	struct fsl_soc_serdes_rcw_override override;
-> +	int err;
-> +
-> +	err =3D fsl_guts_serdes_get_rcw_override(serdes_idx, lane, lane_mode,
-> +					       &override);
-> +	if (err)
-> +		return err;
-> +
-> +	spin_lock(&soc.rcwcr_lock);
-> +
-> +	if (soc.data->serdes_init_rcwcr)
-> +		soc.data->serdes_init_rcwcr(serdes_idx);
-> +
-> +	fsl_guts_rmw(override.offset, override.val << __bf_shf(override.mask),
-> +		     override.mask);
-> +	soc.lane_mode[serdes_idx - 1][lane] =3D lane_mode;
-> +
-> +	spin_unlock(&soc.rcwcr_lock);
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(fsl_guts_lane_set_mode, "FSL_GUTS");
-> +
->  static u64 fsl_guts_get_soc_uid(const char *compat, unsigned int offset)
->  {
->  	struct device_node *np;
-> @@ -193,6 +344,128 @@ static u64 fsl_guts_get_soc_uid(const char *compat,=
- unsigned int offset)
->  	return uid;
->  }
-> =20
-> +static int ls1088a_serdes_get_rcw_override(int index, int lane,
-> +					   enum lynx_lane_mode lane_mode,
-> +					   struct fsl_soc_serdes_rcw_override *override)
-> +{
-> +	/* The RCW override procedure has to write to different registers
-> +	 * depending on the SerDes block index.
-> +	 */
-> +	switch (index) {
-> +	case 1:
-> +		override->offset =3D 28;
-> +		override->mask =3D LS1088A_RCWSR29_SRDS_PRTCL_S1_LNn(lane);
-> +		break;
-> +	case 2:
-> +		override->offset =3D 29;
-> +		override->mask =3D LS1088A_RCWSR30_SRDS_PRTCL_S2_LNn(lane);
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (lynx_lane_mode_uses_xgmii_mac(lane_mode))
-> +		override->val =3D SRDS_PRTCL_XFI;
-> +	else if (lynx_lane_mode_uses_gmii_mac(lane_mode))
-> +		override->val =3D SRDS_PRTCL_100BASEX_SGMII;
-> +	else
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +static int ls1046a_serdes_get_rcw_override(int index, int lane,
-> +					   enum lynx_lane_mode lane_mode,
-> +					   struct fsl_soc_serdes_rcw_override *override)
-> +{
-> +	/* The RCW override procedure has to write to different registers
-> +	 * depending on the SerDes block index.
-> +	 */
-> +	switch (index) {
-> +	case 1:
-> +		override->offset =3D 4;
-> +		override->mask =3D LS1046A_RCWSR5_SRDS_PRTCL_S1(lane);
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (lynx_lane_mode_uses_xgmii_mac(lane_mode))
-> +		override->val =3D SRDS_PRTCL_XFI;
-> +	else if (lynx_lane_mode_uses_gmii_mac(lane_mode))
-> +		override->val =3D SRDS_PRTCL_100BASEX_SGMII;
-> +	else
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +static int ls2088a_serdes_get_rcw_override(int index, int lane,
-> +					   enum lynx_lane_mode lane_mode,
-> +					   struct fsl_soc_serdes_rcw_override *override)
-> +{
-> +	switch (index) {
-> +	case 1:
-> +		override->offset =3D 29;
-> +		override->mask =3D LS2088A_RCWSR30_SRDS_CLK_SEL_XGMII_Ln_S1(lane);
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (lynx_lane_mode_uses_xgmii_mac(lane_mode))
-> +		override->val =3D SRDS_CLK_SEL_XGMII;
-> +	else if (lynx_lane_mode_uses_gmii_mac(lane_mode))
-> +		override->val =3D SRDS_CLK_SEL_GMII;
-> +	else
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +static void ls2088a_serdes_init_rcwcr(int serdes_idx)
-> +{
-> +	u32 reg;
-> +	int i;
-> +
-> +	if (serdes_idx !=3D 1)
-> +		return;
-> +	if (soc.rcwcr_init_done)
-> +		return;
-> +
-> +	/* SRDS_CLK_EN_SEL_XGMII_S1: SerDes Clock Enable Select XGMII Serdes 1:
-> +	 * Enables to select GMII/XGMII clock according to
-> +	 * SRDS_CLK_SEL_XGMII_Ln_S1
-> +	 */
-> +	reg =3D LS2088A_RCWSR30_SRDS_CLK_EN_SEL_XGMII_S1;
-> +
-> +	/* We need to configure the initial state of all lanes for
-> +	 * the SerDes block #1
-> +	 */
-> +	for (i =3D 0; i < MAX_NUM_LANES; i++)
-> +		if (lynx_lane_mode_uses_xgmii_mac(soc.lane_mode[serdes_idx - 1][i]))
-> +			reg |=3D LS2088A_RCWSR30_SRDS_CLK_SEL_XGMII_Ln_S1(i);
-> +
-> +	fsl_guts_rmw(29, reg,
-> +		     LS2088A_RCWSR30_SRDS_CLK_EN_SEL_XGMII_S1 |
-> +		     LS2088A_RCWSR30_SRDS_CLK_SEL_MSK);
-> +
-> +	soc.rcwcr_init_done =3D true;
-> +}
-> +
-> +static const struct fsl_soc_data ls1088a_data =3D {
-> +	.serdes_get_rcw_override =3D ls1088a_serdes_get_rcw_override,
-> +};
-> +
-> +static const struct fsl_soc_data ls1046a_data =3D {
-> +	.serdes_get_rcw_override =3D ls1046a_serdes_get_rcw_override,
-> +};
-> +
-> +static const struct fsl_soc_data ls2088a_data =3D {
-> +	.serdes_get_rcw_override =3D ls2088a_serdes_get_rcw_override,
-> +	.serdes_init_rcwcr =3D ls2088a_serdes_init_rcwcr,
-> +};
-> +
->  static const struct fsl_soc_data ls1028a_data =3D {
->  	.sfp_compat =3D "fsl,ls1028a-sfp",
->  	.uid_offset =3D 0x21c,
-> @@ -221,10 +494,10 @@ static const struct of_device_id fsl_guts_of_match[=
-] =3D {
->  	{ .compatible =3D "fsl,mpc8572-guts", },
->  	{ .compatible =3D "fsl,ls1021a-dcfg", },
->  	{ .compatible =3D "fsl,ls1043a-dcfg", },
-> -	{ .compatible =3D "fsl,ls2080a-dcfg", },
-> -	{ .compatible =3D "fsl,ls1088a-dcfg", },
-> +	{ .compatible =3D "fsl,ls2080a-dcfg", .data =3D &ls2088a_data},
-> +	{ .compatible =3D "fsl,ls1088a-dcfg", .data =3D &ls1088a_data},
->  	{ .compatible =3D "fsl,ls1012a-dcfg", },
-> -	{ .compatible =3D "fsl,ls1046a-dcfg", },
-> +	{ .compatible =3D "fsl,ls1046a-dcfg", .data =3D &ls1046a_data},
->  	{ .compatible =3D "fsl,lx2160a-dcfg", },
->  	{ .compatible =3D "fsl,ls1028a-dcfg", .data =3D &ls1028a_data},
->  	{}
-> @@ -250,6 +523,8 @@ static int __init fsl_guts_init(void)
->  		of_node_put(np);
->  		return -ENOMEM;
->  	}
-> +	/* DCFG_DCSR is optional */
-> +	soc.dcfg_dcsr =3D of_iomap(np, DCFG_DCSR);
-> =20
->  	soc.little_endian =3D of_property_read_bool(np, "little-endian");
->  	soc.svr =3D fsl_guts_read(&soc.dcfg_ccsr->svr);
-> @@ -296,6 +571,8 @@ static int __init fsl_guts_init(void)
->  		goto err;
->  	}
-> =20
-> +	spin_lock_init(&soc.rcwcr_lock);
-> +
->  	pr_info("Machine: %s\n", soc_dev_attr->machine);
->  	pr_info("SoC family: %s\n", soc_dev_attr->family);
->  	pr_info("SoC ID: %s, Revision: %s\n",
-> @@ -305,7 +582,8 @@ static int __init fsl_guts_init(void)
-> =20
->  err_nomem:
->  	ret =3D -ENOMEM;
-> -
-> +	if (soc.dcfg_dcsr)
-> +		iounmap(soc.dcfg_dcsr);
->  	iounmap(soc.dcfg_ccsr);
->  err:
->  	kfree(soc_dev_attr->family);
-> diff --git a/include/linux/fsl/guts.h b/include/linux/fsl/guts.h
-> index fdb55ca47a4f..176842531241 100644
-> --- a/include/linux/fsl/guts.h
-> +++ b/include/linux/fsl/guts.h
-> @@ -13,6 +13,7 @@
-> =20
->  #include <linux/types.h>
->  #include <linux/io.h>
-> +#include <soc/fsl/phy-fsl-lynx.h>
-> =20
->  /*
->   * Global Utility Registers.
-> @@ -91,9 +92,15 @@ struct ccsr_guts {
->  	u32	iovselsr;	/* 0x.00c0 - I/O voltage select status register
->  					     Called 'elbcvselcr' on 86xx SOCs */
->  	u8	res0c4[0x100 - 0xc4];
-> -	u32	rcwsr[16];	/* 0x.0100 - Reset Control Word Status registers
-> -					     There are 16 registers */
-> -	u8	res140[0x224 - 0x140];
-> +	/* 0x.0100 - read-only Reset Configuration Word Status registers in
-> +	 * CCSR, or write-only Reset Configuration Word Control registers in
-> +	 * DCSR. In both cases there are 32 registers.
-> +	 */
-> +	union {
-> +		u32	rcwsr[32];
-> +		u32	rcwcr[32];
-> +	};
-> +	u8	res180[0x224 - 0x180];
->  	u32	iodelay1;	/* 0x.0224 - IO delay control register 1 */
->  	u32	iodelay2;	/* 0x.0228 - IO delay control register 2 */
->  	u8	res22c[0x604 - 0x22c];
-> @@ -131,6 +138,13 @@ struct ccsr_guts {
->  	u32	srds2cr1;	/* 0x.0f44 - SerDes2 Control Register 0 */
->  } __attribute__ ((packed));
-> =20
-> +void fsl_guts_lane_init(int serdes_idx, int lane,
-> +			enum lynx_lane_mode lane_mode);
-> +int fsl_guts_lane_validate(int serdes_idx, int lane,
-> +			   enum lynx_lane_mode lane_mode);
-> +int fsl_guts_lane_set_mode(int serdes_idx, int lane,
-> +			   enum lynx_lane_mode lane_mode);
-> +
->  /* Alternate function signal multiplex control */
->  #define MPC85xx_PMUXCR_QE(x) (0x8000 >> (x))
-> =20
-> --=20
-> 2.34.1
+>  arch/arm64/Kconfig           |  1 +
+>  arch/arm64/include/asm/smp.h |  8 ++++++++
+>  arch/arm64/kernel/head.S     | 23 +++++++++++++++++++++++
+>  arch/arm64/kernel/smp.c      | 27 +++++++++++++++++++++++++++
+>  4 files changed, 59 insertions(+)
 >=20
 
---+oYs0Ry07OA4ycIc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiwpXgAKCRB4tDGHoIJi
-0ntBAP9M3qAsl/D+DcH4DwKQGnY7o3dHsy84BKRl/REMqNbhHgEAyh1KBXxdecCi
-UP7ZwuAIECLNF8kS0ZtRizU1Xd8TpgY=
-=5z05
------END PGP SIGNATURE-----
-
---+oYs0Ry07OA4ycIc--
 
