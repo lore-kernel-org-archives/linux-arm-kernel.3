@@ -4,131 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586FFCD98D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 06:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC6ECD98D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 06:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID
-	:Subject:Cc:To:From:Content-Transfer-Encoding:Content-Type:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aUM1JKZgsiz4BTWpIEMqUtQNjD2PvyR1abZbR4aAuFU=; b=KOczF6xF8vPWeWzSwi9Snzz1E/
-	ShuftsEC4TH1qIY5AwRoR5nw2FoyXHtEKrulpD8CuscOWx7mxv9yBmdQ4yRFsYHjEEwuy9uSsnTZT
-	n9DLSDUxfBYvI5hAysHUHUdFok5z5escap70PUnPkEPBTd/GURPrcf1dKXUuTBSbPFitH5/2yyEXs
-	S3pwJq6OKQO6P9keSTzTRnwtQyjMDx/yTwyucN8LWoLyExfuQCJXz/hKzdQW7XrDtwuzwi/zpn7zf
-	VLLsrJTvoKwNx4OlS6PN3Gwh2H6PsDsAKjYrBtBXH51q7c4JWrkPoMJIcNMW69/B9DJSy/7uTswbO
-	C4uZT0YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MssOwhTL72ghClGQmpNeh5OP7aj5IoqaYdtcZRWycjQ=; b=DHLzaYqcKBP26lJ5B6t/Qd30GY
+	y5rzB4KhDIc+h/sJe9DKP5gUe1V5mTtTM4SwncHvRnFYUFAnbK6PhCsjbxGYolPLNVYGN6GBEqGOL
+	YMcmn0KpyqkwlU8unVgSJJkTX0A5w+VAXfQZ3nIOwZcWMXeaa1mU4Y9usQtY79P6sxkL43WwTJF+4
+	BxFotmIt+8UQ+3ivRemt6tKsunlBys3ig9KxyHxoX6fZa5WV3Z5vaxsfztjlKJKvhOnvIOxivVdlZ
+	2O1FUsn7Wwz/dfB4WIsyKlMsxeum8olVB6oRYq6T7TOv+yEVCzwNp2b8vBdEk43rfCSPUadVH6kVF
+	DCCl0T7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXvjZ-0000000AQRK-3Xgw;
-	Fri, 12 Jun 2026 06:51:17 +0000
-Received: from mail-eastus2azon11021088.outbound.protection.outlook.com ([52.101.57.88] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wXvm2-0000000AQYw-0ZRk;
+	Fri, 12 Jun 2026 06:53:50 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXvjX-0000000AQQy-3R5e
+	id 1wXvlz-0000000AQYZ-0fYh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 06:51:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KZCSZsvJG0IDIz+Iu2OgorvSCzp+NnkY0gUIt4CLv3lnwmJvYieqHpyF352w5FMGHeYfeefx+DebklSQaFQJzZhzKLPeZa6dormC+pKrIru3xuyrotQma68CF3o2tnPkGfvZJA3GGjrP9mzsKBl9b5Fd4RRc34umfOEuF+3cHy+pxZ4PcL0oTjlG8en0hcHiBvu2fNRE+H4pXwAtBRpp53hTkVGViYSZv8uAMlcSJeZ9RjwpMZQj7sGloD43eBpaaGgvPxbDohpTlBhqDvLWN8FwB6H6yn0DY/jUZ47VjhJN/LXOAX90goyCtyJ0LXKDzMv8bMuSLJrdkHoJ6+izlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aUM1JKZgsiz4BTWpIEMqUtQNjD2PvyR1abZbR4aAuFU=;
- b=qvX5FlJs3Mm1S4naAPxw11ohS6IyZPPcUjT7R7AtGIOhYP88ACkEynx4K/xOT5KVXIoBXrO4SQ09ksRINVvEKQiP2VMtFt9h+MMI/UPnCFAdqacLLcAiG2dBQ6ho0VdWoRVd5tS3cu/q+pFjT8rXZaLvtS0L5HKqIAoIXcXvrU8odo66VS+914iLSC2BwhiXHBloW5/ASkFuzxfmoSIg1cUyO02J7lkgJwQlIP4QWhhOXrWTFYtD4SZY4uyVs5vyHWHx4D1mjF5lvwnwbsaH8Hk7RGe4a4vuNqHsfDc9db1FMVAJaUCYWvQDkjcMCmAcsrA2TCKzt8/GUKSO2AoZkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bst.ai; dmarc=pass action=none header.from=bst.ai; dkim=pass
- header.d=bst.ai; arc=none
+	Fri, 12 Jun 2026 06:53:48 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490be29c1c5so6283775e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Jun 2026 23:53:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=blacksesame.onmicrosoft.com; s=selector2-blacksesame-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aUM1JKZgsiz4BTWpIEMqUtQNjD2PvyR1abZbR4aAuFU=;
- b=FDKGCY9XSj7J6b6F+IB5wUUMyy6vVpZ7kPh/iAi16lSAuVahkgQzeoMDxkYgh+wAVI/8KZfOMc+HAWBymj6oSD56D4QV8NxMYsMAjoGHoNcCG9d0Ox4utykVv9keJejgWO5WDFizS8gsMthM/aqhYKty6tcpDd02KAIOjuKCjg8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bst.ai;
-Received: from CO6PR18MB4434.namprd18.prod.outlook.com (2603:10b6:5:35d::16)
- by SAVPR18MB988338.namprd18.prod.outlook.com (2603:10b6:806:4e5::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.18; Fri, 12 Jun
- 2026 06:51:10 +0000
-Received: from CO6PR18MB4434.namprd18.prod.outlook.com
- ([fe80::66c:c77f:192a:f885]) by CO6PR18MB4434.namprd18.prod.outlook.com
- ([fe80::66c:c77f:192a:f885%7]) with mapi id 15.21.0113.013; Fri, 12 Jun 2026
- 06:51:10 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
-From: gordon.ge@bst.ai
-To: soc@lists.linux.dev
-Cc: arnd@arndb.de,yangzh0906@thundersoft.com,linux-arm-kernel@lists.infradead.org,bst-upstream@bstai.top
-Subject: [GIT PULL]arm64:Add eMMC controller support to the BST C1200 device
- tree
-Message-ID: <178124706736.583168.7192372166865774364@bst.ai>
-Date: Fri, 12 Jun 2026 06:51:07 +0000
-X-ClientProxiedBy: TPYP295CA0055.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:8::15) To CO6PR18MB4434.namprd18.prod.outlook.com
- (2603:10b6:5:35d::16)
+        d=gmail.com; s=20251104; t=1781247225; x=1781852025; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MssOwhTL72ghClGQmpNeh5OP7aj5IoqaYdtcZRWycjQ=;
+        b=PSdleG86dBMCoQx0f532gfBxzw/PNBOPtoOA5gmxZUYLQ2cN5x5wCS+bdLFx4d4HoJ
+         DgPe/1RaTNpvluJ2nI++Y0Wd3u71bciHmFip6MsrRnnlMtlDgORaipU2vCYcJX1HfFx6
+         yfKh7Tsiek6qteNy+zCkPEdeEdEOxZ5m7eeD70BF8Phl7ixaIMnHCqUOcdfnWp2EkNMU
+         NwrqpvreWlGNfSCoGAb64AQ96eEgqly9gWd5MmSlK1OzauHfmgj0h/+d3az30FDyUgYm
+         e0scQlKjK3js3aNVfUjTt2uIZDcamdRi7icTQ7oNQnPhFoClgshQ5qJ1/IPOLnYTOhKS
+         9xMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781247225; x=1781852025;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=MssOwhTL72ghClGQmpNeh5OP7aj5IoqaYdtcZRWycjQ=;
+        b=YYy7uZ7LW0B43IWo3fNwY7JwElMMrG3T+0bLxEIs8+6kfkCZTzHN/YBza85TiAiqqo
+         +3Y5HvG+wZ+/jBgoNheo6DoUQ/P+OaclTKqZbPTBpCaNKFrX4JOL0akogGjqNviGA82d
+         CGqUmPdOr/SGdHAZFaNrL5h2976X7iBqmmh1JmIOK+pM+fVcdoTKggaTrcAn1MXkRy+/
+         MYdw/RVCQEr7x08NkCPjJRb6wjL+SXgcgzwd/GhALyMNx56oDzSE74g5xpx0Bjy0FyYo
+         zViztFw1NM2xGhsGaeSo86r/uDbBsGihpHcLXgk6typj6IxAcEAwFg5s3Yq5r7xAqnEL
+         s+4g==
+X-Forwarded-Encrypted: i=1; AFNElJ9sb56GKlaT6WA1m7sSZ1LotRc4Sb+MtRHkUwqgZjWL5U5EMfRtwv6ToxDeB/OfukBWUsGPTy1apHV5TWUg922Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSf+JGeCPkByYMNdyzqcqEJJv0q1NvixJY+QZ/Ddqe/poaf1Sz
+	8tc428Uuqc/UHuWJX9wJvHKI/2W74Y/aE77OwkSUdPMYHHaSB1hM9/AD
+X-Gm-Gg: Acq92OGXtiOA4tqmeWNbS+/RRc4CRJ+j4WDFpRfwBLx6WCAUdlaODyFt3G4h8N43CQr
+	j7Fo5+6hmhRPRMnQ9cKbJM8qd+Ahv6w4zvj8LUBU59wtvM1UwZYyyGUkYPja+73zgMnaTl7acCX
+	mJI8txbdqQn0k8NFzKeRCVHLvr0xVVmpSExPIF/6m6YjqOEd1X+ZqDVeOCNilqABB2lDSvIt7ep
+	DqU3RQhPECmL3v2ate+A7D1IcymJGLZHBlwqih+byg7xthNToyxN0I0RWsX6GwXyKeezQQ0+m/f
+	cJ/w23gBtJfmg5KFaHSN1xv/dmMIBK/xUOGboUc98SkgiTHtY992Rj1VzlZNIzH0NoVRoDIVd6V
+	Maiv2Lg98hromUFEphYeZLjVHdsH+ScNUQTb+Nax58+NudM7Hx0liRpnnPofxTMk+bPtGkqZi69
+	3vh8iq2DNNyk1nvKA/adCb0/zy9o6ZIG5ensjEWRgkLkNOPeSoLXMEhuy++wcrxlp1Sv+/yEU=
+X-Received: by 2002:a05:600c:8485:b0:490:a1be:6b01 with SMTP id 5b1f17b1804b1-490ec4991d8mr16991665e9.4.1781247224745;
+        Thu, 11 Jun 2026 23:53:44 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490e2d09a85sm119274065e9.14.2026.06.11.23.53.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Jun 2026 23:53:43 -0700 (PDT)
+Date: Fri, 12 Jun 2026 07:53:42 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Leonard
+ =?UTF-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>, Marc Kleine-Budde
+ <mkl@pengutronix.de>, Alexandre Torgue <alexandre.torgue@st.com>,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel@pengutronix.de
+Subject: Re: [PATCH 0/3] ARM: dts: stm32: lxa: change stdout-path baud rate
+ from 9600 to 115200
+Message-ID: <20260612075342.6615d66c@pumpkin>
+In-Reply-To: <b4fd25b6-52e3-4b5e-8440-69545bce43e8@pengutronix.de>
+References: <20260611-lxa-stdout-path-baudrate-v1-0-59b60a5069ff@pengutronix.de>
+	<20260611204341.147f1afb@pumpkin>
+	<b4fd25b6-52e3-4b5e-8440-69545bce43e8@pengutronix.de>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR18MB4434:EE_|SAVPR18MB988338:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93d82495-7001-43a3-a4d2-08dec84efc3d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: Tpms78EwgOpmVsT403dKE57VWDGXAaigjm6vPmUESgiDGHAXiMEzR8SBWpquCa2lKqTxPQghP+f4qzUx6NhI+agBE2KfwHdGEcLsBSAAgY8IGb74TFwgFKZVh5qZviCmYZNGMdo9cvIGdb3UqyiOcdf9uyDnF2zf1pyR4jfOr0/0LtVGCta/FXbTUGl+kKlg+40BCXJgzO6aoNtUbBVUcFVz3on40IDCLWCPU1MaoO3CWnBicAnqs+uOtFQz5fxOho5g+q5Bux15Io1E9UQcuWQO6Tdv1ssT7L7xl6Ea6JEwsnHdlBkRDCugPhWapIuzxwp7xCgi0Z6dzC13SGgI0tcFTb+i+FELWOPOLtI0G7rwEBnyd1lMQzV44xCJMCi7hnsDsWJFTpHmRUNC0I6uXchsEIxpdRFOQj8jZP7szL6IN/Tslvtkww3bzJTDdzoIlwPrzAJWKXRNmXXmeq9DC7CEm8CMYc0I4emubBN/eJCrgj6Q75BkoxY2nha+7/qcCyulcBbRP6g2zbIyUIUuFtZIV4Pd60clKY7hKFQZGgLdBD4RydZYKS4CJivDnkmen6JMmqeN5klGVt/KKH5XhND7C4AzHR13qskXVjS0liaMYp9BvtV2oiQHtaawIBxGccc3kvKxcEIfyRX8lF47v7rafaEoOATHVAcichly3h4opKuSWSS9OdL+/NLD7Zdqej49ox/Z7dQ1OfCOXu9gag==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR18MB4434.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MmE5QTNjR2F5QWh1c2NsSEZUS205aTdRbUlWSXhSU29HVy9wanlpaGMxb3F5?=
- =?utf-8?B?NXpwUGxQYnI1WEptQWk5WXc4aFhBQ3lzRlBqVFpneitZZnkvYWhrT2p1Tzkw?=
- =?utf-8?B?ZzE5ZCtRS09qTXZDVjBJazNpSkFkZ2srTjJ6bWJydzJwZGxEZHY2RUtzN2dM?=
- =?utf-8?B?MmV2MEVSL0pBSE9aUDArMFZ5MFFhKzNtUjlieEhJTGhqVHdubXUrOVkwQ3BY?=
- =?utf-8?B?bXM1UnpuVGIxUzE4UEpsZTdsVGRvcDJyZ250bEtoSW1qTHUxN2ZBVkVVbk5S?=
- =?utf-8?B?dUg2VzNad2lISy95OUJML3ZpQUlSQ1RzM2NGY3pRTEs4UkFFbDVrQzJDUkJj?=
- =?utf-8?B?MFJGYnN5NGZ1aEtqZFlDeWx3MGFjY1NOdGtsY2lsdnRTZkZxeFgwa3MrcWYw?=
- =?utf-8?B?cUp1WisreSs0NFY4WUdYNHFJN1FGMjVML0d6UzZ2bllNakN1YWxoeEFJTHBM?=
- =?utf-8?B?VFBYbVliYkd1R29XWGJMWm11RnlFOGo5bkhUazErdlQ3YlkrcFZmNmtxWHpN?=
- =?utf-8?B?T0l3RWhhbjNhK0ZKbzBnZnA1TCtQS2RYV3dDTWJCV2xPMk1SS3hoYlBwS3F3?=
- =?utf-8?B?VmV0Zi9ucGUrYXFFeWxVcjc3WmhmM2VYaGlMcjhsOWpZNnBHTkR5ZmhkYWUv?=
- =?utf-8?B?bmljNHFPSmlMdlpZZkhkNUVBNlJjN09sRGZkQ2tZUmpyZ0hFNERTaGw5SUVE?=
- =?utf-8?B?RkFUVFY0dkF2MWorQ09FcExEZTdKTWlLbDNBdWRsaDRCaXQ3SGdJSFFOR00x?=
- =?utf-8?B?Y0lVMUNUVnNXNTQxS0NzMjVpZHdzaU1ObnJqUVRHdHAxdlUweUk5TmVvRDFv?=
- =?utf-8?B?Y1kxYzROaGFhalU0WWRDWmdGa3ZEWkJKeUhUWFJHbUtaMVBKdENxQ2NPY21W?=
- =?utf-8?B?cnhKWHFzbE5CZ1llRzM2VGlWVjQ0UEpzSVJvWnRabTl3YkJLWGNIV1I3SlRl?=
- =?utf-8?B?MjhnOTk4R0JSaytpVVg2YTZkQmcza2tyQ0RCSXFhRXluT0M2dVlwUDB5ZWJm?=
- =?utf-8?B?ck9qdUtISFRoMVliY2VjTjc0Wkc4VnoxNitmbHNmanM0a2tWN0plNmpYQUZz?=
- =?utf-8?B?WjZERE1vUTNIWjBDUGRuUVlDKzdBN0pBeGZXU1pRdDNzcC9Qd3JxT1BpVmVi?=
- =?utf-8?B?T2h5S29YZm1SMlQrZXdvVHArcnFsZVNlTzg2WkdiUExwdkVZTlZ5RG82b3Bi?=
- =?utf-8?B?MXN2NDhNZi8xdW9yaXJta0I5OXlkTS9hcUVIS3ZPaXFqVmFuU3p2Y2hTbnZQ?=
- =?utf-8?B?dTJLUUExdWR2TnB5dmtqbE0xZmxaSEUyS2hpL09yT3FKZ2RQMDhmdUhKUW1r?=
- =?utf-8?B?WmRhK0lvQnpwUiswOGpBblFEWVFTV013M2UvLy80dDZGVVp6QVpVVk9jcGxS?=
- =?utf-8?B?QnRNUGZUc3pFUXROYUV5TUFKeEJsN3E4cFdvVmYzOGViYmEyQ3dlbXV3bWNh?=
- =?utf-8?B?TGFYdTB1YUxyMzNCaWRHMVZWL1VwekFpVzJlcytlc1Q2UHRKVnNMRXJzMnVX?=
- =?utf-8?B?aG92MnY0cmFhVUF2N3Bxcm43ZFhUb1BwbkRyaVE3T3NOeERKTElOMlAxVnQ2?=
- =?utf-8?B?NkFpRWJ5WUJuSnM2dmZiNGFzQ002Qk94a29xY29MY0lNdEVFTzNJZnllZlRY?=
- =?utf-8?B?MFJiM2FDRnNWU0dZMmJZcE5MeTlvT1Nndi9WSXc0Q0tzc01MSG5rMG5mOXk1?=
- =?utf-8?B?aVlWVEQ2N2J3bnVFdENYSndTZW1mRStEb3JGSnZueU1iV0RoZFYrSXpmTVQ1?=
- =?utf-8?B?bXZuL1o4dFhCWUUyWXNhMjRlVkkwYzNIMDBxQmMzOEEyS0JaUTZjYU5SdHAw?=
- =?utf-8?B?TDBIZFA0UTZmRXcwazBTR1htZTAyNUlsY1ZTT0lIRXhUb1FrNDFCdHRUaHdC?=
- =?utf-8?B?ZkpycS9YVmowMUZiMG13V1gzb3FTTW1zYkp0VWE1eEQzWk1uUmZWVG5LSHJm?=
- =?utf-8?B?anc2ZFM4T2t1OVJKY2F0ZWUzRnJGV0JHU1pMMmYvRkZZOTUwN0xnS1VRdDJU?=
- =?utf-8?B?TlcyQXNCR3Y0NStyQU1IaVVPblg4clRLYm9qU0Y3NWFDdVRaczBGNzZKa1dx?=
- =?utf-8?B?NFVaTjVoUk1wTUx1b3RDc3BYSkNJSi83d09VQ2lPMEZwM1E0L3VoNzVlTmlM?=
- =?utf-8?B?b01RdklDY0Q1bHZsd0NWdkQvdjVCZW9OUTBqdzNQWVgvY3p0WkN0OXp2dStW?=
- =?utf-8?B?TjFYT2RUcDBQRnlyMWhZcWd6ajNrN1dnV2N4c1NOYytmSjlheWJ3UmpNUVVs?=
- =?utf-8?B?SklUV1hlMXVWMkJFWXhvUjM0b1dJZlpHRzh4ZFpSSWVySG1wOGFrai9qeCtr?=
- =?utf-8?B?MGdIMVMyeG4rSlZPTEFZV3Nob3lST0FNeXNYSXI5VzZtamJuOWZLZz09?=
-X-OriginatorOrg: bst.ai
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93d82495-7001-43a3-a4d2-08dec84efc3d
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR18MB4434.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 06:51:09.9483
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 00dc1a43-b766-4686-8706-33adb3b74360
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ccGBYvt97YAz9novHw7FOXb8tncyhwyn25hTJe7ClPbj+VRAvkrVQ58BowKpK6A5sRKKR+qUhCtnH2EKaUNH2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR18MB988338
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_235115_856501_F45F7F73 
-X-CRM114-Status: UNSURE (   6.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260611_235347_272958_03982915 
+X-CRM114-Status: GOOD (  30.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,27 +108,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQXJuZCwgVGhhbmsgeW91IGZvciBwb2ludGluZyBvdXQgdGhlIG1pc3Rha2UuCgotLS0KClRo
-ZSBmb2xsb3dpbmcgY2hhbmdlcyBzaW5jZSBjb21taXQgMjU0ZjQ5NjM0ZWUxNmE3MzExNzRkMmFl
-MzRiYzUwYmQ1ZjQ1ZTczMToKCiAgTGludXggNy4xLXJjMSAoMjAyNi0wNC0yNiAxNDoxOTowMCAt
-MDcwMCkKCmFyZSBhdmFpbGFibGUgaW4gdGhlIEdpdCByZXBvc2l0b3J5IGF0OgoKICBodHRwczov
-L2dpdGh1Yi5jb20vQmxhY2tTZXNhbWUtU29DL2xpbnV4LmdpdCB0YWdzL2JzdC1hcm02NC1lbW1j
-LWRyaXZlci1kdHMtZm9yLXY3LjIKCmZvciB5b3UgdG8gZmV0Y2ggY2hhbmdlcyB1cCB0byA2MTkx
-YTYxZWM5ZDlkOGYxZDFkMWQ2YmZjYjZkMzAzYmU3NmMyODA0OgoKICBhcm02NDogZHRzOiBic3Q6
-IGVuYWJsZSBlTU1DIGNvbnRyb2xsZXIgaW4gQzEyMDAgKDIwMjYtMDYtMTIgMTQ6MTc6NDUgKzA4
-MDApCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tCmFybTY0OiBCU1QgQzEyMDAgZU1NQyBEVFMgZm9yIHY3LjIKCkJsYWNrIFNl
-c2FtZSBUZWNobm9sb2dpZXM6CgogRW5hYmxlIGVNTUMgY29udHJvbGxlciBvbiBCU1QgQzEyMDAg
-Q0RDVTEuMCBib2FyZDoKICAgIC0gQWRkIG1tYzAgbm9kZSBpbiBic3RjMTIwMC5kdHNpIChEV0NN
-U0hDIFNESENJIGNvbnRyb2xsZXIpCiAgICAtIEFkZCBmaXhlZCBjbG9jayBkZWZpbml0aW9uIGFu
-ZCByZXNlcnZlZCBTUkFNIGJvdW5jZSBidWZmZXIKICAgIC0gRW5hYmxlIG1tYzAgd2l0aCA4LWJp
-dCBidXMgb24gQ0RDVTEuMCBBREFTIDRDMkcgYm9hcmQKVGhlIE1NQyBkcml2ZXIgd2FzIG1lcmdl
-ZCB2aWEgbW1jLW5leHQgaW4gdjcuMS1yYzEuCnRoaXMgaXMgdGhlIHJlbWFpbmluZyBEVFMgcGll
-Y2UuCgpTaWduZWQtb2ZmLWJ5OiBHb3Jkb24gR2UgPGdvcmRvbi5nZUBic3QuYWk+CgotLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-CkFsYmVydCBZYW5nICgxKToKICAgICAgYXJtNjQ6IGR0czogYnN0OiBlbmFibGUgZU1NQyBjb250
-cm9sbGVyIGluIEMxMjAwCgogLi4uL2FybTY0L2Jvb3QvZHRzL2JzdC9ic3RjMTIwMC1jZGN1MS4w
-LWFkYXNfNGMyZy5kdHMgfCAxOSArKysrKysrKysrKysrKysrKysrCiBhcmNoL2FybTY0L2Jvb3Qv
-ZHRzL2JzdC9ic3RjMTIwMC5kdHNpICAgICAgICAgICAgICAgICB8IDE4ICsrKysrKysrKysrKysr
-KysrKwogMiBmaWxlcyBjaGFuZ2VkLCAzNyBpbnNlcnRpb25zKCspCg==
+On Thu, 11 Jun 2026 22:33:18 +0200
+Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
+
+> Hi David,
+> 
+> On 6/11/26 21:43, David Laight wrote:
+> > On Thu, 11 Jun 2026 20:12:32 +0200
+> > Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
+> >   
+> >> The LXA boards are the only STM32 boards that set stdout-path = &uart*
+> >> instead of explicitly specifying a baud rate.
+> >>
+> >> This would mean the default of 9600 is used, but it goes unnoticed when
+> >> booting normally as barebox fixes up a console= line that includes a
+> >> baud rate.
+> >>
+> >> When EFI booting GRUB however, GRUB will not pass along the console=
+> >> line and thus the board ends up with a 9600 baud Linux console,
+> >> confusing users.  
+> > 
+> > Is it possible to determine the current baud rate (by reading the hardware
+> > register) and default to that value.
+> > Then if grub has initialised the uart the kernel will use the same
+> > baud rate.  
+> 
+> I think so, yes. In addition to the register divider configuration, one
+> would need the input clock rate as well, but that's not a problem.
+> 
+> Do you know if any drivers already do this?
+
+I've seen it done somewhere, certainly x86, but possibly NetBSD.
+That would have been preserving the baud rate set by the bios.
+You don't want the baud rate changing half way through the boot sequence.
+
+	David
+
+> 
+> Nevertheless, I would like the LXA device trees changed, even if only
+> to align them with all other existing STM32 device trees.
+> 
+> Cheers,
+> Ahmad
+> 
+> 
+> > 
+> > 	David
+> >   
+> >>
+> >> This series fixes this. As the device trees were added at different
+> >> times, they are fixed each in a separate commit with its own Fixes: tag.
+> >>
+> >> ---
+> >> Ahmad Fatoum (3):
+> >>       ARM: dts: stm32: lxa-mc1: change stdout-path baud rate from 9600 to 115200
+> >>       ARM: dts: stm32: lxa-tac: change stdout-path baud rate from 9600 to 115200
+> >>       ARM: dts: stm32: fairytux2: change stdout-path baud rate from 9600 to 115200
+> >>
+> >>  arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi | 2 +-
+> >>  arch/arm/boot/dts/st/stm32mp157c-lxa-mc1.dts        | 2 +-
+> >>  arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi       | 2 +-
+> >>  3 files changed, 3 insertions(+), 3 deletions(-)
+> >> ---
+> >> base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
+> >> change-id: 20260611-lxa-stdout-path-baudrate-7cf454cdae07
+> >>
+> >> Best regards,
+> >> --  
+> >> Ahmad Fatoum <a.fatoum@pengutronix.de>
+> >>
+> >>  
+> > 
+> >   
+> 
+> 
+
 
