@@ -4,85 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F92CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F27CCD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoa2MBSo9kga5/tD04xH7yC0HmQp8XOYPJ9Cv6PxsrI=; b=QEYYcc3MJU02Dq5u/K00aIkmW5
-	ailYXN+yEDd8fxVP0XIH7XyOrg9jP0ePC8wvz3KZlu+CvystvnIWTAgce3WfD+ME3qEL3xHSfl1Uc
-	qSFLEU0KkKrYVLXhdri3goHrulhzAh/qY9ArRdeEvG2qvE3X9bu1Mz2CO2Ix+pvG/FTIvptpGAUOk
-	BHvMrbGL75V9R39paVbbJFEAJMWQgORRKovRnc8ugPljxpTZlVoFGiI4ItyzuV11Qk0G/25dsMAZq
-	yu6vTBH7De/izFRn7Gl72/JgRJAMS8PRpT+VdUIKFkdnkU/8BR8b0EJIryg3p4/bvbWTUwIe0WblZ
-	KUOfTpRQ==;
+	bh=/zjnCK7lHfVwwEax6BdpktZ655SImuozj2GtxMohewo=; b=McXSm1YKBMYcJEy2J3X2XSjkYH
+	ei9HmrXpCIuZGaZfkhZjUgaEmVaTMbMjPDXJqoGpAuVC2nogFp0/98rL6d1w8vrMWGiYvaErDy7b8
+	l+vvJ/4LHPfsLYhQcpZq8J6uwQU1CqahF3uscvVU1EUNDmhDlcQ83K3eJlRmSrFwOhK33w+EXf6zF
+	41Us+RY0fgv4aXuSq9NmyFurBVAHBaVtXTsCzlg4jVfzfHgzH9+Ursz91mkmqsB76ZtjOy9v3VMXf
+	FQalWPDn48lNfmqoXZCs/Y2Mjl8iEtHEggy0gnNtwBYqIy3qk6yjxCKzXaHEdrmJV6Ux9eDiFTpRw
+	iru8lS7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7Zq-0000000BTVE-05Lk;
-	Fri, 12 Jun 2026 19:30:02 +0000
-Received: from mail-oi1-x249.google.com ([2607:f8b0:4864:20::249])
+	id 1wY7di-0000000BUGJ-0tzR;
+	Fri, 12 Jun 2026 19:34:02 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7ZK-0000000BSXd-1bRv
+	id 1wY7df-0000000BUFV-1YxT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 19:29:31 +0000
-Received: by mail-oi1-x249.google.com with SMTP id 5614622812f47-48661b2ef8eso1179196b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 12:29:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781292569; x=1781897369; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zoa2MBSo9kga5/tD04xH7yC0HmQp8XOYPJ9Cv6PxsrI=;
-        b=GSRMTUKFhr7xw0vySIJ+f1dyfntOiFsL7EnAtSBUpK4qo98UuKeKY0yN1VcPDJgatc
-         DhhhSjOLwDJr651E+LS7KzWMbRC1hmm7vM8s/SD069+a0B5aS2Rv2utDiDg3vZgDRjYF
-         0nE9wfo6Ll2mA5GTXd9FOLp1fZRexszWJsL6IylFQQOAIOHQ/neczc430BzYcigmIoMc
-         N07nfFKiA8T+PxXRq6oExYRo4LdcRQwFJeP7zbgW4yQ61NaUv+oTrnUS489xvZ9AC5lE
-         LuhBRpoSxM9jvd++NR/FeZZagiUPkbJfoVb98ld0YMYA2UTrrxmr9yF8XHZCKKjoZFSc
-         FHMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781292569; x=1781897369;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zoa2MBSo9kga5/tD04xH7yC0HmQp8XOYPJ9Cv6PxsrI=;
-        b=STeK2COB4xyTA3jX0ulCRwHgUPtyOmLgBrAJdxFTMxFThOCgiFceBMMe97D3d7idwF
-         VBMNPJGwSPEuxUjwFaa7n/9DzCWqHSmtv7JiU3qJNHpMvZPzkSm3V5Ze/L2QTwvePD4Q
-         CzEVW40srmQ8kdGD8zax1s6QW7JLJwC86SBKPtCNpvBg9V2lyUOSf4zrsu94gXBusg+C
-         qfjf+J3zjRHZxgEkNGVweUoeBlt0eRflN07Bf2a+CApBs2nlCsILeZHQvNdxbFcgyHZj
-         EfCt4KK/rR5Yl6Upbqggj41d0/oyHG4zTRSQ8GtJCKY5tpEPnIuOC6KU/QSqO0M3/7os
-         tF8g==
-X-Forwarded-Encrypted: i=1; AFNElJ96nWdHLj/8Qng1FP1jxqF2cN11X6XKVapV8QygCmebMSlHVk0/mVJBRv81fNV3JXh4KHlOOkEVd3whX1Zvivqf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxgo9y5IbPRVSAc/tc0nScw8/PX9eF+Neajid0x0FZ82xvEtK3t
-	+2axdja53qsLj5UHYm1kN8FqNVM+A8HRgAgXPh4d4qjkZR0zM+ALqNt1OQsd+CO7ekl3lfdErja
-	4HmVzab7tsePrYspQ21KcJWlr/w==
-X-Received: from iloo16-n2.prod.google.com ([2002:a05:6e02:6110:20b0:500:79fa:9c92])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1707:b0:486:4892:d55c with SMTP id 5614622812f47-4872f3c6289mr2573236b6e.11.1781292568836;
- Fri, 12 Jun 2026 12:29:28 -0700 (PDT)
-Date: Fri, 12 Jun 2026 19:29:08 +0000
-In-Reply-To: <20260612192909.1153907-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20260612192909.1153907-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260612192909.1153907-21-coltonlewis@google.com>
-Subject: [PATCH 20/21] KVM: arm64: selftests: Add test case for Partitioned PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: kvm@vger.kernel.org
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Mingwei Zhang <mizhang@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Shuah Khan <shuah@kernel.org>, Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, 
-	James Clark <james.clark@linaro.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 12 Jun 2026 19:34:01 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id 10BB6EC00AB;
+	Fri, 12 Jun 2026 15:33:56 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Fri, 12 Jun 2026 15:33:56 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1781292836; x=1781379236; bh=/zjnCK7lHf
+	VwwEax6BdpktZ655SImuozj2GtxMohewo=; b=Eqielws52KTkw7zsOfi+xi3JhS
+	AhTt0V5YidG6xsprKVry4W/I8lRr/M54c5uBxkovOLIND5UlrduRrzhZZcl39bw8
+	f/2Bl5YmbKXmL/cKDdAl0Dsr2x2N4e5029Aes58mZG0y3Fnt5gxHo8KAkTB0kKtw
+	eEAm3XvLMThOYm1UoNjfn+ME1w8BxDRPgfeR1/53QqZaWp2qgr5MxJqCuc0HzxRA
+	Sgx+fYtCOORyIkRrEuJVHtWL1PJhxDKGak4P0Ir191aGSg92X8cqpnb5ZQEKuHjo
+	tYz6Pj1xhH1X2N3ml+t+SpX3uQpHaYW3AINSb/Okuk312q4Uvl0vkvxXOK3A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1781292836; x=1781379236; bh=/zjnCK7lHfVwwEax6BdpktZ655SImuozj2G
+	txMohewo=; b=S4mteoiPNXjeiRCHIoVA8vJ0BaFIJTW9OCr+1LhzHKcdG1Vdrxp
+	FnDWNmKHXV7aCo1pUSqAzznVNqPLrQwHRWzoN8tg9nPRqlvQhgHjudmwngNekeqN
+	UiTRDKTVXCTO5xOxjBbTshkMEX+1p8Ov0mr0ZeqBrss3HEUJFnOn+1PpClr6KGCH
+	GEvw5gINadtgbhC5U0e6Qw76/o/GxDp7ME2voSSgYSLkvkS90GYE+4zi+AnM6GxB
+	qciZm9jkZK+FZW7gS70amUQOEXWlnA+Qm9dfENUCAc49WI6vq1wdRBjq46mpeXMN
+	57oGX4XBCWOhGJfPbnxYwlAK2jJ/scpa5hA==
+X-ME-Sender: <xms:I18salrCtoNgpi7fQ9Z42eRSt1ZmCTgIiA4YpRvrCuQUIBWMDTDAig>
+    <xme:I18saqN8GbEhuaPTBDAwPxdUQ1nKVKDaWrKwGMBqjN7f2A2c3x2-8jUmgo5xj8abr
+    88gBkLn6V71LSwGtVmqC7M6QeZuwHcekZ6u5fd3gWNff1u_s8_VvVQ>
+X-ME-Received: <xmr:I18sal1YNhUsmmc-p702NUFzJ5TfuS83gPqC_MGbQwDsmnFIRVgvilMAP0ZcHTcc8vQxPHA7HyRi9PJPq_vDnFDW4fJjdl_xelo>
+X-ME-Proxy-Cause: dmFkZTGI2O/RUKdXzrdaA/y5hk0nMevJyo5wpdtte2IIVQPQtt4IUNkxwbLYb1ph7d7aZ7
+    qoaqPpXV13WMDmKoQwHaTjXD0O/E1YXQZ4Q7mWuUfUR/VBzhilBLOUrdlJ1GDPjZD/8TXx
+    wM740ipnONQgsTZQnBxGrqwaImd1D95TI8PCkZFUyBSbJbauwB/KYnV0sgyV5LhfnMmoHK
+    bOUfUcHq5w6PnHIvFwC3dibhy+aJgYNvNtp6RNkvoblKNzN4oVBWl1j9WYec27AAC3YfqI
+    Is/0pceSEPg67f4NhdlzznSlTSrFo2eppW1B/gI+pi5KS7854SUO/GGh32t2CmFPqBCLfd
+    SBetDG+AiUURByEATKkRqceEHBcmohouYvU0fGL/t2YDkMlCF+rcpKiGUpLncuGPVKMvzQ
+    McTc/H+QIJutwMyF16ufi3izOfEBrYUYGnBJLCwBZEP9e/0eymfpSWY3LPpk9EtlFs5A2t
+    eT/dA4CM1ByvAIR+BPCNDt6xiL1acOl15pOmf1jeRLyhDUPR8UhrOaPuLlX2KL0/4jnmNC
+    PfDUzkgTQ8IxJzsM6bw0Z+z0otQmdP573mk+L0pK9k5CZP2AMWIIPaZHBtEdAF/UTWyf+k
+    if8eGxGG2hAut4rBJhxJQ6Rt62QE529L8rgci2wdeWACY3+dKSjM2z4c6aAQ
+X-ME-Proxy: <xmx:I18sahDjzwRIkKecIJB9kWO8FWZX1fKb_ZnK8HZAG9SLXt_La7JuCw>
+    <xmx:I18saqI9xIbxquipC7zA5bH7ywZ5g1oaLohMsQ6y8U-1zRpnSVNZgA>
+    <xmx:I18saimA5w9VWQYc4ILpX6GKsftFz3WF_ezruN-M7FBqljOZdrdr6A>
+    <xmx:I18sarZjiT9BPSIuWTvhdvZiVJXjhzFhkBtAMwOYL6tDz0abNTeveQ>
+    <xmx:JF8satQOV05TQkQJ4JSKu97NzoEEwNweqdo72hHlcAQ8PB4sWIwTSD_W>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 12 Jun 2026 15:33:54 -0400 (EDT)
+Date: Fri, 12 Jun 2026 21:33:53 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Sebastian Reichel <sre@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] power: supply: macsmc: Support macOS 27 SMC firmware
+Message-ID: <20260612193353.GA7993@robin.jannau.net>
+References: <20260612-gate-power-v2-1-de76cb9bb7ef@chaosmail.tech>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260612-gate-power-v2-1-de76cb9bb7ef@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_122930_444664_5E86652D 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20260612_123359_836337_A2C9D56A 
+X-CRM114-Status: GOOD (  28.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,228 +107,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rerun all tests for a Partitioned PMU in vpmu_counter_access.
+On Fri, Jun 12, 2026 at 08:36:03PM +0200, Sasha Finkelstein wrote:
+> The SMC firmware included in macOS 27 changed the size of BCF0 key from
+> 4 to 1 bytes. This key is used for indicating that battery state is
+> critically low.
+> 
+> Reviewed-by: Sven Peter <sven@kernel.org>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 
-Create an enum specifying whether we are testing the emulated or
-Partitioned PMU and all the test functions are modified to take the
-implementation as an argument and make the difference in setup
-appropriately.
+I think
+Fixes: 0ebf821cf6c7 ("power: supply: Add macsmc-power driver for Apple Silicon")
+and "Cc: stable" could be justified. Timing is a little unfortunate with
+v7.1 expected on sunday.
 
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
- .../selftests/kvm/arm64/vpmu_counter_access.c | 94 ++++++++++++++-----
- 1 file changed, 73 insertions(+), 21 deletions(-)
+> ---
+> Changes in v2:
+> - Addressing review feedback
+> - Link to v1: https://patch.msgid.link/20260611-gate-power-v1-1-8a62721086c7@chaosmail.tech
+> ---
+>  drivers/power/supply/macsmc-power.c | 35 ++++++++++++++++++++++++++++++++---
+>  1 file changed, 32 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
+> index 33ca07460f3a..747315e372bc 100644
+> --- a/drivers/power/supply/macsmc-power.c
+> +++ b/drivers/power/supply/macsmc-power.c
+> @@ -86,6 +86,7 @@ struct macsmc_power {
+>  	bool has_ch0i; /* Force discharge (Older firmware) */
+>  	bool has_ch0c; /* Inhibit charge (Older firmware) */
+>  	bool has_chte; /* Inhibit charge (Modern firmware) */
+> +	bool bcf0_1byte; /* Battery critical key is 1 byte (Modern firmware) */
+>  
+>  	u8 num_cells;
+>  	int nominal_voltage_mv;
+> @@ -273,6 +274,19 @@ static int macsmc_battery_get_date(const char *s, int *out)
+>  	return 0;
+>  }
+>  
+> +static int macsmc_battery_read_bcf0(struct macsmc_power *power, u32 *val)
+> +{
+> +	u8 tval = 0;
+> +	int ret;
+> +
+> +	if (!power->bcf0_1byte)
+> +		return apple_smc_read_u32(power->smc, SMC_KEY(BCF0), val);
+> +
+> +	ret = apple_smc_read_u8(power->smc, SMC_KEY(BCF0), &tval);
+> +	*val = tval;
+> +	return ret;
+> +}
 
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index 22223395969e0..9be6034335283 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -25,9 +25,20 @@
- /* The cycle counter bit position that's common among the PMU registers */
- #define ARMV8_PMU_CYCLE_IDX		31
- 
-+enum pmu_impl {
-+	EMULATED,
-+	PARTITIONED
-+};
-+
-+const char *pmu_impl_str[] = {
-+	"Emulated",
-+	"Partitioned"
-+};
-+
- struct vpmu_vm {
- 	struct kvm_vm *vm;
- 	struct kvm_vcpu *vcpu;
-+	bool pmu_partitioned;
- };
- 
- static struct vpmu_vm vpmu_vm;
-@@ -399,7 +410,7 @@ static void guest_code(u64 expected_pmcr_n)
- }
- 
- /* Create a VM that has one vCPU with PMUv3 configured. */
--static void create_vpmu_vm(void *guest_code)
-+static void create_vpmu_vm(void *guest_code, enum pmu_impl impl)
- {
- 	struct kvm_vcpu_init init;
- 	u8 pmuver, ec;
-@@ -409,6 +420,13 @@ static void create_vpmu_vm(void *guest_code)
- 		.attr = KVM_ARM_VCPU_PMU_V3_IRQ,
- 		.addr = (u64)&irq,
- 	};
-+	u32 partition = (impl == PARTITIONED);
-+	struct kvm_device_attr part_attr = {
-+		.group = KVM_ARM_VCPU_PMU_V3_CTRL,
-+		.attr = KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION,
-+		.addr = (uint64_t)&partition
-+	};
-+	int ret;
- 
- 	/* The test creates the vpmu_vm multiple times. Ensure a clean state */
- 	memset(&vpmu_vm, 0, sizeof(vpmu_vm));
-@@ -436,6 +454,15 @@ static void create_vpmu_vm(void *guest_code)
- 		    "Unexpected PMUVER (0x%x) on the vCPU with PMUv3", pmuver);
- 
- 	vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &irq_attr);
-+
-+	ret = __vcpu_has_device_attr(
-+		vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL, KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION);
-+	if (!ret) {
-+		vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &part_attr);
-+		vpmu_vm.pmu_partitioned = partition;
-+		pr_debug("Set PMU partitioning: %d\n", partition);
-+	}
-+
- }
- 
- static void destroy_vpmu_vm(void)
-@@ -461,13 +488,14 @@ static void run_vcpu(struct kvm_vcpu *vcpu, u64 pmcr_n)
- 	}
- }
- 
--static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool expect_fail)
-+static void test_create_vpmu_vm_with_nr_counters(
-+	unsigned int nr_counters, enum pmu_impl impl, bool expect_fail)
- {
- 	struct kvm_vcpu *vcpu;
- 	unsigned int prev;
- 	int ret;
- 
--	create_vpmu_vm(guest_code);
-+	create_vpmu_vm(guest_code, impl);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	prev = get_pmcr_n(vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0)));
-@@ -489,7 +517,7 @@ static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool
-  * Create a guest with one vCPU, set the PMCR_EL0.N for the vCPU to @pmcr_n,
-  * and run the test.
-  */
--static void run_access_test(u64 pmcr_n)
-+static void run_access_test(u64 pmcr_n, enum pmu_impl impl)
- {
- 	u64 sp;
- 	struct kvm_vcpu *vcpu;
-@@ -497,7 +525,7 @@ static void run_access_test(u64 pmcr_n)
- 
- 	pr_debug("Test with pmcr_n %lu\n", pmcr_n);
- 
--	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, impl, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	/* Save the initial sp to restore them later to run the guest again */
-@@ -531,14 +559,14 @@ static struct pmreg_sets validity_check_reg_sets[] = {
-  * Create a VM, and check if KVM handles the userspace accesses of
-  * the PMU register sets in @validity_check_reg_sets[] correctly.
-  */
--static void run_pmregs_validity_test(u64 pmcr_n)
-+static void run_pmregs_validity_test(u64 pmcr_n, enum pmu_impl impl)
- {
- 	int i;
- 	struct kvm_vcpu *vcpu;
- 	u64 set_reg_id, clr_reg_id, reg_val;
- 	u64 valid_counters_mask, max_counters_mask;
- 
--	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, impl, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	valid_counters_mask = get_counters_mask(pmcr_n);
-@@ -588,11 +616,11 @@ static void run_pmregs_validity_test(u64 pmcr_n)
-  * the vCPU to @pmcr_n, which is larger than the host value.
-  * The attempt should fail as @pmcr_n is too big to set for the vCPU.
-  */
--static void run_error_test(u64 pmcr_n)
-+static void run_error_test(u64 pmcr_n, enum pmu_impl impl)
- {
--	pr_debug("Error test with pmcr_n %lu (larger than the host)\n", pmcr_n);
-+	pr_debug("Error test with pmcr_n %lu (larger than the host allows)\n", pmcr_n);
- 
--	test_create_vpmu_vm_with_nr_counters(pmcr_n, true);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, impl, true);
- 	destroy_vpmu_vm();
- }
- 
-@@ -600,11 +628,11 @@ static void run_error_test(u64 pmcr_n)
-  * Return the default number of implemented PMU event counters excluding
-  * the cycle counter (i.e. PMCR_EL0.N value) for the guest.
-  */
--static u64 get_pmcr_n_limit(void)
-+static u64 get_pmcr_n_limit(enum pmu_impl impl)
- {
- 	u64 pmcr;
- 
--	create_vpmu_vm(guest_code);
-+	create_vpmu_vm(guest_code, impl);
- 	pmcr = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
- 	destroy_vpmu_vm();
- 	return get_pmcr_n(pmcr);
-@@ -614,7 +642,7 @@ static bool kvm_supports_nr_counters_attr(void)
- {
- 	bool supported;
- 
--	create_vpmu_vm(NULL);
-+	create_vpmu_vm(NULL, EMULATED);
- 	supported = !__vcpu_has_device_attr(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
- 					    KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS);
- 	destroy_vpmu_vm();
-@@ -622,22 +650,46 @@ static bool kvm_supports_nr_counters_attr(void)
- 	return supported;
- }
- 
--int main(void)
-+static bool kvm_supports_partition_attr(void)
-+{
-+	bool supported;
-+
-+	create_vpmu_vm(NULL, EMULATED);
-+	supported = !__vcpu_has_device_attr(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+					    KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION);
-+	destroy_vpmu_vm();
-+
-+	return supported;
-+}
-+
-+void test_pmu(enum pmu_impl impl)
- {
- 	u64 i, pmcr_n;
- 
--	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
--	TEST_REQUIRE(kvm_supports_vgic_v3());
--	TEST_REQUIRE(kvm_supports_nr_counters_attr());
-+	pr_info("Testing PMU: Implementation = %s\n", pmu_impl_str[impl]);
-+
-+	pmcr_n = get_pmcr_n_limit(impl);
-+	pr_debug("PMCR_EL0.N: Limit = %lu\n", pmcr_n);
- 
--	pmcr_n = get_pmcr_n_limit();
- 	for (i = 0; i <= pmcr_n; i++) {
--		run_access_test(i);
--		run_pmregs_validity_test(i);
-+		run_access_test(i, impl);
-+		run_pmregs_validity_test(i, impl);
- 	}
- 
- 	for (i = pmcr_n + 1; i < ARMV8_PMU_MAX_COUNTERS; i++)
--		run_error_test(i);
-+		run_error_test(i, impl);
-+}
-+
-+int main(void)
-+{
-+	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
-+	TEST_REQUIRE(kvm_supports_vgic_v3());
-+	TEST_REQUIRE(kvm_supports_nr_counters_attr());
-+
-+	test_pmu(EMULATED);
-+
-+	if (kvm_supports_partition_attr())
-+		test_pmu(PARTITIONED);
- 
- 	return 0;
- }
--- 
-2.54.0.1136.gdb2ca164c4-goog
+I think the following is slightly easier to read
 
+{
+	if (power->bcf0_1byte) {
+		u8 tval = 0;
+		int ret = apple_smc_read_u8(power->smc, SMC_KEY(BCF0), &tval);
+		*val = tval;
+		return ret;
+	}
+
+	return apple_smc_read_u32(power->smc, SMC_KEY(BCF0), val);
+}
+
+Not worth a respin in itself but worthwhile if there's a v3 for the the
+Fixes: tag.
+
+> +
+>  static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+>  {
+>  	bool flag;
+> @@ -280,7 +294,7 @@ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+>  	int ret;
+>  
+>  	/* Check for emergency shutdown condition */
+> -	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val) >= 0 && val)
+> +	if (macsmc_battery_read_bcf0(power, &val) >= 0 && val)
+>  		return POWER_SUPPLY_CAPACITY_LEVEL_CRITICAL;
+>  
+>  	/* Check AC status for whether we could boot in this state */
+> @@ -577,7 +591,7 @@ static void macsmc_power_critical_work(struct work_struct *wrk)
+>  	 * Check if SMC flagged the battery as empty.
+>  	 * We trigger a graceful shutdown to let the OS save data.
+>  	 */
+> -	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &bcf0) == 0 && bcf0 != 0) {
+> +	if (macsmc_battery_read_bcf0(power, &bcf0) == 0 && bcf0 != 0) {
+>  		power->orderly_shutdown_triggered = true;
+>  		dev_crit(power->dev, "Battery critical (empty flag set). Triggering orderly shutdown.\n");
+>  		orderly_poweroff(true);
+> @@ -616,6 +630,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+>  	struct device *dev = &pdev->dev;
+>  	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+>  	struct power_supply_config psy_cfg = {};
+> +	struct apple_smc_key_info info;
+>  	struct macsmc_power *power;
+>  	bool has_battery = false;
+>  	bool has_ac_adapter = false;
+> @@ -714,6 +729,20 @@ static int macsmc_power_probe(struct platform_device *pdev)
+>  		if (apple_smc_key_exists(smc, SMC_KEY(CH0I)))
+>  			power->has_ch0i = true;
+>  
+> +		ret = apple_smc_get_key_info(power->smc, SMC_KEY(BCF0), &info);
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "Failed to determine BCF0 key size\n");
+> +			return ret;
+> +		}
+> +		if (info.size == 1)
+> +			power->bcf0_1byte = true;
+> +		else if (info.size == 4)
+> +			power->bcf0_1byte = false;
+> +		else {
+> +			dev_err(&pdev->dev, "Unexpected BCF0 key size %d\n", info.size);
+> +			return -EIO;
+> +		}
+> +
+>  		/* Reset "Optimised Battery Charging" flags to default state */
+>  		if (power->has_chte)
+>  			apple_smc_write_u32(smc, SMC_KEY(CHTE), 0);
+> @@ -766,7 +795,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+>  		power->nominal_voltage_mv = MACSMC_NOMINAL_CELL_VOLTAGE_MV * power->num_cells;
+>  
+>  		/* Enable critical shutdown notifications by reading status once */
+> -		apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val32);
+> +		macsmc_battery_read_bcf0(power, &val32);
+>  
+>  		psy_cfg.drv_data = power;
+>  		power->batt = devm_power_supply_register(dev, &power->batt_desc, &psy_cfg);
+> 
+> ---
+
+Reviewed-by: Janne Grunau <j@jannau.net>
+
+thanks
+Janne
 
