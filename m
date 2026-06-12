@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE43CCD98E2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E2DCD8CA8
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 18:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TK73xwJxLKqVm3pvX+NX0FOkf8rdugy/bEjpH2LAYCI=; b=R7nBP/7eShIhdE1e49vG3OKXUU
-	7zwEd1mWTEP85krgkouoUwAjCkuS90OAm6OGAKkxdjKP5D7UrvOuZ0bH5qfgnEEdD9l4k0EUbb6oX
-	QZhml21vYvCBNdpDibhYeGXCXdCJyawVsVWJjmj2sZX6GRKYPvPzFXu1+EsG3Tk2lSUhM1Xzs2xfa
-	waS34UKlspKRg2oM339cxTczdURXrxyYIi/5hsyXUPJuIREKY2jVn8bRvvmtKLOaY9W5/BBsSHXG4
-	QIzTtY8QkFUlKHy/Mr5YhLlAzG/Pq8/y7457ZTKNfZqJGde8zUV5DqphXCvRuApz1VgYwd/lUhvCX
-	07g0FLDQ==;
+	bh=RgI4OGtAvPcMjGldJwpoCMaQOwFwYonlwn0ZKyoHpfc=; b=iiCeCzV/tiRD+qtVbvaXgBP8v8
+	7OL8+pfhbJSab9x8IDdDyjRvX/fU4F1aZlVk9RjWdVAEwxmNRw5wKYe//HDMnzFMmWrIfN6pVbbOh
+	m4F6WLTLLXJv0wuXND6zfzC0cJuGp8NogEDTRUKFRiSalvklj5dbXe4ANJ2LoAVjyGHmmB8wFfvi5
+	IgsqCLFKd26pQRHXzkVd+zjENeVEUMfw5/Nd6FOVOu0CvBWCVvu4vLXzpQR/5iM7rgXGX1ihG1WM+
+	innV7tFmy9EsSSbtx8AQueQcojys12SrG5UtH8mpPtd/6dQICX8En9qM+/L+b35Ed6YTw/gUFiFCE
+	BfeIbRhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bn-0000000BNJY-0lDL;
-	Fri, 12 Jun 2026 18:01:07 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wY6Bo-0000000BNNP-2PyY;
+	Fri, 12 Jun 2026 18:01:08 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bb-0000000BNBI-40YD;
-	Fri, 12 Jun 2026 18:00:59 +0000
+	id 1wY6Bg-0000000BND2-3Ren;
+	Fri, 12 Jun 2026 18:01:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781287252;
-	bh=omFKO4EP3ToAvJxa8cmB8JXZlOhJFnubM/2euZVUsQI=;
+	s=mail; t=1781287253;
+	bh=BXeARZ0ujZDNhdquS/qJc3J32JsHagxLqC8adFmTGE8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=jTnNPHmjgKurL8iYKgop38z+EuApKXzKYpVcMtEBFWm/imiWuD71Fis2GkByv8XCZ
-	 a9USebMYJ4BcD32a+s4KBKkWDo9cNeCdU8CaPq3Vpf14VVTcc7Q3q/BAq3rx4KsOOb
-	 9nVFZ5RphSbV2wbQl3t/XynTBAqQDVt/rG6cXPWqFOCfswjQ+LmNO1rgYKNcizbPfs
-	 gprb3Ykt7O2lkL5f+gBHQa40NIW9cVUObYNfEeS5O2k6KXwE2zBcV7dA5/sObDFmQd
-	 qL9jDyzcYYptRfFPmBnMqwYg+UIPZofU1LGmiyeGuSz/7XG+rRQqjkdvrDbR3M8OAT
-	 J3KoG4pJCfchQ==
+	b=HgIBIhPvknd1Q2ddj2XeDUcvA1Oic44+kMbKstN6zOtQY1pPo94fisndk5qVE37iP
+	 0JyrxmG1pRZLCLSdLUXTMeE6/jrKbL7mTy+Cq0CO0J6mZqq9ZSguDtc3MqZWFalvQh
+	 fRIO5LGjLj7PGZTpWRP+YgUowsh3puQ2VUMWZrv8zhkvfwtWlPLevXzoUF6aB/YZZh
+	 9+/k1AjfbagPokcwk2i1KFQNqqHT7HonyMZFnhMwaobrd55S8FtxqQ+EChVXcJpSlI
+	 Cu56CRvFThelAw/15BsOVOxsEei2k/EtA2eBrEswq3bVNephE/H9r/AUgsXR+s5juX
+	 AgZHyQWnEBh9w==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B795417E040C;
-	Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3F05817E0FD0;
+	Fri, 12 Jun 2026 20:00:53 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7A048480029; Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
+	id 8530548003A; Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 20:00:48 +0200
-Subject: [PATCH v3 02/10] drm/bridge: synopsys: dw-dp: Support
- MEDIA_BUS_FMT_FIXED
+Date: Fri, 12 Jun 2026 20:00:55 +0200
+Subject: [PATCH RFC v3 09/10] dt-bindings: display: rockchip: dw-dp: fix
+ sound DAI cells
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-synopsys-dw-dp-improvements-v3-2-dc61e6352508@collabora.com>
+Message-Id: <20260612-synopsys-dw-dp-improvements-v3-9-dc61e6352508@collabora.com>
 References: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
 In-Reply-To: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -77,26 +77,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1544;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2725;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=omFKO4EP3ToAvJxa8cmB8JXZlOhJFnubM/2euZVUsQI=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosSVSDh4EWGtKE+GX79p0vuT1Lhykh22BUQ
- 1RPnFyDk/XPYokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLElUAAoJENju1/PI
- O/qaBjkQAKlK6B99B5tae3/4Yf4pTYBrJyN5R92oNxB++rD7yEBXDogdrHCiMz4Ve5htpU2sIUt
- CMSSIx9pCHz13DHpekX/9sHCXei1M27AImROaJXlJRqAVRo7xX3NwfSk7Z9CB5p0Ou+xfG2XT+j
- 3ihnLQKWWEDt6S94jJtkmckT/MMgMizxMwoupzGUT+Qu2o7jDDoz9nQqH8HR/Z+WrnauvOCK3SW
- 699lg5sqkS5OvuvfNsJOTZmRXIYgbayqjVDgc5YBbtEVLwv3iOKlfjBLEc+DJ+yVC1Sm3kmvNG8
- Yc9ycTZQp6eDvx3ETm5A+8U1bd0X41Dg8QMzoejg6/C1kJoHVz2ePUpPA4GcewC8Pqrrq0Ki9i/
- pFFpzJwJbf6T+/R5zMuliWz0Wqjo6hbAMtpEMTkT5RUoVDqRHZnXN2O0PksdHTfOLGlAp3zeTuX
- HqnJhnuZEFt9ieZ8i+JPOpPoCfRItHD153TWYNapyLIu03Ljm3axPmgsXIVnC1JyqOw7izbhaNA
- fAlqB2toQahqwJP4B1PKW5CNiMRbimShuBzm2RV99sxXjVLXfeKC29jtkYF0aru4J1xh57fuxcU
- vhbl8RU9BW0LjCQg/qCYZy0U49qiiCh81fTu/yrkmstkPkv++UqATQbPB4landLYg9OIQZpEvZS
- vdSTV/LQXFm4sIkcAmvMguw==
+ bh=BXeARZ0ujZDNhdquS/qJc3J32JsHagxLqC8adFmTGE8=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosSVQEh5sbWtkeYdrxD50JXY18L37a17k8i
+ beMkIXjL4spU4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLElUAAoJENju1/PI
+ O/qaE1oP/2MuS9HVQpUsHqvwtYb1JPn63Ve2KXPsy1UNEzcvcT6mX0O6uR5IJq2J1jFcHws8pMe
+ gZxd8DxzxeDnwh0PdmtvM4Lh+E97IOikzqdMAC5CHvoHrtWqKVIqHnBLO62DZSveFvPCmPm3Sei
+ bcwXx8Py7KHzMLVd8ABHDEudhXh2b5v93bskRJ0HEz5q4au5reAnJe8VXIs7Ff/oGYgtlN/NzuT
+ n34m9PeCzwAeZ53MmKjlZcd65E9CzeMEkRLy9jWEcmgV8xwm5MvRoo0oHR9ZT/jkEXl3wz4VNlC
+ Xo7cWuUaELX+NQ3az6V3kJRMJ8xCjm/w74v1mZjg+uTvhrEstyIgOFHlDdi9b33Kw6g70Cdww10
+ pCNQYtKrl3qMtRILX/L1r5PtXedhRs2UWh7uvtqbJgOA88HoYFfwaF45RkhPNN6VDVUJCueFYEB
+ xEk179zQoWB57GrDPTOoVBppmhhTKiEBeT6vuiq4+z8yyziQQCZcZsGOQnJ3jPGP4emExR7aASo
+ eBGeNJAxh8XoyTXc11zeHGvXAReYFFCXmdxus7811yGXUT/nUVY77XHvX09ur8W+oqDoN7THLqv
+ /bW15G0oM7ULw5nmasvLj9CJI2Y0pJvJUkBNpRNujICox787KpfXjJXR6eZ7SJz3aKKczWyGstY
+ mIy34KEA7E4F0f516JCE1IA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_110056_190962_FC396CD6 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260612_110101_036242_0F8BD4BF 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,41 +111,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for MEDIA_BUS_FMT_FIXED, which is e.g. requested for USB-C
-DP chains as the last bridge in the chain (aux-hpd-bridge) does not
-implement atomic_get_output_bus_fmts(), which results in the generic
-drm_atomic_bridge_chain_select_bus_fmts() code using MEDIA_BUS_FMT_FIXED
-instead.
+The RK3588 and RK3576 DesignWare DisplayPort controllers both have two
+possible DAI interfaces: I2S and S/PDIF. Thus it is needed to have an
+argument to select the right interface.
+
+In case of RK3576 this is not enough though. The RK3576 has the same IP
+as RK3588, but configured with Multi Stream Transport (MST) enabled for
+up to 3 displays and thus has a total of 6 DAI interfaces (I2S and
+S/PDIF for each possible stream. Meanwhile the RK3588 does not support
+MST and thus has only 2 DAI interfaces.
+
+The binding update right now only supports the simple single stream
+transport (SST) setup. To avoid further DT ABI breakage (or complicated
+bindings supporting different number of arguments), it's probably a good
+idea to take MST into account now even though the upstream Linux driver
+does not yet support it.
+
+I see two options:
+
+1. Adding yet another cell, so that we have the following:
+   <&dp_ctrl [display_stream] [i2s_or_spdif]>; potentially append
+   extra input ports for MST video data to existing ports node
+   (e.g. port@2). I would only handle the sound DAI part in my
+   patch and basically use '0' for the display stream and just
+   leave the option of using '1' or '2' once MST support is added.
+
+2. The vendor kernel creates a sub-node for each supported display
+   stream and puts the ports mapping as well as the DAI reference
+   into that. This bundles all information for one display stream
+   together, which creates a clean look but the subnode does not
+   really describe any real thing in the hardware.
+
+As upstream MST support seems to be quite limited, I wish for some
+feedback about the preferred way to handle this.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml         | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 36ee6e027af5..ac7779e42bb2 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1528,6 +1528,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 				     struct drm_connector_state *conn_state)
- {
- 	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
-+	unsigned int out_bus_format = bridge_state->output_bus_cfg.format;
- 	struct dw_dp *dp = bridge_to_dp(bridge);
- 	struct dw_dp_bridge_state *state;
- 	const struct dw_dp_output_format *fmt;
-@@ -1538,7 +1539,10 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	state = to_dw_dp_bridge_state(bridge_state);
- 	mode = &state->mode;
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+index 2b0d9e23e943..1303d0e2145a 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+@@ -83,7 +83,8 @@ properties:
+     maxItems: 1
  
--	fmt = dw_dp_get_output_format(bridge_state->output_bus_cfg.format);
-+	if (out_bus_format == MEDIA_BUS_FMT_FIXED)
-+		out_bus_format = MEDIA_BUS_FMT_RGB888_1X24;
-+
-+	fmt = dw_dp_get_output_format(out_bus_format);
- 	if (!fmt)
- 		return -EINVAL;
+   "#sound-dai-cells":
+-    const: 0
++    const: 1
++    description: 0 for I2S, 1 for SPDIF
  
+ required:
+   - compatible
+@@ -144,7 +145,7 @@ examples:
+         resets = <&cru SRST_DP0>;
+         phys = <&usbdp_phy0 PHY_TYPE_DP>;
+         power-domains = <&power RK3588_PD_VO0>;
+-        #sound-dai-cells = <0>;
++        #sound-dai-cells = <1>;
+ 
+         ports {
+           #address-cells = <1>;
 
 -- 
 2.53.0
