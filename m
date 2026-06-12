@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B92ECD98E1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6084CD98D6
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 18:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wnB7p/u/k0qNSPKk2D6Q/y8914TCIclz96j59/yng6s=; b=ssgaJLoXSCij3qNl9Ka2E0oesW
-	TItLX+xVOf0wSSnlEQtmMWIyQF0sgArjGHUpTepF3FiBK0uIuWY7OdTbUPrk1qVzFLQDpUZjne+dP
-	prn7/PzEmDg1YCjYDQFJyV6uOTzZl3/8VQFqrUhKrvXY+oCs11B/BaVl2Qhx5LIQiV27zJz3v63v1
-	7TfIi0ehx26tOQ6GVGnMvHUFoqFxH8ch1UIU/Z3bVVMkkv7l9G++CKFNP4bbzjyCWyICi22cfzWeR
-	w9YeLbqg83DUh7o1QPx/xGysLHzdv0fl1/FOR/3fXhJdHAO/qDTcD8R81Lnfg4nQHTXU4RpgOHSbk
-	SB+HDS1A==;
+	bh=3A+cpySsoA22psDrW2/lPSHoEp26BP1RQUvoieYaBsA=; b=GIoSjVbEF73io1F3CigCu1LJ7B
+	omoL/Oe4YjkrBfLwGDLy/DyfA8Oqh2NARCVDQe356yzIvNIB/iUpdmYT/WK+lQs3W6Tm+fCWUi/tn
+	/8TvH1O6pG8trLo3vLUGjaUlJj+C6e1tvij43aQXsP5/pWgObXvkkJS0vobI+T+VV2E76zhtweWkE
+	qW6qH3X+w8c9q1GeFhEJils/glwut7Jj/YSml+kh5ZV/HxIHRqEkG8/JG6Nk/BNjYx8m8rELgOzV0
+	lnZmv9drp+OLqoI9Vpvv5r8Cc6aPT/bZ/EBfuyryDC23eAe0IXE7bo+zEONW6DCETlS/LSMzuVN+i
+	z/QBUxhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bo-0000000BNMZ-1Bta;
-	Fri, 12 Jun 2026 18:01:08 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wY6Bp-0000000BNPZ-19hF;
+	Fri, 12 Jun 2026 18:01:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bg-0000000BND0-24F3;
-	Fri, 12 Jun 2026 18:01:02 +0000
+	id 1wY6Bh-0000000BNDH-0DL8;
+	Fri, 12 Jun 2026 18:01:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1781287253;
-	bh=uvgE/+PtR/8Y+EFTZ0voEnP7Ycu/PGAP66890VAIh0c=;
+	bh=KpZ/GTLLPgVDKAOSipReW62jls7h/kg8HzcOThxf+bY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hNW04xIHs/EqeaoVawO9C3QLh9TFoLK8EIkqgOdPm2QfUHd67YonSjs7ZPtM8U+0p
-	 6ha/s7fQKbMHrAv2X7SpiiE6xCTCahQ4by+EL6sdHp2F3C0ja1Xy6n//eOeAQkbSw+
-	 tUNKiZ3Erdfkj7JMRpUBbqLidH0VIrhJdxNk3SP9Xtw6ISqoDa3Y3oEuSMrrvDLB6h
-	 dOTktmmh2EPSeFByCa5E4p4JifcutrhSf/6iWIptFotLfRJzTaKj/6wjIa//TjBKD2
-	 turvMSu+x9Mkq8sfI2pYMAi6S5gx9BGdDoA9wa58HnGU4t+evkA3udR2DZZW1mbzCJ
-	 /GyuRRYzDCqWg==
+	b=mDO51HzsDiBGsO9QlE4qEQ7gfU88d3uubEJU9gj36ij15dRLw+7GSUdECIOtga14k
+	 zJ8gnxc4aRcz4KplzTCyEfhuZa4JC9/cjqPF/u95v94fDQ9qquthbmgPk5iV6aG5Qo
+	 cQ+4X/Cw+FkFrzFROkN5i4rXYi3/lqm/nyK8FKuxy28v76CW1QbGAzM6j/wGQNtiqS
+	 MU/xZX9cLPk9ziVd2pmQhM5su8RAI0fHhrSAAJDqWKSlGj1P5RFsZ7HOJLyzF5TbXn
+	 TlFKV4e/vHwLgNqyE40Rl/JBgorWKhrQYyZmA1uyMgyglHMNL/Zf5j0+QXdydkjixj
+	 pRb64JCS8285A==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3546117E0FAC;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E24417E0E6E;
 	Fri, 12 Jun 2026 20:00:53 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 83C69480038; Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
+	id 822DD480035; Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 20:00:54 +0200
-Subject: [PATCH v3 08/10] drm/rockchip: dw_dp: Add runtime PM support
+Date: Fri, 12 Jun 2026 20:00:53 +0200
+Subject: [PATCH v3 07/10] drm/bridge: synopsys: dw-dp: Add Runtime PM
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-synopsys-dw-dp-improvements-v3-8-dc61e6352508@collabora.com>
+Message-Id: <20260612-synopsys-dw-dp-improvements-v3-7-dc61e6352508@collabora.com>
 References: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
 In-Reply-To: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -76,26 +77,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3045;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3017;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=uvgE/+PtR/8Y+EFTZ0voEnP7Ycu/PGAP66890VAIh0c=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosSVSUi9PbPgMfTtpPeK51/WGuLXMiDSZ/g
- Si1Dt3zkeU36IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLElUAAoJENju1/PI
- O/qaHukP/RmorsWS43Bw8xhZca2X0RGudrHH17R4H49SwpzG0bkwC87v3k4xd/FeDXIIxkB9Ujw
- QDNzp/fDR9aRTBZ4RGKI1UL1FN4YYAMHZq50a1VGNwkNG+GmJzhxfohxl63QkIeDAlyWqyl6x42
- FEQ6kFYpKyz0j+RrekI3u6UGiohl/KwXWysrpggorn1EpxyV1x64IRSZPgtaxE5vaG88gOad7uA
- ogSmxSXlCuMsZgNxlBUq3pCVaw52ihOUPaPdCvmkhCTdGoj2bQz/3Z/PcDpG6NEV/GDKpY0nRs1
- lDCl0TdELA9KuXxrXwfsCPM0I2e7Kkxx9Tz4aKHp+g1ikve5LrKFYubTYY6oZG5J2RJxGkuvRI8
- uwVuwHlpF2+z2flMoV8fxr655Yw4EG/mEHdhgPvLHV29rbYh/MCSYymkpz58xlIv3UYbJ+WHPjb
- venw2BEf7ev4SGhJ8sWiYNLS9Zj35I9vW8FxFzgRhyn/iYNPj79u/TZ+qEN1ifvBxfRKiukgl2N
- vTd3BqzjRxU1lxhDqHtXCl8fnPNjbpcHirA/yKkEIcD90DUigHR9iW3hbVH+oh2wNmCs8297iku
- oovpjVP8/yxOfecwwZyavHpZ1eev+/cBn87wSJjOSAx04HOTnCiPoRUDUdYvx2p/p0ELen0d3HP
- gn/O+2vBb49k/XQMaFn80hA==
+ bh=KpZ/GTLLPgVDKAOSipReW62jls7h/kg8HzcOThxf+bY=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosSVR4BiIQqHL+BfJfXPL7BIkISy7bH1dRq
+ 7ZTxEvb9UpdRIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLElUAAoJENju1/PI
+ O/qanSwP/1Kxg/dEXQeX6oToNqMfpeYNrrseyzEiKoR5WBb50EXZl3UQpMgXARjveRkI6/NV5SY
+ vU2OTcs1Pr8INeYLPWt37c8ktmaOfFuNgRtyogC7MqshZKARH+BF3atyeS6WuPkcqq8gCi2AEIM
+ 1X2wyVrq/DGf//DoRJhpXSnnqDfuhrHRAjzMaYlhrD2SU5iWtZehMteShj/CCNH7SaT+VbylaS2
+ zT4sNwmiXc6us4uMeED762gdCZn4Ti2rGmkoUvTyLALeAigmIKCMEeXsCsYwC5vig1V5EF0qeNT
+ Y3YN/Tg/sk9jjQTU7rNXPG3O0IbSoKmh+UcJIXQhi7GpvOTiXIpZl/d7PhVGifM2nN9cekS3fDI
+ P7sHl8jQOSQ6ty7cW4VXqpXa+uFv+nCeVZPqf7SeI6QlMwCYGUkJMSfaIzUjG+VsbnEkaLF91xU
+ fnBLTryLukcHoVK7+HL67No8WhrZD8DB/j1tW9deFQF74pxZBpydSD3DVhpDLuSBcioTUd+r33r
+ Zsf0ea3Bm8Sn8EBuvIotCNzMac1Xpyw1/bm36leXaUEIpnDAokjzMo/oePoVGFl5X7mzUfCjdCe
+ owkbT75vJG5cmIHSCG6vb12CZ1OUcIcDnjjOksdcPOHagwsoAeGQN1iFKIVk8vW1mJyoM2wpvVQ
+ iJvgD8mOy+0Nl/F5hnK0tiw==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_110100_696776_AAA89783 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260612_110101_245137_7E2F5213 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,99 +111,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for runtime PM to the Rockchip RK3576/3588 Synopsys
-DesignWare DisplayPort driver.
+Add runtime PM stubs to the Synopsys DesignWare DisplayPort bridge
+driver. Support is not enabled automatically and must be hooked up
+in the vendor specific glue code.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 40 +++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 27 +++++++++++++++++++++++++++
+ include/drm/bridge/dw_dp.h              |  3 +++
+ 2 files changed, 30 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index 9c53f1d2c29a..1f53228e56d9 100644
---- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -12,6 +12,7 @@
- #include <linux/mfd/syscon.h>
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/videodev2.h>
- 
-@@ -58,6 +59,8 @@ static void dw_dp_rockchip_hpd_sw_sel(void *data, bool force_hpd_from_sw)
- 
- 	dp->hpd_sel = force_hpd_from_sw;
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 7fa38145e35c..7f4f36c61484 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1465,6 +1465,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+ 	if (WARN_ON(msg->size > 16))
+ 		return -E2BIG;
  
 +	ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
 +
- 	regmap_write(dp->vo_grf, hpd_reg,
- 		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_SEL, dp->hpd_sel));
- }
-@@ -71,6 +74,8 @@ static void dw_dp_rockchip_hpd_sw_cfg(void *data, bool hpd)
+ 	switch (msg->request & ~DP_AUX_I2C_MOT) {
+ 	case DP_AUX_NATIVE_WRITE:
+ 	case DP_AUX_I2C_WRITE:
+@@ -1655,6 +1657,8 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	struct drm_connector_state *conn_state;
+ 	int ret;
  
- 	dp->hpd_cfg = hpd;
++	pm_runtime_get_sync(dp->dev);
++
+ 	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+ 	if (!connector) {
+ 		dev_err(dp->dev, "failed to get connector\n");
+@@ -1709,6 +1713,7 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
+ 	dw_dp_link_disable(dp);
+ 	bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
+ 	dw_dp_reset(dp);
++	pm_runtime_put_autosuspend(dp->dev);
+ }
+ 
+ static bool dw_dp_hpd_detect_link(struct dw_dp *dp, struct drm_connector *connector)
+@@ -1729,6 +1734,8 @@ static enum drm_connector_status dw_dp_bridge_detect(struct drm_bridge *bridge,
+ {
+ 	struct dw_dp *dp = bridge_to_dp(bridge);
  
 +	ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
 +
- 	regmap_write(dp->vo_grf, hpd_reg,
- 		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG, dp->hpd_cfg));
- }
-@@ -213,6 +218,12 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
- 	if (IS_ERR(dp->base))
- 		return PTR_ERR(dp->base);
+ 	if (!dw_dp_hpd_detect(dp))
+ 		return connector_status_disconnected;
  
-+	pm_runtime_use_autosuspend(dev);
-+	pm_runtime_set_autosuspend_delay(dev, 500);
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to enable runtime PM\n");
-+
- 	connector = drm_bridge_connector_init(drm_dev, encoder);
- 	if (IS_ERR(connector)) {
- 		dw_dp_unbind(dp->base);
-@@ -246,6 +257,34 @@ static void dw_dp_remove(struct platform_device *pdev)
- 	component_del(&pdev->dev, &dw_dp_rockchip_component_ops);
+@@ -2153,6 +2160,26 @@ void dw_dp_unbind(struct dw_dp *dp)
  }
+ EXPORT_SYMBOL_GPL(dw_dp_unbind);
  
-+static int dw_dp_rockchip_runtime_suspend(struct device *dev)
++int dw_dp_runtime_suspend(struct dw_dp *dp)
 +{
-+	struct rockchip_dw_dp *dp = dev_get_drvdata(dev);
-+
-+	return dw_dp_runtime_suspend(dp->base);
-+}
-+
-+static int dw_dp_rockchip_runtime_resume(struct device *dev)
-+{
-+	struct rockchip_dw_dp *dp = dev_get_drvdata(dev);
-+	u32 hpd_reg = dp->pdata->hpd_reg[dp->id];
-+	int ret;
-+
-+	ret = dw_dp_runtime_resume(dp->base);
-+	if (ret)
-+		return ret;
-+
-+	regmap_write(dp->vo_grf, hpd_reg,
-+		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_SEL, dp->hpd_sel) |
-+		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG, dp->hpd_cfg));
++	clk_disable_unprepare(dp->aux_clk);
++	clk_disable_unprepare(dp->apb_clk);
 +
 +	return 0;
 +}
++EXPORT_SYMBOL_GPL(dw_dp_runtime_suspend);
 +
-+static const struct dev_pm_ops dw_dp_pm_ops = {
-+	RUNTIME_PM_OPS(dw_dp_rockchip_runtime_suspend, dw_dp_rockchip_runtime_resume, NULL)
-+};
++int dw_dp_runtime_resume(struct dw_dp *dp)
++{
++	clk_prepare_enable(dp->apb_clk);
++	clk_prepare_enable(dp->aux_clk);
 +
- static const struct rockchip_dw_dp_plat_data rk3588_dp_plat_data = {
- 	.num_ctrls = 2,
- 	.ctrl_ids = {0xfde50000, 0xfde60000},
-@@ -280,5 +319,6 @@ struct platform_driver dw_dp_driver = {
- 	.driver = {
- 		.name = "dw-dp",
- 		.of_match_table = dw_dp_of_match,
-+		.pm = pm_ptr(&dw_dp_pm_ops),
- 	},
- };
++	dw_dp_init_hw(dp);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(dw_dp_runtime_resume);
++
+ MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
+ MODULE_DESCRIPTION("DW DP Core Library");
+ MODULE_LICENSE("GPL");
+diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
+index 2127afa26b2c..3037e0290861 100644
+--- a/include/drm/bridge/dw_dp.h
++++ b/include/drm/bridge/dw_dp.h
+@@ -28,4 +28,7 @@ struct dw_dp_plat_data {
+ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 			 const struct dw_dp_plat_data *plat_data);
+ void dw_dp_unbind(struct dw_dp *dp);
++
++int dw_dp_runtime_suspend(struct dw_dp *dp);
++int dw_dp_runtime_resume(struct dw_dp *dp);
+ #endif /* __DW_DP__ */
 
 -- 
 2.53.0
