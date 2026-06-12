@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19238CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 08:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F4ACD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 08:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=prAEBrzKIWuMkPm2FcUrO0qI2deWE7cYQ4+upoac854=; b=T4J4q5ejHoYDa5Le8VaMcjXxgN
-	nfsyAB82rA69/87oYQFkCbpT8xPRo7o7tYpovGMl9LP6NcVwhrQjiqsgV9eI0+DnjxMuW2/UuTj/O
-	h1KVLk0s/RroTfFFEYlvPJ8rxpyoXclBVrxmQI8x6ABAPM8QXBxOTB18l1DbNnV3RauGN9OdFbwnp
-	HVLOXlU9LcgVpV6L01bpvJEZgMs9AzBcvwLJI3En/+aAfE5BC6FS2UDHzKpRNhLcWdbu0URPy3Ta8
-	Yr4vXFcyev8osmPbaTJ+d5AL0OCQz53RETCUm6Y9zIN5Gdcr4e0SlAgkDF5bxalhDMdpbHfRwQwMN
-	pt4D6vMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IqyBluiRoUQtAELX3j26vahFC6LntA86G4+ojNuG26M=; b=oYh0bxrlbr6tLwCdrKqONX88IG
+	WcELv4B074n/8rHMHkwH/DwZBoq9vB4HX+aghAaeGsayusmMXytvz4HCaSl5jlztGnCBU9C7KNCba
+	WDyqVkyxZgeMEQIRwT45Jl+kJOe8907nCkB71PQl2Co9MK7NC2+RqDAvJjbZNv4UucRBRWaM7kGQU
+	kIeQ1EpmvuaWDDgd8KIX7LPqzD5XkU4dg7hX8RzXZ2uYe6LVxPkZKdCOWK2BppS5bm2od5cvnPhtE
+	TrUiGmnUusFwWwTOK+e49EqPQxR5GhsvZPjWLZy1mCe3/O/QelcEdC1KomacjTdV4wBJ0qGzQUqDf
+	D17Yipvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxL2-0000000AaTs-09RO;
-	Fri, 12 Jun 2026 08:34:04 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wXxR4-0000000Aamt-2sdr;
+	Fri, 12 Jun 2026 08:40:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxKy-0000000AaT5-3kmq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 08:34:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1781253238;
-	bh=prAEBrzKIWuMkPm2FcUrO0qI2deWE7cYQ4+upoac854=;
-	h=From:Date:Subject:To:Cc;
-	b=EEgF/PvFQ0IsQ9p8/kc3TKc68eIKvTFg/E3j9lx/aiOAItCi/icSFcYEBe/9xdcmR
-	 ZUSONM71odncnQoSCNkGtS+d+RZc+Uct3JMSkI2ib2oY8mBCmLS/A+JdOcVnt1rQhB
-	 XYYzT+lo8cDLJjNhKmfiQtUxXixm5TVnU/YXyi3Oixc9yvJDoq1oRjKq07AoqvGAO7
-	 H9T+Ad3FebZUhGWNKbS90Q7Q4msS4ZSlxcLnr5n8OHDQmQAPN6UWrg02rDjUSQ8kma
-	 FUdpXd7noUd+BnzaH3wx5r3FQOzygD0F67J5vunbJpO/+S7/Ywl/GiF8NSk0HrjF1M
-	 8lGfj40pdwAmg==
-Received: from [127.0.1.1] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id E3E3F60931;
-	Fri, 12 Jun 2026 16:33:57 +0800 (AWST)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Fri, 12 Jun 2026 18:03:27 +0930
-Subject: [PATCH] arm64: dts: aspeed: Fix duplicate pinctrl labels and
- address scheme
+	id 1wXxR3-0000000Aamj-3rvu;
+	Fri, 12 Jun 2026 08:40:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4917242A07;
+	Fri, 12 Jun 2026 08:40:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3BD71F000E9;
+	Fri, 12 Jun 2026 08:40:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781253617;
+	bh=IqyBluiRoUQtAELX3j26vahFC6LntA86G4+ojNuG26M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kvCMVaesKA1Y5Cz2dqaIPHFzz2MBlzpD77udgjrekZF7CuhZBDY6tL1Ws+mE5ijP5
+	 sKZcqMGQ707lAx0o6dEBwEdjCHcQC/Ktcs4XryQ6MyVndGQ2UN3FCeM+rKgxeKOYbk
+	 X3Nmliw9y9jWa7Eq5/VWAQmokdpBVeb7oBrnQBrfT5RgNj4+x2oHqykq3LVX1G20gk
+	 KkWeYmBwc+8Gr6+rpM16ZOamK5PGZEy8JxXO0BrxKPscO0htzK9TDJkgaUFXCQFWNx
+	 yCI4YHs57SRDu6vqfpuC6k/hQkznKW4itOwqkWHuIRHLP2b2N3fJINg540T3PWJlq7
+	 KxTshZqr1gGmQ==
+Date: Fri, 12 Jun 2026 10:40:14 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: "Wayen.Yan" <win847@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] net: airoha: Fix variable shadowing in
+ airoha_ppe_flush_sram_entries()
+Message-ID: <aivF7p3KdCvyOjtf@lore-desk>
+References: <6a2b40e4.4dd82583.3a5c46.e52f@mx.google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-aspeed-arm64-dt-v1-1-d1d1a4737905@codeconstruct.com.au>
-X-B4-Tracking: v=1; b=H4sIAFbEK2oC/yXMQQqDMBBG4avIrDugUYLtVaSLmPzVEaqSURHEu
- 5va5bd47yBFFCi9soMiNlGZxoTikZHv3diBJSSTyY3NbWHY6QwEdvFrKw4LPyvjautbhLKkVM0
- RH9nvY/P+W9d2gF9+GzrPC8V0WEhzAAAA
-X-Change-ID: 20260612-aspeed-arm64-dt-942a86cbed33
-To: soc@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, joel@jms.id.au, 
- Ryan Chen <ryan_chen@aspeedtech.com>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6435;
- i=andrew@codeconstruct.com.au; h=from:subject:message-id;
- bh=J1juUJ02HqSgk/LBAT55Ph6yeet02dscpZhfvtggV1Q=;
- b=owGbwMvMwCW22PjiTL8dD5cxnlZLYsjSPlLw58GEVddbU67Frv5V2vysc11KGs8MMwX1ltwsQ
- +35L93edJSyMIhxMciKKbKsCLQtvLt5UvzPA9nHYOawMoEMYeDiFICJZCcy/K9TvGCoVrzU8ZlQ
- 7tvrLq7h7Tw8DjZrJ+XL3Q4L7GJofsbI8G1Vl87l8ML/M5SSw166Mh9WsZhuwcx79SCrZszzZzM
- 2cgMA
-X-Developer-Key: i=andrew@codeconstruct.com.au; a=openpgp;
- fpr=C0F5E25A7D30ECBBF3BE3CEC3B837651FC0D8CF4
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_013401_166074_E21AB111 
-X-CRM114-Status: GOOD (  13.32  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="d0t5x//dz2MbmcOP"
+Content-Disposition: inline
+In-Reply-To: <6a2b40e4.4dd82583.3a5c46.e52f@mx.google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,223 +69,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Chen <ryan_chen@aspeedtech.com>
 
-A report from shashiko-bot highlighted some concerns concurrent to
-application of the series[1].
+--d0t5x//dz2MbmcOP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fix duplicate pinctrl_tach{0-15} and pinctrl_n{cts,dcd,dsr,ri}5 labels
-in aspeed-g7-soc1-pinctrl.dtsi. These didn't cause errors from dtc
-because dtc accepts duplicate labels for duplicate nodes specified
-through a node reference[2].
+> In airoha_ppe_flush_sram_entries(), the inner "int err" declaration
+> shadows the outer "err" variable. When airoha_ppe_foe_commit_sram_entry()
+> fails and the loop breaks, the function returns the outer err which is
+> always 0, silently swallowing the error.
+>=20
+> Remove the inner declaration so the assignment writes to the outer
+> variable and errors are properly propagated.
+>=20
+> Fixes: 620d7b91aadb ("net: airoha: ppe: Flush PPE SRAM table during PPE s=
+etup")
+> Signed-off-by: Wayen.Yan <win847@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 2 --
+>  1 file changed, 2 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
+net/airoha/airoha_ppe.c
+> index 5c9dff6..2b849d4 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -1333,8 +1333,6 @@ static int airoha_ppe_flush_sram_entries(struct air=
+oha_ppe *ppe)
+>  	int i, err =3D 0;
+> =20
+>  	for (i =3D 0; i < sram_num_entries; i++) {
+> -		int err;
+> -
+>  		memset(&hwe[i], 0, sizeof(*hwe));
+>  		err =3D airoha_ppe_foe_commit_sram_entry(ppe, i);
+>  		if (err)
 
-Drop the cpu-index from secondary/tertiary container nodes: reduce
-the "#address-cells" from 2 to 1 and update unit-addresses and reg
-accordingly. The 2-cell scheme was proposed in an early mailing list
-sketch to prompt discussion[3], but the design evolved in ways that made
-it unnecessary.
+I guess we can drop the outer err and just return here in case of error.
+What do you think?
 
-Also remove URL comments from the DTS. The links were to comments in
-the kernel sources with discussion justifying the approach, but are not
-necessary to carry forward.
+Regards,
+Lorenzo
 
-[arj: Extend discussion in the commit message]
+> --=20
+> 2.51.0
+>=20
+>=20
 
-Link: https://lore.kernel.org/all/20260609025708.ADBFE1F00893@smtp.kernel.org/ [1]
-Link: https://lore.kernel.org/all/b226339bb2abe42ce23e90eadbc654b426131083.camel@codeconstruct.com.au/ [2]
-Link: https://lore.kernel.org/all/1a2ca78746e00c2ec4bfc2953a897c48376ed36f.camel@codeconstruct.com.au/ [3]
-Suggested-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-Fixes: e77bb5dc5759 ("arm64: dts: aspeed: Add initial AST27xx SoC device tree")
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-Link: https://patch.msgid.link/20260611-dtsi_fix-v1-1-ef2b7cd86d6d@aspeedtech.com
-Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
----
-Hello SoC maintainers,
+--d0t5x//dz2MbmcOP
+Content-Type: application/pgp-signature; name=signature.asc
 
-Here's a patch containing Ryan's fixes for issues in the report from
-sashiko-bot linked in the commit message. The series in question was
-inadvertently sent to soc@ before consensus had been reached through
-review, and applied to soc/dt concurrent to some of the discussion on
-the list.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaivF7gAKCRA6cBh0uS2t
+rIP+AQC/Wi/u5DcCTnudAHlBHNxkjod5I9HyuAD0KavETP4CfwEAgkSgJBvnADhY
+cclhUUfL6oWf1d10T0OCN6Uu+GXLMQE=
+=rHCo
+-----END PGP SIGNATURE-----
 
-Andrew
----
- arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi      |  14 ++-
- .../boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi    | 102 ---------------------
- 2 files changed, 6 insertions(+), 110 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-index ef283d95649a..58193c3c3696 100644
---- a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-+++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-@@ -84,32 +84,30 @@ l2: l2-cache0 {
- 	};
- 
- 	secondary {
--		#address-cells = <2>;
--		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/of/address.c?h=v6.16#n491 */
-+		#address-cells = <1>;
- 		#size-cells = <0>;
--		/* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/of/address.c?h=v6.16#n430 */
- 
--		ssp_nvic: interrupt-controller@1,e000e100 {
-+		ssp_nvic: interrupt-controller@e000e100 {
- 			compatible = "arm,v7m-nvic";
- 			#interrupt-cells = <2>;
- 			#address-cells = <0>;
- 			interrupt-controller;
--			reg = <1 0xe000e100>;
-+			reg = <0xe000e100>;
- 			arm,num-irq-priority-bits = <3>;
- 			status = "disabled";
- 		};
- 	};
- 
- 	tertiary {
--		#address-cells = <2>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		tsp_nvic: interrupt-controller@2,e000e100 {
-+		tsp_nvic: interrupt-controller@e000e100 {
- 			compatible = "arm,v7m-nvic";
- 			#interrupt-cells = <2>;
- 			#address-cells = <0>;
- 			interrupt-controller;
--			reg = <2 0xe000e100>;
-+			reg = <0xe000e100>;
- 			arm,num-irq-priority-bits = <3>;
- 			status = "disabled";
- 		};
-diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
-index 72d93323593d..6edf14617b09 100644
---- a/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-soc1-pinctrl.dtsi
-@@ -496,87 +496,6 @@ pinctrl_hvi3c15_default: hvi3c15-default-state {
- 		function = "I3C15";
- 		groups = "HVI3C15";
- 	};
--
--	pinctrl_tach0_default: tach0-default-state {
--		function = "TACH0";
--		groups = "TACH0";
--	};
--
--	pinctrl_tach1_default: tach1-default-state {
--		function = "TACH1";
--		groups = "TACH1";
--	};
--
--	pinctrl_tach2_default: tach2-default-state {
--		function = "TACH2";
--		groups = "TACH2";
--	};
--
--	pinctrl_tach3_default: tach3-default-state {
--		function = "TACH3";
--		groups = "TACH3";
--	};
--
--	pinctrl_tach4_default: tach4-default-state {
--		function = "TACH4";
--		groups = "TACH4";
--	};
--
--	pinctrl_tach5_default: tach5-default-state {
--		function = "TACH5";
--		groups = "TACH5";
--	};
--
--	pinctrl_tach6_default: tach6-default-state {
--		function = "TACH6";
--		groups = "TACH6";
--	};
--
--	pinctrl_tach7_default: tach7-default-state {
--		function = "TACH7";
--		groups = "TACH7";
--	};
--
--	pinctrl_tach8_default: tach8-default-state {
--		function = "TACH8";
--		groups = "TACH8";
--	};
--
--	pinctrl_tach9_default: tach9-default-state {
--		function = "TACH9";
--		groups = "TACH9";
--	};
--
--	pinctrl_tach10_default: tach10-default-state {
--		function = "TACH10";
--		groups = "TACH10";
--	};
--
--	pinctrl_tach11_default: tach11-default-state {
--		function = "TACH11";
--		groups = "TACH11";
--	};
--
--	pinctrl_tach12_default: tach12-default-state {
--		function = "TACH12";
--		groups = "TACH12";
--	};
--
--	pinctrl_tach13_default: tach13-default-state {
--		function = "TACH13";
--		groups = "TACH13";
--	};
--
--	pinctrl_tach14_default: tach14-default-state {
--		function = "TACH14";
--		groups = "TACH14";
--	};
--
--	pinctrl_tach15_default: tach15-default-state {
--		function = "TACH15";
--		groups = "TACH15";
--	};
--
- 	pinctrl_thru0_default: thru0-default-state {
- 		function = "THRU0";
- 		groups = "THRU0";
-@@ -940,27 +859,6 @@ pinctrl_uart3_default: uart3-default-state {
- 		function = "UART3";
- 		groups = "UART3";
- 	};
--
--	pinctrl_ncts5_default: ncts5-default-state {
--		function = "NCTS5";
--		groups = "NCTS5";
--	};
--
--	pinctrl_ndcd5_default: ndcd5-default-state {
--		function = "NDCD5";
--		groups = "NDCD5";
--	};
--
--	pinctrl_ndsr5_default: ndsr5-default-state {
--		function = "NDSR5";
--		groups = "NDSR5";
--	};
--
--	pinctrl_nri5_default: nri5-default-state {
--		function = "NRI5";
--		groups = "NRI5";
--	};
--
- 	pinctrl_ndtr5_default: ndtr5-default-state {
- 		function = "NDTR5";
- 		groups = "NDTR5";
-
----
-base-commit: 564edaca14861ba9e58d4e646d272c677296d285
-change-id: 20260612-aspeed-arm64-dt-942a86cbed33
-
-Best regards,
---  
-Andrew Jeffery <andrew@codeconstruct.com.au>
-
+--d0t5x//dz2MbmcOP--
 
