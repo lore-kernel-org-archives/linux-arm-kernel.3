@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B78ACD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 22:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D98CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 22:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vABprRdHi0+jMSnKJHgOu7qPrGQgpls9Hi+j8cLzctE=; b=3IVEFwWGeL4ZG+VJfZCEhMgAU+
-	0GNU89el7cYHwlf9n9TIniDX6ZvKVEHIdPcwYmMCniSrrt3QYuXC6DcN1XYOi7DHgaQKlCBC70pbJ
-	HUc1JLgcI4B+GOJ53StBYPLjo6K4KYNVIWcdu1pZsh8SqHBK/fQ+eNekTIebYb0ZmgHAWaASot5SV
-	A4cHAHit3H8axFPqmCjSpUmJyOcCxfTlOTtsRuT61Fwq5V0tso5kp1FCiiOorpGsS6x8eIhWhoyTe
-	uU18sa1tuK3X/l0UrU/qm5eMQob/qBgnw4HFDU3aydi1XnIDA8Ei8SJuvC+u92B/4NXiBOqdra92Q
-	5o9n16+w==;
+	bh=GcdeqxeVfFrHxqALcsGPP1mmzsBfSBPpnhgVQrJGy8E=; b=F4ib9uYAlWfCbkvk/EpO74GvnD
+	py3aEXuwSAU8Jommc+evr8qi8lBtvM6WM8PKhScMcnZRRbPJ/NMKYFUMIKbUC8B++hY+zE9yk3ug9
+	caP17beOMVvao9WISiGevVeJ1vSTFvUg+37Qq5NGm4RgpAuwd8wTF8Cz7wUF4xWvKarMxOoaHSx3h
+	CVobd64bFws81sxyJMl31LWRglU8wMLb74hZ/rXpuXMQvhoN8OI9JxHivNfCqxH6cTBd97qePT2sH
+	kDICaWi1jEpNyAJI4EhwgzGLxJ2C7p2cq+kFpbTOkT/9Z+EdNLNdZSs43Zllx4/Eyu+yGu2OFjjwS
+	TYiTdffA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYAHF-0000000BfDO-3vWJ;
-	Fri, 12 Jun 2026 22:23:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYAHE-0000000BfDG-2Xwc
+	id 1wYAWW-0000000Bfd2-2CYJ;
+	Fri, 12 Jun 2026 22:38:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wYAWS-0000000Bfbi-0ZS9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 22:23:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F21FF60008
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 22:22:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8BBA1F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 22:22:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781302979;
-	bh=vABprRdHi0+jMSnKJHgOu7qPrGQgpls9Hi+j8cLzctE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=aiR7H8QqEcmIZig0yc9a796CB/vlfHlamkRhrEZqns0LD//voS5rIqkf2vgSITXwL
-	 lqmlFfoKK+zs0uMszJ46WsPVcojNgTIWU0IR99Bxb3L4SNQt7L2x9h77XjOuUfFARl
-	 iqGr6s7YZQOtoND5ewAgLO7Aadl8ajVK7OQPd0cGv1sv3Xga3LKyZ5qxOZNKqryu1Q
-	 +TQ54C8YUEhMgnN3YdKPTqZz/n/aW0kB336olU+WrrBVy44ANJ7vk/c7eSOZHPiY5g
-	 sy/B9kVBOibRJ/95dnzj/qoV9BYgkpuCNL5gL9qdOS9ODFfUDYTqFQBgb6sQUtiEy1
-	 grdI7ogVaFdhg==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5aa63daf2a5so917777e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 15:22:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8Kfbi8iIJ9DeVMCL0Y4Ri/iE1QzUYDSFi0fR5bwccArUSjpwHSgka333O12gbOrkp6eiJWXa+tTe2cRC9tLm+4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzML6I968gNzF8O6p5G+Yz1WR7IGE3OnpD0+KjXM9/MQmFXHZSB
-	aD7pQvo7G+a3YfhQDvOcGTX8hgL+vVSr0au691kjUp5CSRU7fK8cK0TDLCU0hy3JupyOsNaNJyI
-	38ENPL6opDj7JUDPpP14yVkmwlBuXg+4=
-X-Received: by 2002:ac2:4895:0:b0:5aa:6d0e:9d2d with SMTP id
- 2adb3069b0e04-5ad2db3aec0mr1112788e87.20.1781302978525; Fri, 12 Jun 2026
- 15:22:58 -0700 (PDT)
+	Fri, 12 Jun 2026 22:38:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8223F3543;
+	Fri, 12 Jun 2026 15:38:38 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48B703FB7F;
+	Fri, 12 Jun 2026 15:38:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781303923; bh=kERIHBTqo+45BsoHlnrL4Ov7/lPYVch35gHn4ON5zrM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=vOhrDFz54vuokxrQlNWbI8VSRGX57QG3DZ/v+VJNXvN66bM53FRztFbMFsiFr3lPb
+	 Mi/EIM5LgQlU22JA4Acwx+oNJdebbUiyllggSdkg/npRm16F6hU6X3n2RlaN5K+qHt
+	 Y8YspYEY9ufqsNVqSJ0UUpcPnCVYWVKrCvorYufc=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	brauner@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v4 02/31] firmware: arm_scmi: Reduce the scope of protocols mutex
+Date: Fri, 12 Jun 2026 23:37:32 +0100
+Message-ID: <20260612223802.1337232-3-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260612223802.1337232-1-cristian.marussi@arm.com>
+References: <20260612223802.1337232-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-References: <20260612214939.1883911-1-robh@kernel.org>
-In-Reply-To: <20260612214939.1883911-1-robh@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 13 Jun 2026 00:22:46 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkbPN_UKj6bVA_jvRFAaDjEKtNo8fKZGDqnym+BcmeKrQ@mail.gmail.com>
-X-Gm-Features: AVVi8CepGFY0snqvsoBINOTrVOumoNZcMuGaGS0hHzSaIpqAZRiRaNAz0dBo-S0
-Message-ID: <CAD++jLkbPN_UKj6bVA_jvRFAaDjEKtNo8fKZGDqnym+BcmeKrQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: Match DT helper types
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_153844_261937_6B3FB839 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +90,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 11:49=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org=
-> wrote:
+Currently the mutex dedicated to the protection of the list of registered
+protocols is held during all the protocol initialization phase.
 
-> The affected pinctrl drivers either check for the presence of a standard
-> property or read a property documented with an 8-bit cell encoding.
-> Using boolean or u32 helpers for those cases disagrees with the binding.
->
-> Use a presence helper for "gpio-ranges" and read
-> "microchip,spi-present-mask" with the u8 helper documented by the
-> binding.
->
-> Assisted-by: Codex:gpt-5-5
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Such a wide locking region is not needed and causes problem when trying to
+initialize notifications from within a protocol initialization routine.
 
-Patch applied because good fix.
+Reduce the scope of the protocol mutex.
 
-Yours,
-Linus Walleij
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v1-->v2
+ - Fixed improper mixed usage of cleanup and goto constructs
+---
+ drivers/firmware/arm_scmi/driver.c | 50 ++++++++++++++----------------
+ 1 file changed, 24 insertions(+), 26 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index f167194f7cf6..2ee4cad1f93d 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -17,6 +17,7 @@
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
+ #include <linux/bitmap.h>
++#include <linux/cleanup.h>
+ #include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/export.h>
+@@ -2190,7 +2191,6 @@ static void scmi_protocol_version_initialize(struct device *dev,
+  * all resources management is handled via a dedicated per-protocol devres
+  * group.
+  *
+- * Context: Assumes to be called with @protocols_mtx already acquired.
+  * Return: A reference to a freshly allocated and initialized protocol instance
+  *	   or ERR_PTR on failure. On failure the @proto reference is at first
+  *	   put using @scmi_protocol_put() before releasing all the devres group.
+@@ -2236,8 +2236,10 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ 	if (ret)
+ 		goto clean;
+ 
+-	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
+-			GFP_KERNEL);
++	/* Finally register the initialized protocol */
++	mutex_lock(&info->protocols_mtx);
++	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1, GFP_KERNEL);
++	mutex_unlock(&info->protocols_mtx);
+ 	if (ret != proto->id)
+ 		goto clean;
+ 
+@@ -2284,27 +2286,25 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ static struct scmi_protocol_instance * __must_check
+ scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
+ {
+-	struct scmi_protocol_instance *pi;
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
++	const struct scmi_protocol *proto;
+ 
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
+-
+-	if (pi) {
+-		refcount_inc(&pi->users);
+-	} else {
+-		const struct scmi_protocol *proto;
++	scoped_guard(mutex, &info->protocols_mtx) {
++		struct scmi_protocol_instance *pi;
+ 
+-		/* Fails if protocol not registered on bus */
+-		proto = scmi_protocol_get(protocol_id, &info->version);
+-		if (proto)
+-			pi = scmi_alloc_init_protocol_instance(info, proto);
+-		else
+-			pi = ERR_PTR(-EPROBE_DEFER);
++		pi = idr_find(&info->protocols, protocol_id);
++		if (pi) {
++			refcount_inc(&pi->users);
++			return pi;
++		}
+ 	}
+-	mutex_unlock(&info->protocols_mtx);
+ 
+-	return pi;
++	/* Fails if protocol not registered on bus */
++	proto = scmi_protocol_get(protocol_id, &info->version);
++	if (!proto)
++		return ERR_PTR(-EPROBE_DEFER);
++
++	return scmi_alloc_init_protocol_instance(info, proto);
+ }
+ 
+ /**
+@@ -2335,10 +2335,11 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
+ 	struct scmi_protocol_instance *pi;
+ 
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
+-	if (WARN_ON(!pi))
+-		goto out;
++	scoped_guard(mutex, &info->protocols_mtx) {
++		pi = idr_find(&info->protocols, protocol_id);
++		if (WARN_ON(!pi))
++			return;
++	}
+ 
+ 	if (refcount_dec_and_test(&pi->users)) {
+ 		void *gid = pi->gid;
+@@ -2357,9 +2358,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
+ 			protocol_id);
+ 	}
+-
+-out:
+-	mutex_unlock(&info->protocols_mtx);
+ }
+ 
+ void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
+-- 
+2.54.0
+
 
