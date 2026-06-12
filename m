@@ -4,59 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A1DCD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 21:52:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9DFCD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 21:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f9Wh7NvXO66sNsL9eRF3jkvVQcyg+DTDNvWmFLOKnjM=; b=yEnmKxWvNbfLiIcMmELxmxNbR2
-	5pvm6Ct994saFSvDjCM+MXfX/Xnzz/U2OHTs+vGSsEfwGLSDm52MPcKVkdZsdUpzsMWSSTX6singm
-	5s9BXIhysQP3jFoO3Bs6KxkRsXexbxsC7tnz+rWXleCaQfTG+1iM7PWxqejh9L55JwgvkEHZZ7hdI
-	THAF2Sw92DS9FqQeUbRB0aaE5X1zV679YPsGS2UJVE+3eipuMPYtnI7x6Gj1lKHmlApI0QlJbfNp6
-	fzmWxvmXuLdv7GQG5TSee4FTQ+jMIsBw0K3SDOQmesnSRYUO03slCZjZGVH9ndkXHtChMMDbKkYQL
-	6P8sgSAA==;
+	bh=/mgJaxjsUKNCc5mQk0mLWPO6Egk9qnKCndvJ4uafpjo=; b=IqpI1zaK45v24EsvfvqYr4JjVU
+	0NPC17IWh6XIY4ylPK/egNLaJfoJJ65zX7zq/dKqsT+TvGPusKqz+JHKmPFeZmG6+Xv/Alb92e3dW
+	mFKrG5hROElOZd3OL/PYuNxhRIsLZ1lB8iKlASONaEmkMhYRHTWu1yslaHSntM+mBzNAkPcQD4OOJ
+	Pu0wytMUYjhe2q7xVjGXeLubaQ3egSW/SJafTa52IWtZ53g4jEmO3E6ATCVYm3Yu4MABkny6hJEu2
+	TFfGrFNPXm1CgOnzwqyEud6/OtBUviWXZe7CnlFpxvLdNHJJkIP7A+6zrULWpi1ZXBKURGtMuYj0I
+	exvE+BVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY9nj-0000000Bd0V-3zvB;
-	Fri, 12 Jun 2026 21:52:31 +0000
+	id 1wY9o2-0000000Bd5n-0K2U;
+	Fri, 12 Jun 2026 21:52:50 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY9nj-0000000Bd0I-11gB
+	id 1wY9o0-0000000Bd5P-3InK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 21:52:31 +0000
+	Fri, 12 Jun 2026 21:52:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AF9C600AF;
-	Fri, 12 Jun 2026 21:52:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 168A71F000E9;
-	Fri, 12 Jun 2026 21:52:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D3E160008;
+	Fri, 12 Jun 2026 21:52:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08051F000E9;
+	Fri, 12 Jun 2026 21:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781301150;
-	bh=f9Wh7NvXO66sNsL9eRF3jkvVQcyg+DTDNvWmFLOKnjM=;
+	s=k20260515; t=1781301167;
+	bh=/mgJaxjsUKNCc5mQk0mLWPO6Egk9qnKCndvJ4uafpjo=;
 	h=From:To:Cc:Subject:Date;
-	b=VXorvUJaie1JEFvJ3mt1q5HQtkUfWzFpUxsFjIgebkb+WjeShUqFMT3RglFn/bJpO
-	 9Raf9cYpB/359pXknr48+/MK3vWUEmUiv88eRRmM9ScMwGf3KbI1Y7nKR7V02/nAyX
-	 NdKguo4HR8azK3h+wAi/dyEmkVDnNWleaj/dFvjHIYfDeP/nGaeAa3BBTjfuOnZ3Sh
-	 r/NGCJNiTmqTUvhGnrEVZFksFxwF9l8VkvWEMdQJGDahcxVoCWZ1Mbssx283Tcy1jE
-	 SazzDhqwkCeYf0G1NzbU2xGZGpXvRK+ID8FPQZY5cU6v5nyqEq+oawVGx4jLqn8wMC
-	 6yyQMmekjb8Dw==
+	b=CT98+UyTiOHRp1+zzntxdqkhzI0whaW/wo5sNpx0259IEDY1UFCVpwEuvuVTDkBiI
+	 b1F2kt80KbMkA4pWRR8JvBs8jYvGU7mFyC1mf4+N+2akzT0JUT6xj7b2H0w9EF8F6k
+	 ASv9qXLK7L1nhYnNaOtU0ExoOYFRYJlG1FXURJmQ3XwwKrWvTrcNJDxC8L1RukFr9O
+	 aNOOL0nBUEjBz6RmSNx1vwlD/az1WfHeeyYRVkCxaBPGV1FLsorOPJC8+S5orfrJ8U
+	 EjuDvcwHzqc4gzlN/EDR1EGP79Xo+gyiqKubtM8FfpmsHpumjW/OdNhSG9kQu3h4sD
+	 lRsEeZvt/OLCw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Vinod Koul <vkoul@kernel.org>,
 	Frank Li <Frank.Li@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Abin Joseph <abin.joseph@amd.com>
+	Michal Simek <michal.simek@amd.com>
 Cc: dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: dma: xilinx: Fix "xlnx,irq-delay" type
-Date: Fri, 12 Jun 2026 16:52:25 -0500
-Message-ID: <20260612215226.1887726-1-robh@kernel.org>
+Subject: [PATCH] dmaengine: xilinx: Treat "xlnx,flush-fsync" as a flag
+Date: Fri, 12 Jun 2026 16:52:32 -0500
+Message-ID: <20260612215233.1887921-1-robh@kernel.org>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -74,33 +69,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"xlnx,irq-delay" programs an 8-bit delay field in the DMA control
-register, and the driver stores and reads it as a byte. The binding
-described the property as a uint32 cell, which made the helper type
-check report the driver as wrong.
+The Xilinx DMA binding documents "xlnx,flush-fsync" as a boolean flag.
+The driver read it as an integer cell and warned when it was absent,
+which does not match the documented property encoding.
 
-Document "xlnx,irq-delay" as uint8 so the generated schema reflects
-the hardware field width and the existing driver access.
+Use the boolean helper so the driver follows the binding. Leave
+"xlnx,irq-delay" as an 8-bit property read because the hardware field
+is 8 bits wide.
 
 Assisted-by: Codex:gpt-5-5
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/dma/xilinx/xilinx_dma.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-index 340ae9e91cb0..ba0fc515d825 100644
---- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-+++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-@@ -93,7 +93,7 @@ properties:
-       Width in bits of the length register as configured in hardware.
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index 404235c17353..cbb23fd6e096 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -3262,11 +3262,8 @@ static int xilinx_dma_probe(struct platform_device *pdev)
+ 			goto disable_clks;
+ 		}
  
-   xlnx,irq-delay:
--    $ref: /schemas/types.yaml#/definitions/uint32
-+    $ref: /schemas/types.yaml#/definitions/uint8
-     minimum: 0
-     maximum: 255
-     description:
+-		err = of_property_read_u32(node, "xlnx,flush-fsync",
+-					   &xdev->flush_on_fsync);
+-		if (err < 0)
+-			dev_warn(xdev->dev,
+-				 "missing xlnx,flush-fsync property\n");
++		xdev->flush_on_fsync =
++			of_property_read_bool(node, "xlnx,flush-fsync");
+ 	}
+ 
+ 	err = of_property_read_u32(node, "xlnx,addrwidth", &addr_width);
 -- 
 2.53.0
 
