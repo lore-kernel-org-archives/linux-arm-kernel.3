@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D98CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 22:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95172CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 22:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GcdeqxeVfFrHxqALcsGPP1mmzsBfSBPpnhgVQrJGy8E=; b=F4ib9uYAlWfCbkvk/EpO74GvnD
-	py3aEXuwSAU8Jommc+evr8qi8lBtvM6WM8PKhScMcnZRRbPJ/NMKYFUMIKbUC8B++hY+zE9yk3ug9
-	caP17beOMVvao9WISiGevVeJ1vSTFvUg+37Qq5NGm4RgpAuwd8wTF8Cz7wUF4xWvKarMxOoaHSx3h
-	CVobd64bFws81sxyJMl31LWRglU8wMLb74hZ/rXpuXMQvhoN8OI9JxHivNfCqxH6cTBd97qePT2sH
-	kDICaWi1jEpNyAJI4EhwgzGLxJ2C7p2cq+kFpbTOkT/9Z+EdNLNdZSs43Zllx4/Eyu+yGu2OFjjwS
-	TYiTdffA==;
+	bh=QPw+x1NHfQ8MKKebYI0P9O0FjOcb1OPXb4QQl8ks+Wk=; b=yRRcqEUZosJLDOZ1RzDA+uUXfd
+	OipLbATtW5zDGOj6vHGqorZgZI/g7agMbMi+nvu5LGfGeSEc0VdTfNwrM3T0urvwpqM5Eig6BjMZR
+	dTlFOPQ2RkC3KJR1uo5yWB2BumHGFh7lKUexlNREoxP/9aqtvXhvnXzA6g/KJcwefDj1JYeLnmz54
+	LHRORBrSUZTbbsccEVKp40LAG0B3avN9GIw+vlsoKtqhKlkeyKA8fzyCx91OW2R7ZrT5fbORSoSDd
+	FgtjI6+XwW9Y9ULqzeCXhQ8yQvhyt4bMrFapqJQqrUVATQpsHs+HMmy+/I1uhsHhJ9BSf2iJQDbhW
+	LyEZvWeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYAWW-0000000Bfd2-2CYJ;
-	Fri, 12 Jun 2026 22:38:48 +0000
+	id 1wYAWQ-0000000Bfb1-1OqL;
+	Fri, 12 Jun 2026 22:38:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYAWS-0000000Bfbi-0ZS9
+	id 1wYAWO-0000000BfaY-1La2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 22:38:45 +0000
+	Fri, 12 Jun 2026 22:38:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8223F3543;
-	Fri, 12 Jun 2026 15:38:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F3AD49FF;
+	Fri, 12 Jun 2026 15:38:34 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48B703FB7F;
-	Fri, 12 Jun 2026 15:38:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E2143FB7F;
+	Fri, 12 Jun 2026 15:38:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781303923; bh=kERIHBTqo+45BsoHlnrL4Ov7/lPYVch35gHn4ON5zrM=;
+	t=1781303918; bh=LWEWQChy2iYs8Q9FCAaunLTNmooIyvBg3XdAkRLz+vU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vOhrDFz54vuokxrQlNWbI8VSRGX57QG3DZ/v+VJNXvN66bM53FRztFbMFsiFr3lPb
-	 Mi/EIM5LgQlU22JA4Acwx+oNJdebbUiyllggSdkg/npRm16F6hU6X3n2RlaN5K+qHt
-	 Y8YspYEY9ufqsNVqSJ0UUpcPnCVYWVKrCvorYufc=
+	b=CHhZqT9ffpVc+rEO4YN0igIbSWqis1ZmRCAvDiMPFAtYkqJy/WO3wboZLIEjgoWig
+	 6jv0yT80eIkei98ljnb0FK/QEzhyWBHpl88ZtVF2YTEgMdkWn4P3TqShV0+f40VnQ9
+	 lzfp6m0UlHU2YRC3z/G6YrABlbvMmSo1I2rhny9Q=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -65,17 +65,18 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v4 02/31] firmware: arm_scmi: Reduce the scope of protocols mutex
-Date: Fri, 12 Jun 2026 23:37:32 +0100
-Message-ID: <20260612223802.1337232-3-cristian.marussi@arm.com>
+Subject: [PATCH v4 01/31] firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
+Date: Fri, 12 Jun 2026 23:37:31 +0100
+Message-ID: <20260612223802.1337232-2-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260612223802.1337232-1-cristian.marussi@arm.com>
 References: <20260612223802.1337232-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_153844_261937_6B3FB839 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20260612_153840_408600_B2779C11 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,123 +91,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the mutex dedicated to the protection of the list of registered
-protocols is held during all the protocol initialization phase.
-
-Such a wide locking region is not needed and causes problem when trying to
-initialize notifications from within a protocol initialization routine.
-
-Reduce the scope of the protocol mutex.
+SCMIv4.0 introduces a couple of new possible protocol error codes: add
+the needed definitions and mappings to Linux error values.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v1-->v2
- - Fixed improper mixed usage of cleanup and goto constructs
----
- drivers/firmware/arm_scmi/driver.c | 50 ++++++++++++++----------------
- 1 file changed, 24 insertions(+), 26 deletions(-)
+ drivers/firmware/arm_scmi/common.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index f167194f7cf6..2ee4cad1f93d 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -17,6 +17,7 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 7c9617d080a0..abe2fa3d41dd 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -45,6 +45,8 @@ enum scmi_error_codes {
+ 	SCMI_ERR_GENERIC = -8,	/* Generic Error */
+ 	SCMI_ERR_HARDWARE = -9,	/* Hardware Error */
+ 	SCMI_ERR_PROTOCOL = -10,/* Protocol Error */
++	SCMI_ERR_IN_USE = -11,  /* In Use Error */
++	SCMI_ERR_PARTIAL = -12, /* Partial Error */
+ };
  
- #include <linux/bitmap.h>
-+#include <linux/cleanup.h>
- #include <linux/debugfs.h>
- #include <linux/device.h>
- #include <linux/export.h>
-@@ -2190,7 +2191,6 @@ static void scmi_protocol_version_initialize(struct device *dev,
-  * all resources management is handled via a dedicated per-protocol devres
-  * group.
-  *
-- * Context: Assumes to be called with @protocols_mtx already acquired.
-  * Return: A reference to a freshly allocated and initialized protocol instance
-  *	   or ERR_PTR on failure. On failure the @proto reference is at first
-  *	   put using @scmi_protocol_put() before releasing all the devres group.
-@@ -2236,8 +2236,10 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- 	if (ret)
- 		goto clean;
+ static const int scmi_linux_errmap[] = {
+@@ -60,6 +62,8 @@ static const int scmi_linux_errmap[] = {
+ 	-EIO,			/* SCMI_ERR_GENERIC */
+ 	-EREMOTEIO,		/* SCMI_ERR_HARDWARE */
+ 	-EPROTO,		/* SCMI_ERR_PROTOCOL */
++	-EPERM,			/* SCMI_ERR_IN_USE */
++	-EINVAL,		/* SCMI_ERR_PARTIAL */
+ };
  
--	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
--			GFP_KERNEL);
-+	/* Finally register the initialized protocol */
-+	mutex_lock(&info->protocols_mtx);
-+	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1, GFP_KERNEL);
-+	mutex_unlock(&info->protocols_mtx);
- 	if (ret != proto->id)
- 		goto clean;
- 
-@@ -2284,27 +2286,25 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- static struct scmi_protocol_instance * __must_check
- scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
- {
--	struct scmi_protocol_instance *pi;
- 	struct scmi_info *info = handle_to_scmi_info(handle);
-+	const struct scmi_protocol *proto;
- 
--	mutex_lock(&info->protocols_mtx);
--	pi = idr_find(&info->protocols, protocol_id);
--
--	if (pi) {
--		refcount_inc(&pi->users);
--	} else {
--		const struct scmi_protocol *proto;
-+	scoped_guard(mutex, &info->protocols_mtx) {
-+		struct scmi_protocol_instance *pi;
- 
--		/* Fails if protocol not registered on bus */
--		proto = scmi_protocol_get(protocol_id, &info->version);
--		if (proto)
--			pi = scmi_alloc_init_protocol_instance(info, proto);
--		else
--			pi = ERR_PTR(-EPROBE_DEFER);
-+		pi = idr_find(&info->protocols, protocol_id);
-+		if (pi) {
-+			refcount_inc(&pi->users);
-+			return pi;
-+		}
- 	}
--	mutex_unlock(&info->protocols_mtx);
- 
--	return pi;
-+	/* Fails if protocol not registered on bus */
-+	proto = scmi_protocol_get(protocol_id, &info->version);
-+	if (!proto)
-+		return ERR_PTR(-EPROBE_DEFER);
-+
-+	return scmi_alloc_init_protocol_instance(info, proto);
- }
- 
- /**
-@@ -2335,10 +2335,11 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 	struct scmi_info *info = handle_to_scmi_info(handle);
- 	struct scmi_protocol_instance *pi;
- 
--	mutex_lock(&info->protocols_mtx);
--	pi = idr_find(&info->protocols, protocol_id);
--	if (WARN_ON(!pi))
--		goto out;
-+	scoped_guard(mutex, &info->protocols_mtx) {
-+		pi = idr_find(&info->protocols, protocol_id);
-+		if (WARN_ON(!pi))
-+			return;
-+	}
- 
- 	if (refcount_dec_and_test(&pi->users)) {
- 		void *gid = pi->gid;
-@@ -2357,9 +2358,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
- 			protocol_id);
- 	}
--
--out:
--	mutex_unlock(&info->protocols_mtx);
- }
- 
- void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
+ static inline int scmi_to_linux_errno(int errno)
 -- 
 2.54.0
 
