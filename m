@@ -4,69 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB29CD98D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 13:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE7BCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 13:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=taNgp4KGsZ3KiXZSZvUQMLkfqRwbGhzPbNLDn7Y5E3o=; b=aUXm/hRAGN4m0YY1qqiB0FBvq5
-	9MlQ8YPphE4TB0CausIvG2O1xhVK+X+k67GxvxdQMJ/lHGqQjBqUCOxiXdRkPmPzbmOUHznB3u93x
-	7Da8yOZdCIzpICnlvtzXh21Bryv9ulWZaXJjo8Iwi72VmRu3QisgZIm5+9RS7K45sGYSXbNsdBmcf
-	8i5ZlDAOAwKNBk65zJ0aHduS/ux/yRE+K9Tl2ASNwUo1s2pQl0OWGAioBvYO1lZLpLXpDpA8sZzDZ
-	ex48+jaHKtNt7YF1vVkX8be7cy/RBL+Vx1d4f9VbbJEu9nwQcUxYs37oPc8yb5dXzgWrc9ytFWUuB
-	3tdD1IEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cVG10nqGoE52+XgCg6Cv77s0dTJbAfaitc0NFuAsjtg=; b=IbDZJnguf2q9+LHEbTn1+NG2iO
+	tmio+Gt+cod5EPAQkbdZgZTpKZEXLAJUqEYe0EgKY32cRJ0GJlz05xqXA1fdsENrGH87rzTaHTC/a
+	+sf77HCa1Ec0kwRWurK8c9cUMBQvPjyBjtgiVZUVp2VNCKKtm+tNBmWi7gO3B2nTbNOqAxsdTZzNl
+	+IUu6sc1gRrps+CkVtfwKF795pBuPvw1PuQz3txcJ1C8fBk6ukOl2domfFICnySwx9W4g7Cmec1gP
+	cd7O7I/KCLG86sDa3fA5zntYVAQ2xJs7XCikDWnvEBtINa4HIMOGFzHAM6onSE0EceeIIr03mbJnf
+	iBtCzXWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY1ng-0000000Awfa-2ZOq;
-	Fri, 12 Jun 2026 13:19:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wY1uV-0000000AxyB-3hwZ;
+	Fri, 12 Jun 2026 13:26:59 +0000
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY1ne-0000000AwfA-0wh0;
-	Fri, 12 Jun 2026 13:19:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 966A5403A2;
-	Fri, 12 Jun 2026 13:19:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8BDB1F000E9;
-	Fri, 12 Jun 2026 13:19:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781270393;
-	bh=taNgp4KGsZ3KiXZSZvUQMLkfqRwbGhzPbNLDn7Y5E3o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gRWaSvc697+zpk8A7FOUkBv+zrymR3irREfWIgwvAlNE/BxppA4V648OReKSQc8fp
-	 J3R3YL8sEiSOnsEdKj6XwmuaOpQ6ta9vePgHXJBEmqcwbxjJYiHwGZu6b9QyRWTGUC
-	 vAVXTrOmyt0akvDpkYpk4JJp9IhEemH2e4+/vwYU0vTWKnmj5OhS1YC5CLaruu+xqi
-	 VKQKaRtjZUBcKE3N7wD28JcsM0zWdZowDDK1fYjLLRInkQDGK9nhOeP3civb+CAn2H
-	 S3SAiAzenl7h12DoE1ntDoUH80lttvHmEVfh2ff4AtaQtsRn3yAm9VQTAenFSnxpoj
-	 IeWk2wxbZjcLg==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 2A3061AC58C5; Fri, 12 Jun 2026 14:19:40 +0100 (BST)
-Date: Fri, 12 Jun 2026 14:19:40 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Valerio Setti <vsetti@baylibre.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+	id 1wY1uU-0000000Axxs-1HFl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 13:26:59 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-3075ce9c05aso2129604eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 06:26:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781270817; x=1781875617; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cVG10nqGoE52+XgCg6Cv77s0dTJbAfaitc0NFuAsjtg=;
+        b=Ieb/Je3yBLPwV3pxogt7MHB5AGPVyRYpT62eJtXVeQhl8SBDHRq3ue2Y51TK6RP9Yv
+         tV1Ztbzk73cs66jt5a3pRkF5TST6iM9dgmsq4F1mxiipc+Slq/84fceVuE0lz1YQYipt
+         6eoX4rroe+456Zn963/dSPK8iJDTBXXzgV0QCwcqYYI8J36H+I37uAQtnsw3xYu9BgpF
+         7BL9JnGI5yaXzcdhFbO0Mw3L4wwu3jJaLQqH+avmtzSpq2axiX196Pt7Ngt5HO2JklrC
+         8seqAImOLa3/ZBnkCXfyffxrxEAvQtU4j7ekHqimceOyUZ5AGUgbH83bhVAwhS86TmiW
+         hyjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781270817; x=1781875617;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cVG10nqGoE52+XgCg6Cv77s0dTJbAfaitc0NFuAsjtg=;
+        b=Q+BxAJrk32osT4pTGjEY0euiUkBwZ4FJBSQlIqGlBRvmsYmc3gh01XGnjFvpYypO8E
+         IyyFCJF5Z0CvGCCWgOz3NmYzvfk2xUmkaKSbXjGsAM38+2ho4u1C3bHZWCrS2R4nX/GC
+         ivjy0jlVYSyNkeauqD2dU3hsLbPLbO84TGuQ3ELFCrpLjRJpDmZyN83Pvz6d/D6KxXyL
+         yqITkjpkI6Rvtc/MwK3Q6MBTEhAtgd3EUPqHQuRoBowRtgDWNkPXymZu0g2C/EnoBxyX
+         jlnuCAJBfAOxSjxlEbVLzjWuTDYQK2WheKTRKZXf6EU09VXQb43fMpbFHzHgqte37sw/
+         zcJA==
+X-Forwarded-Encrypted: i=1; AFNElJ9R6fLQZByVK8qqMiWMz2toToMwQ9dH6Dnx2jhkGgYu0Oo9kJdEFTmsjuw/qTQUq0cUdQFohrmYKtoGu7otcpLU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9d22Coyj63mbANHh/zTRDcsCnB8WUaXjmaocu5nfAtL9iCWMU
+	sx8ujIRrfXYGWOGeA23kCYeZx76lQFkgYFE+xjS+2PkJcI8uELj2KrAv
+X-Gm-Gg: Acq92OF5xDpRYkIrorpV1o6B8zwqbDqrREqIHrif9O9aY3tkMlkhIph9XtLU26D4le0
+	D+JBjPgg7HGHG3NqXpw+8DF3DQKGDmtHDZ6/hiVq2J1x+92KZNiqAAW2wKUMj1gcLJRRmyOSNVv
+	GQWpM0U9vlFOElpTGnPQ2IpB5KtUbLO+bBGc6YJckBVPNpIoRVEY5srILCkzqeoSOEDhIevvToX
+	pkv9LrkqAF+QnwnMBakKNKcctl6qKzdvLzbhP0Z+RomRFM2Eq65WNZczc9VokelGJZQMjydH96J
+	fOXZcDhi3rpbP4qncUQO7YnN8BqwvcLKnNnd0m+HLbyR0s7ZT9WmhAieJa7qjMMkMzn5jgF6lL1
+	1ml597mO/bEWwFowOWmd0JnWZmHWvGzyH6nixOUtkf/Vj7scNqhyBih/r+8JLygmW44+l0Ld1Ht
+	VlUt0tg09XStt1WdkrA7CaAPgF5LTRQ4paOv6VPnNXmUm5iTmKoImJZiM6JA==
+X-Received: by 2002:a05:7300:8b84:b0:2d9:ad46:4a92 with SMTP id 5a478bee46e88-3081ff8525bmr1726924eec.13.1781270817309;
+        Fri, 12 Jun 2026 06:26:57 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e91f8b5sm3302343eec.19.2026.06.12.06.26.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Jun 2026 06:26:56 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v2 2/4] ASoC: meson: aiu-encoder-i2s: prepare for
- multiple streams
-Message-ID: <aiwHbBM8UAYRKnvO@sirena.co.uk>
-References: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
- <20260610-reshape-aiu-as-axg-v2-2-cac3663a8b51@baylibre.com>
- <1jik7pebk7.fsf@starbuckisacylon.baylibre.com>
+	imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 00/11] ASoC: fsl: Use guard() for mutex & spin locks
+Date: Fri, 12 Jun 2026 20:26:28 +0700
+Message-ID: <20260612132639.78086-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DTWiBsS0PG7p6gAP"
-Content-Disposition: inline
-In-Reply-To: <1jik7pebk7.fsf@starbuckisacylon.baylibre.com>
-X-Cookie: Nice guys get sick.
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_062658_347099_40762BFC 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +110,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: bui duc phuc <phucduc.bui@gmail.com>
 
---DTWiBsS0PG7p6gAP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi all,
 
-On Thu, Jun 11, 2026 at 10:16:56AM +0200, Jerome Brunet wrote:
-> On mer. 10 juin 2026 at 23:29, Valerio Setti <vsetti@baylibre.com> wrote:
->=20
-> > aiu-encoder-i2s is going to be the interface that handles both playback
-> > and capture, so this commit does all the required changes to prepare
-> > for that since so far it only handled playback:
-> > - probe/remove functions are added to allocate/free per stream data,
-> >   respectively.
+This series converts mutex & spinlock handling in the FSL sound drivers
+to use guard() helpers.
+The changes are code cleanup only and should have no functional impact.
 
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
+I have compile-tested all affected files except `mpc5200_dma` and 
+`mpc5200_psc_ac97`, as I have not yet found the correct configuration 
+needed to enable those drivers.
 
---DTWiBsS0PG7p6gAP
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+Phuc
 
------BEGIN PGP SIGNATURE-----
+bui duc phuc (11):
+  ASoC: fsl_asrc: Use guard() for spin locks
+  ASoC: fsl_audmix: Use guard() for spin locks
+  ASoC: fsl_easrc: Use guard() for spin locks
+  ASoC: fsl_esai: Use guard() for spin locks
+  ASoC: fsl_spdif: Use guard() for spin locks
+  ASoC: fsl_ssi: Use guard() for mutex locks
+  ASoC: fsl_xcvr: Use guard() for spin locks
+  ASoC: imx-audio-rpmsg: Use guard() for spin locks
+  ASoC: fsl_rpmsg: Use guard() for mutex & spin locks
+  ASoC: fsl: mpc5200_dma: Use guard() for spin locks
+  ASoC: fsl: mpc5200_psc_ac97: Use guard() for mutex locks
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmosB2sACgkQJNaLcl1U
-h9BePAf/YY4oU9BYnoYM1az7OlkzIVHobdSBXPdAMqYYrlPj/WIZuTEDI1cdo/22
-hoqllO3JKTLGy44Zy5I1P7ijkgOEkx2mZeJ7AZYOgZPlIXPH6AKbscA/xYjzfYP4
-2CwyerLXM7UAy8RJv2Kimqj24HF6mzVVgYRbghHGqDWnLSGWj6BQLSlgaUYhwIcM
-xdrydiGGZz2vkC/HOmwFqpGSyk4XQAm3HFkW5OwsK3R6CmVSwcFxa2fhjcTw8CXc
-3gcvi70GBGQi8+9nMiAyGmnqxT4aONevk4cF8sVxLOxH1Gg0hwgMmsllFORiBdap
-sDGZbqCPoyuQ/1hjHLvs3sqbo32+3Q==
-=PhOT
------END PGP SIGNATURE-----
+ sound/soc/fsl/fsl_asrc.c         | 10 +----
+ sound/soc/fsl/fsl_audmix.c       | 11 ++---
+ sound/soc/fsl/fsl_easrc.c        | 36 +++++------------
+ sound/soc/fsl/fsl_esai.c         | 16 +++-----
+ sound/soc/fsl/fsl_spdif.c        |  8 +---
+ sound/soc/fsl/fsl_ssi.c          | 13 ++----
+ sound/soc/fsl/fsl_xcvr.c         | 29 ++++++--------
+ sound/soc/fsl/imx-audio-rpmsg.c  | 25 ++++++------
+ sound/soc/fsl/imx-pcm-rpmsg.c    | 69 ++++++++++++++------------------
+ sound/soc/fsl/mpc5200_dma.c      | 56 +++++++++++++-------------
+ sound/soc/fsl/mpc5200_psc_ac97.c | 34 ++++++----------
+ 11 files changed, 121 insertions(+), 186 deletions(-)
 
---DTWiBsS0PG7p6gAP--
+-- 
+2.43.0
+
 
