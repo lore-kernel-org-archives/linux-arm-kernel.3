@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2236ECD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C16CD98D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K8GskhQ/tvLBpCO/qOaEalED8OJB7l2RGKXoWhNyljw=; b=OxKJj6C9fE5Jul7X+HR7zotvTT
-	qpt7Ef054D6HIdPy9qO3k1TRm6+Wrd+b/fRAxVu8JwEgtGbVb2dBl5orTS5/mrnhWm07O0DAfSF+8
-	y6VsHZB6ZIomQauKpwYheC9ibf2sm325sXmJ2P2FYuUPuD1Op8weBH6jiRV+f90Hv8Sl0XHQ4Wf/4
-	5IzLYObQPybT47R/CJNfuNibVWwPd+fZ2ZzzPzkK/BKarpLOBgLGyCFUH17OKe1DMP1KgF0UrLgst
-	7Y1t8wp8/+j+nQJZ7WEwXKN18PFyzu2KKnYbQH5mRNyXrr4VrUjuLD3tC+nOxcbrLDbgJaFrXE5tj
-	Wa9PXGrw==;
+	bh=cz0JvF5PqRn4+AvgydKR6qxMt5tufCqZlm71fI/zQJE=; b=UQaOmTTgOJkpn1RtX14tPgtU5y
+	BNTtRXZ5wfzl3Hzydli1e+uMEgtiVwCcjZdCRkyDMa7su6GGPi6lBxsrsGtYR9dX+yeGYLzSAc5IY
+	RDxV4JYkuXlXyHdh//lF33hY/5OIqwg35vxSfPKIVX2DsOH2nd4dRrnmmFN1yd6ZAigHacxVhFPJ2
+	lZPMi1Dl0GH2I3Vr+qbg04J0BNkXTJKGcDfLk9ZDZYU4k2C9H9LoiJvCybDMu9Mc5nS0RU4qVj0K9
+	d5UyOmIgDKe7oZMkFRXerk9LgPYMd8VqtYVHDTOP3QgSFg+9Iy/Co1Mu4/XoG3crDwRzXmED2m/tc
+	fp1KiapA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4md-0000000BHlj-0AWV;
-	Fri, 12 Jun 2026 16:31:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wY4tt-0000000BIFz-093h;
+	Fri, 12 Jun 2026 16:38:33 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4mb-0000000BHlJ-1386;
-	Fri, 12 Jun 2026 16:31:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAC6D40537;
-	Fri, 12 Jun 2026 16:31:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FBD71F000E9;
-	Fri, 12 Jun 2026 16:31:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781281860;
-	bh=K8GskhQ/tvLBpCO/qOaEalED8OJB7l2RGKXoWhNyljw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ok9UBUAkTb5z4y6JJ4ufptlYuIasM4NiKJSPinBtW7Yx9kvSDI/ceui6RKEDve6kc
-	 MF9P652NgwbizOshbZ2TclRbiDoHfPAOZjh/4tgTidEdW0OXjfEGj95JOdvU1wJN5n
-	 NK+C3VZSFPab7Ytc7eCtBayYrm3XMZtedjjOxqya1YgYrZeBcRCWsCtQSGpRDEx0Ga
-	 ZVthp80HmfrPqkJIE2fj0MWK4DCWBGOpJUuQggi4JH7ipQztt4REPNJuSST0pdBhqk
-	 F2HRFKgPGNRAc6yrwc55inLLecPbjWmPNY2sjcNWFdaomFRPQqPqUxfjrdpSAw1T00
-	 6g/AsGRSRHhXQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id B8A121AC5AC2; Fri, 12 Jun 2026 17:30:57 +0100 (BST)
-Date: Fri, 12 Jun 2026 17:30:57 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Liam Girdwood <lgirdwood@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 4/4] regulator: Add support for UGREEN NASync DH2300 MCU
- SATA power gate
-Message-ID: <aiw0QYnaYHQpIwiq@sirena.co.uk>
-References: <20260612-dh2300-mcu-v1-0-ab8db1617bc0@flipper.net>
- <20260612-dh2300-mcu-v1-4-ab8db1617bc0@flipper.net>
+	id 1wY4tr-0000000BIFS-13La;
+	Fri, 12 Jun 2026 16:38:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1781282271; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=eZbpZFrHare2ZkdyH2mlS82J2OCdJQ4FvrBiaxu5MQloDqfweBtlqgapAo2lvzBt/VsowUDAujoDmKh65ObWl2o9FTfqFbJmFX64Py2iap5xUUjw2P9BmhpSmHjdqLxJi20fVF60QhdEAJSM9/j+mXPmTwVNjlA8khCCJNdtaoU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1781282271; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=cz0JvF5PqRn4+AvgydKR6qxMt5tufCqZlm71fI/zQJE=; 
+	b=U1OSMKMnKPRcdT3LGdJ9VC6S/CrZw9aAwSXQDBEYAuJ7e64Csg2DoHKybxTI6IexcBZqopKtLYW5JwhhFIWckO3jyg2dLeluzcISdClCsJT2kYJDH2vJa7O3dur70uX6BMsPHc0Xl4hMPjSPswZlIWAjQwFwAXDwKEvOnIHu2wA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781282271;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=cz0JvF5PqRn4+AvgydKR6qxMt5tufCqZlm71fI/zQJE=;
+	b=NrYnVgKTaiUOijL3nFNPT0GRc59JHJygJH2GXurDQ5WU52i418+IzzG+cEvPYoFN
+	7wHye0F8/N56hPz0k3y9yYCWJuFbkwsvM1vBOEi7wwMnrtnA3Tq/o9ioKDM8LwQ7yZj
+	fesFoG4rCqM5kfcfuRp9ZlpxUwEpeG0dKw9fuqj8=
+Received: by mx.zohomail.com with SMTPS id 1781282268882444.94252128935307;
+	Fri, 12 Jun 2026 09:37:48 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 137D8180674; Fri, 12 Jun 2026 18:37:42 +0200 (CEST)
+Date: Fri, 12 Jun 2026 18:37:42 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Damon Ding <damon.ding@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Alexey Charkov <alchark@gmail.com>, 
+	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 07/12] drm/rockchip: dw_dp: Implement out-of-band HPD
+ handling
+Message-ID: <aiw0VKuj6Y6tpr9f@venus>
+References: <20260501-synopsys-dw-dp-improvements-v2-0-d7e7f6bac77f@collabora.com>
+ <20260501-synopsys-dw-dp-improvements-v2-7-d7e7f6bac77f@collabora.com>
+ <4f4ff085-80ae-4144-b040-be9b136574ee@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tE/94xOCtV2c14jP"
+	protocol="application/pgp-signature"; boundary="p2h2tj3fgjiazqvf"
 Content-Disposition: inline
-In-Reply-To: <20260612-dh2300-mcu-v1-4-ab8db1617bc0@flipper.net>
-X-Cookie: Nice guys get sick.
+In-Reply-To: <4f4ff085-80ae-4144-b040-be9b136574ee@rock-chips.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/281.270.71
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_093831_354289_B7EF7E97 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +97,85 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---tE/94xOCtV2c14jP
-Content-Type: text/plain; charset=us-ascii
+--p2h2tj3fgjiazqvf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 07/12] drm/rockchip: dw_dp: Implement out-of-band HPD
+ handling
+MIME-Version: 1.0
 
-On Fri, Jun 12, 2026 at 07:34:17PM +0400, Alexey Charkov wrote:
+Hello Chaoyi,
 
-> +static int ugreen_dh2300_mcu_regulator_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct regulator_config config = { };
-> +	struct regulator_dev *rdev;
-> +	struct device_node *np;
-> +
-> +	np = of_get_child_by_name(dev->parent->of_node, "regulator");
-> +	if (!np)
-> +		return dev_err_probe(dev, -ENODEV,
-> +				     "missing regulator child node\n");
+On Tue, Jun 02, 2026 at 04:30:59PM +0800, Chaoyi Chen wrote:
+> On 5/1/2026 6:20 AM, Sebastian Reichel wrote:
+> > Implement out-of-band hotplug handling, which will be used to receive
+> > external hotplug information from the USB-C state machine. This is
+> > currently handled by the USBDP PHY, which brings quite some trouble
+> > as the register being accessed requires the power-domain from the DP
+> > controller and also requires custom TypeC HPD info parsing in the
+> > USBDP PHY driver.
+> >=20
+> > In contrast to the USBDP PHY this does not just enable the hotplug
+> > signal when a DP AltMode capable adapter is plugged in, but instead
+> > properly detects if a cable is plugged in for things like USB-C to
+> > HDMI adapters.
+> >=20
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+>=20
+> [...]
+>=20
+> > +static void dw_dp_rockchip_hpd_sw_cfg(void *data, bool hpd)
+> > +{
+> > +	struct rockchip_dw_dp *dp =3D data;
+> > +	u32 hpd_reg =3D dp->pdata->hpd_reg[dp->id];
+> > +
+> > +	dev_dbg(dp->dev, "Force HPD connected=3D%s\n", str_yes_no(hpd));
+> > +
+> > +	dp->hpd_cfg =3D hpd;
+> > +
+> > +	regmap_write(dp->vo_grf, hpd_reg,
+> > +		     FIELD_PREP_WM16_CONST(ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG, dp->hpd_=
+cfg));
+>=20
+> FIELD_PREP_WM16() should be used here because "dp->hpd_cfg" is not
+> a constant expression.
+>=20
+> Other patches in this series have similar issues. Doesn't your
+> compiler warn you about this? Thanks.
 
-You should just be able to configured this in the regulator_desc rather
-than describe it.
+The code builds warning free for me. Also FIELD_PREP_WM16_CONST
+requies that the mask is constant, which is the first argument
+(i.e. ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG in this case). The second
+argument should be fine as a variable as far as I can tell.
 
-> +	config.init_data = of_get_regulator_init_data(dev, np,
-> +						      &ugreen_dh2300_sata_desc);
-> +
+But since FIELD_PREP_WM16 is shorter anyways, gives better error
+handling and can be used for all occuances in the dw-dp rockchip
+glue I will use that instead.
 
-Similarly here, there should be no need for this open coding.
+Thanks,
 
---tE/94xOCtV2c14jP
+-- Sebastian
+
+--p2h2tj3fgjiazqvf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmosNEAACgkQJNaLcl1U
-h9CG6gf9HwhOxx3ksCksFflAdrKweMiutBoX2cLErbvcRtSA1Zuu+it3ilU8JPCu
-LSdBkPkVH2KOlJaA6ioe5X/MOnnbHej4/QPEFEy2iL6vrcuFzuP4VoSGw3q6tOFK
-3jS/J5gWMXJHYlHpDuc4JdrFAg25gAeYfA0wJyxUxPa61u220L4xzuJS2nSnyF8y
-49HCO70Z6ks5Zn68hF5NL0bx6U4aDrdLROCKv0cHArzrXXuEQvgDC+B7wV+m9/Ea
-1PjtxyuMyb0+D2DByndFI0Iq9lpcVok/4jwNaToUCCLP1LpZN2VvsM+7DI5Nn8MQ
-aYqOVqnhUL6sUdE/Jf5G2Vozx6IJ1g==
-=j+Gg
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmosNdIACgkQ2O7X88g7
++pr0qRAAj815LPOHnJWGnjzNNkUa/kzLFB4bzesaxqb+wG3aeeh0mPO+oeA95BCm
+SAJ+4pmlt2gMl+ubhV57wIpAqet9TkklmWL1mJjItmbqTWUYO4juygwWu/BuqMBx
+fXdKK6ypbX6wXEfKSA2dfXsjIdAWI1U0w3Ur/tUbWHoaf/18RczSbqaQZo1djjBm
+oszzKbkhNm+y4IN+FgKWKwTWsEjuPU3dO21LwSNU2BU2SwZKXuPeFC+oBOJgikpe
+CtNKqtrU+IRnZTM0G8J00BthrRYV1wCT9e/LxMkEKXDcu1Y20UPoN9FIOvDKkjHZ
+XgilvLd+sd05hogeeTyWHGZsJxj3hIjFQiHGzlxi9TU8/r/m/cVyMDIKfdWWYVVA
+o83o7A1MSDm41PopcT1Ig1x/4EISnG5vl2hgXa6YPEEyc35SJc9p9ONxKx+q4V8z
+uASra69imY+fuQumXJdBFFvKxw2JnGWqvgFWL2J5P6CI7tdhTQEf1FeJbg4JKMxN
++4iHaKWIkwvBni35M2cqX05bm2CXTXgMQfN8Y3PuBGdeB9tY+n2n8sCFB9CTJbRR
+Z9FyB3EQdld6e2/X/dScExJyHuG4UBgbvys58QuoOd6F8XCFmxoIGpbCedQRMtJH
+eFzckHF+qJfPxAYUfdtEkEK8VAFYb/8BFXBQPCxc0590XvbGvdI=
+=qoV1
 -----END PGP SIGNATURE-----
 
---tE/94xOCtV2c14jP--
+--p2h2tj3fgjiazqvf--
 
