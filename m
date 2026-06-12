@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989B1CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 14:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50AA7CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 14:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0u5FTqBTXNLLGdidnrnWIaCMVX09cl5M57gIDTlUfs=; b=C60C7ngmFhM7NBXkRi3vLglRu1
-	Nfl56Bm8019AhAes1gNh1uItyswcNcOl1Bv4PnArK/KeN5TbEpz/HJ2X98KvMjUbi9GrJruL9hCj1
-	djjXjLDwpYeT7BzRRv1WL4iPmnqj8XgLNbLrsvH479vf48rh17WeARv0IEB6+rtVRClvYEIQl9H3T
-	TApFsZdK9TDoeXeKYA6gbDU4dOvyr9rv6IKBhIii1pQQmIFFhnHKGPfTx9MbGoFnSdE9eGp4NdW33
-	henGbaPhIdJAE3NKUj8E2l9rqmqXmOwJx0xbXEN0hhRuP9xtHMTsAW4+4m2HQ01awIZ8Y6LX79nNA
-	lJVviq5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BOk3rPIMN9MJANkiEj+yRZwzOhJQDKG+UEQQtAnaeSo=; b=qAzPgc/wCWXJX4+hzO6jL+z0FL
+	2rIA5Rf8kmJXJIji5rbFNR2V7MH+a+MpqxlvLKA2sp1k5LM7l+Oy3S+x0nOzo+S3LTVYtM1Ts9TVb
+	QttENfzI0CPY/j2UuWlvG+vpxkZiReWJm/wuqMt5Isj7fC6AzCqV3iFyzE3pqazeNIgqMmwCfqCUM
+	HZ9P7Bx3nXOaQYPnIPhqsOUejcE7YY8SUwDie2HG/4erPtmGS1ZnQ1w9DYckrScU0ZXeMkHFc8p9W
+	YvVZ6pLeQnAX5Z6fPCMc+r3+OzoP/34Qpg0WmpDSMWjyMDvX3AlArpXFsk4WvNUBRvc5q9Gs1vWrj
+	V4aDw8gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2mJ-0000000B34A-02Mw;
-	Fri, 12 Jun 2026 14:22:35 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wY2mh-0000000B38o-0e4X;
+	Fri, 12 Jun 2026 14:22:59 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY2mG-0000000B33a-2iJ4
+	id 1wY2me-0000000B371-0jcF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 14:22:33 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490bb5ad3bdso62745e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 07:22:32 -0700 (PDT)
+	Fri, 12 Jun 2026 14:22:57 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490b37e1f47so7911195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 07:22:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781274151; x=1781878951; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=U0u5FTqBTXNLLGdidnrnWIaCMVX09cl5M57gIDTlUfs=;
-        b=D07Zu3odYX5U0JRTTMUzYXBq4VICjwRaZF2TF8uBusANAZOpZHyfR1SWksfWJRFjJv
-         ydciTZMxc+jYURdl85u1IJpeF6WHUEizy9yGl7ViFstBSJZ4rVwNnbafaluSJnsicZCT
-         YYMWAbnJoYI8ugulO1JVU2c+NHDxLr6Evk9qh6/Y0370pp/h4tREwmFMKHKUO4t32sH1
-         j+TrGB9bsEx778yAyI1b1AlU1DQHY3QfNnpwlV1jve73v6QPpk/W2enknJmo2TQiOYrJ
-         xF3m0S5LXJ4/ZE8pRZG2Eo38gN7vADnSpVqoBJ3UUGnQ/VguHNSXGdyDL0cX0EgFoe2l
-         Buig==
+        d=google.com; s=20251104; t=1781274174; x=1781878974; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=BOk3rPIMN9MJANkiEj+yRZwzOhJQDKG+UEQQtAnaeSo=;
+        b=P1rExLzEwbsHHAwARpMo4fPV2fpX4O7pDFfzev7ckxkT8ghvrEzBxBVgxcx1zIwlLm
+         PRy3QylAD8sj4vn1XVPdjv2sl4S9Ef+H8mXqA/f30ZdUkc1/5oSlNBIdcqC5zbhd68dZ
+         +LY+PbLd3mODdIH9TtPQDu9f6rKpN3L1nvLq8ce/9/zmOdVVNFnGscBihGFYfuuhBt+E
+         8+UhHwlmoc0JhaaYIlwgOG6DHp5cCdwu+P9rU7qHVPK4QGHTcahhMMg7f62SasZG1F95
+         rt2FhjbIFjfAv7qz782aCArFhuu3PLuzexn0qSLndO71B9Lc/+kk3fevaVgzuU7NgLpR
+         fpYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781274151; x=1781878951;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U0u5FTqBTXNLLGdidnrnWIaCMVX09cl5M57gIDTlUfs=;
-        b=N/sI+5TO/2b6CxYHlE0MN0r+xqIY0esqyx2II1hpr/+tdVXpoGScRANPHHzxT/wSAd
-         Yq3aMEAHLBmV3JTqcU3Smc+dNVbXWrwrlMKtssDupW1Q6teLotq6elE/6hLyC25EArCl
-         7cGQKXN3q9EhK2rRal/DaxMomp7Zzn3pFYz+jg4gtqBMoiKUq4uRWdFmloFIPeI+6hUw
-         gBAByrzQmBYYV3NbS3jWtmt/dTf+rUUdp3eBukUSIqo6jzvo5s+iiPn2H5f0d12f1Jz8
-         2guq1TeB+2nOUjm75n4wmKmfoVqqD1wlwkCvPZVrhEgN6HMiaxLWkhfKJ61SAXQP4wGa
-         RjGw==
-X-Forwarded-Encrypted: i=1; AFNElJ/vTSiRmR8B10zdEHqdLvixyP5tN9rJnEq9Fuzxkgfe94vLnwRgSasvZ6veC9L/QnO5eJqK1HTbQ794vkR61sry@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1/DfTCnFZ0GQNnbpT/5JmtAZhkKn1eQokNIiGMuQIC+7LDzxf
-	7hW6UskyCUbzi32oyIIOykGyxj5QsM66oxPP5XJ6IhOo21kDHk+iFu0675+IZvN3qA==
-X-Gm-Gg: Acq92OHJRkgjQ/PSKYP57q8F+auR1awpLFjcoLeD2brzJB+bFk22B05yDncmClg3G20
-	iEgrYVBxj/8AXxO/sencUkXkR1+9iR5DU1iU7+G59sVnz7YQTS5m+RAi9uLKv00syCgQsJY9ju0
-	ere5zDZkffqaMGgR7R4WtLYVOgLjsHww5/nJtW38w9eJV3rJBVmQ5oWLmlj9prhvbOvt8Q3cvGI
-	rsDPBx1A3AHG3VwHuFqKvPrjIrkpqUEBh/+5m6Psu2Wa3S/80viwomwq5it8ABesxEhT+1H+0vZ
-	h8J7zwL1JzS2LQh4rpX3nOJHryip7N21Bdd8Tq7Q62591LeCbqEHVAMo7K4wqyW70vT1IUb7HeD
-	6sFCuOntvOiPVfirSU+aJW237vZZooQHfo4k764Yuew5s32BnNU0zst20UOD34FFVlRP54ZfmBm
-	K9uak6WbMMjBM2nSvFiDIIO3MIBrY7QlvuZIPRTkqcRFWHzyf7EjRV/yeEM/U/tvEsd/1haQ==
-X-Received: by 2002:a05:600c:6b62:b0:485:1a54:9407 with SMTP id 5b1f17b1804b1-490ea5204ffmr1201925e9.0.1781274150414;
-        Fri, 12 Jun 2026 07:22:30 -0700 (PDT)
-Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea7db9c6sm71157125e9.8.2026.06.12.07.22.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 07:22:29 -0700 (PDT)
-Date: Fri, 12 Jun 2026 14:22:25 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, catalin.marinas@arm.com,
-	jens.wiklander@linaro.org, sumit.garg@kernel.org,
-	vdonnefort@google.com, sudeep.holla@kernel.org
-Subject: Re: [PATCH v6 4/6] KVM: arm64: Fix bounds checking in
- do_ffa_mem_reclaim()
-Message-ID: <aiwWIRS-l-SS-wcK@google.com>
-References: <20260527150236.1978655-1-smostafa@google.com>
- <20260527150236.1978655-5-smostafa@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260527150236.1978655-5-smostafa@google.com>
+        d=1e100.net; s=20251104; t=1781274174; x=1781878974;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BOk3rPIMN9MJANkiEj+yRZwzOhJQDKG+UEQQtAnaeSo=;
+        b=lrbu2JkyMjoZdRqIgDfZbp6DJHN6K30UXRYVrhyZZC9J2EtF6YNfPizP3G7UC9eOno
+         gfzqL8o27RKVy/6uZGS0q6VlTEdP9tJhpxlupmUaTZNPRsshQZwa1qnfUYmGS0dTamkP
+         S21RixHRcFVpqKI6/GrLj3Diyrp0AYiY2n9K7t/mDsoIYsyDVcbkgRHO1Kdcm99PJu5y
+         f8A1J6PNwI7CsxamkuRK+cCeOLqGb1SzjBFwY5kAtQ2amrBG1JBvofKtxZa715Avk1Yd
+         I+z5BJcVzccQmsTMN4i84zVnBwYw8P7hnVJMXWDo4BtDsf2U8oA/4gxCNaA0CapSpZdW
+         Fpxg==
+X-Gm-Message-State: AOJu0Yyg7N6AUyCZATJdJkhxDFtFNAP5Gwrn0CfAff/QuIAPszU/Eke5
+	dhqvc+bQ5sa8JodXiMSV2mMchg71wzbky7nVnh6dAvgbAb83Ij9g7uESbrze8WYIfXOHJW6hOpy
+	qZ69amOcoRHSSRAD2L0b3Eg==
+X-Received: from wmaz11.prod.google.com ([2002:a05:600c:6d8b:b0:48f:c914:1996])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:83c5:b0:490:be14:bfda with SMTP id 5b1f17b1804b1-490ec48058fmr42511215e9.6.1781274173422;
+ Fri, 12 Jun 2026 07:22:53 -0700 (PDT)
+Date: Fri, 12 Jun 2026 15:22:41 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260612142245.1015744-1-vdonnefort@google.com>
+Subject: [PATCH v1 0/4] trace_hyp_printk() for pKVM/nVHE hypervisor
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, rostedt@goodmis.org
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, tabba@google.com, qerret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_072232_711172_21674526 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20260612_072256_224592_645349C1 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,77 +88,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 03:02:34PM +0000, Mostafa Saleh wrote:
-> Sashiko (locally) reports out of bound write possiblity if SPMD
-> returns an invalid data.
-> 
-> While SPMD is considered trusted, pKVM does some basic checks,
-> for offset to be less than or equal len.
-> 
-> However, that is incorrect as even if the offset is smaller than
-> len pKVM can still access out of bound memory in the next
-> ffa_host_unshare_ranges().
-> 
-> Split this check into 2:
-> 1- Check that the fixed portion of the descriptor fits.
-> 2- After getting reg, check the variable array size addr_range_cnt
->    fits.
-> 
-> Also, drop the WARN_ONs as that will panic the kernel and in the
-> next checks there are no WARNs, so that makes it consistent.
-> 
-> Fixes: 0a9f15fd5674 ("KVM: arm64: pkvm: Add support for fragmented FF-A descriptors")
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 1af722771178..b6cf9ad82e12 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -607,8 +607,8 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
->  	 * check that we end up with something that doesn't look _completely_
->  	 * bogus.
->  	 */
-> -	if (WARN_ON(offset > len ||
-> -		    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)) {
-> +	if (offset + CONSTITUENTS_OFFSET(0) > len ||
-> +	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
->  		ret = FFA_RET_ABORTED;
->  		ffa_rx_release(res);
->  		goto out_unlock;
-> @@ -641,6 +641,11 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
->  		goto out_unlock;
->  
->  	reg = (void *)buf + offset;
-> +	if (offset + CONSTITUENTS_OFFSET(reg->addr_range_cnt) > len) {
-> +		ret = FFA_RET_ABORTED;
-> +		goto out_unlock;
-> +	}
-> +
+Hi all,
 
-I wonder if we should do this check first and then mem_reclaim, the rational being that if the check fails
-the page will be lost forever.
+This series adds a hypervisor event "hyp_printk" which enables
+developers to log pretty much anything into the hypervisor tracing
+buffer, just like the kernel function trace_printk().
 
-```
-	reg = (void *)buf + offset;                                                                                                                                                                            
-	if (offset + CONSTITUENTS_OFFSET(reg->addr_range_cnt) > len) {                                                                                                                                         
-		ret = FFA_RET_ABORTED;                                                                                                                                                                         
-		goto out_unlock;                                                                                                                                                                               
-	}
+This enables rich logging from the hypervisor, while leaving all the
+string parsing burden to the kernel. This has been the main way of
+debugging pKVM in Android.
 
-	ffa_mem_reclaim(res, handle_lo, handle_hi, flags);                                                                                                                                                    
-	if (res->a0 != FFA_SUCCESS)                                                                                                                                                                           
-		goto out_unlock; 
-```                                                                                                                                                                                                      
+Even though not strictly related to trace_hyp_printk, I have added the
+following two patches:
 
->  	/* If the SPMD was happy, then we should be too. */
->  	WARN_ON(ffa_host_unshare_ranges(reg->constituents,
->  					reg->addr_range_cnt));
-> -- 
-> 2.54.0.746.g67dd491aae-goog
->
+  * KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
 
-Sebastian 
+    This one mainly intends to support one of the new features I have
+    posted here [1], which allows to enable tracing as early as
+    possible. I have added it here to limit cross-posting.
+
+  * KVM: arm64: Move kvm_define_hypevents.h to arch/arm64/kvm/
+
+    This one is just a cleanup.
+
+[1] https://lore.kernel.org/all/20260605163825.1762953-1-vdonnefort@google.com/
+
+Vincent Donnefort (4):
+  KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
+  KVM: arm64: Move kvm_define_hypevents.h to arch/arm64/kvm/
+  tracing/remotes: Add REMOTE_EVENT_CUSTOM_PRINTK() helper
+  KVM: arm64: Add hyp_printk event to nVHE/pKVM hyp
+
+ arch/arm64/include/asm/kvm_asm.h              |  4 +-
+ arch/arm64/include/asm/kvm_hypevents.h        | 14 ++++
+ arch/arm64/include/asm/kvm_hyptrace.h         |  8 +++
+ arch/arm64/kernel/image-vars.h                |  1 +
+ arch/arm64/kernel/vmlinux.lds.S               |  4 ++
+ .../define_hypevents.h}                       |  0
+ .../kvm/hyp/include/nvhe/define_events.h      |  2 -
+ arch/arm64/kvm/hyp/include/nvhe/trace.h       | 65 +++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/events.c              |  6 ++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  2 +-
+ arch/arm64/kvm/hyp_trace.c                    | 60 ++++++++++++++++-
+ include/trace/define_remote_events.h          | 19 +++++-
+ 12 files changed, 176 insertions(+), 9 deletions(-)
+ rename arch/arm64/{include/asm/kvm_define_hypevents.h => kvm/define_hypevents.h} (100%)
+
+
+base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
+-- 
+2.54.0.1136.gdb2ca164c4-goog
+
 
