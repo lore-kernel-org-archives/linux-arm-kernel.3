@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35B9CD98DB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8017CD98DE
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 18:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJ+PTA26wHi3scybqtQuyaUNa8GCDIP0SRt8KGgTNBE=; b=uWmheZaZZZ/0Is25n58/z0mQE8
-	cZExIco8We0vyOxrHUtmdLXSGGA8jbMhFXISYJTiX1I+Np3p4RVe+jAxtnNi3HKEMhNxQ/sCwRJq3
-	ssude/esk5DGPPrSkBQ3U23O9lcPxl3gAtv2kTNVy/t3HooamzA1BW4dNCTpkAFsTwnnpjgrDFwGs
-	TQT5BYdDTaq5Tljh5nsJ1BGaRP5bl3mJlg392Ku0k+Uut5FfTlXghD/lgoFh/3AK2y696dPNrcwpT
-	c0utvcIq4r10kxP7IWhtElmMToK8aXFirIsb1MJUwwgd1dqld0bvarzVLtQ8ZZsfxy98WVZAlXBeP
-	VW+Gp33Q==;
+	bh=5AWEyj++/o9+xBtDF6IjYWpDyOQLclBDqlxM0rNYkQM=; b=xSBm3QIzekNJUpNQ/gaSpOJkyE
+	Dvtqy8guZOhyRVSUDT/bHjjKa3LfvXoUaj4+rkxS7bBiVfrSWaiDoQ31yLeGjrm0mOm99brcEdIRC
+	LUfjYRcUpWAxQrTY3/E9mP2DWhSkxicP930vC+06voUU9B1DohS+n9SGlJnLcmvWtXX5oGkgkJJKR
+	qCMJgm4zWbb+lABZ+rvyxGuzZOsnUIBBejyaDKNGVTvb/HwgA9w0SE+W1yYPFzsT3muWLOC8s0UBR
+	O2cQ67cDD4OZoqS48jgFm8QnCSE8gOHbrtEM8I5gbD0DgBoX9LZsYTdSFRm6qhTyflQaXIWIV23L8
+	NLN0ZaNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bn-0000000BNKZ-2I7a;
-	Fri, 12 Jun 2026 18:01:07 +0000
+	id 1wY6Bo-0000000BNOC-3YJU;
+	Fri, 12 Jun 2026 18:01:08 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY6Bc-0000000BNBK-1z5j;
-	Fri, 12 Jun 2026 18:00:59 +0000
+	id 1wY6Bh-0000000BNDh-1FgO;
+	Fri, 12 Jun 2026 18:01:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1781287253;
-	bh=5FzH6D5Iw4bwqKNNxbyE0JcWBKVjdha2iUi0EcsbYIg=;
+	bh=XYS++GLSDDzX6NcxSFdwWEwzf/o23yGNuXirz7ObHUQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=mn6NU/hTtRNg6T4zR43ki/rvnjc6wDbUJlzZ4hAvpEAEeKyEpPLQX6myxrdf80azD
-	 wr25yq46MjKk2veZC+flr5do8MFVqn+mS84nKfhNHV8Y42H4++2IxJOBjG8BKox2Mx
-	 PkhG3NKtWFHYtEUyQ75okzQwHp5lIlRgBnl2VwcgklQtGJQo3l/8hqLRVG8DUijd37
-	 Ja1ePeC7BxzT27oUy7IuME6rLOYw+7llVPXe9S6m5049yX9vW+zCV5uVDyse2i+ujD
-	 OYKkAyt3Jw3JaSrbutO1b/tMa43kScvl2Z0jwnviob700E7XnPDkPzZRun4SmLr5dd
-	 WqZQV51kWv0eg==
+	b=Md70h7d+HCnA/sk/NSbIJV6SbXuq+GOnOiStWEDqme7xBuZZn6bBxkJBoE/KkcT3A
+	 IBTyJlltiJ2Ro5q5MuRbwUyw3q5stiz/MJqsNvpkutjQe993ZcSDtvA07hP5zjLBeZ
+	 qn0BeHC6nBUH+mRPhecMX3pKH9l5YrwsZVOUenlZ63HQn5yUqZsullZI/gjw2sRg++
+	 LIzETSqKLCHrAIchG8/swa3TU4hQFyhTY7Fi4pFrRAm0DHwYyEKL5JFbNmMSHUOFDS
+	 G82qSE7B+xWxEV3hc+isI1jlsjkme+lfty/7+r/B6HnPqeVjgWKgkbx5zHIsPwWyET
+	 hB6/5rNJj96mw==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BC62717E0D68;
-	Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 21F0D17E0DE1;
+	Fri, 12 Jun 2026 20:00:53 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7D45848002F; Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
+	id 80A2F480031; Fri, 12 Jun 2026 20:00:52 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 20:00:50 +0200
-Subject: [PATCH v3 04/10] drm/bridge: Add out-of-band HPD notify handler
+Date: Fri, 12 Jun 2026 20:00:52 +0200
+Subject: [PATCH v3 06/10] drm/rockchip: dw_dp: Implement out-of-band HPD
+ handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-synopsys-dw-dp-improvements-v3-4-dc61e6352508@collabora.com>
+Message-Id: <20260612-synopsys-dw-dp-improvements-v3-6-dc61e6352508@collabora.com>
 References: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
 In-Reply-To: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -76,26 +77,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2384;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6508;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=5FzH6D5Iw4bwqKNNxbyE0JcWBKVjdha2iUi0EcsbYIg=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosSVTaZMcIYkPg0WvAY1uZHxTpvSJcLp/dT
- VIv07+Du0SvbokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLElUAAoJENju1/PI
- O/qaY4MP/2ti0fNHRbgVMfK2R+vOPcMwsOulVHNk+tfdSC1ZxEboAHes1tiJTM1cjQZ4gM349sB
- 8RK+nlXVJ+B9e0ip9ARqV+k5MvMQWEknIB7s8n8MBXW4dyohxS2yzVpMlzl3mFe8RY8XGf+1zYW
- 2j2EZYvL/TaWQfbCfwE3h4Nan/mn4k12R84Q6wvawkTNn0/dRwmTZ1MqHir0k196E859kildFaF
- AG+Mhb71K8QnCpuaaHPGIRnDl3YVnBLgQSNLNphPWjbrJZHvwH+FBaRMwhhtYnyZNAH9VfTIDax
- vgpkXqqhMZn6hX3BRItO/tISm0Gq9Qy1Jk1FysVu6ZWaZE4RiN5ebgmmj25VkUaI/aI+JXx73Io
- c/yQsy2CWfvDzns++vYJDNtn6m2qEpolKY1JdqUBxRMMbyi5QdYhDrPX3SUoRc9tmpnmci0ZaZZ
- IY3ew7T6/zVe0L4ZZzbQQ2XM6zgELM3+OULlXPfYx1s+nWlnxSlbCx/CBYxT6oIqLvuQBL9FrBd
- MqPYsxuQnVKOUTb7IqhobnMFE4jCII89nZLTR565tQEmi5rUQKCccrNYxeHCYpWW9OR/ZASM8KB
- WoWvdsGmJNzzTvQIWeKEb32Ry+Idbi0nVXWGkdl3op7lte9gPfuKBzbLT/DGr2SiryrdDluxVBp
- qOmODRlBHmWVObUNAVOgvjw==
+ bh=XYS++GLSDDzX6NcxSFdwWEwzf/o23yGNuXirz7ObHUQ=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosSVQVW0LKXKcqK+E3Buj+zbXJJKCV1W+02
+ zV+CAfahysbh4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLElUAAoJENju1/PI
+ O/qatn0QAJsgLlzEqmTV+rstJsgBLc+82ZvZ0mvkaQFBTMLmuJXF1fAHzNoi9kBv0TKq9ZI+QL9
+ B1E5J8X8Wdx2Rpd6gQiuk2e5E7O07dGSPebRYKHVz8KMi4PUqP/022te3ofODm4CBQ70w2iuTDs
+ mRVCyUTozQXQo+Oc1bZMAur1APFh4Xdzp1IiR9+LAPah+2uAm/QwdpsAwLGsrgRYagJDVFOIj02
+ BV0ZMQVvd2jVRwNXpODeb2skZIjtBB2+rzIMv92kH68ChG1SjycjYYA9T19PZBTb6ztgfiT6J7j
+ bKfjZxEhYnaI8K7BmGkr6nCz+fOatUdX+PgmZY9N06ASR4ro3c6hZ6PjM2SM5eohUcDgMX/MH99
+ QkXjnZQeOSdPyBNwXVSQcNyu67HbNVVf2WSgM8wVff6LXaEGCaZoFrGtDxASbck46VCDGWCKxbx
+ 6I8ePZCJgZ0U3LiiWetAdpB7LxwC+P8Sxko+vuq9AppEreepwhSXnqYG2pqZKYDAFPY9vscLxiR
+ KDQ50XXanIbED3/LHPau8nbY77QZaiCjLvnmWUxDAeS9gMooPhH99xFtSSe4PL4c3fPjhevZdZD
+ 3CJcNxR0ZoLQv3JZ4RwC2MlNDT7FDIznC/Q0v2K/ysaOsd/ZfVJTJac5oaEPoclyAZGVOk4/FHU
+ 3vfR6JCJY81emNIvGt5UuqA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_110056_689157_51A8937C 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260612_110101_507213_9FA8092C 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,66 +111,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For DP bridges, that can be used for DP AltMode, it might be necessary
-to enforce HPD status. There is an existing ->oob_hotplug_event() on
-the DRM connector, but it currently just calls into hpd_notify().
+Implement out-of-band hotplug handling, which will be used to receive
+external hotplug information from the USB-C state machine. This is
+currently handled by the USBDP PHY, which brings quite some trouble
+as the register being accessed requires the power-domain from the DP
+controller and also requires custom TypeC HPD info parsing in the
+USBDP PHY driver.
 
-As DP bridge drivers usually also implement .detect and that also
-generates calls into hpd_notify, this is a bad place to force the
-HPD status as the follow-up detect call might force it off again
-resulting in all follow-up calls to the detection routine also
-failing.
-
-Avoid this by having a dedicated function for OOB events.
+In contrast to the USBDP PHY this does not just enable the hotplug
+signal when a DP AltMode capable adapter is plugged in, but instead
+properly detects if a cable is plugged in for things like USB-C to
+HDMI adapters.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c |  6 ++++++
- include/drm/drm_bridge.h                       | 14 ++++++++++++++
- 2 files changed, 20 insertions(+)
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 126 ++++++++++++++++++++++++++++--
+ 1 file changed, 120 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 92f8a2d7aab4..802b5677194b 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -180,6 +180,12 @@ static void drm_bridge_connector_oob_hotplug_event(struct drm_connector *connect
- 	struct drm_bridge_connector *bridge_connector =
- 		to_drm_bridge_connector(connector);
+diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+index 35598ab9fe84..9c53f1d2c29a 100644
+--- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+@@ -7,9 +7,12 @@
+  */
  
-+	/* Notify all bridges in the pipeline of hotplug events. */
-+	drm_for_each_bridge_in_chain_scoped(bridge_connector->encoder, bridge) {
-+		if (bridge->funcs->oob_notify)
-+			bridge->funcs->oob_notify(bridge, connector, status);
+ #include <linux/component.h>
++#include <linux/hw_bitfield.h>
+ #include <linux/media-bus-format.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
++#include <linux/regmap.h>
+ #include <linux/videodev2.h>
+ 
+ #include <drm/bridge/dw_dp.h>
+@@ -24,12 +27,54 @@
+ 
+ #include "rockchip_drm_drv.h"
+ 
++#define ROCKCHIP_MAX_CTRLS 2
++
++#define ROCKCHIP_VO_GRF_DP_SINK_HPD_SEL BIT(10)
++#define ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG BIT(11)
++
++struct rockchip_dw_dp_plat_data {
++	u8 num_ctrls;
++	u32 ctrl_ids[ROCKCHIP_MAX_CTRLS];
++	u32 max_link_rate;
++	u8 pixel_mode;
++	u32 hpd_reg[ROCKCHIP_MAX_CTRLS];
++};
++
+ struct rockchip_dw_dp {
+ 	struct dw_dp *base;
+ 	struct device *dev;
++	const struct rockchip_dw_dp_plat_data *pdata;
++	struct regmap *vo_grf;
+ 	struct rockchip_encoder encoder;
++	int id;
++	bool hpd_sel;
++	bool hpd_cfg;
+ };
+ 
++static void dw_dp_rockchip_hpd_sw_sel(void *data, bool force_hpd_from_sw)
++{
++	struct rockchip_dw_dp *dp = data;
++	u32 hpd_reg = dp->pdata->hpd_reg[dp->id];
++
++	dp->hpd_sel = force_hpd_from_sw;
++
++	regmap_write(dp->vo_grf, hpd_reg,
++		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_SEL, dp->hpd_sel));
++}
++
++static void dw_dp_rockchip_hpd_sw_cfg(void *data, bool hpd)
++{
++	struct rockchip_dw_dp *dp = data;
++	u32 hpd_reg = dp->pdata->hpd_reg[dp->id];
++
++	dev_dbg(dp->dev, "Force HPD connected=%s\n", str_yes_no(hpd));
++
++	dp->hpd_cfg = hpd;
++
++	regmap_write(dp->vo_grf, hpd_reg,
++		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG, dp->hpd_cfg));
++}
++
+ static int dw_dp_encoder_atomic_check(struct drm_encoder *encoder,
+ 				      struct drm_crtc_state *crtc_state,
+ 				      struct drm_connector_state *conn_state)
+@@ -72,14 +117,49 @@ static const struct drm_encoder_helper_funcs dw_dp_encoder_helper_funcs = {
+ 	.atomic_check		= dw_dp_encoder_atomic_check,
+ };
+ 
++static struct regmap *dp_dp_rockchip_get_vo_grf(struct rockchip_dw_dp *dp)
++{
++	struct device_node *np = dev_of_node(dp->dev);
++	struct of_phandle_args args;
++	struct regmap *regmap;
++	int ret;
++
++	ret = of_parse_phandle_with_args(np, "phys", "#phy-cells", 0, &args);
++	if (ret)
++		return ERR_PTR(-ENODEV);
++
++	/*
++	 * Limit this workaround to RK3576 and RK3588, new platforms should
++	 * add a VO GRF phandle in the DisplayPort DT node.
++	 */
++	if (!of_device_is_compatible(args.np, "rockchip,rk3576-usbdp-phy") &&
++	    !of_device_is_compatible(args.np, "rockchip,rk3588-usbdp-phy")) {
++		regmap = ERR_PTR(-ENODEV);
++		goto out_put_node;
 +	}
 +
- 	drm_bridge_connector_handle_hpd(bridge_connector, status);
++	regmap = syscon_regmap_lookup_by_phandle(args.np, "rockchip,vo-grf");
++
++out_put_node:
++	of_node_put(args.np);
++	return regmap;
++}
++
+ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *data)
+ {
+-	const struct dw_dp_plat_data *plat_data;
++	const struct rockchip_dw_dp_plat_data *plat_data_const;
++	struct platform_device *pdev = to_platform_device(dev);
++	struct dw_dp_plat_data *plat_data;
+ 	struct drm_device *drm_dev = data;
+ 	struct rockchip_dw_dp *dp;
+ 	struct drm_encoder *encoder;
+ 	struct drm_connector *connector;
+-	int ret;
++	struct resource *res;
++	int ret, id;
++
++	plat_data = drmm_kzalloc(drm_dev, sizeof(*plat_data), GFP_KERNEL);
++	if (!plat_data)
++		return -ENOMEM;
+ 
+ 	dp = drmm_kzalloc(drm_dev, sizeof(*dp), GFP_KERNEL);
+ 	if (!dp)
+@@ -88,10 +168,38 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
+ 	dp->dev = dev;
+ 	dev_set_drvdata(dev, dp);
+ 
+-	plat_data = of_device_get_match_data(dev);
+-	if (!plat_data)
++	plat_data_const = device_get_match_data(dev);
++	if (!plat_data_const)
+ 		return -ENODEV;
+ 
++	dp->pdata = plat_data_const;
++
++	res = platform_get_mem_or_io(pdev, 0);
++	if (IS_ERR(res))
++		return PTR_ERR(res);
++
++	/* find the DisplayPort ID from the io address */
++	dp->id = -ENODEV;
++	for (id = 0; id < plat_data_const->num_ctrls; id++) {
++		if (res->start == plat_data_const->ctrl_ids[id]) {
++			dp->id = id;
++			break;
++		}
++	}
++
++	if (dp->id < 0)
++		return dp->id;
++
++	dp->vo_grf = dp_dp_rockchip_get_vo_grf(dp);
++	if (IS_ERR(dp->vo_grf))
++		return PTR_ERR(dp->vo_grf);
++
++	plat_data->max_link_rate = plat_data_const->max_link_rate;
++	plat_data->pixel_mode = plat_data_const->pixel_mode;
++	plat_data->hpd_sw_sel = dw_dp_rockchip_hpd_sw_sel;
++	plat_data->hpd_sw_cfg = dw_dp_rockchip_hpd_sw_cfg;
++	plat_data->data = dp;
++
+ 	encoder = &dp->encoder.encoder;
+ 	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm_dev, dev->of_node);
+ 	rockchip_drm_encoder_set_crtc_endpoint_id(&dp->encoder, dev->of_node, 0, 0);
+@@ -138,14 +246,20 @@ static void dw_dp_remove(struct platform_device *pdev)
+ 	component_del(&pdev->dev, &dw_dp_rockchip_component_ops);
  }
  
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 00a95f927e34..11802e39d1f1 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -646,6 +646,20 @@ struct drm_bridge_funcs {
- 	 */
- 	void (*hpd_disable)(struct drm_bridge *bridge);
+-static const struct dw_dp_plat_data rk3588_dp_plat_data = {
++static const struct rockchip_dw_dp_plat_data rk3588_dp_plat_data = {
++	.num_ctrls = 2,
++	.ctrl_ids = {0xfde50000, 0xfde60000},
+ 	.max_link_rate = 810000,
+ 	.pixel_mode = DW_DP_MP_QUAD_PIXEL,
++	.hpd_reg = {0x0000, 0x0008},
+ };
  
-+	/**
-+	 * @oob_notify:
-+	 *
-+	 * Notify the bridge of out of band hot plug detection.
-+	 *
-+	 * This callback is optional, it may be implemented by bridges that
-+	 * need to be notified of display connection or disconnection for
-+	 * internal reasons. One use case is to force the DP controllers HPD
-+	 * signal for USB-C DP AltMode.
-+	 */
-+	void (*oob_notify)(struct drm_bridge *bridge,
-+			   struct drm_connector *connector,
-+			   enum drm_connector_status status);
-+
- 	/**
- 	 * @hdmi_tmds_char_rate_valid:
- 	 *
+-static const struct dw_dp_plat_data rk3576_dp_plat_data = {
++static const struct rockchip_dw_dp_plat_data rk3576_dp_plat_data = {
++	.num_ctrls = 1,
++	.ctrl_ids = {0x27e40000},
+ 	.max_link_rate = 810000,
+ 	.pixel_mode = DW_DP_MP_DUAL_PIXEL,
++	.hpd_reg = {0x0000},
+ };
+ 
+ static const struct of_device_id dw_dp_of_match[] = {
 
 -- 
 2.53.0
