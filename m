@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EFECD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E47CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sOatx03+Y4coDzuWmp5c1p33Lzh+TpfabzIJ4Oj6V+0=; b=E2CDaqJvO8eDb/K7K4gDO5BVsr
-	Vg1T178HkE5Ge95ERxicRC2HboO/4Ks73fzzIo/QwS2ZYf97gMWokZG3AEmApxQ0j0p8hAhV+Uurf
-	Nqu2ThOIarU3N7yc/S6mHqzZh4Y6ASA4v8HUKAFtBbsu5QS5LRUzRjvFtECh8i3lu8D3HDcoPcl+E
-	g/avdoXKSKMy/vTBNRRMqQxczXsS6yWnHX1Z3tjmjf8GMtHu2YNgxF+FwsLh5wDGK20NZWDisbBhb
-	pZxhGIYNrguqf7xrrtdFw+ByWHc0VOUJx6iDlDnkcvaVm+dM78fg5SDXkqyandVkwLDp+y+N0qZv8
-	MrJHrocA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YYTDwwqgoZk1HElM4vdz0ZdzxJn/OzQXeaTN5u+LMeQ=; b=0PlyBA9VPuV37ThJvvgw4/E/GG
+	Gb4fybMvn7KznEtzmtgjBvKFEKuLl/kPptxoEZv68A/6t8tD9PZaTLHxmIlvd7RKGTCnksbYrmXfK
+	O0VX0yzdUk8TxbmrwaXvCXONt1+5OJLeTYk/scUOaxtZT2iu0XzaxSfKINRYGjhpb50I6XXxAscd1
+	EnuX2QdEMNI6/RGmHPYb/NVv4De+RtizqtEZ2CLl9ly4oH0EMVQrMFpVOHGumrZM/q7EATrplBPeh
+	VowKgDs4jBUomUmTcs55F94cWIT4o8SM0E1JyOsmxkxvxAMJ1Vw3fPlC56K+L9WvYvg5jloYuLgea
+	XOVWP5sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXydv-0000000Ai3O-30oT;
-	Fri, 12 Jun 2026 09:57:39 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1wXyeL-0000000AiAg-00LF;
+	Fri, 12 Jun 2026 09:58:05 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyds-0000000Ai2U-3Ww4;
-	Fri, 12 Jun 2026 09:57:38 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gcFLQ2ZZLz9thq;
-	Fri, 12 Jun 2026 11:57:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781258254;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=sOatx03+Y4coDzuWmp5c1p33Lzh+TpfabzIJ4Oj6V+0=;
-	b=s1F3qdd9U4XVjxCBW/i/uPH2pKeTgpyBPgHQYB2f26mQHBVVCg+hktbRcSBV/TfnnGbTnb
-	GDCR4sQJbzqCQNRwJmNv8o5TtVfpuECQgmnzlI1pL9whhUAdhMlqu4eJZFtdE3ThZtKJv4
-	Y4n3Y9EEX2NkUWey/RJ5gcK1NYu+zUuT/75ITxyH9F5/klMnzJHP9OFCoMg5dXLI6r7EoT
-	IC5fQ+Q1wTMrLTRT6FFKYYfimnDJYKDDA03fdSYCHV6GasS/wVK/4hGsk7YXmoIAREL9Ly
-	iAKlz+uuA+pvBn2AX6Bn5S27MBtMaOC96LJ+NAvHEG7uWOW4CTIOH2UagGc2Dg==
-From: Manuel Ebner <manuelebner@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781258252;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=sOatx03+Y4coDzuWmp5c1p33Lzh+TpfabzIJ4Oj6V+0=;
-	b=P+pZIcb6gjPwDszM++dcZebKJPjN/pOLCFp+5Dy9ZIKa9yWLL0cGC3Qfpenshai3kIv7+s
-	Ov29mbsGZnR92TRpwky6/pdCttsHgIJ8K1sjF+c5gy8BQQEChjLB0OxmQ3C8JoKtJf/nTs
-	uMWybarE5KyyY8OrfZevyU94beCu7gQWJ5xTQmJzK88VqcdQNQYo+6Nw+1ovUJ8n1dJk9N
-	RRrDVC3OAY8PxCl9lp1q9UHy6TDvNDuWvQBFCRtGRLr0/s9pzPyBRumyRtwtxAAgZlI4yy
-	YPeRjLIiSXfw6sKOr/hq0vPWLkD5lg2zpZJmk2oTWBFoOzE7HG3qvFcbonehOQ==
-To: Vineet Gupta <vgupta@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	linux-snps-arc@lists.infradead.org (open list:SYNOPSYS ARC ARCHITECTURE),
-	linux-doc@vger.kernel.org (open list:DOCUMENTATION),
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linuxppc-dev@lists.ozlabs.org (open list:LINUX FOR POWERPC (32-BIT AND 64-BIT))
-Cc: Manuel Ebner <manuelebner@mailbox.org>,
-	Randy Dunlap <rdunlap@infradead.org>
-Subject: [PATCH] v2 Documentation: arch: fix brackets
-Date: Fri, 12 Jun 2026 11:54:22 +0200
-Message-ID: <20260612095432.177759-2-manuelebner@mailbox.org>
+	id 1wXyeI-0000000Ai92-2OnU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Jun 2026 09:58:03 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65C3AQIJ071108;
+	Fri, 12 Jun 2026 02:57:56 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=YYTDwwqgoZk1HElM4vdz0Zdzx
+	Jn/OzQXeaTN5u+LMeQ=; b=inISHFJF7eD47qJAMjhxw9sgYoa/6LXb7FNAWhxo/
+	/VSiQn8+I5RbmzONhTHJ0RKLqXioh5VVxqv6Pw9gGaxhi4m0/INLWTIIgnTRQUXQ
+	qpcZB1VAigns3uI7/g8HJbCyolddCEQ+YxQsPtlaCEtCN793HQvKRzxUuFotbPFx
+	mDvRnH/CkxAtk9Xq6HYaZW43qpWvsRwvxDOM+CR/Gmi3v9+va0ZW2mFKII0Wfdat
+	Jw/A7A1yOAojz6WziwQSUSTE6zcZ4/5/9sczppUT+cUkZsT8Crr/m8k71awfSUEQ
+	s5oHV5XyFu6+fpOY7i68VK783oFTwWcaHvofN/xcMG14w==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4eqe5vxrvh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 12 Jun 2026 02:57:56 -0700 (PDT)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Fri, 12 Jun 2026 02:57:56 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Fri, 12 Jun 2026 02:57:56 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id 9D37C3F7040;
+	Fri, 12 Jun 2026 02:57:53 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
+        <gakula@marvell.com>
+Subject: [PATCH v2 2/3] perf: marvell: Add CN20K LLC-TAD PMU support
+Date: Fri, 12 Jun 2026 15:27:45 +0530
+Message-ID: <20260612095746.19679-3-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260612095746.19679-1-gakula@marvell.com>
+References: <20260612095746.19679-1-gakula@marvell.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 060f6ef0ba5af3aaaf0
-X-MBO-RS-META: aotyjym6h6hrfmqj4cgbcszockbfspnn
+Content-Type: text/plain
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfX02kwoKCzxXPE
+ b/MYipw+HrIVwpp2+Wv5GBzpeE9vbGgs4ehJaqZVHc8Va64pWzalIUghpLZ+sEufi/MHcIPWty8
+ eEMp8pRqz6D0Llx0MyksuoIL9OeAva8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfX/P4fDjtTH5aI
+ CMvmj0iNmAWRIGI21wc5xPY1DSZ/XeHzh88n8C6ySp4N7FmTOKd/T1SxhIJJY4m34SLbvtTBvew
+ JcyazerEXQK4JHOz6dYEgTbwPG35S1psbUaByuRrf2df5DTWWtjomoJX2rOqbtPKap3UDuoJhxq
+ WlkvyqOwYkSEecuuuZKqSezl3sK3by0nk0LfzqctXyOW3iIG2lcF2b+4lZJTFubG+LAiaAwuYuO
+ rpBRixrFZiylQueIZviDBLAwt3oo3uvkgDxAjSkW5HtKPUCPvLFVUFZ6u1ywHE4oXtho2oTTZ74
+ 2tDNktDjDX/y8rLwGh9tEMsroLB6X+gH1+mXnCDG7TGxdPE9Dfcd2U1rgRx/FLXMvIrN/Xg75Hn
+ Qt3DpSX5YRYJwKjzw1nNdRsMvA9HAjfbvF+8lxnPNCexzJSMUDTaaQHi6bAbXIw2K4OWAqksAlT
+ Gj3snHQzlbZc4MlsejA==
+X-Authority-Analysis: v=2.4 cv=UPDt2ify c=1 sm=1 tr=0 ts=6a2bd824 cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=EAYMVhzMl8SCOHhVQcBL:22 a=M5GUcnROAAAA:8 a=yk21Q0SZhpILLZZ3dkMA:9
+ a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-ORIG-GUID: qTujiS5Z0aSq6Sore20qaDEeUw_pmEzW
+X-Proofpoint-GUID: qTujiS5Z0aSq6Sore20qaDEeUw_pmEzW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-12_01,2026-06-11_01,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_025737_061301_4DC02420 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260612_025802_614842_F1D50BE2 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,191 +104,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing and remove needless parentheses, brackets and curly braces.
-Fix typos.
+Add support for the LLC Tag-and-Data (TAD) PMU present in
+Marvell CN20K SoCs.
 
-Signed-off-by: Manuel Ebner <manuelebner@mailbox.org>
-Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
----
-[v1] -> [v2]
-"(i.e cache geometries)" -> "(e.g., cache geometries)"
-"Excer[t" -> "Excerpt"
-add Reviewed-by: Randy Dunlap
-fixed my own typos.
----
- Documentation/arch/arc/arc.rst                 |  2 +-
- .../arm/samsung/clksrc-change-registers.awk    |  2 +-
- Documentation/arch/arm/vlocks.rst              |  4 ++--
- .../arch/arm64/memory-tagging-extension.rst    |  2 +-
- Documentation/arch/powerpc/vas-api.rst         |  2 +-
- Documentation/arch/sparc/oradax/dax-hv-api.txt | 18 +++++++++---------
- Documentation/arch/sparc/oradax/oracle-dax.rst |  2 +-
- Documentation/arch/x86/x86_64/fsgs.rst         |  4 ++--
- 8 files changed, 18 insertions(+), 18 deletions(-)
+The CN20K TAD PMU is based on the CN10K design but differs in the
+layout of PFC/PRF register offsets relative to each TAD base, and
+introduces additional events. These offsets are selected by the driver
+based on the compatible string and are not described via DT properties.
 
-diff --git a/Documentation/arch/arc/arc.rst b/Documentation/arch/arc/arc.rst
-index 6c4d978f3f4e..5923dee37a98 100644
---- a/Documentation/arch/arc/arc.rst
-+++ b/Documentation/arch/arc/arc.rst
-@@ -36,7 +36,7 @@ Important note on ARC processors configurability
+Because of this, "marvell,cn10k-tad-pmu" cannot be used as a fallback
+for CN20K, as it would result in incorrect register programming.
+
+Add support for "marvell,cn20k-tad-pmu" by:
+  - Introducing a TAD_PMU_V3 profile with CN20K-specific register bases
+  - Extending the event map for new CN20K events
+  - Matching the PMU via OF and ACPI (MRVL000F)
+
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+---
+
+Changelog (since v1)
+--------------------
+- Hide V3-only events on CN10K via sysfs is_visible and reject them in
+  event_init.
+- Use CN20K-specific MPAM PRF bits (MATCH_MPAMNS, partid << 10) for V3;
+  software partid is limited to nine bits so this does not collide with
+  the fixed bit at 25.
+- Reset hwc->prev_count when starting counters so reads match cleared HW.
+
+ drivers/perf/marvell_cn10k_tad_pmu.c | 54 ++++++++++++++++++++++++++--
+ 1 file changed, 52 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
+index af706b890bf1..e43598a52859 100644
+--- a/drivers/perf/marvell_cn10k_tad_pmu.c
++++ b/drivers/perf/marvell_cn10k_tad_pmu.c
+@@ -17,11 +17,14 @@
  
- ARC processors are highly configurable and several configurable options
- are supported in Linux. Some options are transparent to software
--(i.e cache geometries, some can be detected at runtime and configured
-+(e.g., cache geometries), some can be detected at runtime and configured
- and used accordingly, while some need to be explicitly selected or configured
- in the kernel's configuration utility (AKA "make menuconfig").
+ #define TAD_PRF_OFFSET		0x900
+ #define TAD_PFC_OFFSET		0x800
++#define TAD_PRF_NS_OFFSET	0x30900
++#define TAD_PFC_NS_OFFSET	0x30800
+ #define TAD_PFC(base, counter)	((base) | ((u64)(counter) << 3))
+ #define TAD_PRF(base, counter)	((base) | ((u64)(counter) << 3))
+ #define TAD_PRF_CNTSEL_MASK	0xFF
+ #define TAD_PRF_MATCH_PARTID	BIT(8)
+ #define TAD_PRF_PARTID_NS	BIT(10)
++#define TAD_PRF_MATCH_MPAMNS	BIT(25)
+ /*
+  * config1: bits 0..8 MPAM partition id (including 0); bit 9 requests
+  * filtering for MPAM-capable events. All-zero config1 means no filter.
+@@ -38,6 +41,7 @@ struct tad_region {
+ enum mrvl_tad_pmu_version {
+ 	TAD_PMU_V1 = 1,
+ 	TAD_PMU_V2,
++	TAD_PMU_V3,
+ };
  
-diff --git a/Documentation/arch/arm/samsung/clksrc-change-registers.awk b/Documentation/arch/arm/samsung/clksrc-change-registers.awk
-index 7be1b8aa7cd9..48464397088c 100755
---- a/Documentation/arch/arm/samsung/clksrc-change-registers.awk
-+++ b/Documentation/arch/arm/samsung/clksrc-change-registers.awk
-@@ -163,4 +163,4 @@ BEGIN {
-     }
+ struct tad_pmu_data {
+@@ -85,8 +89,15 @@ static void tad_pmu_start_counter(struct tad_pmu *pmu,
+ 	if (use_mpam && event_idx > 0x19 && event_idx < 0x21) {
+ 		partid_filter = TAD_PRF_MATCH_PARTID | TAD_PRF_PARTID_NS |
+ 				((u64)partid << 11);
++
++		if (pdata->id == TAD_PMU_V3)
++			partid_filter = TAD_PRF_MATCH_PARTID | TAD_PRF_MATCH_MPAMNS |
++				((u64)partid << 10);
+ 	}
+ 
++	/* CN10K support events 0:24*/
++	if (pdata->id == TAD_PMU_V1 && event_idx >= 0x25)
++		return;
+ 
+ 	for (i = 0; i < pmu->region_cnt; i++) {
+ 		reg_val = event_idx & 0xFF;
+@@ -159,6 +170,7 @@ static void tad_pmu_event_counter_start(struct perf_event *event, int flags)
+ 	struct hw_perf_event *hwc = &event->hw;
+ 
+ 	hwc->state = 0;
++	local64_set(&hwc->prev_count, 0);
+ 
+ 	tad_pmu->ops->start_counter(tad_pmu, event);
+ }
+@@ -216,6 +228,8 @@ static int tad_pmu_event_init(struct perf_event *event)
+ 		if (cfg1)
+ 			return -EINVAL;
+ 	} else {
++		if (pdata->id == TAD_PMU_V1 && event_idx >= 0x25)
++			return -EINVAL;
+ 		if ((cfg1 & GENMASK(8, 0)) && !(cfg1 & TAD_PARTID_FILTER_EN))
+ 			return -EINVAL;
+ 		if (cfg1 & TAD_PARTID_FILTER_EN) {
+@@ -242,6 +256,22 @@ static ssize_t tad_pmu_event_show(struct device *dev,
+ 	return sysfs_emit(page, "event=0x%02llx\n", pmu_attr->id);
  }
  
--// && ! /clksrc_clk.*=.*{/ { print $0 }
-+// && ! /clksrc_clk.*=.*{/ { print $0 }}
-diff --git a/Documentation/arch/arm/vlocks.rst b/Documentation/arch/arm/vlocks.rst
-index 737aa8661a21..b0ac33263086 100644
---- a/Documentation/arch/arm/vlocks.rst
-+++ b/Documentation/arch/arm/vlocks.rst
-@@ -102,10 +102,10 @@ Features and limitations
- 	if (I_won) {
- 		/* we won the town election, let's go for the state */
- 		my_state = states[(this_cpu >> 8) & 0xf];
--		I_won = vlock_lock(my_state, this_cpu & 0xf));
-+		I_won = vlock_lock(my_state, this_cpu & 0xf);
- 		if (I_won) {
- 			/* and so on */
--			I_won = vlock_lock(the_whole_country, this_cpu & 0xf];
-+			I_won = vlock_lock(the_whole_country, this_cpu & 0xf);
- 			if (I_won) {
- 				/* ... */
- 			}
-diff --git a/Documentation/arch/arm64/memory-tagging-extension.rst b/Documentation/arch/arm64/memory-tagging-extension.rst
-index 679725030731..e6fe428f0e2a 100644
---- a/Documentation/arch/arm64/memory-tagging-extension.rst
-+++ b/Documentation/arch/arm64/memory-tagging-extension.rst
-@@ -222,7 +222,7 @@ programs should not retry in case of a non-zero system call return.
- address ABI control and MTE configuration of a process as per the
- ``prctl()`` options described in
- Documentation/arch/arm64/tagged-address-abi.rst and above. The corresponding
--``regset`` is 1 element of 8 bytes (``sizeof(long))``).
-+``regset`` is 1 element of 8 bytes (``sizeof(long)``).
++static umode_t tad_pmu_event_attr_is_visible(struct kobject *kobj,
++					     struct attribute *attr, int unused)
++{
++	struct pmu *pmu = dev_get_drvdata(kobj_to_dev(kobj));
++	struct tad_pmu *t = to_tad_pmu(pmu);
++	struct device_attribute *da = container_of(attr, struct device_attribute,
++						   attr);
++	struct perf_pmu_events_attr *e = container_of(da, struct perf_pmu_events_attr,
++						      attr);
++	u64 id = e->id;
++
++	if (t->pdata->id != TAD_PMU_V3 && id >= 0x25)
++		return 0;
++	return attr->mode;
++}
++
+ #define TAD_PMU_EVENT_ATTR(name, config)			\
+ 	PMU_EVENT_ATTR_ID(name, tad_pmu_event_show, config)
  
- Core dump support
- -----------------
-diff --git a/Documentation/arch/powerpc/vas-api.rst b/Documentation/arch/powerpc/vas-api.rst
-index a9625a2fa0c6..1d0d055356e3 100644
---- a/Documentation/arch/powerpc/vas-api.rst
-+++ b/Documentation/arch/powerpc/vas-api.rst
-@@ -293,7 +293,7 @@ Simple example
- 				//Format CRB request with compression or
- 				//uncompression
- 				// Refer tests for vas_copy/vas_paste
--				vas_copy((&crb, 0, 1);
-+				vas_copy(&crb, 0, 1);
- 				vas_paste(addr, 0, 1);
- 				// Poll on csb.flags with timeout
- 				// csb address is listed in CRB
-diff --git a/Documentation/arch/sparc/oradax/dax-hv-api.txt b/Documentation/arch/sparc/oradax/dax-hv-api.txt
-index ef1a4c2bf08b..49be62a9ce86 100644
---- a/Documentation/arch/sparc/oradax/dax-hv-api.txt
-+++ b/Documentation/arch/sparc/oradax/dax-hv-api.txt
-@@ -457,7 +457,7 @@ bits set, and terminate at a CCB that has the Conditional bit set, but not the P
- Offset   Size   Field Description
-                 Bits         Field Description
-                 [15:14]      Secondary Input Element Size (see Section 36.2.1.1.4,
--                             “Secondary Input Element Size”
-+                             “Secondary Input Element Size”)
-                 [13:10]      Output Format (see Section 36.2.1.1.6, “Output Format”)
-                 [9]          Padding Direction selector: A value of 1 causes padding bytes
-                              to be added to the left side of output elements. A value of 0
-@@ -656,7 +656,7 @@ Offset         Size            Field Description
-                                [18:16]      Secondary Input Starting Offset (see Section 36.2.1.1.5, “Input
-                                             Element Offsets”)
-                                [15:14]      Secondary Input Element Size (see Section 36.2.1.1.4,
--                                            “Secondary Input Element Size”
-+                                            “Secondary Input Element Size”)
-                                [13:10]      Output Format (see Section 36.2.1.1.6, “Output Format”)
-                                [9:5]        Operand size for first scan criteria value. In a scan value
-                                             operation, this is one of two potential exact match values.
-@@ -793,13 +793,13 @@ Offset   Size   Field Description
-                 [18:16]      Secondary Input Starting Offset (see Section 36.2.1.1.5, “Input
-                              Element Offsets”)
-                 [15:14]      Secondary Input Element Size (see Section 36.2.1.1.4,
--                             “Secondary Input Element Size”
-+                             “Secondary Input Element Size”)
-                 [13:10]      Output Format (see Section 36.2.1.1.6, “Output Format”)
-                 [9]          Reserved
-                 [8:0]        Test value used for comparison against the most significant bits
-                              in the input values, when using 2 or 3 byte input elements.
--8        8      Completion (same fields as Section 36.2.1.2, “Extract command”
--16       8      Primary Input (same fields as Section 36.2.1.2, “Extract command”
-+8        8      Completion (same fields as Section 36.2.1.2, “Extract command”)
-+16       8      Primary Input (same fields as Section 36.2.1.2, “Extract command”)
- 24       8      Data Access Control (same fields as Section 36.2.1.2, “Extract command”,
-                 except Primary Input Length Format may not use the 0x0 value)
- 32       8      Secondary Input, if used by Primary Input Format. Same fields as Primary
-@@ -880,7 +880,7 @@ Offset   Size   Field Description
-                                        [18:16]     Secondary Input Starting Offset (see Section 36.2.1.1.5, “Input
-                                                    Element Offsets”)
-                                        [15:14]     Secondary Input Element Size (see Section 36.2.1.1.4,
--                                                   “Secondary Input Element Size”
-+                                                   “Secondary Input Element Size”)
+@@ -283,12 +313,25 @@ static struct attribute *tad_pmu_event_attrs[] = {
+ 	TAD_PMU_EVENT_ATTR(tad_dat_rd_byp, 0x22),
+ 	TAD_PMU_EVENT_ATTR(tad_ifb_occ, 0x23),
+ 	TAD_PMU_EVENT_ATTR(tad_req_occ, 0x24),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dtg_evict, 0x25),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_ltg_evict, 0x26),
++	TAD_PMU_EVENT_ATTR(tad_rsp_msh_out_mpam, 0x28),
++	TAD_PMU_EVENT_ATTR(tad_replays, 0x29),
++	TAD_PMU_EVENT_ATTR(tad_req_byp0, 0x2a),
++	TAD_PMU_EVENT_ATTR(tad_req_byp1, 0x2b),
++	TAD_PMU_EVENT_ATTR(tad_txreq_byp, 0x2c),
++	TAD_PMU_EVENT_ATTR(tad_time_in_dslp, 0x2d),
++	TAD_PMU_EVENT_ATTR(tad_time_elapsed, 0x2e),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dss_rd_128mrg, 0x2f),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dss_wr_128mrg, 0x30),
++	TAD_PMU_EVENT_ATTR(tad_tot_cycle, 0xff),
+ 	NULL
+ };
  
+ static const struct attribute_group tad_pmu_events_attr_group = {
+ 	.name = "events",
+ 	.attrs = tad_pmu_event_attrs,
++	.is_visible = tad_pmu_event_attr_is_visible,
+ };
  
-                                                       524
-@@ -895,8 +895,8 @@ Offset   Size   Field Description
-                                                     causes padding bytes to be added to the right side of output
-                                                     elements.
-                                        [8:0]        Reserved
--        8              8               Completion (same fields as Section 36.2.1.2, “Extract command”
--        16             8               Primary Input (same fields as Section 36.2.1.2, “Extract command”
-+        8              8               Completion (same fields as Section 36.2.1.2, “Extract command”)
-+        16             8               Primary Input (same fields as Section 36.2.1.2, “Extract command”)
-         24             8               Data Access Control (same fields as Section 36.2.1.2, “Extract command”)
-         32             8               Secondary Bit Vector Input. Same fields as Primary Input.
-         40             8               Reserved
-@@ -949,7 +949,7 @@ Offset   Size   Field Description
-                                    [31]        If set, this CCB functions as a Sync command. If clear, this
-                                                CCB functions as a No-op command.
-                                    [30:0]      Reserved
--       8             8             Completion (same fields as Section 36.2.1.2, “Extract command”
-+       8             8             Completion (same fields as Section 36.2.1.2, “Extract command”)
-        16            46            Reserved
+ static struct attribute *ody_tad_pmu_event_attrs[] = {
+@@ -474,7 +517,7 @@ static int tad_pmu_probe(struct platform_device *pdev)
+ 		.read		= tad_pmu_event_counter_read,
+ 	};
  
- 36.2.2. CCB Completion Area
-diff --git a/Documentation/arch/sparc/oradax/oracle-dax.rst b/Documentation/arch/sparc/oradax/oracle-dax.rst
-index d1e14d572918..a5d53f240dc8 100644
---- a/Documentation/arch/sparc/oradax/oracle-dax.rst
-+++ b/Documentation/arch/sparc/oradax/oracle-dax.rst
-@@ -438,7 +438,7 @@ that in user land::
- The output bitmap is ready for consumption immediately after the
- completion status indicates success.
+-	if (version == TAD_PMU_V1) {
++	if (version == TAD_PMU_V1 || version == TAD_PMU_V3) {
+ 		tad_pmu->pmu.attr_groups = tad_pmu_attr_groups;
+ 		tad_pmu->ops		 = &tad_pmu_ops;
+ 	} else {
+@@ -517,6 +560,11 @@ static const struct tad_pmu_data tad_pmu_data = {
+ 	.tad_pfc_offset = TAD_PFC_OFFSET,
+ };
  
--Excer[t from UltraSPARC Virtual Machine Specification
-+Excerpt from UltraSPARC Virtual Machine Specification
- =====================================================
++static const struct tad_pmu_data tad_pmu_cn20k_data = {
++	.id   = TAD_PMU_V3,
++	.tad_prf_offset = TAD_PRF_NS_OFFSET,
++	.tad_pfc_offset = TAD_PFC_NS_OFFSET,
++};
+ #endif
  
-  .. include:: dax-hv-api.txt
-diff --git a/Documentation/arch/x86/x86_64/fsgs.rst b/Documentation/arch/x86/x86_64/fsgs.rst
-index 6bda4d16d3f7..f8d483a7fb06 100644
---- a/Documentation/arch/x86/x86_64/fsgs.rst
-+++ b/Documentation/arch/x86/x86_64/fsgs.rst
-@@ -182,8 +182,8 @@ address spaces via an attribute based mechanism in Clang 2.6 and newer
- versions:
+ #ifdef CONFIG_ACPI
+@@ -530,6 +578,7 @@ static const struct tad_pmu_data tad_pmu_v2_data = {
+ #ifdef CONFIG_OF
+ static const struct of_device_id tad_pmu_of_match[] = {
+ 	{ .compatible = "marvell,cn10k-tad-pmu", .data = &tad_pmu_data },
++	{ .compatible = "marvell,cn20k-tad-pmu", .data = &tad_pmu_cn20k_data },
+ 	{},
+ };
+ #endif
+@@ -538,6 +587,7 @@ static const struct of_device_id tad_pmu_of_match[] = {
+ static const struct acpi_device_id tad_pmu_acpi_match[] = {
+ 	{"MRVL000B", (kernel_ulong_t)&tad_pmu_data},
+ 	{"MRVL000D", (kernel_ulong_t)&tad_pmu_v2_data},
++	{"MRVL000F", (kernel_ulong_t)&tad_pmu_cn20k_data},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(acpi, tad_pmu_acpi_match);
+@@ -599,6 +649,6 @@ static void __exit tad_pmu_exit(void)
+ module_init(tad_pmu_init);
+ module_exit(tad_pmu_exit);
  
-  ==================================== =====================================
--  __attribute__((address_space(256))  Variable is addressed relative to GS
--  __attribute__((address_space(257))  Variable is addressed relative to FS
-+  __attribute__(address_space(256))   Variable is addressed relative to GS
-+  __attribute__(address_space(257))   Variable is addressed relative to FS
-  ==================================== =====================================
- 
- FS/GS based addressing with inline assembly
+-MODULE_DESCRIPTION("Marvell CN10K LLC-TAD perf driver");
++MODULE_DESCRIPTION("Marvell CN10K/CN20K LLC-TAD perf driver");
+ MODULE_AUTHOR("Bhaskara Budiredla <bbudiredla@marvell.com>");
+ MODULE_LICENSE("GPL v2");
 -- 
-2.54.0
+2.25.1
 
 
