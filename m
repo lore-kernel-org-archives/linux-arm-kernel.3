@@ -4,91 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16031CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2635CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M73/czaUWyBGnw72mY49ubaGrHPAbyEOgxiU49yDTv4=; b=Un5f725yzxLaWK3bodZD0lMc2a
-	CZnGDecj/CgGBh+q9MGvP3nc59iArRX95gT9NgBRFaUYJSS0q6OIgDPe+E6tf/bNsPajp4egrb4hZ
-	jynX7ThZ5q8swAD/VxavEYL31FmJVuUHbvjD1qnmC1Xq2XlMOj/7Fogo6y/BkRMXhAZpsM6vOb+Ju
-	6pehRYF7XoUTfaLIZ4nQXPDeGYSdHiWobFGWBPLTJX6s0+HczELeiQ4nQTtJu3u1ty6yKuy8kT7N0
-	9/C2nz+mQcIbdTJQJ/XvZq8kzAeaVlNYnTmJcI13ivXjOCkonLPUxZ8/ZbckApn1sO2wfYoMBJA6N
-	Uc7rBXqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wLR5ceLyn2LWx78PSXIyJ/Cdj4UA0nZ2YxlclNxvI8g=; b=W2jzyUWmY1KPzM
+	Rkca/4tsP9xdImCkN+/vjcKsKm+RkTqCRawS21O6NJ5/7LBQBY9pN1IvWUcu13A/5cpq0e08o7j2a
+	h19heOx39+b0fdy47p1w8W78NNJWQk3/kC3G7cRJvZLjP0T2m/wa22i4sggeeSge3c6ExIKFYGxRX
+	GJ088/GLdHHiPaIw8YQovl/SdhdYq/FA+xCT9+DbyDz2CSrW3vnt2UYXV93GSLLs4bl2XnJwRzML1
+	MtrK23T8syMzP6HqdGmpOrFpSodyZRSwUDcPrhGOalNz3Q1NvP66eMSgZ84ipzWwHPz3wbNYIWyym
+	MYCi6eCWncVJ7RWe/Jig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY3gU-0000000B9RF-491A;
-	Fri, 12 Jun 2026 15:20:38 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wY3tu-0000000B9lP-0dVt;
+	Fri, 12 Jun 2026 15:34:30 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY3gT-0000000B9Qs-0F3w
+	id 1wY3tq-0000000B9kF-43DW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 15:20:38 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490b23c828aso60185e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 08:20:36 -0700 (PDT)
+	Fri, 12 Jun 2026 15:34:28 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-45ee5cdbd28so1385172f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 08:34:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781277635; x=1781882435; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=M73/czaUWyBGnw72mY49ubaGrHPAbyEOgxiU49yDTv4=;
-        b=uvO3vufS4zuGlH8xnpkOyWjkludcy8w8iPFrkjvUfNiDJcWb5CVZonGbyuNxhZ8ElD
-         MW3c++Q/3JXrNIjCBmGmNOaifEyCx5zXuApSSWN4MXhGYcNSYAlwlmDQLe3PhzvZYuUe
-         R74vTk+BH5Ls0WW9DIGtnrsBhSCFejccZikx6hkuqYNkiuJGiyp/inVmuPlO2rxA+SgG
-         zgoYo76wFvyq8x5IZU9U8Rl5fsa0I41NwfQV/PfEYVpoFexDwZ3wK/P6fzr8CEeVTO8C
-         Wt3eG7yr5dFmSuPQyBVZSVTmoEBS2/nXBrj5YpIZK09P3CxyxRBW3dNyNEgSMGX91abO
-         WSVw==
+        d=flipper.net; s=google; t=1781278464; x=1781883264; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wLR5ceLyn2LWx78PSXIyJ/Cdj4UA0nZ2YxlclNxvI8g=;
+        b=v0ti/JPuDIayfIR4Whh+FQ2ipaK/D0L+5eVnwkmUY0BrZ/yXQmyl9332QuhImaqh2V
+         4Oq3rYgLk/iNxKCVIlxrXqYlo0XMhHToKmVqqwQxypyChSuBiBp9gDOdlBhrs+lieTNP
+         /vmxW8EZDLrYi2G58ydlG63qwIK+2EMBd8FkFUySJlC5a80JvK5JOYt85dmn5Y7KAMn7
+         cknwGeBTuOwAYSlLw7G8GuXyAkM8c9iMIkoIb5hBr9TqamDxSMjVmW3dKbm7+3YJhV3C
+         XFEjniGiR3h5U7ckLP1gn36wI7nM41c+NSjm9SlGa8lG2PZ7tuII8S/EtyaDkG8kK259
+         XzDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781277635; x=1781882435;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=M73/czaUWyBGnw72mY49ubaGrHPAbyEOgxiU49yDTv4=;
-        b=qqN5hjb0g+Dn86WIrNHNAwSXA3P+WdjiQ5/nuq9LKTEydkhXUbBCXEEfbAJP9JpCM8
-         /fnmDe0GWFni3mSSdMDJ+KfCXrO3jCEXl/U9xP1w5+ocxI8VPVqUhNkiE5AX9/DNadJM
-         KS1+3rNyP/jG4Uq4vwiRAbFFu+YpprguYnOu/d/fEZ2GapliTGk41ethyqIoYmOPM+sd
-         Y5hrpaz6W00YoPaG/0A1QrQEa4xvfXeF0jVWrTjNQJnY503CFZAFiVYeOoRWbo80+v/E
-         4OP7sZKSpuMBjVkNftUNxr2saDbYUfAVeyBNTxziSXeM4+3lMFG6U+l9ZlpmWyH09iyu
-         aBIw==
-X-Forwarded-Encrypted: i=1; AFNElJ/DUB+PUl2IDXRYS4Z6WazOchKjclM+Qudx992yp2gvO7430xGdYDqoIElP7Hf9nUOTc6Iz14EocepuPUfP+UZw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0U2/Z2tsR0qR5Gxe1v00UNp8OSnCAdWCL7kQhyAsl8APYFLB7
-	61m/Lti+Sfkp9rOCJx3f9j27BGR2T7NMxhllBO+z8VnzyaRaAGmo+UP5Q3Me3od+cQ==
-X-Gm-Gg: Acq92OF5BjnPlA+6NcikEL46YeOG9aZy6E96o7QuCLMkCBKuye6TgDAx0v1f4ykKIEW
-	w6jjCrU4gCyCTBaRd1KW4kdY67at09OJss8iSOAgOjcM3ZDNjsj9PCBx8OhrQ/QR6ojixI5aQyX
-	BjHKCKBXeaOcIYxYJCtsspaozs2F2AmpMcAr0LHQAKOzIWeMWU4khSoo/VRVSI5qjd0SpS7FsoT
-	4wmHZcPrYp0GY1jCMLockFxZG0YybBdGKiloAxzphaz+b6XhvkBVPsVgit6pMozYh6c6SXhN80a
-	JM093G3nJld9qHPKEpR0ux1pWjc+v0pIJC3+n09jiPU0Xd75z6iOqP1A3Vy+PFE+oJ0ce8gLUTO
-	RozkpA/O+4my8HzQr4MqP60Fh7dt/vnRfJo/UD5JZ3qSUolWbwsqJFI7XKxfOPfRiKzsBOwo2He
-	ZyLhuewMBlKi1RQBFffbf6KlxmWDV5OJVTItQ1Zyv/5PBTGMd4ASNFRO1kCf20Ms4XQczc7A==
-X-Received: by 2002:a05:600c:2309:b0:489:1f6a:4ac0 with SMTP id 5b1f17b1804b1-490ea51dfb4mr951915e9.0.1781277634812;
-        Fri, 12 Jun 2026 08:20:34 -0700 (PDT)
-Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f2c4240sm6626262f8f.27.2026.06.12.08.20.34
+        d=1e100.net; s=20251104; t=1781278464; x=1781883264;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wLR5ceLyn2LWx78PSXIyJ/Cdj4UA0nZ2YxlclNxvI8g=;
+        b=FVXYbZiHM6N51wwz3mgLZrWZQDugSakKdaFlZevFo4ilWkX1giKirqANb9ywS93ZOl
+         n1l1tq+VXZYc0LraXGgGns0KoqAbbp8j/Gzbnw/27euN+VUthT++5s6FkKcgae+Ddddz
+         pgcvTI2Ig8AEYFxMm8POX5GkGCBim+I4xt023wnRHjkxpNmdiAQzACBgDJfFZ1BFAh+Q
+         gCkE82Bg8zQZxepyBkxnpH3oSm6lM4bmjmLK7CKu5Sq7712pyLjEs9OeWySNyyu83wcL
+         ErEgVyAGHgreaqhtuuHAh7mvOflxOotQV7B9f8dUlvZ6NaIgFN7I76TyEWK3pQTiu68N
+         03eQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+sfYS6L8k/Jb84OftFR4DxsX5wLo70jJH72sH1QayHkqG4rdp1TbWHweoMpDKvKGz8aVbshxse9XO8YiwXpi0k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyq1bHJG1/bgSYUKyY8rDILcH2CZj1sOfgKmdVnbr8sGelugxPU
+	Sz7f1L0Jwftm5da/z6nQdz76687jSSv0JGO7nlwIrn0ThKNzBIcFOP9RC1jnZY+ekpM=
+X-Gm-Gg: Acq92OEUuCtqPWH+l0MHcdb26lhsCV1sfAg/XuC+0k6ct5g9RA16LhAJup844Yzg+Ey
+	pMyoj0oy5zHKlJptesydxduraY5WI/JlyBPDDzPEm4Gc1yOMups5J5dXKMU9fD/QJqigiAoLtAY
+	dOEMK0Ug2Z2QTrvsI/MLtpSOjh+VMXZfJZvb/xgZjElIgwwD1qoUzU8veJgHSpsJXdgVjmgCKoj
+	u+GBWWx245wUpH58eP+wFqbcq1cP1DjeZhvmoko//ef2dhLLCzT+AgyxlmP+kUQfZQV6s0lvRdF
+	R2mLTzTsx3PHDd5N+0xD3/f/kRQKUVtKO9k6BZvNKodJ5aUgGfHGpyRTTGup3kaLkZoNi+M6BdQ
+	WLPP23DG0cXEKVDDFsf7Y5hwJD9bAjJ9HBsR8mjWbYxsHP4Yv99U3NtKkLp30xtbfHuNMGAvcXj
+	gLDXCqMkWSZrhpOxCxtPoC7/CEREzpIyGZK8B5IEi7
+X-Received: by 2002:a05:6000:41f7:b0:45e:dc0a:bcb with SMTP id ffacd0b85a97d-4606d024020mr4921301f8f.22.1781278464037;
+        Fri, 12 Jun 2026 08:34:24 -0700 (PDT)
+Received: from alchark-surface.localdomain ([5.194.92.128])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f2b0d28sm6916641f8f.20.2026.06.12.08.34.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 08:20:34 -0700 (PDT)
-Date: Fri, 12 Jun 2026 15:20:30 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, catalin.marinas@arm.com,
-	jens.wiklander@linaro.org, sumit.garg@kernel.org,
-	vdonnefort@google.com, sudeep.holla@kernel.org
-Subject: Re: [PATCH v6 5/6] KVM: arm64: Validate the offset to the mem access
- descriptor
-Message-ID: <aiwjvihrwbInBqGn@google.com>
-References: <20260527150236.1978655-1-smostafa@google.com>
- <20260527150236.1978655-6-smostafa@google.com>
+        Fri, 12 Jun 2026 08:34:23 -0700 (PDT)
+From: Alexey Charkov <alchark@flipper.net>
+Subject: [PATCH 0/4] mfd: Add support for the MCU in the UGREEN DH2300 NAS
+Date: Fri, 12 Jun 2026 19:34:13 +0400
+Message-Id: <20260612-dh2300-mcu-v1-0-ab8db1617bc0@flipper.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260527150236.1978655-6-smostafa@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ5AMBBA4avIrDXplFq4iljQThmJn7SIpHF3x
+ fJbvBchkGcKUGcRPJ0ceF0SMM/AjN0ykGCbDEqqSlaohB1VIaWYzSF0oUuLTjvEDlKweXJ8fbO
+ m/R2OfiKzvwe47wfcjLZGbgAAAA==
+X-Change-ID: 20260612-dh2300-mcu-5354d1f5f11a
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Alexey Charkov <alchark@flipper.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2017; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=gtvNi33VQsDNDkHYG9DuFjrER9YXOntZMxm2KOrjFjs=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWTpqP1lYhRlET4n1B2UyM+qz36ft0rIVjyhOk/10c72j
+ q9t9sUdE1kYxLgYLMUUWeZ+W2I71Yhv1i4Pj68wc1iZQIZIizQwAAELA19uYl6pkY6Rnqm2oZ6h
+ kY6xjhEDF6cATPXEW4wMr47Msg37u+90m55mcYB3d6rIttuMb+3yjqww4XnvoP57IyNDr/8CzVv
+ Cqxs1BQ4HV8f9+9lcvWBNYj7nh07+Pw+ttCfwAgA=
+X-Developer-Key: i=alchark@flipper.net; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_082037_133772_8813EE44 
-X-CRM114-Status: GOOD (  28.68  )
+X-CRM114-CacheID: sfid-20260612_083427_064732_F7E469FD 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,122 +112,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 03:02:35PM +0000, Mostafa Saleh wrote:
-> From: Sebastian Ene <sebastianene@google.com>
-> 
-> Prevent the pKVM hypervisor from making assumptions that the
-> endpoint memory access descriptor (EMAD) comes right after the
-> FF-A memory region header.
-> Prior to FF-A version 1.1 the header of the memory region
-> didn't contain an offset to the endpoint memory access descriptor.
-> The layout of a memory transaction looks like this from 1.1 onward:
-> Type | Field name | Offset
-> [ Header | ffa_mem_region  | 0
->   EMAD 1 | ffa_mem_region_attributes) | ffa_mem_region.ep_mem_offset
-> ]
-> Verify that the offset to the first endpoint memory access descriptor
-> is within the mailbox buffer bounds.
-> 
-> Also, fix one hardcoded sizeof(struct ffa_mem_region_attributes) that
-> should be replaced ffa_emad_size_get() for compatibility with FFA v1.0.
-> 
-> [@Mostafa, Add missing call to ffa_rx_release() and use fraglen
->  as the max buffer size as it is the only intialised part]
-> 
-> Fixes: 42fb33dde42b ("KVM: arm64: Use FF-A 1.1 with pKVM")
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 25 ++++++++++++++++++-------
->  1 file changed, 18 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index b6cf9ad82e12..a12e01883314 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -476,10 +476,10 @@ static void __do_ffa_mem_xfer(const u64 func_id,
->  	DECLARE_REG(u32, fraglen, ctxt, 2);
->  	DECLARE_REG(u64, addr_mbz, ctxt, 3);
->  	DECLARE_REG(u32, npages_mbz, ctxt, 4);
-> +	u32 offset, nr_ranges, checked_offset, em_mem_access_off;
->  	struct ffa_mem_region_attributes *ep_mem_access;
->  	struct ffa_composite_mem_region *reg;
->  	struct ffa_mem_region *buf;
-> -	u32 offset, nr_ranges, checked_offset;
->  	int ret = 0;
->  
->  	if (addr_mbz || npages_mbz || fraglen > len ||
-> @@ -489,7 +489,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
->  	}
->  
+UGREEN DH2300 is a 2-bay SATA NAS based on the Rockchip RK3576 SoC. It
+includes an embedded controller connected over I2C which won't let the
+drives power up without its register being poked first, which precludes
+the use of the device for its main purpose.
 
-Hi Mostafa,
+There is no public documentation or source code available, but apparently
+the MCU is also responsible for a hardware watchdog function and some type
+of wake functionality, so this series implements an MFD-regulator
+separation right away to allow for adding these functions properly later
+on.
 
->  	if (fraglen < sizeof(struct ffa_mem_region) +
-> -		      sizeof(struct ffa_mem_region_attributes)) {
-> +		      ffa_emad_size_get(hyp_ffa_version)) {
->  		ret = FFA_RET_INVALID_PARAMETERS;
->  		goto out;
->  	}
+For now though a single-bit write to the MCU seems to be sufficient to get
+the drives to work with only a board DTS addition [1] - to be submitted
+separately.
 
-Here sashiko complains about a compatibility break with v1.0 even though
-it is not from this change. This is because the size of sizeof(struct
-ffa_mem_region) was 36 bytes in v1.0 and now it is 48.
+[1] https://github.com/flipperdevices/flipper-linux-kernel/blob/2c1c5ee609f6ed4c77e9e5428df91e98b3f50cce/arch/arm64/boot/dts/rockchip/rk3576-nasync-dh2300.dts
 
-This check can cause "perfectly valid v1.0 memory transfers to be rejected"
-(from sashiko).
+Signed-off-by: Alexey Charkov <alchark@flipper.net>
+---
+Alexey Charkov (4):
+      dt-bindings: vendor-prefixes: Add Ugreen Group Limited
+      dt-bindings: mfd: Add UGREEN NASync DH2300 MCU
+      mfd: Add support for UGREEN NASync DH2300 MCU
+      regulator: Add support for UGREEN NASync DH2300 MCU SATA power gate
 
-Other than that this looks good. I will spin a new version of this
-series.
+ .../devicetree/bindings/mfd/ugreen,dh2300-mcu.yaml | 62 +++++++++++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml       |  2 +
+ MAINTAINERS                                        |  7 ++
+ drivers/mfd/Kconfig                                | 16 +++++
+ drivers/mfd/Makefile                               |  1 +
+ drivers/mfd/ugreen-dh2300-mcu.c                    | 60 ++++++++++++++++
+ drivers/regulator/Kconfig                          | 12 ++++
+ drivers/regulator/Makefile                         |  1 +
+ drivers/regulator/ugreen-dh2300-mcu-regulator.c    | 80 ++++++++++++++++++++++
+ 9 files changed, 241 insertions(+)
+---
+base-commit: ec039126b7fac4e3af35ebccaa7c6f9b6875ba81
+change-id: 20260612-dh2300-mcu-5354d1f5f11a
 
-> @@ -508,8 +508,13 @@ static void __do_ffa_mem_xfer(const u64 func_id,
->  	buf = hyp_buffers.tx;
->  	memcpy(buf, host_buffers.tx, fraglen);
->  
-> -	ep_mem_access = (void *)buf +
-> -			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
-> +	em_mem_access_off = ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
-> +	if ((u64)em_mem_access_off + ffa_emad_size_get(hyp_ffa_version) > fraglen) {
-> +		ret = FFA_RET_INVALID_PARAMETERS;
-> +		goto out_unlock;
-> +	}
-> +
-> +	ep_mem_access = (void *)buf + em_mem_access_off;
->  	offset = ep_mem_access->composite_off;
->  	if (!offset || buf->ep_count != 1 || buf->sender_id != HOST_FFA_ID) {
->  		ret = FFA_RET_INVALID_PARAMETERS;
-> @@ -574,9 +579,9 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
->  	DECLARE_REG(u32, handle_lo, ctxt, 1);
->  	DECLARE_REG(u32, handle_hi, ctxt, 2);
->  	DECLARE_REG(u32, flags, ctxt, 3);
-> +	u32 offset, len, fraglen, fragoff, em_mem_access_off;
->  	struct ffa_mem_region_attributes *ep_mem_access;
->  	struct ffa_composite_mem_region *reg;
-> -	u32 offset, len, fraglen, fragoff;
->  	struct ffa_mem_region *buf;
->  	int ret = 0;
->  	u64 handle;
-> @@ -599,8 +604,14 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
->  	len = res->a1;
->  	fraglen = res->a2;
->  
-> -	ep_mem_access = (void *)buf +
-> -			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
-> +	em_mem_access_off = ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
-> +	if ((u64)em_mem_access_off + ffa_emad_size_get(hyp_ffa_version) > fraglen) {
-> +		ret = FFA_RET_INVALID_PARAMETERS;
-> +		ffa_rx_release(res);
-> +		goto out_unlock;
-> +	}
-> +
-> +	ep_mem_access = (void *)buf + em_mem_access_off;
->  	offset = ep_mem_access->composite_off;
->  	/*
->  	 * We can trust the SPMD to get this right, but let's at least
-> -- 
-> 2.54.0.746.g67dd491aae-goog
->
+Best regards,
+--  
+Alexey Charkov <alchark@flipper.net>
 
-Thanks,
-Sebastian
 
