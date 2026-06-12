@@ -4,66 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35653CD4F2C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 07:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDA0CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 07:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRlI91H90jnEd6QVhakYzPZr1kG+YnVR7+LXyLJH35o=; b=IveCt4ZIcTAqbGqjNmlWMu9qxf
-	fVH4Ov+omDHi7XOCf+Z2BBofpACM/T53+PWiEbxv9rJKD2wdey9iWTAz4puMA8HgBc8/2qXTh/BYm
-	WFsyVxO13U6TKP3MJqPVIDwXzCV78gw+O6e//AKvmRuMagTl34cncz4E43MgdZDxBhtQBvoQiF+7d
-	nFAetKHLHJU4Z+2E/xpMdqDPBqt/JMvuNkIAkbOV2kCZG4bUmmbY+ELI8XcDQFAf1k9Lk10440pmS
-	76+jG4ulfXvJbXJUEWOBCOjxKOO99r0oHX3vUY/AWiYdyFkCKYzkm+UxJ2fmohDfhRaDiL286RejG
-	lwB/cu9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PEcj4bZjlu2HtgA6/DpQKuZoEr9jILxBgREI+9hl/bg=; b=vbXlbAPT9YmgLB9rpB8r83n6UG
+	VNi89B13E/p9BmvdWhLl3UJ6yguFvhI0JvldlEA6EWUfLq5xC7k8YikRjhCNLEETuWAphX9SEig9X
+	FpC8xmlCNMa9IoDLKJ1Vu87xEokBqQK09AB9VRVC6p2umjvVkPwCxPKsUg+l+1QFNRmWlVbTPkNpl
+	45fniZ4A5MIIg6U8VWbVBTEmQHrNwasuERnP323ZF5yXEWYC+msKCpW7NzFD1E2vEqDgilf8gxSyE
+	MLHXodevvo59Dffkb+IRnUEOxBd0PWO1/sd6FB1OFCT2APmkvG3RhGvmkyI1y/BWuVp/1rJ/kaOnd
+	VylOZEgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXw9V-0000000ASfn-2E0B;
-	Fri, 12 Jun 2026 07:18:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wXwBt-0000000ASoC-44VC;
+	Fri, 12 Jun 2026 07:20:33 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXw9T-0000000ASfg-1KoD
+	id 1wXwBr-0000000ASnG-1I0R
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 07:18:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8ABF5429E4;
-	Fri, 12 Jun 2026 07:18:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AC341F000E9;
-	Fri, 12 Jun 2026 07:17:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781248682;
-	bh=HRlI91H90jnEd6QVhakYzPZr1kG+YnVR7+LXyLJH35o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=L6MPI5gE1EdULfuqHX9FeI9o0O6WUcgtuZPpWMq+YYQz4NIsNDinQEUyjqduDtf8k
-	 l8gWpChVZWxKZ9IMjrvPCyDVpfk/zIqoonwcdK/KvKB29G9P9G+Ph0rCNIgppcmtbT
-	 tSZB3ZTQO2faTEcLNza0Ezw0v8mFkL7pakAFNDwxpgSbRIjwf3SDics+Oj8JVgm8OD
-	 ni90NHejNjBOTa51A+reb7rCNyc/4Lx5cgSbSeps9eNeHYj/8IMOVwZ6t1VqbCFYeU
-	 c/cKA30WUS016DLWHkU1ctyI28rhef6zPLtNPETvTY/tuZClh+qbft/3ltRMCc1ccj
-	 ti/5o46qveQ7A==
-Date: Fri, 12 Jun 2026 10:17:55 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Brendan Jackman <brendan.jackman@linux.dev>
-Cc: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Brendan Jackman <jackmanb@google.com>, owner-linux-mm@kvack.org
-Subject: Re: [RFC PATCH 3/6] arm64: mm: fix restoring linear map permissions
- on execmem cache clean
-Message-ID: <aiuyoy8Kmr9yU4GM@kernel.org>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-4-abarnas@google.com>
- <DJ69RCVRBO0Y.3JCYSW50IC4RC@linux.dev>
+	Fri, 12 Jun 2026 07:20:33 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-7dfceeaf168so7279117b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 00:20:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781248830; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AW682sKXkeShRTEzyhXwOsEU62S6JFpsLR+dHZ/TeWuFCsO6HbljTear/6W6lOD+DJ
+         AA9By2udq8NHpDUBwojF6Wl76GiH7I53LJSPAV7BJQQPPGlPq6EK9VksLrGCCpq4MoaD
+         BYW8QgGjnCiE+5qusr92NN61CtYokSIFmL+sup3VUlJIOsTtW4XoEa028zoo7dzuiGYM
+         1CtCfEGgygMoYqCrZ+TP2MxfVu7rD8nGtQBF+ZEoaItPsVyzgi5tKpfwBaOr1AcvkdCh
+         sj88MFOrVfZUEXCXQK+pEs5SoLKZdxhuRbYP4CIW1V9FF58QZHzwUnlubrtbyiI3DT6x
+         j6Ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PEcj4bZjlu2HtgA6/DpQKuZoEr9jILxBgREI+9hl/bg=;
+        fh=JVRD4jmtBykUlXFMIWD2c9UQKavpLlDC8MlqYeWN350=;
+        b=YaJfvit69w/t2ZaFCQU+Dqa21ozQHTgRunVHsxT6sFk24xfwQzwJj0w75EjxqxBOOp
+         NE70J312NiukE93l85H6egCVwCPbNOhEGhPCbIBlyUOTc7yKVZyGyZBwrjlEOyjEIBRS
+         ni1HeuyDVsFhcTBrUEvbsaK4pXMYOVkQtqXuV4ElQkMfKSjWAFG/h7abhWPit2xuHslY
+         UZ6rg5USzNyWA2vRTqhEHEFKaFEevMON68YC0ETECM2Hi2Hsssqq3Y78kHWlFfbgbmht
+         hc5tHzgREEbU9U6YJNQ8RnjuH/Ye9TIzEx5MO+zgYwVqKxkMoXbthJ+qKm1ahTk9IeZC
+         c2sg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1781248830; x=1781853630; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PEcj4bZjlu2HtgA6/DpQKuZoEr9jILxBgREI+9hl/bg=;
+        b=J7ADuSC+g2eYlfBQtkOd+1zwPOXJmZTlllVqUcwc55FB2/hd1uUB4kzJHiqhLtWkmd
+         xqM8ga/Mgd+knML9G5/+8utiWAnUB2ehM/VYnfpbNMaqexPJYuWifITGBIKpmX4Q9C7e
+         njLnsA3tWGm7MOJHXnVFvf/1WMcvdQm3qsXGs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781248830; x=1781853630;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=PEcj4bZjlu2HtgA6/DpQKuZoEr9jILxBgREI+9hl/bg=;
+        b=UY3i2UDcqtDBRsfl32XhY2FnhtZRXF9GQ8WIV2Av6ZEsPjl+VFb7c6Cl6oPuY6Myxm
+         O76azluZJY5LXLOVOSiCvHU7INwHgkVd7LNxCIU+YRHh8mlTnYC/GY1Cb3nVZEvPELgu
+         8vsHUY0OSH+SqGrxHDLqSBGdiX2sm6mlTT3dm5dkv8me5wz0cdFuf1HZyZXw+XdrjsTf
+         aGk0biNWm4SNilVrhXPs+WeEMiZdXaCKNhqj3cO04/vzXUatytfoXXAB7iSyHjwskOTq
+         ZDgX52j/ri6SMFhgNCeAz7j+M1XFmCuO64NUfflDF8yKaiqOzAQDwN+GCzwpBmC9p9d7
+         BFpw==
+X-Forwarded-Encrypted: i=1; AFNElJ8PjiSlNCEx8u4hqbnvjKxA5qgoy8J2gjjUvf6dOT/MP+2PB/Oo8uU3wQfoMeWRgDRsmwvYs/+4DnQDj/WsD3X4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRFugf1br5tEWF959vCfy1jrKZyoQMdW5XRnZDGtq+QgIrr+ex
+	Nh/bPiUpnR9kJgUd2Du4VWaALE0nr9gwYmmJR6sZPB1/na+WNhK9zB3I0n7kN5i+UvJr8F/AvL7
+	cIZD6KLvZ0JrErqG/egxEqI4GECaJk346nreh/2kO
+X-Gm-Gg: Acq92OGYlqkJrygsaJEztnf6UWTNhZ/cHC48hha9ZcMTz7FrfUNqnN0uuDSrrNXl1oa
+	raRxdN7fKhXJ0Pw/DilBwGXVKWh5uBYLknF7qxyWROAMUbc57bASQ+Ug3eX05hHO47jvQVt5rZ3
+	KPiwNMA5aaSttjxNRMKSOOfxFqKwH4ze+epUc+yK542KHJ+7RS6aEzWbqiSn2roaWey+gmlp9Ak
+	26fvZqkDW+eg36Hcj3doJdzDepDBBx5l2suFaeFAhUYiacRuOe1BD791M9D2rg3WAOsylknPZGt
+	ONECse4h
+X-Received: by 2002:a05:690c:c4ce:b0:7ef:81dc:c0e7 with SMTP id
+ 00721157ae682-7f7b6242881mr15277067b3.19.1781248829675; Fri, 12 Jun 2026
+ 00:20:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DJ69RCVRBO0Y.3JCYSW50IC4RC@linux.dev>
+References: <20260610084053.2059858-1-wenst@chromium.org> <20260610084053.2059858-3-wenst@chromium.org>
+ <ailv8HpnrCH3Zb8C@ashevche-desk.local>
+In-Reply-To: <ailv8HpnrCH3Zb8C@ashevche-desk.local>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 12 Jun 2026 16:20:18 +0900
+X-Gm-Features: AVVi8Cfix6rlRxpmlL_G61si3smqjEz2qk3oIH1X9DTqc3HutmT3uL6lEMZg0_I
+Message-ID: <CAGXv+5EHHWfiWgqPpf-RMKoSQLc2cd9OA4Z36SNoL5C53kVh2g@mail.gmail.com>
+Subject: Re: [PATCH v2 02/16] device property: Add fwnode_graph_get_next_port_endpoint()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_002031_400018_0E4D430D 
+X-CRM114-Status: GOOD (  28.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,95 +124,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 01:54:13PM +0000, Brendan Jackman wrote:
-> On Thu Jun 11, 2026 at 1:01 PM UTC, =?UTF-8?q?Adrian=20Barna=C5=9B?= wrote:
-> > Strip the read-only attribute from the selected memory range when
-> > restoring the linear map after an execmem cache clean.
+On Wed, Jun 10, 2026 at 11:08=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Wed, Jun 10, 2026 at 04:40:36PM +0800, Chen-Yu Tsai wrote:
+> > Due to design constraints of the power sequencing API, the consumer
+> > must first be sure that the other side is actually a provider, or it
+> > will continually get -EPROBE_DEFER when requesting the power
+> > sequencing descriptor.
 > >
-> > An execmem cache clean is performed when a cache block becomes empty
-> > after unloading a module. When making the memory valid again, the linear
-> > memory alias must also have its read-only attribute cleared.
-> >
-> > Without this change, the linear memory alias remains read-only even
-> > after the execmem cache block itself is freed, which prevents subsequent
-> > allocations from writing to that memory.
-> >
-> > Signed-off-by: Adrian Barnaś <abarnas@google.com>
-> > ---
-> >  arch/arm64/mm/pageattr.c | 17 ++++++++++++++++-
-> >  1 file changed, 16 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> > index 88720bbba892..eaefdf90b0d5 100644
-> > --- a/arch/arm64/mm/pageattr.c
-> > +++ b/arch/arm64/mm/pageattr.c
-> > @@ -239,6 +239,13 @@ int set_memory_x(unsigned long addr, int numpages)
-> >  					__pgprot(PTE_PXN));
-> >  }
-> >  
-> > +static int set_memory_default(unsigned long addr, int numpages)
+> > In the upcoming USB power sequencing integration, the USB hub driver
+> > first needs to check whether a graph connection exists, and whether
+> > the other side of the connection is a supported connector type. The
+> > USB port is tied to a "port" firmware node, and this new helper will
+> > be used to get the endpoint under the known "port" firmware node.
+>
+> ...
+>
+> > +/**
+> > + * fwnode_graph_get_next_port_endpoint - Get next endpoint firmware no=
+de in port
+> > + * @port: Pointer to the target port firmware node
+> > + * @prev: Previous endpoint node or %NULL to get the first
+> > + *
+> > + * The caller is responsible for calling fwnode_handle_put() on the re=
+turned
+> > + * fwnode pointer. Note that this function also puts a reference to @p=
+rev
+> > + * unconditionally.
+> > + *
+> > + * Return: an endpoint firmware node pointer or %NULL if no more endpo=
+ints
+> > + * are available.
+>
+> Yeah, you see, even here is inconsistency with previously added kernel-do=
+c.
+>
+> > + */
+> > +struct fwnode_handle *fwnode_graph_get_next_port_endpoint(const struct=
+ fwnode_handle *port,
+> > +                                                       struct fwnode_h=
+andle *prev)
 > > +{
-> > +	return __change_memory_common(addr, PAGE_SIZE * numpages,
-> > +				      __pgprot(PTE_VALID),
-> > +				      __pgprot(PTE_RDONLY));
+> > +     struct fwnode_handle *ep;
+>
+> Unused?
+>
+> > +     while (1) {
+>
+> This is usually harder to read and follow. It's like "pay much attention =
+on
+> the code", but here no rocket science, no code to really pay attention to=
+.
+>
+> > +             prev =3D fwnode_get_next_child_node(port, prev);
+> > +             if (!prev)
+> > +                     break;
+> > +
+> > +             if (WARN(!fwnode_name_eq(prev, "endpoint"),
+> > +                      "non endpoint node is used (%pfw)", prev))
+> > +                     continue;
+> > +
+> > +             break;
+> > +     }
+> > +
+> > +     return prev;
 > > +}
-> > +
-> >  int set_memory_valid(unsigned long addr, int numpages, int enable)
-> >  {
-> >  	if (enable)
-> > @@ -362,7 +369,15 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-> >  	if (!can_set_direct_map())
-> >  		return 0;
-> >  
-> > -	return set_memory_valid(addr, nr, valid);
-> > +	/*
-> > +	 * Execmem cache uses this function to reset permissions on linear mapping
-> > +	 * when freeing unused cache block. On x86 it makes memory RW which is
-> > +	 * desirable. 
-> 
-> Hm, maybe desirable for execmem but that doesn't really mean the x86
-> behaviour is correct. Maybe it makes more sense to change the x86
-> to align with the arm64 behaviour here?
-> 
-> BTW we should probably document this API a little bit, I never thought
-> abut what "valid" actually means until now. I had thought of it as "I
-> can access this memory" but that's an unclear concept and now I realise
-> "valid" is a technical concept in Arm that's confusing. And it's extra
-> confusing if the kernel API uses "valid" to mean a _different_ thing.
+>
+> So, this can be rewritten as
+>
+>         ep =3D prev;
+>         do {
+>                 ep =3D fwnode_get_next_child_node(port, ep);
+>                 if (fwnode_name_eq(ep, "endpoint"))
+>                         break;
+>
+>                 WARN_ON(ep, ...);
+>         } while (ep);
+>
+>         return ep;
+>
+> But also big question why? to WARN*(). There is no use in the entire
+> property.c.
 
-I've got confused too and that's how set_direct_map_valid() got into x86
-with a different semantics than on arm64. 
+Will drop. This function was lifted from drivers/of/property.c then
+adapted to the fwnode APIs, so it still has the structure of its
+origin. With the WARN() gone, rewriting it as do {} while() becomes:
 
-What execmem really needs is set_direct_map_default() variant that gets
-nr_pages.
+do {
+        prev =3D fwnode_get_next_child_node(port, prev);
+        if (prev && fwnode_name_eq(prev, "endpoint"))
+                break;
+} while (prev);
 
-AFAIR, set_direct_map_default() has a single 'page' parameter because it
-was added to reset permissions for the direct map alias for vmalloc()'ed
-pages before there was VMALLOC_HUGE and each page had to be reset
-independently anyway.
+return prev;
 
-Maybe it's time to add nr_pages to set_direct_map_valid().
- 
-> Also, shouldn't execmem be using set_memory_default_noflush() before
-> freeing anyway? I guess that shoudl even be documented as "if you change
-> anything you need to call this before you free the page".
 
-It does on x86 because there set_direct_map_valid() is the same as
-set_direct_map_default().
- 
-> > On ARM64 set_memory_valid() just change valid bit which
-> > +	 * leave direct mapping read-only so use set_memory_default instead.
-> > +	 */
-> > +
-> > +	return valid ? set_memory_default(addr, nr) :
-> > +		       set_memory_valid(addr, nr, false);
-> >  }
-> >  
-> >  #ifdef CONFIG_DEBUG_PAGEALLOC
-> 
-> 
-
--- 
-Sincerely yours,
-Mike.
+Thanks
+ChenYu
 
