@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 584F8CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4871CCD98D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 09:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Dk84ZQRgSc8xnw8MT3aYpxHJpf1SJ9OoPddG086vJpQ=; b=4RsMJM3Tf3Ldk8lTd/qP/XGk6P
-	CPiX8GIAGdPlFxoac5S/JdRhfdag85xuklFNwxaiwIzD+7Bn7CmzHG0kwrJcpVzJ8i/EnXqf/HrNg
-	/ohR2oBbFdVdNPCbFTA98W48NreTbOA+zsjflL+wzbK7vw64VutTXxMESydMLI/f9kW4MItryksvU
-	5wkjp4WrLWAEZneHN5UNf0ShZ5h7Wfs+e2CXcpGqq20jELadjHLAQfUE7gk87wMPGR5/7eoUl/knr
-	hiU+pMFeiY+LyyjMivesf9ehiRWPLYLtvfnZ1SMlC6fzv+oHRDhqOvEQRWyJLnKDgwlSA8FlBoeS4
-	p9ZwxfhQ==;
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VZhUEA2O/makZilFyWR6S+o4mEj16RKk0BJZID2UVvk=; b=lcvfd85s8+1IaYYDzwGKeZjCv0
+	wdcBo0ogIbBzxyyPYji0vjyXF0IN5MK05q4L5D9Ek3HIdUjSYGNXsRD3njoidnPJou8/pVhk5pvq3
+	5aM5JRK/5V6YkaZtN8ffwxcmBdyqDno1TLW7QP6AtCEuW3QsmFn8ha2jIMwKuxSNHN1kE2uWzsTe5
+	RRd9pnWFup8/yfrd9VcnabHzxlIa2zDfuk3QNNSBqbjRkTjapBOCTTqO4LFg1Ig8dG7wkEefcH1Xa
+	S9Eu6gDU3SZFG3eFEows8CFffliCNGv/OTtIYq1IDeLZmTY4/R/8JoIYcAAV/LD6Bb4vrb0xLJFsB
+	zdpoGwmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyeQ-0000000AiDt-1NMQ;
+	id 1wXyeQ-0000000AiE3-1nh1;
 	Fri, 12 Jun 2026 09:58:10 +0000
 Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyeJ-0000000Ai9D-14a0
+	id 1wXyeL-0000000AiBD-3U3b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 09:58:04 +0000
-Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65C39Bi53782209;
-	Fri, 12 Jun 2026 02:57:51 -0700
+	Fri, 12 Jun 2026 09:58:07 +0000
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65C5FYEm273217;
+	Fri, 12 Jun 2026 02:58:00 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:message-id:mime-version:subject:to; s=
-	pfpt0220; bh=Dk84ZQRgSc8xnw8MT3aYpxHJpf1SJ9OoPddG086vJpQ=; b=BQ0
-	Dad5HB25OrjSOB+5Ez9ykAVegXrrEw9D76h7BlWHLoebh1ci43eyZmpb0A00/bW4
-	4wKavL9L/k3PdzwOZ5oNpZLUiv/7mgdISIpJtIGNX+vJkjjceqs4hWk0k9rzk1Kc
-	FiNXGRDUuT4FkIt1FsSO3TTaOdKgNVZfHrM9ui7cbPhQ2cdWB3wPLMJPzm8KCkJI
-	yzRArx7HwJQbsLoL5Kf8Skj7mVVlnR1Z2QY7NxWaqIXixwrlfz/7O7PJwcHSUn2y
-	S9ySA3ve5WMkpudJnQUifiqRK8ITYemzdPDHzLfTKMZ6E3K+g9MThxCW5Rx8XOFu
-	OBTBDza4JQaMmaYheAw==
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=VZhUEA2O/makZilFyWR6S+o4m
+	Ej16RKk0BJZID2UVvk=; b=CjQ3yilSwK5kAi4a6fXsSbT/s/3yPsMv2ShbpAkv0
+	fnDfOgeW2XTIMW2BLIyFdn6n628RcC/NFhLkKxg2YaQd5Ct/dnAHHPR88BhLQkmr
+	ZjXwqJLdNDXyUu3/l7VxF/MRSWpEr6jjwmjS1o1mfzk3naobeFMsbRYZFanEYlpQ
+	/hJT1gvf0pq6a7BTulYznFd+fXD3LVEPOX3bqYdLhua0F1o5jcWLc2WXFcQs7N6g
+	RELrDW299GITwQuSQB1SwTfRgNAcUJG2KYohityOTReMmwu55UZCSbKetx9iY+1S
+	k4K6ysxamYf83AEIW7Yet4LEGkuChpA6oCbRWE8cVoF+Q==
 Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4er6r2hjq5-1
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4eqe5r6s19-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 12 Jun 2026 02:57:51 -0700 (PDT)
+	Fri, 12 Jun 2026 02:58:00 -0700 (PDT)
 Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
  DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Fri, 12 Jun 2026 02:57:49 -0700
+ 15.2.1544.25; Fri, 12 Jun 2026 02:57:58 -0700
 Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
  (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Fri, 12 Jun 2026 02:57:49 -0700
+ Transport; Fri, 12 Jun 2026 02:57:58 -0700
 Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id A3EB23F7040;
-	Fri, 12 Jun 2026 02:57:47 -0700 (PDT)
+	by maili.marvell.com (Postfix) with ESMTP id 998323F7040;
+	Fri, 12 Jun 2026 02:57:56 -0700 (PDT)
 From: Geetha sowjanya <gakula@marvell.com>
 To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
 CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
         <gakula@marvell.com>
-Subject: [PATCH v2 0/3] perf: marvell: LLC-TAD PMU MPAM filtering support
-Date: Fri, 12 Jun 2026 15:27:43 +0530
-Message-ID: <20260612095746.19679-1-gakula@marvell.com>
+Subject: [PATCH v2 3/3] dt-bindings: perf: marvell: add CN20K TAD PMU support
+Date: Fri, 12 Jun 2026 15:27:46 +0530
+Message-ID: <20260612095746.19679-4-gakula@marvell.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260612095746.19679-1-gakula@marvell.com>
+References: <20260612095746.19679-1-gakula@marvell.com>
 MIME-Version: 1.0
 Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfX8orRE9Qu8ZtH
- 1qMvX4tzVG6OeL8pJndA2WjFBcpy7yqDIWp5UYRbIVsqLgHFoa5BjKE4nal0OuQTJFHnmqqKpMb
- CNtLwbjb/k6nHwtNHSXPflrgpzrWCUxN84widfQ8bFiIygsEoy93G/+kHx4KNo/VkaftWGl0oXH
- dAHmx00Toigyl/4t9Bm8i2B/uKmXbRlpN/Rp9oxrFleZkyjsmP9YkF5YX2odssnbVe5PbNATy5O
- hXn9D2mhPCBH97OE79slq2OkMAa1VwzLkWrUKwff+MBmfgZW+PcZWThdTA+tGWt1xk5HiCtlJJL
- K5U1n6DAW6/vxDRF30wk31LjIZgC7I3wwwUaanv9z3oBQoCFL0GZHhrvUUyWdVmHMQrCOPIFj0H
- 13QhCkxHT350VE/lfyS9qMsFZ4MVDDhcWytDZKIL/83liQhok44waLl9s08UchEFeLpeOnPQDvq
- N/1yTiSFysH5aHW3/VA==
-X-Authority-Analysis: v=2.4 cv=GoByPE1C c=1 sm=1 tr=0 ts=6a2bd81f cx=c_pps
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfX79Tbtp8O1EPH
+ /RTjvmPBrCemSS2BN1m2JnD+nxIXx+Iry3iADLUjuX/W+T6PfCMA88xy9u2EMx66n2AvJ+oz74x
+ 0k4TOFKKKrLHQvi7bqOse+SO5mXZiaw=
+X-Authority-Analysis: v=2.4 cv=O6gJeh9W c=1 sm=1 tr=0 ts=6a2bd828 cx=c_pps
  a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
  a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=qit2iCtTFQkLgVSMPQTB:22 a=M5GUcnROAAAA:8 a=KMVilSr8rocH2AwasoUA:9
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfXzbl0NpO/5elC
- y0L1rzoTwwa1ZnF6Cu5p/5Hv+OCl1iBCd3i3RPRwvlvSyPxwtKRlTSuxhaCT2PJlEJOwb/OQfmp
- VTWXXx027PnkN/CxbYJMiQAlkJmkhOI=
-X-Proofpoint-GUID: KtVaQ1yIH1D98X_-_s8nIePreeDEcsUN
-X-Proofpoint-ORIG-GUID: KtVaQ1yIH1D98X_-_s8nIePreeDEcsUN
+ a=QXcCYyLzdtTjyudCfB6f:22 a=gEfo2CItAAAA:8 a=M5GUcnROAAAA:8
+ a=AeVSjtvhjGoncaazplIA:9 a=sptkURWiP4Gy88Gu7hUp:22 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-GUID: nw9eWlCB1oYQ2K-mBnSTdd25psgSTRO0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEyMDA5MCBTYWx0ZWRfX8NuqNVdcdqKy
+ zkULfZ3nA9WoZl6Odx1im34F5p+G/ladaH0SeYXmOGzm0bN9eiXzXqFjUulFVSq9Yjja0LM6bLT
+ X2H46Rwme7HZi43PYq24gxd1joxE6kOP38IN5uc5VhOBnNMH7/xm38adMAEMm6KfcEAwnVfRS27
+ Iu4Asa4mbUNTOBEzSBKVsv4rrwSqndpo0lThml65uhTCLSpgT6vdaaKcommgH4sB3cu3AfjLj9G
+ gdKsDJWk9Go/91ikkeTq2bLdEg3ot/u1BrOFWRKyxFC+0HBmZlzv0nnjM1EQ03N+VIyUTvRTuUF
+ A038uCZpJo/p4N1d/3nwpThX/hN8Xc53sMAXzPVnmosR7taWMMnoeGdzjLnbKKGN5gNaFnKLPde
+ 82Xqf56fMVejuQLooNSGi6KeI7Us1z55en9ASYLdzbOdUuWeiML0ozcI7pC7R19rt+haUzKTxGo
+ zTmYAULC/5VGQzP6wXA==
+X-Proofpoint-ORIG-GUID: nw9eWlCB1oYQ2K-mBnSTdd25psgSTRO0
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-12_01,2026-06-11_01,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_025803_414941_93A005A7 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260612_025805_988205_C65FFCEC 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,51 +104,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series extends the Marvell LLC-TAD PMU driver for CN10K and CN20K
-platforms by adding MPAM-based filtering support and introducing CN20K
-hardware support.
+Marvell CN20K SoCs integrate a Performance Monitoring Unit (PMU)
+associated with the LLC Tag-and-Data (TAD) blocks. The PMU provides
+hardware counters to monitor cache traffic and performance events
+via a dedicated MMIO region.
 
-Patch 1 adds optional MPAM partition-id (partid) filtering for the subset
-of events that support it. The partid and partid_en fields are exposed via
-the PMU format attribute, while platforms that do not support filtering
-continue to expose a reduced event set without these fields.
+The CN20K LLC-TAD PMU is largely similar to CN10K, but differs in the
+layout of PFC/PRF register offsets relative to each TAD base. These
+offsets are derived from the compatible string in the driver and are
+not described through Devicetree properties.
 
-This patch also includes several fixes and cleanups:
-  - Avoid modifying platform_get_resource() bounds in-place
-  - Validate the MMIO window size against tad-cnt
-  - Correct ordering of perf registration and CPU hotplug with proper unwind
-  - Align the filter-enable bit in config1 with the sysfs format (bit 9)
+Because of this, using "marvell,cn10k-tad-pmu" as a fallback for CN20K
+would result in incorrect register programming. Therefore, add a
+separate compatible string:
 
-Patch 2 adds support for the CN20K LLC-TAD PMU. Compared to CN10K, CN20K
-uses different PFC/PRF register offsets and introduces additional events.
-This patch:
-  - Adds a CN20K (V3) profile with platform-specific register offsets
-  - Extends the event map and hides CN20K-only events on CN10K
-  - Implements CN20K-specific MPAM encoding for filtering
-  - Ensures correct counter initialization using local64_set(prev_count)
-  - Adds device discovery via OF and ACPI (MRVL000F)
+  "marvell,cn20k-tad-pmu"
 
-Patch 3 updates the Devicetree binding documentation to add support for
-"marvell,cn20k-tad-pmu"
-
-
-Changes since v1
-----------------
-- config1: use bit 9 for MPAM filter enable consistently with partid_en in
-  the PMU format; allow only bits 0..9 in event_init on CN10K/CN20K paths.
-- Hide V3-only sysfs events on V1.
-- Reset prev_count when starting counters after clearing hardware.
-- DT binding: explain non-fallback compatibles for CN10K vs CN20K.
-
-Tanmay Jagdale (1):
-  perf: marvell: Add MPAM partid filtering to CN10K TAD PMU
-
-Geetha sowjanya (2):
-  perf: marvell: Add CN20K LLC-TAD PMU support
-  dt-bindings: perf: marvell: Extend CN10K TAD PMU binding for CN20K
+Update the binding to document CN20K alongside CN10K.
 
 Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+---
+ Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml | 17 +++++++++++++++++--------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
 
+diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
+index 362142252667..d11121a1e2c9 100644
+--- a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
++++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
+@@ -4,23 +4,32 @@
+ $id: http://devicetree.org/schemas/perf/marvell-cn10k-tad.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Marvell CN10K LLC-TAD performance monitor
++title: Marvell CN10K / CN20K LLC-TAD performance monitor
+ 
+ maintainers:
+   - Bhaskara Budiredla <bbudiredla@marvell.com>
++  - Geetha sowjanya <gakula@marvell.com>
+ 
+ description: |
+-  The Tag-and-Data units (TADs) maintain coherence and contain CN10K
+-  shared on-chip last level cache (LLC). The tad pmu measures the
+-  performance of last-level cache. Each tad pmu supports up to eight
+-  counters.
++  The Tag-and-Data units (TADs) maintain coherence and contain the
++  shared on-chip last level cache (LLC) on Marvell CN10K and CN20K SoCs.
++  The TAD PMU measures last-level cache performance. Each TAD PMU
++  supports up to eight counters.
+ 
+-  The DT setup comprises of number of tad blocks, the sizes of pmu
+-  regions, tad blocks and overall base address of the HW.
++  The DT setup describes the number of TAD blocks, the sizes of PMU
++  regions and TAD pages, and the overall MMIO base of the hardware.
++
++  marvell,cn20k-tad-pmu is not a compatible fallback for
++  marvell,cn10k-tad-pmu (and vice versa): the driver selects different
++  PFC/PRF MMIO offsets from the compatible string, and those offsets are
++  not described by separate DT properties today.
+ 
+ properties:
+   compatible:
+-    const: marvell,cn10k-tad-pmu
++    items:
++      - enum:
++          - marvell,cn10k-tad-pmu
++          - marvell,cn20k-tad-pmu
+ 
+   reg:
+     maxItems: 1
 -- 
 2.25.1
 
