@@ -4,122 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3031CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E45CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8JizqIbPHlIecuV91nZmZXGP9oW0pqG3tLusttFP/g=; b=37kCBO/evJ3QzFRPtlqC/eqx2i
-	l0JRVqeCGZzZWfo2P0HfGvcKfWP1NNeODornU0NCovmoKiyLDCA5TCaTFRFj03sEsAUSFvgAWAKfx
-	/5isA5ERBNA+ZJsymtqkXlAcIXvmkecGgfGRHYKz7dwS8RlPKFxtTK93STukFMK0H7jv9mOPXVW5N
-	o9jEy6c8enu5lK/Vz7ZoxlYhi4Ty9W8cuhUlcGkFclrLfDU55y0PS8F0KlgJVO3ksCGBdb5YIlA/e
-	4ry3R3PF2UcUV9ZieVEVFXntCGWZgSTMaP0hZUHR1NuKkSsC5z8iHurqkJUTpol9yqHdS/8Kf/Mvy
-	eHZkDNcQ==;
+	bh=kYcDT2xHG5nDU8J2gErMvIxigr1UGMadwCYEhogICLg=; b=eegNI+w89SIFxdd6Z7BHLBpsdP
+	W2w0FXmTa5IpR9BRrT4RwXRDdtkOBcsNNgvRXxnWWJGRXOO2mtb4hPDUht01ka93NUGHXpa1MhsyL
+	qWE7bCDXAjKRHilPu8D5WmMxxtm3Ra5DUlGwBTFqG2LwkeCfSKswtFPfRv9YzsC8+KEU1BO+zoVnQ
+	+2xtcUhvdekGdC/2lCx1XdmdBb9XS1pk5oNtMf49bxFXMXyBvDbLJBVNsKcnh27HVL3LD9qlcWm1y
+	4b+45RxiQ8fXUfy5Z9yWoRk7SoVXadOuRgtb+ldTKb8LbA6hLUPxXfg1oue5TIy5UX2CsFpcmBau5
+	lT8ZELHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7II-0000000BRLe-4BRD;
-	Fri, 12 Jun 2026 19:11:55 +0000
-Received: from mail-centralusazon11010060.outbound.protection.outlook.com ([52.101.61.60] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1wY7Ki-0000000BRXT-1chV;
+	Fri, 12 Jun 2026 19:14:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7IH-0000000BRLI-1O0x
+	id 1wY7Kh-0000000BRXA-1zoi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 19:11:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lWkgdHDVRwL72Uya+woVioZpY8nF/yU11VQVa/iGd9q7x379TDneCFnVPrL65ywdNDzfe1IudE5uYfYhknsAAh7/iYqC/xl+3pyxU/KxIfc7c5zot6im1gJVQSOmmmlpgfgxrhu9irjw8OboOIfkMrnTZHCxNGcn3EX0f+GG/wNtSLtc2KfGXPWKupzpsC4vmX8OzvDuXK//0rpuc5yl9pNcIRJvOeUN2EMS3MiA9lCuLwWH9tnZVaxM+A9ieIK6llyQERJGJDL0HnZGVt2gkmQEz3ayHFNnrIXQgX01/pNDrtllgQM9aXtrCPekuk10jhkjtpOpaT8X1C/fIsi/ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j8JizqIbPHlIecuV91nZmZXGP9oW0pqG3tLusttFP/g=;
- b=dqI+Cb+chRlvu2NMZtveQcfpYmZbUvcdzwAM5ISASyzEGLBkzmNScm+DdsR5h4EIryLmbfRbi9JQ747uP/BzrshjAOUjiG7W15XFi4eD2g+o5dEg2KdSYmvvTZs1SPQxqnEJIgmLangaHeie4qfTO5gnggyBTVlhU++UvQmz0QSDJrXm4zzp9mw0223KaLKRLrsYQH6rB6fsDWfnWqX0q2lA0kCt5IedLf3x/HeVaqw+jG6lnZvXWYOZpZMUDCuh8WMWhsoakEvo6bLD5yQLjB+Q3EJHxc9aDoOCeAd8ISliuKIrBQQndVJXVVI8G1+TqABCdGVkHlPBo2Ru5j7HCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j8JizqIbPHlIecuV91nZmZXGP9oW0pqG3tLusttFP/g=;
- b=BjFXa9MLKyumQWxIz/dLUaImtr9kycynoarnny0Bua4sBrqEaVq+zjQPYGyalwAs4P+fijYiVZQ8HVOiKjgx7wOkpTOy+fO36mxeD5WUpTtY6qyZcXpD2wczOrGMjPeNyqbZH5S7N2ejXgiD0szepdIl4LAW1yoE7Q3w4PcRMfvWK6p4SZpWCDtjpVsr7OXpkBmE07MiEpRWXIr722xViWQM6qD7ePkEkBJvA0GPYyDXsvyUJLeed1lRM6wf43c1+UiUlYEJZR8UcbrfutERwemTvqc+vM2VRuGNkwUZx/Z/D4X0DoJvRUJyG2+2m4jrTX6UvbRvijonL4tD57XcBA==
-Received: from MN2PR16CA0066.namprd16.prod.outlook.com (2603:10b6:208:234::35)
- by PH8PR12MB7445.namprd12.prod.outlook.com (2603:10b6:510:217::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Fri, 12 Jun
- 2026 19:11:38 +0000
-Received: from BL02EPF00021F6F.namprd02.prod.outlook.com
- (2603:10b6:208:234:cafe::25) by MN2PR16CA0066.outlook.office365.com
- (2603:10b6:208:234::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.14 via Frontend Transport; Fri,
- 12 Jun 2026 19:11:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BL02EPF00021F6F.mail.protection.outlook.com (10.167.249.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.7 via Frontend Transport; Fri, 12 Jun 2026 19:11:38 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 12 Jun
- 2026 12:11:19 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 12 Jun 2026 12:11:13 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 12 Jun 2026 12:11:12 -0700
-Date: Fri, 12 Jun 2026 12:11:10 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>, "Robin
- Murphy" <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Shuah Khan
-	<shuah@kernel.org>, Pranjal Shrivastava <praan@google.com>, Kees Cook
-	<kees@kernel.org>, Yi Liu <yi.l.liu@intel.com>, Eric Auger
-	<eric.auger@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v1 4/4] iommu/arm-smmu-v3: Process vIOMMU invalidations
- in batches
-Message-ID: <aixZzvVWmAFEDQZI@nvidia.com>
-References: <cover.1780521606.git.nicolinc@nvidia.com>
- <00748c5cbea95a938d032269001a598203b06bbc.1780521606.git.nicolinc@nvidia.com>
- <20260612135409.GI1962447@nvidia.com>
+	Fri, 12 Jun 2026 19:14:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7ED0160142;
+	Fri, 12 Jun 2026 19:14:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C14721F000E9;
+	Fri, 12 Jun 2026 19:14:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781291662;
+	bh=kYcDT2xHG5nDU8J2gErMvIxigr1UGMadwCYEhogICLg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=R2tXRCwpziJu3wsmgdJGwIEZZ96NJekBTrzFkNuXOUS+EQ0MHF6nmWHBI16VJVqJE
+	 LqsZFXfA6FfKjQ5QnXAvqAASUoj1w1stgKmRSJYs60Tkja7EvT74CKpaHPpK1/bYYN
+	 9iDOcCpV+Xg7J3W/0sfb7oh6SAl5VHMarpdjiJPO+zjw6RwwcARVL1b4SKLMn67qr/
+	 WsBAuNUdKwcvvJDX0lQFXixtoGvN03Jy2A0pv3MT3Rw5LOWQjWm4RjhSs21pg1lya5
+	 e/PuShKnzBbF1i8h3DQJHqIK00flFztAfGgMZ0RdXBLhT1TFZRb7/1mlrabqEAgyxg
+	 TiueNRLYabV+g==
+Date: Fri, 12 Jun 2026 20:14:17 +0100
+From: Simon Horman <horms@kernel.org>
+To: Jakub Raczynski <j.raczynski@samsung.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	k.domagalski@samsung.com, k.tegowski@samsung.com
+Subject: Re: [PATCH net 0/2] net/stmmac: Fixes for maximum TX/RX queues to
+ use by driver
+Message-ID: <20260612191417.GM671640@horms.kernel.org>
+References: <CGME20260611113403eucas1p1f4b61896c875f1f6833d6ca136472af8@eucas1p1.samsung.com>
+ <20260611113358.3379518-1-j.raczynski@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260612135409.GI1962447@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F6F:EE_|PH8PR12MB7445:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19e48bcc-a773-4144-6578-08dec8b66df9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|23010399003|18002099003|22082099003|6133799003|5023799004|56012099006|11063799006|4143699003|3023799007;
-X-Microsoft-Antispam-Message-Info: JrxbLH5Dn1Uo8f34umaVZ5yFm4L9bzT9qjhMqGM9ez6MfatFcNrzsTzZWXiZLwet28fqSMjVkr70ArkVrdkupqtkRRkuhTCRIyd+dEIBjM85Y6F8C1E+nt+8HDWP3fiHX+NaqDOfDoqPblPHUD1Q4y8FgY2I0R+DLOu/h6Zw77IqH14M1CCRaEY3RPXthLLgHEWPIf88zgigK7rhsGVoj9OZhTLeoDU/hd+ZYWkJuHkms07mLLxYNI04LJxzSngLhxyxnOND6EZcbxxi7BFd1yoWlwS65NZyj4HMv58/Slmq1QF4NYnlvPqH8qS/XOOvdarUAGcBvA9cygvKtV1xJmuBrJ6jjQnnscCnFQRaQaUxGbwJZtzEBPKV28SOjKpVzusXsgfLbyVI9GeTPmQhyvXm1tRRxmpeCSNTUl+bB0AmtNIluZZZCtCrfum+qyS9s8k3eXUGj+b0SohZQiufHW0YoDZkUZ3ssevHkDHY+NkZixBtHZ+lA6rN3PQa5mQ0VSoOOPNzH2Ft2bdAvNC2RoBWAyPSpreYR8IRVPX9U1Aj4Jp7IJbEYPQ3UnQhXumYo9N6Q7os354ekwHO6hAh1zLoptmY3ObVVLAa7HxvJXyFTs2Z6n+pRLrKFpGHZRCXSXc9gYWlqMFIFbIqhpK8yClDzvO/5TbocXNWROfOQaM4hgubvy4EG3RZJXIpLolG0IdaytcFpO+7Msi5NijkNWHTT9gpf7RQw+gkTa5uk+o=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(23010399003)(18002099003)(22082099003)(6133799003)(5023799004)(56012099006)(11063799006)(4143699003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tIV9YIc6h4Da6WRZ0WUGbB4Nj/tysvLVpBawvzVhvLF/DlESpCDNclrpLd2b2JaP4St/fTvRMDKtQcsWybMJjq+RrZM4koXkICupsTdRlkfvlb23vCqbPhTi8p7wsKvMo8RMJlmm/R1IBqIni/NN1r8ahOGxLII8zJuTuyy+5pQ8ywLBLhPNP5gRE8Ekr44FVt513An9lGZoxredjjItC81E2b/F2+V1W4U1Daspp6oZpo1NPAJwc4abdyEY/4+ueUJqbb8eOFq1OGh25Y8mx2L5AZOT/6/S67po6F4hvv2yX+AOEo2xcDwANPfMXjah3U+tpuuFdnCTBvwWKl+N1+/Dct9TZohGobn4MrKwA+9LNmX8bYZaWbRfVhFKos3nIMvSqDW5Dm2o4jsUjNCb8ZtXx1ABhcpBd9MQox9jHKu+0CENy0x8gEPoMwXmUwgk
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 19:11:38.5909
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19e48bcc-a773-4144-6578-08dec8b66df9
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7445
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_121153_377715_5E87E71B 
-X-CRM114-Status: GOOD (  26.72  )
+In-Reply-To: <20260611113358.3379518-1-j.raczynski@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,68 +73,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 10:54:09AM -0300, Jason Gunthorpe wrote:
-> On Wed, Jun 03, 2026 at 02:26:56PM -0700, Nicolin Chen wrote:
-> > +int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
-> > +			       struct iommu_user_data_array *array)
-> > +{
-> > +	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
-> > +	u32 issued = 0;
-> > +	int ret = 0;
-> > +
-> > +	if (array->type != IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3) {
-> > +		array->entry_num = 0;
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	while (issued != array->entry_num) {
-> > +		/* Process and issue the command(s) in batch */
-> > +		ret = arm_vsmmu_cache_invalidate_batch(vsmmu, array, &issued);
-> > +		if (ret)
-> > +			break;
-> > +	}
-> > +
-> > +	array->entry_num = issued;
-> >  	return ret;
+On Thu, Jun 11, 2026 at 01:33:56PM +0200, Jakub Raczynski wrote:
+> When contributing other changes preparing functions for new XGMAC hardware
+> https://lore.kernel.org/netdev/20260601162537.553512-1-j.raczynski@samsung.com/
+> there have been reports by Sashiko AI review about pre-existing issues
+> in the code. These problems are non-insignificant and are 'net' material fixes,
+> rather than net-next features.
+> One issue in this patchset was reported by Sashiko AI, while other
+> technically part of new patchset, but is reasonable related fix.
+> All of issues are wrong DTS configuration, but kernel needs to handle it.
 > 
-> I think every driver will have this same problem, how about lifting
-> this loop to the core code?
+> Jakub Raczynski (2):
+>   net/stmmac: Apply TBS config only to used queues
+>   net/stmmac: Apply MTL_MAX queue limit if config missing
 
-Sure. I think that makes things a bit cleaner. I'll try that. Then,
-this would become another iommufd series.
+For the series;
 
-> Also not sure I like the validation flow, I think it will be easier to
-> understand for everything if either num is 0 and nothing was done with
-> an error code
-> 
-> Or num is non zero and no error code.
-> 
-> Like it doesn't make sense to fail immediately if zero pad is nonzero
-> in iommu_copy_struct_from_full_user_array() but then to try to
-> partially continue if arm_vsmmu_convert_user_cmd() finds illegal data
-> in the very same buffer. Be consistent, validate the user buffer, if
-> it is not valid fail immeidately. Then execute a fully valid user buffer.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-I don't think fully validating the user buffer is correct..
-
-VMM would have to know which command failed, to flag it in the CONS
-register, indicating: a) commands prior to the CONS are issued, and
-b) command pointed by the CONS is illegal.
-
-Then, guest kernel reads the CONS register to pinpoint this illegal
-command and swap it with a CMD_SYNC (__arm_smmu_cmdq_skip_err).
-
-E.g., if the 16th command in a 64-command array is illegal, kernel
-should issue the first 15 commands, returns -EIO; then, VMM should
-flag illegal at CONS pointing to the 16th command.
-
-The design in this patch is implemented in this way. And arguably,
-I think the nonzero-padding case is VMM violating the ABI, in which
-case the return code would be different than -EIO. And VMM should
-fix itself instead of flagging illegal in the CONS register.
-
-Do you agree?
-
-Thanks
-Nicolin
+FTR, there is AI-generated review of this patch-set available on sashiko.dev
+However I believe that feedback can be viewed in the context of possible
+follow-up and should not impede the progress of this patchset.
 
