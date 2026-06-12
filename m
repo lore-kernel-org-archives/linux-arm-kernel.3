@@ -4,182 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC03CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 04:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4BECD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 04:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yyEkmoohp3n25/yg+IE6rxQifdQzqqCMv7htsFMtzXY=; b=GCV25bTS951jECQgms68fAnH58
-	UFhz8ew7D3d92ETDnMoByJ5jt2YUqUKm91Kcag8XiDs0uPCD3RgscBInshXOrmKIdhgwXbFfbPVFE
-	zmS1fV2HAn/iJKVroGaW31hoWrPP/TtYLxRqSn83OQIRvHCCVEQAz/zAvPJVAU1/YsWOAn9Qf3o2Z
-	pkiqp/9LpLsqLPbgPWghuJebMrYXQH5FJ7wLgBKj6Nl6nqNDM5UA/ODonX3ZtjGnaCFLlrtbKrPcs
-	ykupqIYyAkY1nWVzSq35GIifdukDCpRvsksL+FknonHGZ/qGd+Pjvly88aI7PddKlpSvq6tD/g3n4
-	XzgnjcfQ==;
+	bh=5SGz66je+LRLaETDbOtXJVclJNeFgRznknoRRB7yPmc=; b=edGdeYdZ02eU6wsJNJsTrQZ7UM
+	fro3/5Ri58+cFiKzshYfdrtPBvbQNnnZpk8ACoRSLokmAS6xwr4hPgObSXcuL8hOMDVQrqUr006/7
+	nyj3wl28gzarg2sKY8ckCujLKP0Y8/JYmCi4KASR4Sax3ZLAKWEfDS6pJlBVbh/Afs8M6Dpjcuo3p
+	V7HtRHzNqpB9YrRwDLOqHlLfXVJ+QDfsAhplXsJ/7kSvwqbxiIMjkZsmWU8OMQ+cJEMyTWK/u8JlC
+	V7tK5090OzGOdm8mn8PfR5s5Z9eVNqWZ4Kkze7ITyip0I+VaI1mmWExw4Xt+rlyffh9JlX0sJeyNo
+	UzeZJ7rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXt7J-0000000AKkT-19V7;
-	Fri, 12 Jun 2026 04:03:37 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	id 1wXtAW-0000000AKsQ-3A11;
+	Fri, 12 Jun 2026 04:06:56 +0000
+Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXt7F-0000000AKk5-21K7
+	id 1wXtAT-0000000AKs3-27Xl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 04:03:35 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65C3AOeG071008;
-	Thu, 11 Jun 2026 21:03:28 -0700
-Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11020118.outbound.protection.outlook.com [52.101.61.118])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4eqe5vwv86-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 11 Jun 2026 21:03:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JLIiTbnSxRYrjsLRwGgQJmJfAaLAzMfOoB6qDFh4wZVC56hYjcPSwuqwLBetqIs0CIIZ6wy3uXl4NBudbHZPtjk3PHv0C2wzaSw+ztquLCqrpRehTUcIFIZamI3AQlnuCAe3i9pPgIOrwapm1BnpZGvgYBxOu9W48ZbhCopi/GzvE60TwKMlDs4hmW6xRG4i6CewdMobPG6A1qCe5Eks0e4SDgvT58rEDRpFsybEcMc79iMGTXKry3K4LDPs3/tDfU2RCDVoG6/zU+/Lf2Joq6ZJ5hSIZn/DPhNc+GVjb8ldov3nIOb9RP2tbBBd3TzZmsz520+lu5SxruKyp0qsSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yyEkmoohp3n25/yg+IE6rxQifdQzqqCMv7htsFMtzXY=;
- b=Ra195VPR72+XGHLworc6duKFX/wxfhzbCdgevZ/KZnBih/TW2d36cFjy54hE5mjw/1YJGbKpHn9YYKUN85XxQuOXJn1t+ef738cLJPYDlmkbrT+UbESHSQQ0oCnXYmqfuZVllfh79qGFLc8uC2+rGJFz3KpWpSvYpNEGEKsCeFRRIQ5H/54Qo/dvmeHDmVmks1U71lkhVWVCnOFWXxVR346/WNcgxEbCu9F2YhKbRMFayokGQyuxODrjCTDjnY4/xt5Fvg02FSQkELrV95MMZAaof1wkXU+EcsyOi/8S39JYPeZvWbNrSajRDL2PT1n1BcnlZjhGH3xgUztMhOmuxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
- dkim=pass header.d=marvell.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yyEkmoohp3n25/yg+IE6rxQifdQzqqCMv7htsFMtzXY=;
- b=mn10PCBUMBC9RBN1V7s0tA9/DuFWjTP9zboPhwBBZm0llV+tAefmTWtIe5JbE6jM32PyOfKH6purh9DE5RPsHF3+A5YZeQv5c4WYL+KtLgfAfuw6bym17oAduN50ObEH84dSMWw+UYrE7dfeugVlXhapjP9zPUsXMPQhoIX+0SI=
-Received: from MN0PR18MB5847.namprd18.prod.outlook.com (2603:10b6:208:4c4::12)
- by SN4PR18MB988514.namprd18.prod.outlook.com (2603:10b6:806:217::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Fri, 12 Jun
- 2026 04:03:25 +0000
-Received: from MN0PR18MB5847.namprd18.prod.outlook.com
- ([fe80::48b4:4ff8:d5f4:a49a]) by MN0PR18MB5847.namprd18.prod.outlook.com
- ([fe80::48b4:4ff8:d5f4:a49a%5]) with mapi id 15.21.0092.011; Fri, 12 Jun 2026
- 04:03:25 +0000
-From: Ratheesh Kannoth <rkannoth@marvell.com>
-To: "bjorn@helgaas.com" <bjorn@helgaas.com>
-CC: Bjorn Helgaas <helgaas@kernel.org>,
-        "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "bhelgaas@google.com" <bhelgaas@google.com>,
-        "will@kernel.org" <will@kernel.org>,
-        "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>,
-        "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-        "mani@kernel.org" <mani@kernel.org>,
-        "robh@kernel.org" <robh@kernel.org>,
-        "vidyas@nvidia.com" <vidyas@nvidia.com>
-Subject: RE: Re: Re: [PATCH v2] PCI: host-common: Request bus reassignment
- when not probe-only
-Thread-Topic: Re: Re: [PATCH v2] PCI: host-common: Request bus reassignment
- when not probe-only
-Thread-Index: AQHc3QKBrc74cXnvwkeJkqw+7UbM0rY6hMUA
-Date: Fri, 12 Jun 2026 04:03:25 +0000
-Message-ID: <MN0PR18MB584758C9286C78B6EE947FE7D3182@MN0PR18MB5847.namprd18.prod.outlook.com>
-References: <20260414081730.3864372-1-rkannoth@marvell.com>
- <20260504224955.GA669929@bhelgaas>
- <MN0PR18MB5847809DF7EB9A3ECA4A4159D33E2@MN0PR18MB5847.namprd18.prod.outlook.com>
- <CABhMZUW5Y3g86_ki8MfcqX9Qj63TxqQR=m74c8sBm-puZGEvUg@mail.gmail.com>
- <MN0PR18MB5847913D9E15805B85A0AAD2D33F2@MN0PR18MB5847.namprd18.prod.outlook.com>
-In-Reply-To: <MN0PR18MB5847913D9E15805B85A0AAD2D33F2@MN0PR18MB5847.namprd18.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR18MB5847:EE_|SN4PR18MB988514:EE_
-x-ms-office365-filtering-correlation-id: 3963cf94-6254-47dc-a653-08dec8378d43
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|13003099007|22082099003|18002099003|38070700021|11063799006|5023799004|56012099006|4143699003|4133799003;
-x-microsoft-antispam-message-info: K19ZxY+RB5SJP2GHJegf7iqBIkTl7ECzvAB/oGqV7uSNq0jz54CQxLraGcSDuRBLCsw4DQWxSzYCOAI10/+pY5EevUB0rRGjs41V192jlsF3ttvjBo6k6Nh3/aAxMuScmj5F1fBK2ZC7wnvpiEmuuXPwz8BPLYufEcVEaJCQXT6LwxrC13K6W1oCeVGvMyAqHpcSrvnKXr9+kT0ZPC+0/hI3hCY3LOzLbGvZDmScOln7KPvX6+pcUWxSfmWhPd2DDR+VA5ajYy4IfnppkP1nOCS/N+Mj8i48dUDPR8NVnVYP/DCATq1BcGQolw8lwQJF9MWy/rKPGeXROoQD+ncu6QXRl8L5bihpQzupxtfUABkPKnSEsXDd5i5M5ijJ5sPLinvQmjLCojTQ06n0YGZ3zKz941tOYfLZin6GOM9BJfsmwsKcHAunggH4mUCHqey8O2Icji8+j6SjpSVgS40mhIRP23SAlAfgLlhRGbVCE8IxYMRnFp3Aie1rz635GVYMezakkSkff1iQK7iPtP7jHBFEODflfZaugjLcQ5xjzdvWNma78+7nzp2w5sWYe4ZjEsYmeUAUscgWjlMexsja4wTpMoBVcKsclBKhiQ7nCi6BOojZ/A/OsxuNblbDwi5clQXuElPgkFqUdwHynSFpcoujV+03Ru8A7KepBPHhusDhTguqweQvUiHfIVO91U4N
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR18MB5847.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(13003099007)(22082099003)(18002099003)(38070700021)(11063799006)(5023799004)(56012099006)(4143699003)(4133799003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Zkt6emJHd2E5enVIMUx1bWdtbTVKY2lJN3RaYmEvYUdaamZUSzRnODJxTHY4?=
- =?utf-8?B?U1g5Kzc0MndJa0o3c3VybDMyMkF3R1dhSFd3c0ZaU3F3NlEwMHNaR1hocldN?=
- =?utf-8?B?YnhDN2dnOVlXN0xkNFdlNUdlT1NmcjkydmFvQzdYQjNwaFVKbi92ZytOcm1W?=
- =?utf-8?B?NzlsaUJ1Sk1QZWszNDU0TEQ4cjVyY0VWSTZHNFV2TWxuMkc2RS9HeTBXbC9B?=
- =?utf-8?B?d3dYR0xvRm1pK1hwWDRSeVYzeXR5MXM0czJtOG1ldzBHVzlQUFB1SkJEbVl0?=
- =?utf-8?B?N0VqOXB6VjBPVXB3bFhSdTk3L2VxbVhLbXdIQUQ5T3NIQWRrZXBRREVaTVM5?=
- =?utf-8?B?MFFMZ21XcjRORTFRS0xyZjhOOHdGZnlXb3NTdVRPRERqa3c2dUdRTXBLMXYw?=
- =?utf-8?B?TWthb05pdTg5QzhiZmtMM0YxZU4rcWh6SUYxQW40TnJoVFVNL1QvUGJhejFt?=
- =?utf-8?B?d0ZlNHJ0S3YzNXdoakVURTVZQ3lMQWovaFFGT2FQa21RMk5QS3V2aGMyV0ha?=
- =?utf-8?B?aFA1dXJmZVFadzZnMXZ4ZTBhS2s5cTY4bmVWamw5L2hZWFJ3TDVRTDVtVXoz?=
- =?utf-8?B?VkJnQmFER2JoODB6cENzSXhRQlZZZmg1eGtueEJ0a2dXKzVZZVhoQmhxY2JJ?=
- =?utf-8?B?c1hRSCtnNXFFZkczUHl4SXE2L3g4VFhMWC9lNEszaUF3WGRvVjhpSHVaMXVZ?=
- =?utf-8?B?LzFyWGxkYUpubHpQSmRxdXVDSzhIenhiaXlnK3duamdlK3k0a3dTcnk2K3BW?=
- =?utf-8?B?aTROZnd3L0kxR0QyeVg2SEt3c2NHSHhyb294V09jTjdsY0FaSFdUbGsvT3pw?=
- =?utf-8?B?b1FxeCsybTZIZ0tUV1Mya1FwYXRDNE1vdkdjRzJVYUxFdTY3aGlEd2xOUnlI?=
- =?utf-8?B?d25YeHdWc01VS3poeU9lVUpWZDdGcU9DYkoxbzF3d3UycGwwaDlHcUV0eTBO?=
- =?utf-8?B?eTFtY2hPaTBaeWI5ZGhoenBQUGdYUWYvZk9CSGdFUEVxd0ZLVUg1TFJ4YUhX?=
- =?utf-8?B?SDJhNjB2WkM1dTlBNjg2WGtQa2RtdDFsekkyNWU5WlhLSE9PRU9HY1VlbW4y?=
- =?utf-8?B?d2FzTUNZS01hRWJuQzBLV2pMK3g5NXFUemN0Q0phZnIvVTF0RldOL3JLVFBF?=
- =?utf-8?B?TkdpTS9Za1dhbmRoZHdZYmhGakVleFQzMnRhQ1JPS3BkdDlGQ2ZLZ01HVWRT?=
- =?utf-8?B?RjVoQjh1bllSSjJ0MEZHSkJySy9wdHkrRGJubnhYbGtBSFJFL0d4alVUbUtK?=
- =?utf-8?B?aExrQUcyaGYzUW5Jc1J3eU81YTBwd09aUlFXNFRvRUE3V1ZSbW5YRE5jMDZN?=
- =?utf-8?B?ZnFWa3Vlb09pak56R0xjbFBzYldYVHR4YytNWWl0dDBVM0hsQTdVcC9zZlp2?=
- =?utf-8?B?d2Y0WWtqTnNvakF4S1pQbjlZL3ZZei81NGJ6T2Jha1krOEs0emJ1MGtJRUpB?=
- =?utf-8?B?bHRaOEVSSWpHOHhmRlN4K0hNdHlQZ1lVdTBKNENvZkx4RHQ3Qk5EU2huUmhQ?=
- =?utf-8?B?SFBGeTdoSWF4Y2owaXRJa3ZtTVVwWWY3eDgrTmJZMGZhb2VTdEFWenM3N3lx?=
- =?utf-8?B?aWRYRk1OeUtaQnE1UWMxT0lNZXkwMTlHaHF6VytKNzN0aE04dS9KL1Jyc0xJ?=
- =?utf-8?B?RldUWnowQU9Xdlp2dDYySzVLUnkrWGg2OFdUOWFUbDU5ZDN1bFNGeDlkN3pF?=
- =?utf-8?B?bUVzVE8vNkMwQzRoTlQ0MEZQSkdOc0t2dHBNV1lEdFB5VDM1Vm9yTFArUThB?=
- =?utf-8?B?Y2dOZSs1c01HUVEwcEZsbElWMlB1YjY3d1g0ais1R1BoQnB3b2hiY1ZwM2lN?=
- =?utf-8?B?aDhlSm9mc291THFkRklMMkhUNTJwUXJHUFdaYkdXL2NJOEFSdDR3OWJIUXNL?=
- =?utf-8?B?K2F5YXd4SHRkWUZnT2QycXd0OGtwY3dEbUJwdXRFUmVDR2JrT082K3I3b0Vi?=
- =?utf-8?B?dVk2bVhhSkltNjA1Y2ZaSjVVenFnSzNmYktidmY0aTFxcDJuZGV1Vkgrd3JJ?=
- =?utf-8?B?ZTRzcXBxVXIwTlRtLzZvY0NLQXo3OTFtQlIyNnE4dUFBNjVVN2Z2REV1TnVo?=
- =?utf-8?B?L2FCcHB3ZFNEcFA5ZUZGT0habnl0LzFzQzNEdEw1T2NqRzBxSklRRXA0Nldo?=
- =?utf-8?B?SmRvYzBUUDZubysvMVRUZU54QllpQVZaVU9CM2xNbUNiR2o0MTRmNVB6dE1O?=
- =?utf-8?B?SGE5aitUa252THRZYnltV3FTSWFVYWVMcWFZcFI1ZTNkZXk1SG9vaXZ3bElY?=
- =?utf-8?B?U211a0FoUllaUzQ0R1JrcENwZndCZE5vNjZSQnN3d0paWHVDcGtMNVZNd0g4?=
- =?utf-8?B?cWJVRmJEMG9SdFNDaThkc0NKYzVCdVpNTEh0ZUd0aks0aDhmVUdoZz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Fri, 12 Jun 2026 04:06:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1781237213; x=1812773213;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ABzEIZDD2jKBPDc5Y/2VBD3Ut+7r1stkLEvCBcmneRw=;
+  b=HTKJldDGWDMalLPsbYWzLibq3H8Z3iX0IF8qe0u3X3cLHZZsHEmv6+7w
+   yuVFO3MkR4YbPoankrYkizNFdOgew5G/BAwHfGehrZGSUWQ5SoBcmJz15
+   h+nYrhOjxoYT/Wcq2VMtPEvzvO/jTI3xd/1edkyRfBSg0sqQSoeGhtAWQ
+   Bi36Br6w6+Zx/AIVcLw5EPsU//vwKW705E6sBVYrOHCRmOhBk8E4Eorqb
+   +CPeh2E2z67KwqcFH9f0C1Us2BE4k+CSFWSBR4q3xeXkaKP4H6bDGC/CE
+   MEYv9orN9TqmvSmpdoqJim7uz4t3opaLPf63wlyMC1Smq38ggWv9XSt+6
+   A==;
+X-CSE-ConnectionGUID: bHovbl13T62rFJ9WT9VSuA==
+X-CSE-MsgGUID: t7RD86DdSDeUvOE/029zkw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11813"; a="243288573"
+X-IronPort-AV: E=Sophos;i="6.24,200,1774278000"; 
+   d="scan'208";a="243288573"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2026 13:06:47 +0900
+Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id AD5B31C1C70F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 04:06:47 +0000 (UTC)
+Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 684208D29DF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 04:06:47 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTPS id 91611405ED9;
+	Fri, 12 Jun 2026 04:06:43 +0000 (UTC)
+Date: Fri, 12 Jun 2026 13:06:40 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2 2/2] KVM: arm64: nv: Expose shadow page tables in
+ debugfs
+Message-ID: <aiuF0KSvvv-ZozI1@sm-arm-grace07>
+References: <20260317182638.1592507-1-weilin.chang@arm.com>
+ <20260317182638.1592507-3-weilin.chang@arm.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: Fx0F+e3XrhhjB+JnqaaX3GlvaiytoveuB7YpM8I8HBTXI9eNPjkzq2bQUXHFDnxrQtC2F3UfI8gYghhoe7gxKNsdLWRgLYa5w5lez5ZYJOORfw7cwlSdCjOx7EgLgEBvsaGuMCuXLg56MaxVlKO61c+FYJL7+1dLKaHswDpVxErmxvpEt/s5v/U0lTaIJpUJKzri6NCCQq0xRPjLHq0kVm321NuYfBla4AeXHnSSkh/D/FHASL4FSsKi3zwqgfdCdG5VM51dTQqD7KshrY+xpKZyMkX0M0iTTMvU/slMIZDsRNK1tXuTuGIsQ7X3qxxDa+sZkb8PxnAisl1YuMptXg==
-X-OriginatorOrg: marvell.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR18MB5847.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3963cf94-6254-47dc-a653-08dec8378d43
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Jun 2026 04:03:25.1786
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: E7Rt6jnaJjdMfObB1rnHQOL+rUsxu6y8PG6Zmnyp7BXkssFWpSB/FKsqQk6EvyDzz0lHNBvBifFE6ZcHSCFtkg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR18MB988514
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjEyMDAzMiBTYWx0ZWRfXy/xSANAs2IoD
- AowVupmB1RCn/9Smwr5Yb7Mz0/oOmikElUtrxIuzlOOEM3jmqPjb4D1yPJ/JBD5BzLk9v7NblNf
- igmcOyYrzy7C6jAfUVuyaRDMvWYQo3k=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEyMDAzMiBTYWx0ZWRfX69Iw1pCYS8ss
- +Ln2eQ9xgdLSgwExJPk7PSik+gtoAUC75KBTYK0VuiYyTMYMQZjBJYOE/liGGqoh6UqTfx/dIlA
- dn+lWPpuJ6pCacTe9oYu9rmPkYjQ51Crt7xrccFrNMCStgnq+ITnf8fBn3dgybMkr/tKkBMhBpp
- mBQpN0Ihc61V+Im8SCgFGcI2fKQNuCFIFIPdpHTX+S1DC4H3/j5Tftjtr4nTqjf8MrHfmt6bJtU
- NCT0DgxBsVuYZ45vAfGdZH2FErQnb0IaGmQ7RSxtFbt1fs+MOYoPSQeLgZSukUrSzjBTQ0NCasN
- sUIaDAE6HBVVt0aCw5blE6s8c7CNTP4c/JPPf/lYOqvL49qSz1n2g8L8tRpU2vLS6X1Inx8M9n7
- tuhvFBdlsN4Q3t/izenNpzyL5koCgHKayN3L5pLEDo+Zfo8H/xe5qRyLREqJr/H9suunN/8qhLn
- OYKtDWRm6Tz372Scp1g==
-X-Authority-Analysis: v=2.4 cv=UPDt2ify c=1 sm=1 tr=0 ts=6a2b850f cx=c_pps
- a=fMm6ob6OrxBSxP8bamoiPg==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=FelO9ux0wxsA:10 a=-AAbraWEqlQA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=l0iWHRpgs5sLHlkKQ1IR:22 a=EAYMVhzMl8SCOHhVQcBL:22 a=RpNjiQI2AAAA:8
- a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=TjLpVNZhDvUs67CzpaoA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: 3AxKVII0akWhJzJ4aeiIWEJ9Q9mR7nv1
-X-Proofpoint-GUID: 3AxKVII0akWhJzJ4aeiIWEJ9Q9mR7nv1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-12_01,2026-06-11_01,2025-10-01_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260317182638.1592507-3-weilin.chang@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_210333_564755_678D6FE9 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20260611_210654_053291_811068FB 
+X-CRM114-Status: GOOD (  35.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,42 +101,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQo+ID5Gcm9tOiBCam9ybiBIZWxnYWFzIDxiam9ybi5oZWxnYWFzQGdtYWlsLmNvbT4NCj4gPlNl
-bnQ6IFR1ZXNkYXksIE1heSA1LCAyMDI2IDg6NTUgUE0NCj4gDQo+ID5JIGRvbid0IGhhdmUgYWNj
-ZXNzIHRvIHRoYXQgYnVnIHJlcG9ydC4gIElmIHRoZXJlJ3Mgbm90aGluZyBzZWNyZXQgaW4NCj4g
-Pml0LCBjYW4geW91IG1ha2UgaXQgcHVibGljPw0KPiBBcG9sb2dpZXMgZm9yIHRoZSBhY2Nlc3Mg
-aXNzdWUuIEkgYW0gc3RpbGwgZmFtaWxpYXJpemluZyBteXNlbGYgd2l0aCB0aGUNCj4gcGxhdGZv
-cm0ncyBwcml2YWN5IHNldHRpbmdzLCBidXQgSSBjZXJ0YWlubHkgaW50ZW5kZWQgZm9yIHRoaXMg
-dG8gYmUgYSBwdWJsaWMNCj4gcmVwb3J0Lg0KPiBJJ2xsIGV4cGxvcmUgdGhlIHNldHRpbmdzIG5v
-dyB0byBtYWtlIGl0IGdlbmVyaWMvcHVibGljIGFuZCB3aWxsIGdldCBiYWNrIHRvIHlvdQ0KPiAN
-Cj4gPkkgYXNzdW1lIHRoaXMgaXMgdGhlIHNhbWUgaXNzdWUgeW91IG1lbnRpb25lZCBhdA0KPiA+
-aHR0cHM6Ly91cmxkZWZlbnNlLnByb29mcG9pbnQuY29tL3YyL3VybD91PWh0dHBzLTNBX19sb3Jl
-Lmtlcm5lbC5vcmdfYWwNCj4gPmxfYWJrcW0tNUZMQ2Q5ekFNOGNXLTQwcmthbm5vdGgtMkRPcHRp
-UGxleC0yRDcwOTBfLQ0KPiAzRiZkPUR3SUZhUSZjPW5LaldlYw0KPiA+MmI2UjBtT3lQYXo3eHRm
-USZyPWFla2NzeUJDSDAwX0xld3JFRGNRQnpzUnc4S0NwVVIwdlpiX2F1VEhrNA0KPiBNJm09eUg3
-RWVCDQo+ID5lOUh3UmxsRDhLLQ0KPiA+UEZOUzJDTUZTbGNhQkhVNm8zRFlhMXhuZEp2d1ZTSEk0
-YVBXaTk4dURLUFJJSkkmcz1CSzRfTnZtWGENCj4gPnF5c3prTVZIV0FQVGE5TWVhWC0yNkthM3hU
-Nk5LU1h3RlEmZT0NCj4gWWVzLiBJIGJlbGlldmUsIHdlIGNhbiBpZ25vcmUgQnVnemlsbGEgcmVw
-b3J0IGFzIHBlcg0KPiBodHRwczovL3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL3Y0LjE5L2FkbWlu
-LWd1aWRlL3JlcG9ydGluZy1idWdzLmh0bWwgPw0KPiAiT25jZSB5b3Uga25vdyB0aGUgc3Vic3lz
-dGVtIHRoYXQgaXMgY2F1c2luZyB0aGUgaXNzdWUsIHlvdSBzaG91bGQgc2VuZCBhDQo+IGJ1ZyBy
-ZXBvcnQuIFNvbWUgbWFpbnRhaW5lcnMgcHJlZmVyIGJ1Z3MgdG8gYmUgcmVwb3J0ZWQgdmlhIGJ1
-Z3ppbGxhDQo+IChodHRwczovL2J1Z3ppbGxhLmtlcm5lbC5vcmcpLCB3aGlsZSBvdGhlcnMgcHJl
-ZmVyIHRoYXQgYnVncyBiZSByZXBvcnRlZCB2aWEgdGhlDQo+IHN1YnN5c3RlbSBtYWlsaW5nIGxp
-c3QuIg0KPiANCj4gPllvdXIgZW1haWwgcmVzcG9uc2Ugd2FzIEhUTUwsIHNvIHRoZSBtYWlsaW5n
-IGxpc3RzIHJlamVjdGVkIGl0LCB3aGljaA0KPiA+aXMgd2h5IHlvdXIgcmVzcG9uc2UgZG9lc24n
-dCBhcHBlYXIgaGVyZToNCj4gPmh0dHBzOi8vdXJsZGVmZW5zZS5wcm9vZnBvaW50LmNvbS92Mi91
-cmw/dT1odHRwcy0zQV9fbG9yZS5rZXJuZWwub3JnX2FsDQo+ID5sXzIwMjYwNDE0MDgxNzMwLjM4
-NjQzNzItMkQxLTJEcmthbm5vdGgtNDBtYXJ2ZWxsLmNvbV90Xy0NCj4gMjN1JmQ9RHdJRmFRJmMN
-Cj4gPj1uS2pXZWMyYjZSMG1PeVBhejd4dGZRJnI9YWVrY3N5QkNIMDBfTGV3ckVEY1FCenNSdzhL
-Q3BVUjB2WmINCj4gX2F1VEhrNE0mbQ0KPiA+PXlIN0VlQmU5SHdSbGxEOEstDQo+ID5QRk5TMkNN
-RlNsY2FCSFU2bzNEWWExeG5kSnZ3VlNISTRhUFdpOTh1REtQUklKSSZzPTdYDQo+ID5mM2lrVVBa
-cFRqYm5YM0IwemltcHNIRk1nSng4Z3VSa3lHQWw3R1h6OCZlPQ0KPiBTb3JyeSBhYm91dCB0aGF0
-LiBNeSBtYWlsIGNsaWVudCAoT3V0bG9vaykgZGVmYXVsdGVkIHRvIEhUTUwgZm9ybWF0dGluZy4g
-V2lsbA0KPiBiZSBtb3JlIGNhcmVmdWwgaW4gZnV0dXJlLg0KS2luZGx5IGFkdmlzZSBpZiB0aGVy
-ZSBhcmUgYW55IG91dHN0YW5kaW5nIGFjdGlvbiBpdGVtcyByZXF1aXJlZCBmcm9tIG15IHNpZGUu
-IEkgc2VlIHRoYXQgdGhlIHBhdGNoIGlzIG5vdCBhdmFpbGFibGUgaW4gbmV0LW5leHQgeWV0DQog
-b3IgYmFja3BvcnRlZCB0byBzdGFibGUgdmVyc2lvbnMuIEkgd2FudCB0byBlbnN1cmUgSSBoYXZl
-bid0IG1pc3NlZCBhIHN0ZXAsIHNvIHBsZWFzZSBleGN1c2UgbXkgaW1wYXRpZW5jZSBpZiBpdCBp
-cyBzaW1wbHkgYSBtYXR0ZXIgDQpvZiB0aGUgdXN1YWwgcmVsZWFzZSBjeWNsZS4NCg==
+Hi Wei Lin,
+On Tue, Mar 17, 2026 at 06:26:38PM +0000, Wei-Lin Chang wrote:
+> Exposing shadow page tables in debugfs improves the debugability and
+> testability of NV. With this patch a new directory "nested" is created
+> for each VM created if the host is NV capable. Within the directory each
+> valid s2 mmu will have its shadow page table exposed as a readable file
+> with the file name formatted as 0x<vttbr>-0x<vtcr>-s2-{en,dis}abled. The
+> creation and removal of the files happen at the points when an s2 mmu
+> becomes valid, or the context it represents change. In the future the
+> "nested" directory can also hold other NV related information.
+> 
+> This is gated behind CONFIG_PTDUMP_STAGE2_DEBUGFS.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Reviewed-by: Sebastian Ene <sebastianene@google.com>
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h |  9 +++++++++
+>  arch/arm64/include/asm/kvm_mmu.h  |  4 ++++
+>  arch/arm64/kvm/nested.c           |  6 +++++-
+>  arch/arm64/kvm/ptdump.c           | 27 +++++++++++++++++++++++++++
+>  4 files changed, 45 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 5d5a3bbdb95e..52977c9a11c3 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+>  	 */
+>  	bool	nested_stage2_enabled;
+>  
+> +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> +	struct dentry *shadow_pt_debugfs_dentry;
+> +#endif
+> +
+>  	/*
+>  	 * true when this MMU needs to be unmapped before being used for a new
+>  	 * purpose.
+> @@ -405,6 +409,11 @@ struct kvm_arch {
+>  	 * the associated pKVM instance in the hypervisor.
+>  	 */
+>  	struct kvm_protected_vm pkvm;
+> +
+> +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> +	/* Nested virtualization info */
+> +	struct dentry *debugfs_nv_dentry;
+> +#endif
+>  };
+>  
+>  struct kvm_vcpu_fault_info {
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> index d968aca0461a..01e9c72d6aa7 100644
+> --- a/arch/arm64/include/asm/kvm_mmu.h
+> +++ b/arch/arm64/include/asm/kvm_mmu.h
+> @@ -393,8 +393,12 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
+>  
+>  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+>  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
+> +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
+> +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu);
+>  #else
+>  static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
+> +static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu) {}
+> +static inline void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu) {}
+>  #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
+>  
+>  #endif /* __ASSEMBLER__ */
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index eeea5e692370..31d74ed8449e 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -730,8 +730,10 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+>  	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
+>  
+>  	/* Make sure we don't forget to do the laundry */
+> -	if (kvm_s2_mmu_valid(s2_mmu))
+> +	if (kvm_s2_mmu_valid(s2_mmu)) {
+> +		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
+>  		s2_mmu->pending_unmap = true;
+> +	}
+>  
+>  	/*
+>  	 * The virtual VMID (modulo CnP) will be used as a key when matching
+> @@ -745,6 +747,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+>  	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
+>  	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
+>  
+> +	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
+> +
+
+This function can sleep, so I get while running your shadow stage 2 KVM
+selftest a messge:
+
+[ 4408.411009] BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1624
+[ 4408.411075] in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 164, name: shadow_stage2
+[ 4408.411136] preempt_count: 2, expected: 0
+[ 4408.411172] RCU nest depth: 0, expected: 0
+[ 4408.411228] CPU: 1 UID: 0 PID: 164 Comm: shadow_stage2 Tainted: G        W           7.1.0-rc2+ #48 PREEMPT(full)
+[ 4408.411336] Tainted: [W]=WARN
+[ 4408.411368] Hardware name:  , BIOS
+[ 4408.411403] Call trace:
+[ 4408.411427]  show_stack+0x24/0x50 (C)
+[ 4408.411524]  dump_stack_lvl+0x90/0x158
+[ 4408.411633]  dump_stack+0x1c/0x38
+[ 4408.411741]  __might_resched+0x168/0x208
+[ 4408.411839]  __might_sleep+0x54/0xb0
+[ 4408.411936]  down_write+0x30/0xe8
+[ 4408.412048]  start_dirop+0x3c/0xc0
+[ 4408.412149]  simple_start_creating+0xb8/0xc8
+[ 4408.412241]  debugfs_start_creating.part.0+0x68/0x180
+[ 4408.412375]  __debugfs_create_file+0x80/0x1f8
+[ 4408.412505]  debugfs_create_file_full+0x28/0x68
+[ 4408.412637]  kvm_nested_s2_ptdump_create_debugfs+0xa0/0x108
+[ 4408.412734]  kvm_vcpu_load_hw_mmu+0x27c/0x320
+[ 4408.412839]  kvm_arch_vcpu_load+0x318/0x5a0
+[ 4408.412971]  kvm_emulate_nested_eret+0x148/0x3d8
+[ 4408.413072]  kvm_handle_eret+0x110/0x138
+[ 4408.413190]  handle_exit+0x6c/0x1e8
+[ 4408.413306]  kvm_arch_vcpu_ioctl_run+0x3c4/0xc90
+[ 4408.413396]  kvm_vcpu_ioctl+0x1a0/0xa68
+[ 4408.413508]  __arm64_sys_ioctl+0xd0/0x160
+[L1] L2 exit[ 4408.413631]  invoke_syscall+0xa8/0x138
+[ 4408.413723]  el0_svc_common.constprop.0+0x4c/0x140
+[ 4408.413821]  do_el0_svc+0x28/0x58
+[ 4408.413911]  el0_svc+0x48/0x230
+[ 4408.414035]  el0t_64_sync_handler+0xc0/0x108
+[ 4408.414166]  el0t_64_sync+0x1b4/0x1b8
+
+I tried to move this function out under the KVM MMU lock, but then I see
+a debug entry is duplicated error. I am not sure where exactly this 
+nested stage 2 debugfs entry create function should go, your help is
+much appreciated.
+
+Thanks,
+Itaru.
+
+>  out:
+>  	atomic_inc(&s2_mmu->refcnt);
+>  
+> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> index 98763b291956..aebbbad85d38 100644
+> --- a/arch/arm64/kvm/ptdump.c
+> +++ b/arch/arm64/kvm/ptdump.c
+> @@ -10,12 +10,14 @@
+>  #include <linux/kvm_host.h>
+>  #include <linux/seq_file.h>
+>  
+> +#include <asm/cpufeature.h>
+>  #include <asm/kvm_mmu.h>
+>  #include <asm/kvm_pgtable.h>
+>  #include <asm/ptdump.h>
+>  
+>  #define MARKERS_LEN		2
+>  #define KVM_PGTABLE_MAX_LEVELS	(KVM_PGTABLE_LAST_LEVEL + 1)
+> +#define S2FNAMESZ	sizeof("0x0123456789abcdef-0x0123456789abcdef-s2-disabled")
+>  
+>  struct kvm_ptdump_guest_state {
+>  	struct kvm_s2_mmu	*mmu;
+> @@ -277,6 +279,28 @@ static const struct file_operations kvm_pgtable_levels_fops = {
+>  	.release	= kvm_pgtable_debugfs_close,
+>  };
+>  
+> +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
+> +{
+> +	struct dentry *dent;
+> +	char file_name[S2FNAMESZ];
+> +
+> +	snprintf(file_name, sizeof(file_name), "0x%llx-0x%llx-s2-%sabled",
+> +		 mmu->tlb_vttbr,
+> +		 mmu->tlb_vtcr,
+> +		 mmu->nested_stage2_enabled ? "en" : "dis");
+> +
+> +	dent = debugfs_create_file(file_name, 0400,
+> +				   mmu->arch->debugfs_nv_dentry, mmu,
+> +				   &kvm_ptdump_guest_fops);
+> +
+> +	mmu->shadow_pt_debugfs_dentry = dent;
+> +}
+> +
+> +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu)
+> +{
+> +	debugfs_remove(mmu->shadow_pt_debugfs_dentry);
+> +}
+> +
+>  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+>  {
+>  	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
+> @@ -285,4 +309,7 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+>  			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
+>  	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
+>  			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
+> +	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+> +		kvm->arch.debugfs_nv_dentry =
+> +			debugfs_create_dir("nested", kvm->debugfs_dentry);
+>  }
+> -- 
+> 2.43.0
+> 
 
