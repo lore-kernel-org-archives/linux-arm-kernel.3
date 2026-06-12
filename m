@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A4C0CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F95CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 19:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMUfkA0Qvrb7iW5rl1K95T0ct8KyLE0h2lxpS+ugXRA=; b=BBL+v4Ab3sCA1YSHWNlW+0zvhv
-	uUx5+mCGNrnWoPv8AvbYqCSKDs162zUAMBkyp0Q3Ljx87ERFqbVfj8Vcjkl/bS5y04RJ/F12RAt+y
-	UI6pFhv92WPh47RHz6BXk+ISjRPO5KNfMcq3K0ya2QQLWSxutrLNuiFbfTmTXayAO2Z6GkzwmuZyo
-	a6yMogXMmsJxVQW0eqZa0lRbw9rFcGi9vQg7hxNuIn/fqpGrQ71D/wC9oZ2CreeSsK08oGQuDQucv
-	Psy+ZvtAJ2V4RizbBO8M57LrsaIj2k9Ip6kOCAxvObZWg/Cq9vWpKivzfs+BQ38WWcUMf1hqcEDFF
-	e/RutwLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pPU7Ldw4ipIoEcVrCmQaXXpe58uZWSTdE8XRrKsUz/U=; b=gF9QygCu2nmAqLKmKfxz8iKqom
+	gYGC3oLYqGEkbquddr3tnSQqNqzUDqeymwnGeBsCnwXW8f1Ju5yh/pNZvDE6eCxiGIZAK4eVfj6m2
+	C8wvg2NV1sBtpNpgS5DGMfiGCNvnw24JTiI5/yIvAOGRFg7OCO2hgNJ08R73qe6Pkk1jM9ppuEHqV
+	BWJUFxab/QAxgDh7FyGTiB7aT2R3MKVIZuL7f9/w8QCnIbQYBN1KJUG66CBAbYVLusVlEGCxoXMPX
+	AMoa04UAImXs6dDl9Kz4cJgfIsYca2ZzVoeBSvZ0TUnY1zDYi71NPSrg+OzcFOjnVUmFO4pnIV2a9
+	LDNQxwKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7ZQ-0000000BSkP-1tES;
-	Fri, 12 Jun 2026 19:29:36 +0000
-Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
+	id 1wY7wg-0000000BVWF-1SOo;
+	Fri, 12 Jun 2026 19:53:38 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY7ZI-0000000BSW8-2Nph
+	id 1wY7wd-0000000BVVx-1ESq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 19:29:30 +0000
-Received: by mail-oi1-x24a.google.com with SMTP id 5614622812f47-486db2bf46eso1551078b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 12:29:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781292567; x=1781897367; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xMUfkA0Qvrb7iW5rl1K95T0ct8KyLE0h2lxpS+ugXRA=;
-        b=tKQlh4aMWKl1ERO13pMjKdQqgr2NO2v2FdDZnsiLizVTJDNG207FNFqQDR/syx0l+K
-         fnhbkg+axQjAdgVSkCXJPRX8xPTkhQ8r+E+nZY50sY8R/Hp4Vz035vYLEGzE6zW+Xgei
-         +IxbmL70H0numFb0Fefn6gvZNdEaSdS+r6zW3CJAZ3RAcPrDk0K26X7w7XcBvqQ3DMWw
-         evpxPuEud9VVEY9LugADovTfgfHtjar8RGzd4J/gkLFHJ9MbNNNj4o6xFhO0MY+qI3/p
-         eKV1nuIPUt+Id4K0/mDjq0IGUfPz9/6FoFVWoBxXbEwRL3vDTAOtBqHXsoB/Gu4lfFCq
-         Z51Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781292567; x=1781897367;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xMUfkA0Qvrb7iW5rl1K95T0ct8KyLE0h2lxpS+ugXRA=;
-        b=BMfgy0WEag741Xtecbihjyy9Ucu+ZUjVItdR34PPfdNTmLTbqSKe411A/MQ2TjSD3L
-         HFf1iUeOyYe5r6jr1WjA7U/gm/OLB/OgTekdhi9ybj5cIeT+GxtnyAiWCHe6j5fJOTL9
-         srXXQnNN/lZwICwVYzO0a3LjG3calYlSe2cGq+DsVFp1yqcE1Melo9WHkiQirR9nVGXS
-         mlofLO27nZx+33g8ht7cQurbC5i1/g/nPN6p7eEAomWdzZgtwvH8mRjnpbVkw2cHB3Pf
-         crd2s4eTuL1a7EHAZdOAbNM3a3jKleY9ClKjph0gRTaMkjBFfYy7Pk3BT56xXxFh0WaP
-         ahRg==
-X-Forwarded-Encrypted: i=1; AFNElJ9yzlr7+aoFQS+rKdcStaf9QMzFkQ5eJ8spSNWJ5fFFep7lxdWOLR0xRqXK3c4PG6QWGC9/ZRwxeOcGmE+NG08p@lists.infradead.org
-X-Gm-Message-State: AOJu0YzB78BjZaVskhpk8CuDNCm1OBS3U+6gNVKJt+N2IUrcRxmRVJNN
-	qR7oxucRg3YKF+6+0xFbc5KDGk45Q96ZOOMFFqZJw7/7Q/VQGw4owC8rQwLILbRqffSjuTGs/kM
-	DP4S+Q65DLT64ybFtbpngG4QqUA==
-X-Received: from ilbdx1-n1.prod.google.com ([2002:a05:6e02:4201:10b0:4fa:1e84:4047])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:170f:b0:485:15bd:60e8 with SMTP id 5614622812f47-48741b51368mr655188b6e.35.1781292567145;
- Fri, 12 Jun 2026 12:29:27 -0700 (PDT)
-Date: Fri, 12 Jun 2026 19:29:06 +0000
-In-Reply-To: <20260612192909.1153907-1-coltonlewis@google.com>
+	Fri, 12 Jun 2026 19:53:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: Cc: To: From: Subject: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1781294014;
+ bh=pPU7Ldw4ipIoEcVrCmQaXXpe58uZWSTdE8XRrKsUz/U=;
+ b=U70C2QiaqbjPvEVR/8aQK8q5S++yHVBqNlweTAQ4ZyBV1ogKN8UvJj9+Wz22hcVa1GzS6gESa
+ 6PkUal1wP9c1xfvWORgRHRzKUtUti1dFWWpd4lFt5GVM7YRtqQa+nD9UYf2m1aejv9ZF9z747TU
+ D1QktqmPxBb2xAlJhO+UDiiV2fG0BGcF+WNXk1APxKbptBylK+1t13eAl0bEq4p85PRe6+nKJ92
+ RZ7rIZb5Vo0/mjmekA1NEkVquXFt1fZuI/PzIFxZMXKRiLOHyhDmN3i9BMuATOlAwxCv78Oz61p
+ 5/zUcavKTJ4mAH9MA3ARng0Xq+SGB/+FL4kINqwIO5UQ==
+X-Forward-Email-ID: 6a2c63b8edbf0df789293751
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.8.26
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
 Mime-Version: 1.0
-References: <20260612192909.1153907-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260612192909.1153907-19-coltonlewis@google.com>
-Subject: [PATCH 18/21] KVM: arm64: Add vCPU device attr to partition the PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: kvm@vger.kernel.org
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Mingwei Zhang <mizhang@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Shuah Khan <shuah@kernel.org>, Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, 
-	James Clark <james.clark@linaro.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Fri, 12 Jun 2026 15:53:27 -0400
+Message-Id: <DJ7C0Y4EREJC.3ISWKDCT9I07R@ubuntu.com>
+Subject: Re: [PATCH v2] power: supply: macsmc: Support macOS 27 SMC firmware
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Sasha Finkelstein" <k@chaosmail.tech>, "Sven Peter" <sven@kernel.org>,
+ "Janne Grunau" <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>, "Sebastian
+ Reichel" <sre@kernel.org>
+Cc: <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20260612-gate-power-v2-1-de76cb9bb7ef@chaosmail.tech>
+In-Reply-To: <20260612-gate-power-v2-1-de76cb9bb7ef@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_122928_639921_56BA0914 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20260612_125335_665264_B3F5428D 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,146 +78,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new PMU device attr to enable the partitioned PMU for a given
-VM. This capability can be set when the PMU is initially configured
-before the vCPU starts running and is allowed where PMUv3 and VHE are
-supported and the host driver was configured with
-arm_pmuv3.reserved_host_counters.
+On Fri Jun 12, 2026 at 2:36 PM EDT, Sasha Finkelstein wrote:
+> The SMC firmware included in macOS 27 changed the size of BCF0 key from
+> 4 to 1 bytes. This key is used for indicating that battery state is
+> critically low.
+>
+> Reviewed-by: Sven Peter <sven@kernel.org>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+> Changes in v2:
+> - Addressing review feedback
+> - Link to v1: https://patch.msgid.link/20260611-gate-power-v1-1-8a6272108=
+6c7@chaosmail.tech
+> ---
+>  drivers/power/supply/macsmc-power.c | 35 +++++++++++++++++++++++++++++++=
++---
+>  1 file changed, 32 insertions(+), 3 deletions(-)
+>
 
-The enabled capability is tracked by the new flag
-KVM_ARCH_FLAG_PARTITION_PMU_ENABLED.
-
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
- arch/arm64/include/uapi/asm/kvm.h |  2 ++
- arch/arm64/kvm/pmu-direct.c       | 30 ++++++++++++++++++++++++++++++
- arch/arm64/kvm/pmu.c              | 23 +++++++++++++++++++++++
- include/kvm/arm_pmu.h             |  9 +++++++++
- 4 files changed, 64 insertions(+)
-
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index 1c13bfa2d38aa..7f57b8c132925 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -437,6 +437,8 @@ enum {
- #define   KVM_ARM_VCPU_PMU_V3_FILTER		2
- #define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
- #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS	4
-+#define   KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION	5
-+
- #define KVM_ARM_VCPU_TIMER_CTRL		1
- #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
- #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
-diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
-index 0062d1d8e1999..2d2294b78ebe0 100644
---- a/arch/arm64/kvm/pmu-direct.c
-+++ b/arch/arm64/kvm/pmu-direct.c
-@@ -24,6 +24,36 @@ bool has_host_pmu_partition_support(void)
- 		system_supports_pmuv3();
- }
- 
-+
-+/**
-+ * has_kvm_pmu_partition_support() - If we can enable/disable partition
-+ *
-+ * Return: true if allowed, false otherwise.
-+ */
-+bool has_kvm_pmu_partition_support(void)
-+{
-+	return has_host_pmu_partition_support() &&
-+		kvm_supports_guest_pmuv3() &&
-+		armv8pmu_is_partitioned;
-+}
-+
-+/**
-+ * kvm_pmu_partition_enable() - Enable/disable partition flag
-+ * @kvm: Pointer to vcpu
-+ * @enable: Whether to enable or disable
-+ *
-+ * If we want to enable the partition, the guest is free to grab
-+ * hardware by accessing PMU registers. Otherwise, the host maintains
-+ * control.
-+ */
-+void kvm_pmu_partition_enable(struct kvm *kvm, bool enable)
-+{
-+	if (enable)
-+		set_bit(KVM_ARCH_FLAG_PARTITION_PMU_ENABLED, &kvm->arch.flags);
-+	else
-+		clear_bit(KVM_ARCH_FLAG_PARTITION_PMU_ENABLED, &kvm->arch.flags);
-+}
-+
- /**
-  * pmu_is_partitioned() - Determine if given PMU is partitioned
-  * @pmu: Pointer to arm_pmu struct
-diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
-index f5ee18b4dfae7..4e15948ac2565 100644
---- a/arch/arm64/kvm/pmu.c
-+++ b/arch/arm64/kvm/pmu.c
-@@ -769,6 +769,28 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- 
- 		return kvm_arm_pmu_v3_set_nr_counters(vcpu, n);
- 	}
-+	case KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION: {
-+		unsigned int __user *uaddr = (unsigned int __user *)(long)attr->addr;
-+		u32 val;
-+
-+		if (get_user(val, uaddr))
-+			return -EFAULT;
-+
-+		if (!has_kvm_pmu_partition_support())
-+			return -EPERM;
-+
-+		if (kvm_vm_has_ran_once(kvm))
-+			return -EBUSY;
-+
-+		kvm_pmu_partition_enable(kvm, val);
-+		if (val) {
-+			unsigned int max_counters = kvm_arm_pmu_get_max_counters(kvm);
-+
-+			if (kvm->arch.nr_pmu_counters > max_counters)
-+				kvm_arm_set_nr_counters(kvm, max_counters);
-+		}
-+		return 0;
-+	}
- 	case KVM_ARM_VCPU_PMU_V3_INIT:
- 		return kvm_arm_pmu_v3_init(vcpu);
- 	}
-@@ -808,6 +830,7 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- 	case KVM_ARM_VCPU_PMU_V3_FILTER:
- 	case KVM_ARM_VCPU_PMU_V3_SET_PMU:
- 	case KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
-+	case KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION:
- 		if (kvm_vcpu_has_pmu(vcpu))
- 			return 0;
- 	}
-diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-index f72d080ee7ba2..6a5572994b7fa 100644
---- a/include/kvm/arm_pmu.h
-+++ b/include/kvm/arm_pmu.h
-@@ -99,6 +99,8 @@ bool kvm_pmu_part_overflow_status(struct kvm_vcpu *vcpu);
- #define kvm_vcpu_has_pmu(vcpu)					\
- 	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
- 
-+bool has_kvm_pmu_partition_support(void);
-+void kvm_pmu_partition_enable(struct kvm *kvm, bool enable);
- bool pmu_is_partitioned(struct arm_pmu *pmu);
- bool kvm_pmu_is_partitioned(struct kvm *kvm);
- void kvm_pmu_direct_pmcr_write(struct kvm_vcpu *vcpu, u64 val);
-@@ -279,6 +281,13 @@ static inline u64 kvm_pmu_guest_counter_mask(void *kvm)
- 
- static inline void kvm_pmu_handle_guest_irq(struct arm_pmu *pmu, u64 pmovsr) {}
- 
-+static inline bool has_kvm_pmu_partition_support(void)
-+{
-+	return false;
-+}
-+
-+static inline void kvm_pmu_partition_enable(struct kvm *kvm, bool enable) {}
-+
- #endif
- 
- #endif
--- 
-2.54.0.1136.gdb2ca164c4-goog
-
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 
