@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17790CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 21:52:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A1DCD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 21:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qkIx8q1CfZPS2O/VG2jjN8ujjCBCEKLsuaA9oPqWhZ0=; b=iDRZtfrsAeB0Iq+ZdOcwQqE8iX
-	bWCb5qzEzo+IOsg2Fwc6rkNqHwyqvEoRpYWt8a/Ud6wrLt7jQi8ngbQrbwi1CeRh9jhTuYbPFClMa
-	umNUBMMoH6Mgf8/RyghAlEN2itkIscXdZxOViX+oHCJQ4Z0fTSIIXBYDY+EvBrgGsJTbxY8b5nEzX
-	66fZdKN2TKnVhPDueamCh1TdUC74f58gxutCGA52SSQXvNwaFwO30mhpBDjTXpvb5OfvZfkRRlYvv
-	dsweiG7zriQa9T+zJFp2Zyu6A2hRfvI2Q6OKX+OCF+nGCsLL+UbNHfLhfuf8m0Z37c+Phkr7XqwuJ
-	QqKGyrQw==;
+	bh=f9Wh7NvXO66sNsL9eRF3jkvVQcyg+DTDNvWmFLOKnjM=; b=yEnmKxWvNbfLiIcMmELxmxNbR2
+	5pvm6Ct994saFSvDjCM+MXfX/Xnzz/U2OHTs+vGSsEfwGLSDm52MPcKVkdZsdUpzsMWSSTX6singm
+	5s9BXIhysQP3jFoO3Bs6KxkRsXexbxsC7tnz+rWXleCaQfTG+1iM7PWxqejh9L55JwgvkEHZZ7hdI
+	THAF2Sw92DS9FqQeUbRB0aaE5X1zV679YPsGS2UJVE+3eipuMPYtnI7x6Gj1lKHmlApI0QlJbfNp6
+	fzmWxvmXuLdv7GQG5TSee4FTQ+jMIsBw0K3SDOQmesnSRYUO03slCZjZGVH9ndkXHtChMMDbKkYQL
+	6P8sgSAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY9nG-0000000Bcvb-3PgS;
-	Fri, 12 Jun 2026 21:52:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wY9nj-0000000Bd0V-3zvB;
+	Fri, 12 Jun 2026 21:52:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY9nF-0000000BcvQ-4ATC
+	id 1wY9nj-0000000Bd0I-11gB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 21:52:02 +0000
+	Fri, 12 Jun 2026 21:52:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD082400F8;
-	Fri, 12 Jun 2026 21:52:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8038E1F000E9;
-	Fri, 12 Jun 2026 21:52:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8AF9C600AF;
+	Fri, 12 Jun 2026 21:52:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 168A71F000E9;
+	Fri, 12 Jun 2026 21:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781301121;
-	bh=qkIx8q1CfZPS2O/VG2jjN8ujjCBCEKLsuaA9oPqWhZ0=;
+	s=k20260515; t=1781301150;
+	bh=f9Wh7NvXO66sNsL9eRF3jkvVQcyg+DTDNvWmFLOKnjM=;
 	h=From:To:Cc:Subject:Date;
-	b=COHQ8nn+uwEmeREHJbwM+ltA/GmYxv8zojZJDDH0O/FMsq3kOQyUyg8/pB2S2psgE
-	 P6rdCYfomyFhWZyc4cVVAe1stYBHUUflYgm/MN+n9zc3I+IPpzeC/DgoOtnT4dtdv5
-	 JVBLM9mFZBHZfa4xp9QoSDst0mg8yorOCHpcSr2EgzsT2C5/lDuKTjCQaW3RmJ0XVx
-	 js5T56CwI4iS4eilAKlTzsop6BJwF6iAfk/xk5ANSqY5x3UFUT8DMIcUGHiT/kffd2
-	 eNS6AgSaNlucRPT4BINvUY0PRbGYU03r41WKqASzYsoqd/59uqiIhcYUnZ1j8UhxpF
-	 /Xl4r2Xxgd0RA==
+	b=VXorvUJaie1JEFvJ3mt1q5HQtkUfWzFpUxsFjIgebkb+WjeShUqFMT3RglFn/bJpO
+	 9Raf9cYpB/359pXknr48+/MK3vWUEmUiv88eRRmM9ScMwGf3KbI1Y7nKR7V02/nAyX
+	 NdKguo4HR8azK3h+wAi/dyEmkVDnNWleaj/dFvjHIYfDeP/nGaeAa3BBTjfuOnZ3Sh
+	 r/NGCJNiTmqTUvhGnrEVZFksFxwF9l8VkvWEMdQJGDahcxVoCWZ1Mbssx283Tcy1jE
+	 SazzDhqwkCeYf0G1NzbU2xGZGpXvRK+ID8FPQZY5cU6v5nyqEq+oawVGx4jLqn8wMC
+	 6yyQMmekjb8Dw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-iio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+To: Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Abin Joseph <abin.joseph@amd.com>
+Cc: dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] iio: stm32-dfsdm: Treat flags as booleans
-Date: Fri, 12 Jun 2026 16:51:50 -0500
-Message-ID: <20260612215151.1886851-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: dma: xilinx: Fix "xlnx,irq-delay" type
+Date: Fri, 12 Jun 2026 16:52:25 -0500
+Message-ID: <20260612215226.1887726-1-robh@kernel.org>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -73,50 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "st,adc-alt-channel" and "st,filter0-sync" properties are
-documented as boolean flags. The legacy parser read them as integer
-cells, unlike the child-node parser which already checks only for
-presence.
+"xlnx,irq-delay" programs an 8-bit delay field in the DMA control
+register, and the driver stores and reads it as a byte. The binding
+described the property as a uint32 cell, which made the helper type
+check report the driver as wrong.
 
-Use presence and boolean helpers so both parsers follow the binding and
-the property type checker no longer reports the flags.
+Document "xlnx,irq-delay" as uint8 so the generated schema reflects
+the hardware field width and the existing driver access.
 
 Assisted-by: Codex:gpt-5-5
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/iio/adc/stm32-dfsdm-adc.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+ Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-dfsdm-adc.c
-index 9664b9bd75d4..00f05e167afc 100644
---- a/drivers/iio/adc/stm32-dfsdm-adc.c
-+++ b/drivers/iio/adc/stm32-dfsdm-adc.c
-@@ -660,11 +660,8 @@ static int stm32_dfsdm_channel_parse_of(struct stm32_dfsdm *dfsdm,
- 	}
- 	df_ch->src = val;
+diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+index 340ae9e91cb0..ba0fc515d825 100644
+--- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+@@ -93,7 +93,7 @@ properties:
+       Width in bits of the length register as configured in hardware.
  
--	ret = of_property_read_u32_index(indio_dev->dev.of_node,
--					 "st,adc-alt-channel", chan_idx,
--					 &df_ch->alt_si);
--	if (ret < 0)
--		df_ch->alt_si = 0;
-+	df_ch->alt_si = of_property_present(indio_dev->dev.of_node,
-+					    "st,adc-alt-channel");
- 
- 	return 0;
- }
-@@ -1815,9 +1812,8 @@ static int stm32_dfsdm_adc_probe(struct platform_device *pdev)
- 
- 	adc->dfsdm->fl_list[adc->fl_id].ford = val;
- 
--	ret = of_property_read_u32(dev->of_node, "st,filter0-sync", &val);
--	if (!ret)
--		adc->dfsdm->fl_list[adc->fl_id].sync_mode = val;
-+	adc->dfsdm->fl_list[adc->fl_id].sync_mode =
-+		of_property_read_bool(dev->of_node, "st,filter0-sync");
- 
- 	adc->dev_data = dev_data;
- 	ret = dev_data->init(dev, iio);
+   xlnx,irq-delay:
+-    $ref: /schemas/types.yaml#/definitions/uint32
++    $ref: /schemas/types.yaml#/definitions/uint8
+     minimum: 0
+     maximum: 255
+     description:
 -- 
 2.53.0
 
