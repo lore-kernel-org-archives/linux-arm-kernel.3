@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5AECD98E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B67CD98D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 16:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yNX3U74PfTB3DHUJ/LNNS4CPtr9HnJIynsxmPVqqP7w=; b=AyPRSammaZxHtxAbq6Y368fbCl
-	EI23x+I4nF3lEbp/SxsTJa8k6tWSbz4L6KLfIwDndsOeebYfQyngZFVHjpxu3TNUl72QZKkDHCNFF
-	ezAYCJofT1rsK2NBCJbfvkKGlsmlXbCs4jN9SplUuCZg2WDQqxbuVeIJqzekH51wXJVppXtXR5OEL
-	P3GwcvsJA9+hxRwu49XbO9vo3fwZeuGpf4lN6PCUJTX+T313L1LMeDauwPYMT5mcSX3Pr83KT+w+v
-	dHAFvYrAzvK/nZvcgJhp4bA47bwcwUlC/nvrwrL2mZUAuitd+fBiRg9WKH1n+36GZb6yEZ1oBejvM
-	//aV8l1w==;
+	bh=gdtMGS69O9FQnvlMP/DHFOAlWIBmP1hs5y27IdCIClM=; b=PSX9SR9F6W21Q5H39wE42AaOa5
+	i9ele+F5xRVRJdcV33vg0H2WbJI7d72J7dABy4CiDqlRl/g0abv5ZW5WaTx2XzfdJ/uphMbuzIVZX
+	7QoE2YygrhenraAeV05JQGpm/Zz/oiwEn54jmV4Ps9vBVHe5U7XlOJbRPoK/Dde3lTTXCTyIWI0FF
+	kX/GgKpWa/ESMQIWGBkebIPgvw2eIwosZXylqnlC18zfnHoIetqIjNUl9pAgPy9ifO8YNmoJEXW9m
+	9cFKKhDZkSV1WsX70jTZziAdnhY3WGm8qwX1U+/FFv0B6oyhM6bd9ED39PkGzZqgkpFbu9zmFbIzd
+	S9u+2VWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4dv-0000000BE9X-2HrD;
+	id 1wY4dv-0000000BEAB-3e5Y;
 	Fri, 12 Jun 2026 16:22:03 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4dp-0000000BE2G-2Bve;
+	id 1wY4dp-0000000BE2I-2paN;
 	Fri, 12 Jun 2026 16:21:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1781281314;
-	bh=6bxQYABZKbSJROsP1Uays4rg2nT4Vn+8RVnqtuNva7E=;
+	bh=hH0QGrmLbuu/B4YZadFae3inm/JzWTkz0OQ7ld9Btpc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KQKrtJpcHpmVEGPkr+aQTwiTxBgl0c5zw6zx1eaqKEuCx6Lnn7oUQ/bQntGwpG1Zt
-	 gBR53yOH31Lypx+0J8+hCK2e/mhAaf/f5vXtYkTj9/QYFUkdLIaStMj7dCWNhyqIYm
-	 hkHvc6cLHbFVabXOPvuI2ZaBjPdDujsNF4psXRiGgNTs0N5hV5AAICw6VVfIpidTt6
-	 7DutdiG8KWZBAjp6LxAzdLJWyejdC1AcipeaVXfNk6TsbpLiAYYwWaP1SAhgatGQGy
-	 pNS3CUs7luRZpkDJvljNPLZGmvxA0OpPH3KsJ0uBNxhBJOhi53rM4IVvIzaJNDmbuj
-	 RTlzrn+jwrjQA==
+	b=L2QjEdSRYBu/PbO3l0pYhRFRMmEOW2VP9//vn8M2eEyp5ds/OI5oZnWuOhWugq6Oh
+	 V3+HmzyMs/9imaSQJMrmNzRdKNa2JHMFWAtXNh5E+dVAMxefX3st6Gr1teZki9aEq0
+	 SAKPHTWOIxigwZ7YYnaJtGAowDl06LxXkUgTQIaRWKBs6nneDldklxSBQIZt1214t8
+	 goIP/XE/k11WVcmC3o7vou5oJwGAkvon6Mw56x66MS+JqFemdDI3m2n8tjHSnKlMOL
+	 oCgbRN4l1NQ++3JpejSKvx0zPOvPHuQRdjfooBlJF4suK4MuxsUCwLAQ/eSrdR78UE
+	 4rbcj5elwNlog==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 22A0117E0D68;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2161017E0CD4;
 	Fri, 12 Jun 2026 18:21:54 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id C6B17480029; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
+	id C5B9E480026; Fri, 12 Jun 2026 18:21:53 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 12 Jun 2026 18:21:40 +0200
-Subject: [PATCH v5 02/18] phy: rockchip: usbdp: Do not lose USB3 PHY status
+Date: Fri, 12 Jun 2026 18:21:39 +0200
+Subject: [PATCH v5 01/18] dt-bindings: phy: rockchip-usbdp: add improved
+ ports scheme
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260612-rockchip-usbdp-cleanup-v5-2-efc83069869f@collabora.com>
+Message-Id: <20260612-rockchip-usbdp-cleanup-v5-1-efc83069869f@collabora.com>
 References: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
 In-Reply-To: <20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -67,26 +68,26 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  devicetree@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1409;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2290;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=6bxQYABZKbSJROsP1Uays4rg2nT4Vn+8RVnqtuNva7E=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiEt7UHbgzfLhaycF45fGDIWNFzbqyxdj
- K++ZKUQa4KaDYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
- O/qa0tEP/3xB9+iORfCFLwmwnyEg1raSSUMzZKaezpcK18/vLz3HSn4An8QZQWMhKVDPxYdR5LM
- w6JsvOUyHr2EhUJ1T4Sh0Hlwp82h3+lXGQryOg4J/4XWGoDKEmwhQ2elEykMxprGQrJA/M9y2UG
- ItT9UJ+CsEnCcmpk6w8KP3KSy3X0Gtu6CirDA0BTsWseviYjXHBYArhsvgFTBfyxaaEGoIu0Qei
- hp3jJXmCK3+dB4SV101EXc0y15RI39rTGHAuAF+fn+fvp6E18Il1cyQan2VcR7zjkTLRkAps+Vs
- ZMBwdxxT0U7Jt0AeOGN2IMJn4/ccXxAOv4oKjX+rEld5uhBigIpft8OJJM8HogU6pFUuofW7sdD
- lJSRF8zYjTrTx1/J6iFGCMTUYSYoOvLEls97dTTtb4rfcq1QBKQLOehTdbcLWT4CNADHwj2/93o
- 5fpDit1WwN7ZsWMJNYNsCJJ27i+sjDTlmm9UOWQuZjGiTTqN8TjZ3HB4xxhjysFUCOylhcBbgX6
- JXORT/YJhGobkxjWpNsxY5gbwlnIOfBmn2VuBCyOuAE4dWQc/SGgKk1GpeN2+wOtuU8LltcQZyZ
- X/iTmI0cN/a8DSsJCSQlEbz+UGW0rrnV6J2/C1tY/E/KaZxQz1TY7lDtYm7aWRVYQaKoRiBA0LH
- PcbnqgM2hBIm+dk9Fsaki1g==
+ bh=hH0QGrmLbuu/B4YZadFae3inm/JzWTkz0OQ7ld9Btpc=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGosMiG5Iemq4sxCM5HCSvLHN6Ael1pzdCaiy
+ vcVSnInzIDiq4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqLDIhAAoJENju1/PI
+ O/qajdkP/RnUWBpQreriz9cgkL+/DAKvUgse5zSNC0zYFSSslI8F9e8IHY5qMeKBJV+Zzk0oY1Z
+ Zf3psY+fcG2MTJmhezu4z+dxQ1fmu7nsCIhhdFIOXbxccIVSMdcXi7ZpbSAowZKQldgtBHxvx86
+ FUr6VWzPdAc82469ryfIjlITZz+8wCJ9ME3GNr06rOgYHycRkUDwkhbBQ+B4S3Sbnq3qRWyHBeJ
+ vf/6pv7qXEcP05qqqcLjJbk+yGIMqGgddmaf7AzPgjjNe/QZno9LTpD1UU4IsKbNUgwjA+DSrWJ
+ 5YksPuSjII0T7asng/AqAlbKhggsbBr4ittX7dDt1dTD/Le2gkUUjmEUaaN1LYHUW4oTxQGy1kN
+ 2ZPGVARFvPtjAzEun9uW2RYOAiY8lY2JQuo1otlXRZNMbFOopcYFBf2eXpqPFwrzQCsJexWU6i1
+ 5oBVHX3uMoqCs4H1uT1I8g2iFxReeIKqt/0IzK/+VVxNny/Hakkh9BAhNHAw2H/SE9kln2oRqU6
+ DApkPa6Qu3rOC14WhEL0tDOn1bzUOVN9vUvugQ53q4P3OjvkkOzV0ySBUKKC5yDdVIEjd2a4SwL
+ oZrxqNd16vSe1st8crKFUqGwVeHZgX7S6+V7tlAvHgpcNZ1WavqXCKpyxtT45u04GBIa+MmVVuv
+ gXkdGk6AflI75UDhJPFIvAg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_092157_715902_35453759 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260612_092157_876438_3D183E33 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By default (i.e. without manually enabling runtime PM) DWC3 requests the
-USB3 PHY once and keeps it enabled all the time. When DisplayPort is
-being requested later on, a mode change is needed. This re-initializes
-the PHY. During re-initialization the status variable has incorrectly
-been cleared, which means the tracking information for USB3 is lost.
+Currently the Rockchip USBDP PHY is missing a documented port scheme.
+Meanwhile upstream RK3588 DTS files are a bit messy and use different
+port schemes. The upstream USBDP PHY Linux kernel driver does not yet
+parse the ports at all and thus does not create any implicit ABI either.
 
-This is not an immediate problem, since the DP side keeps the PHY
-enabled. But once DP is toggled off, the whole PHY will be disabled.
-This is a problem, because the USB side still needs it powered.
+But with the current mess it is not possible to properly support USB-C
+DP AltMode. Thus this introduces a proper port scheme following roughly
+the ports design of the Qualcomm QMP USB4-USB3-DP PHY controller binding
+with a slight difference that there is an additional port for the
+USB-C SBU port as the Rockchip USB-DP PHY also contains the SBU mux.
 
-Fix things by not clearing the status flags.
-
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 1 -
- 1 file changed, 1 deletion(-)
+ .../bindings/phy/phy-rockchip-usbdp.yaml           | 23 ++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fba35510d88c..744cc7c642f4 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1009,7 +1009,6 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
- 			rk_udphy_u3_port_disable(udphy, false);
- 	} else if (udphy->mode_change) {
- 		udphy->mode_change = false;
--		udphy->status = UDPHY_MODE_NONE;
- 		if (udphy->mode == UDPHY_MODE_DP)
- 			rk_udphy_u3_port_disable(udphy, true);
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
+index 8b7059d5b182..f728acf057e4 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
+@@ -114,6 +114,29 @@ properties:
+       A port node to link the PHY to a TypeC controller for the purpose of
+       handling orientation switching.
  
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          Output endpoint of the PHY for USB (or DP when configured into 4 lane
++          mode), which should point to the superspeed port of a USB connector.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Incoming endpoint from the USB controller
++
++      port@2:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Incoming endpoint from the DisplayPort controller
++
++      port@3:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          Output endpoint of the PHY for DP, which should either point to the
++          SBU port of a USB-C connector or a DisplayPort connector input port.
++
+ required:
+   - compatible
+   - reg
 
 -- 
 2.53.0
