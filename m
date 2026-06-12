@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B8E4CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B61CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Jun 2026 15:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqCQpoV+coXJXQAGZXFgR9yRU+YjO6pTkQa6VIOtRG0=; b=GMCyfJH8uuDBVCSg9pii57zrTm
-	wP5XyCBbL4HVoYu0t4AN2qV6dHOflzR9j3Q8QFWtpBdC0wo17LWf5DIsJM2LWI55LpsKxry030G6t
-	72OWS29yrgbyIM9PZ6LAXNYRhW5jsjfAg1EuQk0PHnXV3/9lNBIxIOhIkOuDhiYaNAR1pCZItUPiF
-	rsybmhX05zMclAB9CXjaKF+eqZ26lJE1mbXjoc91l81J2jbk1n+qqb50yGlVmSR4Nlyd/KxUxYN6P
-	fr/cyePu3It9HWEm9QZyCK7kDlwfUCsO9egDJKYCgccv4bXbloSUxGnbmIOLaq2ORWC3FM2YwoULA
-	qz72rLIQ==;
+	bh=P24PzYh2dPfggH2phH0CSdSprDerroPHjb0HskOrFUM=; b=lIbsgcpj6ePnFG1DdnABfGgRWw
+	L+KPjLVNv8pOHdaXUkfua2wBXEcXPDQ76Gq4GwtbUn1+EQWgRDJl5F+BGCNiTNpG8s33lxSJEOfkz
+	nH2EMiowzYM6SMY4Xcw47tE9oiNZMXB7nLuhPwYgH4p1oNouRG4nI9laC99Ab76Ze8Z1t4EWVxEA/
+	q2iJr+6bfRrsZQXKpeqOVXf42CnFv3qE32nPiQA7F+DOE1cyRm2hxzgwZm2bE0STUtTrrB6vPTqO/
+	u2W6OweThW0ltluKflPrNXj4WSDn3fsNMxdc2dlCOHPlSSAU88ERAoSma5WaDd+SznpfmEPapV63I
+	r1NukVLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY45o-0000000BBFp-0gA3;
-	Fri, 12 Jun 2026 15:46:48 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1wY47b-0000000BBU4-1XVv;
+	Fri, 12 Jun 2026 15:48:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY45l-0000000BBEf-2RNR
+	id 1wY47a-0000000BBTx-1QTr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Jun 2026 15:46:46 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-bec2ddee9bbso236094166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 08:46:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1781279203; x=1781884003; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mqCQpoV+coXJXQAGZXFgR9yRU+YjO6pTkQa6VIOtRG0=;
-        b=foK5Ao/TQBvhcOxRqwcFo7G0w8ixzLuzeFaDpsd4IMqes5OVry7O3XNpHX+pnCAQ8y
-         Ir/iKPLPrZ7NKalZWC+YUfJ3mTVmMMthVmbV51O0ExJZ3hP8L0apK4m4n3RhnRVutFWJ
-         um8ied7T81u1l5PWXGbL8cFseyNCZbUsQqWvQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781279203; x=1781884003;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mqCQpoV+coXJXQAGZXFgR9yRU+YjO6pTkQa6VIOtRG0=;
-        b=gqn1J2Iieq5KnejpjN10iHpcoEgTiG5oN9QKVQguKD/zynBsyzPz0LecPhFfMwMPZd
-         z67S2N+e1ItmUN5bbSSkkOJOagn/a73mmWL3ySQw98zyLPQC1KRr06xu7ElXE7lvdZQ/
-         5wBc53qRpKY4wgA33VCFU1JkKQcKvjLMhfXJOA9IP4nFawtQXSMsOPG3dczbzFNxJWbx
-         jhmcHsKxl3O5ysMjn10YWfxL+/JHeqgqdQ+xdu2LqOKk4R2cwkzP7Kpf3AO/pPAL4Rz4
-         xbG9/omaTTJmqPDQN+jTNF9OoD4I1OdmaMUwKHHbernmWCWpwaxrW5gplF4t0TmtQO1j
-         hNMQ==
-X-Forwarded-Encrypted: i=1; AFNElJ90l5HZUq/R7uP8LHJlP+A3q091krCqD8knzOZKgoKfHipT8CQaJ4waGlSFWNJIL3h9rgL34sVw2yBpwpRVXR6b@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/l+813S1iLP86zarLmKwJiGwjOM4V9WKiIcIURwJRBRc38P0x
-	lz+lHo1w9PCMeTnW42XbDaqlVgUtF72r1Yye/ZrQHnT7SrsNMw97relFrHNlDRW/vmblup9znK9
-	Exo0DEdk=
-X-Gm-Gg: Acq92OGBxoQxf1B/yvOJykXBQpZmek6cDq+0jX88r0UrAzxzoaFUwWbLpac3cR/ppGh
-	KeHxok4yNZ6kraAILMCDF8eS4eh6hRX5B1AG/ReF3kRVyjZR96vrWIp6/dW6un6v6GUDt4hRzjJ
-	BJZygHxj+QZ39yt+4MFLwRbuLmyLDbE45LO1DmMpjwnX8KpTyGswUFKu1hIm/4bocRlfT9K2Y2e
-	ssLenUKbZvAalZ9rzpJfK8RNjK3L309n0PwC7HifZ4wGXowMAc+Oq+fTJl1qqa5Nr4YMizcT4YE
-	K+fiCcPo0RjBJzrKpRHOA8uay//0Rkr0uCYHFOXqmDcGmduVfD1Bq7kuSBO0sM86/ErfvrRZPfk
-	pcmkc8b/2CwPLBrT4ntCrmZjHj2DBSdero/Ek3cbQmnAej8g34MVhtsi0r/Wh8mu7YFFGWcsrxW
-	1bFJ0AkwwBZo9lJqav33rB6MFWULkZ50NbqBY5b0etSp41a0kyGrD1oBDqi7zugr6iawVE9AHe
-X-Received: by 2002:a17:907:e143:b0:bfe:7f45:44d7 with SMTP id a640c23a62f3a-bfe7f454612mr84997766b.47.1781279202928;
-        Fri, 12 Jun 2026 08:46:42 -0700 (PDT)
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com. [209.85.218.47])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfdb4b240bbsm122464966b.18.2026.06.12.08.46.42
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Jun 2026 08:46:42 -0700 (PDT)
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-bec2ddee9bbso236089166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 08:46:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+IHI4pvKyJXXfu0XuJ3iijbfaTu9jxI415Ov8i1hi0dvgQqSFI4iSG9kW/1lFLvgFdw8et8mpuYln9E409j0Ik@lists.infradead.org
-X-Received: by 2002:a17:907:1c1f:b0:bfe:eda3:f8a0 with SMTP id
- a640c23a62f3a-bfeeda3fb97mr86115666b.52.1781279201920; Fri, 12 Jun 2026
- 08:46:41 -0700 (PDT)
+	Fri, 12 Jun 2026 15:48:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id ADDF060008;
+	Fri, 12 Jun 2026 15:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 731841F000E9;
+	Fri, 12 Jun 2026 15:48:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781279317;
+	bh=P24PzYh2dPfggH2phH0CSdSprDerroPHjb0HskOrFUM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mCuIjJzuVaQ73bpIXBCWHhNagTHww10+4/G86OLA8YHNzLyK0mxgnpCr209pm+xNi
+	 MnN2EVodolcF8B8zpseyDfXQNywmc+F0LxNdQw/7eHeFcz3XAAtRR939BaNnGumqd4
+	 vLXDQUaSpQzE3ZUvZHivRRc2J1wRJly+9mFFrS1waeNeVWopXgy4LhAsQg2cXgQOiJ
+	 1cSHuZUm9hlGZSo61pQOOeeSb0NUq0r3DBsTMi9ilK7Ip2g6e57lc0rATfWfmlGGGi
+	 SctNp+ClycrrpxJ5ROXC0fz8akcZJOBOgKyt1iRRyOddCf/C8iwyMyHGr5BzTQBYYE
+	 14qeOAtMZxdTA==
+Date: Fri, 12 Jun 2026 16:48:33 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Subject: Re: [PATCH v3 1/2] dt-bindings: spi: nuvoton,ma35d1-qspi: Add
+ Nuvoton MA35D1 QSPI
+Message-ID: <20260612-diagram-florist-01a0e8f923d8@spud>
+References: <20260611091246.2070485-1-cwweng.linux@gmail.com>
+ <20260611091246.2070485-2-cwweng.linux@gmail.com>
+ <20260611-decoy-glamorous-81903a5fd1f9@spud>
+ <0031379c-0cc3-40c8-8145-5b1991b42f05@gmail.com>
 MIME-Version: 1.0
-References: <f4034eb3-455b-4172-872a-5e94a53627b0@app.fastmail.com>
-In-Reply-To: <f4034eb3-455b-4172-872a-5e94a53627b0@app.fastmail.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 12 Jun 2026 08:46:25 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wjXnaYAEmjB=uhh09FQ4J-fjnO2ramtTBiZ4Aa4qqSAHQ@mail.gmail.com>
-X-Gm-Features: AVVi8Cc5w9HedteciJuWEiPUV0ypkt7EOCFg1d5H2aaZDK2l3WJ31f_Fy9Dyyhw
-Message-ID: <CAHk-=wjXnaYAEmjB=uhh09FQ4J-fjnO2ramtTBiZ4Aa4qqSAHQ@mail.gmail.com>
-Subject: Re: [GIT PULL] soc: fixes for 7.3, part 3
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_084645_627237_D1DD2F2A 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="d5KanU3abWapAIHY"
+Content-Disposition: inline
+In-Reply-To: <0031379c-0cc3-40c8-8145-5b1991b42f05@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,11 +75,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Jun 2026 at 00:23, Arnd Bergmann <arnd@arndb.de> wrote:
->
-> soc: fixes for 7.3, part 3
 
-Quick, while you're living in the future, send me next week's lotto numbers too.
+--d5KanU3abWapAIHY
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-               Linus
+On Fri, Jun 12, 2026 at 08:33:01AM +0800, Chi-Wen Weng wrote:
+> Hi Conor,
+>=20
+> Thanks for the review.
+>=20
+> I will add a default value for num-cs in v4:
+>=20
+> =C2=A0 num-cs:
+> =C2=A0 =C2=A0 maximum: 2
+> =C2=A0 =C2=A0 default: 2
+>=20
+> The controller has two native chip selects and the driver currently uses
+> that hardware default.
+
+The driver should handle the property and fall back to the default.
+It's not complex to support, so surely there's no reason not to?
+
+Cheers,
+Conor.
+
+>=20
+> Best regards,
+> Chi-Wen
+>=20
+> Conor Dooley =E6=96=BC 2026/6/12 =E4=B8=8A=E5=8D=88 01:34 =E5=AF=AB=E9=81=
+=93:
+> > On Thu, Jun 11, 2026 at 05:12:45PM +0800, Chi-Wen Weng wrote:
+> > > From: Chi-Wen Weng <cwweng@nuvoton.com>
+> > >=20
+> > > Add a devicetree binding for the Quad SPI controller found in
+> > > Nuvoton MA35D1 SoCs.
+> > >=20
+> > > The controller supports SPI memory devices such as SPI NOR and SPI NA=
+ND
+> > > flashes. It has one register range, one clock input and one reset lin=
+e,
+> > > and supports up to two chip selects.
+> > >=20
+> > > Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+> > > ---
+> > >   .../bindings/spi/nuvoton,ma35d1-qspi.yaml     | 62 ++++++++++++++++=
++++
+> > >   1 file changed, 62 insertions(+)
+> > >   create mode 100644 Documentation/devicetree/bindings/spi/nuvoton,ma=
+35d1-qspi.yaml
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qsp=
+i.yaml b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
+> > > new file mode 100644
+> > > index 000000000000..d3b36e612eb0
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
+> > > @@ -0,0 +1,62 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/spi/nuvoton,ma35d1-qspi.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Nuvoton MA35D1 Quad SPI Controller
+> > > +
+> > > +maintainers:
+> > > +  - Chi-Wen Weng <cwweng@nuvoton.com>
+> > > +
+> > > +allOf:
+> > > +  - $ref: /schemas/spi/spi-controller.yaml#
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    const: nuvoton,ma35d1-qspi
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  interrupts:
+> > > +    maxItems: 1
+> > > +
+> > > +  clocks:
+> > > +    maxItems: 1
+> > > +
+> > > +  resets:
+> > > +    maxItems: 1
+> > > +
+> > > +  num-cs:
+> > > +    maximum: 2
+> > Missing a default of 2, unless you make the property required.
+> > FWIW, your driver doesn't appear to read this value.
+> >=20
+> > pw-bot: changes-requested
+> >=20
+> > Cheers,
+> > Conor.
+> >=20
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - reg
+> > > +  - clocks
+> > > +  - resets
+> > > +
+> > > +unevaluatedProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > > +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
+> > > +    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
+> > > +
+> > > +    soc {
+> > > +        #address-cells =3D <2>;
+> > > +        #size-cells =3D <2>;
+> > > +
+> > > +        spi@40680000 {
+> > > +            compatible =3D "nuvoton,ma35d1-qspi";
+> > > +            reg =3D <0 0x40680000 0 0x100>;
+> > > +            interrupts =3D <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> > > +            clocks =3D <&clk QSPI0_GATE>;
+> > > +            resets =3D <&sys MA35D1_RESET_QSPI0>;
+> > > +            #address-cells =3D <1>;
+> > > +            #size-cells =3D <0>;
+> > > +        };
+> > > +    };
+> > > +
+> > > --=20
+> > > 2.25.1
+> > >=20
+
+--d5KanU3abWapAIHY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiwqUQAKCRB4tDGHoIJi
+0hSZAPsGXy7Ljn9Qs0indD+H/DnIcVGLUKT5vrJDctij1nWDoAD/S2RKklLM1fdd
+ssE+s+pAINHsBvdWwhPwG6YnBAEKiAA=
+=gDMh
+-----END PGP SIGNATURE-----
+
+--d5KanU3abWapAIHY--
 
