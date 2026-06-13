@@ -4,79 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 267D8CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 13:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 764BBCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 13:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKmOlPSktlGX0vlPM/jwBIk+YRmwCATKxv0L5kV+TGc=; b=AuLX3yBtaUaYK0O7PECC0M/Gwp
-	zzNVxFotcTpaEX9JH5bxT2Gl/St0CZG+h9FdnUMLU+eOSSEM+R3RRfZfs4wBBpP0XNSsm2bT78bcn
-	EoGG32UWWGIWtGuFLEinSUj4vvQhre8TfJjLusBuz+G2dYyHOerdG/gTjfJAeKlknt73TjVtxUvI+
-	Y1xofeO1R/j92hTntnj2AoYNXqDj7TiyfPEGXXIEHG7AtcZxF3bTgWpSqfoygohv2k2PRZggG8B21
-	Q6u+OVUUAySb+R+UGW65blpk7bfwR5cyhaknWNhP3DxPBE1upBdlPXUlKWuWUs63/gkaTMnRiQDLN
-	gQRW8Bcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dHPPdGK1dXtt9f7hQ69cCKPbBtNi3yHfXrWZHFelknw=; b=LVFRVuelQxFwulTrFeHuCwN3vE
+	VJVHGpzY8+HUUmljnzNjLZ8JxGqEReapIUpp47wUmpMQ8E61k3ZHjLY4JyJUw+lcp0+iSNKDUM1oe
+	VETrSOYHWngJa+0+2mXEyuGoamlK+5ECNmxoqa2MUvWIPoF8fktrm2VvMBRe+Vfkg7lImlASUEe6h
+	tCtYc8q+kI2csLdc1NYIwisUzgBz50HrUU7b9KfoaJkacfwtusvRrsPeZF2eQoRxp655ykZjEwJU3
+	cois3miEyDxa73BgfXj+02ApAsiLJwUz7VgUg5YJJmAGJLvG58ci6Ibxt9pOoh8ELI1246ArkZtOJ
+	i+UwkDeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYOc2-0000000CKf5-3uAn;
-	Sat, 13 Jun 2026 13:41:26 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1wYOsw-0000000CLFt-0Mu1;
+	Sat, 13 Jun 2026 13:58:54 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYOc0-0000000CKWD-3wUh
+	id 1wYOst-0000000CLFX-288M
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 13:41:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781358085; x=1812894085;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=OI66FUDTDYvCeY10NqbQgLoYEhrOPd1Kya/AaT9RDHA=;
-  b=mJX9cqU/xqHIUjhsINwg8F7eCgrf5KQppYEnjr2aWZk/rMiGcgYnU6D8
-   kGKgseKfUZeKEn7yFphKugjW4DJVxdnNtOrO4tbGjxEIoCInDWtVjIPpL
-   4+66YTrD06wXwJAcXPb/l8RzsN3dc+EG9LR/Kd86m7Re0X3x3ObQKqSor
-   y/FzbXmLP6rctusUbR4uxR+EppChCY0ZXEbRbMx/d6T6ptk5PnLHiTK/+
-   26x6f/rUM83LTpB04QxOBWSG0C1nMrKTjI3Rh+qRRTsr7bmhFdbQd+Tr+
-   AQGrWb/+jv1LeMSlC9CWSrV1oeNKQE31wYwIeEO1M1ec8Ehz9mSiODoBo
-   Q==;
-X-CSE-ConnectionGUID: US5Tf2IOQKasfveasDBYSg==
-X-CSE-MsgGUID: YtsxIogtTW6tgPudtC0EOA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11815"; a="93660875"
-X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
-   d="scan'208";a="93660875"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 06:39:22 -0700
-X-CSE-ConnectionGUID: DZu2Tr2UQe2k7vVP5XQbcw==
-X-CSE-MsgGUID: uswYLJDqTHKcATAC74pTNQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
-   d="scan'208";a="277251883"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.184])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 06:39:19 -0700
-Date: Sat, 13 Jun 2026 16:39:16 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: stm32-dfsdm: Treat flags as booleans
-Message-ID: <ai1dhJWb9vKqxEEe@ashevche-desk.local>
-References: <20260612215151.1886851-1-robh@kernel.org>
+	Sat, 13 Jun 2026 13:58:52 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5aa61503fdaso2641759e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 06:58:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781359128; cv=none;
+        d=google.com; s=arc-20240605;
+        b=OazGHXVIM0qeVzm+PPPPAHs1gzINcRD4upmGkuAKU8ws25eDE8Jc2pFRpnWOxF4n47
+         7AucO3Z48FIBKoBgFsckgx75p2DFZFlLbfp4Ih3gLxJLUTmzloeLlnlqTbH9EJaM8gp2
+         likQ3ebZvL8wYxNl/5jiEOXCDf4VLfFqNCcIQlY0h0GCPl9Gj+tzLePiMr9PfRfym3n0
+         aiLsM48L/4vAHLyZQAiaihV8HKv9Tzarb3C7RfBuxQYKTNrn9Rxjn6APsTVTi9UZIMW4
+         9oYiWlyA2N3vJ8nJFXMSwLjlrKyM5cY/COg/65wSNMpToLfRZVpaWPC1GB6MquG4R58S
+         tEcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=dHPPdGK1dXtt9f7hQ69cCKPbBtNi3yHfXrWZHFelknw=;
+        fh=vza81m6RGXIj+iRoZE7Qt65U+0DTyi+eE6ox9nMTTRM=;
+        b=gE2pJLvXVAIYgWhLRTWHlKnyhp8GY1yfJXNkNhAy6hOgqjOG0hr1awKMKTSLHhq1tN
+         P2fqFdGcfEsshGvYHCeYRo4xmsksdgOryBtTPigLDJsEhog2l4tVdWr5jqGtURyDWA5t
+         CvHEpYbwxvu9zrlezyxaeo78/kLk6ESZaKor85yUhzgKvKtiBJbU+XM8fCBOSPMTqtNk
+         4LgtU830JxQE6eE3izxefI2vPPSwVYD4qdFdEvU2d+7tUEIWvTueD7nY6qtKdyiAQgfE
+         wOCrq/L3TgUcTNqVtwR5vFhAkGX6beEBm+QZlspVkKSz2DOD4pL83GlVO/kHyTFOwwko
+         SD+w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781359128; x=1781963928; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=dHPPdGK1dXtt9f7hQ69cCKPbBtNi3yHfXrWZHFelknw=;
+        b=SgUv7rNmV9r+2dDRfvIn30sW4FrYdEUXORDB97S7uhiojJw61AkBDMXUvD6rF6MeCx
+         w7ROaAmBpzKY3G+QOUTvxNpNo0Ynaf76yiTu5lqDTvCXJEbuGloNGmUmnQloXKqaPhpE
+         1VqhvW1BMjXLK7yM/8l3bhoK9uKq1iw4jKl7MKbtjQRNQHN3aBXIiC/X5t/6E6qpM1Lc
+         YsjzajMTJLc09oNaoK4zEQJArL6YfovYhFY1RjVu2ZSi5bBrt/IwUKhDxTXg7YZ7oGOb
+         /guPzd7BK6RgoUpVgci4y9K4vTJykpkEHOz7yh156I5PpO7Y7pOgEe3oWATQdYssbrKx
+         mnDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781359128; x=1781963928;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dHPPdGK1dXtt9f7hQ69cCKPbBtNi3yHfXrWZHFelknw=;
+        b=QC4kqHNFqexzT7zcSzck6A29yE/pMTr/m0OKCHt5tGNR+w3pm2i0bFxhomtn2gVy8F
+         dB6ILTToDE9XgJmBZltoA1BBwbAZJ+wjkIpozJwDqBbTsYUA2O6HGzKyYL8pbMVxa8Cd
+         KZ16vXaqyIcLNSu+ckNlnHM3kCGi8lA6pu+CDefBWQAxOtlAQ6v+Ud5FKwJ9uGHecDNN
+         Nmciu/773omRXBHpQoDHhEVq+2OPP6yH0UMr4OfUkge7ZAkaJWc2jubtIiYrzVgEyl/4
+         iv7Q9chmzlT2bdvmRON0ZhxRnxJp6sTutC22KOfVfO2gxwGO2dDVczQlXCzbQHwC9F0Z
+         2++A==
+X-Forwarded-Encrypted: i=1; AFNElJ9nSAKIfFr9FumOhFheSjxvi41kpwDn3lTFDAS51lOMxqMLM8l7RJalyr0RJKfiBcdYY+Yjf+y0/Ha/jFFFYDQG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPx68Z4PYcUq58brTl5b3/0wYwf8GU2Bs5S/m5K+xGh6Mxp/YO
+	CeIjj4st66ByuuVDvijPSgp6d2FkF8wkSApSmpnB18XQJUui6yQR8aquLi3uOAZ+nEybeRwQeug
+	l3WooY3mho0hs2ax3jP27yhmx5cyh3f8=
+X-Gm-Gg: Acq92OHMwrrDgUVq2wGx5JM3nNf8A0YcJFbkq0AthfPW+vSu08ADf3gls7kuEnrylF2
+	HqQbIeUOEYSeKS2pT7gtq0/PUAbVanWPZGDnmeCtCRBI5m+dyBB9LOmIrlx0Z38A1tmmk+osTp1
+	yNdvLrRpJfWl0B+hcVL2qYrJ4TreANHUuZj6nWmx+OxT2CeW6jvczB3PpC+X1Nsub7XpuIdHXjD
+	vapZIY0Bn+xUiVEkeTDpBgvulgjCeqHQ/fIh5RL5qBDnp9HYl2AeM+H4QJoey6VzHct0OB59Sc5
+	bgZlc46+hV7bHb23zGCvm4fTVw3e6vv9UiIjNT3x/8Qv/Rk1AK5r/Qyw0qnctu80N76BtutU
+X-Received: by 2002:a05:6512:3a89:b0:5aa:7397:73a8 with SMTP id
+ 2adb3069b0e04-5ad2d6b1f51mr1543146e87.15.1781359128179; Sat, 13 Jun 2026
+ 06:58:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260612215151.1886851-1-robh@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Fabio Estevam <festevam@gmail.com>
+Date: Sat, 13 Jun 2026 10:58:36 -0300
+X-Gm-Features: AVVi8CeLiOVPoCKk7Cmem5uIarxsFiGWJssOt2XYfd-cjw1UyE7apA07XsAIA0M
+Message-ID: <CAOMZO5DgENq8RU6s2CPnKsf53i=7zoBeO38m_BtV=w54hr2hgQ@mail.gmail.com>
+Subject: i.MX95: EdgeLock Enclave secure storage
+To: Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: Schrempf Frieder <frieder.schrempf@kontron.de>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:HARDWARE RANDOM NUMBER GENERATOR CORE" <linux-crypto@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Stefano Babic <sbabic@nabladev.com>, Frank Li <frank.li@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_064125_045249_552502CD 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20260613_065851_590835_2DA4A9DA 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +113,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 04:51:50PM -0500, Rob Herring (Arm) wrote:
-> The "st,adc-alt-channel" and "st,filter0-sync" properties are
-> documented as boolean flags. The legacy parser read them as integer
-> cells, unlike the child-node parser which already checks only for
-> presence.
-> 
-> Use presence and boolean helpers so both parsers follow the binding and
-> the property type checker no longer reports the flags.
+Hi Pankaj,
 
-For the patch
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+First of all, thank you for your work on upstreaming the
+EdgeLock Enclave (ELE) support. It is great to finally see the
+ELE framework landing upstream after a long development effort.
 
-However one interesting remark below.
+I am currently evaluating the state of i.MX95 secure-boot and
+storage-security support based on current linux-next, with the
+goal of understanding what can already be achieved using
+upstream software and what pieces are still under development.
 
-...
+From my review, it appears that the following infrastructure is
+already available upstream:
 
-> -	ret = of_property_read_u32_index(indio_dev->dev.of_node,
-> -					 "st,adc-alt-channel", chan_idx,
-> -					 &df_ch->alt_si);
+- ELE/V2X mailbox support for i.MX95.
+- OCOTP/ELE nvmem support for fuse access.
+- Secure-enclave bindings documenting the i.MX95 ELE HSM.
 
-> +	df_ch->alt_si = of_property_present(indio_dev->dev.of_node,
+However, I could not find upstream support for several
+capabilities that would be useful for secure storage
+deployments on i.MX95, including:
 
-I believe it still has another (serious?) issue. We usually don't use indio_dev
-for device properties. It's not a device that is described in DT.
-It seems the only driver in IIO that does that. Note, I haven't conducted any
-deeper research, it might be (however I'm quite in doubt) that this is correct
-use and one device registers a few indio_dev:s.
+- An ELE-backed trusted-key provider for the Linux trusted key
+framework.
+- Integration allowing Linux to use ELE as a key-sealing/
+unsealing backend.
+- i.MX95-specific crypto acceleration exposed through the Linux
+crypto API for dm-crypt use cases.
 
-> +					    "st,adc-alt-channel");
+Are you aware of any ongoing upstream or planned development
+activities in these areas, particularly for i.MX95?
 
--- 
-With Best Regards,
-Andy Shevchenko
+Any information about the upstream roadmap, ongoing
+development, or expected direction for these features would be
+greatly appreciated.
 
+Thanks again for your work and for any insights you can share.
 
+Regards,
+
+Fabio Estevam
 
