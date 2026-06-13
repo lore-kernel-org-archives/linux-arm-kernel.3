@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3611CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 20:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EA7CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 21:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2h1pIz+Y3QiNp1EUEItf+otEd0xBBWZpK67JdzPkqGk=; b=IxIsAyzIiDdoshqhaqkuodFiyO
-	yo/MzcvIuhIXI5+uMMfGQnnJ2f6UFeNdfptT0+6g8s/Jj959wuavdpkMErW6F77eQP8fW708aTLHB
-	f4B44Bfc/cfVs9YWzU9zOQmTTHZeBpgJ1Hw1E0cnW/+8Uf2KpRDrqs7mkDMAIx/R+D+Uv0Pc+zAUw
-	7j5CIc/I0UhZ+8Kg/+6XID7vdPWHOU4swgD6En5YPSf2MWHxhs+CZq2Yd8oGh2mKlOg24RwhZOG1z
-	1ZzTktvpR2uLd3FoRSTTCF9aQdKN6jmRB/cS+UxCc9wrepuMYPmxOLqp0uk2G45sl3Ju1gw3zKI4V
-	pQ6WKr/w==;
+	bh=CRIqGQhAwGuRWkY66oPKA8cZeSR7kS6i4po3hOoRRts=; b=C5dqSBGh9QsLzR99FT7Z/XAMD7
+	DDKs7UehSZYKWaQVB3O/o7jjh4BOUYk7X77WSnVTikhkQ+YPwT19SbU9WinpRMJOm3ydiMqx+2d/p
+	aQecVPB3Yk18eVYTs4DfhUUVoTx5ifHHPWvFMp0pk6vkqj4PcGhTPKqPTlxw3HGoxdblHQSo61LR9
+	Uyz5jLVTGJQKGF52fgaBjkJYUG5a+m4yZDqxaoTtfj9h1utg4jost4riJA7E5nL/KGmfVuVGPgdDQ
+	F3qs1TUoxqCrFNDNocaELEnLAG/SYK6mOH1JZLv64qQpeI4pHsW0Yu7GZeBZVOxSbKzDOARO2k5jE
+	Su1sTFmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYUqT-0000000CX3Z-0qyL;
-	Sat, 13 Jun 2026 20:20:45 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wYW7M-0000000CYWn-1770;
+	Sat, 13 Jun 2026 21:42:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYUqR-0000000CX3C-1Yan
+	id 1wYW7L-0000000CYWg-2eTa
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 20:20:44 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490c28f84fdso4690285e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 13:20:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781382041; x=1781986841; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2h1pIz+Y3QiNp1EUEItf+otEd0xBBWZpK67JdzPkqGk=;
-        b=LgD21BILc2TnTFYrljOqCcPhoWKjqX9tLK45Y35q6kADkLY9HuaR9bQ6S1J6dPDQ4G
-         2wSlx7ZjgKbvitxcBkXbtpOCFCGsz1xT6v3ZUvxrG2hHbPIpTVrdS+O4r9KzyW9BJZiG
-         YVd57Awjm+D0QUV0u0hSOR/Kl7DvCktwa4NoGCimStSPKnyC2mRe/NDqxV7Y5kFpDV50
-         FnNA4SLgZw4SDwTnF+AxgkxnR0PAV3vhFMpLJ7n7DqRs/9gwPiCZD0DiPUh5Xq+kgJBC
-         Mm9M3n9RR4sRhHC99nXUAHKRX2ruoNaBM9O5eOpckZnGakDYLMI8r0hZL1qOY0r/1Qu6
-         yanQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781382041; x=1781986841;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2h1pIz+Y3QiNp1EUEItf+otEd0xBBWZpK67JdzPkqGk=;
-        b=N721V8mLXKIPt0Bf2naXD6zhMFIzFe3GAnMYGLtPkHs3P2eywunUDcRzkFX7xLf1N/
-         jxKNc8K3CtIbFmCW2Qv3dYZwzjtuhVlblFs29yf7tggCe1XIECNB9a7Lv5ZNWS8vAbal
-         YJgNGuU3qno4a9QCajdpa+24seTFN+c/COOz6iRTTmJuYiXQKziptTPZU7RvEB4xtbjd
-         ODR4IE7s8qykcTAkBUY3sI3eCKMCnxIRJ1YL8Rh6IwQ+0viMJRvwpYYYwbIydNSwQ93+
-         E3R/zmSlsJwdsVV86s+JDmCPplU0crvG1YMVCnvXHdFhVUYyGTmTklwA75xU6PHoEwo/
-         Fc4g==
-X-Forwarded-Encrypted: i=1; AFNElJ+M1XmJZNkdpCCFu3ApgxutSq6ApCht8d42UrqtpcmO26F4SW9USByX7h43ioIl5bNC/5ueQ5trmdGR9VMTWQZA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwYnqOdGH/XKwgzq4O++Bhl1q0ecsjUZeODRUL1d1mB5PIXF8V
-	QVDEf+f268rNIVASsqrgpTK5PtI2UBWLworRjvh1cs0RMNYTsDrlSw1R4AmLEw==
-X-Gm-Gg: Acq92OEFD54fzdDcmbDevPjJL+zgD1XzjxSC0mcGmPaOsKIYDu9s5Q4jHvtu0R1ILcZ
-	kAIdzAA1kIaOcE4UNifbmNuKW8al2SGxGf69jO1o5CzwhsfYkolphWwXC6Snc+JftK5wCDSKQ3C
-	njILNLW8BIFj98rN+H4lRiwulbmgsYXssWlUcK8NqVJo/qITDAkTgW16gsymo6v6Nhy9DVKYVUw
-	0Uyp0Mv7Ngj7677aqZCLT40kwutCcr8jNTqbacd5/sWp04/VZe5va4Pu6f7ErN086fqs8+jfGZF
-	K/aAciO0kWvkucN2PoHBU4xaoWWYeotvCWNqEADKSD1WW5O69phgQRzOrn62up7o2NZ41etinWa
-	HnQGHiIHgjDOfd9q6ALvbN30BXO5tJ/KRpNT/e9wzdAbp3oKCuBfA/e1Wl5TzwnwXVEHBatmc3Z
-	qfn76CgXn00UVPNKWgb3/WEkmapNRapZ0Shr8MhhymeoILGnCYMe0sa9QE2pVuuIA=
-X-Received: by 2002:a05:600c:3492:b0:490:b2b2:87d2 with SMTP id 5b1f17b1804b1-490ec50492dmr42515025e9.5.1781382041044;
-        Sat, 13 Jun 2026 13:20:41 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492203c0801sm90785635e9.10.2026.06.13.13.20.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 13:20:40 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	ardb@kernel.org,
-	krzk+dt@kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH v3 1/1] crypto: atmel-sha204a - fix heap info leak on I2C transfer failure
-Date: Sat, 13 Jun 2026 20:20:37 +0000
-Message-Id: <20260613202037.47744-1-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	Sat, 13 Jun 2026 21:42:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A2376008A;
+	Sat, 13 Jun 2026 21:42:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0A262C19425;
+	Sat, 13 Jun 2026 21:42:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1781386934;
+	bh=UDF2EKMrT5gKBEA18/mC2S/FqavgJhyXi06Nv2Z1Xmg=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=J1KfefCRMStVKUahWuBNDHg6ZVobYypt3hg6keQ4H1Ijwkxaz60t95E0ejTlg1pyy
+	 ZideBvjYU04u114Mr3+0PJzWT2TEn9VWeVJRoc6qs/Zdf036/sSpyWRU9s2b4yyAYq
+	 g56OAe8EizjwLSpYyZctKEMdmUH37kU127v79BMAg0P878sNut0llltvGv+8lvIjHy
+	 +Cp41Da5PZIZH9Jyg/L8HhL+c9N4Wq5s513g5QFnhHnuo47XMIF9Ade0WFHneZN4b2
+	 o6BUXRJWwUDvm+p/7b6U6Ab2wOmWO2W76V5PeZL0sxVJatVG4DMYxrypOCH6ZO5X0y
+	 PGU+C2Z2nPuIw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E4B6BCD98C5;
+	Sat, 13 Jun 2026 21:42:13 +0000 (UTC)
+From: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>
+Date: Sat, 13 Jun 2026 16:42:12 -0500
+Subject: [PATCH] Input: apple_z2 - bound the device-reported packet length
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_132043_455267_8F45A81D 
-X-CRM114-Status: GOOD (  13.38  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260613-b4-disp-b1926f1a-v1-1-3a277b7c0cfa@proton.me>
+X-B4-Tracking: v=1; b=H4sIALPOLWoC/x3MQQqAIBBA0avErBtIC8muEi3GHGs2JQoRiHdPW
+ r7F/wUyJ+EMS1cg8SNZ7qtB9R3sJ10Ho/hm0IM2g1Ejugm95IhOWW2CItyJ/BzspClYaFlMHOT
+ 9l+tW6wfY+4MYYgAAAA==
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Sasha Finkelstein <k@chaosmail.tech>
+Cc: linux-arm-kernel@lists.infradead.org, Neal Gompa <neal@gompa.dev>, 
+ linux-input@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Sven Peter <sven@kernel.org>, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781386931; l=3413;
+ i=hexlabsecurity@proton.me; s=proton; h=from:subject:message-id;
+ bh=HJr41MzsNAgdosyjOBWzjfV06tvv0y+yjyYHV/ssUMU=;
+ b=uJGd+xWxV/O/9IKWycpqj9CKYM4uyDLxIThyI5YroMJXLg9nuvw2kuBkdcBHSk5VF0aKBIk2+
+ 7FQuydudKU6CgHu0E6hF3LagjfSG95afsqzvV9Z3Y++mOEq5dALtSLZ
+X-Developer-Key: i=hexlabsecurity@proton.me; a=ed25519;
+ pk=dmppBMZNLLoPzxHi9l8tZDzEZUunPbgsYqIZYXeUrL0=
+X-Endpoint-Received: by B4 Relay for hexlabsecurity@proton.me/proton with
+ auth_id=814
+X-Original-From: Bryam Vargas <hexlabsecurity@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,68 +83,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: hexlabsecurity@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The nonblocking RNG path allocates a work_data structure to track the
-state of an in-flight asynchronous I2C request. This pointer is stored
-in rng->priv and later consumed by the read path once the transaction
-completes.
+From: Bryam Vargas <hexlabsecurity@proton.me>
 
-If the underlying I2C transfer fails, the completion callback is invoked
-with a non-zero status. In this case, the allocated work_data is not
-usable for producing RNG output and must not remain associated with the
-hwrng state.
+apple_z2_read_packet() takes a 16-bit length from the touch controller's
+interrupt-data reply (rx_buf[1..2]) and, only rounded down to a multiple of
+four, uses it as the size of the second SPI transfer into the fixed-size
+rx_buf:
 
-Previously, the failure path only logged a warning but left the pointer
-state uncleared, which can result in subsequent read attempts observing
-stale state and interpreting it as valid completion data.
+	pkt_len = (get_unaligned_le16(z2->rx_buf + 1) + 8) & 0xfffffffc;
+	error = spi_read(z2->spidev, z2->rx_buf, pkt_len);
 
-Fix this by freeing the pending work_data. The I2C transaction reports
-an error. This ensures that failed requests do not leave residual state
-behind that could be interpreted as valid RNG data on later reads.
-Clearing rng->priv is done at the subsequent call to nonblocking read.
+rx_buf is a fixed 4000-byte buffer, but pkt_len is fully controlled by the
+device and is never checked against it, so a malicious, malfunctioning or
+counterfeit controller (or an interposer on the SPI bus) that reports a
+large length makes spi_read() write up to 65540 device-supplied bytes into
+the 4000-byte buffer -- a controller-driven heap out-of-bounds write of up
+to about 61 KiB.  The recently added reply-type check only validates
+rx_buf[0], not the length.
 
-Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-Assisted-by: Gemini:1.5 Pro [google]
-Reviewed-by: Thorsten Blum <thorsten.blum@linux.dev>
+Reject any packet whose length exceeds the receive buffer.
+
+Fixes: 471a92f8a21a ("Input: apple_z2 - add a driver for Apple Z2 touchscreens")
+Cc: stable@vger.kernel.org
+Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
 ---
-v2 -> v3:
-- remove existing error-path cleanup behavior [`rng->priv = 0;`],
-  update commit msg
-- rebased
+Reachable on every touch interrupt once the controller is booted
+(apple_z2_irq -> apple_z2_read_packet).
 
-v1 -> v2:
-- reword commit message for clarity and precision
-- keep existing error-path cleanup behavior unchanged, update commit msg
+Verified with a faithful in-kernel KASAN litmus (the verbatim 4000-byte
+allocation, the exact pkt_len computation, and the spi_read transfer modelled
+as a memset of pkt_len controller bytes), CONFIG_KASAN_INLINE=y:
 
- drivers/crypto/atmel-sha204a.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+  Arm A, reported length 0x1000 -> pkt_len 4104:
+    BUG: KASAN: slab-out-of-bounds in apple_z2_read_packet
+    Write of size 4104 ... located 0 bytes inside of allocated 4000-byte region
+    ... which belongs to the cache kmalloc-4k of size 4096
+  Arm B, with this patch (length rejected): clean
+  Arm C, benign length: clean
 
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index 4c9af737b33a..5eb76245347d 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -31,10 +31,14 @@ static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
- 	struct atmel_i2c_client_priv *i2c_priv = work_data->ctx;
- 	struct hwrng *rng = areq;
+  AddressSanitizer (x86_64 and i386), reported length 0xffff -> pkt_len 65540:
+    heap-buffer-overflow WRITE of size 65540, both ABIs.
+
+Reproducer and full logs available on request.
+---
+ drivers/input/touchscreen/apple_z2.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/input/touchscreen/apple_z2.c b/drivers/input/touchscreen/apple_z2.c
+index 271ababf0ad5..ff9ff97be185 100644
+--- a/drivers/input/touchscreen/apple_z2.c
++++ b/drivers/input/touchscreen/apple_z2.c
+@@ -22,6 +22,7 @@
+ #define APPLE_Z2_TOUCH_MOVED             4
+ #define APPLE_Z2_CMD_READ_INTERRUPT_DATA 0xEB
+ #define APPLE_Z2_REPLY_INTERRUPT_DATA    0xE1
++#define APPLE_Z2_MAX_PACKET              4000
+ #define APPLE_Z2_HBPP_CMD_BLOB           0x3001
+ #define APPLE_Z2_FW_MAGIC                0x5746325A
+ #define LOAD_COMMAND_INIT_PAYLOAD        0
+@@ -147,6 +148,8 @@ static int apple_z2_read_packet(struct apple_z2 *z2)
+ 		return 0;
  
--	if (status)
-+	if (status) {
- 		dev_warn_ratelimited(&i2c_priv->client->dev,
- 				     "i2c transaction failed (%d)\n",
- 				     status);
-+		kfree(work_data);
-+		atomic_dec(&i2c_priv->tfm_count);
-+		return;
-+	}
+ 	pkt_len = (get_unaligned_le16(z2->rx_buf + 1) + 8) & 0xfffffffc;
++	if (pkt_len > APPLE_Z2_MAX_PACKET)
++		return -EMSGSIZE;
  
- 	rng->priv = (unsigned long)work_data;
- 	atomic_dec(&i2c_priv->tfm_count);
+ 	error = spi_read(z2->spidev, z2->rx_buf, pkt_len);
+ 	if (error)
+@@ -363,7 +366,7 @@ static int apple_z2_probe(struct spi_device *spi)
+ 	if (!z2->tx_buf)
+ 		return -ENOMEM;
+ 	/* 4096 will end up being rounded up to 8192 due to devres header */
+-	z2->rx_buf = devm_kzalloc(dev, 4000, GFP_KERNEL);
++	z2->rx_buf = devm_kzalloc(dev, APPLE_Z2_MAX_PACKET, GFP_KERNEL);
+ 	if (!z2->rx_buf)
+ 		return -ENOMEM;
+ 
 
-base-commit: 6ea0ce3a19f9c37a014099e2b0a46b27fa164564
+---
+base-commit: 8e65320d91cdc3b241d4b94855c88459b91abf66
+change-id: 20260613-b4-disp-b1926f1a-caad8f942af9
+
+Best regards,
 -- 
-2.53.0
+Bryam Vargas <hexlabsecurity@proton.me>
+
 
 
