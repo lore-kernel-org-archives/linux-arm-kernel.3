@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E33CCD98D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 15:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F25DCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 15:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9wTzlACPzlc7mTPvINCZSLdlwE/iRTiN1TOlX59Jj8g=; b=oOd6+3jVYB+qMMFmXJAD72a35w
-	e8g6P9A6b4t7M7djsCdIAaxz1etfYM831L7JbTLfv8a3vYLOQWjzbqateEcpVKli2QhyovBfBajg0
-	6V7o0VdKk420MIZAJVaISv7Yxu52qu1cyZlxgEL49RnVbCFAuvlMNJ7O0LCk9UbqIox9PNvxTBWEy
-	WmX1vs5b4Zf21DFjY6avjjMwEYUTseARr9GNEUwKKVdZCkc3v+0tyqh6YQq2F99p6xR4xtaagIzHZ
-	lQMWz4WHI+rOeaUrkQEQrKO0RKwO7FH7mKzr+/B/VeFRJrLv/RxHmHRLLNszKEwjpcixKwyj5Qi+K
-	ZvyD893Q==;
+	bh=WVgLXStkUv85KlY0neU69UwXnatb4ZDzB8DIuTxdY04=; b=Be5xNkqcE6ibQBu6nD1A8FEVQ0
+	4mFfvR3bJoQcuJXel2py/cq4XY1r9CjBBJo9n8MKG4iYN6WMzpaflblMhdYTHKdU6j1ZSJWiE2yGK
+	l18+HhV23g+S1hL0n5D0fjBS9xp9Hh7fL6rQt4jRW8YLXdBQCKnwlHpwcL3YbuQIqy0eCY5mH3lfk
+	G7h9bf+gQ9LEXfSI05ACaBBfQPylFbU+nDBy2OiXHznii2Mx/u6A60qrLnhP2IkIQgcO+0NZp/CQr
+	eat8N1BrtIUbXCdI2Os7s5jJXqC5SXPJYGYqn4L7rw2NVs+LHJ+04mMC7DM9h0hfQbeeY3Bg7xi3x
+	+r6IfNfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYQGk-0000000CO15-0PC8;
-	Sat, 13 Jun 2026 15:27:34 +0000
+	id 1wYQGs-0000000CO4m-0oIX;
+	Sat, 13 Jun 2026 15:27:42 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYQGg-0000000CNza-3yqs
+	id 1wYQGp-0000000CO2k-0iIA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 15:27:32 +0000
+	Sat, 13 Jun 2026 15:27:40 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id B70F3370030A
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 15:27:17 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 0839B37002FE
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 15:27:19 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id E7A53B4552D; Sat, 13 Jun 2026 15:27:15 +0000 (UTC)
+	id B0476B4551F; Sat, 13 Jun 2026 15:27:17 +0000 (UTC)
 Received: from collins (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id 86935B45520;
-	Sat, 13 Jun 2026 15:26:58 +0000 (UTC)
+	by laika.paulk.fr (Postfix) with ESMTP id 14C7EB45525;
+	Sat, 13 Jun 2026 15:26:59 +0000 (UTC)
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -53,19 +53,18 @@ Cc: Yong Deng <yong.deng@magewell.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney@redhat.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-Subject: [PATCH v10 3/6] ARM: dts: sun8i: v3s: Add mbus node to represent the interconnect
-Date: Sat, 13 Jun 2026 17:26:52 +0200
-Message-ID: <20260613152655.212490-4-paulk@sys-base.io>
+	Maxime Ripard <mripard@kernel.org>
+Subject: [PATCH v10 4/6] dt-bindings: sun6i-a31-mipi-dphy: Add V3s SoC compatible entry
+Date: Sat, 13 Jun 2026 17:26:53 +0200
+Message-ID: <20260613152655.212490-5-paulk@sys-base.io>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260613152655.212490-1-paulk@sys-base.io>
 References: <20260613152655.212490-1-paulk@sys-base.io>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_082731_159483_A908571A 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260613_082739_686730_73ED5743 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+The V3s/V3/S3 comes with a rx-only D-PHY paired with the MIPI CSI-2
+controller. It is compatible with the D-PHY found on the A31.
 
-The V3s uses the mbus interconnect to provide DRAM access for a
-number of blocks. The SoC can only map 2 GiB of DRAM, which is
-reflected in the dma-ranges property.
+Add an entry with a new compatible and the A31 compatible as fallback.
 
-Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-Reviewed-by: Samuel Holland <samuel@sholland.org>
+Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
 ---
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ .../devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-index fa54510319ac..02d6c62b3874 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-@@ -629,6 +629,21 @@ int_mii_phy: ethernet-phy@1 {
- 			};
- 		};
- 
-+		mbus: dram-controller@1c62000 {
-+			compatible = "allwinner,sun8i-v3s-mbus";
-+			reg = <0x01c62000 0x1000>,
-+			      <0x01c63000 0x1000>;
-+			reg-names = "mbus", "dram";
-+			clocks = <&ccu CLK_MBUS>,
-+				 <&ccu CLK_DRAM>,
-+				 <&ccu CLK_BUS_DRAM>;
-+			clock-names = "mbus", "dram", "bus";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			dma-ranges = <0x00000000 0x40000000 0x80000000>;
-+			#interconnect-cells = <1>;
-+		};
-+
- 		spi0: spi@1c68000 {
- 			compatible = "allwinner,sun8i-h3-spi";
- 			reg = <0x01c68000 0x1000>;
+diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml
+index 6a4fd4929959..3ca1a1c47032 100644
+--- a/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml
++++ b/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml
+@@ -21,6 +21,9 @@ properties:
+       - items:
+           - const: allwinner,sun50i-a64-mipi-dphy
+           - const: allwinner,sun6i-a31-mipi-dphy
++      - items:
++          - const: allwinner,sun8i-v3s-mipi-dphy
++          - const: allwinner,sun6i-a31-mipi-dphy
+       - items:
+           - const: allwinner,sun20i-d1-mipi-dphy
+           - const: allwinner,sun50i-a100-mipi-dphy
 -- 
 2.54.0
 
