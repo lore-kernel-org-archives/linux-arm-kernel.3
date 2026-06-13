@@ -4,73 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C22CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 13:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB81CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 13:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jMeb1ZKqldVROsPqlULq0pmp+Dr4cuGsBQBPI3bokCE=; b=H5ozEDWDOp6R4mY/c9n3baZREm
-	wo2HwylAQM+bHnmvWkkIIk7hkrObNIDfiqBUjCIOTbxpNjulwtqnwR8e5S7Hv7lzCclRNUn5256ML
-	8Ivt+y0LszXWnlxplnFAfmRf8wvIKI38pgsHL7gHLpBtwekX9tWGjDYT7tdhfwkMYpkpDUX19V6Wx
-	eWHatRa10EXHS+h7gFVWUErursWDXw+qt7Evlov89pxNLAGO8bpADoO27K7uRF3+ogAx4Wu5w54YT
-	1OHdKupxr1jboN47EYaZ3APO+RRZ56RUJsARBzPFgleQoklytCEU7aoJtKx+mJ6+2FEJRB7yTlgfn
-	h1wqZ+8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kUReiSsThHaQ8ouVdRpvuZtdgMCKvSl0l2ZSq4rDSXY=; b=it/7x8TJOUmFJOYiAoOXmJGYVT
+	XrKJVrHixNBGwdSN/HsSlwmwNj1vCA94nVxHZEMWfwFkCAYKRfPFVvxEUZK83RCdKFRcUtJ53Sb8s
+	hmQrGxYSAXkCcC9fu4ePljhR7ilOMfvgv7BvjnbWCRLWbkMlfVBZ1wgP/ZpWDMuaItCszmnanJNJl
+	CVkUPMfuwWykZK5ldQEIh+Dy8dqJLwODrB73ASgz62uP4LWyAKaWAYAysPt2tumBI+h9PYjr+QZ09
+	ciwZXCMeOs1DVFTsM0YGd0juPWXbxXVRH/ooLcqb+fl0H90BxZmDqMxoTGjtsqltWpzfGZndjkV2A
+	L9GJmFtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYO58-0000000CJTy-08C3;
-	Sat, 13 Jun 2026 13:07:26 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wYOQb-0000000CKJi-3EJu;
+	Sat, 13 Jun 2026 13:29:37 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYO54-0000000CJTH-2D2u
+	id 1wYOQZ-0000000CKJN-1gFB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 13:07:24 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=jMeb1ZKqldVROsPqlULq0pmp+Dr4cuGsBQBPI3bokCE=;
-	b=KhGgTo6MbZ5FjaMBJzfhdvo0UPBmJ3rXnIc4Ha/PJQjv0pdc9fcPs651EyVf2R7g+hDcaKQoS
-	VNWKsF06R59ny0ZyCfQveYwiPEgMmztgvECkrAGRPO4VzQNmBwSDw2HLJCxYs+9O84QkbG2D+AS
-	KUrE2E/9FWbx5c7fM/hRaeE=
-Received: from canpmsgout01.his.huawei.com (unknown [172.19.92.178])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gcxK50s1CzcbPX;
-	Sat, 13 Jun 2026 20:58:49 +0800 (CST)
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=jMeb1ZKqldVROsPqlULq0pmp+Dr4cuGsBQBPI3bokCE=;
-	b=KhGgTo6MbZ5FjaMBJzfhdvo0UPBmJ3rXnIc4Ha/PJQjv0pdc9fcPs651EyVf2R7g+hDcaKQoS
-	VNWKsF06R59ny0ZyCfQveYwiPEgMmztgvECkrAGRPO4VzQNmBwSDw2HLJCxYs+9O84QkbG2D+AS
-	KUrE2E/9FWbx5c7fM/hRaeE=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gcxJx18gkz1T4HG;
-	Sat, 13 Jun 2026 20:58:41 +0800 (CST)
-Received: from dggpemf100008.china.huawei.com (unknown [7.185.36.138])
-	by mail.maildlp.com (Postfix) with ESMTPS id 98DD040538;
-	Sat, 13 Jun 2026 21:07:06 +0800 (CST)
-Received: from mdc.huawei.com (10.50.87.204) by dggpemf100008.china.huawei.com
- (7.185.36.138) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 13 Jun
- 2026 21:07:05 +0800
-From: Chen Jun <chenjun102@huawei.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <chenjun102@huawei.com>, <zhangyuwei20@huawei.com>
-Subject: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
-Date: Sat, 13 Jun 2026 21:00:07 +0800
-Message-ID: <20260613130007.18563-1-chenjun102@huawei.com>
-X-Mailer: git-send-email 2.22.0
+	Sat, 13 Jun 2026 13:29:36 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2bf125989f2so14365515ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 06:29:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781357374; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VvA7Tr0iqiFe3kvIE53YkB3qiKfqNiWcsMN3/KHqXswm8/in/ea9m5huBeoLUjYhg3
+         VGK1Of8B8jN9YfaYECarpvdtMFPwQzlqJ9WNLEHFTdQKsHgM0RJQjDACKgr1Aaa+ZJ0F
+         DAzOMl7cMwnpDSvpC4Enbax2ewACkfiyIGrEJRvBZcBE8RGa8u6AgKpwD3Z5jwme8ScR
+         +qpILpxzxXcd1FUScqsonCBfCV+0h1XiDhS6enVzioPz/lu7XTActYW8tfCHptWFWMUQ
+         KvdjOe1szXgDrPJpaGvbxMKE8P4PxrmPhAjdsp/lCr09Zfroty/NcEqqN8A0n9Gvz/UX
+         UtIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kUReiSsThHaQ8ouVdRpvuZtdgMCKvSl0l2ZSq4rDSXY=;
+        fh=Fxjmkht5sqKS3nJfVdTo/df5qyUFiWtLLvn13+5h+wQ=;
+        b=HC8pC/YF3ESUk4Mxw2O8238USg8i6P7FN/FlVaur37o/46z8FlaK8FCpbwb9FKJcKJ
+         ylu5A4E1FuBk6kye4T8EqnX6mzfM50yejY7fdv42HU2/rm0YYFCrrh1nawlrRMybmlzu
+         lRJLT2Xbl1F7DBgLhe59U9pDUbVb0p8sagupr6jPxKfwYLcUlQfSdc5Sx7G0Htd3p/5v
+         iIjqu8bJ8Qq+8EdZDHVqQS7E0KAiuAqANyed3yP0xAuC5somt1A0dG/BpjN243t9RnvE
+         MjcfUXu1Tsrtf00ODm2YL+BFivJTEdEWrSXpWFwrF2mUjEnxjTbDVLPE0oEbMAdq7r3L
+         oxwg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781357374; x=1781962174; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kUReiSsThHaQ8ouVdRpvuZtdgMCKvSl0l2ZSq4rDSXY=;
+        b=gIWOsEv8/0FRmS2rozIDAr03wrGjDIfxm84jiT/v6JKpcPZCt1fQAq38vBdME4BX/m
+         qVirvvMJToTXcvpA+zb0MyBjxzXAcobvmUqkuBJhaw0ozwRFIj6UiJ/L4Fyl453SVNnu
+         jw0po4y/403CcbbPjn+kaTD3GDWwsU9Q2JsUp3Qdt/MAMI/aGatH+fE0MXVcmkiSvHuJ
+         jSHeS40Gaog0vVgAO8fu5PndXYbfN+BAUUApk8hGi4QNkuGtcVNql4vaNwu03AIw1ZRe
+         OZq22if/usyLJaJoPnVTv3+tTp99plUJEbVcP7KD4GnUPBZpXqlzTJu7udo6Jeh0J5HN
+         OcrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781357374; x=1781962174;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=kUReiSsThHaQ8ouVdRpvuZtdgMCKvSl0l2ZSq4rDSXY=;
+        b=HME5sBeeLAE9y9NgLmHARPsjCgv0So8bpRKwc/LhDo34YMt01gSMe29YdE2bNJ26uW
+         wjgZSzvgtV2qkjU8SCqdlQGn9wgfkFk/tUdqTy16VExk3Qh1XU3fAGajsbVuHX/WMd5x
+         Hk/SSlg58Wf0hW09wAKru3YqAKL/VEMPb3BqZJ+4qzLGMUv6Z5//mHZA5aoNNV5hjZCb
+         caGhWuhzm5hBnOm5C8D683+lkJCeMRXBp7ESEf7oTlePXzJ01Apf6CJVXA78w2W6EreS
+         r/rdY6tgTLCzX42AD1Lr+z1DHpNupG73lH6xrL0iumrm36OcEjE9TJex1pLoe+1kxM65
+         StFw==
+X-Forwarded-Encrypted: i=1; AFNElJ9nNRHGCcUyPbUYIm5e7xcwSgBWiNnEygTiFNmwTxhuy8dKMJn1VQWM31oKDpqh27HSFcSmRuCJquUCsvP2Z8Cg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1t4ndVZxMChHPtXULjAvGxFMOcneWgzi34VSDCfASCuZAioe/
+	zcMQQ3OZMCIvsk9PaU7y64Wj8RBoInbwnH1IDyfUpi++6Zo/1xsHVpuq2cA6IuIeDPLKll6MPyb
+	Tc39RVwO7g8Ih65Av9+Ph2PpUxxwl3JU=
+X-Gm-Gg: Acq92OGElv9URv41AQSeNu6tPEN00dSXQaGSHBfeb6ZCxGZRSr+xc0T1Ulc4RzQcv/k
+	mboEIyYoC7kfMPYj0SE+ON/g9MyasS2UFvsONXpYWzT3sAqPAFbq8mJEai7rIfAtvNg4znkv1X7
+	/xNBnpyaxnBB723OsvEIsMuVKzO2xFpHqE3621GlCFm5/5Qafw3cANK4O9xp4vFopPv3ZaESGvC
+	Pk6kHuDcxfvz7J9E+OgP1/wGjoKko6NtLCPfoWmrnga2RrXOz75jOrzaVTdDFgWlVyh3Kh5Ay70
+	QFG+
+X-Received: by 2002:a17:902:e80a:b0:2c3:bab9:4961 with SMTP id
+ d9443c01a7336-2c413eb775cmr83686445ad.34.1781357373928; Sat, 13 Jun 2026
+ 06:29:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.87.204]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf100008.china.huawei.com (7.185.36.138)
+References: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com>
+ <20260613-a733-dts-v1-public-ready-v1-4-7787c94681db@gmail.com> <yDDIdJcZRCmL2YwI2Wv_ng@gmail.com>
+In-Reply-To: <yDDIdJcZRCmL2YwI2Wv_ng@gmail.com>
+From: Enzo <enzo.adriano.code@gmail.com>
+Date: Sat, 13 Jun 2026 09:29:22 -0400
+X-Gm-Features: AVVi8CdCVOnyKliNLOkMVxlnWD8AwCxre4GYBDVtf8SuvuvseqhhiKAPW8eLEzc
+Message-ID: <CAHWUu5HKy6g5aFbrriBz1cC7dQkss7x5pTBQ1qXe2NA=H2aejw@mail.gmail.com>
+Subject: Re: [PATCH 4/4] arm64: dts: allwinner: add Radxa Cubie A7S
+To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_060723_183103_F7CA20EA 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20260613_062935_466964_5FD6C4F3 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,136 +121,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Events reported by the SMMU can severely impact accelerator
-performance. Currently, only events that the SMMU fails to handle are
-printed to the kernel log, leaving most events invisible to users.
-To analyze and optimize accelerator performance, complete visibility
-into all SMMU-reported events is required.
+Hi Jernej,
 
-Add a tracepoint in the EVTQ interrupt handler to capture every
-event record reported by the SMMU. This allows users to collect all
-event information via ftrace/perf for further analysis, complementing
-the existing event decoder and error dump which only cover a subset
-of events.
+Thanks for taking a look.
 
-Signed-off-by: Chen Jun <chenjun102@huawei.com>
----
- drivers/iommu/arm/arm-smmu-v3/Makefile      |  2 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  3 ++
- drivers/iommu/arm/arm-smmu-v3/trace.c       |  9 ++++
- drivers/iommu/arm/arm-smmu-v3/trace.h       | 53 +++++++++++++++++++++
- 4 files changed, 66 insertions(+), 1 deletion(-)
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.c
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.h
+> Besides sashiko bot comments, these pins should go to main A733 DTSI,
+> like it's done for other SoCs.
+>
+> In any case, it's a bit early for DT. At least clocks should land before.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
-index 493a659cc66b..63a8d71bfc93 100644
---- a/drivers/iommu/arm/arm-smmu-v3/Makefile
-+++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
--arm_smmu_v3-y := arm-smmu-v3.o
-+arm_smmu_v3-y := arm-smmu-v3.o trace.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
- arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f0..85e6c25b73ed 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -34,6 +34,8 @@
- #include "arm-smmu-v3.h"
- #include "../../dma-iommu.h"
- 
-+#include "trace.h"
-+
- static bool disable_msipolling;
- module_param(disable_msipolling, bool, 0444);
- MODULE_PARM_DESC(disable_msipolling,
-@@ -2271,6 +2273,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
- 
- 	do {
- 		while (!queue_remove_raw(q, evt)) {
-+			trace_smmu_evtq_event(smmu, evt);
- 			arm_smmu_decode_event(smmu, evt, &event);
- 			if (arm_smmu_handle_event(smmu, evt, &event))
- 				arm_smmu_dump_event(smmu, evt, &event, &rs);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.c b/drivers/iommu/arm/arm-smmu-v3/trace.c
-new file mode 100644
-index 000000000000..77378698b1a3
---- /dev/null
-+++ b/drivers/iommu/arm/arm-smmu-v3/trace.c
-@@ -0,0 +1,9 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * ARM SMMUv3 trace support
-+ *
-+ * Copyright (c) 2026 OpenCloudOS / openEuler
-+ */
-+
-+#define CREATE_TRACE_POINTS
-+#include "trace.h"
-diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.h b/drivers/iommu/arm/arm-smmu-v3/trace.h
-new file mode 100644
-index 000000000000..7cec8d41745e
---- /dev/null
-+++ b/drivers/iommu/arm/arm-smmu-v3/trace.h
-@@ -0,0 +1,53 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * ARM SMMUv3 trace support
-+ *
-+ * Copyright (c) 2026 OpenCloudOS / openEuler
-+ */
-+
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM arm_smmu_v3
-+
-+#if !defined(_TRACE_ARM_SMMU_V3_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_ARM_SMMU_V3_H
-+
-+#include <linux/tracepoint.h>
-+
-+#include "arm-smmu-v3.h"
-+
-+TRACE_EVENT(smmu_evtq_event,
-+
-+	TP_PROTO(struct arm_smmu_device *smmu, u64 *evt),
-+
-+	TP_ARGS(smmu, evt),
-+
-+	TP_STRUCT__entry(
-+		__string(iommu, dev_name(smmu->dev))
-+		__field(u64, evt0)
-+		__field(u64, evt1)
-+		__field(u64, evt2)
-+		__field(u64, evt3)
-+	),
-+
-+	TP_fast_assign(
-+		__assign_str(iommu);
-+		__entry->evt0 = evt[0];
-+		__entry->evt1 = evt[1];
-+		__entry->evt2 = evt[2];
-+		__entry->evt3 = evt[3];
-+	),
-+
-+	TP_printk("%s evt: 0x%016llx 0x%016llx 0x%016llx 0x%016llx",
-+		__get_str(iommu),
-+		__entry->evt0, __entry->evt1,
-+		__entry->evt2, __entry->evt3)
-+);
-+
-+#endif /* _TRACE_ARM_SMMU_V3_H */
-+
-+/* This part must be outside protection */
-+#undef TRACE_INCLUDE_PATH
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_PATH ../../drivers/iommu/arm/arm-smmu-v3/
-+#define TRACE_INCLUDE_FILE trace
-+#include <trace/define_trace.h>
--- 
-2.22.0
+Agreed on both points. I'll move the UART0 pin definition into the main
+A733 DTSI for the next revision, following the other Allwinner SoCs.
 
+I will also hold off on sending a v2 until the A733 clock prerequisites
+are in a better state, unless maintainers prefer a different ordering.
+For now I'll keep this series as a checkpoint and continue tracking/testing
+the RTC, clock and pinctrl prerequisite work.
+
+Best regards,
+Enzo
+
+On Sat, Jun 13, 2026 at 7:37=E2=80=AFAM Jernej =C5=A0krabec <jernej.skrabec=
+@gmail.com> wrote:
+>
+> Dne sobota, 13. junij 2026 ob 11:42:16 Srednjeevropski poletni =C4=8Das j=
+e Enzo Adriano via B4 Relay napisal(a):
+> > From: Enzo Adriano <enzo.adriano.code@gmail.com>
+> >
+> > Add the Radxa Cubie A7S board description with serial console and SD ca=
+rd
+> > boot support.
+> >
+> > Ethernet remains disabled until the GMAC210 wrapper, clocks, resets,
+> > MDIO, PHY reset, PHY power, and link behavior are proven.
+> >
+> > Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+> > ---
+> >  arch/arm64/boot/dts/allwinner/Makefile             |  1 +
+> >  .../boot/dts/allwinner/sun60i-a733-cubie-a7s.dts   | 48 ++++++++++++++=
+++++++++
+> >  2 files changed, 49 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/d=
+ts/allwinner/Makefile
+> > index d116864b6c2b..824cc35152db 100644
+> > --- a/arch/arm64/boot/dts/allwinner/Makefile
+> > +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> > @@ -56,6 +56,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg=
+35xx-2024.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-h.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-plus.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-sp.dtb
+> > +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun60i-a733-cubie-a7s.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-a527-cubie-a5e.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-h728-x96qpro+.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-avaota-a1.dtb
+> > diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts b/=
+arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+> > new file mode 100644
+> > index 000000000000..453761a96323
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+> > @@ -0,0 +1,48 @@
+> > +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include "sun60i-a733.dtsi"
+> > +
+> > +/ {
+> > +     model =3D "Radxa Cubie A7S";
+> > +     compatible =3D "radxa,cubie-a7s", "allwinner,sun60i-a733";
+> > +
+> > +     aliases {
+> > +             serial0 =3D &uart0;
+> > +             mmc0 =3D &mmc0;
+> > +     };
+> > +
+> > +     chosen {
+> > +             stdout-path =3D "serial0:115200n8";
+> > +     };
+> > +
+> > +     reg_vcc3v3: vcc3v3 {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "vcc-3v3";
+> > +             regulator-min-microvolt =3D <3300000>;
+> > +             regulator-max-microvolt =3D <3300000>;
+> > +             regulator-always-on;
+> > +     };
+> > +};
+> > +
+> > +&mmc0 {
+> > +     vmmc-supply =3D <&reg_vcc3v3>;
+> > +     bus-width =3D <4>;
+> > +     no-mmc;
+> > +     no-sdio;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&pio {
+> > +     uart0_pb9_pb10_pins: uart0-pb9-pb10-pins {
+> > +             pins =3D "PB9", "PB10";
+> > +             function =3D "uart0";
+> > +     };
+>
+> Besides sashiko bot comments, these pins should go to main A733 DTSI,
+> like it's done for other SoCs.
+>
+> In any case, it's a bit early for DT. At least clocks should land before.
+>
+> Best regards,
+> Jernej
+>
+> > +};
+> > +
+> > +&uart0 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&uart0_pb9_pb10_pins>;
+> > +     status =3D "okay";
+> > +};
+> >
+> >
+>
+>
+>
+>
 
