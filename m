@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF62CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990D8CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DeVg0bi2qnwtneVj2BkteKgMLEFX64W6RwZtPGHh8tg=; b=Zm7fPqmQk1Vb/pArIWwIdf8Ui/
-	UgG1VCOCXjgADe45M5K9CFfrRm+LGWgzIhVhVT4wB6E6lMGwMH1rwOuFJr7CtsUjCtzjrj1wMx7Jf
-	guj5PNjIHVqLJABALsCUtUPp5ld6qQwZW6SEam8tt78FzQ6lVnQFNi40ZeQKf1ZfLrPYuG9aIZ2Qd
-	SZsDzrgtcw5S724v9TUPiUrL+RAjNfo0VvLZpBHK/GlIKY9ib2OMK+sHrJinRN+Xpbz4a3GlkmQgV
-	Mwo4KPxi67nfvqCpRkmKt8+s+OMWAymHVck3reabB65mnk0PPE+3H64Q/zrJvBJfY7IjuAEni/VRZ
-	7C0H+RBw==;
+	bh=S2/UFn3//unKPxU1xUH4EJSVP4IZTomnoT6CQvkNf04=; b=bS9NgagUX7Is4IiSxMyr2XdYBv
+	WftcJDgJRC2olHyddNtjFSVhS3uWdbMDRhw34Sg8K0dTEyeXXjmLjieHHKeN3BnWbPBS7ajgPChmA
+	yLAJipAcx5H5XlCrQ21YvPYwnge9i0fjHDE8CyLuLf6E5dIv5TupNmfCSFTfZwTafnaalxPNRVEQ3
+	poUkaf4iGawO5N5XXlVuqclRU9sIcyqPYl0+EEMjL8h9UHgwUp7RD1BugjEIQyUG34DIfYHnB3ZKr
+	UKKDHKactoMWLTM8csy5h4g4/SskAw00zGUipDC/RUgOMyWqujmLyUDna3Ewdiv5oSP/9gNi/pd9V
+	7Q2l1pqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJNj-0000000C4Rh-3eaP;
-	Sat, 13 Jun 2026 08:06:19 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wYJNu-0000000C4Uj-0M8a;
+	Sat, 13 Jun 2026 08:06:30 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJNe-0000000C4R2-0yC0
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 08:06:18 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4908b92904fso19102465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 01:06:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781337972; x=1781942772; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DeVg0bi2qnwtneVj2BkteKgMLEFX64W6RwZtPGHh8tg=;
-        b=EF/UQsN5mvmJOCCmH9DlqewgxUerwgD0rgMwRHZz9cFXorWH8zkCP+sqS3CldlW8bA
-         DpXYM/i/MELWJWB3yIU6j0++VhdO4PJfMMQsxwOHkEbTaRXc5mhR/5i+w5rZXfpkQalX
-         uQSx2rZN12S+G+coeF1A0fvFRB64uydXzkBFqtej+FVCSMl+4OopG7t+emOG7IFyqet1
-         g6QdWw9RebRSi+gDaz8Orm2W8bZ2ytEYjjjUB4wjYmAyrWmZQfJGGPzWL/dg4HG3j9OA
-         yq67izB+myJfqzF+BuFxfHzvgUrfqXPlYvIpZWRL1q+UwTo/IVkOC3FBzG9eO3svKx/u
-         Zh/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781337972; x=1781942772;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DeVg0bi2qnwtneVj2BkteKgMLEFX64W6RwZtPGHh8tg=;
-        b=IMMUyGNcufMutSR3SAxRFoortHcDhX3xmLyqkAlG0BRuuSZyHSkgCn1cVoKopTzQvk
-         mty9jwMQvOLbz67NBp9ICI7nZGdi+Ws8Ydet8PwffFOaUAFDP793zqiaaY/R55nKjk7O
-         b6d79IAZt05Tv3g16LxT7+Des3sr56QQR3A9Lmi3bxLpgM/GXoNzrG373v7GDoQan/YY
-         do6YI8aOX8SW//PLpscrNiSne48i3I7TUISAgFaZ1899M3pB+xq3hWbXB711dKEwR0m/
-         AlESQog/mkcTjAIkCdF3+JsNld8sKVV3J4OxajvrIXJ2fsjBOmLgtJARPszZLcRahnde
-         KxHQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9UP0KQomAeA0y1p/STPiEh6fp9cM0XYmLpQkfllImDwQO2vZ/Wah8nt0avsgdLY6clEQ41V88t69jAbw3pUj72@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaJ6wj1xno9al9M8OWVC0fHJROYgK1L7DE4ZuG4KwXD9VfLl2x
-	iEpx74BAkvqWbVyUzGD3otM2JGox9W7/jlrfCAvVaTwk+pgaxDAk1tKt
-X-Gm-Gg: Acq92OE7w86gSeaPFku7/yy/a6fuDXmShpHrOSgIn6RPkSgZJ3lLdKIuGEQLDxjwAHD
-	HNddKitnPuzs/5LenT/ryrI89KnkaiYf1YlshRr0m9tVIH35+Cp0bGkjdgHClbyZrpBVu9YnnIy
-	9NkyAU7on80gUB2Z+nZHyNPnmRj+fwSzrJm7enYQL5rdALKvrCgfKsTZPtXda9/qqRUzqjiSXtk
-	eNi/lJy+1BQ3KUEdz3Ifb5+xGcJRqIGKBnEyeNbopW6BzkKfhjaTSCokjsMccncb3GA1ogInQ66
-	5e9+qc5iGofsNLtqGStVpxeY0EhdbNLgX8rxKHj34+W9ATbk8ZSrUI8NywhMoTzXVsxrZUFdP0b
-	Syml+F2KWQ+r4OPNS3qOC/HqyyVfedblyvqmTpn8IG81oLKdv2wdfZX8uuacYrnhI8oInSizkPa
-	lyySyL4G9sgLbnpqZEzKAWcqMx/oocq7OCuEvS/TAGC/+E
-X-Received: by 2002:a05:600c:a310:b0:490:b58b:a8cb with SMTP id 5b1f17b1804b1-490ec50b860mr58693755e9.26.1781337971635;
-        Sat, 13 Jun 2026 01:06:11 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49220304180sm53456435e9.4.2026.06.13.01.06.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 01:06:11 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: linux-iio@vger.kernel.org,
- =?UTF-8?B?Vm9qdMSbY2ggS3LDoXRrw70=?= <vo.kratky@seznam.cz>
-Cc: =?UTF-8?B?Vm9qdMSbY2ggS3LDoXRrw70=?= <vo.kratky@seznam.cz>,
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
- Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Linus Walleij <linusw@kernel.org>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 02/11] iio: adc: change from %ld to %pe for PTR_ERR() printing
-Date: Sat, 13 Jun 2026 10:06:09 +0200
-Message-ID: <rfot56KMT1aR8vVOIe5xxg@gmail.com>
-In-Reply-To: <20260604120201.116925-3-vo.kratky@seznam.cz>
-References: <20260604120201.116925-1-vo.kratky@seznam.cz>
- <20260604120201.116925-3-vo.kratky@seznam.cz>
+	id 1wYJNq-0000000C4Tm-1sWb;
+	Sat, 13 Jun 2026 08:06:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781337987; x=1812873987;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=o0LWqic+72nuI6gnGf1tCPfCLx4sFK1P3umA/isHRZM=;
+  b=OqHo3jJMmzTFaYWmOOTIJf2Bv5IPi7L5r1ZPjypYjhmF1wL5spgqPEMF
+   mHDgF/okdwqYoTbe0xhuRCJ2uszVrAiS6Aj2ebAleHVYah5F4Doit5vIj
+   6nHdGQv0RPHAjH8uIDY9TCP07rLsmMJ+wcwERW7nVDHJ/4ijtXCLr8i3k
+   6nrWG8yuoNAB+Ss06j6Rb3eBTxiLY8Xb5cP+gTeHSox045XzcottdHOG3
+   jZX2uM40Oa2dlZEb5KKLZGcBrJeQMkARCIsQZRnt2qqUoXrPRY5l8IdFg
+   yLkdMsxQzrkAm9wV67NsThpt4jNdAtoWc5V4ZrLJvKGN8v1YGrXwOx8fy
+   A==;
+X-CSE-ConnectionGUID: 4ON23yw5T9e0huBFdTXCeQ==
+X-CSE-MsgGUID: GZoYLjb3QYqy2Hco7EFr4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11815"; a="93274262"
+X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
+   d="scan'208";a="93274262"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 01:06:25 -0700
+X-CSE-ConnectionGUID: zxpGxI25SySLHMo9tIS3hA==
+X-CSE-MsgGUID: Sr4z/Zy3Rm6hJaKZSqoWsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
+   d="scan'208";a="271070754"
+Received: from igk-lkp-server01.igk.intel.com (HELO 892db79562d4) ([10.211.93.152])
+  by fmviesa001.fm.intel.com with ESMTP; 13 Jun 2026 01:06:18 -0700
+Received: from kbuild by 892db79562d4 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wYJNg-000000004Sb-1EtN;
+	Sat, 13 Jun 2026 08:06:16 +0000
+Date: Sat, 13 Jun 2026 10:05:56 +0200
+From: kernel test robot <lkp@intel.com>
+To: xur@google.com, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Maciej =?utf-8?Q?=C5=BBenczykowski?= <maze@google.com>,
+	Yue Haibing <yuehaibing@huawei.com>,
+	Jeff Layton <jlayton@kernel.org>, Kees Cook <kees@kernel.org>,
+	Fernando Fernandez Mancera <fmancera@suse.de>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH] net: correcting section tags for .init and .exit
+ data/functions
+Message-ID: <202606131033.U9FHCI7B-lkp@intel.com>
+References: <20260612162257.896792-1-xur@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260612162257.896792-1-xur@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_010614_275517_E5313172 
-X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-CacheID: sfid-20260613_010626_556328_053F6A4C 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,21 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne =C4=8Detrtek, 4. junij 2026 ob 13:59:22 Srednjeevropski poletni =C4=8Da=
-s je Vojt=C4=9Bch Kr=C3=A1tk=C3=BD napisal(a):
-> Replace numeric PTR_ERR() logging with the %pe format specifier
-> so that error values are printed in a more readable form.
->=20
-> This change was identified using a Coccinelle semantic patch.
->=20
-> No functional change intended.
->=20
-> Signed-off-by: Vojt=C4=9Bch Kr=C3=A1tk=C3=BD <vo.kratky@seznam.cz>
+Hi,
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+kernel test robot noticed the following build warnings:
 
-Best regards,
-Jernej
+[auto build test WARNING on 2b414a95b8f7307d42173ba9e580d6d3e2bcbfce]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/xur-google-com/net-correcting-section-tags-for-init-and-exit-data-functions/20260613-002737
+base:   2b414a95b8f7307d42173ba9e580d6d3e2bcbfce
+patch link:    https://lore.kernel.org/r/20260612162257.896792-1-xur%40google.com
+patch subject: [PATCH] net: correcting section tags for .init and .exit data/functions
+config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20260613/202606131033.U9FHCI7B-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project f43d6834093b19baf79beda8c0337ab020ac5f17)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260613/202606131033.U9FHCI7B-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202606131033.U9FHCI7B-lkp@intel.com/
+
+All warnings (new ones prefixed by >>, old ones prefixed by <<):
+
+>> WARNING: modpost: vmlinux: section mismatch in reference: tcpv6_init+0x68 (section: .text) -> mptcpv6_init (section: .init.text)
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
