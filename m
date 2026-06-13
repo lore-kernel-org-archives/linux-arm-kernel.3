@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D8ECD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FB0CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UeiLcsZmkEn+LsW732s43vyWjfzRcJERnzrkaPEK0R8=; b=ED6Kz6b9rK3ZzHYjP/T+IQE68l
-	BnQUYGXP+JmUk12RA5Jtzp4GC9Z04+JHzgjZjnjZCBRb1pIufz6snCvlMcmUkVg5e8GLg6VRsogu1
-	eGG8FBycaNZXkxwy6HHkS6kBGk99n8OiFpb8PlMxS9gSE/cFyK4lGEmf8GQ2bulBr6fSYNoNelBIf
-	FCF7l1Bd8d+JjGpQ3AEF7wlhg/M6GJYV5W/Lwm6uMSpQShPI/fxmNnISKOFQwtAVGjGFX1S95Sb8E
-	M1QY9R9sIQ0er/dpOXODIshtlKU81v4WJDMJ+JhlgO7Ys+mxAtmiIQW9R6o+6k6zMKXUiaYYjmp7X
-	jqB9UYRQ==;
+	bh=3NtK8Wgf9iIrCOU2yBhxTa/D+UQoVoDTejFmO58T+ak=; b=V1TOSmSB+XnNCp51j/1aBnV01c
+	ZTTZ0QVtxachluryCMJ7vkfpopzG+bhiRFN3dorblfkjY46i6l4ecG2U9hO4NrSBliZoeAzf73IYL
+	UN4ipKpvekT+g+d2NL+8GfvoA5Ah+L28uwF1HaDMOYw6QRsZ/vY5CaK0J+9gL6M4VBRI8SsTBbHHA
+	LMpVDKzCkCtgvsIshnrze3WnFtnvlOfyIis1sPjsOCFTD5LhzQjg7Fvnt2ysH/KVmAeoroz1eRapQ
+	IGkvJb/4n79yh4zoWdyQsEzzBCnGtxhvRn3et21ESJ/sha1SKvD2dJlN3UEfwihsegEXQEIMctfMh
+	G6Vc3rKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC77-0000000BnYa-2vzN;
+	id 1wYC77-0000000BnYD-29tL;
 	Sat, 13 Jun 2026 00:20:41 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC75-0000000BnWJ-0BfA
+	id 1wYC73-0000000BnW0-38d5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:20:40 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2bf32fb7cb2so11172035ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:38 -0700 (PDT)
+	Sat, 13 Jun 2026 00:20:38 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-36bb6c41341so1675917a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781310038; x=1781914838; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781310036; x=1781914836; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=UeiLcsZmkEn+LsW732s43vyWjfzRcJERnzrkaPEK0R8=;
-        b=AjoMgbsNJM36m8mJifOwVznkR0oAI1arJHW4/1ixvkHP9RZ+sYuVvGLYg6UmtdSiXc
-         E62B6KWxb6xgSMakXhDbPVNMEvt4pXopE6yyqbMt1ZBDHzgBlWnQDaT0dfBLaR5umUs0
-         xO5e0nDn6SjUrEymaAMkFCEyqwALHPMD6x6VOiuIBUy1KgyLOmXvkkq4tn0wcOihZO++
-         +pJqlPe+ZDGM0Pw/cXqpaKIWibvQROx+g/1mTMIEYphNZ/FFnOi4EX6FXucfVm3U//yw
-         ZJCKRh2eRp786UwN5MpNREgEuG54/mFIgpQEKSHCFn4DnyqUf9o3N6EEjcTX0srBD8ug
-         g6Cw==
+        bh=3NtK8Wgf9iIrCOU2yBhxTa/D+UQoVoDTejFmO58T+ak=;
+        b=BXidGF1+0fMBI6nXj8DbsGULMZgQWd1Gcc1dH+29M+bLi8RwHhaIrP3EAoimEsAwS+
+         FML8OLei2G6Vf0Ul7nqmCos6zNZ4zXS+bpMhaUed/eCV4ORfWfEfOQObO61Ih1aNGDdQ
+         YUEpzkCkl2kY44GAPYbEMkTX6E1W+0Qnhw+nfrsnUAdqCv3J9eY9cAVV06+oCKpe94Kd
+         2/0FXsHUAFeIdA/JvWMDeEr+6z/zUu4T5oR3ndiirq5YOiHXRP1FRezvcCO+vfJYnG96
+         AhjzJvRZIsaAg01gbhRD8gr6jcjyOknS91E6mo4CU+BObLLWOAJJOwZauQPGqhweg7zT
+         R97Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781310038; x=1781914838;
+        d=1e100.net; s=20251104; t=1781310036; x=1781914836;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=UeiLcsZmkEn+LsW732s43vyWjfzRcJERnzrkaPEK0R8=;
-        b=bCfozjVwh3KmrFTOkSmsLsKlcqJ1D2Ar5Z/bMTGJBkuE/iMAQ4FLtwLDtTHNnojOPe
-         afHAxf3RWm1+8c+nQ8NIV1rTgH7ttNP7475IRBTQKmA3JysC4xE43UxePZ0prauqXaLv
-         70IMXbRr4MWKpnPak+73MNVugM7x4J+rbtJHrkVETTVM5yIHSZsytEWXqD/hpfe0NqXU
-         MON60GP2vagKgJJSzfoq487Yshy2YuUWESX6EFg1uyzlW5F6C1Tg1kdvfatE4juWgJtf
-         XL68wGSbRlpUEYdwXEp6Y6PuTfjTqr1H/zZEKRY97c+btaB5Qls3MYY7HRHx8qoXNpS7
-         FviQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+tc4xQ2Dt3xH2GKuQbB9AZdS+sx7K80dtWuqgAs7Q7tncL/SM5jg9YlPJb36l2nbSbe+/bjn+OL4awzU2Y8sQJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGo72EkGsjae9J9oSDMOJd334D18TNV0rwS/Y0U4Mov+nKvJmm
-	gtpbkSJJbsPJy+FNQefRghF4A9o1E76nlORDvxrhoZY9xR2valRZD/QQXvGOLZUDh7DFpQAwU5E
-	to6VeAQ==
-X-Received: from plor3.prod.google.com ([2002:a17:902:8bc3:b0:2bf:33cb:e3a4])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:32c6:b0:2bf:1486:e6ca
- with SMTP id d9443c01a7336-2c41050947bmr55802745ad.12.1781310037388; Fri, 12
- Jun 2026 17:20:37 -0700 (PDT)
-Date: Fri, 12 Jun 2026 17:20:14 -0700
+        bh=3NtK8Wgf9iIrCOU2yBhxTa/D+UQoVoDTejFmO58T+ak=;
+        b=SlO+qN3PQHX6Bm23LtVCKBJm+SbOPUficFplPltJRUQmHBW5QxxuchVw/wKPaaBOre
+         NXWVv1qbc59U/RJHhmvpLcTZGJKiJi4EOJC8WsZ2fbkJz6cGUYBas4FrkQXkJhJg9YeP
+         fN35z2r7ZTBtRTEaoJUEK8wiQfcTiiW516XovNmD5E7qwVJHOO2TGM1hWwTY6g9Oqoo/
+         ZDMjfEvj8RswEnHqAwEKIly2ddH/NQNMKfnXMXQT1v2PX5qC706Uam7yjwhwn8I4CiVP
+         OzMY675SRt+z4veTuFDt0+rCE/XUdZ24cdRjAoHWJAaBgl+kOWQVZ3t04FEjykqTFuVf
+         gguw==
+X-Forwarded-Encrypted: i=1; AFNElJ+fSfI5LKeNRywz5Ied1cy8f008Tm5Y9Zi/dReVQltJwZ3bCdppTOivoznPjoiw8xAPJd5vlWtrCK6DJzfK0FDq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9Yvqeo0s2YopB8G/dTaP0gwFuy32a47P4gZiIz8kL+RFWDU8s
+	WbMR7jwe7YRuXBALRHR9pzU0iQGTGkW/DfKKf6yprh7vOZ31mEC/HSCDh6zhzAC/urrEE9GKWG5
+	Cehlvsw==
+X-Received: from pgo32.prod.google.com ([2002:a63:e60:0:b0:c86:2164:967d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:939a:b0:3a2:ebfc:6bee
+ with SMTP id adf61e73a8af0-3b78407114amr5729024637.41.1781310036347; Fri, 12
+ Jun 2026 17:20:36 -0700 (PDT)
+Date: Fri, 12 Jun 2026 17:20:13 -0700
 In-Reply-To: <20260613002031.745413-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260613002031.745413-1-seanjc@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260613002031.745413-4-seanjc@google.com>
-Subject: [PATCH v7 03/20] KVM: selftests: Rename guest_rng to kvm_rng
+Message-ID: <20260613002031.745413-3-seanjc@google.com>
+Subject: [PATCH v7 02/20] KVM: selftests: Add macros to read/write+sync
+ to/from guest memory
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -77,8 +78,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_172039_103926_0C754093 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20260612_172037_795136_4F5BE137 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,244 +95,179 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Josh Hilke <jrhilke@google.com>
+From: David Matlack <dmatlack@google.com>
 
-Rename functions prefixed with 'guest_random_' to 'kvm_random_' and the
-global random state variable 'guest_rng' to 'kvm_rng', as the pRNG isn't
-strictly limited to guest code.  This will allow using the pRNG in host
-code without creating confusing/misleading function calls.
+Add SYNC_FROM_GUEST_AND_READ(vm, variable), to read a variable value
+from the guest. Add WRITE_AND_SYNC_TO_GUEST(vm, variable, value) to
+write a value to a guest variable. These macros improve the readability
+of code which reads and writes data between host and guest in tests.
+
+Use the new macro in existing tests that do back-to-back write+sync.
 
 No functional changes are intended.
 
 Suggested-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: David Matlack <dmatlack@google.com>
+Co-developed-by: Josh Hilke <jrhilke@google.com>
 Signed-off-by: Josh Hilke <jrhilke@google.com>
 [sean: massage changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../selftests/kvm/dirty_log_perf_test.c       |  4 ++--
- tools/testing/selftests/kvm/dirty_log_test.c  |  2 +-
- .../testing/selftests/kvm/include/test_util.h | 22 +++++++++----------
- .../selftests/kvm/include/x86/kvm_util_arch.h |  4 ++--
- tools/testing/selftests/kvm/lib/kvm_util.c    | 20 ++++++++---------
- tools/testing/selftests/kvm/lib/memstress.c   |  8 +++----
- tools/testing/selftests/kvm/lib/test_util.c   |  6 ++---
- .../testing/selftests/kvm/x86/sev_dbg_test.c  |  2 +-
- 8 files changed, 34 insertions(+), 34 deletions(-)
+ tools/testing/selftests/kvm/dirty_log_test.c  |  9 +++-----
+ .../testing/selftests/kvm/include/kvm_util.h  | 10 +++++++++
+ tools/testing/selftests/kvm/mmu_stress_test.c |  9 +++-----
+ tools/testing/selftests/kvm/steal_time.c      | 22 +++++++------------
+ 4 files changed, 24 insertions(+), 26 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/dirty_log_perf_test.c b/tools/testing/selftests/kvm/dirty_log_perf_test.c
-index ef779fa91827..7c5abe1ae9e0 100644
---- a/tools/testing/selftests/kvm/dirty_log_perf_test.c
-+++ b/tools/testing/selftests/kvm/dirty_log_perf_test.c
-@@ -311,7 +311,7 @@ int main(int argc, char *argv[])
- 	int opt;
- 
- 	/* Override the seed to be deterministic by default. */
--	guest_random_seed = 1;
-+	kvm_random_seed = 1;
- 
- 	dirty_log_manual_caps =
- 		kvm_check_cap(KVM_CAP_MANUAL_DIRTY_LOG_PROTECT2);
-@@ -357,7 +357,7 @@ int main(int argc, char *argv[])
- 			p.phys_offset = strtoull(optarg, NULL, 0);
- 			break;
- 		case 'r':
--			guest_random_seed = atoi_positive("Random seed", optarg);
-+			kvm_random_seed = atoi_positive("Random seed", optarg);
- 			break;
- 		case 's':
- 			p.backing_src = parse_backing_src_type(optarg);
 diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
-index 087e94a8a81a..e8419d7da1ea 100644
+index 74ca096bf976..087e94a8a81a 100644
 --- a/tools/testing/selftests/kvm/dirty_log_test.c
 +++ b/tools/testing/selftests/kvm/dirty_log_test.c
-@@ -121,7 +121,7 @@ static void guest_code(void)
- 	while (true) {
- 		while (!READ_ONCE(vcpu_stop)) {
- 			addr = guest_test_virt_mem;
--			addr += (guest_random_u64(&guest_rng) % guest_num_pages)
-+			addr += (kvm_random_u64(&kvm_rng) % guest_num_pages)
- 				* guest_page_size;
- 			addr = align_down(addr, host_page_size);
+@@ -708,8 +708,7 @@ static void run_test(enum vm_guest_mode mode, void *arg)
  
-diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
-index a56271c237ae..44c0104d60ac 100644
---- a/tools/testing/selftests/kvm/include/test_util.h
-+++ b/tools/testing/selftests/kvm/include/test_util.h
-@@ -108,30 +108,30 @@ struct timespec timespec_sub(struct timespec ts1, struct timespec ts2);
- struct timespec timespec_elapsed(struct timespec start);
- struct timespec timespec_div(struct timespec ts, int divisor);
+ 		sync_global_to_guest(vm, iteration);
  
--struct guest_random_state {
-+struct kvm_random_state {
- 	u32 seed;
- };
+-		WRITE_ONCE(nr_writes, 0);
+-		sync_global_to_guest(vm, nr_writes);
++		WRITE_AND_SYNC_TO_GUEST(vm, nr_writes, 0);
  
--extern u32 guest_random_seed;
--extern struct guest_random_state guest_rng;
-+extern u32 kvm_random_seed;
-+extern struct kvm_random_state kvm_rng;
+ 		dirty_ring_prev_iteration_last_page = dirty_ring_last_page;
+ 		WRITE_ONCE(dirty_ring_vcpu_ring_full, false);
+@@ -775,16 +774,14 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+ 		 * writing memory during verification, pages that this thread
+ 		 * sees as clean may be written with this iteration's value.
+ 		 */
+-		WRITE_ONCE(vcpu_stop, true);
+-		sync_global_to_guest(vm, vcpu_stop);
++		WRITE_AND_SYNC_TO_GUEST(vm, vcpu_stop, true);
+ 		sem_wait(&sem_vcpu_stop);
  
--struct guest_random_state new_guest_random_state(u32 seed);
--u32 guest_random_u32(struct guest_random_state *state);
-+struct kvm_random_state new_kvm_random_state(u32 seed);
-+u32 kvm_random_u32(struct kvm_random_state *state);
+ 		/*
+ 		 * Clear vcpu_stop after the vCPU thread has acknowledge the
+ 		 * stop request and is waiting, i.e. is definitely not running!
+ 		 */
+-		WRITE_ONCE(vcpu_stop, false);
+-		sync_global_to_guest(vm, vcpu_stop);
++		WRITE_AND_SYNC_TO_GUEST(vm, vcpu_stop, false);
  
--static inline bool __guest_random_bool(struct guest_random_state *state,
-+static inline bool __kvm_random_bool(struct kvm_random_state *state,
- 				       u8 percent)
+ 		/*
+ 		 * Sync the number of writes performed before verification, the
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index 04a910164a29..c1f588154398 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -1138,6 +1138,16 @@ vm_adjust_num_guest_pages(enum vm_guest_mode mode, unsigned int num_guest_pages)
+ 	memcpy(&(g), _p, sizeof(g));				\
+ })
+ 
++#define SYNC_FROM_GUEST_AND_READ(_vm, _variable) ({		\
++	sync_global_from_guest(_vm, _variable);			\
++	READ_ONCE(_variable);					\
++})
++
++#define WRITE_AND_SYNC_TO_GUEST(_vm, _variable, _value) do {	\
++	WRITE_ONCE(_variable, _value);				\
++	sync_global_to_guest(_vm, _variable);			\
++} while (0)
++
+ /*
+  * Write a global value, but only in the VM's (guest's) domain.  Primarily used
+  * for "globals" that hold per-VM values (VMs always duplicate code and global
+diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
+index 54d281419d31..473ef4c0ea9f 100644
+--- a/tools/testing/selftests/kvm/mmu_stress_test.c
++++ b/tools/testing/selftests/kvm/mmu_stress_test.c
+@@ -155,10 +155,8 @@ static void *vcpu_worker(void *data)
+ 		    "Expected EFAULT on write to RO memory, got r = %d, errno = %d", r, errno);
+ 
+ 	atomic_inc(&nr_ro_faults);
+-	if (atomic_read(&nr_ro_faults) == nr_vcpus) {
+-		WRITE_ONCE(all_vcpus_hit_ro_fault, true);
+-		sync_global_to_guest(vm, all_vcpus_hit_ro_fault);
+-	}
++	if (atomic_read(&nr_ro_faults) == nr_vcpus)
++		WRITE_AND_SYNC_TO_GUEST(vm, all_vcpus_hit_ro_fault, true);
+ 
+ #if defined(__x86_64__) || defined(__aarch64__)
+ 	/*
+@@ -383,8 +381,7 @@ int main(int argc, char *argv[])
+ 	rendezvous_with_vcpus(&time_run2, "run 2");
+ 
+ 	mprotect(mem, slot_size, PROT_READ);
+-	mprotect_ro_done = true;
+-	sync_global_to_guest(vm, mprotect_ro_done);
++	WRITE_AND_SYNC_TO_GUEST(vm, mprotect_ro_done, true);
+ 
+ 	rendezvous_with_vcpus(&time_ro, "mprotect RO");
+ 	mprotect(mem, slot_size, PROT_READ | PROT_WRITE);
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index 76fcdd1fd3cb..2de87549fcc0 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -70,8 +70,8 @@ static bool is_steal_time_supported(struct kvm_vcpu *vcpu)
+ static void steal_time_init(struct kvm_vcpu *vcpu, u32 i)
  {
--	return (guest_random_u32(state) % 100) < percent;
-+	return (kvm_random_u32(state) % 100) < percent;
+ 	/* ST_GPA_BASE is identity mapped */
+-	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
+-	sync_global_to_guest(vcpu->vm, st_gva[i]);
++	WRITE_AND_SYNC_TO_GUEST(vcpu->vm, st_gva[i],
++				(void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE));
+ 
+ 	vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME, (ulong)st_gva[i] | KVM_MSR_ENABLED);
+ }
+@@ -187,8 +187,7 @@ static void steal_time_init(struct kvm_vcpu *vcpu, u32 i)
+ 	};
+ 
+ 	/* ST_GPA_BASE is identity mapped */
+-	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
+-	sync_global_to_guest(vm, st_gva[i]);
++	WRITE_AND_SYNC_TO_GUEST(vm, st_gva[i], (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE));
+ 
+ 	st_ipa = (ulong)st_gva[i];
+ 	vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
+@@ -310,10 +309,8 @@ static bool is_steal_time_supported(struct kvm_vcpu *vcpu)
+ static void steal_time_init(struct kvm_vcpu *vcpu, u32 i)
+ {
+ 	/* ST_GPA_BASE is identity mapped */
+-	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
+-	st_gpa[i] = addr_gva2gpa(vcpu->vm, (gva_t)st_gva[i]);
+-	sync_global_to_guest(vcpu->vm, st_gva[i]);
+-	sync_global_to_guest(vcpu->vm, st_gpa[i]);
++	WRITE_AND_SYNC_TO_GUEST(vcpu->vm, st_gva[i], (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE));
++	WRITE_AND_SYNC_TO_GUEST(vcpu->vm, st_gpa[i], addr_gva2gpa(vcpu->vm, (gva_t)st_gva[i]));
  }
  
--static inline bool guest_random_bool(struct guest_random_state *state)
-+static inline bool kvm_random_bool(struct kvm_random_state *state)
- {
--	return __guest_random_bool(state, 50);
-+	return __kvm_random_bool(state, 50);
- }
+ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
+@@ -442,8 +439,7 @@ static void steal_time_init(struct kvm_vcpu *vcpu, u32 i)
+ 	};
  
--static inline u64 guest_random_u64(struct guest_random_state *state)
-+static inline u64 kvm_random_u64(struct kvm_random_state *state)
- {
--	return ((u64)guest_random_u32(state) << 32) | guest_random_u32(state);
-+	return ((u64)kvm_random_u32(state) << 32) | kvm_random_u32(state);
- }
+ 	/* ST_GPA_BASE is identity mapped */
+-	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
+-	sync_global_to_guest(vm, st_gva[i]);
++	WRITE_AND_SYNC_TO_GUEST(vm, st_gva[i], (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE));
  
- enum vm_mem_backing_src_type {
-diff --git a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
-index c33ab6e04171..6904dbda79f9 100644
---- a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
-+++ b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
-@@ -55,9 +55,9 @@ static inline bool __vm_arch_has_protected_memory(struct kvm_vm_arch *arch)
- do {											\
- 	const typeof(mem) val = (__val);						\
- 											\
--	if (!is_forced_emulation_enabled || guest_random_bool(&guest_rng)) {		\
-+	if (!is_forced_emulation_enabled || kvm_random_bool(&kvm_rng)) {		\
- 		(mem) = val;								\
--	} else if (guest_random_bool(&guest_rng)) {					\
-+	} else if (kvm_random_bool(&kvm_rng)) {					\
- 		__asm__ __volatile__(KVM_FEP "mov %1, %0"				\
- 				     : "+m" (mem)					\
- 				     : "r" (val) : "memory");				\
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 195f3fdae1e3..875030c22d07 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -20,9 +20,9 @@
+ 	err = __vcpu_ioctl(vcpu, KVM_HAS_DEVICE_ATTR, &attr);
+ 	TEST_ASSERT(err == 0, "No PV stealtime Feature");
+@@ -549,8 +545,7 @@ int main(int ac, char **av)
  
- #define KVM_UTIL_MIN_PFN	2
+ 		/* Second VCPU run, expect guest stolen time to be <= run_delay */
+ 		run_vcpu(vcpus[i]);
+-		sync_global_from_guest(vm, guest_stolen_time[i]);
+-		stolen_time = guest_stolen_time[i];
++		stolen_time = SYNC_FROM_GUEST_AND_READ(vm, guest_stolen_time[i]);
+ 		run_delay = get_run_delay();
+ 		TEST_ASSERT(stolen_time <= run_delay,
+ 			    "Expected stolen time <= %ld, got %ld",
+@@ -570,8 +565,7 @@ int main(int ac, char **av)
  
--u32 guest_random_seed;
--struct guest_random_state guest_rng;
--static u32 last_guest_seed;
-+u32 kvm_random_seed;
-+struct kvm_random_state kvm_rng;
-+static u32 last_kvm_seed;
- 
- static size_t vcpu_mmap_sz(void);
- 
-@@ -515,12 +515,12 @@ struct kvm_vm *__vm_create(struct vm_shape shape, u32 nr_runnable_vcpus,
- 	slot0 = memslot2region(vm, 0);
- 	ucall_init(vm, slot0->region.guest_phys_addr + slot0->region.memory_size);
- 
--	if (guest_random_seed != last_guest_seed) {
--		pr_info("Random seed: 0x%x\n", guest_random_seed);
--		last_guest_seed = guest_random_seed;
-+	if (kvm_random_seed != last_kvm_seed) {
-+		pr_info("Random seed: 0x%x\n", kvm_random_seed);
-+		last_kvm_seed = kvm_random_seed;
- 	}
--	guest_rng = new_guest_random_state(guest_random_seed);
--	sync_global_to_guest(vm, guest_rng);
-+	kvm_rng = new_kvm_random_state(kvm_random_seed);
-+	sync_global_to_guest(vm, kvm_rng);
- 
- 	kvm_arch_vm_post_create(vm, nr_runnable_vcpus);
- 
-@@ -2279,8 +2279,8 @@ void __attribute((constructor)) kvm_selftest_init(void)
- 	sigaction(SIGILL, &sig_sa, NULL);
- 	sigaction(SIGFPE, &sig_sa, NULL);
- 
--	guest_random_seed = last_guest_seed = random();
--	pr_info("Random seed: 0x%x\n", guest_random_seed);
-+	kvm_random_seed = last_kvm_seed = random();
-+	pr_info("Random seed: 0x%x\n", kvm_random_seed);
- 
- 	kvm_selftest_arch_init();
- }
-diff --git a/tools/testing/selftests/kvm/lib/memstress.c b/tools/testing/selftests/kvm/lib/memstress.c
-index 6dcd15910a06..3599b75d97c9 100644
---- a/tools/testing/selftests/kvm/lib/memstress.c
-+++ b/tools/testing/selftests/kvm/lib/memstress.c
-@@ -48,14 +48,14 @@ void memstress_guest_code(u32 vcpu_idx)
- {
- 	struct memstress_args *args = &memstress_args;
- 	struct memstress_vcpu_args *vcpu_args = &args->vcpu_args[vcpu_idx];
--	struct guest_random_state rand_state;
-+	struct kvm_random_state rand_state;
- 	gva_t gva;
- 	u64 pages;
- 	u64 addr;
- 	u64 page;
- 	int i;
- 
--	rand_state = new_guest_random_state(guest_random_seed + vcpu_idx);
-+	rand_state = new_kvm_random_state(kvm_random_seed + vcpu_idx);
- 
- 	gva = vcpu_args->gva;
- 	pages = vcpu_args->pages;
-@@ -69,13 +69,13 @@ void memstress_guest_code(u32 vcpu_idx)
- 
- 		for (i = 0; i < pages; i++) {
- 			if (args->random_access)
--				page = guest_random_u32(&rand_state) % pages;
-+				page = kvm_random_u32(&rand_state) % pages;
- 			else
- 				page = i;
- 
- 			addr = gva + (page * args->guest_page_size);
- 
--			if (__guest_random_bool(&rand_state, args->write_percent))
-+			if (__kvm_random_bool(&rand_state, args->write_percent))
- 				*(u64 *)addr = 0x0123456789ABCDEF;
- 			else
- 				READ_ONCE(*(u64 *)addr);
-diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
-index bab1bd2b775b..e98ca7ef439c 100644
---- a/tools/testing/selftests/kvm/lib/test_util.c
-+++ b/tools/testing/selftests/kvm/lib/test_util.c
-@@ -30,13 +30,13 @@ void __attribute__((used)) expect_sigbus_handler(int signum)
-  * Park-Miller LCG using standard constants.
-  */
- 
--struct guest_random_state new_guest_random_state(u32 seed)
-+struct kvm_random_state new_kvm_random_state(u32 seed)
- {
--	struct guest_random_state s = {.seed = seed};
-+	struct kvm_random_state s = {.seed = seed};
- 	return s;
- }
- 
--u32 guest_random_u32(struct guest_random_state *state)
-+u32 kvm_random_u32(struct kvm_random_state *state)
- {
- 	state->seed = (u64)state->seed * 48271 % ((u32)(1 << 31) - 1);
- 	return state->seed;
-diff --git a/tools/testing/selftests/kvm/x86/sev_dbg_test.c b/tools/testing/selftests/kvm/x86/sev_dbg_test.c
-index a9d8e4c059f9..eaa8201b937d 100644
---- a/tools/testing/selftests/kvm/x86/sev_dbg_test.c
-+++ b/tools/testing/selftests/kvm/x86/sev_dbg_test.c
-@@ -34,7 +34,7 @@ static void validate_buffers(void)
- 
- static void ____test_sev_dbg(struct kvm_vm *vm, int i, int j, int nr_bytes)
- {
--	u8 pattern = guest_random_u32(&guest_rng);
-+	u8 pattern = kvm_random_u32(&kvm_rng);
- 
- 	if (i + nr_bytes > BUFFER_SIZE || j + nr_bytes > BUFFER_SIZE)
- 		return;
+ 		/* Run VCPU again to confirm stolen time is consistent with run_delay */
+ 		run_vcpu(vcpus[i]);
+-		sync_global_from_guest(vm, guest_stolen_time[i]);
+-		stolen_time = guest_stolen_time[i] - stolen_time;
++		stolen_time = SYNC_FROM_GUEST_AND_READ(vm, guest_stolen_time[i]) - stolen_time;
+ 		TEST_ASSERT(stolen_time >= run_delay,
+ 			    "Expected stolen time >= %ld, got %ld",
+ 			    run_delay, stolen_time);
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
