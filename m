@@ -4,94 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0ABCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 09:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC9DCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 09:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8T+pkFF+lS+JDBAjF8JI0LZg2b8EwfaONvyE7Gy7O/8=; b=EvaMId8WVxCbheqd2jo8ofOzuL
-	j0yAzIQ6M0nNn0DiU45QhGge+vT+RyEeI7PI+yX400oXobPG42AmnEXK75Xy7gy/12oKFCJgW0Kyc
-	IANoyO8ewweix3fVpinattKHjyOUeR1kQasKAnv63G4BQbvwV7dMfyPpXYQ1lBareFpVPUKBYqbQe
-	h64Db9Ss0PPvg4Swl9dak/fzxsbzNxvgIiKSguwcrr+P2Q1HYfMdAwWjI0F/ZifuBDs1+jGNL56f+
-	T5qRzoUFpqhABT3aiHQXcJBd7fpA7Ny1p+5K8O5SDj5eAjfg2hiHQX5/fBRrs6BrqoyuBOfPWAsmF
-	a7aUZa4Q==;
+	bh=hSPcHOrJhwoZ6fKHrLRI2q23k/nKTvAXHvk0RF9YXD0=; b=bnNux6xrq90ExOGhirCKUq6yV3
+	xaa47jD0WbG6deqnyemYtMbCmJns7yXg2BNh7Rc6DZ3JtMMJ5/ftbsAD3NLKhWf/CnovyXy0taesN
+	bXG98QrlRJn5PlCFFsnCsPENNsrAKVp7hmkBPHWXxEhO9QUkmUIhs2fo43iTXZFccH8JW/LxjJgN2
+	95FWnEba7uxk6erxr6cHP4X8DvmOJz7HruZ8/dKH7HCNlgKyqO5hfDC1CVEjycmvwh4cY05l6f/wI
+	SDa2FnULdUkGYw57cTswYGbbe0IYR8ACoyD+8ilxNcuvv2aml3Y2aTSUulmkAQvxTqbZjm+KxJ642
+	+5BD0VIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYKjo-0000000C7bo-0hpW;
-	Sat, 13 Jun 2026 09:33:12 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wYKop-0000000C7q3-3Xkc;
+	Sat, 13 Jun 2026 09:38:23 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYKjl-0000000C7bQ-3u6Z
+	id 1wYKon-0000000C7pO-45nT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 09:33:11 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490ace40f4bso16599915e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 02:33:09 -0700 (PDT)
+	Sat, 13 Jun 2026 09:38:23 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-46019b190b6so1428872f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 02:38:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781343188; x=1781947988; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781343500; x=1781948300; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8T+pkFF+lS+JDBAjF8JI0LZg2b8EwfaONvyE7Gy7O/8=;
-        b=DtTwBwjxnhSoD60gCKaH9bP3A5JpbX0zL181rqsfCG7B1avev88vhHMflGWXM0Sc2n
-         raOIj5p9hc9atVvIzZ0bbCNAobyCxEUfNOBdWGsP2BDNsDghX/IsucQu8LKbOMDtvxxE
-         BZAKHOJrQCmn+wxdW/6pP8w1JVoqLOzQcqZ7mySlcF7xkbXZhUHqD1izJrcHh5aAwR4S
-         rTfUzhdxo+yRg+3Buf+DggKzs/7CEWFOhdorxWJoyangofQJxYSLXZi0PXgGrsKLmHaT
-         DU07oRkE65btB/fRCNyEKm6/6v3vP+/WojrXGJ4wtmQUDcibbkVe2Jzy6ro/J+KtvinN
-         2tcw==
+        bh=hSPcHOrJhwoZ6fKHrLRI2q23k/nKTvAXHvk0RF9YXD0=;
+        b=mgaJLpWpv26YqA2KQQKC4pjbIsTlhqGzBBtyLlFS6Bwx7sqJencKNqVD+nxkqsI4oZ
+         0qJAyDfhm7nMbgZh2JyimHc/EkSV3VINbLpeQbAY8xcTl8nZQ/BBQAZV7851ogg5Wgig
+         5Y1flcjw7RBq5mVAcM2EXF+1MRSFokhBmh1oslOtW1d14cCnkG+f6M32feIyVq4qFDMx
+         AECPMTHojy3l7HJYzwSO7l8xa029LQUqf94XpAAyB/VROcvW9IgUzMJtRjtOkmP/59Ez
+         1urqQfo2J9Vl939x5vPZ/OXeuu3IP6dI1Orjvst+01UNOhQzsrBSy4TyRNJyyOE0CyOo
+         EgTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781343188; x=1781947988;
+        d=1e100.net; s=20251104; t=1781343500; x=1781948300;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=8T+pkFF+lS+JDBAjF8JI0LZg2b8EwfaONvyE7Gy7O/8=;
-        b=KOmTzPR98qu8/uA5VVAopkhrzV/Upu0oSiG7XsuSqeArCUQDeLenIltgJjrTIKiZGz
-         AW2hWsGh9Ack69fPrHvx0HfgIXJ9WzvsUYGRqWIYTJsYt/woFFSxo6ztHKR7urac5Hrn
-         ZqZCS7N4lGhqHSHETeQNMCRk0OTHeYNeLZn6b+RQ2aEuD0TKFdwRvXxCU+WC7glDxJVz
-         vr44wOqFMWQGKMaX25YDTDhjcWtTvwY3g5WWV+63vSwqZuRNBfKdGazssegUpC4wqHd4
-         BgRekjtXtbfk6uqaG69uXVleDMeGspEpFfE78u5Knb2P1XAxN8BfNq6E6aXFV9ZWupE5
-         kAiw==
-X-Forwarded-Encrypted: i=1; AFNElJ+rc4flDb5Juc1kuGOLSl4/K4HiqLehlxCIJ4kULU5OM+4rYl8prEnRfOnyJbr3gmq65sXHL/WW44rx6rIkbBtw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVwAdOEJzKoLfl28286iyYvz39j6TfCKju6ZfwE26sJKqGrl4Z
-	k4TFBDs67K3yRWHl5Ol5rZPvFc3yxoz8/gdWuuhFUL5bwJxyDGe2RHtD
-X-Gm-Gg: Acq92OEcdgJRDvG5SYdTT9cbECtq2r3BOUff8Mpc9j9jcA7vVxt1TmCgXb8mkd0T/Tw
-	F5qKJsbAcQfVEVon2jMVoz416Au83MiscvprJNAbKgqtGJejpMsTO0Bl0RSHGA40r6dn5vjLqrq
-	J20rJ3f9oASioplBdZQrCsRHYU9fICjDR535mJw3nquBM6lLM7EuSfM5RHGJRHf7EFOOdRod/ic
-	9eJSXe+SMHoRk/2MZSZ9hNg58yVCHpZrqfq3aREwLrvByAsk0fOnJLu5ll8sXu5tLJrdqgWZl+7
-	7/C185COO8PLEV8gWt3uOCiFxI4sudfbt7AtSuVUURE3+PU85F8mvKuR15eBLfhHepiRwlkVvTb
-	wx8024ao/Eg+QKpwhR0p93Bu9Wq/M0Y6+RBcrRuVPsYokmcIAJfuqw+e1ALSnc4a0ylieAEiiLo
-	4O4WmHeOZaeUzh9loQBk/gczrC4ADSqY5U4FtrCiYOJnxa8WEBVKpNWWA=
-X-Received: by 2002:a05:600c:1f8c:b0:488:d6eb:e63c with SMTP id 5b1f17b1804b1-492200768abmr37382835e9.15.1781343187661;
-        Sat, 13 Jun 2026 02:33:07 -0700 (PDT)
+        bh=hSPcHOrJhwoZ6fKHrLRI2q23k/nKTvAXHvk0RF9YXD0=;
+        b=L5CoRsIaipOHk+r8pBPudMcYuMvMtFDqADMDAiZUSyxy2e/jplItb+iMXPpi3dN3TM
+         gdeuSBxXAWgE+MDInbe/2TAA3tlb8PbNOKTUyApg+DwARkau8TqIiRq8CTxXbPpQU7Ro
+         Do/2l9K22J2pyIAlPvxpJEF5PWGVgol6dc1TSJRxnI/jByxCySQlccMWL48y6tWH74aT
+         hUB6fmTAk/AUqSQrHQW+3IZ6wuTuDnVbmSDviZqcO/IzRnUdTh0Qv9mJwJjWBmfbIIzz
+         NEKByuWl7wYcrD+9PEUKFyQtloRzhXRMtOZ7BJmyJFdFYKL7bX9UXJoURxscvm0LLwuM
+         2K6g==
+X-Gm-Message-State: AOJu0YxJd7AgiNFxoK6toeLsNq3r/Cgc/DHC0Pmn0OUmHial1GlR6TWg
+	Zii6N4tY8yDPkcaxNkJQiJP++LQWYO2QwbMaUx2n+lEaZx+BSIabC5olW+n9kfCO
+X-Gm-Gg: Acq92OH5BufAhbywjDHCF1+UhEiVoZQ4PFhljygWwJd47FqH0c8K7598u/MP1iQ+a3e
+	DHF1P2gU6QI17n9+Pn6rpFdWJO0tYbdVgqPTBevP0sYtb0twnTzebcDtcC189Y8M78OQYTE3Xlm
+	uuYaRbVbfMcKBYRMgT0NGaogVM6znHsTsDwMJFctmtWdVYzVUKJlKmLJ2CNw6M4sJqOdKScc2iA
+	M4FKyBWW+Y3HdQiz8vt0kKGXhG5I/q9vAuQ1EFsRMxbp1Qzs5FPN0J2ROXWcAH0VXbIXPN450nG
+	zRZ75KLmJriAhgZ4OdTTGEoraH1RR7nkz+WOiQGXap8S4mqZiZOab2zYEMSjoPGen7sIMv7bDt2
+	Qfm+jMimFZMJ3d+qOxF6D4X8e5x2Bwpidc/6s3FfeD7+R4AVjx3GjXH8oCQjmJ8ZxWv73aWjG+x
+	8HyKiuUCnIsDBzzoQXq5Otbp0TDDYazPi1gUz0ZXhUIkHM
+X-Received: by 2002:a05:6000:2684:b0:45e:f228:830d with SMTP id ffacd0b85a97d-46077d40be6mr3398045f8f.23.1781343500099;
+        Sat, 13 Jun 2026 02:38:20 -0700 (PDT)
 Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26392esm13886883f8f.3.2026.06.13.02.33.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f2e592csm14464581f8f.36.2026.06.13.02.38.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 02:33:07 -0700 (PDT)
+        Sat, 13 Jun 2026 02:38:19 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: wens@kernel.org
-Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-media@vger.kernel.org,
- linux-staging@lists.linux.dev, devicetree@vger.kernel.org,
- linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/7] drivers: staging: media: sunxi: cedrus: add H616 variant
-Date: Sat, 13 Jun 2026 11:33:05 +0200
-Message-ID: <L1ZJMTqKQbak6NcKbwFkDg@gmail.com>
-In-Reply-To: <CAGb2v64wDvLMFn9DYs-kH1S2PpHJat-imxR5eJSQAUYjOp=Xdg@mail.gmail.com>
-References: <20260505134812.408316-1-wens@kernel.org> <JyKk48uGRMGhs1Z-wzq5pA@gmail.com>
- <CAGb2v64wDvLMFn9DYs-kH1S2PpHJat-imxR5eJSQAUYjOp=Xdg@mail.gmail.com>
+To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Hans de Goede <hansg@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ =?UTF-8?B?Si4gTmV1c2Now6RmZXI=?= <j.ne@posteo.net>,
+ Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
+Subject: Re: [PATCH v4 6/7] arm64: dts: allwinner: a100: reserve RAM for ATF
+Date: Sat, 13 Jun 2026 11:38:17 +0200
+Message-ID: <FE7Vh4yfTmGMM24i18Wwwg@gmail.com>
+In-Reply-To: <b428d57ba5464f1226daf099877f4c25fa4fc191.camel@gmail.com>
+References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
+ <_6NEZ78hR8a_3V2bhBAGoQ@gmail.com>
+ <b428d57ba5464f1226daf099877f4c25fa4fc191.camel@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_023310_009006_A686E198 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20260613_023822_028591_BEDCD39D 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +109,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 30. maj 2026 ob 18:43:05 Srednjeevropski poletni =C4=8Das je Ch=
-en-Yu Tsai napisal(a):
-> On Tue, May 5, 2026 at 7:18=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrabe=
-c@gmail.com> wrote:
-> >
-> > Dne torek, 5. maj 2026 ob 15:48:08 Srednjeevropski poletni =C4=8Das je =
-Chen-Yu Tsai napisal(a):
-> > > The Allwinner H616 SoC has a video engine hardware block like the one
-> > > found on previous generations such as the H6. In addition to the
-> > > currently supported features of the H6, it is also supposed to include
-> >
-> > Remove "supposed".
+Dne sobota, 13. junij 2026 ob 10:34:42 Srednjeevropski poletni =C4=8Das je =
+Alexander Sverdlin napisal(a):
+> Hi Jernej,
 >=20
-> I can't actually verify that, so "supposed" is accurate from my point of
-> view.
+> On Sat, 2026-06-13 at 10:22 +0200, Jernej =C5=A0krabec wrote:
+> > Dne petek, 5. junij 2026 ob 09:09:20 Srednjeevropski poletni =C4=8Das j=
+e Alexander Sverdlin napisal(a):
+> > > Add reserved-memory node carving out Trusted Firmware-A region spanni=
+ng
+> > > fixed 256K from physical address 0x40000000. Even though Allwinner ATF
+> > > itself passes the address range in the fdt to U-Boot, U-Boot currently
+> > > only reserves this memory internally, but doesn't carve out the region
+> > > in the fdt passed to Linux.
+> > >=20
+> > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> >=20
+> > NAK. It is job of boot procedure to properly inject TF-A reserved node.
+> > Any issue should be fixed there.
+>=20
+>=20
+> like in commit 0d17c865118881609ea7e381c7cadbb7979cc596
+> ("arm64: dts: allwinner: Add Allwinner H616 .dtsi file")
+>     Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+>=20
+> ? ;-)
 
-Isn't info from manual good enough?
+I was against that too.
 
-In the interest of unblocking this, I would be fine with "supposed" too,
-but manual and all my experiments show VP9 is supported.
+It's time to be fixed in bootloader.
 
 Best regards,
 Jernej
 
 >=20
-> ChenYu
->=20
-> > > a VP9 decoder. However software support for this is currently missing
-> > > and still needs to be reverse engineered from the vendor BSP.
-> > >
-> > > Add the compatible for the H616 variant, using the H6 variant data.
-> > >
-> > > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> >
-> > With that:
-> > Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> >
 > > Best regards,
-> > Jernej
-> >
-> >
+> > Jernej Skrabec
+> >=20
+> > > ---
+> > > Changelog:
+> > > v4:
+> > > - new patch
+> > >=20
+> > >   arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi | 16 ++++++++++++++++
+> > >   1 file changed, 16 insertions(+)
+> > >=20
+> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/ar=
+m64/boot/dts/allwinner/sun50i-a100.dtsi
+> > > index 7cb06b19b5a5..d8391663fd1d 100644
+> > > --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> > > @@ -87,6 +87,22 @@ osc32k: osc32k-clk {
+> > >   		#clock-cells =3D <0>;
+> > >   	};
+> > >  =20
+> > > +	reserved-memory {
+> > > +		#address-cells =3D <2>;
+> > > +		#size-cells =3D <2>;
+> > > +		ranges;
+> > > +
+> > > +		/*
+> > > +		 * 256 KiB reserved for Trusted Firmware-A (BL31).
+> > > +		 * This is added by BL31 itself, but some bootloaders fail
+> > > +		 * to propagate this into the DTB handed to kernels.
+> > > +		 */
+> > > +		secmon@40000000 {
+> > > +			reg =3D <0x0 0x40000000 0x0 0x40000>;
+> > > +			no-map;
+> > > +		};
+> > > +	};
+> > > +
+> > >   	timer {
+> > >   		compatible =3D "arm,armv8-timer";
+> > >   		interrupts =3D <GIC_PPI 13
+>=20
 >=20
 
 
