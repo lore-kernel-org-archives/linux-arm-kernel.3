@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990D8CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7944FCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S2/UFn3//unKPxU1xUH4EJSVP4IZTomnoT6CQvkNf04=; b=bS9NgagUX7Is4IiSxMyr2XdYBv
-	WftcJDgJRC2olHyddNtjFSVhS3uWdbMDRhw34Sg8K0dTEyeXXjmLjieHHKeN3BnWbPBS7ajgPChmA
-	yLAJipAcx5H5XlCrQ21YvPYwnge9i0fjHDE8CyLuLf6E5dIv5TupNmfCSFTfZwTafnaalxPNRVEQ3
-	poUkaf4iGawO5N5XXlVuqclRU9sIcyqPYl0+EEMjL8h9UHgwUp7RD1BugjEIQyUG34DIfYHnB3ZKr
-	UKKDHKactoMWLTM8csy5h4g4/SskAw00zGUipDC/RUgOMyWqujmLyUDna3Ewdiv5oSP/9gNi/pd9V
-	7Q2l1pqg==;
+	bh=x+DHXyBduh8nW5mH/RwXPnUoFvsJilmF8kF51mFs5s0=; b=BGoLCIdIlGuoAZEgZ5Sz0/xJWE
+	EF/ig323/KB8Hzy/xq/1WsJXqa8eoCfEBCOKMWsTfERCfflbmaxcHGXmWtx0x2mHOY+GVvLaaJEHc
+	mVmQCmFqmEz/DjmmNpfCWG1hBQYkACycgEqYTJW/D5xOZTQqtuF9egnE8J7L56XcoubdZch8ucaIw
+	9z39Hpdocbz9AplrXPq2hF5C/gVHmzad774GHDV1K2cP22B8UFuHkoiFUx4MSqALCa4SOAdyff7Dt
+	PY6Iv9L4lvkCw75O/JGZ0dSQygMUtOMarDF5lTVbOYnGyDiQMvxLG6qIIWPL34Wpv0WmmaqBzB+ka
+	uNsAkqMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJNu-0000000C4Uj-0M8a;
-	Sat, 13 Jun 2026 08:06:30 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wYJUC-0000000C4oM-3SDA;
+	Sat, 13 Jun 2026 08:13:00 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJNq-0000000C4Tm-1sWb;
-	Sat, 13 Jun 2026 08:06:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781337987; x=1812873987;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=o0LWqic+72nuI6gnGf1tCPfCLx4sFK1P3umA/isHRZM=;
-  b=OqHo3jJMmzTFaYWmOOTIJf2Bv5IPi7L5r1ZPjypYjhmF1wL5spgqPEMF
-   mHDgF/okdwqYoTbe0xhuRCJ2uszVrAiS6Aj2ebAleHVYah5F4Doit5vIj
-   6nHdGQv0RPHAjH8uIDY9TCP07rLsmMJ+wcwERW7nVDHJ/4ijtXCLr8i3k
-   6nrWG8yuoNAB+Ss06j6Rb3eBTxiLY8Xb5cP+gTeHSox045XzcottdHOG3
-   jZX2uM40Oa2dlZEb5KKLZGcBrJeQMkARCIsQZRnt2qqUoXrPRY5l8IdFg
-   yLkdMsxQzrkAm9wV67NsThpt4jNdAtoWc5V4ZrLJvKGN8v1YGrXwOx8fy
-   A==;
-X-CSE-ConnectionGUID: 4ON23yw5T9e0huBFdTXCeQ==
-X-CSE-MsgGUID: GZoYLjb3QYqy2Hco7EFr4A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11815"; a="93274262"
-X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
-   d="scan'208";a="93274262"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 01:06:25 -0700
-X-CSE-ConnectionGUID: zxpGxI25SySLHMo9tIS3hA==
-X-CSE-MsgGUID: Sr4z/Zy3Rm6hJaKZSqoWsQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
-   d="scan'208";a="271070754"
-Received: from igk-lkp-server01.igk.intel.com (HELO 892db79562d4) ([10.211.93.152])
-  by fmviesa001.fm.intel.com with ESMTP; 13 Jun 2026 01:06:18 -0700
-Received: from kbuild by 892db79562d4 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wYJNg-000000004Sb-1EtN;
-	Sat, 13 Jun 2026 08:06:16 +0000
-Date: Sat, 13 Jun 2026 10:05:56 +0200
-From: kernel test robot <lkp@intel.com>
-To: xur@google.com, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Maciej =?utf-8?Q?=C5=BBenczykowski?= <maze@google.com>,
-	Yue Haibing <yuehaibing@huawei.com>,
-	Jeff Layton <jlayton@kernel.org>, Kees Cook <kees@kernel.org>,
-	Fernando Fernandez Mancera <fmancera@suse.de>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-actions@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH] net: correcting section tags for .init and .exit
- data/functions
-Message-ID: <202606131033.U9FHCI7B-lkp@intel.com>
-References: <20260612162257.896792-1-xur@google.com>
+	id 1wYJUA-0000000C4ny-1zGS
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 08:12:59 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490ac357c55so15564595e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 01:12:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781338376; x=1781943176; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=x+DHXyBduh8nW5mH/RwXPnUoFvsJilmF8kF51mFs5s0=;
+        b=Ges29eJbMlPW7O+2Fn9Ey3D8u7pReanbzG0r8ahIHF+m7Wo4FfPx2qNoauOrmuHmFL
+         SCyhTKzLsBPX+juPl7w3qstBuUIrpGMwEjMeZtgy7AQnc5VXO4DNdQwYSNYhRWaiYNWX
+         pv7Ovz/2SKOzKpMMV9KoRVrS7WTJIAYYELAvVCihuIqH0CNRaF8pjGS0QITNXwlsXvmY
+         apCnC9CgNAVs9OyHox3/7PtEWdyCq937czQW+bJx9cJ8LcUFk55nhuq3lg+txdE4b8xn
+         yv4la564hGeAOmhUzjlUkmM0wl2E0YsHfowAQEpBuhwPUj1aB3eWIwgVow/s0TG6oCGQ
+         nYOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781338376; x=1781943176;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=x+DHXyBduh8nW5mH/RwXPnUoFvsJilmF8kF51mFs5s0=;
+        b=VKr4Y/tVzboT55nVzK5jUtKFlsAmG/2YNZKg6W5oPV9L0NBUsB1737FcjWz81uT1K+
+         l/07bDmkG9JbP9BRhgZ1WFeyOKPAe40k7swQL3v31175jBoQ/B4edlfRnx9r6WqL4ze/
+         pit+/11qwwv5DGiF+hNG1qMpZ+u731Z6iAy4zmcFNiJ4pTc1KRUFMON0WAN6sSEAqWVi
+         c7u5Gt0MMdaN8YrHhBUn6A2kxYqq2uh58oH2lFTSP/2fcAiyYjICTo62A6OXIjqTB4no
+         5kSyurMtJmAtTIeBGPsvEZK4MVfxdANdQ9FOJ/BmpUZvuWuZXXdHWvc0On61zJkex/zV
+         eM9A==
+X-Gm-Message-State: AOJu0YxZ0J24AsT5+lnpCGQfpC5/Yi89KBI+GoO/9d557gXfJaRpHE1x
+	RRY2jN/8Z2HLvufNeTOZMpVFMka1FpUIiYjJzlWc6Msi4vchliwu2cBkLe4TgtyY
+X-Gm-Gg: Acq92OHl5Q5WqfmXbXuWxCoYXAlgmCEh7F6ht4CGAzowEYvhhAaa7xpfcepMi4kQ4+y
+	8Q4PwzEfftUfkCBoOib9qeLHDq80yJYx4hv2kAhDMjs61CP7fsp310Ba/Lg/ZukkTRmY+hF0L+t
+	TgG0SECA0FtD4v2doFIl74G2fV5tI/BKildeESVEvH+YxAbqnZk/WfWolgtmzCr7hSnYa6UMNEK
+	s17X4AAQ5pZ1sDsH3eyilgDUpRoFfTgqUhzUPq7S+tVpDr6Xa2m1CjLJlDaHMhTt4hTDqplnxvw
+	qXg5Yjpn2QOlj6ptWoPBi/Ioy0s2oWlpI3A5hEPlaltN0e7Lty+WRcqsLxNeZgjpSobft00o/I2
+	GgbriFjbeYLngCLdWQ1QCNupw15hYeEDC8ZanDb0vkB63+Gid0pTJOkX2wkF9GgacyCiqlehW/y
+	9ZUDErXw5ijrXQXRCKUBgrWyURjHMzpI+ENMAmf1PQRQDj
+X-Received: by 2002:a05:600c:8b31:b0:490:e5c1:b8c6 with SMTP id 5b1f17b1804b1-490ec4b58ffmr75929755e9.8.1781338376446;
+        Sat, 13 Jun 2026 01:12:56 -0700 (PDT)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea4b39e9sm88333215e9.0.2026.06.13.01.12.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Jun 2026 01:12:55 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Hans de Goede <hansg@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ =?UTF-8?B?Si4gTmV1c2Now6RmZXI=?= <j.ne@posteo.net>,
+ Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
+Subject: Re: [PATCH v4 1/7] arm64: defconfig: Enable Allwinner LRADC input driver
+Date: Sat, 13 Jun 2026 10:12:54 +0200
+Message-ID: <sIT7xrHETBux3nDrv9ggVw@gmail.com>
+In-Reply-To: <20260605070923.3045073-2-alexander.sverdlin@gmail.com>
+References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
+ <20260605070923.3045073-2-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260612162257.896792-1-xur@google.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_010626_556328_053F6A4C 
-X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-CacheID: sfid-20260613_011258_517629_BF3E343B 
+X-CRM114-Status: UNSURE (   7.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,30 +110,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Dne petek, 5. junij 2026 ob 09:09:15 Srednjeevropski poletni =C4=8Das je Al=
+exander Sverdlin napisal(a):
+> Enable Allwinner LRADC input driver as module to support buttons on Baijie
+> HelperBoard A133.
+>=20
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 
-kernel test robot noticed the following build warnings:
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-[auto build test WARNING on 2b414a95b8f7307d42173ba9e580d6d3e2bcbfce]
+Best regards,
+Jernej Skrabec
 
-url:    https://github.com/intel-lab-lkp/linux/commits/xur-google-com/net-correcting-section-tags-for-init-and-exit-data-functions/20260613-002737
-base:   2b414a95b8f7307d42173ba9e580d6d3e2bcbfce
-patch link:    https://lore.kernel.org/r/20260612162257.896792-1-xur%40google.com
-patch subject: [PATCH] net: correcting section tags for .init and .exit data/functions
-config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20260613/202606131033.U9FHCI7B-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project f43d6834093b19baf79beda8c0337ab020ac5f17)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260613/202606131033.U9FHCI7B-lkp@intel.com/reproduce)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202606131033.U9FHCI7B-lkp@intel.com/
-
-All warnings (new ones prefixed by >>, old ones prefixed by <<):
-
->> WARNING: modpost: vmlinux: section mismatch in reference: tcpv6_init+0x68 (section: .text) -> mptcpv6_init (section: .init.text)
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
