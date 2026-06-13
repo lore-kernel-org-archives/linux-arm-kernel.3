@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A217CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77563CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyPgplNXCBS/dtReoSHAFEqQvmD72NfRUURLDpSPEOI=; b=4jWb36LeHVHl/Zq9hc++9CJOfP
-	QP70JrVhJfTm1sE0CIbvRV4OTpHmJNQ6THov/e5oWRSxkMN+ihs68CMC+Pw62Q7TQFR3Yei/EP33J
-	q3VYO8kh+JhI3A6y6aOdcm3sUJU7PQ856nZkfaWT3HA8d7QxyCUyNOmN2XoS7T53+ztYCno7Lyy8S
-	g7by+5/bgY5ils15WkahGjQtiX4HodLePmnJgsc6qLu1eEDclC+RIaNT6Ez45MZyP5y8S9uq4Hlr7
-	ujJZGd0w0lx4VfAQ4x2JG6RqwR9XI3K7EL9n49dc0ojKdkacXfoRQrK4+yYx6uYCdi8Gq6mil6FgC
-	tZ9hL27g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3oBqfpRAY+zECAwZLtJSuIalpAzdGoxXVuAiQRl3Bkg=; b=aR8Npi9jhYpQv1eSamGs+LuogL
+	xQTCv1muUEuS0tt0AWIHsvOXbbN8H/Ihk7JKnj+4aHomPHTq/IxQByzwh8tcvSk40+E1d7rI8uV8A
+	lWbWpTU369DCrpRh7tqeuzS8ilmnaoqK/B5v59vmNdc0S/vwpPuqk6WS39NpfkhQeAgmLp3y9WabA
+	0FaqEK6X+dqn8/ok61iHndpqcja3Ato9sqpojX+IjUfufwcLP9F9CKCR87ydLwuWBMwnxPVknhOZJ
+	Ecpa8ohi3DH4i9KXlHRKIIzjGYzEYhEP3+OsFBCciDcjQaw8xcMgjVtHHxLOAZNZ4PChpuUIiQsWS
+	yQXm23QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLDy-0000000CA3U-091v;
-	Sat, 13 Jun 2026 10:04:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wYLGk-0000000CAJs-38k3;
+	Sat, 13 Jun 2026 10:07:14 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLDx-0000000CA3J-12hU;
-	Sat, 13 Jun 2026 10:04:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE01E60018;
-	Sat, 13 Jun 2026 10:04:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D88C81F000E9;
-	Sat, 13 Jun 2026 10:04:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781345060;
-	bh=AyPgplNXCBS/dtReoSHAFEqQvmD72NfRUURLDpSPEOI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lFEmyH7Gjwzi1tLTY2WewA95xMpfSwXpoSYyH4z1mPK1SkEwcd/OBdfJPeNBkVFTv
-	 Vqb2jYtWq4XhNyRLggNHzQ8q+I0PRzoPwBOnACd7Ssbn0s3b9bEccY6z6rGIGA52Z6
-	 hNiF9Ocf2w6s4HUlrjxvzWRGtQXBSGA3hOH0faQ7wmWyQCXtqB9nLd5nPzur1Ch/nP
-	 ycw87bxVHNogVDx7XoPK+OuMI92tZVG6XO9u0P8U9dizKIp0e4y6SsiQRXaLGaMFOO
-	 ij8/klMNZEsSmcXzqCBHEwQenryVCk5/Cg2H1xSDnZou+5Ej1jLdj7YaCf/fb15+Dt
-	 b8H2A3ZvKdNjA==
-Date: Sat, 13 Jun 2026 12:04:16 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>
-Subject: Re: [PATCH net-next v5 3/3] net: airoha: defer GDM3/GDM4 WAN mode
- and GDM2 loopback to QoS offload
-Message-ID: <ai0rIBA9lmEWbvzl@lore-rh-laptop>
-References: <20260611-airoha-ethtool-priv_flags-v5-0-c11de08486d1@kernel.org>
- <20260611-airoha-ethtool-priv_flags-v5-3-c11de08486d1@kernel.org>
+	id 1wYLGE-0000000CAHo-1fk4
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 10:07:13 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-490b1df16acso2064635e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 03:06:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781345200; x=1781950000; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3oBqfpRAY+zECAwZLtJSuIalpAzdGoxXVuAiQRl3Bkg=;
+        b=pGkkCALZo+uhpuTeV5XMeKR+xOBO6niLEuZIYhxhjUB3YPcGq2DFxzYAihvMhF6L7i
+         s+9GHQjwEPgydZvXcKq9QtMi0zNSEprGFYPHk0YoT+S2z/IiZYZuIz1rVAAw1r4z/OO0
+         WSe+Ke5gFllCwKbzfg1eEHA9ixbvZuhsE4fOJXATBsrnuAINzgwhTSS/Viwf9kYxbVFe
+         MYuO2I5vsm9zmQnokQVRMOsZFaRTJ9yqEQqzjjW2mlQVgNVS3aFG4xVGRrng0CN52sSA
+         /OlXJEZjoI/YZrhJW8QrJ0YNSVeLudHI/B2QOXKzhciCCLQjj7cYTrKdBWFYs7lsmXp2
+         wHgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781345200; x=1781950000;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3oBqfpRAY+zECAwZLtJSuIalpAzdGoxXVuAiQRl3Bkg=;
+        b=JxD0CSNadTXv62lV0CidLV0HG253Mhx1ySPiE4QyRlTW8GZLIKgYVAka2tSybBmy2r
+         G1mYu0AP+dhsEUJCBpR72XtljQzoTKdja5lwKZaASMcoVdBMcMaG5vgj99SZFSQeCW5/
+         AtVp+sn+chEnLk0ICxg0IbJ1vFx58oJFv9/NcKKsZorhnkic7PG+tolNXf54zlr2mLxh
+         lGJdvjk01rK5JB+RKg2jcCbb5640+UHs5/5IjxoC5DGEPoquKIpzs/pb7IsEGhtfQ5LD
+         jhitdPNtyb+hOAutoqDisX1jPbuJsj8RZ54ZqnBKbvzoZ5hH8W72DmaBjGjw2hlZphEg
+         RJJg==
+X-Forwarded-Encrypted: i=1; AFNElJ8SGHWcJCPmy+7Rdt0/yNrsnVWMweAr14xj6QfjzyHpQFF7vxZpzq2kzxyang12HvYgdvlkUwk20eZIkXSZsmhM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFryg2spqcQKni0l0mTAPMeRsnZ9eK2X3Xb6OXvVw1PbAT5gSB
+	WYeGjYdbz0XJe8loXfYCqAece3yEneFgMDRD2333kLp71eQbll5CQusw
+X-Gm-Gg: Acq92OHt5iq/cCFiRjD1XYEeYg7lBTkv71St7r96BQC5HfTsEpli5aeQt2LV0++B6H7
+	hZM0ivRvx1Fa7vUYfb0SVpQ/vGPBNu6s2i0FYrsboOBxsompiB39DmMOq7cHclquVqIvjk+HDWJ
+	zAhMedxK7d4XORjRuuq0cmek78nRYKdKz/Tvh1cNjB63aufTXaj0TSsTwGFtnF60hIY7kvJ7/B7
+	BaAoAteR6blQslm7XEysSNW7eMtgYSnvvwxo2M2c0FtXxTdr8kKofhA0DDRtTJDfteEyshRaAcK
+	n1/LgkCiDjiW6gc3YhIs76j9uLFyWDYy+EAsC5rgZlkmARaZl7CKkrkN9jpAUh/zespMPy0kNXD
+	c+IZj3XbubyfPNadl+KrIHg8qY6Ltwt8XiZzo4w/URs/GMvx7XBBY3+H+LytzFbCsk1fJH+1GV5
+	0C2BeKKMHtcxIO0UdbYd7nlwRAyjfwG/sxTSrKqbW/ccpTmjE6UrKcTNtmcqZA1/s=
+X-Received: by 2002:a05:600c:4743:b0:492:1eaa:a8ba with SMTP id 5b1f17b1804b1-4921eaaa99bmr25666125e9.6.1781345200044;
+        Sat, 13 Jun 2026 03:06:40 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922032ae56sm61699805e9.7.2026.06.13.03.06.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Jun 2026 03:06:39 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: linux-crypto@vger.kernel.org,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com
+Cc: thorsten.blum@linux.dev,
+	herbert@gondor.apana.org.au,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: Re: [PATCH] crypto: atmel-ecc - remove stale comments in atmel_ecc_remove
+Date: Sat, 13 Jun 2026 10:06:38 +0000
+Message-Id: <20260613100638.47312-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <aiqUBXIybgHXA6uj@linux.dev>
+References: <aiqUBXIybgHXA6uj@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="D4O7rKOkeJ+Rx7Jv"
-Content-Disposition: inline
-In-Reply-To: <20260611-airoha-ethtool-priv_flags-v5-3-c11de08486d1@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260613_030642_488108_F9B6098F 
+X-CRM114-Status: GOOD (  36.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,257 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> From linux-crypto-vger  Thu Jun 11 10:55:01 2026
+> From: Thorsten Blum <thorsten.blum () linux ! dev>
+> Date: Thu, 11 Jun 2026 10:55:01 +0000
+> To: linux-crypto-vger
+> Subject: Re: [PATCH] crypto: atmel-ecc - remove stale comments in atmel_ecc_remove
+> Message-Id: <aiqUBXIybgHXA6uj () linux ! dev>
+> X-MARC-Message: https://marc.info/?l=linux-crypto-vger&m=178117527182807
+> 
+> On Thu, Jun 11, 2026 at 01:29:52PM +0800, Herbert Xu wrote:
+> > On Tue, Jun 02, 2026 at 06:52:49PM +0200, Thorsten Blum wrote:
+> > > atmel_ecc_remove() no longer returns -EBUSY since commit 7df7563b16aa
+> > > ("crypto: atmel-ecc - Remove duplicated error reporting in .remove()")
+> > > and is a void function since commit ed5c2f5fd10d ("i2c: Make remove
+> > > callback return void").
+> > > 
+> > > Remove and update the outdated comments.
+> > > 
+> > > Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> > > ---
+> > >  drivers/crypto/atmel-ecc.c | 6 ++----
+> > >  1 file changed, 2 insertions(+), 4 deletions(-)
+> > > 
+> > > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+> > > index 9c380351d2f9..e6068dc0a0c1 100644
+> > > --- a/drivers/crypto/atmel-ecc.c
+> > > +++ b/drivers/crypto/atmel-ecc.c
+> > > @@ -347,13 +347,11 @@ static void atmel_ecc_remove(struct i2c_client *client)
+> > >  {
+> > >  	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
+> > >  
+> > > -	/* Return EBUSY if i2c client already allocated. */
+> > >  	if (atomic_read(&i2c_priv->tfm_count)) {
+> > >  		/*
+> > >  		 * After we return here, the memory backing the device is freed.
+> > > -		 * That happens no matter what the return value of this function
+> > > -		 * is because in the Linux device model there is no error
+> > > -		 * handling for unbinding a driver.
+> > > +		 * That happens because in the Linux device model there is no
+> > > +		 * error handling for unbinding a driver.
+> > >  		 * If there is still some action pending, it probably involves
+> > >  		 * accessing the freed memory.
+> > >  		 */
+> > 
+> > Please fix this properly rather than fiddling with the comments.
+> > 
+> > Drivers should always fail gracefully if the hardware disappears.
+> 
+> Yes, I'm working on a fix, but it's not ready yet.
+> 
 
---D4O7rKOkeJ+Rx7Jv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi guys, since this is going towards some work I already presented here and
+still waiting on answer/request for comment from maintainer(s).
+https://marc.info/?l=linux-kernel&m=178099821038957&w=2
 
-Commenting on sashiko's report:
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260611-airoha-ethtool=
--priv_flags-v5-0-c11de08486d1%40kernel.org
+The issue in the remove() arises when working with devres in combination with
+asynch slow bus hardware, as we do here. AFAIK in the remove() are mainly two
+options, either give a timeout to solve communication gracefully, then cut; or
+wait indefinitely on the device to clear, in case forever.
 
-[...]
+When we cut off after timeout (first case) and still something arrives, it
+would probably access freed memory resources. In the second case, simply
+waiting on the device to resolve, might contain the risk of an infinite
+waiting at driver removal. The other alternative would be to manage kmallocs
+manually, i.e. to move away from devres (probably not what we want).
+Currently, the driver just simply cuts off and has this problematic situation
+very well spotted by the original author and commented.
 
-> +static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
-> +				       struct netlink_ext_ack *extack)
-> +{
-> +	struct airoha_gdm_dev *wan_dev, *dev =3D netdev_priv(netdev);
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	struct airoha_eth *eth =3D dev->eth;
-> +	int err =3D -EBUSY;
-> +
-> +	if (port->id !=3D AIROHA_GDM3_IDX &&
-> +	    port->id !=3D AIROHA_GDM4_IDX) {
-> +		/* HW QoS is always supported by GDM1 and GDM2 */
-> +		return 0;
-> +	}
-> +
-> +	if (!airoha_is_lan_gdm_dev(dev)) /* Already enabled */
-> +		return 0;
-> +
-> +	mutex_lock(&flow_offload_mutex);
-> +
-> +	wan_dev =3D airoha_get_wan_gdm_dev(eth);
-> +	if (wan_dev) {
-> +		if ((wan_dev->flags & AIROHA_PRIV_F_QOS) ||
-> +		    wan_dev->port->id =3D=3D AIROHA_GDM2_IDX) {
-> +			NL_SET_ERR_MSG_MOD(extack,
-> +					   "QoS configured for WAN device");
-> +			goto error_unlock;
-> +		}
-> +		airoha_disable_qos_for_gdm34(netdev_from_priv(wan_dev));
-> +	}
-> +
-> +	dev->flags |=3D AIROHA_PRIV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +	err =3D airoha_enable_gdm2_loopback(dev);
-> +	if (err)
-> +		goto error_disable_wan;
-> +
-> +	err =3D airoha_set_macaddr(dev, netdev->dev_addr);
-> +	if (err)
-> +		goto error_disable_loopback;
-> +
-> +	if (netif_running(netdev)) {
-> +		u32 pse_port;
-> +
-> +		pse_port =3D airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
-> +							 : FE_PSE_PORT_PPE1;
-> +		airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id),
-> +					    pse_port);
-> +	}
-> +
-> +	mutex_unlock(&flow_offload_mutex);
-> +
-> +	return 0;
-> +
-> +error_disable_loopback:
-> +	airoha_disable_gdm2_loopback(dev);
-> +error_disable_wan:
-> +	dev->flags &=3D ~AIROHA_PRIV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +error_unlock:
-> +	mutex_unlock(&flow_offload_mutex);
-> +
-> +	return err;
-> +}
+Further, related to this situation in the remove() is using the global driver
+data, which then might be overriden, and thus leak, when still around, and
+this connects to dealing with synchronizing adding to the i2c_clientList and
+algo registration, both happening in probe().
 
-- The error_disable_loopback / error_disable_wan / error_unlock paths only
-  revert the requesting dev. The earlier airoha_disable_qos_for_gdm34(wan_d=
-ev)
-  demotion is never undone.
-  Could a TC_HTB_CREATE that returns an error to userspace then leave the
-  system with no WAN GDM3/GDM4 device, with the previously-working sibling
-  silently flipped to LAN, its QDMA migrated to QDMA0, GDM2 loopback torn
-  down, and its forwarding rewritten to PPE1?
-  Should the failure paths re-promote wan_dev (re-call airoha_enable_qos_fo=
-r_gdm34
-  or an equivalent restore helper on it) before unlocking and returning?
+I tried to address all three issues. That's why the patch ended with such a
+lengthy comment. The patch is reviewed by sashiko complaining only the above
+dilemma.
+https://sashiko.dev/#/patchset/20260609092927.47222-1-l.rubusch%40gmail.com
 
-  - This is the same item reported by sashiko-gemini in [0]. In my previous
-    reply I have explained why I do not think it worths to re-promote the
-    original interface in case of failure in airoha_enable_qos_for_gdm34().
+I hope I did not interfere too much with Thorstens fixes here. Since I assumed
+you were active on rather different topics. Pls, let me know if so. I just
+want to see this issue out of my way for the refac patch series.
 
-Regards,
-Lorenzo
-
-
-[0] https://sashiko.dev/#/patchset/20260611-airoha-ethtool-priv_flags-v5-0-=
-c11de08486d1%40kernel.org
-
-> +
->  static int airoha_tc_htb_destroy(struct net_device *netdev)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> @@ -3038,6 +3205,8 @@ static int airoha_tc_htb_destroy(struct net_device =
-*netdev)
->  	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
->  		airoha_tc_remove_htb_queue(netdev, q);
-> =20
-> +	dev->flags &=3D ~AIROHA_PRIV_F_QOS;
-> +
->  	return 0;
->  }
-> =20
-> @@ -3057,24 +3226,33 @@ static int airoha_tc_get_htb_get_leaf_queue(struc=
-t net_device *netdev,
->  	return 0;
->  }
-> =20
-> -static int airoha_tc_setup_qdisc_htb(struct net_device *dev,
-> +static int airoha_tc_setup_qdisc_htb(struct net_device *netdev,
->  				     struct tc_htb_qopt_offload *opt)
->  {
->  	switch (opt->command) {
-> -	case TC_HTB_CREATE:
-> +	case TC_HTB_CREATE: {
-> +		struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +		int err;
-> +
-> +		err =3D airoha_enable_qos_for_gdm34(netdev, opt->extack);
-> +		if (err)
-> +			return err;
-> +
-> +		dev->flags |=3D AIROHA_PRIV_F_QOS;
->  		break;
-> +	}
->  	case TC_HTB_DESTROY:
-> -		return airoha_tc_htb_destroy(dev);
-> +		return airoha_tc_htb_destroy(netdev);
->  	case TC_HTB_NODE_MODIFY:
-> -		return airoha_tc_htb_modify_queue(dev, opt);
-> +		return airoha_tc_htb_modify_queue(netdev, opt);
->  	case TC_HTB_LEAF_ALLOC_QUEUE:
-> -		return airoha_tc_htb_alloc_leaf_queue(dev, opt);
-> +		return airoha_tc_htb_alloc_leaf_queue(netdev, opt);
->  	case TC_HTB_LEAF_DEL:
->  	case TC_HTB_LEAF_DEL_LAST:
->  	case TC_HTB_LEAF_DEL_LAST_FORCE:
-> -		return airoha_tc_htb_delete_leaf_queue(dev, opt);
-> +		return airoha_tc_htb_delete_leaf_queue(netdev, opt);
->  	case TC_HTB_LEAF_QUERY_QUEUE:
-> -		return airoha_tc_get_htb_get_leaf_queue(dev, opt);
-> +		return airoha_tc_get_htb_get_leaf_queue(netdev, opt);
->  	default:
->  		return -EOPNOTSUPP;
->  	}
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 24fd8dcf7fca..d1390ffcea7c 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -540,11 +540,12 @@ struct airoha_qdma {
-> =20
->  enum airoha_priv_flags {
->  	AIROHA_PRIV_F_WAN =3D BIT(0),
-> +	AIROHA_PRIV_F_QOS =3D BIT(1),
->  };
-> =20
->  struct airoha_gdm_dev {
-> +	struct airoha_qdma __rcu *qdma;
->  	struct airoha_gdm_port *port;
-> -	struct airoha_qdma *qdma;
->  	struct airoha_eth *eth;
-> =20
->  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-> @@ -676,6 +677,16 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
->  bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
->  			     struct airoha_gdm_dev *dev);
-> =20
-> +extern struct mutex flow_offload_mutex;
-> +
-> +static inline struct airoha_qdma *
-> +airoha_qdma_deref(struct airoha_gdm_dev *dev)
-> +{
-> +	return rcu_dereference_protected(dev->qdma,
-> +					 lockdep_rtnl_is_held() ||
-> +					 lockdep_is_held(&flow_offload_mutex));
-> +}
-> +
->  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port);
->  bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
->  void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *sk=
-b,
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index 91bcc55a6ac6..1d1b1a57d795 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -15,7 +15,10 @@
->  #include "airoha_regs.h"
->  #include "airoha_eth.h"
-> =20
-> -static DEFINE_MUTEX(flow_offload_mutex);
-> +/* Serialize airoha_gdm_dev flags, QDMA pointer and PPE CPU port
-> + * configuration.
-> + */
-> +DEFINE_MUTEX(flow_offload_mutex);
->  static DEFINE_SPINLOCK(ppe_lock);
-> =20
->  static const struct rhashtable_params airoha_flow_table_params =3D {
-> @@ -86,8 +89,8 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *=
-ppe)
-> =20
->  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port)
->  {
-> -	struct airoha_qdma *qdma =3D dev->qdma;
-> -	struct airoha_eth *eth =3D qdma->eth;
-> +	struct airoha_qdma *qdma =3D airoha_qdma_deref(dev);
-> +	struct airoha_eth *eth =3D dev->eth;
->  	u8 qdma_id =3D qdma - &eth->qdma[0];
->  	u32 fe_cpu_port;
-> =20
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
-rnet/airoha/airoha_regs.h
-> index 436f3c8779c1..4e17dfbcf2b8 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -376,6 +376,7 @@
-> =20
->  #define REG_SRC_PORT_FC_MAP6		0x2298
->  #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
-> +#define FC_MAP6_DEF_VALUE		0x1b1a1918
-> =20
->  #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
-> =20
->=20
-> --=20
-> 2.54.0
->=20
-
---D4O7rKOkeJ+Rx7Jv
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCai0rHgAKCRA6cBh0uS2t
-rIUoAP4pZrm2UQU8qtzgsF0pQQuPaoB3Q5R0siU/rjRMb5PkgwEAmSLKBZg1XeBq
-C1qnxWUBxlg29kh8vqeqgW8n2q2DZAY=
-=ei15
------END PGP SIGNATURE-----
-
---D4O7rKOkeJ+Rx7Jv--
+Best,
+L
 
