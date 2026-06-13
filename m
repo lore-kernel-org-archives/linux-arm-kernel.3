@@ -4,50 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E42CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 05:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701EFCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 06:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwOZTkRoALza710BPglWSnjfyn/AZ1mAUg08077jjNI=; b=MZ8KEWfaekJspH3vUo6PGfXjDj
-	4b5POapuUoRuz3G/fBd5HX5hQeq/PxeY0pOsrjp/MSccSAJW7eNewh7rGMQQqCIGqUh+u/9umbpNN
-	GXkEiyrLk6GvKaoq9fDf2wRYJmSPpb06kXyb0VWljtBtkOprA3tG854OnSI5ELzOpB6AEsMI08/R7
-	yUMVmTwADOzIFlQGGTtJjWgfQl1rJd+BPtsfwJn3e/akGPmJ6iOQjEolHFLQKFpPDw+FmbKZGHSR/
-	wm53QomZJXzpMx9xE4JhtyiMmOVrrhqakfPbW8zg36IPuLKZIU+pWOyqm62FbzjtdZVesY664u/zP
-	Smwywssg==;
+	bh=Syw7ULXdB5dW8ZcIfM7qGgtXBrTWdNGVXAYsbJq7l1s=; b=CAPS005jv1WKYGEzUsrQM2m/2w
+	xoZePSftTwue/YKnhVy3NrOdIxF1KeYo5PmNP+VYq8am41/bA5y9pSfRTUBpb8gB0PW0NT7zcknrZ
+	z6skTw0ZJ+/yJmyTif6sxd7TFQoCScIf8zY0+IB/n9MHt0E6jG5U7qx7l+Phc2BbpArArFhPDiJzI
+	orSBp8kbdRhrUPaa+keeImxgox5IebZYPhCeej0dGpk8cftnmARHilWCaPpSyAy10PLQphHsTMq92
+	iHkOnlyJzRvpmI/SdnDZK3DZ/wCbr2/o0WLZ0vhgAy8s3zfivvE/+hRy12383Lp88JzYRu6r6Svr/
+	99SDzf7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYH1r-0000000ByVg-2M4t;
-	Sat, 13 Jun 2026 05:35:35 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYH1o-0000000ByVT-41Wq;
-	Sat, 13 Jun 2026 05:35:32 +0000
-Message-ID: <09e893be-6a87-4fd5-805f-6fcae67485a5@infradead.org>
-Date: Fri, 12 Jun 2026 22:35:32 -0700
+	id 1wYHWS-0000000BzGM-3Mxg;
+	Sat, 13 Jun 2026 06:07:12 +0000
+Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wYHWL-0000000BzFg-3ABz
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 06:07:11 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1781330818;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Syw7ULXdB5dW8ZcIfM7qGgtXBrTWdNGVXAYsbJq7l1s=;
+	b=M880zC7u2byTFN+N4Gq3ygEGJV6uJ/y323l98Uq2VwiDsDKwwbe3KSZIsE6fswnZXAIDQM
+	ncME5PeWmLbP9V5sIdSHUE8XEIhJI9+8OEhIAu5FhcUJagvyZNVQOVT5s3ZSRIrP6Q0Swr
+	Ebk61m5Zsus12EN++gCjPlzL6R/lrYY=
+From: Lance Yang <lance.yang@linux.dev>
+To: dev.jain@arm.com
+Cc: ryabinin.a.a@gmail.com,
+	akpm@linux-foundation.org,
+	corbet@lwn.net,
+	glider@google.com,
+	andreyknvl@gmail.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	kasan-dev@googlegroups.com,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	ryan.roberts@arm.com,
+	anshuman.khandual@arm.com,
+	kaleshsingh@google.com,
+	21cnbao@gmail.com,
+	david@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	Lance Yang <lance.yang@linux.dev>
+Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at allocation time
+Date: Sat, 13 Jun 2026 14:06:37 +0800
+Message-Id: <20260613060637.40039-1-lance.yang@linux.dev>
+In-Reply-To: <20260612044425.763060-1-dev.jain@arm.com>
+References: <20260612044425.763060-1-dev.jain@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
-To: Cristian Marussi <cristian.marussi@arm.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-doc@vger.kernel.org
-Cc: sudeep.holla@kernel.org, james.quinlan@broadcom.com,
- f.fainelli@gmail.com, vincent.guittot@linaro.org, etienne.carriere@st.com,
- peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org,
- elif.topuz@arm.com, lukasz.luba@arm.com, philip.radford@arm.com,
- brauner@kernel.org, souvik.chakravarty@arm.com, leitao@kernel.org,
- kas@kernel.org, puranjay@kernel.org, usama.arif@linux.dev,
- kernel-team@meta.com
-References: <20260612223802.1337232-1-cristian.marussi@arm.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260612223802.1337232-1-cristian.marussi@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_230708_118070_93C352B0 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,117 +90,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On Fri, Jun 12, 2026 at 04:44:22AM +0000, Dev Jain wrote:
+>Introduce a boot option to tag only at allocation time of the objects. This
+>reduces KASAN MTE overhead, the tradeoff being reduced ability of
+>catching bugs.
+>
+>Now, when a memory object will be freed, it will retain the random tag it
+>had at allocation time. This compromises on catching UAF bugs, till the
+>time the object is not reallocated, at which point it will have a new
+>random tag.
+>
+>Hence, not catching "use-after-free-before-reallocation" and not catching
+>"double-free" will be the compromise for reduced KASAN overhead.
 
-On 6/12/26 3:37 PM, Cristian Marussi wrote:
-> Hi all,
-> 
-> --------------------------------------------------------------------------------
-> [TLDR Summary]
-> This series introduces a new SCMI driver which uses a new Telemetry FS to expose
-> and configure SCMI Telemetry Data Events retrieved from the platform SCMI FW
-> at runtime. The patches carrying the new STLMFS Filesystem support are tagged
-> with 'stlmfs'.
-> --------------------------------------------------------------------------------
+Hmm ... do we also need to teach the KASAN KUnit tests about this mode?
 
-> ---
->  - moved from SysFS/chardev to a full fledged FS
->  - added support for SCMI Telemetry BLK timestamps
-> 
+With kasan.tag_only_on_alloc=on, free-time poisoning is skipped, so
+some UAF and double-free reports are skipped on purpose, but the tests
+still expect them :)
 
-'make htmldocs' with all documentation patches applied says:
-
-WARNING: linext-2026-0610/Documentation/ABI/testing/stlmfs:5: tag 'contact' is invalid
-		Rationale:	This filesystem provides access to SCMI telemetry data and
-
-WARNING: linext-2026-0610/Documentation/ABI/testing/stlmfs:21: tag 'contact' is invalid
-		Concurrency:	The telemetry configuration exposed through this filesystem is
-
-Documentation/ABI/testing/stlmfs:55: ERROR: Unexpected indentation. [docutils]
-Documentation/ABI/testing/stlmfs:69: ERROR: Unexpected indentation. [docutils]
-Documentation/ABI/testing/stlmfs:282: ERROR: Unexpected indentation. [docutils]
-
-WARNING: linext-2026-0610/Documentation/ABI/testing/stlmfs:39: abi_sys_fs_arm_telemetry_tlm_n doesn't have a description
-linext-2026-0610/Documentation/filesystems/stlmfs.rst:255: WARNING: Title underline too short.
-
-by-components/
------------ [docutils]
-
-linext-2026-0610/Documentation/filesystems/stlmfs.rst: WARNING: document isn't included in any toctree [toc.not_included]
-
-
-Please correct these and run 'make htmldocs' to verify that they are fixed.
-
-> 
-> Thanks,
-> Cristian
-> 
-> [0]: https://developer.arm.com/documentation/den0056/f/?lang=en
-> [1]: https://lore.kernel.org/arm-scmi/20250620192813.2463367-1-cristian.marussi@arm.com/
-> [2]: https://git.kernel.org/pub/scm/linux/kernel/git/cris/linux.git/log/?h=scmi_telemetry_unified_fs_V4
-> 
-> Cristian Marussi (31):
->   firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
->   firmware: arm_scmi: Reduce the scope of protocols mutex
->   firmware: arm_scmi: Allow registration of unknown-size events/reports
->   firmware: arm_scmi: Allow protocols to register for notifications
->   uapi: Add ARM SCMI definitions
->   dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
->   include: trace: Add Telemetry trace events
->   firmware: arm_scmi: Add basic Telemetry support
->   firmware: arm_scmi: Add support to parse SHMTIs areas
->   firmware: arm_scmi: Add Telemetry configuration operations
->   firmware: arm_scmi: Add Telemetry DataEvent read capabilities
->   firmware: arm_scmi: Add support for Telemetry reset
->   firmware: arm_scmi: Add Telemetry notification support
->   firmware: arm_scmi: Add support for boot-on Telemetry
->   firmware: arm_scmi: Add Telemetry generation counter
->   firmware: arm_scmi: Add common per-protocol debugfs support
->   firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
->   firmware: arm_scmi: Add Telemetry debugfs ABI documentation
->   firmware: arm_scmi: stlmfs: Add System Telemetry filesystem driver
->   fs/stlmfs: Document ARM SCMI Telemetry filesystem
->   firmware: arm_scmi: stlmfs: Add basic mount options
->   fs/stlmfs: Document ARM SCMI Telemetry FS mount options
->   firmware: arm_scmi: stlmfs: Add ioctls support
->   fs/stlmfs: Document alternative ioctl based binary interface
->   firmware: arm_scmi: stlmfs: Add by-components view
->   fs/stlmfs: Document alternative topological view
->   firmware: arm_scmi: stlmfs: Add generation file
->   [RFC] docs: stlmfs: Document ARM SCMI Telemetry FS ABI
->   firmware: arm_scmi: stlmfs: Add lazy population support
->   fs/stlmfs: Document lazy mode and related mount option
->   [RFC] tools/scmi: Add SCMI Telemetry testing tool
-> 
->  Documentation/ABI/testing/debugfs-scmi        |   22 +
->  Documentation/ABI/testing/stlmfs              |  348 ++
->  .../bindings/firmware/arm,scmi.yaml           |    8 +
->  Documentation/filesystems/stlmfs.rst          |  342 ++
->  MAINTAINERS                                   |    1 +
->  drivers/firmware/arm_scmi/Kconfig             |   24 +
->  drivers/firmware/arm_scmi/Makefile            |    3 +-
->  drivers/firmware/arm_scmi/common.h            |   10 +
->  drivers/firmware/arm_scmi/driver.c            |   93 +-
->  drivers/firmware/arm_scmi/notify.c            |   30 +-
->  drivers/firmware/arm_scmi/notify.h            |    8 +-
->  drivers/firmware/arm_scmi/protocols.h         |   13 +
->  .../firmware/arm_scmi/scmi_system_telemetry.c | 3146 ++++++++++++++++
->  drivers/firmware/arm_scmi/telemetry.c         | 3300 +++++++++++++++++
->  include/linux/scmi_protocol.h                 |  203 +-
->  include/trace/events/scmi.h                   |   48 +-
->  include/uapi/linux/scmi.h                     |  289 ++
->  tools/testing/scmi/Makefile                   |   25 +
->  tools/testing/scmi/stlm.c                     |  434 +++
->  19 files changed, 8307 insertions(+), 40 deletions(-)
->  create mode 100644 Documentation/ABI/testing/stlmfs
->  create mode 100644 Documentation/filesystems/stlmfs.rst
->  create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
->  create mode 100644 drivers/firmware/arm_scmi/telemetry.c
->  create mode 100644 include/uapi/linux/scmi.h
->  create mode 100644 tools/testing/scmi/Makefile
->  create mode 100644 tools/testing/scmi/stlm.c
-> 
-
--- 
-~Randy
-
+Cheers, Lance
 
