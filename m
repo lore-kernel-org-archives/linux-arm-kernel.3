@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 066F3CD98DF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91955CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INXzSK5pqsexbm4tR/dA1tSz1dz6sV9VupQoZ4YYg/M=; b=XAB1eanQYecudr4QLBwgL2QSkQ
-	3FQf34XCptgvGDx3oEK/rQ/eOIQDyCjiLkPrpRpQXrip3KtMmdmNIZitArdXr15eopJnTv3MDv1UM
-	YuVfPGz5hYFPTeVV1HrrzoTmxGum/7SHrJeNGGYTpz/tmtf0yXzjaWQj0N2dR3sar6CuPFhXj6trM
-	98UbWovzqfuYNTHl9qGgNDYqXNfVOXHq0NBK1y8gD1yqzRuw/xblXsSF8wPWB9xe8ckT3QFRDr3NK
-	88B149lkYh1ucTRIjDhlupcSXqrHAcyz8wBjksTrnzU5n9vOJ+w0LY+4rMDBJ7HKDpvtkuaOQ+AIn
-	e69M1YSA==;
+	bh=sWIXchGp3EK3iYBKn9Q0PTpgyTSAfcuEHB9Bn8r8u9A=; b=RWiIfKMXzw9YpQrjnoMrHfvTKQ
+	h+dAYdyYHQbEv3/uoqdwZTAwBVoWEWG2Edci6LlMMwC9a8RLjHIFjNqi8OZ7teHSgok+vmuHF6w/v
+	vgwPeSZcrMrUQ7vDbnYCqc9hF6sEoaeSSDQ9WriI8HWK/R9yK3+f//JmPzZ6FWWiHPDVu+paiyCW3
+	vu+MN4EV3b5prOqFLwqpCsfXMCeWD1Vf5b8Y5fsmrbwyfhmNsUeah/q5F5yI7BxMonLaT5rscsQlP
+	xE/Bmg+p2HY8elX74hxESmC6yjRcCsX4OMkiUOqdT6MLpI3sy6LUEgFP8umm61BC5lnXmEr/6dw/4
+	Xh/D/B3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC7W-0000000Bo3a-26tz;
+	id 1wYC7W-0000000Bo2H-00Kl;
 	Sat, 13 Jun 2026 00:21:06 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC7O-0000000Bnqc-2JIr
+	id 1wYC7L-0000000Bnms-3uvI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:20:59 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c858e0cbc89so843303a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:57 -0700 (PDT)
+	Sat, 13 Jun 2026 00:20:57 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2c2b64850easo28552695ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781310057; x=1781914857; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781310054; x=1781914854; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=INXzSK5pqsexbm4tR/dA1tSz1dz6sV9VupQoZ4YYg/M=;
-        b=bjttU0Re8kPTvGtxuGLQmAYbmxfvzptnXs1aXHoClnBuzkk7uSNrwXnYrj348rTXqm
-         35C6+NFseHVAcR1OBL3rXnx9lu3uVSffBEY74JRBJkx9XOOa21iplz1SPc3+y/SsGif8
-         Bkwi85EN68CuvG2M4SnMALTh8gJ2BebTOeIqzoeeKRQS4xBkkJlbfgiOj7i8t0SPFENT
-         Qpyi3OykW6N9yWoKDuBsa8PiX2QUL6I4rbzwBRDIQJYp2mu24Q3g1heGI55vZAB7pbnl
-         HrCv9RrjJV5rm8LJ4WqycbBJr48ZDubM1rzoZW+v/SvBjhUV+EMTq3LYRSLHXFbuITC2
-         cn4A==
+        bh=sWIXchGp3EK3iYBKn9Q0PTpgyTSAfcuEHB9Bn8r8u9A=;
+        b=fCbRAqCiFtZfAZb25+sYtc0VIirXn/D0xajdCUauPvAXBy8Vsi3MlO4B78+fnwYJor
+         qWZHp/14H7+VoKIo0ulc6dbmnYEhCF5t1T1hTL4tSx4esoZwi60qJAHoIlQcQS3sz4Px
+         4rsaGvpZXF5NvRc8IVdeQZmZp0y4684OEOPpUwBJMP6tPlTWAcsanQU46S0ZEGDQD9Hk
+         ATYLkPrnaXtvKMoWZ8iz97a82Whwp244SW+XBVYVarwaif9Wa0Z7gYc6RcoTMxWYCTbI
+         7qWdRwrS3KiImU4BOTzK/01eRCnjsrXnoNMQ0Qqj2dB/++iwt2wXC1Xhd9JeSlvnUMcX
+         GIRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781310057; x=1781914857;
+        d=1e100.net; s=20251104; t=1781310054; x=1781914854;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=INXzSK5pqsexbm4tR/dA1tSz1dz6sV9VupQoZ4YYg/M=;
-        b=nvHSVqYQY+3+2/PTi745mlqdZUAzbpjIb/zjOrldgL8kVBXe3O39045Tn5ksuYbxnv
-         kkr9pp4PaqD14rJL2h56oo9Gi1HeOk7JjryC/oomG1cimp5ne32Ig0qZgMxI5cZzxUKr
-         8QRvwwdvVHPUSG042O8VYeJA5YPHsqB0Jo9Jj44Ak++He5/9yIQbv2KyPHBVVUWOMto3
-         PWoubVLW6YaI4SrVvty7/SVNWF3eHJf8baGVk47Mr7yTcdglZhmyRUU0HBjngA1czZ9U
-         OYBHyuuVdqfvl5MspbxS6jVjtjHfcEmJnI1MH1x22FsSkSK3nUCZbdkhybGpsd/LlSS8
-         u6TA==
-X-Forwarded-Encrypted: i=1; AFNElJ80u1ZGjNqGcDfyMeteCGc8PKHL9edRKTmtx2Z5Re8f8J7P5cTLPO/6bJGHGy4qavARkGjmdhOTR1gCcDUStbzR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVRRAIQ/kD1kKMZqnkSrbwkjnrb0nkIW1+1DpiIJq3oBiCpTeN
-	FrIiyN/iNEqMlzTdinqZQhZ3MizF1P37j4GN2/s0foD2DDCq1u839HWQdUn/1JNvW7Grw7z3IXH
-	Jied33A==
-X-Received: from pgbcr12.prod.google.com ([2002:a05:6a02:410c:b0:c79:3224:837d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:6da4:b0:3b1:80c7:5f8c
- with SMTP id adf61e73a8af0-3b783f3c781mr6308620637.28.1781310056984; Fri, 12
- Jun 2026 17:20:56 -0700 (PDT)
-Date: Fri, 12 Jun 2026 17:20:28 -0700
+        bh=sWIXchGp3EK3iYBKn9Q0PTpgyTSAfcuEHB9Bn8r8u9A=;
+        b=WBP0tWej1MRyAp7qOUXZAfEH+MmLu+1VLQEL4gz9Qd0pwbbZSbCkC59sEQ+JLSMGhp
+         rMy+UkNMRCfBgaQH7/CAtE2fTQCZpcyS3Fy3Zmnw682z/nBYSpZdk6D9D7qa14k0oy+h
+         TFbvqf/eb8UE9S3HjD1q8c26XqkJq/eKsqTHmLsAJyLx3b3NbgX47+bkE2dQV+QH6ho3
+         YnR1vYC3PHAKbsGs/wuXM+lqkz/hiiJRCSli/SAjZMZJ2UE9gAewy/vZBJc5nG89zzC4
+         Pp5sqWzgwRnO+9BO3O0wxMVl+PuYTjUWTl+QYi5lacOqjt4cSpsKn1Rs1kpmTUsSV8ft
+         IqPg==
+X-Forwarded-Encrypted: i=1; AFNElJ/OULjRYSniaAhaIK16WVvvXACHfpbfrUx8cbrVzWpm6SSwOdLml1HfR2LglmQKKYyo5VXu6TN3NtfKAxh4meec@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/owUSdbugkDwJWtP1kvZVm/0jRDtHAkHfE2aNvlxPzbVcE3ji
+	M5ydaD56/gH6+Fz0vxBM1oT1PWM0lxhFR3+DcpDRe31Ly6ZvhNmH+IjEnwUrtn1ivsi0ENAPT7J
+	V7VNr4A==
+X-Received: from plrf19.prod.google.com ([2002:a17:902:ab93:b0:2bd:5ced:c1c0])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:f8e:b0:2c0:d8ee:7d66
+ with SMTP id d9443c01a7336-2c6642a221amr19502385ad.36.1781310054137; Fri, 12
+ Jun 2026 17:20:54 -0700 (PDT)
+Date: Fri, 12 Jun 2026 17:20:26 -0700
 In-Reply-To: <20260613002031.745413-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260613002031.745413-1-seanjc@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260613002031.745413-18-seanjc@google.com>
-Subject: [PATCH v7 17/20] KVM: selftests: Add a utility to pin a task to a
- random CPU, given a CPU set
+Message-ID: <20260613002031.745413-16-seanjc@google.com>
+Subject: [PATCH v7 15/20] KVM: selftests: Add kvm_gettid() wrapper and convert users
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -78,8 +77,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_172058_595398_3363B11C 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20260612_172055_981909_4D327955 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,66 +96,126 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Josh Hilke <jrhilke@google.com>
 
-Add a helper function, pin_task_to_random_cpu(), to pin a task to a random
-CPU from a given cpu_set_t.
+Add a KVM wrapper for the gettid() syscall so that tests don't have to
+open code the syscall() themselves.  Unfortunately, not all flavors of
+libc that KVM selftests support provide gettid().  Convert all existing
+users of the syscall to the new wrapper.
 
-This helper will be used eventfd IRQ test to migrate vCPUs to random pCPUs,
-to stress host-side interrupt routing and delivery.
+Note, per the gettid() manpage[1], "This call is always successful", i.e.
+prefixing kvm_ to the syscall name is aligned with the goal of providing
+syscall wrappers that guarantee success.
 
+No functional changes intended.
+
+Link: https://man7.org/linux/man-pages/man2/gettid.2.html [1]
 Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Josh Hilke <jrhilke@google.com>
 [sean: massage changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../testing/selftests/kvm/include/kvm_util.h  |  2 ++
- tools/testing/selftests/kvm/lib/kvm_util.c    | 21 +++++++++++++++++++
- 2 files changed, 23 insertions(+)
+ tools/testing/selftests/kvm/demand_paging_test.c   | 2 +-
+ tools/testing/selftests/kvm/include/kvm_syscalls.h | 5 +++++
+ tools/testing/selftests/kvm/lib/assert.c           | 8 ++------
+ tools/testing/selftests/kvm/lib/test_util.c        | 3 ++-
+ tools/testing/selftests/kvm/rseq_test.c            | 2 +-
+ 5 files changed, 11 insertions(+), 9 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index c1f588154398..b39e713c30a4 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -1094,6 +1094,8 @@ static inline void pin_task_to_cpu(pthread_t task, int cpu)
- 	TEST_ASSERT(!r, "Failed to set thread affinity to pCPU '%u'", cpu);
- }
- 
-+void pin_task_to_random_cpu(pthread_t task, cpu_set_t *possible_cpus);
-+
- static inline int pin_task_to_any_cpu(pthread_t task)
+diff --git a/tools/testing/selftests/kvm/demand_paging_test.c b/tools/testing/selftests/kvm/demand_paging_test.c
+index 302c4923d093..f8b3d0b68830 100644
+--- a/tools/testing/selftests/kvm/demand_paging_test.c
++++ b/tools/testing/selftests/kvm/demand_paging_test.c
+@@ -57,7 +57,7 @@ static void vcpu_worker(struct memstress_vcpu_args *vcpu_args)
+ static int handle_uffd_page_request(int uffd_mode, int uffd,
+ 		struct uffd_msg *msg)
  {
- 	int cpu = sched_getcpu();
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 9bf28b7d9d7a..2eee1e46f9e9 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -667,6 +667,27 @@ void kvm_print_vcpu_pinning_help(void)
- 	       "     (default: no pinning)\n", name, name);
+-	pid_t tid = syscall(__NR_gettid);
++	pid_t tid = kvm_gettid();
+ 	u64 addr = msg->arg.pagefault.address;
+ 	struct timespec start;
+ 	struct timespec ts_diff;
+diff --git a/tools/testing/selftests/kvm/include/kvm_syscalls.h b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+index 6cb3bed29b81..dc4fb97aef8d 100644
+--- a/tools/testing/selftests/kvm/include/kvm_syscalls.h
++++ b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+@@ -83,6 +83,11 @@ static inline int kvm_dup(int fd)
+ 	return new_fd;
  }
  
-+void pin_task_to_random_cpu(pthread_t task, cpu_set_t *possible_cpus)
++static inline pid_t kvm_gettid(void)
 +{
-+	int target_idx;
-+	int nr_cpus;
-+	int cpu;
-+
-+	nr_cpus = CPU_COUNT(possible_cpus);
-+	TEST_ASSERT(nr_cpus > 0, "No CPUs available in possible_cpus");
-+
-+	target_idx = kvm_random_u64(&kvm_rng) % nr_cpus;
-+
-+	for (cpu = 0; cpu < CPU_SETSIZE; cpu++) {
-+		if (CPU_ISSET(cpu, possible_cpus) && target_idx-- == 0) {
-+			pin_task_to_cpu(task, cpu);
-+			return;
-+		}
-+	}
-+
-+	TEST_FAIL("Failed to find random CPU in possible_cpus");
++	return syscall(__NR_gettid);
 +}
 +
- void kvm_parse_vcpu_pinning(const char *pcpus_string, u32 vcpu_to_pcpu[],
- 			    int nr_vcpus)
- {
+ __KVM_SYSCALL_DEFINE(munmap, 2, void *, mem, size_t, size);
+ __KVM_SYSCALL_DEFINE(close, 1, int, fd);
+ __KVM_SYSCALL_DEFINE(fallocate, 4, int, fd, int, mode, loff_t, offset, loff_t, len);
+diff --git a/tools/testing/selftests/kvm/lib/assert.c b/tools/testing/selftests/kvm/lib/assert.c
+index 8be0d09ecf0f..1d72dcdfce3b 100644
+--- a/tools/testing/selftests/kvm/lib/assert.c
++++ b/tools/testing/selftests/kvm/lib/assert.c
+@@ -10,6 +10,7 @@
+ #include <sys/syscall.h>
+ 
+ #include "kselftest.h"
++#include "kvm_syscalls.h"
+ 
+ #ifdef __GLIBC__
+ #include <execinfo.h>
+@@ -64,11 +65,6 @@ static void test_dump_stack(void)
+ static void test_dump_stack(void) {}
+ #endif
+ 
+-static pid_t _gettid(void)
+-{
+-	return syscall(SYS_gettid);
+-}
+-
+ void __attribute__((noinline))
+ test_assert(bool exp, const char *exp_str,
+ 	const char *file, unsigned int line, const char *fmt, ...)
+@@ -81,7 +77,7 @@ test_assert(bool exp, const char *exp_str,
+ 		fprintf(stderr, "==== Test Assertion Failure ====\n"
+ 			"  %s:%u: %s\n"
+ 			"  pid=%d tid=%d errno=%d - %s\n",
+-			file, line, exp_str, getpid(), _gettid(),
++			file, line, exp_str, getpid(), kvm_gettid(),
+ 			errno, strerror(errno));
+ 		test_dump_stack();
+ 		if (fmt) {
+diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
+index e208a57f190c..6b00ab11f3c0 100644
+--- a/tools/testing/selftests/kvm/lib/test_util.c
++++ b/tools/testing/selftests/kvm/lib/test_util.c
+@@ -17,6 +17,7 @@
+ #include "linux/kernel.h"
+ 
+ #include "test_util.h"
++#include "kvm_syscalls.h"
+ 
+ sigjmp_buf expect_sigbus_jmpbuf;
+ 
+@@ -395,7 +396,7 @@ long get_run_delay(void)
+ 	long val[2];
+ 	FILE *fp;
+ 
+-	sprintf(path, "/proc/%ld/schedstat", syscall(SYS_gettid));
++	sprintf(path, "/proc/%ld/schedstat", (long)kvm_gettid());
+ 	fp = fopen(path, "r");
+ 	/* Return MIN_RUN_DELAY_NS upon failure just to be safe */
+ 	if (fscanf(fp, "%ld %ld ", &val[0], &val[1]) < 2)
+diff --git a/tools/testing/selftests/kvm/rseq_test.c b/tools/testing/selftests/kvm/rseq_test.c
+index f80ad6b47d16..6510fbfd64f1 100644
+--- a/tools/testing/selftests/kvm/rseq_test.c
++++ b/tools/testing/selftests/kvm/rseq_test.c
+@@ -244,7 +244,7 @@ int main(int argc, char *argv[])
+ 	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
+ 
+ 	pthread_create(&migration_thread, NULL, migration_worker,
+-		       (void *)(unsigned long)syscall(SYS_gettid));
++		       (void *)(unsigned long)kvm_gettid());
+ 
+ 	if (latency >= 0) {
+ 		/*
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
