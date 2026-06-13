@@ -4,107 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58499CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 18:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B900CD98D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 18:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oIqC0huXsPHlkGQx8YqR9ylcdRcZjlzJ7Ohv6r3Rb2I=; b=qxFctaVu+uQ7OU8uQRQvadZdjG
-	jSPviO39ei86h0W2A+Qjh2/mZUrMZ2wDcE7qv6GTn+hxq3AqxOmV+dh0MCfHx9Jh5Tiz5x+U4JfRX
-	HUDw5R+qI6UBADCLVZ7lnfdM7mmvzMJ65oPKRaC3IOsMCEx7Wy02r7DJmnn6pun3ALML0VqoEDXrt
-	N42EgzickJuCJ4F1MNhfLnbeVzyTTJJ8dyNm3SFVnaGjLvbhX3WPCILTGXiMkYiM7U0pAeoZZRXTL
-	VYFzKic9sNsk+32mJfUOyKTS+yXKyoARrpy19Yyy/rUFtgxsEVHb9M5Z3BsLMxuHOm8LE3vWhhJIS
-	5Zy9a1Wg==;
+	bh=gF727nZWftSXwKewt3391E5lZl87wD+IcPkpef8dLKo=; b=q4q1kii+9ub/0yfQGwUkwSdn+b
+	tXLa0od7zM4phVvlc0uLKbrF2VcpifyawvoBBJXrqByfy8AltbweqhycGztz0gCy7/e8ZvNcA3I5e
+	gbUjEEEqammhDOLu1rjB4TrUr2Hj2bZQM6DIKH8iVJ1ZnBkJgHhKE0SGEssCWsO+xYW+rq19ehUPI
+	+IFdIcV5Wzgws+TXhPwLn4TPHOTvtJbMIkN6Jbh3er74e+R/TNUlLVQzSpG4eaIAuvLaGcWi0qIx8
+	vKnFtmDoFtsKGr2vH1+wNdJR4Lt+GIXiUwXq/PbRfdKkBXV4rW6ZsimJM/g2SqhWFjct8WtxC1LEC
+	8UjI4e0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYT3I-0000000CTiE-3Fd5;
-	Sat, 13 Jun 2026 18:25:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wYT72-0000000CTrT-0jDh;
+	Sat, 13 Jun 2026 18:29:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYT3H-0000000CTi8-2SEM
+	id 1wYT70-0000000CTrL-3ToQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 18:25:51 +0000
+	Sat, 13 Jun 2026 18:29:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B55E46008A;
-	Sat, 13 Jun 2026 18:25:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBE001F000E9;
-	Sat, 13 Jun 2026 18:25:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BCD643FA0;
+	Sat, 13 Jun 2026 18:29:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C13E01F000E9;
+	Sat, 13 Jun 2026 18:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781375150;
-	bh=oIqC0huXsPHlkGQx8YqR9ylcdRcZjlzJ7Ohv6r3Rb2I=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=F/rPE5n3b0qF44qH10DRzk3KNsysM0Rl03l2aptKufKmk2eT7pCes/k9ooIZHiL7b
-	 QfcDGqE5LZnfOAVwtcg7+jaXEAhZD6K7Qyedp6vloqUxKTyaSlfJaM3VTsQ3a0GFIm
-	 a0pwXw0X1a+SdpY66bMrw+6sMkh4qU6vWjgqooWTYq1Yt0d5lAqxDoquScX3SJu1nh
-	 BXZPVxEtgNVj55zW8pMSQBKDXZlXm+1Li2u2UnPZeKb1ZQg2TI6pLTajKnNzvKK4bV
-	 LG4wZJtBRXOTLLCnqWRpChd9uKyIZc0r/o/EjcUcqYBU/HiOxfHlIf6SLxrVOzNsBX
-	 ZPgNIpZKPzuVQ==
-Message-ID: <9c249878-9d4d-4800-8ad5-0496e586d100@kernel.org>
-Date: Sat, 13 Jun 2026 20:25:45 +0200
+	s=k20260515; t=1781375382;
+	bh=gF727nZWftSXwKewt3391E5lZl87wD+IcPkpef8dLKo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Tu862N2vey18lzZiVIY/QTNjsaZBal0RR7RihTnqySWxoBrIMd1TjUVkkUDUZwDat
+	 ZU3fZZExDDkv/AbRRxlGUrkbjZgbF4sNfOnc/SjM+/kXM4S3rN7Jl2mzclMSQCW3fy
+	 RrnvTs+gPHbXqlznjLp4srmnWmrdphsSg5TjCXU6PL/FWYO7BN6tnt7HfQeHv9nhjg
+	 Jt8S+ivOUZiLUTzamQocQ1dyemo2dpLKW92K7OUkallGqUg5M2yVWnlUFfIcIOdJGb
+	 TFsGoGjNknkpFTeK7DEwKrNGuU4YVylQQWrc1iiRSG8SqOFD3GAENhN7arY4WwRljl
+	 0c+O1/WJJ3+gA==
+Date: Sat, 13 Jun 2026 11:29:40 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Robert Marko <robert.marko@sartura.hr>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
+ sdf.kernel@gmail.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ luka.perkov@sartura.hr
+Subject: Re: [PATCH net-next] net: sparx5: change ndo_set_rx_mode_async
+ return type to int
+Message-ID: <20260613112940.05bba5ff@kernel.org>
+In-Reply-To: <20260611101151.426050-1-robert.marko@sartura.hr>
+References: <20260611101151.426050-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] arm: dts: st: align node patterns with established
- convention
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Charan Pedumuru <charan.pedumuru@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260613-st-mmc-v4-0-b3c385617c16@gmail.com>
- <20260613-st-mmc-v4-1-b3c385617c16@gmail.com>
- <20260613-wondrous-shapeless-pelican-6b927d@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260613-wondrous-shapeless-pelican-6b927d@quoll>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,23 +73,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2026 20:23, Krzysztof Kozlowski wrote:
-> On Sat, Jun 13, 2026 at 09:39:39AM +0000, Charan Pedumuru wrote:
->> Update ST MMC DTS node patterns to match established convention.
->>
->> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
->> ---
->>  arch/arm/boot/dts/st/stih407-family.dtsi | 4 ++--
+On Thu, 11 Jun 2026 12:11:13 +0200 Robert Marko wrote:
+> Commit ("net: add retry mechanism to ndo_set_rx_mode_async") changed the
+> ndo_set_rx_mode_async return type to int, however it did not update the
+> SparX-5 driver.
 > 
-> Thanks, but please fix all the files of stih in one commit, not file by
-> file. git grep gives more instances of it.
+> So, simply update the sparx5_set_rx_mode return type to int, propagate
+> return from __hw_addr_sync_dev or simply return 0.
 > 
+> Fixes: d90b85c23b3d ("net: add retry mechanism to ndo_set_rx_mode_async")
 
-Heh, no it isn't only that. You actually broke other users! And you
-received that comment already at v3 which you completely ignored.
-
-This looks like introducing real bugs.
-
-Best regards,
-Krzysztof
+This commit does not exist, as I said in:
+https://lore.kernel.org/all/20260507091012.7eeb17f5@kernel.org/
+the first two patches of that series were _not_ applied.
+-- 
+pw-bot: reject
 
