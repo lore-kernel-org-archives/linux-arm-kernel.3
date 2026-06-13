@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23B0CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 23:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE0FCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 23:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+piKGdfpKolr3My/nM07IULWkn0gDvLzO6znvEN8MGU=; b=icJIwQdQc27DW6YegZIpCpQpZ7
-	zTGN2dFYsdLbmoh4a3IqxpIbA+xi0zavSVh5vJCP8DGPuUAhzsRHWOm1b1WWn6LZaAoVpH3cLRnL6
-	nxX21n7M6wokWA/PyoDfNtRQX85+MrLp4HmaX0Jub5gqj8X/JK9An3Dc75eQQ8H4HwBODEdHkNEzU
-	00x6QmEGI4b3UVJOFDWZKy999CGTm98fnC2uv69CSX9KjYHgl0qNoRy4h90ZmJT0VNHpWv9WTKMxK
-	cSR0Uu8+axUf7FpyzPcuoxaiFwtDOAXKMomH/VbjLb8+P1xzqJ8XkNNhn2cmxEsNMnHfof9bDD8QO
-	9LqAnzvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2q/iUZHmzQJ2DtmNMtcn+7efYWlaZTLUNoV8eMxuMoI=; b=u0Y7mdIZB6fUDGJCD5OUn6UdPu
+	txibb9Ugg0JA/jgfHWWbKlMEE2ftaJY8HnbEyBdz/NJ3SwWFom+TaHgTRfLDmnIkVSCVtZ6sQyWkI
+	W3siWqCSFlcoENoI/8fG8Q8VvENQZmaDwPsxeAttJYjUTu6Fam3q2kwQar4VWQUUV5OU0plAz20BK
+	6RnfJOGYACI0cpeBcVPexSOofNsO/4RqiSsvH97PxQ0wObjyI5PfXqwtHCOU9TRwm/G/M+dqrV53u
+	78G7Ik8Ch/ByLnfko6wgM3hVoXaf1jYaAE79Hr0dJ79G9YYWCU6TyJX+A4m4vGY9hSgpAH3FUsK1C
+	sTxHt74Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXML-0000000CbMv-1EFx;
-	Sat, 13 Jun 2026 23:01:49 +0000
-Received: from mail-dl1-x1241.google.com ([2607:f8b0:4864:20::1241])
+	id 1wYXUV-0000000CbZJ-0PUP;
+	Sat, 13 Jun 2026 23:10:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXMI-0000000CbMb-1bYB
+	id 1wYXUU-0000000CbZC-16xZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 23:01:47 +0000
-Received: by mail-dl1-x1241.google.com with SMTP id a92af1059eb24-1363fe80fe8so3141852c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 16:01:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781391705; x=1781996505; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+piKGdfpKolr3My/nM07IULWkn0gDvLzO6znvEN8MGU=;
-        b=LHO6IsfX1QPFEHRvHPxujmo4h4LCvDkhwaX+lJEYGpRTZ08C5ov7WA2hyugbIGAY3t
-         rlmww1zkvHj9iKK2Q0amqf9vECT2kQzGBcKbY40ofGpX+JjNFAfvMwwPthWBrz5NpSEV
-         JEfsrRCCPCbw90oXoh5MGPKBGLdEksQofLC1TzaU6o31/1fDjuqPFY/Qhj0nNKpuHJIh
-         YdZ2Mqsn3VKT0VZPiCZNhedTRD2jzWnGzXFoklKseyfqyK2BlxXqqWpeaOYdvyUi4ihW
-         uBeZk2rszY/3BqxiXDaSuOgCOWQ41asPoTYe5VOofdrCNvBTAEi0qn7uBXOg1nQeCJi3
-         Bayw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781391705; x=1781996505;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+piKGdfpKolr3My/nM07IULWkn0gDvLzO6znvEN8MGU=;
-        b=QZus/CZc4htAYlVrNx5ezG5NzAtLJ/oFgUtArG+FbRWG3PL839zpTlZD+zKmWkuIBI
-         svsNrf8hcVNPXvBsbSXs8bAKx9kQmRYvQH3BmOSO/iWykrsygWIWSnugsxZ5DoOSiSMP
-         m1Vqk18IptV1PlpfAOSVsvMQxvDpL+jjzXk9KI4jehsmHbpLOBTgfI8y4HIb7Y/gcKsM
-         IwK2Jo6p5C3fEtP1gCSccCw5+Te8PnvUhX4dkteFYXe21tjA27UZMxU9vf+xNg/9FXGb
-         M/+XMTh6czUWGJHmBPiE8AOxxCVzLgO8neKGNIsxcN4biDjMK/24AlxFQFw1XdW4crKE
-         oQNA==
-X-Forwarded-Encrypted: i=1; AFNElJ8QSZYrN/vVnT3MtNd9P7VErkH4+LjE0/ZkzftN/RlT3fEo30YN4Z0YXp+keUVAIF75Gm8VkdTEY6hcnhs+i1oq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhGPeAeoJW9y00ehldAWO/JY9SGGLWI0ToUO6WtWbpsDTbixHr
-	Nvl10D2gM3d4iDIoSxgcYFdsApjWVu2b0QTME2f8/zLC38WSQ4b6DN6fiZFm+DBL
-X-Gm-Gg: Acq92OGUFiYbgQ3eFwrj4+rZtT/xaNC7mD1yCma8JLgtmlfAxvqoJEyFPEHKXsK1b/y
-	St95CpQJtt0YsbUD+8otlIVD0GXsg8g3B49M9DCN/h9ByQsJil8UDKre/03kAvobxwvLYMSGzu9
-	xHj8d3MjiO0RblGbHeZKB4ddhZqLiaoXplSC4aFl0G/xElXyTD//As5jBP2yvCsgHNEegtgdUzJ
-	ISZc+ivmyF+26RK5obtmK/ThhGL4kf5uipXl+9AizGKTd+rCZughQ0uUiKChiC1ZfY1lAwJpAlh
-	ABHzSxu5fknMTK6mqweW4ZCsgSR7UPg6EBCk9zSawNt0VPcQ70EIO7t5B7UP9fNvsUTkHeYTAsy
-	fo+a7uGOHb8bYUwkdAzS+rTtunS6zBBQGqh33fP1B+CwgugxpwFAqWN5FzjLzLXFdNjK4IZKHWY
-	G6q0xbBfzPjfztUu91ERMJGaxJbXBXo9V6SlaRp5XYa0ua+iWzA9bGOQ5tlooac7ERnn+cxk5eh
-	xTdV5WVCUcYtY+2IU/lNsfVWczzFkVIt6COBPheNAM8KbiYFKQtNO/+0navr4pRiEj2iXOUHf38
-	bLbxEIDU6ajWU85R/Q==
-X-Received: by 2002:a05:7022:79a:b0:12d:de3f:f3e6 with SMTP id a92af1059eb24-1384bbadc69mr3140136c88.38.1781391705352;
-        Sat, 13 Jun 2026 16:01:45 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384b964853sm6169253c88.11.2026.06.13.16.01.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 16:01:44 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: Kees Cook <kees@kernel.org>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Russell King <linux@armlinux.org.uk>
-Subject: [PATCH] ARM: mm: correct CONFIG_ARM_LPAE macro name in comment
-Date: Sat, 13 Jun 2026 16:01:36 -0700
-Message-ID: <20260613230139.141855-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sat, 13 Jun 2026 23:10:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FB746008A;
+	Sat, 13 Jun 2026 23:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 122741F000E9;
+	Sat, 13 Jun 2026 23:10:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781392213;
+	bh=2q/iUZHmzQJ2DtmNMtcn+7efYWlaZTLUNoV8eMxuMoI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=dSYMmOtKsCxoiSxOvLoSHdYRssn1le0ynrgX79A9xb2JkxdSS3dN37bID7oTZwlsE
+	 syuFBg2CNBQ2Wbdafq7x3RKeXQs9xkyE5YIh3+HSNJXYbJTDUxDMsksDgzyeVmr/LA
+	 svs2tDYEE24ivI0Qx1JHnJEbY0xnt9SZBhfe+Y0ti7EzTCCJPopzdZpXgKukSlKQ5w
+	 qJQ5j3PLAMK9sDh5CsQuV/Po+Jo9Qm8OPKGU8AnD0SoNRzLSMrmPm6vAXCPv2eIAAy
+	 PU1u8ZkiQ/LxPd0vpnFscWdLYH57yDnJze2GUavg8aULtiea7CxB4TIjnKDDSjz5x6
+	 Ni2YwmUmLjL/A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 569ED3A54A32;
+	Sat, 13 Jun 2026 23:10:10 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_160146_421603_A49B68AB 
-X-CRM114-Status: GOOD (  11.67  )
+Subject: Re: [PATCH net 0/2] net/stmmac: Fixes for maximum TX/RX queues to use
+ by driver
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178139220914.1621428.9980668998947938804.git-patchwork-notify@kernel.org>
+Date: Sat, 13 Jun 2026 23:10:09 +0000
+References: <20260611113358.3379518-1-j.raczynski@samsung.com>
+In-Reply-To: <20260611113358.3379518-1-j.raczynski@samsung.com>
+To: Jakub Raczynski <j.raczynski@samsung.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ k.domagalski@samsung.com, k.tegowski@samsung.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A comment in arch/arm/mm/pgd.c incorrectly refers to CONFIG_LPAE
-instead of CONFIG_ARM_LPAE. Correct it.
+Hello:
 
-Discovered while searching for CONFIG_* symbols referenced in code but
-not defined in any Kconfig file.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
----
- arch/arm/mm/pgd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Thu, 11 Jun 2026 13:33:56 +0200 you wrote:
+> When contributing other changes preparing functions for new XGMAC hardware
+> https://lore.kernel.org/netdev/20260601162537.553512-1-j.raczynski@samsung.com/
+> there have been reports by Sashiko AI review about pre-existing issues
+> in the code. These problems are non-insignificant and are 'net' material fixes,
+> rather than net-next features.
+> One issue in this patchset was reported by Sashiko AI, while other
+> technically part of new patchset, but is reasonable related fix.
+> All of issues are wrong DTS configuration, but kernel needs to handle it.
+> 
+> [...]
 
-diff --git a/arch/arm/mm/pgd.c b/arch/arm/mm/pgd.c
-index 447945836c3f..7c56279bc5bd 100644
---- a/arch/arm/mm/pgd.c
-+++ b/arch/arm/mm/pgd.c
-@@ -78,7 +78,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- 	       * sizeof(pmd_t));
- 	clean_dcache_area(new_pmd, PTRS_PER_PMD * sizeof(pmd_t));
- #endif /* CONFIG_KASAN */
--#endif /* CONFIG_LPAE */
-+#endif /* CONFIG_ARM_LPAE */
- 
- 	if (!vectors_high()) {
- 		/*
+Here is the summary with links:
+  - [net,1/2] net/stmmac: Apply TBS config only to used queues
+    https://git.kernel.org/netdev/net-next/c/8b10877d9d6c
+  - [net,2/2] net/stmmac: Apply MTL_MAX queue limit if config missing
+    https://git.kernel.org/netdev/net-next/c/8a7bca6de6de
+
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
