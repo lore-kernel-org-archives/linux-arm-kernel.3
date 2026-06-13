@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC389CD98CE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588D3CD98CF
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpDrln9aFOeZE+9RVMRnWEbd+STgPtUuso+t2WcSRjI=; b=BAjr26K0MJzxmsmA29ZujVbY0W
-	nN+Fwf2D0B3yq0w8ZIemoXHMXpdC3fo9DZQWI/d4E9vtku4wd/bTPY1bWhGCYaKTs96Q3l208Pzxp
-	fsjAMNHymjDKhd07ZnzorXyn7xYc6JraZDJ6PXMad9s6tphUfOSTNUD27+e3xuEVaNnt9AcfJr2m/
-	CayMf0BFOaHbay3wXWvSQ3Rj16Y/cduVyeRaXjpn+YRTq5nA1GCcIEe79gEJzcvmC19TVquXOpB59
-	qCszmdXMWp2U3ma2nus/xpw2R53/SwwxHxUmF5qe5ivXMcrr53cH/+WbfYvvBrkw+zzVxrXtyEdDd
-	mhJIddkA==;
+	bh=O+I565ELukpP/rjfHIhv+TORYO3S6R2jcA7ns197jWA=; b=G8WwEIbQaQayu/Oscwn9gnTMDu
+	TRQOftNk05wjgeVMfSZyGB/nXvKURSySPEo94w5lh/4lMIecPvy0F9YxVlTxU5TZV9ZjoOKFUunXW
+	Hai6/P4yzN+aPb/3/dsYg3bRk0UfAkB0Bebk/svYnrF9nw0DEENTZV1iO8WHMmUvFLwIZd73G1Xw7
+	SU1mjRXZR/uz2P90Uq7+9vu+e2ZLUbZ8nYsSlO7GyCl5t6XQv1M0i/Bjk64q+eGwDEVfIXntuwXs7
+	fCiML7lIWXhGJb0JooHA6t4N00ORL0qhyjhhC5fTDZ6g4oCGPDyOn7cet+X5btXTncBW0iC4MV4wK
+	O7uH0IUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC7G-0000000Bnfb-1gHI;
+	id 1wYC7G-0000000Bnf1-0gbW;
 	Sat, 13 Jun 2026 00:20:50 +0000
 Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC79-0000000BnZZ-1GkT
+	id 1wYC76-0000000BnWz-1KDy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:20:44 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2c0532a6588so13996615ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:42 -0700 (PDT)
+	Sat, 13 Jun 2026 00:20:41 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2bf3636d6c0so15053765ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781310042; x=1781914842; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781310039; x=1781914839; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=RpDrln9aFOeZE+9RVMRnWEbd+STgPtUuso+t2WcSRjI=;
-        b=N1liG7/rlcAR5Tl2zZSdTpWdvLfQg65Kex+f9T8MOq3TCD8cCjcFolupScY7GwovPJ
-         gE360opHimmJqgOmy79OU2wzDMyM2TlVOCgWlEKap6em0tYjuebLG4Z5JJgzKIJjZiRB
-         eeYLJaJrE39lcG8ibgaSVtehmyrA/OKKhdISjWmsOaoCC6asQyKnffv9zuCMCCKSAlbD
-         TWSejfNptqF1clePaMwaOU3qaMgBeIh80zaNt+mrwMEARTy8lW5l0hjgOkJ5PoKvTeZK
-         pm9rF2Ow62LO33PtCkTBDW8iomHWvkZpLmrz/8JxMCAvvXUP3OG+gTxMKR46EsjUsSi6
-         eDPg==
+        bh=O+I565ELukpP/rjfHIhv+TORYO3S6R2jcA7ns197jWA=;
+        b=TcAEXN7K1EUBsc9mxvanTOTYpnl5pzwZRKOCXrJSgKhLqYx1lFO7UbiZ0FWvuh17Hy
+         UHJYIx54QZWziYQP1jwPZiJ6HSMeUz4ib865vW2o7vFqqDzO1UTlqOr61pZoU4XpaFa4
+         nETi9uzTeTJ04dJzUfud/+py806675yXCYaU1mUj8aX+rol8jty7t+yXYZeOJ+cBP08V
+         PJ15zn+RTWtAjVEc34Zsx9JIY6Q7xjNQ66mUNf15AnABdIYhg9jgiWjaM0mdjn5XEzBC
+         nlKsjD3SioEDPypLSOC2US1KFg9rcWjpBW0YzFyDzT7vF3mPLCncl6NxGjiWFDdmBeO1
+         olOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781310042; x=1781914842;
+        d=1e100.net; s=20251104; t=1781310039; x=1781914839;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RpDrln9aFOeZE+9RVMRnWEbd+STgPtUuso+t2WcSRjI=;
-        b=RCjQuzGGKIK/6jJGw2DAzxClPkRFgg85yTJvy52U8vcaLillAUbNnCWuOxUaA1wnqe
-         OsvY5oG0MhFf0GJwemert+daNiN/jbZWvqkmTRiAEEgS70e1/uMfo0q81aT6pOXCs7W1
-         pmwxSr9ag8KVAvJ9om0ikUw8siNXdFeTZgpd+qxUJnCcJpokm/+LJBx0bBaNVNS6b0V2
-         ssCWvJajFzTP5XYRJ/Iyqy52HLTvo9cnCjSQlFeQ+hMGrn0ttaIIJKPBwgnsH3O+pVhO
-         tgRgIRNgaj57PpRDQN3sQsQ+07J8Hc9rWjoaU22PliHXHQrYLdNn8hmm8mVrBr+U5xXI
-         sRYw==
-X-Forwarded-Encrypted: i=1; AFNElJ/9FuPDmqfa27nXZxRNhuJd85zQLY8LFcXjUTUVV8YH7Nwq9JQy7GKZP3VBEW206Za4JE/6wcsLF6K7GMHICvUB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7JB8wju0MO37qw2LO1kZ403ZEBcMDTmpnUoW3jJU9O7521c3I
-	J1GdZI59KGSuqQhFEIKm/gh5/tlcHUEOlhrq6Ihz/JAE2Z+vCaVo7f7KCxml7AVKNNmgikeqw2Y
-	csPh4nQ==
-X-Received: from plbkx8.prod.google.com ([2002:a17:902:f948:b0:2bd:106:8ad0])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e881:b0:2c0:b932:866e
- with SMTP id d9443c01a7336-2c6642915famr18540805ad.27.1781310041864; Fri, 12
- Jun 2026 17:20:41 -0700 (PDT)
-Date: Fri, 12 Jun 2026 17:20:17 -0700
+        bh=O+I565ELukpP/rjfHIhv+TORYO3S6R2jcA7ns197jWA=;
+        b=ad96egGQQYsuMB/a+wexM99JYjAUDzTnQV3d4yR3g3R0/Mm2gKXH2Zqchbg5pZPcUF
+         ig0eSEFXuXPSOXrF61YKQEmRrILKMo0WJsHLZK84rgFmB9S+nUh+xpyFlSTBh8iCPCEi
+         5kJwhgQ47E2BqhKpOOzTHYCg5bk43KefDOxWRI2lbKWQc7pUv8JRbReulwU4Pp4s05KU
+         BtuzHZ2SRiWDgZzYYyPHP1FKatgAIjzcdqEhyhs52/EdBLTBlE4olMrjcuJWeoAr7tSR
+         Kqlc9nVEajviJdg+cs715lGM4UMHZ+p/ppx5aHlUytoj+54MMOvcjXmF9MGgv0kT7OiE
+         9IyA==
+X-Forwarded-Encrypted: i=1; AFNElJ+PJc4ysdVg4s/E9Ow84CDszfunA+nOfeF/a6NWbiWMS3xoNESs6u3K6QXb+6ujWAIdbj+7AHrmM5xOHgXRvH//@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqwJ5134jauzPCFAsJDJ++gFvdSfhMg42/uth8WiBNeATiSxJg
+	yWngpqSVXjiU98kjX+PgpQ3HTa11OzRXi2GnZDqeAArwJYGVgfU07gcygoS9IOu4j2l6Uc5JfaT
+	Ay2IqtA==
+X-Received: from plbjb12.prod.google.com ([2002:a17:903:258c:b0:2b2:425f:b4f1])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1248:b0:2c1:69cb:4423
+ with SMTP id d9443c01a7336-2c4111b8e7cmr56455115ad.14.1781310038540; Fri, 12
+ Jun 2026 17:20:38 -0700 (PDT)
+Date: Fri, 12 Jun 2026 17:20:15 -0700
 In-Reply-To: <20260613002031.745413-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260613002031.745413-1-seanjc@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260613002031.745413-7-seanjc@google.com>
-Subject: [PATCH v7 06/20] KVM: selftests: Add helper to generate random u64 in
- range [min,max]
+Message-ID: <20260613002031.745413-5-seanjc@google.com>
+Subject: [PATCH v7 04/20] KVM: selftests: Initialize the default/global pRNG
+ during kvm_selftest_init()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -78,8 +78,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_172043_349259_BBCDBC2B 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20260612_172040_368370_33D99278 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +95,58 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Josh Hilke <jrhilke@google.com>
+Initialize the default kvm_rng during selftest initialization so that the
+pRNG can be used by tests before creating a VM.  As pointed out by Sashiko,
+failure to actually initialize the generate makes it decidedly not random.
 
-Introduce kvm_random_u64_in_range(state, min, max). This function
-returns a random u64 in the inclusive range of [min, max] using a struct
-kvm_random_state.
-
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Josh Hilke <jrhilke@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../testing/selftests/kvm/include/test_util.h  |  3 +++
- tools/testing/selftests/kvm/lib/test_util.c    | 18 ++++++++++++++++++
- 2 files changed, 21 insertions(+)
+ tools/testing/selftests/kvm/lib/kvm_util.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
-index 44c0104d60ac..d64c8a228207 100644
---- a/tools/testing/selftests/kvm/include/test_util.h
-+++ b/tools/testing/selftests/kvm/include/test_util.h
-@@ -134,6 +134,9 @@ static inline u64 kvm_random_u64(struct kvm_random_state *state)
- 	return ((u64)kvm_random_u32(state) << 32) | kvm_random_u32(state);
- }
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 875030c22d07..1016865d3f7a 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -24,6 +24,13 @@ u32 kvm_random_seed;
+ struct kvm_random_state kvm_rng;
+ static u32 last_kvm_seed;
  
-+u64 kvm_random_u64_in_range(struct kvm_random_state *state, u64 min,
-+			    u64 max);
-+
- enum vm_mem_backing_src_type {
- 	VM_MEM_SRC_ANONYMOUS,
- 	VM_MEM_SRC_ANONYMOUS_THP,
-diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
-index e98ca7ef439c..e208a57f190c 100644
---- a/tools/testing/selftests/kvm/lib/test_util.c
-+++ b/tools/testing/selftests/kvm/lib/test_util.c
-@@ -42,6 +42,24 @@ u32 kvm_random_u32(struct kvm_random_state *state)
- 	return state->seed;
- }
- 
-+/* Returns a random u64 in the inclusive range [min, max] */
-+u64 kvm_random_u64_in_range(struct kvm_random_state *state, u64 min,
-+			    u64 max)
++static void kvm_seed_rng(u32 seed)
 +{
-+	u64 value;
-+	u64 range;
-+
-+	TEST_ASSERT(min <= max, "PEBKAC, min = 0x%lx, max = 0x%lx", min, max);
-+
-+	value = kvm_random_u64(state);
-+
-+	range = max - min;
-+	if (range == ULLONG_MAX)
-+		return value;
-+
-+	return min + (value % (range + 1));
++	kvm_random_seed = last_kvm_seed = seed;
++	pr_info("Random seed: 0x%x\n", kvm_random_seed);
++	kvm_rng = new_kvm_random_state(kvm_random_seed);
 +}
 +
- /*
-  * Parses "[0-9]+[kmgt]?".
-  */
+ static size_t vcpu_mmap_sz(void);
+ 
+ int __open_path_or_exit(const char *path, int flags, const char *enoent_help)
+@@ -515,11 +522,9 @@ struct kvm_vm *__vm_create(struct vm_shape shape, u32 nr_runnable_vcpus,
+ 	slot0 = memslot2region(vm, 0);
+ 	ucall_init(vm, slot0->region.guest_phys_addr + slot0->region.memory_size);
+ 
+-	if (kvm_random_seed != last_kvm_seed) {
+-		pr_info("Random seed: 0x%x\n", kvm_random_seed);
+-		last_kvm_seed = kvm_random_seed;
+-	}
+-	kvm_rng = new_kvm_random_state(kvm_random_seed);
++	if (kvm_random_seed != last_kvm_seed)
++		kvm_seed_rng(kvm_random_seed);
++
+ 	sync_global_to_guest(vm, kvm_rng);
+ 
+ 	kvm_arch_vm_post_create(vm, nr_runnable_vcpus);
+@@ -2279,8 +2284,7 @@ void __attribute((constructor)) kvm_selftest_init(void)
+ 	sigaction(SIGILL, &sig_sa, NULL);
+ 	sigaction(SIGFPE, &sig_sa, NULL);
+ 
+-	kvm_random_seed = last_kvm_seed = random();
+-	pr_info("Random seed: 0x%x\n", kvm_random_seed);
++	kvm_seed_rng(random());
+ 
+ 	kvm_selftest_arch_init();
+ }
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
