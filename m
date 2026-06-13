@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22415CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 06:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC07ECD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 06:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q9lCT5hFuQlBjQqDnDlpEFs50IBGKZjmVIr8JFjJQzU=; b=UrtYsIthFbF+Hy/NplFid2w91e
-	/HGFnNcVychGQaUHudrJGbaIjtmpxa5y1604NHBaSgdNzDnWHQ97DwRBYgorTo7OXnsWQ/WYtg3y5
-	b8qmta6TaMpD93kXgV0Bxqhr3z5zAZmy1sV1kWoHqicgds3Q9nqXS4j6Wpin2TilTFZaRgJhQWJUs
-	pVdOhMaYR9k+gG3fiGNH9EA6Ifn9ifU7Uw0orq3y3v88By/dA4Az/MD+/RvD1woEME5g7qhROtQzE
-	tUh0AdOC58bD+5myjfzLX49Mn9psQMyFy26qzE81AJU6UvBj38/IFEN3zPmkSkqiVZBu5CK4m75BE
-	Zh751DNA==;
+	bh=ExjVQvO4/iWqbTjsUJjExpq/Pad0yGuPxgZEv8g/Xlo=; b=CEn8/SHZKoUL0krpYJtC4LrIEq
+	M6ijczzMcol4Xhv7gMzKwKYZ2HitvJYAVnIdFEDORqghUhaAqHAwQm+R8B+yXj9Iul77UF75HWQMm
+	9ohZ4rn/M4X01AXJ11ghsdGc84nw0Qmg0rRBQeUxl0n4fgoi8DM5FQAHPGeKzsSLcg1cpU/It0blV
+	PTfjsdKIXqKUAMaSHO3eI19WXXB1M1Z9MNvAo/mX+jyAUaDaCWQADlMNRrpPs3A6BrahS1TI9bYdh
+	zCoRsCX18rHQPGDVKqFY6iw78tp1hNzV0CXJFIA9QAylRWnorT+P+uxp3glg3OX1/D9Nimpl7CAwA
+	wV9K4H3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIKF-0000000C0tq-46ME;
-	Sat, 13 Jun 2026 06:58:39 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wYIKQ-0000000C17N-05D9;
+	Sat, 13 Jun 2026 06:58:50 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIK9-0000000C0oA-45kb
+	id 1wYIKI-0000000C0wp-1gN8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 06:58:37 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490aaeabdb4so11009295e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 23:58:33 -0700 (PDT)
+	Sat, 13 Jun 2026 06:58:43 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490ac357c55so15186965e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 23:58:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781333912; x=1781938712; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781333921; x=1781938721; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=q9lCT5hFuQlBjQqDnDlpEFs50IBGKZjmVIr8JFjJQzU=;
-        b=dDHBDETwb/6YzziA50e1bFUgfGPtA/lKdDsYhkU0aS9Iw81ueWvKa2TXipiWk+NHfP
-         FrZ8w6fTqH39cmHhwsexhqs6+xhfuKQOlicn2e54IbH7sqWRLw/rcYVFsphibGuYVGby
-         op+twRgp8CrIp8f95EYfzC0Mg79Hoqpm3U5a0cmSNMbRdK2OGna6nehVQG+9abzETLMZ
-         2Akewic2F8RQy9vINjPlq2ynF/H/C13QHmc3UZQ4LK8uJpy4QfoxXsVq0eY57nRsYlkM
-         wfxJe+FtgyIHNOe1VTWnLnb3jDY/aQPFfL+GMXzzwWZ9GYk1bJfXoNBU2lB+b/rndGM4
-         LmRQ==
+        bh=ExjVQvO4/iWqbTjsUJjExpq/Pad0yGuPxgZEv8g/Xlo=;
+        b=ZdJfMidXKu9CD+KNjREK5N96tRtjEC3UmS/eewvIUpgnw0oxb0W5guj3HHysqUJUaI
+         wpEBmYrjCkdJNJJCkXZUFklFXi2eGF+glkKhy6iTr38Y2JscsptZk0AG+QuRyDEORCpk
+         HJB6ThVPqrx+QDAyrEbrQtIWU8SLN16HfEYlVFPqk2c0M8hwyir9kPE46I4TievP6jZo
+         6vhuOO19yj0YjZIBU2t9aJuWQt6N2Zxq1oYvrVpSi6ngEW6oVav1HykQPtvEEqwd+8DN
+         QY02wcXOu5GOdqoH8r0D8m22gTLCGq+xPn944nyX1PoDcP5QPaCyUFlta4r12LzF8Kas
+         S0zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781333912; x=1781938712;
+        d=1e100.net; s=20251104; t=1781333921; x=1781938721;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=q9lCT5hFuQlBjQqDnDlpEFs50IBGKZjmVIr8JFjJQzU=;
-        b=n8bIcWdU817maukpaLlx6ClCN6ZM8D+fgltB+OwFUOtUyg12vTimbVMZw4xBR/AiY1
-         ZaoLL+sELGVbiPBdnzcm4wYqYr/Ut+id9ks+Ho/XK7RnoTevNmwRqTM6Ysj409hp75Oe
-         I3Rc+nAS9ulo0c/irS5fZs4Jf3BZM1X3xFvYFhmUNt3v0JuaFjAox5bryXwhNKLK1hCV
-         iZZha6bWp5jxdy/E/XNj4jTxGM9WQ9ahJ1o6i9A/v72vsGuoagOcthrezopo+YOfcpLj
-         kRrbFZmPVr3/M1jZ17N/fn6l9Dy0UguT4NUR1/QttHeYwc8doGXYHe/9NK59EJavMRwc
-         SuKQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8KRww4LmdH0DO2joWWd+7nFwjBaa6tXcPbKuSFkkwoNXgdtj3ahCMwBCBqpjPO4Uvs+IDsznQrGkjCrTcuprIG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG+3kJlqMCR1WpsFJzKlSDTaDSSJbELrkvcw1feFXqf/bfBT6d
-	nXeRijwHTvyOmDoitDkebD/LeQtyTyjuJHjEWknXs0za2m0XYutxoFcS
-X-Gm-Gg: Acq92OFUmBNdVob4I4P7uYd7EZq0PKaF45KW+Jwi7ZWK+2JM+GMFHE9eB3kPDZKTlFX
-	HIXD3jzHZhEHvgJkbpJtjOGVeyjCfFWdV+3iu5JhP7N7IU39n5lPfH75uTLMynJZa+cqeQ5igaL
-	bXPNenek5XCw3db+nofiEZwO2f8cLx9w2n77GNSzOD1SAaZ2tJ9pcekvPGIEPnWTwOp34in4cdo
-	yoMIiPU9sILr9zTUh4/sPh8HhG7OXzj/zroRSD1FaONmshnXOr2T3KjJXUSEaUo8C89IO8r/O9Y
-	2EloMAxno9kI9Td78SmCw/sm3RU/EcrHSx3NunUJV+mchbZNTCDYruezWWaVzpm8YBkdJwU3cwk
-	WS1DbeAItj4O2TXJb73QPJxvPZ0Kz/u+g49GBgp40i6immd6hhErEOpV/iHuDEMTspb2KpLYw44
-	f9UhPd6A8lTA4N3eXxXAKSR7h6pp7/4/6Yke/O18rWiB516ltjTWUV
-X-Received: by 2002:a05:600c:4709:b0:490:5057:f5f7 with SMTP id 5b1f17b1804b1-4922007472cmr28836405e9.11.1781333912286;
-        Fri, 12 Jun 2026 23:58:32 -0700 (PDT)
+        bh=ExjVQvO4/iWqbTjsUJjExpq/Pad0yGuPxgZEv8g/Xlo=;
+        b=WABeg71TXGrMX5tiHG9Pf5IOVXfdifY34uOPrOibxj57mRi1sglFiILxD7WWOgXpqr
+         wuLpdnc4TRc0fKqJbnG1GtAE6Vv3UMpifazjluqShRjlgbAjKRZIfUY/5kXUXK/YVqOf
+         r0K12SqZ+1QxLpFcBcU1wg5Rhr5TEwGl8Ad9qEBPJcOMr9G9jwmm0+OqkGUrP6IV9TLw
+         lM9v6XxsqrdQt2iC4tBenLNlWXWx5AsadrZh+iqVY3jtMvi2CIZL6e5j3T6sMtfnqpZM
+         mBCoc9CMULA1seri8QG/JzAOB7ZU/hMRBYNmcs6E+ig+gOtSsdLL0O31wZdSE80LBj2D
+         jnig==
+X-Forwarded-Encrypted: i=1; AFNElJ/J1tXkCZM5tUXSi+6ednxAg4IgPTXqYDmWZVMy1iPcvdJgVuUS0X51h80ZkOQdm1q8z9+Y+NURpjhwU5EQSSPO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFh9STBFKEnEgp9aeYtuGHQkvQX6UgXAEUTBJdrFQ5Fdi/JH58
+	/1XhJChDX1CfhHdCTkeyTbcImk7eGyFVtx1pViOF18UJE/qYFGlQcVnn
+X-Gm-Gg: Acq92OErLJzHDHyruOXyXCsIggnZ91Mif8g0WPExpgEtlJYSwUP5rXOYQ3/0j+pnsN7
+	VKO0VlMcjXferBwp3xxqTxV1QxmVSjt1FSyZ2jmYpn8l3N/WvpaJ5nfKoB267Uq8Y8aw16SImk2
+	2ATk42KLN5GH0fr51mK4cLvhCpyrrPOCtNxzgPrDMeIKW55kQk+QUXI6TZ1XmwophsiNZOBqrmf
+	1SKcm853zL8dLNv0WC6yvpAKX8MqcUB+dkeJ/6rzljP49RIWaAO2dPTKujvK5JgRyC8zwjA7DD1
+	UAN97HO2WodnuIqaa50qijv8KpexWv5nPYE/1GfyyWeNdsvPE2vV57Kn/GovGSc0hJSQEtGokIy
+	mLKe+RlHWguz5MzL76nd39VklutcTYIPbvq7Nb1loD7cSC7F1ZnVZB5bIzbPfRH6OIXN+kQlq4t
+	pU6UAPwqEKG4hm4NX+zuwA5YbpMLW1MjX0yDVULqdaxg==
+X-Received: by 2002:a05:600c:a47:b0:490:52c0:744c with SMTP id 5b1f17b1804b1-490ec4ee63cmr73748795e9.20.1781333920798;
+        Fri, 12 Jun 2026 23:58:40 -0700 (PDT)
 Received: from debian.tailb81abf.ts.net ([2a01:e0a:104a:4d80:14c0:9448:1c38:77df])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492202e5cbasm42917705e9.2.2026.06.12.23.58.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492202e5cbasm42917705e9.2.2026.06.12.23.58.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 23:58:31 -0700 (PDT)
+        Fri, 12 Jun 2026 23:58:40 -0700 (PDT)
 From: MidG971 <midgy971@gmail.com>
 To: tomeu@tomeuvizoso.net,
 	ogabbay@kernel.org,
@@ -90,17 +90,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	diederik@cknow-tech.com,
 	jonas@kwiboo.se,
 	Midgy BALON <midgy971@gmail.com>
-Subject: [RFC PATCH v4 3/9] accel: rocket: Add RK3568 SoC support
-Date: Sat, 13 Jun 2026 09:01:10 +0200
-Message-Id: <20260613070116.438906-4-midgy971@gmail.com>
+Subject: [RFC PATCH v4 7/9] arm64: dts: rockchip: rk356x: Add the NPU and its IOMMU
+Date: Sat, 13 Jun 2026 09:01:14 +0200
+Message-Id: <20260613070116.438906-8-midgy971@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260613070116.438906-1-midgy971@gmail.com>
 References: <20260613070116.438906-1-midgy971@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_235834_032722_94A84BB6 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20260612_235842_463732_9945838F 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,120 +117,79 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Midgy BALON <midgy971@gmail.com>
 
-The RK3568 has a single core of the same NVDLA-derived NPU IP as the
-RK3588, with a 32-bit AXI master.  Add rk3568_soc_data and its
-compatible.
+The RK3568 has an NVDLA-derived NPU at fde40000 with its own IOMMU at
+fde4b000. Add both nodes (disabled by default) and the NPU power-domain
+child under the PMU power-controller, and point rockchip,pmu at the PMU
+syscon that controls the NPU NoC bus-idle.
 
-Unlike the RK3588, the RK3568 NPU's compute clock is a PVTPLL managed by
-TF-A via SCMI; start it from an noc_init callback with a real rate change
-(an intermediate rate defeats the clock framework's unchanged-rate
-shortcut).  Powering on and de-idling the NPU NoC are left to the power
-domain (genpd), which performs them when the IOMMU supplier is resumed,
-so the driver does not poke the PMU directly.
+Besides the SCMI compute clock, assign the CRU CLK_NPU so the NPU AXI
+bus clock comes up at 200 MHz rather than the 12 MHz boot default.
 
-If noc_init fails, unwind through rocket_core_fini() so the core is torn
-down completely rather than leaking the runtime-PM and IOMMU state.
+The power-domain deliberately carries no pm_qos: qos_npu sits behind the
+NPU NoC, which is gated until the NPU is brought up, so a genpd power-off
+QoS save would fault reading it.
 
 Signed-off-by: Midgy BALON <midgy971@gmail.com>
 ---
- drivers/accel/rocket/rocket_core.c |  9 +++++++++
- drivers/accel/rocket/rocket_core.h |  3 +++
- drivers/accel/rocket/rocket_drv.c  | 31 ++++++++++++++++++++++++++++++
- 3 files changed, 43 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
-diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
-index 09c445af7de73..779e951596a15 100644
---- a/drivers/accel/rocket/rocket_core.c
-+++ b/drivers/accel/rocket/rocket_core.c
-@@ -88,6 +88,15 @@ int rocket_core_init(struct rocket_core *core)
- 		return err;
- 	}
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index 64bdd8b7754b5..313db59c1aed8 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -512,6 +512,13 @@ power-domain@RK3568_PD_GPU {
+ 				#power-domain-cells = <0>;
+ 			};
  
-+	if (core->soc_data->noc_init) {
-+		err = core->soc_data->noc_init(core);
-+		if (err) {
-+			pm_runtime_put_sync(dev);
-+			rocket_core_fini(core);
-+			return err;
-+		}
-+	}
++			pd_npu: power-domain@RK3568_PD_NPU {
++				reg = <RK3568_PD_NPU>;
++				clocks = <&cru ACLK_NPU_PRE>,
++					 <&cru HCLK_NPU_PRE>;
++				#power-domain-cells = <0>;
++			};
 +
- 	version = rocket_pc_readl(core, VERSION);
- 	version += rocket_pc_readl(core, VERSION_NUM) & 0xffff;
+ 			/* These power domains are grouped by VD_LOGIC */
+ 			power-domain@RK3568_PD_VI {
+ 				reg = <RK3568_PD_VI>;
+@@ -572,6 +579,37 @@ power-domain@RK3568_PD_RKVENC {
+ 		};
+ 	};
  
-diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
-index d6421251670dc..5a145ba8c5a92 100644
---- a/drivers/accel/rocket/rocket_core.h
-+++ b/drivers/accel/rocket/rocket_core.h
-@@ -18,10 +18,13 @@ struct rocket_core;
-  * struct rocket_soc_data - per-SoC configuration data
-  * @num_cores: Number of NPU cores in this SoC.
-  * @dma_bits: Physical address width reachable by the NPU's AXI master.
-+ * @noc_init: Optional callback to bring up the NPU before it is reachable.
-+ *            Used on RK3568 to start the PVTPLL compute clock via SCMI.
-  */
- struct rocket_soc_data {
- 	unsigned int num_cores;
- 	unsigned int dma_bits;
-+	int (*noc_init)(struct rocket_core *core);
- };
- 
- #define rocket_pc_readl(core, reg) \
-diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
-index f0beed2d522c7..86484110ad6f0 100644
---- a/drivers/accel/rocket/rocket_drv.c
-+++ b/drivers/accel/rocket/rocket_drv.c
-@@ -10,6 +10,7 @@
- #include <linux/err.h>
- #include <linux/iommu.h>
- #include <linux/of.h>
-+#include <linux/of_clk.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- 
-@@ -223,12 +224,42 @@ static void rocket_remove(struct platform_device *pdev)
- 	}
- }
- 
-+/*
-+ * The NPU compute clock is a PVTPLL managed by TF-A via SCMI; spin it up
-+ * with a real rate change (an intermediate rate defeats the clock
-+ * framework's unchanged-rate shortcut).  Powering on and de-idling the NPU
-+ * NoC are handled by the power domain (genpd) before the NPU is accessed.
-+ */
-+static int rk3568_noc_init(struct rocket_core *core)
-+{
-+	struct clk *npu_clk;
++	rknn_core_0: npu@fde40000 {
++		compatible = "rockchip,rk3568-rknn-core";
++		reg = <0x0 0xfde40000 0x0 0x1000>,
++		      <0x0 0xfde41000 0x0 0x1000>,
++		      <0x0 0xfde43000 0x0 0x1000>;
++		reg-names = "pc", "cna", "core";
++		interrupts = <GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&cru ACLK_NPU>, <&cru HCLK_NPU>,
++			 <&scmi_clk SCMI_CLK_NPU>, <&cru PCLK_NPU_PRE>;
++		clock-names = "aclk", "hclk", "npu", "pclk";
++		assigned-clocks = <&scmi_clk SCMI_CLK_NPU>, <&cru CLK_NPU>;
++		assigned-clock-rates = <200000000>, <600000000>;
++		resets = <&cru SRST_A_NPU>, <&cru SRST_H_NPU>;
++		reset-names = "srst_a", "srst_h";
++		power-domains = <&power RK3568_PD_NPU>;
++		rockchip,pmu = <&pmu>;
++		iommus = <&rknn_mmu_0>;
++		status = "disabled";
++	};
 +
-+	npu_clk = of_clk_get_by_name(core->dev->of_node, "npu");
-+	if (IS_ERR(npu_clk))
-+		return dev_err_probe(core->dev, PTR_ERR(npu_clk),
-+				     "failed to get the NPU SCMI clock\n");
++	rknn_mmu_0: iommu@fde4b000 {
++		compatible = "rockchip,iommu";
++		reg = <0x0 0xfde4b000 0x0 0x40>;
++		interrupts = <GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH>;
++		clock-names = "aclk", "iface";
++		clocks = <&cru ACLK_NPU>, <&cru HCLK_NPU>;
++		power-domains = <&power RK3568_PD_NPU>;
++		#iommu-cells = <0>;
++		status = "disabled";
++	};
 +
-+	if (clk_set_rate(npu_clk, 600000000UL) ||
-+	    clk_set_rate(npu_clk, 1000000000UL))
-+		dev_warn(core->dev, "failed to set the NPU compute clock rate\n");
-+	clk_put(npu_clk);
-+
-+	return 0;
-+}
-+
-+static const struct rocket_soc_data rk3568_soc_data = {
-+	.num_cores = 1,
-+	.dma_bits = 32,
-+	.noc_init = rk3568_noc_init,
-+};
-+
- static const struct rocket_soc_data rk3588_soc_data = {
- 	.num_cores = 3,
- 	.dma_bits = 40,
- };
- 
- static const struct of_device_id dt_match[] = {
-+	{ .compatible = "rockchip,rk3568-rknn-core", .data = &rk3568_soc_data },
- 	{ .compatible = "rockchip,rk3588-rknn-core", .data = &rk3588_soc_data },
- 	{}
- };
+ 	gpu: gpu@fde60000 {
+ 		compatible = "rockchip,rk3568-mali", "arm,mali-bifrost";
+ 		reg = <0x0 0xfde60000 0x0 0x4000>;
 -- 
 2.39.5
 
