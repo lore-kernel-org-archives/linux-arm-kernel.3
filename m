@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C58FCD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 01:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F436CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 03:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Cc:To:References:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2oWK8M0wntpnRjBz1cfwtxi/O7HmJFLfA78GqbD2mB0=; b=QhTaPb4s6Zv6zd6ibLIqeN7bqs
-	BtiCBbdXgsbgvcjN4NqFQSbUarJdGsmaRG19gF3vsd284yCDmVjAN1HFFfRI5DXqEAZZmpKa2NqGZ
-	Ywy9zdqwZmMEUZnJvCLk/b+a4dm1cEq8mKwXBi72EgP7uIW4E43ovIyQOsCuXskFU+PUqFhLFzFQU
-	K39BC/+DC+O0RrefeFQMfKRLwnMz0MZprkGfs57gXB0zktBY0bENIyKs/zL9My5PQPCjWBzgT3nEl
-	G5q8ugiOGQt9OPz9YkFKFKik4lCLf9i4wBVjkztr8zHJ/vwOpw7nuJSs56aL1s1l/kayBleivcrMU
-	Ak6bzDJw==;
+	bh=qrms26ev2x7pcE7vUd4lgq+MFRPOdEZhYXchRY4f4SA=; b=I+ROxihkW34cGNCo8XisQoG4Xg
+	EqWX0o9ScFqhGXNmDPCDwC81dFYaK6ZUTjyAYWNj5TwzFqAVnJ+2xh4kryLUjl3tpU9FDVSpAB0iK
+	qr/Nxzz0scZlzghZuibvxx8FnzxkQa7VSgT6m8FJxsgR03izQsvoxRDpMVVq5XrhqSCrIMCXPhEjn
+	2zsIQJ2HJEo5z0rQdSpVarjuAfDkL3XgEzWmJ7tPid9ied27jNgTwvv5pBz7bqryQTUmzRTAGUt3X
+	5MlXitUm8At3HtFDkIr8RPqM3MeH87GVHWpfDZeT4tLzMDr3F88KPc8aVVarL3B+QDv8BWcXipuSo
+	IWEGRncw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYDCN-0000000BtP8-3KsM;
-	Sat, 13 Jun 2026 01:30:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wYEZK-0000000BvGR-30wo;
+	Sat, 13 Jun 2026 02:57:58 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYDCK-0000000BtOb-3ZNN;
-	Sat, 13 Jun 2026 01:30:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781314204;
-	bh=A0Fhtf7gjqLJuhoBRBiXhWj0GB7XnVMNfK4IpemDFWI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oRtcAJW/8KbnGXk89e/jzIq16DQOsRVAid2oW1M2rMIgNizldVcQu7EEkMJg6vaGH
-	 nBqkwPrnVMBUP2SEpHcJrqfX4J1PDNQYzA9i9nFfuEzjDK2oxpsX3peMPkaVLysDfs
-	 zl9FHuMbw5RBTkiMKYDsQHotRUDWzftvaPWIPEGiariaCMOe38XdWUAh5yPdZYsXsg
-	 Xr5wimHa+J1VX/GbE3AG6a4ZiUxLOZZisillPJIBZk4vyij0qsvnTIrEKETWCI1o1T
-	 K9RWaETDo4JbpKzY6C+PxOBdD0Q9bKQVmgP9pEX93QPDmnHFVEcbIytSpWWnr9Zj/H
-	 U5XoBLBqVU7oA==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 30ABF17E03C6;
-	Sat, 13 Jun 2026 03:30:03 +0200 (CEST)
-Message-ID: <2f5ce8eb-ef47-4238-ad68-ce62981a1845@collabora.com>
-Date: Sat, 13 Jun 2026 04:30:02 +0300
+	id 1wYEZE-0000000BvFv-0LAs
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 02:57:55 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gcgyw4hSjzYQtpb
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 10:57:12 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id A54C54056D
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 10:57:35 +0800 (CST)
+Received: from [10.174.179.37] (unknown [10.174.179.37])
+	by APP1 (Coremail) with SMTP id cCh0CgAXGj8dxyxqedlrBg--.4871S3;
+	Sat, 13 Jun 2026 10:57:35 +0800 (CST)
+Message-ID: <d70e4390-746d-bd12-3682-3aba3a7162a8@huaweicloud.com>
+Date: Sat, 13 Jun 2026 10:57:33 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 04/30] drm/display: scdc_helper: Add HDMI 2.0
- scrambling management helpers
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
- <20260602-dw-hdmi-qp-scramb-v7-4-445eb54ee1ed@collabora.com>
- <20260612-cordial-steadfast-cow-fcaf01@houat>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: [PATCH v8 next 04/10 Resend] arm_mpam: Refactor rmid to reqPARTID/PMG
+ mapping
 Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260612-cordial-steadfast-cow-fcaf01@houat>
-Content-Type: text/plain; charset=UTF-8
+References: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
+To: James Morse <james.morse@arm.com>, ben.horgan@arm.com,
+ Dave.Martin@arm.com, tan.shaopeng@jp.fujitsu.com, reinette.chatre@intel.com,
+ fenghuay@nvidia.com, tglx@kernel.org, will@kernel.org, hpa@zytor.com,
+ bp@alien8.de, babu.moger@amd.com, dave.hansen@linux.intel.com,
+ mingo@redhat.com, tony.luck@intel.com, gshan@redhat.com,
+ catalin.marinas@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linux-kernel@vger.kernel.org, Kefeng Wang <wangkefeng.wang@huawei.com>
+From: Zeng Heng <zengheng@huaweicloud.com>
+In-Reply-To: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
+X-Forwarded-Message-Id: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: cCh0CgAXGj8dxyxqedlrBg--.4871S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxAF1kWw17tr4fArWDJF47Arb_yoWrGF1kpr
+	4fKw47JF1DJF15W3srJa18Xw18A393trWDKw15ZrykJ3sxA348Jr1Utry0yFyUJry8Jryj
+	vryUtr1UGrWDAFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
+	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUIa0PDUUUU
+X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_183009_060958_15D62E79 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20260612_195752_498855_5116A3B2 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,90 +94,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/12/26 4:43 PM, Maxime Ripard wrote:
-> On Tue, Jun 02, 2026 at 01:44:04AM +0300, Cristian Ciocaltea wrote:
->> +/**
->> + * drm_scdc_start_scrambling - activate scrambling and monitor SCDC status
->> + * @connector: connector
->> + *
->> + * Enables scrambling and high TMDS clock ratio on both source and sink sides.
->> + * Additionally, use a delayed work item to monitor the scrambling status on
->> + * the sink side and retry the operation, as some displays refuse to set the
->> + * scrambling bit right away.
->> + *
->> + * Returns:
->> + * Zero if scrambling is set successfully, an error code otherwise.
->> + */
->> +int drm_scdc_start_scrambling(struct drm_connector *connector)
->> +{
->> +	struct drm_display_info *info = &connector->display_info;
->> +	struct drm_connector_hdmi *hdmi = &connector->hdmi;
->> +	int ret;
->> +	u8 ver;
->> +
->> +	if (!hdmi->scrambler_supported) {
->> +		drm_scdc_dbg(connector, "Scrambler not supported, bailing.\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	if (!info->is_hdmi ||
->> +	    !info->hdmi.scdc.supported ||
->> +	    !info->hdmi.scdc.scrambling.supported) {
->> +		drm_scdc_dbg(connector, "Sink doesn't support scrambling.\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	drm_scdc_dbg(connector, "Enabling scrambling\n");
->> +
->> +	ret = drm_scdc_readb(connector->ddc, SCDC_SINK_VERSION, &ver);
->> +	if (ret) {
->> +		drm_scdc_dbg(connector, "Failed to read SCDC_SINK_VERSION: %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	ret = drm_scdc_writeb(connector->ddc, SCDC_SOURCE_VERSION,
->> +			      min_t(u8, ver, SCDC_MAX_SOURCE_VERSION));
->> +	if (ret) {
->> +		drm_scdc_dbg(connector, "Failed to write SCDC_SOURCE_VERSION: %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	hdmi->scdc_cb = drm_scdc_monitor_scrambler;
->> +	WRITE_ONCE(hdmi->scrambler_enabled, true);
->> +
->> +	ret = drm_scdc_try_scrambling_setup(connector);
->> +	if (!ret)
->> +		ret = hdmi->funcs->scrambler_enable(connector);
->> +
->> +	if (ret) {
->> +		WRITE_ONCE(hdmi->scrambler_enabled, false);
->> +		cancel_delayed_work_sync(&hdmi->scdc_work);
->> +		hdmi->scdc_cb = NULL;
->> +
->> +		drm_scdc_set_scrambling(connector, false);
->> +		drm_scdc_set_high_tmds_clock_ratio(connector, false);
->> +	}
->> +
->> +	return ret;
->> +}
->> +EXPORT_SYMBOL(drm_scdc_start_scrambling);
+Hi James,
+
+Resent from huaweicloud email to avoid being filtered as spam.
+
+----------
+
+>> @@ -478,6 +518,7 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
+>>   		      enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
+>>   {
+>>   	struct mon_cfg cfg;
+>> +	u32 reqpartid = rmid2reqpartid(rmid);
+>>   
+>>   	if (!mpam_is_enabled())
+>>   		return -EINVAL;
+>> @@ -493,8 +534,8 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
+>>   	cfg = (struct mon_cfg) {
+>>   		.mon = mon_idx,
+>>   		.match_pmg = true,
+>> -		.partid = closid,
+>> -		.pmg = rmid,
+>> +		.partid = (cdp_type == CDP_CODE) ? reqpartid + 1 : reqpartid,
+>> +		.pmg = rmid2pmg(rmid),
 > 
-> This is also pretty significantly different than what vc4 implemented. I
-> don't necessarily mind, but claiming that it's functionally equivalent
-> isn't true. I think it would be a much better strategy to turn the vc4
-> code into helpers as is because it's been merged 4 years ago and we know
-> it's solid.
+> Not using the CLOSID here breaks multiple control groups.
+> 
 
-As explained in patch 25, I think there's been a slight misunderstanding of how
-the CRTC reset logic was actually implemented.
 
-> Then, if you want to add additional checks and constraints (like the
-> SCDC_SINK_VERSION) that's fine, but it should come on top, and with its
-> own explanation.
+After carefully reviewing your comments and Martin's patch series,
+I tried to understand why there is insistence that CLOSID information
+is necessary to support multiple control groups, but that is actually
+not the case.
 
-I'll recheck if there's anything that I might have missed from the original
-implementation, while moving the additional changes to separate patch(es).
+Before proceeding, please allow me to refer to base_partid as CPARTID
+(control partition ID; I'm no longer borrowing the intPARTID concept
+here). The associated partids_per_closid all share the same control
+scheme.
 
-Thanks,
-Cristian
+The partids derived from partids_per_closid under a given CPARTID,
+I will call MPARTID (monitor partition ID; no longer borrowing the
+reqPARTID concept). These represent the PARTIDs used for different
+monitoring groups under the same control scheme.
+
+
+I've summarized the ID translation schemes from James and Martin as
+follows:
+
+  +-------------------------------+------------------+
+  |            CLOSID       |{CDP}|       RMID       |
+  +-------------------------------+------------+-----+
+  |            MPARTID                         | PMG |
+  |      CPARTID(or MPARTID_hi)   : MPARTID_lo |     |
+  +--------------------------------------------+-----+
+
+Where closid = cpartid (base_partid or mpartid_hi),
+       rmid   = mpartid_lo * pmg_num + pmg,
+with mpartid_lo in the range [0, partids_per_closid).
+
+In this scheme, CLOSID and RMID are coupled together to form MPARTID,
+which represents the monitor group PARTID.
+
+
+In current patchset design, decoupling CLOSID and RMID, letting them
+represent CPARTID and MPARTID respectively:
+
+  +---------------------------------------------+
+  |                    CLOSID             |{CDP}|
+  +---------------------------------------------+
+  |                    CPARTID                  |
+  +---------------------------------------------+
+
+  +---------------------------------------------+
+  |                     RMID                    |
+  +---------------------------------------+-----+
+  |                   MPARTID             | PMG |
+  |  MPARTID_hi(or CPARTID)  : MPARTID_lo |     |
+  +---------------------------------------+-----+
+
+Where closid  = cpartid (base_partid or mpartid_hi),
+       rmid    = mpartid * pmg_num + pmg,
+   and mpartid = mpartid_hi * partids_per_closid + mpartid_lo .
+
+The design intent is to decouple CLOSID and RMID, rather than having
+RMID depend on CLOSID to derive MPARTID. This decoupling is essential
+for future dynamic allocation, because the relationship between MPARTID
+and CPARTID must rely on table lookup rather than linear mapping. If
+don't decouple in the static allocation design, we would need another
+refactor when considering dynamic allocation extensibility.
+
+The control path uses CLOSID alone (CPARTID), and the monitor path uses
+RMID alone (the (MPARTID, PMG) pair). This definition also aligns
+closely with the native resctrl concepts: CLOSID (Class of Service ID,
+corresponding to CPARTID) and RMID (Resource Monitor ID, corresponding
+to the (MPARTID, PMG) pair).
+
+
+In the end, the number of control groups is determined by the number of
+CPARTIDs. Both of these ID translation schemes support multiple control
+groups.
+
+Please allow me to rework the patch series into v9 based on my current
+patches, incorporating your review feedback.
+
+
+Best Regards,
+Zeng Heng
+
 
