@@ -4,103 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFFBCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 12:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1BCCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 13:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4USlR/wTC53+DK1xOyOVELLpPn6dQVqos5QLqbfQPM=; b=xkDV39OhDnwCajUQ4RqVxizX8r
-	J7cDx/bLL/81i7pFO6cfJOK6IkqIm5tUgl4sSYjsc69SdphLeaGFBDhR/S2oV03y8e/R8p0yifeny
-	t/xXHLNdk+4fQg+y3oLZutISIsLw8FiEzMP7c1C9UA4z4DdBqRh6l6NsgoNmo5LiUGdQPmM1YwekY
-	gy7QNhBe9oXP/vPRvm1Tzc+J9NA6qRSdRxQStRGAw3ZBQw7ypJsMn5sb2lMm06hxWAI/HMvIkNEnh
-	zjY6vrw0RYZVnX2tQhr7quSjj9d5UF99GJiEcwL9hlCR0fdfKoMrm+tJl5QgQ5oirhILEvwtYMa05
-	rFvZpYaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f9grc44daxqBIZcosao5jKPSGCBZitxm1ELHMoNm91o=; b=rO7yb05XcZ74WdMeb4Xofcnp3H
+	lbWFa/9Qg8t5DB9eosoqadiBs/gjMHnNq53PsXV8Kd/ffmIEZ2jfaQUJJ/hN4KkaDQ/lwgnlzFvOI
+	hPLCiWgq0gehZPPBfdz1a0AJ3Lcfnttxj8XSliswl5NZjbz/ndMe0S25Is0XEeAwHb84lLXr6rfTe
+	P/YHBmj8m20Ffj4cyecELfbei/Z+fBbuPQOpYK3hTiLAOSbnvAYom9PBEieP8Lw4p5d9kfyOQk3FF
+	E0pcDrgp88ZXFg1zdUdPQ5JmdO5oT0ygRRsuktgSWqvGqT9wuT9xXUKIht43akSCkkSUex4zgDwXL
+	dbOjUONA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYNbZ-0000000CHXQ-1cuy;
-	Sat, 13 Jun 2026 12:36:53 +0000
-Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
+	id 1wYO0i-0000000CJ7m-2OTD;
+	Sat, 13 Jun 2026 13:02:52 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYNbX-0000000CHVz-0y5u
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 12:36:52 +0000
-Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-1370417c01cso2367757c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 05:36:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781354210; x=1781959010; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k4USlR/wTC53+DK1xOyOVELLpPn6dQVqos5QLqbfQPM=;
-        b=kE1mhzqXKcTBAbIKXyRYtkGiwXKgLCFcVG/vTu0TAp3kryK1Cw7SwFlsnE7Iiz3deP
-         E3muKD4Uo52Yh3zQNZuHjxFWzueD0Sv2lKkbrDlPxss6/3N0jIMOmH6iAC3pW2X1KX2W
-         57q9oPIdDrthsNk5gwuwLHuLnrhTffVNoIuqiLDUpNe4w/XLW+QkwTkG1LEw/i0sNqKs
-         /S7I+Dv4I6zwbYyKJ+QurAJJSadLrw/g0q3h2cp4/Ll6A5bXw+pnsptVVbVk6+QdzdOf
-         nMLaECtC6AqS+tGJedT2NXcnzirffoF7+97310dfOY7ugp0A6opxAN21V0VxdySLD9yQ
-         NuQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781354210; x=1781959010;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=k4USlR/wTC53+DK1xOyOVELLpPn6dQVqos5QLqbfQPM=;
-        b=VIqHk1vNJJPXSmc5d8+4NVVEchwkrv/IXWcy7pehN4gmZJm61+e11uDxvHkUZAdao/
-         t5hTWD3Kl8pfC0s8QATNGk1jJp/88KFYFSzJ/wF7S80os7DjN5aX22RIrxTWG7isLROA
-         +3yfDnzIdsWHvmWWk9xGn6n/8p4bPzvwUn0lQB4x1Lr92ByAXzM3KKbGDq5oBWuGFEKp
-         2stWn4qTmGbaSo7oz9ShlJLhC9xhpTU6GcirSQJwrnx6K0Zc9TiFFqMMYzI5Yy/+25IT
-         yKWz5QjtaIKnlUXW0h+PZkv323cl2EVm6W2HAsZHttY+j3CliFlW3Rb5JZjTiulrVmiH
-         B2oA==
-X-Forwarded-Encrypted: i=1; AFNElJ/9Wyet2bwA5rs1XPtBtQBpuy74AzNQRdHYo6hwZvy4lGuTYvKN1jK7ISLzgbNmhzPepmt8w/pKQQ+nJ1hL0Kso@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyJGsS+77/61g4HQLel2qNzaKOwqw5KL5md/YQ/4K5YrRnreOw
-	/9v3bbLES5+GYcT921hFiw1Do01FcVQLDBz0m3HxWmhYxSNSyJKJMnIcKRB6Rg==
-X-Gm-Gg: Acq92OEJs0GYmCJ4V2mgUxrbZQyZh3xJMCIenPXE2ufRgwUrDW6CwN6EPAhWexynq0+
-	XEnhOl4o6Ikq1x0iDr4kQWf8F9kly4VqRTAet+vEZhUkVROFSZ7foM3rju8OQTMVo2TLPz/0FrN
-	BMQ4MCvfiSejR+NMMh5IZorqV+yHslE9EG7KixWO3+lb7Jpauz601kx9w4iJWjxiP9426G/d92X
-	b4k6/SY1fd0B6CtXqG86bMWbawGxq4hhh5pyI5zYWTon6qde+9M6sxpxOb98Bn6yAK9j7iQw1F8
-	5mSQYOMjcLUm6OUPqbeTGih7qt103twgSYg9V/qEI8SXSklihvUMge0OoLVGrkdsjoBWfOxFIwP
-	3/ZI1LelId5eDY9RvQWUYynV19Rbkn/nwYWFUvEF9FSyBYlx6hpOcTcSX/wc8A9NHgFEJoeR+Rq
-	ILR3PehTMSfiYmsg5QDsmd6AapPw44
-X-Received: by 2002:a05:7300:d513:b0:304:54d6:20f3 with SMTP id 5a478bee46e88-3081ff3da47mr3614433eec.4.1781354210099;
-        Sat, 13 Jun 2026 05:36:50 -0700 (PDT)
-Received: from [127.0.0.1] ([38.252.222.142])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb95450sm9176630eec.28.2026.06.13.05.36.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 05:36:49 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Sat, 13 Jun 2026 07:36:18 -0500
-Subject: [PATCH v3 3/3] clk: samsung: exynos990: Fix PERIS gate clock
- parents
+	id 1wYO0g-0000000CJ5R-0z29;
+	Sat, 13 Jun 2026 13:02:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781355770; x=1812891770;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=uxJGwCAsMcpFZ/9RNw7yRRDOB6tqapy/6259X4loI4s=;
+  b=Oju7etMKZoEbc17Fiz0v0dDpVVYglk5urSFBMgQR9GSD8oKwXQtJEeYE
+   G1IHAENH7osmydGnAsfByaTim7Rmz43984NlvKSKPNHPAbakN0WdPguOt
+   m4QrNWufI42H6rU5I/Z1SGJFs/lxBcKpuE8ZS03Veri9GTdpPVmyGybuB
+   EixvM5dxFa/bVOhu6B9gX7q+9CEnanTLnTSCLrRXCVdTdeacfJ5CYc8ow
+   Gmj9v+3T4Ff/adUm+2NvaQ6zrBfHnovfVYfDSDKfOsnivvWvCanNXmWKQ
+   V++ZjeiMScKevevcW/HO3ELF8xjnQOxg4nAimfIgvfIBpQeqSo0m4cHpk
+   A==;
+X-CSE-ConnectionGUID: LwBdWzkLT3SsrjuQ80Sb3g==
+X-CSE-MsgGUID: G4PJvkg0Ss280hEGMD7dxA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11815"; a="82014785"
+X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
+   d="scan'208";a="82014785"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 06:00:48 -0700
+X-CSE-ConnectionGUID: 9YFHfovRT2GI8xWhDYQGUA==
+X-CSE-MsgGUID: xEQJQI/xSEusBaz11tHecg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
+   d="scan'208";a="246931274"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.184])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 06:00:43 -0700
+Date: Sat, 13 Jun 2026 16:00:40 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>
+Subject: Re: [PATCH v2 02/16] device property: Add
+ fwnode_graph_get_next_port_endpoint()
+Message-ID: <ai1UeO-BZQEEheml@ashevche-desk.local>
+References: <20260610084053.2059858-1-wenst@chromium.org>
+ <20260610084053.2059858-3-wenst@chromium.org>
+ <ailv8HpnrCH3Zb8C@ashevche-desk.local>
+ <CAGXv+5EHHWfiWgqPpf-RMKoSQLc2cd9OA4Z36SNoL5C53kVh2g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260613-exynos990-peris-fix-v3-v3-3-2b230db78ae4@gmail.com>
-References: <20260613-exynos990-peris-fix-v3-v3-0-2b230db78ae4@gmail.com>
-In-Reply-To: <20260613-exynos990-peris-fix-v3-v3-0-2b230db78ae4@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781354194; l=3772;
- i=wachiturroxd150@gmail.com; s=20250819; h=from:subject:message-id;
- bh=8QsT5qMevIWG1r4CekVOQr7GSa6vcMhLRdQO614ENU8=;
- b=ihYZln6EC8btrpTxULgjKOmfDRIQxFeQLj9PPzVgyazaKnnRWT2mIMsb9cFanykEkbWDFuL65
- zqMsltsBrMjDXF5b8zKilor295hReYlHkfEKHOAhh2CJsa00CRG/Fkx
-X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
- pk=qNvcL0Ehm3chrW9jFA2JaPVgubN5mHH//uriMxR/DlI=
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGXv+5EHHWfiWgqPpf-RMKoSQLc2cd9OA4Z36SNoL5C53kVh2g@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_053651_427957_7D90B9F6 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260613_060250_307008_CBF3775E 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,82 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct eight PERIS gate clock parents to match the hardware clock
-tree and reorder the GIC mux parents so mout_peris_bus_user is the
-default source.
+On Fri, Jun 12, 2026 at 04:20:18PM +0900, Chen-Yu Tsai wrote:
+> On Wed, Jun 10, 2026 at 11:08 PM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Wed, Jun 10, 2026 at 04:40:36PM +0800, Chen-Yu Tsai wrote:
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- drivers/clk/samsung/clk-exynos990.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+...
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index ee3566b8e57c..df5928833b23 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -2551,7 +2551,7 @@ static const unsigned long peris_clk_regs[] __initconst = {
- 
- /* Parent clock list for CMU_PERIS muxes */
- PNAME(mout_peris_bus_user_p)		= { "oscclk", "mout_cmu_peris_bus" };
--PNAME(mout_peris_clk_peris_gic_p)	= { "oscclk", "mout_peris_bus_user" };
-+PNAME(mout_peris_clk_peris_gic_p)	= { "mout_peris_bus_user", "oscclk" };
- 
- static const struct samsung_mux_clock peris_mux_clks[] __initconst = {
- 	MUX(CLK_MOUT_PERIS_BUS_USER, "mout_peris_bus_user",
-@@ -2584,15 +2584,15 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_BUSP_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_CLK_PERIS_OSCCLK_CLK,
--	     "gout_peris_clk_peris_oscclk_clk", "mout_peris_bus_user",
-+	     "gout_peris_clk_peris_oscclk_clk", "oscclk",
- 	     CLK_CON_GAT_CLK_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_OSCCLK_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_CLK_PERIS_GIC_CLK,
--	     "gout_peris_clk_peris_gic_clk", "mout_peris_bus_user",
-+	     "gout_peris_clk_peris_gic_clk", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_GIC_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_AD_AXI_P_PERIS_ACLKM,
--	     "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_bus_user",
-+	     "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_AD_AXI_P_PERIS_IPCLKPORT_ACLKM,
- 	     21, CLK_IGNORE_UNUSED, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_PCLK,
-@@ -2600,19 +2600,19 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_GIC_CLK,
--	     "gout_peris_gic_clk", "mout_peris_bus_user",
-+	     "gout_peris_gic_clk", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_GIC_IPCLKPORT_CLK,
- 	     21, CLK_IS_CRITICAL, 0),
- 	GATE(CLK_GOUT_PERIS_LHM_AXI_P_PERIS_CLK,
--	     "gout_peris_lhm_axi_p_peris_clk", "oscclk",
-+	     "gout_peris_lhm_axi_p_peris_clk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_LHM_AXI_P_PERIS_IPCLKPORT_I_CLK,
- 	     21, CLK_IGNORE_UNUSED, 0),
- 	GATE(CLK_GOUT_PERIS_MCT_PCLK,
--	     "gout_peris_mct_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_mct_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_MCT_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_TOP_PCLK,
--	     "gout_peris_otp_con_top_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_otp_con_top_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_D_TZPC_PERIS_PCLK,
-@@ -2624,7 +2624,7 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_SUB_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_TMU_TOP_PCLK,
--	     "gout_peris_tmu_top_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_tmu_top_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_TOP_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_OSCCLK,
+> > > +struct fwnode_handle *fwnode_graph_get_next_port_endpoint(const struct fwnode_handle *port,
+> > > +                                                       struct fwnode_handle *prev)
+> > > +{
+> > > +     struct fwnode_handle *ep;
+> >
+> > Unused?
+> >
+> > > +     while (1) {
+> >
+> > This is usually harder to read and follow. It's like "pay much attention on
+> > the code", but here no rocket science, no code to really pay attention to.
+> >
+> > > +             prev = fwnode_get_next_child_node(port, prev);
+> > > +             if (!prev)
+> > > +                     break;
+> > > +
+> > > +             if (WARN(!fwnode_name_eq(prev, "endpoint"),
+> > > +                      "non endpoint node is used (%pfw)", prev))
+> > > +                     continue;
+> > > +
+> > > +             break;
+> > > +     }
+> > > +
+> > > +     return prev;
+> > > +}
+> >
+> > So, this can be rewritten as
+> >
+> >         ep = prev;
+> >         do {
+> >                 ep = fwnode_get_next_child_node(port, ep);
+> >                 if (fwnode_name_eq(ep, "endpoint"))
+> >                         break;
+> >
+> >                 WARN_ON(ep, ...);
+> >         } while (ep);
+> >
+> >         return ep;
+> >
+> > But also big question why? to WARN*(). There is no use in the entire
+> > property.c.
+> 
+> Will drop. This function was lifted from drivers/of/property.c then
+> adapted to the fwnode APIs, so it still has the structure of its
+> origin. With the WARN() gone, rewriting it as do {} while() becomes:
+> 
+> do {
+>         prev = fwnode_get_next_child_node(port, prev);
+>         if (prev && fwnode_name_eq(prev, "endpoint"))
+
+'prev &&' is not needed.
+
+>                 break;
+> } while (prev);
+> 
+> return prev;
 
 -- 
-2.54.0
+With Best Regards,
+Andy Shevchenko
+
 
 
