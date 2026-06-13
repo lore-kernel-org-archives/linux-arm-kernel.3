@@ -4,98 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7944FCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1F0CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+DHXyBduh8nW5mH/RwXPnUoFvsJilmF8kF51mFs5s0=; b=BGoLCIdIlGuoAZEgZ5Sz0/xJWE
-	EF/ig323/KB8Hzy/xq/1WsJXqa8eoCfEBCOKMWsTfERCfflbmaxcHGXmWtx0x2mHOY+GVvLaaJEHc
-	mVmQCmFqmEz/DjmmNpfCWG1hBQYkACycgEqYTJW/D5xOZTQqtuF9egnE8J7L56XcoubdZch8ucaIw
-	9z39Hpdocbz9AplrXPq2hF5C/gVHmzad774GHDV1K2cP22B8UFuHkoiFUx4MSqALCa4SOAdyff7Dt
-	PY6Iv9L4lvkCw75O/JGZ0dSQygMUtOMarDF5lTVbOYnGyDiQMvxLG6qIIWPL34Wpv0WmmaqBzB+ka
-	uNsAkqMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xpDULfvSGqlETs98W87UX/kuF4lM1kjk45D89odlqmI=; b=vQaH021y7zFR2Di56VwJLnPwda
+	K2oIYsE++Fo/SRFiddOvONaVLMr5Rq4M3oIV1w4bNUB9s23sA/tlKBsvh/+bvmSIz3FtuhfISAbsx
+	BpBr6qdQ1Br0s1V2yJpqlJEo78VXmdTZtg+11EgQfD8kPllwyR3Q+GCTyMVzO0P4x8szEU5nj48zB
+	D9t0D9+66m+MbavFMj48Akiy3HC/183lepbAJkSu3demIK5ju9g4z4/Pj0WbqPQc7EYpPYw9jTk1l
+	KbKPgAzMc24LSRxhKrXcHZXZQV1WkyiQeuHzVwWcbx90tAmFbbJ97ma9LN1YYWfikUsoDTGDxKZ6C
+	XrEi9qDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJUC-0000000C4oM-3SDA;
-	Sat, 13 Jun 2026 08:13:00 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wYJZP-0000000C4zz-1uwe;
+	Sat, 13 Jun 2026 08:18:23 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJUA-0000000C4ny-1zGS
+	id 1wYJZL-0000000C4zJ-2yNb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 08:12:59 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490ac357c55so15564595e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 01:12:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781338376; x=1781943176; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=x+DHXyBduh8nW5mH/RwXPnUoFvsJilmF8kF51mFs5s0=;
-        b=Ges29eJbMlPW7O+2Fn9Ey3D8u7pReanbzG0r8ahIHF+m7Wo4FfPx2qNoauOrmuHmFL
-         SCyhTKzLsBPX+juPl7w3qstBuUIrpGMwEjMeZtgy7AQnc5VXO4DNdQwYSNYhRWaiYNWX
-         pv7Ovz/2SKOzKpMMV9KoRVrS7WTJIAYYELAvVCihuIqH0CNRaF8pjGS0QITNXwlsXvmY
-         apCnC9CgNAVs9OyHox3/7PtEWdyCq937czQW+bJx9cJ8LcUFk55nhuq3lg+txdE4b8xn
-         yv4la564hGeAOmhUzjlUkmM0wl2E0YsHfowAQEpBuhwPUj1aB3eWIwgVow/s0TG6oCGQ
-         nYOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781338376; x=1781943176;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=x+DHXyBduh8nW5mH/RwXPnUoFvsJilmF8kF51mFs5s0=;
-        b=VKr4Y/tVzboT55nVzK5jUtKFlsAmG/2YNZKg6W5oPV9L0NBUsB1737FcjWz81uT1K+
-         l/07bDmkG9JbP9BRhgZ1WFeyOKPAe40k7swQL3v31175jBoQ/B4edlfRnx9r6WqL4ze/
-         pit+/11qwwv5DGiF+hNG1qMpZ+u731Z6iAy4zmcFNiJ4pTc1KRUFMON0WAN6sSEAqWVi
-         c7u5Gt0MMdaN8YrHhBUn6A2kxYqq2uh58oH2lFTSP/2fcAiyYjICTo62A6OXIjqTB4no
-         5kSyurMtJmAtTIeBGPsvEZK4MVfxdANdQ9FOJ/BmpUZvuWuZXXdHWvc0On61zJkex/zV
-         eM9A==
-X-Gm-Message-State: AOJu0YxZ0J24AsT5+lnpCGQfpC5/Yi89KBI+GoO/9d557gXfJaRpHE1x
-	RRY2jN/8Z2HLvufNeTOZMpVFMka1FpUIiYjJzlWc6Msi4vchliwu2cBkLe4TgtyY
-X-Gm-Gg: Acq92OHl5Q5WqfmXbXuWxCoYXAlgmCEh7F6ht4CGAzowEYvhhAaa7xpfcepMi4kQ4+y
-	8Q4PwzEfftUfkCBoOib9qeLHDq80yJYx4hv2kAhDMjs61CP7fsp310Ba/Lg/ZukkTRmY+hF0L+t
-	TgG0SECA0FtD4v2doFIl74G2fV5tI/BKildeESVEvH+YxAbqnZk/WfWolgtmzCr7hSnYa6UMNEK
-	s17X4AAQ5pZ1sDsH3eyilgDUpRoFfTgqUhzUPq7S+tVpDr6Xa2m1CjLJlDaHMhTt4hTDqplnxvw
-	qXg5Yjpn2QOlj6ptWoPBi/Ioy0s2oWlpI3A5hEPlaltN0e7Lty+WRcqsLxNeZgjpSobft00o/I2
-	GgbriFjbeYLngCLdWQ1QCNupw15hYeEDC8ZanDb0vkB63+Gid0pTJOkX2wkF9GgacyCiqlehW/y
-	9ZUDErXw5ijrXQXRCKUBgrWyURjHMzpI+ENMAmf1PQRQDj
-X-Received: by 2002:a05:600c:8b31:b0:490:e5c1:b8c6 with SMTP id 5b1f17b1804b1-490ec4b58ffmr75929755e9.8.1781338376446;
-        Sat, 13 Jun 2026 01:12:56 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea4b39e9sm88333215e9.0.2026.06.13.01.12.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 01:12:55 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Hans de Goede <hansg@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>,
- Lukas Schmid <lukas.schmid@netcube.li>,
- =?UTF-8?B?Si4gTmV1c2Now6RmZXI=?= <j.ne@posteo.net>,
- Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v4 1/7] arm64: defconfig: Enable Allwinner LRADC input driver
-Date: Sat, 13 Jun 2026 10:12:54 +0200
-Message-ID: <sIT7xrHETBux3nDrv9ggVw@gmail.com>
-In-Reply-To: <20260605070923.3045073-2-alexander.sverdlin@gmail.com>
-References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
- <20260605070923.3045073-2-alexander.sverdlin@gmail.com>
+	Sat, 13 Jun 2026 08:18:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1781338698;
+ bh=xpDULfvSGqlETs98W87UX/kuF4lM1kjk45D89odlqmI=;
+ b=OAHCPxkJufymq9QStuXkAlwjzUbNH1KpoHFsvSYcPnjtQ8eeFo4AAi1SUQgulgtirOLVFihxe
+ SGv5sZfMlSKzuqwzmXANS20DI5++h2wq+ZTlA8e6vE7ke4/UCttAP7ebKhr3ITmWnaWwxypS21Z
+ KgOC1DwX8AiGgrXyoMl6qUPDH/A/OqCslNjljZDTMZlVRTrvKy4+8sTz1UvyNBvNBYqLHkQj7W0
+ Ab4uGdRmhFq2/EBsNqMjNBslqzSI/sk9eZ1+sM4qYg8MzADcP6bQYO3RvFEJ9+DNp1rsuaf7sKE
+ e4iLbhFx6WyjrjOWDtNjILQxnIDJPClGhvN44rwwz2kw==
+X-Forward-Email-ID: 6a2d12469b8e0435f022b519
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.8.26
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <0e6466aa-a153-446b-b31c-e9b331573358@kwiboo.se>
+Date: Sat, 13 Jun 2026 10:18:09 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v4 7/9] arm64: dts: rockchip: rk356x: Add the NPU and
+ its IOMMU
+To: MidG971 <midgy971@gmail.com>
+Cc: tomeu@tomeuvizoso.net, ogabbay@kernel.org, heiko@sntech.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ ulf.hansson@linaro.org, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org, xxm@rock-chips.com,
+ chaoyi.chen@rock-chips.com, finley.xiao@rock-chips.com,
+ diederik@cknow-tech.com
+References: <20260613070116.438906-1-midgy971@gmail.com>
+ <20260613070116.438906-8-midgy971@gmail.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20260613070116.438906-8-midgy971@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_011258_517629_BF3E343B 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260613_011819_872331_61FBAE75 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,17 +84,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 5. junij 2026 ob 09:09:15 Srednjeevropski poletni =C4=8Das je Al=
-exander Sverdlin napisal(a):
-> Enable Allwinner LRADC input driver as module to support buttons on Baijie
-> HelperBoard A133.
->=20
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Hi Midgy,
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+On 6/13/2026 9:01 AM, MidG971 wrote:
+> From: Midgy BALON <midgy971@gmail.com>
+> 
+> The RK3568 has an NVDLA-derived NPU at fde40000 with its own IOMMU at
+> fde4b000. Add both nodes (disabled by default) and the NPU power-domain
+> child under the PMU power-controller, and point rockchip,pmu at the PMU
+> syscon that controls the NPU NoC bus-idle.
+> 
+> Besides the SCMI compute clock, assign the CRU CLK_NPU so the NPU AXI
+> bus clock comes up at 200 MHz rather than the 12 MHz boot default.
+> 
+> The power-domain deliberately carries no pm_qos: qos_npu sits behind the
+> NPU NoC, which is gated until the NPU is brought up, so a genpd power-off
+> QoS save would fault reading it.
+> 
+> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 38 +++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> index 64bdd8b7754b5..313db59c1aed8 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> @@ -512,6 +512,13 @@ power-domain@RK3568_PD_GPU {
+>  				#power-domain-cells = <0>;
+>  			};
+>  
+> +			pd_npu: power-domain@RK3568_PD_NPU {
+> +				reg = <RK3568_PD_NPU>;
+> +				clocks = <&cru ACLK_NPU_PRE>,
+> +					 <&cru HCLK_NPU_PRE>;
+> +				#power-domain-cells = <0>;
+> +			};
+> +
+>  			/* These power domains are grouped by VD_LOGIC */
+>  			power-domain@RK3568_PD_VI {
+>  				reg = <RK3568_PD_VI>;
+> @@ -572,6 +579,37 @@ power-domain@RK3568_PD_RKVENC {
+>  		};
+>  	};
+>  
+> +	rknn_core_0: npu@fde40000 {
+> +		compatible = "rockchip,rk3568-rknn-core";
+> +		reg = <0x0 0xfde40000 0x0 0x1000>,
+> +		      <0x0 0xfde41000 0x0 0x1000>,
+> +		      <0x0 0xfde43000 0x0 0x1000>;
+> +		reg-names = "pc", "cna", "core";
+> +		interrupts = <GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH>;
+> +		clocks = <&cru ACLK_NPU>, <&cru HCLK_NPU>,
+> +			 <&scmi_clk SCMI_CLK_NPU>, <&cru PCLK_NPU_PRE>;
+> +		clock-names = "aclk", "hclk", "npu", "pclk";
+> +		assigned-clocks = <&scmi_clk SCMI_CLK_NPU>, <&cru CLK_NPU>;
+> +		assigned-clock-rates = <200000000>, <600000000>;
 
-Best regards,
-Jernej Skrabec
+This looks strange, the SCMI clk can be seen as a virtual clock that
+changes between normal CRU NPU clk and a PVTPLL NPU clk (depending on
+rate). 200 MHz, a typical opp-suspend value (switch to CRU clk instead
+of PVTPLL), will set the CLK_NPU rate to 200 MHz, then setting CLK_NPU
+to 600 MHz (the lowest rate that activates PVTPLL mode) outside of SCMI
+control looks strange.
 
+Suggest you only set SCMI NPU clk rate to 200 or 400 MHz and drop any
+special handling, e.g. noc_init, to closer match RK3588 and defer any
+use of PVTPLL clk to a future series that also adds OPP support.
+
+> +		resets = <&cru SRST_A_NPU>, <&cru SRST_H_NPU>;
+> +		reset-names = "srst_a", "srst_h";
+> +		power-domains = <&power RK3568_PD_NPU>;
+> +		rockchip,pmu = <&pmu>;
+
+This looks wrong, the rockchip,pmu prop is typically used to reference
+PMU GRF, see i.e. pinctrl node, not the power-management that is seem to
+be correctly abstracted using power-domains above, please drop this prop.
+
+Regards,
+Jonas
+
+> +		iommus = <&rknn_mmu_0>;
+> +		status = "disabled";
+> +	};
+> +
+> +	rknn_mmu_0: iommu@fde4b000 {
+> +		compatible = "rockchip,iommu";
+> +		reg = <0x0 0xfde4b000 0x0 0x40>;
+> +		interrupts = <GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH>;
+> +		clock-names = "aclk", "iface";
+> +		clocks = <&cru ACLK_NPU>, <&cru HCLK_NPU>;
+> +		power-domains = <&power RK3568_PD_NPU>;
+> +		#iommu-cells = <0>;
+> +		status = "disabled";
+> +	};
+> +
+>  	gpu: gpu@fde60000 {
+>  		compatible = "rockchip,rk3568-mali", "arm,mali-bifrost";
+>  		reg = <0x0 0xfde60000 0x0 0x4000>;
 
 
