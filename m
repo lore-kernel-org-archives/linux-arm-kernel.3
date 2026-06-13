@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77563CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA405CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3oBqfpRAY+zECAwZLtJSuIalpAzdGoxXVuAiQRl3Bkg=; b=aR8Npi9jhYpQv1eSamGs+LuogL
-	xQTCv1muUEuS0tt0AWIHsvOXbbN8H/Ihk7JKnj+4aHomPHTq/IxQByzwh8tcvSk40+E1d7rI8uV8A
-	lWbWpTU369DCrpRh7tqeuzS8ilmnaoqK/B5v59vmNdc0S/vwpPuqk6WS39NpfkhQeAgmLp3y9WabA
-	0FaqEK6X+dqn8/ok61iHndpqcja3Ato9sqpojX+IjUfufwcLP9F9CKCR87ydLwuWBMwnxPVknhOZJ
-	Ecpa8ohi3DH4i9KXlHRKIIzjGYzEYhEP3+OsFBCciDcjQaw8xcMgjVtHHxLOAZNZ4PChpuUIiQsWS
-	yQXm23QA==;
+	bh=P0BXYzjr6w3+jMq0yJXiRdx6FfTaAxNl+69lgFc2F8I=; b=tGK/QjW9pR1RTQNIk1FZf8bKCu
+	Tn4AO4b5ZWnF2HdsWFnRgt5hDm3JLE7A8CUwimk2aVeQ0IqFv8kBXMK51m9zqZLSqOnCYazMbSKb1
+	CQMZXpzF7eSz4SCK3T2cXjL7O15db+uLhjcdEQ833A9dn5AYX2T0aw6vDaR30fBb2dm6irRVMukww
+	Rg4QdINNYZHh6VKw3BJknUTE0Vrwib/bgifn8v2WsXA+SgI7eAHvAoKN0qnQutEe5i9KKsdKv5IrS
+	Vj5hZTRM9G5vtUh17ZAp7sc0yhrgXTvTr46ExM3Wh+XQp+fVe39St7bVrdSSzvgq6PP1LBVq9Kjye
+	nAtYnq/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLGk-0000000CAJs-38k3;
-	Sat, 13 Jun 2026 10:07:14 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wYLJ9-0000000CAUD-02gM;
+	Sat, 13 Jun 2026 10:09:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLGE-0000000CAHo-1fk4
+	id 1wYLJ7-0000000CAU0-2aZL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 10:07:13 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-490b1df16acso2064635e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 03:06:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781345200; x=1781950000; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3oBqfpRAY+zECAwZLtJSuIalpAzdGoxXVuAiQRl3Bkg=;
-        b=pGkkCALZo+uhpuTeV5XMeKR+xOBO6niLEuZIYhxhjUB3YPcGq2DFxzYAihvMhF6L7i
-         s+9GHQjwEPgydZvXcKq9QtMi0zNSEprGFYPHk0YoT+S2z/IiZYZuIz1rVAAw1r4z/OO0
-         WSe+Ke5gFllCwKbzfg1eEHA9ixbvZuhsE4fOJXATBsrnuAINzgwhTSS/Viwf9kYxbVFe
-         MYuO2I5vsm9zmQnokQVRMOsZFaRTJ9yqEQqzjjW2mlQVgNVS3aFG4xVGRrng0CN52sSA
-         /OlXJEZjoI/YZrhJW8QrJ0YNSVeLudHI/B2QOXKzhciCCLQjj7cYTrKdBWFYs7lsmXp2
-         wHgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781345200; x=1781950000;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3oBqfpRAY+zECAwZLtJSuIalpAzdGoxXVuAiQRl3Bkg=;
-        b=JxD0CSNadTXv62lV0CidLV0HG253Mhx1ySPiE4QyRlTW8GZLIKgYVAka2tSybBmy2r
-         G1mYu0AP+dhsEUJCBpR72XtljQzoTKdja5lwKZaASMcoVdBMcMaG5vgj99SZFSQeCW5/
-         AtVp+sn+chEnLk0ICxg0IbJ1vFx58oJFv9/NcKKsZorhnkic7PG+tolNXf54zlr2mLxh
-         lGJdvjk01rK5JB+RKg2jcCbb5640+UHs5/5IjxoC5DGEPoquKIpzs/pb7IsEGhtfQ5LD
-         jhitdPNtyb+hOAutoqDisX1jPbuJsj8RZ54ZqnBKbvzoZ5hH8W72DmaBjGjw2hlZphEg
-         RJJg==
-X-Forwarded-Encrypted: i=1; AFNElJ8SGHWcJCPmy+7Rdt0/yNrsnVWMweAr14xj6QfjzyHpQFF7vxZpzq2kzxyang12HvYgdvlkUwk20eZIkXSZsmhM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFryg2spqcQKni0l0mTAPMeRsnZ9eK2X3Xb6OXvVw1PbAT5gSB
-	WYeGjYdbz0XJe8loXfYCqAece3yEneFgMDRD2333kLp71eQbll5CQusw
-X-Gm-Gg: Acq92OHt5iq/cCFiRjD1XYEeYg7lBTkv71St7r96BQC5HfTsEpli5aeQt2LV0++B6H7
-	hZM0ivRvx1Fa7vUYfb0SVpQ/vGPBNu6s2i0FYrsboOBxsompiB39DmMOq7cHclquVqIvjk+HDWJ
-	zAhMedxK7d4XORjRuuq0cmek78nRYKdKz/Tvh1cNjB63aufTXaj0TSsTwGFtnF60hIY7kvJ7/B7
-	BaAoAteR6blQslm7XEysSNW7eMtgYSnvvwxo2M2c0FtXxTdr8kKofhA0DDRtTJDfteEyshRaAcK
-	n1/LgkCiDjiW6gc3YhIs76j9uLFyWDYy+EAsC5rgZlkmARaZl7CKkrkN9jpAUh/zespMPy0kNXD
-	c+IZj3XbubyfPNadl+KrIHg8qY6Ltwt8XiZzo4w/URs/GMvx7XBBY3+H+LytzFbCsk1fJH+1GV5
-	0C2BeKKMHtcxIO0UdbYd7nlwRAyjfwG/sxTSrKqbW/ccpTmjE6UrKcTNtmcqZA1/s=
-X-Received: by 2002:a05:600c:4743:b0:492:1eaa:a8ba with SMTP id 5b1f17b1804b1-4921eaaa99bmr25666125e9.6.1781345200044;
-        Sat, 13 Jun 2026 03:06:40 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922032ae56sm61699805e9.7.2026.06.13.03.06.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 03:06:39 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: linux-crypto@vger.kernel.org,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com
-Cc: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: Re: [PATCH] crypto: atmel-ecc - remove stale comments in atmel_ecc_remove
-Date: Sat, 13 Jun 2026 10:06:38 +0000
-Message-Id: <20260613100638.47312-1-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <aiqUBXIybgHXA6uj@linux.dev>
-References: <aiqUBXIybgHXA6uj@linux.dev>
+	Sat, 13 Jun 2026 10:09:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 04AE0441A1;
+	Sat, 13 Jun 2026 10:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 380091F000E9;
+	Sat, 13 Jun 2026 10:09:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781345380;
+	bh=P0BXYzjr6w3+jMq0yJXiRdx6FfTaAxNl+69lgFc2F8I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XJW6+AhicnUYOl3N/Dzk15xgcsI8aNcbwr49UynaoV3W4bH06gntgEoRkTwEthGe4
+	 Hk+koZqHRBoLVDO2W09cbHsrAMAvaNNYdSR5ukgaq07Wd4dEOtI1S4U561eU8fh0Tm
+	 fjiTLKFzq6WzOyZEyWwDBFv6Ka6jQS4TO05lfrkhzjm4utpQv3axEosdhkdhPaCJs6
+	 Aapbxm2654LCsnHqr1ckZXWYIhhvmgJLVEP+uqnQ2nuKELFMXB4axdLZaM9Ox7V7j8
+	 fAGioQtAJVar6lzDdQd2cAKg4aeNkN2IzECOmqKeyIn/wkP/Y9PrcIRNDP2KOmi+os
+	 9t1BOraK/eR1w==
+Message-ID: <77f52421-42ea-499a-aa57-a834825a8829@kernel.org>
+Date: Sat, 13 Jun 2026 13:09:31 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_030642_488108_F9B6098F 
-X-CRM114-Status: GOOD (  36.92  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] iio: adc: lpc32xx: Initialize completion before
+ requesting IRQ
+To: Maxwell Doose <m32285159@gmail.com>, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ Hartmut Knaack <knaack.h@gmx.de>,
+ "open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
+ "moderated list:ARM/LPC32XX SOC SUPPORT"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+Cc: Sangyun Kim <sangyun.kim@snu.ac.kr>,
+ Kyungwook Boo <bookyungwook@gmail.com>, Jaeyoung Chung <jjy600901@snu.ac.kr>
+References: <20260613005812.160572-1-m32285159@gmail.com>
+ <20260613005812.160572-2-m32285159@gmail.com>
+From: Vladimir Zapolskiy <vz@kernel.org>
+In-Reply-To: <20260613005812.160572-2-m32285159@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,87 +79,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From linux-crypto-vger  Thu Jun 11 10:55:01 2026
-> From: Thorsten Blum <thorsten.blum () linux ! dev>
-> Date: Thu, 11 Jun 2026 10:55:01 +0000
-> To: linux-crypto-vger
-> Subject: Re: [PATCH] crypto: atmel-ecc - remove stale comments in atmel_ecc_remove
-> Message-Id: <aiqUBXIybgHXA6uj () linux ! dev>
-> X-MARC-Message: https://marc.info/?l=linux-crypto-vger&m=178117527182807
+On 6/13/26 03:58, Maxwell Doose wrote:
+> In the report from Jaeyoung Chung:
 > 
-> On Thu, Jun 11, 2026 at 01:29:52PM +0800, Herbert Xu wrote:
-> > On Tue, Jun 02, 2026 at 06:52:49PM +0200, Thorsten Blum wrote:
-> > > atmel_ecc_remove() no longer returns -EBUSY since commit 7df7563b16aa
-> > > ("crypto: atmel-ecc - Remove duplicated error reporting in .remove()")
-> > > and is a void function since commit ed5c2f5fd10d ("i2c: Make remove
-> > > callback return void").
-> > > 
-> > > Remove and update the outdated comments.
-> > > 
-> > > Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> > > ---
-> > >  drivers/crypto/atmel-ecc.c | 6 ++----
-> > >  1 file changed, 2 insertions(+), 4 deletions(-)
-> > > 
-> > > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > > index 9c380351d2f9..e6068dc0a0c1 100644
-> > > --- a/drivers/crypto/atmel-ecc.c
-> > > +++ b/drivers/crypto/atmel-ecc.c
-> > > @@ -347,13 +347,11 @@ static void atmel_ecc_remove(struct i2c_client *client)
-> > >  {
-> > >  	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
-> > >  
-> > > -	/* Return EBUSY if i2c client already allocated. */
-> > >  	if (atomic_read(&i2c_priv->tfm_count)) {
-> > >  		/*
-> > >  		 * After we return here, the memory backing the device is freed.
-> > > -		 * That happens no matter what the return value of this function
-> > > -		 * is because in the Linux device model there is no error
-> > > -		 * handling for unbinding a driver.
-> > > +		 * That happens because in the Linux device model there is no
-> > > +		 * error handling for unbinding a driver.
-> > >  		 * If there is still some action pending, it probably involves
-> > >  		 * accessing the freed memory.
-> > >  		 */
-> > 
-> > Please fix this properly rather than fiddling with the comments.
-> > 
-> > Drivers should always fail gracefully if the hardware disappears.
+> "lpc32xx_adc_probe() in drivers/iio/adc/lpc32xx_adc.c registers its
+> interrupt handler with devm_request_irq() before it initializes
+> st->completion with init_completion(). If an interrupt arrives after
+> devm_request_irq() and before init_completion(), the handler calls
+> complete() on an uninitialized completion, causing a kernel panic.
 > 
-> Yes, I'm working on a fix, but it's not ready yet.
+> The probe path, in lpc32xx_adc_probe():
 > 
+>      iodev = devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzalloc-zeroed */
+>      ...
+>      retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
+>                                LPC32XXAD_NAME, st);           /* register handler */
+>      ...
+>      init_completion(&st->completion);                       /* initialize completion */
+> 
+> lpc32xx_adc_isr() calls complete():
+> 
+>      complete(&st->completion);
+> 
+> If the device raises an interrupt before init_completion() runs,
+> complete() acquires the uninitialized wait.lock and walks the zeroed
+> task_list in swake_up_locked(). The zeroed task_list makes list_empty()
+> return false, so swake_up_locked() dereferences a NULL list entry,
+> triggering a KASAN wild-memory-access."
+> 
+> Fix the chance of a spurious IRQ causing an uninitialized pointer
+> dereference by moving init_completion() above devm_request_irq().
+> 
+> Fixes: 7901b2a1453e ("staging:iio:adc:lpc32xx rename local state structure to _state")
+> Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
+> Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
+> Reported-by: Jaeyoung Chung <jjy600901@snu.ac.kr>
+> Closes: https://lore.kernel.org/linux-iio/20260610115700.774689-1-jjy600901@snu.ac.kr/
+> Signed-off-by: Maxwell Doose <m32285159@gmail.com>
+> ---
+>   drivers/iio/adc/lpc32xx_adc.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/lpc32xx_adc.c b/drivers/iio/adc/lpc32xx_adc.c
+> index 43a7bc8158b5..db3a602327ff 100644
+> --- a/drivers/iio/adc/lpc32xx_adc.c
+> +++ b/drivers/iio/adc/lpc32xx_adc.c
+> @@ -179,6 +179,8 @@ static int lpc32xx_adc_probe(struct platform_device *pdev)
+>   	if (irq < 0)
+>   		return irq;
+>   
+> +	init_completion(&st->completion);
+> +
+>   	retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
+>   				  LPC32XXAD_NAME, st);
+>   	if (retval < 0) {
+> @@ -197,8 +199,6 @@ static int lpc32xx_adc_probe(struct platform_device *pdev)
+>   
+>   	platform_set_drvdata(pdev, iodev);
+>   
+> -	init_completion(&st->completion);
+> -
+>   	iodev->name = LPC32XXAD_NAME;
+>   	iodev->info = &lpc32xx_adc_iio_info;
+>   	iodev->modes = INDIO_DIRECT_MODE;
 
-Hi guys, since this is going towards some work I already presented here and
-still waiting on answer/request for comment from maintainer(s).
-https://marc.info/?l=linux-kernel&m=178099821038957&w=2
+Reviewed-by: Vladimir Zapolskiy <vz@kernel.org>
 
-The issue in the remove() arises when working with devres in combination with
-asynch slow bus hardware, as we do here. AFAIK in the remove() are mainly two
-options, either give a timeout to solve communication gracefully, then cut; or
-wait indefinitely on the device to clear, in case forever.
-
-When we cut off after timeout (first case) and still something arrives, it
-would probably access freed memory resources. In the second case, simply
-waiting on the device to resolve, might contain the risk of an infinite
-waiting at driver removal. The other alternative would be to manage kmallocs
-manually, i.e. to move away from devres (probably not what we want).
-Currently, the driver just simply cuts off and has this problematic situation
-very well spotted by the original author and commented.
-
-Further, related to this situation in the remove() is using the global driver
-data, which then might be overriden, and thus leak, when still around, and
-this connects to dealing with synchronizing adding to the i2c_clientList and
-algo registration, both happening in probe().
-
-I tried to address all three issues. That's why the patch ended with such a
-lengthy comment. The patch is reviewed by sashiko complaining only the above
-dilemma.
-https://sashiko.dev/#/patchset/20260609092927.47222-1-l.rubusch%40gmail.com
-
-I hope I did not interfere too much with Thorstens fixes here. Since I assumed
-you were active on rather different topics. Pls, let me know if so. I just
-want to see this issue out of my way for the refac patch series.
-
-Best,
-L
+-- 
+Best wishes,
+Vladimir
 
