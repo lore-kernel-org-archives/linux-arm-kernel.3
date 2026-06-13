@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC9DCD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 09:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C7DCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 09:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hSPcHOrJhwoZ6fKHrLRI2q23k/nKTvAXHvk0RF9YXD0=; b=bnNux6xrq90ExOGhirCKUq6yV3
-	xaa47jD0WbG6deqnyemYtMbCmJns7yXg2BNh7Rc6DZ3JtMMJ5/ftbsAD3NLKhWf/CnovyXy0taesN
-	bXG98QrlRJn5PlCFFsnCsPENNsrAKVp7hmkBPHWXxEhO9QUkmUIhs2fo43iTXZFccH8JW/LxjJgN2
-	95FWnEba7uxk6erxr6cHP4X8DvmOJz7HruZ8/dKH7HCNlgKyqO5hfDC1CVEjycmvwh4cY05l6f/wI
-	SDa2FnULdUkGYw57cTswYGbbe0IYR8ACoyD+8ilxNcuvv2aml3Y2aTSUulmkAQvxTqbZjm+KxJ642
-	+5BD0VIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=A8ETabvgyXaefxG7MMag31gPiFKWJAnshBNUt1PyL3o=; b=b8JhzYPj8c9a2H
+	PntM6vuJ8QufRp5TdRpMJBBLL+bpD75rXybjUD8sLV6uQAqMUlg9l7eOsfwXplXuL/3OU1mgzNJ/8
+	pPDnI5Dy7UvT09ge5Xt3hzPjk29RaIzg4DtubkO/zqYJPcRoO1rNNcLnGlxPuQMBj/y2MlHa0MYv6
+	oqfcZHRXvp5re/9hhnpCxfCHX/kq91+xAybfuCiWKypE7auXIfrlpiXoG9ciddtWUFDiQ4DGLfOu5
+	ovaZnRnDRhLOsEMFJTTkLwkMOtrUlxMXd6gy0FacajKjHPVD7Us07fX2gr67JGapmez5MHNhZQ6eL
+	DWaAI3yMmkCDlNSBfzuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYKop-0000000C7q3-3Xkc;
-	Sat, 13 Jun 2026 09:38:23 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wYKqE-0000000C80M-05BD;
+	Sat, 13 Jun 2026 09:39:50 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYKon-0000000C7pO-45nT
+	id 1wYKqB-0000000C7zv-2dS5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 09:38:23 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-46019b190b6so1428872f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 02:38:21 -0700 (PDT)
+	Sat, 13 Jun 2026 09:39:49 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c86214eead7so789884a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 02:39:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781343500; x=1781948300; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hSPcHOrJhwoZ6fKHrLRI2q23k/nKTvAXHvk0RF9YXD0=;
-        b=mgaJLpWpv26YqA2KQQKC4pjbIsTlhqGzBBtyLlFS6Bwx7sqJencKNqVD+nxkqsI4oZ
-         0qJAyDfhm7nMbgZh2JyimHc/EkSV3VINbLpeQbAY8xcTl8nZQ/BBQAZV7851ogg5Wgig
-         5Y1flcjw7RBq5mVAcM2EXF+1MRSFokhBmh1oslOtW1d14cCnkG+f6M32feIyVq4qFDMx
-         AECPMTHojy3l7HJYzwSO7l8xa029LQUqf94XpAAyB/VROcvW9IgUzMJtRjtOkmP/59Ez
-         1urqQfo2J9Vl939x5vPZ/OXeuu3IP6dI1Orjvst+01UNOhQzsrBSy4TyRNJyyOE0CyOo
-         EgTg==
+        d=gmail.com; s=20251104; t=1781343587; x=1781948387; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=A8ETabvgyXaefxG7MMag31gPiFKWJAnshBNUt1PyL3o=;
+        b=QRCSvZbk/5yvFsTk8WdP12LMEudMetwb46dGVoGjg0DJJ+wP5DTSnSK9o32U39U9Xr
+         BHHFqZHnMT9vbYDJwv+B+Twj0cziZ7gNWKJqKdhWICfaODAd+2U64pa9wxI7B2v7d0Oe
+         VArlHISUzIErdEp4n8hloBvMk21IMYklwyKJa2XnmgOefhAEvzZV3pN8VN353cffsZ1f
+         MRcbnDIDArHtcS7Zr/VGBhi5hGJ2K6OXkcxcP6woLyWkNzaAWZ35p5XupMukNTAiPYGH
+         JNGzgZocLNcIFcW/WjuRrWjCFxdNkJBDW35ZCP9kFMBQHmMLwg7JcqsJO7av/PXM8+xf
+         0mDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781343500; x=1781948300;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hSPcHOrJhwoZ6fKHrLRI2q23k/nKTvAXHvk0RF9YXD0=;
-        b=L5CoRsIaipOHk+r8pBPudMcYuMvMtFDqADMDAiZUSyxy2e/jplItb+iMXPpi3dN3TM
-         gdeuSBxXAWgE+MDInbe/2TAA3tlb8PbNOKTUyApg+DwARkau8TqIiRq8CTxXbPpQU7Ro
-         Do/2l9K22J2pyIAlPvxpJEF5PWGVgol6dc1TSJRxnI/jByxCySQlccMWL48y6tWH74aT
-         hUB6fmTAk/AUqSQrHQW+3IZ6wuTuDnVbmSDviZqcO/IzRnUdTh0Qv9mJwJjWBmfbIIzz
-         NEKByuWl7wYcrD+9PEUKFyQtloRzhXRMtOZ7BJmyJFdFYKL7bX9UXJoURxscvm0LLwuM
-         2K6g==
-X-Gm-Message-State: AOJu0YxJd7AgiNFxoK6toeLsNq3r/Cgc/DHC0Pmn0OUmHial1GlR6TWg
-	Zii6N4tY8yDPkcaxNkJQiJP++LQWYO2QwbMaUx2n+lEaZx+BSIabC5olW+n9kfCO
-X-Gm-Gg: Acq92OH5BufAhbywjDHCF1+UhEiVoZQ4PFhljygWwJd47FqH0c8K7598u/MP1iQ+a3e
-	DHF1P2gU6QI17n9+Pn6rpFdWJO0tYbdVgqPTBevP0sYtb0twnTzebcDtcC189Y8M78OQYTE3Xlm
-	uuYaRbVbfMcKBYRMgT0NGaogVM6znHsTsDwMJFctmtWdVYzVUKJlKmLJ2CNw6M4sJqOdKScc2iA
-	M4FKyBWW+Y3HdQiz8vt0kKGXhG5I/q9vAuQ1EFsRMxbp1Qzs5FPN0J2ROXWcAH0VXbIXPN450nG
-	zRZ75KLmJriAhgZ4OdTTGEoraH1RR7nkz+WOiQGXap8S4mqZiZOab2zYEMSjoPGen7sIMv7bDt2
-	Qfm+jMimFZMJ3d+qOxF6D4X8e5x2Bwpidc/6s3FfeD7+R4AVjx3GjXH8oCQjmJ8ZxWv73aWjG+x
-	8HyKiuUCnIsDBzzoQXq5Otbp0TDDYazPi1gUz0ZXhUIkHM
-X-Received: by 2002:a05:6000:2684:b0:45e:f228:830d with SMTP id ffacd0b85a97d-46077d40be6mr3398045f8f.23.1781343500099;
-        Sat, 13 Jun 2026 02:38:20 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f2e592csm14464581f8f.36.2026.06.13.02.38.18
+        d=1e100.net; s=20251104; t=1781343587; x=1781948387;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A8ETabvgyXaefxG7MMag31gPiFKWJAnshBNUt1PyL3o=;
+        b=b7OgeJz0fkXNeRIp1z+jlnA5yEXLRaSA0UMdvKyKxKbKdHB1CY4TO3Ca65Hx6pv5dv
+         9mina9J76slTmqjbdoRilXhJyI74jg+7mY7ZYUCMoJwtpUCnXX+Amx2d6y5eeHNy/bNu
+         aCL+/d3DsZ8noZU235FGhx5ugx+da8QrYszeVulNnX03MChm/N3vhdTiOre6V3RNZb9N
+         iwCfEJv4GpoSBd396b5Lk6lmJ5PB1iDt+RlLDvxt+m8Linvf4VQ0hr6s7lXnzVBmWq4S
+         JADiWs356pVdgUFrBgrVczl9m/GNdjzrSs6Me4tG6aZ0r9bL9wskGuFA9dnYVIEEEUhB
+         zGag==
+X-Forwarded-Encrypted: i=1; AFNElJ93Lo70sboGJpphngTqRF5FdE8bAUD+KiDgqeIj2wQW73OHaJaKU/2WruDV2VcBdzG3s+nXXKR/Ugy8YUBRLHTc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxDQTF4Acq7tmE/69OKpHBttGEPEbr6Ty+ZmOTnpnXHy0rkhIy
+	UE1G2ocluZBcdRV43Lw3k6jFFKJaQsZUCX/ZUVISGXjv/hwcth0CLUYY4N63ew==
+X-Gm-Gg: Acq92OEdrZqebOX7zl1bPFtFjX126yQ336S8V2kX2wkp5fKbvnX23Hw7uGBMBKDFCJZ
+	DWXDgZDehcwuwNFBNYz2ZqTBFL8VqfwQoOqDK8BglGJIYFSzYMliVpKeAythrEgKdPP3Fr5Vp2y
+	pU4uhVQu4e4fttRSbcgX6WWWpsKUh9SixZg6ugLBDo7HdHjpWpI060xR+6gGG7hFwwX/Q4qdG5v
+	2S7klir9YP0gBQXcYX3VlMGoy4pzU2P8zC4bqkV2AUUPZ4p1DUym7UxMI4obveCnQBsfTIYRDFd
+	AweewJsBg/hw3LWdX6OZ79HntJNHlXtm20tvKexJV19kHdFVXYrNhuJCd3zmY3LqcRpgtTi/act
+	CZhyUhgHaQgfb60qxUnlto6A0xDMoFGPPiV6C+9d3XHoAb+rPZ0ZR41GibDwFYXXVyYwvOQbldD
+	/SZ9wIJKBAKgMGP15KjqWxNZMR6OW7gm+kTO3zMVKIkA6u
+X-Received: by 2002:a05:6300:6690:b0:3b4:640e:f6c7 with SMTP id adf61e73a8af0-3b7857debcdmr5756051637.14.1781343586541;
+        Sat, 13 Jun 2026 02:39:46 -0700 (PDT)
+Received: from Black-Pearl.localdomain ([49.207.61.84])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-c8661a67603sm4155826a12.0.2026.06.13.02.39.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 02:38:19 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Hans de Goede <hansg@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>,
- Lukas Schmid <lukas.schmid@netcube.li>,
- =?UTF-8?B?Si4gTmV1c2Now6RmZXI=?= <j.ne@posteo.net>,
- Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v4 6/7] arm64: dts: allwinner: a100: reserve RAM for ATF
-Date: Sat, 13 Jun 2026 11:38:17 +0200
-Message-ID: <FE7Vh4yfTmGMM24i18Wwwg@gmail.com>
-In-Reply-To: <b428d57ba5464f1226daf099877f4c25fa4fc191.camel@gmail.com>
-References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
- <_6NEZ78hR8a_3V2bhBAGoQ@gmail.com>
- <b428d57ba5464f1226daf099877f4c25fa4fc191.camel@gmail.com>
+        Sat, 13 Jun 2026 02:39:45 -0700 (PDT)
+From: Charan Pedumuru <charan.pedumuru@gmail.com>
+Subject: [PATCH v4 0/2] dt-bindings: mmc: st,sdhci: convert
+ STMicroelectronics SDHCI-ST MMC/SD Controller controller binding to YAML
+Date: Sat, 13 Jun 2026 09:39:38 +0000
+Message-Id: <20260613-st-mmc-v4-0-b3c385617c16@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFolLWoC/13N0Q6CIBTG8VdxXHcaHMSgq96jdeHwqGyhDZyrO
+ d89tGWuy++M35+JRQqOIjtnEws0uuj6Lo38kDHbll1D4Kq0GXIsuMQTxAG8t2ANL8rKqLrWkqX
+ Hj0C1e66h6y3t1sWhD6+1O4rl+knk3HwTowABuVW5RGGlkurS+NLdj7b3bEmM+GOKy40hcBCip
+ MSKCi39M7lnemMyMZ0+QkMVatJ7Ns/zG5md3FcKAQAA
+X-Change-ID: 20260327-st-mmc-c906ad95ff83
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Charan Pedumuru <charan.pedumuru@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_023822_028591_BEDCD39D 
-X-CRM114-Status: GOOD (  23.82  )
+X-CRM114-CacheID: sfid-20260613_023947_676594_1418B1AB 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,83 +107,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 13. junij 2026 ob 10:34:42 Srednjeevropski poletni =C4=8Das je =
-Alexander Sverdlin napisal(a):
-> Hi Jernej,
->=20
-> On Sat, 2026-06-13 at 10:22 +0200, Jernej =C5=A0krabec wrote:
-> > Dne petek, 5. junij 2026 ob 09:09:20 Srednjeevropski poletni =C4=8Das j=
-e Alexander Sverdlin napisal(a):
-> > > Add reserved-memory node carving out Trusted Firmware-A region spanni=
-ng
-> > > fixed 256K from physical address 0x40000000. Even though Allwinner ATF
-> > > itself passes the address range in the fdt to U-Boot, U-Boot currently
-> > > only reserves this memory internally, but doesn't carve out the region
-> > > in the fdt passed to Linux.
-> > >=20
-> > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> >=20
-> > NAK. It is job of boot procedure to properly inject TF-A reserved node.
-> > Any issue should be fixed there.
->=20
->=20
-> like in commit 0d17c865118881609ea7e381c7cadbb7979cc596
-> ("arm64: dts: allwinner: Add Allwinner H616 .dtsi file")
->     Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
->=20
-> ? ;-)
+This patch series converts the legacy text-based Device Tree binding for
+STMicroelectronics SDHCI-ST MMC/SD controller to DT schema (YAML) format.
 
-I was against that too.
+Note:
+The patch "dt-bindings: mmc: st,sdhci: convert to DT schema"
+depends on the patch "arm: dts: st: align node patterns with established
+convention". If the DT schema patch is applied before the DTS
+cleanup patch, `dtbs_check` will fail due to the presence of the removed
+properties in the existing DTS.
 
-It's time to be fixed in bootloader.
+Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
+---
+Changes in v4:
+- st,sdhci: Add minItems: 1 to clock-names and reg-names to allow single-entry
+  configurations, fixing dtbs_check failures on nodes that omit the
+  optional 'icn' clock or 'top-mmc-delay' register region.
+- st,sdhci: Modify the commit message to explain the changes.
+- Link to v3: https://patch.msgid.link/20260508-st-mmc-v3-0-81c329ed28e8@gmail.com
+
+Changes in v3:
+- st,sdhci: Edit description of reg property. Modify reg-names. Add
+  "minItems" for clocks and clock-names properties.
+- Modify the commit message to match with the updated changes.
+- Link to v2: https://patch.msgid.link/20260503-st-mmc-v2-0-11ae3216d2ce@gmail.com
+
+Changes in v2:
+- Fix node name in DTS for the MMC to match with the estableshed convention.
+- st,sdhci: drop unnecessary properties, modify "reg", "reg-names" and
+  "clock-names" properties, include an allOf with $ref to mmc-controller.
+- Link to v1: https://patch.msgid.link/20260409-st-mmc-v1-1-4c54321c3535@gmail.com
+
+---
+Charan Pedumuru (2):
+      arm: dts: st: align node patterns with established convention
+      dt-bindings: mmc: st,sdhci: Convert to DT schema
+
+ Documentation/devicetree/bindings/mmc/sdhci-st.txt | 110 ---------------------
+ .../devicetree/bindings/mmc/st,sdhci.yaml          |  92 +++++++++++++++++
+ arch/arm/boot/dts/st/stih407-family.dtsi           |   4 +-
+ 3 files changed, 94 insertions(+), 112 deletions(-)
+---
+base-commit: cf2cd8efd046c561191b8541d32a8bfe845bf06b
+change-id: 20260327-st-mmc-c906ad95ff83
 
 Best regards,
-Jernej
-
->=20
-> > Best regards,
-> > Jernej Skrabec
-> >=20
-> > > ---
-> > > Changelog:
-> > > v4:
-> > > - new patch
-> > >=20
-> > >   arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi | 16 ++++++++++++++++
-> > >   1 file changed, 16 insertions(+)
-> > >=20
-> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/ar=
-m64/boot/dts/allwinner/sun50i-a100.dtsi
-> > > index 7cb06b19b5a5..d8391663fd1d 100644
-> > > --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> > > @@ -87,6 +87,22 @@ osc32k: osc32k-clk {
-> > >   		#clock-cells =3D <0>;
-> > >   	};
-> > >  =20
-> > > +	reserved-memory {
-> > > +		#address-cells =3D <2>;
-> > > +		#size-cells =3D <2>;
-> > > +		ranges;
-> > > +
-> > > +		/*
-> > > +		 * 256 KiB reserved for Trusted Firmware-A (BL31).
-> > > +		 * This is added by BL31 itself, but some bootloaders fail
-> > > +		 * to propagate this into the DTB handed to kernels.
-> > > +		 */
-> > > +		secmon@40000000 {
-> > > +			reg =3D <0x0 0x40000000 0x0 0x40000>;
-> > > +			no-map;
-> > > +		};
-> > > +	};
-> > > +
-> > >   	timer {
-> > >   		compatible =3D "arm,armv8-timer";
-> > >   		interrupts =3D <GIC_PPI 13
->=20
->=20
-
-
-
+--  
+Charan Pedumuru <charan.pedumuru@gmail.com>
 
 
