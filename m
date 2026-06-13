@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F25DCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 15:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A633FCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 15:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WVgLXStkUv85KlY0neU69UwXnatb4ZDzB8DIuTxdY04=; b=Be5xNkqcE6ibQBu6nD1A8FEVQ0
-	4mFfvR3bJoQcuJXel2py/cq4XY1r9CjBBJo9n8MKG4iYN6WMzpaflblMhdYTHKdU6j1ZSJWiE2yGK
-	l18+HhV23g+S1hL0n5D0fjBS9xp9Hh7fL6rQt4jRW8YLXdBQCKnwlHpwcL3YbuQIqy0eCY5mH3lfk
-	G7h9bf+gQ9LEXfSI05ACaBBfQPylFbU+nDBy2OiXHznii2Mx/u6A60qrLnhP2IkIQgcO+0NZp/CQr
-	eat8N1BrtIUbXCdI2Os7s5jJXqC5SXPJYGYqn4L7rw2NVs+LHJ+04mMC7DM9h0hfQbeeY3Bg7xi3x
-	+r6IfNfQ==;
+	bh=A2cN8TWrm3n4enc460uxS9wOh7CPBPs6OCqEgGr340I=; b=p3mQDpTJOW3qtQ2ywqvhhP97UB
+	wdwErHD7lUnU6ZVpD5uUGWdo3UDuRlmXsHBJGuSIcJklAI95FDh/YvLh24KFrHhyLImZNoPCKtPAz
+	VrAznR33q74S7dnI7Q/uH3veOJJ9yQFb2wg4IwiVGQijKHi9YfZhF5KPz3CiR8Z0YIOxwZUmpnnNH
+	7ggpQVXu6+B9twSfKWTQu3lgv220PTrGtWNmnctMddlmpD7BR73kHr2hjYGK2GZA2LaP1a2eXCPAu
+	gM1SimC9Xsq8k9IqcAs94kZB8sugToD1Rwq1Tv8L77lGps4TSvSfMVAuj0QVgG0RQMPUAVf385tqb
+	9OJjYI6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYQGs-0000000CO4m-0oIX;
-	Sat, 13 Jun 2026 15:27:42 +0000
+	id 1wYQH0-0000000CO8g-1HrD;
+	Sat, 13 Jun 2026 15:27:50 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYQGp-0000000CO2k-0iIA
+	id 1wYQGx-0000000CO6T-0Rej
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 15:27:40 +0000
+	Sat, 13 Jun 2026 15:27:48 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 0839B37002FE
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 15:27:19 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 35EBF3700311
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 15:27:28 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id B0476B4551F; Sat, 13 Jun 2026 15:27:17 +0000 (UTC)
+	id 5301CB4552C; Sat, 13 Jun 2026 15:27:27 +0000 (UTC)
 Received: from collins (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id 14C7EB45525;
-	Sat, 13 Jun 2026 15:26:59 +0000 (UTC)
+	by laika.paulk.fr (Postfix) with ESMTP id 85322B45521;
+	Sat, 13 Jun 2026 15:27:03 +0000 (UTC)
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -53,18 +53,19 @@ Cc: Yong Deng <yong.deng@magewell.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney@redhat.com>,
-	Maxime Ripard <mripard@kernel.org>
-Subject: [PATCH v10 4/6] dt-bindings: sun6i-a31-mipi-dphy: Add V3s SoC compatible entry
-Date: Sat, 13 Jun 2026 17:26:53 +0200
-Message-ID: <20260613152655.212490-5-paulk@sys-base.io>
+	Maxime Ripard <mripard@kernel.org>,
+	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Subject: [PATCH v10 5/6] ARM: dts: sun8i: v3s: Add nodes for MIPI CSI-2 support
+Date: Sat, 13 Jun 2026 17:26:54 +0200
+Message-ID: <20260613152655.212490-6-paulk@sys-base.io>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260613152655.212490-1-paulk@sys-base.io>
 References: <20260613152655.212490-1-paulk@sys-base.io>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_082739_686730_73ED5743 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260613_082747_487694_2C034A45 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +80,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The V3s/V3/S3 comes with a rx-only D-PHY paired with the MIPI CSI-2
-controller. It is compatible with the D-PHY found on the A31.
+From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 
-Add an entry with a new compatible and the A31 compatible as fallback.
+MIPI CSI-2 is supported on the V3s with an A31-based MIPI CSI-2 bridge
+controller. The controller uses a separate D-PHY, which is the same
+that is otherwise used for MIPI DSI, but used in Rx mode.
 
-Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+On the V3s, the CSI0 controller is dedicated to MIPI CSI-2 as it does
+not have access to any parallel interface pins.
+
+Add all the necessary nodes (CSI0, MIPI CSI-2 bridge and D-PHY) to
+support the MIPI CSI-2 interface.
+
+Note that a fwnode graph link is created between CSI0 and MIPI CSI-2
+even when no sensor is connected. This will result in a probe failure
+for the controller as long as no sensor is connected but this is fine
+since no other interface is available.
+
+The interconnects property is used to inherit the proper DMA offset.
+
+Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 ---
- .../devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 73 ++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml
-index 6a4fd4929959..3ca1a1c47032 100644
---- a/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-mipi-dphy.yaml
-@@ -21,6 +21,9 @@ properties:
-       - items:
-           - const: allwinner,sun50i-a64-mipi-dphy
-           - const: allwinner,sun6i-a31-mipi-dphy
-+      - items:
-+          - const: allwinner,sun8i-v3s-mipi-dphy
-+          - const: allwinner,sun6i-a31-mipi-dphy
-       - items:
-           - const: allwinner,sun20i-d1-mipi-dphy
-           - const: allwinner,sun50i-a100-mipi-dphy
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+index 02d6c62b3874..03a1739683b1 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
++++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+@@ -671,6 +671,79 @@ gic: interrupt-controller@1c81000 {
+ 			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+ 		};
+ 
++		csi0: camera@1cb0000 {
++			compatible = "allwinner,sun8i-v3s-csi";
++			reg = <0x01cb0000 0x1000>;
++			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_CSI>,
++				 <&ccu CLK_CSI_SCLK>,
++				 <&ccu CLK_DRAM_CSI>;
++			clock-names = "bus", "mod", "ram";
++			resets = <&ccu RST_BUS_CSI>;
++			interconnects = <&mbus 5>;
++			interconnect-names = "dma-mem";
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@1 {
++					reg = <1>;
++
++					csi0_in_mipi_csi2: endpoint {
++						remote-endpoint = <&mipi_csi2_out_csi0>;
++					};
++				};
++			};
++		};
++
++		mipi_csi2: csi@1cb1000 {
++			compatible = "allwinner,sun8i-v3s-mipi-csi2",
++				     "allwinner,sun6i-a31-mipi-csi2";
++			reg = <0x01cb1000 0x1000>;
++			interrupts = <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_CSI>,
++				 <&ccu CLK_CSI_SCLK>;
++			clock-names = "bus", "mod";
++			resets = <&ccu RST_BUS_CSI>;
++			status = "disabled";
++
++			phys = <&dphy>;
++			phy-names = "dphy";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				mipi_csi2_in: port@0 {
++					reg = <0>;
++				};
++
++				mipi_csi2_out: port@1 {
++					reg = <1>;
++
++					mipi_csi2_out_csi0: endpoint {
++						remote-endpoint = <&csi0_in_mipi_csi2>;
++					};
++				};
++			};
++		};
++
++		dphy: d-phy@1cb2000 {
++			compatible = "allwinner,sun8i-v3s-mipi-dphy",
++				     "allwinner,sun6i-a31-mipi-dphy";
++			reg = <0x01cb2000 0x1000>;
++			interrupts = <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_CSI>,
++				 <&ccu CLK_MIPI_CSI>;
++			clock-names = "bus", "mod";
++			resets = <&ccu RST_BUS_CSI>;
++			allwinner,direction = "rx";
++			status = "disabled";
++			#phy-cells = <0>;
++		};
++
+ 		csi1: camera@1cb4000 {
+ 			compatible = "allwinner,sun8i-v3s-csi";
+ 			reg = <0x01cb4000 0x3000>;
 -- 
 2.54.0
 
