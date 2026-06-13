@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C9FCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 12:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC43FCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 12:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UA2EXYJYCNN2s2fDBflhY/TwvwPeAThnGXq65LNlvwY=; b=aZJAjTryS0oyW3qSQ+ur/qJqqM
-	/K1zcI4E7F+f/3JlCyqeg5SdDoW5MsZC3RotmJo6XzOcie13Q+wCNR9Itqi/kf6+pzjzDJ0xDjvbq
-	DxSidFo0anFOPhjHOqe84iVdOmsNpgUKUvYrBrK+pVNbbCd2KEpKLWWBa+QB7zTlRez7XsNwuDr76
-	lf9XWBCJCwRVI4s+QlPUODBS4BAUsqxv4OLFuKnGe0i0cz5gH829GF6hEmFku/hjiUOXMttlIknFe
-	lp2sf9TywkJh07+yDdBLxMTls9vtnDJomnLznKz72DZtBcnZc2k8jxFw7NXDpBKnRWkkLIbfxxTJw
-	q1KBjbQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HiF5drf3rvuABmv6sPErXIP4rKLg0zCEPYPnEhOmOzg=; b=OPUvdoMRmfmrCC5VM/mZ6P9tGn
+	+B9njASDjJew5DcMS/MJfvwp0zWGfrOmj35aqZGU+B08/gqmQnu1Kzt53Vn4wbY150hbgn86qZDNa
+	WyOcKmvvX2YRVk8S2ZyKyqiD0XOKuywSmt2WkFmi6W2cksvLr2osBKHTPFq4f9NmGOnEoQZWM/hs5
+	z+p7YvlE2PDFVviloGiZhC/6fkj0UIx7GzPtKTmBkwMBDe6kiSumi5GWT7CmWVMs72m6AuFGl6bjP
+	N4+w9HTYosMyIV/puZg0n4NqkNipGG7Z0lzxl+aK08QH/3AACvhVN3sPqFLbBE1/9YBeWtI7roG2K
+	k3ViOuXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYNOx-0000000CGiz-3zxl;
-	Sat, 13 Jun 2026 12:23:51 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wYNST-0000000CGwc-1jQ6;
+	Sat, 13 Jun 2026 12:27:29 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYNOv-0000000CGib-2ODC
+	id 1wYNSQ-0000000CGwC-30WQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 12:23:50 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490bc6a7958so24121945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 05:23:48 -0700 (PDT)
+	Sat, 13 Jun 2026 12:27:27 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490acbb0f89so11937295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 05:27:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781353427; x=1781958227; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=UA2EXYJYCNN2s2fDBflhY/TwvwPeAThnGXq65LNlvwY=;
-        b=D5aLYKIEjTU9lYTeBFA0bZFLTBPHhbS9S4yR2dVfjrwrOzNweIRWmE2+npelKefNDe
-         sPrSiYIEvU3ggxQ99neYTxs8vM6AevAM5LUXQLGH+bqRu1trI6xOrXIdqbQRZTZV+Wt7
-         DthqLFHQoETP96giF+dOPC/BqToOumAeVd8XY49Cvqiq7qOXukuS7YFcYntC4+X9JeFf
-         9ZsQqncrVB3PpGILwWQzkH80Rbb/5RH/gkK07rx/TAh2uRmow2X5AnbiC9Izib/OW3sr
-         Fx2VBCD86m3q16OpAzRZqqCXwZDKAv0bDgvaJb/zdLvGeFcEuDeLik8A071hQohV93UG
-         XN8Q==
+        d=gmail.com; s=20251104; t=1781353645; x=1781958445; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HiF5drf3rvuABmv6sPErXIP4rKLg0zCEPYPnEhOmOzg=;
+        b=n7OUtAXpQ8qKIUozcHZ2sV/URCXOATST3di6NeY7q1zfVY/VN90qJz2fTc41tWgGcY
+         dyKpRhqYNwhgdMHrQ4fkHurnMOju8ZqwXWjh7WTvZupRpfR4/CymPWGs9w/HYLdZ/B3P
+         r4PR9l96qi8YNy1IhzxI/s6SFSc1xjyC7xQY5Vgk1k5sJeMdtxC8s9N4ulNCGUpwmSzZ
+         U4WPDSYKwk98NcDqiWgfLrSvzG6g8EdLTY2kbYzWHeYQJ6blKrYFi5pXrXGWPrQK+Ttx
+         YEbD+h5kPUosiMnbC3fR6NpCtIcfK6qC+mqcQAn54FMb1/VyKrtdGJnnYZzOq5FrD4wg
+         oIKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781353427; x=1781958227;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UA2EXYJYCNN2s2fDBflhY/TwvwPeAThnGXq65LNlvwY=;
-        b=Lj7EgO/QT6ouRaU6gTqoPtocLHqjxwYjuzJSX4aJCo54cLmgmTb17p/XGyG7925N9w
-         GTNmKEqPt2lOeJRQ+vvvv39UZQueQmo+iW4ucvjdPK/al0hGaiSzsKFCczlRMqdKGt9T
-         4FyNH3A8Y042y16BgTRTalz+q8YQpb/kpVgc5Zg3Nrp4itqEpOybjJ4hHebQpWILEm5h
-         lXyi8Gena4x99Iz5iBw9w9345DjK+lK6K7F1WNa1y60/+fN0iL9A5KDcG+D/ZE7+VA30
-         vAQ8lBvqHFTqrKJhJ2vBB5kAAun2X+81IUiniKM3hQ0xMtRw9FWbclDtik2zpNz1Q9AA
-         hhMw==
-X-Forwarded-Encrypted: i=1; AFNElJ83L7rA0ub1jeqph0+9GM37LLNmmxjGrLiLOCPj2wEyGFzoLO1j91Hvs/R+QyZX2lh+xRYWBUlQWnO8olrOf691@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2khGbcxbXphj551C4uDGE3gFl/4KXYvkcYnfFnBSGjnSkQQj0
-	kQPTOixBTGKZt4Z9hlcMBQK0REQKnPoxwUcJsTY3Obw0IB0EVXh8EPts
-X-Gm-Gg: Acq92OGUgMZkLBhvXGed78ZHLqfn8y1MLGOZsWy6KAnz5c04sGbSHfMUhdc/q7FpWNl
-	fQiouHY7htq6REWqepSEgCZG0OrZcct360PTVOziaLL0ppMEzktGyqLXEgh2GWCQgUMznY9i6w/
-	D1uJhLehEhkIWHlYqMCiOUqVhuviBBJdd42vN9XtIUKfASPMfeGmrzFZr7p4tBbeE3bvNMJfz1W
-	UuTY9sFjhXid2PSZW1Pr2gKm9WwFAXBp9XY3mhaE9lgnsSrPRAImyr5MTz5ZFKzXLhDkUXpzYt4
-	X6cogpPkn4NApBiJnAWta7SwkqzT333N6QmcuZi9Z7LMF6doWlhYpq0/quBvVNlaGodACEnJ2Lt
-	Hh+P0gzLtFyQa0QeHYwkJ+wnhUI8aamn+6gotOiihUdBuXewkF12/OYKnLpH/i9NPBQT1Tv22hK
-	5NQL5rPNyJtHC9d7tm3ntEDHHlgsmrU8ERML4mRoGpTcfV9hSm+tdIDgkInTjvjRgqopURnOkG3
-	iRZDB4=
-X-Received: by 2002:a05:600d:8446:20b0:490:c1cb:48f4 with SMTP id 5b1f17b1804b1-490ec4d77afmr50099355e9.12.1781353427306;
-        Sat, 13 Jun 2026 05:23:47 -0700 (PDT)
-Received: from 0.1.2.1.2.0.a.2.dynamic.cust.swisscom.net ([2a02:1210:8642:2b00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea4b2e8esm101605395e9.0.2026.06.13.05.23.45
+        d=1e100.net; s=20251104; t=1781353645; x=1781958445;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HiF5drf3rvuABmv6sPErXIP4rKLg0zCEPYPnEhOmOzg=;
+        b=br/OKHNgCrK28Xr9XFXebb369beafuYJjR5y5tE0EP+O5G0eSHZqR0lqLty8zKP6D7
+         xm1+jhozA7FDRmpT54BFoA/PgdZWss7sua5GogZGL8x4e1qRYsmquSrMfiSmpXI5Gfol
+         1gDCoBfHYB4LMTYV5YWNy9JHAHFpd5rHbCnZRGAnBx0TggfWTty1q4jF4h+puvvRMaTw
+         A66Fz17mL+HvmaLJdy+YhuAojHqAK43Xg4S1UR0a2A2CcBc0CCANP7o5rj7z7hbl5vmJ
+         NoEyarLfhnKW1fWcURc2ZKzDjMg7AfEYTkmwGKz/qlsvUykLvin136cr5fDb0ffw26Pk
+         wqHg==
+X-Gm-Message-State: AOJu0Yyv7lfXfutZJ5kYzisDGhgvtYBPTbE/dS1sViXzqUZ2ofSiVuki
+	V3Cpb3ChIcAuDeHHBDDRgzdQVxgcURfcGQvL6+MxNZrtUk31C/GXDmsG
+X-Gm-Gg: Acq92OF2LJJ9i5YpQpna9gCFZNyhRidebJNjAY9ZSfYu4W31S1VD11Ffzh6jb3baMaw
+	H72kCudlkgxfa/GY0ta7eM1sIX3oZcaj+m6N6BaxwMYWIEIH4/3vAnicZrqh216Kfd80ulSFfpB
+	nN3Z64mT/d5VFfWUfsikvByjjAxIhpGGxTSGu9RiLXsXOvzdSyekZBtQh3Udw50WysbEOzD/kA3
+	sKnXCu65fog3GTms1X4663Fdd/F/2pzCljiim6uu0KXrbUQB0jiLu2WLW/kax8ouFYDbHW5ss7f
+	Me/2irGWtWtBtWGlh+dmGhGR5lQaXaONiDw4u0OWLsvsL1AOT/ntOpvV7G0S1Nn66UGhOxfpNrb
+	Zin3HpIrFmfSRros2IH2Po4fZr+if3rBuDSDY0w/U9dD2ccKRacfyft0Ea8C10y0lKMQzrWQd1P
+	oS/fKHiA8bgpSIbLE=
+X-Received: by 2002:a05:600c:3e06:b0:490:a964:14f8 with SMTP id 5b1f17b1804b1-49220084947mr40343985e9.8.1781353644739;
+        Sat, 13 Jun 2026 05:27:24 -0700 (PDT)
+Received: from debian.. ([185.3.146.53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492202edf89sm76465685e9.1.2026.06.13.05.27.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 05:23:46 -0700 (PDT)
-Message-ID: <039295d3542deda8c56151252fe5e50c88c13deb.camel@gmail.com>
-Subject: Re: [PATCH v4 6/7] arm64: dts: allwinner: a100: reserve RAM for ATF
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Jernej =?UTF-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Samuel
- Holland <samuel@sholland.org>,  Hans de Goede <hansg@kernel.org>, Dmitry
- Torokhov <dmitry.torokhov@gmail.com>, Andre Przywara	
- <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid	
- <lukas.schmid@netcube.li>, "J." =?ISO-8859-1?Q?Neusch=E4fer?=
- <j.ne@posteo.net>,  Eric Biggers <ebiggers@kernel.org>, Michal Simek
- <michal.simek@amd.com>, Luca Weiss <luca@lucaweiss.eu>,  Sven Peter
- <sven@kernel.org>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-input@vger.kernel.org
-Date: Sat, 13 Jun 2026 14:23:46 +0200
-In-Reply-To: <FE7Vh4yfTmGMM24i18Wwwg@gmail.com>
-References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
-	 <_6NEZ78hR8a_3V2bhBAGoQ@gmail.com>
-	 <b428d57ba5464f1226daf099877f4c25fa4fc191.camel@gmail.com>
-	 <FE7Vh4yfTmGMM24i18Wwwg@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.1 
+        Sat, 13 Jun 2026 05:27:24 -0700 (PDT)
+From: Tal Well <talwell02@gmail.com>
+To: linux@armlinux.org.uk
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Tal Well <talwell02@gmail.com>
+Subject: [PATCH] ARM: Fix potential register clobbering in __get_user_check
+Date: Sat, 13 Jun 2026 15:27:07 +0300
+Message-Id: <20260613122707.512353-1-talwell02@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_052349_648367_716893E0 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260613_052726_838342_3474A134 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,40 +95,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jernej,
+This can happen due to local variable registers being call-clobbered by
+uaccess_save_and_enable or uaccess_restore, which can happen if they
+become slightly more complicated than they are (for example contain any
+memory access while KASAN is enabled).
+In that case, the first user access will fail while trying to execute
+the init process and the kernel will panic.
 
-On Sat, 2026-06-13 at 11:38 +0200, Jernej =C5=A0krabec wrote:
-> > > > Add reserved-memory node carving out Trusted Firmware-A region span=
-ning
-> > > > fixed 256K from physical address 0x40000000. Even though Allwinner =
-ATF
-> > > > itself passes the address range in the fdt to U-Boot, U-Boot curren=
-tly
-> > > > only reserves this memory internally, but doesn't carve out the reg=
-ion
-> > > > in the fdt passed to Linux.
-> > > >=20
-> > > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> > >=20
-> > > NAK. It is job of boot procedure to properly inject TF-A reserved nod=
-e.
-> > > Any issue should be fixed there.
-> >=20
-> >=20
-> > like in commit 0d17c865118881609ea7e381c7cadbb7979cc596
-> > ("arm64: dts: allwinner: Add Allwinner H616 .dtsi file")
-> > =C2=A0=C2=A0=C2=A0=C2=A0 Signed-off-by: Jernej Skrabec <jernej.skrabec@=
-gmail.com>
-> >=20
-> > ? ;-)
->=20
-> I was against that too.
->=20
-> It's time to be fixed in bootloader.
+While this is not strictly a bug given r0, r1 and r2 remain unused in
+the uaccess functions, even something as simple as making them noinline
+breaks this assumption and there's no reason to rely on it.
 
-I agree, I was wondering about this shortcut as well... I'll implement
-some sort of generic reserved memory handling in U-Boot.
+This is similar to the issue fixed by commit df909df0770779f1a556
+("ARM: 9132/1: Fix __get_user_check failure with ARM KASAN images"),
+but that only handled clobbering of r0 by the uaccess_restore function.
 
---=20
-Alexander Sverdlin.
+Signed-off-by: Tal Well <talwell02@gmail.com>
+---
+ arch/arm/include/asm/uaccess.h | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/include/asm/uaccess.h b/arch/arm/include/asm/uaccess.h
+index d6ae80b5df36..290ce8710773 100644
+--- a/arch/arm/include/asm/uaccess.h
++++ b/arch/arm/include/asm/uaccess.h
+@@ -180,12 +180,13 @@ extern int __get_user_64t_4(void *);
+ 
+ #define __get_user_check(x, p)						\
+ 	({								\
+-		unsigned long __limit = TASK_SIZE - 1; \
++		unsigned long __limit = TASK_SIZE - 1;			\
++		unsigned int __ua_flags = uaccess_save_and_enable();	\
+ 		register typeof(*(p)) __user *__p asm("r0") = (p);	\
+ 		register __inttype(x) __r2 asm("r2");			\
+ 		register unsigned long __l asm("r1") = __limit;		\
+ 		register int __e asm("r0");				\
+-		unsigned int __ua_flags = uaccess_save_and_enable();	\
++		__inttype(x) __tmp_r2;					\
+ 		int __tmp_e;						\
+ 		switch (sizeof(*(__p))) {				\
+ 		case 1:							\
+@@ -214,9 +215,10 @@ extern int __get_user_64t_4(void *);
+ 			break;						\
+ 		default: __e = __get_user_bad(); break;			\
+ 		}							\
++		__tmp_r2 = __r2;					\
+ 		__tmp_e = __e;						\
+ 		uaccess_restore(__ua_flags);				\
+-		x = (typeof(*(p))) __r2;				\
++		x = (typeof(*(p))) __tmp_r2;				\
+ 		__tmp_e;						\
+ 	})
+ 
+
+base-commit: 062871f1371b2e02a272ff5279c6479aff0a37ef
+-- 
+2.39.5
+
 
