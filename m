@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 100B8CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9296CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRnVKRSeVHE8C4mveHZ7BQt7/PAYY6Y/vufRbYFKpcE=; b=YdWrCTSneh1JrkM1RUu5qEqF0J
-	uItHj0k+DXhOKH0sQsxj06tOlFEYOFa2Ux6YVLPQ+UsSs7t7Au6e0jzdUp81nV3D4tVFyMKV1++g7
-	zWv+uyZkNaY6r1ixHpa/CIX5pjn2mEUp2STsdXDIoKX19VeeNQfBAaaMZPKPayDFu1onrmVSCye4A
-	+bSzIg9eNMSuhohP7McYG672qMEspuzGJRCRd/Wk9ppKsgW39TBLdHccO6qUBrxIceM/rJfFj3kY4
-	7oqAlLiI56qD/K9r3C5Y1YCmg0a2cOdmrXHQaIDGoJBc5nJEcdhg0+ieo3OFQrw333W/TIoMFqnok
-	/opRZbiQ==;
+	bh=gQuTjrXkDdFV2QV/Z7GUPJ6mtkFqvtbAqj6efLfB6Xc=; b=r4C66jUGlzYES+bgRWnndgnL46
+	E7xEBFJAWLo3H55nGbDC1ceUlGNpLxK9NnVGKQQEEMwYHjb6xxECVwqdJyxOZRXRv7OSrJfbBlsRN
+	Q186SImfj7HbJtbRWk5Qoh+u1xILezWZ69YZshpqNjcKoAiKgQElV+ro9q5ctRvXlnXnvhoGaNFJi
+	sKdw/2rMm3zDTKuLQpaugWNKhkJejvJfndpoE2vb7qNnaqtfOcwdWu5gLIyRg1HoShWbyI/a/ejhF
+	jSg4ehrZfC+NcjfjSbq8/VZvfCBfja1Ktekoj9q8b0Bq9EG4Ot4XcK8v0WEUTNRsHNd3NXvaFstx8
+	ZUMQCHeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC7X-0000000Bo4p-0399;
-	Sat, 13 Jun 2026 00:21:07 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1wYC9X-0000000BpIn-1p0L;
+	Sat, 13 Jun 2026 00:23:11 +0000
+Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC7R-0000000Bnts-0OxC
+	id 1wYC9V-0000000BpIR-2MXL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:21:02 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-84235f9b91fso1177933b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:21:00 -0700 (PDT)
+	Sat, 13 Jun 2026 00:23:10 +0000
+Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-1336742714fso2021c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:23:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781310060; x=1781914860; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=iRnVKRSeVHE8C4mveHZ7BQt7/PAYY6Y/vufRbYFKpcE=;
-        b=MSy2tHuNp6L+TNfGBUSLv16UK3CITENjoezVuMa5Q8R+ryPHIp4jPOZ4LeqTcHCvkf
-         LZRwBDdqEVUCysPUccC0MemOf3eH0vHkKg/+Dfep821L28lXpPX8iD1Rt/UI9RGyW2Rr
-         1KCUgq+avKlMPOqoW6VvNdyVgzUFik4Fbg9IdwcAOo2gwvwVMGqWvLxfDdaB0pvRB5um
-         mgA+ZpcLcuNR1tLhivjdbhcUxzn8twt9ATB2dSG5LCVurtBQsyceA9F9tDLRP6d1zjXY
-         WvM2vNXCQKdjaohfDibD5/YQxzlg+1KQbzYj1tWwvNL2SUs62dnuOZ5T7W/dSTSlu4YT
-         h6wA==
+        d=google.com; s=20251104; t=1781310188; x=1781914988; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gQuTjrXkDdFV2QV/Z7GUPJ6mtkFqvtbAqj6efLfB6Xc=;
+        b=bQmiXMG/ITVWnvys8fR+212UCbvSGzTXsC3eqYKkva3UY4k2WG3yVSE3+ndziA4FR+
+         0GppNUD1RN09ZXQirum64YYYXfbI2J150C8++0mo9rGgtAwZqboniPXe4xA1+XkUoamB
+         5dMKk9mWcp+sI6341S04o+FTBNkdfeiBNA0hnBixcIVZDCEZwwj3qTIWhQIJ3nRgBYmF
+         zL2j8d8GJYQCUFI5D6QkvKKiSR8BFp1MKg8fftp3AAhuje3zAbjGUWsuG0YEe2lxAPwA
+         sKc+tgpo2nQ2pYs0fXMHyS2WZixxHXNQze8rG0qovF7l9+eCy9za4FjfQdF1du63Peg1
+         OboQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781310060; x=1781914860;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iRnVKRSeVHE8C4mveHZ7BQt7/PAYY6Y/vufRbYFKpcE=;
-        b=eI1pjD6/TOlKIlsJgjnD3PWGPUuA3gb6Ee3dqzt4jFkuYgZ66FM0DQqEkS8G46hV/x
-         tDf5xnGO02Kjwi7m2ME25yCH/4Qr+2Ndfo93XpwtJv1ic73dyECUm32l3NW+D8pT8Tms
-         V8IxLYDwKgGJs69zbXqewPfrHH/w5gkKljvcUK/C3FQzEabKbURfqi+nMRRS3xwlEaRH
-         APXyjKr45AaBmsE7mUfKdwwhfowPCyy/8NYTKqdoRsbpO9Uuyh3I0JI3T+GpavdbvjN5
-         lm9x20kYyBRmYF+RcD4G4/ZHFRgLcCA3uP/LyOK3pRWpB+aVBUbKYuRFMrGpOvuMp2KK
-         S2pg==
-X-Forwarded-Encrypted: i=1; AFNElJ+qR8CaIXedO9DsShZ0Ko1bRgJHi7tW7YM/F8PmWEx5FlIcXz13CgY1zAsAGmNtDJciseLq+ocgHBH1CIk39fqo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWZxMXUmgbkZivakaKV0DcIfGx7HOr8Gz2PglyLCs1z7/pLBGZ
-	HKCQLNam07Mv6Dv8s6uEOiEjHxVuURkCcHgkBWS9oY2nrw7h19LcTqeiEVW8dLk4lqsKhnkJat7
-	BFMeVMw==
-X-Received: from pfms4.prod.google.com ([2002:aa7:8284:0:b0:842:6fe1:8620])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1483:b0:842:4612:55f4
- with SMTP id d2e1a72fcca58-8434ce824d3mr5497594b3a.31.1781310059290; Fri, 12
- Jun 2026 17:20:59 -0700 (PDT)
-Date: Fri, 12 Jun 2026 17:20:30 -0700
-In-Reply-To: <20260613002031.745413-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20260613002031.745413-1-seanjc@google.com>
-X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260613002031.745413-20-seanjc@google.com>
-Subject: [PATCH v7 19/20] KVM: selftests: Make number of vCPUs configurable in
- IRQ test
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
-Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
-	Josh Hilke <jrhilke@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1781310189; x=1781914989;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gQuTjrXkDdFV2QV/Z7GUPJ6mtkFqvtbAqj6efLfB6Xc=;
+        b=GMC4W32eeDtsgTDkQz5HcotzJHV4fMs+QM/yqn5VXK+KUqkzoNf1UDm1DuyaUnqE1E
+         eFDjGIBhCa/RAIbStwiCSoHbNvKOWzbbEq8QfOKGm0uJ/QKdk73WuDMI66zjmAAiv5E2
+         n/OMnVB45gLbsBe+FW64tq/76orydf4rNI8pcSjetRMu5wtmYRZUAzNs6gXO+r6r1a93
+         z/f2RyVF1UhH/ZmAn/hy5zr6ppzPhNfqbS/jDM3QBJA/e8OFFMQymhwrvdpznfChJyTH
+         n/kwURRKunMkfmhoy5B/eZsNh+xTRh7HO4/voro7wP3C0RvclRvqBG+i5fKqIvGqmNEw
+         ikDQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+WDOmVYYitV1DCZwMKLMHgN4RxGAowbeUfqPtJeSzGLF/ZbE5mk05HwjxyM369i5MRlswAlaUvnDNkOtATUjCo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzqUkzOq5XmL9eJkBkTRUNnXGrY+yCEQx1ksPWb/qcqFqKeEA4
+	33jsm75p6lhi1cpieNn95tvx9647+9QigBRopQDdFb7FeibpfVO5QQW5SE5nUQBz5w==
+X-Gm-Gg: Acq92OGbtWMyyrEkndp0apTaU+A7VA0Q5iRHRZtMN300wBsoTixJaEUqBGHbys2izrY
+	mIMaYIEiT6lmfcAOtaS+tJrlEeBH7qEPlgTSdMO9WHPxDwFKrzSIZzNW4nKs9yHvUhmE7yT6SYK
+	UWWYUi2+Ytv7dHlupF88c0QJM1jRZRxOQ762lnYdUqyj8feJavYmI1M868uQnJFv8MJdReBQLpT
+	ZXexwu7h201gaG7hTiP6iuHVD4WWrg3kl34VsF+LbW66LNELEr8HfudkoREUbe1tKyuGL63LYYB
+	noofv5jppY57rHE76dmxJVDEprFCo09Gzrs2SGOiV5Z1OxTn25vq5KVbFMOwd13giAvnQX++qaG
+	sU237wUmIznlY05FgUWgZkQy3AJFSJpWRkDqKxbKRF9kRWQ24Sb2efuSNDpQDHXVV3vjkqZMvjG
+	nX3bBMbUCrIQvcsvTG+h/6IH67FhNbMKkE14o91mr3szJqpTQ+y/vadGMpZn+z6r2h
+X-Received: by 2002:a05:7022:98f:b0:136:fcda:bd43 with SMTP id a92af1059eb24-138f3b6d806mr40653c88.5.1781310187835;
+        Fri, 12 Jun 2026 17:23:07 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2e51:8:e362:1a25:b90f:e3ee])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e489621sm5610188eec.6.2026.06.12.17.23.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Jun 2026 17:23:07 -0700 (PDT)
+Date: Fri, 12 Jun 2026 17:23:01 -0700
+From: Isaac Manjarres <isaacmanjarres@google.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: ryabinin.a.a@gmail.com, akpm@linux-foundation.org, corbet@lwn.net,
+	glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
+	vincenzo.frascino@arm.com, kasan-dev@googlegroups.com,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org, workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	ryan.roberts@arm.com, anshuman.khandual@arm.com,
+	kaleshsingh@google.com, 21cnbao@gmail.com, david@kernel.org,
+	will@kernel.org, catalin.marinas@arm.com
+Subject: Re: [RFC PATCH 2/2] kasan: hw_tags: Add boot option to elide free
+ time poisoning
+Message-ID: <aiyi5flNkNNm0pSR@google.com>
+References: <20260612044425.763060-1-dev.jain@arm.com>
+ <20260612044425.763060-3-dev.jain@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260612044425.763060-3-dev.jain@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_172101_146104_1C0F6C84 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260612_172309_604277_3F83F68A 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,93 +103,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Matlack <dmatlack@google.com>
+On Fri, Jun 12, 2026 at 04:44:24AM +0000, Dev Jain wrote:
+> diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
+> index fc9169a547662..4fa8abb312faa 100644
+> --- a/mm/kasan/kasan.h
+> +++ b/mm/kasan/kasan.h
+>  #ifdef CONFIG_KASAN_GENERIC
+> @@ -478,6 +489,16 @@ static inline u8 kasan_random_tag(void) { return 0; }
+>  
+>  static inline void kasan_poison(const void *addr, size_t size, u8 value, bool init)
+>  {
+> +	if (kasan_tag_only_on_alloc_enabled()) {
+> +		if ((value != KASAN_SLAB_REDZONE) && (value != KASAN_PAGE_REDZONE)) {
+> +			if (init)
+> +				memset((void *)kasan_reset_tag(addr), 0, size);
+> +			return;
+> +		}
+> +	}
+> +
+> +	value |= 0xF0;
+> +
 
-Extend the eventfd IRQ test with a '-v' flag to allow the user to
-configure the number of vCPUs to create and run (versus only ever using a
-single vCPU).
+I wonder if it would make more sense to have this as:
 
-Update the routing logic to play nice with 32 bit IDs, enable x2APIC format
-in KVM (to enable 32-bit ID routing), and disable KVM's x2APIC broadcast
-quirk so that targeting vCPU 255 doesn't blast the interrupt to all vCPUs
-when in x2APIC mode.
+if (kasan_tag_only_on_alloc_enabled() && (value == KASAN_SLAB_FREE ||
+    value == KASAN_PAGE_FREE)) {
+	if (init)
+		memset((void *)kasan_reset_tag(addr), 0, size);
+	return;
+}
 
-Signed-off-by: David Matlack <dmatlack@google.com>
-Co-developed-by: Josh Hilke <jrhilke@google.com>
-Signed-off-by: Josh Hilke <jrhilke@google.com>
-Co-developed-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/irq_test.c | 16 +++++++++++++---
- 1 file changed, 13 insertions(+), 3 deletions(-)
+That seems a bit clearer to me as to what it is that you're doing, and
+also makes it so that you don't have to do any bit manipulation
+on the value when you're filling in the redzones.
 
-diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
-index 5049cb69cd95..dfdb9f8e398c 100644
---- a/tools/testing/selftests/kvm/irq_test.c
-+++ b/tools/testing/selftests/kvm/irq_test.c
-@@ -112,7 +112,8 @@ static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
- 		.entry = {
- 			.gsi = gsi,
- 			.type = KVM_IRQ_ROUTING_MSI,
--			.u.msi.address_lo = 0xFEE00000 | (vcpu->id << 12),
-+			.u.msi.address_lo = 0xFEE00000 | (vcpu->id & GENMASK(7, 0)) << 12,
-+			.u.msi.address_hi = vcpu->id & GENMASK(31, 8),
- 			.u.msi.data = use_nmi ? NMI_VECTOR | (4 << 8) : vector,
- 		},
- 	};
-@@ -145,7 +146,7 @@ static const char *probe_iommu_type(void)
- 
- static void help(const char *name)
- {
--	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-e] [-h] [-i nr_irqs] [-m] [-n] [-t iommu_type]\n", name);
-+	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-e] [-h] [-i nr_irqs] [-m] [-n] [-t iommu_type] [-v nr_vcpus]\n", name);
- 	printf("\n");
- 	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
- 	printf("-a	Affine the device's host IRQ to a random physical CPU\n");
-@@ -155,6 +156,7 @@ static void help(const char *name)
- 	printf("-m	Pin target vCPU to random physical CPU before triggering interrupt\n");
- 	printf("-n	Deliver 50 percent of IRQs as non-maskable interrupts\n");
- 	printf("-t	Override the IOMMU type to use (vfio_type1_iommu or iommufd)\n");
-+	printf("-v	Number of vCPUS to run\n");
- 	printf("\n");
- 	exit(KSFT_FAIL);
- }
-@@ -191,7 +193,7 @@ int main(int argc, char **argv)
- 	struct kvm_vm *vm;
- 	int irq, irq_cpu;
- 
--	while ((c = getopt(argc, argv, "ad:ehi:mnt:")) != -1) {
-+	while ((c = getopt(argc, argv, "ad:ehi:mnt:v:")) != -1) {
- 		switch (c) {
- 		case 'a':
- 			irq_affinity = true;
-@@ -214,6 +216,11 @@ int main(int argc, char **argv)
- 		case 't':
- 			iommu_type = optarg;
- 			break;
-+		case 'v':
-+			nr_vcpus = atoi_positive("Number of vCPUS", optarg);
-+			TEST_ASSERT(nr_vcpus <= KVM_MAX_VCPUS,
-+				    "KVM selftests support at most %u vCPUs", KVM_MAX_VCPUS);
-+			break;
- 		case 'h':
- 		default:
- 			help(argv[0]);
-@@ -223,6 +230,9 @@ int main(int argc, char **argv)
- 	TEST_REQUIRE(kvm_arch_has_default_irqchip());
- 
- 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
-+	vm_enable_cap(vm, KVM_CAP_X2APIC_API, KVM_X2APIC_API_USE_32BIT_IDS |
-+					      KVM_X2APIC_API_DISABLE_BROADCAST_QUIRK);
-+
- 	vm_install_exception_handler(vm, vector, guest_irq_handler);
- 	vm_install_exception_handler(vm, NMI_VECTOR, guest_nmi_handler);
- 
--- 
-2.54.0.1136.gdb2ca164c4-goog
-
+Thanks,
+Isaac
 
