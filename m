@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90868CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 07:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF3DCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 07:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qHK4xcuZuyY3VWkKdAkc6bfYV2q4RPDKWtvw4p7wT+w=; b=J7/ppCE25TSdPfxxAbLErSU6ie
-	Inj7RZyyQYeC37KLJafGc2RFEmvHdfGC08Tt8RlOUEkVq+S1nfEq2bcn9itKRgkuKS4kmRMk+/syl
-	TArUQkVhDTtk36xB4DJXYLXS9nhSGAeOTF2xde9fvPcTXWIV7kjEEUkMzkCPrIZuzR8pSV1BA3Gnm
-	+qlYgo+RRoFeNrRJib7l91CDJO8XegEUy/GZWCvi5p0cbz6GimqrUBtIi67VJCgLXZU/AiFD1hpig
-	6HCzDx/TywEu0LMQUyEYLRKNIL7iQ6PSlzjugVsWOrrVTSG3zWW8e0Hxj62oLQ/0uJnrM7rY/l2Gh
-	6DcS9mgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=veSLkLuVXjwdrZzfCCj4w9cK+dyeH9xMaJHceYyp2QA=; b=f6tfE0ebGkUIVK2yaWEEG0KgBN
+	T0Rhqi7AP5dghwCdIqSJh9oA2IF9ukI6LX9271a1/fhYDLSXsdoghej4eLwYCAhPLXxak4drty73L
+	B7OIaLvOGlDj8cmgZX3ZaSkDqU+vbXRCGKtKEdfpK/nJxDMjcguuy8nCeuNbvBQZU9T8QgHgNkChD
+	dB2qnjgi83PsFz7K6Qkv4k4JZjCDOExxvAfgRKeSrosgYIj1Z3EL/M+riHduEvOeCtree4tmiNwnK
+	1m8hkpUC8fHeVc+e25bZL7ZiIFbIM7oXdHG6HZKSK0A5IvYc+KVEcQpnon1szUFI/ityg8te/BDpc
+	qWp9JYyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIzG-0000000C37N-0dY1;
-	Sat, 13 Jun 2026 07:41:02 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1wYJ4X-0000000C3Q2-40BT;
+	Sat, 13 Jun 2026 07:46:29 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIzB-0000000C36c-483W
+	id 1wYJ4U-0000000C3PZ-1ufC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 07:41:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1781336455;
- bh=qHK4xcuZuyY3VWkKdAkc6bfYV2q4RPDKWtvw4p7wT+w=;
- b=hAl4WAxRxs/ZvxN8Tsnh39Vx+Wd0eFIeV3w0nae8LiNv2Gtw5njjh6FZRT+97DDJZwCTQmOXD
- PZJZVtykDki1fme3042lw0BQve7J8dGRjnRFyke/P7/3WhSf2sCYv7qaHngIvZjhF6ZFuJaEU+V
- 9tXkGvk7in9AyhYJyQmUpgwiMO1sYxhU7pQl1AUVCzteGdaOK2b8isJBMyRJTRrDA+8DIdOCg6V
- dAUh3ti8QlkEuvmKk8GL53oEoLIRjWAcOD4pO6R6fpNmucBH67wce6YbdiEsB71qjMOeWkU8uJo
- eMSMPB/bHhlM3IiS2VYfj2ilKbOYSAEPTEYSDCEkhkCQ==
-X-Forward-Email-ID: 6a2d09837f2a6d9c19af5dbd
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.8.26
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <e0f044df-9d34-4e6e-aa48-9e4227b4bdf7@kwiboo.se>
-Date: Sat, 13 Jun 2026 09:40:46 +0200
+	Sat, 13 Jun 2026 07:46:28 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-490b613a17bso14467405e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 00:46:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781336784; x=1781941584; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=veSLkLuVXjwdrZzfCCj4w9cK+dyeH9xMaJHceYyp2QA=;
+        b=YsWwtI5u+1NTdaOGCHzDXswzvwqpHGxAGVz06RUvF+v1savu1ZS2/UFFQjM+iu7+Cx
+         TvkxHrOcHPeSc4oh841+8gbaYpGnZ1SPmSOEbzPpWyhoYNyOZfVvKbQrG8SiqHuhtKv6
+         vZCH84Q6jq0qIKR6b5AM018Z2si0AYPHNxEmCgJxwLR+oQFEKC7qBvXElMOt2AZFag7m
+         veoP4BoD9oR21BEJEbmS3R6kCpe4grsAVxoQsZUcFpNyV0o/aSiT3o41X+28/1dEaWqm
+         CCO+4Y2EHjMFLMntjha0tyLuRImUc3d5agr54lN8no3Dos1C00Ox57BD2OHwPGYWyEnk
+         a2XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781336784; x=1781941584;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=veSLkLuVXjwdrZzfCCj4w9cK+dyeH9xMaJHceYyp2QA=;
+        b=AV0VIZMxVwnqPxAWbnx+FA6EKeuWje+GMjTj65NN66KCksdCPzSTy6mmny6FrsR05r
+         uKWc5WvZCTzISXlIkik1kzSiGZT/Ly01WfCK/UBvAWKGx4qJdAjO4QNhMufSS3N+Mlxf
+         mS3t5GYIqGoleEGJmUd/b4SXqwyh62SsjQjTD9CgGX/4h2DBsHCJdxPAEh5OORfM4cBr
+         YEv2Jo/hDa1w8+TILC5Ru06fO/RiqLl3Y8xpvBlEgrHzOwlbS9E4bLEaxUT5kmCBH7+U
+         OMzut+P4MLiaygsSGCuQO753OtHT0rKIMdYu1TESdeAnr7KxRO3+3ur3xfPn3Tp/DVfS
+         mbqg==
+X-Forwarded-Encrypted: i=1; AFNElJ/WY/FcdKb9bM3iTTh6G8XA3oHlIalYiuMEMYr3PEuS+3JH00Py5ETptwtR8Q5Di2n171Zz07bNmQsynv7+YwWp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+zjSy/aDyKqJHQg3VJklIM6KHbnzojaA/lJunW2QJp/5TB+c2
+	Yk+T9AodwGCAqKlZrsHheaiudxDX6K5fra3r/YGm4IJrfl208ztdN0Tf
+X-Gm-Gg: Acq92OFBfBOdpc8f8adSvXQLvVM7sBJPKh6dUFef3DA1J8e9sjKOhXbC5nhaJ6TSuR5
+	inSkb0UxT2wudusZf8q17ExBmxkdsuYZtsB9WHW/xh9KmTUFMP697TjOi3M4MBxnWapaR4QTZpw
+	pB74H8g3tV9YLqCPoSLe1Wlis6sdO63D6Ed2G+ZYS7CmTjsEiYvocsUzjgwxffm/yX/RfrdyUMp
+	VJh/x1uV9FZmEpnoYXbrH6UM1KiPC3B6PF5JYko2ZSU9qG2zYiOcbcG/dgu/Gz9SpzF93I62vqQ
+	fU/X9okXolYuWIoP4NUmoctWSLURPeHp6nU4pPobR2XWa9JUWCajjvNUzSEj2lL+E9dNP8l0yy0
+	53AQ0xC+iDb4T1ZrfFYhf6mcGGy9tI8B4O2ashhwCWSRuqMhALGRUbcbvMOPZr/5k8+GG7bFJis
+	wJ5zMOhn8Pcdzh7UNs1eW1e68BTd4CxbfQHKvmh8P7cHRA
+X-Received: by 2002:a05:600c:3548:b0:490:e196:e8e3 with SMTP id 5b1f17b1804b1-490ec501a29mr82066385e9.18.1781336783742;
+        Sat, 13 Jun 2026 00:46:23 -0700 (PDT)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26f309sm13078689f8f.14.2026.06.13.00.46.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Jun 2026 00:46:23 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
+ samuel@sholland.org, mripard@kernel.org, arnd@arndb.de,
+ Hongling Zeng <zenghongling@kylinos.cn>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ zhongling0719@126.com, Hongling Zeng <zenghongling@kylinos.cn>
+Subject: Re: [PATCH] dmaengine: sun6i-dma: Fix use-after-free in error handling paths
+Date: Sat, 13 Jun 2026 09:46:19 +0200
+Message-ID: <CyWPMXMZRBuYyL_Lpl2t_Q@gmail.com>
+In-Reply-To: <20260611063631.96566-1-zenghongling@kylinos.cn>
+References: <20260611063631.96566-1-zenghongling@kylinos.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v4 8/9] arm64: dts: rockchip: rk3568-rock-3b: Enable
- the NPU
-To: MidG971 <midgy971@gmail.com>
-Cc: "tomeu@tomeuvizoso.net" <tomeu@tomeuvizoso.net>,
- "ogabbay@kernel.org" <ogabbay@kernel.org>, "heiko@sntech.de"
- <heiko@sntech.de>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "xxm@rock-chips.com" <xxm@rock-chips.com>,
- "chaoyi.chen@rock-chips.com" <chaoyi.chen@rock-chips.com>,
- "finley.xiao@rock-chips.com" <finley.xiao@rock-chips.com>,
- "diederik@cknow-tech.com" <diederik@cknow-tech.com>
-References: <20260613070116.438906-1-midgy971@gmail.com>
- <20260613070116.438906-9-midgy971@gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260613070116.438906-9-midgy971@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_004058_107227_3205301B 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20260613_004626_547136_11839C6C 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,86 +101,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Midgy,
-
-On 6/13/2026 9:01 AM, MidG971 wrote:
-> From: Midgy BALON <midgy971@gmail.com>
-> 
-> Enable the NPU and its IOMMU on ROCK 3B and wire vdd_npu as the NPU
-> power domain's domain-supply, so genpd brings the rail up and down with
-> the domain (the domain is marked need_regulator). The PVTPLL compute
-> clock is brought up later by the driver.
-> 
-> The rail is no longer kept always-on, so pin it to 1000 mV (the NPU's
-> 1 GHz operating voltage; the driver runs a fixed compute rate with no
-> devfreq voltage scaling) and mark it boot-on, so it is up before the
-> power domain de-idles the NPU NoC at power-on.
-> 
-> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+Dne =C4=8Detrtek, 11. junij 2026 ob 08:36:31 Srednjeevropski poletni =C4=8D=
+as je Hongling Zeng napisal(a):
+> In error handling paths, the for loop frees v_lli in the loop body,
+> then accesses v_lli->v_lli_next and v_lli->p_lli_next in the
+> increment expression, which is use-after-free.
+>=20
+> Fix by saving both the next virtual and physical pointers before
+> freeing the current node.
+>=20
+> Fixes: 555859308723 ("dmaengine: Add driver for Allwinner sun6i DMA")
+> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
 > ---
->  .../arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 18 ++++++++++++++++--
->  1 file changed, 16 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> index 69001e453732e..d3f9776c2bdc3 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> @@ -330,9 +330,10 @@ regulator-state-mem {
->  
->  			vdd_npu: DCDC_REG4 {
->  				regulator-name = "vdd_npu";
-> +				regulator-boot-on;
+>  drivers/dma/sun6i-dma.c | 20 ++++++++++++++++----
+>  1 file changed, 16 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+> index a9a254dbf8cb..eb9c4ae87ac8 100644
+> --- a/drivers/dma/sun6i-dma.c
+> +++ b/drivers/dma/sun6i-dma.c
+> @@ -788,9 +788,15 @@ static struct dma_async_tx_descriptor *sun6i_dma_pre=
+p_slave_sg(
+>  	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
+> =20
+>  err_lli_free:
+> -	for (p_lli =3D txd->p_lli, v_lli =3D txd->v_lli; v_lli;
+> -	     p_lli =3D v_lli->p_lli_next, v_lli =3D v_lli->v_lli_next)
+> +	p_lli =3D txd->p_lli;
+> +	v_lli =3D txd->v_lli;
+> +	while (v_lli) {
+> +		struct sun6i_dma_lli *next_v_lli =3D v_lli->v_lli_next;
+> +		dma_addr_t next_p_lli =3D v_lli->p_lli_next;
+>  		dma_pool_free(sdev->pool, v_lli, p_lli);
+> +		v_lli =3D next_v_lli;
+> +		p_lli =3D next_p_lli;
+> +	}
+>  	kfree(txd);
+>  	return NULL;
+>  }
+> @@ -869,9 +875,15 @@ static struct dma_async_tx_descriptor *sun6i_dma_pre=
+p_dma_cyclic(
+>  	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
+> =20
+>  err_lli_free:
+> -	for (p_lli =3D txd->p_lli, v_lli =3D txd->v_lli; v_lli;
+> -	     p_lli =3D v_lli->p_lli_next, v_lli =3D v_lli->v_lli_next)
+> +	p_lli =3D txd->p_lli;
+> +	v_lli =3D txd->v_lli;
+> +	while (v_lli) {
+> +		struct sun6i_dma_lli *next_v_lli =3D v_lli->v_lli_next;
+> +		dma_addr_t next_p_lli =3D v_lli->p_lli_next;
+>  		dma_pool_free(sdev->pool, v_lli, p_lli);
+> +		v_lli =3D next_v_lli;
+> +		p_lli =3D next_p_lli;
+> +	}
+>  	kfree(txd);
+>  	return NULL;
+>  }
+>=20
 
-There is no need for the NPU in the bootloader, do not use DT as a
-workaround for software issues.
+This is certainly a valid fix, but it's replicating what sun6i_dma_free_des=
+c()
+is already doing. It would be better to split code to accept struct sun6i_d=
+esc
+*txd parameter and call that instead from all places.
 
-This series mention the PVTPLL NPU clk and seem to contains some
-workarounds related to how the PVTPLL clock is handled in TF-A.
+Best regards,
+Jernej
 
-The PVTPLL block typically require the pclk and power domain enabled to
-function, and this series seem to add workarounds to try and ensure this,
-e.g. with noc_init to activate PVTPLL usage.
-
-I would suggest that you do not involve the PVTPLL clock in this initial
-NPU support for RK3568, set CLK_NPU to 400 MHz and use it instead of the
-SCMI clock, or keep SCMI clk rate less than or equal to 400 MHz to
-disable PVTPLL_NEED mode in TF-A.
-
-In a future series you can extend Linux with a proper PVTPLL clk driver
-and OPP support for the rocket driver to correctly ensure pclk and pd is
-enabled when a PVTPLL clock is managed.
-
->  				regulator-initial-mode = <0x2>;
-> -				regulator-min-microvolt = <500000>;
-> -				regulator-max-microvolt = <1350000>;
-> +				regulator-min-microvolt = <1000000>;
-> +				regulator-max-microvolt = <1000000>;
-
-Please describe the HW, do not add workarounds for software issues or
-shortcomings.
-
-Regards,
-Jonas
-
->  				regulator-ramp-delay = <6001>;
->  
->  				regulator-state-mem {
-> @@ -787,3 +788,16 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
->  		remote-endpoint = <&hdmi_in_vp0>;
->  	};
->  };
-> +
-> +&pd_npu {
-> +	domain-supply = <&vdd_npu>;
-> +};
-> +
-> +&rknn_core_0 {
-> +	npu-supply = <&vdd_npu>;
-> +	status = "okay";
-> +};
-> +
-> +&rknn_mmu_0 {
-> +	status = "okay";
-> +};
 
 
