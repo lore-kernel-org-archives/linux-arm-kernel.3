@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989CBCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4958FCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=56MO/PWG6Ib9yUFU34ThnLS9zPVnZVEboAJqbyCYvEA=; b=kOhEJZZmIbg1AFWynbX31KjkHC
-	VjkIgDPfYI2mHSwKOLqY6lTMi+IMqaRQ4i9vFcsM137uSKpWr/TrXJ8W6/+23EsRbjHBOxPuDMfJt
-	xX2D4BhFtOmDcnMXsQ+ngoltw8I/paSedIrGoHgdMHNxwaU4454aEGYgtbzEYcuIIh7bnVaxJOnwK
-	S3NhcS8OemnuEWuRRgGEYEoWXRS+njl1f3ooQvaWh+nByLijvU+Kr5zpglzHb3p3j4R4RrCF9DVhl
-	giTSrpjwy6kHCk+t792rXkGtsYlp0r1m4ZXabix6Gjh7q/SGRl+XPsta8M21T2txXeENczfBnQobo
-	rhOi5P4w==;
+	bh=Q74DfFMJGIf43h3oG0AaLzcz+fNjnLU10vcumudtGPU=; b=bNnMOq/ybpEwXvLnNu8ngE+IeO
+	8bcMZJoApx/CYPGt8MwL6fnmCmRw9LKhugUAWrnIaVLkhSOHd/JxKj9qE8BWOK/+WdQ0i6EGu0l2q
+	BdwT3FIOEV7sB6svMWZ/W5Q+R5W9eo7CCoGSMiJlNrJm3lHF/celXJ726h0Rzy86kzXi1bUAEHuOE
+	55hqP1zpUUFLKAApAD4XIdUa5xsy65kMbIG2yk8vNrgjC+1uOm7s1Nmv5Q22yBa8uZZpIZQUC6tj+
+	Cd8GuBS4Ua11f6SQGAmE58PgjLIPArSvnVnJkBBU3Xt+A0qE5FrhBLIj7pdsbDaC2A2yYiMTA17gW
+	p9DQ/uiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLKG-0000000CAco-1IAR;
-	Sat, 13 Jun 2026 10:10:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wYLTS-0000000CBBc-0h3d;
+	Sat, 13 Jun 2026 10:20:22 +0000
+Received: from mail-24430.protonmail.ch ([109.224.244.30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLKE-0000000CAcd-2DnB
+	id 1wYLTP-0000000CBAh-3zNK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 10:10:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C95743263;
-	Sat, 13 Jun 2026 10:10:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 635D01F000E9;
-	Sat, 13 Jun 2026 10:10:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781345450;
-	bh=56MO/PWG6Ib9yUFU34ThnLS9zPVnZVEboAJqbyCYvEA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=hOVO8/m0hHnWg8qAspMgvmR4pQMkWX/m9xr62Nfgk48m/5xvnislE17EhHGh8K6Jh
-	 1zt/RXuS5APwl8xBw5WTTgoli/a8FR17H8urDmsBVbc/tZ47LbdU3WYdO7MR1qFGsc
-	 tpreSli1keARbtaD3/MW7BWEQw7HGdDfhbNVdD6DrdbdJsnW1driRnpUK8YSUB8TPO
-	 S9p6o6KaV054JhdWC1RcLeK+uKCfNHvDTxcZbeEmZTLA/haSFo1vwxLap2dppAIPzD
-	 1R66nk2TsIXDHPJO3PjrJWZPbxzM0/e/jj4AHSt4Ipp1Rt5N2fLb3DDJkGkQ/dstEZ
-	 y5obb0p+8BpYg==
-Message-ID: <d94f5548-9621-4e9b-afba-1835d95799d2@kernel.org>
-Date: Sat, 13 Jun 2026 13:10:46 +0300
+	Sat, 13 Jun 2026 10:20:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1781346014; x=1781605214;
+	bh=Q74DfFMJGIf43h3oG0AaLzcz+fNjnLU10vcumudtGPU=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=h4IdtranjLetTUOBYNFCtKZrpcVlKvaVpaSOmd/8APazXezroN577JvQezid6+eIn
+	 k9PZutTzzHO0TxhLBx3/vRK9YVgUlxLFlN+Sa9OO9LT6birHINfK4jzf/AXvB+nrAo
+	 t7Y1jaJHDk29YH+iyMkyshEx7MaCkRJdDrtkhmBr4/4qZ7OvbrBjDnQvePODJJJnjQ
+	 shebYd/6/akaMoggm1FE2Dqnrb8yK0ztISMxX97RQIMVvoCZPjiYPDQU0AdwZHndQr
+	 uudKj2FHIcqrwKFc+aBiuzbQ9vuOg440f27fcU7hAH9AcMqxDolfzchfyzpycyJ1oP
+	 m/Hs8Cch8/SyQ==
+Date: Sat, 13 Jun 2026 10:20:10 +0000
+To: Linus Walleij <linusw@kernel.org>
+From: Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: Yassine Oudjana <yassine.oudjana@gmail.com>, Sean Wang <sean.wang@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andy Teng <andy.teng@mediatek.com>, linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 6/6] pinctrl: mediatek: Add MT6735 pinctrl driver
+Message-ID: <PjcK3j_TxnXwwBQ8ATPAPOO6LJl5b0Laa_6eSBTVfEfqsxIcaeDEVS4q4UkvGQA7CLQbuGxopLF6p3eIh1JAIDTkPFIgwp-hVP-fex_WEqU=@protonmail.com>
+In-Reply-To: <CAD++jLkA3v0RD1skaanqqG2eN8JLivUQPrYdK+hbX1YhQBgKqw@mail.gmail.com>
+References: <20260530145800.1029920-1-y.oudjana@protonmail.com> <20260530145800.1029920-7-y.oudjana@protonmail.com> <CAD++jLkA3v0RD1skaanqqG2eN8JLivUQPrYdK+hbX1YhQBgKqw@mail.gmail.com>
+Feedback-ID: 6882736:user:proton
+X-Pm-Message-ID: 23bbe0e76ed880a27521d811693ae6c5ed41470b
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] iio: adc: spear: Initialize completion before
- requesting IRQ
-To: Maxwell Doose <m32285159@gmail.com>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- Hartmut Knaack <knaack.h@gmx.de>,
- "open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
- "moderated list:ARM/LPC32XX SOC SUPPORT"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Cc: Sangyun Kim <sangyun.kim@snu.ac.kr>,
- Kyungwook Boo <bookyungwook@gmail.com>, Jaeyoung Chung <jjy600901@snu.ac.kr>
-References: <20260613005812.160572-1-m32285159@gmail.com>
- <20260613005812.160572-3-m32285159@gmail.com>
-From: Vladimir Zapolskiy <vz@kernel.org>
-In-Reply-To: <20260613005812.160572-3-m32285159@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260613_032020_171678_234E4D1B 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,72 +69,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/13/26 03:58, Maxwell Doose wrote:
-> In the report from Jaeyoung Chung:
-> 
-> "spear_adc_probe() in drivers/iio/adc/spear_adc.c registers its
-> interrupt handler with devm_request_irq() before it initializes
-> st->completion with init_completion(). If an interrupt arrives after
-> devm_request_irq() and before init_completion(), the handler calls
-> complete() on an uninitialized completion, causing a kernel panic.
-> 
-> The probe path, in spear_adc_probe():
-> 
->      iodev = devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzalloc-zeroed */
->      ...
->      retval = devm_request_irq(&pdev->dev, irq, spear_adc_isr, 0,
->                                LPC32XXAD_NAME, st);           /* register handler */
->      ...
->      init_completion(&st->completion);                       /* initialize completion */
-> 
-> spear_adc_isr() calls complete():
-> 
->      complete(&st->completion);
-> 
-> If the device raises an interrupt before init_completion() runs,
-> complete() acquires the uninitialized wait.lock and walks the zeroed
-> task_list in swake_up_locked(). The zeroed task_list makes list_empty()
-> return false, so swake_up_locked() dereferences a NULL list entry,
-> triggering a KASAN wild-memory-access."
-> 
-> Fix the chance of a spurious IRQ causing an uninitialized pointer
-> dereference by moving init_completion() above devm_request_irq().
-> 
-> Fixes: b586e5d9eee0 ("staging:iio:adc:spear rename device specific state structure to _state")
-> Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
-> Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
-> Reported-by: Jaeyoung Chung <jjy600901@snu.ac.kr>
-> Closes: https://lore.kernel.org/linux-iio/20260610115700.774689-1-jjy600901@snu.ac.kr/
-> Signed-off-by: Maxwell Doose <m32285159@gmail.com>
-> ---
->   drivers/iio/adc/spear_adc.c | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/spear_adc.c b/drivers/iio/adc/spear_adc.c
-> index 4be722406bb5..ab02a14682ed 100644
-> --- a/drivers/iio/adc/spear_adc.c
-> +++ b/drivers/iio/adc/spear_adc.c
-> @@ -283,6 +283,7 @@ static int spear_adc_probe(struct platform_device *pdev)
->   	st = iio_priv(indio_dev);
->   	st->dev = dev;
->   
-> +	init_completion(&st->completion);
->   	mutex_init(&st->lock);
->   
->   	/*
-> @@ -329,8 +330,6 @@ static int spear_adc_probe(struct platform_device *pdev)
->   
->   	spear_adc_configure(st);
->   
-> -	init_completion(&st->completion);
-> -
->   	indio_dev->name = SPEAR_ADC_MOD_NAME;
->   	indio_dev->info = &spear_adc_info;
->   	indio_dev->modes = INDIO_DIRECT_MODE;
+On Monday, June 8th, 2026 at 9:41 PM, Linus Walleij <linusw@kernel.org> wro=
+te:
 
-Reviewed-by: Vladimir Zapolskiy <vz@kernel.org>
+> Hi Yassine,
+>=20
+> thanks for your patch!
+>=20
+> On Sat, May 30, 2026 at 4:58=E2=80=AFPM Yassine Oudjana
+> <yassine.oudjana@gmail.com> wrote:
+>=20
+> > From: Yassine Oudjana <y.oudjana@protonmail.com>
+> >
+> > Add a driver for the MediaTek MT6735 SoC pin controller. This driver
+> > also supports the pin controller on MT6735M, which lacks 6 physical
+> > pins (198-203) used for MSDC2 on MT6735.
+> >
+> > Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
+>=20
+> Sashiko has good comments on this driver, look into them!
 
--- 
-Best wishes,
-Vladimir
+Didn't receive any comments and I don't see anything on the mailing list
+archives either. Am I missing something?
+
+>=20
+> > +config PINCTRL_MT6735
+> > +       bool "MediaTek MT6735(M) pin control"
+> > +       depends on OF
+> > +       default ARM64 && ARCH_MEDIATEK
+> > +       select PINCTRL_MTK_PARIS
+>=20
+> There are in-flight patches to make MTK drivers tristate for
+> the Android GKI. Do you want to use tristate for this driver too?
+
+Sure, doesn't matter much to me since I'm always compiling it as built-in.
+
 
