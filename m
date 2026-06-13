@@ -4,78 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF5C2CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 17:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D66ACD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 17:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oPKyfrz141Tt/TUVM+/cWb8Z6XMeYrBxouM0z8CDeFc=; b=kuk1sun1kD8qNZTvRAC0ujO2U3
-	rS9JAh7oDwClGRLAekXT1b6zJMWHsOMJHp0xK4W+PH8tWHBz5RQVSothh9+nstBu/FOZx/gM5dKkI
-	onYeCAy9mipL2mW1ABPTyYmcQcNVWPU60SX46N6lb++pI4uI9ud7LhEKkcYJbHPCi/KlccTyVcZmW
-	WtPsK0dXxDXeC5DUP+87VrdNP1zNLpkkMaCNvpzQMLmnYhQSC/ZOfXVwGnNF/bHHKTwkxPlhBi7tJ
-	rrIgYqO+IlTyYuoHRGfw6wSkkuROMTR8iDePP/oMhArdecru1tgYYcapJqf+Ci9ncQ56MyKJSibpl
-	EEf0Ge8w==;
+	bh=iz+DPTJta0/KLHF0Sec5orULniUFm7rdfsUd0Jm1tA0=; b=pFVLbYcsddywACya9shhqq3JNH
+	T3x6ZfnHRvhSBBtYIuTiN7r3iGUefrOjpL5J+owaL2HT6YK8Ct3/7qpdfsfDM4Fjvyk3AF3d2xsOa
+	z/y1OIF1W/ND0pxM4LO78omqPtFv+7RYOhfsJ/fCeShcjYsdGPytMU+cgPTy0yyszbxfhgi7AKgHP
+	sl34/xP/9QEGs2oAu11K/v/X2FHCfqrv4kluE4QgjIBWZVcPp7sANcHjeCiZLEqHHP7B5P8TqhFNc
+	oP1dMxCXhH40IUW5A4H9wskaAK++BedjbaMyH9zs891H1JMCPp1INjYnC0kxdXjmb9chS1e6yllY7
+	q4UjsNdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYRk4-0000000CQwd-0hqH;
-	Sat, 13 Jun 2026 17:01:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wYRtq-0000000CRC8-11Pd;
+	Sat, 13 Jun 2026 17:12:02 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYRk3-0000000CQwP-0iB4;
-	Sat, 13 Jun 2026 17:01:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 27A62406B5;
-	Sat, 13 Jun 2026 17:01:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADEA1F000E9;
-	Sat, 13 Jun 2026 17:01:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781370112;
-	bh=oPKyfrz141Tt/TUVM+/cWb8Z6XMeYrBxouM0z8CDeFc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=c6KYJm4qP8vmcje05HvxXO+iTknpptLKYFjE/ojivHJWQrr/+C4Mm7p3NsrDEIj6C
-	 WJjvuGTzyZdIHo+IFt5V5BKgVrrbGuCJvuYz6GAKUzSlRQrjzT+NorGEsVwRAYbmVo
-	 jwJ4L+Trz64YDVZz4X1/VuzqEP644NZ41LSs4wgUGyWIV4VTMEgqaj7ZPUyAjMIxnp
-	 D0SNnrKEERtyqcgihlDIWo8EFaOlIVhW9Mey1qNdo6Kw5+ZtswIzpaMxmIr9bND3TU
-	 7KNAan921Wvz37zAk348Frv7vvYOruJWNwdl/tiMxKulmog/o8KSqy48VNRx5w548C
-	 /UzvrC+Hb7c0w==
-Date: Sat, 13 Jun 2026 13:01:43 -0400
-From: Nathan Chancellor <nathan@kernel.org>
-To: xur@google.com
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Maciej =?utf-8?Q?=C5=BBenczykowski?= <maze@google.com>,
-	Yue Haibing <yuehaibing@huawei.com>,
-	Jeff Layton <jlayton@kernel.org>, Kees Cook <kees@kernel.org>,
-	Fernando Fernandez Mancera <fmancera@suse.de>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-actions@lists.infradead.org, llvm@lists.linux.dev,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] net: correcting section tags for .init and .exit
- data/functions
-Message-ID: <20260613170143.GB3152432@ax162>
-References: <20260612162257.896792-1-xur@google.com>
+	id 1wYRtm-0000000CRBn-1hO5
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 17:12:00 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gd2x321nbz9tph;
+	Sat, 13 Jun 2026 19:11:51 +0200 (CEST)
+Date: Sat, 13 Jun 2026 19:11:46 +0200
+From: Lukas Timmermann <linux@timmermann.space>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Alexandre Marquet <tb@a-marquet.fr>
+Subject: Re: [PATCH] ARM: dts: exynos: Add bluetooth support to manta
+Message-ID: <ai2OYGlCx0x4NUs8@archstation>
+References: <20260408-manta-bluetooth-v1-1-b7658e78359a@timmermann.space>
+ <653b640e-8b61-4c60-a455-63a400b308e7@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260612162257.896792-1-xur@google.com>
+In-Reply-To: <653b640e-8b61-4c60-a455-63a400b308e7@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260613_101158_587392_70C69D8D 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,369 +66,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rong,
+#include <atomic>
+On Mon, Apr 27, 2026 at 03:49:34PM +0200, Krzysztof Kozlowski wrote:
+> On 08/04/2026 13:56, Lukas Timmermann wrote:
+> > Enable the bcm4330-bt device for manta boards on serial0.
+> > Also adds the necessary pin definitions and interrupt handling for
+> > wakeup.
+> > 
+> > Signed-off-by: Lukas Timmermann <linux@timmermann.space>
+> > Co-developed-by: Alexandre Marquet <tb@a-marquet.fr>
+> > Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
+> 
+> Incomplete/incorrect DCO chain. Please do not reorder tags. Git does
+> them correctly, so you HAD to change them manually.
+> 
+> You send the patch or you apply the patch so you must commit with sign off.
+I developed the actual patch based on his findings. We both don't really
+care about who is mentioned first or anything.
 
-On Fri, Jun 12, 2026 at 09:22:57AM -0700, xur@google.com wrote:
-> From: Rong Xu <xur@google.com>
-> 
-> Fix modpost warnings that have surfaced during Clang's distributed ThinLTO
-> builds.
-> 
->   WARNING: modpost: vmlinux: section mismatch in reference: tcp4_net_ops.llvm.4527429266264891517+0x8 (section: .data) -> tcp4_proc_init_net (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: udp4_net_ops.llvm.17425824324074326067+0x8 (section: .data) -> udp4_proc_init_net (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: ping_v4_net_ops.llvm.5641696707737373282+0x8 (section: .data) -> ping_v4_proc_init_net (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: if6_proc_net_ops.llvm.7870945277386035298+0x8 (section: .data) -> if6_proc_net_init (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: ipv6_addr_label_ops.llvm.5745897517271459135+0x8 (section: .data) -> ip6addrlbl_net_init (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: ndisc_net_ops.llvm.8806210167060761094+0x8 (section: .data) -> ndisc_net_init (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: raw6_net_ops.llvm.3743523335772203324+0x8 (section: .data) -> raw6_init_net (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: igmp6_net_ops.llvm.7071106350580158050+0x8 (section: .data) -> igmp6_net_init (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: tcpv6_net_ops.llvm.17505177970592326146+0x8 (section: .data) -> tcpv6_net_init (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: ip6_flowlabel_net_ops.llvm.6051723423336054316+0x8 (section: .data) -> ip6_flowlabel_proc_init (section: .init.text)
->   WARNING: modpost: vmlinux: section mismatch in reference: ipv6_proc_ops.llvm.7829948594772821810+0x8 (section: .data) -> ipv6_proc_init_net (section: .init.text)
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202606111233.kM8oo8Df-lkp@intel.com/
-> Signed-off-by: Rong Xu <xur@google.com>
+Sorry. Yes I rearranged stuff. So it should be:
 
-Thanks for sending this change to try and clear up those new warnings
-from the distributed ThinLTO build. Based on the build reports that
-appear from this change downthread, it does not seem like it is quite
-right. Additionally, I think the commit message could be a little more
-descriptive around the root cause of the warnings and how this patch
-actually addresses it (I can infer but I think that information should
-be up front and center).
+co-dev: alex
+sign-off: alex
+co-dev: me
+sign-off: me
 
-> ---
->  net/ipv4/ping.c          |  6 +++---
->  net/ipv4/tcp_ipv4.c      |  6 +++---
->  net/ipv4/udp.c           |  6 +++---
->  net/ipv6/addrconf.c      |  6 +++---
->  net/ipv6/addrlabel.c     |  6 +++---
->  net/ipv6/ip6_flowlabel.c |  6 +++---
->  net/ipv6/mcast.c         | 10 +++++-----
->  net/ipv6/ndisc.c         | 10 +++++-----
->  net/ipv6/proc.c          |  6 +++---
->  net/ipv6/raw.c           |  6 +++---
->  net/ipv6/tcp_ipv6.c      |  6 +++---
->  11 files changed, 37 insertions(+), 37 deletions(-)
+Correct?
 > 
-> diff --git a/net/ipv4/ping.c b/net/ipv4/ping.c
-> index d36f1e273fde..1dda6d661ad8 100644
-> --- a/net/ipv4/ping.c
-> +++ b/net/ipv4/ping.c
-> @@ -1144,17 +1144,17 @@ static void __net_exit ping_v4_proc_exit_net(struct net *net)
->  	remove_proc_entry("icmp", net->proc_net);
->  }
->  
-> -static struct pernet_operations ping_v4_net_ops = {
-> +static struct pernet_operations ping_v4_net_ops __net_initdata = {
->  	.init = ping_v4_proc_init_net,
->  	.exit = ping_v4_proc_exit_net,
->  };
->  
-> -int __init ping_proc_init(void)
-> +int __net_init ping_proc_init(void)
->  {
->  	return register_pernet_subsys(&ping_v4_net_ops);
->  }
->  
-> -void ping_proc_exit(void)
-> +void __net_exit ping_proc_exit(void)
->  {
->  	unregister_pernet_subsys(&ping_v4_net_ops);
->  }
-> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-> index fdc81150ff6c..9caca5879466 100644
-> --- a/net/ipv4/tcp_ipv4.c
-> +++ b/net/ipv4/tcp_ipv4.c
-> @@ -3317,17 +3317,17 @@ static void __net_exit tcp4_proc_exit_net(struct net *net)
->  	remove_proc_entry("tcp", net->proc_net);
->  }
->  
-> -static struct pernet_operations tcp4_net_ops = {
-> +static struct pernet_operations tcp4_net_ops __net_initdata = {
->  	.init = tcp4_proc_init_net,
->  	.exit = tcp4_proc_exit_net,
->  };
->  
-> -int __init tcp4_proc_init(void)
-> +int __net_init tcp4_proc_init(void)
->  {
->  	return register_pernet_subsys(&tcp4_net_ops);
->  }
->  
-> -void tcp4_proc_exit(void)
-> +void __net_exit tcp4_proc_exit(void)
->  {
->  	unregister_pernet_subsys(&tcp4_net_ops);
->  }
-> diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
-> index 70f6cbd4ef73..87f4cced2114 100644
-> --- a/net/ipv4/udp.c
-> +++ b/net/ipv4/udp.c
-> @@ -3600,17 +3600,17 @@ static void __net_exit udp4_proc_exit_net(struct net *net)
->  	remove_proc_entry("udp", net->proc_net);
->  }
->  
-> -static struct pernet_operations udp4_net_ops = {
-> +static struct pernet_operations udp4_net_ops __net_initdata = {
->  	.init = udp4_proc_init_net,
->  	.exit = udp4_proc_exit_net,
->  };
->  
-> -int __init udp4_proc_init(void)
-> +int __net_init udp4_proc_init(void)
->  {
->  	return register_pernet_subsys(&udp4_net_ops);
->  }
->  
-> -void udp4_proc_exit(void)
-> +void __net_exit udp4_proc_exit(void)
->  {
->  	unregister_pernet_subsys(&udp4_net_ops);
->  }
-> diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
-> index c9e5d3e48ab9..73d9439bd408 100644
-> --- a/net/ipv6/addrconf.c
-> +++ b/net/ipv6/addrconf.c
-> @@ -4527,17 +4527,17 @@ static void __net_exit if6_proc_net_exit(struct net *net)
->  	remove_proc_entry("if_inet6", net->proc_net);
->  }
->  
-> -static struct pernet_operations if6_proc_net_ops = {
-> +static struct pernet_operations if6_proc_net_ops __net_initdata = {
->  	.init = if6_proc_net_init,
->  	.exit = if6_proc_net_exit,
->  };
->  
-> -int __init if6_proc_init(void)
-> +int __net_init if6_proc_init(void)
->  {
->  	return register_pernet_subsys(&if6_proc_net_ops);
->  }
->  
-> -void if6_proc_exit(void)
-> +void __net_exit if6_proc_exit(void)
->  {
->  	unregister_pernet_subsys(&if6_proc_net_ops);
->  }
-> diff --git a/net/ipv6/addrlabel.c b/net/ipv6/addrlabel.c
-> index f4b2618446bd..50f6c1b1edaa 100644
-> --- a/net/ipv6/addrlabel.c
-> +++ b/net/ipv6/addrlabel.c
-> @@ -340,17 +340,17 @@ static void __net_exit ip6addrlbl_net_exit(struct net *net)
->  	spin_unlock(&net->ipv6.ip6addrlbl_table.lock);
->  }
->  
-> -static struct pernet_operations ipv6_addr_label_ops = {
-> +static struct pernet_operations ipv6_addr_label_ops __net_initdata = {
->  	.init = ip6addrlbl_net_init,
->  	.exit = ip6addrlbl_net_exit,
->  };
->  
-> -int __init ipv6_addr_label_init(void)
-> +int __net_init ipv6_addr_label_init(void)
->  {
->  	return register_pernet_subsys(&ipv6_addr_label_ops);
->  }
->  
-> -void ipv6_addr_label_cleanup(void)
-> +void __net_exit ipv6_addr_label_cleanup(void)
->  {
->  	unregister_pernet_subsys(&ipv6_addr_label_ops);
->  }
-> diff --git a/net/ipv6/ip6_flowlabel.c b/net/ipv6/ip6_flowlabel.c
-> index b1ccdf0dc646..f6980c403c68 100644
-> --- a/net/ipv6/ip6_flowlabel.c
-> +++ b/net/ipv6/ip6_flowlabel.c
-> @@ -903,17 +903,17 @@ static void __net_exit ip6_flowlabel_net_exit(struct net *net)
->  	ip6_flowlabel_proc_fini(net);
->  }
->  
-> -static struct pernet_operations ip6_flowlabel_net_ops = {
-> +static struct pernet_operations ip6_flowlabel_net_ops __net_initdata = {
->  	.init = ip6_flowlabel_proc_init,
->  	.exit = ip6_flowlabel_net_exit,
->  };
->  
-> -int ip6_flowlabel_init(void)
-> +int __net_init ip6_flowlabel_init(void)
->  {
->  	return register_pernet_subsys(&ip6_flowlabel_net_ops);
->  }
->  
-> -void ip6_flowlabel_cleanup(void)
-> +void __net_exit ip6_flowlabel_cleanup(void)
->  {
->  	static_key_deferred_flush(&ipv6_flowlabel_exclusive);
->  	timer_delete(&ip6_fl_gc_timer);
-> diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
-> index d9b855d5191b..eef5bab1ee13 100644
-> --- a/net/ipv6/mcast.c
-> +++ b/net/ipv6/mcast.c
-> @@ -3209,12 +3209,12 @@ static void __net_exit igmp6_net_exit(struct net *net)
->  	igmp6_proc_exit(net);
->  }
->  
-> -static struct pernet_operations igmp6_net_ops = {
-> +static struct pernet_operations igmp6_net_ops __net_initdata = {
->  	.init = igmp6_net_init,
->  	.exit = igmp6_net_exit,
->  };
->  
-> -int __init igmp6_init(void)
-> +int __net_init igmp6_init(void)
->  {
->  	int err;
->  
-> @@ -3231,18 +3231,18 @@ int __init igmp6_init(void)
->  	return err;
->  }
->  
-> -int __init igmp6_late_init(void)
-> +int __net_init igmp6_late_init(void)
->  {
->  	return register_netdevice_notifier(&igmp6_netdev_notifier);
->  }
->  
-> -void igmp6_cleanup(void)
-> +void __net_exit igmp6_cleanup(void)
->  {
->  	unregister_pernet_subsys(&igmp6_net_ops);
->  	destroy_workqueue(mld_wq);
->  }
->  
-> -void igmp6_late_cleanup(void)
-> +void __net_exit igmp6_late_cleanup(void)
->  {
->  	unregister_netdevice_notifier(&igmp6_netdev_notifier);
->  }
-> diff --git a/net/ipv6/ndisc.c b/net/ipv6/ndisc.c
-> index e7ad13c5bd26..3a83280db29d 100644
-> --- a/net/ipv6/ndisc.c
-> +++ b/net/ipv6/ndisc.c
-> @@ -1994,12 +1994,12 @@ static void __net_exit ndisc_net_exit(struct net *net)
->  	inet_ctl_sock_destroy(net->ipv6.ndisc_sk);
->  }
->  
-> -static struct pernet_operations ndisc_net_ops = {
-> +static struct pernet_operations ndisc_net_ops __net_initdata = {
->  	.init = ndisc_net_init,
->  	.exit = ndisc_net_exit,
->  };
->  
-> -int __init ndisc_init(void)
-> +int __net_init ndisc_init(void)
->  {
->  	int err;
->  
-> @@ -2027,17 +2027,17 @@ int __init ndisc_init(void)
->  #endif
->  }
->  
-> -int __init ndisc_late_init(void)
-> +int __net_init ndisc_late_init(void)
->  {
->  	return register_netdevice_notifier(&ndisc_netdev_notifier);
->  }
->  
-> -void ndisc_late_cleanup(void)
-> +void __net_exit ndisc_late_cleanup(void)
->  {
->  	unregister_netdevice_notifier(&ndisc_netdev_notifier);
->  }
->  
-> -void ndisc_cleanup(void)
-> +void __net_exit ndisc_cleanup(void)
->  {
->  #ifdef CONFIG_SYSCTL
->  	neigh_sysctl_unregister(&nd_tbl.parms);
-> diff --git a/net/ipv6/proc.c b/net/ipv6/proc.c
-> index 813013ca4e75..c59bade608cd 100644
-> --- a/net/ipv6/proc.c
-> +++ b/net/ipv6/proc.c
-> @@ -298,17 +298,17 @@ static void __net_exit ipv6_proc_exit_net(struct net *net)
->  	remove_proc_entry("snmp6", net->proc_net);
->  }
->  
-> -static struct pernet_operations ipv6_proc_ops = {
-> +static struct pernet_operations ipv6_proc_ops __net_initdata = {
->  	.init = ipv6_proc_init_net,
->  	.exit = ipv6_proc_exit_net,
->  };
->  
-> -int __init ipv6_misc_proc_init(void)
-> +int __net_init ipv6_misc_proc_init(void)
->  {
->  	return register_pernet_subsys(&ipv6_proc_ops);
->  }
->  
-> -void ipv6_misc_proc_exit(void)
-> +void __net_exit ipv6_misc_proc_exit(void)
->  {
->  	unregister_pernet_subsys(&ipv6_proc_ops);
->  }
-> diff --git a/net/ipv6/raw.c b/net/ipv6/raw.c
-> index 3cc58698cbbd..fe399675b8fc 100644
-> --- a/net/ipv6/raw.c
-> +++ b/net/ipv6/raw.c
-> @@ -1256,17 +1256,17 @@ static void __net_exit raw6_exit_net(struct net *net)
->  	remove_proc_entry("raw6", net->proc_net);
->  }
->  
-> -static struct pernet_operations raw6_net_ops = {
-> +static struct pernet_operations raw6_net_ops __net_initdata = {
->  	.init = raw6_init_net,
->  	.exit = raw6_exit_net,
->  };
->  
-> -int __init raw6_proc_init(void)
-> +int __net_init raw6_proc_init(void)
->  {
->  	return register_pernet_subsys(&raw6_net_ops);
->  }
->  
-> -void raw6_proc_exit(void)
-> +void __net_exit raw6_proc_exit(void)
->  {
->  	unregister_pernet_subsys(&raw6_net_ops);
->  }
-> diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
-> index 36d75fb50a70..d0737f16076b 100644
-> --- a/net/ipv6/tcp_ipv6.c
-> +++ b/net/ipv6/tcp_ipv6.c
-> @@ -2335,12 +2335,12 @@ static void __net_exit tcpv6_net_exit(struct net *net)
->  	inet_ctl_sock_destroy(net->ipv6.tcp_sk);
->  }
->  
-> -static struct pernet_operations tcpv6_net_ops = {
-> +static struct pernet_operations tcpv6_net_ops __net_initdata = {
->  	.init	    = tcpv6_net_init,
->  	.exit	    = tcpv6_net_exit,
->  };
->  
-> -int __init tcpv6_init(void)
-> +int __net_init tcpv6_init(void)
->  {
->  	int ret;
->  
-> @@ -2378,7 +2378,7 @@ int __init tcpv6_init(void)
->  	goto out;
->  }
->  
-> -void tcpv6_exit(void)
-> +void __net_exit tcpv6_exit(void)
->  {
->  	unregister_pernet_subsys(&tcpv6_net_ops);
->  	inet6_unregister_protosw(&tcpv6_protosw);
-> 
-> base-commit: 2b414a95b8f7307d42173ba9e580d6d3e2bcbfce
-> -- 
-> 2.54.0.1136.gdb2ca164c4-goog
-> 
+> Best regards,
+> Krzysztof
 > 
 
--- 
-Cheers,
-Nathan
+Best regards,
+Lukas
 
