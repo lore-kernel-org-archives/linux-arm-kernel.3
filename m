@@ -4,107 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A22FCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3644DCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 09:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:Cc:To:From:References:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lzsqau39bl9Mc/gHA7TczwgrY1vpC1GBu2mXHBebm7Q=; b=dNSA+emtbTZquo60BhI188ByFk
-	173YEBh3xFpCCOFjfRag/G7iiiDehx2pAez2kq9btEA4pPsC4Tn0W8qoMQAtU/pJ/wLvGTZxcR378
-	cuS2j5LG/8GgGWVlWLnOdbHtIePPhNB83/RgUHSDKu7uRNXlaNAQ8JYos6dsb6vc8ZcIccZqkzuOY
-	4qTw9Q58lb/vBD2ZYvDT7uj4waKqd0m6y2JzGMVAiGQxlYjAQB2T4AGBYzGd5WwGr5CqscnhjOfrc
-	14TKr+gKF6N97XFhyvmxJAjQjcKs/YBva+JyPjXDbotUua1MhC0Pv104Dk/kjy2m7y7IK5/FdVieo
-	5W7jkJ9A==;
+	bh=sq0s+oRTI4ktIqGHIWoR26Iy3TsaTBLMhBmwLGqvAa8=; b=TsMelnQZX940X5CT7ilDSKNBw5
+	RdWPoFwIwck3fBcvqR7etn4z4wfFg9/nOQm7WQGxghtVPZ9CFP1wge7LA5iSAhmo9+hu8C/NyOdQq
+	Ft490ot8ym1PJ2X1v4vz+E9+SuUMNb0lPINMNuUgDoLH6Mg0RTYPxKFK7cvtOSmNnMuavh7pxNTTN
+	9pZnHW+Ar3osTrQ5JXyYH+Q3/G4pveb2W1RTh26nSgq8bd7rEgWWw1hugwW0C0a4FhkubL6lAqJq9
+	a1pJWKkqVAu/FX5asWZllnwbemJcKpl6FpVMxIlmncQlIXcJNEwNkeqhbrz/Z/gigm7ezW1H/t3cz
+	ZcLIVVtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYK72-0000000C6Q9-2vih;
-	Sat, 13 Jun 2026 08:53:08 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1wYKDi-0000000C6gP-2DgK;
+	Sat, 13 Jun 2026 09:00:02 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYK6y-0000000C6PV-2Qt1
+	id 1wYKDe-0000000C6fk-3cIc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 08:53:06 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-66042b348a8so125940d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 01:53:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781340783; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LFQu/kOnU1o9vzfh+aN7GvTs5HZDNogJBO5oqs10TZoi9eHOHJ4f4S8tx468O7/WVr
-         uQTE2lbFgERi9XAeNzwIrr2gam8B26frDP/UYdne+ucA1zrZQUoi3HFdM4QpvcCmrQHw
-         DwcBQF0t2eAm/R31AN1zDinOPiRrKZ4/ChkE8yxcR+JdMCB9fc7PL+TAIqIEOKHyOA4R
-         cgaOMMwNomYBsNniTB6Y80a6kvSw5bCSIOQcuxYpk6S7TCE4+aqzFLTTvXiml8TB08Gt
-         s05vzedHYj0fMW8iTX7Q0aci4usdFoxrypcI7/xgiNdtNxmmcFBC6fezY5BodD5tcTtV
-         RTTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Lzsqau39bl9Mc/gHA7TczwgrY1vpC1GBu2mXHBebm7Q=;
-        fh=/MWoNF1hWfMZAPwH6/OOt8/Jtt+pMZwHEEp/sXybJzs=;
-        b=cZxUk9Hgiy3IbJprKvQMxpFveXuT484NlKhYzL50HTzx5OlFM6z2+BLiu1mjfmJE8m
-         RKHNI/dBcmYmeBllZHiO/AwqtHWK4qaZW37qSFMkvtBDLLEe75i6PdD88t8y5hGS6gBi
-         Po/hyL+llCaXxsloZyjWO6KSSeRoqR414tX7iSUPyIp2dkxbRwwHweo1v2DbZBgi6vu6
-         cqEli5rWWVcvMrjTVpWUeAZzaZcQOEdlF1RhfOOz0ODkk9zAZ4l2VN/DnHaxRHxJJsjc
-         AnjiyiTuBjB8EIVTebW93osbat4Wx5T9e3xiCz9IJYME2l0fftxxq4szQnPQm/VSBPZo
-         E5oQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781340783; x=1781945583; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lzsqau39bl9Mc/gHA7TczwgrY1vpC1GBu2mXHBebm7Q=;
-        b=qGs9oa6qwdDTlgO40hbLUruLAmU2ykcBNx/KpRh03PhONCegVMt45upOMEDZV4/siO
-         Uc0sJi9lnWyTNgnu92/O31FVH79Ahd1CUIdqVEJAN+uFMe2llHEjcqCanYPDEH/li0FL
-         wRQxBOmnbspBff+kzKJUSf5lQiq6H+EY5Dut+saPSAaZhl4QNHAFZcARwKrkbps43k8Y
-         MY2ZuFEpVgFB/08zOZWGwUjS4bpT13qVm9wy0Qw3erhnuN/+guZGcbKwIAg0z1ZhMK0+
-         nVf9/WY3PCockJe0YAioDFxtTTV7Bug+P/K0rvseHQFrPHJpqFPOh0fgd476ilRVwlEn
-         TvUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781340783; x=1781945583;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Lzsqau39bl9Mc/gHA7TczwgrY1vpC1GBu2mXHBebm7Q=;
-        b=M3sdD7o5CnRBuakoa9TiaAS1ee6/4+Z8TIa+JTu1AmFmt1ZcTey3QeegoDjd/ODguQ
-         q02BH55wYwi6ns9hspkgsYJVqKPg5FrtyBLXUi4u0WdLfRkjZjevDLMxWsHUaOxpfCw+
-         9mvQbyK9UJlkYuC+eL/RjaFfscCZ4B0IDPytbWwTKs3Ix1nsEFS6MY3mOnioe9OBmJh8
-         O9R8t6U3A4ejSkjBH5PvT7UtSskMR1dWTavtFl7nEMpxCGfMSaV6zfkj3bnITt9nZnH6
-         IVt8Z88pDUAeG7xMBqTTd0MfAggIrl0aPmi3cQOFf4cm5plXUbTTM2PtdxxnxlRqVCPl
-         iiVg==
-X-Forwarded-Encrypted: i=1; AFNElJ/TS5Hmrxsh9cCwJWAMOBr9idiaHXcjjD7TRDlz55oJAGo9NKWUkSFwJ1HYZ9YkQ4yBgcn9HM7GNdQGogFgSAbU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyT8N5Oj5xQ6ffJ61vUHe1qDr60QIIKwN2ANoDeW0EOjqI1AIiK
-	/86NVNNkQzwBmDyIlPGt7R6D72EUltcU51bk54bjFcyTH4jUNdZPOL43By6Cj/orkyWchEgbzC3
-	UZMdWxd1uUCTbCRw5bfyQZlTjhryWeHo=
-X-Gm-Gg: Acq92OGA7/M52PCg7t68ZffrpKMK/qYHHUBKTB6/MiIrw5yZliKjnMjY5/kcGMAvAjG
-	DK3N2+wlKYKcm1mEe383TryKP7JRWYfNLTVwLXE4zWQg39iClEv2AwADcLUu+h30M51csK8KXPz
-	spKmszy7B7uuZVxXdZ8GuwI/9SESwhtsgxTvWqEqCnXwRbCmd+gWSUcR9LoLc7D7K1QuaIye9Vn
-	M4sHucFnR0KqMGJ6rsVr02KHc8GfLUP4cqHoEdrEe1NM2MPrnYHK3j2l7rAr9J/67qLr5WazMgk
-	iMkM
-X-Received: by 2002:a05:690e:190e:b0:660:3524:a765 with SMTP id
- 956f58d0204a3-66277db878fmr3240708d50.0.1781340783060; Sat, 13 Jun 2026
- 01:53:03 -0700 (PDT)
+	Sat, 13 Jun 2026 09:00:01 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gcr0w3xFWzYQtnc
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 16:59:28 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id F39484058F
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 16:59:51 +0800 (CST)
+Received: from [10.174.179.37] (unknown [10.174.179.37])
+	by APP1 (Coremail) with SMTP id cCh0CgB3ej8FHC1qecmJBg--.8230S3;
+	Sat, 13 Jun 2026 16:59:51 +0800 (CST)
+Message-ID: <c1d9064e-b31a-9055-da1e-ff7f7ff02762@huaweicloud.com>
+Date: Sat, 13 Jun 2026 16:59:49 +0800
 MIME-Version: 1.0
-References: <20260609094723.47237-1-l.rubusch@gmail.com> <aipAf_uZnX_gwZnl@gondor.apana.org.au>
-In-Reply-To: <aipAf_uZnX_gwZnl@gondor.apana.org.au>
-From: Lothar Rubusch <l.rubusch@gmail.com>
-Date: Sat, 13 Jun 2026 10:52:25 +0200
-X-Gm-Features: AVVi8Ccez8ahhZkqU3IHIA6bkI7wgzyq1z6y0SVWiqCmMhkHMjyS-J_FvYv_-S8
-Message-ID: <CAFXKEHYcp-0+uCA47mtDe_+LUAZucEPbDJzoh5+e3Q3R20mN9Q@mail.gmail.com>
-Subject: Re: [PATCH RESEND v2 1/1] crypto: atmel-sha204a - fix heap info leak
- on I2C transfer failure
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: thorsten.blum@linux.dev, davem@davemloft.net, nicolas.ferre@microchip.com, 
-	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, ardb@kernel.org, 
-	krzk+dt@kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: [PATCH v8 next 04/10 Resend v2] arm_mpam: Refactor rmid to
+ reqPARTID/PMG mapping
+Content-Language: en-US
+References: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
+From: Zeng Heng <zengheng@huaweicloud.com>
+To: James Morse <james.morse@arm.com>, ben.horgan@arm.com,
+ Dave.Martin@arm.com, tan.shaopeng@jp.fujitsu.com, reinette.chatre@intel.com,
+ fenghuay@nvidia.com, tglx@kernel.org, will@kernel.org, hpa@zytor.com,
+ bp@alien8.de, babu.moger@amd.com, dave.hansen@linux.intel.com,
+ mingo@redhat.com, tony.luck@intel.com, gshan@redhat.com,
+ catalin.marinas@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linux-kernel@vger.kernel.org, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ sunnanyong@huawei.com
+In-Reply-To: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
+X-Forwarded-Message-Id: <924fbfbc-995f-e291-8849-efcb8e01ef98@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: cCh0CgB3ej8FHC1qecmJBg--.8230S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxJF48Cry7XF4DAw1DKFWxWFg_yoWrCF45pr
+	4fKw47tF1DGF15W3srJa18Xw18JrZ3trWDKw1jqrykX3sxAw18Gr1Utr10yFyUJry8Jr1j
+	vryUtw1UCrn8JrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
+	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUIa0PDUUUU
+X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_015304_634685_020E9FC0 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20260613_015959_276686_8BBB419A 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,111 +95,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 6:59=E2=80=AFAM Herbert Xu <herbert@gondor.apana.or=
-g.au> wrote:
->
-> On Tue, Jun 09, 2026 at 09:47:23AM +0000, Lothar Rubusch wrote:
-> >
-> > diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha2=
-04a.c
-> > index 4c9af737b33a..20cd915ea8a3 100644
-> > --- a/drivers/crypto/atmel-sha204a.c
-> > +++ b/drivers/crypto/atmel-sha204a.c
-> > @@ -31,10 +31,15 @@ static void atmel_sha204a_rng_done(struct atmel_i2c=
-_work_data *work_data,
-> >       struct atmel_i2c_client_priv *i2c_priv =3D work_data->ctx;
-> >       struct hwrng *rng =3D areq;
-> >
-> > -     if (status)
-> > +     if (status) {
-> >               dev_warn_ratelimited(&i2c_priv->client->dev,
-> >                                    "i2c transaction failed (%d)\n",
-> >                                    status);
-> > +             kfree(work_data);
-> > +             rng->priv =3D 0;
->
-> Why is this necessary? It appears that rng_read_nonblocking already
-> zeroes rng->priv.
->
+Hi James,
 
-IMHO this is not the same. The patch targets the error path. If the
-`status` in `atmel_sha204a_rng_done()` is failed, then failed `work_data` i=
-s
-still assigned and `rng->priv` is not zeroed at the moment. Only a
-subsequent call to `rng_read_nonblocking()` will set `rng->priv =3D 0;`
+>> @@ -478,6 +518,7 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
+>>   		      enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
+>>   {
+>>   	struct mon_cfg cfg;
+>> +	u32 reqpartid = rmid2reqpartid(rmid);
+>>   
+>>   	if (!mpam_is_enabled())
+>>   		return -EINVAL;
+>> @@ -493,8 +534,8 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
+>>   	cfg = (struct mon_cfg) {
+>>   		.mon = mon_idx,
+>>   		.match_pmg = true,
+>> -		.partid = closid,
+>> -		.pmg = rmid,
+>> +		.partid = (cdp_type == CDP_CODE) ? reqpartid + 1 : reqpartid,
+>> +		.pmg = rmid2pmg(rmid),
+> 
+> Not using the CLOSID here breaks multiple control groups.
+> 
+
+After carefully reviewing your comments and Martin's patch series,
+I tried to understand why there's insistence that CLOSID information
+is necessary to support multiple control groups, but that's actually
+not the case.
+
+Before proceeding, allow me to introduce CPARTID (control partition ID,
+no longer borrowing the intPARTID concept). All partids_per_closid
+PARTIDs associated with it share the same control scheme under this
+CPARTID.
+
+Each PARTID within the partids_per_closid associated with a CPARTID is
+called MPARTID (monitor partition ID, no longer borrowing the reqPARTID
+concept). It refers to the PARTID used to represent different monitoring
+groups under the same control scheme.
+
+I've summarized the ID conversion diagrams from you and Martin as
+follows:
+
+  +-------------------------+-----+------------------+
+  |          CLOSID         |{CDP}|       RMID       |
+  +-------------------------+-----+------------+-----+
+  |                   MPARTID                  | PMG |
+  +-------------------------------+------------+     |
+  |    MPARTID_hi (base_partid)   : MPARTID_lo |     |
+  +-------------------------------+------------+-----+
+
+Where (closid|cdp) = base_partid,
+               rmid = mpartid_lo * pmg_num + pmg,
+        and mpartid = base_partid * partids_per_closid + mpartid_lo,
+with mpartid_lo in the range [0, partids_per_closid).
+
+In this scheme, CLOSID and RMID are coupled together to form MPARTID,
+which represents the monitor group PARTID.
 
 
-The call order is something like this:
-1. atmel_sha204a_init // module setup
-2. atmel_sha204a_rng_read_nonblocking // call 1
-3. atmel_sha204a_rng_done             // if fail, still copies
-work_data <-- patch clears here
-...
-4. atmel_sha204a_rng_read_nonblocking // call 2, clears rng->priv =3D 0
 
-Originally this was a sashiko finding, when I move the RNG part into the
-common driver. Reason: Actually all Atmel ECC and Atmel SHA204a devices
-support the same RNG mech. Thus part of my refactoring is moving it to the
-common core driver atmel_i2c. I was advised by the maintainer to use also
-sashiko's feedback. So, I went on identifying sashiko issues and have a
-look into it, if I can provide a fix for it. This is one of them.
+In current patchset design, decoupling CLOSID and RMID, letting them
+represent CPARTID and (MPARTID,PMG) pair respectively, rather than
+having RMID depend on CLOSID to derive MPARTID. This decoupling is
+essential for future dynamic allocation, because the relationship
+between MPARTID and CPARTID must rely on table lookup rather than linear
+mapping. If don't decouple in the static allocation design, we would
+need another refactor when considering dynamic allocation extensibility.
 
-Sashiko asked:
-"If the I2C transaction fails here, we still assign the work_data to
-rng->priv. Since kmalloc_obj() uses GFP_ATOMIC and does not zero memory,
-does this risk leaking uninitialized slab memory or stale data from
-previous reads when the next non-blocking read copies from
-work_data->cmd.data?"
+  +-------------------------------------------+-----+
+  |                    CLOSID                 |{CDP}|
+  +-------------------------------------------+-----+
+  |              CPARTID (base_partid)              |
+  +-------------------------------------------------+
 
-ref: https://sashiko.dev/#/patchset/20260512224349.64621-1-l.rubusch%40gmai=
-l.com
-[search for `atmel_i2c_rng_done` on that link]
+  +-----------------------------------+-----+-------+
+  |                   RMID_hi         |{CDP}|RMID_lo|
+  +-----------------------------------+-----+-------+
+  |                   MPARTID               |  PMG  |
+  +--------------+--------------------------+       |
+  |  MPARTID_hi  : MPARTID_lo (base_partid) |       |
+  +--------------+--------------------------+-------+
 
-I'm not sure about the risk or the (real) severity sashiko mentiones
-here. But it seems to
-be correct, when atmel_sha204a_rng_done() fails in the status, it
-continues assigning the
-failed result in the work_data:
+Where (closid|cdp) = base_partid,
+            rmid_lo = pmg,
+  and (rmid_hi|cdp) = mpartid = mpartid_hi * (partid_num / 
+partids_per_closid) + base_partid,
+with mpartid_hi in the range [0, partids_per_closid).
 
-    static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_dat=
-a,
-                       void *areq, int status)
-    {
-        struct atmel_i2c_client_priv *i2c_priv =3D work_data->ctx;
-        struct hwrng *rng =3D areq;
+The reason of using base_partid as MPARTID_lo is to keep base_partid
+contiguous and CLOSIDs are allocated contiguously. This does mean
+MPARTIDs under the same CPARTID won't be contiguous, but that's
+inherently difficult to guarantee with dynamic allocation anyway.
 
-        if (status)
-            dev_warn_ratelimited(&i2c_priv->client->dev,
-                         "i2c transaction failed (%d)\n",
-                         status);
 
-        rng->priv =3D (unsigned long)work_data;
-        atomic_dec(&i2c_priv->tfm_count);
-    }
+The control path uses CLOSID alone (CPARTID), and the monitor path uses
+RMID alone (the (MPARTID, PMG) pair). This definition also aligns
+closely with the native resctrl concepts: CLOSID (Class of Service ID,
+corresponding to CPARTID) and RMID (Resource Monitor ID, corresponding
+to the (MPARTID, PMG) pair).
 
-Hence, my proposed patch will stop it passing work_data, if status is
-failed. It will not
-assign rng->priv anymore then containing old data, but clear it. It
-will free the `work_data`
-to provoke a new allocation happening in `atmel_sha204a_rng_read_nonblockin=
-g()`.
 
-The patch is sashiko and maintainer reviewed and solves sashikos complaints=
-.
-ref: https://sashiko.dev/#/patchset/20260609094723.47237-1-l.rubusch%40gmai=
-l.com
-Setting `rng->priv =3D 0;` is rather safety here.
+In the end, the number of control groups is determined by the number of
+CPARTIDs. Both of these ID translation schemes support multiple control
+groups.
 
-Thank you for asking. Accept, drop or modification needed - please,
-leave me a note,
-I'd highly appreciate.
+Could you please help outline the pros and cons of each approach?
+This will determine which direction I take for subsequent iterations.
 
-Best,
-L
+Thanks in advance.
 
-> Thanks,
-> --
-> Email: Herbert Xu <herbert@gondor.apana.org.au>
-> Home Page: http://gondor.apana.org.au/~herbert/
-> PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+
+Best Regards,
+Zeng Heng
+
 
