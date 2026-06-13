@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E12CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 22:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C650CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 23:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Y9czviEfUCs9RDuFGMQRHETjuWFS4198YhyV0ORENA=; b=1Dl5hfH50AZSjhnJ+zbtLTzr2R
-	dogenfmlA+sSSey0g3wdlZ1EoW89iOswt6wXQGgWSk8OJDniu4xu4UFQQ94N/9iZ5l6EmEaRQxudb
-	ATj1GVvoL3rnz9OfYIzQnWE40SQ3Gj+KoC5vhMtTMyYFDKoemtuuIlijCLNZ38HN+GrjT40Fh3/Fz
-	OWAGFHaEOprfRuNSwazWeAszSJ8Vnldtyc1g3Ah+85KjHmjrUyj1q6V6mzUlj/MCo8/YV+PlC7Qkr
-	hoXMOd/+iSlR978MLDvTdSHTEXfBrItExsw93LPtDcfP1j7Ez2QGkVunqtWl70b4Ii2T6XeP6hSY8
-	0jrU8SnQ==;
+	bh=P8WasD/vQDuJyqo+FqFAI74xFhoNUNnfAZPGSwZVYz4=; b=Ayo91kJTkeB0pnf5N/aDBIAuGt
+	lYD6wvJXhy8OobvCMetU9uu77nua+2NAF9NCQALeEP+3HPN2q6W3mRi/UBi6G/EgflJabhbSb3nkr
+	iG5JsEhsbgmv/QHJ9VV6PaHCi/pAhCPglHSxpVM4c1pjz0803tWZ7o1pQ63oE33/0sEQ1fphWEWkL
+	7oR3/EgL6JvKwI2BBMh6vD5BE4gHey2zVYJOqgwDJYsSJ7JyxxE55eJg1RvAf2MV4isy7eEcd/d64
+	u7KdiN+nPD6uf0qpWVRRwopG5p6/NCH2wy6KOXvnuB4nqTzZYVPpQUJ9pOMh1A09bN55DK4hxlz78
+	6eYRl+jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXGX-0000000Cave-1Sf6;
-	Sat, 13 Jun 2026 22:55:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wYXKm-0000000CbAt-3lmv;
+	Sat, 13 Jun 2026 23:00:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXGW-0000000CavQ-0sQ0
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 22:55:48 +0000
+	id 1wYXKl-0000000CbAj-2S8k;
+	Sat, 13 Jun 2026 23:00:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A886560142;
-	Sat, 13 Jun 2026 22:55:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E9EF1F000E9;
-	Sat, 13 Jun 2026 22:55:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28C5843CEA;
+	Sat, 13 Jun 2026 23:00:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BCE51F000E9;
+	Sat, 13 Jun 2026 23:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781391347;
-	bh=8Y9czviEfUCs9RDuFGMQRHETjuWFS4198YhyV0ORENA=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date;
-	b=Bsnum7D3HeZqfpgRMb8xikPmhEOVSat1u5u8opBITtAkcWMVEgAmbJgdLsHq7gm/C
-	 GMVOCc5iOJ6jFCJ7qv6zS6rEHeEJJMBqQXPdLKlFkZhXqtLzOA9hb6tn+b2pCeQUTi
-	 PoWfjMhuLVnSnUpiLtLeZdPmJViT3Xm8rGx75r7X/5sr6vfkFtZODbd+V7/PtWoLX1
-	 9/A1dWuhmiU/ECglT3EBs8OaVluvPzgEm8l/S8tftU/3QONSn3R4M02BSDxEmHKK+a
-	 oS32GjUUZvLkNKg+F/UN96HtdmmCZxRB8GapW3jY9txi+akDib6yVC47zCGqe28M7z
-	 bXhuA4iwzrpWg==
+	s=k20260515; t=1781391611;
+	bh=P8WasD/vQDuJyqo+FqFAI74xFhoNUNnfAZPGSwZVYz4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=f5wl2PhVE+t5FIGOYZcIed7M/JTvwEGVMDs5i8fGdfle8E/VvnBXFqpZwL9iC5QYy
+	 LjtKcUWzZ8bumn3BtDnA0icJwIfgjxfxf5wjKJ4HgvBusG78xfctu+6VDXHpf9Jncy
+	 AfSugPVbsC1ue0DLWgc4KgtvGChggITXQGJtUdNwwvD6rHh2F9DiTr9o3MlyXsddqe
+	 +45jo2IKFkKjYian9v48u9T4fu2JqS9mK3cVTB7bwXV4cP7CK9X8fg8RYChdYpIRMg
+	 kowTV98iskwMS/aNqHmFsK5b2R0Pjzx/3hSd0yYgd2lVcLtiml2IFpd+nwSrQas7Q4
+	 x75d60fEaAl1w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 56AE23A54A32;
+	Sat, 13 Jun 2026 23:00:08 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260612224825.852551-1-andersson@kernel.org>
-References: <20260612224825.852551-1-andersson@kernel.org>
-Subject: Re: [GIT PULL] Qualcomm clock updates for v7.2
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Vivek Aknurwar <vivek.aknurwar@oss.qualcomm.com>, Luca Weiss <luca.weiss@fairphone.com>, Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Luo Jie <jie.luo@oss.qualcomm.com>, Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, Alexander Koskovich <akoskovich@pm.me>, Biswapriyo Nath <nathbappai@gmail.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Phillip Varney <pbvarney@protonmail.com>
-To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
-Date: Sat, 13 Jun 2026 15:55:45 -0700
-Message-ID: <178139134534.819343.861205819784064327@lazor>
-User-Agent: alot/0.12
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] net: airoha: Fix register index for Tx-fwd counter
+ configuration
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178139160689.1619194.9003446949920537731.git-patchwork-notify@kernel.org>
+Date: Sat, 13 Jun 2026 23:00:06 +0000
+References: <6a2b40e7.4dd82583.3a5c46.e566@mx.google.com>
+In-Reply-To: <6a2b40e7.4dd82583.3a5c46.e566@mx.google.com>
+To: Wayen.Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,24 +71,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Bjorn Andersson (2026-06-12 15:48:25)
->=20
-> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e7=
-31:
->=20
->   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
->=20
-> are available in the Git repository at:
->=20
->   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
-m-clk-for-7.2
->=20
-> for you to fetch changes up to e108373c54fbc844b7f541c6fd7ecb31772afd3c:
->=20
->   clk: qcom: regmap-phy-mux: Rework the implementation (2026-06-08 09:17:=
-24 -0500)
->=20
-> ----------------------------------------------------------------
+Hello:
 
-Thanks. Pulled into clk-next
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Fri, 12 Jun 2026 07:09:13 +0800 you wrote:
+> In airoha_qdma_init_qos_stats(), the Tx-fwd counter configuration
+> register uses the same index (i << 1) as the Tx-cpu counter, which
+> overwrites the Tx-cpu configuration. The Tx-fwd counter value register
+> correctly uses (i << 1) + 1, so the configuration register should use
+> the same index.
+> 
+> Fix the REG_CNTR_CFG index from (i << 1) to ((i << 1) + 1) so that
+> the Tx-fwd counter is properly configured instead of clobbering the
+> Tx-cpu counter config.
+> 
+> [...]
+
+Here is the summary with links:
+  - net: airoha: Fix register index for Tx-fwd counter configuration
+    https://git.kernel.org/netdev/net/c/1402ecccf563
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
