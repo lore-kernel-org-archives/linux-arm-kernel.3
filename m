@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65901CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8702DCD98D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WmyzcKWN5sYZUTeYCc9CQUvIpkkw/cT2wO4LeW7OYQY=; b=1jDEmXfy3l3LoB7m+e+Utx1+UL
-	OEekR5wYTH9+iPuaCmkKpDqENd1+386fVYAi5W19GLo7iJVh+6xZs7zBGkJxXc76f/Z60KMNlAxXb
-	O0WLFJfeh+E2CTbXkrpUnGg05ARpVfgC0L1fXhuV4+iHUl/RhJrXcCIa2TmaHeBqVEtb16UFEjOKJ
-	jau3FOoidNoKTnhC11D9JanH1Fa4rG/DHMFYQJjVfWF+k0arqDDa4hlmvroj5+0oI9lkU8s3Q5XA2
-	LRTMfXk6wn/4PKVWasRHqiaCxkU7RqMW/BeJ0xK/FdXC4KV5SvPqy0Zz56vpdRZ7Acmd2u+dtv6Rf
-	PqwzvZww==;
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Iw6k9IvS6YCS0467Ck1NDjfIZOkbT+wEKpbw8XzGD0=; b=bkw5+bL0Mhr6caEN4FLCseqnO/
+	yNTx5uDhr6FtWcWU73KYifC882GhrC3Dr5IW8JObaMGsB9EC2TgPUylaAZBUDulAd25CPFeBeT2D8
+	OomgRixN52v1JfeGXvujcKPgzIGOLWClOm8aZ3yK+amqvQI3uvuDh49hxfNkjumhzjtosZKNJMr8g
+	ZlcZPzBECteLzt3md9jNz25FVi77VuUXq6WJJRzvFKI1sqUu5SmsiHMj9BziYTxTpv1TFoqxdtqT/
+	q02ovioZw+qbKDnHWVesGwhbiy6F+MrP9ULxYz4C1IQLJus5IEs7e4qZnxGRr7BzxRsMwos3QyYpu
+	oDAS32AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC74-0000000BnWK-12nw;
-	Sat, 13 Jun 2026 00:20:38 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1wYC77-0000000BnY2-1fwe;
+	Sat, 13 Jun 2026 00:20:41 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC71-0000000BnVF-1VZh
+	id 1wYC72-0000000BnVY-2nvc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:20:36 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-8423770d72dso1987811b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:34 -0700 (PDT)
+	Sat, 13 Jun 2026 00:20:38 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2bf1845bddfso16086065ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781310034; x=1781914834; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WmyzcKWN5sYZUTeYCc9CQUvIpkkw/cT2wO4LeW7OYQY=;
-        b=TTdHUx8fzRgWj0ywQ62Ky5Zuu4iAdFs8AXDvgdCes91XR6dz3P3dW4cQgq8XQZ1/lv
-         8TFQnF2bjgAl9AiI2LAqi1mp3aoWS9Md+ZBWw5crk3BBIDr/oOeatmfKmL5FuHDiZ8oG
-         ao0rC+J0mpH/Mj/poXE/Qqi0XuSfiCUXdoDr8FRz7MSELuJdakPukTuIZto3g9cz4wyH
-         1Uv+b1KN4L0Ss7xsYB8T18B++s+IB0zvG0ieJedmv+5bLOGNxpPf9XbFLLOzR24PEOWq
-         FicaOZownt1M56mDYEPuQvX0kZePy3sZfau9sdn7f/XH3S4Y8HKCfsX0Zfatddb+GmCq
-         1o2w==
+        d=google.com; s=20251104; t=1781310035; x=1781914835; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=/Iw6k9IvS6YCS0467Ck1NDjfIZOkbT+wEKpbw8XzGD0=;
+        b=a9F4m8pJPaAp1fioCdodRZ6WiXhWJMZYrcaJ4B7Tl1BEaZ+rA8DZFMp+gZjxQLpw5M
+         /W+R95o6o3nh/iTpk854xvSeZpNWhVMWk8++F6LNf2RYzyYGUqgjpGZdUiYLTQLN++U0
+         FQ1whzs6/cq8i043U/GLah5QkjWkLAYIplzEmZzODPxI6lxONy3vz+PSKhogeQvBXasp
+         SpEU5pd41aphJNVz91UEyayWUimKpEcmVGld+oyNXl66UY5sMRmLK6Gc1q232Zp6SSWn
+         JP5JUamZEeDXa45J25yEq3XM74zTh5WgGiIaS4eO2UMu4mHSqzsl3lVtpTBj3f4/dDYj
+         if0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781310034; x=1781914834;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WmyzcKWN5sYZUTeYCc9CQUvIpkkw/cT2wO4LeW7OYQY=;
-        b=oUIzozdDQAkykciPXGRiMuYPW/QW/zJDFmJM3d169L2Ab/ZAV2gJQ+1L1FqRQUZpXA
-         A9Q0Pdr662Ye869zYguXsUjxglJsrXcnQK9UCS4cZTpv9QvyxHD8TB39EiQNquRgcvuq
-         aIql0ojf7KO0KOSmdJ+tHE8ScW97Tu8qMn+In5DgBkmBCBuw4yZSMmagF/4enwQZh/w9
-         LRSRsjcBWw9soYMIyap89D2K2gls2teRRZ3nEKqEkQLPxgDCOR+IkNxonL2ESDr0q72R
-         lD0yidUG3AsFmFwwpk41kqVzX9RHAXbUaUZ2SpGU59t7wd1QuzHqMV/8KPaWjhTGP2or
-         JNqA==
-X-Forwarded-Encrypted: i=1; AFNElJ9bWczWq5r/1S/O9Q7eIQfw6RdLh0BQ1tX25BNofWXa7OIz9qTI88whuUOKMaK1nRKVe1cSQWAKxnNmB4iEZtVR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvB4Tmoyz3mKG6IV/t5GnFKJqSoKQwhJvESzVMECBguslBIBLY
-	5xFQLB9dps+im0bsYkzRuoQIGz9y/+wM9X65XoquuizLWW5EbY3+6gMuDRvPWJiTUXngeWeCTSI
-	41ZjAKA==
-X-Received: from pfbk14.prod.google.com ([2002:a05:6a00:b00e:b0:82f:8cba:4285])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:9503:b0:842:3a3b:d6e7
- with SMTP id d2e1a72fcca58-844e1a2c4e5mr2039973b3a.23.1781310033733; Fri, 12
- Jun 2026 17:20:33 -0700 (PDT)
-Date: Fri, 12 Jun 2026 17:20:11 -0700
+        d=1e100.net; s=20251104; t=1781310035; x=1781914835;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/Iw6k9IvS6YCS0467Ck1NDjfIZOkbT+wEKpbw8XzGD0=;
+        b=QBu5lmFBgWRoaIH9zFPyA36+twVWVj4OlCGmKTktj+WZjvFezjfj0uSyRbKYD1q18K
+         R2Q96HNcXVI+UZJ3uzCO4sFoYRTlbFnUzg6rUm6BfIvG5Vd1nft6xuFSy8uO7YzO9MpK
+         v62Mq7tQIz9Xw/XDRfRvSjR6O8hkq9BYm8mg6/Gb9yL6cLZRkpceCg1Kw6uo0dnVWBP3
+         MqOuoi1b+RKH1/ANLbzuwpxLSCVq1LyMlGU407iGKgiah2T44HLM/+jIZUoRwuG+WHkE
+         cDIC+LNe7T5WRmbWWiZbQnnmmEl+NNohIicjaC4eLR3ThfuEHWfv3L8CFZWawuddwf5b
+         ehiQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9tOMf4hLV6XqPVFKB206GN3yH/Qst/pqLyoUYvqkNkis3FFCMGXX5gr3qexkrhpIMq1tuGSbCLr9nKRe0XqI13@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEdPPUThLmD0yFo4SLcZ3oYp4k9IRYBb890zry9DiGCOnbpfNN
+	IHmre1rFiRSivmGXkDE+jYs0QiBfCB8zVkRe5LhqHHk9G5/htWOqjVI0gZRLT76ixZSWR9Zc5J7
+	CH97mug==
+X-Received: from plbmf15.prod.google.com ([2002:a17:902:fc8f:b0:2bf:14c9:866d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ea07:b0:2c0:d91d:c3e8
+ with SMTP id d9443c01a7336-2c41050b2aamr61506165ad.4.1781310034931; Fri, 12
+ Jun 2026 17:20:34 -0700 (PDT)
+Date: Fri, 12 Jun 2026 17:20:12 -0700
+In-Reply-To: <20260613002031.745413-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20260613002031.745413-1-seanjc@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260613002031.745413-1-seanjc@google.com>
-Subject: [PATCH v7 00/20] KVM: selftests: Add eventfd+VFIO IRQ test
+Message-ID: <20260613002031.745413-2-seanjc@google.com>
+Subject: [PATCH v7 01/20] KVM: selftests: Build and link selftests/vfio/lib
+ into KVM selftests
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -74,8 +78,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_172035_409516_0A951768 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20260612_172036_713800_D7746F8B 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,118 +95,49 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-David and Josh's series to add a selftest for verifying interrupt delivery
-via eventfd (via KVM_IRQFD), and also from a real device, wired up via VFIO.
+From: David Matlack <dmatlack@google.com>
 
-I originally wanted to get this into 7.2, but that's not going to happen.  But
-I hope to get this applied early in the 7.3 cycle so that additional features
-and whatnot can be developed on top without too much pain (hopefully).
+Include libvfio.mk into the KVM selftests Makefile and link it into all
+KVM selftests by adding it to LIBKVM_OBJS.
 
-Gory details in the patches, and in the v5 cover letter.
+This lays the groundwork for future changes to utilize VFIO devices to
+verify IRQ bypass in KVM selftests.
 
-v7:
- - Seed kvm_rng during kvm_selftest_init(). [Sashiko]
- - Seed libc's RNG during kvm_selftest_init(), so that the seed (from random())
-   that's printed and passed to kvm_rng isn't the same every time.
- - Init irq_cpu to -1 in all paths. [Sashiko]
+Note that KVM selftests build their own copy of selftests/vfio/lib and
+the resulting object files are placed in $(OUTPUT)/lib. This allows the
+KVM and VFIO selftests to apply different CFLAGS when building without
+conflicting with each other.
 
-v6:
- - Massage most changelogs.
- - Fix SoB ordering issues.
- - Clean up KVM_SET_GSI_ROUTING helper.
- - Remove misleading "IRQ injection" and "emulated eventfd" terminology.
- - Add GUEST_RECEIVED_INTERRUPT() to simplifiy the core loop.
- - Use cpu_relax() in tight loops while waiting for interrupts.
- - Print as much information as possible in the actual assert, instead of
-   printing to stdout separately.
- - Make a best guess as to the right VFIO vs. IOMMUFD mode instead of
-   assuming IOMMUFD, and give the user the option to overide said guess.
- - Simplify open_proc_irq_smp_affinity_list() +
-   write_proc_irq_smp_affinity_list() into proc_irq_set_smp_affinity().
- - Drop print_proc_irq_file() and kvm_print_vcpu_affinity() (for now) to avoid
-   potential issues on systems with high CPU counts.
- - Drop the blocking/HLT testing as it was at best broken.
- - Use -e for "empty", not -c for "clear", when completely tearing down GSI
-   routing, because routing can be "cleared" without completely emptying the
-   routing information.
- - Use the main task's CPU affinity as the available_cpus set.
- - Allow overcommiting vCPUs:pCPUs.
- - Set the target vCPU's affinity instead of batching when vCPU0 is targeted.
- - Add support for 256+ vCPUs with x2APIC.
- - Restrict xAPIC mode to 255 vCPUs.
- - Restrict the test to KVM selftest's max supported vCPUs.
+Signed-off-by: David Matlack <dmatlack@google.com>
+Signed-off-by: Josh Hilke <jrhilke@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/Makefile.kvm | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-v5:
- - https://lore.kernel.org/all/20260604020143.748245-1-jrhilke@google.com
- - Rename get_proc_vfio_irq_number() to vfio_msix_to_host_irq()
- - Rename open_proc_irq_affinity() and write_proc_irq_affinity() to include "_smp_affinity_list"
- - Print /proc/irq/<irq>/smp_affinity and effective_affinity on timeout failures
- - Convert IRQ type from 'int' to 'unsigned int' across helpers and the test
- - Fix compiler warnings for uninitialized variables in irq_test.c
- - Remove rate-limiting on affinity changes
-
-v4: https://lore.kernel.org/kvm/20260530002134.558837-1-jrhilke@google.com
-
-David Matlack (11):
-  KVM: selftests: Build and link selftests/vfio/lib into KVM selftests
-  KVM: selftests: Add macros to read/write+sync to/from guest memory
-  KVM: selftests: Add an irqfd send+receive (and later IRQ bypass) test
-  KVM: selftests: Add helper to get host IRQ from device MSI-X for IRQ
-    bypass test
-  KVM: selftests: Add VFIO device support to eventfd IRQ test
-  KVM: selftests: Verify interrupts are received when IRQ affinity
-    changes in IRQ test
-  KVM: selftests: Add option to set empty routing between IRQs in
-    eventfd IRQ test
-  KVM: selftests: Make number of IRQs configurable in IRQ test
-  KVM: selftests: Verify vCPU migration during IRQ delivery in IRQ test
-  KVM: selftests: Make number of vCPUs configurable in IRQ test
-  KVM: selftests: Add xAPIC support in eventfd IRQ test
-
-Josh Hilke (6):
-  KVM: selftests: Rename guest_rng to kvm_rng
-  KVM: selftests: Add helper to generate random u64 in range [min,max]
-  KVM: selftests: Add a helper to set proc IRQ affinity for IRQ test
-  KVM: selftests: Add kvm_gettid() wrapper and convert users
-  KVM: selftests: Add kvm_sched_getaffinity() wrapper and convert users
-  KVM: selftests: Add a utility to pin a task to a random CPU, given a
-    CPU set
-
-Sean Christopherson (3):
-  KVM: selftests: Initialize the default/global pRNG during
-    kvm_selftest_init()
-  KVM: selftests: Seed libc's RNG before using it to generate a seed for
-    KVM's pRNG
-  KVM: selftests: Verify non-postable IRQ remapping in IRQ test
-
- tools/testing/selftests/kvm/Makefile.kvm      |   7 +-
- tools/testing/selftests/kvm/arch_timer.c      |   2 +-
- .../kvm/arm64/arch_timer_edge_cases.c         |   2 +-
- .../selftests/kvm/demand_paging_test.c        |   2 +-
- .../selftests/kvm/dirty_log_perf_test.c       |   4 +-
- tools/testing/selftests/kvm/dirty_log_test.c  |  11 +-
- .../selftests/kvm/include/kvm_syscalls.h      |   7 +
- .../testing/selftests/kvm/include/kvm_util.h  |  12 +
- .../testing/selftests/kvm/include/proc_util.h |  11 +
- .../testing/selftests/kvm/include/test_util.h |  25 +-
- .../selftests/kvm/include/x86/kvm_util_arch.h |   4 +-
- tools/testing/selftests/kvm/irq_test.c        | 350 ++++++++++++++++++
- tools/testing/selftests/kvm/lib/assert.c      |   8 +-
- tools/testing/selftests/kvm/lib/kvm_util.c    |  53 ++-
- tools/testing/selftests/kvm/lib/memstress.c   |   8 +-
- tools/testing/selftests/kvm/lib/proc_util.c   |  54 +++
- tools/testing/selftests/kvm/lib/test_util.c   |  27 +-
- tools/testing/selftests/kvm/mmu_stress_test.c |  15 +-
- tools/testing/selftests/kvm/rseq_test.c       |   6 +-
- tools/testing/selftests/kvm/steal_time.c      |  22 +-
- .../testing/selftests/kvm/x86/sev_dbg_test.c  |   2 +-
- 21 files changed, 548 insertions(+), 84 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/include/proc_util.h
- create mode 100644 tools/testing/selftests/kvm/irq_test.c
- create mode 100644 tools/testing/selftests/kvm/lib/proc_util.c
-
-
-base-commit: c1f7303302927f9cbf4efedf70f0512cde168c65
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 9462919d2660..59ec232b1e93 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -258,6 +258,7 @@ OVERRIDE_TARGETS = 1
+ # which causes the environment variable to override the makefile).
+ include ../lib.mk
+ include ../cgroup/lib/libcgroup.mk
++include ../vfio/lib/libvfio.mk
+ 
+ INSTALL_HDR_PATH = $(top_srcdir)/usr
+ LINUX_HDR_PATH = $(INSTALL_HDR_PATH)/include/
+@@ -312,7 +313,9 @@ LIBKVM_S := $(filter %.S,$(LIBKVM))
+ LIBKVM_C_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_C))
+ LIBKVM_S_OBJ := $(patsubst %.S, $(OUTPUT)/%.o, $(LIBKVM_S))
+ LIBKVM_STRING_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_STRING))
+-LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ) $(LIBCGROUP_O)
++LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ)
++LIBKVM_OBJS += $(LIBCGROUP_O)
++LIBKVM_OBJS += $(LIBVFIO_O)
+ SPLIT_TEST_GEN_PROGS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
+ SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH)/%.o, $(SPLIT_TESTS))
+ 
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
