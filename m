@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE179CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB39CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Date:From:
-	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0VFoN2y8Bp3v5MjyaOS1eaWX0HBlVaXH4Oqqk7xrVWo=; b=ayk47xUm9XSd8XgP3ICMeNXBAp
-	DSfTrewchXWFQWKebOhD+SFdM8VPHY2eIFhwpXgMy8ymT0wllce/ztMuI8kVRmI4AysI+jbizc9vf
-	65eHa1PM9rpCSrgVXhIdqQ7YjMIRQnLCXLnfouGnqhKgbifi8IMfPxBalXmbKefkG6pPS+Z2UNNwE
-	myRvynbealJHlcPe+1u22fMo3sx4UTQ+fUUDgr6sQ1t70fYpl3kxkdfrsOhMowVFqMXkSgXUr8fPx
-	tIxcUo4TwfUB6i4lDRHCsyzjKvZtFU1rWOKK++0PISCU1Wp75L0godU5nelP6JpUVDbFm8Qqm4I6G
-	GMNfpdsg==;
+	bh=/aaaLGtGMdloDgmx4w88ZqZn+UMMDoCbT7BG6Ejcd2Y=; b=mxSzsBER06o+QSqYysGrx4Ycc4
+	SMRljts1z/qvUoMPflRQc0LQJeOWX2NguSYa6yjIwAisqMUBjxYuX1J5OrvetLBMTQ209nTm9icRJ
+	eBghCl0aShXNmnIRJIFYPbeqRJtZ1mwle/B4d6ZMG2WXZ28fIQZYEBhpwE0gomrBW/hWzL66aeEXM
+	fS/Mr2vOS3q3lQr0BpDkmqLmVcWlrk1hzqdAh217puieiw/JFB2U61gUL008jt3YQp94fblgEvwpe
+	cWlucEk5FViXwmRNdO6/epE2hYibUez39QKguTQSYiWRsQtqSFlNw3js5Jy/Ypp+edVrmX3o3OeKH
+	taVd42Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYCRb-0000000BqCI-3k6y;
-	Sat, 13 Jun 2026 00:41:51 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wYChX-0000000Br9p-0bwZ;
+	Sat, 13 Jun 2026 00:58:19 +0000
+Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYCRY-0000000BqAB-0vdf
+	id 1wYChU-0000000Br91-1u2N
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:41:50 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2bf2247e38eso14291315ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:41:47 -0700 (PDT)
+	Sat, 13 Jun 2026 00:58:18 +0000
+Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-44273dcaca8so774873fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:58:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781311307; x=1781916107; darn=lists.infradead.org;
-        h=cc:to:subject:date:from:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0VFoN2y8Bp3v5MjyaOS1eaWX0HBlVaXH4Oqqk7xrVWo=;
-        b=QX1vsxf9oQW6jMwca205rSjH1imJGppk0vm035QkR/YMN2OkR7Kxq8LqXQ1E2HR5iK
-         CV+PiBzy1STFU/JMp2bbQCKLs+JdVuJUfwEj4vNrmj6JafK6BH2U21HHM/t5Fqai9R/2
-         R+OA9LT/yN+L+GmFAXdvx9Mr+W7S4D7TNZBfLhBK6k2oGmkR0FCUcKcKA5i+GxSAWxrN
-         he7vWAgA2OlsHN4v7TEm+YajD880d55gac9vd2oQ8JpyJKH9gTHg/64ZMKTUq568Y1/f
-         ms0lY6Q3Qw/u0PdaRPneqA2+oj3YZDKvYPqxDXfkoQ59kPhqPD2ej6oqvChweGlBiZxC
-         5hKA==
+        d=gmail.com; s=20251104; t=1781312295; x=1781917095; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/aaaLGtGMdloDgmx4w88ZqZn+UMMDoCbT7BG6Ejcd2Y=;
+        b=SdwfmPogSbgpSNUY89TvvpX6aP1EmeU6dqAPCLXclOqU3uXBhGcHkoNtayLkW4/K6Y
+         2V9UVk56ZZKY2VbSm8q9jIFi8zxVZmxJQkln1qowFsCHpc/3JEmiGnAKnUNX4G9M6zj8
+         Wi5cQxhgtAvuqggGpbY+B1XFeM7WZerbuzwWVHZVbsBb9xN/1tsAwCcSNRlZ3xZqBPRk
+         c71Yv/og0tLgoB4LuQDheWhurlG/YTtA8RhF+10YrE4QAnPIaqgqS7OmkPqrpZ1CtlQn
+         m8fWs8SdLFYl1nQAZaf3D0cITOIKuAorQhtzBiw74/rIVJHVLpfnf61ZUBdDbe72rneD
+         lCAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781311307; x=1781916107;
-        h=cc:to:subject:date:from:message-id:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0VFoN2y8Bp3v5MjyaOS1eaWX0HBlVaXH4Oqqk7xrVWo=;
-        b=BkhQ3Es8ZkBlXBIYblZ2/3OrBSjmA1l3mjSwOHkWHq3qOBly2Uy1FZA78U8zO4im/2
-         PbYerzgTK5wOd5sNqvem/61eQe8H9DUPR1yPebktVY0Mx1ua40fc31CQTgVF0cF47OuC
-         kBAssc/GHtlkDA51W/SbACmDPbYcs/Pk/+cPN4OCM4lMnX8Hhf6KnS4OD+C5FkV/Op4Q
-         YB1PG7nI2ufLCY3KX7BQPtmnIMd/jDRjf+3OkVYGjANs+qGws7KsM6l3u7Tuo3/cDcF8
-         XPp0f6z9t52Y6bixdrW0qlu6L9bzNAu/rw1b6xWHDLTR1V+NN3sMTcdfIAs/ZZq5hK1x
-         ZnFg==
-X-Forwarded-Encrypted: i=1; AFNElJ8vk77up2zTsQmmj1iL+PALf2tkxK3DUn789t5+lrU3NMSFCj10hxSCnzzTTkCaX4U6Jj1To4jU94+JwaiV13+Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwSZUcTVZV9V2GRaJTFH4e+NuJ4vqmNzD/v8cb3UTT4IsPNuBF
-	N5qvmEZhXdc9vCOgmxZYl33ycGkk7QZmLVLREvp49M4Qwo+Rkre/OUAdAFsnqcQb2c0=
-X-Gm-Gg: Acq92OESKYVCZ6vnWLP/TAXQFdgLZjyThX0BCvJysulVCaD68IW8gMj014p3yFVoKpz
-	EtMb4vJUvzoH185BLLrtsj6yGlHb5mJvm6X4fNRrKTkccwimtqCn1MKog+OmddLBieIcUTP4z0F
-	ah1A+uTuM1gcO2DAl7LcImV6dQg/Mwoe2i7B2va8AnJ2if9noqHYMsPBKtDR/wfxpa0QkOdnqoI
-	KNz8ovWoPhgE4nSu614cNKmkwX7P2m9Zl0uAHt4rYJY9ZXAKZZiBbzaKEp2cdFJeOU6MCa6RdJe
-	lfKlcDzeQcSZ5V68nNMFhyS4eCnOjE6t/CQX/0weKq2pUw0HanqA6LZfYqONR8iYBt6tMMtgRkJ
-	9LMwikSqUnpMsUlCO8eUKHUXh+797LLPW2EZLsKrLWCsGB7fZLPdBZT0iuLZcBRyOjzqBXqUuJq
-	m7Hv4zFXwMzyIYA3DT
-X-Received: by 2002:a17:902:cf0b:b0:2c0:c262:b917 with SMTP id d9443c01a7336-2c4109ed1b4mr60346495ad.5.1781311307363;
-        Fri, 12 Jun 2026 17:41:47 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c4327ac72asm35515515ad.38.2026.06.12.17.41.42
+        d=1e100.net; s=20251104; t=1781312295; x=1781917095;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/aaaLGtGMdloDgmx4w88ZqZn+UMMDoCbT7BG6Ejcd2Y=;
+        b=ermWH/mZq86pTDIWwwcTc2CDoJGXxYYjXeI1DNTCKYPGK3fzBtERdrMoRJqgetCG/3
+         MiJBvwzCnh8ExpE9HycdK++gb9wUPVEUMvKOgI0lZHvjfEesb6m45UECR9TyOKI9JQn/
+         sEzZev0HQ0Yi8P62JflEcrrPpQtHtroaxKLVRBd6xeybQ+8o88GIBKKZcbL+aFum29Bl
+         3pLARXjuH0KUOiRlMoAbauqb6E9OacRsgtNb5OF37LbcErL21kz0/w40JNaSKAUYpx51
+         lcj9ei3FUf6xgACxMeRvdB/EkN728nHFmB2+w79kP1xA1l/ONvqH1O1zrFrrRbD9Qo+f
+         wEYA==
+X-Forwarded-Encrypted: i=1; AFNElJ9kzPBlDOqshoEi69zKjpaFY2D75gzRemM5UyM3u/6/Jj8Xl7aX6YWHKTJVNC9OJOjwrsBR0Q/N85QfabGh2V0R@lists.infradead.org
+X-Gm-Message-State: AOJu0Yybatnq2anaWyvXAImeYdC4/2JJWV2DGOOJEFpaDbPUfxgvCz+4
+	hRAXWZsn/6XeGwWv6ynSQO33EQeFqMrHiFyuDwJ8LQI+a/EX63JsT3Ko
+X-Gm-Gg: Acq92OHZmtVbm+YTeUgX+zMrhvHYIToE0FdrrQrI7SxH/oUShOL/kFKqyfNjQzBzMJs
+	msbVgltnOlRMj5EggZ5J2/8V9NBqVLxkW0lS9AG8NCdxyVvz4Lf0bZTaNj6V2Ej4DUPMpVqo5J7
+	Wv/KTaT3+IXDi3jc7MMGijWkJAklGo6lGD6MX+yNA2oxFb43uVhtoqWq+QRQXE4K54CImUyZzBQ
+	ttA9WM+QzoZuK0Lznk+tyoifa8HarzPo9aBf6vjrNUcWPTymaOU1pdWTmVvuIhnECF+TSMfKrFu
+	Rl6z9QWz4T3izInpo3GRHCgKJCZs+GR0kMtTMghpljLYu+Jjc08C1npZQj+KKspEVcA5b9EQbXJ
+	a0HyKqSH4WpSZiKFEnrNbHV5uOAYI3iZHg9StZYDZ/B3ZCfWOqsOUrgj7QuQTUmDC3V+w5CNpAi
+	Q9q8bV9CTQf80zVjuZl8yo+7Vd9tdXWuYAwfqmTwmkmNo1DICJPshlVKeWzA==
+X-Received: by 2002:a05:6820:211:b0:69e:3868:a739 with SMTP id 006d021491bc7-69edd76b56emr2093232eaf.24.1781312294619;
+        Fri, 12 Jun 2026 17:58:14 -0700 (PDT)
+Received: from linuxescape.lan (23-88-128-2.fttp.usinternet.com. [23.88.128.2])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4426abf260dsm3150731fac.6.2026.06.12.17.58.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 17:41:46 -0700 (PDT)
-Message-ID: <6a2ca74a.c5b1db4e.21a698.01e7@mx.google.com>
-From: "Wayen.Yan" <win847@gmail.com>
-Date: Sat, 13 Jun 2026 08:41:16 +0800
-Subject: [PATCH] net: airoha: Fix typos in comments and Kconfig
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+        Fri, 12 Jun 2026 17:58:13 -0700 (PDT)
+From: Maxwell Doose <m32285159@gmail.com>
+To: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Hartmut Knaack <knaack.h@gmx.de>,
+	linux-iio@vger.kernel.org (open list:IIO SUBSYSTEM AND DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Sangyun Kim <sangyun.kim@snu.ac.kr>,
+	Kyungwook Boo <bookyungwook@gmail.com>,
+	Jaeyoung Chung <jjy600901@snu.ac.kr>
+Subject: [PATCH 0/2] iio: adc: Initialize completions before requesting IRQs
+Date: Fri, 12 Jun 2026 19:58:09 -0500
+Message-ID: <20260613005812.160572-1-m32285159@gmail.com>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_174148_265507_87E8B2B3 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260612_175816_497661_8B6DA6F9 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,70 +105,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix several typos found during code review:
-- Kconfig: "Aiorha" -> "Airoha" in NET_AIROHA_FLOW_STATS help text
-- Comment: "CMD1" -> "CDM1" (Central DMA, not Command)
-- Comments: "GMD1/2/3/4" -> "GDM1/2/3/4" (Gigabit DMA, not GMD)
+Hi all,
 
-These are pure comment and documentation fixes with no functional impact.
+This short patch series fixes the issues raised by Jaeyoung Chung,
+Sangyun Kim, and Kyungwook Boo regarding init_completion() and spurious
+IRQs. The report is linked below [1], but I will also put it here
+inline:
 
-Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Wayen.Yan <win847@gmail.com>
----
- drivers/net/ethernet/airoha/Kconfig      |  2 +-
- drivers/net/ethernet/airoha/airoha_eth.c | 10 +++++-----
- 2 files changed, 6 insertions(+), 6 deletions(-)
+"lpc32xx_adc_probe() in drivers/iio/adc/lpc32xx_adc.c and
+spear_adc_probe() in drivers/iio/adc/spear_adc.c register their
+interrupt handler with devm_request_irq() before they initialize
+st->completion with init_completion(). If an interrupt arrives after
+devm_request_irq() and before init_completion(), the handler calls
+complete() on an uninitialized completion, causing a kernel panic.
 
-diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-index ad3ce50..1f6640a 100644
---- a/drivers/net/ethernet/airoha/Kconfig
-+++ b/drivers/net/ethernet/airoha/Kconfig
-@@ -29,6 +29,6 @@ config NET_AIROHA_FLOW_STATS
- 	bool "Airoha flow stats"
- 	depends on NET_AIROHA && NET_AIROHA_NPU
- 	help
--	  Enable Aiorha flowtable statistic counters.
-+	  Enable Airoha flowtable statistic counters.
- 
- endif #NET_VENDOR_AIROHA
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 31cdb11..9d9d34a 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -294,18 +294,18 @@ static void airoha_fe_pse_ports_init(struct airoha_eth *eth)
- 			      FIELD_PREP(PSE_ALLRSV_MASK, all_rsv));
- 	}
- 
--	/* CMD1 */
-+	/* CDM1 */
- 	for (q = 0; q < pse_port_num_queues[FE_PSE_PORT_CDM1]; q++)
- 		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_CDM1, q,
- 					 PSE_QUEUE_RSV_PAGES);
--	/* GMD1 */
-+	/* GDM1 */
- 	for (q = 0; q < pse_port_num_queues[FE_PSE_PORT_GDM1]; q++)
- 		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM1, q,
- 					 PSE_QUEUE_RSV_PAGES);
--	/* GMD2 */
-+	/* GDM2 */
- 	for (q = 6; q < pse_port_num_queues[FE_PSE_PORT_GDM2]; q++)
- 		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM2, q, 0);
--	/* GMD3 */
-+	/* GDM3 */
- 	for (q = 0; q < pse_port_num_queues[FE_PSE_PORT_GDM3]; q++)
- 		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM3, q,
- 					 PSE_QUEUE_RSV_PAGES);
-@@ -340,7 +340,7 @@ static void airoha_fe_pse_ports_init(struct airoha_eth *eth)
- 							 q, 0);
- 		}
- 	}
--	/* GMD4 */
-+	/* GDM4 */
- 	for (q = 0; q < pse_port_num_queues[FE_PSE_PORT_GDM4]; q++)
- 		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM4, q,
- 					 PSE_QUEUE_RSV_PAGES);
+The probe path, in lpc32xx_adc_probe():
+
+    iodev = devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzalloc-zeroed */
+    ...
+    retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
+                              LPC32XXAD_NAME, st);           /* register handler */
+    ...
+    init_completion(&st->completion);                       /* initialize completion */
+
+spear_adc_probe() has the same ordering: devm_request_irq() for
+spear_adc_isr() before init_completion(&st->completion).
+
+Both interrupt handlers, lpc32xx_adc_isr() and spear_adc_isr(), call
+complete():
+
+    complete(&st->completion);
+
+If the device raises an interrupt before init_completion() runs,
+complete() acquires the uninitialized wait.lock and walks the zeroed
+task_list in swake_up_locked(). The zeroed task_list makes list_empty()
+return false, so swake_up_locked() dereferences a NULL list entry,
+triggering a KASAN wild-memory-access.
+
+Suggested fix: move init_completion(&st->completion) above
+devm_request_irq(), so the completion is valid before the handler can run.
+
+Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
+Reported-by: Kyungwook Boo <bookyungwook@gmail.com>"
+
++ Reported-by: Jaeyoung Chung <jjy600901@snu.ac.kr>
+
+Quick note, I ended up editing the report a little in the individual
+commits to match the driver we were fixing.
+
+[1] Link: https://lore.kernel.org/linux-iio/20260610115700.774689-1-jjy600901@snu.ac.kr/
+
+Maxwell Doose (2):
+  iio: adc: lpc32xx: Initialize completion before requesting IRQ
+  iio: adc: spear: Initialize completion before requesting IRQ
+
+ drivers/iio/adc/lpc32xx_adc.c | 4 ++--
+ drivers/iio/adc/spear_adc.c   | 3 +--
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
 -- 
-2.51.0
-
+2.54.0
 
 
