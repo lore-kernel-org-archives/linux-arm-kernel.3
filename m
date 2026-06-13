@@ -4,94 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12631CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65901CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AWwT9TpVhYF/K0z+rdL3pthvZP+Xb5uL2Tmv/pNJ18E=; b=gTolWfyailIy+yJ8opaFlhTSwf
-	U52UlOJDI5K/l2vTO/T7yuqr6kR96On7J2fCv0jcRy1vrCg4T/kzBg0E59DwOINr3SsjRdB/DrQYi
-	0mzArSyEIlxFdvXRXWJ3sRov00hN0E5h9TzfJycg4J1NrxVlg+0yDPUymTePTWrYfOWXqFmOxbv/E
-	gh3xwNgYMa8Ks/eD9q/ze5ngQxEQARQ1WeAP7ufIXEan6f4osRonqK8RVQgRdE027HtfE6tdlYxex
-	JekLl/EPAsDc5Lg7T9txd8ACYk9B8AJmpOME/BfcEkmKGzao+tmjiLvxqp1ySenpxD1oj9OZhF6vV
-	Z4fk5Kgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WmyzcKWN5sYZUTeYCc9CQUvIpkkw/cT2wO4LeW7OYQY=; b=1jDEmXfy3l3LoB7m+e+Utx1+UL
+	OEekR5wYTH9+iPuaCmkKpDqENd1+386fVYAi5W19GLo7iJVh+6xZs7zBGkJxXc76f/Z60KMNlAxXb
+	O0WLFJfeh+E2CTbXkrpUnGg05ARpVfgC0L1fXhuV4+iHUl/RhJrXcCIa2TmaHeBqVEtb16UFEjOKJ
+	jau3FOoidNoKTnhC11D9JanH1Fa4rG/DHMFYQJjVfWF+k0arqDDa4hlmvroj5+0oI9lkU8s3Q5XA2
+	LRTMfXk6wn/4PKVWasRHqiaCxkU7RqMW/BeJ0xK/FdXC4KV5SvPqy0Zz56vpdRZ7Acmd2u+dtv6Rf
+	PqwzvZww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC3W-0000000BnKR-3Dlx;
-	Sat, 13 Jun 2026 00:16:58 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1wYC74-0000000BnWK-12nw;
+	Sat, 13 Jun 2026 00:20:38 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC3U-0000000BnK2-3XHf
+	id 1wYC71-0000000BnVF-1VZh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:16:57 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1380104f31eso3243c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:16:55 -0700 (PDT)
+	Sat, 13 Jun 2026 00:20:36 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-8423770d72dso1987811b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781309815; x=1781914615; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AWwT9TpVhYF/K0z+rdL3pthvZP+Xb5uL2Tmv/pNJ18E=;
-        b=WXgoUSLTmPUBYfVfpBPMFnSvTl5DQWv86r892rCJKKXL4ghePBLOLT6/m7vFs0YNx8
-         zPcbyuGfV4oKaM9SZ9PG3ME1NVOpsLpK/uF49V0qgy+Sh38069pEYvbbPRc1QZQiubcn
-         pEiUwZpBbsbBAXJK7iBVH1SaXKB7Zmrov3Ti2nQKrrZVQ0Oi0oXFR6WcK4VEJ5+B/c8e
-         HxEcrVLD+Jn0F2EYcOBTIox+5ZBrvvSHgF854f2WzuF426EufZHQkq73bVtxa9D6n8dE
-         9FCQCvcsTUtwtiqddP5htPBfq5JL90zusF2HAbnGGFdR5ddpZbLLupG/WjXTifdw2xQW
-         M/2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781309815; x=1781914615;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=google.com; s=20251104; t=1781310034; x=1781914834; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=AWwT9TpVhYF/K0z+rdL3pthvZP+Xb5uL2Tmv/pNJ18E=;
-        b=MIf9K7HKEi+c2e3IT5p8u/8xBCuTnUhr2gLF/GypnCuai6yOit1ItvCppuymw2820R
-         akxw3cTE/rdu3YSRrZqW5E0lQ3b0Xv0Lg7fZoxl7PcKHoM/NqCFu3s8dNtpWVPZwUMic
-         muc03hSn8yoYJirmlvgUo7nFydt6qVXijOwQ1c+zfzscBOdMYZ4WMAqTe4icDt3UpUD9
-         TKKGi02NHm1oPiMYtGuY64V56x/cUEIMwOcVCtUl0f/4WN0pp+7ssp/rmmiaPlYx6bKo
-         BROljMsJPJNTtR6cbWAzgsT61e3I4lN84A4RNqRH0/RHHQcRyMgtiRgrwGon/K08JabO
-         f3tg==
-X-Forwarded-Encrypted: i=1; AFNElJ+m1ECXtuboSSOPTOrogbOs1afBCqSvG0sbrOdZodREJICFL7hMKh0ChysDCqTH/tGeFPXqV166RFmD3dXfkrQY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy2PsOxf3xdDerm6iLrtHn6IIa4+jHK/TR3X9WRVAo809wXpyC
-	8mESgOfBkn4S7GweWrZV0U0VD/yGHxhfaeV4lRrHkBxoeuSRD0S65hjVBipHy1geCA==
-X-Gm-Gg: Acq92OHlJKXLl65u2vNFuzqslSNRXBSmdd1KQh986bXuxqQKkrDNG1TK3QEgXj6TjuM
-	hZxsW0PUL9d9sAAWSgxTQBfN/nUZY0tjYrZtPXlNVHEyQKw6mpGnBv1lulTIAekBeGcaAtkDQTt
-	yZgtHYEGDbbqq0XIrkGLRP5CZ1R46qseaqa2WwjJp+BEo+bhG9i7/nHZmc7lRYjPJ9H0P17/xtI
-	ZHjxExyu68appKtvRIzzR5YdjuSP+MJv0KSY0x4tODO9+7Gsh75ndETesQS0QmducNlQUNe8K/M
-	arqYGBuHkv/OpUrBEVObcPprTnl+6Xn0bUeWxua+NgOeKOQqeXpELoE41ATK/1bXF/IcZPdlnXK
-	sVG0nxj3rkhPJRzp63FevsBe7aJlc/IafuONLFWyq6uoR+WiB55mJjr5vtyShpal+OGbwh/AzZw
-	2PyZFQwXqBJKr7QSD9v9eyfmDZKriYLTRaNgWEj5zC+VG5W7aatgXAhgDEXLAt1ZO8uRtmgUn0L
-	JQ=
-X-Received: by 2002:a05:7022:f8c:b0:138:888:32db with SMTP id a92af1059eb24-138fe5a1d90mr28525c88.27.1781309813946;
-        Fri, 12 Jun 2026 17:16:53 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2e51:8:e362:1a25:b90f:e3ee])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081ea43b80sm5190375eec.21.2026.06.12.17.16.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 17:16:53 -0700 (PDT)
-Date: Fri, 12 Jun 2026 17:16:47 -0700
-From: Isaac Manjarres <isaacmanjarres@google.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: ryabinin.a.a@gmail.com, akpm@linux-foundation.org, corbet@lwn.net,
-	glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
-	vincenzo.frascino@arm.com, kasan-dev@googlegroups.com,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org, workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	ryan.roberts@arm.com, anshuman.khandual@arm.com,
-	kaleshsingh@google.com, 21cnbao@gmail.com, david@kernel.org,
-	will@kernel.org, catalin.marinas@arm.com
-Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
- allocation time
-Message-ID: <aiyhb2XwMMJE3st7@google.com>
-References: <20260612044425.763060-1-dev.jain@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260612044425.763060-1-dev.jain@arm.com>
+        bh=WmyzcKWN5sYZUTeYCc9CQUvIpkkw/cT2wO4LeW7OYQY=;
+        b=TTdHUx8fzRgWj0ywQ62Ky5Zuu4iAdFs8AXDvgdCes91XR6dz3P3dW4cQgq8XQZ1/lv
+         8TFQnF2bjgAl9AiI2LAqi1mp3aoWS9Md+ZBWw5crk3BBIDr/oOeatmfKmL5FuHDiZ8oG
+         ao0rC+J0mpH/Mj/poXE/Qqi0XuSfiCUXdoDr8FRz7MSELuJdakPukTuIZto3g9cz4wyH
+         1Uv+b1KN4L0Ss7xsYB8T18B++s+IB0zvG0ieJedmv+5bLOGNxpPf9XbFLLOzR24PEOWq
+         FicaOZownt1M56mDYEPuQvX0kZePy3sZfau9sdn7f/XH3S4Y8HKCfsX0Zfatddb+GmCq
+         1o2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781310034; x=1781914834;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WmyzcKWN5sYZUTeYCc9CQUvIpkkw/cT2wO4LeW7OYQY=;
+        b=oUIzozdDQAkykciPXGRiMuYPW/QW/zJDFmJM3d169L2Ab/ZAV2gJQ+1L1FqRQUZpXA
+         A9Q0Pdr662Ye869zYguXsUjxglJsrXcnQK9UCS4cZTpv9QvyxHD8TB39EiQNquRgcvuq
+         aIql0ojf7KO0KOSmdJ+tHE8ScW97Tu8qMn+In5DgBkmBCBuw4yZSMmagF/4enwQZh/w9
+         LRSRsjcBWw9soYMIyap89D2K2gls2teRRZ3nEKqEkQLPxgDCOR+IkNxonL2ESDr0q72R
+         lD0yidUG3AsFmFwwpk41kqVzX9RHAXbUaUZ2SpGU59t7wd1QuzHqMV/8KPaWjhTGP2or
+         JNqA==
+X-Forwarded-Encrypted: i=1; AFNElJ9bWczWq5r/1S/O9Q7eIQfw6RdLh0BQ1tX25BNofWXa7OIz9qTI88whuUOKMaK1nRKVe1cSQWAKxnNmB4iEZtVR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvB4Tmoyz3mKG6IV/t5GnFKJqSoKQwhJvESzVMECBguslBIBLY
+	5xFQLB9dps+im0bsYkzRuoQIGz9y/+wM9X65XoquuizLWW5EbY3+6gMuDRvPWJiTUXngeWeCTSI
+	41ZjAKA==
+X-Received: from pfbk14.prod.google.com ([2002:a05:6a00:b00e:b0:82f:8cba:4285])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:9503:b0:842:3a3b:d6e7
+ with SMTP id d2e1a72fcca58-844e1a2c4e5mr2039973b3a.23.1781310033733; Fri, 12
+ Jun 2026 17:20:33 -0700 (PDT)
+Date: Fri, 12 Jun 2026 17:20:11 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260613002031.745413-1-seanjc@google.com>
+Subject: [PATCH v7 00/20] KVM: selftests: Add eventfd+VFIO IRQ test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
+	Josh Hilke <jrhilke@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_171656_888145_1E71E69D 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20260612_172035_409516_0A951768 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +87,123 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 04:44:22AM +0000, Dev Jain wrote:
-> Introduce a boot option to tag only at allocation time of the objects. This
-> reduces KASAN MTE overhead, the tradeoff being reduced ability of
-> catching bugs.
-> 
-> Now, when a memory object will be freed, it will retain the random tag it
-> had at allocation time. This compromises on catching UAF bugs, till the
-> time the object is not reallocated, at which point it will have a new
-> random tag.
-> 
-> Hence, not catching "use-after-free-before-reallocation" and not catching
-> "double-free" will be the compromise for reduced KASAN overhead.
-> 
-> This is an RFC because we are not clear about the performance benefit.
-> 
-> Android folks, please help with testing!
-> 
-> ---
-> Applies on Linus master (9716c086c8e8).
-> 
-> Dev Jain (2):
->   kasan: hw_tags: Use KASAN_PAGE_REDZONE for vmalloc redzoning
->   kasan: hw_tags: Add boot option to elide free time poisoning
-> 
->  Documentation/dev-tools/kasan.rst |  4 +++
->  mm/kasan/hw_tags.c                | 45 +++++++++++++++++++++++++++++--
->  mm/kasan/kasan.h                  | 23 +++++++++++++++-
->  3 files changed, 69 insertions(+), 3 deletions(-)
-> 
-> -- 
-> 2.43.0
+David and Josh's series to add a selftest for verifying interrupt delivery
+via eventfd (via KVM_IRQFD), and also from a real device, wired up via VFIO.
 
-I tested out this series on one of our devices that has MTE support,
-and didn't see any functional issues.
+I originally wanted to get this into 7.2, but that's not going to happen.  But
+I hope to get this applied early in the 7.3 cycle so that additional features
+and whatnot can be developed on top without too much pain (hopefully).
 
-One thing I did notice though, and it's independent of this patch, is
-that the vmalloc_oob is failing, but that happens even if these patches
-aren't present.
+Gory details in the patches, and in the v5 cover letter.
 
-Thanks,
-Isaac
+v7:
+ - Seed kvm_rng during kvm_selftest_init(). [Sashiko]
+ - Seed libc's RNG during kvm_selftest_init(), so that the seed (from random())
+   that's printed and passed to kvm_rng isn't the same every time.
+ - Init irq_cpu to -1 in all paths. [Sashiko]
+
+v6:
+ - Massage most changelogs.
+ - Fix SoB ordering issues.
+ - Clean up KVM_SET_GSI_ROUTING helper.
+ - Remove misleading "IRQ injection" and "emulated eventfd" terminology.
+ - Add GUEST_RECEIVED_INTERRUPT() to simplifiy the core loop.
+ - Use cpu_relax() in tight loops while waiting for interrupts.
+ - Print as much information as possible in the actual assert, instead of
+   printing to stdout separately.
+ - Make a best guess as to the right VFIO vs. IOMMUFD mode instead of
+   assuming IOMMUFD, and give the user the option to overide said guess.
+ - Simplify open_proc_irq_smp_affinity_list() +
+   write_proc_irq_smp_affinity_list() into proc_irq_set_smp_affinity().
+ - Drop print_proc_irq_file() and kvm_print_vcpu_affinity() (for now) to avoid
+   potential issues on systems with high CPU counts.
+ - Drop the blocking/HLT testing as it was at best broken.
+ - Use -e for "empty", not -c for "clear", when completely tearing down GSI
+   routing, because routing can be "cleared" without completely emptying the
+   routing information.
+ - Use the main task's CPU affinity as the available_cpus set.
+ - Allow overcommiting vCPUs:pCPUs.
+ - Set the target vCPU's affinity instead of batching when vCPU0 is targeted.
+ - Add support for 256+ vCPUs with x2APIC.
+ - Restrict xAPIC mode to 255 vCPUs.
+ - Restrict the test to KVM selftest's max supported vCPUs.
+
+v5:
+ - https://lore.kernel.org/all/20260604020143.748245-1-jrhilke@google.com
+ - Rename get_proc_vfio_irq_number() to vfio_msix_to_host_irq()
+ - Rename open_proc_irq_affinity() and write_proc_irq_affinity() to include "_smp_affinity_list"
+ - Print /proc/irq/<irq>/smp_affinity and effective_affinity on timeout failures
+ - Convert IRQ type from 'int' to 'unsigned int' across helpers and the test
+ - Fix compiler warnings for uninitialized variables in irq_test.c
+ - Remove rate-limiting on affinity changes
+
+v4: https://lore.kernel.org/kvm/20260530002134.558837-1-jrhilke@google.com
+
+David Matlack (11):
+  KVM: selftests: Build and link selftests/vfio/lib into KVM selftests
+  KVM: selftests: Add macros to read/write+sync to/from guest memory
+  KVM: selftests: Add an irqfd send+receive (and later IRQ bypass) test
+  KVM: selftests: Add helper to get host IRQ from device MSI-X for IRQ
+    bypass test
+  KVM: selftests: Add VFIO device support to eventfd IRQ test
+  KVM: selftests: Verify interrupts are received when IRQ affinity
+    changes in IRQ test
+  KVM: selftests: Add option to set empty routing between IRQs in
+    eventfd IRQ test
+  KVM: selftests: Make number of IRQs configurable in IRQ test
+  KVM: selftests: Verify vCPU migration during IRQ delivery in IRQ test
+  KVM: selftests: Make number of vCPUs configurable in IRQ test
+  KVM: selftests: Add xAPIC support in eventfd IRQ test
+
+Josh Hilke (6):
+  KVM: selftests: Rename guest_rng to kvm_rng
+  KVM: selftests: Add helper to generate random u64 in range [min,max]
+  KVM: selftests: Add a helper to set proc IRQ affinity for IRQ test
+  KVM: selftests: Add kvm_gettid() wrapper and convert users
+  KVM: selftests: Add kvm_sched_getaffinity() wrapper and convert users
+  KVM: selftests: Add a utility to pin a task to a random CPU, given a
+    CPU set
+
+Sean Christopherson (3):
+  KVM: selftests: Initialize the default/global pRNG during
+    kvm_selftest_init()
+  KVM: selftests: Seed libc's RNG before using it to generate a seed for
+    KVM's pRNG
+  KVM: selftests: Verify non-postable IRQ remapping in IRQ test
+
+ tools/testing/selftests/kvm/Makefile.kvm      |   7 +-
+ tools/testing/selftests/kvm/arch_timer.c      |   2 +-
+ .../kvm/arm64/arch_timer_edge_cases.c         |   2 +-
+ .../selftests/kvm/demand_paging_test.c        |   2 +-
+ .../selftests/kvm/dirty_log_perf_test.c       |   4 +-
+ tools/testing/selftests/kvm/dirty_log_test.c  |  11 +-
+ .../selftests/kvm/include/kvm_syscalls.h      |   7 +
+ .../testing/selftests/kvm/include/kvm_util.h  |  12 +
+ .../testing/selftests/kvm/include/proc_util.h |  11 +
+ .../testing/selftests/kvm/include/test_util.h |  25 +-
+ .../selftests/kvm/include/x86/kvm_util_arch.h |   4 +-
+ tools/testing/selftests/kvm/irq_test.c        | 350 ++++++++++++++++++
+ tools/testing/selftests/kvm/lib/assert.c      |   8 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  53 ++-
+ tools/testing/selftests/kvm/lib/memstress.c   |   8 +-
+ tools/testing/selftests/kvm/lib/proc_util.c   |  54 +++
+ tools/testing/selftests/kvm/lib/test_util.c   |  27 +-
+ tools/testing/selftests/kvm/mmu_stress_test.c |  15 +-
+ tools/testing/selftests/kvm/rseq_test.c       |   6 +-
+ tools/testing/selftests/kvm/steal_time.c      |  22 +-
+ .../testing/selftests/kvm/x86/sev_dbg_test.c  |   2 +-
+ 21 files changed, 548 insertions(+), 84 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/include/proc_util.h
+ create mode 100644 tools/testing/selftests/kvm/irq_test.c
+ create mode 100644 tools/testing/selftests/kvm/lib/proc_util.c
+
+
+base-commit: c1f7303302927f9cbf4efedf70f0512cde168c65
+-- 
+2.54.0.1136.gdb2ca164c4-goog
+
 
