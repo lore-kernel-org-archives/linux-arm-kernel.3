@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E578BCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 17:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0655BCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 18:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KPuwksocBMVjZiBCm9XmF4wYAizizjpxFEw/IROWOF4=; b=Ro23cYT0EfmZcrv0C84rAIpSCW
-	h1AM223vmnU9Cw264UtskbQqvJAOEAbfgvVT9VEUusm4SPX2Jjlr3CPXArM4rKC1N5q63izSYKkZ2
-	Rdt1ITTLA849Lxl1nVPQV9IAxRd4kN+hZkXogQKf1HaMM9u7vgXaBDnMJz1OfhQ1+gwBMb5cAnVhe
-	gdcilTyVLRko0GYh9Kn+cypCMQ9ywDRk5kQX4AcDfSOn8V79a122ExtJeDaUE9Pyx3B5kDI87FJ3u
-	i6pYRhmr6CiXqfjE3RTyCUps6HyjO08aCvboYMBSXOF05bxxqMifkNc0CH4dG3+VDYTRkIHgAiv8+
-	IFOQX4WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eud/G1Fl86jvawvMuS6QTDlOHo85kknsSJQpPdjorBk=; b=uiYVClhagp84mghVcO8oXcWw1G
+	WTsItYwAhbLWD5ReB8kHeJWQbOYp9QAhEu8H80iNZNEincPgL32JIQY1K2cLrmKtke3N0cyG/Bc12
+	5c9gk+2Py9rtmMqYPl1PPkwwVF7gIzD/bnyj9TyGMnnT5wDba4MhebVQ7eM/VqBnCifYCQt6urA3h
+	0eYrVqei4Izg3DvBY8fUjivvxJ1Sa/3do1XePvflOV7ohSNHxIRr8bFYIyS3/SSKybdKUr5UMIulH
+	wzu6h+OBJmbgtoAW0OxKRx3MHuQXBmOrgmmdnD8buHGNbMtrguo98ux20y4KxAuEOhQPDDL7oGc2l
+	cLmGNwLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYSL5-0000000CRzc-43Hw;
-	Sat, 13 Jun 2026 17:40:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wYSyK-0000000CTMj-0HQJ;
+	Sat, 13 Jun 2026 18:20:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYSL5-0000000CRzL-0IeB;
-	Sat, 13 Jun 2026 17:40:11 +0000
+	id 1wYSyI-0000000CTMN-3Ceq
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 18:20:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F8EB4398B;
-	Sat, 13 Jun 2026 17:40:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F3B1F000E9;
-	Sat, 13 Jun 2026 17:40:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CE806008A;
+	Sat, 13 Jun 2026 18:20:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F4791F000E9;
+	Sat, 13 Jun 2026 18:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781372410;
-	bh=KPuwksocBMVjZiBCm9XmF4wYAizizjpxFEw/IROWOF4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=iNgSVq6LBZLSSfUuHVqPXNtVGtT7sE7jPfHpK/CQ7/s/rVRv2H8rmUv3KB+8KpSNo
-	 eiWx14T/FcXWeQJz6JxGYfljkWmbNQwrdjIRvfEAcZjYgaOahyU/JnibEU27EkEnz1
-	 TaYllza2zkN7vD/mIg0nUM2d5VDlXHine+wyJZe6QKKbC0l3pPEKDQkJ7ceRY3AclB
-	 E+EfZvkgHE2jvJHBRHLos64Vgfx7J2f/Mx2yZMqh5YKFV2qES5bzrpUlbxo2CunTZI
-	 U9ilaclzU8NPuW5i7zboZSnoleamyA/ORk60jxg5y7uOw4KfAD1Nj2IResMKHTg86b
-	 zhiidw0jlw5qw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D09833A40FD9;
-	Sat, 13 Jun 2026 17:40:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1781374841;
+	bh=Eud/G1Fl86jvawvMuS6QTDlOHo85kknsSJQpPdjorBk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KPosQfqG6ovGEAQl7kMEIPmlaWB93mmNPu0UBJFDzWW7DFopnFsHqSQtrAXJmtFwQ
+	 igF5AXPbaCh4RKRdNlG+I49YeBGq0ev3alLzh8NS9JdnBg3RXwPWnGLHjqZfA1kDKr
+	 K4XhRA52GLFd+v1GSRbja7pDKNA+7JnpSGPtaJkA0/SqeYVEmdkGHNX3eHAntC+bxE
+	 ENv8roG0QneYzC21zP4DT3FMpmW8xe0c6Iwo4ta90ueW3+srF3GjbyvCsbgoR7koy2
+	 u5ION/1rilgvevZ9K5+j0Sbk1ixNRXITz0SRgoBSceB9MC1zdYnp7L1+66/oOewUbE
+	 CWUKUROpcDLiA==
+Date: Sat, 13 Jun 2026 20:20:37 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Yong Deng <yong.deng@magewell.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Maxime Ripard <mripard@kernel.org>
+Subject: Re: [PATCH v10 1/6] dt-bindings: sun8i-v3s-ccu: Export MBUS and DRAM
+ clocks to the public header
+Message-ID: <20260613-dashing-phenomenal-capuchin-5d35ad@quoll>
+References: <20260613152655.212490-1-paulk@sys-base.io>
+ <20260613152655.212490-2-paulk@sys-base.io>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2] net: airoha: Fix error handling in
- airoha_ppe_flush_sram_entries()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178137240639.1545867.1534966931117017277.git-patchwork-notify@kernel.org>
-Date: Sat, 13 Jun 2026 17:40:06 +0000
-References: <6a2bd37a.4034e349.1b41bb.1caf@mx.google.com>
-In-Reply-To: <6a2bd37a.4034e349.1b41bb.1caf@mx.google.com>
-To: Wayen.Yan <win847@gmail.com>
-Cc: netdev@vger.kernel.org, lorenzo@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260613152655.212490-2-paulk@sys-base.io>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,29 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Fri, 12 Jun 2026 17:37:00 +0800 you wrote:
-> In airoha_ppe_flush_sram_entries(), the outer "err" variable was never
-> updated when the inner loop variable shadowed it, causing the function
-> to always return 0 even when airoha_ppe_foe_commit_sram_entry() fails.
+On Sat, Jun 13, 2026 at 05:26:50PM +0200, Paul Kocialkowski wrote:
+> In order to declare a mbus node for the V3s, expose its associated
+> clocks to the public header.
 > 
-> Drop the outer "err" variable and return directly on error, propagating
-> the error code from airoha_ppe_foe_commit_sram_entry() correctly.
-> 
-> [...]
+> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> ---
+>  include/dt-bindings/clock/sun8i-v3s-ccu.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 
-Here is the summary with links:
-  - [v2] net: airoha: Fix error handling in airoha_ppe_flush_sram_entries()
-    https://git.kernel.org/netdev/net/c/d7d81b003013
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Best regards,
+Krzysztof
 
 
