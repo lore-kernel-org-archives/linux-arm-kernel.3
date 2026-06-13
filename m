@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE0FCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 23:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A2BCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 23:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2q/iUZHmzQJ2DtmNMtcn+7efYWlaZTLUNoV8eMxuMoI=; b=u0Y7mdIZB6fUDGJCD5OUn6UdPu
-	txibb9Ugg0JA/jgfHWWbKlMEE2ftaJY8HnbEyBdz/NJ3SwWFom+TaHgTRfLDmnIkVSCVtZ6sQyWkI
-	W3siWqCSFlcoENoI/8fG8Q8VvENQZmaDwPsxeAttJYjUTu6Fam3q2kwQar4VWQUUV5OU0plAz20BK
-	6RnfJOGYACI0cpeBcVPexSOofNsO/4RqiSsvH97PxQ0wObjyI5PfXqwtHCOU9TRwm/G/M+dqrV53u
-	78G7Ik8Ch/ByLnfko6wgM3hVoXaf1jYaAE79Hr0dJ79G9YYWCU6TyJX+A4m4vGY9hSgpAH3FUsK1C
-	sTxHt74Q==;
+	bh=IY+WHHGsAnJN/4eY+iYURE+KdmDKPrPGJmVfcTioUBA=; b=cSqcNbqpulnXxCcMYJ/4uHVMsm
+	qyz2uewtT4fNHyh6IyHPCYxlAjgH/6wEqO6ics508sOemk3IkIfJncnV98cnQtA0WAPuAvav98+E4
+	VIiPR0L25Y2MinXeV9HNwsfubMhdYW2thg11jaC/+I5Y1PojtBkCKa1gRItp55j/daohkkOOhalpk
+	419AbgQ/eo7znFZXGgAOScUPCOD26jwxG9kMcZMRFudfEdEOTg+jvz8K0GVBE7rrNgo/XSqrB17F1
+	2n+FIR3btrkPATVffcyMJfzU0D/S7A3rbulBovQ4ejtN6h3qwq+toYH3wkL/VIybyy70VQrQmKf+0
+	uDxXSKbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXUV-0000000CbZJ-0PUP;
-	Sat, 13 Jun 2026 23:10:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wYXWs-0000000Cbj4-1hJp;
+	Sat, 13 Jun 2026 23:12:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXUU-0000000CbZC-16xZ
+	id 1wYXWr-0000000Cbiy-2B2s
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 23:10:14 +0000
+	Sat, 13 Jun 2026 23:12:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5FB746008A;
-	Sat, 13 Jun 2026 23:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 122741F000E9;
-	Sat, 13 Jun 2026 23:10:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AABF643360;
+	Sat, 13 Jun 2026 23:12:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D4C41F000E9;
+	Sat, 13 Jun 2026 23:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781392213;
-	bh=2q/iUZHmzQJ2DtmNMtcn+7efYWlaZTLUNoV8eMxuMoI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=dSYMmOtKsCxoiSxOvLoSHdYRssn1le0ynrgX79A9xb2JkxdSS3dN37bID7oTZwlsE
-	 syuFBg2CNBQ2Wbdafq7x3RKeXQs9xkyE5YIh3+HSNJXYbJTDUxDMsksDgzyeVmr/LA
-	 svs2tDYEE24ivI0Qx1JHnJEbY0xnt9SZBhfe+Y0ti7EzTCCJPopzdZpXgKukSlKQ5w
-	 qJQ5j3PLAMK9sDh5CsQuV/Po+Jo9Qm8OPKGU8AnD0SoNRzLSMrmPm6vAXCPv2eIAAy
-	 PU1u8ZkiQ/LxPd0vpnFscWdLYH57yDnJze2GUavg8aULtiea7CxB4TIjnKDDSjz5x6
-	 Ni2YwmUmLjL/A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 569ED3A54A32;
-	Sat, 13 Jun 2026 23:10:10 +0000 (UTC)
+	s=k20260515; t=1781392359;
+	bh=IY+WHHGsAnJN/4eY+iYURE+KdmDKPrPGJmVfcTioUBA=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date;
+	b=S/wUsrNoxzrGp4EZRaGJAg2tNTOL2JXSB+ZUA42KKQJfBEXkPGbEqkd1+LVfStFTq
+	 9rQ0JUcBUGVTX87cPIuJntEGLMupTB307UtnBHVRlEAzxc0BeCjux6hdwW/n1Mwdlf
+	 XflDamQwfQsa+8CPaPq2Lv2vOKWMOXX4ghlBE4w8AIwa6ayWtUJZmRD7t+2wl1CA7C
+	 fIA3+L2Sspkj2Pb8lFdzsWqO6XL3jZaKJpXcaFp/udgyO6dJLIzfwWUi2cmiFnbmph
+	 mk/hZRwBaGUafiukCqlaL8hZFB6C+l4MVg5Vd3t5PamvZw+doFYJ9ry7Hc+Q+Le51L
+	 Lgw/4Z8+Rtv2g==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net 0/2] net/stmmac: Fixes for maximum TX/RX queues to use
- by driver
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178139220914.1621428.9980668998947938804.git-patchwork-notify@kernel.org>
-Date: Sat, 13 Jun 2026 23:10:09 +0000
-References: <20260611113358.3379518-1-j.raczynski@samsung.com>
-In-Reply-To: <20260611113358.3379518-1-j.raczynski@samsung.com>
-To: Jakub Raczynski <j.raczynski@samsung.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- k.domagalski@samsung.com, k.tegowski@samsung.com
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260604164729.83284-2-krzk@kernel.org>
+References: <20260604164729.83284-2-krzk@kernel.org>
+Subject: Re: [GIT PULL] clk: samsung: drivers for v7.2
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>, linux-clk@vger.kernel.org, Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+To: Krzysztof Kozlowski <krzk@kernel.org>, Michael Turquette <mturquette@baylibre.com>
+Date: Sat, 13 Jun 2026 16:12:37 -0700
+Message-ID: <178139235762.819343.11900802215889516024@lazor>
+User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +68,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Quoting Krzysztof Kozlowski (2026-06-04 09:47:25)
+> Hi Stephen and Michael,
+>=20
+> Notable change outside of this pull: Peter Griffin was added as co-mainta=
+iner
+> to Samsung SoC and Samsung SoC clocks.  See also commit 20550601bf4 in
+> linux-next and
+> https://lore.kernel.org/all/178015858043.36212.8088079079471293822.b4-ty@=
+b4/
+>=20
+> Best regards,
+> Krzysztof
+>=20
+>=20
+> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e7=
+31:
+>=20
+>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/sam=
+sung-clk-7.2
+>=20
+> for you to fetch changes up to e11560b050ce867bd7d3ccea138231db54e2250a:
+>=20
+>   clk: samsung: exynos990: Fix PERIC0/1 USI clock types (2026-05-30 18:50=
+:36 +0200)
+>=20
+> ----------------------------------------------------------------
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Thu, 11 Jun 2026 13:33:56 +0200 you wrote:
-> When contributing other changes preparing functions for new XGMAC hardware
-> https://lore.kernel.org/netdev/20260601162537.553512-1-j.raczynski@samsung.com/
-> there have been reports by Sashiko AI review about pre-existing issues
-> in the code. These problems are non-insignificant and are 'net' material fixes,
-> rather than net-next features.
-> One issue in this patchset was reported by Sashiko AI, while other
-> technically part of new patchset, but is reasonable related fix.
-> All of issues are wrong DTS configuration, but kernel needs to handle it.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net,1/2] net/stmmac: Apply TBS config only to used queues
-    https://git.kernel.org/netdev/net-next/c/8b10877d9d6c
-  - [net,2/2] net/stmmac: Apply MTL_MAX queue limit if config missing
-    https://git.kernel.org/netdev/net-next/c/8a7bca6de6de
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks. Pulled into clk-next
 
