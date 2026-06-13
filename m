@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CD3CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 07:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4374ECD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 07:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ijozv1/zYB/1FW5r3iA6BSCWEsMm1mHuR8XAqmCPWx4=; b=q7z7S9Ce3LJbW8bDVc97sChbrA
-	cIUASbKKZyhBlfm2wSD0lstyLQgJpu1YmkU/gysH6kJxfq2PAUPd6CVxnsl31azXM+1lOwA0bTeuV
-	d7lSwLD5t0qjPnqTc1mpYPs8M53BzpHp07JkJOLjftS9hcgwkRP0fdDIrdaIV9fWYNne7QTTgVbCG
-	SWc+jVwrHmDtc3C+vglMCzy6DiFLDAPkJk7Q5pzwMko3a+9rs6ywzsNN+B0uda0+b81H3OWZnPugq
-	rpPmrUx7Wbl8v5XT4S7AYyUuDzZblqkTzrGOuyCK/asfS/p2vIBQtWGi3o4Hox/BEIZ1oz48cuwZp
-	B3Ns05rA==;
+	bh=Mlm0YHGLM0VfFF/fXJEvgkWs1yTQHLEduURYTbkabJ8=; b=Xskrz05fT/Jfy2McpOgcdXAULC
+	ROOFoNnBzAoWHGjBaShB/wPIIcme7NmFdhU0rivf0t5kXWH4xybmqJXa57onbcKYgtD+jlI1QD9s8
+	i2xbpxctS0604ifUAWPiwKtW05X2mawoMTpqg4Yb3Zf+Z+FmiTrAvnkvjs7Qgz6+1R9VEu8txCjpV
+	crf0/N1yKpF3ihEjb2vc1GDK4/ozQHMrmQdlSoqC34Qx4zY7fA9V5+hlXkmrWzmgzwWhP9gwm/UhB
+	KZI6ILU90neZ4SefToCGBwKWw6z6OEgKhkwJZl524A2WERWIka3BEKgWNjWWvou/umbkCea9tcAI7
+	zz+JTK5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJ7A-0000000C3dK-1len;
-	Sat, 13 Jun 2026 07:49:12 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wYJ8g-0000000C3oG-2i2y;
+	Sat, 13 Jun 2026 07:50:46 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJ77-0000000C3cM-3PBS;
-	Sat, 13 Jun 2026 07:49:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ijozv1/zYB/1FW5r3iA6BSCWEsMm1mHuR8XAqmCPWx4=; b=IQpKBRcqQLSbefm3KDuxhfWcFc
-	BgLCoBRK4g/QV7+3gQR1kTDZyHg3RUkT0NcxAdhym2ecnyz7JtlbTzqr/rVGg3fbKd4Dv5KM4aBmG
-	BtIjToxReUvu8qIlJIKCuzKB8oKl7oarePJmPKIP0sco0QIbFQ1XdAbyZjytECiCpw80=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wYJ6k-007RqY-AP; Sat, 13 Jun 2026 09:48:46 +0200
-Date: Sat, 13 Jun 2026 09:48:46 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
-Subject: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII delay
- properties optional
-Message-ID: <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
- <20260610012937.911-1-lizhi2@eswincomputing.com>
- <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
+	id 1wYJ8e-0000000C3na-1JJx
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 07:50:46 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490ac357c55so15447255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 00:50:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781337042; x=1781941842; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Mlm0YHGLM0VfFF/fXJEvgkWs1yTQHLEduURYTbkabJ8=;
+        b=rO776mKsxGK7pCQ47F4PqwGP9g2fvavcoH4BDgnz5MjUTwuwzQ44GCk8SpBNs8uZ1n
+         cqOd+5wkVunaA86pLF6pslVUufE9RjaXC16Bd9IIsLX6kUwP0KtUDcF9rl/0phoj8K3f
+         xCjR7+3iRPaqZ3PyTom7s3q74xgsoKIv9rRc/goC4JNH4BWvJaMzEYnza8gfFbZ6hIKq
+         cG4g5bv6O4Gg8zLG6yEmMrGaZM+RIKD/WIRh8q+91c3HkkHX+WfDfZIbSxIY1VQsLK0A
+         X3/v68gzH2DMFot4DwtlJO94loANDidAJsybHhejljgHqLb1N9/8ECHMdSfQBeICY3mI
+         R1TQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781337042; x=1781941842;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Mlm0YHGLM0VfFF/fXJEvgkWs1yTQHLEduURYTbkabJ8=;
+        b=hg/CBMPOEqtQeZb1qd8hL43jkpcxFk0OwbgmCNQ3HITQGROXXksBcBXCpgDw7Ju5en
+         Udhqbyj0LdWXYFrAzIW44XZZtrb0/FA51AlUnfQcONYwunAcP0FKxop8TfENYxpilTa7
+         Y0FAfcs47JhSyGLu63xMqTFiST8ycJbFYQ/JQJgMDPNTZ7S6CNcNdAoTmVN0kYseDuC7
+         EcDd8BQEZQTagCZGuxtFycsclVyc7ty0la6iwK6Yt/QHf2twnvL1L6QLnD1T6TLw/I8/
+         k1kBZswukLGZJJm+EnVKtr1sTgX5X+bkGikZgF/fWE7Zlp0syRc/l5WipUn8a/cOmQCw
+         CDnw==
+X-Forwarded-Encrypted: i=1; AFNElJ9wGtJ9LkULiLewNls0qJWEalLZVsyTjlEZ2u1IRQBHg/TKZ+ZzM32fN2zaIRXLpYrbQ8oPfPFJL+pJkodWSRwc@lists.infradead.org
+X-Gm-Message-State: AOJu0YylFxsbo8xFMpEePuWbUMXU5G1iiCVA8Wx4Ys/KuKgi+H4MRDbb
+	xroxntSZgX2D9m8AaPlpe1cK9INNpyvxjfnNJylEaBIqfxRGk0Zh7eSu
+X-Gm-Gg: Acq92OFXA6qVf+IrdjsWgvUNai2NLR/SuHLbUo8fna6NZaEx7zdsv9OAvsXMcbZXYW7
+	gKZJTO9cyURDjLYV2dFWyZDuXrYqPIaC2KLiDiMjd9aauWK8Lgs/oof1hIL+vOR/PgeouBjRJX/
+	LgEfTQ3W9nwOVTfHD8egiZP7z+DXF5r4cB3372DBdl5KGr7RnzFEavhPDFw0C8pYDRATnnAUnbt
+	5UAdGwHfqR/7O9WeiJFLKF0gOdwQqUc0IhBUCZS0spsmQevoEfo6964L/gxHmQfnzK2gSfNyWqQ
+	cOGDSylWyTk1+ZL0GKW2RKE92WzEeABhvkoPPpeg9if3hcpEAlRChROqJXv6osA9fhzQJV4TPFB
+	OmXkXydOL6D86nvoEAR6br1vvkN4FPLlH5gppM3yh4Bt+0SzNu+gggq/tMsGTi8E4p3ffk7Sc6H
+	ZbcVapZkgZ9nWBq+3hsAH/KB6MFFTzoswhFVzG1mTTfGWz
+X-Received: by 2002:a05:600c:820c:b0:490:5cd8:d213 with SMTP id 5b1f17b1804b1-490ec4d3407mr76769065e9.15.1781337042183;
+        Sat, 13 Jun 2026 00:50:42 -0700 (PDT)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea4a128csm145232805e9.0.2026.06.13.00.50.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Jun 2026 00:50:41 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: wens@kernel.org, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org,
+ Wentao Liang <vulab@iscas.ac.cn>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Wentao Liang <vulab@iscas.ac.cn>, stable@vger.kernel.org
+Subject: Re: [PATCH] drm/sun4i: fix refcount leak in sun4i_backend_init_sat()
+Date: Sat, 13 Jun 2026 09:50:40 +0200
+Message-ID: <p7BkDUOlT8udh62CkXD6NA@gmail.com>
+In-Reply-To: <20260607030950.83636-1-vulab@iscas.ac.cn>
+References: <20260607030950.83636-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_004909_856087_DFFB12B2 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20260613_005044_380997_81F3FFE5 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +102,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 10:26:50AM +0200, Maxime Chevallier wrote:
-> Hi,
-> 
-> On 6/10/26 03:29, lizhi2@eswincomputing.com wrote:
-> > From: Zhi Li <lizhi2@eswincomputing.com>
-> > 
-> > Make rx-internal-delay-ps and tx-internal-delay-ps optional in the
-> > EIC7700 DWMAC driver.
-> > 
-> > The driver previously required both properties to be present and would
-> > fail probe when they were missing. This restricts valid hardware
-> > configurations where RGMII timing is instead provided by the PHY or
-> > board design.
-> > 
-> > Update the driver to treat missing delay properties as zero delay,
-> > allowing systems without explicit MAC-side delay tuning to operate
-> > correctly.
-> > 
-> > This aligns the driver behavior with the updated device tree binding
-> > and provides a safe default configuration when MAC-side delay
-> > programming is not required.
-> > 
-> > Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c | 6 ------
-> >  1 file changed, 6 deletions(-)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > index 4ac979d874d6..ec99b597aeaf 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > @@ -165,9 +165,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
-> >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-> >  		dwc_priv->eth_clk_dly_param |=
-> >  				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-> > -	} else {
-> > -		return dev_err_probe(&pdev->dev, -EINVAL,
-> > -			"missing required property rx-internal-delay-ps\n");
-> >  	}
-> >  
-> >  	/* Read tx-internal-delay-ps and update tx_clk delay */
-> > @@ -187,9 +184,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
-> >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-> >  		dwc_priv->eth_clk_dly_param |=
-> >  				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-> > -	} else {
-> > -		return dev_err_probe(&pdev->dev, -EINVAL,
-> > -			"missing required property tx-internal-delay-ps\n");
-> >  	}
-> 
-> I think then you need to handle RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID,
-> by using default delays for these (usually around 2ns), as here all delays
-> will be set to 0, regardless of the RGMII mode in use.
+Dne nedelja, 7. junij 2026 ob 05:09:50 Srednjeevropski poletni =C4=8Das je =
+Wentao Liang napisal(a):
+> When sun4i_backend_init_sat() calls reset_control_deassert() it
+> increments the deassert_count of the reset controller, and must
+> pair that with a reset_control_assert() call to decrement it.
+> In the error path where clk_prepare_enable() fails, the function
+> returns immediately without calling reset_control_assert(), leaking
+> the reference count.  Other error paths, like the devm_clk_get()
+> failure, correctly jump to the err_assert_reset label which performs
+> the missing assert.
+>=20
+> Fix the leak by using the existing err_assert_reset label in the
+> clk_prepare_enable error path instead of returning directly.
+>=20
+> Cc: stable@vger.kernel.org
+> Fixes: 440d2c7b127a ("drm/sun4i: backend: Handle the SAT")
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-No. By default, the MAC adds 0ns delay, and passes the phy-mode to the
-PHY. It will then add the 2ns delay. It is possible to use the
-tx-internal-delay-ps and rx-internal-delay-ps in the MAC to add small
-tuning delays, but not the full 2ns.
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+Best regards,
+Jernej
 
-	Andrew
+
+
 
