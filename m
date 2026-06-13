@@ -4,94 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF49CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 12:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40372CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 12:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nBEHkzqVLw482vGdz5GT4uuKqoZ91h8lkYDukdrN6Gk=; b=bTxTDbfWagnfwcGEqhjW+0Q4ec
-	OhSuE+a8tz5WS+Nx5qGdiUoqo8MWhglLp7aYURoAlcjQ7MPQHeLK6ZNzGtD9et4KWodjbem5OyUHT
-	UkDLvaZCnO1tgRCe5rcEHA2KU4EsEMX387/PqxpuHYq3enm59xBXo4sSkyJoTqkRSjMkz9uuOL0bM
-	4iF97TSXi96hATPA7ILZi+l7Ims+fZaOF8di2eTarn3YRmmH01mfr0ddWoKrpfhHeCt89JqjxKHDX
-	Uz0vNjLEipzlTBtelVhJcgJrYQ88856jD00De9fjMKCTzrYe8YfFS+i95RAwr1294gmnD3nHfMtTk
-	/8HO3d5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2nJDFZ0RQJ1vXb5m3w+4361WDqY9OZe6RpHvJSGou50=; b=ueXahRimmY/QFK
+	blOF7BkDp4uMS0bvh9sHllSqxGiamsBGjUsh03vkcYxDUHq6Zqp53TUz61VCaooUOLaeFeWVW/jub
+	rSgmOuNkGhbgZY4ti/PzDiWm5767RfneOAHVKiPf+o1rQUGNkVdZmtRMWZD4Owp1P+aciv5ZNCi6f
+	goFISyYs/V34Zl65F1S938aMfJJiqgSAVI2LiqknBNEcNw67Pg2fDaQaBmAZ8JbVspf61447wp0CU
+	gX5Fd6+Ya7U4mcp71+Bp6RXt9OFNyNpoBoirrZqU+bBiv3M9w1/TN5crbfaBz7gxVkMfUFlAYvGkb
+	15zq0YVv38YkNtlEcVDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYMAe-0000000CDck-0nkF;
-	Sat, 13 Jun 2026 11:05:00 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wYNbO-0000000CHT1-0Dos;
+	Sat, 13 Jun 2026 12:36:42 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYMAc-0000000CDc0-1759
+	id 1wYNbL-0000000CHSd-2xKF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 11:04:59 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490b9318997so13078025e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 04:04:57 -0700 (PDT)
+	Sat, 13 Jun 2026 12:36:41 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3078e0dcd67so2137537eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 05:36:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781348696; x=1781953496; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nBEHkzqVLw482vGdz5GT4uuKqoZ91h8lkYDukdrN6Gk=;
-        b=AD64WDj8jSsX/ZVa6yfFTQcln7zn8a2YKqozn5gJeM1x9M62CFDgXAEsQKdZhj7cfE
-         UGmv08aDl/r8U0lz+EUzHaU8EYRaEAy45yhckeTSPuBlejA9Zbgxe03CiG5UyEbNXlyi
-         0Bz7Ke/4w6rGu5XvqWpXsGTJo4IH9Pa+oudFQA25G9kqlIyia8e64rII8jn74ordJs8G
-         63xowiJ1wQ7a9K3xXBS8JX9FdH18nUQ1OarB1+UKum5cya6xXADjyj3e56qvoC7fpqdc
-         g6hYLQNdcpUecaXaxuR49ASjD8NC7SnIHYPm65YP52dG0sEZlDXG13h0aVJkr9ant+V4
-         r5tA==
+        d=gmail.com; s=20251104; t=1781354199; x=1781958999; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2nJDFZ0RQJ1vXb5m3w+4361WDqY9OZe6RpHvJSGou50=;
+        b=NGKmx3N4Mttf8ANtzHVq65lH7PmtHjK7WZyFrEATJ8uL1CftpK/b7U2iQ143V1y4An
+         qxyp41gjsRxlzGhaVRLjYFkVTss3Sn8zNKACuSj7vwPCxDyJZdYVOvW169WrG/U+sMG/
+         Lsme/DF/C3dol/TP+4+0mVUQZJkhgffV438tzwaxITpEEgHa65q9Dgr+8KBF6UCRdl5E
+         tfPhsIosQj+A6Vb1rmgK/IpsTr6UIDlx62g2nrnutf9fK2KhpC1/879e5HsivwJK34au
+         PmSL0fz3XF+3Y4o5zPWlx4wuMZ1mjRWDLB13jgc7Cs64mjYIHQVfD4uSgJrGmbt6jac6
+         Xpyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781348696; x=1781953496;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nBEHkzqVLw482vGdz5GT4uuKqoZ91h8lkYDukdrN6Gk=;
-        b=CMlleeWjhgTHiiwv/jCDPT2GliVZCD/d8AEBb5n6I1iueN6kzQWKoHOFMFXPyZYXVT
-         Of9Gg2YILUs1eLgKULW0Gg3Wz4jTCz5Zv903lUX1ZEaiXoGzDzGX0DHPJeSTt1t0fqdV
-         59ckv3rultNYWz2bhq5jjuL1hoyl8d+pGR+EtR45+/RJGESGfNTSy3M5rRPgUXj0oLMM
-         +Viu7K+6TqLbcufjMSZ77JmxENq/vWwRxe3WV8Ouhnvifkos0ZXHgVcY57dBVun/jQMH
-         NI2kQ3ENZzWnAfnr4zReFIYaOXqzGX1dBoxS3X9F3y70Nc5sm6b5QYM7E1ho5Q5a6h6H
-         fiGg==
-X-Forwarded-Encrypted: i=1; AFNElJ/TxGIdeAOTN7pkTSs47rBVJWNLLjEoCh5LunqQw1ag3zwiSJj4P6XUXll3Tp4Y20jGRd0NYdbLV041sZcRSAtK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdqQBf89ZrMvjcRisQvR/souVhQcCT8y8kjd4rT8NAqQUYjDcJ
-	sfVo/PZFhFHYiEomUF4/pnzMfqSvxeEnLkB4ldOPTjFqnZiBMWi+pHV3
-X-Gm-Gg: Acq92OE3UhtKDcZc3wwcv+Y+2Qc6/EG0BwwywMbievHpIkuw8XlW8JwnV2GsQXnLgh6
-	UE4yy35hX3Su1TP9tKOEr7JKhkOXRshiO5hL4aAgd6EXEwcUhBEDae1LqMK/BdhEVKWEvYgf4HQ
-	tA0YyUKAMWXc3ycqP/Yeog8QV6Rq08IPY5qYy0H3NiSXjXQ4DRmINsii2cO0pdBeH0tR5JxtqWq
-	mDYWZk5Fap6dKtmcGFyVxbSGEgzuD6VddGIjnvOhOEXgG/+TvYnmuyU2WH2N8XftM0orNGrVjmn
-	bXcpQA5Ph0+/04AH3OwKlHkTLZ5Y9F9IJ0Uw8Pz7nynhtWiafu2o20D5ck8h9Eq4cn60W4SKgl5
-	PRTV0oUC751OUQMSzZhHUwIXcfygWCzmnwT+Ku4tmLzxoABV8NR1pvuCZLyDSoYq0Wp4OfgRIZ2
-	C9fx9zWqjUbEbBkQOu32pDwFpOm3HSynAHp9jmA5/dwtHh
-X-Received: by 2002:a7b:c8ca:0:b0:490:6237:521d with SMTP id 5b1f17b1804b1-49220092e7dmr27202205e9.13.1781348696232;
-        Sat, 13 Jun 2026 04:04:56 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49220310a58sm75036335e9.4.2026.06.13.04.04.54
+        d=1e100.net; s=20251104; t=1781354199; x=1781958999;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2nJDFZ0RQJ1vXb5m3w+4361WDqY9OZe6RpHvJSGou50=;
+        b=Cn1tpxIMkX+rqDrp0tYc3vUXGIyclXwBkCiHdsw/8+8Zl0VnFWUHcEbzbJTs5T8KdO
+         mM6ijtYOkJkx70w7gId6279jjbc27/jcTCNaaB++uJWiRemFInGCXIFH8qA/oNe4uuo+
+         NI3a5dlY8rndCcVd31MV6SWb/QrMUzb6TkM33u4WTSCd3vUIebV6ul8pmCWm5bQuqIMB
+         saoFNTvTl8xXu7iCCw4pjASbWnc8BA43iN+6nmsMQw9zXAWwcKMLEuqPH2Z7HdC3Wdvw
+         YsQ+pJJavSK8yyt57PeqTaa1ZDqO9/c+kKCfos0PK8n4+1Zh0eiPqMtpDWUcQWsuGB3V
+         n6gw==
+X-Forwarded-Encrypted: i=1; AFNElJ+UVtmVN+iv/UFivoAuN/GeSM7a1SsCxncX9WIZob7rIpa/Z5Pa+hBWgbytsNaYq1wksOWl7MPxLQBph2Yg+VQw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuL0Fb+mo+f94p3P8WMKn+cyjEzZwroiNTP9AzP4oN+vACsAK9
+	O/iVHfKPO4jmdC7d6chJ17zKz/ck+Kr7uoMWhRMAR6CddZoZHAuhuS++
+X-Gm-Gg: Acq92OFGf1Ds2utBwMXnOH838UDvS1h1zOwXW/uscmwqsS0i46MELYA88QamnklPIHz
+	QuYpSAloQQHHUeU/b1j3jCf4DLvERr9iU+XwfaFFIpJmg0XunLdwt6q7RFApBQKn/r1lD+Mri34
+	NxVZXVu92FqW/UMdw0gVf/Tpj4zBK7bwejdjNwvd7ejx462EvmWBNJcl7pXTx4+EK4nSs4BekBA
+	VDqmZpaTWunUVI2m054/+O2o6PeNcAKxlapxBxhJzLWt97xLBe92lb41bzp4z+oqRnsZOv9WGSd
+	Xj75lWjNljeUgDQ41+nxe0S3/PFPM/bbb6PsCj9N0QRSozuGMecxhmyN2IleE5HXEWHmLgCj80e
+	NlMHpx2EKK9RzVLyAQMK3XtEkaylzm0/WToS4Jd14/u1CdCalZVV6XjlotE3vvEhlw5jWkt6Tmt
+	ZJJ2MphdmPBpNxJ3SBgTk9ZToilCJP
+X-Received: by 2002:a05:7300:6d21:b0:2c5:220c:5670 with SMTP id 5a478bee46e88-30935239b09mr1654447eec.2.1781354198696;
+        Sat, 13 Jun 2026 05:36:38 -0700 (PDT)
+Received: from [127.0.0.1] ([38.252.222.142])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb95450sm9176630eec.28.2026.06.13.05.36.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 04:04:55 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- Lukas Schmid <lukas.schmid@netcube.li>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 3/3] ARM: dts: sunxi: add support for NetCube Systems OpenNMC
- (dobermann)
-Date: Sat, 13 Jun 2026 13:04:54 +0200
-Message-ID: <sTX6E5Y2SsWfe6WORpTiCA@gmail.com>
-In-Reply-To: <20260606205452.2386930-4-lukas.schmid@netcube.li>
-References: <20260606205452.2386930-1-lukas.schmid@netcube.li>
- <20260606205452.2386930-4-lukas.schmid@netcube.li>
+        Sat, 13 Jun 2026 05:36:38 -0700 (PDT)
+From: Denzeel Oliva <wachiturroxd150@gmail.com>
+Subject: [PATCH v3 0/3] clk: samsung: exynos990: Fix PERIS gate clock
+ parents and add TMU_SUB
+Date: Sat, 13 Jun 2026 07:36:15 -0500
+Message-Id: <20260613-exynos990-peris-fix-v3-v3-0-2b230db78ae4@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAL9OLWoC/yWMQQqDMBAAvyJ77kJMIBq/UnrQdG3XQ5RsFUX8u
+ 2s9DsPMDkKZSaApdsi0sPCYFNyjgPht04eQ38pgjfXGlw5p3dIoIRictBTsecXFYd/GMnR1Faz
+ xoPGUSc1//HzdLHM3UPxdNziOE7hRLWV6AAAA
+X-Change-ID: 20260613-exynos990-peris-fix-v3-fac19b879206
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781354194; l=1267;
+ i=wachiturroxd150@gmail.com; s=20250819; h=from:subject:message-id;
+ bh=WAkp6NOqHTQF9JqXMs+Q8InAsPduDAdJGM1CNG6S2qs=;
+ b=ge4xC/xkTrmRFZwUxQ3xLwJohhzxi5kZoo5r4alnDXRKRBCLCvWbw6d6atLzgZAkFVx9jMxiT
+ ba+T7t2FpG6BvzZmRKoeZttk5pu4O0nXWqNd+GfeBywsrRv4c9H034W
+X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
+ pk=qNvcL0Ehm3chrW9jFA2JaPVgubN5mHH//uriMxR/DlI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_040458_309922_0AC8CEC9 
-X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-CacheID: sfid-20260613_053639_775267_B6AE9226 
+X-CRM114-Status: UNSURE (   9.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,30 +117,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 6. junij 2026 ob 22:54:43 Srednjeevropski poletni =C4=8Das je L=
-ukas Schmid napisal(a):
-> NetCube Systems OpenNMC is an open replacement for APC SmartSlot Manageme=
-nt
-> Cards. It is based on the Nagami System-on-Module. It breaks out the
-> following interfaces:
->=20
-> - 10/100 Mbps Ethernet
-> - USB Type-C OTG using a TUSB320 (usb0)
-> - USB Type-C Console Port using a CH340 (uart3)
-> - USB Type-A Host with internal CH334 USB-Hub (usb1)
-> - MicroSD Slot with Card-Detect (mmc0)
-> - WiFi/Bluetooth using the modules built-in ESP32
-> - SmartSlot serial interface (uart4)
-> - DS3232 RTC with CR1220 Battery Backup
-> - Extension connector providing SPI,I2C,USB,CAN,UART for future use.
->=20
-> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+Fix several PERIS CMU clock parent mismatches and add the missing
+TMU_SUB_PCLK gate clock.  The dt-bindings patch adds the new clock
+ID.  The second patch adds the TMU_SUB_PCLK gate.  The third patch
+corrects eight gate clock parents and reorders the GIC mux parents.
 
-DT Check passes, so:
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+---
+v2 -> v3:
+  - Split TMU_SUB gate addition from parent fixes into separate
+    patches (Krzysztof)
+  - Now three patches: dt-bindings, add gate, fix parents
+
+v2: https://lore.kernel.org/r/20260613-exynos990-peris-fix-v2-v2-0-3dff7ade75b3@gmail.com
+v1: https://lore.kernel.org/r/20260528-exynos990-peris-fix-v1-1-5b65aa7def2d@gmail.com
+
+---
+Denzeel Oliva (3):
+      dt-bindings: clock: exynos990: Add CLK_GOUT_PERIS_TMU_SUB_PCLK
+      clk: samsung: exynos990: Add PERIS TMU_SUB_PCLK gate
+      clk: samsung: exynos990: Fix PERIS gate clock parents
+
+ drivers/clk/samsung/clk-exynos990.c           | 24 ++++++++++++++----------
+ include/dt-bindings/clock/samsung,exynos990.h |  1 +
+ 2 files changed, 15 insertions(+), 10 deletions(-)
+---
+base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
+change-id: 20260613-exynos990-peris-fix-v3-fac19b879206
 
 Best regards,
-Jernej
-
+--  
+Denzeel Oliva <wachiturroxd150@gmail.com>
 
 
