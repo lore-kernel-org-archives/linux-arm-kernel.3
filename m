@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89949CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 06:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B6C1CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 06:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4QsU3lUuOvN1fkkJCd/R0PVYRNNXIyBXyGs7tF0ADRs=; b=Hej9phFBFWqfbQesq5oXdm6Azg
-	vdNBW1j1wy9j0WszKwNQTst0FL8hEtiyawW/RLaQ8/AIjXRKKIO+6tFdgDWpNnyTICrWkbPQChRjd
-	oT1qJE7/Lkr+z2+5F+udUqtYMyOc0OKYBGtlhB1lgwWyXjN1EwxII07v+XeOMW0KP7v6tjLUlrdNC
-	4c/he3dEMvnk84xzHujqbjfVBkHlmKBlXuaJFvDwbWrCGAISGNsUIUVfVRdL1CL5tj8rOBTciwDd+
-	9momx1TP+X+s3p8oEbIStL1Ih9F/cUkmbd3nsGhbSu2LSuqp/Oln4ZbBiV9wwsHqYvFGfm0odP33U
-	THM9ZsAA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CRmyPRAFuevqTsUvI5TWwwBpkZJdoLOQStZBNs50ckM=; b=VvcNA84jSmJp8UNxaL1scATVuQ
+	i5PiN9mLVF9Z3PvJAYV9OtvqtDg69h/NwAKgNZ2AiyLdtmiPYqPubRn+N+Byv08JuqB3Y68BlMoEW
+	nMaLHTa3OA0nZ+ukgWsoHmu8vweW9y0yb7f1Encrs0nbNEb056FNzl7z3PjzvjoIYt/dkXZRcwBnf
+	knOB6vVxoIMVKnZYAat7HaTZu/H4MZRmld43PPr01Noi31DyaxoOAlmkDpdeWkgYhXbi+pdt7B1gw
+	IBtu0tP3SYvm3uK+ADgEcVSU3TAQjQzV8/ehIN1WPIo/ipNgnlpU+zUkdjXYuj0QQ2wfbwKEGIEaW
+	PDpJkRpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIK3-0000000C0ks-11bT;
-	Sat, 13 Jun 2026 06:58:27 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wYIKB-0000000C0q1-3LKx;
+	Sat, 13 Jun 2026 06:58:35 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIJz-0000000C0jP-062o
+	id 1wYIK6-0000000C0lr-0lV0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 06:58:26 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4921e4dd62dso5888885e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 23:58:21 -0700 (PDT)
+	Sat, 13 Jun 2026 06:58:33 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490be03d47bso16719165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 23:58:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781333900; x=1781938700; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4QsU3lUuOvN1fkkJCd/R0PVYRNNXIyBXyGs7tF0ADRs=;
-        b=J/zlCmStw6p2xrhIJRWJlN+Vcuff4oxJ+8yvk61j9J5lN+86hAj5th96kpAoV7JZMx
-         4VvLd2ue/BthQEXy/JpSv5iIloHRNVw1NbNPYBwZEfnC4vqbQ0diXsmbrnj4lxqbcH6Z
-         h3sEGStCFF+R7vNf1vdTv/Gt9PU40w7j0N1XlDpZdqfXDejAzDUUBgWEeQdMykUKqtmz
-         rK6s6up3NF4k/98LSyw1L1NEgByhIReMagykcng0zQ2wtqKSd43PNMnC43a4I2RhzPpN
-         5cJf58HjDseh2Xh/2Dr+bj4tuSweC8CPjphtt3n2FhTKRE5QxjxAhkxYcjX3OZGSwz4E
-         yXcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781333900; x=1781938700;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1781333908; x=1781938708; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4QsU3lUuOvN1fkkJCd/R0PVYRNNXIyBXyGs7tF0ADRs=;
-        b=UWGl5E+sIQmCbU5xNurRWZ0hPKQkXGLQkG7XlmGi3BxFcA47JqBIxfQ6dMfp+uEM2J
-         OmPy/eOPz1UqHv08cNUk5U1P7QBinDIY6QrA8bWG9/6V7cDPidkDGC+r3Bc2fg9MgOrf
-         2WWfqEikPTRDYfwTcUPETvIfbRTj3hZ9Ga0k+xNyxEubdHPHPyibFIsEAbFf+1JLeFdG
-         cKmPbKAJUVA7vnHQawL3lMm7NRM7fDoE+tk/rgYvaxggssMV0IQ2oBcB1BCiZWJUSxo/
-         +7xcUGgdRs7XbNZws6tCo4n9k1fgIvtzepxKZqK+WDVMZEM+1DQBRJXqMz4pQbknEk4j
-         ERJQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9BhisG6gPIc/kIuwqUiiS+NpxY2+tNVxZGOXtmTyz5mHupt3IabWy73xXwgqWZbYCLgzEoECHSweIaB9DKD5l8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb5OMuRrautiQBF7JMsxnnSZRvf38T1IpKnFbzJCDh4jk5HRHE
-	iijBiFNyBNu54ZHP0e9V8GVa4mMZ4qiFmW2XNcMzH7AVrgBFewXFv9+i
-X-Gm-Gg: Acq92OEnAqU6k3AgnTE6BsUGSOZ8jZ80L/ri9w9DW5PWcNUbZHxHj2fmFEDpiYC236F
-	Dr1gwgU5HZhwm4li6ChPgn2B64JigAc/ExfIFkzA4DwRzcbrbAM3o1mxNRLaefEdkUttPfe6YXb
-	F5ihVEOeyS+RH5IXBJk64D6Ucee+a6kotlRROkCfGLtzdmMSDZkhZRdrXZxXDQSTWfTWA2WXTTq
-	m1l+0jiEsGsWos2MAMHrv7JIRI2thDqvftn9QMeUjesxW87IT0TNE4q90vd3gbY2bl8pRl+Fepb
-	zicaV4HaWrNvMOEagtZBODZebYaZvHnc5wW+i9Pcy5X6sfvnpThPw68w+hCJn7jsz3Ti+YHURqC
-	dUKCOoZ84m5BO0PR3X9QV18rNYKHAYedi0N3EBg/kuoG5B+9p4Z4C5yNQ7lgteY2OOjQg3oToGG
-	rO9W/eFMqteOSo+CMpleX65zM8lSDe/NfN2uIq6Qjl0g==
-X-Received: by 2002:a05:600c:c171:b0:48a:53cb:8604 with SMTP id 5b1f17b1804b1-490ec4dfb03mr56249045e9.14.1781333900211;
-        Fri, 12 Jun 2026 23:58:20 -0700 (PDT)
+        bh=CRmyPRAFuevqTsUvI5TWwwBpkZJdoLOQStZBNs50ckM=;
+        b=InBXeg2Gu8yfBwn04op5gj4eixAZSkqUQcDdK8GUBK7GP8GoO8zdFydMLiGU0Vdbrt
+         ASC3qofsZL5TGDn9rIrhA2cf0AcNzG/FdzG0pk4XBLJTmUsCVybFCuMdADVG0gONMHOx
+         EBF0W5+rOdpccg7RWGMamK1Il9hAr5qsgpMeFSWg/TGfSDFUXaHu66QBVPpBpX26zYWC
+         ZftZXMRgBGQlkQGaQHJHNGjXo+sE80VfCVQTI1/YvoMy3gBOfrvpBMapuiWJaHW7xp4D
+         J9wmHW9t93lAtGp2ccKzuMtiMuYvwfZGhf92LsPrJNRMgPm/vFGjoVymNpqAkI+lKU0Z
+         xcpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781333908; x=1781938708;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CRmyPRAFuevqTsUvI5TWwwBpkZJdoLOQStZBNs50ckM=;
+        b=A04n9RamoAwFQ9QRRQ65kai6WObn0UVgnBEvrvXypKK4koXRhzpeWPVWpWh5MSnIIy
+         aZBNp7q4t4swvis0dPRhivk2NjRufa8tQwYcERrpcai9X2gYk+tyKdC9mMbZhK4SGuM7
+         NHKAica09bc4P6eQ/8pq4xqVNi6tHJ0De0QJZVYZjNwdo8WWLKt4V1sQkkPTlrhlI12y
+         wc3v9TQZCIO0HSCmVlJAJ3g+oqaa/4dzYiDqAe6WcBQXcBK/c9MQjqacpdBGJjZ+iAql
+         6fAHaF/DB/fPFxM8pT9He585lJRHhcWV08SyLAmcnQjXOFjiwwJ/jbp51J9NwSciw6i7
+         wszA==
+X-Forwarded-Encrypted: i=1; AFNElJ/p2IW34hIXDsx4Nfq8sKfLK634FI7xuxciZ5XKjGIs1MyBvZO2JXkI9OtA8eAeDlLWhKIRlVbd3hHOfgBmD2Mu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ6XpiJIiMg+CyJZeoNZIbwCr/VAdUMkpNXOBtMHye0rQR8chn
+	Kuo6PI6da8jZqGCiFW/+P2TeJ4H9nvvABjFxeXK/K5Vm5wK9pZxzxMBh
+X-Gm-Gg: Acq92OET7SBCxPD/FpFdE0NdWaSwBwdZy6NZzRcAdu1sNa0q6kawIpNRjy/bOG4KcSO
+	PchPInKZppKR23T0OOpZYmm4z4i6/HRIynjpR7moSWHVRraAHsipd9VB8tNZraSlXETxP08gT5F
+	hl6DmzGAXtOSid1W/4zED/0fgq/6PxzJqCi8jWa/PuzwwMHSSaX8ELDTDU/itE/wx4siWWsFl/t
+	dsa+OB7+jgHnFn5RrgwlKhHUE+abQsVwQxdrR8PPdSrMLyI8XHuLE35dNzMh2hsIiYCwj9ov5Rk
+	KLgTBwUDT8PUZ/et+38pzwdnBT8by7fPthu6c9IgAgv1yPzqz4q6V2BXBaf5xPGUApDO5AWCXK9
+	z/DsX41b7iMyMJ4FMR86zMuHp4syliWMjKqCxft2JyVrDRTo98B5CRAtLmkDUuiGkQEgGP3MiOk
+	p579AdMHLI6AP7YkKqXADpqcuDOkoeXMN9onudZn85iQ==
+X-Received: by 2002:a05:600d:8489:20b0:490:b724:507d with SMTP id 5b1f17b1804b1-490ec4cec11mr54479185e9.11.1781333908035;
+        Fri, 12 Jun 2026 23:58:28 -0700 (PDT)
 Received: from debian.tailb81abf.ts.net ([2a01:e0a:104a:4d80:14c0:9448:1c38:77df])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492202e5cbasm42917705e9.2.2026.06.12.23.58.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492202e5cbasm42917705e9.2.2026.06.12.23.58.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 23:58:19 -0700 (PDT)
+        Fri, 12 Jun 2026 23:58:27 -0700 (PDT)
 From: MidG971 <midgy971@gmail.com>
 To: tomeu@tomeuvizoso.net,
 	ogabbay@kernel.org,
@@ -89,15 +90,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	diederik@cknow-tech.com,
 	jonas@kwiboo.se,
 	Midgy BALON <midgy971@gmail.com>
-Subject: [RFC PATCH v4 0/9] accel: rocket: Add RK3568 NPU support
-Date: Sat, 13 Jun 2026 09:01:07 +0200
-Message-Id: <20260613070116.438906-1-midgy971@gmail.com>
+Subject: [RFC PATCH v4 2/9] accel: rocket: Derive DMA width and core count from match data
+Date: Sat, 13 Jun 2026 09:01:09 +0200
+Message-Id: <20260613070116.438906-3-midgy971@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260613070116.438906-1-midgy971@gmail.com>
+References: <20260613070116.438906-1-midgy971@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_235823_096193_E9E96F7E 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20260612_235830_274766_8077DD42 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,135 +117,140 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Midgy BALON <midgy971@gmail.com>
 
-RFC, not for merge. End-to-end inference does not produce correct output
-yet (see Status), so per the v2 discussion this is a request for design
-feedback. It probes, attaches, and submits cleanly on a stock v7.1-rc6
-tree; what remains is one hardware-internal issue.
+The probe already has the per-SoC match data, which now records the core
+count and DMA width.  Use it for the cores array allocation and the
+device DMA mask instead of re-scanning the device tree for available core
+nodes.
 
-The RK3568 has a single NVDLA-derived NPU core, the same IP family as the
-RK3588 NPU the driver already supports; the register layout matches. The
-RK3568 differences are a 32-bit NPU AXI/IOMMU (vs 40-bit) and explicit
-PVTPLL/PMU bring-up to power and de-idle the NPU before it is reachable.
+While at it, reject a device tree that declares more NPU core nodes than
+the SoC has, so the fixed-size cores array can never be overrun.
 
-Patches:
-  1-2  rocket: per-SoC data struct, then derive DMA width and core count
-       from match data (refactors, no functional change); patch 2 also
-       bounds-checks the per-SoC cores array.
-  3    rocket: RK3568 SoC data; start the PVTPLL compute clock via SCMI.
-       Powering on and de-idling the NPU NoC are left to the power domain.
-  4    rocket: reset the NPU before detaching the IOMMU on a job timeout
-       (the detach otherwise stalls a wedged AXI master and WARNs).
-  5    rocket: keep the IOMMU domain attached across jobs instead of
-       re-attaching per job (the per-job rk_iommu handshake on the idle
-       NPU MMU is slow and noisy); also drop the domain on reset and stop
-       the scheduler before IOMMU teardown.
-  6    dt-bindings: add the RK3568 NPU compatible; require rockchip,pmu
-       for RK3568.
-  7-8  arm64 dts: add the NPU and its IOMMU, and enable them on ROCK 3B.
-  9    pmdomain: give the RK3568 NPU power domain a regulator so genpd
-       owns vdd_npu via domain-supply (Suggested-by Chaoyi Chen).
+Signed-off-by: Midgy BALON <midgy971@gmail.com>
+---
+ drivers/accel/rocket/rocket_core.h   |  2 ++
+ drivers/accel/rocket/rocket_device.c | 15 +++++----------
+ drivers/accel/rocket/rocket_device.h |  3 ++-
+ drivers/accel/rocket/rocket_drv.c    | 13 ++++++++++++-
+ 4 files changed, 21 insertions(+), 12 deletions(-)
 
-Dependencies. This series no longer touches the IOMMU driver; two
-in-flight Rockchip IOMMU changes are relevant but not part of it:
-  - Simon Xue's "iommu/rockchip: Drop global rk_ops in favor of
-    per-device ops" [1]. On boards with more than 4 GiB of RAM the NPU
-    MMU's DTE must stay below 4 GiB (its DTE address is 32-bit), so the
-    NPU IOMMU is described with the "rockchip,iommu" compatible, whose ops
-    allocate the page tables with GFP_DMA32; the SoC's other IOMMUs use
-    the "rockchip,rk3568-iommu" (40-bit) ops. The driver keeps a single
-    global ops pointer, so two ops on one SoC trip its coexistence check;
-    this series therefore sits on top of Simon's per-device-ops change,
-    which Rockchip (Chaoyi Chen) confirmed is the intended way to give the
-    NPU MMU its 32-bit DTE.
-  - "iommu/rockchip: disable fetch dte time limit" [2] (Simon Xue / Sven
-    Pueschel, in the iommu tree), which sets AUTO_GATING bit 31. v3 carried
-    a local AUTO_GATING patch; that unconditional fix has since been merged,
-    so this series drops its IOMMU patch. The bit is a no-op on this
-    hardware in any case (the page walk completes on its reset value).
-
-Power bring-up. The NPU is brought up through the power-domain layer (no
-driver hack): the NPU power-domain keeps its clocks but drops the pm_qos
-phandle (qos_npu sits behind the gated NPU NoC, so genpd's power-off QoS
-save faults reading it), and vdd_npu is wired as the domain's
-domain-supply with the domain marked need_regulator (patch 9), so genpd
-brings the rail up before it de-idles the NoC at power-on. The PMU de-idle
-then ACKs without PVTPLL running; PVTPLL is only needed for compute.
-
-Status. On v7.1-rc6 the driver probes, creates /dev/accel/accel0,
-attaches an IOMMU domain, and submits jobs; the program controller
-fetches and broadcasts the command list. Inference output is still
-wrong. The kernel side (this series) appears complete; what remains is
-mesa/Teflon userspace, which still emits RK3588-tuned config (to be
-filed on mesa-dev), and the hardware: with corrected config the NPU
-reads the full input and weight tensors (per its DMA counters) but the
-MAC/output stage never completes and the job times out, leaving the
-output at the buffer's zero-point. It is not in the command list (a
-byte-exact replay of the vendor's command list behaves the same).
-Pointers from anyone with RK3568 NPU experience welcome.
-
-Known residual. On the first IOMMU attach the NPU MMU is idle with paging
-already enabled; the rk_iommu stall/reset handshake does not complete in
-that state and logs one burst of timeouts before the (kept) domain
-settles. It is harmless here because the job times out regardless, but it
-points at an idle-MMU reconfiguration corner the rk_iommu code does not
-handle on this block.
-
-[1] https://lore.kernel.org/linux-rockchip/20260310105303.128859-1-xxm@rock-chips.com/
-[2] https://lore.kernel.org/all/20260428-spu-iommudtefix-v2-1-f592f579e508@pengutronix.de/
-
-Changes since v3:
-  - Dropped the local AUTO_GATING patch: the correct fix (set AUTO_GATING
-    bit 31, "disable fetch dte time limit") has since been merged upstream
-    [2], so the series no longer touches the IOMMU driver.
-  - vdd_npu: new pmdomain patch (9) gives the RK3568 NPU domain a regulator
-    (need_regulator) and the board wires domain-supply, dropping the
-    regulator-always-on workaround (Suggested-by Chaoyi Chen). It relies on
-    the in-tree pmdomain default-off-if-need_regulator handling. The
-    "Failed to create device link ... <pmic>" line at pmdomain probe is a
-    pre-existing fw_devlink cyclic-dependency warning (the single
-    power-controller provides every domain, including the one the I2C PMIC
-    needs), seen the same way on RK3588; it is harmless here beyond a few
-    wasted EPROBE_DEFER retries, and a proper fix belongs in the
-    power-controller driver, not this series.
-  - rk356x dts: also assign the CRU CLK_NPU so the NPU AXI bus clock comes
-    up at 200 MHz instead of the 12 MHz boot default; order the NPU/IOMMU
-    nodes by unit address.
-  - rocket RK3568: fetch the SCMI/PVTPLL clock by name (the v3 bulk index
-    resolved to the wrong clock); drop the redundant driver PMU de-idle
-    writes (handled by the power domain).
-  - rocket: clear the attached IOMMU domain on reset; unwind through
-    rocket_core_fini() on noc_init failure; stop the scheduler before the
-    IOMMU teardown.
-  - rocket: bounds-check the cores array against the per-SoC core count.
-  - Binding: require rockchip,pmu on RK3568.
-  - Dependency framing: confirmed by Rockchip as v2 + 32-bit DTE via
-    Simon's per-device-ops series (was framed as v1 in v3).
-
-Midgy BALON (9):
-  accel: rocket: Introduce per-SoC rocket_soc_data
-  accel: rocket: Derive DMA width and core count from match data
-  accel: rocket: Add RK3568 SoC support
-  accel: rocket: Reset the NPU before detaching the IOMMU on timeout
-  accel: rocket: Keep the IOMMU domain attached across jobs
-  dt-bindings: npu: rockchip,rk3588-rknn-core: Add RK3568
-  arm64: dts: rockchip: rk356x: Add the NPU and its IOMMU
-  arm64: dts: rockchip: rk3568-rock-3b: Enable the NPU
-  pmdomain: rockchip: Add a regulator to the RK3568 NPU power domain
-
- .../npu/rockchip,rk3588-rknn-core.yaml        | 27 +++++++++-
- .../boot/dts/rockchip/rk3568-rock-3b.dts      | 18 ++++++-
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 38 ++++++++++++++
- drivers/accel/rocket/rocket_core.c            | 30 ++++++++++-
- drivers/accel/rocket/rocket_core.h            | 19 +++++++
- drivers/accel/rocket/rocket_device.c          | 15 ++----
- drivers/accel/rocket/rocket_device.h          |  3 +-
- drivers/accel/rocket/rocket_drv.c             | 50 ++++++++++++++++++-
- drivers/accel/rocket/rocket_job.c             | 45 ++++++++++++++---
- drivers/pmdomain/rockchip/pm-domains.c        | 36 +++++++++----
- 10 files changed, 245 insertions(+), 36 deletions(-)
-
-
-base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
+diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
+index 8ee105a0be40e..d6421251670dc 100644
+--- a/drivers/accel/rocket/rocket_core.h
++++ b/drivers/accel/rocket/rocket_core.h
+@@ -16,9 +16,11 @@ struct rocket_core;
+ 
+ /**
+  * struct rocket_soc_data - per-SoC configuration data
++ * @num_cores: Number of NPU cores in this SoC.
+  * @dma_bits: Physical address width reachable by the NPU's AXI master.
+  */
+ struct rocket_soc_data {
++	unsigned int num_cores;
+ 	unsigned int dma_bits;
+ };
+ 
+diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
+index 46e6ee1e72c5f..6186f4faa3a2a 100644
+--- a/drivers/accel/rocket/rocket_device.c
++++ b/drivers/accel/rocket/rocket_device.c
+@@ -6,18 +6,16 @@
+ #include <linux/clk.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/platform_device.h>
+-#include <linux/of.h>
+ 
+ #include "rocket_device.h"
+ 
+ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+-					 const struct drm_driver *rocket_drm_driver)
++					 const struct drm_driver *rocket_drm_driver,
++					 const struct rocket_soc_data *soc_data)
+ {
+ 	struct device *dev = &pdev->dev;
+-	struct device_node *core_node;
+ 	struct rocket_device *rdev;
+ 	struct drm_device *ddev;
+-	unsigned int num_cores = 0;
+ 	int err;
+ 
+ 	rdev = devm_drm_dev_alloc(dev, rocket_drm_driver, struct rocket_device, ddev);
+@@ -27,17 +25,14 @@ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+ 	ddev = &rdev->ddev;
+ 	dev_set_drvdata(dev, rdev);
+ 
+-	for_each_compatible_node(core_node, NULL, "rockchip,rk3588-rknn-core")
+-		if (of_device_is_available(core_node))
+-			num_cores++;
+-
+-	rdev->cores = devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_KERNEL);
++	rdev->cores = devm_kcalloc(dev, soc_data->num_cores, sizeof(*rdev->cores),
++				   GFP_KERNEL);
+ 	if (!rdev->cores)
+ 		return ERR_PTR(-ENOMEM);
+ 
+ 	dma_set_max_seg_size(dev, UINT_MAX);
+ 
+-	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(40));
++	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(soc_data->dma_bits));
+ 	if (err)
+ 		return ERR_PTR(err);
+ 
+diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
+index ce662abc01d3d..2f74e078974e3 100644
+--- a/drivers/accel/rocket/rocket_device.h
++++ b/drivers/accel/rocket/rocket_device.h
+@@ -22,7 +22,8 @@ struct rocket_device {
+ };
+ 
+ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+-					 const struct drm_driver *rocket_drm_driver);
++					 const struct drm_driver *rocket_drm_driver,
++					 const struct rocket_soc_data *soc_data);
+ void rocket_device_fini(struct rocket_device *rdev);
+ #define to_rocket_device(drm_dev) \
+ 	((struct rocket_device *)(container_of((drm_dev), struct rocket_device, ddev)))
+diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+index 384c38e13acce..f0beed2d522c7 100644
+--- a/drivers/accel/rocket/rocket_drv.c
++++ b/drivers/accel/rocket/rocket_drv.c
+@@ -159,11 +159,15 @@ static const struct drm_driver rocket_drm_driver = {
+ 
+ static int rocket_probe(struct platform_device *pdev)
+ {
++	const struct rocket_soc_data *soc_data = of_device_get_match_data(&pdev->dev);
+ 	int ret;
+ 
++	if (!soc_data)
++		return -EINVAL;
++
+ 	if (rdev == NULL) {
+ 		/* First core probing, initialize DRM device. */
+-		rdev = rocket_device_init(drm_dev, &rocket_drm_driver);
++		rdev = rocket_device_init(drm_dev, &rocket_drm_driver, soc_data);
+ 		if (IS_ERR(rdev)) {
+ 			dev_err(&pdev->dev, "failed to initialize rocket device\n");
+ 			return PTR_ERR(rdev);
+@@ -172,6 +176,12 @@ static int rocket_probe(struct platform_device *pdev)
+ 
+ 	unsigned int core = rdev->num_cores;
+ 
++	if (core >= soc_data->num_cores) {
++		dev_err(&pdev->dev, "too many NPU core nodes (max %u)\n",
++			soc_data->num_cores);
++		return -EINVAL;
++	}
++
+ 	dev_set_drvdata(&pdev->dev, rdev);
+ 
+ 	rdev->cores[core].rdev = rdev;
+@@ -214,6 +224,7 @@ static void rocket_remove(struct platform_device *pdev)
+ }
+ 
+ static const struct rocket_soc_data rk3588_soc_data = {
++	.num_cores = 3,
+ 	.dma_bits = 40,
+ };
+ 
 -- 
 2.39.5
 
