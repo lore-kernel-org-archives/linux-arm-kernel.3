@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71DE9CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 15:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC11CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 16:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5izscDdsNWK/qHbxTkFVmnH25oWvuXs3Vm+v7P2XYY=; b=akKlueoDOlPpAkQ9ZrvTzclS9t
-	vNW16AICuksWmiJT7H/45I5DmXw5wErKCrNAuCTkUTPCMv6wTOGWHerp/fYifSAKWoxkfXsByLuHO
-	o9pWIwT1SyPAPddElpRDRJ4oKGu7G/pvIf4gPA2DMYYGkj6FExK2/gF953YiepDiR51z9Y5EdO78b
-	Pv/9pQ9RvZE2m81YG965bBPXTPOgxMaK5YfVfa60LJRggQ7m6wyhuLjqHqq8rNRXoIcRdjGxj4sfH
-	6ZnP6AJk7BXSCZhBcEM/+WxRh2qQ1bUnsELq/bkCl+xbUpLaZYduzvVcZ72EVRVWFCX6FhSD7eqNZ
-	D28L/CLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1tL+UQzB/EBDH7SXLAbslroKILaTbMAgSXqxd8/aVbE=; b=J34lnQjYsT3JX6n9bboT372d+k
+	2IMuGx+vrt1sW6G23qKoTOENW4o6ZNMhQ6gfDJMgavxEXxSMWpfyDs8t3pqFO0vZFgponR3SeMyEB
+	vhC0YsKrwBFq+1AxYA++UhWwAbAp09s2KKdrNkgrUqp3dDAUgB7+2QytQMGtRTTkzYVKObAMx1iN3
+	58NOyOZ4zi3pxcaF3uIgIBGlpcfE7EDOGN7IqrGwttFpFl7TlAdqloCA+6dSD6yyfjSEcVL/g2J+Q
+	MfKap1q4yQhYdQfKCAwlomYd7r2fsLp826Jn0t19mg+5wiBB7RlOfwKF5Fcznm8vDPnxnP6pbdxue
+	EapBdDXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYQHB-0000000COEY-2BCj;
-	Sat, 13 Jun 2026 15:28:01 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1wYQvj-0000000CPhG-46GJ;
+	Sat, 13 Jun 2026 16:09:55 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYQH9-0000000CODe-2m02
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 15:28:00 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id B86E837002F3
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 15:27:37 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 3727BB45528; Sat, 13 Jun 2026 15:27:37 +0000 (UTC)
-Received: from collins (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id E0CFEB45527;
-	Sat, 13 Jun 2026 15:27:03 +0000 (UTC)
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Yong Deng <yong.deng@magewell.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-Subject: [PATCH v10 6/6] ARM: dts: sun8i: v3s: Add support for the ISP
-Date: Sat, 13 Jun 2026 17:26:55 +0200
-Message-ID: <20260613152655.212490-7-paulk@sys-base.io>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260613152655.212490-1-paulk@sys-base.io>
-References: <20260613152655.212490-1-paulk@sys-base.io>
+	id 1wYQvg-0000000CPgl-3fvf;
+	Sat, 13 Jun 2026 16:09:54 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wYQvO-000000001t5-42FX;
+	Sat, 13 Jun 2026 16:09:35 +0000
+Date: Sat, 13 Jun 2026 17:09:31 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v2 8/8] net: dsa: mt7530: implement
+ port_change_conduit op
+Message-ID: <ai2Au6DuxYcE-bH9@makrotopia.org>
+References: <cover.1781312667.git.daniel@makrotopia.org>
+ <8dd8cfe32bc8e38b92c49e30a6255090fb0998fb.1781312667.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8dd8cfe32bc8e38b92c49e30a6255090fb0998fb.1781312667.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_082759_915122_570EF908 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260613_090952_916779_F8C59D8D 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +70,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+On Sat, Jun 13, 2026 at 02:11:45AM +0100, Daniel Golle wrote:
+> Allow changing the CPU port affinity of user ports at runtime via the
+> IFLA_DSA_CONDUIT netlink attribute. This updates the port matrix to
+> forward to the new CPU port instead of the old one.
+> 
+> Limit the operation to MT7531. There, trapped link-local frames follow
+> the per-port affinity, as the MT7531_CPU_PMAP destination mask is
+> further restricted by the port matrix. A conduit change is hence fully
+> honoured by the hardware, for regular traffic as well as for trapped
+> frames.
+> 
+> The MT7530 switch, including the variant embedded in the MT7621 SoC,
+> instead traps frames to the single CPU port set in the CPU_PORT field
+> of the MFC register, regardless of the affinity of the inbound user
+> port. With user ports affine to different CPU ports there is no
+> correct value for that field, so per-port CPU affinity cannot be fully
+> implemented for trapped frames. Routing a WAN port via the second SoC
+> GMAC is conventionally covered by the PHY muxing feature on these
+> switches, which bypasses the switch fabric and does not involve a CPU
+> port at all.
+> 
+> The switches on the MT7988, EN7581 and AN7583 SoCs only have a
+> single CPU port, leaving no other conduit to change to.
+> 
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 
-The V3s (and related platforms) come with an instance of the A31 ISP.
-Even though it is very close to the A31 ISP, it is not exactly
-register-compatible and a dedicated compatible only is used as a
-result.
+I forgot to include the previously received
 
-Just like most other blocks of the camera pipeline, the ISP uses
-the common CSI bus, module and ram clock as well as reset.
+Acked-by: Chester A. Unal <chester.a.unal@arinc9.com>
 
-A port connection to the ISP is added to CSI0 for convenience since
-CSI0 serves for MIPI CSI-2 interface support, which is likely to
-receive raw data that will need to be processed by the ISP to produce
-a final image.
+See also:
 
-The interconnects property is used to inherit the proper DMA offset.
+https://patchwork.kernel.org/comment/27003848/
 
-Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
----
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 35 ++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
-
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-index 03a1739683b1..628d5504c3ae 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-@@ -695,6 +695,14 @@ csi0_in_mipi_csi2: endpoint {
- 						remote-endpoint = <&mipi_csi2_out_csi0>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+
-+					csi0_out_isp: endpoint {
-+						remote-endpoint = <&isp_in_csi0>;
-+					};
-+				};
- 			};
- 		};
- 
-@@ -755,5 +763,32 @@ csi1: camera@1cb4000 {
- 			resets = <&ccu RST_BUS_CSI>;
- 			status = "disabled";
- 		};
-+
-+		isp: isp@1cb8000 {
-+			compatible = "allwinner,sun8i-v3s-isp";
-+			reg = <0x01cb8000 0x1000>;
-+			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_CSI>,
-+				 <&ccu CLK_CSI_SCLK>,
-+				 <&ccu CLK_DRAM_CSI>;
-+			clock-names = "bus", "mod", "ram";
-+			resets = <&ccu RST_BUS_CSI>;
-+			interconnects = <&mbus 5>;
-+			interconnect-names = "dma-mem";
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					isp_in_csi0: endpoint {
-+						remote-endpoint = <&csi0_out_isp>;
-+					};
-+				};
-+			};
-+		};
- 	};
- };
--- 
-2.54.0
-
+https://lore.kernel.org/all/02ad5de0-ea6a-4267-8686-72e3f98fce4e@arinc9.com/
 
