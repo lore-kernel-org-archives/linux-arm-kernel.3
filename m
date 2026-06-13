@@ -4,156 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC2CCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 04:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD48CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 04:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LOdBZhTf8TwFyLRvPPm9OlEuuyxWqmYYuZEeSSpKiKE=; b=Gh/EbykTwPl5PUh++oDFd1RXZr
-	7OLVl6jYh4IgPQ7FO4Km5B46DGht9DnsGljcyRn82XuxFczaDjUYcMUKTBm34hxayjtu3Bg/z52IT
-	FKerthTWb/aY0Z7/cogb50ctO412rWrRDzzFv6yToQpkp3yxsnXe9wpeJU3MIMncXFyloHr9GL7ic
-	AP5McdWyzudvvE4Yi5nGpiRouK28Ne8DuZ24CDA7fdOPPeoW41Vi44KbsiGwrZ9FwhiXGfCE7nhYo
-	fEHpXLiIv6DT8DenZBK+HU40kmaCS5+uhuzRd2S+hH7rhCu9bujSQ6zHDg5OCIby7wXqTgzepaP92
-	ae1ygOig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mzgJ8+Q51jQWjWmirjFMpypdf9VdhEIgt+aB+ECHvW8=; b=zD0ra0ufXCIP4E+3xrFV02fF3P
+	9RZnWw+Rs2BTqTJFWLun4Dsup3rXiIthJYlUBvCf84bYeT7YGUj8BxzHfLr8GSySp8nJWdRZ4RtV2
+	vabVsgzt3qQUv1XmnkUXJo0dQWT6gHXs831reUOkdjWVRBfNVzp7r5r6qDDX2RmAFW63o8iqOF+uJ
+	8GAIAArQfZYkRa0Ztf12FMbMhwsMTuA8Gtlv8WD+M6QYNZ7pHUuR42of3tx50ze8X0+LYw3YBe0Vu
+	Q21+ofGOtKLnLdBN915owi7W0H7kRORp7cklpRdOpWcG4kvz1kK2MleHGWTk4iL7YIjhwSP8HoP04
+	WO4hXmqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYFhJ-0000000BwNI-2Bzd;
-	Sat, 13 Jun 2026 04:10:17 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wYG4r-0000000Bwe6-1uUS;
+	Sat, 13 Jun 2026 04:34:37 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYFhF-0000000BwMy-1tW2
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 04:10:16 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65D3OBvX1263519
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 04:10:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LOdBZhTf8TwFyLRvPPm9OlEuuyxWqmYYuZEeSSpKiKE=; b=EjX4XkRZpygOmsXy
-	GVaiA5BwdOv/Yb3hrVzwo6/qftVVOstDIcAxtEZgO+E6ImFeQ+bzCsFcfTccR6AV
-	kHimL7q90XgU6hSIS5504E9F96Z8mGjWkvrsDI+3BgZdXNC38eNugMbNzH+BSRSw
-	e/Xt5yLFD16MFYPFBWIBifvMhxWx6VuMBVe1jvY8SIV3WI33lCE8RwF2ER0/lFhX
-	2s4krj6Sno4qlFdEvF+nUNz0wpzBdaY0KrhVSCAT7m5J3YoyYU5sgQkU30lACJWS
-	tjLeDzFbaV3WB9e/tV8PvwndhzNmm1ARSDRGQfsBFBPa1kONhe2RwHWAK+UZoqi+
-	e90dQA==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ery9502fa-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 04:10:10 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8425a9979e1so1097137b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 21:10:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781323810; x=1781928610; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LOdBZhTf8TwFyLRvPPm9OlEuuyxWqmYYuZEeSSpKiKE=;
-        b=AamSKM7VWg9+GRkkxwlc+PVGLg2YWBTFPRyzmo6DCSMMJ06zHo4aX2cJZFHF1asqER
-         1OL2PBYTpllXqMgLLD/chz0kN3swglO1wi//GObgGGZEOGbCLD4/vyNQLOBUez7KOUQ5
-         4Ru6luf/ulO27M+3teMRKIMmJ463XpHBtxhBHX5v4IhmXec6FJ8Z/35i9RNtOffJ4vDB
-         I1dFIypFIplRv9h3xD6Vz7jjN9rgA26phTYFZfVNGRyWeXs5+reccqt2ePKt+85Xuh7b
-         O7Y1TAPdZ/6KelI0y+MyudEdzaVBozYgYaO7ifOZANF4il1McsxkDEm8BmZUwiihPHOk
-         PAeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781323810; x=1781928610;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LOdBZhTf8TwFyLRvPPm9OlEuuyxWqmYYuZEeSSpKiKE=;
-        b=PMwVa8NA1IRVuKkS+ueWlH+uzFAmgzuJgAKunLB+TZ7IV8k4ufaILTFp3xYXDAtDJq
-         ZPzdPIwBqTq7KEaXXaOD7+onrDlqlsGxcUbanNfCr0KDujRwxpmVPhNZbVeFui6TezeC
-         sCjduYAlwa0ZCtqL6HtcYOITWXLwReWoYQzkXwHtvb+udcv1tIF/UwoALttbDDO4TDgP
-         GXNjXUhCW7J8Mc59jGudl2UFv76Lootle6J2lfwdUoQKTryx+Qs0UDTjZzAYwHnqevID
-         tTKkOcplKn6gbxlRpZEB8qFrQlV1wiUTimztWxW7W6VsmF2vXOKZ5SPse94Y2KDiuSt9
-         q5tA==
-X-Forwarded-Encrypted: i=1; AFNElJ+qjklpyzyT2l7fONpmVaA754sxUaqh29xf+MOMkdlaqH5nLbHUxHAMGDW2Oe5Wmy3MUvewr0G9s4xtWK3EkZeT@lists.infradead.org
-X-Gm-Message-State: AOJu0YysJ6LQJonnu1FZKwO6huF+Tt0frzjtbtjcndlKOAnMs8tbGAQ1
-	aJgzVSVc9iijbavhq0bJnz4IZofniyymBifWGtcvCUs1H0b2qhpfFLsVdwDmRsQTQ2wSGlxMXBn
-	AUDvuth3a8dw4EObwiTfOr+O0lQAEOd2keAxQlTKVOhWdAA3bJkhqb3xTTVFzHiySeehM+bLpPD
-	a5UQ==
-X-Gm-Gg: Acq92OFFgdgqPZ1FHoAiD2ldoCxOpYiZgmLKx+dAi0HvR9eMaJH1NaGBjICAQEgkN34
-	GfxVPdFYJZzUryLlbGktMa7lUvQsFCGTQ1C7O+entoOG/2ILXpfrhayeZx1+QTSqHKApZY6bPMn
-	ez0gCpmReDy+6JxRhLwsvbke2YJIgQJ1f3LxJBmAGtpQ0at5HUFfxQD/v5XH1Fe4wvtcWgWl5wP
-	ZOLlsUDqgnjVs5nl8JKLTZy+hUKLgku55ELpQ0NZusw8f5LdGkY/3nEg4+R22MDek7MfEt4kQk/
-	xsueuEvP3XPxkML3oneo5ET4kQtLjVXt1BGMtzz7TQXQH7jJDIu0b8NM2xp5dI8+CaTMlbG1ynI
-	Ao7Ou4+mZ/C9b8s6r7sxpDHNxPLbV4Fvhh1Ks9rI/faf3tHDaulg=
-X-Received: by 2002:a05:6a00:1483:b0:827:4bca:f1a2 with SMTP id d2e1a72fcca58-8434ce95f96mr5902240b3a.10.1781323809810;
-        Fri, 12 Jun 2026 21:10:09 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1483:b0:827:4bca:f1a2 with SMTP id d2e1a72fcca58-8434ce95f96mr5902220b3a.10.1781323809366;
-        Fri, 12 Jun 2026 21:10:09 -0700 (PDT)
-Received: from [192.168.1.11] ([103.211.19.106])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434afd100esm4480992b3a.34.2026.06.12.21.10.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Jun 2026 21:10:09 -0700 (PDT)
-Message-ID: <fbb00150-e3bd-45b8-a87a-100ecd235a46@oss.qualcomm.com>
-Date: Sat, 13 Jun 2026 09:40:00 +0530
+	id 1wYG4o-0000000Bwdh-0a6L;
+	Sat, 13 Jun 2026 04:34:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781325274; x=1812861274;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2oVlZD/eKm6fjGF9+21E5QiBwDrMzDrPZ4Ln5jJf898=;
+  b=cZ6g1y3HKx8rDTOqhntv8Ma2vbKNbHh2JEnOTfsKB91zBJzkaUy8mgLm
+   Jtw71zrjQZF0g9F0/5nEyQbcj1Fp6N9n0a4cXG4qUUQQRilxFWXa/O+fz
+   VAO+YEw0jRaiYDazgMGFa7BN4sPUJp25FcLWqx515a910QH5dNvVNclr1
+   8SLBjuoocM+Jne/4Doa/xbu57FgMHFlvTMqRytjWrs1rC2iQGEXtO2p6c
+   Q2d+VecwHdTStRJQ+xc4FUdLS0LRljOKzWV1BQszZU+p0JihmlefSV8UW
+   kErmaMMZw8pY2HszX7/8Bc+EZDUlRWFQdrc+r52WpusyBOPTfKFFs95jX
+   A==;
+X-CSE-ConnectionGUID: Ih95UkZ8QISqCqNlm6E+gw==
+X-CSE-MsgGUID: nt9CcrZeTECbx4z7F3E6rA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11815"; a="86002026"
+X-IronPort-AV: E=Sophos;i="6.24,201,1774335600"; 
+   d="scan'208";a="86002026"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2026 21:34:30 -0700
+X-CSE-ConnectionGUID: RoHeqTSYRk+plyewKRAVaw==
+X-CSE-MsgGUID: 1zmCHVafTx+PcyhpO4AIlg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,201,1774335600"; 
+   d="scan'208";a="277187557"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 12 Jun 2026 21:34:24 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wYG4Z-00000000Pfq-3Iuw;
+	Sat, 13 Jun 2026 04:34:19 +0000
+Date: Sat, 13 Jun 2026 12:34:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: xur@google.com, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Maciej =?utf-8?Q?=C5=BBenczykowski?= <maze@google.com>,
+	Yue Haibing <yuehaibing@huawei.com>,
+	Jeff Layton <jlayton@kernel.org>, Kees Cook <kees@kernel.org>,
+	Fernando Fernandez Mancera <fmancera@suse.de>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH] net: correcting section tags for .init and .exit
+ data/functions
+Message-ID: <202606131256.P9NXJENl-lkp@intel.com>
+References: <20260612162257.896792-1-xur@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/7] arm64: dts: qcom: shikra: Add CAMSS node
-To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Bryan O'Donoghue <bod@kernel.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Andi Shyti <andi.shyti@kernel.org>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>,
-        Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-References: <20260608-shikra-camss-review-v2-0-ca1936bf1219@oss.qualcomm.com>
- <20260608-shikra-camss-review-v2-3-ca1936bf1219@oss.qualcomm.com>
- <3ec2bd75-4d88-492e-a8c2-b21000ef2afc@linaro.org>
-Content-Language: en-US
-From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-In-Reply-To: <3ec2bd75-4d88-492e-a8c2-b21000ef2afc@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: bHKtDS2tSfyBtAdg-iSB0mx6E7JhXiDg
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjEzMDAzNyBTYWx0ZWRfX6e+vX6et7h18
- dbUavClF/DLEjl1AMfdl1NQK9QaEm1+GllgDifJ/QGxQ8SY9LXLVSsyArM6ZI4DBvuUBXQfVd6Q
- Km2e9FXO5PB6HXXZzvfQTJwjwas2Y1U=
-X-Proofpoint-GUID: bHKtDS2tSfyBtAdg-iSB0mx6E7JhXiDg
-X-Authority-Analysis: v=2.4 cv=EbP4hvmC c=1 sm=1 tr=0 ts=6a2cd822 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=RuEr1PiGI7RNW/QBahnYvg==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=HRvYZQSnNB20PN4mEw4A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEzMDAzNyBTYWx0ZWRfX1pnptQwwo1mJ
- 0hzoDQbTvq2WxPX1DQcqAvEpuZYtAKIyiCY2Hgt2uSJOKB3frkKKYbxIkFu8KUMxCo1+kS8R1DB
- GPWoD/YELtEAdapzV87G5RTB055nmYjJojK3RgunvutrZGCFHZm1xr5eC1wstAfdoxQkyiChiDY
- uAjm/2ktxZ5WE3OghzvM13+8l4lW7KHyTACkbNGW6BMmTeNATjTJRcuyda7mcVwp6qQYkkz939F
- 9gmf4DHBcggRaSS1JT/8hyM1PjypbVYMGLNPFn42M+eZgQ0Y+HbSrVftsYGG5boMEdupF5VPJgl
- 4HR2s8IS6TPpUj9u4FhVxBjTFOOmUoTxFhDU4P+6kF5C68pv/F/SJ5F+C2hMJvbA0tABUslTJnY
- BFRCjBd9X3VB4PVnO7t5Ts0E/Ru2jKolMtophsJDAlIjZk3LrCLNSIleNVH+cU86c1TMYQ8Pvdp
- zQbLkWnJCNBbvl397uA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-13_01,2026-06-12_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 bulkscore=0 clxscore=1015 malwarescore=0
- suspectscore=0 spamscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606130037
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260612162257.896792-1-xur@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_211013_651696_F4B6C75B 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20260612_213434_219662_C7ECABB1 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -169,18 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+kernel test robot noticed the following build warnings:
 
-On 12-06-2026 13:26, Vladimir Zapolskiy wrote:
->> +            iommus = <&apps_smmu 0x400 0x0>;
->> +            power-domains = <&gcc GCC_CAMSS_TOP_GDSC>;
-> 
-> Please add an empty line between the properties above.
-> 
->> + 
-ACK
+[auto build test WARNING on 2b414a95b8f7307d42173ba9e580d6d3e2bcbfce]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/xur-google-com/net-correcting-section-tags-for-init-and-exit-data-functions/20260613-002737
+base:   2b414a95b8f7307d42173ba9e580d6d3e2bcbfce
+patch link:    https://lore.kernel.org/r/20260612162257.896792-1-xur%40google.com
+patch subject: [PATCH] net: correcting section tags for .init and .exit data/functions
+config: loongarch-defconfig (https://download.01.org/0day-ci/archive/20260613/202606131256.P9NXJENl-lkp@intel.com/config)
+compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 305faf498a4e0b52b40742c927af63ab2082e1a9)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260613/202606131256.P9NXJENl-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202606131256.P9NXJENl-lkp@intel.com/
+
+All warnings (new ones prefixed by >>, old ones prefixed by <<):
+
+>> WARNING: modpost: vmlinux: section mismatch in reference: tcpv6_init+0x74 (section: .text) -> mptcpv6_init (section: .init.text)
 
 --
-Regards,
-Nihal Kumar Gupta
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
