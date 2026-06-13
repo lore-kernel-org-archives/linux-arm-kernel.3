@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D29CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 23:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DDCCD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 23:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Date:From:
 	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AG/JEc/L0uDc2VwHJweRU+2vbGpFb8TCmkW2psEcnQY=; b=ii4F8InX9n5oy0fkTZ5lV0xW1a
-	/Lyqi6dex/LLEebH2klopSqjgoLNW+8ziPmNm4BAh+dszujhgEzJMEjWKLz41+xTjmN6/7S95bKOo
-	h4L/UtVIW1aaHuftXMZBbLLtHmelfkuKMhLVFeBFZ4BWZhuXj2UmGWxvfa3waYEAFy4Yy1zSxl4wL
-	bx2NRSr6SmyrGWp0wKXnaUaRU3Va9q99oEzJB9XWKkoRfS9OJ607GOJ1D1TsJ86hOybPMN+1MYKVB
-	sptzodRLueLXCUCJ4twKbz+jl6WwZm+PRseWsX7oQjQWM30dMI/6w0IPspgbU63yfZdjHZtVn7zZI
-	VGD/660A==;
+	bh=mZeHPaYgjAc0cmERq1W7zmI0HdZsP4dzCZuF2djjKP8=; b=Hr7XuQblrVpLRyKzp7GOk/uaVF
+	ctZNdQRlNvRENdieIFkmj3SIKC2YZ4b4JBtnM5quXL29k4te7tH+Y7AePtbCPPFAsYrl2YsDVALNJ
+	PVDmAnkyOXMpw+oUw6X3RW7xIXtrH2zod48HIHFllMjlggHkXzX6VWxAadnWh95KdeTYLqUSM7gQq
+	b141TnqNCBC1Bkkr6bRVj6GGcb1OID9JjKLWPcm/W8M/v5G/2RYRSIHMfUSZr5tahO0frGB1gcdGS
+	dYLbYok1C0fstRUyBTkcq9lcdkuz6U7sq6kqjTSDlbggF0v+8jTIKsGc5278H90w9HHZguioYKZGG
+	jIPTOSuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXqz-0000000Cc4o-0yuA;
-	Sat, 13 Jun 2026 23:33:29 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wYXy0-0000000CcGP-4AnV;
+	Sat, 13 Jun 2026 23:40:44 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYXqw-0000000Cc4A-4C7b
+	id 1wYXxw-0000000CcFc-1rWd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 23:33:28 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-36ba706ab46so1301178a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 16:33:26 -0700 (PDT)
+	Sat, 13 Jun 2026 23:40:43 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-842848fd613so2018668b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 16:40:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781393606; x=1781998406; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781394039; x=1781998839; darn=lists.infradead.org;
         h=cc:to:subject:date:from:message-id:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AG/JEc/L0uDc2VwHJweRU+2vbGpFb8TCmkW2psEcnQY=;
-        b=U5pgXpu9slrZ8m7AaJvQchkWepdYFhvYck/o2D5XZyAs8wQuDmrwBszunyGb0jyVv9
-         HB67Jg35Jc6iR7EwJ687Lj0iANSaa8oqwUC+GoI1dkYCMB9lPXwa5AAeVdxkjMR6fhBi
-         iut9MlhN2lXWWFXpqcs+dYAjVi3+krLKY7BHMfPKrb7FM7sQci/YLQ8ESseUgpGya0NC
-         65LGfxEeS93iemXeVtasH+KMsJo6Yn3S8YCtkaea3hsa4eohr10YiinAJs7KQolpgEOX
-         oZkWeCP5alzHOik3+5qkoA/dUc1jgMfEamoTk1G2aJEA5kR77RA8Ws9xamR4YdflcAM6
-         WsRQ==
+        bh=mZeHPaYgjAc0cmERq1W7zmI0HdZsP4dzCZuF2djjKP8=;
+        b=crBDhtYJ3a/Z01f1D0X7+sh80cF541Ye/vJkc4y+0SeqXGXanvVn1N0Z7iWlXgXL05
+         VEJ8Df6hveBrHjrnO65sDgRHmCnp2E8MNQkxg5TON9dNa78h51GBOpZAe27HVFBxrKrj
+         XZP3TdBelivSqOv9LJMj45UPLzCS4RoSWGXEgeZgUdYMadUWzDmcSViXRVfyrWLmAwIj
+         qnC4WGA+yvBabHR2kborwFmEXKxYpd3H9EJOxVnbSq951tD+SOphcwT4mu+X8oJCxVDc
+         aKb4dA5+GBWaLa8CwpmlzriyfFtPqgEEbYfARkk8VDT/Tq6jkxLxYhYPaceMX5fAHZVY
+         Ctew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781393606; x=1781998406;
+        d=1e100.net; s=20251104; t=1781394039; x=1781998839;
         h=cc:to:subject:date:from:message-id:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=AG/JEc/L0uDc2VwHJweRU+2vbGpFb8TCmkW2psEcnQY=;
-        b=bqA70LpWEVHtC5lzI2Q0TKgXXGVemklDh4V9rmuA4NIsZyd1BEjeMjyrdhD0LJ+jFZ
-         BfdmXlTHYzifLKZzBl72v0PzC9mtIwdPgqlBODydfx5n7E0nAjKPl9d2aHSJHblKNW4m
-         YojLl8cDKJrsvuRcH2oYhxyoIxRaepdd/eLirxGnu4bQb+wA9hZ4a8rP5vDC6Xpp4J0A
-         PKF7DSk6yD8Zw2aze0sVn/AP6pkHK7e7H9p+dKdSDRoz4ocHprYVuqZdtDkK7aLLiT+u
-         T1nPfvfMoaPeoim+klGRdLS8+KrxMP+gXyGeRgkenC22vKmTsuGbV8uEp4dBuPm9D4M7
-         blpw==
-X-Forwarded-Encrypted: i=1; AFNElJ/9p/dTa2NKlqCiIRA75AlTAmLRta4ExfS2UXoFGzD/eJ+cc8ZRhG78l8RBU0bJuUVXb5HyIIMWucYDM2416ugm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSPiMygsEd8Mq0ahZnep/UbtutXQEDVHbXfCgrk32scw28AaZj
-	g7XlP3+bgaQ+yOWaCZS3pSNTPOCT/IYMhtojcGbGjqXWBB+A6WViYxDk
-X-Gm-Gg: Acq92OH3/+WNO7LC9dlykmARXEGiqOv7G9+bsRz5S43FV/v9qf57tGhne3D9FgpZ8f1
-	luvTNaX3yKC79gSlCwX7gpmCNhzyH5QMMriheA0ocBLhwAseIcfD6a2Pg+jULAXTgWRUg0dOK/3
-	iIzgM12pyFaD5Ocz6hBXA8jhQ9PmOXTFf4uHy2xnEunhGYBb86PGnuviowKLv/Ca+OlR5LK7fw+
-	QBeqB4CEeigFl+VI8SH5TBS2KMUSGVAl7ECPZq8hXrJ7fftow9ZyRNX/d3/0M/g4H1gXDXsKyHi
-	b0m1GA0xvnQq4MsFm7HlWKeTOGMyDpfGtC7lmvVRRvYdOqEeyUTYrHbrhQ8YDN6vqrubGawvu5L
-	Ro38pgL32nasQum2mBf3lbxeI+qULqVwARu1rksGYjlkjhPDFCrfQrtKBZn5DSaLG6lF2thPDpc
-	og3APnWFzWDydx1f1N
-X-Received: by 2002:a05:6a21:1519:b0:3b4:b26e:bab2 with SMTP id adf61e73a8af0-3b783b22db0mr9105274637.2.1781393605822;
-        Sat, 13 Jun 2026 16:33:25 -0700 (PDT)
+        bh=mZeHPaYgjAc0cmERq1W7zmI0HdZsP4dzCZuF2djjKP8=;
+        b=AztLYC+aeeMN/NhW8LakGUIj2c/O0B5vY32EoveEYK9HnjVMlDsnS2OVoHEjv7wetV
+         YQwEmofHSZtO1xJSat7epPl+W9/LsmpNgVAgdA04yI/XlIowRj5nEKTZu8DR3G7kNU4J
+         lMWZt4b+/Qqaj3+DS3e7Wm9biL7QKOWBNP3jZJN94cAAYxyJIhYlpYU1uAhVpMBeJigu
+         bHbjLvfN+4pQlgN8kHe0llj2wNPL85nzyz8DnrhEqF+Dyh8maRMD1PhxqPfm7vo855vi
+         0KyLA/OqYGWiRK93CMz6AN2WNAi+xevyeVOJ0nmG2UkQeB4Yyts1InOOhyZx+OlMxGoA
+         2iWA==
+X-Forwarded-Encrypted: i=1; AFNElJ+DqbFbHpb+q9IjmddQGFLK0/J6yYZFzxy7sI75MThjbNSOz2ojH/xpK9wnTIp5Pogn0pzDeEa3g3s4SZef5XI0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaU9+pNegCl7jnqV/FGg+Jm0sCEfx32E4aV6VZQ0T6zZQVQ0+f
+	G9wM+i2NXBK4Kxl9kTUIHEleMuKhqnfGz060Z0rEi9y1tYhOgMjooZeT
+X-Gm-Gg: Acq92OHdywDZYsYcVKwASsBzknn/JPoMkuYaLB1Sf4K1BTi22q10CKOE0eqZF6vf98x
+	v9ZrOZ+i92vzol4Ba/30C+IJY6INLuewB2dO6ZN9akoI/ngYYB8EG5InQlYnbTkFGpqqv83/36v
+	uefAibZNEpwLrZKS9u6JUk/0kGQ0jpVqSj95bLprNNsT1pDFuE9o+ZT1T0PG4aJzAgYrVMbENES
+	jYLYYedAw3jggBdU87bjYH+0U6kpMKE/aL6Hgqr5N+i+KkJcdcPtcDRRpov2lPm4UQ+SygQX/Py
+	JDMk7ru7C+4LoWlAB2HCan7TYcPxHWgoBT9o7Ej4RIDOHkf6r7ZVZj0hn6lN70XPWVy3fYgb7hO
+	SW90T5tS8nDaPg2NWKbcllSg8HNZIo0yZB+3Vb5EDPeVuApT7HjQJrKWu74N7rHU6hN5zc79LKl
+	EHuYtPJugnWEkN2/qcPNwxK2GfgVQ=
+X-Received: by 2002:a05:6a20:d818:b0:398:bda8:d8cd with SMTP id adf61e73a8af0-3b783b3e3e4mr9852452637.7.1781394039406;
+        Sat, 13 Jun 2026 16:40:39 -0700 (PDT)
 Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c866519f88bsm5126208a12.27.2026.06.13.16.33.21
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434aca3041sm6041307b3a.5.2026.06.13.16.40.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 16:33:25 -0700 (PDT)
-Message-ID: <6a2de8c5.2c570c9e.53b1a.0e1b@mx.google.com>
+        Sat, 13 Jun 2026 16:40:39 -0700 (PDT)
+Message-ID: <6a2dea77.01c4f138.336eeb.a256@mx.google.com>
 From: "Wayen.Yan" <win847@gmail.com>
-Date: Sun, 14 Jun 2026 07:30:54 +0800
-Subject: [PATCH] net: airoha: Fix skb->priority underflow in
- airoha_dev_select_queue()
+Date: Sun, 14 Jun 2026 07:40:19 +0800
+Subject: [PATCH] net: airoha: Remove dead MT7996 NPU firmware declarations
 To: netdev@vger.kernel.org
 Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_163327_032009_79567E97 
-X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-CacheID: sfid-20260613_164040_486832_43C892C6 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,40 +91,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In airoha_dev_select_queue(), the expression:
+Remove the NPU_EN7581_7996_FIRMWARE_DATA/RV32 #define macros and
+their corresponding MODULE_FIRMWARE() declarations. Neither the
+en7581_npu_soc_data nor the an7583_npu_soc_data references these
+firmware names, and no firmware loading path in the driver ever
+requests them. The only references are the #define lines themselves
+and the MODULE_FIRMWARE() declarations below.
 
-  queue = (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES;
+Keeping dead MODULE_FIRMWARE entries causes modprobe/udev to attempt
+pre-loading non-existent firmware files, generating kernel log noise
+and misleading distributors about which firmware files to package.
 
-implicitly converts to unsigned arithmetic: when skb->priority is 0
-(the default for unclassified traffic), (0u - 1u) wraps to UINT_MAX,
-and UINT_MAX % 8 = 7, routing default best-effort packets to the
-highest-priority QoS queue. This causes QoS inversion where the
-majority of traffic on a PON gateway starves actual high-priority
-flows (VoIP, gaming, etc.).
-
-Fix by guarding the subtraction: when priority is 0, map to queue 0
-(lowest priority), otherwise apply the original (priority - 1) % 8
-mapping.
-
-Fixes: 2b288b81560b ("net: airoha: Introduce ndo_select_queue callback")
+Fixes: 23290c7bc190 ("net: airoha: Introduce Airoha NPU support")
 Signed-off-by: Wayen <win847@gmail.com>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/airoha/airoha_npu.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 31cdb11cd7..d476ef83c3 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1933,7 +1933,7 @@ static u16 airoha_dev_select_queue(struct net_device *dev, struct sk_buff *skb,
- 	 */
- 	channel = netdev_uses_dsa(dev) ? skb_get_queue_mapping(skb) : port->id;
- 	channel = channel % AIROHA_NUM_QOS_CHANNELS;
--	queue = (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES; /* QoS queue */
-+	queue = skb->priority ? (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES : 0;
- 	queue = channel * AIROHA_NUM_QOS_QUEUES + queue;
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 17dbdc8325..93095f3894 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -16,8 +16,6 @@
  
- 	return queue < dev->num_tx_queues ? queue : 0;
+ #define NPU_EN7581_FIRMWARE_DATA		"airoha/en7581_npu_data.bin"
+ #define NPU_EN7581_FIRMWARE_RV32		"airoha/en7581_npu_rv32.bin"
+-#define NPU_EN7581_7996_FIRMWARE_DATA		"airoha/en7581_MT7996_npu_data.bin"
+-#define NPU_EN7581_7996_FIRMWARE_RV32		"airoha/en7581_MT7996_npu_rv32.bin"
+ #define NPU_AN7583_FIRMWARE_DATA		"airoha/an7583_npu_data.bin"
+ #define NPU_AN7583_FIRMWARE_RV32		"airoha/an7583_npu_rv32.bin"
+ #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
+@@ -822,8 +820,6 @@ module_platform_driver(airoha_npu_driver);
+ 
+ MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_DATA);
+ MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_RV32);
+-MODULE_FIRMWARE(NPU_EN7581_7996_FIRMWARE_DATA);
+-MODULE_FIRMWARE(NPU_EN7581_7996_FIRMWARE_RV32);
+ MODULE_FIRMWARE(NPU_AN7583_FIRMWARE_DATA);
+ MODULE_FIRMWARE(NPU_AN7583_FIRMWARE_RV32);
+ MODULE_LICENSE("GPL");
 -- 
 2.51.0
 
