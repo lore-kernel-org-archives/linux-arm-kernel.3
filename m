@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7504CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 21:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7D8CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 22:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNX/lSr1eAIewD5raDSzWjla5fQS29KFlsi+CQtdSy0=; b=nBiK/Tcf6a0HCFOFM1/ZG5ShUh
-	NMo5SX61tiaHF0L9ogapONeLKW9Hq0IX9rpL5G7YZRO1v7D+VaCyXQjSn4KuEcoAS6DGPCYX9dz1Y
-	XhVwcql2DFle7gxD2uimVJDwAQZkhnrUBjbFNlOMV1AxfsLUW2JLfZpH5Ifs0OisEyiXq9tVRUw/g
-	+8tTbyoir9kPB6lCQMUOT/S7djXukb/M7YKTZz0SNL+0EklwIksC2zddaVAKOpj0iQKcJnTl8EihV
-	K3Cy6tJQki6fkrOkrxsSz/r0vOEukdi2RxIO0JC02D5ABFdzmtz2uzttsYMwvmXGercubhNtjed1r
-	gC93tNpw==;
+	bh=bgVCS3SJJ5arXhx+G4WvikFQP68N1RBTeC3H3wIslN0=; b=wAF+mrcREz+iTCObXIA9fOK5hx
+	IxGajlpPOeIz0aypKhVxB6AOYCYoub0/k0u9UDb2j8LnIkUYilCgIW1kFml8B2kl5fVN5Xo8B7boZ
+	HhEw9mQTtgYmgwyitorn38sICJlHPPyjvXxiHy5DwUSBehY0LoFH4L+SjGkPOqUWL/jtCRQ8EOlHH
+	CAbZdJ/31dnozZSAMZDrgyhq6Qd4KbIgyr7p+NR/B37xZrNFRM2uuWCSi1CzVbqFkBuLvnP/YcteE
+	YBkN5q4xaBfVRR9BL9CWTok1klJyHSP/TKlUASEC+KTXReFB+vb/bWzlIqpmSlhY14Zgb9Ip2J4mm
+	cBzhPB0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYWMM-0000000CYyZ-24tg;
-	Sat, 13 Jun 2026 21:57:46 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1wYWYa-0000000CZIZ-2SMC;
+	Sat, 13 Jun 2026 22:10:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYWMJ-0000000CYyE-3MvI
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 21:57:45 +0000
-Received: by chaosmail.tech (Postfix) id 753921C812E;
-	Sat, 13 Jun 2026 21:57:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1781387856;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jNX/lSr1eAIewD5raDSzWjla5fQS29KFlsi+CQtdSy0=;
-	b=eUF3MRlF0nhurOSYnUXvjSua8K2fyjsXiMvEXe9vOC+78PzdiSSx+TP6JLIhewVcVel9ls
-	m+HTOfju9Wh6N7LZxozaV5nJkUeIYC8WYQE1nldOzSNDhQamyq9XmAwr9/aUT+gazaCV3Q
-	cpm/nHWyqvXsE5eFMJ4BEjx0m8x0Ik0=
-Content-Type: text/plain;
-	charset=us-ascii
+	id 1wYWYY-0000000CZIK-2vtu;
+	Sat, 13 Jun 2026 22:10:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C59E66008A;
+	Sat, 13 Jun 2026 22:10:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B2691F000E9;
+	Sat, 13 Jun 2026 22:10:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781388621;
+	bh=bgVCS3SJJ5arXhx+G4WvikFQP68N1RBTeC3H3wIslN0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=Gs/4FErnreRzpuL01AFQH+ius9Cn6faAtRLuD5AfErK+ML800f00Cvm+NHbop7sM9
+	 oS0X0cxpy223L8PXekBf8vjlxPQrqoeT8zZYzDU6XPgroFfoMNSi1pXSRxDoj245bJ
+	 lLqkEfAFtHr823v13TYFwB5Wa4qDm28iLfbxOPvLdI9mNN3nA5VCWRPKgCBb6hV2Pj
+	 WmiD/t+oJqAHWPgGEj7wNGxj1PY1NDKY7rEkQw65vTrgoWRfWmiAhJE1xzTI43wKAq
+	 paO9WOFuwvDX11xFNx7e/vhI4ByJ2KKbqs8z0fXenBiJ6QkPKlH7y4f6cLGlj7V7v4
+	 ZmXVmXhq8BLtQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D09D83A54A32;
+	Sat, 13 Jun 2026 22:10:18 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Subject: Re: [PATCH] Input: apple_z2 - bound the device-reported packet length
-From: Sasha Finkelstein <k@chaosmail.tech>
-In-Reply-To: <20260613-b4-disp-b1926f1a-v1-1-3a277b7c0cfa@proton.me>
-Date: Sat, 13 Jun 2026 23:57:25 +0200
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- linux-arm-kernel@lists.infradead.org,
- Neal Gompa <neal@gompa.dev>,
- linux-input@vger.kernel.org,
- asahi@lists.linux.dev,
- linux-kernel@vger.kernel.org,
- Sven Peter <sven@kernel.org>,
- Janne Grunau <j@jannau.net>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <C6E5770E-7102-4D12-B8BF-58F902FE8176@chaosmail.tech>
-References: <20260613-b4-disp-b1926f1a-v1-1-3a277b7c0cfa@proton.me>
-To: hexlabsecurity@proton.me
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_145744_312354_C437C720 
-X-CRM114-Status: UNSURE (   6.07  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: airoha: better handle MIBs for GDM ports
+ with multiple devs attached
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178138861738.1607522.1344030829934869681.git-patchwork-notify@kernel.org>
+Date: Sat, 13 Jun 2026 22:10:17 +0000
+References: <20260611-airoha-eth-multi-serdes-stats-v1-1-42442ae42064@kernel.org>
+In-Reply-To: <20260611-airoha-eth-multi-serdes-stats-v1-1-42442ae42064@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ ansuelsmth@gmail.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +73,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-> On Jun 13, 2026, at 23:42, Bryam Vargas via B4 Relay =
-<devnull+hexlabsecurity.proton.me@kernel.org> wrote:
->=20
-> From: Bryam Vargas <hexlabsecurity@proton.me>
->=20
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 11 Jun 2026 12:43:00 +0200 you wrote:
+> In the context of a GDM port that can have multiple net_devices attached
+> (GDM3 and GDM4), the HW counters (MIBs) are global for the GDM port.
+> This cause duplicated stats reported to the kernel for the related
+> net_device.
+> The SoC supports a split MIB feature where each counter is tracked based
+> on the relevant HW channel (NBQ) to account for this scenario and
+> provide a way to select the related counter on accessing the MIB
+> registers.
+> Enable this feature for GDM3 and GDM4 and configure the relevant HW
+> channel before updating the HW stats to report correct HW counter to the
+> kernel for the related interface.
+> Move the stats struct from port to dev since HW counter are now specific
+> to the network device instead of the GDM port. Refactor
+> airoha_update_hw_stats() to take airoha_eth and airoha_gdm_port
+> parameters since the function operates on the entire port.
+> 
 > [...]
-> Reject any packet whose length exceeds the receive buffer.
->=20
 
-Reviewed-by: Sasha Finkelstein <k@chaosmail.tech>
+Here is the summary with links:
+  - [net-next] net: airoha: better handle MIBs for GDM ports with multiple devs attached
+    https://git.kernel.org/netdev/net-next/c/8f4695fb67b2
 
-Although, if you reject the packet, the datastream will be desynced and
-the device should be reset before it can operate again.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
