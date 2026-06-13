@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E18CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 07:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90868CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 07:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqSQR9XwXClJ1dx3NWVea2VA61Fsyqn6eOD6/POM3iY=; b=dYNwGwA7C7WDyWqGDHOhKgoOsS
-	Cc140Ri6f9/gLUowhyZE6G/5ra9lJNHPavai3lRSqDUVGjx5j8XCW5Np8uiEc9cxyYvG4U840W0tU
-	0KBFyoPnTGibOlUdoWHiqm+oNwO5apKKU4t5hrbuve2AcldBbMXw+Qai4JhAFJytNa8BhGT0Y8R05
-	QMsxz+LdW17kMLT8yuXnYxGV+/wwISMLaY3H+SgP16rn9iWi1UeaJxpHcrSlqJvPQxKNBGI3P09ug
-	wJSmmVOkBxGz0UH1jENLFkAh4PdaQnk4j+aoAgt7Cudu1lbc62dBKiZf4/vlU/I7te46dCi2U+Hhk
-	e4/j6U9w==;
+	bh=qHK4xcuZuyY3VWkKdAkc6bfYV2q4RPDKWtvw4p7wT+w=; b=J7/ppCE25TSdPfxxAbLErSU6ie
+	Inj7RZyyQYeC37KLJafGc2RFEmvHdfGC08Tt8RlOUEkVq+S1nfEq2bcn9itKRgkuKS4kmRMk+/syl
+	TArUQkVhDTtk36xB4DJXYLXS9nhSGAeOTF2xde9fvPcTXWIV7kjEEUkMzkCPrIZuzR8pSV1BA3Gnm
+	+qlYgo+RRoFeNrRJib7l91CDJO8XegEUy/GZWCvi5p0cbz6GimqrUBtIi67VJCgLXZU/AiFD1hpig
+	6HCzDx/TywEu0LMQUyEYLRKNIL7iQ6PSlzjugVsWOrrVTSG3zWW8e0Hxj62oLQ/0uJnrM7rY/l2Gh
+	6DcS9mgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIUs-0000000C2OH-3ola;
-	Sat, 13 Jun 2026 07:09:38 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1wYIzG-0000000C37N-0dY1;
+	Sat, 13 Jun 2026 07:41:02 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYIUo-0000000C2Np-38UK
+	id 1wYIzB-0000000C36c-483W
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 07:09:37 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-36d98b68d68so1162040a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 00:09:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781334573; x=1781939373; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yqSQR9XwXClJ1dx3NWVea2VA61Fsyqn6eOD6/POM3iY=;
-        b=GU2rC0wrSUgl7Tu9cAFJcygUx0NpKteuSoeLhoHd7CN9QyZwpP9PLBiFH2mMDEAPlD
-         rzftk1e6AzrxtpID6o7IzyzeQM9WnVMJMNqpeC1eNX2/egewv7nMibD09/4nFRy+QDVd
-         mJmDrPsChNb2CL3uTTYhEI6g0jomg5kfKWTph0FzEESJn/qgSLUGD71yQp2dDu9tM7UE
-         NXWeMx2VETPlo2EcmFUNE9GBAtHTjSKSZbc1qkkG8fl0OH6fQC7mobtXyXt7CrIQfMni
-         IgwFOakVzUY34/n29Kkr2aaUNlr/KdBD0tXps+kCA3yne9Xohh/x05uA++72WRczEZ4/
-         wZ1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781334573; x=1781939373;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yqSQR9XwXClJ1dx3NWVea2VA61Fsyqn6eOD6/POM3iY=;
-        b=XG7c8dT2PblBIw7omqiBcBd4gCjhNBl571pv6tco+QIe0a4detEgQFCHK5WAkPtZ5A
-         +85snDKMMJXmB7lDDPSwNgBmAac7WgeHsJDYTjupidn8UIjfc5gTSQOTeHr2k+zg07Nw
-         vlujziZg3mJB6e2tyMJ5PiNnbpCICAAqLk94WBjCCkau8KY/rVUkes+2k9HRth1TPYh8
-         s+DL7Mvi3l/md+dFa9IeSM3vChotNKap6AW9vyPcQlDr06nM6lQrpcS8RfYTFnplyNN+
-         8YlyOgmUNLyx57zhdh0Yc9EX4r1ukIg4t/hqrQfEqyb0Pi4SdKhT/X8rbAUB5XU83eZW
-         9Dzg==
-X-Forwarded-Encrypted: i=1; AFNElJ+bDBDmhCDFzYRIfL086/Jc8M7fE7eh5U2OXShC9a4Sz9sRbOh85OR7/Zv4sgCfsd/r8hf4TgJlRpJOmzViwOei@lists.infradead.org
-X-Gm-Message-State: AOJu0YykFcVLx7sXFB05aTOMWre6xiJuVuOxZvMHZZIuXHRwwaBU4edm
-	WtdCkwhGBik62dtUYrvlXD66YdlGE1TceO0LaH03we/tmkNwOqyJj7XSSUdaag==
-X-Gm-Gg: Acq92OGcXETyLMEPpLyaCBmCePKjLaG7oH4mEjQt8bcA7yUVeCrfNMH3+bkslJTBvGg
-	rA0eW4ihMNZqoIfyHeH0T2iNOby11pYblsXRYub8wmUTSYlomOkG40HXiNmly7NAfbUteebCnW3
-	3rIHG4WsJHA8E+o55b2UVBkP7chxIxxfOlJPpd7sj7OI8/PaP/SigbCGkI5sEXpkOu+ZPMmWXqP
-	4hLzhzgZ7s/v4Wb9LP1kSaH0Mepq/D4dD6OdgUhESRV48LvKgc/0eGLZ1DYQ9bb4hn3/A6Ok5Cc
-	EhBblMiS0J2005GL+aGJIiBrVpZa6jwLJr+uxfKjwhpkeJWkgGHJz48pgC3X4YrHbXdncGOjX8F
-	4FrHWGID+n+CMh95U1w6TSuAsS37SMCR8XmtUgNBgU7keYjQ/CeFqHnIgI2Xr9Y+HfpDUcEd4XO
-	26Q06S74dz2EQ39SZmZn/Lc4RhbFkm0L0v6TcHe7pp99PL
-X-Received: by 2002:a17:90b:2d4b:b0:368:ed26:15b2 with SMTP id 98e67ed59e1d1-37c2bc65207mr2649723a91.8.1781334573307;
-        Sat, 13 Jun 2026 00:09:33 -0700 (PDT)
-Received: from [192.168.0.8] ([49.207.61.84])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1f363409sm4369435a91.8.2026.06.13.00.09.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 13 Jun 2026 00:09:32 -0700 (PDT)
-Message-ID: <f3e1ecce-9917-456d-b02e-a75827d9c867@gmail.com>
-Date: Sat, 13 Jun 2026 12:39:27 +0530
+	Sat, 13 Jun 2026 07:41:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1781336455;
+ bh=qHK4xcuZuyY3VWkKdAkc6bfYV2q4RPDKWtvw4p7wT+w=;
+ b=hAl4WAxRxs/ZvxN8Tsnh39Vx+Wd0eFIeV3w0nae8LiNv2Gtw5njjh6FZRT+97DDJZwCTQmOXD
+ PZJZVtykDki1fme3042lw0BQve7J8dGRjnRFyke/P7/3WhSf2sCYv7qaHngIvZjhF6ZFuJaEU+V
+ 9tXkGvk7in9AyhYJyQmUpgwiMO1sYxhU7pQl1AUVCzteGdaOK2b8isJBMyRJTRrDA+8DIdOCg6V
+ dAUh3ti8QlkEuvmKk8GL53oEoLIRjWAcOD4pO6R6fpNmucBH67wce6YbdiEsB71qjMOeWkU8uJo
+ eMSMPB/bHhlM3IiS2VYfj2ilKbOYSAEPTEYSDCEkhkCQ==
+X-Forward-Email-ID: 6a2d09837f2a6d9c19af5dbd
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.8.26
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <e0f044df-9d34-4e6e-aa48-9e4227b4bdf7@kwiboo.se>
+Date: Sat, 13 Jun 2026 09:40:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] dt-bindings: mmc: st,sdhci: convert
- STMicroelectronics SDHCI-ST MMC/SD Controller controller binding to YAML
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260508-st-mmc-v3-0-81c329ed28e8@gmail.com>
- <CAPx+jO9woUB9VGUx+ebWD9oOhqCwzXL9=41MEesnWS15Nyr66g@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 8/9] arm64: dts: rockchip: rk3568-rock-3b: Enable
+ the NPU
+To: MidG971 <midgy971@gmail.com>
+Cc: "tomeu@tomeuvizoso.net" <tomeu@tomeuvizoso.net>,
+ "ogabbay@kernel.org" <ogabbay@kernel.org>, "heiko@sntech.de"
+ <heiko@sntech.de>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "xxm@rock-chips.com" <xxm@rock-chips.com>,
+ "chaoyi.chen@rock-chips.com" <chaoyi.chen@rock-chips.com>,
+ "finley.xiao@rock-chips.com" <finley.xiao@rock-chips.com>,
+ "diederik@cknow-tech.com" <diederik@cknow-tech.com>
+References: <20260613070116.438906-1-midgy971@gmail.com>
+ <20260613070116.438906-9-midgy971@gmail.com>
 Content-Language: en-US
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-In-Reply-To: <CAPx+jO9woUB9VGUx+ebWD9oOhqCwzXL9=41MEesnWS15Nyr66g@mail.gmail.com>
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20260613070116.438906-9-midgy971@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_000934_793084_3B49AD54 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20260613_004058_107227_3205301B 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,73 +94,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Midgy,
 
-
-On 29-05-2026 17:40, Ulf Hansson wrote:
-> On Fri, May 8, 2026 at 7:23 PM Charan Pedumuru
-> <charan.pedumuru@gmail.com> wrote:
->>
->> This patch series converts the legacy text-based Device Tree binding for
->> STMicroelectronics SDHCI-ST MMC/SD controller to DT schema (YAML) format.
->>
->> Note:
->> The patch "dt-bindings: mmc: st,sdhci: convert to DT schema"
->> depends on the patch "arm: dts: st: align node patterns with established
->> convention". If the DT schema patch is applied before the DTS
->> cleanup patch, `dtbs_check` will fail due to the presence of the removed
->> properties in the existing DTS.
->>
->> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
+On 6/13/2026 9:01 AM, MidG971 wrote:
+> From: Midgy BALON <midgy971@gmail.com>
 > 
-> The series looks good to me, but awaiting and ack from some of the dt
-> maintainers before applying.
-
-Yeah, but until now they is no response from anyone.
-
+> Enable the NPU and its IOMMU on ROCK 3B and wire vdd_npu as the NPU
+> power domain's domain-supply, so genpd brings the rail up and down with
+> the domain (the domain is marked need_regulator). The PVTPLL compute
+> clock is brought up later by the driver.
 > 
-> As the change in patch2 for arch/arm/boot/dts/st/stih407-family.dtsi
-> doesn't seem to cause any conflict from soc maintainer trees point of
-> view, I can pick this up too when applying.
-
-Sure.
-
+> The rail is no longer kept always-on, so pin it to 1000 mV (the NPU's
+> 1 GHz operating voltage; the driver runs a fixed compute rate with no
+> devfreq voltage scaling) and mark it boot-on, so it is up before the
+> power domain de-idles the NPU NoC at power-on.
 > 
-> Kind regards
-> Uffe
+> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+> ---
+>  .../arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 18 ++++++++++++++++--
+>  1 file changed, 16 insertions(+), 2 deletions(-)
 > 
-> 
->> ---
->> Changes in v3:
->> - st,sdhci: Edit description of reg property. Modify reg-names. Add
->>   "minItems" for clocks and clock-names properties.
->> - Modify the commit message to match with the updated changes.
->> - Link to v2: https://patch.msgid.link/20260503-st-mmc-v2-0-11ae3216d2ce@gmail.com
->>
->> Changes in v2:
->> - Fix node name in DTS for the MMC to match with the estableshed convention.
->> - st,sdhci: drop unnecessary properties, modify "reg", "reg-names" and
->>   "clock-names" properties, include an allOf with $ref to mmc-controller.
->> - Link to v1: https://patch.msgid.link/20260409-st-mmc-v1-1-4c54321c3535@gmail.com
->>
->> ---
->> Charan Pedumuru (2):
->>       arm: dts: st: align node patterns with established convention
->>       dt-bindings: mmc: st,sdhci: convert to DT schema
->>
->>  Documentation/devicetree/bindings/mmc/sdhci-st.txt | 110 ---------------------
->>  .../devicetree/bindings/mmc/st,sdhci.yaml          |  91 +++++++++++++++++
->>  arch/arm/boot/dts/st/stih407-family.dtsi           |   4 +-
->>  3 files changed, 93 insertions(+), 112 deletions(-)
->> ---
->> base-commit: cf2cd8efd046c561191b8541d32a8bfe845bf06b
->> change-id: 20260327-st-mmc-c906ad95ff83
->>
->> Best regards,
->> --
->> Charan Pedumuru <charan.pedumuru@gmail.com>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> index 69001e453732e..d3f9776c2bdc3 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> @@ -330,9 +330,10 @@ regulator-state-mem {
+>  
+>  			vdd_npu: DCDC_REG4 {
+>  				regulator-name = "vdd_npu";
+> +				regulator-boot-on;
 
--- 
-Best Regards,
-Charan.
+There is no need for the NPU in the bootloader, do not use DT as a
+workaround for software issues.
+
+This series mention the PVTPLL NPU clk and seem to contains some
+workarounds related to how the PVTPLL clock is handled in TF-A.
+
+The PVTPLL block typically require the pclk and power domain enabled to
+function, and this series seem to add workarounds to try and ensure this,
+e.g. with noc_init to activate PVTPLL usage.
+
+I would suggest that you do not involve the PVTPLL clock in this initial
+NPU support for RK3568, set CLK_NPU to 400 MHz and use it instead of the
+SCMI clock, or keep SCMI clk rate less than or equal to 400 MHz to
+disable PVTPLL_NEED mode in TF-A.
+
+In a future series you can extend Linux with a proper PVTPLL clk driver
+and OPP support for the rocket driver to correctly ensure pclk and pd is
+enabled when a PVTPLL clock is managed.
+
+>  				regulator-initial-mode = <0x2>;
+> -				regulator-min-microvolt = <500000>;
+> -				regulator-max-microvolt = <1350000>;
+> +				regulator-min-microvolt = <1000000>;
+> +				regulator-max-microvolt = <1000000>;
+
+Please describe the HW, do not add workarounds for software issues or
+shortcomings.
+
+Regards,
+Jonas
+
+>  				regulator-ramp-delay = <6001>;
+>  
+>  				regulator-state-mem {
+> @@ -787,3 +788,16 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+>  		remote-endpoint = <&hdmi_in_vp0>;
+>  	};
+>  };
+> +
+> +&pd_npu {
+> +	domain-supply = <&vdd_npu>;
+> +};
+> +
+> +&rknn_core_0 {
+> +	npu-supply = <&vdd_npu>;
+> +	status = "okay";
+> +};
+> +
+> +&rknn_mmu_0 {
+> +	status = "okay";
+> +};
 
 
