@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2C3CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D5DCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ud8CqUMs31Lbag+rPY0L/C65qKiCj6gLmHREZB+Ipfw=; b=tccjdiftmsuUQAPYsqyBb/dZOc
-	KrQhFEP8VDA1Xd4TP2+UeVMBTLFRxUVr3pD0VQYXMzjOCArUNb4FdSJxzuG7P+sRmuIk84299NzmG
-	1fMqJQtgPKV9sz3/K9hDzpQgwC1cJD7feKM1QqcS+wizFl/mIe2XCZBjTmKTHDkHr8J1RP+NriAkS
-	YwQGcbCuk2FliCwgmNR98z5aSxfJJD+4esHvR9I2NsjobxMuyR4xH4H0EKdwGGcHqWWiSQQgGRdh5
-	+z6/eg7bswtDDZnZq938wjRTqC/lfdgvqP6xrgOW+5O4QLLYqjvcXlS9/1gxR8aawkk1QKEzSqwZG
-	icGCiSVg==;
+	bh=aDCfgIsCd0Q4hB2aGkv+tHe8owWljtqt1jPIzUxxB/s=; b=U5MfDed5pzBLTp162dW0M7XLNd
+	vdrLrB9BC/NblFk9cwZd/HQb+Cakxf9tdKZi8mcWMWoNjtYFSon6Gkdk47vYKfrYfSYd7tDOdcp4f
+	ZB1V1ysSj+V8n8GWV51Q8rge6GXvRRDlEhlKG9h7NY9kagMi8ICNhqdfUdRZkzV/EcBtHuhEDEY3f
+	DjuuN6M+2L9eSc/E/HpYkNZx6nSePEz6apL+TRuoplm9sj1UUEeMiqFXjX1YmUEDIfRtW0igyaqTi
+	3N5scOsk+DzC3K9oaY5lTlsgFcDOqB23hTPkyHIhgzXpM2h3GhZdUjdCn80Eg8Jo51j4Gi8pXqOlh
+	cZfXPsYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJbd-0000000C5AH-34qI;
-	Sat, 13 Jun 2026 08:20:41 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wYJdU-0000000C5Hk-0kiI;
+	Sat, 13 Jun 2026 08:22:36 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJbb-0000000C59v-0piO
+	id 1wYJdR-0000000C5HK-1Z1D
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 08:20:40 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490cf3000f0so17536855e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 01:20:38 -0700 (PDT)
+	Sat, 13 Jun 2026 08:22:34 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-45ef82204c6so1016904f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 01:22:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781338837; x=1781943637; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781338951; x=1781943751; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ud8CqUMs31Lbag+rPY0L/C65qKiCj6gLmHREZB+Ipfw=;
-        b=iC8wmoYRJ1dXFx93fPJmOjbAikPSaOxYRzlKjEd/o2LXRKnr3+EXPduwx3y26tdudr
-         t7EE7rBeAoBSwrqKHA4w5kGtojKZ7T/Eh7PNcdsHh1zeYaiaKT5yEh0SpvGHshK67Fq4
-         rHhPLbdeyg+UEjdyQ0aluZIpo6DsvibNHiJRMvXv3c8sdbtW4jPcc8N/Usn0+ElXd9Mx
-         v7+I13QRpdiAXzAtI5veAhAM46fkzBMDr186yayJNyG/ak01/dliXKcsTijV9zbV6Y6s
-         SkF7fhO49uJncNzD35Vso+3Vp1X95P8lzgerjLeYn09q+H2UDADUHOmjHMnGCL3HCXQl
-         njFg==
+        bh=aDCfgIsCd0Q4hB2aGkv+tHe8owWljtqt1jPIzUxxB/s=;
+        b=A0roAa8ywHxIF3er9JjKfiAyJCDEey02/ygOrIy5q4ta+Tddwo8Bnn7JWsYA6nlT0Q
+         UsU1jBReWQoLduDPh0hZXKvKSl4c8Qp4LvR5MTarWa1TRzO2ZVQPlme8HJO+T+MJ8cdg
+         XuKxf3Yst2yXlZauNOyGD1csBUyyOyRmQidkzn4+h3DI5KcG153CWpbCKxOoDXGPh+Ay
+         FZO5WRD5A2AiXOEfNQM3aqFhLLuV4QAO5Rp3DquPjbt2ZQ7dRM7bIv7tIcxfpvbfxMux
+         4GmEvj2G9S26UgKQH3JqY3Vo+7+fHvrhrdhj4igvQbu0hg1eNO23qLAC3i0O6qiuZ90J
+         P2Pw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781338837; x=1781943637;
+        d=1e100.net; s=20251104; t=1781338951; x=1781943751;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ud8CqUMs31Lbag+rPY0L/C65qKiCj6gLmHREZB+Ipfw=;
-        b=JSg+lItjWSk3u3WrITVkRTAPvE0dQbrPZzzDGED9Lm5Av51f0bYn+qViJO/3ZDkKJM
-         Ep/1j2UB8uwzT5ajJQZwkuE4Uc4mK49XiDBy8pKIX1QBJCCvAtmWglJ3vfjRAXIy1g1K
-         uWTlndXvu8V+su6AOJAk/5f2Ag2n8M2kig0axkT1Ezz6TT4GVwA2+kkvH4df+qyjibrB
-         qYrMM+fJdWqod1OW+Yh6aTmb+9zHpUNMZ8iEB1qFTj2HeAa9Cjz+LIi7r+7aV4iTqrIc
-         pdfR8g52DUrJT7frhBuwfZ2yMqSLo6IcFsMRnEwZjyMSftzIxuAOTi4PUK1O5WpJKgEP
-         y6qQ==
-X-Gm-Message-State: AOJu0Yz8zWSUeCadhTaPejCpXDnW2LDGVrV5hCEyyCoyAUI88MrPh5AV
-	jOFFUAtly2MZrA0NFhYhDKbUwUTTMqInC5xvJDCY4mYRS7oFi5mHZ+pTeh0Jsmev
-X-Gm-Gg: Acq92OEmuBMYtfPtNTndg1bHFhhsvvDmV+LJFn8RIXZqY2+jjjnwS7TBvgs4VW9+2+3
-	KN2o6AVEZnWgNtq0Il5Mew+1ojfzRNN0SQA3znqWNt78wo0kpBlOYwRo20udgb8GLbJSR5T/iVm
-	TwPk77mC+8Pho0vCKsyIoAZNXi2CcnnGpQv4sukOAjCkdJBxpNXIJK8gUATM+z/MTKkihrh84Dg
-	niL2z2jqUcpWOKPpe0pzlbIOhOOJn0FGn9zWG8bAwtlUCmq+7FomcKeW6LUYYtvpIvky+/+IAlu
-	aeblf+uP7ehKhYOsrxPah+1Qr0y1BXU/bkQvmGnJk1WVlzC8iy6nMQIfRSpY1VWqFkSmSo0KDOR
-	D4oGjfvJdVCGfHPWQ9y6ETKZpAJBHRcPP9zf+vQ3xIQsWJru/kzu9L0TK6x5Pl+v0edztYcsGlk
-	hL7OhoQl7UmZfcCJ/2ObFa+Rnc9Xzuq9Com3hx4xm0rnTt
-X-Received: by 2002:a05:600c:c3cd:20b0:490:d3ef:fa4a with SMTP id 5b1f17b1804b1-490ec4ea4f1mr58033045e9.14.1781338837061;
-        Sat, 13 Jun 2026 01:20:37 -0700 (PDT)
+        bh=aDCfgIsCd0Q4hB2aGkv+tHe8owWljtqt1jPIzUxxB/s=;
+        b=Mkg0+pcS63qabkJ/6H3Wl7MVomjsuWhddAD5+2xzIH0OhUgHGdcL4p6QgqSV54VeEI
+         uzejDXCjOV4c16h1xtvMxim9a5tkb68/rjzCTGXIZuzweqqyXFMUqVw8KN5kyNsPJ74T
+         jsheUh1rHUH4nFDbBuIWNuo/VAZx0+jn1qVt5OjOS+jxw1ix2PySqaSyyN8hn7D/uqHH
+         qbAVHPVSifY2VYgZ7hJQSsJt5hU39flQaSz63auJMwoS3Nphy3JeWGvSPE8P2SCmKd07
+         RaTOJgdGuPdFwzoIx23vLGPO+erDV4B4MH1dxQO12rybtmJWP/lvdZSDyTU33g5UCZZA
+         FPwQ==
+X-Gm-Message-State: AOJu0YyI7c40g95WiVKZDZdMZYEqt792legxvxFFTxJ/x0z+CqBv1Hnw
+	LVzbDNQxiXswlUOa/MgkLDpBS6anw+KQm8R4ERUmH26I9t0469F2/QRsF/V9bqvW
+X-Gm-Gg: Acq92OEfy0Gk0ztoPb3qKbQimTL/XHE/gBg7b05OhtaIZ5KyZJDvwJG7G4cisKzSGAw
+	HL78uhLtTFlmURyPOv10l4rJCqVhnAQB6IimLOa2bCLIAvaZoItS3Bvxy9UrblD8MlFhIFTwd4P
+	HxhQuX0+TiUG0AlZGNbgVkItbZ02XH/TJMrSRaVPD+0FAdnAelFroWdlVWUznUWMOiqvTFF5dXR
+	3uvBwnfG7yBmoNcKdRFE4GN6VnxgH3A0YPiG1aKDsw8t6XzqaSHjT8EEZIADB3o20XmPIF9HDBE
+	UaDiN2tP3AJnI8uumfIeFIjQYLuaKRYrZDgsYzGmCvibixVuuelzek5N5iFl5dycuULHRP0lLDZ
+	DRMc++9ykCd/LGY4uL26AMxGrTlhjuj5ug2DhIOO36JF/B3aksgi2FvXeU5yzPE+Lxf6YCdNh2q
+	tPO2qd6d9New/XhbN9WkqwyKcJUXrCo9gZQNKUIp2WhDR/kvL8mEngHuI=
+X-Received: by 2002:a05:6000:608:b0:460:70ae:f196 with SMTP id ffacd0b85a97d-46070aef211mr8420172f8f.7.1781338951277;
+        Sat, 13 Jun 2026 01:22:31 -0700 (PDT)
 Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922032ae56sm54483765e9.7.2026.06.13.01.20.35
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26f3dcsm12723144f8f.13.2026.06.13.01.22.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 01:20:36 -0700 (PDT)
+        Sat, 13 Jun 2026 01:22:30 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  Alexander Sverdlin <alexander.sverdlin@gmail.com>
@@ -83,18 +83,18 @@ Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
  Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>,
  Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v4 5/7] arm64: dts: allwinner: a100: Add LRADC node
-Date: Sat, 13 Jun 2026 10:20:35 +0200
-Message-ID: <5lITDd8mTsaQJaoJhGu1EA@gmail.com>
-In-Reply-To: <20260605070923.3045073-6-alexander.sverdlin@gmail.com>
+Subject: Re: [PATCH v4 6/7] arm64: dts: allwinner: a100: reserve RAM for ATF
+Date: Sat, 13 Jun 2026 10:22:29 +0200
+Message-ID: <_6NEZ78hR8a_3V2bhBAGoQ@gmail.com>
+In-Reply-To: <20260605070923.3045073-7-alexander.sverdlin@gmail.com>
 References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
- <20260605070923.3045073-6-alexander.sverdlin@gmail.com>
+ <20260605070923.3045073-7-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_012039_276706_D6873F64 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260613_012233_426675_70C04081 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,59 +109,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 5. junij 2026 ob 09:09:19 Srednjeevropski poletni =C4=8Das je Al=
+Dne petek, 5. junij 2026 ob 09:09:20 Srednjeevropski poletni =C4=8Das je Al=
 exander Sverdlin napisal(a):
-> A100/A133 SoCs feature a Low Rate ADC (LRADC) for Key application.
->=20
-> Specs:
-> - Power supply voltage: 1.8 V
-> - Reference voltage: 1.35 V
-> - Interrupt support
-> - Support Hold Key and General Key
-> - Support normal, continue and single work mode
-> - 6-bits resolution, sample rate up to 2 kHz
-> - Voltage input range between 0 and 1.35 V
+> Add reserved-memory node carving out Trusted Firmware-A region spanning
+> fixed 256K from physical address 0x40000000. Even though Allwinner ATF
+> itself passes the address range in the fdt to U-Boot, U-Boot currently
+> only reserves this memory internally, but doesn't carve out the region
+> in the fdt passed to Linux.
 >=20
 > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> ---
-> Changelog:
-> v4:
-> - added allwinner,sun50i-a100-lradc compatible
-> v3:
-> - new patch
->=20
->  arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi | 9 +++++++++
->  1 file changed, 9 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/=
-boot/dts/allwinner/sun50i-a100.dtsi
-> index b3fb1e0ee796..7cb06b19b5a5 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> @@ -466,6 +466,15 @@ ths: thermal-sensor@5070400 {
->  			#thermal-sensor-cells =3D <1>;
->  		};
-> =20
-> +		lradc: lradc@5070800 {
-> +			compatible =3D "allwinner,sun50i-a100-lradc", "allwinner,sun50i-r329-=
-lradc";
 
-Break this into two lines, like usb_otg below. With that:
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+NAK. It is job of boot procedure to properly inject TF-A reserved node.
+Any issue should be fixed there.
 
 Best regards,
 Jernej Skrabec
 
-> +			reg =3D <0x05070800 0x400>;
-> +			interrupts =3D <GIC_SPI 22 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks =3D <&ccu CLK_BUS_LRADC>;
-> +			resets =3D <&ccu RST_BUS_LRADC>;
-> +			status =3D "disabled";
-> +		};
+> ---
+> Changelog:
+> v4:
+> - new patch
+>=20
+>  arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun50i-a100.dtsi
+> index 7cb06b19b5a5..d8391663fd1d 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> @@ -87,6 +87,22 @@ osc32k: osc32k-clk {
+>  		#clock-cells =3D <0>;
+>  	};
+> =20
+> +	reserved-memory {
+> +		#address-cells =3D <2>;
+> +		#size-cells =3D <2>;
+> +		ranges;
 > +
->  		usb_otg: usb@5100000 {
->  			compatible =3D "allwinner,sun50i-a100-musb",
->  				     "allwinner,sun8i-a33-musb";
+> +		/*
+> +		 * 256 KiB reserved for Trusted Firmware-A (BL31).
+> +		 * This is added by BL31 itself, but some bootloaders fail
+> +		 * to propagate this into the DTB handed to kernels.
+> +		 */
+> +		secmon@40000000 {
+> +			reg =3D <0x0 0x40000000 0x0 0x40000>;
+> +			no-map;
+> +		};
+> +	};
+> +
+>  	timer {
+>  		compatible =3D "arm,armv8-timer";
+>  		interrupts =3D <GIC_PPI 13
 >=20
 
 
