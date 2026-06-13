@@ -4,103 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28E3CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 05:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B638CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 05:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovyq5VY0HrDmnxwXqGTum6kqu484G9zPMiuaByi5weY=; b=Anu/0iz+/VrWwtq14teLbq7AEa
-	ulfShcPCnWPN5A9De0YPkTpZDCiJOKkq9EVO5U+im9/67K+RjHMIqXw4afkQgay1K8FrwedKyfHKw
-	OSxuvsK6wGbSPHaRITUTe6rCSYUTaCyterlmN7CtCA+jqyOqcT0/YewsFRavrYqN1NTfnMrK47Sq2
-	2/CV7bGnjfRMOmwz09+GconeXvw4x7ilvXzSc2p5UftdF6vD2AooNw2sLJb0TKtC0fO4o2En3fm1D
-	cXY+6GhNe2Ca3Kym/uTg1sYSeAdBS2Vqvi22IAy1WLCruG02DM8xIrqsuEJb7xUJUM0AZot6kDyqv
-	hTBiBlrQ==;
+	bh=y4/6Lc/+651vbxRHr5V6jKndyAO/QJF1z4yHsnYQ6O0=; b=uF7UzQk2MzDyotHPWrok0KZNGc
+	BPz85yjgc3C6Q/NYb2m7wxZkzo1q+I5wMivEltEoG9clE2aPBj+DA2VhxLMwI143ceZ8oRF9YDNJk
+	PWrjvCzlFpqTNDfRo0AGqUOQj3E2G6KtPd/txJizdRBeUDrY+rGTWUcPwfhUTXeJUus+dPHVbyeTr
+	J2isS+SY6kySkolQh/5Xbw2hzZSvilqvZ5gbUoSLHLQFOOHmybaqgcfBRiwZhlIg3k9qDk5LVw+rE
+	8cVgWEWiArP8mqMADaf9eucA5DZWDUIrOdn0Q85pICPn8nI2r+ePG3ZiXGylavDg/DSG11bJ4A22w
+	K14lZ02A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYGnV-0000000BxpZ-3rRe;
-	Sat, 13 Jun 2026 05:20:45 +0000
-Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYGnQ-0000000Bxoz-20pp
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 05:20:44 +0000
-Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-59c2a81ca92so1057934e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 22:20:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781328039; x=1781932839; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ovyq5VY0HrDmnxwXqGTum6kqu484G9zPMiuaByi5weY=;
-        b=YOKTv5W+1bOOY97d6uIurrT43EivJExprcfrR08ge7eq6S4MLn+03T/Xz6dBipTD3R
-         +lumnC/YQPnL4zaz2d+Le8YsITNelrew5+OrGFKWM8VaRuy931dH/UQVYHPYA0z00i8G
-         y8OXLwvyNfVO3l61iz8tX6aYxPtutOHoUymOvxFKi2thr5mhwF6f7RU/HDq/3I+hfIRR
-         H7ij1Yi3X9rNsrLr2UCrLDv90pld//5Vy/9zBmQgL2uNfoUFTQUjZEH+UyZWLViNcXKT
-         IrXAs0URTOYV3EgY3fe05qCPqmjGoUzFOb7D3chfBj7+OyqwiPcM08MdbrZ0Xuw1xB3z
-         PWoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781328039; x=1781932839;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ovyq5VY0HrDmnxwXqGTum6kqu484G9zPMiuaByi5weY=;
-        b=B3HPW7//TJCQ5aunqL5g7dycLW+My83MFiv+hqn/tPQHi6jgClgmfshBIGTFfPnv+C
-         xB6rr6ghvyBoka+B1wIlesPRGl3aAZEi4i9EkmYuW61Lpve6z3XfyQXcK6FPGIRFr4dz
-         UD3lvxBmFAVW71b+ELffJU3523iaxxkVgcH8UmcpsfPfbSygjsf2WlpozYc2LvENjU8n
-         LX9qn2Z9a/CUJJTPZweJIIwQHDYRno46gV135COiyeqUYYNGZpIzuRsesfXI+3EHptQI
-         blcSpVytcA81JcAYrRgD+fgt4uerGzRRHJOd+jHHvxiZsdewRpwsLjwgsX75WoWRh1YL
-         3bjQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8nCkakgbp6t+Q9S1ugvaV2u5s1vBtP0j1WZnO14eUFqUBEmRg2JbLkQrkxRD7fR6giMiwUiDMcslrJQ3MevJV/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc6ycUjLdBVea3F6YQW/1qCCpXi5oEnBbkWRtht+v5gxkqINi1
-	lylJy4B3nuMkXDamEae9m87YFpGV40CXZrXyNA6GySLTCAsH+iq1fCDb
-X-Gm-Gg: Acq92OEAueV5ZGLcuW0Q1bo4cJdp2Sb7LI1RmFArCi1FwiyBdNmURb89BgqW5Q2JuCg
-	yjFw1jSyacxL+KBgDDQSaRTjAICjUhVgIFi6Fp+D2tXSsRyKKihUHxvq56mcyDGJww9Rj6Wh41M
-	LC2eqsRAY6xf97qufLcRYMwsKkZ8L04akpz/SYjjT5cspi97Ie/UUooWtE46Ae6GSfbbGYOG+Hp
-	+GRXYkURHV9G0ixogF91f9uX7vURj+crSGd2GUlSuTYQ0FPqz56sbDvksVDVvM1/E5KHomsHCmO
-	qSV5ypnbDrXPBgWbOSU3Xqb9vo772hNt8mL+7UNvS3VPrB9t5CJNEG+cJeictIZGnMqQvyRjh1z
-	4XIt9ZaqKSgzUchWXxAckiARfFDdZeP+ujvEVGsy243EZer8wF9COtzHPe19hsy7ymvZRgaQmrt
-	uakVE6ZFv1T4fLDGmRJ79IL3dMk6JAOtsw/MXfxkU=
-X-Received: by 2002:a05:6122:4d8b:b0:567:4e8a:fb13 with SMTP id 71dfb90a1353d-5bb6c05beefmr3545667e0c.8.1781328039294;
-        Fri, 12 Jun 2026 22:20:39 -0700 (PDT)
-Received: from [127.0.0.1] ([38.252.222.136])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bb69014308sm4848692e0c.7.2026.06.12.22.20.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jun 2026 22:20:38 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Sat, 13 Jun 2026 00:19:52 -0500
-Subject: [PATCH v2 2/2] clk: samsung: exynos990: Fix PERIS gate clock
- parents
+	id 1wYGuY-0000000By8I-2icr;
+	Sat, 13 Jun 2026 05:28:02 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wYGuU-0000000By85-3rEg;
+	Sat, 13 Jun 2026 05:27:59 +0000
+Message-ID: <bcd5576a-5d4c-44f6-a773-2344ba8c6432@infradead.org>
+Date: Fri, 12 Jun 2026 22:27:57 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 20/31] fs/stlmfs: Document ARM SCMI Telemetry
+ filesystem
+To: Cristian Marussi <cristian.marussi@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+ f.fainelli@gmail.com, vincent.guittot@linaro.org, etienne.carriere@st.com,
+ peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org,
+ elif.topuz@arm.com, lukasz.luba@arm.com, philip.radford@arm.com,
+ brauner@kernel.org, souvik.chakravarty@arm.com, leitao@kernel.org,
+ kas@kernel.org, puranjay@kernel.org, usama.arif@linux.dev,
+ kernel-team@meta.com, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20260612223802.1337232-1-cristian.marussi@arm.com>
+ <20260612223802.1337232-21-cristian.marussi@arm.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260612223802.1337232-21-cristian.marussi@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260613-exynos990-peris-fix-v2-v2-2-3dff7ade75b3@gmail.com>
-References: <20260613-exynos990-peris-fix-v2-v2-0-3dff7ade75b3@gmail.com>
-In-Reply-To: <20260613-exynos990-peris-fix-v2-v2-0-3dff7ade75b3@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781328021; l=4330;
- i=wachiturroxd150@gmail.com; s=20250819; h=from:subject:message-id;
- bh=7Mhi088K4JbmXLsghbRGkWUhMJ0OIYyxUcPPBdeO4Vw=;
- b=Eyg5vZ285Yt4XsqlCXfDhI6gutnRY1/qm7OGvSamzvTejycc9Ex+wbJKzBbJ+K8I7VPEBIZTW
- vObz5hhT0QTBZj6W7HOAE6UCPhEdJ+zqVsb7vsunsTNs/+XVHigtLbR
-X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
- pk=qNvcL0Ehm3chrW9jFA2JaPVgubN5mHH//uriMxR/DlI=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_222040_539746_85100D96 
-X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,95 +65,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct eight PERIS gate clock parents to match the hardware clock
-tree, reorder the GIC mux parents, and add the missing TMU_SUB_PCLK
-gate.
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- drivers/clk/samsung/clk-exynos990.c | 24 ++++++++++++++----------
- 1 file changed, 14 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 4385c3b76dd6..df5928833b23 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -21,7 +21,7 @@
- #define CLKS_NR_HSI0 (CLK_GOUT_HSI0_LHS_ACEL_D_HSI0_CLK + 1)
- #define CLKS_NR_PERIC0 (CLK_GOUT_PERIC0_SYSREG_PCLK + 1)
- #define CLKS_NR_PERIC1 (CLK_GOUT_PERIC1_XIU_P_ACLK + 1)
--#define CLKS_NR_PERIS (CLK_GOUT_PERIS_OTP_CON_TOP_OSCCLK + 1)
-+#define CLKS_NR_PERIS (CLK_GOUT_PERIS_TMU_SUB_PCLK + 1)
- 
- /* ---- CMU_TOP ------------------------------------------------------------- */
- 
-@@ -2551,7 +2551,7 @@ static const unsigned long peris_clk_regs[] __initconst = {
- 
- /* Parent clock list for CMU_PERIS muxes */
- PNAME(mout_peris_bus_user_p)		= { "oscclk", "mout_cmu_peris_bus" };
--PNAME(mout_peris_clk_peris_gic_p)	= { "oscclk", "mout_peris_bus_user" };
-+PNAME(mout_peris_clk_peris_gic_p)	= { "mout_peris_bus_user", "oscclk" };
- 
- static const struct samsung_mux_clock peris_mux_clks[] __initconst = {
- 	MUX(CLK_MOUT_PERIS_BUS_USER, "mout_peris_bus_user",
-@@ -2584,15 +2584,15 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_BUSP_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_CLK_PERIS_OSCCLK_CLK,
--	     "gout_peris_clk_peris_oscclk_clk", "mout_peris_bus_user",
-+	     "gout_peris_clk_peris_oscclk_clk", "oscclk",
- 	     CLK_CON_GAT_CLK_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_OSCCLK_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_CLK_PERIS_GIC_CLK,
--	     "gout_peris_clk_peris_gic_clk", "mout_peris_bus_user",
-+	     "gout_peris_clk_peris_gic_clk", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_GIC_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_AD_AXI_P_PERIS_ACLKM,
--	     "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_bus_user",
-+	     "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_AD_AXI_P_PERIS_IPCLKPORT_ACLKM,
- 	     21, CLK_IGNORE_UNUSED, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_PCLK,
-@@ -2600,27 +2600,31 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_GIC_CLK,
--	     "gout_peris_gic_clk", "mout_peris_bus_user",
-+	     "gout_peris_gic_clk", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_GIC_IPCLKPORT_CLK,
- 	     21, CLK_IS_CRITICAL, 0),
- 	GATE(CLK_GOUT_PERIS_LHM_AXI_P_PERIS_CLK,
--	     "gout_peris_lhm_axi_p_peris_clk", "oscclk",
-+	     "gout_peris_lhm_axi_p_peris_clk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_LHM_AXI_P_PERIS_IPCLKPORT_I_CLK,
- 	     21, CLK_IGNORE_UNUSED, 0),
- 	GATE(CLK_GOUT_PERIS_MCT_PCLK,
--	     "gout_peris_mct_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_mct_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_MCT_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_TOP_PCLK,
--	     "gout_peris_otp_con_top_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_otp_con_top_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_D_TZPC_PERIS_PCLK,
- 	     "gout_peris_d_tzpc_peris_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_D_TZPC_PERIS_IPCLKPORT_PCLK,
- 	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_TMU_SUB_PCLK,
-+	     "gout_peris_tmu_sub_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_SUB_IPCLKPORT_PCLK,
-+	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_TMU_TOP_PCLK,
--	     "gout_peris_tmu_top_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_tmu_top_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_TOP_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_OSCCLK,
+On 6/12/26 3:37 PM, Cristian Marussi wrote:
+
+> +Design
+> +======
+> +
+> +STLMFS is a pseudo filesystem used to expose ARM SCMI Telemetry data
+> +discovered dynamically at run-time via SCMI.
+> +
+> +Inodes are all dynamically created at mount-time from a dedicated
+> +kmem_cache based on the gathered available SCMI Telemetry information.
+> +
+> +Since inodes represent the discovered Telemetry entities, which in turn are
+> +statically defined at the platform level and immutable throughout the same
+> +session (boot), allocated inodes are freed only at unmount-time and the
+> +user is not allowed to delete or create any kind of file within the STLMFS
+> +filesystem after mount has completed.
+> +
+> +A single instance of STLMFS is created at the filesystem level, using
+> +get_tree_single(), given that the same SCMI backend entities will be
+> +involved no matter how many times you mount it.
+> +
+> +STLMFS configurations gets appplied by issuing the related SCMI commands to
+
+                         get applied
+or better:
+                         are applied
+
+> +the backend SCMI platform server: for such reason any configuration applied
+> +by this FS interface will survive the unmount or the unload of the module, but
+> +not a reboot.
 
 -- 
-2.54.0
+~Randy
 
 
