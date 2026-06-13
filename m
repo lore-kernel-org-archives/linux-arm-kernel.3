@@ -4,89 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B78CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 22:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0384ECD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 22:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gVvTmy2kjAxDOQ5oAUZAa+g5F4bDNkNdVicqOVQl7M4=; b=tfRFDLvgnjDHqDwprlc2tdxzJG
-	PN/orVbCBNOZDKWMgeSEtjuVVe70UR5PSBWGZuRqvxHjQN1d8cgrTveQrRtwSR8dhAatvl97CzCwA
-	f8XOjPTvcJbkoSDUHekDwUjc1S6WIcdRMPPQTcMwQwKsJrrJqFCV622kG7PjDgvO6+6WkTBhBUIFi
-	j5aWg2hmyW0beiVfq9dWWJIoGTi2N8zfjIZb8RWFpBV322cOYRQjNMPlMeb2Y4V7Eenrs4LuWZKYw
-	HbUEokusnDBBxva1gs3xAPMr/aE6bZa//N5w2fuJk12SS7V0bA2dPD9QCR+Jh+QvszWimQ78PYVRO
-	QL85CypA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n2FhzrzvdqAzy0gU8lhh7x/LXxPE1LPhGr06xqqGpPo=; b=RUmOrGhCL4rmxk9zC4VAf0ZW2j
+	1BcH/RE8gBPVIn0xUdcPgeqhyeJg81c2cYyW2DtCkrEj0+uX+ZXKQztQlO3PXRU9AVROFDvWwKGI3
+	azkxNSoHSZ5hdSkw3+OGLg3W9mnFjnRsAxv02wCQX8cJpvipL3c5C3/eh06JqA8vI4Dy5YF2pl/Ga
+	c73QZV3KKHPTowHEjxluG+luhaFxC6N6GCxz6ZDiqPO+ObAu7oKUKc6+Nu/04QFMtD9U6gDP7n8oO
+	Wv+BlodzgStPK4mtg26z4goUyUI/lmvpvV78jT4ZIkODWgZvg3uwDOAwbd5xAJGVpqAAgCq0ow3C8
+	8mZlukmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYWln-0000000CZdK-3dXJ;
-	Sat, 13 Jun 2026 22:24:03 +0000
-Received: from mail-dy1-x1341.google.com ([2607:f8b0:4864:20::1341])
+	id 1wYXFr-0000000Cal7-04Rk;
+	Sat, 13 Jun 2026 22:55:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYWlj-0000000CZcc-1to6
+	id 1wYXFp-0000000CakY-1KPa
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 22:24:02 +0000
-Received: by mail-dy1-x1341.google.com with SMTP id 5a478bee46e88-304d7f31215so2037668eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 15:23:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781389438; x=1781994238; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gVvTmy2kjAxDOQ5oAUZAa+g5F4bDNkNdVicqOVQl7M4=;
-        b=mGuMzWZWTGGaPkXl6Lushlo/0289/Q7wdBYPUgVI3826x8KbUhBMLz/ohPzjisLFDf
-         5LNM2ErPu2mvz23iFbG+WOoLcxSzVLMPqqvC4T0Q8azzqW+DplencRSbZ4qL7sOIU8Ls
-         O4/Z8m+8LCxrUqPbxeUUpn3qmM0719hb5dVcUc4YbpHjH2srSxjdPAdJI/nHWZwJb+qB
-         bTRNYfQHbXnf9FZUzXCat6EwPqd29BW/famwL2JhxVZdHfGsx+x9fk1pIomcUCR54E7H
-         AGAL5s7UIVVEsDBxSNqsQFw9TMSKxh85A+mR6HA6Jjnlf44XZ6135hHHsrWanr6fl57m
-         efyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781389438; x=1781994238;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gVvTmy2kjAxDOQ5oAUZAa+g5F4bDNkNdVicqOVQl7M4=;
-        b=BibEHRHDVGAuvCglC266mtXi0WD5aYx+yE4GtOJNHJkOqHR8/pRaxEzZJ0xlnluqN+
-         CV6WRoELQFYJLqWwA4k64U1gCPIbixriRnPTxBhNbOU8otd4UXltWWWhnrdQh3Rf6n5u
-         5GBH+zIDIqMflHFN6QYbJwBsguFP6e6vr8gM00gtbPCo9giYqUlw3CNxxAwr+zGIGvy1
-         YVeu0QqU4+R26Pjp855Kbxj3hJuEAxO2gCqQ6l2Z4FuWa7P4sk7c33o6v6hTjvL/MFBt
-         yvVBDkHansvCOxG3aCyccktd19J7NVISrnJ84byqghUvSEK54jMyW+OIBjhE9mhb+QxT
-         dMqQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9NKZzxZYRhTHn52hR9sjdozUt0Of0j492nNRhBukHD5vXTaX6dtyI0Gbl/3Fk1rLWUM2f07WDuVGU8oechW0WG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI8q1zUP7Xyi1KjTnX3SfYikxVWR90H3CMwcJrSZ0BuRAKpF/9
-	GYK8sqIO7m0du/CaIioT3SF+SDiSf0lQxiKBTLLBrZA07qqvSqP7RBOeVuC1Nsgx
-X-Gm-Gg: Acq92OFZWuXOL486adJaC/xokwKPdsQaQ0wSEup1W15JCxN9x8RrVS977Rbbdtdd8DA
-	KY0VR23+Gz++W6dp0wPyFar6WOQ/yolrT/TbIgRWZYc/7M32g2C4R6i5vVlIc3eKdwgOJDS9EJI
-	rZpa8x7NztzhThDUO28zfpiXnc/mxe0J2HHLYlu+LhpNuzFEZykFLZnhDQR6Y1K0w+Gpqn3mGYk
-	mHxTbYiOstPUwpT+CPT4PXR0W249ISl9IbhhhvrrDUKI80XY3uP9KU4TdtjGc6YikXKYXfuxmjX
-	a6QQ6vVPktkSZQBDmBBlYgQC182Xx4nGX1hBDq3zM3wp226DzWaY07mg6iUu0dQmbokSkH35tOp
-	tpLo+a17mOTjcO7De/cNaCVuJ7SocBpw9y88RBbBEKG0wJaInQ4ggPT7pJ/MYYlKkoC7Dn+nDvM
-	D6HPPNF0jXn5CnU6KQM7otqz9SNiiID9iyIqUBaEBDd8L6jZoEzKQrXtwWFzn6/HTl0lKV93fcj
-	OsuGNhDvQieDHDp2mMbm1j0dhS9rYt2ZAdrLFu5WpiMFqfu1QS6j+Hh/WoOHbkDyCklkog67QE2
-	cogkC65R2cmkr1CRog==
-X-Received: by 2002:a05:7300:dc88:b0:304:b93a:5107 with SMTP id 5a478bee46e88-3082004ba43mr4735033eec.21.1781389438357;
-        Sat, 13 Jun 2026 15:23:58 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb9a2e7sm8811701eec.30.2026.06.13.15.23.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 15:23:58 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: "GitAuthor: Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: [PATCH] [media] mt2063: correct CONFIG_MEDIA_TUNER_MT2063 macro name in comment
-Date: Sat, 13 Jun 2026 15:23:46 -0700
-Message-ID: <20260613222349.102397-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sat, 13 Jun 2026 22:55:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BF9216008A;
+	Sat, 13 Jun 2026 22:55:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 662951F000E9;
+	Sat, 13 Jun 2026 22:55:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781391304;
+	bh=n2FhzrzvdqAzy0gU8lhh7x/LXxPE1LPhGr06xqqGpPo=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date;
+	b=FD3qfZaYPeCDOtbqEM7kkl0l2E2nrpDxQyEo8fzwz2OQqK3STca9WA3GRYiPuHpbL
+	 TolfMJthikoK1qNdzYPYNL+ovmsLgD4B4OCOKOQVv2uDfRfj5DnxiENnELpCbCod/f
+	 AseFfzPW1lz9OTfT1kj+oBCF2D/LI+toNZfC9kfro8kMIcmeusdw+bvUDS/6ODeoUW
+	 +vwL4X3KLHgonvXjFaqF8ft3eKw7cksN7gkcaSPP4dmBg/R+uZdGf6QWM0tjhzBrvG
+	 bN8ZJU+ypUkgrgVcJcVmZsowpRyL4rF0lddUYlnMjaPvbqoziyxjwQctji3FHNJ1Hf
+	 Cb9Xp9ESkJtow==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_152359_483005_69FDAB03 
-X-CRM114-Status: GOOD (  12.07  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260604030907.dhppbxwyfnnoeitz@dumpling>
+References: <20260604030907.dhppbxwyfnnoeitz@dumpling>
+Subject: Re: [GIT PULL] clk: ti: sci: TI updates for v7.2
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Tony Lindgren <tony@atomide.com>, Santosh Shilimkar <ssantosh@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>, Nishanth Menon <nm@ti.com>
+Date: Sat, 13 Jun 2026 14:51:50 -0700
+Message-ID: <178138751088.819343.10697672744094606693@localhost.localdomain>
+User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +68,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A comment in drivers/media/tuners/mt2063.h incorrectly refers to
-CONFIG_DVB_MT2063 instead of CONFIG_MEDIA_TUNER_MT2063. Correct it.
+Quoting Nishanth Menon (2026-06-03 20:09:07)
+> Hi Stephen, Mike,
+>=20
+> We have a couple of minor patches lying around for some time that
+> was'nt getting in, so took advice Brian made.. Here is the PR.
+> I have cross checked this on top of next-20260602, applies clean,
+> passes the build static checks and functions on all the TI K3
+> platforms I have access to. Thanks in advance for pulling..
+>=20
+> Please Pull:
+>=20
+> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e7=
+31:
+>=20
+>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3=
+-sci-clk-for-v7.2
+>=20
+> for you to fetch changes up to 2b0123e4a9257fa2933d13d1bca9ac36467efac1:
+>=20
+>   clk: keystone: sci-clk: fix application of sizeof to pointer (2026-06-0=
+3 21:46:01 -0500)
+>=20
+> ----------------------------------------------------------------
 
-Discovered while searching for CONFIG_* symbols referenced in code but
-not defined in any Kconfig file.
-
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
----
- drivers/media/tuners/mt2063.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/media/tuners/mt2063.h b/drivers/media/tuners/mt2063.h
-index 30d03cd76061..6c4b6c68ec25 100644
---- a/drivers/media/tuners/mt2063.h
-+++ b/drivers/media/tuners/mt2063.h
-@@ -24,6 +24,6 @@ static inline struct dvb_frontend *mt2063_attach(struct dvb_frontend *fe,
- 	return NULL;
- }
- 
--#endif /* CONFIG_DVB_MT2063 */
-+#endif /* IS_REACHABLE(CONFIG_MEDIA_TUNER_MT2063) */
- 
- #endif /* __MT2063_H__ */
--- 
-2.43.0
-
+Thanks. Pulled into clk-next
 
