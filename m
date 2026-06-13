@@ -4,74 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24991CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 14:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83EC5CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 14:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DQB9eZVmUwCxk+upUfXxnkxbckxPsu3JLjqIaY/Ievk=; b=mn7eaH7iY3PqF0
-	4WEKOe/ed+gcru3v1POTmm3qYC8Lf/UBsKJPZ+ybyreJeE2wHMeT6PQr40lfw9u0WntYOzP9N917H
-	MB1ZfgtKQR0f+SQUECy3KyE69H21/LsEeX9mqFymqClh1d6usJrVFXC0+wVJ4lRHN+UyrK7lVOOnw
-	ODJ1ca6qkbFDSTrlbGTwLzuf8F9oUMUhLTVYXYQKUHmZCdnZVFYyLCI/2yavh62P7I1SSRl5u7jSu
-	jZtni7xZm3JBGzVvS4EzsBvdFUC4bpxyaDJJAm7zq29jDAAWr7cvjXHIjEWES9GGktYJfSkLfiF7z
-	byC2oa7f1MylpIsa8Kaw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6UYt5FVpWx9CGCL3RoQYiz39yliDSvkJGCuNN2LqBTI=; b=XNoQiJvUxgMUUmbqWwHKk/i0jx
+	dDXfrQxqyKqbqIYXGa+tP8amFkPNvAraTubdo2nY0WCEdRUCvWpyMCDhJQVcYP2JyGkNB3x4NIVxg
+	ZqBmPFiR6n6DWWmRbIzjYOvwkrTKAMbj1jofeFcmbXaK04nDLPW0XdMGCYKkoFUo2yJWlpD7j9hD7
+	QBo4cRLUAp92g4VVO80+I82ur6Gx6PI4AHbUOWT0/fBrAe4ZXL5pN3ifac+9AdG38RzANQ91DFLmk
+	e0bthfdfjxvVyFsyylCSPlUgFP7mcJr/qfb/tCaFbwKmV4U+6oztTFXVafQsNYpBCsrTfvjSrtuxr
+	0Igpnl6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYPRE-0000000CMGv-0Ruh;
-	Sat, 13 Jun 2026 14:34:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wYPfe-0000000CMdJ-1BPq;
+	Sat, 13 Jun 2026 14:49:14 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYPRC-0000000CMGp-1Abx
+	id 1wYPfb-0000000CMcx-1NVr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 14:34:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E09643FF5
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 14:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23BA91F00ADF
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 14:34:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781361257;
-	bh=DQB9eZVmUwCxk+upUfXxnkxbckxPsu3JLjqIaY/Ievk=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=SBHqpKC7BREORrxBTVx7sACccSGVw8i23QX7+RIK5eckd2TmCZktg+BuSCQ9ZJ3yJ
-	 Kue7h6YyzWJ6cBULg+8t0egR8uzypz9mbNx5wzL4NFxcbQ8UVzR/0I3il5ZaLbmAgA
-	 6XI+B9N7r6a/A7QQlC/qWONiroFFhzFCSsIQAAJdjirZrH2xEDS3kjMXfmnYg1liH5
-	 WiQuomqBJ91IEiWZgyk7qRvIWJFqHdY7UpLHDvFAt7AjIty+cv7LjeO+94kXT0JuyM
-	 nlGvFoZeBf2873j+tyl+fdW1buWoPl5nc6cNVqXfr8kp/8pTAbGJRyfaYH2DP1VGd5
-	 pql7mT6lEAkeg==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aa6792e7b8so1702023e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 07:34:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ++endiSEGlQzTAOHPHh6oWcjOVyKUVfGnhPG8+G7XMni5vrt94KQRwyT+4WaBKTdA0KuSiyIgwSxZlqHFWWMBv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3Jj0OY5dHdPCuOhlzpul6KNDhi7Z7ZVAm9/7fvmP88R1FDGM2
-	r9FUCezU7bcXQREXhtIvc3OyBD5T7t0voRycEztLc3jdD3qWvO7xoXSzCAk/RSZht+SRFLkb5dL
-	jpRvG8QSbSZ8PfUJ5pkth0LDz6I/ljkE=
-X-Received: by 2002:a05:6512:1596:b0:5aa:6842:7a6a with SMTP id
- 2adb3069b0e04-5ad30d703e4mr921898e87.0.1781361255568; Sat, 13 Jun 2026
- 07:34:15 -0700 (PDT)
+	Sat, 13 Jun 2026 14:49:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hjZ6bkLzUDp3VkxG/IlhTirFWioOkeXgW74ULTHxuljRyNQvKr9TUM54DEa10z1zGJY+Zcovs90k5wT9rJ0KI+d74Ud8/EeM9FYssgmXrYZ6VAwUvxPJiiRHoZVbuCfpZd7RKGPCvndobnwNgp0VSdGcLgBy1BcG/b+zD5H7mZU+DPRHwBBjl402VGix8LJ6/qRHLZSzqP0ruJiiB7TLOsPWQw/a5+FgRqdYwBiNkGNT1L4TXRfzsDPuqL6bfDUxm6pSqz/hADv98Lv3OAlnBWI2FQ+6t1hZfyuX+R5ww9wI/Wz9d3nvyhoEH+wRAoxP4nDbaqt1BB67r3Ppz/YRCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6UYt5FVpWx9CGCL3RoQYiz39yliDSvkJGCuNN2LqBTI=;
+ b=TvBRC9XkNaGHJ+QWjVerSruWyedNTo/fmnsGq0nIt5va6sfZPBdZIndwWS9E4qx5tsi1VQpIACUDeVxfqhfr8t3CUzkMgYg4UcFbP8JlrxbW6UcISN7VC1sWMAJhfeDfsjdhAXK+gMU/wm0D0XWX0R9ZQ/YJhlJrficLLLC1wyqmQ/KiaHvx6d2MDXk1/jcBGJYPqcAjI6TwhlNR23wu1SGWayapZ/oMQRgTft9TiditFPhEm1QjAIesYN9PjeafFYrzA4GKmC4bCb1wN13GPuyLF81YlDnJguC4QZFS9tI+4y3m3FITE6CQmKX+29tFAOeqrZ43WVg25wB0+pZx9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6UYt5FVpWx9CGCL3RoQYiz39yliDSvkJGCuNN2LqBTI=;
+ b=EE//Z5nqr0ABNLLmw1XYdnbB6kRvvDfR2A7XiFBRieWF8xy1jOodKAaJ82TsGlKonRkCTcA5TUdYe31ZZBQ3lf7x6uYogP4gbriCwqGnQNMOUHG3iYhqxdjFAkJz62IGnedEROJLSI4wV45Dy8JZy/5fOzsSd4Km7do5huu5sAA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by MW4PR12MB7430.namprd12.prod.outlook.com (2603:10b6:303:224::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.16; Sat, 13 Jun
+ 2026 14:49:01 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0113.013; Sat, 13 Jun 2026
+ 14:49:01 +0000
+Message-ID: <824dfd2d-cc7e-441e-9635-4004da298f73@amd.com>
+Date: Sat, 13 Jun 2026 20:18:49 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: dma: xilinx: Fix "xlnx,irq-delay" type
+To: "Rob Herring (Arm)" <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Frank Li <Frank.Li@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Shyam Pandey <radhey.shyam.pandey@amd.com>, Abin Joseph <abin.joseph@amd.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260612215226.1887726-1-robh@kernel.org>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260612215226.1887726-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BMXP287CA0021.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:b00:2c::25) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-References: <20260505134812.408316-1-wens@kernel.org> <JyKk48uGRMGhs1Z-wzq5pA@gmail.com>
- <CAGb2v64wDvLMFn9DYs-kH1S2PpHJat-imxR5eJSQAUYjOp=Xdg@mail.gmail.com> <L1ZJMTqKQbak6NcKbwFkDg@gmail.com>
-In-Reply-To: <L1ZJMTqKQbak6NcKbwFkDg@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sat, 13 Jun 2026 23:34:00 +0900
-X-Gmail-Original-Message-ID: <CAGb2v677Pi9s3eWC7aXh8j=+eJh7AV5Mucr7SDXMN9Lo8yA2nA@mail.gmail.com>
-X-Gm-Features: AVVi8CdvXAQ1C_gR9wE2a9xH-URFH8zH5uSNUhPubBOtyL4bNWe140GF1Ea1p7c
-Message-ID: <CAGb2v677Pi9s3eWC7aXh8j=+eJh7AV5Mucr7SDXMN9Lo8yA2nA@mail.gmail.com>
-Subject: Re: [PATCH 4/7] drivers: staging: media: sunxi: cedrus: add H616 variant
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Jernej Skrabec <jernej@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-media@vger.kernel.org, 
-	linux-staging@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|MW4PR12MB7430:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95c29e46-b3e0-42b8-24ee-08dec95ae842
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|18002099003|22082099003|56012099006|11063799006|3023799007;
+X-Microsoft-Antispam-Message-Info: waT5zyGQX38Hll51QcwYNCmPJNxYw8Wf3n86QjUkDbYyty+8/N+OI2X5cVve2KYFwXOSbeGz+MZHO1vD/6A6CCUnh9WdFau9fJ/C4kh83C6YG5nl/yZsfKGAnf9ChHmqFO0/89wExZIWXYz0zTE+JuVbCwMHe+SDxkyiKUrdU+UDr87fwqS/si84jqgRvTf6MuzjRzVN9vSvg6XBTJI+rEXBhtgu0dAzH9uPqBHvu0UOdbJQN/QKcaLDtYKGZYLHC8yAXCg+aNJt5NEIffvGxLlsUF9OdB4MUNklYMylJuBpe+YuKCFKZURT5uBmSXIMRFa9gxsf2WV2P8V9I4xaWzjUPkFx0093mJ+ckeMJFiVtdxaHsyg8WmKIeQV1A81Rm1JJfNl+LkdMvcI/HM6X6ty4Y3Z5yM8t2gmwv9q+oOKh+EMVGXn98te8Jw3dIVcoIcfmxn1SWczmVQ5xl5qBvKdJsCd2Zb0GX8ghkcvow/s944od7Em/cY/aaK+qB0Wu3a7Z5EkwuCo29nHC3R+F4tSZT9606qKBEt0c8sXAcPxYC24g6Uy9iYS6pgvuPn8Or4gDnzsujyOPmwg2oL87vQg1KBGhrb2+iH0nR2Ei42nIywFVr9bv3v6SEuKslaIudmkAR2iioHyDRWEeOz94e1jzMmD/ald4Rs47CF4OqYkhFKEkZk8kbVunumkYq/Hd
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(18002099003)(22082099003)(56012099006)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RnpWU0xES3BPdTJPbURUaTduamo5LzFwdW55ZjFYaUFEOEtBeS9JZ3RYUHJT?=
+ =?utf-8?B?YkRHY1p4WDhFZlZWODNzSjZnZExGQ0pkQU9OYWM0MGVScjdoQStpN21IeTNt?=
+ =?utf-8?B?ZGVtZmMzUU10bFdsUUYwb2xBcVBSUVVaaVZvc2t0VDZqeDNwK2tnZHBLWUpr?=
+ =?utf-8?B?ZmhwRUdEMVRCbHhrMTV4eFRtdXZaQWtJT0Q3anBSTGd1N2dLSkxNeVdCS3BK?=
+ =?utf-8?B?VWxkclV2R2Vma3ZpR040bmFRb0RYS0prMnNTbXdpelNjcThqckNXUU14MU8y?=
+ =?utf-8?B?b2VWQkxxTGxiN2htR0owVkc2WEw1MWxTSHVMUXYwQXoyMEdLenljTjMrU0gw?=
+ =?utf-8?B?aFpSbzFZQjFtU3F3c05QKzBOSTBGM29sRFdZR2xoVUZXQnVoN25GbUd1bTdL?=
+ =?utf-8?B?V2Q3UmV4SmVuOEFjVUNYMVBzalczRGg2VnpzZHhkem4wZWRRKzZ4c1c1L2FS?=
+ =?utf-8?B?WEs0aFdJNEtha21OZzR3M0JnUkV2amcvdGFYN0xuSHlvc1c0dDhSczFWVFNt?=
+ =?utf-8?B?Q1JheGlEUnYvT0lwemVoVG51WGV0QnhuWlVJR3NwN1MzYkFDM0RNMytEbVlS?=
+ =?utf-8?B?VVpLY3pHcTQxbXo4U0tLbVllcWVVZUJ0UmF2aU5NQzVIdGY3Zmp4eWEwZlNi?=
+ =?utf-8?B?VHNid2oyeENkYzZmV2pNRU1SeXE3a3Uzb3B1UW9hVEtEbklwVENkcGRuUWVw?=
+ =?utf-8?B?MGEzZ0swNDJtcGo5QkFROElPTVJrekFjeFZ5d2ZBeVVPYmJIMlBKZGgxQzRX?=
+ =?utf-8?B?bUhRRHVVckF1cjliWmtaSmJLQXJGcVUxME5HSlJQNWlPS2JobjRxb2VlTzE0?=
+ =?utf-8?B?YjlWUDFnRHlDOGtObURBeGRBRHVxb1pPbnh4dWVPKzB6UnVCVFRZb09TRlZr?=
+ =?utf-8?B?QmwvNGMwNFAvMnM0N1FVc2JMbVRQL3F1eG0zNTQzSWJna29nUjNGdFgrU3B5?=
+ =?utf-8?B?d3ZUYWsyNDc3azByTTZhaHFvbkxkOW9GSWpWZ3A3bDJ6WS9jV3Y0WWVRT1g4?=
+ =?utf-8?B?dXdMeXJ3KzV1bGJ6VFBSNlFHL3JEYkFqZlgzaS9jY1I1YlJLeGZNampEdW0w?=
+ =?utf-8?B?QlE2aG5NVlhJbzNPcVVkZGlRV0R1NVZGUHVldjBVSzJqRmVOQVdob0Z3ek9H?=
+ =?utf-8?B?alpEMlpnbUtDM1piblZvL3JaMml4K1ZzdTg1QXZ1NVJFTDhmMnpRYlFBTGRj?=
+ =?utf-8?B?VlgwbkI1eXVvRlErdDF3TWFOamtqcDN3TE1WbzBtUFp0RTJRMENsTlZOekRp?=
+ =?utf-8?B?SzMvaWdWblFLK1FUVUY1UWMrY29ZL3AycUx6WitiN0kwZmdDOTAxUk1pMkVQ?=
+ =?utf-8?B?bU9ERVFSeDVDMU8vaHM3eTRwYldtenBGRFlJNzFIZUErc1FoK3pIUTVBU0FN?=
+ =?utf-8?B?eENXVHFkdU5LeVBoSC94YTg5UlR2d0N5dzNPZWZqOG1WS0VtYkhhc0wvMSt3?=
+ =?utf-8?B?bUJNaDBIUGFtYUxaem9Ya1FIVHFiUnM4WFNvUUZMc21iQjBKc1htenlnN285?=
+ =?utf-8?B?WU5YNXBiZUNxUUp2NDUva3JuWCtkbVlmQThJWDVaYmFDYldRS2I0YUlESm4v?=
+ =?utf-8?B?NlZUMjYyRTJ3bWg4UERFdDBObEVlaXpyb2h6dURPMkVEV1hjT3RRVW9BSm83?=
+ =?utf-8?B?V0FOM2xQTlEvUkZpR0k1T0c4eDhtUGxLMEdmTC84ZTNSK3dBYnJ6RXp2SXFO?=
+ =?utf-8?B?S21laExqQkZCVGZnM2Y3VC80T0RKN2tQaEtKWlYyc1RFZ1BkUnh1dmZId2dI?=
+ =?utf-8?B?NTZOV1duYmgyUCt0RHFQVlRUdXRDRDVEWWJWdUlsTzhmNlIvWHo3S0p6QWhB?=
+ =?utf-8?B?UTF5Ym5OMHVvNjd3c0dVeStkMDhYbk9tL2pPazF0OWlKQ1hxcjlJN2x3Rlcw?=
+ =?utf-8?B?OEdQcEVWWEsxclhFZndZSVhqMEpxbWtzeHhFekdiOXQrRTNCZ0VsN2Z2eVNz?=
+ =?utf-8?B?bVJGSlVGQUZONjZ1c3hiK2ZoWW40M1VDWEVjWk9Wb0V1SDJLZGdORU41dmdp?=
+ =?utf-8?B?TUprTWFteDVBcWNwK1BKUmJ6eU82em5pNDVKMnlVN0E2blZ1YlVsRmxld1Z5?=
+ =?utf-8?B?ZGJuam1OM0VVRXNYR1FVUVI4a1A0SG5UeHVIRCtoYnFobUFoL1hIRHNJS0Fv?=
+ =?utf-8?B?bnIrN2NHdmFIakgwSHNuMGcvdU5GZUV2czgvRFdPZFVLYy9SamRPMlhVSklR?=
+ =?utf-8?B?SnoyR0RWcXcyWWNydThya3kwcXRPbnRSTlRFQWNkeUltSG1RL3VRYjJzRGpR?=
+ =?utf-8?B?bXJRQlZJQW1sdXIvMU5KcTJtNENMN2ZZSm50bWk5Y1NOVzlTeHBaUlljRmQz?=
+ =?utf-8?B?bDBZQm9yb0NJNEFhWmpHcUFVQi81Z1E0U1Jhd0h2MFdVVzk4VHNLQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95c29e46-b3e0-42b8-24ee-08dec95ae842
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2026 14:49:01.7222
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: k36Z1DSQ882GjNVKMK+QLrPmGVDZ396mIZCZUXyAeTxZBqSZUAL7yqN2jfJHk4vp
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7430
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260613_074911_542227_C035D3FD 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +145,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 13, 2026 at 6:33=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrabec=
-@gmail.com> wrote:
->
-> Dne sobota, 30. maj 2026 ob 18:43:05 Srednjeevropski poletni =C4=8Das je =
-Chen-Yu Tsai napisal(a):
-> > On Tue, May 5, 2026 at 7:18=E2=80=AFPM Jernej =C5=A0krabec <jernej.skra=
-bec@gmail.com> wrote:
-> > >
-> > > Dne torek, 5. maj 2026 ob 15:48:08 Srednjeevropski poletni =C4=8Das j=
-e Chen-Yu Tsai napisal(a):
-> > > > The Allwinner H616 SoC has a video engine hardware block like the o=
-ne
-> > > > found on previous generations such as the H6. In addition to the
-> > > > currently supported features of the H6, it is also supposed to incl=
-ude
-> > >
-> > > Remove "supposed".
-> >
-> > I can't actually verify that, so "supposed" is accurate from my point o=
-f
-> > view.
->
-> Isn't info from manual good enough?
+> "xlnx,irq-delay" programs an 8-bit delay field in the DMA control
+> register, and the driver stores and reads it as a byte. The binding
+> described the property as a uint32 cell, which made the helper type
+> check report the driver as wrong.
+> 
+> Document "xlnx,irq-delay" as uint8 so the generated schema reflects
+> the hardware field width and the existing driver access.
+> 
+> Assisted-by: Codex:gpt-5-5
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-The manual says the SoC supports it. Same was said for the H6. Then
-we discovered that the VP9 decoder was a separate Hantro block.
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
 
-So again, *I* cannot claim in the commit message that the hardware
-block supports VP9 decoding, because I have not verified it.
+> ---
+>   Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+> index 340ae9e91cb0..ba0fc515d825 100644
+> --- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+> @@ -93,7 +93,7 @@ properties:
+>         Width in bits of the length register as configured in hardware.
+>   
+>     xlnx,irq-delay:
+> -    $ref: /schemas/types.yaml#/definitions/uint32
+> +    $ref: /schemas/types.yaml#/definitions/uint8
+>       minimum: 0
+>       maximum: 255
+>       description:
 
-> In the interest of unblocking this, I would be fine with "supposed" too,
-> but manual and all my experiments show VP9 is supported.
-
-Please give an ack or reviewed-by with a comment at the end stating
-VP9 verified.
-
-
-Thanks
-ChenYu
-
-
-> Best regards,
-> Jernej
->
-> >
-> > ChenYu
-> >
-> > > > a VP9 decoder. However software support for this is currently missi=
-ng
-> > > > and still needs to be reverse engineered from the vendor BSP.
-> > > >
-> > > > Add the compatible for the H616 variant, using the H6 variant data.
-> > > >
-> > > > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> > >
-> > > With that:
-> > > Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > >
-> > > Best regards,
-> > > Jernej
-> > >
-> > >
-> >
->
->
->
->
->
 
