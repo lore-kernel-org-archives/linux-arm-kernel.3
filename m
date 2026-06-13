@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1BCCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 13:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C22CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 13:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9grc44daxqBIZcosao5jKPSGCBZitxm1ELHMoNm91o=; b=rO7yb05XcZ74WdMeb4Xofcnp3H
-	lbWFa/9Qg8t5DB9eosoqadiBs/gjMHnNq53PsXV8Kd/ffmIEZ2jfaQUJJ/hN4KkaDQ/lwgnlzFvOI
-	hPLCiWgq0gehZPPBfdz1a0AJ3Lcfnttxj8XSliswl5NZjbz/ndMe0S25Is0XEeAwHb84lLXr6rfTe
-	P/YHBmj8m20Ffj4cyecELfbei/Z+fBbuPQOpYK3hTiLAOSbnvAYom9PBEieP8Lw4p5d9kfyOQk3FF
-	E0pcDrgp88ZXFg1zdUdPQ5JmdO5oT0ygRRsuktgSWqvGqT9wuT9xXUKIht43akSCkkSUex4zgDwXL
-	dbOjUONA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jMeb1ZKqldVROsPqlULq0pmp+Dr4cuGsBQBPI3bokCE=; b=H5ozEDWDOp6R4mY/c9n3baZREm
+	wo2HwylAQM+bHnmvWkkIIk7hkrObNIDfiqBUjCIOTbxpNjulwtqnwR8e5S7Hv7lzCclRNUn5256ML
+	8Ivt+y0LszXWnlxplnFAfmRf8wvIKI38pgsHL7gHLpBtwekX9tWGjDYT7tdhfwkMYpkpDUX19V6Wx
+	eWHatRa10EXHS+h7gFVWUErursWDXw+qt7Evlov89pxNLAGO8bpADoO27K7uRF3+ogAx4Wu5w54YT
+	1OHdKupxr1jboN47EYaZ3APO+RRZ56RUJsARBzPFgleQoklytCEU7aoJtKx+mJ6+2FEJRB7yTlgfn
+	h1wqZ+8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYO0i-0000000CJ7m-2OTD;
-	Sat, 13 Jun 2026 13:02:52 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1wYO58-0000000CJTy-08C3;
+	Sat, 13 Jun 2026 13:07:26 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYO0g-0000000CJ5R-0z29;
-	Sat, 13 Jun 2026 13:02:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781355770; x=1812891770;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=uxJGwCAsMcpFZ/9RNw7yRRDOB6tqapy/6259X4loI4s=;
-  b=Oju7etMKZoEbc17Fiz0v0dDpVVYglk5urSFBMgQR9GSD8oKwXQtJEeYE
-   G1IHAENH7osmydGnAsfByaTim7Rmz43984NlvKSKPNHPAbakN0WdPguOt
-   m4QrNWufI42H6rU5I/Z1SGJFs/lxBcKpuE8ZS03Veri9GTdpPVmyGybuB
-   EixvM5dxFa/bVOhu6B9gX7q+9CEnanTLnTSCLrRXCVdTdeacfJ5CYc8ow
-   Gmj9v+3T4Ff/adUm+2NvaQ6zrBfHnovfVYfDSDKfOsnivvWvCanNXmWKQ
-   V++ZjeiMScKevevcW/HO3ELF8xjnQOxg4nAimfIgvfIBpQeqSo0m4cHpk
-   A==;
-X-CSE-ConnectionGUID: LwBdWzkLT3SsrjuQ80Sb3g==
-X-CSE-MsgGUID: G4PJvkg0Ss280hEGMD7dxA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11815"; a="82014785"
-X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
-   d="scan'208";a="82014785"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 06:00:48 -0700
-X-CSE-ConnectionGUID: 9YFHfovRT2GI8xWhDYQGUA==
-X-CSE-MsgGUID: xEQJQI/xSEusBaz11tHecg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,202,1774335600"; 
-   d="scan'208";a="246931274"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.184])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2026 06:00:43 -0700
-Date: Sat, 13 Jun 2026 16:00:40 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org,
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>
-Subject: Re: [PATCH v2 02/16] device property: Add
- fwnode_graph_get_next_port_endpoint()
-Message-ID: <ai1UeO-BZQEEheml@ashevche-desk.local>
-References: <20260610084053.2059858-1-wenst@chromium.org>
- <20260610084053.2059858-3-wenst@chromium.org>
- <ailv8HpnrCH3Zb8C@ashevche-desk.local>
- <CAGXv+5EHHWfiWgqPpf-RMKoSQLc2cd9OA4Z36SNoL5C53kVh2g@mail.gmail.com>
+	id 1wYO54-0000000CJTH-2D2u
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Jun 2026 13:07:24 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=jMeb1ZKqldVROsPqlULq0pmp+Dr4cuGsBQBPI3bokCE=;
+	b=KhGgTo6MbZ5FjaMBJzfhdvo0UPBmJ3rXnIc4Ha/PJQjv0pdc9fcPs651EyVf2R7g+hDcaKQoS
+	VNWKsF06R59ny0ZyCfQveYwiPEgMmztgvECkrAGRPO4VzQNmBwSDw2HLJCxYs+9O84QkbG2D+AS
+	KUrE2E/9FWbx5c7fM/hRaeE=
+Received: from canpmsgout01.his.huawei.com (unknown [172.19.92.178])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gcxK50s1CzcbPX;
+	Sat, 13 Jun 2026 20:58:49 +0800 (CST)
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=jMeb1ZKqldVROsPqlULq0pmp+Dr4cuGsBQBPI3bokCE=;
+	b=KhGgTo6MbZ5FjaMBJzfhdvo0UPBmJ3rXnIc4Ha/PJQjv0pdc9fcPs651EyVf2R7g+hDcaKQoS
+	VNWKsF06R59ny0ZyCfQveYwiPEgMmztgvECkrAGRPO4VzQNmBwSDw2HLJCxYs+9O84QkbG2D+AS
+	KUrE2E/9FWbx5c7fM/hRaeE=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gcxJx18gkz1T4HG;
+	Sat, 13 Jun 2026 20:58:41 +0800 (CST)
+Received: from dggpemf100008.china.huawei.com (unknown [7.185.36.138])
+	by mail.maildlp.com (Postfix) with ESMTPS id 98DD040538;
+	Sat, 13 Jun 2026 21:07:06 +0800 (CST)
+Received: from mdc.huawei.com (10.50.87.204) by dggpemf100008.china.huawei.com
+ (7.185.36.138) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 13 Jun
+ 2026 21:07:05 +0800
+From: Chen Jun <chenjun102@huawei.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <chenjun102@huawei.com>, <zhangyuwei20@huawei.com>
+Subject: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
+Date: Sat, 13 Jun 2026 21:00:07 +0800
+Message-ID: <20260613130007.18563-1-chenjun102@huawei.com>
+X-Mailer: git-send-email 2.22.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGXv+5EHHWfiWgqPpf-RMKoSQLc2cd9OA4Z36SNoL5C53kVh2g@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
+X-Originating-IP: [10.50.87.204]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf100008.china.huawei.com (7.185.36.138)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_060250_307008_CBF3775E 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20260613_060723_183103_F7CA20EA 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,73 +85,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 04:20:18PM +0900, Chen-Yu Tsai wrote:
-> On Wed, Jun 10, 2026 at 11:08 PM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Wed, Jun 10, 2026 at 04:40:36PM +0800, Chen-Yu Tsai wrote:
+Events reported by the SMMU can severely impact accelerator
+performance. Currently, only events that the SMMU fails to handle are
+printed to the kernel log, leaving most events invisible to users.
+To analyze and optimize accelerator performance, complete visibility
+into all SMMU-reported events is required.
 
-...
+Add a tracepoint in the EVTQ interrupt handler to capture every
+event record reported by the SMMU. This allows users to collect all
+event information via ftrace/perf for further analysis, complementing
+the existing event decoder and error dump which only cover a subset
+of events.
 
-> > > +struct fwnode_handle *fwnode_graph_get_next_port_endpoint(const struct fwnode_handle *port,
-> > > +                                                       struct fwnode_handle *prev)
-> > > +{
-> > > +     struct fwnode_handle *ep;
-> >
-> > Unused?
-> >
-> > > +     while (1) {
-> >
-> > This is usually harder to read and follow. It's like "pay much attention on
-> > the code", but here no rocket science, no code to really pay attention to.
-> >
-> > > +             prev = fwnode_get_next_child_node(port, prev);
-> > > +             if (!prev)
-> > > +                     break;
-> > > +
-> > > +             if (WARN(!fwnode_name_eq(prev, "endpoint"),
-> > > +                      "non endpoint node is used (%pfw)", prev))
-> > > +                     continue;
-> > > +
-> > > +             break;
-> > > +     }
-> > > +
-> > > +     return prev;
-> > > +}
-> >
-> > So, this can be rewritten as
-> >
-> >         ep = prev;
-> >         do {
-> >                 ep = fwnode_get_next_child_node(port, ep);
-> >                 if (fwnode_name_eq(ep, "endpoint"))
-> >                         break;
-> >
-> >                 WARN_ON(ep, ...);
-> >         } while (ep);
-> >
-> >         return ep;
-> >
-> > But also big question why? to WARN*(). There is no use in the entire
-> > property.c.
-> 
-> Will drop. This function was lifted from drivers/of/property.c then
-> adapted to the fwnode APIs, so it still has the structure of its
-> origin. With the WARN() gone, rewriting it as do {} while() becomes:
-> 
-> do {
->         prev = fwnode_get_next_child_node(port, prev);
->         if (prev && fwnode_name_eq(prev, "endpoint"))
+Signed-off-by: Chen Jun <chenjun102@huawei.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/Makefile      |  2 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  3 ++
+ drivers/iommu/arm/arm-smmu-v3/trace.c       |  9 ++++
+ drivers/iommu/arm/arm-smmu-v3/trace.h       | 53 +++++++++++++++++++++
+ 4 files changed, 66 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.h
 
-'prev &&' is not needed.
-
->                 break;
-> } while (prev);
-> 
-> return prev;
-
+diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
+index 493a659cc66b..63a8d71bfc93 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/Makefile
++++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
+-arm_smmu_v3-y := arm-smmu-v3.o
++arm_smmu_v3-y := arm-smmu-v3.o trace.o
+ arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
+ arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
+ arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index e8d7dbe495f0..85e6c25b73ed 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -34,6 +34,8 @@
+ #include "arm-smmu-v3.h"
+ #include "../../dma-iommu.h"
+ 
++#include "trace.h"
++
+ static bool disable_msipolling;
+ module_param(disable_msipolling, bool, 0444);
+ MODULE_PARM_DESC(disable_msipolling,
+@@ -2271,6 +2273,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
+ 
+ 	do {
+ 		while (!queue_remove_raw(q, evt)) {
++			trace_smmu_evtq_event(smmu, evt);
+ 			arm_smmu_decode_event(smmu, evt, &event);
+ 			if (arm_smmu_handle_event(smmu, evt, &event))
+ 				arm_smmu_dump_event(smmu, evt, &event, &rs);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.c b/drivers/iommu/arm/arm-smmu-v3/trace.c
+new file mode 100644
+index 000000000000..77378698b1a3
+--- /dev/null
++++ b/drivers/iommu/arm/arm-smmu-v3/trace.c
+@@ -0,0 +1,9 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * ARM SMMUv3 trace support
++ *
++ * Copyright (c) 2026 OpenCloudOS / openEuler
++ */
++
++#define CREATE_TRACE_POINTS
++#include "trace.h"
+diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.h b/drivers/iommu/arm/arm-smmu-v3/trace.h
+new file mode 100644
+index 000000000000..7cec8d41745e
+--- /dev/null
++++ b/drivers/iommu/arm/arm-smmu-v3/trace.h
+@@ -0,0 +1,53 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * ARM SMMUv3 trace support
++ *
++ * Copyright (c) 2026 OpenCloudOS / openEuler
++ */
++
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM arm_smmu_v3
++
++#if !defined(_TRACE_ARM_SMMU_V3_H) || defined(TRACE_HEADER_MULTI_READ)
++#define _TRACE_ARM_SMMU_V3_H
++
++#include <linux/tracepoint.h>
++
++#include "arm-smmu-v3.h"
++
++TRACE_EVENT(smmu_evtq_event,
++
++	TP_PROTO(struct arm_smmu_device *smmu, u64 *evt),
++
++	TP_ARGS(smmu, evt),
++
++	TP_STRUCT__entry(
++		__string(iommu, dev_name(smmu->dev))
++		__field(u64, evt0)
++		__field(u64, evt1)
++		__field(u64, evt2)
++		__field(u64, evt3)
++	),
++
++	TP_fast_assign(
++		__assign_str(iommu);
++		__entry->evt0 = evt[0];
++		__entry->evt1 = evt[1];
++		__entry->evt2 = evt[2];
++		__entry->evt3 = evt[3];
++	),
++
++	TP_printk("%s evt: 0x%016llx 0x%016llx 0x%016llx 0x%016llx",
++		__get_str(iommu),
++		__entry->evt0, __entry->evt1,
++		__entry->evt2, __entry->evt3)
++);
++
++#endif /* _TRACE_ARM_SMMU_V3_H */
++
++/* This part must be outside protection */
++#undef TRACE_INCLUDE_PATH
++#undef TRACE_INCLUDE_FILE
++#define TRACE_INCLUDE_PATH ../../drivers/iommu/arm/arm-smmu-v3/
++#define TRACE_INCLUDE_FILE trace
++#include <trace/define_trace.h>
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.22.0
 
 
