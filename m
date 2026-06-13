@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA405CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989CBCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 10:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0BXYzjr6w3+jMq0yJXiRdx6FfTaAxNl+69lgFc2F8I=; b=tGK/QjW9pR1RTQNIk1FZf8bKCu
-	Tn4AO4b5ZWnF2HdsWFnRgt5hDm3JLE7A8CUwimk2aVeQ0IqFv8kBXMK51m9zqZLSqOnCYazMbSKb1
-	CQMZXpzF7eSz4SCK3T2cXjL7O15db+uLhjcdEQ833A9dn5AYX2T0aw6vDaR30fBb2dm6irRVMukww
-	Rg4QdINNYZHh6VKw3BJknUTE0Vrwib/bgifn8v2WsXA+SgI7eAHvAoKN0qnQutEe5i9KKsdKv5IrS
-	Vj5hZTRM9G5vtUh17ZAp7sc0yhrgXTvTr46ExM3Wh+XQp+fVe39St7bVrdSSzvgq6PP1LBVq9Kjye
-	nAtYnq/g==;
+	bh=56MO/PWG6Ib9yUFU34ThnLS9zPVnZVEboAJqbyCYvEA=; b=kOhEJZZmIbg1AFWynbX31KjkHC
+	VjkIgDPfYI2mHSwKOLqY6lTMi+IMqaRQ4i9vFcsM137uSKpWr/TrXJ8W6/+23EsRbjHBOxPuDMfJt
+	xX2D4BhFtOmDcnMXsQ+ngoltw8I/paSedIrGoHgdMHNxwaU4454aEGYgtbzEYcuIIh7bnVaxJOnwK
+	S3NhcS8OemnuEWuRRgGEYEoWXRS+njl1f3ooQvaWh+nByLijvU+Kr5zpglzHb3p3j4R4RrCF9DVhl
+	giTSrpjwy6kHCk+t792rXkGtsYlp0r1m4ZXabix6Gjh7q/SGRl+XPsta8M21T2txXeENczfBnQobo
+	rhOi5P4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLJ9-0000000CAUD-02gM;
-	Sat, 13 Jun 2026 10:09:43 +0000
+	id 1wYLKG-0000000CAco-1IAR;
+	Sat, 13 Jun 2026 10:10:52 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYLJ7-0000000CAU0-2aZL
+	id 1wYLKE-0000000CAcd-2DnB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 10:09:41 +0000
+	Sat, 13 Jun 2026 10:10:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 04AE0441A1;
-	Sat, 13 Jun 2026 10:09:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 380091F000E9;
-	Sat, 13 Jun 2026 10:09:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C95743263;
+	Sat, 13 Jun 2026 10:10:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 635D01F000E9;
+	Sat, 13 Jun 2026 10:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781345380;
-	bh=P0BXYzjr6w3+jMq0yJXiRdx6FfTaAxNl+69lgFc2F8I=;
+	s=k20260515; t=1781345450;
+	bh=56MO/PWG6Ib9yUFU34ThnLS9zPVnZVEboAJqbyCYvEA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XJW6+AhicnUYOl3N/Dzk15xgcsI8aNcbwr49UynaoV3W4bH06gntgEoRkTwEthGe4
-	 Hk+koZqHRBoLVDO2W09cbHsrAMAvaNNYdSR5ukgaq07Wd4dEOtI1S4U561eU8fh0Tm
-	 fjiTLKFzq6WzOyZEyWwDBFv6Ka6jQS4TO05lfrkhzjm4utpQv3axEosdhkdhPaCJs6
-	 Aapbxm2654LCsnHqr1ckZXWYIhhvmgJLVEP+uqnQ2nuKELFMXB4axdLZaM9Ox7V7j8
-	 fAGioQtAJVar6lzDdQd2cAKg4aeNkN2IzECOmqKeyIn/wkP/Y9PrcIRNDP2KOmi+os
-	 9t1BOraK/eR1w==
-Message-ID: <77f52421-42ea-499a-aa57-a834825a8829@kernel.org>
-Date: Sat, 13 Jun 2026 13:09:31 +0300
+	b=hOVO8/m0hHnWg8qAspMgvmR4pQMkWX/m9xr62Nfgk48m/5xvnislE17EhHGh8K6Jh
+	 1zt/RXuS5APwl8xBw5WTTgoli/a8FR17H8urDmsBVbc/tZ47LbdU3WYdO7MR1qFGsc
+	 tpreSli1keARbtaD3/MW7BWEQw7HGdDfhbNVdD6DrdbdJsnW1driRnpUK8YSUB8TPO
+	 S9p6o6KaV054JhdWC1RcLeK+uKCfNHvDTxcZbeEmZTLA/haSFo1vwxLap2dppAIPzD
+	 1R66nk2TsIXDHPJO3PjrJWZPbxzM0/e/jj4AHSt4Ipp1Rt5N2fLb3DDJkGkQ/dstEZ
+	 y5obb0p+8BpYg==
+Message-ID: <d94f5548-9621-4e9b-afba-1835d95799d2@kernel.org>
+Date: Sat, 13 Jun 2026 13:10:46 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] iio: adc: lpc32xx: Initialize completion before
+Subject: Re: [PATCH 2/2] iio: adc: spear: Initialize completion before
  requesting IRQ
 To: Maxwell Doose <m32285159@gmail.com>, Jonathan Cameron <jic23@kernel.org>,
  David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
@@ -60,9 +60,9 @@ To: Maxwell Doose <m32285159@gmail.com>, Jonathan Cameron <jic23@kernel.org>,
 Cc: Sangyun Kim <sangyun.kim@snu.ac.kr>,
  Kyungwook Boo <bookyungwook@gmail.com>, Jaeyoung Chung <jjy600901@snu.ac.kr>
 References: <20260613005812.160572-1-m32285159@gmail.com>
- <20260613005812.160572-2-m32285159@gmail.com>
+ <20260613005812.160572-3-m32285159@gmail.com>
 From: Vladimir Zapolskiy <vz@kernel.org>
-In-Reply-To: <20260613005812.160572-2-m32285159@gmail.com>
+In-Reply-To: <20260613005812.160572-3-m32285159@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,22 +82,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 6/13/26 03:58, Maxwell Doose wrote:
 > In the report from Jaeyoung Chung:
 > 
-> "lpc32xx_adc_probe() in drivers/iio/adc/lpc32xx_adc.c registers its
+> "spear_adc_probe() in drivers/iio/adc/spear_adc.c registers its
 > interrupt handler with devm_request_irq() before it initializes
 > st->completion with init_completion(). If an interrupt arrives after
 > devm_request_irq() and before init_completion(), the handler calls
 > complete() on an uninitialized completion, causing a kernel panic.
 > 
-> The probe path, in lpc32xx_adc_probe():
+> The probe path, in spear_adc_probe():
 > 
 >      iodev = devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzalloc-zeroed */
 >      ...
->      retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
+>      retval = devm_request_irq(&pdev->dev, irq, spear_adc_isr, 0,
 >                                LPC32XXAD_NAME, st);           /* register handler */
 >      ...
 >      init_completion(&st->completion);                       /* initialize completion */
 > 
-> lpc32xx_adc_isr() calls complete():
+> spear_adc_isr() calls complete():
 > 
 >      complete(&st->completion);
 > 
@@ -110,38 +110,37 @@ On 6/13/26 03:58, Maxwell Doose wrote:
 > Fix the chance of a spurious IRQ causing an uninitialized pointer
 > dereference by moving init_completion() above devm_request_irq().
 > 
-> Fixes: 7901b2a1453e ("staging:iio:adc:lpc32xx rename local state structure to _state")
+> Fixes: b586e5d9eee0 ("staging:iio:adc:spear rename device specific state structure to _state")
 > Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
 > Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
 > Reported-by: Jaeyoung Chung <jjy600901@snu.ac.kr>
 > Closes: https://lore.kernel.org/linux-iio/20260610115700.774689-1-jjy600901@snu.ac.kr/
 > Signed-off-by: Maxwell Doose <m32285159@gmail.com>
 > ---
->   drivers/iio/adc/lpc32xx_adc.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
+>   drivers/iio/adc/spear_adc.c | 3 +--
+>   1 file changed, 1 insertion(+), 2 deletions(-)
 > 
-> diff --git a/drivers/iio/adc/lpc32xx_adc.c b/drivers/iio/adc/lpc32xx_adc.c
-> index 43a7bc8158b5..db3a602327ff 100644
-> --- a/drivers/iio/adc/lpc32xx_adc.c
-> +++ b/drivers/iio/adc/lpc32xx_adc.c
-> @@ -179,6 +179,8 @@ static int lpc32xx_adc_probe(struct platform_device *pdev)
->   	if (irq < 0)
->   		return irq;
+> diff --git a/drivers/iio/adc/spear_adc.c b/drivers/iio/adc/spear_adc.c
+> index 4be722406bb5..ab02a14682ed 100644
+> --- a/drivers/iio/adc/spear_adc.c
+> +++ b/drivers/iio/adc/spear_adc.c
+> @@ -283,6 +283,7 @@ static int spear_adc_probe(struct platform_device *pdev)
+>   	st = iio_priv(indio_dev);
+>   	st->dev = dev;
 >   
 > +	init_completion(&st->completion);
-> +
->   	retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
->   				  LPC32XXAD_NAME, st);
->   	if (retval < 0) {
-> @@ -197,8 +199,6 @@ static int lpc32xx_adc_probe(struct platform_device *pdev)
+>   	mutex_init(&st->lock);
 >   
->   	platform_set_drvdata(pdev, iodev);
+>   	/*
+> @@ -329,8 +330,6 @@ static int spear_adc_probe(struct platform_device *pdev)
+>   
+>   	spear_adc_configure(st);
 >   
 > -	init_completion(&st->completion);
 > -
->   	iodev->name = LPC32XXAD_NAME;
->   	iodev->info = &lpc32xx_adc_iio_info;
->   	iodev->modes = INDIO_DIRECT_MODE;
+>   	indio_dev->name = SPEAR_ADC_MOD_NAME;
+>   	indio_dev->info = &spear_adc_info;
+>   	indio_dev->modes = INDIO_DIRECT_MODE;
 
 Reviewed-by: Vladimir Zapolskiy <vz@kernel.org>
 
