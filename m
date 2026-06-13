@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E71CD98DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83448CD98DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 00:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rbyYS8ZaN6I18K1C4Zmj5fncA5FOF75opinAhCG/xTc=; b=SlyUkrJ4uFZHZ9YUcyBGDoFzxK
-	D6OL0CUhPbYmbSwelGQgq9ioXKbJuhxQGgDyzrhoiUpp6Iyi7rjgcVKk8UjSpft910hz5duIMlYgA
-	W86/oWUvrOODceKyej3CAvbB4RB1EbfAgp+jw1JB0SnNW3+Ya0Aa4AHconCwRdeDdAjBGHsl5TVuV
-	tyalcVoxotkzn49gyPUtxi3OQWln5vrVOSH+bJMIf0XLKHPQAxZJBl/7ngqYLP9EZsOm+/fpcS8S5
-	x79bovPsEJgn6VMdy8NWTnO6Bk8paVf8kqdDLSG+6EbbFm7UueiplOozdsGYM1eWElzVZCKC8DxRd
-	oIVOySwQ==;
+	bh=AQKAT4ecSXXBBlOYiZyrbyjt8/WfFZTiCmselJ1RZro=; b=Me291Q3Vmug6Wo3yHz7ordyg6T
+	C33IPD8lNqOoDdcpE2Ubb3yASXmFdc5ixB1rj3zNwo+TmN/5kIoyi5Pyyh/llFRmU7Ir0epAKbJWd
+	HQ9SJ30WH/i86VbDO/jv1nY/Z+22MpEfPHI9JvLtwrQ0z2PNUjOjwz4TULEXyGzmg/EgXIgYRevmv
+	btz7KvD2QnimHRw1dGyp98wGyttg7tcHeiMp80TGNEPXaD0milVI5UGzvGIBjS4L5WTyhUHXlaKRD
+	AJlM7sS6P0Ws8EFsTjOF7MJN7z1ZsDIXs3vi0nYm+VBCWb7OhkvgtAn07YUBN1M5lGkUe431PdNVb
+	kwK7XjGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC7G-0000000Bngq-3rIj;
+	id 1wYC7G-0000000Bnfr-2TXd;
 	Sat, 13 Jun 2026 00:20:50 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYC7D-0000000BncT-2iPo
+	id 1wYC7A-0000000BnaW-3czk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 00:20:48 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-36b808bedfaso2078700a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:46 -0700 (PDT)
+	Sat, 13 Jun 2026 00:20:46 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-c858e0cbca3so769019a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Jun 2026 17:20:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781310046; x=1781914846; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781310043; x=1781914843; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=rbyYS8ZaN6I18K1C4Zmj5fncA5FOF75opinAhCG/xTc=;
-        b=v33j4v3T7SR6ytwoUpRrlnN8vEXPbBqaxaUw3TpSWMR8aGWoa+RpyVJGdIbb52nvCj
-         4x9bC7NjTtoz+jqdaBSx2JqEc4X/ZH1oa+6kaVZdQN22SGL4W/UcqrJHy4mihLRUEFjC
-         Qot87NWsv2a3/PD/JI/4kYf2R+yyvl3aWWd2Hsk/XkU65DfvAiFq2saZPLZzu3Gu4IfC
-         XfPH+BqpXHsB7Rc1lvHXhgH9u/GdcUyc9HUzbT1qmdKKEWF1wAdURh6od9MpG0rnvsW1
-         yZ1Ik+FnmiKJ3JI9emj1bUw9kEHscgnm6lnHNiDBpIeanm+SGBfHTMSNucDTAD7Wc5vg
-         wYZA==
+        bh=AQKAT4ecSXXBBlOYiZyrbyjt8/WfFZTiCmselJ1RZro=;
+        b=X4MgjIC3EhY6nln1iGd0FMlrTYxxN9yDoQhGH8J/JJxzoIhRbqE6ciicwrBlYTgO77
+         +xMLRHYvQp5sTlhpd4dFalzlbZzElLDR8P1nO9aCEB6ykmnvu9vwDkm0GzqXmoiXfPH0
+         HQuINu6auSdFOpL2zMGRBc8EH7GO3ZTS6IEzl+9N2Xr+zHdbftbYs/BYLCy6liD/j6E9
+         WGPDEXRd63//nPiSOaMYGd/3HZApS4eGxeKEuV0UfO/cd2p+H2Cz5MIIgD6vodHmCslu
+         2h/1myivHqR1j0EPlbcW07qcluJ9Z5762+a9UabrLhJWI9bgaLX74vlWFEmvwpZFc07r
+         +xBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781310046; x=1781914846;
+        d=1e100.net; s=20251104; t=1781310043; x=1781914843;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rbyYS8ZaN6I18K1C4Zmj5fncA5FOF75opinAhCG/xTc=;
-        b=qusxnEB7O1N1EewE16ZbjfV8DTYMmRf2C74cBX38YdQHwS0fCrj0l5OE6UMOu+2MqK
-         g2SG37suiVZrVk00yqCOQay+Lg7MndH91K+Ip2U6CaJ1Zeg6rjGLt+uej69aRbRtJYjc
-         Hee5wCxAQmaj2gs5WdXWkNjH1AiqzScM8uRa6sBfpxUjYJLPYY0sHeX9ktlc5DEfLTLr
-         GXnpi/JfjBl1+K77F8kBP/t5YCAfZ0Ntsp2czLVoikR+zboQPKn9CpNXuUEV1BY363tx
-         rfWDfk/g4ZYS9ntYQCNjKb7vh1LEqEklr44ZAwMiHXWtpBiZAJXDetIPcij6akp8B1JB
-         mCCg==
-X-Forwarded-Encrypted: i=1; AFNElJ+lh+KLAW2CbtRhC9GhboYatG4BkrhljJfKxoFPbDt7Zs6nCzASiBDf64lzMOPOLZvimO2IVGR42EHMKYnz3QdC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/wwgRL8lk9ggJ0AtATNIBQa5wno7eZ8LdAua+aejcEBF9uCJ6
-	NfMU/GM5LaVcf/8tW8ZXfwIzWvSolZTeD+VrGpq6HFihXVgtxVcEItv8pbBVxhIHjOoQo9yXZMb
-	i1HmTbA==
-X-Received: from pgge7.prod.google.com ([2002:a63:db07:0:b0:c85:104d:a751])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:a123:b0:3b4:8f4a:3bc6
- with SMTP id adf61e73a8af0-3b7963db64bmr1960906637.32.1781310045422; Fri, 12
- Jun 2026 17:20:45 -0700 (PDT)
-Date: Fri, 12 Jun 2026 17:20:20 -0700
+        bh=AQKAT4ecSXXBBlOYiZyrbyjt8/WfFZTiCmselJ1RZro=;
+        b=A7mTX1ygF+F9NULs2/1z4fGcFtPRw6kka2Y9NXkihdmoTVxG1rEocgWZSUFMNQZD8L
+         KH/vgVtAW54wcVPXDMYH/XEYBdbSjLUqyF62EVDGwmjxlHvsP1K6aYm69zrENEE0cYmf
+         L6rFvw21f66gYuSppm4d/grGjUjM89tDOU5hgjOCNLMFVkSQb/59j7UV10Wjn/KVt/EB
+         PvU0+TWmAP1+mbfCq76Z07xguqD/YSF/unVM/3suYbsc75wx3fFxhLalCHAE9Cv+cAOZ
+         UIvNE/2czUZSUwwe5/sU51P734c92ymLwp6xhrY/Vr3QkSQhj1yDpLcQLJRVV0dMNPOu
+         5zmQ==
+X-Forwarded-Encrypted: i=1; AFNElJ89u9i2BcB5jvICrAbd3Z5OiW6Doohu1kDlV9FtPObT9Ff0NLiQ5JBs+5tlIj4PXr5y71rKpzXhz0KWaRCNfSyN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7eP7Zeis3Xr57TwgsnrwCf0tTFcbeXNp20J99kcug/ow/FdRN
+	tELlUDzpQde5VPa1s0jwVydb5nDCHlfu/lmIN0o1tMsALJREwgbpBjYuTu5tNdMqitzS1lttjdv
+	Avpla2A==
+X-Received: from pgo32.prod.google.com ([2002:a63:e60:0:b0:c86:2164:967d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:2585:b0:3b2:924c:566e
+ with SMTP id adf61e73a8af0-3b796421dc3mr1897654637.36.1781310043121; Fri, 12
+ Jun 2026 17:20:43 -0700 (PDT)
+Date: Fri, 12 Jun 2026 17:20:18 -0700
 In-Reply-To: <20260613002031.745413-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260613002031.745413-1-seanjc@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260613002031.745413-10-seanjc@google.com>
-Subject: [PATCH v7 09/20] KVM: selftests: Add VFIO device support to eventfd
- IRQ test
+Message-ID: <20260613002031.745413-8-seanjc@google.com>
+Subject: [PATCH v7 07/20] KVM: selftests: Add an irqfd send+receive (and later
+ IRQ bypass) test
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -78,8 +78,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_172047_696765_8EF6689E 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260612_172044_915062_877E8D83 
+X-CRM114-Status: GOOD (  22.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,181 +97,219 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Matlack <dmatlack@google.com>
 
-Extend the eventfd IRQ test with a '-d' argument that takes a BDF (in the
-format segment:bus:device.function) of an interrupt-capable PCI(e) device
-bound to VFIO, and use said device to trigger interrupts instead of always
-synthesizing interrupts via direct writes to the eventfd.
+Add a new test, irq_test to verify that KVM correctly delivers interrupts
+to a running vCPU, when triggered via an eventfd bound to a KVM GSI using
+KVM's irqfd mechanism.
 
-Using a VFIO device to trigger interrupts validates the end-to-end delivery
-of IRQs for "real" devices, and when supported by hardware (and KVM), also
-validates interrupt delivery via IRQ bypass, i.e. via device posted IRQs.
+This test is intentionally simple, for now.  Support for sending interrupts
+via VFIO devices, for IRQ bypass, and for other features will be added in
+the near future.
 
-Now that IOMMUFD is a thing, auto-probe IOMMUFD vs. "legacy" VFIO by
-temporarily opening /dev/iommufd, and skip the test if neither IOMMUFD nor
-legacy VFIO is available.  Add a '-t' option to the user override the probe
-logic, e.g. in case IOMMUFD is available but the system is configured for
-legacy usage.
+Add the test in common code, even though it currently will only build and
+run on x86, as the concept and the bulk of the host-side code isn't
+specific to x86.
 
-Note, the device must have a VFIO selftest driver in order to work with
-the test.  A helper script to list supported devices will hopefully be
-available in the near future at
-tools/testing/selftests/vfio/scripts/list_supported_devices.sh[1].
-
-Example:
-$ ./tools/testing/selftests/kvm/irq_test -d 0000:06:0a.1
-
-Link: https://lore.kernel.org/all/20260602222941.3133236-1-jrhilke%40google.com [1]
+Suggested-by: Sean Christopherson <seanjc@google.com>
+Link: https://lore.kernel.org/kvm/20250404193923.1413163-68-seanjc@google.com
 Signed-off-by: David Matlack <dmatlack@google.com>
 Co-developed-by: Josh Hilke <jrhilke@google.com>
 Signed-off-by: Josh Hilke <jrhilke@google.com>
-Co-developed-by: Sean Christopherson <seanjc@google.com>
+[sean: use while() and TEST_ASSERT() instead of if-statement => TEST_FAIL()]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/irq_test.c | 86 ++++++++++++++++++++++++--
- 1 file changed, 80 insertions(+), 6 deletions(-)
+ tools/testing/selftests/kvm/Makefile.kvm |   1 +
+ tools/testing/selftests/kvm/irq_test.c   | 170 +++++++++++++++++++++++
+ 2 files changed, 171 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/irq_test.c
 
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 59ec232b1e93..de5f6e91203b 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -157,6 +157,7 @@ TEST_GEN_PROGS_x86 += coalesced_io_test
+ TEST_GEN_PROGS_x86 += dirty_log_perf_test
+ TEST_GEN_PROGS_x86 += guest_memfd_test
+ TEST_GEN_PROGS_x86 += hardware_disable_test
++TEST_GEN_PROGS_x86 += irq_test
+ TEST_GEN_PROGS_x86 += mmu_stress_test
+ TEST_GEN_PROGS_x86 += rseq_test
+ TEST_GEN_PROGS_x86 += steal_time
 diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
-index 9f8895b89821..6888be54ee4a 100644
---- a/tools/testing/selftests/kvm/irq_test.c
+new file mode 100644
+index 000000000000..9f8895b89821
+--- /dev/null
 +++ b/tools/testing/selftests/kvm/irq_test.c
-@@ -3,7 +3,10 @@
- #include "test_util.h"
- #include "apic.h"
- #include "processor.h"
-+#include "proc_util.h"
- 
-+#include <libvfio.h>
-+#include <linux/sizes.h>
- #include <stdio.h>
- #include <stdlib.h>
- #include <unistd.h>
-@@ -55,6 +58,36 @@ static void *vcpu_thread_main(void *arg)
- 	return NULL;
- }
- 
-+static int vfio_setup_msi(struct vfio_pci_device *device)
+@@ -0,0 +1,170 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "kvm_util.h"
++#include "test_util.h"
++#include "apic.h"
++#include "processor.h"
++
++#include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <pthread.h>
++#include <sys/eventfd.h>
++
++static u64 timeout_ns = 2ULL * 1000 * 1000 * 1000;
++static bool guest_ready_for_irqs[KVM_MAX_VCPUS];
++static bool guest_received_irq[KVM_MAX_VCPUS];
++static bool done;
++
++#define GUEST_RECEIVED_IRQ(__vcpu)	\
++	SYNC_FROM_GUEST_AND_READ((__vcpu)->vm, guest_received_irq[(__vcpu)->id])
++
++static u32 guest_get_vcpu_id(void)
 +{
-+	const int flags = MAP_SHARED | MAP_ANONYMOUS;
-+	const int prot = PROT_READ | PROT_WRITE;
-+	struct dma_region *region;
-+
-+	/* A driver is required to generate an MSI. */
-+	TEST_REQUIRE(device->driver.ops);
-+
-+	/* Set up a DMA-able region for the driver to use. */
-+	region = &device->driver.region;
-+	region->iova = 0;
-+	region->size = SZ_2M;
-+	region->vaddr = kvm_mmap(region->size, prot, flags, -1);
-+	TEST_ASSERT(region->vaddr != MAP_FAILED, "mmap() failed\n");
-+	iommu_map(device->iommu, region);
-+
-+	vfio_pci_driver_init(device);
-+	return device->driver.msi;
++	return x2apic_read_reg(APIC_ID);
 +}
 +
-+static void trigger_interrupt(struct vfio_pci_device *device, int eventfd)
++static void guest_irq_handler(struct ex_regs *regs)
 +{
-+	if (device)
-+		vfio_pci_driver_send_msi(device);
-+	else
-+		eventfd_write(eventfd, 1);
++	WRITE_ONCE(guest_received_irq[guest_get_vcpu_id()], true);
++
++	x2apic_write_reg(APIC_EOI, 0);
 +}
 +
-+
- static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
- 			  u8 vector)
- {
-@@ -74,11 +107,29 @@ static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
- 	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing.header);
- }
- 
-+static const char *probe_iommu_type(void)
++static void guest_code(void)
 +{
-+	int io_fd;
++	x2apic_enable();
 +
-+	io_fd = open("/dev/iommu", O_RDONLY);
-+	if (io_fd >= 0) {
-+		close(io_fd);
-+		return MODE_IOMMUFD;
-+	}
++	sti_nop();
 +
-+	io_fd = __open_path_or_exit("/dev/vfio", O_RDONLY,
-+				    "Is VFIO (or IOMMUFD) loaded and enabled?");
-+	close(io_fd);
-+	return MODE_VFIO_TYPE1_IOMMU;
++	WRITE_ONCE(guest_ready_for_irqs[guest_get_vcpu_id()], true);
++
++	while (!READ_ONCE(done))
++		cpu_relax();
++
++	GUEST_DONE();
 +}
 +
- static void help(const char *name)
- {
--	printf("Usage: %s [-h]\n", name);
-+	printf("Usage: %s [-d <segment:bus:device.function>] [-h] [-t iommu_type]\n", name);
- 	printf("\n");
- 	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
-+	printf("-d	Use a VFIO device to send MSI-X interrupts instead of manually signaling the eventfd\n");
-+	printf("-t	Override the IOMMU type to use (vfio_type1_iommu or iommufd)\n");
- 	printf("\n");
- 	exit(KSFT_FAIL);
- }
-@@ -100,14 +151,25 @@ int main(int argc, char **argv)
- 	u32 gsi = kvm_random_u64_in_range(&kvm_rng, 24, KVM_MAX_IRQ_ROUTES - 1);
- 	u8 vector = kvm_random_u64_in_range(&kvm_rng, 32, UINT8_MAX);
- 
--	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
- 	pthread_t vcpu_threads[KVM_MAX_VCPUS];
++static void *vcpu_thread_main(void *arg)
++{
++	struct kvm_vcpu *vcpu = arg;
++	struct ucall uc;
++
++	vcpu_run(vcpu);
++	TEST_ASSERT_EQ(UCALL_DONE, get_ucall(vcpu, &uc));
++
++	return NULL;
++}
++
++static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
++			  u8 vector)
++{
++	struct {
++		struct kvm_irq_routing header;
++		struct kvm_irq_routing_entry entry;
++	} routing = {
++		.header.nr = 1,
++		.entry = {
++			.gsi = gsi,
++			.type = KVM_IRQ_ROUTING_MSI,
++			.u.msi.address_lo = 0xFEE00000 | (vcpu->id << 12),
++			.u.msi.data = vector,
++		},
++	};
++
++	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing.header);
++}
++
++static void help(const char *name)
++{
++	printf("Usage: %s [-h]\n", name);
++	printf("\n");
++	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
++	printf("\n");
++	exit(KSFT_FAIL);
++}
++
++int main(int argc, char **argv)
++{
++	/*
++	 * Pick a random vector and a random GSI to use for device IRQ.
++	 *
++	 * Pick an IRQ vector in range [32, UINT8_MAX]. Min value is 32 because
++	 * Linux/x86 reserves vectors 0-31 for exceptions and architecture
++	 * defined NMIs and interrupts.
++	 *
++	 * Pick a GSI in range [24, KVM_MAX_IRQ_ROUTES - 1]. The min value is 24
++	 * because KVM reserves GSIs 0-15 for legacy ISA IRQs and 16-23 only go
++	 * to the IOAPIC. The max is KVM_MAX_IRQ_ROUTES - 1, because
++	 * KVM_MAX_IRQ_ROUTES is exclusive.
++	 */
++	u32 gsi = kvm_random_u64_in_range(&kvm_rng, 24, KVM_MAX_IRQ_ROUTES - 1);
++	u8 vector = kvm_random_u64_in_range(&kvm_rng, 32, UINT8_MAX);
++
 +	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
-+	struct vfio_pci_device *device = NULL;
- 	int nr_irqs = 1000, nr_vcpus = 1;
--	int i, j, c, eventfd;
-+	const char *device_bdf = NULL;
-+	const char *iommu_type = NULL;
-+	int i, j, c, msix, eventfd;
-+	struct iommu *iommu;
- 	struct kvm_vm *vm;
-+	int irq;
- 
--	while ((c = getopt(argc, argv, "h")) != -1) {
-+	while ((c = getopt(argc, argv, "d:ht:")) != -1) {
- 		switch (c) {
-+		case 'd':
-+			device_bdf = optarg;
-+			break;
-+		case 't':
-+			iommu_type = optarg;
-+			break;
- 		case 'h':
- 		default:
- 			help(argv[0]);
-@@ -119,7 +181,19 @@ int main(int argc, char **argv)
- 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
- 	vm_install_exception_handler(vm, vector, guest_irq_handler);
- 
--	eventfd = kvm_new_eventfd();
-+	if (device_bdf) {
-+		if (!iommu_type)
-+			iommu_type = probe_iommu_type();
-+		iommu = iommu_init(iommu_type);
-+		device = vfio_pci_device_init(device_bdf, iommu);
-+		msix = vfio_setup_msi(device);
-+		irq = vfio_msix_to_host_irq(device_bdf, msix);
-+		eventfd = device->msi_eventfds[msix];
-+		printf("Using device %s MSI-X[%d] (IRQ-%u)\n", device_bdf, msix,
-+		       irq);
-+	} else {
-+		eventfd = kvm_new_eventfd();
++	pthread_t vcpu_threads[KVM_MAX_VCPUS];
++	int nr_irqs = 1000, nr_vcpus = 1;
++	int i, j, c, eventfd;
++	struct kvm_vm *vm;
++
++	while ((c = getopt(argc, argv, "h")) != -1) {
++		switch (c) {
++		case 'h':
++		default:
++			help(argv[0]);
++		}
 +	}
- 
- 	pr_info("Injecting interrupts for GSI %d (guest vector 0x%x) %d times\n",
- 		gsi, vector, nr_irqs);
-@@ -147,7 +221,7 @@ int main(int argc, char **argv)
- 				    "IRQ flag for vCPU %d not clear prior to test",
- 				    vcpus[j]->id);
- 
--		eventfd_write(eventfd, 1);
-+		trigger_interrupt(device, eventfd);
- 
- 		clock_gettime(CLOCK_MONOTONIC, &start);
- 		while (!GUEST_RECEIVED_IRQ(vcpu) &&
++
++	TEST_REQUIRE(kvm_arch_has_default_irqchip());
++
++	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
++	vm_install_exception_handler(vm, vector, guest_irq_handler);
++
++	eventfd = kvm_new_eventfd();
++
++	pr_info("Injecting interrupts for GSI %d (guest vector 0x%x) %d times\n",
++		gsi, vector, nr_irqs);
++
++	kvm_assign_irqfd(vm, gsi, eventfd);
++
++	for (i = 0; i < nr_vcpus; i++)
++		pthread_create(&vcpu_threads[i], NULL, vcpu_thread_main, vcpus[i]);
++
++	for (i = 0; i < nr_vcpus; i++) {
++		struct kvm_vcpu *vcpu = vcpus[i];
++
++		while (!SYNC_FROM_GUEST_AND_READ(vm, guest_ready_for_irqs[vcpu->id]))
++			continue;
++	}
++
++	for (i = 0; i < nr_irqs; i++) {
++		struct kvm_vcpu *vcpu = vcpus[i % nr_vcpus];
++		struct timespec start;
++
++		kvm_route_msi(vm, gsi, vcpu, vector);
++
++		for (j = 0; j < nr_vcpus; j++)
++			TEST_ASSERT(!GUEST_RECEIVED_IRQ(vcpus[j]),
++				    "IRQ flag for vCPU %d not clear prior to test",
++				    vcpus[j]->id);
++
++		eventfd_write(eventfd, 1);
++
++		clock_gettime(CLOCK_MONOTONIC, &start);
++		while (!GUEST_RECEIVED_IRQ(vcpu) &&
++		       timespec_to_ns(timespec_elapsed(start)) <= timeout_ns)
++			cpu_relax();
++
++		TEST_ASSERT(GUEST_RECEIVED_IRQ(vcpu),
++			    "vCPU %d timed out waiting for IRQ (vector 0x%x) from GSI %d\n",
++			    vcpu->id, vector, gsi);
++
++		WRITE_AND_SYNC_TO_GUEST(vm, guest_received_irq[vcpu->id], false);
++	}
++
++	WRITE_AND_SYNC_TO_GUEST(vm, done, true);
++
++	for (i = 0; i < nr_vcpus; i++)
++		pthread_join(vcpu_threads[i], NULL);
++
++	return 0;
++}
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
