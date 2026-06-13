@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2FDCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 11:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69063CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 11:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pMcR10Zl9ktI8NftnKtGb1nGlHMkBHUqYLOsT6sT/4k=; b=ZDnAp2fC87FnyniYan0g/v/Jqv
-	bnbuxUsEJ8ypkRIiDWadluCKRE5ko1Wgolf7odI0laDInvMDLiDEfEj7cwqz9t2d4G7LAIsoZhrlg
-	v4UO7st/e8L7ncRrxejLB9NjmoQopBXll1/2j2ZPn7YUa3PWx9Zuyou2xejH0O6GBWLpIjQicLk2u
-	5qgdMhtu1Nf9TrLfZZ2MsowPTJAl74zsx1bbuvlAeEzmx1fJl1gOCfbgsa+FUrey80XBdefVpIB7k
-	pPdT5DvutCGdaofsQz5KiE4IRCYJ4rNU/8Bw0pWQ0oBrzxrwCCg7t+H44Cvah8MVMlMl5gXWshlQp
-	8tTtVmyA==;
+	bh=SFT4S6YWGOqkBEGH8f7ZvRxrjPmCEGESiSX2o/TWj+Q=; b=j92/cCf1YkYYsSIue3HGJAMwOo
+	w5qfnCzXC8Fy53SoZl2ZODkdJpPjPF+9r6uhcXK0ASM8C31UnbaKb7lWju6uPHyDX1U6hunBUNUpI
+	GMAZT3lDaOqFzBUTl9ZHbw6C27T1Copx86/6/PKCvda+77lVDA5clXkbJmJ+p7l3Ea1tKhSoi3Uex
+	2pZvi+7kR7z93enizRT8U+Qol57jv3fxTj2Jbk+QlfrmYibPJDrnbaURCjdXkEcBV9PEF+XBHoWTA
+	/kmXX0/pR1/7TSvJcHIp39dKSUzVPSigb0kLtpTttO0t7tPzqhOlVzIDb5ZPLJd5Eo0H2edjMHSmk
+	xEQutYqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYM7l-0000000CDSw-31tC;
-	Sat, 13 Jun 2026 11:02:01 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1wYMfm-0000000CFP8-3LLw;
+	Sat, 13 Jun 2026 11:37:10 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYM7i-0000000CDSY-1eix
+	id 1wYMfk-0000000CFOg-2RcP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Jun 2026 11:01:59 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-46013161068so850726f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 04:01:57 -0700 (PDT)
+	Sat, 13 Jun 2026 11:37:09 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490be29c1c5so19581535e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 04:37:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781348516; x=1781953316; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781350627; x=1781955427; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pMcR10Zl9ktI8NftnKtGb1nGlHMkBHUqYLOsT6sT/4k=;
-        b=lY1IPleV46v2lS77w/Yhq67N2U5hfhBIaz76DApgE4avFRND/OA3T9t+MhgHtuH3PO
-         +WAOLcT/q5gzndqO2I2vZhubG6RQYYNgvR7I0BFeUvNNVyvDL9oNhJoL2bPGxlsnWnv9
-         EVPDPdkwDP3J60uPACNnf2DqH1Ow+vEUR5GJvhACUlfHtkmKciwKbY9iKTAPRylsPmAo
-         M/zGiCE9niOZlUlUi6pBRX9WXtrhiSfRqoPtFWrvu7D2anDFwbpvoqLia7vDSsyvGyg8
-         S/Mh4W16729rOE56AYKV5hmKyyMUb0VAjb8B9CNQENdj+9k9fF5SP5PogEj2zIipiloO
-         a3DA==
+        bh=SFT4S6YWGOqkBEGH8f7ZvRxrjPmCEGESiSX2o/TWj+Q=;
+        b=jIWDRxL5EVS++VTxnc4pU5yLrntzJstcx7od6g64bTDrSCQJ8iiCrUMW5MGfBWxJAB
+         FWuniRE23U55AH1fBfNjwJpMkwNKCItDen2vmnBQYWyxlnRJkz7f4xBb27kToBNp9eHE
+         TFVUcoi9afxAz03+8Nv+HcPpdw2ex6YMus7DeWvZGvrkL8pnXDFDSWwb+BAk9wSEAbDX
+         QN/kx7iNhGOjCxgQcLzVgm7zFG4F5a8lCjGM9Nm0qK7854TrDE8C+e781UU01lVb6aga
+         UIHmxbUGzMGQqsR04kxng0w+8zM7NvJUREsIpxKcGtc0p/+FEltcITyg5Bf1ImqqKMkT
+         hnRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781348516; x=1781953316;
+        d=1e100.net; s=20251104; t=1781350627; x=1781955427;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=pMcR10Zl9ktI8NftnKtGb1nGlHMkBHUqYLOsT6sT/4k=;
-        b=NuHfo2sA9s/4PaERJAdrCGofx51Bz3t8i40smtNtGl+4WXLhtN4yQN6P6VS6lnmP4K
-         STDbneA8jbwtC9udbeLflPHb3aZE2z9Sms9Fc8FGxOkv+hPF8BcH/yNkH8PJilX5rmcB
-         RU4WJaEX0aXgNiyUhHXDNzthff6Z9om36lvq05VHl4eKcxG/LZtZqlJFO2fsq6ddWMiJ
-         u7BKEKIhC+o7EJhfDV5ci7vwTvCjYHg9pBsCwXhor+TDvZZD14HARZK8IX1bFOVGobk/
-         9SyqRUC0E8Up2xQPKcbI8b1b61C3PvIo7cH3ThF5uIenK0m6lja5F9oMN1+yJQBvlY0Y
-         2jXA==
-X-Gm-Message-State: AOJu0YweJp353rVYbqaYc+ySB4ihWApT9j+VQorqXtq7PeWN4RKmUH3h
-	kYYeXzKjxFZeaxbgHnvMv7/gFrLGwtmcABawruX85JzFmEHUKJavPbUEDs/UO6F3
-X-Gm-Gg: Acq92OF+2qYJV9ReTCvDg1ECVwGC2oUHaNwVHhuQqtrHhT8F6UHGTpag/F4s4x5wT5X
-	6ri6MwDTEuXyGDNP31NkXu8KsMZ2cNM653J+U2U/GrIsNSbsS6qNLcsLEl/7FYIWWJNcN5YC9nZ
-	YuIQ9bOyT/RXMa8zdbtsu+2qST6xsO++CzCE+lBklTHNo9SSyZSueyatFlj6nPc0K0JouQ5ElD4
-	lsXOmNR0fBW1YXXI7lJwVGrZV5oUcEZ/G2AJStBC2wHSuVxGb/R5K0Ga/qpajD4FDhor3+SBeFg
-	q2487piPI6xvvocvUPjIEx0EitHHIiHz20eGSfRXp5iBb3YCiccB5MIF182zvR3yhN+C8nBwUl/
-	Ry6hixw2xXC3Zd+N/aifwtDvxKqqiE4arN7ABJjfSuN6Z7fKEx4H+WDxCH4qEZYkZE9j/Ea3aLL
-	jlyPHkI8vmM3OmnanKlC2DQhJEPV1tntOiLGc7hVOIXegL
-X-Received: by 2002:a05:6000:188e:b0:45e:f271:5019 with SMTP id ffacd0b85a97d-4606db8c6fbmr9211591f8f.14.1781348516083;
-        Sat, 13 Jun 2026 04:01:56 -0700 (PDT)
+        bh=SFT4S6YWGOqkBEGH8f7ZvRxrjPmCEGESiSX2o/TWj+Q=;
+        b=cMz6VZTLqR6FkE57AlzqU9fhFXTm0j017DXehR+YUEpO+pMyRRVj6U7l+60r72M6PY
+         cN+rBhCJzDFvaGh2cvKj6rmwWAJocTZt7CTiLXmzzchm1YuPC6Qty8dUrdu/7eEpjTZQ
+         /5XkkbzRKAoulptt2J0XTGrHAv3+A40n1OteARn8wCOO04gq4ef/142bt+TUIOIgWpbt
+         vLfj9DBPf+DGFUEqp/d984XqKnMtAcLb14/KBwioYclWd9lRb8OOEawggjSsP49HxhBN
+         s31/auVhjTTzNwfidkeKz4Iw3WalpvnizZEyVnhifyzsr6utozPWCW0JIlSn0MOA1+fH
+         q3kw==
+X-Forwarded-Encrypted: i=1; AFNElJ/9IX81S7cYCBowg+Cr7zXqWSURI6uu4akcb4VbHMAqy1j4FZSkjfklLS/JhChoyyG1JYlUf4xt5iOlRWNJgvHi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSiS5kOMepCtVqJe1Tix86G747mIO7REU+ycyKRAqBwHg4Yo0M
+	hUT+YhYN1KvCqBKKzu1Y8yUcmdKM9WEqa6f5xNh8+RRBBkL8h8gPFRCM
+X-Gm-Gg: Acq92OELjlByyEP1FfHU9aWY4yGahxFsead8UW+K/eRsevb78Z+BZxiTrRYSdp/VcKX
+	FhXiLc/SqydpdO/XjhCkV++j04Brph4UeZhbuVIIh2rFvu0mjp133GvLwG7zoCJXTJ+jjqorXQf
+	BYqUt/BkgnidxpKfRz+V9U0v6SZ2Zw93gSXG/ou5m0pNrrLRz7Khh7KQqVhx/slRpamd22poz7H
+	UrWf8ZzSGjJ/jF256cSAvdaMWeoGdqtJTdgBFr3+m5cgiwIEVli56+EcwYNR8EdYQHcVlbpdPTL
+	cnXkIBesPalXiKlBjJQqHoviyS9mxn0gtI4pGjWbvPh/YMv9vC+eVd1IV9Qbjm7n4TZYcwBj7kH
+	D4D8hABhst9r6KBmEBD/1vF2nyfyS164imwrdUqHakTpbHoGRx63Lhi+28y69JmESWSJzAqtwhk
+	FKAW9m2PgWDIcrzVqdvIlKtuiInikTB8Pqf/jttRrrs0Ra
+X-Received: by 2002:a05:600c:83c8:b0:492:1e36:d16e with SMTP id 5b1f17b1804b1-4921e36d1a9mr50171305e9.36.1781350626544;
+        Sat, 13 Jun 2026 04:37:06 -0700 (PDT)
 Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26434dsm14930828f8f.1.2026.06.13.04.01.53
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922033dd3esm67812295e9.8.2026.06.13.04.37.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 04:01:55 -0700 (PDT)
+        Sat, 13 Jun 2026 04:37:06 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Hans de Goede <hansg@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>,
- Lukas Schmid <lukas.schmid@netcube.li>,
- =?UTF-8?B?Si4gTmV1c2Now6RmZXI=?= <j.ne@posteo.net>,
- Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v4 7/7] arm64: dts: allwinner: A133: add support for Baijie Helper
- A133 board
-Date: Sat, 13 Jun 2026 13:01:53 +0200
-Message-ID: <rVKu3PRHTqCaxGV5Fc8kHQ@gmail.com>
-In-Reply-To: <20260605070923.3045073-8-alexander.sverdlin@gmail.com>
-References: <20260605070923.3045073-1-alexander.sverdlin@gmail.com>
- <20260605070923.3045073-8-alexander.sverdlin@gmail.com>
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
+ Ulf Hansson <ulfh@kernel.org>, enzo.adriano.code@gmail.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, Enzo Adriano <enzo.adriano.code@gmail.com>
+Subject: Re: [PATCH 4/4] arm64: dts: allwinner: add Radxa Cubie A7S
+Date: Sat, 13 Jun 2026 13:37:04 +0200
+Message-ID: <yDDIdJcZRCmL2YwI2Wv_ng@gmail.com>
+In-Reply-To: <20260613-a733-dts-v1-public-ready-v1-4-7787c94681db@gmail.com>
+References: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com>
+ <20260613-a733-dts-v1-public-ready-v1-4-7787c94681db@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_040158_451162_ED6DB31C 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260613_043708_637545_AB0688EE 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +103,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 5. junij 2026 ob 09:09:21 Srednjeevropski poletni =C4=8Das je Al=
-exander Sverdlin napisal(a):
-> Baijie Helper A133 board is a development board around Baijie A133 Core
-> SBC. Features:
+Dne sobota, 13. junij 2026 ob 11:42:16 Srednjeevropski poletni =C4=8Das je =
+Enzo Adriano via B4 Relay napisal(a):
+> From: Enzo Adriano <enzo.adriano.code@gmail.com>
 >=20
-> - 1/2/4GiB LPDDR4 DRAM
-> - 8/16/32GiB eMMC
-> - AXP707 PMIC
-> - USB-C OTG port in peripheral mode (via onboard hub)
-> - 2 USB 2.0 ports
-> - MicroSD slot and on-board eMMC module
-> - Gigabit Ethernet
-> - Bluetooth
-> - WiFi
+> Add the Radxa Cubie A7S board description with serial console and SD card
+> boot support.
 >=20
-> Add initial support for both the Helper and Core boards, including UART,
-> PMU, eMMC, USB, Ethernet, LRADC-connected buttons.
+> Ethernet remains disabled until the GMAC210 wrapper, clocks, resets,
+> MDIO, PHY reset, PHY power, and link behavior are proven.
 >=20
-> UART1 can only be used for Bluetooth module, but BT-WiFi combo Allwinner
-> AW869A chip has no mainline driver currently.
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+> ---
+>  arch/arm64/boot/dts/allwinner/Makefile             |  1 +
+>  .../boot/dts/allwinner/sun60i-a733-cubie-a7s.dts   | 48 ++++++++++++++++=
+++++++
+>  2 files changed, 49 insertions(+)
 >=20
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
+/allwinner/Makefile
+> index d116864b6c2b..824cc35152db 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -56,6 +56,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35=
+xx-2024.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-h.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-plus.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-sp.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun60i-a733-cubie-a7s.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-a527-cubie-a5e.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-h728-x96qpro+.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-avaota-a1.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts b/ar=
+ch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+> new file mode 100644
+> index 000000000000..453761a96323
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+> @@ -0,0 +1,48 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +
+> +/dts-v1/;
+> +
+> +#include "sun60i-a733.dtsi"
+> +
+> +/ {
+> +	model =3D "Radxa Cubie A7S";
+> +	compatible =3D "radxa,cubie-a7s", "allwinner,sun60i-a733";
+> +
+> +	aliases {
+> +		serial0 =3D &uart0;
+> +		mmc0 =3D &mmc0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D "serial0:115200n8";
+> +	};
+> +
+> +	reg_vcc3v3: vcc3v3 {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vcc-3v3";
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		regulator-always-on;
+> +	};
+> +};
+> +
+> +&mmc0 {
+> +	vmmc-supply =3D <&reg_vcc3v3>;
+> +	bus-width =3D <4>;
+> +	no-mmc;
+> +	no-sdio;
+> +	status =3D "okay";
+> +};
+> +
+> +&pio {
+> +	uart0_pb9_pb10_pins: uart0-pb9-pb10-pins {
+> +		pins =3D "PB9", "PB10";
+> +		function =3D "uart0";
+> +	};
 
-Schema validation passes, so:
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Besides sashiko bot comments, these pins should go to main A733 DTSI,
+like it's done for other SoCs.
+
+In any case, it's a bit early for DT. At least clocks should land before.
 
 Best regards,
 Jernej
+
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&uart0_pb9_pb10_pins>;
+> +	status =3D "okay";
+> +};
+>=20
+>=20
+
+
 
 
 
