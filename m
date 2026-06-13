@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7071CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7914DCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Jun 2026 08:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5AB2GnAjTYfAqDEhgce6z9wXEJuX9EVNcWGLGsHedI=; b=Xixhzv+ktrZEEopGvLQM8QnHXW
-	H3VUan8UmskadUr78b0tVM7yvA9ldegTeDf2pRmlnTrDNy4YaOh4hoOScQWtrUi/dv3Oxwqv7IRfC
-	M/EeAw9YFaKG7LP2FLw0/7QaksagsQ6VNSjflTL6jL//pg4Pf7+pGGaZVZ84HMpzrErmPPAdOyv6r
-	lP1UECyorheI5bBz84smKR7iN7OCVYC3mDoYUfcnAe8nPEZi4BTaE8/zgoIKiRW4XcHvErMsZzJoo
-	Sdlo6FNHiLwL2nxoF5PPYfforqVODTpI/piT+yFaCTZuTRwh1Yiw10LY9b8eAgj0rjfXx8MqFOYhC
-	k3CaUeHA==;
+	bh=Q9/4BnN9TN80wFokR3YbL8LF+lakOjzWW/QdszOefXs=; b=JviYksJ4bb6On8fqpn+g86oqAw
+	xPSm5UX+EiRSfXwQfnAIJvKxLYRK4Pa55J6j6zkOqxl4wcp3Xv8T8s/KWJYZ7Hl+0U7hQg0MahvYf
+	KlUXjx+KJbDaxG6Imy0LOc5XR31e9CNqPmVgw6a0kP0DJHeAqYx0FQ8fXKiGnuYXfvzYrci2S67IM
+	h77lX404yiUK1fgGzKZjICe6vE2iEExd5lrhfxey/ICa93s3tSoJiYTC5oZ3kQbsjBDQsuwTZKJ7H
+	hDG4IAEKUnSHtZJlnR+3mO2nuB70t1zOmY1fFnidwbo40dt43H8cYmLkIqUWWkHiOJsXvxK6VDD8N
+	aZMM82DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJii-0000000C5TV-3Ic6;
-	Sat, 13 Jun 2026 08:28:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wYJlY-0000000C5bq-0wKO;
+	Sat, 13 Jun 2026 08:30:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJig-0000000C5TK-3MEt;
-	Sat, 13 Jun 2026 08:27:58 +0000
+	id 1wYJlX-0000000C5bh-0VFO;
+	Sat, 13 Jun 2026 08:30:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2487160018;
-	Sat, 13 Jun 2026 08:27:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EAD21F000E9;
-	Sat, 13 Jun 2026 08:27:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CBF5760018;
+	Sat, 13 Jun 2026 08:30:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB84A1F000E9;
+	Sat, 13 Jun 2026 08:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781339276;
-	bh=B5AB2GnAjTYfAqDEhgce6z9wXEJuX9EVNcWGLGsHedI=;
+	s=k20260515; t=1781339453;
+	bh=Q9/4BnN9TN80wFokR3YbL8LF+lakOjzWW/QdszOefXs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VPUfJw2niWvJCDCYWoaFJyYlv9SaqAO9eWb2G60hRXV7i/b0tY/OuOQaRFGq41l/y
-	 fWFuvnyreKsMzxa5M69Lmk+RobO1Zu5qX69c+zNcLs5vFuNQZKPN8Fdk/b/pvdd2fO
-	 8FZLb9mnEthvfsYLByFXZU0dMPYDJA4a9Kj4C5UL4BHb4g8o6TinLZG8McJNxTqKfD
-	 cYVYeI8yJ+0n2y1bK0Sx36ybpsh9cW4bh4sQZEfkDSqmDh7RYO2I6cUmmTVAn+m1MQ
-	 TO0uTQv6bA2vj4FNHAMAS54kMWwphV1qiZrmfoSku+7Bsis4+nusXM+M5v+wHFcfPO
-	 bee50gIjJ/Luw==
-Date: Sat, 13 Jun 2026 10:27:52 +0200
+	b=K+vHJFpJo9392/GlxlYmiZUtWtf+Zvqk6mTgfrdUtLbpTxvGZSzKUA9GJ5iX9XdaX
+	 VDHQk5CDgzr0gKWLv3p+H9VL9oE8+KeJM6blwyRTHIcqa53zxEof7ZterACOOp6Zf6
+	 unRreNdCbbIIm7U8QKk00cT+8D4WsuZ1gHL0Mstqsa+3ikT4Zl73HpB/kvhW2IpLfG
+	 rqKlsC9GTM3GPAAoe8qNJg7GagYvdVuR8HAaW3wxbVsy3W2aW4TqAFf4e4hmhXyVQo
+	 Z7B8zOLBcvrwhG713qJAmaLJOY1S1DbfdGl3ceBLkKOjP4TMnefUlXfCSRrgWhnhH1
+	 kL3/6d1FYIzIA==
+Date: Sat, 13 Jun 2026 10:30:49 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
 To: "Wayen.Yan" <win847@gmail.com>
 Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
@@ -49,15 +49,14 @@ Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
 	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] net: airoha: Fix non-standard return value in
- airoha_ppe_get_wdma_info()
-Message-ID: <ai0UiG4epd96KVtZ@lore-rh-laptop>
-References: <6a2ca3d9.ad59c0a6.147df9.2a62@mx.google.com>
+Subject: Re: [PATCH] net: airoha: Fix typos in comments and Kconfig
+Message-ID: <ai0VOeMCZYIfuOzR@lore-rh-laptop>
+References: <6a2ca74a.c5b1db4e.21a698.01e7@mx.google.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yzHzCNJj3DNq8pfX"
+	protocol="application/pgp-signature"; boundary="64HGhJxIkxmRP3EZ"
 Content-Disposition: inline
-In-Reply-To: <6a2ca3d9.ad59c0a6.147df9.2a62@mx.google.com>
+In-Reply-To: <6a2ca74a.c5b1db4e.21a698.01e7@mx.google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +72,96 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---yzHzCNJj3DNq8pfX
+--64HGhJxIkxmRP3EZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-> airoha_ppe_get_wdma_info() returns -1 when the last path in the
-> forwarding path stack is not of type DEV_PATH_MTK_WDMA. This is not
-> a standard kernel error code. Replace it with -EINVAL since the
-> input path type is invalid from the caller's perspective.
-
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-
+> Fix several typos found during code review:
+> - Kconfig: "Aiorha" -> "Airoha" in NET_AIROHA_FLOW_STATS help text
+> - Comment: "CMD1" -> "CDM1" (Central DMA, not Command)
+> - Comments: "GMD1/2/3/4" -> "GDM1/2/3/4" (Gigabit DMA, not GMD)
+>=20
+> These are pure comment and documentation fixes with no functional impact.
 >=20
 > Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 =
 SoC")
 > Signed-off-by: Wayen.Yan <win847@gmail.com>
+
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+
 > ---
->  drivers/net/ethernet/airoha/airoha_ppe.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/net/ethernet/airoha/Kconfig      |  2 +-
+>  drivers/net/ethernet/airoha/airoha_eth.c | 10 +++++-----
+>  2 files changed, 6 insertions(+), 6 deletions(-)
 >=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index 5c9dff6..7260177 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -264,7 +264,7 @@ static int airoha_ppe_get_wdma_info(struct net_device=
- *dev, const u8 *addr,
+> diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/a=
+iroha/Kconfig
+> index ad3ce50..1f6640a 100644
+> --- a/drivers/net/ethernet/airoha/Kconfig
+> +++ b/drivers/net/ethernet/airoha/Kconfig
+> @@ -29,6 +29,6 @@ config NET_AIROHA_FLOW_STATS
+>  	bool "Airoha flow stats"
+>  	depends on NET_AIROHA && NET_AIROHA_NPU
+>  	help
+> -	  Enable Aiorha flowtable statistic counters.
+> +	  Enable Airoha flowtable statistic counters.
 > =20
->  	path =3D &stack.path[stack.num_paths - 1];
->  	if (path->type !=3D DEV_PATH_MTK_WDMA)
-> -		return -1;
-> +		return -EINVAL;
+>  endif #NET_VENDOR_AIROHA
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 31cdb11..9d9d34a 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -294,18 +294,18 @@ static void airoha_fe_pse_ports_init(struct airoha_=
+eth *eth)
+>  			      FIELD_PREP(PSE_ALLRSV_MASK, all_rsv));
+>  	}
 > =20
->  	info->idx =3D path->mtk_wdma.wdma_idx;
->  	info->bss =3D path->mtk_wdma.bss;
+> -	/* CMD1 */
+> +	/* CDM1 */
+>  	for (q =3D 0; q < pse_port_num_queues[FE_PSE_PORT_CDM1]; q++)
+>  		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_CDM1, q,
+>  					 PSE_QUEUE_RSV_PAGES);
+> -	/* GMD1 */
+> +	/* GDM1 */
+>  	for (q =3D 0; q < pse_port_num_queues[FE_PSE_PORT_GDM1]; q++)
+>  		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM1, q,
+>  					 PSE_QUEUE_RSV_PAGES);
+> -	/* GMD2 */
+> +	/* GDM2 */
+>  	for (q =3D 6; q < pse_port_num_queues[FE_PSE_PORT_GDM2]; q++)
+>  		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM2, q, 0);
+> -	/* GMD3 */
+> +	/* GDM3 */
+>  	for (q =3D 0; q < pse_port_num_queues[FE_PSE_PORT_GDM3]; q++)
+>  		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM3, q,
+>  					 PSE_QUEUE_RSV_PAGES);
+> @@ -340,7 +340,7 @@ static void airoha_fe_pse_ports_init(struct airoha_et=
+h *eth)
+>  							 q, 0);
+>  		}
+>  	}
+> -	/* GMD4 */
+> +	/* GDM4 */
+>  	for (q =3D 0; q < pse_port_num_queues[FE_PSE_PORT_GDM4]; q++)
+>  		airoha_fe_set_pse_oq_rsv(eth, FE_PSE_PORT_GDM4, q,
+>  					 PSE_QUEUE_RSV_PAGES);
 > --=20
 > 2.51.0
 >=20
 >=20
 
---yzHzCNJj3DNq8pfX
+--64HGhJxIkxmRP3EZ
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCai0UhQAKCRA6cBh0uS2t
-rKlAAP4lFZjCFbxB2FvByROyzvrQUQJJbLpoX3MKp329SHp0iQD+P6mXCtbkeoi9
-sZmQ+rhyoeWSzKSJ1zr4GUWnEgXsGws=
-=quVv
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCai0VNgAKCRA6cBh0uS2t
+rOoLAP9zD8rCmgmRGAbQK8MKUzVK5T4AKJTzQ6alW/rcKF3UEgEA01SqILqOnJw2
+YHcDXCB9lRE0KlGXXENOLuexByhf7AQ=
+=vr8q
 -----END PGP SIGNATURE-----
 
---yzHzCNJj3DNq8pfX--
+--64HGhJxIkxmRP3EZ--
 
