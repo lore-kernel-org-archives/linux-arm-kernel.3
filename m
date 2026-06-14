@@ -4,93 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C101CCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 18:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AAACD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 18:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KmOBCXRMxHUy9xFI3toxiU28u5v8kqCzk7z0VpaRiLk=; b=3jThQE/PMbA5gG8GGkMC+p919o
-	1AsXsqGFBPx5D6b+rfx5XE55JVJ3dMk+IAg1BP9bzzx1Tz8SXxpMTohyrPsMo4MQVKGn1S22VIRHP
-	wl1K/SrRqR0SQB71YwdS2rfPiD7g3Vllem6b5TP5rKB26TbJkHsMn/snre3X4zeI0nM2zEGgQuFm2
-	oIKcGMbaG8+MN1lx+QMZZFHHB+W4Q0B8It/ww0Ezym/osd6hoAfTbAOaA23nkMcUucGnNvTWB9Vzc
-	WMCaf1JYnkF3pcBwWofkPefh4lzAVdtertlgCExjslp3zQpESKQB5jIOJ2x9//jMenhRVd9fehuUo
-	iDf2Ivgw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RD2ago3uhfLFERZDkG+iyVWVaGQ5Iu9jUcy0tbiCgPM=; b=u7DWYmW3aJ+uXyt9B3Wf7eCN8C
+	WHtqmfkqsOgR7JTeg9+dlU9q4ow6QXtLLGI9b+BL8jZ7ig8wXH3GgXUfg5ppxV5rb7qqAA5NpB4XV
+	+cmwLrhWLaRZNorMmQsxgSM7q/iLEcAwv1ugdtsgyioC7BtqVejUlEaAS5oJncKa8ZNw6x8ooQtC5
+	9FNw77wOTOJCEzu9l5O0IB/gmYwLjpugU+40mMbcpy1sTWJ2SZQAiixx4AfGFZNJHJXNmi15zOxed
+	LxKvZCDXzbk5PbLU0FR5eZIc4qLXeBgF++IZLoY8rDj2d/Ux2yu2V9E7Xxb/xJe6F76bliEYxgwEC
+	yO/vwSLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYo8z-0000000DC8k-2MhB;
-	Sun, 14 Jun 2026 16:57:09 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wYpnl-0000000DEmn-3Joz;
+	Sun, 14 Jun 2026 18:43:21 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYo8x-0000000DC8O-2Dn8
+	id 1wYpnj-0000000DEmT-1KCp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 16:57:08 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c0c1e0d00bso23164045ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 09:57:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781456226; x=1782061026; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KmOBCXRMxHUy9xFI3toxiU28u5v8kqCzk7z0VpaRiLk=;
-        b=ClVxGQ1cUnsHkQ5U8uEf/QWrQaDjyDSTtEE4DOJVKNbXOAwvGFR0wRM78hkNxmnNiJ
-         5a8lkDHK+WvRMCJA/9yox0tYVySBWU1M2MXfxs/YtIhwctvE/5WAPRmnea9mhTRowyS7
-         PPK4ZrcZhNNB8wJ5829IHhdAPPpM0LZki1FocIkDN1aCsaeGNPiy3f1HuE4NLYde/Y0g
-         QV1T9ZXoRHK81ozAPrnw6Pb3baKSGnu9UIeseqnOemIIountuQeixiG27ZTmZcwlfH7B
-         yzxezuKLvsYUPdHDchgTJrUeV4crG/akGSqGbEKGAHp5pj49RyVdJS0G90r8+qEwzWKI
-         /dfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781456226; x=1782061026;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=KmOBCXRMxHUy9xFI3toxiU28u5v8kqCzk7z0VpaRiLk=;
-        b=l9NkIh26e+sL4JBONDQ4vbXMfwHjMsCfuIkBlrU9E5FdGjlcE7fQEKh5sMnffWv0fx
-         bmH1vUl5B2EC+B235AoC//MJFiY6Xxg/YC5hV1JLZhp41gXHUCD9/eSU12bFrPDb9Lp2
-         zIoAGi8SfMXuh+QgI3UPID8BE78HtBKRB+KBzupN+pjUdANh6Vl24ZEONR0rFd93Z5S4
-         plCz2Nh7DwWvzjGl8L/orn5490qIhiUXuDWXTY39px7oOcbx4RWnC82bDNHQkgXrrL9Q
-         ZLNKa/ZW9gjUFmC6DsPTHeY8RorNEasXZfMHbZUKd+iHcfsLhkuG3k4Zoq89tAcJ8J9R
-         Omiw==
-X-Forwarded-Encrypted: i=1; AFNElJ9FULAkbyME5CypDVVOy8h6u7GR57T+SGFyXmx+Y+OJimQfFYDVDKxPX9YVBWu00RpCszEcEgmP8simjDLcMsup@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhY7+3lgRJDwpG+duxozE7hoJ6zf9RzT4hx+mIcbqaSYzs2e5I
-	3GU1MVdHsFteN6aqm2D9uYrSWQfH8sUSy81LgbX/pa+3FNHss+Aw5Lnp
-X-Gm-Gg: Acq92OFNjKmunZjK92X1Jqpc+wc1yDb/uc36GiQwObyG/6ElLpt0sEir1q72XAdTZ3A
-	qizNWVzMEexLN1CaAlecuE0EVJcilwYCFAYbNMwO2+KHXbej8JL6Y9QVLarqqC/hZQBME5piJDg
-	pvp4lT1aQF3zs6nZlC/bURnG2qY10D8Pb1w1iXeYEcB+45ajJjVqngcsNBiaofHokat+Ooa+p0L
-	5NxURUrVUc6cxgH+h6PR1QfW5gxblarSMxm1M/XvLuPRh/mKQaDn/YkS1ChfGWrLGDB7F6r2i/h
-	e882GyImzjwFGpPYwZODx3w+V/1oDlYJ9aEEaFfHY0qvUvy/baUyU5bC46lPxTihl2XqdFzfwKV
-	5Fe2FkUAEy7gi5BNsWP0Y/hOtkF2Z+otnyea/6lpzOG+i7cykPFqoxzT99ZeDmIpOxb1U5jw270
-	jF2QVfGXIFZ2IkEf7cVOQLNL8Zgi3oIbq8/82ohlBLJZ6d1VGh3jk/
-X-Received: by 2002:a17:903:238b:b0:2c1:77cd:fb0b with SMTP id d9443c01a7336-2c412f17bcfmr118511375ad.37.1781456226362;
-        Sun, 14 Jun 2026 09:57:06 -0700 (PDT)
-Received: from localhost.localdomain ([49.207.217.37])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f2e5590sm85284025ad.14.2026.06.14.09.57.02
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 14 Jun 2026 09:57:06 -0700 (PDT)
-From: Biren Pandya <birenpandya@gmail.com>
-To: linux-media@vger.kernel.org,
-	mchehab@kernel.org
-Cc: Biren Pandya <birenpandya@gmail.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Sun, 14 Jun 2026 18:43:20 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1781462575;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=RD2ago3uhfLFERZDkG+iyVWVaGQ5Iu9jUcy0tbiCgPM=;
+	b=KBXDXFU9z7PIZRMV1j/brkGwP06gIbr8lf6+HizZ2NMJbPkiR07697P/oqfXclMMSjt/19
+	Ff+u9I4NyRGkF+llEgUQP1dZqalAESdIvew/2+HxiYyvagA5Ll+G558PLRur73BxvvLICZ
+	0SDe3KI8858SzccZdITqLeKboTgbRJ0=
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Yureka Lilian <yureka@cyberchaos.dev>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 06/22] media: platform: stm32-csi: Add missing media_entity_cleanup()
-Date: Sun, 14 Jun 2026 22:25:43 +0530
-Message-ID: <20260614165630.3896-7-birenpandya@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260614165630.3896-1-birenpandya@gmail.com>
-References: <20260614165630.3896-1-birenpandya@gmail.com>
+	linux-kernel@vger.kernel.org,
+	sven@kernel.org,
+	j@jannau.net,
+	k@chaosmail.tech,
+	towinchenmi@gmail.com
+Subject: [PATCH] arm64: errata: Handle Apple WFI State Loss
+Date: Sun, 14 Jun 2026 20:42:41 +0200
+Message-ID: <20260614-wfi-erratum-v1-1-d9899792d4fd@cyberchaos.dev>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+X-Change-ID: 20260614-wfi-erratum-7a9f305f601f
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_095707_591516_878FD5D7 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260614_114319_528413_D8A5E7C0 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +70,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixes: dcb0f4c16be5 ("media: stm32: csi: addition of the STM32 CSI driver")
-Signed-off-by: Biren Pandya <birenpandya@gmail.com>
----
- drivers/media/platform/st/stm32/stm32-csi.c | 2 ++
- 1 file changed, 2 insertions(+)
+Apple Silicon CPUs can lose register state in WFI, leading to crashes
+in the idle loop early in the boot process.
+This applies to any previous Apple Silicon CPUs too, but is worked
+around by configuring the WFI mode in SYS_IMP_APL_CYC_OVRD sysreg
+during m1n1's chickens setup.
+This workaround no longer exists since M4.
 
-diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
-index fd2b6dfbd44c..0847fd347d56 100644
---- a/drivers/media/platform/st/stm32/stm32-csi.c
-+++ b/drivers/media/platform/st/stm32/stm32-csi.c
-@@ -1060,6 +1060,7 @@ static int stm32_csi_probe(struct platform_device *pdev)
+Add a workaround capability for replacing wfi and wfit with nop, and
+an erratum to enable it on the affected CPUs if the workaround using the
+sysreg is not already applied. Leave the decision whether the sysreg
+workaround can be used up to the earlier parts of the boot chain which
+already configure the Apple Silicon chicken bits.
+
+This alternative has to be applied in early boot, since otherwise some
+cores might enter the idle loop before apply_alternatives_all() is run.
+
+Reviewed-by: Sasha Finkelstein <k@chaosmail.tech>
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+---
+Tested on M4 and M4 Pro (which now sometimes nondeterministically
+crash later during boot).
+Successfully booted on M3 Max with the SYS_IMP_APL_CYC_OVRD
+workaround disabled in the bootloader, as well as A18 Pro (which,
+like M4 / M4 Pro, doesn't have SYS_IMP_APL_CYC_OVRD).
+
+There is probably a better place for the SYS_IMP_APL_CYC_OVRD
+defines, which I currently put in the middle of cpu_errata.c, but I
+wouldn't know where.
+---
+ arch/arm64/Kconfig               | 12 ++++++++++++
+ arch/arm64/include/asm/barrier.h | 19 ++++++++++++++++---
+ arch/arm64/kernel/cpu_errata.c   | 19 +++++++++++++++++++
+ arch/arm64/tools/cpucaps         |  1 +
+ 4 files changed, 48 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b3afe0688919..8c8ff069856f 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -453,6 +453,18 @@ config AMPERE_ERRATUM_AC04_CPU_23
  
- err_cleanup:
- 	v4l2_async_nf_cleanup(&csidev->notifier);
-+	media_entity_cleanup(&csidev->sd.entity);
- 	return ret;
+ 	  If unsure, say Y.
+ 
++config APPLE_ERRATUM_WFI_STATE
++	bool "Apple Silicon: WFI loses state"
++	default y
++	help
++	  This option adds an alternative code sequence to work around some
++	  Apple Silicon CPUs losing register state during wfi and wfit
++	  instructions.
++
++	  As a workaround, the wfi and wfit instructions are replaced with nop
++	  operations via the alternative framework if an affected CPU is
++	  detected.
++
+ config ARM64_WORKAROUND_CLEAN_CACHE
+ 	bool
+ 
+diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
+index 9495c4441a46..f72eddc7c434 100644
+--- a/arch/arm64/include/asm/barrier.h
++++ b/arch/arm64/include/asm/barrier.h
+@@ -20,9 +20,22 @@
+ #define wfe()		asm volatile("wfe" : : : "memory")
+ #define wfet(val)	asm volatile("msr s0_3_c1_c0_0, %0"	\
+ 				     : : "r" (val) : "memory")
+-#define wfi()		asm volatile("wfi" : : : "memory")
+-#define wfit(val)	asm volatile("msr s0_3_c1_c0_1, %0"	\
+-				     : : "r" (val) : "memory")
++#define wfi()							\
++	do {							\
++		asm volatile(					\
++		ALTERNATIVE("wfi",				\
++			    "nop",				\
++			    ARM64_WORKAROUND_WFI_STATE)		\
++		: : : "memory");				\
++	} while (0)
++#define wfit(val)						\
++	do {							\
++		asm volatile(					\
++		ALTERNATIVE("msr s0_3_c1_c0_1, %0",		\
++			    "nop",				\
++			    ARM64_WORKAROUND_WFI_STATE)		\
++		: : "r" (val) : "memory");			\
++	} while (0)
+ 
+ #define isb()		asm volatile("isb" : : : "memory")
+ #define dmb(opt)	asm volatile("dmb " #opt : : : "memory")
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 1995e1198648..04c8c312b27d 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -309,6 +309,17 @@ static void cpu_enable_impdef_pmuv3_traps(const struct arm64_cpu_capabilities *_
+ 	sysreg_clear_set_s(SYS_HACR_EL2, 0, BIT(56));
  }
  
-@@ -1068,6 +1069,7 @@ static void stm32_csi_remove(struct platform_device *pdev)
- 	struct stm32_csi_dev *csidev = platform_get_drvdata(pdev);
- 
- 	v4l2_async_unregister_subdev(&csidev->sd);
-+	media_entity_cleanup(&csidev->sd.entity);
- 
- 	pm_runtime_disable(&pdev->dev);
- }
--- 
-2.50.1 (Apple Git-155)
++#ifdef CONFIG_APPLE_ERRATUM_WFI_STATE
++static bool has_apple_erratum_wfi_state(const struct arm64_cpu_capabilities *entry, int scope)
++{
++#define SYS_IMP_APL_CYC_OVRD   sys_reg(3, 5, 15, 5, 0)
++#define CYC_OVRD_WFI_MODE_MASK GENMASK(26, 24)
++	if (read_cpuid_implementor() != ARM_CPU_IMP_APPLE)
++		return false;
++	return FIELD_GET(CYC_OVRD_WFI_MODE_MASK, read_sysreg_s(SYS_IMP_APL_CYC_OVRD)) != 2;
++}
++#endif
++
+ #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+ static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
+ #ifdef CONFIG_QCOM_FALKOR_ERRATUM_1009
+@@ -1009,6 +1020,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		.matches = has_impdef_pmuv3,
+ 		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+ 	},
++#ifdef CONFIG_APPLE_ERRATUM_WFI_STATE
++	{
++		.desc = "Apple WFI loses state",
++		.capability = ARM64_WORKAROUND_WFI_STATE,
++		.type = ARM64_CPUCAP_SCOPE_BOOT_CPU | ARM64_CPUCAP_OPTIONAL_FOR_LATE_CPU,
++		.matches = has_apple_erratum_wfi_state,
++	},
++#endif
+ 	{
+ 	}
+ };
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 9b85a84f6fd4..bbf8c15d79b0 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -128,3 +128,4 @@ WORKAROUND_REPEAT_TLBI
+ WORKAROUND_SPECULATIVE_AT
+ WORKAROUND_SPECULATIVE_SSBS
+ WORKAROUND_SPECULATIVE_UNPRIV_LOAD
++WORKAROUND_WFI_STATE
+
+---
+base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
+change-id: 20260614-wfi-erratum-7a9f305f601f
+
+Best regards,
+--  
+Yureka Lilian <yureka@cyberchaos.dev>
 
 
