@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858FCCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 00:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF8C4CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 00:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vWnYftrBfPVj2NQwXF5MfjOIipJux2nhgBrNfiqs4wo=; b=CPUi/F8aWGTdyfI5MuJA8LWLpH
-	Iit/WoVOTOmoyGQY6RwI0KS5bNhyn88mL8nNf0ilJSjw+ey3w1VmXUmc2UnVLv0LYrhXdYrK2ktQn
-	7E6OuBcbMZjibHqmAHSJxtuHkyI/xvxn4Rb4q9hCKwKo3uJbPt77DTF73nqsC2uT7na1XFO6J0Wb6
-	2qrpqQ16m6Kzr2LML/WLrRWoBpTs1w2rk5GT9L8VviwiNNjkHi5QwP+0EENLS7JOAPLRiXu5rfkSs
-	SwF44eQriOWd8QgZA9kgYgqeSyxa/C00Qj1gq8AH6cUvP+Sg95wsl9+0GS/6Xi0cwF2Yt4M621N5T
-	pEWI2G6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZMdBuFq+Egdpf4xXaVRlDiUSnmhKuXX5amo2pNZUkl4=; b=erOjqFyQH3mU7Lan5pHobNtcEZ
+	DuMHM7IR9DjntomegqKSIKzIObnoIbnr6ioM2+kJb7862u660kMm9Lja6Nry0+M8wnM3w2opY36JC
+	t1Gw7aYvlEor8+7TkqkJIglZyjzT+leJlrLQUekatQy1WBgFhMW5H/bKUSGv/S6ISJw1EJAiZU09L
+	uKq4hSwRGUn9/IVr4TaWEjOa+22Qki2rNSezaCPOcy+MuLLTNMtds8VuDZYGA64obJRMrIzS6jfIs
+	bSlgS1wLNrf/XFjPND1oBJWcCigUttiHWdHdcGu9AK4ul9awm6Jl9J3zzTvJ5Oe8a8sEExH3zihLh
+	5uQYVTFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYYGj-0000000CdCg-3pZI;
-	Sun, 14 Jun 2026 00:00:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wYYk2-0000000Cdld-2FjG;
+	Sun, 14 Jun 2026 00:30:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYYGi-0000000CdCU-0pOt;
-	Sun, 14 Jun 2026 00:00:04 +0000
+	id 1wYYk1-0000000CdlT-3NhP;
+	Sun, 14 Jun 2026 00:30:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F84C435A6;
-	Sun, 14 Jun 2026 00:00:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 588771F000E9;
-	Sun, 14 Jun 2026 00:00:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BAC3E6008A;
+	Sun, 14 Jun 2026 00:30:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 366EF1F000E9;
+	Sun, 14 Jun 2026 00:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781395203;
-	bh=vWnYftrBfPVj2NQwXF5MfjOIipJux2nhgBrNfiqs4wo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HEQiDdumz+3QAq715Ly3n07550/kVJxYYnPMEdq4GuQ+a6XAKDJ+ihc9vYFatK3ON
-	 Ovcz3PIYVLLL6lknkhuXqkAzrJQmrI4Ok9DSI7OcLcNERfPkLotZCtiHT6LyCvL+yb
-	 z8qrg6jNb71mMmPZZPv6vFlGCEbEwTPEXZ3V9YXlW1MkotBoIvYKUEghWEXQmagXtO
-	 /XiP2OOTV+umsyjXuxQrcmIm/m6MHl1jVnxPwMNtEGTRHFrJOzCq/A6PAFIL+CWro1
-	 sYzBhHkmWK5K3TGw/JnwdV6t1A/3Q6hqIEMN91cq7gWUZhTWq0Zp0/CO1Fkxk4wiKq
-	 f0lBivr8whWPw==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 325941AC5AC5; Sun, 14 Jun 2026 01:00:00 +0100 (BST)
-Date: Sun, 14 Jun 2026 01:00:00 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] ASoC: Match DT helper types
-Message-ID: <ai3vAG1-rXB2fanG@sirena.co.uk>
-References: <20260612214904.1882991-1-robh@kernel.org>
+	s=k20260515; t=1781397020;
+	bh=ZMdBuFq+Egdpf4xXaVRlDiUSnmhKuXX5amo2pNZUkl4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EcBer6RItrC/+oVd2Kax1LWzKvX0vH4X3tM0z0tnln1N3DLGFMKoWYR6a5/toDx7j
+	 PqKUHlaRmKC3H77fwIQP9zSaaEPkocTEk3DZ9UijYzkkAwXcBGnfUtGGwJUwOZ9+gn
+	 xwXGnxn4mOjkl0tQSvMh/hq5KSBweQvHmb1yp8NYS/fH1dz5Xsv6uHoERtHmIyb5h5
+	 N+/aB/ElIyEUZJTpIObPWuYDZFpX71nofGT0gt94yJ67TueuTj8CIKoqptC96vuEE2
+	 wUEZ9ktrZLSvyERFy8Yo6O1DI85bWRaLfmtVQvmmwUazcxAnZCJzCovLrJV/tKnPSi
+	 XuVbHfaK/B/3w==
+Date: Sat, 13 Jun 2026 17:30:18 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
+Cc: jackbb_wu@compal.com, Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>,
+ Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, Minano Tseng
+ <Minano.tseng@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
+ Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 3/7] net: wwan: t9xx: Add control DMA interface
+Message-ID: <20260613173018.7a0581f1@kernel.org>
+In-Reply-To: <20260610-t9xx_driver_v1-v2-3-c65addf23b3f@compal.com>
+References: <20260610-t9xx_driver_v1-v2-0-c65addf23b3f@compal.com>
+	<20260610-t9xx_driver_v1-v2-3-c65addf23b3f@compal.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WmzbjAo2OCEmQmFD"
-Content-Disposition: inline
-In-Reply-To: <20260612214904.1882991-1-robh@kernel.org>
-X-Cookie: Price does not include taxes.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +78,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 10 Jun 2026 18:41:06 +0800 Jack Wu via B4 Relay wrote:
+> From: Jack Wu <jackbb_wu@compal.com>
+> 
+> Cross Layer Direct Memory Access(CLDMA) is the hardware
+> interface used by the control plane and designated to
+> translate data between the host and the device. It supports
+> 8 hardware queues for the device AP and modem respectively.
 
---WmzbjAo2OCEmQmFD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Transient build warnings:
 
-On Fri, Jun 12, 2026 at 04:49:02PM -0500, Rob Herring (Arm) wrote:
-> The affected ASoC drivers read properties whose bindings use boolean
-> flags, normal uint32 cells, or phandle-style arrays. Using helpers for
-> a different encoding makes those accesses disagree with the binding.
++../drivers/net/wwan/t9xx/pcie/mtk_pci_drv_m9xx.c:52:30: warning: symbol 'mtk_dev_cfg_0900' was not declared. Should it be static?
++../drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c:19:22: warning: symbol 'mtk_ctrl_info_m9xx' was not declared. Should it be static?
++../drivers/net/wwan/t9xx/pcie/mtk_cldma_drv_m9xx.c:33:22: warning: symbol 'mtk_cldma_regs_m9xx' was not declared. Should it be static?
++../drivers/net/wwan/t9xx/pcie/mtk_cldma_drv_m9xx.c:166:22: warning: symbol 'cldma_drv_ops_m9xx' was not declared. Should it be static?
 
-> Use helpers that match the documented encoding and keep the existing
-> driver storage by copying through temporary values where needed.
-
-This feels like it would be easier to deal with as separate commits for
-each issue...
-
-> --- a/sound/soc/rockchip/rockchip_pdm.c
-> +++ b/sound/soc/rockchip/rockchip_pdm.c
-> @@ -546,8 +546,7 @@ static int rockchip_pdm_path_parse(struct rk_pdm_dev =
-*pdm, struct device_node *n
->  	unsigned int path[PDM_PATH_MAX];
->  	int cnt =3D 0, ret =3D 0, i =3D 0, val =3D 0, msk =3D 0;
-> =20
-> -	cnt =3D of_count_phandle_with_args(node, "rockchip,path-map",
-> -					 NULL);
-> +	cnt =3D of_property_count_u32_elems(node, "rockchip,path-map");
->  	if (cnt !=3D PDM_PATH_MAX)
->  		return cnt;
-
-The error codes reported by these two functions for missing properties
-differ (-ENOENT vs -EINVAL) and the caller of this function has a
-specific check for -ENOENT which allows it.
-
---WmzbjAo2OCEmQmFD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmot7v8ACgkQJNaLcl1U
-h9A3sgf/SDzvTG6Xl4sXlpglcdGeWlHrsF3pMXdJW0ufLi3V/x9khABDQtW9Jgsd
-g2hiQdTlV1K2E2NfPxFOboHPibROXNNvxHkV0FeKBmtodnyYZjEtsbtDSSP6c72c
-wlU9lB/QgtlmG4Hj2CGgsV0A9JoLdf5Z3BD2266tGv5vfn028M5yOB+QLRqOVZbV
-6HmgmuDLjhfYNkmTxugAICnoXElgp0MRV7DGNeIXFVzdqRCtzOufoT6l6bwPsmYY
-WNlBs0E/jjsMIaYXqYeBV8wGV6Hsjgd1Frvz6x3oozgxY4+q8g1F4Ma2NXVQJT11
-oGWlrnDcFmLFF0LdkR5NcPilBPLEYw==
-=8qCV
------END PGP SIGNATURE-----
-
---WmzbjAo2OCEmQmFD--
+please also see all the AI code comments at:
+https://sashiko.dev/#/patchset/20260610-t9xx_driver_v1-v2-3-c65addf23b3f@compal.com
+-- 
+pw-bot: cr
 
