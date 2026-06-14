@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0A7CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 04:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E38CD98D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 04:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOnY6yEezyUxI5CBehQcqD9t37X66JniIBbQ/HB7HUs=; b=K1AnfDehml+oWkHzUds9gAYCcg
-	nyq2u7kJ8yzYslCAT3RQL676q7dShCpzvOinWxXxjSjQ7eL1g7bDn+mV7vfV7W1ydpVdxj8W09I5s
-	Mk9rPDlr8ahjdZyiuxoXqCURaZIP7wZW+OvB5d4wceTKEXkLs7EG+xXagxBO2S9f+73wzIaNZ2iKJ
-	hK3gqJ6/7lGBYTpMr1lE+meuXYqTumUtJZ/gddBYW7O5/xud6izub7KuQnA2ZDlXQDk8cIlXVlopF
-	RtY+BASQbqa/O5UVd6j9PaTAz6nMIWoOTnNyIJc4xazALbPrQuzW0B4tr27fq9o8yoFT0ZaV9MwCD
-	OvdWuBOA==;
+	bh=5Crq5yHDjMfevdls0e5Awy2sd/URrn7kB/WguSFGm/w=; b=QnukrGtvJ3IAGOk+ZX6CrpLcnb
+	6CUmVT92H0y7o0r6i1B1eIy5qApZwWgeazEpjoGMY+Ftshbh6rSYpnqv8QhcX3k4LEw5jReQki+dL
+	an3Rfvd0UmSxLJoDBCYtQgRffcCa5V8XKrpoCL9u88PRNCV5H7FE8lE7lPG/WQsCcmhM3awZU1ZvH
+	GD/oRwxVp89cDs0T2/gY3govm/XZRGqjm9NAGJoldFME7xeCCBerxeRzdTB0RVq/IW2Ta6HY+sAN4
+	ekRw9FzAaOHLjflKZeTJQn91QpL29WazfxQcfp0TswnsHNqAQYWpTQAJpkqirNDxOWl4R8rXqmII4
+	eQs8kiXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYc24-0000000Ci5H-1ThV;
-	Sun, 14 Jun 2026 04:01:12 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1wYc27-0000000Ci7v-27te;
+	Sun, 14 Jun 2026 04:01:15 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYc20-0000000Ci2U-2eac
+	id 1wYc25-0000000Ci5c-0SNl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 04:01:10 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c858961a8efso859192a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 21:01:08 -0700 (PDT)
+	Sun, 14 Jun 2026 04:01:14 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c85825bbc4fso1389041a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 21:01:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781409668; x=1782014468; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781409672; x=1782014472; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OOnY6yEezyUxI5CBehQcqD9t37X66JniIBbQ/HB7HUs=;
-        b=P0nhfsU0+lf6arQVQHZgUz8KynR9eI8XxrSFwGI3yLHd+vG3T94B4O0w/b5PR91Ved
-         eI4iOwn51uviXt4OnfbTVqOJ+31pIEWN+dtJNEnRuwPZCLHrmQNYLqtVL0lgM8tx+Dsz
-         F1RBSEepNlvav80i+2JdMvMECRgKA3T+jEi3fst71WHFr4UeyFCOSQnzjb1CXic24Ht3
-         IyPLnIr0MVJRgcz7urs3a3vwgQa9UcyE3o/CD9YRQ6f5xGtD5m9oIK/Uu0UH6YtoO3oF
-         vK6euVWBriAiNMVuxT821NsjqsgN/1AmZh0spyciZ3RnaIOVu8x4KPxVEm34xI1tDf0w
-         CQzQ==
+        bh=5Crq5yHDjMfevdls0e5Awy2sd/URrn7kB/WguSFGm/w=;
+        b=mYjhKEvtbGdgfa+BNalkNa5ABMtHau5hCC3JvLTLNJ+iGkhtwtbdBXUvhleL8ayjtk
+         z1TPaa19110qQOLZln/imJVhSRIc5K2qisU8QRnmWuQuE+s3srwOhAoBNrA2d7tUK8EY
+         CRU7DqtmFr7kLtryn0jkNziBDW8ZQQqHkwYRXQt3VRXkKJqbcLccpK1nFdpI+Yp9MPb+
+         IRJN+5vawF51RMDvJekrpAfdV5v3LIDyQLzUy0CtAZ0Of/WI7+UoRPD0qdrJky8URj45
+         NM4tIy0I5OwHHWuw6lqzKIJXT1aU3fUrnG6Jk9XDlGa5HV2neTFbVH+p8e/xE2jYf7gc
+         4BKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781409668; x=1782014468;
+        d=1e100.net; s=20251104; t=1781409672; x=1782014472;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=OOnY6yEezyUxI5CBehQcqD9t37X66JniIBbQ/HB7HUs=;
-        b=ECpX7HR1qqXxeVUZMvhrUI9qoAhP13H+4GIV7GNU4OV7BeSJ/LUtdxZvMPFhrN7XKF
-         aH8vRlocrqrt91xLPQoa7h64yBDcrkBjRNJ5ii35HDE0UrjiEUMrVvG+7twzUl70+Q0K
-         Fs1eU6EYsTYqqhvDDcKgRSxzDGKeW8AiMltrb+y80fldGIKlnx5Yr0KEzgu75LShHeuG
-         fCOiG870ABX/hCRGcWAEMfQ+1fHx8OTjiyqmrW8pm/9powxVtPR55VZUCtKH83v+TuBl
-         TCvYSR1TgYM80mi+3wUys/Kg8HkJOKwRmYuXWcbQIx3hAu8TKnQb7mcaFK8AmHxOPhmT
-         wXqQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8VGPGgPHN+GKOrmmXENlIPe11kaksOTL20AZBt96IKgvU8JbNAvx1WA0sZ+P8+/lewtUYM09vk0YqTtSs+GzM0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc2e6J8HdONFEVi0u8xFNOgDKhtO56bh2C+qIeUdsx9Dimj8Rs
-	swHkUC4snlsBA0X8VORw/9uP1s9Wr/x6Ov4E0j1ZHnNem8TbMkWKWLmw
-X-Gm-Gg: Acq92OHCkHnsmeFUyFg2jXZsS4oh2VYAjqfrXnNFOWomz3reSZabQ8+bg+mCp2cprNz
-	51V0965AcAKVGbwfFGjV3ksFX5xYOTFHyl911/pCAU02A+auxM0CMy73CFYvDAwOGC/wdt5qc8a
-	gmnCO3T7Becc3qdX5QJjpcbSBor9t2Kh4XUkNS/U8l70ceIGPYGSobQQBtiUd1xngjBM7Z8zJBA
-	+8dVTj6c6KQ/qNRPf3EHpxOHbXGmwDfWZH5lMM5XtbCFeMWLP2O/rIiQruQSsyf55R4wpATjd47
-	TyE3ajAx9Igy6M+v372YAp9KMJvhJEAWdV6VH0qbjUR5MaqyD7uyBfU3bfOqblRu4QbgRWaZGPf
-	56OgRxjlEOi57qK8ezfZ9bt0NRz5iYRUaKr/fbS1no3f0Llq24FoerZ1IBu3IHRKXmUBT9v9y8v
-	kO+qrvVEZDYWnL69FSk1zrRB0sDGpcMA==
-X-Received: by 2002:a05:6a20:728d:b0:398:b178:a53f with SMTP id adf61e73a8af0-3b784021a1amr10268367637.40.1781409667707;
-        Sat, 13 Jun 2026 21:01:07 -0700 (PDT)
+        bh=5Crq5yHDjMfevdls0e5Awy2sd/URrn7kB/WguSFGm/w=;
+        b=LICU9ILpBK+B7ktis8RT7H88BbI1BX4EWbB+dHdv/fh6Epubo4ongso/na2lTJ0KF9
+         lNs5r5GH3OCeEXNlGTo3uSKo8Fs/5oVIFaKuUaYqVUGdYPkcL790Ir7npiJ3bzTjocto
+         rNBivjqQ+9p8mHF+g10lIvrg6JlJ9NDp0DBWAXEfat2yTHJVSzWStMyw+pqSKM6JIXm9
+         LHxgmqVAwfXrp0rcmy3hWVmIMGc8rPhEniDEZNMu43qw0QVTPc0NfLPc04tpgcj4bzja
+         aTtkq4TM5vdOqQE72JnBYOEq9p8DWGlvgkZW236h8CU0JzG8mxdwIyJGIlxEleWII1Z9
+         nHxQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8/mntF38fPwNS9Ia8O7zN5zd891eNIAQC1AETjBuX+Fivh3FAxA27IfOR0WhjCmsM22PwzNVpyUWAaD3GFdcrU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyks2JPqpoKMWC2NwZH9qKKrnkfrTU5CEvcly6/i2inkbiAs5lU
+	mHs7jBspWkfIO6pQ+4yI7It7GG98wSzX7MWQ1Za4JZtXw7DqZQATTZuh
+X-Gm-Gg: Acq92OEQaqsbg25kMJObNpDUICm6jyhqMAEtsG3/VsiL55/fApUriB5qay34p2GxxSe
+	P5J/h8hY9ZWLnoH6743651W6YLbfvGvYltfjYVb7W06ld9RDmIabka8F3im2NgeP2KusM5RrDOM
+	J6C8xlF4b7a51v6JlNuucXMwr7F402FoSn4JlbO/EA+Y5JykClzSSdIAZZMWamtoBRlOQplCXiq
+	7e28TRNr1QIztJatt9Fc/0M+UPjp84q5Y7MeS3NAEe93kr4vdYotRKB+Nf571ohdhcpE5Nd5JNU
+	K7w/Nnx+BZRlbSWeXoz6M5B4LGBUEHjKv5+9AmJ/WC46CG2kmn839TbMFYG0F56cMz3mHBvgqxE
+	YQVEnYtY+Tm4wVNOIBx711JIkgplJv4jSic2qMb1aRSfvDYkpZUaQ08V7Wq3DxInw/oQ05grzEr
+	mbpsBZB0DTd9vDPPObyb0=
+X-Received: by 2002:a05:6a21:6f17:b0:3b2:8675:4866 with SMTP id adf61e73a8af0-3b78415d3f1mr10802330637.31.1781409672295;
+        Sat, 13 Jun 2026 21:01:12 -0700 (PDT)
 Received: from mincom1 ([115.4.79.42])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8661a67603sm5676983a12.0.2026.06.13.21.01.03
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8661a67603sm5676983a12.0.2026.06.13.21.01.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 21:01:07 -0700 (PDT)
+        Sat, 13 Jun 2026 21:01:11 -0700 (PDT)
 From: Jihong Min <hurryman2212@gmail.com>
 To: netdev@vger.kernel.org,
 	Lorenzo Bianconi <lorenzo@kernel.org>
@@ -92,17 +92,17 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	Felix Fietkau <nbd@nbd.name>,
 	linux-kernel@vger.kernel.org,
 	Jihong Min <hurryman2212@gmail.com>
-Subject: [RFC PATCH net-next 2/7] dt-bindings: net: airoha: add EN7581 SOE
-Date: Sun, 14 Jun 2026 13:00:27 +0900
-Message-ID: <20260614040032.1567994-3-hurryman2212@gmail.com>
+Subject: [RFC PATCH net-next 3/7] arm64: dts: airoha: add EN7581 SOE node
+Date: Sun, 14 Jun 2026 13:00:28 +0900
+Message-ID: <20260614040032.1567994-4-hurryman2212@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260614040032.1567994-1-hurryman2212@gmail.com>
 References: <20260614040032.1567994-1-hurryman2212@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_210108_683231_19BD1358 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20260613_210113_171701_A9598923 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,81 +117,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the EN7581 Secure Offload Engine register window used by the Ethernet driver for ESP packet offload, and add the new binding to the Airoha Ethernet MAINTAINERS entry.
+Describe the EN7581 SOE register window and interrupt so the Ethernet driver can discover and initialize the packet offload engine.
 
 Signed-off-by: Jihong Min <hurryman2212@gmail.com>
 ---
- .../bindings/net/airoha,en7581-soe.yaml       | 48 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 49 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/airoha,en7581-soe.yaml
+ arch/arm64/boot/dts/airoha/en7581.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-soe.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-soe.yaml
-new file mode 100644
-index 000000000000..24aecafecc70
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/airoha,en7581-soe.yaml
-@@ -0,0 +1,48 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/airoha,en7581-soe.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Airoha EN7581 Secure Offload Engine
-+
-+maintainers:
-+  - Lorenzo Bianconi <lorenzo@kernel.org>
-+
-+description:
-+  The Secure Offload Engine provides inline ESP packet offload resources used
-+  by the Airoha Ethernet controller.
-+
-+properties:
-+  compatible:
-+    const: airoha,en7581-soe
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      soe@1fbfa000 {
-+        compatible = "airoha,en7581-soe";
-+        reg = <0 0x1fbfa000 0 0x268>;
-+        interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>;
-+      };
-+    };
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cc1dde0c9067..7c338e670572 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -757,6 +757,7 @@ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
- L:	netdev@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-+F:	Documentation/devicetree/bindings/net/airoha,en7581-soe.yaml
- F:	drivers/net/ethernet/airoha/
+diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+index ff6908a76e8e..a3c1033d2437 100644
+--- a/arch/arm64/boot/dts/airoha/en7581.dtsi
++++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+@@ -347,6 +347,12 @@ i2c1: i2c@1fbf8100 {
+ 			status = "disabled";
+ 		};
  
- AIROHA PCIE PHY DRIVER
++		soe: soe@1fbfa000 {
++			compatible = "airoha,en7581-soe";
++			reg = <0x0 0x1fbfa000 0x0 0x268>;
++			interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
+ 		eth: ethernet@1fb50000 {
+ 			compatible = "airoha,en7581-eth";
+ 			reg = <0 0x1fb50000 0 0x2600>,
 -- 
 2.53.0
 
