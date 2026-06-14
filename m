@@ -4,62 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9D2CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 21:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4A5CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 21:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oTIfa56JwSsNTBVIbymmQSEjsR106p+YKsLezXG9tC4=; b=3v92f8xFKuTIPDM4DX6NHB6bil
-	4drNCVy9FUNPucXUmtIPRkF/A+gDWChTUJtzd+IInORDvVJQzThb7joiMuMOnblNUc0WSj86I5pk/
-	keT9KDnEHLqNm31Kv2cONyyPV5V+6e255OFWEBceFHjkSvWwgVGhtme3PNlJUDXUG4VXXJ6LYXaTQ
-	XM1MguO8233Lp1NI1zmq4R+uRO+jnC8mUc/KKi7/5kDFUzT5EdNayiuE1flId2ZjPdTO0Knh2lCaN
-	awEjiMB4u8gAjO3Au2xjd+nW3ViG3rZfDaxskgVcDIa7sLkdLQ1uvmucP/eo+cKmyHVnIpo5C0NOf
-	aorCzvxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jfp4pi7JkIVByO98dvYjehm+TU1kIF7zgpppWrfUyxM=; b=bRopEPzIsllLbTxeyiuy6PlKEp
+	5upwngcWNoyHgTFZpoKuKxmiSmGkT1pkESlqNZPOMDYzzBa9uLWkUaIibS5Ti4Ext0ujrevyzySxx
+	wD13pqWuzC3/tOxCrsfSfpL0xO5MmG5IGr6CkYSYsRbJiBW3kWQrk87W8qzMZP88tgKOeMQKw0XfB
+	lkz1GgRsMpAVJY3WcHY0VU6//YgkPOWNuz7m1t8n76WCnOxVgUOJi6vK6C/ImlJOnmqXfOo3lid4k
+	bBpxZvGVBSz4GL06oY2Uc8WzS05qHzYMOpMavv6oCkvoqpxZTOo3Br4bJ0Gm8URsf7m8Pw6+YqSYc
+	pGR/dqzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYsT5-0000000DJ3b-20M5;
-	Sun, 14 Jun 2026 21:34:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wYsdR-0000000DJMR-1hwq;
+	Sun, 14 Jun 2026 21:44:53 +0000
+Received: from mail-qk1-x742.google.com ([2607:f8b0:4864:20::742])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYsT4-0000000DJ3I-30iG
+	id 1wYsdP-0000000DJM5-1jM4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 21:34:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD0E160132;
-	Sun, 14 Jun 2026 21:34:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEDFD1F000E9;
-	Sun, 14 Jun 2026 21:34:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781472849;
-	bh=oTIfa56JwSsNTBVIbymmQSEjsR106p+YKsLezXG9tC4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nqo82Z5JkWSQ7WUOkIIz1dQyqFiGpYf9EZzbmruEuxCSzI/VJ+lMRpy7+OoM7iVfD
-	 1+xn2/HL6kJ5JTZXBVg5os2UFQaTCXidQk5ZRl1zWdLY9T9rhD6J9rAWiMJyf9vdRH
-	 l6KRoi+n4RCMG0XJIBiAXc8kvthybe1p7TubbayIt5H0+VNRYw1XKCWwgFoL8oVsKw
-	 zbNGUCjprsRcMC/nuGZXR5eQu5aHohTWbUsXdt9gDmYm/UyyTUIkIVHGwY3q3Pm1TH
-	 hTMMT20V+L9rCdsJ/ZYPG5TZP1LnWKNlU2upyXWk1ERpkNzsLDinSmDr9+zEwcb9oo
-	 9ObEW4F6FMs6Q==
-Date: Sun, 14 Jun 2026 23:34:05 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Guillermo =?utf-8?Q?Rodr=C3=ADguez?= <guille.rodriguez@gmail.com>
-Cc: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, M'boumba Cedric Madianga <cedric.madianga@gmail.com>, 
-	Wolfram Sang <wsa@kernel.org>, Pierre-Yves MORDRET <pierre-yves.mordret@st.com>, 
-	linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: stm32f7: truncate clock period instead of rounding
- it
-Message-ID: <ai8eGsfJN_IgJd2-@zenone.zhora.eu>
-References: <20260611104857.242153-1-guille.rodriguez@gmail.com>
+	Sun, 14 Jun 2026 21:44:52 +0000
+Received: by mail-qk1-x742.google.com with SMTP id af79cd13be357-91588056619so191626685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 14:44:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781473489; cv=none;
+        d=google.com; s=arc-20240605;
+        b=HWXJmTD/3bwSEjiBeRhVHjH0iES1JagwtGMS9Z4DaTIu81aLceAE+MGRK09BklSnzy
+         dcignHWQ/4fKbJWLWg1l1u/NHjkmbNJ4BcyZnewe0Q3STPBt3ycOF3wSKL+u7l1EXANJ
+         0zbD/4dBcU8jb+AVRRd1J38JHtxY9dq81HKFflPn/zFtWvV4/wAX9vR/zqKdP/C2G+pL
+         bGb7/muuYu8Hix9cDFTnd+DnLJNB38liGeBrSVEMYj5KamYlBa8SApcSwIhPuhQtPmiv
+         GYDEvutmjXHuaPvnI3G8JALOnQj3SRSCdLiBiPKVwHDRmZVlu2koF/5XN1u8b63He9o7
+         omvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=jfp4pi7JkIVByO98dvYjehm+TU1kIF7zgpppWrfUyxM=;
+        fh=vpMALXYmpWXdkPjaJcw7Ch9XNd2YMAIVk9swvXYQ9Yk=;
+        b=lECY07HeMwKCRH7cIrqrW2BeeWiK1DWsiYPek79LkI6wJgvCZyLafZiclLviWqLpWy
+         MeUc8CTdT+vMrSX8qohmhUOvrm6dFeMlLnAR4k+srRzoztFwLOPDYtimqYyQnY3iMYnh
+         LGZ8BqD500I5u2cPLrvCA4+VAjqCwNn1uAZyPS6eVt5PCV2YfgUWAQ6L88rkBDzjTpJ7
+         BYWM3MBYgTutmo/gr25vxcyNRs/xU8QWB/hFQtIGkb+/ujycNTdFYJc8Fv4k8iBfwXgm
+         TQgzYYiOCcoRYxWvl2VNy0OmG7HTnxSv9Pgr1YGOHjI6s+bfFurV54keSsaHABSPASwe
+         wFwQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781473489; x=1782078289; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jfp4pi7JkIVByO98dvYjehm+TU1kIF7zgpppWrfUyxM=;
+        b=J+Z/kHNQOkyTAyQ8m7iSN+CmJXnLv245q7C9t/98YKcjaVMbosSO2suvazCz1/HctE
+         26e/DzkoRGvHxLtzmLg/vHgRoziyXcFaYG+DDxJOXQA5EBmkkM3s5Fr8lwIE0Sp8MVf1
+         9kTv9QoFedSNYwFMnsYFwCLAYETEPDXHGG6NTf+R6q14FwHfnJunzfetVZDav/cHubC9
+         l8AsZkiMmexJy/4SiPbs8lnLvEYF2nXGsIh3ZJHz69RnRiquVEHPdpur4VN50b6+wPdJ
+         d4/t3dCfkmcvIIuyNnpdy1cX4mnPGc/PNuKQLJN7a8ZTS/bHm1zwfGLScEwM2gwKnOuQ
+         ktbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781473489; x=1782078289;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jfp4pi7JkIVByO98dvYjehm+TU1kIF7zgpppWrfUyxM=;
+        b=rgJumqMDGEXeOaew8H73OOLFVUtcuDCjjtk68rO5G95rt5Si11LnRYEv9FDLxJ5j8c
+         9hm/Sqw03ZFbFkWPi4gq8n+G+Tnl+spK6ibqeGX2iDmMVSwn+N5ONFg/KogSb7jhqc6i
+         x+g/htFmeKBQ7L3OFenCuJmIpM4/kz37IYuBgjyDGnZYZO6MTJ6XcJvSEW+jYN+ubltB
+         RalpkUNoIqBHKunqcizAmi1wKjKOe51wwW+Mh57/+qFeJ5P5KeIuwYSUPPgwSLCWKmI9
+         2TF/yhciUa41GTOjPrAUrc/9ysm8rbcBRT2TtYqeGiDV2W6WqxlThCRR8I+euEcdX30f
+         lsoA==
+X-Gm-Message-State: AOJu0YzI74N/fX3Z/jBJD93Vw0CDgfGgfJ+JYPTly327sQ0T31pHojj7
+	6aAjVYnbh+Qbg8kSqGckuUonbY4f0c1nKzAB+3EOUVHtPFx+5XRJa35gNUXBzHtCBRCscJD321+
+	fAIaFo4ta1RS0X9SOjQcRAShSjrImv0E=
+X-Gm-Gg: Acq92OHZSite9PImeh5D+1XIHJKPRCmcv01F4lO1CpO+7Z3szyHo27WpfKZTJNi2IOh
+	blGZtv9wsQcu9D0AsN3r/TNoEJZFE82ekfHt6s1z7xwO19CP04EWxGwJ1wMZ/OGiIwLJ1xcD9p0
+	oinPX4RDLeybFyzdnWcYxTAJlYuvhNgA2dIxk6Ik+1bCoEy3vDu8by5e0winCxvJ+WJlHK5/euo
+	QMa/qyPzMfL0TsNvCm1OFBZ83b0mtPkSMwaibS3aCcSkDFNTUmwNS5sQrCpOwH/q8O3MwnfYej9
+	/uSpf4mfRFcJsOJKen2IwmkXiWzBYRY1sx/kV2Rz8dhTAzozhdAG9B4p1MS5gm+7kLqC
+X-Received: by 2002:a05:620a:448b:b0:915:9efe:6dd5 with SMTP id
+ af79cd13be357-9161bd64128mr1834791485a.39.1781473489256; Sun, 14 Jun 2026
+ 14:44:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-15
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260611104857.242153-1-guille.rodriguez@gmail.com>
+References: <20260518014920.135011-1-enelsonmoore@gmail.com> <20260614125857.398a0e13@pumpkin>
+In-Reply-To: <20260614125857.398a0e13@pumpkin>
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Date: Sun, 14 Jun 2026 14:44:38 -0700
+X-Gm-Features: AVVi8Cf4tnCB2NV2GOy1Plt7K6kpwZUtQU-iBzZg4G2hvwytkLh-Fi1T4bogzNA
+Message-ID: <CADkSEUizT2dxUni185QDEkmVA+_r9bEQgbuEbZ8b-Sg3JZWrFA@mail.gmail.com>
+Subject: Re: [PATCH] ARM: disable broken eBPF JIT on the Risc PC
+To: David Laight <david.laight.linux@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+	Linus Walleij <linusw@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Thomas Weissschuh <thomas.weissschuh@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>, Shubham Bansal <illusionist.neo@gmail.com>, 
+	"David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260614_144451_460793_9D8928AF 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +120,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pierre-Yves,
+Hi, David,
 
-any thought on this?
+On Sun, Jun 14, 2026 at 4:58=E2=80=AFAM David Laight
+<david.laight.linux@gmail.com> wrote:
+> Isn't it more the case that the ldrh/strh instructions were added for arm=
+v4.
+> Whether the bus supports 16bit accesses is entirely different.
 
-Andi
+No, it is in fact the bus. While the Risc PC initially shipped with
+ARMv3 CPUs, which the kernel no longer supports, it was later upgraded
+to an ARMv4 StrongARM CPU. However, its bus was designed for ARMv3
+CPUs and has no way to represent a half-word access to memory. This
+means that ldrh/strh will execute (because the CPU supports them) but
+do not function as intended.
 
-On Thu, Jun 11, 2026 at 12:48:56PM +0200, Guillermo Rodríguez wrote:
-> stm32f7_i2c_compute_timing() derives the I2C clock source period
-> (i2cclk) with DIV_ROUND_CLOSEST, which may round it up. When the
-> period is overestimated, all timings computed from it (SCLDEL,
-> SDADEL, SCLL, SCLH) come out shorter on the wire than calculated,
-> and the resulting bus rate can exceed the requested speed, violating
-> the I2C specification minimums for tLOW and tHIGH.
-> 
-> For example, with a 104.45 MHz clock source (e.g. PCLK1, the
-> reset-default I2C clock source on STM32MP1), i2cclk is rounded from
-> 9.574 ns up to 10 ns. Requesting a 400 kHz fast mode bus with
-> 72/27 ns rise/fall times and no analog/digital filters then produces
-> an actual bus rate of 415.6 kHz with tLOW = 1254 ns, violating both
-> the 400 kHz maximum rate and the 1300 ns tLOW minimum of the
-> specification.
-> 
-> Truncate the period instead, so that it can only be underestimated.
-> The error then falls on the safe side: the programmed timings come
-> out slightly longer than computed and the bus runs marginally below
-> the target rate (375.3 kHz in the example above) while meeting the
-> specification.
-> 
-> i2cbus is left rounded-to-closest: it is only used as the target of
-> the clk_error comparison and is never multiplied into the programmed
-> timings, so nearest rounding remains accurate there.
-> 
-> Fixes: aeb068c57214 ("i2c: i2c-stm32f7: add driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guillermo Rodríguez <guille.rodriguez@gmail.com>
-> ---
->  drivers/i2c/busses/i2c-stm32f7.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
-> index 53d9df70ebe4..6439620d6bed 100644
-> --- a/drivers/i2c/busses/i2c-stm32f7.c
-> +++ b/drivers/i2c/busses/i2c-stm32f7.c
-> @@ -464,8 +464,13 @@ static int stm32f7_i2c_compute_timing(struct stm32f7_i2c_dev *i2c_dev,
->  {
->  	struct stm32f7_i2c_spec *specs;
->  	u32 p_prev = STM32F7_PRESC_MAX;
-> -	u32 i2cclk = DIV_ROUND_CLOSEST(NSEC_PER_SEC,
-> -				       setup->clock_src);
-> +	/*
-> +	 * Truncate instead of rounding to closest: if the clock period is
-> +	 * overestimated, the computed SCL timings will come out shorter on
-> +	 * the wire, which can push the bus above the target rate and below
-> +	 * the spec's tLOW/tHIGH minimums.
-> +	 */
-> +	u32 i2cclk = NSEC_PER_SEC / setup->clock_src;
->  	u32 i2cbus = DIV_ROUND_CLOSEST(NSEC_PER_SEC,
->  				       setup->speed_freq);
->  	u32 clk_error_prev = i2cbus;
-> -- 
-> 2.25.1
-> 
+Ethan
 
