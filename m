@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B7CCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 17:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C101CCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 18:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XngdG5RDxiUaPAW60Fbuc3kdXpeCDkI72dsxTko1COA=; b=omZBn31fsTZ/WLBtQ9vvGDevtg
-	wUK8PxGtn/65qaIfd1BYIUrtiI2b7ckhLhRzKEHWK3YvZcTpw6v2KcmqEjmDzo+rlVVNgivKYjNKD
-	v1UwVRQziNY5ik6JTmIWabv58S1NJDcnJ5CpRpo00GRkLNbSf+FTaZV67KotvuRxZombfyBD/3nLq
-	XsPi2ob3G5Uo5n3rS0JTyujS5mXY2GCO9XfKsDaDfl/GhxUV9YHIZT7zOXKtHM67rmhT5ox6NDssC
-	dMhxk7yyyhHQhjLRyu1CicfmAhqDusFBnVVwgY0GrCw9XrvbWcSfFFIfNb99LVIKm5UJZ5/DjLUnV
-	vMWGsO/Q==;
+	bh=KmOBCXRMxHUy9xFI3toxiU28u5v8kqCzk7z0VpaRiLk=; b=3jThQE/PMbA5gG8GGkMC+p919o
+	1AsXsqGFBPx5D6b+rfx5XE55JVJ3dMk+IAg1BP9bzzx1Tz8SXxpMTohyrPsMo4MQVKGn1S22VIRHP
+	wl1K/SrRqR0SQB71YwdS2rfPiD7g3Vllem6b5TP5rKB26TbJkHsMn/snre3X4zeI0nM2zEGgQuFm2
+	oIKcGMbaG8+MN1lx+QMZZFHHB+W4Q0B8It/ww0Ezym/osd6hoAfTbAOaA23nkMcUucGnNvTWB9Vzc
+	WMCaf1JYnkF3pcBwWofkPefh4lzAVdtertlgCExjslp3zQpESKQB5jIOJ2x9//jMenhRVd9fehuUo
+	iDf2Ivgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYoXV-0000000DD77-07Ux;
-	Sun, 14 Jun 2026 17:22:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wYo8z-0000000DC8k-2MhB;
+	Sun, 14 Jun 2026 16:57:09 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYoXT-0000000DD6y-434q;
-	Sun, 14 Jun 2026 17:22:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7FCC6008A;
-	Sun, 14 Jun 2026 17:22:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0AAE1F000E9;
-	Sun, 14 Jun 2026 17:22:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781457746;
-	bh=XngdG5RDxiUaPAW60Fbuc3kdXpeCDkI72dsxTko1COA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=GzBB+cHP64GVMiPoT4mM6i4Eh+vcwmIBG7hFodSqu0+n1kKpqdLhpmrFIQto1PncE
-	 fjNGpZCkQhnCrw7I0RUqtyWxPIMysWxp6gCGqY4FELY6tXuKPW3qtRbePNrzi5Ccf3
-	 uhUEDdWyNGIJL23B4jfkPyagAOOTLS/HUVBPDj2mmzFeHn0AF/YHrny7sf1ylJgdp+
-	 IxqZ9s2ifyDtNQeDloF/44JfEd89gwOA4m8Ji4Kj855CYqF7aK7zZfLwwTzeBBY4Tf
-	 zQpPnD5tiTrxUAxzSdf99ORl/Z5AbCrDZppzoW/vAqPDtk9iW4pzVgzT9fCm7Yt31o
-	 RsQfybQ5CNbYg==
-Date: Sun, 14 Jun 2026 18:22:14 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Cc: rva333@protonmail.com, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Lee Jones <lee@kernel.org>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 2/4] iio: adc: mt6323-auxadc: add mt6323 PMIC AUXADC
- driver
-Message-ID: <20260614182214.65d052e4@jic23-huawei>
-In-Reply-To: <20260609-mt6323-adc-v2-2-aa93a22309f9@protonmail.com>
-References: <20260609-mt6323-adc-v2-0-aa93a22309f9@protonmail.com>
-	<20260609-mt6323-adc-v2-2-aa93a22309f9@protonmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wYo8x-0000000DC8O-2Dn8
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 14 Jun 2026 16:57:08 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c0c1e0d00bso23164045ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 09:57:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781456226; x=1782061026; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KmOBCXRMxHUy9xFI3toxiU28u5v8kqCzk7z0VpaRiLk=;
+        b=ClVxGQ1cUnsHkQ5U8uEf/QWrQaDjyDSTtEE4DOJVKNbXOAwvGFR0wRM78hkNxmnNiJ
+         5a8lkDHK+WvRMCJA/9yox0tYVySBWU1M2MXfxs/YtIhwctvE/5WAPRmnea9mhTRowyS7
+         PPK4ZrcZhNNB8wJ5829IHhdAPPpM0LZki1FocIkDN1aCsaeGNPiy3f1HuE4NLYde/Y0g
+         QV1T9ZXoRHK81ozAPrnw6Pb3baKSGnu9UIeseqnOemIIountuQeixiG27ZTmZcwlfH7B
+         yzxezuKLvsYUPdHDchgTJrUeV4crG/akGSqGbEKGAHp5pj49RyVdJS0G90r8+qEwzWKI
+         /dfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781456226; x=1782061026;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=KmOBCXRMxHUy9xFI3toxiU28u5v8kqCzk7z0VpaRiLk=;
+        b=l9NkIh26e+sL4JBONDQ4vbXMfwHjMsCfuIkBlrU9E5FdGjlcE7fQEKh5sMnffWv0fx
+         bmH1vUl5B2EC+B235AoC//MJFiY6Xxg/YC5hV1JLZhp41gXHUCD9/eSU12bFrPDb9Lp2
+         zIoAGi8SfMXuh+QgI3UPID8BE78HtBKRB+KBzupN+pjUdANh6Vl24ZEONR0rFd93Z5S4
+         plCz2Nh7DwWvzjGl8L/orn5490qIhiUXuDWXTY39px7oOcbx4RWnC82bDNHQkgXrrL9Q
+         ZLNKa/ZW9gjUFmC6DsPTHeY8RorNEasXZfMHbZUKd+iHcfsLhkuG3k4Zoq89tAcJ8J9R
+         Omiw==
+X-Forwarded-Encrypted: i=1; AFNElJ9FULAkbyME5CypDVVOy8h6u7GR57T+SGFyXmx+Y+OJimQfFYDVDKxPX9YVBWu00RpCszEcEgmP8simjDLcMsup@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhY7+3lgRJDwpG+duxozE7hoJ6zf9RzT4hx+mIcbqaSYzs2e5I
+	3GU1MVdHsFteN6aqm2D9uYrSWQfH8sUSy81LgbX/pa+3FNHss+Aw5Lnp
+X-Gm-Gg: Acq92OFNjKmunZjK92X1Jqpc+wc1yDb/uc36GiQwObyG/6ElLpt0sEir1q72XAdTZ3A
+	qizNWVzMEexLN1CaAlecuE0EVJcilwYCFAYbNMwO2+KHXbej8JL6Y9QVLarqqC/hZQBME5piJDg
+	pvp4lT1aQF3zs6nZlC/bURnG2qY10D8Pb1w1iXeYEcB+45ajJjVqngcsNBiaofHokat+Ooa+p0L
+	5NxURUrVUc6cxgH+h6PR1QfW5gxblarSMxm1M/XvLuPRh/mKQaDn/YkS1ChfGWrLGDB7F6r2i/h
+	e882GyImzjwFGpPYwZODx3w+V/1oDlYJ9aEEaFfHY0qvUvy/baUyU5bC46lPxTihl2XqdFzfwKV
+	5Fe2FkUAEy7gi5BNsWP0Y/hOtkF2Z+otnyea/6lpzOG+i7cykPFqoxzT99ZeDmIpOxb1U5jw270
+	jF2QVfGXIFZ2IkEf7cVOQLNL8Zgi3oIbq8/82ohlBLJZ6d1VGh3jk/
+X-Received: by 2002:a17:903:238b:b0:2c1:77cd:fb0b with SMTP id d9443c01a7336-2c412f17bcfmr118511375ad.37.1781456226362;
+        Sun, 14 Jun 2026 09:57:06 -0700 (PDT)
+Received: from localhost.localdomain ([49.207.217.37])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f2e5590sm85284025ad.14.2026.06.14.09.57.02
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 14 Jun 2026 09:57:06 -0700 (PDT)
+From: Biren Pandya <birenpandya@gmail.com>
+To: linux-media@vger.kernel.org,
+	mchehab@kernel.org
+Cc: Biren Pandya <birenpandya@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 06/22] media: platform: stm32-csi: Add missing media_entity_cleanup()
+Date: Sun, 14 Jun 2026 22:25:43 +0530
+Message-ID: <20260614165630.3896-7-birenpandya@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260614165630.3896-1-birenpandya@gmail.com>
+References: <20260614165630.3896-1-birenpandya@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260614_095707_591516_878FD5D7 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,153 +105,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026 16:31:59 +0300
-Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
+Fixes: dcb0f4c16be5 ("media: stm32: csi: addition of the STM32 CSI driver")
+Signed-off-by: Biren Pandya <birenpandya@gmail.com>
+---
+ drivers/media/platform/st/stm32/stm32-csi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> From: Roman Vivchar <rva333@protonmail.com>
-> 
-> The mt6323 AUXADC is a 15-bit ADC used for system monitoring. This driver
-> provides support for reading various channels including battery and
-> charger voltages, battery and chip temperature, current sensing and
-> accessory detection.
-> 
-> Add a driver for the AUXADC found in the MediaTek mt6323 PMIC.
-> 
-> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-Make sure to take a look at:
-https://sashiko.dev/#/patchset/20260609-mt6323-adc-v2-0-aa93a22309f9%40protonmail.com
-
-A few minor other comments inline.
-
-> diff --git a/drivers/iio/adc/mt6323-auxadc.c b/drivers/iio/adc/mt6323-auxadc.c
-> new file mode 100644
-> index 000000000000..f2cef989d3ce
-> --- /dev/null
-> +++ b/drivers/iio/adc/mt6323-auxadc.c
-
-> +
-> +#define MTK_PMIC_IIO_CHAN(_name, _chan, _addr)                  \
-> +{                                                               \
-> +	.type = IIO_VOLTAGE,                                    \
-> +	.indexed = 1,                                           \
-> +	.channel = _chan,                                       \
-> +	.address = _addr,                                       \
-> +	.datasheet_name = __stringify(_name),                   \
-> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |          \
-> +			      BIT(IIO_CHAN_INFO_SCALE),         \
-> +}
-> +
-> +static const struct iio_chan_spec mt6323_auxadc_channels[] = {
-> +	MTK_PMIC_IIO_CHAN(baton2,    MT6323_AUXADC_BATON2,    MT6323_AUXADC_ADC6),
-> +	MTK_PMIC_IIO_CHAN(ch6,       MT6323_AUXADC_CH6,       MT6323_AUXADC_ADC11),
-> +	MTK_PMIC_IIO_CHAN(bat_temp,  MT6323_AUXADC_BAT_TEMP,  MT6323_AUXADC_ADC5),
-
-Reasonable query from Sashiko on why temperature channels are presented as voltages.
-If for some reason that is the right choice, then maybe a comment here.
-
-
-> +	MTK_PMIC_IIO_CHAN(chip_temp, MT6323_AUXADC_CHIP_TEMP, MT6323_AUXADC_ADC4),
-> +	MTK_PMIC_IIO_CHAN(vcdt,      MT6323_AUXADC_VCDT,      MT6323_AUXADC_ADC2),
-> +	MTK_PMIC_IIO_CHAN(baton1,    MT6323_AUXADC_BATON1,    MT6323_AUXADC_ADC3),
-> +	MTK_PMIC_IIO_CHAN(isense,    MT6323_AUXADC_ISENSE,    MT6323_AUXADC_ADC1),
-> +	MTK_PMIC_IIO_CHAN(batsns,    MT6323_AUXADC_BATSNS,    MT6323_AUXADC_ADC0),
-> +	MTK_PMIC_IIO_CHAN(accdet,    MT6323_AUXADC_ACCDET,    MT6323_AUXADC_ADC7),
-> +};
-> +
-> +/*
-> + * The MediaTek MT6323 (as well as a lot of other PMICs) has the following hierarchy:
-> + * PMIC AUXADC <- PMIC MFD <- SoC PWRAP (wrapper for PWRAP FSM)
-> + *
-> + * Therefore, PWRAP regmap should be obtained using dev->parent->parent.
-> + */
-> +struct mt6323_auxadc {
-> +	struct regmap *regmap;
-> +	struct mutex lock;
-Locks should always have a comment on what data they are protecting.
-I think this one is about protecting the state of a device during a channel read
-by serializing those reads.
-
-> +};
->
-> +
-> +static int mt6323_auxadc_request(struct mt6323_auxadc *auxadc,
-> +				 unsigned long channel)
-> +{
-> +	struct regmap *map = auxadc->regmap;
-> +	int ret;
-> +
-> +	ret = regmap_set_bits(map, MT6323_AUXADC_CON11, AUXADC_CON11_VBUF_EN);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return regmap_set_bits(map, MT6323_AUXADC_CON22, BIT(channel));
-
-I'm not sure whether the sashiko question on this is valid or not. Make sure to take
-a look.
-
-https://sashiko.dev/#/patchset/20260609-mt6323-adc-v2-0-aa93a22309f9%40protonmail.com
-You may have carefully selected the numbering so the channel numbering matches
-the bits in this register.  If so, it is probably worth a comment in the header
-to provide a cross reference.  No idea if Sashiko will notice that, but at least
-humans should!
-
-> +}
-> +
-
-> +
-> +static int mt6323_auxadc_read_raw(struct iio_dev *indio_dev,
-> +				  const struct iio_chan_spec *chan,
-> +				  int *val, int *val2, long mask)
-> +{
-> +	struct mt6323_auxadc *auxadc = iio_priv(indio_dev);
-> +	int ret, mult;
-> +
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_SCALE:
-> +		if (chan->channel == MT6323_AUXADC_ISENSE ||
-> +		    chan->channel == MT6323_AUXADC_BATSNS)
-> +			mult = 4;
-> +		else
-> +			mult = 1;
-> +
-> +		/* 1800mV full range with 15-bit resolution. */
-> +		*val = mult * 1800;
-> +		*val2 = 15;
-> +
-> +		return IIO_VAL_FRACTIONAL_LOG2;
-> +	case IIO_CHAN_INFO_RAW:
-
-What Andy suggested here is the preferred path in IIO at least.
-Mainly because it reduced indent without hurting readability.
-Just be careful to define the scope with { }
-
-
-> +		scoped_guard(mutex, &auxadc->lock) {
-> +			ret = mt6323_auxadc_prepare_channel(auxadc);
-> +			if (ret)
-> +				return ret;
-> +
-> +			ret = mt6323_auxadc_request(auxadc, chan->channel);
-> +			if (ret)
-> +				return ret;
-> +
-> +			/* Hardware limitation: the AUXADC needs a delay to become ready. */
-> +			fsleep(300);
-> +
-> +			ret = mt6323_auxadc_read(auxadc, chan, val);
-> +
-> +			if (mt6323_auxadc_release(auxadc, chan->channel))
-> +				dev_err(&indio_dev->dev,
-> +					"failed to release channel %d\n", chan->channel);
-> +
-> +			if (ret)
-> +				return ret;
-> +		}
-> +		return IIO_VAL_INT;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
+diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
+index fd2b6dfbd44c..0847fd347d56 100644
+--- a/drivers/media/platform/st/stm32/stm32-csi.c
++++ b/drivers/media/platform/st/stm32/stm32-csi.c
+@@ -1060,6 +1060,7 @@ static int stm32_csi_probe(struct platform_device *pdev)
+ 
+ err_cleanup:
+ 	v4l2_async_nf_cleanup(&csidev->notifier);
++	media_entity_cleanup(&csidev->sd.entity);
+ 	return ret;
+ }
+ 
+@@ -1068,6 +1069,7 @@ static void stm32_csi_remove(struct platform_device *pdev)
+ 	struct stm32_csi_dev *csidev = platform_get_drvdata(pdev);
+ 
+ 	v4l2_async_unregister_subdev(&csidev->sd);
++	media_entity_cleanup(&csidev->sd.entity);
+ 
+ 	pm_runtime_disable(&pdev->dev);
+ }
+-- 
+2.50.1 (Apple Git-155)
 
 
