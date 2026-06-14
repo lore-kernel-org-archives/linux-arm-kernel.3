@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2841CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 20:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A204DCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 20:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cmUoJYqaVdVHGV7w7+TmyHFK+lvk5ocel9J4vmj8ogo=; b=pC8iI4l6m+jO3aNcuSUaIvl0El
-	8ZtXHgSk7RAHRH+eBXEoBnT3ZQehojGLEwVV9FPd9l+K4TONf0OMkcS49AZH5aJNcBUaOnpPD+YYm
-	Da1MX8HdmI4xb1mzi20kDOIb8qR/bLr9YFnKHGohKYM7jZwvJ3cGSbQh+5IO8r5DJnLM1t3RVUIlu
-	lh+5e1yfq8nKeU571btq4PapttxBfcrO2fOnmovB31nnyFQhoiWf0GFftNurQ8vNx/waFU0e98mqg
-	XWsk3jQAxz4WTk/AaAcy4cN7ahliDzKc7skfo5QAgVJkraAO0LOb0O8LOVIz30A7wPG+tk0mLyzUx
-	UwGtvX4w==;
+	bh=/cwZEmaxV262lOCKH7K7Tt4ZA+Bva0faoaNw+ZyMjHM=; b=NYJu2V58lq7Ef7u+T98x1wZFhs
+	H5Y0UOXpto8rgQZmjQ8S9K3HFl+a7RsU2ThOtjxusvwD7+CzSIkZIu3nS1fCMGENeD3Rr6TeC4JBJ
+	ZAQ//0XTtFHv235ZYBVvEMuv7dR8KC0N5YGaQuudOgXI+pJ260EeVRrca0AlICJgWneBce8XG2YuJ
+	MSAZckjSMlpkHdQheeYVUMODUlBH+A9ooNT9GWDvM0VSsQyiq3gTgC/6e7Gqc0OJbi5nQQJTeJn/G
+	hFr+ueyVgglRjSSG/pa7Z7Xzbw0++2SRgx7vsIhrsBihBnHUNyYutd9+X0EE16XcfjGjCcGLmSBkn
+	+E1tHbZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYrSp-0000000DHIM-2dIu;
-	Sun, 14 Jun 2026 20:29:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wYrcN-0000000DHXJ-2Vq0;
+	Sun, 14 Jun 2026 20:39:43 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYrSn-0000000DHIG-39Yr
+	id 1wYrcJ-0000000DHWL-2YbU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 20:29:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7E4540138;
-	Sun, 14 Jun 2026 20:29:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 931491F000E9;
-	Sun, 14 Jun 2026 20:29:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781468988;
-	bh=cmUoJYqaVdVHGV7w7+TmyHFK+lvk5ocel9J4vmj8ogo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aYDwSm0383Gdgkg6dRBN6iou+Hh0+xVWh+A7/C9B1O+WfdGdJs/gZ2xxZ2mZFqQrG
-	 3GRC3iiE++STQf19+vmj//iQnB2GlGhRi+lVqeC7AsCA7kZ5cjkmM82H19CBDRqJ+v
-	 NFX5jO1S62yAnh9albUSwgXsIezzCbzQIDdSGMJtQXUmHurn3+mujGe+NHrCLD+Swf
-	 f03DFhawbt9ZfNXpmeI6X2iKBw6TxVY9Ggfv6WMi8WdlGrAx8slDoWior29fxjbHb8
-	 I+CsDpirW6/7E/qUt620Y41Lb7Mpty/4i37thGO6YCOHJBUCkpuu4DRe8JCUN9cDbb
-	 wbRQXOn7xHBSw==
-Date: Sun, 14 Jun 2026 10:29:47 -1000
-From: Tejun Heo <tj@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
-	Changwoo Min <changwoo@igalia.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
-	bpf@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_set() for lockless empty-slot
- installs
-Message-ID: <ai8PO0NThJeuQYzy@slm.duckdns.org>
-References: <20260522172219.1423324-1-tj@kernel.org>
- <20260522172219.1423324-2-tj@kernel.org>
- <ai50IpfcvBiTZ7Ss@willie-the-truck>
+	Sun, 14 Jun 2026 20:39:41 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 65F6E1A391E;
+	Sun, 14 Jun 2026 20:39:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 26D5A60014;
+	Sun, 14 Jun 2026 20:39:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 85C9B106C86AA;
+	Sun, 14 Jun 2026 22:39:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1781469574;
+	h=from:subject:date:message-id:to:mime-version:content-type:in-reply-to:
+	 references; bh=/cwZEmaxV262lOCKH7K7Tt4ZA+Bva0faoaNw+ZyMjHM=;
+	b=HpU+LKD5So7GqO2NxkdY4wTVz5kQaBS/m21yAwQydCbgAAtiMC/qimPpw8cJXCnOMR9Ywj
+	74hIiPP2c8dRHoWwvlZXvkPqzHYmIlaEeYRvrn4Ffe27Xwe3WMuIs/Qt6rd5k505FsPxLV
+	HAmT0o94QSEgP1grjj6tng8PjMlsDQgYMLl6I5zfb/B9h2np8UX18F9/GcUBuk47ZKlYfZ
+	8S1gU6y9vrkJygopAolqgSpPVKXgQZz1YBP38NJqIZknYjPjHQcb+GerpyHbYwVIwjm9J4
+	TxHgJ9Vq5W8he24goCA3uAjKURpmJKb9c2sxSpmc6FJ5l8Q+0Meo/b2QtpA02g==
+Date: Sun, 14 Jun 2026 22:39:28 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, nicolas.ferre@microchip.com,
+	claudiu.beznea@tuxon.dev, linux@armlinux.org.uk,
+	mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com,
+	aubin.constans@microchip.com, Ryan.Wanner@microchip.com,
+	romain.sioen@microchip.com, tytso@mit.edu,
+	cristian.birsan@microchip.com, adrian.hunter@intel.com,
+	npitre@baylibre.com, linux-i3c@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	Manikandan Muralidharan <manikandan.m@microchip.com>
+Subject: Re: (subset) [PATCH v7 0/5] Add microchip sama7d65 SoC I3C support
+Message-ID: <178146955570.340851.8125558640090329050.b4-ty@b4>
+References: <20260525092405.1514213-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ai50IpfcvBiTZ7Ss@willie-the-truck>
+In-Reply-To: <20260525092405.1514213-1-manikandan.m@microchip.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260614_133939_775666_E18FA71C 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,29 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-On Sun, Jun 14, 2026 at 10:28:02AM +0100, Will Deacon wrote:
-> > +/*
-> > + * Note: strictly-zero compare is narrower than pte_none(), but the gap is
-> > + * harmless: a fresh kernel PTE has no software bits set.
-> > + */
+On Mon, 25 May 2026 14:54:00 +0530, Manikandan Muralidharan wrote:
+> Add support for microchip sama7d65 SoC I3C master only IP which is
+> based on mipi-i3c-hci from synopsys implementing version 1.0
+> specification. The platform specific changes are integrated in the
+> mipi-i3c-hci driver using existing quirks.
 > 
-> This comment really confused me :/
+> I3C in master mode supports up to 12.5MHz, SDR mode data transfer in
+> mixed bus mode (I2C and I3C target devices on same i3c bus).
 > 
-> What is a "fresh" kernel PTE and why do you specifically call out "software
-> bits" if the CAS requires all 64 bits to be 0? Why is that narrower than
-> pte_none() given that pte_none() for arm64 is:
-> 
-> #define pte_none(pte)           (!pte_val(pte))
+> [...]
 
-Yeah, that's complete non-sense for arm. The comment is about x86's
-pte_none() excluding DIRTY and ACCESSED due to an erratum when testing none
-and how that doesn't matter here. This shouldn't have been copied to arm.
-I'll send a patch to remove that.
+Applied, thanks!
 
-Thanks.
+[1/5] dt-bindings: i3c: mipi-i3c-hci: add Microchip SAMA7D65 compatible
+      https://git.kernel.org/i3c/c/9092105b87af
+[3/5] i3c: mipi-i3c-hci: add microchip sama7d65 SoC compatible with the required quirk
+      https://git.kernel.org/i3c/c/efaa912ab0f1
+
+Best regards,
 
 -- 
-tejun
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
