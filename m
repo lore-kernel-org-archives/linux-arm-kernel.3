@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E568ACD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 09:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAC4CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 09:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8EvjVihfI26BEVs2HPcIc2E2fqgxAiSxDYAkfFNUH8=; b=zixyoGqVUP30yZG1V+QuPKiTZI
-	mQvMBOD1ls8CHTaAh0zY1amOrwjs655S7YvIL0gNHs8CxIUdQUZD+mbpme4dZ0bgKcIRkoveqKi73
-	0o1D4dVcu1fsaX4BUYVIV1Z8v692ZD5BIjNBiLuxa87I1cucCKmIYp37MGLdNUfPiBCI3X912Dh7p
-	8wWn/ewsKSWU7NL19SSxfAh1fyGAfTieJEno/k2/b8KoBeoEeoSoW4HtjcPQFPNxUFhjMbQNwh98+
-	jhQQ9iUEgD/E/c/Opwm97EUWzreouHdGFDK5xyZe3MZusLfX++kxBmS6Yj5SkYxllZRgtkc+VbRX8
-	YbfHAWNA==;
+	bh=IJeMLnJVlGg+3yFfYY8ewvq+lahUXEA89ZCMNVqQriI=; b=qZZu873RYO3yBIHLOWlwQi7Oe9
+	9GaYvf6X8kmiQIUD/CuYlgbvfaDvyXoeul95YHLXN9Ap/bv1arLeqDOgPePhq8JEvATH80k1vQMab
+	X24NbGez1gJP+Q4fiq/NDG+cCGA2wypSHQS/dVWlm0GKDJvueD7r+Nde6FX8hI3g9JjcS2L7p+Xjc
+	rM/Qu68UK84LE4f/cVj2h1+vCwfLIHewZIDOVWMD3wfPWPu2E/dJfsBAFMRkU1oTrkKOhxyIn1Xwc
+	OBAenENRFEytO1YwLm665Zz+RKYiVqWDSYraRzq0IwsqRy0wHzkajSh3nYVsPLRWBnI5Fwimz50rh
+	8ZaLl4zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYhO4-0000000Cqif-0S4H;
-	Sun, 14 Jun 2026 09:44:16 +0000
+	id 1wYh8W-0000000CqA3-32ke;
+	Sun, 14 Jun 2026 09:28:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYhO2-0000000CqiZ-2Wbo
+	id 1wYh8V-0000000Cq9w-1ost
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 09:44:14 +0000
+	Sun, 14 Jun 2026 09:28:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2243743CCB;
-	Sun, 14 Jun 2026 09:44:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3F71F000E9;
-	Sun, 14 Jun 2026 09:44:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D19E543B27;
+	Sun, 14 Jun 2026 09:28:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D7E91F000E9;
+	Sun, 14 Jun 2026 09:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781430253;
-	bh=Q8EvjVihfI26BEVs2HPcIc2E2fqgxAiSxDYAkfFNUH8=;
+	s=k20260515; t=1781429290;
+	bh=IJeMLnJVlGg+3yFfYY8ewvq+lahUXEA89ZCMNVqQriI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PHXiPLJ/KCRkg26Rd2plr0CDbM7KJnG5oooL8TAiIeKipYQtv81cnN5+SCIQudha1
-	 sw+WB5aP/5vaEzukp9yBII1tA8NHAxBz+c30c/YBJzL3P8Cw6oSUZwqU+JAnxnLw9e
-	 l4Yhw2AWaG6gNB4JSLhH7D4f3G+8lGyWWYR6+vsHqMT6gPeDjZruOQkNbisim9DKty
-	 oroxHX+E1hbidS6zBa286zJg38tAD3TS5qkC+yWAnKJmVj4+XJhttou21wspJKzM9d
-	 XdxilPTq6cssoTv9L7NQMMVANjDo3nzME++Fkac3uoPlFG11Hg6sODWe3e9AuGWC3V
-	 Z9e2Y0JZCYBjg==
-Date: Sun, 14 Jun 2026 10:44:07 +0100
+	b=LuvD5wtlvmMDVWxQCRAKGP5Fk5Ua91zWTtmgGiEjyZl0naJm7QD2bq1IQErR3g4kx
+	 5g1lq7n1S4JCN4MRC6H+pQfs6eWEWioGavXdi6/0+bma0C5rW5da6/fu/4xwuJvgKe
+	 HzrTO4ttBCMkPgmdrFGCy/9oPvg6teWpN+L63Kw6eKG2HVCgK98SQ+ophIaIHfzCGU
+	 iqfBrIBYurBTrCX4cmqNgI4Boz6FhWb39R+bblyb+UeqldQesf5cc1GFb79FuOhPzP
+	 /+UhXK5vXox6n9KKV/D05ZUh267keaN2trcOykJqJLq99QW2h1NuPfnmYaqWvYKGCV
+	 0pIzPn9odMx9w==
+Date: Sun, 14 Jun 2026 10:28:02 +0100
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: sk@gentwo.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Ryan Roberts <ryan.roberts@arm.com>,
+To: Tejun Heo <tj@kernel.org>
+Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
+	Changwoo Min <changwoo@igalia.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mike Rapoport <rppt@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	cl@gentwo.org, Huang Ying <ying.huang@linux.alibaba.com>,
-	Linu Cherian <linu.cherian@arm.com>
-Subject: Re: [PATCH 1/2] arm64: tlbflush: Don't broadcast if mm was only
- active on local cpu
-Message-ID: <ai5352mbktTaWHvq@willie-the-truck>
-References: <20260609213615.2788698-1-sk@gentwo.org>
- <20260609213615.2788698-2-sk@gentwo.org>
- <airUWY4jFgxWvQ4s@arm.com>
+	Mike Rapoport <rppt@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+	bpf@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_set() for lockless empty-slot
+ installs
+Message-ID: <ai50IpfcvBiTZ7Ss@willie-the-truck>
+References: <20260522172219.1423324-1-tj@kernel.org>
+ <20260522172219.1423324-2-tj@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <airUWY4jFgxWvQ4s@arm.com>
+In-Reply-To: <20260522172219.1423324-2-tj@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 04:29:29PM +0100, Catalin Marinas wrote:
-> On Tue, Jun 09, 2026 at 02:34:32PM -0700, sk@gentwo.org wrote:
-> > From: Ryan Roberts <ryan.roberts@arm.com>
-> > 
-> > There are 3 variants of tlb flush that invalidate user mappings:
-> > flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
-> > would previously unconditionally broadcast their tlbis to all cpus in
-> > the inner shareable domain.
-> > 
-> > But this is a waste of effort if we can prove that the mm for which we
-> > are flushing the mappings has only ever been active on the local cpu. In
-> > that case, it is safe to avoid the broadcast and simply invalidate the
-> > current cpu.
-> > 
-> > So let's track in mm_context_t::active_cpu either the mm has never been
-> > active on any cpu, has been active on more than 1 cpu, or has been
-> > active on precisely 1 cpu - and in that case, which one. We update this
-> > when switching context, being careful to ensure that it gets updated
-> > *before* installing the mm's pgtables. On the reader side, we ensure we
-> > read *after* the previous write(s) to the pgtable(s) that necessitated
-> > the tlb flush have completed. This guarrantees that if a cpu that is
-> > doing a tlb flush sees it's own id in active_cpu, then the old pgtable
-> > entry cannot have been seen by any other cpu and we can flush only the
-> > local cpu.
-> > 
-> > Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> > Tested-by: Huang Ying <ying.huang@linux.alibaba.com>
-> > [linu.cherian@arm.com: Adapted for v7.1 flush tlb API changes]
-> > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+On Fri, May 22, 2026 at 07:22:12AM -1000, Tejun Heo wrote:
+> Add ptep_try_set(ptep, new_pte): atomically set *ptep to new_pte iff it is
+> currently pte_none(). Returns true on success, false if the slot was already
+> populated or the arch has no implementation.
 > 
-> Nit: if you repost someone's patch, please add your signed-off-by.
+> The intended caller is the upcoming bpf_arena kernel-side fault recovery
+> path. The install runs from a page fault that can be nested under locks
+> held by the faulting kernel caller (e.g. a BPF program holding
+> raw_res_spin_lock_irqsave on its arena's spinlock), so trylock-and-retry
+> would A-A deadlock. Lock-free cmpxchg is the only viable option, which
+> constrains this helper to special kernel page tables where concurrent
+> writers cooperate via atomic accessors.
+> 
+> The generic version in <linux/pgtable.h> returns false. x86 and arm64
+> override with try_cmpxchg-based implementations on the underlying pteval.
+> Other architectures get the false stub - the callers there already fall
+> through to oops.
+> 
+> v2: Rename to ptep_try_set(). Tighten kerneldoc. (David, Alexei)
+> v3: Note that strict-zero cmpxchg is narrower than pte_none(). (Andrea)
+> 
+> Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+> Suggested-by: Alexei Starovoitov <ast@kernel.org>
+> Signed-off-by: Tejun Heo <tj@kernel.org>
+> Reviewed-by: Andrea Righi <arighi@nvidia.com>
+> Cc: David Hildenbrand <david@kernel.org>
+> ---
+>  arch/arm64/include/asm/pgtable.h | 12 ++++++++++++
+>  arch/x86/include/asm/pgtable.h   | 12 ++++++++++++
+>  include/linux/pgtable.h          | 25 +++++++++++++++++++++++++
+>  3 files changed, 49 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 9029b81ccbe8..28bada97d443 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1830,6 +1830,18 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  	return __ptep_get_and_clear(mm, addr, ptep);
+>  }
+>  
+> +/*
+> + * Note: strictly-zero compare is narrower than pte_none(), but the gap is
+> + * harmless: a fresh kernel PTE has no software bits set.
+> + */
 
-I have a feeling this patch is horribly broken, so I'll reply on the
-original.
+This comment really confused me :/
+
+What is a "fresh" kernel PTE and why do you specifically call out "software
+bits" if the CAS requires all 64 bits to be 0? Why is that narrower than
+pte_none() given that pte_none() for arm64 is:
+
+#define pte_none(pte)           (!pte_val(pte))
 
 Will
 
