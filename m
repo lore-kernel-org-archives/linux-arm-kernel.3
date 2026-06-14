@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25275CD98DF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 16:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9BCCD98DC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 16:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTU517bylf7hW4wRPEZ03YW0srH2bIdRmAB9JurEalI=; b=FcvVfJQMWNFG9AiynQPn5XVDs3
-	v5rVM+B8mjyic0ITuy2FXkuzB3rh2gaSaYohZSFoLd7d8+jrRdQaNU/CnXV8NhMg3UqXPMmJlPxxB
-	vhV2Qvfne8+wKV/lfrp6Udv3Oo01dqom9o+4L5yeCMFGNc9sGAK99WH7pqpvz+IzJia0z2BScTIPS
-	Onx3NaN01pXjru+5e8Aa/LR4VVTr55Qa1FTPOEGt44wBG/E/LAgCnttcLsH3r/nEuxDrJt4QofZ9B
-	D2lbNmDXbcEgigUFsbYHamv7lPquGfTsQ1urMNvggalBgPdKz9ybZCbhN2DRx+mX9mqzlYcgWRubj
-	dBHlpzMg==;
+	bh=tv4trLugC2C4NI3RAbn0dCrrthQRiHhpJKIFLbS3QSY=; b=WASiM9MCotm37Qte8njzrA1Fyj
+	rnZXDIm8CDAiVMgvUyNoffretcE4+wdvsBooomfimf4w9MjFmz5dG79hmC3WjRyqactPPKZT6jcSs
+	wsBvacOb0arMqtW7qnpTcYDlj5O97sipN+ii/C9shYh1oYXr8mF2I+Y6BcSG75aqr4PaJiGoOxDYM
+	23YxU5qGPlQ3Je/UL/dFENzXBCKVq8JzShPKryS2CRgAvKcsX01TRBKupvoeQTONHeRx3AIp+8rDN
+	TvFUVM2benPbzBugAtH3g9jpdqr2zugUxeT0vvoi0syTo4xvgvq0bxRp/Fex8rqwZrbOLop4hU/Jh
+	pZ7SnVWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYnmV-0000000DAoB-2pyG;
+	id 1wYnmV-0000000DAox-40f9;
 	Sun, 14 Jun 2026 16:33:55 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYnmM-0000000DAiP-1ahk
+	id 1wYnmN-0000000DAjT-49qN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 16:33:47 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490bde3d239so16939455e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 09:33:44 -0700 (PDT)
+	Sun, 14 Jun 2026 16:33:49 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490bae3a39bso23205085e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 09:33:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781454823; x=1782059623; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781454826; x=1782059626; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DTU517bylf7hW4wRPEZ03YW0srH2bIdRmAB9JurEalI=;
-        b=aWThOEX8p/WCo2zyr17//l/txXVbqh60GVwGUHdfXUXp2blqqDFF7Wex6J4G0pJof0
-         lXmXpYmLmhqgyd5OynUPDRQQ/7pscjUhL7HeRJdC6XW6zTze/eeAMBWY3wUWYOhqp08F
-         S4vDiFq4/lA3PwyTu5I+PQ37wh2bE7kSifBs4e+DhP/GOQ88hXNUDF2EZ8j8AH9er7bH
-         s+ZYYj3oikXhV9b3F8tbX1q3NPGeFAcVCrcEvnHtNTd08yA0GfsXCy8CICK0z3dMjUXs
-         p1c6TS90NyfzHlzebhoSVC9Ef2J05HNq3VvIL6wdGz6+aQEI5YbGoeIaqF0aJwddkrpc
-         U4pQ==
+        bh=tv4trLugC2C4NI3RAbn0dCrrthQRiHhpJKIFLbS3QSY=;
+        b=ojfu7uMriBcwpIincjMgyWbg10Syk6Z0L4wTvhmaHQpw1AVvVU9BeqOGmjRjjEpAO4
+         97VU3QkZCN1M2szrKAGSgOtgt+NY5DNGeYCi7MPlM47406RMxYLyFBE/t8tTKXKej5Sh
+         2YSvCLjHh08jmL6F9ReQ6ftUH1tsYLsZe332840OvCpBJcVmo6VT1x82eJPTA64WMGN2
+         7Vxlbwv/vO03RhHCjjAqa2It00qOcQ4jGocglVwde6D5aj0CWqWgbWDtF33y3558tCLa
+         9hPFM+cYTGDymj6Qsvw7ORXYPcLObghNP1N+cMOBfkrDZSlyLpLf7Ct2mUPPiKvLtp8s
+         5/wA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781454823; x=1782059623;
+        d=1e100.net; s=20251104; t=1781454826; x=1782059626;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DTU517bylf7hW4wRPEZ03YW0srH2bIdRmAB9JurEalI=;
-        b=A+ofver+FB3Mk631gvnH0PxJg5z85RJ8HbHoJpxlnGsXwjp60KtnJNk3Q5iRna2yQG
-         rDNKhrlu1JnXsT1HbPihRud75szHJ4+6/MUQX1I101tshpOAqlYrV+Jiv7Ym3e4KfXAh
-         S8tND17hMZTDJbZBjkrX5614nWboY/iV5wBaBGeHo6MwGzx6LIYZksAkvmVFF1EqryYo
-         Wyjvl44wzA4rdaMTVX7UCmLtlw000EeCUI+qJIwGI2/a6kisX+uvFvLP+dV0GzO9BtuX
-         LuPAWXk3PSpP/J2rxFjWjb8SKZo1DG/V+2fsPu34QR3v0NK4tZ3gH8P7XjyHwUiBot/0
-         yi8w==
-X-Forwarded-Encrypted: i=1; AFNElJ+WprVTtFD70McTocVYozmqtA1b8KaGSxp3lhHQqlNfF8rRhKaFapqpTaETcIs4Mwj9Kv5OyN/lnMk0c/ve4GXu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi9sWALugEuUiWQaOU7a838vJ5fiBZjVdfm8QP3LN2YFpJFDj1
-	1NTj6LrG+8JNDado9XAac9qFNHBgZdLxu9t0JmnG3EoMtmdFz4zCYkM4CYe7FOwp+5AYFzLn8hg
-	bhg==
-X-Received: from wmqe21.prod.google.com ([2002:a05:600c:4e55:b0:490:b058:c623])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a7b:c8d9:0:b0:490:b3e7:4614
- with SMTP id 5b1f17b1804b1-490ec5020dbmr94558075e9.25.1781454822969; Sun, 14
- Jun 2026 09:33:42 -0700 (PDT)
-Date: Sun, 14 Jun 2026 17:33:34 +0100
+        bh=tv4trLugC2C4NI3RAbn0dCrrthQRiHhpJKIFLbS3QSY=;
+        b=UP9hjHrPwGPUo4pyw+VfoerwDaONxrIlqx4+Sq6YRRt96DJ0LuX1859j/dT2tnx5RA
+         onD9rucHXsVQsFoiiY+Zow97/ZdXhQFJOoa+ZjNb65YAnZ8RmcnzpvLHrUBSxUwQK155
+         kRatTB75zFiVApLYw1JlKj/cNVmSPvy1gFfWOnxPxeMOc8TEAN0cBsQ2asmD5ib4WjmG
+         gTupQNWMJ75OLlE8hUshwHcsf44seNblPKJ6EeyGZXVFA0YkuHNHN8d7plK7XzE9Y5nG
+         wIst/BHfISNwGwrMEzZpN0zZa08q6xnEkJhHKJy7M6NCeXmx8byBiNfhql7qv3uyMKXM
+         8KdA==
+X-Forwarded-Encrypted: i=1; AFNElJ/A6Bjn85c9BSM4u/LAj8OdsWA1OL8Wd986YRbaqHilnVhl2mFlJBRIqKV77aaprzovn5PcEmGem43O50GoeJmb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFC+3iz8xsdXyC45ibN/3l6wcPFMknlgRCD5I/z9l+/8KHR0i4
+	t/mxfFQZeF/JQulnMpCjfukW1YhoixL+OHLZpWr4yaxlF8eTj45mrMvM9hULSlkpfWK2VACQTQ5
+	TWQ==
+X-Received: from wmjq15.prod.google.com ([2002:a7b:ce8f:0:b0:490:7e29:9cea])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600d:8494:10b0:490:c7dd:de3e
+ with SMTP id 5b1f17b1804b1-490ec521187mr96160565e9.31.1781454825642; Sun, 14
+ Jun 2026 09:33:45 -0700 (PDT)
+Date: Sun, 14 Jun 2026 17:33:36 +0100
 In-Reply-To: <20260614163336.3490925-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260614163336.3490925-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260614163336.3490925-6-tabba@google.com>
-Subject: [PATCH 5/7] KVM: arm64: Set IL for emulated SError injection
+Message-ID: <20260614163336.3490925-8-tabba@google.com>
+Subject: [PATCH 7/7] KVM: arm64: Set IL in fake ESR for pKVM memory sharing exit
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
@@ -76,8 +76,8 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	Vincent Donnefort <vdonnefort@google.com>, Sascha Bischoff <Sascha.Bischoff@arm.com>, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_093346_429040_09FE3FEC 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20260614_093348_037900_B4EA3B17 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +92,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_inject_serror_esr() constructs an SError syndrome without IL. The
-architecture mandates IL=1 for SError unconditionally.
+__pkvm_memshare_page_req() constructs a fake DABT ESR_EL2 to exit to
+the host without setting IL. The ESR has ISV=0, so IL must be 1 per the
+architecture. The host does not read IL on this path, but the
+constructed syndrome should still be architecturally valid.
 
-Fixes: f6e2262dfa1a ("KVM: arm64: Populate ESR_ELx.EC for emulated SError injection")
+Set ESR_ELx_IL.
+
+Fixes: 03313efed5e2 ("KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs")
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/inject_fault.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index 444d219b0217..d6c4fc16f879 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -381,7 +381,7 @@ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr)
- 	 */
- 	if (!serror_is_masked(vcpu)) {
- 		pend_serror_exception(vcpu);
--		esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SERROR);
-+		esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SERROR) | ESR_ELx_IL;
- 		vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
- 		return 1;
- 	}
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index eb1c10120f9f..c982a3a04c37 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -1054,7 +1054,8 @@ static u64 __pkvm_memshare_page_req(struct kvm_vcpu *vcpu, u64 ipa)
+ 
+ 	/* Fake up a data abort (level 3 translation fault on write) */
+ 	vcpu->arch.fault.esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
+-				   ESR_ELx_WNR | ESR_ELx_FSC_FAULT |
++				   ESR_ELx_IL | ESR_ELx_WNR |
++				   ESR_ELx_FSC_FAULT |
+ 				   FIELD_PREP(ESR_ELx_FSC_LEVEL, 3);
+ 
+ 	/* Shuffle the IPA around into the HPFAR */
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
