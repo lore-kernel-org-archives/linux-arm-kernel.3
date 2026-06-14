@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B8ACD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 20:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2841CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 20:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UTywM416tCteGWbX/rcorT075nFTJsf9QVq1musXPM4=; b=R0T6bLpdpj8ZQYSmYkVBC454Nu
-	3apKkXi9As6R3zNqp0/vNYWUa57I8boZeQQRh7dbFqrhCQTKIZciu6SQGkbIQGWsKbWs51whWGmqX
-	iaQl6uiCt0TEi5ipZutEqngwNJwIWqjGBMwe8slYwi20Ocdw8CLQ28TLtt7YmFTAz4oaeLZ95/JqU
-	g+wzuyX9IIavnn9jmS7NLzcD0i3TKtFi/Erbuii0CXVDYbOpqC4CtRHMyGVQJVg5hx8BXfq0GEGls
-	cHe0HADVm9UJMM5ReLhwu7nnLzqLvd453Syogdh49gyZdMHvH6Limnj3vlVuYhjKu2GOADCJsk4Wq
-	uebgysrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cmUoJYqaVdVHGV7w7+TmyHFK+lvk5ocel9J4vmj8ogo=; b=pC8iI4l6m+jO3aNcuSUaIvl0El
+	8ZtXHgSk7RAHRH+eBXEoBnT3ZQehojGLEwVV9FPd9l+K4TONf0OMkcS49AZH5aJNcBUaOnpPD+YYm
+	Da1MX8HdmI4xb1mzi20kDOIb8qR/bLr9YFnKHGohKYM7jZwvJ3cGSbQh+5IO8r5DJnLM1t3RVUIlu
+	lh+5e1yfq8nKeU571btq4PapttxBfcrO2fOnmovB31nnyFQhoiWf0GFftNurQ8vNx/waFU0e98mqg
+	XWsk3jQAxz4WTk/AaAcy4cN7ahliDzKc7skfo5QAgVJkraAO0LOb0O8LOVIz30A7wPG+tk0mLyzUx
+	UwGtvX4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYrGk-0000000DH0y-1Wtj;
-	Sun, 14 Jun 2026 20:17:22 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1wYrSp-0000000DHIM-2dIu;
+	Sun, 14 Jun 2026 20:29:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYrGh-0000000DH0S-1SrL
+	id 1wYrSn-0000000DHIG-39Yr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 20:17:21 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gdl0Q3Z5sz9tTM;
-	Sun, 14 Jun 2026 22:17:10 +0200 (CEST)
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of linux@timmermann.space designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=linux@timmermann.space
-From: Lukas Timmermann <linux@timmermann.space>
-Date: Sun, 14 Jun 2026 22:16:35 +0200
-Subject: [PATCH v2] ARM: dts: exynos: Add bluetooth support to manta
+	Sun, 14 Jun 2026 20:29:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D7E4540138;
+	Sun, 14 Jun 2026 20:29:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 931491F000E9;
+	Sun, 14 Jun 2026 20:29:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781468988;
+	bh=cmUoJYqaVdVHGV7w7+TmyHFK+lvk5ocel9J4vmj8ogo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aYDwSm0383Gdgkg6dRBN6iou+Hh0+xVWh+A7/C9B1O+WfdGdJs/gZ2xxZ2mZFqQrG
+	 3GRC3iiE++STQf19+vmj//iQnB2GlGhRi+lVqeC7AsCA7kZ5cjkmM82H19CBDRqJ+v
+	 NFX5jO1S62yAnh9albUSwgXsIezzCbzQIDdSGMJtQXUmHurn3+mujGe+NHrCLD+Swf
+	 f03DFhawbt9ZfNXpmeI6X2iKBw6TxVY9Ggfv6WMi8WdlGrAx8slDoWior29fxjbHb8
+	 I+CsDpirW6/7E/qUt620Y41Lb7Mpty/4i37thGO6YCOHJBUCkpuu4DRe8JCUN9cDbb
+	 wbRQXOn7xHBSw==
+Date: Sun, 14 Jun 2026 10:29:47 -1000
+From: Tejun Heo <tj@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
+	Changwoo Min <changwoo@igalia.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+	bpf@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_set() for lockless empty-slot
+ installs
+Message-ID: <ai8PO0NThJeuQYzy@slm.duckdns.org>
+References: <20260522172219.1423324-1-tj@kernel.org>
+ <20260522172219.1423324-2-tj@kernel.org>
+ <ai50IpfcvBiTZ7Ss@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260614-manta-bluetooth-v2-1-52de06cabf9d@timmermann.space>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNyw6CMBQFf4V0bU0fUCor/8OwaPEq10hL2kI0h
- H+3YFy5nGTOnIVECAiRNMVCAswY0bsM4lCQrjfuDhSvmYlgQrGSlXQwLhlqnxMk71NPtVRcSia
- 0tYrk1Rjghq+9eGm/HCf7gC5tmc3oMSYf3vvlzDfvV9d/9ZlTTm2tKg21ltXJnBMOA4TsuWMcT
- QekXdf1A8Rov4DHAAAA
-X-Change-ID: 20260404-manta-bluetooth-836133028bb6
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alexandre Marquet <tb@a-marquet.fr>, 
- Lukas Timmermann <linux@timmermann.space>
-X-Rspamd-Queue-Id: 4gdl0Q3Z5sz9tTM
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_131719_546429_B1B852BC 
-X-CRM114-Status: GOOD (  11.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ai50IpfcvBiTZ7Ss@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,104 +88,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the bcm4330-bt device for manta boards on serial0.
-Also adds the necessary pin definitions and interrupt handling for
-wakeup.
+Hello,
 
-Co-developed-by: Alexandre Marquet <tb@a-marquet.fr>
-Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
-Co-developed-by: Lukas Timmermann <linux@timmermann.space>
-Signed-off-by: Lukas Timmermann <linux@timmermann.space>
----
-Changes in v2:
-- Sorted DCO chain (@krzk)
-- Link to v1: https://patch.msgid.link/20260408-manta-bluetooth-v1-1-b7658e78359a@timmermann.space
+On Sun, Jun 14, 2026 at 10:28:02AM +0100, Will Deacon wrote:
+> > +/*
+> > + * Note: strictly-zero compare is narrower than pte_none(), but the gap is
+> > + * harmless: a fresh kernel PTE has no software bits set.
+> > + */
+> 
+> This comment really confused me :/
+> 
+> What is a "fresh" kernel PTE and why do you specifically call out "software
+> bits" if the CAS requires all 64 bits to be 0? Why is that narrower than
+> pte_none() given that pte_none() for arm64 is:
+> 
+> #define pte_none(pte)           (!pte_val(pte))
 
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
- arch/arm/boot/dts/samsung/exynos5250-manta.dts | 41 +++++++++++++++++++++++++-
- 1 file changed, 40 insertions(+), 1 deletion(-)
+Yeah, that's complete non-sense for arm. The comment is about x86's
+pte_none() excluding DIRTY and ACCESSED due to an erratum when testing none
+and how that doesn't matter here. This shouldn't have been copied to arm.
+I'll send a patch to remove that.
 
-diff --git a/arch/arm/boot/dts/samsung/exynos5250-manta.dts b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
-index 24a27b342227..76d3657eb22f 100644
---- a/arch/arm/boot/dts/samsung/exynos5250-manta.dts
-+++ b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
-@@ -461,6 +461,13 @@ acc_int: acc-int-pins {
- 		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
- 	};
- 
-+	bt_host_wakeup: bt-host-wakeup-pins {
-+		samsung,pins = "gpx2-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
-+	};
-+
- 	max77686_irq: max77686-irq-pins {
- 		samsung,pins = "gpx0-2";
- 		samsung,pin-function = <EXYNOS_PIN_FUNC_F>;
-@@ -488,6 +495,20 @@ bh1721fvc_reset: bh1721fvc-reset-pins {
- 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
- 	};
- 
-+	bt_reg_on: bt-reg-on-pins {
-+		samsung,pins = "gph0-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-+		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-+	};
-+
-+	bt_wake: bt-wake-pins {
-+		samsung,pins = "gph1-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-+		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-+	};
-+
- 	msense_reset: msense-reset-pins {
- 		samsung,pins = "gpg2-0";
- 		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-@@ -536,7 +557,25 @@ &sd1_cmd {
- 
- /* Bluetooth */
- &serial_0 {
--	status = "disabled";
-+	pinctrl-0 = <&uart0_data &uart0_fctl>;
-+	pinctrl-names = "default";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm4330-bt";
-+
-+		pinctrl-0 = <&bt_reg_on &bt_wake &bt_host_wakeup>;
-+		pinctrl-names = "default";
-+
-+		shutdown-gpios = <&gph0 0 GPIO_ACTIVE_HIGH>;
-+		device-wakeup-gpios = <&gph1 3 GPIO_ACTIVE_HIGH>;
-+
-+		interrupt-parent = <&gpx2>;
-+		interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-names = "host-wakeup";
-+
-+		clocks = <&max77686 MAX77686_CLK_PMIC>;
-+		clock-names = "lpo";
-+	};
- };
- 
- /* GPS */
+Thanks.
 
----
-base-commit: e5f7e05a699f41275d6380c497293446034bc8af
-change-id: 20260404-manta-bluetooth-836133028bb6
-
-Best regards,
---  
-Lukas Timmermann <linux@timmermann.space>
-
+-- 
+tejun
 
