@@ -4,106 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F4ECD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 02:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7246BCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 02:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUAaxA8ixX7Y/N8kqqm6h7zxo1wmIVgs+FOxChZzsgs=; b=CPcyf0AAIrzv16iiPXhPGXQv/A
-	KnMAIDQqNROUzC56KvmxQ7KSHekgaEvVoK6LgJhTCTBSv2r118zw2VPG/KK4dTbvBCZiSLLld7xmD
-	lvQqkFypeWddtix8/a/tlE5P3F5zOtclB0RwsmBYaSXTOL7CZE7XHAQxBqJJWHnAAsth4X5dQIO21
-	uRBMhsfv/A1NoW5YTVbj+0mZr+HQe04Sl32PnNjfpg+rGXMfVfQPG7klpJL05iJlttfC89z0tOgmt
-	cyTC4JkowMdGMx9p2tVIbp7Iby/Ne4hw5w4BzRoOQEpAhJOefwZt73/p8gB/YAUKLc9LhlamRYk0n
-	swVb0RHQ==;
+	bh=J4SksXRx5bVkjNj0+4x0aPsa3P8uvU4r9TmE8JfMJkE=; b=gQlsZr9QtnlfO73EkPJHX+UF3d
+	sDTTBCsTiPtuo4coeQ105m77rzEyZSCR0ajALuEYT1kETucgCI/NRQdGuuepRoZZ4ZIzKh3nTBcRl
+	0/zI380/mCPKI+9YD/ufMO6MIxPUTG2H6Ferm+kfhkfPAvMFyJPMO9bQUSYkjQdkI4b08ilPySYJv
+	uRQ804zW4ulOSM+qSueklizVp8Bidr0Ak9XGkZxLPUnMQ0386OCiloPh5c79ku71OEhQ4WM3Zpce8
+	MlJSzX29dxBoVu3FsRYeWMthga1qsdSriZtb5Z/zlRj+m1WFYopVI0uP2L/jbWtKpvTEqT2Rg8Hqj
+	l9FZPNPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYaFD-0000000Cfw5-2Daa;
-	Sun, 14 Jun 2026 02:06:39 +0000
-Received: from mail-qt1-x842.google.com ([2607:f8b0:4864:20::842])
+	id 1wYaT4-0000000CgCq-3Kx7;
+	Sun, 14 Jun 2026 02:20:58 +0000
+Received: from mail-qt1-x841.google.com ([2607:f8b0:4864:20::841])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYaFA-0000000Cfvm-3VDs
+	id 1wYaT3-0000000CgCV-0C9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 02:06:38 +0000
-Received: by mail-qt1-x842.google.com with SMTP id d75a77b69052e-51761d27612so27099421cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 19:06:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781402795; cv=none;
+	Sun, 14 Jun 2026 02:20:58 +0000
+Received: by mail-qt1-x841.google.com with SMTP id d75a77b69052e-5176fc0cc72so24009981cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 19:20:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781403655; cv=none;
         d=google.com; s=arc-20240605;
-        b=dheTr9B7Nsp6D4uM77niCYFZMMwwo/M15b1UjfhJBq7WDz9qX0FWUYLNak5zDkGFZq
-         jpS0nYL7ai8WN984Z+KJdVhK0cSVjIn3E1cAAbbSqbTfW8wz9XR0/IeA25+J/9XSZo3u
-         lAVJKxdzSDvuguu4d+LYnfxqUEanWuXc1XxbB06dm6kaZWt8mFH+at9uVo1hnbFoSInx
-         hOlBoOVawB5DhquZsHPPwxP0BzVrJD8z4OOloN89+BEMBtirVdSpPjlS6qae6v43CG7X
-         bEq5jpPHzTyw3RFLVXsCEwBllGv74qjZKYdmqskcw6W26wAAd5ZxBeCc/TMAn10BcXpy
-         6CtQ==
+        b=gKRRVT0J8mhd9N9ZbT8WsR4DjcZFwBIKi1EHUjF1KC60hn9MqEuztgDOQltRJLtH6F
+         g9gZJMK3IvFOh49k9FZbdVufSY8ZUELehUsfB1/ruzrCDACIew7MVC5PFKPGk4CcNJ7u
+         VRMDBWyUesAQlVgm0oB2hcHzrdkj4w6gq6aqc7FuIRQlu1HTf7c6MzznMsyACJxSLup2
+         bpfBNN6t0eGKQhQJuG0E5QJ+ufLb/qeyCEMi92YiCm+4xnV1mAOasDWmXkNk/UdP/nnF
+         m4oevnXd1mFAeEF6pgSk+hhDgBKK7PorT1Om/veZyKSQIZ9+j/z0HAIGE/+FeUuyCxDH
+         h4Gg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=TUAaxA8ixX7Y/N8kqqm6h7zxo1wmIVgs+FOxChZzsgs=;
-        fh=Okt3SrtpSE3eT3Dg4ZmedJCsPaQSoz6g/liXKWTAYOE=;
-        b=atRcpbxFyefBo8cT9j5obmJBhJ88wAb62sHcrL/Ovl6bfjwsAlbQMmj/08R4Yk0KyC
-         CFB9sHRECR0hg9ZBqrU7mDTsOKTFYEjm7kdd6yNaJ4zjBKQ8+prUpDBZZchzguY2WVXA
-         zRhQOUOzusBOIzba36OZTJEaWkQyr7e/zEiXVt9Ct/l1yuKQHkeQyiuF4AYBgzgtzoVx
-         htX/mLsA03ecHW3cj+e/eIHp8Fxb6E9ICL9frYYs0SVqk0g1BydVGZ4HVsRS/z3xmbiR
-         AfX/tNJ0orYC9+IZS3LowkdD5gRAnCJxLnU3lB7fnXGMHPWYZLs1yDrlBjc4P6SqrUNQ
-         Oxig==;
+        bh=J4SksXRx5bVkjNj0+4x0aPsa3P8uvU4r9TmE8JfMJkE=;
+        fh=wn7sjL1mlKiR0+5On1upi/aCkY9/6nojwGAWuoW+eJ4=;
+        b=MCxuHwjX7VhpgMSqZKeLkFEgxDtvkkrj56UYjIfVX3IvW/0hFU0gStYilbwYwgaWcZ
+         zS27Ff9NnSIphGJu/iGSb4NOwpjxGLh9fuvA9Rezz5POu0KtOq61jWy6fQ4JccOkhkt4
+         /6rjOUBtpqs4ejLCuma9ROkGQ+sfO76cUnqhhJ7l1+x5vibM5bOcMwnD68QWAlPZoxvl
+         SMsREk/0bUCJaQFuSWcMkT5vybY5F9zYdOI20F+Mdp2o0Lybd8fP8iG4uxqFEoeOzFYf
+         AZOyr9Lc3rgpqecJ1ktxC6PT2aCAmkj7AQx0+ysRWVRP9+lfmGPff2dvbSNP6GN7ka/k
+         lq8Q==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781402795; x=1782007595; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781403655; x=1782008455; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TUAaxA8ixX7Y/N8kqqm6h7zxo1wmIVgs+FOxChZzsgs=;
-        b=Zm2CXa/RPIOBt8lDC0qlWa4uaSJf85+cbTlA7aK33oBbh44cggbMs+iDxCyIIyZneU
-         eOl7kqkQTAuGVknyyB2vudKiAbzyDlg02rFwp/A3zAF5hRSbrJ9QqUP54PLqqfSDISTn
-         YPXUFo+jO245uYcSw2ROnnA792JX5iELGb+BbijQv7VEmIUo7S6rZoCIfCERezRNKFi1
-         K+uht+0g+st9ZkYT1FjWS9GK/e0OKqeC7mawTOFoygkIzwsDyAVhm1LB9AJp32c1Ni5f
-         WgAyHeY56jTdgJJnVNApWuGCNrKpOV6YNC/zVRM2sx2E6suvFPqgB0wwyPUNuSjI1WGe
-         b8VQ==
+        bh=J4SksXRx5bVkjNj0+4x0aPsa3P8uvU4r9TmE8JfMJkE=;
+        b=iJIfSao7yZUVBPewYNoFSaygQ3wBw7FFnnjv1h+PX9U4kScWxj0Ve1KkrzHOGwBpE0
+         g9eTiCdFf2GilaQhBRxSG5IorV2Vs/dHr2J2lL1xz6TaINgC34y6EqLst++o2nIQ/Lj4
+         WVTJsGV9Ybq28N99B3GneGgfxAe4NxJNI0013XAot2gzXvEi/ci34PxYrXWelk6EFEM1
+         v6LrKm7sVeQCQV3BKjWBtwglVT/ME/DNHpEG8CwLL2JBHkqlN0X5DtMQDwM3HRUJOk1Q
+         sOkvjVlHGHrtSw5Gbx5rj8cgHUFNd4JUpIzOt3uiVOM8Hkgz1Ogt2kYdH4L2DM+Kuw2y
+         X5Ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781402795; x=1782007595;
+        d=1e100.net; s=20251104; t=1781403655; x=1782008455;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=TUAaxA8ixX7Y/N8kqqm6h7zxo1wmIVgs+FOxChZzsgs=;
-        b=oaSjDSXSrZWdt/Xd5bRmSD7Ybh3psLN/OM02rF7OyB+MEr9NDp3ZkjWAPRdfy7JXRr
-         gFmaDNn8pknHVGIxT++zHRNtoxUwa8u/e8rj35/mayAo7FMiBNOrPz7HvCog0p7pu8C/
-         iVE0ZNZVxFQHV/V0iDe9fyVJOMix0vmwHs17tAcrO93oUeWXJZlcD09yq0U1/VTzLPKt
-         F9/6Pn9AKgtEqc5ggUevSSm6vb8mD1YpCd11CXPjAWZmFCAJEaUB5PKAsG93H8wt0s3s
-         A+QM2Rnfm3Bd4X+xEiirno9PIe6zt4MI6wL7hreVQoBT/z2yjj2TvH0XtDeI8NWkk19g
-         bNZA==
-X-Gm-Message-State: AOJu0YzQoVIhstqlb4mCaxQNsYgBKzy/fKRIU08dP953jRQqxoslbbbd
-	nqI8i+PODhotVhLJqXaXg7rtGBQSc8WcaUUjFE27Z0hhYBjDZyzjWpTlKIt8yweSadKH54boW0O
-	Z5ukfnxtQJV+rw3bw1cyv+1E1saLNVArNhleuGiM=
-X-Gm-Gg: Acq92OEZs2CXPWtaHm0VYZ9AE8rR4a+Z6DH9YpbFserytQ2Z5QUnlboeeW+0BRp0fNI
-	o0QYZ/U5u3moyQUNrpwxYJKTHuTLJaVgJMgtFlSupfUhvMK7of6vsXWGQy+SmG2m0UgTORLlwmP
-	dVPEoA1E5ESOtnN+UD9RcE4n2FBJuPhJSE3NfmRucxDfghZxpEBzfQEJSw6+0pHxbIEhBK6PkEz
-	OiAFgEkyd7/RzSTzIBKhRy2goTDfePzDuBGUkJP/SJwJRVOGGFMq1ID2MoHw1EaVToeNjfaQOYt
-	3Hr9q7gZDQUAAmQ7Zll5yTG+R/SjWPhg1gNfbMFRhmcY/qg5lbpXiWxmk0hBt0+pRIep3Q==
-X-Received: by 2002:a05:6214:5502:b0:8aa:a025:78e3 with SMTP id
- 6a1803df08f44-8d32b56fbd6mr139591116d6.6.1781402795262; Sat, 13 Jun 2026
- 19:06:35 -0700 (PDT)
+        bh=J4SksXRx5bVkjNj0+4x0aPsa3P8uvU4r9TmE8JfMJkE=;
+        b=DdbWJ0qxlfGpd+3k91rGijoDKaTltC56B101rh9iR5mEccSn1ytvzjZbxHNBppvZcD
+         HaGSz0Qo0W06OVLe30JmuYdgeEfF0mKLalBpdkmTDIBbbVzhkvdJTeJaGVkCBOFbgKJq
+         mEFxdh1tbFvkgRyjkcJbb/C2TjdVyNi2BunovMxEuzK3gTEwGTFiNCFVcaOliAlYq9Ct
+         pPgie6WjrgipbfoIbYGCDxi9hoo3fnEeDV5e7O3diOiOqwCst5xDOe2XbaeTIU5osu8h
+         5BSigH2COrh43h+D4u9zI+9lH/dm3uL1WSeVdIWR+rRJICyZn6nzCQXXwrqMvg4kO9YR
+         /JKQ==
+X-Gm-Message-State: AOJu0Yz/aeTLy93+wgsf9inTSRoP7zZs6n2OGbpWb/eOCdioT0+kejaG
+	UWXHEFI0Hvp6YUc6f2Poy5H+3F87HK0qAQU2Z9p8PQC3sdV956Eh9NSWsjyBXo3Wd79riRhRFJ6
+	Ik0eLip7VBI0qwyar2FM2NHNfRB2njBX5KdpHgPQ=
+X-Gm-Gg: Acq92OF2MrJZCM/NiB/EFs0qW0cCHEdjkOqtYam39AXObW3OsWl4a59R2FosWdF3FAk
+	c/i9kjS/fhoK5MivWmWTBt9YDQkIzKOMJnboXVikt6KtCQoPlpJ9KpOA4kb9R4x8aARLUHn4pvn
+	P7l1Y0kKk/oFBG5k+puUM27CoxO/xnTMUJNffujMe5ohdigCsvetXD97ybaN1P7/JEGWT/rh5Gy
+	HFrBE3OxUkxl+foiR05pWpUbrCBHYgKcm3FLk3dtIadFCCHpK2XQ+bg2jbmLI2PxLXzr2in1tEd
+	novvr7nqiG5WFMRcoyLUT6J+QOisEuAKUh7SKS5ThdGlrs+bGuG3rZAS7aW9sPUejinq
+X-Received: by 2002:ac8:5892:0:b0:517:8c0b:66cc with SMTP id
+ d75a77b69052e-519533bc447mr90409111cf.25.1781403655534; Sat, 13 Jun 2026
+ 19:20:55 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260611004700.395759-1-enelsonmoore@gmail.com> <CAD++jLnD2EU=YfABb1ySRtgeOPVzQKH3iMjZtj2AsW+RK8M6mQ@mail.gmail.com>
-In-Reply-To: <CAD++jLnD2EU=YfABb1ySRtgeOPVzQKH3iMjZtj2AsW+RK8M6mQ@mail.gmail.com>
+References: <20260511011504.77760-1-enelsonmoore@gmail.com>
+In-Reply-To: <20260511011504.77760-1-enelsonmoore@gmail.com>
 From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Date: Sat, 13 Jun 2026 19:06:24 -0700
-X-Gm-Features: AVVi8CfZrPrFN4vrTl8IkxdlJLQGxdmxjT-4oj4r_cbFzFWN1Y2uJPRe9XL4u9Q
-Message-ID: <CADkSEUgH+Q6hJ+A-G_tpDz6A=QRRv85eVgu2eXDVY4ouvge0fg@mail.gmail.com>
-Subject: Re: [PATCH] ARM: remove references to removed CONFIG_CPU_ARM92x_CPU_IDLE
- options
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Nathan Chancellor <nathan@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>
+Date: Sat, 13 Jun 2026 19:20:45 -0700
+X-Gm-Features: AVVi8Cf0Ctp60604ymMhIu_yZ0u_r4BX2F7mpjsGF6XYtyVVoUAvCQ9RgUQJa_g
+Message-ID: <CADkSEUiGDsGxh-qxqHMbmvCRF=VNmh2VyT9Ko7sj2Eau-sTWxA@mail.gmail.com>
+Subject: Re: [RFC PATCH] ARM: move reserve_lp[012] handling into affected machines
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>, Andrew Morton <akpm@linux-foundation.org>, 
+	Jiri Bohac <jbohac@suse.cz>, Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_190636_878492_AFE9D650 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260613_192057_114307_8EEDE582 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,12 +115,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 5:38=E2=80=AFAM Linus Walleij <linusw@kernel.org> w=
-rote:
-> Please put this patch into Russell's patch tracker.
+On Sun, May 10, 2026 at 6:15=E2=80=AFPM Ethan Nelson-Moore
+<enelsonmoore@gmail.com> wrote:
+> arch/arm/kernel/setup.c contains code to reserve lp0/1/2 I/O ports for
+> machines that can't possibly have these ports. This code is only used
+> by netwinder and footbridge, and is small enough that it can just be
+> moved into these machines. Do so to make the setup code more generic
+> and the machine code more self-contained.
+>
+> This patch is an RFC because I'm not sure if using .init_early is
+> actually necessary. I did it to match the place the original code was
+> called as closely as possible. Can anyone weigh in on this?
 
-Here:
-https://www.arm.linux.org.uk/developer/patches/viewpatch.php?id=3D9478/1
+Hi, everyone,
+
+Gentle ping (+ cc Arnd, LinusW) - anyone have any thoughts on this?
+
+I meant rpc and footbridge in the commit message - I'll fix it in a
+future revision.
 
 Ethan
 
