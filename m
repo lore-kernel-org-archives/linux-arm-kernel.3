@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C9FCD98DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 04:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09318CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 04:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q49mRONNBYR0JeB0FoFSRUEZksnbOzysOYCNAb9xxlY=; b=yueFHu4dgiqy8/7lbK/TKM3bnz
-	xKRTM4YzmjoAjK4Aep/KADgsG2Pbk71OF7KzMYWYpZVmn5XSgwpspdK8aqrGzW7IjNzwxrePl+8a5
-	lgw/8JIoc/D1UGu6uRrgswdJqdEx8ic5mTtqnhFZ/jOsbXq8zQWS8oR2lR5OXobi8lFmanP8HfqMs
-	vjS2W22wqv5uHIYsln5lrIbOq/Et3U5zK9DK86l8zejM4fogJVdFY2Gv1n7X90rkSEU6fL8+1+whF
-	jvmZW7tfu0HaQ3tRGe0uXX4Tg8ySrEiA90xtSP+SHlpzcu3nH2Q58+81qUq96CMabWVbnlwuqI5oG
-	AsV16yNg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4LFlYonGJq08punhtqW4trLrplu83bZHlBhA/KZ1Aiw=; b=Z708h9WqtQo6PkXkCY1f37FF0X
+	Se5kibl0iKNWvW7e4k2QF4UAhB305MFSBNtY1cp+iCZC8DCL/bs0wfCXSlJ/h1KdiaDAvpinDliOP
+	IFSU+nrMaqIIPFg/HTDbG0cVYNQgSgPuVqBIaimkZhl7QStdGICMgrArMdN2HJe2mvXopraUmH3zT
+	yuli2ts3CpULtSTSR6M8bARn7iU9P5F9h5bqlkmdOqz6WFAmWGda0JTN966WJfxHhC6mR7Ty4cq2k
+	cAjcDDU3qn5DznUXI0uhBkcst9HgkrQ6WKl25yYxu4lDslTpuldOXOd3/fXOqvyPxkzwW3TrrFqCR
+	tpYl9Rxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYc1u-0000000ChzO-3COB;
-	Sun, 14 Jun 2026 04:01:02 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1wYc1z-0000000Ci1k-3zF3;
+	Sun, 14 Jun 2026 04:01:07 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYc1s-0000000ChyG-1jbS
+	id 1wYc1v-0000000Chzc-3aZS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 04:01:01 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-36d630c0e35so2263285a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 21:00:59 -0700 (PDT)
+	Sun, 14 Jun 2026 04:01:05 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-36bdb11bf8bso1263478a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Jun 2026 21:01:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781409658; x=1782014458; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q49mRONNBYR0JeB0FoFSRUEZksnbOzysOYCNAb9xxlY=;
-        b=qCCnUIQmRRvrqOKUHGMCbTCU3HJ3xeqwfxawI0tQetV0TsWSGOkBnHaFJrJ9m5GVen
-         vdQvR+SAco+HgWphGe2/k2SqgVEKU97TPimurDMZy/UyMZm/W4xpCrGZBMbj26zrwW4N
-         Pr4UyNdKDlYj6DikbC9Laivj+rIbSQeatAiVLYU71pBfFQsCUbrfCbZs9Nl/NNmhhHSy
-         xe1eA3bKMGM5pLjiFhADssRY7GATRXZr12G+oRjXOYAOfYUSL0new2PhWD+ICZVTCKIB
-         Dtc7IDG9IWJbs+lDFPvUhzZS7GkqInS2z1VfxZdkINAmXKII3LwjN39GknSAdpuKNDOt
-         L5Cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781409658; x=1782014458;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1781409663; x=1782014463; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=q49mRONNBYR0JeB0FoFSRUEZksnbOzysOYCNAb9xxlY=;
-        b=IsVpXR49VADYdyy3jgT4LGcd7s6cMcH7EJnjdt6ZwlGZGoIKdeHthwBQzlgQgdlL+r
-         xDr23zLO1BNd4rswngAuxpMh5GWkuZIK7KtOYusE0iXSxdkRs6uTF5I8q6VMuxsbNsY8
-         w681XeYapQoRb+vLjYsNfgaFlMm2QYPtk64Cuz+cGmhIKfpo1Gb3QPl5mwAS2bW/m08i
-         JO77jhqXcnkudSOCrvMSjoN5+tnAnfDgxSlDt81SiTeXm2pCeXgYH0RehhQWe74KUTGj
-         /HK3EV1pAvoGA7OaWC/LuKe+3onh+xs3L2JbS5c3Y/tKv1NKQ594A9y+xKzG//KV6+Pw
-         5oQA==
-X-Forwarded-Encrypted: i=1; AFNElJ965Hxc4EXSCrwnDokUUzYcbndf0uRn/gF2bhRv8S5HGoz5EirFawwQHq1l2AsaqCvB6bR5Ce3JcTc4FI9KGI41@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUBbmo3ruJsDX8EfTaQKiDQgiBJabPZsbxPqdDYr/K3uQqyqQe
-	lVcCdN07+YGLfErXqZG7NpuMsOOgWJmJwdlfrARlBKWJSnYeaO5E9zm5
-X-Gm-Gg: Acq92OGIpHVs2h7kfGZrBU1nh3KTJUJPenPUecrJrHNFDM+pJYvU2c8d1jQM7x1dT9A
-	MbkF0GyRsl62C6fldPZUUPl4uyFZ9Weg4UE+UqTvIZDusDDb5+uXP9/tM6Uxr5ndD+Q3giuzHBA
-	KR5s5XQd8JSrjHkBz+YDtrZ+A4pGRCEe7EMFKzZ4bqBwW4x4+FrVJLJBmfCzqRJxuvH4Fn7FwZ8
-	FmfK57TU1jiCwEnEB4riJ9LXwZSluSe5er38+g/exWtUWt53/E5Ey+VEcVAJ7og46LuY3OlkvFx
-	cDAPnuzsIVhl+oLAy/7vEo3NxGyP4JG0N/hh106+BqTWiQqsbbAW2VydldpgGHi7qg7iipEDVMY
-	t2mm7NE5DE9K2u2AXYQMEylqplFGyCjOg1uc4QnVuUZB6M0qqOeHNRPfHD9u03tbXwoZJcFHdLe
-	ib/4+c/HGqrKQaKJZI1tC1B7tTyoFXSQ==
-X-Received: by 2002:a17:90b:5588:b0:367:d850:6a5f with SMTP id 98e67ed59e1d1-37c2bd79bc6mr5257855a91.25.1781409658385;
-        Sat, 13 Jun 2026 21:00:58 -0700 (PDT)
+        bh=4LFlYonGJq08punhtqW4trLrplu83bZHlBhA/KZ1Aiw=;
+        b=NvEPspPh9XjgESOE965uXOu44N7Ftuwlg5JcDv3zTpnUSzapU487/CAOn857hrBYWQ
+         ETHa3JzdJzVHriVU+A0dEFz0JXrxIIbHv5jqlElerdEVWAP9Mq1GtpG8VgXk98/FJpgn
+         W3Ji/orbjQXtttMkh8IqTN+I+Ct2WHAjXtArf+W6D5PSSEZwTKqde8LYM5+nS8Dp+heV
+         8ctEQqNL2BA0rONfcHLmO+CL0p0uZ9IzEaSsXe4aka+6xhAIUtjNRse4uGynD1PK9bF+
+         AAb2XNUlJdSZtjO5dhpYVSQ8Qs8lN4KSVFj9zsPwLribR5uoywKLov+vkWQEcDtCtZ2S
+         YOjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781409663; x=1782014463;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4LFlYonGJq08punhtqW4trLrplu83bZHlBhA/KZ1Aiw=;
+        b=PMNSUIgtOdbRFdLQ38qKF09qHQ8sTacYdSKKR5KQuKTZJbNkGtzmx2LoCc9GIRqNt0
+         NCS+HOwStjuDjCtrWfL7a/qJ+Z/mSfixtNKqI/dZPrAkOrtKml9W+63yfh4874xytRn7
+         mF7sP95vstr6xFMDqXnue1EZDc9VoRiSUdsoRtNBNlf38zyHsi07KjSorQPDhSPfAJB0
+         Soeck9cxYNNQx3H9opnutMbC2Sqal3+XAvnNsG1cd52ldpQV4MHcWreNltYNuBk09s6m
+         VJHGUKqA06uw8hJTEqW7CsRtcjtXUEIVKZxrSAmCD1eKwIrjjcJdg6wzdB14WxQuxt+v
+         WF+Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+mm/kIWzQGes7lYAciZgbv1qoUVQCeRlOc9Xzoda6NJ+bKsrEMs2GtmBoV75FQOQ7hHqUu/KbyhvzrIad75UgX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2IQ5YGRrxQVJr1055jMb4iTC8FoxNPkjGl7MFTXv9pPqVcDwZ
+	FEKD5g77ft/6c4HOkKK9VFHaJZmiWTRJwOnVn2xuYx5A5A4ESCb4MKI7
+X-Gm-Gg: Acq92OG+cW4gM89u52utBNbUUL71H8jmG+IrsWeq9jTXIhoMCuKnWS0h9Svyy9A47cA
+	Qr/JmX3FXmD2QX9gaSSDfxG/gBXO1ru14wrKUpsuQctZGCypPvtlAHCMV1QHb68WHA1duvEyWgE
+	6T7/83PQyItjSOuRzlxdOQ9MLskcq15Y57akJoQ9Dkfo6NBJu/m2z4eEkCcWzLjwTy+5WEZnX/E
+	M4cFQLLutfRAAiR545ixaa8FjCLQbCQf0SZUbMJHwdf8S+vooZVvnPHwd7mIOt+9fYjzqPvjR48
+	Vb/h/AzO7fbNIW79m/sdCB3UK1JJCEXxiV7F9SIhtmikH8r3gvUn3Sm8tziWSa97ftvHTaZQt73
+	9FCikPfqs6FMxx8Z6EsKQg1P+9WiMeRdTFt5t6a6dGUoHkdPgucsoxSll8iK/RZoH44TihTJk8E
+	c7Woc6Mr/ym3irOTApl/DlnA5At1by1A==
+X-Received: by 2002:a05:6300:228a:b0:3b4:895f:6ac8 with SMTP id adf61e73a8af0-3b783b220ebmr9694421637.3.1781409663062;
+        Sat, 13 Jun 2026 21:01:03 -0700 (PDT)
 Received: from mincom1 ([115.4.79.42])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8661a67603sm5676983a12.0.2026.06.13.21.00.54
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8661a67603sm5676983a12.0.2026.06.13.21.00.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Jun 2026 21:00:57 -0700 (PDT)
+        Sat, 13 Jun 2026 21:01:02 -0700 (PDT)
 From: Jihong Min <hurryman2212@gmail.com>
 To: netdev@vger.kernel.org,
 	Lorenzo Bianconi <lorenzo@kernel.org>
@@ -91,15 +92,17 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	Felix Fietkau <nbd@nbd.name>,
 	linux-kernel@vger.kernel.org,
 	Jihong Min <hurryman2212@gmail.com>
-Subject: [RFC PATCH net-next 0/7] net: airoha: add EN7581 SOE ESP packet offload
-Date: Sun, 14 Jun 2026 13:00:25 +0900
-Message-ID: <20260614040032.1567994-1-hurryman2212@gmail.com>
+Subject: [RFC PATCH net-next 1/7] xfrm: allow packet offload drivers to own transmit
+Date: Sun, 14 Jun 2026 13:00:26 +0900
+Message-ID: <20260614040032.1567994-2-hurryman2212@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260614040032.1567994-1-hurryman2212@gmail.com>
+References: <20260614040032.1567994-1-hurryman2212@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_210100_453215_4B9800E2 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20260613_210103_920754_D4AB8746 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,62 +117,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Secure Offload Engine (SOE) support for the Airoha EN7581 Ethernet
-driver. SOE provides inline ESP packet offload for native ESP and NAT-T
-traffic, with the Ethernet/QDMA path used to submit packets to the SOE
-block and the PPE path used to bind eligible ESP flows. NETIF_F_GSO_ESP
-and NETIF_F_HW_ESP_TX_CSUM are intentionally left out for now and will be
-revisited separately for feasibility.
+Packet offload drivers can currently program state and validate whether an skb can be offloaded, but they cannot take ownership of a packet that needs driver-specific TX preparation before the regular XFRM output path continues.
 
-This is posted as RFC because the code was originally developed and tested
-against an OpenWrt 6.18 Airoha tree, not against the current upstream
-net-next driver. The original OpenWrt commit used as the source for this
-RFC is available at:
-https://github.com/hurryman2212/OpenW1700k-test/commit/7c1b5e662f7790b3d23ed143beadc1dcbf6d15f7
+Add an optional xdo_dev_packet_xmit() callback. Drivers that implement it consume the skb and return the final TX status; all other drivers keep the existing XFRM output path.
 
-The SOE part is intentionally linked into the airoha Ethernet module
-instead of being exposed as an independent crypto or platform driver. The
-user-visible ESP offload control is a netdev capability: xfrmdev_ops and
-NETIF_F_HW_ESP live on the target netdev, and the feature can be controlled
-through the usual netdev feature path. SOE also shares the FE/QDMA/PPE
-datapath, private queues, DSA conduit handling and netdev lifetime owned by
-airoha_eth.
+Signed-off-by: Jihong Min <hurryman2212@gmail.com>
+---
+ include/linux/netdevice.h |  8 ++++++++
+ net/xfrm/xfrm_output.c    | 11 +++++++++++
+ 2 files changed, 19 insertions(+)
 
-Patch 1 adds xdo_dev_packet_xmit() because the existing XFRM packet
-offload transmit path does not provide a hook for hardware whose ESP engine
-is reached through device-specific packet forwarding. SOE needs to consume
-the skb, add a hardware hop descriptor, steer it to a private QDMA path and
-return the final transmit status. Drivers that do not implement the
-optional callback keep the existing XFRM output behavior.
-
-Jihong Min (7):
-  xfrm: allow packet offload drivers to own transmit
-  dt-bindings: net: airoha: add EN7581 SOE
-  arm64: dts: airoha: add EN7581 SOE node
-  net: airoha: add SOE registers and driver state
-  net: airoha: add QDMA support for SOE packets
-  net: airoha: add PPE support for SOE flows
-  net: airoha: add SOE XFRM packet offload support
-
- .../bindings/net/airoha,en7581-soe.yaml       |   48 +
- MAINTAINERS                                   |    1 +
- arch/arm64/boot/dts/airoha/en7581.dtsi        |    6 +
- drivers/net/ethernet/airoha/Kconfig           |   13 +
- drivers/net/ethernet/airoha/Makefile          |    1 +
- drivers/net/ethernet/airoha/airoha_eth.c      |  668 +++++-
- drivers/net/ethernet/airoha/airoha_eth.h      |   40 +
- drivers/net/ethernet/airoha/airoha_ppe.c      |  606 +++++-
- drivers/net/ethernet/airoha/airoha_regs.h     |   16 +
- drivers/net/ethernet/airoha/airoha_soe.c      | 1896 +++++++++++++++++
- drivers/net/ethernet/airoha/airoha_soe.h      |  126 ++
- include/linux/netdevice.h                     |    8 +
- include/linux/soc/airoha/airoha_offload.h     |    5 +
- net/xfrm/xfrm_output.c                        |   11 +
- 14 files changed, 3342 insertions(+), 103 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/airoha,en7581-soe.yaml
- create mode 100644 drivers/net/ethernet/airoha/airoha_soe.c
- create mode 100644 drivers/net/ethernet/airoha/airoha_soe.h
-
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index 7f4f0837c09f..1552eb81ddf0 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -1048,6 +1048,14 @@ struct xfrmdev_ops {
+ 	int	(*xdo_dev_policy_add) (struct xfrm_policy *x, struct netlink_ext_ack *extack);
+ 	void	(*xdo_dev_policy_delete) (struct xfrm_policy *x);
+ 	void	(*xdo_dev_policy_free) (struct xfrm_policy *x);
++	/* Optional packet-offload TX path for devices that need
++	 * driver-specific transmit preparation instead of continuing through
++	 * the regular XFRM output path, such as adding offload metadata or
++	 * steering the packet to a private transmit queue. The driver consumes
++	 * skb and returns the final transmit status.
++	 */
++	int	(*xdo_dev_packet_xmit)(struct sk_buff *skb,
++				       struct xfrm_state *x);
+ };
+ #endif
+ 
+diff --git a/net/xfrm/xfrm_output.c b/net/xfrm/xfrm_output.c
+index cc35c2fcbbe0..9f11559b0221 100644
+--- a/net/xfrm/xfrm_output.c
++++ b/net/xfrm/xfrm_output.c
+@@ -770,6 +770,17 @@ int xfrm_output(struct sock *sk, struct sk_buff *skb)
+ 	}
+ 
+ 	if (x->xso.type == XFRM_DEV_OFFLOAD_PACKET) {
++#ifdef CONFIG_XFRM_OFFLOAD
++		const struct xfrmdev_ops *ops;
++#endif
++
++#ifdef CONFIG_XFRM_OFFLOAD
++		ops = x->xso.dev->xfrmdev_ops;
++		/* Callback validates, consumes skb and returns final TX status. */
++		if (ops && ops->xdo_dev_packet_xmit)
++			return ops->xdo_dev_packet_xmit(skb, x);
++#endif
++
+ 		if (!xfrm_dev_offload_ok(skb, x)) {
+ 			XFRM_INC_STATS(net, LINUX_MIB_XFRMOUTERROR);
+ 			kfree_skb(skb);
 -- 
 2.53.0
+
 
