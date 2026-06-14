@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CFECD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 22:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFCACD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 22:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aoouwIl7ENWFJcsKQwFnZPx//JfMbetXKC3Kqh1HdNY=; b=zyZpWq8UF6+Z9ERqKjPMo7com3
-	f/D0F1IGEBF0f6y2JovubOQL+UNKizjkMLBAv7qYqhgzOuz3TmKcm0qi2r0f0mHgRom42uVxXYHp0
-	U//HvsCKIx+JlovklVszeA7/zvW5cFrmvij1alG6Y+/4M8WdaEXw3SqsPM2Il6rO5VKkZb8y2wv1B
-	aOlMmbtGVDO/85hZ1pUABQxAa8s2V+Q2hYNvXgEfb5kDb87Ag/lZJdHvFTZSw3/3ZzzNDHH955dj8
-	8ObPJ3wYGADiO+yaylJ1KIPGThpUFdY2FcCQX+3faj4tA53uMXlZ/BiHbj86xzJ3jesWaGKKr3+UQ
-	k2lKccZQ==;
+	bh=4JM9nQpWmXqoX/eAkM6+OEne4H6FBJgDy7rxA2wS4HM=; b=ISFG8RBlVlan7zcEuSYubKHySe
+	BT/MIvy5GdA4wEVYUV7o9OLvC6/eiPZYgLkWlp4i8DtKfWNmwSbNmMR9gZOHjKyHmn3XPbSKnrJDz
+	t8RFPiIs3giRteKQih2ALXEHdlebRsBHYUM5taC3/Xa6oDR4RkMm8dlt8/Jb4I7XkRURXLylvD2Ja
+	oy/cKEsqiG4LZ/RiY9xHOM+1JAmyPnSh1EC1EUMfe3d7PkCN7RUwlkWbhfngBPnU3huRPsLTqXlIS
+	X5Nw+q6JusXgRp2CzATkq3aYubqJp2bPKl0AwciZibpwyVo9UF9b4MBm4Wmwafp1SSQPx8blZOC+V
+	aekeonuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYt64-0000000DKen-1Wvw;
-	Sun, 14 Jun 2026 22:14:28 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wYtG9-0000000DKsT-31kb;
+	Sun, 14 Jun 2026 22:24:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYt5q-0000000DKe7-3Ofl
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 22:14:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=aoouwIl7ENWFJcsKQwFnZPx//JfMbetXKC3Kqh1HdNY=; b=HIbAbVudDeCzIlARtEGn/DlQl9
-	2382Mvs6aHVELbjukDg/2u+y9823wKm/qSAsfk4S4d3lrCvRq/HWbcDuBua34khCh6J8VVTlZdbJ4
-	r8ynAIJnhdpoSXWgM/oEtBsQAgPcpTJ3W0kOTvnRrkbf+ElP3qehqs6n6OvO1FQUKOt5x7hk/kMt9
-	P81xCFQAr4T66cIGXAstuO+3EleyabhEH7Mh1kidvm1mev/VgWSAQXlWgugt8XaiTTiyEiFACdG5t
-	927yJaXHunSXsm0nZJ2J7VRRFn0J6cn2sDbRs2VlF3O22P9y7QJGjLiuL5tlnvntMHE3mvysPgwKC
-	aj8YdlkQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57636)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wYt5k-000000004xx-2dXf;
-	Sun, 14 Jun 2026 23:14:08 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wYt5h-000000008QG-2EyH;
-	Sun, 14 Jun 2026 23:14:05 +0100
-Date: Sun, 14 Jun 2026 23:14:05 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Thomas Weissschuh <thomas.weissschuh@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Shubham Bansal <illusionist.neo@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH] ARM: disable broken eBPF JIT on the Risc PC
-Message-ID: <ai8nrc0ZUfPaqC_7@shell.armlinux.org.uk>
-References: <20260518014920.135011-1-enelsonmoore@gmail.com>
- <CAD++jL=0qYGoygUwGEXQL7C_ROnC7kfpRv8RA+H5tNWwYu+pQA@mail.gmail.com>
- <CADkSEUjsS8bOXDhgZ2EW40xifDZ-pk5y=YqyWT-+vQNd8JikUw@mail.gmail.com>
+	id 1wYtG7-0000000DKsF-3Ryl;
+	Sun, 14 Jun 2026 22:24:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EE99442F8;
+	Sun, 14 Jun 2026 22:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C1201F000E9;
+	Sun, 14 Jun 2026 22:24:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781475890;
+	bh=4JM9nQpWmXqoX/eAkM6+OEne4H6FBJgDy7rxA2wS4HM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CtEtALnfbZB8tN1Te+X2hEQnPLousvOYpOZBX4AjGSYcYcjWVGeeS82pomOC4+dQT
+	 2qv3QHRkPkYxU+Wh7T0kMIL0AKTiCYlutlmONQi7kH0oQ7LDp+jyWEf/BFWjp41Tk8
+	 Eqvn13Q8w8j6C49OjbDcjG7KhNDa2SED6O7+JAopyX+b6UpiIPa21GKT7DRg6bYHcP
+	 hiEWADS8aM2wR6j7/A+56eJLXuPsegheCZcZH3GRs8Fyc0ivRd9rOk+WZI0GPqcPxF
+	 icROupolpxboqBAL8XVZpM/AJ2zduVBzMf3cAX3WiyFN3hOSIQaQKjXtF67PwVo4bk
+	 RnJDUjc973C8w==
+Date: Mon, 15 Jun 2026 00:24:47 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: linux-kernel-dev@aliel.fr
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Beniamino Galvani <b.galvani@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v7 2/8] dt-bindings: i2c: amlogic: Add compatible for T7
+ SOC
+Message-ID: <ai8qCJ89VzH7YaNL@zenone.zhora.eu>
+References: <20260603-add-mcu-fan-khadas-vim4-v7-0-594ba8a965d8@aliel.fr>
+ <20260603-add-mcu-fan-khadas-vim4-v7-2-594ba8a965d8@aliel.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADkSEUjsS8bOXDhgZ2EW40xifDZ-pk5y=YqyWT-+vQNd8JikUw@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_151415_127765_387CD7DA 
-X-CRM114-Status: GOOD (  13.29  )
+In-Reply-To: <20260603-add-mcu-fan-khadas-vim4-v7-2-594ba8a965d8@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +77,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 13, 2026 at 06:50:40PM -0700, Ethan Nelson-Moore wrote:
-> On Mon, May 25, 2026 at 1:18 AM Linus Walleij <linusw@kernel.org> wrote:
-> > Looks correct to me.
-> > Reviewed-by: Linus Walleij <linusw@kernel.org>
-> >
-> > Please put this into Russell's patch tracker!
+Hi Ronald,
+
+On Wed, Jun 03, 2026 at 08:05:24PM +0200, Ronald Claveau via B4 Relay wrote:
+> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > 
-> Done!
+> Add the T7 SOC compatible which fallback to AXG compatible.
 > 
-> https://www.arm.linux.org.uk/developer/patches/viewpatch.php?id=9477/1
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Should be s/arm\./arm/
+Acked-by: Andi Shyti <andi.shyti@kernel.org>
 
-Also, you can use:
-
-Link: https://lore.kernel.org/all/CAD++jL=0qYGoygUwGEXQL7C_ROnC7kfpRv8RA+H5tNWwYu+pQA@mail.gmail.com/
-
-in the attributions in the commit message to indicate where more
-patch context can be found.
-
-Lastly, too late for v7.1 as a fix, I already sent the pull request
-for that, sorry.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks,
+Andi
 
