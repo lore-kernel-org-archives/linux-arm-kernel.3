@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54F8CD98D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 08:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303E5CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 08:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuFCWVB426Kzg7aDhxtI+gq3b38s6oLNCDY46FNMzIs=; b=ni9nZ2bBVN/Kv46cAR6LkN4HB1
-	MHiXcGaFfwVv4BT6BUtkvZPLeO6zLAC3ZgAp4Cv39H2v22yc2tdx06F/n0AnD+wWefQmqV6HHuwCj
-	d7dxPlJ8b16NvmZAgGjZMclCmjzH/IP7OJaAGGgUYUP2XCF4twAIB3w+nq+Dalv2WlQdk+tcDHNJN
-	3JDHW16e1bhTedfnrrQaBdpV7od7fPpYZmfDrZxCQ0OvF0M/1YYfkExQik38jXRI/7SOHPerh9hwl
-	F1c1o1dT+QUB2G7kyMzN1wcBPwKLpUvPXqNU+nY7pf4SaqlVUBgEzWMNpPaniWb+xO2FbBRsz+c9I
-	uWJsWoAA==;
+	bh=6BsbZwfZNV4qPPi4CXgdcpJbR4FJNEYIPAmx8W44Sls=; b=P5IuVliXNhzm0VKNKUImS0dF+v
+	sjkVCFZ6JxDDElXVbvsq534Xs2y8fjfTLGQhOb/HX0XXbfizUVapvb8p3xW6TpNlafpXpJjpNV3fj
+	SJ9ir6zL7wKdchWjMEdTHoHN7uCrkZnNgNNYgR5RYXJguozLxl9yzx3kCyw4I8HMEdLP3eRF7N6Ur
+	XgNcVn7aUuDMB8AtP2ezLPw3hwDNx3idzvw+OmTP7Jqo0fJmcQAOJkk9DM8M4+rtYKG0Qjbk30hpj
+	m2dFaHm5YUREbi3S6YoA/ivAsdJrvwUxttrcVXFliHET59Jzt4NC6zDvmW3zRzq313nKavyf2JwIC
+	L0bxqbZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYg1f-0000000Cot9-2htm;
-	Sun, 14 Jun 2026 08:17:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wYfum-0000000Cobg-1wxl;
+	Sun, 14 Jun 2026 08:09:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYg1e-0000000Cosw-0by3;
-	Sun, 14 Jun 2026 08:17:02 +0000
+	id 1wYfuk-0000000CobX-34e8;
+	Sun, 14 Jun 2026 08:09:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B28D6008A;
-	Sun, 14 Jun 2026 08:17:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9232E1F000E9;
-	Sun, 14 Jun 2026 08:17:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D75D43405;
+	Sun, 14 Jun 2026 08:09:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D53971F000E9;
+	Sun, 14 Jun 2026 08:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781425020;
-	bh=kuFCWVB426Kzg7aDhxtI+gq3b38s6oLNCDY46FNMzIs=;
+	s=k20260515; t=1781424591;
+	bh=6BsbZwfZNV4qPPi4CXgdcpJbR4FJNEYIPAmx8W44Sls=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=g3dJK+QQiIJ/R6pfAJSQShczhFQz1HRk4taNVoov5l1qOpsUQ9+v7335+qBVn8g+t
-	 bgeELe2bcKj7U8Tdo1OdI7L/LqRm/KIlidjEd2Y9LtoJ79XQbqHPIY2QUI5g3JzSYN
-	 vDJPDjoGI0G2Y6r/SIwAQz2IZasWKImutBDwAbVSyTBRnwMoBvKetqpXme7pMBSJFH
-	 zg3RhqEfDM1nBxg9GDV8ofaXtLszPZSh8+PU+mmwvbeIIG3JUzoWdWuFFRLns+xznI
-	 Z3/1Z3x09Lq1i9GuEF0FE1PU4XSpT2pk9KJvpxRnCvJ+YKVNV3xgxnfik/Oon6nPFl
-	 rcf0+lAHg02hw==
-Date: Sun, 14 Jun 2026 10:16:58 +0200
+	b=PI+XcZBdThtyTLGvfKqWZH3YEgYuEwXy5bZ9WLjLhJx8chGn+7JmYa/JEpCnu6J8c
+	 lR6gcaG4DCAMGf0JF5RcZv2juqNo5CR79HD2fdcf7OtA42j774Kxy2WzAqqmh2PvdQ
+	 3LfwVsv954g/IWlsOT8ssC/6ReBy/wNb/jIGrxK9hE+lxyMldJ1FsQNFq4iQQ9SDzh
+	 SutyimnvvXWeuks69R1W9wPZexFuTofaU2BOYusGMr0896BmVcrRBcOJr+v+98CEaO
+	 t2ki9j6OC0PZU5Ca9bdvEwadD0yahF5EXsEj0MFpZYaHj3lu9oXWLf0NhsA16AV5tx
+	 HGdGGUhUtZ8jQ==
+Date: Sun, 14 Jun 2026 10:09:48 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
 To: "Wayen.Yan" <win847@gmail.com>
 Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
@@ -49,14 +49,15 @@ Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
 	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] net: airoha: Remove dead MT7996 NPU firmware declarations
-Message-ID: <ai5jeubrGN1iMgHo@lore-desk>
-References: <6a2dea77.01c4f138.336eeb.a256@mx.google.com>
+Subject: Re: [PATCH] net: airoha: Fix skb->priority underflow in
+ airoha_dev_select_queue()
+Message-ID: <ai5hzG8knT0xVEu6@lore-desk>
+References: <6a2de8c5.2c570c9e.53b1a.0e1b@mx.google.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VFcFtyNt1TMkbinK"
+	protocol="application/pgp-signature"; boundary="gewW9LJ9Yc0z9m/c"
 Content-Disposition: inline
-In-Reply-To: <6a2dea77.01c4f138.336eeb.a256@mx.google.com>
+In-Reply-To: <6a2de8c5.2c570c9e.53b1a.0e1b@mx.google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,98 +73,67 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---VFcFtyNt1TMkbinK
+--gewW9LJ9Yc0z9m/c
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-> Remove the NPU_EN7581_7996_FIRMWARE_DATA/RV32 #define macros and
-> their corresponding MODULE_FIRMWARE() declarations. Neither the
-> en7581_npu_soc_data nor the an7583_npu_soc_data references these
-> firmware names, and no firmware loading path in the driver ever
-> requests them. The only references are the #define lines themselves
-> and the MODULE_FIRMWARE() declarations below.
+> In airoha_dev_select_queue(), the expression:
 >=20
-> Keeping dead MODULE_FIRMWARE entries causes modprobe/udev to attempt
-> pre-loading non-existent firmware files, generating kernel log noise
-> and misleading distributors about which firmware files to package.
+>   queue =3D (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES;
 >=20
-> Fixes: 23290c7bc190 ("net: airoha: Introduce Airoha NPU support")
+> implicitly converts to unsigned arithmetic: when skb->priority is 0
+> (the default for unclassified traffic), (0u - 1u) wraps to UINT_MAX,
+> and UINT_MAX % 8 =3D 7, routing default best-effort packets to the
+> highest-priority QoS queue. This causes QoS inversion where the
+> majority of traffic on a PON gateway starves actual high-priority
+> flows (VoIP, gaming, etc.).
+>=20
+> Fix by guarding the subtraction: when priority is 0, map to queue 0
+> (lowest priority), otherwise apply the original (priority - 1) % 8
+> mapping.
+>=20
+> Fixes: 2b288b81560b ("net: airoha: Introduce ndo_select_queue callback")
 > Signed-off-by: Wayen <win847@gmail.com>
 
-Please drop this patch since EN7581_7996 firmware is defined via dts
-for 7581:
-
-commit 3847173525e307ebcd23bd4863da943ea78b0057
-Author: Lorenzo Bianconi <lorenzo@kernel.org>
-Date:   Tue Jan 20 11:17:18 2026 +0100
-
-    net: airoha: npu: Add the capability to read firmware names from dts
-   =20
-    Introduce the capability to read the firmware binary names from device-=
-tree
-    using the firmware-name property if available.
-    This patch is needed because NPU firmware binaries are board specific s=
-ince
-    they depend on the MediaTek WiFi chip used on the board (e.g. MT7996 or
-    MT7992) and the WiFi chip version info is not available in the NPU driv=
-er.
-    This is a preliminary patch to enable MT76 NPU offloading if the Airoha=
- SoC
-    is equipped with MT7996 (Eagle) WiFi chipset.
-
-https://github.com/openwrt/openwrt/blob/main/target/linux/airoha/dts/an7581=
--npu-mt7996.dtsi
-
-and here these macros are used to notify userspace for firmware loading.
-
-Regards,
-Lorenzo
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
 > ---
->  drivers/net/ethernet/airoha/airoha_npu.c | 4 ----
->  1 file changed, 4 deletions(-)
+>  drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
-net/airoha/airoha_npu.c
-> index 17dbdc8325..93095f3894 100644
-> --- a/drivers/net/ethernet/airoha/airoha_npu.c
-> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
-> @@ -16,8 +16,6 @@
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 31cdb11cd7..d476ef83c3 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1933,7 +1933,7 @@ static u16 airoha_dev_select_queue(struct net_devic=
+e *dev, struct sk_buff *skb,
+>  	 */
+>  	channel =3D netdev_uses_dsa(dev) ? skb_get_queue_mapping(skb) : port->i=
+d;
+>  	channel =3D channel % AIROHA_NUM_QOS_CHANNELS;
+> -	queue =3D (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES; /* QoS queue */
+> +	queue =3D skb->priority ? (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES :=
+ 0;
+>  	queue =3D channel * AIROHA_NUM_QOS_QUEUES + queue;
 > =20
->  #define NPU_EN7581_FIRMWARE_DATA		"airoha/en7581_npu_data.bin"
->  #define NPU_EN7581_FIRMWARE_RV32		"airoha/en7581_npu_rv32.bin"
-> -#define NPU_EN7581_7996_FIRMWARE_DATA		"airoha/en7581_MT7996_npu_data.bi=
-n"
-> -#define NPU_EN7581_7996_FIRMWARE_RV32		"airoha/en7581_MT7996_npu_rv32.bi=
-n"
->  #define NPU_AN7583_FIRMWARE_DATA		"airoha/an7583_npu_data.bin"
->  #define NPU_AN7583_FIRMWARE_RV32		"airoha/an7583_npu_rv32.bin"
->  #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
-> @@ -822,8 +820,6 @@ module_platform_driver(airoha_npu_driver);
-> =20
->  MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_DATA);
->  MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_RV32);
-> -MODULE_FIRMWARE(NPU_EN7581_7996_FIRMWARE_DATA);
-> -MODULE_FIRMWARE(NPU_EN7581_7996_FIRMWARE_RV32);
->  MODULE_FIRMWARE(NPU_AN7583_FIRMWARE_DATA);
->  MODULE_FIRMWARE(NPU_AN7583_FIRMWARE_RV32);
->  MODULE_LICENSE("GPL");
+>  	return queue < dev->num_tx_queues ? queue : 0;
 > --=20
 > 2.51.0
 >=20
 >=20
 
---VFcFtyNt1TMkbinK
+--gewW9LJ9Yc0z9m/c
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCai5jegAKCRA6cBh0uS2t
-rCZWAQDu7IbS3lUX4tiezcJcZUn2Vmnen2mw6vP0GQWec0CDXwD/SwRxiFKqJ5om
-MZ+MOgEjSVMNa8CZl2ZANR4iDqBVtwU=
-=jB5j
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCai5hzAAKCRA6cBh0uS2t
+rEW4AQDgDl+fmWFCDiFdPQD/bxbm1gZCWL62t9HyYgsUbdaSngD8Cbcyxxum1E3r
+ttz6ZZwzymUojIGQfi+SAmQN2pIR1QA=
+=7neh
 -----END PGP SIGNATURE-----
 
---VFcFtyNt1TMkbinK--
+--gewW9LJ9Yc0z9m/c--
 
