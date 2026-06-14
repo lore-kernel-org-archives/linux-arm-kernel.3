@@ -4,94 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30ECCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 13:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21DDACD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 13:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0G8s6U5ZRStGQ6EJ0KRueHdqdQXBK9+8RF1gLCcr2Ew=; b=2fjB+vcxv3h5IsmP62eSV7O1ls
-	rdGfNp/9zPIQPmdlJ7K24oDc4J8owDE2mMOW7xKTnRHmjiAdSSnjN/W611255MPGFuyMiapsV5vPw
-	Rl26TVP6AojaXbSLbG0NLmY3DaBE+jVJJIh5gLEbhcrh155evbfZdZ3tGbz+rXh+vQdSnGSY0xg01
-	UJd3doWYxMa8wusKGAVMK4IqZEPhM30oglIJIMYawTNBTWVaJ2twBsDXZjyiinvmMNQV4DNTutijM
-	HnnhN5CKTUvLW+L28jtI201SkhzDXlYjltXhYOhm/t5tgpGJfvV8zfrv39ehamTFwajBUI2SFDcmq
-	TT4zWLxw==;
+	bh=5Ofr44S+ZyNvvuzy/mGDum3FtpyF4ahy6qr2J/oI/HI=; b=KSLiwXj4ZjVHdMi2zw3HzxgRiI
+	S1olvNYM/R9C3yb7Ulm5tbWaV7Te9IDjHEwZDIHVVWybf+/hcgsJqB7CNALBu9HWck7VOx4pJ1L/c
+	wl9Ggm5kZkrSGZsE7/3e8eNp1RxCPyObl9FGDfrh/XSwFvPIMijESge0cIeolxDIljeR8il87p0Lj
+	VLigrBm4G7Xuis/eQjWkqTPyZnFxiZcMDRJgxJfYcxP49so6CuM2jM2t5iYYeZBlm4H9ZOYCnvYGh
+	yiGXNEogdtqwyKW/03D8wcmkJybZ8mIUDtfWirOUYFNzSzdyQX3jwdTXnse06RizqwwxMAmjNb4yI
+	mUcdcVpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYl0V-0000000D2qC-0Ukc;
-	Sun, 14 Jun 2026 13:36:11 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wYl4S-0000000D33n-3OgA;
+	Sun, 14 Jun 2026 13:40:16 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYl0S-0000000D2pd-2FdF
+	id 1wYl4R-0000000D33S-00Ie
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 13:36:09 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490bb83a3f6so18626575e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 06:36:07 -0700 (PDT)
+	Sun, 14 Jun 2026 13:40:16 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-5177d1ff061so518051cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 06:40:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781444413; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bvqAYdjWMk7WABj0iDYVrrbnm8Zirs4U+NUWEIT+wL4GtHGUmO6FEMXldRHl9DmGRD
+         vvJtYw2HGFCjsBQNzhCqQauzUDnumIwaZ9S8qmdQTkKxk/GzCHAoYNGJk8y6BOOfqYTw
+         SpPFI13k9HbixmIleQS30ZrpJsR1oXfr3jr27sqV62DZdXvpw7xo/bn467eTo60s0rKg
+         D3MyyyuyjEAZ0Y9TALRy+7G6FRc0cMcJqZP5F6kW9bxLPlcJtyv9wbXoTl3kCUaXuAtP
+         kUjcDuy4mVqY5owsnAaHCqK168IUP4lI9dL7yD5AtE6Nsqyc2Ssbl+bU26PISAXebG8S
+         9nzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5Ofr44S+ZyNvvuzy/mGDum3FtpyF4ahy6qr2J/oI/HI=;
+        fh=/USbCE9Btx+5T1FeHPeRUX5OFN3GWPnt4wcQOFDvnRA=;
+        b=h3IzzQXekq/4UIeqOq5BQJDVysE/oU/BTUH+UkOy92ko0ryk6GJdKj7KqtcxXR8xfT
+         NOvNrpwYx+PFxQodJfy/i8/jvyE99JTKcNCGPDIy/b/H7pgvOwULzhXyeILwhjUgYJDQ
+         uSVEa2M1XUn60tHJSRiVNxR3NB7gTirSdrUdkIf6vD/O2D80uS3XeEmBI+UVrFcVFw8r
+         2/HocHO0wvRXfk2LDlU2LZP6DgpZJi0XMlbRNkpGG8TaWYV/QD5yaBTONHU7CjjSm0u4
+         hCZa7Qn2vBPbpms3RX1lGENEqvEASMZLdXo7a+jdneEBZTdAmOmoDIXVguWLEdjbuiIu
+         b5+Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781444166; x=1782048966; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0G8s6U5ZRStGQ6EJ0KRueHdqdQXBK9+8RF1gLCcr2Ew=;
-        b=LeXvbY9F0uhXPogw16fuzd0mmGM2DeYTaltf+UUrHFP86TX4u/SeqawAdsHjABeP/R
-         w5OvNsC1rzpIyslDk7rvKvWjFA+/S3upslLZmxTiuH2o1oh0hz6ugADEZKVVoaEDGMOl
-         Vo3Du+ctkrtrt9kR9wDGG8hTBtd4DWwhR/+h+zsx7VeKL4ASwVGoT/RPB8rhk7Wr6Qep
-         +iXWRok86S/u3dVWZF1owNQY0EatRaqJCoEv/3ijzx9lKguuno9A/SXT0qRcmaMLbQm4
-         ROjolquE8tOJ4+efr4Og6YE+Ph48CfwkeK0zwFAOHfjFfZhG+92C2VSGRprpZ0cZvVAu
-         dItA==
+        d=google.com; s=20251104; t=1781444413; x=1782049213; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=5Ofr44S+ZyNvvuzy/mGDum3FtpyF4ahy6qr2J/oI/HI=;
+        b=QOEHOYXvpA+OeuUAjKwN6f06uPn6kburytMXLP3OuMGopSvZHGO2WQ/cYColSUFJv2
+         1Khrow4Z/iJz6wUVArCNY/mVwpPo0P39VG6E+tnnh20i8w8dtaQQg1euxz1zc8jjhsws
+         Se98hET89kq6b5sZK0OWuBfOo5UTk/cs7RXi2v3gAPJaaT9fe8cmKuj0z11Jqay56uZh
+         uBaOOFDwmq3+lVllzVmy7Cpjw/MdUBRRFzJsJ++n2WMvf56Hf/aEC78wk2mMT2MrnlTY
+         vkJGKrosJNn68i/QXBCgH7EPmGd1NacLql9mN9/5SaGlri28dlYu+q8UTqDTGuQJw9fA
+         VDJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781444166; x=1782048966;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0G8s6U5ZRStGQ6EJ0KRueHdqdQXBK9+8RF1gLCcr2Ew=;
-        b=ifkAk67AgM0H+j4bi5LZUJMawqtFlBse6mQQSfk8p8DT2/T3oYXjHoqB4HCAQb+C0J
-         NcQnDNsT4AWxV7OYahp8D6xRGEhMQ6JN1cXwZsE0lhgXC+42jDwJOEqTU0fXL6Duk6Iv
-         2zpoBv7rJY8rdqEuDs2/8qw66mIjLMlk4dYtSIMZj/qwfBQnjR8E1H4hovCLnXknwaxo
-         K4u91sGQ7NpNjQMdTRW8kh2kKz9g4fMMXr2ooqx56qsaQMg2AvVc5g0zqKzJAzPZk234
-         wNsisdA90f8jah7rteu3X/D4MjAkIAaMOh7ouArMJV3ADUqn3dsVgTbiyTH0W3EuAvzp
-         DLEA==
-X-Forwarded-Encrypted: i=1; AFNElJ+ExSec1d3TVjvS3gXQPxp1Ozuqwcdgqbez0qutFpNFe/15hqgmyozeXCZgBxgptKtz25mGIRDfSGQAUPZtEMf4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhPiO8P5KGyYS5D0Z+gdtijPZ7SKk7lL6yUXin6eLPwYlNQskS
-	owdroMXc8TgROaCyC9Y1klkxV+IFJvMT5s6IUo5Vws7CTIHsHcPjtnTI
-X-Gm-Gg: Acq92OHEMqN7Z/pTe8mlLJ1CHlUR93nBRvO/GBJOs1nFX37Mud3pgTWchjVoa/6bsL6
-	R23KtryV2QBe/Kn9pshIoc5bgGE6g/h+7RBambG1LfWvvuRAXFU0Y4sXDvnzrUrejKoz4kP//5X
-	Ge7W64B54h09ztYSZ1HpIeQ3uPCOciZMn3QvFcLAsRETYaLZfgPfIjjI0NoATMJixhCyHVIDHEV
-	q3pwfCmNLmmp2+bdk1jEZy8Ale5vHS91icLQYYBuh43dYlY189yA/vtGxkNy7qr9RpVYK+3Llov
-	7QCjr74+zyUvOtXb6Nxb8x/9x5OgBDwK9jMZHrWrBjp6ZpZo74YR0EWy5FhO7OdbQmLTaZKibQe
-	4SGKgaaPtrbA6c3AgLj/fLIQ6VuMlft9Ui065lEztkjcwDjfYuCgl6fBGAyJ835aTux/aYnaogM
-	SVH+xG31T0NxadodAp2pDbPk+oDuM0DzudpN36bIYZIIKD
-X-Received: by 2002:a05:600c:58d5:b0:490:c2a2:e91e with SMTP id 5b1f17b1804b1-490ec523a8amr94122335e9.34.1781444165973;
-        Sun, 14 Jun 2026 06:36:05 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea9520f9sm148794265e9.1.2026.06.14.06.36.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Jun 2026 06:36:05 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: wens@kernel.org
-Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-media@vger.kernel.org,
- linux-staging@lists.linux.dev, devicetree@vger.kernel.org,
- linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/7] drivers: staging: media: sunxi: cedrus: add H616 variant
-Date: Sun, 14 Jun 2026 15:36:03 +0200
-Message-ID: <XYko-1bVTYuJiQeSr0cTOA@gmail.com>
-In-Reply-To: <CAGb2v677Pi9s3eWC7aXh8j=+eJh7AV5Mucr7SDXMN9Lo8yA2nA@mail.gmail.com>
-References: <20260505134812.408316-1-wens@kernel.org> <L1ZJMTqKQbak6NcKbwFkDg@gmail.com>
- <CAGb2v677Pi9s3eWC7aXh8j=+eJh7AV5Mucr7SDXMN9Lo8yA2nA@mail.gmail.com>
+        d=1e100.net; s=20251104; t=1781444413; x=1782049213;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5Ofr44S+ZyNvvuzy/mGDum3FtpyF4ahy6qr2J/oI/HI=;
+        b=D7Y9TxZwVcJ8cQKtpiQnSAEvKaz33dl9I4Dys6zPXIv51aW3qPcTYHfHo4pajGwOUT
+         HOUEHo+9nOqCqxhQBSwNHF5yOhXFyT7UuWIg8qZ6wY0w8GMUykuwtKR2kAyPgtePW+CZ
+         CMwSNAJErhQ06XHfSQKMPE+FL6j00Q7bnjHb2KZy+Hvc5iy1HkXbMJBavfD0epjRxn1N
+         maUB4qfgRUDd9oifS6a5EzdjVZe2KFLY/mACDD9rvK6rxV3nQ9yN9WNswo2izXJ+OHcv
+         TqQUp/Zuwl6ld+SZM+pQpvUNdJvGFzh7CBIwycOTQu3fcM8+ROezEp0ODd/2wbhr7dy/
+         p4kw==
+X-Forwarded-Encrypted: i=1; AFNElJ9gR0GrF6CtIZTB0Zm5E+bphEpKzj0G3NAF8MyVTPqrGX3a3yYZtwyw3z1nlIh+zNswCbHccfaWRh6rKZ2GTNep@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmOlXXDBZfnJHDesnp3Vgn840UJfSGU4GN/zn0iRHdZRmNYLZ0
+	weaHe7bTQ+RXiT5GsCRFC5S0bo9qCrqKc9MSkoEUqx7a2rsTNZ58LQIthsknJbP9RQjoxn2Mq1g
+	uvpgti6rx/nNc0iCWVuP091wiEG4EY8E8yLOEtoIm
+X-Gm-Gg: Acq92OF9HNiCCPYDvXi2ImJE2oH4uGFCLNSoGzu10oLjvy/t6fYLfdDb8lXkXet7jNu
+	l5ZdzLsvqSoh0exhybH7aAiBVJAZmocLNvC9LaPVS8LgzEmhsuFvPQhqwruVDF5iPUrqOVoTuA0
+	6ToT4gmWoAXtgVdH5ynBEB6gaVYNAOceG64XNnJ5hmO6xFXQd5DKUqET9B52A+hT3+QUliaQlgW
+	lXEqKeN2pACOmVwtQeO7pu+yJeSlxbz2JcdXWHaQEJjfboFiG3lu2wqrejA9TSuwbD2iwtbt861
+	/9AXMPu+
+X-Received: by 2002:a05:622a:aa85:20b0:519:56a8:2693 with SMTP id
+ d75a77b69052e-51956a836d2mr5146941cf.24.1781444407310; Sun, 14 Jun 2026
+ 06:40:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+References: <20260612142245.1015744-1-vdonnefort@google.com> <20260612142245.1015744-2-vdonnefort@google.com>
+In-Reply-To: <20260612142245.1015744-2-vdonnefort@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Sun, 14 Jun 2026 14:39:30 +0100
+X-Gm-Features: AVVi8CflkMLWEmJ-bRb05G8DCa-vXiyFOZ98Tj68-B2uYheEBh2bKJRUC_TcnVk
+Message-ID: <CA+EHjTwSU67aNdgWvgR3ZGSB07Hu7wt4rUBkVGhrhoHKa_S1vw@mail.gmail.com>
+Subject: Re: [PATCH v1 1/4] KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_063608_615838_D8A007D1 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20260614_064015_076011_92CC8615 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,88 +116,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 13. junij 2026 ob 16:34:00 Srednjeevropski poletni =C4=8Das je =
-Chen-Yu Tsai napisal(a):
-> On Sat, Jun 13, 2026 at 6:33=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrab=
-ec@gmail.com> wrote:
-> >
-> > Dne sobota, 30. maj 2026 ob 18:43:05 Srednjeevropski poletni =C4=8Das j=
-e Chen-Yu Tsai napisal(a):
-> > > On Tue, May 5, 2026 at 7:18=E2=80=AFPM Jernej =C5=A0krabec <jernej.sk=
-rabec@gmail.com> wrote:
-> > > >
-> > > > Dne torek, 5. maj 2026 ob 15:48:08 Srednjeevropski poletni =C4=8Das=
- je Chen-Yu Tsai napisal(a):
-> > > > > The Allwinner H616 SoC has a video engine hardware block like the=
- one
-> > > > > found on previous generations such as the H6. In addition to the
-> > > > > currently supported features of the H6, it is also supposed to in=
-clude
-> > > >
-> > > > Remove "supposed".
-> > >
-> > > I can't actually verify that, so "supposed" is accurate from my point=
- of
-> > > view.
-> >
-> > Isn't info from manual good enough?
->=20
-> The manual says the SoC supports it. Same was said for the H6. Then
-> we discovered that the VP9 decoder was a separate Hantro block.
->=20
-> So again, *I* cannot claim in the commit message that the hardware
-> block supports VP9 decoding, because I have not verified it.
->=20
-> > In the interest of unblocking this, I would be fine with "supposed" too,
-> > but manual and all my experiments show VP9 is supported.
->=20
-> Please give an ack or reviewed-by with a comment at the end stating
-> VP9 verified.
+On Fri, 12 Jun 2026 at 15:22, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> The hypervisor tracing for pKVM relies on the __pkvm_host_share_hyp and
+> __pkvm_host_unshare_hyp HVCs. In order to start tracing as early as
+> possible, allow those two HVCs before the host is deprivileged.
+>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Well, just go with original text.
-=20
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+To my good friend Sashiko:
+https://lore.kernel.org/all/20260529121755.2923500-1-tabba@google.com/
 
-Best regards,
-Jernej
+The hyp_trace_load() issue seems legit though.
 
->=20
->=20
-> Thanks
-> ChenYu
->=20
->=20
-> > Best regards,
-> > Jernej
-> >
-> > >
-> > > ChenYu
-> > >
-> > > > > a VP9 decoder. However software support for this is currently mis=
-sing
-> > > > > and still needs to be reverse engineered from the vendor BSP.
-> > > > >
-> > > > > Add the compatible for the H616 variant, using the H6 variant dat=
-a.
-> > > > >
-> > > > > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> > > >
-> > > > With that:
-> > > > Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > > >
-> > > > Best regards,
-> > > > Jernej
-> > > >
-> > > >
-> > >
-> >
-> >
-> >
-> >
-> >
->=20
+As for this patch itself:
+
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
+/fuad
 
 
-
-
+>
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 043495f7fc78..fb049c40d04f 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -89,12 +89,12 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+>         __KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+>         __KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+> +       __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+> +       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+>
+>         MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
+>
+>         /* Hypercalls that are available only when pKVM has finalised. */
+> -       __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+> -       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_donate_guest,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 06db299c37a8..f0c52667cf52 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -721,9 +721,9 @@ static const hcall_t host_hcall[] = {
+>         HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+>         HANDLE_FUNC(__vgic_v5_save_apr),
+>         HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+> -
+>         HANDLE_FUNC(__pkvm_host_share_hyp),
+>         HANDLE_FUNC(__pkvm_host_unshare_hyp),
+> +
+>         HANDLE_FUNC(__pkvm_host_donate_guest),
+>         HANDLE_FUNC(__pkvm_host_share_guest),
+>         HANDLE_FUNC(__pkvm_host_unshare_guest),
+> --
+> 2.54.0.1136.gdb2ca164c4-goog
+>
 
