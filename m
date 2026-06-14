@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9BCCD98DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 16:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7AC0CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 16:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tv4trLugC2C4NI3RAbn0dCrrthQRiHhpJKIFLbS3QSY=; b=WASiM9MCotm37Qte8njzrA1Fyj
-	rnZXDIm8CDAiVMgvUyNoffretcE4+wdvsBooomfimf4w9MjFmz5dG79hmC3WjRyqactPPKZT6jcSs
-	wsBvacOb0arMqtW7qnpTcYDlj5O97sipN+ii/C9shYh1oYXr8mF2I+Y6BcSG75aqr4PaJiGoOxDYM
-	23YxU5qGPlQ3Je/UL/dFENzXBCKVq8JzShPKryS2CRgAvKcsX01TRBKupvoeQTONHeRx3AIp+8rDN
-	TvFUVM2benPbzBugAtH3g9jpdqr2zugUxeT0vvoi0syTo4xvgvq0bxRp/Fex8rqwZrbOLop4hU/Jh
-	pZ7SnVWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QY5Ip+P8KRx1IM1Wpd7OwQvhD0XfR0winv2zlXLefIQ=; b=2DosCyFhTja1WtxmdxRvWM/on8
+	jjbWsvsKpbs8RFTEQRaHMpHo+Mj6lCaTtu/JvucklUaWGK7YA8l+HnAHESjn1QlwA3mb/nqGUlQir
+	xSlhjLSJlj+ejb+H8sgOB8SPF+wh+Ym/+i62y1asZT05eznjcHW5JASpcOZK36lh4pLJaiTddQkEn
+	pwfJuc3xn06JBKICw1HUUFU4BjfNuDTjbxTG7qvhbUFulxHcThbAX0hncJ3yjUHUWC/zk0aWECEW/
+	XVYkd4vrmlBMcDrSzsbwIz0B39N7lPuWJEzsdGW1oK6hB30tCTXo9Ab6VvAHk6Q7cdxL1x9TW8I6D
+	HrRx+pUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYnmV-0000000DAox-40f9;
-	Sun, 14 Jun 2026 16:33:55 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1wYo93-0000000DCA8-35po;
+	Sun, 14 Jun 2026 16:57:13 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYnmN-0000000DAjT-49qN
+	id 1wYo91-0000000DC9I-2xdm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 16:33:49 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490bae3a39bso23205085e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 09:33:46 -0700 (PDT)
+	Sun, 14 Jun 2026 16:57:12 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c0c32f6ce1so16998455ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 09:57:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781454826; x=1782059626; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tv4trLugC2C4NI3RAbn0dCrrthQRiHhpJKIFLbS3QSY=;
-        b=ojfu7uMriBcwpIincjMgyWbg10Syk6Z0L4wTvhmaHQpw1AVvVU9BeqOGmjRjjEpAO4
-         97VU3QkZCN1M2szrKAGSgOtgt+NY5DNGeYCi7MPlM47406RMxYLyFBE/t8tTKXKej5Sh
-         2YSvCLjHh08jmL6F9ReQ6ftUH1tsYLsZe332840OvCpBJcVmo6VT1x82eJPTA64WMGN2
-         7Vxlbwv/vO03RhHCjjAqa2It00qOcQ4jGocglVwde6D5aj0CWqWgbWDtF33y3558tCLa
-         9hPFM+cYTGDymj6Qsvw7ORXYPcLObghNP1N+cMOBfkrDZSlyLpLf7Ct2mUPPiKvLtp8s
-         5/wA==
+        d=gmail.com; s=20251104; t=1781456231; x=1782061031; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QY5Ip+P8KRx1IM1Wpd7OwQvhD0XfR0winv2zlXLefIQ=;
+        b=ls9uciqmI3GR5GcuU7MHP/EMsKQBRZHG6M/vIv/NDSZNabcenQJ08voeJy8FYOJrRG
+         tFa5ySujznwl6LO3i5uJ0GngzLdHwop3M4Twi0hYJxN8ObW4Oi6nXbfFz1zlehVITr63
+         UUSrhl2eCRXwIydF3SZVU55N4MGLIPXgiQvTHM6ONCF9fcZBr3qUsBLGwP/0VT4zjEGQ
+         CENzjYnhWJ5NcPE7SMWwDfbJYECXXnLv3+ZK/yzevtXPSzZM5be3p4UgFd3WSy0cKT+C
+         NBKYl5nn5V/wHM9jLvbLZLKt+3eOVykt+DHnbPZ5xoJdE/OAXRAtxoT/FdDk1ocMcyUd
+         4R2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781454826; x=1782059626;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tv4trLugC2C4NI3RAbn0dCrrthQRiHhpJKIFLbS3QSY=;
-        b=UP9hjHrPwGPUo4pyw+VfoerwDaONxrIlqx4+Sq6YRRt96DJ0LuX1859j/dT2tnx5RA
-         onD9rucHXsVQsFoiiY+Zow97/ZdXhQFJOoa+ZjNb65YAnZ8RmcnzpvLHrUBSxUwQK155
-         kRatTB75zFiVApLYw1JlKj/cNVmSPvy1gFfWOnxPxeMOc8TEAN0cBsQ2asmD5ib4WjmG
-         gTupQNWMJ75OLlE8hUshwHcsf44seNblPKJ6EeyGZXVFA0YkuHNHN8d7plK7XzE9Y5nG
-         wIst/BHfISNwGwrMEzZpN0zZa08q6xnEkJhHKJy7M6NCeXmx8byBiNfhql7qv3uyMKXM
-         8KdA==
-X-Forwarded-Encrypted: i=1; AFNElJ/A6Bjn85c9BSM4u/LAj8OdsWA1OL8Wd986YRbaqHilnVhl2mFlJBRIqKV77aaprzovn5PcEmGem43O50GoeJmb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFC+3iz8xsdXyC45ibN/3l6wcPFMknlgRCD5I/z9l+/8KHR0i4
-	t/mxfFQZeF/JQulnMpCjfukW1YhoixL+OHLZpWr4yaxlF8eTj45mrMvM9hULSlkpfWK2VACQTQ5
-	TWQ==
-X-Received: from wmjq15.prod.google.com ([2002:a7b:ce8f:0:b0:490:7e29:9cea])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600d:8494:10b0:490:c7dd:de3e
- with SMTP id 5b1f17b1804b1-490ec521187mr96160565e9.31.1781454825642; Sun, 14
- Jun 2026 09:33:45 -0700 (PDT)
-Date: Sun, 14 Jun 2026 17:33:36 +0100
-In-Reply-To: <20260614163336.3490925-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20260614163336.3490925-1-tabba@google.com>
-X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260614163336.3490925-8-tabba@google.com>
-Subject: [PATCH 7/7] KVM: arm64: Set IL in fake ESR for pKVM memory sharing exit
-From: Fuad Tabba <tabba@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+        d=1e100.net; s=20251104; t=1781456231; x=1782061031;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QY5Ip+P8KRx1IM1Wpd7OwQvhD0XfR0winv2zlXLefIQ=;
+        b=EUMsr6OP+QZWFIiZ4UieGzA6m+HVERUbWd7jupIUWBQLlV2yw9IZO+dr0N49QgZ78G
+         Eq1X9MjWF8tOVDEh4+3BA/oUXbJ0/ClHPdNBKh1KOo2+fap6VMi5LCUt/6X0TrqtHI5m
+         eNsLGEBpwx06maa5q7rMAfxuErPKFgGo97qJQbLr1kYEckbtUmo9JXHYFu7OQ+g1Y1yU
+         bUqcRJLU1WGQ4uvoiD6Uq1ZP3g1y73tagTHkbPR2ZzOZ2kM0A03Bcgjmy7a2sg4cv8XV
+         zPZTL/tJ2R+nNv0oH0YUvQa+WRmbzBWRWBk32/MF1OcRs8FVPYB2m7qApP9PFdFfkvfx
+         xo2w==
+X-Forwarded-Encrypted: i=1; AFNElJ8ygVaoQqvUdcH08qztrrMDL2ERerDZ9XMsneeJG6NjpcVqgDxLW4JQpYlIq9b9uIAW/kdEsY1t1pJNasf6ZF9G@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpSPw46qJ6B//9z+Dsc/g0N9b6MQxVyD2ltB+2QtFhawU9/z6G
+	VcMAgi+kA0pfr3tgFU9/oxTC0JpdbWJad0u461Ef5QBCyjLFya5W+iZu
+X-Gm-Gg: Acq92OE8ohNxcCjKg6LgiZh9Mi8FS/dbTde86R4TDLDz/BaAfvifqXdKOw6FPL+atZP
+	dPDExDMwCKegT2m5xyCrfkWp/TavnQmIHYdY+UA5PQwZIgIiZeF5CoJ3FIZ7pHsvdkvpbej+YRn
+	oI9VW7wnXR9DXs8xzuJxCSLpO3LSZG0IzeY/d9b+na/mvseof8FyolzfXjwV93df+5U/AzWa/x8
+	Rekpe0C+L5EDROO2SA2tM/rDE5jkfl0x8lK6AgyMhJM3lTpAmSjMDfg7svgxOJhf6fBSjmAHqKX
+	HBr1hCwB6DfJxn20irgW7UqE5zE5/zKFiyv5T7qI5CSFVe+N1JdbgxarcniBCg0c3ZCzQfbj0n1
+	QBHtzYDCjGyW5svwKJ5Z0Ax9esC8xkjkeG8pgXRw7G5cM4udYZ8tmEDjY1vhCSsfVFkcWQD8UyY
+	FNaOfiJjOQAdrqQIPBGPVXZozfmYYiSt9IO+dOg1ZUB7ComqcDHnIVmX0vDkZkdSA=
+X-Received: by 2002:a17:902:d48f:b0:2c2:1982:5270 with SMTP id d9443c01a7336-2c6641e28f9mr86805045ad.21.1781456231128;
+        Sun, 14 Jun 2026 09:57:11 -0700 (PDT)
+Received: from localhost.localdomain ([49.207.217.37])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f2e5590sm85284025ad.14.2026.06.14.09.57.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 14 Jun 2026 09:57:10 -0700 (PDT)
+From: Biren Pandya <birenpandya@gmail.com>
+To: linux-media@vger.kernel.org,
+	mchehab@kernel.org
+Cc: Biren Pandya <birenpandya@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Vincent Donnefort <vdonnefort@google.com>, Sascha Bischoff <Sascha.Bischoff@arm.com>, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+Subject: [PATCH 07/22] media: platform: sun4i_csi: Add missing media_entity_cleanup()
+Date: Sun, 14 Jun 2026 22:25:44 +0530
+Message-ID: <20260614165630.3896-8-birenpandya@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260614165630.3896-1-birenpandya@gmail.com>
+References: <20260614165630.3896-1-birenpandya@gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_093348_037900_B4EA3B17 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20260614_095711_745604_B3287D22 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,34 +106,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__pkvm_memshare_page_req() constructs a fake DABT ESR_EL2 to exit to
-the host without setting IL. The ESR has ISV=0, so IL must be 1 per the
-architecture. The host does not read IL on this path, but the
-constructed syndrome should still be architecturally valid.
-
-Set ESR_ELx_IL.
-
-Fixes: 03313efed5e2 ("KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs")
-Signed-off-by: Fuad Tabba <tabba@google.com>
+Fixes: 577bbf23b758 ("media: sunxi: Add A10 CSI driver")
+Signed-off-by: Biren Pandya <birenpandya@gmail.com>
 ---
- arch/arm64/kvm/hyp/nvhe/pkvm.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index eb1c10120f9f..c982a3a04c37 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -1054,7 +1054,8 @@ static u64 __pkvm_memshare_page_req(struct kvm_vcpu *vcpu, u64 ipa)
+diff --git a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
+index e53a07b770b7..f50d97ca795f 100644
+--- a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
++++ b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
+@@ -242,11 +242,11 @@ static int sun4i_csi_probe(struct platform_device *pdev)
+ 	vdev->entity.ops = &sun4i_csi_video_entity_ops;
+ 	ret = media_entity_pads_init(&vdev->entity, 1, &csi->vdev_pad);
+ 	if (ret < 0)
+-		return ret;
++		goto err_clean_subdev_entity;
  
- 	/* Fake up a data abort (level 3 translation fault on write) */
- 	vcpu->arch.fault.esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
--				   ESR_ELx_WNR | ESR_ELx_FSC_FAULT |
-+				   ESR_ELx_IL | ESR_ELx_WNR |
-+				   ESR_ELx_FSC_FAULT |
- 				   FIELD_PREP(ESR_ELx_FSC_LEVEL, 3);
+ 	ret = sun4i_csi_dma_register(csi, irq);
+ 	if (ret)
+-		goto err_clean_pad;
++		goto err_clean_vdev_entity;
  
- 	/* Shuffle the IPA around into the HPFAR */
+ 	ret = sun4i_csi_notifier_init(csi);
+ 	if (ret)
+@@ -266,6 +266,10 @@ static int sun4i_csi_probe(struct platform_device *pdev)
+ 	media_device_unregister(&csi->mdev);
+ 	sun4i_csi_dma_unregister(csi);
+ 
++err_clean_vdev_entity:
++	media_entity_cleanup(&vdev->entity);
++err_clean_subdev_entity:
++	media_entity_cleanup(&subdev->entity);
+ err_clean_pad:
+ 	media_device_cleanup(&csi->mdev);
+ 
+@@ -282,6 +286,8 @@ static void sun4i_csi_remove(struct platform_device *pdev)
+ 	vb2_video_unregister_device(&csi->vdev);
+ 	media_device_unregister(&csi->mdev);
+ 	sun4i_csi_dma_unregister(csi);
++	media_entity_cleanup(&csi->subdev.entity);
++	media_entity_cleanup(&csi->vdev.entity);
+ 	media_device_cleanup(&csi->mdev);
+ }
+ 
 -- 
-2.54.0.1136.gdb2ca164c4-goog
+2.50.1 (Apple Git-155)
 
 
