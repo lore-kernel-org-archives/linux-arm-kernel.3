@@ -4,104 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48463CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 14:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64921CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 15:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ESC+v0XgmstDdpSeKPKLi7hpKQuqlzaVaJSl8UIzksU=; b=ktiwbRn1Jb/ykuMHQbnu5Nc2Kk
-	y77R6KqLhZBKbMbjuMO067qzhpAwhAPkTkozLMQHrgKSnonctQKgikeWdGF4MJOTQEft4V97aOV2Y
-	zJKSx1qwia42aNSUQnvsMtwXvovTQaPnCVugZ19iOOtW8H7kidGvKgxB4and5OiiocRtipBfZ5p6+
-	7kqkP8X9VrgdH5rFDRHRu97vPd/ugLnxvRZrdWLR4jrFCRJqGk9s/703gCiox/c+U6a4lRuEAhbJZ
-	Y/iigE61VXujcLALA2InRJ6PX4x4dXJemWA7pdJSghLLsAExc6B4Fr4UHsD/8Mz9Ooio+NjZvic5R
-	lyaQdu3A==;
+	bh=n2oKn+Yfwb3U/LW7KgT+S5AiYyO0bhaWoNFG1I7y8uo=; b=caOkQhbSw4Kei+uDxT9vvk1Ii4
+	1rb9txSc3JUSawtlccrcfw5jD6CtJJ4qtUWtc7lpLmHXYfQSZuga16mUpG0vHQej92OMuBX4bwcQD
+	EcrlRsaQR+AjV3wGJilLdu+am+2+0Mic2UmbU+/1sRGSzoQJiCcMG/Pydh0fB6aDJ5pRKZOhkbqr+
+	cOnka9xX4IMLbVtXharAFGsFIDsj8wiTpXOwhTz1nFC5Ug1A+pSia/qLNBq6yGYvf0tDQYtg3KyKQ
+	0IxcKA3ZUtfXswl4B7auDNREkLmgk60NOxvyhMZg5mreW71YgD6ZL83u2fY+Z96laumM/OOFYVsMC
+	Wc038i5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYm7U-0000000D5Jc-3pO8;
-	Sun, 14 Jun 2026 14:47:28 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1wYmWd-0000000D6uC-31hs;
+	Sun, 14 Jun 2026 15:13:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYm7S-0000000D5JF-21SL
+	id 1wYmWd-0000000D6u1-00AA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 14:47:27 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51765531803so675451cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 07:47:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781448445; cv=none;
-        d=google.com; s=arc-20240605;
-        b=WoaMZOzQ3UhXEBFGwwkVW9VBbNEvuRaD2XYZU5JgwWITOeSLFnGjer6QqVpNiLoWVU
-         CfPvdSVjaw7Iu5rTltInq1haEsIR3vwOSMN1GzfyP9JnRi2LYA3s8C3wXvSMXh4nfzIS
-         Zbo/Pn86/2LbZxqukwo54X6uEu+7ePVz9IhM1BgqRYg7dsyhee4WK4IPRomaer6akNra
-         TCeKTbWDuZsm4fRaLxj3ZCjyfyDh/YKGNAaWXoiZ20VTZp4mrqz2GQULOJboSlyie6Is
-         UTmmvwnH2IudBUDlWj0J7wGMjZXG/oniVh+Qz6QHfiPslU/Msb0VSRM7/OQaBQ33G9iN
-         HoSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ESC+v0XgmstDdpSeKPKLi7hpKQuqlzaVaJSl8UIzksU=;
-        fh=92x9snhu5ZQltGFmvBpibX0QGIrHLHhmdpI2DtXLCqQ=;
-        b=gYJZLvud+pcn/r3FXq2thQ4XZWQcdcE2GlJ4Tu5ZKkKDH6y2RRoygAFyRxpk2eRY1S
-         PzCPpUEzjMNJ0DP0xJniDcL9BDDCiSN1/Ug4ap3EwlXfaQvcCa4fiBQYsFe0g+agrZ2F
-         SUVFKT2C10Lsoy1PWlz30pB/ssmpgDMk9+H04kXumEhiIK5wsjUd6eDXzRvuf3SSP8ZZ
-         Zg+GtlxIvrt9aj5VXjzZ/2Jyrpfr0h2e85OPlTQXs9u50wZQf2c5cT1aX5OGX+YWfraT
-         QvIyrRYuXGyNRmhjxp4CMBmMD/Q/xAyaViZBRF7GyQOtcQDqKdOLe9ahDLuCEvtC7dtk
-         DCTw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781448445; x=1782053245; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ESC+v0XgmstDdpSeKPKLi7hpKQuqlzaVaJSl8UIzksU=;
-        b=l6unB9IUdIgeWZ53pZAmmbMxGjNosluyTZiLleQKD0r9S9IhgwbgxWKw3WghDwVr+2
-         0seSObuDfRB3o4fva7pJFiItqmPuh2wAA4e5itAKqTa0ouLwzYRmuVLlIbMXRxn87oV2
-         ZXIh5VvslimTpX+B08kU2EppPIyebq6L1hs8RQ8URds+A94m6m8q606zactdrvFouX3o
-         dW8qpN4Za3D0HEx5JFfsuO5aPZsPUI+IX3zsURg/6jKLvsF6xAVrnwOw5xCU98FS7fcR
-         Rfr5QX/PKn+x5oTRDXqzpX/q5UIkBKDuBZzaFaxnyK/1uL1BbVKpa0odxfIoaaqVpvYE
-         r3gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781448445; x=1782053245;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ESC+v0XgmstDdpSeKPKLi7hpKQuqlzaVaJSl8UIzksU=;
-        b=UaQ07roBZeA7YNh3+zshr05AXTl+bK1G7PPt/YNWkAwOvZAPCg8eiVo3dW0c00b5OX
-         rlM8gEydUFfBaBf7T/NCnm58B1Wy7WgERNFkrHtDkoLeHgkVMSXUXF24xfkd0VdDmvo7
-         HVbag2wV0S4cvt1EXNfzOPzcVNj9Fw31JPIwQ4sd216L1fB6Xr2PLIp0li/v/OTg01jz
-         fVLGu++z1yFetkojUaR4FPS3my3NsA8fTHi1lsJkJc7q5Wy5T2SB7kGlDzZoLkezRncQ
-         6R0zVuuWv9wKh4RX/xJykKVd/mGjmlWLe6+Aj34KleJVp4wty122WbShTTx5xXVWgvJr
-         dhUA==
-X-Forwarded-Encrypted: i=1; AFNElJ+m6nfxZXbW+9nAM6BWbJBGcy12dTAIy7covSuzNKUy3aoahp3LfEMfueiIFirFp1fADxv5bqIpXOxAbdWdwCxI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWEfEuSt2Xm+yN2F9wsevznadXKCJnJ6AmD3Z1lMf8T0J4OgZj
-	zsOcMoO+ceNBDkJzP8OEMM5p/xv4Nn2YXQjiqaCMaN6EqVrsDhnKLTF7i348ZFlEjkbFeFVgm7g
-	cv/PHtAf4SYFjYchBYkOjGQc+eAoM8Eyb5v5MThm0
-X-Gm-Gg: Acq92OE5gdaJqbi4jBY8Aa8g7UMGtJj4BrX9JFIHdabWRz1MFaRO3ZSFs7SaSEAnyYA
-	YoR+g5yTNlgLs/KBCpbxnKAALbbztcCGx69ZbCVeQSOFzo7npZSU7B8AeRjSw4RZ4SymsU3Fvd+
-	ZVWFQPvtgM2yUMaEOxdoLVSADFZw3+gjF8q8SCe0swF7vPBxUXwWUEenJUhROTWD/Ov5XkrEjVJ
-	PGkQRS+nXj4tVw4x3/Wh1odDnsD3Yrl8HdTMQOkUgkJFrRwyoUQHFWaBbKf6gcCDLsqo+XKwWUW
-	Z2iXD0Lb9dhymztU+8g=
-X-Received: by 2002:a05:622a:130b:b0:50f:b69a:f4a8 with SMTP id
- d75a77b69052e-51955e96830mr10838431cf.7.1781448444601; Sun, 14 Jun 2026
- 07:47:24 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260612142245.1015744-1-vdonnefort@google.com> <20260612142245.1015744-4-vdonnefort@google.com>
-In-Reply-To: <20260612142245.1015744-4-vdonnefort@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Sun, 14 Jun 2026 15:46:00 +0100
-X-Gm-Features: AVVi8CdPI9qwkxm2EQu_Iwcwk_7iZT6Mq7CK1wTAMeM5gn94DrPfRYjAc8Hfnus
-Message-ID: <CA+EHjTz6S342aNXxj+yNvS1mLjm0r2fUW681a1jNo2+70rGVMQ@mail.gmail.com>
-Subject: Re: [PATCH v1 3/4] tracing/remotes: Add REMOTE_EVENT_CUSTOM_PRINTK() helper
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kernel-team@android.com, qerret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_074726_532350_5275D07C 
-X-CRM114-Status: GOOD (  15.64  )
+	Sun, 14 Jun 2026 15:13:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08E106008A;
+	Sun, 14 Jun 2026 15:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAF521F000E9;
+	Sun, 14 Jun 2026 15:13:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781450005;
+	bh=n2oKn+Yfwb3U/LW7KgT+S5AiYyO0bhaWoNFG1I7y8uo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DzNXFAcSOasKanxmXVIoIWdhCvakb6h+Nub8mq/i6J65Yw097mZQ4WE46ukJ6wRxf
+	 l1KXPpKe3no6hDkiaMtk99ifXIAOOw8pQ4NbchHfTshysdpMXM5sZvnvtZBx+n6jfz
+	 GHqP3iiKbZal0GTnzY4V6j07ezom8KSD7FUtSv6V+N4wKkEy7YpXFDYWlCbudE+nhr
+	 n5C+n0hmCN+2CvNmQUTtklo4JM0P/VGZ+4XTlG2qNVDXmbkcj3qgmW4WqqVLQH1W4O
+	 Cwlz821ZMO2mZsWOoLKyJaX6GSAeRoYmtrpI8Xl3t4QFnl3FfUFKYEfXkVI6vBi3Rk
+	 /PjoNj1n6dT+w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wYmWZ-0000000CgRX-0iKr;
+	Sun, 14 Jun 2026 15:13:23 +0000
+Date: Sun, 14 Jun 2026 16:16:44 +0100
+Message-ID: <87ldch884j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Sascha.Bischoff@arm.com,
+	jic23@kernel.org,
+	timothy.hayes@arm.com,
+	andre.przywara@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours before migrating it
+In-Reply-To: <aitta-IcWnRepEva@v4bel>
+References: <aiHnI1mu6SGQrgnz@v4bel>
+	<aiJmBfXAxcytfGha@kernel.org>
+	<87ecila0w3.wl-maz@kernel.org>
+	<aiKMNIUMv9GQiIbD@kernel.org>
+	<ailsCnyoS82r_QRz@v4bel>
+	<865x3qtmg6.wl-maz@kernel.org>
+	<aitta-IcWnRepEva@v4bel>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: imv4bel@gmail.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com, jic23@kernel.org, timothy.hayes@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,68 +97,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Jun 2026 at 15:22, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> The current REMOTE_EVENT() takes as a __printk argument a string format
-> and a list of arguments, such as RE_STRUCT("foo=%d bar=%d", foo, bar).
-> Add a REMOTE_EVENT_CUSTOM_PRINTK() where the __printk argument can be a
-> function. This intends to support the creation of a "printk" event for
-> the arm64 nVHE/pKVM hypervisor with a dynamic prototype and by extension
-> a dynamic print format.
->
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+On Fri, 12 Jun 2026 03:22:35 +0100,
+Hyunwoo Kim <imv4bel@gmail.com> wrote:
+> 
+> On Wed, Jun 10, 2026 at 05:00:25PM +0100, Marc Zyngier wrote:
+> > It's rather unclear to me what the semantics of this are.
+> > 
+> > If vcpu-a decides to nuke the LPIs of vcpu-b and the LPI had in the
+> > meantime been migrated to vcpu-c, but obviously not observed by vcpu-c
+> > yet as the LPI is still on vcpu-b's AP-list, then I don't see the
+> > point in keeping this state.
+> > 
+> > Am I missing something obvious?
+> 
+> I looked a bit more into Oliver's review, the one suggesting that pending 
+> be cleared only for resident LPIs while the ones being migrated are left 
+> in place.
+> 
+> What the leave preserves is the pending edge of a single LPI whose target 
+> is already vcpu-c but which is still on vcpu-b's ap_list. This edge is
+> always lost when we just clear it, but for a device that fires again a 
+> later INT reaches vcpu-c through the oracle, so it is mostly harmless.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Tested-by: Fuad Tabba <tabba@google.com>
+Not completely harmless. When the guest writes EnableLPIs==0, it
+accepts the lost of any pending bit that could be stored. These won't
+be regenerated, unless the device signals a new event that maps to the
+same LPIs. But again, this is the guest's own decision, and I don't
+see a reason to prevent it from shooting itself in the foot.
 
-Cheers,
-/fuad
+> The
+> exception is a software LPI that never fires again(irq->hw == false): 
+> that edge is then lost with no way to recover it, because 
+> its_sync_lpi_pending_table only re-syncs the LPIs whose target_vcpu matches, 
+> and the disable path does no pending writeback. I am not entirely sure about 
+> this part, though.
 
->
-> diff --git a/include/trace/define_remote_events.h b/include/trace/define_remote_events.h
-> index 676e803dc144..4f4d58e37b84 100644
-> --- a/include/trace/define_remote_events.h
-> +++ b/include/trace/define_remote_events.h
-> @@ -35,17 +35,26 @@ do {                                                                                        \
->
->  #define RE_PRINTK(__args...) __args
->
-> -#define REMOTE_EVENT(__name, __id, __struct, __printk)                                 \
-> -       REMOTE_EVENT_FORMAT(__name, __struct);                                          \
-> +#define REMOTE_EVENT_PRINT_FUNC(__name, __printk)                                      \
->         static void remote_event_print_##__name(void *evt, struct trace_seq *seq)       \
->         {                                                                               \
->                 struct remote_event_format_##__name __maybe_unused *__entry = evt;      \
->                 trace_seq_puts(seq, #__name);                                           \
-> -               remote_printk(__printk);                                                \
-> +               __printk;                                                               \
->         }
-> +
-> +#define REMOTE_EVENT(__name, __id, __struct, __printk)                                 \
-> +       REMOTE_EVENT_FORMAT(__name, __struct);                                          \
-> +       REMOTE_EVENT_PRINT_FUNC(__name, remote_printk(__printk))
-> +
-> +#define REMOTE_EVENT_CUSTOM_PRINTK(__name, __id, __struct, __printk)                   \
-> +       REMOTE_EVENT_FORMAT(__name, __struct);                                          \
-> +       REMOTE_EVENT_PRINT_FUNC(__name, __printk)
-> +
->  #include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
->
->  #undef REMOTE_EVENT
-> +#undef REMOTE_EVENT_CUSTOM_PRINTK
->  #undef RE_PRINTK
->  #undef re_field
->  #define re_field(__type, __field)                                                      \
-> @@ -70,4 +79,8 @@ do {                                                                                  \
->                 .print_fmt      = remote_event_print_fmt_##__name,                      \
->                 .print          = remote_event_print_##__name,                          \
->         }
-> +
-> +#define REMOTE_EVENT_CUSTOM_PRINTK(__name, __id, __struct, __printk)                   \
-> +       REMOTE_EVENT(__name, __id, RE_STRUCT(__struct), "Unknown")
-> +
->  #include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
-> --
-> 2.54.0.1136.gdb2ca164c4-goog
->
+I don't think this is a problem, as the architecture doesn't guarantee
+the state of the pending table after turning EnableLPIs off. There's
+even a note recommending to move the interrupts to another RD before
+doing that.
+
+> 
+> Since this does not look like the common case, if it does not need to be 
+> covered I will send v2 keeping only the pending clear and the ref hold in 
+> vgic_prune_ap_list(). What do you think?
+
+So that it is entirely unambiguous, my suggestion is to have this:
+
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index 5a4768d8cd4f3..70a161383e5a6 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -203,6 +203,7 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
+ 	list_for_each_entry_safe(irq, tmp, &vgic_cpu->ap_list_head, ap_list) {
+ 		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
+ 			raw_spin_lock(&irq->irq_lock);
++			irq->pending_latch = false;
+ 			list_del(&irq->ap_list);
+ 			irq->vcpu = NULL;
+ 			raw_spin_unlock(&irq->irq_lock);
+@@ -792,7 +793,11 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+ 			continue;
+ 		}
+ 
+-		/* This interrupt looks like it has to be migrated. */
++		/*
++		 * This interrupt looks like it has to be migrated,
++		 * make sure it is kept alive while locks are dropped.
++		 */
++		vgic_get_irq_ref(irq);
+ 
+ 		raw_spin_unlock(&irq->irq_lock);
+ 		raw_spin_unlock(&vgic_cpu->ap_list_lock);
+@@ -836,6 +841,8 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+ 		raw_spin_unlock(&vcpuB->arch.vgic_cpu.ap_list_lock);
+ 		raw_spin_unlock(&vcpuA->arch.vgic_cpu.ap_list_lock);
+ 
++		deleted_lpis |= vgic_put_irq_norelease(vcpu->kvm, irq);
++
+ 		if (target_vcpu_needs_kick) {
+ 			kvm_make_request(KVM_REQ_IRQ_PENDING, target_vcpu);
+ 			kvm_vcpu_kick(target_vcpu);
+
+Could you please give it a go with whatever reproducer you have?
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
