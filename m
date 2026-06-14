@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF10CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 21:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F1ECD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Jun 2026 21:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBa5VYXjVh+mQki1BQtkfNYs/iy5UlWU9hRfZC/T0lc=; b=LOFEWvHch3dN6pQha9lyFhrERO
-	si6rXpk1CDqOhB/GjYP6S/zpc2jsjhR9kZ4I/VXyk0XFka2zQxsqEoAhve9QJ/jCDPlHx2FelfAVR
-	cGZqyw+2AbHeMH+0qVq/TKVyPeRt5L9chKnhfshE9iYGyT1jDyau81sJT+xYzeV4lrg8ik6tug7Nb
-	MgMv5ONPbTyQ3XpFXfFLSTudNWT5UFt+H2IlZUPpeTYovzvkoWTdfiu6xOTd/jCf4TYCFbH3YqN9/
-	j5pWqyJlhRgcM2pOzVPgA2kJcHusxUJ4RJuMWYSjdjU25vjCczsCkcT90f0Gmtatu3nG18kGF/5t0
-	0BHnJfVw==;
+	bh=qtZnYSknyC6VJ7wYBpo4K4Mxwk7AfbIC2xEn+pH4i4U=; b=m8Iv9ZziaPuepDuYQEZmM1JO72
+	98tLen2krdEyvQoIUgQIt3+GrPFNzEop8RZ2inSplytp8deVw7PmfB1sBdVu5Q41YaaeC1GdWCiKO
+	kYcWT/vARGRgr+Lo2qdTXu1IzkRl2/VSumSHQZMjskmOnQSwHa9bpW3+eMxsWT7r16C94J65ySg73
+	BVHxhR4TUi6oBUuJ/VegS4tXT+8gT6SiA2fbjun/wv5EAY6bJSZ8l0NkyumZcCojvqUmHHhcHoswu
+	klW3mUHqwuzD9JhMr4PfMIQ52cNCFRngo/MfTVj6AoqoAjHjsA2UbmEvN86RcCZS+zC+hwNnApVMF
+	YTtzBErQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYsSR-0000000DIoZ-0xAB;
-	Sun, 14 Jun 2026 21:33:31 +0000
+	id 1wYsSY-0000000DIr1-1NW4;
+	Sun, 14 Jun 2026 21:33:38 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYsSO-0000000DInN-2HGE
+	id 1wYsSW-0000000DIq8-0B1X
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Jun 2026 21:33:30 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65ELGGfX2673767
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 21:33:27 GMT
+	Sun, 14 Jun 2026 21:33:37 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65ELEiHr2752755
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 21:33:35 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BBa5VYXjVh+mQki1BQtkfNYs/iy5UlWU9hRfZC/T0lc=; b=DvRqqshjKbCq8JJR
-	uAHv4S0lD8FL1S9l1b7TWhWXv17tLh/8B+qHSh8JZWbu0pyAzRp23j7et3hhdVKL
-	DA1UNHk7x4U+HjMNW2a7Gc4KsyD/CzGGstSnFCN2nSeCikLD7SWuZTzGgXP8Lszu
-	6vTbc5BAXVITLbnJQ8zmEUSiYiqG/4nrW80H7HmghacLSyY/zJ5ZMViHNE+RpJKR
-	TNfnHFFNAlqMbRzJtcI+Rqmo4q9y9qj9i+svytzIfXFqfULH83eRhZlT53Xfxfv9
-	nMAF8TbDHAjRKkHik2ywQLMGBMhr/2TX5thbyG0XtQJytOeo8aMZVzUgUneq0Kt8
-	p5eFVg==
+	qtZnYSknyC6VJ7wYBpo4K4Mxwk7AfbIC2xEn+pH4i4U=; b=FsLNiNIdFmZndie2
+	tRt5ydKZzUxW/6mifNC4GmEyHdSfZP2CobxkJ+rfx12JrWu8TqPsWEqV6hLQfCzC
+	5D84ckxeYSFcD6dJkM/mqv2AzG/hq+FgDJE9/SKyye0hceGdue4YM16lhngWdiXV
+	J1rLaeNsLicGxKuzqPvFwYBzODqXhCSFA3hAmAZ90Och1F2ojiBtY8RYhF/Lnp5s
+	HhAMSz4BM51OEeD552zbcTie5lu2I72Ki+P2Q8jN+U9xJUdI1G6XPy6eN3kPMJLu
+	7zfwOdClIIFat+7IBwXfURaKD+LiOh27fFVZbro9dEXlOFybvshEz8CEPxP/bKJI
+	rgmn8Q==
 Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ery7u4jtu-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eryc6vm3m-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 21:33:27 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2bf08c2a24bso25722445ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 14:33:26 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 21:33:34 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2bf11699875so30188325ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 14:33:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781472806; x=1782077606; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1781472814; x=1782077614; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BBa5VYXjVh+mQki1BQtkfNYs/iy5UlWU9hRfZC/T0lc=;
-        b=Ri8nNy68HYkKOsg5t69JSjnWgLdiTJKEs0mlBcVWYdpc/+iF1vjVihAzM7YluCZJsz
-         U7Bq3shvuohT3w+DwVvgVwm/Zyx/gS0aIGy41hd2Ihxly5U+24bQwp49wvJM2bMnlLzH
-         T6pvnix5vsgi8Sw0wTG4D/bBDtdKa4lRn+wntti2iZ4VCnInJAfWSZY3xGOK6sNSmdWn
-         SZGFV+Mfm1YF5GHaNFU3yVQ46rc77d85H5/Ei56+vVuUvzURUJLjn0cWJTBhFQf+NBQZ
-         qluOQQyV2369nFzfotqaaWRWyksbiGoT+AGezU0D5JeSjkibdb2MTdE0R+b13gJI4SeW
-         smVg==
+        bh=qtZnYSknyC6VJ7wYBpo4K4Mxwk7AfbIC2xEn+pH4i4U=;
+        b=K6quD5gmWsX88gaPQTsdWOYorjYP5yLjyLUwMADZC0mWEUxje3Ep5zMqZhSRwK1zz5
+         LvZxsOuBuRbKo65r/Momqlq62xaJNEugx1wNyKNwlqEmSrBPF1mI1TnU2Wls2qa2zXkQ
+         JOIgPXOA1gnfCL8PNLwY2tcg5C9NXPFsBy3/WZ1SDaXzunnJJoOSuGGbc1J4B52ult6N
+         P+On6I1mDT6cv2fIuOCdpiDvRDANvMXcSiar9fixJAENdOneAMn4l8tmdc+WtZn3UVpv
+         8/7QiYI2Q9YSqbacPkRIWOBE3ssneVanJtqiB18jlWqyXjxmkPIxyu5wQ0RNMF9SNOLi
+         /mhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781472806; x=1782077606;
+        d=1e100.net; s=20251104; t=1781472814; x=1782077614;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=BBa5VYXjVh+mQki1BQtkfNYs/iy5UlWU9hRfZC/T0lc=;
-        b=sM86NGV+6hmKo7YvgIHpmkB1yuXyiqichf6TrcPYdixLTtoNVJJkgUg77JpQhxKgy+
-         9Q8UcahocBVw9QKspQPa9xe+RZYCZWstRXtijBwMtHNDGBeDShKp8T0hQ7GMdQcCD6D4
-         kLt8EaIokOSzqr+SZoGpr2wTek4vBPzHTIYXC6Wi+dIkLUFYN6/w74KM9lKxvtmNVwOn
-         NUGFHitV9D+051yYyC+QexM4+FrU5hPpiXarB6a8YMm+/JWkUQ0xlxIJf4f5VDRTwWGU
-         cdnnzck8MX0ULBCPfK3QSswsdMPdZpMDptEqUznNp2Cd3qiJek07MYFMvAXxae2zaIFX
-         pQ6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+KAtZoFsneuBto18opBCM2FfUhEGGnuh8sWUahl1u51on7Oj1fNg+Y/xfgF2MHQ9k90oOx6az5tbGDSObZmct+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzh+HDCJuhnNvH7i1F2TAOUK0Y+Je0OCOBEUC8A+zEXukIYGOVK
-	eSW4UGRf0CxhR44fLkIikZz8SDu9pZf4z/jP1pL2n1a4xaeO6QexbaLIDpEzvNSEznRx2lnOhl3
-	SFP5j82KJV8CQZtOPuvYLqgJzLbudXsuc+polTkAZ8JAsfZQhI0ej5hHJ9cvcj2SxI8MCAsAcFR
-	wrmQ==
-X-Gm-Gg: Acq92OHp6j6qdhk1Jv/4oz0t6euHceIp6/Q9KoiYkZIepckPbi3FMxxiu0ty0RgnOOu
-	iULSEVzqOPXELNeM2K0/PkFcz9mY3lNBtaCaQR26qC8uw3tlnQIH5OKxxHs5xjNdoNmWOwkWveV
-	d1aZVwaNkwOfXr5OPez8ftNqvr9JmfSnvB2sWmYO+VWC8wVHAow3OcpBTI4DAD49jUPnESZKref
-	DrZwvEeh3Bx0Rd81SSjZBoUV02zm4HtaCvWW1ZtS9LT24u9Pj/zj6HB2yKyuGZiFByZm6egilF2
-	TyXR8T45UAIBynm9n1cLUU0XFY84XiXRM1tIgwv8muw3gGNKbZUJMdZfnmJME19HZZtuJLjOY/H
-	ipbgmGGDIXT9HKPulSAbFNcEbq8V14k+688n+Nmbq9qlI7w==
-X-Received: by 2002:a17:903:944:b0:2bf:23c3:34ba with SMTP id d9443c01a7336-2c41216d384mr127694025ad.28.1781472806148;
-        Sun, 14 Jun 2026 14:33:26 -0700 (PDT)
-X-Received: by 2002:a17:903:944:b0:2bf:23c3:34ba with SMTP id d9443c01a7336-2c41216d384mr127693605ad.28.1781472805748;
-        Sun, 14 Jun 2026 14:33:25 -0700 (PDT)
+        bh=qtZnYSknyC6VJ7wYBpo4K4Mxwk7AfbIC2xEn+pH4i4U=;
+        b=I2mZbQ7B9UoG1kadLr8PIDuPfkcXtBgZBA2Jy/bxC+GCWPUWCfwzbxAUvwqTs08BYL
+         qjxnjC7vtNSxL4IjWgQj9ptkLUKV78AfmlKamIY0B5C/ZZx+3aXggWHPYFrjv8tbMBBQ
+         HhU9SGucXMs+vC0VEwu1bT9oo3zbf9/+ASoZHWE7WpOmpnpqgDHOanEuGCeNaFCpHZdC
+         XLYd9QkHrvmC6kIkoLv79qChWOLla+3lmjwS9IDz13AuGEY99rY9P2wRKX57nuJvtZQ9
+         9aM2QWVIdu9IZEQ9Z6HidtJj1NY3LOPEOT3n6F7IkQo0ZlXYzM+hZkJgr7dqa9DsaFPd
+         oOkA==
+X-Forwarded-Encrypted: i=1; AFNElJ/ifqyv0TPcQMHaJWVdynC5GcKcKYXAevLm8UtJt+SgAu6SjHhEY606akBs4vlVhxjYuPJMSqRaP3sYWMRIis/r@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkBcJ1yBYD528sHSYrh6vq2PrXFG0MlEbv1s2u/9E53y2rPQkr
+	2iMyxIyAYHiHsMw4Z45KGp1F0ntEfY6nJQ016NeFStml88lARydHwIiJyVh1C2t8MsgGUy9abrB
+	qhT4z+4QKlmq2pVPLRmotwxQb5vCO8gA7ECzQbKlRPY5B6Zjci1EVFzusjPEM3DhrXlb+lrTaVd
+	1Gow==
+X-Gm-Gg: Acq92OFhgqJwqpXnRx4RFgDr4WAj70PU2sE6BAVZCYrsILmUrL8DJ6SlQrAVeoVqL9G
+	0UqxpuGJwSUIvGimjnIZpBxSkI7tt7IDsuaz4LXmgUTky/Mv3saD9nobV0SXjASPHkAR70WZ8xs
+	7yIC39ICmhW5tomNDNTgGjvwwB4ZpNcJERXPt3HFhuSeBE/0tOPXY7xCyzwwhSteUXpZK+9W0gU
+	DPip50IyLYll0Xy0ro82Ws8kVysNfWfdyOUrAaqsBuSFBsE05gRmqXiqCs5hR+78bgKk4OlNC88
+	uY+MhHO+KRiEFPsAdVdDY1vI4es37JKv1u218dwOkqYPG1GGqbhQHbountnX4BZeAnXbI6Ia204
+	kQfqlQW8+94Hq0loBItC9mgoQZ87uBwgNo4UqPO3s+00UQw==
+X-Received: by 2002:a17:902:f790:b0:2ba:838b:bfae with SMTP id d9443c01a7336-2c42ee0f946mr95926875ad.18.1781472813704;
+        Sun, 14 Jun 2026 14:33:33 -0700 (PDT)
+X-Received: by 2002:a17:902:f790:b0:2ba:838b:bfae with SMTP id d9443c01a7336-2c42ee0f946mr95926735ad.18.1781472813306;
+        Sun, 14 Jun 2026 14:33:33 -0700 (PDT)
 Received: from hu-akhilpo-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f7c6c5dsm78385815ad.21.2026.06.14.14.33.18
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f7c6c5dsm78385815ad.21.2026.06.14.14.33.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Jun 2026 14:33:25 -0700 (PDT)
+        Sun, 14 Jun 2026 14:33:32 -0700 (PDT)
 From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Date: Mon, 15 Jun 2026 03:02:58 +0530
-Subject: [PATCH v2 2/3] drm/msm/adreno: Add support for A704 GPU
+Date: Mon, 15 Jun 2026 03:02:59 +0530
+Subject: [PATCH v2 3/3] dt-bindings: arm-smmu: Document GPU SMMU for Shikra
+ SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260615-shikra-gpu-v2-2-2f2d1347c3fb@oss.qualcomm.com>
+Message-Id: <20260615-shikra-gpu-v2-3-2f2d1347c3fb@oss.qualcomm.com>
 References: <20260615-shikra-gpu-v2-0-2f2d1347c3fb@oss.qualcomm.com>
 In-Reply-To: <20260615-shikra-gpu-v2-0-2f2d1347c3fb@oss.qualcomm.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
@@ -116,47 +117,46 @@ Cc: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
         linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
         freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Aditya Sherawat <asherawa@qti.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+        iommu@lists.linux.dev, Akhil P Oommen <akhilpo@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781472781; l=1143;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781472781; l=1225;
  i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
- bh=R79xKmL+sZwSyzKrrAiP2VZ/Wn0sPCCgxYAlwy7UjP4=;
- b=yglw6Mgw5GWhrR/ZbfN4m9aEdZT4bjZDfQ92ZeoxePei8sXC4tz6Dq7Wn02eKzL+XQBxkhzli
- l0y5fuC/0UiCE8iWe7/3pfwwu104Dj9hZAY684jfSys8jDndsDHCPsx
+ bh=S6znqV/U764pfMoWaMCKGZx0PPM7djt7INHbYNV0GNA=;
+ b=cHbThRGdErenu+D4xB+6tFiU7NF1g5rTdTt10AdLvYMAoGXwlPggSRFZhJlXinOL4jAjn9CmZ
+ z4iqDybCdYpDbwVAijgulh/0R9QqPHqBkUTaY2chI9tFPbAbld9LvBY
 X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
  pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
-X-Authority-Analysis: v=2.4 cv=F8BnsKhN c=1 sm=1 tr=0 ts=6a2f1e27 cx=c_pps
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE0MDIyOSBTYWx0ZWRfX34Nn7kqI3B3H
+ UfhRw4oMQEVLn/XNALOuswJEf9zlVe5eSbqufLMFCm4HQfRe84Wlusc87ewQQZXmcA6iRzQxDGJ
+ z3mcMlRRa2C0hgroXq+UDQXbYfMUrM4=
+X-Authority-Analysis: v=2.4 cv=Oop/DS/t c=1 sm=1 tr=0 ts=6a2f1e2e cx=c_pps
  a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=EUspDBNiAAAA:8 a=XFVbiEAxaSnpWCc0n_YA:9 a=QEXdDO2ut3YA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=iEDX-NX4Me02MYkbRrQA:9 a=QEXdDO2ut3YA:10
  a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: NtdhVqVH3OXTR_KH1KKQ6Zw2SBefXbT6
-X-Proofpoint-ORIG-GUID: NtdhVqVH3OXTR_KH1KKQ6Zw2SBefXbT6
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE0MDIyOSBTYWx0ZWRfX8pzfm8LZqB61
- bGCrb1grCUFFgE65NEilHun0sHtm4asz/a/VBSwLH5YLAGXcRhnj4E0lvZcUO3FHUKLE40BDvkQ
- ICLri911UdpYjIdNswk1/lODLYCBeFP2w9rl98V+DHBod7/ix67ceGPvnztN7OW7owoefRnedKL
- H74RStE3evYvvqn49jVaspoXKAJuwBCqI0pTXZ4QPn8/DnEQuPRDLfJcNFCosBRuRncQ1H/VQH6
- O+1ZkynhpMnC6mstWpeOnNFA++K8L0cKRR+K7aRo3sJzB0qZDPUTYfssTJVnNqN8Lff3D7Rka7p
- POTXgpour08N7hKw+L6gU6go8RL+ek5R87svoWmfp3/3Uu0kuY6Vq2yEb8ZFCNYXudAhEC06Yf9
- xfQieeBHFCT5vXbTFB5wXKnaJUxlojbV/b/csfAZcjMcRUnMJjFAa6COieeGUIWo2fU2Q2FRi8g
- A4aY1OVbs2UKywsonFA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE0MDIyOSBTYWx0ZWRfX7us2uuXTLMQC
- MOVgFWdN5SOBytG8Ttw+1dpuXYYgNyfQXtDZdam0m79L2ru0PGTsQ2be+QjGpZTXyThFGXC4Sh7
- NIZlCm0OI3bMaV0VsUeoDvYG6qfHzqU=
+X-Proofpoint-GUID: WTZ3u2t-ObikQulo4HhLOb96F-LbjtmW
+X-Proofpoint-ORIG-GUID: WTZ3u2t-ObikQulo4HhLOb96F-LbjtmW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE0MDIyOSBTYWx0ZWRfX9kt+gov50dRf
+ 4i/166ZhQSCZMTznMKVTDfRR6shUVY7Tam9Yynh7fGqX3DdmpIMsaTDqSiQ3gGnZHIb4CnqJGV0
+ iUoQi8Rw3yTKLAHm++QK1uGEDNrsIwZezr4AnG72eroQ+h1SLRudoQ4gB+rDiXe0ybI/Ke0LNLD
+ UmdCbaoUgiq1HtWmjWDtnl31/tR9U4te7JT6czM3TpcjJe9Lbbd0ucdxh9CWob7vGFVa+tfjZTi
+ wtwKT1Nb1beKnys/rRHhPw9K07iAcc7g1VAlPEzp/9P6txPKxuiU7GbRNY4Vy6rTCJMw5LDd90R
+ Oj8+wBEhws5T9p6a0QvkWHUfCLajo/Y/Jbo+FzrtYRH+dn3jYd64aVZIYXi/FkL0lSYVBppL3ML
+ QM5a9E/sA1BmejA4hMUgLZrdCsXd0idmnsEwlhD/XrOOJjVrH5IqZzcR0HpbErvnm3l/XWuEaV8
+ Fa/G+K8hMJAa9DTTD/w==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-14_05,2026-06-12_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
- phishscore=0 impostorscore=0 spamscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606140229
+ priorityscore=1501 phishscore=0 impostorscore=0 lowpriorityscore=0
+ clxscore=1015 bulkscore=0 spamscore=0 malwarescore=0 suspectscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606040000
+ definitions=main-2606140229
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_143328_717543_D7151C3F 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20260614_143336_558333_A97F34F2 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,34 +171,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aditya Sherawat <asherawa@qti.qualcomm.com>
+From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 
-Adreno A704 GPU found in Shikra is an IP reuse of A702 GPU with very
-minimal changes. The only KMD facing difference is the chipid and the
-zap firmware which is specified via devicetree.
+Add specific compatible strings to document the GPU SMMU present
+in the Shikra SoC.
 
-Just add the new chipid to enable support for A704 GPU in Shikra.
-
-Signed-off-by: Aditya Sherawat <asherawa@qti.qualcomm.com>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 ---
- drivers/gpu/drm/msm/adreno/a6xx_catalog.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-index 3e6f409d13a2..2de3ab010135 100644
---- a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-+++ b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-@@ -1454,7 +1454,7 @@ DECLARE_ADRENO_REGLIST_PIPE_LIST(a7xx_dyn_pwrup_reglist);
- 
- static const struct adreno_info a7xx_gpus[] = {
- 	{
--		.chip_ids = ADRENO_CHIP_IDS(0x07000200),
-+		.chip_ids = ADRENO_CHIP_IDS(0x07000200, 0x07000400),
- 		.family = ADRENO_6XX_GEN1, /* NOT a mistake! */
- 		.fw = {
- 			[ADRENO_FW_SQE] = "a702_sqe.fw",
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+index a701dec2fa0a..ad15fda5c25e 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+@@ -108,6 +108,7 @@ properties:
+               - qcom,sc7280-smmu-500
+               - qcom,sc8180x-smmu-500
+               - qcom,sc8280xp-smmu-500
++              - qcom,shikra-smmu-500
+               - qcom,sm6115-smmu-500
+               - qcom,sm6125-smmu-500
+               - qcom,sm8150-smmu-500
+@@ -543,6 +544,7 @@ allOf:
+             - enum:
+                 - qcom,milos-smmu-500
+                 - qcom,sar2130p-smmu-500
++                - qcom,shikra-smmu-500
+                 - qcom,sm8550-smmu-500
+                 - qcom,sm8650-smmu-500
+                 - qcom,x1e80100-smmu-500
 
 -- 
 2.51.0
