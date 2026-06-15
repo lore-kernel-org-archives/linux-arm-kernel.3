@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 695BCCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D8ECD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rMB2+OBOhHvjtcjOVbhC4Uj4jiqIRbaW+a/Lb9TNIDs=; b=SehLg+/i4SImFJwFKQ9VXrezI2
-	071hyFEzgEUbBW50ue6TB/+7Q+uifv8ufwN+9HHYI98kr6RYNuURpvNgwv0su07iN/593bfRJD6PZ
-	SYFsYMSwmZNWDv9Y1+678C9f+HK+mbcKElQNm/2ZVBLjduQfOFiZhax1bGiVl4pEbAwBqk07Ou65y
-	F4etevTYT2oRZAYOfWO1ABOg//xpS0PdPd6HFJW1C1i8D/ccM2w3P2m6+DX5/qlqu+K4yYVjSJeUZ
-	Tp7X2V/eifi1kNymz9UkAOR9Y+rNpJDc6otQLKpwVpqa41R9FkPuIgzOUO8Bh3qVhX79oFmJZiZ2J
-	+4+tCsbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dGVKq3DqkJdswBGgVG+gslnExkfAwrSp65EizBZiGKM=; b=dQTaFq5v/o56QiGOy5ZwDVFTPS
+	jNDf5Mk9cLMFU1TPMzUKgU7fWvGbqp1ar28A4FdzfuyfvisVMPAqTwKuPkoKdeyuWuRr89XFcOSjN
+	6IBA6X3p9LwgPsqeRyb6/1cs/1o4CPq2+bizL6MxhvDzz4FP4IzQbCc3vT74J60h/B1BIp/EW41dy
+	lE85jI2ltIYtCr9kdF6GTpVDyl5onhhOf3KHPVnkZqsMoAzX8duBYTv/tsJsNhE/Xnb8uAkW+tWTF
+	6DgR+bfiCa+Js+BG+NjXU7zGs1Wk5mIhfeNOAQfm2Q8csUG04OUIXNMKc8Tdk6qE/Et5Wf9ATNNiJ
+	one55fyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7YC-0000000EK6E-2N5K;
-	Mon, 15 Jun 2026 13:40:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZ7Yr-0000000EKDS-32T5;
+	Mon, 15 Jun 2026 13:41:09 +0000
+Received: from 013.lax.mailroute.net ([199.89.1.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7YB-0000000EK5w-0YkD;
-	Mon, 15 Jun 2026 13:40:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78A2841AD8;
-	Mon, 15 Jun 2026 13:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37F531F000E9;
-	Mon, 15 Jun 2026 13:40:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781530826;
-	bh=rMB2+OBOhHvjtcjOVbhC4Uj4jiqIRbaW+a/Lb9TNIDs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=hbDNoefCWx2DjqI4528QInxoQ4xq4D7gRMX3Ae2g9Gec3MUp7O/HNgEQhGE6adQAn
-	 mFD1eVf6PsxEp6UMlscpQ8hM9+gS7uGo+lqQcKDopeAivrN7RAjB9RHucJO/B5I5zT
-	 Km4+71BmvuGQv7BtgfhQeb3oN2CH9E0zOsx30E1ekB88P9oNs5LgAPaKUYuYs6r55Y
-	 kqT/35e+Oy+rpi4pJ6gA+c5xQxH9fuPvn+LS5FxG8vFgbVWSo35nJ5ZJqGX7xzMJAK
-	 7ORgb99ZzxljwFqe61veexQ8MGNUaQ10yYV/4vFEH0tGJSGJSSj7nwyav10wlBFJaY
-	 H9Mewsp4NPu4g==
-Date: Mon, 15 Jun 2026 08:40:23 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1wZ7Yp-0000000EKC8-1ekE;
+	Mon, 15 Jun 2026 13:41:08 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4gfB8t2kqszlfl5V;
+	Mon, 15 Jun 2026 13:41:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1781530855; x=1784122856; bh=dGVKq3DqkJdswBGgVG+gslnE
+	xkfAwrSp65EizBZiGKM=; b=DzWHun1z/cTIPfcFjYWFAYKfGzApZhmJY3T8Ic1l
+	ekMU1Vrdc3A9lkGKQ1cloPe6yfEd/kHkn+ja9LQf3wKTeBF6qomGJhpl/y8FNcNB
+	Ibif9KtpeVwA75hxytJTulSkPZyuQJ9H4qZwynVTiS9B7x41yD2jOJBgQaaLizeA
+	WJhj6CC/jATxIE0Hpr7pDnSAVhJRu2/mRw5FxwZrn+2cLV5hYF08w5DYDi8fk1yN
+	RiAEWcaZFvwBedNbp2H51nQPCvVMJMM3zbTjlhJXbsJN/2QVAeCpzIihhOnMBy7c
+	ArvCMhF2WooauWI1qpBRk9gFZ+9uxUl3tyoadkMMhmo5kA==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id m8jRUe-O9L6p; Mon, 15 Jun 2026 13:40:55 +0000 (UTC)
+Received: from [192.168.51.14] (c-73-231-117-72.hsd1.ca.comcast.net [73.231.117.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4gfB8f1dQfzlfvpG;
+	Mon, 15 Jun 2026 13:40:49 +0000 (UTC)
+Message-ID: <414c9338-0e3e-4d68-941d-18cb83dc78f5@acm.org>
+Date: Mon, 15 Jun 2026 06:40:49 -0700
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Hui-Ping Chen <hpchen0nvt@gmail.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
- devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Joey Lu <yclu4@nuvoton.com>, Jacky Huang <ychuang3@nuvoton.com>, 
- Arnd Bergmann <arnd@arndb.de>, linux-phy@lists.infradead.org, 
- Shan-Chun Hung <schung@nuvoton.com>
-To: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <20260615054911.48821-2-a0987203069@gmail.com>
-References: <20260615054911.48821-1-a0987203069@gmail.com>
- <20260615054911.48821-2-a0987203069@gmail.com>
-Message-Id: <178153082322.1456470.14205688450934768854.robh@kernel.org>
-Subject: Re: [PATCH 1/3] dt-bindings: phy: nuvoton,ma35d1-usb2-phy: extend
- for dual-port OTG support
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] ufs: core: Remove max_num_rtt field from
+ ufs_hba_variant_ops
+To: ed.tsai@mediatek.com, alim.akhtar@samsung.com, avri.altman@wdc.com,
+ James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
+ linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, wsd_upstream@mediatek.com,
+ peter.wang@mediatek.com, alice.chao@mediatek.com, naomi.chu@mediatek.com,
+ chun-hung.wu@mediatek.com
+References: <20260615055802.105479-1-ed.tsai@mediatek.com>
+ <20260615055802.105479-4-ed.tsai@mediatek.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20260615055802.105479-4-ed.tsai@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260615_064107_449064_F896017C 
+X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +90,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/14/26 10:57 PM, ed.tsai@mediatek.com wrote:
+> Remove the max_num_rtt field from ufs_hba_variant_ops as it has been
+> replaced by the get_hba_nortt() callback which provides more flexible
+> platform-specific RTT capability handling.
 
-On Mon, 15 Jun 2026 13:49:09 +0800, Joey Lu wrote:
-> The MA35D1 has two USB PHY ports managed by the same hardware block:
-> 
->   - PHY0 (index 0): OTG port shared between the DWC2 gadget controller
->     and EHCI0/OHCI0 host controllers.  A hardware mux follows the USB
->     ID pin automatically.
-> 
->   - PHY1 (index 1): dedicated host-only port for EHCI1/OHCI1.
-> 
-> Extend the existing binding to cover both ports:
-> 
->   - The PHY node is now a child of the system-management syscon node
->     with a reg property.  The nuvoton,sys phandle and clocks
->     properties are removed; the driver derives the regmap from its
->     parent, and clock gating is owned by each individual USB controller.
-> 
->   - #phy-cells changes from 0 to 1: the cell selects the PHY port.
-> 
->   - Two optional board-tuning properties are added: nuvoton,rcalcode
->     for per-port resistor trim and nuvoton,oc-active-high for
->     over-current polarity.
-> 
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
->  .../bindings/phy/nuvoton,ma35d1-usb2-phy.yaml | 62 ++++++++++++++-----
->  1 file changed, 48 insertions(+), 14 deletions(-)
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/nuvoton,ma35d1-usb2-phy.example.dtb: system-management@40460000 (nuvoton,ma35d1-reset): '#address-cells', '#size-cells', 'usb-phy@60' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/reset/nuvoton,ma35d1-reset.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/nuvoton,ma35d1-usb2-phy.example.dtb: system-management@40460000 (nuvoton,ma35d1-reset): compatible: ['nuvoton,ma35d1-reset', 'syscon', 'simple-mfd'] is too long
-	from schema $id: http://devicetree.org/schemas/reset/nuvoton,ma35d1-reset.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/nuvoton,ma35d1-usb2-phy.example.dtb: system-management@40460000 (nuvoton,ma35d1-reset): reg: [[0, 1078329344], [0, 512]] is too long
-	from schema $id: http://devicetree.org/schemas/reset/nuvoton,ma35d1-reset.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260615054911.48821-2-a0987203069@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
 
