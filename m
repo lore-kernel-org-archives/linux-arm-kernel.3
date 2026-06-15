@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE64CCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4666CCD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3XbqPMmmgy6VWdEaI2vPGHNP6bqegSEfdLO8/gxKAxE=; b=DPijzJolWg8Q/fi74NvRx+qER5
-	iKPFBhaEC9Gou2RTirLvkxIBo8W3iwO9yJ30WciXvC0BIuEkKW6S8G/4LT6aO9YVwe6rZPv/i6UrE
-	0stNTv2rMDe87Or8SMX2W1TRiuL6RF3969gPhsU8r6NMndAJQF6IIpG8vw/QLhnHbyNPnMp8OdVXw
-	iMVm2B6gZLB2VP9FOmzObvU7WBHbVqNmf76W6Xfj7LiaPkhMOsckIuzrJ6hiVOp98r5rV40x+u5VF
-	C5lG73b3Cbwdjj3XTN17fiKDaGYM96NjmS5PfuAwzbM3NSZ4IEkuLpaUVUFhzmrqMrMI1J3rnlup8
-	X9nOmAJQ==;
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RGzVeCnwUToqTdNPKFMqBzJD7dYwP371VmL4b2+7AgI=; b=iiyrtAKyOu4sHHl9PeC/lhBgF8
+	YU2BMKCZ3whbdFzfKzKPj2QFDQst34LLqkBWYfWwlnrTypIQodPbQdIuTd46fruB3rQej7hNom56l
+	UoEWPfXRATgE0J0KiRbt+1Km8xx52egGIQZWAunTlbTRad6njBPfxOorWFAMfJ15zsnP81Js6I0mV
+	jV3X8RWXhGrK3fH5AWCJQ6tdR3QgNEw+LJSqD7jthqKQuIFyQPXbze8yotyNaSwsnv1iaMGAYC1SX
+	rauJKxbdDOto2V8HhxjVJeKYWtOLPdGDKgRFndPIcf45i6xrMhqAU2BLTPLh6DPzc8M+oQ6/vV7AL
+	+pAkbYmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6K4-0000000EAa7-3YtR;
-	Mon, 15 Jun 2026 12:21:48 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wZ6Mp-0000000EAkV-0mk2;
+	Mon, 15 Jun 2026 12:24:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6K2-0000000EAZM-3mqP
+	id 1wZ6Mo-0000000EAkO-29mV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 12:21:48 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1781526104;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=3XbqPMmmgy6VWdEaI2vPGHNP6bqegSEfdLO8/gxKAxE=;
-	b=Dqpy43ptSttKZTy08nju6S9r7W252xj1cgDotmdWEFbvA1TJsdGr6XRTRfW1RHPzTpN/c3
-	N39X8QtqjnGfP3PpyPy0GbLYqbbPVjzmQRJm9hmd1Gms8gjS2T66syzY9SoNJRGiNLaRx1
-	U+3FHP36cl1Y0EeUhvlBtgqWkNB3QGs=
-Date: Mon, 15 Jun 2026 14:21:36 +0200
-Subject: [PATCH v2] arm64: errata: Handle Apple WFI State Loss
+	Mon, 15 Jun 2026 12:24:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 08E6443C5E;
+	Mon, 15 Jun 2026 12:24:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D8A06C2BCB4;
+	Mon, 15 Jun 2026 12:24:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1781526277;
+	bh=U/229aDPygbK2f1IV17WG591ys3SZgvnwqf40Huk/S4=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=cgOIGL66GyRBFJh3ulPaHZzu78hTw6TEYU6zpzYlFLH+jneSK4MkPh947qRSB2FGU
+	 +WI1F1oaqYUC1AXk75ofb4AqueS8n/7AuTWsiu7Ys+ZgvxhUpo8Q//2m1I2OrzI7Rc
+	 dHjMfDCaSvuYsFHQ9OZStUb+IFsXB/ADwF60Cn7OY9MLpESB/VOxfmqXUUQ+ceAVM8
+	 7Wie0pC5LqdHPaBp0/jUo3FmOkrpwbCDEbt0cuOokWSzHnA79+6gmC19vmMQ/+eVdv
+	 FcWoVe1rY+N7YWSKbM9oSG/AqaQ+BT28p99z23QdNjRa7mm9n3Dg0kCdaUACxRAjs3
+	 alhzsG5fgAY+A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9CC8CD98DE;
+	Mon, 15 Jun 2026 12:24:37 +0000 (UTC)
+From: Keguang Zhang via B4 Relay <devnull+keguang.zhang.gmail.com@kernel.org>
+Date: Mon, 15 Jun 2026 20:24:17 +0800
+Subject: [PATCH] net: stmmac: loongson1: Use dev_err_probe()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260615-wfi-erratum-v2-1-59a73467f70d@cyberchaos.dev>
-X-B4-Tracking: v=1; b=H4sIAE/uL2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
- vPSU3UzU4B8JSMDIzMDM0MT3fK0TN3UoqLEktJcXfNEyzRjA9M0MwPDNCWgjoKi1LTMCrBp0bE
- QfnFpUlZqcgnICKXaWgB85gi5bwAAAA==
-X-Change-ID: 20260614-wfi-erratum-7a9f305f601f
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- asahi@lists.linux.dev, Sasha Finkelstein <k@chaosmail.tech>, 
- Yureka Lilian <yureka@cyberchaos.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_052147_190713_2C592B1C 
-X-CRM114-Status: GOOD (  16.46  )
+Message-Id: <20260615-dwmac-loongson1-v1-1-cbcf5bc01d9b@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAPDuL2oC/x3MQQqAIBBA0avIrBPUSKirRIvS0QZKQ6EC8e5Jy
+ 7f4v0DGRJhhYgUS3pQphgbZMTD7Gjxyss2ghNJCC8Xtc66GHzEGn2OQfEC5jdaZ3mgFrboSOnr
+ /47zU+gHKAVm4YQAAAA==
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-mips@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Keguang Zhang <keguang.zhang@gmail.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781526276; l=1168;
+ i=keguang.zhang@gmail.com; s=20231129; h=from:subject:message-id;
+ bh=2fl2OBxWH3wOcozENxrt6hZZsu8wzA6vdfleIZixEow=;
+ b=/xcmeOq0CIVKL1BbVMNLoT/ceXxJcS0hTcnCvEZ6XK0jr4a/anBT54fyJswBJHk++djVHtRXn
+ tJKVWnD0mutDflarcg2J1w0kDRCds4G4jYe4E9akQGFn9N6xspemEK7
+X-Developer-Key: i=keguang.zhang@gmail.com; a=ed25519;
+ pk=FMKGj/JgKll/MgClpNZ3frIIogsh5e5r8CeW2mr+WLs=
+X-Endpoint-Received: by B4 Relay for keguang.zhang@gmail.com/20231129 with
+ auth_id=102
+X-Original-From: Keguang Zhang <keguang.zhang@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,156 +86,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: keguang.zhang@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple Silicon CPUs can lose register state in WFI, leading to crashes
-in the idle loop early in the boot process.
-This applies to any previous Apple Silicon CPUs too, but is worked
-around by configuring the WFI mode in SYS_IMP_APL_CYC_OVRD sysreg
-during m1n1's chickens setup.
-This workaround no longer exists since M4.
+From: Keguang Zhang <keguang.zhang@gmail.com>
 
-Add a workaround capability for replacing wfi and wfit with nop, and
-an erratum to enable it on the affected CPUs if the workaround using the
-sysreg is not already applied. Leave the decision whether the sysreg
-workaround can be used up to the earlier parts of the boot chain which
-already configure the Apple Silicon chicken bits.
+Use dev_err_probe() for the missing match data case to simplify
+error handling.
 
-This alternative has to be applied in early boot, since otherwise some
-cores might enter the idle loop before apply_alternatives_all() is run.
-
-Reviewed-by: Sasha Finkelstein <k@chaosmail.tech>
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+Signed-off-by: Keguang Zhang <keguang.zhang@gmail.com>
 ---
-Changes since v1:
-Restricted the erratum to EL2 only, since in EL1 we'd expect the
-hypervisor to trap WFI and handle the erratum.
+ drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-Tested on M4 and M4 Pro (which now sometimes nondeterministically
-crash later during boot).
-Successfully booted on M3 Max with the SYS_IMP_APL_CYC_OVRD
-workaround disabled in the bootloader, as well as A18 Pro (which,
-like M4 / M4 Pro, doesn't have SYS_IMP_APL_CYC_OVRD).
-
-There is probably a better place for the SYS_IMP_APL_CYC_OVRD
-defines, which I currently put in the middle of cpu_errata.c, but I
-wouldn't know where.
----
- arch/arm64/Kconfig               | 12 ++++++++++++
- arch/arm64/include/asm/barrier.h | 19 ++++++++++++++++---
- arch/arm64/kernel/cpu_errata.c   | 21 +++++++++++++++++++++
- arch/arm64/tools/cpucaps         |  1 +
- 4 files changed, 50 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b3afe0688919..8c8ff069856f 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -453,6 +453,18 @@ config AMPERE_ERRATUM_AC04_CPU_23
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+index de9aba756aac..ec34adb63f61 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+@@ -176,10 +176,8 @@ static int ls1x_dwmac_probe(struct platform_device *pdev)
+ 				     "Unable to find syscon\n");
  
- 	  If unsure, say Y.
+ 	data = of_device_get_match_data(&pdev->dev);
+-	if (!data) {
+-		dev_err(&pdev->dev, "No of match data provided\n");
+-		return -EINVAL;
+-	}
++	if (!data)
++		return dev_err_probe(&pdev->dev, -EINVAL, "No of match data provided\n");
  
-+config APPLE_ERRATUM_WFI_STATE
-+	bool "Apple Silicon: WFI loses state"
-+	default y
-+	help
-+	  This option adds an alternative code sequence to work around some
-+	  Apple Silicon CPUs losing register state during wfi and wfit
-+	  instructions.
-+
-+	  As a workaround, the wfi and wfit instructions are replaced with nop
-+	  operations via the alternative framework if an affected CPU is
-+	  detected.
-+
- config ARM64_WORKAROUND_CLEAN_CACHE
- 	bool
- 
-diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
-index 9495c4441a46..f72eddc7c434 100644
---- a/arch/arm64/include/asm/barrier.h
-+++ b/arch/arm64/include/asm/barrier.h
-@@ -20,9 +20,22 @@
- #define wfe()		asm volatile("wfe" : : : "memory")
- #define wfet(val)	asm volatile("msr s0_3_c1_c0_0, %0"	\
- 				     : : "r" (val) : "memory")
--#define wfi()		asm volatile("wfi" : : : "memory")
--#define wfit(val)	asm volatile("msr s0_3_c1_c0_1, %0"	\
--				     : : "r" (val) : "memory")
-+#define wfi()							\
-+	do {							\
-+		asm volatile(					\
-+		ALTERNATIVE("wfi",				\
-+			    "nop",				\
-+			    ARM64_WORKAROUND_WFI_STATE)		\
-+		: : : "memory");				\
-+	} while (0)
-+#define wfit(val)						\
-+	do {							\
-+		asm volatile(					\
-+		ALTERNATIVE("msr s0_3_c1_c0_1, %0",		\
-+			    "nop",				\
-+			    ARM64_WORKAROUND_WFI_STATE)		\
-+		: : "r" (val) : "memory");			\
-+	} while (0)
- 
- #define isb()		asm volatile("isb" : : : "memory")
- #define dmb(opt)	asm volatile("dmb " #opt : : : "memory")
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 1995e1198648..8c9a194eddc4 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -309,6 +309,19 @@ static void cpu_enable_impdef_pmuv3_traps(const struct arm64_cpu_capabilities *_
- 	sysreg_clear_set_s(SYS_HACR_EL2, 0, BIT(56));
- }
- 
-+#ifdef CONFIG_APPLE_ERRATUM_WFI_STATE
-+static bool has_apple_erratum_wfi_state(const struct arm64_cpu_capabilities *entry, int scope)
-+{
-+#define SYS_IMP_APL_CYC_OVRD   sys_reg(3, 5, 15, 5, 0)
-+#define CYC_OVRD_WFI_MODE_MASK GENMASK(26, 24)
-+	if (read_cpuid_implementor() != ARM_CPU_IMP_APPLE)
-+		return false;
-+	if ((read_sysreg(CurrentEL) >> 2) != 2)
-+		return false;
-+	return FIELD_GET(CYC_OVRD_WFI_MODE_MASK, read_sysreg_s(SYS_IMP_APL_CYC_OVRD)) != 2;
-+}
-+#endif
-+
- #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
- static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
- #ifdef CONFIG_QCOM_FALKOR_ERRATUM_1009
-@@ -1009,6 +1022,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		.matches = has_impdef_pmuv3,
- 		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
- 	},
-+#ifdef CONFIG_APPLE_ERRATUM_WFI_STATE
-+	{
-+		.desc = "Apple WFI loses state",
-+		.capability = ARM64_WORKAROUND_WFI_STATE,
-+		.type = ARM64_CPUCAP_SCOPE_BOOT_CPU | ARM64_CPUCAP_OPTIONAL_FOR_LATE_CPU,
-+		.matches = has_apple_erratum_wfi_state,
-+	},
-+#endif
- 	{
- 	}
- };
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 9b85a84f6fd4..bbf8c15d79b0 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -128,3 +128,4 @@ WORKAROUND_REPEAT_TLBI
- WORKAROUND_SPECULATIVE_AT
- WORKAROUND_SPECULATIVE_SSBS
- WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-+WORKAROUND_WFI_STATE
+ 	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+ 	if (!dwmac)
 
 ---
-base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
-change-id: 20260614-wfi-erratum-7a9f305f601f
+base-commit: ec039126b7fac4e3af35ebccaa7c6f9b6875ba81
+change-id: 20260602-dwmac-loongson1-5e1b9dfc3c62
 
 Best regards,
---  
-Yureka Lilian <yureka@cyberchaos.dev>
+-- 
+Keguang Zhang <keguang.zhang@gmail.com>
+
 
 
