@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E55CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8352CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=; b=cRNISSqdPUAmjQ+ArX9Sw/L8kD
-	JuLDugok7P6mRrnqKAQMnzOuKiLD/D5wV9fBeDrK5xWZSzAwXy4ASB+Ih/sAawaE51Vo4u77a6xdt
-	M1kszqtDc933Uo5ciufX9yfVTQ1QqeQQBBUn9dgJptJ6L5ZucQkVWqF5AD8YeQqk3Ve+2ISa9LYuh
-	bd27qXEcLx1YTMLoTBGW+N1q9Yv9CDWV0tYVWPurE6aX1o6n1HkrE6QMNQiIYETrk+wj/CcSkpuiL
-	v/+ojJFiep5wreDduOo18xELt3hGpYl62pmSwIRzbksqPva/JN0qVnsYaHZLJlA9qOT414GyhEvn5
-	lkfuD6EA==;
+	bh=Uz6BHvIAi4ZZMGCXjdqibkmVXRwqdEcijWnO+7zKSF0=; b=fDt7a/FxcNVt7FsA7Zlk9nvyNL
+	kKSS3/uxkkUqq2Nay+et284bjGAEBjiP4ME9qoQEVamgIAlP1M2n5zLyuUcn34Q9sEfzjRKLEWs/L
+	MXEbXccsPkp9pScNY7nXsyE/WnDG90z86tUXqDGoJeYjwKBKcAghckgcAPd2Zdiq8naG829ZLy/YW
+	yEzl3+9GEpNN6dMUAl0ozMj2jK/GJUZ0kAOxIMp2dnO5ZOEmaEfwQYNoohJwKO9sw9kla7KKXHWOX
+	hppTQOdI5bkwpYD4jLJTnTw5cWLCrQ/zvI5d6IvT5myBtFF/uozZbefcCvWnAM9YTZSRB5ZLXf3X+
+	YwIjVXJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6VL-0000000ECpJ-3Tju;
-	Mon, 15 Jun 2026 12:33:27 +0000
+	id 1wZ6Va-0000000ECzw-0Lli;
+	Mon, 15 Jun 2026 12:33:42 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6VG-0000000ECk1-2B9E
+	id 1wZ6VJ-0000000ECnJ-49wZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 12:33:25 +0000
+	Mon, 15 Jun 2026 12:33:28 +0000
 Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65FApmWD151923
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:21 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65FApdiq151820
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:25 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=; b=JTkChcaQfIRtXp73
-	stp+D3SDoHRo5NvoCZ74oCPNJjaP8v7Kt6VixQIhJut6IxzoMo+IaF3KMEiTpgRu
-	gjAILCG+VQhZjW3Zi2uBs0oAIAKr6gvXEVx3Hl0867kSU7JTUMPCOCjJRs8v1vBB
-	AzEvjYOuoYg7+uapyNNHzR1I8rgUN48eQBIXQGtilrUC4gCmPXrl/P48xr0HhZu8
-	g5FzDH9L2GW1FO0gGvUuuGfLTHWP7pDQF+N0Oybpx3R47r8LVVi2OX23CrncY6hC
-	ujfJYBp+Duc3FpVUKC5GQftEF+Wmb1OKt6mXKa5bVlZkyvexE0ytgalzWzW07D8V
-	1rElDg==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4etetf0nsh-1
+	Uz6BHvIAi4ZZMGCXjdqibkmVXRwqdEcijWnO+7zKSF0=; b=JZ36VXbcqGlVvhmx
+	4CR7FwfYs1d+1srZyZMYWWFVHSJn7hrph/ENE2RADLGXVjnkWeCCsauFqIuBpqeD
+	Jwn9i4BQkt+M58AbWnS9EFtdpVsgaI6wfYZirnZDPrPQwUVE6Fk08Y4MPO/iPZgZ
+	NQgOnqeSUUxbLJ6pmCt/DLRyffJRvJKBSD9wCLC283UVn9k/ZR7lkoHUPQjs+TtH
+	CNLRLbbuZTBc9Tt3MwHIOLi/yiXnlXqNMhkonixOozUoMC9X1s7bjkd8TKv/UdqG
+	k95GFr6waMiNtW9pot0YCqx2eg9KpRzxmTTz0zjVDSPTVv7RLWAmz/V8t8RowU1l
+	32JaoQ==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4etetf0nsu-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:21 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8422f987f2eso5544835b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:33:21 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:24 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8428419982eso3164826b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:33:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781526800; x=1782131600; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1781526804; x=1782131604; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=;
-        b=c7Eo9QDIm8lSyPXhGMzqNdpAC2IRQybGzU8vAsJV5xeBmrA+l5VTwP206tuMeYANMW
-         t6TGYmhe9NfFeurXxGum3ZriVw58xyaoLVZ2zztjz1cTiIsz1EqPiw6MQ22a6oqPHMoQ
-         A+fhb3H5S69bTq3C5hX8To9u5+Mm/EIZhXlV/YRdo9hdziiXV0uEsRFegZlE3gZ6acgc
-         Ox8cN1MdSDMMjuKI9RO+sWJtxclb8kmVNc0Zh+Ex0zF5hYJKvEuappeu9zs0fHTb/hNa
-         wNrkvB6JBUVfGomHdkjqBXoWnaBOyYKN2ypH+O/3I4HcD5hq4UZxNpLuLojV6/LxWRMP
-         6eQA==
+        bh=Uz6BHvIAi4ZZMGCXjdqibkmVXRwqdEcijWnO+7zKSF0=;
+        b=VeAeKpguzI8AAd/YqdholqMl6fHieATXA5IpbLVfvnsYvAMCu+vGqO3g2Kqo6BhRMh
+         +MHK+LXr5NUURK0h3SbulzscG34s/AOLGO1wNjxUEMq4V+8k3tHESN/pqU5rrMZXS0Mv
+         z1hmmhDBHqihyvZi10/92BC6CwT9csJF6nuNr10sFlae3zO9H94YYx1ynlhHoLOarClf
+         RFidRD50SVGpks2zMRuRjnIukDM4yHjQA3E9X7nUKKO9VVk1DseSEaJThhCM/Tbxxfvy
+         gb2QXa6w7fV0b4dRrJt1todDc64/rAGBdaxlhzI0/mexCAytvMDSNOjXr3G/fZV52qz7
+         DPiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781526800; x=1782131600;
+        d=1e100.net; s=20251104; t=1781526804; x=1782131604;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=;
-        b=l+1ydzmMgmimMc6F7JGg0rc4mQpG2ug0tSRoYRMPVapWBhz/Ws2+vSpUYrQj8aGYRR
-         cpt1T0q4gTmzscHnN/Az2SpB0RHT+Il0vU7xDuKluG2tIaYb7NYNjbltk1/IsE5Hy2fZ
-         eUUiolKV+or0IE0q85zc357Z+M9odRe/HvzfP0WISZrv0m28wZikMKJRJlkm4itn5W2Q
-         66Ltb41LHQ0nCiWE7IUNIS7b0LYz4XIIJfmaQpk8Hrv5YMbd25I3n76o5dDqos5kOcSv
-         OD503DD94XKqot4aH+IraunJ7rmq9t7ly2hCiaBks/QocQZXA5sTUaRYHhUIzkz5u3wZ
-         UWKg==
-X-Forwarded-Encrypted: i=1; AFNElJ86XKK834sWbIi6BqvoQTZ/KlENdk5V31gzf1f3GGIVLWpszygb5H/hbZ9ch05dWrtowvyqVQcgDFQ8TI0zLgFv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwL+AQsT2nIx/jNryijeUOyf+D+adeN/nf5nJNSRFVeLrU27fou
-	p/CnP+1Xo0EUGQHlB19oa7hXbKu+AXSs16citsXtGyD2L53GJtFlD8Hrd+cTMEoHSDsrHXBKXbM
-	Of0z5IbsGlJQv2gf/5Vdgh75lBsp1vPr3qFDB9y4dVYL1N4BEFOBUxlHeLFOSRs5jvq0/yDED5N
-	r6bQ==
-X-Gm-Gg: Acq92OGQryHOM2jTpJ5cvbNriQsbZCwWyEr68ImEVlpEt/CCVYn/mD0T5z4TtxRuevT
-	9nE0pC5foB8FhWfguu1ICcKKuGvk5mdz58JC8yu4ImbBxEa+60oTvSu70yl8TH2qQ/OSiFp/VmD
-	eW+rWxECgjV48qQCiBtFd2IjLuccoW337sVgaTuc5GbTzXBt1DT0qvyURD1W/yr3KYp1MEH2XlU
-	WkpmwcX/AObXnBLBj4Qj4VSPralVQPqeo0qjYGIEbWmn2mm6X1jzyjOeBjIW+ybb+yPxQIZo5bq
-	Etini7HmhL2QhW/31j8oymHbJtf3+mt2QysIkSMACd6pjDLsW7bEL3tSWNBYunDrMaRaNCYrdcT
-	kytZpDUvmgAlbY+/+vFuu+lvRdkkCQxD2/4KUBVgSZtab7knn2jNedkb1HT17E8WLzw3A2NtTlK
-	ShbJABOSlxgIuhsw==
-X-Received: by 2002:a05:6a00:1993:b0:824:374a:1407 with SMTP id d2e1a72fcca58-8434cd4914bmr15273591b3a.16.1781526800243;
-        Mon, 15 Jun 2026 05:33:20 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1993:b0:824:374a:1407 with SMTP id d2e1a72fcca58-8434cd4914bmr15273572b3a.16.1781526799808;
-        Mon, 15 Jun 2026 05:33:19 -0700 (PDT)
+        bh=Uz6BHvIAi4ZZMGCXjdqibkmVXRwqdEcijWnO+7zKSF0=;
+        b=FSzfR66be19yGSQywMNAZc5V6ApdFY4Lv3yiMIupGKcoQgim5zABwfxk9ezeVgq8zk
+         E0yMVHAaFD2iNOiVR0CBK6G9CvXwVoOeeWt6TBWvkeBOTuriN/JTygqpmU69pOX2OfSW
+         QzRt9gqU+/RVSn6TpHdvplM3AeG97mJaKuiZpe1JXNud519FeGtdpOx7JEB88KZMzyh8
+         jryt1HJAkTldcdJzHUCbGV+f1BEPwk5z8CcNjKy+YsFHdK3DWKe4d14+uHNTbuhl4/tx
+         NzGEJDxSuRQC0daEmtE321m6ksx/hd/OcVy6gFrw1zUZnmua1L80NA04XFEx9tvzB0Jd
+         BqIA==
+X-Forwarded-Encrypted: i=1; AFNElJ8E+scVbb96O0nZDTGdDy6Octg8y7kxNPxmUVmyKP+UqW8QyVn/D4Kupfnvc6REvB7VSWXEPJT40vQ9P8KphMCP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzApZqcLNLwZHHy+OvGsz5WMk3pwxCTx/gzrkvAk7ItApT5+orl
+	kHRwbXyoUu3KaGECIu8dh403sJiMAPpFG8CVVmF4YkcDW1ECb6TTlPJtojZydeWftkC0dyFOkZi
+	VfXwLXNsMLFUAek4cYwRgHU5wuxNLJKc9S6td2xaNoJH4tdQg+j/0lYGOUoXbu8nXn1UozRDaF4
+	BBXg==
+X-Gm-Gg: Acq92OFdzTOAE0nSrz1JZYJdsp4TLPuhXnPkrSqxk1DWfGaehdRdBcujDjKSQv9v5/Q
+	kCipK1Wk6143tr0So6GGHFQDQMmGNug2SabxOI1PZuuiki7nwA3B9so5lleQ9JdOHRLmhDFF5uR
+	RFSI1FdmJPpJWMrZWcDpD8FWbWFzDc1K8iMolP4KDW6tqj0bFqFBfQNtSgoW7jLLjAHYYcVmU6L
+	YRkkQVsSivYFiXXaPiu3dG1OawQGBKrsLp5EF5UE4DFsV5SPvGvF95SBnPgsgaKLi31QqpgiLUB
+	my7NTZkEg3LrrDFislZjt/zh1LuRzeGIecPzpbdgH+O4Sn9C1wYtekHxLcmWJIoIfLMAHTceuey
+	K4A1MC9y/rDyUZ84uUcJbh5S3j88a/jScA8dX4WHbbgIXG3vBAZLP6xMekFjYn4S6hHbqiOl65C
+	3J57vAtRfKcGI2TA==
+X-Received: by 2002:a05:6a00:3d48:b0:838:127d:a167 with SMTP id d2e1a72fcca58-844e1987135mr12122144b3a.16.1781526803785;
+        Mon, 15 Jun 2026 05:33:23 -0700 (PDT)
+X-Received: by 2002:a05:6a00:3d48:b0:838:127d:a167 with SMTP id d2e1a72fcca58-844e1987135mr12122077b3a.16.1781526803130;
+        Mon, 15 Jun 2026 05:33:23 -0700 (PDT)
 Received: from jinlmao-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b03fd0bsm9968393b3a.50.2026.06.15.05.33.16
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b03fd0bsm9968393b3a.50.2026.06.15.05.33.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 05:33:19 -0700 (PDT)
+        Mon, 15 Jun 2026 05:33:22 -0700 (PDT)
 From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Date: Mon, 15 Jun 2026 20:32:32 +0800
-Subject: [PATCH v10 4/5] coresight: cti: expose banked sysfs registers for
- Qualcomm extended CTI
+Date: Mon, 15 Jun 2026 20:32:33 +0800
+Subject: [PATCH v10 5/5] coresight: cti: document banked and missing base
+ CTI sysfs registers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260615-extended_cti-v10-4-1c1694b6d8ed@oss.qualcomm.com>
+Message-Id: <20260615-extended_cti-v10-5-1c1694b6d8ed@oss.qualcomm.com>
 References: <20260615-extended_cti-v10-0-1c1694b6d8ed@oss.qualcomm.com>
 In-Reply-To: <20260615-extended_cti-v10-0-1c1694b6d8ed@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
@@ -109,32 +109,32 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
         Jinlong Mao <jinlong.mao@oss.qualcomm.com>, jie.gan@oss.qualcomm.com,
         Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781526782; l=5618;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781526782; l=4728;
  i=yingchao.deng@oss.qualcomm.com; s=20260611; h=from:subject:message-id;
- bh=nLJJ2LG0916NbMbQC/CB2id4JlgiNIupcL84YiH1LSI=;
- b=6mqmr4mIJpAqOe8iXiZqcp1T2fvrZ54s8SytoqqlhFhB5g/CboVG2Byq6U3yCs/mg2C0SQ2CY
- +beqXV9dsbgAGvuc7m+JPrn98/qQ+9y2xSYmZBE3wbiXwNXFWQvTaTs
+ bh=sVNEsaKI0s3R6oPe1epN5ZwL+HwElnwD/2wqBgGhWsc=;
+ b=xrjzXq+0FweLFMAZP6AFuQu+4WYGHuaVkvve5aDJ9J4hda+bhLUMZE3XQOwes46WyedpL9P34
+ yq3JNirfcD4AaZ+Zaj2JLxOo9yCEP2ml2BAz1gpbGpZ8fG/wQq7xtet
 X-Developer-Key: i=yingchao.deng@oss.qualcomm.com; a=ed25519;
  pk=+y3U2mIt7mf0C+x6qBUD670cd9S2QV+yl5015bUYMgs=
-X-Authority-Analysis: v=2.4 cv=adxRWxot c=1 sm=1 tr=0 ts=6a2ff111 cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Authority-Analysis: v=2.4 cv=adxRWxot c=1 sm=1 tr=0 ts=6a2ff114 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=yoa6GI8vE20v00mW0vsA:9 a=QEXdDO2ut3YA:10
- a=OpyuDcXvxspvyRM73sMx:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: wLM0jGJD44RO3Qcdrtn23erJVBFrFol0
-X-Proofpoint-ORIG-GUID: wLM0jGJD44RO3Qcdrtn23erJVBFrFol0
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfXwjWTFabtHplN
- fYYop9R0ZQs5akL/i1gqCnVLQmX7XxEnJJj+Py+XzOw7lQjwFZnskoAdX1clN3Yr2MxvDb6jxlR
- ZKzftXx6v35SEzI1mXfOTBvxGQeV5g8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfX/NtDr3zxmaal
- Ecxod+O3CdE+AlPxZPFVIzm0XDu4nihkyQH7YoXlHnFI29plUnRExtOlqnLzwkoERmhBNVVqBIk
- 37oFvDWFpGEMySgN+2stmfa01+GdASlS+mlntSPX1BdW49VnbwZdUp35WGH8C4YL+kuUg50cfZW
- 75ry6S+4IilsDv+5SpViIZZN+iM8OJrl9zWP9XrjjnE2DYtOKo3wHwAFSjesnmYGPID3rox9fv8
- OxF8qKN5FgJz8JuB7Xvw/bU196zy8vRO/E9Gs9nkbddacbLwZiTB9Tk5v9uXzXsl9ZOIMjBv6/l
- wEf7O0OXW+2Hzp320ykm+8lSJTnFE/7G/GRiwsyPy3JZIQpjT3JrLHLKAXkc22fWP079YVqjYSS
- e5iInzi1yF+rZnIhlNXzrQPTmonybARu9w/Y504SME5YxzLELUfAYMpIt/1TYBArM+WxcXoo20c
- 1I7jbtYBFwQftShcF7g==
+ a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=ZlVeDcQYEk3IPcOgC64A:9 a=QEXdDO2ut3YA:10
+ a=2VI0MkxyNR6bbpdq8BZq:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: -LGuWQGMLQvOcEdcLTmzRp7WQqBYCa8P
+X-Proofpoint-ORIG-GUID: -LGuWQGMLQvOcEdcLTmzRp7WQqBYCa8P
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfXyveaX+alNaUo
+ aw9KPUsgtuyi3B+9zfFU708mY55N7gzRTXBM8QnmZh+9m6floJ8cqntSLRf2LMBPCeDeG6lZP0d
+ UWaQv4Zcy/GUJWma/Ziw7l8BUAE8sYw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfX/bomDyQIhs8R
+ vuvoosfXs3Ms/vjzyc/IQMh62K8idfxEn5zi6dcCIO13tM2H6voEFYzwV6HwBP0dP0TvW/MGRK5
+ mhptV+wdHvoBwr0kTr8YyC1C30bpip5r3+49zTBAnqbFWT51WvBORWyFYRFLjdIt09RjwXRf0UD
+ LL2inu0KN65RpQUsaURkb3yf7jPk5BF5N+6qRWK4gIh82mdmHXdwAG4OcVdSnhBVrHeZysd1Pes
+ y1bcpAh0hZR36c95NztVPBHadBpBw5ChdPWNkLwVvOc5bV9k98iiYoNjtfd0S85jqhewSADaoM4
+ 19M8XOwls3Rk/skkMz/mQQOTaLJwvDVMNkfU6Kj5ijs/x2qcVUO+hmM1RkHIX0gpwvDWkTA4DAv
+ nvxoUX1D65UFj2lJHh6AXRnulCoP2yvgjz7FVz4lW9cqtfoJkau070guehwLhwK0JOshNeaW5sD
+ mWNwAzcXpuji7YwCdXg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-15_03,2026-06-15_01,2025-10-01_01
@@ -145,8 +145,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  adjust=0 reason=mlx scancount=1 engine=8.22.0-2606040000
  definitions=main-2606150132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_053323_231667_05DE9E47 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20260615_053327_111091_23274E02 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,142 +161,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Qualcomm extended CTI implements banked trigger status and integration
-registers, where each bank covers 32 triggers. Multiple instances of
-these registers are required to expose the full trigger space.
+Document the new sysfs entries triginstatus[1-3], trigoutstatus[1-3],
+ittrigin[1-3], ittrigout[1-3], ittrigoutack[1-3] and ittriginack[1-3]
+in the coresight-cti ABI documentation.
 
-Add coresight_cti_reg_index(), coresight_cti_reg_rw_index(), and
-coresight_cti_reg_wo_index() macros that carry the bank index in the
-cs_off_attribute.index field, keeping the base offset and index
-separate rather than encoding them together.
+Also document the previously undocumented base integration test
+registers itctrl, itchin, itchinack, ittrigin, ittriginack, itchout,
+itchoutack, ittrigout and ittrigoutack, which were introduced in
+kernel version 5.7.
 
-Add static sysfs entries for the banked CTI registers and control
-their visibility based on the underlying hardware configuration.
-Visibility is determined by comparing the attribute's index against
-the number of banks implied by nr_trig_max (32 triggers per bank).
-Registers beyond the hardware capacity are hidden, preserving the
-existing ABI on standard ARM CTIs while exposing the full register
-set on Qualcomm CTIs.
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-cti-sysfs.c | 58 +++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
+ .../ABI/testing/sysfs-bus-coresight-devices-cti    | 90 ++++++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-index 6165866eaefe..175f20d69232 100644
---- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-@@ -207,6 +207,15 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
- 	   }								\
- 	})[0].attr.attr)
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+index a2aef7f5a6d7..9d7831ac455b 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+@@ -128,12 +128,102 @@ KernelVersion:	5.7
+ Contact:	Mike Leach or Mathieu Poirier
+ Description:	(Read) read current status of input trigger signals
  
-+#define coresight_cti_reg_index(name, offset, idx)			\
-+	(&((struct cs_off_attribute[]) {				\
-+	   {								\
-+		__ATTR(name, 0444, coresight_cti_reg_show, NULL),	\
-+		offset,							\
-+		idx							\
-+	   }								\
-+	})[0].attr.attr)
++What:		/sys/bus/coresight/devices/<cti-name>/regs/triginstatus[1-3]
++Date:		June 2026
++KernelVersion:	7.3
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>
++Description:	(Read) read current status of QCOM extended input trigger signals.
 +
- #define coresight_cti_reg_rw(name, offset)				\
- 	(&((struct cs_off_attribute[]) {				\
- 	   {								\
-@@ -217,6 +226,16 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
- 	   }								\
- 	})[0].attr.attr)
+ What:		/sys/bus/coresight/devices/<cti-name>/regs/trigoutstatus
+ Date:		March 2020
+ KernelVersion:	5.7
+ Contact:	Mike Leach or Mathieu Poirier
+ Description:	(Read) read current status of output trigger signals.
  
-+#define coresight_cti_reg_rw_index(name, offset, idx)			\
-+	(&((struct cs_off_attribute[]) {				\
-+	   {								\
-+		__ATTR(name, 0644, coresight_cti_reg_show,		\
-+		       coresight_cti_reg_store),			\
-+		offset,							\
-+		idx							\
-+	   }								\
-+	})[0].attr.attr)
++What:		/sys/bus/coresight/devices/<cti-name>/regs/trigoutstatus[1-3]
++Date:		June 2026
++KernelVersion:	7.3
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>
++Description:	(Read) read current status of QCOM extended output trigger signals.
 +
- #define coresight_cti_reg_wo(name, offset)				\
- 	(&((struct cs_off_attribute[]) {				\
- 	   {								\
-@@ -226,6 +245,15 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
- 	   }								\
- 	})[0].attr.attr)
- 
-+#define coresight_cti_reg_wo_index(name, offset, idx)			\
-+	(&((struct cs_off_attribute[]) {				\
-+	   {								\
-+		__ATTR(name, 0200, NULL, coresight_cti_reg_store),	\
-+		offset,							\
-+		idx							\
-+	   }								\
-+	})[0].attr.attr)
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itctrl
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(RW) Control integration mode.
 +
- /* coresight management registers */
- static struct attribute *coresight_cti_mgmt_attrs[] = {
- 	coresight_cti_reg(devaff0, CTIDEVAFF0),
-@@ -515,18 +543,36 @@ static struct attribute *coresight_cti_regs_attrs[] = {
- 	&dev_attr_appclear.attr,
- 	&dev_attr_apppulse.attr,
- 	coresight_cti_reg(triginstatus, CTITRIGINSTATUS),
-+	coresight_cti_reg_index(triginstatus1, CTITRIGINSTATUS, 1),
-+	coresight_cti_reg_index(triginstatus2, CTITRIGINSTATUS, 2),
-+	coresight_cti_reg_index(triginstatus3, CTITRIGINSTATUS, 3),
- 	coresight_cti_reg(trigoutstatus, CTITRIGOUTSTATUS),
-+	coresight_cti_reg_index(trigoutstatus1, CTITRIGOUTSTATUS, 1),
-+	coresight_cti_reg_index(trigoutstatus2, CTITRIGOUTSTATUS, 2),
-+	coresight_cti_reg_index(trigoutstatus3, CTITRIGOUTSTATUS, 3),
- 	coresight_cti_reg(chinstatus, CTICHINSTATUS),
- 	coresight_cti_reg(choutstatus, CTICHOUTSTATUS),
- #ifdef CONFIG_CORESIGHT_CTI_INTEGRATION_REGS
- 	coresight_cti_reg_rw(itctrl, CORESIGHT_ITCTRL),
- 	coresight_cti_reg(ittrigin, ITTRIGIN),
-+	coresight_cti_reg_index(ittrigin1, ITTRIGIN, 1),
-+	coresight_cti_reg_index(ittrigin2, ITTRIGIN, 2),
-+	coresight_cti_reg_index(ittrigin3, ITTRIGIN, 3),
- 	coresight_cti_reg(itchin, ITCHIN),
- 	coresight_cti_reg_rw(ittrigout, ITTRIGOUT),
-+	coresight_cti_reg_rw_index(ittrigout1, ITTRIGOUT, 1),
-+	coresight_cti_reg_rw_index(ittrigout2, ITTRIGOUT, 2),
-+	coresight_cti_reg_rw_index(ittrigout3, ITTRIGOUT, 3),
- 	coresight_cti_reg_rw(itchout, ITCHOUT),
- 	coresight_cti_reg(itchoutack, ITCHOUTACK),
- 	coresight_cti_reg(ittrigoutack, ITTRIGOUTACK),
-+	coresight_cti_reg_index(ittrigoutack1, ITTRIGOUTACK, 1),
-+	coresight_cti_reg_index(ittrigoutack2, ITTRIGOUTACK, 2),
-+	coresight_cti_reg_index(ittrigoutack3, ITTRIGOUTACK, 3),
- 	coresight_cti_reg_wo(ittriginack, ITTRIGINACK),
-+	coresight_cti_reg_wo_index(ittriginack1, ITTRIGINACK, 1),
-+	coresight_cti_reg_wo_index(ittriginack2, ITTRIGINACK, 2),
-+	coresight_cti_reg_wo_index(ittriginack3, ITTRIGINACK, 3),
- 	coresight_cti_reg_wo(itchinack, ITCHINACK),
- #endif
- 	NULL,
-@@ -537,10 +583,22 @@ static umode_t coresight_cti_regs_is_visible(struct kobject *kobj,
- {
- 	struct device *dev = kobj_to_dev(kobj);
- 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	struct device_attribute *dev_attr;
-+	struct cs_off_attribute *cti_attr;
-+	int max_bank;
- 
- 	if (attr == &dev_attr_asicctl.attr && !drvdata->config.asicctl_impl)
- 		return 0;
- 
-+	dev_attr = container_of(attr, struct device_attribute, attr);
-+	if (dev_attr->show == coresight_cti_reg_show ||
-+	    dev_attr->store == coresight_cti_reg_store) {
-+		cti_attr = container_of(dev_attr, struct cs_off_attribute, attr);
-+		max_bank = DIV_ROUND_UP(drvdata->config.nr_trig_max, 32);
-+		if (cti_attr->index >= max_bank)
-+			return 0;
-+	}
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchin
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the values of the CTCHIN inputs.
 +
- 	return attr->mode;
- }
- 
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchinack
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Write) Write the value of the CTCHINACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigin
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the values of the CTTRIGIN inputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigin[1-3]
++Date:		June 2026
++KernelVersion:	7.3
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>
++Description:	(Read) Read the values of the QCOM extended CTTRIGIN inputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittriginack
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Write) Write the value of the CTTRIGINACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittriginack[1-3]
++Date:		June 2026
++KernelVersion:	7.3
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>
++Description:	(Write) Write the value of the QCOM extended CTTRIGINACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchout
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(RW) Read or write the value of the CTCHOUT outputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchoutack
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the value of the CTCHOUTACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigout
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(RW) Read or write the value of the CTTRIGOUT outputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigout[1-3]
++Date:		June 2026
++KernelVersion:	7.3
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>
++Description:	(RW) Read or write the value of the QCOM extended CTTRIGOUT outputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigoutack
++Date:		March 2020
++KernelVersion:	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the value of the CTTRIGOUTACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigoutack[1-3]
++Date:		June 2026
++KernelVersion:	7.3
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>
++Description:	(Read) Read the value of the QCOM extended CTTRIGOUTACK input.
++
+ What:		/sys/bus/coresight/devices/<cti-name>/channels/trigin_attach
+ Date:		March 2020
+ KernelVersion:	5.7
 
 -- 
 2.43.0
