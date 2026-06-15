@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B916CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B022CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4uN4a+y3crJut6rAVc3LTXhazxwmnD/VCILUOEYgd0=; b=tIPapknGB/gPCMDaaFIBsw+b/b
-	a06BRhAzIe23ekSwbHVYYdT0IEz4ZwYmD4UWXm+ALsrL2Mnm86zLVSlZw88BTOu9G1eTNxVHG8AWx
-	ekx1h2aT92xaxG7WhoylodG7+ndBaHy/m2gYEHKsdb6XoDI4tmrGqUP/8gyWyQqbxBNPe51FWMRmC
-	bn4Wy7/ru/UNBfMDJZpc92y+/KR+BJeQZy6+JEzw9TKyvB+/NKLUPI5wO92qZnwlD5RL88sGM+rNV
-	STNellf5sVhbPXU+FmfcfsB7EAwO8jJE4BCiELrpdyRn3WbbzyvupJst9FZdRSVcffxRfiEnaeoHL
-	Oi3Pl3dg==;
+	bh=dGbxXT/pVHsXNvjvWTH/s4OWFo76S/tTWfx5JzOHeK4=; b=aZFAzXz+tlNFGB2MwhGt7K4hVK
+	xqLOzqVKr99wtTca1uxr7bQli+ln5QkNEGyExXXOr1EY+2Ffp7m/v0exmuZjGuwilVAbHKCcxhg7l
+	NxDABTZrj2QHRnQx+gTMsVLYTjEq2/Tmn+njadpYf2LACw8Xrn0SPXSxM3QS2fXRDBJTjC2Vbs5cP
+	MP3k0nfoCUtQaD+qJ9wyArBA5bwSn5Js/CDw8JLpxpSZgGINLSlgwTxZe3vTFBnQ1HpPgT4QP1urp
+	vNL5EQPL5c1VCuBwSJuqrNvLQ7nYrBhkP4wfTiX0lN16htuoS6yCDED00tTsQ33NYYwCTrC9IqA4Y
+	mNEj8wcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGS5-0000000Evff-47rU;
+	id 1wZGS6-0000000Evfv-0QgD;
 	Mon, 15 Jun 2026 23:10:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGS3-0000000EvfH-3hj6
+	id 1wZGS4-0000000EvfO-30LW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 23:10:43 +0000
+	Mon, 15 Jun 2026 23:10:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B622660137;
-	Mon, 15 Jun 2026 23:10:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FD8B1F000E9;
-	Mon, 15 Jun 2026 23:10:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC3C2600AB;
+	Mon, 15 Jun 2026 23:10:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F6101F00A3A;
+	Mon, 15 Jun 2026 23:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781565041;
-	bh=n4uN4a+y3crJut6rAVc3LTXhazxwmnD/VCILUOEYgd0=;
+	s=k20260515; t=1781565043;
+	bh=dGbxXT/pVHsXNvjvWTH/s4OWFo76S/tTWfx5JzOHeK4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DuDfk/gvnd105SzD9wRBWKGcWHJIyNL3tOmAn6RNlOZjwnkusKwDrax4xIKVEd5Kk
-	 PjGldRPZjP9eeX9prImoHHmQ86Mc+T3TuI+FcdARBg/+7wxapEWU07PrlDIoo/+8+/
-	 s6WCwc90ugDaabWXHwifZcGTjlxbYGpCSuLrdVL6Ar4skFZxT4Zf7bp3iHXpa4TvxE
-	 +ahGL0kWQ9BFza4M94H/fQMI3I4PIPXp8pyW/eUSLfh6b0dQySAIJb8uIvnoNJ3IVu
-	 rwXmpnumXDhKB9vSqaDw6ZgfUR5Ltv63Qqn0sa88yGbG5rxo7HVNu5F7smGWwQZhZ7
-	 kzWFMBkNcPHrA==
+	b=iGwr7zBN59E45Eq1/uBBOSQAj5QlUIhTt+JY8W2hohvuo97pXwr84Q/rmZhcMkpWu
+	 sOd3jRMj68zipH4xBUKX5bM3thTkTsOc0DFe3IZU+zZxxSKafKovjKeu6/sHzfBcb/
+	 dAbDOPF8trhoMdJhrz0yHG/BdEeY3KhmLhawHyzYozrZ0g8mwhYIvK4AP/9vMoGwfp
+	 4zdVBq3uBtNe7GiujazQvYNraasQpbJhdyy8MXhJ/qtn/5/b4VEciNfXnOYZDYim4+
+	 E6TD19Zt8+p5gshPmKN1dypjUnjp15XbGCuXlXQnUm50QUmgN0HqmqnRz+CvL3bZFW
+	 CI5pZH4GSXQIg==
 From: Jakub Kicinski <kuba@kernel.org>
 To: m-malladi@ti.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -67,12 +67,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	srk@ti.com,
 	vigneshr@ti.com
-Subject: Re: [PATCH net-next v7 1/2] net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
-Date: Mon, 15 Jun 2026 16:10:38 -0700
-Message-ID: <20260615231038.1007389-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v7 2/2] net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
+Date: Mon, 15 Jun 2026 16:10:41 -0700
+Message-ID: <20260615231041.1007484-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260610052511.781752-2-m-malladi@ti.com>
-References: <20260610052511.781752-2-m-malladi@ti.com>
+In-Reply-To: <20260610052511.781752-3-m-malladi@ti.com>
+References: <20260610052511.781752-3-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -92,242 +92,143 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
+Subject: net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
 
-This patch adds QoS infrastructure for Frame Preemption (FPE) in the
-ICSSG Ethernet driver, including a verify state machine driver helper,
-mqprio-based preemptible-tc mapping, and a link-state callback. A
-follow-up patch in this series wires this up to ethtool's MAC Merge ops.
+This patch wires up the ethtool MAC Merge ops (.get_mm, .set_mm,
+.get_mm_stats) for the ICSSG PRU Ethernet driver and adds five firmware
+preemption counters that feed both the new MM stats and the existing
+ethtool -S table.
 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -392,6 +392,8 @@ static void emac_adjust_link(struct net_device *ndev)
->  		} else {
->  			icssg_set_port_state(emac, ICSSG_EMAC_PORT_DISABLE);
->  		}
-> +
-> +		icssg_qos_link_state_update(ndev);
->  	}
-
-[Medium]
-emac_adjust_link() sets emac->link = 0 before reaching this call. Inside
-icssg_qos_link_state_update() -> icssg_iet_change_preemptible_tcs() ->
-icssg_config_ietfpe(), the very first check is:
-
-    if (!emac->link) {
-            netdev_dbg(ndev, "cannot change IET/FPE state ... \n");
-            return 0;
-    }
-
-so on a link-down the IET path returns early without clearing
-iet->fpe_active or iet->verify_status, even though firmware has already
-been told ICSSG_EMAC_PORT_DISABLE just above. After the follow-up patch
-adds get_mm(), would ethtool then report stale tx_active=true and a
-stale verify_status while the link is down?
-
-The commit message states:
-
-    Verify state machine re-triggers on link up/down events based on
-    fpe_enabled and fpe_active flags
-
-Is the link-down half of that contract implemented anywhere?
-
-[Medium]
-A related question on the locking design: emac->link is written here by
-emac_adjust_link() without taking iet->fpe_lock, but icssg_config_ietfpe()
-reads emac->link inside the fpe_lock-held critical section. The lockset
-for writers and readers is disjoint, so fpe_lock does not actually
-serialize emac->link.
-
-Can the following interleaving occur?
-
-  CPU0 (ndo_setup_tc)               CPU1 (emac_adjust_link)
-  mutex_lock(&iet->fpe_lock);
-  reads emac->link == 1
-                                     emac->link = 0;
-                                     icssg_set_port_state(... DISABLE);
-  proceeds to write FPE regs
-  and issue PREMPT_TX_ENABLE
-  mutex_unlock(&iet->fpe_lock);
-                                     icssg_qos_link_state_update();
-                                       sees emac->link == 0, returns
-
-leaving stale FPE writes on a port the firmware has just disabled? The
-commit message says "fpe_lock serializes all FPE state mutations" but
-emac->link is one of those mutations and is not covered.
-
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
-> new file mode 100644
-> --- /dev/null
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.c
-> @@ -0,0 +1,282 @@
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> index b715af21d23a..0620782318ab 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> @@ -294,6 +294,103 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
 
 [ ... ]
 
-> +static int icssg_iet_verify_wait(struct prueth_emac *emac)
-> +{
-> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
-> +	struct prueth_qos_iet *iet = &emac->qos.iet;
-> +	unsigned long delay_us, timeout_us;
-> +	u32 status;
-> +	int ret;
-> +
-> +	delay_us = iet->verify_time_ms * 1000;
-> +	timeout_us = delay_us * ICSSG_IET_VERIFY_ATTEMPTS;
-> +
-> +	ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS,
-> +				 status,
-> +				 status == ICSSG_IETFPE_STATE_SUCCEEDED,
-> +				 delay_us,
-> +				 timeout_us);
-> +
-> +	iet->verify_status = status;
-> +	return ret;
-> +}
-
-[High]
-With ICSSG_IET_MAX_VERIFY_TIME = 128 and ICSSG_IET_VERIFY_ATTEMPTS = 3,
-this can sleep for up to 384ms while iet->fpe_lock is held. fpe_lock is
-acquired by icssg_iet_change_preemptible_tcs() from two paths:
-
-  - emac_tc_setup_mqprio() via .ndo_setup_tc, called with RTNL held.
-  - icssg_qos_link_state_update() from emac_adjust_link(), invoked by
-    phylib with phydev->lock held (prueth_emac_common_start()
-    explicitly does mutex_lock(phydev->lock) before calling
-    emac_adjust_link).
-
-Once the follow-up patch wires set_mm() to write iet->mac_verify_configure,
-this sleep becomes reachable from any user with CAP_NET_ADMIN. Should
-the verify wait be deferred to a workqueue or a completion driven by a
-firmware notification rather than block under RTNL / phydev->lock for
-hundreds of milliseconds? Other drivers with MAC Merge support
-(e.g. fec, stmmac) take the deferred-work approach for the same reason.
-
-[Low]
-The condition only breaks on ICSSG_IETFPE_STATE_SUCCEEDED, but the enum
-also defines a distinct ICSSG_IETFPE_STATE_FAILED value reported by
-firmware on a definitive verify failure. With the current condition,
-would a FAILED state cause the loop to keep polling for the entire
-timeout and then surface as:
-
-    netdev_err(ndev, "MAC Verification failed with timeout\n");
-
-even though it was not actually a timeout? Could the cond also break on
-FAILED so the caller can distinguish the two?
-
-> +int icssg_config_ietfpe(struct net_device *ndev, bool enable)
+> +static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+> +		       struct netlink_ext_ack *extack)
 > +{
 > +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
 > +	struct prueth_qos_iet *iet = &emac->qos.iet;
-> +	int ret;
-> +	u8 val;
+> +	int err;
 > +
-> +	lockdep_assert_held(&iet->fpe_lock);
+> +	if (emac->is_sr1)
+> +		return -EOPNOTSUPP;
 > +
-> +	if (!emac->link) {
-> +		netdev_dbg(ndev, "cannot change IET/FPE state when interface is down\n");
-> +		return 0;
-> +	}
-
-[ ... ]
-
-> +	if (enable && iet->mac_verify_configure) {
-> +		ret = icssg_iet_verify_wait(emac);
-> +		if (ret) {
-> +			netdev_err(ndev, "MAC Verification failed with timeout\n");
-> +			goto disable_tx;
-> +		}
-> +	} else if (enable) {
-> +		/* Give firmware some time to update
-> +		 * PRE_EMPTION_ACTIVE_TX state
-> +		 */
-> +		usleep_range(100, 200);
+> +	if (!cfg->pmac_enabled) {
+> +		NL_SET_ERR_MSG_MOD(extack, "preemptible MAC is always enabled");
+> +		return -EOPNOTSUPP;
 > +	}
 > +
-> +	if (enable) {
-> +		val = readb(config + PRE_EMPTION_ACTIVE_TX);
-> +		if (val != 1) {
-> +			netdev_err(ndev,
-> +				   "Firmware fails to activate IET/FPE\n");
-> +			ret = -EIO;
-> +			goto disable_tx;
-> +		}
-> +		iet->fpe_active = true;
-> +	} else {
-> +		iet->fpe_active = false;
-> +	}
+> +	mutex_lock(&iet->fpe_lock);
+> +	iet->verify_time_ms = cfg->verify_time;
+> +	iet->tx_min_frag_size = cfg->tx_min_frag_size;
+> +	iet->fpe_enabled = cfg->tx_enabled;
+> +	iet->mac_verify_configure = cfg->verify_enabled;
+> +	err = icssg_config_ietfpe(ndev, cfg->tx_enabled);
+> +	mutex_unlock(&iet->fpe_lock);
 > +
-> +	icssg_iet_set_preempt_mask(emac);
-> +	netdev_dbg(ndev, "IET FPE %s successfully\n",
-> +		   str_enable_disable(enable));
-> +	return 0;
-> +
-> +disable_tx:
-> +	icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
-> +fallback:
-> +	writeb(0, config + PRE_EMPTION_ENABLE_TX);
-> +	writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
-> +	iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
-> +	iet->fpe_active =  false;
-> +	return ret;
+> +	return err;
 > +}
 
 [Medium]
-icssg_set_port_state() only synchronizes the R30 command-done handshake;
-it does not guarantee firmware has finished updating the
-PRE_EMPTION_ACTIVE_TX status byte. Is a 100-200us sleep a documented
-worst-case latency for firmware to publish that byte under load
-(concurrent Rx, TAS, FDB ageing, link events)?
+Can the cached software state in iet diverge from the hardware here when
+icssg_config_ietfpe() fails?
 
-If the byte has not yet been written, this code returns -EIO,
-mischaracterizing it as "Firmware fails to activate IET/FPE", and the
-fallback path then writes PRE_EMPTION_ENABLE_TX = 0, defeating the
-user's enable. icssg_iet_verify_wait() already uses
-readb_poll_timeout() for an analogous status byte; could the same
-pattern be applied here with a small millisecond-range timeout?
+The new fields (verify_time_ms, tx_min_frag_size, fpe_enabled,
+mac_verify_configure) are written to iet before icssg_config_ietfpe() is
+called, but the error paths in icssg_config_ietfpe() only roll back a
+subset of state:
+
+icssg_qos.c:icssg_config_ietfpe() {
+    ...
+disable_tx:
+        icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
+fallback:
+        writeb(0, config + PRE_EMPTION_ENABLE_TX);
+        writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+        iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+        iet->fpe_active =  false;
+        return ret;
+}
+
+iet->fpe_enabled is left set to cfg->tx_enabled even though the hardware
+TX preempt path has been disabled.
+
+Two follow-on effects appear to come from this:
+
+emac_get_mm() reports state->tx_enabled = iet->fpe_enabled, so userspace
+sees tx_enabled=true after a set_mm that returned an error and left FPE
+disabled in hardware.
+
+icssg_qos_link_state_update() drives icssg_iet_change_preemptible_tcs(),
+which calls icssg_config_ietfpe(emac->ndev, iet->fpe_enabled) on every
+link transition, so the failed configuration is retried each link-up
+without further user action.
+
+Would it make sense to stage cfg into local variables, only commit them
+to iet after icssg_config_ietfpe() returns success, or otherwise
+restore the previous iet fields on the error return?
+
+> +static void emac_get_mm_stats(struct net_device *ndev,
+> +			      struct ethtool_mm_stats *s)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +
+> +	if (emac->is_sr1)
+> +		return;
+> +
+> +	if (!emac->prueth->pa_stats)
+> +		return;
+> +
+> +	emac_update_hardware_stats(emac);
+> +
+> +	/* MACMergeHoldCount stats is not tracked by the firmware */
+> +	s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_OK");
+> +	s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_ERR");
+> +	s->MACMergeFragCountRx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_RX");
+> +	s->MACMergeFragCountTx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_TX");
+> +	s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_BAD_FRAG");
+> +}
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
+> index 5ec0b38e0c67..8073deac35c3 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
+> @@ -189,6 +187,11 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
+>  	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
+>  	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
+>  	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
+> +	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
+> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
+> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
+> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
+> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
+>  	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
+>  	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
+>  	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
 
 [Medium]
-The success path always calls icssg_iet_set_preempt_mask(), and on
-fpe_active=false that helper takes the reset_hw branch and clears all
-per-queue BIT(4) preemptive markers. The disable_tx and fallback paths
-do not call icssg_iet_set_preempt_mask().
+Are these five new entries duplicating values that already have a
+standard uAPI?
 
-If FPE was previously active (so EXPRESS_PRE_EMPTIVE_Q_MAP[i] = BIT(4)
-on some queues) and a subsequent reconfigure fails (verify timeout, or
-PRE_EMPTION_ACTIVE_TX != 1), the failure paths only clear
-PRE_EMPTION_ENABLE_TX / PRE_EMPTION_ENABLE_VERIFY but leave the
-per-queue map and the EXPRESS_PRE_EMPTIVE_Q_MASK with stale preemptive
-bits. Should the failure paths also call icssg_iet_set_preempt_mask()
-(after iet->fpe_active is set to false) to keep the queue map and the
-TX-enable bit consistent?
+The same five firmware counters are exposed through the new
+.get_mm_stats callback as the standardized MAC Merge stats
+(MACMergeFrameAssOkCount, MACMergeFrameAssErrorCount, MACMergeFragCountRx,
+MACMergeFragCountTx, MACMergeFrameSmdErrorCount in struct
+ethtool_mm_stats), and adding them to icssg_all_pa_stats[] also
+publishes them via emac_get_strings() / emac_get_ethtool_stats() as
+ethtool -S strings.
 
-[ ... ]
+Documentation/networking/statistics.rst describes ethtool -S as the
+private-driver-stats interface; counters that have a standard uAPI are
+expected to flow only through that uAPI.
 
-> +EXPORT_SYMBOL_GPL(icssg_qos_init);
-
-[ ... ]
-
-> +EXPORT_SYMBOL_GPL(icssg_qos_ndo_setup_tc);
-
-[ ... ]
-
-> +EXPORT_SYMBOL_GPL(icssg_qos_link_state_update);
-
-[Low]
-Per the Makefile change in this patch:
-
-  icssg-y := icssg/icssg_common.o \
-             ...
-             icssg/icssg_ethtool.o \
-             icssg/icssg_qos.o
-
-icssg_qos.o is linked into the same icssg.ko module as the only callers
-(icssg_prueth.c and icssg_common.c). Are there cross-module consumers
-that need these symbols exported, or can the EXPORT_SYMBOL_GPL lines be
-dropped since EXPORT_SYMBOL_GPL is only required for cross-module
-linkage?
--- 
-pw-bot: cr
+Could the firmware-register lookup table used by emac_get_stat_by_name()
+be separated from the ethtool -S string table, so the new preemption
+counters feed get_mm_stats without also showing up under ethtool -S?
 
