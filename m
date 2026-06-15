@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54314CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 18:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A83C0CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 18:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1AM+L8li4N3UsWbF8Nm5adODubUGTBS+175vEjYCnXE=; b=AJJt7aBXqKTRkC3x0pTIZWl+yT
-	Xvz9fXD5QhcFmDjDh07Bls+ojemEO/22l4EhKz9Yz5NAfC/RYq8Gr9EvTpVCiiRh0R2tRzHHdfKrY
-	uRgtFV/zUL+attRixZq3nS3MlBsMGIuMmL6qzLW5PrGa87kmq9WCWhJ1Hv3zixBv7nUeT5OY0yQGy
-	9G36NBhtjBq4FZ8c7XbNXBc7Ha4UwvyhoQe4E5nG1+il4Vb/ISwYm46v5s7IS/3QJRQyaFUb1nJtt
-	dzcAOgv8ICgTH6jicI+rPgyRwBXi17znpOzQgksIoAlFiQH7klBvdFhrxZUZgiUykSFpVA08DGytC
-	ptcr7Rew==;
+	bh=f2otcKXkniiTUp+5VDPJ4fsoaaEOLI8QZLmJsjDf69Y=; b=OqN5QqfJtYNkKofaOBntUNVA0i
+	LM2q46inR8legCaxeP3xrVhik3CTlj2W8u0F7iyCSVqLmw9aTnnKfg3otGtgFjJ94dQKy8R2Iymdh
+	lZu0GTSwnlgvYE3z4Lq7S7TiQAJv2oJDwbJFlThSZ6R3siz2jnjPVsO8+RNQ5+QPgAZ2WL7aTUpVZ
+	osrhh0X6sDWrBneMx+2GJmzexKA9itK/nmM9DHCGTh/ZnW0Z53bNYfw+2HmtYvA6YfnSpCPNaydBw
+	sABKyAFnW7BgVUqFUf1qcscCf2fPw+d6clTB8h4Pv0o8XHOKajl9NIg3MT2rdevrNv+k96XiRX8UW
+	/oYFiPYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZCL5-0000000EjvW-0ddZ;
-	Mon, 15 Jun 2026 18:47:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZCNK-0000000Ek4i-1ZN5;
+	Mon, 15 Jun 2026 18:49:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZCL3-0000000EjvO-3lmY
+	id 1wZCNJ-0000000Ek4c-1s7v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 18:47:13 +0000
+	Mon, 15 Jun 2026 18:49:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0AAF600AB;
-	Mon, 15 Jun 2026 18:47:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 666D81F000E9;
-	Mon, 15 Jun 2026 18:47:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C60E24407A;
+	Mon, 15 Jun 2026 18:49:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8918C1F000E9;
+	Mon, 15 Jun 2026 18:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781549232;
-	bh=1AM+L8li4N3UsWbF8Nm5adODubUGTBS+175vEjYCnXE=;
+	s=k20260515; t=1781549372;
+	bh=f2otcKXkniiTUp+5VDPJ4fsoaaEOLI8QZLmJsjDf69Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FL/6g1Ai/tXtYu5rLh3fQ0vYbex/F+xaWdn7kleMFD8x1fJsZCfJXPwh9v/N0evJ4
-	 N14re250of6XIrGotXvXqCVhxq+qurdOQOMP5MQEgizZLjyTCh0JJxvql+8zaRcZ01
-	 1KC0xpN5p+bqjOvvBDnurQ4oMw6Z4NzfJqiU5xAK2i2vDmEMYb1RvtqHLeAG+Q9O+t
-	 6z4Qugo0Zy+xKm+LZHoAo8AChsy67FAPtzhnP9XZauHyAovX2cYceOg/wBkK4YKPmb
-	 Kds/oyL0n/vVCXwq9W8Wnm1NtSiuv0s3N4MGPtb0SQD2Rz+HAP0xk5sVvBSF2ELnN2
-	 pYKA122hpHGvg==
-Date: Mon, 15 Jun 2026 13:47:09 -0500
+	b=l513tM/bCEM2Tf1QvNXpkj3A38IB27Wahc8y6yfI20PkKouMUKFPAKku0Oe5l8PBJ
+	 3Zw4u8r4LYVoEiGoecclxDStWyNSo+B+MREw1zJyd+2iWBsUmKkLweN9srUDqIxaBP
+	 pvpQeoNgdggDFzee/qClUCPY9ZvT4ZlZD9o6IRsofqhWE3WpV24KQ1jIKdkI5ZdEWh
+	 sjRcrQKgcUHKJSeIUfb/vUZN7sBS3HRXaQBuNpcmfdIZFGHRT/OgYU04pD+3UZMgyL
+	 DMjmR3IQqlBRuZM3FLqOIk8SdrSNV2N46wXH3F7BBybdQ81WlMPhBE46mLEM+Ffk7T
+	 TFmps+X/rBlwQ==
+Date: Mon, 15 Jun 2026 13:49:29 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, imx@lists.linux.dev,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	Marco Felsch <m.felsch@pengutronix.de>,
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Eric Chanudet <echanude@redhat.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-kernel@vger.kernel.org, Alberto Ruiz <aruizrui@redhat.com>,
+	Matthias Brugger <mbrugger@suse.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 1/3] dt-bindings: soc: imx: fsl,imx93-media-blk-ctrl:
- Allow LVDS Display Bridge child node
-Message-ID: <178154922879.1630652.11500293336634076421.robh@kernel.org>
-References: <20260610-imx93-ldb-v3-0-c9b65d742753@nxp.com>
- <20260610-imx93-ldb-v3-1-c9b65d742753@nxp.com>
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Chester Lin <chester62515@gmail.com>, imx@lists.linux.dev,
+	Lee Jones <lee@kernel.org>, linux-gpio@vger.kernel.org,
+	Enric Balletbo <eballetb@redhat.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
+	Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v11 4/6] dt-bindings: pinctrl: s32g2-siul2: describe GPIO
+ and EIRQ resources
+Message-ID: <178154936898.1633409.13595893947195422422.robh@kernel.org>
+References: <20260610132116.1998140-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260610132116.1998140-5-khristineandreea.barbulescu@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260610-imx93-ldb-v3-1-c9b65d742753@nxp.com>
+In-Reply-To: <20260610132116.1998140-5-khristineandreea.barbulescu@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,21 +93,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 10 Jun 2026 17:26:21 +0800, Liu Ying wrote:
-> i.MX93 SoC mediamix blk-ctrl contains one LDB_CTRL register and one LVDS
-> register which control video output through a LVDS interface.  Allow the
-> LVDS Display Bridge(LDB) child node and add the child node to example.
+On Wed, 10 Jun 2026 15:21:14 +0200, Khristine Andreea Barbulescu wrote:
+> Extend the S32G2 SIUL2 pinctrl binding to describe the GPIO data and
+> external interrupt resources present in the same SIUL2 hardware block.
 > 
-> i.MX93 LDB child node(bridge@20) is an addressable node, while i.MX93
-> Parallel Display Format Configuration(PDFC) child node(dpi-bridge) is a
-> non-addressable node.  Mixing the addressable and non-addressable child
-> nodes is allowed according to discussion [1].
+> Besides the MSCR and IMCR registers used for pin multiplexing and pad
+> configuration, SIUL2 also contains PGPDO and PGPDI registers
+> for GPIO data and EIRQ registers for external interrupt control.
 > 
-> Link: https://lore.kernel.org/all/n6akxiayi3g6gxcqhreb4iaohmeokoalnqup6h5r2fwdt4zijt@u2wyps55ayqm/ [1]
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> Add GPIO controller properties because the SIUL2 block also provides
+> GPIO functionality, and gpio-ranges are needed to describe the
+> mapping between GPIO lines and pin controller pins.
+> 
+> Document the interrupt controller properties. The SIUL2 block
+> contains EIRQ hardware as part of the same register space. IRQ support
+> itself will be added in a follow-up patch series.
+> 
+> Update the example accordingly to show the complete SIUL2 register
+> layout, including the GPIO data and EIRQ register windows.
+> 
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 > ---
->  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 39 ++++++++++++++++++++++
->  1 file changed, 39 insertions(+)
+>  .../pinctrl/nxp,s32g2-siul2-pinctrl.yaml      | 90 +++++++++++++++++--
+>  1 file changed, 84 insertions(+), 6 deletions(-)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
