@@ -4,116 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF1ACD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 21:26:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25695CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 21:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ToZuC56F4bCiUTbRp3OuxSWwbRuPhht31/r/OtwBpF4=; b=1CNETdkhnpZNsU29GbKIRXJ962
-	Bv3r8RZ6/w0SvmL4PMmbVfPxhrFL47K1GSL+FVXHYF0rREoRqGq+V+HW70Aewfd97khLjLdRpqWil
-	N1tujiGVQNz28R89xaM2qquIMHc0WiJliPVxNc0nCGrD5r6IbDhBzZDF3Oaz//aI4s/xCIh5gtBvb
-	72iYb4Nlf+JrUrU6fc5SpBzeo24fgGa01jHI9VWycldTggM1oksuKJ8R2G2d/mPtGMQQl3O4X3r22
-	HzjKF4zDINqfd5QOGODVWh5jnWWTIZLn842d257w5dUAo/0OkabOqdXHt8UuwXrbSbZjrkFnH/Nr4
-	4mjGPhag==;
+	bh=8CvKAGdCUW18KUmFYuMA9APTtSF2TfQZeTic6jDx6AY=; b=pMufRin7Svz2RUltW5st6izXXE
+	L4tbF2OAzI48HiTV65/4kN4CaOAu3fvdoeIS746+d25Up0nVbUJmDRzVTg5stQrqxSJrypoYDDviC
+	Vp3QGlYf0v5E3QE8NrHEaLozalJDh2e+FV/p6aWF+ckc53pFSuRiMhdv3q6biiGxlsuKTf5AcSpZ2
+	ypUKdCyWop0qqAovy0JdBIF8jtq93PmQn/ZKvd2jFoZHX+HhKwEoBzfGsHdUlcLUVbQmI7XWlTp2E
+	7dbn04rlWRCAObTEXSlFP1cU0QHxxd3Jrk05/p3hni4OMvAZhzu7Fiw/XUBCzhZgYLbReyTW9+Wn7
+	Kmppmczw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZEpX-0000000Erbf-06id;
-	Mon, 15 Jun 2026 21:26:51 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1wZEre-0000000ErlF-1jne;
+	Mon, 15 Jun 2026 21:29:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZEpU-0000000Erar-1nsc
+	id 1wZErb-0000000Erka-1Vzw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 21:26:49 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-68bd7ec2371so1600a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 14:26:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781558804; cv=none;
-        d=google.com; s=arc-20240605;
-        b=W0uV756Bvv4DUge2AR5cKdyzgiKOEYIOoURhfk4xlC4TGnifIsICtOyD/TqyihpMsO
-         C+DuQu4S1VtSJ60FAXh6NTqx55D1BD1LC4PVGO3N2shGXomO7ipARVu7FFUQX9yoUk/+
-         wCoDv533CdNpEvw+G1jODanAMs1JvknGHvzpempaZDGdstf5d2uyRfdCBG1AECHOaUtS
-         RYV+k3t36H9pnP1GtQoFMpwx9GpSbkTPGjmwkQ/dYMUIKZZsOKMFGeJiCCt1t/FyI8qy
-         XgHC4YUN2Do2+XJad/rbDU969jMC7PWZipw2K4KT7mplWwu6Oks47hkS8H3kaZM4KJ9P
-         d7pQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ToZuC56F4bCiUTbRp3OuxSWwbRuPhht31/r/OtwBpF4=;
-        fh=3M078XqLOTWbezLkrntMJqBl5n4DldRQ/vfkjyim/aA=;
-        b=N44nBD9JOnV7505iexAZSgB5reccOCT07pvwOO3qFlQLQ2zM6Dn72wHck2S1/Z/RPJ
-         JzajA62E3S7/lsiv2gx870tZAGRWTMlnqxIIDr8ET6nHZlX9UT/oXhcJzwHJpPMRlvB4
-         Ud9H+slRA7VtI4MmCryqCD6lWn+7QU0E6dQ6iV4inUBqvmHfBy56Cce8CBRHhBtt4NZU
-         qLpg/GnxS8sditqjzMfY2az1tM3fOhhxB/AavjSUk/HO9UIAjSVbIomn1FqfcrbgplCd
-         AkHv7JnmJ4K3Lk+65zwBwBb2jYlpB3gf1AjDX4T6egRObwcaAYAeykOFFBPfz6PlofR3
-         qsxw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781558804; x=1782163604; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ToZuC56F4bCiUTbRp3OuxSWwbRuPhht31/r/OtwBpF4=;
-        b=KUaYIZQLPSlx+GHkc7pRA3EieccQEFq2d8o09VH8yiQHsuKWrbcJrRUbDH3BOwHIzI
-         WXgIp8O0yWGNyVBQEZwYfGbKAPCbHoSJtikK5XxnYarH93jFkm7hMotibvI0MEwYF+Ds
-         hSB1ZVE6/jPCOE/gzAuYFFACrqYGhDJgdD0oBbTqPcPDnTUrMZYRisoDCH3JbqFPrPdO
-         dX8dqefzGhVgMQDtjUUEp7D/6H0paaQsRn5LQjQgafM1aLBtql1uOyCyKedBi1einEYw
-         FqzRfDckwpBqW6Kxyz1+Q5Pz+GZj31RpWXh1ynnwRjglRCZAHdFaFunlgiZCdHRhkl/a
-         nmSw==
+	Mon, 15 Jun 2026 21:29:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1781558937;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8CvKAGdCUW18KUmFYuMA9APTtSF2TfQZeTic6jDx6AY=;
+	b=O0oX8rgGW7kIcNrGrvNSy9m0VCpUTeyqM7Nh9BlpSn3qRk1M3zR4PsT22HPJQ/0d0gzDq3
+	iHXOSZsxpPGR45kPBmy+UjiQ4eR4SCvdK7L7cfHjOCtufBrqUiHUJNfM+LWaEtgzdJXGGn
+	ZUnmWOQCli/vS3KpZ0qTQ30n2H5zzbs=
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
+ [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-653-J9UvpPtOPSK2NFa7tV4wAQ-1; Mon, 15 Jun 2026 17:28:56 -0400
+X-MC-Unique: J9UvpPtOPSK2NFa7tV4wAQ-1
+X-Mimecast-MFC-AGG-ID: J9UvpPtOPSK2NFa7tV4wAQ_1781558936
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-517ac42d958so73354681cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 14:28:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781558804; x=1782163604;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ToZuC56F4bCiUTbRp3OuxSWwbRuPhht31/r/OtwBpF4=;
-        b=QZlYHGLA2GVgorHQqEWecUUeu1mNAZ+gBsVXmlORluzC9METc6dkKoAk1pNw7ftlAr
-         m0qL9XaaGhdGHrkZTwOC+2Vpq7w1ab5EW50CkL5MD0otinX75cUQA9Z2cpKwKcEEzvPp
-         MPzyRCDEM06xzyybVQZ8KqtoHrnQr5DahsZFVFEPhV3qZ0X2OQKottH+CZ9kP1ETHq5d
-         JEwI7sW7k4vDV66oY6v3aRq8XntEUiQSHs3J6IVb7NzBaR0dNNe7/J/dahwjlzeon0wS
-         IqBSbffAjSrLThGdbAnvtahEERuy73LTd+2Xdo/sEFfZSrJfw9CGIfV4hsi0UQTbqgje
-         rBVg==
-X-Forwarded-Encrypted: i=1; AFNElJ82HDp4klVMc/uFptE2fQAOMWEDuO/s22Cr0QFeUw0+O6YPlcyehD8sdt1akerQtj38LW75Am+AWNaw82/E32ke@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxa9tiyqU3/7YWqCtWORzCa+jBKB+bssUmplXdzSt9hl06jDmjY
-	cM8tRV0YmZDWi7e3dq+43AxMa1dc+qU4XNuEfEXWR9gWzWB4Jz7JeAijaC8xaG3M46XMmDYjUFL
-	xWDdCUr+S4Qzzae1aSCwrWnDIAf5p1QDiW7Wl4Kn7
-X-Gm-Gg: Acq92OFyxkyfG+yeyUnVHL5MIvLVP6oO4SLXu61IGIcrMcmc/QJ9Cgir+CiXf1dF05b
-	oOkC+DNSDfIDyMANxzyE7wUemn2xWcwz9ZICMKFlUwCGGbd6I9wYQu5Z4CHJ7QLRX9d38kQTyl8
-	SARexkeH1wTXi+kE2RGgEdTy1FE5zPARxvIz6XNvtoI30XXvMkqPUVgluI5dInYKFGdUmYUfG5I
-	wrtaK8MK3o3gKkjGWIFyz6iMbXcaq5Xu1/w0bk5bwj4zAexEBp1z6obVPnHlpEMDzLXg84JoS7E
-	98ns3e/eQe1mFt44C6SedNJYiXX6peawcBEEKx3Dx7FdgKMO
-X-Received: by 2002:a05:6402:684:b0:683:33ae:8689 with SMTP id
- 4fb4d7f45d1cf-695085d13b5mr21597a12.4.1781558803963; Mon, 15 Jun 2026
- 14:26:43 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1781558936; x=1782163736;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8CvKAGdCUW18KUmFYuMA9APTtSF2TfQZeTic6jDx6AY=;
+        b=JcnHlT60zOPS6zFXp6YGcDvuwjw996LTP5VvsRCeeUrYp4dD1LJEc5ANFqARbm0McX
+         +8el6qL6PiW6QJKZT4fgSe4gCm6Ul9DhQCU2H1z1LtLWpxq+SgQqTQfnGNPHzRaw9Uwc
+         KAO68vTTePvhmpXwbP9zNzHU3ZXx+Nl1+RIqpCZ3Zr43d+JR9QjMWKY/qrS+iUcfMCa8
+         vbgNoHa8jNE1vlnj3OBHjjx2ekfA0Ou6fzi3uBKNFppW0ggtdt6b5CknrlzkUApvdoEt
+         EYHUB9w1mYG2A5J6/0BqjpKKwJ8nXVLSH3PhqR/3HgjpWZ4e58+bZq0XCfZdsmJjzUWF
+         x0qQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+YCuZxJLd9e7J/Bm5/LCj+gZhBIK3TvmamCm9KA//DXeI2BDWMBQCnFYnO4dZ+GKBNhws9K2a2ewfKLSlavGzG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7wcD10kgq0hw+WNAaZUow3AJjT4DD6Zl7mxD+1BO6Bw9+YNym
+	pmo2QES337ITxQ0mCFwOzKxJ9EyK/J1dCEhaVnOwPC9xG1+D0GsfFxgRpM4v8UdU8hRUyJaMKxU
+	vUhRxfOMkOkNqpF7A/6A4VpowmiVk1je2mC2MoKeHYXakGFS+8xvzWnWZo8H696iua1Q3V6usCL
+	8F
+X-Gm-Gg: Acq92OHiobc/bhugr0HnUct/c4VeJZoKw+hu2p8rx5OgYJ36tGoyO5YVRR/YbAeevoD
+	REdbl+Lbb7oKOHg1UpKTah7l/R483WgyyITxfyRIO1axLd9oc6luvkZj3P/e1kLXuvMqqo8oEuz
+	/NdX4f6lP0DkP2OTZoJsv6bKk1uea6P1D6MGjvfYXfpvySYdrrGF4xsTs9XljNsqBV07X8MvOnG
+	z9LWryzxbiZ6NjwO5Sy89XkxnuyNr2twuMpYFTgR5yjAcygt8jnfCuqVSafdgaLwQqnrpe3/Py8
+	pjiLQOt2TNsox3hU0igBgQHxOkU0E/lxKk3/fW9KtqsVwalpCznfd/j0E5pD8tyqDdNt9nXZEkP
+	cK+2dT/y67Fxqmh3t8+q+swqIZTC2lZlcxbXuV1LUD7hCBBczpsK8dbdf
+X-Received: by 2002:a05:622a:a310:b0:517:79f0:ae3d with SMTP id d75a77b69052e-517fe23ac1dmr180027011cf.21.1781558935525;
+        Mon, 15 Jun 2026 14:28:55 -0700 (PDT)
+X-Received: by 2002:a05:622a:a310:b0:517:79f0:ae3d with SMTP id d75a77b69052e-517fe23ac1dmr180026601cf.21.1781558935056;
+        Mon, 15 Jun 2026 14:28:55 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-517fb6442d8sm119356571cf.11.2026.06.15.14.28.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 14:28:54 -0700 (PDT)
+Date: Mon, 15 Jun 2026 17:28:52 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Subject: Re: [PATCH v8 00/10] clk: realtek: Add RTD1625 clock support
+Message-ID: <ajBulHwzII9cynqI@redhat.com>
+References: <20260610080824.255063-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-References: <20260612162257.896792-1-xur@google.com> <20260613170143.GB3152432@ax162>
-In-Reply-To: <20260613170143.GB3152432@ax162>
-From: Rong Xu <xur@google.com>
-Date: Mon, 15 Jun 2026 14:26:31 -0700
-X-Gm-Features: AVVi8CfiVeC4233aezHEUet34ga7TDorkoyE27yShVwTmSOfx7cYTcOkCfEkcXc
-Message-ID: <CAF1bQ=S6OMwWuA=xaKy4CNvCmsAaJ2DQPi5LnfLyu6x4RnF61w@mail.gmail.com>
-Subject: Re: [PATCH] net: correcting section tags for .init and .exit data/functions
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, David Ahern <dsahern@kernel.org>, 
-	Ido Schimmel <idosch@nvidia.com>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	=?UTF-8?Q?Maciej_=C5=BBenczykowski?= <maze@google.com>, 
-	Yue Haibing <yuehaibing@huawei.com>, Jeff Layton <jlayton@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Fernando Fernandez Mancera <fmancera@suse.de>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Sabrina Dubroca <sd@queasysnail.net>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-actions@lists.infradead.org, llvm@lists.linux.dev, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20260610080824.255063-1-eleanor.lin@realtek.com>
+User-Agent: Mutt/2.3.1 (2026-03-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: nS0ECbieEeveSMOhYnPAPytQHBgND8EbVEc4hUKrz5w_1781558936
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_142648_475491_7295CAF0 
-X-CRM114-Status: UNSURE (   7.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_142859_464098_F8F4B7B8 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,17 +113,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After studying the warnings further, I believe this is an incorrect fix.
+Hi Yu-Chun,
 
-Normally, *_net_ops structures are intended to live in .data (permanent memory),
-even though they point to .init.text. Modpost is handling this by using
-hardcoded whitelists to allow these specific exceptions. However, this
-whitelist is
-failing in ThinLTO because ThinLTO renames *_net_ops to *_net_ops.llvm.*.
+On Wed, Jun 10, 2026 at 04:08:14PM +0800, Yu-Chun Lin wrote:
+> Hello,
+> 
+> This patch series adds clock support for Realtek's RTD1625 platform.
+> The series includes:
+> 1. Device Tree: Add clock controller nodes.
+> 2. Infrastructure: reset controller, basic clocks, PLLs, gate clocks, mux
+> clocks, and MMC-tuned PLLs.
+> 3. Platform drivers: two clock controller drivers for RTD1625-CRT and
+> RTD1625-ISO.
+> 
+> Best regards,
+> Yu-Chun Lin
 
-I am withdrawing this patch and will send a fix to modpost instead.
+Sashiko has some legitimate feedback about this patch set:
 
-Thanks,
+https://sashiko.dev/#/patchset/20260610080824.255063-1-eleanor.lin%40realtek.com
 
--Rong
+Can you go through that and post a new version? I'll review the next
+version manually in more detail.
+
+Brian
+
 
