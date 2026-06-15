@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A37DCD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 16:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A97CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 17:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qRde05t57TYKLH/mElqBxXibIHpq+CO80Mfo9j1+ysc=; b=DyZ09Nl8pAOIRTHMGZTEgfDgnQ
-	EV1Y19PWUe28KndvFqfQUa1zHQNq/eBkg1Qe0JsQ6ptV5wkkrE3GbYgaKkxJPVhS/6Jxc2bemM1/V
-	+Vojj4xyFa88oJZOAUvmGzDw1/rnJlGtVWoLnLhhTsBi8q5MDwPYF/Yow12rMl8qKFFkTAnDnDoX3
-	8cjILvBQnB945vYSLQKffnJBtyAW9DWejfeSl4BGFMwqsvfKQ4UmlaDECprpzsCGMjCOHt1iTL0Um
-	3H9LQZ3L/t4ZJF7S/ZHWC7xXfSeqrN/yJPdkYEUICBg5c7eXL81a22YazJCZcknV7JAhOkM2zkajQ
-	BnbEwiIQ==;
+	bh=7Q5C2LLfqbajf/Y7SPBe1zxsZGv3Xt9x9u3AniG9xBc=; b=C7MSEDEfh/dQ2l6+HVx9/Zi9CH
+	YxC3W/hMZZWE0iq8tLJzfDKheX8xyv1nOuAFqcMGIAXsSUCR47D2Wr/8+IIaxsURojd6PhVN2lS+B
+	PWoHIriNmXOpCb59XTKJFUopCUw8Pm06W5/L96SXrB0vLHz42Y5bunaJTWANyclNQBuepbMn5vvy9
+	40EZJVSL9/4TezwthMWadqUL2vf3UTnrcm5xAhw43hEhDFAp8UzVXtSPw0J7uXkQWdPNKkPtsD+Ot
+	5727trfApY2SY/AggGX+jGVL8zFmkvgvzoij4vyS0FHJG91p1bjGdyNfJF2ejDlBaNcfc1Thlcfuf
+	5mgkq7Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZAe2-0000000Ec6y-2ZyL;
-	Mon, 15 Jun 2026 16:58:42 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wZAgy-0000000EcJ4-3rO4;
+	Mon, 15 Jun 2026 17:01:44 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZAdz-0000000Ec6S-1JTn
+	id 1wZAgv-0000000EcId-1xhG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 16:58:40 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490bd64ca95so2135e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 09:58:33 -0700 (PDT)
+	Mon, 15 Jun 2026 17:01:43 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490b23c828aso1225e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 10:01:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781542712; x=1782147512; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=qRde05t57TYKLH/mElqBxXibIHpq+CO80Mfo9j1+ysc=;
-        b=lD6FUY2aihkyMSLvBWPUooX6twM/L5Q/NeTlnriuTZ5n2FIrRjxpMMQofuGTOLkc7D
-         ii/l16m9ViCpuFRIknGQm9rtAZZukC26YtuP/nfNhIXblefx+ONiICxlMKQekcjtgv6b
-         PJnjgE3sB3z39YqHGylfS7t+Vm/uAAqh1bS5p+2Xw0Qm77+Zo9sTaAWRZFwqNAdZqFOg
-         hEK2eMLfoeoUEMBLqfcxxZtKR781MN/z1DvjT+qGIp5x2buB44KpcXYDTeNvdtTyyGBs
-         /LlQhZR0tdCOiLWE7uyHowIUUzOhJzsSoqdTbvMVn7xdo9hDIkPYEM2Eq2Ix2JqwIrR5
-         0R/g==
+        d=google.com; s=20251104; t=1781542900; x=1782147700; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7Q5C2LLfqbajf/Y7SPBe1zxsZGv3Xt9x9u3AniG9xBc=;
+        b=EV9KJ3mX+eNUc1U48lbbegbM8ypXyPIzPv3BlJNweVSz3jDkxaSNNG31BY+CAnL0a7
+         QlA0iTodoVEGHYL5zk851sngWhnkHu+lX9S/PJ54xM3rWuWbLywVo6JjaYeTyuDfREOO
+         jJfdz1KQ4ZVgLMWOLIzUofSZm2uNregSswcNedsq+XQugap0f7S1PJXLmaaaZHtsalcM
+         yD8yZhh9AJYiHaIQ+8/VxvkORbpQ9500dUq+314RYZLMtj3ZQIdeLkhEZb7K2yIYi0wu
+         pzHaKJn2ZO9UU46zsDSq663Fc6U0HybdNVjBCRH8krRKuadvwcMpR3jGjHmYRRhk8c67
+         RCqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781542712; x=1782147512;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qRde05t57TYKLH/mElqBxXibIHpq+CO80Mfo9j1+ysc=;
-        b=mo8sN7TD4HcenMfnlhd0tPfHEQzua9VyZzwUFuFcfr41NrGr90/gpkD565Sq6d8Giu
-         p6iitb3NuenQ/jYyfLHq+V572lwbd2kIox4YCVDRd5CXee2wss8CliLAocGyIecHlGK+
-         xfSgXZ54W3NkhWbm9SCdmO3OD8gi8yZ6akVaLmmqpKQV7qfXHRH1zOm+/tcVP3c/AQc8
-         x3msZLqD2r8w5AqApGxQb5eyeR/SEZSmVK+dlSCCRPAoatk9zB1Dq8mVHq1Wp86kuPIf
-         oF2uwi1ScTzp/SSnAZ+cMaDDbLndqgO/zp5CKRkbK6+dwE8Xe2DRkf4RJqGBPLKjgCpj
-         aZyA==
-X-Forwarded-Encrypted: i=1; AFNElJ+phvXwptVArbx4l+045aA/EZzccd8+vUAvGD/qIjQPhehDnZr2CJmrW8RYg38dhVOzDXLyo0rXYL8XWBVytLRq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfOS22n8k7hOuxFBrnxNYEyzV7oR9eGpwS1un7GaRQsMe9GwNs
-	+nRNrLOLrYyzyuY9wFQ8xYNhzUMnLCAkQNG5Ko+nFDxY4+6IwMDcFFoDYG8IicSFZQ==
-X-Gm-Gg: Acq92OHqUPT5jfYjGJkwxhFVbJ9zHRXZ1k/G9ItQa7230gYBVKkBQ84KxbOGaz0NxJ2
-	wJy6ZRuR5YLqecK703UQfBV6BgI6aoOCKJ+Ms0HSSzuOKC9NZJicFbZwx5ogNw9d6PDR3xq2mPM
-	QtL8xNAXx7cLkgM/KTqUXCFysCUoK7ePFcCT8mXp/5E8qZqAlPY3Q1+7TA5b0zEFbikHXOsegX9
-	5Z3v8u80ToUEYZo50sOH4ZgS/OtoxG4RRALeb/C1clTKcUmntws5sd0OKIGMxD2TuI671JxUmc/
-	Wt7mHSGO+QDXI9LhQEVXIAQBD3cX7AfPl4vwA4FV7wjFwZdixmV2Oqor9GFX6X/Awv+vbzLqchw
-	rsEiZrmBVcFA7yOHf+cnCex41p5K3ThMM5fHZTluLz5wV4Y7YMJ8YAepuPejdEqhsy59u2S2Hkn
-	fUNr2Qh7H25wrYThT2uvB3pn2UrGpFtcwTXZBBZET2bxNdVYnwY5BThpUXr43EK9a3kpn9gPcH
-X-Received: by 2002:a05:600c:e555:20b0:48f:d634:b18d with SMTP id 5b1f17b1804b1-4922fcb119dmr16525e9.8.1781542711740;
-        Mon, 15 Jun 2026 09:58:31 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1781542900; x=1782147700;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7Q5C2LLfqbajf/Y7SPBe1zxsZGv3Xt9x9u3AniG9xBc=;
+        b=O7WWRYstYyqokfdFawOx11j7SWo7aiJQ3aT0a2kPdTGBt4rfgzpPav1LgvIYlM3UwE
+         NfiPVXdzsvgOorGW/oaE2rlP2/Dn2tACwJAIg7p/cYdpELhuXFHFug194CIf94xlSUE1
+         fYIUvA7mJa/+/8oTyTHS/LH1LkdEe1IgS2SHKhP1lJSsSAjS8W7lbf03xXcIgEzCjpBO
+         cWnQRTRpmLXgKrsLrb4e4cBr0gZqiNCN6WnbunCZEsDFor9dZ/37WGrOqFq5paYdmlKa
+         MGpjCaCeK9CyF4dOt+P4IIqUaXWo6XWhpSmuWwVpvb6HmdOfDdwlpT6+lB7tqV1aYe9e
+         ctbA==
+X-Forwarded-Encrypted: i=1; AFNElJ87/81Q0KrwOID1wKQvxyl9Ng5ijvNh7o+KWPb55k5s3kIxoXbgb5S0fjtZuCYGEpU+zUmShVddVz3oqgOY7YDO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzMcd7geG+yMnBeiMxyOYLmj6m3k8QwbQvBxlHjU2Z+3YNdpOl
+	Jiq+1Shb8CxNQA2CKUiHfQBmRU6Ok70IC5dTIW2YEla2tsxBYw2+Zkow1DREavbVmA==
+X-Gm-Gg: Acq92OFLOxtkwah/NgdV5rJdt8LyOc9xNRYu1lYwXoccWExqvRiAB/9eL2DD94JJDGb
+	gUcKQ/kzNdilH3QN/I2M1RIz59ZPYmio6vlriKy63y3NNr3TVlIk7x3lbqJvTQepzK6gqSztWkP
+	S7qiNGs1qbrOP3xfKvEDfrb68uMWvZ6G/8KRvXb2PqBe4oI5ksiUqo2+Tt9MuM9xCF89pcJkz+i
+	JmyGw2/2Pq6cuwEf0/h3f+BEDnyEZ7VR4GTjy0+28kV4CfDrXiQRDN/GY/PsE9tZUkAt4ojuN9t
+	RouxLciAfHBu05mYwiYkQHPw9S4dlrJQwBXTHk2SOxDru7waXuR25yR2sMQt23GJVhpp9o66WhD
+	jECSBNuh4zLX5J6zWchtYqVVfrlr2EDfifLgfPsWbw8fHu5LU0QWjw1J6b82xzebhdktq1hJLk1
+	PcmhXhW1aF9ghrcomdlykNQhIu4Um9zYSVyIf1C7NI4IzKJxKPOkGzhdPJPHr+2w==
+X-Received: by 2002:a05:600c:6994:b0:490:af6a:562a with SMTP id 5b1f17b1804b1-4922fcb16fbmr42715e9.9.1781542899200;
+        Mon, 15 Jun 2026 10:01:39 -0700 (PDT)
 Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922f9ccd86sm7626165e9.0.2026.06.15.09.58.30
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26392esm35682057f8f.3.2026.06.15.10.01.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 09:58:31 -0700 (PDT)
-Date: Mon, 15 Jun 2026 16:58:27 +0000
+        Mon, 15 Jun 2026 10:01:38 -0700 (PDT)
+Date: Mon, 15 Jun 2026 17:01:34 +0000
 From: Mostafa Saleh <smostafa@google.com>
 To: Pranjal Shrivastava <praan@google.com>
 Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
@@ -78,19 +77,18 @@ Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
 	Daniel Mentz <danielmentz@google.com>,
 	Ashish Mhetre <amhetre@nvidia.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 03/12] iommu/tegra241-cmdqv: Add a helper to drain
- VCMDQs
-Message-ID: <ajAvM5tJ4Ae17Lk8@google.com>
+Subject: Re: [PATCH v8 04/12] iommu/tegra241-cmdqv: Restore PROD and CONS
+ after resume
+Message-ID: <ajAv7pvRlAgLR7cn@google.com>
 References: <20260601215909.3958732-1-praan@google.com>
- <20260601215909.3958732-4-praan@google.com>
+ <20260601215909.3958732-5-praan@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260601215909.3958732-4-praan@google.com>
+In-Reply-To: <20260601215909.3958732-5-praan@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_095839_378994_5F08784E 
-X-CRM114-Status: GOOD (  31.65  )
+X-CRM114-CacheID: sfid-20260615_100142_580391_BF9D039D 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,123 +103,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 09:59:00PM +0000, Pranjal Shrivastava wrote:
-> The tegra241-cmdqv driver supports vCMDQs which need to be drained
-> before suspending the SMMU. The current driver implementation only uses
-> VINTF0 for vCMDQs owned by the kernel which need to be drained. Add a
-> helper that drains all the enabled vCMDQs under VINTF0.
+On Mon, Jun 01, 2026 at 09:59:01PM +0000, Pranjal Shrivastava wrote:
+> From: Ashish Mhetre <amhetre@nvidia.com>
 > 
-> Add another function ptr to arm_smmu_impl_ops to drain implementation
-> specified queues and call it within `arm_smmu_drain_queues`.
-> 
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  7 +++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
->  .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 27 +++++++++++++++++++
->  3 files changed, 35 insertions(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 0e77ef1e4523..8682be5060ed 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -915,6 +915,13 @@ static int arm_smmu_drain_queues(struct arm_smmu_device *smmu)
->  	 */
->  	ret = arm_smmu_queue_poll_until_empty(smmu, &smmu->cmdq.q);
->  
-> +	if (ret)
-> +		goto out;
-> +
-> +	/* Drain all implementation-specific queues */
-> +	if (smmu->impl_ops && smmu->impl_ops->drain_queues)
-> +		ret = smmu->impl_ops->drain_queues(smmu);
-> +out:
->  	return ret;
->  }
->  
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index c855ab4962ed..24d5e28eea88 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -885,6 +885,7 @@ struct arm_smmu_impl_ops {
->  	size_t (*get_viommu_size)(enum iommu_viommu_type viommu_type);
->  	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
->  			  const struct iommu_user_data *user_data);
-> +	int (*drain_queues)(struct arm_smmu_device *smmu);
->  };
->  
->  /* An SMMUv3 instance */
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> index 67be62a6e764..cb1e75e4ee91 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> @@ -414,6 +414,32 @@ tegra241_cmdqv_get_cmdq(struct arm_smmu_device *smmu,
->  	return &vcmdq->cmdq;
->  }
->  
-> +static int tegra241_cmdqv_drain_vintf0_lvcmdqs(struct arm_smmu_device *smmu)
-> +{
-> +	struct tegra241_cmdqv *cmdqv =
-> +		container_of(smmu, struct tegra241_cmdqv, smmu);
-> +	struct tegra241_vintf *vintf = cmdqv->vintfs[0];
-> +	int ret = 0;
-> +	u16 lidx;
-> +
-> +	/* Kernel only uses VINTF0. Return if it's disabled */
-> +	if (!READ_ONCE(vintf->enabled))
-> +		return 0;
+> PROD and CONS indices for vcmdqs are getting set to 0 after resume.
+> Because of this the vcmdq is not consuming commands after resume.
+> Fix this by restoring PROD and CONS indices after resume from
+> saved pointers.
 
-I am not familiar with this driver, but the READ_ONCE() caught my eye,
-I see that’s already what is the existing code is doing, but it is not
-clear to me why, it seems to be an attempt to make this path lockless.
-
-However, won’t we need some aquire/release semantics?
-
-For example in tegra241_vintf_hw_deinit() it WRITE_ONCE() cmdq and then
-vintf and finally writel() with a write memory barrier.
-
-While in tegra241_cmdqv_drain_vintf0_lvcmdqs() (or in
-tegra241_cmdqv_get_cmdq()) it checks READ_ONCE(vintf->enabled) then
-READ_ONCE(vcmdq->enabled)
-
-Now it is possible that this executes in any order, due to the lack
-of barriers,which means you can see:
-Thread#1: READ_ONCE(vintf->enabled) => TRUE
-Thread#2: Writes both vintf->enabled and vcmdq->enabled to FALSE
-Thread#1: Still sees vcmdq->enabled as TRUE because it was speculated.
-
-Am I missing something?
+What commands are exisiting at resume? Won't
+tegra241_cmdqv_drain_vintf0_lvcmdqs() drain the queues and make the
+PROD and CONS equal each other anyway?
 
 Thanks,
 Mostafa
 
-> +
-> +	for (lidx = 0; lidx < cmdqv->num_lvcmdqs_per_vintf; lidx++) {
-> +		struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
-> +
-> +		if (!vcmdq || !READ_ONCE(vcmdq->enabled))
-> +			continue;
-> +
-> +		ret = arm_smmu_queue_poll_until_empty(smmu, &vcmdq->cmdq.q);
-> +		if (ret)
-> +			break;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
->  /* HW Reset Functions */
+> 
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+> Signed-off-by: Pranjal Shrivastava <praan@google.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> index cb1e75e4ee91..866cae7b73e5 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> @@ -511,6 +511,8 @@ static int tegra241_vcmdq_hw_init(struct tegra241_vcmdq *vcmdq)
 >  
->  /*
-> @@ -845,6 +871,7 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
->  	.get_secondary_cmdq = tegra241_cmdqv_get_cmdq,
->  	.device_reset = tegra241_cmdqv_hw_reset,
->  	.device_remove = tegra241_cmdqv_remove,
-> +	.drain_queues = tegra241_cmdqv_drain_vintf0_lvcmdqs,
->  	/* For user-space use */
->  	.hw_info = tegra241_cmdqv_hw_info,
->  	.get_viommu_size = tegra241_cmdqv_get_vintf_size,
+>  	/* Configure and enable VCMDQ */
+>  	writeq_relaxed(vcmdq->cmdq.q.q_base, REG_VCMDQ_PAGE1(vcmdq, BASE));
+> +	writel_relaxed(vcmdq->cmdq.q.llq.prod, REG_VCMDQ_PAGE0(vcmdq, PROD));
+> +	writel_relaxed(vcmdq->cmdq.q.llq.cons, REG_VCMDQ_PAGE0(vcmdq, CONS));
+>  
+>  	ret = vcmdq_write_config(vcmdq, VCMDQ_EN);
+>  	if (ret) {
 > -- 
 > 2.54.0.1013.g208068f2d8-goog
 > 
