@@ -4,134 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3C9CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A83CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SkWRM3/xLQlJT+KavofwIRQrvd5blzD4CRIJgr1KegE=; b=FnSrSgSv/lcm7vasj4BeqRQof2
-	qbIO861H3pafyF2IxBrM78aEO6FXCCR8BjbExVPcLxU4fg/5Fu85Xz6UhDeremWANlOupUUAX/Agj
-	x/w3ZhNY2smFT9LpHQzqIosvEEEeTCmAoUFpsZa7cG4mklxWdR0MttWNoopi29Jtsax+dYntYfWWr
-	PBMWxNDbLYM7aDPh1O0YnmtDZ6MIv4DSNXo3skgHc6ziXPzB1+xCX8mtuvnw1cR+Hn2u+5L351ltO
-	F88CqtmyFzkJzxlTeCmL02ypss8L0woKMbxs8UMh5+G16LCHg6oZ9sySvxTugzW2SnaYU27G67FXx
-	l6choenA==;
+	bh=hkIb+b4xA4Dtv3ljZrlwMo9RpQWTNWYQCjFJM6rj18U=; b=dE2tgOLnJADfRAGaTgDh66nhiy
+	ioJ9NMBebW83odn67jBGWXUQnMC4EfswsNbQSuvkoXIYfHmsBi1hsBAY8H18Em2/LBkzMqHKzjTKO
+	oMV8gJerCIEvteSTLOXaB02kz6FRrK+Z4I1936QykORltjuaEAAZ6ts/uJaRO5tbaBFGv0uxebZp1
+	WJawDn2VHicuUXqmMn2GrzwCaYyVNaCrVoF0B69zzbmhiovlfl1295a9LlIiEP4CVHWLrXp/Vpjkf
+	skT8orgRXVdDWTo1KaAolj+mUu42AN14s5PJp1uK25fga5zgHM9rgmy1IwP1fGCEErB3wwEF8G4i9
+	VS0IiwRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ88h-0000000ENya-07NM;
-	Mon, 15 Jun 2026 14:18:11 +0000
-Received: from mail-westeuropeazon11010054.outbound.protection.outlook.com ([52.101.69.54] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wZ89I-0000000EO5E-0ukH;
+	Mon, 15 Jun 2026 14:18:48 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ88f-0000000ENxp-2Xik
+	id 1wZ89F-0000000EO3h-0XJF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 14:18:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LNTLk11cKA49IOYj3EkpO8m+WK8fPpdRRijvtutxmbTAnjPwdWnjEsmE6HtPNStf0IaPKaa51tar9hYYKyILlrOz0QRj7yc3bKcGyuB+MENzfTefjgPTwfW5VrIOcNsEsWM0UcJzkXyP2sLUCTzgf/9bh44YWXD0ozNjv1bWAs6dWfmtN4i/W4wY2jJK9Xutff6Bcwj8d+uszN+2V5crPmo6/gpY6KveSr8DTmDiIQxT1E7Z0ueDr9uparYsT+/Lnn0CJUKbmQYmzCejnsBiX3UlYm9S1rFUkHCf2b6yM/PLnu/ZE3ONYI1Un+TIsi8b/YfoejMN7iI/ji8cc+oAag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SkWRM3/xLQlJT+KavofwIRQrvd5blzD4CRIJgr1KegE=;
- b=aqmef1LA8Zomn0l8a13bS2MQ5MBwNlzsTDDd2P7P1BAhGrxjCGv5I9syxkLlnEXrDeZgL+xUsC9KYrA3+ILuxH0bDS+U0a+8phfJav9HjXmRiW5ElbsGYJr/orvAdqzv8jcNGkJh0RrqckVetRKAge3XUf3a4TqbNtaJYt7LuZD4Dna5Incam74mEj1YtmggGbNGFEGP7izwm6oWq5u4WBAUzhcuCAB1mqhAihK+EcGLnJXQVV0SEpKoAjs0bhOuLtDRpKeREriGbJ1zeix2Df8YlFo9mLrCC+ws63gIMuKrfzQQv2xtSSwwWlsiKczh3Hdo9/TKocG0pMKVsBCBPw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SkWRM3/xLQlJT+KavofwIRQrvd5blzD4CRIJgr1KegE=;
- b=MwsV+udBXEkbiGq0S4cf24Cy8rRxiAREGPY4tGzUucrJEM076VB/w7yv4GCBhFIFGtXiG5X8qQm0FiIamiSDmSJloDrOp52fI+VDhbODnq4QQVaxr/NhDNwyqMAy5Yx9uVHad97uocaRVAbBF304V1o2VXLQLyGGVgrHPgbFprVe80r1UHctAogHUu9Xlw4JxkqgEmaotWdm+rxhfjBEJaCyZA/RlPe0l2kVZCXnNNWZEuqtUQYuGmNgYf02fss162a0l+vhfPRQjMu2LKA49id7AO9+l3MH+L3FkjWfdzmvWibFc3RRB8WHQX/ohSM4k8MckIFTJGPCER+yLJuAPQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM8PR04MB7459.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
- 2026 14:18:03 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
- 14:18:03 +0000
-Date: Mon, 15 Jun 2026 09:17:51 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v2 08/11] ASoC: imx-audio-rpmsg: Use guard() for spin
- locks
-Message-ID: <ajAJj_aBiohUztXi@SMW015318>
-References: <20260615093824.115751-1-phucduc.bui@gmail.com>
- <20260615093824.115751-9-phucduc.bui@gmail.com>
+	Mon, 15 Jun 2026 14:18:46 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490c1915793so30222615e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 07:18:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781533123; x=1782137923; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=hkIb+b4xA4Dtv3ljZrlwMo9RpQWTNWYQCjFJM6rj18U=;
+        b=WoGBWv/j8ibIxllhx1tqvIa6z+QhntQWPAl4xIXAEMgwzBOz8czgimA8vsSkrGpaE3
+         UsEPz8UdsBtGn2QvP1825EQOfPV2/m782FrOt1UB+grMUozoLDc5r2wS9CqC2JHKcygf
+         58PfGUkiuWQl6VR3N2gknlZriFa+GrtpiufpZIe4/VJOGb1RFc6d8iZHP4qJqRL5EUVm
+         OKPyETGgdHrAA0ZDuc4rn2LFUhny1JuL9oq3aw+1+XIug+Jg8osiOhdSGSIntmaeo7nA
+         TY1GEOTenrJ82uw00fF8dFiE4lMf0fREQTHAYzXlz2VlbtOmcCwC3HS1l3lXjbq5q1YJ
+         Evyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781533123; x=1782137923;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hkIb+b4xA4Dtv3ljZrlwMo9RpQWTNWYQCjFJM6rj18U=;
+        b=fZ0NLTlDkyCeV0Ok2iIiIogT844ZdzjrUrpgWZT+tN3oP409A8UkWjGqt9iNoRRPg8
+         Mcyf+JEtFwlDaUdxmoA4duRZTPuq0NXbj4bcaqkDG0rHl90Kc6k/DgzIf3sBZ+CwMYYm
+         YlIgHLpAPe94m1gm9fRsaCjqmIO4nOEHF17nG81cZ7fh8SjLcaWY3aGxdnSWbwJxvyNx
+         7kTqTGFl/3gFCzqqyInh6ZFsk/woFDmEUYw5QDNB9c3s3pzHxrBqasTxPbg2VDA7mccH
+         2ckLZtpmQc67bJdkzq0oB97itV9TZzZ6/6e2ifYVj93gkbX9EBo729TmuVFQEAwxFYRD
+         HUtg==
+X-Forwarded-Encrypted: i=1; AFNElJ+ctAfeQksHw/mP0Sduv4m5vfKo1/EepSLlAIqxUQz/wUa/lpINEkmWAk9OCQAt5IQ2nKFmfeMSdbekvaTcr6Z8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd5+whKxLE/7IHeT2RsKDwy9F5k/iIgVfkVPc2BhidAl5Pt8Sj
+	8MYd5n8K1z8IHU7Lg3MxDrefvp6RDsPErOdmkB0/S+uiIGGjMoKtjNUq
+X-Gm-Gg: Acq92OGvrvWfgCYb9LENGgti/tzwm43AznWIQ12jRZSNrMInNL1MzE+o4UFRqJDFAcw
+	ri9929LE2qLoYyvDz3E38bhNIrCtz7tSqtJHWMwC1kFylEuA9CCliTXgaMkL8qHymXYPeVLYZ+O
+	vX+khzickyQuzyzMLqHz3nvbYfEZX4Pg6d/mLlU8tHOdV99h5lnz0dNvIxN10jqGFfzN1CFuOAH
+	VbDWmrjWHsvY2zz+Xux/Ob7oAZQgZGkypwoyph00nDhNYiBSmpJ35NEs8akBR+/e+Mz6BXhhliL
+	yqHh9Iw9vW6dqtOkDjkkFCuK9i8p60LYbXWRlJNmAP1wchhKMaJFdLgz2TYWYAwr4mT2JdK/zEA
+	xPHiFf4XepRHaGHAJiLoX0kV8iFc0VXXRKem/dKT6WIB7gSmyEIl1q2jBmrEb9XEzJSHUzO+Wdz
+	wTtz/4ZbV8c8h2UQB++cXyVDR8dNF8PE6IWZMWI0he9xPSp5ro0kT70w==
+X-Received: by 2002:a05:600c:3153:b0:490:e5c1:b897 with SMTP id 5b1f17b1804b1-490ec4fe7c2mr195111285e9.20.1781533122746;
+        Mon, 15 Jun 2026 07:18:42 -0700 (PDT)
+Received: from Ansuel-XPS. (93-34-88-103.ip49.fastwebnet.it. [93.34.88.103])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492202edec6sm283566035e9.3.2026.06.15.07.18.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 07:18:42 -0700 (PDT)
+Message-ID: <6a3009c2.561280e1.2acd9f.2f06@mx.google.com>
+X-Google-Original-Message-ID: <ajAJvXT9R7UrMqQA@Ansuel-XPS.>
+Date: Mon, 15 Jun 2026 16:18:37 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+Subject: Re: [PATCH net-next v7 01/12] net: phylink: keep and use MAC
+ supported_interfaces in phylink struct
+References: <20260615122950.22281-1-ansuelsmth@gmail.com>
+ <20260615122950.22281-2-ansuelsmth@gmail.com>
+ <371a1df7-084c-4431-bd00-0045298e3212@bootlin.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260615093824.115751-9-phucduc.bui@gmail.com>
-X-ClientProxiedBy: SN7P220CA0008.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:806:123::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7459:EE_
-X-MS-Office365-Filtering-Correlation-Id: be84e48d-f724-4a7d-c13f-08decae8e929
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|376014|1800799024|366016|23010399003|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: FuekI6wgy9HMQcKr8HSaFp0xiATrs+s68kK+5m8aj8gBBmpytV96/UPTqy1QBMRvLzDgiZYJ/Jh1nmnZbpW+dy6XwgZ9+/QMJpfwC2Dk3G4LP4Vubs2fb4K5MizNZx+nH+DXEahN2VNg6LV560giMKnEvwlCx+6oguUwuZ5zq2zzyGp69Zx9nRYbEd15qBfxcPSwB2o01bJc2/UzhBUbXTLZ4dhqNf9TUXarwHkE4XOTXgNY58/HVbknXlmfssoQx5ClI8s8x5Kf8z2HARv0QIbxOB661Z5k8uHOzSJl2ochGopIVzr8f4j7bPED3VGlCdN270ci72Sthe0UDucOMQhqTeUMhhx4zSMOptQNmO28jNwQvmQTZEq/Qaf+Z7R/qrubNTVULyKwx6bB9SPqU9x0ar14pNsmXyO4oQPF9r1O946pWNVEI00ao2J02pYD/TuGs+GCku+vYEsf/9CqH1pQQecbiG25Aq5w/OM749J58recEKk5qjNTdErbIVBcFcqLNCk14kx9vx+rLTxmiPj5L7S1nhLLxbRMosgCiDs6EsI6uknmFTR0wSYE+SNqZsh25WnyHWRO1ugiknpgQGqbclhIzvPn0I7B3Bh51U8IbaoHKamsIONbyCqeQOLkm4WPJKHBPHYaBjCLaJ6/xiUV53PwU+NfO6+gF41TZtKAfH8zyO1dyQQq+84TjWeb
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(376014)(1800799024)(366016)(23010399003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XdNa4zqnMIHXd8QQvXDfHWAh9oj+n1Sapcwqk3cbPvlArLSBf8QdbitnL4Uw?=
- =?us-ascii?Q?sdofcUVfQgctRs4xnTs0cONzIlab4kxFo0zNRP6tlZgNO+RAxuhbgRdcwe1F?=
- =?us-ascii?Q?HrVeZ6eHS6/RwE6swqMF2D5TwbXFgVaVQeAqXDyxe3vhmkgbyRqJAma38bPj?=
- =?us-ascii?Q?aPy809Uc5zO3GfDG7MREgyOjDw7rJoL/xS0RSbRjs+2yMicXjKq6SFv4RsnR?=
- =?us-ascii?Q?nagGFdgHHZQPKCCWhZhB/U/ilxcp1usuEwO61gPgcNtwkRMgcFer3/CTsYBW?=
- =?us-ascii?Q?OSV5+YnlBOMnBs/h03GB5LsgghENjDgSvMGs3rDI29Ujx9oDiFsEv5dglsaq?=
- =?us-ascii?Q?CkOuN6sV/Uz/sDpyJLN4GZ5EwRJN+JAaOrpWdf7a11AnT5xz67ADPYuYhe3a?=
- =?us-ascii?Q?As+Y+BmtLd0qccsDPxcEToJ0oj81JkV1Z5vWPK9FIhP4BXyDpmmIe2Fteak6?=
- =?us-ascii?Q?0SLL6ujgYCyuWtx893ZyIRGk0tbLES0fuHSbsYjvwGtCHJm1enGPyHQzYy2v?=
- =?us-ascii?Q?PLWSXVbnk3b22APb7Hihav5RRmxGWgq8f0NZI0pa65N8s6gnkWWztjXYKXzj?=
- =?us-ascii?Q?n2flY9d5a3OdXzOnEoaFoxvhcYdjpNQ8VI0+v3VEH0CScZ298J8xJ2o0si+F?=
- =?us-ascii?Q?47XD8fwigpJ1tUdSm+CUyLKxHNkkQkkMzSg5EAspgi+2UxiTlk2jow2MDRtX?=
- =?us-ascii?Q?/S0gz4DT6ko6r+Nslh3XcWEMSPMiMftW0wC2zcNk4bpgJHTxb4nLalnL2PVu?=
- =?us-ascii?Q?BjD1CSJM/oqm4T59zTQv86ugLVQwiMfnWhSXp+iFyjSpT3HJInzqDk7wkHLN?=
- =?us-ascii?Q?vgg1UeHFnZdtLB5RiuJngb0eZsZXIQgu+2VaJuEFJUoAL9ChvV7UYVx+Gs99?=
- =?us-ascii?Q?xWhNYyy/jP+PtX/iLXf4uwVklEI1fxjoy5CVFkJpys+1+pCPAXl3GW+r7Bfz?=
- =?us-ascii?Q?R8/QwIgMCUs/OKMNEf7ZzGCZGqsQwDgYkylOGacjOfSkFADEbnj0csHI1jd8?=
- =?us-ascii?Q?uoegvG7rs7SaBSu9e/+EHXd+NH8yP9yLnRMPoPbfGzD8wgUZQF4rx+D3ryoD?=
- =?us-ascii?Q?v03jR9W5EwfFMxB1g+FvpzlAo02uYLEMpqJHi6gb4a07N+iV/swXlaiWl5Vp?=
- =?us-ascii?Q?+8Xpa8xevz8q+ext3LKBOUrqvZv93TH4iLaJBSOJDK3QGkC1L+iZVTb4qgHG?=
- =?us-ascii?Q?eyTSHMd55KT87wS0NGG5+AN5mP2yipdlD6myj+Lrdc9ZIYDiXIc6+Jbt9vRH?=
- =?us-ascii?Q?KuIK4Srlvxa9W+INYwCf7cmbSm4Rgq3g73jhQqcGDNSKtzJB25/XmE4zrUb3?=
- =?us-ascii?Q?OFQNAH3F1NI9HXMu3ICNdjBZvGkKWJxG43e5V9zzQtY7fkqf7hZHOqy6wWo+?=
- =?us-ascii?Q?ImDZGwRRz5aM0+8fB1V1cv9yULN0nx388vVlTjr9bEtyEvFjuJJGHTY/ejfJ?=
- =?us-ascii?Q?040S01GvMlHTHbBwpA3Qzqybl6/hodi6yWpmCIG+ZNfHYugcFfjZxAFlOFjC?=
- =?us-ascii?Q?/g1e/IplhzdfIxwOcVhIbfdzSAtJDm+GpbtiBufkpU29O1SCkifWFaM1kbUI?=
- =?us-ascii?Q?kOzymZ7kYjbI+VbTMja5V+aaQSFZ+aggh0D2Ynd0PeeI3UGSEKjdEECsPzEq?=
- =?us-ascii?Q?OoR93KMZX9drAxdEfkGYGwbIYSztXrp7mdIDXKyk1ACl0WzgqJdqU980G/bP?=
- =?us-ascii?Q?qckeE8yK7HTyAljNUEG/261OK7roDd+WFocQMSr9zk7ofauN/hhThvOR9DLm?=
- =?us-ascii?Q?zqjb+BKUNQ4iB3Dh4A5x3d1bREMTUatbfIDOj2lZ3ppzndPrWM/9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be84e48d-f724-4a7d-c13f-08decae8e929
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 14:18:02.9108
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7X25GeZsm6On50TRDvPvRYEcueiA+AZPZNWszbJCwfr3bgcKotd05wBSRnNe2I+kw8ijkbIhdv5VaegJiwoB93gvZ+HQQeqGXzmu3BAp399ywI2Igj4DG8Z6uhdPatPE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7459
+In-Reply-To: <371a1df7-084c-4431-bd00-0045298e3212@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_071809_663766_2935097C 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20260615_071845_184336_A62360E1 
+X-CRM114-Status: GOOD (  26.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,68 +120,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 04:38:21PM +0700, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
->
-> Clean up the code using guard() for spin locks.
-> Merely code refactoring, and no behavior change.
->
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
+On Mon, Jun 15, 2026 at 03:33:34PM +0200, Maxime Chevallier wrote:
+> Hello Christian,
+> 
+> On 6/15/26 14:29, Christian Marangi wrote:
+> > Add in phylink struct a copy of supported_interfaces from phylink_config
+> > and make use of that instead of relying on phylink_config value.
+> > 
+> > This in preparation for support of PCS handling internally to phylink
+> > where a PCS can be removed or added after the phylink is created and we
+> > need both a reference of the supported_interfaces value from
+> > phylink_config and an internal value that can be updated with the new
+> > PCS info.
+> > 
+> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > ---
+> >  drivers/net/phy/phylink.c | 22 +++++++++++++++-------
+> >  1 file changed, 15 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> > index 087ac63f9193..4d59c0dd78db 100644
+> > --- a/drivers/net/phy/phylink.c
+> > +++ b/drivers/net/phy/phylink.c
+> > @@ -60,6 +60,11 @@ struct phylink {
+> >  	/* The link configuration settings */
+> >  	struct phylink_link_state link_config;
+> >  
+> > +	/* What interface are supported by the current link.
+> > +	 * Can change on removal or addition of new PCS.
+> > +	 */
+> > +	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
+> 
+> Can you clarify a bit what you mean here ? Is that the combination of the
+> interfaces the MAC supports AND the currently in-use PCS ?
+> 
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Combination of interface the MAC supports and the currently attached PCS
+(not the current one in use)
 
->  sound/soc/fsl/imx-audio-rpmsg.c | 25 ++++++++++++-------------
->  1 file changed, 12 insertions(+), 13 deletions(-)
->
-> diff --git a/sound/soc/fsl/imx-audio-rpmsg.c b/sound/soc/fsl/imx-audio-rpmsg.c
-> index 38aafb8954c7..b55dfbdb4502 100644
-> --- a/sound/soc/fsl/imx-audio-rpmsg.c
-> +++ b/sound/soc/fsl/imx-audio-rpmsg.c
-> @@ -22,7 +22,6 @@ static int imx_audio_rpmsg_cb(struct rpmsg_device *rpdev, void *data, int len,
->  	struct rpmsg_r_msg *r_msg = (struct rpmsg_r_msg *)data;
->  	struct rpmsg_info *info;
->  	struct rpmsg_msg *msg;
-> -	unsigned long flags;
->
->  	if (!rpmsg->rpmsg_pdev)
->  		return 0;
-> @@ -37,21 +36,21 @@ static int imx_audio_rpmsg_cb(struct rpmsg_device *rpdev, void *data, int len,
->  		/* TYPE C is notification from M core */
->  		switch (r_msg->header.cmd) {
->  		case TX_PERIOD_DONE:
-> -			spin_lock_irqsave(&info->lock[TX], flags);
-> -			msg = &info->msg[TX_PERIOD_DONE + MSG_TYPE_A_NUM];
-> -			msg->r_msg.param.buffer_tail =
-> -						r_msg->param.buffer_tail;
-> -			msg->r_msg.param.buffer_tail %= info->num_period[TX];
-> -			spin_unlock_irqrestore(&info->lock[TX], flags);
-> +			scoped_guard(spinlock_irqsave, &info->lock[TX]) {
-> +				msg = &info->msg[TX_PERIOD_DONE + MSG_TYPE_A_NUM];
-> +				msg->r_msg.param.buffer_tail =
-> +							r_msg->param.buffer_tail;
-> +				msg->r_msg.param.buffer_tail %= info->num_period[TX];
-> +			}
->  			info->callback[TX](info->callback_param[TX]);
->  			break;
->  		case RX_PERIOD_DONE:
-> -			spin_lock_irqsave(&info->lock[RX], flags);
-> -			msg = &info->msg[RX_PERIOD_DONE + MSG_TYPE_A_NUM];
-> -			msg->r_msg.param.buffer_tail =
-> -						r_msg->param.buffer_tail;
-> -			msg->r_msg.param.buffer_tail %= info->num_period[1];
-> -			spin_unlock_irqrestore(&info->lock[RX], flags);
-> +			scoped_guard(spinlock_irqsave, &info->lock[RX]) {
-> +				msg = &info->msg[RX_PERIOD_DONE + MSG_TYPE_A_NUM];
-> +				msg->r_msg.param.buffer_tail =
-> +							r_msg->param.buffer_tail;
-> +				msg->r_msg.param.buffer_tail %= info->num_period[1];
-> +			}
->  			info->callback[RX](info->callback_param[RX]);
->  			break;
->  		default:
-> --
-> 2.43.0
->
->
+The fact that it can change is due to the fact that PCS can be attached
+later and supported_interfaces can be updated accordingly.
+
+-- 
+	Ansuel
 
