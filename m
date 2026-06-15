@@ -4,97 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE3F4CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 05:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF57CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 05:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BoUQNrGqm47SfMzQQZnlUAHB757FjtGMtZ/e1e1ss9E=; b=iK09PHY6eN0JhwOVTkGxJHdpat
-	B9Ut9snZa8MmVMRMNmrd7JqRsXtqQ1aRG3cMTuVsbznHxsMvDk+8aFymRIkQeWTATmozeaZZ8FG21
-	v+3xlICnlh8G6l7/A0RcKSC9cq917jl4oPuC8NC4HDSVe11CKKV/rUFezXneoGZNPacGVNelwL0w9
-	hn1rHY4F6MOVhZ2DAx2eXHxG3IQuzm2WNFIJ6XUOMm6IB6fAc/0UN33ySA4VSU/5pXWc2zE0w0JPv
-	2fHXeKQT9HX0oEzyzrZQzy63VfJkH1CnRYZ1ONrpTTvMAtInh/HNvSvKcrPcucQtpIo8t+yZApLu2
-	bGWFLN+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fxO3SIwr8zcTEZ8tP4gC3esK2bDmRkRY2LStbTjG76k=; b=s7U2i5PH/LBaKv/NJQXU75G1OD
+	BtYY1QhunAdSl481oyXQ4rROtoHbhCepOfrYU9uzFDSJcO7+Z47FYd71lgjT6rgGOHxyhKYMWAPhe
+	gwO63yhRtftL6Ab9fe63ns1uC004Bdhhehh+JGxkO3DkQDRCI/G86hStehkgReuCIGSec+DYFdAmE
+	HZpFypISb2x3wRqH/slK6HlMNy5+qX3X68Jj3bay/arEuRsL3kwedyr+8z4FnwUE9g8T0PWoj2MIG
+	Z6hcvcMsL/A+yGhNnEw/7ovspfopufra0kvqd+12AuV1DpQ/cZ+wRVhghJYTp5C1P/bDmHor2bq0i
+	2hbXqnYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ06u-0000000DdXH-1cdS;
-	Mon, 15 Jun 2026 05:43:48 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wZ0CJ-0000000DdyL-1Y2V;
+	Mon, 15 Jun 2026 05:49:23 +0000
+Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ06r-0000000DdWs-3Irj
+	id 1wZ0CG-0000000Ddx8-0eTn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 05:43:46 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84234c83142so1281527b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 22:43:45 -0700 (PDT)
+	Mon, 15 Jun 2026 05:49:21 +0000
+Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1363fe80fe8so4117517c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 22:49:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781502224; x=1782107024; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BoUQNrGqm47SfMzQQZnlUAHB757FjtGMtZ/e1e1ss9E=;
-        b=PIQh/itt6HyGOxq9liCxLLSjryUHfC/Hsmkdn6uccq00iJC+cwqYbAmFtSth6APTM7
-         E/asSYUrGnqh2/4qEck0X2KFEv+zS0FxfO0Kj7mYiBaiu4fIq+6uGZ+yj8hUVk7jiua4
-         zfuFNJ3lqBd4s5SxBPYRCVsLtDqgbXhZfv5HUtqvWWkOnIAoQIhUOP02Zypcu/mR+i5g
-         CIN9fbRVyudtkBG9CHPcLvh/cd25XoYjlRf5ccU2Wk4WtHBHMIA5rTF8OrqMZJwzipAC
-         7cPNfwzOUi3NStMLvTt7IuD7UwQ/vVwspRIPVwUJTgSOTZUwL3dRne/B7vzTBlN5W69F
-         ROuA==
+        d=gmail.com; s=20251104; t=1781502559; x=1782107359; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fxO3SIwr8zcTEZ8tP4gC3esK2bDmRkRY2LStbTjG76k=;
+        b=Udc/At7hfOaFGKyK2+xl9VIgqlNl6VPtn5KIr/KsVxPtS6nO6rmnnYnV/qWRnq2aRD
+         OqNz+1xv36Sa5fSWsGcbziDBt/Vfqy9IDWcIE/MiHObJTGgPvqXeAcptvjFcWd6s9UZK
+         SHXBjS/akMkZpZdfkB+uwsQp2G3gNO55OtBsejVodVl96YKh90hRnJGztXgPBmZvBgk0
+         tsJZV370vaDoTu5FKXFC93GoEbggh5nNrvBIJuIRTWn3PxLv+1hXrh1RcowhKfekdQdp
+         16s5LgcLVPi9Dvc/6GHZCFckCi1cV7u6NcF11VBodZFM4Zmoh9fyO6FMFuFZbkjoGfGW
+         J9gQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781502224; x=1782107024;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BoUQNrGqm47SfMzQQZnlUAHB757FjtGMtZ/e1e1ss9E=;
-        b=DqElsqlUjlcrjMBzslsgwprAAOjfUglzs7i8Eihb4l1JDUutLNMiBjAC1uSGEHz/ds
-         yjo/ZNTUYSnDejqfboRj4PT8vOFkLge7jW3O0/+9/atG1rXc5+H8SJDwV2aQ2NvGvi41
-         5imtG5aEG0Su2HK6CFKSkATo3hu6V+UDhIjM/6AluZ/M2O+1LlEFOmzul+zKKBB7O8Bp
-         TA0uNVPDi3gB7WJzHFgbhmlVa8UPRUb0ZYbrZsM5GqjvFY6mmYlR4ql+zXTWP3ZsGTC5
-         Ih2oA8v3JcucedWJ8090Z6d269eGmhku8JAelXFH9Us56lfU3qgC/kqiR3ahYSfinALe
-         zzCA==
-X-Forwarded-Encrypted: i=1; AFNElJ+VLQwIqnfKppb7Uh/VnVlwEqLSC0We2hyv7QGAPgcx9Ls60PBMAMcug7cigoCIrofQe0XgcF4ICe7LvNSrJbGo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvOVaTbGwgxaPIDtb15SJfdVH+vjhCn72Fn/1p7koaEMu2u/Q7
-	fcW+0erVYKhE7RFebjzbbmNFtzp7SStfxnYZl1Rv85S1nyj9MFsP9jZu
-X-Gm-Gg: Acq92OE183x9pbD9npt2VjIxwJr85xOPN4xI5OnNBZa7IKWxUDlN7M0ZDYBLlLlCfSt
-	7NF/8F24wdZ108thFPSqxw91/gEdP7kShAIv9Ouag0grKqNGL5ZDT7iEsIOcQXKbVnJ81GMZDcf
-	3ubV5PaSUsBYAUlis4/vkSdpl1nNBxtL3A1m2ZF4dV4bN9fH4tjDCisKaWMnALDCFOG6O9YS3O1
-	F2LMFJHp2KGBhuTvuPMI+/9Hvmo9AMxaMlijUDfVdTDRpAg6AmM95G99J7NxXM+K6cYNiKvv+yJ
-	AmxPCH3bXgvf+On2VJB3yMp+h+7QUy/Hn38qVZr5dYJDothMaEZVgAm7MBkHyR+IdoCUDUL7BEQ
-	c1YR+Te0YIeljFT8Bcldk5YQx01dbpw24pTStDE4Ziz8uLAZ2AhfCA8ofuMUgjICP/i/IOBXqAs
-	woH7qKRr3XnFTeTBw5CNYRPrOCkzsoVZoOW5DKLM1+nis=
-X-Received: by 2002:a05:6a00:4089:b0:842:40f8:74d0 with SMTP id d2e1a72fcca58-844e193a46fmr10195772b3a.6.1781502224229;
-        Sun, 14 Jun 2026 22:43:44 -0700 (PDT)
-Received: from v4bel ([58.123.110.97])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b020b53sm8483438b3a.47.2026.06.14.22.43.40
+        d=1e100.net; s=20251104; t=1781502559; x=1782107359;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fxO3SIwr8zcTEZ8tP4gC3esK2bDmRkRY2LStbTjG76k=;
+        b=V0XJ28iZ15cdKgmpBghyCnhWETkrzDnzmTP1XdC8sbZngyhH7oTO0/dLik4QmtXGFQ
+         166rNFTeG98rxUgQ9GZcVtx5miAP7i5uCv1kLr/qt5fmMHDxLHuLBARXbHbywPmPF0N8
+         SfJaPdtbJtUZa5NoUNVxsOD+1pxA9OwYWyJy/+QACftuNqAohDav3GUzPvG0mtkS+sIu
+         DW7wRDcXoQ6YoZWCRd9Tgg256dFV5eOkrz+Gd58gnlMm7bTPRmaUH0VPeTtvSEuzTisR
+         MSMtDr7fGqGQmSGWbvxVEOTb/rH/vjOyBfCZJ620pFWoXpVIcd5ZeALkE15ddY5tq41O
+         ELeg==
+X-Forwarded-Encrypted: i=1; AFNElJ84bKqrqwLCLKvDgtVcxUetR5PPNVigmFJA5wfAsxd458zyzEpak094njhOIfsYRRR+LDl6ZBWNK8ClhuEP7pGy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvHjrhQv2y4vn8eZYrRks6e9n66+Y5GcVsUU17JIenKC9tWYG2
+	506hXt80ngAIav1P+NNWlQH5rLYMKU4lq6XKgC8+GTOdbG0m4EQW0vBZ
+X-Gm-Gg: Acq92OHy8BwHIcvY9DwM17ZECEyC9H4QMiG1Iq5LXVt9WiMOIueVzugRksLQOALLJDg
+	qm7Nga6YkEmFYphCI/JAuRIlugiQ3MlCwQRairr15O3ZDWwToaA0Ks0+aZQgWQopP0PXBOZuETB
+	kVpc8stG2zIpnaMc75fK+rfVgM5+wO6pEGnvB1el4UWCdOECmvd4vqk9NEX0CDdzV7Xvuxf1YuM
+	p9PiezUa3LNcaEcRG9ATWl0ehBEzwwxKQtrX5BeoEKo3oGJOTwrpbyZUPH1XgOqptvzkaNnowYI
+	vALDrSDFPS0mkR4j6K9F3csXMVJ3QwliF3ML5p7IF8ilAozJSPCVKTNu5h3RaW/hITBwpcFQP0/
+	huxe41SzlkeOMpe8Iz4u/PXW7gQh8E405a8PrjOwltDeaCcKCKZrVHpUIGRZGbgaXjHIXFntYCQ
+	n2vUWtlleQV5XvxpDR62KIZnv3Xe1yKQ2Ei8btb/LJnOVt52kD9i8KFR+ynwu5fLiV37CkrT+9K
+	BwkL4K+zLhf
+X-Received: by 2002:a05:7300:7496:b0:2ed:e14:e956 with SMTP id 5a478bee46e88-308200c4e8emr6796107eec.32.1781502558263;
+        Sun, 14 Jun 2026 22:49:18 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081ddaf69asm14295300eec.0.2026.06.14.22.49.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Jun 2026 22:43:43 -0700 (PDT)
-Date: Mon, 15 Jun 2026 14:43:39 +0900
-From: Hyunwoo Kim <imv4bel@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com,
-	jic23@kernel.org, timothy.hayes@arm.com, andre.przywara@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	imv4bel@gmail.com
-Subject: Re: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours
- before migrating it
-Message-ID: <ai-RC2FlxE5y38mP@v4bel>
-References: <aiHnI1mu6SGQrgnz@v4bel>
- <aiJmBfXAxcytfGha@kernel.org>
- <87ecila0w3.wl-maz@kernel.org>
- <aiKMNIUMv9GQiIbD@kernel.org>
- <ailsCnyoS82r_QRz@v4bel>
- <865x3qtmg6.wl-maz@kernel.org>
- <aitta-IcWnRepEva@v4bel>
- <87ldch884j.wl-maz@kernel.org>
+        Sun, 14 Jun 2026 22:49:17 -0700 (PDT)
+From: Joey Lu <a0987203069@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Hui-Ping Chen <hpchen0nvt@gmail.com>,
+	Joey Lu <yclu4@nuvoton.com>,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH 0/3] phy: nuvoton: extend MA35D1 USB2 PHY driver for dual-port OTG support
+Date: Mon, 15 Jun 2026 13:49:08 +0800
+Message-ID: <20260615054911.48821-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87ldch884j.wl-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_224345_885189_6D06FE66 
-X-CRM114-Status: GOOD (  43.12  )
+X-CRM114-CacheID: sfid-20260614_224920_212516_0DF90DEB 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,95 +109,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 14, 2026 at 04:16:44PM +0100, Marc Zyngier wrote:
-> On Fri, 12 Jun 2026 03:22:35 +0100,
-> Hyunwoo Kim <imv4bel@gmail.com> wrote:
-> > 
-> > On Wed, Jun 10, 2026 at 05:00:25PM +0100, Marc Zyngier wrote:
-> > > It's rather unclear to me what the semantics of this are.
-> > > 
-> > > If vcpu-a decides to nuke the LPIs of vcpu-b and the LPI had in the
-> > > meantime been migrated to vcpu-c, but obviously not observed by vcpu-c
-> > > yet as the LPI is still on vcpu-b's AP-list, then I don't see the
-> > > point in keeping this state.
-> > > 
-> > > Am I missing something obvious?
-> > 
-> > I looked a bit more into Oliver's review, the one suggesting that pending 
-> > be cleared only for resident LPIs while the ones being migrated are left 
-> > in place.
-> > 
-> > What the leave preserves is the pending edge of a single LPI whose target 
-> > is already vcpu-c but which is still on vcpu-b's ap_list. This edge is
-> > always lost when we just clear it, but for a device that fires again a 
-> > later INT reaches vcpu-c through the oracle, so it is mostly harmless.
-> 
-> Not completely harmless. When the guest writes EnableLPIs==0, it
-> accepts the lost of any pending bit that could be stored. These won't
-> be regenerated, unless the device signals a new event that maps to the
-> same LPIs. But again, this is the guest's own decision, and I don't
-> see a reason to prevent it from shooting itself in the foot.
-> 
-> > The
-> > exception is a software LPI that never fires again(irq->hw == false): 
-> > that edge is then lost with no way to recover it, because 
-> > its_sync_lpi_pending_table only re-syncs the LPIs whose target_vcpu matches, 
-> > and the disable path does no pending writeback. I am not entirely sure about 
-> > this part, though.
-> 
-> I don't think this is a problem, as the architecture doesn't guarantee
-> the state of the pending table after turning EnableLPIs off. There's
-> even a note recommending to move the interrupts to another RD before
-> doing that.
-> 
-> > 
-> > Since this does not look like the common case, if it does not need to be 
-> > covered I will send v2 keeping only the pending clear and the ref hold in 
-> > vgic_prune_ap_list(). What do you think?
-> 
-> So that it is entirely unambiguous, my suggestion is to have this:
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-> index 5a4768d8cd4f3..70a161383e5a6 100644
-> --- a/arch/arm64/kvm/vgic/vgic.c
-> +++ b/arch/arm64/kvm/vgic/vgic.c
-> @@ -203,6 +203,7 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
->  	list_for_each_entry_safe(irq, tmp, &vgic_cpu->ap_list_head, ap_list) {
->  		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
->  			raw_spin_lock(&irq->irq_lock);
-> +			irq->pending_latch = false;
->  			list_del(&irq->ap_list);
->  			irq->vcpu = NULL;
->  			raw_spin_unlock(&irq->irq_lock);
-> @@ -792,7 +793,11 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
->  			continue;
->  		}
->  
-> -		/* This interrupt looks like it has to be migrated. */
-> +		/*
-> +		 * This interrupt looks like it has to be migrated,
-> +		 * make sure it is kept alive while locks are dropped.
-> +		 */
-> +		vgic_get_irq_ref(irq);
->  
->  		raw_spin_unlock(&irq->irq_lock);
->  		raw_spin_unlock(&vgic_cpu->ap_list_lock);
-> @@ -836,6 +841,8 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
->  		raw_spin_unlock(&vcpuB->arch.vgic_cpu.ap_list_lock);
->  		raw_spin_unlock(&vcpuA->arch.vgic_cpu.ap_list_lock);
->  
-> +		deleted_lpis |= vgic_put_irq_norelease(vcpu->kvm, irq);
-> +
->  		if (target_vcpu_needs_kick) {
->  			kvm_make_request(KVM_REQ_IRQ_PENDING, target_vcpu);
->  			kvm_vcpu_kick(target_vcpu);
-> 
-> Could you please give it a go with whatever reproducer you have?
+The MA35D1 SoC has two USB PHY ports managed by a shared hardware block:
 
-I confirmed your diff fixes the issue. Could you submit this 
-patch? Feel free to add Tested-by: Hyunwoo Kim <imv4bel@gmail.com>
+  - PHY0 (USB0): OTG port shared between the DWC2 gadget controller and
+    the EHCI0/OHCI0 host controllers.  A hardware mux automatically routes
+    USB0 signals to the correct controller based on the USB ID pin.
+
+  - PHY1 (USB1): dedicated host-only port for EHCI1/OHCI1.
+
+A previous series [1] added a separate phy-ma35d1-otg.c driver for this.
+Following reviewer suggestion to reuse the existing phy-ma35d1-usb2.c
+driver rather than introduce a new one, that series has been dropped and
+this series instead extends the existing driver.
+
+Changes in this series:
+
+  Patch 1 updates the nuvoton,ma35d1-usb2-phy binding: the PHY node
+  becomes a child of the syscon node (reg = <0x60 0x14>), nuvoton,sys
+  phandle and clocks are removed, and #phy-cells changes from 0 to 1
+  for per-port selection.  Optional nuvoton,rcalcode and
+  nuvoton,oc-active-high properties are added.
+
+  Patch 2 updates the MA35D1 DTS: sys gains simple-mfd, usb-phy@60 is
+  added as a syscon child, and DWC2/EHCI0/EHCI1/OHCI0/OHCI1 nodes are
+  added.  Board files enable the nodes and add HSUSB pinctrl.
+
+  Patch 3 extends phy-ma35d1-usb2.c: a loop creates two struct phy
+  objects; a unified .init handles both ports with parametric register
+  macros; clock management is removed (each controller gates its own
+  clock); a read-only USB role switch is registered for PHY0 reporting
+  the USB ID pin via PWRONOTP[16].
+
+Link: [1] https://lore.kernel.org/linux-phy/20260604101220.1092822-1-a0987203069@gmail.com/T/#t
+
+Joey Lu (3):
+  dt-bindings: phy: nuvoton,ma35d1-usb2-phy: extend for dual-port OTG
+    support
+  arm64: dts: nuvoton: ma35d1: add USB controllers and dual-port PHY
+    node
+  phy: nuvoton: phy-ma35d1-usb2: extend to dual-port with OTG support
+
+ .../bindings/phy/nuvoton,ma35d1-usb2-phy.yaml |  67 +++--
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  36 +++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  36 +++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  68 ++++-
+ drivers/phy/nuvoton/phy-ma35d1-usb2.c         | 263 +++++++++++++-----
+ 5 files changed, 378 insertions(+), 92 deletions(-)
 
 
-Best regards,
-Hyunwoo Kim
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+-- 
+2.43.0
+
 
