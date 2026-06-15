@@ -4,100 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E693CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 10:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE6DCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 10:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JDnhwZw9AeUrdtRem41MPZtkkjfAz3vR+qZxfZaCk8=; b=38fBp9oXg5QhAiql6DNojkQw9Y
-	ia07eaiWDjdwTG6Evq5HBCG6VYDrE7SSN+AKFXf1yc/F0pRcQGzCjI/ehmIagw5FdgfoihAxqf0yk
-	XEuPiu/zyyi2IJigrrceK0zEGcSu2SOyfh3QJkWpvYjteYCmjYVEhDItLT8+7z+pE5uWUeXoeFDca
-	5d/S+ATCRfmmbEPqh1NYzlhEOCA6cFsU82vrRfYvmrWcGXctADdMyTmn0p5D8Z+dtLEIWwCJRM05a
-	0sok4KG7rXbxWYpOumGufedgOqYI+tpPN+RnOIrzlxGwkcfTryBqsxcskwDjTCM+1rFJsCef9ALJf
-	giOwXl0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PRXHmeUhDS3PxP6+e2W3Q8rut4tY53cDYhD/afrYh08=; b=uFD467McPJR9X/KkoN0Ste8faI
+	NFo/kAUp1oYHlqYo37dmIF4N3vBWb871UTYDtM3LcQA39IpSFyyd5mW1Lc3MJrpJJPckDR/vS4Ojp
+	FH8UG5MJKB7cs7GkmoXr/fYCivM+6JnFWr5YFno9aCXlYGChU0I5N/J0RkRfwuMcRaanqPBeanqhm
+	lsjrJJIyQF9/yTGasgblwg2REID9i5JqH04shw7AFpjPTlzO8h9QPmjqLsprdtSyUno0jQf5XE4Zs
+	mGY4XmdZduHUKhFMH947F/+fqKv1rE6XUEOHhYox5lIP/Lc/9EUjbtDnteFFU/YvegIjWTN19qK20
+	4XnEIjxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ4ZE-0000000E3I8-17to;
-	Mon, 15 Jun 2026 10:29:20 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ4ZA-0000000E3HX-2ecy
+	id 1wZ4fG-0000000E3Vf-3kBv;
+	Mon, 15 Jun 2026 10:35:34 +0000
+Received: from elvis.franken.de ([193.175.24.41])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZ4fD-0000000E3VG-2Xxr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 10:29:17 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-beb2a97cc9aso592350866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 03:29:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781519354; x=1782124154; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=5JDnhwZw9AeUrdtRem41MPZtkkjfAz3vR+qZxfZaCk8=;
-        b=ZrSJhmDeuYLev1HoR5kywRY7HJibCXuURWZ6PUTG1QscBa9KNBrG3EyeZ9W7cz247/
-         +LtWHW9f4SHp8IOtoIDxGBRIpox90XiUZJG+wv3kLdXMQbiW5sjGzNSJlSVZbx5U50Ec
-         hlHrv5CRNnmOkJopyAVy2wB8lRfQU/zwyjED6kMzV1ms9FqSjM0CTo1vZ+hJsSAacdJp
-         tXYIR8r56Z2UcjY7KhTTLi4FatQPV5/jgPUQewUR+yYNW5kKHJBXL0+KEM2fZkago/Bm
-         MTCGwVhHfUs0d3ihiGSNEDYcE/Vwklo3K4lSJsIFWKezNpECfG/iSyub6Yvm3gck1n5b
-         rTxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781519354; x=1782124154;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5JDnhwZw9AeUrdtRem41MPZtkkjfAz3vR+qZxfZaCk8=;
-        b=c2j+kqJpFGyneOu+kjk1X+FKoHszZf/fII8xhfRNDl6+EJWtuVlpIPDV7kW4BtztBB
-         SyE85RQEnCM0HzuIKTdqJR7PvOmBcpmm5ris1SH+/FqeN021Ubw0yR+uagl49IdBTFdK
-         s1TjjJL9Q04nE9+VesAPaHihf5dZVY3DPuzhxwdnqm6BrilmbCBiROZ4MvU45+EiKtAI
-         2tFxkXNOx2Ht16yJmiwgLVsQgcEINKqXkOFORz/QOuqWLqF0RWDgnRBU5PL8yEcwPppY
-         x+y5bj4+XMLnOGvCSwI8ddHGF5uLQNu514Zm8fPAPQZJpzsnaSbljzUTrtZL5uWfKA7L
-         r6wA==
-X-Forwarded-Encrypted: i=1; AFNElJ9V3MnOTWWzpYmbAU9Zv5ocPWt9OwQFpqYNn1w5ifpWWLqlnUGDD1RKyoA4HueZvs6YjgLCIg9irHLfO9Kgr2I8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqyREz8+UdGjg+ORE+JrZc2I4vsavqGIdpeTDrvsXmViEV7wOJ
-	GfAs0+DjGr/YY8bvdYdielMnbQ1KEYh5RWl+aSEDtN8mAujLSNDm0ylE
-X-Gm-Gg: Acq92OERvonzr+lxbX98Z/U/dKowvCoa7YFviG3cBHCIiK2qI1AvvFrQeAappMQssMY
-	i1vgybzTRQpyfDKs2SCUNS3JpHupHM7IlZoXNZRnWqV9YpRYCB96EoCWW7KN09RZWXm8nVSZUVa
-	ShsYBzv3fT1BXStuXz0jQQKiY1+UrG5aL84tfY2TR9LFA1vjBN3PPFmMi14xGy4b1dHjScdJdPh
-	r42JFdxsOA664Q/7GM6a3hHNTZUe6TWdtDBruo2HdQtMJhz5aYqbWFPW/tefL/787QqbqL8nTfY
-	3DRZWUiaiGy/hq1ykATqjnrD9fPSm9JPJQYiZLD3/TsTm8zIhk1QYe6/yPbyXxcqu6qQEYxaTSc
-	QOmMO5hd+zw5dqyiXxP/AwFFh/JclsUAtYhacNdSW/KmXaDizzjPFBJDM96HqyYLs0UwsQhY61c
-	sr+tHcl16tpKlxFdw+gDh9vA6aOCYTsSFj1CDBWlVdM1HdV11LwZKfHgqhIT+3RhWnHVEJAYchh
-	LZORamIzSutfJoUqDnbFkGp12M+a7Cnhg==
-X-Received: by 2002:a17:907:c30c:b0:bed:e2e8:d8af with SMTP id a640c23a62f3a-bfe27b2075cmr568641466b.5.1781519353824;
-        Mon, 15 Jun 2026 03:29:13 -0700 (PDT)
-Received: from ?IPV6:2001:8a0:e962:d100:8e61:1648:83a3:9167? ([2001:8a0:e962:d100:8e61:1648:83a3:9167])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfdb7b6d934sm443625866b.40.2026.06.15.03.29.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Jun 2026 03:29:13 -0700 (PDT)
-Message-ID: <6babbdea-fa93-4cd7-8198-5cd3accc34cc@gmail.com>
-Date: Mon, 15 Jun 2026 11:29:11 +0100
+	Mon, 15 Jun 2026 10:35:33 +0000
+Received: from uucp by elvis.franken.de with local-rmail (Exim 3.36 #1)
+	id 1wZ4ey-0000JJ-00; Mon, 15 Jun 2026 12:35:16 +0200
+Received: by alpha.franken.de (Postfix, from userid 1000)
+	id C060CC084D; Mon, 15 Jun 2026 12:33:22 +0200 (CEST)
+Date: Mon, 15 Jun 2026 12:33:22 +0200
+From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Lamparter <chunkeey@googlemail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonas Gorski <jonas.gorski@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-wireless@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-leds@vger.kernel.org, netdev@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH 05/10] [v2] mips: select legacy gpiolib interfaces where
+ used
+Message-ID: <ai_U8j3uOoIzoYrJ@alpha.franken.de>
+References: <20260520183815.2510387-1-arnd@kernel.org>
+ <20260520183815.2510387-6-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] pwm: rp1: Add RP1 PWM controller driver
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>, linux-pwm@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Naushir Patuck <naush@raspberrypi.com>,
- Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
-References: <cover.1780670224.git.andrea.porta@suse.com>
- <f8dd46a553351adaf9d29fbba9f98e803b672fe7.1780670224.git.andrea.porta@suse.com>
- <0b6a7f41-b753-48dc-b46e-77aaf0e999f4@gmail.com> <ai-dNlC1_nbQTy5Z@monoceros>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <ai-dNlC1_nbQTy5Z@monoceros>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260520183815.2510387-6-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_032916_669056_F55EFE56 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_033531_947946_B95F07DE 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,18 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+On Wed, May 20, 2026 at 08:38:10PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> A few old machines have not been converted away from the old-style
+> gpiolib interfaces. Make these select the new CONFIG_GPIOLIB_LEGACY
+> symbol so the code still works where it is needed but can be left
+> out otherwise.
+> 
+> This is the list of all gpio_request() calls in mips:
+> 
+>   arch/mips/alchemy/devboards/db1000.c:           gpio_request(19, "sd0_cd");
+>   arch/mips/alchemy/devboards/db1000.c:           gpio_request(20, "sd1_cd");
+>   arch/mips/alchemy/devboards/db1200.c:   gpio_request(215, "otg-vbus");
+>   arch/mips/bcm47xx/workarounds.c:        err = gpio_request_one(usb_power, GPIOF_OUT_INIT_HIGH, "usb_power");
+>   arch/mips/bcm63xx/boards/board_bcm963xx.c:              gpio_request_one(board.ephy_reset_gpio,
+>   arch/mips/txx9/rbtx4927/setup.c:        gpio_request(15, "sio-dtr");
+> 
+> Most of these should be easy enough to change to modern gpio descriptors
+> or remove if they are no longer in use.
+> 
+> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> v2: no changes. There was no discussion on this, but the patch
+>     has so far not made it into the linux-mips tree, so I'm including
+>     it for completeness.
+> ---
+>  arch/mips/Kconfig         | 5 +++++
+>  arch/mips/alchemy/Kconfig | 1 -
+>  arch/mips/txx9/Kconfig    | 1 +
+>  3 files changed, 6 insertions(+), 1 deletion(-)
 
-On 6/15/26 07:37, Uwe Kleine-König wrote:
-> IMHO selecting REGMAP_MMIO explicitly here is fine because at least to
-> me it's not obvious that MFD_SYSCON enforces REGMAP_MMIO.
+applied to mips-next
 
-I think it's better to use comments to document non-obvious behavior,
-rather than dead code.
-E.g.:
-'select MFD_SYSCON # selects REGMAP_MMIO'
+Thomas.
 
-But I guess this is not really worth bikeshedding over.
-
-- Julian Braha
+-- 
+Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
+good idea.                                                [ RFC1925, 2.3 ]
 
