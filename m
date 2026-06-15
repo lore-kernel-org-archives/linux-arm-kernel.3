@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C61ECD98E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC8CCD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jKLPNhbMJUK/p7PD2Estkpj7uFBVbHPhaCT82Mgh5bE=; b=gDCaJYwZMGb8CaJGKrIcu4nnFc
-	RQK9NKj3dF/3DnSj8fWb9yAm0m1HbjvkmEV3eU9SaN8irjI9Wvszz1kPGz/SES9Qilh+tMoLH0teN
-	kuO2suDFGGKXVQftTyzYSuo6YYNcfmSvN9WQ9MphfaW5EBNK99h2HMJ2CaLCyn5Zc2AAkAnK5FQqz
-	lh6WngHWPpo2uVvMTjYAuVx+FSA59ZgrvnlFPKNQBdPl4vwqTex15pMiwi/Y8xySu6yWqw7x2jgco
-	lOesyxpQqLmaFUgC3ykwA8pMJ1P+6mpvRpN7wG9oKQTszyuWrTFot1Dzqz5jj9t4x/gGZ7lTJWRLW
-	ytMCKusQ==;
+	bh=Mk/A8NBZnHrP/DoBw8rAAPGWS9cLwNDHBt31WGq6Oxw=; b=MexrfgSK4TVxQN3U4kCCWGu4U7
+	LNkHp9HDoZxXPU6T5sy8Id13SNmUKTuDPQzBSNLWMSDcKodNsu7BkZbPyJQyez0/WKwS0m3dV/Brd
+	CfFmaosnarMvQQlyFtpYliQOp6O76MWCCCc4wMtajKoClnHCBEW95yNXpdG/u2qmFCRj6SdZHvjFo
+	GA7Ni0u0Ys5YTyEZgucZBdY4M8wKuPpnUknHLY6fnQxBMpedkIBb1MViduZ+eerqLRl0dfDbh2wgt
+	hva0KKF5vObPJHLX10T4zj5NTTvYXMCn1mTgCQY8B4qpDNDEhXn/S3DDuR7YfYH70+F7yadcI7SR2
+	gpK+PKCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGtJ-0000000EwwE-3Wmp;
-	Mon, 15 Jun 2026 23:38:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZGtW-0000000Ex3A-0nmm;
+	Mon, 15 Jun 2026 23:39:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGtH-0000000EwvL-1p6i
+	id 1wZGtL-0000000Ewxv-1iEF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 23:38:51 +0000
+	Mon, 15 Jun 2026 23:38:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E03FE600AB;
-	Mon, 15 Jun 2026 23:38:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD11C1F000E9;
-	Mon, 15 Jun 2026 23:38:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EBEB42AA3;
+	Mon, 15 Jun 2026 23:38:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A00691F000E9;
+	Mon, 15 Jun 2026 23:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781566730;
-	bh=jKLPNhbMJUK/p7PD2Estkpj7uFBVbHPhaCT82Mgh5bE=;
+	s=k20260515; t=1781566735;
+	bh=Mk/A8NBZnHrP/DoBw8rAAPGWS9cLwNDHBt31WGq6Oxw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KsUHbuUgh0Kico7Kh7y5uUGusBEckK7HauGoXM5Ld6Mco7t6ktGtVsUz/m+Il296p
-	 C69u0TJf6frkVdV3q20JWhopLZ3tUbhvSmQWB6Z9r23wmwGGWpfmG3xQQYzOqQlITI
-	 mv+UW6JrgwJgR3LqdboSeM3zz98mvRRANDDwzd0q8jYMlGMPRP8xLDxVFgznxowvTW
-	 l1WRxv/fjuJZnnIo1VqoTe+Cgr7BPWLbNpgOZLWPyi2RgLsUpuF6oHoPckycEvev5p
-	 /aYyP/GFvxS4QOvB9H+QEU2KlfaBmAwWl9MCb3eoUve95+QHaxqt4MUi5ZSrjMVBxY
-	 V0bm8qbBvhO/Q==
+	b=Xbyw/3RKxlibO5AAXqHzTtPtb/oN0aXxF0HZH9UjR+mzLFOazl7h2TOX3e/R3LH8N
+	 FWuJbAHsexi500Z1sARpCCyKXW3ZvnxVV/umdb+wpC5B8Tit4/6U41B9XIndhJgr+7
+	 Ipz57jOg5kqjHk4ESDfjJzXSr5tvocvgJu2fbsgilHr28P9SPed0W2hY2ZuYWdvlBI
+	 n13AIHIgXTQUTtKzV32a3Xumb/AvO9d87YYhM4tsHjkCsWA5qMrPi5oxTv2Pj4XwrK
+	 Lqxa09OXSeH4ZyRVjo7VgNfC8Htam5Is/ZVMZLQDUyHJRpKklwT8JL+qlp1PHftU40
+	 dy5R1FGiTldug==
 From: Jakub Kicinski <kuba@kernel.org>
 To: jensemil.schulzostergaard@microchip.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -59,12 +59,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH net-next 6/9] net: sparx5: vcap: add lpm vcap implementation
-Date: Mon, 15 Jun 2026 16:38:49 -0700
-Message-ID: <20260615233849.1042290-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next 8/9] net: sparx5: add L3 FIB, nexthop and neighbour entry management
+Date: Mon, 15 Jun 2026 16:38:52 -0700
+Message-ID: <20260615233852.1042358-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260612-sparx5_l3_routing-v1-6-fc3c10160f49@microchip.com>
-References: <20260612-sparx5_l3_routing-v1-6-fc3c10160f49@microchip.com>
+In-Reply-To: <20260612-sparx5_l3_routing-v1-8-fc3c10160f49@microchip.com>
+References: <20260612-sparx5_l3_routing-v1-8-fc3c10160f49@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,67 +84,157 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: sparx5: vcap: add lpm vcap implementation
+Subject: net: sparx5: add L3 FIB, nexthop and neighbour entry management
 
-Add the implementation for the LPM VCAP for lan969x and sparx5. The LPM
-VCAP has a static keyset configuration, and a single lookup dedicated to
-LPM, so this is straight forward, and many functions can use existing
-functionality.
+Add the data path for L3 unicast route offloading for IPv4 and IPv6 FIB
+and nexthop groups.
 
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-> index 95b93e46a41dc..e25e759c24f60 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-> @@ -1083,6 +1146,46 @@ static void sparx5_vcap_es2_cache_write(struct sparx5 *sparx5,
->  	}
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+> @@ -396,6 +400,14 @@ static bool sparx5_rr_fib_info_should_ignore(struct sparx5_rr_fib_info *fi)
+>  		       (IPV6_ADDR_MULTICAST | IPV6_ADDR_LINKLOCAL);
 >  }
 >  
-> +static void sparx5_vcap_lpm_cache_write(struct sparx5 *sparx5,
-> +					struct vcap_admin *admin,
-> +					enum vcap_selection sel,
-> +					u32 start,
-> +					u32 count)
+> +#if IS_ENABLED(CONFIG_IPV6)
+> +static void sparx5_rr_rt6_release(struct fib6_info *rt)
 > +{
-> +	u32 *keystr, *mskstr, *actstr;
-> +	int idx;
+> +	if (!rt->nh)
+> +		rt->fib6_nh->fib_nh_flags &= ~RTNH_F_OFFLOAD;
 > +
-> +	keystr = &admin->cache.keystream[start];
-> +	mskstr = &admin->cache.maskstream[start];
-> +	actstr = &admin->cache.actionstream[start];
-> +
-> +	switch (sel) {
-> +	case VCAP_SEL_ENTRY:
-> +		for (idx = 0; idx < count; ++idx) {
-> +			/* Avoid 'match-off' by setting value & mask */
-> +			spx5_wr(keystr[idx] & mskstr[idx], sparx5,
-> +				VCAP_SUPER_VCAP_ENTRY_DAT(idx));
+> +	fib6_info_release(rt);
+> +}
 
 [Severity: High]
-Are concurrent writes to the shared VCAP_SUPER_VCAP_ENTRY_DAT registers
-safe here without a global hardware lock across the different VCAP types?
+Does this non-atomic flag modification race with the core IPv6 stack?
 
-It looks like IS0 and IS2 rules are updated via vcap_add_rule() under the
-rtnl_lock(). However, the LPM rules are updated under the
-sparx5->router->lock inside a workqueue.
-
-Since both execution paths share the Super VCAP hardware block, could
-concurrent updates from TC (IS0/IS2) and routing (LPM) race on these shared
-cache registers, and also on VCAP_SUPER_CTRL in sparx5_vcap_super_update(),
-garbling the hardware command and corrupting the cache memory?
-
-> +			spx5_wr(~mskstr[idx], sparx5,
-> +				VCAP_SUPER_VCAP_MASK_DAT(idx));
-> +		}
-> +		break;
+The driver clears RTNH_F_OFFLOAD directly from an async worker thread
+without holding the rtnl_lock. Since the core networking stack updates
+these flags under the rtnl_lock, could this lockless non-atomic operation
+cause torn writes and overwrite state updates like RTNH_F_DEAD?
 
 [ ... ]
 
-> @@ -1379,6 +1523,7 @@ static void sparx5_vcap_update(struct net_device *ndev,
->  	struct sparx5 *sparx5 = port->sparx5;
+> @@ -826,6 +1143,14 @@ static void sparx5_rr_neigh_entry_destroy(struct sparx5 *sparx5,
+>  	kfree(entry);
+>  }
 >  
->  	switch (admin->vtype) {
-> +	case VCAP_TYPE_LPM:
->  	case VCAP_TYPE_IS0:
->  	case VCAP_TYPE_IS2:
->  		sparx5_vcap_super_update(sparx5, cmd, sel, addr);
+> +static void sparx5_rr_neigh_entry_put(struct sparx5 *sparx5,
+> +				      struct sparx5_rr_neigh_entry *neigh_entry)
+> +{
+> +	if (neigh_entry && list_empty(&neigh_entry->nexthop_list) &&
+> +	    !neigh_entry->hw_route.vrule_id_valid)
+> +		sparx5_rr_neigh_entry_destroy(sparx5, neigh_entry);
+> +}
+
+[Severity: High]
+Can a neighbour entry leak permanently if its subnet route is deleted while
+a gateway nexthop still references it?
+
+When the subnet route is deleted, sparx5_rr_fib_entry_destroy() sets
+neigh_entry->fib_entry = NULL and disables the VCAP rule. However, if an
+ARP update arrives while the gateway route still references the neighbour,
+sparx5_rr_neigh_event_work() re-enables the VCAP rule by setting
+vrule_id_valid to true.
+
+Later, when the gateway route is deleted, sparx5_rr_neigh_entry_put() will
+skip destroying the neighbour because vrule_id_valid is true. The neighbour
+would be left with an empty nexthop_list and a NULL fib_entry, meaning it
+cannot be found during teardown by sparx5_rr_fib_flush(). Does this leak
+the dev_tracker and hardware VCAP rule?
+
+[ ... ]
+
+> @@ -2126,6 +2753,8 @@ static int sparx5_rr_fib_replace(struct sparx5 *sparx5,
+>  	/* Release and allow any previous fib_info to be deleted */
+>  	sparx5_rr_fib_info_put(&old_fi);
+>  
+> +	fib_entry->type = sparx5_rr_rtm_type2fib_type(fi_type);
+> +
+>  	err = sparx5_rr_entry_nexthop_group_update(sparx5, fib_entry);
+
+[Severity: Critical]
+Could this in-place type update corrupt the LPM list?
+
+If sparx5_rr_fib_replace() changes the route type from UNICAST to LOCAL,
+the entry remains in the fib_lpm4_list or fib_lpm6_list. Later, when the
+route is deleted, sparx5_rr_fib_entry_destroy() calls
+sparx5_rr_fib_lpm_remove(), which has this check:
+
+static void sparx5_rr_fib_lpm_remove(struct sparx5_rr_fib_entry *fib_entry)
+{
+        if (fib_entry->type != SPARX5_RR_FIB_TYPE_UNICAST)
+                return;
+
+        list_del(&fib_entry->fib_lpm_node);
+}
+
+Since the type is now LOCAL, the function returns early and skips the
+list_del() operation. The entry is then freed, leaving a dangling pointer
+in the linked list. Conversely, replacing a LOCAL route with a UNICAST
+route appears to cause a NULL pointer dereference in list_del() because
+it was never added to the list.
+
+[ ... ]
+
+> @@ -2247,6 +2873,28 @@ static int sparx5_rr_fib6_nexthop_prune(struct sparx5 *sparx5,
+> +	old_nrt6 = fib_entry->fi.fe6_info.nrt6;
+> +	new_nrt6 = old_nrt6 >= f6i->nrt6 ? old_nrt6 - f6i->nrt6 : 0;
+> +
+> +	rt_arr = kzalloc_objs(struct fib6_info *, new_nrt6);
+> +	if (!rt_arr)
+> +		return -ENOMEM;
+> +
+> +	for (int i = 0; i < old_nrt6; i++) {
+> +		struct fib6_info *fi = old_rt_arr[i];
+> +
+> +		if (sparx5_rr_fib6_rt_exists(f6i, fi)) {
+> +			sparx5_rr_rt6_release(fi);
+> +			continue;
+> +		}
+> +
+> +		rt_arr[j++] = fi;
+> +	}
+
+[Severity: Critical]
+Is there a risk of a heap buffer overflow in this loop?
+
+The new array size is calculated as the difference between the old count
+and the count of nexthops to remove. However, if the deletion request
+contains nexthops that do not perfectly match the tracked nexthops,
+sparx5_rr_fib6_rt_exists() will return false.
+
+The loop then copies these non-matching elements into rt_arr. Could the
+index j exceed new_nrt6 in this scenario, writing past the end of the
+dynamically allocated buffer?
+
+[ ... ]
+
+> @@ -2939,6 +3032,12 @@ int sparx5_rr_router_init(struct sparx5 *sparx5)
+>  err_unreg_inet_addr_val_notifier:
+>  	unregister_inetaddr_validator_notifier(&r->inetaddr_valid_nb);
+>  err_unreg_inet_notifier:
+>  	unregister_inetaddr_notifier(&r->inetaddr_nb);
+> +err_unreg_fib_notifier:
+> +	unregister_fib_notifier(&init_net, &r->fib_nb);
+>  err_workqueue_destroy:
+>  	destroy_workqueue(r->sparx5_router_owq);
+> +err_fib_ht_destroy:
+> +	rhashtable_destroy(&r->fib_ht);
+> +err_neigh_ht_destroy:
+> +	rhashtable_destroy(&r->neigh_ht);
+
+[Severity: High]
+Does this error path leak all offloaded route hardware and software
+structures?
+
+If an error occurs after register_fib_notifier() has successfully run, the
+error path calls destroy_workqueue(). This allows the initial FIB dump to
+finish populating routes into the hardware and the r->fib_ht structure.
+
+However, the error path subsequently calls rhashtable_destroy() without
+first calling sparx5_rr_fib_flush(). Since rhashtable_destroy() only frees
+the hash buckets and not the elements, does this permanently leak all the
+inserted fib_entry objects, their dev_trackers, and their hardware VCAP
+rules upon a module load failure?
 
