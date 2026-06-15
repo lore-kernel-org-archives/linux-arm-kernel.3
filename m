@@ -4,89 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D29CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91E9CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQCDKBQNearl7mAgYMgRVjkBiOBiur5AJMNVRUQy2q4=; b=0LUWAuw2+BXkrMtbocm/ezBHQA
-	a7M4xPjL+pRSv681krmp11esDNoxiXjmC7vAVevTZ0RnnuuDPBXme3g4O9Bmn+bKUDbxGEauK5yLs
-	mfzOcUf1JA9GCjv8j480ZjMGUbk350q2EqX2g1VXrDVGUUXxtBJ2BDh4KQLds93wyNzT68IjSHsGf
-	pCYAw6DR65jRuWKvcbaC3e8Jh6rI80XFk6MSYy38IwPwXf0LdWjwJm+fhqggmyHZU8MIVOy/Lfn/a
-	2acBVHxCF6xq0HzhUvH2PFNFA4tFNGPqWUgRcWfeyvWmQA5Z+v3gVnRILcflruI39XUrCsyMhL8aK
-	XOvLmIWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=atWUu23k+hO3cJYWWwwW99/lWaTqjwrXHCOws2r9Rnw=; b=v0aEOhpZWROgUP0HIa3YgjfI2r
+	PFJo3v+2Rnbm/0hjYnukDjR8jgA47QW0rbaQMjnoPfZiKn5f6elF/ByezhvdpFwisVCn1gbkKQAYx
+	AVws4YphcfOqjsAIbwfstHhygMHXG8S9ZHT7cQFPavJwKDFzWLQOJGH3B7wX+cHnG1zQuONkTiP6W
+	7KUedr1qNNTLHBCTfWNyE7V8kj9B0bw3ybKOAiu6gDgaOE+GxwWjWzyugRN5Ocyr5ApKUCgh/HpHt
+	FSTDteYjczI2cNez/YN+DVhIKnZQCqa+jOX8Es6I3VL/y4dHnzuvn/uSe/xsFD4V9+5QQ8O9bQEhy
+	i+XEFJwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6uL-0000000EFPI-09Vw;
-	Mon, 15 Jun 2026 12:59:17 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1wZ6uP-0000000EFQh-0pdh;
+	Mon, 15 Jun 2026 12:59:21 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6uG-0000000EFOh-2fza
+	id 1wZ6uL-0000000EFPH-3KEA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 12:59:16 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-8422a92b6d6so1625573b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:59:11 -0700 (PDT)
+	Mon, 15 Jun 2026 12:59:19 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490ace40f4bso31516775e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:59:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781528351; x=1782133151; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gQCDKBQNearl7mAgYMgRVjkBiOBiur5AJMNVRUQy2q4=;
-        b=WznBI5/2oMWoJ4J2DvdqTYawYNDFRKrTbNG28Mpk4SYYcPd8KHr3O4omdBUY7HuRH7
-         TjhKwVjfNablyDQBm0L8B84dwiMagcUOx1quMXPUPDIKOIGB8qImYtX1SskYKEcpgoS2
-         xsEperV6R2bWCnF7HZQjMsYIvvLHcPhuEA93+7cIK23bSbOfx/B3RhHvHH/e+yB6tXAn
-         cbf8d4vjbxMHIAScHo7vaMvFjb7UiGPTqu78c2YKwxG7ajVHXIi4xQVJ3JMIB69mi4hB
-         AtWJTZmxjiXYNoYWToQ7R/1NHovFHnwprfFJiQ5/qUPo66jY6p5XqZUtNIbPPjC6Ku8E
-         r9FA==
+        d=google.com; s=20251104; t=1781528356; x=1782133156; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=atWUu23k+hO3cJYWWwwW99/lWaTqjwrXHCOws2r9Rnw=;
+        b=ATYqjN6F1knIiQ6ZFg8doutc6EIPYMXyBUltbNW9kYffJSmnPyoUqZ+RfX1y3qivXu
+         fOFscBoUeQkeR/AhHrX44Sl2wxtNrLeWyKxRkCK6Kda5syHu+8F4oydTokzFs8PCenAs
+         eNvMhzYK7oWhW6DA/fLKvMHnu4CV9C9LdbCkstYU5snXFPBRNKlKd6gTbVkNi10qTvJv
+         691cj40lCRdaxcypGdQyqvFq8HHVlFAVdCEryEC4O+uu4iPJJ/SvLvPjV8W+ljgGPvmj
+         URiHnyf0vCDuvSzLMxMBnNIh2ztmwPjSv+NpoxtmH1EDyxtsXMwt0gXv/s+uRv2mdVzH
+         72iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781528351; x=1782133151;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gQCDKBQNearl7mAgYMgRVjkBiOBiur5AJMNVRUQy2q4=;
-        b=QHobNujSEV+HECgK3KbrogKGT7vXDOeZz9zA/GJHu9s5EBE3hfZuqy4Ho7UA4+JeIT
-         tmbAP8kstiYZHkrpHnxPl+xjQL1SVqyc1m5mMyG7Utabw/HQRpWUlLCDV8Qd9srY9YdO
-         kiHpomFpJoRqfxcPGRoV+BUMPGiArWAbl6MVRRSyDtaA8hdRUAurXKtn1bXywOKVBllk
-         bOFvvMgXCnzD1NnE9vQ6j3gMWUZCK90emZkeo1V6TUmj9X4C7VvSBQreaxQilfFfnYf5
-         Yzl6BCc2zLmLSZkDNZQzkWImHz/i/qkytKdDBgO8l4L4KgCXq44TQpIBi3+sNafC1APH
-         6MEw==
-X-Gm-Message-State: AOJu0Yyxg20/NhDri5CFe0yoR2KHSYHyvVg+iNtf5XmUFhZTJtXgXwka
-	Pur7GpaAXfEsUpJmrvaY/Me7Hv9ywmCndcqTFLXD1jxOI9M94KrFtz9M
-X-Gm-Gg: Acq92OGQuCArhkPO7CgO1qONf9pQktAMI8hWESidGaeBu0Up5Jk9Qf7WFH6ZJ/eVTbm
-	Q8uLMpJJHyMUhpkjH0HX6ubyp2o4zJCtOia8q7SzmqOhxJoYVW+2U8CYwD/5OBUyZHQ956KAgfR
-	nCIpVhQdt971iC8bnGuuLmJJfRtpCLVg9OknddsUcEKU2MaWLVh8sckIUyOsRgmfLpo5adelk5F
-	MuU2ODuHWjqYrg3Y95MTlJAVyc7QO6RyqPWcZ05Z+4jvVpLb0xpuedOhAYH9MrpxRIY2ufj/NZa
-	78G6Au73+jwmM8wXkuiAmPrPpUgTOjWc0rhZrhUHl4CJVFAIPPHtOxCpy9X/vGK+lzjCZ3ckf/n
-	xOP/5exPVihox0ofv58XmNQ0P+TQL1D7X3OZhg0P5c7d458jRWd8mUiYQNNan1xb8MLRIBeru/+
-	50NhGm4InBmc9xfB+AXgQ/oG2Kt3uycCo=
-X-Received: by 2002:a05:6a00:4b55:b0:842:307b:b9d0 with SMTP id d2e1a72fcca58-843497c819dmr11672053b3a.30.1781528350979;
-        Mon, 15 Jun 2026 05:59:10 -0700 (PDT)
-Received: from [192.168.1.111] ([223.122.38.120])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b009e67sm12056399b3a.42.2026.06.15.05.59.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Jun 2026 05:59:10 -0700 (PDT)
-Message-ID: <7d9eef31-2193-4593-8976-7c7659843bf2@gmail.com>
-Date: Mon, 15 Jun 2026 20:59:06 +0800
+        d=1e100.net; s=20251104; t=1781528356; x=1782133156;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=atWUu23k+hO3cJYWWwwW99/lWaTqjwrXHCOws2r9Rnw=;
+        b=jUtvIiZKAlAui2X9aIMOBMRg/cG9Rad6HueOcE7HHeFGtA6u2QyvMEu+aOebTf547y
+         jHxKsUlMgtyNEn+WtsYxHOon77C7z0/QJ3fbUbnmNvEmPlr9gnwyHDbeIOiqm2Rlw2kE
+         TPcF7ygAVV/e2vc2QZcSVrxVcsocvs/oI3pNQT3w5Hg7LmGNC6ovcz3aSQfxo92caMpx
+         4VlFgxtdLlRHNOdN99sXhXIwtg6vyXZGSChTfH/pDQMk8CcX13jAlP6t6+mt7NbKaXQv
+         nrDMOykv4IDQ8HYa1Q8Lb6TMsI4wae7NAxE8SYG/Xn7jKtpKiCgx5bCgNl/QTblWOpPU
+         0f0A==
+X-Forwarded-Encrypted: i=1; AFNElJ+tE22KoNrqzNH/1hUA9/AaIlMEhfDw5dhJqCbyqy7pIA5WaCVjOQ8y9tPPRiH7v769OhS0oGupiTHMawbFG8td@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQoAN3+N2cqu7Pci7X8Zsk+UzFRlp2mEWoKQLvhtoXm7+10JtZ
+	8TzkkQi+lmDg1hgmeYB0o75/z0Z2c9nXizJ0fKe6Q51v1oQgcx/0p4aeKY144vEklg==
+X-Gm-Gg: Acq92OERBQpZFYqhr9C3VVnyDVdHD4JJLZDLjj3r4s8nIXiszY07Zr9fV6hB004/Ykr
+	f4rBX1pgsrqMVrLzeLUySlj9hyLqrVZ7b7k7Ks3u7TEjf1/x1SDAteKDub6QhkFuJW/ZMlg9thq
+	IT58Yq8Ad4Fr1ygZOvSxeY1Dlvka6+mg30TnSKq3jEig/iLE9Qi4L6n5U6woh48e+nL65ANX6ev
+	CbqXxiGbIWoU//0dKGjGOui+J3oi0sGz7/8n5jppSMbYGQXpl1kdkXhkrp+eIbldVBX8LAKwNPy
+	JfcU9VuncuuEUubPku5SnF+R5IDkaxk1QsMQckqkW6Ki4XxXfo9YV6G4k+d9ltuIc12xOS/RNpO
+	zhIV9mPS0jYVgYfM9zgFg07buWLzbWsbXY8uxTQSYoPp0mGbMEKCLnE5ergLlFr0P5YLLETODj/
+	tcWDrD9B5wlQdsp4NZTJXmFZKHuBvok5kgUWH/z6G/IQ2ktJZbHDqe250uFGqRNWUuvEA=
+X-Received: by 2002:a05:600c:8b16:b0:490:ab8b:1bb3 with SMTP id 5b1f17b1804b1-492200db664mr136674815e9.18.1781528355304;
+        Mon, 15 Jun 2026 05:59:15 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ea4b39e9sm210485135e9.0.2026.06.15.05.59.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 05:59:14 -0700 (PDT)
+Date: Mon, 15 Jun 2026 13:59:10 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: tabba@google.com
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Per Larsen <perlarsen@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 03/11] KVM: arm64: Use guard()/scoped_guard() in arm64
+ KVM EL1 code
+Message-ID: <ai_3Hlf8CakQ7ESQ@google.com>
+References: <20260612065925.755562-1-tabba@google.com>
+ <20260612065925.755562-4-tabba@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: errata: Handle Apple WFI State Loss
-Content-Language: en-MW
-To: Yureka Lilian <yureka@cyberchaos.dev>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev, Sasha Finkelstein <k@chaosmail.tech>
-References: <20260615-wfi-erratum-v2-1-59a73467f70d@cyberchaos.dev>
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <20260615-wfi-erratum-v2-1-59a73467f70d@cyberchaos.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260612065925.755562-4-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_055912_681568_E743F79B 
-X-CRM114-Status: GOOD (  32.50  )
+X-CRM114-CacheID: sfid-20260615_055918_298874_0A984213 
+X-CRM114-Status: GOOD (  31.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,171 +111,369 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 12, 2026 at 07:59:17AM +0100, tabba@google.com wrote:
+> Convert the manual mutex_lock()/spin_lock() pairs in
+> arch/arm64/kvm/{pkvm,arm,mmu,reset,psci}.c to guard(mutex),
+> guard(spinlock) and scoped_guard(), dropping unlock-only goto labels in
+> favour of direct returns. Centralised cleanup gotos that still serve
+> other resources are preserved.
+> 
+> reset.c uses scoped_guard() rather than guard() so the lock covers only
+> the small read/update window inside kvm_reset_vcpu(), leaving the rest
+> of the function outside the critical section.
 
+I believe in that case unless it really helps with cleaning resources, there's
+not much point using scoped_guard().
 
-Yureka Lilian 於 2026/6/15 晚上8:21 寫道:
-> Apple Silicon CPUs can lose register state in WFI, leading to crashes
-> in the idle loop early in the boot process.
-> This applies to any previous Apple Silicon CPUs too, but is worked
-> around by configuring the WFI mode in SYS_IMP_APL_CYC_OVRD sysreg
-> during m1n1's chickens setup.
-> This workaround no longer exists since M4.
+I would keep it as is.
+
 > 
-> Add a workaround capability for replacing wfi and wfit with nop, and
-> an erratum to enable it on the affected CPUs if the workaround using the
-> sysreg is not already applied. Leave the decision whether the sysreg
-> workaround can be used up to the earlier parts of the boot chain which
-> already configure the Apple Silicon chicken bits.
-> 
-> This alternative has to be applied in early boot, since otherwise some
-> cores might enter the idle loop before apply_alternatives_all() is run.
-> 
-> Reviewed-by: Sasha Finkelstein <k@chaosmail.tech>
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 > ---
-> Changes since v1:
-> Restricted the erratum to EL2 only, since in EL1 we'd expect the
-> hypervisor to trap WFI and handle the erratum.
+>  arch/arm64/kvm/arm.c   | 14 +++-----
+>  arch/arm64/kvm/mmu.c   | 80 +++++++++++++++---------------------------
+>  arch/arm64/kvm/pkvm.c  | 26 ++++++--------
+>  arch/arm64/kvm/psci.c  | 17 ++++-----
+>  arch/arm64/kvm/reset.c |  8 ++---
+>  5 files changed, 53 insertions(+), 92 deletions(-)
 > 
-> Tested on M4 and M4 Pro (which now sometimes nondeterministically
-> crash later during boot).
-> Successfully booted on M3 Max with the SYS_IMP_APL_CYC_OVRD
-> workaround disabled in the bootloader, as well as A18 Pro (which,
-> like M4 / M4 Pro, doesn't have SYS_IMP_APL_CYC_OVRD).
-> 
-> There is probably a better place for the SYS_IMP_APL_CYC_OVRD
-> defines, which I currently put in the middle of cpu_errata.c, but I
-> wouldn't know where.
-> ---
->  arch/arm64/Kconfig               | 12 ++++++++++++
->  arch/arm64/include/asm/barrier.h | 19 ++++++++++++++++---
->  arch/arm64/kernel/cpu_errata.c   | 21 +++++++++++++++++++++
->  arch/arm64/tools/cpucaps         |  1 +
->  4 files changed, 50 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b3afe0688919..8c8ff069856f 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -453,6 +453,18 @@ config AMPERE_ERRATUM_AC04_CPU_23
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 9453321ef8c6..c9f36932c980 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -793,9 +793,7 @@ int kvm_arch_vcpu_ioctl_get_mpstate(struct kvm_vcpu *vcpu,
+>  int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
+>  				    struct kvm_mp_state *mp_state)
+>  {
+> -	int ret = 0;
+> -
+> -	spin_lock(&vcpu->arch.mp_state_lock);
+> +	guard(spinlock)(&vcpu->arch.mp_state_lock);
 >  
->  	  If unsure, say Y.
+>  	switch (mp_state->mp_state) {
+>  	case KVM_MP_STATE_RUNNABLE:
+> @@ -808,12 +806,10 @@ int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
+>  		kvm_arm_vcpu_suspend(vcpu);
+>  		break;
+>  	default:
+> -		ret = -EINVAL;
+> +		return -EINVAL;
+>  	}
 >  
-> +config APPLE_ERRATUM_WFI_STATE
-> +	bool "Apple Silicon: WFI loses state"
-> +	default y
-> +	help
-> +	  This option adds an alternative code sequence to work around some
-> +	  Apple Silicon CPUs losing register state during wfi and wfit
-> +	  instructions.
-> +
-> +	  As a workaround, the wfi and wfit instructions are replaced with nop
-> +	  operations via the alternative framework if an affected CPU is
-> +	  detected.
-> +
->  config ARM64_WORKAROUND_CLEAN_CACHE
->  	bool
->  
-> diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
-> index 9495c4441a46..f72eddc7c434 100644
-> --- a/arch/arm64/include/asm/barrier.h
-> +++ b/arch/arm64/include/asm/barrier.h
-> @@ -20,9 +20,22 @@
->  #define wfe()		asm volatile("wfe" : : : "memory")
->  #define wfet(val)	asm volatile("msr s0_3_c1_c0_0, %0"	\
->  				     : : "r" (val) : "memory")
-> -#define wfi()		asm volatile("wfi" : : : "memory")
-> -#define wfit(val)	asm volatile("msr s0_3_c1_c0_1, %0"	\
-> -				     : : "r" (val) : "memory")
-> +#define wfi()							\
-> +	do {							\
-> +		asm volatile(					\
-> +		ALTERNATIVE("wfi",				\
-> +			    "nop",				\
-> +			    ARM64_WORKAROUND_WFI_STATE)		\
-> +		: : : "memory");				\
-> +	} while (0)
-> +#define wfit(val)						\
-> +	do {							\
-> +		asm volatile(					\
-> +		ALTERNATIVE("msr s0_3_c1_c0_1, %0",		\
-> +			    "nop",				\
-> +			    ARM64_WORKAROUND_WFI_STATE)		\
-> +		: : "r" (val) : "memory");			\
-> +	} while (0)
->  
->  #define isb()		asm volatile("isb" : : : "memory")
->  #define dmb(opt)	asm volatile("dmb " #opt : : : "memory")
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index 1995e1198648..8c9a194eddc4 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -309,6 +309,19 @@ static void cpu_enable_impdef_pmuv3_traps(const struct arm64_cpu_capabilities *_
->  	sysreg_clear_set_s(SYS_HACR_EL2, 0, BIT(56));
+> -	spin_unlock(&vcpu->arch.mp_state_lock);
+> -
+> -	return ret;
+> +	return 0;
 >  }
 >  
-> +#ifdef CONFIG_APPLE_ERRATUM_WFI_STATE
-> +static bool has_apple_erratum_wfi_state(const struct arm64_cpu_capabilities *entry, int scope)
-> +{
-> +#define SYS_IMP_APL_CYC_OVRD   sys_reg(3, 5, 15, 5, 0)
-> +#define CYC_OVRD_WFI_MODE_MASK GENMASK(26, 24)
-> +	if (read_cpuid_implementor() != ARM_CPU_IMP_APPLE)
-> +		return false;
-> +	if ((read_sysreg(CurrentEL) >> 2) != 2)
-> +		return false;
-
-Nested vitrualization exists, and may be supported by KVM or macOS HVF.
-Additionally, presumably the workaround should be applied under m1n1 hypervisor.
-
-The solution is less clear. A reliable way to detect bare metal or
-"almost bare metal" is checking for "apple,arm-platform" using
-of_machine_is_compatible(), but that involves performing a non-CPU check inside a
-CPU errata function, so that do not feel right to me.
-
-Best Regards,
-Nick Chan
-
-
-> +	return FIELD_GET(CYC_OVRD_WFI_MODE_MASK, read_sysreg_s(SYS_IMP_APL_CYC_OVRD)) != 2;
-> +}
-> +#endif
+>  /**
+> @@ -1726,15 +1722,13 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+>  	/*
+>  	 * Handle the "start in power-off" case.
+>  	 */
+> -	spin_lock(&vcpu->arch.mp_state_lock);
+> +	guard(spinlock)(&vcpu->arch.mp_state_lock);
+>  
+>  	if (power_off)
+>  		__kvm_arm_vcpu_power_off(vcpu);
+>  	else
+>  		WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_RUNNABLE);
+>  
+> -	spin_unlock(&vcpu->arch.mp_state_lock);
+> -
+>  	return 0;
+>  }
+>  
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 4da9281312eb..d18f4ce7ceae 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -391,13 +391,13 @@ static void stage2_flush_vm(struct kvm *kvm)
+>   */
+>  void __init free_hyp_pgds(void)
+>  {
+> -	mutex_lock(&kvm_hyp_pgd_mutex);
+> -	if (hyp_pgtable) {
+> -		kvm_pgtable_hyp_destroy(hyp_pgtable);
+> -		kfree(hyp_pgtable);
+> -		hyp_pgtable = NULL;
+> -	}
+> -	mutex_unlock(&kvm_hyp_pgd_mutex);
+> +	guard(mutex)(&kvm_hyp_pgd_mutex);
+> +	if (!hyp_pgtable)
+> +		return;
 > +
->  #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
->  static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
->  #ifdef CONFIG_QCOM_FALKOR_ERRATUM_1009
-> @@ -1009,6 +1022,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  		.matches = has_impdef_pmuv3,
->  		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
->  	},
-> +#ifdef CONFIG_APPLE_ERRATUM_WFI_STATE
-> +	{
-> +		.desc = "Apple WFI loses state",
-> +		.capability = ARM64_WORKAROUND_WFI_STATE,
-> +		.type = ARM64_CPUCAP_SCOPE_BOOT_CPU | ARM64_CPUCAP_OPTIONAL_FOR_LATE_CPU,
-> +		.matches = has_apple_erratum_wfi_state,
-> +	},
-> +#endif
->  	{
+> +	kvm_pgtable_hyp_destroy(hyp_pgtable);
+> +	kfree(hyp_pgtable);
+> +	hyp_pgtable = NULL;
+>  }
+>  
+>  static bool kvm_host_owns_hyp_mappings(void)
+> @@ -424,16 +424,11 @@ static bool kvm_host_owns_hyp_mappings(void)
+>  int __create_hyp_mappings(unsigned long start, unsigned long size,
+>  			  unsigned long phys, enum kvm_pgtable_prot prot)
+>  {
+> -	int err;
+> -
+>  	if (WARN_ON(!kvm_host_owns_hyp_mappings()))
+>  		return -EINVAL;
+>  
+> -	mutex_lock(&kvm_hyp_pgd_mutex);
+> -	err = kvm_pgtable_hyp_map(hyp_pgtable, start, size, phys, prot);
+> -	mutex_unlock(&kvm_hyp_pgd_mutex);
+> -
+> -	return err;
+> +	guard(mutex)(&kvm_hyp_pgd_mutex);
+> +	return kvm_pgtable_hyp_map(hyp_pgtable, start, size, phys, prot);
+>  }
+>  
+>  static phys_addr_t kvm_kaddr_to_phys(void *kaddr)
+> @@ -481,56 +476,42 @@ static int share_pfn_hyp(u64 pfn)
+>  {
+>  	struct rb_node **node, *parent;
+>  	struct hyp_shared_pfn *this;
+> -	int ret = 0;
+>  
+> -	mutex_lock(&hyp_shared_pfns_lock);
+> +	guard(mutex)(&hyp_shared_pfns_lock);
+>  	this = find_shared_pfn(pfn, &node, &parent);
+>  	if (this) {
+>  		this->count++;
+> -		goto unlock;
+> +		return 0;
 >  	}
->  };
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 9b85a84f6fd4..bbf8c15d79b0 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -128,3 +128,4 @@ WORKAROUND_REPEAT_TLBI
->  WORKAROUND_SPECULATIVE_AT
->  WORKAROUND_SPECULATIVE_SSBS
->  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-> +WORKAROUND_WFI_STATE
-> 
-> ---
-> base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
-> change-id: 20260614-wfi-erratum-7a9f305f601f
-> 
-> Best regards,
-> --  
-> Yureka Lilian <yureka@cyberchaos.dev>
-> 
-> 
+>  
+>  	this = kzalloc_obj(*this);
+> -	if (!this) {
+> -		ret = -ENOMEM;
+> -		goto unlock;
+> -	}
+> +	if (!this)
+> +		return -ENOMEM;
+>  
+>  	this->pfn = pfn;
+>  	this->count = 1;
+>  	rb_link_node(&this->node, parent, node);
+>  	rb_insert_color(&this->node, &hyp_shared_pfns);
+> -	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
+> -unlock:
+> -	mutex_unlock(&hyp_shared_pfns_lock);
+> -
+> -	return ret;
+> +	return kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
+>  }
+>  
+>  static int unshare_pfn_hyp(u64 pfn)
+>  {
+>  	struct rb_node **node, *parent;
+>  	struct hyp_shared_pfn *this;
+> -	int ret = 0;
+>  
+> -	mutex_lock(&hyp_shared_pfns_lock);
+> +	guard(mutex)(&hyp_shared_pfns_lock);
+>  	this = find_shared_pfn(pfn, &node, &parent);
+> -	if (WARN_ON(!this)) {
+> -		ret = -ENOENT;
+> -		goto unlock;
+> -	}
+> +	if (WARN_ON(!this))
+> +		return -ENOENT;
+>  
+>  	this->count--;
+>  	if (this->count)
+> -		goto unlock;
+> +		return 0;
+>  
+>  	rb_erase(&this->node, &hyp_shared_pfns);
+>  	kfree(this);
+> -	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
+> -unlock:
+> -	mutex_unlock(&hyp_shared_pfns_lock);
+> -
+> -	return ret;
+> +	return kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
+>  }
+>  
+>  int kvm_share_hyp(void *from, void *to)
+> @@ -655,7 +636,7 @@ int hyp_alloc_private_va_range(size_t size, unsigned long *haddr)
+>  	unsigned long base;
+>  	int ret = 0;
+>  
+> -	mutex_lock(&kvm_hyp_pgd_mutex);
+> +	guard(mutex)(&kvm_hyp_pgd_mutex);
+>  
+>  	/*
+>  	 * This assumes that we have enough space below the idmap
+> @@ -670,8 +651,6 @@ int hyp_alloc_private_va_range(size_t size, unsigned long *haddr)
+>  	base = io_map_base - size;
+>  	ret = __hyp_alloc_private_va_range(base);
+>  
+> -	mutex_unlock(&kvm_hyp_pgd_mutex);
+> -
+>  	if (!ret)
+>  		*haddr = base;
+>  
+> @@ -714,17 +693,16 @@ int create_hyp_stack(phys_addr_t phys_addr, unsigned long *haddr)
+>  	size_t size;
+>  	int ret;
+>  
+> -	mutex_lock(&kvm_hyp_pgd_mutex);
+> -	/*
+> -	 * Efficient stack verification using the NVHE_STACK_SHIFT bit implies
+> -	 * an alignment of our allocation on the order of the size.
+> -	 */
+> -	size = NVHE_STACK_SIZE * 2;
+> -	base = ALIGN_DOWN(io_map_base - size, size);
+> +	scoped_guard(mutex, &kvm_hyp_pgd_mutex) {
+> +		/*
+> +		 * Efficient stack verification using the NVHE_STACK_SHIFT bit implies
+> +		 * an alignment of our allocation on the order of the size.
+> +		 */
+> +		size = NVHE_STACK_SIZE * 2;
+> +		base = ALIGN_DOWN(io_map_base - size, size);
+>  
+> -	ret = __hyp_alloc_private_va_range(base);
+> -
+> -	mutex_unlock(&kvm_hyp_pgd_mutex);
+> +		ret = __hyp_alloc_private_va_range(base);
+> +	}
 
+Not sure about that one, it's not shorter, doesn't remove any label but add
+a tab.
+
+>  
+>  	if (ret) {
+>  		kvm_err("Cannot allocate hyp stack guard page\n");
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 053e4f733e4b..a39111b70f9f 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -190,39 +190,33 @@ bool pkvm_hyp_vm_is_created(struct kvm *kvm)
+>  
+>  int pkvm_create_hyp_vm(struct kvm *kvm)
+>  {
+> -	int ret = 0;
+> -
+>  	/*
+>  	 * Synchronise with kvm_arch_prepare_memory_region(), as we
+>  	 * prevent memslot modifications on a pVM that has been run.
+>  	 */
+> -	mutex_lock(&kvm->slots_lock);
+> -	mutex_lock(&kvm->arch.config_lock);
+> -	if (!pkvm_hyp_vm_is_created(kvm))
+> -		ret = __pkvm_create_hyp_vm(kvm);
+> -	mutex_unlock(&kvm->arch.config_lock);
+> -	mutex_unlock(&kvm->slots_lock);
+> +	guard(mutex)(&kvm->slots_lock);
+> +	guard(mutex)(&kvm->arch.config_lock);
+>  
+> -	return ret;
+> +	if (!pkvm_hyp_vm_is_created(kvm))
+> +		return __pkvm_create_hyp_vm(kvm);
+> +
+> +	return 0;
+>  }
+>  
+>  int pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
+>  {
+> -	int ret = 0;
+> +	guard(mutex)(&vcpu->kvm->arch.config_lock);
+>  
+> -	mutex_lock(&vcpu->kvm->arch.config_lock);
+>  	if (!vcpu_get_flag(vcpu, VCPU_PKVM_FINALIZED))
+> -		ret = __pkvm_create_hyp_vcpu(vcpu);
+> -	mutex_unlock(&vcpu->kvm->arch.config_lock);
+> +		return __pkvm_create_hyp_vcpu(vcpu);
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  void pkvm_destroy_hyp_vm(struct kvm *kvm)
+>  {
+> -	mutex_lock(&kvm->arch.config_lock);
+> +	guard(mutex)(&kvm->arch.config_lock);
+>  	__pkvm_destroy_hyp_vm(kvm);
+> -	mutex_unlock(&kvm->arch.config_lock);
+>  }
+>  
+>  int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
+> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
+> index 3b5dbe9a0a0e..e1389c525e9d 100644
+> --- a/arch/arm64/kvm/psci.c
+> +++ b/arch/arm64/kvm/psci.c
+> @@ -62,7 +62,6 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+>  	struct vcpu_reset_state *reset_state;
+>  	struct kvm *kvm = source_vcpu->kvm;
+>  	struct kvm_vcpu *vcpu = NULL;
+> -	int ret = PSCI_RET_SUCCESS;
+>  	unsigned long cpu_id;
+>  
+>  	cpu_id = smccc_get_arg1(source_vcpu);
+> @@ -78,14 +77,13 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+>  	if (!vcpu)
+>  		return PSCI_RET_INVALID_PARAMS;
+>  
+> -	spin_lock(&vcpu->arch.mp_state_lock);
+> +	guard(spinlock)(&vcpu->arch.mp_state_lock);
+> +
+>  	if (!kvm_arm_vcpu_stopped(vcpu)) {
+>  		if (kvm_psci_version(source_vcpu) != KVM_ARM_PSCI_0_1)
+> -			ret = PSCI_RET_ALREADY_ON;
+> +			return PSCI_RET_ALREADY_ON;
+>  		else
+> -			ret = PSCI_RET_INVALID_PARAMS;
+> -
+> -		goto out_unlock;
+> +			return PSCI_RET_INVALID_PARAMS;
+>  	}
+>  
+>  	reset_state = &vcpu->arch.reset_state;
+> @@ -113,9 +111,7 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+>  	WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_RUNNABLE);
+>  	kvm_vcpu_wake_up(vcpu);
+>  
+> -out_unlock:
+> -	spin_unlock(&vcpu->arch.mp_state_lock);
+> -	return ret;
+> +	return PSCI_RET_SUCCESS;
+>  }
+>  
+>  static unsigned long kvm_psci_vcpu_affinity_info(struct kvm_vcpu *vcpu)
+> @@ -176,9 +172,8 @@ static void kvm_prepare_system_event(struct kvm_vcpu *vcpu, u32 type, u64 flags)
+>  	 * re-initialized.
+>  	 */
+>  	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
+> -		spin_lock(&tmp->arch.mp_state_lock);
+> +		guard(spinlock)(&tmp->arch.mp_state_lock);
+>  		WRITE_ONCE(tmp->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
+> -		spin_unlock(&tmp->arch.mp_state_lock);
+>  	}
+>  	kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
+>  
+> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> index b963fd975aac..60969d90bdd3 100644
+> --- a/arch/arm64/kvm/reset.c
+> +++ b/arch/arm64/kvm/reset.c
+> @@ -193,10 +193,10 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>  	bool loaded;
+>  	u32 pstate;
+>  
+> -	spin_lock(&vcpu->arch.mp_state_lock);
+> -	reset_state = vcpu->arch.reset_state;
+> -	vcpu->arch.reset_state.reset = false;
+> -	spin_unlock(&vcpu->arch.mp_state_lock);
+> +	scoped_guard(spinlock, &vcpu->arch.mp_state_lock) {
+> +		reset_state = vcpu->arch.reset_state;
+> +		vcpu->arch.reset_state.reset = false;
+> +	}
+
+Same, I don't find this one really interesting.
+
+>  
+>  	preempt_disable();
+>  	loaded = (vcpu->cpu != -1);
+> -- 
+> 2.54.0.1136.gdb2ca164c4-goog
+> 
 
