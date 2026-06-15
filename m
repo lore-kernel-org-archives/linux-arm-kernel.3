@@ -4,76 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE6DCD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 10:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF82CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 10:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PRXHmeUhDS3PxP6+e2W3Q8rut4tY53cDYhD/afrYh08=; b=uFD467McPJR9X/KkoN0Ste8faI
-	NFo/kAUp1oYHlqYo37dmIF4N3vBWb871UTYDtM3LcQA39IpSFyyd5mW1Lc3MJrpJJPckDR/vS4Ojp
-	FH8UG5MJKB7cs7GkmoXr/fYCivM+6JnFWr5YFno9aCXlYGChU0I5N/J0RkRfwuMcRaanqPBeanqhm
-	lsjrJJIyQF9/yTGasgblwg2REID9i5JqH04shw7AFpjPTlzO8h9QPmjqLsprdtSyUno0jQf5XE4Zs
-	mGY4XmdZduHUKhFMH947F/+fqKv1rE6XUEOHhYox5lIP/Lc/9EUjbtDnteFFU/YvegIjWTN19qK20
-	4XnEIjxQ==;
+	bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=; b=2028PY5+7KN913H/3ObhWcZ9i0
+	aERK2RgpkuiDb6snlnPFs0zbCYaaldivhInoQgE1YhBGvXc/qX9b1fBSLnQfdzXplRcwFiToD/0fq
+	17I3AHGJhtsBKdJwX52+tIS+z2ZMwz4E68GGDCJvZRv9Seh5rbHtuQ7B+1xLz0i1kRfvngCEvdFZO
+	Ml9J0ZCa49J9aCgdwV42sF9ANudlJQTsfcf9803QbELYCZjpA6vV2wknJq5r1M/8Vs9qtan0FnaNI
+	zqYjj0QaCLzy7JHBHhp5UMRMtEkPVsXLVvfRceVQLWdh4cLLt8jIojwlXCrrmgdiUIJ4BMcKCLK4r
+	GQe+8qCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ4fG-0000000E3Vf-3kBv;
-	Mon, 15 Jun 2026 10:35:34 +0000
-Received: from elvis.franken.de ([193.175.24.41])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ4fD-0000000E3VG-2Xxr
+	id 1wZ4w0-0000000E4Ol-43Tw;
+	Mon, 15 Jun 2026 10:52:52 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZ4vx-0000000E4O3-1w8O
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 10:35:33 +0000
-Received: from uucp by elvis.franken.de with local-rmail (Exim 3.36 #1)
-	id 1wZ4ey-0000JJ-00; Mon, 15 Jun 2026 12:35:16 +0200
-Received: by alpha.franken.de (Postfix, from userid 1000)
-	id C060CC084D; Mon, 15 Jun 2026 12:33:22 +0200 (CEST)
-Date: Mon, 15 Jun 2026 12:33:22 +0200
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Lamparter <chunkeey@googlemail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-wireless@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
-	linux-leds@vger.kernel.org, netdev@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH 05/10] [v2] mips: select legacy gpiolib interfaces where
- used
-Message-ID: <ai_U8j3uOoIzoYrJ@alpha.franken.de>
-References: <20260520183815.2510387-1-arnd@kernel.org>
- <20260520183815.2510387-6-arnd@kernel.org>
+	Mon, 15 Jun 2026 10:52:51 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-5177d1ff061so44701cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 03:52:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781520768; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cm1YOaNPsHwRN5PHdx2rj56Vl3bEF1iBRd10V+8YYYEc2aoxYujxR0fcnHVlsF9UxS
+         7MHJWuh8aUBHou4MItXcZy2B+vPIJ19v6lKhZnadMm/XTyIBICUeQkKBt2tlQ34PJxvk
+         lhhIi34Q9EtLaXumZB013mBxc2yAddSuaYVFjtbJ1BCfUv2/eMc5/oO/LIDU6KB2CqFV
+         X0/ViwE+9gLFVcn36rc6YMwfxa7XrpKWjCCMCPS2V8flQ9j5ny0EgyAA3cFDXeT05bIm
+         zb9dRjXlj7GprvKr3woIZ1jNc086Xmf6Lt51ZEaQGNNMA17VMAyj2xw6NHMLwGGP9TSF
+         yxHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=;
+        fh=ZZo/14WCaJc1eo1YRAzTx+KWinQ+R1agd9BfNYRebKg=;
+        b=A5b2WGOjDAGhCrLUedcgtoaXeCXMrfC16iMAf6oR11Yqk6zEdhW9gifX5TTJM0xw7L
+         7muABKtr2XYu4XPSLCxwHgYI/FLySnFBcBHtFQnvlzn2FslTouDp0Nma0dEbM1L3jogg
+         JsuuBjgSlBSpng+oEu+8C2lnM+gLA0dPKDP2HwtAZv4rQrLbdGAwt0hEwn1oUV1cJJmv
+         8P3LtewM8Mgm/SYs3iJ912FS2RWeCaq3UaHPh3GteKMurRvf0tdZJ6gZ+7c1TqNsEoPK
+         MYv39NSjjgJhXlkAE1lSYjDeYuONy5BCiUJLH5xPD03OQyr/eWQ7UC4Eow8OO+S323X4
+         GHdw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781520768; x=1782125568; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=;
+        b=RJjU1bUuQYIy0g1C8rdCx1vdlIY/gLZCrKqRXdjBKLA73byo6skWQ8LhKtglzMFwPZ
+         psxNwO1UShWIeE7jUeMTQMc3qiNvjvYFZQNGaLaBcozKgjEJa+nM7X0aaNl8FmAtjp4P
+         EtWTS21ubCGWlsX+d9eKB8z7xGPFRhhywJm7rfZlfzgpM7BderShw3Ve5NIqiAijkp1O
+         q5uLJkh1G6SHfW9b6oJ8haSXApiE7AZcIXk75vp98C8EVnmYUyWaRng2wgbH2UHEa4Ar
+         WwUZdULeNNcHUjcxrOF+L3E8zxjiM9TxsNU1l2o+lbqzrI8L6GOXcJ9fr0GCbR13ceRB
+         3bBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781520768; x=1782125568;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=;
+        b=qMd6Z859UWqhLlgS/fVMhf9toC91NG/GR0GknOS/eaMzx1OnlxKcnRnHwNaBO72vHG
+         In6v/opNmIvWIaEiHHsPHSIl7gcxEOo8Y1zhKGkocuE2W/vPRiZNlkBrVjEAGOUIEEpI
+         G3i9k3fKO+Vakc5TxnIEiHj69C6Fl5+IDgtYqfiZlB8ur+mZ8fCkb8XtuJlxdWTcQWuz
+         7pRTqJRgeM1T7D2Gl735hkSppkebrX7RM7xnsxSzMIKG8VajVqKbjV/KrvrgFzAC6Fgg
+         sd11Tt4OoAvpmQwN+LxHHKuCL1VgkzGfqa6wK1gCXZASKbkMMaEwgIurCT7r6gpGHzOe
+         Nj9Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8jdWiVyNLE7hPNq/ctVjFKxTmpQtA3jZw2YuUiesIilnL2+spSI3Xe3ObbeukhEPwG4T0k8pztUZag6S/f8V2r@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQ3LtX/MW6HNDA25zr57XCFbhQ8oEv2cXAK0s0fVy7QK8hKuCX
+	X0gXU/ByRtE2PXmlTFrHsqNbOyzq+1sRcmTbWzlSsLCRJgmFp/VCA2ZMfJ4uSZFFMLSH9WADiwx
+	t4n9rW28wtwUp3RSc/Tu5LNlwIZjnEQh9v1nhgomz
+X-Gm-Gg: Acq92OEHbVvT31H62buqNj4EFA2exWmw+h1afR1LS904Zfh1LqgF6JWj6iEbf+lCKYu
+	C6nio7gJ2hjsV2C6rqQNRYG7bCjZhpG+PBBzctKkmdIkppOrO9vvSNlR0DBwcroXMJQ4nKNIuHA
+	I7BRVBzjfbWisAlCQxtBaHZ5Sl4hHIQsvrdd3HmKKUDhJhM9IhblFj3S3vd0hTNvepdNpTN+RY6
+	KWoFpJBF7ZdQe/aeZ/CXYn0pTpIZ/JKm8lckwTva+GTBCY0IgHZJmcT6rUmtT+0FXxo43OuBB7F
+	vM2CjTo9
+X-Received: by 2002:a05:622a:a591:b0:517:5c70:46bd with SMTP id
+ d75a77b69052e-5198734032cmr691851cf.11.1781520767462; Mon, 15 Jun 2026
+ 03:52:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520183815.2510387-6-arnd@kernel.org>
+References: <20260612113414.1022901-1-tabba@google.com> <ai_OevUNS-OACPm7@willie-the-truck>
+In-Reply-To: <ai_OevUNS-OACPm7@willie-the-truck>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 15 Jun 2026 11:52:10 +0100
+X-Gm-Features: AVVi8CdfyuPqDix51ILtu6yDx2NBgsZ4oN-79QG39qHjrQ7hNaohULwLcTkOYSc
+Message-ID: <CA+EHjTyMOoCLQ7d6+TgkrnOJF-PV9K-BKtb4CNuAg8p4gtg6wg@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Sync SPSR_EL1 when injecting an exception
+ into a pVM
+To: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Sascha Bischoff <Sascha.Bischoff@arm.com>, Andrew Jones <drjones@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_033531_947946_B95F07DE 
-X-CRM114-Status: GOOD (  21.19  )
+X-CRM114-CacheID: sfid-20260615_035249_509116_CA0D9005 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +119,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 08:38:10PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> A few old machines have not been converted away from the old-style
-> gpiolib interfaces. Make these select the new CONFIG_GPIOLIB_LEGACY
-> symbol so the code still works where it is needed but can be left
-> out otherwise.
-> 
-> This is the list of all gpio_request() calls in mips:
-> 
->   arch/mips/alchemy/devboards/db1000.c:           gpio_request(19, "sd0_cd");
->   arch/mips/alchemy/devboards/db1000.c:           gpio_request(20, "sd1_cd");
->   arch/mips/alchemy/devboards/db1200.c:   gpio_request(215, "otg-vbus");
->   arch/mips/bcm47xx/workarounds.c:        err = gpio_request_one(usb_power, GPIOF_OUT_INIT_HIGH, "usb_power");
->   arch/mips/bcm63xx/boards/board_bcm963xx.c:              gpio_request_one(board.ephy_reset_gpio,
->   arch/mips/txx9/rbtx4927/setup.c:        gpio_request(15, "sio-dtr");
-> 
-> Most of these should be easy enough to change to modern gpio descriptors
-> or remove if they are no longer in use.
-> 
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> v2: no changes. There was no discussion on this, but the patch
->     has so far not made it into the linux-mips tree, so I'm including
->     it for completeness.
-> ---
->  arch/mips/Kconfig         | 5 +++++
->  arch/mips/alchemy/Kconfig | 1 -
->  arch/mips/txx9/Kconfig    | 1 +
->  3 files changed, 6 insertions(+), 1 deletion(-)
+Hi Will,
 
-applied to mips-next
 
-Thomas.
+On Mon, 15 Jun 2026 at 11:05, Will Deacon <will@kernel.org> wrote:
+>
+> On Fri, Jun 12, 2026 at 12:34:14PM +0100, Fuad Tabba wrote:
+> > When pKVM injects a synchronous exception into a protected guest, it
+> > re-enters without restoring the guest's EL1 sysregs and writes the EL1
+> > exception registers to hardware by hand: ESR_EL1 and ELR_EL1, but not
+> > SPSR_EL1. enter_exception64() sets SPSR_EL1 (the interrupted PSTATE)
+> > only in memory, so the guest's handler reads a stale SPSR_EL1 and
+> > restores the wrong PSTATE on eret.
+> >
+> > Write SPSR_EL1 alongside the other exception registers.
+> >
+> > Fixes: 6c30bfb18d0b ("KVM: arm64: Add handlers for protected VM System Registers")
+> > Reported-by: sashiko <sashiko@sashiko.dev>
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > index 8c3fbb413a06..1a7d5cd16d72 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > @@ -268,6 +268,7 @@ static void inject_sync64(struct kvm_vcpu *vcpu, u64 esr)
+> >
+> >       write_sysreg_el1(esr, SYS_ESR);
+> >       write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
+> > +     write_sysreg_el1(read_sysreg_el2(SYS_SPSR), SYS_SPSR);
+> >       write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
+> >       write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
+> >  }
+>
+> Is SPSR_EL1 not set in enter_exception64() using vcpu_cpsr(vcpu), which
+> *is* set here? I'm just a bit wary of the report, as I'd have expected
+> fireworks if we weren't initialising the guest's SPSR on the exception
+> injection path.
 
--- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+Yes, enter_exception64() sets SPSR_EL1, but only in memory:
+__vcpu_write_spsr() takes the nVHE path and calls
+__vcpu_assign_sys_reg(vcpu, SPSR_EL1, val), which writes
+vcpu->arch.ctxt.sys_regs[SPSR_EL1] without touching the hardware
+register.
+
+In the normal nVHE entry path that memory value reaches hardware via
+__sysreg_restore_state_nvhe() before __guest_enter(). But
+inject_sync64() runs inside the fixup_guest_exit() loop, which
+re-enters the guest directly without a sysreg restore pass. ESR_EL1
+and ELR_EL1 are already written to hardware by hand for this reason
+but SPSR_EL1 was missed.
+
+I think we don't see fireworks because inject_sync64() only fires on
+error paths, e.g., accesses to restricted or undefined sysregs. A
+well-behaved guest shouldn't trigger these, so the stale SPSR_EL1
+isn't observed.
+
+Cheers,
+/fuad
+
+>
+> Will
 
