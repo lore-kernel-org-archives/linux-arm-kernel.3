@@ -4,153 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D72CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B6DCD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oo6Q4HHlGvWeSV5TqH0kN84+1wSYdj1XJq3bOkF2cOQ=; b=EpZxravYVxy+PlOEHPRIhbqahg
-	B6lir8QwMtqPpPSfEAkjP07gyENgMHggH6KpArZaPQ9vJKZsxzpsvDrpkyvTAjjq3Gx+3Wj3AFfMM
-	gMV7B3ACS6OFlI+3sW21gKX78WNJGU1WZ9YAGqWUfnxyB/C5MABr3wBYWpAotUqxyxx9wY7c+gyxk
-	cfFL2W4peiu5zroaKkwGcRSY4c7PcGWPyCDmBaA4oLc84REY9k1wypxj/nuZ0dwzJh72/+/lZd2sN
-	lePjB1W0GL3EZzi22DY2gtl81isxz/QzX5pt1nzwQelVdY3C4UgUV3qXssklwue3Tp7CqY3/5WXLA
-	QRFIRVTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/+RZ7dh5aacsWXafBI55a264qUntbTl9wClSrh+omSA=; b=gjVfcTyPWBGaAeE4xAorjMAEyO
+	DFFMrpLlOD5FU89bMDBnSu6H7bd7pDgrl98TI8OYXYQWpL6gPY5AfyFVC8yTY+ZVH0+Gx2cWkwzn0
+	0s+Z1fwcXxxT0AXsSK6Z1p17pHiKWZ6KArAnLtksjG2D4VZ4+cV8mxVvImZODq2U6IWDh/ZLPmgCU
+	00siNPoPJTJu5YBKGrgdRN/zcaeoqmpM2qPg/9KuLO18C0yC6khNtERmS45bxL1uTnWNAF34bZROc
+	GGJ5xZxPrDXY5lJG8I+osmvrcpMjyN5XqDSZV5OwvI2a9obp5uLyFm74g8u464KjCbjmHkqiFegwh
+	ZmwNvBew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7ld-0000000ELXc-07WY;
-	Mon, 15 Jun 2026 13:54:21 +0000
-Received: from mail-northeuropeazon11010064.outbound.protection.outlook.com ([52.101.84.64] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wZ7mj-0000000ELd4-2uri;
+	Mon, 15 Jun 2026 13:55:29 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7lZ-0000000ELXA-40Gk
+	id 1wZ7me-0000000ELci-0Pe2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 13:54:20 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=dyhp5lhJi5oRvXgY2mS9++jvxsSaguibiBOWfuUjRJz2n85TIE0ird/JMEcMn3/+s3Pt62JumMHzeZEUQJB3lAwRAeTcIt7A8KEIJ9rL2p1kTH94nt96O0XV4SzcwbooYX8D8O9VjtlISavdKlN2tlPTcIo1QLKpYxJUdyHjuEjt/qe8NiNj9ACjgiRvsbf4kokio2DI1fPWc0R0WzOIlgRBRqsXDJDfvjkMIX15qeMe1YqSQahM3IXcBERuT3iRIaKabUGgKVZ6TACsLHZ0D/ZwPhJMK8hw+exsjOMsiDAQC2v4ABYoRR0NKBK4XS6dBC6KYUQx4/n3imq4rVY7Cg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oo6Q4HHlGvWeSV5TqH0kN84+1wSYdj1XJq3bOkF2cOQ=;
- b=hQAz7PAFryn/Jt3YrPyfeg+7un6yAr8YP1idOQolmd0jPP97rnRy8OSu+CUGOh43X4L9gsKvggmPMSw8mjpclwboBgLdNc1SDzExOGqi2kk+tWA7FhQAo5b960XsKliNZu4UuLlD2jQ1H5vid+MxGYX1TF+81NWVUDh9R4voZcRM3hC7kUewQzjepwHKx5KeAxs9MzcY0LKj7c6JUDsb6UiyqV/u8FCid6DZ0d0OFzTm2WrjtP0E9s3J1ALpZNCkjUNki58IJ6C3LL3VK/zgAomjJ/6VMt37iqnNByqGN192WjIuG74fG70BeKS/omUvps3J9vGMoRLg8jP2F/NOyA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oo6Q4HHlGvWeSV5TqH0kN84+1wSYdj1XJq3bOkF2cOQ=;
- b=igzhS2uF3gPTNhsfdAh1ZDRmbkqO1xdnFJJb8quzraNRvKLphYORRFK02vcRf6dCV4Bmsv80gFlQ1pQDV7QyhkboBsp1bH6u5+nYPuNYpk53yvm43Tx+kaSJUGONKKYCSwwWf4ROJgF9RxCXutqx9Uv83ByF4JuSdCiCoeq0Zy4=
-Received: from AM8P190CA0022.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:219::27)
- by DU5PR08MB10609.eurprd08.prod.outlook.com (2603:10a6:10:518::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
- 2026 13:54:07 +0000
-Received: from AMS0EPF000001A3.eurprd05.prod.outlook.com
- (2603:10a6:20b:219:cafe::98) by AM8P190CA0022.outlook.office365.com
- (2603:10a6:20b:219::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.18 via Frontend Transport; Mon,
- 15 Jun 2026 13:54:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001A3.mail.protection.outlook.com (10.167.16.228) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.8
- via Frontend Transport; Mon, 15 Jun 2026 13:54:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sCLOQcB+rNMYXSziQRgAQjudyxmLntg7Pj8uzh3VT3RMujgNx10khP6MAyu/DH8oUycTpqhTc/trGkHPHTGzEyCS156Esp04c109QMKrs56/pNO9GxgJwhw1DQAgXP7FVJEvx5+Yf/6tLaHtVWkreuPfAPq6vqFI2/BgulsJBeRAe24dYb5myKLu2/OwsvQCHSsdFoLs+0PM754XxAE7tOpBtz3ZINyh+5chaxTxGUz8QR3hqrVH8XocslvYdneO8eVJ2oU+PLCb7qxLdwaC+2mTNrk0W/R7xeLm5jphlKhkXWq/zGb9wQV5358zndVZxIqdMj8KGeZsDIWbR5imXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oo6Q4HHlGvWeSV5TqH0kN84+1wSYdj1XJq3bOkF2cOQ=;
- b=nFTUQzsiFXC8eIIX5zeqXkpQH7oMCAVNn9SI6Kfkko/khN+lb6DdF0CW6gU2JPFYOkboF9dVOpUZFW9AzvMRiz7Sg9juCymYph0qndGYHrCwlqR3lPP+m/Ql5crY/nLi3GE80lnBlkfvVv9zV///ikfMYdkd0HnbLJR7YzgLZr4APWf+xIE4YxpdgbP5hRNS9+OGQxCCYeLrwmO/sb3i2+QFEg0x5M3WCVSuG5G80uB7rTzG4OeaUc7RxvsHhxVjESzpyc2fOKrBQPNweMM9YjpLt+wNirxspnWxkVwTjqVYiuZAJzFNfEw28x+6KwUMNVC5ibTTKHgGc0aZJ2vZ5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oo6Q4HHlGvWeSV5TqH0kN84+1wSYdj1XJq3bOkF2cOQ=;
- b=igzhS2uF3gPTNhsfdAh1ZDRmbkqO1xdnFJJb8quzraNRvKLphYORRFK02vcRf6dCV4Bmsv80gFlQ1pQDV7QyhkboBsp1bH6u5+nYPuNYpk53yvm43Tx+kaSJUGONKKYCSwwWf4ROJgF9RxCXutqx9Uv83ByF4JuSdCiCoeq0Zy4=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
- (2603:10a6:150:16f::10) by AS8PR08MB6007.eurprd08.prod.outlook.com
- (2603:10a6:20b:29e::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
- 2026 13:53:03 +0000
-Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
- ([fe80::af66:6019:a08:d04]) by GV1PR08MB10455.eurprd08.prod.outlook.com
- ([fe80::af66:6019:a08:d04%4]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
- 13:53:03 +0000
-From: Bence Csokas <bence.csokas@arm.com>
-To: dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Cc: Bence Csokas <bence.csokas@arm.com>,
-	Daniel Kiss <Daniel.Kiss@arm.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Zack Rusin <zack.rusin@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Subject: [PATCH resend] drm: uapi: Add macro for chipset specific event ID region
-Date: Mon, 15 Jun 2026 15:52:36 +0200
-Message-ID: <20260615135238.564424-1-bence.csokas@arm.com>
-X-Mailer: git-send-email 2.54.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PA7P264CA0491.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:3dc::28) To GV1PR08MB10455.eurprd08.prod.outlook.com
- (2603:10a6:150:16f::10)
+	Mon, 15 Jun 2026 13:55:25 +0000
+Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id A151D1FB7F;
+	Mon, 15 Jun 2026 15:55:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1781531721;
+	bh=/+RZ7dh5aacsWXafBI55a264qUntbTl9wClSrh+omSA=; h=From:To:Subject;
+	b=U/KC50tVSFSBVJP8UtD5PMKMHVbeqU7Uq9F9ezLLFxTRWdlAFSBoa/Q9QmDnXDGB2
+	 wiJdbnKcLOX40WA5yQSDNJlNgK85pzQifYn7iI0n8IrFDmZCThgopwjY/dGyZKKRwB
+	 4U+HcyPs7UMXDHhHHMJsQzpuo5YS7HRfDvwbWYNj5d0IZgSbdkU6BD/t+5WE8k+AGZ
+	 TsN1kWIeG5scyYuIpOLxzcR2KGrbqC4gqIaH2AvTeVGMZXbZQw0WyRX8/vy4EGahRH
+	 4xykrXHu+bo6qtmolhU+db+bJv+nitWFhXTADPzFpt33OtJLcIKnBEaXbJL3twoq/9
+	 sAiN3iBS2Cj1A==
+Date: Mon, 15 Jun 2026 15:55:18 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Nishanth Menon <nm@ti.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH v1] MAINTAINERS: Add git tree for TI K3 ARCHITECTURE
+Message-ID: <20260615135518.GA167853@francesco-nb>
+References: <20260615132640.161584-1-francesco@dolcini.it>
+ <20260615134608.adr62go2doeggkaj@margin>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10455:EE_|AS8PR08MB6007:EE_|AMS0EPF000001A3:EE_|DU5PR08MB10609:EE_
-X-MS-Office365-Filtering-Correlation-Id: 294a82b3-d89b-4be8-ddaa-08decae5909a
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: fZu9yS8ex0K0uvOBJnKlvGNRRn2jo9XShczsZLuMkJvbWiwFjWcP/x5aGyhWKkMvWz67AyD8tl8XyhDHutk+GZ1LkE99VPVg24YwLQqqXqvftL19/ZrPjRFTb7CBnSBHVLAZPQi7ijHrg5X3pkAm3LPWikE3TMY1hQV9MEEDZkvpGtSEvei/wUh19YHfAgNq1a4N9EwQ2urZn4+XLufoeXMKINtHIA4xEJvxLkoff4/9Pn7qEYVey6BAyABaos4LYZ49Klt8VuK5NyqTLCNu8/mzfgbl2krCI6h1YKXKCADCca07FNb0lHEAEw1YO/mArMOCLQJ2NdYTH1yiLt+pnhd7uGR6/EcZfZZIXlYwagkW0sZPcaDScfZJB4bK4BzuNQl4BsmqHulYubYy+gekLmOyhMuQISzllkU7NlVBVMDv1/SbeugbtEs2zz3BVy+ySSqhg72Hv1Hlc4nkK+OJQpxonSGXZQg4/wewX2uWZKW7M7JCqWmq5MDUWPWuZd9vJnyotuONcS2ffmSDYl2F/yWpNEs+Uk+lG1n6nvdF3NGA0MpW+GfB8eAHiM4xE7x21xJ8q3kCH6jHtIRe7dTozSXXbiclqYAUTHYT4/PG2Zwpi/PoivQiUaczVN5X9FoMqoYAeUvS3bTEuSZ/xEkJo4uPuvLMMhrVCsqLP4Hc7k/qgXH5Phc0iWIP6KlglWF3
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10455.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: WTTqmaJDZhm/WfepIds7e8psG8yW78X6hMh8F4lBG2Rnf4qhRzy1IjEzZcyVKYxrfvkGKFjG6vpFzMISZ5OKU4vlFVbF+pxMU0ebjaQE+VWwmfSEqCq9I/tHxsEAyyUvb4fIMGX4bzVl6BvNAOOEphkGdIhe/LzcFNlVfAJO3Mo6VTTFR/e44t/Pt1qbgA9wrTM8sHx8+sLkxfoRnr0S7ZhXMS+BQMfhvWBAbZaAS8CbkRi1ko9kPDv8p9Nl4TuVy+Q6sfToY1c8c4xrzpv15dJfLWYn4GyULaeX8i/hb7V1qimErGgxAev/n0WhVUkz0KpkVZ12TSQEZ5zsTAcp1g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6007
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A3.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: c57dad40-d2db-45a9-be79-08decae56b25
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|36860700016|7416014|376014|82310400026|23010399003|35042699022|1800799024|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: 3/dItL8eR5/VogiRo489vrExhnq+DCNM9PQhwwUkKOVEiLqo1a20y6QmmMKMD7bwY4WBFM2M1YgtA/cc8qDR+7aNHn50htC1kkMUHQyJttnVkpa/0QqZckuZ1Tud7yJwU3A9dqlSQAjwX7/jSoOw1RbvOZGYu1mGHoVLImKnC9LIGa1mJPWS8XdTCRrzAjVNA7fJ+T5DX8VWMpfDzz8z4g2IqiBTZ/69O7I3YnYSczvrqU7s7TC3m0sNTMV1nATB4s2lbtpXNb8+EIUEe2eSGoJ7qybQdWK9fbLdGrNUiUa8D+2ryZ8ZjNTkUJytcp7LOOWaVC+kCXtxv8dPMEJvymK9Wc87wdi5G4CQZu60RaZvIGAL3VnYtypdsGp1yLnOA5un7Zq4A5IUC6wbhERVF48lhjV12qkoYep11e6d3t+WC20tOf1939sepa0akBcWkrzj8/FxM9uEXytlgIsrsMHMuBEHAC98tA/mJgIwDjZoVlS8ec11mA5vPYtNujH1Edl4BjtPPThlpbHovw1Yp51xGxJnOirT/az769asrOsuG6Hzh9MSBho2N5MbnS9UcpkUubaVtJIkQOJA1hFvbx6ypRV5j3akR3bW9Qn+t8aoxGbXLkczriBz524KVN7A4XZdxyvVBQa1TqbeLcc/AV7noARhWKZgCAON5xskG0ABKOJBQERzP+lJfl2NAE0uvfzruVDyIeAXproIdWBZY8lWVKU+g4Fzlr2buSNjoEk=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(36860700016)(7416014)(376014)(82310400026)(23010399003)(35042699022)(1800799024)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: bYbsnOHDfsHF3tpa51QDddDnrS5ewiIqxvnZKi1sS1jAGzEjnrGVS//QmW0PoJ3V5h2Xeplj0jyjBjw41wf3pfV+lmLh+rtoXPx5yR5hqSkvzcDgGYV29XfHVrZQpQpqAPCa9CWlhzv2hmts5tztoItLDiHpXEncbdiwNfdIimVKB5soD12ZhC6m+bUGF6JyiWG8ZBXBh8i9vkktLPFMXHF7lGn34d21S1vk0MoW2+bbZgUIJiIIKT995yCZltvfQbOeMHp6bD2L2MF+fXF/+9jVQlzFyUdb0Yq83q9h8Vgf62MYeucem7s1vF3vYo5eFm5UNy35JSfFN3uI7TtYu9lrNLcgJu+3V49DAFQlnY4HmUmwyJBBoomnjKTCZ8H/cofidAwA1r7eRnlGR4QuyFZYk033bs5pcMsPLrtm6XfKUQDAEfLWnr7DiCGlkEjH
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 13:54:05.4592
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 294a82b3-d89b-4be8-ddaa-08decae5909a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A3.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU5PR08MB10609
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260615134608.adr62go2doeggkaj@margin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_065418_101544_B79AE709 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260615_065524_741729_D4987037 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,87 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-uapi/drm/drm.h states:
+On Mon, Jun 15, 2026 at 08:46:08AM -0500, Nishanth Menon wrote:
+> On 15:26-20260615, Francesco Dolcini wrote:
+> > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > 
+> > Add git tree for TI K3 architecture.
+> > 
+> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> 
+> Thanks for adding this in..
+> > ---
+> >  MAINTAINERS | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 8629ed2aa82f..cbc56dc242b9 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -3756,6 +3756,7 @@ M:	Vignesh Raghavendra <vigneshr@ti.com>
+> >  M:	Tero Kristo <kristo@kernel.org>
+> >  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> >  S:	Supported
+> > +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+> 
+> Is it better to use https?
+> https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git ?
 
-    Event types 0 - 0x7fffffff are generic DRM events, 0x80000000 and
-    up are chipset specific.
+I followed what is used in 95% of the instances for git.kernel.org,
+and we have git:// for the other 2 instances of the TI git tree.
 
-However, this distinction was not put in the code. To elevate the contract
-between the generic DRM framework and the driver from the comment to code,
-put this in a macro for clarity and convenience.
+If there is a value on using https:// it should be done on the whole file.
 
-Cc: Daniel Kiss <Daniel.Kiss@arm.com>
-Signed-off-by: Bence Csokas <bence.csokas@arm.com>
----
- include/uapi/drm/drm.h         | 8 ++++++++
- include/uapi/drm/exynos_drm.h  | 4 ++--
- include/uapi/drm/virtgpu_drm.h | 2 +-
- include/uapi/drm/vmwgfx_drm.h  | 2 +-
- 4 files changed, 12 insertions(+), 4 deletions(-)
+My preference would be to merge this as it is, if you disagree I can
+send a v2.
 
-diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
-index 27cc159c1d27..aa745e643ef4 100644
---- a/include/uapi/drm/drm.h
-+++ b/include/uapi/drm/drm.h
-@@ -1419,6 +1419,14 @@ struct drm_event {
-  * The event payload is a struct drm_event_crtc_sequence.
-  */
- #define DRM_EVENT_CRTC_SEQUENCE	0x03
-+/**
-+ * DRM_EVENT_VENDOR_SPECIFIC - vendor/chipset specific event
-+ *
-+ * These event IDs are reserved for chipset and driver specific events.
-+ *
-+ * Refer to the chipset driver's header for details and payload struct.
-+ */
-+#define DRM_EVENT_VENDOR_SPECIFIC(_v) ((_v) | 0x80000000)
- 
- struct drm_event_vblank {
- 	struct drm_event base;
-diff --git a/include/uapi/drm/exynos_drm.h b/include/uapi/drm/exynos_drm.h
-index a51aa1c618c1..8d3156fb129c 100644
---- a/include/uapi/drm/exynos_drm.h
-+++ b/include/uapi/drm/exynos_drm.h
-@@ -395,8 +395,8 @@ struct drm_exynos_ioctl_ipp_commit {
- 		DRM_EXYNOS_IPP_COMMIT, struct drm_exynos_ioctl_ipp_commit)
- 
- /* Exynos specific events */
--#define DRM_EXYNOS_G2D_EVENT		0x80000000
--#define DRM_EXYNOS_IPP_EVENT		0x80000002
-+#define DRM_EXYNOS_G2D_EVENT		DRM_EVENT_VENDOR_SPECIFIC(0x0)
-+#define DRM_EXYNOS_IPP_EVENT		DRM_EVENT_VENDOR_SPECIFIC(0x2)
- 
- struct drm_exynos_g2d_event {
- 	struct drm_event	base;
-diff --git a/include/uapi/drm/virtgpu_drm.h b/include/uapi/drm/virtgpu_drm.h
-index 9debb320c34b..03e8a0c7f778 100644
---- a/include/uapi/drm/virtgpu_drm.h
-+++ b/include/uapi/drm/virtgpu_drm.h
-@@ -224,7 +224,7 @@ struct drm_virtgpu_context_init {
-  * effect.  The event size is sizeof(drm_event), since there is no additional
-  * payload.
-  */
--#define VIRTGPU_EVENT_FENCE_SIGNALED 0x90000000
-+#define VIRTGPU_EVENT_FENCE_SIGNALED DRM_EVENT_VENDOR_SPECIFIC(0x10000000)
- 
- #define DRM_IOCTL_VIRTGPU_MAP \
- 	DRM_IOWR(DRM_COMMAND_BASE + DRM_VIRTGPU_MAP, struct drm_virtgpu_map)
-diff --git a/include/uapi/drm/vmwgfx_drm.h b/include/uapi/drm/vmwgfx_drm.h
-index 7d786a0cc835..5e5878384e60 100644
---- a/include/uapi/drm/vmwgfx_drm.h
-+++ b/include/uapi/drm/vmwgfx_drm.h
-@@ -715,7 +715,7 @@ struct drm_vmw_fence_arg {
- /*
-  * The event type
-  */
--#define DRM_VMW_EVENT_FENCE_SIGNALED 0x80000000
-+#define DRM_VMW_EVENT_FENCE_SIGNALED DRM_EVENT_VENDOR_SPECIFIC(0x0)
- 
- struct drm_vmw_event_fence {
- 	struct drm_event base;
+Francesco
 
-base-commit: 0e0611827f3349d0a2ac121c023a6d3260dcecdb
--- 
-2.54.0
-
+								  
 
