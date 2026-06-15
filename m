@@ -4,85 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB838CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A638CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6vVX6YKJ+jcJWSU5Cp+ailrbaNJVnvxKt18ThbS8vqA=; b=y+/UIxxE4O5tCzWa76zfCUNZUq
-	MIhlLOrzgck0XCuAIBC6pY9h113NeT7QVUMK7a8u0eX6p13+LBReip+9g8nvMARHvVLhWKRnv4+vw
-	KqjDH2JgMs+LbHjkFohTkIQiUBJxbTQeDPBPBcVzlfbCRHQ2LfUKvzaQ9GO4H3WxPVpouIJuwClNk
-	hHDvKvfsqMLhLVw9YoYPQApejT0EfLEREwCsfuhi4g0i0bXc2K5NvX+ev2joL9qxC1A2DkDYZCA8v
-	JQWhTQtXDa1oXb2oBz8lII7olS6LGTdxATr10S2NLgrtuUbhFKwYpgxULex/ulB0cHs8NwJxWcSmY
-	E1EgLENw==;
+	bh=Z1NDKA3jUcCwR08SohW76QoktiW7yDfkNTkQyZBLomQ=; b=lZWLTQsBe6PeWUorzPOL8GTK6i
+	xmIDU0eq+kxwdAxvhyBkN+6URuPJWdH5JeQl+R9RP+POhI8b7/wUi+8WMflXMlr/v+fVOMgTWjAjT
+	bdT0Uhf+uuSSKAP5PpumIHNir/rvg5aEg+e33OIvvlGamI6bsY9I1zedRg0GfL3y2McOyEBppo2Nz
+	X1WfLEynU1aJrqivScmFzlDLS1qle8drq6lr8/BsQEPe7BtP7MDeeEanWeekimDTWvU8922+Wwx1A
+	wk3A1z4XpCIgjZN78Es09gcleL4+bSrrQKXpP/codix7db1MeDsoSm4aLS7Zk4f+yQSq4NfwTIJU4
+	lRWdTJoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ824-0000000EN7l-2KZ9;
-	Mon, 15 Jun 2026 14:11:20 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wZ83T-0000000ENIU-39Ig;
+	Mon, 15 Jun 2026 14:12:47 +0000
+Received: from mail-norwayeastazon11013033.outbound.protection.outlook.com ([40.107.159.33] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ822-0000000EN7A-1M2A
+	id 1wZ83R-0000000ENHu-3mFy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 14:11:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781532678; x=1813068678;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+jfiyocO8vr2wpyUeUWFDPlWTa92nHvjYl+1p032auY=;
-  b=joAlgbyXD/FBGmunAyOFf0hhTO8izXHl1gEXpTxntLiJuYl/VuJyAioR
-   MWJO01D+nx7eLONJLSKkBEGbAyU3SlfqqlW3f5AgSBb4L7tN7GyBJ9q7q
-   qOS/K8Fp8rMtLkeVxjQZXHHDdfYGj3HYvd6KDcudj1sYg+HB2RqqDEa/P
-   WVFPvhyXze+yMjTp8VGVG2fppaCvtYYPGU++qoEcoXVBCDx3eXRSu7KqE
-   lUrSPcUCoWpzF6RL71uoHCssS0MDMmofKIWKsFh9FyCYHjsuZWVyCpiJM
-   1Mde3irGwvxr1/SmOBSElqFKbt3H8d/8BaMmTgRE6ASqhIExHrDaBLXsN
-   Q==;
-X-CSE-ConnectionGUID: sYjdodRgTWuOgGTNalxEDQ==
-X-CSE-MsgGUID: Q0CPLFDFRYW+LApw2hiyDA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11818"; a="86173648"
-X-IronPort-AV: E=Sophos;i="6.24,206,1774335600"; 
-   d="scan'208";a="86173648"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2026 07:11:17 -0700
-X-CSE-ConnectionGUID: 758HNN3QRRKSim1Ta26hEw==
-X-CSE-MsgGUID: U2n6ICRjQb2ToPJSQNJCmQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,206,1774335600"; 
-   d="scan'208";a="277688874"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2026 07:11:14 -0700
-Date: Mon, 15 Jun 2026 17:11:11 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Maxwell Doose <m32285159@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Hartmut Knaack <knaack.h@gmx.de>,
-	"open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
-	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Sangyun Kim <sangyun.kim@snu.ac.kr>,
-	Kyungwook Boo <bookyungwook@gmail.com>,
-	Jaeyoung Chung <jjy600901@snu.ac.kr>
-Subject: Re: [PATCH 0/2] iio: adc: Initialize completions before requesting
- IRQs
-Message-ID: <ajAH_xKO5NXOB3-R@ashevche-desk.local>
-References: <20260613005812.160572-1-m32285159@gmail.com>
-MIME-Version: 1.0
+	Mon, 15 Jun 2026 14:12:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GEdg+xWr7I7tGXYBy0kV8aopDB0KP7zUY6jiQ4H85/FCY4bYuFm821hOZoUKhZeeDJ7l/u+GJWYSRd3GTM9f4T2ixmbSD/xkzDMXwF+hjuWTMSj37N4QufUNEJLsirIiUyuRiraOADsvDLQLD/zhPYV7nlr1zRLuZV7dR1USwLz4k/O2KoWf6Z69+H0NBBV/oLv98dR08WazWiNmwLc4c7LoTMWG2OD6/0vYtc33Qgou4kQf0jS3nP+e4pbGIltqTM4yljM3KadCElIVs8Q3WdvikbOFsn1LohK+IpylQKp/79YAcOGiSkpLYia3Wg2tN4+s9kqzoGre8JGQRIopJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z1NDKA3jUcCwR08SohW76QoktiW7yDfkNTkQyZBLomQ=;
+ b=O9xy9sf+P38NOxfl8Avp5cZe9/Ws2RXyOo7/2VLC1OAh4zOrisHzn7mN8q5qQ3d9CUN48MIcend1iKACf3vfM0ahZQOx4V+iPVD5GKOTO0uI2CUzuJTcQz/qdSNu/ww3yD52TFcVLeyhtLhC1i+2zlw7TfJLZsjqe3rnw0Rgq2CiRyREdiCtll0FQAYKL+1eknmSj2JQNKOBjRZnRcpmDz/Ri1Oh1NQ8I9kDHtAxMngKJ8/zNnCSfdyO8lCNa77qN0/VQ7R/W/H//UoG1y2wkLSb5A3g1wbVf6b/W88lScYpUnCw2osZ/GDo66EFOu92myA0HeEc3T98sEBfIAE4jQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z1NDKA3jUcCwR08SohW76QoktiW7yDfkNTkQyZBLomQ=;
+ b=q3e6DRcWefQYMy2h+8ycoVSNJYC3fR6xUjY9C9sUUJhx6oGIsn9kE3jlg/1ZOQGXCr/7v+yIRdtazeQD1cIB9l588eD6rdGhORjsv4VUx07X84xmDrnA+zkNNAsnReS2LyYvepeYZPS9h4CUsVkjjv33UPnkZIR1DRUPkqBPy6yfDDat8OPvKYsiJ5veUP/JILSGPQajyUzoL4kjfLfSSBYFE7xLUT3bS8VhrFbOnPKojY5JIZcFFW9r0QO1GoJfxld/7buyiqEzIsRN5avXwsnU+1KI/TRsux+cvpH/E0JwmWReQtyKHhi8QNxwjzXJmCC1ryXX2pRexlQNRuMwQg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM8PR04MB7459.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
+ 2026 14:12:37 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
+ 14:12:37 +0000
+Date: Mon, 15 Jun 2026 09:12:25 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: phucduc.bui@gmail.com
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v2 09/11] ASoC: fsl_rpmsg: Use guard() for mutex & spin
+ locks
+Message-ID: <ajAISbgHDbQB7-cK@SMW015318>
+References: <20260615093824.115751-1-phucduc.bui@gmail.com>
+ <20260615093824.115751-10-phucduc.bui@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260613005812.160572-1-m32285159@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20260615093824.115751-10-phucduc.bui@gmail.com>
+X-ClientProxiedBy: SN7PR04CA0217.namprd04.prod.outlook.com
+ (2603:10b6:806:127::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7459:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e2f6ba2-d5b3-43e1-aa8f-08decae826e2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|376014|1800799024|366016|23010399003|22082099003|18002099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: bVTYyBPTUWP6bOlxReN5i9QsBh5EwkfYj4woeTxkr85azVwR5U7iku0HDVj73bHM2CtqJHTGYvVTtjRSYxYFryEI6oKxdVEP/699oHXkMqlwf7Gw+G9YHadQS0VuutqJaLNNd5lhxtO6VjYSljiQkxRv3tffhghHqNYoInjZs6bKpNMIKVCreUTUrbirAdXIz26dFl9UrFn4/7IfN5DYbvRFx9Fvjh1cH4lMrcVYSUaweqtC4XPhjUm1uuFZZrGVXGshXGGUQ6JebCsG6XGsHZ0QMaNWnIaB25X93guNxi9xgQEdK+wgfSlIMlUIxuvmgesiHJ9zu7wVlX2wdU//4DijtXz/1t1c7XXu/LKQvYE7d4HKdQaisdE1bqV6knhSu+sdBwlx4Kc6H+iS3vT5HCij87crwPpzLfrHo5bLE791vMCIzNaRQa3gmjUn2Zg4vm45wtw3Zw5liak4k90YPHJEVmLGma/OBTd26Uxsex0p24FAjUW2ZwujhuDBT4yT1jrfRq51D5GpQsEq7GRyTCNWhP/FeHgGv8biyjSmwGgrPcuOaXJ0YP9N144e5jdYHFdXlGpHTcvJS5Fj7R2wsPVlnFD2kIsf/BpM7EDZII0og6E+9WnikBqPW0NB3NKUvlhKtsjIjrcivASqmkUXogyGpTsyBUsqAumeGZSF38idC6fQLeW3Q6IurqLv++K1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(376014)(1800799024)(366016)(23010399003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C1P29ox21Spu/RZwc5M+ClmxnZ1OpHq0svsSKp1p8ghlz0iVW47RYlDygY+M?=
+ =?us-ascii?Q?yDhKrjz4V1gqVF2mJjHct3lomwxGlMb415ZkXg9lHgQr4weLUTOHsO34Xvvy?=
+ =?us-ascii?Q?K+Hj3mAfWaftHmXc/hjObQrRuvyg8s8eEKShBvCsPHfiGoR0V8pUnMEHXYUA?=
+ =?us-ascii?Q?GBiUuI2wH/BwErdL+gzxR1ov828VIMSybsOPoQC2W+8PBBmMlcTfH7uf7G/r?=
+ =?us-ascii?Q?S9xo30EEmlwUK4QiKA6upd693Yo47MNRf6n/MnF1+WyUo79J5Z3mcMMUxrwf?=
+ =?us-ascii?Q?+B9t4DQtKj/9ONg+Vux3flmf70woRzQgW8evSKJSpGzapbIvJ264MlutuQK2?=
+ =?us-ascii?Q?M5feJHhYgO/9yl7blsX9oGUqv6/96KH1Y8hWnZU/8bhmhU7MBdvPDJidpgp/?=
+ =?us-ascii?Q?+rhH2u0HaF9+CboVoDD7oi66H+cKdE8RbOcrjVTWQiFJCwJ+4urm50ybHePm?=
+ =?us-ascii?Q?kNkFNRSl5FGl77577wUeoh0D5M/H3eHNLmStj2IdMIRNPHOAU4W/FqVbDidb?=
+ =?us-ascii?Q?x1lE/htrrg1JebiIDqNk+AOvR6v1YQrsgqz+5Jza0MkLVRFo8hmOOeH+WJ/b?=
+ =?us-ascii?Q?5F3r9wYyi6LuHewNfzQn0qNr+IHBZuCRadVGe2XSrwyf6PlUN9wiwnCFByJO?=
+ =?us-ascii?Q?nnHtrJIl6HRDve6RvYTdgBXpa7/+LBV99OUMSiqCHjZCx3+WXPki9tAc0HpN?=
+ =?us-ascii?Q?dhAqBDMlMNWvuiFEQWJEIZz96hIF2m72y6IHnKEbShqGEbRDyP23ZA1FfIeJ?=
+ =?us-ascii?Q?msu/x1LO+SKdKuMnrAgvLvzp3jrUWwqwOJYrOGG+YCDbdbsOHmcd7N693RdK?=
+ =?us-ascii?Q?XO+HVoDddDO1oO9tCp8CVEyy+CB9CmOhOoShBEh5zMZjPVOWfrg75PkDaeR3?=
+ =?us-ascii?Q?dLyG4rj513SiYKxG/DAnzhyK9BwKGdXrY3qMXZcjdOfa/G7KOiWeWlyLiMa3?=
+ =?us-ascii?Q?5h9ryfAK/znfj+LWP46zRXW7ohucb9ohWV5ZF4jLpKhTOb2UO61Q5eCTz1lb?=
+ =?us-ascii?Q?2c98m854C5RpJ9xLdP9fsd6rWHIpGFVtREPMZm/hrX+Gs5SKQS9RWGDBZ7zi?=
+ =?us-ascii?Q?RCkMFwKaqXxzSA9yOK5CL8hKkYLhOlw5keZneW7oDyf6RKMlBEZGFkndae/+?=
+ =?us-ascii?Q?ybptYtd6IIR4MgONfxYAgaU2teOFPhi8V1K0/aHlpHTMC/BTTp7hIpHYYBYk?=
+ =?us-ascii?Q?1h+kYzuTgRHsrzipWQmCGl9xLP8qBO2cXnMYy8VaTfzHPlkl6FQ2UNbBc6gH?=
+ =?us-ascii?Q?jnyf/vZBG6anr7SRy3w7jE6fenwbVYnE6WrAfopNmEIpHRfmy4qi7CiBseeL?=
+ =?us-ascii?Q?Q/a/vvwVoKhqQ/Ld13ethAzZutz0nPt9v8n9b28VL/ZoPf9HY0hyf73XsBZH?=
+ =?us-ascii?Q?zUEW/FfXL9olA/5SHPUGi680PvrAHzCvFMGF//NVNd2GdKO1PbsDgEknuQDy?=
+ =?us-ascii?Q?30JZAQidzuzeMEU46hBXv8Hbo5vDjqRJtT1p8s9TOv/TpTACnCe1iaEpjjbD?=
+ =?us-ascii?Q?5R4VenRYnFO3+O1k5JTZnQqYM+RWfL56m7NP8reM+aOJQkWVErhtoQ4RQ6UT?=
+ =?us-ascii?Q?P3artZpu9RPLOa0XTjA0JwytIZDtgITKGUyk29HIbm9d24nZXJlAFoJr1aph?=
+ =?us-ascii?Q?Z0EGJxZP5NUKwr6CP9hkLOaSD6nwOl9NcmRAgj8sFNKW4QsURmIbQsftOygS?=
+ =?us-ascii?Q?bAhOZzVdRtEyTzG6cDHKQYb9KCRFgeP5E9aJaPmWFfBQwmYqCHAOg99JUmuq?=
+ =?us-ascii?Q?5DhX5JgqezMAWbe8FGA5UzTMlLv874ssuVPVH83CXCzRJ+JvBoqB?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e2f6ba2-d5b3-43e1-aa8f-08decae826e2
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 14:12:36.9851
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EIR52jUCqw9HpFJFuVR6Bvj8Bpt4zazcvZHJ0amxeGYeEj/LW+OVwVjeTyB9mHV3XOr9xF6xp3lrmzBZB6qO+fGFfcS9mPszdlZjXMxrgaSSThx/QHVT9ecmvUijGRMM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_071118_473865_CF8BF02C 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260615_071246_115015_413D9094 
+X-CRM114-Status: GOOD (  25.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,55 +146,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 07:58:09PM -0500, Maxwell Doose wrote:
-> Hi all,
-> 
-> This short patch series fixes the issues raised by Jaeyoung Chung,
-> Sangyun Kim, and Kyungwook Boo regarding init_completion() and spurious
-> IRQs. The report is linked below [1], but I will also put it here
-> inline:
-> 
-> "lpc32xx_adc_probe() in drivers/iio/adc/lpc32xx_adc.c and
-> spear_adc_probe() in drivers/iio/adc/spear_adc.c register their
-> interrupt handler with devm_request_irq() before they initialize
-> st->completion with init_completion(). If an interrupt arrives after
-> devm_request_irq() and before init_completion(), the handler calls
-> complete() on an uninitialized completion, causing a kernel panic.
-> 
-> The probe path, in lpc32xx_adc_probe():
-> 
->     iodev = devm_iio_device_alloc(&pdev->dev, sizeof(*st)); /* st kzalloc-zeroed */
->     ...
->     retval = devm_request_irq(&pdev->dev, irq, lpc32xx_adc_isr, 0,
->                               LPC32XXAD_NAME, st);           /* register handler */
->     ...
->     init_completion(&st->completion);                       /* initialize completion */
-> 
-> spear_adc_probe() has the same ordering: devm_request_irq() for
-> spear_adc_isr() before init_completion(&st->completion).
-> 
-> Both interrupt handlers, lpc32xx_adc_isr() and spear_adc_isr(), call
-> complete():
-> 
->     complete(&st->completion);
-> 
-> If the device raises an interrupt before init_completion() runs,
-> complete() acquires the uninitialized wait.lock and walks the zeroed
-> task_list in swake_up_locked(). The zeroed task_list makes list_empty()
-> return false, so swake_up_locked() dereferences a NULL list entry,
-> triggering a KASAN wild-memory-access.
-> 
-> Suggested fix: move init_completion(&st->completion) above
-> devm_request_irq(), so the completion is valid before the handler can run.
-> 
-> Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
-> Reported-by: Kyungwook Boo <bookyungwook@gmail.com>"
+On Mon, Jun 15, 2026 at 04:38:22PM +0700, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+>
+> Clean up the code using guard() for mutex & spin locks.
+> Merely code refactoring, and no behavior change.
+>
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+>  sound/soc/fsl/imx-pcm-rpmsg.c | 69 +++++++++++++++--------------------
+>  1 file changed, 30 insertions(+), 39 deletions(-)
+>
+> diff --git a/sound/soc/fsl/imx-pcm-rpmsg.c b/sound/soc/fsl/imx-pcm-rpmsg.c
+> index 031e5272215d..7210393dfa5d 100644
+> --- a/sound/soc/fsl/imx-pcm-rpmsg.c
+> +++ b/sound/soc/fsl/imx-pcm-rpmsg.c
+> @@ -39,10 +39,9 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
+>  	struct rpmsg_device *rpdev = info->rpdev;
+>  	int ret = 0;
+>
+> -	mutex_lock(&info->msg_lock);
+> +	guard(mutex)(&info->msg_lock);
+>  	if (!rpdev) {
+>  		dev_err(info->dev, "rpmsg channel not ready\n");
+> -		mutex_unlock(&info->msg_lock);
+>  		return -EINVAL;
+>  	}
+>
+> @@ -55,15 +54,12 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
+>  			 sizeof(struct rpmsg_s_msg));
+>  	if (ret) {
+>  		dev_err(&rpdev->dev, "rpmsg_send failed: %d\n", ret);
+> -		mutex_unlock(&info->msg_lock);
+>  		return ret;
+>  	}
+>
+>  	/* No receive msg for TYPE_C command */
+> -	if (msg->s_msg.header.type == MSG_TYPE_C) {
+> -		mutex_unlock(&info->msg_lock);
+> +	if (msg->s_msg.header.type == MSG_TYPE_C)
+>  		return 0;
+> -	}
+>
+>  	/* wait response from rpmsg */
+>  	ret = wait_for_completion_timeout(&info->cmd_complete,
+> @@ -71,7 +67,6 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
+>  	if (!ret) {
+>  		dev_err(&rpdev->dev, "rpmsg_send cmd %d timeout!\n",
+>  			msg->s_msg.header.cmd);
+> -		mutex_unlock(&info->msg_lock);
+>  		return -ETIMEDOUT;
+>  	}
+>
+> @@ -100,8 +95,6 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
+>  	dev_dbg(&rpdev->dev, "cmd:%d, resp %d\n", msg->s_msg.header.cmd,
+>  		info->r_msg.param.resp);
+>
+> -	mutex_unlock(&info->msg_lock);
+> -
+>  	return 0;
+>  }
+>
+> @@ -109,14 +102,13 @@ static int imx_rpmsg_insert_workqueue(struct snd_pcm_substream *substream,
+>  				      struct rpmsg_msg *msg,
+>  				      struct rpmsg_info *info)
+>  {
+> -	unsigned long flags;
+>  	int ret = 0;
+>
+>  	/*
+>  	 * Queue the work to workqueue.
+>  	 * If the queue is full, drop the message.
+>  	 */
+> -	spin_lock_irqsave(&info->wq_lock, flags);
+> +	guard(spinlock_irqsave)(&info->wq_lock);
+>  	if (info->work_write_index != info->work_read_index) {
+>  		int index = info->work_write_index;
+>
+> @@ -130,7 +122,6 @@ static int imx_rpmsg_insert_workqueue(struct snd_pcm_substream *substream,
+>  		info->msg_drop_count[substream->stream]++;
+>  		ret = -EPIPE;
+>  	}
+> -	spin_unlock_irqrestore(&info->wq_lock, flags);
+>
+>  	return ret;
+>  }
+> @@ -523,7 +514,6 @@ static int imx_rpmsg_pcm_ack(struct snd_soc_component *component,
+>  	snd_pcm_sframes_t avail;
+>  	struct timer_list *timer;
+>  	struct rpmsg_msg *msg;
+> -	unsigned long flags;
+>  	int buffer_tail = 0;
+>  	int written_num;
+>
+> @@ -553,11 +543,11 @@ static int imx_rpmsg_pcm_ack(struct snd_soc_component *component,
+>  		msg->s_msg.param.buffer_tail = buffer_tail;
+>
+>  		/* The notification message is updated to latest */
+> -		spin_lock_irqsave(&info->lock[substream->stream], flags);
+> -		memcpy(&info->notify[substream->stream], msg,
+> -		       sizeof(struct rpmsg_s_msg));
+> -		info->notify_updated[substream->stream] = true;
+> -		spin_unlock_irqrestore(&info->lock[substream->stream], flags);
+> +		scoped_guard(spinlock_irqsave, &info->lock[substream->stream]) {
+> +			memcpy(&info->notify[substream->stream], msg,
+> +			       sizeof(struct rpmsg_s_msg));
+> +			info->notify_updated[substream->stream] = true;
+> +		}
+>
+>  		if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
+>  			avail = snd_pcm_playback_hw_avail(runtime);
+> @@ -640,7 +630,7 @@ static void imx_rpmsg_pcm_work(struct work_struct *work)
+>  	bool is_notification = false;
+>  	struct rpmsg_info *info;
+>  	struct rpmsg_msg msg;
+> -	unsigned long flags;
+> +	bool updated;
+>
+>  	work_of_rpmsg = container_of(work, struct work_of_rpmsg, work);
+>  	info = work_of_rpmsg->info;
+> @@ -651,25 +641,26 @@ static void imx_rpmsg_pcm_work(struct work_struct *work)
+>  	 * enough data in M core side, need to let M core know
+>  	 * data is updated immediately.
+>  	 */
+> -	spin_lock_irqsave(&info->lock[TX], flags);
+> -	if (info->notify_updated[TX]) {
+> -		memcpy(&msg, &info->notify[TX], sizeof(struct rpmsg_s_msg));
+> -		info->notify_updated[TX] = false;
+> -		spin_unlock_irqrestore(&info->lock[TX], flags);
+> -		info->send_message(&msg, info);
+> -	} else {
+> -		spin_unlock_irqrestore(&info->lock[TX], flags);
+> +	scoped_guard(spinlock_irqsave, &info->lock[TX]) {
+> +		updated = info->notify_updated[TX];
+> +		if (updated) {
+> +			memcpy(&msg, &info->notify[TX], sizeof(struct rpmsg_s_msg));
+> +			info->notify_updated[TX] = false;
+> +		}
+>  	}
+> -
+> -	spin_lock_irqsave(&info->lock[RX], flags);
+> -	if (info->notify_updated[RX]) {
+> -		memcpy(&msg, &info->notify[RX], sizeof(struct rpmsg_s_msg));
+> -		info->notify_updated[RX] = false;
+> -		spin_unlock_irqrestore(&info->lock[RX], flags);
+> +	if (updated)
+>  		info->send_message(&msg, info);
+> -	} else {
+> -		spin_unlock_irqrestore(&info->lock[RX], flags);
+> +
+> +	scoped_guard(spinlock_irqsave, &info->lock[RX]) {
+> +		updated = info->notify_updated[RX];
+> +		if (updated) {
+> +			memcpy(&msg, &info->notify[RX], sizeof(struct rpmsg_s_msg));
+> +			info->notify_updated[RX] = false;
+> +		}
+>  	}
+> +	if (updated)
+> +		info->send_message(&msg, info);
+> +
+>
+>  	/* Skip the notification message for it has been processed above */
+>  	if (work_of_rpmsg->msg.s_msg.header.type == MSG_TYPE_C &&
+> @@ -681,10 +672,10 @@ static void imx_rpmsg_pcm_work(struct work_struct *work)
+>  		info->send_message(&work_of_rpmsg->msg, info);
+>
+>  	/* update read index */
+> -	spin_lock_irqsave(&info->wq_lock, flags);
+> -	info->work_read_index++;
+> -	info->work_read_index %= WORK_MAX_NUM;
+> -	spin_unlock_irqrestore(&info->wq_lock, flags);
+> +	scoped_guard(spinlock_irqsave, &info->wq_lock) {
+> +		info->work_read_index++;
+> +		info->work_read_index %= WORK_MAX_NUM;
+> +	}
+>  }
+>
+>  static int imx_rpmsg_pcm_probe(struct platform_device *pdev)
+> --
+> 2.43.0
+>
+>
 
