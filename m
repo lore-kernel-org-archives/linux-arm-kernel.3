@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 375E2CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 18:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AF2CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 18:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UvRn/gAd6gjvdMvNG/VmEzKLNQ/PHFaStLDd/Muaqg=; b=RQ2cJLSGoqFiD1YQ7qXO2fkeF9
-	EboLH8Nh/Fua+hgvLI1Gba7XLv+X23K9y01ZZKI7iKhxggiVSFlQPwkg4JNkxpPWDeost6wGh61AG
-	VM3jXfSN6bCDX2Cp/awuNuXxsQ2OG3lkHTPnyEZTmMaGiBwZgAlRsOdM6wwC9VPuA/UfZtxQpL81f
-	fTS4XD91LfAmsJq8X/vTqVkurG9FjZ2Zr89bzqWHHlRIr4cQ5FzIf8Xt+P2Qq5fj6LNETuopwtPxw
-	O7fqp5oAUFw9F7pEP1KTOy5hxG/ePTuQf/pdU7ean4PHFwY/HfPQNb1N/3uSRnRjDaaDlj1LzCb/k
-	dKop2mTA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pnp8xmIqA22ZKsdEowihsGDX1ttTDspx/t/6iNy33bk=; b=RYBItViJ18mRUgR/7wZXYMEKSw
+	2AVXAcbVux8aIOfgHnj4vFPyc+MkbhSuI8k/7ap5WfRPTohtNw/OhSjzNX8E5kTBca7+HlXzMcJ5w
+	A8oBXrA/NvnS3T8huhzJK2G26ISSKJGYq5CMR2Rxs9H/SHB/sQrz8plWSqH5/WDyiCXngRuwH4ghQ
+	0Q+MRc6Lfmfebyw/YLGPvjCPvyGw1KqKlHj8vxlOpj7NSJtzKP/ZvClT4L3GnaCkly4SckerSepj3
+	5p8PObnLCCPlN7/WK3yYDDoSYgwP8gj/tVY0Fo6LHtqAitBLxlpQmMaYLvfbJOOBn9c6UxB+frVdn
+	wGvthcTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZBvb-0000000EinV-36Th;
+	id 1wZBvb-0000000Eing-3Yct;
 	Mon, 15 Jun 2026 18:20:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZBvZ-0000000EimV-0w6U
+	id 1wZBvZ-0000000EimW-3ICY
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 15 Jun 2026 18:20:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B862240E30;
+	by tor.source.kernel.org (Postfix) with ESMTP id D9D7D6008A;
 	Mon, 15 Jun 2026 18:20:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 90E13C4AF0D;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 87E66C2BCB4;
 	Mon, 15 Jun 2026 18:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1781547652;
-	bh=OJLU90wf5xnUhMrI5z0nkDvgMEZU1IESbgO4SOzbSmE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LThuW04RQgxncBje76MsQlwBH9rqUYVr+3Jwg9z+wdHKwWP7mwR4cI2UJ3XtUkOf2
-	 0PRsOC4m4NLuUpMb44yy1XiW69f+o42NlM54GTZBnTZn7iFqa5cJt6d8fVOiSn7dQH
-	 SF85E8Z1p9EQX3Z/OoN7N3dtqTzn26l8QagSNIww9XA5y2BaLU2RRt2p3XufQMhnSd
-	 3UGwo1jhry1qi+c3fkdr1BX5nv6cY2G2SrwWBecZbqeaccGgAJZqbUn3wcg22Mj3i4
-	 HycYD11k3iLm7dhJZxHXl2jhUK6F4GLR9E06eCwK5LsUXUiAUdtO01frjQWdGentuO
-	 lRHK0w9YR522Q==
+	bh=LHjIQuxX3I0P97by+TixGf9E2OyDn7KeunIpzWewOQg=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=P8LA5jnVbJ3b6pbMbK+GNBvcAglaKuXhW4EecTnNk1jJRx6OPdu3eRzeHTZKc/hvC
+	 GpYBiKYn3pB8g9Lb1+EXqAN4JByDlDEpQDSshq6ejaGTwuMnBbUfHeBFQM79pCQY5B
+	 +wXCKD/n9KZWDfE5lRRzjYcOgzhvV3eDPtStNiVga1RoGi+CXJQVevN02mpxI11SXb
+	 ZuHBk8Sh+nB7UqVoXURVl/v4OzryAWCCk417Sn46IVSpvqQ3H2sTzeUGEr18bZE2sW
+	 BBd7ixSSHB/MFMZoHUAPC/hNbVsuO4iO9qlTbY0ZOC5wnVLE0Z+ve1SOcpgCpZekkC
+	 53V8YUcpTGYgw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F30DCD98DA;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E3C5CD98CF;
 	Mon, 15 Jun 2026 18:20:52 +0000 (UTC)
 From: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>
-Date: Mon, 15 Jun 2026 13:20:51 -0500
-Subject: [PATCH v3 1/2] Input: apple_z2 - bound the device-reported packet
- length
+Subject: [PATCH v3 0/2] Input: apple_z2 - bound device-reported packet
+ length and finger count
+Date: Mon, 15 Jun 2026 13:20:50 -0500
+Message-Id: <20260615-b4-disp-05943ee1-v3-0-bbfe1b651613@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260615-b4-disp-05943ee1-v3-1-bbfe1b651613@proton.me>
-References: <20260615-b4-disp-05943ee1-v3-0-bbfe1b651613@proton.me>
-In-Reply-To: <20260615-b4-disp-05943ee1-v3-0-bbfe1b651613@proton.me>
+X-B4-Tracking: v=1; b=H4sIAIJCMGoC/x3MSwqAIBRG4a3EHXfBHhq1lWhQ+lt3YqEQgbT3p
+ OE3OCdTQhQkmqpMEbckOUNBV1dkjzXsYHHF1KrWKNNo3np2ki5Weuw7oOHRWW0tzKA8qGRXhJf
+ nX87L+36pHeheYgAAAA==
 To: Sasha Finkelstein <k@chaosmail.tech>, 
  Dmitry Torokhov <dmitry.torokhov@gmail.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -62,11 +63,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Sven Peter <sven@kernel.org>, linux-input@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781547650; l=2446;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781547650; l=4223;
  i=hexlabsecurity@proton.me; s=proton; h=from:subject:message-id;
- bh=0disTE6FLcmJRgyM/FHjVXBLuUuCv501SYEb1c85Kas=;
- b=+f1rkqMagRllETr38DyiMSMBldd07Ev1yHnQc0RGV3vV+DweLYAlWjnOCARVzGzjvvuTw9pN3
- mOQVdD2hyLdB1jKC8zLiX+HQFNHszsBUBn3QlmHzK5Lvv/MbnOYmdd1
+ bh=LHjIQuxX3I0P97by+TixGf9E2OyDn7KeunIpzWewOQg=;
+ b=og68OIf/C2guQ7Z1a94j9uP8UzdZEudHLdixjd+QyMCALrSGfUH4QQwWkRReRpGHaTIkiackj
+ USnaBxfF97QAfNdBBE7BD2DJ81uBm7tZFo3HJrvgDESOzeZDNbgE66G
 X-Developer-Key: i=hexlabsecurity@proton.me; a=ed25519;
  pk=dmppBMZNLLoPzxHi9l8tZDzEZUunPbgsYqIZYXeUrL0=
 X-Endpoint-Received: by B4 Relay for hexlabsecurity@proton.me/proton with
@@ -87,67 +88,81 @@ Reply-To: hexlabsecurity@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bryam Vargas <hexlabsecurity@proton.me>
+The Apple Z2 touch controller is across an SPI bus and its reports are not
+trusted: a malicious, malfunctioning or counterfeit controller (or an
+interposer on the bus) can put arbitrary values in the report header.  Two
+such device-supplied fields are used as sizes without being bounded against
+the fixed 4000-byte receive buffer, giving the device a heap out-of-bounds
+write and a heap out-of-bounds read.  This series bounds both.
 
-apple_z2_read_packet() takes a 16-bit length from the touch controller's
-interrupt-data reply (rx_buf[1..2]) and, only rounded down to a multiple of
-four, uses it as the size of the second SPI transfer into the fixed-size
-rx_buf:
+Patch 1 bounds the 16-bit packet length before the second SPI transfer
+(spi_read() into the 4000-byte rx_buf) -- the OOB write.
 
-	pkt_len = (get_unaligned_le16(z2->rx_buf + 1) + 8) & 0xfffffffc;
-	error = spi_read(z2->spidev, z2->rx_buf, pkt_len);
+Patch 2 bounds the device-reported finger count in apple_z2_parse_touches()
+-- the OOB read that is then forwarded to userspace as input events.
 
-rx_buf is a fixed 4000-byte buffer, but pkt_len is fully controlled by the
-device and is never checked against it, so a malicious, malfunctioning or
-counterfeit controller (or an interposer on the SPI bus) that reports a
-large length makes spi_read() write up to 65540 device-supplied bytes into
-the 4000-byte buffer -- a controller-driven heap out-of-bounds write of up
-to about 61 KiB.  The recently added reply-type check only validates
-rx_buf[0], not the length.
+The two are paired because, as Dmitry noted on v2 of patch 2, the finger
+count alone is not enough: msg_len is itself derived from the device length,
+so patch 1 is what makes the patch 2 bound meaningful.  Patch 1 was posted
+standalone first and carries Sasha Finkelstein's Reviewed-by; it is unchanged
+here.
 
-Reject any packet whose length exceeds the receive buffer.
+This v3 series supersedes the two separate postings:
+  - packet length (standalone): https://lore.kernel.org/all/20260613-b4-disp-b1926f1a-v1-1-3a277b7c0cfa@proton.me/
+  - finger count v1:            https://lore.kernel.org/all/20260613-b4-disp-f0148c89-v1-1-868a48b2a187@proton.me/
+  - finger count v2:            https://lore.kernel.org/all/20260613-b4-disp-4ebcbd68-v2-1-0161acfbd688@proton.me/
 
-Fixes: 471a92f8a21a ("Input: apple_z2 - add a driver for Apple Z2 touchscreens")
-Cc: stable@vger.kernel.org
-Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
-Reviewed-by: Sasha Finkelstein <k@chaosmail.tech>
+Changes since the v2 finger-count patch (Dmitry Torokhov review,
+https://lore.kernel.org/all/ai8U0QiwpBH8qNS3@google.com/):
+- Patch 2: instead of clamping the finger count to what the packet holds
+  (v2 used min_t and reported the fingers that fit), drop the whole packet
+  when the device claims more fingers than it can hold, with a
+  dev_warn_ratelimited(), per Dmitry's "I'd drop such packet" suggestion.
+  A legitimate zero-finger ("all lifted") report (nfingers == 0) is still
+  passed through to input_mt_sync_frame()/input_sync(), so lifting all
+  fingers is not lost.  (Dropped Joshua Peisach's v2 Reviewed-by, as the
+  fix shape changed materially from clamp to drop.)
+- Patch 2 bound uses the multiplication form
+  (msg_len < FINGERS_OFFSET + nfingers * sizeof(*fingers)) rather than a
+  (msg_len - FINGERS_OFFSET) subtraction, so there is no unsigned underflow
+  when msg_len < FINGERS_OFFSET (which would otherwise re-open the read).
+- Patch 1 folded into the series unchanged (Reviewed-by Sasha Finkelstein).
+
+Note on patch 1 (Sasha Finkelstein, on the standalone thread): rejecting an
+over-long packet desyncs the SPI datastream and the device then needs a reset
+before it operates again.  That is the intended outcome for a controller that
+is already misbehaving or hostile -- a recoverable desync is preferable to a
+~61 KiB heap overflow -- so the reject is kept.
+
+Verification (in-kernel KASAN, CONFIG_KASAN=y kasan.fault=panic, plus userspace
+ASan models of the exact parse arithmetic on x86_64 and i386):
+  Patch 1 (packet length): reported length -> pkt_len 65540:
+    Arm A (no patch): KASAN slab-out-of-bounds / ASan heap-buffer-overflow WRITE,
+      both ABIs.
+    Arm B (patch): rejected, clean.   Arm C (benign): clean.
+  Patch 2 (finger count, drop shape): nfingers 255 in a short packet (msg_len 19):
+    Arm A (no patch): BUG: KASAN: slab-out-of-bounds, Read of size 2, 1 byte to
+      the right of the allocated 4000-byte region (cache kmalloc-4k) -> panic;
+      ASan heap-buffer-overflow READ, both ABIs.
+    Arm B (patch): packet dropped, zero reads, clean, not synced.
+    Arm C (benign 3 fingers, msg_len 114): parsed in-bounds, clean, synced.
+    Arm D (zero-finger all-lifted, nfingers 0, msg_len 19): clean, synced.
+Reproducers and full logs available on request.
+
 ---
- drivers/input/touchscreen/apple_z2.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Bryam Vargas (2):
+      Input: apple_z2 - bound the device-reported packet length
+      Input: apple_z2 - bound the device-reported finger count
 
-diff --git a/drivers/input/touchscreen/apple_z2.c b/drivers/input/touchscreen/apple_z2.c
-index 271ababf0ad5..ff9ff97be185 100644
---- a/drivers/input/touchscreen/apple_z2.c
-+++ b/drivers/input/touchscreen/apple_z2.c
-@@ -22,6 +22,7 @@
- #define APPLE_Z2_TOUCH_MOVED             4
- #define APPLE_Z2_CMD_READ_INTERRUPT_DATA 0xEB
- #define APPLE_Z2_REPLY_INTERRUPT_DATA    0xE1
-+#define APPLE_Z2_MAX_PACKET              4000
- #define APPLE_Z2_HBPP_CMD_BLOB           0x3001
- #define APPLE_Z2_FW_MAGIC                0x5746325A
- #define LOAD_COMMAND_INIT_PAYLOAD        0
-@@ -147,6 +148,8 @@ static int apple_z2_read_packet(struct apple_z2 *z2)
- 		return 0;
- 
- 	pkt_len = (get_unaligned_le16(z2->rx_buf + 1) + 8) & 0xfffffffc;
-+	if (pkt_len > APPLE_Z2_MAX_PACKET)
-+		return -EMSGSIZE;
- 
- 	error = spi_read(z2->spidev, z2->rx_buf, pkt_len);
- 	if (error)
-@@ -363,7 +366,7 @@ static int apple_z2_probe(struct spi_device *spi)
- 	if (!z2->tx_buf)
- 		return -ENOMEM;
- 	/* 4096 will end up being rounded up to 8192 due to devres header */
--	z2->rx_buf = devm_kzalloc(dev, 4000, GFP_KERNEL);
-+	z2->rx_buf = devm_kzalloc(dev, APPLE_Z2_MAX_PACKET, GFP_KERNEL);
- 	if (!z2->rx_buf)
- 		return -ENOMEM;
- 
+ drivers/input/touchscreen/apple_z2.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+---
+base-commit: 8e65320d91cdc3b241d4b94855c88459b91abf66
+change-id: 20260615-b4-disp-05943ee1-9dc5cce670fe
 
+Best regards,
 -- 
-2.43.0
+Bryam Vargas <hexlabsecurity@proton.me>
 
 
 
