@@ -4,56 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1A0CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B916CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HkBQfJ5TxwQinnF2S5Nb1OwyL2FsUW+lAQB1x+AgnVc=; b=DA1Gi520mOcEWC9EStPzzNBTWW
-	eIX+4rp5U2Ghp2jmroj3tSF0lHG8KAE5y5nXObtqr7K31ZSRJsNFO3g0mxmgMD5f6y/GwbDI/iaWr
-	vQpeuLFWD2/V/9RsZrvsGuuWF/vOb1D0qH98BhmbAduNDLkN4DhQ9hzIIWpcpmUkKXQqh1AH6h+c7
-	2VMynRcQYUm8B8Qtga0f7VDyuuc7gMRJ33tynGvJ/znHkHszJxqRM1h5FZehtQEmh6KxhKnsFqbKB
-	JQjbDEUmMp8ds6oTA+pu9FMqutSWylxXSZ9Vr/Dm0Tl/fqVG0dovEgHl1RLROOl61NLDtakMn0oeB
-	YqPszYgQ==;
+	bh=n4uN4a+y3crJut6rAVc3LTXhazxwmnD/VCILUOEYgd0=; b=tIPapknGB/gPCMDaaFIBsw+b/b
+	a06BRhAzIe23ekSwbHVYYdT0IEz4ZwYmD4UWXm+ALsrL2Mnm86zLVSlZw88BTOu9G1eTNxVHG8AWx
+	ekx1h2aT92xaxG7WhoylodG7+ndBaHy/m2gYEHKsdb6XoDI4tmrGqUP/8gyWyQqbxBNPe51FWMRmC
+	bn4Wy7/ru/UNBfMDJZpc92y+/KR+BJeQZy6+JEzw9TKyvB+/NKLUPI5wO92qZnwlD5RL88sGM+rNV
+	STNellf5sVhbPXU+FmfcfsB7EAwO8jJE4BCiELrpdyRn3WbbzyvupJst9FZdRSVcffxRfiEnaeoHL
+	Oi3Pl3dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGRr-0000000Evcd-3E28;
-	Mon, 15 Jun 2026 23:10:31 +0000
-Received: from mail-24428.protonmail.ch ([109.224.244.28])
+	id 1wZGS5-0000000Evff-47rU;
+	Mon, 15 Jun 2026 23:10:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGRp-0000000EvcF-0EOg;
-	Mon, 15 Jun 2026 23:10:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1781565025; x=1781824225;
-	bh=HkBQfJ5TxwQinnF2S5Nb1OwyL2FsUW+lAQB1x+AgnVc=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=ihtlWpy52uFD/PcKYtX0bwhDVrPMOQVTrn4j23/qRLTnFvUE9KEr3rvvYRkmFIBzS
-	 U5ZD8uxPvPZoogWGtS4pEY5TH60k6pe2kWDytm7X4u2Y3qfkYTV0NseUbTYiwzG/K7
-	 g4PbtS46MUk9J6kXchKsNYhOeDPb8QDXdVcqUxiGsKUqz45zU99mpOEUDNji2KNRlP
-	 g2eJAxBAMMTkoA5EhBWCppM9hIwqi5MXNHf5wTjhTuH4oWXysMPeMtxn7Iu5vyzGoJ
-	 ZuIR7HHXvovo2Dh2PCgSz8px0MFus0qO9141fKTQo6sh+OE2C1v7BUR3uRdZ+5duXO
-	 mFAA8E4dzBNXw==
-Date: Mon, 15 Jun 2026 23:10:20 +0000
-To: Lee Jones <lee@kernel.org>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH 3/4] mfd: mt6397-core: add mt6323 AUXADC support
-Message-ID: <ycj3k-vV_tQv6u9OfCTP9G9kkeeE-_dbzg_oeHPXn2pb1oZe_Sa1BH6GUGuSd_gD6uPSJiTX7tz6MTlFcqGdWX-f3GMfyW2sLgAOCw6YeNE=@protonmail.com>
-In-Reply-To: <20260611163748.GB1212816@google.com>
-References: <20260602-mt6323-adc-v1-0-68ec737508ee@protonmail.com> <20260602-mt6323-adc-v1-3-68ec737508ee@protonmail.com> <20260611163748.GB1212816@google.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 182c5d52f74017e86f4085f21809f8879f8a1b6b
+	id 1wZGS3-0000000EvfH-3hj6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 23:10:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B622660137;
+	Mon, 15 Jun 2026 23:10:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FD8B1F000E9;
+	Mon, 15 Jun 2026 23:10:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781565041;
+	bh=n4uN4a+y3crJut6rAVc3LTXhazxwmnD/VCILUOEYgd0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DuDfk/gvnd105SzD9wRBWKGcWHJIyNL3tOmAn6RNlOZjwnkusKwDrax4xIKVEd5Kk
+	 PjGldRPZjP9eeX9prImoHHmQ86Mc+T3TuI+FcdARBg/+7wxapEWU07PrlDIoo/+8+/
+	 s6WCwc90ugDaabWXHwifZcGTjlxbYGpCSuLrdVL6Ar4skFZxT4Zf7bp3iHXpa4TvxE
+	 +ahGL0kWQ9BFza4M94H/fQMI3I4PIPXp8pyW/eUSLfh6b0dQySAIJb8uIvnoNJ3IVu
+	 rwXmpnumXDhKB9vSqaDw6ZgfUR5Ltv63Qqn0sa88yGbG5rxo7HVNu5F7smGWwQZhZ7
+	 kzWFMBkNcPHrA==
+From: Jakub Kicinski <kuba@kernel.org>
+To: m-malladi@ti.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	elfring@users.sourceforge.net,
+	haokexin@gmail.com,
+	vadim.fedorenko@linux.dev,
+	devnexen@gmail.com,
+	horms@kernel.org,
+	jacob.e.keller@intel.com,
+	arnd@arndb.de,
+	basharath@couthit.com,
+	afd@ti.com,
+	parvathi@couthit.com,
+	vladimir.oltean@nxp.com,
+	rogerq@kernel.org,
+	danishanwar@ti.com,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	davem@davemloft.net,
+	andrew+netdev@lunn.ch,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	srk@ti.com,
+	vigneshr@ti.com
+Subject: Re: [PATCH net-next v7 1/2] net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
+Date: Mon, 15 Jun 2026 16:10:38 -0700
+Message-ID: <20260615231038.1007389-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260610052511.781752-2-m-malladi@ti.com>
+References: <20260610052511.781752-2-m-malladi@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_161029_257505_4F9B78DF 
-X-CRM114-Status: GOOD (  19.30  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,62 +89,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lee,
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
 
-On Thursday, June 11th, 2026 at 7:37 PM, Lee Jones <lee@kernel.org> wrote:
-> Interesting.  Has this been considered?
->=20
-> /* Sashiko Automation: Issues Found (1 Findings) */
->=20
-> On Tue, 02 Jun 2026, Roman Vivchar via B4 Relay wrote:
->=20
-> > From: Roman Vivchar <rva333@protonmail.com>
-> >
-> > The mt6323 PMIC includes an AUXADC. Register the AUXADC in the mt6323
-> > devices array to allow the corresponding driver to probe using compatib=
-le
-> > string.
-> >
-> > Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2n=
-d Generation)
-> > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> > ---
-> >  drivers/mfd/mt6397-core.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-> > index 3e58d0764c7e..013b0857fb54 100644
-> > --- a/drivers/mfd/mt6397-core.c
-> > +++ b/drivers/mfd/mt6397-core.c
-> > @@ -125,6 +125,9 @@ static const struct resource mt6323_pwrc_resources[=
-] =3D {
-> >
-> >  static const struct mfd_cell mt6323_devs[] =3D {
-> >  =09{
-> > +=09=09.name =3D "mt6323-auxadc",
-> > +=09=09.of_compatible =3D "mediatek,mt6323-auxadc",
->=20
-> [Severity: High]
-> Does adding this compatible string expose an unhandled edge case in the
-> auxadc driver?
->=20
-> If this device is instantiated directly from a Device Tree without an MFD
-> parent (e.g., at the DT root), dev->parent could be the platform bus
-> (which has a NULL parent) or NULL itself.
->=20
-> Looking at mt6323_auxadc_probe() in drivers/iio/adc/mt6323-auxadc.c:
->=20
->     regmap =3D dev_get_regmap(dev->parent->parent, NULL);
->=20
-> Could blindly dereferencing dev->parent->parent here, or passing a NULL
-> device to dev_get_regmap() (which calls devres_find()), result in a
-> kernel oops if probed as a root node?
+This patch adds QoS infrastructure for Frame Preemption (FPE) in the
+ICSSG Ethernet driver, including a verify state machine driver helper,
+mqprio-based preemptible-tc mapping, and a link-state callback. A
+follow-up patch in this series wires this up to ethtool's MAC Merge ops.
 
-This is intended behavior, ADC always should be probed as a child of
-the mt6323 MFD because it doesn't have own MMIO space. Otherwise the
-devicetree is malformed. Recent mt6359 ADC driver has same thing with
-dev->parent->parent regmap.
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> @@ -392,6 +392,8 @@ static void emac_adjust_link(struct net_device *ndev)
+>  		} else {
+>  			icssg_set_port_state(emac, ICSSG_EMAC_PORT_DISABLE);
+>  		}
+> +
+> +		icssg_qos_link_state_update(ndev);
+>  	}
 
-Best regards,
-Roman
+[Medium]
+emac_adjust_link() sets emac->link = 0 before reaching this call. Inside
+icssg_qos_link_state_update() -> icssg_iet_change_preemptible_tcs() ->
+icssg_config_ietfpe(), the very first check is:
+
+    if (!emac->link) {
+            netdev_dbg(ndev, "cannot change IET/FPE state ... \n");
+            return 0;
+    }
+
+so on a link-down the IET path returns early without clearing
+iet->fpe_active or iet->verify_status, even though firmware has already
+been told ICSSG_EMAC_PORT_DISABLE just above. After the follow-up patch
+adds get_mm(), would ethtool then report stale tx_active=true and a
+stale verify_status while the link is down?
+
+The commit message states:
+
+    Verify state machine re-triggers on link up/down events based on
+    fpe_enabled and fpe_active flags
+
+Is the link-down half of that contract implemented anywhere?
+
+[Medium]
+A related question on the locking design: emac->link is written here by
+emac_adjust_link() without taking iet->fpe_lock, but icssg_config_ietfpe()
+reads emac->link inside the fpe_lock-held critical section. The lockset
+for writers and readers is disjoint, so fpe_lock does not actually
+serialize emac->link.
+
+Can the following interleaving occur?
+
+  CPU0 (ndo_setup_tc)               CPU1 (emac_adjust_link)
+  mutex_lock(&iet->fpe_lock);
+  reads emac->link == 1
+                                     emac->link = 0;
+                                     icssg_set_port_state(... DISABLE);
+  proceeds to write FPE regs
+  and issue PREMPT_TX_ENABLE
+  mutex_unlock(&iet->fpe_lock);
+                                     icssg_qos_link_state_update();
+                                       sees emac->link == 0, returns
+
+leaving stale FPE writes on a port the firmware has just disabled? The
+commit message says "fpe_lock serializes all FPE state mutations" but
+emac->link is one of those mutations and is not covered.
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> new file mode 100644
+> --- /dev/null
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> @@ -0,0 +1,282 @@
+
+[ ... ]
+
+> +static int icssg_iet_verify_wait(struct prueth_emac *emac)
+> +{
+> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	unsigned long delay_us, timeout_us;
+> +	u32 status;
+> +	int ret;
+> +
+> +	delay_us = iet->verify_time_ms * 1000;
+> +	timeout_us = delay_us * ICSSG_IET_VERIFY_ATTEMPTS;
+> +
+> +	ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS,
+> +				 status,
+> +				 status == ICSSG_IETFPE_STATE_SUCCEEDED,
+> +				 delay_us,
+> +				 timeout_us);
+> +
+> +	iet->verify_status = status;
+> +	return ret;
+> +}
+
+[High]
+With ICSSG_IET_MAX_VERIFY_TIME = 128 and ICSSG_IET_VERIFY_ATTEMPTS = 3,
+this can sleep for up to 384ms while iet->fpe_lock is held. fpe_lock is
+acquired by icssg_iet_change_preemptible_tcs() from two paths:
+
+  - emac_tc_setup_mqprio() via .ndo_setup_tc, called with RTNL held.
+  - icssg_qos_link_state_update() from emac_adjust_link(), invoked by
+    phylib with phydev->lock held (prueth_emac_common_start()
+    explicitly does mutex_lock(phydev->lock) before calling
+    emac_adjust_link).
+
+Once the follow-up patch wires set_mm() to write iet->mac_verify_configure,
+this sleep becomes reachable from any user with CAP_NET_ADMIN. Should
+the verify wait be deferred to a workqueue or a completion driven by a
+firmware notification rather than block under RTNL / phydev->lock for
+hundreds of milliseconds? Other drivers with MAC Merge support
+(e.g. fec, stmmac) take the deferred-work approach for the same reason.
+
+[Low]
+The condition only breaks on ICSSG_IETFPE_STATE_SUCCEEDED, but the enum
+also defines a distinct ICSSG_IETFPE_STATE_FAILED value reported by
+firmware on a definitive verify failure. With the current condition,
+would a FAILED state cause the loop to keep polling for the entire
+timeout and then surface as:
+
+    netdev_err(ndev, "MAC Verification failed with timeout\n");
+
+even though it was not actually a timeout? Could the cond also break on
+FAILED so the caller can distinguish the two?
+
+> +int icssg_config_ietfpe(struct net_device *ndev, bool enable)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int ret;
+> +	u8 val;
+> +
+> +	lockdep_assert_held(&iet->fpe_lock);
+> +
+> +	if (!emac->link) {
+> +		netdev_dbg(ndev, "cannot change IET/FPE state when interface is down\n");
+> +		return 0;
+> +	}
+
+[ ... ]
+
+> +	if (enable && iet->mac_verify_configure) {
+> +		ret = icssg_iet_verify_wait(emac);
+> +		if (ret) {
+> +			netdev_err(ndev, "MAC Verification failed with timeout\n");
+> +			goto disable_tx;
+> +		}
+> +	} else if (enable) {
+> +		/* Give firmware some time to update
+> +		 * PRE_EMPTION_ACTIVE_TX state
+> +		 */
+> +		usleep_range(100, 200);
+> +	}
+> +
+> +	if (enable) {
+> +		val = readb(config + PRE_EMPTION_ACTIVE_TX);
+> +		if (val != 1) {
+> +			netdev_err(ndev,
+> +				   "Firmware fails to activate IET/FPE\n");
+> +			ret = -EIO;
+> +			goto disable_tx;
+> +		}
+> +		iet->fpe_active = true;
+> +	} else {
+> +		iet->fpe_active = false;
+> +	}
+> +
+> +	icssg_iet_set_preempt_mask(emac);
+> +	netdev_dbg(ndev, "IET FPE %s successfully\n",
+> +		   str_enable_disable(enable));
+> +	return 0;
+> +
+> +disable_tx:
+> +	icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
+> +fallback:
+> +	writeb(0, config + PRE_EMPTION_ENABLE_TX);
+> +	writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+> +	iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+> +	iet->fpe_active =  false;
+> +	return ret;
+> +}
+
+[Medium]
+icssg_set_port_state() only synchronizes the R30 command-done handshake;
+it does not guarantee firmware has finished updating the
+PRE_EMPTION_ACTIVE_TX status byte. Is a 100-200us sleep a documented
+worst-case latency for firmware to publish that byte under load
+(concurrent Rx, TAS, FDB ageing, link events)?
+
+If the byte has not yet been written, this code returns -EIO,
+mischaracterizing it as "Firmware fails to activate IET/FPE", and the
+fallback path then writes PRE_EMPTION_ENABLE_TX = 0, defeating the
+user's enable. icssg_iet_verify_wait() already uses
+readb_poll_timeout() for an analogous status byte; could the same
+pattern be applied here with a small millisecond-range timeout?
+
+[Medium]
+The success path always calls icssg_iet_set_preempt_mask(), and on
+fpe_active=false that helper takes the reset_hw branch and clears all
+per-queue BIT(4) preemptive markers. The disable_tx and fallback paths
+do not call icssg_iet_set_preempt_mask().
+
+If FPE was previously active (so EXPRESS_PRE_EMPTIVE_Q_MAP[i] = BIT(4)
+on some queues) and a subsequent reconfigure fails (verify timeout, or
+PRE_EMPTION_ACTIVE_TX != 1), the failure paths only clear
+PRE_EMPTION_ENABLE_TX / PRE_EMPTION_ENABLE_VERIFY but leave the
+per-queue map and the EXPRESS_PRE_EMPTIVE_Q_MASK with stale preemptive
+bits. Should the failure paths also call icssg_iet_set_preempt_mask()
+(after iet->fpe_active is set to false) to keep the queue map and the
+TX-enable bit consistent?
+
+[ ... ]
+
+> +EXPORT_SYMBOL_GPL(icssg_qos_init);
+
+[ ... ]
+
+> +EXPORT_SYMBOL_GPL(icssg_qos_ndo_setup_tc);
+
+[ ... ]
+
+> +EXPORT_SYMBOL_GPL(icssg_qos_link_state_update);
+
+[Low]
+Per the Makefile change in this patch:
+
+  icssg-y := icssg/icssg_common.o \
+             ...
+             icssg/icssg_ethtool.o \
+             icssg/icssg_qos.o
+
+icssg_qos.o is linked into the same icssg.ko module as the only callers
+(icssg_prueth.c and icssg_common.c). Are there cross-module consumers
+that need these symbols exported, or can the EXPORT_SYMBOL_GPL lines be
+dropped since EXPORT_SYMBOL_GPL is only required for cross-module
+linkage?
+-- 
+pw-bot: cr
 
