@@ -4,61 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83A5CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 11:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BB7CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 11:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYc7Ac7XyGZOrltM8nT86fjG2nfQcBxaOu3f1ay9NMg=; b=NpzrGY/XcN7IwEdbFNMZgJwOpq
-	tfXOqPZOsuvvB288X8r1ylYD3D2I39kQQPOFU1joFZXcbdQnLtP8yR5rY8wlhEcxUJ1pEhE+MI3CA
-	amdpOd0T9Z7oGyrO2BnD3HPbHiDZUTrZnY6kxS7KfP+Nl34gsRn37dkt9f95aGfjC4m9cLkVJOGcq
-	N416UUnDNAe39C+2T+8KyjkT0m4xFBRmUYIvmxJTUGXOLWTr6IkRmf/Qu/oOTeKZ/ry5eJBVqbNZK
-	mgcmnNZ8wYsVjah/rAWCICB/+tNtsN8vjj3+m28oAwP8jmjKTMJADYXzMfX+pdZmE+D8eEui+PVKZ
-	H3GFoFlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NqRcBEf3cpBlAxRxD81om6Hb6nO5tAf5Wi1yiOZJ8GE=; b=eQqljFFYL8lFTs+kztQ6JSTnAw
+	YCzsNiem1OWMZ9EhZo81SsvFJf+LMzTg0X3D95Lp9wiHy4ywX0PPGGXM8H1tdO3VcSEfqWjC54Li0
+	8w3BmR6mHo/QFKVwe9iYAUVllO4S7gJUgEL2BcsOTMmQf7gwO7amDzzv9dVa/h7Ly6LIyTrsTfEM5
+	xZxsLZEg0MrlBjlDpI+qE0DfrZZVDz2uRsaITA/xYot2CwTdgxghF68AeSogVGmmKbJ+qP/MoL3qt
+	RyHF4w/sAJSh33fsewAAinzNb0xx/uUPYKUeV/QYv3o4p74GFLtJGXCzby9LgWE7+p8wqGqky1Hwh
+	FPiGOqVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5lP-0000000E7Jv-4Bal;
-	Mon, 15 Jun 2026 11:46:00 +0000
+	id 1wZ5ol-0000000E7gy-1uYV;
+	Mon, 15 Jun 2026 11:49:27 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5lN-0000000E7JR-3Yho
+	id 1wZ5oj-0000000E7gs-49pR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 11:45:58 +0000
+	Mon, 15 Jun 2026 11:49:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 752486008A;
-	Mon, 15 Jun 2026 11:45:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A93A41F000E9;
-	Mon, 15 Jun 2026 11:45:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D34E6008A;
+	Mon, 15 Jun 2026 11:49:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3D491F000E9;
+	Mon, 15 Jun 2026 11:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781523956;
-	bh=yYc7Ac7XyGZOrltM8nT86fjG2nfQcBxaOu3f1ay9NMg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WdmLYTh64eVTybjTk3GEJHTtM7d4RyEgs/jevXYI7yIBtVR3csgpMBUogINM0TWyB
-	 0MioJzKLo/8SoB8zL3lA41sAlXMFDeOy4nzgkFx7f8hPKStDr92ADsVGyS3p5G9ZUw
-	 tCgaSHsyps1x+264hz44VABUfysEyXEtBvNJIAqJMCrBrevF14fOlCVPSqZNQ/md81
-	 wW0uP5hBZEOjZHg7lysq16qYIfF/hodnviimN49WLOJddXld3iNBwf62uW1QSLmQ+8
-	 q30TyNj1vjOzATtKWpW5iCQsnruzlqeLwyhImnjEAYiEkmGsJDII+9VAOPG4CU5xYs
-	 GXI+glb/kAWqQ==
-Date: Mon, 15 Jun 2026 12:45:51 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Sangyun Kim <sangyun.kim@snu.ac.kr>,
-	Kyungwook Boo <bookyungwook@gmail.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: Re: [RESEND PATCH v1] spi: uniphier: Fix completion initialization
- order before devm_request_irq()
-Message-ID: <dffb3303-6371-4415-ac0e-488c421e2555@sirena.org.uk>
-References: <20260615023415.190655-1-hayashi.kunihiko@socionext.com>
+	s=k20260515; t=1781524165;
+	bh=NqRcBEf3cpBlAxRxD81om6Hb6nO5tAf5Wi1yiOZJ8GE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=AEw+KAKoyMIt5WUA0I+U+zx52uQMZaoXINZiiPEWIquiun/uiYDSxVYTwE8oULF/u
+	 RhaJMoo6G0XQIXH++yQU6ZUaytHDOXbs07S4afKqRIABqnm7jAoGEVN+OeumGXE5Fs
+	 sh59nAMWLtM0dev1x0cbgC9awXS1Uz4xmDd5APFVu1yW5BjCbPPTsALxPGsZGawoTj
+	 rfvZsbbclcfK/jrR+gny+hNhEigtUTXuasQPhBYwUk7AS1KPBnqBTLvGiDhTrX0MCE
+	 ug5zZCRvRm/U4h/2MmIGoJwbNAQCYe3CI2kEzMZQwWv1shxYJzRLSk1x5jhCLEmNwV
+	 AcLD45iSyVhJQ==
+Message-ID: <f6e87467-2fa1-4edc-a739-9899be36196c@kernel.org>
+Date: Mon, 15 Jun 2026 13:49:18 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="E9udDncSR5MQRtcC"
-Content-Disposition: inline
-In-Reply-To: <20260615023415.190655-1-hayashi.kunihiko@socionext.com>
-X-Cookie: To stay youthful, stay useful.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_set() for lockless empty-slot
+ installs
+To: Tejun Heo <tj@kernel.org>, Will Deacon <will@kernel.org>
+Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
+ Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+ bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20260522172219.1423324-1-tj@kernel.org>
+ <20260522172219.1423324-2-tj@kernel.org> <ai50IpfcvBiTZ7Ss@willie-the-truck>
+ <ai8PO0NThJeuQYzy@slm.duckdns.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <ai8PO0NThJeuQYzy@slm.duckdns.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +128,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/14/26 22:29, Tejun Heo wrote:
+> Hello,
+> 
+> On Sun, Jun 14, 2026 at 10:28:02AM +0100, Will Deacon wrote:
+>>> +/*
+>>> + * Note: strictly-zero compare is narrower than pte_none(), but the gap is
+>>> + * harmless: a fresh kernel PTE has no software bits set.
+>>> + */
+>>
+>> This comment really confused me :/
+>>
+>> What is a "fresh" kernel PTE and why do you specifically call out "software
+>> bits" if the CAS requires all 64 bits to be 0? Why is that narrower than
+>> pte_none() given that pte_none() for arm64 is:
+>>
+>> #define pte_none(pte)           (!pte_val(pte))
+> 
+> Yeah, that's complete non-sense for arm. The comment is about x86's
+> pte_none() excluding DIRTY and ACCESSED due to an erratum when testing none
+> and how that doesn't matter here. This shouldn't have been copied to arm.
+> I'll send a patch to remove that.
 
---E9udDncSR5MQRtcC
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Is BPF maybe picking up patches from other subsystems up too early without
+waiting for acks?
 
-On Mon, Jun 15, 2026 at 11:34:15AM +0900, Kunihiko Hayashi wrote:
-> The driver calls devm_request_irq() before initializing the completion
-> used by the interrupt handler. Because the interrupt may occur immediately
-> after devm_request_irq(), the handler may execute before init_completion(=
-).
->=20
-> This may result in calling complete() on an uninitialized completion,
-> causing undefined behavior. This has been observed with KASAN.
->=20
-> Fix this by initializing the completion before registering the IRQ.
+-- 
+Cheers,
 
-I thought you were going to rebase this, why resend the same version?
-
---E9udDncSR5MQRtcC
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmov5e8ACgkQJNaLcl1U
-h9DnhQf/TqVWYIYObZkRlWHMCFZI/SOnruaxzdWNmtOVZzTD7hKF9YHekhf7UiOL
-ZXQeSEV2jGTQLrYvirhQ4j2CowakasUTO7negD+eLEAIVPfJsK+ePBC+yHSQRolO
-2luHKCSFSdZokVg0wZnka5QmVFC8ORsGxIJqTrjx332v+pe9UhZvkxwSfzfMsTgR
-Wq3Gtpazv9WmhnDT0WLAaMEgMFWYdqW1CkGK/PDdkGUVUEC99rtP1X8xKPpv2l9W
-Fj2v4Yz+yUhWe+MVqv61asoQumqckKGZm90BUZgCDamGYObdxZp26eDUHSjrfMzF
-ZN6G1r8GaAHxPeTtC0V/vaqDuqe99g==
-=PWvI
------END PGP SIGNATURE-----
-
---E9udDncSR5MQRtcC--
+David
 
