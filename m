@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F44FCD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 22:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A690CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 22:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iwMz3Qb6KBIZ52xe7qK98ZGfUwF79kBhrbQewBx7nyQ=; b=EIKMw+yCi/HQd4AnvgYKcnmL3v
-	YeSyM6Sv/gJGEcw3lebr5BOc4GtiM+CRfasPPNoE5gjqWjOk6XGHld/o+GaYkcfHZ06mitv4MzM9+
-	Iw4YPx32n7aW6TwaiP7zaA7DYQdAmcx3dVMIU5rsYzIvSao3lVXUgX6rJyte+tWIuTttgWYI3BVZK
-	Udezkctedpn+tJ5Ubq4riXRx+cT7kWNHFEQGz3x+FrCan4SDvqsIIUKNUFFZ9BJMYWGspN4Atw1ey
-	CfsipAxyKJYdXSYVOijbWSwvVkJWWcd9BFWsaTYd623Jr8OgDCmjpKCLRcTfy3V/j3wFeUWA5Sffv
-	iYeAS/7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A3CN6mz876+/SEyI0OosJ7IJHs+qiuB800Fja+uy4WU=; b=V/KLmSJ2MJ8uw9e7n+CmBIu0d5
+	b8sMvzuMvP9ZR2pekh5bg71pOSd+QMNCa9nqUojew9jMVlgqOiO7JlZ4ep3o8WtMf0pDriK7zv3ed
+	wPNhOA/qpg7X2uC5OtDap+tXFAGKW/4KxcLrPBKRtaVj00tMP6Kj63Euh+Dbv95E5wjooyIg+8lnE
+	xBJVrkAxsDKwWYTmgV68ZrurPSOxcf8fPxlWLb5BHP9JUUu+H9ZS3APYCkvZOYhDmlAfWgllkRUhl
+	zk6jMvtjDSWZWQP7Byr5Nq0UToScjkHNVPKm4miEN/Tbr0/otiY8kmqZo1cJchgcZnvpd959lgQhV
+	1rhmxH/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZG8o-0000000EuYt-3RaT;
-	Mon, 15 Jun 2026 22:50:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZGBp-0000000Euuu-2WYW;
+	Mon, 15 Jun 2026 22:53:57 +0000
+Received: from mail-dy1-x1343.google.com ([2607:f8b0:4864:20::1343])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZG8k-0000000EuVu-0oZY;
-	Mon, 15 Jun 2026 22:50:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF9B2406E6;
-	Mon, 15 Jun 2026 22:50:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0F171F00A3A;
-	Mon, 15 Jun 2026 22:50:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781563845;
-	bh=iwMz3Qb6KBIZ52xe7qK98ZGfUwF79kBhrbQewBx7nyQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=kpFUzUpjmsudEqj03T/RyCQyqW4CFcKL28HfgBZJou1WkNzHlCmzA6eQIItcdlCaV
-	 aDtvH7S9Trp7NOqp/Ic/oeYk820jao2FTDNdML2qLHYO2KhT+xUUujd0TXC8Ngk0fk
-	 HqTCpVYEAFyKWq0f3fvWgyqZHntzK8qZuq43W++whlJQr6d1pwu4xjCkMHGdJGqITB
-	 Q0dSDVMAXOOBbem7Od+RCcWmoLOzI0zSR13t42H3L8UwvEX6V1ZjgzSx0rpINr+45y
-	 BQAXjZbgyaZ1e7NrpC3whFUOwzdozLhwPD9uNncBs0ZYtz1Ht+RdS5nmJUtWCGfJKn
-	 nqzhyOeShflIw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 196EA3839A08;
-	Mon, 15 Jun 2026 22:50:42 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wZGBn-0000000Euu3-12jf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 22:53:56 +0000
+Received: by mail-dy1-x1343.google.com with SMTP id 5a478bee46e88-307631dbfedso8308489eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 15:53:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781564034; x=1782168834; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=A3CN6mz876+/SEyI0OosJ7IJHs+qiuB800Fja+uy4WU=;
+        b=KWGLqB2L+KfWN3DNCZkApIxWTPwKL3pmQLNcSrk3GGc0f+M4JapBy8mnCceud9stpE
+         9Z2yvho5BuazxW5Sbi0aHI8vFCGOIRmXTXxle251eGv+b7aMXL0tKZC4XwYs+tZgNmEv
+         Z+48BcmiUh3B1ePgX3+GPXprQFMauc+VFwH3D3A4olxx8v4SOipKNF/pT2S7v+oq5bgl
+         /IRaqFXIeoqjw02k9SmqslzeDk4g0h2F70CqU0youvgljBiFUwQQkIVIYs1avnlQBzpG
+         DT8MnN81zeO8rkoo+Q4/4eq27Y8AFO86oUSsWW3c/uhkE3xbyeD7vzzFnPKojrDn44jH
+         Q/Gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781564034; x=1782168834;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A3CN6mz876+/SEyI0OosJ7IJHs+qiuB800Fja+uy4WU=;
+        b=eUWdGP6YdCwXMp/4l7h6GfPMzt08yHRGYtTbxgclNE9Y0tScvlbxttni4150bBZEl5
+         EEgXjLNC+/s0tNTkPU2ZRZtvmgbGeqol0LaZihsPsE8Ez+oFCetG/R29QJFeur8C0a3x
+         omAKeu3sBDFjJnOdrwSYb8a3Dg0iiaE1ikaIlAUDM4V5FhhUwGUOrbFeocq360L6CEZj
+         U+w6hk9HmX58rFNHnXNBuG+7Ju8gDSY/Yd66dSD2Taoi4283/JrPCj4BO22JNZvDUAOb
+         DMADhNRtYO7YLUPJ3OecT1qFmfRpQAi0eyuHlFr+rJiBEhyjlbnFMEQRD2TgyrVAbR79
+         IJPw==
+X-Forwarded-Encrypted: i=1; AFNElJ+v9rmf5KlXaHUAwvAu6mlu1X/SZapst23Nl3pmI0UzzA57gAAoJE9EuWUm2F+bXUTaAShYeAn6u3D8rPoWGF70@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoeJ01pOrxno1IwIIRgurU0C1Oh73OKup1LQgVKv/zmRMRCXId
+	PAvjOWR7MPw56O1ZvNt8paMHOrBuJGHSHFZ6cZiWrDxMHE/q46B02vfU
+X-Gm-Gg: Acq92OHUvDTx+PzooHFAmatAs+tOJQy2H5Q3SROlau/9D8aEyIL+8ysRp4nbAa9Flo0
+	gTmHxPJVNE3orKxxxLx3IS3RYLjV/ISFS0sEz6UldIR/OOkULWAOensU2MElOcqH/pu8VNqeFEQ
+	4pbLkI3g4n8qgRvZ3egPTHfmLl9FsyQksseUyyLc5cNvcUA2EahSEkbH/WMwmqpjR/nNc4rCenn
+	8N9Yv/01Jm+w9aBL7qyY16C7YKniG+Pn25xBFGAsm87P+XxXvCkihJc3CyKUvGfk0wL5kOQAmQd
+	O0x0U7IPkUKIHkVcIi/RB6ty1haIcKVYVQofD/Ji3yJrGZEo3D39mldvUI5Z75K1if+aUnBmZIM
+	x89IeyY6MYLLZXaBUk6bJgMukuSONGjJ4+5zgZFvaFcRZXGFwTGY3NfgtLIj3qzw+NJOitxt4dh
+	3r92pG2qDxT9HcGYhCWnc9VNHd8A3byJXzb4VoPMv0Fb4dgje2yjiZyFhn67ry/56xgreIFpIAO
+	TfeYBCVQnXJtdinKKMYl498QEZD19tFd8SiuNyGuKweZ0Qpyb+z25PfwsmtbrOuI9qcVrGnQC+M
+	KKcuJZ8r3UBRTUxEg5V15IjwLd7A
+X-Received: by 2002:a05:7300:8609:b0:304:d8cb:841a with SMTP id 5a478bee46e88-30ba5b28d0emr761709eec.14.1781564033851;
+        Mon, 15 Jun 2026 15:53:53 -0700 (PDT)
+Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb95342sm16727559eec.29.2026.06.15.15.53.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 15:53:53 -0700 (PDT)
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+To: "GitAuthor: Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v2] media: mt2063: correct CONFIG_MEDIA_TUNER_MT2063 macro name in comment
+Date: Mon, 15 Jun 2026 15:53:48 -0700
+Message-ID: <20260615225351.22791-1-enelsonmoore@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] net: airoha: Fix non-standard return value in
- airoha_ppe_get_wdma_info()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178156384063.325968.5097287869534609850.git-patchwork-notify@kernel.org>
-Date: Mon, 15 Jun 2026 22:50:40 +0000
-References: <6a2ca3d9.ad59c0a6.147df9.2a62@mx.google.com>
-In-Reply-To: <6a2ca3d9.ad59c0a6.147df9.2a62@mx.google.com>
-To: Wayen Yan <win847@gmail.com>
-Cc: netdev@vger.kernel.org, lorenzo@kernel.org, horms@kernel.org,
- pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
- andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com,
- matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260615_155355_331318_DE228F6C 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +101,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+A comment in drivers/media/tuners/mt2063.h incorrectly refers to
+CONFIG_DVB_MT2063 instead of CONFIG_MEDIA_TUNER_MT2063. Correct it.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Discovered while searching for CONFIG_* symbols referenced in code but
+not defined in any Kconfig file.
 
-On Sat, 13 Jun 2026 08:22:31 +0800 you wrote:
-> airoha_ppe_get_wdma_info() returns -1 when the last path in the
-> forwarding path stack is not of type DEV_PATH_MTK_WDMA. This is not
-> a standard kernel error code. Replace it with -EINVAL since the
-> input path type is invalid from the caller's perspective.
-> 
-> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-> Signed-off-by: Wayen.Yan <win847@gmail.com>
-> 
-> [...]
+Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+---
+Changes in v2: Use correct media: commit message prefix
 
-Here is the summary with links:
-  - net: airoha: Fix non-standard return value in airoha_ppe_get_wdma_info()
-    https://git.kernel.org/netdev/net-next/c/05173fa30add
+ drivers/media/tuners/mt2063.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-You are awesome, thank you!
+diff --git a/drivers/media/tuners/mt2063.h b/drivers/media/tuners/mt2063.h
+index 30d03cd76061..6c4b6c68ec25 100644
+--- a/drivers/media/tuners/mt2063.h
++++ b/drivers/media/tuners/mt2063.h
+@@ -24,6 +24,6 @@ static inline struct dvb_frontend *mt2063_attach(struct dvb_frontend *fe,
+ 	return NULL;
+ }
+ 
+-#endif /* CONFIG_DVB_MT2063 */
++#endif /* IS_REACHABLE(CONFIG_MEDIA_TUNER_MT2063) */
+ 
+ #endif /* __MT2063_H__ */
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
