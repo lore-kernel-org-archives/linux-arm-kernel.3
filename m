@@ -4,58 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF07CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D05CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I3TR2F2meIzdd8L5kFRhfRS4s9Ij5anoBgWO4nmTh5Y=; b=ZXwHuJXwyNriQgHi30HKVKVxii
-	wPvkGPyRz5mmefOIi2F11LVv2mILwbFAwjCrsJl71P59aQf0YoLi2AXLcWuYA6pEdMUqsqIuFV8I4
-	x0dI6sB1HYZnS+FAN448D048Q5HiL0FY/XiYOfmf3IDDZC1PPz2dabN56SdRzIBzgr0EJnQ/ZBvEV
-	VGt2G9h5KUgpRZpt+pMlVVgvK6dVaGSLa1YOp8NVbfTIjkTc69pUgq95CBG2Hbf93yVifybJE+vpN
-	pMD9ObX/16P3Fvbocf3C0jI/elMjoEbIFGQbpNtzcSKDfGvbomK7ssPg5hJHtcjgAzz26M/lBfBSu
-	lHbV4Cug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3phygt89mT1L7d+3MFHcmDG0z7MbIjyRqhevKospxxM=; b=nzRjiGpFnxUDWWLcBfmu6x4vOf
+	jX2DhwIig4RR3ogtd1c6QSqAKfDj38x4LMlWeq2MJaOk8EtoTHItrszh3DGwFxc8nXIqB5TGGQOKy
+	4esHCSv3NiicvBMyUzUTT9WEt8YousKCX3wBSg2Xu/+7IGZv833A9DKsjlSxXJvmJd1VxmVb8VJ2m
+	NofZL2zwEMb1zVvnmYMU5uDxN/ZhsHzsHzxMf1OMi/xUZxueWrM50LbJsGKIvrg3z5pTo2tkde1Iq
+	ecReQDLywE7DaNn8yeG5pET541/FD+iwxfzeXU3tZSv6FgDk5vEkARJeWVFHOznh3YzlMWVOy18S8
+	mEP97PnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7L8-0000000EIX1-2MyP;
-	Mon, 15 Jun 2026 13:26:58 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1wZ7OB-0000000EIul-0Elf;
+	Mon, 15 Jun 2026 13:30:07 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7L6-0000000EIVs-0rn0
+	id 1wZ7O8-0000000EIuG-2aI8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 13:26:57 +0000
-Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id 6BE341FB7F;
-	Mon, 15 Jun 2026 15:26:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1781530008;
-	bh=I3TR2F2meIzdd8L5kFRhfRS4s9Ij5anoBgWO4nmTh5Y=; h=From:To:Subject;
-	b=gmQPHngs0tY+Pzn62+rLt39hgiQVuAsVpHS2ky9ozD1kxPTwrUC/USB62mZ0W4dpu
-	 GsNZAE9A8TPN62NBs/e5s+mp76UkzzKnmJ6+QPRWQCnABk8ySZoP68139KTMAo2Kcs
-	 LfqkCHDPPPOtQOg7gTzCqvif9neakzmXu74b0yjEposQJd1/heK+3TAvbeqql5j6Hs
-	 sIgAG3MLo2/AXU9+LkG3yRw90AY+CgHAz5qG04tAyc0FIgusi3etuC6iFOeiv1yhms
-	 53Zk8y3YCFVREsWqo7uDRRBm8MyrLRB/GuO36OK6Odd+8ll1w4S86wuOmgOsgshFgM
-	 LLeyEVkaLGd1A==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>
-Subject: [PATCH v1] MAINTAINERS: Add git tree for TI K3 ARCHITECTURE
-Date: Mon, 15 Jun 2026 15:26:38 +0200
-Message-ID: <20260615132640.161584-1-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
+	Mon, 15 Jun 2026 13:30:06 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-51765531803so75991cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 06:30:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781530203; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Sxq11kAfosu8TGNxsd01f7O/UpdhiHRpRQQR40dJuSVjXBnoRfndy9VF/IH3IHT5cW
+         spfGrnEThTTOx0Sy52jovUtM5OsQYCssJA3ZMHBe8IxwHe6LMedmuFZLiDjLkdy7N4SX
+         reAtQSyUvnUdUB7+awWmxllbh4EmtQnuNlyLkmmqxobb3vG+vsoIc3L4amWJmt1xg226
+         PYNJOW6KvV9g4N8kmKpKE9ycztzT0ySj/1ZoRSQa1Q9U1kBJk86MrOoT+fmU57VWB1KL
+         YxIzub9uI/lXxjHcHDw2zmaWMMXMZkUQqumtpPxeiSEAFqqyP2zBvnwWwpfFPEPNi3sp
+         wc0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3phygt89mT1L7d+3MFHcmDG0z7MbIjyRqhevKospxxM=;
+        fh=V2bbN1+DzppZqSXTu7OOBsz8YnVHLjwrMAxk0RsxKZE=;
+        b=bj0IsSON7L753HyQWO4sXgVz9yNRybrGkpaIjH11KKlFF56yniifUYErCMTw0IihNh
+         XE2bMbrQAy0nadV4I+O2fdIeNj5Jr9nV7wnUghchIs0OP0Lanrj0iOxbWA3fYO5HtkQG
+         we81LSQ3dgJXaGyKhQPcIun6z22K/QyFfnHX0lIZKPFoH+2bEoYRvC+VI34KLUV49AVd
+         h5wBXwcMernUxy6kYRtNHlYpoWlkokJ7QFxWQhDbQPSe98UiFKC2i34qtYpAU5L0yH6n
+         ghH4sWFlGoR8WDFidrdwOq/bMZYYwiBlj7xp/8qTzHWDm5FIYv3CCnlYc8CO4uFhtGVT
+         7YMQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781530203; x=1782135003; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=3phygt89mT1L7d+3MFHcmDG0z7MbIjyRqhevKospxxM=;
+        b=lVS+CFNt3DXfkJhIwb4faCX6Wzp9rmmRElv8nBfm5yjl7TpPiHUm3aGFL7OtAgRJhE
+         eP4/Pkz4Sb5lvGorWXWJ6KEfcX0t0IzWmek6CRVPBhrAwAB8NbRjHd4COVAQltNZg1Xy
+         UbfjbOEqaqK3ho4jNqzYsSA/+O6tPCOweQGt14iZ48PSKPBi3UaWpYUu396GZo148asu
+         u07f5fw88XRVF0yAZV3IgK5zCYtEuUmC3y2lc5Av3vT0CegLKC5k2cjqC/9qA3uWf47F
+         cizXMRPxOQVExoYn3YmUFLEjjH2j1pcy2M5KnqcNKQieMXwItjhbg3qjMHR4CnA1y3pB
+         cXHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781530203; x=1782135003;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3phygt89mT1L7d+3MFHcmDG0z7MbIjyRqhevKospxxM=;
+        b=CNUw6sIklVI+B1Qk2MOm/v8Ohvjl97Fde4Ql+GMjEyNvf1tdPenpu2oGsvWTgvv8FM
+         tEizl+CqLSsyhlUYpMKZgvNbcKzaevLWinr0XN/WdM7MK/JFkDOtzTt+tMEy8r4KS3kJ
+         aE+8wMKcLqnVOcPfjJPw0l6zNPzJNlo0YLcZTMmez3OYofZe9gG8iE+iqO/X5Wm8lvnP
+         RGO22wLqMDiVT5IOwvSys4I/W0XXXZoCk7We0O/mWs34FLKLofR6/tzAd6P2S99p+cP2
+         s+EQpl7PrV/1Eschz/St15bfFC9jVnAfvGvpFPB69tkSzcQ286hgbtghh2k8I1ermWcA
+         gZRA==
+X-Forwarded-Encrypted: i=1; AFNElJ+dzmA8SvRoL1f1IgpuFOJaVFSijRVvPYq8UezNRwEfpfbTUHUljqFkRSdNFc5msVUI3wspfwlz1km595rfPSL2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwW0MvnFWA0lLXj9S13QRO0lMrFG4Y7tmrpWwt9+hG4U/extJUX
+	4zGlC+kLdY6Q8wKPsAJeEQ5oSBcpFAaNczfBZ4m7PX0JpDHhrW9IOskFoBDA4mtfQGNatWiPcWu
+	YzTZkuC+hZ6m8FuqBimhBsuZV46Bdp0/DmhMFzFzkH4goBu4eXMEIcMUypI0=
+X-Gm-Gg: Acq92OHYijTJWVlAUPy6OHuBw7tJ8PJ9+UMkf6/kRToZC4BXVnJpCd5ZXbdreEMM2tu
+	bw7GyeRgWSpwO1sJDMta+RpqF2z5ZQd08QuUyxmma/KwNCCY31M8pmWQ8bZtjzgpb5zPuodwv+5
+	m1WeO1cnMXw/7nBNBvR7oCLrosAH9/9639VVth206OIbKSFi4ygfR288TIngMug3jXsRQsjleMl
+	zjS9nc71ilRXlNPQCNU9zpc9g2+c97X72MoWMynYG05I56Az8UGcqIgv8w1CgAuTd65ksRE9grA
+	yLJ2MrTb
+X-Received: by 2002:a05:622a:1188:b0:4ff:bfd9:dd31 with SMTP id
+ d75a77b69052e-519872df71amr1731631cf.5.1781530202283; Mon, 15 Jun 2026
+ 06:30:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260612065925.755562-1-tabba@google.com> <20260612065925.755562-6-tabba@google.com>
+ <ai_5_CoRm-LdoVMm@google.com>
+In-Reply-To: <ai_5_CoRm-LdoVMm@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 15 Jun 2026 14:29:24 +0100
+X-Gm-Features: AVVi8CcrTMGo9YYeBFMqIsQ3CD-jzDAcCVBgdTfRMO0b7ViZFUlAAkK2kzEwfHA
+Message-ID: <CA+EHjTyRR3Rg3BT4guUy_VKw9jgZawKUhg7tv_H8iqSGW5Lsvw@mail.gmail.com>
+Subject: Re: [PATCH v1 05/11] KVM: arm64: Make vcpu_{read,write}_sys_reg
+ available to HYP code
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, Per Larsen <perlarsen@google.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron <jonathan.cameron@huawei.com>, 
+	Hyunwoo Kim <imv4bel@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_062656_404631_ED5DB866 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_063004_679762_35E16A05 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,28 +122,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Mon, 15 Jun 2026 at 14:11, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> On Fri, Jun 12, 2026 at 07:59:19AM +0100, tabba@google.com wrote:
+> > The vcpu_{read,write}_sys_reg() accessors are host-only, so helpers
+> > built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be() cannot be
+> > shared with hyp code. Add _vcpu_read_sys_reg()/_vcpu_write_sys_reg()
+> > inlines in kvm_emulate.h that dispatch on is_nvhe_hyp_code() to the
+> > host- or hyp-side accessor. A follow-up series uses this to share that
+> > emulation code at EL2.
+> >
+> > No functional change intended.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_emulate.h | 22 +++++++++++++++++++---
+> >  1 file changed, 19 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> > index 5bf3d7e1d92c..aed9fc0b717b 100644
+> > --- a/arch/arm64/include/asm/kvm_emulate.h
+> > +++ b/arch/arm64/include/asm/kvm_emulate.h
+> > @@ -506,6 +506,22 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+> >       return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+> >  }
+> >
+> > +static inline u64 _vcpu_read_sys_reg(struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+>
+> I am not sure a single underscore is widely used in the kernel.
+>
+> Why not move __vcpu_read_sys_reg() and __vcpu_write_sys_reg() from exception.c
+> to kvm_emulate.h? especially this already checks has_vhe().
 
-Add git tree for TI K3 architecture.
+Good point. has_vhe() already returns a compile-time constant
+in hyp code and a runtime cap check at EL1, so it works in all
+contexts. I'll move them to kvm_emulate.h and rename to
+kvm_vcpu_read_sys_reg() / kvm_vcpu_write_sys_reg().
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+Cheers,
+/fuad
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8629ed2aa82f..cbc56dc242b9 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3756,6 +3756,7 @@ M:	Vignesh Raghavendra <vigneshr@ti.com>
- M:	Tero Kristo <kristo@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Supported
-+T:	git git://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
- F:	Documentation/devicetree/bindings/arm/ti/k3.yaml
- F:	Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
- F:	arch/arm64/boot/dts/ti/Makefile
--- 
-2.47.3
-
+>
+> > +{
+> > +     if (!is_nvhe_hyp_code())
+> > +             return vcpu_read_sys_reg(vcpu, reg);
+> > +
+> > +     return __vcpu_sys_reg(vcpu, reg);
+> > +}
+> > +
+> > +static inline void _vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+> > +{
+> > +     if (!is_nvhe_hyp_code())
+> > +             vcpu_write_sys_reg(vcpu, val, reg);
+> > +     else
+> > +             __vcpu_assign_sys_reg(vcpu, reg, val);
+> > +}
+> > +
+> >  static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+> >  {
+> >       if (vcpu_mode_is_32bit(vcpu)) {
+> > @@ -516,9 +532,9 @@ static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+> >
+> >               r = vcpu_has_nv(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
+> >
+> > -             sctlr = vcpu_read_sys_reg(vcpu, r);
+> > +             sctlr = _vcpu_read_sys_reg(vcpu, r);
+> >               sctlr |= SCTLR_ELx_EE;
+> > -             vcpu_write_sys_reg(vcpu, sctlr, r);
+> > +             _vcpu_write_sys_reg(vcpu, sctlr, r);
+> >       }
+> >  }
+> >
+> > @@ -533,7 +549,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
+> >       r = is_hyp_ctxt(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
+> >       bit = vcpu_mode_priv(vcpu) ? SCTLR_ELx_EE : SCTLR_EL1_E0E;
+> >
+> > -     return vcpu_read_sys_reg(vcpu, r) & bit;
+> > +     return _vcpu_read_sys_reg(vcpu, r) & bit;
+> >  }
+> >
+> >  static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
+> > --
+> > 2.54.0.1136.gdb2ca164c4-goog
+> >
 
