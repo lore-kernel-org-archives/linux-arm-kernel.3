@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111DDCD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408A0CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qY5kOzqcJfORXQNkdCMcMwTxAyKHZxf9POk2wrTq/zs=; b=O6cmxCQnXbjXqiiIYOR7NArtN7
-	ctiUjX+6f4KPYtqXZjfT6RgewwZ9xCW39NylthmhJqEVV9yNgLCI4YZJSQifAteGSFJX2C5gdtMXY
-	K/J14DwpGUacTk3TCxl9TM3TBdoZ6Uisg9gQvhc4u4s01vYmp1RKFJgCNM/NGoyx74RPBIWHETIfB
-	Iv7gac/8lN/S6AHGB4GAnIZKmunH/bRCtJKonX+EylNCQ1TMAlTSOSgZbA+eVA4kZ0rc8XLWJJ8+e
-	P7ttW2MMLnSTLHPSp1HuPMRPPyBrY+qE9pJKDqWgOmDHBcHm5V+ejk4OGh/Bx3OTkJxJkSl3+IbDL
-	r63vul+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yPWsw0AQ+8ETl/LxiKcoFdE+zv5BWN43KLzjcHQPL3E=; b=jSuAYOGWdVd6OEuUtULipcslfc
+	CxN/TLfMqoVQJIBKaqKdlnipfuvojx8S/2O0urnF9CSDTj2RbPbwH+ZMi7f99Dp1nfM5O5gpLqYIJ
+	B1U7FcsdIO0EsrcdDxQA8eACuerFChWDWeAZUHLf21Pe94uVx1F53L4+S24noMXdwcDCQhqkqW4d2
+	EJaAbvAgxFI+7rDJ2A0ZbdAgywc3eAKIbYeBnSEPdZ7i4AIY9rlKYMymxkwv2G71nqkGir/6mutTl
+	zO1ZEV94VmLw/KxhZX7p8+pxzalwjLCY+oDcF9dwNjd1jUQ6hX72iqERZiS/0s1WflgWEUXi7fD44
+	zZSzxlJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6Ww-0000000EDNT-1KCh;
-	Mon, 15 Jun 2026 12:35:06 +0000
-Received: from mail-m9337.xmail.ntesmail.com ([103.126.93.37])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6Ws-0000000EDMA-2VoF;
-	Mon, 15 Jun 2026 12:35:04 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 427046fb6;
-	Mon, 15 Jun 2026 20:34:58 +0800 (GMT+08:00)
-Message-ID: <8da02c6f-030d-4033-935b-a44c777a14d2@rock-chips.com>
-Date: Mon, 15 Jun 2026 20:34:58 +0800
+	id 1wZ6be-0000000EDk9-3wnB;
+	Mon, 15 Jun 2026 12:39:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZ6bc-0000000EDji-2Scu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 12:39:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 491F1328D;
+	Mon, 15 Jun 2026 05:39:48 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0CA0E3F905;
+	Mon, 15 Jun 2026 05:39:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781527193; bh=kZSBouNcgnBKWX0ECo7+eUKRe/z+K7axYFcWodvnhBw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JRNf79MXpqjApZZXUVdA9wGEyQos1t68Tfoa2qQ7tD3B6+DCxRac7U3Tydcim2vGE
+	 Afoc0+WDGwe+5a2bHVuij3dPo35+QjA1Tdg82+2Y8IdSO0OfRSeSLuvRcmvcLzwuEx
+	 dXiy/HxHyW02zBa9i/kKSTshoBAkr1S4ErzsvkwQ=
+Date: Mon, 15 Jun 2026 13:39:43 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Linu Cherian <linu.cherian@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Huang Ying <ying.huang@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only
+ active on local cpu
+Message-ID: <ai_yj7GA_q1hD9cr@J2N7QTR9R3.cambridge.arm.com>
+References: <20260523134710.3827956-1-linu.cherian@arm.com>
+ <ai6KzFgfMAxqplcr@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/4] Add eDP lane mapping support
-To: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
- dianders@chromium.org, m.szyprowski@samsung.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260604085220.2862986-1-damon.ding@rock-chips.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20260604085220.2862986-1-damon.ding@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9ecb4725bc03a8kunmad12dd9f4325
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZShkaVhkYTxoaGEsYQhpIGVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=H2pYc5H4U519kPcqsLXiGZSqfal7roIZHKjog0oUnFm77yfp9eZTtdfOGTPLM5/Lcsv+XL4jWuNSRzLTovnS6ukbqMHh0l4IBojJTjDT+R0HGDUMdDikxtVT4j36p8sRGDPrJFuqrwx4ZAj5tX2uj6ZkKN0BqpTpcTwOo+O86QA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=qY5kOzqcJfORXQNkdCMcMwTxAyKHZxf9POk2wrTq/zs=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ai6KzFgfMAxqplcr@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_053502_895776_D8FD7D03 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260615_053956_782430_17D428D1 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,70 +76,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Hi Will,
 
-Gentle ping on this patch series.
+On Sun, Jun 14, 2026 at 12:04:44PM +0100, Will Deacon wrote:
+> On Sat, May 23, 2026 at 07:17:10PM +0530, Linu Cherian wrote:
 
-Best regards,
-Damon
+> >  static inline void flush_tlb_mm(struct mm_struct *mm)
+> >  {
+> >  	unsigned long asid;
+> > +	bool local;
+> >  
+> > -	dsb(ishst);
+> > +	local = flush_tlb_user_pre(mm, TLBF_NONE);
+> >  	asid = __TLBI_VADDR(0, ASID(mm));
+> > -	__tlbi(aside1is, asid);
+> > -	__tlbi_user(aside1is, asid);
+> > -	__tlbi_sync_s1ish(mm);
+> > +	if (local) {
+> > +		__tlbi(aside1, asid);
+> > +		__tlbi_user(aside1, asid);
+> > +		dsb(nsh);
+> > +	} else {
+> > +		__tlbi(aside1is, asid);
+> > +		__tlbi_user(aside1is, asid);
+> > +		__tlbi_sync_s1ish(mm);
+> > +	}
+> > +	flush_tlb_user_post(local);
+> 
+> I think you've changed this since Ryan's original patch, but why are you
+> only calling __tlbi_sync_s1ish() for the !local case? Doesn't that break
+> the erratum workaround when running as a VM if the vCPU is migrated?
 
-On 6/4/2026 4:52 PM, Damon Ding wrote:
-> This series adds configurable eDP physical lane mapping support via
-> device tree data-lanes property.
-> 
-> Lane mapping is mainly used for below scenarios:
-> 1. Correct PCB lane swap and differential line routing crossover
->     without hardware changes;
-> 2. Adapt mismatched lane pin definitions between SoC and eDP panel;
-> 3. Support multiple panel hardware variants on the same board
->     by configuring data-lanes in device tree only.
-> 
-> The series includes driver implementation and device tree binding
-> updates to support custom lane mapping configuration from endpoint
-> node, and keeps default linear lane order if no configuration is given.
-> 
-> Patch 1: Add endpoint data-lanes property to analogix-dp binding
-> Patch 2: Add DRM DP helper API to validate DP lane counts
-> Patch 3: Add validation for samsung,lane-count property as preparation
-> Patch 4: Implement lane mapping in analogix_dp driver
-> 
-> Damon Ding (4):
->    dt-bindings: display: bridge: analogix-dp: Add data-lanes support for
->      endpoint
->    drm/dp: Add helper to validate DP lane counts
->    drm/bridge: analogix_dp: Add validation for samsung,lane-count
->      property
->    drm/bridge: analogix_dp: Add support for optional data-lanes mapping
-> 
->   .../bindings/display/bridge/analogix,dp.yaml  | 19 ++++--
->   .../rockchip/rockchip,analogix-dp.yaml        |  1 +
->   .../drm/bridge/analogix/analogix_dp_core.c    | 64 ++++++++++++++++++-
->   .../drm/bridge/analogix/analogix_dp_core.h    |  4 +-
->   .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 15 ++---
->   .../gpu/drm/bridge/analogix/analogix_dp_reg.h |  4 ++
->   include/drm/display/drm_dp_helper.h           |  6 ++
->   7 files changed, 97 insertions(+), 16 deletions(-)
-> 
-> ---
-> 
-> Changes in v2:
-> - Add lane mapping application scenarios in commit message.
-> - Remove redundant deprecated property 'data-lanes' for eDP node.
-> - Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
-> 
-> Changes in v3:
-> - Squash [PATCH v2 2/3] into [PATCH v2 1/3].
-> - Add unevaluatedProperties: false to both the port@1 and endpoint
->    nodes.
-> 
-> Changes in v4:
-> - Add validation for samsung,lane-count property as preparation.
-> 
-> Changes in v5:
-> - Add DRM DP helper API to validate DP lane counts.
-> - Apply DRM DP helper API to check the validity of samsung,lane-count
->    property.
-> - Add Acked-by and Reviewed-by tags.
-> 
+The errata mitigated by __tlbi_sync_s1ish() only affect broadcast
+maintenance (the 'ish' in the name was intended to convey that). No
+workaround is necessary for local TLB maintenance; aside from anything
+else, when some PE executes the DSB to complete the maintenance, that
+DSB alone is sufficient to complete memory accesses made by that PE.
 
+If it would make things clearer, we could add a __tlbi_sync_s1nsh()
+helper for the local case, which would boil down to a DSB NSH.
+
+Regardless of the erratum, to correctly handle a vCPU being migrated
+from pCPU-x to pCPU-y, we rely on:
+
+* The host to set HCR_EL2.FB to ensure that TLB maintenance is
+  broadcast to the ISH domain.
+
+* The host to set HCR_EL2.BSU to ensure the DSB is upgrade to ISH such
+  that any guest-issued DSB NSH will it can complete any TLB maintenance
+  that was upgraded to ISH.
+
+* The host to issue a DSB ISH on pCPU-x before the vCPU can run on
+  pCPU-y, to complete any outstanding maintenance that was issued on
+  pCPU-x. IIUC a DSB ISH on pCPU-y is not architecturally sufficient; it
+  must be executed on the same CPU which issued the TLB maintenance.
+
+... but as above, all of that should be independent of any of the errata
+that require the workaround.
+
+Mark.
 
