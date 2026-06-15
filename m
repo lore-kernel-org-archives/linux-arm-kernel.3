@@ -4,134 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB560CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BC6CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=diedGpgXBO3/Nomfv6HhOvP+J3ht93XW1VbsNjgTbUg=; b=vVWSGeMjUFgZ/0HdGRkSVNkXko
-	+Fiuiz6aN0x2WxrbDbg/mLBq5kV1m11KVUYdgJ71XxbYlvLSnJwAWv1yAnwDIg/SSXJszP4cYBqI7
-	mFy/KQBJae/Mhk83BNZR2N3G+tGzcKfbjfU0oGvpdmmXbZp7DefAYckoE6omH+mBAJbrKSd26ngrE
-	f/q2Rc69N676LzUerLXW0CfIA/e9ovjx9/M40+l8JwzsMBmFgIfkoKZC6oILaTPU3AhI8hl8hY9MJ
-	a1Re/PC9zTln/7aIslomvrCS4VCAoo+CFXyOjJgpcPTK1OY7yuN7fXdtnFfPDhxldTBKrcl+zUEbR
-	fQJuTaYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3rMsrZ7GVRodQT0vv+F6bubXVUBI/vtcGoamkCWzv8c=; b=L/sLl9lu8Up6pqIGBVK4ptujp3
+	yTzQXIIpL36ETco3DNd42KyG51pbdUA1pOt6IB52fyJ8azcxHEc3RtepqPXWkHuAA3UVc43ANPVXD
+	G1pacsLxukqD1Q+WOu2mxsC+CKZceWAt/rkQnqXRJTbsQAob1NdlaANJKBhwgnxwkuRyauA+7tMQI
+	2BupqpHLYYoVlCiIoA9EKIIIDa3UJP1bh4D3DLzwP2gwiyHinNzlPPK2VmFgNwiBsY/tIBo5bxAR5
+	DvuBZI0zZsSZRxHyjYdmU0j+HwBqF+xT8AF1FIAiGOQdl7Ku3EbTjXlEuWh2Me5ZasMQooQS2FwmJ
+	R69YhZsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ8H9-0000000EPLu-0MvW;
-	Mon, 15 Jun 2026 14:26:56 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wZ8JV-0000000EPby-3HSO;
+	Mon, 15 Jun 2026 14:29:21 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ8H3-0000000EPK9-2VsA
+	id 1wZ8JT-0000000EPau-1DkI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 14:26:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xA4tBpdCeoLX3efxW4mrZgGaEBrkye3atVLPmMVXM3YLLELHb8BnwMD6I4Ck8956EBiAmL+5ZFGhvC/K5L9sNlZMqF7zZpcV5jHhq07BRzEhGw3rHNueH/12BZtGDoK2ELdyWGWanbJDwvHwALfcSvG8TAT1m2hfy2EKJ2RTGsxglxTJuiEiDKARIo1YMfAIw52duaD0RFKgIFrFdTGYAW8sZ5DOUJFicPBnDVzrp2Jm+ONdog1ANZwcBcaIT2bNJ5zgx5ESE7MVIn/4xLC/oxxd7fE71AxS0t8dIMCAJ5sF38dvckm+7YLzZPW+F3xnzAmzEjN6oe6H9dYwxIMyaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=diedGpgXBO3/Nomfv6HhOvP+J3ht93XW1VbsNjgTbUg=;
- b=wvZKAwpatDQaxZZnuhkahVhPcFerTLRAaGkXp3bXNRuBoLFDXJJkVSX55oau7aOxh3RulQYgAi4Rh2plA6tK4rnj44z8Q9BnQEHPZ4rx1K/UVjEMom8WYJBx/N9gtL5PtaFPD66saMEkDuksEum56sAjOJztbzRpQ1yMXEPx4K2biYOBt33U4Mr+zHXH/Jt0VU4q/mh7INYTXTPqdwyo/Ho26dXG2Kf8gke2coKkoW11AwkvnZVJsUowUlc4CoXvh6V4H3zXrIi9z438OOqKzD9n8NsmTdQjQQJTCiJMczH4EuKcH2+OYspxdKW/LlS6DuK6hDF129JCelw9BaVuNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=diedGpgXBO3/Nomfv6HhOvP+J3ht93XW1VbsNjgTbUg=;
- b=f3F7MwkeCMlC662+1x8SW1JCQl8494Gtj1KSzina/BaYFeSmaHH44vTwLfev/gp/R8NjO5XDLpFbBU5hmZbWp1BIhPjC2TGONgbkc5HBkseTY9CKXp3LpB2SPyf97jLQbArIVUwnvB3caHEBrWb738CWrbqpSVhGwtGTWPQS5YBC8iJ4Bqe/XelocPhx7+NPWraXNlbe7M2rP8VeYlarg/zI7zAMR+kJe6rFnZ0lGXcsV4lxG/7NzqBHU9B657aQ2h26wayOX747iRLYuuaQxDdOmOfI2rowPNI8/Ko2jD64IbXZsJWj4F3DaIsRxbqtGUrZA6MLJoSIRmunn7Wjpg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS5PR04MB9828.eurprd04.prod.outlook.com (2603:10a6:20b:678::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
- 2026 14:26:43 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
- 14:26:43 +0000
-Date: Mon, 15 Jun 2026 09:26:32 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v2 11/11] ASoC: fsl: mpc5200_psc_ac97: Use guard() for
- mutex locks
-Message-ID: <ajALmPI3hqt07hPt@SMW015318>
-References: <20260615093824.115751-1-phucduc.bui@gmail.com>
- <20260615093824.115751-12-phucduc.bui@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260615093824.115751-12-phucduc.bui@gmail.com>
-X-ClientProxiedBy: SN7PR04CA0169.namprd04.prod.outlook.com
- (2603:10b6:806:125::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 15 Jun 2026 14:29:20 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 40A101A3934;
+	Mon, 15 Jun 2026 14:29:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0F2B660015;
+	Mon, 15 Jun 2026 14:29:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C2F0A106C968A;
+	Mon, 15 Jun 2026 16:29:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1781533754; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=3rMsrZ7GVRodQT0vv+F6bubXVUBI/vtcGoamkCWzv8c=;
+	b=TYCQPqE2QSvlgUb/4JT5XIhXAMpBRqUwvWyNEa+AQy1qdwmW6is6Lmk+BBvd8vCY6XZMAR
+	pwX8hKmcij0KqlCHhAlICumWm1QN2FZpcQJU6O7XsrMHtUQxNzIyv+BR6zpWNAIlARpmOg
+	pxw3LQMtXaYy7Eqkn3zjJv20NkpuRWIUcKUGeogMRyT+s0lLkwQ8735Upe2rAEiENbqn6e
+	Se7LvxooQiSsU2E8wgag4N7J85IMrGMXrMPWjlzvZT9VZa/7qXDuaAryDPwaE9RbQeRqpC
+	Ytp6PSShO0oL0EttURSQGkMNnMAEp8fQJH/9H4LNFihxMGSQWut+wskXWQ2uOQ==
+Message-ID: <7702ac09-75fd-49de-8ad2-fceaa122b627@bootlin.com>
+Date: Mon, 15 Jun 2026 16:29:04 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB9828:EE_
-X-MS-Office365-Filtering-Correlation-Id: b54edad5-1c8a-412d-7708-08decaea1f90
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|23010399003|22082099003|18002099003|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: x+iUw3MSELJp0UDV39XOzDI99jEpIoBWm6X2ZmLNZakyGKLr7TRTy8cqbhiMRgF57ZAXWdhE61qTBRuJ9cGXtFyasEbILRKWG2GOpPlysEZi2BV/O/ocOTW7ljdO8I/rII13y4EScWQ6E8AFrbACtbALpXd5FDC1996x7YPHXkJkvawqwqP+5rLFfqVmlqh6rp2NPqopZi4Mf+huFeW/hglphnx0UGtZ+Iy05LIfe17pP4NYtoYTQFWlGIpxJ64XXziTcOrUFPbGX/KdEaWLwbO86xUbcNtOaIDcZbIY2sPLMu46ZuhjGuowj1NX3EDsGy8pRDyZ6RFmRfRp7qPS7e2kPhnSwuciAjQM2RWFfKXW/GxUoQ4XDnXD9bkqcMW+0NywazechaijHOlUkBHYsuvcvjtuxtrEl+vjNIO8dyny53ZsHsmUfELTb4JJvVcSef8R0bi0FIok3MA+GVF0abkAA/lW7EjDpiI6gLWny2kxopXPdXjaf2kA01I5qzihpFj/WXxB2iykSSsbc7NthW9OvuPIjrcXM3YjPLAhG7cA9yW848tAdwexE1VxtwofsybqPxnHNgIaaaPVKNiXDKYICOgPBqT4D7cLOVO4QvGQEl1YYwAaMe3sjsuvxhOM98PCJpmK3OZYCrb3RjrUJIWdqOBV5SOhLf6En97Wvfc/af9dI9nIGbMHii5I5o7H
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(23010399003)(22082099003)(18002099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WWFkF2mc2zu/XNik3/8qprUbyZqNXhzHGEJxEcf6y2hvgIQblw9i5P1OGsf6?=
- =?us-ascii?Q?4WpgdsWAkNc2f61uYPHZGSTuWByVLEbJP93OLn+JLQDPGJ8wj72g5OFyY89q?=
- =?us-ascii?Q?wGTU2xCPiFbzw9fbe7G7iJ/frLF/5X8ExrWrilPyXpA45ADhiFNRyr1HWb1P?=
- =?us-ascii?Q?9XprPdVUug6kBjqVIdg5AjeN0H+UOG2bJjXyfnzzzpr4pXXqcFroVAkrRj9A?=
- =?us-ascii?Q?TPqkPoV0jdhfCXMy3dfoNSCOsj74iqFUPlUyE291gu0byRG8c0Uf1C5jTByg?=
- =?us-ascii?Q?vTPFfjRTQRJokCmj3G//K/WmViwFL0fDaXzwoTHsHSwAyaFYp4ATijFpTSmt?=
- =?us-ascii?Q?WR1PUq6tchTmTfcLLU/8P0O/eK3Hx6yNt2yNN/IyN5Xih2Sez/cBnPI3andY?=
- =?us-ascii?Q?Hl/FeBYuPkBoCzeJallMvR06TsVDSbYMcenWotDbXy7Ql/CZdR4IE86GRkOE?=
- =?us-ascii?Q?wcK7G9p/3UBLbi2CYK0WULshsKl+bLy07nKuDT6YyggQoawI73VlbrHmhHy8?=
- =?us-ascii?Q?l89rp95npWIaqt/BvsDAbJHPbLb3u05iv/2yiy4TQY0p5AwZPYqCGENCMMx1?=
- =?us-ascii?Q?UdeAfx9r+qKR6rF/OTbCAZIAEBOEvPfns9xLX0I76XaFfx0puIHrKiX0Asy4?=
- =?us-ascii?Q?jKdNLq9bijSVHvgGGo2JHk15mgr6bkdcszCNPjSfAIT8omcMZSWRy4jFm9xC?=
- =?us-ascii?Q?R1kMTQMlNLIURhLrRww310H8nTe/sRH06/lZ7yh9wEc5pmTexSjVf1wL8Mk/?=
- =?us-ascii?Q?3EA3B6Y/sVAFDRoYdPXuxUkBg2aw4NwkuiNLIQrLG41mSxS56YlGXG46Z8ew?=
- =?us-ascii?Q?PAV7D+vIWhFWwketCfgsF38f9SIjsLolaXMz1eFqG3eYD7V/uP1L3DiyrfDg?=
- =?us-ascii?Q?wbmQVS3GRhVpevkGZIncaiOeIUUR2mpfwyYqHQUfThjtaiVyGcs7NCJfZnMi?=
- =?us-ascii?Q?TJhCXJKgnoforR/PCTU0L0DbOW7DWmIAAJgxiCdX44AesMI7CWiPCZrZZ2Sv?=
- =?us-ascii?Q?dZ08jl1PKzmenOMqHlFbrZiWyL4QSimGyzoIxaK1HD2LZA6v9BMS2HuBQN/O?=
- =?us-ascii?Q?o6q/1GMSdtjKGkalrmPcIXELdWsUfSLK9ipZik7dcawftVWWuGURyMsOHfIu?=
- =?us-ascii?Q?4odRKvvC1SBXD32XdZn27bVNBtuY2g1t0k6mmfBwsrGIzJ3a1Yxy5P+aHSZP?=
- =?us-ascii?Q?MiDIkhSkjnZvz9j37s5hrsDo4WWeDy8e71YrNHmP5vwddvoo/P83tUCXCz22?=
- =?us-ascii?Q?nmkCuBXA2mjzkcJ3ql3+ZGHNDXcyCmoeXmbWMr741Kmk7+/rj8LN6JHoKleg?=
- =?us-ascii?Q?ELJ/+Hy1zsojccx3yxpXPNKJzU+5aw39yeE2Nw70FUmuYfTmIyF5XYiAAaIn?=
- =?us-ascii?Q?D8Cw37ZFGWSp4WFEbwDCy3BPxFCJoG3/mqP0pQ2OUeIlWwsGYOrHuy3PmtYy?=
- =?us-ascii?Q?eVNjeAEC2JSRO4s1Zmoe2RTuZpBUOjuLLEUySABQrH0YkEtIm3D4Gf/lTuTh?=
- =?us-ascii?Q?3SDgp2FDFQ7cNOAft5t4DfBDSENtbnFlxa+vmywoh7uY2hLe8esVPkptzL5h?=
- =?us-ascii?Q?03IAObRny897A1mpBuCCsbUTE7e7h1jrk46qEfgPVxd0u+GcpuV7L13JlDJW?=
- =?us-ascii?Q?96ijBl0jAvWV9nQ3nTzAVHm++YbHTKlnZ7aJ8fIZnWJrw3BYE307+s2fRxF6?=
- =?us-ascii?Q?TyqOZieXpHGnZuo8zcfeOs52+wnfwokX9XaRyhDpApIxjK6/jVD1CvbhU6e6?=
- =?us-ascii?Q?lQjN4Dlx0kZGYISXbZIJc2xCCmN2uuc8BF7Yczr0cli/+Jl0x2VO?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b54edad5-1c8a-412d-7708-08decaea1f90
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 14:26:43.6964
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oX0/4iRw0s+wNDU8GBFyantLp3x3W9DZaZhUPAwAWEqy9DTsAVeZM+UtYV5NFlfrbUhLwjMjJVR2DKhp+YCP/PqcZQT8PFueD/soPob6lXjjKeBmEaBljenJobTXvFeA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9828
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v7 05/12] net: phylink: support late PCS provider
+ attach
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20260615122950.22281-1-ansuelsmth@gmail.com>
+ <20260615122950.22281-6-ansuelsmth@gmail.com>
+ <867a39de-ccc2-4dcf-be24-ab2542d20ab6@bootlin.com>
+ <6a3007ce.73de60af.3a056d.d903@mx.google.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <6a3007ce.73de60af.3a056d.d903@mx.google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_072649_639701_83F8B5D4 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20260615_072919_465041_966111B1 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,131 +94,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 04:38:24PM +0700, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
->
-> Clean up the code using guard() for mutex locks.
-> Merely code refactoring, and no behavior change.
->
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
->
-> Changes in v2:
->  - psc_ac97_cold_reset(): Fix scoped_guard() usage by replacing
->    scoped_guard(mutex_lock, ...) with scoped_guard(mutex, ...).
->
->  sound/soc/fsl/mpc5200_psc_ac97.c | 34 +++++++++++---------------------
->  1 file changed, 12 insertions(+), 22 deletions(-)
->
-> diff --git a/sound/soc/fsl/mpc5200_psc_ac97.c b/sound/soc/fsl/mpc5200_psc_ac97.c
-> index 8554fb690772..d4d9f5b6bc07 100644
-> --- a/sound/soc/fsl/mpc5200_psc_ac97.c
-> +++ b/sound/soc/fsl/mpc5200_psc_ac97.c
-> @@ -31,14 +31,13 @@ static unsigned short psc_ac97_read(struct snd_ac97 *ac97, unsigned short reg)
->  	int status;
->  	unsigned int val;
->
-> -	mutex_lock(&psc_dma->mutex);
-> +	guard(mutex)(&psc_dma->mutex);
->
->  	/* Wait for command send status zero = ready */
->  	status = spin_event_timeout(!(in_be16(&psc_dma->psc_regs->sr_csr.status) &
->  				MPC52xx_PSC_SR_CMDSEND), 100, 0);
->  	if (status == 0) {
->  		pr_err("timeout on ac97 bus (rdy)\n");
-> -		mutex_unlock(&psc_dma->mutex);
->  		return -ENODEV;
->  	}
->
-> @@ -54,19 +53,16 @@ static unsigned short psc_ac97_read(struct snd_ac97 *ac97, unsigned short reg)
->  	if (status == 0) {
->  		pr_err("timeout on ac97 read (val) %x\n",
->  				in_be16(&psc_dma->psc_regs->sr_csr.status));
-> -		mutex_unlock(&psc_dma->mutex);
->  		return -ENODEV;
->  	}
->  	/* Get the data */
->  	val = in_be32(&psc_dma->psc_regs->ac97_data);
->  	if (((val >> 24) & 0x7f) != reg) {
->  		pr_err("reg echo error on ac97 read\n");
-> -		mutex_unlock(&psc_dma->mutex);
->  		return -ENODEV;
->  	}
->  	val = (val >> 8) & 0xffff;
->
-> -	mutex_unlock(&psc_dma->mutex);
->  	return (unsigned short) val;
->  }
->
-> @@ -75,52 +71,46 @@ static void psc_ac97_write(struct snd_ac97 *ac97,
->  {
->  	int status;
->
-> -	mutex_lock(&psc_dma->mutex);
-> +	guard(mutex)(&psc_dma->mutex);
->
->  	/* Wait for command status zero = ready */
->  	status = spin_event_timeout(!(in_be16(&psc_dma->psc_regs->sr_csr.status) &
->  				MPC52xx_PSC_SR_CMDSEND), 100, 0);
->  	if (status == 0) {
->  		pr_err("timeout on ac97 bus (write)\n");
-> -		goto out;
-> +		return;
->  	}
->  	/* Write data */
->  	out_be32(&psc_dma->psc_regs->ac97_cmd,
->  			((reg & 0x7f) << 24) | (val << 8));
-> -
-> - out:
-> -	mutex_unlock(&psc_dma->mutex);
->  }
->
->  static void psc_ac97_warm_reset(struct snd_ac97 *ac97)
->  {
->  	struct mpc52xx_psc __iomem *regs = psc_dma->psc_regs;
->
-> -	mutex_lock(&psc_dma->mutex);
-> +	guard(mutex)(&psc_dma->mutex);
->
->  	out_be32(&regs->sicr, psc_dma->sicr | MPC52xx_PSC_SICR_AWR);
->  	udelay(3);
->  	out_be32(&regs->sicr, psc_dma->sicr);
-> -
-> -	mutex_unlock(&psc_dma->mutex);
->  }
->
->  static void psc_ac97_cold_reset(struct snd_ac97 *ac97)
->  {
->  	struct mpc52xx_psc __iomem *regs = psc_dma->psc_regs;
->
-> -	mutex_lock(&psc_dma->mutex);
-> -	dev_dbg(psc_dma->dev, "cold reset\n");
-> +	scoped_guard(mutex, &psc_dma->mutex) {
-> +		dev_dbg(psc_dma->dev, "cold reset\n");
->
-> -	mpc5200_psc_ac97_gpio_reset(psc_dma->id);
-> +		mpc5200_psc_ac97_gpio_reset(psc_dma->id);
->
-> -	/* Notify the PSC that a reset has occurred */
-> -	out_be32(&regs->sicr, psc_dma->sicr | MPC52xx_PSC_SICR_ACRB);
-> +		/* Notify the PSC that a reset has occurred */
-> +		out_be32(&regs->sicr, psc_dma->sicr | MPC52xx_PSC_SICR_ACRB);
->
-> -	/* Re-enable RX and TX */
-> -	out_8(&regs->command, MPC52xx_PSC_TX_ENABLE | MPC52xx_PSC_RX_ENABLE);
-> -
-> -	mutex_unlock(&psc_dma->mutex);
-> +		/* Re-enable RX and TX */
-> +		out_8(&regs->command, MPC52xx_PSC_TX_ENABLE | MPC52xx_PSC_RX_ENABLE);
-> +	}
->
->  	usleep_range(1000, 2000);
->  	psc_ac97_warm_reset(ac97);
-> --
-> 2.43.0
->
->
+On 6/15/26 16:10, Christian Marangi wrote:
+> On Mon, Jun 15, 2026 at 04:07:03PM +0200, Maxime Chevallier wrote:
+>> Hi Christian,
+>>
+>> On 6/15/26 14:29, Christian Marangi wrote:
+>>> Add support for late PCS provider attachment to a phylink instance.
+>>> This works by creating a global notifier for the PCS provider and
+>>> making each phylink instance that makes use of fwnode subscribe to
+>>> this notifier.
+>>>
+>>> The PCS notifier will emit the event FWNODE_PCS_PROVIDER_ADD every time
+>>> a new PCS provider is added.
+>>>
+>>> phylink will then react to this event and will call the new function
+>>> fwnode_phylink_pcs_get_from_fwnode() that will check if the PCS fwnode
+>>> provided by the event is present in the pcs-handle property of the
+>>> phylink instance.
+>>>
+>>> If a related PCS is found, then such PCS is added to the phylink
+>>> instance PCS list.
+>>>
+>>> Then we link the PCS to the phylink instance and we refresh the supported
+>>> interfaces of the phylink instance.
+>>>
+>>> Finally we check if we are in a major_config_failed scenario and trigger
+>>> an interface reconfiguration in the next phylink resolve.
+>>>
+>>> In the example scenario where the link was previously torn down due to
+>>> removal of PCS, the link will be established again as the PCS came back
+>>> and is now available to phylink.
+>>>
+>>> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+>>> ---
+>>
+>> [...]
+>>
+>>> @@ -2151,6 +2204,10 @@ void phylink_destroy(struct phylink *pl)
+>>>  	if (pl->link_gpio)
+>>>  		gpiod_put(pl->link_gpio);
+>>>  
+>>> +	/* Unregister notifier for late PCS attach */
+>>> +	if (pl->fwnode_pcs_nb.notifier_call)
+>>> +		unregister_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
+>>
+>> I wanted to try this out, but I get :
+>>
+>> drivers/net/phy/phylink.c:2218:17: error: implicit declaration of function ‘unregister_fwnode_pcs_notifier’; did you mean ‘register_fwnode_pcs_notifier’? [-Werror=implicit-function-declaration]
+>>  2218 |                 unregister_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
+>>       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>       |                 register_fwnode_pcs_notifier
+>>
+>> I guess you either need to stub this, or there's a missing Kconfig
+>> dependency somewhere
+>>
+> 
+> Hi yes if you want toi test just enable CONFIG_FWNODE_PCS. I forgot to add
+> the static declaration for unregister_fwnode_pcs_notifier. 
+
+I'll give it a go with this yeah, I have a few devices here I'd like to
+try this on.
+
+Can you CC me for the next rounds ?
+
+Maxime
+
+> 
+
 
