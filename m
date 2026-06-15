@@ -4,64 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21718CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 11:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF3ACD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 11:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJFXEMxAnouHCYO17wxrr2jx0O81pY8fQRPbiAuBi3k=; b=DOXjz8bjNjYoZsE++W6A4cyCps
-	ktn9mRT3sAwDPPuhK9d1gRQu/QWtFgUmt9DwQH4HlNTYQeT3P6sMBiql6KUCHEnZ1FfaJYEjLSCYx
-	CLDXRoP2J7LvimtaTR7PkWuW5oeO2s0gVuv5h6RKjqBIO8f66bMG2DpqX8RyJEA20zWWNPKLa3TMp
-	5Z1iKXJH6boUveoEo/DNIT0FqFGEBwSq90SlD+GqCUAQKDMrLJa7yNVGi98UTiDytaS1vt7Avow37
-	htO5QJC42lIB/S4O6OniOX4u7YCZI5Lwe8I5mZO3k8Pz/+ChF7Ows0Tom828x+pA+DV31jXOByN2c
-	dfCeTOKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gPxmpHnb24cxkCq6I23Sx4IjYKhbQfEmDMfwX5QGklE=; b=4eVOBEvX0qBkmW4ziclwX3FajL
+	MGegjUPIaoNxtmnVZF1EyrPyzTeTJDsQ5NAHTSscfXP4cjuCkrD+VWgYIq/PrmBiWk/Z2s3ST227Z
+	Xwjt619F6jpvo9DMt5zuqlIuZw7gERpzPNzs0bRe7Rd/5na5tm7aH3QSG0jr+OJ/3LprNCG6p8tSc
+	CXnh+XpcNf9uHSa5BGHxjq0xlAxp1uibVO+tqH5j8sTb2AfOldS4rWK42hCUzD1tHf2nHfajhQ+DX
+	dhSCfR1Dz8F/d7fH2W/9nsyvVw54dS+wXVOMQJnW8gZy/Ioucdsr//xv5FPgrx8fe6lgXT++HD+XF
+	otLkgPyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5Ni-0000000E5ng-0ftA;
-	Mon, 15 Jun 2026 11:21:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5Nf-0000000E5mY-1MwM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 11:21:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2611328D;
-	Mon, 15 Jun 2026 04:21:18 -0700 (PDT)
-Received: from [10.57.93.228] (unknown [10.57.93.228])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B96AF3F915;
-	Mon, 15 Jun 2026 04:21:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781522483; bh=xr8JAbsw542Ekce7MoopDiNfl5G5KYV1izF3XUolvlM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sQZjv+ms7bbldFg89JmwzQBQcG3vyjpTqIQ+bQboDRgs1MBFC/THCCpSCbOB+4DGb
-	 fnGR1TPe8fNRGhV2VWiVg6eSL1BPfur9Ih7nn++l/B9w+KAVVIZaW4CSXGVF3AIYGY
-	 7ZuGIIFexMuEc3aPJteWHPKf5evvbmgJGc2wo7VA=
-Message-ID: <bfc8803d-b375-477e-bba7-806edaf86578@arm.com>
-Date: Mon, 15 Jun 2026 12:21:19 +0100
-MIME-Version: 1.0
+	id 1wZ5Rz-0000000E6GL-2zeY;
+	Mon, 15 Jun 2026 11:25:55 +0000
+Received: from mail-koreacentralazon11023114.outbound.protection.outlook.com ([40.107.44.114] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZ5Rs-0000000E6EX-1pQL;
+	Mon, 15 Jun 2026 11:25:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tEActk8KZSFmE/O5pAYKzhGKsho4rtaTh2I88bBfdMH2YS6PeBXYyJJM3L53mlK6LcsA39lpnTIQqCdpLnpzHcE4I6c/KrFIoXTcocNkti22XFC/RULgrbCXvAn7I9/pJ0tVOcv83ABMTgfW8E3Mrf+UdHbrnYAxMLlhxdvsDI2G5rdlcAD7BOnlatW25VEno0H623JMR1zcmyh2n3vp81EDhlpn0ua9KPv1NATbshzLvW/dmgjvbFvVX1aWemW2rGMclkidd/sz7Wx3ozS7FJrv6YDtDw/TU913t6cuOHD3u/T4ge3OECeZNpoOgzEBoHtMM9NWutRrr8rLNKY4CA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gPxmpHnb24cxkCq6I23Sx4IjYKhbQfEmDMfwX5QGklE=;
+ b=eNofwHvCizkjiXw7aU+ob23W0UABA6e7vbMHKSUhD0T3HAEOJkrDZL9BEy5Zll00QQ428gzl1SJL7S3Cy6GzcJsXyMCRGTtA1EQ6FAze5NliABUYp9/9E3tHeq9Qzd74vir6YB86JnCuRrhdc7TTSJHvxOzvgF9mtJl3ywWM8aqFGNe8LWnQVUpvSSrKXBJdOMhRr0sHTv9JnsDLxqe2GC97P89hMD+2zx4SLO9hkai7Bf5NlX3vINffEVlB5rptnc3zCWZiu1o5fidiGa43+SN1MtKxaaPLGSjXFB9SBVBeonz+XpajKjJyUzlnPehrCsGMvqiUxitO9M7ET8376g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gPxmpHnb24cxkCq6I23Sx4IjYKhbQfEmDMfwX5QGklE=;
+ b=Fs3qBuZTIJbQYS2S8nsUIodFSDw2/yht9sleqti9d5oPzGxl3ZNj3E2vlzxVULpSvG9AHmIlBzvXFeGcyQOMdwhB09ENEXNOK61RnFd47BDj6zzzQSKTj1Iow2KW3DY6yziRYvbMbb5gnVWVj6jKMYx5tvcop3xbgWXmd2iUmLo72VENC+Iz53YaAcN1hXKztFiUmIBmR2EsM6VVO2dzzPzFFrRV2dKVyK3/WMASPAQ0uK94du9Fx8ZqTt2XMFVXI+yfxRJ6JfGYyPuaat5zdmoGsJERciJzHW3R5pkhwcqQqq2aXa+PjADhPfaOh9vXJzXP/5FxwAS2+jhTynrV3Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by SEZPR03MB8710.apcprd03.prod.outlook.com (2603:1096:101:234::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Mon, 15 Jun
+ 2026 11:25:22 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0139.009; Mon, 15 Jun 2026
+ 11:25:22 +0000
+Message-ID: <bfe92bbe-5325-4497-b79f-10c7a6e1ed5b@amlogic.com>
+Date: Mon, 15 Jun 2026 19:25:20 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only active
- on local cpu
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>, Linu Cherian <linu.cherian@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Mark Rutland <mark.rutland@arm.com>,
- Huang Ying <ying.huang@linux.alibaba.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260523134710.3827956-1-linu.cherian@arm.com>
- <ai6KzFgfMAxqplcr@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <ai6KzFgfMAxqplcr@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 2/2] clk: amlogic: Add A9 peripherals clock controller
+ driver
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260610-a9_peripherals-v3-0-d07a78085f71@amlogic.com>
+ <20260610-a9_peripherals-v3-2-d07a78085f71@amlogic.com>
+ <1jecieftme.fsf@starbuckisacylon.baylibre.com>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <1jecieftme.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI1PR02CA0032.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::12) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB8710:EE_
+X-MS-Office365-Filtering-Correlation-Id: 410d5bf7-95f1-471c-4439-08decad0ca10
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|11063799006|4143699003|56012099006|6133799003|3023799007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: NScyRDXGWR9/nDuBkdheMNY1Pme1sFO/bprvonqHknnRYbFjUmj6g2EIbLyLoZ0IG2DSbjrqLbCZ/4kYwPAbLQyHDZv/L/Znn3sHP0bBhTlhEgNx7lwF/UtnAYHPLXpoXcSyILViQ6AgLlh3D4VMCtNI/cxrP/cR2D2AZ+CjtvRYtb/OMNwYSf8DYZWy0TDcGfXVC2sf+4AT/uIh1org+vgkgc6080t+ouXl61+QFIz3KSOGWCmkXZAu4JnudD4FaIXuLmrba28JLtQXtHOVUpoY1l0lcKb3NMaCexvBNjC7/j7BCeeBlLOiQMwHQwLdzfG/EAtxuYjBHYBDh3wCDnKt5s1gWFf0usSxSsGl9pQv1IjXRKSn7aCeViIQfZ7MEcQS6VM5rj0MMIGKebcfMpKD575d4e4oqAySy5CmO+t6IJMXfmxseasZIcR6cwhgTJKijY3nUqc97djv/oSCAHYamXMyIDVxQ6t+TkbjPH46OHLbtnRbHPMPyPVQ+mtMWXvFLS8wIQmtMofRAr8h5VikflSpSmdqtnmi9RC4Ekw8PmD7prwLquaw8v6r6qkit4k1vm96j6EsChcdars3r2uvpoT8CMAjyEb6hvGB4Qz+HP9o1SEiyu9mNKlB2qumlifBk+vc59rJRhQann+SFg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(11063799006)(4143699003)(56012099006)(6133799003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MmRGLzBRbGJ1aTYyVUs2ZGxlTllDUCtzdm9pcUJXenA5U0U5RmFNRzZvMnpw?=
+ =?utf-8?B?R3d3TXFtQlhjNk56RkltN1Y1Z3ZYTmZvbEc1OHpXcmhvV2RTMUM3VFlsR2li?=
+ =?utf-8?B?Ukx1eEx3R1NuSEYxKzdzZGkvdkE3ZWNPc0VZUy9ad3dvNkttZGd1dDFib3JO?=
+ =?utf-8?B?SE5ScER0eCtnQjc5cStnaTEwOVJJbVI3NjJkQVRDcXIySXkrVk1zdnpRYWVY?=
+ =?utf-8?B?WDV3VlBxdUZUZmVtek1CSldSNEo0clNMQnNPamJYTjUvdzlSc01kNjRsU2h0?=
+ =?utf-8?B?MGZuQU1GcGk3QzR3Nk5QZldqaXBmR3Q2NFdUL2tUSURtR1ppb0lydzAzck1T?=
+ =?utf-8?B?aWU4N3hXR05ZekNpbkpqV2RxZWE3VGpQM2JOU3N1SEdUZU1wcnVVUXNDZHdO?=
+ =?utf-8?B?VDNHMWhpUlk0eTgydHkzMWFTVkdKdmZEMVgvZCsxT3V4MVp5VVYybjluakhZ?=
+ =?utf-8?B?eUJuTEkvUHg1VWxJNVhnTGZTbHVMM3l0V0psMGxPTnErV1JlK1V0UnFrMXVT?=
+ =?utf-8?B?VWttQldyZjM4RG1sb3pyWFFlZWg2TUVyZW5aSXp1YVFVWHI2cWlqVi9YMXIv?=
+ =?utf-8?B?RmNhellqaUxuU1ZxWGhodUUxYVAxTmVSTUJHUTdzZEl5c2tZUU01a2JoVzB2?=
+ =?utf-8?B?c0FPejRGVFlkeTJwdHJQK0VvQmZCVTVlQUhCVE0yK1FWT2lkTGtHMGl2NmJM?=
+ =?utf-8?B?QUg1NndYdXJvV2M4bHZNWmVkSWwySFFlOXVRS2phdlBwZDBUaEtESnZ0L25N?=
+ =?utf-8?B?ZGZSamZ1OFVLdk50N2ZHOHlOZzdncUpVdm5HbWFUZkhhSVJIOHV0Uzh1U3dR?=
+ =?utf-8?B?SUdTM1M3c2k4STdjWkdpWERwTGZNRE9qNXNKMmtWU0VaRzFENG5SREc2SkhC?=
+ =?utf-8?B?R1UyQ0Evc1VSQ3lHNVZVam5mQ2Y0djJrd01vMklyVHU3bmpRdDk2MDFhNE96?=
+ =?utf-8?B?OFhoenZuaGd1cEZ6OFAzaWJ4OFRvdTNtaWdxd1c4V3lxdnIrbFQxZG14NzNj?=
+ =?utf-8?B?alVJdDRCOG92QkNCUWErSlQ2Q21VTjVua25SOTJaVEJxVm55TEZXa09Gcksz?=
+ =?utf-8?B?SUFjMm9HczhoL1o5QVlmU3V3emdjb21ueFpaY20yUDhvUkRWTnp2ck9BMFBX?=
+ =?utf-8?B?TXZlS1V0bUxRRE96M0VWZG05TXZ2WGJVcktiWkJpN3BJQlF4eVA4Y3Z5RVFW?=
+ =?utf-8?B?eG4weXhKT0ZEbmpudTBBcXovT0FXUG53c3NIemxqN2dnaUZSUVpJeXNwWWNG?=
+ =?utf-8?B?QWE4dGJEdmpsdUpER0VLSTVLem44ZHlBajlUdG1idXZGMmpRWUg5ZUxDZ25m?=
+ =?utf-8?B?aFo2aElqKzF0bHZHZWRsaUxsd0d0WjI4dHc1Qm9PRmRPTnM4eGc0bEJNRytu?=
+ =?utf-8?B?UjgraU9kWklHUDhsT1VUREVWK1p2UE01bElpUTBvdXVJYVBQd3dZVitmbXFJ?=
+ =?utf-8?B?MlkyRDNGRkF2cWhCRkJHZmxUVkh1RDFJZ3NsTG9xV0hUdHFFWGhrSGlnRS9P?=
+ =?utf-8?B?bC9LbUJITFJvSWxvUjR2ZjhCZWJ6cUZGQ1B5UHB6RTRyZk85b0k5bzU1b20x?=
+ =?utf-8?B?SVpnemNQTklGVDRUWmgrazVhSHJ4QkJZVi9FbUdXVmZVMGdKbzRlS05tSW5u?=
+ =?utf-8?B?RjEzMGZFSXZWVHNvOFZuQllDMmJrVnlWUGNpSW0wcnpaRTAzcCtsZmVZY1hD?=
+ =?utf-8?B?cmdMeHBsZ3BoRVhBRnJNYTJuTGVWcU81MVlEQ3VsNi9JVEpOZ1pybE5ueFR5?=
+ =?utf-8?B?TVNZcG96cTZyTDJWd2haUmNmbmNqL1c4MzFDZlpUVjFOTms0UTk0R2M3UVRw?=
+ =?utf-8?B?RER3ZEJHS0s4MHZ0cDBSTG0vaVVPeWw0MFZBSlRVdlgwbmtMd1FxaTlGaHMx?=
+ =?utf-8?B?Vkc5Q2dNc0FPeGhPSXU2OXJPOEhWMjROZTk1aUJseU04eDdZLzBOL1YrcHJs?=
+ =?utf-8?B?bFVGR0pISFQxY0FyN2NWL0Y4NlFGK2xoU1FvYlFqTGpNUHpmUFRqeDRmOW5G?=
+ =?utf-8?B?eEVBdmVleWovaTJRWlMzTTIxSFBnUkNreVNVaDFvcXdLVHNwdmEyYkcyTDNx?=
+ =?utf-8?B?YTVjV05sUlBVWWp0d3F1V2d1bG1FNytyMUN4eDlSbURFblRoQnliTVpBSEdV?=
+ =?utf-8?B?RDBMUTN1SzYrc3ZWWVlWNDhhNS9FY3ZYeFlEcmNJNlRIZFFMNnhQUFpZZW0z?=
+ =?utf-8?B?U0RUU2Z5YjNQMndsbkJMSGZ6bzhwSWFlMGdiWk5aOVlHK1B2biswazBRdFha?=
+ =?utf-8?B?R0JtamdJWDdFMTRqbHhvQTFzT0U2dnE2ZnRjYlF0L1JmUmpnWXdGQ2RPWkhM?=
+ =?utf-8?B?T3kvbXdaZCtEd0ROc3IvOUxCMjF0aklPNWcxelBibENpTkwzM0pYQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 410d5bf7-95f1-471c-4439-08decad0ca10
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 11:25:22.6586
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zcs1U/pB3iRLZurlibxyLkygIZrM6eXo6z5UmQFrsGkWv9y+AGEdRRhT/Ed7flyOu2/6ZoA+vn9tNNqExhT2KQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8710
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_042127_455091_2F727E2C 
-X-CRM114-Status: GOOD (  52.84  )
+X-CRM114-CacheID: sfid-20260615_042548_665725_FC61796E 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,291 +156,624 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/06/2026 12:04, Will Deacon wrote:
-> On Sat, May 23, 2026 at 07:17:10PM +0530, Linu Cherian wrote:
->> From: Ryan Roberts <ryan.roberts@arm.com>
+
+On 6/10/2026 8:49 PM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On mer. 10 juin 2026 at 16:14, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+>
+>> From: Jian Hu <jian.hu@amlogic.com>
 >>
->> There are 3 variants of tlb flush that invalidate user mappings:
->> flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
->> would previously unconditionally broadcast their tlbis to all cpus in
->> the inner shareable domain.
+>> Add the peripherals clock controller driver for the Amlogic A9 SoC family.
 >>
->> But this is a waste of effort if we can prove that the mm for which we
->> are flushing the mappings has only ever been active on the local cpu. In
->> that case, it is safe to avoid the broadcast and simply invalidate the
->> current cpu.
->>
->> So let's track in mm_context_t::active_cpu either the mm has never been
->> active on any cpu, has been active on more than 1 cpu, or has been
->> active on precisely 1 cpu - and in that case, which one. We update this
->> when switching context, being careful to ensure that it gets updated
->> *before* installing the mm's pgtables. On the reader side, we ensure we
->> read *after* the previous write(s) to the pgtable(s) that necessitated
->> the tlb flush have completed. This guarrantees that if a cpu that is
->> doing a tlb flush sees it's own id in active_cpu, then the old pgtable
->> entry cannot have been seen by any other cpu and we can flush only the
->> local cpu.
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->> Tested-by: Huang Ying <ying.huang@linux.alibaba.com>
->> [linu.cherian@arm.com: Adapted for v7.1 flush tlb API changes]
->> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
 >> ---
->> Changelog from RFC v1:
->> - Adapted for v7.1 flush tlb API changes
->>   No changes in core logic
->> - Collected Rb and Tb tags
->> - lat_mmap benchmark showed dsb(ishst) performs better than dsb(ish),
->>   hence retained dsb(ishst) in flush_tlb_user_pre	
+>>   drivers/clk/meson/Kconfig          |   15 +
+>>   drivers/clk/meson/Makefile         |    1 +
+>>   drivers/clk/meson/a9-peripherals.c | 1925 ++++++++++++++++++++++++++++++++++++
+>>   3 files changed, 1941 insertions(+)
 >>
->>
->> Testing with 7.1-rc4 :
->> +-----------------------+---------------------------------------------------+-------------+
->> | Benchmark             | Result Class                                      |  Improvement|  
->> +=======================+===================================================+=============+
->> | perf/syscall          | fork (ops/sec)                                    |   (I) 3.25% |
->> +-----------------------+---------------------------------------------------+-------------+
->> | pts/memtier-benchmark | Protocol: Redis Clients: 100 Ratio: 1:5 (Ops/sec) |   (I) 2.70% |
->> | 			| Protocol: Redis Clients: 100 Ratio: 5:1 (Ops/sec) |   (I) 2.13% |
->> +-----------------------+---------------------------------------------------+-------------+
-> 
-> I think we need a much more comprehensive set of benchmarks before we can
-> begin to consider a change like this.
 
-I believe that Linu ran a wider set of benchmarks and didn't find any
-regressions. These are just the ones that show improvement (Linu, please correct
-me and/or provide details).
+[ ... ]
 
-Additionally Huang Ying did some testing against the RFC and reported 4.5%
-improvement with Redis:
-
-https://lore.kernel.org/linux-arm-kernel/87segumv6w.fsf@DESKTOP-5N7EMDA/
-
-> 
->>  arch/arm64/include/asm/mmu.h         |  12 +++
->>  arch/arm64/include/asm/mmu_context.h |   2 +
->>  arch/arm64/include/asm/tlbflush.h    | 127 +++++++++++++++++++++------
->>  arch/arm64/mm/context.c              |  30 ++++++-
->>  4 files changed, 141 insertions(+), 30 deletions(-)
-> 
-> Doesn't this break BTM/SVM with the SMMU? I think that's a non-starter
-> even if you can provide some more compelling numbers.
-
-AIUI, we don't support BTM upstream - the SMMU uses private ASIDs and implements
-MMU notifiers to forward the TLBIs via its command queue interface.
-
-I was also under the impression that supporting BTM upsteam was not desired;
-Please correct me if that's not accurate or if you're aware of plans to add
-support. I've been (coincidentlly) looking at some other stuff that could
-benefit from BTM but had concluded it wouldn't be an acceptable approach upstream.
-
-If we did ever want to add SMMU BTM support though, I think it would be simple
-enough to add an interface to allow the SMMU to disable the optimization (i.e.
-force active_cpu to ACTIVE_CPU_MULTIPLE)?
-
-> 
->> +static inline bool flush_tlb_user_pre(struct mm_struct *mm, tlbf_t flags)
->> +{
->> +	unsigned int self, active;
->> +	bool local;
 >> +
->> +	migrate_disable();
+>> +/* Channel 6 is unconnected. */
+>> +static u32 a9_glb_parents_val_table[] = { 0, 1, 2, 3, 4, 5, 7 };
+>> +static struct clk_regmap a9_dspa;
+> What is this ?
+
+
+The peripheral clock definitions are ordered by register offset.
+
+dspa is one of the parents of the glb clock, while the dsp clock 
+registers are located after the GLB clock registers.
+
+Since glb references a9_dspa before its full definition appears, the 
+declaration
+
+static struct clk_regmap a9_dspa;
+
+is added as a forward declaration to satisfy the compiler.
+
+
+Would it make sense to relax the register-offset ordering in this case?
+
+By defining the DSP clock before the GLB clock, we could remove the 
+forward declaration of a9_dspa.
+
 >> +
->> +	if (flags & TLBF_NOBROADCAST) {
->> +		dsb(nshst);
->> +		return true;
->> +	}
-> 
-> Why does the NOBROADCAST case need migration disabled? It didn't before...
-
-The existing semantic for TLBF_BOBROADCAST is that it emits a local TLBI on
-whatever CPU we happen to be executing on. It's used for lazily fixing up
-spurious faults (i.e. hitting RO TLB entries when the PTE has been relaxed to
-RW). So it's still functionally correct if the thread migrates CPU between
-taking the fault and issuing the local TLBI - in the worst case it just leads to
-another spurious fault.
-
-For this new case, we need to ensure we don't get migrated between reading
-active_cpu and issuing the local TLBI, otherwise we would only issue a local
-TLBI when a broadcast was required.
-
-> 
+>> +static const struct clk_parent_data a9_glb_parents[] = {
+>> +     { .fw_name = "xtal", },
+>> +     { .hw = &a9_dspa.hw },
+>> +     { .fw_name = "fdiv3", },
+>> +     { .fw_name = "fdiv4", },
+>> +     { .fw_name = "fdiv5", },
+>> +     { .hw = &a9_isp.hw },
+>> +     { .fw_name = "rtc", }
+>> +};
 >> +
->> +	self = smp_processor_id();
+>> +static A9_COMP_SEL(glb, GLB_CLK_CTRL, 9, 0x7, a9_glb_parents,
+>> +                a9_glb_parents_val_table);
+>> +static A9_COMP_DIV(glb, GLB_CLK_CTRL, 0, 7);
+>> +static A9_COMP_GATE(glb, GLB_CLK_CTRL, 8, 0);
 >> +
->> +	/*
->> +	 * The load of mm->context.active_cpu must not be reordered before the
->> +	 * store to the pgtable that necessitated this flush. This ensures that
->> +	 * if the value read is our cpu id, then no other cpu can have seen the
->> +	 * old pgtable value and therefore does not need this old value to be
->> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
->> +	 * needed to make the pgtable updates visible to the walker, to a
->> +	 * dsb(ish) by default. So speculatively load without a barrier and if
->> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
->> +	 */
->> +	active = READ_ONCE(mm->context.active_cpu);
->> +	if (active == self) {
->> +		dsb(ish);
->> +		active = READ_ONCE(mm->context.active_cpu);
->> +	} else {
->> +		dsb(ishst);
->> +	}
-> 
-> Why can't you just do:
-> 
-> 	dsb(ishst);
-> 	active = READ_ONCE(mm->context.active_cpu);
-> 
-> ?
+>> +static struct clk_regmap a9_usb_48m_dualdiv_in = {
+>> +     .data = &(struct clk_regmap_gate_data) {
+>> +             .offset = USB_CLK_CTRL,
+>> +             .bit_idx = 31,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("usb_48m_dualdiv_in", &a9_usb_48m_pre.hw,
+>> +                               &clk_regmap_gate_ops, 0),
+> Same comment as on the AO controller
 
-Prior to this optimization, we always issued a dsb(ishst) here. Catalin
-suggested the same simplification against the RFC. I believe Linu tried it but
-saw regressions; Hopefully Linu can provide the details.
 
-> 
+Ok, I will drop CLK_HW_INIT*, and apply the same change to the other 
+clock definitions.
+
+
+[ ... ]
+
 >> +
->> +	local = active == self;
->> +	if (!local)
->> +		migrate_enable();
+>> +/* Channel 3 is unconnected. */
+> You meant 3rd I guess but this is misleading and confusing with the
+> table bellow. Channel 2 would be more appropriate I think, since those
+> are 0-based.
+
+
+You are right,  The 3rd channel is unconnected.  I will fix it in the 
+next version.
+
+>> +static u32 a9_can_pe_parents_val_table[] = { 0, 1, 3 };
+>> +static const struct clk_parent_data a9_can_pe_parents[] = {
+>> +     { .fw_name = "sys", },
+>> +     { .fw_name = "xtal", },
+>> +     { .fw_name = "fdiv5", }
+>> +};
 >> +
->> +	return local;
->> +}
+
+
+[ ... ]
+
 >> +
->> +static inline void flush_tlb_user_post(bool local)
->> +{
->> +	if (local)
->> +		migrate_enable();
->> +}
-> 
-> I was under the impression that disabling/enabling migration was an
-> expensive thing to do, so I'd really want to see some more numbers to
-> justify this (including from inside a VM) and allow us to consider the
-> trade-offs properly. It's also not at all clear to me that it's safe
-> from such a low-level TLB invalidation helper.
+>> +/*
+>> + * Channel 3(ddr_dpll_pt_clk) is manged by the DDR module;
+>> + * channel 12(msr_clk) is manged by clock measures module.
+>> + * channel 16(audio_dac1_clk) is manged by audio module.
+> Some why can't you expose those then ? gen clk is used for debugging
+> AFAIK. The clock above are worth debugging I think
+>
+> Please be consistent with the CaSing.
 
-I had assumed it wasn't very expensive, but perhaps I'm wrong. I know
-preempt_enable() can be expensive because it has to test to see if it needs to
-reschedule. But I assumed for disabling/enabling migration, it would just be a
-counter and the scheduler would check that it's zero before considing moving the
-task to another run queue. (But I have practically zero understanding of the
-scheduler so I'll assume I'm wrong...).
 
-Instead of disabling migration, perhaps we could re-check active_cpu after
-issuing the local tlbi - if it's now reporting "multiple" we must have been
-migrated and we need to upgrade to a braodcast TLBI?
+For channel 3 (ddr_dpll_pt_clk), it is sourced from the DDR PLL clock 
+controller rather than
+this clock controller. I will expose it in the DT.
 
-> 
+For channel 12 (msr_clk), it depends on the clock measurement 
+configuration.
+The measurement source must first be selected through freq_ctrl[20:26], and
+only then does msr_clk become meaningful. In practice.
+It is not a real clock but an output of the measurement logic, so it can 
+not be exposed as a clock.
+
+https://elixir.bootlin.com/linux/v7.1-rc7/source/drivers/soc/amlogic/meson-clk-measure.c#L809
+
+For channel 16 (audio_dac1_clk), I confirmed with the clock hardware 
+designer that
+it is actually unconnected. It looks like there is an error in the 
+documentation.
+
+I'll also fix the casing to keep it consistent throughout the comments.
+>> + * Channel 10, 11, 13, 14 are not connected.
+>> + */
+>> +static u32 a9_gen_parents_val_table[] = { 0, 1, 2, 4, 5, 6, 7, 8, 9, 15, 17, 18,
+>> +                                       19, 20, 21, 22, 23, 24, 25, 26};
+>> +static struct clk_regmap a9_vid_pll;
 >> +
->>  /*
->>   *	TLB Invalidation
->>   *	================
->> @@ -408,12 +482,20 @@ static inline void flush_tlb_all(void)
->>  static inline void flush_tlb_mm(struct mm_struct *mm)
->>  {
->>  	unsigned long asid;
->> +	bool local;
->>  
->> -	dsb(ishst);
->> +	local = flush_tlb_user_pre(mm, TLBF_NONE);
->>  	asid = __TLBI_VADDR(0, ASID(mm));
->> -	__tlbi(aside1is, asid);
->> -	__tlbi_user(aside1is, asid);
->> -	__tlbi_sync_s1ish(mm);
->> +	if (local) {
->> +		__tlbi(aside1, asid);
->> +		__tlbi_user(aside1, asid);
->> +		dsb(nsh);
->> +	} else {
->> +		__tlbi(aside1is, asid);
->> +		__tlbi_user(aside1is, asid);
->> +		__tlbi_sync_s1ish(mm);
->> +	}
->> +	flush_tlb_user_post(local);
-> 
-> I think you've changed this since Ryan's original patch, but why are you
-> only calling __tlbi_sync_s1ish() for the !local case? Doesn't that break
-> the erratum workaround when running as a VM if the vCPU is migrated?
-
-Hmm. So from the guest kernel's perspective, it has concluded that it only needs
-to target the local (v)CPU. Since the errata only affect boardcast TLBIs, it
-concludes there is no need to issue the workarounds. But since it's a VM, the HW
-will upgrade the local TLBIs to broadcast TLBIs, but will not magically
-re-instate the workarounds. I guess the simplest solution would be to disable
-the optimization when either workaround is enabled.
-
-Perhaps this is all getting a bit too complex for not enough benefit...
-
-Thanks,
-Ryan
-
-> 
->> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
->> index 0f4a28b87469..f34ed78393e0 100644
->> --- a/arch/arm64/mm/context.c
->> +++ b/arch/arm64/mm/context.c
->> @@ -214,9 +214,10 @@ static u64 new_context(struct mm_struct *mm)
->>  
->>  void check_and_switch_context(struct mm_struct *mm)
->>  {
->> -	unsigned long flags;
->> -	unsigned int cpu;
->> +	unsigned int cpu = smp_processor_id();
->>  	u64 asid, old_active_asid;
->> +	unsigned int active;
->> +	unsigned long flags;
->>  
->>  	if (system_supports_cnp())
->>  		cpu_set_reserved_ttbr0();
->> @@ -251,7 +252,6 @@ void check_and_switch_context(struct mm_struct *mm)
->>  		atomic64_set(&mm->context.id, asid);
->>  	}
->>  
->> -	cpu = smp_processor_id();
->>  	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
->>  		local_flush_tlb_all();
->>  
->> @@ -262,6 +262,30 @@ void check_and_switch_context(struct mm_struct *mm)
->>  
->>  	arm64_apply_bp_hardening();
->>  
->> +	/*
->> +	 * Update mm->context.active_cpu in such a manner that we avoid cmpxchg
->> +	 * and dsb unless we definitely need it. If initially ACTIVE_CPU_NONE
->> +	 * then we are the first cpu to run so set it to our id. If initially
->> +	 * any id other than ours, we are the second cpu to run so set it to
->> +	 * ACTIVE_CPU_MULTIPLE. If we update the value then we must issue
->> +	 * dsb(ishst) to ensure stores to mm->context.active_cpu are ordered
->> +	 * against the TTBR0 write in cpu_switch_mm()/uaccess_enable(); the
->> +	 * store must be visible to another cpu before this cpu could have
->> +	 * populated any TLB entries based on the pgtables that will be
->> +	 * installed.
->> +	 */
->> +	active = READ_ONCE(mm->context.active_cpu);
->> +	if (active != cpu && active != ACTIVE_CPU_MULTIPLE) {
->> +		if (active == ACTIVE_CPU_NONE)
->> +			active = cmpxchg_relaxed(&mm->context.active_cpu,
->> +						 ACTIVE_CPU_NONE, cpu);
+>> +static const struct clk_parent_data a9_gen_parents[] = {
+>> +     { .fw_name = "xtal" },
+>> +     { .fw_name = "rtc" },
+>> +     { .fw_name = "sysplldiv16" },
+>> +     { .hw = &a9_vid_pll.hw },
+>> +     { .fw_name = "gp0" },
+>> +     { .fw_name = "hifi1" },
+>> +     { .fw_name = "hifi0" },
+>> +     { .fw_name = "gp1" },
+>> +     { .fw_name = "gp2" },
+>> +     { .fw_name = "dsudiv16" },
+>> +     { .fw_name = "cpudiv16" },
+>> +     { .fw_name = "a78div16" },
+>> +     { .fw_name = "fdiv2" },
+>> +     { .fw_name = "fdiv2p5" },
+>> +     { .fw_name = "fdiv3" },
+>> +     { .fw_name = "fdiv4" },
+>> +     { .fw_name = "fdiv5" },
+>> +     { .fw_name = "fdiv7" },
+>> +     { .fw_name = "mclk0" },
+>> +     { .fw_name = "mclk1" }
+>> +};
 >> +
->> +		if (active != ACTIVE_CPU_NONE)
->> +			WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_MULTIPLE);
+>> +static A9_COMP_SEL(gen, GEN_CLK_CTRL, 12, 0x1f, a9_gen_parents,
+>> +                a9_gen_parents_val_table);
+>> +static A9_COMP_DIV(gen, GEN_CLK_CTRL, 0, 11);
+>> +static A9_COMP_GATE(gen, GEN_CLK_CTRL, 11, 0);
 >> +
->> +		dsb(ishst);
->> +	}
+
+
+[ ... ]
+
 >> +
-> 
-> Can you simplify the 'if' condition here?
-> 
-> 	if (active == ACTIVE_CPU_NONE) {
-> 		if (!try_cmpxchg_relaxed(...))
-> 			WRITE_ONCE(...);
-> 
-> 		dsb(ishst);
-> 	}
-> 
-> (as an aside, maybe we should implement arch_try_cmpxchg{,_relaxed} so
->  we could drop the READ_ONCE() here as well?)
-> 
-> Will
+>> +static struct clk_regmap a9_enc, a9_enc1;
+> What is this again ?? and please come up with better names.
+
+
+Same as the previous dspa clock declaration.
+
+enc stands for encoder. I'll rename a9_enc to a9_encoder0 and a9_enc1 to 
+a9_encoder1 in the next version.
+
+>> +
+>> +static const struct clk_parent_data a9_vid_lock_parents[] = {
+>> +     { .fw_name = "xtal", },
+>> +     { .hw = &a9_enc.hw },
+>> +     { .hw = &a9_enc1.hw }
+>> +};
+>> +
+>> +static A9_COMP_SEL(vid_lock, VID_LOCK_CLK_CTRL, 9, 0x7, a9_vid_lock_parents,
+>> +                NULL);
+>> +static A9_COMP_DIV(vid_lock, VID_LOCK_CLK_CTRL, 0, 7);
+>> +static A9_COMP_GATE(vid_lock, VID_LOCK_CLK_CTRL, 8, 0);
+>> +
+>> +static const struct clk_parent_data a9_vdin_meas_parents[] = {
+>> +     { .fw_name = "xtal", },
+>> +     { .fw_name = "fdiv4", },
+>> +     { .fw_name = "fdiv3", },
+>> +     { .fw_name = "fdiv5", }
+>> +};
+>> +
+>> +static A9_COMP_SEL(vdin_meas, VDIN_MEAS_CLK_CTRL, 9, 0x7, a9_vdin_meas_parents,
+>> +                NULL);
+>> +static A9_COMP_DIV(vdin_meas, VDIN_MEAS_CLK_CTRL, 0, 7);
+>> +static A9_COMP_GATE(vdin_meas, VDIN_MEAS_CLK_CTRL, 8, 0);
+>> +
+>> +static struct clk_regmap a9_vid_pll_div = {
+>> +     .data = &(struct meson_vid_pll_div_data){
+>> +             .val = {
+>> +                     .reg_off = VID_PLL_CLK_DIV,
+>> +                     .shift   = 0,
+>> +                     .width   = 15,
+>> +             },
+>> +             .sel = {
+>> +                     .reg_off = VID_PLL_CLK_DIV,
+>> +                     .shift   = 16,
+>> +                     .width   = 2,
+>> +             },
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_FW_NAME("vid_pll_div", "hdmiout2",
+>> +                                    &meson_vid_pll_div_ro_ops, 0),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vid_pll_sel = {
+>> +     .data = &(struct clk_regmap_mux_data){
+>> +             .offset = VID_PLL_CLK_DIV,
+>> +             .mask = 0x1,
+>> +             .shift = 18,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_PARENTS_DATA("vid_pll_sel",
+>> +                     ((const struct clk_parent_data []) {
+>> +                             { .hw = &a9_vid_pll_div.hw },
+>> +                             { .fw_name = "hdmiout2" }
+>> +                     }), &clk_regmap_mux_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vid_pll = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_PLL_CLK_DIV,
+>> +             .bit_idx = 19,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vid_pll", &a9_vid_pll_sel.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vid_pll_vclk = {
+>> +     .data = &(struct clk_regmap_mux_data){
+>> +             .offset = HDMI_CLK_CTRL,
+>> +             .mask = 0x1,
+>> +             .shift = 15,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_PARENTS_DATA("vid_pll_vclk",
+>> +                     ((const struct clk_parent_data []) {
+>> +                             { .hw = &a9_vid_pll.hw },
+>> +                             { .fw_name = "hdmipix" }
+>> +                     }), &clk_regmap_mux_ops, 0),
+>> +};
+>> +
+>> +static const struct clk_parent_data a9_vclk_parents[] = {
+>> +     { .hw = &a9_vid_pll_vclk.hw },
+>> +     { .fw_name = "pix0", },
+>> +     { .fw_name = "vid1", },
+>> +     { .fw_name = "pix1", },
+>> +     { .fw_name = "fdiv3", },
+>> +     { .fw_name = "fdiv4", },
+>> +     { .fw_name = "fdiv5", },
+>> +     { .fw_name = "vid2", }
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_sel = {
+>> +     .data = &(struct clk_regmap_mux_data){
+>> +             .offset = VID_CLK_CTRL,
+>> +             .mask = 0x7,
+>> +             .shift = 16,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_PARENTS_DATA("vclk_sel", a9_vclk_parents,
+>> +                     &clk_regmap_mux_ops, 0),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_in = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_DIV,
+>> +             .bit_idx = 16,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_in", &a9_vclk_sel.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_div = {
+>> +     .data = &(struct clk_regmap_div_data){
+>> +             .offset = VID_CLK_DIV,
+>> +             .shift = 0,
+>> +             .width = 8,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div", &a9_vclk_in.hw,
+>> +                               &clk_regmap_divider_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL,
+>> +             .bit_idx = 19,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk", &a9_vclk_div.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_div1_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL,
+>> +             .bit_idx = 0,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div1_en", &a9_vclk.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_div2_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL,
+>> +             .bit_idx = 1,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div2_en", &a9_vclk.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+> Looks to me all this div_en / div repeating pattern would be easier to review
+> with tiny macro .
+
+
+Good point.
+
+I tried to reduce the repeated div_en/div pattern using a helper macro.
+
+It keeps the relationship between gate and fixed-factor clock more 
+compact and easier to review.
+
+After using the helper macro, the div_en/div code can be simplified to 
+the following:
+
+#define A9_VCLK(_name, _reg, _bit, _div, _parent)        \
+struct clk_regmap a9_##_name##_en = {      \
+         .data = &(struct clk_regmap_gate_data){          \
+                 .offset = _reg,      \
+                 .bit_idx = _bit,       \
+         },       \
+         .hw.init = &(struct clk_init_data) {           \
+                 .name = #_name "_en",      \
+                 .ops = &clk_regmap_gate_ops,           \
+                 .parent_hws = (const struct clk_hw *[]) { _parent },    \
+                 .num_parents = 1,      \
+                 .flags = CLK_SET_RATE_PARENT,      \
+         },       \
+};       \
+       \
+struct clk_fixed_factor a9_##_name = {       \
+         .mult = 1,       \
+         .div = _div,       \
+         .hw.init = &(struct clk_init_data){          \
+                 .name = #_name,      \
+                 .ops = &clk_fixed_factor_ops,          \
+                 .parent_hws = (const struct clk_hw *[]) {      \
+                         &a9_##_name##_en.hw          \
+                 },       \
+                 .num_parents = 1,      \
+                 .flags = CLK_SET_RATE_PARENT,      \
+         },       \
+};       \
+
+static A9_VCLK(vclk_div2, VID_CLK_CTRL, 1, 2, &a9_vclk.hw);
+static A9_VCLK(vclk_div4, VID_CLK_CTRL, 2, 4, &a9_vclk.hw);
+static A9_VCLK(vclk_div6, VID_CLK_CTRL, 3, 6, &a9_vclk.hw);
+static A9_VCLK(vclk_div6, VID_CLK_CTRL, 4, 12, &a9_vclk.hw);
+static A9_VCLK(vclk2_div2, VIID_CLK_CTRL, 1, 2, &a9_vclk2.hw);
+static A9_VCLK(vclk2_div4, VIID_CLK_CTRL, 2, 4, &a9_vclk2.hw);
+static A9_VCLK(vclk2_div6, VIID_CLK_CTRL, 3, 6, &a9_vclk2.hw);
+static A9_VCLK(vclk2_div6, VIID_CLK_CTRL, 4, 12, &a9_vclk2.hw);
+
+
+If you think splitting it further into separate helper macros would 
+improve readability.
+
+I can do that as well.
+
+>> +
+>> +static struct clk_fixed_factor a9_vclk_div2 = {
+>> +     .mult = 1,
+>> +     .div = 2,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div2", &a9_vclk_div2_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_div4_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL,
+>> +             .bit_idx = 2,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div4_en", &a9_vclk.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_vclk_div4 = {
+>> +     .mult = 1,
+>> +     .div = 4,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div4", &a9_vclk_div4_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_div6_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL,
+>> +             .bit_idx = 3,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div6_en", &a9_vclk.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_vclk_div6 = {
+>> +     .mult = 1,
+>> +     .div = 6,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div6", &a9_vclk_div6_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk_div12_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL,
+>> +             .bit_idx = 4,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div12_en", &a9_vclk.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_vclk_div12 = {
+>> +     .mult = 1,
+>> +     .div = 12,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk_div12", &a9_vclk_div12_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_sel = {
+>> +     .data = &(struct clk_regmap_mux_data){
+>> +             .offset = VIID_CLK_CTRL,
+>> +             .mask = 0x7,
+>> +             .shift = 16,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_PARENTS_DATA("vclk2_sel", a9_vclk_parents,
+>> +                     &clk_regmap_mux_ops, 0),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_in = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VIID_CLK_DIV,
+>> +             .bit_idx = 16,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_in", &a9_vclk2_sel.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_div = {
+>> +     .data = &(struct clk_regmap_div_data){
+>> +             .offset = VIID_CLK_DIV,
+>> +             .shift = 0,
+>> +             .width = 8,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div", &a9_vclk2_in.hw,
+>> +                               &clk_regmap_divider_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2 = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VIID_CLK_CTRL,
+>> +             .bit_idx = 19,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2", &a9_vclk2_div.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_div1_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VIID_CLK_CTRL,
+>> +             .bit_idx = 0,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div1_en", &a9_vclk2.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_div2_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VIID_CLK_CTRL,
+>> +             .bit_idx = 1,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div2_en", &a9_vclk2.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_vclk2_div2 = {
+>> +     .mult = 1,
+>> +     .div = 2,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div2", &a9_vclk2_div2_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_div4_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VIID_CLK_CTRL,
+>> +             .bit_idx = 2,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div4_en", &a9_vclk2.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_vclk2_div4 = {
+>> +     .mult = 1,
+>> +     .div = 4,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div4", &a9_vclk2_div4_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_div6_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VIID_CLK_CTRL,
+>> +             .bit_idx = 3,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div6_en", &a9_vclk2.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_vclk2_div6 = {
+>> +     .mult = 1,
+>> +     .div = 6,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div6", &a9_vclk2_div6_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vclk2_div12_en = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VIID_CLK_CTRL,
+>> +             .bit_idx = 4,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div12_en", &a9_vclk2.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_vclk2_div12 = {
+>> +     .mult = 1,
+>> +     .div = 12,
+>> +     .hw.init = CLK_HW_INIT_HW("vclk2_div12", &a9_vclk2_div12_en.hw,
+>> +                               &clk_fixed_factor_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +/* Channel 5, 6 and 7 are unconnected */
+>> +static u32 a9_vid_parents_val_table[] = { 0, 1, 2, 3, 4, 8, 9, 10, 11, 12 };
+>> +static const struct clk_hw *a9_vid_parents[] = {
+>> +     &a9_vclk_div1_en.hw,
+>> +     &a9_vclk_div2.hw,
+>> +     &a9_vclk_div4.hw,
+>> +     &a9_vclk_div6.hw,
+>> +     &a9_vclk_div12.hw,
+>> +     &a9_vclk2_div1_en.hw,
+>> +     &a9_vclk2_div2.hw,
+>> +     &a9_vclk2_div4.hw,
+>> +     &a9_vclk2_div6.hw,
+>> +     &a9_vclk2_div12.hw
+>> +};
+>> +
+>> +static struct clk_regmap a9_vdac_sel = {
+>> +     .data = &(struct clk_regmap_mux_data){
+>> +             .offset = VIID_CLK_DIV,
+>> +             .mask = 0xf,
+>> +             .shift = 28,
+>> +             .table = a9_vid_parents_val_table,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_PARENTS_HW("vdac_sel", a9_vid_parents
+>> +                     , &clk_regmap_mux_ops, 0),
+>> +};
+>> +
+>> +static struct clk_regmap a9_vdac = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL2,
+>> +             .bit_idx = 4,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("vdac", &a9_vdac_sel.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+>> +static struct clk_regmap a9_enc_sel = {
+> Should this be enc0 then ? for consistency ?
+> Same applies to similar instance (it is the same discussion we already
+> had on the T7 I believe)
+
+
+Yes, that makes sense.
+
+I'll rename them to a9_encoder0 and a9_encoder1 for consistency, and 
+I'll check for other similar instances as well.
+
+>> +     .data = &(struct clk_regmap_mux_data){
+>> +             .offset = VIID_CLK_DIV,
+>> +             .mask = 0xf,
+>> +             .shift = 12,
+>> +             .table = a9_vid_parents_val_table,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_PARENTS_HW("enc_sel", a9_vid_parents
+>> +                     , &clk_regmap_mux_ops, 0),
+>> +};
+>> +
+>> +static struct clk_regmap a9_enc = {
+>> +     .data = &(struct clk_regmap_gate_data){
+>> +             .offset = VID_CLK_CTRL2,
+>> +             .bit_idx = 10,
+>> +     },
+>> +     .hw.init = CLK_HW_INIT_HW("enc", &a9_enc_sel.hw,
+>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>> +};
+>> +
+
+
+[ ... ]
+
+> --
+> Jerome
+
+
+--
+
+Jian
 
 
