@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0771CCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 07:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3753ECD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ItjGFL5Ra84+rUb38ksEFbRSdUFKv7nWgVro2pCBeCI=; b=QPcCT5xFM4Zzd0VFTrWDexXEas
-	xCLoUcEmMl6xjz7ooB4XCkuDfc/mahQHoAlrpG/CmTTL30UiGFYobzNp36Oc2+Y1tQFOWT+OkLUg2
-	y2nB1A0sE9wsEAc/+oEHylAakyjWub3l1W7Vd5IV1d4DJd7zzscmhK/xB/fUtBcKtrekzFhxsgmAj
-	dC0gDldYT6GzwYty2tvjBzjeb4CVaWJvwZcEAL72qwjpz7Kd6MQspZFdyV6KgqWjS61AvuIcdzrb1
-	rqWMVRfH+Ys0VUgP0aSkIaCYBBvRN0fsvW/WuSS0RSgPg2npDvnXdsuB4YGR02ry6rMb4pU4C1iyu
-	0sNVgtbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=esLxOdDvi2vPjMTMgqd+SoSQ1+kSVOGxdsHp7IfiPl0=; b=K8G/Lf/jwDxDki7iIkhBuxs0mn
+	rsBILFYcmi0Sf83FFddQlzWG9lWuuTYleuhoHpGK3G67zjwS8y45T6S3Q095vi/V9/RThVR48MxYa
+	WyPGsAwyEKZxR5uxYTdYDfAoq20R/63PY1YgnmJxzwsXKgQWRRIKWfUnG643kC32cdemmSXVQns8G
+	xhAyawFH9Cna9Vvr99LJ7qupywkoSytl9K270oaVGlry1qgBRlqWUS6AqOiRL4eo146YCaRJauSFR
+	wyyjtIBt7HkzA9fMDIa8NPdSRoCg5+XeicQD0EHgMizI1pguIDvv4bqZ0J6+GZrfJaLVOKVyBo4Il
+	l1axgG7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ293-0000000Dp0p-2xPD;
-	Mon, 15 Jun 2026 07:54:10 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wZ2Xa-0000000DquN-0gTE;
+	Mon, 15 Jun 2026 08:19:30 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ291-0000000Dp0I-0wjF
+	id 1wZ2XW-0000000DqtB-36NW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 07:54:08 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1wZ28k-0006Kb-3t; Mon, 15 Jun 2026 09:53:50 +0200
-Message-ID: <f0b7d0a0-9b75-4d63-bc1a-f0891c86b2b9@pengutronix.de>
-Date: Mon, 15 Jun 2026 09:53:49 +0200
+	Mon, 15 Jun 2026 08:19:28 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.167])
+	by APP-03 (Coremail) with SMTP id rQCowABHK+KAtS9qGh3KFA--.4043S2;
+	Mon, 15 Jun 2026 16:19:13 +0800 (CST)
+Message-ID: <3683c5c617324f5835529617325745ef48fa1943.camel@iscas.ac.cn>
+Subject: Re: [PATCH v4 1/6] dt-bindings: display: verisilicon, dc:
+ generalize for single-output variants
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 15 Jun 2026 16:19:11 +0800
+In-Reply-To: <20260615065003.76661-2-a0987203069@gmail.com>
+References: <20260615065003.76661-1-a0987203069@gmail.com>
+	 <20260615065003.76661-2-a0987203069@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] ARM: dts: stm32: lxa: change stdout-path baud rate
- from 9600 to 115200
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Leonard_G=C3=B6hrs?=
- <l.goehrs@pengutronix.de>, Marc Kleine-Budde <mkl@pengutronix.de>,
- Alexandre Torgue <alexandre.torgue@st.com>, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@pengutronix.de
-References: <20260611-lxa-stdout-path-baudrate-v1-0-59b60a5069ff@pengutronix.de>
- <20260611204341.147f1afb@pumpkin>
- <b4fd25b6-52e3-4b5e-8440-69545bce43e8@pengutronix.de>
- <20260612075342.6615d66c@pumpkin>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <20260612075342.6615d66c@pumpkin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CM-TRANSID: rQCowABHK+KAtS9qGh3KFA--.4043S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtryrZr17WFW3tF1ftFy3twb_yoW7trykpF
+	4kJrWUJryxJrn5Xr18tF18AFyUJw1DJw1DJr1xXF15tr1UJr10qr1a9r1qgr13Jr48Xr1U
+	tr1UXr17Zr12yr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPGb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFcxC0VAYjxAxZF0Ew4CEw7xC0wAC
+	Y4xI67k04243AVC20s07M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r
+	43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
+	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x
+	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
+	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
+	AIcVC2z280aVCY1x0267AKxVW8JVW8Jr1l6VACY4xI67k04243AbIYCTnIWIevJa73UjIF
+	yTuYvjxU2H7KDUUUU
+X-Originating-IP: [112.94.100.167]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_005407_277633_CE783C02 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20260615_011927_145249_FF1D0FD9 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,99 +85,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello David,
+5ZyoIDIwMjYtMDYtMTXkuIDnmoQgMTQ6NDkgKzA4MDDvvIxKb2V5IEx15YaZ6YGT77yaCj4gVGhl
+IGV4aXN0aW5nIHNjaGVtYSBoYXJkLWNvZGVzIHRoZSBmaXZlLWNsb2NrL3RocmVlLXJlc2V0L2R1
+YWwtcG9ydAo+IHRvcG9sb2d5IG9mIHRoZSBEQzgyMDAgSVAgYmxvY2ssIHByZXZlbnRpbmcgcmV1
+c2UgZm9yIHNpbmdsZS1vdXRwdXQKPiB2YXJpYW50cyBzdWNoIGFzIHRoZSBWZXJpc2lsaWNvbiBE
+Q1VsdHJhTGl0ZSB1c2VkIGluIHRoZSBOdXZvdG9uCj4gTUEzNUQxCj4gU29DLgo+IAo+IFJld29y
+ayB0aGUgc2NoZW1hIHNvIHRoYXQgdmFyaWFudC1zcGVjaWZpYyBjb25zdHJhaW50cyBhcmUgZXhw
+cmVzc2VkCj4gdmlhCj4gYWxsT2YvaWYgYmxvY2tzOgo+IAo+IC0gQWRkIG51dm90b24sbWEzNWQx
+LWRjdSB0byB0aGUgU29DLXNwZWNpZmljIGNvbXBhdGlibGUgZW51bS7CoCBUaGUKPiDCoCBnZW5l
+cmljIHZlcmlzaWxpY29uLGRjIGZhbGxiYWNrIHJlbWFpbnMgdGhlIGRyaXZlci1iaW5kaW5nIHN0
+cmluZy4KPiAtIE1vdmUgY2xvY2sgYW5kIHJlc2V0IGl0ZW1zIGRlc2NyaXB0aW9ucyBpbnRvIHRo
+ZSBwZXItdmFyaWFudAo+IGFsbE9mL2lmCj4gwqAgYmxvY2tzOyBrZWVwIG9ubHkgbWluSXRlbXMv
+bWF4SXRlbXMgYXQgdGhlIHRvcCBsZXZlbCBzbyB0aGUgYmFzZQo+IHNjaGVtYQo+IMKgIGFjY2Vw
+dHMgYWxsIHZhcmlhbnRzLgo+IC0gUmVzdG9yZSBmdWxsIGl0ZW1zIGxpc3RzIGZvciBjbG9jay1u
+YW1lcyBhbmQgcmVzZXQtbmFtZXMgYXQgdGhlIHRvcAo+IMKgIGxldmVsIHdpdGggbWluSXRlbXMg
+c28gdGhlIG5hbWVzIGFyZSB2YWxpZGF0ZWQgYWdhaW5zdCB0aGUKPiBkZXNjcmlwdGlvbnMuCj4g
+LSBLZWVwIHBvcnRzIGluIHRoZSBnbG9iYWwgcmVxdWlyZWQgbGlzdCBhbmQga2VlcAo+IGFkZGl0
+aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZS4KPiAtIEFkZCBhbiBhbGxPZi9pZiBibG9jayBmb3IgdGhl
+YWQsdGgxNTIwLWRjODIwMDogZml2ZS1jbG9jayAoY29yZSwKPiBheGksCj4gwqAgYWhiLCBwaXgw
+LCBwaXgxKSwgdGhyZWUtcmVzZXQgKGNvcmUsIGF4aSwgYWhiKSwgcmVxdWlyZWQgcmVzZXRzLgo+
+IC0gQWRkIGFuIGFsbE9mL2lmIGJsb2NrIGZvciBudXZvdG9uLG1hMzVkMS1kY3U6IHR3by1jbG9j
+ayAoY29yZSwKPiBwaXgwKSwKPiDCoCBvbmUtcmVzZXQgKGNvcmUpLCByZXF1aXJlZCByZXNldHMu
+Cj4gCj4gU2lnbmVkLW9mZi1ieTogSm9leSBMdSA8YTA5ODcyMDMwNjlAZ21haWwuY29tPgo+IC0t
+LQo+IMKgLi4uL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNpbGljb24sZGMueWFtbMKgwqDCoMKgwqAg
+fCA4MAo+ICsrKysrKysrKysrKysrKysrLS0KPiDCoDEgZmlsZSBjaGFuZ2VkLCA3MyBpbnNlcnRp
+b25zKCspLCA3IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQKPiBhL0RvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5L3ZlcmlzaWxpY29uLGRjLnlhbWwKPiBiL0RvY3Vt
+ZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5L3ZlcmlzaWxpY29uLGRjLnlhbWwK
+PiBpbmRleCA5ZGMzNWFiOTczZjIuLjBjNDEyODZiODIyMyAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVu
+dGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS92ZXJpc2lsaWNvbixkYy55YW1sCj4g
+KysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNpbGlj
+b24sZGMueWFtbAo+IEBAIC0xNyw2ICsxNyw3IEBAIHByb3BlcnRpZXM6Cj4gwqDCoMKgwqAgaXRl
+bXM6Cj4gwqDCoMKgwqDCoMKgIC0gZW51bToKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHRoZWFk
+LHRoMTUyMC1kYzgyMDAKPiArwqDCoMKgwqDCoMKgwqDCoMKgIC0gbnV2b3RvbixtYTM1ZDEtZGN1
+Cj4gwqDCoMKgwqDCoMKgIC0gY29uc3Q6IHZlcmlzaWxpY29uLGRjICMgREMgSVBzIGhhdmUgZGlz
+Y292ZXJhYmxlIElEL3JldmlzaW9uCj4gcmVnaXN0ZXJzCj4gwqAKPiDCoMKgIHJlZzoKPiBAQCAt
+MjYsMTQgKzI3LDEyIEBAIHByb3BlcnRpZXM6Cj4gwqDCoMKgwqAgbWF4SXRlbXM6IDEKPiDCoAo+
+IMKgwqAgY2xvY2tzOgo+IC3CoMKgwqAgaXRlbXM6Cj4gLcKgwqDCoMKgwqAgLSBkZXNjcmlwdGlv
+bjogREMgQ29yZSBjbG9jawo+IC3CoMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IERNQSBBWEkgYnVz
+IGNsb2NrCj4gLcKgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogQ29uZmlndXJhdGlvbiBBSEIgYnVz
+IGNsb2NrCj4gLcKgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogUGl4ZWwgY2xvY2sgb2Ygb3V0cHV0
+IDAKPiAtwqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBQaXhlbCBjbG9jayBvZiBvdXRwdXQgMQoK
+Q2xvY2sgZGVzY3JpcHRpb25zIHNob3VsZCBzdGlsbCBiZSBpbiB0aGUgZ2xvYmFsIHBhcnQgaW5z
+dGVhZCBvZiB0aGUKcGVyLWNvbXBhdGlibGUgcGFydC4KCkluIHRoZSBwZXItY29tcGF0aWJsZSBw
+YXJ0LCBjbG9jay1uYW1lcyBzaG91bGQgYmUgY29uc3RyYWludCBmb3IgU29Dcy4KCj4gK8KgwqDC
+oCBtaW5JdGVtczogMgo+ICvCoMKgwqAgbWF4SXRlbXM6IDUKPiDCoAo+IMKgwqAgY2xvY2stbmFt
+ZXM6Cj4gK8KgwqDCoCBtaW5JdGVtczogMgo+ICvCoMKgwqAgbWF4SXRlbXM6IDUKPiDCoMKgwqDC
+oCBpdGVtczoKPiDCoMKgwqDCoMKgwqAgLSBjb25zdDogY29yZQo+IMKgwqDCoMKgwqDCoCAtIGNv
+bnN0OiBheGkKPiBAQCAtNDIsMTIgKzQxLDE2IEBAIHByb3BlcnRpZXM6Cj4gwqDCoMKgwqDCoMKg
+IC0gY29uc3Q6IHBpeDEKPiDCoAo+IMKgwqAgcmVzZXRzOgo+ICvCoMKgwqAgbWluSXRlbXM6IDEK
+PiArwqDCoMKgIG1heEl0ZW1zOiAzCj4gwqDCoMKgwqAgaXRlbXM6Cj4gwqDCoMKgwqDCoMKgIC0g
+ZGVzY3JpcHRpb246IERDIENvcmUgcmVzZXQKPiDCoMKgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjog
+RE1BIEFYSSBidXMgcmVzZXQKPiDCoMKgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogQ29uZmlndXJh
+dGlvbiBBSEIgYnVzIHJlc2V0Cj4gwqAKPiDCoMKgIHJlc2V0LW5hbWVzOgo+ICvCoMKgwqAgbWlu
+SXRlbXM6IDEKPiArwqDCoMKgIG1heEl0ZW1zOiAzCj4gwqDCoMKgwqAgaXRlbXM6Cj4gwqDCoMKg
+wqDCoMKgIC0gY29uc3Q6IGNvcmUKPiDCoMKgwqDCoMKgwqAgLSBjb25zdDogYXhpCj4gQEAgLTU5
+LDcgKzYyLDcgQEAgcHJvcGVydGllczoKPiDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+IMKgwqDCoMKg
+wqDCoCBwb3J0QDA6Cj4gwqDCoMKgwqDCoMKgwqDCoCAkcmVmOiAvc2NoZW1hcy9ncmFwaC55YW1s
+Iy9wcm9wZXJ0aWVzL3BvcnQKPiAtwqDCoMKgwqDCoMKgwqAgZGVzY3JpcHRpb246IFRoZSBmaXJz
+dCBvdXRwdXQgY2hhbm5lbCAsIGVuZHBvaW50IDAgc2hvdWxkIGJlCj4gK8KgwqDCoMKgwqDCoMKg
+IGRlc2NyaXB0aW9uOiBUaGUgZmlyc3Qgb3V0cHV0IGNoYW5uZWwsIGVuZHBvaW50IDAgc2hvdWxk
+IGJlCgpJZiB5b3UgcmVhbGx5IHdhbnQgdG8gZml4IHRoaXMsIHBsZWFzZSBtYWtlIGl0IGEgc2Vw
+YXJhdGVkIHBhdGNoCmluc3RlYWQgb2YgZG9pbmcgaXQgaGVyZSwgZm9yIGNvbW1pdCBhdG9taWNp
+dHkuCgpUaGFua3MsCkljZW5vd3kKCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqAgdXNlZCBmb3IgRFBJ
+IGZvcm1hdCBvdXRwdXQgYW5kIGVuZHBvaW50IDEgc2hvdWxkIGJlIHVzZWQKPiDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCBmb3IgRFAgZm9ybWF0IG91dHB1dC4KPiDCoAo+IEBAIC03Nyw2ICs4MCw2OSBA
+QCByZXF1aXJlZDoKPiDCoMKgIC0gY2xvY2stbmFtZXMKPiDCoMKgIC0gcG9ydHMKPiDCoAo+ICth
+bGxPZjoKPiArwqAgLSBpZjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKgwqDCoMKg
+wqDCoCBjb21wYXRpYmxlOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgY29udGFpbnM6Cj4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgY29uc3Q6IHRoZWFkLHRoMTUyMC1kYzgyMDAKPiArwqDCoMKgIHRo
+ZW46Cj4gK8KgwqDCoMKgwqAgcHJvcGVydGllczoKPiArwqDCoMKgwqDCoMKgwqAgY2xvY2tzOgo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWluSXRlbXM6IDUKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1h
+eEl0ZW1zOiA1Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBpdGVtczoKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBEQyBDb3JlIGNsb2NrCj4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgLSBkZXNjcmlwdGlvbjogRE1BIEFYSSBidXMgY2xvY2sKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBDb25maWd1cmF0aW9uIEFIQiBidXMgY2xvY2sKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBQaXhlbCBjbG9jayBvZiBvdXRwdXQg
+MAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IFBpeGVsIGNsb2NrIG9m
+IG91dHB1dCAxCj4gKwo+ICvCoMKgwqDCoMKgwqDCoCBjbG9jay1uYW1lczoKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgIG1pbkl0ZW1zOiA1Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBtYXhJdGVtczogNQo+
+ICsKPiArwqDCoMKgwqDCoMKgwqAgcmVzZXRzOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWluSXRl
+bXM6IDMKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1heEl0ZW1zOiAzCj4gKwo+ICvCoMKgwqDCoMKg
+wqDCoCByZXNldC1uYW1lczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1pbkl0ZW1zOiAzCj4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoCBtYXhJdGVtczogMwo+ICsKPiArwqDCoMKgwqDCoCByZXF1aXJlZDoK
+PiArwqDCoMKgwqDCoMKgwqAgLSByZXNldHMKPiArwqDCoMKgwqDCoMKgwqAgLSByZXNldC1uYW1l
+cwo+ICsKPiArwqAgLSBpZjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKgwqDCoMKg
+wqDCoCBjb21wYXRpYmxlOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgY29udGFpbnM6Cj4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgY29uc3Q6IG51dm90b24sbWEzNWQxLWRjdQo+ICvCoMKgwqAgdGhl
+bjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKgwqDCoMKgwqDCoCBjbG9ja3M6Cj4g
+K8KgwqDCoMKgwqDCoMKgwqDCoCBtaW5JdGVtczogMgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWF4
+SXRlbXM6IDIKPiArwqDCoMKgwqDCoMKgwqDCoMKgIGl0ZW1zOgo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIC0gZGVzY3JpcHRpb246IERDIENvcmUgY2xvY2sKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCAtIGRlc2NyaXB0aW9uOiBQaXhlbCBjbG9jayBvZiBvdXRwdXQgMAo+ICsKPiArwqDCoMKg
+wqDCoMKgwqAgY2xvY2stbmFtZXM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBtaW5JdGVtczogMgo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWF4SXRlbXM6IDIKPiArCj4gK8KgwqDCoMKgwqDCoMKgIHJl
+c2V0czoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1pbkl0ZW1zOiAxCj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoCBtYXhJdGVtczogMQo+ICsKPiArwqDCoMKgwqDCoMKgwqAgcmVzZXQtbmFtZXM6Cj4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoCBtYXhJdGVtczogMQo+ICsKPiArwqDCoMKgwqDCoCByZXF1aXJlZDoK
+PiArwqDCoMKgwqDCoMKgwqAgLSByZXNldHMKPiArwqDCoMKgwqDCoMKgwqAgLSByZXNldC1uYW1l
+cwo+ICsKPiDCoGFkZGl0aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZQo+IMKgCj4gwqBleGFtcGxlczoK
 
-On 6/12/26 8:53 AM, David Laight wrote:
-> On Thu, 11 Jun 2026 22:33:18 +0200
-> Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
-> 
->> Hi David,
->>
->> On 6/11/26 21:43, David Laight wrote:
->>> On Thu, 11 Jun 2026 20:12:32 +0200
->>> Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
->>>   
->>>> The LXA boards are the only STM32 boards that set stdout-path = &uart*
->>>> instead of explicitly specifying a baud rate.
->>>>
->>>> This would mean the default of 9600 is used, but it goes unnoticed when
->>>> booting normally as barebox fixes up a console= line that includes a
->>>> baud rate.
->>>>
->>>> When EFI booting GRUB however, GRUB will not pass along the console=
->>>> line and thus the board ends up with a 9600 baud Linux console,
->>>> confusing users.  
->>>
->>> Is it possible to determine the current baud rate (by reading the hardware
->>> register) and default to that value.
->>> Then if grub has initialised the uart the kernel will use the same
->>> baud rate.  
->>
->> I think so, yes. In addition to the register divider configuration, one
->> would need the input clock rate as well, but that's not a problem.
->>
->> Do you know if any drivers already do this?
-> 
-> I've seen it done somewhere, certainly x86, but possibly NetBSD.
-> That would have been preserving the baud rate set by the bios.
-> You don't want the baud rate changing half way through the boot sequence.
-
-I agree in general, but in this case here, the BIOS defaults to 115200:
-
-https://github.com/linux-automation/meta-lxatac/blob/wrynose/meta-lxatac-bsp/recipes-bsp/barebox/files/lxatac/defconfig#L171
-https://elixir.bootlin.com/barebox/v2026.06.0/source/common/console.c#L349
-
-Cheers,
-Ahmad
-
-> 
-> 	David
-> 
->>
->> Nevertheless, I would like the LXA device trees changed, even if only
->> to align them with all other existing STM32 device trees.
->>
->> Cheers,
->> Ahmad
->>
->>
->>>
->>> 	David
->>>   
->>>>
->>>> This series fixes this. As the device trees were added at different
->>>> times, they are fixed each in a separate commit with its own Fixes: tag.
->>>>
->>>> ---
->>>> Ahmad Fatoum (3):
->>>>       ARM: dts: stm32: lxa-mc1: change stdout-path baud rate from 9600 to 115200
->>>>       ARM: dts: stm32: lxa-tac: change stdout-path baud rate from 9600 to 115200
->>>>       ARM: dts: stm32: fairytux2: change stdout-path baud rate from 9600 to 115200
->>>>
->>>>  arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi | 2 +-
->>>>  arch/arm/boot/dts/st/stm32mp157c-lxa-mc1.dts        | 2 +-
->>>>  arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi       | 2 +-
->>>>  3 files changed, 3 insertions(+), 3 deletions(-)
->>>> ---
->>>> base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
->>>> change-id: 20260611-lxa-stdout-path-baudrate-7cf454cdae07
->>>>
->>>> Best regards,
->>>> --  
->>>> Ahmad Fatoum <a.fatoum@pengutronix.de>
->>>>
->>>>  
->>>
->>>   
->>
->>
-> 
-> 
-
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
 
 
