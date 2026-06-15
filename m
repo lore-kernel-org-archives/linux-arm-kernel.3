@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B39BCD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF4BCD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 00:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fDHskcalX1Eyf5uU4t/aR1BqkGPnh3W34m8qlSr4iSY=; b=nrnsVTMVx+C4GwmtWPQCyv45ao
-	Uunwl0TygnVcwX71vON1ZpTDB0EiorsWD982Twm/zWHeGEERsgeXvj48Rak5MBaEf1OTIUozToK2X
-	I3PCCCBVZTM58KEDbXi6ofpUH32dBtDcnqAdx7FBH2LjR6chMra6UdYZbWP+yGMYBXMqI+pj63I9n
-	QqLZN0rrVHgaM16j1BZ5MhP2iNIEHfPUUuUSddrMXZss61kbfH2LI0CEwHhI1cts63JHidCcWkQo/
-	34GT0sUG1kthd1O/lersLoaUPU7SKXJpXeSkhAIWlXjIfduLIIx5q1uQdgWvJbAqXgbOiUSnIp8Cq
-	fMRK/hrw==;
+	bh=QyebWGkoDw0IMLgVd+AKwJCgIiDE52FQKr4Rqkznajk=; b=laoagKAV13/JXGffLwLQ5TsXzN
+	Va7Jrcgvpss4jcIFq4qIf92l9Lha28JMlXr2OnHvFozQxcTOB8gTvgl8LTzb2v3dR/uZrmNhMJih2
+	Nx1FuqnaDfNDAnE+kVLHFAJXzHesJLZtIVlrFrcXgIVBLV9JO07vdSeN4NhKIsZa21f+FpKT82p7k
+	25qVty5l2/KP+pu9BQaUq4rYSk6a1YMXPY1OOgsjAAyfND8Bl7XeWuvSAcMT8Lr+qHq55OT1n3xML
+	XzLKSWPYnXf4Cg7dFPv9VE0oICET6RzYNSDt72A0igUOIWWfjOlYT1Q08ZkLYZaIjtdqydHjG+yfn
+	7ot8W/NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZHAy-0000000EyW4-1Rev;
-	Mon, 15 Jun 2026 23:57:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZGrl-0000000EwoQ-1j9A;
+	Mon, 15 Jun 2026 23:37:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZHAs-0000000EySk-1otU;
-	Mon, 15 Jun 2026 23:57:02 +0000
+	id 1wZGrj-0000000EwoH-3WOB;
+	Mon, 15 Jun 2026 23:37:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9CC2436B4;
-	Mon, 15 Jun 2026 23:57:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15D791F00A3A;
-	Mon, 15 Jun 2026 23:57:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E3C1F6008A;
+	Mon, 15 Jun 2026 23:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 137551F000E9;
+	Mon, 15 Jun 2026 23:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781567821;
-	bh=fDHskcalX1Eyf5uU4t/aR1BqkGPnh3W34m8qlSr4iSY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mlTm9La1e0PbaoG/565k376Z7ZCfCgpox1mynJ7RroJibim8k/kSsGsiaEZ8gTNKa
-	 Lt1aOHaq8+DYXADx1lL51u2FfCCYRjSDaOSUi8hg88zbBEEXpfZKDsImEiLv29pw8y
-	 u0LAB5GO6wxDuwN4ycTFKeALNH2IJYOhdlVX2hKmh9q5jmfVSqqyKV8OBAxmZwd8+n
-	 mtCX+Er52/f/SzKn4UofoIwWpvSwBEZh9QwYhBawPgG7kr4VBahNHGUubXoAC+pD43
-	 2+ZmEJwoDTZDovIX46ufp5e47L4GDnT1teBNxFDs/NPdxfgxnWbkDdhUelGfRSWGGI
-	 SUkw8h4sS5xJw==
+	s=k20260515; t=1781566634;
+	bh=QyebWGkoDw0IMLgVd+AKwJCgIiDE52FQKr4Rqkznajk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HNRBRDKOOEc3w6UWCswmMwcS08k8VXC8ghVYfQr2saEu6CmfXrbaT9eu02xZvY4Mb
+	 05hO7jVky7Yo2Q37OGLDJ0EF2U6/4NNoojmfdqo9IXmeRurxeRiq2kjvFJ+ul5ZAss
+	 djADX5tBYXJLHfXf0+RmRqEjHETK7O0LwU3b/hqST27Ct2HUfsBNY2a5OArOoBDhBW
+	 N1TEPRI89ijWa5pzTFWqsh7aDSs5a84Jni73Iu1wxh6vtYhEtXHLfKpCH1Z7SGZrmp
+	 OXYH5p8Qe+3M2Y709/Y7D8l+9GxkBOZ2OEcWOFVGmq9Q0oftp15s6RPc403q1dkuDP
+	 7F5V8C3k2mxhg==
+Date: Mon, 15 Jun 2026 16:37:13 -0700
 From: Jakub Kicinski <kuba@kernel.org>
-To: daniel@makrotopia.org
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	chester.a.unal@arinc9.com,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux@armlinux.org.uk,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v2 8/8] net: dsa: mt7530: implement port_change_conduit op
-Date: Mon, 15 Jun 2026 16:57:00 -0700
-Message-ID: <20260615235700.1060843-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <8dd8cfe32bc8e38b92c49e30a6255090fb0998fb.1781312667.git.daniel@makrotopia.org>
-References: <8dd8cfe32bc8e38b92c49e30a6255090fb0998fb.1781312667.git.daniel@makrotopia.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, Madhur Agrawal
+ <madhur.agrawal@airoha.com>, Alexander Lobakin
+ <aleksander.lobakin@intel.com>
+Subject: Re: [PATCH net-next v5 0/3] airoha: add the capability to configure
+ GDM3/GDM4 as WAN/LAN on demand
+Message-ID: <20260615163713.665271a2@kernel.org>
+In-Reply-To: <20260611-airoha-ethtool-priv_flags-v5-0-c11de08486d1@kernel.org>
+References: <20260611-airoha-ethtool-priv_flags-v5-0-c11de08486d1@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,68 +72,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
----
-net: dsa: mt7530: implement port_change_conduit op
+On Thu, 11 Jun 2026 23:55:50 +0200 Lorenzo Bianconi wrote:
+>       net: airoha: use int instead of atomic_t for qdma users counter
+>       net: airoha: refactor QDMA start/stop into reusable helpers
+>       net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS offload
 
-Implements the port_change_conduit operation for the mt7530 driver,
-updating the port matrix to forward to a new CPU port. The op is
-restricted to MT7531 because MT7530/MT7621 cannot honour per-port CPU
-affinity for trapped frames and the MT7988/EN7581/AN7583 switches have
-only a single CPU port.
-
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index c96420c291d5..2f3e734b9f53 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-> @@ -3206,6 +3206,34 @@ static int mt753x_set_mac_eee(struct dsa_switch *ds, int port,
->  	return 0;
->  }
->  
-> +static int
-> +mt753x_port_change_conduit(struct dsa_switch *ds, int port,
-> +			   struct net_device *conduit,
-> +			   struct netlink_ext_ack *extack)
-> +{
-> +	struct dsa_port *new_cpu_dp = conduit->dsa_ptr;
-> +	struct dsa_port *dp = dsa_to_port(ds, port);
-> +	struct mt7530_priv *priv = ds->priv;
-> +
-> +	if (priv->id != ID_MT7531)
-> +		return -EOPNOTSUPP;
-
-[Low]
-Should this branch populate the supplied extack with NL_SET_ERR_MSG_MOD()
-before returning -EOPNOTSUPP?
-
-Because port_change_conduit is registered in the shared mt7530_switch_ops
-table, the DSA core's fallback message in dsa_user_change_conduit() ("Driver
-does not support changing DSA conduit") is bypassed; that branch only runs
-when ds->ops->port_change_conduit is NULL. Neither dsa_port_change_conduit()
-nor __dsa_port_change_conduit() in net/dsa/port.c synthesize an extack on
-callback failure either.
-
-The result is that on MT7530, MT7621, MT7988, EN7581 and AN7583, userspace
-invoking IFLA_DSA_CONDUIT receives EOPNOTSUPP with an empty extack, with
-none of the per-chip context that the commit message itself spells out
-(single CPU port; MT7530 MFC CPU_PORT trapping limitation). Would a short
-NL_SET_ERR_MSG_MOD() naming the reason be appropriate here?
-
-> +
-> +	mutex_lock(&priv->reg_mutex);
-> +
-> +	/* dp->cpu_dp still points to the old CPU port */
-> +	priv->ports[port].pm &= ~PCR_MATRIX(BIT(dp->cpu_dp->index));
-> +	priv->ports[port].pm |= PCR_MATRIX(BIT(new_cpu_dp->index));
-> +	if (priv->ports[port].enable)
-> +		regmap_update_bits(priv->regmap, MT7530_PCR_P(port),
-> +				   PCR_MATRIX_MASK, priv->ports[port].pm);
-> +
-> +	mutex_unlock(&priv->reg_mutex);
-> +
-> +	mt7530_port_fast_age(ds, port);
-> +
-> +	return 0;
-> +}
+only the first patch applies cleanly right now
 
