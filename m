@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C16CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 06:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CDF4CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 06:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6OyrElnzHDqgWw2fUTNOzAvc452gz9pwfoMpOtTwnik=; b=CN4TgrZ4vzUhd7ZF8aNkYltek8
-	NKkAOwSxNtc6e3nyxXYAkAmk4Dqx2QK1TFz6i0Z7HMdBCyZGREuW/O47PduvvpfDAVloY6RVDELDs
-	Nz/IyKn4p93b+FX6liJdgYNz1CR+XYDESgn7oB7A84h8gL4nTVUXS0ssCZjdNjjBysfd3evonMQUY
-	TMwlNCLCr6Law5F9T3nKilfZ8hghXkr2QexYP/0GSpPO/i6sVLtwl68ABpzls6AGJ8kQrz8vdxrMY
-	Lb0Pmeg3dmILxZSVh2RtGA2E2wQpp3eC0qjc5mYkxnp+5X3lJW+jFM8MYF+rAuu/2zQ2d+lQicPAt
-	xQduAnJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wYvlTdTkI8iTFk+/aWNvdop1BELaOWjR9XgqorfHy0o=; b=4V2sev58/ds4i1OVv08tgdvrXJ
+	vrTEw2fBROgMuWyFsCFMU/G9ifyBEcxlV9DHFEEjyvqLXFPuClqR8OOcxlPol0Ax+PisOsNyAy/XJ
+	6RkoMdyJmU+SgzvdcFfeedDxeiW7zDjZfVtePfw3tN8dyWdDnaPGkHxsoo8zb0KqLz2f5nRuSuofX
+	qxXzACV/JyuD3oCYd0P5sN2lE0RMkGs2poYR3NTJ78QhNvDWeUu4uj6t/gEJpA5jZiZVavF+IK8WM
+	dE16cOrruT6CI4E9UR+EwL5voSQJfHwCfEYqnn0gISwf9Tqe9blf+NiV10G+XQxNg522XOkI+BeP3
+	UtJCmKgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ0sD-0000000Dgvm-3yn7;
-	Mon, 15 Jun 2026 06:32:41 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wZ0wv-0000000DhEr-3bBX;
+	Mon, 15 Jun 2026 06:37:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ0s8-0000000Dgv0-44FB;
-	Mon, 15 Jun 2026 06:32:38 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowACnGu6CnC9qMHWTEw--.34359S2;
-	Mon, 15 Jun 2026 14:32:34 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: pengpeng@iscas.ac.cn
-Subject: [PATCH] mtd: nand: ecc-mtk: handle ECC clock enable failures
-Date: Mon, 15 Jun 2026 14:32:32 +0800
-Message-ID: <20260615063232.44383-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1wZ0wu-0000000DhEf-0rXl;
+	Mon, 15 Jun 2026 06:37:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 49904600AB;
+	Mon, 15 Jun 2026 06:37:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 539C21F000E9;
+	Mon, 15 Jun 2026 06:37:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781505451;
+	bh=wYvlTdTkI8iTFk+/aWNvdop1BELaOWjR9XgqorfHy0o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KWVdxXcMy5KN4BO2w3B22IRJrWNfqThxDyUC0W8HUkClZuh2P9N9iWaBPIZoBlaRt
+	 boUKjMI3L5d9spGYBtbMPEIGbNBJE5swnZVzIYy/27dOv9HGs+M/7a9cxebTCsvk84
+	 vJ9Mwq2PqNQ3q3zmKQFAZekSsQ9/Fa4iQc7mAkms/aSStQtJdzXrkjCAj5lgJmiE1r
+	 EwMu4BrlqhYYlxZy0YuDxkTVikIdxwekAwj/Us+diEjiAc7i380cKyY0CWrfDUwOvS
+	 RliT5chIFPkzKkYZV36iTCzJJR1EB2htPdsDeH4dYYCDEen4Mb6GQwL92UvXY+XUak
+	 vNF6so87QfGjw==
+Date: Mon, 15 Jun 2026 08:37:28 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Julian Braha <julianbraha@gmail.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>, linux-pwm@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
+Subject: Re: [PATCH v5 2/3] pwm: rp1: Add RP1 PWM controller driver
+Message-ID: <ai-dNlC1_nbQTy5Z@monoceros>
+References: <cover.1780670224.git.andrea.porta@suse.com>
+ <f8dd46a553351adaf9d29fbba9f98e803b672fe7.1780670224.git.andrea.porta@suse.com>
+ <0b6a7f41-b753-48dc-b46e-77aaf0e999f4@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACnGu6CnC9qMHWTEw--.34359S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ury3XF4kAF4rWrW7uw18AFb_yoW8Gw15pF
-	WUC395KrWDGayjgwn7ua1UC3WakayxK395Wr98Cw1v93sYvrySyFy8JFWjvwnYvrWrGa13
-	Jrsrta4kAayUAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUpwZcUUUUU=
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_233237_398063_710214B7 
-X-CRM114-Status: GOOD (  12.09  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ajhov2qxsz3lss5g"
+Content-Disposition: inline
+In-Reply-To: <0b6a7f41-b753-48dc-b46e-77aaf0e999f4@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +74,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_ecc_get() gets a reference to the ECC platform device, obtains the
-provider state and then enables the ECC clock before initializing the
-hardware.
 
-The clk_prepare_enable() return value is currently ignored.  If enabling
-the clock fails, the code still touches the ECC registers and returns a
-live ECC handle to the caller.  The provider device reference acquired
-by of_find_device_by_node() is also kept even though the handle setup
-failed.
+--ajhov2qxsz3lss5g
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 2/3] pwm: rp1: Add RP1 PWM controller driver
+MIME-Version: 1.0
 
-Propagate the clock enable error and drop the provider device reference
-on that failure path.
+On Sat, Jun 13, 2026 at 01:27:49PM +0100, Julian Braha wrote:
+> On 6/12/26 15:01, Andrea della Porta wrote:
+>=20
+> > +config PWM_RASPBERRYPI_RP1
+> > +	tristate "RP1 PWM support"
+> > +	depends on MISC_RP1 || COMPILE_TEST
+> > +	depends on HAS_IOMEM
+> > +	select REGMAP_MMIO
+> > +	select MFD_SYSCON
+> > +	help
+> > +	  PWM framework driver for Raspberry Pi RP1 controller.
+> > +
+>=20
+> Hi Andrea,
+>=20
+> Selecting REGMAP_MMIO is unnecessary here since you're already selecting
+> MFD_SYSCON.
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/mtd/nand/ecc-mtk.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+IMHO selecting REGMAP_MMIO explicitly here is fine because at least to
+me it's not obvious that MFD_SYSCON enforces REGMAP_MMIO.
 
-diff --git a/drivers/mtd/nand/ecc-mtk.c b/drivers/mtd/nand/ecc-mtk.c
-index c75bb8b80cc1..39be2e3e4ee4 100644
---- a/drivers/mtd/nand/ecc-mtk.c
-+++ b/drivers/mtd/nand/ecc-mtk.c
-@@ -265,6 +265,7 @@ static struct mtk_ecc *mtk_ecc_get(struct device_node *np)
- {
- 	struct platform_device *pdev;
- 	struct mtk_ecc *ecc;
-+	int ret;
- 
- 	pdev = of_find_device_by_node(np);
- 	if (!pdev)
-@@ -276,7 +277,12 @@ static struct mtk_ecc *mtk_ecc_get(struct device_node *np)
- 		return ERR_PTR(-EPROBE_DEFER);
- 	}
- 
--	clk_prepare_enable(ecc->clk);
-+	ret = clk_prepare_enable(ecc->clk);
-+	if (ret) {
-+		put_device(&pdev->dev);
-+		return ERR_PTR(ret);
-+	}
-+
- 	mtk_ecc_hw_init(ecc);
- 
- 	return ecc;
--- 
-2.50.1 (Apple Git-155)
+Best regards
+Uwe
 
+--ajhov2qxsz3lss5g
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmovnaUACgkQj4D7WH0S
+/k6rsQf/UOXqKwIUO7qhgK9i5TY4JtULpUGRl6MSYUIchZKFq4oJExnI1G1PeqVe
+B5QU11I7UGYCjLgU8TBxtxpajjDFLxl+9c9a+AgJNftMMlSXV4ow8aaE9f3ejLFd
+71RW8KxSTWSmXioUKYFklPhx6PaKSaob6D3tE78UBsm95+m8RNQPGFNjus73flHZ
+RYJU+Kw9oFjKhrYWD628kCEED5GjMK6xvExvq33NP6RNi8nFvsLlcB0kbC/89esk
+SWE2CiR/4hGygS1KtKNMA9WjLxxVSCJWeWPv024Fb06m83lBiOJfImYHZyFt2PPQ
+hmyOo+L9FLZ2rshpaiIaqAZgYZarhw==
+=s2AI
+-----END PGP SIGNATURE-----
+
+--ajhov2qxsz3lss5g--
 
