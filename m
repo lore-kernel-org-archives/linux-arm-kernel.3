@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC2BCD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB29CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pSLOYe8Hhw+0g4qOeFWrfwiQWq/IhBoUml/QNmBnejo=; b=idlDO0LRJd1KQD8fm6YKF3aiCr
-	l+pUP36t+HZJDJ9OOZ+Uql+OY6WvxcknGbS/05e91uF1VrrQ7Z4ldIvb7JG6NuqWpnhjmYmnuJWjO
-	jSPfDrNRYXUpEU1nHw2HnJ+a/c0KOcn01ea0K8+HlbBxhB17T4wLQCvwmYPKNsoQWabkmZwGAjEwy
-	mL0m2mQkt5mMccX9Lc33Xpe9F76Xlyy11k6k6vUt+1Ym++h+jIVu2ZB22W+JwZqIUDa8cE+2sfFum
-	oOlSwZI5eemuom9Gcy9uIWx8vFCtnqOjCKv97RniESoTHzdcVrCetbTk6xKOsemUBFSpXojqAVSWe
-	PNReKlsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+06dmrtJLnZdbs87rF1+ux5dsEP9LjcZvNfLN8dlHk4=; b=iH5e+e6jucpLpEEgl+u7pS8Uay
+	W9y0g87MxJmxLizCBmZruY4R56yNaD1JwqoAr/DOSvwjaELt20ib23kJBVhSIyrC7Kn/4QyGIqkXA
+	qP3ECW5ugoNZaYL5Sd3I/IgrLYCCwWr/G0BavPBrf5fI6QmIhvMJLlKlebJdKn2CtuKp7nzOIhE+N
+	rK++C/yKuqsl4rxdJn5kBzpvQgyq65QX0R50XjPgF4SfaF4Sz9E0KEdvWxxxuzhI2Uazr/rnZ7kPL
+	appI8i00JNE4z5JWFtYYDeS2tdUaL3O//d/zt8+NQROrtzWRjcP6Ko1gJTo2yHlEh439IiP1ax+H4
+	lRrGCU8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ32y-0000000Duax-0Eoy;
-	Mon, 15 Jun 2026 08:51:56 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wZ336-0000000Dudc-0bbZ;
+	Mon, 15 Jun 2026 08:52:04 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ32u-0000000DuaN-25ye
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 08:51:54 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.167])
-	by APP-03 (Coremail) with SMTP id rQCowABXddwgvS9q0N_KFA--.599S2;
-	Mon, 15 Jun 2026 16:51:44 +0800 (CST)
-Message-ID: <d5df0e9df3a9a68aae982f2fce830a4b10468476.camel@iscas.ac.cn>
-Subject: Re: [PATCH v4 4/6] drm/verisilicon: add DC8000 (DCUltraLite)
- display controller support
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 15 Jun 2026 16:51:43 +0800
-In-Reply-To: <20260615065003.76661-5-a0987203069@gmail.com>
-References: <20260615065003.76661-1-a0987203069@gmail.com>
-	 <20260615065003.76661-5-a0987203069@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1wZ332-0000000Duag-1Sfd;
+	Mon, 15 Jun 2026 08:52:02 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+06dmrtJLnZdbs87rF1+ux5dsEP9LjcZvNfLN8dlHk4=;
+	b=kZyP2QYInrYpJQGT8hI5P+hzIwOXSNn8KJm9IS3ZYsPNJNgOq6PHW0HqyEuMjHqjtILV0h5xR
+	r4MxUI+Vo26dHexDRGEwgNHCBbrelR7D98by6DQq07Z1T+R8iajyTTcGvtBDTO3IGBAQ7OdfI0/
+	rCKwnClmHHwWxOuokS4VOTg=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gf3Yz0m9lzpSw0;
+	Mon, 15 Jun 2026 16:43:51 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9E3A940571;
+	Mon, 15 Jun 2026 16:51:50 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 15 Jun 2026 16:51:48 +0800
+Message-ID: <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
+Date: Mon, 15 Jun 2026 16:51:48 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXddwgvS9q0N_KFA--.599S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtr18Wr1rGrW5uFW7Xr1xAFb_yoW3ArW7pF
-	4vyay8Wr4UJayI9r97tFy8KF90kw1xtayrWrZ7G34Yvrn8tFyDWFW0qFyUZayDWrZ7JF4I
-	qFsY9w47CrW2v3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUqVcEUUUUU
-X-Originating-IP: [112.94.100.167]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
+ CPUs
+To: Michael Kelley <mhklinux@outlook.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>, "pjw@kernel.org"
+	<pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
+	<alex@ghiti.fr>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com"
+	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
+	<hpa@zytor.com>, "peterz@infradead.org" <peterz@infradead.org>,
+	"kees@kernel.org" <kees@kernel.org>, "nathan@kernel.org" <nathan@kernel.org>,
+	"linusw@kernel.org" <linusw@kernel.org>, "ojeda@kernel.org"
+	<ojeda@kernel.org>, "david.kaplan@amd.com" <david.kaplan@amd.com>,
+	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com"
+	<ryan.roberts@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"timothy.hayes@arm.com" <timothy.hayes@arm.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "thuth@redhat.com" <thuth@redhat.com>,
+	"oupton@kernel.org" <oupton@kernel.org>, "yeoreum.yun@arm.com"
+	<yeoreum.yun@arm.com>, "miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"broonie@kernel.org" <broonie@kernel.org>, "kevin.brodsky@arm.com"
+	<kevin.brodsky@arm.com>, "james.clark@linaro.org" <james.clark@linaro.org>,
+	"tabba@google.com" <tabba@google.com>, "mrigendra.chaubey@gmail.com"
+	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
+	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
+	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-4-ruanjinjie@huawei.com>
+ <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_015153_088370_F08D8F38 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20260615_015201_071288_1469ECA4 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,234 +104,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-15=E4=B8=80=E7=9A=84 14:50 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite display
-> controller whose register layout differs from the DC8200 in several
-> important ways:
->=20
-> 1. No CONFIG_EX commit path: framebuffer updates use the enable (bit
-> 0)
-> =C2=A0=C2=A0 and reset (bit 4) bits in FB_CONFIG instead of the DC8200 st=
-aging
-> =C2=A0=C2=A0 registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT,
-> =C2=A0=C2=A0 FB_BLEND_CONFIG, PANEL_CONFIG_EX).
->=20
-> 2. No PANEL_START register: panel output starts when
-> =C2=A0=C2=A0 PANEL_CONFIG.RUNNING is set; there is no multi-display sync =
-start
-> =C2=A0=C2=A0 register.
->=20
-> 3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA (0x147C) /
-> =C2=A0=C2=A0 DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (0x0010) /
-> =C2=A0=C2=A0 TOP_IRQ_EN (0x0014).
->=20
-> 4. Per-frame commit cycle: DCUltraLite requires the VALID bit in
-> =C2=A0=C2=A0 FB_CONFIG to be set at the start of each atomic commit
-> (crtc_begin)
-> =C2=A0=C2=A0 and cleared after (crtc_flush).
->=20
-> 5. Simpler clock topology: only 'core' (bus gate) and 'pix0' (pixel
-> =C2=A0=C2=A0 divider) clocks; no axi or ahb clocks required.=C2=A0 Make a=
-xi_clk and
-> =C2=A0=C2=A0 ahb_clk optional (devm_clk_get_optional_enabled) so DC8000 n=
-odes
-> =C2=A0=C2=A0 without those clocks are handled gracefully.
->=20
-> Add vs_dc8000.c implementing the vs_dc_funcs vtable for the above
-> differences.=C2=A0 The probe now selects vs_dc8000_funcs when the
-> identified
-> generation is VSDC_GEN_DC8000 (DCUltraLite reads model 0x0,
-> revision 0x5560, customer_id 0x305).
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/Makefile=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.c=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
- 9 ++-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.h=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
- 1 +
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc8000.c | 78
-> +++++++++++++++++++++++++
-> =C2=A04 files changed, 86 insertions(+), 4 deletions(-)
-> =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/Makefile
-> b/drivers/gpu/drm/verisilicon/Makefile
-> index 9d4cd16452fa..d2fd8e4dff24 100644
-> --- a/drivers/gpu/drm/verisilicon/Makefile
-> +++ b/drivers/gpu/drm/verisilicon/Makefile
-> @@ -1,6 +1,6 @@
-> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
-> =C2=A0
-> -verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_drm.o vs_hwdb.o \
-> +verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_dc8000.o vs_drm.o vs_hwdb.o \
-> =C2=A0	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
-> =C2=A0
-> =C2=A0obj-$(CONFIG_DRM_VERISILICON_DC) +=3D verisilicon-dc.o
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
-> b/drivers/gpu/drm/verisilicon/vs_dc.c
-> index 9729b693d360..9499fffbca58 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-> @@ -90,13 +90,13 @@ static int vs_dc_probe(struct platform_device
-> *pdev)
-> =C2=A0		return PTR_ERR(dc->core_clk);
-> =C2=A0	}
-> =C2=A0
-> -	dc->axi_clk =3D devm_clk_get_enabled(dev, "axi");
-> +	dc->axi_clk =3D devm_clk_get_optional_enabled(dev, "axi");
-> =C2=A0	if (IS_ERR(dc->axi_clk)) {
-> =C2=A0		dev_err(dev, "can't get axi clock\n");
-> =C2=A0		return PTR_ERR(dc->axi_clk);
-> =C2=A0	}
-> =C2=A0
-> -	dc->ahb_clk =3D devm_clk_get_enabled(dev, "ahb");
-> +	dc->ahb_clk =3D devm_clk_get_optional_enabled(dev, "ahb");
 
-Please make the clock change a separated patch for atomicity.
 
-BTW the MA35D1 manual's clock tree shows that DCUltra appears on AXI2
-ACLK, AHB_HCLK2, behind a mux of SYS-PLL/EPLL-DIV2 (which seems to be
-the core clock), and behind a divider (which seems to be the pixel
-clock).
+On 6/12/2026 11:45 PM, Michael Kelley wrote:
+> From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
+>>
+>> Support for parallel secondary CPU bringup is already utilized by x86,
+>> MIPS, and RISC-V. This patch brings this capability to the arm64
+>> architecture.
+>>
+>> Rework the global `secondary_data` accessed during early boot into
+>> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
+>> enabling the early boot code in head.S to resolve each secondary CPU's
+>> logical ID concurrently.
+>>
+>> To fully enable HOTPLUG_PARALLEL, this patch implements:
+>> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
+>> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
+>>
+>> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
+>>
+>> |     test kernel	   | secondary CPUs boot time |
+>> |  ---------------------   |	--------------------  |
+>> |   Without this patch     |		155.672	      |
+>> |   cpuhp.parallel=0	   |		62.897	      |
+>> |   cpuhp.parallel=1	   |		166.703	      |
+> 
+> The last two rows seem mixed up. I would expect parallel=0 to
+> result in a longer boot time.
 
-However it's weird that only one DCUltra Clock Enable Bit exists
-despite both bus clocks have "ICG" (I think it means "Integrated Clock
-Gating"). In addition the linux clk-ma35d1 driver assigns "dcu_gate" as
-a downstream of "dcu_mux", although the Figure 6.5-2 in the TRM shows
-no ICG after the "Display core CLK" mux.
+Hi, Michael,
 
-Is the two bus clocks controlled by a single gate bit, and is the bit
-also gating DC core clock?
+The results are correct and not mixed up.
 
-Thanks,
-Icenowy
+Compared to the original non‑HOTPLUG_PARALLEL approach, the advantage of
+cpuhp.parallel=0 lies in its use of cpu_relax(`yield` on arm64) instead
+of the wait_for_completion_timeout() mechanism (which may cause sleep
+and context switching). This significantly reduces the overhead of VM
+exits and context switches in a KVM guest, thereby cutting the secondary
+CPU boot time by more than half.
 
-> =C2=A0	if (IS_ERR(dc->ahb_clk)) {
-> =C2=A0		dev_err(dev, "can't get ahb clock\n");
-> =C2=A0		return PTR_ERR(dc->ahb_clk);
-> @@ -134,7 +134,10 @@ static int vs_dc_probe(struct platform_device
-> *pdev)
-> =C2=A0	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
-> >identity.model,
-> =C2=A0		 dc->identity.revision, dc->identity.customer_id);
-> =C2=A0
-> -	dc->funcs =3D &vs_dc8200_funcs;
-> +	if (dc->identity.generation =3D=3D VSDC_GEN_DC8200)
-> +		dc->funcs =3D &vs_dc8200_funcs;
-> +	else
-> +		dc->funcs =3D &vs_dc8000_funcs;
-> =C2=A0
-> =C2=A0	if (port_count > dc->identity.display_count) {
-> =C2=A0		dev_err(dev, "too many downstream ports than HW
-> capability\n");
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h
-> b/drivers/gpu/drm/verisilicon/vs_dc.h
-> index 544e1a37065b..5218e8cf63e2 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.h
-> @@ -66,5 +66,6 @@ struct vs_dc {
-> =C2=A0};
-> =C2=A0
-> =C2=A0extern const struct vs_dc_funcs vs_dc8200_funcs;
-> +extern const struct vs_dc_funcs vs_dc8000_funcs;
-> =C2=A0
-> =C2=A0#endif /* _VS_DC_H_ */
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> b/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> new file mode 100644
-> index 000000000000..be0c0d7baf52
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> @@ -0,0 +1,78 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Joey Lu <yclu4@nuvoton.com>
-> + */
-> +
-> +#include <linux/regmap.h>
-> +
-> +#include "vs_crtc_regs.h"
-> +#include "vs_dc.h"
-> +#include "vs_primary_plane_regs.h"
-> +
-> +static void vs_dc8000_panel_enable_ex(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dc8000_panel_disable_ex(struct vs_dc *dc, unsigned
-> int output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dc8000_crtc_begin(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dc8000_crtc_flush(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dc8000_crtc_enable(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dc8000_crtc_disable(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dc8000_enable_vblank(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static void vs_dc8000_disable_vblank(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			=C2=A0 VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static u32 vs_dc8000_irq_ack(struct vs_dc *dc)
-> +{
-> +	u32 irqs;
-> +
-> +	regmap_read(dc->regs, VSDC_DISP_IRQ_STA, &irqs);
-> +	return irqs;
-> +}
-> +
-> +const struct vs_dc_funcs vs_dc8000_funcs =3D {
-> +	.panel_enable_ex	=3D vs_dc8000_panel_enable_ex,
-> +	.panel_disable_ex	=3D vs_dc8000_panel_disable_ex,
-> +	.crtc_begin		=3D vs_dc8000_crtc_begin,
-> +	.crtc_flush		=3D vs_dc8000_crtc_flush,
-> +	.crtc_enable		=3D vs_dc8000_crtc_enable,
-> +	.crtc_disable		=3D vs_dc8000_crtc_disable,
-> +	.enable_vblank		=3D vs_dc8000_enable_vblank,
-> +	.disable_vblank		=3D vs_dc8000_disable_vblank,
-> +	.irq_ack		=3D vs_dc8000_irq_ack,
-> +};
+Regarding cpuhp.parallel=1, I believe the reason it fails to optimize
+boot time is that when a large number of CPUs issue the KICK_AP call
+simultaneously, it results in severe lock contention within KVM, which
+paradoxically slows down secondary CPU bringup. However, this needs
+further investigation into the PSCI_CPU_ON code in KVM.
+
+I'm testing these performance aspects on physical hardware, so the
+results might be somewhat different because secondary CPU bringup
+requires trapping into the ATF firmware.
+
+Best regards,
+Jinjie
+
+> 
+> Michael
+> 
+>>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/Kconfig           |  1 +
+>>  arch/arm64/include/asm/smp.h |  8 ++++++++
+>>  arch/arm64/kernel/head.S     | 23 +++++++++++++++++++++++
+>>  arch/arm64/kernel/smp.c      | 27 +++++++++++++++++++++++++++
+>>  4 files changed, 59 insertions(+)
+>>
+> 
+> 
 
 
