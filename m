@@ -4,68 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F13CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D00CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cwo6M5+aaDCDWXSdYCrJMwPu0VIk6XVt/qmZdPm/rSU=; b=eR3jzWDZ/9ApR/F9FJ8ssKY6hM
-	9v8B2F6lidacHdOkXv7KrOhG5BTgZ9h8Lkqi1KpvOfvhZtwfCR4CAUjycdXAkifghNGj50LuQkq44
-	F6WM1lk6OLS1rxhpl9XZiKvKVJSWD90TWeo6xeFEuLjg+fIITGFmbScbFfSi6IAeL0/JAHWiMNTjq
-	gcC5N2aXj/H3Fp2qVLUvbXmtFaFsnJoxGyMe2raT3/qyMGEJRcYaHStUQ9/Xh6/ZHj+MMq6o3CJwr
-	dNwZm3WMlx7cJmLXT6Xc+GJPfZx1c7cye4Z0zlQeqi3qCrk6QYeDQIM/8PuO/SHxK6Xcm4iy3UMCI
-	PBvh9PjQ==;
+	bh=v8RfSoNGjMJMgs5qfUtbdb1xy6XGXw4boE+GRcRxWog=; b=mMEgtAZ/YP0TX7j3olmA4beHpV
+	Ay15TIqXUrg7iwyCmw4DjmVTGIrGq7DQYeN7IijYmqmXpyD4Ct+slYnOnG1XC94I/3DR/EsTBxQg7
+	F15wcVJQ7OBYx2wM5SI2o2QmO17jWhdudKkw7TjPZ5lKBpRc1S11Br+N5eFBWkWV8l9gMbLgYok+L
+	Gu8KeeazfFlUcYXEGBRoC8dphsN4h/6O7qyicnBA6SFCkyS4PR1DIJjmYjYZiaYpvbKzE8gE78JPh
+	E9heYKpzIDkc/qFlQNkoxkHmNA4+k/iEqQf0eUV8yUUCxkWYW0eDVA0CHxVfJ1NCUjmPHdMUrsU06
+	Wyvczx1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3Px-0000000DxTn-3vav;
-	Mon, 15 Jun 2026 09:15:41 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wZ3mw-0000000Dyay-3qkR;
+	Mon, 15 Jun 2026 09:39:27 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3Pu-0000000DxTJ-3Elq;
-	Mon, 15 Jun 2026 09:15:40 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowADH6eC1wi9qq3nLFA--.887S2;
-	Mon, 15 Jun 2026 17:15:33 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	id 1wZ3mu-0000000Dyae-2bmJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 09:39:25 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-36dd65b95f2so2159317a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 02:39:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781516363; x=1782121163; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=v8RfSoNGjMJMgs5qfUtbdb1xy6XGXw4boE+GRcRxWog=;
+        b=dnd1qThJa9UGqqEGnbCG+7SJ6lkjLTjHT69TCGxVmYyqpTzPH1Ev1hwpx+GTVqJONg
+         xfdX58fk7mkvZ5WYlmt4u9EpuvQ2A6a1Y/dr5Ya8NKlQrauBzfx2QA6d8RD2QuHXnVnA
+         JarRHulOQr9aKDD25Te40zSYQ6OW6Au/7k6aXDjeei4DROU8Ea6rjIKEkVhEQtCXgEHl
+         4V4Aq9CSZCIjvj5DEgM987y1wFQ8H75fA+3SPavo4qjHGsAG+9CzZGC0yRqWKoRUb3XD
+         x0Df8emu9+4hcCW5dK7i4g3jGSTjRi9tB9O3Ifsv2dgQlFDQ9BRn+YfSm24yb+8pu0tN
+         L7Rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781516363; x=1782121163;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v8RfSoNGjMJMgs5qfUtbdb1xy6XGXw4boE+GRcRxWog=;
+        b=WgcHz+z749Vm40wu+9u7FhL9eV8wTibZMXUjMsG9wQDb9UlGYQjMBVXGjM92T3pLnN
+         qY1DMWGkmsKXLtAH03QvhlUalsbjgVpCz9U7YHH9kKcPFnoM6YKs+rBrF0MokT79lSCC
+         9UsVdA8JFAjh220C6V0pKVVSkKl0ljojVO4vKcyZrfxDlP5xCjJZ54RRp0tDpx8qWr9l
+         Ip3XsBBfhWrp5C7Dz+ayYElzfQ8ymEngxXHlW4VAsD9TCSrBJmGMbyGhqxYIah4AzTpP
+         RvioOcLnyKDBpjectZCxXZtZHi6QOSN11o2LpCBuW5KOkSgSvnGgCJGOaqoY0qGDY1DC
+         kvVw==
+X-Forwarded-Encrypted: i=1; AFNElJ8DpIdF18SZVXu6JyozcNh9uV72agC3JMMx3pdfL3Df/s55xlSE8VaFg/ZTVwv8uITfrzSBoaX//xr38XUiIaYU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuavZ6yiwhZqICCgNAidRNjsfdi4ppAOh2+bqfup+Dcu8nJICX
+	GaNfBo8bmPEXrHpO46BIo8qJw2ob8KdpaH1flqbLlOCcbvFFA18JdTFu
+X-Gm-Gg: Acq92OHDbXu+qNnl1MKIfzSRrkvWDt82kyFcz8WmGv/kOWLiU1Xo0HMms1vwY8ZWX+2
+	IszIgwcJO5dMqIJmq94y6RXhwrQtpIlWSr01/pSqgAwyNlPUv7PoGSft61xwqMe56AntAKdT1hT
+	g+/nJ1zxbYzo4+2jnbY+qM27+XwkkNe5zAWZyYRxTcR1QxMh74oU3Pgx/o4tQUGstDaNoTSVl/D
+	vaKYz9X1px7TDeBjWVbUItH3K5BBZK/1Gk2Gdy/gDfZjOQnJb08qg085OhOUPggee/sM0hm7YZV
+	5pZFVhVg7f6EGTbGjvN9BOXIF6ucU8oHTBwzHPXLYmp4VgcCgPLzCQh/DbOIDBY2BFQfvCU2z+T
+	QESMRVEr77Q5n0uDu9riBH7g22annZMk+K5t45QwKeLAeND35CtOUEH9UFc9t30nLyz/T1y6jHp
+	DH/ktaKyeNj3MaC6usZ1I1HwIkdMC6EfPhocAqwrUTCu4j3AwI7xKZiT0tEgznQIy6s7IO
+X-Received: by 2002:a17:90b:3e8e:b0:369:74b3:a103 with SMTP id 98e67ed59e1d1-379edacfef0mr11864728a91.8.1781516362913;
+        Mon, 15 Jun 2026 02:39:22 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1eba8e9asm9936290a91.2.2026.06.15.02.39.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 02:39:22 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH] soc: amlogic: meson-clk-measure: remove debugfs tree
-Date: Mon, 15 Jun 2026 17:15:31 +0800
-Message-ID: <20260615091531.21964-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v2 00/11] ASoC: fsl: Use guard() for mutex & spin locks
+Date: Mon, 15 Jun 2026 16:38:13 +0700
+Message-ID: <20260615093824.115751-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADH6eC1wi9qq3nLFA--.887S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AryDAr1kJr4fAFWruFyDKFg_yoW8Kryfpa
-	yqkFyrKr4xJr4UKr13ua15Aa1fK397W3WUG3sIg34Iv34Ikr1DZFZ3CFW2yrZ8XrWkWF17
-	Ja15Kry5ur45ZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkK14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
-	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIY
-	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14
-	v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWx
-	JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7VUjZNVP
-	UUUUU==
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_021539_175608_9E4F3550 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260615_023924_667397_50575F8B 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +110,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-meson_msr_probe() creates a debugfs tree with entries that reference
-devm-managed measurement table entries and the driver's private regmap
-state. The driver has no remove callback, so unbinding the device can
-leave those debugfs entries behind after the private data is released.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Store the debugfs root and remove the subtree from a new remove callback.
+Hi all,
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/soc/amlogic/meson-clk-measure.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+This series converts mutex and spinlock handling in the FSL sound drivers
+to use guard() helpers.
+The changes are code cleanup only and should have no functional impact.
 
-diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-index d862e30a244e..7ca43bcb622a 100644
---- a/drivers/soc/amlogic/meson-clk-measure.c
-+++ b/drivers/soc/amlogic/meson-clk-measure.c
-@@ -7,6 +7,7 @@
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
- #include <linux/bitfield.h>
-+#include <linux/err.h>
- #include <linux/seq_file.h>
- #include <linux/debugfs.h>
- #include <linux/regmap.h>
-@@ -50,6 +51,7 @@ struct meson_msr_data {
- struct meson_msr {
- 	struct regmap *regmap;
- 	struct meson_msr_data data;
-+	struct dentry *debugfs_root;
- };
- 
- #define CLK_MSR_ID(__id, __name) \
-@@ -952,6 +954,7 @@ static int meson_msr_probe(struct platform_device *pdev)
- 	       sizeof(struct msr_reg_offset));
- 
- 	root = debugfs_create_dir("meson-clk-msr", NULL);
-+	priv->debugfs_root = root;
- 	clks = debugfs_create_dir("clks", root);
- 
- 	debugfs_create_file("measure_summary", 0444, root,
-@@ -967,9 +970,19 @@ static int meson_msr_probe(struct platform_device *pdev)
- 				    &priv->data.msr_table[i], &clk_msr_fops);
- 	}
- 
-+	platform_set_drvdata(pdev, priv);
-+
- 	return 0;
- }
- 
-+static void meson_msr_remove(struct platform_device *pdev)
-+{
-+	struct meson_msr *priv = platform_get_drvdata(pdev);
-+
-+	if (!IS_ERR_OR_NULL(priv->debugfs_root))
-+		debugfs_remove_recursive(priv->debugfs_root);
-+}
-+
- static const struct msr_reg_offset msr_reg_offset = {
- 	.duty_val = 0x0,
- 	.freq_ctrl = 0x4,
-@@ -1065,6 +1078,7 @@ MODULE_DEVICE_TABLE(of, meson_msr_match_table);
- 
- static struct platform_driver meson_msr_driver = {
- 	.probe	= meson_msr_probe,
-+	.remove = meson_msr_remove,
- 	.driver = {
- 		.name		= "meson_msr",
- 		.of_match_table	= meson_msr_match_table,
+Compile tested only.
+
+Changes in v2:
+ - mpc5200_psc_ac97: Fix scoped_guard() usage by replacing
+   scoped_guard(mutex_lock, ...) with scoped_guard(mutex, ...).
+ - Added compile testing for mpc5200_dma and mpc5200_psc_ac97,
+   which were not compile-tested in v1.
+
+Best regards,
+Phuc
+
+
+bui duc phuc (11):
+  ASoC: fsl_asrc: Use guard() for spin locks
+  ASoC: fsl_audmix: Use guard() for spin locks
+  ASoC: fsl_easrc: Use guard() for spin locks
+  ASoC: fsl_esai: Use guard() for spin locks
+  ASoC: fsl_spdif: Use guard() for spin locks
+  ASoC: fsl_ssi: Use guard() for mutex locks
+  ASoC: fsl_xcvr: Use guard() for spin locks
+  ASoC: imx-audio-rpmsg: Use guard() for spin locks
+  ASoC: fsl_rpmsg: Use guard() for mutex & spin locks
+  ASoC: fsl: mpc5200_dma: Use guard() for spin locks
+  ASoC: fsl: mpc5200_psc_ac97: Use guard() for mutex locks
+
+ sound/soc/fsl/fsl_asrc.c         | 10 +----
+ sound/soc/fsl/fsl_audmix.c       | 11 ++---
+ sound/soc/fsl/fsl_easrc.c        | 36 +++++------------
+ sound/soc/fsl/fsl_esai.c         | 16 +++-----
+ sound/soc/fsl/fsl_spdif.c        |  8 +---
+ sound/soc/fsl/fsl_ssi.c          | 13 ++----
+ sound/soc/fsl/fsl_xcvr.c         | 29 ++++++--------
+ sound/soc/fsl/imx-audio-rpmsg.c  | 25 ++++++------
+ sound/soc/fsl/imx-pcm-rpmsg.c    | 69 ++++++++++++++------------------
+ sound/soc/fsl/mpc5200_dma.c      | 56 +++++++++++++-------------
+ sound/soc/fsl/mpc5200_psc_ac97.c | 34 ++++++----------
+ 11 files changed, 121 insertions(+), 186 deletions(-)
+
 -- 
-2.50.1 (Apple Git-155)
+2.43.0
 
 
