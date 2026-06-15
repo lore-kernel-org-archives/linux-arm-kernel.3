@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F401CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8156ACD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y5Htq28E0bC6WliXD9T0aFzTiQxBHujmJEWZUhunFc8=; b=BNBVfu9HOHvY9OkcnNqJJHMewx
-	QNtbE4i4ZlkV+CYzIJ+LI/IIdA8HHNrdWaQ+iPW13rrQyBmj6k/Xyq0CbhHo0lAJO9ALV/o+DsDOm
-	2rWPfh44jAW0aSMeH70NteemxreL7k8vZESYcGe/sVOQsBX9nW13YT2VDSJcOwhWsOGNTmOh4S+FQ
-	oXm6vuUtKRuC+GrKF6POBGPtxwphNmXfGk3JK146OnDLFq+Wnm/HJOtKDlaFw/65w0LbBvHzqmtAE
-	W2UZi51eeGVDNqd4vzSmZEAtZ7BwwveKfg6rY5ITLoCJN81g3muHp8uVm534FJH71iWOGbE9gFfR1
-	OgJBDRJw==;
+	bh=nACpjvzcAjptbYO/D+EZnxCKpAsH5nEmPSKqPy+CCm8=; b=l4etB46sKOOe80UyednjBxvixh
+	L4XXDJoXAcAynE3kMfAZW+asWyE7B1RgJq7kRYnvlBQ5brq+7ZoE5NS/FKRX2+Xa4gflTfqMjZgEZ
+	ig5ltexAUA8BzMgiFkJhM5EWdFWoxOK4hcmJq5g2neLu0yDcTL19AEnghjw3C4gGQCuxb7R2utbWb
+	xJItb3uQmBXDCV3uTZbVyb3Cy7XDIBpeipO+6GxgaDgfTUnvBpK+hjQ3bTSNFAiSP0KWpdgMwIVT3
+	1Qw/USDUQZU0FUVCvw7Bqpj4oG68qVivqetyx+Oi82QLvS044Vf/rcUuZrA9Ssob7404CxcrJ0MWE
+	r/X2EtUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ2cD-0000000DrEi-44e0;
-	Mon, 15 Jun 2026 08:24:17 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wZ2ft-0000000DrgX-2IEq;
+	Mon, 15 Jun 2026 08:28:05 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ2cB-0000000DrEA-1Hzl
+	id 1wZ2fq-0000000Drg2-42ga
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 08:24:16 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.167])
-	by APP-03 (Coremail) with SMTP id rQCowABHK+Knti9qMTnKFA--.4089S2;
-	Mon, 15 Jun 2026 16:24:08 +0800 (CST)
-Message-ID: <155be53c188ba9743ee5b9da4b9181ebc2db9310.camel@iscas.ac.cn>
-Subject: Re: [PATCH v4 2/6] drm/verisilicon: add register-level macros for
- DC8000
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 15 Jun 2026 16:24:07 +0800
-In-Reply-To: <20260615065003.76661-3-a0987203069@gmail.com>
-References: <20260615065003.76661-1-a0987203069@gmail.com>
-	 <20260615065003.76661-3-a0987203069@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Mon, 15 Jun 2026 08:28:04 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6870ad8072eso6807368a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 01:28:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781512080; x=1782116880; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nACpjvzcAjptbYO/D+EZnxCKpAsH5nEmPSKqPy+CCm8=;
+        b=fExTHQitwdxjH/Izw7glZ5iJoLr8hEhVxYUB8oUs0K1OuXxz+ijCMsoklPQcHc0Ebl
+         58PZ2GaG8AIlLFl1vP5AYZw/C1460W3ZYSjwwaK5PdY7PSAuew+NLP8rYr5KIgj+Vojx
+         kgW0ihUjEWmI4UHF/NpQOpwDl9/py/iwbzComSZPm32DsVRAKDOIOcFa3hvot7QUpd/g
+         UU7GZxKjQFhDvAAGOqaExvzk8ZocXUix3Dt/+4cyU0xf4hR+Zuj+5efmi3bBDWU3MEvs
+         bLfBby/9E2IQn9zbgFL87kaaCjGYdhy3LyLePYcXBPiaxEPvTHVi7c3dkw/3DB/Fnm8U
+         0kDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781512080; x=1782116880;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nACpjvzcAjptbYO/D+EZnxCKpAsH5nEmPSKqPy+CCm8=;
+        b=LX3tVZAAl6Yvco3+OAjeGWhsHUF+jovNN7tQxbewtTFHc4q7z1Y0/dnWA63c9mrwni
+         IroPwGCXcYMURkaHYZx5g8dRSLASFxWdXw1K9/o61Dqjo2vvF2aE8sy3nr/GH9WmTO0V
+         D/+CtST3dCAbMpWJugurT/yy5+3FxcjWWI0jaDz7SgBZHj0lpXQAUJwvZcQU8Ti9J+Jr
+         C6nJaOpQBKP8w13evBRwZTUAO2lQSnfU+gpWuYmmXttOajT3jaFLq66hdQY4UnoQYYXp
+         nNjJxrrhbpsY3A6tKOIMNwf9MhUZtfoPyh4RLL8meZkd/anC/nuVJudDlZLYBwcgAZAn
+         jtOA==
+X-Forwarded-Encrypted: i=1; AFNElJ/yetQDfub9G2QJkm6x9H9ZH5TIDGP0E8lMKA1UjNplm/Mt0RkFzzo71P6mw/ufTYhYZypYGwBgHJ6ub2ygAUvI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyks3rmI8KeTs/IC+CoXdbWv6ZlZt2xW8lpRtX8K5E9W7ymMnuJ
+	ZBYyGn4KEFsmeRYYpntQe0577dUWk0x1rbnIcnkhzlFloW3DtR13lbNAJiLVui4d8w==
+X-Gm-Gg: Acq92OFk0D4qhi+kb6H8WgEQogM/6bTNFcAbGgpmEET/ma7q1Gv7R6gGpoavbBWSmoR
+	W2mOsWpiPck5HxuYMxz30G+bHFJvS+fs2XA5nlH5qNYJz6G4J7ffPNAwhPObnBymXC+FflihUh/
+	dg5zTiUt75BFhbrnfVD6M2A1AiJyyjHklKakbzSPynYKCeI8WlLW9tGXcJxoO+HypUoejxXgVFl
+	QWdmfTnHVNVFZYqaEmtM2K/W2tG0lEbjAOKaF8BkSEgPV6nhlgMuyqEnCPknj6zUu0aSsXUeRw9
+	TyvgQ2H0rNkSCVACvmLSRKVyowG8g5kxy8ppFvBZPd7qnnhp0VhFnLR3o9wv8jwL96wCwlhaIxd
+	TwnJ32OSlpxNHuM8zGNBPQDBU36WNQ4DQYzrU735F9FYiPsXa3vq/swpnNXrWzrWvClZ4DAXi55
+	1dNYwDfWMDOgNDxJZ79IgyTtBCnzpth22Op/5IAm+bV8CdBkm5i0zkBWyV4juztu133AU=
+X-Received: by 2002:a17:907:9493:b0:bef:87ca:aec3 with SMTP id a640c23a62f3a-bfde279852bmr603924966b.9.1781512079604;
+        Mon, 15 Jun 2026 01:27:59 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfdb4423439sm416285666b.2.2026.06.15.01.27.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 01:27:58 -0700 (PDT)
+Date: Mon, 15 Jun 2026 09:27:54 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, rostedt@goodmis.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kernel-team@android.com, qerret@google.com
+Subject: Re: [PATCH v1 0/4] trace_hyp_printk() for pKVM/nVHE hypervisor
+Message-ID: <ai-3ii1BtOPP25zZ@google.com>
+References: <20260612142245.1015744-1-vdonnefort@google.com>
+ <CA+EHjTxditViT-yd+y-DZ8zM7dATVEpe8qWNGbugq6sL7KN+uw@mail.gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABHK+Knti9qMTnKFA--.4089S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tFWxGF4xJw4kGw4UGFy7Awb_yoW8Kryfpr
-	47AayktryFy39a9397ta40kFZxG3W7Jw4ruFy8ZrZ8XF40ywn8urWjqFWfGFyqqry7A3yx
-	Krnakw43u3ya93JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUzOJ5UUUUU
-X-Originating-IP: [112.94.100.167]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTxditViT-yd+y-DZ8zM7dATVEpe8qWNGbugq6sL7KN+uw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_012415_727528_056BBCCE 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260615_012803_032028_1CC59E7D 
+X-CRM114-Status: GOOD (  29.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +101,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-15=E4=B8=80=E7=9A=84 14:49 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> Add register-level constants needed by the forthcoming DC8000
-> (DCUltraLite)
-> hardware ops:
->=20
-> =C2=A0 VSDC_DISP_IRQ_VSYNC(n) in vs_crtc_regs.h: bit mask for per-output
-> =C2=A0 VSYNC interrupt bits in DISP_IRQ_STA (0x147C) / DISP_IRQ_EN
-> (0x1480),
-> =C2=A0 which are the IRQ registers used by DCUltraLite in place of the
-> DC8200
-> =C2=A0 TOP_IRQ_ACK / TOP_IRQ_EN registers.
->=20
-> =C2=A0 VSDC_FB_CONFIG_ENABLE (bit 0), VSDC_FB_CONFIG_VALID (bit 3) and
-> =C2=A0 VSDC_FB_CONFIG_RESET (bit 4) in vs_primary_plane_regs.h: control
-> bits
-> =C2=A0 in the FB_CONFIG register used by DCUltraLite for framebuffer
-> enable
-> =C2=A0 and per-frame commit handshake.
+On Sun, Jun 14, 2026 at 01:57:56PM +0100, Fuad Tabba wrote:
+> Hi Vincent,
+> 
+> On Fri, 12 Jun 2026 at 15:22, Vincent Donnefort <vdonnefort@google.com> wrote:
+> >
+> > Hi all,
+> >
+> > This series adds a hypervisor event "hyp_printk" which enables
+> > developers to log pretty much anything into the hypervisor tracing
+> > buffer, just like the kernel function trace_printk().
+> >
+> > This enables rich logging from the hypervisor, while leaving all the
+> > string parsing burden to the kernel. This has been the main way of
+> > debugging pKVM in Android.
+> 
+> I tested the series on v7.1-rc7 under QEMU (cortex-a53 CPU, pKVM nVHE):
+> - Booted a host under pKVM with a non-protected kvmtool guest (npVM)
+> and a protected kvmtool guest (pVM).
+> - Functional test: added a temporary trace_hyp_printk() call site in
+> handle___kvm_vcpu_run() with 0-arg, 1-arg, and 2-arg calls. Mounted
+> tracefs, enabled the hyp_printk event, ran a kvmtool guest to trigger
+> vcpu_run, read the trace buffer. All expected entries appeared with
+> correctly formatted output.
 
-Validated against DC8000 register list.
+Thanks for the testing!
 
-Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> 
+> One question: kvm_hyp_trace_init() returns early when
+> is_kernel_in_hyp_mode() is true. On VHE-capable hardware, pKVM uses
+> hVHE. So it seams that the entire hyp tracing subsystem (not just
+> hyp_printk) is non-functional in hVHE mode. Is hVHE support
+> intentionally deferred?
 
->=20
-> No behaviour change for existing DC8200 platforms.
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/vs_crtc_regs.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 1 +
-> =C2=A0drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h | 3 +++
-> =C2=A02 files changed, 4 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> index c7930e817635..d4da22b08cd5 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> @@ -54,6 +54,7 @@
-> =C2=A0#define VSDC_DISP_GAMMA_DATA(n)			(0x1460 +
-> 0x4 * (n))
-> =C2=A0
-> =C2=A0#define VSDC_DISP_IRQ_STA			0x147C
-> +#define VSDC_DISP_IRQ_VSYNC(n)			BIT(n)
-> =C2=A0
-> =C2=A0#define VSDC_DISP_IRQ_EN			0x1480
-> =C2=A0
-> diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> index cbb125c46b39..67d4b00f294e 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> @@ -16,6 +16,9 @@
-> =C2=A0#define VSDC_FB_STRIDE(n)			(0x1408 + 0x4 * (n))
-> =C2=A0
-> =C2=A0#define VSDC_FB_CONFIG(n)			(0x1518 + 0x4 * (n))
-> +#define VSDC_FB_CONFIG_ENABLE			BIT(0)
-> +#define VSDC_FB_CONFIG_VALID			BIT(3)
-> +#define VSDC_FB_CONFIG_RESET			BIT(4)
-> =C2=A0#define VSDC_FB_CONFIG_CLEAR_EN			BIT(8)
-> =C2=A0#define VSDC_FB_CONFIG_ROT_MASK			GENMASK(13,
-> 11)
-> =C2=A0#define VSDC_FB_CONFIG_ROT(v)			((v) << 11)
+You got me scared for a moment but I did try hVHE and it seems alright:
 
+  [    5.369985] kvm [1]: Protected hVHE mode initialized successfully
+
+  $ ls /sys/kernel/tracing/remotes/hypervisor/
+
+is_kernel_in_hyp_mode() just checks if the kernel is running at EL2 which it
+shouldn't in the hVHE case?
+
+> 
+> Cheers,
+> /fuad
+> 
+> >
+> > Even though not strictly related to trace_hyp_printk, I have added the
+> > following two patches:
+> >
+> >   * KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
+> >
+> >     This one mainly intends to support one of the new features I have
+> >     posted here [1], which allows to enable tracing as early as
+> >     possible. I have added it here to limit cross-posting.
+> >
+> >   * KVM: arm64: Move kvm_define_hypevents.h to arch/arm64/kvm/
+> >
+> >     This one is just a cleanup.
+> >
+> > [1] https://lore.kernel.org/all/20260605163825.1762953-1-vdonnefort@google.com/
+> >
+> > Vincent Donnefort (4):
+> >   KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
+> >   KVM: arm64: Move kvm_define_hypevents.h to arch/arm64/kvm/
+> >   tracing/remotes: Add REMOTE_EVENT_CUSTOM_PRINTK() helper
+> >   KVM: arm64: Add hyp_printk event to nVHE/pKVM hyp
+> >
+> >  arch/arm64/include/asm/kvm_asm.h              |  4 +-
+> >  arch/arm64/include/asm/kvm_hypevents.h        | 14 ++++
+> >  arch/arm64/include/asm/kvm_hyptrace.h         |  8 +++
+> >  arch/arm64/kernel/image-vars.h                |  1 +
+> >  arch/arm64/kernel/vmlinux.lds.S               |  4 ++
+> >  .../define_hypevents.h}                       |  0
+> >  .../kvm/hyp/include/nvhe/define_events.h      |  2 -
+> >  arch/arm64/kvm/hyp/include/nvhe/trace.h       | 65 +++++++++++++++++++
+> >  arch/arm64/kvm/hyp/nvhe/events.c              |  6 ++
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  2 +-
+> >  arch/arm64/kvm/hyp_trace.c                    | 60 ++++++++++++++++-
+> >  include/trace/define_remote_events.h          | 19 +++++-
+> >  12 files changed, 176 insertions(+), 9 deletions(-)
+> >  rename arch/arm64/{include/asm/kvm_define_hypevents.h => kvm/define_hypevents.h} (100%)
+> >
+> >
+> > base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
+> > --
+> > 2.54.0.1136.gdb2ca164c4-goog
+> >
 
