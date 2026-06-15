@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CBCCD98CE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C61ECD98E3
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eS+NwR91Hkmm18M+nsKO2Y244NFaHIMfanAPyooegnU=; b=J65r6QxHoFcrd6iED71vLsL2tA
-	poNC7/WC4in1O6mX8NvyOvA6Y2xM9pPPNnyyM4ENOlnik4RlPo1ads1MGa4oN/XYYCTOXpzTP3G4c
-	2Pw5xYU74Eq/nWYYUb2E2Fn5oMOnzvfIq0BwRqYGApiNJoxnEvGRrtzut0dlIcdyzaM7ZHF0mykai
-	sZz0+dX0lZuZuxPuZlyuQb9FJgKba8iLev7UGYksON8Zh0tDw7ZpG3JpkdkmGVWeOwwJJ7t87u3xS
-	At02xH5IvmCQu8pxo+XPUFBLltA21Ke5loDtnp2Wzi3VzSCbf2ELwXRel9WtYEjo4O3WJieMWQnL8
-	Arilkx3w==;
+	bh=jKLPNhbMJUK/p7PD2Estkpj7uFBVbHPhaCT82Mgh5bE=; b=gDCaJYwZMGb8CaJGKrIcu4nnFc
+	RQK9NKj3dF/3DnSj8fWb9yAm0m1HbjvkmEV3eU9SaN8irjI9Wvszz1kPGz/SES9Qilh+tMoLH0teN
+	kuO2suDFGGKXVQftTyzYSuo6YYNcfmSvN9WQ9MphfaW5EBNK99h2HMJ2CaLCyn5Zc2AAkAnK5FQqz
+	lh6WngHWPpo2uVvMTjYAuVx+FSA59ZgrvnlFPKNQBdPl4vwqTex15pMiwi/Y8xySu6yWqw7x2jgco
+	lOesyxpQqLmaFUgC3ykwA8pMJ1P+6mpvRpN7wG9oKQTszyuWrTFot1Dzqz5jj9t4x/gGZ7lTJWRLW
+	ytMCKusQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGtJ-0000000EwwU-3uza;
+	id 1wZGtJ-0000000EwwE-3Wmp;
 	Mon, 15 Jun 2026 23:38:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGtI-0000000Ewvg-3i2K
+	id 1wZGtH-0000000EwvL-1p6i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 23:38:52 +0000
+	Mon, 15 Jun 2026 23:38:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C71D42E0C;
-	Mon, 15 Jun 2026 23:38:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9835D1F00A3A;
-	Mon, 15 Jun 2026 23:38:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E03FE600AB;
+	Mon, 15 Jun 2026 23:38:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD11C1F000E9;
+	Mon, 15 Jun 2026 23:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781566732;
-	bh=eS+NwR91Hkmm18M+nsKO2Y244NFaHIMfanAPyooegnU=;
+	s=k20260515; t=1781566730;
+	bh=jKLPNhbMJUK/p7PD2Estkpj7uFBVbHPhaCT82Mgh5bE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CyRu2n6w+7LIYU32FnB97O2VbcDfLtYUvT1Mx/W7SsBhrIp+9kgODMcE4p5Pi4nC7
-	 92Otwb1SE61Cf2XR6PDQUDPZtpKG5fd7KU3u4D7cWhRj8KonRyedUbuD6uNtCTael3
-	 xhv4GPoNQahewJdkSeOryN+5oIrXREdJLZGBv7JSoiGojyG3nY6iDcSkaP4wBkdv7q
-	 sylXtGG+I3iAK9Es4xkNn7d5bz9LIEKeU5rBcZfJ84vZxCfHq9AglCdwwbSE9iH8oa
-	 zXMxsJX2nJanEcNxqVvuYaRVd0JHHtimfLyZj0KX0RJ09+A85tLHYJOapJadITygul
-	 W8vrn9dy34gOg==
+	b=KsUHbuUgh0Kico7Kh7y5uUGusBEckK7HauGoXM5Ld6Mco7t6ktGtVsUz/m+Il296p
+	 C69u0TJf6frkVdV3q20JWhopLZ3tUbhvSmQWB6Z9r23wmwGGWpfmG3xQQYzOqQlITI
+	 mv+UW6JrgwJgR3LqdboSeM3zz98mvRRANDDwzd0q8jYMlGMPRP8xLDxVFgznxowvTW
+	 l1WRxv/fjuJZnnIo1VqoTe+Cgr7BPWLbNpgOZLWPyi2RgLsUpuF6oHoPckycEvev5p
+	 /aYyP/GFvxS4QOvB9H+QEU2KlfaBmAwWl9MCb3eoUve95+QHaxqt4MUi5ZSrjMVBxY
+	 V0bm8qbBvhO/Q==
 From: Jakub Kicinski <kuba@kernel.org>
 To: jensemil.schulzostergaard@microchip.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -59,12 +59,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH net-next 7/9] net: sparx5: add L3 router infrastructure and leg management
-Date: Mon, 15 Jun 2026 16:38:50 -0700
-Message-ID: <20260615233850.1042323-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next 6/9] net: sparx5: vcap: add lpm vcap implementation
+Date: Mon, 15 Jun 2026 16:38:49 -0700
+Message-ID: <20260615233849.1042290-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260612-sparx5_l3_routing-v1-7-fc3c10160f49@microchip.com>
-References: <20260612-sparx5_l3_routing-v1-7-fc3c10160f49@microchip.com>
+In-Reply-To: <20260612-sparx5_l3_routing-v1-6-fc3c10160f49@microchip.com>
+References: <20260612-sparx5_l3_routing-v1-6-fc3c10160f49@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,165 +84,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-Subject: net: sparx5: add L3 router infrastructure and leg management
+net: sparx5: vcap: add lpm vcap implementation
 
-This commit adds L3 router infrastructure and leg management to the
-Microchip Sparx5 switch driver. It handles netdevice and inetaddr events
-to intercept VLAN uppers of a bridge device, associating them with router
-legs (VMIDs) for hardware offloading.
+Add the implementation for the LPM VCAP for lan969x and sparx5. The LPM
+VCAP has a static keyset configuration, and a single lookup dedicated to
+LPM, so this is straight forward, and many functions can use existing
+functionality.
 
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-> new file mode 100644
-> index 0000000000000..03923d91fdfb8
-> --- /dev/null
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-
-[ ... ]
-
-> +static void sparx5_rr_inet6_make_mask_le(int logmask, u8 *mask)
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> index 95b93e46a41dc..e25e759c24f60 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> @@ -1083,6 +1146,46 @@ static void sparx5_vcap_es2_cache_write(struct sparx5 *sparx5,
+>  	}
+>  }
+>  
+> +static void sparx5_vcap_lpm_cache_write(struct sparx5 *sparx5,
+> +					struct vcap_admin *admin,
+> +					enum vcap_selection sel,
+> +					u32 start,
+> +					u32 count)
 > +{
-> +	/* Caller must ensure 0 <= logmask <= 128 */
-> +	int rem, byte_prefix = logmask;
+> +	u32 *keystr, *mskstr, *actstr;
+> +	int idx;
 > +
-> +	rem = do_div(byte_prefix, BITS_PER_BYTE);
+> +	keystr = &admin->cache.keystream[start];
+> +	mskstr = &admin->cache.maskstream[start];
+> +	actstr = &admin->cache.actionstream[start];
+> +
+> +	switch (sel) {
+> +	case VCAP_SEL_ENTRY:
+> +		for (idx = 0; idx < count; ++idx) {
+> +			/* Avoid 'match-off' by setting value & mask */
+> +			spx5_wr(keystr[idx] & mskstr[idx], sparx5,
+> +				VCAP_SUPER_VCAP_ENTRY_DAT(idx));
 
 [Severity: High]
-Will this do_div() call cause a build failure or stack corruption?
+Are concurrent writes to the shared VCAP_SUPER_VCAP_ENTRY_DAT registers
+safe here without a global hardware lock across the different VCAP types?
 
-The do_div() macro expects a 64-bit unsigned integer for the dividend. Passing
-byte_prefix, which is a 32-bit int, causes a compiler error on architectures
-like x86. On architectures like ARM, it can overwrite stack memory since the
-macro assumes the pointer points to a 64-bit value.
+It looks like IS0 and IS2 rules are updated via vcap_add_rule() under the
+rtnl_lock(). However, the LPM rules are updated under the
+sparx5->router->lock inside a workqueue.
 
-Could byte_prefix be defined as a u64, or could this use a standard division
-operation instead?
+Since both execution paths share the Super VCAP hardware block, could
+concurrent updates from TC (IS0/IS2) and routing (LPM) race on these shared
+cache registers, and also on VCAP_SUPER_CTRL in sparx5_vcap_super_update(),
+garbling the hardware command and corrupting the cache memory?
 
-[ ... ]
-
-> +static bool
-> +sparx5_rr_router_leg_addr_list_empty_rcu(struct sparx5_rr_router_leg *leg)
-> +{
-> +	struct inet6_dev *inet6_dev;
-> +	struct in_device *in_dev;
-> +
-> +	in_dev = __in_dev_get_rcu(leg->dev);
-> +	if (in_dev && in_dev->ifa_list)
-> +		return false;
-
-[Severity: Medium]
-Does this code miss an RCU pointer annotation?
-
-The ifa_list pointer in struct in_device is annotated with __rcu, so accessing
-it directly violates RCU rules and can cause sparse warnings.
-
-Could this be updated to use rcu_access_pointer() since it's just doing a
-boolean check?
-
-[ ... ]
-
-> +/* Called in atomic context. */
-> +static int sparx5_rr_inet6addr_event(struct notifier_block *nb,
-> +				     unsigned long event, void *ptr)
-> +{
-> +	struct inet6_ifaddr *if6 = (struct inet6_ifaddr *)ptr;
-> +	struct sparx5_rr_inet6addr_event_work *work;
-> +	struct net_device *dev = if6->idev->dev;
-> +	struct sparx5_router *router;
-> +
-> +	if (event != NETDEV_DOWN)
-> +		return NOTIFY_DONE;
-> +
-> +	work = kzalloc_obj(*work, GFP_ATOMIC);
-> +	if (!work)
-> +		return NOTIFY_BAD;
-
-[Severity: High]
-Does returning NOTIFY_BAD during a NETDEV_DOWN event illegally abort the atomic
-notification chain?
-
-The inet6addr_chain is an atomic notifier chain, so returning NOTIFY_BAD stops
-chain traversal. Because NETDEV_DOWN is a post-action event indicating the
-address has already been removed, halting the chain prevents subsequent
-notifiers (e.g., routing tables, IPsec) from observing the removal. This
-leaves stale state that can cause use-after-free or routing blackholes.
-
-Should this driver log an error and return NOTIFY_DONE or NOTIFY_OK instead
-if memory allocation fails?
-
-[ ... ]
-
-> +/* Called with RTNL. */
-> +static int sparx5_rr_inetaddr_valid_event(struct notifier_block *nb,
-> +					  unsigned long event, void *ptr)
-> +{
-> +	struct in_validator_info *ivi = (struct in_validator_info *)ptr;
-> +	struct net_device *dev = ivi->ivi_dev->dev;
-> +	struct sparx5_router *router;
-> +
-> +	ASSERT_RTNL();
-> +
-> +	if (event != NETDEV_UP)
-> +		return NOTIFY_DONE;
-> +
-> +	router = container_of(nb, struct sparx5_router, inetaddr_valid_nb);
-> +
-> +	return sparx5_rr_inetaddr_event_handle(router->sparx5, dev, event);
-> +}
-
-[Severity: High]
-Does allocating hardware resources in the validator chain cause a leak?
-
-The driver allocates a hardware router leg (VMID) via
-sparx5_rr_router_leg_create() and takes a netdev_hold reference during the
-NETDEV_UP validation phase.
-
-If a downstream validator rejects the address addition, or if the addition
-natively fails, NETDEV_DOWN is never fired. Because there is no rollback hook
-handling this failure, the VMID and net_device tracker reference are leaked. A
-leaked reference permanently prevents the net_device from being unregistered,
-hanging unregister_netdevice() in netdev_wait_allrefs().
-
-[ ... ]
-
-> +/* Called with RTNL. */
-> +static int sparx5_rr_netdevice_event(struct notifier_block *nb,
-> +				     unsigned long event, void *ptr)
-> +{
-> +	struct net_device *dev = netdev_notifier_info_to_dev(ptr);
-> +	unsigned char mac[ETH_ALEN] __aligned(2);
-> +	struct sparx5_router *router;
-> +	struct sparx5 *sparx5;
-> +
-> +	ASSERT_RTNL();
-> +
-> +	router = container_of(nb, struct sparx5_router, netdevice_nb);
-> +	sparx5 = router->sparx5;
-> +
-> +	/* Allow single bridge. Global router leg MAC tracks bridge mac. */
-> +	if (!netif_is_bridge_master(dev))
-> +		return NOTIFY_OK;
-> +
-> +	switch (event) {
-> +	case NETDEV_CHANGEADDR:
-> +		ether_addr_copy(mac, dev->dev_addr);
-> +		sparx5_rr_leg_base_mac_set(sparx5, mac);
+> +			spx5_wr(~mskstr[idx], sparx5,
+> +				VCAP_SUPER_VCAP_MASK_DAT(idx));
+> +		}
 > +		break;
-> +	}
-> +
-> +	return NOTIFY_OK;
-> +}
 
-[Severity: High]
-Does this notifier miss network namespace and offload ownership checks?
+[ ... ]
 
-The netdevice and inetaddr notifiers process events globally. In
-sparx5_rr_netdevice_event(), it only checks netif_is_bridge_master(dev). The
-driver doesn't verify if the bridge actually contains Sparx5 physical ports or
-if it is inside the target network namespace (init_net).
-
-An unprivileged user inside a user or network namespace could create dummy
-VLAN-aware bridges and change their MAC addresses or assign IPs. This would
-trigger these global notifiers, causing the driver to program physical
-hardware registers, overwrite the global router leg MAC, and exhaust the
-finite 511 VMID slots, potentially leading to a denial of service.
+> @@ -1379,6 +1523,7 @@ static void sparx5_vcap_update(struct net_device *ndev,
+>  	struct sparx5 *sparx5 = port->sparx5;
+>  
+>  	switch (admin->vtype) {
+> +	case VCAP_TYPE_LPM:
+>  	case VCAP_TYPE_IS0:
+>  	case VCAP_TYPE_IS2:
+>  		sparx5_vcap_super_update(sparx5, cmd, sel, addr);
 
