@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4E4CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F34ECD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j93CzGPdYxnb+imOtC+T0J4ZcwHMhXfcHnh2qGN2Dec=; b=xN2lxpa3ybMtGTltL9BptTfJXl
-	g+iiVQNgkUUHTdVjND7N8nKUbTFYGp8ii7E070PtX5g9piHPMRYwSBgkkCaTwXm9nxECgKNoaHEHj
-	eCaCXyiKxxHnIcJgYgBXqATTjrRVTbQO+i0zzvd5+0P4MCZhZHehYNU6mYPcf4wOYEj1FzMzqVX65
-	+Xf4ix+FhAMVfJ9u3fhUxJfGoSK8SgCksf9heq6849Hk7illq0k5CCHBDp1NXjpN+ljCpyaCPrw28
-	pzJ987uN6NFS/Xl0KRf6VxyEQ1ywB5r4YMh2I7qDJvtIG0vMK0CGLru8paNsBZZ4/9kXGv5UPO00m
-	f7wuPVdg==;
+	bh=kO1E9F7wgo/77mIm8rZU5i8TCq+arHzjaWY5F0pap6s=; b=bYqRpkeRmkMnbQlFHZTHNL6aDS
+	kGzR9i/ySLT2lrRdF8F8ApuOn39ZFoDgg2FAJZSo42i/iepAG0sMhKsFkPjLhYvqpcLh/uj6A+WMV
+	5G7JDAr0pHxa/OqfZrMOYUoKO5tLChwPiIVakISIUIOq1irqDersTrQxgadwK8/t+u9b5VzP1IURg
+	nQpP5sam6WplQ8zBttAkbYm74GCYRGRL8zNuZ/isyP0mOL9NuDwi+S4DL1Q91fsC2/LPg8NSKOmm9
+	p5XqkrqbeGXpwXO0R6qPNzwUTc9kOaWvChoddJWwEB9dP9lNTzcVaJ92ryHR2NAg1lWpC6DxqPBer
+	/AZM7gew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ39u-0000000DvnC-2KAQ;
-	Mon, 15 Jun 2026 08:59:06 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wZ3BG-0000000Dvvu-3JAT;
+	Mon, 15 Jun 2026 09:00:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ39r-0000000Dvm3-40LG
+	id 1wZ3BG-0000000DvvY-06XK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 08:59:05 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.167])
-	by APP-03 (Coremail) with SMTP id rQCowAAHJt3Rvi9qBhPLFA--.30398S2;
-	Mon, 15 Jun 2026 16:58:57 +0800 (CST)
-Message-ID: <104f78a9ed6d6cf54d8a510b90bc3549469ccfab.camel@iscas.ac.cn>
-Subject: Re: [PATCH v4 6/6] drm/verisilicon: extend Kconfig to support
- ARCH_MA35 platforms
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 15 Jun 2026 16:58:57 +0800
-In-Reply-To: <20260615065003.76661-7-a0987203069@gmail.com>
-References: <20260615065003.76661-1-a0987203069@gmail.com>
-	 <20260615065003.76661-7-a0987203069@gmail.com>
+	Mon, 15 Jun 2026 09:00:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B3A9444E5
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 09:00:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F2181F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 09:00:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781514029;
+	bh=kO1E9F7wgo/77mIm8rZU5i8TCq+arHzjaWY5F0pap6s=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=Jyn7pVSq85LsQmK/q0tyyFAHEfg8UAN4YckNlIfPsCFOWmtcOiwbMENAt2D6pI9lZ
+	 1ZorXAjBJjrkQz8owCkA4UA4UCls87SqapCtOpTjavhlpFhAWsyKP2BqohWLJK7DkY
+	 MrYZV3Cl7tRD/0xwTljASOpfcNSQn92Cepxz5NPg5BPXxvPIDeToSaPQ+HcehqiSJ9
+	 hQTBvUnmcKv+I1kJiRvWlWP2+bDGjG3X0QrpTadESyGemGgW0o3BCPfo+Xlko62peE
+	 OKTPMIABFzTo4x0+O0u5e+/RnwbJvxWzMEOQJBMGE8JtTPfG5COXJjHKljhzLU4nbW
+	 7EwntvamoA/UA==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5aa6cdebc33so2599642e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 02:00:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+XqupcM9J6VztDf2h0nN89MIvPwG6HwooEdfhT4J7LPv/kKmmx5wiyZed/an5qfc9Fo25cNkOlUWppdWh6RmEm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxutIpVzjTqHMrbKyxiiG1ZRroTSKVxQ/peUHcZUj8IkMRT12uB
+	yUqvI9AToofxkdDJhBTymah1dLeilaZScjTYBy+tWbgmxklv8Ut160BoiaeRJItq/YJpNPV2eQA
+	9EQ1pw5X3dNJL6jqe53H1Sb/nDOqQ79kglKAoAhpJxQ==
+X-Received: by 2002:a05:6512:40b:b0:5aa:8822:c944 with SMTP id
+ 2adb3069b0e04-5ad30dd50aamr1888691e87.46.1781514027973; Mon, 15 Jun 2026
+ 02:00:27 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 15 Jun 2026 02:00:26 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 15 Jun 2026 02:00:26 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <CAGXv+5Hf_V4=mkAc3pN8_K9i+FfH2Wv7HVJBq71-f8sMFYL3fA@mail.gmail.com>
+MIME-Version: 1.0
+References: <20260610084053.2059858-1-wenst@chromium.org> <20260610084053.2059858-6-wenst@chromium.org>
+ <ailxrP-_9_NL8qnN@ashevche-desk.local> <CAMRc=MdiwQM6yk8FXcc+RisVP2iqWKWzVsn2-Yy6dyJXt-1X=Q@mail.gmail.com>
+ <aipz2zMFcdnZYTxS@ashevche-desk.local> <CAMRc=MdRN7YitmMX8PknbzLh+MdsWm+dDg0MLtCVYOorqNobTw@mail.gmail.com>
+ <airY6IMz2KFz_z9j@kuha> <aisEccAOm3qoXjxd@ashevche-desk.local> <CAGXv+5Hf_V4=mkAc3pN8_K9i+FfH2Wv7HVJBq71-f8sMFYL3fA@mail.gmail.com>
+Date: Mon, 15 Jun 2026 02:00:26 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mcr2oMRQv_FPds=7QEF=7Q6+keqo_AzJ4iNBnhL+v_NNg@mail.gmail.com>
+X-Gm-Features: AVVi8CfllpqpnNK5oNjDe5YaMrrIp_PMpqlIec8MT94CN56JvkF5jdb538qT0FI
+Message-ID: <CAMRc=Mcr2oMRQv_FPds=7QEF=7Q6+keqo_AzJ4iNBnhL+v_NNg@mail.gmail.com>
+Subject: Re: [PATCH v2 05/16] usb: hub: Associate port@ fwnode with USB port device
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Daniel Scally <djrscally@gmail.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alan Stern <stern@rowland.harvard.edu>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
-MIME-Version: 1.0
-X-CM-TRANSID: rQCowAAHJt3Rvi9qBhPLFA--.30398S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Xr4UCF18JF1kZrW7XFyUAwb_yoW8Jr4kpF
-	4ftFW7ZFWrJFsIy347ZFWI9FyUAa97JayrWan7J3y5ur1qkryUArZrJa45ZFyDAwsrZr1I
-	9a1vkay2qF1xZFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxU7fHUDUUUU
-X-Originating-IP: [112.94.100.167]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_015904_360063_3611B6D5 
-X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +97,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-15=E4=B8=80=E7=9A=84 14:50 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> The DCUltraLite hardware ops and HWDB entry added in the preceding
-> commits
-> enable the driver to work on Nuvoton MA35D1 hardware.=C2=A0 Allow the
-> driver
-> to be built when ARCH_MA35 is selected; this dependency is meaningful
-> only
-> now that all supporting code is in place.
+On Fri, 12 Jun 2026 07:46:26 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
+> On Fri, Jun 12, 2026 at 3:54=E2=80=AFAM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+>>
+>> On Thu, Jun 11, 2026 at 06:48:56PM +0300, Heikki Krogerus wrote:
+>> > On Thu, Jun 11, 2026 at 11:35:13AM +0200, Bartosz Golaszewski wrote:
+>> > > On Thu, Jun 11, 2026 at 10:37=E2=80=AFAM Andy Shevchenko
+>> > > <andriy.shevchenko@linux.intel.com> wrote:
+>> > > > On Thu, Jun 11, 2026 at 04:20:58AM -0400, Bartosz Golaszewski wrot=
+e:
+>> > > > > On Wed, 10 Jun 2026 16:16:12 +0200, Andy Shevchenko
+>> > > > > <andriy.shevchenko@linux.intel.com> said:
+>> > > > > > On Wed, Jun 10, 2026 at 04:40:39PM +0800, Chen-Yu Tsai wrote:
+>> > > > > >> When a USB hub port is connected to a connector in a firmware=
+ node
+>> > > > > >> graph, the port itself has a node in the graph.
+>> > > > > >>
+>> > > > > >> Associate the port's firmware node with the USB port's device=
+,
+>> > > > > >> usb_port::dev. This is used in later changes for the M.2 slot=
+ power
+>> > > > > >> sequencing provider to match against the requesting port.
+>> > > > > >
+>> > > > > > Okay, would this affect ACPI-based systems? if so, how?
+>> > > > > > Can you elaborate on that, please?
+>> > > > >
+>> > > > > Is it possible that there's an ACPI device node associated with =
+the port like
+>> > > > > on some DT systems? I don't think so and there should be no impa=
+ct IMO but I
+>> > > > > also don't know enough about ACPI.
+>> >
+>> > There are device nodes for the USB ports in ACPI, and I think they get
+>> > always assigned in drivers/usb/core/usb-acpi.c.
+>> >
+>> > > > The API is agnostic. There is a possibility to have software nodes=
+ associated
+>> > > > with the port. I think the best is to be sure that ACPI-aware peop=
+le who are
+>> > > > experts in USB will check this (Heikki?).
+>> >
+>> > I can't say what's the impact from this patch - I'm not an expert with
+>> > this side of USB. Is there a danger that we end up overwriting the
+>> > ACPI node for the port, or something else?
+>>
+>> Exactly this one is my worrying, but I haven't checked the actual flow.
+>
+> Looking through ACPI code, ACPI_COMPANION_SET() is used, which boils
+> down to
+>
+>     set_primary_fwnode(dev, acpi_fwnode_handle(acpi_dev))
+>
+> This is called through
+>
+> usb_hub_create_port_device()
+>   device_register()
+>     device_add()
+>       device_platform_notify()
+>         acpi_device_notify()
+>           usb_acpi_find_companion()
+>             usb_acpi_find_companion_for_port()
+>           acpi_bind_one()
+>             ACPI_COMPANION_SET()
+>               set_primary_fwnode()
+>
+> Looking at device_add_software_node(), all swnodes are secondary.
+>
+> set_primary_fwnode() seems to be able to make the ACPI handle / fwnode
+> the primary, keeping any existing fwnode as the secondary. However
+> if we do end up assigning a primary fwnode to the device using
+> device_set_node() as in this patch, set_primary_fwnode() is going
+> to complain loudly.
+>
+> On another front, the ACPI representation of the USB ports looks nothing
+> like the OF graphs, at least on my X1 Carbon:
+>
+> For a usb port device on the root hub such as
+>
+>   /sys/bus/usb/devices/4-0:1.0/usb4-port1/firmware_node/path
+>
+> looks like
+>
+>   \_SB_.PC00.XHCI.RHUB.SS01
+>
+> while a usb port's firmware node link
+>
+>   /sys/bus/usb/devices/4-0:1.0/usb4-port1//firmware_node
+>
+> resolves to
+>
+>   /sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/device:19/device:1a/dev=
+ice:29
+>
+> Neither looks anything like the graph "port" / "endpoint" node names.
+> So maybe we're in the clear here.
+>
+> Besides the loud warning from set_primary_fwnode(), the major issue stemm=
+ing
+> from a wrong node is that power management (through ACPI) is likely to fa=
+il.
+>
+> If we're still concerned, I think we can skip the assignment if the fwnod=
+e
+> is an ACPI node, i.e. check it with is_acpi_node().
+>
 
-The explaination of patch sequence is not needed, but anyway,
+Agreed, I think this is a good compromise.
 
-`Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>`
+Bart
 
-Thanks,
-Icenowy
-
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/Kconfig | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/Kconfig
-> b/drivers/gpu/drm/verisilicon/Kconfig
-> index 7cce86ec8603..295d246eb4b4 100644
-> --- a/drivers/gpu/drm/verisilicon/Kconfig
-> +++ b/drivers/gpu/drm/verisilicon/Kconfig
-> @@ -2,7 +2,7 @@
-> =C2=A0config DRM_VERISILICON_DC
-> =C2=A0	tristate "DRM Support for Verisilicon DC-series display
-> controllers"
-> =C2=A0	depends on DRM && COMMON_CLK
-> -	depends on RISCV || COMPILE_TEST
-> +	depends on RISCV || ARCH_MA35 || COMPILE_TEST
-> =C2=A0	select DRM_BRIDGE_CONNECTOR
-> =C2=A0	select DRM_CLIENT_SELECTION
-> =C2=A0	select DRM_DISPLAY_HELPER
-
+>
+> I've never worked on ACPI systems, so this is just me checking the code.
+>
+>
+> Thanks
+> ChenYu
+>
 
