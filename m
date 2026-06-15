@@ -4,110 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C47CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 05:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE3F4CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 05:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRGNIGtUAxBOWfQbVDUpWr/GEJrIZSxFUDYy3Ng1TpQ=; b=pPrt7IK16ISYBiToSlx6ncxp73
-	F8+FPRxaPNohQ/bjiKI7eSa1O/chWqMelpEJICiiWEtLl/9K4h/s61plveqhTXtEoX8sjSAs1hacZ
-	ZfH64R4x1CobDIld9tx1iFH1MSSzzWawIuYGNG/wxfctBc/8t04wwhevPfuE4KtCHYA5oRn8Ba1uf
-	kymWzkvB9G6W9GYFpaQg8ahGVw/v7dYa2MyXNY9G/ttn5fFvfQh9DX/DwudoHLSICDrqa44G9WLZQ
-	VprPm5z1hyYvpFSUHGP41d2YE/g7zOG9S5cC7TdNxUPu5PJ9zgGSwpfCFNSirNr9X4cuYdbVD0i49
-	zQ/ohA2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BoUQNrGqm47SfMzQQZnlUAHB757FjtGMtZ/e1e1ss9E=; b=iK09PHY6eN0JhwOVTkGxJHdpat
+	B9Ut9snZa8MmVMRMNmrd7JqRsXtqQ1aRG3cMTuVsbznHxsMvDk+8aFymRIkQeWTATmozeaZZ8FG21
+	v+3xlICnlh8G6l7/A0RcKSC9cq917jl4oPuC8NC4HDSVe11CKKV/rUFezXneoGZNPacGVNelwL0w9
+	hn1rHY4F6MOVhZ2DAx2eXHxG3IQuzm2WNFIJ6XUOMm6IB6fAc/0UN33ySA4VSU/5pXWc2zE0w0JPv
+	2fHXeKQT9HX0oEzyzrZQzy63VfJkH1CnRYZ1ONrpTTvMAtInh/HNvSvKcrPcucQtpIo8t+yZApLu2
+	bGWFLN+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYzwI-0000000Dd4D-1lWI;
-	Mon, 15 Jun 2026 05:32:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZ06u-0000000DdXH-1cdS;
+	Mon, 15 Jun 2026 05:43:48 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYzwH-0000000Dd3y-1lyh;
-	Mon, 15 Jun 2026 05:32:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70C8B4031A;
-	Mon, 15 Jun 2026 05:32:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C6EE1F000E9;
-	Mon, 15 Jun 2026 05:32:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781501568;
-	bh=HRGNIGtUAxBOWfQbVDUpWr/GEJrIZSxFUDYy3Ng1TpQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Zm/iRI7Ktx20LebZL51LZEg+XsJ6ZzByDbBldJ86cFjZnspaXCO6PE2GNyUnq42FD
-	 29PUmQJbUaZAzL9DMoFupucV47DbFexbVusfdU99hORmByEVzrTASkI4ekdt0ZP9IG
-	 WVvqgccjJ+VF6lb+a1aoKCwLbPOORCIZJBtlMO4nsyVe7kOoTKEUDDO+izOJ2JvB8S
-	 A1AnZj3YqzTPvR7NMJd5OjL6LcelwUagCNPWn25bxZev8KOPP+BCiGuodj9WYTlmxV
-	 3AxAEhXWtrvtyyuVW1hzD6opOR9zurAKSDEFs9EKPjhK1rvxtbL7e17XQbUeIpvaCC
-	 BHt5h86qBEomg==
-Message-ID: <542ec217-1187-4fb2-8fd3-b90a6143b84d@kernel.org>
-Date: Mon, 15 Jun 2026 07:32:40 +0200
+	id 1wZ06r-0000000DdWs-3Irj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 05:43:46 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84234c83142so1281527b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 22:43:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781502224; x=1782107024; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BoUQNrGqm47SfMzQQZnlUAHB757FjtGMtZ/e1e1ss9E=;
+        b=PIQh/itt6HyGOxq9liCxLLSjryUHfC/Hsmkdn6uccq00iJC+cwqYbAmFtSth6APTM7
+         E/asSYUrGnqh2/4qEck0X2KFEv+zS0FxfO0Kj7mYiBaiu4fIq+6uGZ+yj8hUVk7jiua4
+         zfuFNJ3lqBd4s5SxBPYRCVsLtDqgbXhZfv5HUtqvWWkOnIAoQIhUOP02Zypcu/mR+i5g
+         CIN9fbRVyudtkBG9CHPcLvh/cd25XoYjlRf5ccU2Wk4WtHBHMIA5rTF8OrqMZJwzipAC
+         7cPNfwzOUi3NStMLvTt7IuD7UwQ/vVwspRIPVwUJTgSOTZUwL3dRne/B7vzTBlN5W69F
+         ROuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781502224; x=1782107024;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BoUQNrGqm47SfMzQQZnlUAHB757FjtGMtZ/e1e1ss9E=;
+        b=DqElsqlUjlcrjMBzslsgwprAAOjfUglzs7i8Eihb4l1JDUutLNMiBjAC1uSGEHz/ds
+         yjo/ZNTUYSnDejqfboRj4PT8vOFkLge7jW3O0/+9/atG1rXc5+H8SJDwV2aQ2NvGvi41
+         5imtG5aEG0Su2HK6CFKSkATo3hu6V+UDhIjM/6AluZ/M2O+1LlEFOmzul+zKKBB7O8Bp
+         TA0uNVPDi3gB7WJzHFgbhmlVa8UPRUb0ZYbrZsM5GqjvFY6mmYlR4ql+zXTWP3ZsGTC5
+         Ih2oA8v3JcucedWJ8090Z6d269eGmhku8JAelXFH9Us56lfU3qgC/kqiR3ahYSfinALe
+         zzCA==
+X-Forwarded-Encrypted: i=1; AFNElJ+VLQwIqnfKppb7Uh/VnVlwEqLSC0We2hyv7QGAPgcx9Ls60PBMAMcug7cigoCIrofQe0XgcF4ICe7LvNSrJbGo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvOVaTbGwgxaPIDtb15SJfdVH+vjhCn72Fn/1p7koaEMu2u/Q7
+	fcW+0erVYKhE7RFebjzbbmNFtzp7SStfxnYZl1Rv85S1nyj9MFsP9jZu
+X-Gm-Gg: Acq92OE183x9pbD9npt2VjIxwJr85xOPN4xI5OnNBZa7IKWxUDlN7M0ZDYBLlLlCfSt
+	7NF/8F24wdZ108thFPSqxw91/gEdP7kShAIv9Ouag0grKqNGL5ZDT7iEsIOcQXKbVnJ81GMZDcf
+	3ubV5PaSUsBYAUlis4/vkSdpl1nNBxtL3A1m2ZF4dV4bN9fH4tjDCisKaWMnALDCFOG6O9YS3O1
+	F2LMFJHp2KGBhuTvuPMI+/9Hvmo9AMxaMlijUDfVdTDRpAg6AmM95G99J7NxXM+K6cYNiKvv+yJ
+	AmxPCH3bXgvf+On2VJB3yMp+h+7QUy/Hn38qVZr5dYJDothMaEZVgAm7MBkHyR+IdoCUDUL7BEQ
+	c1YR+Te0YIeljFT8Bcldk5YQx01dbpw24pTStDE4Ziz8uLAZ2AhfCA8ofuMUgjICP/i/IOBXqAs
+	woH7qKRr3XnFTeTBw5CNYRPrOCkzsoVZoOW5DKLM1+nis=
+X-Received: by 2002:a05:6a00:4089:b0:842:40f8:74d0 with SMTP id d2e1a72fcca58-844e193a46fmr10195772b3a.6.1781502224229;
+        Sun, 14 Jun 2026 22:43:44 -0700 (PDT)
+Received: from v4bel ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b020b53sm8483438b3a.47.2026.06.14.22.43.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Jun 2026 22:43:43 -0700 (PDT)
+Date: Mon, 15 Jun 2026 14:43:39 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com,
+	jic23@kernel.org, timothy.hayes@arm.com, andre.przywara@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	imv4bel@gmail.com
+Subject: Re: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours
+ before migrating it
+Message-ID: <ai-RC2FlxE5y38mP@v4bel>
+References: <aiHnI1mu6SGQrgnz@v4bel>
+ <aiJmBfXAxcytfGha@kernel.org>
+ <87ecila0w3.wl-maz@kernel.org>
+ <aiKMNIUMv9GQiIbD@kernel.org>
+ <ailsCnyoS82r_QRz@v4bel>
+ <865x3qtmg6.wl-maz@kernel.org>
+ <aitta-IcWnRepEva@v4bel>
+ <87ldch884j.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add gpio
- irq property
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>, Conor Dooley <conor@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260611-gpio-to-irq-v1-0-12201716f23f@amlogic.com>
- <20260611-gpio-to-irq-v1-1-12201716f23f@amlogic.com>
- <20260611-ungloved-snowplow-522e7c0b7a51@spud>
- <a79e58b5-3a11-4593-847d-ba92527549bf@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <a79e58b5-3a11-4593-847d-ba92527549bf@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87ldch884j.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260614_224345_885189_6D06FE66 
+X-CRM114-Status: GOOD (  43.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,79 +109,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/06/2026 04:47, Xianwei Zhao wrote:
-> Hi Conor,
->     Thanks for your review.
+On Sun, Jun 14, 2026 at 04:16:44PM +0100, Marc Zyngier wrote:
+> On Fri, 12 Jun 2026 03:22:35 +0100,
+> Hyunwoo Kim <imv4bel@gmail.com> wrote:
+> > 
+> > On Wed, Jun 10, 2026 at 05:00:25PM +0100, Marc Zyngier wrote:
+> > > It's rather unclear to me what the semantics of this are.
+> > > 
+> > > If vcpu-a decides to nuke the LPIs of vcpu-b and the LPI had in the
+> > > meantime been migrated to vcpu-c, but obviously not observed by vcpu-c
+> > > yet as the LPI is still on vcpu-b's AP-list, then I don't see the
+> > > point in keeping this state.
+> > > 
+> > > Am I missing something obvious?
+> > 
+> > I looked a bit more into Oliver's review, the one suggesting that pending 
+> > be cleared only for resident LPIs while the ones being migrated are left 
+> > in place.
+> > 
+> > What the leave preserves is the pending edge of a single LPI whose target 
+> > is already vcpu-c but which is still on vcpu-b's ap_list. This edge is
+> > always lost when we just clear it, but for a device that fires again a 
+> > later INT reaches vcpu-c through the oracle, so it is mostly harmless.
 > 
-> On 2026/6/12 01:39, Conor Dooley wrote:
->> Subject:
->> Re: [PATCH RFC 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add gpio 
->> irq property
->> From:
->> Conor Dooley <conor@kernel.org>
->> Date:
->> 2026/6/12 01:39
->>
->> To:
->> xianwei.zhao@amlogic.com
->> CC:
->> Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
->> Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley 
->> <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin 
->> Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
->> Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
->> linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
->> devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
->> linux-arm-kernel@lists.infradead.org
->>
->>
->>
->> On Thu, Jun 11, 2026 at 07:54:33AM +0000, Xianwei Zhao via B4 Relay wrote:
->>> From: Xianwei Zhao<xianwei.zhao@amlogic.com>
->>>
->>> Add the hw-irq property for each GPIO bank and enable interrupt-parent
->>> for pinctrl so that gpiod_to_irq() can translate GPIO lines to IRQs.
->> Uhhhhh, what? Why can't you just use the normal interrupts property?
->>
+> Not completely harmless. When the guest writes EnableLPIs==0, it
+> accepts the lost of any pending bit that could be stored. These won't
+> be regenerated, unless the device signals a new event that maps to the
+> same LPIs. But again, this is the guest's own decision, and I don't
+> see a reason to prevent it from shooting itself in the foot.
 > 
-> The interrupt cannot be used directly because the GPIO bank only 
-> provides an IRQ base, which does not have a one-to-one mapping with the 
-> actual hardware interrupts.
+> > The
+> > exception is a software LPI that never fires again(irq->hw == false): 
+> > that edge is then lost with no way to recover it, because 
+> > its_sync_lpi_pending_table only re-syncs the LPIs whose target_vcpu matches, 
+> > and the disable path does no pending writeback. I am not entirely sure about 
+> > this part, though.
 > 
-> On Amlogic SoCs, GPIO interrupts are handled through a mux. Multiple 
-> GPIO pins are mapped to a limited number of real interrupt sources. The 
-> implementation can be found here:
+> I don't think this is a problem, as the architecture doesn't guarantee
+> the state of the pending table after turning EnableLPIs off. There's
+> even a note recommending to move the interrupts to another RD before
+> doing that.
 > 
-> https://github.com/torvalds/linux/blob/master/drivers/irqchip/irq-meson-gpio.c
+> > 
+> > Since this does not look like the common case, if it does not need to be 
+> > covered I will send v2 keeping only the pending clear and the ref hold in 
+> > vgic_prune_ap_list(). What do you think?
 > 
-> To use a GPIO interrupt, an unused hardware interrupt must first be 
-> allocated, and then the corresponding mux register must be configured. 
-> This allocation and mapping are already implemented in the existing driver.
+> So that it is entirely unambiguous, my suggestion is to have this:
 > 
-> In that driver, the mapping is performed dynamically rather than simply 
-> calculating:
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index 5a4768d8cd4f3..70a161383e5a6 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -203,6 +203,7 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
+>  	list_for_each_entry_safe(irq, tmp, &vgic_cpu->ap_list_head, ap_list) {
+>  		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
+>  			raw_spin_lock(&irq->irq_lock);
+> +			irq->pending_latch = false;
+>  			list_del(&irq->ap_list);
+>  			irq->vcpu = NULL;
+>  			raw_spin_unlock(&irq->irq_lock);
+> @@ -792,7 +793,11 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+>  			continue;
+>  		}
+>  
+> -		/* This interrupt looks like it has to be migrated. */
+> +		/*
+> +		 * This interrupt looks like it has to be migrated,
+> +		 * make sure it is kept alive while locks are dropped.
+> +		 */
+> +		vgic_get_irq_ref(irq);
+>  
+>  		raw_spin_unlock(&irq->irq_lock);
+>  		raw_spin_unlock(&vgic_cpu->ap_list_lock);
+> @@ -836,6 +841,8 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+>  		raw_spin_unlock(&vcpuB->arch.vgic_cpu.ap_list_lock);
+>  		raw_spin_unlock(&vcpuA->arch.vgic_cpu.ap_list_lock);
+>  
+> +		deleted_lpis |= vgic_put_irq_norelease(vcpu->kvm, irq);
+> +
+>  		if (target_vcpu_needs_kick) {
+>  			kvm_make_request(KVM_REQ_IRQ_PENDING, target_vcpu);
+>  			kvm_vcpu_kick(target_vcpu);
 > 
-> irq = irq_start + gpio_offset
-> 
-> If the interrupt is used directly, only the GPIO index can be obtained. 
+> Could you please give it a go with whatever reproducer you have?
+
+I confirmed your diff fixes the issue. Could you submit this 
+patch? Feel free to add Tested-by: Hyunwoo Kim <imv4bel@gmail.com>
 
 
-If it is performed dynamically, then it is not suitable for DT.
-
-You still did not explain what hardware aspect exactly is described by
-"hw-irq".
-
-
-
-> The real interrupt number cannot be derived by simply adding an offset, 
-> because the hardware interrupt must be allocated first. Pre-allocating 
-> all interrupts during initialization would prevent later GPIOs from 
-> obtaining available interrupt sources.
-> 
-> Perhaps other names would be more appropriate here, such as "irq_start".
-> 
->>> Signed-off-by: Xianwei Zhao<xianwei.zhao@amlogic.com>
->>> ---
 Best regards,
-Krzysztof
+Hyunwoo Kim
 
