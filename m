@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C13DCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DC4CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PmZ2sl38PCCS0bv5D9o7S4WvjIIRHmjBHALA0zfK1Ow=; b=gxBXXIamKKwViUbQjl791mMZlx
-	/MNjWWsfcwLrWJALAkYtH6+5H/rZ4F7i4gqm446pfmCdzQBFZ/N3oqWK8vItLlMokEa62+yF5A/53
-	EDAEWCYc2oA1IlXOM/O6B6toVhYxW7dSMWRWlJGMJqJKvdTXt0bisHZCuco9+3Yz8Uj5gTZ9vKUTl
-	/HlmryGhOpyvu4/1Dxv2d1iBJfuhquxD/1CO9vMmA7xzkDh/GKQJxq8dNZhmVAn4xYBxBHCkefJLp
-	DERChoKbTd+Rs9mk73HF5RaFaeriq7KrY0K8fhopdDVTjDK1AX7N7hz75WgAVjYCyntipj/XzYmxA
-	lgZhsBXw==;
+	bh=jOhKduHvhhi1//fmQnUUQw/ZgnpHeWjfQ6tgKhPwSdc=; b=SDXENg/tsiRR3+AaRiTqSMCU0s
+	5YopmKFgYFAvABbgppP8gdwbFUZBIIv/N7JJxbCqdq3ClE9MnJ5WHleUWqKpbzwS9zvljUuPWwH+P
+	6XIJjSpFWXHxP3+EkRg9gFYwIPHlz0imPy+dbsDIP8KlzIeVGjWZIAO+7XRpXYRrljfbPNC2C8/oe
+	soa5f5a78Sja1OML1w71h8Ra1hbD1bCBJtqedvSMOWGkENEfxX5S9s/ea/gEzlSjR+kGjJjXdSFA3
+	Kc783stZDvmO7xZoawf6JiDQjtjYJj8siBrNIUFpSPxtrSnnejU36law1tALuFtWe4GkY4vWcCJij
+	WHsF525g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3nv-0000000DyuM-2e3P;
-	Mon, 15 Jun 2026 09:40:27 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1wZ3o0-0000000Dywd-38GO;
+	Mon, 15 Jun 2026 09:40:32 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3ns-0000000DytE-1SRN
+	id 1wZ3ny-0000000DyvN-11Sy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 09:40:25 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-36bba9a1089so1799095a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 02:40:24 -0700 (PDT)
+	Mon, 15 Jun 2026 09:40:31 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36bdda53d99so1118029a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 02:40:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781516423; x=1782121223; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781516429; x=1782121229; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PmZ2sl38PCCS0bv5D9o7S4WvjIIRHmjBHALA0zfK1Ow=;
-        b=U8+MRy6sH92bC6y8WHivKhtVgQkvWkt+2zkRD+P2KRDdfADM5JSpkfPBUDOiPyUJHG
-         JNM+/gexNLzUJb5as2xLHWmhrAqBmduDmB2L5j31wDMXPAlIz16vorQEqHUgVCJpAHB9
-         T40UJlzg2MYQKEdefyO8PQBmF3xYIG/oLMbECqFsY8jPiw6XtKIXVJUX7ZLRj1Ar3i/6
-         +ivZtoHzohPGJRS1PM9cN6PiHXXLuUOJoMMsVitGhh2+eKmGpGDjCmvgrUfwjUWzXxFp
-         gW8SigJklKvyoE7D2CfJJoRcK09/x+PE6xkUvXzKBzEPPGw0D0xJnf9oTAfEBlS+fHf6
-         5v5Q==
+        bh=jOhKduHvhhi1//fmQnUUQw/ZgnpHeWjfQ6tgKhPwSdc=;
+        b=CtTZXhnxfC6GR2xHRmOpOA50kCzH+vyfjH5ER3Upy8ME/DU6FGOpHU2EbHfyt5LfL8
+         f3En/STdrlyeviM6oYPjVJRtCge3f1WJaWfMHuNgwiTXrGX0FXE6VVc6XnBI5e1fgQ6f
+         PTLwl46zLZAQaDXsEshZ/PRkpRfy40/lyo0+E200px0MQI8/e/DVEhmC2Fi5xwVDyuD6
+         r0P3kSdIfX7baiJKtmizJwF7+wZjuYuVBwe/wDAVZCh5ig8djifqnkG88DNYM+bm9Fyg
+         cLDaW6pFnL8ot6Kd5nJLTxGT838UlXkUYL5qSUXyD+lrUgH8asABeAcpnS+owemZ5hKo
+         BkAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781516423; x=1782121223;
+        d=1e100.net; s=20251104; t=1781516429; x=1782121229;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=PmZ2sl38PCCS0bv5D9o7S4WvjIIRHmjBHALA0zfK1Ow=;
-        b=c8Vw5RJF6aZhCYVdoF4Fk/t0iB4eAnA6jZ2ybqCLlsoXkZ7wB/OxCXYoo6oPTNqQZQ
-         7lTgzJ0QTIxzYYhEzAUzRTIuMB7A3CDXY/aqLwA3DAC+5T5Qt8ikjj2UORVv6hdReizf
-         eP0O4kx5TSGQuZ3KdrrRFSbfKypV4ze9EcKY1pFl+Gux6NlTwXgMAB+sbshG9D/Qm8dC
-         d7sodlcGBEnq/g8vZrECtv7n8OmcGkhTDYw5Sj7eF2daxTYSlVpiwiDs7WpysL2UuCDh
-         bUPOYuH1nx5UgXvvCWBfVesGpSIDs77lW6VtGFd8yrQuu3XWwu1gWriX77aI4ELdvrvn
-         AM6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/Ixy/kcJFbwtIBDCpHBxdYVlAKgZW4RARPA/Th2PYEpbJJKwzjtCbjpbFkvYiDrKqaTpGU21WOqRQa1xbTE2UX@lists.infradead.org
-X-Gm-Message-State: AOJu0YztVifby9NCGacoNZMu8ehErcEeTD9/mDKciSJJ/p3AXfCdsiOf
-	SPG7vCRHpP2zB6XKknP1jHvn6XPCH7/HqLLmV7DPXy2f+qoaa2dhm6KB
-X-Gm-Gg: Acq92OED8gFtXQRdPLwpHf57nDFamwY3fy4A8nGI/E39XVGWALcTVVlXKaGpj6hN+7H
-	Bwd5vU8E0yjr0b/Ge/YHZEhlxat2yvNcnONa18x15yYFQQgaxiiRpvc3JwPXd96zUl04Aq1xram
-	V3nOAoWj+xMck65phPr2En26MaNrf7lzfxYfwfghdtp/1brucPCAfS8bUC53YKDwLtMdfiXzA4+
-	U0bfnliyOXqnIP1VZtpyzvE0J59GKVt0k9aUGB1MsexJgsV7bnfZ3wslTfTvNxXWdoW/U0H5cvj
-	JxRY1RISGB3GKwzx1WrG1gr3HSpnz7hvq5n6Rv46ECNG9ihvGK63Fgp3utv4m+C2t3Hn+HkTaak
-	4KYCAvtUcMn2iC2pczjXy5wzGpjDvnkaX2rnemDKHO37jPrHJuer36+tiRzTGBPiccBPAsD1LGe
-	puSfCrjrDksmboUAyQ3SjqNOlPiuqxV4bQQhhKxXinMxDYe2cwTe11TBy7JKuT/kpE1rMY
-X-Received: by 2002:a17:90b:3a81:b0:36d:633a:e7e5 with SMTP id 98e67ed59e1d1-37c2bc5d64bmr9860091a91.3.1781516423443;
-        Mon, 15 Jun 2026 02:40:23 -0700 (PDT)
+        bh=jOhKduHvhhi1//fmQnUUQw/ZgnpHeWjfQ6tgKhPwSdc=;
+        b=rGb66mNQLFvGOWOGw6r0807luTHs6MZZTdED3MllldZhFFrFaIxCXFUI8auQEUQxCk
+         gYSPDhdUIe1qbb4KdrMOLmjtDMVMLbImp8yplHN4QCXY57dbK55HfuXPdSH86JsjmlM7
+         ueUYE+bUaTkQRFtjmXhtQfEZn/wI1HzjZnnLpZkmikQGlBrC2zF2Sz5NCLg4iLRCdieb
+         /LitidHkQIVrSnVZuO2OsVXyxhFuwu+QkpNL4+KwLou28qIsxbONcGr4EHH6h99IitGp
+         uSyXTKeSqRuk84cPteX47Qo5zA+7Oz7HPtmHjxgOo8eLGY8wA8gZb7fNpxg3BXUkYU4n
+         MnaQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9d04n8u9CuC7KJT54hzAQncmsj/gHGnpyz+xF2alIPGC71TUusLJopuv/acwfVAz9OwC+nSW69/+DZBkYnZIXz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiTWd51nQjke/bXmaOIR2unL5WJBjjr8p5lVZG8zTO2xMO9wbl
+	UAc5CtQN6l7EnAWZrAs7n7eAb8ha5MhZMfRLCaM4PNhdEJcg6tJE0z88
+X-Gm-Gg: Acq92OF0HluSfQX2jnrEJPl6kWmcP43VFInNS0CCAAzewBBrH6gfQMG3OXeceOCUBu/
+	OLJ+f7JMSUvDbvapoFvl+wp8smyQrSiTEBRyQY6s+8kQtM/5PiNL+cG/78rYI7X2gyDy1l212vV
+	WQVBzctILRtH9POrgVEbpxHs4PyJ6os6cGQnXIhOgAgeavNsHlHFwCivW7bdME/QBpEoYFIwOZi
+	V+Lbs1DVDxCz+TgyfxiQNdVMk3ZXu5NgpidcOYP+rx5Kk3Ty0x+l4foHgLD/0iK3W460nq+NHrI
+	hj8Hv8KWHK/u8luhz1KhccDGL50STjC+pD81Wwb0rT7UoJVm1Pg8Nn8UsmGgQBjmRQ9JnROa0mb
+	5x0Bw2wCjuCSRr1tj9XfeByBeZs5IuSY0D63P2l6Uecti6K6OOArkOORvxvfXodu7/wMVqQYloh
+	h1VH6KGVQI0MDJiM0VY0/mKh231GRl+xYZ+yFf4tvVestHUyKt5dfG1Tvxlw==
+X-Received: by 2002:a17:90a:c890:b0:36d:b680:3029 with SMTP id 98e67ed59e1d1-37a01847858mr14328244a91.1.1781516429578;
+        Mon, 15 Jun 2026 02:40:29 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1eba8e9asm9936290a91.2.2026.06.15.02.40.17
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1eba8e9asm9936290a91.2.2026.06.15.02.40.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 02:40:21 -0700 (PDT)
+        Mon, 15 Jun 2026 02:40:28 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>,
@@ -87,17 +87,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	imx@lists.linux.dev,
 	linuxppc-dev@lists.ozlabs.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 04/11] ASoC: fsl_esai: Use guard() for spin locks
-Date: Mon, 15 Jun 2026 16:38:17 +0700
-Message-ID: <20260615093824.115751-5-phucduc.bui@gmail.com>
+Subject: [PATCH v2 05/11] ASoC: fsl_spdif: Use guard() for spin locks
+Date: Mon, 15 Jun 2026 16:38:18 +0700
+Message-ID: <20260615093824.115751-6-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260615093824.115751-1-phucduc.bui@gmail.com>
 References: <20260615093824.115751-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_024024_378692_B53786F3 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260615_024030_281040_E367AE57 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,63 +119,51 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/fsl/fsl_esai.c | 16 +++++-----------
- 1 file changed, 5 insertions(+), 11 deletions(-)
+ sound/soc/fsl/fsl_spdif.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/sound/soc/fsl/fsl_esai.c b/sound/soc/fsl/fsl_esai.c
-index cde0b0c6c1ef..4a530a6c33f0 100644
---- a/sound/soc/fsl/fsl_esai.c
-+++ b/sound/soc/fsl/fsl_esai.c
-@@ -709,10 +709,9 @@ static void fsl_esai_hw_reset(struct work_struct *work)
- {
- 	struct fsl_esai *esai_priv = container_of(work, struct fsl_esai, work);
- 	bool tx = true, rx = false, enabled[2];
--	unsigned long lock_flags;
- 	u32 tfcr, rfcr;
+diff --git a/sound/soc/fsl/fsl_spdif.c b/sound/soc/fsl/fsl_spdif.c
+index 1b9be85b34c2..ad1206ed9882 100644
+--- a/sound/soc/fsl/fsl_spdif.c
++++ b/sound/soc/fsl/fsl_spdif.c
+@@ -853,17 +853,15 @@ static int fsl_spdif_subcode_get(struct snd_kcontrol *kcontrol,
+ 	struct snd_soc_dai *cpu_dai = snd_kcontrol_chip(kcontrol);
+ 	struct fsl_spdif_priv *spdif_priv = snd_soc_dai_get_drvdata(cpu_dai);
+ 	struct spdif_mixer_control *ctrl = &spdif_priv->fsl_spdif_control;
+-	unsigned long flags;
+ 	int ret = -EAGAIN;
  
--	spin_lock_irqsave(&esai_priv->lock, lock_flags);
-+	guard(spinlock_irqsave)(&esai_priv->lock);
- 	/* Save the registers */
- 	regmap_read(esai_priv->regmap, REG_ESAI_TFCR, &tfcr);
- 	regmap_read(esai_priv->regmap, REG_ESAI_RFCR, &rfcr);
-@@ -750,8 +749,6 @@ static void fsl_esai_hw_reset(struct work_struct *work)
- 		fsl_esai_trigger_start(esai_priv, tx);
- 	if (enabled[rx])
- 		fsl_esai_trigger_start(esai_priv, rx);
--
--	spin_unlock_irqrestore(&esai_priv->lock, lock_flags);
+-	spin_lock_irqsave(&ctrl->ctl_lock, flags);
++	guard(spinlock_irqsave)(&ctrl->ctl_lock);
+ 	if (ctrl->ready_buf) {
+ 		int idx = (ctrl->ready_buf - 1) * SPDIF_UBITS_SIZE;
+ 		memcpy(&ucontrol->value.iec958.subcode[0],
+ 				&ctrl->subcode[idx], SPDIF_UBITS_SIZE);
+ 		ret = 0;
+ 	}
+-	spin_unlock_irqrestore(&ctrl->ctl_lock, flags);
+ 
+ 	return ret;
  }
+@@ -885,17 +883,15 @@ static int fsl_spdif_qget(struct snd_kcontrol *kcontrol,
+ 	struct snd_soc_dai *cpu_dai = snd_kcontrol_chip(kcontrol);
+ 	struct fsl_spdif_priv *spdif_priv = snd_soc_dai_get_drvdata(cpu_dai);
+ 	struct spdif_mixer_control *ctrl = &spdif_priv->fsl_spdif_control;
+-	unsigned long flags;
+ 	int ret = -EAGAIN;
  
- static int fsl_esai_trigger(struct snd_pcm_substream *substream, int cmd,
-@@ -759,7 +756,6 @@ static int fsl_esai_trigger(struct snd_pcm_substream *substream, int cmd,
- {
- 	struct fsl_esai *esai_priv = snd_soc_dai_get_drvdata(dai);
- 	bool tx = substream->stream == SNDRV_PCM_STREAM_PLAYBACK;
--	unsigned long lock_flags;
+-	spin_lock_irqsave(&ctrl->ctl_lock, flags);
++	guard(spinlock_irqsave)(&ctrl->ctl_lock);
+ 	if (ctrl->ready_buf) {
+ 		int idx = (ctrl->ready_buf - 1) * SPDIF_QSUB_SIZE;
+ 		memcpy(&ucontrol->value.bytes.data[0],
+ 				&ctrl->qsub[idx], SPDIF_QSUB_SIZE);
+ 		ret = 0;
+ 	}
+-	spin_unlock_irqrestore(&ctrl->ctl_lock, flags);
  
- 	esai_priv->channels[tx] = substream->runtime->channels;
- 
-@@ -767,16 +763,14 @@ static int fsl_esai_trigger(struct snd_pcm_substream *substream, int cmd,
- 	case SNDRV_PCM_TRIGGER_START:
- 	case SNDRV_PCM_TRIGGER_RESUME:
- 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
--		spin_lock_irqsave(&esai_priv->lock, lock_flags);
--		fsl_esai_trigger_start(esai_priv, tx);
--		spin_unlock_irqrestore(&esai_priv->lock, lock_flags);
-+		scoped_guard(spinlock_irqsave, &esai_priv->lock)
-+			fsl_esai_trigger_start(esai_priv, tx);
- 		break;
- 	case SNDRV_PCM_TRIGGER_SUSPEND:
- 	case SNDRV_PCM_TRIGGER_STOP:
- 	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
--		spin_lock_irqsave(&esai_priv->lock, lock_flags);
--		fsl_esai_trigger_stop(esai_priv, tx);
--		spin_unlock_irqrestore(&esai_priv->lock, lock_flags);
-+		scoped_guard(spinlock_irqsave, &esai_priv->lock)
-+			fsl_esai_trigger_stop(esai_priv, tx);
- 		break;
- 	default:
- 		return -EINVAL;
+ 	return ret;
+ }
 -- 
 2.43.0
 
