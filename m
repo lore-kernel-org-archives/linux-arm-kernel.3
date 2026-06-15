@@ -4,132 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C97F3CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261ADCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZtS3JsUJE+m+HIr72yV0Z+Jd0YFVbSfIMbvM69lRvZ8=; b=0RPei1GMZcCIqrdAcTibWndE1L
-	f/xo5p+AWFtWm004J+avJj9ierEnWPQEGyK0os4cr48OjJggmneFa6JamVnmDE3z1LYy1NnHyy19/
-	q7SgPyfeBugQUwoDBaQhtqtjyjWkGtxHQWwH+lUg3tvC0h6lzgcm4+4SMZmLElOCu/65EW/BfiHw/
-	1t32xr13EuU0rVduDuMEhGPs6/5KbX0r8t8Fbccom4qPh8gdDhtNUARmKmedg2Z9walDMrD2h/K7l
-	mKKRMp/i5GeYf/Kv4h8xPSefO5yZOrUmVE0iM52lTwl3CqM9nMkOeC1lV+xTeGrjbDcr5U+8jqKuD
-	fMrcSqJA==;
+	bh=/RKAlB+YaRvxl+nRljsm0vU9jlQ7EuTV00J5KLHppO0=; b=tUJWQbJ/BL8t5AplpkepPVCoMH
+	R9461tfF349X+6wumfPMlBqUaW/kdJvpwWhEUWksSDNEa6xw8axwVea4mlGGxpdsuN/YiX5JEfmwM
+	q1QF3y3xgevt2XDtErlHERH32fSxJ1+Ml7jc1qkSNe4kCd0n7EU0LwL6BiJoewj4PAR8K52VDHZ1X
+	yikI0rpGcBTmSVzZ8EFWPyr3z3HxlDz41rs3E2iMV+6Doi6mZRZfin5Whgnhd2dmAtehPybvoCrnZ
+	URTLQ9DjHuWqERRZMK2dH6znjtKQNAzp772TeP6Px0cLWJDhWb5zQsnv07mMCzD7IMolF9JoNj2TQ
+	+aMH+4qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7aq-0000000EKbI-35lS;
-	Mon, 15 Jun 2026 13:43:12 +0000
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wZ7dg-0000000EKr0-0KO6;
+	Mon, 15 Jun 2026 13:46:08 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7ao-0000000EKau-3WLI
+	id 1wZ7dd-0000000EKqW-0YQ9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 13:43:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vtrGo+hRdEpAQwMp6XmOrN23zPj2D2emZWdGpCx9gJFl0ALVtNWFEig9/EG/WgTCcUOFw5T4RyYWmvyJmjxXP68rksvs957c2gp9AJ6VzSCh3Vvg2IMbBaCLbNhI5krtQs5U/RKHUuKgDGAZHeJXRjU3FlHQeQRf+Dz4/nQUPFMbn5ZM25xbJ97oKQbPiU0dsdDcmKEkPn45+J+xTD6Q5GLYOGdcBgf0qYYp1RD47WrOM/vcaRDEBJqXv/+MZXPizDZ8eF5QtVekK2ISxYvEdu+dMGCZhru6DJfJdmonfHWHG1flGJmTnWBohHGa8zsmIp4mSjvIoc94zKLEmp2CWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZtS3JsUJE+m+HIr72yV0Z+Jd0YFVbSfIMbvM69lRvZ8=;
- b=MdkHIvTZGPMgoB0l62ZMwzgENESl0SwSCQNSAnPcsN9NGeFYGDIR9PUR3gcxbs9yFTDxHeVBHeDnCEeRAQS8wCfL9iLCGgzlfxpk2Xa87Af04/Re+dQ4gyKg/LkVgzq3a0y3L+b3Y0G/JxYti3+YRm6J3MEs2w5M0/z8fhzlb8yTsPFnyD9v7IXEqyWdEt2rJwghPFS3zO9zQjzr6aMnWtYnr4OqTr2ND6Y+9Q/gTRefEyu2AnFz4wL99Vg5cKQpFTxheUdDsbiqCSvktr7nDEUFhSujCh+SoapcO/zmMWQCuVxK/2oHlLJqyrRvh6cPnS3muEE1jlJ040zKyOD5+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZtS3JsUJE+m+HIr72yV0Z+Jd0YFVbSfIMbvM69lRvZ8=;
- b=k0qdat6umlr/yz3KzDYTRu8+V1IphjA0QbXpYfMS8ctsu4qXDe5gCVbK2gwxFf7vm80VcUquNUU0APHaALgJAs08GyJatm3hFF62hnuewpLr2ZrkjGdGt0PrpEdvaRr1qj8ukb2QqikkyQzIKlxh00ks9aS2VgXQeHwyhTdyWNfD7IvQEbBHEIMFyx6VeFqtvgi/g2ZJLtLuA2K5AoIeEZqbNoxSNuJ7+2BiMrXWH0OzKOQWHpid0PTKdYGEWSIK2bpIPJXgt4oyC9rYeGW86FFyXDBZKgfNa2yg5EV54f+xqnPA3gXV0cxJznMDpJ8Xsfd1b7SMLnZ6r0mjL6sWlQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB7116.namprd12.prod.outlook.com (2603:10b6:510:1ef::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.15; Mon, 15 Jun
- 2026 13:43:03 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
- 13:43:03 +0000
-Date: Mon, 15 Jun 2026 10:43:01 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>, Kees Cook <kees@kernel.org>,
-	Yi Liu <yi.l.liu@intel.com>, Eric Auger <eric.auger@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v1 4/4] iommu/arm-smmu-v3: Process vIOMMU invalidations
- in batches
-Message-ID: <20260615134301.GL1962447@nvidia.com>
-References: <cover.1780521606.git.nicolinc@nvidia.com>
- <00748c5cbea95a938d032269001a598203b06bbc.1780521606.git.nicolinc@nvidia.com>
- <20260612135409.GI1962447@nvidia.com>
- <aixZzvVWmAFEDQZI@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aixZzvVWmAFEDQZI@nvidia.com>
-X-ClientProxiedBy: YT3PR01CA0034.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:82::12) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 15 Jun 2026 13:46:07 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-5177d1ff061so85571cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 06:46:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781531164; cv=none;
+        d=google.com; s=arc-20240605;
+        b=efJO0R23vcn2Cwr+7adlzxPuAEAOINnGwxtiwbZ5Vv1MP145ep7r8s5r+4NDKs0JMU
+         S8bFyI6t+y0iMeb8VuK7ZPZvlpnvw0oxttnuM02eU53vkA0XMvnwfB6I7BY0J8KlQ0Co
+         6g8DjMEcZL55wQdLDR93+ehcvtpBlN7jqEXtB7IsrgmbTdzqZ1JVNdw2ddQ6/VMU0PNC
+         ShtAReiQKoGO1EKqoZWLMUuij0gaObRQwoRxg1OPCqo6oGXjR9skHkjFJ54j6MgA5FQu
+         2zymA5c1m/tjXnvW+qZeCTo1bOT49yWcjODm3oUVJr6j7VSklcYyGkofUDqtkILpNUMA
+         yH+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/RKAlB+YaRvxl+nRljsm0vU9jlQ7EuTV00J5KLHppO0=;
+        fh=JVCCc8nQmU8DtllI9sccjNkWD+B/jkRLm1/wo3RBCzc=;
+        b=IXb4O+FyNhs6F2rvRf+pCEThXmmVbtwmnedHQS2whWQ6qKwtBKU/XLV/+oIMYimsQO
+         4pVT3eHRePFf0bkbdjPFNPNe+xDZ9V3WMDPMUNBMxDAhimGuGNcSg8RZXQ68UkXgqJSZ
+         8B7mwBu4unRycO6fsUv0JC2ExB34fNxacz6ZKcBK6+7fn6Hdcy5h+Cwx2fAxo+AcTDpU
+         X+YGMA8IV0d8eh8LOZxueF9fWRjtIXMxMNtLyzDAvntBx9T8/6P8SaBL6HfZMx40QK2s
+         ozlBZT3vpRLfPTCiU0hgbHJFXWNzEDbiPQ6GCz5e5HIs9h0BE5rlvSkH+wJ54Qqu3AGt
+         Up/A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781531164; x=1782135964; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/RKAlB+YaRvxl+nRljsm0vU9jlQ7EuTV00J5KLHppO0=;
+        b=QVzsEwqB7zpXonIrcEymovrdEt/umI5I3q/EV9bCxIdtPcsHln2vcFtz9mhZDlHazh
+         TqfBeAADwKtvyV+FmN9j/o7Y7ws+IZntJhutjsjx5UOk3U1/GQBj3Hav99gvpODgmHVs
+         NG8bfgYZc6rDHeMWFpcZsHfYAQpjrKUQH0DIndbOSIdk2fbge/0Q8X/57O4mAQdhFIV5
+         g8et5OE3U0soAeYWMRTEIEOheip+KaKMqeG8ThbwRvSXMBh2U3reBCDDbj2S+cZNEbgb
+         /5V/9BxheZV8e5NNQX0yGxTcMAdHqzQmeVYKcX60PW3OP4B37ZZzHwW9XzcrwmoSwv9I
+         VGkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781531164; x=1782135964;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/RKAlB+YaRvxl+nRljsm0vU9jlQ7EuTV00J5KLHppO0=;
+        b=cWXIS3I375+cwyOKbCTjrhDpEAGOZMlAuMp4Gf+8Sc99ZzONGZP+vM8ePGLX0Dc6je
+         4MpDLSUvp1UcJ0dksZinmtSzmEkKEzPebApBb/vUVkChMnSCLXS211lv+SRNW52s4jI/
+         /X2iYYc4xc+BzXJols3+Fy4uuSaNK4A0fc1ZQmjOxVLWzrlJyAkTleMrjJgwUsKMJHK6
+         DoK+TCY7TqA9Nk2xkeNAfpzSEe90KaRcYN0jx+PBHX7POYFEqQG7KmACXJ1bUtW3f5X0
+         g/Ooe5Jg7urcmjLhAECOZlaNEPRQBDGskofYCbvCERUH8+UMdixC5kCni3JqCV0yaB50
+         5JAg==
+X-Forwarded-Encrypted: i=1; AFNElJ8/XBFdD7MIgc4M775UNuXMByzVEe2r4UutvSkpBK3SaJo2Kk9TI3WH7DgJmQhg0oUKv94TmGwtp9a2CKEMR9P6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLibstqkxPBhdAZLbHJHtKI09VzjPA1pg78v7jKeqkbIrwgYXQ
+	FabIprRe6/j4MQN6aPytuN3JyW4WGIGqhe7HVmyLZD9yYuy5iJUvmzkhW0Gbqis1zmL2aAn411u
+	TLrnvIBLUDi1Jatsx1DpLQJoiAzCh7Vq141nIB35z
+X-Gm-Gg: Acq92OHOINMOqf0vECGfgwIdwyAZTycCTlzRdg9l8nGYMoVBSEiIhHuwUhoi1W3Ddrw
+	lcKB3qn46z3Z9lMhv3aTK1pxG4GfLZvuJxF2HqAjBs0SW+ksOfiD2c3e7iBo6e+mLRYO520Vmq6
+	G5YeHzpUj1wpzMDHMwjEx3AHUucl5CwZqOXK1tpfmZpjvArw/qO7NrEQSHr/DNwf/bjHuYroGIm
+	qJ2WdUE6OMFQFafxR3hWIrfw++ED/zRYlWjukmJ1F/6Q7vATbvNoMN6SoSgJVNZiDB/tyCz0NHo
+	gg2Ws3SX
+X-Received: by 2002:ac8:5f8a:0:b0:516:4f62:85e8 with SMTP id
+ d75a77b69052e-5198750abeemr1738961cf.19.1781531162997; Mon, 15 Jun 2026
+ 06:46:02 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB7116:EE_
-X-MS-Office365-Filtering-Correlation-Id: 832ca6d8-f57b-4f4b-243a-08decae4059b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|18002099003|22082099003|4143699003|11063799006|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: CErIk05n8bIfzNXEaVfmufHGPiEdvKrEGZnuvCy9jCVaESzr5v82jDD+rnecdRjPrWdWdr49fjz1iPWy85Gvb21K4uSbAOxUv+j8/n56aP/eGDmzB6RcbFdtc1DkymwwtCcHMXffMAipBGK5hm9vPqhgdGPMJnFBJ5n30DTP2NB1HFv8WG+ZFQaTSrzs2uQcsGah4119/S11WGfrJcV0NPzp5wdHgXkajTii36bfCi92VXz+iTS5XBobo8UUbI5bbFfnCmXCBm7K1oR8cUew6vUiZ/SbnIWjQFvUXEjr12yyUTSANVrnsmyb8SEYE/sMohKc5eCkvi5ZAHNSKyiYcOnu8G53sS/uGa+bd82DnUWonpxZM0IGozb+4Aft0Eoo9xXjtnj1UKCtJ9q0hGs/urrl+1JtCukUfgEJler0fhWklJ8ApdDd1B7wyEeTtJk2wuDFcy1OAscUQkUWc7rmCBnKIHNE5utVNkmAD935LrbHZIFK4HbW7MTFVQNxHhbQASqdrcLeFbjj3u73juyqZo07jgVCRCOr1a4N8AJnSjtQFf1Y3RIsvDUcFfjownPc1NxrjOvheHeBjMiSebta5TMd89sjzotQRidgCEAAIAWxQgDTsc6LUUX6iGSqr3Wuoj1+2OVRl/hOh5I/58L+zTYsHs5VciGJjVrVzmrbzIPXbtdpvIT+zjKDcNKtRRGZ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(18002099003)(22082099003)(4143699003)(11063799006)(3023799007)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uwKQ+W+xLKVFwKgIgiJqtRUqEDZMoLWDoetnhHRfN/M4R0I1z3qMZMuln7h+?=
- =?us-ascii?Q?aFtvxWCj8BM/aeDKJKWHsHgqEOKPidZgpekQmriKNjs3N8avuMv8Pc/eTbgQ?=
- =?us-ascii?Q?CgBSjynJ9cAROC8vlsznW7glLEQwemqKteopQpUDquEtkU1/jjiopfH7ju3c?=
- =?us-ascii?Q?/onOOFRUuXhdphLWXW+c0cl+6i0nIpDc5KYOEuNxlRbfWYyFCVJ0O68n6Oeg?=
- =?us-ascii?Q?w7sOZR/30TGtFRJ9ZuWug7We9PpA1nL01Mt05kEc8iFZtd643N43U8QYA4OH?=
- =?us-ascii?Q?R7BQcIRkFqcZeeQkSuD2/22CQ22wQWwx7Lpem2vk7OPW/dzkLQW73aENEs2Q?=
- =?us-ascii?Q?LjhYBklgr8XLjlNcuF0TcOPVvPtsOPEMcJbxa+FORJG/xhhhgWQpMJf44UbX?=
- =?us-ascii?Q?jDEWp2p432N/1po5f1ehJmCNtMLPpy/35Yj07DEQSKq7FYDlQkcKNerctlvm?=
- =?us-ascii?Q?bVyzzEll5nWtBqTAfABB2KWVl0m9xyy9thtHoHaBmrrQ24VavbUz38jQ6rN3?=
- =?us-ascii?Q?cvH6tBZzrAOTYf/3QqajEeEP+PI4nUL0m0rJ7qu/F+r1DToFeAMXjDflhjsi?=
- =?us-ascii?Q?VtSbSW8eV9SAY4qbimkPNrmoA2HE8lFtQY6Y86V6Ryz2f7q1Mq/I1FlqwgMe?=
- =?us-ascii?Q?j7waG+kWf9uk0q7bbagZMpIaltQ0ErAJirztGOBGFKY8LbC+fLNChJgPJgF9?=
- =?us-ascii?Q?b12M0wP4CYdHsJoK3ml4cLBf/2gEy5YVj5JbKnOHXIa+r7yG/7jEmCZ5tPwj?=
- =?us-ascii?Q?Uo55Mybie4ZSseJJEm7nyFHKzy7cNxPEEg8jmRx3uvTOAwFB8bru0o9Boazv?=
- =?us-ascii?Q?AwPwOxtEyp2RY7/BONtDKQrql2+w92QV5h3q8ewO+ZbW5I0t7C1dBWDWJ8Nf?=
- =?us-ascii?Q?ShcQMhXBFTxm06Lf1wEDqOdRkeWUQ/vTC9seaEpBeyuFMAyCMJ0iDtPwa0tO?=
- =?us-ascii?Q?okXTyCZOvLnxauKXaXBdDocH4/PBd1iOUXjYAlzPBPMJ59QHQKGoBHYZRgiL?=
- =?us-ascii?Q?4fzk6+EdiyxpB6uZCYgijMD4nd6jnNpfVcMBdoNvJ+w1jfjKRU+ZOo7Yh+Tp?=
- =?us-ascii?Q?zHeXvVKrMP+qpabkV2gRGISH4oOkY5wLzgbUozgn8HZGHNH7NzQyJzrn5D8c?=
- =?us-ascii?Q?wGE4MfxQ96VuyrRsE+ejtcFZnp8iYAH6urCFK+8M6skfCya712qayfnaGfQ5?=
- =?us-ascii?Q?lTEXiF6klt7kMVTJNHaArYLTtKbeV2l5st+9Ur7O6Ki+qbjMyVRUaXRg9/Ar?=
- =?us-ascii?Q?wpUuUzM81gq8O00srC8Ds46eTKCag1X0dKT6Qt+9ECBaL9RzC2SHJd6VAbPP?=
- =?us-ascii?Q?NptkYdtJFH9v0KG0YyZSukYEuRZra360YAGYYiEnEWk0LH8PFGANPkgQ4MG2?=
- =?us-ascii?Q?bC093rG0VF8ZAHq3dSN8IAceuYT+pzITx/kCk8QJg+lokQXWRKkH4xzhiy9B?=
- =?us-ascii?Q?dSXmAbSHVuh6ylp/PlbA7La74nF6q/0r6AwGEQvNUS7QWY21XRlHD1qjuNu4?=
- =?us-ascii?Q?GMxJTKC2gML8CbTPtc1YmJDHk4FtliA/geRBJeJhOwrr8NPlFNBWIqAG40wA?=
- =?us-ascii?Q?IK+4GN8buhMBomQChu1ET5dBIngk+u9E52rDan4l76PleKmC89saaLRAILjU?=
- =?us-ascii?Q?dtqLb61LOIqBfae9vSM3zaiVpC8ufjrcBIs29dyrl7Tdl/57kY9nS6mlWiWt?=
- =?us-ascii?Q?eSwu/MXbLVL2eOu8vY736NoI9CW5D0sXjkCaBnWtsH76wkzk?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 832ca6d8-f57b-4f4b-243a-08decae4059b
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 13:43:03.0790
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MC8lAcnGrQvzIeks79apW2Ua7J9OzULsi3xFHDWdtHgbYpw3TIr0xoLEYcXNz9Zp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7116
+References: <20260612065925.755562-1-tabba@google.com> <20260612065925.755562-7-tabba@google.com>
+ <ai_7FupwNYrudRZZ@google.com>
+In-Reply-To: <ai_7FupwNYrudRZZ@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 15 Jun 2026 14:45:26 +0100
+X-Gm-Features: AVVi8CcBOTp5hYc_iBrEzUZ8L0F0F3uPeIwH6JYDOoas1UfKjcpvzwA29hjvFhE
+Message-ID: <CA+EHjTxZ6WG3ugDq94q5PBuYXQf9b8tpVPpi1ro+wqPUozYEUA@mail.gmail.com>
+Subject: Re: [PATCH v1 06/11] KVM: arm64: Factor out reusable vCPU reset helpers
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, Per Larsen <perlarsen@google.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron <jonathan.cameron@huawei.com>, 
+	Hyunwoo Kim <imv4bel@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_064310_878526_5358FA70 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_064606_321855_35CB335F 
+X-CRM114-Status: GOOD (  33.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,14 +121,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 12:11:10PM -0700, Nicolin Chen wrote:
+On Mon, 15 Jun 2026 at 14:16, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> On Fri, Jun 12, 2026 at 07:59:20AM +0100, tabba@google.com wrote:
+> > Pull the reusable pieces out of kvm_reset_vcpu(): expose the reset
+> > PSTATE values in kvm_arm.h, and split the core register reset and the
+> > PSCI-driven reset into kvm_reset_vcpu_core() and kvm_reset_vcpu_psci().
+> > A follow-up series reuses these to reset protected vCPUs at EL2.
+> >
+> > No functional change intended.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_arm.h     | 12 ++++++
+> >  arch/arm64/include/asm/kvm_emulate.h | 58 +++++++++++++++++++++++++++
+> >  arch/arm64/kvm/reset.c               | 60 ++--------------------------
+> >  3 files changed, 73 insertions(+), 57 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> > index 3f9233b5a130..aba4ec09acd2 100644
+> > --- a/arch/arm64/include/asm/kvm_arm.h
+> > +++ b/arch/arm64/include/asm/kvm_arm.h
+> > @@ -348,4 +348,16 @@
+> >       { PSR_AA32_MODE_UND,    "32-bit UND" }, \
+> >       { PSR_AA32_MODE_SYS,    "32-bit SYS" }
+> >
+> > +/*
+> > + * ARMv8 Reset Values
+> > + */
+> > +#define VCPU_RESET_PSTATE_EL1        (PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
+> > +                              PSR_F_BIT | PSR_D_BIT)
+> > +
+> > +#define VCPU_RESET_PSTATE_EL2        (PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
+> > +                              PSR_F_BIT | PSR_D_BIT)
+> > +
+> > +#define VCPU_RESET_PSTATE_SVC        (PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
+> > +                              PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+> > +
+> >  #endif /* __ARM64_KVM_ARM_H__ */
+> > diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> > index aed9fc0b717b..8436e71c402d 100644
+> > --- a/arch/arm64/include/asm/kvm_emulate.h
+> > +++ b/arch/arm64/include/asm/kvm_emulate.h
+> > @@ -704,4 +704,62 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+> >                       vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
+> >       }
+> >  }
+> > +
+> > +/* Reset a vcpu's core registers. */
+> > +static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
+> > +{
+> > +     u32 pstate;
+> > +
+> > +     if (vcpu_el1_is_32bit(vcpu)) {
+> > +             pstate = VCPU_RESET_PSTATE_SVC;
+> > +     } else if (vcpu_has_nv(vcpu)) {
+> > +             pstate = VCPU_RESET_PSTATE_EL2;
+> > +     } else {
+> > +             pstate = VCPU_RESET_PSTATE_EL1;
+> > +     }
+>
+> nit: no brackes here, actually there were none before.
 
-> VMM would have to know which command failed, to flag it in the CONS
-> register, indicating: a) commands prior to the CONS are issued, and
-> b) command pointed by the CONS is illegal.
+Ack.
+/fuad
 
-It is a VMM bug to send a malformed command into the kernel in the
-first place.
-
-Jason
+>
+> > +
+> > +     /* Reset core registers */
+> > +     memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
+> > +     memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
+> > +     vcpu->arch.ctxt.spsr_abt = 0;
+> > +     vcpu->arch.ctxt.spsr_und = 0;
+> > +     vcpu->arch.ctxt.spsr_irq = 0;
+> > +     vcpu->arch.ctxt.spsr_fiq = 0;
+> > +     vcpu_gp_regs(vcpu)->pstate = pstate;
+> > +}
+> > +
+> > +/* PSCI reset handling for a vcpu. */
+> > +static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
+> > +                                    struct vcpu_reset_state *reset_state)
+> > +{
+> > +     unsigned long target_pc = reset_state->pc;
+> > +
+> > +     /* Gracefully handle Thumb2 entry point */
+> > +     if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
+> > +             target_pc &= ~1UL;
+> > +             vcpu_set_thumb(vcpu);
+> > +     }
+> > +
+> > +     /* Propagate caller endianness */
+> > +     if (reset_state->be)
+> > +             kvm_vcpu_set_be(vcpu);
+> > +
+> > +     *vcpu_pc(vcpu) = target_pc;
+> > +
+> > +     /*
+> > +      * We may come from a state where either a PC update was
+> > +      * pending (SMC call resulting in PC being increpented to
+> > +      * skip the SMC) or a pending exception. Make sure we get
+> > +      * rid of all that, as this cannot be valid out of reset.
+> > +      *
+> > +      * Note that clearing the exception mask also clears PC
+> > +      * updates, but that's an implementation detail, and we
+> > +      * really want to make it explicit.
+> > +      */
+> > +     vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
+> > +     vcpu_clear_flag(vcpu, EXCEPT_MASK);
+> > +     vcpu_clear_flag(vcpu, INCREMENT_PC);
+> > +     vcpu_set_reg(vcpu, 0, reset_state->r0);
+> > +}
+> > +
+> >  #endif /* __ARM64_KVM_EMULATE_H__ */
+> > diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> > index 60969d90bdd3..e22d0be9e57c 100644
+> > --- a/arch/arm64/kvm/reset.c
+> > +++ b/arch/arm64/kvm/reset.c
+> > @@ -34,18 +34,6 @@
+> >  static u32 __ro_after_init kvm_ipa_limit;
+> >  unsigned int __ro_after_init kvm_host_sve_max_vl;
+> >
+> > -/*
+> > - * ARMv8 Reset Values
+> > - */
+> > -#define VCPU_RESET_PSTATE_EL1        (PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
+> > -                              PSR_F_BIT | PSR_D_BIT)
+> > -
+> > -#define VCPU_RESET_PSTATE_EL2        (PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
+> > -                              PSR_F_BIT | PSR_D_BIT)
+> > -
+> > -#define VCPU_RESET_PSTATE_SVC        (PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
+> > -                              PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+> > -
+> >  unsigned int __ro_after_init kvm_sve_max_vl;
+> >
+> >  int __init kvm_arm_init_sve(void)
+> > @@ -191,7 +179,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+> >  {
+> >       struct vcpu_reset_state reset_state;
+> >       bool loaded;
+> > -     u32 pstate;
+> >
+> >       scoped_guard(spinlock, &vcpu->arch.mp_state_lock) {
+> >               reset_state = vcpu->arch.reset_state;
+> > @@ -210,21 +197,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+> >               kvm_vcpu_reset_sve(vcpu);
+> >       }
+> >
+> > -     if (vcpu_el1_is_32bit(vcpu))
+> > -             pstate = VCPU_RESET_PSTATE_SVC;
+> > -     else if (vcpu_has_nv(vcpu))
+> > -             pstate = VCPU_RESET_PSTATE_EL2;
+> > -     else
+> > -             pstate = VCPU_RESET_PSTATE_EL1;
+> > -
+> >       /* Reset core registers */
+> > -     memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
+> > -     memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
+> > -     vcpu->arch.ctxt.spsr_abt = 0;
+> > -     vcpu->arch.ctxt.spsr_und = 0;
+> > -     vcpu->arch.ctxt.spsr_irq = 0;
+> > -     vcpu->arch.ctxt.spsr_fiq = 0;
+> > -     vcpu_gp_regs(vcpu)->pstate = pstate;
+> > +     kvm_reset_vcpu_core(vcpu);
+> >
+> >       /* Reset system registers */
+> >       kvm_reset_sys_regs(vcpu);
+> > @@ -233,36 +207,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+> >        * Additional reset state handling that PSCI may have imposed on us.
+> >        * Must be done after all the sys_reg reset.
+> >        */
+> > -     if (reset_state.reset) {
+> > -             unsigned long target_pc = reset_state.pc;
+> > -
+> > -             /* Gracefully handle Thumb2 entry point */
+> > -             if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
+> > -                     target_pc &= ~1UL;
+> > -                     vcpu_set_thumb(vcpu);
+> > -             }
+> > -
+> > -             /* Propagate caller endianness */
+> > -             if (reset_state.be)
+> > -                     kvm_vcpu_set_be(vcpu);
+> > -
+> > -             *vcpu_pc(vcpu) = target_pc;
+> > -
+> > -             /*
+> > -              * We may come from a state where either a PC update was
+> > -              * pending (SMC call resulting in PC being increpented to
+> > -              * skip the SMC) or a pending exception. Make sure we get
+> > -              * rid of all that, as this cannot be valid out of reset.
+> > -              *
+> > -              * Note that clearing the exception mask also clears PC
+> > -              * updates, but that's an implementation detail, and we
+> > -              * really want to make it explicit.
+> > -              */
+> > -             vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
+> > -             vcpu_clear_flag(vcpu, EXCEPT_MASK);
+> > -             vcpu_clear_flag(vcpu, INCREMENT_PC);
+> > -             vcpu_set_reg(vcpu, 0, reset_state.r0);
+> > -     }
+> > +     if (reset_state.reset)
+> > +             kvm_reset_vcpu_psci(vcpu, &reset_state);
+> >
+> >       /* Reset timer */
+> >       kvm_timer_vcpu_reset(vcpu);
+> > --
+> > 2.54.0.1136.gdb2ca164c4-goog
+> >
 
