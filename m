@@ -4,108 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B86CCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59478CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UfvMLnftnG86sZpVtOaAoiC3x6zQGxcuXN2h4bzNvU=; b=hygVDMfVQlABj3ARmUfZ3kW7qF
-	uWpKjo22f/NEUqP6qB3J0D38tQrwEVJQucz+80NwGaL53uOm7aCBKty+v1llhTIsx3by8FHGixE93
-	PIBO7jphFikVYQr29wgx61Ji6tb/n6mCLDQ6jyN8yhMzSi/upSkOIr9ZVYXi0DsrRhAmtRyC+Wg4a
-	7mK5WNxBawzCSXdtVFfl9atvEUdrwHo0EVOdJpUki/I1kHmiDeB+Gl7Iq+Krzf68v4tN+00X3Jt8H
-	/5V0vhtKPqQnYoBTT0MNcQ5FDzmBh6Ye6G5TZq6i4OpE+cXTFzhJaEYKrNY46OL4GuwB8nHuB0pSA
-	u6simP+A==;
+	bh=QRRFUVpqxC0PlclmGHFDxzrY3vSzlDGQ0ONOUrm9RDQ=; b=lUGywqfhFXKrxOvTtMOhFCz6lY
+	ZDoQ3/wJJOnMIOLho0uktSwKWPFKze/KLDHqjqqXVa6AuXl5r/kK1M4bLtXN2szFdr5qRzXbJm1NT
+	2Xmrl2pCMQdubPiQjB0oIPucvHV9dFByFsG8JVCyZZILwdScLrlN2w+Nm6Pj5xDVxN//ognEFYDaA
+	O9jF08c9oTF/9aCxrM7gDzMHxSiR9z8lCNqqzYZd/t2uu1JSJa1HBLqUQmY73ozPIIQIlYkIg0JBo
+	U6tiG65qICT6O3KWdmxDqa2+lM8fhDhn8kSdKDOB8PCaQysVh6baPmVg6iii0GvYtUH43/WVtDJ+g
+	FPYPmMzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ87o-0000000ENkU-3WIs;
-	Mon, 15 Jun 2026 14:17:16 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wZ87w-0000000ENn9-0OaQ;
+	Mon, 15 Jun 2026 14:17:24 +0000
+Received: from mail-northeuropeazon11011049.outbound.protection.outlook.com ([52.101.65.49] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ87m-0000000ENjW-2k2e
+	id 1wZ87s-0000000ENln-4BFo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 14:17:15 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-460662fcb4eso2281709f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 07:17:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781533033; x=1782137833; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=3UfvMLnftnG86sZpVtOaAoiC3x6zQGxcuXN2h4bzNvU=;
-        b=Kkg0W5uU1bqrictXy3q8QZGVT+jvgQY6mc7Aj7sxM62uQ2iHPKA+L707SMD5ED8kw9
-         hHZW4yeMGGh5qef7yGPjGnr6lrQh7GBiBW4gZMsQ1IKppWTLlXIoCG85Db6zxTB1QfIq
-         eex4oq8qYmRe7mzzpW3PaZLpIFwuoVnl0+IwDI+JOola/Btd37zrEtItBH9rUiWsDsRG
-         XKI1331F/FGmu5SHyWKzXFLAAnR0wO/PmtVEvHzdlgPCOb+xCRXzJbkId1EedcNofFWi
-         fQoVqBu2+Yev86M36KSAiwUaIjPdVBr65dKyxfiJ6E4nULJTIMQlC9XNfWkna/6p5zG3
-         l5KQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781533033; x=1782137833;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3UfvMLnftnG86sZpVtOaAoiC3x6zQGxcuXN2h4bzNvU=;
-        b=Iy6anGpEX9uqqHyREJnZzAiJi0+lU+JqG44RZTQwgbm5M0nKF4ZoAhXtEf7Uvm656X
-         zl0wxg713M0NF1DZ4npyLPQc1R8oKi9xfHbtI9YcEYg6JQ8n8aAaN8xnnn0Oauygwjwy
-         n+bjKAvJhEhSxXl3diB6U9UavsBUxc4IGMKpKNUHQqajbJhi5kOcapg2xJ1p/WXDg6QG
-         RYI521VNlwTbDrvje6v6BNlSRRdlBnNhjhx7+VENFhpTxeZqnZ1JjECooNaPpxAgqn6g
-         XtNqe3sv5NuvkZMmBtWHnTBQzmREcgPGXcx43ss9lzfUnBkX+60yFcWyUur2oKd/n24E
-         4GlA==
-X-Forwarded-Encrypted: i=1; AFNElJ8FfS12EyP/0T3ToNXOnHxSiSNP9pp0CZX4nbdqMb6b1QXBeViySI7IykFs16ctscr7x0QFV2XA5Sj7c+yV2W7d@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHNFLDW8HNvucqiVxBj43NODAHfDkLsUDF9wgJRB3nXwTjcJ5c
-	o8Nz2IXUGYip8hanAABojScZg8o2yLOvzYUUEPi3nQz5sZlk2BnbUQESvQUp1A==
-X-Gm-Gg: Acq92OFGn9eE3fTTVfXLc7wxwX146iT4VxBlEiwG5+S5Yk1FurDvUCttVJDn9oggf6O
-	bt6I5HIIQwzkmKKbPXdKc2djDHAajTYcpheAWwpB65tz8Z1LV/eJwIukmfFvcMCaQxJR9v7w5VH
-	1B54xHZcN5rSDL7o+NIiuNflApf3iNnoIHvTOEtB+KEvrw0lo+uAZ9Nmjf6tXwFOR+6viKnN6ng
-	MHLy+4ftyna5Oo6d0dZXE0JM9I1fHTNZSpTer7ENrBc6XK0+nnyX32OV2Dbw0xm07Mk+5c/8//l
-	dDHDr/cwUmDRMnpagkg1nSnJ8Vm2SxlBHwutT6WQb5Z/tgZgZ0QbMrRU82oCQP+MFh/exByKyVn
-	pmc6MJXfcEyCg0iLDMsfqG60KkxeSPCKvB0CeNdPucR0EDqLp7TSoq2nnXAVyV1aOkQs99m7wty
-	1B5aCx0/2eX0OFx6qwaZEv/8cBzcHzW2knUQqS0qgaX5jW2CzP9KtdeA==
-X-Received: by 2002:a5d:5e8c:0:b0:460:51f6:6248 with SMTP id ffacd0b85a97d-4606dbc695bmr19385571f8f.27.1781533032304;
-        Mon, 15 Jun 2026 07:17:12 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-88-103.ip49.fastwebnet.it. [93.34.88.103])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f263923sm35293507f8f.2.2026.06.15.07.17.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 07:17:11 -0700 (PDT)
-Message-ID: <6a300967.379593d1.36e868.4f67@mx.google.com>
-X-Google-Original-Message-ID: <ajAJY92mipEgxdlA@Ansuel-XPS.>
-Date: Mon, 15 Jun 2026 16:17:07 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH net-next v7 02/12] net: phylink: introduce internal
- phylink PCS handling
-References: <20260615122950.22281-1-ansuelsmth@gmail.com>
- <20260615122950.22281-3-ansuelsmth@gmail.com>
- <3bbacda3-4225-4536-a4b4-3aa31a47a3aa@bootlin.com>
-MIME-Version: 1.0
+	Mon, 15 Jun 2026 14:17:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ibJV+C//rCtqjRBdNiY3D91cSuVSsZJz70slGW6DiGcNfBh8GkPyvtlGp3dY7dF+jhg4YLeXfvK8BPAYIAO+VmIPDpe0czvQRERonzqCayoNUsholZQ/U/TaLJvK3DwcNtVbap+PpD8/kiQNPBOs5shBJDLfayGdXxe2/11PV9WrNbzuioC62coDfwp8jqzR8ubdEgT7EmWOUnFVcCEOLrotb8Nj0/yzLcu/qhPWaOWY1bwaTYQQeL4b773UG2NF2DuGAYFxPZGgh9+6ZRp0deIsg3vhnt4kfp/tM1APXwkGy0hXgNUwoCfPSsCLpPmaC08UT5qAyklaP/y/9Cjkzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QRRFUVpqxC0PlclmGHFDxzrY3vSzlDGQ0ONOUrm9RDQ=;
+ b=sRLTXHzRqIHNdkUFkFowQ+YaqClkaKOjRLMRsDgvG4lqAJARXsVJcj2ECynEWnXn5zlGlXLcBnuQH3CMuGJeJeIMMz2giZ10TzHkd1OryGwzIRfHCVPfqH2bGqrlT8EYTai5nxBeFvSGAAjwPGy+CfJv1WynDDTh6lisAGq5fHG/h8eYCfF7rRBETWmQoZhibfbRs3jeES9WW5mt1yDGrVRFmcFIpPCFH3VcVeJrHElOUqMrPylmndO5addHNIeoB2TYPqo39M5R/d2Z33YOTfKH7N6CDtJT1NIJDnijJQhUBFLNqvmphvMcIxTt+EJ4DDs6DZ2DIgE/L5qQP5uvsA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QRRFUVpqxC0PlclmGHFDxzrY3vSzlDGQ0ONOUrm9RDQ=;
+ b=VhRSH0IoslN+r/rJMVIbA96GO8Oinn4UdP5iKf9jfDAgppGFO2dgLhPJ9WQh20jQr7LLPyucen7u3bggT2sHD1u/mFSXLTmD+CidOpW2+YNBIbj+JAZ9B5yOKAPp8gY6xLAU8r8kMR3kYpvHli9cpaTYeoMcpL+v79x6KdZC6AHDUiCiwAWpLhxDbDWG1cChI6nczyY5TBIAo8mZn/yWxpQ7YCGiCIKERg3EoZrQtS7a2ygLaSBVKW9vTm/j3vfpztH2k5b1ziv/cNVpy1yMoxjvtNq/tJnRato/59ISxBhzWyXzErMFowtHoTQRRNYhIfSD7ZckMuZP3S/JZ1iMEA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM8PR04MB7459.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
+ 2026 14:17:16 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
+ 14:17:16 +0000
+Date: Mon, 15 Jun 2026 09:17:05 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: phucduc.bui@gmail.com
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v2 05/11] ASoC: fsl_spdif: Use guard() for spin locks
+Message-ID: <ajAJYT_QWpcxYtGn@SMW015318>
+References: <20260615093824.115751-1-phucduc.bui@gmail.com>
+ <20260615093824.115751-6-phucduc.bui@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3bbacda3-4225-4536-a4b4-3aa31a47a3aa@bootlin.com>
+In-Reply-To: <20260615093824.115751-6-phucduc.bui@gmail.com>
+X-ClientProxiedBy: SN7P222CA0005.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:124::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7459:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3648f2d-ec45-483d-c43f-08decae8cd70
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|376014|1800799024|366016|23010399003|22082099003|18002099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: lVlh7fLzbfCqAMe7/vjlt68BlgNnyB9q/iTFGE/jbsw0PLOjXkHfACixWZbD8DRtoSyVYqn/mgRsjq7tn3NLJCwZ7gZnO0l2x6j7f2gO8MZIcNenzmPSpivMKMNVykD3LzQtJNesen3eJhUV4eTVc5uMQT11E5l5+hKeUTxySlqqdbirke/4t8n664bfz5WwDjhEKWYrLdI289hyh6UEzvRWvkH0hIwTU9UQBJ4KoiO7lD7DLKLk09YuMx5nG0+5vu7bjojC9OZcSeuBp/XYiY9HGNQaEQNfItKDSu922XRcTVgC8RkIU0Y8G3VScyf3qAlTL+hJtioa+ElZKvY6qdMoiAcVel/fpDzp6GI0x1J/AZU2p6V1xMzpnq8ik1wssLAkChCgbY3Ow8kq6k2qKAG4yjKihXZH400nJVrtOjY7RJ/RwZnI4KLtUq1QeSh+oZljv45hLfg7+/0Yx5hEynhcDhgzjd8W0YtcoiAyA2NUKtOBMikwDFboyuYKztVKN7aJ1RcmJ+RHnmzodW9+CXdXKV/aliCIuRx0VFl7XokQ72tEBYeCNDeXeTah8DiLzhcl8v8Q7TPaTeCOeC1wH3PHkn2pwCkCuz40quPwqC2zZltIj35DtU/uwTPaXOwMAqk5i6X0NCi3+zFvSnIpe2s9JBLFhUyiAArpDgT0iLimJC0KXyozEXp2pogH8UNV
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(376014)(1800799024)(366016)(23010399003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cG1FO5+qN4v+WIRe3gmIaMq+1lMNhHxjMORiDahpB9WiB15fF7/SLLP9ftXl?=
+ =?us-ascii?Q?oKwwMf/kXmujCgKGQIr8Hjg5h/RmSuRotGGv5z5gL4Het3yIaZ4ksRixWiIn?=
+ =?us-ascii?Q?2WyI0hh+gZaeDk1/Ddif+IRS9mjosFiLWQhnV+cJBEuyGcXvgJMcE8SYmngt?=
+ =?us-ascii?Q?IO701WNNIKe6fogHBIf3pN5/bNSfS5z12fQUXklwjO50KsnOSk1i1F8hfHhF?=
+ =?us-ascii?Q?tt4WxnjJD3rSP28rFO+q+G/5oa1rBs+quTPGofIgA0KCCmww6R0xClNwR0U4?=
+ =?us-ascii?Q?Ey5Ow9twyfeZzUFU6J0X1p7YbaJNsZT/cMRyyU29C6rs8Wo3MwR01UeFAYoV?=
+ =?us-ascii?Q?OfoYJOvANN+gaovx7ex1adi+axqq3Trqna6xPm/NAFWFefmnzt98nRW6f5Zo?=
+ =?us-ascii?Q?JpAp+pV3toxlP4LQlclv7P/XSqQarbWbx5NvoLjB1waJeVwyXQpz0buZcqAd?=
+ =?us-ascii?Q?NQtcjaYsSMILffoaZzK9pPJkriCtLyWzBTDUC3sf8Ft8YNoGFHY8tR0u2gU6?=
+ =?us-ascii?Q?T3qpZWWC4QrKpdK8eMHdfX9+Dfo08ANcex8UnLxBcrdfZcqB38AT6Rl+yIX7?=
+ =?us-ascii?Q?+HfqYGse6xwECiIrcs0gzuAIELrWxoG7Nw00QI3D7sQR/klN3E/YIUtHLAHy?=
+ =?us-ascii?Q?tC4o2qkPbbkYb4ryGHO/23KMj7FDS08jjTibYiJ7i9C90XulGGppeXeMs17L?=
+ =?us-ascii?Q?FC8N7xUjlSYpfyRI4Fg/rwJoVu6Q0uyxpz4F9wQAwaQylv/zvLOQf3HYFhBX?=
+ =?us-ascii?Q?mPVLNTBnZbeZVF6BswCFI1GuAlF73uaUB+/nEBCjIRLlbfiBsaNdJFLAUSJz?=
+ =?us-ascii?Q?wWXDWsUlJ1eLQlQ6lZwsVxDuTsRnsJRS+tS9tcy13vAVdNZySYTuUcPKznUc?=
+ =?us-ascii?Q?KaYAy6r/U90WKKDbNxOBPonQwX9NEL9wyWSfijlclMySQGxn+Z6hJevXl9+D?=
+ =?us-ascii?Q?GfUGE2nsslvsAMBL/3bICma278XDTwEFXXTAZF+eEMR/Fnw25FIP1LyMPVIx?=
+ =?us-ascii?Q?ZjU3AsELJpNMaVW+QSbWoOWwmfX+LjRCOJeYYQvE8gD3wJ7CBKeHWFjTRENZ?=
+ =?us-ascii?Q?5wZj/b6dP8gy6voOOrPeQDoCVanOuLFrMNBhmmctqROW42VFpK4maQRAW19j?=
+ =?us-ascii?Q?1fEeBmeDQEDFdZCrdTQn3/2XmpqY2xtAr1FN6AGQ4G2yazhgSVWYhmxSOnz0?=
+ =?us-ascii?Q?Yj2P3e7OM9N6kkCh00ZWuquB4uwMnQRYVOUrZUlHrySzn0gePg9iCSdUnhXZ?=
+ =?us-ascii?Q?xB1UQ/S9f8R3rWS0dAQmSyoko9hRL1EZu1MTPMT7mvRsGEB0mtDwLrdkmWm9?=
+ =?us-ascii?Q?ZGC63fhZ2v9VpTVXARl8wAxD5oZb1xBZrcuwR7nGrQt1LhFpLrrA+WUHXXAc?=
+ =?us-ascii?Q?ciHZrpFiH9QBkxlqiGeZUBRDN5S0uqpUQz0uQD50MM1RB8LvPWzH+r+P5U/i?=
+ =?us-ascii?Q?9b5QJ+JPhGyWJqwcdKZxCsSMuoBNFy/R+lkcX2O/kQs+Mp+8oJftA8ZEMzf5?=
+ =?us-ascii?Q?9wPygpiumwV1rxGLm16oqranfsCbqkRXKQi1WJGyZxwdEVeIChHJMgX00yH9?=
+ =?us-ascii?Q?fPunxHBNLFu2V4W6T5hSGQj0K6IRDYclBlzNFQ6Zku3dceV5KhQIFBzJZ8TI?=
+ =?us-ascii?Q?GDLqs5StE2R9ZAdRiO2EniHNDGpCwxfQJzFl+gn5xEXOFZPF/fubALhuruRm?=
+ =?us-ascii?Q?+ZL2hkMKs0xwnA/GqEUG0LPW1dL3bDPggNWmAkcUqsecJOei9hP0bl22R0Bo?=
+ =?us-ascii?Q?sysXUcevN61KMvdOntEYJ98qDweG18ie4SnQERD4goRDOqKLZKQN?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3648f2d-ec45-483d-c43f-08decae8cd70
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 14:17:16.4065
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ABIrDKt8GGbr7WYoLamSYoWjM83xnhW+LHrhwON5yJ/tDM4N8I634RnTAvcGVhOKSZKaPUH19LTiKff/7Ojrs3tVQfs+6HFPsUjNFy9ritZqx+SQUiWY/D5OHm7+VmXM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_071714_752109_9BEBD153 
-X-CRM114-Status: GOOD (  54.85  )
+X-CRM114-CacheID: sfid-20260615_071721_643865_1F0B537D 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,161 +145,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 03:31:20PM +0200, Maxime Chevallier wrote:
-> Hi Christian,
-> 
-> On 6/15/26 14:29, Christian Marangi wrote:
-> > Introduce internal handling of PCS for phylink. This is an alternative
-> > way to .mac_select_pcs that moves the selection logic of the PCS entirely
-> > to phylink with the usage of the supported_interface value in the PCS
-> > struct.
-> > 
-> > MAC should now provide a callback to fill the available PCS in
-> > phylink_config in .fill_available_pcs and fill the .num_possible_pcs with
-> > the number of elements in the array. MAC should also define a new bitmap,
-> > pcs_interfaces, in phylink_config to define for what interface mode a
-> > dedicated PCS is required.
-> > 
-> > On phylink_create(), an array of PCS pointer is allocated of size
-> > .num_possible_pcs from phylink_config and .fill_available_pcs from
-> > phylink_config is called passing as args the just allocated array and
-> > the number of possible element in it.
-> > 
-> > MAC will fill this passed array with all the available PCS.
-> > 
-> > This array is then parsed and a linked list of PCS is created based on
-> > the allocated PCS array filled by MAC via .fill_available_pcs().
-> > 
-> > Every PCS in phylink PCS list gets then linked to the phylink instance
-> > by setting the phylink value in phylink_pcs struct to the phylink instance.
-> > Also the supported_interface value in phylink struct is updated with
-> > the new supported_interface from the provided PCS.
-> > 
-> > On phylink_destroy(), every PCS in phylink PCS list is unlinked from the
-> > phylink instance by setting the phylink value in phylink_pcs struct to NULL
-> > and removed from the PCS list.
-> > 
-> > phylink_validate_mac_and_pcs(), phylink_major_config() and
-> > phylink_inband_caps() are updated to support this new implementation
-> > with the PCS list stored in phylink.
-> > 
-> > They will make use of phylink_validate_pcs_interface() that will loop
-> > for every PCS in the phylink PCS available list and find one that supports
-> > the passed interface.
-> > 
-> > phylink_validate_pcs_interface() applies the same logic of .mac_select_pcs
-> > where if a supported_interface value is not set for the PCS struct, then
-> > it's assumed every interface is supported.
-> > 
-> > A MAC is required to implement either a .mac_select_pcs or make use of
-> > the PCS list implementation. Implementing both will result in a fail
-> > on phylink_create().
-> > 
-> > A MAC defining .num_possible_pcs in phylink_config MUST also define a
-> > .fill_available_pcs or phylink_create() will fail with an negative error.
-> > 
-> > phylink value in phylink_pcs struct with this implementation is used to
-> > track from PCS side when it's attached to a phylink instance. PCS driver
-> > will make use of this information to correctly detach from a phylink
-> > instance if needed.
-> > 
-> > phylink_pcs_change() is also changed to verify that the PCS that triggered
-> > a link change is the one that is currently used by the phylink instance.
-> > 
-> > The .mac_select_pcs implementation is not changed but it's expected that
-> > every MAC driver migrates to the new implementation to later deprecate
-> > and remove .mac_select_pcs.
-> > 
-> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > ---
-> 
-> [...]
-> 
-> > @@ -1872,10 +1993,28 @@ struct phylink *phylink_create(struct phylink_config *config,
-> >  	mutex_init(&pl->phydev_mutex);
-> >  	mutex_init(&pl->state_mutex);
-> >  	INIT_WORK(&pl->resolve, phylink_resolve);
-> > +	INIT_LIST_HEAD(&pl->pcs_list);
-> > +
-> > +	/* Fill the PCS list with available PCS from phylink config */
-> > +	ret = phylink_fill_available_pcs(pl, config);
-> > +	if (ret < 0) {
-> > +		kfree(pl);
-> > +		return ERR_PTR(ret);
-> > +	}
-> > +
-> > +	/* Link available PCS to phylink */
-> > +	list_for_each_entry(pcs, &pl->pcs_list, list)
-> > +		pcs->phylink = pl;
-> >  
-> >  	phy_interface_copy(pl->supported_interfaces,
-> >  			   config->supported_interfaces);
-> >  
-> > +	/* Update supported interfaces */
-> > +	list_for_each_entry(pcs, &pl->pcs_list, list)
-> > +		phy_interface_or(pl->supported_interfaces,
-> > +				 pl->supported_interfaces,
-> > +				 pcs->supported_interfaces);
-> > +
-> 
-> I'm not entirely sure about that, we may need to restrict the supported_interfaces
-> from the MAC.
-> 
-> As an example, take mvpp2. We have 2 PCSs, one for BaseX/SGMII, one for BaseR. But
-> if we don't have a comphy (generic PHY) device, then we can't use all the
-> combination of modes our PCSs can provide :
-> 
-> https://elixir.bootlin.com/linux/v7.1-rc7/source/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c#L7074
-> 
-> These aren't external PCS IPs, but from what I understand you'd like to
-> handle these the same way as purely external PCSs, right ?
-> 
-> I'd say the MAC driver utltimately has the knowledge of all possible interfaces.
-> 
-> The way I see it, it's probably safer to let the MAC give a wide range of interfaces,
-> and filter that down with what the PCSs can provide (i.e. turn that or into an and,
-> while handling the case where the pcs supported interfaces is empty).
-> 
-> What do you think ?
+On Mon, Jun 15, 2026 at 04:38:18PM +0700, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
 >
+> Clean up the code using guard() for spin locks.
+> Merely code refactoring, and no behavior change.
+>
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
 
-The idea is that supported_interface is a mask of every possible interface
-from MAC and PCS. Then it's phylink_validate_mac_and_pcs that actually use
-that mask and validates it on both MAC and PCS.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-This is why the OR was used instead of AND. The idea is to have the PCS as
-external standalone entry (even if they are internal to the MAC). So each
-entry should have they own set of supported mask.
-
-The previous patch and this try to address this problem where phylink is
-actually clueless of what is actually supported exactly because it's has
-been given MAC too much freedom of modelling limitation internally.
-
-I feel limitation should be handled by their dedicated function with
-.pcs_validate and .mac_get_caps.
-
-Just my idea on this, if needed it's totally ok to simplify this and let
-MAC entirely handle the mask. (but I feel the current idea of phylink code
-was to have a generic mask in supported_interfaces and then verify MAC and
-PCS in phylink_validate_mac_and_pcs())
-
-But by thinking on it more, following your case of mvpp2, with this new
-PCS:
-
-- You need a PCS for the .get_state.
-- And such PCS will have the supported interface set 1000baseX and
-  2500BaseX (as that is what is actually supported in HW)
-
-Either some magic is done in .pcs_validate to deny changing the interface
-that was initially configured or this gets limited at the
-supported_interface configured by the MAC.
-
-I need to check if this might be problematic for the other driver where
-this is being used on OpenWrt but maybe changing the logic to an AND might
-be sensible for these kind of case.
-
-(for the other it shouldn't change anything)
-
--- 
-	Ansuel
+>  sound/soc/fsl/fsl_spdif.c | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
+>
+> diff --git a/sound/soc/fsl/fsl_spdif.c b/sound/soc/fsl/fsl_spdif.c
+> index 1b9be85b34c2..ad1206ed9882 100644
+> --- a/sound/soc/fsl/fsl_spdif.c
+> +++ b/sound/soc/fsl/fsl_spdif.c
+> @@ -853,17 +853,15 @@ static int fsl_spdif_subcode_get(struct snd_kcontrol *kcontrol,
+>  	struct snd_soc_dai *cpu_dai = snd_kcontrol_chip(kcontrol);
+>  	struct fsl_spdif_priv *spdif_priv = snd_soc_dai_get_drvdata(cpu_dai);
+>  	struct spdif_mixer_control *ctrl = &spdif_priv->fsl_spdif_control;
+> -	unsigned long flags;
+>  	int ret = -EAGAIN;
+>
+> -	spin_lock_irqsave(&ctrl->ctl_lock, flags);
+> +	guard(spinlock_irqsave)(&ctrl->ctl_lock);
+>  	if (ctrl->ready_buf) {
+>  		int idx = (ctrl->ready_buf - 1) * SPDIF_UBITS_SIZE;
+>  		memcpy(&ucontrol->value.iec958.subcode[0],
+>  				&ctrl->subcode[idx], SPDIF_UBITS_SIZE);
+>  		ret = 0;
+>  	}
+> -	spin_unlock_irqrestore(&ctrl->ctl_lock, flags);
+>
+>  	return ret;
+>  }
+> @@ -885,17 +883,15 @@ static int fsl_spdif_qget(struct snd_kcontrol *kcontrol,
+>  	struct snd_soc_dai *cpu_dai = snd_kcontrol_chip(kcontrol);
+>  	struct fsl_spdif_priv *spdif_priv = snd_soc_dai_get_drvdata(cpu_dai);
+>  	struct spdif_mixer_control *ctrl = &spdif_priv->fsl_spdif_control;
+> -	unsigned long flags;
+>  	int ret = -EAGAIN;
+>
+> -	spin_lock_irqsave(&ctrl->ctl_lock, flags);
+> +	guard(spinlock_irqsave)(&ctrl->ctl_lock);
+>  	if (ctrl->ready_buf) {
+>  		int idx = (ctrl->ready_buf - 1) * SPDIF_QSUB_SIZE;
+>  		memcpy(&ucontrol->value.bytes.data[0],
+>  				&ctrl->qsub[idx], SPDIF_QSUB_SIZE);
+>  		ret = 0;
+>  	}
+> -	spin_unlock_irqrestore(&ctrl->ctl_lock, flags);
+>
+>  	return ret;
+>  }
+> --
+> 2.43.0
+>
+>
 
