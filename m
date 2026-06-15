@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0300CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F73ECD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5EUVrIUd9a5W03H8en3F5BUxu9fsoDVhajTiBFAwOuM=; b=zbYio0Q2oonIWAeUirFtvhasrL
-	oTmr7yTBaflUQT+whxOFADd1DDjzfRoBZIC3EmNfqS/8ViePfLqtraU7rltf/k59ECSk4jYtLkmlH
-	zGyUvytrpLVcugjnRIqKYZlrOj6iRS1aJlijEECVHe2If9ITdHKI/GLn8yFJ7eO9ll+LOmVN+YXdb
-	WtxF3PqlQzLLsL2KmgYX1PDITDudkDFUO8IVckE0kOqmYo0HloU0z8iLfn+rI2CLlcUnb7JzuOxhV
-	2PspN9NvoG5Xf+Dh3Au8dezX4yN463xPYmUcV0oPSaqxE17nhrtwOPy3M3gaFliU9lsWC/t3XXnGZ
-	5NJLFDxg==;
+	bh=fixiw6LCSjSy5TCm86A8JjKJ/P+woOFTUDHQjwMDfTk=; b=yt6ldLRxShS49gN+rTkWau9heB
+	4+RPRp2ZLY9TH3WD8wgSGvd2fDh2/gkwxX4mng882WI/IHu73FddeP1nMOp/wl46p1GSwyEDtGpEl
+	vUwF7haSIgowYYTe/vsLx8bJRaebH4S/FirPN2mSdG/YV4TQOATi9nAqETBgaFFCVuAN21s8fuEZS
+	F7wqbZ4DeW0EwFfRzikOSxe8oLaqzb2h0a/IH5cv9X3D7yT4ZFAdSsXoJVnR6g2XOtWju2hHCwYoE
+	SSCor8CFx6e4NfViAsypcj9AguLGvuMOttVGUuEkvigUhLkmDw2nAQYxers5VAN9zh9BKKxUSnedH
+	1MhW0igQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3oU-0000000DzDW-1GVD;
-	Mon, 15 Jun 2026 09:41:02 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wZ3oY-0000000DzGR-27WG;
+	Mon, 15 Jun 2026 09:41:06 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3oN-0000000Dz8W-0LeM
+	id 1wZ3oT-0000000DzC4-25Bl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 09:40:57 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-36b7b7b7a80so1854428a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 02:40:54 -0700 (PDT)
+	Mon, 15 Jun 2026 09:41:02 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-36b9d265355so1435885a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 02:41:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781516454; x=1782121254; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781516460; x=1782121260; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5EUVrIUd9a5W03H8en3F5BUxu9fsoDVhajTiBFAwOuM=;
-        b=KvaZd+Hk7BEf/ydwwjtcqPmAE5iRnxC9z0EPGn+p3XnB9Qla0PYTvO54tIO2P30ZlB
-         qZxkTSNW2BedqQgd4m4vlsN5IbUuJ1CJUTsvxrITnwWlOzlVQNqVkWZd7oHIwdQci5oW
-         QxXxAohc4UVU3igEMWhnwi07EpiWrRw3NxLACgmaIh2ZUR5NCVOTPNPD421FzJOPb3sF
-         eKAIOUaWbbbdutBESG6B3xrKJPp9Uw/7QIpX40y5TibyQMrz6+y263Ju3L4jkqQ/Koev
-         pMxzc3n02bbLgTky42NH2tznyDBZyms/9/zosYNSObCKU7IvlfAESPIlGWjMBOZxW7bR
-         D4ag==
+        bh=fixiw6LCSjSy5TCm86A8JjKJ/P+woOFTUDHQjwMDfTk=;
+        b=dOpbbjBvTcA0hqWnskvrAnKIRPwDheXEQssE4fetIgb8ynWON5lu32AR4Zdr9PKu63
+         1oCblVTrEKpsWbPI+LMWjdnS95GbbzdjhAa0U/NGKGw/pfpInVZ0EVvM4imn+Q2P5Jyp
+         j2uWptq5LH6njxy50WVwbMuGsDOKZTggWqp8tGpXh33N5EktqizKOezuLMwsChxeE21S
+         QYfPKu4bC206k9qMrlby0EkNj82XUtJ0BED3+xw4yFouzdU8FPqHoSHVz72/qmOFWQci
+         WRTTeA6ERXuCQkdG4koPyilNWwKiU8+UdF10XYnQIDuMPe7Oy5SY475brKGzi//wFUdP
+         AY2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781516454; x=1782121254;
+        d=1e100.net; s=20251104; t=1781516460; x=1782121260;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=5EUVrIUd9a5W03H8en3F5BUxu9fsoDVhajTiBFAwOuM=;
-        b=OtMCrC5TcdyygJ36EpjoJHAd3xHcccK4AafvHXS4BF/KX1OY8OPUF9Rho+bFoxSURL
-         1g9H+dLqehWU9GpcGY3l2mVjG0C+N5IaOW8CJjbb3NSoywzQVp01FUacixLoVlyjeXX5
-         GXzj1EnemZazbeZ7Bq4pE56Fykmccw/we6D4YRjmEkCZLmDHmpjAicEpFvKlP79o7Qjc
-         drDyVcyET/FMeN8U8nx1+GnEFrunJ/A8rbzG6VTsyTIzBEhqf9s6FUFpgY6yy4YmXrxn
-         /HhNKxLsx728cfo/jAa5LtLx7gQYj6ccTzsepGlzYbjLhdhpO0on9UzwtxP2MuM1855Z
-         sRFw==
-X-Forwarded-Encrypted: i=1; AFNElJ8yrMMMjTk788n1c1SVVFO2oXncYVGSpxvMeheuwXA8ozMhKUZrR4HcZ9DOFwtXxDykm+Xczv5F0xkk87CoaFN4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxexaOFRzTv/cqbZs9kAsJNPGCG5AZgX6+5Ag0c23Oo6I3D+/iK
-	RLJhcZI6BEmBdxOmoEDzozEHpQb5jpjbB/r9X914sAC8GkS+9dKJXXas4hd4pw==
-X-Gm-Gg: Acq92OE+tR6WP5S4FErSWnc+rZdrohPYPdxf0CyptVlmznnKu7CLuMgtlWz9QRMwSXy
-	ws/McIjVH80DkHLqLTmZB3H28QMYpU0Y0B9FoNRaXf49yfKrzKC4F1zCvTNhn8+qdE9WjvD5/OT
-	ntvv7QL1S0cZ3DzmSoDlR6Psx5bl+qh1NuemwYWv/tfJBIJJCWub05TlXzQfly1t3kixyq7vIfb
-	EdhRRsA24KNhFHvUW+Prj2uKfwtPevOkXp4/fjI0WUmlQzk0IIIv++LmIxLKZtdj6GbrFegd+Hz
-	7Kz8eC3sZu9+dT+Djr7uUPfRmMSi7I+kgdQDFjD+woxfjCRVNdXZf3EWukx4ByjphRpzLBFoUaM
-	aj2GZKBL3WyK3jGt62qlHGGsVZjFOZlaYW4xAc4vjtoY4UfjYOg/hpM+Z2mkAQZ9qWjhyMNOMGs
-	LUxMhT6C3Kg68JOUjjM6f6YfA+0Nmkl0O1poeeU9b4ZJSXQJE7v/UlJacPBw==
-X-Received: by 2002:a17:90b:1dce:b0:369:7491:7b24 with SMTP id 98e67ed59e1d1-379ed8e27d2mr11149280a91.6.1781516454144;
-        Mon, 15 Jun 2026 02:40:54 -0700 (PDT)
+        bh=fixiw6LCSjSy5TCm86A8JjKJ/P+woOFTUDHQjwMDfTk=;
+        b=ZVPENgNzvPHea659WCvlTJMT1Xulwbwg0Ri0tbvz2g4S2r3zZBItRgedZr68fwwCfe
+         wQdtJanaI56ZNyvk9CbLeSQukqh6MADttynEb41oFAREMhJBbYgczpTqZaLvATMz55af
+         pzIKtmX7EgBUTSqeuw7S9l4b5GDRSxBHY85trQXCHMSL3KxGOhcce9CB9MRDbHG9u9XV
+         /jsHUenveQ2zfOsBPe7p14PmIitL6k4DVGUnp65JpU1FLJgNQIuq1HqplU9NI9AVRwe6
+         uJlKa+nUg1SKqjCcopvsf33z8qghlHfBvOxYDv/T+ktY/I2vSVToqbrTV8g9o+nkS/YS
+         OjAA==
+X-Forwarded-Encrypted: i=1; AFNElJ/6vJk7tsxQBg9osbfGNt6JI2LpEAGohtbqH5kMV6SF6bFBMlbj48nJP69ZcGUSFXoKiKcwqEQengS8Y6OYvQbc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxOioYBmQCBAODuqu29HeMJNT0+3IdS42kgNufm+1o8ux7rgP3
+	QhGT/qMW4xPAQX/8/kX0r5PZno4aFJrJCs44yGzCfxuB35ObkAC3AVSI
+X-Gm-Gg: Acq92OH4Mt3lziWYjCEmOAcZDWMCNlTQxzjyNod8Vnn4OHY8W2P6J/vMPCeRB2Q4gip
+	z4gUCfEE1iaNWk8ujxr95tOeGTJK2xwVaoE6E/ztomqz7FM1jHnF4ZGYCSmIu5bXr4nLxyqFOqr
+	aVNotOjniMNDh2mP3ziDKQGBxQDsESFe5QCY+SkQh+/aggwWTySrRh8gOXZHd5NSXVxm/vddbC2
+	NppcmwYT88SmeTyh5pMB3NxgAFwn+ykBQSpiCIF+mCog0jmnKhTcGR8k/2cU4SWc/cmw0Fusdmn
+	Vb0ukfYD6zy842Sg8B36aXXIOM9m04s3lPQGVUwEkysebPcCWKjTL80Nl5VDg2bvLeHDwRsQ6V3
+	rJutTDIc7CpXytTODTfWyHubNqxDVLQ5Ut+3ykBvxXEnq26yhNjRlYFyhd70SiUWxbkckixuBxJ
+	oDyq06Ti/uDN+b8lBm0XzKwguavX2E+tjE2RFGsrQKGSr1vD54mS/Jz8wyVVuclUCrmQGY
+X-Received: by 2002:a17:90a:d004:b0:36d:81b3:61a1 with SMTP id 98e67ed59e1d1-37a01c34487mr13541493a91.7.1781516460544;
+        Mon, 15 Jun 2026 02:41:00 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1eba8e9asm9936290a91.2.2026.06.15.02.40.48
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37a1eba8e9asm9936290a91.2.2026.06.15.02.40.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 02:40:52 -0700 (PDT)
+        Mon, 15 Jun 2026 02:40:59 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>,
@@ -87,17 +87,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	imx@lists.linux.dev,
 	linuxppc-dev@lists.ozlabs.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 09/11] ASoC: fsl_rpmsg: Use guard() for mutex & spin locks
-Date: Mon, 15 Jun 2026 16:38:22 +0700
-Message-ID: <20260615093824.115751-10-phucduc.bui@gmail.com>
+Subject: [PATCH v2 10/11] ASoC: fsl: mpc5200_dma: Use guard() for spin locks
+Date: Mon, 15 Jun 2026 16:38:23 +0700
+Message-ID: <20260615093824.115751-11-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260615093824.115751-1-phucduc.bui@gmail.com>
 References: <20260615093824.115751-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_024055_119664_EBCFB421 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260615_024101_699799_62D2449A 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,180 +114,107 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Clean up the code using guard() for mutex & spin locks.
+Clean up the code using guard() for spin locks.
 Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/fsl/imx-pcm-rpmsg.c | 69 +++++++++++++++--------------------
- 1 file changed, 30 insertions(+), 39 deletions(-)
+ sound/soc/fsl/mpc5200_dma.c | 56 ++++++++++++++++++-------------------
+ 1 file changed, 28 insertions(+), 28 deletions(-)
 
-diff --git a/sound/soc/fsl/imx-pcm-rpmsg.c b/sound/soc/fsl/imx-pcm-rpmsg.c
-index 031e5272215d..7210393dfa5d 100644
---- a/sound/soc/fsl/imx-pcm-rpmsg.c
-+++ b/sound/soc/fsl/imx-pcm-rpmsg.c
-@@ -39,10 +39,9 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
- 	struct rpmsg_device *rpdev = info->rpdev;
- 	int ret = 0;
- 
--	mutex_lock(&info->msg_lock);
-+	guard(mutex)(&info->msg_lock);
- 	if (!rpdev) {
- 		dev_err(info->dev, "rpmsg channel not ready\n");
--		mutex_unlock(&info->msg_lock);
- 		return -EINVAL;
- 	}
- 
-@@ -55,15 +54,12 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
- 			 sizeof(struct rpmsg_s_msg));
- 	if (ret) {
- 		dev_err(&rpdev->dev, "rpmsg_send failed: %d\n", ret);
--		mutex_unlock(&info->msg_lock);
- 		return ret;
- 	}
- 
- 	/* No receive msg for TYPE_C command */
--	if (msg->s_msg.header.type == MSG_TYPE_C) {
--		mutex_unlock(&info->msg_lock);
-+	if (msg->s_msg.header.type == MSG_TYPE_C)
- 		return 0;
--	}
- 
- 	/* wait response from rpmsg */
- 	ret = wait_for_completion_timeout(&info->cmd_complete,
-@@ -71,7 +67,6 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
- 	if (!ret) {
- 		dev_err(&rpdev->dev, "rpmsg_send cmd %d timeout!\n",
- 			msg->s_msg.header.cmd);
--		mutex_unlock(&info->msg_lock);
- 		return -ETIMEDOUT;
- 	}
- 
-@@ -100,8 +95,6 @@ static int imx_rpmsg_pcm_send_message(struct rpmsg_msg *msg,
- 	dev_dbg(&rpdev->dev, "cmd:%d, resp %d\n", msg->s_msg.header.cmd,
- 		info->r_msg.param.resp);
- 
--	mutex_unlock(&info->msg_lock);
--
- 	return 0;
- }
- 
-@@ -109,14 +102,13 @@ static int imx_rpmsg_insert_workqueue(struct snd_pcm_substream *substream,
- 				      struct rpmsg_msg *msg,
- 				      struct rpmsg_info *info)
+diff --git a/sound/soc/fsl/mpc5200_dma.c b/sound/soc/fsl/mpc5200_dma.c
+index 56e2cf2f727b..bfedb2dea0b3 100644
+--- a/sound/soc/fsl/mpc5200_dma.c
++++ b/sound/soc/fsl/mpc5200_dma.c
+@@ -77,18 +77,20 @@ static irqreturn_t psc_dma_bcom_irq(int irq, void *_psc_dma_stream)
  {
--	unsigned long flags;
- 	int ret = 0;
+ 	struct psc_dma_stream *s = _psc_dma_stream;
  
- 	/*
- 	 * Queue the work to workqueue.
- 	 * If the queue is full, drop the message.
- 	 */
--	spin_lock_irqsave(&info->wq_lock, flags);
-+	guard(spinlock_irqsave)(&info->wq_lock);
- 	if (info->work_write_index != info->work_read_index) {
- 		int index = info->work_write_index;
+-	spin_lock(&s->psc_dma->lock);
+-	/* For each finished period, dequeue the completed period buffer
+-	 * and enqueue a new one in it's place. */
+-	while (bcom_buffer_done(s->bcom_task)) {
+-		bcom_retrieve_buffer(s->bcom_task, NULL, NULL);
++	scoped_guard(spinlock, &s->psc_dma->lock) {
++		/*
++		 * For each finished period, dequeue the completed period buffer
++		 * and enqueue a new one in its place
++		 */
++		while (bcom_buffer_done(s->bcom_task)) {
++			bcom_retrieve_buffer(s->bcom_task, NULL, NULL);
  
-@@ -130,7 +122,6 @@ static int imx_rpmsg_insert_workqueue(struct snd_pcm_substream *substream,
- 		info->msg_drop_count[substream->stream]++;
- 		ret = -EPIPE;
- 	}
--	spin_unlock_irqrestore(&info->wq_lock, flags);
+-		s->period_current = (s->period_current+1) % s->runtime->periods;
+-		s->period_count++;
++			s->period_current = (s->period_current+1) % s->runtime->periods;
++			s->period_count++;
  
- 	return ret;
- }
-@@ -523,7 +514,6 @@ static int imx_rpmsg_pcm_ack(struct snd_soc_component *component,
- 	snd_pcm_sframes_t avail;
- 	struct timer_list *timer;
- 	struct rpmsg_msg *msg;
--	unsigned long flags;
- 	int buffer_tail = 0;
- 	int written_num;
- 
-@@ -553,11 +543,11 @@ static int imx_rpmsg_pcm_ack(struct snd_soc_component *component,
- 		msg->s_msg.param.buffer_tail = buffer_tail;
- 
- 		/* The notification message is updated to latest */
--		spin_lock_irqsave(&info->lock[substream->stream], flags);
--		memcpy(&info->notify[substream->stream], msg,
--		       sizeof(struct rpmsg_s_msg));
--		info->notify_updated[substream->stream] = true;
--		spin_unlock_irqrestore(&info->lock[substream->stream], flags);
-+		scoped_guard(spinlock_irqsave, &info->lock[substream->stream]) {
-+			memcpy(&info->notify[substream->stream], msg,
-+			       sizeof(struct rpmsg_s_msg));
-+			info->notify_updated[substream->stream] = true;
-+		}
- 
- 		if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
- 			avail = snd_pcm_playback_hw_avail(runtime);
-@@ -640,7 +630,7 @@ static void imx_rpmsg_pcm_work(struct work_struct *work)
- 	bool is_notification = false;
- 	struct rpmsg_info *info;
- 	struct rpmsg_msg msg;
--	unsigned long flags;
-+	bool updated;
- 
- 	work_of_rpmsg = container_of(work, struct work_of_rpmsg, work);
- 	info = work_of_rpmsg->info;
-@@ -651,25 +641,26 @@ static void imx_rpmsg_pcm_work(struct work_struct *work)
- 	 * enough data in M core side, need to let M core know
- 	 * data is updated immediately.
- 	 */
--	spin_lock_irqsave(&info->lock[TX], flags);
--	if (info->notify_updated[TX]) {
--		memcpy(&msg, &info->notify[TX], sizeof(struct rpmsg_s_msg));
--		info->notify_updated[TX] = false;
--		spin_unlock_irqrestore(&info->lock[TX], flags);
--		info->send_message(&msg, info);
--	} else {
--		spin_unlock_irqrestore(&info->lock[TX], flags);
-+	scoped_guard(spinlock_irqsave, &info->lock[TX]) {
-+		updated = info->notify_updated[TX];
-+		if (updated) {
-+			memcpy(&msg, &info->notify[TX], sizeof(struct rpmsg_s_msg));
-+			info->notify_updated[TX] = false;
+-		psc_dma_bcom_enqueue_next_buffer(s);
++			psc_dma_bcom_enqueue_next_buffer(s);
 +		}
  	}
+-	spin_unlock(&s->psc_dma->lock);
+ 
+ 	/* If the stream is active, then also inform the PCM middle layer
+ 	 * of the period finished event. */
+@@ -116,7 +118,6 @@ static int psc_dma_trigger(struct snd_soc_component *component,
+ 	struct psc_dma_stream *s = to_psc_dma_stream(substream, psc_dma);
+ 	struct mpc52xx_psc __iomem *regs = psc_dma->psc_regs;
+ 	u16 imr;
+-	unsigned long flags;
+ 	int i;
+ 
+ 	switch (cmd) {
+@@ -135,19 +136,18 @@ static int psc_dma_trigger(struct snd_soc_component *component,
+ 		/* Fill up the bestcomm bd queue and enable DMA.
+ 		 * This will begin filling the PSC's fifo.
+ 		 */
+-		spin_lock_irqsave(&psc_dma->lock, flags);
 -
--	spin_lock_irqsave(&info->lock[RX], flags);
--	if (info->notify_updated[RX]) {
--		memcpy(&msg, &info->notify[RX], sizeof(struct rpmsg_s_msg));
--		info->notify_updated[RX] = false;
--		spin_unlock_irqrestore(&info->lock[RX], flags);
-+	if (updated)
- 		info->send_message(&msg, info);
--	} else {
--		spin_unlock_irqrestore(&info->lock[RX], flags);
-+
-+	scoped_guard(spinlock_irqsave, &info->lock[RX]) {
-+		updated = info->notify_updated[RX];
-+		if (updated) {
-+			memcpy(&msg, &info->notify[RX], sizeof(struct rpmsg_s_msg));
-+			info->notify_updated[RX] = false;
+-		if (substream->pstr->stream == SNDRV_PCM_STREAM_CAPTURE)
+-			bcom_gen_bd_rx_reset(s->bcom_task);
+-		else
+-			bcom_gen_bd_tx_reset(s->bcom_task);
++		scoped_guard(spinlock_irqsave, &psc_dma->lock) {
++			if (substream->pstr->stream == SNDRV_PCM_STREAM_CAPTURE)
++				bcom_gen_bd_rx_reset(s->bcom_task);
++			else
++				bcom_gen_bd_tx_reset(s->bcom_task);
+ 
+-		for (i = 0; i < runtime->periods; i++)
+-			if (!bcom_queue_full(s->bcom_task))
+-				psc_dma_bcom_enqueue_next_buffer(s);
++			for (i = 0; i < runtime->periods; i++)
++				if (!bcom_queue_full(s->bcom_task))
++					psc_dma_bcom_enqueue_next_buffer(s);
+ 
+-		bcom_enable(s->bcom_task);
+-		spin_unlock_irqrestore(&psc_dma->lock, flags);
++			bcom_enable(s->bcom_task);
 +		}
- 	}
-+	if (updated)
-+		info->send_message(&msg, info);
-+
  
- 	/* Skip the notification message for it has been processed above */
- 	if (work_of_rpmsg->msg.s_msg.header.type == MSG_TYPE_C &&
-@@ -681,10 +672,10 @@ static void imx_rpmsg_pcm_work(struct work_struct *work)
- 		info->send_message(&work_of_rpmsg->msg, info);
+ 		out_8(&regs->command, MPC52xx_PSC_RST_ERR_STAT);
  
- 	/* update read index */
--	spin_lock_irqsave(&info->wq_lock, flags);
--	info->work_read_index++;
--	info->work_read_index %= WORK_MAX_NUM;
--	spin_unlock_irqrestore(&info->wq_lock, flags);
-+	scoped_guard(spinlock_irqsave, &info->wq_lock) {
-+		info->work_read_index++;
-+		info->work_read_index %= WORK_MAX_NUM;
-+	}
- }
+@@ -158,13 +158,13 @@ static int psc_dma_trigger(struct snd_soc_component *component,
+ 			substream->pstr->stream, s->period_count);
+ 		s->active = 0;
  
- static int imx_rpmsg_pcm_probe(struct platform_device *pdev)
+-		spin_lock_irqsave(&psc_dma->lock, flags);
+-		bcom_disable(s->bcom_task);
+-		if (substream->pstr->stream == SNDRV_PCM_STREAM_CAPTURE)
+-			bcom_gen_bd_rx_reset(s->bcom_task);
+-		else
+-			bcom_gen_bd_tx_reset(s->bcom_task);
+-		spin_unlock_irqrestore(&psc_dma->lock, flags);
++		scoped_guard(spinlock_irqsave, &psc_dma->lock) {
++			bcom_disable(s->bcom_task);
++			if (substream->pstr->stream == SNDRV_PCM_STREAM_CAPTURE)
++				bcom_gen_bd_rx_reset(s->bcom_task);
++			else
++				bcom_gen_bd_tx_reset(s->bcom_task);
++		}
+ 
+ 		break;
+ 
 -- 
 2.43.0
 
