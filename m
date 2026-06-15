@@ -4,73 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4197BCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 03:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13ACCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 03:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NPlpzV16ohp60gt95O9uiNMAJVKjzKTQ8vb5nhCqCCY=; b=pfEPPDkymOt6nWgIuBCyLzUtFr
-	xmWe6EAiX5TGcowBT/QIwDDmRHNGQ+ii9AAGI76fhBhavaXs5B4k6duFyg4aLm6eVMdjFhiVNpA+r
-	0MaDGuM5PYD5lNJIkwpw2MKx13MBr98W+EJJ7WsElq9I4+P56xnkAG/PIj8VBw7Cu2FgXOg7LPfdK
-	GGorRH5Co2CjnoVeztXx2UECtsbOSvHm9uoU/Z/HUGoCEeY+l2RPBs7b5dV4IF8lstzCRYv0AeHii
-	URugeAP0NaVmZTB7r9DRdAB814p5FHeSOgoMbtMWQQKGm5U/Lhk3votfK99Cuva/Fn9IQ9hU4clSg
-	1xfXYHZQ==;
+	bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=; b=wFryU44dA2aGDyJvTNAzJgVMUJ
+	TpLEISYmnPJfQYNdkr3SMb34T5CgZTzyT9Ej6SD2uaNBFr/pX5hTTM2xgxrymORyF/k3iQFcHDdLx
+	w1R2TcihshggbraSBAp8mXDSesHR31aCWVOAGle2OMNwvalosIKa9bU1KO4OE5sKBYrji5TS6voDn
+	g/g8bQmpJH5jvyFScF+mSX/64Gh4IUVbzxmmFip99PO5bV/bklP21D39UY8I6uS3otXA3wHLdOnNQ
+	CBQghWSOsnDJVrvp8cjSW2LDRfnh0Mows4bQC0deLbXWuFFEbcHgBGFvpB8wqgx/I3uD63QqlebDE
+	83xC+lXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYy1E-0000000DWAl-3vcc;
-	Mon, 15 Jun 2026 03:29:48 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wYy5J-0000000DWkn-3Ou8;
+	Mon, 15 Jun 2026 03:34:01 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYy1B-0000000DW75-2xg3
+	id 1wYy5G-0000000DWjO-2P5S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 03:29:47 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gdwZz1T0BzYQttx
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 11:29:15 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id A1E764058C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 11:29:41 +0800 (CST)
-Received: from huaweicloud.com (unknown [10.166.163.161])
-	by APP1 (Coremail) with SMTP id cCh0CgAnKj+PcS9qOnxeBw--.30354S5;
-	Mon, 15 Jun 2026 11:29:41 +0800 (CST)
-From: Kemeng Shi <shikemeng@huaweicloud.com>
-To: maz@kernel.org,
-	tglx@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shikemeng@huaweicloud.com
-Subject: [PATCH 3/6] irqchip/gic-v3-its: Fix its node leak in gic_acpi_parse_madt_its()
-Date: Mon, 15 Jun 2026 11:29:07 +0800
-Message-Id: <20260615032910.54735-4-shikemeng@huaweicloud.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20260615032910.54735-1-shikemeng@huaweicloud.com>
-References: <20260615032910.54735-1-shikemeng@huaweicloud.com>
+	Mon, 15 Jun 2026 03:34:00 +0000
+Received: by mail-pg1-x544.google.com with SMTP id 41be03b00d2f7-c85b2139015so750309a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 20:33:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781494437; x=1782099237; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=;
+        b=cPTzYIHdKjqkZupaBHV1pLHoJKoGfWGZ//Js7rf7j0h3gwPUJxTgFGGVLruyHWbSEa
+         GD02hgNomiq/99S1jftY0PRDG1yMoPjvX0oHA+0WSnvxQIvxGLkSXtTXCoIVcE/VTBsW
+         OpA5ytTySBG9pakfLL4E7yf3FBVJzk8GYvZp/dCap9twnSD+Hai637X7aP0uzm29cYWp
+         OROavm2CpoOyAHsSK1S4Bk4zuXLs33DAPCYtup1dciX86cXV97ogDOUzWciFoLAqB9Fk
+         z/gHTou0vodja2hAtBNCQyQrQT1/o5QeZWlwPunj6ZITrbO5B465jGXHOUuPf3ll+s57
+         RQjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781494437; x=1782099237;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=;
+        b=LCWkVJFdVGuzBO4J0tkw/YignGRoDI750gQQwiaUkDZSlKLE9AYK2sBZ0mDs0NgZK7
+         bhq/ARmYBk3toTXpWiQML0q9MEJmpw9FhBh88/qf/pe4Ed38Xy7UPX2ApdoHX+gU43b+
+         2/kGXlL8ZuCXyKZAh/EtthrgQzl6v+/4V2lQT87MFtzrwFEGINTky1Ark+0FQYXmVw1I
+         Wcps/XcNy+0F30k4dFXoA0zIAx3a4R3iVZKsdn+E7U2+pgdPmz1+koyIZOBIwFzSBoGi
+         QM/hMsV7jUVynZGKNFEMJMqKuiJNaP1TQoETs1VX9sxEamo0qGhCEmvTAJvnEBFjY/rT
+         0QWA==
+X-Gm-Message-State: AOJu0YzGTpLraZwMo+bT8LZ1ZxiGNPbWVv019su914nLFC3+BFTmozEh
+	F7CnSc+OZUauS3SMM1O2e4/zt/a1i8p1jiiaZ6F41SI6ftqL4/scWhmc
+X-Gm-Gg: Acq92OHQGvuLSpDUSz8VZxnxBu3wH7YD/zXrkX7r/ygiZcZKxXgm/w5M7A/mUfWO/wl
+	tMaveMTITGP+rFd8SxuRC9+1e2XwPyR8ntDrAEWJt4rL+hBUegL+XuGcFM4G+0Ug6Yy5b047YMW
+	AN9Ahbimlzd0JZgZAJEo8r5Dt2LyJJMYN2lkIkG/U7pTg9HZsFb0FQuv7lxLbUPGtYuS0kFwURz
+	fAYFqoxSv8qsGqcjzsOb4uTkcK4KzsQJJAJwp24/25veoO3iTqoKJNQWi6Q938eyr+8q2d7eum9
+	xneM2s71k95CvEu6UXzjIXSACy6mhsnGfgdq06jDWDUcrQwUZXbZGt/qZeeuUwBCq5KRjDAa6y3
+	R+4D5nPewX4MzKMeFHtO41Iq6bc9Heq1bBnQQy57rELCJ3fyHQlH2ZRd3wUYBvOKF3r/9ewrd1C
+	VKhSX8o7TbjEw3dRhqaxeRRFSvuqnydHR/xcC+3TN/tA==
+X-Received: by 2002:a05:6a21:6813:b0:3a2:d629:16a2 with SMTP id adf61e73a8af0-3b783b757e9mr14493609637.10.1781494436758;
+        Sun, 14 Jun 2026 20:33:56 -0700 (PDT)
+Received: from [10.125.112.20] ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b035ce6sm8650381b3a.49.2026.06.14.20.33.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 14 Jun 2026 20:33:56 -0700 (PDT)
+Message-ID: <894d7c33-8e14-4ba5-b774-14062ece39f2@gmail.com>
+Date: Mon, 15 Jun 2026 11:33:34 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgAnKj+PcS9qOnxeBw--.30354S5
-X-Coremail-Antispam: 1UD129KBjvdXoWrZw13ArWUtFWxGFWDuw4UArb_yoWfGFb_Cr
-	y0qFsxGFWUZr18Gw42ya1rZryqya1v9F1kuF1Fvas8Cw18Z348JFsrurZ8ZF4UG3Wvyryf
-	ArZYvr1Skr17JjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb68FF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUWwA2048vs2IY02
-	0Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
-	wVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UM2
-	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
-	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
-	vE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
-	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r1DMx
-	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
-	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwI
-	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjaZX7UUUUU==
-X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/11] of: reserved_mem: split
+ alloc_reserved_mem_array() from fdt_scan_reserved_mem_late()
+To: Rob Herring <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org,
+ iommu@lists.linux.dev, zhaomeijing@lixiang.com, catalin.marinas@arm.com,
+ will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ saravanak@kernel.org, akpm@linux-foundation.org, bhe@redhat.com,
+ rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ ruirui.yang@linux.dev, m.szyprowski@samsung.com, robin.murphy@arm.com,
+ quic_obabatun@quicinc.com
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <20260527032917.3385849-6-chenwandun1@gmail.com>
+ <20260612144122.GA974326-robh@kernel.org>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <20260612144122.GA974326-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_202945_945464_42B37603 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20260614_203358_626173_C602A39D 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +111,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix its node leak when its_probe_one() failed in
-gic_acpi_parse_madt_its().
 
-Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
----
- drivers/irqchip/irq-gic-v3-its.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index df26ddc97ae2..158937c867fb 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5750,9 +5750,13 @@ static int __init gic_acpi_parse_madt_its(union acpi_subtable_headers *header,
- 		its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
- 
- 	err = its_probe_one(its);
--	if (!err)
--		return 0;
-+	if (err)
-+		goto probe_err;
-+
-+	return 0;
- 
-+probe_err:
-+	its_node_destroy(its);
- node_err:
- 	iort_deregister_domain_token(its_entry->translation_id);
- dom_err:
--- 
-2.36.1
+On 6/12/26 22:41, Rob Herring wrote:
+> On Wed, May 27, 2026 at 11:29:11AM +0800, Wandun Chen wrote:
+>> From: Wandun Chen <chenwandun@lixiang.com>
+>>
+>> Prepare for storing /memreserve/ entries in the reserved_mem array.
+>> alloc_reserved_mem_array is skipped if the device tree lacks a
+>> /reserved-memory node, pointer 'reserved_mem' continues to reference
+>> the reserved_mem_array which lives in __initdata, storing
+>> /memreserve/ entries into reserved_mem_array would result in metadata
+>> loss, and an out-of-bounds memory access will occur if the device
+>> tree contains more than MAX_RESERVED_REGIONS /memreserve/ entries.
+>>
+>> So split alloc_reserved_mem_array() from fdt_scan_reserved_mem_late(),
+>> and call alloc_reserved_mem_array() whether or not there is a
+>> /reserved-memory node.
+>>
+>> No functional change.
+>> The actual /memreserve/ population is added in a follow-up patch.
+>>
+>> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+>> ---
+>>  drivers/of/fdt.c             | 7 +++++--
+>>  drivers/of/of_private.h      | 1 +
+>>  drivers/of/of_reserved_mem.c | 6 +-----
+>>  3 files changed, 7 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+>> index 82f7327c59ea..83a2a474831e 100644
+>> --- a/drivers/of/fdt.c
+>> +++ b/drivers/of/fdt.c
+>> @@ -1284,8 +1284,11 @@ void __init unflatten_device_tree(void)
+>>  {
+>>  	void *fdt = initial_boot_params;
+>>  
+>> -	/* Save the statically-placed regions in the reserved_mem array */
+>> -	fdt_scan_reserved_mem_late();
+>> +	/* Attempt dynamic allocation of a new reserved_mem array */
+>> +	if (fdt && alloc_reserved_mem_array()) {
+>> +		/* Save the statically-placed regions in the reserved_mem array */
+>> +		fdt_scan_reserved_mem_late();
+> 
+> Can we make this just:
+> 
+> alloc_reserved_mem_array();
+> fdt_scan_reserved_mem_late();
+> 
+> We already check !fdt in fdt_scan_reserved_mem_late().
+
+Thanks for you review, Rob.
+
+The reason I kept the fdt check is that total_reserved_mem_cnt is wrong
+when fdt is NULL, early_init_fdt_scan_reserved_mem() returns early in
+that case, so fdt_scan_reserved_mem() never runs, and
+total_reserved_mem_cnt stays at MAX_RESERVED_REGIONS. Calling
+alloc_reserved_mem_array() unconditionally would allocate unnecessarily
+memory.
+
+A better fix might be to make total_reserved_mem_cnt always correct, add
+a !fdt check at the top of fdt_scan_reserved_mem() that sets
+total_reserved_mem_cnt to 0, and let early_init_fdt_scan_reserved_mem()
+call it even when initial_boot_params is NULL. Then
+alloc_reserved_mem_array() could naturally skip allcation when that
+count is 0, and we can drop the outer fdt guard.
+
+
+There is still separate UAF issue (fixed in patch3) if we don't check
+the return value of alloc_reserved_mem_array().
+
+
+With the fdt_scan_reserved_mem() fix for total_reserved_mem_cnt, the
+call site in unflatten_device_tree() becomes:
+
+if (alloc_reserved_mem_array()) {
+        fdt_scan_reserved_mem_late();
+}
+
+How does that sound?
+
+
+Best regards,
+Wandun
+
+> 
+> Rob
 
 
