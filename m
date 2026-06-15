@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D93CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 02:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E43CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 02:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HY2zpnwZZNY051yToxH8sI7FMWsbf7HGeJ1SpUT1rro=; b=0MPYyzoOGuJ7D4y5CEDdLiCNJ2
-	hmBtg67Iq/0isLEEFJHIOSXAS/BiArfqJAQbmQTmCyQdIbqE8NvoDdOwVEEORysskQ1rtjfWP38Y8
-	UxV1iU6De8ADjNCRW5ZW34Mxko8hJ0EcrjcZF0HSxGJrO81UH0QUQJA0Sgc0K3Ow8w4+dWSNYUpEA
-	am5GXPxQRPCmOv7XCt5p7Gc0zAnqR+QopLMQg8ZTSooV1tvlcPnj1GEPlKj9g62jyt4gjMwWoOZgA
-	NJY+ZCdZkCyddFMM92kaoH5UkaceYROiVleU5uJOER0HUo1I1sHZLWm/A6R8rAXhg1DPCeNqNlCOK
-	ASwjSePw==;
+	bh=NMBzibPuJbC+34VWd5B5SSUJSzSvju7SCOBane7O9mE=; b=KIRHbVlydIFZxHNVTlL9KxQnba
+	ciAzFzMfJPlqCvt3ib2LBf7chuPkwoijv99PItQFydoq+1FU31v08EA5SJeipZRrRCFPcFmn/eHWk
+	qds3V2jytnsceaCruuQf126kuZMU4T2OW5v21zYl9JTEiK1AZyj+ozkXlcr6PnaWRSnDINblE1Eao
+	vbyRy9TDsZAXcDQowTphYld+cEbTwWlLXXQ9jEBxBwjyURcOrqcHp8mwpsCj/+REw6U0olOoeqiPw
+	bXBCabr6vJjmOvmVTSSApNbQdiZCJWFUXJqbzQVQDhvC9bPrbCf81yTg+1O0MOh8H5FW7/5JlaAG0
+	D3YIhN1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYxB4-0000000DTTV-3HJe;
-	Mon, 15 Jun 2026 02:35:54 +0000
+	id 1wYxB8-0000000DTWC-44kX;
+	Mon, 15 Jun 2026 02:35:58 +0000
 Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYxAz-0000000DTRR-0zLh;
-	Mon, 15 Jun 2026 02:35:50 +0000
+	id 1wYxB6-0000000DTUG-1vLW;
+	Mon, 15 Jun 2026 02:35:57 +0000
 Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id 78C44EC0076;
-	Sun, 14 Jun 2026 22:35:48 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Sun, 14 Jun 2026 22:35:48 -0400
+	by mailfout.phl.internal (Postfix) with ESMTP id 9E5C6EC00C7;
+	Sun, 14 Jun 2026 22:35:55 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Sun, 14 Jun 2026 22:35:55 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1781490948; x=
-	1781577348; bh=HY2zpnwZZNY051yToxH8sI7FMWsbf7HGeJ1SpUT1rro=; b=Q
-	5mga/APtg63/nU0jRAvWCJQToKXZwQUgKS+UK7HoFrogiiKNPBWOduqqSCZLOHKP
-	Wz0JOCSnYe99Jfb1+VBzklU1C7AOPTIWugvH1SSiccC3giJMltNEYkYnigEmfloB
-	ENrptU95Rdc0ig18w9VD9xd03eMREc6yKKwB1hmRPUBrd8OpjaQDkt3AnAJcx6S0
-	xaNBaw9a6PVt+oZuGLcF6rMb+O+IKNsz0l4tZKOfFItZJTI0e3XjsqrUH61CFyln
-	lVsUjCcbrMqfmSTdyebh/koMHSDKw5vTxSJ1EUnZECNrpmJz4U/rZs89NBPhMKSe
-	WjdOd7+nBFjpatGbCI7/A==
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
+	 t=1781490955; x=1781577355; bh=NMBzibPuJbC+34VWd5B5SSUJSzSvju7S
+	COBane7O9mE=; b=VbVaBIRpdbHWFnqp9i7KZhEs8gZMI/zxns/aC+zQ0wQXwVKa
+	LY+HEX7hL7idmG6EZeq45RWzNM/v4jiKHUu+xh5mp+jHsM6akFh9j6x0Z3w+mwbi
+	z5ig45E066/o8KdIKGirQj4dtjJuNj0LJ1HZeegvRZ0adbOaH6Cw9LZQ+/TPgZ14
+	vmhFr+intlnzjjJ2JrWmzOJ639C8cPxrXgobIG76Mz52lkR+NYWhXc5pqCDlXQV+
+	kCvSd9eKtOiY2UczSYnCC2TbL53u6bKkkssfTwSbE6F9is1KP3e57MDch0W+yW0z
+	8mjxW/MukwwLz2ISDaZb97huJHkqX1F7WgjRBg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1781490948; x=1781577348; bh=H
-	Y2zpnwZZNY051yToxH8sI7FMWsbf7HGeJ1SpUT1rro=; b=dSJJ5hUrAI2aMG6Vh
-	aifuek9y2ofG4aYNsNgszHmwuZePLVIK+iM4/tihFaUYEXcKPGI0PQQx9np+WnF0
-	BZWl/tuGNOuyC6YlXnY1GgSVItXecPu10pdO9kfsegX1GP3Uuc1Kw4iMZazKmE/n
-	cRxt9eI5TPqU2KrbaBhI/ELGcu74LXvRaUkhS2EAZvvPoMCeLkLcVhJKwddyS/mY
-	jCzo3sStkFQtipQ7ls3zEO8vGAgHthpSSKJuymCAW1+ucYkyU5RPdW/vo5xSQEO7
-	+Qedd5ga0kU2floggvJ+o93VreHF+Hv8QRCcJYqXs+7jzrCbwVUfhK9NsFJCcaca
-	5j+MA==
-X-ME-Sender: <xms:A2UvatoNc_2R3F--dErf3NiNkvaRdvPpeb2luylCgT3AU9_siK92cA>
-    <xme:A2UvamtYwtlI0pqGPGFPZohe7AMkygHk9ywBFX1aJr1_aOy9w0ID0Z5Z4UatoWkAx
-    ZlwKBMFS23ynthDWkJy3hbPvhkeW4mUAgMuk4VL7bcfaE11WSM7NA>
-X-ME-Received: <xmr:A2Uvah7pnalvnuyFPvA1B6kyRe2us852CZNKTS_7qkfvr8jhNSAX8IqQMtiUog>
-X-ME-Proxy-Cause: dmFkZTFXYugtQbnZlNN2/o/zzlSDubhnwqvVPBmmfic41l0ZizTFXUexiJG5sx/3COCTIP
-    1pgfgPxMi0BmG9L4jpykbNXuWVID5KcBrejVtrUAw7dSCn8e1k9lTHepIy+fb0ZeKwuh54
-    ZE5HAI3pRKZI22mJFH+m3CPUX52OKhdR8SKh4O/2QL6ezZx0UKtA8K0IuzHXF+hs7Nn+th
-    Zmvb2e+t7XuI2DC5QvXlXWpK4nfyblolCP5BEVTjbIDglDpThlDQS+OwJfIwK2SrN2aVc2
-    CnvSrsaRWozGICn5Uvhels5VDHffedDRdP+aeoF7XvVghlffZHMCjZhZTkdLX3MsjSKshp
-    2jbk6fYpbZHMGG8JiF750NpDnP18s6GuxQ0pXH5p/fTNMF+srcmg6Tn1eE/B9Y/tfi+Pwe
-    hVZwXiskQAe7OUG2mYRJsK7BANPIgSZbEtbKsjaRyTIC5oIFjHfp39i3vsKD4c4Vco4ApY
-    svUOCU/xQz5NyhXwPc10fLBpYLcwwQHWg24Laqyr8mO8nC6TotB62CgLs83rt9oipyCxEB
-    fd8h0WK8FZOVtMrCPB35nbhj991ExjZNpGHGONtBV2GLfU3KxUU+5hg91RZpChAfPw4UtG
-    FP9xoi3LASNggKBPMDfH+OQ3jZstfuTu4fhFUu2rfDFJnx+ZNYqxCN+2gzhA
-X-ME-Proxy: <xmx:A2UvavTpY80193K5xxz49ZJy2OhO_3MNZU9mi-oFTXsAukqSaOL0aA>
-    <xmx:A2UvapniZftU5_6DhnMpeIQT8GOJIkgabdO7V7knMnqt-rNdY6fLUQ>
-    <xmx:A2UvamKi1MSOAXBpwf20xKe-nUBoJgvbItj9S1G_CE-0SadsIxZJwg>
-    <xmx:A2UvakQ09CFpVf5HdXuRBZxzH74WKPvJ6WQpqNK4LtNpzR0VY11YOQ>
-    <xmx:BGUvagVimmCPprHEAVFDXVqPtgAqBEOYwxYa3mnzMxPWtD9d-LvmnbEm>
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781490955; x=
+	1781577355; bh=NMBzibPuJbC+34VWd5B5SSUJSzSvju7SCOBane7O9mE=; b=E
+	BfhpBcWcTmiq8lYBHGaRIyJl6ABCmu6YzIG0GHzY2VcmUBA+376JxIZNxOTDGiyO
+	I6LO7wEiWbajajKQDNXKn6yu68WGxFjliR2FeVyi9Gl88jJneW9lq8VZNWWKOrHZ
+	DzkAKCcIT/z9lZ05l7tvSyUVeaJGAl+4g+PS3+Aagbg8hf6MaF5Ozgo2xlD212d9
+	wQe7QtMiQb1jltNyE5fN7IttZU+V+u+xCMMT4K6fPXTdCuXtLEayw+8s2KD+WV7h
+	vSl+wOZZuEU4C5w3y0cmm+CXqaPryh0q77okLHRdhjxMe4jLFnBdTNzYIKKEx2kS
+	FCOanJWNB7hkrt3ADprrg==
+X-ME-Sender: <xms:C2Uvan4DkXKsdJeVmMBTqLFlS6gVerisdZtjNEPAvOuxRq2V7kQg6Q>
+    <xme:C2Uvaj9HZU3aSNf4GM_tcbkEaqM8OmESMwMfBa8aV-3XkIxvdoNx4cAvXX5HQQGnl
+    b5_23QHhENVhtHwcXeVoLt8-KRMbuNHSResWMS9AJmvagjTUKjsAQ>
+X-ME-Received: <xmr:C2UvamIRAEwgBgaJ0tLHnpVCjGaK1DF4ebG6ETJB8lI_c7Ta25sRC74F0Gb5yw>
+X-ME-Proxy-Cause: dmFkZTFakJqX0EOuDMhZfCH7WSEwTMnsqNGnwQDjjjW2TI+uF+w+jzLt4M5tOrMnTFCubU
+    aSsldToimsQ1Uzl+3t7p1g7o3H01tM45nA1ZyvbOrHPGBs9RoiZzAUdDFXUQOgY/8YXDrj
+    myBlLXbuufbWxCUfdmhhstfPtQRf3l0ZGpGGabSWUdnr5xwO5JNYHoXCFwGAXc5JWGumJ6
+    I7YxEywnHJy1BmwAXu+ZOr2DLYqldJKJIMfx3vK2+GwYHezQVQJ0aD8P+Pr6AdjUHWiBzc
+    ey0WHTyP3nf1X82eonkP7QRUKcwoJPRDAco5hgxfbys8YxbaEC+WZMSrU6bAYd7//V5jmt
+    7a8Nz1PO3j/GEqMrForO/Etv7LEl8GcenKrFVoj1Vh3tDEHOMe9BbYrmMVzEpeacnLrSsV
+    ps8AaWL5KGBKy9xA/PwY9jHDs6b5ZizJENthuz/+XxYiUbnA/tB9+Ptos+8t6QJzwonXVK
+    FsqDSyOlN6hpR1JN8XFwPkmJhRVP2Ds8FEoAyur3wznPrjPUnZCwwDAgkkhp3xFbnk3G2O
+    UzYmjIzml+r2xRCnUkJexvFqJPVLmukVltxVJ/7z7+64bdfE8doTMZuN0bEOqPL9xe5X7h
+    uvqzMuBVupnEz5fUFdLra5mLFHUfGMz1B38ZNcdToKYf+OMFC5lJV+JkJNSA
+X-ME-Proxy: <xmx:C2UvaugmDDho-bGCcTrFUHs0w_m8cz2ye16fY2SlUFvcIIrHwRmyZA>
+    <xmx:C2Uvan0Ou1QHKFx4nX9caRIX4_KQtXZX7KkqS25IzyQvRve1p_452A>
+    <xmx:C2UvanYqt4Ge5mrE6wgA6D-cXaDsJhtEwQarYIZDCqQuiY_24k__DQ>
+    <xmx:C2UvasgcGt9uEla7l8OnbNIwUrBDcV4cyJRmP2fQK8231R1APX_YYg>
+    <xmx:C2UvavkTqCDBwXAbnOXb-jaSFw-C42-wjkQg1xfK9J-NbDSWncNITEIK>
 Feedback-ID: ie3994620:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 14 Jun 2026 22:35:46 -0400 (EDT)
+ 14 Jun 2026 22:35:53 -0400 (EDT)
 From: Kiryl Shutsemau <kirill@shutemov.name>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -99,17 +99,18 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCH v3 1/3] firmware: arm_sdei: add SDEI_EVENT_SIGNAL support
-Date: Mon, 15 Jun 2026 03:35:32 +0100
-Message-ID: <42135d6d25f77afef980e99e83aebf169ff6bf9f.1781490440.git.kas@kernel.org>
+Subject: [PATCH v3 2/3] drivers/firmware: add SDEI cross-CPU NMI service for arm64
+Date: Mon, 15 Jun 2026 03:35:33 +0100
+Message-ID: <704b467d5b320da9cf49fc9bb4a6814063986f3b.1781490440.git.kas@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1781490440.git.kas@kernel.org>
 References: <cover.1781490440.git.kas@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_193549_700972_B091DE21 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260614_193556_647391_9F4FB97F 
+X-CRM114-Status: GOOD (  31.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,71 +127,298 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 
-Add sdei_event_signal(), a thin wrapper over the SDEI_EVENT_SIGNAL call
-(DEN0054) that makes the software-signalled event (event 0) pending on a
-target PE -- delivered NMI-like even when that PE has interrupts masked.
-It takes no locks, so it is safe to call from NMI / crash context.
+Deliver an NMI-like event to an interrupt-masked arm64 CPU via the
+standard SDEI software-signalled event (event 0), without the pseudo-NMI
+hot-path cost: register a handler for event 0 and poke a target with
+sdei_event_signal(0, mpidr).
+
+First user is arch_trigger_cpumask_backtrace() (sysrq-l, RCU stalls,
+hung-task/soft-lockup dumps), which otherwise rides an IPI that can't
+reach a masked CPU. Falls back to the IPI path when SDEI is absent; no
+watchdog backend yet, so the stock detector is untouched.
 
 Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 Reviewed-by: Douglas Anderson <dianders@chromium.org>
 ---
- drivers/firmware/arm_sdei.c   | 12 ++++++++++++
- include/linux/arm_sdei.h      |  6 ++++++
- include/uapi/linux/arm_sdei.h |  1 +
- 3 files changed, 19 insertions(+)
+ MAINTAINERS                     |   2 +-
+ arch/arm64/include/asm/nmi.h    |  24 +++++
+ arch/arm64/kernel/smp.c         |  11 +++
+ drivers/firmware/Kconfig        |  19 ++++
+ drivers/firmware/Makefile       |   1 +
+ drivers/firmware/arm_sdei_nmi.c | 149 ++++++++++++++++++++++++++++++++
+ 6 files changed, 205 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/include/asm/nmi.h
+ create mode 100644 drivers/firmware/arm_sdei_nmi.c
 
-diff --git a/drivers/firmware/arm_sdei.c b/drivers/firmware/arm_sdei.c
-index f39ed7ba3a38..e3fd604d9894 100644
---- a/drivers/firmware/arm_sdei.c
-+++ b/drivers/firmware/arm_sdei.c
-@@ -339,6 +339,18 @@ static void _ipi_unmask_cpu(void *ignored)
- 	sdei_unmask_local_cpu();
- }
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c8d4b913f26c..b5ddfb85dce9 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -24797,7 +24797,7 @@ M:	James Morse <james.morse@arm.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/arm/firmware/sdei.txt
+-F:	drivers/firmware/arm_sdei.c
++F:	drivers/firmware/arm_sdei*
+ F:	include/linux/arm_sdei.h
+ F:	include/uapi/linux/arm_sdei.h
  
+diff --git a/arch/arm64/include/asm/nmi.h b/arch/arm64/include/asm/nmi.h
+new file mode 100644
+index 000000000000..9366be419d18
+--- /dev/null
++++ b/arch/arm64/include/asm/nmi.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_NMI_H
++#define __ASM_NMI_H
++
++#include <linux/cpumask.h>
++
 +/*
-+ * Signal the software-signalled event (event 0) to @mpidr. Does nothing
-+ * but the SMC -- no locks, no event lookup -- so it is safe from NMI /
-+ * crash context (e.g. the cross-CPU NMI service).
++ * Cross-CPU NMI provider hooks, consulted by the arm64 arch code before
++ * its regular-IRQ / pseudo-NMI IPI paths. The SDEI provider in
++ * drivers/firmware/arm_sdei_nmi.c implements them when active; a future
++ * FEAT_NMI provider could slot in here too. The stubs let callers stay
++ * unconditional when ARM_SDEI_NMI is off.
 + */
-+int sdei_event_signal(u32 event_num, u64 mpidr)
++#ifdef CONFIG_ARM_SDEI_NMI
++bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu);
++#else
++static inline bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask,
++						      int exclude_cpu)
 +{
-+	return invoke_sdei_fn(SDEI_1_0_FN_SDEI_EVENT_SIGNAL, event_num,
-+			      mpidr, 0, 0, 0, NULL);
++	return false;
 +}
-+NOKPROBE_SYMBOL(sdei_event_signal);
++#endif
 +
- static void _ipi_private_reset(void *ignored)
++#endif /* __ASM_NMI_H */
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 1aa324104afb..a670434a8cae 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -45,6 +45,7 @@
+ #include <asm/daifflags.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/mmu_context.h>
++#include <asm/nmi.h>
+ #include <asm/numa.h>
+ #include <asm/processor.h>
+ #include <asm/smp_plat.h>
+@@ -927,6 +928,16 @@ static void arm64_backtrace_ipi(cpumask_t *mask)
+ 
+ void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
  {
- 	int err;
-diff --git a/include/linux/arm_sdei.h b/include/linux/arm_sdei.h
-index f652a5028b59..3f3ec01155e8 100644
---- a/include/linux/arm_sdei.h
-+++ b/include/linux/arm_sdei.h
-@@ -37,6 +37,12 @@ int sdei_event_unregister(u32 event_num);
- int sdei_event_enable(u32 event_num);
- int sdei_event_disable(u32 event_num);
- 
-+/*
-+ * Signal the software-signalled event (event 0) to another PE, NMI-like.
-+ * @mpidr is the target's MPIDR affinity.
-+ */
-+int sdei_event_signal(u32 event_num, u64 mpidr);
++	/*
++	 * Prefer the SDEI cross-CPU NMI provider when active: firmware
++	 * dispatches the event out of EL3 and reaches CPUs that have
++	 * interrupts locally masked, without the per-IRQ-mask cost that
++	 * pseudo-NMI pays for the same reach. The plain IPI path below
++	 * can't reach such a CPU unless pseudo-NMI is enabled.
++	 */
++	if (sdei_nmi_trigger_cpumask_backtrace(mask, exclude_cpu))
++		return;
 +
- /* GHES register/unregister helpers */
- int sdei_register_ghes(struct ghes *ghes, sdei_event_callback *normal_cb,
- 		       sdei_event_callback *critical_cb);
-diff --git a/include/uapi/linux/arm_sdei.h b/include/uapi/linux/arm_sdei.h
-index af0630ba5437..22eb61612673 100644
---- a/include/uapi/linux/arm_sdei.h
-+++ b/include/uapi/linux/arm_sdei.h
-@@ -22,6 +22,7 @@
- #define SDEI_1_0_FN_SDEI_PE_UNMASK			SDEI_1_0_FN(0x0C)
- #define SDEI_1_0_FN_SDEI_INTERRUPT_BIND			SDEI_1_0_FN(0x0D)
- #define SDEI_1_0_FN_SDEI_INTERRUPT_RELEASE		SDEI_1_0_FN(0x0E)
-+#define SDEI_1_0_FN_SDEI_EVENT_SIGNAL			SDEI_1_0_FN(0x0F)
- #define SDEI_1_0_FN_SDEI_PRIVATE_RESET			SDEI_1_0_FN(0x11)
- #define SDEI_1_0_FN_SDEI_SHARED_RESET			SDEI_1_0_FN(0x12)
+ 	/*
+ 	 * NOTE: though nmi_trigger_cpumask_backtrace() has "nmi_" in the name,
+ 	 * nothing about it truly needs to be implemented using an NMI, it's
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index bbd2155d8483..6501087ff90d 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -36,6 +36,25 @@ config ARM_SDE_INTERFACE
+ 	  standard for registering callbacks from the platform firmware
+ 	  into the OS. This is typically used to implement RAS notifications.
  
++config ARM_SDEI_NMI
++	bool "SDEI-based cross-CPU NMI service (arm64)"
++	depends on ARM64 && ARM_SDE_INTERFACE
++	help
++	  Provides SDEI-based cross-CPU NMI delivery for hooks that need
++	  to reach interrupt-masked CPUs on silicon that lacks FEAT_NMI:
++
++	    - arch_trigger_cpumask_backtrace()  (sysrq-l, RCU stalls,
++	      hardlockup_all_cpu_backtrace, soft-lockup secondary dumps,
++	      hung-task auxiliary dumps)
++
++	  The driver registers a handler for the SDEI software-signalled
++	  event (event 0) and reaches a target CPU by signalling it with
++	  SDEI_EVENT_SIGNAL. Firmware delivers the event out of EL3
++	  regardless of the target's PSTATE.DAIF -- forced delivery into a
++	  CPU wedged with interrupts locally masked.
++
++	  If unsure, say N.
++
+ config EDD
+ 	tristate "BIOS Enhanced Disk Drive calls determine boot disk"
+ 	depends on X86
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index 4ddec2820c96..be46f1e1dc77 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -4,6 +4,7 @@
+ #
+ obj-$(CONFIG_ARM_SCPI_PROTOCOL)	+= arm_scpi.o
+ obj-$(CONFIG_ARM_SDE_INTERFACE)	+= arm_sdei.o
++obj-$(CONFIG_ARM_SDEI_NMI)	+= arm_sdei_nmi.o
+ obj-$(CONFIG_DMI)		+= dmi_scan.o
+ obj-$(CONFIG_DMI_SYSFS)		+= dmi-sysfs.o
+ obj-$(CONFIG_EDD)		+= edd.o
+diff --git a/drivers/firmware/arm_sdei_nmi.c b/drivers/firmware/arm_sdei_nmi.c
+new file mode 100644
+index 000000000000..a82776e7b55a
+--- /dev/null
++++ b/drivers/firmware/arm_sdei_nmi.c
+@@ -0,0 +1,149 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * arm64 SDEI-based cross-CPU NMI service.
++ *
++ * Delivering an "NMI-shaped" event to an EL1 context that has locally
++ * masked interrupts, on silicon without FEAT_NMI, can be done two ways:
++ *
++ *   - pseudo-NMI: mask "interrupts" via the GIC priority register
++ *     (ICC_PMR_EL1) instead of PSTATE.DAIF, leaving a high-priority band
++ *     deliverable. Functionally this works -- but it reimplements every
++ *     local_irq_disable()/enable() and exception entry/exit as a PMR
++ *     write plus synchronisation, a cost paid on that hot path forever,
++ *     whether or not an NMI is ever delivered.
++ *
++ *   - SDEI: leave interrupt masking as the cheap PSTATE.DAIF operation
++ *     and have the firmware bounce an EL3-routed Group-0 SGI back to
++ *     NS-EL1 as an event callback. The cost is a firmware round-trip,
++ *     but only at the rare moment delivery is actually needed.
++ *
++ * This driver takes the second path: it keeps the IRQ-mask hot path
++ * free and pays only when it fires, which is what makes cross-CPU NMI
++ * affordable on hardware where the pseudo-NMI tax isn't, until FEAT_NMI
++ * makes NMI masking cheap in the architecture itself.
++ *
++ * Capabilities provided:
++ *
++ *   - sdei_nmi_trigger_cpumask_backtrace() — override for arm64's
++ *     arch_trigger_cpumask_backtrace(), so sysrq-l, RCU stall dumps,
++ *     hardlockup_all_cpu_backtrace, soft-lockup/hung-task secondary
++ *     dumps all reach interrupt-masked CPUs.
++ *
++ * Delivery uses the standard SDEI software-signalled event (event 0) and
++ * SDEI_EVENT_SIGNAL. We register a handler for event 0, enable it, and
++ * poke a target CPU with sdei_event_signal(0, mpidr): firmware makes
++ * event 0 pending on that PE and dispatches the handler NMI-like,
++ * regardless of the target's DAIF.
++ * Availability is simply whether event 0 registers and enables -- if SDEI
++ * and its software-signalled event are present we use it, otherwise the
++ * driver stays inert.
++ */
++
++#define pr_fmt(fmt) "sdei_nmi: " fmt
++
++#include <linux/arm_sdei.h>
++#include <linux/cpumask.h>
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/kprobes.h>
++#include <linux/nmi.h>
++#include <linux/printk.h>
++#include <linux/ptrace.h>
++#include <linux/smp.h>
++#include <linux/types.h>
++
++#include <asm/nmi.h>
++#include <asm/smp_plat.h>
++
++static bool sdei_nmi_available;
++
++#define SDEI_NMI_EVENT			0
++
++static int sdei_nmi_handler(u32 event, struct pt_regs *regs, void *arg)
++{
++	/*
++	 * nmi_cpu_backtrace() no-ops unless this CPU's bit is set in the
++	 * global backtrace mask (driven by nmi_trigger_cpumask_backtrace()),
++	 * so a fire that reaches a CPU not being backtraced is harmless.
++	 */
++	nmi_cpu_backtrace(regs);
++	return SDEI_EV_HANDLED;
++}
++NOKPROBE_SYMBOL(sdei_nmi_handler);
++
++static void sdei_nmi_fire(unsigned int target_cpu)
++{
++	int err = sdei_event_signal(SDEI_NMI_EVENT, cpu_logical_map(target_cpu));
++
++	if (err)
++		pr_warn("SDEI_EVENT_SIGNAL to CPU %u failed: %d\n",
++			target_cpu, err);
++}
++
++/*
++ * Raise callback for nmi_trigger_cpumask_backtrace(): signal event 0
++ * at every CPU still pending in @mask. The framework excludes the local
++ * CPU from @mask before calling us.
++ */
++static void sdei_nmi_raise_backtrace(cpumask_t *mask)
++{
++	unsigned int cpu;
++
++	for_each_cpu(cpu, mask)
++		sdei_nmi_fire(cpu);
++}
++
++/*
++ * Override hook for arch_trigger_cpumask_backtrace() (see
++ * arch/arm64/kernel/smp.c). Returns true when SDEI handled the request,
++ * which is the case whenever SDEI is active; on a false return the arch
++ * falls back to its regular-IRQ (or pseudo-NMI, if enabled) IPI.
++ *
++ * On a kernel built without paying the pseudo-NMI hot-path cost (the
++ * usual case for this driver's target), the IPI can't reach a CPU that
++ * has interrupts masked -- so the backtrace of the one CPU you care
++ * about comes back empty. SDEI is dispatched out of EL3 and lands
++ * regardless of the target's DAIF, without taxing the IRQ-mask path.
++ */
++bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
++{
++	if (!sdei_nmi_available)
++		return false;
++
++	nmi_trigger_cpumask_backtrace(mask, exclude_cpu,
++				      sdei_nmi_raise_backtrace);
++	return true;
++}
++
++/*
++ * device_initcall (after arch_initcall(sdei_init), so the SDEI subsystem
++ * is up): probe the firmware, register the event, and turn on the
++ * cross-CPU service. If the probe fails the driver stays inert and the
++ * override hooks decline, leaving the arch's own paths in place.
++ */
++static int __init sdei_nmi_init(void)
++{
++	int err;
++
++	err = sdei_event_register(SDEI_NMI_EVENT, sdei_nmi_handler, NULL);
++	if (err) {
++		pr_err("sdei_event_register(%u) failed: %d\n",
++		       SDEI_NMI_EVENT, err);
++		return 0;
++	}
++
++	err = sdei_event_enable(SDEI_NMI_EVENT);
++	if (err) {
++		pr_err("sdei_event_enable(%u) failed: %d\n",
++		       SDEI_NMI_EVENT, err);
++		sdei_event_unregister(SDEI_NMI_EVENT);
++		return 0;
++	}
++
++	sdei_nmi_available = true;
++	pr_info("using SDEI cross-CPU NMI (SDEI_EVENT_SIGNAL, event %u)\n",
++		SDEI_NMI_EVENT);
++
++	return 0;
++}
++device_initcall(sdei_nmi_init);
 -- 
 2.54.0
 
