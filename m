@@ -4,124 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96B3CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 11:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21718CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 11:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:In-Reply-To:MIME-Version:References:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6mqHKqlBvXA+4paxQcgIh7H4kij3XKYmw9YFuF/cKw8=; b=LcNUda1gFqVE1jaURfE+pWB2JT
-	n5rwlmoYvyGEsFNm2VJlYymdIZ1rhfW+fFJ9dmNINKqOnclMWh3Jl2e5P1AwNUSQSHBHlFWM0mFDT
-	CLfLC9GAO1eed8WWdQZpOfRsfk+U3RgR53U2QS1Yc1+GxjNLo1pctOuRZMu0BAvlizDgkFc8RrX96
-	YSuHIDGEih6e+wSB6+rmmaMpjyVtPG9L/6x5tzEfqSQZRl6IT/3LL8ch6om8YlM0diU+rCwuj87Vg
-	IqdkSW940JHnT+Yu4FlqGC6gxTSfqMTWj5jteevBRFtCDlzx/mh00ofCGKTfDpUvnMoSxA4hlJ1Vs
-	9SIGes4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJFXEMxAnouHCYO17wxrr2jx0O81pY8fQRPbiAuBi3k=; b=DOXjz8bjNjYoZsE++W6A4cyCps
+	ktn9mRT3sAwDPPuhK9d1gRQu/QWtFgUmt9DwQH4HlNTYQeT3P6sMBiql6KUCHEnZ1FfaJYEjLSCYx
+	CLDXRoP2J7LvimtaTR7PkWuW5oeO2s0gVuv5h6RKjqBIO8f66bMG2DpqX8RyJEA20zWWNPKLa3TMp
+	5Z1iKXJH6boUveoEo/DNIT0FqFGEBwSq90SlD+GqCUAQKDMrLJa7yNVGi98UTiDytaS1vt7Avow37
+	htO5QJC42lIB/S4O6OniOX4u7YCZI5Lwe8I5mZO3k8Pz/+ChF7Ows0Tom828x+pA+DV31jXOByN2c
+	dfCeTOKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5Ml-0000000E5gk-3lJh;
-	Mon, 15 Jun 2026 11:20:31 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5Mg-0000000E5gF-3zYM
+	id 1wZ5Ni-0000000E5ng-0ftA;
+	Mon, 15 Jun 2026 11:21:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZ5Nf-0000000E5mY-1MwM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 11:20:29 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-bec43ee8ff0so440534166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 04:20:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781522424; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gTHbnLTLwWtrJkWjqeSAmYCmd8uokSYi5A0VzotlLrxLlsfjaLWIFQ6R0sojerecEd
-         /FHbOu0b9mIPhWvqTaak6O56yFeqrPFg+jHNRDKqaOwByRR1Cau1+G8FWHhfT761cu5C
-         aHUJr9rP1uoY0iRR+xBF8ebg3yrFTuwkZnVOqKPhc8UVaaefGHPCnSH7thJOZzLa7R0l
-         JxjgP3IzgjHpE5cGaYNa56cvISUtC/N/z0bUVSK1h7CLRichkvm+S2BhnGsQKHg8G/0J
-         ihtgBWG/EMljo0t039xh5axb5qq74dngMcqG/By+T59GLW0HL5tt+8Dm+WmRpajYULPt
-         w0aQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:in-reply-to:mime-version:references
-         :mail-followup-to:from:dkim-signature;
-        bh=6mqHKqlBvXA+4paxQcgIh7H4kij3XKYmw9YFuF/cKw8=;
-        fh=vp3QQgxxQQBDcgHE1npgN4tro67ZyqvFFzRRaKjhoCY=;
-        b=MHy+X8NsvWRqOPnnSCHcbuY9ar86qq1PYZHbGaZAVjvTiaHnxntP68Nfb//SCrLaZI
-         gbIyXpT3JqYwv+x17S2CnI+IarRyqzAB+80pS3LEnucMQyG31GNfI09UFg8WTbKUXpTf
-         D1l/ewhepr23IPRL8awXE0gcpnKALrx6rXplCzlpT56HRtOrc7MwaQyXyhBLRTPmpYGw
-         /rRXle1gYfJKGw2MEYU8Qy9XM2RcWAzPM46b1Q9UBfdhrfdpERSxwL/jPNRMVZkbxW3j
-         l7Sf08AcUlyrUG1dr7DnFT5w8fElxCgWE8JjdUgEzUTWOv7PJPTDr8V92PRhXOqL6i/m
-         JzRQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781522424; x=1782127224; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:in-reply-to:mime-version:references
-         :mail-followup-to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6mqHKqlBvXA+4paxQcgIh7H4kij3XKYmw9YFuF/cKw8=;
-        b=aMNYeRrp/+JhoidrnDLOWkpmsMqY829ETI3OhPfETQsbaTCKc+/FH/FHBrRK1LX7kT
-         NEnOuCbBEWHgvgQZHzbJJJG9GWNY7ve06PQUJJ66ROX+yHCx/UL7NlXUfsuAxnJeIBb6
-         H1EivvPrx7B53DZc4JOAGhSHrZfKMyYSbohGVGI29sv4mGy3roZpoYv5LVkoU5l8/9NB
-         u4bdDcP9eag/HVtg4pR6o5s5WV7lbYkZuevGGIjQN4exgro/vQhuUlU6xz8lt/o4ImBv
-         msaFMgq9F1cH0GZWGXlM4eJqiVdgIqQtwe7/YMK0vaawEXT8607mqr+ab4GlKdLEjaBM
-         TGcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781522424; x=1782127224;
-        h=cc:to:subject:message-id:date:in-reply-to:mime-version:references
-         :mail-followup-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6mqHKqlBvXA+4paxQcgIh7H4kij3XKYmw9YFuF/cKw8=;
-        b=A1Q8zEb9NR1YwsfZrabXT61RAkb1ar7YSsIz0zNlex3Je1xVnv/XuVpk0S3+HgEIfN
-         Wj6dYcYT29tPgEge4qY3ReZV7mpjxC7yLzsb38GHoIaECmbsck3Jcny+lVaB0ZE1Su4K
-         0cVXaTX0mHJWGhjNeWGGtIKJohykEyimAfl2EBqB0/NiVvhT/tKzyQd5Q9MKtzmY1mKU
-         FpWrvAnPZp2OyzfLFnak7vdWtUMZoebpZ28Y4vRqLLP/gOMfJzULnQofa+Sl76w6eLsI
-         ZFTTqB4o9yGutwPSkU/NxhU9QdkRG3GG8RoYpKKWa97ewFRYrtlQv6AyNFdkivJpP1ta
-         gRNQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9CYJFQJdLDcCwqGaY+22bPRlMEhae0Y3mhF6QYgbXAlaIr31zYg5mLO+IoN65q7wgWMHFSpPHqvfTK0umbYmT/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyS0iAROHd265SaI38ZBjJCaRFAuUm/LE4i2dzvrAjThYLJh++7
-	Yh06e4q961JH8x69ALgDBJnDhRX7n2Vg9ENoBM8Mw4HaIL1BEMiu5p59pVmGlO5L0Eky5hP4BLT
-	SKB0eutorwxt7AIIUFwj/F/P/Aotk2z6U6ePetsrFog==
-X-Gm-Gg: Acq92OFjoiDti57BtWw/H5z8vVgExtMUq7AoIeCigQz5a8sBtHVzY8w+BuczpeyfU8e
-	i7UVThDALat+HTlQDZaCTIeeZr9afOp2U1uKe4qA6rHqpSmEmQM7+xXjbXpsiyXSa4ixhIm4Axt
-	yvKEFNzD257ilvF6u6SqFsP8nOKjG3OEAAzdauly5rirt1wSWKMNiqBtcDs51q1syYw77o5ZF3s
-	2Y5gM1NvX8ktk9/ZX0aODD69MHPoQJJshYdIUYKzE7+XxmmHh6xUJxwUX+VJ8C7pK7dEE5qfNcX
-	CU7AN8mKs+cC80txWRbggWGuJ9ZIq+FneT4x
-X-Received: by 2002:a17:907:7342:b0:bf2:6d61:3268 with SMTP id
- a640c23a62f3a-bfe2a713a05mr372243766b.23.1781522424173; Mon, 15 Jun 2026
- 04:20:24 -0700 (PDT)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 15 Jun 2026 20:20:21 +0900
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 15 Jun 2026 20:20:21 +0900
-From: Angelo Dureghello <adureghello@baylibre.com>
-Mail-Followup-To: Jonathan Cameron <jic23@kernel.org>, 
-	Angelo Dureghello <adureghello@baylibre.com>, Greg Ungerer <gerg@linux-m68k.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>
-References: <20260610-wip-stmark2-dac-v5-0-b76b83366d5c@baylibre.com>
- <20260610-wip-stmark2-dac-v5-9-b76b83366d5c@baylibre.com> <20260611114800.009d9797@jic23-huawei>
+	Mon, 15 Jun 2026 11:21:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2611328D;
+	Mon, 15 Jun 2026 04:21:18 -0700 (PDT)
+Received: from [10.57.93.228] (unknown [10.57.93.228])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B96AF3F915;
+	Mon, 15 Jun 2026 04:21:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781522483; bh=xr8JAbsw542Ekce7MoopDiNfl5G5KYV1izF3XUolvlM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sQZjv+ms7bbldFg89JmwzQBQcG3vyjpTqIQ+bQboDRgs1MBFC/THCCpSCbOB+4DGb
+	 fnGR1TPe8fNRGhV2VWiVg6eSL1BPfur9Ih7nn++l/B9w+KAVVIZaW4CSXGVF3AIYGY
+	 7ZuGIIFexMuEc3aPJteWHPKf5evvbmgJGc2wo7VA=
+Message-ID: <bfc8803d-b375-477e-bba7-806edaf86578@arm.com>
+Date: Mon, 15 Jun 2026 12:21:19 +0100
 MIME-Version: 1.0
-In-Reply-To: <20260611114800.009d9797@jic23-huawei>
-Date: Mon, 15 Jun 2026 20:20:21 +0900
-X-Gm-Features: AVVi8CcVAgC1MKZdgPIabfG_bEsJqD-RTAVk9pERfc6y7h_8h9norD6F9V9jiEU
-Message-ID: <CALSJ-wC9Rsq6WJ_=X87R74jPrg2Y+=L8m0wRRp=1zvN5vSOw6A@mail.gmail.com>
-Subject: Re: [PATCH v5 09/10] iio: dac: add mcf54415 DAC
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Angelo Dureghello <adureghello@baylibre.com>, Greg Ungerer <gerg@linux-m68k.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only active
+ on local cpu
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>, Linu Cherian <linu.cherian@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>, Mark Rutland <mark.rutland@arm.com>,
+ Huang Ying <ying.huang@linux.alibaba.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260523134710.3827956-1-linu.cherian@arm.com>
+ <ai6KzFgfMAxqplcr@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <ai6KzFgfMAxqplcr@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_042027_020965_48CE379D 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20260615_042127_455091_2F727E2C 
+X-CRM114-Status: GOOD (  52.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,60 +76,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+On 14/06/2026 12:04, Will Deacon wrote:
+> On Sat, May 23, 2026 at 07:17:10PM +0530, Linu Cherian wrote:
+>> From: Ryan Roberts <ryan.roberts@arm.com>
+>>
+>> There are 3 variants of tlb flush that invalidate user mappings:
+>> flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
+>> would previously unconditionally broadcast their tlbis to all cpus in
+>> the inner shareable domain.
+>>
+>> But this is a waste of effort if we can prove that the mm for which we
+>> are flushing the mappings has only ever been active on the local cpu. In
+>> that case, it is safe to avoid the broadcast and simply invalidate the
+>> current cpu.
+>>
+>> So let's track in mm_context_t::active_cpu either the mm has never been
+>> active on any cpu, has been active on more than 1 cpu, or has been
+>> active on precisely 1 cpu - and in that case, which one. We update this
+>> when switching context, being careful to ensure that it gets updated
+>> *before* installing the mm's pgtables. On the reader side, we ensure we
+>> read *after* the previous write(s) to the pgtable(s) that necessitated
+>> the tlb flush have completed. This guarrantees that if a cpu that is
+>> doing a tlb flush sees it's own id in active_cpu, then the old pgtable
+>> entry cannot have been seen by any other cpu and we can flush only the
+>> local cpu.
+>>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>> Tested-by: Huang Ying <ying.huang@linux.alibaba.com>
+>> [linu.cherian@arm.com: Adapted for v7.1 flush tlb API changes]
+>> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+>> ---
+>> Changelog from RFC v1:
+>> - Adapted for v7.1 flush tlb API changes
+>>   No changes in core logic
+>> - Collected Rb and Tb tags
+>> - lat_mmap benchmark showed dsb(ishst) performs better than dsb(ish),
+>>   hence retained dsb(ishst) in flush_tlb_user_pre	
+>>
+>>
+>> Testing with 7.1-rc4 :
+>> +-----------------------+---------------------------------------------------+-------------+
+>> | Benchmark             | Result Class                                      |  Improvement|  
+>> +=======================+===================================================+=============+
+>> | perf/syscall          | fork (ops/sec)                                    |   (I) 3.25% |
+>> +-----------------------+---------------------------------------------------+-------------+
+>> | pts/memtier-benchmark | Protocol: Redis Clients: 100 Ratio: 1:5 (Ops/sec) |   (I) 2.70% |
+>> | 			| Protocol: Redis Clients: 100 Ratio: 5:1 (Ops/sec) |   (I) 2.13% |
+>> +-----------------------+---------------------------------------------------+-------------+
+> 
+> I think we need a much more comprehensive set of benchmarks before we can
+> begin to consider a change like this.
 
-On Thu, Jun 11, 2026 at 11:48:00AM +0100, Jonathan Cameron wrote:
-> On Wed, 10 Jun 2026 22:35:14 +0200
-> Angelo Dureghello <adureghello@baylibre.com> wrote:
->
-> > From: Angelo Dureghello <adureghello@baylibre.com>
-> >
-> > Add basic version of mcf54415 DAC driver. DAC is embedded in the SoC and
-> > DAC configuration registers are mapped in the internal IO address space.
-> >
-> > The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
-> > analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
-> > consists of a conversion unit, an output amplifier, and the associated
-> > digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
-> > are respectively 0 and 0xfff, left untouched in this initial version.
-> >
-> > This initial version of the driver is minimalistic, "output raw" only, to
-> > be extended in the future. DMA and external sync are disabled, default mode
-> > is high speed, default format is right-justified 12-bit on 16-bit word.
-> >
-> > Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
-> I'm lazy so didn't check earlier versions but assume the two bits
-> of feedback from Sashiko are false positives:
-> https://sashiko.dev/#/patchset/20260610-wip-stmark2-dac-v5-0-b76b83366d5c%40baylibre.com
->
-> The one about clock underflow if resume fails, and then devm cleanup happens later
-> is a bit nasty.
->
-> I did a bit of digging and maybe it is better to just leave the clock on?
-> The status dev.power.is_suspended is set to false whether or not resume succeeded
-> and I believe a following suspend will not take into account that resume failed.
->
-> I'm not set up to poke the combinations but it might be worth trying that.
-> +CC common clk people who may immediately know what the right answer is.
->
+I believe that Linu ran a wider set of benchmarks and didn't find any
+regressions. These are just the ones that show improvement (Linu, please correct
+me and/or provide details).
 
-was about testing this, there are no bus faults on read/write of registers
-with clock disabled, nor warnings in dmesg on double disable.
+Additionally Huang Ying did some testing against the RFC and reported 4.5%
+improvement with Redis:
 
-Anyway, i see now from arch Kconfig that is not possible to have CONFIG_PM
-for this specifig CPU (with MMU, PM is force-disabled), so would remove pm_ops.
-Ok ?
+https://lore.kernel.org/linux-arm-kernel/87segumv6w.fsf@DESKTOP-5N7EMDA/
 
-Will fix all other things you pointyed out in v6.
+> 
+>>  arch/arm64/include/asm/mmu.h         |  12 +++
+>>  arch/arm64/include/asm/mmu_context.h |   2 +
+>>  arch/arm64/include/asm/tlbflush.h    | 127 +++++++++++++++++++++------
+>>  arch/arm64/mm/context.c              |  30 ++++++-
+>>  4 files changed, 141 insertions(+), 30 deletions(-)
+> 
+> Doesn't this break BTM/SVM with the SMMU? I think that's a non-starter
+> even if you can provide some more compelling numbers.
 
-> Otherwise just a few minor style comments inline.
->
-> Thanks,
->
-> Jonathan
->
+AIUI, we don't support BTM upstream - the SMMU uses private ASIDs and implements
+MMU notifiers to forward the TLBIs via its command queue interface.
 
-thanks,
-regards,
-angelo
+I was also under the impression that supporting BTM upsteam was not desired;
+Please correct me if that's not accurate or if you're aware of plans to add
+support. I've been (coincidentlly) looking at some other stuff that could
+benefit from BTM but had concluded it wouldn't be an acceptable approach upstream.
+
+If we did ever want to add SMMU BTM support though, I think it would be simple
+enough to add an interface to allow the SMMU to disable the optimization (i.e.
+force active_cpu to ACTIVE_CPU_MULTIPLE)?
+
+> 
+>> +static inline bool flush_tlb_user_pre(struct mm_struct *mm, tlbf_t flags)
+>> +{
+>> +	unsigned int self, active;
+>> +	bool local;
+>> +
+>> +	migrate_disable();
+>> +
+>> +	if (flags & TLBF_NOBROADCAST) {
+>> +		dsb(nshst);
+>> +		return true;
+>> +	}
+> 
+> Why does the NOBROADCAST case need migration disabled? It didn't before...
+
+The existing semantic for TLBF_BOBROADCAST is that it emits a local TLBI on
+whatever CPU we happen to be executing on. It's used for lazily fixing up
+spurious faults (i.e. hitting RO TLB entries when the PTE has been relaxed to
+RW). So it's still functionally correct if the thread migrates CPU between
+taking the fault and issuing the local TLBI - in the worst case it just leads to
+another spurious fault.
+
+For this new case, we need to ensure we don't get migrated between reading
+active_cpu and issuing the local TLBI, otherwise we would only issue a local
+TLBI when a broadcast was required.
+
+> 
+>> +
+>> +	self = smp_processor_id();
+>> +
+>> +	/*
+>> +	 * The load of mm->context.active_cpu must not be reordered before the
+>> +	 * store to the pgtable that necessitated this flush. This ensures that
+>> +	 * if the value read is our cpu id, then no other cpu can have seen the
+>> +	 * old pgtable value and therefore does not need this old value to be
+>> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
+>> +	 * needed to make the pgtable updates visible to the walker, to a
+>> +	 * dsb(ish) by default. So speculatively load without a barrier and if
+>> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
+>> +	 */
+>> +	active = READ_ONCE(mm->context.active_cpu);
+>> +	if (active == self) {
+>> +		dsb(ish);
+>> +		active = READ_ONCE(mm->context.active_cpu);
+>> +	} else {
+>> +		dsb(ishst);
+>> +	}
+> 
+> Why can't you just do:
+> 
+> 	dsb(ishst);
+> 	active = READ_ONCE(mm->context.active_cpu);
+> 
+> ?
+
+Prior to this optimization, we always issued a dsb(ishst) here. Catalin
+suggested the same simplification against the RFC. I believe Linu tried it but
+saw regressions; Hopefully Linu can provide the details.
+
+> 
+>> +
+>> +	local = active == self;
+>> +	if (!local)
+>> +		migrate_enable();
+>> +
+>> +	return local;
+>> +}
+>> +
+>> +static inline void flush_tlb_user_post(bool local)
+>> +{
+>> +	if (local)
+>> +		migrate_enable();
+>> +}
+> 
+> I was under the impression that disabling/enabling migration was an
+> expensive thing to do, so I'd really want to see some more numbers to
+> justify this (including from inside a VM) and allow us to consider the
+> trade-offs properly. It's also not at all clear to me that it's safe
+> from such a low-level TLB invalidation helper.
+
+I had assumed it wasn't very expensive, but perhaps I'm wrong. I know
+preempt_enable() can be expensive because it has to test to see if it needs to
+reschedule. But I assumed for disabling/enabling migration, it would just be a
+counter and the scheduler would check that it's zero before considing moving the
+task to another run queue. (But I have practically zero understanding of the
+scheduler so I'll assume I'm wrong...).
+
+Instead of disabling migration, perhaps we could re-check active_cpu after
+issuing the local tlbi - if it's now reporting "multiple" we must have been
+migrated and we need to upgrade to a braodcast TLBI?
+
+> 
+>> +
+>>  /*
+>>   *	TLB Invalidation
+>>   *	================
+>> @@ -408,12 +482,20 @@ static inline void flush_tlb_all(void)
+>>  static inline void flush_tlb_mm(struct mm_struct *mm)
+>>  {
+>>  	unsigned long asid;
+>> +	bool local;
+>>  
+>> -	dsb(ishst);
+>> +	local = flush_tlb_user_pre(mm, TLBF_NONE);
+>>  	asid = __TLBI_VADDR(0, ASID(mm));
+>> -	__tlbi(aside1is, asid);
+>> -	__tlbi_user(aside1is, asid);
+>> -	__tlbi_sync_s1ish(mm);
+>> +	if (local) {
+>> +		__tlbi(aside1, asid);
+>> +		__tlbi_user(aside1, asid);
+>> +		dsb(nsh);
+>> +	} else {
+>> +		__tlbi(aside1is, asid);
+>> +		__tlbi_user(aside1is, asid);
+>> +		__tlbi_sync_s1ish(mm);
+>> +	}
+>> +	flush_tlb_user_post(local);
+> 
+> I think you've changed this since Ryan's original patch, but why are you
+> only calling __tlbi_sync_s1ish() for the !local case? Doesn't that break
+> the erratum workaround when running as a VM if the vCPU is migrated?
+
+Hmm. So from the guest kernel's perspective, it has concluded that it only needs
+to target the local (v)CPU. Since the errata only affect boardcast TLBIs, it
+concludes there is no need to issue the workarounds. But since it's a VM, the HW
+will upgrade the local TLBIs to broadcast TLBIs, but will not magically
+re-instate the workarounds. I guess the simplest solution would be to disable
+the optimization when either workaround is enabled.
+
+Perhaps this is all getting a bit too complex for not enough benefit...
+
+Thanks,
+Ryan
+
+> 
+>> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+>> index 0f4a28b87469..f34ed78393e0 100644
+>> --- a/arch/arm64/mm/context.c
+>> +++ b/arch/arm64/mm/context.c
+>> @@ -214,9 +214,10 @@ static u64 new_context(struct mm_struct *mm)
+>>  
+>>  void check_and_switch_context(struct mm_struct *mm)
+>>  {
+>> -	unsigned long flags;
+>> -	unsigned int cpu;
+>> +	unsigned int cpu = smp_processor_id();
+>>  	u64 asid, old_active_asid;
+>> +	unsigned int active;
+>> +	unsigned long flags;
+>>  
+>>  	if (system_supports_cnp())
+>>  		cpu_set_reserved_ttbr0();
+>> @@ -251,7 +252,6 @@ void check_and_switch_context(struct mm_struct *mm)
+>>  		atomic64_set(&mm->context.id, asid);
+>>  	}
+>>  
+>> -	cpu = smp_processor_id();
+>>  	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
+>>  		local_flush_tlb_all();
+>>  
+>> @@ -262,6 +262,30 @@ void check_and_switch_context(struct mm_struct *mm)
+>>  
+>>  	arm64_apply_bp_hardening();
+>>  
+>> +	/*
+>> +	 * Update mm->context.active_cpu in such a manner that we avoid cmpxchg
+>> +	 * and dsb unless we definitely need it. If initially ACTIVE_CPU_NONE
+>> +	 * then we are the first cpu to run so set it to our id. If initially
+>> +	 * any id other than ours, we are the second cpu to run so set it to
+>> +	 * ACTIVE_CPU_MULTIPLE. If we update the value then we must issue
+>> +	 * dsb(ishst) to ensure stores to mm->context.active_cpu are ordered
+>> +	 * against the TTBR0 write in cpu_switch_mm()/uaccess_enable(); the
+>> +	 * store must be visible to another cpu before this cpu could have
+>> +	 * populated any TLB entries based on the pgtables that will be
+>> +	 * installed.
+>> +	 */
+>> +	active = READ_ONCE(mm->context.active_cpu);
+>> +	if (active != cpu && active != ACTIVE_CPU_MULTIPLE) {
+>> +		if (active == ACTIVE_CPU_NONE)
+>> +			active = cmpxchg_relaxed(&mm->context.active_cpu,
+>> +						 ACTIVE_CPU_NONE, cpu);
+>> +
+>> +		if (active != ACTIVE_CPU_NONE)
+>> +			WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_MULTIPLE);
+>> +
+>> +		dsb(ishst);
+>> +	}
+>> +
+> 
+> Can you simplify the 'if' condition here?
+> 
+> 	if (active == ACTIVE_CPU_NONE) {
+> 		if (!try_cmpxchg_relaxed(...))
+> 			WRITE_ONCE(...);
+> 
+> 		dsb(ishst);
+> 	}
+> 
+> (as an aside, maybe we should implement arch_try_cmpxchg{,_relaxed} so
+>  we could drop the READ_ONCE() here as well?)
+> 
+> Will
+
 
