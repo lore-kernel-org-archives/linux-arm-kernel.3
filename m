@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D8ECD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBEFCCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGVKq3DqkJdswBGgVG+gslnExkfAwrSp65EizBZiGKM=; b=dQTaFq5v/o56QiGOy5ZwDVFTPS
-	jNDf5Mk9cLMFU1TPMzUKgU7fWvGbqp1ar28A4FdzfuyfvisVMPAqTwKuPkoKdeyuWuRr89XFcOSjN
-	6IBA6X3p9LwgPsqeRyb6/1cs/1o4CPq2+bizL6MxhvDzz4FP4IzQbCc3vT74J60h/B1BIp/EW41dy
-	lE85jI2ltIYtCr9kdF6GTpVDyl5onhhOf3KHPVnkZqsMoAzX8duBYTv/tsJsNhE/Xnb8uAkW+tWTF
-	6DgR+bfiCa+Js+BG+NjXU7zGs1Wk5mIhfeNOAQfm2Q8csUG04OUIXNMKc8Tdk6qE/Et5Wf9ATNNiJ
-	one55fyA==;
+	bh=/JFdcv43vw4EPbj2pYJuXY1YO+uQmOnZRhQpYncm8gw=; b=bDSb1yxjvXhfdRXHAQJ/RGU49g
+	iKcRWPO67zJSN1rfYj90OX0OA1YvZfLB9wnppEr/SvfwifC8+EkgH8i7fAr89dG97ugYrdG+EIywB
+	fGv7kcLP/u2woo+CP53g3EsIQilrMpPVAkpx2Xpff0ud9X2rxzLCuEfATzE2GcaIWFZPaHDGu7KGF
+	nA/9nsRvMMBmiIMIeYCvz8LigxyMRdBkV7RbG+9m4GPGT75/yNV3MvRB2yAOwSOtjffKiQ4WcX0n/
+	PiV0zfnNyM3YsD3R10ziCDVfFdmhovxBv/7UCB4YtXVO9FT8PfLef/q3//8W9Tu29SReNWTKZFKok
+	jnk5V0gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7Yr-0000000EKDS-32T5;
-	Mon, 15 Jun 2026 13:41:09 +0000
-Received: from 013.lax.mailroute.net ([199.89.1.16])
+	id 1wZ7ZF-0000000EKNH-0XqW;
+	Mon, 15 Jun 2026 13:41:33 +0000
+Received: from 011.lax.mailroute.net ([199.89.1.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7Yp-0000000EKC8-1ekE;
-	Mon, 15 Jun 2026 13:41:08 +0000
+	id 1wZ7ZC-0000000EKMG-1zeM;
+	Mon, 15 Jun 2026 13:41:31 +0000
 Received: from localhost (localhost [127.0.0.1])
-	by 013.lax.mailroute.net (Postfix) with ESMTP id 4gfB8t2kqszlfl5V;
-	Mon, 15 Jun 2026 13:41:02 +0000 (UTC)
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4gfB9Q02Lfz1XM6J5;
+	Mon, 15 Jun 2026 13:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
 	content-transfer-encoding:content-type:content-type:in-reply-to
 	:from:from:content-language:references:subject:subject
 	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1781530855; x=1784122856; bh=dGVKq3DqkJdswBGgVG+gslnE
-	xkfAwrSp65EizBZiGKM=; b=DzWHun1z/cTIPfcFjYWFAYKfGzApZhmJY3T8Ic1l
-	ekMU1Vrdc3A9lkGKQ1cloPe6yfEd/kHkn+ja9LQf3wKTeBF6qomGJhpl/y8FNcNB
-	Ibif9KtpeVwA75hxytJTulSkPZyuQJ9H4qZwynVTiS9B7x41yD2jOJBgQaaLizeA
-	WJhj6CC/jATxIE0Hpr7pDnSAVhJRu2/mRw5FxwZrn+2cLV5hYF08w5DYDi8fk1yN
-	RiAEWcaZFvwBedNbp2H51nQPCvVMJMM3zbTjlhJXbsJN/2QVAeCpzIihhOnMBy7c
-	ArvCMhF2WooauWI1qpBRk9gFZ+9uxUl3tyoadkMMhmo5kA==
+	 s=mr01; t=1781530882; x=1784122883; bh=/JFdcv43vw4EPbj2pYJuXY1Y
+	O+uQmOnZRhQpYncm8gw=; b=EXbibQZNF4hEuQlmCeXwJOs2bhoV87jci/OzDfxH
+	zD7i6mpQjepum+hLG6tVbQO83m7U0yYkSpSkDTuekvd5DZEVkxphx7daMUtjSK+1
+	mtEYY2+3uLJ1aenJ7OL8sZEP96UqQMfvA6kfaZOgF8I/6VjZURAr1YMjwzZutYAj
+	E3wAok4+XrH5QSJ/Ee5PoTmEg8O1x1FsSEUjTp4+TMwUxVYG3Z0xhFZoKRHf+wgf
+	CVedIOgcnJKPCYJ5RzFQNWgDuEqlDCK6sukqeKt8Dr7AP6ayjzjTxqFWp+sXIMuZ
+	WfMYXN7L/GdBdzAzLFr1+Dc+zCRaIX3AY9U8SFktJEllag==
 X-Virus-Scanned: by MailRoute
-Received: from 013.lax.mailroute.net ([127.0.0.1])
- by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id m8jRUe-O9L6p; Mon, 15 Jun 2026 13:40:55 +0000 (UTC)
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id dnAFi-96rd81; Mon, 15 Jun 2026 13:41:22 +0000 (UTC)
 Received: from [192.168.51.14] (c-73-231-117-72.hsd1.ca.comcast.net [73.231.117.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: bvanassche@acm.org)
-	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4gfB8f1dQfzlfvpG;
-	Mon, 15 Jun 2026 13:40:49 +0000 (UTC)
-Message-ID: <414c9338-0e3e-4d68-941d-18cb83dc78f5@acm.org>
-Date: Mon, 15 Jun 2026 06:40:49 -0700
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4gfB982DHJz1XM5kW;
+	Mon, 15 Jun 2026 13:41:15 +0000 (UTC)
+Message-ID: <88ccf330-28b9-4101-9f5f-c05130c75636@acm.org>
+Date: Mon, 15 Jun 2026 06:41:14 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] ufs: core: Remove max_num_rtt field from
- ufs_hba_variant_ops
+Subject: Re: [PATCH v3 1/3] ufs: core: Add get_hba_nortt callback for
+ vendor-specific RTT capability
 To: ed.tsai@mediatek.com, alim.akhtar@samsung.com, avri.altman@wdc.com,
  James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
  linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
@@ -66,16 +66,15 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  peter.wang@mediatek.com, alice.chao@mediatek.com, naomi.chu@mediatek.com,
  chun-hung.wu@mediatek.com
 References: <20260615055802.105479-1-ed.tsai@mediatek.com>
- <20260615055802.105479-4-ed.tsai@mediatek.com>
+ <20260615055802.105479-2-ed.tsai@mediatek.com>
 Content-Language: en-US
 From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20260615055802.105479-4-ed.tsai@mediatek.com>
+In-Reply-To: <20260615055802.105479-2-ed.tsai@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_064107_449064_F896017C 
-X-CRM114-Status: UNSURE (   6.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_064130_528472_99C58F4C 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,9 +90,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 6/14/26 10:57 PM, ed.tsai@mediatek.com wrote:
-> Remove the max_num_rtt field from ufs_hba_variant_ops as it has been
-> replaced by the get_hba_nortt() callback which provides more flexible
-> platform-specific RTT capability handling.
+> The number of outstanding RTTs read from host controller capability
+> register is problematic on some platforms. Add a new vendor callback
+> get_hba_nortt() to allow platform vendors to override the default RTT
+> capability value with platform-specific handling.
+> 
+> This patch keeps max_num_rtt field for bisectability and will be removed
+> in a later patch once all platforms are migrated.
 
 Reviewed-by: Bart Van Assche <bvanassche@acm.org>
 
