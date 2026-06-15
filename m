@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825A6CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 06:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC78CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 06:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=su7U2CceZXD6mEz8ItmrZ6WCGP9Vn5IoVvW2JAEM0p0=; b=SX9mNhnCLoztDUYS/FdtoCu9pj
-	Q68/5EMkQSSl091pISAMYjte130vvqm1VpJXNWB1y+DIMXk8rLY5rxxZ+O2aJ8kYtHHuvbIDoa5LH
-	+lGD/HWhjZvPr1Kkf3uJHCelUsa+G/HgRQnbao153tcWJQ17+fGD7BsKEati7eFYIWxPeIGFix5w4
-	k+O8gcgZgdPNyvwQozFbO5heTYAFLyJgavNxxLf0zxMtmvDf1mCUeo9NXpDejZk9xb3dMGzLkNkuA
-	36PDxZFqf4ypxj3QwpwN5frakammn68yj2swoAizgIMSU0vskgWXDa098Xa8WYMw18XdKOd1LW97v
-	QMz+Df0Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lenEIxoLi6+YCq/tfMwIzvmfL+sfiBY8pQSkNEn0Xhs=; b=lO1Yrngo7wLsyoBSuMXVbvihWw
+	kaN4Rpq8hCBM3Pj0naNjk0e8NOJu+osCaG/3gqQ0fVArhIJ517mK7G+FFQGb6KMKw0op4/MMUVj5j
+	wTzOzPhLLsxzrxDZSXLNOT1CxxsjlBGTi3oDcfKYYNUskMStodiQdvhzHVLvlWRMHtMu2aqdiXKW7
+	OCxC/ZaygJtHBLPpZXLw9PC/1/PYAiCjW6tku1DQ08yCB7DVAWdL1oRcZj4izeVLZsp2HAwAL7SKv
+	QpJrH1OhooooUIj59r6hW3priwWX8ILmp1aY/irbmfUrsF/bflm59EkfmLsG64alE31gWSK+KFgeE
+	seh1usGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ19C-0000000Dhyh-0n51;
-	Mon, 15 Jun 2026 06:50:14 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1wZ19I-0000000Di0T-19XT;
+	Mon, 15 Jun 2026 06:50:20 +0000
+Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ199-0000000DhyF-3BtR
+	id 1wZ19D-0000000Dhym-0vXT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 06:50:12 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-137eb0d76beso2643953c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 23:50:11 -0700 (PDT)
+	Mon, 15 Jun 2026 06:50:16 +0000
+Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-306f36df4feso2024497eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 23:50:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781506211; x=1782111011; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=su7U2CceZXD6mEz8ItmrZ6WCGP9Vn5IoVvW2JAEM0p0=;
-        b=Zv/Nl+iqiwfvRddUinspnvPKhqijtydFJmrX8i8LC/sr68Ag4/Ii4JS6Z5Hb4XCGUS
-         l4UyTdKk2NN2iy9QZb6Atc4FiQPDbCOG8Er6zTMRDmUCowEO1iUAAM2jTU/70C7DG6hR
-         tGoOwH9wPBI4y6MXfk1YyuByyDwGj1qr+4P85mQS6yngc+YeJx2oFaHgJ7x3zDlKDSmh
-         3HZy1kDs4j9LlEoQlfxYjZMNH3t2ZIefwpTQsuAr8VPah104JkDVR/aTPst/Jmg4zT67
-         Rv9vLP4vGgAwkbxxbnDBZHbDhSUtfr8AbQJil8hrDByQjjy9oAqyoIxw3Gv/dgKfIGmW
-         B75A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781506211; x=1782111011;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1781506214; x=1782111014; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=su7U2CceZXD6mEz8ItmrZ6WCGP9Vn5IoVvW2JAEM0p0=;
-        b=kbTjXOKis6okTTHxTSmLEVodKlQeIkeOx1GCKziW8f1PrT9oHpmVSKs/BUPiPMweVj
-         BFMZgyB2c+188W22OIlZF4DIEvCr9Gxw5wr0lRi9J9IpQM+cNHXPzo/uWAnmMtIsUvOI
-         9PiuPXn/Iu2B3MgxC7m5gqI/M0CTL+N1xEoIG1g+QBiYN4/gqcqnShiy04uFvGe0h8dT
-         zZ1WmUGptFc1dtZEN75CGt49KlmaSn8uQDDc3KKbAhPs3cGfcGloo1iWpC6YpQu9rk5Z
-         EGBqpaHGu/aXjYAssUXY7mTQhEUSfEgaIb4PIdsI1GNakoNvIbzvzQ0XrVE5pAnX1rYl
-         3KGg==
-X-Forwarded-Encrypted: i=1; AFNElJ/riYnEq0c6EiACDKSCWwKbWlipCDZGTtgbDhA9YjgpBhdjTx9gMbNugTpKAWUQyecPYF3VtD0eBmGM4/m6MZJX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxESbpvIU1/nUY+9E1YsKcNxCc9xwg6brIQVczv/zpAB0QPbSM6
-	9Cnol5hzNOh2YoOTmAIwxNsMwl3AHM9koSQ+eqgeyeM6G8y66Jxw6MiU
-X-Gm-Gg: Acq92OGa6gePC+yw+boCDBkC1Wd/9w+ErPsDTcRsW2hCA89xNI8A45pUbDlvCpJiFnP
-	MOfxB8sX5pk4SBVWFUGTqyewVs977MIwpb/BZqSssxL+LL9O0tJAjEm/vzg3Qpa8dm1aW5QoBWl
-	P15lEFzqoTlXaaHEZJgOu3IASrqir+2S1rMTcHyXUfGMR3alndT6x+ep/7Hm9/eJiKuXAG9lotB
-	LGkjBLfA9gSaXKDTwrBsp0cDBoZt5vh5p9B/Bmx829yb6k6yC49YQW4btZ8+YrWvgLDBkNBlI12
-	3MHSRYVTkHFGVFcgIRz/ETrUBLTfrzq9g3FpTPgf89BrBFtuixqrE5F1Jd0MbwaIstfnW8ew/HE
-	MScCyBuItPxM6MP+Qm04lc125GY+4ow1O8OugV+o0A719x6YRdhTtxW3xQc0wVUlWYGG+mSwqsP
-	DvCs3SvHddeTZ113WMLUNMHKO9mHcCXak6FjQezx/2xrAKu7oR27w0GfRX84bF8PwLJ2nnmI6Zh
-	7yvrX9ncCs7
-X-Received: by 2002:a05:7301:9f09:b0:304:70d0:4f03 with SMTP id 5a478bee46e88-30820c2d782mr6607439eec.6.1781506210508;
-        Sun, 14 Jun 2026 23:50:10 -0700 (PDT)
+        bh=lenEIxoLi6+YCq/tfMwIzvmfL+sfiBY8pQSkNEn0Xhs=;
+        b=NMdRQXh0yiMowM6uXoG3Gqsa7LsEoKDvMmfY4W5M2LCcljEBB8UxsZa0ZdxIaYzBVi
+         h7V2I1PLQQoaVfgUlQ4aTPSp7D0f4XucPLQDrAABl0AJo8LJqKNa0vVZxomOTAy/cCI9
+         18cp2YoJ1VDoqdDWpYX+0oYcnAEg5tgsTs3VvdHpYKWu51Ej5tkm2h4XzfpnKJXDJCYD
+         IfKBx2TZaWmUtHQlDPTat/AmZganAd9AH8QY/GrU5i4b52TZK+GDH40kcsYG7evlqHXf
+         O4mv8tQ1h/t3tz6nEf2YsFpC12FhPv+KKlU3dAYIMqb5msYLJz0QYcxuf/Hj6QykF99u
+         wDaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781506214; x=1782111014;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=lenEIxoLi6+YCq/tfMwIzvmfL+sfiBY8pQSkNEn0Xhs=;
+        b=ieum1SEnEJAO7OAFoKM9RAnWH33Mu3pSHWNr+9w/0Kh8Cxfv60ZsGgHVsXNtYL7qv5
+         7Gk+12xq/IFonZJsnR20UZLUHT686EEEdMCb873YL9qZabErRrdXtDtL3VPHfQNloI0Q
+         pk9/Fr14qOntE3DrRaOmxLDCOAxNoDNpgKAE1mRXTAbjE4+PCPacl8J7YAJD3PAoTp2T
+         qMH1tOd75+oXL8mjXjxhyzQ6KEg19N05n0MwKbRtUcoYuHWFOISRM+E7TJZX80MzrL5O
+         K+U18LG0gmsFg6jrI7ljPbDtdcBXxG5rCQbASJK+5/OU6CG2iv+hSBghTDx/lEHrxVXp
+         0yLA==
+X-Forwarded-Encrypted: i=1; AFNElJ9hoFNodshPPfMCF+ug2TPe1O+17cPF/KYECFfCPbttLpjIhxvJKT8iGwfTjM21Nr0jSjWHH1j/j3Z7UWPp90SX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8OM3sT9tIgOmRuNe5/1G6/X9ia4gMOgmY9bcwKwH7PNjXBkKx
+	AZc/o3M2UyeaZdFnf14W00z6DOGVvbCxNH65sGYCNuwpsAKGlvAswXT8
+X-Gm-Gg: Acq92OE+5MBtqfKJUhqu+5daKS481eN6bTQN8pE7h/dr+H3hg8kjMyyPWm7HQ9z6drw
+	itiet1ZSUy8XWFsvPlbMJNns4LDdCDz3iC78O89pTqxh9xWn69hB6Mo0hNlE9ZsQ7xJ5xszu1Df
+	aquXrjX6ZqjGKMURYhPPZ8vHHXGroYsS81ZnH3OuHQdXf6QT7C74YWv16Aygpws693GvLhoUHrg
+	nvXrocPhirjAkFmD0m3JmJR12ADiXWF2+CpUTvk0OoLsxw2oI/WVnMpvJd15KVo0YHApUCdqJJu
+	eFh75rJ0RXbch/m8TSANt6bWx0XKCmhZCu3/lbV0Dgf37/jB2fZyq4+1tkxXZ+XK4DlAK9VdTsg
+	NLNBnPA8vDEdie0XdsZyUnVmiUv158UExONO7/DvQJV1+p0ce7LTXKbjtxJvUcpTA66xA+RBuS+
+	tWbDiwcw1vOTjzpQNc8p/2wSGaJLDYbJP/uzKPiHFQ+0mukPYgZsYl0QCzxM8bFIKZplcZ0EJCs
+	iy8O66/GtED
+X-Received: by 2002:a05:7300:6da4:b0:2d9:db50:c6ce with SMTP id 5a478bee46e88-30820c0a172mr6428010eec.3.1781506214227;
+        Sun, 14 Jun 2026 23:50:14 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb9a2e7sm13516812eec.30.2026.06.14.23.50.07
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb9a2e7sm13516812eec.30.2026.06.14.23.50.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Jun 2026 23:50:10 -0700 (PDT)
+        Sun, 14 Jun 2026 23:50:13 -0700 (PDT)
 From: Joey Lu <a0987203069@gmail.com>
 To: zhengxingda@iscas.ac.cn,
 	maarten.lankhorst@linux.intel.com,
@@ -87,15 +88,17 @@ Cc: ychuang3@nuvoton.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v4 0/6] drm/verisilicon: add Nuvoton MA35D1 DCU Lite support
-Date: Mon, 15 Jun 2026 14:49:57 +0800
-Message-ID: <20260615065003.76661-1-a0987203069@gmail.com>
+Subject: [PATCH v4 1/6] dt-bindings: display: verisilicon,dc: generalize for single-output variants
+Date: Mon, 15 Jun 2026 14:49:58 +0800
+Message-ID: <20260615065003.76661-2-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260615065003.76661-1-a0987203069@gmail.com>
+References: <20260615065003.76661-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_235011_832715_DE538792 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20260614_235015_264766_F8F2A9D1 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,116 +113,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the Verisilicon DCUltraLite display
-controller as integrated in the Nuvoton MA35D1 SoC.
+The existing schema hard-codes the five-clock/three-reset/dual-port
+topology of the DC8200 IP block, preventing reuse for single-output
+variants such as the Verisilicon DCUltraLite used in the Nuvoton MA35D1
+SoC.
 
-The Verisilicon DC driver and its DT binding were originally written by
-Icenowy Zheng <zhengxingda@iscas.ac.cn> for the T-Head TH1520 SoC, which
-carries a DC8200 IP block.  The present series builds on that foundation
-with gratitude to Icenowy for the original work.
+Rework the schema so that variant-specific constraints are expressed via
+allOf/if blocks:
 
-The DCUltraLite is a different variant in the DC IP family.  While the two
-IPs share a broadly similar register layout, a number of differences
-prevent the existing driver from working on the MA35D1 without
-modification:
+- Add nuvoton,ma35d1-dcu to the SoC-specific compatible enum.  The
+  generic verisilicon,dc fallback remains the driver-binding string.
+- Move clock and reset items descriptions into the per-variant allOf/if
+  blocks; keep only minItems/maxItems at the top level so the base schema
+  accepts all variants.
+- Restore full items lists for clock-names and reset-names at the top
+  level with minItems so the names are validated against the descriptions.
+- Keep ports in the global required list and keep additionalProperties: false.
+- Add an allOf/if block for thead,th1520-dc8200: five-clock (core, axi,
+  ahb, pix0, pix1), three-reset (core, axi, ahb), required resets.
+- Add an allOf/if block for nuvoton,ma35d1-dcu: two-clock (core, pix0),
+  one-reset (core), required resets.
 
-  - No CONFIG_EX commit path: the DC8200 staging registers
-    (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT, FB_BLEND_CONFIG,
-    PANEL_CONFIG_EX) are absent.  The DCUltraLite uses enable (bit 0) and
-    reset (bit 4) bits in FB_CONFIG for direct framebuffer updates, and
-    requires a per-frame VALID bit toggle (FB_CONFIG bit 3) to latch
-    configuration changes.
+Signed-off-by: Joey Lu <a0987203069@gmail.com>
+---
+ .../bindings/display/verisilicon,dc.yaml      | 80 +++++++++++++++++--
+ 1 file changed, 73 insertions(+), 7 deletions(-)
 
-  - No PANEL_START register: panel output begins when
-    PANEL_CONFIG.RUNNING is set; the DC8200 multi-display sync start
-    register at 0x1CCC does not exist.
-
-  - Different IRQ registers: DISP_IRQ_STA at 0x147C / DISP_IRQ_EN at
-    0x1480, versus the DC8200's TOP_IRQ_ACK at 0x0010 / TOP_IRQ_EN at
-    0x0014.
-
-  - Simpler clock topology: two clocks ("core" bus gate and "pix0" pixel
-    divider); no axi or ahb clocks required.
-
-  - Single display output: no per-output indexing beyond index 0 is
-    needed.
-
-  - Hardware-discoverable identity: the DCUltraLite exposes chip identity
-    registers whose model field reads 0x0 (revision 0x5560,
-    customer_id 0x305), allowing the existing vs_fill_chip_identity()
-    path to identify the variant purely through register reads.
-
-Patch 1 generalises the verisilicon,dc DT binding to accommodate the
-Nuvoton MA35D1 SoC-specific compatible and the variant's two-clock,
-one-reset, single-port topology.
-
-Patch 2 adds the register-level macros needed by the DC8000 ops.
-
-Patches 3-5 introduce the driver changes in three logical steps: the
-vs_dc_funcs hardware ops vtable with DC8200 ops extracted into
-vs_dc8200.c; the DC8000 ops in vs_dc8000.c with the necessary
-clock-optionality changes; and finally the DCUltraLite HWDB entry that
-gates hardware recognition once all support is in place.
-
-Patch 6 adds the Kconfig dependency on ARCH_MA35, placed last because it
-is only meaningful after the HWDB entry is added.
-
-All patches have been tested on Nuvoton MA35D1 hardware.
-
-Changes from v3:
-  - [dt-bindings] Reverted extra space before inline '#' comment.
-  - [dt-bindings] Moved clock/reset items descriptions from the top-level
-    clocks:/resets: into the per-variant allOf/if blocks; kept only
-    minItems/maxItems at the top level.
-  - [dt-bindings] Restored full items lists for clock-names and reset-names
-    at the top level with minItems so names are still validated.
-  - [dt-bindings] Added minItems: 1 to resets: in the nuvoton block.
-  - [dt-bindings] Added required: [resets, reset-names] inside the then:
-    block for both thead,th1520-dc8200 and nuvoton,ma35d1-dcu.
-  - [dt-bindings] Added minItems: 3 to reset-names in the thead block.
-  - [dt-bindings] Added maxItems: 1 to reset-names in the nuvoton block.
-  - [dt-bindings] Reverted unevaluatedProperties: false back to
-    additionalProperties: false.
-  - [dt-bindings] Removed the second DT example for nuvoton,ma35d1-dcu
-    since a difference in clocks/resets does not need a new example.
-  - [ops] Renamed bridge_enable/bridge_disable to panel_enable_ex/
-    panel_disable_ex.
-  - [ops] Renamed irq_handler to irq_ack.
-  - [ops] Renamed plane_enable_ex/disable_ex/update_ex to
-    primary_plane_enable_ex/disable_ex/update_ex.
-  - [ops] Renamed vs_dcu_lite.c to vs_dc8000.c, all internal functions
-    from vs_dcu_lite_* to vs_dc8000_*, exported symbol from
-    vs_dcu_lite_funcs to vs_dc8000_funcs; updated Makefile.
-  - [kconfig] Moved ARCH_MA35 Kconfig change to a separate final commit,
-    placed after the HWDB entry.
-
-Joey Lu (6):
-  dt-bindings: display: verisilicon,dc: generalize for single-output
-    variants
-  drm/verisilicon: add register-level macros for DC8000
-  drm/verisilicon: introduce per-variant hardware ops table
-  drm/verisilicon: add DC8000 (DCUltraLite) display controller support
-  drm/verisilicon: add DCUltraLite chip identity to HWDB
-  drm/verisilicon: extend Kconfig to support ARCH_MA35 platforms
-
- .../bindings/display/verisilicon,dc.yaml      |  80 +++++++++++--
- drivers/gpu/drm/verisilicon/Kconfig           |   2 +-
- drivers/gpu/drm/verisilicon/Makefile          |   2 +-
- drivers/gpu/drm/verisilicon/vs_bridge.c       |  20 +---
- drivers/gpu/drm/verisilicon/vs_crtc.c         |  38 ++++++-
- drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |   1 +
- drivers/gpu/drm/verisilicon/vs_dc.c           |  13 ++-
- drivers/gpu/drm/verisilicon/vs_dc.h           |  33 ++++++
- drivers/gpu/drm/verisilicon/vs_dc8000.c       |  78 +++++++++++++
- drivers/gpu/drm/verisilicon/vs_dc8200.c       | 107 ++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_hwdb.c         |  14 +++
- drivers/gpu/drm/verisilicon/vs_hwdb.h         |   6 +
- .../gpu/drm/verisilicon/vs_primary_plane.c    |  32 +-----
- .../drm/verisilicon/vs_primary_plane_regs.h   |   3 +
- 14 files changed, 368 insertions(+), 61 deletions(-)
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8200.c
-
+diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+index 9dc35ab973f2..0c41286b8223 100644
+--- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
++++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+@@ -17,6 +17,7 @@ properties:
+     items:
+       - enum:
+           - thead,th1520-dc8200
++          - nuvoton,ma35d1-dcu
+       - const: verisilicon,dc # DC IPs have discoverable ID/revision registers
+ 
+   reg:
+@@ -26,14 +27,12 @@ properties:
+     maxItems: 1
+ 
+   clocks:
+-    items:
+-      - description: DC Core clock
+-      - description: DMA AXI bus clock
+-      - description: Configuration AHB bus clock
+-      - description: Pixel clock of output 0
+-      - description: Pixel clock of output 1
++    minItems: 2
++    maxItems: 5
+ 
+   clock-names:
++    minItems: 2
++    maxItems: 5
+     items:
+       - const: core
+       - const: axi
+@@ -42,12 +41,16 @@ properties:
+       - const: pix1
+ 
+   resets:
++    minItems: 1
++    maxItems: 3
+     items:
+       - description: DC Core reset
+       - description: DMA AXI bus reset
+       - description: Configuration AHB bus reset
+ 
+   reset-names:
++    minItems: 1
++    maxItems: 3
+     items:
+       - const: core
+       - const: axi
+@@ -59,7 +62,7 @@ properties:
+     properties:
+       port@0:
+         $ref: /schemas/graph.yaml#/properties/port
+-        description: The first output channel , endpoint 0 should be
++        description: The first output channel, endpoint 0 should be
+           used for DPI format output and endpoint 1 should be used
+           for DP format output.
+ 
+@@ -77,6 +80,69 @@ required:
+   - clock-names
+   - ports
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: thead,th1520-dc8200
++    then:
++      properties:
++        clocks:
++          minItems: 5
++          maxItems: 5
++          items:
++            - description: DC Core clock
++            - description: DMA AXI bus clock
++            - description: Configuration AHB bus clock
++            - description: Pixel clock of output 0
++            - description: Pixel clock of output 1
++
++        clock-names:
++          minItems: 5
++          maxItems: 5
++
++        resets:
++          minItems: 3
++          maxItems: 3
++
++        reset-names:
++          minItems: 3
++          maxItems: 3
++
++      required:
++        - resets
++        - reset-names
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: nuvoton,ma35d1-dcu
++    then:
++      properties:
++        clocks:
++          minItems: 2
++          maxItems: 2
++          items:
++            - description: DC Core clock
++            - description: Pixel clock of output 0
++
++        clock-names:
++          minItems: 2
++          maxItems: 2
++
++        resets:
++          minItems: 1
++          maxItems: 1
++
++        reset-names:
++          maxItems: 1
++
++      required:
++        - resets
++        - reset-names
++
+ additionalProperties: false
+ 
+ examples:
 -- 
 2.43.0
 
