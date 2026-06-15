@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1C5CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 16:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325B5CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 16:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqiCivCRQvHY+CsTahzYtUmnxa2excZbQQLs4Yc0u3c=; b=BJ/ZQjFRtVI5RJ5YIjEj7pCXiD
-	zOo0DDt2O6kCaBaZQ5GghWJqGDSNXPcW2XO1IAETtOfjHw/wc+BxPnSRtEXgiWpJaiwywm0phXi3D
-	Uo/UX7GElAYY2BNpSlKRkTfZEBbXDsOOrgwHCqd//o+R1mPHq2Cmc19k5T/CUYnnt3iQipnZiqVjp
-	iuDIAdlJxAi5oIki44Ze3V6z537tZ1WoTc/DVYFEasCQtIXvPutghoKuT5+TcXU6Y2xf0NRlq6a6C
-	kbso+JW5woUp6tEW324wksBhb7S6Yna/eKUnIoGhiKBVg5IeaHN2CAGpwLLUDf+emZ8/SrJSeF5WF
-	eHeiTNHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WrhOiAXY4BpdFNkpuEH5kqbHucFA9LBquobYeTzjtI4=; b=1VDH2pi2TcbXHT
+	k4jtgfAobcSEinnOLtd96H4B9NH9u3m2FpkQOl7jcZarju+ecUFlXGOOklw3y71G9azhjIMBAMHgN
+	S1imomac+pBSSmNe50ziVBtM5+J7rPDKlnnW6oCpMM0m5EoQIKRJQaIH3BT4Pf3YJqPDUFuV835CM
+	7Q23DYTnrTT4i7B+VyCto8VfmX4OSiDPSZNUAg/h3D92I6za7pBAKoQswr2539Cme2T1OWgWZML9x
+	TtgNCxtfWB286Q07816gz1B+cJrFkcWopN3HiTZ4qZ2+qOINqo6Awygfb4iyWSOFNgPButwaEULaf
+	yoi7w3tfmS6ruWhMvKhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ9r1-0000000EXip-14T1;
-	Mon, 15 Jun 2026 16:08:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wZ9t7-0000000EXvt-2Iap;
+	Mon, 15 Jun 2026 16:10:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ9qy-0000000EXhh-1aH2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 16:08:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1781539676;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qqiCivCRQvHY+CsTahzYtUmnxa2excZbQQLs4Yc0u3c=;
-	b=Z35nCOD5veCktEGyDXyHoIbSwp6Y8GD5AhDmqzetuJgd7Pv+igPMis/1UoxGCZKqBuSF3o
-	TY89HEtf3ZYwVWoc6Jf3SEDhe2GtD9VBRwHDotdk1cKelJ9vSZ4H7NsMhf5i6A2Ff4OftW
-	Ux9AFUKRaCy5XhfkddYkp1AmwcDqrkg=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-564-G2bxxTZQN4CsVUaRx4wFzg-1; Mon, 15 Jun 2026 12:07:53 -0400
-X-MC-Unique: G2bxxTZQN4CsVUaRx4wFzg-1
-X-Mimecast-MFC-AGG-ID: G2bxxTZQN4CsVUaRx4wFzg_1781539672
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8cce1cc8cb2so73614656d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 09:07:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781539672; x=1782144472;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qqiCivCRQvHY+CsTahzYtUmnxa2excZbQQLs4Yc0u3c=;
-        b=kQc6UysQvHo6I9j+z09tsGd37ENiMMhJOJ56c2kEtS0KZmlKi1HZ7CsjszOz+Y9hin
-         t3//+DqKkjuHnxrOE2DYySa+fRzJ2lwmlV/UPr3d1sDkWQalmLwd41Kejhk6665S0Lh7
-         9Sq5u9xTL/lOEneKdF4MnZ4vC9H8bTjI/ZgviIEB6y96LbyksK49gTETM97Cr7ksS91v
-         KmVTXRZLImYFo/LePQa6GwfB+OoqoWVcH5omT9Ehk61Sv9Mu4MqCRd7EZil9UObIEHwD
-         xmWqYPh3Op6FWPhKw97u3MmDHMTJCpAa59gxxjmyKEbGrWM4eJc+ni6ZlrOhf2UQKtZu
-         ACsA==
-X-Forwarded-Encrypted: i=1; AFNElJ/JHZkaB+eSzF6CpIk0q+ap7a8H3lpmubn53yDUA2vjWG/lrBlkf5Qqzw8sAVCde16pg7L+/y14pL7T5eTZ79gc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4rYBuFxRCGxC7XOuJntGFQuctb4cXBinbQFTRAJ/SfrOhJ5Nz
-	u49kmpUwWRUoaLDRU7t3sFjVybdZQlghH48MVjxNEoqrVf0JND4F+eUTTIM1mr1BKjplnYdVOa3
-	+POycl2+c5Bc7JmazftYMPYvjGySe9mkFZF5V1bvrOtqmnQOQAsIDx+vxyMQFwXOXC+e3Gkw4fB
-	aL
-X-Gm-Gg: Acq92OHjg8j4tvd8iRHZEVI8PLdIVgkds+EHGyu+ynhJJ+JpTP6mOAUPBupNQYRRo1/
-	cGeMPFt1Jkud1YaPU8Y9X1GjttEyWhHq/q29P8eQMO+cYRWPcjcXvqI3pReiwrwtUB4n+oNQ94p
-	YKgVaJErD+bdMUjDQHEK4zCDlJ/zNbsKBfxwkHzL8keN2VU/aFBMs1B5QUL2eqkOGMwvCE8vz8V
-	MndllF0xJPoGx5BLI+cuRIFw+TnQGwCwlT4Z43rY6WtIg+D7/oH75qdm02pXx+l+ekWcicy/gRE
-	HcQLl9PcS9LrBAJhzomY8lBA40JNndVRyRTE396ck7Azyt2eTBH9N/eSsXwEY+968BbXKA5ZZhy
-	TO5grp9NPjeRoRoMdkI19q515IKXva5w4w26+LnhlEOJVRbjKw3fu7ZEP
-X-Received: by 2002:ad4:5687:0:b0:8cc:e8f4:1636 with SMTP id 6a1803df08f44-8d9fdd239b2mr3018656d6.25.1781539672173;
-        Mon, 15 Jun 2026 09:07:52 -0700 (PDT)
-X-Received: by 2002:ad4:5687:0:b0:8cc:e8f4:1636 with SMTP id 6a1803df08f44-8d9fdd239b2mr3018186d6.25.1781539671714;
-        Mon, 15 Jun 2026 09:07:51 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8d9f1416a6csm2722726d6.3.2026.06.15.09.07.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 09:07:50 -0700 (PDT)
-Date: Mon, 15 Jun 2026 12:07:43 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: William Theesfeld <william@theesfeld.net>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: zynq: handle kasprintf() failure in periph_clk
- registration
-Message-ID: <ajAjT2oiAjFPJ2Bb@redhat.com>
-References: <20260601203500.658135-1-william@theesfeld.net>
+	id 1wZ9t5-0000000EXvb-2bKw;
+	Mon, 15 Jun 2026 16:10:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 76F53600AB;
+	Mon, 15 Jun 2026 16:10:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 659B51F000E9;
+	Mon, 15 Jun 2026 16:09:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781539810;
+	bh=WrhOiAXY4BpdFNkpuEH5kqbHucFA9LBquobYeTzjtI4=;
+	h=From:Subject:Date:To:Cc;
+	b=J2bt7UtU/OYY8PxVyIm3d95v5G+IcTrjBW3L2jU7dt2De3kFnXcxRBS+wcjkcf6fN
+	 XltNpsJON5Ei+eQjAfRadOoGZ6Zr5MKKrnWqjtat85KDYFuJIzaAhhV9joTPZvvnm/
+	 Upf4GSVXporZ+/9u524Qsag7+a/uWIBE8WrhynM4IvaF/bx9BOfhayePviKAuHtMdm
+	 yF/mMlzcia/W4uNmZrGta+pMv2x8g5cbMGvX0YqVwoVCDJpU+Ht9xei0zv8nicGVwV
+	 SRcRt86DYJ9ycUYURQM1lx9ByNJFh+o5TVH1JyohwC9u2Q2ptXr+Wwo4pEiWgn9BWI
+	 W8aRU0vDmzPwg==
+From: Vincent Mailhol <mailhol@kernel.org>
+Subject: [PATCH 00/19] init: discoverable root partitions, a.k.a. an
+ omittable "root=" cmdline option
+Date: Mon, 15 Jun 2026 18:08:56 +0200
+Message-Id: <20260615-discoverable-root_partitions-v1-0-39c78fac42e2@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20260601203500.658135-1-william@theesfeld.net>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 6siGM7y_ZzP-fYnmPxSEyzl-gtYiPMB09niIfZAVBLs_1781539672
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_090800_579755_BD4E6CA6 
-X-CRM114-Status: GOOD (  16.88  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqEMAxA0atI1hZaQQWvMgySNlEDYiUpMiDef
+ YrLt/j/BmMVNpiaG5QvMclHRWgbSBseKzuhauh8N/ghBEdiKV+sGHd2mnOZT9QipXbmImGKSNi
+ PnqAuTuVFfu/+832eP+2uWG1uAAAA
+X-Change-ID: 20260611-discoverable-root_partitions-bdacbada570d
+To: Jens Axboe <axboe@kernel.dk>, Davidlohr Bueso <dave@stgolabs.net>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>
+Cc: linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
+ linux-efi@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ Vincent Mailhol <mailhol@kernel.org>, 
+ Richard Henderson <richard.henderson@linaro.org>, 
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+ linux-alpha@vger.kernel.org, Vineet Gupta <vgupta@kernel.org>, 
+ linux-snps-arc@lists.infradead.org, Russell King <linux@armlinux.org.uk>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ loongarch@lists.linux.dev, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ linux-mips@vger.kernel.org, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, linux-s390@vger.kernel.org, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6653; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=RjmwbjJUekMN4XQbpwM2sAMQ8Q4VGqazX1lTIqnbeDs=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDFkGyhcU3klMvHNzftiCl6lmH3kWl02+abz8VKXHlaTy/
+ w4vP39V7pjIwiDGxWAppsiyrJyTW6Gj0Dvs0F9LmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+ EMjQMWLg4hSAqfbXZfgr2rolQuyW6w6JgNKDJ4tvO69i+ZPHkj6Tv9JAckFms/tLRoYma5u3R6a
+ 1csurnulLb7M78HnNmlIVnlf38k/kSby8dJsZAA==
+X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
+ fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,28 +103,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 04:35:00PM -0400, William Theesfeld wrote:
-> zynq_clk_register_periph_clk() ignores the return value of the two
-> kasprintf() calls used to build the mux and divider clock names, and
-> passes the resulting (possibly NULL) pointers straight into
-> clk_register_mux(), clk_register_divider() and clk_register_gate() as
-> the clock '"'name'"' argument.  On allocation failure that name later
-> gets dereferenced by the clock framework (e.g. in debugfs name
-> formatting), causing a NULL-pointer dereference.
-> 
-> Check both kasprintf() returns.  On failure unwind any allocated name
-> buffer and the spinlock, then fall through to the existing err label
-> which sets clks[] to ERR_PTR(-ENOMEM).  Freeing the spinlock on the
-> error path is correct here because no clk_register_*() call has had
-> a chance to take ownership of it; the success path intentionally
-> hands it off to the registered clocks.
-> 
-> The neighbouring zynq_clk_register_fclk() in the same file already
-> uses this per-allocation goto-label cleanup pattern; this change
-> brings periph_clk into line with it.
-> 
-> Signed-off-by: William Theesfeld <william@theesfeld.net>
+DPS [1] defines GPT partition type UUIDs for OS partitions and
+attributes that control whether such partitions should be
+automatically discovered. The specification states that:
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+  The OS can discover and mount the necessary file systems with a
+  non-existent or incomplete /etc/fstab file and without the root=
+  kernel command line option.
+
+DPS is already implemented in systemd-gpt-auto-generator [2], which,
+when embedded in an initrd, indeed allows automatic detection of the
+root filesystem through its partition type UUID.
+
+This series adds this discovery feature directly into the kernel so
+that people who are not using systemd or not using an initrd can still
+benefit from it. The implementation follows the same model as
+systemd-gpt-auto-generator:
+
+  - GPT partition type UUIDs are used for automatic discovery policy
+    only. No root=PARTTYPEUUID=xxx cmdline option or similar syntax is
+    added.
+
+  - The root= cmdline option takes precedence. This prevents unexpected
+    behaviour.
+
+  - Only the disk with the active EFI System Partition is scanned, as
+    required by DPS. The disk is identified through the Boot Loader
+    Interface LoaderDevicePartUUID EFI variable.
+
+The DPS no-auto attribute is also implemented, giving another option for
+the user to disable this auto discovery. However, the DPS read-only
+attribute is intentionally not enforced. The kernel already mounts the
+root filesystem read-only by default unless the command line requests
+rw, and user space remains responsible for deciding whether a discovered
+root should later be remounted read-write based on DPS metadata and
+local policy. The other partition type UUIDs (home, swap, var...) are
+also out of scope for the same reason: user space remains responsible
+for mounting anything other than the root partition.
+
+Patch 1 adds the ARCH_HAS_DPS_ROOT_PARTITION_TYPE_UUID capability and
+the hidden CONFIG_DPS_ROOT_AUTO_DISCOVERY Kconfig symbol used to signal
+whether the feature is available. Patches 2 to 12 declare the
+ARCH_HAS_DPS_ROOT_PARTITION_TYPE_UUID capability for the supported
+architectures and define their architecture-specific root partition type
+UUID values in asm/dps_root.h.
+
+Patches 13 to 16 make the GPT partition type UUID and the no-auto
+attribute available during early block lookup.
+
+Patch 17 is a small code refactor that prepares for patch 18, which
+updates the root mount path so that, when root= is omitted, the kernel
+reads LoaderDevicePartUUID and uses the early block lookup
+infrastructure to discover the DPS root partition on that disk.
+
+Finally, patch 19 documents this automatic root discovery feature.
+
+Tested with GRUB, which implements the LoaderDevicePartUUID EFI variable
+in its bli module [3]. With this, I was able to boot a kernel with a
+completely empty cmdline and no initrd.
+
+[1] The Discoverable Partitions Specification (DPS)
+Link: https://uapi-group.org/specifications/specs/discoverable_partitions_specification/
+
+[2] systemd-gpt-auto-generator
+Link: https://www.freedesktop.org/software/systemd/man/latest/systemd-gpt-auto-generator.html
+
+[3] GRUB -- §16.2 bli
+Link: https://www.gnu.org/software/grub/manual/grub/html_node/bli_005fmodule.html
+
+Signed-off-by: Vincent Mailhol <mailhol@kernel.org>
+---
+Vincent Mailhol (19):
+      init: add DPS root partition type UUID capability
+      alpha: define DPS root partition type UUID
+      arc: define DPS root partition type UUID
+      arm: define DPS root partition type UUID
+      arm64: define DPS root partition type UUID
+      loongarch: define DPS root partition type UUID
+      mips: define DPS root partition type UUIDs
+      parisc: define DPS root partition type UUID
+      powerpc: define DPS root partition type UUIDs
+      riscv: define DPS root partition type UUIDs
+      s390: define DPS root partition type UUIDs
+      x86: define DPS root partition type UUIDs
+      block: store GPT partition type UUID
+      block: add early_lookup_bdev_by_type_uuid()
+      block: store GPT attributes as a raw value
+      block: don't discover partition with DPS no-auto GPT attribute
+      init: factor out root device lookup into lookup_root_device()
+      init: discover root by DPS partition type UUID
+      docs: document discoverable root partitions
+
+ Documentation/admin-guide/discoverable-root.rst | 33 +++++++++
+ Documentation/admin-guide/index.rst             |  1 +
+ Documentation/admin-guide/kernel-parameters.txt |  5 ++
+ arch/alpha/Kconfig                              |  1 +
+ arch/alpha/include/asm/dps_root.h               |  8 +++
+ arch/arc/Kconfig                                |  1 +
+ arch/arc/include/asm/dps_root.h                 |  8 +++
+ arch/arm/Kconfig                                |  1 +
+ arch/arm/include/asm/dps_root.h                 |  8 +++
+ arch/arm64/Kconfig                              |  1 +
+ arch/arm64/include/asm/dps_root.h               |  8 +++
+ arch/loongarch/Kconfig                          |  1 +
+ arch/loongarch/include/asm/dps_root.h           |  8 +++
+ arch/mips/Kconfig                               |  1 +
+ arch/mips/include/asm/dps_root.h                | 20 ++++++
+ arch/parisc/Kconfig                             |  1 +
+ arch/parisc/include/asm/dps_root.h              |  8 +++
+ arch/powerpc/Kconfig                            |  1 +
+ arch/powerpc/include/asm/dps_root.h             | 16 +++++
+ arch/riscv/Kconfig                              |  1 +
+ arch/riscv/include/asm/dps_root.h               | 12 ++++
+ arch/s390/Kconfig                               |  1 +
+ arch/s390/include/asm/dps_root.h                | 12 ++++
+ arch/x86/Kconfig                                |  1 +
+ arch/x86/include/asm/dps_root.h                 | 12 ++++
+ block/blk.h                                     |  1 +
+ block/early-lookup.c                            | 68 +++++++++++++++++-
+ block/partitions/core.c                         |  2 +
+ block/partitions/efi.c                          |  3 +
+ block/partitions/efi.h                          | 11 ++-
+ include/linux/blk_types.h                       |  1 +
+ include/linux/blkdev.h                          |  5 ++
+ include/linux/root_dev.h                        |  6 ++
+ init/Kconfig                                    |  6 ++
+ init/do_mounts.c                                | 94 ++++++++++++++++++++++++-
+ 35 files changed, 355 insertions(+), 12 deletions(-)
+---
+base-commit: 36808d5e983985bbda87e01059cccc071fe3ec8d
+change-id: 20260611-discoverable-root_partitions-bdacbada570d
+
+Best regards,
+-- 
+Vincent Mailhol <mailhol@kernel.org>
 
 
