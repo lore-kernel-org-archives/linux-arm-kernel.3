@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A123ACD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 06:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C16CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 06:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZuPeXEEpJBJ92jZukUX/Rf84WkOFubIDHDKAwg0+Ffo=; b=bdsXC3m6MPVxDEUgKn/Y/Tx+ju
-	jRAVbl7pZM4dJpEfda/LCRIoe4cBfSCLp7+8J7TwNVpnvCFY1V4r5zlfDXDv/6bZpSFJxRf/OQIA6
-	l4ylZS8fcaXDKLqaQlazb50uOszdTk5fXIrmftdPECbwh2MFtjeFNdflxrvpCLju9GlA/33jq1eTR
-	d5F/5EeCng726DcP7i+zn9VSfLbYv+ir3MMXY4lsgOkkJpnoL60qvBC6mjKRQWsj1uHEfCJHrTQNy
-	5wD/lF5a6hi8zc8FddWnsX8DxmbgwbjfhFvaUX/ZgaK4B79ri6UqA0gnfV3mY0OCdPDfYorB5GF/u
-	Er6BBGfA==;
+	bh=6OyrElnzHDqgWw2fUTNOzAvc452gz9pwfoMpOtTwnik=; b=CN4TgrZ4vzUhd7ZF8aNkYltek8
+	NKkAOwSxNtc6e3nyxXYAkAmk4Dqx2QK1TFz6i0Z7HMdBCyZGREuW/O47PduvvpfDAVloY6RVDELDs
+	Nz/IyKn4p93b+FX6liJdgYNz1CR+XYDESgn7oB7A84h8gL4nTVUXS0ssCZjdNjjBysfd3evonMQUY
+	TMwlNCLCr6Law5F9T3nKilfZ8hghXkr2QexYP/0GSpPO/i6sVLtwl68ABpzls6AGJ8kQrz8vdxrMY
+	Lb0Pmeg3dmILxZSVh2RtGA2E2wQpp3eC0qjc5mYkxnp+5X3lJW+jFM8MYF+rAuu/2zQ2d+lQicPAt
+	xQduAnJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ0qW-0000000Dgp7-3cm7;
-	Mon, 15 Jun 2026 06:30:56 +0000
+	id 1wZ0sD-0000000Dgvm-3yn7;
+	Mon, 15 Jun 2026 06:32:41 +0000
 Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ0qR-0000000Dgoa-1Bpm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 06:30:54 +0000
+	id 1wZ0s8-0000000Dgv0-44FB;
+	Mon, 15 Jun 2026 06:32:38 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowAAndcgTnC9qrGaTEw--.34107S2;
-	Mon, 15 Jun 2026 14:30:44 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowACnGu6CnC9qMHWTEw--.34359S2;
+	Mon, 15 Jun 2026 14:32:34 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Lee Jones <lee@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
+	linux-mediatek@lists.infradead.org
 Cc: pengpeng@iscas.ac.cn
-Subject: [PATCH] mfd: stm32-timers: depopulate child devices on populate failure
-Date: Mon, 15 Jun 2026 14:30:41 +0800
-Message-ID: <20260615063042.36397-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] mtd: nand: ecc-mtk: handle ECC clock enable failures
+Date: Mon, 15 Jun 2026 14:32:32 +0800
+Message-ID: <20260615063232.44383-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAndcgTnC9qrGaTEw--.34107S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtw1xJF15JFW5Gry8uF48JFb_yoWDuwc_W3
-	Z8uFn2gr1Fqrn7tr1xtw1rZrySvFWDZw18JF13Kr42gFy3Zr15ZrWDZr1DG3WUua1jkF15
-	WayDArW2ywn3CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbcAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_
-	Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUYCJmUUUUU
+X-CM-TRANSID: zQCowACnGu6CnC9qMHWTEw--.34359S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ury3XF4kAF4rWrW7uw18AFb_yoW8Gw15pF
+	WUC395KrWDGayjgwn7ua1UC3WakayxK395Wr98Cw1v93sYvrySyFy8JFWjvwnYvrWrGa13
+	Jrsrta4kAayUAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUpwZcUUUUU=
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_233051_694480_3D626976 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260614_233237_398063_710214B7 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32_timers_probe() releases the timer DMA resources when
-of_platform_populate() fails, but it does not depopulate any child
-devices that were created before the failure.
+mtk_ecc_get() gets a reference to the ECC platform device, obtains the
+provider state and then enables the ECC clock before initializing the
+hardware.
 
-The remove path explicitly depopulates child devices before releasing
-DMA resources to avoid races with children using DMA.  Apply the same
-ordering on the populate failure path.
+The clk_prepare_enable() return value is currently ignored.  If enabling
+the clock fails, the code still touches the ECC registers and returns a
+live ECC handle to the caller.  The provider device reference acquired
+by of_find_device_by_node() is also kept even though the handle setup
+failed.
+
+Propagate the clock enable error and drop the provider device reference
+on that failure path.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/mfd/stm32-timers.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/ecc-mtk.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mfd/stm32-timers.c b/drivers/mfd/stm32-timers.c
-index b3dbc02aaf79..1f0aecae83a5 100644
---- a/drivers/mfd/stm32-timers.c
-+++ b/drivers/mfd/stm32-timers.c
-@@ -329,8 +329,10 @@ static int stm32_timers_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, ddata);
+diff --git a/drivers/mtd/nand/ecc-mtk.c b/drivers/mtd/nand/ecc-mtk.c
+index c75bb8b80cc1..39be2e3e4ee4 100644
+--- a/drivers/mtd/nand/ecc-mtk.c
++++ b/drivers/mtd/nand/ecc-mtk.c
+@@ -265,6 +265,7 @@ static struct mtk_ecc *mtk_ecc_get(struct device_node *np)
+ {
+ 	struct platform_device *pdev;
+ 	struct mtk_ecc *ecc;
++	int ret;
  
- 	ret = of_platform_populate(pdev->dev.of_node, NULL, NULL, &pdev->dev);
--	if (ret)
+ 	pdev = of_find_device_by_node(np);
+ 	if (!pdev)
+@@ -276,7 +277,12 @@ static struct mtk_ecc *mtk_ecc_get(struct device_node *np)
+ 		return ERR_PTR(-EPROBE_DEFER);
+ 	}
+ 
+-	clk_prepare_enable(ecc->clk);
++	ret = clk_prepare_enable(ecc->clk);
 +	if (ret) {
-+		of_platform_depopulate(&pdev->dev);
- 		stm32_timers_dma_remove(dev, ddata);
++		put_device(&pdev->dev);
++		return ERR_PTR(ret);
 +	}
++
+ 	mtk_ecc_hw_init(ecc);
  
- 	return ret;
- }
+ 	return ecc;
 -- 
 2.50.1 (Apple Git-155)
 
