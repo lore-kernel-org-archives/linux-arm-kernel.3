@@ -4,108 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A83CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3EA9CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hkIb+b4xA4Dtv3ljZrlwMo9RpQWTNWYQCjFJM6rj18U=; b=dE2tgOLnJADfRAGaTgDh66nhiy
-	ioJ9NMBebW83odn67jBGWXUQnMC4EfswsNbQSuvkoXIYfHmsBi1hsBAY8H18Em2/LBkzMqHKzjTKO
-	oMV8gJerCIEvteSTLOXaB02kz6FRrK+Z4I1936QykORltjuaEAAZ6ts/uJaRO5tbaBFGv0uxebZp1
-	WJawDn2VHicuUXqmMn2GrzwCaYyVNaCrVoF0B69zzbmhiovlfl1295a9LlIiEP4CVHWLrXp/Vpjkf
-	skT8orgRXVdDWTo1KaAolj+mUu42AN14s5PJp1uK25fga5zgHM9rgmy1IwP1fGCEErB3wwEF8G4i9
-	VS0IiwRA==;
+	bh=73/5c3rKYsuqyMvovsu534x3N/IXgdewNp9Ym9yE1KQ=; b=js+roqGYLeHzRDDEcuXDb20Sby
+	KnByi1QyoAlF+WgD7Xw43S2ZUfmqKFHBfKcB3LSoRxSwbTU6cgAbrpi9CRHh7NxKx16wQefl6a19G
+	QY0hVzAeiiLc+uaDZsR8CX1ZTN7uvuuJt7ypAdjvfXB/AyHFzRrqSgmY3Zrp/hOp53XevoNTTtIhG
+	P7D5pa9/5rCxphOcoqg1GtUzTpG+Y5RILYZ+4snzerzPPnaxVHRGBoEef/zT/Or7CWBQdWXm3TQOP
+	04atdQyftOBcbAbT5xw+UlQApZuSof6/e1jtVYlmo2niUo9vgXjPtWxx3rhJg1QdYxdiFh/kFB4Ar
+	RmK9GouA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ89I-0000000EO5E-0ukH;
-	Mon, 15 Jun 2026 14:18:48 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wZ89O-0000000EO7I-1QSv;
+	Mon, 15 Jun 2026 14:18:54 +0000
+Received: from mail-francecentralazon11013012.outbound.protection.outlook.com ([40.107.162.12] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ89F-0000000EO3h-0XJF
+	id 1wZ89I-0000000EO4N-0VzE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 14:18:46 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490c1915793so30222615e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 07:18:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781533123; x=1782137923; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=hkIb+b4xA4Dtv3ljZrlwMo9RpQWTNWYQCjFJM6rj18U=;
-        b=WoGBWv/j8ibIxllhx1tqvIa6z+QhntQWPAl4xIXAEMgwzBOz8czgimA8vsSkrGpaE3
-         UsEPz8UdsBtGn2QvP1825EQOfPV2/m782FrOt1UB+grMUozoLDc5r2wS9CqC2JHKcygf
-         58PfGUkiuWQl6VR3N2gknlZriFa+GrtpiufpZIe4/VJOGb1RFc6d8iZHP4qJqRL5EUVm
-         OKPyETGgdHrAA0ZDuc4rn2LFUhny1JuL9oq3aw+1+XIug+Jg8osiOhdSGSIntmaeo7nA
-         TY1GEOTenrJ82uw00fF8dFiE4lMf0fREQTHAYzXlz2VlbtOmcCwC3HS1l3lXjbq5q1YJ
-         Evyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781533123; x=1782137923;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hkIb+b4xA4Dtv3ljZrlwMo9RpQWTNWYQCjFJM6rj18U=;
-        b=fZ0NLTlDkyCeV0Ok2iIiIogT844ZdzjrUrpgWZT+tN3oP409A8UkWjGqt9iNoRRPg8
-         Mcyf+JEtFwlDaUdxmoA4duRZTPuq0NXbj4bcaqkDG0rHl90Kc6k/DgzIf3sBZ+CwMYYm
-         YlIgHLpAPe94m1gm9fRsaCjqmIO4nOEHF17nG81cZ7fh8SjLcaWY3aGxdnSWbwJxvyNx
-         7kTqTGFl/3gFCzqqyInh6ZFsk/woFDmEUYw5QDNB9c3s3pzHxrBqasTxPbg2VDA7mccH
-         2ckLZtpmQc67bJdkzq0oB97itV9TZzZ6/6e2ifYVj93gkbX9EBo729TmuVFQEAwxFYRD
-         HUtg==
-X-Forwarded-Encrypted: i=1; AFNElJ+ctAfeQksHw/mP0Sduv4m5vfKo1/EepSLlAIqxUQz/wUa/lpINEkmWAk9OCQAt5IQ2nKFmfeMSdbekvaTcr6Z8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd5+whKxLE/7IHeT2RsKDwy9F5k/iIgVfkVPc2BhidAl5Pt8Sj
-	8MYd5n8K1z8IHU7Lg3MxDrefvp6RDsPErOdmkB0/S+uiIGGjMoKtjNUq
-X-Gm-Gg: Acq92OGvrvWfgCYb9LENGgti/tzwm43AznWIQ12jRZSNrMInNL1MzE+o4UFRqJDFAcw
-	ri9929LE2qLoYyvDz3E38bhNIrCtz7tSqtJHWMwC1kFylEuA9CCliTXgaMkL8qHymXYPeVLYZ+O
-	vX+khzickyQuzyzMLqHz3nvbYfEZX4Pg6d/mLlU8tHOdV99h5lnz0dNvIxN10jqGFfzN1CFuOAH
-	VbDWmrjWHsvY2zz+Xux/Ob7oAZQgZGkypwoyph00nDhNYiBSmpJ35NEs8akBR+/e+Mz6BXhhliL
-	yqHh9Iw9vW6dqtOkDjkkFCuK9i8p60LYbXWRlJNmAP1wchhKMaJFdLgz2TYWYAwr4mT2JdK/zEA
-	xPHiFf4XepRHaGHAJiLoX0kV8iFc0VXXRKem/dKT6WIB7gSmyEIl1q2jBmrEb9XEzJSHUzO+Wdz
-	wTtz/4ZbV8c8h2UQB++cXyVDR8dNF8PE6IWZMWI0he9xPSp5ro0kT70w==
-X-Received: by 2002:a05:600c:3153:b0:490:e5c1:b897 with SMTP id 5b1f17b1804b1-490ec4fe7c2mr195111285e9.20.1781533122746;
-        Mon, 15 Jun 2026 07:18:42 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-88-103.ip49.fastwebnet.it. [93.34.88.103])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492202edec6sm283566035e9.3.2026.06.15.07.18.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 07:18:42 -0700 (PDT)
-Message-ID: <6a3009c2.561280e1.2acd9f.2f06@mx.google.com>
-X-Google-Original-Message-ID: <ajAJvXT9R7UrMqQA@Ansuel-XPS.>
-Date: Mon, 15 Jun 2026 16:18:37 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH net-next v7 01/12] net: phylink: keep and use MAC
- supported_interfaces in phylink struct
-References: <20260615122950.22281-1-ansuelsmth@gmail.com>
- <20260615122950.22281-2-ansuelsmth@gmail.com>
- <371a1df7-084c-4431-bd00-0045298e3212@bootlin.com>
-MIME-Version: 1.0
+	Mon, 15 Jun 2026 14:18:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F6jQkT3NI9W6sZksRv13XwtBY0Zhiii54LoIf4E6LtZFgt5Pq1V1dTBC7kkBj5Hvuy/l5JuGcJtNvSXMpcGfdVSDz2E4kq3GsSt/R6XTOdZLPq4ge9/5q7/LgBzhDr1J2jllgkYSMwKyfY04Csl4a+wByLDkse/7fAHUqNSVKFc1J42qVmsJgsL5j/Mvku2f5IGdA+Swc6daQMmITBdUPPaDJ61eKxMcsmWaEWXICRT4KW4k3nPhe2j/AEckZBBsVtsUO/54RypO4HhSQ4cwkq5ukP4dpX/uVWD90Tj9RdaHrlwCT9sYmKcGcIP1xRAu6HuIiGak0bh6XK96WcKbiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=73/5c3rKYsuqyMvovsu534x3N/IXgdewNp9Ym9yE1KQ=;
+ b=cptU3VL4k5tsUatK8rLNY0zedtfPi1nzcK57hHaPJ9eimXQ6Txl6F/frp4MiP4OWAa5sNNRye+82Cb1lGmyRjQ7S9kSEPglZgnEc1qsMXr7vqMBvaDKraL4Zs+9a3tYKwrSQXBLL7iW72y9ngfhzg+e2nP6vGI2VcCTOdrHlF4YAtRKkC19UNp5x1LBoELT+7w0xjOaS5iIK1sF+IpVWxX1MzRfyrnz3Ltmnpui1oSJ4d4Ji9gyiag1n+wlERD5hPTdEhvQ7MTghEw0Akh62B6zOWcr8fqgLx4y94x7Ck7k3J9PiZFKIZbphU5Y61aT7zN/QgqeuTO1FxZQs4ahqLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=73/5c3rKYsuqyMvovsu534x3N/IXgdewNp9Ym9yE1KQ=;
+ b=PRgMLbRgPKBtZLrNMAO4DixFeGbv6U4IkeAxBO0jncxicihvlVj6FiCG5p3th386YqdSTRIYGO2KwDDYVbdtQjSuUgz6d4b3oPw26E0lFik14Q/IvNzYXdSSEhqyg8KdHOXDVYt7nT2R3g9DckSbfoW14Zgo1PvAVBU10A2CF7t7XNb6ZTKF2u61syDafXLwckPeRTCCQuOGZ5DW5vd9gl92JU6RlyGoF2SfuIfXouPLBegzZEOrJfbZPbD/MwSbCYmjKhFgM65e6+nXIQa3devU7EoApfuaNDbwqHPR3MU7LUSU+hzE6w7rLwQg1jLZg5EvH9SlyH1/e4N4el+u5A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB7167.eurprd04.prod.outlook.com (2603:10a6:800:12a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
+ 2026 14:18:42 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
+ 14:18:42 +0000
+Date: Mon, 15 Jun 2026 09:18:31 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: phucduc.bui@gmail.com
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v2 01/11] ASoC: fsl_asrc: Use guard() for spin locks
+Message-ID: <ajAJt-EV1sSfG3OC@SMW015318>
+References: <20260615093824.115751-1-phucduc.bui@gmail.com>
+ <20260615093824.115751-2-phucduc.bui@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <371a1df7-084c-4431-bd00-0045298e3212@bootlin.com>
+In-Reply-To: <20260615093824.115751-2-phucduc.bui@gmail.com>
+X-ClientProxiedBy: SN7PR18CA0011.namprd18.prod.outlook.com
+ (2603:10b6:806:f3::19) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB7167:EE_
+X-MS-Office365-Filtering-Correlation-Id: 019d7cf1-a7ca-4a45-8cd4-08decae90089
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|23010399003|1800799024|56012099006|4143699003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: tK5f5iPawE6HB3s4KvB+/jJq5A3Qvz9tha0TtZVPFcJ24rq1ptS5fDoBFWZ66YkfEsn1/nrBU9va/XPz+luXECjAngq7UUQ8DmHIHOXKpqpPGe3AsxliQmpl4ApQu9GjnLMgPWxn+GidrJDBvQiOWDgfg4S/d2btI2yGnvU6eJDe8PAoeXm5fPr1JJNoCPxm/Mqyzrn0aHy5Yn/dZwmh9Pq/m6LYDSp3nefCmeye3heV3/Dayj0ZeynZlYnK0iQh7pYr0u1GVy0E540rVBUuQRG7GcflpX2YTROIiIEeAYOdb+xaP7zrMoqLO7Bo7to/r2oFlDarhekaCPX+b+OY0mUZuOILxvLN5n1QVT7sDahcqeBFkEajnl7oNXmFQkqj/11tk9munjlleMwYh+JLhYwDM9eY7uMtJbKgPnir0/2JklYh/s0zNLBxSpaR5oowY/FU/OhY0FRMJSvpiQ/ZTBehAEoQD4qHkYO+BL8cryZiWxIyqdPMNNn/pKsf3GtjA9QP4yJmsv7JStUL8mNM4H5Rkh6FdHSk50OlWSyijT0bXZnx2XEHBKyufBmpl/iOFOaKiEuQTup385pUXf410xxMst31C8f9cUsjF7djfYUrpqMQQsCvR8F5dVCme195//gp1k24Avg8dS1FDwrx0bhPzK+HgIl+TKq4G4OgnZPOvGKPAihT4+VAWBIscWpA
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(23010399003)(1800799024)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?D50qzVTApRfmWaUx4un/qyt8lEF4mOcTs09H2BR7ZemxAnRVBcmstA3s2thP?=
+ =?us-ascii?Q?rCOaRes7qjBjrdUfZCyd89HzioP+nCR9JiRYWyWH3+m6UdIqc88hd1yPSbdn?=
+ =?us-ascii?Q?nmE6w94Nolofk0PuAePjZmkDP158V13RHBestCxHHxPXhh2bJsnA2LhqjKBO?=
+ =?us-ascii?Q?IO+8ic4WXvs6nl2FeXI9yrJoi0+lqC/u461p0QhLBYa0AF4/v6JHw9Tk0ZvZ?=
+ =?us-ascii?Q?F3ZHgzXV9iFASnYbM6wH9mkoXc67/IMVasAeaOF5lR7QgKG16DyMSwc+REJy?=
+ =?us-ascii?Q?3Z1LGiRdA1IT3AaQQO2ISWdCDsLyNW+PaQfLZfoG0tdUukiaG0JnrWNiC5/3?=
+ =?us-ascii?Q?R82XC3dFBQMKFeC+bmyCeyR0jLkdMjlzb3BpcGsPH3Ziw6sROnv5o6KVrl5y?=
+ =?us-ascii?Q?pifCjP+1YUEAvU/1cMr5hWvvQMrIe8XvkK4iVvFkuRQo31I+B1/3PslLajEs?=
+ =?us-ascii?Q?FIixh2OiFmnHVUFJJrxTPmPviidfHzrmhS56qKiEEjt5gwl+gTw/PdGwJe/5?=
+ =?us-ascii?Q?IXdP1YFeDDj6u4w7B/dUsATE2oV2aLvcy/w8e/SaWpTpWrJO6Klg1fefbZFo?=
+ =?us-ascii?Q?TKZjvXnOj0BDAJ1pwNPQr04Ptb/xLEl7AySgI9l0MZM0YCZNl8yRuxrmxBvo?=
+ =?us-ascii?Q?08DvtxcFQsKF5vbrjf+kMDLRtf6KWFx6QITkqBx6Mo7LrGSWPLdvN8vxoJi/?=
+ =?us-ascii?Q?B7d/u/+PZmSLfWTIg+k2mE7lfjGnbmat+QJxJ5LdzhpVaBKNb2pbVTr1jg71?=
+ =?us-ascii?Q?oxXj9/mLFhmMxcYXWC696Ez5JFIxtlxxm824oO3/lPzOBJx56wb2o7zLpOwe?=
+ =?us-ascii?Q?JImHxrRkiI6/Gz2hJGw2DQWJhtbjlT7Z1p2tzMgbogpR41eyYuoOdTspYeIP?=
+ =?us-ascii?Q?5YICqdjqxocfnJzDJYGruxMNz6Q9vgp8axhiU2DOWtN6YFUkXnbulMc9H3Kf?=
+ =?us-ascii?Q?cVUBn7lc8ZMCmuy132N1BvPJHycR8dtAAfLpLAVMfqD+MstiC+ms9qTnDndK?=
+ =?us-ascii?Q?TQrk5RaLA1yMAb7jYeyps9Nd4uSLBJZZuRbevpFycq4Twa02g0OFZcSY88eK?=
+ =?us-ascii?Q?q7HiYbt2etSMJ9EU61EKHXW5ZqMytbSJfbfWYFvgmfTl0Wm7QUNwgjApbnBi?=
+ =?us-ascii?Q?ljP8z+Gc6k9LjldsIEH4fIRQ6DC5Y5YKleD2puAMAgq8s5Brc4zLaLqGlb+9?=
+ =?us-ascii?Q?T+xNaxNWb5ncQBzvnldJeoqWyGpG0qY/31emHHYc0aqFyJoyPsfpWMeohS9C?=
+ =?us-ascii?Q?watJazk+RUZ1qwsuLPzq14jV3NgiP+EqeDPFsSUuTQoU9DeDFnkiwiYryUMx?=
+ =?us-ascii?Q?Jae0NP+HoJZU4nPn7RqcZ92pzNIBNnGughK1IFrdG2x8iz9fiprZtbVjrhCk?=
+ =?us-ascii?Q?dhThlqRryOmFEgAxfZ8+8q/DLl1YYjSQMg0Tc7JpamxdLKEsC/F24btioeCb?=
+ =?us-ascii?Q?NK6RUgU/XYa/IRsO7gugIjPYn2HkOI2/EOr3fy3/brPKR+8dYRjNaRWItAGw?=
+ =?us-ascii?Q?ULpQYYeuHZVu90EW3zG21IxEacow5hlogSjxWNZfQzjO2+M7mkostA2N2OEZ?=
+ =?us-ascii?Q?GRg3Wo3WsaTApUFK/bg9PvXGu4T9t6JvOvVXnOjTSqtP+6MKVdLWZ/2mEBvp?=
+ =?us-ascii?Q?qzkWL41ZU8aLrVr4TbD2bEAJfDCE8DTdDsSXywQJLKrq+VpbhyMqi6S4n3EN?=
+ =?us-ascii?Q?vy9LJwAEi5+zVfkcAfE2+IQaoqFbnyzSDzMK1jAK4Y3eD/2WnbaNbGOl3DpO?=
+ =?us-ascii?Q?hUGzDTCwbhAWL/dWfULZH8yR3OHxYQK5g1SYhN1RtuCwbGaJuBPf?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 019d7cf1-a7ca-4a45-8cd4-08decae90089
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 14:18:42.1443
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3XDyW7TekVCMty4EsjhU2fdiFk9lkJw/Ymb6QB7RTUrDJ4Dv19XATvUJCwCAQpO6ZnTLMMczOBspborGkQK5NnwN4zB5MelAGVL5c3iVXW7GsFeNQoQ8eSAv4XsH61XR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_071845_184336_A62360E1 
-X-CRM114-Status: GOOD (  26.23  )
+X-CRM114-CacheID: sfid-20260615_071848_161661_F642CAF8 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,47 +145,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 03:33:34PM +0200, Maxime Chevallier wrote:
-> Hello Christian,
-> 
-> On 6/15/26 14:29, Christian Marangi wrote:
-> > Add in phylink struct a copy of supported_interfaces from phylink_config
-> > and make use of that instead of relying on phylink_config value.
-> > 
-> > This in preparation for support of PCS handling internally to phylink
-> > where a PCS can be removed or added after the phylink is created and we
-> > need both a reference of the supported_interfaces value from
-> > phylink_config and an internal value that can be updated with the new
-> > PCS info.
-> > 
-> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > ---
-> >  drivers/net/phy/phylink.c | 22 +++++++++++++++-------
-> >  1 file changed, 15 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> > index 087ac63f9193..4d59c0dd78db 100644
-> > --- a/drivers/net/phy/phylink.c
-> > +++ b/drivers/net/phy/phylink.c
-> > @@ -60,6 +60,11 @@ struct phylink {
-> >  	/* The link configuration settings */
-> >  	struct phylink_link_state link_config;
-> >  
-> > +	/* What interface are supported by the current link.
-> > +	 * Can change on removal or addition of new PCS.
-> > +	 */
-> > +	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
-> 
-> Can you clarify a bit what you mean here ? Is that the combination of the
-> interfaces the MAC supports AND the currently in-use PCS ?
-> 
+On Mon, Jun 15, 2026 at 04:38:14PM +0700, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+>
+> Clean up the code using guard() for spin locks.
+> Merely code refactoring, and no behavior change.
+>
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
 
-Combination of interface the MAC supports and the currently attached PCS
-(not the current one in use)
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-The fact that it can change is due to the fact that PCS can be attached
-later and supported_interfaces can be updated accordingly.
-
--- 
-	Ansuel
+>  sound/soc/fsl/fsl_asrc.c | 10 ++--------
+>  1 file changed, 2 insertions(+), 8 deletions(-)
+>
+> diff --git a/sound/soc/fsl/fsl_asrc.c b/sound/soc/fsl/fsl_asrc.c
+> index 5fda9b647c70..0b28bcfa47fe 100644
+> --- a/sound/soc/fsl/fsl_asrc.c
+> +++ b/sound/soc/fsl/fsl_asrc.c
+> @@ -222,10 +222,9 @@ static int fsl_asrc_request_pair(int channels, struct fsl_asrc_pair *pair)
+>  	enum asrc_pair_index index = ASRC_INVALID_PAIR;
+>  	struct fsl_asrc *asrc = pair->asrc;
+>  	struct device *dev = &asrc->pdev->dev;
+> -	unsigned long lock_flags;
+>  	int i, ret = 0;
+>
+> -	spin_lock_irqsave(&asrc->lock, lock_flags);
+> +	guard(spinlock_irqsave)(&asrc->lock);
+>
+>  	for (i = ASRC_PAIR_A; i < ASRC_PAIR_MAX_NUM; i++) {
+>  		if (asrc->pair[i] != NULL)
+> @@ -250,8 +249,6 @@ static int fsl_asrc_request_pair(int channels, struct fsl_asrc_pair *pair)
+>  		pair->index = index;
+>  	}
+>
+> -	spin_unlock_irqrestore(&asrc->lock, lock_flags);
+> -
+>  	return ret;
+>  }
+>
+> @@ -265,19 +262,16 @@ static void fsl_asrc_release_pair(struct fsl_asrc_pair *pair)
+>  {
+>  	struct fsl_asrc *asrc = pair->asrc;
+>  	enum asrc_pair_index index = pair->index;
+> -	unsigned long lock_flags;
+>
+>  	/* Make sure the pair is disabled */
+>  	regmap_update_bits(asrc->regmap, REG_ASRCTR,
+>  			   ASRCTR_ASRCEi_MASK(index), 0);
+>
+> -	spin_lock_irqsave(&asrc->lock, lock_flags);
+> +	guard(spinlock_irqsave)(&asrc->lock);
+>
+>  	asrc->channel_avail += pair->channels;
+>  	asrc->pair[index] = NULL;
+>  	pair->error = 0;
+> -
+> -	spin_unlock_irqrestore(&asrc->lock, lock_flags);
+>  }
+>
+>  /**
+> --
+> 2.43.0
+>
+>
 
