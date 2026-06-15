@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96274CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D79CD98E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lJEnxYGCbj5TvE1QVpgrLjoHAqGb8zTkxlQcMAr3Mig=; b=3gd0HdiafPVgR230bgYe9ZpugT
-	VKXf1WHJ7X5IfOG5pquZGz3yW7UwEe+o7P96uKIC2xTIXC746HnhjZjPe4ilqPmY7xusSvGJq33PE
-	FpP/LzvWpuUJ6r+bhUx6ZfNeDP+JkqGy3ea+NRwjMHSOlRkjkiPNwyUdyCP1aGb8yzRymmOQ5J4Ah
-	UAQvMzSq2+MNKwoke4UkxK7kvLTsGJvoxFOEIZxyXfMwUkMSySXy9IAbyuhYpYDbnmB86DBx+scAU
-	u4D+brh0UdUUYzmdPyjOsKsnmA5BuhoQ/aO5VqlJ1mI2y/nnGH2PXa1Ko4eXvkVSKXCCjDPgY9ZxR
-	qyZ0e20w==;
+	bh=VQgiXnjJ6fSj+/sElJMxxr5OpH6R2crt7tDdnsh7rI4=; b=IOsY0XPZJSVjqk3KUkKgR5pr2x
+	719pl2wGtBEn5rm25zy2/mS75XM57Am0ifgVwfcBUHbiCgSJZFZXBn/xFuMwKy7hBHMj9ZaPhn8Y3
+	JU6JlPnpWHKZNkuNchaJCgXrI6GvCwrRbe0MHlOK8OVhtK394YE0nIzihaAOzIJ9U8jDK3Xkxxxoc
+	lCMRIctGb/JxtN0YFKgXqgJfmXVsuX5h+Tw6WcvIQMK/VZFbK55aL+oiNdAchzWeh6nJLZvWmY473
+	uCD65Bjs1NPU0zIUbLCqzYr96Drq+nglJzgEDwT7Nbkd8Tq3wEgKe2prULHtdXTVJWfrJOcYPySnU
+	xV2i+UiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZHAl-0000000EyOX-1SKh;
-	Mon, 15 Jun 2026 23:56:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZHAp-0000000EyQx-2b0W;
+	Mon, 15 Jun 2026 23:56:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZHAj-0000000EyOO-1V1D;
-	Mon, 15 Jun 2026 23:56:53 +0000
+	id 1wZHAp-0000000EyQ6-02Vj;
+	Mon, 15 Jun 2026 23:56:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 959B0439E6;
-	Mon, 15 Jun 2026 23:56:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6311F000E9;
-	Mon, 15 Jun 2026 23:56:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 15BD060137;
+	Mon, 15 Jun 2026 23:56:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 194FF1F000E9;
+	Mon, 15 Jun 2026 23:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781567812;
-	bh=lJEnxYGCbj5TvE1QVpgrLjoHAqGb8zTkxlQcMAr3Mig=;
+	s=k20260515; t=1781567817;
+	bh=VQgiXnjJ6fSj+/sElJMxxr5OpH6R2crt7tDdnsh7rI4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=kymMV65vyu5+28IZrhslIGMndd1tbyO2pRIHwA8OvR/XcWwZyOu922lY3xxiesC5h
-	 nNEc553Wo/AmWZ/w+wXm06HfQw9BEX2VGQKNkMpzwTr+c4O+fyg4pzNFtA1eIjTDBS
-	 op3wV7lBYkR12fZAw5YLpvbkZrIYMiDVH+k89T/qxL+rb1iWy+pgGT1Yy6X8tAP2gx
-	 SYz31a6Yt3F0jcSXSkJFxMEe/S1N9330yBfItlAA+R8jr048bdDaugarWPFZ6TzZzs
-	 S7n/ecuxY/pE1dLYa4UJzJSNzCroYSMveax6meWUL6rJVp8QlDk91kgPEnPG1yh68n
-	 hyjVXOJOiPzPA==
+	b=gvzUN6UkkcOJaUBdPDm3nKWxTFho1m+/20zbBjR8odVbv83K582lvyFUALDDb7dU5
+	 XFfEFL4+H5S9MxiBjIEXJv+ko6ZhNS1TPhYpTUqD7nhumLCoNpx/bRPX27GnvAiu5u
+	 pFcB2ENBnL5kDYQd3AtUHIwC37JJADPl/8pJSwDhPKz3FBYR53j+sDzB1CHna+rK1Y
+	 anlZp4/IvaHysWSmtGyWdxJGzsStMO5SX0AfwVZeLkFpC1GpPg3mTIW36J+DvCbXbG
+	 g8beq7HTCjMBsc9kkeu2E6KgBe1qgNvgzlHPsBohG/IeB7LST883G1wX5jKKKZNYq0
+	 8A7kw7kjejPgA==
 From: Jakub Kicinski <kuba@kernel.org>
 To: daniel@makrotopia.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -57,12 +57,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v2 5/8] net: dsa: mt7530: replace mt7530_read with regmap_read
-Date: Mon, 15 Jun 2026 16:56:49 -0700
-Message-ID: <20260615235649.1060736-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v2 6/8] net: dsa: mt7530: convert to use field accessor macros
+Date: Mon, 15 Jun 2026 16:56:52 -0700
+Message-ID: <20260615235652.1060768-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <c6fc9cfae9762bf8d8a136339c91d4a76a307355.1781312667.git.daniel@makrotopia.org>
-References: <c6fc9cfae9762bf8d8a136339c91d4a76a307355.1781312667.git.daniel@makrotopia.org>
+In-Reply-To: <62e0a7e96bcadba0ec1a0f090c2fd2990c6ae0f1.1781312667.git.daniel@makrotopia.org>
+References: <62e0a7e96bcadba0ec1a0f090c2fd2990c6ae0f1.1781312667.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,150 +82,115 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: dsa: mt7530: replace mt7530_read with regmap_read
+net: dsa: mt7530: convert to use field accessor macros
 
-This commit removes the mt7530_read() wrapper and converts every caller
-to use regmap_read() directly. The WARN_ON_ONCE / dev_err and the
-return-zero-on-failure behaviour the wrapper provided are dropped.
+This patch converts the mt7530 DSA driver to use FIELD_GET and FIELD_PREP
+instead of open-coded shift/mask constructs, and replaces a 0x1f literal
+in the PHY address helper with (PHY_MAX_ADDR - 1).
 
 > diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index fe7e4ab5ae9c..4168adca949f 100644
+> index 4168adca949f..dcf72ab0cd66 100644
 > --- a/drivers/net/dsa/mt7530.c
 > +++ b/drivers/net/dsa/mt7530.c
-> @@ -152,28 +152,15 @@ core_clear(struct mt7530_priv *priv, u32 reg, u32 val)
->  
->  
->  static u32
-> -mt7530_read(struct mt7530_priv *priv, u32 reg)
-> +mt7530_mii_poll(struct mt7530_dummy_poll *p)
->  {
-> -	int ret;
+
+[ ... ]
+
+> @@ -1555,7 +1555,7 @@ mt7530_vlan_cmd(struct mt7530_priv *priv, enum mt7530_vlan_cmd cmd, u16 vid)
 >  	u32 val;
+>  	int ret;
 >  
-> -	ret = regmap_read(priv->regmap, reg, &val);
-> -	if (ret) {
-> -		WARN_ON_ONCE(1);
-> -		dev_err(priv->dev,
-> -			"failed to read mt7530 register\n");
-> -		return 0;
-> -	}
-> +	regmap_read(p->priv->regmap, p->reg, &val);
->  
->  	return val;
->  }
-
-[Medium]
-The old wrapper guaranteed val == 0 on failure. The new mt7530_mii_poll()
-declares val without an initializer and ignores the regmap_read() return
-code, so on a failed underlying transfer val is whatever was on the stack.
-
-Looking at drivers/net/dsa/mt7530-mdio.c::mt7530_regmap_read():
-
-    ret = bus->write(bus, priv->mdiodev->addr, 0x1f, page);
-    if (ret < 0)
-        return ret;
-
-    lo = bus->read(bus, priv->mdiodev->addr, r);
-    hi = bus->read(bus, priv->mdiodev->addr, 0x10);
-
-    *val = (hi << 16) | (lo & 0xffff);
-
-When the page-select write fails, *val is not written. mt7530_mii_poll()
-is the polling callback used by readx_poll_timeout() in mt7530_fdb_cmd(),
-mt7530_vlan_cmd(), mt7530_setup() and mt7531_setup() with predicates
-such as val != 0 (post-reset stability), !(val & ATC_BUSY) and
-!(val & VTCR_BUSY).
-
-Previously a broken MDIO transport produced val == 0 and the post-reset
-poll deterministically timed out. Can the new code spuriously satisfy
-the val != 0 predicate from an uninitialized stack slot, then feed that
-same garbage into (val & MT7530_XTAL_MASK) to choose 25/40 MHz settings
-in mt7530_pll_setup()?
-
-> @@ -365,9 +354,9 @@ mt7531_pll_setup(struct mt7530_priv *priv)
->  	u32 hwstrap;
->  	u32 val;
->  
-> -	val = mt7530_read(priv, MT7531_CREV);
-> -	top_sig = mt7530_read(priv, MT7531_TOP_SIG_SR);
-> -	hwstrap = mt7530_read(priv, MT753X_TRAP);
-> +	regmap_read(priv->regmap, MT7531_CREV, &val);
-> +	regmap_read(priv->regmap, MT7531_TOP_SIG_SR, &top_sig);
-> +	regmap_read(priv->regmap, MT753X_TRAP, &hwstrap);
-
-[Medium]
-Same concern applies to all the read-modify-write sequences in
-mt7531_pll_setup(), e.g.:
-
-    regmap_read(priv->regmap, MT7531_PLLGP_EN, &val);
-    val &= ~EN_COREPLL;
-    regmap_write(priv->regmap, MT7531_PLLGP_EN, val);
-
-If regmap_read() fails, val is uninitialized and is then OR'd / AND'd
-with constants and written straight back into PLLGP / COREPLL control
-registers. Was there a reason to drop the wrapper's return-zero (and
-WARN_ON_ONCE / dev_err) behaviour without either initializing these
-locals to 0 or checking the return code?
-
-> @@ -1010,7 +999,7 @@ static void mt7530_setup_port5(struct dsa_switch *ds, phy_interface_t interface)
->  
->  	mutex_lock(&priv->reg_mutex);
->  
-> -	val = mt7530_read(priv, MT753X_MTRAP);
-> +	regmap_read(priv->regmap, MT753X_MTRAP, &val);
+> -	val = VTCR_BUSY | VTCR_FUNC(cmd) | vid;
+> +	val = VTCR_BUSY | VTCR_FUNC(cmd) | VTCR_VID(vid);
 
 [Low]
-mt7530_setup_port5() declares val as int, but regmap_read()'s third
-parameter is unsigned int *. The previous code hid this through the
-u32 return of mt7530_read() and an implicit assignment conversion;
-the direct call now passes &val with mismatched signedness. Should this
-be u32 val; like the other call sites in this file (sparse and
--Wpointer-sign would flag this)?
+The commit message describes this change as a refactor:
+"Use FIELD_GET and FIELD_PREP instead of open-coding register fields."
 
-> @@ -2436,7 +2435,7 @@ mt7530_setup(struct dsa_switch *ds)
->  		return ret;
->  	}
+The mt7530_vlan_cmd() hunk is not quite a pure conversion though.  The
+previous code OR'd in vid directly:
+
+    val = VTCR_BUSY | VTCR_FUNC(cmd) | vid;
+
+while the new code applies a GENMASK(11, 0) truncation through VTCR_VID():
+
+    val = VTCR_BUSY | VTCR_FUNC(cmd) | VTCR_VID(vid);
+
+Spec-conformant VIDs always fit in 12 bits, so the runtime result is the
+same, but the value is now masked where it previously was not.
+
+A related observation is that the prior VTCR_VID and ATC_HASH macros
+referenced an undeclared x:
+
+    #define  ATC_HASH                       (((x) & 0xfff) << 16)
+    #define  VTCR_VID                       ((x) & 0xfff)
+
+so they could not have been used by any caller before this patch.  Adding
+the (x) parameter and a GENMASK is effectively a fix for those macros.
+
+Would it be worth calling out the VTCR_VID() truncation and the macro
+parameter fix in the commit message, or splitting them into a separate
+patch so the conversion remains a no-op refactor?
+
+> diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
+
+[ ... ]
+
+> @@ -171,32 +176,29 @@ enum mt7530_fdb_cmd {
 >  
-> -	id = mt7530_read(priv, MT7530_CREV);
-> +	regmap_read(priv->regmap, MT7530_CREV, &id);
->  	id >>= CHIP_NAME_SHIFT;
->  	if (id != MT7530_ID) {
->  		dev_err(priv->dev, "chip %x can't be supported\n", id);
+>  /* Registers for table search read address */
+>  #define MT7530_TSRA1			0x84
 
-[Medium]
-The chip-ID gating in mt7530_setup() and mt7531_setup() was previously
-deterministic-fail on MDIO read errors (id == 0 after the wrapper).
-With id now uninitialized on failure, can this check spuriously match
-or mismatch on garbage and either mis-bind a wrong-id chip or refuse a
-real one?
+[ ... ]
 
-> @@ -2690,7 +2689,7 @@ mt7531_setup(struct dsa_switch *ds)
->  	/* MT7531AE has got two SGMII units. One for port 5, one for port 6.
->  	 * MT7531BE has got only one SGMII unit which is for port 6.
->  	 */
-> -	val = mt7530_read(priv, MT7531_TOP_SIG_SR);
-> +	regmap_read(priv->regmap, MT7531_TOP_SIG_SR, &val);
->  	priv->p5_sgmii = !!(val & PAD_DUAL_SGMII_EN);
+>  #define MT7530_ATRD			0x8C
+> -#define	 AGE_TIMER			24
+> -#define  AGE_TIMER_MASK			0xff
+> -#define  PORT_MAP			4
+> -#define  PORT_MAP_MASK			0xff
+> -#define  ENT_STATUS			2
+> -#define  ENT_STATUS_MASK		0x3
+> +#define  AGE_TIMER_RD_MASK		GENMASK(31, 24)
+> +#define  PORT_MAP_MASK			GENMASK(11, 4)
+> +#define  ENT_STATUS_MASK		GENMASK(3, 2)
 
-[Medium]
-And here, p5_sgmii is set from val & PAD_DUAL_SGMII_EN after an
-unchecked read; if the read fails, would this latch a wrong p5_sgmii
-state from stack contents and then drive different mt7531_pll_setup()
-vs. GPIO mode programming below?
+[Low]
+The mask formerly named AGE_TIMER_MASK is renamed to AGE_TIMER_RD_MASK,
+but the same mask is consumed on both the read and write paths
+(mt7530_fdb_read() and mt7530_fdb_write()), so the _RD_ infix reads as
+"read-side only".
 
-The commit message says:
+Its sibling fields in the same MT7530_ATRD register keep plain names
+(PORT_MAP_MASK, ENT_STATUS_MASK), and the related ageing counters in
+MT7530_AAC use AGE_CNT_MASK / AGE_UNIT_MASK rather than an _RD_
+disambiguation.
 
-    The WARN_ON_ONCE error logging is dropped as regmap provides its
-    own error handling.
+Was the _RD_ infix intentional, and if so, what does it disambiguate
+from?
 
-Is that accurate for this driver? regmap_read() does not zero *val on
-error and does not log; with all new call sites discarding the return
-value, the converted paths appear to have no error handling at all,
-which seems like a behavioural regression compared to the prior
-wrapper. Would initializing the affected locals to 0 (matching the
-old return-zero-on-failure semantics), or checking the regmap_read()
-return code at the sites that derive subsequent hardware programming
-(chip ID, XTAL select, PLL RMW, post-reset poll), be appropriate here?
--- 
-pw-bot: cr
+[ ... ]
+
+> @@ -731,38 +745,48 @@ enum mt7531_xtal_fsel {
+>  #define  MT7531_PHY_PLL_OFF		BIT(5)
+>  #define  MT7531_PHY_PLL_BYPASS_MODE	BIT(4)
+>  
+> -#define MT753X_CTRL_PHY_ADDR(addr)	((addr + 1) & 0x1f)
+> +#define MT753X_CTRL_PHY_ADDR(addr)	(((addr) + 1) & (PHY_MAX_ADDR - 1))
+
+[Low]
+The replacement evaluates to the same value today, since PHY_MAX_ADDR is
+32 in include/linux/phy.h and PHY_MAX_ADDR - 1 is 0x1f, and both forms
+ultimately derive from the IEEE 802.3 5-bit MDIO PHY-address field.
+
+The original 0x1f represented the width of the hardware register field,
+while PHY_MAX_ADDR - 1 represents the maximum software PHY address minus
+one and additionally relies on PHY_MAX_ADDR being a power of two, which
+phy.h does not formally guarantee.
+
+Given the rest of the patch introduces explicit GENMASK based field
+masks, would something like:
+
+    #define MT753X_CTRL_PHY_ADDR_MASK GENMASK(4, 0)
+    #define MT753X_CTRL_PHY_ADDR(addr) FIELD_PREP(MT753X_CTRL_PHY_ADDR_MASK, (addr) + 1)
+
+be more consistent and make the hardware-field intent clearer?
 
