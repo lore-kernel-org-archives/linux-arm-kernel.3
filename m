@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347F8CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 19:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCA8CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 19:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=isk5VSArpp3IPXJC+2cOjheoQad/XTpBKsU9Gm4z1ws=; b=wH5iwHWUEe2BgJs/3xpG29Sq//
-	1o//O59Sh7obW/hLQqZBzUM6fA9enJadAHJZMZ7iOrvKi6W21DiSir9mO7uhBz/l3yxQ03AhkglbN
-	I4wBp2uj322jxaywI8VxCgGSIUL5jNi8JBT0AWG9Pok1fQf9siiei4aGThHFM7jtVmliz+2ZDQpvJ
-	IQNbuQzd4CCiKVaMWrqmdky+sZDxJAFR4+wzvb9dq8clFOQQm8EZfAD+k6hZAtpDnuCa3sVO1K2Jk
-	8hERQ3WTQQjZAhvYZTQGuoJfAL1rIww37l20wCMEI5Tpfz/slkGvgxyPai5S7QCf7u+e47zxF1K+L
-	C9d9JI6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w4IpH5LEDaSFvAvPiFPbj5ZjEkRtPbLsUPqVa2w6YN4=; b=Sf3PIH27qXgfbv6FQGZS7ajWEF
+	4CmixEKqpBu2U0oa8LWFlRQgFC3JO68w1p6ozFJYBHEdfxcBhwctadWiv+zG1GDGZe/JRCunHp/Ot
+	MsogOIXcayKikGs283lsTTgUqCtJpuYwzmDLNKlxbUejr+eB2M3Xj4NYL/D6rC5Kfb2iXgI6dOC9D
+	j1WBAwBDfwiUE8TSD+0pWSx3mcETdjlBgluNw0Xvy4EdlecGpXAwgRoapuezzLJUZMLYbHvOngKQy
+	TyoAyVYCKbkhOm+bW07d1abD+LJ+zQMHytdYlym9aRD2xM4JowTUtxa28azdAcBlmJkABcFodVlfC
+	ZSisVzwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZCjG-0000000EluM-05P8;
-	Mon, 15 Jun 2026 19:12:14 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1wZD1R-0000000EmT8-2cL6;
+	Mon, 15 Jun 2026 19:31:01 +0000
+Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZCjC-0000000Eltx-3BAQ
+	id 1wZD1L-0000000EmSQ-12iV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 19:12:12 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-9157f7c1c0eso401182385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:12:10 -0700 (PDT)
+	Mon, 15 Jun 2026 19:30:59 +0000
+Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-137ec563a95so3993060c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:30:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781550729; x=1782155529; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=isk5VSArpp3IPXJC+2cOjheoQad/XTpBKsU9Gm4z1ws=;
-        b=mbEAiqNZTsFitaKUeXlzb3oKrK9RGgMO4B4zmt2oLYLGkb1aoyDXNX9zoiM0sxhIE9
-         JVYqCC1tFH3CmJxG30EPJlY2X5Knmr9I/+vtnm0z+vbKgNnHj3D5H+3dmzGxRnBXn+a7
-         yClQdcUE57xEloUAlm8YKlgIe4rVrhtnysgxkRWnkMGQP06k5VWq0L71tp62E/rJD+p5
-         SFnH9x31Gjjvl6NON8YosLdoGsOUsODeDNmxaqzvGC31TGqKe+sqjNvlyW59u5KgJKB7
-         KwvB1LOD98wn3Eo7qyKemZIKT/NlwNL3Xz9vhXq6ZS1VIXZOn7Z9HKD4Sy8tbW6AOpnb
-         +9gQ==
+        d=gmail.com; s=20251104; t=1781551854; x=1782156654; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=w4IpH5LEDaSFvAvPiFPbj5ZjEkRtPbLsUPqVa2w6YN4=;
+        b=ojL9TwkyKbAPFg717+JvYGFG3++egrJNgME9vhAPN5Fi8vBJ/sF4fRWmGmtbw9/zoL
+         dkPDnDS/iddjqrWD7qE8Mcm4CBqcOZhaAMphTiv6+tC8D1Scs/CUSOSc2e/9aHIluSjP
+         JlngjUrX0LWSKMcNfhwKQj01XbFzafDZ60g034I/7ok9/Hz7nF1nVlmAoEq/SXNiIiZh
+         +MbbJi9Ci/MIAghfMpAmTi8cWmnnE6tiwMTxtUv6lFsNelCaFVDMzCpmOifMdGh5qRNX
+         Pya10DWU5PuyUfl1aul7v1yJJAB3Pf00MzsgzHyxyW8UzP61hf3gv1VKNxB6lnrLUxxI
+         oTvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781550729; x=1782155529;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=isk5VSArpp3IPXJC+2cOjheoQad/XTpBKsU9Gm4z1ws=;
-        b=nkdMZOa+UXC1fQhPl5T1kT8x4Q61jtAkZWTa2tpEdQzGfXBH9s+w7+xBvO71HUUsrS
-         DCFDypFiFoiK9N7+7lZSzZjG9vLHEMOiD1wTqm1TFC7nPkXTPJqrvBBSqrDUipw5FP0B
-         D1aWChN/KXeKyA2GqhSe66V4RkrH4dxdO1TsnH/216gsrjKM/C9ZR+AIN+MxAtrWJYBv
-         WcgHAp22M4WvQG4iuJFzSw5u7Fspm3EVFXgQahMHigoTMp7ZdW9FW8WNVB81ZRIKn0AI
-         rToVVBvNQXNsM9aANwAuF2pO4gWZPM8omIEdnA1g97MtORLR2djLudvwqCnhdZZvRQQE
-         QCEQ==
-X-Gm-Message-State: AOJu0Yy+hdcWCRD0Ulrr2VSkCf0IqET75ONBR8PntF8ssgZ31tusAI1M
-	L0Vz/g72mIAU1n5RbothDis+kvVhxNcVM40plosvXkTQp/uFFv4VQA2B
-X-Gm-Gg: Acq92OGwKmyqjDIsWm3NLw/Ax76MCC9GfHUe1G82pXdBttg95f++JIFzQ3i+RMXe9TG
-	KDt+ZPGhjk4PDuGdmOmr++pdcpPq7hcb8+UAd2nOm5Ibuarrwh6OVAEKrHkEeli88CQld+1Lrl+
-	Ub4OkRDEzlEUJSMfAu+ovEtvXynYGUjABt6HXMd7+m5z/LCa5GDQ0UHT3Ue7bukKwN/Mjx4zA2U
-	61LyY0Q0GsEMVLWTUquy+ny/7JnhbjMknLhfjtX4DIRraIM1pMiHawBylwEVsojL1INzloXuNiQ
-	im3j0kbVLpCVou4+kcG6mRU3YS9Bptb8hWB3U/kBA2tdTOJTviry1gCuq/nDyPleiu/Nht6Is+Z
-	TgyPOR/EE1Q9aJhhzX0fqvpBBMt9SRdfKTAsrhQkBd6/vz9pIROfpH0Q6qxinN5uSrWv3+5iGRz
-	9dw+151ip0dHoK0LRsmvO30HJK1RvEd8vr1lEbaPLGN1S4fodNFew=
-X-Received: by 2002:a05:620a:19a1:b0:915:7f9e:a407 with SMTP id af79cd13be357-91c42cc5889mr69673285a.0.1781550729435;
-        Mon, 15 Jun 2026 12:12:09 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8d9f122b21bsm7547046d6.4.2026.06.15.12.12.08
+        d=1e100.net; s=20251104; t=1781551854; x=1782156654;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=w4IpH5LEDaSFvAvPiFPbj5ZjEkRtPbLsUPqVa2w6YN4=;
+        b=IDy7hcU+ZYawPm4PGzUZLzb0n7Ew30+e76vWeMuLxIbt5R7/Q2IehMBsM+DfH1fE/4
+         qcJLrsygObfWQl5nB3ELEl6ac84GQbBzrdbWnjLUFZuFsUmZrPv8wxqThbNsf0rj53ug
+         uHynao0QfkO5xOadN80EzIEWxYJdX9EU8Bq2km3UaCDyWDLQWABDaKW4He2xxOAsCjhk
+         Jk7h65FmigopgeXOlcUu+Qn9a1Wge9U/Qj8Urx62ie8zf1qP7RNQF5ZZs3bb+3hb0xie
+         QpjywlTf34Q5trkybVxj/nGjDHRxBA1tOPSW4hMpFaZWz00qYrIg8OBD2cOx7thRZnAk
+         hewg==
+X-Forwarded-Encrypted: i=1; AFNElJ9iTpsPZCPvBoBtCTZx+fxc2nljttim7b8Z9560JgTZOcpwIZXj2J9IZ2KHMyiaZR9qEN8dBjf8ZRwm+FPMygYa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCUUCG1ypG1UgEozUXPhfVYEOHvLpG5nt5pyQx0m2eNVkHIznb
+	Z11OYZCIIhXZVKWPfKaV18JW/2oODxnOySQdfbSNBSof4lbwYtbjh8KT
+X-Gm-Gg: Acq92OHTbCsP3RO2BZmukIv+OQjXJCGCuYWKQqNe8ySBeOvkvmVG8NDSAZcXzI9rcu1
+	tBQDJCjjePa2tZRyB79FozlTFe8cDLEgZQ4bQpClbM4VbelXg6tAbG7K7nv2oDw94gDsqsQpd6W
+	Y+ur5BwLd5mN2xxtxHNHjFL8Kpnv0UUxII895WVUZlyrSS4cd8KOTEeA215qwHgAK/pReGNlFB6
+	uQzh0F9mcZ9DUynqwk6O1JeOrODrVqKOFnJOKbGCVmIE0tjsOdErUw78y4RH5e/zXoxCT2s65fY
+	2G34Ziwg/rDPKzZgd75rvJAY5DWeXO555YvBoJjcHKxJfNTr+tT28qNLbt9WJ1Wy0qVphDOEyr9
+	qPfCkNGZLCOGvoQNUCc/3Vx9HBba6l/JkhDqT8NyV2DVxuZWlxI27nWB4ifblR7dhR8UA7Szn7Q
+	Aq+X4V19wQLGSNfpou4XbI
+X-Received: by 2002:a05:7022:60e:b0:136:e639:9c22 with SMTP id a92af1059eb24-1386f39567dmr5125138c88.21.1781551853685;
+        Mon, 15 Jun 2026 12:30:53 -0700 (PDT)
+Received: from geday ([189.115.92.220])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384b97570asm10735958c88.12.2026.06.15.12.30.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 12:12:09 -0700 (PDT)
-From: Yuho Choi <dbgh9129@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Gregory Clement <gregory.clement@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <dbgh9129@gmail.com>
-Subject: [PATCH v1] bus: mvebu-mbus: Fix OF node reference leaks in DT init
-Date: Mon, 15 Jun 2026 15:12:05 -0400
-Message-ID: <20260615191205.738388-1-dbgh9129@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Mon, 15 Jun 2026 12:30:53 -0700 (PDT)
+Date: Mon, 15 Jun 2026 16:30:38 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 3/3] PCI: rockchip: drive at 2.5 GT/s, error other
+ speeds
+Message-ID: <ajBS3tGp0wqLyVq7@geday>
+References: <cover.1781207474.git.geraldogabriel@gmail.com>
+ <4ac5cd7d2271df375ed6307f5c394247721395d9.1781207474.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4ac5cd7d2271df375ed6307f5c394247721395d9.1781207474.git.geraldogabriel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_121210_805304_DB4BC39C 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260615_123055_292421_D3A8401D 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,75 +104,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mvebu_mbus_dt_init() gets the MBUS node with
-of_find_matching_node_and_match() and the controller node with
-of_find_node_by_phandle(). Both helpers return nodes with incremented
-references, but the function returns without dropping either reference.
+Hi,
 
-Route the error and success paths through common cleanup labels so both
-local node references are released once they are no longer needed.
+On Thu, Jun 11, 2026 at 05:04:22PM -0300, Geraldo Nascimento wrote:
+> Configure the core to be driven at 2.5 GT/s Link Speed and ignore
+> any other speed with a warning. Also drop the 5.0 GT/s Link Speed
+> defines from Rockchip PCIe header.
+> 
+> The reason is that Shawn Lin from Rockchip has reiterated that there
+> may be danger of "catastrophic failure" in using their PCIe with
+> 5.0 GT/s speeds.
+> 
+> While Rockchip has done so informally without issuing a proper errata,
+> and the particulars are thus unknown, this may cause data loss or
+> worse.
+> 
+> This change is corroborated by RK3399 official datasheet [1], which
+> states maximum link speed for this platform is 2.5 GT/s.
+> 
+> [1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
+> 
+> Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC driver")
+> Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
+> Cc: stable@vger.kernel.org
+> Reported-by: Dragan Simic <dsimic@manjaro.org>
+> Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
+> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> ---
+>  drivers/pci/controller/pcie-rockchip.c | 16 +++++++++-------
+>  drivers/pci/controller/pcie-rockchip.h |  3 ---
+>  2 files changed, 9 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
+> index 0f88da3788054..5a2876d7c8547 100644
+> --- a/drivers/pci/controller/pcie-rockchip.c
+> +++ b/drivers/pci/controller/pcie-rockchip.c
+> @@ -66,8 +66,10 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
+>  	}
+>  
+>  	rockchip->link_gen = of_pci_get_max_link_speed(node);
+> -	if (rockchip->link_gen < 0 || rockchip->link_gen > 2)
+> -		rockchip->link_gen = 2;
+> +	if (rockchip->link_gen < 0 || rockchip->link_gen >= 2) {
+> +		rockchip->link_gen = 1;
+> +		dev_warn(dev, "invalid max-link-speed, limited to 2.5 GT/s\n");
+> +	}
+>  
+>  	for (i = 0; i < ROCKCHIP_NUM_PM_RSTS; i++)
+>  		rockchip->pm_rsts[i].id = rockchip_pci_pm_rsts[i];
+> @@ -147,12 +149,12 @@ int rockchip_pcie_init_port(struct rockchip_pcie *rockchip)
+>  		goto err_exit_phy;
+>  	}
+>  
+> +	/* 5.0 GT/s may cause catastrophic failure for this core */
+>  	if (rockchip->link_gen == 2)
+> -		rockchip_pcie_write(rockchip, PCIE_CLIENT_GEN_SEL_2,
 
-Fixes: 6839cfa82f99 ("bus: mvebu-mbus: Introduce device tree binding")
-Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
----
- drivers/bus/mvebu-mbus.c | 22 ++++++++++++++++------
- 1 file changed, 16 insertions(+), 6 deletions(-)
+Sashiko caught unreachable dead code rightfully here. It looks like I
+had got it right in v4 and then the fix regressed.
 
-diff --git a/drivers/bus/mvebu-mbus.c b/drivers/bus/mvebu-mbus.c
-index dd94145c9b22..61301beeecdc 100644
---- a/drivers/bus/mvebu-mbus.c
-+++ b/drivers/bus/mvebu-mbus.c
-@@ -1265,23 +1265,27 @@ int __init mvebu_mbus_dt_init(bool is_coherent)
- 	prop = of_get_property(np, "controller", NULL);
- 	if (!prop) {
- 		pr_err("required 'controller' property missing\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto put_np;
- 	}
- 
- 	controller = of_find_node_by_phandle(be32_to_cpup(prop));
- 	if (!controller) {
- 		pr_err("could not find an 'mbus-controller' node\n");
--		return -ENODEV;
-+		ret = -ENODEV;
-+		goto put_np;
- 	}
- 
- 	if (of_address_to_resource(controller, 0, &mbuswins_res)) {
- 		pr_err("cannot get MBUS register address\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto put_controller;
- 	}
- 
- 	if (of_address_to_resource(controller, 1, &sdramwins_res)) {
- 		pr_err("cannot get SDRAM register address\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto put_controller;
- 	}
- 
- 	/*
-@@ -1312,9 +1316,15 @@ int __init mvebu_mbus_dt_init(bool is_coherent)
- 				     resource_size(&mbusbridge_res),
- 				     is_coherent);
- 	if (ret)
--		return ret;
-+		goto put_controller;
- 
- 	/* Setup statically declared windows in the DT */
--	return mbus_dt_setup(&mbus_state, np);
-+	ret = mbus_dt_setup(&mbus_state, np);
-+
-+put_controller:
-+	of_node_put(controller);
-+put_np:
-+	of_node_put(np);
-+	return ret;
- }
- #endif
--- 
-2.43.0
+Will address this for v7 after I get more comments.
 
+Thanks,
+Geraldo Nascimento
 
