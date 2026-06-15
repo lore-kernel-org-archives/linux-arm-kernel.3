@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7120CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265DBCD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 10:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c4MJ0qLV8hTTEQqlirPS+MBb0jR5ayNJ62Pv7ajO1fw=; b=S1yQW/Q/wG99WwRjNO+CJFJW3+
-	zCaOSjJuAq3kaxY2cO1DWiq3msAG0ZTdr45Ja23aIo8kWVxqdN2AUgNLCF8SGyjfznZywtVz7mKQu
-	iW7cHwlGneHXvI0hWYhOwfTMlsh0FqgjOvsP40NYPUggKvmok4+qrb0+rCBQ61ne14vn+39VjYFo7
-	JLMf2nc0SJsopJTX8yaxQAQuy7nkXe4fa6aTbCGpcM0OFIIpaNQZPayWRbmFBkYcFuzmFOUhd8ofP
-	2BNkcvw2JCksSVMKpR3GuAwC6nWqv/Y5P6bZGx7J1ZGtzprGTQcQoMxeagiX425I+UJ12WqjTiFqD
-	boyGJ3cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ny9fmkEzONcVs1e5iE8VcrCvNlMLooF3aRovoZzxOnQ=; b=mtZUtg/gxYMj3B6nkYuEOr0KAC
+	4CEDRNNzBSKvxEfJuctFrkYfo295EnA0uUojLcdFSktFCyzl6GwiczXfDFLaaZFLPBPmDkDYDuCtG
+	pV4YA02y+sh72XHBhWwaDEUNTnr9PLE77f+sGAM3WBlneSZkPZ1psP1OOKYRqAoU+iDF7uFoBkB81
+	XVjYWIDYWc6HHeQzNnezv0plFz6qxIydqSPhGeNkRyx9WnW/vku81BodqNj1RNgaG48i9pG9pEf9c
+	GrGL4jT7ua+/joTit0Qyet2rLcpwGHks8AFw06+jOOZ6RTRwIo8Vai2oP2D7t0qujl2TkRElpJcx1
+	ylcBfC+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ44W-0000000E0oJ-32JY;
-	Mon, 15 Jun 2026 09:57:36 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wZ4CZ-0000000E1hM-0b1j;
+	Mon, 15 Jun 2026 10:05:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ44T-0000000E0nv-3wOY;
-	Mon, 15 Jun 2026 09:57:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=c4MJ0qLV8hTTEQqlirPS+MBb0jR5ayNJ62Pv7ajO1fw=;
-	b=0RQMYBFxPBYzIaMEWnsmo6JDwMkRJG9Ut5a/GPr2uGbfDY3BSNxxhL1uK7tBWkAmbgwyAvGUD
-	AvLrnWC/X/O32vMDUQGnyH6A387fl5Bibf1NUYmrmu52SXzqoqf54qlU/Vw/hTS5N5Ui0IAmJKe
-	BHxG3wExIub0PYtWuW1iaas=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gf51f59YnzmV6m;
-	Mon, 15 Jun 2026 17:49:26 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 42EE340571;
-	Mon, 15 Jun 2026 17:57:25 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 15 Jun 2026 17:57:22 +0800
-Message-ID: <4588efb4-e757-4ca7-9197-025b67ca9ef6@huawei.com>
-Date: Mon, 15 Jun 2026 17:57:22 +0800
+	id 1wZ4CX-0000000E1h9-1Zpr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 10:05:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BC7D941808;
+	Mon, 15 Jun 2026 10:05:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BA1C1F000E9;
+	Mon, 15 Jun 2026 10:05:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781517952;
+	bh=ny9fmkEzONcVs1e5iE8VcrCvNlMLooF3aRovoZzxOnQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PwVYscLwLhiJJdb+Hvdhutlv/vueIApMWJs9iI2ewp31Z2K7vt2UZRpBFwgxIG5EH
+	 NxqZQaBujMwPQV/dpIKyQceymaStGgC81Qi82u1S7o9Eu5GPPDSHJ4MbzwxqOZ6C3x
+	 rPkzZrcu1GT8/HPdzqgJIEYGxvBgoqivC664QFCTbofWU7Z+97MntiDMSl/add1U2e
+	 77B4160ITB40fMKBTCNvMHKlUR1DSqYJqT0YAEd2VqyF25zXqSP/wz/2PDMt6sA1Pv
+	 ofQDwUuySJe8jVRIgXMVMgZxAYPMVkg6FGCoHLYMDIxG+c8kOAlEzFOESurbBdJP71
+	 6uWWrgwelVvfQ==
+Date: Mon, 15 Jun 2026 11:05:46 +0100
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Andrew Jones <drjones@redhat.com>
+Subject: Re: [PATCH] KVM: arm64: Sync SPSR_EL1 when injecting an exception
+ into a pVM
+Message-ID: <ai_OevUNS-OACPm7@willie-the-truck>
+References: <20260612113414.1022901-1-tabba@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
- CPUs
-To: Michael Kelley <mhklinux@outlook.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>, "pjw@kernel.org"
-	<pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
-	<alex@ghiti.fr>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "peterz@infradead.org" <peterz@infradead.org>,
-	"kees@kernel.org" <kees@kernel.org>, "nathan@kernel.org" <nathan@kernel.org>,
-	"linusw@kernel.org" <linusw@kernel.org>, "ojeda@kernel.org"
-	<ojeda@kernel.org>, "david.kaplan@amd.com" <david.kaplan@amd.com>,
-	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"timothy.hayes@arm.com" <timothy.hayes@arm.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "thuth@redhat.com" <thuth@redhat.com>,
-	"oupton@kernel.org" <oupton@kernel.org>, "yeoreum.yun@arm.com"
-	<yeoreum.yun@arm.com>, "miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"broonie@kernel.org" <broonie@kernel.org>, "kevin.brodsky@arm.com"
-	<kevin.brodsky@arm.com>, "james.clark@linaro.org" <james.clark@linaro.org>,
-	"tabba@google.com" <tabba@google.com>, "mrigendra.chaubey@gmail.com"
-	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
-	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_025734_661544_4EC9D8F8 
-X-CRM114-Status: GOOD (  12.65  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260612113414.1022901-1-tabba@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,115 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/12/2026 11:45 PM, Michael Kelley wrote:
-> From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
->>
->> Support for parallel secondary CPU bringup is already utilized by x86,
->> MIPS, and RISC-V. This patch brings this capability to the arm64
->> architecture.
->>
->> Rework the global `secondary_data` accessed during early boot into
->> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
->> enabling the early boot code in head.S to resolve each secondary CPU's
->> logical ID concurrently.
->>
->> To fully enable HOTPLUG_PARALLEL, this patch implements:
->> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
->> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
->>
->> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
->>
->> |     test kernel	   | secondary CPUs boot time |
->> |  ---------------------   |	--------------------  |
->> |   Without this patch     |		155.672	      |
->> |   cpuhp.parallel=0	   |		62.897	      |
->> |   cpuhp.parallel=1	   |		166.703	      |
+On Fri, Jun 12, 2026 at 12:34:14PM +0100, Fuad Tabba wrote:
+> When pKVM injects a synchronous exception into a protected guest, it
+> re-enters without restoring the guest's EL1 sysregs and writes the EL1
+> exception registers to hardware by hand: ESR_EL1 and ELR_EL1, but not
+> SPSR_EL1. enter_exception64() sets SPSR_EL1 (the interrupted PSTATE)
+> only in memory, so the guest's handler reads a stale SPSR_EL1 and
+> restores the wrong PSTATE on eret.
 > 
-> The last two rows seem mixed up. I would expect parallel=0 to
-> result in a longer boot time.
-
-Without this patch:
-
-KVM event statistics (6 entries)
-Event name       Samples       Sample%     Time (ns)         Time%
-Mean Time (ns)
-  DABT_LOW        323112        75.00%    1669148000        17.00%
-5165
-       WFx         85817        19.00%     723215800         7.00%
-8427
-     SYS64         14914         3.00%     419934530         4.00%
-28157
-       IRQ          5643         1.00%    6732439250        70.00%
-1193060
-     HVC64           282         0.00%      35543970         0.00%
-126042
-  IABT_LOW             1         0.00%          6130         0.00%
-6130
-
-cpuhp.parallel=0:
-
-Event name       Samples       Sample%     Time (ns)         Time%
-Mean Time (ns)
- DABT_LOW        308175        80.00%     643628050         6.00%
-2088
-      WFx         55208        14.00%     261925270         2.00%
-4744
-    SYS64         14975         3.00%     155727880         1.00%
-10399
-      IRQ          4755         1.00%    8496162210        88.00%
-1786784
-    HVC64           280         0.00%      19429900         0.00%
-69392
- IABT_LOW             1         0.00%          5850         0.00%
-5850
-
-cpuhp.parallel=1:
-
- Event name       Samples       Sample%     Time (ns)         Time%
-Mean Time (ns)
- DABT_LOW        307923        77.00%     692965050         2.00%
-     2250
-      WFx         59549        15.00%     287888960         0.00%
-     4834
-    SYS64         15127         3.00%     334366230         1.00%
-    22103
-      IRQ         12861         3.00%   29784004970        95.00%
-  2315838
-    HVC64           280         0.00%      21869940         0.00%
-    78106
- IABT_LOW             1         0.00%          9320         0.00%
-     9320
-
-- Default (no patch): Slowest HVC64 handling (126 μs), highest WFx count
-(85k), and most total VM‑exits.
-
-- cpuhp.parallel=1: HVC64 latency improved to 78 μs (close to
-cpuhp.parallel=0), but IRQ exits increased dramatically (12.9k, 2.7×
-that of `cpuhp.parallel=0`), accounting for 95% of event time and
-becoming the new bottleneck.
-
-- cpuhp.parallel=0: Fastest HVC64 (69 μs), lowest IRQ exits (4.8k), and
-lowest total samples, delivering the best overall boot performance.
-
-Therefor, `cpuhp.parallel=1` reduces HVC cost but suffers from a massive
-increase in IRQ exits, while `cpuhp.parallel=0` avoids this interrupt
-storm and therefore performs best in a KVM guest.
-
+> Write SPSR_EL1 alongside the other exception registers.
 > 
-> Michael
+> Fixes: 6c30bfb18d0b ("KVM: arm64: Add handlers for protected VM System Registers")
+> Reported-by: sashiko <sashiko@sashiko.dev>
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
->>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/Kconfig           |  1 +
->>  arch/arm64/include/asm/smp.h |  8 ++++++++
->>  arch/arm64/kernel/head.S     | 23 +++++++++++++++++++++++
->>  arch/arm64/kernel/smp.c      | 27 +++++++++++++++++++++++++++
->>  4 files changed, 59 insertions(+)
->>
-> 
-> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> index 8c3fbb413a06..1a7d5cd16d72 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> @@ -268,6 +268,7 @@ static void inject_sync64(struct kvm_vcpu *vcpu, u64 esr)
+>  
+>  	write_sysreg_el1(esr, SYS_ESR);
+>  	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
+> +	write_sysreg_el1(read_sysreg_el2(SYS_SPSR), SYS_SPSR);
+>  	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
+>  	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
+>  }
 
+Is SPSR_EL1 not set in enter_exception64() using vcpu_cpsr(vcpu), which
+*is* set here? I'm just a bit wary of the report, as I'd have expected
+fireworks if we weren't initialising the guest's SPSR on the exception
+injection path.
+
+Will
 
