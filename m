@@ -4,107 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF82CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 10:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 254AECD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 10:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=; b=2028PY5+7KN913H/3ObhWcZ9i0
-	aERK2RgpkuiDb6snlnPFs0zbCYaaldivhInoQgE1YhBGvXc/qX9b1fBSLnQfdzXplRcwFiToD/0fq
-	17I3AHGJhtsBKdJwX52+tIS+z2ZMwz4E68GGDCJvZRv9Seh5rbHtuQ7B+1xLz0i1kRfvngCEvdFZO
-	Ml9J0ZCa49J9aCgdwV42sF9ANudlJQTsfcf9803QbELYCZjpA6vV2wknJq5r1M/8Vs9qtan0FnaNI
-	zqYjj0QaCLzy7JHBHhp5UMRMtEkPVsXLVvfRceVQLWdh4cLLt8jIojwlXCrrmgdiUIJ4BMcKCLK4r
-	GQe+8qCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JGemgfg7l/z9Y4NPU9+dW1KR++3jPHs07va51svDcDE=; b=f6ZQGnbGo9c/FLzIbVucmlFqUr
+	MONIRWFVqUM/j+pZjApQqbZaE+IIdz5QbNY9W6jqhUBe9+YtMJ0YNg8gDwXI2KYa3qZlrTtE/9pub
+	eH2Uc4YdX8aDyC9a/q/ETs3LaHcJ1Hg4Hb9PPakL/jUnaHFGUOHYEC7AJBv8YVqq6EALKdY3Q2nx+
+	ACocAqpuhTw/GydQJAQptDthl8W2Wf0uo5urfXxceyzA02VQW21txo6mAblmNmPMAXtGYwhKXLska
+	JcFEoO7HbhbFwDA3O5UUoxXS0AJ+mWgekE8jh5LjRNOb2RIZLTezDUzIu5xg783BQkBvnIbbDZd0F
+	Xq1RM60w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ4w0-0000000E4Ol-43Tw;
-	Mon, 15 Jun 2026 10:52:52 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1wZ4fT-0000000E3YM-0Q6m;
+	Mon, 15 Jun 2026 10:35:47 +0000
+Received: from courrier.aliel.fr ([65.21.61.41])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ4vx-0000000E4O3-1w8O
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 10:52:51 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-5177d1ff061so44701cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 03:52:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781520768; cv=none;
-        d=google.com; s=arc-20240605;
-        b=cm1YOaNPsHwRN5PHdx2rj56Vl3bEF1iBRd10V+8YYYEc2aoxYujxR0fcnHVlsF9UxS
-         7MHJWuh8aUBHou4MItXcZy2B+vPIJ19v6lKhZnadMm/XTyIBICUeQkKBt2tlQ34PJxvk
-         lhhIi34Q9EtLaXumZB013mBxc2yAddSuaYVFjtbJ1BCfUv2/eMc5/oO/LIDU6KB2CqFV
-         X0/ViwE+9gLFVcn36rc6YMwfxa7XrpKWjCCMCPS2V8flQ9j5ny0EgyAA3cFDXeT05bIm
-         zb9dRjXlj7GprvKr3woIZ1jNc086Xmf6Lt51ZEaQGNNMA17VMAyj2xw6NHMLwGGP9TSF
-         yxHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=;
-        fh=ZZo/14WCaJc1eo1YRAzTx+KWinQ+R1agd9BfNYRebKg=;
-        b=A5b2WGOjDAGhCrLUedcgtoaXeCXMrfC16iMAf6oR11Yqk6zEdhW9gifX5TTJM0xw7L
-         7muABKtr2XYu4XPSLCxwHgYI/FLySnFBcBHtFQnvlzn2FslTouDp0Nma0dEbM1L3jogg
-         JsuuBjgSlBSpng+oEu+8C2lnM+gLA0dPKDP2HwtAZv4rQrLbdGAwt0hEwn1oUV1cJJmv
-         8P3LtewM8Mgm/SYs3iJ912FS2RWeCaq3UaHPh3GteKMurRvf0tdZJ6gZ+7c1TqNsEoPK
-         MYv39NSjjgJhXlkAE1lSYjDeYuONy5BCiUJLH5xPD03OQyr/eWQ7UC4Eow8OO+S323X4
-         GHdw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781520768; x=1782125568; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=;
-        b=RJjU1bUuQYIy0g1C8rdCx1vdlIY/gLZCrKqRXdjBKLA73byo6skWQ8LhKtglzMFwPZ
-         psxNwO1UShWIeE7jUeMTQMc3qiNvjvYFZQNGaLaBcozKgjEJa+nM7X0aaNl8FmAtjp4P
-         EtWTS21ubCGWlsX+d9eKB8z7xGPFRhhywJm7rfZlfzgpM7BderShw3Ve5NIqiAijkp1O
-         q5uLJkh1G6SHfW9b6oJ8haSXApiE7AZcIXk75vp98C8EVnmYUyWaRng2wgbH2UHEa4Ar
-         WwUZdULeNNcHUjcxrOF+L3E8zxjiM9TxsNU1l2o+lbqzrI8L6GOXcJ9fr0GCbR13ceRB
-         3bBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781520768; x=1782125568;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1r8iNDwZiaBP/vjXiAImEcIzE/V77CaDhl9Jn5aHp7c=;
-        b=qMd6Z859UWqhLlgS/fVMhf9toC91NG/GR0GknOS/eaMzx1OnlxKcnRnHwNaBO72vHG
-         In6v/opNmIvWIaEiHHsPHSIl7gcxEOo8Y1zhKGkocuE2W/vPRiZNlkBrVjEAGOUIEEpI
-         G3i9k3fKO+Vakc5TxnIEiHj69C6Fl5+IDgtYqfiZlB8ur+mZ8fCkb8XtuJlxdWTcQWuz
-         7pRTqJRgeM1T7D2Gl735hkSppkebrX7RM7xnsxSzMIKG8VajVqKbjV/KrvrgFzAC6Fgg
-         sd11Tt4OoAvpmQwN+LxHHKuCL1VgkzGfqa6wK1gCXZASKbkMMaEwgIurCT7r6gpGHzOe
-         Nj9Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8jdWiVyNLE7hPNq/ctVjFKxTmpQtA3jZw2YuUiesIilnL2+spSI3Xe3ObbeukhEPwG4T0k8pztUZag6S/f8V2r@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQ3LtX/MW6HNDA25zr57XCFbhQ8oEv2cXAK0s0fVy7QK8hKuCX
-	X0gXU/ByRtE2PXmlTFrHsqNbOyzq+1sRcmTbWzlSsLCRJgmFp/VCA2ZMfJ4uSZFFMLSH9WADiwx
-	t4n9rW28wtwUp3RSc/Tu5LNlwIZjnEQh9v1nhgomz
-X-Gm-Gg: Acq92OEHbVvT31H62buqNj4EFA2exWmw+h1afR1LS904Zfh1LqgF6JWj6iEbf+lCKYu
-	C6nio7gJ2hjsV2C6rqQNRYG7bCjZhpG+PBBzctKkmdIkppOrO9vvSNlR0DBwcroXMJQ4nKNIuHA
-	I7BRVBzjfbWisAlCQxtBaHZ5Sl4hHIQsvrdd3HmKKUDhJhM9IhblFj3S3vd0hTNvepdNpTN+RY6
-	KWoFpJBF7ZdQe/aeZ/CXYn0pTpIZ/JKm8lckwTva+GTBCY0IgHZJmcT6rUmtT+0FXxo43OuBB7F
-	vM2CjTo9
-X-Received: by 2002:a05:622a:a591:b0:517:5c70:46bd with SMTP id
- d75a77b69052e-5198734032cmr691851cf.11.1781520767462; Mon, 15 Jun 2026
- 03:52:47 -0700 (PDT)
+	id 1wZ4fO-0000000E3Vk-0L3e;
+	Mon, 15 Jun 2026 10:35:44 +0000
+Message-ID: <84cc8b0c-da06-4d01-a076-9743c29c91f6@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1781519734;
+	bh=/Q7NtayrvVRmyxiIVTsRX0sWVVQM4Ve6hFR6FbOnq+s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=VxhYHQ8j5sJm4bQZT3JjTsjWDKRMqJqeEzxK3IRtHlmTkQH7+KewdQjRf5JtjZRqk
+	 W8kiFSJVljSzuPtR7mY1TWnkfibFxaRGC0aCxVp1z0hdEL8nO0/k4phqhNiW18BYBX
+	 qXQWkllFMIjwg2F/R4tYgUP2KfKIs6zZpk9U+fB4=
+Date: Mon, 15 Jun 2026 12:34:11 +0200
 MIME-Version: 1.0
-References: <20260612113414.1022901-1-tabba@google.com> <ai_OevUNS-OACPm7@willie-the-truck>
-In-Reply-To: <ai_OevUNS-OACPm7@willie-the-truck>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 15 Jun 2026 11:52:10 +0100
-X-Gm-Features: AVVi8CdfyuPqDix51ILtu6yDx2NBgsZ4oN-79QG39qHjrQ7hNaohULwLcTkOYSc
-Message-ID: <CA+EHjTyMOoCLQ7d6+TgkrnOJF-PV9K-BKtb4CNuAg8p4gtg6wg@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Sync SPSR_EL1 when injecting an exception
- into a pVM
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Sascha Bischoff <Sascha.Bischoff@arm.com>, Andrew Jones <drjones@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH] PCI: meson: Fix PERST# timing by asserting reset before
+ LTSSM enable
+To: Gowtham Kudupudi <gowtham@ferryfair.com>
+Cc: robh@kernel.org, bhelgaas@google.com, neil.armstrong@linaro.org,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, yue.wang@Amlogic.com, lpieralisi@kernel.org,
+ kwilczynski@kernel.org, mani@kernel.org
+References: <20260614015620.20432-1-gowtham@ferryfair.com>
+Content-Language: en-US
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+In-Reply-To: <20260614015620.20432-1-gowtham@ferryfair.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_035249_509116_CA0D9005 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20260615_033542_568343_BD163996 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,67 +69,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On 6/14/26 3:56 AM, Gowtham Kudupudi wrote:
+> On warm reboot, the PCIe controller's LTSSM starts link training
+> immediately if PERST# is already deasserted from the previous boot.
+> The driver then pulses PERST# for only 500us, which is too short to
+> properly reset the endpoint device that has already started training.
+> 
+> Fix by moving the PERST# assert/deassert pulse BEFORE enabling LTSSM,
+> so the endpoint gets a clean reset cycle before link training begins.
+> 
+> This was found on Amlogic G12B (A311D) with NVMe on an M.2 slot.
+> Cold boot worked because POR held PERST# low; warm reboot did not.
+> The fix was confirmed on a Banana Pi CM4 with Waveshare IO base board.
+> 
+> Signed-off-by: Gowtham Kudupudi <gowtham@ferryfair.com>
+> ---
+>  drivers/pci/controller/dwc/pci-meson.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
+> index 5f8e2f4b3c12..3a7e9f1d5b8c 100644
+> --- a/drivers/pci/controller/dwc/pci-meson.c
+> +++ b/drivers/pci/controller/dwc/pci-meson.c
+> @@ -310,8 +310,8 @@ static int meson_pcie_start_link(struct dw_pcie *pci)
+>  {
+>  	struct meson_pcie *mp = to_meson_pcie(pci);
+>  
+> +	meson_pcie_assert_reset(mp);
+>  	meson_pcie_ltssm_enable(mp);
+> -	meson_pcie_assert_reset(mp);
+>  
+>  	return 0;
+>  }
 
+Hi Gowtham,
 
-On Mon, 15 Jun 2026 at 11:05, Will Deacon <will@kernel.org> wrote:
->
-> On Fri, Jun 12, 2026 at 12:34:14PM +0100, Fuad Tabba wrote:
-> > When pKVM injects a synchronous exception into a protected guest, it
-> > re-enters without restoring the guest's EL1 sysregs and writes the EL1
-> > exception registers to hardware by hand: ESR_EL1 and ELR_EL1, but not
-> > SPSR_EL1. enter_exception64() sets SPSR_EL1 (the interrupted PSTATE)
-> > only in memory, so the guest's handler reads a stale SPSR_EL1 and
-> > restores the wrong PSTATE on eret.
-> >
-> > Write SPSR_EL1 alongside the other exception registers.
-> >
-> > Fixes: 6c30bfb18d0b ("KVM: arm64: Add handlers for protected VM System Registers")
-> > Reported-by: sashiko <sashiko@sashiko.dev>
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > index 8c3fbb413a06..1a7d5cd16d72 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > @@ -268,6 +268,7 @@ static void inject_sync64(struct kvm_vcpu *vcpu, u64 esr)
-> >
-> >       write_sysreg_el1(esr, SYS_ESR);
-> >       write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
-> > +     write_sysreg_el1(read_sysreg_el2(SYS_SPSR), SYS_SPSR);
-> >       write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
-> >       write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
-> >  }
->
-> Is SPSR_EL1 not set in enter_exception64() using vcpu_cpsr(vcpu), which
-> *is* set here? I'm just a bit wary of the report, as I'd have expected
-> fireworks if we weren't initialising the guest's SPSR on the exception
-> injection path.
+I have a patch [1] that I haven't submitted yet.
+This might be related to your issue, what do you think ?
 
-Yes, enter_exception64() sets SPSR_EL1, but only in memory:
-__vcpu_write_spsr() takes the nVHE path and calls
-__vcpu_assign_sys_reg(vcpu, SPSR_EL1, val), which writes
-vcpu->arch.ctxt.sys_regs[SPSR_EL1] without touching the hardware
-register.
+[1] https://github.com/rclaveau-tech/linux-khadas/commit/bee0a02d9756
 
-In the normal nVHE entry path that memory value reaches hardware via
-__sysreg_restore_state_nvhe() before __guest_enter(). But
-inject_sync64() runs inside the fixup_guest_exit() loop, which
-re-enters the guest directly without a sysreg restore pass. ESR_EL1
-and ELR_EL1 are already written to hardware by hand for this reason
-but SPSR_EL1 was missed.
-
-I think we don't see fireworks because inject_sync64() only fires on
-error paths, e.g., accesses to restricted or undefined sysregs. A
-well-behaved guest shouldn't trigger these, so the stale SPSR_EL1
-isn't observed.
-
-Cheers,
-/fuad
-
->
-> Will
+-- 
+Best regards,
+Ronald
 
