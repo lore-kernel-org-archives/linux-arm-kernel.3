@@ -4,110 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9808CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B5ECD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 13:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V9ApFTtIbFndOO5kudQ+mdr96c2vq9dMtY6RicL5Hhg=; b=K4L4+FDI32fcCiq35KvRSPC7YM
-	AVKBPvS8T/R0t/Yrik6w3UoduKNh7vdMsljbeNdv/8yV4VlbsVvFr3Hiu9lQytDJWsGz8pu8t182T
-	4seb5WsX+UxWwL2a/Rl6bR/2dbEQNsgLdmX7J8dsCGgS+2W70Z+LZUKACAkl/CNez2y3XeMD0uAtf
-	GL8Kkl7OJjqcDgPeqULqZFqtnhuU+i5mLhw+lDa6Ni8AZYZtseh4V0D+Bp2Q72VXaGyDgJYpXB4J0
-	cWV6C+SEFA8IdEi5SLLZ18ywxTvBsbq4TK93B/BGZvJ6UT33Een71qKAoMZGIssHp6u7JDi9dK8Ui
-	I+dJ2f1Q==;
+	bh=jTtE9lrnx5uC8z75IcPqyJK9sU1cT8H25gmR36Q4LKw=; b=BmNzpL/PPOKg79nNMdmcvZlI9S
+	muXtzYly4fgnvuei0HFZbxxOKKTWGOmUZHpjcicaTS82cpxDks3pfcC16vOyvVumc/T38jKbItsms
+	SgJaH5A8Zu1WxYbY8nSY+sCysxqOfhiQix8gXBNjFR3a14hxsCF6zxjPZd+pikmg+C11dxs8JGZ/w
+	e8nGfIfelXu0rO3BfxmHcrwgGc+4ZK2fjKTg298T3X2GaVTw0/UnbX7SyRLZcRisHOFjHl5oDkpG0
+	6vmF87gtgK/wUiZ/CAE1N2oB72cXSEDnA+9j/SOq2mZUutHsn74q1sFnL1uSz4OnKbsd5uRNzo812
+	MRRso12w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ76y-0000000EGkn-3yQn;
-	Mon, 15 Jun 2026 13:12:20 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1wZ7AT-0000000EH09-1ziQ;
+	Mon, 15 Jun 2026 13:15:57 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ76v-0000000EGkG-2E73
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 13:12:20 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-51765531803so70711cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 06:12:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781529135; cv=none;
-        d=google.com; s=arc-20240605;
-        b=EMBGLE0j+CG2qM4UdfSt2B41Qs5e6zv8oq3BYtdzajAn1Pj73GilsImYPrFGyDvHQh
-         3U+O4QKeOqJnkwFWanQaw1nO+ZXyQu8jxCkyL/doArpxc79LiTGkPyoibtLtO8JZ4I/Y
-         XpNJv9M04YSQY2AduhkJyKEpSeRqRqoCXN3qua1szSdjKiWE5D75HSBE4u9hw7C2l/Dv
-         sAxB2pLh/UZhsGb0bBrln9D9lXfhUheEfIwfq/Rw9kcAsvwn9iAzjs4HAZdsotFjJNy8
-         6gIWVB8/NlyfTucXA/b52T88ScnBUQvCl4rukSSL+YokfRUabDi6K+FizqI49ymbRgYJ
-         F3sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=V9ApFTtIbFndOO5kudQ+mdr96c2vq9dMtY6RicL5Hhg=;
-        fh=V+MIhl4jDfa5NFAKLdFQDJz3Lj2wybPFopVtWVDupAM=;
-        b=aCpLUX3NrptdKg3ImMrJE6bCllI+IWf2GX/eEGemafF5Pj6YxLY3vqd/PE73WfLXac
-         sqzHicds9UEFSeGSbLaKM2BkAtV8utw/v7iy7uicxLHv+X2Tvt+F7GSNzhzCI30PRLvc
-         p0He2C36jKzWcSYEQaL68fBXgatG5XFs7PV9FD9xhSs2GqBDx/WbXmRSe6Z2VpBMQ1CP
-         kSOQUlKjbF3++xKtRrzZGQcwj3FwwQLBTbIM6t02bTaP3bNzROi6XDxeSM74kN9uB06Z
-         +U0nxz2ekNDr+qQ++zMcdUiAYPz8GB9iOBIieITMzZPaxwG9NafXDfPQKDo4UTuqj/wo
-         dR8Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781529135; x=1782133935; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=V9ApFTtIbFndOO5kudQ+mdr96c2vq9dMtY6RicL5Hhg=;
-        b=jJ6ONHYt6yc7U3EbniKYrLPUOwu39ShoUHYhPepZK3rCNuXhCqq/cOtc6hfgBdaCYw
-         zXYsYJuesoNJ91hsPPC0/njcsh3xcPGHcv87HVUYeKarjHze0OXhqBRoP2+7lLQYv5u8
-         bZvbc7KLHl7OYp4c4m8llWnEQ+GlszPvuL2lMskFvaMYifGqy0nwBleHblEwZ1TbDZAi
-         +lTi+1sHghX8DQHhRAgdVXv1IfuSCN5GskjAMBQMW8dG/voa2m7w+8G8ecXFBhx2lRgW
-         VN3o9TJGwHjehSpuJ7F9STeo9jmbKQnvbqXCb2Vr3AwfW4ILPyGcBMCr+JqPZ0EjxCjj
-         PNHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781529135; x=1782133935;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V9ApFTtIbFndOO5kudQ+mdr96c2vq9dMtY6RicL5Hhg=;
-        b=eFdCyAlJe65tEBSbhF/7QljaMJLMCDx8p6KgxpCRCvCpOMKad6ses2NP5fYQrw/PR9
-         xs7WgwkkwLZxOj7sf6d4rBaBJj4MV0H7ZfHD/eEzfnHSqTLfJ3z+d9W4aq8CeKHdDUyb
-         z9Am+6mIWg4Gh4Fq2fqTV1dOyMtKGt4Chh5CaqAb+TYeRUr9Tx2B8T/clts+xf6QWkwD
-         F4xoOe5Qo1MipQSCI7m79nrJ50jvoGbqVazjh+UiPR1XEDA9z/7AaOqKisfWX0mqftm7
-         Wl2u+NISIl/qBW8QVCpJpIcE+mfual9AwgR+hJ8Srb3uOrwVFEn2cXgzaB8AfwYolc5x
-         GacA==
-X-Forwarded-Encrypted: i=1; AFNElJ/8vhMaKb0jaRpOMiBYomfhKUXrc6a/jeDuIHWcY2S2rFcnQNcV933cZzoRS+gaW2kaEnBefCE2DMobInBtc7FI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyE8ITsk2HcP06TelyhUL6SqfR6e7EhoTSsbVhPWEcuZxzia6hd
-	hwqgoEcDuimmstm31x7P14VV4HUzk6fB9zA3W+KQ8vH0TPsJHj6i8T9epXxHCGTO+SKjBjeh2x0
-	mNm3Y9vrJbiuz/apLTGY/1xYad7o1rUv1ZlGqmHSZ
-X-Gm-Gg: Acq92OEeQUVY2AH5Z9U7+V/wRnG16ukZZ95JG7lbZorhGwpDj3YeO7SFOPFzlJudsEf
-	oj9/C6O+cCSilU8ChkLnLh0drvXiZ3JW30WuzGJuOx/fxazC+oROJkQhgaWa9edIRt+kOJ7XUoK
-	8X0BKavYeK//SHHAYNLdrJNolUOoPEkfKFHYgTZ54osJkU1FVGbbSpwA4llRp7B+MWG7eQdszcz
-	O6nBDrgWz2P5s26wrL3ZOSw243lETTAXKig/j68sCrk7xOeLFQshJxP4btP6tYwUY119HgLOMjN
-	/fe+0OjUohfrQ4rrQJA=
-X-Received: by 2002:a05:622a:5810:b0:516:3def:1cf4 with SMTP id
- d75a77b69052e-519872df3b4mr1903741cf.1.1781529134395; Mon, 15 Jun 2026
- 06:12:14 -0700 (PDT)
+	id 1wZ7AO-0000000EGzH-3iO4;
+	Mon, 15 Jun 2026 13:15:55 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.stl.internal (Postfix) with ESMTP id 5935E1D00161;
+	Mon, 15 Jun 2026 09:15:50 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Mon, 15 Jun 2026 09:15:51 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
+	 t=1781529350; x=1781615750; bh=jTtE9lrnx5uC8z75IcPqyJK9sU1cT8H2
+	5gmR36Q4LKw=; b=bh80GIKOD6TpGbAbFedvF+e1EjuiXmMsI3kDD27SUWIM6j4T
+	TZOcPvqW/vCVSSzH+wR9LqeWaWAfFHFGQnqa8Kh1f+qrYh7d5fXBbMivQPCqIwN2
+	gacXZz60snBirdGRvpgUl3inmlhoDnDQBCDEE51oHUsX5r/cUjKMyKDiRIlppxu+
+	eyCMUCHbeNB2xtJ3cSHlGCHCOieebXL6z1u89UKcdL73Z3DAZhlP6dpBblf2ogLB
+	a8dMiDcaSqa0UtjR6HNL7AwfSoEPnQlVp+G1AY8/S872IdO/RciMKEE4BwhP4Uar
+	3QK0nWnyNQKzYTs5Vzegy47rsP0ziufutfzkkg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781529350; x=
+	1781615750; bh=jTtE9lrnx5uC8z75IcPqyJK9sU1cT8H25gmR36Q4LKw=; b=G
+	Ca74JLks8TG82uXOK5P9tNJ/NcO372iarftNXObxcstVwaq/jQeQ8mM5lFKV50Xt
+	Mam2mKIXlLtO1gbtFcZ8wfRGgQHW2bY+twnRdrPRbaS5UHi2RLhD2iTQdBVI5wGI
+	wC3zR+OuLJvXZFpjjTjVQ9ALrbkCiUPpAx6CtE6rjRKfIW1Fjourwl2eQcO3W0y2
+	F+NLdgqDdAtRA+NxeM5oR84vrmxWCpHc/YyQ6AoWzjiLGFeY3R26AA1TagoFi1H1
+	fhOAn855blXKSIra9QCQqSlaIizQCLq+CWehk+QxNJpPLUZmDlEo0bA+KaI3T453
+	xEivSc2xv8Ulo2Y0J8nwg==
+X-ME-Sender: <xms:BfsvandY2K7udjXCzeDEFdpaK5Pkgk64faSzt_8pHRfY-5z9s3qETg>
+    <xme:BfsvagWXcGSajf6tZnbqTWNEu3cmh59nj7VQoufSZde7MJG89p7E5WKETU4scjCSC
+    Qs2o0isTtRxmTLuHzCtIF18p6YXkLqhqxDhqJ6VIUZCHl_0gjt4BA>
+X-ME-Received: <xmr:Bfsvat9ce56Be3GMy5mjMK9Jcp3XZo33QZuX5q-_6-JtuR6VrNs8BkL76xQrkQ>
+X-ME-Proxy-Cause: dmFkZTGq9iF/E59Wrvbj3f2NyjHhNlVG9P3TNhxNGhjbPyje0c0j/bHfzdLLcj4Ikn3VrU
+    IBXKWJGCZpVQuLasDktveERN2dmbTavlxxG0O7j9lHC/PUXZkTaMw1tRQG6Mbc1U1pMN07
+    /R4zFfaauiyBHgvk9bGC+CzUtp4HbRluWT+h+odERTddFxjarMYl23f6DhnwTJb+anDY38
+    apd4Loxk24kQ3pZ/6fZvkhQhI1faT6cRKv1CRlGDf87miOdhDoP+H+t2nw9tJQPGZkpH9L
+    qna7VebVAF6H7dM96kjrjE1J9hqTA5/M3Tc+qDNua6bEZVbc33RHtqdBmunn/2z3PU40qY
+    jaHwH/Kwsag/5BQlN7KZJcJMTClJNomr4tp0mdvyS4ncCCxh8YHEjVelAOwPyIZVE923dn
+    FI7SYEBlB+XGeHANW0bx0tAO9Sz0NM+APDqj8SJLiBdGh48DCTgCww8+hu847LskxAeOhS
+    JWFLkdFkCKOC/QjDxos2tDB6zvGQncaOyoUDyHxfL4q4ibImyLCphiNvGX8hWEABmah8g7
+    5RGNVfQRlaGSgXj5Rok5XsebJFuAvIPQwSmKm6sUq361UEux6Bnu/C1WZ5HkoWDXzlgdf1
+    wecal23kGbAFTT9B6p8RzVt6+gwVYK9n6KRMp1s3uNW7Se00YL9yvJ3LIIbg
+X-ME-Proxy: <xmx:BfsvathjrV6XJQRlT7aGXI89mFwXAYHsS7IaTIQSp_d4SLz3aJikjA>
+    <xmx:BfsvaiXBhK1RcD3Ls7YbII1sFQdy3Ilcz7AitvCCPMt0JMneK-cu3g>
+    <xmx:BfsvaktetEgjU7_PVKIfuZ044ECzfH7qq8OGESKU_fqveS73HVEl9Q>
+    <xmx:Bfsvas452cKH6I1pUQxFFpMVH0AiFwZlmm0Lrj_pMmtjURwCvlZ8_g>
+    <xmx:Bvsvai0rG29oRb_Nd3ZzNOKekKxmyjOMyINjgZLKnwRNkaCkC-MtgWus>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 15 Jun 2026 09:15:46 -0400 (EDT)
+Date: Mon, 15 Jun 2026 14:15:40 +0100
+From: Kiryl Shutsemau <kirill@shutemov.name>
+To: Puranjay Mohan <puranjay12@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Doug Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
+	Baoquan He <bhe@redhat.com>, Usama Arif <usama.arif@linux.dev>, 
+	Breno Leitao <leitao@debian.org>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
+	Lecopzer Chen <lecopzer@gmail.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] drivers/firmware: add SDEI cross-CPU NMI service
+ for arm64
+Message-ID: <ai_6pkm7fA8MLuV1@thinkstation>
+References: <cover.1781490440.git.kas@kernel.org>
+ <704b467d5b320da9cf49fc9bb4a6814063986f3b.1781490440.git.kas@kernel.org>
+ <CANk7y0iBTYuhzLTJAX0yf8Cp8cyThOVpAQYMTDN9LZUKGThqJQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260612065925.755562-1-tabba@google.com> <20260612065925.755562-3-tabba@google.com>
- <ai_1z13TyEXbHx4Q@google.com>
-In-Reply-To: <ai_1z13TyEXbHx4Q@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 15 Jun 2026 14:11:37 +0100
-X-Gm-Features: AVVi8CfeXGRS4qbHoDv1tNV11kQoNJh7W4G-vCO44nFd_V-kW6IwV2WUcVJxP2E
-Message-ID: <CA+EHjTw_goANXAuFiDdkcSW4d0xtTJjqO5Q=ySn9F_pHn+ZBJg@mail.gmail.com>
-Subject: Re: [PATCH v1 02/11] KVM: arm64: Use guard(hyp_spinlock) in pKVM
- hypervisor code
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
-	Sebastian Ene <sebastianene@google.com>, Per Larsen <perlarsen@google.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron <jonathan.cameron@huawei.com>, 
-	Hyunwoo Kim <imv4bel@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CANk7y0iBTYuhzLTJAX0yf8Cp8cyThOVpAQYMTDN9LZUKGThqJQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_061217_604589_1DC50BBF 
-X-CRM114-Status: GOOD (  32.39  )
+X-CRM114-CacheID: sfid-20260615_061553_016125_5A68655A 
+X-CRM114-Status: GOOD (  47.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,331 +118,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
-
-On Mon, 15 Jun 2026 at 13:53, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> On Fri, Jun 12, 2026 at 07:59:16AM +0100, tabba@google.com wrote:
-> > Convert the manual hyp_spin_lock()/hyp_spin_unlock() pairs in
-> > arch/arm64/kvm/hyp/nvhe/{pkvm,mm,page_alloc,ffa}.c to
-> > guard(hyp_spinlock) and scoped_guard(hyp_spinlock), dropping several
-> > unlock-only goto labels in favour of direct returns.
+On Mon, Jun 15, 2026 at 12:18:10PM +0200, Puranjay Mohan wrote:
+> On Mon, Jun 15, 2026 at 4:35 AM Kiryl Shutsemau <kirill@shutemov.name> wrote:
 > >
-> > hyp_fixblock_lock in mm.c is left as an explicit lock/unlock pair: it is
-> > acquired in hyp_fixblock_map() and released in hyp_fixblock_unmap(), so
-> > its critical section spans two functions and cannot be expressed as a
-> > single lexical scope.
+> > From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 > >
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > Deliver an NMI-like event to an interrupt-masked arm64 CPU via the
+> > standard SDEI software-signalled event (event 0), without the pseudo-NMI
+> > hot-path cost: register a handler for event 0 and poke a target with
+> > sdei_event_signal(0, mpidr).
+> >
+> > First user is arch_trigger_cpumask_backtrace() (sysrq-l, RCU stalls,
+> > hung-task/soft-lockup dumps), which otherwise rides an IPI that can't
+> > reach a masked CPU. Falls back to the IPI path when SDEI is absent; no
+> > watchdog backend yet, so the stock detector is untouched.
+> >
+> > Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> > Reviewed-by: Douglas Anderson <dianders@chromium.org>
 > > ---
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c        | 154 +++++++++++----------------
-> >  arch/arm64/kvm/hyp/nvhe/mm.c         |  37 ++-----
-> >  arch/arm64/kvm/hyp/nvhe/page_alloc.c |  13 +--
-> >  arch/arm64/kvm/hyp/nvhe/pkvm.c       |  86 +++++----------
-> >  4 files changed, 105 insertions(+), 185 deletions(-)
+> >  MAINTAINERS                     |   2 +-
+> >  arch/arm64/include/asm/nmi.h    |  24 +++++
+> >  arch/arm64/kernel/smp.c         |  11 +++
+> >  drivers/firmware/Kconfig        |  19 ++++
+> >  drivers/firmware/Makefile       |   1 +
+> >  drivers/firmware/arm_sdei_nmi.c | 149 ++++++++++++++++++++++++++++++++
+> >  6 files changed, 205 insertions(+), 1 deletion(-)
+> >  create mode 100644 arch/arm64/include/asm/nmi.h
+> >  create mode 100644 drivers/firmware/arm_sdei_nmi.c
 > >
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > index 1af722771178..46cd4fa924be 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > @@ -313,17 +313,16 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
-> >                             struct kvm_cpu_context *ctxt)
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index c8d4b913f26c..b5ddfb85dce9 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -24797,7 +24797,7 @@ M:      James Morse <james.morse@arm.com>
+> >  L:     linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> >  S:     Maintained
+> >  F:     Documentation/devicetree/bindings/arm/firmware/sdei.txt
+> > -F:     drivers/firmware/arm_sdei.c
+> > +F:     drivers/firmware/arm_sdei*
+> >  F:     include/linux/arm_sdei.h
+> >  F:     include/uapi/linux/arm_sdei.h
+> >
+> > diff --git a/arch/arm64/include/asm/nmi.h b/arch/arm64/include/asm/nmi.h
+> > new file mode 100644
+> > index 000000000000..9366be419d18
+> > --- /dev/null
+> > +++ b/arch/arm64/include/asm/nmi.h
+> > @@ -0,0 +1,24 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +#ifndef __ASM_NMI_H
+> > +#define __ASM_NMI_H
+> > +
+> > +#include <linux/cpumask.h>
+> > +
+> > +/*
+> > + * Cross-CPU NMI provider hooks, consulted by the arm64 arch code before
+> > + * its regular-IRQ / pseudo-NMI IPI paths. The SDEI provider in
+> > + * drivers/firmware/arm_sdei_nmi.c implements them when active; a future
+> > + * FEAT_NMI provider could slot in here too. The stubs let callers stay
+> > + * unconditional when ARM_SDEI_NMI is off.
+> > + */
+> > +#ifdef CONFIG_ARM_SDEI_NMI
+> > +bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu);
+> > +#else
+> > +static inline bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask,
+> > +                                                     int exclude_cpu)
+> > +{
+> > +       return false;
+> > +}
+> > +#endif
+> > +
+> > +#endif /* __ASM_NMI_H */
+> > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> > index 1aa324104afb..a670434a8cae 100644
+> > --- a/arch/arm64/kernel/smp.c
+> > +++ b/arch/arm64/kernel/smp.c
+> > @@ -45,6 +45,7 @@
+> >  #include <asm/daifflags.h>
+> >  #include <asm/kvm_mmu.h>
+> >  #include <asm/mmu_context.h>
+> > +#include <asm/nmi.h>
+> >  #include <asm/numa.h>
+> >  #include <asm/processor.h>
+> >  #include <asm/smp_plat.h>
+> > @@ -927,6 +928,16 @@ static void arm64_backtrace_ipi(cpumask_t *mask)
+> >
+> >  void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
 > >  {
-> >       DECLARE_REG(u32, id, ctxt, 1);
-> > -     int ret = 0;
-> >
-> >       if (id != HOST_FFA_ID) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> > -     hyp_spin_lock(&host_buffers.lock);
-> > +     guard(hyp_spinlock)(&host_buffers.lock);
-> >       if (!host_buffers.tx) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> >       hyp_unpin_shared_mem(host_buffers.tx, host_buffers.tx + 1);
-> > @@ -336,10 +335,7 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
-> >
-> >       ffa_unmap_hyp_buffers();
-> >
-> > -out_unlock:
-> > -     hyp_spin_unlock(&host_buffers.lock);
-> > -out:
-> > -     ffa_to_smccc_res(res, ret);
-> > +     ffa_to_smccc_res(res, 0);
-> >  }
-> >
-> >  static u32 __ffa_host_share_ranges(struct ffa_mem_region_addr_range *ranges,
-> > @@ -418,18 +414,20 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
-> >       DECLARE_REG(u32, fraglen, ctxt, 3);
-> >       DECLARE_REG(u32, endpoint_id, ctxt, 4);
-> >       struct ffa_mem_region_addr_range *buf;
-> > -     int ret = FFA_RET_INVALID_PARAMETERS;
-> > +     int ret;
-> >       u32 nr_ranges;
->
-> nit: inverted christmas tree
-
-Ack.
-
->
-> >
-> > -     if (fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)
-> > -             goto out;
-> > +     if (fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE ||
-> > +         fraglen % sizeof(*buf)) {
->
-> nit: I don't know if we wouldn't want extra parenthesis here for readability.
-
-Sure, will add parentheses around the second operand.
-
->
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> > +     }
-> >
-> > -     if (fraglen % sizeof(*buf))
-> > -             goto out;
-> > -
-> > -     hyp_spin_lock(&host_buffers.lock);
-> > -     if (!host_buffers.tx)
-> > -             goto out_unlock;
-> > +     guard(hyp_spinlock)(&host_buffers.lock);
-> > +     if (!host_buffers.tx) {
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> > +     }
-> >
-> >       buf = hyp_buffers.tx;
-> >       memcpy(buf, host_buffers.tx, fraglen);
-> > @@ -444,19 +442,14 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
-> >                */
-> >               ffa_mem_reclaim(res, handle_lo, handle_hi, 0);
-> >               WARN_ON(res->a0 != FFA_SUCCESS);
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, ret);
-> > +             return;
-> >       }
-> >
-> >       ffa_mem_frag_tx(res, handle_lo, handle_hi, fraglen, endpoint_id);
-> >       if (res->a0 != FFA_SUCCESS && res->a0 != FFA_MEM_FRAG_RX)
-> >               WARN_ON(ffa_host_unshare_ranges(buf, nr_ranges));
-> >
-> > -out_unlock:
-> > -     hyp_spin_unlock(&host_buffers.lock);
-> > -out:
-> > -     if (ret)
-> > -             ffa_to_smccc_res(res, ret);
-> > -
-> >       /*
-> >        * If for any reason this did not succeed, we're in trouble as we have
-> >        * now lost the content of the previous fragments and we can't rollback
-> > @@ -465,7 +458,6 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
-> >        * sharing/donating them again and may possibly lead to subsequent
-> >        * failures, but this will not compromise confidentiality.
-> >        */
-> > -     return;
-> >  }
-> >
-> >  static void __do_ffa_mem_xfer(const u64 func_id,
-> > @@ -480,29 +472,29 @@ static void __do_ffa_mem_xfer(const u64 func_id,
-> >       struct ffa_composite_mem_region *reg;
-> >       struct ffa_mem_region *buf;
-> >       u32 offset, nr_ranges, checked_offset;
-> > -     int ret = 0;
-> > +     int ret;
-> >
-> >       if (addr_mbz || npages_mbz || fraglen > len ||
-> >           fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> >       if (fraglen < sizeof(struct ffa_mem_region) +
-> >                     sizeof(struct ffa_mem_region_attributes)) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> > -     hyp_spin_lock(&host_buffers.lock);
-> > +     guard(hyp_spinlock)(&host_buffers.lock);
-> >       if (!host_buffers.tx) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> >       if (len > ffa_desc_buf.len) {
-> > -             ret = FFA_RET_NO_MEMORY;
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, FFA_RET_NO_MEMORY);
-> > +             return;
-> >       }
-> >
-> >       buf = hyp_buffers.tx;
-> > @@ -512,53 +504,41 @@ static void __do_ffa_mem_xfer(const u64 func_id,
-> >                       ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
-> >       offset = ep_mem_access->composite_off;
-> >       if (!offset || buf->ep_count != 1 || buf->sender_id != HOST_FFA_ID) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> >       if (check_add_overflow(offset, sizeof(struct ffa_composite_mem_region), &checked_offset)) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> >       if (fraglen < checked_offset) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> >       reg = (void *)buf + offset;
-> >       nr_ranges = ((void *)buf + fraglen) - (void *)reg->constituents;
-> >       if (nr_ranges % sizeof(reg->constituents[0])) {
-> > -             ret = FFA_RET_INVALID_PARAMETERS;
-> > -             goto out_unlock;
-> > +             ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> >       }
-> >
-> >       nr_ranges /= sizeof(reg->constituents[0]);
-> >       ret = ffa_host_share_ranges(reg->constituents, nr_ranges);
-> > -     if (ret)
-> > -             goto out_unlock;
-> > +     if (ret) {
-> > +             ffa_to_smccc_res(res, ret);
-> > +             return;
-> > +     }
-> >
-> >       ffa_mem_xfer(res, func_id, len, fraglen);
-> >       if (fraglen != len) {
-> > -             if (res->a0 != FFA_MEM_FRAG_RX)
-> > -                     goto err_unshare;
-> > -
-> > -             if (res->a3 != fraglen)
-> > -                     goto err_unshare;
-> > +             if (res->a0 != FFA_MEM_FRAG_RX || res->a3 != fraglen)
-> > +                     WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
-> >       } else if (res->a0 != FFA_SUCCESS) {
-> > -             goto err_unshare;
-> > +             WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
->
-> I am not sure this is really better for this function. At least we had a single
-> callsite to this WARN_ON(ffa_host_unshare_ranges) ...
->
-> Or alternatively if we really want guard() this can just set ret = XXX and then
->
->   if (ret)
->       WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
->
-> So we can keep a single call site for the rollback.
-
-Agreed, the single rollback callsite is better. I'll use a flag to
-keep the original control flow readable:
-
->
-> >       }
-> > -
-> > -out_unlock:
-> > -     hyp_spin_unlock(&host_buffers.lock);
-> > -out:
-> > -     if (ret)
-> > -             ffa_to_smccc_res(res, ret);
-> > -     return;
-> > -
-> > -err_unshare:
-> > -     WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
-> > -     goto out_unlock;
-> >  }
-> >
->
-> [...]
->
-> >  int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
-> > @@ -996,22 +975,19 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
-> >       struct kvm *host_kvm;
-> >       unsigned int idx;
-> >       size_t vm_size;
-> > -     int err;
-> >
-> > -     hyp_spin_lock(&vm_table_lock);
-> > -     hyp_vm = get_pkvm_unref_hyp_vm_locked(handle);
-> > -     if (!hyp_vm || !hyp_vm->kvm.arch.pkvm.is_dying) {
-> > -             err = -EINVAL;
-> > -             goto err_unlock;
-> > +     scoped_guard(hyp_spinlock, &vm_table_lock) {
-> > +             hyp_vm = get_pkvm_unref_hyp_vm_locked(handle);
-> > +             if (!hyp_vm || !hyp_vm->kvm.arch.pkvm.is_dying)
-> > +                     return -EINVAL;
+> > +       /*
+> > +        * Prefer the SDEI cross-CPU NMI provider when active: firmware
+> > +        * dispatches the event out of EL3 and reaches CPUs that have
+> > +        * interrupts locally masked, without the per-IRQ-mask cost that
+> > +        * pseudo-NMI pays for the same reach. The plain IPI path below
+> > +        * can't reach such a CPU unless pseudo-NMI is enabled.
+> > +        */
+> > +       if (sdei_nmi_trigger_cpumask_backtrace(mask, exclude_cpu))
+> > +               return;
 > > +
-> > +             host_kvm = hyp_vm->host_kvm;
+> >         /*
+> >          * NOTE: though nmi_trigger_cpumask_backtrace() has "nmi_" in the name,
+> >          * nothing about it truly needs to be implemented using an NMI, it's
+> > diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+> > index bbd2155d8483..6501087ff90d 100644
+> > --- a/drivers/firmware/Kconfig
+> > +++ b/drivers/firmware/Kconfig
+> > @@ -36,6 +36,25 @@ config ARM_SDE_INTERFACE
+> >           standard for registering callbacks from the platform firmware
+> >           into the OS. This is typically used to implement RAS notifications.
+> >
+> > +config ARM_SDEI_NMI
+> > +       bool "SDEI-based cross-CPU NMI service (arm64)"
+> > +       depends on ARM64 && ARM_SDE_INTERFACE
+> > +       help
+> > +         Provides SDEI-based cross-CPU NMI delivery for hooks that need
+> > +         to reach interrupt-masked CPUs on silicon that lacks FEAT_NMI:
 > > +
-> > +             /* Ensure the VMID is clean before it can be reallocated */
-> > +             __kvm_tlb_flush_vmid(&hyp_vm->kvm.arch.mmu);
-> > +             remove_vm_table_entry(handle);
-> >       }
-> >
-> > -     host_kvm = hyp_vm->host_kvm;
-> > -
-> > -     /* Ensure the VMID is clean before it can be reallocated */
-> > -     __kvm_tlb_flush_vmid(&hyp_vm->kvm.arch.mmu);
-> > -     remove_vm_table_entry(handle);
-> > -     hyp_spin_unlock(&vm_table_lock);
-> > -
-> >       /* Reclaim guest pages (including page-table pages) */
-> >       mc = &host_kvm->arch.pkvm.teardown_mc;
-> >       stage2_mc = &host_kvm->arch.pkvm.stage2_teardown_mc;
-> > @@ -1042,10 +1018,6 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
-> >       teardown_donated_memory(mc, hyp_vm, vm_size);
-> >       hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
-> >       return 0;
-> > -
-> > -err_unlock:
-> > -     hyp_spin_unlock(&vm_table_lock);
-> > -     return err;
->
-> For this one too I doubt this is really interesting: only one path using
-> err_unlock and actually the entire label could be just removed to to simply do
-> hyp_spin_unlock() return -EINVAL;
->
-> This would avoid adding another tab with that scoped_guard(). But that's
-> probably my aversion to scoped_guard() talking.
+> > +           - arch_trigger_cpumask_backtrace()  (sysrq-l, RCU stalls,
+> > +             hardlockup_all_cpu_backtrace, soft-lockup secondary dumps,
+> > +             hung-task auxiliary dumps)
+> > +
+> > +         The driver registers a handler for the SDEI software-signalled
+> > +         event (event 0) and reaches a target CPU by signalling it with
+> > +         SDEI_EVENT_SIGNAL. Firmware delivers the event out of EL3
+> > +         regardless of the target's PSTATE.DAIF -- forced delivery into a
+> > +         CPU wedged with interrupts locally masked.
+> > +
+> > +         If unsure, say N.
+> > +
+> >  config EDD
+> >         tristate "BIOS Enhanced Disk Drive calls determine boot disk"
+> >         depends on X86
+> > diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+> > index 4ddec2820c96..be46f1e1dc77 100644
+> > --- a/drivers/firmware/Makefile
+> > +++ b/drivers/firmware/Makefile
+> > @@ -4,6 +4,7 @@
+> >  #
+> >  obj-$(CONFIG_ARM_SCPI_PROTOCOL)        += arm_scpi.o
+> >  obj-$(CONFIG_ARM_SDE_INTERFACE)        += arm_sdei.o
+> > +obj-$(CONFIG_ARM_SDEI_NMI)     += arm_sdei_nmi.o
+> >  obj-$(CONFIG_DMI)              += dmi_scan.o
+> >  obj-$(CONFIG_DMI_SYSFS)                += dmi-sysfs.o
+> >  obj-$(CONFIG_EDD)              += edd.o
+> > diff --git a/drivers/firmware/arm_sdei_nmi.c b/drivers/firmware/arm_sdei_nmi.c
+> > new file mode 100644
+> > index 000000000000..a82776e7b55a
+> > --- /dev/null
+> > +++ b/drivers/firmware/arm_sdei_nmi.c
+> > @@ -0,0 +1,149 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * arm64 SDEI-based cross-CPU NMI service.
+> > + *
+> > + * Delivering an "NMI-shaped" event to an EL1 context that has locally
+> > + * masked interrupts, on silicon without FEAT_NMI, can be done two ways:
+> > + *
+> > + *   - pseudo-NMI: mask "interrupts" via the GIC priority register
+> > + *     (ICC_PMR_EL1) instead of PSTATE.DAIF, leaving a high-priority band
+> > + *     deliverable. Functionally this works -- but it reimplements every
+> > + *     local_irq_disable()/enable() and exception entry/exit as a PMR
+> > + *     write plus synchronisation, a cost paid on that hot path forever,
+> > + *     whether or not an NMI is ever delivered.
+> > + *
+> > + *   - SDEI: leave interrupt masking as the cheap PSTATE.DAIF operation
+> > + *     and have the firmware bounce an EL3-routed Group-0 SGI back to
+> > + *     NS-EL1 as an event callback. The cost is a firmware round-trip,
+> > + *     but only at the rare moment delivery is actually needed.
+> > + *
+> > + * This driver takes the second path: it keeps the IRQ-mask hot path
+> > + * free and pays only when it fires, which is what makes cross-CPU NMI
+> > + * affordable on hardware where the pseudo-NMI tax isn't, until FEAT_NMI
+> > + * makes NMI masking cheap in the architecture itself.
+> > + *
+> > + * Capabilities provided:
+> > + *
+> > + *   - sdei_nmi_trigger_cpumask_backtrace() — override for arm64's
+> > + *     arch_trigger_cpumask_backtrace(), so sysrq-l, RCU stall dumps,
+> > + *     hardlockup_all_cpu_backtrace, soft-lockup/hung-task secondary
+> > + *     dumps all reach interrupt-masked CPUs.
+> > + *
+> > + * Delivery uses the standard SDEI software-signalled event (event 0) and
+> > + * SDEI_EVENT_SIGNAL. We register a handler for event 0, enable it, and
+> > + * poke a target CPU with sdei_event_signal(0, mpidr): firmware makes
+> > + * event 0 pending on that PE and dispatches the handler NMI-like,
+> > + * regardless of the target's DAIF.
+> > + * Availability is simply whether event 0 registers and enables -- if SDEI
+> > + * and its software-signalled event are present we use it, otherwise the
+> > + * driver stays inert.
+> > + */
+> > +
+> > +#define pr_fmt(fmt) "sdei_nmi: " fmt
+> > +
+> > +#include <linux/arm_sdei.h>
+> > +#include <linux/cpumask.h>
+> > +#include <linux/init.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/kprobes.h>
+> > +#include <linux/nmi.h>
+> > +#include <linux/printk.h>
+> > +#include <linux/ptrace.h>
+> > +#include <linux/smp.h>
+> > +#include <linux/types.h>
+> > +
+> > +#include <asm/nmi.h>
+> > +#include <asm/smp_plat.h>
+> > +
+> > +static bool sdei_nmi_available;
+> > +
+> > +#define SDEI_NMI_EVENT                 0
+> > +
+> > +static int sdei_nmi_handler(u32 event, struct pt_regs *regs, void *arg)
+> > +{
+> > +       /*
+> > +        * nmi_cpu_backtrace() no-ops unless this CPU's bit is set in the
+> > +        * global backtrace mask (driven by nmi_trigger_cpumask_backtrace()),
+> > +        * so a fire that reaches a CPU not being backtraced is harmless.
+> > +        */
+> > +       nmi_cpu_backtrace(regs);
+> > +       return SDEI_EV_HANDLED;
+> > +}
+> > +NOKPROBE_SYMBOL(sdei_nmi_handler);
+> > +
+> > +static void sdei_nmi_fire(unsigned int target_cpu)
+> > +{
+> > +       int err = sdei_event_signal(SDEI_NMI_EVENT, cpu_logical_map(target_cpu));
+> > +
+> > +       if (err)
+> > +               pr_warn("SDEI_EVENT_SIGNAL to CPU %u failed: %d\n",
+> > +                       target_cpu, err);
+> > +}
+> > +
+> > +/*
+> > + * Raise callback for nmi_trigger_cpumask_backtrace(): signal event 0
+> > + * at every CPU still pending in @mask. The framework excludes the local
+> > + * CPU from @mask before calling us.
+> > + */
+> > +static void sdei_nmi_raise_backtrace(cpumask_t *mask)
+> > +{
+> > +       unsigned int cpu;
+> > +
+> > +       for_each_cpu(cpu, mask)
+> > +               sdei_nmi_fire(cpu);
+> > +}
+> > +
+> > +/*
+> > + * Override hook for arch_trigger_cpumask_backtrace() (see
+> > + * arch/arm64/kernel/smp.c). Returns true when SDEI handled the request,
+> > + * which is the case whenever SDEI is active; on a false return the arch
+> > + * falls back to its regular-IRQ (or pseudo-NMI, if enabled) IPI.
+> > + *
+> > + * On a kernel built without paying the pseudo-NMI hot-path cost (the
+> > + * usual case for this driver's target), the IPI can't reach a CPU that
+> > + * has interrupts masked -- so the backtrace of the one CPU you care
+> > + * about comes back empty. SDEI is dispatched out of EL3 and lands
+> > + * regardless of the target's DAIF, without taxing the IRQ-mask path.
+> > + */
+> > +bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
+> > +{
+> > +       if (!sdei_nmi_available)
+> > +               return false;
+> > +
+> > +       nmi_trigger_cpumask_backtrace(mask, exclude_cpu,
+> > +                                     sdei_nmi_raise_backtrace);
+> > +       return true;
+> > +}
+> > +
+> > +/*
+> > + * device_initcall (after arch_initcall(sdei_init), so the SDEI subsystem
+> > + * is up): probe the firmware, register the event, and turn on the
+> > + * cross-CPU service. If the probe fails the driver stays inert and the
+> > + * override hooks decline, leaving the arch's own paths in place.
+> > + */
+> > +static int __init sdei_nmi_init(void)
+> > +{
+> > +       int err;
+> > +
+> > +       err = sdei_event_register(SDEI_NMI_EVENT, sdei_nmi_handler, NULL);
+> > +       if (err) {
+> > +               pr_err("sdei_event_register(%u) failed: %d\n",
+> > +                      SDEI_NMI_EVENT, err);
+> > +               return 0;
+> > +       }
+> 
+> This initcall runs unconditionally whenever ARM_SDEI_NMI is built in,
+> which includes the many arm64 systems that have no SDEI at all. On
+> those, sdei_event_register() -> sdei_event_create() ->
+> invoke_sdei_fn() returns -EIO, and the core already complains:
+>     pr_warn("Failed to create event %u: %d\n", event_num, err);
 
-The scoped_guard makes the lock scope visually explicit here: the
-lock must be dropped before the long teardown tail that follows, and
-scoped_guard makes that boundary clear. It also prevents forgetting
-the unlock on the early return. I think the extra tab is worth it for the
-clarity it provides.
+Fair enough. I will add sdei_is_present() and gate sdei_nmi_init() on
+it.
 
-Thanks,
-/fuad
-
-
->
-> >  }
-> >
-> >  static u64 __pkvm_memshare_page_req(struct kvm_vcpu *vcpu, u64 ipa)
-> > --
-> > 2.54.0.1136.gdb2ca164c4-goog
-> >
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
