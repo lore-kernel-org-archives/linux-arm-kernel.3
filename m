@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DD0CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3522CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 08:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KPi66HdqLZ5JIMHwZGt9OqfxPz6e5uIrhcdWeXWjXYI=; b=axcJhgrF2CFrxtZbhGn/B7oyS+
-	ld74TX/FM+dTyF/NKqsh+zFXKV+PbvWuhn/8D3RpXg7HYrunCl7iB+0UsLiJYcBH+taUVbPN3vPV+
-	tuw3RSuozAdHbh8v0moMbUYtGq1iPBkRK2MZpqQMfqgMFouzWVOPvZzQSK7KPkK/KPm4OREJLqqnd
-	3JQR6JQmY9g277PyXWH6cJWIyRl3b9WdOiRBFzgv8LhNdJqWoQmTQPa1gN1+nGRPoY6ETB7kP8Rw5
-	eGPagpXV9kploTYZUojytxqc4YsGDEwxBsuU94vH9ptVfUb4YhkKMx2IovwApgCmrpi86mH4AClRy
-	k+jEYm2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cbSLTWsW8ZY/9aaG9+Y2fa/0OV+/Rfi7Cmistf4OV5I=; b=n//bIDNXFhxxUS0bhpBGkvNgeh
+	K9f+3NIsiJI8iPKYxyTF0DcHAhpBaMgaVinMWLaJSe8Y6RyccP6zXuNxjfMdRxVNkjq86gZOVmhAz
+	Fgly2iAWbpCXmxjlxaRS0EOijSvma5awk4sSmIwwEf7iBE7cSs6M3E3/VB05PLmyPKZaQUchusepU
+	8g9YNFj0dL2ku9pxDJ39daXbfOprNbSzeOH33f3r3uTwY39PbKJc4qhIjnBJCF6TssoN/0n6oWWkl
+	btIeuHSrHLtFW7GCigimtgz63lwCgfCWJWfXFF9Rv3uPnRvaa2Kb35Tg7d6nG5gsj+fUNAmKmX3av
+	86bX6/DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ37H-0000000DvG9-06zs;
-	Mon, 15 Jun 2026 08:56:23 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wZ386-0000000DvSE-0y6w;
+	Mon, 15 Jun 2026 08:57:14 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ37D-0000000DvFC-374V
+	id 1wZ383-0000000DvRc-3tuX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 08:56:20 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490b3637b90so22830375e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 01:56:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781513778; x=1782118578; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KPi66HdqLZ5JIMHwZGt9OqfxPz6e5uIrhcdWeXWjXYI=;
-        b=JM9e0wszwNtbW22HLYPaFKTAYrbA8D7dTrRFyNT3zkZ/qmYIY8BbAGYTxN9ulyW/ta
-         vhq5dmS3727FxXvQRAC1adgVed38tsu0DL76DDnL5DECrACG0enMZ7sJ7hRfXYcLLfLS
-         vv4FZWf4vwKDzv+6uUtHEUfZ/1RRxj2zsDx6x2/84sVnRQIeN82HYV08deXuoakWL6TH
-         iXsUOllNMFEAg/qSxwCZnF4zrmtHtKs6dTy1+ILV531eeQbUzGUr1c1RMsJu0xG9314v
-         H3oesZANsyGd1tuA7vlyJ/t4F6oR0W0qX8zMJnbDpQr/IvuyqgmhJdhBad0PJmBQFtGh
-         pQXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781513778; x=1782118578;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=KPi66HdqLZ5JIMHwZGt9OqfxPz6e5uIrhcdWeXWjXYI=;
-        b=f/V+Vqdj3dgYqfF/pVXNeqaafh51C636rPyvGBexEEpc6Umkj15G1h3GzJ5+r2eyZP
-         6A9EnguiXr/QS2e1wnMxwL9cmX78DzbA0A+uniSjo4JraFazN7Fflvtb9sHIj8xTR5Vq
-         ckRIMXRxdDtWJtyikiN45XbaEW1+PZe1/x5jtZsmEZPyPOhF4a6FOqARqVGriW1RulcU
-         BdQ9bci9WxHT28YFhEYmvYXr1U+TFs8sK7sz88QLgQLhsfwfqgSIuXZxTLnXw87GDBJN
-         jAsTGYV6tev2VKjBCVOznuF+kfSnmSxel/srh6oJ+WZT7cKmv9V4tN7ZLmgyrCLpvFfM
-         zQ9Q==
-X-Gm-Message-State: AOJu0Yyfzbs4027TkT+caL6mqynEhuJd+WtoMau6uyom0xVpGGhm28mB
-	VooljqeyuqPW1NB7eN+mziPA0rqOi8PHoi/MCWSgb+Yd4gTH77YkD9eF
-X-Gm-Gg: Acq92OHDtrcO4pkSjihUF5XcEXHaLt33KnFnhnfV/4FJbPMjb8WrSBbv1kuPp8esxKW
-	HJx6L2/cCv0DlOunrgLQhZ2SAh3GtUCwimMeuVLpQHhy/3VnDAHhz1uqfrYZOc9dx1OWt5/e637
-	z7iYlaf+RjtYp3F6qa3xXhsb9FAeiZ+Ra/0+c5DGJk7RBmM4m1f9FvU1X0BVkEuN8EbUY5BJuRc
-	yahP8VAainQbd49DkvCAEMHmZfcsDNelcXRfrzF0ppcCcUoUZcUPfJseQtD6OCITx+ifyvJfVpj
-	AuJFqsxuto4JKnnflB5z2SzDKAD57lO/UpZXD8IZgPq2KkNH1AOkN/NCtfzqwFFiOUIiBp2WofS
-	TSah/+sj97uNLJ3mYyjiqb/NI/EMeJSUQlGCvdQP0sOxZxLYfZ1qstE0SX2A55ipTsM3MLIfDiK
-	Pzg1A1R4sIrjSZNvsMvyG3rJWIB4Q1J9V8y90XEDZRhbQVxIUDsldvpp3SaZx6
-X-Received: by 2002:a05:600c:3650:b0:490:d354:bd0a with SMTP id 5b1f17b1804b1-49220143bd1mr83939345e9.31.1781513777712;
-        Mon, 15 Jun 2026 01:56:17 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492201fad25sm242143105e9.0.2026.06.15.01.56.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 01:56:17 -0700 (PDT)
-Date: Mon, 15 Jun 2026 09:56:16 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Russell King <linux@armlinux.org.uk>, "Russell King
- (Oracle)" <rmk+kernel@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- Linus Walleij <linusw@kernel.org>, Kees Cook <kees@kernel.org>, Nathan
- Chancellor <nathan@kernel.org>, Thomas Weissschuh
- <thomas.weissschuh@linutronix.de>, Peter Zijlstra <peterz@infradead.org>,
- Shubham Bansal <illusionist.neo@gmail.com>, "David S. Miller"
- <davem@davemloft.net>
-Subject: Re: [PATCH] ARM: disable broken eBPF JIT on the Risc PC
-Message-ID: <20260615095616.1c590e14@pumpkin>
-In-Reply-To: <CADkSEUizT2dxUni185QDEkmVA+_r9bEQgbuEbZ8b-Sg3JZWrFA@mail.gmail.com>
-References: <20260518014920.135011-1-enelsonmoore@gmail.com>
-	<20260614125857.398a0e13@pumpkin>
-	<CADkSEUizT2dxUni185QDEkmVA+_r9bEQgbuEbZ8b-Sg3JZWrFA@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Mon, 15 Jun 2026 08:57:13 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.167])
+	by APP-03 (Coremail) with SMTP id rQCowADnCeFgvi9qDgfLFA--.646S2;
+	Mon, 15 Jun 2026 16:57:05 +0800 (CST)
+Message-ID: <62c0b8ab9b6d9f994daa8bb60b3b626688af7d5e.camel@iscas.ac.cn>
+Subject: Re: [PATCH v4 5/6] drm/verisilicon: add DCUltraLite chip identity
+ to HWDB
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 15 Jun 2026 16:57:04 +0800
+In-Reply-To: <20260615065003.76661-6-a0987203069@gmail.com>
+References: <20260615065003.76661-1-a0987203069@gmail.com>
+	 <20260615065003.76661-6-a0987203069@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
+MIME-Version: 1.0
+X-CM-TRANSID: rQCowADnCeFgvi9qDgfLFA--.646S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Ww1DCr1fZr15ZrWDJr4Utwb_yoW8uryxpa
+	13trWqv395t3s3t3s7JrWj9Fy2kan7Ja9YqFn2kry0van8Cryjq34xGrs8uFyvgFZ7JFyS
+	qF4v9FW7CF4Syr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxU7veHUUUUU
+X-Originating-IP: [112.94.100.167]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_015619_795946_F7220342 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260615_015712_335322_F7C80684 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,35 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 14 Jun 2026 14:44:38 -0700
-Ethan Nelson-Moore <enelsonmoore@gmail.com> wrote:
+=E5=9C=A8 2026-06-15=E4=B8=80=E7=9A=84 14:50 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
+> Register the Nuvoton MA35D1 DCUltraLite chip identity in
+> vs_chip_identities[]:
+> =C2=A0 model=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D 0x0=C2=A0=C2=A0 (DCU=
+ltraLite; Verisilicon uses 0 for this IP)
+> =C2=A0 revision=C2=A0=C2=A0=C2=A0 =3D 0x5560
+> =C2=A0 customer_id =3D 0x305
+> =C2=A0 generation=C2=A0 =3D VSDC_GEN_DC8000
+> =C2=A0 display_count =3D 1
+> =C2=A0 max_cursor_size =3D 32
 
-> Hi, David,
+I suggest make this more human-readable instead of replicating the
+machine-readable data of HWDB.
+
+My proposal here:
+
+```
+The Nuvoton MA35D1 chip contains a DCUltraLite display controller with
+model number 0x0 (sic, the model name contains no number either),
+revision 0x5560 and customer ID 0x305. It has a similar register map
+with DC8000, only one display output and only 32x32 cursor supported.
+```
 >=20
-> On Sun, Jun 14, 2026 at 4:58=E2=80=AFAM David Laight
-> <david.laight.linux@gmail.com> wrote:
-> > Isn't it more the case that the ldrh/strh instructions were added for a=
-rmv4.
-> > Whether the bus supports 16bit accesses is entirely different. =20
->=20
-> No, it is in fact the bus. While the Risc PC initially shipped with
-> ARMv3 CPUs, which the kernel no longer supports, it was later upgraded
-> to an ARMv4 StrongARM CPU. However, its bus was designed for ARMv3
-> CPUs and has no way to represent a half-word access to memory. This
-> means that ldrh/strh will execute (because the CPU supports them) but
-> do not function as intended.
+> Placing this entry last makes it the gate that enables MA35D1
+> hardware
+> recognition only after all the supporting ops and DT binding changes
+> are
+> in place.
 
-Ok, so they work fine for cached accesses.
-The only issue will be with uncached ones?
-(Or do I remember the strongarm having a write-through cache?)
+It's a little ambiguous that "last" here means whether the last in the
+patchset or the last in the HWDB array, although I think it's not so
+needed to explain the reason of the place in the patchset.
 
-It just seems odd because byte writes are usually handled with four
-byte-enable lines; so the targets support all 16 combinations even
-though a cpu will (normally) only be able to generate 8 of them.
-
-	David
+I propose just say `Adding it to the HWDB to enable it to be usable
+with the verisilicon driver.` .
 
 >=20
-> Ethan
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> ---
+> =C2=A0drivers/gpu/drm/verisilicon/vs_hwdb.c | 10 ++++++++++
+> =C2=A01 file changed, 10 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> index 91524d16f778..7d630a667a3f 100644
+> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> @@ -129,6 +129,16 @@ static struct vs_chip_identity
+> vs_chip_identities[] =3D {
+> =C2=A0		.max_cursor_size =3D 64,
+> =C2=A0		.formats =3D &vs_formats_no_yuv444,
+> =C2=A0	},
+> +	{
+> +		.model =3D 0x0,		/* DCUltraLite */
+> +		.revision =3D 0x5560,
+> +		.customer_id =3D 0x305,
+> +
+> +		.generation =3D VSDC_GEN_DC8000,
+> +		.display_count =3D 1,
+> +		.max_cursor_size =3D 32,
+> +		.formats =3D &vs_formats_no_yuv444,
+> +	},
+> =C2=A0};
+> =C2=A0
+> =C2=A0int vs_fill_chip_identity(struct regmap *regs,
 
 
