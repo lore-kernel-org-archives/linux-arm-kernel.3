@@ -4,99 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28740CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A042CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cfy5IF3x0JtW9CpNalnLLpK8u6eZ7BRMq0IeQhp39Ds=; b=ws/Zi9JrhlSBl0COCA8u4PRPZE
-	56SFwqZDwHjf9N1bg3FgsdmHOEJv0NbQeLS+U6gxVNWkN/B7qvecQlpAECuVaYjvxwkV+FEqA1V59
-	zbqL+34QVc8t5RZrWcKaSHBgWjz9WbtL+8cDOGrTuC2MC8spzdUYueq9nWzgAvZtwFZxqRkBS0Qpm
-	UFru5BN/zH6gB7WBgLF4ydmWd8te0ZYzGJeNWJ645sjdymmvfAgJ6qzSpRnIunTgjB9rPyZP1U9L1
-	Pedix5uRt6Ld33KcCqpIqKLJp9mgQtuReiAKRWc2AH4RQ0xMzSPEMKTnoK2bDHisP+jypxP1Df56r
-	torFFa1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/geuUBQHHQNfoA9ZNxPYhlemMlwLY/TU4kdPni4zlvc=; b=OhmE9dgaIQcveUwsEiZi7Spoyk
+	sn/DBGryMsx9iw8iQGC9wJmiqW9buH6z8DqLjZtd12K7AtVZCWfA0r0gWwxzT7QwWa6GANzUYE4Ue
+	OGz7iElu/EGPjBu/Nwk0HMgooH+gCevTrHAUKIh133+DWcAiXMAMHLUMMM+qcHKlni5QfzrEFRuz6
+	df7S8OeWTqoCsfu/D6MpxU0h9MdrwAJT0++iGGFz8y8QwOdggu118oiahOAiussEQD+n0gl2xprG4
+	CTq1CAQo8Gk4gM8OfhIEpomy+Vcr8bMg90ObqBAEmTb99iX2vfWATLe3fH3/8+Kj9gNIofsQuNWXz
+	PfgEQDxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6oy-0000000EExI-1tIB;
-	Mon, 15 Jun 2026 12:53:44 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wZ6T8-0000000EBuQ-2jiw;
+	Mon, 15 Jun 2026 12:31:10 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6ow-0000000EEwg-0AHx
+	id 1wZ6Sx-0000000EBeH-1r20
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 12:53:43 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490b915ded5so31935865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:53:41 -0700 (PDT)
+	Mon, 15 Jun 2026 12:31:01 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490b4a8e28bso22822535e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:30:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781528020; x=1782132820; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cfy5IF3x0JtW9CpNalnLLpK8u6eZ7BRMq0IeQhp39Ds=;
-        b=Hr3LfpuDeB1QYmLYDXOprai+uWRnI5F9AI3ftNh/48RkqhPC7bSlspS3d3zrlvs6Jp
-         DBbxxoHl0txJURIyLwGUkosX2pujuZwjCVDS+EjNjP1nusYyqO++JoY12hFFgP+cKtOP
-         HALGUwVbqseGoNMnTS/FZWiuCm1+fdXSCh/kS7Vx0LuAWPKtATl3g+MtdvQptvA2PGqM
-         eLUJAj3b4CorGzw9Czyo4wY4gZctS2lusBR48Sro1T2LwxEMkHZJVW1Vn+DCy8BYZmF6
-         CuorNGhTIsTmQ7Kii/ZbXFnk2XLW9+LMwr08+fkIHEmdbMtyZqepuGKe+PnB2y86a2Qj
-         iQ1A==
+        d=gmail.com; s=20251104; t=1781526658; x=1782131458; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/geuUBQHHQNfoA9ZNxPYhlemMlwLY/TU4kdPni4zlvc=;
+        b=qZIUSYUyzHoX8kAk70vTXdjPZn5sdgbaTtnYt9bF/ttDi91llj2CWK8lBQGu6nguSN
+         r1wbqiJO2XjKsL7NWMgM1NKTq1psPMWhl4o6jt2Vygte88DJ7hjOq7cp5rO8b4DNVmlN
+         7zF3RTB2+DGjLVAAtE6GjVzV5ZVBmEiYB+FGBcn3mgAVDURuA9fDdxmxdD50FzbHhogH
+         oJXoR7rGcq7m6mQctgkVIkA835zLhVRZ7tUARCm+1hSbMlzPOzu1CxCKi9OrXKDBYFnG
+         3D3jG2o9HfwzVnkAkgawqyZbgvP048L9kiXmHV3e6/CszXYWW8YcX4mWIkliAPMnXak5
+         BrHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781528020; x=1782132820;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cfy5IF3x0JtW9CpNalnLLpK8u6eZ7BRMq0IeQhp39Ds=;
-        b=QZo2cb9Yi0fXUHvZlo/5WjLoLt8EvBgPW/8Prko59hsKIp6zrP/JmsHC+cO+2mZ7lF
-         D5Hs2ErThLexIA4oFcDXgJdUZ/0lBpxxFrV5CMYpWe57/utU0YkX+yBKDPIIrx2bR/ND
-         p/NglmfZqUrFTYpOYIH9BLMqPh+KZJxHgXXex3pADU6lE4MuSDZPOjvM6ArqlNufm9OG
-         fZZ81AXw3xHV+LkZB0/V0rcnHsAS/Uggce0gTytfvt8ioCQYnA/evVJVWcgr7CBaw9gw
-         KpuSvqpND+q7CncL2PxbiO8np8itLOlbE/GmV7ddwiMmQLcj9xz1h6/7WLTYsBjhT3hY
-         AHFA==
-X-Forwarded-Encrypted: i=1; AFNElJ+Y2Z0V668M08Ztu5ssK4os9XE7jj60yp8zJZNnjjHJwXCl3wXltFfmSfG3z5qjrSGQO+khSRSiIcJYLDdspj7q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9dGby3HHrHi6GcFsOmieHvhjuTw0m/oBlonDufmEyss686a5L
-	GjP398nTP5avDpuMqLEMBHFgXMrVhAT8rhnIgo31SQgA0ytlVjZxBdP2dUvrvk/qnw==
-X-Gm-Gg: Acq92OG786hVeNA0F3SaUkRD7mIW3NvvB46X8y3UeiiUOLM468lC80j//yxhoO8DazY
-	Ierl+vATIRxwkny+rahj5U/4WtlleIedNpfuMsjs8jOzgTQLpw15P1/OZSPT6Q0MYs5fWrIZYUV
-	qK9+SK+V9qGGyIU7ZaBPqokCiQRFGsBDjeB3jSTBvb89S/EBIno8jbe2/uUDz/4CwEmFhycM4nN
-	KttHnDAFZM24T/BGF3QLtC3QzSvsgO0Uq9SN4jCSs7wyFZyDbpn8SGG+6U+dBDInD6apjNaFbFB
-	N24RyqoIdBZMLlNY77fU2+S7SAW45GMVuz5D6/nT20ZHCA4FQzf9WrTAAFFqA/HlfYdyZbYe+8T
-	M7ZmiHahQKm4wM9DuBkVSeJ98bvuWeniF5J/gmOaRpX4WclyLMZ1ypqfAFpNubLkgiQ8AobVo0S
-	T2ljKtVPtvELqBcu7mXpuLXXD5tWbiOpTcHmpsxKbjizIH3PExRqMnoQZhy/6PE87qY/8=
-X-Received: by 2002:a7b:c7d7:0:b0:490:9588:bdb6 with SMTP id 5b1f17b1804b1-490ec5215bamr127730525e9.33.1781528019556;
-        Mon, 15 Jun 2026 05:53:39 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49220308f13sm265864385e9.5.2026.06.15.05.53.38
+        d=1e100.net; s=20251104; t=1781526658; x=1782131458;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/geuUBQHHQNfoA9ZNxPYhlemMlwLY/TU4kdPni4zlvc=;
+        b=UYLPvjGc+jSodMqiO9rZgHQbjRZRYPLz303+Sa5S4by+a1cKmUOPrjO0lCfIfuHlav
+         O3YJdZ88jXHL2rX7jwdF+ZbVIfPaZcB1Pu/qQs51kM/JrmLuAaRT+flcxBT9RDx3wPTt
+         nbDENMb4f7CqlQIivJsROLhubLg6NhOrj0rwVLXOATNJPcDQIaYVDlG5l2twhAFj2oU6
+         0aTi0UklZgYvfonZxsgJlAuKl/LpOevc1v7ILHsCBnzZUF1+2o4wbMoSUE/JkyAH6MG7
+         9yEJ5RxWU1P900rlmLE3xZmprfcUWZbDVXn606WCp9kGhgeXJYQghpUm8qB5BMW39mjC
+         NLLg==
+X-Forwarded-Encrypted: i=1; AFNElJ8aywo8C9cOSOBTRLS1vS609gzj5cHD+3vbIVxQ+hps3sf9l1nejfUSyPucplH6mtDSLypX9SZ9+n9vaRyP0XEf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzyacKRJ/slY4xQuQN4tCbQj5Y/akP940ZKtEpyzdUNrpxD1sg
+	doPWNt8uDy+Nt97+52OHEahVqYzuXXs5wpkL4bYI8ySwlL6PmqIZOU0G
+X-Gm-Gg: Acq92OFsPDz5b9mWoebf4sZJDHxWf9by7MxRjBlZVnadRmX6V7rRqeo549yqvfQsP7q
+	8taFQSLIQBaw5lmRO30mCowXtbvK7UTgT+LN1wpazc9wySFe9W+QPg89yAU1cO54UHd9JWfJSHq
+	wLcyZF8gfrKTnSZT0uKoGNCG5s6JP359aXeE6g5ziv4qH7cnmLexvR0c4m+qZ/YB4ueSfRqWn/J
+	ZDZNz97WQvDK9dqai0+zZNbkpp2RipxHDojzoSfePu2hXGEMCe6qCChLA03q2GC6RoegC/xTW+d
+	ANOsAV2O/Ae4BlSlvevn4lb84jZv6QA2Ad3RaAsHxD9EAG90fJ8ifpOPwLH84NFzFMMnlAR69pJ
+	WaVKGnDc0JW8431WfT9EQWnuLhS7tRyhZg9Wn80htmF7mxAWbU6M4N+Kt3pYT2hvoBww+GLMHli
+	zyCGb1UbWSXHCvgQS0WxWz6WTKZhrjvDsziHHY8xGDu5yDQdpOiXiNE68=
+X-Received: by 2002:a05:600d:844f:20b0:490:bb59:63b7 with SMTP id 5b1f17b1804b1-490ec5087e9mr131511205e9.28.1781526657577;
+        Mon, 15 Jun 2026 05:30:57 -0700 (PDT)
+Received: from Ansuel-XPS24 (93-34-88-103.ip49.fastwebnet.it. [93.34.88.103])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-490ea95c512sm191426435e9.2.2026.06.15.05.30.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 05:53:38 -0700 (PDT)
-Date: Mon, 15 Jun 2026 13:53:35 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: tabba@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Per Larsen <perlarsen@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 02/11] KVM: arm64: Use guard(hyp_spinlock) in pKVM
- hypervisor code
-Message-ID: <ai_1z13TyEXbHx4Q@google.com>
-References: <20260612065925.755562-1-tabba@google.com>
- <20260612065925.755562-3-tabba@google.com>
+        Mon, 15 Jun 2026 05:30:56 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v7 12/12] net: airoha: add phylink support
+Date: Mon, 15 Jun 2026 14:29:48 +0200
+Message-ID: <20260615122950.22281-13-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260615122950.22281-1-ansuelsmth@gmail.com>
+References: <20260615122950.22281-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260612065925.755562-3-tabba@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_055342_138088_DF02DDE5 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20260615_053059_531197_434D8AEB 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,306 +123,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 07:59:16AM +0100, tabba@google.com wrote:
-> Convert the manual hyp_spin_lock()/hyp_spin_unlock() pairs in
-> arch/arm64/kvm/hyp/nvhe/{pkvm,mm,page_alloc,ffa}.c to
-> guard(hyp_spinlock) and scoped_guard(hyp_spinlock), dropping several
-> unlock-only goto labels in favour of direct returns.
-> 
-> hyp_fixblock_lock in mm.c is left as an explicit lock/unlock pair: it is
-> acquired in hyp_fixblock_map() and released in hyp_fixblock_unmap(), so
-> its critical section spans two functions and cannot be expressed as a
-> single lexical scope.
-> 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c        | 154 +++++++++++----------------
->  arch/arm64/kvm/hyp/nvhe/mm.c         |  37 ++-----
->  arch/arm64/kvm/hyp/nvhe/page_alloc.c |  13 +--
->  arch/arm64/kvm/hyp/nvhe/pkvm.c       |  86 +++++----------
->  4 files changed, 105 insertions(+), 185 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 1af722771178..46cd4fa924be 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -313,17 +313,16 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
->  			      struct kvm_cpu_context *ctxt)
->  {
->  	DECLARE_REG(u32, id, ctxt, 1);
-> -	int ret = 0;
->  
->  	if (id != HOST_FFA_ID) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
-> -	hyp_spin_lock(&host_buffers.lock);
-> +	guard(hyp_spinlock)(&host_buffers.lock);
->  	if (!host_buffers.tx) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
->  	hyp_unpin_shared_mem(host_buffers.tx, host_buffers.tx + 1);
-> @@ -336,10 +335,7 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
->  
->  	ffa_unmap_hyp_buffers();
->  
-> -out_unlock:
-> -	hyp_spin_unlock(&host_buffers.lock);
-> -out:
-> -	ffa_to_smccc_res(res, ret);
-> +	ffa_to_smccc_res(res, 0);
->  }
->  
->  static u32 __ffa_host_share_ranges(struct ffa_mem_region_addr_range *ranges,
-> @@ -418,18 +414,20 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
->  	DECLARE_REG(u32, fraglen, ctxt, 3);
->  	DECLARE_REG(u32, endpoint_id, ctxt, 4);
->  	struct ffa_mem_region_addr_range *buf;
-> -	int ret = FFA_RET_INVALID_PARAMETERS;
-> +	int ret;
->  	u32 nr_ranges;
+Add phylink support for each GDM port. For GDM1 add the internal interface
+mode as the only supported mode. For GDM2/3/4 add the required
+configuration of the PCS to make the external PHY or attached SFP cage
+work.
 
-nit: inverted christmas tree
+These needs to be defined in the GDM port node using the pcs-handle
+property.
 
->  
-> -	if (fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)
-> -		goto out;
-> +	if (fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE ||
-> +	    fraglen % sizeof(*buf)) {
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/net/ethernet/airoha/Kconfig       |   1 +
+ drivers/net/ethernet/airoha/airoha_eth.c  | 161 +++++++++++++++++++++-
+ drivers/net/ethernet/airoha/airoha_eth.h  |   3 +
+ drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
+ 4 files changed, 176 insertions(+), 1 deletion(-)
 
-nit: I don't know if we wouldn't want extra parenthesis here for readability.
+diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
+index ad3ce501e7a5..38dcc76e5998 100644
+--- a/drivers/net/ethernet/airoha/Kconfig
++++ b/drivers/net/ethernet/airoha/Kconfig
+@@ -20,6 +20,7 @@ config NET_AIROHA
+ 	depends on NET_DSA || !NET_DSA
+ 	select NET_AIROHA_NPU
+ 	select PAGE_POOL
++	select PHYLINK
+ 	help
+ 	  This driver supports the gigabit ethernet MACs in the
+ 	  Airoha SoC family.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 5f1a118875fb..9a42fb991bd7 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -8,6 +8,7 @@
+ #include <linux/of_reserved_mem.h>
+ #include <linux/platform_device.h>
+ #include <linux/tcp.h>
++#include <linux/pcs/pcs.h>
+ #include <linux/u64_stats_sync.h>
+ #include <net/dst_metadata.h>
+ #include <net/page_pool/helpers.h>
+@@ -1810,6 +1811,14 @@ static int airoha_dev_open(struct net_device *netdev)
+ 	u32 cur_len, pse_port = FE_PSE_PORT_PPE1;
+ 	struct airoha_qdma *qdma = dev->qdma;
+ 
++	err = phylink_of_phy_connect(dev->phylink, netdev->dev.of_node, 0);
++	if (err) {
++		netdev_err(netdev, "could not attach PHY: %d\n", err);
++		return err;
++	}
++
++	phylink_start(dev->phylink);
++
+ 	netif_tx_start_all_queues(netdev);
+ 	err = airoha_set_vip_for_gdm_port(dev, true);
+ 	if (err)
+@@ -1907,6 +1916,9 @@ static int airoha_dev_stop(struct net_device *netdev)
+ 		}
+ 	}
+ 
++	phylink_stop(dev->phylink);
++	phylink_disconnect_phy(dev->phylink);
++
+ 	return 0;
+ }
+ 
+@@ -3168,6 +3180,151 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+ 	return false;
+ }
+ 
++/* Nothing to do in MAC, everything is handled in PCS */
++static void airoha_mac_config(struct phylink_config *config, unsigned int mode,
++			      const struct phylink_link_state *state)
++{
++}
++
++static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
++			       unsigned int mode, phy_interface_t interface,
++			       int speed, int duplex, bool tx_pause, bool rx_pause)
++{
++	struct airoha_gdm_dev *dev = container_of(config, struct airoha_gdm_dev,
++						  phylink_config);
++	struct airoha_gdm_port *port = dev->port;
++	struct airoha_eth *eth = dev->eth;
++	u32 frag_size_tx, frag_size_rx;
++	u32 mask, val;
++
++	/* TX/RX frag is configured only for GDM4 */
++	if (port->id != AIROHA_GDM4_IDX)
++		return;
++
++	switch (speed) {
++	case SPEED_10000:
++	case SPEED_5000:
++		frag_size_tx = 8;
++		frag_size_rx = 8;
++		break;
++	case SPEED_2500:
++		frag_size_tx = 2;
++		frag_size_rx = 1;
++		break;
++	default:
++		frag_size_tx = 1;
++		frag_size_rx = 0;
++	}
++
++	/* Configure TX/RX frag based on speed */
++	if (dev->nbq == 1) {
++		mask = GDMA4_SGMII1_TX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDMA4_SGMII1_TX_FRAG_SIZE_MASK,
++				 frag_size_tx);
++	}  else {
++		mask = GDMA4_SGMII0_TX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDMA4_SGMII0_TX_FRAG_SIZE_MASK,
++				 frag_size_tx);
++	}
++	airoha_fe_rmw(eth, REG_GDMA4_TMBI_FRAG, mask, val);
++
++	if (dev->nbq == 1) {
++		mask = GDMA4_SGMII1_RX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDMA4_SGMII1_RX_FRAG_SIZE_MASK,
++				 frag_size_rx);
++	} else {
++		mask = GDMA4_SGMII0_RX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDMA4_SGMII0_RX_FRAG_SIZE_MASK,
++				 frag_size_rx);
++	}
++	airoha_fe_rmw(eth, REG_GDMA4_RMBI_FRAG, mask, val);
++}
++
++/* Nothing to do in MAC, everything is handled in PCS */
++static void airoha_mac_link_down(struct phylink_config *config, unsigned int mode,
++				 phy_interface_t interface)
++{
++}
++
++static const struct phylink_mac_ops airoha_phylink_ops = {
++	.mac_config = airoha_mac_config,
++	.mac_link_up = airoha_mac_link_up,
++	.mac_link_down = airoha_mac_link_down,
++};
++
++static int airoha_fill_available_pcs(struct phylink_config *config,
++				     struct phylink_pcs **available_pcs,
++				     unsigned int num_possible_pcs)
++{
++	struct device *dev = config->dev;
++
++	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
++					num_possible_pcs);
++}
++
++static int airoha_setup_phylink(struct net_device *netdev)
++{
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++	struct device_node *np = netdev->dev.of_node;
++	struct airoha_gdm_port *port = dev->port;
++	struct phylink_config *config;
++	phy_interface_t phy_mode;
++	struct phylink *phylink;
++	int err;
++
++	err = of_get_phy_mode(np, &phy_mode);
++	if (err) {
++		dev_err(&netdev->dev, "incorrect phy-mode\n");
++		return err;
++	}
++
++	config = &dev->phylink_config;
++	config->dev = &netdev->dev;
++	config->type = PHYLINK_NETDEV;
++
++	/*
++	 * GDM1 only supports internal for Embedded Switch
++	 * and doesn't require a PCS.
++	 */
++	if (port->id == AIROHA_GDM1_IDX) {
++		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
++					   MAC_10000FD;
++
++		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
++			  config->supported_interfaces);
++	} else {
++		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
++					   MAC_10 | MAC_100 | MAC_1000 |
++					   MAC_2500FD | MAC_5000FD | MAC_10000FD;
++
++		config->num_possible_pcs = fwnode_phylink_pcs_count(dev_fwnode(&netdev->dev));
++		config->fill_available_pcs = airoha_fill_available_pcs;
++
++		__set_bit(PHY_INTERFACE_MODE_SGMII,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_10GBASER,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_USXGMII,
++			  config->supported_interfaces);
++
++		phy_interface_copy(config->pcs_interfaces,
++				   config->supported_interfaces);
++	}
++
++	phylink = phylink_create(config, of_fwnode_handle(np),
++				 phy_mode, &airoha_phylink_ops);
++	if (IS_ERR(phylink))
++		return PTR_ERR(phylink);
++
++	dev->phylink = phylink;
++
++	return 0;
++}
++
+ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 				   struct airoha_gdm_port *port,
+ 				   int nbq, struct device_node *np)
+@@ -3231,7 +3388,7 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 	dev->nbq = nbq;
+ 	port->devs[index] = dev;
+ 
+-	return 0;
++	return airoha_setup_phylink(netdev);
+ }
+ 
+ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+@@ -3457,6 +3614,7 @@ static int airoha_probe(struct platform_device *pdev)
+ 			netdev = netdev_from_priv(dev);
+ 			if (netdev->reg_state == NETREG_REGISTERED)
+ 				unregister_netdev(netdev);
++			phylink_destroy(dev->phylink);
+ 			of_node_put(netdev->dev.of_node);
+ 		}
+ 		airoha_metadata_dst_free(port);
+@@ -3493,6 +3651,7 @@ static void airoha_remove(struct platform_device *pdev)
+ 
+ 			netdev = netdev_from_priv(dev);
+ 			unregister_netdev(netdev);
++			phylink_destroy(dev->phylink);
+ 			of_node_put(netdev->dev.of_node);
+ 		}
+ 		airoha_metadata_dst_free(port);
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 46b1c31939de..f4488da42f81 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -554,6 +554,9 @@ struct airoha_gdm_dev {
+ 	int nbq;
+ 
+ 	struct airoha_hw_stats stats;
++
++	struct phylink *phylink;
++	struct phylink_config phylink_config;
+ };
+ 
+ struct airoha_gdm_port {
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 436f3c8779c1..27f2583e143a 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -358,6 +358,18 @@
+ #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
+ #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
+ 
++#define REG_GDMA4_TMBI_FRAG		0x2028
++#define GDMA4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
++#define GDMA4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
++#define GDMA4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
++#define GDMA4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
++
++#define REG_GDMA4_RMBI_FRAG		0x202c
++#define GDMA4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
++#define GDMA4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
++#define GDMA4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
++#define GDMA4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
++
+ #define REG_MC_VLAN_EN			0x2100
+ #define MC_VLAN_EN_MASK			BIT(0)
+ 
+-- 
+2.53.0
 
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
-> +	}
->  
-> -	if (fraglen % sizeof(*buf))
-> -		goto out;
-> -
-> -	hyp_spin_lock(&host_buffers.lock);
-> -	if (!host_buffers.tx)
-> -		goto out_unlock;
-> +	guard(hyp_spinlock)(&host_buffers.lock);
-> +	if (!host_buffers.tx) {
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
-> +	}
->  
->  	buf = hyp_buffers.tx;
->  	memcpy(buf, host_buffers.tx, fraglen);
-> @@ -444,19 +442,14 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
->  		 */
->  		ffa_mem_reclaim(res, handle_lo, handle_hi, 0);
->  		WARN_ON(res->a0 != FFA_SUCCESS);
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, ret);
-> +		return;
->  	}
->  
->  	ffa_mem_frag_tx(res, handle_lo, handle_hi, fraglen, endpoint_id);
->  	if (res->a0 != FFA_SUCCESS && res->a0 != FFA_MEM_FRAG_RX)
->  		WARN_ON(ffa_host_unshare_ranges(buf, nr_ranges));
->  
-> -out_unlock:
-> -	hyp_spin_unlock(&host_buffers.lock);
-> -out:
-> -	if (ret)
-> -		ffa_to_smccc_res(res, ret);
-> -
->  	/*
->  	 * If for any reason this did not succeed, we're in trouble as we have
->  	 * now lost the content of the previous fragments and we can't rollback
-> @@ -465,7 +458,6 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
->  	 * sharing/donating them again and may possibly lead to subsequent
->  	 * failures, but this will not compromise confidentiality.
->  	 */
-> -	return;
->  }
->  
->  static void __do_ffa_mem_xfer(const u64 func_id,
-> @@ -480,29 +472,29 @@ static void __do_ffa_mem_xfer(const u64 func_id,
->  	struct ffa_composite_mem_region *reg;
->  	struct ffa_mem_region *buf;
->  	u32 offset, nr_ranges, checked_offset;
-> -	int ret = 0;
-> +	int ret;
->  
->  	if (addr_mbz || npages_mbz || fraglen > len ||
->  	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
->  	if (fraglen < sizeof(struct ffa_mem_region) +
->  		      sizeof(struct ffa_mem_region_attributes)) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
-> -	hyp_spin_lock(&host_buffers.lock);
-> +	guard(hyp_spinlock)(&host_buffers.lock);
->  	if (!host_buffers.tx) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
->  	if (len > ffa_desc_buf.len) {
-> -		ret = FFA_RET_NO_MEMORY;
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, FFA_RET_NO_MEMORY);
-> +		return;
->  	}
->  
->  	buf = hyp_buffers.tx;
-> @@ -512,53 +504,41 @@ static void __do_ffa_mem_xfer(const u64 func_id,
->  			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
->  	offset = ep_mem_access->composite_off;
->  	if (!offset || buf->ep_count != 1 || buf->sender_id != HOST_FFA_ID) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
->  	if (check_add_overflow(offset, sizeof(struct ffa_composite_mem_region), &checked_offset)) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
->  	if (fraglen < checked_offset) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
->  	reg = (void *)buf + offset;
->  	nr_ranges = ((void *)buf + fraglen) - (void *)reg->constituents;
->  	if (nr_ranges % sizeof(reg->constituents[0])) {
-> -		ret = FFA_RET_INVALID_PARAMETERS;
-> -		goto out_unlock;
-> +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
->  	}
->  
->  	nr_ranges /= sizeof(reg->constituents[0]);
->  	ret = ffa_host_share_ranges(reg->constituents, nr_ranges);
-> -	if (ret)
-> -		goto out_unlock;
-> +	if (ret) {
-> +		ffa_to_smccc_res(res, ret);
-> +		return;
-> +	}
->  
->  	ffa_mem_xfer(res, func_id, len, fraglen);
->  	if (fraglen != len) {
-> -		if (res->a0 != FFA_MEM_FRAG_RX)
-> -			goto err_unshare;
-> -
-> -		if (res->a3 != fraglen)
-> -			goto err_unshare;
-> +		if (res->a0 != FFA_MEM_FRAG_RX || res->a3 != fraglen)
-> +			WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
->  	} else if (res->a0 != FFA_SUCCESS) {
-> -		goto err_unshare;
-> +		WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
-
-I am not sure this is really better for this function. At least we had a single
-callsite to this WARN_ON(ffa_host_unshare_ranges) ... 
-
-Or alternatively if we really want guard() this can just set ret = XXX and then
-
-  if (ret)
-      WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
-
-So we can keep a single call site for the rollback.
-
->  	}
-> -
-> -out_unlock:
-> -	hyp_spin_unlock(&host_buffers.lock);
-> -out:
-> -	if (ret)
-> -		ffa_to_smccc_res(res, ret);
-> -	return;
-> -
-> -err_unshare:
-> -	WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
-> -	goto out_unlock;
->  }
->  
-
-[...]
-
->  int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
-> @@ -996,22 +975,19 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
->  	struct kvm *host_kvm;
->  	unsigned int idx;
->  	size_t vm_size;
-> -	int err;
->  
-> -	hyp_spin_lock(&vm_table_lock);
-> -	hyp_vm = get_pkvm_unref_hyp_vm_locked(handle);
-> -	if (!hyp_vm || !hyp_vm->kvm.arch.pkvm.is_dying) {
-> -		err = -EINVAL;
-> -		goto err_unlock;
-> +	scoped_guard(hyp_spinlock, &vm_table_lock) {
-> +		hyp_vm = get_pkvm_unref_hyp_vm_locked(handle);
-> +		if (!hyp_vm || !hyp_vm->kvm.arch.pkvm.is_dying)
-> +			return -EINVAL;
-> +
-> +		host_kvm = hyp_vm->host_kvm;
-> +
-> +		/* Ensure the VMID is clean before it can be reallocated */
-> +		__kvm_tlb_flush_vmid(&hyp_vm->kvm.arch.mmu);
-> +		remove_vm_table_entry(handle);
->  	}
->  
-> -	host_kvm = hyp_vm->host_kvm;
-> -
-> -	/* Ensure the VMID is clean before it can be reallocated */
-> -	__kvm_tlb_flush_vmid(&hyp_vm->kvm.arch.mmu);
-> -	remove_vm_table_entry(handle);
-> -	hyp_spin_unlock(&vm_table_lock);
-> -
->  	/* Reclaim guest pages (including page-table pages) */
->  	mc = &host_kvm->arch.pkvm.teardown_mc;
->  	stage2_mc = &host_kvm->arch.pkvm.stage2_teardown_mc;
-> @@ -1042,10 +1018,6 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
->  	teardown_donated_memory(mc, hyp_vm, vm_size);
->  	hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
->  	return 0;
-> -
-> -err_unlock:
-> -	hyp_spin_unlock(&vm_table_lock);
-> -	return err;
-
-For this one too I doubt this is really interesting: only one path using
-err_unlock and actually the entire label could be just removed to to simply do
-hyp_spin_unlock() return -EINVAL;
-
-This would avoid adding another tab with that scoped_guard(). But that's
-probably my aversion to scoped_guard() talking.
-
->  }
->  
->  static u64 __pkvm_memshare_page_req(struct kvm_vcpu *vcpu, u64 ipa)
-> -- 
-> 2.54.0.1136.gdb2ca164c4-goog
-> 
 
