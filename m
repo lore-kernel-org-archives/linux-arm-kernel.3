@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E080CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 01:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E176BCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 02:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kz05lYEyjFjnktT+6S1us+ltCO2TiGsdkOtvqOdZl1g=; b=LOShSaRaBXYrvL5mGNcQxdiuwv
-	808FgCs7i9vhUzySp3luGmvvUNyLB942/p872nbvXpDG+wvOm512Pp6AzC4VE8pVqxNSb71kTPFKW
-	eQep2YxmMAnOsCyQ8Q64iMtFyqUyYmzt6oBoSnikW93RwzC1uRdDtwVwlUBm2TdHFLqOzUUxPU67t
-	Q+F/DPes0KIW6TVpb5JX7ahluH2xIXK5DhZQDVRlzfKWhtwoQx70HUL28qZI83aaNqpWkro5hSFyx
-	1BUBGqOxkNf26ccaDZ+UWmUGmTRARoamC9wuy7FJjQWInOe/K46kvDZCQY0JePrSTPojHg8PzrwbN
-	cjXq27Zg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o3rDzIyX9EGEvpAW8JBy9oTRoctIAdKVB6E8maTJu8I=; b=fr1kZxChtt1WxAuZt1gdp/Ki4A
+	8m5832kw1qezr6xxr3+ZrLIAA0tkR2caH/hH/dgjmW9zOKyPIf3ZEvhhiasLLyy0XvHUVZebVcXn2
+	QDmx2iqvZB5w8DNsZ/z7A0kLozAUptXUsgataL5/Jm9Lw9yPHDmIjltY4Xq5oYuL5zOILs/l+Tx9R
+	aKwWTYbM+inNCrgpzIrj1xePZPit7YaoGalevi3l1aU+GYfu0ffzU1DkOTEduTUu/G/eF59E3gOUQ
+	bl9gJKqbGZbALKAWw/Ltd/GRh8EnGJdowJAlMv2RHwL4NwcvhtQhNpGzf+RZ9JlJSsQ7FNpX863ix
+	Y5XgMQjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYwDv-0000000DRc2-3iiA;
-	Mon, 15 Jun 2026 01:34:47 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1wYwzq-0000000DSqa-41FT;
+	Mon, 15 Jun 2026 02:24:18 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYwDs-0000000DRYl-22vm;
-	Mon, 15 Jun 2026 01:34:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781487284; x=1813023284;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=MpYEDOHdbTAI71oTaLKeSfNxXMHemeREX88StmVjphs=;
-  b=Cg70LO2Fv/tNvS77fQxaoH1qr9yqcsu+L0ynSnnJ3JVwD8AZvsutU15M
-   7jy5BPSsE96TAN5Gk/pydb7ZYBWv+G8nhjloDR6CbKIdRAIEoGjyGn1+o
-   5LCzXaccG1bXxoUVYAxGy4XyOsL4/4MVkBcSyhPJQ5gTFB7u2pkyz06X6
-   A3ZJpNP4jbQq7NACHEprVMF8uSozBGxvfydkJ7gjr8xZXj4UfRz5JoBLO
-   mQgtERNg+71FVpjISfgWywV+9/mncglfRhdaFegB3dedaqcXNo7QFG0Vd
-   b+BN+sKgMQjpNObRqeZ+h9vci/N+m1f4vVbB2y55E0IwIMKGy+jA7l0Y2
-   g==;
-X-CSE-ConnectionGUID: TWxxtG5rRIGWNgsZwKgYnA==
-X-CSE-MsgGUID: 0YWaGX2wTGi4R8hMdVFyOg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11817"; a="85856949"
-X-IronPort-AV: E=Sophos;i="6.24,205,1774335600"; 
-   d="scan'208";a="85856949"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2026 18:32:43 -0700
-X-CSE-ConnectionGUID: Unr3KdDWQH+p0wyNepRQzw==
-X-CSE-MsgGUID: xGxiuwS+QnWQXTNPauITRA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,205,1774335600"; 
-   d="scan'208";a="271411996"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.241.147]) ([10.124.241.147])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2026 18:32:39 -0700
-Message-ID: <0b6d58d5-f802-47dc-ae71-31c45184b738@linux.intel.com>
-Date: Mon, 15 Jun 2026 09:32:36 +0800
+	id 1wYwzm-0000000DSqC-23OT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 02:24:18 +0000
+X-UUID: 47a1607c686111f1aa26b74ffac11d73-20260615
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:e1552935-6f59-4bcc-a7e4-99180aafc320,IP:0,U
+	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:b1ba9f2ad82067ddd6b55510a336ea90,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
+	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 47a1607c686111f1aa26b74ffac11d73-20260615
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 26860886; Mon, 15 Jun 2026 10:24:04 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org,
+	arnd@arndb.de
+Cc: dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>
+Subject: [PATCH v2] dmaengine: sun6i-dma: Fix use-after-free in error handling paths
+Date: Mon, 15 Jun 2026 10:23:59 +0800
+Message-Id: <20260615022400.13454-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/6] perf vendor events intel: update
-To: Chun-Tse Shao <ctshao@google.com>, peterz@infradead.org,
- mingo@redhat.com, acme@kernel.org, namhyung@kernel.org
-Cc: alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, james.clark@linaro.org, afaerber@suse.de,
- mani@kernel.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-actions@lists.infradead.org
-References: <20260609215046.2391903-1-ctshao@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20260609215046.2391903-1-ctshao@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_183444_570066_EC8C1440 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260614_192414_887056_1509AF61 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +83,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LGTM. Thanks.
+In error handling paths, the for loop frees v_lli in the loop body,
+then accesses v_lli->v_lli_next and v_lli->p_lli_next in the
+increment expression, which is use-after-free.
 
-Reviewed-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Fix by saving both the next virtual and physical pointers before
+freeing the current node.
 
-On 6/10/2026 5:50 AM, Chun-Tse Shao wrote:
-> Sync with the latest perfmon events from:
-> https://github.com/intel/perfmon
-> by running the script:
-> https://github.com/intel/perfmon/blob/main/scripts/create_perf_json.py
-> and copying the resulting json and mapfile.csv changes into the perf
-> tree.
->
-> Chun-Tse Shao (6):
->   perf vendor events intel: Update arrowlake events from 1.17 to 1.19
->   perf vendor events intel: Update emeraldrapids events from 1.23 to
->     1.24
->   perf vendor events intel: Update graniterapids events from 1.18 to
->     1.19
->   perf vendor events intel: Update lunarlake events from 1.22 to 1.25
->   perf vendor events intel: Update pantherlake events from 1.05 to 1.06
->   perf vendor events intel: Update tigerlake events from 1.18 to 1.19
->
->  .../pmu-events/arch/x86/arrowlake/cache.json  |  30 ++-
->  .../arch/x86/arrowlake/floating-point.json    |  45 ++++
->  .../pmu-events/arch/x86/arrowlake/memory.json |  18 ++
->  .../arch/x86/arrowlake/pipeline.json          | 129 +++++++++-
->  .../arch/x86/emeraldrapids/cache.json         |   9 +
->  .../graniterapids/uncore-interconnect.json    |  10 +
->  .../arch/x86/graniterapids/uncore-memory.json |   2 +-
->  .../pmu-events/arch/x86/lunarlake/cache.json  |   2 +-
->  .../arch/x86/lunarlake/pipeline.json          |  27 ++-
->  .../arch/x86/lunarlake/uncore-memory.json     | 208 ++++++++++++++++-
->  tools/perf/pmu-events/arch/x86/mapfile.csv    |  12 +-
->  .../arch/x86/pantherlake/counter.json         |   5 +
->  .../arch/x86/pantherlake/pipeline.json        |  29 ++-
->  .../x86/pantherlake/uncore-interconnect.json  |  10 +
->  .../arch/x86/pantherlake/uncore-memory.json   | 221 +++++++++++++++++-
->  15 files changed, 728 insertions(+), 29 deletions(-)
->  create mode 100644 tools/perf/pmu-events/arch/x86/pantherlake/uncore-interconnect.json
->
+Fixes: 555859308723 ("dmaengine: Add driver for Allwinner sun6i DMA")
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+---
+Changes in v2:
+ -Refactored the fix to avoid code duplication by creating a helper function
+  sun6i_dma_free_lli_list() that handles LLI list cleanup
+ -Add Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ drivers/dma/sun6i-dma.c | 26 ++++++++++++++------------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index a9a254dbf8cb..02dd07001d5a 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -406,16 +406,12 @@ static inline void sun6i_dma_dump_lli(struct sun6i_vchan *vchan,
+ 		v_lli->len, v_lli->para, v_lli->p_lli_next);
+ }
+ 
+-static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
++static void sun6i_dma_free_lli_list(struct sun6i_dma_dev *sdev,
++					struct sun6i_desc *txd)
+ {
+-	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
+-	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
+ 	struct sun6i_dma_lli *v_lli, *v_next;
+ 	dma_addr_t p_lli, p_next;
+ 
+-	if (unlikely(!txd))
+-		return;
+-
+ 	p_lli = txd->p_lli;
+ 	v_lli = txd->v_lli;
+ 
+@@ -428,7 +424,17 @@ static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
+ 		v_lli = v_next;
+ 		p_lli = p_next;
+ 	}
++}
+ 
++static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
++{
++	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
++	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
++
++	if (unlikely(!txd))
++		return;
++
++	sun6i_dma_free_lli_list(sdev, txd);
+ 	kfree(txd);
+ }
+ 
+@@ -788,9 +794,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
+ 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
+ 
+ err_lli_free:
+-	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
+-	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
+-		dma_pool_free(sdev->pool, v_lli, p_lli);
++	sun6i_dma_free_lli_list(sdev, txd);
+ 	kfree(txd);
+ 	return NULL;
+ }
+@@ -869,9 +873,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
+ 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
+ 
+ err_lli_free:
+-	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
+-	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
+-		dma_pool_free(sdev->pool, v_lli, p_lli);
++	sun6i_dma_free_lli_list(sdev, txd);
+ 	kfree(txd);
+ 	return NULL;
+ }
+-- 
+2.25.1
+
 
