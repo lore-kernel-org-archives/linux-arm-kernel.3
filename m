@@ -4,99 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13ACCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 03:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DE1CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 03:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=; b=wFryU44dA2aGDyJvTNAzJgVMUJ
-	TpLEISYmnPJfQYNdkr3SMb34T5CgZTzyT9Ej6SD2uaNBFr/pX5hTTM2xgxrymORyF/k3iQFcHDdLx
-	w1R2TcihshggbraSBAp8mXDSesHR31aCWVOAGle2OMNwvalosIKa9bU1KO4OE5sKBYrji5TS6voDn
-	g/g8bQmpJH5jvyFScF+mSX/64Gh4IUVbzxmmFip99PO5bV/bklP21D39UY8I6uS3otXA3wHLdOnNQ
-	CBQghWSOsnDJVrvp8cjSW2LDRfnh0Mows4bQC0deLbXWuFFEbcHgBGFvpB8wqgx/I3uD63QqlebDE
-	83xC+lXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/IuEXB7+JOgSdlRzNmiaRvDiC4vPu2vJjQAolXDYLrA=; b=FyUscmg1CEs+Cm7/Jngi5GcLHD
+	dVi55Rik033/D8BfL3X2Gys+LBSP0I0MK3Utv1IHm+G9TUQqqPxpFdpsJclMfjoogyeexQCKIJZCk
+	3L3oxrmrfwimp/1siI56NQnLfC8PbYxp7qftKUN6G2qctbJZfx8eOO/Azi7I3+X47jX8W9u//NIaJ
+	OHD9wku8o7hBzneJz1yjhQT0C5X9YKcbxCCikYlR/O3b39GcqTWfftIB+PNJ9Ya4Vzh+2wrx9rPgD
+	sC1R257uR32v+0ZdyiQ2y4cRxDvHrzBoxe3cARIeEc38iLvnnHjD0k05ArrcE8kZUm42v9TMKVwHE
+	BqP2JGlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYy5J-0000000DWkn-3Ou8;
-	Mon, 15 Jun 2026 03:34:01 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1wYyJw-0000000DXS5-19XI;
+	Mon, 15 Jun 2026 03:49:08 +0000
+Received: from mail-centralusazon11010007.outbound.protection.outlook.com ([52.101.61.7] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYy5G-0000000DWjO-2P5S
+	id 1wYyJu-0000000DXR4-1FxC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 03:34:00 +0000
-Received: by mail-pg1-x544.google.com with SMTP id 41be03b00d2f7-c85b2139015so750309a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 20:33:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781494437; x=1782099237; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=;
-        b=cPTzYIHdKjqkZupaBHV1pLHoJKoGfWGZ//Js7rf7j0h3gwPUJxTgFGGVLruyHWbSEa
-         GD02hgNomiq/99S1jftY0PRDG1yMoPjvX0oHA+0WSnvxQIvxGLkSXtTXCoIVcE/VTBsW
-         OpA5ytTySBG9pakfLL4E7yf3FBVJzk8GYvZp/dCap9twnSD+Hai637X7aP0uzm29cYWp
-         OROavm2CpoOyAHsSK1S4Bk4zuXLs33DAPCYtup1dciX86cXV97ogDOUzWciFoLAqB9Fk
-         z/gHTou0vodja2hAtBNCQyQrQT1/o5QeZWlwPunj6ZITrbO5B465jGXHOUuPf3ll+s57
-         RQjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781494437; x=1782099237;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=;
-        b=LCWkVJFdVGuzBO4J0tkw/YignGRoDI750gQQwiaUkDZSlKLE9AYK2sBZ0mDs0NgZK7
-         bhq/ARmYBk3toTXpWiQML0q9MEJmpw9FhBh88/qf/pe4Ed38Xy7UPX2ApdoHX+gU43b+
-         2/kGXlL8ZuCXyKZAh/EtthrgQzl6v+/4V2lQT87MFtzrwFEGINTky1Ark+0FQYXmVw1I
-         Wcps/XcNy+0F30k4dFXoA0zIAx3a4R3iVZKsdn+E7U2+pgdPmz1+koyIZOBIwFzSBoGi
-         QM/hMsV7jUVynZGKNFEMJMqKuiJNaP1TQoETs1VX9sxEamo0qGhCEmvTAJvnEBFjY/rT
-         0QWA==
-X-Gm-Message-State: AOJu0YzGTpLraZwMo+bT8LZ1ZxiGNPbWVv019su914nLFC3+BFTmozEh
-	F7CnSc+OZUauS3SMM1O2e4/zt/a1i8p1jiiaZ6F41SI6ftqL4/scWhmc
-X-Gm-Gg: Acq92OHQGvuLSpDUSz8VZxnxBu3wH7YD/zXrkX7r/ygiZcZKxXgm/w5M7A/mUfWO/wl
-	tMaveMTITGP+rFd8SxuRC9+1e2XwPyR8ntDrAEWJt4rL+hBUegL+XuGcFM4G+0Ug6Yy5b047YMW
-	AN9Ahbimlzd0JZgZAJEo8r5Dt2LyJJMYN2lkIkG/U7pTg9HZsFb0FQuv7lxLbUPGtYuS0kFwURz
-	fAYFqoxSv8qsGqcjzsOb4uTkcK4KzsQJJAJwp24/25veoO3iTqoKJNQWi6Q938eyr+8q2d7eum9
-	xneM2s71k95CvEu6UXzjIXSACy6mhsnGfgdq06jDWDUcrQwUZXbZGt/qZeeuUwBCq5KRjDAa6y3
-	R+4D5nPewX4MzKMeFHtO41Iq6bc9Heq1bBnQQy57rELCJ3fyHQlH2ZRd3wUYBvOKF3r/9ewrd1C
-	VKhSX8o7TbjEw3dRhqaxeRRFSvuqnydHR/xcC+3TN/tA==
-X-Received: by 2002:a05:6a21:6813:b0:3a2:d629:16a2 with SMTP id adf61e73a8af0-3b783b757e9mr14493609637.10.1781494436758;
-        Sun, 14 Jun 2026 20:33:56 -0700 (PDT)
-Received: from [10.125.112.20] ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b035ce6sm8650381b3a.49.2026.06.14.20.33.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 14 Jun 2026 20:33:56 -0700 (PDT)
-Message-ID: <894d7c33-8e14-4ba5-b774-14062ece39f2@gmail.com>
-Date: Mon, 15 Jun 2026 11:33:34 +0800
+	Mon, 15 Jun 2026 03:49:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jDlzA7eEQAQix7Yk8eD8L+oq0k8mVDSxwBmsPbHU3uPRPvmDmSJgna2fbNhpX+skZS+fSs7/zBi/oXIDvcaGuC65xr1pd1vymThokpk6w56CxVLwzb9xyLkaD8wEfdyci0elqzRZJxj1u0WbjQtLEHAPF6V8paM3M1ZtdF+qR+sQB4WIZz6hZUmd+QHGONeUYrm4oCSkN2R3Z5R+GF+2arR8XDBlHwe0L7TrzMfYUwBH65LkVMEn4KENEtWpwxIMTbyhX9KesDjb6vAQzxjNxvEt1WXir9pfDKgh930kMS/ME0OhRufolxc8iPPhdhQX6VNVd/cM93eiOaJ7/quoSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/IuEXB7+JOgSdlRzNmiaRvDiC4vPu2vJjQAolXDYLrA=;
+ b=hos+AqSVKrdKNAV856qwEW1pi9qfPRpjjFbEQ9s4zXCoTP2fydG1trYF1J2bEwl2dDlqEbYyeqFuIl6Wos3XV+WDdjySem8oi/pZENEE6OT39XvN07yHd0WLMaaJDveS62yx+aZbGJBqBuk1qcweEEruERBrOWNrLSo7S0TViJg0LsFhGtqBl/2oU5f/y3u7NoK/bYb2yPfqhMT9iTBCLMB2ZYVdQL1J6kM7yIlRpGVJ/9RowEI4xTD9D0DerwVbDozmzdi07IR1HgABESN2TT6/LYM4frOhrrWjdZKx5RGhebs3uGwISPKuY6MPzxhp4yN2t9YFhmG4kstrxXSXKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/IuEXB7+JOgSdlRzNmiaRvDiC4vPu2vJjQAolXDYLrA=;
+ b=0pnSjQFdZh/1hM0s89lMHpplaHbR5ThdZnX2uC2YwTYJKyVBOjeYzjmHfQrMob+AnIAs7Uwp6S/R84Q3lNqwzG8kPaJcU9TZKsva+zWbM7KRTsbsDmXoK4YagAIWpc0VYQ8sq4qX51wXK8K0HI/NzL+jdjJr5jo3ARKsag9F/dc=
+Received: from SA0PR13CA0024.namprd13.prod.outlook.com (2603:10b6:806:130::29)
+ by IA0PR12MB8423.namprd12.prod.outlook.com (2603:10b6:208:3dc::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
+ 2026 03:48:59 +0000
+Received: from SN1PEPF000397B5.namprd05.prod.outlook.com
+ (2603:10b6:806:130:cafe::95) by SA0PR13CA0024.outlook.office365.com
+ (2603:10b6:806:130::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.11 via Frontend Transport; Mon,
+ 15 Jun 2026 03:48:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SN1PEPF000397B5.mail.protection.outlook.com (10.167.248.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.8 via Frontend Transport; Mon, 15 Jun 2026 03:48:58 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Sun, 14 Jun
+ 2026 22:48:57 -0500
+Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Sun, 14 Jun 2026 22:48:54 -0500
+From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+To: <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <git@amd.com>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michal Simek
+	<michal.simek@amd.com>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH 2/8] dt-bindings: clock: clocking-wizard: Make reg optional for static-config
+Date: Mon, 15 Jun 2026 09:18:39 +0530
+Message-ID: <20260615034845.3320286-3-shubhrajyoti.datta@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260615034845.3320286-1-shubhrajyoti.datta@amd.com>
+References: <20260615034845.3320286-1-shubhrajyoti.datta@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/11] of: reserved_mem: split
- alloc_reserved_mem_array() from fdt_scan_reserved_mem_late()
-To: Rob Herring <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org,
- iommu@lists.linux.dev, zhaomeijing@lixiang.com, catalin.marinas@arm.com,
- will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- saravanak@kernel.org, akpm@linux-foundation.org, bhe@redhat.com,
- rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- ruirui.yang@linux.dev, m.szyprowski@samsung.com, robin.murphy@arm.com,
- quic_obabatun@quicinc.com
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <20260527032917.3385849-6-chenwandun1@gmail.com>
- <20260612144122.GA974326-robh@kernel.org>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <20260612144122.GA974326-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397B5:EE_|IA0PR12MB8423:EE_
+X-MS-Office365-Filtering-Correlation-Id: e63948b8-a6ec-4d3b-c034-08deca910826
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|36860700016|376014|82310400026|5023799004|11063799006|56012099006|6133799003|3023799007|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: MHQoXDh/XVaEIvRSo10oUheQM8HH2FKTHJpThgSEuvBI++12PHtEvti/BIiLQXUT9NU0RL82s+YmDbfEpAo8U0IX9xGqOllAD4mVJIhrTRsAGxyfREwM2JvsNdqUMj9+NZuJs45cBHVpBBobydWwkGNigUgywecwqqEnhTWuQ3S8o2kQGTOjoh0zpwqdtzewz250+UJJfF0q8wJwoLSSuhBw1mISaCrdXaCL3w5jeqyUskR6nOX1+m+Bvt+jY7skgHf5XZck20T6ajdPba6VsF9nMu6DAN6JgrB+zUkjbq8Rg7RwgfuCy2zkW8/wT92geVlbdfwwKsVs/PFOWeg5yrvZzVqtlITLbDKmkxhP5YZxQGwO85BUUV4oXyRZv4CP4R3QDIxdJ2kB9WKHL6Tk5mplMWJPexvnSKOlt0LwDuvbVVpxk7ComhonWoMBCpAUI8cqtnBabuWJhrPG3e3VbYL4o1MnwPqRHlAxAJEZVdJGH9A6piamp/WFjc4IaH5RK8erpUAGwkw0w4VK3RhLnb71Bo2lLo210nO/KX6MlneX+kVj+V6NvtrNEi9e4PoGyuSLs15jn1WhljV/dTzzP6r/D+McxRXIeF+lOaLYN2B4/EbPP45Db+Bhj03RcPIyIcyPnt3QGYSYtKURNCa0R9+liNvOoLDBfFlHyL17qxxpuxG9/yA1QI7mAXzsYQxsuEr6SuEd241SfePfQOnNWgpCn5kMw/hCpls1POlBHos=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(36860700016)(376014)(82310400026)(5023799004)(11063799006)(56012099006)(6133799003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /qiBVBPQ5fcr9uQJlIKIpD2hs7Rx0PjA7XXBV7Fcz3/31k4aRTTzUyTEDNAIwju6Yy///Yo6rXQqXGN6mtVFA3drTSXNGNgHtXUpbXSMS50+eoQ5EvEnBV8EfJy8UDM6kzVvtdSjkGo1tB+aou7NxdcaKMINOfN2xrxp9foylpQd4rbt3bt7HqYwV6WBZElSCVnnfY+0wrqfYh2a9zNyiXk1SDxk+CMt0NkCfjrns1Otvif8yfBQrqRX7iwGvKY9jivT3bR6rJD2Al9RMufi0sA4cnII+EB3vTmVH2Fr/Z6q2AKcphdFpEMaa8eRo8wUeOgV0DQw9OAPiUb2PftSs4nn6PMfb66d/D+Mn/gxDTAoJKkwp/Aq2HipiVbSs0Y/Ezdvuc41z2Pp3jdiSSCPvNSppNtZV271wpwGQPcSc+6mjAVCiw+IYOlOaBv++tF6
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 03:48:58.8671
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e63948b8-a6ec-4d3b-c034-08deca910826
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B5.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8423
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_203358_626173_C602A39D 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20260614_204906_344438_10C5A1D5 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,91 +123,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In static-config mode the IP exposes only fixed-factor clock outputs and
+has no runtime-programmable registers, so reg is not required.
 
+Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+---
 
-On 6/12/26 22:41, Rob Herring wrote:
-> On Wed, May 27, 2026 at 11:29:11AM +0800, Wandun Chen wrote:
->> From: Wandun Chen <chenwandun@lixiang.com>
->>
->> Prepare for storing /memreserve/ entries in the reserved_mem array.
->> alloc_reserved_mem_array is skipped if the device tree lacks a
->> /reserved-memory node, pointer 'reserved_mem' continues to reference
->> the reserved_mem_array which lives in __initdata, storing
->> /memreserve/ entries into reserved_mem_array would result in metadata
->> loss, and an out-of-bounds memory access will occur if the device
->> tree contains more than MAX_RESERVED_REGIONS /memreserve/ entries.
->>
->> So split alloc_reserved_mem_array() from fdt_scan_reserved_mem_late(),
->> and call alloc_reserved_mem_array() whether or not there is a
->> /reserved-memory node.
->>
->> No functional change.
->> The actual /memreserve/ population is added in a follow-up patch.
->>
->> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
->> ---
->>  drivers/of/fdt.c             | 7 +++++--
->>  drivers/of/of_private.h      | 1 +
->>  drivers/of/of_reserved_mem.c | 6 +-----
->>  3 files changed, 7 insertions(+), 7 deletions(-)
->>
->> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
->> index 82f7327c59ea..83a2a474831e 100644
->> --- a/drivers/of/fdt.c
->> +++ b/drivers/of/fdt.c
->> @@ -1284,8 +1284,11 @@ void __init unflatten_device_tree(void)
->>  {
->>  	void *fdt = initial_boot_params;
->>  
->> -	/* Save the statically-placed regions in the reserved_mem array */
->> -	fdt_scan_reserved_mem_late();
->> +	/* Attempt dynamic allocation of a new reserved_mem array */
->> +	if (fdt && alloc_reserved_mem_array()) {
->> +		/* Save the statically-placed regions in the reserved_mem array */
->> +		fdt_scan_reserved_mem_late();
-> 
-> Can we make this just:
-> 
-> alloc_reserved_mem_array();
-> fdt_scan_reserved_mem_late();
-> 
-> We already check !fdt in fdt_scan_reserved_mem_late().
+ .../bindings/clock/xlnx,clocking-wizard.yaml  | 22 ++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
-Thanks for you review, Rob.
-
-The reason I kept the fdt check is that total_reserved_mem_cnt is wrong
-when fdt is NULL, early_init_fdt_scan_reserved_mem() returns early in
-that case, so fdt_scan_reserved_mem() never runs, and
-total_reserved_mem_cnt stays at MAX_RESERVED_REGIONS. Calling
-alloc_reserved_mem_array() unconditionally would allocate unnecessarily
-memory.
-
-A better fix might be to make total_reserved_mem_cnt always correct, add
-a !fdt check at the top of fdt_scan_reserved_mem() that sets
-total_reserved_mem_cnt to 0, and let early_init_fdt_scan_reserved_mem()
-call it even when initial_boot_params is NULL. Then
-alloc_reserved_mem_array() could naturally skip allcation when that
-count is 0, and we can drop the outer fdt guard.
-
-
-There is still separate UAF issue (fixed in patch3) if we don't check
-the return value of alloc_reserved_mem_array().
-
-
-With the fdt_scan_reserved_mem() fix for total_reserved_mem_cnt, the
-call site in unflatten_device_tree() becomes:
-
-if (alloc_reserved_mem_array()) {
-        fdt_scan_reserved_mem_late();
-}
-
-How does that sound?
-
-
-Best regards,
-Wandun
-
-> 
-> Rob
+diff --git a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+index 8316654b0a91..aa397550d107 100644
+--- a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
++++ b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+@@ -74,7 +74,6 @@ properties:
+ 
+ required:
+   - compatible
+-  - reg
+   - "#clock-cells"
+   - clocks
+   - clock-names
+@@ -88,20 +87,33 @@ allOf:
+     then:
+       required:
+         - xlnx,clk-mul-div
++    else:
++      required:
++        - reg
+ 
+ additionalProperties: false
+ 
+ examples:
+   - |
+-    clock-controller@b0000000  {
++    clock-controller@b0000000 {
+         compatible = "xlnx,clocking-wizard";
+         reg = <0xb0000000 0x10000>;
+         #clock-cells = <1>;
+-        xlnx,static-config;
++        clocks = <&clkc 15>, <&clkc 18>;
++        clock-names = "clk_in1", "s_axi_aclk";
++        xlnx,nr-outputs = <6>;
+         xlnx,speed-grade = <1>;
++    };
++
++  - |
++    clock-controller {
++        compatible = "xlnx,clocking-wizard";
++        #clock-cells = <1>;
++        clocks = <&clkc 15>, <&clkc 18>;
++        clock-names = "clk_in1", "s_axi_aclk";
+         xlnx,nr-outputs = <6>;
++        xlnx,speed-grade = <1>;
++        xlnx,static-config;
+         xlnx,clk-mul-div = <12 1>, <10 2>, <8 1>, <6 1>, <4 2>, <2 1>;
+-        clock-names = "clk_in1", "s_axi_aclk";
+-        clocks = <&clkc 15>, <&clkc 15>;
+     };
+ ...
+-- 
+2.49.1
 
 
