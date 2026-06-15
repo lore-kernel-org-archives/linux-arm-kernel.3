@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0506CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 03:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4197BCD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 03:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yijyBRpjslnrDi7AKjJ3k1O7frzZhCKrmEpUjAK0Qqk=; b=wOIyug01WfqNIHRl4nWSWAxaXo
-	+0srmZHByXHVIDwuzDuGyidfrdiSMyAAAsUhcFZp0tRAt+W2Qsa+pkEvN8/6w8PTI/QsOP1Q1Fyo4
-	3PUCVm/xcl50Dy+oLphXDt+HQJE6LDpmQ9R2ojFFBBMrX/MYp/FBEzulNoxLXAqi6bm5DkEI0c8UB
-	4v2OVFPxNN3fSuWfhvaIFjraa1qvnvo03bBYenLBurtjpQObkW/+HE12+wDoffbo42mJM4i8qXrt1
-	vasYffGgp2A+jpJGsW+A3yJ/WsUssTUtNIHh57pKO8Aoatjn7ysHnbWZ7+64FurLedp4OMKiVOauw
-	VpxGvHYQ==;
+	bh=NPlpzV16ohp60gt95O9uiNMAJVKjzKTQ8vb5nhCqCCY=; b=pfEPPDkymOt6nWgIuBCyLzUtFr
+	xmWe6EAiX5TGcowBT/QIwDDmRHNGQ+ii9AAGI76fhBhavaXs5B4k6duFyg4aLm6eVMdjFhiVNpA+r
+	0MaDGuM5PYD5lNJIkwpw2MKx13MBr98W+EJJ7WsElq9I4+P56xnkAG/PIj8VBw7Cu2FgXOg7LPfdK
+	GGorRH5Co2CjnoVeztXx2UECtsbOSvHm9uoU/Z/HUGoCEeY+l2RPBs7b5dV4IF8lstzCRYv0AeHii
+	URugeAP0NaVmZTB7r9DRdAB814p5FHeSOgoMbtMWQQKGm5U/Lhk3votfK99Cuva/Fn9IQ9hU4clSg
+	1xfXYHZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYy1F-0000000DWBJ-0WIz;
-	Mon, 15 Jun 2026 03:29:49 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYy1C-0000000DW7n-1tjm
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wYy1E-0000000DWAl-3vcc;
 	Mon, 15 Jun 2026 03:29:48 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gdwZg6b1vzKHMWl
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 11:28:59 +0800 (CST)
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wYy1B-0000000DW75-2xg3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 03:29:47 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gdwZz1T0BzYQttx
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 11:29:15 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 756CE4064C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 11:29:44 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id A1E764058C
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 11:29:41 +0800 (CST)
 Received: from huaweicloud.com (unknown [10.166.163.161])
-	by APP1 (Coremail) with SMTP id cCh0CgAnKj+PcS9qOnxeBw--.30354S8;
-	Mon, 15 Jun 2026 11:29:44 +0800 (CST)
+	by APP1 (Coremail) with SMTP id cCh0CgAnKj+PcS9qOnxeBw--.30354S5;
+	Mon, 15 Jun 2026 11:29:41 +0800 (CST)
 From: Kemeng Shi <shikemeng@huaweicloud.com>
 To: maz@kernel.org,
 	tglx@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	shikemeng@huaweicloud.com
-Subject: [PATCH 6/6] irqchip/gic-v3-its: some minor cleanups
-Date: Mon, 15 Jun 2026 11:29:10 +0800
-Message-Id: <20260615032910.54735-7-shikemeng@huaweicloud.com>
+Subject: [PATCH 3/6] irqchip/gic-v3-its: Fix its node leak in gic_acpi_parse_madt_its()
+Date: Mon, 15 Jun 2026 11:29:07 +0800
+Message-Id: <20260615032910.54735-4-shikemeng@huaweicloud.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20260615032910.54735-1-shikemeng@huaweicloud.com>
 References: <20260615032910.54735-1-shikemeng@huaweicloud.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgAnKj+PcS9qOnxeBw--.30354S8
-X-Coremail-Antispam: 1UD129KBjvJXoWxJr18Gr18uFy7WF47Cw1rJFb_yoW8Cw1fpF
-	47GFW2krZ7WrW5Kr1Yy3WkAFy5XwnFgay5Kry7K3sxZF15X3s5uFs3ta95Wr10qr4rXFy5
-	ZFsYgayY93W7A3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
-	IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
-	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAV
-	WUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
-	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
-	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
-	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JULtxDUUUUU
-	=
+X-CM-TRANSID: cCh0CgAnKj+PcS9qOnxeBw--.30354S5
+X-Coremail-Antispam: 1UD129KBjvdXoWrZw13ArWUtFWxGFWDuw4UArb_yoWfGFb_Cr
+	y0qFsxGFWUZr18Gw42ya1rZryqya1v9F1kuF1Fvas8Cw18Z348JFsrurZ8ZF4UG3Wvyryf
+	ArZYvr1Skr17JjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb68FF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUWwA2048vs2IY02
+	0Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r1DMx
+	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjaZX7UUUUU==
 X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_202946_848805_16D20E40 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20260614_202945_945464_42B37603 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. Remove unneeded NULL check in itt_alloc_pool() as addr will always be
-NULL when we reach here.
-2. Correct indentation in cpumask_pick_least_loaded()
-3. Remove unneeded updation of range node when it is to be deleted in
-alloc_lpi_range().
-4. Remove unneeded assignment to baser->psz which is already used
-as input inits_setup_baser()
+Fix its node leak when its_probe_one() failed in
+gic_acpi_parse_madt_its().
 
 Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
 ---
- drivers/irqchip/irq-gic-v3-its.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/irqchip/irq-gic-v3-its.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index fc32a1709f76..ef505575ba86 100644
+index df26ddc97ae2..158937c867fb 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -273,7 +273,7 @@ static void *itt_alloc_pool(int node, int size)
- 			break;
+@@ -5750,9 +5750,13 @@ static int __init gic_acpi_parse_madt_its(union acpi_subtable_headers *header,
+ 		its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
  
- 		gen_pool_add(itt_pool, (unsigned long)page_address(page), PAGE_SIZE, node);
--	} while (!addr);
-+	} while (true);
+ 	err = its_probe_one(its);
+-	if (!err)
+-		return 0;
++	if (err)
++		goto probe_err;
++
++	return 0;
  
- 	return (void *)addr;
- }
-@@ -1681,7 +1681,7 @@ static unsigned int cpumask_pick_least_loaded(struct irq_data *d,
- 		int this_count = its_read_lpi_count(d, tmp);
- 		if (this_count < count) {
- 			cpu = tmp;
--		        count = this_count;
-+			count = this_count;
- 		}
- 	}
- 
-@@ -2127,12 +2127,13 @@ static int alloc_lpi_range(u32 nr_lpis, u32 *base)
- 	list_for_each_entry_safe(range, tmp, &lpi_range_list, entry) {
- 		if (range->span >= nr_lpis) {
- 			*base = range->base_id;
--			range->base_id += nr_lpis;
--			range->span -= nr_lpis;
- 
--			if (range->span == 0) {
-+			if (range->span == nr_lpis) {
- 				list_del(&range->entry);
- 				kfree(range);
-+			} else {
-+				range->base_id += nr_lpis;
-+				range->span -= nr_lpis;
- 			}
- 
- 			err = 0;
-@@ -2472,7 +2473,6 @@ static int its_setup_baser(struct its_node *its, struct its_baser *baser,
- 
- 	baser->order = order;
- 	baser->base = base;
--	baser->psz = psz;
- 	tmp = indirect ? GITS_LVL1_ENTRY_SIZE : esz;
- 
- 	pr_info("ITS@%pa: allocated %d %s @%llx (%s, esz %d, psz %dK, shr %d)\n",
++probe_err:
++	its_node_destroy(its);
+ node_err:
+ 	iort_deregister_domain_token(its_entry->translation_id);
+ dom_err:
 -- 
 2.36.1
 
