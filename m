@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11637CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 17:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3950CCD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 17:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RkM1BDS2/x2+bcSsEU1uZb+8F4JXoPxZ4spGf76bhh8=; b=nNnbbzrrOu+aVzDBxqlrwFlUVG
-	qEys4WtVNIRu9WCBGk6lonTdeVOr1hXvo5D6tLuJ2KXv9rd+uwNLubMLnI/icWnzsQJc62KGQv+5m
-	mf49rRmBhJTSFkCpUe8dmgS26ut9AFwkcWfjPr9ecRRM5QDs19r5yn79JG5lBfZ5hQUV7j4tZ9zXJ
-	w56OUvCeTiH4G69ukcchQcpBfATs4nIdoCTRUdpTm/fuELD3fNr6PQ8e54iXoKsYNzAohc7cu5GY9
-	NSuAlKQwVn8jWsp+XHwC4iuOCK0PZ76EIvgnEMS8uhKbGGM96lKICxmwbC/hnX0DFF9XyJPub+UKk
-	DAE55zqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g36MIwpGYoz3X7VL1Yutn+HhGIx2EjVVLG9IrRo4XS8=; b=UhvFGo7yz5RWWETe1im2867iqU
+	/4qF678dLb242NIiQclwWeDT98aYs0/fXrpNLP0od9ZpKeTfxeH6rCU13sSP3roizj/5stepgNvF/
+	7f/SmDBNifGB7WC/dDKRdUEpN8LNCDdD+LM/cl9V/lHBobVx6D2j4Vb/1SUc3b9B0u2Byl5Lw6lZ8
+	/nk/4rICmZ2FyK0anAPe0TXDqgpqPyG2CaKhwddwHHYvH7zK2Ybs8A7gITScdlDl7ImxKneM+6KWU
+	86ES69IBastR7G1n7lfztrfYM2c8GLlNSzdATf0BZsvxlaXfjhzQibFy4NQOGpygES/Vml/j8yTDs
+	Oy8T8wGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZB0c-0000000Edzz-05M3;
-	Mon, 15 Jun 2026 17:22:02 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wZB0o-0000000Ee2e-0VbQ;
+	Mon, 15 Jun 2026 17:22:14 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZB0Y-0000000Edz1-27qm
+	id 1wZB0h-0000000Ee0i-2h7k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 17:22:00 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-490b613a17bso33030335e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 10:21:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781544116; x=1782148916; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RkM1BDS2/x2+bcSsEU1uZb+8F4JXoPxZ4spGf76bhh8=;
-        b=S5aRJ9lJs4DS+mHZxm7TGxOEPpRSN6H+SIHdDYZLwmOIG6QflncVFbKiTHfLxu05Or
-         zERLrGffBeXxlbzBokhWW4/iq8JyrDvxo4Txk451V4MI7jwLRbqbUSaizf29hoiG2CTf
-         jofAiWdbImOxMLRsQDOj8/9KYeZsRUTDX7nVEyqZES1yLC6+ni0V8f6M6R37401oQkO/
-         M7ojej5XBGvVX1XDmGuOe1n7EGMtm3ieudLlGTEEUqmBK6VsfHfruD66yZIEufYVGwZG
-         HZ67Z6VYTEmLK1ziE+2p02Z/nMG7onTFUGjuin0C3xxiR6y7qcHs3HTCh7PVHBdechTD
-         GeuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781544116; x=1782148916;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RkM1BDS2/x2+bcSsEU1uZb+8F4JXoPxZ4spGf76bhh8=;
-        b=FuI5X9fXxyD99XZRRDw/0Z7rolnkvx2o4cimd603PLhnTbBoMrp64iu47k/j27FkcJ
-         ncHdZ+Nzuj64QVUmKH1ZDCIV/xQYwMDfcwM+QjQardoUGXWOwlh2DYDHkjkdL7nbJA5j
-         UdfDD6rA4UMvAFV5wXVo22PS+LqazXk5yiLlFxrE0aJNFEfv0BM7T2JzPRFlMU7Ijno3
-         W+KxiGMMQsEwNdXNA30E5nVdh6NQ0dxzdMA24GiJ5SGve9WDUC9dnBNWAQf2g+/WszJY
-         LX19MQuVegYaBYHleBA1KKgJjSWBs4b0vYWlXrLnccquCCCs8og3RaOVr49oyTNJYvqx
-         rAMw==
-X-Forwarded-Encrypted: i=1; AFNElJ/ExtgncMXg2AZNXRG2lXJtloIkjxqY3qnc6sJ8md+JaSdTZE6b2y3iOzeE1l4jcQMH4HuNwA7kabxdiBdKUVSy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSJ3IIXqehyCVFnLOgJxcsHRtQpbp5Z6ejBzQgroq2KZNB7969
-	ti1IE+Sj0+PInga5R7fD8AdvkxqTxXFgP57/Z6Cv8m8ufxVM19oae/Uu
-X-Gm-Gg: Acq92OGj4+BXs+f4AX7FgusZXVL4YYQ2/0e0ct1FnDSOlwU/6jclIdDVfsGDfE5Oo1s
-	iPINPD01vTRzgeAad2kQSxIZyoskryt2YoBqmdXcQpvlRhT1RJVdwHVd7eKR6SCTLcmN5/ZO4ag
-	uUi+M9J1Nly4zw/GZg7Q4veNJw12v4p7J6w4ULuerH96cJMercO3hi0z20eJTTb85K+keiS5ok5
-	khwoO1nDqGvYY9um0XnPI2vnL2hn/M/n0kc3am3Aw9q6ZWtYS+0Xxne1UmOn75kTL1rURGuPP63
-	T4NPJ4x/IzRTWJgQ1eAtE2AiuiGE2eQRfvMpcyvK1v/NgKhZR/yUMqQ8NHCpQMPFzo6jzYvwWpl
-	BKRLk9rSKtXaptv5dGjABgE1B0qpfOyseZVaD1cltdiBLVOiR4gMcWyoaYghpuT0bOWh9tg5xHh
-	NQ2BaluLTri+y/k6Ep
-X-Received: by 2002:a05:600d:8496:20b0:48a:5565:ec3d with SMTP id 5b1f17b1804b1-4922ffaedfbmr1209555e9.22.1781544116287;
-        Mon, 15 Jun 2026 10:21:56 -0700 (PDT)
-Received: from luca-vm.. ([81.56.18.151])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922fa9f2c0sm6870805e9.15.2026.06.15.10.21.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 10:21:55 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [RESEND] arm64: dts: mediatek: mt8516: remove cpu3 armpll clock-name
-Date: Mon, 15 Jun 2026 19:21:00 +0200
-Message-ID: <20260615172105.3758-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 15 Jun 2026 17:22:12 +0000
+Date: Mon, 15 Jun 2026 19:21:58 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1781544120;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=g36MIwpGYoz3X7VL1Yutn+HhGIx2EjVVLG9IrRo4XS8=;
+	b=AwdVrvNTMnPiP117pH+w8Yusw6Pu9fpqsyY/bfv0hfJ9glQiTBK7M5v6xyuI+/od5zUjAV
+	Nwb/yR1D6G2D27VWA/9Ajka/728BGF5OzevCisU98XPgaznpZdmJgC3NDfyItFWFXoAsQr
+	fvBW3s35VfsU2Hz8Q0I/qMwuBR/7UZP3wK0yG40bAJEzhc0dyxcECkreKSY9y8jNGEiBb6
+	gcYC3sI+LGSc3U6b27t17nyukhwU3FdWGytMtwCHNQTkY5GZsmfEPZJTiLt0b2y1HubbTZ
+	yMCCZRtrMzS1zc5SLZE8KFrkw3GzwgQjnymC1/a0eBkOoXsbKSa9p/dcED9Asw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1781544120;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=g36MIwpGYoz3X7VL1Yutn+HhGIx2EjVVLG9IrRo4XS8=;
+	b=bF2Jx9DjIAugTGfzqoeBJPeJfR2Oft6+R/cw7JPECtOjFGNdrEoN16C4yoqQlIfbIArarO
+	YvsEFaxd9OJCvuBQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+Cc: Waiman Long <longman@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] arm64/entry: Don't disable preemption in
+ debug_exception_enter() with RT kernel
+Message-ID: <20260615172158.AoVQ3Q3K@linutronix.de>
+References: <20260519222524.886454-1-longman@redhat.com>
+ <20260520061920.XCqBHe0x@linutronix.de>
+ <a5251664-2c15-4a8e-906b-d204e10c38be@redhat.com>
+ <20260528145124.v9o6OcOc@linutronix.de>
+ <20260528153554.vllN7_T9@linutronix.de>
+ <aho0eqjMESuHxECr@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aho0eqjMESuHxECr@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_102158_571613_6FF6002F 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20260615_102207_823915_F24685E6 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +86,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The armpll clock in cpu3 clock-names property comes from MediaTek sources,
-but it's unused in the kernel and not populated in the clocks property.
-Let's remove it and align the node with other cpu nodes of the same SoC.
+On 2026-05-29 21:51:06 [-0300], Luis Claudio R. Goncalves wrote:
+> On Thu, May 28, 2026 at 05:35:54PM +0200, Sebastian Andrzej Siewior wrote:
+> > On 2026-05-28 16:51:24 [+0200], To Waiman Long wrote:
+> > > > The kernel backtrace is produced using the latest v7.1-rc4 kernel. There are
+> > > > a number of changes to the debug_exception_enter() and
+> > > > debug_exception_exit() functions over the years, but the preemption disable
+> > > > code remains since its introduction in v5.3.
+> > > 
+> > > Let me look at this again.
+> > 
+> > So how do you reproduce this? The calls within debug_exception_enter()/
+> > exit() look harmless or I miss the big thing here.
+> > From your backtrace, you have brk_handler() and this is gone since
+> > commit 31575e11ecf7e ("arm64: debug: split brk64 exception entry") which
+> > is v6.17-rc1. I can use gdb with breakpoint handling.
+> 
+> Sebastian, in the original series Ada provided a few tests, including the
+> two files I list below. Running that test in a v7.1-rc5 kernel with
+> PREEMPT_RT and DEBUG_ATOMIC_SLEEP enabled, I get this backtrace:
 
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
----
- arch/arm64/boot/dts/mediatek/mt8516.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This is a reminder to myself that I need to look at this since it does
+not look solved with the breakpoint patches. But this is also perf.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8516.dtsi b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-index b5e753759465..596f673a0d88 100644
---- a/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-@@ -95,7 +95,7 @@ cpu3: cpu@3 {
- 				<&CPU_SLEEP_0_0 &CPU_SLEEP_0_0 &CPU_SLEEP_0_0>;
- 			clocks = <&infracfg CLK_IFR_MUX1_SEL>,
- 				 <&topckgen CLK_TOP_MAINPLL_D2>;
--			clock-names = "cpu", "intermediate", "armpll";
-+			clock-names = "cpu", "intermediate";
- 			operating-points-v2 = <&cluster0_opp>;
- 		};
- 
--- 
-2.43.0
-
+Sebastian
 
