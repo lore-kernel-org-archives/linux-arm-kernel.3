@@ -4,100 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26094CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 16:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1442CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 16:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+hEU/mEFDrh3dSsoqaYUHBuwISR49/xEjyPfvReMD4U=; b=sGyhYZu1cpnoTn3Hm2jB4Ys+PJ
-	8ECgrUh73ezM9oYieANWItLqEeSY7q2cLOUDvBA2g/Z8+OXV4DhFs9i8j16KP4JMNPHhNMut6xZbt
-	APImpKawh2eHLHZxZ+8hMZzvdP4H9MfvR+I5lmT+I2VgyqUm+dsIo5jMvMFFpY1wn0+5jcz/6Ndgr
-	ZlNZejkHzaIE45l/57x0FWW0Y6lRSjtcwzJeqG4BjaoKpwAbABoD1RqU2oIutQ8bop2u/+zqDSM4k
-	a00Zz/uUTC29kJYCwpzFzanUXDyAWcmpr09gh8hjVbHfExm6hvFoAG6dpuyWPBk3nFlYPxGgNe7vF
-	Yk0UEnDA==;
+	bh=NasGHcUroOP3Nw6xE26fuJjayUMFOxbgddpKb56cf64=; b=CMctj3AlbAAIroQmOmxTkL4uZO
+	Bhag6g1S7GUxbFo9Tgu0Hb+dhQP6473xSlEIuI/cbfak/WyDol9hqG7cea8oqeB7Y1d25g2ws7mOl
+	lYwRTZAw1DdebT/CYy2vZnMk9p9VjLMau8+BjQc3FGb5KMuxzV+G+xqWPLaMn6qiBReXjH6YwmXc5
+	xvVymSO6UXK9H2AdhSUcCiDrq+3bN1Rx/LZWcyuS4iim2UeBku84f8uqsv9wC0yDOoy+PZ7ci3yjq
+	f4E+pfmlVObR55JSMFBdAKyz+e0g0iQLrBr3aUEFRKwXJROIqqu7095XLU3nqz1gwtGjA2GCiqp14
+	EDsOya5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZA7t-0000000EZWx-3BQl;
-	Mon, 15 Jun 2026 16:25:29 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wZADk-0000000EZyh-2UDq;
+	Mon, 15 Jun 2026 16:31:32 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZA7r-0000000EZWG-1LPE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 16:25:28 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490bb83a3f6so28091675e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 09:25:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781540725; x=1782145525; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+hEU/mEFDrh3dSsoqaYUHBuwISR49/xEjyPfvReMD4U=;
-        b=WB2q5hqMEJQcOsilbIbURyrm7qpTgifWoGx+trqWL1LOGwkZe4wLgdFo5duqtZ4kDM
-         K8PeHRcSPi/LlIiFyyeQVbVX/T7A2dgB9V+mfuW0JGtNdsQWVorQo0mWm6IVfiWodHgH
-         Ohvt0eHVQ8MN5D9liAr22lPEo2CJjcJ8DICynEKegyBKGIbLY8TrN3jE348KQkb9Ow3L
-         Ad3hZ+OIiCnoG7S9XCTANIeXu6VglpJJ0U9CN2L5LaFtRVLFl92RxWyrQK5rhVRzF0kT
-         2E1SEFDTKwBciNQkywlyuyomlVi74fw1jUMJ2p3Bif03CFMiGHPt09hJAjvczNwmVRPn
-         VpYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781540725; x=1782145525;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+hEU/mEFDrh3dSsoqaYUHBuwISR49/xEjyPfvReMD4U=;
-        b=nxMF0o/XDgJq11+WWtAjRIzIFU1GyapLtcby4TEhzA9ZbMfhLENgzWER7iyMqtmwxd
-         Zkxw9raGhBkpH433O0WAZdbaP+GhoXktpHqp8BS1LQb3kkQitiASJwGmhMvpIPrmH5le
-         ud+V69lSppPmij7taBnK90vjLodkyd9+Qn1aQoCTghTFM28pmYHe5R3FmdSGZEdqm/FY
-         /2chxmtWK1zj+S+7CUSswEIOBq4+sZQ/hYr1o9KzNNaky6JxgdMhMAXtaamkadQruOdz
-         HanlgIwvo7MUh7DNmP8qurJr0EaOvqz+BEOQupLzC0tzETXdIKQmRU+z35lQiB6kv15Q
-         94hg==
-X-Forwarded-Encrypted: i=1; AFNElJ8iF1yMfBt2SB+7+c8riuvUdKOeTrZsn6PYS8tGXSaQbMo6Op2v4wtD7KmUbNphQTkeSn8mheFZQEffgxLp95lX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIMyMyj8GsWIDRJWqJ6iMs7KSt7gaziG2qoV3XxKloWiD9JgAR
-	e41Qbmv41ce5JlnpbyL1aN58dO8PXglm5LCBIVoyK4BzyvCWTbn26ZDfu92X8AHQLg==
-X-Gm-Gg: Acq92OHIwrkM9ZABapkj0TeUoGcV4EIHE6z6g3quStrvf6iYqJd3XOgiavYCZkXFiAf
-	DRw5QSNIdswuN9jdFIeUUabKyCveju+Pk0PZxwInX2+cYJnQVYblGtDqFEdHsPNeS9sRf5TILAS
-	N1VKCRgJeap2zRYrjjzJBNWQG3a17qHyHLJ6VSeDVsb+ZjLPaLEGHzy0Gt4wSvyJ6fYuyBQNJhG
-	aHGHb9aG55X7a/fCJX531vP1tfykaakB+NkdFMCSW6IelZpKdpzDr5CDqQwIyISeSTXFiNDc0yZ
-	r8W7OgNtJcOS5cqTYxApYSETPpc22QsVXMVCix/8BToWsYcok4o64myNzlEpqF12zw0U46cHhWE
-	G4REPeVhzs8z8Cl3+yoYXVMsfSi32dRXgktC4RRrqwGQ9LXtbidifBc1G8vMfiKso46CdUWCcE8
-	LkMF0/aiQMZSXC9lS+JAlhMzBEXpof4ULJEJmvztZ8Z26L12qYk3wEu1lmJ8magrNeCniVIEnB8
-	P/fWw==
-X-Received: by 2002:a05:600d:8492:b0:490:4973:91a0 with SMTP id 5b1f17b1804b1-490ec4d728dmr134122765e9.10.1781540724614;
-        Mon, 15 Jun 2026 09:25:24 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922fa891acsm3867895e9.9.2026.06.15.09.25.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 09:25:23 -0700 (PDT)
-Date: Mon, 15 Jun 2026 17:25:20 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: tabba@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Per Larsen <perlarsen@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 11/11] KVM: arm64: Implement lazy vCPU state sync for
- non-protected guests
-Message-ID: <ajAncPp3nOGcWD1U@google.com>
-References: <20260612065925.755562-1-tabba@google.com>
- <20260612065925.755562-12-tabba@google.com>
+	id 1wZADh-0000000EZyD-3A3n;
+	Mon, 15 Jun 2026 16:31:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WG4K+VxYnx2+caLBzs1ZRrPrMA+ThOz4jXJtJyrXA05XIFMv+ydGtX5TLnk4kPOx3ITutFzGYd8nyiREr3HbsfOK3pYYTJsZ7LmOFqL4VkUY84iFco26iXgXPaTsqBAdPnq4q/TwoY51+I6WcReJmT+D0tXfMBceMvnWOq0I+r8GW3hb2qP0uv3ssjWTw8Yqpplgb7EWJQE6le2KCq2PadbkxJ48i2AhfmKnOXXkmG5F7N6glnlD7rc/kYVbTZV8Z+wz1lW+qzrMso2vHbh4H1OSJaMUeuxZtpw2+UvNcXnD4mFdcOMiNVvDEVLB7IAZTqbAWFs+xOEdcFy6KDapCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NasGHcUroOP3Nw6xE26fuJjayUMFOxbgddpKb56cf64=;
+ b=tHdQTF+KiNVHaUMA+74guyALS6cl99ChHwuirQ24aW5hUv8U506+QPh3uEjMU7o0tbz0mNolZBidzpgkwumB+gHg++Rzu6kOsd/JqPp1pAnczdWlCwR26pNpWJIGO6xB6AGYG0cyd9kks7JwuwH3gOEneJnYws63loS/W6E0B/yy8tU1gsO49ILpEewpgp98qgvMSphJovoaP9H8fle8znpEevTuXgIiAe+43HxUK/b1JWDMamWEQFP7XgytNAh/r0UgJAToZOPzVIJecqY0f1lu2C8qNB5ZRmCrbj02UiFgO6GJKhObsmtmTzkvKA9jW87vVzEe72f2G221RwTayA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
+ dkim=pass header.d=genexis.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NasGHcUroOP3Nw6xE26fuJjayUMFOxbgddpKb56cf64=;
+ b=t6fToeDuqYC7nmMoTkaI0WbfloHnjLaFWx3SRTlhkf3WL2up0CmjzQVmIOEX0PalHSk2nbBTiKMxROyc21krHD+8/utcqE/hlEcwaMOrr+oTdLTYLwDeHFbUGs814L7PYmHR4cJ0Mgm5ylL76hOdCx727v9Sn0gF/tUwws/a29Y5GPuNJ3RUE6/tWj86NiOCgG1mY1xSRm45JPKrM5Zs5JFIIdmBHio19Rc9ZMMqH5wmoO2l6Uz8meuzJqdHvIW30ehPC/Oyv1FKumDoLQrBFxXb21U8RDo2Kibxf6mpfeWSwXRRraruqy1akxvyvgOBcfDddJWAvtCZYrphxMjBHw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=genexis.eu;
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com (2603:10a6:10:2ad::14)
+ by PA6PR08MB11287.eurprd08.prod.outlook.com (2603:10a6:102:514::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
+ 2026 16:31:23 +0000
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f]) by DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f%6]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
+ 16:31:23 +0000
+Message-ID: <5d030a71-c28e-44fb-aebe-486e8c4ad8ad@genexis.eu>
+Date: Mon, 15 Jun 2026 18:31:20 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v7 11/12] net: pcs: airoha: add PCS driver for
+ Airoha AN7581 SoC
+To: Christian Marangi <ansuelsmth@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20260615122950.22281-1-ansuelsmth@gmail.com>
+ <20260615122950.22281-12-ansuelsmth@gmail.com>
+Content-Language: en-US
+From: Benjamin Larsson <benjamin.larsson@genexis.eu>
+In-Reply-To: <20260615122950.22281-12-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: GV3P280CA0042.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:9::34) To DB9PR08MB6697.eurprd08.prod.outlook.com
+ (2603:10a6:10:2ad::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260612065925.755562-12-tabba@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR08MB6697:EE_|PA6PR08MB11287:EE_
+X-MS-Office365-Filtering-Correlation-Id: 97f068e3-3820-4487-88f4-08decafb89d2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|921020|56012099006|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: KeQKE39+ef+RmI0gARN5VTSDHydSaR7vv2BU8RkF8hMos/T0bozTbfyCQXhddl4PPaB11/i2qg0PnwoIRvE0+83XvmliWFA5lIumh8Xn+PCe+Z7cQ0OQ8AX8o8LQ2lEN3zGRc5gtlc6/D2CUUSNQx0574z89doGK0GCPo9ii9XDALy8AiRZyVafQV53WklX/PEVtWXsTIdUsf2QPOt2V2qZQAUzvmslK2Sb9/fcLHSNdwwaw+l+UKEy4OtRSJZfUfpSfAUnj+fMKqpziZI8geV/eEhfOiEA7lgYOFXeCi/u9J3vqGFFaUyrGr+JVbzugsG27N+5cD/mJTYhhwj1nBVFJlWMrGDRlnYKAEcifTqZuBXTzQT2Kj10U5VuodZqNJuTpPlZ2Ewsnch0VXLu8RwoRQu7V+gRWsmAXvACGjHuGfTS+HkMKEXSp3o2yb0L9NbgbCkrOTJL7hJCju4FHS/n2PCeB2CQ65jGDhxzfn6ukc/DcsIVps0xa4ZhoSSqGbodoDOJtm1agO77lVcQ5VJyb7jWGk4q0+F5Dtn1uMaXi3cnjPDNWISpy+CoUCuFReKqk3+90gX5+7ZPgSVGfNla9M2lY/tzIS2nk3WqvcpxpRCNQ3pVlgXk9UB1CCyxBhXemDDD5sz0puqq1F2LOaDPznhccDBppF3+xM62YKhuc1CYjUXQD61aC4XBVndrAJxfnwTck+Sfr4ZPxO8+XTP9wfMnc88sJY9kPbeCEfX8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB6697.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(921020)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TUV0VEFqWU9QRFQxOUdSeDR1VTBSWkNiTVdZNFFNbWM3L2l4Y3JGRVV0T0t1?=
+ =?utf-8?B?Z2plZXJHV1gxeXJXY3llVGNod1l2aHlUU1NGQ3EwaTZWY1JrdlV0bGpqNVd2?=
+ =?utf-8?B?UFFFb2ljLzlxOVZVemlKZ1FSUDN6NktrcS82MGRrS2RFWkVKejRkVnUwbm9p?=
+ =?utf-8?B?ejlJVkMyclRnUDFiR3MxU09DSlVYbDhRQlZnSDN1ZlJzSWdveDl4ckZrN0R0?=
+ =?utf-8?B?NzFET2VNekZ5Wm5YSGdOZm1JQmFDcHg2dlQ1cjlYaVN4dFdWbzNLOEtic05r?=
+ =?utf-8?B?dTBUVXdYamlHZEkvQk5lbDR3bzVJZkRKTldWU3dmbmdiMEFIS281Z0I1S2FT?=
+ =?utf-8?B?YllWc1pNTDhweDI3LzVYYkhuV3NMeTg1czE1Y0NHSmk1OU5PQnZEc01SU25j?=
+ =?utf-8?B?WDVZbTZrS0JZbWlUZGMxbWJYQXFBclVIaVhkK2xYRVExeHpqZExXN2VhMkI3?=
+ =?utf-8?B?Y2VqbWJpREVaZloyaXhYMGNoN2Jnei9iR2Z3QlNkWkd1dDk5b0tjejBFZDFO?=
+ =?utf-8?B?ZGJvU3RuNHNZZk9RT0ljb3JMNWJnRFY5Wnl0WkNkVU9aZmdvbnJXbDZmRSt6?=
+ =?utf-8?B?SXdDYWFmTHN2ZjFDTzc5S0lSMmhPamcrL2NqMmg3TzhKdGRqT2FqUTdkNUhn?=
+ =?utf-8?B?SVFLNmIvSzdmN2JscHRObFdYSkxza2VxR3l5QzhpL1liSjYydFpuN3ZQNEtF?=
+ =?utf-8?B?QVpJeGl2d3pVakcyMVROQTVNSnNqUVphNko2MEdUWm8yNEJMSXNpdmh3bFhX?=
+ =?utf-8?B?QStvUVFaRjY5ODFhNGJMNmNVbkxSdlBnV3o3VWx0SEgzR1BxcGRabGdSWC8v?=
+ =?utf-8?B?cnpwdXhKbE00MkxYWmZYQWtMWTkxZUIxbXdIaWhTQXdGWStudG1veFRPdjlz?=
+ =?utf-8?B?endxNGV5L1RyWjQ5ZzRudFdhYW4zWWJwS3gvK01hWWcrY0I2RmFtYnVaUkRy?=
+ =?utf-8?B?SU5TMG95NFFTOEVMaVJPcVl5bEdRQ1Zidzl0ZWt6YUwvWVZ1WVhremJkSHNP?=
+ =?utf-8?B?MXNYcWJtZnNWbjJXMEZka1FwbWprNGZSWEs1eUFzc2dhUXU2RjZpSGY0dDRN?=
+ =?utf-8?B?cjFiTnM0djlsdXNxNWE4SG5TSlEyYlUvU3ZUWCtEbGQ2cjJaZkxWR0kvbG5W?=
+ =?utf-8?B?T3pHVHN4WG5BOFFrZlFmNncrMnRyWWpOckM3THVZZklud2dxREFNVS9mVFJB?=
+ =?utf-8?B?cUt4ak5RbGhhVVhSV3FFbGhUK01kVk5NVnF2SEVTK2hFMVJVVWZZQnBBcEpY?=
+ =?utf-8?B?TlJ0UzJUSnZVUVRXZlJxV0t6dFFZNW00RjJBbUpNVU5DQTRKNktQbThVRExD?=
+ =?utf-8?B?RlFhYjZrc2JOblA1MWN3STR6OThkTld0eGdHSE9UREduOUJTdThoeHpTYjhH?=
+ =?utf-8?B?QU1BQ1Y5K1MvZXBMZFZxSCt2UXQvaUNRZVFxQzlRM3IrcEhVanJ6UzhERzRK?=
+ =?utf-8?B?Nm4yMHhOeUZRcmVtY243NG0xL0xycmlPajJKUGRDeENGMmM0TmVieTM1dW1o?=
+ =?utf-8?B?dFhGRTU4VlRwSTJjVVNTRHJ0dlN3MWFJT1Y4d1oybyt3WDR6Yzc4R2JsVGFj?=
+ =?utf-8?B?OWxxTFNsaXNNalZ6NVh3SzBaZjE5c1ZYaXFoM0FsR25hZ3V5OUgraTJwV29o?=
+ =?utf-8?B?clhvNy9ycDB6bDZONzVqMGUvNlBXQkVUM05TNkFvQzhTVGViMnRYSHhNYVUx?=
+ =?utf-8?B?N08wMllHblhSM3JMTnZBUlFWZlZob3NTelF0YzVNS1B4cnhlTzZIcnpMM0tW?=
+ =?utf-8?B?Zi9oUW5kcmJ3R05VZEdhQ2RNRXFWb1BSNkttUS94SEQwVGtTbk5rOXdXUzdB?=
+ =?utf-8?B?UkRCREMybDZFSHliRy9TTlFRVVE3UFJnOTZEMk05T0dKMVFFMVVLWVN1ZXhx?=
+ =?utf-8?B?SlhQTFppNWxyeXVZMWE2MGNBUVVZQjlzVm45Z092ZXM5TjJhck0vaVhxR3h5?=
+ =?utf-8?B?ZFFUbzFGNjlJaUpzRWpGM0JYNzhyOHlmUVVtdlBheVBDYU5KK25OWnJrTFcx?=
+ =?utf-8?B?VjZvMDdOYWh4SStrK21mMkJEZHRRTFZsZGpESElXcnhtODNiQnZEQk5PaEds?=
+ =?utf-8?B?ZXNTRWdzSlRZZXJObUhXQmZjOWpReWIxSDQvRXVLc0FzaXpIODI5UTFEeDFP?=
+ =?utf-8?B?R0xDWmNHd25jM1UrbU5BemV1VGpvZ0FUamVPWE84YXd0Q3lwSVlCZm1KbFRI?=
+ =?utf-8?B?MkQwN3d1Rmh2M2NSdWRwbGF4KzRLbU4yd002WmxtdXdSdVZnTDlIR2RZUHhP?=
+ =?utf-8?B?ajVRTUxRc1FJNUJ1WE5RakJuRkkrMTVPQjdheTdNWjc3bXNid0tXbDZMNjdz?=
+ =?utf-8?B?cUIwSWZPTWU5dnAraDJMa0RBblBGQ1pYcDRLYVFPMTJBdHlKb08xRzloN3JM?=
+ =?utf-8?Q?2Yz3wCoVDf3EY/sg=3D?=
+X-OriginatorOrg: genexis.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97f068e3-3820-4487-88f4-08decafb89d2
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB6697.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 16:31:23.3573
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IPDpToeXDeDOXLTTgTgaNQjQsTHULs62jN22riaflzjvv5FqDmTkRA4NoDYUlVNaoXlt88sbYm5LMw+nZrzsBglJ6NEOKTEtywSnwam0cjc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR08MB11287
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_092527_440199_C2DBA0F4 
-X-CRM114-Status: GOOD (  41.08  )
+X-CRM114-CacheID: sfid-20260615_093129_797251_ABE02CC6 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,264 +162,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 07:59:25AM +0100, tabba@google.com wrote:
-> pKVM copies a non-protected guest's register context between the host
-> and the hypervisor on every world switch, even when the host never
-> inspects it. Defer the copy: on entry, flush the host context into the
-> hyp vCPU only when the host marked it dirty (PKVM_HOST_STATE_DIRTY); on
-> exit, leave it in the hyp vCPU and copy it back only when the host needs
-> it, via a __pkvm_vcpu_sync_state hypercall on trap handling or at vcpu
-> put. A protected guest's context is copied as before, since lazy sync
-> only helps where the host is trusted to see the guest's registers.
-> 
-> The PC is the exception: it is copied back on every exit so the
-> kvm_exit tracepoint reports the guest's real exit PC rather than the
-> value left by the previous sync.
-> 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
+Hi.
+
+On 15/06/2026 14:29, Christian Marangi wrote:
+> Add PCS driver for Airoha AN7581 SoC for Ethernet/PON/PCIe/USB SERDES
+> and permit usage of external PHY or connected SFP cage. Supported modes
+> are USXGMII, 10G-BASER, 2500BASE-X, 1000BASE-X and SGMII.
+>
+> The driver probe and register the various needed registers and register as
+> a PCS provider for fwnode usage.
+>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
->  arch/arm64/include/asm/kvm_asm.h   |  1 +
->  arch/arm64/include/asm/kvm_host.h  |  2 +
->  arch/arm64/kvm/arm.c               |  7 +++
->  arch/arm64/kvm/handle_exit.c       | 22 ++++++++
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 88 ++++++++++++++++++++++++++++--
->  5 files changed, 115 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index 043495f7fc78..6e1135b3ded4 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -113,6 +113,7 @@ enum __kvm_host_smccc_func {
->  	__KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
-> +	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_sync_state,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
->  
->  	MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index a49042bfa801..1ef660774adc 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1113,6 +1113,8 @@ struct kvm_vcpu_arch {
->  /* SError pending for nested guest */
->  #define NESTED_SERROR_PENDING	__vcpu_single_flag(sflags, BIT(8))
->  
-> +/* pKVM host vcpu state is dirty, needs resync (nVHE-only) */
+>   drivers/net/pcs/Kconfig                    |    2 +
+>   drivers/net/pcs/Makefile                   |    2 +
+>   drivers/net/pcs/airoha/Kconfig             |   12 +
+>   drivers/net/pcs/airoha/Makefile            |    7 +
+>   drivers/net/pcs/airoha/pcs-airoha-common.c | 1318 ++++++++++++
+>   drivers/net/pcs/airoha/pcs-airoha.h        | 1309 ++++++++++++
+>   drivers/net/pcs/airoha/pcs-an7581.c        | 2093 ++++++++++++++++++++
+>   7 files changed, 4743 insertions(+)
+>   create mode 100644 drivers/net/pcs/airoha/Kconfig
+>   create mode 100644 drivers/net/pcs/airoha/Makefile
+>   create mode 100644 drivers/net/pcs/airoha/pcs-airoha-common.c
+>   create mode 100644 drivers/net/pcs/airoha/pcs-airoha.h
+>   create mode 100644 drivers/net/pcs/airoha/pcs-an7581.c
 
-nit: with hVHE, I guess we can just drop that nVHE-only? 
+Most likely there will be pcs drivers for the EN7523 platform also. Can 
+the common code for an7581 have an7581 in the name instead of airoha?
 
-> +#define PKVM_HOST_STATE_DIRTY	__vcpu_single_flag(iflags, BIT(4))
->  
->  /* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
->  #define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index c9f36932c980..a5c54e37778b 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -734,6 +734,10 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->  	if (is_protected_kvm_enabled()) {
->  		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
->  		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
-> +
-> +		/* __pkvm_vcpu_put implies a sync of the state */
-> +		if (!kvm_vm_is_protected(vcpu->kvm))
-> +			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
->  	}
->  
->  	kvm_vcpu_put_debug(vcpu);
-> @@ -961,6 +965,9 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
->  		return ret;
->  
->  	if (is_protected_kvm_enabled()) {
-> +		/* Start with the vcpu in a dirty state */
-> +		if (!kvm_vm_is_protected(vcpu->kvm))
-> +			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
->  		ret = pkvm_create_hyp_vm(kvm);
->  		if (ret)
->  			return ret;
-> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> index 54aedf93c78b..dccc3786548b 100644
-> --- a/arch/arm64/kvm/handle_exit.c
-> +++ b/arch/arm64/kvm/handle_exit.c
-> @@ -422,6 +422,21 @@ static int handle_trap_exceptions(struct kvm_vcpu *vcpu)
->  {
->  	int handled;
->  
-> +	/*
-> +	 * If we run a non-protected VM when protection is enabled
-> +	 * system-wide, resync the state from the hypervisor and mark
-> +	 * it as dirty on the host side if it wasn't dirty already
-> +	 * (which could happen if preemption has taken place).
-> +	 */
-> +	if (is_protected_kvm_enabled() && !kvm_vm_is_protected(vcpu->kvm)) {
-> +		preempt_disable();
+MvH
 
-nit: since we are introducing guard() with that series, this one could be
-guard(preempt)().
+Benjamin Larsson
 
-> +		if (!(vcpu_get_flag(vcpu, PKVM_HOST_STATE_DIRTY))) {
-> +			kvm_call_hyp_nvhe(__pkvm_vcpu_sync_state);
-> +			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-> +		}
-> +		preempt_enable();
-> +	}
-> +
->  	/*
->  	 * See ARM ARM B1.14.1: "Hyp traps on instructions
->  	 * that fail their condition code check"
-> @@ -489,6 +504,13 @@ int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
->  /* For exit types that need handling before we can be preempted */
->  void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
->  {
-> +	/*
-> +	 * We just exited, so the state is clean from a hypervisor
-> +	 * perspective.
-> +	 */
-> +	if (is_protected_kvm_enabled())
-> +		vcpu_clear_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-> +
->  	if (ARM_SERROR_PENDING(exception_index)) {
->  		if (this_cpu_has_cap(ARM64_HAS_RAS_EXTN)) {
->  			u64 disr = kvm_vcpu_get_disr(vcpu);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 23e644c24a03..02383b372258 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -139,6 +139,49 @@ static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
->  		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
->  }
->  
-> +
-> +static void __copy_vcpu_state(const struct kvm_vcpu *from_vcpu,
-> +			      struct kvm_vcpu *to_vcpu)
-> +{
-> +	int i;
-> +
-> +	to_vcpu->arch.ctxt.regs		= from_vcpu->arch.ctxt.regs;
-> +	to_vcpu->arch.ctxt.spsr_abt	= from_vcpu->arch.ctxt.spsr_abt;
-> +	to_vcpu->arch.ctxt.spsr_und	= from_vcpu->arch.ctxt.spsr_und;
-> +	to_vcpu->arch.ctxt.spsr_irq	= from_vcpu->arch.ctxt.spsr_irq;
-> +	to_vcpu->arch.ctxt.spsr_fiq	= from_vcpu->arch.ctxt.spsr_fiq;
-> +	to_vcpu->arch.ctxt.fp_regs	= from_vcpu->arch.ctxt.fp_regs;
-> +
-> +	/*
-> +	 * Copy the sysregs, but don't mess with the timer state which
-> +	 * is directly handled by EL1 and is expected to be preserved.
-> +	 * enum vcpu_sysreg is sparse: VNCR-mapped registers take values
-> +	 * derived from their VNCR page offset, so the timer registers do
-> +	 * not form a contiguous numeric range and must be skipped by name.
-> +	 */
-> +	for (i = 1; i < NR_SYS_REGS; i++) {
-> +		switch (i) {
-> +		case CNTVOFF_EL2:
-> +		case CNTV_CVAL_EL0:
-> +		case CNTV_CTL_EL0:
-> +		case CNTP_CVAL_EL0:
-> +		case CNTP_CTL_EL0:
-> +			continue;
-> +		}
-> +		to_vcpu->arch.ctxt.sys_regs[i] = from_vcpu->arch.ctxt.sys_regs[i];
-> +	}
-> +}
-> +
-> +static void __sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
-> +{
-> +	__copy_vcpu_state(&hyp_vcpu->vcpu, hyp_vcpu->host_vcpu);
-> +}
-> +
-> +static void __flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
-> +{
-> +	__copy_vcpu_state(hyp_vcpu->host_vcpu, &hyp_vcpu->vcpu);
-> +}
-
-nit: Could that be flush/sync_hyp_vcpu_state? as everything this is called
-"state" and we already have flush_debug_state() below ?
-
-> +
->  static void flush_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
->  {
->  	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-> @@ -168,7 +211,17 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
->  	fpsimd_sve_flush();
->  	flush_debug_state(hyp_vcpu);
->  
-> -	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
-> +	/*
-> +	 * If we deal with a non-protected guest and the state is potentially
-> +	 * dirty (from a host perspective), copy the state back into the hyp
-> +	 * vcpu.
-> +	 */
-> +	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
-> +		if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
-> +			__flush_hyp_vcpu(hyp_vcpu);
-> +	} else {
-> +		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
-> +	}
->  
->  	hyp_vcpu->vcpu.arch.mdcr_el2	= host_vcpu->arch.mdcr_el2;
->  	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
-> @@ -191,9 +244,11 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
->  	fpsimd_sve_sync(&hyp_vcpu->vcpu);
->  	sync_debug_state(hyp_vcpu);
->  
-> -	host_vcpu->arch.ctxt		= hyp_vcpu->vcpu.arch.ctxt;
-> -
-> -	host_vcpu->arch.hcr_el2		= hyp_vcpu->vcpu.arch.hcr_el2;
-> +	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-> +		host_vcpu->arch.ctxt = hyp_vcpu->vcpu.arch.ctxt;
-> +	else
-> +		/* Keep the PC current for the kvm_exit tracepoint (lazy ctxt sync). */
-> +		host_vcpu->arch.ctxt.regs.pc = hyp_vcpu->vcpu.arch.ctxt.regs.pc;
->  
->  	host_vcpu->arch.fault		= hyp_vcpu->vcpu.arch.fault;
->  
-> @@ -227,8 +282,30 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
->  {
->  	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
->  
-> -	if (hyp_vcpu)
-> +	if (hyp_vcpu) {
-> +		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-> +
-> +		if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu) &&
-> +		    !vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY)) {
-> +			__sync_hyp_vcpu(hyp_vcpu);
-> +		}
-> +
->  		pkvm_put_hyp_vcpu(hyp_vcpu);
-> +	}
-> +}
-> +
-> +static void handle___pkvm_vcpu_sync_state(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	struct pkvm_hyp_vcpu *hyp_vcpu;
-> +
-> +	if (!is_protected_kvm_enabled())
-> +		return;
-
-Since "KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls" we
-got rid of those is_protected_kvm_enabled() for pKVM-only HVCs. (also, it is
-declared in the pKVM-only section of the HVCs)
-
-> +
-> +	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
-> +	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-> +		return;
-> +
-> +	__sync_hyp_vcpu(hyp_vcpu);
->  }
->  
->  static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
-> @@ -859,6 +936,7 @@ static const hcall_t host_hcall[] = {
->  	HANDLE_FUNC(__pkvm_finalize_teardown_vm),
->  	HANDLE_FUNC(__pkvm_vcpu_load),
->  	HANDLE_FUNC(__pkvm_vcpu_put),
-> +	HANDLE_FUNC(__pkvm_vcpu_sync_state),
->  	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
->  };
->  
-> -- 
-> 2.54.0.1136.gdb2ca164c4-goog
-> 
 
