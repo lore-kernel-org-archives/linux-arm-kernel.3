@@ -4,111 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64D6CD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 04:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63507CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 05:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4zOF8ACcQnGINtLJ1j5EoUWcnRZyFCDbQM5I2mI8cJI=; b=Vuk9dnqW3HKPIa1h2gigqsLrtu
-	9m+0TJ/NhD90F7haq1UPLecMPEzDnxjpLqlLPp/Gvpninh8QdS29FPkPGWBqkeW84XLZKq0KTshLS
-	4qf8qFGltnlwykm4udfT7t8cf5U6gm7n5KA4Ha66O9Yqc4K0A1s5y7eY2auBkWI2ksFg1D7+jZsdL
-	O+EwOBn0XS39dc3X9XVVAoGYufEQrLxAdmacWq+7pDh3E6stqRf6BOCBgczHjpiQ3uvboAWFNpESO
-	r5Ud0sOmFjkLX4v85jNTCCCo5yg4kFm3RoCjKWY0+GZVgQOCeDNsoJ7oZHECucLos+JLNvl3XInRR
-	M/tUXcsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hfhSFmrqeIJ881PPP8kTT97v1lvgEEp6M1yNJS0MBSA=; b=gBvHQfJArVugOgjRT6tbhFd2vU
+	Sk8suWqBqJBctxTEe+r69d5gS5v9Yz3yCyrUHNQJGaGLOo2GGb/UfTldomYtPJRJmWE//yDi/OjqF
+	4/94XYjdKESPpHlCMMmiQuqy9OwMu1KSPsAO5xPrA/pbK1ftNGWAB1Y4ilOE4BGh7n/RZCBRDPkfR
+	O3j9NtBFCaohsm3zkaAAwqnKxjR6XSATyLnkHuQM73fjSxNLGzR/Kxph68oGNRCqRE09vgKBLklB4
+	gdjXdaQudA2muwftcO9J+bqzaqjM0jMxIHeOIRvaXjLR3+ghHFd0e3SO0OyeyNNlscUY8bfQH6TaB
+	SFuKAtWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYywb-0000000DZmj-1rO2;
-	Mon, 15 Jun 2026 04:29:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wYzl7-0000000Dbh6-09Vx;
+	Mon, 15 Jun 2026 05:21:17 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYywZ-0000000DZmc-2iwX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 04:29:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10A5A4097D;
-	Mon, 15 Jun 2026 04:29:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A50261F000E9;
-	Mon, 15 Jun 2026 04:28:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781497742;
-	bh=4zOF8ACcQnGINtLJ1j5EoUWcnRZyFCDbQM5I2mI8cJI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gIBjQVoVnGaNXBlOLr/2kvjLqa0XSsytCf8icoDPAioCUFGNWQnfNXRXxu4NikDqv
-	 D0oOU+SqepW8a21COfHEblvn+oLteTPOrSQ0Drb8i+VwxagY1aFakmjhNDYf6qqpcs
-	 lmTDU1wkB1A9YSjy9fJcbbQw7HnkdfNSLjsZ4rPi3++mWCYn314MRTNMAFGdnpeZHg
-	 2r+tIu+CPbyOVJUrJuNQK5I/HYxYSuGqaapRKH6Vnb5ubmupjB6SSGzWDa3hF2aML0
-	 BkAm7uMysMiPkdAw09NttKj5XwD+g7ToWZixfZf0mMiL5934O0kX6b4Uvs1Sv1fefv
-	 WMXzXpB8kFWSQ==
-Message-ID: <86943057-f5b4-4fae-9172-45f13814494f@kernel.org>
-Date: Mon, 15 Jun 2026 06:28:54 +0200
+	id 1wYzl5-0000000DbgZ-1SIK;
+	Mon, 15 Jun 2026 05:21:16 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wYzko-000000000vI-1viC;
+	Mon, 15 Jun 2026 05:20:58 +0000
+Date: Mon, 15 Jun 2026 06:20:55 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net-next v3 0/8] net: dsa: mt7530: modernise register access
+ and add two DSA ops
+Message-ID: <cover.1781500517.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/8] dt-bindings: display: allwinner: Split H616 DE33
- layer reg space
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
- wens@kernel.org
-Cc: samuel@sholland.org, mripard@kernel.org,
- maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mturquette@baylibre.com, sboyd@kernel.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20260509190015.79086-1-jernej.skrabec@siol.net>
- <ahNuuaVlDl0KvOSj@home.wens.tw>
- <032c1099-40ab-470e-8cc3-af6d3cad22d4@kernel.org>
- <nIKN_benRn2Bk8SDZrkMCA@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <nIKN_benRn2Bk8SDZrkMCA@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260614_222115_409100_D4D5C1B2 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,70 +68,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/06/2026 16:08, Jernej Škrabec wrote:
-> Dne ponedeljek, 25. maj 2026 ob 14:10:38 Srednjeevropski poletni čas je Krzysztof Kozlowski napisal(a):
->> On 24/05/2026 23:33, Chen-Yu Tsai wrote:
->>> Hi,
->>>
->>> (resent from new email)
->>>
->>> On Thu, May 14, 2026 at 2:04 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>
->>>> On Sat, May 09, 2026 at 09:00:14PM +0200, Jernej Skrabec wrote:
->>>>> From: Jernej Skrabec <jernej.skrabec@gmail.com>
->>>>>
->>>>> As it turns out, current H616 DE33 binding was written based on
->>>>> incomplete understanding of DE33 design. Namely, planes are shared
->>>>> resource and not tied to specific mixer, which was the case for previous
->>>>> generations of Display Engine (DE3 and earlier).
->>>>>
->>>>> This means that current DE33 binding doesn't properly reflect HW and
->>>>> using it would mean that second mixer (used for second display output)
->>>>> can't be supported.
->>>>>
->>>>> Remove layer register space, which will be represented with additional
->>>>> node, and replace it with phandle, which will point to that new, shared
->>>>> node. That way, all mixers can share same layers.
->>>>>
->>>>> There is no user of this binding yet, so changes can be made safely,
->>>>> without breaking any backward compatibility.
->>>>
->>>> There is user. git grep gives me:
->>>> drivers/gpu/drm/sun4i/sun8i_mixer.c
->>>>
->>>> which means this is a released ABI. As I understood, the old code was
->>>
->>> We held off on merging the DT changes so that we could rework this.
->>> I can't find the actual request though. It was probably over IRC.
->>>
->>>> working fine but just did not support all use cases. Why this cannot be
->>>> kept backwards compatible?
->>>
->>> AFAIK the "planes" block is shared between two display mixers. As the
->>> commit message explains, this prevents using the second mixer, since
->>> only one of them can claim and map the register space. And on the H700
->>> (which is the same die as the H616 discussed here but with more exposed
->>> interfaces), there could actually be a use case for the second mixer.
->>
->> It explains why you want to make the changes but not why you cannot keep
->> it backwards compatible.
-> 
-> I guess it can be backward compatible, but I don't think it makes sense.
-> Yes, original driver implemented original DT bindings, but there is no node
-> which uses that binding. If there is no user of that, why would driver
+The mt7530 driver carries its own register accessors that predate the
+regmap conversion and now largely duplicate what regmap already
+provides, including locking. Most of this series removes that layer.
 
-Did you check all out of tree users of the ABI? All vendor kernels,
-forks and all of them for which the ABI was made for?
+It first moves the MDIO bus locking into the switch regmap via
+.lock/.unlock callbacks, matching the PCS regmaps, so any path reaching
+the regmap is serialised automatically. With the wrappers no longer
+adding locking, the thin mt7530_mii_* indirection is folded away and the
+remaining accessors are replaced mechanically with the plain regmap API,
+using the coccinelle semantic patches included in the commit messages.
+Open-coded register fields are then converted to FIELD_GET/FIELD_PREP.
+None of this is intended to change behaviour.
 
-If there is no single downstream/out of tree kernel using this ABI, then
-of course you do not need to consider it. I don't know how would you
-prove that but I am open for suggestions.
+The last two patches implement .port_fast_age, which flushes dynamically
+learned MAC entries on topology changes, and .port_change_conduit, which
+moves a user port's CPU-port affinity at runtime.
+---
+v3:
+ * 5/8: initialise register read-back variables to 0 so a failed
+   regmap_read keeps the previous read-as-zero behaviour, and use u32
+   for the value in mt7530_setup_port5
+ * 6/8: name the age timer field AGE_TIMER_MASK and document the
+   corrected ATC_HASH/VTCR_VID field macros
+ * 7/8: serialise the port_fast_age ATC flush under reg_mutex and log
+   on timeout, align a define, and correct the commit message which
+   wrongly claimed per-port parity with b53/realtek
+ * 8/8: populate the netlink extack on rejection and refuse a conduit
+   that lives on a different switch
+v2:
+ * fix stray 'static void' left-over in 4/8 which had a fix accidentally
+   folded into 5/8 (byte-identical state at 8/8, but bisectability is
+   restored)
+ * extend port_change_conduit op commit message
 
-> need to support it nevertheless? Supporting only actually used DT binding
-> allows for better code architecture, as there is no need to support second,
-> unused path. It also simplifies testing, since developer doesn't need to
-> test both paths if code is changed in that area.
-> 
-Best regards,
-Krzysztof
+Daniel Golle (8):
+  net: dsa: mt7530: move MDIO bus locking into regmap
+  net: dsa: mt7530: fold mt7530_mii_write/read into mt7530_write/read
+  net: dsa: mt7530: replace mt7530_write with regmap_write
+  net: dsa: mt7530: replace mt7530_rmw/set/clear with regmap API
+  net: dsa: mt7530: replace mt7530_read with regmap_read
+  net: dsa: mt7530: convert to use field accessor macros
+  net: dsa: mt7530: implement port_fast_age
+  net: dsa: mt7530: implement port_change_conduit op
+
+ drivers/net/dsa/mt7530-mdio.c |   9 +-
+ drivers/net/dsa/mt7530.c      | 823 +++++++++++++++++-----------------
+ drivers/net/dsa/mt7530.h      | 209 +++++----
+ 3 files changed, 541 insertions(+), 500 deletions(-)
+
+
+base-commit: 2319688890d97c63da423a3c57c23b4ab5952dfc
+-- 
+2.54.0
 
