@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0806CD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA037CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aafA2ArxcNuVbo8pPO25wGQ4yORTGx7GaQoyPnuNIIQ=; b=GIlD+1ycLpCdAdQBZ4IyYrTQHe
-	bjuOGtwC3XQ1aeX9QORE4j65I0fl8AIwS7UG4Gm3S7M0VLz/eEBFmL12DP+07d4z0tRwN5Tspz/eA
-	WWhCoF+0KMUiTqLIIpImvPY/G/EDcsm7DwgV8H1T5ygxPiYWzlNtfi1Irhqrb2HuIToXw19EGuvuf
-	2zSCk0soc3cBFt/TfpudJpsnZ+nwRwWM94EKunzX+xu9ieZE5Fi70QcbglVJjppcAbYaYRBZ2tSVM
-	HMyeICGpRUGJhZE6pfpmjPNx0eWK7Nfe336CNL49mt9P/a2fGqLAbm1T18jP8hPo2+BzN/jPcWb15
-	QOYmk++A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LNQ/A2/WUxw1qFzNZc5VEP3z3YtNzDc9swfW+wlF7i8=; b=ZCWX2a71Z5DsvTbviejuvttIE8
+	ydlHWRmN2x8U/8YJ+bX7E8ZrU6daYKurJ3P3m4Vb7ZDNibfLeBDem0DRoV1+0+OsumMgzsGlAmLYj
+	o/51ozE5EEKdLFi9+tIUuZ3O1Cb5B1ju+MOv0T8wkrilHeXP1F7YEGwJRNkSUTJl+GPG2T7ddIZlS
+	PUqbyVRO+bBPrRxVSaI/gYpJu7G3lHZ1xzh5jPSMWugQDymL4GZgROsYGtq7oBJsPEB08lYDJ0hzZ
+	icyIKGG4h3E/tOeQRYiyLAgnFCXEDs+mq0DmyRbjUWWZKhUY3oBJXHU6F3d3daloIzsDZmgSR5ZKG
+	OIEryjew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ8XV-0000000ER2i-10Bq;
-	Mon, 15 Jun 2026 14:43:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wZ8Y3-0000000ERBC-2bHp;
+	Mon, 15 Jun 2026 14:44:23 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ8XT-0000000ER2a-0zLf
+	id 1wZ8Y0-0000000ER9n-42Ke
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 14:43:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68BB3601E8;
-	Mon, 15 Jun 2026 14:43:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F101B1F00A3D;
-	Mon, 15 Jun 2026 14:43:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781534626;
-	bh=aafA2ArxcNuVbo8pPO25wGQ4yORTGx7GaQoyPnuNIIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nWsa1NCjO9znGnb3C9xnFVWHmWGSd5c4zeTNqJsP5sL/OC0sc3qNGKUulDP/lrpqw
-	 3Eg2fxXCcIhTTU57oFToHFiKFFW/U0Pk9qce7AazoBlAjXpS5gAis4pwV75vuWOGlK
-	 9CEnqMAiythcc/1NXptciPTCXSeIj1zTOyNu4nie8tEd4H+UEaYmP4yUR7glZnQeL3
-	 CO2aeaipS38C4ugwWJ+AvU1Pzf+StJ+u8XY+ZII6NshsCAjgn+M4Ee0wy94Q6o/smm
-	 LcasBSZSBCi5hAhwpPh4exCzsZm9nokR2zlGg0PUc6077YUxEeDzpKY1tCZinQJHMX
-	 X4A+jjUgBiqjw==
-Date: Mon, 15 Jun 2026 15:43:41 +0100
-From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Linu Cherian <linu.cherian@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Huang Ying <ying.huang@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shameerali.kolothum.thodi@huawei.com
-Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only
- active on local cpu
-Message-ID: <ajAPnahwTe1OHQDp@willie-the-truck>
-References: <20260523134710.3827956-1-linu.cherian@arm.com>
- <ai6KzFgfMAxqplcr@willie-the-truck>
- <bfc8803d-b375-477e-bba7-806edaf86578@arm.com>
+	Mon, 15 Jun 2026 14:44:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1DF35C2BB2A;
+	Mon, 15 Jun 2026 14:44:22 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A343460015;
+	Mon, 15 Jun 2026 14:44:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 528B2106C96A2;
+	Mon, 15 Jun 2026 16:44:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1781534656; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=LNQ/A2/WUxw1qFzNZc5VEP3z3YtNzDc9swfW+wlF7i8=;
+	b=YFbbhTW99y38MgG/y6VAC2apnTEuaqt6BDTPv9X3YLQtVK46ALfjRfM6dV6JqDaRUgaKv1
+	Tl5JwKrF2HGbLIpA6BkSC+2OBNkydc3UsTtL6Qs1bij61KpbHSUaB2I5zj/9vHwdAslEjc
+	yxZ/sIka+VFvbfErdSPCAyXCr80uUYXDzHyhezFO2fiMGOdftv0vfRyoisP1Znms6bOc1U
+	NQDEJ6nnFnCxASwF6fHXoT0tny4ZJWkthBI6iRizavgRM6f8jvKuT39ZEl6DBL7M5T8xMu
+	5tP6/dIn7nfxVoVcmwa83SjNCEK9mT6utIwt+jm/qpxSMjTSRqDlNigCOg/iIQ==
+Message-ID: <0355da28-d3d7-41ee-ad85-632cc2e03951@bootlin.com>
+Date: Mon, 15 Jun 2026 16:44:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bfc8803d-b375-477e-bba7-806edaf86578@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v7 05/12] net: phylink: support late PCS provider
+ attach
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20260615122950.22281-1-ansuelsmth@gmail.com>
+ <20260615122950.22281-6-ansuelsmth@gmail.com>
+ <867a39de-ccc2-4dcf-be24-ab2542d20ab6@bootlin.com>
+ <6a3007ce.73de60af.3a056d.d903@mx.google.com>
+ <7702ac09-75fd-49de-8ad2-fceaa122b627@bootlin.com>
+ <6a300da0.d5af3cef.1ca29d.19c4@mx.google.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <6a300da0.d5af3cef.1ca29d.19c4@mx.google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260615_074421_316722_FAC855C9 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,217 +96,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 12:21:19PM +0100, Ryan Roberts wrote:
-> On 14/06/2026 12:04, Will Deacon wrote:
-> > On Sat, May 23, 2026 at 07:17:10PM +0530, Linu Cherian wrote:
-> >> From: Ryan Roberts <ryan.roberts@arm.com>
-> >>
-> >> Testing with 7.1-rc4 :
-> >> +-----------------------+---------------------------------------------------+-------------+
-> >> | Benchmark             | Result Class                                      |  Improvement|  
-> >> +=======================+===================================================+=============+
-> >> | perf/syscall          | fork (ops/sec)                                    |   (I) 3.25% |
-> >> +-----------------------+---------------------------------------------------+-------------+
-> >> | pts/memtier-benchmark | Protocol: Redis Clients: 100 Ratio: 1:5 (Ops/sec) |   (I) 2.70% |
-> >> | 			| Protocol: Redis Clients: 100 Ratio: 5:1 (Ops/sec) |   (I) 2.13% |
-> >> +-----------------------+---------------------------------------------------+-------------+
-> > 
-> > I think we need a much more comprehensive set of benchmarks before we can
-> > begin to consider a change like this.
+
+
+On 6/15/26 16:35, Christian Marangi wrote:
+> On Mon, Jun 15, 2026 at 04:29:04PM +0200, Maxime Chevallier wrote:
+>>
+>>
+>> On 6/15/26 16:10, Christian Marangi wrote:
+>>> On Mon, Jun 15, 2026 at 04:07:03PM +0200, Maxime Chevallier wrote:
+>>>> Hi Christian,
+>>>>
+>>>> On 6/15/26 14:29, Christian Marangi wrote:
+>>>>> Add support for late PCS provider attachment to a phylink instance.
+>>>>> This works by creating a global notifier for the PCS provider and
+>>>>> making each phylink instance that makes use of fwnode subscribe to
+>>>>> this notifier.
+>>>>>
+>>>>> The PCS notifier will emit the event FWNODE_PCS_PROVIDER_ADD every time
+>>>>> a new PCS provider is added.
+>>>>>
+>>>>> phylink will then react to this event and will call the new function
+>>>>> fwnode_phylink_pcs_get_from_fwnode() that will check if the PCS fwnode
+>>>>> provided by the event is present in the pcs-handle property of the
+>>>>> phylink instance.
+>>>>>
+>>>>> If a related PCS is found, then such PCS is added to the phylink
+>>>>> instance PCS list.
+>>>>>
+>>>>> Then we link the PCS to the phylink instance and we refresh the supported
+>>>>> interfaces of the phylink instance.
+>>>>>
+>>>>> Finally we check if we are in a major_config_failed scenario and trigger
+>>>>> an interface reconfiguration in the next phylink resolve.
+>>>>>
+>>>>> In the example scenario where the link was previously torn down due to
+>>>>> removal of PCS, the link will be established again as the PCS came back
+>>>>> and is now available to phylink.
+>>>>>
+>>>>> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+>>>>> ---
+>>>>
+>>>> [...]
+>>>>
+>>>>> @@ -2151,6 +2204,10 @@ void phylink_destroy(struct phylink *pl)
+>>>>>  	if (pl->link_gpio)
+>>>>>  		gpiod_put(pl->link_gpio);
+>>>>>  
+>>>>> +	/* Unregister notifier for late PCS attach */
+>>>>> +	if (pl->fwnode_pcs_nb.notifier_call)
+>>>>> +		unregister_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
+>>>>
+>>>> I wanted to try this out, but I get :
+>>>>
+>>>> drivers/net/phy/phylink.c:2218:17: error: implicit declaration of function ‘unregister_fwnode_pcs_notifier’; did you mean ‘register_fwnode_pcs_notifier’? [-Werror=implicit-function-declaration]
+>>>>  2218 |                 unregister_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
+>>>>       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>       |                 register_fwnode_pcs_notifier
+>>>>
+>>>> I guess you either need to stub this, or there's a missing Kconfig
+>>>> dependency somewhere
+>>>>
+>>>
+>>> Hi yes if you want toi test just enable CONFIG_FWNODE_PCS. I forgot to add
+>>> the static declaration for unregister_fwnode_pcs_notifier. 
+>>
+>> I'll give it a go with this yeah, I have a few devices here I'd like to
+>> try this on.
+>>
+>> Can you CC me for the next rounds ?
+>>
 > 
-> I believe that Linu ran a wider set of benchmarks and didn't find any
-> regressions. These are just the ones that show improvement (Linu, please correct
-> me and/or provide details).
+> Sure, if you can would be good to check also the other commit if everything
+> is logically correct.
 
-I think it's important to show the ones that suffer as well... and also
-look at different configurations (e.g. preemptible settings) and different
-environments (e.g. native vs in a VM).
+Absolutely, I'm planning on doing this :) This is quite the series though,
+I'll try to give it some deeper look in the upcoming days, I expect net-next
+to close soon anyways, so that's as good as it gets for reviewing this :)
 
-> Additionally Huang Ying did some testing against the RFC and reported 4.5%
-> improvement with Redis:
+Also, it's probably a good idea to have Sean in CC as well, I know a few people
+interested in the Xilinx PCS his series brought, hopefully he can follow-up on
+this series with the other new PCS drivers.
+
 > 
-> https://lore.kernel.org/linux-arm-kernel/87segumv6w.fsf@DESKTOP-5N7EMDA 
-
-To be clear: I'm not disputing that some benchmarks appear to show a small
-boost from this series. I'm just worried that's not the whole story.
-
-> >>  arch/arm64/include/asm/mmu.h         |  12 +++
-> >>  arch/arm64/include/asm/mmu_context.h |   2 +
-> >>  arch/arm64/include/asm/tlbflush.h    | 127 +++++++++++++++++++++------
-> >>  arch/arm64/mm/context.c              |  30 ++++++-
-> >>  4 files changed, 141 insertions(+), 30 deletions(-)
-> > 
-> > Doesn't this break BTM/SVM with the SMMU? I think that's a non-starter
-> > even if you can provide some more compelling numbers.
+> BTW by checking test from patchwork I can see also another fix is needed if
+> you want to test this revision.
 > 
-> AIUI, we don't support BTM upstream - the SMMU uses private ASIDs and implements
-> MMU notifiers to forward the TLBIs via its command queue interface.
+> phylink_create()
 > 
-> I was also under the impression that supporting BTM upsteam was not desired;
-> Please correct me if that's not accurate or if you're aware of plans to add
-> support. I've been (coincidentlly) looking at some other stuff that could
-> benefit from BTM but had concluded it wouldn't be an acceptable approach upstream.
+> -if (config->num_possible_pcs && pl->mac_ops->mac_select_pcs) {
+> +if (config->num_possible_pcs && mac_ops->mac_select_pcs) {
+
+Ack, I'll test it with this change, thanks :)
+
+Maxime
+
 > 
-> If we did ever want to add SMMU BTM support though, I think it would be simple
-> enough to add an interface to allow the SMMU to disable the optimization (i.e.
-> force active_cpu to ACTIVE_CPU_MULTIPLE)?
+> Aside from these change I expect the current legacy code to be not
+> affected by these change.
 
-We used to have some initial BTM support in the SMMUv3 driver but the
-main problem was finding an upstream driver/soc that can use it properly
-and so it was ultimately removed in d38c28dbefee ("iommu/arm-smmu-v3: Put
-the SVA mmu notifier in the smmu_domain") because it was getting in the
-way of wider driver rework and we couldn't test it.
+I'll probably have things to say about this "legacy" naming :)
 
-However, there *is* work to re-enable it on top of that rework (and other
-changes):
+Thanks for driving this work forwards anyway, that's 
 
-  https://lore.kernel.org/linux-iommu/20250319173202.78988-6-shameerali.kolothum.thodi@huawei.com/
-
-although I don't know if Shameer intends to repost that...
-
-> >> +static inline bool flush_tlb_user_pre(struct mm_struct *mm, tlbf_t flags)
-> >> +{
-> >> +	unsigned int self, active;
-> >> +	bool local;
-> >> +
-> >> +	migrate_disable();
-> >> +
-> >> +	if (flags & TLBF_NOBROADCAST) {
-> >> +		dsb(nshst);
-> >> +		return true;
-> >> +	}
-> > 
-> > Why does the NOBROADCAST case need migration disabled? It didn't before...
 > 
-> The existing semantic for TLBF_BOBROADCAST is that it emits a local TLBI on
-> whatever CPU we happen to be executing on. It's used for lazily fixing up
-> spurious faults (i.e. hitting RO TLB entries when the PTE has been relaxed to
-> RW). So it's still functionally correct if the thread migrates CPU between
-> taking the fault and issuing the local TLBI - in the worst case it just leads to
-> another spurious fault.
-> 
-> For this new case, we need to ensure we don't get migrated between reading
-> active_cpu and issuing the local TLBI, otherwise we would only issue a local
-> TLBI when a broadcast was required.
 
-Sounds like those two users probably need separating out, then?
-
-> >> +	self = smp_processor_id();
-> >> +
-> >> +	/*
-> >> +	 * The load of mm->context.active_cpu must not be reordered before the
-> >> +	 * store to the pgtable that necessitated this flush. This ensures that
-> >> +	 * if the value read is our cpu id, then no other cpu can have seen the
-> >> +	 * old pgtable value and therefore does not need this old value to be
-> >> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
-> >> +	 * needed to make the pgtable updates visible to the walker, to a
-> >> +	 * dsb(ish) by default. So speculatively load without a barrier and if
-> >> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
-> >> +	 */
-> >> +	active = READ_ONCE(mm->context.active_cpu);
-> >> +	if (active == self) {
-> >> +		dsb(ish);
-> >> +		active = READ_ONCE(mm->context.active_cpu);
-> >> +	} else {
-> >> +		dsb(ishst);
-> >> +	}
-> > 
-> > Why can't you just do:
-> > 
-> > 	dsb(ishst);
-> > 	active = READ_ONCE(mm->context.active_cpu);
-> > 
-> > ?
-> 
-> Prior to this optimization, we always issued a dsb(ishst) here. Catalin
-> suggested the same simplification against the RFC. I believe Linu tried it but
-> saw regressions; Hopefully Linu can provide the details.
-
-I don't follow...
-
-The old code always did dsb(ishst). The proposed code here does either
-dsb(ish) or dsb(ishst). How can that possibly be faster?
-
-> >> +	local = active == self;
-> >> +	if (!local)
-> >> +		migrate_enable();
-> >> +
-> >> +	return local;
-> >> +}
-> >> +
-> >> +static inline void flush_tlb_user_post(bool local)
-> >> +{
-> >> +	if (local)
-> >> +		migrate_enable();
-> >> +}
-> > 
-> > I was under the impression that disabling/enabling migration was an
-> > expensive thing to do, so I'd really want to see some more numbers to
-> > justify this (including from inside a VM) and allow us to consider the
-> > trade-offs properly. It's also not at all clear to me that it's safe
-> > from such a low-level TLB invalidation helper.
-> 
-> I had assumed it wasn't very expensive, but perhaps I'm wrong. I know
-> preempt_enable() can be expensive because it has to test to see if it needs to
-> reschedule. But I assumed for disabling/enabling migration, it would just be a
-> counter and the scheduler would check that it's zero before considing moving the
-> task to another run queue. (But I have practically zero understanding of the
-> scheduler so I'll assume I'm wrong...).
-
-I'm not an expert here either, but reading the code shows that it has
-a preempt guard along with additional book-keeping.
-
-> Instead of disabling migration, perhaps we could re-check active_cpu after
-> issuing the local tlbi - if it's now reporting "multiple" we must have been
-> migrated and we need to upgrade to a braodcast TLBI?
-
-That's an interesting idea, although I suppose it means the
-post-invalidation DSB needs to be ISH for the local case to check the
-active_cpu safely?
-
-> >>   *	TLB Invalidation
-> >>   *	================
-> >> @@ -408,12 +482,20 @@ static inline void flush_tlb_all(void)
-> >>  static inline void flush_tlb_mm(struct mm_struct *mm)
-> >>  {
-> >>  	unsigned long asid;
-> >> +	bool local;
-> >>  
-> >> -	dsb(ishst);
-> >> +	local = flush_tlb_user_pre(mm, TLBF_NONE);
-> >>  	asid = __TLBI_VADDR(0, ASID(mm));
-> >> -	__tlbi(aside1is, asid);
-> >> -	__tlbi_user(aside1is, asid);
-> >> -	__tlbi_sync_s1ish(mm);
-> >> +	if (local) {
-> >> +		__tlbi(aside1, asid);
-> >> +		__tlbi_user(aside1, asid);
-> >> +		dsb(nsh);
-> >> +	} else {
-> >> +		__tlbi(aside1is, asid);
-> >> +		__tlbi_user(aside1is, asid);
-> >> +		__tlbi_sync_s1ish(mm);
-> >> +	}
-> >> +	flush_tlb_user_post(local);
-> > 
-> > I think you've changed this since Ryan's original patch, but why are you
-> > only calling __tlbi_sync_s1ish() for the !local case? Doesn't that break
-> > the erratum workaround when running as a VM if the vCPU is migrated?
-> 
-> Hmm. So from the guest kernel's perspective, it has concluded that it only needs
-> to target the local (v)CPU. Since the errata only affect boardcast TLBIs, it
-> concludes there is no need to issue the workarounds. But since it's a VM, the HW
-> will upgrade the local TLBIs to broadcast TLBIs, but will not magically
-> re-instate the workarounds. I guess the simplest solution would be to disable
-> the optimization when either workaround is enabled.
-
-That's what I was thinking, but Mark seems to think it's ok. I'll reply
-to him on the other part of the thread.
-
-> Perhaps this is all getting a bit too complex for not enough benefit...
-
-I don't think the complexity is unmanageable, but I'm not yet convinced
-that this offers any real benefit overall.
-
-Will
 
