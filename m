@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6467CD98E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E55CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RNdnR6CZ3/9BNpbQCelD2BkNJUYnz0xCLIGmiZEX744=; b=5EtS2e46Zy84wF51LAvXdmIjJc
-	X7dkMu55zpKJN4m1f4rWU9o4NYewbGcaP2ITox6En32q+uVY/I01ci93Z7il2JeHVVhMTuFT9L+f3
-	eFiOrMOx0H7qYEDfimIlcNFZ0uS00ApXcaBrefgVgTQYVSVfwosyNqX4S1PsxDMrkJoH4w2B/lk5S
-	CqpRMU4sQ4DMpcBSlRu00Vj01nk+F+wlZGgiTvFE8y172TbnfupLMLmv8WTr/aBOQ8PDORMKw4Dw6
-	bqJ5y0sFJbGq4267pV/xs7uvdchcE2B8bWsYDH/L+JfOCwXnN+CEKneukm87qkJVVqqZytcMRF3Bp
-	q60F8oyw==;
+	bh=S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=; b=cRNISSqdPUAmjQ+ArX9Sw/L8kD
+	JuLDugok7P6mRrnqKAQMnzOuKiLD/D5wV9fBeDrK5xWZSzAwXy4ASB+Ih/sAawaE51Vo4u77a6xdt
+	M1kszqtDc933Uo5ciufX9yfVTQ1QqeQQBBUn9dgJptJ6L5ZucQkVWqF5AD8YeQqk3Ve+2ISa9LYuh
+	bd27qXEcLx1YTMLoTBGW+N1q9Yv9CDWV0tYVWPurE6aX1o6n1HkrE6QMNQiIYETrk+wj/CcSkpuiL
+	v/+ojJFiep5wreDduOo18xELt3hGpYl62pmSwIRzbksqPva/JN0qVnsYaHZLJlA9qOT414GyhEvn5
+	lkfuD6EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6VF-0000000ECiR-0pDL;
-	Mon, 15 Jun 2026 12:33:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wZ6VL-0000000ECpJ-3Tju;
+	Mon, 15 Jun 2026 12:33:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6VC-0000000ECgT-17LH
+	id 1wZ6VG-0000000ECk1-2B9E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 12:33:20 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65FAoQsR2481255
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:18 GMT
+	Mon, 15 Jun 2026 12:33:25 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65FApmWD151923
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	RNdnR6CZ3/9BNpbQCelD2BkNJUYnz0xCLIGmiZEX744=; b=Xd9ouEPg1I8fMU7f
-	YNdwHHkEhz3S1ZfZnUAc5lbpj+lIX7S4QzGiEulBsAfdn4qQTJR3xzI00KZDXJhV
-	fbHQNL+q7tbIe7ly5EkI7+1hlZ2qa2gjbECLaksdsrrOkhzXsVdpkv754K27ZdKV
-	NzRnWfw1wQWIGiaaFV6SoiEKIQ8y4wdik43oU/ZN5FIFEOp9KeiIoIi4KvPsl56T
-	dT3jGDL+QUPl6EbWJz9O47snVJKZwhJP6F7saC5qEl0snzdu2cg2n7st3w+F5ShM
-	goD4Tk7pzTDOKUsaBqpLCWKRk5s2horCqOJu4T7yjulzGVRYulAdFSWC3bGXr3cA
-	ouZeoQ==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ete980u22-1
+	S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=; b=JTkChcaQfIRtXp73
+	stp+D3SDoHRo5NvoCZ74oCPNJjaP8v7Kt6VixQIhJut6IxzoMo+IaF3KMEiTpgRu
+	gjAILCG+VQhZjW3Zi2uBs0oAIAKr6gvXEVx3Hl0867kSU7JTUMPCOCjJRs8v1vBB
+	AzEvjYOuoYg7+uapyNNHzR1I8rgUN48eQBIXQGtilrUC4gCmPXrl/P48xr0HhZu8
+	g5FzDH9L2GW1FO0gGvUuuGfLTHWP7pDQF+N0Oybpx3R47r8LVVi2OX23CrncY6hC
+	ujfJYBp+Duc3FpVUKC5GQftEF+Wmb1OKt6mXKa5bVlZkyvexE0ytgalzWzW07D8V
+	1rElDg==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4etetf0nsh-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:17 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8428384f31fso2598955b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:33:17 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:33:21 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8422f987f2eso5544835b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:33:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781526797; x=1782131597; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1781526800; x=1782131600; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RNdnR6CZ3/9BNpbQCelD2BkNJUYnz0xCLIGmiZEX744=;
-        b=iS69tql7x3dDtZ/WtMnCJR1vWvJLwDIsyxBrqVHUrAg9tjp1mMybafy3HowONPKRzI
-         TMlYGb/QtbgrtV8k3R/VGh6Wd304x/VPKqSlGqfwNA4BRsyt682YjPp/SaK7IsM9y5Xh
-         PRAqHGnYbFeOY8XwL/6UAXWzA74j9RZbuBRQlzTuQcjodVREZnylX8oJ+cQOgcj2dgoX
-         bIslbwLDcp0DSesEiP7BLvpXH2De/PY9malcw7lJ9VIf6bGUjL9P0Q/C+f8De6fO7EJM
-         Agt7Ew4G1tkKxEtPpci88achwKhHV4WI4fk9EaX5npINaULvTMbmQpl2+lJIFeV1B+k9
-         SivA==
+        bh=S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=;
+        b=c7Eo9QDIm8lSyPXhGMzqNdpAC2IRQybGzU8vAsJV5xeBmrA+l5VTwP206tuMeYANMW
+         t6TGYmhe9NfFeurXxGum3ZriVw58xyaoLVZ2zztjz1cTiIsz1EqPiw6MQ22a6oqPHMoQ
+         A+fhb3H5S69bTq3C5hX8To9u5+Mm/EIZhXlV/YRdo9hdziiXV0uEsRFegZlE3gZ6acgc
+         Ox8cN1MdSDMMjuKI9RO+sWJtxclb8kmVNc0Zh+Ex0zF5hYJKvEuappeu9zs0fHTb/hNa
+         wNrkvB6JBUVfGomHdkjqBXoWnaBOyYKN2ypH+O/3I4HcD5hq4UZxNpLuLojV6/LxWRMP
+         6eQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781526797; x=1782131597;
+        d=1e100.net; s=20251104; t=1781526800; x=1782131600;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=RNdnR6CZ3/9BNpbQCelD2BkNJUYnz0xCLIGmiZEX744=;
-        b=iJf0853GJK5DYNrmPN1hnDNd3gBKcLnvfEDHE6FBxQJNB3DiZn9TR/B+ZPHbHPEwbJ
-         4XMlvnkiOmnq6BX9HOexVCKmpmYFKl8NfzgTZEd0tqHbnaMJpB3xEvYtr7VtWdbaFyOs
-         ZXImwgRqLwCyvmq30wKyB4PS15YHRqN32Vyi3vXuaYSNqqly56M8LZtcDJuMDA9Q6vn9
-         6kTmRm5yW3myMMKkHggawzQa82n6CNhn0bVwvpy0tk48pQ9DhFDS1CNrcLbLTGMuskbU
-         vfjBCedVapmezw1+5SsELTQZyphyT9LX1hlGR45afW/bAOtNYtfgDOlpKoCVt7Hoen9x
-         L2pg==
-X-Forwarded-Encrypted: i=1; AFNElJ8LlDNyiJC8ZS//cN8gLf1tgKDTfGQMLugHohQ5Qk3s/0PwAKhsqi75zol6sE0PunXeB7hhYQmFcmIwiLE4/hvx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxORKF6MiAjUf9RmBiZiRTi+TnxiHk65m0GYUiYELdZqpU/p/rv
-	8H8MoUt4J96/0uuI0XQR9T6jTqKNGg9FYH5fMmKNgFP+A+kxb5ZmURaB/ltcOyry4HlcguC+DEH
-	yXM8WtusA5Ijoyz0a8uc1/aTyyzaxhTUZogZfAslQVL0ABC37Mu/zM20hJoykPtqCF+KU8EJvSA
-	/37w==
-X-Gm-Gg: Acq92OEl5/2QL4ss59QH2gNe0BRmp3okDtphv448gTPpbAG79S+KcffXa3UzTGFAFia
-	4zTqbM0ZUM+vWBnFQzPDr148U+7ewynH3aFtIOE1KcLM4kAprfP0114BSte2Bc+dx6y4JKI2fKE
-	khL7B6MdWvoH6vEB0z7gmtACAXmmBJC08HTLLNyRFnOJWWJsZu8jemV3X52kRDRqLQwnXQDd81F
-	uClxj/Rdst96Wnt2rNpLD9Ky16m+UOXTrEHURwoaOaXY+AvRx6MT0U6fTRy3js71hoOZZqyO0R3
-	g4BOR+iuH6HBEt6J1YC9j3F++8Ut6A4bBtDA6ib4A7EkJ23k0Khk64frFW6+1Pvm6b342bbkaN+
-	Fafu43BSgnSvRRS3FQjUOmh9M9UkTYQ138tQIEAnxLf23Qk15VoNUgAWu2KjfpRo1mmZp/gjk2N
-	fGpqrQ1OXSQep8tw==
-X-Received: by 2002:a05:6a00:a211:b0:837:e9cc:d46d with SMTP id d2e1a72fcca58-8434ced3682mr14804784b3a.44.1781526796986;
-        Mon, 15 Jun 2026 05:33:16 -0700 (PDT)
-X-Received: by 2002:a05:6a00:a211:b0:837:e9cc:d46d with SMTP id d2e1a72fcca58-8434ced3682mr14804735b3a.44.1781526796468;
-        Mon, 15 Jun 2026 05:33:16 -0700 (PDT)
+        bh=S/JffYfPWEmdpYonKFGcekrAZIyf1782SlT6HKhqKKg=;
+        b=l+1ydzmMgmimMc6F7JGg0rc4mQpG2ug0tSRoYRMPVapWBhz/Ws2+vSpUYrQj8aGYRR
+         cpt1T0q4gTmzscHnN/Az2SpB0RHT+Il0vU7xDuKluG2tIaYb7NYNjbltk1/IsE5Hy2fZ
+         eUUiolKV+or0IE0q85zc357Z+M9odRe/HvzfP0WISZrv0m28wZikMKJRJlkm4itn5W2Q
+         66Ltb41LHQ0nCiWE7IUNIS7b0LYz4XIIJfmaQpk8Hrv5YMbd25I3n76o5dDqos5kOcSv
+         OD503DD94XKqot4aH+IraunJ7rmq9t7ly2hCiaBks/QocQZXA5sTUaRYHhUIzkz5u3wZ
+         UWKg==
+X-Forwarded-Encrypted: i=1; AFNElJ86XKK834sWbIi6BqvoQTZ/KlENdk5V31gzf1f3GGIVLWpszygb5H/hbZ9ch05dWrtowvyqVQcgDFQ8TI0zLgFv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwL+AQsT2nIx/jNryijeUOyf+D+adeN/nf5nJNSRFVeLrU27fou
+	p/CnP+1Xo0EUGQHlB19oa7hXbKu+AXSs16citsXtGyD2L53GJtFlD8Hrd+cTMEoHSDsrHXBKXbM
+	Of0z5IbsGlJQv2gf/5Vdgh75lBsp1vPr3qFDB9y4dVYL1N4BEFOBUxlHeLFOSRs5jvq0/yDED5N
+	r6bQ==
+X-Gm-Gg: Acq92OGQryHOM2jTpJ5cvbNriQsbZCwWyEr68ImEVlpEt/CCVYn/mD0T5z4TtxRuevT
+	9nE0pC5foB8FhWfguu1ICcKKuGvk5mdz58JC8yu4ImbBxEa+60oTvSu70yl8TH2qQ/OSiFp/VmD
+	eW+rWxECgjV48qQCiBtFd2IjLuccoW337sVgaTuc5GbTzXBt1DT0qvyURD1W/yr3KYp1MEH2XlU
+	WkpmwcX/AObXnBLBj4Qj4VSPralVQPqeo0qjYGIEbWmn2mm6X1jzyjOeBjIW+ybb+yPxQIZo5bq
+	Etini7HmhL2QhW/31j8oymHbJtf3+mt2QysIkSMACd6pjDLsW7bEL3tSWNBYunDrMaRaNCYrdcT
+	kytZpDUvmgAlbY+/+vFuu+lvRdkkCQxD2/4KUBVgSZtab7knn2jNedkb1HT17E8WLzw3A2NtTlK
+	ShbJABOSlxgIuhsw==
+X-Received: by 2002:a05:6a00:1993:b0:824:374a:1407 with SMTP id d2e1a72fcca58-8434cd4914bmr15273591b3a.16.1781526800243;
+        Mon, 15 Jun 2026 05:33:20 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1993:b0:824:374a:1407 with SMTP id d2e1a72fcca58-8434cd4914bmr15273572b3a.16.1781526799808;
+        Mon, 15 Jun 2026 05:33:19 -0700 (PDT)
 Received: from jinlmao-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b03fd0bsm9968393b3a.50.2026.06.15.05.33.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b03fd0bsm9968393b3a.50.2026.06.15.05.33.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 05:33:16 -0700 (PDT)
+        Mon, 15 Jun 2026 05:33:19 -0700 (PDT)
 From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Date: Mon, 15 Jun 2026 20:32:31 +0800
-Subject: [PATCH v10 3/5] coresight: cti: add Qualcomm extended CTI
- identification and quirks
+Date: Mon, 15 Jun 2026 20:32:32 +0800
+Subject: [PATCH v10 4/5] coresight: cti: expose banked sysfs registers for
+ Qualcomm extended CTI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260615-extended_cti-v10-3-1c1694b6d8ed@oss.qualcomm.com>
+Message-Id: <20260615-extended_cti-v10-4-1c1694b6d8ed@oss.qualcomm.com>
 References: <20260615-extended_cti-v10-0-1c1694b6d8ed@oss.qualcomm.com>
 In-Reply-To: <20260615-extended_cti-v10-0-1c1694b6d8ed@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
@@ -109,43 +109,44 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
         Jinlong Mao <jinlong.mao@oss.qualcomm.com>, jie.gan@oss.qualcomm.com,
         Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781526782; l=8792;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781526782; l=5618;
  i=yingchao.deng@oss.qualcomm.com; s=20260611; h=from:subject:message-id;
- bh=lODQpixgMjeh3XaPxg7whs4SFcFhY0krJnrZZurdwgY=;
- b=hTOJCGiFRo4kRJIKulKIAU9giNFMQhIjh0gUp7W5oMvJjfvr53d2zE5P/2Sj/GlmAR6EFemXL
- ZR995QsmeyCCpazUo3+0wHFjNMSbudyfriu35GtXdn+I82ViV1z+dMG
+ bh=nLJJ2LG0916NbMbQC/CB2id4JlgiNIupcL84YiH1LSI=;
+ b=6mqmr4mIJpAqOe8iXiZqcp1T2fvrZ54s8SytoqqlhFhB5g/CboVG2Byq6U3yCs/mg2C0SQ2CY
+ +beqXV9dsbgAGvuc7m+JPrn98/qQ+9y2xSYmZBE3wbiXwNXFWQvTaTs
 X-Developer-Key: i=yingchao.deng@oss.qualcomm.com; a=ed25519;
  pk=+y3U2mIt7mf0C+x6qBUD670cd9S2QV+yl5015bUYMgs=
-X-Authority-Analysis: v=2.4 cv=V5tNF+ni c=1 sm=1 tr=0 ts=6a2ff10d cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Authority-Analysis: v=2.4 cv=adxRWxot c=1 sm=1 tr=0 ts=6a2ff111 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=beW-1tIARaYxa11sNzUA:9 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-GUID: CTn_YI8cZMlLVCRFSnquQRV6FdaUukfX
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfXz+XoY+ykOxQO
- Olq1dt5uIev17ZeMxbcYgGXpgFhfblLctS4B6Gn+sG+fAUJmz5527AnaI7jX4faoYEgUPCCECQB
- 0kX8LaoePzI10qo7Gqr+Qxw7ViMFZus=
-X-Proofpoint-ORIG-GUID: CTn_YI8cZMlLVCRFSnquQRV6FdaUukfX
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfX7vl51Y0116ud
- tZTFajgDZcBbRS1dCGdm1TQ6yy//H7cD/RJhBna2kMdu+Gw22L9T0vWyjp8HLxAWSPYHAWdtyGX
- oTGXUHbCveSR+VeB+I03Ss8MK5eXk3dbhoDEGRgXcYU3XMW+h8aXPOAGNF0wM+34H6ijOGk7sbS
- TxnofnNbPNxzdEAiTuOwWJCt+ENaDVIJJ/iWyf+uT98Ou2jjFoQz61XeU15tRzAc09gI9t0nljd
- sv01vcEx1jaza17gzfPa/Y3Vc9CaB2LfQD9o6a1KS/2jjmpKZ/cDhO3EaBdmMCKBm1Bh+QbQ3Fu
- JinsTtVjuXUgUit90Oubw9LOyUouwp2JXMo1MP5nrRSyeofOFTJtAjoQKr6M+R7DkbL0Vamyo2T
- 6cgiC0AGTS9a2vjSPYJhOzoIlwLF7IyAuQyZE6BQWPM2p0p0tHIlnKQVwLZfVoaP+4vz886PGIq
- jtJJkOFGCyB0EuH578g==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=yoa6GI8vE20v00mW0vsA:9 a=QEXdDO2ut3YA:10
+ a=OpyuDcXvxspvyRM73sMx:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: wLM0jGJD44RO3Qcdrtn23erJVBFrFol0
+X-Proofpoint-ORIG-GUID: wLM0jGJD44RO3Qcdrtn23erJVBFrFol0
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfXwjWTFabtHplN
+ fYYop9R0ZQs5akL/i1gqCnVLQmX7XxEnJJj+Py+XzOw7lQjwFZnskoAdX1clN3Yr2MxvDb6jxlR
+ ZKzftXx6v35SEzI1mXfOTBvxGQeV5g8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE1MDEzMiBTYWx0ZWRfX/NtDr3zxmaal
+ Ecxod+O3CdE+AlPxZPFVIzm0XDu4nihkyQH7YoXlHnFI29plUnRExtOlqnLzwkoERmhBNVVqBIk
+ 37oFvDWFpGEMySgN+2stmfa01+GdASlS+mlntSPX1BdW49VnbwZdUp35WGH8C4YL+kuUg50cfZW
+ 75ry6S+4IilsDv+5SpViIZZN+iM8OJrl9zWP9XrjjnE2DYtOKo3wHwAFSjesnmYGPID3rox9fv8
+ OxF8qKN5FgJz8JuB7Xvw/bU196zy8vRO/E9Gs9nkbddacbLwZiTB9Tk5v9uXzXsl9ZOIMjBv6/l
+ wEf7O0OXW+2Hzp320ykm+8lSJTnFE/7G/GRiwsyPy3JZIQpjT3JrLHLKAXkc22fWP079YVqjYSS
+ e5iInzi1yF+rZnIhlNXzrQPTmonybARu9w/Y504SME5YxzLELUfAYMpIt/1TYBArM+WxcXoo20c
+ 1I7jbtYBFwQftShcF7g==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-15_03,2026-06-15_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 impostorscore=0 phishscore=0 malwarescore=0 priorityscore=1501
- adultscore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606150132
+ priorityscore=1501 clxscore=1015 impostorscore=0 lowpriorityscore=0
+ malwarescore=0 suspectscore=0 spamscore=0 phishscore=0 adultscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606040000
+ definitions=main-2606150132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_053318_513038_CF20C1A9 
-X-CRM114-Status: GOOD (  26.43  )
+X-CRM114-CacheID: sfid-20260615_053323_231667_05DE9E47 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,247 +161,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Qualcomm implements an extended variant of the ARM CoreSight CTI with a
-different register layout and vendor-specific behavior. While the
-programming model remains largely compatible, the register offsets differ
-from the standard ARM CTI and require explicit handling.
+Qualcomm extended CTI implements banked trigger status and integration
+registers, where each bank covers 32 triggers. Multiple instances of
+these registers are required to expose the full trigger space.
 
-Detect Qualcomm CTIs via the DEVARCH register and record this in the CTI
-driver data. Introduce a small mapping layer to translate standard CTI
-register offsets to Qualcomm-specific offsets, allowing the rest of the
-driver to use a common register access path.
+Add coresight_cti_reg_index(), coresight_cti_reg_rw_index(), and
+coresight_cti_reg_wo_index() macros that carry the bank index in the
+cs_off_attribute.index field, keeping the base offset and index
+separate rather than encoding them together.
 
-Additionally, handle a Qualcomm-specific quirk where the hardware does
-not implement the CoreSight Claim tag protocol. Instead of clearing the
-CLAIMSET register at probe time, bypass the claim/disclaim operations
-entirely for Qualcomm CTIs by wrapping coresight_claim_device(),
-coresight_disclaim_device_unlocked() and coresight_clear_self_claim_tag()
-in thin helpers that early-return when is_qcom_cti is set.
+Add static sysfs entries for the banked CTI registers and control
+their visibility based on the underlying hardware configuration.
+Visibility is determined by comparing the attribute's index against
+the number of banks implied by nr_trig_max (32 triggers per bank).
+Registers beyond the hardware capacity are hidden, preserving the
+existing ABI on standard ARM CTIs while exposing the full register
+set on Qualcomm CTIs.
 
-No functional change is intended for standard ARM CTI devices.
-
-Co-developed-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
-Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-cti-core.c | 47 +++++++++++++++--
- drivers/hwtracing/coresight/coresight-cti.h      | 64 +++++++++++++++++++++++-
- 2 files changed, 105 insertions(+), 6 deletions(-)
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c | 58 +++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index fa758c535ccb..5b83dd4e603b 100644
---- a/drivers/hwtracing/coresight/coresight-cti-core.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -73,6 +73,35 @@ void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
- 	CS_LOCK(drvdata->base);
- }
+diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+index 6165866eaefe..175f20d69232 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+@@ -207,6 +207,15 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
+ 	   }								\
+ 	})[0].attr.attr)
  
-+/*
-+ * Qualcomm CTIs do not implement the CoreSight Claim tag protocol, so
-+ * bypass coresight_clear_self_claim_tag() for them.
-+ */
-+static void cti_clear_self_claim_tag(struct cti_drvdata *drvdata,
-+				     struct csdev_access *csa)
-+{
-+	if (drvdata->is_qcom_cti)
-+		return;
++#define coresight_cti_reg_index(name, offset, idx)			\
++	(&((struct cs_off_attribute[]) {				\
++	   {								\
++		__ATTR(name, 0444, coresight_cti_reg_show, NULL),	\
++		offset,							\
++		idx							\
++	   }								\
++	})[0].attr.attr)
 +
-+	coresight_clear_self_claim_tag(csa);
-+}
+ #define coresight_cti_reg_rw(name, offset)				\
+ 	(&((struct cs_off_attribute[]) {				\
+ 	   {								\
+@@ -217,6 +226,16 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
+ 	   }								\
+ 	})[0].attr.attr)
+ 
++#define coresight_cti_reg_rw_index(name, offset, idx)			\
++	(&((struct cs_off_attribute[]) {				\
++	   {								\
++		__ATTR(name, 0644, coresight_cti_reg_show,		\
++		       coresight_cti_reg_store),			\
++		offset,							\
++		idx							\
++	   }								\
++	})[0].attr.attr)
 +
-+static int cti_claim_device(struct cti_drvdata *drvdata)
-+{
-+	if (drvdata->is_qcom_cti)
-+		return 0;
+ #define coresight_cti_reg_wo(name, offset)				\
+ 	(&((struct cs_off_attribute[]) {				\
+ 	   {								\
+@@ -226,6 +245,15 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
+ 	   }								\
+ 	})[0].attr.attr)
+ 
++#define coresight_cti_reg_wo_index(name, offset, idx)			\
++	(&((struct cs_off_attribute[]) {				\
++	   {								\
++		__ATTR(name, 0200, NULL, coresight_cti_reg_store),	\
++		offset,							\
++		idx							\
++	   }								\
++	})[0].attr.attr)
 +
-+	return coresight_claim_device(drvdata->csdev);
-+}
-+
-+static void cti_unclaim_device_unlocked(struct cti_drvdata *drvdata)
-+{
-+	if (drvdata->is_qcom_cti)
-+		return;
-+
-+	coresight_disclaim_device_unlocked(drvdata->csdev);
-+}
-+
- /* write regs to hardware and enable */
- static int cti_enable_hw(struct cti_drvdata *drvdata)
+ /* coresight management registers */
+ static struct attribute *coresight_cti_mgmt_attrs[] = {
+ 	coresight_cti_reg(devaff0, CTIDEVAFF0),
+@@ -515,18 +543,36 @@ static struct attribute *coresight_cti_regs_attrs[] = {
+ 	&dev_attr_appclear.attr,
+ 	&dev_attr_apppulse.attr,
+ 	coresight_cti_reg(triginstatus, CTITRIGINSTATUS),
++	coresight_cti_reg_index(triginstatus1, CTITRIGINSTATUS, 1),
++	coresight_cti_reg_index(triginstatus2, CTITRIGINSTATUS, 2),
++	coresight_cti_reg_index(triginstatus3, CTITRIGINSTATUS, 3),
+ 	coresight_cti_reg(trigoutstatus, CTITRIGOUTSTATUS),
++	coresight_cti_reg_index(trigoutstatus1, CTITRIGOUTSTATUS, 1),
++	coresight_cti_reg_index(trigoutstatus2, CTITRIGOUTSTATUS, 2),
++	coresight_cti_reg_index(trigoutstatus3, CTITRIGOUTSTATUS, 3),
+ 	coresight_cti_reg(chinstatus, CTICHINSTATUS),
+ 	coresight_cti_reg(choutstatus, CTICHOUTSTATUS),
+ #ifdef CONFIG_CORESIGHT_CTI_INTEGRATION_REGS
+ 	coresight_cti_reg_rw(itctrl, CORESIGHT_ITCTRL),
+ 	coresight_cti_reg(ittrigin, ITTRIGIN),
++	coresight_cti_reg_index(ittrigin1, ITTRIGIN, 1),
++	coresight_cti_reg_index(ittrigin2, ITTRIGIN, 2),
++	coresight_cti_reg_index(ittrigin3, ITTRIGIN, 3),
+ 	coresight_cti_reg(itchin, ITCHIN),
+ 	coresight_cti_reg_rw(ittrigout, ITTRIGOUT),
++	coresight_cti_reg_rw_index(ittrigout1, ITTRIGOUT, 1),
++	coresight_cti_reg_rw_index(ittrigout2, ITTRIGOUT, 2),
++	coresight_cti_reg_rw_index(ittrigout3, ITTRIGOUT, 3),
+ 	coresight_cti_reg_rw(itchout, ITCHOUT),
+ 	coresight_cti_reg(itchoutack, ITCHOUTACK),
+ 	coresight_cti_reg(ittrigoutack, ITTRIGOUTACK),
++	coresight_cti_reg_index(ittrigoutack1, ITTRIGOUTACK, 1),
++	coresight_cti_reg_index(ittrigoutack2, ITTRIGOUTACK, 2),
++	coresight_cti_reg_index(ittrigoutack3, ITTRIGOUTACK, 3),
+ 	coresight_cti_reg_wo(ittriginack, ITTRIGINACK),
++	coresight_cti_reg_wo_index(ittriginack1, ITTRIGINACK, 1),
++	coresight_cti_reg_wo_index(ittriginack2, ITTRIGINACK, 2),
++	coresight_cti_reg_wo_index(ittriginack3, ITTRIGINACK, 3),
+ 	coresight_cti_reg_wo(itchinack, ITCHINACK),
+ #endif
+ 	NULL,
+@@ -537,10 +583,22 @@ static umode_t coresight_cti_regs_is_visible(struct kobject *kobj,
  {
-@@ -86,7 +115,7 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
- 		goto cti_state_unchanged;
+ 	struct device *dev = kobj_to_dev(kobj);
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct device_attribute *dev_attr;
++	struct cs_off_attribute *cti_attr;
++	int max_bank;
  
- 	/* claim the device */
--	rc = coresight_claim_device(drvdata->csdev);
-+	rc = cti_claim_device(drvdata);
- 	if (rc)
- 		return rc;
+ 	if (attr == &dev_attr_asicctl.attr && !drvdata->config.asicctl_impl)
+ 		return 0;
  
-@@ -101,7 +130,6 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
- static int cti_disable_hw(struct cti_drvdata *drvdata)
- {
- 	struct cti_config *config = &drvdata->config;
--	struct coresight_device *csdev = drvdata->csdev;
- 
- 	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
-@@ -118,7 +146,7 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
- 	/* disable CTI */
- 	writel_relaxed(0, drvdata->base + CTICONTROL);
- 
--	coresight_disclaim_device_unlocked(csdev);
-+	cti_unclaim_device_unlocked(drvdata);
- 	CS_LOCK(drvdata->base);
- 	return 0;
- }
-@@ -144,6 +172,9 @@ void cti_write_intack(struct device *dev, u32 ackval)
- /* DEVID[19:16] - number of CTM channels */
- #define CTI_DEVID_CTMCHANNELS(devid_val) ((int) BMVAL(devid_val, 16, 19))
- 
-+/* DEVARCH[31:21] - ARCHITECT */
-+#define CTI_DEVARCH_ARCHITECT(devarch_val) ((int)BMVAL(devarch_val, 21, 31))
-+
- static int cti_set_default_config(struct device *dev,
- 				  struct cti_drvdata *drvdata)
- {
-@@ -684,6 +715,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	struct coresight_desc cti_desc = { 0 };
- 	struct coresight_platform_data *pdata = NULL;
- 	struct resource *res = &adev->res;
-+	u32 devarch;
- 
- 	/* driver data*/
- 	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-@@ -708,6 +740,10 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 
- 	raw_spin_lock_init(&drvdata->spinlock);
- 
-+	devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
-+	if (CTI_DEVARCH_ARCHITECT(devarch) == QCOM_ARCHITECT)
-+		drvdata->is_qcom_cti = true;
-+
- 	/* initialise CTI driver config values */
- 	ret = cti_set_default_config(dev, drvdata);
- 	if (ret)
-@@ -753,7 +789,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	cti_desc.groups = drvdata->ctidev.con_groups;
- 	cti_desc.dev = dev;
- 
--	coresight_clear_self_claim_tag(&cti_desc.access);
-+	cti_clear_self_claim_tag(drvdata, &cti_desc.access);
- 	drvdata->csdev = coresight_register(&cti_desc);
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
-@@ -767,7 +803,8 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 
- 	/* all done - dec pm refcount */
- 	pm_runtime_put(&adev->dev);
--	dev_info(&drvdata->csdev->dev, "CTI initialized\n");
-+	dev_info(&drvdata->csdev->dev,
-+		 "%sCTI initialized\n", drvdata->is_qcom_cti ? "QCOM " : "");
- 	return 0;
- }
- 
-diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
-index 634bdce5cdfd..4b6fd6b55114 100644
---- a/drivers/hwtracing/coresight/coresight-cti.h
-+++ b/drivers/hwtracing/coresight/coresight-cti.h
-@@ -54,10 +54,36 @@ struct fwnode_handle;
- /*
-  * CTI CSSoc 600 has a max of 32 trigger signals per direction.
-  * CTI CSSoc 400 has 8 IO triggers - other CTIs can be impl def.
-+ * QCOM CTI support up to 128 trigger signals per direction.
-  * Max of in and out defined in the DEVID register.
-  * - pick up actual number used from .dts parameters if present.
-  */
--#define CTIINOUTEN_MAX		32
-+#define CTIINOUTEN_MAX		128
-+
-+/* QCOM CTI extension */
-+#define QCOM_ARCHITECT		0x477
-+
-+#define QCOM_CTIINTACK		0x020
-+#define QCOM_CTIAPPSET		0x004
-+#define QCOM_CTIAPPCLEAR	0x008
-+#define QCOM_CTIAPPPULSE	0x00C
-+#define QCOM_CTIINEN		0x400
-+#define QCOM_CTIOUTEN		0x800
-+#define QCOM_CTITRIGINSTATUS	0x040
-+#define QCOM_CTITRIGOUTSTATUS	0x060
-+#define QCOM_CTICHINSTATUS	0x080
-+#define QCOM_CTICHOUTSTATUS	0x084
-+#define QCOM_CTIGATE		0x088
-+#define QCOM_ASICCTL		0x08C
-+/* Integration test registers */
-+#define QCOM_ITCHINACK		0xE70
-+#define QCOM_ITTRIGINACK	0xE80
-+#define QCOM_ITCHOUT		0xE74
-+#define QCOM_ITTRIGOUT		0xEA0
-+#define QCOM_ITCHOUTACK		0xE78
-+#define QCOM_ITTRIGOUTACK	0xEC0
-+#define QCOM_ITCHIN		0xE7C
-+#define QCOM_ITTRIGIN		0xEE0
- 
- /**
-  * Group of related trigger signals
-@@ -168,6 +194,9 @@ struct cti_config {
-  * @spinlock:	Control data access to one at a time.
-  * @config:	Configuration data for this CTI device.
-  * @node:	List entry of this device in the list of CTI devices.
-+ * @is_qcom_cti: True if this CTI is a Qualcomm vendor-specific
-+ *		 variant that requires register offset translation
-+ *		 via cti_qcom_reg_off().
-  */
- struct cti_drvdata {
- 	void __iomem *base;
-@@ -176,6 +205,7 @@ struct cti_drvdata {
- 	raw_spinlock_t spinlock;
- 	struct cti_config config;
- 	struct list_head node;
-+	bool is_qcom_cti;
- };
- 
- /*
-@@ -229,9 +259,41 @@ struct coresight_platform_data *
- coresight_cti_get_platform_data(struct device *dev);
- const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
- 
-+static inline u32 cti_qcom_reg_off(u32 offset)
-+{
-+	switch (offset) {
-+	case CTIINTACK:		return QCOM_CTIINTACK;
-+	case CTIAPPSET:		return QCOM_CTIAPPSET;
-+	case CTIAPPCLEAR:	return QCOM_CTIAPPCLEAR;
-+	case CTIAPPPULSE:	return QCOM_CTIAPPPULSE;
-+	case CTIINEN:		return QCOM_CTIINEN;
-+	case CTIOUTEN:		return QCOM_CTIOUTEN;
-+	case CTITRIGINSTATUS:	return QCOM_CTITRIGINSTATUS;
-+	case CTITRIGOUTSTATUS:	return QCOM_CTITRIGOUTSTATUS;
-+	case CTICHINSTATUS:	return QCOM_CTICHINSTATUS;
-+	case CTICHOUTSTATUS:	return QCOM_CTICHOUTSTATUS;
-+	case CTIGATE:		return QCOM_CTIGATE;
-+	case ASICCTL:		return QCOM_ASICCTL;
-+	case ITCHINACK:		return QCOM_ITCHINACK;
-+	case ITTRIGINACK:	return QCOM_ITTRIGINACK;
-+	case ITCHOUT:		return QCOM_ITCHOUT;
-+	case ITTRIGOUT:		return QCOM_ITTRIGOUT;
-+	case ITCHOUTACK:	return QCOM_ITCHOUTACK;
-+	case ITTRIGOUTACK:	return QCOM_ITTRIGOUTACK;
-+	case ITCHIN:		return QCOM_ITCHIN;
-+	case ITTRIGIN:		return QCOM_ITTRIGIN;
-+
-+	default:
-+		return offset;
++	dev_attr = container_of(attr, struct device_attribute, attr);
++	if (dev_attr->show == coresight_cti_reg_show ||
++	    dev_attr->store == coresight_cti_reg_store) {
++		cti_attr = container_of(dev_attr, struct cs_off_attribute, attr);
++		max_bank = DIV_ROUND_UP(drvdata->config.nr_trig_max, 32);
++		if (cti_attr->index >= max_bank)
++			return 0;
 +	}
-+}
 +
- static inline void __iomem *__reg_addr(struct cti_drvdata *drvdata,
- 				       u32 off, u32 index)
- {
-+	if (unlikely(drvdata->is_qcom_cti))
-+		off = cti_qcom_reg_off(off);
-+
- 	return drvdata->base + off + index * sizeof(u32);
+ 	return attr->mode;
  }
  
 
