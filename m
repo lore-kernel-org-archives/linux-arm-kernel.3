@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260FBCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACC4CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 09:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/UE5+lbg5gRf9XJtGB18Ewo4QQRSsd9Y3dtS3LqjsMg=; b=BQ/ysfr09J/bzmRHNZ0Mih96X/
-	5N0OxQt+rqXkOk4/eUE3t1fjRrzZvDSPJcvM48zjYzYuLojA4PwlgF5vmcd+/lrNljGOGKM5JXYQR
-	fSvD4QtLC2z7aBrwU32FCA7wM1RZDr9fbXxM03wV1G9XaAVAXvi4PBuzKBiTNjE/fKlwTanAKgUfs
-	TOk8Y36E/B80gqNvpdxCq5kBTWtO+5x8je9udaEJXmK9uAGIOIYWZ8FuMwICHt5SsrLOcp03ozDhZ
-	7Okjhvc7N/u5YuQ4BhFTQjRr0WZe6OA1j2JOLbgt2srUrVdvuQRv0Mi1l07op5tZv5WSgnJntTwwT
-	4qR7HpNQ==;
+	bh=VZoxlApcv9AQepqjoi0oI9FbZKhi/RumfJZWLsfw0Ew=; b=i/WW2jgPnJgb9dxHLNptabo9Bh
+	9y/Q/DnVw8S34K19xAb2J6DuJIoPgeW1sS5vwNLuR5T2Vx+4yNOzg4PXPmNFPAMNYwcUNWJNHc+8s
+	N2kb2KezHZgxcDTVqq0Gl+oHFKq8S/8n377sVY/+O3wBSLyhx0CByFb/a/YvMWRjvUqbgxgWdJwYN
+	7Xg3fOhE5mEMNeKOLdlEMe0mL10BRTo3qjTAKnkP8KoNWNmo6bLZdrFCEPZshLNoGn8wZ3ZvD/Wek
+	rR90Hy0Ur4ldXMKPeiqbDxV3D5Z8E4TbyXxgWbVX136iVpCzSuIUZmRELnbx4nn1xiC7At/dksMB6
+	QhA+SuRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3Lo-0000000Dwqf-1pkZ;
-	Mon, 15 Jun 2026 09:11:25 +0000
+	id 1wZ3MW-0000000Dwzv-0qCL;
+	Mon, 15 Jun 2026 09:12:08 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ3Ll-0000000DwpG-3FVV
+	id 1wZ3MT-0000000Dwyz-1m5E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 09:11:23 +0000
+	Mon, 15 Jun 2026 09:12:06 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowACXt96zwS9qdl7LFA--.28827S2;
-	Mon, 15 Jun 2026 17:11:16 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXddziwS9qmGPLFA--.801S2;
+	Mon, 15 Jun 2026 17:12:02 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Corentin Labbe <clabbe.montjoie@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
+To: Nishanth Menon <nm@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH] crypto: sun4i-ss: remove debugfs directory on teardown
-Date: Mon, 15 Jun 2026 17:11:13 +0800
-Message-ID: <20260615091114.97190-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] soc: ti: knav_dma: remove debugfs file on teardown
+Date: Mon, 15 Jun 2026 17:12:00 +0800
+Message-ID: <20260615091200.2373-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACXt96zwS9qdl7LFA--.28827S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Xw4xCFW3Kry5WFWUCw1xZrb_yoWkWrc_ur
-	WrWrn7JrW8Ar90va4fXry3ZFW0qrWrJry8u3WIvFW3ta47ZrWrWF1xur4ku345AF4DCF98
-	Z3yqvrsxZayj9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb3kFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUQZ2fUUUUU=
+X-CM-TRANSID: rQCowABXddziwS9qmGPLFA--.801S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uFy5XF47AF18uFWrWr4kZwb_yoW8CF18pw
+	n29Fy3Wr4qvF13Cr13Cw4UuF1Sg3ySyayxA397u3WSkw15Xwn8XFyDJFyUtry5JFZ5GF1j
+	vFZ8t34rZr4UJ3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkC14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	AVWUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkG
+	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4U
+	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfU0VbkUU
+	UUU
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_021122_379206_61731480 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260615_021205_828619_3CE8453C 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sun4i_ss_probe() creates a debugfs directory and a stats file with struct
-sun4i_ss_ctx as private data. The remove path unregisters the crypto
-algorithms and tears down runtime PM but leaves the debugfs entries
-published.
+knav_dma_probe() creates the global knav_dma debugfs file whose show
+callback walks the global kdev list. knav_dma_remove() tears down the DMA
+instances and runtime PM but leaves that debugfs file and global ready
+state behind.
 
-Remove the debugfs subtree before tearing down the driver state used by
-the stats show callback.
+Save the debugfs dentry, remove it before destroying the DMA state, and
+clear the global ready pointer state during remove.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/soc/ti/knav_dma.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
-index 58a76e2ba64e..bcaddf1b83ca 100644
---- a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
-+++ b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
-@@ -512,6 +512,8 @@ static void sun4i_ss_remove(struct platform_device *pdev)
- 	int i;
- 	struct sun4i_ss_ctx *ss = platform_get_drvdata(pdev);
+diff --git a/drivers/soc/ti/knav_dma.c b/drivers/soc/ti/knav_dma.c
+index e5f5e3142fc4..9277c525ac21 100644
+--- a/drivers/soc/ti/knav_dma.c
++++ b/drivers/soc/ti/knav_dma.c
+@@ -125,6 +125,7 @@ struct knav_dma_chan {
+ 			ch->channel : ch->flow)
  
-+	debugfs_remove_recursive(ss->dbgfs_dir);
+ static struct knav_dma_pool_device *kdev;
++static struct dentry *knav_dma_debugfs;
+ 
+ static bool device_ready;
+ bool knav_dma_device_ready(void)
+@@ -740,8 +741,9 @@ static int knav_dma_probe(struct platform_device *pdev)
+ 		goto err_put_sync;
+ 	}
+ 
+-	debugfs_create_file("knav_dma", S_IFREG | S_IRUGO, NULL, NULL,
+-			    &knav_dma_debug_fops);
++	knav_dma_debugfs = debugfs_create_file("knav_dma", 0444,
++					       NULL, NULL,
++					       &knav_dma_debug_fops);
+ 
+ 	device_ready = true;
+ 	return ret;
+@@ -758,6 +760,10 @@ static void knav_dma_remove(struct platform_device *pdev)
+ {
+ 	struct knav_dma_device *dma;
+ 
++	device_ready = false;
++	debugfs_remove(knav_dma_debugfs);
++	knav_dma_debugfs = NULL;
 +
- 	for (i = 0; i < ARRAY_SIZE(ss_algs); i++) {
- 		switch (ss_algs[i].type) {
- 		case CRYPTO_ALG_TYPE_SKCIPHER:
+ 	list_for_each_entry(dma, &kdev->list, list) {
+ 		if (atomic_dec_return(&dma->ref_count) == 0)
+ 			knav_dma_hw_destroy(dma);
+@@ -765,6 +771,7 @@ static void knav_dma_remove(struct platform_device *pdev)
+ 
+ 	pm_runtime_put_sync(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
++	kdev = NULL;
+ }
+ 
+ static struct of_device_id of_match[] = {
 -- 
 2.50.1 (Apple Git-155)
 
