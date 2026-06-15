@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA4BBCD98CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 07:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF15CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 07:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nG1MlD4PN9leIlB74vSBgHn1juhdOfLFrGDifVzjZsw=; b=fjprHxuaLAnIVBw1kw0WNAptOP
-	Kys0Hu2u+ADwEJOK1j4eeulC4HoyAXmGo98NE8YZc3OT2ldYGqUM38eF+3aeEJQF4Ez4RSXO3offA
-	PHhuMu99FudhLnAVxk4AfTGySp5Ada23g75vv7nWDqJVpcJp/TrfHSRV1IAgKkHFbCc3M0cHzmAng
-	oJF4VGdIy3blIQ4aQg5dfJ+RRc9f9w/tmWhK+JnW1f6CF0XG25zbp26lWiPIPYU/1cwwNSBK3UoOu
-	6Q8CDImRECTIRNlvDbC+9ws7ewvjEHCMqgQOP0UHrRLfKmjJZ1u48CpJ0OfBhUvmQSrHrMN1cupHl
-	W5yl9uQQ==;
+	bh=wINyseeJxapeyBVBOl6gJLd9xmd6tC96LZmJ/8JBYbQ=; b=nIu7kqJyOrMN1a0c2VvQP5T+q2
+	+n6++SH6AVHp7mIlbhXUNt26m7Br7d0gRpOtMP5IkwKIKlEWapJDMFX3qvfyi170t9x+VIHYvIH5w
+	97ZCuiChZel8y3MLw7nYNgfcN+4faEhCbF8jbTm0UNGYxqE5esZR7Pm5TiNl3Y6ztIJ3JnHOqN1Xd
+	0emsOZAt0VV6YbEk8ALXx56Zbj/XnUy5DZTgHsyre8mAZdwktCaPcT2/LhCk39xQ1E2FUfA2UYFMb
+	ZN4cvyuowEFX0nDIyHiB+fuS/LCYM/p3YgsxzFQhCEU4UDe2xPlOs3tbKvBsQNzj7KmpU3PKMKJdL
+	LkN473LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ1cQ-0000000Dm5V-3u40;
-	Mon, 15 Jun 2026 07:20:26 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wZ1cg-0000000DmDU-17ZA;
+	Mon, 15 Jun 2026 07:20:42 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ1cM-0000000Dm3B-3BJR
+	id 1wZ1ca-0000000DmA4-1TEH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 07:20:24 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so19951545e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 00:20:22 -0700 (PDT)
+	Mon, 15 Jun 2026 07:20:40 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49222b6e871so15596315e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 00:20:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781508021; x=1782112821; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781508034; x=1782112834; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nG1MlD4PN9leIlB74vSBgHn1juhdOfLFrGDifVzjZsw=;
-        b=OHxPyVjmuWfn5OXbDCfPgE7Jk79mkOyITvITw+NiUHu3UBu/pJt8mRC0VR6cgNZlQX
-         1HBG8VVXH14tWZ2j494IRHnSyPvJ7Rhcdiy0CplMZX3szpZc6gcEsu6zlH6qyE2UzfMs
-         MeGPnS+iIpRvBHKYhi0w6UDtWCMIlpax8DNUFRowwC/zjhFe/eHc5Gp4Bn49w0zofLFh
-         K+KiRsf524kujHwCKJEAxFjHMSJgk3D0mSCdmbYmJIA2Tq5ayk78rP1pRXPNH2pwDXLY
-         0QeC9n0lYJF3wdzFIvz+8c9GB6pKc4ko5E9Pz+4G3LsOp+jfdR//IWSJGOQvyO/On2Rt
-         wL4g==
+        bh=wINyseeJxapeyBVBOl6gJLd9xmd6tC96LZmJ/8JBYbQ=;
+        b=hQpZIG+A1ALOW5N5ZZvsDlO+DT2+gKv4o9yjWm3Gk7FAdBDUkro38aRnvi5OyQM3Ir
+         G8Wdl+xr/pD+zaMAB6WgyJNKrP/kURe7Tj9OLWJjhkoN+RoYtugYo5chJ0AYrnyawfSV
+         I/JScsVz6XqRbwZOqt5McMJNpK0yVHTnUQ3XKAY1FGczY+t6T4/wb25MhrDjnRrINQ2k
+         YsSg0Nm/WLlFpz93ymqZ5eyacBT0kLDsAxE+kEtG6wSE7YVAXMy/0+XL02KACFcgWbdj
+         PGgZNYbwIJdpCj/GnLTViQ026ai8myB/+Z2F1XOTMW8oLLwvc6yLL2BU9mCTJOLa/KKh
+         cmZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781508021; x=1782112821;
+        d=1e100.net; s=20251104; t=1781508034; x=1782112834;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=nG1MlD4PN9leIlB74vSBgHn1juhdOfLFrGDifVzjZsw=;
-        b=DXYOuotwm7sECmmTT88ZFY7TSYvIXMVax/73tgfqWX4vtkPDRqG0cOKcvwNxmusocY
-         lZfVXai+7uX1eFDDYDDrJY8euuNteVPmi3WwURd9YLFa7XNGET78Q1HPtxSF2FwRqpge
-         CiOPlMvcJwsTpr6oUd6ED7Qv0LKRyS+EYpb+Aari+VebVM+ge4x1LOqh5kpdkipcXMZA
-         9xBPTKMd4N+ZbhVsSS+wgIqtIyLkHsFYnqQg5UtKPTBnL0e/dckktVo9jI89Yqr0S3Go
-         ePG5ygcoOOvcmH/96ufAHDIpts1p6nY0swj4EG7enpjhvVLmgrALe6PLr16BnjSkWaSo
-         TClg==
-X-Forwarded-Encrypted: i=1; AFNElJ8yTcpoV8VDV7a1RTSAkf1KXW5pz9qk+uZhtK/01WAUSUHvmVda1JIsl0jO9InN9xfmd/jDQDeYFNm7YsFcZLKr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr6uUbfioaXC83tSVKIGWKgJtzMotjv6ALUwVSHjHATijv90K+
-	udLdyriuj0swq/nXWd2nhUtBNPIqivZbrbKgwH1A2W2nSbJt2tb6AEQe
-X-Gm-Gg: Acq92OEgXh9AIhw3ZB0a9sZudHGXSNS6LNaLlEoLPcB4OcR/gaqNIXKjYwr+t/PGzCF
-	aqO0ororszwLJgxuXPapz+Mbphj7ffFhOhV3AmW+my6rggARVbxd021PDImq3SNTjK3rPVhsIVh
-	uYI+T8I0QHg7gFIksqUaaeHGgsOjryj+cFvDBQPszaIF2GoDoBMViPvXAHwiytDIC3wKGv/8Tbn
-	TvyZdng6gXPzwUGWq81WPZpIvOTNsph6T44z/9THiIrgDEy9VwndcXdqE6oXLRKmA7z9iryNZoM
-	ppv39PYPCYb4/F2xYkRlRBJ3xVyDSu5hhd8sl3iCX0vSfmi/AkU7wfZiaZSZRWiorxje8jfhwAC
-	rIy7AZ4wIFzpqgkZPL6vZsNqcKRZO76de3yGWdZd9vPAxPA53CveyZBu9sCGcmY1njNuJc04QNQ
-	C4CAOwDq5r1Z2nEHZp
-X-Received: by 2002:a05:600c:628f:b0:492:1e36:85dc with SMTP id 5b1f17b1804b1-4922017b005mr108051845e9.36.1781508020766;
-        Mon, 15 Jun 2026 00:20:20 -0700 (PDT)
+        bh=wINyseeJxapeyBVBOl6gJLd9xmd6tC96LZmJ/8JBYbQ=;
+        b=MndHXWiq9sHl0z9GKxzk6nJ7h6/889OQ5A6wCkTWzXwJP9Ug6BouWsoTxZatHtiSFu
+         xNoDHTX4R39BPFPQj2jjXWoD6gboKjFmEKG+pkZx0pYLB6UszWMduIw6OqqbkEwsvyYc
+         GtkM344anQckxS5LUefQYgWSsDbqZMioUR52x7Dlx9IcOYtczrl46jIyX5VX6LDN2nAn
+         xG95ieBOV9RxGzkuKBAbzNFq1f9gjwOt1f2/0UlAKKB35njvYnmyNcP0QW93t6qp/4S/
+         ilEZ8X3bBE7xQhAQ3R0nCYQ3qEi6Sob2HzKb0LsttbjjsWa8yU25IAMgttH0m3SRRGR8
+         PA5Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+5cgfDQ7LNCWVMuBE7mX10LPXzawaM+tB8H/EGp4TwXdAnO9w31BuzFNukrX0Mg7AqoTyWtEMHb7CQPtMne/7g@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqnCyXD0ajvRVCcjbpGism0+tueHebd8eLyunD9TUWhQYpfu0a
+	HlOrz1Z77dgRY0pa37jNVvQ62BZkmF+6LBWnesCiy0au7rVxPO+902Hq
+X-Gm-Gg: Acq92OFJnOGnRgbXtgIMQHEyouS0Y/p2NfUVa+/cuBpl/Tf0FtRqVMPLH1e8mc0h6vY
+	KMGIUetSKqpFsrWk2YPQyNa8uglffw/SiPj8QdZ8zox9E0CLzAlD2F3LPMFPzBXEoa60tuG77Eh
+	AfE2bnuu3X0KPSCEAkNQATow5rpNNZ+rZt0cKjTpuqepafv4NPupBMgKBgp6x+OlGHIgEetECw9
+	mLS4ghWbmwb5bAy6v/6Mtk1yEf39JZmQCF6auH0l7SB2kyU67se/vALwoQSAp4cp0bU9nPfePVa
+	axGqNtqHbNNCmgluu1v+cUKSlaXsvDGweM2QhccNV0x2KLOmHbOUpMRxKH8COApOiE9/jhOmm51
+	ZgAOlyX3PcecdcpKT0EO9ZLK3mpZWhv8jNfm1RriTd6W080uCHsj6l3BNz91cLsvh4XPmRAvn5y
+	fm49xnZ77XlfSynE4u
+X-Received: by 2002:a05:600c:a210:b0:490:e60b:5fcd with SMTP id 5b1f17b1804b1-490ec521002mr100580025e9.32.1781508033914;
+        Mon, 15 Jun 2026 00:20:33 -0700 (PDT)
 Received: from luca-vm.. ([81.56.18.151])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492203c0801sm200181015e9.10.2026.06.15.00.20.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492203c0801sm200181015e9.10.2026.06.15.00.20.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 00:20:20 -0700 (PDT)
+        Mon, 15 Jun 2026 00:20:33 -0700 (PDT)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+Cc: Fabien Parent <parent.f@gmail.com>,
+	Val Packett <val@packett.cool>,
+	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,13 +83,12 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	Macpaul Lin <macpaul.lin@mediatek.com>,
 	Lee Jones <lee@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
 	Linus Walleij <linusw@kernel.org>,
 	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Val Packett <val@packett.cool>,
 	Julien Massot <julien.massot@collabora.com>,
-	Fabien Parent <parent.f@gmail.com>,
 	Akari Tsuyukusa <akkun11.open@gmail.com>,
 	Chen Zhong <chen.zhong@mediatek.com>,
 	linux-input@vger.kernel.org,
@@ -97,17 +97,17 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org
-Subject: [PATCH v7 7/9] pinctrl: mediatek: mt6397: Add MediaTek MT6392
-Date: Mon, 15 Jun 2026 09:16:13 +0200
-Message-ID: <20260615071836.362883-8-l.scorcia@gmail.com>
+Subject: [PATCH v7 8/9] regulator: Add MediaTek MT6392 regulator
+Date: Mon, 15 Jun 2026 09:16:14 +0200
+Message-ID: <20260615071836.362883-9-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260615071836.362883-1-l.scorcia@gmail.com>
 References: <20260615071836.362883-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_002022_823545_5C351080 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20260615_002036_615091_E0B82940 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,155 +122,867 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT6392 pinctrl device, which is very similar to
-MT6397 with a handful of different property values and its own pins
-definition.
+From: Fabien Parent <parent.f@gmail.com>
 
-Update the MT6397 driver to retrieve device data from the match table and
-use it for driver init.
+The MT6392 is a regulator found on boards based on the MediaTek
+MT8167, MT8516, and probably other SoCs. It is a so called PMIC and
+connects as a slave to a SoC using SPI, wrapped inside PWRAP.
 
+Signed-off-by: Fabien Parent <parent.f@gmail.com>
+Co-developed-by: Val Packett <val@packett.cool>
+Signed-off-by: Val Packett <val@packett.cool>
 Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/pinctrl/mediatek/pinctrl-mt6397.c     | 37 ++++++++++-
- drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h | 64 +++++++++++++++++++
- 2 files changed, 99 insertions(+), 2 deletions(-)
- create mode 100644 drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h
+ drivers/regulator/Kconfig                  |   9 +
+ drivers/regulator/Makefile                 |   1 +
+ drivers/regulator/mt6392-regulator.c       | 756 +++++++++++++++++++++
+ include/linux/regulator/mt6392-regulator.h |  42 ++
+ 4 files changed, 808 insertions(+)
+ create mode 100644 drivers/regulator/mt6392-regulator.c
+ create mode 100644 include/linux/regulator/mt6392-regulator.h
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt6397.c b/drivers/pinctrl/mediatek/pinctrl-mt6397.c
-index 03d0f65d7bcc..8ba02e70595c 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt6397.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt6397.c
-@@ -12,10 +12,32 @@
- #include <linux/mfd/mt6397/core.h>
+diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
+index a54a549196fe..ae375b9e6391 100644
+--- a/drivers/regulator/Kconfig
++++ b/drivers/regulator/Kconfig
+@@ -1001,6 +1001,15 @@ config REGULATOR_MT6380
+ 	  This driver supports the control of different power rails of device
+ 	  through regulator interface.
  
- #include "pinctrl-mtk-common.h"
-+#include "pinctrl-mtk-mt6392.h"
- #include "pinctrl-mtk-mt6397.h"
- 
- #define MT6397_PIN_REG_BASE  0xc000
- 
-+static const struct mtk_pinctrl_devdata mt6392_pinctrl_data = {
-+	.pins = mtk_pins_mt6392,
-+	.npins = ARRAY_SIZE(mtk_pins_mt6392),
-+	.dir_offset = (MT6397_PIN_REG_BASE + 0x000),
-+	.ies_offset = MTK_PINCTRL_NOT_SUPPORT,
-+	.smt_offset = MTK_PINCTRL_NOT_SUPPORT,
-+	.pullen_offset = (MT6397_PIN_REG_BASE + 0x020),
-+	.pullsel_offset = (MT6397_PIN_REG_BASE + 0x040),
-+	.dout_offset = (MT6397_PIN_REG_BASE + 0x080),
-+	.din_offset = (MT6397_PIN_REG_BASE + 0x0a0),
-+	.pinmux_offset = (MT6397_PIN_REG_BASE + 0x0c0),
-+	.type1_start = 7,
-+	.type1_end = 7,
-+	.port_shf = 3,
-+	.port_mask = 0x3,
-+	.port_align = 2,
-+	.mode_mask = 0xf,
-+	.mode_per_reg = 5,
-+	.mode_shf = 4,
-+};
++config REGULATOR_MT6392
++	tristate "MediaTek MT6392 PMIC"
++	depends on MFD_MT6397
++	help
++	  Say y here to select this option to enable the power regulator of
++	  MediaTek MT6392 PMIC.
++	  This driver supports the control of different power rails of device
++	  through regulator interface.
 +
- static const struct mtk_pinctrl_devdata mt6397_pinctrl_data = {
- 	.pins = mtk_pins_mt6397,
- 	.npins = ARRAY_SIZE(mtk_pins_mt6397),
-@@ -40,13 +62,24 @@ static const struct mtk_pinctrl_devdata mt6397_pinctrl_data = {
- static int mt6397_pinctrl_probe(struct platform_device *pdev)
- {
- 	struct mt6397_chip *mt6397;
-+	const struct mtk_pinctrl_devdata *data;
-+
-+	data = device_get_match_data(&pdev->dev);
-+	if (!data)
-+		return -ENOENT;
- 
- 	mt6397 = dev_get_drvdata(pdev->dev.parent);
--	return mtk_pctrl_init(pdev, &mt6397_pinctrl_data, mt6397->regmap);
-+	return mtk_pctrl_init(pdev, data, mt6397->regmap);
- }
- 
- static const struct of_device_id mt6397_pctrl_match[] = {
--	{ .compatible = "mediatek,mt6397-pinctrl", },
-+	{
-+		.compatible = "mediatek,mt6392-pinctrl",
-+		.data = &mt6392_pinctrl_data
-+	}, {
-+		.compatible = "mediatek,mt6397-pinctrl",
-+		.data = &mt6397_pinctrl_data
-+	},
- 	{ }
- };
- 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h b/drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h
+ config REGULATOR_MT6397
+ 	tristate "MediaTek MT6397 PMIC"
+ 	depends on MFD_MT6397
+diff --git a/drivers/regulator/Makefile b/drivers/regulator/Makefile
+index 134eee274dbf..a8e795a1eda1 100644
+--- a/drivers/regulator/Makefile
++++ b/drivers/regulator/Makefile
+@@ -118,6 +118,7 @@ obj-$(CONFIG_REGULATOR_MT6360) += mt6360-regulator.o
+ obj-$(CONFIG_REGULATOR_MT6363) += mt6363-regulator.o
+ obj-$(CONFIG_REGULATOR_MT6370) += mt6370-regulator.o
+ obj-$(CONFIG_REGULATOR_MT6380)	+= mt6380-regulator.o
++obj-$(CONFIG_REGULATOR_MT6392)	+= mt6392-regulator.o
+ obj-$(CONFIG_REGULATOR_MT6397)	+= mt6397-regulator.o
+ obj-$(CONFIG_REGULATOR_MTK_DVFSRC) += mtk-dvfsrc-regulator.o
+ obj-$(CONFIG_REGULATOR_QCOM_LABIBB) += qcom-labibb-regulator.o
+diff --git a/drivers/regulator/mt6392-regulator.c b/drivers/regulator/mt6392-regulator.c
 new file mode 100644
-index 000000000000..e7241af28fdb
+index 000000000000..1f91aac3917a
 --- /dev/null
-+++ b/drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h
-@@ -0,0 +1,64 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __PINCTRL_MTK_MT6392_H
-+#define __PINCTRL_MTK_MT6392_H
++++ b/drivers/regulator/mt6392-regulator.c
+@@ -0,0 +1,756 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2020 MediaTek Inc.
++ * Copyright (c) 2020 BayLibre, SAS.
++ * Author: Chen Zhong <chen.zhong@mediatek.com>
++ * Author: Fabien Parent <fparent@baylibre.com>
++ * Author: Luca Leonardo Scorcia <l.scorcia@gmail.com>
++ *
++ * The data sheet for MT6392 regulators is spotty to say the least,
++ * many important registers/fields are missing and the ones that aren't
++ * lack crucial information. Some useful details have been retrieved from
++ * Android sources.
++ * The driver code is mostly based on the MT6397 one.
++ */
 +
-+#include <linux/pinctrl/pinctrl.h>
-+#include "pinctrl-mtk-common.h"
++#include <linux/module.h>
++#include <linux/linear_range.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/mfd/mt6397/core.h>
++#include <linux/mfd/mt6392/registers.h>
++#include <linux/regulator/driver.h>
++#include <linux/regulator/machine.h>
++#include <linux/regulator/mt6392-regulator.h>
++#include <linux/regulator/of_regulator.h>
 +
-+static const struct mtk_desc_pin mtk_pins_mt6392[] = {
-+	MTK_PIN(PINCTRL_PIN(0, "INT"),
-+		NULL, "mt6392",
-+		MTK_EINT_FUNCTION(NO_EINT_SUPPORT, NO_EINT_SUPPORT),
-+		MTK_FUNCTION(0, "GPIO0"),
-+		MTK_FUNCTION(1, "INT"),
-+		MTK_FUNCTION(5, "TEST_CK2"),
-+		MTK_FUNCTION(6, "TEST_IN1"),
-+		MTK_FUNCTION(7, "TEST_OUT1")
-+	),
-+	MTK_PIN(PINCTRL_PIN(1, "SRCLKEN"),
-+		NULL, "mt6392",
-+		MTK_EINT_FUNCTION(NO_EINT_SUPPORT, NO_EINT_SUPPORT),
-+		MTK_FUNCTION(0, "GPIO1"),
-+		MTK_FUNCTION(1, "SRCLKEN"),
-+		MTK_FUNCTION(5, "TEST_CK0"),
-+		MTK_FUNCTION(6, "TEST_IN2"),
-+		MTK_FUNCTION(7, "TEST_OUT2")
-+	),
-+	MTK_PIN(PINCTRL_PIN(2, "RTC_32K1V8"),
-+		NULL, "mt6392",
-+		MTK_EINT_FUNCTION(NO_EINT_SUPPORT, NO_EINT_SUPPORT),
-+		MTK_FUNCTION(0, "GPIO2"),
-+		MTK_FUNCTION(1, "RTC_32K1V8"),
-+		MTK_FUNCTION(5, "TEST_CK1"),
-+		MTK_FUNCTION(6, "TEST_IN3"),
-+		MTK_FUNCTION(7, "TEST_OUT3")
-+	),
-+	MTK_PIN(PINCTRL_PIN(3, "SPI_CLK"),
-+		NULL, "mt6392",
-+		MTK_EINT_FUNCTION(NO_EINT_SUPPORT, NO_EINT_SUPPORT),
-+		MTK_FUNCTION(0, "GPIO3"),
-+		MTK_FUNCTION(1, "SPI_CLK")
-+	),
-+	MTK_PIN(PINCTRL_PIN(4, "SPI_CSN"),
-+		NULL, "mt6392",
-+		MTK_EINT_FUNCTION(NO_EINT_SUPPORT, NO_EINT_SUPPORT),
-+		MTK_FUNCTION(0, "GPIO4"),
-+		MTK_FUNCTION(1, "SPI_CSN")
-+	),
-+	MTK_PIN(PINCTRL_PIN(5, "SPI_MOSI"),
-+		NULL, "mt6392",
-+		MTK_EINT_FUNCTION(NO_EINT_SUPPORT, NO_EINT_SUPPORT),
-+		MTK_FUNCTION(0, "GPIO5"),
-+		MTK_FUNCTION(1, "SPI_MOSI")
-+	),
-+	MTK_PIN(PINCTRL_PIN(6, "SPI_MISO"),
-+		NULL, "mt6392",
-+		MTK_EINT_FUNCTION(NO_EINT_SUPPORT, NO_EINT_SUPPORT),
-+		MTK_FUNCTION(0, "GPIO6"),
-+		MTK_FUNCTION(1, "SPI_MISO"),
-+		MTK_FUNCTION(6, "TEST_IN4"),
-+		MTK_FUNCTION(7, "TEST_OUT4")
-+	),
++/*
++ * Buck mode constants which may be used in devicetree properties (eg.
++ * regulator-initial-mode, regulator-allowed-modes).
++ * See the manufacturer's datasheet for more information on these modes.
++ */
++#define MT6392_BUCK_MODE_AUTO		0
++#define MT6392_BUCK_MODE_FORCE_PWM	1
++
++/*
++ * LDO mode constants which may be used in devicetree properties (eg.
++ * regulator-initial-mode, regulator-allowed-modes).
++ * See the manufacturer's datasheet for more information on these modes.
++ */
++#define MT6392_LDO_MODE_NORMAL		0
++#define MT6392_LDO_MODE_LP		1
++
++/**
++ * MT6392 regulators' information
++ *
++ * @desc: standard fields of regulator description.
++ * @qi_status_reg: Register to query enable signal status of regulators
++ * @qi_status_mask: Mask to query enable signal status of regulators (RO)
++ * @vselctrl_reg: Vsel control mode selector register
++ * @vselctrl_mask: Vsel control mode selector mask (RO)
++ * @vsel_reg_mode_reg: Vsel register when Vsel control mode selector = 0 (Register mode)
++ * @vsel_reg_mode_mask: Vsel register mask in Register mode (RW)
++ * @vsel_normal_mode_reg: Vsel register when Vsel control mode selector = 1 (Normal mode)
++ * @vsel_normal_mode_mask: Vsel register mask in Register mode (RW)
++ * @pwm_modeset_reg: Register to control buck mode (Auto/Force PWM)
++ * @pwm_modeset_mask: Mask to control buck mode (RW)
++ * @lp_modeget_reg: Register to get LDO low-power mode
++ * @lp_modeget_mask: Mask to get LDO low-power mode (RO)
++ * @lp_modeset_reg: Register to control LDO low-power mode
++ * @lp_modeset_mask: Mask to control LDO low-power mode (WO)
++ */
++struct mt6392_regulator_info {
++	struct regulator_desc desc;
++	u32 qi_status_reg;
++	u32 qi_status_mask;
++	u32 vselctrl_reg;
++	u32 vselctrl_mask;
++	u32 vsel_reg_mode_reg;
++	u32 vsel_reg_mode_mask;
++	u32 vsel_normal_mode_reg;
++	u32 vsel_normal_mode_mask;
++	u32 pwm_modeset_reg;
++	u32 pwm_modeset_mask;
++	u32 lp_modeget_reg;
++	u32 lp_modeget_mask;
++	u32 lp_modeset_reg;
++	u32 lp_modeset_mask;
 +};
 +
-+#endif /* __PINCTRL_MTK_MT6392_H */
++#define MT6392_BUCK(match, vreg, supply, min, max, step, volt_ranges,	\
++	_qi_status_reg, _qi_status_mask, _enable_reg, _enable_mask,	\
++	_vselctrl_reg, _vselctrl_mask,					\
++	_vsel_reg_mode_reg, _vsel_reg_mode_mask,			\
++	_vsel_normal_mode_reg, _vsel_normal_mode_mask,			\
++	_pwm_modeset_reg, _pwm_modeset_mask, _ramp_delay)		\
++[MT6392_ID_##vreg] = {							\
++	.desc = {							\
++		.name = #vreg,						\
++		.supply_name = supply,					\
++		.of_match = of_match_ptr(match),			\
++		.regulators_node = of_match_ptr("regulators"),		\
++		.ops = &mt6392_volt_range_ops,				\
++		.type = REGULATOR_VOLTAGE,				\
++		.id = MT6392_ID_##vreg,					\
++		.owner = THIS_MODULE,					\
++		.n_voltages = ((max) - (min)) / (step) + 1,		\
++		.linear_ranges = volt_ranges,				\
++		.n_linear_ranges = ARRAY_SIZE(volt_ranges),		\
++		.enable_reg = _enable_reg,				\
++		.enable_mask = _enable_mask,				\
++		.ramp_delay = _ramp_delay,				\
++	},								\
++	.qi_status_reg = _qi_status_reg,				\
++	.qi_status_mask = _qi_status_mask,				\
++	.vselctrl_reg = _vselctrl_reg,					\
++	.vselctrl_mask = _vselctrl_mask,				\
++	.vsel_reg_mode_reg = _vsel_reg_mode_reg,			\
++	.vsel_reg_mode_mask = _vsel_reg_mode_mask,			\
++	.vsel_normal_mode_reg = _vsel_normal_mode_reg,			\
++	.vsel_normal_mode_mask = _vsel_normal_mode_mask,		\
++	.pwm_modeset_reg = _pwm_modeset_reg,				\
++	.pwm_modeset_mask = _pwm_modeset_mask,				\
++}
++
++#define MT6392_LDO(match, vreg, supply, ldo_volt_table,			\
++	_qi_status_reg, _qi_status_mask,				\
++	_enable_reg, _enable_mask,					\
++	_vsel_reg, _vsel_mask,						\
++	_lp_modeget_reg, _lp_modeget_mask,				\
++	_lp_modeset_reg, _lp_modeset_mask,				\
++	_enable_time)							\
++[MT6392_ID_##vreg] = {							\
++	.desc = {							\
++		.name = #vreg,						\
++		.supply_name = supply,					\
++		.of_match = of_match_ptr(match),			\
++		.regulators_node = of_match_ptr("regulators"),		\
++		.ops = &mt6392_volt_table_ops,				\
++		.type = REGULATOR_VOLTAGE,				\
++		.id = MT6392_ID_##vreg,					\
++		.owner = THIS_MODULE,					\
++		.n_voltages = ARRAY_SIZE(ldo_volt_table),		\
++		.volt_table = ldo_volt_table,				\
++		.vsel_reg = _vsel_reg,					\
++		.vsel_mask = _vsel_mask,				\
++		.enable_reg = _enable_reg,				\
++		.enable_mask = _enable_mask,				\
++		.enable_time = _enable_time,				\
++	},								\
++	.qi_status_reg = _qi_status_reg,				\
++	.qi_status_mask = _qi_status_mask,				\
++	.lp_modeget_reg = _lp_modeget_reg,				\
++	.lp_modeget_mask = _lp_modeget_mask,				\
++	.lp_modeset_reg = _lp_modeset_reg,				\
++	.lp_modeset_mask = _lp_modeset_mask,				\
++}
++
++#define MT6392_LDO_LINEAR(match, vreg, supply, min, max, step,		\
++	volt_ranges,							\
++	_qi_status_reg, _qi_status_mask,				\
++	_enable_reg, _enable_mask,					\
++	_vsel_reg, _vsel_mask,						\
++	_lp_modeget_reg, _lp_modeget_mask,				\
++	_lp_modeset_reg, _lp_modeset_mask,				\
++	_enable_time)							\
++[MT6392_ID_##vreg] = {							\
++	.desc = {							\
++		.name = #vreg,						\
++		.supply_name = supply,					\
++		.of_match = of_match_ptr(match),			\
++		.regulators_node = of_match_ptr("regulators"),		\
++		.ops = &mt6392_volt_ldo_range_ops,			\
++		.type = REGULATOR_VOLTAGE,				\
++		.id = MT6392_ID_##vreg,					\
++		.owner = THIS_MODULE,					\
++		.n_voltages = ((max) - (min)) / (step) + 1,		\
++		.linear_ranges = volt_ranges,				\
++		.n_linear_ranges = ARRAY_SIZE(volt_ranges),		\
++		.vsel_reg = _vsel_reg,					\
++		.vsel_mask = _vsel_mask,				\
++		.enable_reg = _enable_reg,				\
++		.enable_mask = _enable_mask,				\
++		.enable_time = _enable_time,				\
++	},								\
++	.qi_status_reg = _qi_status_reg,				\
++	.qi_status_mask = _qi_status_mask,				\
++	.lp_modeget_reg = _lp_modeget_reg,				\
++	.lp_modeget_mask = _lp_modeget_mask,				\
++	.lp_modeset_reg = _lp_modeset_reg,				\
++	.lp_modeset_mask = _lp_modeset_mask,				\
++}
++
++#define MT6392_REG_FIXED(match, vreg, supply, volt,			\
++	_qi_status_reg, _qi_status_mask,				\
++	_enable_reg, _enable_mask,					\
++	_lp_modeget_reg, _lp_modeget_mask,				\
++	_lp_modeset_reg, _lp_modeset_mask,				\
++	_enable_time)							\
++[MT6392_ID_##vreg] = {							\
++	.desc = {							\
++		.name = #vreg,						\
++		.supply_name = supply,					\
++		.of_match = of_match_ptr(match),			\
++		.regulators_node = of_match_ptr("regulators"),		\
++		.ops = &mt6392_volt_fixed_ops,				\
++		.type = REGULATOR_VOLTAGE,				\
++		.id = MT6392_ID_##vreg,					\
++		.owner = THIS_MODULE,					\
++		.n_voltages = 1,					\
++		.min_uV = volt,						\
++		.enable_reg = _enable_reg,				\
++		.enable_mask = _enable_mask,				\
++		.enable_time = _enable_time,				\
++	},								\
++	.qi_status_reg = _qi_status_reg,				\
++	.qi_status_mask = _qi_status_mask,				\
++	.lp_modeget_reg = _lp_modeget_reg,				\
++	.lp_modeget_mask = _lp_modeget_mask,				\
++	.lp_modeset_reg = _lp_modeset_reg,				\
++	.lp_modeset_mask = _lp_modeset_mask,				\
++}
++
++#define MT6392_REG_FIXED_NO_MODE(match, vreg, supply, volt,		\
++	_qi_status_reg, _qi_status_mask,				\
++	_enable_reg, _enable_mask, _enable_time)			\
++[MT6392_ID_##vreg] = {							\
++	.desc = {							\
++		.name = #vreg,						\
++		.supply_name = supply,					\
++		.of_match = of_match_ptr(match),			\
++		.regulators_node = of_match_ptr("regulators"),		\
++		.ops = &mt6392_volt_fixed_no_mode_ops,			\
++		.type = REGULATOR_VOLTAGE,				\
++		.id = MT6392_ID_##vreg,					\
++		.owner = THIS_MODULE,					\
++		.n_voltages = 1,					\
++		.min_uV = volt,						\
++		.enable_reg = _enable_reg,				\
++		.enable_mask = _enable_mask,				\
++		.enable_time = _enable_time,				\
++	},								\
++	.qi_status_reg = _qi_status_reg,				\
++	.qi_status_mask = _qi_status_mask,				\
++}
++
++#define MT6392_REG(match, vreg, supply, volt)				\
++[MT6392_ID_##vreg] = {							\
++	.desc = {							\
++		.name = #vreg,						\
++		.supply_name = supply,					\
++		.of_match = of_match_ptr(match),			\
++		.regulators_node = of_match_ptr("regulators"),		\
++		.ops = &mt6392_volt_no_ops,				\
++		.type = REGULATOR_VOLTAGE,				\
++		.id = MT6392_ID_##vreg,					\
++		.owner = THIS_MODULE,					\
++		.n_voltages = 1,					\
++		.min_uV = volt,						\
++	},								\
++}
++
++static const struct linear_range buck_volt_range1[] = {
++	REGULATOR_LINEAR_RANGE(700000, 0, 0x7f, 6250),
++};
++
++static const struct linear_range buck_volt_range2[] = {
++	REGULATOR_LINEAR_RANGE(1400000, 0, 0x7f, 12500),
++};
++
++static const u32 ldo_volt_table1[] = {
++	1800000, 1900000, 2000000, 2200000,
++};
++
++static const struct linear_range ldo_volt_range2[] = {
++	REGULATOR_LINEAR_RANGE(3300000, 0, 3, 100000),
++};
++
++static const u32 ldo_volt_table3[] = {
++	1800000, 3300000,
++};
++
++static const u32 ldo_volt_table4[] = {
++	3000000, 3300000,
++};
++
++static const u32 ldo_volt_table5[] = {
++	1200000, 1300000, 1500000, 1800000, 2000000, 2800000, 3000000, 3300000,
++};
++
++static const u32 ldo_volt_table6[] = {
++	1240000, 1390000,
++};
++
++static const u32 ldo_volt_table7[] = {
++	1200000, 1300000, 1500000, 1800000,
++};
++
++static const u32 ldo_volt_table8[] = {
++	1800000, 2000000,
++};
++
++static int mt6392_buck_set_mode(struct regulator_dev *rdev, unsigned int mode)
++{
++	int ret, val = 0;
++	struct mt6392_regulator_info *info = rdev_get_drvdata(rdev);
++	u32 reg_value;
++
++	if (!info->pwm_modeset_mask) {
++		dev_err(&rdev->dev, "regulator %s doesn't support set_mode\n", info->desc.name);
++		return -EINVAL;
++	}
++
++	switch (mode) {
++	case REGULATOR_MODE_FAST:
++		val = MT6392_BUCK_MODE_FORCE_PWM;
++		break;
++	case REGULATOR_MODE_NORMAL:
++		val = MT6392_BUCK_MODE_AUTO;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	val <<= ffs(info->pwm_modeset_mask) - 1;
++
++	ret = regmap_update_bits(rdev->regmap, info->pwm_modeset_reg,
++				 info->pwm_modeset_mask, val);
++
++	if (regmap_read(rdev->regmap, info->pwm_modeset_reg, &reg_value) < 0) {
++		dev_err(&rdev->dev, "Failed to read register value\n");
++		return -EIO;
++	}
++
++	dev_info(&rdev->dev, "%s: info->pwm_modeset_reg 0x%x = 0x%x\n",
++		 info->desc.name, info->pwm_modeset_reg, reg_value);
++
++	return ret;
++}
++
++static unsigned int mt6392_buck_get_mode(struct regulator_dev *rdev)
++{
++	unsigned int val;
++	unsigned int mode;
++	int ret;
++	struct mt6392_regulator_info *info = rdev_get_drvdata(rdev);
++
++	if (!info->pwm_modeset_mask) {
++		dev_err(&rdev->dev, "regulator %s doesn't support get_mode\n", info->desc.name);
++		return -EINVAL;
++	}
++
++	ret = regmap_read(rdev->regmap, info->pwm_modeset_reg, &val);
++	if (ret < 0)
++		return ret;
++
++	val &= info->pwm_modeset_mask;
++	val >>= ffs(info->pwm_modeset_mask) - 1;
++
++	if (val & 0x1)
++		mode = REGULATOR_MODE_FAST;
++	else
++		mode = REGULATOR_MODE_NORMAL;
++
++	return mode;
++}
++
++static int mt6392_ldo_set_mode(struct regulator_dev *rdev, unsigned int mode)
++{
++	int ret, val = 0;
++	struct mt6392_regulator_info *info = rdev_get_drvdata(rdev);
++
++	if (!info->lp_modeset_mask) {
++		dev_err(&rdev->dev, "regulator %s doesn't support set_mode\n",
++			info->desc.name);
++		return -EINVAL;
++	}
++
++	switch (mode) {
++	case REGULATOR_MODE_STANDBY:
++		val = MT6392_LDO_MODE_LP;
++		break;
++	case REGULATOR_MODE_NORMAL:
++		val = MT6392_LDO_MODE_NORMAL;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	val <<= ffs(info->lp_modeset_mask) - 1;
++
++	ret = regmap_update_bits(rdev->regmap, info->lp_modeset_reg,
++				 info->lp_modeset_mask, val);
++
++	return ret;
++}
++
++static unsigned int mt6392_ldo_get_mode(struct regulator_dev *rdev)
++{
++	unsigned int val;
++	unsigned int mode;
++	int ret;
++	struct mt6392_regulator_info *info = rdev_get_drvdata(rdev);
++
++	if (!info->lp_modeset_mask) {
++		dev_err(&rdev->dev, "regulator %s doesn't support get_mode\n",
++			info->desc.name);
++		return -EINVAL;
++	}
++
++	ret = regmap_read(rdev->regmap, info->lp_modeset_reg, &val);
++	if (ret < 0)
++		return ret;
++
++	val &= info->lp_modeset_mask;
++	val >>= ffs(info->lp_modeset_mask) - 1;
++
++	if (val & 0x1)
++		mode = REGULATOR_MODE_STANDBY;
++	else
++		mode = REGULATOR_MODE_NORMAL;
++
++	return mode;
++}
++
++static int mt6392_get_status(struct regulator_dev *rdev)
++{
++	int ret;
++	u32 regval;
++	struct mt6392_regulator_info *info = rdev_get_drvdata(rdev);
++
++	ret = regmap_read(rdev->regmap, info->qi_status_reg, &regval);
++	if (ret != 0) {
++		dev_err(&rdev->dev, "Failed to read qi_status_reg: %d\n", ret);
++		return ret;
++	}
++
++	return (regval & info->qi_status_mask) ? REGULATOR_STATUS_ON : REGULATOR_STATUS_OFF;
++}
++
++static const struct regulator_ops mt6392_volt_range_ops = {
++	.list_voltage = regulator_list_voltage_linear_range,
++	.map_voltage = regulator_map_voltage_linear_range,
++	.set_voltage_sel = regulator_set_voltage_sel_regmap,
++	.get_voltage_sel = regulator_get_voltage_sel_regmap,
++	.set_voltage_time_sel = regulator_set_voltage_time_sel,
++	.enable = regulator_enable_regmap,
++	.disable = regulator_disable_regmap,
++	.is_enabled = regulator_is_enabled_regmap,
++	.get_status = mt6392_get_status,
++	.set_mode = mt6392_buck_set_mode,
++	.get_mode = mt6392_buck_get_mode,
++};
++
++static const struct regulator_ops mt6392_volt_table_ops = {
++	.list_voltage = regulator_list_voltage_table,
++	.map_voltage = regulator_map_voltage_iterate,
++	.set_voltage_sel = regulator_set_voltage_sel_regmap,
++	.get_voltage_sel = regulator_get_voltage_sel_regmap,
++	.set_voltage_time_sel = regulator_set_voltage_time_sel,
++	.enable = regulator_enable_regmap,
++	.disable = regulator_disable_regmap,
++	.is_enabled = regulator_is_enabled_regmap,
++	.get_status = mt6392_get_status,
++	.set_mode = mt6392_ldo_set_mode,
++	.get_mode = mt6392_ldo_get_mode,
++};
++
++static const struct regulator_ops mt6392_volt_ldo_range_ops = {
++	.list_voltage = regulator_list_voltage_linear_range,
++	.map_voltage = regulator_map_voltage_linear_range,
++	.set_voltage_sel = regulator_set_voltage_sel_regmap,
++	.get_voltage_sel = regulator_get_voltage_sel_regmap,
++	.set_voltage_time_sel = regulator_set_voltage_time_sel,
++	.enable = regulator_enable_regmap,
++	.disable = regulator_disable_regmap,
++	.is_enabled = regulator_is_enabled_regmap,
++	.get_status = mt6392_get_status,
++	.set_mode = mt6392_ldo_set_mode,
++	.get_mode = mt6392_ldo_get_mode,
++};
++
++static const struct regulator_ops mt6392_volt_fixed_ops = {
++	.list_voltage = regulator_list_voltage_linear,
++	.enable = regulator_enable_regmap,
++	.disable = regulator_disable_regmap,
++	.is_enabled = regulator_is_enabled_regmap,
++	.get_status = mt6392_get_status,
++	.set_mode = mt6392_ldo_set_mode,
++	.get_mode = mt6392_ldo_get_mode,
++};
++
++static const struct regulator_ops mt6392_volt_fixed_no_mode_ops = {
++	.list_voltage = regulator_list_voltage_linear,
++	.enable = regulator_enable_regmap,
++	.disable = regulator_disable_regmap,
++	.is_enabled = regulator_is_enabled_regmap,
++	.get_status = mt6392_get_status,
++};
++
++static const struct regulator_ops mt6392_volt_no_ops = {
++	.list_voltage = regulator_list_voltage_linear,
++};
++
++/* The array is indexed by id(MT6392_ID_XXX) */
++static struct mt6392_regulator_info mt6392_regulators[] = {
++	MT6392_BUCK("vproc", VPROC, "vproc", 700000, 1493750, 6250,
++		    buck_volt_range1,
++		    MT6392_VPROC_CON7, BIT(13), // Regulator status
++		    MT6392_VPROC_CON7, BIT(0),  // Regulator enable
++		    MT6392_VPROC_CON5, BIT(0),  // Vsel ctrl mode selector,not present in data sheet
++		    MT6392_VPROC_CON9, GENMASK(6, 0),  // Vsel when control mode = register (0)
++		    MT6392_VPROC_CON10, GENMASK(6, 0), // Vsel when control mode = normal (1)
++		    MT6392_VPROC_CON2, BIT(8),  // Auto / Force PWM mode
++		    12500),
++	MT6392_BUCK("vsys", VSYS, "vsys", 1400000, 2987500, 12500,
++		    buck_volt_range2,
++		    MT6392_VSYS_CON7, BIT(13),
++		    MT6392_VSYS_CON7, BIT(0),
++		    MT6392_VSYS_CON5, BIT(0), // Not present in data sheet
++		    MT6392_VSYS_CON9, GENMASK(6, 0),
++		    MT6392_VSYS_CON10, GENMASK(6, 0),
++		    MT6392_VSYS_CON2, BIT(8),
++		    25000),
++	MT6392_BUCK("vcore", VCORE, "vcore", 700000, 1493750, 6250,
++		    buck_volt_range1,
++		    MT6392_VCORE_CON7, BIT(13),
++		    MT6392_VCORE_CON7, BIT(0),
++		    MT6392_VCORE_CON5, BIT(0), // Not present in data sheet
++		    MT6392_VCORE_CON9, GENMASK(6, 0),
++		    MT6392_VCORE_CON10, GENMASK(6, 0),
++		    MT6392_VCORE_CON2, BIT(8),
++		    12500),
++
++	MT6392_REG_FIXED("vxo22", VXO22, "ldo1", 2200000,
++			 MT6392_ANALDO_CON1, BIT(15),
++			 MT6392_ANALDO_CON1, BIT(10), // Not present in data sheet
++			 MT6392_ANALDO_CON1, BIT(7),
++			 MT6392_ANALDO_CON1, BIT(1), // Not present in data sheet
++			 110),
++	MT6392_LDO("vaud22", VAUD22, "ldo1", ldo_volt_table1,
++		   MT6392_ANALDO_CON2, BIT(15),
++		   MT6392_ANALDO_CON2, BIT(14), // Not present in data sheet
++		   MT6392_ANALDO_CON8, GENMASK(6, 5), // Not present in data sheet
++		   MT6392_ANALDO_CON2, BIT(7),
++		   MT6392_ANALDO_CON2, BIT(1),  // Not present in data sheet
++		   264),
++	MT6392_REG_FIXED_NO_MODE("vcama", VCAMA, "ldo1", 2800000,
++				 MT6392_ANALDO_CON4, BIT(15),
++				 MT6392_ANALDO_CON4, BIT(15),
++				 264),
++	MT6392_REG_FIXED("vaud28", VAUD28, "ldo1", 2800000,
++			 MT6392_ANALDO_CON23, BIT(15),
++			 MT6392_ANALDO_CON23, BIT(14), // Not present in data sheet
++			 MT6392_ANALDO_CON23, BIT(7),
++			 MT6392_ANALDO_CON23, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_REG_FIXED("vadc18", VADC18, "ldo1", 1800000,
++			 MT6392_ANALDO_CON25, BIT(15),
++			 MT6392_ANALDO_CON25, BIT(14), // Not present in data sheet
++			 MT6392_ANALDO_CON25, BIT(7),
++			 MT6392_ANALDO_CON25, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_LDO_LINEAR("vcn35", VCN35, "ldo2", 3300000, 3600000, 100000, ldo_volt_range2,
++			  MT6392_ANALDO_CON17, BIT(15), // Not present in data sheet
++			  MT6392_ANALDO_CON21, BIT(12), // Not present in data sheet
++			  MT6392_ANALDO_CON16, GENMASK(4, 3),
++			  MT6392_ANALDO_CON21, BIT(7),
++			  MT6392_ANALDO_CON21, BIT(1), // Not present in data sheet
++			  264),
++	MT6392_REG_FIXED("vio28", VIO28, "ldo2", 2800000,
++			 MT6392_DIGLDO_CON0, BIT(15),
++			 MT6392_DIGLDO_CON0, BIT(14), // Not present in data sheet
++			 MT6392_DIGLDO_CON0, BIT(7),
++			 MT6392_DIGLDO_CON0, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_REG_FIXED("vusb", VUSB, "ldo3", 3300000,
++			 MT6392_DIGLDO_CON2, BIT(15),
++			 MT6392_DIGLDO_CON2, BIT(14), // Not present in data sheet
++			 MT6392_DIGLDO_CON2, BIT(7),
++			 MT6392_DIGLDO_CON2, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_LDO("vmc", VMC, "ldo2", ldo_volt_table3,
++		   MT6392_DIGLDO_CON3, BIT(15),
++		   MT6392_DIGLDO_CON3, BIT(12),
++		   MT6392_DIGLDO_CON24, BIT(4),
++		   MT6392_DIGLDO_CON3, BIT(7),
++		   MT6392_DIGLDO_CON3, BIT(1), // Not present in data sheet
++		   264),
++	MT6392_LDO("vmch", VMCH, "ldo2", ldo_volt_table4,
++		   MT6392_DIGLDO_CON5, BIT(15),
++		   MT6392_DIGLDO_CON5, BIT(14),
++		   MT6392_DIGLDO_CON26, BIT(7),
++		   MT6392_DIGLDO_CON5, BIT(7),
++		   MT6392_DIGLDO_CON5, BIT(1), // Not present in data sheet
++		   264),
++	MT6392_LDO("vemc3v3", VEMC3V3, "ldo3", ldo_volt_table4,
++		   MT6392_DIGLDO_CON6, BIT(15),
++		   MT6392_DIGLDO_CON6, BIT(14), // Not present in data sheet
++		   MT6392_DIGLDO_CON27, BIT(7),
++		   MT6392_DIGLDO_CON6, BIT(7),
++		   MT6392_DIGLDO_CON6, BIT(1), // Not present in data sheet
++		   264),
++	MT6392_LDO("vgp1", VGP1, "ldo3", ldo_volt_table5,
++		   MT6392_DIGLDO_CON7, BIT(15),
++		   MT6392_DIGLDO_CON7, BIT(15),
++		   MT6392_DIGLDO_CON28, GENMASK(7, 5),
++		   MT6392_DIGLDO_CON7, BIT(7),
++		   MT6392_DIGLDO_CON7, BIT(1), // Not present in data sheet
++		   264),
++	MT6392_LDO("vgp2", VGP2, "ldo3", ldo_volt_table5,
++		   MT6392_DIGLDO_CON8, BIT(15),
++		   MT6392_DIGLDO_CON8, BIT(15),
++		   MT6392_DIGLDO_CON29, GENMASK(7, 5),
++		   MT6392_DIGLDO_CON8, BIT(7),
++		   MT6392_DIGLDO_CON8, BIT(1), // Not present in data sheet
++		   264),
++	MT6392_REG_FIXED("vcn18", VCN18, "avddldo", 1800000,
++			 MT6392_DIGLDO_CON11, BIT(15),
++			 MT6392_DIGLDO_CON11, BIT(14), // Not present in data sheet
++			 MT6392_DIGLDO_CON11, BIT(7),
++			 MT6392_DIGLDO_CON11, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_LDO("vcamaf", VCAMAF, "ldo3", ldo_volt_table5,
++		   MT6392_DIGLDO_CON31, BIT(15),
++		   MT6392_DIGLDO_CON31, BIT(15),
++		   MT6392_DIGLDO_CON32, GENMASK(7, 5),
++		   MT6392_DIGLDO_CON31, BIT(7),
++		   MT6392_DIGLDO_CON31, BIT(1), // Not present in data sheet
++		   264),
++	MT6392_LDO("vm", VM, "avddldo", ldo_volt_table6,
++		   MT6392_DIGLDO_CON47, BIT(15),
++		   MT6392_DIGLDO_CON47, BIT(14), // Not present in data sheet
++		   MT6392_DIGLDO_CON48, GENMASK(5, 4), // Not present in data sheet
++		   MT6392_DIGLDO_CON47, BIT(7), // Not present in data sheet
++		   MT6392_DIGLDO_CON47, BIT(1),
++		   264),
++	MT6392_REG_FIXED("vio18", VIO18, "avddldo", 1800000,
++			 MT6392_DIGLDO_CON49, BIT(15),
++			 MT6392_DIGLDO_CON49, BIT(14), // Not present in data sheet
++			 MT6392_DIGLDO_CON49, BIT(7),
++			 MT6392_DIGLDO_CON49, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_LDO("vcamd", VCAMD, "avddldo", ldo_volt_table7,
++		   MT6392_DIGLDO_CON51, BIT(15),
++		   MT6392_DIGLDO_CON51, BIT(14),
++		   MT6392_DIGLDO_CON52, GENMASK(6, 5),
++		   MT6392_DIGLDO_CON51, BIT(7),
++		   MT6392_DIGLDO_CON51, BIT(1),
++		   264),
++	MT6392_REG_FIXED("vcamio", VCAMIO, "avddldo", 1800000,
++			 MT6392_DIGLDO_CON53, BIT(15),
++			 MT6392_DIGLDO_CON53, BIT(14),
++			 MT6392_DIGLDO_CON53, BIT(7),
++			 MT6392_DIGLDO_CON53, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_REG_FIXED("vm25", VM25, "ldo3", 2500000,
++			 MT6392_DIGLDO_CON55, BIT(15),
++			 MT6392_DIGLDO_CON55, BIT(14), // Not present in data sheet
++			 MT6392_DIGLDO_CON55, BIT(7),
++			 MT6392_DIGLDO_CON55, BIT(1), // Not present in data sheet
++			 264),
++	MT6392_LDO("vefuse", VEFUSE, "ldo2", ldo_volt_table8,
++		   MT6392_DIGLDO_CON57, BIT(15),
++		   MT6392_DIGLDO_CON57, BIT(14), // Not present in data sheet
++		   MT6392_DIGLDO_CON58, BIT(5), // Not present in data sheet
++		   MT6392_DIGLDO_CON57, BIT(7),
++		   MT6392_DIGLDO_CON57, BIT(1), // Not present in data sheet
++		   264),
++	MT6392_REG("vdig18", VDIG18, "ldo2", 1800000), // Internal non changeable regulator
++	MT6392_REG_FIXED_NO_MODE("vrtc", VRTC, "ldo1", 2800000,
++				 MT6392_DIGLDO_CON15, BIT(15),
++				 MT6392_DIGLDO_CON15, BIT(8), // Not present in data sheet
++				 264)
++};
++
++// Buck regulators can be in Register mode or Normal mode.
++// Each mode uses a different register to set the desired voltage.
++static int mt6392_set_buck_vsel_reg(struct platform_device *pdev)
++{
++	struct mt6397_chip *mt6392 = dev_get_drvdata(pdev->dev.parent);
++	int i;
++	u32 regval;
++
++	for (i = 0; i < MT6392_MAX_REGULATOR; i++) {
++		if (mt6392_regulators[i].vselctrl_reg) {
++			// Read the vselctrl_reg register
++			if (regmap_read(mt6392->regmap,
++					mt6392_regulators[i].vselctrl_reg,
++					&regval) < 0) {
++				dev_err(&pdev->dev,
++					"Failed to read buck ctrl\n");
++				return -EIO;
++			}
++
++			// vselctrl_reg[vselctrl_mask] defines the mode
++			if (regval & mt6392_regulators[i].vselctrl_mask) {
++				// Regulator in Normal mode
++				mt6392_regulators[i].desc.vsel_reg =
++					mt6392_regulators[i].vsel_normal_mode_reg;
++				mt6392_regulators[i].desc.vsel_mask =
++					mt6392_regulators[i].vsel_normal_mode_mask;
++			} else {
++				// Regulator in Register mode
++				mt6392_regulators[i].desc.vsel_reg =
++					mt6392_regulators[i].vsel_reg_mode_reg;
++				mt6392_regulators[i].desc.vsel_mask =
++					mt6392_regulators[i].vsel_reg_mode_mask;
++			}
++		}
++	}
++
++	return 0;
++}
++
++static int mt6392_regulator_probe(struct platform_device *pdev)
++{
++	struct mt6397_chip *mt6392 = dev_get_drvdata(pdev->dev.parent);
++	struct regulator_config config = {};
++	struct regulator_dev *rdev;
++	int i;
++
++	device_set_of_node_from_dev(&pdev->dev, pdev->dev.parent);
++
++	// Initialize the bucks' vsel_reg and vsel_mask according to current HW state
++	if (mt6392_set_buck_vsel_reg(pdev))
++		return -EIO;
++
++	config.dev = mt6392->dev;
++	config.regmap = mt6392->regmap;
++	for (i = 0; i < MT6392_MAX_REGULATOR; i++) {
++		config.driver_data = &mt6392_regulators[i];
++
++		rdev = devm_regulator_register(&pdev->dev,
++					       &mt6392_regulators[i].desc,
++					       &config);
++		if (IS_ERR(rdev)) {
++			dev_err(&pdev->dev, "failed to register %s\n",
++				mt6392_regulators[i].desc.name);
++			return PTR_ERR(rdev);
++		}
++	}
++
++	return 0;
++}
++
++static const struct platform_device_id mt6392_platform_ids[] = {
++	{ .name = "mt6392-regulator" },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(platform, mt6392_platform_ids);
++
++static struct platform_driver mt6392_regulator_driver = {
++	.driver = {
++		.name = "mt6392-regulator",
++		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
++	},
++	.probe = mt6392_regulator_probe,
++	.id_table = mt6392_platform_ids,
++};
++
++module_platform_driver(mt6392_regulator_driver);
++
++MODULE_AUTHOR("Chen Zhong <chen.zhong@mediatek.com>");
++MODULE_DESCRIPTION("Regulator Driver for MediaTek MT6392 PMIC");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/regulator/mt6392-regulator.h b/include/linux/regulator/mt6392-regulator.h
+new file mode 100644
+index 000000000000..0eccd085b062
+--- /dev/null
++++ b/include/linux/regulator/mt6392-regulator.h
+@@ -0,0 +1,42 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2019 MediaTek Inc.
++ * Author: Chen Zhong <chen.zhong@mediatek.com>
++ */
++
++#ifndef __LINUX_REGULATOR_MT6392_H
++#define __LINUX_REGULATOR_MT6392_H
++
++enum {
++	MT6392_ID_VPROC = 0,
++	MT6392_ID_VSYS,
++	MT6392_ID_VCORE,
++	MT6392_ID_VXO22,
++	MT6392_ID_VAUD22,
++	MT6392_ID_VCAMA,
++	MT6392_ID_VAUD28,
++	MT6392_ID_VADC18,
++	MT6392_ID_VCN35,
++	MT6392_ID_VIO28,
++	MT6392_ID_VUSB = 10,
++	MT6392_ID_VMC,
++	MT6392_ID_VMCH,
++	MT6392_ID_VEMC3V3,
++	MT6392_ID_VGP1,
++	MT6392_ID_VGP2,
++	MT6392_ID_VCN18,
++	MT6392_ID_VCAMAF,
++	MT6392_ID_VM,
++	MT6392_ID_VIO18,
++	MT6392_ID_VCAMD,
++	MT6392_ID_VCAMIO,
++	MT6392_ID_VM25,
++	MT6392_ID_VEFUSE,
++	MT6392_ID_VDIG18,
++	MT6392_ID_VRTC,
++	MT6392_ID_RG_MAX,
++};
++
++#define MT6392_MAX_REGULATOR	MT6392_ID_RG_MAX
++
++#endif /* __LINUX_REGULATOR_MT6392_H */
 -- 
 2.43.0
 
