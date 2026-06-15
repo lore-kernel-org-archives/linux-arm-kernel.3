@@ -4,138 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9B4CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 07:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A40D8CD98CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 07:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2LyiMGEk2Ju+6Gcj5kKZJO9GEW+S9GWkrnxRuCwFNQo=; b=ALmljd9nZdMtrBmpsj78SCNX2U
-	6SzLGt5ErT1+21rwj7lb9hhQt8sPxzp07VCs76j4puOOCbBwaD7V5i8NBY391KXflOZkQ+/BDxZiO
-	id8HZjTLQcd8QiMVW0rAQKvW04hKlmPk59zBdi91JoGeb2TTs7X9l2YH4U1/SJZ0gp59XQK1xFahz
-	iP+SysGKGjPSrhbnZlJq6kIjthmVg/Z3JMVWPHTGjmS5i0JV2Fx9nhLL9GxR9Lu7dKt8sPMP5Pwoj
-	VSvaJX6kthnp6R1QO4cC0qnn0ELZ4BArJEEf9Fyi9Zw+OMGikP3gox3TrrYVLkf5asbEv8VvqY+1u
-	cS7WJA0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kB/u4VLuYTRIxSTjaGgA4kG1SxYpk8i9RP3w3UDvgAY=; b=EWXLfbDj7ctZEvRnuD8wX/XVjI
+	qsvY/EDK5pi6DVKGc50E6oSlgmWjqASHudROvvmy9L4GzU2eX3wqZ57n5c+EgW2JLCBgdR1eeqTpl
+	I5mFtjr4oc2Eo+pUO2qWk0ZbOWPMBxzCFdTNLHxZ0xyoXSdb9scWDi6oFNBnAYpUMQB8chcR+7AMK
+	N3lIS0DRurcN6soxChf0Dbif6k7m3cNdIKE6HFsAkH7i6cxzajdvIs+aLXe5Y7JR27HLigQRKZ81r
+	PuHSnbilmTfiOXuvjRAgX8TozE2U4zNEYHK5ifAJNB72uSp71fd7jT+lGiTxrq/uRoiEH30jEUjQ3
+	8yeYYiug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ1al-0000000Dl8i-2E1j;
-	Mon, 15 Jun 2026 07:18:43 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wZ1av-0000000DlBW-2uFQ;
+	Mon, 15 Jun 2026 07:18:53 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ1ai-0000000Dl7p-15VZ
+	id 1wZ1as-0000000Dl9d-00Zk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 07:18:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V5gGv15WLU3DwFUKgJMmaXpHeckH2NGzmnNAwdSFiB7TORulk2F7DiH32r1/ffFLzXTJ5qXvzXCS3lHVYVsT055sEI4J4rGMcGwMwYARlZKu/3bSojdUM+45L+ptefxH2j2bKXlMkNwbo00cAmAB91nLuxvP0K7USm+aHYzvtlNjhzLyTm9xzfC4iOHaBfjCABnD50yQdE7nNz7aWtJ3/gxtLUlq/6ub52XtjD+BU0pG/QFBOjla0GRPQwUUpuUaP2r8B/PXdOeBys1JBNI8PrFcWLA2ogUGGsNcPlgkYdlXtZ7tAFXiXMI0KJ40/zM489IHiWSa+Bh1DoTb0l9OqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2LyiMGEk2Ju+6Gcj5kKZJO9GEW+S9GWkrnxRuCwFNQo=;
- b=F0Qt7WQlgHaWMKdZkKbV7mX37z3FoFUKxBpwPL8sIyqeH3yU5IMWHiLMJs4ia6nLEpTJ9aZ5+Wvs6bwGW7faEX3WzAji5FWbk7kAEiZ46oN61xi+lsyB36UBZ/AptC8XZtT+/B1gUacLL4ivrh2SKd5WImjS/2HRPquXU+0bRJc8byjUjIWicVZm3TQeVQlF+WIACwS48eVHdbgBWP/N6x/lg2VdTex7fgyWExwizsBSd2GJP9rQ7U/2wU0vpJv0qFdOnChJXAucsYMD/Pni9BHjdbQ/Kd/xtvIBNteIip/T3y2jnE9OKQ9n8bacR27Z21lsWgLhF9Qfp2FhmXbXtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2LyiMGEk2Ju+6Gcj5kKZJO9GEW+S9GWkrnxRuCwFNQo=;
- b=HkX+lr/sYX8TK77Sg0meKkZzP7PxCn+0kxqQwgb7BZADio+IUShrkITtHxCYWLwAvwhFtP4diePku+oqFyS4l0dvXNBGzlUKYp/UZL0VLCaekkJ+UEETS4UgysBt4FfxhqTQxlAe5BF0xdkvn/9Qe9HHYrwjwbuOC/hst6GmhKWWdHr8hhqBGgNiF/28+QD47xgNyFbJAn0I4OXPl8Ur4lz2DKdo10eepEVuaAh9M7Kzztrl5u/dOCfsNXjnMk3fDHSeTOLQDcRM0TmZK9XHaf9OW/fShGt37Giz3qHmyAyh9/rar3O/YY4vrdh0huJmVPn9XOGRXH1Yn7SiLbsuAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by PRAPR10MB5347.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:299::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Mon, 15 Jun
- 2026 07:18:32 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
- 07:18:31 +0000
-Message-ID: <b7c92302-d675-4610-a815-b353ff365e36@kontron.de>
-Date: Mon, 15 Jun 2026 09:18:30 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: i.MX95: EdgeLock Enclave secure storage
-To: Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:HARDWARE RANDOM NUMBER GENERATOR CORE"
- <linux-crypto@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Stefano Babic <sbabic@nabladev.com>, Frank Li <frank.li@nxp.com>
-References: <CAOMZO5DgENq8RU6s2CPnKsf53i=7zoBeO38m_BtV=w54hr2hgQ@mail.gmail.com>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <CAOMZO5DgENq8RU6s2CPnKsf53i=7zoBeO38m_BtV=w54hr2hgQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0088.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cd::19) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	Mon, 15 Jun 2026 07:18:52 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490b613a17bso26008225e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 00:18:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781507928; x=1782112728; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kB/u4VLuYTRIxSTjaGgA4kG1SxYpk8i9RP3w3UDvgAY=;
+        b=fXSchhE522EYjimdj2qZZRvK5S9lBLW5aTeBPge+hpJMW/ufdIKazdt2FNNzVKkPT2
+         Fpo/FYe50hvFl4a0jkhMmK+lDgnQObwx3ZsiadK7CMRjLKRmoCOy4yQZGDPA2xYtVeqM
+         XJY7ZR4gPjo0FjbvzbzAfrgf6ju1fqFusklKpYao8I/LkXyjv0k6OhSXBXkjhZeGqK6k
+         ETzuPJI9NhcwMCtwowteYXEmdg6/Z9udne+HEcnKQ5N7d6A60ncf8rzFAbSlp5ojxz8p
+         RmjKKrJ2fKmkQfb1ZJdC3eslU7/d7x5S73RgbodJcyQcW1CKf5/EUkLKDYMwOj+5QrLI
+         3SLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781507928; x=1782112728;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kB/u4VLuYTRIxSTjaGgA4kG1SxYpk8i9RP3w3UDvgAY=;
+        b=mGNY5i6b5LWDSdWD/YLs0HeCRcKrpIdPtPekbvoDRv2frvtOaqawsOJJzOL50yIFM9
+         qOWDjEBxeLvnZ/+BnRpQuNAfWLVvVFf1DBmWSgv1yfSFZCR1mAohIuOhv57f30QUg6fd
+         runukRmZlUJ5XXcBExDPgIoCx4WQmOYn7ChwARgDMLWrk1Mzl7Xc1xH3K6EPMITbj5/E
+         BtgoyAUJcrkixcE+9eUd3ZYsTYeVk2byeK6AXSeS6CtA2YXr7/7QmkLfigSXI0fPPKo1
+         IIbr1aIKG/94LTQnLLe1UxPO92FUETOS3A1fWCf4YdywrEBNtOXcsPfPtJDQRn+PuBx0
+         ZIhQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+hVWvBOTvXnZ2ewuP5ssPZdd5R4iK5IQP42IM+HhX9yQkSYFhndxalEZI+tO2cGg0+vjqs6TBROa6pER95POTc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVPw/ohAs0+vb/y9YCUWdWueECI+iIGW6IBk7CrHk8OtsNEEP5
+	oSrb1eymTFKnxfVPSQFM/no635byzpjaR3VE3R9LL299lRNooWiGHQ7/
+X-Gm-Gg: Acq92OF3V3byg2j/bUpaQ9M1U+kWEBjF6RaW6NmQ2HOXo/f31orr+7S5Q0WuPxX869X
+	+Jef5oQq3s67PfightdlU93AXAmhpkm5ENL1tHJvs+vfD0wsIA/8JkINfWzHjElVFPjUAPZvhwy
+	RT9TPOSZmgv6c1pSkCIgdwZgmrlqEy5gjPPwPt9v3XHqezneNFcsdAE7yAtFhU6kGnpcJssfvY2
+	U9a+naQSLD5FpHEtAbUIFipn5I4UwuKhvMKQI0efCvIWgls1elhSCtAaVDuvAYtGJno013bw+S7
+	UAe8Rtx6+TlBnLV91KuQrudqYcpn2ROXBOPO1oTUV6LIN5gpb/oMjdAm7fKf6pwaHThJgAjbvvV
+	vONrv91HGfZ6ppBv54KT1dlRVnJV6PBa4cgqEfDtpnNN078SSkkQt1JUXq0n8gawQvzwx45JdVP
+	ZkQyXQahJw7L3kvy4w
+X-Received: by 2002:a05:600c:820c:b0:490:e913:6564 with SMTP id 5b1f17b1804b1-490ec4cc6d8mr166377465e9.3.1781507927328;
+        Mon, 15 Jun 2026 00:18:47 -0700 (PDT)
+Received: from luca-vm.. ([81.56.18.151])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492203c0801sm200181015e9.10.2026.06.15.00.18.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 00:18:46 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sen Chu <sen.chu@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>,
+	Lee Jones <lee@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Julien Massot <julien.massot@collabora.com>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	Val Packett <val@packett.cool>,
+	Fabien Parent <parent.f@gmail.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
+	Chen Zhong <chen.zhong@mediatek.com>,
+	linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH v7 0/9] Add support for MT6392 PMIC
+Date: Mon, 15 Jun 2026 09:16:06 +0200
+Message-ID: <20260615071836.362883-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|PRAPR10MB5347:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4cd2499d-e1c5-410a-7dd8-08decaae4e23
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|22082099003|18002099003|6133799003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: RM8uNKoeo9MmN/j+2DrYYYb8arA7LgOqmBCaL9QR81VVIIuz0CXPkbZ7G+QhOxKYWhH8/I21WQ5U0X/Vb/+7wo2C9mzet81uNaqkxNnwmaiAtHDQ+5f6YrsJt/5deaIi80haTPjZRTrBer9bDLndSM7UJ4GzL+PbWkvGh11662G39H48Z1JOQN10J3iPlQ5aPsBNh8fSXGUPNA8ry0FZZQYoccfvmSYR3a1/1b8AANxhdviuygDEtWmYxT/N18deFQyX7PJg73q92Qf3u1WxC96otRKCcNpw3OHh18vvUo12wS080kkvopFnr2jbGMg9bg50HS9r0Z900Dy7hJ2OEnuzP9HpSg6gPH1OqcoJXkEo+yKrWk95gVcZNvL8ok2yKSyGbHbUxPiQOfiEnUtdf/Ts1MQza19MBacjoF/ITX7x9ASHE7iYOTmNxrDH5ST4ifxBxa0H9x8lGn/Bn6wqdM7HYKX1v4oVbUaPH2uevrmnjC2P9Dtp8uApwuZ6gn2Gy9/l8fF1w/812EnGZzmhdUqZmV+vTtmmQqYx0QEvKiZ908R1HcF0aVr5dzmhIb/dMSHpkgm9sF+9Eo7sQEVCafNha/Md271FoPCYAjjZn1SIc0wpFzw9I2ELU5JS70tzMQ3Gz7HDVHB4Vv4kOU0WRqnYK2iRusU+sGEqJypQ16y/zCB0hcThpoBFRlb4eo15
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(22082099003)(18002099003)(6133799003)(56012099006)(11063799006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cE1YS0g1SzdUOUR2QndkZjlidkVOWElJQmJaZVZ3ZUdHMW9HMnBzV1VKZHg3?=
- =?utf-8?B?WkFTZWJtZFdmMnlLOXh3RGlmL3poYW95YnlyTGFNaUYyNzdKOGpHaFNRenBR?=
- =?utf-8?B?TTFhUVJvVmJackt2Vmc3RkFhcWNoR0pqVHk2aEtWM0lRcU85NzMxd2JuYWUw?=
- =?utf-8?B?aS9ZeVl2V2V1bGZKREE3TC8zemNrT2VXb0FUZERrdDRoUU9QbFVPNExNNy9F?=
- =?utf-8?B?YmVCbzBJU1B6VjF5WHE0QmZwY3JLWHNuS0h2NE9WbU42SCtGdThPOWtXWWFF?=
- =?utf-8?B?RktORTN3ZlRISnY1eVVlVGo0eDJSeGovUmsrVHpkQmd0U3JISkt6VTVYWEhN?=
- =?utf-8?B?a1FXNnJQSTBtVTd2RFA4Z0ZBcnBhZVlCNk51cWV2YU1kT2hVMlJDT0pyVllB?=
- =?utf-8?B?cjcwQmNTMXFEY1VZTFVXdXpodStaRlhhcHhpTG95a2xSZnVoNVpnWXhSa0Rh?=
- =?utf-8?B?SVNhTFBHMlJTR21MQUFvWmtPY0lQK3hCQ1I1N0dUb09nZ0YzUnJCY28wY3Vp?=
- =?utf-8?B?WGZWSUZaaUU1bmtPVlV5M3BENm1iUHp3TzJjbGhnTlVxMFpqcE5nUlVmVFpy?=
- =?utf-8?B?eHVnU0o0QUlsaERQcjg0M2ZLckU1L0MzVW0rWlZyUTVNNklSMkt2d0JRMWsy?=
- =?utf-8?B?alpGck5vSWcxVWpqWDFCUmtDb1RDZjI4aS9UY28rbEJqWCtmSWErRi9vZHI2?=
- =?utf-8?B?Z0JieDBuejBJeVhEOGJmb1RxbU02Y09jTnhJbzZnWnhFZ0NTcjI1Q2FscWln?=
- =?utf-8?B?NytxTitIQXVZYi94NXJKZ2VQZ21PZHlDdU02TmREc1F6QWtIRnpjdEhVemF2?=
- =?utf-8?B?d08ybXVWaWN6ZFlpMEVtdlRxWmQycVEyMkQ0RDZnSUZ6WlV2VWF3R2FWc1lN?=
- =?utf-8?B?N0VlRnRsMlNKTEVvZlZRcHZ1S3FIYm9YRGpuaDNydHQ2dlNVZ1NTSktqK2ky?=
- =?utf-8?B?Yll3elRCeDVER1ZzeGpDaTB5eVFpeFNZY1Q2TFkrZlN3ajBaakJFbmR1SkZw?=
- =?utf-8?B?TVRoVlRFazJDY2FwRXZJQlRkU2dLOExlalZNckVaTnFyTFk4UUNjN3lWZWNJ?=
- =?utf-8?B?dzNNNEJmOEh5eXlZRi94Tkc3UE9uVmk4aFhML3hjaFlibVBQcDlGQXJMcXJN?=
- =?utf-8?B?U3Y3MjlPVkRRSkttVE9RM3JkaUl0RmdraEkxTEUvajFyVjAxSlVUM0NHc09C?=
- =?utf-8?B?SjBhMlhYNGM2Z1VHN1Zac2pTVmdETng3dy9KeW1SL2dwWEUxZnZnbjFmZ0pG?=
- =?utf-8?B?dTBYWjBGNnl6eVFvd0ZMVHh2OWVwc3BBWkpKdjg3RWN1MGhMVzNmeXJWQVFL?=
- =?utf-8?B?K0xDYlJuMTNrZFRxN0EwZzFNYk40a0E4TUNGVTVvTlcrVTZ0V2xCK29OOTRC?=
- =?utf-8?B?NDY1ZnJEQ2thTWlMZnlxK2xQdVdZbWQvNWl6YnczYzl0dm1yTi9tbVZsenBu?=
- =?utf-8?B?LzNSNjg2OUgrZEVocVE1cWg4RjBVeDJsUm9YTUpZN1NQZUIreWh2eENHcXN4?=
- =?utf-8?B?b2Q4cGxMRVIxME83V1lVeEg3NzlwdTdteDZmbnZzMVp6eXVMOUQvUUY0L3F5?=
- =?utf-8?B?SkhGTExaUU9vVHUySWpWRkt2bXhDUDhMaTY5cGMweXNsZjdQVk9iWUVkS1Va?=
- =?utf-8?B?eFRFeEYvVVd0Ulo1U0ZFWkx4UzFjQzJuVEhzOWdvUFhsSk9YMjZFVEY1eTNq?=
- =?utf-8?B?dFhMVmJjN2NTWThpNFNMVmdLTEZKZjVqZlZkMjU4WEo3dHZFcDcvZ2VMb1BG?=
- =?utf-8?B?aHNlYlRLandOS3lDLy9yN1E0TTZDaWN2MjNhUEZlYndRQVM0a1dDN21HSUJw?=
- =?utf-8?B?dzNmTWM5OXRPcmRZbExDNmJRNDNnRmZYRkpwVnVIMGxkMnkxWUl5N2oyNHVC?=
- =?utf-8?B?Uzdmd3FzZ2xZdDBwRnNCdUNqR2prdTFZUVNXRnd3U0sxNDE5UVI2RG1Qb1d5?=
- =?utf-8?B?WW12b2pKcW1JZVVhUXFRSGIxa0VpbGVTVnY2cGNOMllVYkFBOHBTd1ZuQVFT?=
- =?utf-8?B?MCtOSHZwaDJWbFE5VG50NnYxYkp0TWNSWmsrOWtJTi9vWUJBTzhoUGV2amla?=
- =?utf-8?B?SzFqS3NaUDB4ZVJmTVBLZVlPSm42SzVZNFZhd3d5SXR2dGFCMmttdTdLSGJz?=
- =?utf-8?B?Qlk3ZlRvZ1RqOWhFaUxiRjNETllGTFVZYkM0VnVQdzdISnAvL1psd3NBR1Vh?=
- =?utf-8?B?NXBtcWFGa3hBZlJlWXhia0JNRmkrTDkyZCtERmNVS083ZFdmNGhvaDVIampo?=
- =?utf-8?B?THJuVWFMTGw5WGhmVWM5MVkrcHFtYVNjc3l0WlhwN1M0SHR2c1FuQ0RLdUgz?=
- =?utf-8?B?UkF6anFUeXFXSlBkUzB5Z3BNTlBEL0dWUzhaM2xVZU9kd29QbnJaMCttRC9q?=
- =?utf-8?Q?N47gBpgL8uMlpx/E=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4cd2499d-e1c5-410a-7dd8-08decaae4e23
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 07:18:31.8425
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oCc3VOLB73bmgK18Gsqj+Im0eKwIeXIIKrBmBEbpifoZb8ukNyJY3ChUrhf5xQu/y4PcdGGrC4deUVHerZwlsa7tKdrjv30bBgeCoUioV+s=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PRAPR10MB5347
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_001840_620603_9648CEE4 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260615_001850_082158_4CED32DF 
+X-CRM114-Status: GOOD (  32.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,56 +119,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13.06.26 15:58, Fabio Estevam wrote:
-> Hi Pankaj,
-> 
-> First of all, thank you for your work on upstreaming the
-> EdgeLock Enclave (ELE) support. It is great to finally see the
-> ELE framework landing upstream after a long development effort.
-> 
-> I am currently evaluating the state of i.MX95 secure-boot and
-> storage-security support based on current linux-next, with the
-> goal of understanding what can already be achieved using
-> upstream software and what pieces are still under development.
-> 
-> From my review, it appears that the following infrastructure is
-> already available upstream:
-> 
-> - ELE/V2X mailbox support for i.MX95.
-> - OCOTP/ELE nvmem support for fuse access.
+The MediaTek MT6392 PMIC is usually found on devices powered by
+the MT8516/MT8167 SoC and is yet another MT6323/MT6397 variant.
 
-There is no upstream support for OCOTP access via ELE. The
-imx-ocotp-ele.c driver (despite its name) does not currently use the ELE
-but the FSB to access the fuses (and is therefore limited to read-only
-access).
+This series is mostly based around patches submitted a couple
+years ago by Fabien Parent and not merged and from Val Packett's
+submission from Jan 2025 that included extra cleanups, fixes, and a
+new dtsi file similar to ones that exist for other PMICs. Some
+comments weren't addressed and the series was ultimately not merged.
 
-I have some local WIP to add ELE support for the OCOTP driver. I think I
-can post it soonish.
+These patches enable four functions: keys, regulator, pinctrl and RTC.
+Mono speaker amp will follow later as I need to work further on the
+audio codec.
 
-> - Secure-enclave bindings documenting the i.MX95 ELE HSM.
-> 
-> However, I could not find upstream support for several
-> capabilities that would be useful for secure storage
-> deployments on i.MX95, including:
-> 
-> - An ELE-backed trusted-key provider for the Linux trusted key
-> framework.
-> - Integration allowing Linux to use ELE as a key-sealing/
-> unsealing backend.
-> - i.MX95-specific crypto acceleration exposed through the Linux
-> crypto API for dm-crypt use cases.
-> 
-> Are you aware of any ongoing upstream or planned development
-> activities in these areas, particularly for i.MX95?
-> 
-> Any information about the upstream roadmap, ongoing
-> development, or expected direction for these features would be
-> greatly appreciated.
-> 
-> Thanks again for your work and for any insights you can share.
-> 
-> Regards,
-> 
-> Fabio Estevam
+I added a handful of device tree improvements to fix some dtbs_check
+errors, added support for the pinctrl device and addressed the comments
+from last year's reviews.
+
+Please note that patch 0006 and 0008 depend on patch 0005 as they need the
+registers.h file, but belong to different driver areas. I'm not sure if
+I'm supposed to squash them even if they belong to different driver
+areas of if it's fine like this. Any advice is welcome.
+
+The series has been tested on Xiaomi Mi Smart Clock X04G and on the
+Lenovo Smart Clock 2 CD-24502F.
+
+Changes in v7:
+- Removed patch 0008 dependency on patch 0003.
+- Reintroduced the regulator driver. In earlier revisions of this series,
+  it was proposed to remove the dedicated compatible for the regulator
+  device [3]. The driver does not use actually it, but it is not possible
+  at this time to remove it from the bindings since it's a required
+  property.
+
+  Making the regulator-required property conditional was NACKed in [5],
+  with the suggestion to create a separate binding altogether for devices
+  that do not require the compatible property. I tried implementing this,
+  but since the parent device needs to be declared as compatible with
+  mt6323, it leads to a warning in dt_binding_check since mt6323 would
+  be declared as a compatible in both mt6392 and mt6397.
+
+  In the end the only regulator driver from the mt6397 documentation that
+  still declares an of_match is mt6397-regulator and it does not seem
+  to be necessary, so it should be possible to remove it and make the
+  regulator compatible optional for all regulators, but that change would
+  probably deserve its own separate patch series.
+
+Changes in v6 [6]:
+- Dropped the regulators driver for the moment
+- Explained the FCHR key name origin in the commit message
+- Introduced the MFD_CELL_* macro in the sub-devices definitions.
+  A separate, independent commit introduced MFD_CELL_* to all the
+  subdevices in the mt6397-core.c file for consistency
+- Replaced of_device_get_match_data with device_get_match_data
+- Removed the mfd_match_data enum in favor of the preexisting
+  chip_id enum
+- Adjusted the error message if the device is unsupported
+
+Changes in v5 [5]:
+- Double checked regulator driver with data sheet and Android sources.
+  The data sheet I have misses a lot of register descriptions, but
+  Android sources have been helpful to fill the gaps
+- Reintroduced the required attribute for the regulator compatible
+  in the bindings
+- Fixed the missing reference to the MT6392 schema
+- Fixed casts/unused vars reported by kernel test robot
+- Removed Reviewed-by tags from the regulator patches as they have been
+  modified in this version
+
+Changes in v4 [4]:
+- Dropped usage of the regulator compatible
+- Fixed commit messages text to properly reference the target subsystem
+- Added supply rails to the regulator
+- Reworked the regulator schema and PMIC dtsi. Now all supplies are
+  documented and the schema no longer includes voltage information
+- Removed redundant ldo- / buck- prefixes
+- Renamed the pinfunc header to mediatek,mt6392-pinfunc.h
+- Modified the MFD driver to use a simple identifier in the of_match
+  data properties
+
+Changes in v3 [3]:
+- Added pinctrl device
+- Changed mt6397-rtc fallback to mt6323-rtc
+- Added schema for regulators
+- Fixed checkpatch issues
+
+Changes in v2 [2]:
+- Replaced explicit compatibles with fallbacks
+
+Initial version: [1]
+
+[1] https://lore.kernel.org/linux-mediatek/cover.1771865014.git.l.scorcia@gmail.com/
+[2] https://lore.kernel.org/linux-mediatek/20260306120521.163654-1-l.scorcia@gmail.com/
+[3] https://lore.kernel.org/linux-mediatek/20260317184507.523060-1-l.scorcia@gmail.com/
+[4] https://lore.kernel.org/linux-mediatek/20260330083429.359819-1-l.scorcia@gmail.com/
+[5] https://lore.kernel.org/linux-mediatek/20260420213529.1645560-1-l.scorcia@gmail.com/
+[6] https://lore.kernel.org/linux-mediatek/20260612200717.361018-1-l.scorcia@gmail.com/
+
+Fabien Parent (3):
+  dt-bindings: input: mtk-pmic-keys: Add MT6392 PMIC keys
+  mfd: mt6397: Add support for MT6392 PMIC
+  regulator: Add MediaTek MT6392 regulator
+
+Luca Leonardo Scorcia (4):
+  dt-bindings: mfd: mt6397: Add MT6392 PMIC
+  regulator: dt-bindings: Add MediaTek MT6392 PMIC
+  mfd: mt6397: Use MFD_CELL_* to describe sub-devices
+  pinctrl: mediatek: mt6397: Add MediaTek MT6392
+
+Val Packett (2):
+  input: keyboard: mtk-pmic-keys: Add MT6392 support
+  arm64: dts: mediatek: Add MediaTek MT6392 PMIC dtsi
+
+ .../bindings/input/mediatek,pmic-keys.yaml    |   1 +
+ .../bindings/mfd/mediatek,mt6397.yaml         |   9 +
+ .../regulator/mediatek,mt6392-regulator.yaml  | 234 ++++++
+ arch/arm64/boot/dts/mediatek/mt6392.dtsi      |  75 ++
+ drivers/input/keyboard/mtk-pmic-keys.c        |  17 +
+ drivers/mfd/mt6397-core.c                     | 295 ++++---
+ drivers/mfd/mt6397-irq.c                      |   8 +
+ drivers/pinctrl/mediatek/pinctrl-mt6397.c     |  37 +-
+ drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h |  64 ++
+ drivers/regulator/Kconfig                     |   9 +
+ drivers/regulator/Makefile                    |   1 +
+ drivers/regulator/mt6392-regulator.c          | 756 ++++++++++++++++++
+ .../regulator/mediatek,mt6392-regulator.h     |  24 +
+ include/linux/mfd/mt6392/core.h               |  43 +
+ include/linux/mfd/mt6392/registers.h          | 488 +++++++++++
+ include/linux/mfd/mt6397/core.h               |   1 +
+ include/linux/regulator/mt6392-regulator.h    |  42 +
+ 17 files changed, 1942 insertions(+), 162 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
+ create mode 100644 drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h
+ create mode 100644 drivers/regulator/mt6392-regulator.c
+ create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
+ create mode 100644 include/linux/mfd/mt6392/core.h
+ create mode 100644 include/linux/mfd/mt6392/registers.h
+ create mode 100644 include/linux/regulator/mt6392-regulator.h
+
+-- 
+2.43.0
 
 
