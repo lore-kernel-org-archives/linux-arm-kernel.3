@@ -4,79 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D5CCD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A552CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=12cJkgmNpZePALEcCCii3OEhCzXZc//+4qAWWEONSCc=; b=tm9f+RNz6YPDitNd3rcNbHNp6m
-	3dxyQkeapmvhDjEIlrvJC5TkDzPh6Ml5up225JKseRY1RBWyAM4VqvNM+CmCKhTUkOjYBTf8BkXYF
-	QgSy7iNx603zw1ierN8WWLXzPyJh3fLBMkCmQTgnNgDRTCbnEuvmEvKHwUNaOgSfnevx8klGeTVla
-	rY4dryp6nHT+LyTyk7eJap0bRuzDwPgngTCOU5pi9/lEIuOwXgaTeED5eaJxIGddB1rQ4oxPRv09w
-	2sclC/rUTCazBuf4pRM2jfQ8rP27XkinD7B3M8OoGH4AwUxUjDSLu6N8HhIYWxzb9Y5GZW00+S9XZ
-	EPEkoLEw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q0DEjqI/MjSZk63smQxo8R3imVIUNR3yg/nfskjDHjk=; b=sRitgOH1haWkHmCyrlwcNwo7R6
+	yLIwKLIZOUggZaoRPrCpp5wu43zqDBrAKKcW/lw2pXQ62kzChuVR2+PHNPMJrHYcifTYw9y1awaZa
+	KcJlb4/W809LDamFlkQO+xbkAKckB51r5t2xEK4UjEY6QG5vW9iF+6wfRWMb7MUkksjTDQ3IXx5h9
+	PRb6+QRRmMIMm4Yzvm7vDAXwHDiilwTU+rA2tPfXHlHp/4vapqwi3A68USb1u4vo2ESmHCUkCVb64
+	9r6s6P8NMNs7af/Okj53F6q/Ak/Tq1aJUBe8vmE2m71aiQy2JypCsE/cwZFyKWYbjnOER2y+07XVc
+	rGRPdk0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7yD-0000000EMX7-0zA7;
-	Mon, 15 Jun 2026 14:07:21 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wZ6Sm-0000000EBSn-0vjE;
+	Mon, 15 Jun 2026 12:30:48 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ7yA-0000000EMWg-0xTe;
-	Mon, 15 Jun 2026 14:07:19 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 578FA4E42EFF;
-	Mon, 15 Jun 2026 14:07:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 20E3360015;
-	Mon, 15 Jun 2026 14:07:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AF69D106C96A5;
-	Mon, 15 Jun 2026 16:07:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781532433; h=from:subject:date:message-id:to:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=12cJkgmNpZePALEcCCii3OEhCzXZc//+4qAWWEONSCc=;
-	b=zdj55i0XH3giozHt1HpWm9UfrnYusBZsrgy8BIRAXrB12gRGFYttdKWdel5vEcrpKgU3pO
-	kBhdbrbf9QdwQ+fPiu2opW/5t31ghiReeLTz6M8Y8J0kWp7gICiIuQG7YVavMSQEiI06nh
-	XvF3aocbyXTK/ga1gpylQ0kuKXc0Um1owXiC90x7Ys+HJLXRgCbneEwZiDpMT/vI957D7Q
-	/Mj+jd+MV5kLA+KI0SHns+JUCPL7eeozwOQqR9YDjvnN/Pc7ZtsNkSm9VnBjFNVavlxozq
-	mJ5t9Eg7cg97pu12QnsGmSdYOCU/VEFxF7+986tvH4yr+YZ/rUitb7n14j6Eew==
-Message-ID: <867a39de-ccc2-4dcf-be24-ab2542d20ab6@bootlin.com>
-Date: Mon, 15 Jun 2026 16:07:03 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 05/12] net: phylink: support late PCS provider
- attach
-To: Christian Marangi <ansuelsmth@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
- <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Saravana Kannan <saravanak@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
- <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- llvm@lists.linux.dev
+	id 1wZ6SY-0000000EBHU-3ylp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 12:30:40 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490be03d47bso34453865e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:30:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781526633; x=1782131433; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q0DEjqI/MjSZk63smQxo8R3imVIUNR3yg/nfskjDHjk=;
+        b=gEbgpnOs1MGOg/LtlfNmmWWSFMDvkPsK2Xe78oL3ugNUYpF1uPwWjAG4PFYRG3SmoR
+         sdXx+HjDFhb9jhmAvrPzDYeV0mLu6d9nwwvkOnyeODQAFyPANw/EJ2vEPXUQEqnd9EBG
+         bMMTuh+MT1rxZhYQ97+MQsWs+jnS3D1sQNjOjML7257TtbuWpbYLoitKRnsjwndKBw5q
+         M0kpWZ0H0pwEYkwX6HSe6mzz8Dx7n6lTwwUSV4RgNd1gD0FuNuOGPZOj/lTSJJY7n7ey
+         7VTFStkTL/6O6EOh6Bm8G4rjA/rSuMU504+IpxvzGpG7Zbkaub1V2kELQ1iUwswdaq5Z
+         7Bnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781526633; x=1782131433;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Q0DEjqI/MjSZk63smQxo8R3imVIUNR3yg/nfskjDHjk=;
+        b=odsOrD8okCWkh6Qpud6JqOHc/KW7ulia/dDiw74z+nEdDAXnRkrihhKkGx9XDlSfp7
+         Y7hhjKnLOwaNJ7D8Zv7+500zzuT2XhcPvhbq7CtLPywR7sC1Ial/OSrwtPkcIdIWHkVK
+         J8TxvQswKEwN/JN6yFA+sDe0c5CT8xPc8phsbg1DKujWcekONFCWY3qSXJlvF4mXaTeO
+         C6FHvOsLs9Kx1wj8t8lE10YkbHtfgpuzjUwR3KIInPVAK0rTIHIB84nlSrsu8O4ykfz5
+         NbDlx6nFiLqCLhil/FxFEYOsx4RFysea7P8St7tMNc/96NAo5xfXhNDD/+3XAOBtBJRE
+         qAKg==
+X-Forwarded-Encrypted: i=1; AFNElJ+FXtopt8eI9hP6LJ+eGrW1amI9uiNMpPT03XJRyZ4BnfU029N0WmMbVUV+uIa2PeGfJ7TKVKdd4aVhPdYu/Woe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/4nedl4X2Rv12OwIe1GDQARFrupSiKV98JRGGPnXn69lxkn6e
+	+sY87sLCtB3SPmw62g6Yj0znXb9RFy/NTmr86rIeO/BdfrmpGnoCp7lW
+X-Gm-Gg: Acq92OHILuduFHLBRko4XHtnA6iHXaqoASEtmGdkHFcXk7GC4m0v0mIuI7KeGybBvYp
+	7fmoZqD/W+9GGVfL6unuKJ0Frm2HM8SCwtsfT+BXQiqwnRPHa/Vr7gcMa2Wg1TWREYTOE03LnOW
+	jcLD8oiPSQwUSmExjT3/kdpr/K4L22M3iRtvN3yOj8RNil9HX9g5UMdB7E0jFIzfvyQZRjWrEUY
+	GuxpTlYQaCt+OGC5+LPVA2ta7iC8TSxMdQfqfg/5dm1dCnP5GAzyJiRF77XmMGR898MLB4PNeXC
+	v9I5yHDulcN0Jn43J86ERvDv3zI8CBlHsgEwhff3Ad/kE3wZeZHWybdvEnaRjQ0lAS+mUGyJUld
+	qJ61+sM84BT1WhLx3YaG8fyRAdPV99rudTUDiliGlLqCiljYU5LLlomPABYwtFcg6QB58U1d6c2
+	BCvl3toF56cimiuldrZUUNGz64PqiZlMNIeooObnx18B5kPEAtplRdL/w=
+X-Received: by 2002:a05:600c:4753:b0:490:be9e:fd03 with SMTP id 5b1f17b1804b1-490ec4bf9a6mr188542715e9.7.1781526632715;
+        Mon, 15 Jun 2026 05:30:32 -0700 (PDT)
+Received: from Ansuel-XPS24 (93-34-88-103.ip49.fastwebnet.it. [93.34.88.103])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-490ea95c512sm191426435e9.2.2026.06.15.05.30.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 05:30:32 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v7 01/12] net: phylink: keep and use MAC supported_interfaces in phylink struct
+Date: Mon, 15 Jun 2026 14:29:37 +0200
+Message-ID: <20260615122950.22281-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260615122950.22281-1-ansuelsmth@gmail.com>
 References: <20260615122950.22281-1-ansuelsmth@gmail.com>
- <20260615122950.22281-6-ansuelsmth@gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260615122950.22281-6-ansuelsmth@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_070718_403411_0EA90602 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260615_053035_016484_9772C0AF 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +123,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+Add in phylink struct a copy of supported_interfaces from phylink_config
+and make use of that instead of relying on phylink_config value.
 
-On 6/15/26 14:29, Christian Marangi wrote:
-> Add support for late PCS provider attachment to a phylink instance.
-> This works by creating a global notifier for the PCS provider and
-> making each phylink instance that makes use of fwnode subscribe to
-> this notifier.
-> 
-> The PCS notifier will emit the event FWNODE_PCS_PROVIDER_ADD every time
-> a new PCS provider is added.
-> 
-> phylink will then react to this event and will call the new function
-> fwnode_phylink_pcs_get_from_fwnode() that will check if the PCS fwnode
-> provided by the event is present in the pcs-handle property of the
-> phylink instance.
-> 
-> If a related PCS is found, then such PCS is added to the phylink
-> instance PCS list.
-> 
-> Then we link the PCS to the phylink instance and we refresh the supported
-> interfaces of the phylink instance.
-> 
-> Finally we check if we are in a major_config_failed scenario and trigger
-> an interface reconfiguration in the next phylink resolve.
-> 
-> In the example scenario where the link was previously torn down due to
-> removal of PCS, the link will be established again as the PCS came back
-> and is now available to phylink.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
+This in preparation for support of PCS handling internally to phylink
+where a PCS can be removed or added after the phylink is created and we
+need both a reference of the supported_interfaces value from
+phylink_config and an internal value that can be updated with the new
+PCS info.
 
-[...]
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/net/phy/phylink.c | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
 
-> @@ -2151,6 +2204,10 @@ void phylink_destroy(struct phylink *pl)
->  	if (pl->link_gpio)
->  		gpiod_put(pl->link_gpio);
->  
-> +	/* Unregister notifier for late PCS attach */
-> +	if (pl->fwnode_pcs_nb.notifier_call)
-> +		unregister_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
-
-I wanted to try this out, but I get :
-
-drivers/net/phy/phylink.c:2218:17: error: implicit declaration of function ‘unregister_fwnode_pcs_notifier’; did you mean ‘register_fwnode_pcs_notifier’? [-Werror=implicit-function-declaration]
- 2218 |                 unregister_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                 register_fwnode_pcs_notifier
-
-I guess you either need to stub this, or there's a missing Kconfig
-dependency somewhere
-
-Maxime
-
-
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 087ac63f9193..4d59c0dd78db 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -60,6 +60,11 @@ struct phylink {
+ 	/* The link configuration settings */
+ 	struct phylink_link_state link_config;
+ 
++	/* What interface are supported by the current link.
++	 * Can change on removal or addition of new PCS.
++	 */
++	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
++
+ 	/* The current settings */
+ 	phy_interface_t cur_interface;
+ 
+@@ -629,7 +634,7 @@ static int phylink_validate_mask(struct phylink *pl, struct phy_device *phy,
+ static int phylink_validate(struct phylink *pl, unsigned long *supported,
+ 			    struct phylink_link_state *state)
+ {
+-	const unsigned long *interfaces = pl->config->supported_interfaces;
++	const unsigned long *interfaces = pl->supported_interfaces;
+ 
+ 	if (state->interface == PHY_INTERFACE_MODE_NA)
+ 		return phylink_validate_mask(pl, NULL, supported, state,
+@@ -1868,6 +1873,9 @@ struct phylink *phylink_create(struct phylink_config *config,
+ 	mutex_init(&pl->state_mutex);
+ 	INIT_WORK(&pl->resolve, phylink_resolve);
+ 
++	phy_interface_copy(pl->supported_interfaces,
++			   config->supported_interfaces);
++
+ 	pl->config = config;
+ 	if (config->type == PHYLINK_NETDEV) {
+ 		pl->netdev = to_net_dev(config->dev);
+@@ -2026,7 +2034,7 @@ static int phylink_validate_phy(struct phylink *pl, struct phy_device *phy,
+ 		 * those which the host supports.
+ 		 */
+ 		phy_interface_and(interfaces, phy->possible_interfaces,
+-				  pl->config->supported_interfaces);
++				  pl->supported_interfaces);
+ 
+ 		if (phy_interface_empty(interfaces)) {
+ 			phylink_err(pl, "PHY has no common interfaces\n");
+@@ -2828,12 +2836,12 @@ static phy_interface_t phylink_sfp_select_interface(struct phylink *pl,
+ 		return interface;
+ 	}
+ 
+-	if (!test_bit(interface, pl->config->supported_interfaces)) {
++	if (!test_bit(interface, pl->supported_interfaces)) {
+ 		phylink_err(pl,
+ 			    "selection of interface failed, SFP selected %s (%u) but MAC supports %*pbl\n",
+ 			    phy_modes(interface), interface,
+ 			    (int)PHY_INTERFACE_MODE_MAX,
+-			    pl->config->supported_interfaces);
++			    pl->supported_interfaces);
+ 		return PHY_INTERFACE_MODE_NA;
+ 	}
+ 
+@@ -3761,14 +3769,14 @@ static int phylink_sfp_config_optical(struct phylink *pl)
+ 
+ 	phylink_dbg(pl, "optical SFP: interfaces=[mac=%*pbl, sfp=%*pbl]\n",
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+-		    pl->config->supported_interfaces,
++		    pl->supported_interfaces,
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+ 		    pl->sfp_interfaces);
+ 
+ 	/* Find the union of the supported interfaces by the PCS/MAC and
+ 	 * the SFP module.
+ 	 */
+-	phy_interface_and(pl->sfp_interfaces, pl->config->supported_interfaces,
++	phy_interface_and(pl->sfp_interfaces, pl->supported_interfaces,
+ 			  pl->sfp_interfaces);
+ 	if (phy_interface_empty(pl->sfp_interfaces)) {
+ 		phylink_err(pl, "unsupported SFP module: no common interface modes\n");
+@@ -3939,7 +3947,7 @@ static int phylink_sfp_connect_phy(void *upstream, struct phy_device *phy)
+ 
+ 	/* Set the PHY's host supported interfaces */
+ 	phy_interface_and(phy->host_interfaces, phylink_sfp_interfaces,
+-			  pl->config->supported_interfaces);
++			  pl->supported_interfaces);
+ 
+ 	/* Do the initial configuration */
+ 	return phylink_sfp_config_phy(pl, phy);
+-- 
+2.53.0
 
 
