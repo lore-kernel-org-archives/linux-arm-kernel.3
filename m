@@ -4,125 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD48CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96274CD98DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 23:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EfozI+Tt78rNpp1B1dacVsXtWSgxrbisM8tWGCAXQrA=; b=taehVL3oJjj0yfK/cXqdF+ggi4
-	o9BGWkL6hs2AqOFUKH5b78UGfH4SSWZgxoFS184ICbdybfiT8Nw+V+vDC0VFdlkAS16AXfqy0cKAo
-	s7GVI4mE00GSk9bxLSshWM7FYj/Ym+ZxcgGK+df/fMC1x1ytjxhQpNDY4apEAWx+YpdvdOjEe8n7o
-	8R5lhnRnf0BHaTp3mPso3J/mbAvkc+RCe+x7sQ82s3+ipog1pwJnXY+BrRI3t4zlOwfEF1pxjUgIv
-	Rf2oU+aCR27SwCISSOcB+RTbuNldH2HOlp6yyWYvAMn8hBy1PaVWdEmRuZc/pUp4UCbgn3wScPAN2
-	PT7mwb8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lJEnxYGCbj5TvE1QVpgrLjoHAqGb8zTkxlQcMAr3Mig=; b=3gd0HdiafPVgR230bgYe9ZpugT
+	VKXf1WHJ7X5IfOG5pquZGz3yW7UwEe+o7P96uKIC2xTIXC746HnhjZjPe4ilqPmY7xusSvGJq33PE
+	FpP/LzvWpuUJ6r+bhUx6ZfNeDP+JkqGy3ea+NRwjMHSOlRkjkiPNwyUdyCP1aGb8yzRymmOQ5J4Ah
+	UAQvMzSq2+MNKwoke4UkxK7kvLTsGJvoxFOEIZxyXfMwUkMSySXy9IAbyuhYpYDbnmB86DBx+scAU
+	u4D+brh0UdUUYzmdPyjOsKsnmA5BuhoQ/aO5VqlJ1mI2y/nnGH2PXa1Ko4eXvkVSKXCCjDPgY9ZxR
+	qyZ0e20w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZH7L-0000000EyBQ-3gzb;
-	Mon, 15 Jun 2026 23:53:23 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wZHAl-0000000EyOX-1SKh;
+	Mon, 15 Jun 2026 23:56:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZH7J-0000000EyB4-2PN7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 23:53:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YGrZkFFO6W488U+KYf9wKFL9mcIHBGwrUa5j3QECega8Km9+BgxYvFKKv/E0KM91z47lS9+H7cAoiYZGDH10FIfDM98V/cIsIv2DoI/4Risp2uG4dn1fcIihv+0VYQzCwoKC5LYN9KmY7MJVMeB8fQ0U8tjieioROuoJP+88rmefHKWzZCtVq38TiVRoSFcITQ5LvUluebl8577skg8wXZ8tBhh5JWnStCGfvoM0Y+T7K5YMBcP9s6IQj1754fggvqy7+h+S0uWbP32me0tWwhkatfFSwNYHd30rphLy4igeCzBuV+sVSdDGIPbYtLYz93dSTqbMvL1ovgwElgyrUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EfozI+Tt78rNpp1B1dacVsXtWSgxrbisM8tWGCAXQrA=;
- b=x6yqbhfOqh7WGqHmR00lkxIElXp9RiTkpcC7yMztyrS/vtpSfEQlw0b9bZsIavd1YbLjVuWrbM7gcElBcYSgvNYIss9qjenCyX3B4SI47+xnpyH48F3utkRp+l8aXJQ2xwMLD1ovvDUhLF8jztYuzqTopJ4E+KRXC+ZYGh6TyvYqsPgluUpqCxR23NBsoaxaJtw0UcDzy8gP4hRgJfwuCX0uutF2wGJtBqsf26V0ls7OTK261oH71pQ1a7RH1HUXR1Y/KvwmGlcOijixbf+zLYz9VcjpuyR7DVV3uZpqO2h2mbFvSYOLL+oEI3oTlh0fLGOjUmFXPUYivZ8Ozd5/Eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EfozI+Tt78rNpp1B1dacVsXtWSgxrbisM8tWGCAXQrA=;
- b=LjdfL1lGpAgq0eYwiVcQljWiH74iGZoyp7ZaZ/XTLGB9upPc8YSJJYJBz6W6ZwNCOjC7as2gtbNjKINOe+O550ka9izaMHuGRmttWP1RRVbOTodVBJcmy4HVe3mD2viItwyIzlbx3v2hUX9s4pWbBVwVIIFqGqoBBf4tNV16TAzzZ0G5Bd7Kf2jiY6Z6JvZeR9HS75bEzkxXNRwBNWNlm0bWPecKYVZ231C4+pkQ25owaIY3l8jlZWf9h0JQ4+zsR3JYB92idyBunMfe3wh0zOZpmuZpox9/BrgxqToy6eBQAdoFjx9bmkmZv07/H5Wyx9ie1pnNHOVMAhgVivTyDw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SJ2PR12MB7919.namprd12.prod.outlook.com (2603:10b6:a03:4cc::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
- 2026 23:53:04 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
- 23:53:04 +0000
-Date: Mon, 15 Jun 2026 20:53:03 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	joro@8bytes.org, Shuai Xue <xueshuai@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Declare eats_s1chk and eats_trans as
- host-endian u64
-Message-ID: <20260615235303.GM1962447@nvidia.com>
-References: <20260615194533.3290010-1-nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260615194533.3290010-1-nicolinc@nvidia.com>
-X-ClientProxiedBy: MN2PR20CA0044.namprd20.prod.outlook.com
- (2603:10b6:208:235::13) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1wZHAj-0000000EyOO-1V1D;
+	Mon, 15 Jun 2026 23:56:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 959B0439E6;
+	Mon, 15 Jun 2026 23:56:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6311F000E9;
+	Mon, 15 Jun 2026 23:56:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781567812;
+	bh=lJEnxYGCbj5TvE1QVpgrLjoHAqGb8zTkxlQcMAr3Mig=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=kymMV65vyu5+28IZrhslIGMndd1tbyO2pRIHwA8OvR/XcWwZyOu922lY3xxiesC5h
+	 nNEc553Wo/AmWZ/w+wXm06HfQw9BEX2VGQKNkMpzwTr+c4O+fyg4pzNFtA1eIjTDBS
+	 op3wV7lBYkR12fZAw5YLpvbkZrIYMiDVH+k89T/qxL+rb1iWy+pgGT1Yy6X8tAP2gx
+	 SYz31a6Yt3F0jcSXSkJFxMEe/S1N9330yBfItlAA+R8jr048bdDaugarWPFZ6TzZzs
+	 S7n/ecuxY/pE1dLYa4UJzJSNzCroYSMveax6meWUL6rJVp8QlDk91kgPEnPG1yh68n
+	 hyjVXOJOiPzPA==
+From: Jakub Kicinski <kuba@kernel.org>
+To: daniel@makrotopia.org
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	chester.a.unal@arinc9.com,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux@armlinux.org.uk,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v2 5/8] net: dsa: mt7530: replace mt7530_read with regmap_read
+Date: Mon, 15 Jun 2026 16:56:49 -0700
+Message-ID: <20260615235649.1060736-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <c6fc9cfae9762bf8d8a136339c91d4a76a307355.1781312667.git.daniel@makrotopia.org>
+References: <c6fc9cfae9762bf8d8a136339c91d4a76a307355.1781312667.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ2PR12MB7919:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae4ad850-6ed5-4e39-00aa-08decb393d87
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 3+lkXg2A6KI+RRM9twRvcegMMynZquOD1qRogUK5s49nUSgcMSP0jVpDTBSjyNAm5uZiLITpRWImeq91QjNZ2FtjckTmfoBC+jWRpnXIdeLTcu47CIQNf8V9W3gVsJWpNNvPbO0sPWWVLYHVK9nhSsEjHGEHZ3KI2dD/HeR2dV2+orqGXxPyASSkjvhRaZrz9TxX2z6Zb7CmeKe/d+LOpUMLmw3ke6+Z9GWSnTMglK673ggL53sEYlrTIChDFaPAgTcYDHkXReCL2/HiMtC/ntGX0W0y8qrovVLOK/oqxWwUvpCYjeKb7+kolB6RHEQuI3hfTZnLyd3gfluYhjPYfbNqnuNnmNCR/jN9bMeEVaIne8EYzimHkfyPSpJiJxY4YU7svomN38u+27owZI/Uqj/e9iK2yO3H4lH6QvTmUDCdroseFO4wu0yEWzEtsFlcukypFP6ABEKCvIHMpyH1CGxwq+i+sXeZIulgkd4tu/Zw8q8/kJmtiypja39cw7f7ZQvXuXA7ACv3bm3mJh6p4DTiPhFhzK8anFVs0H4IyQPmzIFS2Gmd8p96j51kFI4VY4FHAp1s8Rlgb3CQvEwrHHTGqk67PUu+9RSPRMII3bI35o1oMoHtJbPDYNSKfua5duM+eSOXPf/X4cbB6GbsqojVR9MfvkvKxtWMSvudvOfV2yE+/ofGKuqoiFKvVbx+IxqaopmCSFFyZl4abdFLQQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QNtmCYw1uBJQoEBDhh8d1NOvbAkLg8IDF0fjb5+7rpG4QFx6wUgb5NPWuyin?=
- =?us-ascii?Q?3/MDh7xmUNfysUOmEziMrSaL7ra9puwvNQDbO2pel47HKQVDwZsnMzOt52ig?=
- =?us-ascii?Q?gg0axm6+PDet62gbBufgMfVj/ctfOEay7DDEkU9/fxwlFUDCJc/eRgrICYOb?=
- =?us-ascii?Q?lus7FsGZe8dPOPzcNt+90PI4w8y60STmoQdo1M4JERmYtTwPAWgYhhPyfxXN?=
- =?us-ascii?Q?Qg7JADGn7tRJ+5+5ezFCMOwTkLlWmPzqkbmGZw3nz8BnsqFXJQg07topsjAm?=
- =?us-ascii?Q?K3Oh9JzvByvGRhMBEnyrr7PPcGoPnGRaHdUfELwOSgX5MfbXVxfr4XBIQQXK?=
- =?us-ascii?Q?vfS4mvJhBkbFEaT7qON4cBGRBIJ0n3haF//zQKCL5IfLZ3I4uFcH/vQtlBTS?=
- =?us-ascii?Q?xWZT/J3v8S0UGFklna4F9Y0vhdTdvkWJnPDE3Zu8UneKZ1BcMKOHY3RnNnvm?=
- =?us-ascii?Q?mJ4SdwgHAv5HhVyQ2X5gjo/mhsk2yOCLZ9r76qWKpUJZPejYdHdMgRnRdNWU?=
- =?us-ascii?Q?mAtFsQvu5mRmxN1geuVnCJokje5r2ZgnW511sKvta/mpfEy2VuYCn+z49Xpt?=
- =?us-ascii?Q?5modcN1QqvPg6yOkpZtyA76kIuyJkkOCciHCHZJusbMOWEphR3ulVRvsUlmM?=
- =?us-ascii?Q?bcebSjPY12D4LsmPgB/ZGNfSQd6KL82oU1ot1i90HXhQTTPTt0bv4KokwfTT?=
- =?us-ascii?Q?MpMfVvOGux2vZVxPH79WT+hdGFMiyFBFxUJ7Rjh2ygrJnjEao2VROYm64nRM?=
- =?us-ascii?Q?tvI/u/AePmIgPXu2AOy4pRTHNKEbBmeMKIbDz84UDh/imnqGNFJ21GT50sRC?=
- =?us-ascii?Q?EldASw90xzbZK5fg0vctL8CoRkJ9WKhmeph9MH+LK2IGO1Q9a8HQn/OviZE4?=
- =?us-ascii?Q?dv3g0EwjVM/Wr2CteqaISdEr8Aw4V9uujHt/vt9N58pFQ5r9bgOHn0pubyqS?=
- =?us-ascii?Q?sQRHrLrvGFE+LuxrwIxSN/+sxKdGq9sSUPdzWHHZEtEa/RJU9HmSTcjDhyZO?=
- =?us-ascii?Q?Fvbb/qsHOK50Fo4TcQhxXgYxASfgAdLIHkK8bI9O6KPO2M0IpavN/MCKWctn?=
- =?us-ascii?Q?iVS2EulmOMhQ99IFChMmMy7gQ3MIVWPRIGkYPNOPPPe8b3l6EbqK8yzZgTIY?=
- =?us-ascii?Q?GuxiNCl+RVKVMCj3IXDDWLCeMULXt6NU8WbMn76Rz3ocumOPN/pov13/N9z7?=
- =?us-ascii?Q?Xg5hE8NORNFYx+fLmwM2OFbTfomCB/LA7HNcf70t1zEh6zf2oA8bf/sYL1My?=
- =?us-ascii?Q?8W5Y79yzTTJGVdLXVL6vVGPAMUeXJRkGX38LzQtgUhV/a4d/GLZGJEl2AahQ?=
- =?us-ascii?Q?LvsuSYlvULJcTA4ZISM9Zch+ikSAKC/XiretQ2gQT82gO/s3ObWUPuew9dh1?=
- =?us-ascii?Q?m0fu8Bd4dJSenG2DQmfxwvl6pvMKfMN9bANZdDJmB17xxSSMlPY/tH4x1Lq1?=
- =?us-ascii?Q?eYVgp+81CZIY1Zp5VtS17aw0UJppTktiGm7d1hk+voUe5IWWGDa9oyoYifTc?=
- =?us-ascii?Q?3mpTTKSy+527Vm4lg/ePbgeNxavouEpkxTb3aHMxGth0P88IfUf5yhwIxIOV?=
- =?us-ascii?Q?T1UdFQSBv3xL5nTqHnoLSP+9U5xT67RNToQkWRVbuPL11OgfsXqDa28QnVhZ?=
- =?us-ascii?Q?wYxuhrlgyagtM7ctzzeZFux3kgVtMkWa2+UntVh7keNhtP1Xvk8uFnAmMU8W?=
- =?us-ascii?Q?cTKji6tF+hpQNHwazjCcIkJ7rwEFCWHDvVuZj8LpHZFiftbm?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae4ad850-6ed5-4e39-00aa-08decb393d87
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 23:53:04.0366
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yl3eCAkIPGQt+fR1l38ED0cgSKB6//MGKRDIHaPlVUkrnRs+YI3m/r8rzl6cwoMz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7919
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_165321_651433_E90076B7 
-X-CRM114-Status: GOOD (  12.21  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,30 +79,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 12:45:33PM -0700, Nicolin Chen wrote:
-> arm_smmu_get_ste_update_safe() declares the eats_s1chk and eats_trans
-> locals as __le64, but initializes them from FIELD_PREP(), which returns a
-> host-endian value, and passes them through cpu_to_le64() at the use sites.
-> 
-> Sparse reports the following warnings:
-> 
-> >> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1122:38: sparse: sparse: cast from restricted __le64
->    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1124:33: sparse: sparse: cast from restricted __le64
-> 
-> Declare both locals as u64 so the type matches FIELD_PREP() and the
-> existing cpu_to_le64() at the use sites performs the host-to-little-endian
-> conversion. No functional change.
-> 
-> Fixes: 7cad80048595 ("iommu/arm-smmu-v3: Mark EATS_TRANS safe when computing the update sequence")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/all/202606151017.QU0evpH9-lkp@intel.com/
-> Assisted-by: Claude:claude-opus-4-8
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: dsa: mt7530: replace mt7530_read with regmap_read
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+This commit removes the mt7530_read() wrapper and converts every caller
+to use regmap_read() directly. The WARN_ON_ONCE / dev_err and the
+return-zero-on-failure behaviour the wrapper provided are dropped.
 
-Jason
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index fe7e4ab5ae9c..4168adca949f 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+> @@ -152,28 +152,15 @@ core_clear(struct mt7530_priv *priv, u32 reg, u32 val)
+>  
+>  
+>  static u32
+> -mt7530_read(struct mt7530_priv *priv, u32 reg)
+> +mt7530_mii_poll(struct mt7530_dummy_poll *p)
+>  {
+> -	int ret;
+>  	u32 val;
+>  
+> -	ret = regmap_read(priv->regmap, reg, &val);
+> -	if (ret) {
+> -		WARN_ON_ONCE(1);
+> -		dev_err(priv->dev,
+> -			"failed to read mt7530 register\n");
+> -		return 0;
+> -	}
+> +	regmap_read(p->priv->regmap, p->reg, &val);
+>  
+>  	return val;
+>  }
+
+[Medium]
+The old wrapper guaranteed val == 0 on failure. The new mt7530_mii_poll()
+declares val without an initializer and ignores the regmap_read() return
+code, so on a failed underlying transfer val is whatever was on the stack.
+
+Looking at drivers/net/dsa/mt7530-mdio.c::mt7530_regmap_read():
+
+    ret = bus->write(bus, priv->mdiodev->addr, 0x1f, page);
+    if (ret < 0)
+        return ret;
+
+    lo = bus->read(bus, priv->mdiodev->addr, r);
+    hi = bus->read(bus, priv->mdiodev->addr, 0x10);
+
+    *val = (hi << 16) | (lo & 0xffff);
+
+When the page-select write fails, *val is not written. mt7530_mii_poll()
+is the polling callback used by readx_poll_timeout() in mt7530_fdb_cmd(),
+mt7530_vlan_cmd(), mt7530_setup() and mt7531_setup() with predicates
+such as val != 0 (post-reset stability), !(val & ATC_BUSY) and
+!(val & VTCR_BUSY).
+
+Previously a broken MDIO transport produced val == 0 and the post-reset
+poll deterministically timed out. Can the new code spuriously satisfy
+the val != 0 predicate from an uninitialized stack slot, then feed that
+same garbage into (val & MT7530_XTAL_MASK) to choose 25/40 MHz settings
+in mt7530_pll_setup()?
+
+> @@ -365,9 +354,9 @@ mt7531_pll_setup(struct mt7530_priv *priv)
+>  	u32 hwstrap;
+>  	u32 val;
+>  
+> -	val = mt7530_read(priv, MT7531_CREV);
+> -	top_sig = mt7530_read(priv, MT7531_TOP_SIG_SR);
+> -	hwstrap = mt7530_read(priv, MT753X_TRAP);
+> +	regmap_read(priv->regmap, MT7531_CREV, &val);
+> +	regmap_read(priv->regmap, MT7531_TOP_SIG_SR, &top_sig);
+> +	regmap_read(priv->regmap, MT753X_TRAP, &hwstrap);
+
+[Medium]
+Same concern applies to all the read-modify-write sequences in
+mt7531_pll_setup(), e.g.:
+
+    regmap_read(priv->regmap, MT7531_PLLGP_EN, &val);
+    val &= ~EN_COREPLL;
+    regmap_write(priv->regmap, MT7531_PLLGP_EN, val);
+
+If regmap_read() fails, val is uninitialized and is then OR'd / AND'd
+with constants and written straight back into PLLGP / COREPLL control
+registers. Was there a reason to drop the wrapper's return-zero (and
+WARN_ON_ONCE / dev_err) behaviour without either initializing these
+locals to 0 or checking the return code?
+
+> @@ -1010,7 +999,7 @@ static void mt7530_setup_port5(struct dsa_switch *ds, phy_interface_t interface)
+>  
+>  	mutex_lock(&priv->reg_mutex);
+>  
+> -	val = mt7530_read(priv, MT753X_MTRAP);
+> +	regmap_read(priv->regmap, MT753X_MTRAP, &val);
+
+[Low]
+mt7530_setup_port5() declares val as int, but regmap_read()'s third
+parameter is unsigned int *. The previous code hid this through the
+u32 return of mt7530_read() and an implicit assignment conversion;
+the direct call now passes &val with mismatched signedness. Should this
+be u32 val; like the other call sites in this file (sparse and
+-Wpointer-sign would flag this)?
+
+> @@ -2436,7 +2435,7 @@ mt7530_setup(struct dsa_switch *ds)
+>  		return ret;
+>  	}
+>  
+> -	id = mt7530_read(priv, MT7530_CREV);
+> +	regmap_read(priv->regmap, MT7530_CREV, &id);
+>  	id >>= CHIP_NAME_SHIFT;
+>  	if (id != MT7530_ID) {
+>  		dev_err(priv->dev, "chip %x can't be supported\n", id);
+
+[Medium]
+The chip-ID gating in mt7530_setup() and mt7531_setup() was previously
+deterministic-fail on MDIO read errors (id == 0 after the wrapper).
+With id now uninitialized on failure, can this check spuriously match
+or mismatch on garbage and either mis-bind a wrong-id chip or refuse a
+real one?
+
+> @@ -2690,7 +2689,7 @@ mt7531_setup(struct dsa_switch *ds)
+>  	/* MT7531AE has got two SGMII units. One for port 5, one for port 6.
+>  	 * MT7531BE has got only one SGMII unit which is for port 6.
+>  	 */
+> -	val = mt7530_read(priv, MT7531_TOP_SIG_SR);
+> +	regmap_read(priv->regmap, MT7531_TOP_SIG_SR, &val);
+>  	priv->p5_sgmii = !!(val & PAD_DUAL_SGMII_EN);
+
+[Medium]
+And here, p5_sgmii is set from val & PAD_DUAL_SGMII_EN after an
+unchecked read; if the read fails, would this latch a wrong p5_sgmii
+state from stack contents and then drive different mt7531_pll_setup()
+vs. GPIO mode programming below?
+
+The commit message says:
+
+    The WARN_ON_ONCE error logging is dropped as regmap provides its
+    own error handling.
+
+Is that accurate for this driver? regmap_read() does not zero *val on
+error and does not log; with all new call sites discarding the return
+value, the converted paths appear to have no error handling at all,
+which seems like a behavioural regression compared to the prior
+wrapper. Would initializing the affected locals to 0 (matching the
+old return-zero-on-failure semantics), or checking the regmap_read()
+return code at the sites that derive subsequent hardware programming
+(chip ID, XTAL select, PLL RMW, post-reset poll), be appropriate here?
+-- 
+pw-bot: cr
 
