@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E176BCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 02:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E52DCD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 02:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o3rDzIyX9EGEvpAW8JBy9oTRoctIAdKVB6E8maTJu8I=; b=fr1kZxChtt1WxAuZt1gdp/Ki4A
-	8m5832kw1qezr6xxr3+ZrLIAA0tkR2caH/hH/dgjmW9zOKyPIf3ZEvhhiasLLyy0XvHUVZebVcXn2
-	QDmx2iqvZB5w8DNsZ/z7A0kLozAUptXUsgataL5/Jm9Lw9yPHDmIjltY4Xq5oYuL5zOILs/l+Tx9R
-	aKwWTYbM+inNCrgpzIrj1xePZPit7YaoGalevi3l1aU+GYfu0ffzU1DkOTEduTUu/G/eF59E3gOUQ
-	bl9gJKqbGZbALKAWw/Ltd/GRh8EnGJdowJAlMv2RHwL4NwcvhtQhNpGzf+RZ9JlJSsQ7FNpX863ix
-	Y5XgMQjA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XaeQ0c/BXRwuozWCWbMuUFv2jKtJSUUWUHvoMTbkFbw=; b=YEhdoBMLekvY1nqy0tpC5CeWQD
+	bDN4NmHQiM3vDgDjhMMDfyQQMvd9m3hEG//O1eNp9w+KYd8dnA3T8Mi8wsS7zxslrsAVaLZj82U4W
+	3RmlVvwcGoIwSVQFkZodI6fBRgTeYqdeYuZv31AHe7l3+ssNfjRHZt+NT/wfKKS7v7w1KqidhuJp1
+	E2K+DHyveoMWkbqqE/5GL+wdPYER6SHU/lBxvhT4wZyJ4Uk70+cgpNpse5Z+X8FuCoNQZA3Lh4dSJ
+	Etqss5Dj2AUYLnhnf7Xiru0Db3aKNuTaqjsh/lSi3JAqdMUVr9x9rbAVSneb620j7YbTzaVQyNIng
+	kd2paiNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYwzq-0000000DSqa-41FT;
-	Mon, 15 Jun 2026 02:24:18 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYwzm-0000000DSqC-23OT
+	id 1wYx0V-0000000DSuo-0KGU;
+	Mon, 15 Jun 2026 02:24:59 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wYx0S-0000000DSu3-25pd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 02:24:18 +0000
-X-UUID: 47a1607c686111f1aa26b74ffac11d73-20260615
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:e1552935-6f59-4bcc-a7e4-99180aafc320,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:b1ba9f2ad82067ddd6b55510a336ea90,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
-	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 47a1607c686111f1aa26b74ffac11d73-20260615
-X-User: zenghongling@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zenghongling@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 26860886; Mon, 15 Jun 2026 10:24:04 +0800
-From: Hongling Zeng <zenghongling@kylinos.cn>
-To: vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	mripard@kernel.org,
-	arnd@arndb.de
-Cc: dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	zhongling0719@126.com,
-	Hongling Zeng <zenghongling@kylinos.cn>
-Subject: [PATCH v2] dmaengine: sun6i-dma: Fix use-after-free in error handling paths
-Date: Mon, 15 Jun 2026 10:23:59 +0800
-Message-Id: <20260615022400.13454-1-zenghongling@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Mon, 15 Jun 2026 02:24:58 +0000
+Received: from unknown (HELO kinkan3-ex.css.socionext.com) ([172.31.9.52])
+  by mx.socionext.com with ESMTP; 15 Jun 2026 11:24:52 +0900
+Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
+	by kinkan3-ex.css.socionext.com (Postfix) with ESMTP id 93A452068E61;
+	Mon, 15 Jun 2026 11:24:52 +0900 (JST)
+Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 15 Jun 2026 11:24:52 +0900
+Received: from [10.213.138.178] (unknown [10.213.138.178])
+	by iyokan3.css.socionext.com (Postfix) with ESMTP id 091D8107185;
+	Mon, 15 Jun 2026 11:24:52 +0900 (JST)
+Message-ID: <c18914f2-3dba-48ad-abcd-04dc3251f4c9@socionext.com>
+Date: Mon, 15 Jun 2026 11:24:53 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] spi: uniphier: Fix completion initialization order before
+ devm_request_irq()
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Sangyun Kim <sangyun.kim@snu.ac.kr>,
+ Kyungwook Boo <bookyungwook@gmail.com>, stable@vger.kernel.org,
+ Masami Hiramatsu <mhiramat@kernel.org>
+References: <20260611113137.139673-1-hayashi.kunihiko@socionext.com>
+ <airBmzYhnxuK_xdh@sirena.co.uk>
+ <cd454dac-868d-43b9-9b50-9ba9f3f370a9@socionext.com>
+ <aiv9j5CInFE3twZX@sirena.co.uk>
+Content-Language: en-US
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In-Reply-To: <aiv9j5CInFE3twZX@sirena.co.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_192414_887056_1509AF61 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260614_192456_662789_B53B33A5 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +73,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In error handling paths, the for loop frees v_lli in the loop body,
-then accesses v_lli->v_lli_next and v_lli->p_lli_next in the
-increment expression, which is use-after-free.
+Hi Mark,
 
-Fix by saving both the next virtual and physical pointers before
-freeing the current node.
+On 2026/06/12 21:37, Mark Brown wrote:
+> On Fri, Jun 12, 2026 at 05:17:49PM +0900, Kunihiko Hayashi wrote:
+>> On 2026/06/11 23:09, Mark Brown wrote:
+> 
+>>> This doesn't apply against current code, please check and resend.
+> 
+>> That seems a bit strange. I applied this patch to v7.0 and linux-next successfully.
+>> Which tree did you apply to and fail?
+> 
+> It applies to none of spi/for-7.1, spi/for-7.2 nor spi/for-next.
 
-Fixes: 555859308723 ("dmaengine: Add driver for Allwinner sun6i DMA")
-Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Sorry for my mistake.
+I've checked the differences, so I'll resent it.
+
+Thank you,
 
 ---
-Changes in v2:
- -Refactored the fix to avoid code duplication by creating a helper function
-  sun6i_dma_free_lli_list() that handles LLI list cleanup
- -Add Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
----
- drivers/dma/sun6i-dma.c | 26 ++++++++++++++------------
- 1 file changed, 14 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index a9a254dbf8cb..02dd07001d5a 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -406,16 +406,12 @@ static inline void sun6i_dma_dump_lli(struct sun6i_vchan *vchan,
- 		v_lli->len, v_lli->para, v_lli->p_lli_next);
- }
- 
--static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
-+static void sun6i_dma_free_lli_list(struct sun6i_dma_dev *sdev,
-+					struct sun6i_desc *txd)
- {
--	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
--	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
- 	struct sun6i_dma_lli *v_lli, *v_next;
- 	dma_addr_t p_lli, p_next;
- 
--	if (unlikely(!txd))
--		return;
--
- 	p_lli = txd->p_lli;
- 	v_lli = txd->v_lli;
- 
-@@ -428,7 +424,17 @@ static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
- 		v_lli = v_next;
- 		p_lli = p_next;
- 	}
-+}
- 
-+static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
-+{
-+	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
-+	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
-+
-+	if (unlikely(!txd))
-+		return;
-+
-+	sun6i_dma_free_lli_list(sdev, txd);
- 	kfree(txd);
- }
- 
-@@ -788,9 +794,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
- 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
- 
- err_lli_free:
--	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
--	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
--		dma_pool_free(sdev->pool, v_lli, p_lli);
-+	sun6i_dma_free_lli_list(sdev, txd);
- 	kfree(txd);
- 	return NULL;
- }
-@@ -869,9 +873,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
- 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
- 
- err_lli_free:
--	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
--	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
--		dma_pool_free(sdev->pool, v_lli, p_lli);
-+	sun6i_dma_free_lli_list(sdev, txd);
- 	kfree(txd);
- 	return NULL;
- }
--- 
-2.25.1
-
+Best Regards
+Kunihiko Hayashi
 
