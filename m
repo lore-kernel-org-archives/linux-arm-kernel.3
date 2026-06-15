@@ -4,113 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8848CD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 02:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A621FCD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 02:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TIY8PWUN9lu7TXjVzJuK+G8ti8Hm2/gEvCPwPitzoxA=; b=RLTltwf2BBpa3EV3gB0XuK+PXI
-	0ExBwZo+mgeJ6EWcGThOQlJIS5MmH5XNISmtVWenM0aWlsgGPkdi0LxtW9+CvYnmAItM8Lh8wPJGY
-	P1xRYDYSUoGI1umtnh/Qo4wxWDKUNaO9rxfFY4ZKfPolNj7b6NMrSAy1fYyKEbaJt03sqrRRhECgd
-	HAODGoHnIYXR2mSa+7wQ6Oi2pdhu7cL+SnJuORxjXI6iR90rpSVU4TcAerVGJexa9scICrYi8LSwO
-	LoDt13D+QIDgObidxyHMko0+Hh/fYZ02/HHYrazV5sxO3hsvEBTxAXPQWGA82C94OYH4gNCY8+KE7
-	c9Bib9ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fQuGdM2CJQXaRNDTIGDSfZydcbPeUd8rTAur9l3mo3A=; b=h5XxAOfUljz2Qd
+	OV1x8d3SnVv7drns19LWocGvDhFKAO3jTpBkQ3GE4tj7Xgh05PBgHI9CnpSgCAUBnXlOR2xiUwrev
+	9qZbbHCEO+MzpptkQUNjTsWoTNh20gqQNnlYY673C0LrVsXVecY2LEjJfraHTgeJ75LBeYNCMijny
+	YienWcTGujAv4oH9LeK38Zr+DffXoYXWcmQjq6xifNZe/FaHiXiBtEzOxsBJqNSGk3veqTNbgTvaT
+	YZD0njEGXAsHCS6/CmZu4BXG0qc1Q8ARz9ionaddGSsOANoZoUO8HdcvYulUT5M3FK8Q5s7DDJ4Mw
+	Rij03VJsGZc3OkBvjXEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYxBH-0000000DTbh-1b1n;
-	Mon, 15 Jun 2026 02:36:07 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1wYxJM-0000000DU19-0gPt;
+	Mon, 15 Jun 2026 02:44:28 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYxBE-0000000DTZd-1rgs;
-	Mon, 15 Jun 2026 02:36:05 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfout.phl.internal (Postfix) with ESMTP id A163AEC0074;
-	Sun, 14 Jun 2026 22:36:03 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-03.internal (MEProxy); Sun, 14 Jun 2026 22:36:03 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1781490963; x=1781577363; bh=TIY8PWUN9lu7TXjVzJuK+G8ti8Hm2/gE
-	vCPwPitzoxA=; b=g3zRZaXWbYx8PvMHGmscdFXAXgp1BtMJMy5McKEEgr6m01Fg
-	EJIN0wtK6tllBfnGGeFQzsvBuNaIJBcsmfkgXXlfCkGEPS1tB/tkGRdx3Px0rjgB
-	ISKAecKmxv2WA3iWzgSfZfNcrIFkdn2yuFOBDelGAGle7LfsB61p4mJrl3ghW8qU
-	WWcPRng8g1b0UT3cFOAMctRRXikM1eRVcRYkZbZTS+UAoUFW6JPQ+mwjVtTvqmd/
-	5Z4PWKrzAlPW5EzpB68a1Y+XPtudksuzLscrsePR0f5CDv4CZzfYs3Xegso2hgU3
-	4GyEyLq6x9Nwg2QcFet8phik9+CuFr/A0CUY/Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781490963; x=
-	1781577363; bh=TIY8PWUN9lu7TXjVzJuK+G8ti8Hm2/gEvCPwPitzoxA=; b=J
-	wviJEl+iEhv3fESS9QYM+ekt3pfPG7Ti3i7VZ4BZLtCLGzYo5OpIe/LK+59NOqNj
-	Ovu6c/AdsLeJgylS1uFfLUSXOyKOInoPJE5Mwg8PEFcHX5nj/KJ4j/zuUlLXrCz/
-	vza0TUhxvZ/avTbP/0t/+7kvL956nKa1MBaeG0+p/wqaAbL99KCcvBYU5xjz2HL9
-	pW/vxMQQBi1OGLfZUmLJqa+1XML2b5n7df2qYQFQLO+JHVVTS4DOx5XSvXSqPuk+
-	+rchI6NnwhokWuffLD663I48UyQ144reN1VuM/gzz4B1iczEBAtBf5nsl4G9E0aG
-	mCLY/AF5Kho2amEVtYMhA==
-X-ME-Sender: <xms:E2Uvauvbc0iwWvKuYCE3_vnRWkWmfhtcohN486XSNma-2Dc-y3JyvQ>
-    <xme:E2Uvaqhb6TdiS_clhsuf-5FkWkOJPlG-7o-VyBscI_4iUvOC93GWP-sm9-wN9T-r3
-    KPmvYOMpUw-ybUUzUl4yQmgjUrVuOs0KizlCjxoijk4cHqe4mWmX-0>
-X-ME-Received: <xmr:E2UvahcYX69q8MqG92rpikUK9OuuzWg06UETSJMZoYqln52OILsWGMJWpOSANw>
-X-ME-Proxy-Cause: dmFkZTEyiIUo4wXfAmSQ4UuPAhlbJaGbdCZET/sHKi8o2WVChxxjZ6aCYMC+Hjeh3Km2hq
-    ltGItZI5T6qV0C7vug7FAIdn++qvDMTieL0DduRmThNGkKIZHcENJ+7kN7UtMQS8GRUAaX
-    UqUTzXu9nZVrHDYPz6cEuOfNoQlfuNIw11mTFJPXS8Nf47SIe7ReNDpgTEob7B7Ks00av5
-    Vfii67q7RM0R/mRc5G4QIPeCwDOggVpfUgFnfusyYRQ134guIgB6cuoFUxh04ZSRzgiCA/
-    o7Mqxx5r33MQUrh+cXLKBMMPCjykxduF/ukExS7SAvKkpSP7M9YjK4u5SmYpwP0aftOAqB
-    PnCIJuBfYWk8FjEL8AaqOpGB2DPF413+Z7DQeVut/I1AKYrY0Nl9xOS+chO14yzp0ElauS
-    F4qY2Zn57/6/BRFyaEB3tPhYrQO424D77sTF+8gOSU2HzZvTz4Dp9Yq3tvL9q280NkXBkb
-    9AI8dFB1XU6NfTFXgeIDIqJvs649EUuKxvmfZfudfEmfa8uuwzUc/FtiEbo5zIhPAB8ADH
-    jp+EmIE/+yCB0QNSDBkMRlOSArv/+A40DjCz3DQhWr4TXE2MFDqyUCVU+OHE3JBSm5f6qZ
-    g1EAvgVFwtzJWncQ9ArAQjrgjITcs0YQZT5vKuBr4r9Qr+6zOTzmZjx5bblg
-X-ME-Proxy: <xmx:E2UvavmfZAzgvA9xFw3ovjZdHDlCIHUxX2_0LADUTXds5aOgU3-iBw>
-    <xmx:E2Uvarrg15TxOY4FZiCPxkWpm55qf9Pk19xIYrekjudiVKVwgVVlWg>
-    <xmx:E2Uvam98G2l-q688uTHslrHIO2suadEXsblXL-efpVJWs-CAYL-Zeg>
-    <xmx:E2Uvas25AgbUMWiWXBDPFRWFkKdzxuFTZAGxNXECTdPKJc422MoOLA>
-    <xmx:E2UvakrX45U-V3jix3iLM0jVIuDYJyWf1jRRgn7ni08_QxyxGUESwdmR>
-Feedback-ID: ie3994620:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 14 Jun 2026 22:36:01 -0400 (EDT)
-From: Kiryl Shutsemau <kirill@shutemov.name>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Doug Anderson <dianders@chromium.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Usama Arif <usama.arif@linux.dev>,
-	Breno Leitao <leitao@debian.org>,
-	Julien Thierry <julien.thierry.kdev@gmail.com>,
-	Lecopzer Chen <lecopzer@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	kernel-team@meta.com,
-	kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCH v3 3/3] arm64: escalate smp_send_stop() to an SDEI NMI as a last resort
-Date: Mon, 15 Jun 2026 03:35:34 +0100
-Message-ID: <167493d30ef6c99a44291de14cddd41ced8149c4.1781490440.git.kas@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <cover.1781490440.git.kas@kernel.org>
-References: <cover.1781490440.git.kas@kernel.org>
+	id 1wYxJI-0000000DU0b-4Aqc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Jun 2026 02:44:26 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2bf18c30bb2so20827065ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Jun 2026 19:44:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781491463; x=1782096263; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fQuGdM2CJQXaRNDTIGDSfZydcbPeUd8rTAur9l3mo3A=;
+        b=n2TcM0+rw8vCTggoC9oTzkL/z4Am1BMrPgMkGevFSHTpr/eLAVZRl5htlxvCcSAYtL
+         tD5xtEgkotLAV/LCLLSvY92EXQwk4Je8co4wVOa8Eta/R9qWyrLMqJcKrrFw8FzQHjPX
+         V1Z00f8yCY9OYCS9bB0qw9uMRJt60WRj3AZEnEljl2KcS/Vy/ORPD8w6lZ4tGG7AK2KR
+         SW27zOx90C8HwUSF5M7wUlVuoREaQw/HisIYZHcT4ux3GmpjVzd1gPP3r96ipIsv7feM
+         QXv0Xaoh+ANvgP+zfTrlMaE2s90NuP9t76oeTeGzOcj3eyao5drGzK13owOyJ98q8jtl
+         gQ2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781491463; x=1782096263;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fQuGdM2CJQXaRNDTIGDSfZydcbPeUd8rTAur9l3mo3A=;
+        b=L7i4WzoE15ra2mhVATz4R/mEaS6mw7rkiUTEKsf355x9oRVTZ41UdkQdEZmsqVC0hP
+         549dWLsk0uHvVa8OfiuPZWsKfc0zOu52D/Wa8to9ifsPWBGk/yLBd1853znF0FUihMWb
+         6JRtSd2B1wuJZU/+gUtiqIzifLXGehXURmCQxwb+2gKCRYGZM6oHPB4N3+SLtPr2Idsh
+         L37es8wZLrGJkKbxSkOPEO9O9O5YTS+mS2hKqhpazJ33GtqIOh6FdREVH4feiMsi7AUM
+         wxwP88wxb091rEQNg8ABKejtkzTp3vcuVTpUef/B3hWixEX7noELMDngNTHjpAnNPSKd
+         FKDw==
+X-Forwarded-Encrypted: i=1; AFNElJ9GDxO7yWl0zr5/4peKq7SwjAc0yDODUyP9x9efYUOO0DIpAlcAhPaacFcAGa6OYsJtg4s0umwopcSFUlO0WzGI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2NBeSauir1TDUu39kxw+0BJbhAYPrDsHTAeIB1e8QSuB1vMWn
+	KHUpG0JyMXhnoaZIvneRgZdE4ZwKI5sHmnabOUdfqP+QkDa0QwaiegRjILctcg==
+X-Gm-Gg: Acq92OE1K8AnLI0ZdW2lno+lywHsV6i7d/JOHaVNbfcoaiOHIX10rLg+iAlglLYjPsG
+	aTauIlPmzwI0CdaDro1ps6JMq2atwPT6AfVe/4zKryeDlEZK7Hb00AtnuYm0LETm4dNb0QAC2CW
+	M51D5xchnyDIEOCy++I1v1p6Jce+k7xgDjcLeoByrPv3SHNyKBhV4nAmY3pqgAVTWnygHcFYL9w
+	+9AX+2kQTZZhpOIqbdQGg0HA46EjK/iearE0wYE5woxD+J1vNGUe6aLhcx6IM9zBiygzmWqAgwt
+	8LKl7pdcX+KknSkO5lLNfPWYV8+hrSlfNAKYQq0nnQKYH6MabYOsydNxBog0KeALJiD8KD42UuK
+	5Xb83aWdDsb0mAwjl9NWBXFDlCnQK2POonrKL3jNTvxiCod3hmhtGHbSai6+9peIejeNgZCN8hc
+	9mXYSNDpqAQNfgp0CyV0HtRkDibjhNq6jBG2lPxl2y0yFRmR4pwPSlBTCUcarWqBg=
+X-Received: by 2002:a17:903:98d:b0:2bd:2de3:5181 with SMTP id d9443c01a7336-2c6641ef6a8mr105720065ad.9.1781491463515;
+        Sun, 14 Jun 2026 19:44:23 -0700 (PDT)
+Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c866325d1d3sm7138676a12.11.2026.06.14.19.44.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Jun 2026 19:44:23 -0700 (PDT)
+From: Kyle Hsieh <kylehsieh1995@gmail.com>
+Subject: [PATCH v8 0/2] Add Meta(Facebook) ventura2 BMC(AST2600)
+Date: Mon, 15 Jun 2026 10:46:01 +0800
+Message-Id: <20260615-ventura2_initial_dts-v8-0-c89f92c80447@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGlnL2oC/4XO22rDMAyA4Vcpvl6G5IPs9GrvMUqxY7s1tMlIs
+ tBR8u5zA6NZhtnlL9An3dkQ+hQGtt/dWR+mNKSuzWFedqw52/YUquRzMw5cIee8mkI7fvaWH1O
+ bxmQvRz8OVQ21E1xrT6RYXv3oQ0y3hX0/5D6nYez6r+XKhI/pP+CEFVQYgZCo0caKt9PVpstr0
+ 13ZA5z4GpEFhGckYi2cVV6C/oOIH4QAURQQkRHuXfSWrHJSbxH5RGTxE5kRA+QAgpUC5RZRT4T
+ AFBCVEaFDUK6JyjjaIrRCEAoILYjyJtReBxe3iF4jWEB0RiyhNzVw16hfyDzP34jjJyNWAgAA
+X-Change-ID: 20251222-ventura2_initial_dts-909b3277d665
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Kyle Hsieh <kylehsieh1995@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4257;
+ i=kylehsieh1995@gmail.com; h=from:subject:message-id;
+ bh=3h3qFVrVCHwqA/9jJB20RsTtPzwqAaPlxKs6hDrBMFE=;
+ b=owEBbQGS/pANAwAKAaWDQrcJVsSBAcsmYgBqL2drhFWW9Ip8dlj2f14cILevLO2MTyU/2m3Ei
+ PIkuV427ZyJATMEAAEKAB0WIQTJHsaNZOdY+THGqJelg0K3CVbEgQUCai9nawAKCRClg0K3CVbE
+ gTMUB/9x5bCCP2AyO20NPdO+gjy6d7sGgdpp5kUBZUx308VpT6TYKOLoou1dllpA+RlDeokdUau
+ XP0gXKvPjTBdA5aSgBc8SZOhIaDlL+s2LS+iTf05I/445Y5v1qF5jhRBt9Sk+bGO9bWiwlZn2we
+ Ucge/Q6UdVqwYQlLI061q6artDZhH+u2Vt+AJKBCqqQpU9eY7zM3bK2gb5V2CG6bQXATIRFN29A
+ fUxmaK6R/7Ze9qpq3kUcvzkxiWFHOoS/zF1aWYf0u7IsQ8Un/CqUY0ZD+6OP1wQ7fKBJryWPXHh
+ FjvV3AydxMHniehH2Wdu7Nj3BigOeiR/z8QXaZn7HNv0vjgf
+X-Developer-Key: i=kylehsieh1995@gmail.com; a=openpgp;
+ fpr=C91EC68D64E758F931C6A897A58342B70956C481
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_193604_634682_72BB4E3E 
-X-CRM114-Status: GOOD (  28.97  )
+X-CRM114-CacheID: sfid-20260614_194425_068309_1B7D5977 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,359 +118,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Summary:
+Add linux device tree entry related to Meta(Facebook) ventura2.
+specific devices connected to BMC(AST2600) SoC.
 
-A CPU wedged with interrupts masked ignores the stop IPI, and without
-pseudo-NMI there is no NMI IPI to escalate to: a reboot proceeds with
-the CPU still running, and a kdump misses its registers.
-
-Add a third rung to smp_send_stop(): once the IPI (and pseudo-NMI IPI,
-if enabled) rungs have run, signal SDEI event 0 at whatever stayed
-online. Firmware delivers it regardless of the target's DAIF, so it
-reaches a CPU a plain IPI cannot; the target acks by going offline,
-which the caller already polls for.
-
-Fold the stop bookkeeping into one arm64_nmi_cpu_stop(regs,
-die_on_crash), shared by the stop IPI handlers, panic_smp_self_stop()
-and the SDEI handler, replacing the near-duplicate local_cpu_stop() and
-ipi_cpu_crash_stop(). @die_on_crash is the only difference: the IPI
-handlers pass true and PSCI CPU_OFF the CPU on a crash stop so a capture
-kernel can reclaim it; the SDEI handler and self-stop pass false and
-park. The SDEI park is required, not conservative -- its handler runs
-inside an SDEI event that is never completed (completing it resumes the
-wedged context), and a CPU_OFF from that unfinished-event context wedges
-EL3 on some firmware (left as a follow-up). The dump is unaffected; only
-re-onlining the CPU in an SMP capture kernel is lost.
-
-Suggested-by: Douglas Anderson <dianders@chromium.org>
-Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
 ---
- arch/arm64/include/asm/nmi.h    |  24 +++++++
- arch/arm64/kernel/smp.c         | 109 +++++++++++++++++++++-----------
- drivers/firmware/Kconfig        |   2 +
- drivers/firmware/arm_sdei_nmi.c |  75 ++++++++++++++++++++++
- 4 files changed, 172 insertions(+), 38 deletions(-)
+Changes in v8:
+- Addressed review comments from Andrew Lunn:
+  * Added a detailed comment to the Marvell 88E6393X EEPROM node to clarify its hardware I2C multiplexer isolation and out-of-band firmware update mechanism, explaining why there is no concurrent access or multi-master scenario.
+- Link to v7: https://lore.kernel.org/r/20260611-ventura2_initial_dts-v7-0-a61d8902bc5f@gmail.com
 
-diff --git a/arch/arm64/include/asm/nmi.h b/arch/arm64/include/asm/nmi.h
-index 9366be419d18..2e8974ff8d63 100644
---- a/arch/arm64/include/asm/nmi.h
-+++ b/arch/arm64/include/asm/nmi.h
-@@ -4,21 +4,45 @@
- 
- #include <linux/cpumask.h>
- 
-+struct pt_regs;
-+
- /*
-  * Cross-CPU NMI provider hooks, consulted by the arm64 arch code before
-  * its regular-IRQ / pseudo-NMI IPI paths. The SDEI provider in
-  * drivers/firmware/arm_sdei_nmi.c implements them when active; a future
-  * FEAT_NMI provider could slot in here too. The stubs let callers stay
-  * unconditional when ARM_SDEI_NMI is off.
-+ *
-+ * sdei_nmi_active() lets a caller test for the service before committing
-+ * to (and waiting on) the SDEI stop rung; sdei_nmi_stop_cpus() then signals
-+ * the targets, which ack by going offline.
-  */
- #ifdef CONFIG_ARM_SDEI_NMI
- bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu);
-+bool sdei_nmi_active(void);
-+void sdei_nmi_stop_cpus(const cpumask_t *mask);
- #else
- static inline bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask,
- 						      int exclude_cpu)
- {
- 	return false;
- }
-+
-+static inline bool sdei_nmi_active(void)
-+{
-+	return false;
-+}
-+
-+static inline void sdei_nmi_stop_cpus(const cpumask_t *mask) { }
- #endif
- 
-+/*
-+ * The common "stop this CPU" entry every arm64 stop path funnels through:
-+ * the regular/pseudo-NMI stop IPI handlers, panic_smp_self_stop(), and the
-+ * SDEI cross-CPU NMI handler. @die_on_crash powers the CPU off on the kdump
-+ * crash path (IPI handlers) instead of parking it (SDEI / self-stop).
-+ * Defined in arch/arm64/kernel/smp.c.
-+ */
-+void __noreturn arm64_nmi_cpu_stop(struct pt_regs *regs, bool die_on_crash);
-+
- #endif /* __ASM_NMI_H */
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index a670434a8cae..e85a4ba18d5c 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -33,6 +33,7 @@
- #include <linux/kernel_stat.h>
- #include <linux/kexec.h>
- #include <linux/kgdb.h>
-+#include <linux/kprobes.h>
- #include <linux/kvm_host.h>
- #include <linux/nmi.h>
- 
-@@ -862,14 +863,58 @@ void arch_irq_work_raise(void)
- }
- #endif
- 
--static void __noreturn local_cpu_stop(unsigned int cpu)
-+/*
-+ * Bring the local CPU to a stop, saving its register state into the vmcore
-+ * on the kdump crash path first. The single point every arm64 stop path
-+ * funnels through, so the bookkeeping (mask interrupts, mark offline, mask
-+ * SDEI, optionally power off) lives in one place:
-+ *
-+ *   - the regular IPI_CPU_STOP and pseudo-NMI IPI_CPU_STOP_NMI handlers;
-+ *   - panic_smp_self_stop(), a CPU parking itself on a parallel panic();
-+ *   - the SDEI cross-CPU NMI handler (drivers/firmware/arm_sdei_nmi.c),
-+ *     which reaches CPUs the stop IPIs could not.
-+ *
-+ * @regs is the register state to record in the vmcore on a crash stop; NULL
-+ * means "capture the current context". @die_on_crash decides the kdump crash
-+ * path: the IPI stop handlers pass true and power the CPU off (PSCI CPU_OFF,
-+ * via __cpu_try_die()) so a capture kernel can reclaim it. The SDEI handler
-+ * and panic_smp_self_stop() pass false and only park. For SDEI that is
-+ * required, not just conservative: it runs inside an SDEI event that is
-+ * deliberately never completed (completing it has firmware resume the wedged
-+ * context), and a CPU_OFF from that not-yet-completed context wedges EL3 on
-+ * some firmware -- a documented follow-up. Parking also matches this path's
-+ * own fallback when CPU_OFF is unavailable.
-+ */
-+void __noreturn arm64_nmi_cpu_stop(struct pt_regs *regs, bool die_on_crash)
- {
-+	unsigned int cpu = smp_processor_id();
-+	bool crash = IS_ENABLED(CONFIG_KEXEC_CORE) && crash_stop;
-+
-+	/*
-+	 * Use local_daif_mask() instead of local_irq_disable() to make sure
-+	 * that pseudo-NMIs are disabled. The "stop" code starts with an IRQ
-+	 * and falls back to NMI (which might be pseudo). If the IRQ finally
-+	 * goes through right as we're timing out then the NMI could interrupt
-+	 * us. It's better to prevent the NMI and let the IRQ finish since the
-+	 * pt_regs will be better.
-+	 */
-+	local_daif_mask();
-+
-+	if (crash)
-+		crash_save_cpu(regs, cpu);
-+
-+	/* the ack a stop requester (e.g. smp_send_stop()) polls for */
- 	set_cpu_online(cpu, false);
- 
--	local_daif_mask();
- 	sdei_mask_local_cpu();
-+
-+	if (crash && die_on_crash)
-+		__cpu_try_die(cpu);
-+
-+	/* just in case */
- 	cpu_park_loop();
- }
-+NOKPROBE_SYMBOL(arm64_nmi_cpu_stop);
- 
- /*
-  * We need to implement panic_smp_self_stop() for parallel panic() calls, so
-@@ -878,36 +923,7 @@ static void __noreturn local_cpu_stop(unsigned int cpu)
-  */
- void __noreturn panic_smp_self_stop(void)
- {
--	local_cpu_stop(smp_processor_id());
--}
--
--static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
--{
--#ifdef CONFIG_KEXEC_CORE
--	/*
--	 * Use local_daif_mask() instead of local_irq_disable() to make sure
--	 * that pseudo-NMIs are disabled. The "crash stop" code starts with
--	 * an IRQ and falls back to NMI (which might be pseudo). If the IRQ
--	 * finally goes through right as we're timing out then the NMI could
--	 * interrupt us. It's better to prevent the NMI and let the IRQ
--	 * finish since the pt_regs will be better.
--	 */
--	local_daif_mask();
--
--	crash_save_cpu(regs, cpu);
--
--	set_cpu_online(cpu, false);
--
--	sdei_mask_local_cpu();
--
--	if (IS_ENABLED(CONFIG_HOTPLUG_CPU))
--		__cpu_try_die(cpu);
--
--	/* just in case */
--	cpu_park_loop();
--#else
--	BUG();
--#endif
-+	arm64_nmi_cpu_stop(NULL, false);
- }
- 
- static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
-@@ -984,12 +1000,7 @@ static void do_handle_IPI(int ipinr)
- 
- 	case IPI_CPU_STOP:
- 	case IPI_CPU_STOP_NMI:
--		if (IS_ENABLED(CONFIG_KEXEC_CORE) && crash_stop) {
--			ipi_cpu_crash_stop(cpu, get_irq_regs());
--			unreachable();
--		} else {
--			local_cpu_stop(cpu);
--		}
-+		arm64_nmi_cpu_stop(get_irq_regs(), true);
- 		break;
- 
- #ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
-@@ -1263,6 +1274,28 @@ void smp_send_stop(void)
- 			udelay(1);
- 	}
- 
-+	/*
-+	 * If CPUs are *still* online, try the SDEI cross-CPU NMI. Firmware
-+	 * delivers it regardless of the target's DAIF state, so it reaches
-+	 * a CPU spinning with interrupts masked, which neither rung above
-+	 * could (without pseudo-NMI there is no NMI rung at all). Allow
-+	 * 100ms: a firmware round-trip per CPU, with headroom.
-+	 */
-+	if (num_other_online_cpus() && sdei_nmi_active()) {
-+		/* re-snapshot after the rungs above took CPUs offline */
-+		smp_rmb();
-+		cpumask_copy(&mask, cpu_online_mask);
-+		cpumask_clear_cpu(smp_processor_id(), &mask);
-+
-+		pr_info("SMP: retry stop with SDEI NMI for CPUs %*pbl\n",
-+			cpumask_pr_args(&mask));
-+
-+		sdei_nmi_stop_cpus(&mask);
-+		timeout = USEC_PER_MSEC * 100;
-+		while (num_other_online_cpus() && timeout--)
-+			udelay(1);
-+	}
-+
- 	if (num_other_online_cpus()) {
- 		smp_rmb();
- 		cpumask_copy(&mask, cpu_online_mask);
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index 6501087ff90d..ab0ee36d46e7 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -46,6 +46,8 @@ config ARM_SDEI_NMI
- 	    - arch_trigger_cpumask_backtrace()  (sysrq-l, RCU stalls,
- 	      hardlockup_all_cpu_backtrace, soft-lockup secondary dumps,
- 	      hung-task auxiliary dumps)
-+	    - smp_send_stop() escalation         (reboot/halt and the
-+	      panic / kdump crash stop)
- 
- 	  The driver registers a handler for the SDEI software-signalled
- 	  event (event 0) and reaches a target CPU by signalling it with
-diff --git a/drivers/firmware/arm_sdei_nmi.c b/drivers/firmware/arm_sdei_nmi.c
-index a82776e7b55a..b2a69be6008f 100644
---- a/drivers/firmware/arm_sdei_nmi.c
-+++ b/drivers/firmware/arm_sdei_nmi.c
-@@ -29,6 +29,11 @@
-  *     hardlockup_all_cpu_backtrace, soft-lockup/hung-task secondary
-  *     dumps all reach interrupt-masked CPUs.
-  *
-+ *   - sdei_nmi_stop_cpus() — the last rung of smp_send_stop()'s
-+ *     escalation (reboot/halt and the panic/kdump crash stop alike),
-+ *     reaching CPUs that ignored the stop IPIs; on the kdump path the
-+ *     wedged context is captured into the vmcore before the CPU parks.
-+ *
-  * Delivery uses the standard SDEI software-signalled event (event 0) and
-  * SDEI_EVENT_SIGNAL. We register a handler for event 0, enable it, and
-  * poke a target CPU with sdei_event_signal(0, mpidr): firmware makes
-@@ -59,8 +64,51 @@ static bool sdei_nmi_available;
- 
- #define SDEI_NMI_EVENT			0
- 
-+/*
-+ * Backtrace and stop both ride SDEI event 0. That is not a chosen economy:
-+ * event 0 is the only architecturally software-signalled event -- the sole
-+ * event SDEI_EVENT_SIGNAL can target at an arbitrary PE. Every other event
-+ * number is a firmware/platform interrupt-bound event, not something the
-+ * kernel can raise cross-CPU, so a dedicated "stop" event would need
-+ * firmware to define and bind it -- exactly the firmware dependency this
-+ * driver sets out to avoid.
-+ *
-+ * Sharing one event means the handler must tell a stop apart from a
-+ * backtrace. A stop is terminal and system-wide -- sdei_nmi_stop_cpus() is
-+ * only reached from smp_send_stop() (reboot/halt/panic/kdump), which never
-+ * returns -- so once a stop is requested, every later event-0 fire is a
-+ * stop too. A single write-once flag therefore carries as much as a
-+ * per-CPU mask would: sdei_nmi_stop_cpus() sets it before signalling, and
-+ * the handler reads a set flag as "stop this CPU" and a clear flag as
-+ * "backtrace" (handled by nmi_cpu_backtrace(), which self-gates on the
-+ * framework's backtrace mask). A backtrace fire that races in after a stop
-+ * has begun just stops that CPU instead -- harmless, it is going down.
-+ */
-+static bool sdei_nmi_stopping;
-+
- static int sdei_nmi_handler(u32 event, struct pt_regs *regs, void *arg)
- {
-+	if (READ_ONCE(sdei_nmi_stopping)) {
-+		/*
-+		 * Never returns, and deliberately never completes the SDEI
-+		 * event: SDEI_EVENT_COMPLETE has firmware restore the
-+		 * interrupted context, which would land the CPU back in
-+		 * the wedged loop (or in do_idle, which BUGs at
-+		 * cpuhp_report_idle_dead once it sees itself offline).
-+		 * Returning a modified pt_regs doesn't help --
-+		 * arch/arm64/kernel/sdei.c::do_sdei_event only honours a PC
-+		 * override via its IRQ-state heuristic and otherwise hands
-+		 * EL3 its own saved-context slot back.
-+		 *
-+		 * Trade-off: EL3 retains ~one saved-context slot per parked
-+		 * CPU until the next hardware reset (~hundreds of bytes per
-+		 * CPU). Recoverability is unchanged versus an IPI-stopped
-+		 * CPU: neither comes back without a reset.
-+		 */
-+		arm64_nmi_cpu_stop(regs, false);
-+		/* unreachable */
-+	}
-+
- 	/*
- 	 * nmi_cpu_backtrace() no-ops unless this CPU's bit is set in the
- 	 * global backtrace mask (driven by nmi_trigger_cpumask_backtrace()),
-@@ -115,6 +163,33 @@ bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
- 	return true;
- }
- 
-+bool sdei_nmi_active(void)
-+{
-+	return sdei_nmi_available;
-+}
-+
-+/*
-+ * Last rung of the stop escalation in smp_send_stop() (see
-+ * arch/arm64/kernel/smp.c). The caller runs the regular stop IPI (and
-+ * the pseudo-NMI stop IPI, where available) first; @mask holds whatever
-+ * stayed online through those -- typically CPUs wedged with interrupts
-+ * masked, unreachable by an IPI. Mark the stop in progress and signal
-+ * event 0 at each target; a target acks by marking itself offline, which
-+ * the caller polls for. The caller has already confirmed sdei_nmi_active().
-+ */
-+void sdei_nmi_stop_cpus(const cpumask_t *mask)
-+{
-+	unsigned int cpu;
-+
-+	WRITE_ONCE(sdei_nmi_stopping, true);
-+
-+	/* Publish the flag before the SMCs make targets read it */
-+	smp_wmb();
-+
-+	for_each_cpu(cpu, mask)
-+		sdei_nmi_fire(cpu);
-+}
-+
- /*
-  * device_initcall (after arch_initcall(sdei_init), so the SDEI subsystem
-  * is up): probe the firmware, register the event, and turn on the
+Changes in v7:
+- Updated the commit message to include a detailed description of the Ventura2 platform's purpose and its key hardware features.
+- Fix comments from Andrew Jeffery:
+  * Ensured consistent blank lines to separate child nodes from parent properties and from each other throughout the DTS.
+  * Sorted fan nodes in ascending order.
+  * Replaced '//' comments with '/* */' block comments.
+- Fix feedback from Sashiko AI:
+  * Added 'idle-state = <6>;' to the PCA9548 mux on i2c4. 
+- Link to v6: https://lore.kernel.org/r/20260610-ventura2_initial_dts-v6-0-375d8e9d7ebf@gmail.com
+
+Changes in v6:
+- Addressed automated feedback from Sashiko bot:
+  * Clarified comments that io_expander0 and io_expander8 physically share the same interrupt line (Wired-OR) by hardware design.
+  * Removed leading zeros from unit addresses in DAC nodes (dac@c, dac@e, dac@f).
+  * Removed unused properties from the adc@48 node.
+- Link to v5: https://lore.kernel.org/r/20260608-ventura2_initial_dts-v5-0-37ee5bcf58b6@gmail.com
+
+Changes in v5:
+- Addressed review comments:
+  * Added comments explaining the necessity of 'legacy_' prefixes (hardware label collision), pre-allocated I2C aliases (future expansions), and the 'ledd1' naming convention (schematic alignment).
+  * Removed the empty `&mdio0` node to comply with upstream networking subsystem guidelines.
+  * Removed the redundant `&peci0` node.
+  * Sorted `&kcs3` and `&lpc_ctrl` nodes in strict alphabetical order.
+- Hardware/DT alignment updates:
+  * Removed unpopulated sensors (adi,adt7461, infineon,tda38640, ti,ina230, ti,ina238) to accurately reflect the current board population.
+  * Added the secondary flash node (flash@1 labeled "e810") under the &spi2 bus.
+- Link to v4: https://lore.kernel.org/r/20260424-ventura2_initial_dts-v4-0-806b00ea4314@gmail.com
+
+Changes in v4:
+- Fixed capitalization: "ventura2" -> "Ventura2".
+- Reordered I2C child nodes in ascending order of unit addresses.
+- Enable PECI, LPC control, and KCS3 interfaces for host communication.
+- Configure MCTP controller on I2C4 and enable MCTP support for specific mux channels.
+- Add Infineon TDA38640 and TI INA230 power monitor nodes.
+- GPIO and Pinmux cleanup for PVT:
+    - Aligned gpio-line-names as requested.
+    - Remove unused or non-existent GPIO line names to align with Ventura2 PVT.
+    - Update specific GPIO pins to empty strings where signals were removed or consolidated.
+- Adjust SGPIOM frequency to 200kHz and update signal line names.
+- Enable UART3 and add serial2 alias.
+- Link to v3: https://lore.kernel.org/r/20260113-ventura2_initial_dts-v3-0-2dbfda6a5b47@gmail.com
+
+Changes in v3:
+- Add annotation for marvel 88e6393x
+- Modify the gpio-line-name
+- Modify the node order alphabetically
+- Modify dt-bindings document for rmc instead of bmc
+- Move the gpio-line-names to original node
+- Link to v2: https://lore.kernel.org/r/20251224-ventura2_initial_dts-v2-0-f193ba5d4073@gmail.com
+
+Changes in v2:
+- Remove unused mdio
+- Link to v1: https://lore.kernel.org/r/20251222-ventura2_initial_dts-v1-0-1f06166c78a3@gmail.com
+
+---
+Kyle Hsieh (2):
+      dt-bindings: arm: aspeed: add Meta ventura2 board
+      ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
+ arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+ .../dts/aspeed/aspeed-bmc-facebook-ventura2.dts    | 2903 ++++++++++++++++++++
+ 3 files changed, 2905 insertions(+)
+---
+base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+change-id: 20251222-ventura2_initial_dts-909b3277d665
+
+Best regards,
 -- 
-2.54.0
+Kyle Hsieh <kylehsieh1995@gmail.com>
 
 
