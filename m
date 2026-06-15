@@ -4,116 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BB7CD98C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 11:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6B6CD98C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 12:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqRcBEf3cpBlAxRxD81om6Hb6nO5tAf5Wi1yiOZJ8GE=; b=eQqljFFYL8lFTs+kztQ6JSTnAw
-	YCzsNiem1OWMZ9EhZo81SsvFJf+LMzTg0X3D95Lp9wiHy4ywX0PPGGXM8H1tdO3VcSEfqWjC54Li0
-	8w3BmR6mHo/QFKVwe9iYAUVllO4S7gJUgEL2BcsOTMmQf7gwO7amDzzv9dVa/h7Ly6LIyTrsTfEM5
-	xZxsLZEg0MrlBjlDpI+qE0DfrZZVDz2uRsaITA/xYot2CwTdgxghF68AeSogVGmmKbJ+qP/MoL3qt
-	RyHF4w/sAJSh33fsewAAinzNb0xx/uUPYKUeV/QYv3o4p74GFLtJGXCzby9LgWE7+p8wqGqky1Hwh
-	FPiGOqVA==;
+	bh=6pmdA4NzH1jhT7/XCJQKYN+fSOrkQss8V4mYUPNsLc8=; b=dJlrmq9gEUP11GgZVP1qoGdxdu
+	0dcIhYDaIMYIQ2L5L/a1KCmgrNMxJhi/sBgQOWVmlW6VIUs2dg7XZIkcsC1SewNS637MJMFrFX6LC
+	yZY2T1GSTkkT3BkWQTVKjt9MIBz+1cKK0a97E7zDST8aEIKAZanA3uZbNibK68RTh66trP6cxDhOA
+	uyftj5V7kkE5iLW4u6XmtBkfswAq4i5JIWeVRijj0rqaznS73ZfgR1eD8fASH/rn3d1d/h/qd6WtL
+	9R/6G+yH3HKcs+TdZfLSoD++kPkuCb7pSBdmIVwJspaTqKvbNOHEPCMo2kGpfe7o7IYDptpl+WoDb
+	qW3uTU+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5ol-0000000E7gy-1uYV;
-	Mon, 15 Jun 2026 11:49:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wZ6Bm-0000000E9OU-3ITh;
+	Mon, 15 Jun 2026 12:13:14 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ5oj-0000000E7gs-49pR
+	id 1wZ6Bj-0000000E9Ns-3TUp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 11:49:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D34E6008A;
-	Mon, 15 Jun 2026 11:49:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3D491F000E9;
-	Mon, 15 Jun 2026 11:49:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781524165;
-	bh=NqRcBEf3cpBlAxRxD81om6Hb6nO5tAf5Wi1yiOZJ8GE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AEw+KAKoyMIt5WUA0I+U+zx52uQMZaoXINZiiPEWIquiun/uiYDSxVYTwE8oULF/u
-	 RhaJMoo6G0XQIXH++yQU6ZUaytHDOXbs07S4afKqRIABqnm7jAoGEVN+OeumGXE5Fs
-	 sh59nAMWLtM0dev1x0cbgC9awXS1Uz4xmDd5APFVu1yW5BjCbPPTsALxPGsZGawoTj
-	 rfvZsbbclcfK/jrR+gny+hNhEigtUTXuasQPhBYwUk7AS1KPBnqBTLvGiDhTrX0MCE
-	 ug5zZCRvRm/U4h/2MmIGoJwbNAQCYe3CI2kEzMZQwWv1shxYJzRLSk1x5jhCLEmNwV
-	 AcLD45iSyVhJQ==
-Message-ID: <f6e87467-2fa1-4edc-a739-9899be36196c@kernel.org>
-Date: Mon, 15 Jun 2026 13:49:18 +0200
+	Mon, 15 Jun 2026 12:13:12 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65FAobtn3956158
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:13:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	6pmdA4NzH1jhT7/XCJQKYN+fSOrkQss8V4mYUPNsLc8=; b=YlKeDzalYkJqdoSe
+	fGINnHiA8B1eAOMBeKM0mFKgS8Ze8pG9f4SrSLvvrdp3K57AXT/9H9fzje7Sglbu
+	U33VTKhIujWwAUM6irCLHZhmnQQC7zusCQRDI63d2nlmn2j5TgguG5Lkw5Uok/Cm
+	fgbvo8GZljUdavF2/2wbYpytbjei+Noe2L52oHgRaYABN0S6sL1LsyaqmGReCEo/
+	GboBI9PwPM4kI+IkVMt/zH3ExF2EhfKNc3e1HnYAq3AFg2aJqs+r4jRQZ1H4e6y0
+	sV+orMcgtuQwF1gec3r1yOnPJ3UDig5Ezp5+okw0S2cmOSx09wjGvXshWJqwYoXt
+	Pak2fQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eter00k3h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 12:13:11 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51968526a68so3187181cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:13:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1781525590; x=1782130390; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6pmdA4NzH1jhT7/XCJQKYN+fSOrkQss8V4mYUPNsLc8=;
+        b=fkodo2T2ubeNrJL5VC5ZCUpoyTgjk5rZSXUc8Uq1hnFosvQG4tiDw62ifpnlBDDy05
+         P6Eq492Bmf9PtuFmPLsreqSNHKO0cZAq+B/xaU8/BSrSgKJTDWQ9MzvBxcnjNA0Pv/UX
+         xVwRGiGiGl6npYdedzVZsDVhUJgUWvFKpfOQcV7IpeKsdYZlRaG01qDphlJ5qhc2G8Aa
+         FbQ420UPSlAEF8GZwHE8+fxUD+4TqVqh8klprYklIixv/a2gY+axmf3n4LIaG4LW1oSI
+         v+NzFfAhta478NjnUwHgHxZJRE0HbC0M0sPCEZ4pFqK6mNZ+ETtjiIda/KqcqePtc/ph
+         5hlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781525590; x=1782130390;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6pmdA4NzH1jhT7/XCJQKYN+fSOrkQss8V4mYUPNsLc8=;
+        b=X2TpE/n9E4sO9eFPIG6hns+AeDKyHZynJ2ZVPIqXhZ3NvG4luEU+hmFtNQEgFMpu1u
+         9RGk+yM7Q+RPpyMT+XpuzeV/pukcaf7ckWqDkC+mhCP65Y+FKx/aCPvKsU2bpN49tHoo
+         5aBaDYLD7GpWSYJ6bXVNDMqPF2yiYzb2RzDsr/n5xo6fl20pivmlGLryY7maeOifkhGE
+         CvFXKd3Narn+Xio9ZH11VA9zpsqXAq+/0gsul2oaTTC+sAeGyQc2T8ImhposdG9w9D6U
+         4boBlj9eHgtVlbEfBavvqjibcKhuzef3mseWC4VRYXKw4by0i9e0pnEwW0LfjlxHkPO4
+         Ea5Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/arIWNHt9WnI52p/E5u/X5Qllih+MrEDIHHeOKroE5N8MLlhOI/EnVut63pGbUnRM2FQ7JXHAUPVvrWg00BQ5u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH4dsrCAPtfQc7yoQI9KkNKZ8uTGoSgqD0juirkaLzHr7MSYwo
+	2R86eRr+6RA68wFZvn8CFwuxSkUGhdMxzWQ59x8NNVZ4FGhzRljSxJlHRm+hyNNtBDzPJ/ETVPI
+	fm5tcLuNPy1YbFd16jmVnXTsvlZAQQKBFTrsrMAgFFSAqjf7VTJADsjQNMOQrmDkFiy13uMBdY5
+	XK/w==
+X-Gm-Gg: Acq92OHcbuaaeEUdyvbC6TE7xxWGjbGY/naYlElCDQmbNjT2QKtP387noFUYVL5I8JE
+	1pMLndOJwjz9Z3t7VOix33evRIRdsYqRkiNNejPQxCaBuzZpauzWlBPIjuNdrBw5Dbducpo0+8w
+	62P0NXJn1qU72V5ciVPbgE4eo9+ChhnbLsMVVaZka9AiMZFuJs8lE2HczLIwRGSS9AJG0CCzMW3
+	Ph1sCfGcXf3LLIZXRspvkuKZ/H8oZpznL7eDND6q2MiVNz+JFwpoOwGQ/lkVpbxqaZbDBKyUz+X
+	ZQHQ9B888Wqkj3DYp8W0rRuU38PEIemAlitULTRsEzJNPkMkvVPrJCfJDdT8xh2bBbJDF3Lca8s
+	H7Oam2nffuLU3o4bGiF1iKJe2wvWkGsPodmmzZleKig9naQ==
+X-Received: by 2002:ac8:598e:0:b0:517:62f4:e3d1 with SMTP id d75a77b69052e-517fde8985amr129458311cf.2.1781525590121;
+        Mon, 15 Jun 2026 05:13:10 -0700 (PDT)
+X-Received: by 2002:ac8:598e:0:b0:517:62f4:e3d1 with SMTP id d75a77b69052e-517fde8985amr129458051cf.2.1781525589661;
+        Mon, 15 Jun 2026 05:13:09 -0700 (PDT)
+Received: from [192.168.120.170] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfdb4423439sm459791666b.2.2026.06.15.05.13.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Jun 2026 05:13:08 -0700 (PDT)
+Message-ID: <45d7faac-7c0f-4f89-808e-06129e8420e4@oss.qualcomm.com>
+Date: Mon, 15 Jun 2026 14:13:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_set() for lockless empty-slot
- installs
-To: Tejun Heo <tj@kernel.org>, Will Deacon <will@kernel.org>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
- Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20260522172219.1423324-1-tj@kernel.org>
- <20260522172219.1423324-2-tj@kernel.org> <ai50IpfcvBiTZ7Ss@willie-the-truck>
- <ai8PO0NThJeuQYzy@slm.duckdns.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH RFC 4/9] net: stmmac: qcom-ethqos: add per-platform NOC
+ clock voting
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
+ <20260612-shikra_ethernet-v1-4-f0f4a1d19929@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <ai8PO0NThJeuQYzy@slm.duckdns.org>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260612-shikra_ethernet-v1-4-f0f4a1d19929@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: SlmeCNKMmbiDEvssOTfoLwrnfr1xJ37E
+X-Proofpoint-GUID: SlmeCNKMmbiDEvssOTfoLwrnfr1xJ37E
+X-Authority-Analysis: v=2.4 cv=UPzt2ify c=1 sm=1 tr=0 ts=6a2fec57 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=dCDc4JseV86iyfNbYEQA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE1MDEyOSBTYWx0ZWRfX6jFrGL6UBVL9
+ 42+raE+7sOz+oSHmKWk0kjO6zQSUUVIbe1VfqPMeH+CABMK+pahldScZmUx3qsZ0+DYaQJ5fo21
+ l1anVmswR9oldRBwxRBnjNoD36y3V9ByyWBLFU2Aqu050GVRZJlJLXLymr9JpRyrYXJW0jNYSh4
+ wNtrqTnjEmpDrpJXtv5wnD74+Rf/KMAr5Gc5hgrL63WcJeVMSnVknXfkYS9KBUSX+IWStS4jXLe
+ C6m0Q8bAfC1KGkweUdvOQ0tjQkR/dMlDVwEdg4cZ+nkmlv8mVdgEnKMPDOc16VhnOYR9+5+oP+e
+ Zs6kJf/rRCgbBQn79dpaB5/7yN3qEd5pBJEIRb7mnoEByFEyrFrKjlQVbGir+Dy14C9V9/0iNAt
+ j7oFdHmkaABg+N3eVqkmwAU+426eJCdlUJVcfJydGjS3YqQ2lDHN19qsvQJAtEML7sisaP/ucol
+ 9zaIE0e7ASVoBrAzqIg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE1MDEyOSBTYWx0ZWRfXzacf18OiBJhX
+ LZ9KNT4Wum2VTGxECaKkd1G94hoFnvFaB+rBUyeid/LBYvsc1S3KkO5/JWOovtw8ZEuFVe2VmKo
+ /kLNSGG/xBHKFYNPI3ppqZVXbrWkwRM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-15_03,2026-06-15_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0
+ suspectscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606150129
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260615_051311_897060_4539C3C1 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,33 +164,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/14/26 22:29, Tejun Heo wrote:
-> Hello,
-> 
-> On Sun, Jun 14, 2026 at 10:28:02AM +0100, Will Deacon wrote:
->>> +/*
->>> + * Note: strictly-zero compare is narrower than pte_none(), but the gap is
->>> + * harmless: a fresh kernel PTE has no software bits set.
->>> + */
->>
->> This comment really confused me :/
->>
->> What is a "fresh" kernel PTE and why do you specifically call out "software
->> bits" if the CAS requires all 64 bits to be 0? Why is that narrower than
->> pte_none() given that pte_none() for arm64 is:
->>
->> #define pte_none(pte)           (!pte_val(pte))
-> 
-> Yeah, that's complete non-sense for arm. The comment is about x86's
-> pte_none() excluding DIRTY and ACCESSED due to an erratum when testing none
-> and how that doesn't matter here. This shouldn't have been copied to arm.
-> I'll send a patch to remove that.
+On 6/11/26 8:37 PM, Mohd Ayaan Anwar wrote:
+> Some SoCs gate the EMAC's path to the System NOC behind dedicated clocks
+> that must be enabled before the DMA can reach memory.  Add
+> ethqos_noc_clk_cfg and the corresponding fields in the driver-data and
+> runtime structs so each compatible can declare its own set with per-clock
+> rates.  The clocks are acquired during probe and enabled/disabled
+> alongside the existing link clock in ethqos_clks_config().
 
-Is BPF maybe picking up patches from other subsystems up too early without
-waiting for acks?
+Sounds like we should use an OPP table instead, we can't just do 
+set_rate() on qcom, as that will not propagate the required perf
+state to the clock controller's supplier power domain (i.e. VDDCX)
 
--- 
-Cheers,
-
-David
+Konrad
 
